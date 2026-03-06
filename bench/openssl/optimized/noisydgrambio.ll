@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/noisydgrambio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pkt_info_st = type { i64, %struct.OSSL_TIME }
-%struct.OSSL_TIME = type { i64 }
-%struct.bio_msg_st = type { ptr, i64, ptr, ptr, i64 }
-
 @method_noisy_dgram = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [22 x i8] c"Noisy datagram filter\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"../openssl/test/helpers/noisydgrambio.c\00", align 1
@@ -212,7 +208,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %.04961.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %36 ]
   %31 = add i64 %.04961.i, %.pre.i
   %32 = and i64 %31, 1023
-  %33 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %22, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %.not.i = icmp ult i64 %35, %..i.i
@@ -247,7 +243,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %47 = phi i64 [ %42, %.lr.ph68.i ], [ %66, %64 ]
   %48 = phi i64 [ %.promoted.i, %.lr.ph68.i ], [ %.pre-phi.i, %64 ]
   %.15066.i = phi i64 [ 0, %.lr.ph68.i ], [ %71, %64 ]
-  %49 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15066.i
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.15066.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !33
   %52 = add i64 %51, %48
@@ -260,7 +256,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %22, i64 %47
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %47
   %59 = load i64, ptr %58, align 8, !tbaa !27
   %60 = add nuw nsw i64 %47, 1
   %61 = and i64 %60, 1023
@@ -279,7 +275,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %66 = phi i64 [ %61, %57 ], [ %47, %62 ]
   %67 = add i64 %66, %65
   %68 = and i64 %67, 1023
-  %69 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %22, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %68
   store i64 %51, ptr %69, align 8, !tbaa !27
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %.sroa.02.0, ptr %70, align 8, !tbaa !34
@@ -346,7 +342,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   br i1 %.not107, label %.thread126, label %23
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.079145
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.079145
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !33
   %22 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, i64 noundef %21, i64 noundef %.088144) #3
@@ -407,7 +403,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %.04961.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %51 ]
   %46 = add i64 %.04961.i, %.pre.i
   %47 = and i64 %46, 1023
-  %48 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %37, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8
   %.not.i = icmp ult i64 %50, %..i.i
@@ -442,7 +438,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %62 = phi i64 [ %57, %.lr.ph68.i ], [ %81, %79 ]
   %63 = phi i64 [ %.promoted.i, %.lr.ph68.i ], [ %.pre-phi.i, %79 ]
   %.15066.i = phi i64 [ 0, %.lr.ph68.i ], [ %86, %79 ]
-  %64 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15066.i
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.15066.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !33
   %67 = add i64 %66, %63
@@ -455,7 +451,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %37, i64 %62
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %62
   %74 = load i64, ptr %73, align 8, !tbaa !27
   %75 = add nuw nsw i64 %62, 1
   %76 = and i64 %75, 1023
@@ -474,7 +470,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %81 = phi i64 [ %76, %72 ], [ %62, %77 ]
   %82 = add i64 %81, %80
   %83 = and i64 %82, 1023
-  %84 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %37, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %83
   store i64 %66, ptr %84, align 8, !tbaa !27
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 %.sroa.02.0, ptr %85, align 8, !tbaa !34
@@ -538,7 +534,7 @@ bandwidth_limit.exit.thread:                      ; preds = %79, %bandwidth_limi
 
 .lr.ph147:                                        ; preds = %.preheader134, %102
   %.082146 = phi i64 [ %103, %102 ], [ %.186150, %.preheader134 ]
-  %105 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.082146
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.082146
   %106 = getelementptr i8, ptr %105, i64 -40
   %107 = tail call i32 @bio_msg_copy(ptr noundef nonnull %105, ptr noundef %106) #3
   %.not105 = icmp eq i32 %107, 0
@@ -677,8 +673,8 @@ flip_bits.exit:                                   ; preds = %.thread, %147, %152
   br i1 %175, label %176, label %180
 
 176:                                              ; preds = %.preheader
-  %177 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.183.in
-  %178 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.183
+  %177 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.183.in
+  %178 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.183
   %179 = tail call i32 @bio_msg_copy(ptr noundef %177, ptr noundef nonnull %178) #3
   %.not103 = icmp eq i32 %179, 0
   br i1 %.not103, label %.thread126, label %.preheader, !llvm.loop !42

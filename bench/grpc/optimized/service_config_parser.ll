@@ -27,12 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.19" = type { %"struct.std::_Tuple_impl.20" }
 %"struct.std::_Tuple_impl.20" = type { %"struct.std::_Head_base.23" }
 %"struct.std::_Head_base.23" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 
 $_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc = comdat any
 
@@ -302,7 +296,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14d
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %42
   store ptr %35, ptr %0, align 8, !tbaa !28
   store ptr %41, ptr %10, align 8, !tbaa !18
-  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %35, i64 %33
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %43, ptr %11, align 8, !tbaa !29
   %.pr = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i = icmp eq ptr %.pr, null
@@ -511,7 +505,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14d
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %42
   store ptr %35, ptr %0, align 8, !tbaa !28
   store ptr %41, ptr %10, align 8, !tbaa !18
-  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %35, i64 %33
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %43, ptr %11, align 8, !tbaa !29
   %.pr = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i = icmp eq ptr %.pr, null
@@ -583,7 +577,7 @@ define noundef i64 @_ZNK9grpc_core19ServiceConfigParser14GetParserIndexESt17basi
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %8 = phi ptr [ %23, %20 ], [ %6, %.lr.ph.preheader ]
   %.01015 = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %.01015
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01015
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -709,7 +703,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !3
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !9
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !10
   ret void
 }

@@ -17,7 +17,7 @@ define void @ff_g722_update_low_predictor(ptr noundef captures(none) %0, i32 nou
   %4 = load i16, ptr %3, align 2, !tbaa !4
   %5 = sext i16 %4 to i32
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i16, ptr @ff_g722_low_inv_quant4, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr @ff_g722_low_inv_quant4, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !10
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %9, %5
@@ -28,7 +28,7 @@ define void @ff_g722_update_low_predictor(ptr noundef captures(none) %0, i32 nou
   %14 = sext i16 %13 to i32
   %15 = mul nsw i32 %14, 127
   %16 = ashr i32 %15, 7
-  %17 = getelementptr inbounds i16, ptr @low_log_factor_step, i64 %6
+  %17 = getelementptr inbounds [2 x i8], ptr @low_log_factor_step, i64 %6
   %18 = load i16, ptr %17, align 2, !tbaa !10
   %19 = sext i16 %18 to i32
   %20 = add nsw i32 %16, %19
@@ -40,7 +40,7 @@ define void @ff_g722_update_low_predictor(ptr noundef captures(none) %0, i32 nou
   %25 = lshr i32 %22, 6
   %26 = and i32 %25, 31
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr @inv_log2_table, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @inv_log2_table, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !10
   %30 = sext i16 %29 to i32
   %31 = ashr i32 %24, 11
@@ -347,7 +347,7 @@ define void @ff_g722_update_high_predictor(ptr noundef captures(none) %0, i32 no
   %8 = ashr i32 %7, 7
   %9 = and i32 %2, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr @high_log_factor_step, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @high_log_factor_step, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !10
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %8, %13
@@ -359,7 +359,7 @@ define void @ff_g722_update_high_predictor(ptr noundef captures(none) %0, i32 no
   %19 = lshr i32 %16, 6
   %20 = and i32 %19, 31
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr @inv_log2_table, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr @inv_log2_table, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !10
   %24 = sext i16 %23 to i32
   %25 = ashr i32 %18, 11

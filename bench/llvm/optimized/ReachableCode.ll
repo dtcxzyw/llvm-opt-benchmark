@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.214" = type { %"class.llvm::SmallVectorTemplateCommon.215" }
 %"class.llvm::SmallVectorTemplateCommon.215" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.216" = type { [192 x i8] }
-%"struct.std::pair.746" = type { ptr, ptr }
 %"class.clang::ParentMap" = type { ptr }
 %"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.clang::SourceLocation" = type { i32 }
@@ -77,7 +76,7 @@ define internal fastcc noundef i32 @_ZL13scanFromBlockPKN5clang8CFGBlockERN4llvm
   %11 = lshr i32 %10, 6
   %12 = zext nneg i32 %11 to i64
   %13 = load ptr, ptr %1, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = and i32 %10, 63
   %16 = load i64, ptr %14, align 8, !tbaa !22
   %17 = zext nneg i32 %15 to i64
@@ -104,7 +103,7 @@ define internal fastcc noundef i32 @_ZL13scanFromBlockPKN5clang8CFGBlockERN4llvm
   %24 = phi i32 [ 1, %.lr.ph85 ], [ %.pr, %._crit_edge ]
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -8
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = add i32 %24, -1
@@ -196,7 +195,7 @@ select.unfold:                                    ; preds = %.thread.sink.split.
   %58 = lshr i32 %57, 6
   %59 = zext nneg i32 %58 to i64
   %60 = load ptr, ptr %1, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %59
   %62 = and i32 %57, 63
   %63 = load i64, ptr %61, align 8, !tbaa !22
   %64 = zext nneg i32 %62 to i64
@@ -224,7 +223,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit51:
   %74 = phi i32 [ %69, %67 ], [ %.pre.i50, %71 ]
   %75 = load ptr, ptr %5, align 8, !tbaa !3
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   %78 = ptrtoint ptr %.036 to i64
   store i64 %78, ptr %77, align 1
   %79 = load i32, ptr %7, align 8, !tbaa !26
@@ -384,7 +383,7 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %75 = lshr i32 %74, 6
   %76 = zext nneg i32 %75 to i64
   %77 = load ptr, ptr %6, align 8, !tbaa !3
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %76
   %79 = and i32 %74, 63
   %80 = load i64, ptr %78, align 8, !tbaa !22
   %81 = zext nneg i32 %79 to i64
@@ -448,14 +447,14 @@ _ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_
   store ptr %56, ptr %55, align 8, !tbaa !3
   store i32 0, ptr %57, align 8, !tbaa !26
   store i32 12, ptr %58, align 4, !tbaa !9
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %.pre-phi100
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.pre-phi100
   %96 = load i64, ptr %95, align 8, !tbaa !22
   %97 = and i64 %.pre-phi106, %96
   %.not.i.i46 = icmp eq i64 %97, 0
   br i1 %.not.i.i46, label %98, label %_ZN12_GLOBAL__N_112DeadCodeScan13scanBackwardsEPKN5clang8CFGBlockERNS1_14reachable_code8CallbackE.exit
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_10ASTContextE.exit
-  %99 = getelementptr inbounds nuw i64, ptr %93, i64 %.pre-phi100
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.pre-phi100
   %100 = load i64, ptr %99, align 8, !tbaa !22
   %101 = and i64 %100, %.pre-phi106
   %.not21.i.i = icmp eq i64 %101, 0
@@ -473,7 +472,7 @@ _ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_
   %.096.i = phi i32 [ %.1.i, %.loopexit89.i ], [ 0, %.lr.ph98.i.preheader ]
   %105 = load ptr, ptr %49, align 8, !tbaa !3
   %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds i8, ptr %107, i64 -8
   %109 = load ptr, ptr %108, align 8, !tbaa !24
   %110 = add i32 %104, -1
@@ -484,7 +483,7 @@ _ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_
   %114 = lshr i32 %113, 6
   %115 = zext nneg i32 %114 to i64
   %116 = load ptr, ptr %111, align 8, !tbaa !3
-  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %115
   %118 = and i32 %113, 63
   %119 = load i64, ptr %117, align 8, !tbaa !22
   %120 = zext nneg i32 %118 to i64
@@ -711,7 +710,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i:
   %219 = lshr i32 %217, 6
   %220 = zext nneg i32 %219 to i64
   %221 = load ptr, ptr %218, align 8, !tbaa !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %220
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %220
   %223 = and i32 %217, 63
   %224 = load i64, ptr %222, align 8, !tbaa !22
   %225 = zext nneg i32 %223 to i64
@@ -722,7 +721,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i:
 
 228:                                              ; preds = %215
   %229 = load ptr, ptr %7, align 8, !tbaa !3
-  %230 = getelementptr inbounds nuw i64, ptr %229, i64 %220
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %220
   %231 = load i64, ptr %230, align 8, !tbaa !22
   %232 = and i64 %231, %226
   %.not21.i42.i = icmp eq i64 %232, 0
@@ -747,7 +746,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i4
   %240 = phi i32 [ %235, %233 ], [ %.pre.i.i44.i, %237 ]
   %241 = load ptr, ptr %49, align 8, !tbaa !3
   %242 = zext i32 %240 to i64
-  %243 = getelementptr inbounds nuw ptr, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %242
   %244 = ptrtoint ptr %214 to i64
   store i64 %244, ptr %243, align 1
   %245 = load i32, ptr %51, align 8, !tbaa !26
@@ -794,7 +793,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.
   %262 = lshr i32 %261, 6
   %263 = zext nneg i32 %262 to i64
   %264 = load ptr, ptr %7, align 8, !tbaa !3
-  %265 = getelementptr inbounds nuw i64, ptr %264, i64 %263
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %263
   %266 = and i32 %261, 63
   %267 = load i64, ptr %265, align 8, !tbaa !22
   %268 = zext nneg i32 %266 to i64
@@ -806,7 +805,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.
 271:                                              ; preds = %259
   %272 = load ptr, ptr %48, align 8, !tbaa !120
   %273 = load ptr, ptr %272, align 8, !tbaa !3
-  %274 = getelementptr inbounds nuw i64, ptr %273, i64 %263
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %263
   %275 = load i64, ptr %274, align 8, !tbaa !22
   %276 = and i64 %275, %269
   %.not8.i.i = icmp eq i64 %276, 0
@@ -831,7 +830,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i5
   %284 = phi i32 [ %279, %277 ], [ %.pre.i.i51.i, %281 ]
   %285 = load ptr, ptr %49, align 8, !tbaa !3
   %286 = zext i32 %284 to i64
-  %287 = getelementptr inbounds nuw ptr, ptr %285, i64 %286
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %286
   %288 = ptrtoint ptr %258 to i64
   store i64 %288, ptr %287, align 1
   %289 = load i32, ptr %51, align 8, !tbaa !26
@@ -873,7 +872,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EE9
   %303 = phi i32 [ %298, %297 ], [ %.pre.i.i, %300 ]
   %304 = load ptr, ptr %55, align 8, !tbaa !3
   %305 = zext i32 %303 to i64
-  %306 = getelementptr inbounds nuw %"struct.std::pair.746", ptr %304, i64 %305
+  %306 = getelementptr inbounds nuw [16 x i8], ptr %304, i64 %305
   store ptr %109, ptr %306, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %306, i64 8
   store ptr %.5.i81.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -930,7 +929,7 @@ _ZN4llvm14array_pod_sortIPSt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEEvT_SB_PFiPKN
   %324 = lshr i32 %323, 6
   %325 = zext nneg i32 %324 to i64
   %326 = load ptr, ptr %321, align 8, !tbaa !3
-  %327 = getelementptr inbounds nuw i64, ptr %326, i64 %325
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %325
   %328 = and i32 %323, 63
   %329 = load i64, ptr %327, align 8, !tbaa !22
   %330 = zext nneg i32 %328 to i64

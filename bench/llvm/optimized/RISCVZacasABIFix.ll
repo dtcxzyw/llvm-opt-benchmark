@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"struct.std::pair.202" = type { i32, ptr }
 
 $_ZN4llvm4Pass16doInitializationERNS_6ModuleE = comdat any
 
@@ -509,7 +508,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE18growAndEmplaceBac
   %.pre.i.i24 = load i32, ptr %39, align 8, !tbaa !189
   %141 = load ptr, ptr %4, align 8, !tbaa !187
   %142 = zext i32 %.pre.i.i24 to i64
-  %143 = getelementptr inbounds nuw %"struct.std::pair.202", ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %142
   store i32 0, ptr %143, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %.pre.i.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1

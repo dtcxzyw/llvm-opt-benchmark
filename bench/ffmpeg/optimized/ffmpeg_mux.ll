@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVIOInterruptCB = type { ptr, ptr }
 %struct.MuxThreadContext = type { ptr, ptr }
-%struct.EncStatsComponent = type { i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [22 x i8] c"All streams finished\0A\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Muxer returned EOF\0A\00", align 1
@@ -141,10 +140,10 @@ mux_thread_init.exit:                             ; preds = %8
   %38 = load ptr, ptr %26, align 8, !tbaa !47
   %39 = load ptr, ptr %27, align 8, !tbaa !48
   %40 = zext nneg i32 %34 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !49
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %38, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %38, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8, !tbaa !52
@@ -420,7 +419,7 @@ of_streamcopy.exit.i:                             ; preds = %.thread.i.i
 186:                                              ; preds = %.preheader.i.i
   %187 = load ptr, ptr %26, align 8, !tbaa !47
   %188 = zext nneg i32 %182 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !50
   %191 = load ptr, ptr %32, align 8, !tbaa !101
   %192 = call fastcc i32 @write_packet(ptr noundef nonnull %0, ptr noundef %190, ptr noundef %191)
@@ -475,7 +474,7 @@ sync_queue_process.exit.i:                        ; preds = %194
 217:                                              ; preds = %.preheader.i94.i
   %218 = load ptr, ptr %26, align 8, !tbaa !47
   %219 = zext nneg i32 %213 to i64
-  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !50
   %222 = load ptr, ptr %32, align 8, !tbaa !101
   %223 = call fastcc i32 @write_packet(ptr noundef nonnull %0, ptr noundef %221, ptr noundef %222)
@@ -610,7 +609,7 @@ define i32 @print_sdp(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.01726 = phi i32 [ 0, %.lr.ph ], [ %.1, %25 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !106
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !25
@@ -623,7 +622,7 @@ define i32 @print_sdp(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %12
   %22 = sext i32 %.01726 to i64
-  %23 = getelementptr inbounds ptr, ptr %8, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %8, i64 %22
   store ptr %16, ptr %23, align 8, !tbaa !107
   %24 = add nsw i32 %.01726, 1
   br label %25
@@ -1036,7 +1035,7 @@ filesize.exit:                                    ; preds = %15, %18, %21
   %.06881.i = phi i64 [ 0, %.lr.ph.i ], [ %83, %102 ]
   %.06980.i = phi i64 [ 0, %.lr.ph.i ], [ %.170.i, %102 ]
   %61 = load ptr, ptr %46, align 8, !tbaa !47
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8, !tbaa !50
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !86
@@ -1149,7 +1148,7 @@ mux_final_stats.exit:                             ; preds = %._crit_edge.i, %107
   %.02037.i = phi i32 [ 1, %.lr.ph.i31 ], [ %.1.i33, %141 ]
   %.02136.i = phi i32 [ 0, %.lr.ph.i31 ], [ %.122.i, %141 ]
   %121 = load ptr, ptr %116, align 8, !tbaa !47
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv.i32
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i32
   %123 = load ptr, ptr %122, align 8, !tbaa !50
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 208
   %125 = load atomic i64, ptr %124 seq_cst, align 8
@@ -1286,7 +1285,7 @@ fc_close.exit:                                    ; preds = %._crit_edge, %26
   %28 = phi i32 [ %7, %.lr.ph ], [ %100, %ost_free.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ost_free.exit ]
   %29 = load ptr, ptr %9, align 8, !tbaa !47
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   %.not.i16 = icmp eq ptr %31, null
@@ -1354,7 +1353,7 @@ fc_close.exit:                                    ; preds = %._crit_edge, %26
 .lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %45 ]
   %61 = load ptr, ptr %55, align 8, !tbaa !153
-  %62 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %61, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %indvars.iv.i.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   call void @av_freep(ptr noundef nonnull %63) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1386,7 +1385,7 @@ enc_stats_uninit.exit.i:                          ; preds = %67, %._crit_edge.i.
 .lr.ph.i26.i:                                     ; preds = %enc_stats_uninit.exit.i, %.lr.ph.i26.i
   %indvars.iv.i27.i = phi i64 [ %indvars.iv.next.i28.i, %.lr.ph.i26.i ], [ 0, %enc_stats_uninit.exit.i ]
   %76 = load ptr, ptr %70, align 8, !tbaa !153
-  %77 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %76, i64 %indvars.iv.i27.i
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %76, i64 %indvars.iv.i27.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   call void @av_freep(ptr noundef nonnull %78) #11
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
@@ -1418,7 +1417,7 @@ enc_stats_uninit.exit29.i:                        ; preds = %82, %._crit_edge.i2
 .lr.ph.i32.i:                                     ; preds = %enc_stats_uninit.exit29.i, %.lr.ph.i32.i
   %indvars.iv.i33.i = phi i64 [ %indvars.iv.next.i34.i, %.lr.ph.i32.i ], [ 0, %enc_stats_uninit.exit29.i ]
   %91 = load ptr, ptr %85, align 8, !tbaa !153
-  %92 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %91, i64 %indvars.iv.i33.i
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv.i33.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   call void @av_freep(ptr noundef nonnull %93) #11
   %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i33.i, 1
@@ -1751,7 +1750,7 @@ filesize.exit:                                    ; preds = %3, %16, %19
   %146 = phi i64 [ 0, %140 ], [ %191, %.thread.i.i ]
   %.064.i.i = phi i64 [ -9223372036854775808, %140 ], [ %.1.i.i, %.thread.i.i ]
   %.04463.i.i = phi i32 [ 0, %140 ], [ %.042.i.i, %.thread.i.i ]
-  %147 = getelementptr inbounds nuw i64, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !165
   %149 = add nuw nsw i32 %.04463.i.i, 1
   %150 = icmp eq i64 %148, -9223372036854775808
@@ -1779,7 +1778,7 @@ filesize.exit:                                    ; preds = %3, %16, %19
   br i1 %159, label %163, label %160
 
 160:                                              ; preds = %.lr.ph.i.i
-  %161 = getelementptr inbounds nuw i64, ptr %144, i64 %indvars.iv.i.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.i.i
   %162 = load i64, ptr %161, align 8, !tbaa !165
   br label %163
 
@@ -1800,9 +1799,9 @@ filesize.exit:                                    ; preds = %3, %16, %19
 
 174:                                              ; preds = %166
   %175 = call i64 @av_strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i64 noundef 512) #11
-  %176 = getelementptr inbounds nuw ptr, ptr @mux_log_debug_ts.desc, i64 %146
+  %176 = getelementptr inbounds nuw [8 x i8], ptr @mux_log_debug_ts.desc, i64 %146
   %177 = load ptr, ptr %176, align 8, !tbaa !111
-  %178 = getelementptr inbounds nuw ptr, ptr @mux_log_debug_ts.desc, i64 %indvars.iv.i.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @mux_log_debug_ts.desc, i64 %indvars.iv.i.i
   %179 = load ptr, ptr %178, align 8, !tbaa !111
   %180 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %177, ptr noundef nonnull dereferenceable(1) %179) #13
   %.not53.i.i = icmp eq i32 %180, 0

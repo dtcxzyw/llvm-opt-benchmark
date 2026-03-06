@@ -288,7 +288,7 @@ define noundef range(i32 -128, 311) i32 @_Z19textFileFormatYylexPN32pxrInternal_
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %194 = load i64, ptr %193, align 8
-  %195 = getelementptr inbounds ptr, ptr %191, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %191, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = icmp eq ptr %196, null
   br i1 %197, label %.critedge, label %228
@@ -332,7 +332,7 @@ define noundef range(i32 -128, 311) i32 @_Z19textFileFormatYylexPN32pxrInternal_
 
 212:                                              ; preds = %207
   %213 = load i64, ptr %204, align 8
-  %214 = getelementptr inbounds ptr, ptr %210, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %210, i64 %213
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %214, i8 0, i64 64, i1 false)
   store i64 %208, ptr %204, align 8
   %.pre = load ptr, ptr %179, align 8
@@ -368,11 +368,11 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %224 = load ptr, ptr %190, align 8
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %226 = load i64, ptr %225, align 8
-  %227 = getelementptr inbounds ptr, ptr %224, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %224, i64 %226
   store ptr %216, ptr %227, align 8
   %.pre1283 = load ptr, ptr %190, align 8
   %.pre1284 = load i64, ptr %225, align 8
-  %.phi.trans.insert1285 = getelementptr inbounds ptr, ptr %.pre1283, i64 %.pre1284
+  %.phi.trans.insert1285 = getelementptr inbounds [8 x i8], ptr %.pre1283, i64 %.pre1284
   %.pre1286 = load ptr, ptr %.phi.trans.insert1285, align 8
   br label %228
 
@@ -380,7 +380,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %229 = phi ptr [ %.pre1286, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %196, %192 ]
   %230 = phi i64 [ %.pre1284, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %194, %192 ]
   %231 = phi ptr [ %.pre1283, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %191, %192 ]
-  %232 = getelementptr inbounds ptr, ptr %231, i64 %230
+  %232 = getelementptr inbounds [8 x i8], ptr %231, i64 %230
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %234 = load i64, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -429,12 +429,12 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %.0363 = phi ptr [ %259, %.loopexit ], [ %.0363.be, %.backedge ]
   %.0311 = phi i32 [ %261, %.loopexit ], [ %.0311.be, %.backedge ]
   %264 = sext i32 %.0311 to i64
-  %265 = getelementptr inbounds [61 x i16], ptr @_ZL6yy_nxt, i64 %264
+  %265 = getelementptr inbounds [122 x i8], ptr @_ZL6yy_nxt, i64 %264
   %266 = zext i8 %263 to i64
-  %267 = getelementptr inbounds nuw i32, ptr @_ZL5yy_ec, i64 %266
+  %267 = getelementptr inbounds nuw [4 x i8], ptr @_ZL5yy_ec, i64 %266
   %268 = load i32, ptr %267, align 4
   %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds i16, ptr %265, i64 %269
+  %270 = getelementptr inbounds [2 x i8], ptr %265, i64 %269
   %271 = load i16, ptr %270, align 2
   %272 = sext i16 %271 to i32
   %273 = icmp sgt i16 %271, 0
@@ -444,7 +444,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %274 = phi i32 [ %290, %279 ], [ %272, %262 ]
   %.13641024 = phi ptr [ %280, %279 ], [ %.0363, %262 ]
   %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr inbounds nuw i16, ptr @_ZL9yy_accept, i64 %275
+  %276 = getelementptr inbounds nuw [2 x i8], ptr @_ZL9yy_accept, i64 %275
   %277 = load i16, ptr %276, align 2
   %.not470 = icmp eq i16 %277, 0
   br i1 %.not470, label %279, label %278
@@ -457,13 +457,13 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 279:                                              ; preds = %278, %.lr.ph
   %280 = getelementptr inbounds nuw i8, ptr %.13641024, i64 1
   %281 = zext nneg i32 %274 to i64
-  %282 = getelementptr inbounds nuw [61 x i16], ptr @_ZL6yy_nxt, i64 %281
+  %282 = getelementptr inbounds nuw [122 x i8], ptr @_ZL6yy_nxt, i64 %281
   %283 = load i8, ptr %280, align 1
   %284 = zext i8 %283 to i64
-  %285 = getelementptr inbounds nuw i32, ptr @_ZL5yy_ec, i64 %284
+  %285 = getelementptr inbounds nuw [4 x i8], ptr @_ZL5yy_ec, i64 %284
   %286 = load i32, ptr %285, align 4
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds i16, ptr %282, i64 %287
+  %288 = getelementptr inbounds [2 x i8], ptr %282, i64 %287
   %289 = load i16, ptr %288, align 2
   %290 = sext i16 %289 to i32
   %291 = icmp sgt i16 %289, 0
@@ -486,7 +486,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %.2365 = phi ptr [ %306, %303 ], [ %.2365.ph, %.outer ]
   %.2313 = phi i32 [ %307, %303 ], [ %.2313.ph, %.outer ]
   %295 = sext i32 %.2313 to i64
-  %296 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %295
+  %296 = getelementptr inbounds [2 x i8], ptr @_ZL9yy_accept, i64 %295
   %297 = load i16, ptr %296, align 2
   %298 = sext i16 %297 to i32
   store ptr %.1368.ph, ptr %249, align 8
@@ -2777,7 +2777,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   store i8 %1076, ptr %.2365, align 1
   %1077 = load ptr, ptr %251, align 8
   %1078 = load i64, ptr %252, align 8
-  %1079 = getelementptr inbounds ptr, ptr %1077, i64 %1078
+  %1079 = getelementptr inbounds [8 x i8], ptr %1077, i64 %1078
   %1080 = load ptr, ptr %1079, align 8
   %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 64
   %1082 = load i32, ptr %1081, align 8
@@ -2793,13 +2793,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   store ptr %1087, ptr %1088, align 8
   %1089 = load ptr, ptr %251, align 8
   %1090 = load i64, ptr %252, align 8
-  %1091 = getelementptr inbounds ptr, ptr %1089, i64 %1090
+  %1091 = getelementptr inbounds [8 x i8], ptr %1089, i64 %1090
   %1092 = load ptr, ptr %1091, align 8
   %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 64
   store i32 1, ptr %1093, align 8
   %.pre1288 = load ptr, ptr %251, align 8
   %.pre1289 = load i64, ptr %252, align 8
-  %.phi.trans.insert1290 = getelementptr inbounds ptr, ptr %.pre1288, i64 %.pre1289
+  %.phi.trans.insert1290 = getelementptr inbounds [8 x i8], ptr %.pre1288, i64 %.pre1289
   %.pre1291 = load ptr, ptr %.phi.trans.insert1290, align 8
   br label %1094
 
@@ -2827,7 +2827,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   %1110 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
   %1111 = load ptr, ptr %246, align 8
   %1112 = sext i32 %1110 to i64
-  %1113 = getelementptr inbounds [61 x i16], ptr @_ZL6yy_nxt, i64 %1112
+  %1113 = getelementptr inbounds [122 x i8], ptr @_ZL6yy_nxt, i64 %1112
   %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 2
   %1115 = load i16, ptr %1114, align 2
   %1116 = icmp slt i16 %1115, 1
@@ -2836,7 +2836,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
 1117:                                             ; preds = %1103
   %1118 = zext nneg i16 %1115 to i32
   %1119 = zext nneg i16 %1115 to i64
-  %1120 = getelementptr inbounds nuw i16, ptr @_ZL9yy_accept, i64 %1119
+  %1120 = getelementptr inbounds nuw [2 x i8], ptr @_ZL9yy_accept, i64 %1119
   %1121 = load i16, ptr %1120, align 2
   %.not.i532 = icmp eq i16 %1121, 0
   br i1 %.not.i532, label %1123, label %1122
@@ -2909,7 +2909,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %251, align 8
   %.pre171.i = load i64, ptr %252, align 8
-  %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %.pre171.i
+  %.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %.pre171.i
   %.pre172.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
 
@@ -2923,7 +2923,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   br i1 %1153, label %1154, label %1156
 
 1154:                                             ; preds = %._crit_edge.i
-  %1155 = getelementptr inbounds ptr, ptr %1150, i64 %1149
+  %1155 = getelementptr inbounds [8 x i8], ptr %1150, i64 %1149
   store i64 0, ptr %253, align 8
   br label %1249
 
@@ -2983,7 +2983,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   store ptr %1180, ptr %246, align 8
   %1181 = load ptr, ptr %251, align 8
   %1182 = load i64, ptr %252, align 8
-  %1183 = getelementptr inbounds ptr, ptr %1181, i64 %1182
+  %1183 = getelementptr inbounds [8 x i8], ptr %1181, i64 %1182
   %1184 = load ptr, ptr %1183, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %1184, i64 24
   %.pn.i = load i64, ptr %.pn.in.i, align 8
@@ -3013,7 +3013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   %1192 = trunc i32 %1190 to i8
   %1193 = load ptr, ptr %251, align 8
   %1194 = load i64, ptr %252, align 8
-  %1195 = getelementptr inbounds ptr, ptr %1193, i64 %1194
+  %1195 = getelementptr inbounds [8 x i8], ptr %1193, i64 %1194
   %1196 = load ptr, ptr %1195, align 8
   %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 8
   %1198 = load ptr, ptr %1197, align 8
@@ -3034,7 +3034,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
 .thread146.i:                                     ; preds = %.critedge.i
   %1202 = load ptr, ptr %251, align 8
   %1203 = load i64, ptr %252, align 8
-  %1204 = getelementptr inbounds ptr, ptr %1202, i64 %1203
+  %1204 = getelementptr inbounds [8 x i8], ptr %1202, i64 %1203
   %1205 = load ptr, ptr %1204, align 8
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 8
   %1207 = load ptr, ptr %1206, align 8
@@ -3064,7 +3064,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   store i32 0, ptr %1217, align 4
   %1218 = load ptr, ptr %251, align 8
   %1219 = load i64, ptr %252, align 8
-  %1220 = getelementptr inbounds ptr, ptr %1218, i64 %1219
+  %1220 = getelementptr inbounds [8 x i8], ptr %1218, i64 %1219
   %1221 = load ptr, ptr %1220, align 8
   %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 8
   %1223 = load ptr, ptr %1222, align 8
@@ -3096,7 +3096,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   tail call void @clearerr(ptr noundef %1234) #33
   %1235 = load ptr, ptr %251, align 8
   %1236 = load i64, ptr %252, align 8
-  %1237 = getelementptr inbounds ptr, ptr %1235, i64 %1236
+  %1237 = getelementptr inbounds [8 x i8], ptr %1235, i64 %1236
   %1238 = load ptr, ptr %1237, align 8
   %1239 = getelementptr inbounds nuw i8, ptr %1238, i64 8
   %1240 = load ptr, ptr %1239, align 8
@@ -3111,7 +3111,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   %1245 = phi i64 [ %.1148.i, %1215 ], [ %1226, %1216 ], [ 0, %.lr.ph164.i ], [ %1243, %1233 ]
   %1246 = load ptr, ptr %251, align 8
   %1247 = load i64, ptr %252, align 8
-  %1248 = getelementptr inbounds ptr, ptr %1246, i64 %1247
+  %1248 = getelementptr inbounds [8 x i8], ptr %1246, i64 %1247
   br label %1249
 
 1249:                                             ; preds = %.critedge2.i, %1154
@@ -3136,7 +3136,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
 1257:                                             ; preds = %1253
   %1258 = load ptr, ptr %251, align 8
   %1259 = load i64, ptr %252, align 8
-  %1260 = getelementptr inbounds ptr, ptr %1258, i64 %1259
+  %1260 = getelementptr inbounds [8 x i8], ptr %1258, i64 %1259
   %1261 = load ptr, ptr %1260, align 8
   %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 64
   store i32 2, ptr %1262, align 8
@@ -3149,7 +3149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   %1266 = add i64 %1264, %1265
   %1267 = load ptr, ptr %251, align 8
   %1268 = load i64, ptr %252, align 8
-  %1269 = getelementptr inbounds ptr, ptr %1267, i64 %1268
+  %1269 = getelementptr inbounds [8 x i8], ptr %1267, i64 %1268
   %1270 = load ptr, ptr %1269, align 8
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 24
   %1272 = load i64, ptr %1271, align 8
@@ -3164,13 +3164,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   %1279 = tail call noalias noundef ptr @realloc(ptr noundef %1278, i64 noundef %1276) #32
   %1280 = load ptr, ptr %251, align 8
   %1281 = load i64, ptr %252, align 8
-  %1282 = getelementptr inbounds ptr, ptr %1280, i64 %1281
+  %1282 = getelementptr inbounds [8 x i8], ptr %1280, i64 %1281
   %1283 = load ptr, ptr %1282, align 8
   %1284 = getelementptr inbounds nuw i8, ptr %1283, i64 8
   store ptr %1279, ptr %1284, align 8
   %1285 = load ptr, ptr %251, align 8
   %1286 = load i64, ptr %252, align 8
-  %1287 = getelementptr inbounds ptr, ptr %1285, i64 %1286
+  %1287 = getelementptr inbounds [8 x i8], ptr %1285, i64 %1286
   %1288 = load ptr, ptr %1287, align 8
   %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 8
   %1290 = load ptr, ptr %1289, align 8
@@ -3191,7 +3191,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %1263, %._crit_edge1
   %1292 = phi i64 [ %1286, %._crit_edge174.i ], [ %1268, %1263 ]
   %1293 = phi ptr [ %1285, %._crit_edge174.i ], [ %1267, %1263 ]
   store i64 %.pre-phi.i, ptr %253, align 8
-  %1294 = getelementptr inbounds ptr, ptr %1293, i64 %1292
+  %1294 = getelementptr inbounds [8 x i8], ptr %1293, i64 %1292
   %1295 = load ptr, ptr %1294, align 8
   %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 8
   %1297 = load ptr, ptr %1296, align 8
@@ -3199,7 +3199,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %1263, %._crit_edge1
   store i8 0, ptr %1298, align 1
   %1299 = load ptr, ptr %251, align 8
   %1300 = load i64, ptr %252, align 8
-  %1301 = getelementptr inbounds ptr, ptr %1299, i64 %1300
+  %1301 = getelementptr inbounds [8 x i8], ptr %1299, i64 %1300
   %1302 = load ptr, ptr %1301, align 8
   %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 8
   %1304 = load ptr, ptr %1303, align 8
@@ -3209,7 +3209,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %1263, %._crit_edge1
   store i8 0, ptr %1307, align 1
   %1308 = load ptr, ptr %251, align 8
   %1309 = load i64, ptr %252, align 8
-  %1310 = getelementptr inbounds ptr, ptr %1308, i64 %1309
+  %1310 = getelementptr inbounds [8 x i8], ptr %1308, i64 %1309
   %1311 = load ptr, ptr %1310, align 8
   %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 8
   %1313 = load ptr, ptr %1312, align 8
@@ -3221,7 +3221,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %1263, %._crit_edge1
   ]
 
 _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread536_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
-  %1314 = getelementptr inbounds ptr, ptr %1308, i64 %1309
+  %1314 = getelementptr inbounds [8 x i8], ptr %1308, i64 %1309
   %.pre1292 = load ptr, ptr %1314, align 8
   %.phi.trans.insert1293 = getelementptr inbounds nuw i8, ptr %.pre1292, i64 8
   %.pre1294 = load ptr, ptr %.phi.trans.insert1293, align 8
@@ -3463,25 +3463,25 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef cap
   %.018 = phi i32 [ %3, %.lr.ph ], [ %24, %29 ]
   %.01417 = phi ptr [ %5, %.lr.ph ], [ %30, %29 ]
   %12 = sext i32 %.018 to i64
-  %13 = getelementptr inbounds [61 x i16], ptr @_ZL6yy_nxt, i64 %12
+  %13 = getelementptr inbounds [122 x i8], ptr @_ZL6yy_nxt, i64 %12
   %14 = load i8, ptr %.01417, align 1
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %11
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @_ZL5yy_ec, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZL5yy_ec, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   br label %20
 
 20:                                               ; preds = %11, %15
   %21 = phi i64 [ %19, %15 ], [ 1, %11 ]
-  %22 = getelementptr inbounds i16, ptr %13, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %13, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = sext i16 %23 to i32
   %25 = sext i16 %23 to i64
-  %26 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr @_ZL9yy_accept, i64 %25
   %27 = load i16, ptr %26, align 2
   %.not16 = icmp eq i16 %27, 0
   br i1 %.not16, label %29, label %28
@@ -3519,7 +3519,7 @@ define void @_Z23textFileFormatYyrestartP8_IO_FILEPv(ptr noundef %0, ptr noundef
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge, label %.thread
@@ -3563,7 +3563,7 @@ define void @_Z23textFileFormatYyrestartP8_IO_FILEPv(ptr noundef %0, ptr noundef
 
 25:                                               ; preds = %20
   %26 = load i64, ptr %17, align 8
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, i8 0, i64 64, i1 false)
   store i64 %21, ptr %17, align 8
   br label %_ZL35textFileFormatYyensure_buffer_stackPv.exit
@@ -3599,7 +3599,7 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %39, i64 %41
   store ptr %30, ptr %42, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -3609,7 +3609,7 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
   %43 = phi ptr [ %.pre, %37 ], [ %4, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %43, i64 %45
   %47 = load ptr, ptr %46, align 8
   br label %48
 
@@ -3619,7 +3619,7 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
   %50 = load ptr, ptr %3, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load i64, ptr %55, align 8
@@ -3673,7 +3673,7 @@ define internal fastcc void @_ZL28textFileFormatYy_init_bufferP15yy_buffer_state
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %0, %22
   br i1 %23, label %24, label %_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv.exit
@@ -3711,7 +3711,7 @@ _Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3, %6, %1
 41:                                               ; preds = %_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv.exit
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %40, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %0, %45
   br i1 %46, label %49, label %.critedge
@@ -3790,7 +3790,7 @@ define void @_Z33textFileFormatYy_switch_to_bufferP15yy_buffer_statePv(ptr nound
 
 22:                                               ; preds = %17
   %23 = load i64, ptr %14, align 8
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, i8 0, i64 64, i1 false)
   store i64 %18, ptr %14, align 8
   br label %.thread
@@ -3799,7 +3799,7 @@ define void @_Z33textFileFormatYy_switch_to_bufferP15yy_buffer_statePv(ptr nound
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %0
   br i1 %30, label %73, label %31
@@ -3817,7 +3817,7 @@ define void @_Z33textFileFormatYy_switch_to_bufferP15yy_buffer_statePv(ptr nound
   %38 = load ptr, ptr %36, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = load i64, ptr %26, align 8
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %38, ptr %43, align 8
@@ -3825,7 +3825,7 @@ define void @_Z33textFileFormatYy_switch_to_bufferP15yy_buffer_statePv(ptr nound
   %45 = load i64, ptr %44, align 8
   %46 = load ptr, ptr %3, align 8
   %47 = load i64, ptr %26, align 8
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i64 %45, ptr %50, align 8
@@ -3836,11 +3836,11 @@ define void @_Z33textFileFormatYy_switch_to_bufferP15yy_buffer_statePv(ptr nound
   %51 = phi ptr [ %25, %31 ], [ %.pre, %33 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds ptr, ptr %51, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %51, i64 %53
   store ptr %0, ptr %54, align 8
   %55 = load ptr, ptr %3, align 8
   %56 = load i64, ptr %52, align 8
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load i64, ptr %59, align 8
@@ -3888,7 +3888,7 @@ define void @_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv(ptr noundef 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -3952,7 +3952,7 @@ define void @_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv(ptr noundef c
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -4034,7 +4034,7 @@ define void @_Z33textFileFormatYypush_buffer_stateP15yy_buffer_statePv(ptr nound
 
 24:                                               ; preds = %19
   %25 = load i64, ptr %16, align 8
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false)
   store i64 %20, ptr %16, align 8
   %.pre = load i64, ptr %14, align 8
@@ -4044,7 +4044,7 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %27
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.critedge29, label %.critedge
@@ -4058,7 +4058,7 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   %37 = load ptr, ptr %35, align 8
   %38 = load ptr, ptr %5, align 8
   %39 = load i64, ptr %29, align 8
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
@@ -4066,13 +4066,13 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   %44 = load i64, ptr %43, align 8
   %45 = load ptr, ptr %5, align 8
   %46 = load i64, ptr %29, align 8
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i64 %44, ptr %49, align 8
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre32 = load i64, ptr %29, align 8
-  %.phi.trans.insert33 = getelementptr inbounds ptr, ptr %.pr.pre, i64 %.pre32
+  %.phi.trans.insert33 = getelementptr inbounds [8 x i8], ptr %.pr.pre, i64 %.pre32
   %.pre34 = load ptr, ptr %.phi.trans.insert33, align 8
   %50 = icmp eq ptr %.pre34, null
   br i1 %50, label %.critedge29, label %51
@@ -4085,11 +4085,11 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
 .critedge29:                                      ; preds = %_ZL35textFileFormatYyensure_buffer_stackPv.exit, %51, %.critedge
   %.pr40 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %.critedge ], [ %28, %_ZL35textFileFormatYyensure_buffer_stackPv.exit ]
   %53 = phi i64 [ %52, %51 ], [ %.pre32, %.critedge ], [ %27, %_ZL35textFileFormatYyensure_buffer_stackPv.exit ]
-  %54 = getelementptr inbounds ptr, ptr %.pr40, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.pr40, i64 %53
   store ptr %0, ptr %54, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = load i64, ptr %29, align 8
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load i64, ptr %59, align 8
@@ -4127,7 +4127,7 @@ define void @_Z32textFileFormatYypop_buffer_statePv(ptr noundef captures(none) %
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.critedge, label %.critedge.i
@@ -4149,7 +4149,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.critedg
   tail call void @free(ptr noundef nonnull %8) #33
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   store ptr null, ptr %17, align 8
   %18 = load i64, ptr %5, align 8
   %.not22 = icmp eq i64 %18, 0
@@ -4167,7 +4167,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.critedg
   br i1 %.not23, label %.critedge, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %22
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %22
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.critedge, label %28
@@ -4350,7 +4350,7 @@ define noundef i32 @_Z26textFileFormatYyget_linenoPv(ptr noundef readonly captur
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.critedge, label %10
@@ -4375,7 +4375,7 @@ define noundef i32 @_Z26textFileFormatYyget_columnPv(ptr noundef readonly captur
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.critedge, label %10
@@ -4434,7 +4434,7 @@ define void @_Z26textFileFormatYyset_linenoiPv(i32 noundef %0, ptr noundef reado
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge, label %11
@@ -4459,7 +4459,7 @@ define void @_Z26textFileFormatYyset_columniPv(i32 noundef %0, ptr noundef reado
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge, label %11
@@ -4590,7 +4590,7 @@ define noundef i32 @_Z27textFileFormatYylex_destroyPv(ptr noundef captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i64, ptr %2, align 8
-  %12 = getelementptr inbounds ptr, ptr %4, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -4614,7 +4614,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.critedg
   tail call void @free(ptr noundef nonnull %15) #33
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %.not.i23 = icmp eq ptr %25, null
@@ -4622,7 +4622,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.critedg
 
 26:                                               ; preds = %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit
   %27 = load i64, ptr %2, align 8
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %_Z32textFileFormatYypop_buffer_statePv.exit, label %.critedge.i.i
@@ -4644,7 +4644,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.
   tail call void @free(ptr noundef nonnull %29) #33
   %36 = load ptr, ptr %3, align 8
   %37 = load i64, ptr %2, align 8
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %36, i64 %37
   store ptr null, ptr %38, align 8
   %39 = load i64, ptr %2, align 8
   %.not22.i = icmp eq i64 %39, 0
@@ -4662,7 +4662,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.
   br i1 %.not23.i, label %.critedge, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %43
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %43
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_Z32textFileFormatYypop_buffer_statePv.exit, label %49
@@ -4687,7 +4687,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.
 _Z32textFileFormatYypop_buffer_statePv.exit:      ; preds = %26, %45, %49
   %58 = phi ptr [ %44, %45 ], [ %25, %26 ], [ %44, %49 ]
   %59 = load i64, ptr %2, align 8
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.critedge, label %.critedge.i, !llvm.loop !12

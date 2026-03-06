@@ -107,7 +107,7 @@ nodemask_isset_compat.exit.i:                     ; preds = %nodemask_isset_comp
   %.03382.i = phi ptr [ null, %27 ], [ %spec.select45.i, %nodemask_isset_compat.exit.i ]
   %.03681.i = phi ptr [ %3, %27 ], [ %55, %nodemask_isset_compat.exit.i ]
   %32 = lshr i64 %indvars.iv.i, 6
-  %33 = getelementptr inbounds nuw i64, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %indvars.iv.i, 60
   %36 = shl nuw nsw i64 1, %35
@@ -246,7 +246,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %49 = and i64 %48, 63
   %50 = shl nuw i64 1, %49
   %51 = lshr i64 %48, 6
-  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %53, %50
   store i64 %54, ptr %52, align 8
@@ -452,7 +452,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %124 = and i64 %indvars.iv.i, 60
   %125 = shl nuw nsw i64 1, %124
   %126 = lshr i64 %indvars.iv.i, 6
-  %127 = getelementptr inbounds nuw i64, ptr %0, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %126
   %128 = load i64, ptr %127, align 8
   %129 = or i64 %128, %125
   store i64 %129, ptr %127, align 8
@@ -465,7 +465,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %132 = and i64 %indvars.iv.i, 60
   %133 = shl nuw nsw i64 2, %132
   %134 = lshr i64 %indvars.iv.i, 6
-  %135 = getelementptr inbounds nuw i64, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %134
   %136 = load i64, ptr %135, align 8
   %137 = or i64 %136, %133
   store i64 %137, ptr %135, align 8
@@ -479,7 +479,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %140 = and i64 %113, 62
   %141 = shl nuw nsw i64 1, %140
   %142 = lshr i64 %indvars.iv.i, 6
-  %143 = getelementptr inbounds nuw i64, ptr %0, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %142
   %144 = load i64, ptr %143, align 8
   %145 = or i64 %144, %141
   store i64 %145, ptr %143, align 8
@@ -493,7 +493,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %148 = and i64 %117, 63
   %149 = shl nuw i64 1, %148
   %150 = lshr i64 %indvars.iv.i, 6
-  %151 = getelementptr inbounds nuw i64, ptr %0, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %150
   %152 = load i64, ptr %151, align 8
   %153 = or i64 %152, %149
   store i64 %153, ptr %151, align 8
@@ -604,7 +604,7 @@ _str_to_memset.exit:                              ; preds = %154, %88
   %196 = and i64 %.0, 63
   %197 = shl nuw i64 1, %196
   %198 = lshr i64 %.0, 6
-  %199 = getelementptr inbounds nuw i64, ptr %0, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %198
   %200 = load i64, ptr %199, align 8
   %201 = or i64 %200, %197
   store i64 %201, ptr %199, align 8
@@ -650,7 +650,7 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
 
 4:                                                ; preds = %1
   %5 = zext i16 %0 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   %7 = load i16, ptr %6, align 2
   br label %53
 
@@ -727,7 +727,7 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @numa_array, align 8
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv
   store i16 %37, ptr %45, align 2
   br label %46
 
@@ -745,7 +745,7 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   call void @numa_bitmask_free(ptr noundef nonnull %24) #8
   %49 = load ptr, ptr @numa_array, align 8
   %50 = zext i16 %0 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2
   br label %53
 

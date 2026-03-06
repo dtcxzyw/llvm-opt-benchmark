@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lj_ctype.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
 %struct.CTRepr = type { ptr, ptr, ptr, ptr, i32, i32, [512 x i8] }
 
 @.str = private unnamed_addr constant [2 x i8] c"?\00", align 1
@@ -68,7 +66,7 @@ define hidden range(i32 0, -1) i32 @lj_ctype_new(ptr noundef %0, ptr noundef wri
   %17 = add nuw i32 %4, 1
   store i32 %17, ptr %3, align 8, !tbaa !4
   %18 = zext i32 %4 to i64
-  %19 = getelementptr inbounds nuw %struct.CType, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %18
   store ptr %19, ptr %1, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %20, align 8, !tbaa !22
@@ -93,7 +91,7 @@ define hidden range(i32 0, -1) i32 @lj_ctype_intern(ptr noundef %0, i32 noundef 
   %11 = and i32 %10, 127
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %13
   %.044.in52 = load i16, ptr %14, align 2, !tbaa !27
   %.not53 = icmp eq i16 %.044.in52, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
@@ -105,7 +103,7 @@ define hidden range(i32 0, -1) i32 @lj_ctype_intern(ptr noundef %0, i32 noundef 
 16:                                               ; preds = %.lr.ph, %25
   %.044.in54 = phi i16 [ %.044.in52, %.lr.ph ], [ %.044.in, %25 ]
   %17 = zext i16 %.044.in54 to i64
-  %18 = getelementptr inbounds nuw %struct.CType, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !28
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %21, label %25
@@ -155,7 +153,7 @@ define hidden range(i32 0, -1) i32 @lj_ctype_intern(ptr noundef %0, i32 noundef 
   %41 = add nuw i32 %28, 1
   store i32 %41, ptr %27, align 8, !tbaa !4
   %42 = zext i32 %28 to i64
-  %43 = getelementptr inbounds nuw %struct.CType, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %42
   store i32 %1, ptr %43, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %2, ptr %44, align 4, !tbaa !29
@@ -195,7 +193,7 @@ define hidden void @lj_ctype_addname(ptr noundef captures(none) %0, ptr noundef 
   %15 = and i32 %14, 127
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i16 %19, ptr %20, align 2, !tbaa !33
@@ -219,7 +217,7 @@ define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr noundef readonly cap
   %15 = sub i32 %13, %14
   %16 = and i32 %15, 127
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %17
   %.018.in26 = load i16, ptr %18, align 2, !tbaa !27
   %.not27 = icmp eq i16 %.018.in26, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !19
@@ -228,7 +226,7 @@ define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %4, %30
   %.018.in28 = phi i16 [ %.018.in, %30 ], [ %.018.in26, %4 ]
   %19 = zext i16 %.018.in28 to i64
-  %20 = getelementptr inbounds nuw %struct.CType, ptr %.pre, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !22
   %23 = inttoptr i64 %22 to ptr
@@ -275,7 +273,7 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
   %8 = phi ptr [ %47, %.thread ], [ %.pre57, %.lr.ph52.preheader ]
   %9 = phi i16 [ %49, %.thread ], [ %7, %.lr.ph52.preheader ]
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !22
   %14 = inttoptr i64 %13 to ptr
@@ -296,7 +294,7 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
 .preheader:                                       ; preds = %19
   %.pn.in44 = and i32 %20, 65535
   %.pn45 = zext nneg i32 %.pn.in44 to i64
-  %.03146 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %.pn45
+  %.03146 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.pn45
   %23 = load i32, ptr %.03146, align 8, !tbaa !28
   %24 = icmp slt i32 %23, -1879048192
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -310,7 +308,7 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %26
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !29
   %33 = or i32 %32, %.03047
@@ -320,7 +318,7 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
   %.1 = phi i32 [ %33, %29 ], [ %.03047, %.lr.ph ]
   %.pn.in = and i32 %25, 65535
   %.pn = zext nneg i32 %.pn.in to i64
-  %.031 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %.pn
+  %.031 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.pn
   %35 = load i32, ptr %.031, align 8, !tbaa !28
   %36 = icmp slt i32 %35, -1879048192
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !35
@@ -376,7 +374,7 @@ define hidden noundef ptr @lj_ctype_rawref(ptr noundef readonly captures(none) %
 .critedge:                                        ; preds = %.critedge, %2
   %.pn.in = phi i32 [ %1, %2 ], [ %8, %.critedge ]
   %.pn = zext i32 %.pn.in to i64
-  %.0 = getelementptr inbounds nuw %struct.CType, ptr %3, i64 %.pn
+  %.0 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.pn
   %4 = load i32, ptr %.0, align 8, !tbaa !28
   %5 = icmp slt i32 %4, -1879048192
   %6 = and i32 %4, -260046848
@@ -397,7 +395,7 @@ define hidden i32 @lj_ctype_size(ptr noundef readonly captures(none) %0, i32 nou
 4:                                                ; preds = %4, %2
   %.pn.in = phi i32 [ %1, %2 ], [ %7, %4 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %3, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.pn
   %5 = load i32, ptr %.0.i, align 8, !tbaa !28
   %6 = icmp slt i32 %5, -1879048192
   %7 = and i32 %5, 65535
@@ -438,7 +436,7 @@ define hidden i32 @lj_ctype_vlsize(ptr noundef readonly captures(none) %0, ptr n
   %.017.in27 = phi i16 [ %.017.in, %.lr.ph ], [ %.017.in24, %6 ]
   %.01826 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %6 ]
   %10 = zext i16 %.017.in27 to i64
-  %11 = getelementptr inbounds nuw %struct.CType, ptr %.pre28, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %.pre28, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !28
   %.mask20 = and i32 %12, -268435456
   %13 = icmp eq i32 %.mask20, -1879048192
@@ -456,7 +454,7 @@ define hidden i32 @lj_ctype_vlsize(ptr noundef readonly captures(none) %0, ptr n
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %._crit_edge
   %.pn22.in = phi i32 [ %17, %._crit_edge ], [ %.pn22.in.ph, %._crit_edge.preheader ]
   %.pn22 = zext nneg i32 %.pn22.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %.pre28, i64 %.pn22
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %.pre28, i64 %.pn22
   %15 = load i32, ptr %.0.i, align 8, !tbaa !28
   %16 = icmp slt i32 %15, -1879048192
   %17 = and i32 %15, 65535
@@ -471,7 +469,7 @@ ctype_raw.exit:                                   ; preds = %._crit_edge, %3
   %20 = phi i32 [ %18, %ctype_raw.exit ], [ %24, %19 ]
   %21 = and i32 %20, 65535
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.CType, ptr %.pre28, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %.pre28, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !28
   %25 = icmp slt i32 %24, -1879048192
   br i1 %25, label %19, label %ctype_rawchild.exit, !llvm.loop !41
@@ -498,7 +496,7 @@ define hidden i32 @lj_ctype_info(ptr noundef readonly captures(none) %0, i32 nou
   %.pn.in = phi i32 [ %1, %3 ], [ %26, %25 ]
   %.023 = phi i32 [ 0, %3 ], [ %.1, %25 ]
   %.pn = zext i32 %.pn.in to i64
-  %.024 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %.pn
+  %.024 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %.pn
   %6 = load i32, ptr %.024, align 8, !tbaa !28
   %7 = lshr i32 %6, 28
   switch i32 %7, label %22 [
@@ -560,7 +558,7 @@ define hidden i32 @lj_ctype_info(ptr noundef readonly captures(none) %0, i32 nou
 define hidden i32 @lj_ctype_info_raw(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !28
   %8 = and i32 %7, -260046848
   %9 = icmp eq i32 %8, 545259520
@@ -572,7 +570,7 @@ define hidden i32 @lj_ctype_info_raw(ptr noundef readonly captures(none) %0, i32
   %.pn.in.i = phi i32 [ %spec.select, %3 ], [ %32, %31 ]
   %.023.i = phi i32 [ 0, %3 ], [ %.1.i, %31 ]
   %.pn.i = zext i32 %.pn.in.i to i64
-  %.024.i = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %.pn.i
+  %.024.i = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %.pn.i
   %12 = load i32, ptr %.024.i, align 8, !tbaa !28
   %13 = lshr i32 %12, 28
   switch i32 %13, label %28 [
@@ -638,7 +636,7 @@ define hidden ptr @lj_ctype_meta(ptr noundef readonly captures(none) %0, i32 nou
 .critedge:                                        ; preds = %.critedge, %3
   %.023 = phi i32 [ %1, %3 ], [ %10, %.critedge ]
   %.pn = zext i32 %.023 to i64
-  %.021 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %.pn
+  %.021 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %.pn
   %5 = load i32, ptr %.021, align 8, !tbaa !28
   %6 = lshr i32 %5, 28
   %7 = icmp eq i32 %6, 8
@@ -654,7 +652,7 @@ define hidden ptr @lj_ctype_meta(ptr noundef readonly captures(none) %0, i32 nou
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !28
   %.mask = and i32 %16, -268435456
   %17 = icmp eq i32 %.mask, 1610612736
@@ -694,7 +692,7 @@ define hidden ptr @lj_ctype_meta(ptr noundef readonly captures(none) %0, i32 nou
   %38 = load ptr, ptr %37, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 424
   %40 = zext i32 %2 to i64
-  %41 = getelementptr inbounds nuw %struct.GCRef, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !46
   %43 = inttoptr i64 %42 to ptr
   %44 = tail call ptr @lj_tab_getstr(ptr noundef %36, ptr noundef %43) #15
@@ -777,7 +775,7 @@ ctype_prepstr.exit:                               ; preds = %._crit_edge.i, %23,
   %28 = phi ptr [ %.pre, %._crit_edge.i ], [ %13, %23 ], [ %13, %3 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = zext i32 %1 to i64
-  %31 = getelementptr inbounds nuw %struct.CType, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 552
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -1830,7 +1828,7 @@ ctype_appc.exit246.i:                             ; preds = %399, %398
   %404 = and i32 %403, 65535
   %405 = load ptr, ptr %402, align 8, !tbaa !19
   %406 = zext nneg i32 %404 to i64
-  %407 = getelementptr inbounds nuw %struct.CType, ptr %405, i64 %406
+  %407 = getelementptr inbounds nuw [24 x i8], ptr %405, i64 %406
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 4
   %409 = load i32, ptr %408, align 4, !tbaa !29
   %.not103.i = icmp eq i32 %409, 0
@@ -2175,7 +2173,7 @@ ctype_appc.exit252.i:                             ; preds = %513, %512, %._crit_
   %516 = and i32 %42, 65535
   %517 = load ptr, ptr %515, align 8, !tbaa !19
   %518 = zext nneg i32 %516 to i64
-  %519 = getelementptr inbounds nuw %struct.CType, ptr %517, i64 %518
+  %519 = getelementptr inbounds nuw [24 x i8], ptr %517, i64 %518
   br label %41
 
 ctype_repr.exit:                                  ; preds = %ctype_prepstr.exit.i.i, %._crit_edge.i9.i.i, %ctype_prepstr.exit.i199.i, %._crit_edge.i9.i206.i, %306, %._crit_edge.i213.i, %324, %._crit_edge.i265.i
@@ -2356,7 +2354,7 @@ define hidden ptr @lj_ctype_init(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %64 ]
   %.046 = phi ptr [ %3, %1 ], [ %65, %64 ]
   %.04045 = phi ptr [ @.str.1, %1 ], [ %.1, %64 ]
-  %14 = getelementptr inbounds nuw i32, ptr @lj_ctype_typeinfo, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @lj_ctype_typeinfo, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !36
   %16 = shl i32 %15, 16
   %17 = ashr i32 %16, 26
@@ -2395,7 +2393,7 @@ define hidden ptr @lj_ctype_init(ptr noundef %0) local_unnamed_addr #0 {
   %40 = sub i32 %38, %39
   %41 = and i32 %40, 127
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %12, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %.046, i64 10
   store i16 %44, ptr %45, align 2, !tbaa !33
@@ -2421,7 +2419,7 @@ define hidden ptr @lj_ctype_init(ptr noundef %0) local_unnamed_addr #0 {
   %58 = sub i32 %56, %57
   %59 = and i32 %58, 127
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %12, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !27
   store i16 %62, ptr %49, align 2, !tbaa !33
   %63 = trunc i64 %indvars.iv to i16

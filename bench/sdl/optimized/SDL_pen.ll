@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_pen.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Pen = type { i32, ptr, %struct.SDL_PenInfo, [7 x float], float, float, i32, ptr }
-%struct.SDL_PenInfo = type { i32, float, i32, i32, i32 }
 %union.SDL_Event = type { %struct.SDL_MouseWheelEvent, [72 x i8] }
 %struct.SDL_MouseWheelEvent = type { i32, i32, i64, i32, i32, float, float, i32, float, float, i32, i32 }
 
@@ -36,7 +34,7 @@ define hidden i32 @SDL_FindPenByHandle(ptr noundef readnone captures(address) %0
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
@@ -75,7 +73,7 @@ define hidden i32 @SDL_FindPenByCallback(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %2, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %2 ]
   %10 = load ptr, ptr @pen_devices, align 8
-  %11 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 %0(ptr noundef %13, ptr noundef %1) #8
@@ -83,7 +81,7 @@ define hidden i32 @SDL_FindPenByCallback(ptr noundef readonly captures(none) %0,
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr @pen_devices, align 8
-  %17 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [88 x i8], ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8
   br label %.loopexit
 
@@ -136,7 +134,7 @@ define hidden void @SDL_QuitPen() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = load ptr, ptr @pen_devices, align 8
-  %8 = getelementptr inbounds %struct.SDL_Pen, ptr %7, i64 %indvars.iv.next
+  %8 = getelementptr inbounds [88 x i8], ptr %7, i64 %indvars.iv.next
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @SDL_free_REAL(ptr noundef %10) #8
@@ -178,7 +176,7 @@ define hidden i32 @SDL_GetPenStatus(i32 noundef %0, ptr noundef writeonly captur
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %FindPenByInstanceId.exit, label %8
@@ -259,7 +257,7 @@ define hidden i32 @SDL_AddPenDevice(i64 noundef %0, ptr noundef %1, ptr noundef 
   store ptr %15, ptr @pen_devices, align 8
   %18 = load i32, ptr @pen_device_count, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.SDL_Pen, ptr %15, i64 %19
+  %20 = getelementptr inbounds [88 x i8], ptr %15, i64 %19
   %21 = add nsw i32 %18, 1
   store i32 %21, ptr @pen_device_count, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %20, i8 0, i64 88, i1 false)
@@ -347,7 +345,7 @@ define hidden void @SDL_RemovePenDevice(i64 noundef %0, i32 noundef %1) local_un
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %FindPenByInstanceId.exit, label %8
@@ -370,10 +368,10 @@ FindPenByInstanceId.exit:                         ; preds = %9
 24:                                               ; preds = %FindPenByInstanceId.exit
   %sext = shl i64 %19, 32
   %25 = ashr exact i64 %sext, 32
-  %26 = getelementptr inbounds %struct.SDL_Pen, ptr %15, i64 %25
+  %26 = getelementptr inbounds [88 x i8], ptr %15, i64 %25
   %sext18 = add i64 %sext, 4294967296
   %27 = ashr exact i64 %sext18, 32
-  %28 = getelementptr inbounds %struct.SDL_Pen, ptr %15, i64 %27
+  %28 = getelementptr inbounds [88 x i8], ptr %15, i64 %27
   %29 = xor i32 %20, -1
   %30 = add i32 %21, %29
   %31 = sext i32 %30 to i64
@@ -444,13 +442,13 @@ define hidden void @SDL_RemoveAllPenDevices(ptr noundef readonly captures(none) 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %6 = load ptr, ptr @pen_devices, align 8
-  %7 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %10 = load ptr, ptr %9, align 8
   tail call void %0(i32 noundef %8, ptr noundef %10, ptr noundef %1) #8
   %11 = load ptr, ptr @pen_devices, align 8
-  %12 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @SDL_free_REAL(ptr noundef %14) #8
@@ -496,7 +494,7 @@ define hidden void @SDL_SendPenTouch(i64 noundef %0, i32 noundef %1, ptr noundef
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %12, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %12, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %FindPenByInstanceId.exit, label %13
@@ -699,7 +697,7 @@ define hidden void @SDL_SendPenAxis(i64 noundef %0, i32 noundef %1, ptr noundef 
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %13 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %10, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %FindPenByInstanceId.exit, label %11
@@ -711,7 +709,7 @@ FindPenByInstanceId.exit.thread:                  ; preds = %11, %5, %.preheader
 FindPenByInstanceId.exit:                         ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %18 = zext i32 %3 to i64
-  %19 = getelementptr inbounds nuw float, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = fcmp une float %20, %4
   br i1 %21, label %22, label %.critedge
@@ -829,7 +827,7 @@ define hidden void @SDL_SendPenMotion(i64 noundef %0, i32 noundef %1, ptr nounde
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %13 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %10, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %FindPenByInstanceId.exit, label %11
@@ -982,7 +980,7 @@ define hidden void @SDL_SendPenButton(i64 noundef %0, i32 noundef %1, ptr nounde
 
 16:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %17 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %FindPenByInstanceId.exit, label %15

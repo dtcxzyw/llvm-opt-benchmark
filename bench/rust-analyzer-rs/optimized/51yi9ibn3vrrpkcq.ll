@@ -8510,10 +8510,10 @@ define internal noundef zeroext i1 @"_ZN74_$LT$hir_expand..proc_macro..ProcMacro
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !720, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E.91", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E.91", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -139,7 +139,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
   %44 = load ptr, ptr %43, align 8, !nonnull !3, !noundef !3
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load i64, ptr %45, align 8, !noundef !3
-  %47 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %44, i64 %46
+  %47 = getelementptr inbounds [176 x i8], ptr %44, i64 %46
   store ptr %44, ptr %31, align 8
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %47, ptr %48, align 8
@@ -367,7 +367,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
 122:                                              ; preds = %116
   %123 = load ptr, ptr %57, align 8, !nonnull !3, !noundef !3
   %124 = load i64, ptr %58, align 8, !noundef !3
-  %125 = getelementptr inbounds i16, ptr %123, i64 %124
+  %125 = getelementptr inbounds [2 x i8], ptr %123, i64 %124
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17ha1f09514a51e7e73E"(ptr nonnull %123, ptr nonnull %125, ptr nonnull align 8 %12, ptr nonnull align 8 %87)
           to label %127 unwind label %.loopexit.split-lp.i.i
@@ -388,7 +388,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
   br label %126
 
 127:                                              ; preds = %122
-  %128 = getelementptr i16, ptr %114, i64 %113
+  %128 = getelementptr [2 x i8], ptr %114, i64 %113
   store ptr %115, ptr %10, align 8
   store ptr %128, ptr %59, align 8
   br label %129
@@ -413,7 +413,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
           to label %138 unwind label %.loopexit.i.i
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i16, ptr %136, i64 %137
+  %139 = getelementptr inbounds [2 x i8], ptr %136, i64 %137
   invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h73a0856a16802404E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, i64, ptr, {}, { {} } }, i64, i64, i64 }) align 8 %9, ptr nonnull %136, ptr nonnull %139, ptr nonnull align 8 %8)
           to label %140 unwind label %.loopexit.i.i
 
@@ -1665,7 +1665,7 @@ define i16 @"_ZN96_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cra
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw { i8, [47 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %17
   %23 = load i8, ptr %22, align 16, !range !7, !noundef !3
   switch i8 %23, label %default.unreachable [
     i8 0, label %46

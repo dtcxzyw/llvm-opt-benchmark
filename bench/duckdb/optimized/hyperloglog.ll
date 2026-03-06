@@ -326,7 +326,7 @@ define void @_ZN10duckdb_hll16hllDenseRegHistoEPhPi(ptr noundef readonly capture
   %17 = shl nuw nsw i64 %15, %9
   %18 = or i64 %17, %16
   %19 = and i64 %18, 63
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !11
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !11
@@ -1073,7 +1073,7 @@ define void @_ZN10duckdb_hll17hllSparseRegHistoEPhiPiS1_(ptr noundef readonly ca
   %27 = lshr i32 %9, 2
   %28 = and i32 %27, 31
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !11
   %33 = add nsw i32 %32, %26
@@ -1125,56 +1125,56 @@ define void @_ZN10duckdb_hll14hllRawRegHistoEPhPi(ptr noundef readonly captures(
 
 9:                                                ; preds = %3
   %10 = and i64 %4, 255
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %.02223, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !9
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !11
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %.02223, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !9
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !11
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 4, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %.02223, i64 3
   %27 = load i8, ptr %26, align 1, !tbaa !9
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %1, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !11
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 4, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %.02223, i64 4
   %33 = load i8, ptr %32, align 1, !tbaa !9
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %.02223, i64 5
   %39 = load i8, ptr %38, align 1, !tbaa !9
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %.02223, i64 6
   %45 = load i8, ptr %44, align 1, !tbaa !9
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %.02223, i64 7
   %51 = load i8, ptr %50, align 1, !tbaa !9
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !11
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %53, align 4, !tbaa !11
@@ -1284,7 +1284,7 @@ define noundef i64 @_ZN10duckdb_hll8hllCountEPNS_6hllhdrEPi(ptr noundef readonly
   %22 = shl nuw nsw i64 %20, %14
   %23 = or i64 %22, %21
   %24 = and i64 %23, 63
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !11
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !11
@@ -1377,7 +1377,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %35, %38, %42, %46, 
   %76 = lshr i32 %60, 2
   %77 = and i32 %76, 31
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %3, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !11
   %82 = add nsw i32 %81, %75
@@ -1434,41 +1434,41 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %35, %38, %42, %46, 
   %104 = lshr i64 %93, 16
   %105 = lshr i64 %93, 8
   %106 = and i64 %93, 255
-  %107 = getelementptr inbounds nuw i32, ptr %3, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !11
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %107, align 4, !tbaa !11
   %110 = and i64 %105, 255
-  %111 = getelementptr inbounds nuw i32, ptr %3, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !11
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %111, align 4, !tbaa !11
   %114 = and i64 %104, 255
-  %115 = getelementptr inbounds nuw i32, ptr %3, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !11
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !11
   %118 = and i64 %103, 255
-  %119 = getelementptr inbounds nuw i32, ptr %3, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !11
   %121 = add nsw i32 %120, 1
   store i32 %121, ptr %119, align 4, !tbaa !11
   %122 = and i64 %102, 255
-  %123 = getelementptr inbounds nuw i32, ptr %3, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !11
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 4, !tbaa !11
   %126 = and i64 %101, 255
-  %127 = getelementptr inbounds nuw i32, ptr %3, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !11
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %127, align 4, !tbaa !11
   %130 = and i64 %100, 255
-  %131 = getelementptr inbounds nuw i32, ptr %3, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !11
   %133 = add nsw i32 %132, 1
   store i32 %133, ptr %131, align 4, !tbaa !11
-  %134 = getelementptr inbounds nuw i32, ptr %3, i64 %99
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %99
   %135 = load i32, ptr %134, align 4, !tbaa !11
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %134, align 4, !tbaa !11
@@ -1524,7 +1524,7 @@ _ZN10duckdb_hll6hllTauEd.exit.preheader:          ; preds = %_ZN10duckdb_hll16hl
 _ZN10duckdb_hll6hllTauEd.exit:                    ; preds = %_ZN10duckdb_hll6hllTauEd.exit.preheader, %_ZN10duckdb_hll6hllTauEd.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10duckdb_hll6hllTauEd.exit ], [ 52, %_ZN10duckdb_hll6hllTauEd.exit.preheader ]
   %.040 = phi double [ %165, %_ZN10duckdb_hll6hllTauEd.exit ], [ %.040.ph, %_ZN10duckdb_hll6hllTauEd.exit.preheader ]
-  %161 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %162 = load i32, ptr %161, align 4, !tbaa !11
   %163 = sitofp i32 %162 to double
   %164 = fadd double %.040, %163
@@ -1891,7 +1891,7 @@ define noalias noundef ptr @_ZN10duckdb_hll9hll_mergeEPPNS_4robjEm(ptr noundef r
 .lr.ph:                                           ; preds = %2, %14
   %.02742 = phi i32 [ %.128.ph, %14 ], [ 0, %2 ]
   %.03041 = phi i64 [ %15, %14 ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03041
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03041
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7

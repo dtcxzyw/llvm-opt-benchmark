@@ -421,7 +421,7 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %212 = add nsw i32 %211, 1
   store i32 %212, ptr %98, align 4, !tbaa !40
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds %struct.btSupportVector, ptr %14, i64 %213
+  %214 = getelementptr inbounds [48 x i8], ptr %14, i64 %213
   store <2 x float> %.sroa.0.4.vec.insert.i39.i, ptr %214, align 4
   %.sroa.0428.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i40.i, ptr %.sroa.0428.sroa.0.sroa.6.0..sroa_idx, align 4, !tbaa !35
@@ -606,7 +606,7 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %339 = add nsw i32 %338, 1
   store i32 %339, ptr %98, align 4, !tbaa !40
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds %struct.btSupportVector, ptr %14, i64 %340
+  %341 = getelementptr inbounds [48 x i8], ptr %14, i64 %340
   store <2 x float> %.sroa.0.4.vec.insert.i39.i173, ptr %341, align 4
   %.sroa.0428.sroa.0.sroa.6.0..sroa_idx464 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i40.i174, ptr %.sroa.0428.sroa.0.sroa.6.0..sroa_idx464, align 4, !tbaa !35
@@ -693,7 +693,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit.thread522: ; preds = %375, %376
 
 386:                                              ; preds = %337
   %387 = sext i32 %342 to i64
-  %388 = getelementptr inbounds %struct.btSupportVector, ptr %14, i64 %387
+  %388 = getelementptr inbounds [48 x i8], ptr %14, i64 %387
   %389 = call noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef nonnull %388, ptr noundef nonnull %225, ptr noundef nonnull %220, ptr noundef nonnull %14, ptr noundef null)
   %390 = call noundef float @llvm.fabs.f32(float %389)
   %391 = fcmp olt float %390, 0x3E80000000000000
@@ -2530,7 +2530,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12btDoSimplex3P9btSimple
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.btSupportVector, ptr %0, i64 %9
+  %10 = getelementptr inbounds [48 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef nonnull @_ZL15ccd_vec3_origin, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef null)
   %13 = tail call noundef float @llvm.fabs.f32(float %12)

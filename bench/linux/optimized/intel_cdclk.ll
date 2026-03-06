@@ -13,8 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.82 }
 %union.anon.82 = type { i64 }
 %struct.intel_cdclk_config = type { i32, i32, i32, i32, i8 }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [68 x i8] c"%s %d kHz, VCO %d kHz, ref %d kHz, bypass %d kHz, voltage level %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"%s %s: %s\00", align 1
@@ -265,7 +263,7 @@ define dso_local void @intel_cdclk_init_hw(ptr noundef %0) local_unnamed_addr #0
 77:                                               ; preds = %74, %68
   %78 = add i32 %71, 1
   %79 = sext i32 %78 to i64
-  %80 = getelementptr %struct.intel_cdclk_vals, ptr %62, i64 %79
+  %80 = getelementptr [12 x i8], ptr %62, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i16, ptr %81, align 4
   %83 = icmp eq i16 %82, 0
@@ -406,7 +404,7 @@ bxt_calc_cdclk.exit:                              ; preds = %74, %93
   %158 = phi i32 [ %159, %154 ], [ 0, %150 ]
   %159 = add i32 %158, 1
   %160 = sext i32 %159 to i64
-  %161 = getelementptr %struct.intel_cdclk_vals, ptr %146, i64 %160
+  %161 = getelementptr [12 x i8], ptr %146, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load i16, ptr %162, align 4
   %164 = icmp eq i16 %163, 0
@@ -1619,7 +1617,7 @@ define dso_local range(i32 0, -2147483648) i32 @intel_crtc_compute_min_cdclk(ptr
   %128 = getelementptr i8, ptr %122, i64 1316
   %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
-  %131 = getelementptr i32, ptr %120, i64 %130
+  %131 = getelementptr [4 x i8], ptr %120, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = tail call i32 @llvm.smax.i32(i32 %132, i32 %123)
   br label %134
@@ -1726,7 +1724,7 @@ define dso_local i32 @intel_cdclk_atomic_check(ptr noundef %0, ptr noundef %1) l
   %11 = phi ptr [ %4, %8 ], [ %21, %20 ]
   %12 = phi i64 [ 0, %8 ], [ %22, %20 ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr %struct.__drm_planes_state, ptr %13, i64 %12
+  %14 = getelementptr [32 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %20, label %17
@@ -3274,7 +3272,7 @@ define internal fastcc range(i32 0, 16711426) i32 @bxt_calc_cdclk_pll_vco(ptr no
 29:                                               ; preds = %21, %15
   %30 = add i32 %18, 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %struct.intel_cdclk_vals, ptr %4, i64 %31
+  %32 = getelementptr [12 x i8], ptr %4, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = icmp eq i16 %34, 0
@@ -4008,7 +4006,7 @@ define internal fastcc void @_bxt_set_cdclk(ptr noundef %0, i32 %.0.val, i32 %.4
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 6, ptr %202, align 4
   %203 = sext i32 %1 to i64
-  %204 = getelementptr i32, ptr %3, i64 %203
+  %204 = getelementptr [4 x i8], ptr %3, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = shl i32 %205, 19
   br label %210
@@ -4118,7 +4116,7 @@ define internal fastcc range(i32 0, 65536) i32 @cdclk_squash_waveform(ptr nounde
 28:                                               ; preds = %21, %15
   %29 = add i32 %18, 1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.intel_cdclk_vals, ptr %4, i64 %30
+  %31 = getelementptr [12 x i8], ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, 0
@@ -4808,7 +4806,7 @@ define internal range(i32 -2147483648, 1) i32 @bxt_modeset_calc_cdclk(ptr nounde
   %23 = phi ptr [ %11, %15 ], [ %48, %.thread ]
   %24 = phi i64 [ 0, %15 ], [ %49, %.thread ]
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr %struct.__drm_crtcs_state, ptr %25, i64 %24
+  %26 = getelementptr [56 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -4913,7 +4911,7 @@ define internal range(i32 -2147483648, 1) i32 @bxt_modeset_calc_cdclk(ptr nounde
 90:                                               ; preds = %87, %81
   %91 = add i32 %84, 1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr %struct.intel_cdclk_vals, ptr %74, i64 %92
+  %93 = getelementptr [12 x i8], ptr %74, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i16, ptr %94, align 4
   %96 = icmp eq i16 %95, 0
@@ -4997,7 +4995,7 @@ bxt_calc_cdclk.exit:                              ; preds = %87, %106
 145:                                              ; preds = %142, %136
   %146 = add i32 %139, 1
   %147 = sext i32 %146 to i64
-  %148 = getelementptr %struct.intel_cdclk_vals, ptr %129, i64 %147
+  %148 = getelementptr [12 x i8], ptr %129, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i16, ptr %149, align 4
   %151 = icmp eq i16 %150, 0
@@ -5060,7 +5058,7 @@ define internal zeroext i8 @rplu_calc_voltage_level(i32 noundef %0) #0 align 16 
 
 2:                                                ; preds = %9, %1
   %3 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %4 = getelementptr i32, ptr @rplu_calc_voltage_level.rplu_voltage_level_max_cdclk, i64 %3
+  %4 = getelementptr [4 x i8], ptr @rplu_calc_voltage_level.rplu_voltage_level_max_cdclk, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, %0
   br i1 %6, label %9, label %7
@@ -5108,7 +5106,7 @@ define internal fastcc i32 @intel_compute_min_cdclk(ptr noundef %0) unnamed_addr
 12:                                               ; preds = %.thread, %9
   %13 = phi i64 [ 0, %9 ], [ %30, %.thread ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr %struct.__drm_crtcs_state, ptr %14, i64 %13
+  %15 = getelementptr [56 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
@@ -5120,7 +5118,7 @@ define internal fastcc i32 @intel_compute_min_cdclk(ptr noundef %0) unnamed_addr
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 1648
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr i32, ptr %11, i64 %24
+  %25 = getelementptr [4 x i8], ptr %11, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %21
   br i1 %27, label %.thread, label %28
@@ -5179,7 +5177,7 @@ define internal fastcc i32 @intel_compute_min_cdclk(ptr noundef %0) unnamed_addr
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %56
-  %63 = getelementptr i32, ptr %55, i64 %57
+  %63 = getelementptr [4 x i8], ptr %55, i64 %57
   %64 = load i32, ptr %63, align 4
   %65 = tail call i32 @llvm.smax.i32(i32 %64, i32 %58)
   br label %66
@@ -5246,7 +5244,7 @@ define internal zeroext i8 @tgl_calc_voltage_level(i32 noundef %0) #0 align 16 {
 
 2:                                                ; preds = %9, %1
   %3 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %4 = getelementptr i32, ptr @tgl_calc_voltage_level.tgl_voltage_level_max_cdclk, i64 %3
+  %4 = getelementptr [4 x i8], ptr @tgl_calc_voltage_level.tgl_voltage_level_max_cdclk, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, %0
   br i1 %6, label %9, label %7
@@ -5281,7 +5279,7 @@ define internal zeroext i8 @ehl_calc_voltage_level(i32 noundef %0) #0 align 16 {
 
 2:                                                ; preds = %9, %1
   %3 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %4 = getelementptr i32, ptr @ehl_calc_voltage_level.ehl_voltage_level_max_cdclk, i64 %3
+  %4 = getelementptr [4 x i8], ptr @ehl_calc_voltage_level.ehl_voltage_level_max_cdclk, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, %0
   br i1 %6, label %9, label %7
@@ -5316,7 +5314,7 @@ define internal zeroext range(i8 0, 3) i8 @icl_calc_voltage_level(i32 noundef %0
 
 2:                                                ; preds = %9, %1
   %3 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %4 = getelementptr i32, ptr @icl_calc_voltage_level.icl_voltage_level_max_cdclk, i64 %3
+  %4 = getelementptr [4 x i8], ptr @icl_calc_voltage_level.icl_voltage_level_max_cdclk, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, %0
   br i1 %6, label %9, label %7
@@ -5577,7 +5575,7 @@ define internal range(i32 -2147483648, 1) i32 @skl_modeset_calc_cdclk(ptr nounde
 24:                                               ; preds = %49, %20
   %25 = phi i64 [ 0, %20 ], [ %51, %49 ]
   %26 = phi i32 [ %16, %20 ], [ %50, %49 ]
-  %27 = getelementptr %struct.__drm_crtcs_state, ptr %22, i64 %25
+  %27 = getelementptr [56 x i8], ptr %22, i64 %25
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load ptr, ptr %29, align 8
@@ -6860,7 +6858,7 @@ define internal fastcc i32 @intel_hpll_vco(ptr noundef %0) unnamed_addr #0 align
   %37 = and i32 %36, 255
   %38 = and i32 %36, 7
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr i32, ptr %20, i64 %39
+  %40 = getelementptr [4 x i8], ptr %20, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   %43 = icmp eq ptr %0, null

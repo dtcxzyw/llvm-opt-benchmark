@@ -48,7 +48,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.0187271 = phi i64 [ %19, %.lr.ph ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %.0187271
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0187271
   %14 = load i32, ptr %13, align 4, !tbaa !8
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
@@ -79,9 +79,9 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
 .lr.ph274:                                        ; preds = %.lr.ph274.preheader, %.lr.ph274
   %indvars.iv = phi i64 [ %23, %.lr.ph274.preheader ], [ %indvars.iv.next, %.lr.ph274 ]
   %.1179272 = phi i64 [ %.0178281, %.lr.ph274.preheader ], [ %33, %.lr.ph274 ]
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %.1179272
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.1179272
   %25 = load i32, ptr %24, align 4, !tbaa !8
-  %26 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %indvars.iv
   store i32 %25, ptr %26, align 4, !tbaa !8
   %27 = getelementptr i8, ptr %24, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !8
@@ -111,7 +111,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
 39:                                               ; preds = %._crit_edge
   %40 = lshr i32 %.0191276, 2
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %41
+  %42 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !8
@@ -119,7 +119,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
   %47 = load i32, ptr %46, align 4, !tbaa !8
   %48 = and i32 %.0191276, 3
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %42, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !8
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %53 = xor i32 %40, -1
@@ -152,7 +152,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
 
 .lr.ph.i:                                         ; preds = %39, %98
   %.02639.i = phi i64 [ %99, %98 ], [ 0, %39 ]
-  %73 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %.02639.i
+  %73 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.02639.i
   %74 = load i32, ptr %73, align 4, !tbaa !8
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !8
@@ -210,7 +210,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread: ; preds = %98, %_ZN7meshoptL1
 
 .lr.ph.i215:                                      ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread, %130
   %.02639.i216 = phi i64 [ %131, %130 ], [ 0, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread ]
-  %105 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %.02639.i216
+  %105 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.02639.i216
   %106 = load i32, ptr %105, align 4, !tbaa !8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !8
@@ -261,7 +261,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221:    ; preds = %126, %120, %113
   br i1 %133, label %134, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread
 
 134:                                              ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221
-  %135 = getelementptr inbounds nuw i32, ptr %0, i64 %.0183277
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0183277
   store i32 %.sroa.0.0280, ptr %135, align 4, !tbaa !8
   %136 = add i64 %.0183277, 2
   %137 = getelementptr i8, ptr %135, i64 4
@@ -271,7 +271,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221:    ; preds = %126, %120, %113
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread: ; preds = %130, %39, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221
   %138 = phi i32 [ %102, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221 ], [ %100, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit ], [ -1, %39 ], [ %102, %130 ]
   %139 = add i64 %.0183277, 1
-  %140 = getelementptr inbounds nuw i32, ptr %0, i64 %.0183277
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0183277
   store i32 %51, ptr %140, align 4, !tbaa !8
   %141 = xor i32 %.0180278, 1
   br label %308
@@ -285,7 +285,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread: ; preds = %130, %39, %_ZN7
   %.032.i = phi i32 [ %.1.i, %.lr.ph.i223 ], [ 0, %142 ]
   %.02531.i = phi i32 [ %.126.i, %.lr.ph.i223 ], [ -1, %142 ]
   %.02730.i = phi i64 [ %166, %.lr.ph.i223 ], [ 0, %142 ]
-  %144 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %.02730.i
+  %144 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.02730.i
   %145 = load i32, ptr %144, align 4, !tbaa !8
   %146 = zext i32 %145 to i64
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 %146
@@ -317,7 +317,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread: ; preds = %130, %39, %_ZN7
 _ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit:     ; preds = %.lr.ph.i223, %142
   %.0.lcssa.i = phi i32 [ 0, %142 ], [ %.1.i, %.lr.ph.i223 ]
   %167 = zext i32 %.0.lcssa.i to i64
-  %168 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %167
+  %168 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !8
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load i32, ptr %170, align 4, !tbaa !8
@@ -325,7 +325,7 @@ _ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit:     ; preds = %.lr.ph.i223, %142
   %173 = load i32, ptr %172, align 4, !tbaa !8
   %174 = add i32 %.0.lcssa.i, 1
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %175
+  %176 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %175
   %177 = xor i32 %.0.lcssa.i, -1
   %178 = add i32 %.1.lcssa, %177
   %179 = zext i32 %178 to i64
@@ -353,7 +353,7 @@ _ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit:     ; preds = %.lr.ph.i223, %142
 
 .lr.ph.i227:                                      ; preds = %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit, %220
   %.02639.i228 = phi i64 [ %221, %220 ], [ 0, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
-  %195 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %.02639.i228
+  %195 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.02639.i228
   %196 = load i32, ptr %195, align 4, !tbaa !8
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !8
@@ -405,7 +405,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit233:    ; preds = %220, %203, %210, %2
 
 .lr.ph.i235:                                      ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit233, %248
   %.02639.i236 = phi i64 [ %249, %248 ], [ 0, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit233 ]
-  %223 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %.02639.i236
+  %223 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.02639.i236
   %224 = load i32, ptr %223, align 4, !tbaa !8
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %226 = load i32, ptr %225, align 4, !tbaa !8
@@ -456,7 +456,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit241:    ; preds = %248, %231, %238, %2
 
 .lr.ph.i243:                                      ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit241, %276
   %.02639.i244 = phi i64 [ %277, %276 ], [ 0, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit241 ]
-  %251 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 %.02639.i244
+  %251 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.02639.i244
   %252 = load i32, ptr %251, align 4, !tbaa !8
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 4
   %254 = load i32, ptr %253, align 4, !tbaa !8
@@ -533,13 +533,13 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread: ; preds = %276, %272, %266
 
 288:                                              ; preds = %287
   %289 = add i64 %.0183277, 1
-  %290 = getelementptr inbounds nuw i32, ptr %0, i64 %.0183277
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0183277
   store i32 %4, ptr %290, align 4, !tbaa !8
   br label %291
 
 291:                                              ; preds = %288, %287
   %.3186 = phi i64 [ %289, %288 ], [ 0, %287 ]
-  %292 = getelementptr inbounds nuw i32, ptr %0, i64 %.3186
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.3186
   store i32 %.0190, ptr %292, align 4, !tbaa !8
   %293 = getelementptr i8, ptr %292, i64 4
   store i32 %.0189, ptr %293, align 4, !tbaa !8
@@ -551,7 +551,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread: ; preds = %276, %272, %266
   br i1 %.not207, label %300, label %296
 
 296:                                              ; preds = %295
-  %297 = getelementptr inbounds nuw i32, ptr %0, i64 %.0183277
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0183277
   store i32 %.sroa.10.0279, ptr %297, align 4, !tbaa !8
   %298 = add i64 %.0183277, 2
   %299 = getelementptr i8, ptr %297, i64 4
@@ -563,7 +563,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread: ; preds = %276, %272, %266
   %.not208 = icmp eq i32 %.0180278, 0
   %301 = select i1 %.not208, i32 %.0189, i32 %.0188
   %302 = select i1 %.not208, i32 %.0188, i32 %.0189
-  %303 = getelementptr inbounds nuw i32, ptr %0, i64 %.5
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.5
   store i32 %.0190, ptr %303, align 4, !tbaa !8
   %304 = getelementptr i8, ptr %303, i64 4
   store i32 %301, ptr %304, align 4, !tbaa !8
@@ -633,7 +633,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.04
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)
@@ -675,7 +675,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %.lr.ph.split.us
-  %7 = getelementptr i32, ptr %1, i64 %.04151.us
+  %7 = getelementptr [4 x i8], ptr %1, i64 %.04151.us
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = getelementptr i8, ptr %7, i64 -4
@@ -693,7 +693,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   br i1 %or.cond50.us, label %20, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %.053.us
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.053.us
   store i32 %spec.select.us, ptr %16, align 4, !tbaa !8
   %17 = getelementptr i8, ptr %16, i64 4
   store i32 %spec.select49.us, ptr %17, align 4, !tbaa !8
@@ -716,7 +716,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   %.053 = phi i64 [ %.2, %42 ], [ 0, %.lr.ph ]
   %.03752 = phi i64 [ %.138, %42 ], [ 0, %.lr.ph ]
   %.04151 = phi i64 [ %43, %42 ], [ 0, %.lr.ph ]
-  %22 = getelementptr i32, ptr %1, i64 %.04151
+  %22 = getelementptr [4 x i8], ptr %1, i64 %.04151
   %23 = load i32, ptr %22, align 4, !tbaa !8
   %24 = icmp eq i32 %23, %3
   br i1 %24, label %25, label %27
@@ -747,7 +747,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   br i1 %or.cond50, label %42, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i32, ptr %0, i64 %.053
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.053
   store i32 %spec.select, ptr %38, align 4, !tbaa !8
   %39 = getelementptr i8, ptr %38, i64 4
   store i32 %spec.select49, ptr %39, align 4, !tbaa !8

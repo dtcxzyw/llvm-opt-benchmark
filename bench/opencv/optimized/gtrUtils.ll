@@ -725,7 +725,7 @@ _ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE13_M_deallocateEPS2_m.exit:
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !26
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !19
-  %46 = getelementptr inbounds nuw %"struct.cv::gtr::TrainingSample", ptr %22, i64 %16
+  %46 = getelementptr inbounds nuw [208 x i8], ptr %22, i64 %16
   store ptr %46, ptr %45, align 8, !tbaa !22
   ret void
 

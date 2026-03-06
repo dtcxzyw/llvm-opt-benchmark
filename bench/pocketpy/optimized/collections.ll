@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.pkpy::pod_vector.149" = type { i32, i32, ptr }
 %struct._Guard = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%"struct.pkpy::NameDictItem" = type { %"struct.pkpy::StrName", ptr }
 %"struct.pkpy::SmallNameDict" = type { i8, i16, [8 x %"struct.pkpy::StrName"], [8 x ptr] }
 %"class.std::tuple.161" = type { %"struct.std::_Tuple_impl.162" }
 %"struct.std::_Tuple_impl.162" = type { %"struct.std::_Head_base.163" }
@@ -1837,7 +1836,7 @@ define void @_ZN4pkpy7PyDeque9insertObjEbbiPNS_8PyObjectE(ptr noundef nonnull al
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %146
-  %149 = getelementptr inbounds nuw ptr, ptr %116, i64 %121
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %121
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit
 
 150:                                              ; preds = %146
@@ -1850,12 +1849,12 @@ define void @_ZN4pkpy7PyDeque9insertObjEbbiPNS_8PyObjectE(ptr noundef nonnull al
 
 154:                                              ; preds = %152, %150
   %155 = phi i64 [ %151, %150 ], [ %153, %152 ]
-  %156 = getelementptr inbounds ptr, ptr %119, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %119, i64 %155
   %157 = load ptr, ptr %156, align 8, !noalias !16
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 512
   %159 = shl nsw i64 %155, 6
   %160 = sub nsw i64 %144, %159
-  %161 = getelementptr inbounds ptr, ptr %157, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %157, i64 %160
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit: ; preds = %148, %154
@@ -2170,7 +2169,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit
 
 139:                                              ; preds = %135
@@ -2183,11 +2182,11 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
 
 143:                                              ; preds = %141, %139
   %144 = phi i64 [ %140, %139 ], [ %142, %141 ]
-  %145 = getelementptr inbounds ptr, ptr %128, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %128, i64 %144
   %146 = load ptr, ptr %145, align 8, !noalias !19
   %147 = shl nsw i64 %144, 6
   %148 = sub nsw i64 %133, %147
-  %149 = getelementptr inbounds ptr, ptr %146, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %146, i64 %148
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit
 
 _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit:   ; preds = %137, %143
@@ -3711,7 +3710,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %43, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %38, ptr %17, align 8
   store ptr %42, ptr %18, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %44, ptr %20, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -3951,7 +3950,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds ptr, ptr %37, i64 %36
+  %50 = getelementptr inbounds [8 x i8], ptr %37, i64 %36
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_S4_.exit"
 
 51:                                               ; preds = %47
@@ -3964,11 +3963,11 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
 
 55:                                               ; preds = %53, %51
   %56 = phi i64 [ %52, %51 ], [ %54, %53 ]
-  %57 = getelementptr inbounds ptr, ptr %40, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %40, i64 %56
   %58 = load ptr, ptr %57, align 8, !noalias !64
   %59 = shl nsw i64 %56, 6
   %60 = sub nsw i64 %45, %59
-  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %58, i64 %60
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_S4_.exit"
 
 "_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_S4_.exit": ; preds = %49, %55
@@ -4857,7 +4856,7 @@ define internal void @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds ptr, ptr %38, i64 %37
+  %51 = getelementptr inbounds [8 x i8], ptr %38, i64 %37
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_S4_S4_S4_.exit"
 
 52:                                               ; preds = %48
@@ -4870,11 +4869,11 @@ define internal void @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$
 
 56:                                               ; preds = %54, %52
   %57 = phi i64 [ %53, %52 ], [ %55, %54 ]
-  %58 = getelementptr inbounds ptr, ptr %41, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %41, i64 %57
   %59 = load ptr, ptr %58, align 8, !noalias !69
   %60 = shl nsw i64 %57, 6
   %61 = sub nsw i64 %46, %60
-  %62 = getelementptr inbounds ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %59, i64 %61
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_S4_S4_S4_.exit"
 
 "_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_S4_S4_S4_.exit": ; preds = %50, %56
@@ -4939,7 +4938,7 @@ define internal void @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds ptr, ptr %39, i64 %38
+  %52 = getelementptr inbounds [8 x i8], ptr %39, i64 %38
   %.pre.i = load ptr, ptr %42, align 8, !noalias !75
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_3clES2_S4_S4_.exit"
 
@@ -4953,11 +4952,11 @@ define internal void @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$
 
 57:                                               ; preds = %55, %53
   %58 = phi i64 [ %54, %53 ], [ %56, %55 ]
-  %59 = getelementptr inbounds ptr, ptr %42, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %42, i64 %58
   %60 = load ptr, ptr %59, align 8, !noalias !80
   %61 = shl nsw i64 %58, 6
   %62 = sub nsw i64 %47, %61
-  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %60, i64 %62
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_3clES2_S4_S4_.exit"
 
 "_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_3clES2_S4_S4_.exit": ; preds = %51, %57
@@ -5184,7 +5183,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %62, ptr %41, align 8
   store ptr %66, ptr %42, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   store ptr %68, ptr %44, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -5424,11 +5423,11 @@ _ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_ins
 
 79:                                               ; preds = %77, %75
   %80 = phi i64 [ %76, %75 ], [ %78, %77 ]
-  %81 = getelementptr inbounds ptr, ptr %64, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %64, i64 %80
   %82 = load ptr, ptr %81, align 8, !noalias !105
   %83 = shl nsw i64 %80, 6
   %84 = sub nsw i64 %69, %83
-  %85 = getelementptr inbounds ptr, ptr %82, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %82, i64 %84
   br label %_ZStmiRKSt15_Deque_iteratorIPN4pkpy8PyObjectERKS2_PS3_El.exit.i
 
 _ZStmiRKSt15_Deque_iteratorIPN4pkpy8PyObjectERKS2_PS3_El.exit.i: ; preds = %79, %73
@@ -5822,7 +5821,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.i
   br label %_ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
 
 110:                                              ; preds = %106
@@ -5835,11 +5834,11 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
 
 114:                                              ; preds = %112, %110
   %115 = phi i64 [ %111, %110 ], [ %113, %112 ]
-  %116 = getelementptr inbounds ptr, ptr %76, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %76, i64 %115
   %117 = load ptr, ptr %116, align 8, !noalias !114
   %118 = shl nsw i64 %115, 6
   %119 = sub nsw i64 %104, %118
-  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %117, i64 %119
   br label %_ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
 
 _ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %114, %108
@@ -5861,7 +5860,7 @@ _ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %114, %108
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv.i
   br label %_ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i
 
 135:                                              ; preds = %131
@@ -5874,11 +5873,11 @@ _ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %114, %108
 
 139:                                              ; preds = %137, %135
   %140 = phi i64 [ %136, %135 ], [ %138, %137 ]
-  %141 = getelementptr inbounds ptr, ptr %124, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %124, i64 %140
   %142 = load ptr, ptr %141, align 8, !noalias !117
   %143 = shl nsw i64 %140, 6
   %144 = sub nsw i64 %129, %143
-  %145 = getelementptr inbounds ptr, ptr %142, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %142, i64 %144
   br label %_ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i
 
 _ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i: ; preds = %139, %133
@@ -6806,7 +6805,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %32, ptr %11, align 8
   store ptr %36, ptr %12, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %14, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -7362,7 +7361,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
 
 56:                                               ; preds = %52
@@ -7375,11 +7374,11 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
 
 60:                                               ; preds = %58, %56
   %61 = phi i64 [ %57, %56 ], [ %59, %58 ]
-  %62 = getelementptr inbounds ptr, ptr %45, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %45, i64 %61
   %63 = load ptr, ptr %62, align 8, !noalias !146
   %64 = shl nsw i64 %61, 6
   %65 = sub nsw i64 %50, %64
-  %66 = getelementptr inbounds ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %63, i64 %65
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
 
 _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
@@ -7396,7 +7395,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds ptr, ptr %43, i64 %69
+  %75 = getelementptr inbounds [8 x i8], ptr %43, i64 %69
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i
 
 76:                                               ; preds = %72
@@ -7409,11 +7408,11 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
 
 80:                                               ; preds = %78, %76
   %81 = phi i64 [ %77, %76 ], [ %79, %78 ]
-  %82 = getelementptr inbounds ptr, ptr %45, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %45, i64 %81
   %83 = load ptr, ptr %82, align 8, !noalias !149
   %84 = shl nsw i64 %81, 6
   %85 = sub nsw i64 %70, %84
-  %86 = getelementptr inbounds ptr, ptr %83, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %83, i64 %85
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i
 
 _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i: ; preds = %80, %74
@@ -7426,7 +7425,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i: ; preds = %80, %74
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i
 
 92:                                               ; preds = %88
@@ -7439,11 +7438,11 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i: ; preds = %80, %74
 
 96:                                               ; preds = %94, %92
   %97 = phi i64 [ %93, %92 ], [ %95, %94 ]
-  %98 = getelementptr inbounds ptr, ptr %45, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %45, i64 %97
   %99 = load ptr, ptr %98, align 8, !noalias !152
   %100 = shl nsw i64 %97, 6
   %101 = sub nsw i64 %50, %100
-  %102 = getelementptr inbounds ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %99, i64 %101
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i
 
 _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i: ; preds = %96, %90
@@ -7465,7 +7464,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i: ; preds = %96, %90
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds ptr, ptr %103, i64 %69
+  %115 = getelementptr inbounds [8 x i8], ptr %103, i64 %69
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i
 
 116:                                              ; preds = %112
@@ -7478,11 +7477,11 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i: ; preds = %96, %90
 
 120:                                              ; preds = %118, %116
   %121 = phi i64 [ %117, %116 ], [ %119, %118 ]
-  %122 = getelementptr inbounds ptr, ptr %105, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %105, i64 %121
   %123 = load ptr, ptr %122, align 8, !noalias !155
   %124 = shl nsw i64 %121, 6
   %125 = sub nsw i64 %110, %124
-  %126 = getelementptr inbounds ptr, ptr %123, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %123, i64 %125
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i
 
 _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i: ; preds = %120, %114
@@ -7801,7 +7800,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %37, ptr %6, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   store ptr %22, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 8
   %40 = icmp eq ptr %39, %.sroa.8.08.i
@@ -7989,7 +7988,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %43, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %38, ptr %17, align 8
   store ptr %42, ptr %18, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %44, ptr %20, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -8165,7 +8164,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %33, ptr %12, align 8
   store ptr %37, ptr %13, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %39, ptr %15, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -8259,7 +8258,7 @@ _ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -8350,7 +8349,7 @@ _ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE15_M_create_nodesEPPS2_S6_.exit: ; p
   store ptr %47, ptr %48, align 8
   store ptr %38, ptr %36, align 8
   %49 = and i64 %1, 63
-  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %49
   store ptr %50, ptr %42, align 8
   ret void
 
@@ -8735,7 +8734,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE8pop_backEv.exit: ; preds = %110, %112
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds ptr, ptr %120, i64 %48
+  %135 = getelementptr inbounds [8 x i8], ptr %120, i64 %48
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit
 
 136:                                              ; preds = %132
@@ -8748,7 +8747,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE8pop_backEv.exit: ; preds = %110, %112
 
 140:                                              ; preds = %138, %136
   %141 = phi i64 [ %137, %136 ], [ %139, %138 ]
-  %142 = getelementptr inbounds ptr, ptr %122, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %122, i64 %141
   store ptr %142, ptr %125, align 8, !alias.scope !203
   %143 = load ptr, ptr %142, align 8, !noalias !203
   store ptr %143, ptr %123, align 8, !alias.scope !203
@@ -8756,7 +8755,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE8pop_backEv.exit: ; preds = %110, %112
   store ptr %144, ptr %124, align 8, !alias.scope !203
   %145 = shl nsw i64 %141, 6
   %146 = sub nsw i64 %130, %145
-  %147 = getelementptr inbounds ptr, ptr %143, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %143, i64 %146
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit: ; preds = %134, %140
@@ -8831,7 +8830,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4pkpy8PyObjectERS
   %gepdiff.i = sub nsw i64 0, %.idx39.i
   %38 = ashr exact i64 %gepdiff.i, 3
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds ptr, ptr %.0936.i, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.0936.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !206
   %41 = sub nsw i64 %.pre26.i.pre-phi, %.sroa.speculated37.i
   %42 = icmp sgt i64 %41, -1
@@ -8842,7 +8841,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4pkpy8PyObjectERS
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds ptr, ptr %.sroa.088.0, i64 %36
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -8855,12 +8854,12 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4pkpy8PyObjectERS
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.1291.0, i64 %52
   %54 = load ptr, ptr %53, align 8, !noalias !206
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 6
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i: ; preds = %51, %45
@@ -8936,7 +8935,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
   %gepdiff.i17 = sub nsw i64 0, %.idx39.i16
   %85 = ashr exact i64 %gepdiff.i17, 3
   %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds ptr, ptr %.0936.i15, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.0936.i15, i64 %86
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr nonnull align 8 %84, i64 %gepdiff.i17, i1 false), !noalias !210
   %88 = sub nsw i64 %.pre26.i23.pre-phi, %.sroa.speculated37.i14
   %89 = icmp sgt i64 %88, -1
@@ -8947,7 +8946,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds ptr, ptr %.sroa.082.0, i64 %83
+  %93 = getelementptr inbounds [8 x i8], ptr %.sroa.082.0, i64 %83
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24
 
 94:                                               ; preds = %90
@@ -8960,12 +8959,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
 
 98:                                               ; preds = %96, %94
   %99 = phi i64 [ %95, %94 ], [ %97, %96 ]
-  %100 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %99
   %101 = load ptr, ptr %100, align 8, !noalias !210
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 512
   %103 = shl nsw i64 %99, 6
   %104 = sub nsw i64 %88, %103
-  %105 = getelementptr inbounds ptr, ptr %101, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %101, i64 %104
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24: ; preds = %98, %92
@@ -9041,7 +9040,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
   %gepdiff.i40 = sub nsw i64 0, %.idx39.i39
   %134 = ashr exact i64 %gepdiff.i40, 3
   %135 = sub nsw i64 0, %134
-  %136 = getelementptr inbounds ptr, ptr %.0936.i38, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %.0936.i38, i64 %135
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %136, ptr nonnull align 8 %133, i64 %gepdiff.i40, i1 false), !noalias !214
   %137 = sub nsw i64 %.pre26.i46.pre-phi, %.sroa.speculated37.i37
   %138 = icmp sgt i64 %137, -1
@@ -9052,7 +9051,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds ptr, ptr %.sroa.076.0, i64 %132
+  %142 = getelementptr inbounds [8 x i8], ptr %.sroa.076.0, i64 %132
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47
 
 143:                                              ; preds = %139
@@ -9065,12 +9064,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
 
 147:                                              ; preds = %145, %143
   %148 = phi i64 [ %144, %143 ], [ %146, %145 ]
-  %149 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %.sroa.1279.0, i64 %148
   %150 = load ptr, ptr %149, align 8, !noalias !214
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 512
   %152 = shl nsw i64 %148, 6
   %153 = sub nsw i64 %137, %152
-  %154 = getelementptr inbounds ptr, ptr %150, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %150, i64 %153
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47: ; preds = %147, %141
@@ -9138,7 +9137,7 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47: ; preds = %147, 
   %gepdiff.i63 = sub nsw i64 0, %.idx39.i62
   %185 = ashr exact i64 %gepdiff.i63, 3
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds ptr, ptr %.0936.i61, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %.0936.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !217
   %188 = sub nsw i64 %.pre26.i69.pre-phi, %.sroa.speculated37.i60
   %189 = icmp sgt i64 %188, -1
@@ -9149,7 +9148,7 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47: ; preds = %147, 
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %183
+  %193 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %183
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70
 
 194:                                              ; preds = %190
@@ -9162,12 +9161,12 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47: ; preds = %147, 
 
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
-  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %199
   %201 = load ptr, ptr %200, align 8, !noalias !217
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 6
   %204 = sub nsw i64 %188, %203
-  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %201, i64 %204
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70: ; preds = %198, %192
@@ -9255,7 +9254,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i: ; preds = %3
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds ptr, ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -9268,12 +9267,12 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i: ; preds = %3
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !noalias !220
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 6
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i: ; preds = %44, %38
@@ -9343,7 +9342,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17: ; preds = 
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds ptr, ptr %.sroa.064.0, i64 %.sroa.speculated.i12
+  %78 = getelementptr inbounds [8 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i19
 
 79:                                               ; preds = %75
@@ -9356,12 +9355,12 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17: ; preds = 
 
 83:                                               ; preds = %81, %79
   %84 = phi i64 [ %80, %79 ], [ %82, %81 ]
-  %85 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %84
   %86 = load ptr, ptr %85, align 8, !noalias !224
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 512
   %88 = shl nsw i64 %84, 6
   %89 = sub nsw i64 %73, %88
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %89
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i19: ; preds = %83, %77
@@ -9432,7 +9431,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34: ; preds = 
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds ptr, ptr %.sroa.058.0, i64 %.sroa.speculated.i29
+  %120 = getelementptr inbounds [8 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i36
 
 121:                                              ; preds = %117
@@ -9445,12 +9444,12 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34: ; preds = 
 
 125:                                              ; preds = %123, %121
   %126 = phi i64 [ %122, %121 ], [ %124, %123 ]
-  %127 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %126
   %128 = load ptr, ptr %127, align 8, !noalias !228
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 512
   %130 = shl nsw i64 %126, 6
   %131 = sub nsw i64 %115, %130
-  %132 = getelementptr inbounds ptr, ptr %128, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %128, i64 %131
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i36: ; preds = %125, %119
@@ -9511,7 +9510,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51: ; preds = 
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -9524,12 +9523,12 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51: ; preds = 
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !noalias !231
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 6
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i53: ; preds = %167, %161
@@ -9807,9 +9806,9 @@ define linkonce_odr void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE17_M_reallocate_m
   %19 = load ptr, ptr %0, align 8
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -9828,12 +9827,12 @@ define linkonce_odr void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE17_M_reallocate_m
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN4pkpy8PyObjectES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN4pkpy8PyObjectES4_ET0_T_S6_S5_.exit
 
@@ -9861,9 +9860,9 @@ _ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE15_M_allocate_mapEm.exit: ; preds = 
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN4pkpy8PyObjectES4_ET0_T_S6_S5_.exit26, label %53
@@ -9891,7 +9890,7 @@ _ZSt4copyIPPPN4pkpy8PyObjectES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27,
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8
   %64 = load ptr, ptr %63, align 8
@@ -10166,7 +10165,7 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EppEv.exit5: ; preds = %_ZNSt15_
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw ptr, ptr %64, i64 %41
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %41
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit
 
 91:                                               ; preds = %87
@@ -10179,12 +10178,12 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EppEv.exit5: ; preds = %_ZNSt15_
 
 95:                                               ; preds = %93, %91
   %96 = phi i64 [ %92, %91 ], [ %94, %93 ]
-  %97 = getelementptr inbounds ptr, ptr %68, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %68, i64 %96
   %98 = load ptr, ptr %97, align 8, !noalias !234
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 512
   %100 = shl nsw i64 %96, 6
   %101 = sub nsw i64 %85, %100
-  %102 = getelementptr inbounds ptr, ptr %98, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %98, i64 %101
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit: ; preds = %89, %95
@@ -10329,7 +10328,7 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit7: ; preds = %_ZNSt15_
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %163
-  %166 = getelementptr inbounds ptr, ptr %152, i64 %41
+  %166 = getelementptr inbounds [8 x i8], ptr %152, i64 %41
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit9
 
 167:                                              ; preds = %163
@@ -10342,12 +10341,12 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit7: ; preds = %_ZNSt15_
 
 171:                                              ; preds = %169, %167
   %172 = phi i64 [ %168, %167 ], [ %170, %169 ]
-  %173 = getelementptr inbounds ptr, ptr %156, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %156, i64 %172
   %174 = load ptr, ptr %173, align 8, !noalias !246
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 512
   %176 = shl nsw i64 %172, 6
   %177 = sub nsw i64 %161, %176
-  %178 = getelementptr inbounds ptr, ptr %174, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %174, i64 %177
   br label %_ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit9
 
 _ZStplRKSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_El.exit9: ; preds = %165, %171
@@ -10606,14 +10605,14 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_7PyDequeEEE
 
 23:                                               ; preds = %22, %20
   %indvars.iv.i.i.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i.i.i, %22 ]
-  %24 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %21, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv.i.i.i
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %25, %.sroa.01.0.copyload
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i.i
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 
 30:                                               ; preds = %6
@@ -10623,7 +10622,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_7PyDequeEEE
   %34 = load ptr, ptr %33, align 8
   %.09.i.i.i = and i16 %32, %.sroa.01.0.copyload
   %35 = zext i16 %.09.i.i.i to i64
-  %36 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %.lr.ph.i.preheader.i.i
@@ -10637,7 +10636,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_7PyDequeEEE
   %40 = add i16 %.010.i7.i.i, 1
   %.0.i.i.i = and i16 %40, %32
   %41 = zext i16 %.0.i.i.i to i64
-  %42 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %34, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %43, 0
   br i1 %44, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !262
@@ -10648,7 +10647,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_7PyDequeEEE
 
 .lr.ph.i._crit_edge.i.i:                          ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
   %.lcssa.i.i = phi i64 [ %35, %.lr.ph.i.preheader.i.i ], [ %41, %.lr.ph.i.i.i ]
-  %46 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %34, i64 %.lcssa.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.lcssa.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 
@@ -10740,14 +10739,14 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
 
 10:                                               ; preds = %9, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, %1
   br i1 %13, label %14, label %9
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   store ptr %2, ptr %16, align 8
   br label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit.thread
 
@@ -10759,7 +10758,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
 
 21:                                               ; preds = %17
   %22 = zext i16 %19 to i64
-  %23 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %.preheader.i
@@ -10767,7 +10766,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
 26:                                               ; preds = %21
   store i16 %1, ptr %23, align 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %22
   store ptr %2, ptr %28, align 8
   %29 = add i16 %19, 1
   store i16 %29, ptr %18, align 2
@@ -10777,17 +10776,17 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.preheader.i ], [ 0, %21 ]
   %30 = icmp samesign ult i64 %indvars.iv24.i, 8
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %indvars.iv24.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv24.i
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 0
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   br i1 %33, label %34, label %.preheader.i, !llvm.loop !264
 
 34:                                               ; preds = %.preheader.i
-  %35 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %indvars.iv24.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv24.i
   store i16 %1, ptr %35, align 2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv24.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv24.i
   store ptr %2, ptr %37, align 8
   %38 = add i16 %19, 1
   store i16 %38, ptr %18, align 2
@@ -10814,19 +10813,19 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
 
 46:                                               ; preds = %86, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit
   %indvars.iv.i10 = phi i64 [ 0, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit ], [ %indvars.iv.next.i11, %86 ]
-  %47 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %44, i64 %indvars.iv.i10
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv.i10
   %48 = load i16, ptr %47, align 2
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %86, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i10
   %52 = load ptr, ptr %51, align 8
   %53 = load i16, ptr %42, align 2
   %54 = load ptr, ptr %43, align 8
   %.018.i.i.i = and i16 %53, %48
   %55 = zext i16 %.018.i.i.i to i64
-  %56 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %.critedge.i.i.i, label %.lr.ph.i.i.i
@@ -10841,7 +10840,7 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   %62 = add i16 %.019.i.i.i, 1
   %.0.i.i.i = and i16 %62, %53
   %63 = zext i16 %.0.i.i.i to i64
-  %64 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %54, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
   br i1 %66, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !265
@@ -10869,7 +10868,7 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   %.pn14.i.i.i = phi i16 [ %48, %71 ], [ %80, %74 ]
   %.3.i.i.i = and i16 %.pn14.i.i.i, %72
   %75 = zext i16 %.3.i.i.i to i64
-  %76 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %77, 0
   %79 = icmp eq i16 %77, %48
@@ -10880,7 +10879,7 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
 .loopexit.i.i.i:                                  ; preds = %74, %.critedge..loopexit_crit_edge.i.i.i
   %.pre-phi24.i.i.i = phi i64 [ %.pre23.i.i.i, %.critedge..loopexit_crit_edge.i.i.i ], [ %75, %74 ]
   %81 = phi ptr [ %54, %.critedge..loopexit_crit_edge.i.i.i ], [ %73, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %81, i64 %.pre-phi24.i.i.i
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %.pre-phi24.i.i.i
   store i16 %48, ptr %82, align 8
   %.pre.i.i.i = load ptr, ptr %43, align 8
   br label %_ZZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_ENKUlS4_S2_E_clES4_S2_.exit.i
@@ -10892,7 +10891,7 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
 _ZZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_ENKUlS4_S2_E_clES4_S2_.exit.i: ; preds = %.loopexit15.i.i.i, %.loopexit.i.i.i
   %.pre-phi.i.i.i = phi i64 [ %.pre22.i.i.i, %.loopexit15.i.i.i ], [ %.pre-phi24.i.i.i, %.loopexit.i.i.i ]
   %83 = phi ptr [ %54, %.loopexit15.i.i.i ], [ %.pre.i.i.i, %.loopexit.i.i.i ]
-  %84 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %83, i64 %.pre-phi.i.i.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %.pre-phi.i.i.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %52, ptr %85, align 8
   br label %86
@@ -10907,7 +10906,7 @@ _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7S
   %88 = load ptr, ptr %43, align 8
   %.018.i = and i16 %87, %1
   %89 = zext i16 %.018.i to i64
-  %90 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = icmp eq i16 %91, 0
   br i1 %92, label %.critedge.i, label %.lr.ph.i
@@ -10922,7 +10921,7 @@ _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7S
   %96 = add i16 %.019.i, 1
   %.0.i = and i16 %96, %87
   %97 = zext i16 %.0.i to i64
-  %98 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %88, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = icmp eq i16 %99, 0
   br i1 %100, label %.critedge.i, label %.lr.ph.i, !llvm.loop !265
@@ -10950,7 +10949,7 @@ _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7S
   %.pn14.i = phi i16 [ %1, %105 ], [ %114, %108 ]
   %.3.i = and i16 %.pn14.i, %106
   %109 = zext i16 %.3.i to i64
-  %110 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %109
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
   %113 = icmp eq i16 %111, %1
@@ -10961,7 +10960,7 @@ _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7S
 .loopexit.i:                                      ; preds = %108, %.critedge..loopexit_crit_edge.i
   %.pre-phi24.i = phi i64 [ %.pre23.i, %.critedge..loopexit_crit_edge.i ], [ %109, %108 ]
   %115 = phi ptr [ %88, %.critedge..loopexit_crit_edge.i ], [ %107, %108 ]
-  %116 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %115, i64 %.pre-phi24.i
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.pre-phi24.i
   store i16 %1, ptr %116, align 8
   %.pre.i = load ptr, ptr %43, align 8
   br label %_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit
@@ -10973,7 +10972,7 @@ _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7S
 _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.loopexit.i, %.loopexit15.i
   %.pre-phi.i = phi i64 [ %.pre22.i, %.loopexit15.i ], [ %.pre-phi24.i, %.loopexit.i ]
   %117 = phi ptr [ %88, %.loopexit15.i ], [ %.pre.i, %.loopexit.i ]
-  %118 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %117, i64 %.pre-phi.i
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %.pre-phi.i
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr %2, ptr %119, align 8
   br label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit.thread
@@ -10985,7 +10984,7 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   %124 = load ptr, ptr %123, align 8
   %.018.i13 = and i16 %122, %1
   %125 = zext i16 %.018.i13 to i64
-  %126 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = icmp eq i16 %127, 0
   br i1 %128, label %.critedge.i17, label %.lr.ph.i14
@@ -11000,7 +10999,7 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   %132 = add i16 %.019.i15, 1
   %.0.i16 = and i16 %132, %122
   %133 = zext i16 %.0.i16 to i64
-  %134 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %124, i64 %133
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %133
   %135 = load i16, ptr %134, align 2
   %136 = icmp eq i16 %135, 0
   br i1 %136, label %.critedge.i17, label %.lr.ph.i14, !llvm.loop !265
@@ -11030,7 +11029,7 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   %.pn14.i25 = phi i16 [ %1, %143 ], [ %152, %146 ]
   %.3.i26 = and i16 %.pn14.i25, %144
   %147 = zext i16 %.3.i26 to i64
-  %148 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = icmp eq i16 %149, 0
   %151 = icmp eq i16 %149, %1
@@ -11041,7 +11040,7 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
 .loopexit.i21:                                    ; preds = %146, %.critedge..loopexit_crit_edge.i19
   %.pre-phi24.i22 = phi i64 [ %.pre23.i20, %.critedge..loopexit_crit_edge.i19 ], [ %147, %146 ]
   %153 = phi ptr [ %124, %.critedge..loopexit_crit_edge.i19 ], [ %145, %146 ]
-  %154 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %153, i64 %.pre-phi24.i22
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %.pre-phi24.i22
   store i16 %1, ptr %154, align 8
   %.pre.i23 = load ptr, ptr %123, align 8
   br label %_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit30
@@ -11053,7 +11052,7 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
 _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit30: ; preds = %.loopexit.i21, %.loopexit15.i28
   %.pre-phi.i24 = phi i64 [ %.pre22.i29, %.loopexit15.i28 ], [ %.pre-phi24.i22, %.loopexit.i21 ]
   %155 = phi ptr [ %124, %.loopexit15.i28 ], [ %.pre.i23, %.loopexit.i21 ]
-  %156 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %155, i64 %.pre-phi.i24
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %.pre-phi.i24
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr %2, ptr %157, align 8
   br label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit.thread
@@ -11195,7 +11194,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next, %63 ]
-  %23 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %9, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %63, label %26
@@ -11205,7 +11204,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
   %28 = load ptr, ptr %8, align 8
   %.02841 = and i16 %24, %27
   %29 = zext i16 %.02841 to i64
-  %30 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %.critedge, label %.lr.ph
@@ -11214,7 +11213,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
   %34 = add i16 %.02842, 1
   %.028 = and i16 %34, %27
   %35 = zext i16 %.028 to i64
-  %36 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %28, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %.critedge, label %.lr.ph, !llvm.loop !271
@@ -11744,14 +11743,14 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_11PyDequeIt
 
 23:                                               ; preds = %22, %20
   %indvars.iv.i.i.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i.i.i, %22 ]
-  %24 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %21, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv.i.i.i
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %25, %.sroa.01.0.copyload
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i.i
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 
 30:                                               ; preds = %6
@@ -11761,7 +11760,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_11PyDequeIt
   %34 = load ptr, ptr %33, align 8
   %.09.i.i.i = and i16 %32, %.sroa.01.0.copyload
   %35 = zext i16 %.09.i.i.i to i64
-  %36 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %.lr.ph.i.preheader.i.i
@@ -11775,7 +11774,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_11PyDequeIt
   %40 = add i16 %.010.i7.i.i, 1
   %.0.i.i.i = and i16 %40, %32
   %41 = zext i16 %.0.i.i.i to i64
-  %42 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %34, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %43, 0
   br i1 %44, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !262
@@ -11786,7 +11785,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_11PyDequeIt
 
 .lr.ph.i._crit_edge.i.i:                          ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
   %.lcssa.i.i = phi i64 [ %35, %.lr.ph.i.preheader.i.i ], [ %41, %.lr.ph.i.i.i ]
-  %46 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %34, i64 %.lcssa.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.lcssa.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 

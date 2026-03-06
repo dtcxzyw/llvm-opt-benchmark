@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.csnStream_t = type { i32, i32, ptr }
 %struct.CSN_DESCR = type { i16, i16, %union.anon, i64, i8, ptr, ptr, i32, ptr, ptr, ptr }
 %union.anon = type { ptr }
-%struct.crumb_spec_t = type { i32, i8 }
 
 @ei_csn1_more_bits_to_unpack = internal global %struct.expert_field zeroinitializer, align 4
 @hf_null_data = internal global i32 0, align 4
@@ -645,7 +644,7 @@ ProcessError.exit1677:                            ; preds = %292, %296
   %359 = getelementptr inbounds nuw i8, ptr %.01333, i64 2
   %360 = load i16, ptr %359, align 2
   %361 = sext i16 %360 to i64
-  %362 = getelementptr %struct.crumb_spec_t, ptr %358, i64 %361
+  %362 = getelementptr [8 x i8], ptr %358, i64 %361
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 4
   %364 = load i8, ptr %363, align 4
   %365 = zext i8 %364 to i32
@@ -660,7 +659,7 @@ ProcessError.exit1677:                            ; preds = %292, %296
   %370 = load ptr, ptr %357, align 8
   %371 = load i16, ptr %359, align 2
   %372 = sext i16 %371 to i64
-  %373 = getelementptr %struct.crumb_spec_t, ptr %370, i64 %372
+  %373 = getelementptr [8 x i8], ptr %370, i64 %372
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 4
   %375 = load i8, ptr %374, align 4
   %376 = zext i8 %375 to i32
@@ -1277,7 +1276,7 @@ ProcessError.exit1691:                            ; preds = %625, %629
   %687 = load i16, ptr %686, align 2
   %688 = sext i16 %687 to i32
   %689 = sext i16 %687 to i64
-  %690 = getelementptr %struct.CSN_DESCR, ptr %.01333, i64 %689
+  %690 = getelementptr [80 x i8], ptr %.01333, i64 %689
   %691 = getelementptr i8, ptr %690, i64 80
   %692 = add i16 %687, -17
   %or.cond32 = icmp ult i16 %692, -16
@@ -1358,7 +1357,7 @@ tvb_get_masked_bits8.exit1695:                    ; preds = %716, %726
   %736 = add nuw nsw i32 %735, 1
   %737 = call i32 @llvm.smin.i32(i32 %736, i32 %688)
   %738 = zext nneg i32 %737 to i64
-  %739 = getelementptr %struct.CSN_DESCR, ptr %.01333, i64 %738
+  %739 = getelementptr [80 x i8], ptr %.01333, i64 %738
   %740 = load i16, ptr %739, align 8
   switch i16 %740, label %1031 [
     i16 1, label %741
@@ -1958,7 +1957,7 @@ tvb_get_masked_bits8.exit1699:                    ; preds = %1040
   %1079 = getelementptr inbounds nuw i8, ptr %.01333, i64 2
   %1080 = load i16, ptr %1079, align 2
   %1081 = sext i16 %1080 to i64
-  %1082 = getelementptr %struct.CSN_DESCR, ptr %.01333, i64 %1081
+  %1082 = getelementptr [80 x i8], ptr %.01333, i64 %1081
   store i8 0, ptr %1073, align 1
   br label %1116
 
@@ -2026,7 +2025,7 @@ tvb_get_masked_bits8.exit1699:                    ; preds = %1040
   %1112 = getelementptr inbounds nuw i8, ptr %.01333, i64 2
   %1113 = load i16, ptr %1112, align 2
   %1114 = sext i16 %1113 to i64
-  %1115 = getelementptr %struct.CSN_DESCR, ptr %.01333, i64 %1114
+  %1115 = getelementptr [80 x i8], ptr %.01333, i64 %1114
   br label %1116
 
 1116:                                             ; preds = %.thread1860, %._crit_edge2209, %1109, %1078
@@ -2051,7 +2050,7 @@ tvb_get_masked_bits8.exit1699:                    ; preds = %1040
   %1126 = getelementptr inbounds nuw i8, ptr %.01333, i64 2
   %1127 = load i16, ptr %1126, align 2
   %1128 = sext i16 %1127 to i64
-  %1129 = getelementptr %struct.CSN_DESCR, ptr %.01333, i64 %1128
+  %1129 = getelementptr [80 x i8], ptr %.01333, i64 %1128
   store i8 0, ptr %1120, align 1
   br label %1169
 
@@ -2126,7 +2125,7 @@ tvb_get_masked_bits8.exit1701:                    ; preds = %1117
   %1165 = getelementptr inbounds nuw i8, ptr %.01333, i64 2
   %1166 = load i16, ptr %1165, align 2
   %1167 = sext i16 %1166 to i64
-  %1168 = getelementptr %struct.CSN_DESCR, ptr %.01333, i64 %1167
+  %1168 = getelementptr [80 x i8], ptr %.01333, i64 %1167
   br label %1169
 
 1169:                                             ; preds = %.thread1864, %._crit_edge2203, %1162, %1125

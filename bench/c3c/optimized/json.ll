@@ -117,7 +117,7 @@ consume.exit44:                                   ; preds = %32, %consume.exit39
   %.136 = phi ptr [ %25, %20 ], [ %.035, %19 ]
   %.1 = phi i64 [ %22, %20 ], [ %.034, %19 ]
   %27 = add i64 %.037, 1
-  %28 = getelementptr inbounds ptr, ptr %.136, i64 %.037
+  %28 = getelementptr inbounds [8 x i8], ptr %.136, i64 %.037
   store ptr %17, ptr %28, align 8
   %29 = load i32, ptr %2, align 8
   switch i32 %29, label %consume.exit41 [
@@ -371,10 +371,10 @@ json_error.exit65:                                ; preds = %consume.exit63, %29
   %.156 = phi ptr [ %41, %34 ], [ %.055, %33 ]
   %.154 = phi ptr [ %39, %34 ], [ %.053, %33 ]
   %.1 = phi i64 [ %36, %34 ], [ %.052, %33 ]
-  %43 = getelementptr inbounds ptr, ptr %.156, i64 %.057
+  %43 = getelementptr inbounds [8 x i8], ptr %.156, i64 %.057
   store ptr %21, ptr %43, align 8
   %44 = add i64 %.057, 1
-  %45 = getelementptr inbounds ptr, ptr %.154, i64 %.057
+  %45 = getelementptr inbounds [8 x i8], ptr %.154, i64 %.057
   store ptr %31, ptr %45, align 8
   %46 = load i32, ptr %2, align 8
   switch i32 %46, label %consume.exit67 [
@@ -437,7 +437,7 @@ define dso_local ptr @json_obj_get(ptr noundef readonly captures(none) %0, ptr n
 11:                                               ; preds = %.lr.ph, %7
   %12 = phi i64 [ 0, %.lr.ph ], [ %9, %7 ]
   %.013 = phi i32 [ 0, %.lr.ph ], [ %8, %7 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #10
   %16 = icmp eq i32 %15, 0
@@ -446,7 +446,7 @@ define dso_local ptr @json_obj_get(ptr noundef readonly captures(none) %0, ptr n
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %12
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %12
   %21 = load ptr, ptr %20, align 8
   br label %.loopexit
 
@@ -1068,10 +1068,10 @@ define dso_local void @json_free(ptr noundef %0, ptr noundef captures(none) %1) 
 19:                                               ; preds = %.lr.ph33, %19
   %.02832 = phi i64 [ 0, %.lr.ph33 ], [ %26, %19 ]
   %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %.02832
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %.02832
   tail call void @json_free(ptr noundef %0, ptr noundef %21)
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.02832
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %.02832
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %0(ptr noundef %24) #8
   %26 = add nuw i64 %.02832, 1
@@ -1088,7 +1088,7 @@ define dso_local void @json_free(ptr noundef %0, ptr noundef captures(none) %1) 
 .lr.ph:                                           ; preds = %.preheader29, %.lr.ph
   %.031 = phi i64 [ %34, %.lr.ph ], [ 0, %.preheader29 ]
   %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.031
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.031
   tail call void @json_free(ptr noundef %0, ptr noundef %33)
   %34 = add nuw i64 %.031, 1
   %35 = load i64, ptr %13, align 8

@@ -209,7 +209,7 @@ define dso_local void @_ZN28PQEncoderGeneric_encode_Test8TestBodyEv(ptr nonnull 
   %.07.i = phi i64 [ 0, %1 ], [ %14, %10 ]
   %11 = tail call i32 @rand() #17, !noalias !5
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %9, i64 %.07.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.07.i
   store i64 %12, ptr %13, align 8, !tbaa !8, !noalias !5
   %14 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %14, 97
@@ -478,7 +478,7 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i28, %1
   store i64 %113, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %114 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv108
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv108
   %115 = load i64, ptr %114, align 8, !tbaa !8
   %116 = and i64 %115, %41
   store i64 %116, ptr %6, align 8, !tbaa !8
@@ -727,7 +727,7 @@ define dso_local void @_ZN22PQEncoder8_encode_Test8TestBodyEv(ptr nonnull readno
   %.07.i = phi i64 [ 0, %1 ], [ %12, %8 ]
   %9 = tail call i32 @rand() #17, !noalias !66
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %.07.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.07.i
   store i64 %10, ptr %11, align 8, !tbaa !8, !noalias !66
   %12 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %12, 100
@@ -773,7 +773,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN7testing15Assert
   store i64 %23, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !8
   %26 = and i64 %25, 255
   store i64 %26, ptr %4, align 8, !tbaa !8
@@ -941,7 +941,7 @@ define dso_local void @_ZN23PQEncoder16_encode_Test8TestBodyEv(ptr nonnull readn
   %.07.i = phi i64 [ 0, %1 ], [ %12, %8 ]
   %9 = tail call i32 @rand() #17, !noalias !70
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %.07.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.07.i
   store i64 %10, ptr %11, align 8, !tbaa !8, !noalias !70
   %12 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %12, 100
@@ -987,7 +987,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN7testing15Assert
   store i64 %23, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !8
   %26 = and i64 %25, 65535
   store i64 %26, ptr %4, align 8, !tbaa !8
@@ -1167,7 +1167,7 @@ define dso_local void @_ZN34PQFastScan_set_packed_element_Test8TestBodyEv(ptr no
   %.07.i = phi i64 [ 0, %1 ], [ %21, %17 ]
   %18 = tail call i32 @rand() #17, !noalias !76
   %19 = sitofp i32 %18 to float
-  %20 = getelementptr inbounds nuw float, ptr %16, i64 %.07.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.07.i
   store float %19, ptr %20, align 4, !tbaa !79, !noalias !76
   %21 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %21, 20000

@@ -420,7 +420,7 @@ _ZNK8rational9get_int64Ev.exit93:                 ; preds = %89
   %190 = xor i32 %183, -1
   %191 = add i32 %185, %190
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw float, ptr %189, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %192
   %194 = load float, ptr %193, align 4, !tbaa !41
   br label %common.ret262
 

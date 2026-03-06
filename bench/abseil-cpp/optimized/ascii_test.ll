@@ -19565,7 +19565,7 @@ define internal void @_ZN12_GLOBAL__N_139RemoveExtraAsciiWhitespace_InPlace_Test
 12:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_139RemoveExtraAsciiWhitespace_InPlace_Test8TestBodyEv.inputs, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN12_GLOBAL__N_139RemoveExtraAsciiWhitespace_InPlace_Test8TestBodyEv.inputs, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !146
   store ptr %8, ptr %4, align 8, !tbaa !59
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #20
@@ -19609,7 +19609,7 @@ define internal void @_ZN12_GLOBAL__N_139RemoveExtraAsciiWhitespace_InPlace_Test
 
 27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !146, !noalias !551
   %30 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %29) #20, !noalias !551
   %31 = icmp eq i32 %30, 0

@@ -706,7 +706,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 define hidden zeroext i1 @rtpstream_is_payload_used(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = zext i8 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   ret i1 %7
@@ -967,7 +967,7 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %37
@@ -987,7 +987,7 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
 17:                                               ; preds = %15, %12
   %.pre-phi = phi i64 [ %.pre14, %15 ], [ %8, %12 ]
   %.018.i = phi ptr [ %16, %15 ], [ %14, %12 ]
-  %18 = getelementptr ptr, ptr %5, i64 %.pre-phi
+  %18 = getelementptr [8 x i8], ptr %5, i64 %.pre-phi
   store ptr %.018.i, ptr %18, align 8
   %19 = tail call ptr @g_string_sized_new(i64 noundef 40)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1001,7 +1001,7 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
 
 24:                                               ; preds = %34, %17
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %34 ]
-  %25 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %25 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %.not22.i = icmp eq ptr %26, null
   br i1 %.not22.i, label %34, label %27

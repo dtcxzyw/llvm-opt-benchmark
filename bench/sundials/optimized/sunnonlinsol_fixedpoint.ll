@@ -201,10 +201,10 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 
 64:                                               ; preds = %._crit_edge.i
   %65 = sext i32 %62 to i64
-  %66 = getelementptr inbounds ptr, ptr %41, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %41, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef -1.000000e+00, ptr noundef %35, ptr noundef %67) #12
-  %68 = getelementptr inbounds ptr, ptr %39, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %39, i64 %65
   %69 = load ptr, ptr %68, align 8, !tbaa !50
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %53, double noundef -1.000000e+00, ptr noundef %37, ptr noundef %69) #12
   br label %70
@@ -223,7 +223,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 
 72:                                               ; preds = %70
   %73 = zext nneg i32 %62 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %39, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !50
   %76 = tail call double @N_VDotProd(ptr noundef %75, ptr noundef %75) #12
   %77 = fcmp ugt double %76, 0.000000e+00
@@ -238,7 +238,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   store double %81, ptr %49, align 8, !tbaa !51
   %82 = fdiv double 1.000000e+00, %81
   %83 = load ptr, ptr %74, align 8, !tbaa !50
-  %84 = getelementptr inbounds nuw ptr, ptr %43, i64 %73
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %73
   %85 = load ptr, ptr %84, align 8, !tbaa !50
   tail call void @N_VScale(double noundef %82, ptr noundef %83, ptr noundef %85) #12
   store i32 0, ptr %33, align 4, !tbaa !49
@@ -260,7 +260,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 
 90:                                               ; preds = %86
   %91 = sext i32 %62 to i64
-  %92 = getelementptr inbounds ptr, ptr %39, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %39, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !50
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %93, ptr noundef %2) #12
   %94 = icmp sgt i32 %31, 1
@@ -270,18 +270,18 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 .lr.ph9.i:                                        ; preds = %90
   %96 = sext i32 %95 to i64
   %wide.trip.count.i = zext nneg i32 %61 to i64
-  %invariant.gep.i = getelementptr double, ptr %49, i64 %96
+  %invariant.gep.i = getelementptr [8 x i8], ptr %49, i64 %96
   br label %97
 
 97:                                               ; preds = %97, %.lr.ph9.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next.i, %97 ]
-  %98 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i
   %99 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %99, ptr %98, align 4, !tbaa !49
-  %100 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = tail call double @N_VDotProd(ptr noundef %101, ptr noundef %2) #12
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store double %102, ptr %gep.i, align 8, !tbaa !51
   %103 = fneg double %102
   %104 = load ptr, ptr %100, align 8, !tbaa !50
@@ -294,7 +294,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %105 = tail call double @N_VDotProd(ptr noundef %2, ptr noundef %2) #12
   %106 = add nsw i32 %95, %31
   %107 = sext i32 %106 to i64
-  %108 = getelementptr double, ptr %49, i64 %107
+  %108 = getelementptr [8 x i8], ptr %49, i64 %107
   %109 = getelementptr i8, ptr %108, i64 -8
   %110 = fcmp ugt double %105, 0.000000e+00
   br i1 %110, label %111, label %.thread.i
@@ -315,11 +315,11 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 
 116:                                              ; preds = %114, %111, %.thread.i
   %.sink.i = phi double [ %115, %114 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %111 ]
-  %117 = getelementptr inbounds ptr, ptr %43, i64 %91
+  %117 = getelementptr inbounds [8 x i8], ptr %43, i64 %91
   %118 = load ptr, ptr %117, align 8, !tbaa !50
   tail call void @N_VScale(double noundef %.sink.i, ptr noundef %2, ptr noundef %118) #12
   %119 = sext i32 %61 to i64
-  %120 = getelementptr inbounds i32, ptr %33, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %33, i64 %119
   store i32 %61, ptr %120, align 4, !tbaa !49
   br label %.loopexit2.i
 
@@ -328,15 +328,15 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %121 = mul nuw nsw i64 %indvars.iv73.i, %89
   %122 = add nsw i64 %indvars.iv73.i, -1
   %123 = mul nuw nsw i64 %122, %89
-  %invariant.gep136.i = getelementptr inbounds nuw double, ptr %49, i64 %121
-  %invariant.gep138.i = getelementptr double, ptr %49, i64 %123
+  %invariant.gep136.i = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %121
+  %invariant.gep138.i = getelementptr [8 x i8], ptr %49, i64 %123
   br label %124
 
 124:                                              ; preds = %124, %.preheader3.us.i
   %indvars.iv67.i = phi i64 [ 0, %.preheader3.us.i ], [ %indvars.iv.next68.i, %124 ]
-  %gep137.i = getelementptr inbounds nuw double, ptr %invariant.gep136.i, i64 %indvars.iv67.i
+  %gep137.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep136.i, i64 %indvars.iv67.i
   %125 = load double, ptr %gep137.i, align 8, !tbaa !51
-  %gep139.i = getelementptr double, ptr %invariant.gep138.i, i64 %indvars.iv67.i
+  %gep139.i = getelementptr [8 x i8], ptr %invariant.gep138.i, i64 %indvars.iv67.i
   store double %125, ptr %gep139.i, align 8, !tbaa !51
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count64.i
@@ -354,8 +354,8 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %indvars.i = trunc i64 %indvars.iv.next62.i to i32
   %126 = mul nuw nsw i32 %26, %indvars.i
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv61.i
-  %129 = getelementptr inbounds nuw double, ptr %128, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv61.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %127
   %130 = load double, ptr %129, align 8, !tbaa !51
   %131 = getelementptr i8, ptr %129, i64 8
   %132 = load double, ptr %131, align 8, !tbaa !51
@@ -376,7 +376,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 .lr.ph13.i:                                       ; preds = %.lr.ph16.i, %.lr.ph13.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph13.i ], [ %indvars.iv54.i, %.lr.ph16.i ]
   %142 = mul nuw nsw i64 %indvars.iv56.i, %89
-  %gep135.i = getelementptr inbounds nuw double, ptr %128, i64 %142
+  %gep135.i = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %142
   %143 = load double, ptr %gep135.i, align 8, !tbaa !51
   %144 = getelementptr i8, ptr %gep135.i, i64 8
   %145 = load double, ptr %144, align 8, !tbaa !51
@@ -391,9 +391,9 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   br i1 %exitcond60.not.i, label %._crit_edge14.i, label %.lr.ph13.i
 
 ._crit_edge14.i:                                  ; preds = %.lr.ph13.i, %.lr.ph16.i
-  %150 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv61.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv61.i
   %151 = load ptr, ptr %150, align 8, !tbaa !50
-  %152 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.next62.i
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.next62.i
   %153 = load ptr, ptr %152, align 8, !tbaa !50
   tail call void @N_VLinearSum(double noundef %137, ptr noundef %151, double noundef %138, ptr noundef %153, ptr noundef %2) #12
   %154 = load ptr, ptr %150, align 8, !tbaa !50
@@ -407,27 +407,27 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 
 ._crit_edge21.thread.i:                           ; preds = %.preheader5.i
   %157 = sext i32 %62 to i64
-  %158 = getelementptr inbounds ptr, ptr %39, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %39, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !50
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %159, ptr noundef %2) #12
   br label %._crit_edge25.i
 
 ._crit_edge21.i:                                  ; preds = %._crit_edge19.us.i
   %160 = sext i32 %62 to i64
-  %161 = getelementptr inbounds ptr, ptr %39, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %39, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !50
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %162, ptr noundef %2) #12
   %163 = mul nsw i32 %87, %26
   %164 = zext nneg i32 %163 to i64
-  %invariant.gep140.i = getelementptr double, ptr %49, i64 %164
+  %invariant.gep140.i = getelementptr [8 x i8], ptr %49, i64 %164
   br label %165
 
 165:                                              ; preds = %165, %._crit_edge21.i
   %indvars.iv79.i = phi i64 [ 0, %._crit_edge21.i ], [ %indvars.iv.next80.i, %165 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv79.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv79.i
   %167 = load ptr, ptr %166, align 8, !tbaa !50
   %168 = tail call double @N_VDotProd(ptr noundef %167, ptr noundef %2) #12
-  %gep141.i = getelementptr double, ptr %invariant.gep140.i, i64 %indvars.iv79.i
+  %gep141.i = getelementptr [8 x i8], ptr %invariant.gep140.i, i64 %indvars.iv79.i
   store double %168, ptr %gep141.i, align 8, !tbaa !51
   %169 = fneg double %168
   %170 = load ptr, ptr %166, align 8, !tbaa !50
@@ -440,7 +440,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %171 = tail call double @N_VDotProd(ptr noundef %2, ptr noundef %2) #12
   %172 = mul i32 %26, %26
   %173 = sext i32 %172 to i64
-  %174 = getelementptr double, ptr %49, i64 %173
+  %174 = getelementptr [8 x i8], ptr %49, i64 %173
   %175 = getelementptr i8, ptr %174, i64 -8
   %176 = fcmp ugt double %171, 0.000000e+00
   br i1 %176, label %177, label %179
@@ -454,7 +454,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   store double %180, ptr %175, align 8, !tbaa !51
   %181 = fdiv double 1.000000e+00, %180
   %182 = sext i32 %87 to i64
-  %183 = getelementptr inbounds ptr, ptr %43, i64 %182
+  %183 = getelementptr inbounds [8 x i8], ptr %43, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !50
   tail call void @N_VScale(double noundef %181, ptr noundef %2, ptr noundef %184) #12
   %.326.i = add nsw i32 %62, 1
@@ -475,7 +475,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %indvars.iv85.i = phi i64 [ 0, %.lr.ph30.preheader.i ], [ %indvars.iv.next86.i, %.lr.ph30.i ]
   %.328.i = phi i32 [ %.326.i, %.lr.ph30.preheader.i ], [ %.3.i, %.lr.ph30.i ]
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
-  %187 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv85.i
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv85.i
   store i32 %.328.i, ptr %187, align 4, !tbaa !49
   %.3.i = add nsw i32 %.328.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count89.i
@@ -485,7 +485,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %.lr.ph35.i ], [ %.4355.lcssa.i, %.preheader1.i ]
   %.434.i = phi i32 [ %189, %.lr.ph35.i ], [ 0, %.preheader1.i ]
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
-  %188 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv91.i
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv91.i
   store i32 %.434.i, ptr %188, align 4, !tbaa !49
   %189 = add nuw i32 %.434.i, 1
   %exitcond95.not.i = icmp eq i32 %.434.i, %62
@@ -513,21 +513,21 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %indvars.iv101.i = phi i64 [ 1, %.preheader.lr.ph.i ], [ %indvars.iv.next102.i, %214 ]
   %indvars.iv103.i = add nsw i64 %indvars.iv103.in.i, -1
   %195 = icmp slt i64 %indvars.iv103.in.i, %smin.i
-  %196 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv103.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv103.i
   %.promoted.i = load double, ptr %196, align 8, !tbaa !51
   br i1 %195, label %.lr.ph38.i, label %._crit_edge39.i
 
 .lr.ph38.i:                                       ; preds = %.preheader.i
-  %invariant.gep142.i = getelementptr double, ptr %49, i64 %indvars.iv103.i
+  %invariant.gep142.i = getelementptr [8 x i8], ptr %49, i64 %indvars.iv103.i
   br label %197
 
 197:                                              ; preds = %197, %.lr.ph38.i
   %indvars.iv98.i = phi i64 [ %indvars.iv103.in.i, %.lr.ph38.i ], [ %indvars.iv.next99.i, %197 ]
   %198 = phi double [ %.promoted.i, %.lr.ph38.i ], [ %204, %197 ]
   %199 = mul nsw i64 %indvars.iv98.i, %193
-  %gep143.i = getelementptr double, ptr %invariant.gep142.i, i64 %199
+  %gep143.i = getelementptr [8 x i8], ptr %invariant.gep142.i, i64 %199
   %200 = load double, ptr %gep143.i, align 8, !tbaa !51
-  %201 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv98.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv98.i
   %202 = load double, ptr %201, align 8, !tbaa !51
   %203 = fneg double %200
   %204 = tail call double @llvm.fmuladd.f64(double %203, double %202, double %198)
@@ -546,7 +546,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %208 = trunc nuw nsw i64 %indvars.iv103.i to i32
   %209 = mul i32 %.5371.i, %208
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds double, ptr %49, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %49, i64 %210
   %212 = load double, ptr %211, align 8, !tbaa !51
   %213 = fdiv double %205, %212
   br label %214
@@ -555,14 +555,14 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %storemerge.i = phi double [ %213, %207 ], [ 0.000000e+00, %._crit_edge39.i ]
   store double %storemerge.i, ptr %196, align 8, !tbaa !51
   %215 = fneg double %storemerge.i
-  %216 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv101.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv101.i
   store double %215, ptr %216, align 8, !tbaa !51
-  %217 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv103.i
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv103.i
   %218 = load i32, ptr %217, align 4, !tbaa !49
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds ptr, ptr %41, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %41, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !50
-  %222 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv101.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv101.i
   store ptr %221, ptr %222, align 8, !tbaa !50
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond109.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count108.i
@@ -588,9 +588,9 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 227:                                              ; preds = %._crit_edge42.i
   %228 = fsub double 1.000000e+00, %57
   %229 = fneg double %228
-  %230 = getelementptr inbounds nuw double, ptr %45, i64 %wide.trip.count108.i
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %wide.trip.count108.i
   store double %229, ptr %230, align 8, !tbaa !51
-  %231 = getelementptr inbounds nuw ptr, ptr %47, i64 %wide.trip.count108.i
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %wide.trip.count108.i
   store ptr %53, ptr %231, align 8, !tbaa !50
   %232 = add nuw nsw i64 %wide.trip.count108.i, 1
   %233 = zext nneg i32 %191 to i64
@@ -599,17 +599,17 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %227
   %indvars.iv112.i = phi i64 [ %233, %227 ], [ %indvars.iv.next113.i, %.lr.ph48.i ]
   %indvars.iv110.i = phi i64 [ %232, %227 ], [ %indvars.iv.next111.i, %.lr.ph48.i ]
-  %234 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv112.i
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv112.i
   %235 = load double, ptr %234, align 8, !tbaa !51
   %236 = fmul double %228, %235
-  %237 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv110.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv110.i
   store double %236, ptr %237, align 8, !tbaa !51
-  %238 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv112.i
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv112.i
   %239 = load i32, ptr %238, align 4, !tbaa !49
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds ptr, ptr %39, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %39, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !50
-  %243 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv110.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv110.i
   store ptr %242, ptr %243, align 8, !tbaa !50
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, -1
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1

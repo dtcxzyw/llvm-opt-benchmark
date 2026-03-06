@@ -54,24 +54,24 @@ define weak_odr dso_local void @_ZN3igl13path_to_edgesIN5Eigen6MatrixIiLin1ELi1E
   br label %17
 
 ._crit_edge:                                      ; preds = %17, %6
-  %12 = getelementptr inbounds i32, ptr %.pre45, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr %.pre45, i64 %8
   %13 = load i32, ptr %12, align 4, !tbaa !15
-  %14 = getelementptr i32, ptr %.pre46, i64 %8
+  %14 = getelementptr [4 x i8], ptr %.pre46, i64 %8
   store i32 %13, ptr %14, align 4, !tbaa !15
   %15 = load i32, ptr %.pre45, align 4, !tbaa !15
-  %16 = getelementptr i32, ptr %14, i64 %11
+  %16 = getelementptr [4 x i8], ptr %14, i64 %11
   store i32 %15, ptr %16, align 4, !tbaa !15
   br label %.loopexit
 
 17:                                               ; preds = %.lr.ph38, %17
   %18 = phi i32 [ %.pre44, %.lr.ph38 ], [ %21, %17 ]
   %indvars.iv40 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next41, %17 ]
-  %19 = getelementptr i32, ptr %.pre46, i64 %indvars.iv40
+  %19 = getelementptr [4 x i8], ptr %.pre46, i64 %indvars.iv40
   store i32 %18, ptr %19, align 4, !tbaa !15
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %20 = getelementptr inbounds nuw i32, ptr %.pre45, i64 %indvars.iv.next41
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre45, i64 %indvars.iv.next41
   %21 = load i32, ptr %20, align 4, !tbaa !15
-  %22 = getelementptr i32, ptr %19, i64 %11
+  %22 = getelementptr [4 x i8], ptr %19, i64 %11
   store i32 %21, ptr %22, align 4, !tbaa !15
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, %8
   br i1 %exitcond43.not, label %._crit_edge, label %17, !llvm.loop !17
@@ -95,12 +95,12 @@ define weak_odr dso_local void @_ZN3igl13path_to_edgesIN5Eigen6MatrixIiLin1ELi1E
 32:                                               ; preds = %.lr.ph, %32
   %33 = phi i32 [ %.pre, %.lr.ph ], [ %36, %32 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %34 = getelementptr i32, ptr %28, i64 %indvars.iv
+  %34 = getelementptr [4 x i8], ptr %28, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.next
   %36 = load i32, ptr %35, align 4, !tbaa !15
-  %37 = getelementptr i32, ptr %34, i64 %30
+  %37 = getelementptr [4 x i8], ptr %34, i64 %30
   store i32 %36, ptr %37, align 4, !tbaa !15
   %exitcond.not = icmp eq i64 %indvars.iv, %31
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !19
@@ -134,24 +134,24 @@ define weak_odr dso_local void @_ZN3igl13path_to_edgesIiN5Eigen6MatrixIiLin1ELin
   br label %21
 
 ._crit_edge.i:                                    ; preds = %21, %12
-  %16 = getelementptr inbounds i32, ptr %4, i64 %13
+  %16 = getelementptr inbounds [4 x i8], ptr %4, i64 %13
   %17 = load i32, ptr %16, align 4, !tbaa !15
-  %18 = getelementptr i32, ptr %.pre46.i, i64 %13
+  %18 = getelementptr [4 x i8], ptr %.pre46.i, i64 %13
   store i32 %17, ptr %18, align 4, !tbaa !15
   %19 = load i32, ptr %4, align 4, !tbaa !15
-  %20 = getelementptr i32, ptr %18, i64 %15
+  %20 = getelementptr [4 x i8], ptr %18, i64 %15
   store i32 %19, ptr %20, align 4, !tbaa !15
   br label %_ZN3igl13path_to_edgesIN5Eigen3MapIKNS1_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS1_6StrideILi0ELi0EEEEENS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEb.exit
 
 21:                                               ; preds = %21, %.lr.ph38.i
   %22 = phi i32 [ %.pre44.i, %.lr.ph38.i ], [ %25, %21 ]
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph38.i ], [ %indvars.iv.next41.i, %21 ]
-  %23 = getelementptr i32, ptr %.pre46.i, i64 %indvars.iv40.i
+  %23 = getelementptr [4 x i8], ptr %.pre46.i, i64 %indvars.iv40.i
   store i32 %22, ptr %23, align 4, !tbaa !15
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next41.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next41.i
   %25 = load i32, ptr %24, align 4, !tbaa !15
-  %26 = getelementptr i32, ptr %23, i64 %15
+  %26 = getelementptr [4 x i8], ptr %23, i64 %15
   store i32 %25, ptr %26, align 4, !tbaa !15
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, %13
   br i1 %exitcond43.not.i, label %._crit_edge.i, label %21, !llvm.loop !23
@@ -172,12 +172,12 @@ define weak_odr dso_local void @_ZN3igl13path_to_edgesIiN5Eigen6MatrixIiLin1ELin
 33:                                               ; preds = %33, %.lr.ph.i
   %34 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %37, %33 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr i32, ptr %29, i64 %indvars.iv.i
+  %35 = getelementptr [4 x i8], ptr %29, i64 %indvars.iv.i
   store i32 %34, ptr %35, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i
   %37 = load i32, ptr %36, align 4, !tbaa !15
-  %38 = getelementptr i32, ptr %35, i64 %31
+  %38 = getelementptr [4 x i8], ptr %35, i64 %31
   store i32 %37, ptr %38, align 4, !tbaa !15
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %32
   br i1 %exitcond.not.i, label %_ZN3igl13path_to_edgesIN5Eigen3MapIKNS1_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS1_6StrideILi0ELi0EEEEENS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEb.exit, label %33, !llvm.loop !24
@@ -464,15 +464,15 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
   %.0810.us.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i ], [ %32, %._crit_edge.us.i ]
   %23 = mul nsw i64 %.0810.us.i, %20
-  %24 = getelementptr i32, ptr %19, i64 %23
+  %24 = getelementptr [4 x i8], ptr %19, i64 %23
   %25 = mul nsw i64 %.0810.us.i, %22
-  %26 = getelementptr i32, ptr %21, i64 %25
+  %26 = getelementptr [4 x i8], ptr %21, i64 %25
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.i
   %.09.us.i = phi i64 [ 0, %.preheader.us.i ], [ %31, %27 ]
-  %28 = getelementptr i32, ptr %24, i64 %.09.us.i
-  %29 = getelementptr i32, ptr %26, i64 %.09.us.i
+  %28 = getelementptr [4 x i8], ptr %24, i64 %.09.us.i
+  %29 = getelementptr [4 x i8], ptr %26, i64 %.09.us.i
   %30 = load i32, ptr %29, align 4, !tbaa !15
   store i32 %30, ptr %28, align 4, !tbaa !15
   %31 = add nuw nsw i64 %.09.us.i, 1
@@ -521,13 +521,13 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !37
   %58 = mul nsw i64 %57, %.03451
-  %59 = getelementptr i32, ptr %55, i64 %58
+  %59 = getelementptr [4 x i8], ptr %55, i64 %58
   %60 = load ptr, ptr %48, align 8, !tbaa !60
   %61 = load ptr, ptr %60, align 8, !tbaa !43
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !37
   %64 = mul nsw i64 %63, %.03451
-  %65 = getelementptr i32, ptr %61, i64 %64
+  %65 = getelementptr [4 x i8], ptr %61, i64 %64
   br label %67
 
 .preheader43:                                     ; preds = %67, %49
@@ -536,8 +536,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 
 67:                                               ; preds = %.lr.ph, %67
   %.03345 = phi i64 [ 0, %.lr.ph ], [ %71, %67 ]
-  %68 = getelementptr i32, ptr %59, i64 %.03345
-  %69 = getelementptr i32, ptr %65, i64 %.03345
+  %68 = getelementptr [4 x i8], ptr %59, i64 %.03345
+  %69 = getelementptr [4 x i8], ptr %65, i64 %.03345
   %70 = load i32, ptr %69, align 4, !tbaa !15
   store i32 %70, ptr %68, align 4, !tbaa !15
   %71 = add nuw nsw i64 %.03345, 1
@@ -554,13 +554,13 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !37
   %77 = mul nsw i64 %76, %.03451
-  %78 = getelementptr i32, ptr %74, i64 %77
+  %78 = getelementptr [4 x i8], ptr %74, i64 %77
   %79 = load ptr, ptr %48, align 8, !tbaa !60
   %80 = load ptr, ptr %79, align 8, !tbaa !43
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !37
   %83 = mul nsw i64 %82, %.03451
-  %84 = getelementptr i32, ptr %80, i64 %83
+  %84 = getelementptr [4 x i8], ptr %80, i64 %83
   br label %105
 
 .lr.ph47:                                         ; preds = %.preheader43, %.lr.ph47
@@ -570,15 +570,15 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %88 = load i64, ptr %87, align 8, !tbaa !37
   %89 = mul nsw i64 %88, %.03451
-  %90 = getelementptr i32, ptr %86, i64 %89
-  %91 = getelementptr i32, ptr %90, i64 %.03246
+  %90 = getelementptr [4 x i8], ptr %86, i64 %89
+  %91 = getelementptr [4 x i8], ptr %90, i64 %.03246
   %92 = load ptr, ptr %48, align 8, !tbaa !60
   %93 = load ptr, ptr %92, align 8, !tbaa !43
-  %94 = getelementptr inbounds i32, ptr %93, i64 %.03246
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %.03246
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !37
   %97 = mul nsw i64 %96, %.03451
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %94, i64 %97
   %99 = load <2 x i64>, ptr %98, align 1, !tbaa !62
   store <2 x i64> %99, ptr %91, align 16, !tbaa !62
   %100 = add nsw i64 %.03246, 4
@@ -595,8 +595,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 
 105:                                              ; preds = %.lr.ph49, %105
   %.048 = phi i64 [ %52, %.lr.ph49 ], [ %109, %105 ]
-  %106 = getelementptr i32, ptr %78, i64 %.048
-  %107 = getelementptr i32, ptr %84, i64 %.048
+  %106 = getelementptr [4 x i8], ptr %78, i64 %.048
+  %107 = getelementptr [4 x i8], ptr %84, i64 %.048
   %108 = load i32, ptr %107, align 4, !tbaa !15
   store i32 %108, ptr %106, align 4, !tbaa !15
   %109 = add nsw i64 %.048, 1

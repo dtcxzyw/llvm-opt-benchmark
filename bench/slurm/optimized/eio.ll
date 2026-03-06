@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.foreach_pollfd_t = type { ptr, ptr, ptr }
-%struct.pollfd = type { i32, i16, i16 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 
 @.str = private unnamed_addr constant [6 x i8] c"eio.c\00", align 1
@@ -234,10 +233,10 @@ _poll_setup_pollfds.exit:                         ; preds = %33
   %42 = load i32, ptr %10, align 4
   %43 = load ptr, ptr %5, align 8
   %44 = zext i32 %39 to i64
-  %45 = getelementptr inbounds nuw %struct.pollfd, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   store i32 %42, ptr %45, align 4
   %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds nuw %struct.pollfd, ptr %46, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i16 1, ptr %48, align 4
   %49 = add i32 %39, 1
@@ -289,7 +288,7 @@ _poll_internal.exit:                              ; preds = %64
 
 68:                                               ; preds = %61, %64
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds nuw %struct.pollfd, ptr %69, i64 %44
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %44
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, 1
@@ -336,14 +335,14 @@ _eio_wakeup_handler.exit:                         ; preds = %83, %74
 
 94:                                               ; preds = %_poll_handle_event.exit.i, %90
   %indvars.iv.i = phi i64 [ 0, %90 ], [ %indvars.iv.next.i, %_poll_handle_event.exit.i ]
-  %95 = getelementptr inbounds nuw %struct.pollfd, ptr %91, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 6
   %97 = load i16, ptr %96, align 2
   %98 = icmp sgt i16 %97, 0
   br i1 %98, label %99, label %_poll_handle_event.exit.i
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.i
   %101 = load ptr, ptr %100, align 8
   %102 = and i16 %97, 40
   %.not.i.i = icmp eq i16 %102, 0
@@ -1057,11 +1056,11 @@ _is_readable.exit:                                ; preds = %_is_writable.exit
   %.sink = phi i16 [ 20, %.thread ], [ %.mux.mux, %_is_readable.exit ]
   %19 = load i32, ptr %0, align 8
   %20 = zext i32 %8 to i64
-  %21 = getelementptr inbounds nuw %struct.pollfd, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %20
   store i32 %19, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i16 %.sink, ptr %22, align 4
-  %23 = getelementptr inbounds nuw ptr, ptr %5, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %20
   store ptr %0, ptr %23, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = load i32, ptr %24, align 4

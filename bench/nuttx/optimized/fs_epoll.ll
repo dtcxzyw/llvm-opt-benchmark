@@ -6,12 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.inode = type { ptr, ptr, ptr, i16, i16, %union.inode_ops_u, i16, ptr, [1 x i8] }
 %union.inode_ops_u = type { ptr }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.epoll_node_s = type { %struct.list_node, %union.epoll_data, i8, %struct.pollfd, ptr }
-%struct.list_node = type { ptr, ptr }
-%union.epoll_data = type { ptr }
-%struct.pollfd = type { i32, i32, i32, ptr, ptr, ptr }
 %struct.sigset_s = type { [2 x i32] }
-%struct.epoll_event = type { i32, %union.epoll_data }
 
 @g_epoll_inode = internal global %struct.inode { ptr null, ptr null, ptr null, i16 1, i16 1, %union.inode_ops_u { ptr @g_epoll_ops }, i16 0, ptr null, [1 x i8] zeroinitializer }, align 8
 @g_epoll_ops = internal constant %struct.file_operations { ptr @epoll_do_open, ptr @epoll_do_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @epoll_do_poll, ptr null }, align 8
@@ -63,7 +58,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @epoll_do_create(i32 nound
 25:                                               ; preds = %9, %25
   %26 = phi ptr [ %23, %9 ], [ %27, %25 ]
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %25 ]
-  %27 = getelementptr inbounds nuw %struct.epoll_node_s, ptr %14, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [80 x i8], ptr %14, i64 %indvars.iv
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %23, ptr %28, align 8
@@ -263,7 +258,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
 .lr.ph353:                                        ; preds = %.lr.ph353.preheader, %.lr.ph353
   %67 = phi ptr [ %.pre, %.lr.ph353.preheader ], [ %68, %.lr.ph353 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph353.preheader ], [ %indvars.iv.next, %.lr.ph353 ]
-  %68 = getelementptr inbounds nuw %struct.epoll_node_s, ptr %64, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [80 x i8], ptr %64, i64 %indvars.iv
   store ptr %67, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %48, ptr %69, align 8
@@ -940,7 +935,7 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr noundef w
 
 26:                                               ; preds = %15
   %27 = sext i32 %.05965 to i64
-  %28 = getelementptr inbounds %struct.epoll_event, ptr %1, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %1, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %.05866, i64 16
   %31 = load i64, ptr %30, align 8

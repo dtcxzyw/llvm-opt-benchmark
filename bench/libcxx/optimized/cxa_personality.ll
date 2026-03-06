@@ -225,7 +225,7 @@ _ZN10__cxxabiv1L11readULEB128EPPKh.exit181.i:     ; preds = %83
   %switch.shifted = lshr i16 7197, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %109 = zext nneg i8 %107 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10__cxxabiv1L24exception_spec_can_catchElPKhhPKNS_16__shim_type_infoEPvP17_Unwind_Exceptionm, i64 %109
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10__cxxabiv1L24exception_spec_can_catchElPKhhPKNS_16__shim_type_infoEPvP17_Unwind_Exceptionm, i64 %109
   br label %110
 
 110:                                              ; preds = %.critedge166.i, %99
@@ -1015,7 +1015,7 @@ define internal fastcc noundef zeroext i1 @_ZN10__cxxabiv1L24exception_spec_can_
   %switch.shifted = lshr i16 7197, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %18 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10__cxxabiv1L24exception_spec_can_catchElPKhhPKNS_16__shim_type_infoEPvP17_Unwind_Exceptionm, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10__cxxabiv1L24exception_spec_can_catchElPKhhPKNS_16__shim_type_infoEPvP17_Unwind_Exceptionm, i64 %18
   br label %19
 
 19:                                               ; preds = %.backedge, %13

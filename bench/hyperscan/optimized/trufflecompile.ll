@@ -15,7 +15,7 @@ define hidden void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr noundef
 
 4:                                                ; preds = %7, %3
   %.0712.i.i = phi i64 [ 0, %3 ], [ %8, %7 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %7, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -63,7 +63,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
   br label %32
 
 25:                                               ; preds = %.lr.ph46
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %23
   %27 = load i64, ptr %26, align 8
   %28 = shl nsw i64 -2, %24
   %29 = and i64 %27, %28
@@ -81,7 +81,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
 
 34:                                               ; preds = %32
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %35 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %36 = load i64, ptr %35, align 8
   %.not22.i.i = icmp eq i64 %36, 0
   br i1 %.not22.i.i, label %32, label %37, !llvm.loop !7
@@ -146,7 +146,7 @@ define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr dead_on_unwind noalias writab
   %15 = and i64 %14, 63
   %16 = shl nuw i64 1, %15
   %17 = lshr i64 %14, 6
-  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %16, %19
   store i64 %20, ptr %18, align 8
@@ -175,7 +175,7 @@ define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr dead_on_unwind noalias writab
   %30 = shl nuw i64 1, %29
   %31 = lshr i64 %28, 6
   %32 = and i64 %31, 1
-  %33 = getelementptr inbounds nuw i64, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = or i64 %30, %35

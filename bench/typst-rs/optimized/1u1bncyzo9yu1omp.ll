@@ -514,7 +514,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4push17hdfb38eac968fb5cbE.llvm
 16:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.llvm.5444024693429055459.exit"
   %17 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %18 = load i64, ptr %3, align 8, !noundef !4
-  %19 = getelementptr inbounds { { { [2 x i64] } } }, ptr %17, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %20 = load i64, ptr %3, align 8, !noundef !4
   %21 = add i64 %20, 1
@@ -2822,7 +2822,7 @@ define hidden { i64, ptr } @_ZN12typst_syntax4node10SyntaxNode15cast_last_match1
   %9 = load ptr, ptr %8, align 8, !noalias !430, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !430, !noundef !4
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %6
@@ -2857,7 +2857,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %9 = load ptr, ptr %8, align 8, !noalias !433, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !433, !noundef !4
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %6
@@ -2887,7 +2887,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %9 = load ptr, ptr %8, align 8, !noalias !436, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !436, !noundef !4
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %6
@@ -2917,7 +2917,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %9 = load ptr, ptr %8, align 8, !noalias !439, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !439, !noundef !4
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %6
@@ -2947,7 +2947,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %9 = load ptr, ptr %8, align 8, !noalias !442, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !442, !noundef !4
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %6
@@ -3056,7 +3056,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode4hint17h0c355537fa86a1afE(
 25:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.llvm.5444024693429055459.exit.i"
   %26 = load ptr, ptr %9, align 8, !alias.scope !448, !noalias !451, !nonnull !4, !noundef !4
   %27 = load i64, ptr %10, align 8, !alias.scope !448, !noalias !451, !noundef !4
-  %28 = getelementptr inbounds { { { [2 x i64] } } }, ptr %26, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %26, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %29 = load i64, ptr %10, align 8, !alias.scope !448, !noalias !451, !noundef !4
   %30 = add i64 %29, 1
@@ -3196,7 +3196,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode4hint17h8a90de950cf36e1cE(
 "_ZN4ecow3vec15EcoVec$LT$T$GT$4push17hdfb38eac968fb5cbE.llvm.5444024693429055459.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.llvm.5444024693429055459.exit.i"
   %33 = load ptr, ptr %19, align 8, !alias.scope !497, !noalias !500, !nonnull !4, !noundef !4
   %34 = load i64, ptr %20, align 8, !alias.scope !497, !noalias !500, !noundef !4
-  %35 = getelementptr inbounds { { { [2 x i64] } } }, ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %36 = load i64, ptr %20, align 8, !alias.scope !497, !noalias !500, !noundef !4
   %37 = add i64 %36, 1
@@ -5611,7 +5611,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread3: ; preds
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %10, align 8, !alias.scope !1071, !noalias !1068, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %39, i64 %35
+  %40 = getelementptr inbounds [32 x i8], ptr %39, i64 %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1076)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i8, ptr %41, align 8, !range !9, !alias.scope !1076, !noalias !1068, !noundef !4
@@ -5800,7 +5800,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread9: ; preds
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %9, align 8, !alias.scope !1114, !noalias !1111, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %52, i64 %48
+  %53 = getelementptr inbounds [32 x i8], ptr %52, i64 %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1118)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i8, ptr %54, align 8, !range !9, !alias.scope !1118, !noalias !1111, !noundef !4

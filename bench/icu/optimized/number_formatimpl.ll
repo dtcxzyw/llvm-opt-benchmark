@@ -1145,7 +1145,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
   %92 = icmp ult i32 %91, -9
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 264
   %94 = zext nneg i32 %86 to i64
-  %95 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %83, i64 %94
+  %95 = getelementptr inbounds nuw [64 x i8], ptr %83, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1096
   %.0.i.i.i = select i1 %92, ptr %93, ptr %96
   %97 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -1978,7 +1978,7 @@ _ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit: ; preds =
 
 switch.lookup:                                    ; preds = %_ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit
   %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_776number4impl19NumberFormatterImpl22macrosToMicroGeneratorERKNS1_10MacroPropsEbR10UErrorCode, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6icu_776number4impl19NumberFormatterImpl22macrosToMicroGeneratorERKNS1_10MacroPropsEbR10UErrorCode, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge
 
@@ -2300,7 +2300,7 @@ _ZN6icu_7712LocalPointerIKNS_6number4impl17ParsedPatternInfoEE12adoptInsteadEPS4
 
 .preheader.i.i:                                   ; preds = %_ZN6icu_7712LocalPointerIKNS_6number4impl17ParsedPatternInfoEE12adoptInsteadEPS4_.exit, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %222, %.preheader.i.i ], [ 0, %_ZN6icu_7712LocalPointerIKNS_6number4impl17ParsedPatternInfoEE12adoptInsteadEPS4_.exit ]
-  %219 = getelementptr inbounds nuw i16, ptr %.1, i64 %.0.i.i.i.i
+  %219 = getelementptr inbounds nuw [2 x i8], ptr %.1, i64 %.0.i.i.i.i
   %220 = load i16, ptr %219, align 2, !tbaa !173
   %221 = icmp eq i16 %220, 0
   %222 = add i64 %.0.i.i.i.i, 1
@@ -3888,7 +3888,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl18writeIntegerDig
   %34 = icmp ult i32 %33, -9
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 264
   %36 = zext nneg i32 %28 to i64
-  %37 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %25, i64 %36
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1096
   %.0.i.i = select i1 %34, ptr %35, ptr %38
   %39 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -3943,7 +3943,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDi
   %23 = icmp ult i32 %22, -9
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 264
   %25 = zext nneg i32 %17 to i64
-  %26 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1096
   %.0.i.i = select i1 %23, ptr %24, ptr %27
   %28 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)

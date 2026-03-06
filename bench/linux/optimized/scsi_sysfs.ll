@@ -258,7 +258,7 @@ define dso_local ptr @scsi_device_state_name(i32 noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.anon, ptr @sdev_states, i64 %6
+  %7 = getelementptr [16 x i8], ptr @sdev_states, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -284,7 +284,7 @@ define dso_local ptr @scsi_host_state_name(i32 noundef %0) local_unnamed_addr #0
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.anon.0, ptr @shost_states, i64 %6
+  %7 = getelementptr [16 x i8], ptr @shost_states, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1304,7 +1304,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_shost_state
 
 9:                                                ; preds = %6, %3
   %10 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %11 = getelementptr %struct.anon.0, ptr @shost_states, i64 %10
+  %11 = getelementptr [16 x i8], ptr @shost_states, i64 %10
   %12 = load i32, ptr %11, align 16
   %13 = icmp eq i32 %12, %5
   br i1 %13, label %14, label %6
@@ -1328,7 +1328,7 @@ define internal i64 @store_shost_state(ptr noundef %0, ptr readnone captures(non
 
 6:                                                ; preds = %20, %4
   %7 = phi i64 [ 0, %4 ], [ %21, %20 ]
-  %8 = getelementptr %struct.anon.0, ptr @shost_states, i64 %7
+  %8 = getelementptr [16 x i8], ptr @shost_states, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef %10) #15
@@ -2399,7 +2399,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_state_field
 
 9:                                                ; preds = %6, %3
   %10 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %11 = getelementptr %struct.anon, ptr @sdev_states, i64 %10
+  %11 = getelementptr [16 x i8], ptr @sdev_states, i64 %10
   %12 = load i32, ptr %11, align 16
   %13 = icmp eq i32 %12, %5
   br i1 %13, label %14, label %6
@@ -2423,7 +2423,7 @@ define internal i64 @store_state_field(ptr noundef %0, ptr readnone captures(non
 
 6:                                                ; preds = %20, %4
   %7 = phi i64 [ 0, %4 ], [ %21, %20 ]
-  %8 = getelementptr %struct.anon, ptr @sdev_states, i64 %7
+  %8 = getelementptr [16 x i8], ptr @sdev_states, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef %10) #15
@@ -2707,7 +2707,7 @@ define internal i64 @sdev_show_blacklist(ptr noundef readonly captures(none) %0,
   br i1 %or.cond, label %20, label %.thread
 
 20:                                               ; preds = %12
-  %21 = getelementptr ptr, ptr @sdev_bflags_name, i64 %6
+  %21 = getelementptr [8 x i8], ptr @sdev_bflags_name, i64 %6
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %19, i64 noundef %18, ptr noundef nonnull @.str.39, ptr noundef nonnull %17, ptr noundef nonnull %22) #15
   br label %26

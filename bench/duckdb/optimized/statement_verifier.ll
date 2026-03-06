@@ -1057,7 +1057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i: ; preds = 
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %59 = load i64, ptr %58, align 8, !tbaa !157
   %60 = urem i64 %59, %41
-  %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %60
   store ptr %42, ptr %61, align 8, !tbaa !159
   br label %_ZN6duckdb9ErrorDataC2EOS0_.exit
 

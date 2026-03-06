@@ -21,7 +21,7 @@ define internal range(i32 -2147483648, 1) i32 @ilbc_parse_sdp_line(ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = call i32 @av_strstart(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %13, 0

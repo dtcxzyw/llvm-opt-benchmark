@@ -285,7 +285,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$$u5b$quiche..recove
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, i64, i64 }, ptr %0, i64 %.sroa.0.0
+  %5 = getelementptr inbounds nuw [144 x i8], ptr %0, i64 %.sroa.0.0
   %6 = add nuw nsw i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr75drop_in_place$LT$quiche..recovery..gcongestion..recovery..RecoveryEpoch$GT$17hf4cff849584befcbE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5)
           to label %2 unwind label %10
@@ -304,7 +304,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$$u5b$quiche..recove
   br label %8
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, i64, i64 }, ptr %0, i64 %.sroa.0.1
+  %13 = getelementptr inbounds nuw [144 x i8], ptr %0, i64 %.sroa.0.1
   %14 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr75drop_in_place$LT$quiche..recovery..gcongestion..recovery..RecoveryEpoch$GT$17hf4cff849584befcbE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %13) #20
           to label %8 unwind label %16
@@ -2947,7 +2947,7 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints6update1
   %102 = select i1 %.not.i.i.i, i64 0, i64 %101
   %.sroa.01.0.i.i.i = sub nuw i64 %100, %102
   %103 = load ptr, ptr %62, align 8, !alias.scope !181, !noalias !179, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %103, i64 %.sroa.01.0.i.i.i
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %103, i64 %.sroa.01.0.i.i.i
   %105 = load i64, ptr %104, align 8, !noalias !179, !noundef !3
   %106 = icmp ugt i64 %105, %.sroa.728.0.copyload.i
   br i1 %106, label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler15choose_a0_point17h84ee27ae4b21c69bE.exit.sink.split.i, label %108
@@ -2971,7 +2971,7 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints6update1
   %113 = select i1 %.not.i6.i.i, i64 0, i64 %112
   %.sroa.01.0.i7.i.i = sub nuw i64 %111, %113
   %114 = load ptr, ptr %62, align 8, !alias.scope !186, !noalias !179, !nonnull !3, !noundef !3
-  %115 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %114, i64 %.sroa.01.0.i7.i.i
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %.sroa.01.0.i7.i.i
   %.sroa.0.0.copyload.i = load i64, ptr %115, align 8, !noalias !169
   br label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler15choose_a0_point17h84ee27ae4b21c69bE.exit.sink.split.i
 
@@ -5194,7 +5194,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery11gcongestion8recovery9G
   %90 = phi i64 [ %.pre.i.i, %.noexc45.i ], [ %85, %80 ]
   %.sroa.01.0.i.i = phi ptr [ %40, %.noexc45.i ], [ %.sink9.i.i.i, %80 ]
   %.sroa.0.0.i.i = phi ptr [ %88, %.noexc45.i ], [ %.sink10.i.i.i, %80 ]
-  %91 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i.i, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i, i64 %90
   store i64 %81, ptr %91, align 8, !noalias !369
   %92 = load i64, ptr %.sroa.01.0.i.i, align 8, !alias.scope !388, !noalias !365, !noundef !3
   %93 = add i64 %92, 1
@@ -5205,7 +5205,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery11gcongestion8recovery9G
 
 .loopexit198.i:                                   ; preds = %.loopexit56.i, %74
   %95 = load ptr, ptr %41, align 8, !alias.scope !378, !noalias !367, !nonnull !3, !noundef !3
-  %96 = getelementptr inbounds nuw { i64, i64 }, ptr %95, i64 %71
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %71
   store i64 %70, ptr %96, align 8, !noalias !369
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %.sroa.58.0.copyload, ptr %97, align 8, !noalias !369
@@ -5272,7 +5272,7 @@ _ZN6quiche8recovery11gcongestion8recovery13RecoveryEpoch30detect_and_remove_lost
   %123 = icmp ugt i64 %122, 1
   %124 = load ptr, ptr %10, align 8, !alias.scope !389, !noalias !392, !nonnull !3
   %.sink11.i = select i1 %123, ptr %124, ptr %10
-  %125 = getelementptr inbounds nuw i64, ptr %.sink11.i, i64 %112
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.sink11.i, i64 %112
   %126 = load i64, ptr %125, align 8, !noundef !3
   invoke void @"_ZN112_$LT$quiche..recovery..gcongestion..pacer..Pacer$u20$as$u20$quiche..recovery..gcongestion..CongestionControl$GT$18on_packet_neutered17h61596c4231a82fc7E"(ptr noalias noundef nonnull align 8 dereferenceable(1088) %110, i64 noundef %126)
           to label %111 unwind label %118
@@ -5824,7 +5824,7 @@ define void @"_ZN100_$LT$quiche..recovery..gcongestion..recovery..GRecovery$u20$
   %.sroa.01.0.i = sub nuw i64 %44, %46
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %48 = load ptr, ptr %47, align 8, !alias.scope !405, !nonnull !3, !noundef !3
-  %49 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %48, i64 %.sroa.01.0.i
+  %49 = getelementptr inbounds nuw [176 x i8], ptr %48, i64 %.sroa.01.0.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 168
   %51 = load i64, ptr %50, align 8, !noundef !3
   %52 = icmp ult i64 %51, %36
@@ -6127,7 +6127,7 @@ define void @"_ZN100_$LT$quiche..recovery..gcongestion..recovery..GRecovery$u20$
   %82 = select i1 %.not.i.i, i64 0, i64 %81
   %.sroa.01.0.i.i = sub nuw i64 %80, %82
   %83 = load ptr, ptr %57, align 8, !alias.scope !421, !noalias !418, !nonnull !3, !noundef !3
-  %84 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %83, i64 %.sroa.01.0.i.i
+  %84 = getelementptr inbounds nuw [176 x i8], ptr %83, i64 %.sroa.01.0.i.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 168
   %86 = load i64, ptr %85, align 8, !alias.scope !424, !noalias !427, !noundef !3
   %.not1.i.i = icmp ult i64 %86, %76
@@ -6166,7 +6166,7 @@ define void @"_ZN100_$LT$quiche..recovery..gcongestion..recovery..GRecovery$u20$
   %98 = select i1 %.not.i.i.i, i64 0, i64 %97
   %.sroa.01.0.i.i.i = sub nuw i64 %96, %98
   %99 = load ptr, ptr %93, align 8, !alias.scope !431, !noalias !418, !nonnull !3, !noundef !3
-  %100 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %99, i64 %.sroa.01.0.i.i.i
+  %100 = getelementptr inbounds nuw [176 x i8], ptr %99, i64 %.sroa.01.0.i.i.i
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i32, ptr %101, align 8, !range !370, !noalias !427, !noundef !3
   %103 = and i32 %102, 1073741822
@@ -6208,10 +6208,10 @@ select.unfold.i:                                  ; preds = %79, %75
   %115 = load i64, ptr %60, align 8, !noalias !445, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !445
   %116 = load ptr, ptr %57, align 8, !alias.scope !439, !noalias !442, !nonnull !3, !noundef !3
-  %117 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %116, i64 %112
-  %118 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %116, i64 %114
-  %119 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %116, i64 %113
-  %120 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [176 x i8], ptr %116, i64 %112
+  %118 = getelementptr inbounds nuw [176 x i8], ptr %116, i64 %114
+  %119 = getelementptr inbounds nuw [176 x i8], ptr %116, i64 %113
+  %120 = getelementptr inbounds nuw [176 x i8], ptr %116, i64 %115
   br label %121
 
 121:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc29d7e9fd2c1fb96E.exit.i", %"_ZN4core6option15Option$LT$T$GT$6filter17hd290c329c4e8a02aE.exit.i"
@@ -6336,7 +6336,7 @@ select.unfold.i:                                  ; preds = %79, %75
 
 155:                                              ; preds = %150, %145
   %156 = load ptr, ptr %63, align 8, !alias.scope !454, !noalias !457, !nonnull !3, !noundef !3
-  %157 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %156, i64 %147
+  %157 = getelementptr inbounds nuw [24 x i8], ptr %156, i64 %147
   store i64 %146, ptr %157, align 8, !noalias !427
   %.sroa.459.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i64 %.sroa.054.0.copyload.i, ptr %.sroa.459.0..sroa_idx.i, align 8, !noalias !427
@@ -6439,7 +6439,7 @@ _ZN6quiche8recovery11gcongestion8recovery13RecoveryEpoch31detect_and_remove_acke
   store i64 %185, ptr %33, align 8
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 1632
   %187 = load ptr, ptr %186, align 8, !nonnull !3, !noundef !3
-  %188 = getelementptr { i64, { { { i64, i32, [1 x i32] } } } }, ptr %187, i64 %178
+  %188 = getelementptr [24 x i8], ptr %187, i64 %178
   %189 = getelementptr i8, ptr %188, i64 -24
   %.not22 = icmp eq ptr %189, null
   br i1 %.not22, label %195, label %190, !prof !23
@@ -7596,7 +7596,7 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$4emit17hb3ebb3a
   %.not.i.i = icmp ult i64 %19, %13
   %20 = select i1 %.not.i.i, i64 0, i64 %13
   %.sroa.01.0.i.i = sub nuw i64 %19, %20
-  %21 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %15, i64 %.sroa.01.0.i.i
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %.sroa.01.0.i.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i64, ptr %22, align 8, !noalias !513, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -7664,7 +7664,7 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$4emit17hb3ebb3a
   %.not.i.i24 = icmp ult i64 %55, %40
   %56 = select i1 %.not.i.i24, i64 0, i64 %40
   %.sroa.01.0.i.i25 = sub nuw i64 %55, %56
-  %57 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %42, i64 %.sroa.01.0.i.i25
+  %57 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %.sroa.01.0.i.i25
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i64, ptr %58, align 8, !noalias !519, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -7722,7 +7722,7 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$4emit17hb3ebb3a
   %.not.i = icmp ult i64 %86, %40
   %87 = select i1 %.not.i, i64 0, i64 %40
   %.sroa.01.0.i = sub nuw i64 %86, %87
-  %88 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %42, i64 %.sroa.01.0.i
+  %88 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %.sroa.01.0.i
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load i64, ptr %89, align 8, !noundef !3
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -8160,7 +8160,7 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$10retransmit17h
   %35 = select i1 %.not.i, i64 0, i64 %34
   %.sroa.01.0.i = sub nuw i64 %33, %35
   %36 = load ptr, ptr %23, align 8, !alias.scope !562, !nonnull !3, !noundef !3
-  %37 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %36, i64 %.sroa.01.0.i
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %.sroa.01.0.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load i64, ptr %38, align 8, !noundef !3
   %.not16 = icmp ult i64 %39, %8
@@ -8305,7 +8305,7 @@ define hidden { i64, i64 } @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5reset1
   %.not.i.i = icmp ult i64 %16, %10
   %17 = select i1 %.not.i.i, i64 0, i64 %10
   %.sroa.01.0.i.i = sub nuw i64 %16, %17
-  %18 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %12, i64 %.sroa.01.0.i.i
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %.sroa.01.0.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !565, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -8387,7 +8387,7 @@ define hidden noundef i64 @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_fro
   %.not.i = icmp ult i64 %16, %10
   %17 = select i1 %.not.i, i64 0, i64 %10
   %.sroa.01.0.i = sub nuw i64 %16, %17
-  %18 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %12, i64 %.sroa.01.0.i
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %.sroa.01.0.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16

@@ -29,7 +29,7 @@ define noundef ptr @Dar_ArrayAlloc(i32 noundef %0, i32 noundef %1, i32 noundef %
   %15 = mul i32 %5, %14
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
-  %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %17, ptr %18, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -103,12 +103,12 @@ define void @Dar_Permutations_rec(ptr noundef readonly captures(none) %0, i32 no
   store i8 %20, ptr %14, align 1, !tbaa !11
   %21 = sub nsw i64 %13, %indvars.iv56
   %22 = mul nsw i64 %21, %17
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %22
   br label %24
 
 24:                                               ; preds = %.lr.ph.us, %24
   %indvars.iv51 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next52, %24 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv51
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv51
   %26 = load ptr, ptr %25, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %13
   store i8 %20, ptr %27, align 1, !tbaa !11
@@ -135,7 +135,7 @@ define void @Dar_Permutations_rec(ptr noundef readonly captures(none) %0, i32 no
   store i8 %32, ptr %14, align 1, !tbaa !11
   %33 = sub nsw i64 %13, %indvars.iv
   %34 = mul nsw i64 %33, %16
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %0, i64 %34
   tail call void @Dar_Permutations_rec(ptr noundef %35, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %3)
   %36 = load i8, ptr %31, align 1, !tbaa !11
   %37 = load i8, ptr %14, align 1, !tbaa !11
@@ -187,7 +187,7 @@ Dar_Factorial.exit:                               ; preds = %.lr.ph.i, %1
   %15 = mul i32 %0, %14
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
-  %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store ptr %17, ptr %18, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -233,8 +233,8 @@ define void @Dar_TruthPermute_int(ptr noundef readonly captures(none) %0, i32 no
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv20 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next21, %._crit_edge.us ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv20
-  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv20
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv20
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv20
   br label %12
 
 12:                                               ; preds = %.preheader.us, %24
@@ -290,7 +290,7 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -309,8 +309,8 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr noundef readonly captures(none)
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv20.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next21.i, %._crit_edge.us.i ]
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv20.i
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv20.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv20.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv20.i
   %15 = load i32, ptr %13, align 4, !tbaa !15
   br label %16
 
@@ -363,7 +363,7 @@ Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %indvars.iv60 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next61, %.lr.ph50 ]
   %.03648 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.137, %.lr.ph50 ]
-  %28 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv60
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv60
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = shl nuw i32 1, %29
   %31 = and i32 %30, %0
@@ -386,7 +386,7 @@ Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
   br i1 %.not41, label %43, label %38
 
 38:                                               ; preds = %.lr.ph53
-  %39 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv66
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv66
   %40 = load i32, ptr %39, align 4, !tbaa !15
   %41 = shl nuw i32 1, %40
   %42 = or i32 %41, %.351
@@ -434,7 +434,7 @@ define i32 @Dar_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i32, ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = xor i32 %10, -1
   %12 = and i32 %.01920, %11
@@ -475,7 +475,7 @@ define void @Dar_Truth4VarNPN(ptr noundef writeonly captures(address_is_null) %0
   %13 = shl i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %10, i64 %14
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   store ptr %15, ptr %16, align 8, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i.i, 24
@@ -498,7 +498,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
 19:                                               ; preds = %Dar_Permutations.exit, %.loopexit
   %indvars.iv197 = phi i64 [ 1, %Dar_Permutations.exit ], [ %indvars.iv.next198, %.loopexit ]
   %.0118190 = phi i8 [ 1, %Dar_Permutations.exit ], [ %.1119, %.loopexit ]
-  %20 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv197
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv197
   %21 = load i16, ptr %20, align 2, !tbaa !23
   %.not140 = icmp eq i16 %21, 0
   br i1 %.not140, label %30, label %22
@@ -538,7 +538,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   br i1 %.not.i, label %48, label %39
 
 39:                                               ; preds = %.lr.ph.i141
-  %40 = getelementptr inbounds nuw i32, ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv.i142
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv.i142
   %41 = load i32, ptr %40, align 4, !tbaa !15
   %42 = xor i32 %41, -1
   %43 = and i32 %.01920.i, %42
@@ -562,7 +562,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 51:                                               ; preds = %Dar_TruthPolarize.exit.preheader, %Dar_TruthPolarize.exit
   %52 = phi i8 [ %35, %Dar_TruthPolarize.exit.preheader ], [ %101, %Dar_TruthPolarize.exit ]
   %indvars.iv = phi i64 [ 0, %Dar_TruthPolarize.exit.preheader ], [ %indvars.iv.next, %Dar_TruthPolarize.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   %55 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
   %56 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
@@ -570,7 +570,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 
 .lr.ph.i145:                                      ; preds = %.lr.ph.i145, %51
   %indvars.iv.i146 = phi i64 [ 0, %51 ], [ %indvars.iv.next.i147, %.lr.ph.i145 ]
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i146
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i146
   %58 = trunc nuw nsw i64 %indvars.iv.i146 to i32
   store i32 %58, ptr %57, align 4, !tbaa !15
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
@@ -583,8 +583,8 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %._crit_edge.i
   %indvars.iv20.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next21.i.i, %._crit_edge.us.i.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv20.i.i
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv20.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv20.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv20.i.i
   %61 = load i32, ptr %59, align 4, !tbaa !15
   br label %62
 
@@ -626,7 +626,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
   br i1 %.not41.i, label %82, label %77
 
 77:                                               ; preds = %.lr.ph53.i
-  %78 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv66.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv66.i
   %79 = load i32, ptr %78, align 4, !tbaa !15
   %80 = shl nuw i32 1, %79
   %81 = or i32 %80, %.351.i
@@ -649,7 +649,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 Dar_TruthPermute.exit:                            ; preds = %.loopexit.i, %83
   tail call void @free(ptr noundef nonnull %56) #14
   %84 = zext i32 %.4.i to i64
-  %85 = getelementptr inbounds nuw i16, ptr %5, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !23
   %87 = icmp eq i16 %86, 0
   br i1 %87, label %88, label %Dar_TruthPolarize.exit
@@ -666,7 +666,7 @@ Dar_TruthPermute.exit:                            ; preds = %.loopexit.i, %83
   %93 = and i32 %.4.i, 65535
   %94 = xor i32 %93, 65535
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %5, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %95
   store i16 %33, ptr %96, align 2, !tbaa !23
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 %95
   store i8 %50, ptr %97, align 1, !tbaa !11
@@ -693,7 +693,7 @@ Dar_TruthPolarize.exit:                           ; preds = %88, %Dar_TruthPermu
   br i1 %.not.i155, label %114, label %105
 
 105:                                              ; preds = %.lr.ph.i152
-  %106 = getelementptr inbounds nuw i32, ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv.i153
+  %106 = getelementptr inbounds nuw [4 x i8], ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv.i153
   %107 = load i32, ptr %106, align 4, !tbaa !15
   %108 = xor i32 %107, -1
   %109 = and i32 %.01920.i154, %108
@@ -712,7 +712,7 @@ Dar_TruthPolarize.exit:                           ; preds = %88, %Dar_TruthPermu
 Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPolarize.exit160
   %115 = phi i8 [ %164, %Dar_TruthPolarize.exit160 ], [ %101, %114 ]
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %Dar_TruthPolarize.exit160 ], [ 0, %114 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %117 = load ptr, ptr %116, align 8, !tbaa !3
   %118 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
   %119 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
@@ -720,7 +720,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
 
 .lr.ph.i161:                                      ; preds = %.lr.ph.i161, %Dar_TruthPolarize.exit160.preheader
   %indvars.iv.i162 = phi i64 [ 0, %Dar_TruthPolarize.exit160.preheader ], [ %indvars.iv.next.i163, %.lr.ph.i161 ]
-  %120 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.i162
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i162
   %121 = trunc nuw nsw i64 %indvars.iv.i162 to i32
   store i32 %121, ptr %120, align 4, !tbaa !15
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i162, 1
@@ -733,8 +733,8 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
 
 .preheader.us.i.i166:                             ; preds = %._crit_edge.us.i.i172, %._crit_edge.i165
   %indvars.iv20.i.i167 = phi i64 [ 0, %._crit_edge.i165 ], [ %indvars.iv.next21.i.i173, %._crit_edge.us.i.i172 ]
-  %122 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv20.i.i167
-  %123 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv20.i.i167
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv20.i.i167
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv20.i.i167
   %124 = load i32, ptr %122, align 4, !tbaa !15
   br label %125
 
@@ -776,7 +776,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
   br i1 %.not41.i179, label %145, label %140
 
 140:                                              ; preds = %.lr.ph53.i176
-  %141 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv66.i177
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv66.i177
   %142 = load i32, ptr %141, align 4, !tbaa !15
   %143 = shl nuw i32 1, %142
   %144 = or i32 %143, %.351.i178
@@ -799,7 +799,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
 Dar_TruthPermute.exit185:                         ; preds = %.loopexit.i183, %146
   tail call void @free(ptr noundef nonnull %119) #14
   %147 = zext i32 %.4.i180 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %5, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !23
   %150 = icmp eq i16 %149, 0
   br i1 %150, label %151, label %Dar_TruthPolarize.exit160
@@ -816,7 +816,7 @@ Dar_TruthPermute.exit185:                         ; preds = %.loopexit.i183, %14
   %156 = and i32 %.4.i180, 65535
   %157 = xor i32 %156, 65535
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw i16, ptr %5, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %158
   store i16 %33, ptr %159, align 2, !tbaa !23
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 %158
   store i8 %50, ptr %160, align 1, !tbaa !11

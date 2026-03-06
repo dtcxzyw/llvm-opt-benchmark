@@ -195,7 +195,7 @@ define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$alloc..boxed..Box$
   br i1 %2, label %"_ZN4core3ptr92drop_in_place$LT$$u5b$alloc..boxed..Box$LT$$u5b$tree_sitter..QueryProperty$u5d$$GT$$u5d$$GT$17h5a4656364b1d563aE.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %.0.val, i64 %.0.i
+  %4 = getelementptr inbounds [16 x i8], ptr %.0.val, i64 %.0.i
   %5 = add i64 %.0.i, 1
   %.val8.i = load ptr, ptr %4, align 8, !alias.scope !5, !noundef !4
   %6 = getelementptr i8, ptr %4, i64 8
@@ -214,7 +214,7 @@ define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$alloc..boxed..Box$
   br label %7
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %.0.val, i64 %.1.i
+  %12 = getelementptr inbounds [16 x i8], ptr %.0.val, i64 %.1.i
   %13 = add i64 %.1.i, 1
   %.val.i = load ptr, ptr %12, align 8, !alias.scope !5, !noundef !4
   %14 = getelementptr i8, ptr %12, i64 8
@@ -256,7 +256,7 @@ define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$alloc..boxed..Box$
 
 .lr.ph.i:                                         ; preds = %0, %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..CaptureQuantifier$u5d$$GT$$GT$17h683cbdb948538a61E.exit.i"
   %.011.i = phi i64 [ %3, %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..CaptureQuantifier$u5d$$GT$$GT$17h683cbdb948538a61E.exit.i" ], [ 0, %0 ]
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %.0.val, i64 %.011.i
+  %2 = getelementptr inbounds [16 x i8], ptr %.0.val, i64 %.011.i
   %3 = add nuw i64 %.011.i, 1
   %4 = getelementptr i8, ptr %2, i64 8
   %.val9.i = load i64, ptr %4, align 8, !alias.scope !8, !noundef !4
@@ -290,7 +290,7 @@ define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$alloc..boxed..Box$
 
 .lr.ph45.i:                                       ; preds = %0, %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$GT$17h127c39343dc9753cE.exit.i"
   %.044.i = phi i64 [ %3, %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$GT$17h127c39343dc9753cE.exit.i" ], [ 0, %0 ]
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %.0.val, i64 %.044.i
+  %2 = getelementptr inbounds [16 x i8], ptr %.0.val, i64 %.044.i
   %3 = add nuw i64 %.044.i, 1
   %.val8.i = load ptr, ptr %2, align 8, !alias.scope !11, !noundef !4
   %4 = getelementptr i8, ptr %2, i64 8
@@ -300,7 +300,7 @@ define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$alloc..boxed..Box$
 
 .lr.ph.i:                                         ; preds = %.lr.ph45.i, %"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E.exit.i"
   %.0.i.i43.i = phi i64 [ %7, %"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E.exit.i" ], [ 0, %.lr.ph45.i ]
-  %6 = getelementptr inbounds { i8, [39 x i8] }, ptr %.val8.i, i64 %.0.i.i43.i
+  %6 = getelementptr inbounds [40 x i8], ptr %.val8.i, i64 %.0.i.i43.i
   %7 = add nuw i64 %.0.i.i43.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %8 = load i8, ptr %6, align 8, !range !17, !alias.scope !14, !noalias !11, !noundef !4
@@ -325,7 +325,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %9, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h0abdac033b4067e1E.exit.i.i.i.i"
   %.011.i.i.i.i = phi i64 [ %14, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h0abdac033b4067e1E.exit.i.i.i.i" ], [ 0, %9 ]
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %.val2.i.i, i64 %.011.i.i.i.i
+  %13 = getelementptr inbounds [16 x i8], ptr %.val2.i.i, i64 %.011.i.i.i.i
   %14 = add nuw i64 %.011.i.i.i.i, 1
   %15 = getelementptr i8, ptr %13, i64 8
   %.val9.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !18, !noalias !21, !noundef !4
@@ -470,7 +470,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   br label %57
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds { i8, [39 x i8] }, ptr %.val8.i, i64 %.1.i.i.i
+  %62 = getelementptr inbounds [40 x i8], ptr %.val8.i, i64 %.1.i.i.i
   %63 = add i64 %.1.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %62) #23
           to label %57 unwind label %64, !noalias !11
@@ -503,7 +503,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   br i1 %70, label %78, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds { ptr, i64 }, ptr %.0.val, i64 %.1.i
+  %72 = getelementptr inbounds [16 x i8], ptr %.0.val, i64 %.1.i
   %73 = add i64 %.1.i, 1
   %.val.i = load ptr, ptr %72, align 8, !alias.scope !11, !noundef !4
   %74 = getelementptr i8, ptr %72, i64 8
@@ -544,7 +544,7 @@ define internal fastcc void @"_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$
   br i1 %2, label %"_ZN4core3ptr107drop_in_place$LT$$u5b$alloc..boxed..Box$LT$$u5b$$LP$tree_sitter..QueryProperty$C$bool$RP$$u5d$$GT$$u5d$$GT$17hd6a44410630b287fE.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %.0.val, i64 %.0.i
+  %4 = getelementptr inbounds [16 x i8], ptr %.0.val, i64 %.0.i
   %5 = add i64 %.0.i, 1
   %.val.i = load ptr, ptr %4, align 8, !alias.scope !60, !noundef !4
   %6 = getelementptr i8, ptr %4, i64 8
@@ -563,7 +563,7 @@ define internal fastcc void @"_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$
   br label %7
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %.0.val, i64 %.1.i
+  %12 = getelementptr inbounds [16 x i8], ptr %.0.val, i64 %.1.i
   %13 = add i64 %.1.i, 1
   %.val8.i = load ptr, ptr %12, align 8, !alias.scope !60, !noundef !4
   %14 = getelementptr i8, ptr %12, i64 8
@@ -712,7 +712,7 @@ default.unreachable4:                             ; preds = %1
 
 .lr.ph.i.i:                                       ; preds = %3, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h0abdac033b4067e1E.exit.i.i"
   %.011.i.i = phi i64 [ %8, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h0abdac033b4067e1E.exit.i.i" ], [ 0, %3 ]
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %.val2, i64 %.011.i.i
+  %7 = getelementptr inbounds [16 x i8], ptr %.val2, i64 %.011.i.i
   %8 = add nuw i64 %.011.i.i, 1
   %9 = getelementptr i8, ptr %7, i64 8
   %.val9.i.i = load i64, ptr %9, align 8, !alias.scope !75, !noundef !4
@@ -847,7 +847,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$L
 
 .lr.ph.i:                                         ; preds = %0, %"_ZN4core3ptr47drop_in_place$LT$tree_sitter..QueryProperty$GT$17ha9c4ba7436b06beaE.exit.i"
   %.010.i = phi i64 [ %3, %"_ZN4core3ptr47drop_in_place$LT$tree_sitter..QueryProperty$GT$17ha9c4ba7436b06beaE.exit.i" ], [ 0, %0 ]
-  %2 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %.0.val, i64 %.010.i
+  %2 = getelementptr inbounds [48 x i8], ptr %.0.val, i64 %.010.i
   %3 = add nuw i64 %.010.i, 1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h755e8fa2120c3127E.llvm.3039913483822116442"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
@@ -900,7 +900,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$L
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %.0.val, i64 %.1.i
+  %23 = getelementptr inbounds [48 x i8], ptr %.0.val, i64 %.1.i
   %24 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$tree_sitter..QueryProperty$GT$17ha9c4ba7436b06beaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %23) #23
           to label %18 unwind label %25
@@ -937,7 +937,7 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$L
   br i1 %1, label %"_ZN4core3ptr58drop_in_place$LT$$u5b$tree_sitter..QueryPredicate$u5d$$GT$17he5637c0f69c251beE.exit", label %2
 
 2:                                                ; preds = %"_ZN4core3ptr48drop_in_place$LT$tree_sitter..QueryPredicate$GT$17h51d5736f89836825E.exit.i"
-  %3 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %.0.val, i64 %.0.i
+  %3 = getelementptr inbounds [32 x i8], ptr %.0.val, i64 %.0.i
   %4 = add i64 %.0.i, 1
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h755e8fa2120c3127E.llvm.3039913483822116442"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
           to label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h0abdac033b4067e1E.llvm.3039913483822116442.exit.i.i" unwind label %5
@@ -975,7 +975,7 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$L
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %.0.val, i64 %.1.i
+  %16 = getelementptr inbounds [32 x i8], ptr %.0.val, i64 %.1.i
   %17 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr48drop_in_place$LT$tree_sitter..QueryPredicate$GT$17h51d5736f89836825E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #23
           to label %11 unwind label %18
@@ -1016,7 +1016,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$L
   br i1 %2, label %"_ZN4core3ptr64drop_in_place$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$17hdb8d9b10d289a894E.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { i8, [39 x i8] }, ptr %.0.val, i64 %.0.i
+  %4 = getelementptr inbounds [40 x i8], ptr %.0.val, i64 %.0.i
   %5 = add i64 %.0.i, 1
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %4)
           to label %1 unwind label %8
@@ -1032,7 +1032,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$L
   br label %6
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds { i8, [39 x i8] }, ptr %.0.val, i64 %.1.i
+  %11 = getelementptr inbounds [40 x i8], ptr %.0.val, i64 %.1.i
   %12 = add i64 %.1.i, 1
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %11) #23
           to label %6 unwind label %13
@@ -1070,7 +1070,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$L
 
 .lr.ph.i:                                         ; preds = %0, %"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E.exit.i"
   %.010.i = phi i64 [ %3, %"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E.exit.i" ], [ 0, %0 ]
-  %2 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %.0.val, i64 %.010.i
+  %2 = getelementptr inbounds [56 x i8], ptr %.0.val, i64 %.010.i
   %3 = add nuw i64 %.010.i, 1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h755e8fa2120c3127E.llvm.3039913483822116442"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
@@ -1123,7 +1123,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$L
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %.0.val, i64 %.1.i
+  %23 = getelementptr inbounds [56 x i8], ptr %.0.val, i64 %.1.i
   %24 = add i64 %.1.i, 1
   invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E"(ptr noalias noundef align 8 dereferenceable(56) %23) #23
           to label %18 unwind label %25
@@ -1384,7 +1384,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2b58feb1e93
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [32 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -1427,7 +1427,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35157b44a45
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [48 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -1470,7 +1470,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h76d97bba956
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [56 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -1513,7 +1513,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8b58fe94e0e
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { i8, [39 x i8] }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [40 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -2153,7 +2153,7 @@ define { i64, i64 } @_ZN11tree_sitter6Parser19set_included_ranges17hed0b35638aa4
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %1, i64 %2
+  %7 = getelementptr inbounds [48 x i8], ptr %1, i64 %2
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf92530ad386fd606E.llvm.9340169924046995681"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %1, ptr noundef nonnull %7)
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2446,7 +2446,7 @@ define void @_ZN11tree_sitter4Tree15included_ranges17h06bb46cf0d3abcefE(ptr noal
   %7 = load i32, ptr %4, align 4, !noundef !4
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %9 = getelementptr inbounds nuw { { i32, i32 }, { i32, i32 }, i32, i32 }, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %8
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h869de8477c6ab5c1E.llvm.9340169924046995681"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull %6, ptr noundef nonnull %9)
   %10 = load ptr, ptr @_ZN11tree_sitter7FREE_FN17hef6cbe735be692dbE, align 8, !nonnull !4, !noundef !4
@@ -3301,7 +3301,7 @@ define { ptr, i64 } @_ZN11tree_sitter4Node10utf16_text17h75b19cddc7ce5d0bE(ptr n
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9c4ae4164ee12eb4E.exit": ; preds = %9
   %13 = sub nuw nsw i64 %7, %5
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %5
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %5
   %15 = insertvalue { ptr, i64 } poison, ptr %14, 0
   %16 = insertvalue { ptr, i64 } %15, i64 %13, 1
   ret { ptr, i64 } %16
@@ -5087,7 +5087,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   call void @llvm.assume(i1 %276)
   %277 = add nuw nsw i64 %.010.i.i, 1
   %278 = sub nuw nsw i64 %.sroa.6782.017382450, %277
-  %279 = getelementptr inbounds nuw { i32, i32 }, ptr %.sroa.0781.017392449, i64 %277
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0781.017392449, i64 %277
   br label %.loopexit1378
 
 .thread1028.loopexit:                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haf1a4e4fbc71bd79E.exit591.thread", %578, %576, %525, %561, %653, %659, %399, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haf1a4e4fbc71bd79E.exit610", %393, %409, %421, %455
@@ -5161,7 +5161,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 295:                                              ; preds = %._crit_edge.i, %284
   %296 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %287, %284 ]
   %297 = load ptr, ptr %130, align 8, !alias.scope !585, !noalias !588, !nonnull !4, !noundef !4
-  %298 = getelementptr inbounds { ptr, i64 }, ptr %297, i64 %296
+  %298 = getelementptr inbounds [16 x i8], ptr %297, i64 %296
   store ptr %285, ptr %298, align 8, !noalias !588
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store i64 %286, ptr %299, align 8
@@ -5205,7 +5205,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 314:                                              ; preds = %._crit_edge.i517, %303
   %315 = phi i64 [ %.pre.i518, %._crit_edge.i517 ], [ %306, %303 ]
   %316 = load ptr, ptr %140, align 8, !alias.scope !590, !noalias !593, !nonnull !4, !noundef !4
-  %317 = getelementptr inbounds { ptr, i64 }, ptr %316, i64 %315
+  %317 = getelementptr inbounds [16 x i8], ptr %316, i64 %315
   store ptr %304, ptr %317, align 8, !noalias !593
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store i64 %305, ptr %318, align 8
@@ -5249,7 +5249,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 333:                                              ; preds = %._crit_edge.i525, %322
   %334 = phi i64 [ %.pre.i526, %._crit_edge.i525 ], [ %325, %322 ]
   %335 = load ptr, ptr %150, align 8, !alias.scope !595, !noalias !598, !nonnull !4, !noundef !4
-  %336 = getelementptr inbounds { ptr, i64 }, ptr %335, i64 %334
+  %336 = getelementptr inbounds [16 x i8], ptr %335, i64 %334
   store ptr %323, ptr %336, align 8, !noalias !598
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i64 %324, ptr %337, align 8
@@ -5293,7 +5293,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hc701a199592c1059E.exit": ; preds = %._crit_edge.i533, %341
   %352 = phi i64 [ %.pre.i534, %._crit_edge.i533 ], [ %344, %341 ]
   %353 = load ptr, ptr %159, align 8, !alias.scope !600, !noalias !603, !nonnull !4, !noundef !4
-  %354 = getelementptr inbounds { ptr, i64 }, ptr %353, i64 %352
+  %354 = getelementptr inbounds [16 x i8], ptr %353, i64 %352
   store ptr %342, ptr %354, align 8, !noalias !603
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store i64 %343, ptr %355, align 8
@@ -5332,7 +5332,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br i1 %369, label %370, label %.invoke, !prof !605
 
 370:                                              ; preds = %365
-  %371 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val512, i64 %368
+  %371 = getelementptr inbounds nuw [16 x i8], ptr %.val512, i64 %368
   %372 = load ptr, ptr %371, align 8, !nonnull !4, !align !182, !noundef !4
   %373 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %374 = load i64, ptr %373, align 8, !noundef !4
@@ -5477,7 +5477,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %414 = getelementptr inbounds nuw i8, ptr %.sroa.0781.017392449, i64 8
-  %415 = getelementptr { i32, i32 }, ptr %.sroa.0781.017392449, i64 %.sroa.5.0.i
+  %415 = getelementptr [8 x i8], ptr %.sroa.0781.017392449, i64 %.sroa.5.0.i
   store ptr %414, ptr %35, align 8
   store ptr %415, ptr %196, align 8
   store ptr %84, ptr %197, align 8
@@ -5590,7 +5590,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %444 = getelementptr inbounds nuw i8, ptr %.sroa.0781.017392449, i64 12
   %445 = load i32, ptr %444, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %446 = getelementptr inbounds { ptr, i64 }, ptr %443, i64 %442
+  %446 = getelementptr inbounds [16 x i8], ptr %443, i64 %442
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hff2723e548babed6E.llvm.9340169924046995681"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %38, ptr noundef nonnull %443, ptr noundef nonnull %446)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1a142003640ef4c6E.exit" unwind label %.loopexit.split-lp.loopexit
 
@@ -5657,7 +5657,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 
 470:                                              ; preds = %457
   %.val510 = load ptr, ptr %178, align 8, !nonnull !4, !noundef !4
-  %471 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val510, i64 %460
+  %471 = getelementptr inbounds nuw [16 x i8], ptr %.val510, i64 %460
   %472 = load ptr, ptr %471, align 8, !nonnull !4, !align !182, !noundef !4
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %474 = load i64, ptr %473, align 8, !noundef !4
@@ -5676,7 +5676,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4b840b3eb66c3350E.exit": ; preds = %470, %.noexc606
   %478 = phi i64 [ %.pre.i605, %.noexc606 ], [ %447, %470 ]
   %479 = load ptr, ptr %190, align 8, !alias.scope !665, !noalias !668, !nonnull !4, !noundef !4
-  %480 = getelementptr inbounds { ptr, i64 }, ptr %479, i64 %478
+  %480 = getelementptr inbounds [16 x i8], ptr %479, i64 %478
   store ptr %472, ptr %480, align 8, !noalias !668
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 8
   store i64 %474, ptr %481, align 8
@@ -5688,7 +5688,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 
 485:                                              ; preds = %462
   %.val508 = load ptr, ptr %111, align 8, !nonnull !4, !noundef !4
-  %486 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val508, i64 %465
+  %486 = getelementptr inbounds nuw [16 x i8], ptr %.val508, i64 %465
   store ptr %486, ptr %40, align 8
   %487 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %487, align 8
@@ -5724,7 +5724,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br label %693
 
 495:                                              ; preds = %434
-  %496 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val512, i64 %437
+  %496 = getelementptr inbounds nuw [16 x i8], ptr %.val512, i64 %437
   store ptr %496, ptr %44, align 8
   %497 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %497, align 8
@@ -5934,7 +5934,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   unreachable
 
 561:                                              ; preds = %553
-  %562 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val512, i64 %556
+  %562 = getelementptr inbounds nuw [16 x i8], ptr %.val512, i64 %556
   store ptr %562, ptr %57, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %563 = getelementptr inbounds nuw i8, ptr %.sroa.0781.017392449, i64 12
@@ -6088,7 +6088,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 595:                                              ; preds = %._crit_edge.i652, %584
   %596 = phi i64 [ %.pre.i653, %._crit_edge.i652 ], [ %585, %584 ]
   %597 = load ptr, ptr %170, align 8, !alias.scope !766, !noalias !769, !nonnull !4, !noundef !4
-  %598 = getelementptr inbounds { i8, [39 x i8] }, ptr %597, i64 %596
+  %598 = getelementptr inbounds [40 x i8], ptr %597, i64 %596
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %598, ptr noundef nonnull align 8 dereferenceable(40) %56, i64 40, i1 false)
   %599 = add i64 %596, 1
   store i64 %599, ptr %171, align 8, !alias.scope !766, !noalias !769
@@ -6098,7 +6098,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 
 600:                                              ; preds = %542
   %.val502 = load ptr, ptr %111, align 8, !nonnull !4, !noundef !4
-  %601 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val502, i64 %545
+  %601 = getelementptr inbounds nuw [16 x i8], ptr %.val502, i64 %545
   store ptr %601, ptr %58, align 8
   %602 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %602, align 8
@@ -6129,7 +6129,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br label %693
 
 609:                                              ; preds = %532
-  %610 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val512, i64 %535
+  %610 = getelementptr inbounds nuw [16 x i8], ptr %.val512, i64 %535
   store ptr %610, ptr %61, align 8
   %611 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %611, align 8
@@ -6268,7 +6268,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br i1 %652, label %653, label %.invoke, !prof !605
 
 653:                                              ; preds = %648
-  %654 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val512, i64 %651
+  %654 = getelementptr inbounds nuw [16 x i8], ptr %.val512, i64 %651
   %655 = load ptr, ptr %654, align 8, !nonnull !4, !align !182, !noundef !4
   %656 = getelementptr inbounds nuw i8, ptr %654, i64 8
   %657 = load i64, ptr %656, align 8, !noundef !4
@@ -6335,7 +6335,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 678:                                              ; preds = %._crit_edge.i692, %666
   %679 = phi i64 [ %.pre.i693, %._crit_edge.i692 ], [ %667, %666 ]
   %680 = load ptr, ptr %170, align 8, !alias.scope !808, !noalias !811, !nonnull !4, !noundef !4
-  %681 = getelementptr inbounds { i8, [39 x i8] }, ptr %680, i64 %679
+  %681 = getelementptr inbounds [40 x i8], ptr %680, i64 %679
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %681, ptr noundef nonnull align 8 dereferenceable(40) %69, i64 40, i1 false)
   %682 = add i64 %679, 1
   store i64 %682, ptr %171, align 8, !alias.scope !808, !noalias !811
@@ -6343,7 +6343,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br i1 %.not2029.not.not, label %.backedge2057, label %.thread1034
 
 683:                                              ; preds = %631
-  %684 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val512, i64 %634
+  %684 = getelementptr inbounds nuw [16 x i8], ptr %.val512, i64 %634
   store ptr %684, ptr %70, align 8
   %685 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %685, align 8
@@ -6416,7 +6416,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 
 694:                                              ; preds = %360
   %.val494 = load ptr, ptr %111, align 8, !nonnull !4, !noundef !4
-  %695 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val494, i64 %363
+  %695 = getelementptr inbounds nuw [16 x i8], ptr %.val494, i64 %363
   store ptr %695, ptr %75, align 8
   %696 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %696, align 8
@@ -6598,7 +6598,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br i1 %744, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h353a01dd44d2ec8eE.llvm.3039913483822116442.exit", label %745
 
 745:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..QueryProperty$u5d$$GT$$GT$17hdbd6128ed826ac4aE.llvm.3039913483822116442.exit.i.i"
-  %746 = getelementptr inbounds { ptr, i64 }, ptr %742, i64 %.0.i.i
+  %746 = getelementptr inbounds [16 x i8], ptr %742, i64 %.0.i.i
   %747 = add i64 %.0.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !881)
   %748 = load ptr, ptr %746, align 8, !alias.scope !884, !noalias !878, !noundef !4
@@ -6638,7 +6638,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br label %756
 
 760:                                              ; preds = %756
-  %761 = getelementptr inbounds { ptr, i64 }, ptr %742, i64 %.1.i.i
+  %761 = getelementptr inbounds [16 x i8], ptr %742, i64 %.1.i.i
   %762 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..QueryProperty$u5d$$GT$$GT$17hdbd6128ed826ac4aE.llvm.3039913483822116442"(ptr noalias noundef nonnull align 8 dereferenceable(16) %761) #23
           to label %756 unwind label %763, !noalias !878
@@ -6691,7 +6691,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br i1 %776, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h62d69aafd3b08c2fE.llvm.3039913483822116442.exit", label %777
 
 777:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$LP$tree_sitter..QueryProperty$C$bool$RP$$u5d$$GT$$GT$17h39cb66492335691cE.llvm.3039913483822116442.exit.i.i"
-  %778 = getelementptr inbounds { ptr, i64 }, ptr %774, i64 %.0.i.i763
+  %778 = getelementptr inbounds [16 x i8], ptr %774, i64 %.0.i.i763
   %779 = add i64 %.0.i.i763, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !898)
   %780 = load ptr, ptr %778, align 8, !alias.scope !901, !noalias !895, !noundef !4
@@ -6731,7 +6731,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br label %788
 
 792:                                              ; preds = %788
-  %793 = getelementptr inbounds { ptr, i64 }, ptr %774, i64 %.1.i.i766
+  %793 = getelementptr inbounds [16 x i8], ptr %774, i64 %.1.i.i766
   %794 = add i64 %.1.i.i766, 1
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$LP$tree_sitter..QueryProperty$C$bool$RP$$u5d$$GT$$GT$17h39cb66492335691cE.llvm.3039913483822116442"(ptr noalias noundef nonnull align 8 dereferenceable(16) %793) #23
           to label %788 unwind label %795, !noalias !895
@@ -6929,7 +6929,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 849:                                              ; preds = %._crit_edge.i750, %838
   %850 = phi i64 [ %.pre.i751, %._crit_edge.i750 ], [ %841, %838 ]
   %851 = load ptr, ptr %120, align 8, !alias.scope !937, !noalias !940, !nonnull !4, !noundef !4
-  %852 = getelementptr inbounds { ptr, i64 }, ptr %851, i64 %850
+  %852 = getelementptr inbounds [16 x i8], ptr %851, i64 %850
   store ptr %839, ptr %852, align 8, !noalias !940
   %853 = getelementptr inbounds nuw i8, ptr %852, i64 8
   store i64 %840, ptr %853, align 8
@@ -7028,7 +7028,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 882:                                              ; preds = %.noexc758, %875
   %883 = phi i64 [ %.pre.i757, %.noexc758 ], [ %878, %875 ]
   %884 = load ptr, ptr %111, align 8, !alias.scope !951, !noalias !954, !nonnull !4, !noundef !4
-  %885 = getelementptr inbounds { ptr, i64 }, ptr %884, i64 %883
+  %885 = getelementptr inbounds [16 x i8], ptr %884, i64 %883
   store ptr %166, ptr %885, align 8, !noalias !954
   %886 = getelementptr inbounds nuw i8, ptr %885, i64 8
   store i64 %877, ptr %886, align 8
@@ -7174,7 +7174,7 @@ define { ptr, i64 } @_ZN11tree_sitter5Query19capture_quantifiers17h729730ad313d1
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !155, !noundef !4
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 %1
+  %9 = getelementptr inbounds [16 x i8], ptr %8, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !182, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -7242,7 +7242,7 @@ define { ptr, i64 } @_ZN11tree_sitter5Query19property_predicates17h43089889472b0
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !155, !noundef !4
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 %1
+  %9 = getelementptr inbounds [16 x i8], ptr %8, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !155, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -7265,7 +7265,7 @@ define { ptr, i64 } @_ZN11tree_sitter5Query17property_settings17hebe827cc356ef0f
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !155, !noundef !4
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 %1
+  %9 = getelementptr inbounds [16 x i8], ptr %8, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !155, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -7288,7 +7288,7 @@ define { ptr, i64 } @_ZN11tree_sitter5Query18general_predicates17h034f2e2fc75f38
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !155, !noundef !4
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 %1
+  %9 = getelementptr inbounds [16 x i8], ptr %8, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !155, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -7570,7 +7570,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit47:  ; preds = %._crit_edge
   br i1 %75, label %81, label %86, !prof !605
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit52:  ; preds = %66
-  %76 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %69
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %69
   store ptr %22, ptr %18, align 8
   %77 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %77, align 8
@@ -7606,7 +7606,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit52:  ; preds = %66
   unreachable
 
 81:                                               ; preds = %71
-  %82 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %74
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %74
   %83 = load ptr, ptr %82, align 8, !nonnull !4, !align !182, !noundef !4
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load i64, ptr %84, align 8, !noundef !4
@@ -7617,7 +7617,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit52:  ; preds = %66
   unreachable
 
 87:                                               ; preds = %61
-  %88 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %64
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %64
   br label %90
 
 89:                                               ; preds = %61
@@ -7649,7 +7649,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit52:  ; preds = %66
   br label %90
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit57:  ; preds = %92
-  %101 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %95
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %95
   store ptr %22, ptr %19, align 8
   %102 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he2e473f4788635c7E", ptr %102, align 8
@@ -7779,7 +7779,7 @@ define void @_ZN11tree_sitter10QueryMatch23nodes_for_capture_index17ha851c8f5ea6
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !155, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8

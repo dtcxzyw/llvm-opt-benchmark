@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN2cv3dnn17FlowWarpLayerImplC2ERKNS0_14dnn4_v2024122311LayerParamsE = comdat any
 
@@ -747,11 +743,11 @@ define linkonce_odr hidden void @_ZN2cv3dnn17FlowWarpLayerImpl7forwardERKNS_11_I
   %55 = mul i32 %26, %54
   %56 = add i32 %50, %55
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds float, ptr %33, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %33, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !67
   %60 = add nsw i32 %56, %27
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds float, ptr %33, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %33, i64 %61
   %63 = load float, ptr %62, align 4, !tbaa !67
   %64 = fadd float %59, %51
   %65 = trunc nuw nsw i64 %indvars.iv167 to i32
@@ -772,7 +768,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn17FlowWarpLayerImpl7forwardERKNS_11_I
   %74 = mul i32 %27, %73
   %75 = add i32 %96, %74
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds float, ptr %35, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %35, i64 %76
   store float %.pre, ptr %77, align 4, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -791,14 +787,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn17FlowWarpLayerImpl7forwardERKNS_11_I
   %80 = mul nuw nsw i64 %indvars.iv162, %45
   %81 = add nuw nsw i64 %80, %47
   %82 = add nsw i64 %81, %114
-  %gep = getelementptr float, ptr %invariant.gep, i64 %82
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %82
   %83 = load float, ptr %gep, align 4, !tbaa !67
-  %gep194 = getelementptr float, ptr %invariant.gep193, i64 %82
+  %gep194 = getelementptr [4 x i8], ptr %invariant.gep193, i64 %82
   %84 = load float, ptr %gep194, align 4, !tbaa !67
   %85 = add nsw i64 %81, %117
-  %gep196 = getelementptr float, ptr %invariant.gep195, i64 %85
+  %gep196 = getelementptr [4 x i8], ptr %invariant.gep195, i64 %85
   %86 = load float, ptr %gep196, align 4, !tbaa !67
-  %gep198 = getelementptr float, ptr %invariant.gep197, i64 %85
+  %gep198 = getelementptr [4 x i8], ptr %invariant.gep197, i64 %85
   %87 = load float, ptr %gep198, align 4, !tbaa !67
   %88 = fmul float %110, %86
   %89 = call float @llvm.fmuladd.f32(float %109, float %83, float %88)
@@ -807,7 +803,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn17FlowWarpLayerImpl7forwardERKNS_11_I
   %92 = trunc nsw i64 %81 to i32
   %93 = add i32 %113, %92
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds float, ptr %35, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %35, i64 %94
   store float %91, ptr %95, align 4, !tbaa !67
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
@@ -845,10 +841,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn17FlowWarpLayerImpl7forwardERKNS_11_I
   %115 = sext i32 %97 to i64
   %116 = sext i32 %.sroa.speculated138.us.us.us to i64
   %117 = sext i32 %106 to i64
-  %invariant.gep = getelementptr float, ptr %31, i64 %115
-  %invariant.gep193 = getelementptr float, ptr %31, i64 %116
-  %invariant.gep195 = getelementptr float, ptr %31, i64 %115
-  %invariant.gep197 = getelementptr float, ptr %31, i64 %116
+  %invariant.gep = getelementptr [4 x i8], ptr %31, i64 %115
+  %invariant.gep193 = getelementptr [4 x i8], ptr %31, i64 %116
+  %invariant.gep195 = getelementptr [4 x i8], ptr %31, i64 %115
+  %invariant.gep197 = getelementptr [4 x i8], ptr %31, i64 %116
   br label %79
 
 ._crit_edge.us.us.us:                             ; preds = %.loopexit.us.us.us
@@ -1372,7 +1368,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %42,
   %49 = phi i32 [ %2, %31 ], [ 0, %23 ]
   %50 = zext nneg i32 %49 to i64
   %51 = load ptr, ptr %48, align 8, !tbaa !88
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %53, ptr %0, align 8, !tbaa !21
   %54 = load ptr, ptr %52, align 8, !tbaa !28
@@ -1528,7 +1524,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.17", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !79
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !76

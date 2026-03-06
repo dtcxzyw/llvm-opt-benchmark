@@ -61,7 +61,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskEPKNS_8ConstantEjRNS_15SmallVec
   %23 = shl nuw i64 1, %22
   %24 = lshr i64 %indvars.iv, 6
   %25 = and i64 %24, 67108863
-  %26 = getelementptr inbounds nuw i64, ptr %15, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %25
   %.in.i.i = select i1 %14, ptr %4, ptr %26
   %27 = load i64, ptr %.in.i.i, align 8, !tbaa !8
   %28 = and i64 %27, %23
@@ -76,7 +76,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskEPKNS_8ConstantEjRNS_15SmallVec
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %5, align 8, !tbaa !9
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !15
   %36 = and i64 %35, 128
   %.not14 = icmp eq i64 %36, 0
@@ -112,7 +112,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.sink = phi i32 [ -2, %37 ], [ %44, %40 ], [ -1, %29 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %49 = load ptr, ptr %2, align 8, !tbaa !9
   %50 = zext i32 %.sink36 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %.sink, ptr %51, align 1
   %52 = load i32, ptr %16, align 8, !tbaa !12
   %53 = add i32 %52, 1
@@ -256,7 +256,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i = phi i64 [ %48, %52 ], [ %.pre.i, %56 ]
   %58 = phi i32 [ %47, %52 ], [ %.pre.i.i, %56 ]
   %59 = load ptr, ptr %3, align 8, !tbaa !9
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %.pre-phi.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.pre-phi.i
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %53, 3
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i
@@ -320,7 +320,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit:      ; preds = %_ZN4llvm5APIntD2Ev.
   %82 = load ptr, ptr %2, align 8, !tbaa !8
   %83 = lshr i64 %indvars.iv142, 6
   %84 = and i64 %83, 67108863
-  %85 = getelementptr inbounds nuw i64, ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !15
   %87 = or i64 %86, %75
   store i64 %87, ptr %85, align 8, !tbaa !15
@@ -339,7 +339,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit:      ; preds = %_ZN4llvm5APIntD2Ev.
 _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %81, %78, %88
   %.sink = phi i64 [ %.0.i, %88 ], [ 0, %78 ], [ 0, %81 ]
   %94 = load ptr, ptr %3, align 8, !tbaa !9
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv142
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv142
   store i64 %.sink, ptr %95, align 8, !tbaa !15
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %indvars144 = trunc i64 %indvars.iv.next143 to i32
@@ -534,7 +534,7 @@ _ZNK4llvm5APInt9isAllOnesEv.exit.thread:          ; preds = %153, %160, %_ZNK4ll
   %176 = load ptr, ptr %2, align 8, !tbaa !8
   %177 = lshr i64 %indvars.iv139, 6
   %178 = and i64 %177, 67108863
-  %179 = getelementptr inbounds nuw i64, ptr %176, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !15
   %181 = or i64 %180, %169
   store i64 %181, ptr %179, align 8, !tbaa !15
@@ -542,7 +542,7 @@ _ZNK4llvm5APInt9isAllOnesEv.exit.thread:          ; preds = %153, %160, %_ZNK4ll
 
 _ZN4llvm5APInt6setBitEj.exit82:                   ; preds = %172, %175
   %182 = load ptr, ptr %3, align 8, !tbaa !9
-  %183 = getelementptr inbounds nuw i64, ptr %182, i64 %indvars.iv139
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv139
   store i64 0, ptr %183, align 8, !tbaa !15
   br label %195
 
@@ -555,7 +555,7 @@ _ZN4llvm5APInt6setBitEj.exit82:                   ; preds = %172, %175
   %.0.in.i83 = select i1 %186, ptr %10, ptr %187
   %.0.i84 = load i64, ptr %.0.in.i83, align 8, !tbaa !8
   %188 = load ptr, ptr %3, align 8, !tbaa !9
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv139
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv139
   store i64 %.0.i84, ptr %189, align 8, !tbaa !15
   %190 = icmp ugt i32 %185, 64
   br i1 %190, label %191, label %_ZN4llvm5APIntD2Ev.exit85
@@ -675,7 +675,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEPKNS_8ConstantEjjRNS_15Small
   %25 = shl nuw i64 1, %24
   %26 = lshr i64 %indvars.iv, 6
   %27 = and i64 %26, 67108863
-  %28 = getelementptr inbounds nuw i64, ptr %17, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %27
   %.in.i.i = select i1 %16, ptr %5, ptr %28
   %29 = load i64, ptr %.in.i.i, align 8, !tbaa !8
   %30 = and i64 %29, %25
@@ -692,7 +692,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEPKNS_8ConstantEjjRNS_15Small
   %35 = trunc nuw i64 %indvars.iv to i32
   %36 = and i32 %35, %21
   %37 = load ptr, ptr %6, align 8, !tbaa !9
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8, !tbaa !15
   %40 = trunc i64 %39 to i32
   %41 = lshr i32 %40, 1
@@ -719,7 +719,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.0.sink = phi i32 [ %.0, %34 ], [ -1, %31 ], [ %.0.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %48 = load ptr, ptr %3, align 8, !tbaa !9
   %49 = zext i32 %.sink to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   store i32 %.0.sink, ptr %50, align 1
   %storemerge.in = load i32, ptr %18, align 8, !tbaa !12
   %storemerge = add i32 %storemerge.in, 1
@@ -814,7 +814,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEPKNS_8ConstantEjjjRNS_15Sma
   %33 = shl nuw i64 1, %32
   %34 = lshr i64 %indvars.iv, 6
   %35 = and i64 %34, 67108863
-  %36 = getelementptr inbounds nuw i64, ptr %23, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %35
   %.in.i.i = select i1 %22, ptr %7, ptr %36
   %37 = load i64, ptr %.in.i.i, align 8, !tbaa !8
   %38 = and i64 %37, %33
@@ -829,7 +829,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEPKNS_8ConstantEjjjRNS_15Sma
 
 42:                                               ; preds = %30
   %43 = load ptr, ptr %8, align 8, !tbaa !9
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !15
   br i1 %.not32, label %._crit_edge, label %46
 
@@ -883,7 +883,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.sink = phi i32 [ -2, %51 ], [ %61, %53 ], [ -1, %39 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %65 = load ptr, ptr %4, align 8, !tbaa !9
   %66 = zext i32 %.sink57 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %.sink, ptr %67, align 1
   %68 = load i32, ptr %24, align 8, !tbaa !12
   %69 = add i32 %68, 1
@@ -978,7 +978,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
   %27 = shl nuw i64 1, %26
   %28 = lshr i64 %indvars.iv, 6
   %29 = and i64 %28, 67108863
-  %30 = getelementptr inbounds nuw i64, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %29
   %.in.i.i = select i1 %19, ptr %5, ptr %30
   %31 = load i64, ptr %.in.i.i, align 8, !tbaa !8
   %32 = and i64 %31, %27
@@ -993,7 +993,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
 
 36:                                               ; preds = %25
   %37 = load ptr, ptr %6, align 8, !tbaa !9
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8, !tbaa !15
   %40 = lshr i64 %39, 5
   %41 = and i64 %40, 7
@@ -1034,7 +1034,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
   %.sink = phi i32 [ -2, %42 ], [ %47, %45 ], [ -1, %33 ], [ %.sink.ph, %.thread.sink.split ]
   %53 = load ptr, ptr %2, align 8, !tbaa !9
   %54 = zext i32 %.sink44 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %.sink, ptr %55, align 1
   %56 = load i32, ptr %21, align 8, !tbaa !12
   %57 = add i32 %56, 1

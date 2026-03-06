@@ -132,7 +132,7 @@ define hidden void @_ZN7datalog9mk_unfold11expand_tailERNS_4ruleEjRKNS_8rule_set
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !260
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -8
@@ -187,7 +187,7 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %13, %.crite
   br label %125
 
 42:                                               ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit
-  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !273
   %45 = invoke noundef zeroext i1 @_ZN7datalog12rule_unifier11unify_rulesERKNS_4ruleEjS3_(ptr noundef nonnull align 8 dereferenceable(652) %29, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %44)
           to label %46 unwind label %111

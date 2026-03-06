@@ -235,7 +235,7 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
 82:                                               ; preds = %78, %75
   %83 = load i32, ptr @speedindex, align 4, !tbaa !53
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %struct.speedcount, ptr @speedstore, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr @speedstore, i64 %84
   store i64 %.077.lcssa, ptr %85, align 16, !tbaa !54
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %.081.lcssa, ptr %86, align 8, !tbaa !56
@@ -260,7 +260,7 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
 91:                                               ; preds = %.thread, %90
   %92 = phi i32 [ 0, %.thread ], [ %88, %90 ]
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw %struct.speedcount, ptr @speedstore, i64 %93
+  %94 = getelementptr inbounds nuw [32 x i8], ptr @speedstore, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load i64, ptr %95, align 16
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 24
@@ -268,7 +268,7 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   %99 = call i64 @tvdiff(i64 %19, i64 %20, i64 %96, i64 %98) #7
   %100 = load i32, ptr @speedindex, align 4, !tbaa !53
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %struct.speedcount, ptr @speedstore, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr @speedstore, i64 %101
   %103 = load i64, ptr %102, align 16, !tbaa !54
   %104 = sub nsw i64 %.077.lcssa, %103
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 8

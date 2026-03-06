@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.hwloc_component = type { i32, ptr, ptr, i32, i64, ptr }
-%struct.hwloc_topology_forced_component_s = type { ptr, i32 }
 
 @hwloc_components_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
 @hwloc_components_users = internal unnamed_addr global i32 0, align 4
@@ -149,7 +148,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   %40 = add i32 %39, 1
   store i32 %40, ptr @hwloc_component_finalize_cb_count, align 4, !tbaa !3
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   store ptr %36, ptr %42, align 8, !tbaa !7
   br label %43
 
@@ -352,7 +351,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 
 hwloc_disc_component_register.exit:               ; preds = %._crit_edge10.i, %104, %103, %76, %73, %65, %63, %53, %51, %43, %136, %29, %31, %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %139 = getelementptr inbounds nuw ptr, ptr @hwloc_static_components, i64 %indvars.iv.next
+  %139 = getelementptr inbounds nuw [8 x i8], ptr @hwloc_static_components, i64 %indvars.iv.next
   %140 = load ptr, ptr %139, align 8, !tbaa !29
   %.not24 = icmp eq i64 %indvars.iv.next, 11
   br i1 %.not24, label %.loopexit, label %12, !llvm.loop !31
@@ -654,7 +653,7 @@ hwloc_disc_component_find.exit.thread52:          ; preds = %.lr.ph.i, %hwloc_di
 
 41:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %42 = getelementptr inbounds nuw %struct.hwloc_topology_forced_component_s, ptr %.pre, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !63
   %44 = icmp eq ptr %43, %.02956
   br i1 %44, label %45, label %40
@@ -678,7 +677,7 @@ hwloc_disc_component_find.exit.thread52:          ; preds = %.lr.ph.i, %hwloc_di
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %55 = load i32, ptr %38, align 8, !tbaa !32
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.hwloc_topology_forced_component_s, ptr %52, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %56
   store ptr %.02956, ptr %57, align 8, !tbaa !63
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %.02857, ptr %58, align 8, !tbaa !65
@@ -1148,7 +1147,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
 
 55:                                               ; preds = %.lr.ph156, %hwloc_disc_component_find.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next, %hwloc_disc_component_find.exit ]
-  %56 = getelementptr inbounds nuw %struct.hwloc_topology_forced_component_s, ptr %52, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !63
   %58 = icmp eq ptr %.01726.i, %57
   br i1 %58, label %59, label %hwloc_disc_component_find.exit
@@ -1231,7 +1230,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
 
 86:                                               ; preds = %.lr.ph162, %85
   %indvars.iv179 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next180, %85 ]
-  %87 = getelementptr inbounds nuw %struct.hwloc_topology_forced_component_s, ptr %84, i64 %indvars.iv179
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %indvars.iv179
   %88 = load ptr, ptr %87, align 8, !tbaa !63
   %89 = icmp eq ptr %.093165, %88
   br i1 %89, label %90, label %85
@@ -1450,7 +1449,7 @@ define hidden void @hwloc_components_fini() local_unnamed_addr #0 {
   %7 = xor i32 %.04, -1
   %8 = add i32 %5, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !7
   tail call void %11(i64 noundef 0) #21
   %12 = add nuw i32 %.04, 1

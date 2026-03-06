@@ -269,7 +269,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
   %29 = phi i32 [ %23, %.lr.ph.split.us.preheader ], [ %50, %49 ]
   %indvars.iv32 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next33, %49 ]
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv32
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv32
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %28
   br i1 %33, label %49, label %34
@@ -283,7 +283,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
 38:                                               ; preds = %34
   %39 = icmp eq i32 %35, 1
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv32
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv32
   %42 = load i32, ptr %41, align 4
   %43 = select i1 %39, ptr @.str.8, ptr @.str.9
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.proctrack_p_signal, i32 noundef %42, ptr noundef nonnull %43, i32 noundef 9) #8
@@ -291,7 +291,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
 
 44:                                               ; preds = %38, %34
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv32
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv32
   %47 = load i32, ptr %46, align 4
   %48 = call i32 @kill(i32 noundef %47, i32 noundef 9) #8
   %.pre = load i32, ptr %4, align 4
@@ -307,7 +307,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %75 ]
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %27
   br i1 %56, label %75, label %57
@@ -327,7 +327,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %69 = select i1 %61, ptr @.str.8, ptr @.str.9
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.proctrack_p_signal, i32 noundef %68, ptr noundef nonnull %69, i32 noundef %1) #8
@@ -335,7 +335,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
 
 70:                                               ; preds = %65, %62
   %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4
   %74 = call i32 @kill(i32 noundef %73, i32 noundef %1) #8
   br label %75

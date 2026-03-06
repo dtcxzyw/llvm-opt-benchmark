@@ -184,7 +184,7 @@ sub_119.i:                                        ; preds = %.tail.thread.i
   %70 = load ptr, ptr @stderr, align 8
   %71 = load ptr, ptr @progname, align 8
   %72 = sext i32 %67 to i64
-  %73 = getelementptr inbounds ptr, ptr %1, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %1, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %70, ptr noundef nonnull @.str.13, ptr noundef %71, ptr noundef %74) #10
   %76 = load ptr, ptr @stderr, align 8
@@ -239,7 +239,7 @@ handle_args.exit:                                 ; preds = %66
   %104 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %102, i1 false)
   %105 = sub nuw nsw i32 32, %104
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i64, ptr @histogram, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr @histogram, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, 1
   store i64 %109, ptr %107, align 8
@@ -281,7 +281,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
 
 132:                                              ; preds = %136, %test_timing.exit
   %.028.i = phi i64 [ 31, %test_timing.exit ], [ %137, %136 ]
-  %133 = getelementptr inbounds nuw i64, ptr @histogram, i64 %.028.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr @histogram, i64 %.028.i
   %134 = load i64, ptr %133, align 8
   %135 = icmp eq i64 %134, 0
   br i1 %135, label %136, label %.critedge.i
@@ -301,7 +301,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.i
   %.02730.i = phi i64 [ %148, %.lr.ph.i ], [ 0, %.critedge.i ]
   %141 = shl nuw i64 1, %.02730.i
-  %142 = getelementptr inbounds nuw i64, ptr @histogram, i64 %.02730.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr @histogram, i64 %.02730.i
   %143 = load i64, ptr %142, align 8
   %144 = sitofp i64 %143 to double
   %145 = fmul nnan double %144, 1.000000e+02

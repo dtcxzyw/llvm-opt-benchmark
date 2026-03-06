@@ -502,10 +502,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %3 = load i8, ptr %2, align 1, !range !66, !alias.scope !63, !noalias !67, !noundef !47
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E.27", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E.27", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !63
   ret i1 %6
@@ -781,10 +781,10 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
 switch.lookup:                                    ; preds = %2
   %8 = load i8, ptr %1, align 1, !range !66, !alias.scope !106, !noalias !109, !noundef !47
   %9 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i8 %8 to i64
-  %switch.gep6 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
+  %switch.gep6 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   %11 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load7, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit" unwind label %6
@@ -1128,10 +1128,10 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %11 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i.i" unwind label %7, !noalias !139
@@ -4105,7 +4105,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17ha1b95ae5c521547
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h904d3413be1cce3fE.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h904d3413be1cce3fE.exit": ; preds = %.loopexit
-  %29 = getelementptr inbounds nuw { { { [8 x i64] } } }, ptr %18, i64 %20
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !358
@@ -4234,7 +4234,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hc941b68e7691ddd
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h98dd165ea639b2dcE.exit"
 
 28:                                               ; preds = %.loopexit
-  %29 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %17, i64 %19
+  %29 = getelementptr inbounds nuw [232 x i8], ptr %17, i64 %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %30, ptr noundef nonnull align 8 dereferenceable(232) %29, i64 232, i1 false)
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h98dd165ea639b2dcE.exit"
@@ -4777,7 +4777,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h3f824eedd64094
 
 8:                                                ; preds = %5
   %9 = and i64 %6, 31
-  %10 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2832
   %12 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %11)
@@ -4918,7 +4918,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !noalias !706, !noundef !47
   %20 = and i64 %19, %16
-  %21 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %17, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %17, i64 %20
   %22 = invoke { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h84d0c197863e301eE.llvm.12929368810573836545(ptr noundef nonnull align 1 %21, i8 noundef 0, i8 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc7 unwind label %9
 
@@ -5051,7 +5051,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !noalias !717, !noundef !47
   %20 = and i64 %19, %16
-  %21 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %17, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %17, i64 %20
   %22 = invoke { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h84d0c197863e301eE.llvm.12929368810573836545(ptr noundef nonnull align 1 %21, i8 noundef 0, i8 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc7 unwind label %9
 
@@ -6719,7 +6719,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %77
 86:                                               ; preds = %._crit_edge.i, %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit
   %87 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %78, %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit ]
   %88 = load ptr, ptr %17, align 8, !alias.scope !892, !noalias !895, !nonnull !47, !noundef !47
-  %89 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %88, i64 %87
+  %89 = getelementptr inbounds [24 x i8], ptr %88, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %90 = load i64, ptr %19, align 8, !alias.scope !892, !noalias !895, !noundef !47
   %91 = add i64 %90, 1
@@ -6870,7 +6870,7 @@ define void @_ZN10ockam_abac3env3Env3get17hbd48955f23ee238dE(ptr noalias noundef
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !918
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !918
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 632
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.sroa.3.0.copyload.i.i
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %.sroa.3.0.copyload.i.i
   %21 = load ptr, ptr %20, align 8, !noalias !920, !nonnull !47, !noundef !47
   %22 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h6b1d0781af93668fE.llvm.4387265947332733882"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull %21, i64 noundef %22, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !915
@@ -6907,7 +6907,7 @@ define void @_ZN10ockam_abac3env3Env3get17hbd48955f23ee238dE(ptr noalias noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !914
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !914
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !914
-  %29 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %29 = getelementptr inbounds [32 x i8], ptr %.sroa.4.sroa.0.0.copyload12.i, i64 %.sroa.4.sroa.5.0.copyload15.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
   store i64 5, ptr %0, align 8
@@ -6957,7 +6957,7 @@ define noundef zeroext i1 @_ZN10ockam_abac3env3Env8contains17h5ce8dbaf1dc82403E(
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !938
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !938
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 632
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %.sroa.3.0.copyload.i.i
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %.sroa.3.0.copyload.i.i
   %20 = load ptr, ptr %19, align 8, !noalias !940, !nonnull !47, !noundef !47
   %21 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h6b1d0781af93668fE.llvm.4387265947332733882"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %20, i64 noundef %21, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !935
@@ -7029,7 +7029,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN10ockam_abac3e
   %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !noalias !950, !nonnull !47, !noundef !47
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !950
-  %20 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  %20 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !958
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %.pr = load i8, ptr %9, align 8, !alias.scope !959
@@ -7277,7 +7277,7 @@ define void @_ZN10ockam_abac3env3Env5merge17h20f4881fa884c910E(ptr noalias nound
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1005
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !1005
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 632
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %.sroa.3.0.copyload.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %.sroa.3.0.copyload.i.i
   %44 = load ptr, ptr %43, align 8, !noalias !1009, !nonnull !47, !noundef !47
   %45 = add i64 %.sroa.2.0.copyload.i.i, -1
   invoke void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h63f12e4f3a8e2c37E.llvm.4387265947332733882"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull %44, i64 noundef %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.fca.0.extract.i)
@@ -7370,7 +7370,7 @@ define void @_ZN10ockam_abac3env3Env5merge17h20f4881fa884c910E(ptr noalias nound
   %.sroa.0.0.copyload.i = load ptr, ptr %33, align 8, !noalias !1012, !nonnull !47, !noundef !47
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1012
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %65 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  %65 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !noalias !1020
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !1024
@@ -7536,7 +7536,7 @@ define void @_ZN10ockam_abac3env3Env11merge_right17h5bea0887cc8455b8E(ptr noalia
   %.sroa.0.0.copyload.i = load ptr, ptr %14, align 8, !noalias !1035, !nonnull !47, !noundef !47
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1035
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  %33 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !noalias !1043
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1047
@@ -8950,10 +8950,10 @@ define void @"_ZN10ockam_abac6policy7storage35resource_type_policy_repository_sq
 switch.lookup:                                    ; preds = %2
   %8 = load i8, ptr %1, align 1, !range !66, !alias.scope !1209, !noalias !1212, !noundef !47
   %9 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i8 %8 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %11 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i" unwind label %6, !noalias !1207
@@ -9074,10 +9074,10 @@ define hidden void @"_ZN10ockam_abac8resource12ResourceType26join_enum_values_as
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %10
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %11 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i" unwind label %7, !noalias !1220
@@ -11530,7 +11530,7 @@ common.ret:                                       ; preds = %58, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %67 = ptrtoint ptr %65 to i64
-  %68 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %62, i64 %.sroa.11.0.copyload39
+  %68 = getelementptr inbounds [72 x i8], ptr %62, i64 %.sroa.11.0.copyload39
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1485
   store ptr %62, ptr %4, align 8, !alias.scope !1492, !noalias !1496
   %.sroa.050.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11899,7 +11899,7 @@ common.ret:                                       ; preds = %83, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %92 = ptrtoint ptr %90 to i64
-  %93 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %87, i64 %.sroa.11.0.copyload47
+  %93 = getelementptr inbounds [72 x i8], ptr %87, i64 %.sroa.11.0.copyload47
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1553
   store ptr %87, ptr %4, align 8, !alias.scope !1560, !noalias !1564
   %.sroa.058.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13037,10 +13037,10 @@ define noundef zeroext i1 @"_ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !66, !noundef !47
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E.27", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6563513ad825d887E.27", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -13268,10 +13268,10 @@ define { ptr, i64 } @"_ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !66, !noundef !47
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

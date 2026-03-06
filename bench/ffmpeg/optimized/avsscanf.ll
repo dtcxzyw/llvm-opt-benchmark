@@ -4568,7 +4568,7 @@ ffshgetc.exit468.i.i:                             ; preds = %2005, %1989, %1970
   %spec.select.i283.i = select i1 %.not387.i.i, i32 %.0353556.i.i, i32 %2019
   %.not388.i.i = icmp eq i32 %.0291560.i.i, 0
   %2020 = sext i32 %.0295559.i.i to i64
-  %2021 = getelementptr inbounds i32, ptr %8, i64 %2020
+  %2021 = getelementptr inbounds [4 x i8], ptr %8, i64 %2020
   br i1 %.not388.i.i, label %2027, label %2022
 
 2022:                                             ; preds = %2018
@@ -4849,7 +4849,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
 
 .lr.ph572.i.i:                                    ; preds = %.preheader527.i.i
   %2143 = sext i32 %.0295535.i.i to i64
-  %2144 = getelementptr inbounds i32, ptr %8, i64 %2143
+  %2144 = getelementptr inbounds [4 x i8], ptr %8, i64 %2143
   %.promoted.i.i = load i32, ptr %2144, align 4, !tbaa !28
   br label %2145
 
@@ -4902,7 +4902,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %2169 = uitofp i32 %2168 to double
   %2170 = fmul nnan nsz double %2167, %2169
   %2171 = sub nsw i64 8, %.5364508.i.i
-  %2172 = getelementptr inbounds nuw i32, ptr @decfloat.p10s, i64 %2171
+  %2172 = getelementptr inbounds nuw [4 x i8], ptr @decfloat.p10s, i64 %2171
   %2173 = load i32, ptr %2172, align 4, !tbaa !28
   %2174 = sitofp i32 %2173 to double
   %2175 = fdiv nsz double %2170, %2174
@@ -4938,7 +4938,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
 
 2193:                                             ; preds = %2193, %2191
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %2193 ], [ %2192, %2191 ]
-  %2194 = getelementptr i32, ptr %8, i64 %indvars.iv.i.i
+  %2194 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv.i.i
   %2195 = getelementptr i8, ptr %2194, i64 -4
   %2196 = load i32, ptr %2195, align 4, !tbaa !28
   %.not396.i.i = icmp eq i32 %2196, 0
@@ -4957,7 +4957,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %2203 = select i1 %2202, i32 %2201, i32 %2199
   %2204 = sub nsw i32 8, %2203
   %2205 = sext i32 %2204 to i64
-  %2206 = getelementptr inbounds i32, ptr @decfloat.p10s, i64 %2205
+  %2206 = getelementptr inbounds [4 x i8], ptr @decfloat.p10s, i64 %2205
   %2207 = load i32, ptr %2206, align 4, !tbaa !28
   %.not398575.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not398575.i.i, label %._crit_edge582.thread.i.i, label %.lr.ph581.i.i
@@ -4972,7 +4972,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %.0290579.i.i = phi i32 [ 0, %.lr.ph581.i.i ], [ %2216, %2210 ]
   %.1301577.i.i = phi i32 [ 0, %.lr.ph581.i.i ], [ %.2302.i.i, %2210 ]
   %.1337576.i.i = phi i32 [ %2152, %.lr.ph581.i.i ], [ %.2338.i.i, %2210 ]
-  %2211 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv618.i.i
+  %2211 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv618.i.i
   %2212 = load i32, ptr %2211, align 4, !tbaa !28
   %2213 = urem i32 %2212, %2207
   %2214 = udiv i32 %2212, %2207
@@ -5023,7 +5023,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %2225 = icmp slt i32 %.3339.i.i.ph1327, 18
   %2226 = icmp eq i32 %.3339.i.i.ph1327, 18
   %2227 = sext i32 %.3303.i.i.ph1329 to i64
-  %2228 = getelementptr inbounds i32, ptr %8, i64 %2227
+  %2228 = getelementptr inbounds [4 x i8], ptr %8, i64 %2227
   br label %2229
 
 2229:                                             ; preds = %.outer, %2255
@@ -5052,7 +5052,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %.0284.i.i = phi i32 [ 0, %.critedge.i278.i ], [ %.1285.i.i, %2248 ]
   %.5.i279.i = and i32 %.5.in.i.i, 127
   %2236 = zext nneg i32 %.5.i279.i to i64
-  %2237 = getelementptr inbounds nuw i32, ptr %8, i64 %2236
+  %2237 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2236
   %2238 = load i32, ptr %2237, align 4, !tbaa !28
   %2239 = zext i32 %2238 to i64
   %2240 = shl nuw nsw i64 %2239, 29
@@ -5097,12 +5097,12 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
 
 2262:                                             ; preds = %2257
   %2263 = zext nneg i32 %2250 to i64
-  %2264 = getelementptr inbounds nuw i32, ptr %8, i64 %2263
+  %2264 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2263
   %2265 = load i32, ptr %2264, align 4, !tbaa !28
   %2266 = add nuw nsw i32 %.4326.i.i, 126
   %2267 = and i32 %2266, 127
   %2268 = zext nneg i32 %2267 to i64
-  %2269 = getelementptr inbounds nuw i32, ptr %8, i64 %2268
+  %2269 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2268
   %2270 = load i32, ptr %2269, align 4, !tbaa !28
   %2271 = or i32 %2270, %2265
   store i32 %2271, ptr %2269, align 4, !tbaa !28
@@ -5111,7 +5111,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
 2272:                                             ; preds = %2262, %2257
   %.7329.i.i = phi i32 [ %2250, %2262 ], [ %.4326.i.i, %2257 ]
   %2273 = zext nneg i32 %2260 to i64
-  %2274 = getelementptr inbounds nuw i32, ptr %8, i64 %2273
+  %2274 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2273
   store i32 %.1285.i.i, ptr %2274, align 4, !tbaa !28
   br label %.outer, !llvm.loop !56
 
@@ -5134,9 +5134,9 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
 
 2282:                                             ; preds = %2276
   %2283 = zext nneg i32 %2280 to i64
-  %2284 = getelementptr inbounds nuw i32, ptr %8, i64 %2283
+  %2284 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2283
   %2285 = load i32, ptr %2284, align 4, !tbaa !28
-  %2286 = getelementptr inbounds nuw i32, ptr @decfloat.th, i64 %indvars.iv621.i.i
+  %2286 = getelementptr inbounds nuw [4 x i8], ptr @decfloat.th, i64 %indvars.iv621.i.i
   %2287 = load i32, ptr %2286, align 4, !tbaa !28
   %2288 = icmp ult i32 %2285, %2287
   br i1 %2288, label %2291, label %2289
@@ -5165,7 +5165,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %.7589.i.i = phi i32 [ %.5305.i.i, %.lr.ph592.i.i ], [ %.8.i.i, %2295 ]
   %.7343588.i.i = phi i32 [ %.5341.i.i.ph, %.lr.ph592.i.i ], [ %.8344.i.i, %2295 ]
   %2296 = sext i32 %.6590.i.i to i64
-  %2297 = getelementptr inbounds i32, ptr %8, i64 %2296
+  %2297 = getelementptr inbounds [4 x i8], ptr %8, i64 %2296
   %2298 = load i32, ptr %2297, align 4, !tbaa !28
   %2299 = and i32 %2298, %2293
   %2300 = lshr i32 %2298, %spec.select423.i.i
@@ -5204,7 +5204,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
 
 2312:                                             ; preds = %2311
   %2313 = zext nneg i32 %.8330.i.i.ph.ph to i64
-  %2314 = getelementptr inbounds nuw i32, ptr %8, i64 %2313
+  %2314 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2313
   store i32 %2302, ptr %2314, align 4, !tbaa !28
   br label %.critedge5.i.i.outer.outer
 
@@ -5218,7 +5218,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %2317 = add nuw nsw i32 %.8330.i.i.ph.ph, 127
   %2318 = and i32 %2317, 127
   %2319 = zext nneg i32 %2318 to i64
-  %2320 = getelementptr inbounds nuw i32, ptr %8, i64 %2319
+  %2320 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2319
   br label %.critedge5.i.i.outer
 
 2321:                                             ; preds = %2311
@@ -5244,7 +5244,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %2329 = add nuw nsw i32 %.11597.i.i, 1
   %2330 = and i32 %2329, 127
   %2331 = zext nneg i32 %2330 to i64
-  %2332 = getelementptr i32, ptr %8, i64 %2331
+  %2332 = getelementptr [4 x i8], ptr %8, i64 %2331
   %2333 = getelementptr i8, ptr %2332, i64 -4
   store i32 0, ptr %2333, align 4, !tbaa !28
   br label %2334
@@ -5253,7 +5253,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
   %.12.i.i = phi i32 [ %2330, %2328 ], [ %.11597.i.i, %.preheader.i275.i ]
   %2335 = fpext nsz double %.0315598.i.i to x86_fp80
   %2336 = zext nneg i32 %2326 to i64
-  %2337 = getelementptr inbounds nuw i32, ptr %8, i64 %2336
+  %2337 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2336
   %2338 = load i32, ptr %2337, align 4, !tbaa !28
   %2339 = uitofp i32 %2338 to x86_fp80
   %2340 = call nsz x86_fp80 @llvm.fmuladd.f80(x86_fp80 %2335, x86_fp80 0xK401CEE6B280000000000, x86_fp80 %2339)
@@ -5293,7 +5293,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2077, %2061, %2058,
 
 2360:                                             ; preds = %2357
   %2361 = zext nneg i32 %2359 to i64
-  %2362 = getelementptr inbounds nuw i32, ptr %8, i64 %2361
+  %2362 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2361
   %2363 = load i32, ptr %2362, align 4, !tbaa !28
   %2364 = icmp ult i32 %2363, 500000000
   br i1 %2364, label %2365, label %2371

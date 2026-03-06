@@ -435,7 +435,7 @@ define hidden void @bufferevent_ssl_put_error(ptr noundef captures(none) %0, i64
   %14 = or i8 %12, %13
   store i8 %14, ptr %3, align 4
   %15 = zext nneg i8 %6 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %15
   store i32 %9, ptr %16, align 4
   br label %17
 
@@ -1113,7 +1113,7 @@ define hidden range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nounde
   %22 = or disjoint i8 %20, %21
   store i8 %22, ptr %12, align 4
   %23 = zext nneg i8 %19 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   br label %27
@@ -1884,7 +1884,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %33
   %indvars.iv = phi i64 [ %28, %.lr.ph.split.preheader ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds %struct.iovec, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds [16 x i8], ptr %2, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
@@ -2112,9 +2112,9 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   %indvars.iv = phi i64 [ 0, %.outer.split.us.preheader ], [ %indvars.iv.next, %.split131.us ]
   %.071.ph142 = phi i32 [ 0, %.outer.split.us.preheader ], [ 1, %.split131.us ]
   %.not82.ph141 = phi i1 [ true, %.outer.split.us.preheader ], [ false, %.split131.us ]
-  %.pn = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %indvars.iv
+  %.pn = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %18 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   br label %19
 
 19:                                               ; preds = %41, %.outer.split.us

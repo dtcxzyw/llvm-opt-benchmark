@@ -1027,7 +1027,7 @@ define hidden void @_ZN7nanogui6Widget9add_childEiPS0_(ptr noundef nonnull align
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = call ptr @_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EERS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %10 = load ptr, ptr %4, align 8
   call void @_ZNK7nanogui6Object7inc_refEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
@@ -1086,7 +1086,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE6insertEN
   %28 = sub i64 %27, %5
   %29 = ashr exact i64 %28, 3
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds ptr, ptr %23, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %23, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %19, i64 %28, i1 false)
   br label %32
 
@@ -1148,7 +1148,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   %55 = getelementptr inbounds i8, ptr %50, i64 %51
   store ptr %45, ptr %0, align 8
   store ptr %55, ptr %8, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %56, ptr %10, align 8
   br label %57
 
@@ -1389,7 +1389,7 @@ define hidden void @_ZN7nanogui6Widget15remove_child_atEi(ptr noundef nonnull al
 
 19:                                               ; preds = %4
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.not.i.i = icmp eq ptr %23, %7

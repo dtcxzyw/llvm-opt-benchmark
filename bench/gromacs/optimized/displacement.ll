@@ -26,8 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.gmx::AnalysisDataValue" = type { float, float, %"class.gmx::FlagsTemplate" }
-%"class.gmx::FlagsTemplate" = type { i64 }
 %"class.gmx::AnalysisHistogramSettingsInitializer" = type <{ float, float, float, i32, i8, i8, i8, i8 }>
 %"class.gmx::AnalysisHistogramSettings" = type <{ float, float, float, float, i32, i8, [3 x i8] }>
 %"class.gmx::AnalysisDataPointSetRef" = type { %"class.gmx::AnalysisDataFrameHeader", i32, i32, %"class.gmx::ArrayRef" }
@@ -266,7 +264,7 @@ _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit.
   store ptr %55, ptr %37, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 %53
   store ptr %59, ptr %50, align 8, !tbaa !31
-  %60 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %55, i64 %38
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %38
   store ptr %60, ptr %42, align 8, !tbaa !29
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE7reserveEm.exit
 
@@ -618,12 +616,12 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule11pointsAddedERKNS_23Analysi
 39:                                               ; preds = %.lr.ph, %39
   %.ptr = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i20, %39 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.ptr, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.ptr, i64 %indvars.iv
   %41 = load float, ptr %40, align 8, !tbaa !59
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass = add i32 %invariant.op, %42
   %43 = sext i32 %.reass to i64
-  %44 = getelementptr inbounds float, ptr %25, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %25, i64 %43
   store float %41, ptr %44, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.sroa.0.0.copyload.i.i.i20 = load ptr, ptr %14, align 8
@@ -838,7 +836,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_realloc_insertIJfEEEvN9__gnu_
   %.pre55 = phi ptr [ %.pre55.pre, %92 ], [ %46, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i ]
   store ptr %85, ptr %57, align 8, !tbaa !30
   store ptr %91, ptr %59, align 8, !tbaa !31
-  %93 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %85, i64 %83
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %83
   store ptr %93, ptr %67, align 8, !tbaa !29
   %.pre56 = load i32, ptr %.pre55, align 8, !tbaa !26
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12emplace_backIJfEEERS1_DpOT_.exit
@@ -872,7 +870,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12emplace_backIJfEEERS1_DpOT_.exit
   %105 = add nsw i32 %.02044, %.1
   %106 = sext i32 %105 to i64
   %wide.trip.count = zext nneg i32 %97 to i64
-  %invariant.gep = getelementptr float, ptr %102, i64 %106
+  %invariant.gep = getelementptr [4 x i8], ptr %102, i64 %106
   br label %153
 
 ._crit_edge45:                                    ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12emplace_backIJRfEEERS1_DpOT_.exit, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12emplace_backIJfEEERS1_DpOT_.exit
@@ -968,7 +966,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_realloc_insertIJRfEEEvN9__gnu
   %.pre59 = phi ptr [ %.pre59.pre, %146 ], [ %.pre5962, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i33 ]
   store ptr %139, ptr %117, align 8, !tbaa !30
   store ptr %145, ptr %118, align 8, !tbaa !31
-  %147 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %139, i64 %137
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %139, i64 %137
   store ptr %147, ptr %120, align 8, !tbaa !29
   %.pre60 = load i32, ptr %.pre59, align 8, !tbaa !26
   %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %.pre59, i64 8
@@ -990,9 +988,9 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12emplace_backIJRfEEERS1_DpOT_.exi
   %154 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass = add i32 %invariant.op, %154
   %155 = sext i32 %.reass to i64
-  %156 = getelementptr inbounds float, ptr %102, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr %102, i64 %155
   %157 = load float, ptr %156, align 4, !tbaa !33
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %158 = load float, ptr %gep, align 4, !tbaa !33
   %159 = fsub float %157, %158
   %160 = call float @llvm.fmuladd.f32(float %159, float %159, float %.04042)

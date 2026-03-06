@@ -1938,26 +1938,26 @@ define dso_local void @handle_rollup_stats(ptr noundef %0, i64 noundef %1, i32 n
   %8 = load ptr, ptr @rpc_stats, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i16, ptr %9, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %9, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = add i16 %12, 1
   store i16 %13, ptr %11, align 2
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %15 = getelementptr inbounds i64, ptr %14, i64 %10
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %10
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %1
   store i64 %17, ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %19 = getelementptr inbounds i64, ptr %18, i64 %10
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %10
   store i64 %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %21 = getelementptr inbounds i64, ptr %20, i64 %10
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %10
   %22 = load i64, ptr %21, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %22, i64 %1)
   store i64 %., ptr %21, align 8
   %23 = tail call i64 @time(ptr noundef null) #14
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %25 = getelementptr inbounds i64, ptr %24, i64 %10
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %10
   store i64 %23, ptr %25, align 8
   %.not69 = icmp eq ptr %0, null
   br i1 %.not69, label %28, label %26
@@ -2014,31 +2014,31 @@ define dso_local void @handle_rollup_stats(ptr noundef %0, i64 noundef %1, i32 n
 
 49:                                               ; preds = %.preheader, %68
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %68 ]
-  %50 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %68, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv
   %55 = load i16, ptr %54, align 2
   %56 = add i16 %55, 1
   store i16 %56, ptr %54, align 2
   %57 = load i64, ptr %50, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %57
   store i64 %60, ptr %58, align 8
   %61 = load i64, ptr %50, align 8
-  %62 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8
   %.75 = tail call i64 @llvm.umax.i64(i64 %64, i64 %61)
   store i64 %.75, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   store i64 %66, ptr %67, align 8
   br label %68
 

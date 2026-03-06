@@ -343,7 +343,7 @@ define internal i64 @ossl_pkcs7_s_write_smime(i32 noundef %0, ptr noundef readon
   %12 = phi i1 [ true, %.preheader ], [ false, %25 ]
   %.185.i27 = phi i32 [ 1, %.preheader ], [ %.286.i, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = icmp slt i32 %.185.i27, %0
   %.not108.i = icmp eq ptr %14, null
@@ -354,7 +354,7 @@ define internal i64 @ossl_pkcs7_s_write_smime(i32 noundef %0, ptr noundef readon
 
 17:                                               ; preds = %16
   %18 = sext i32 %.185.i27 to i64
-  %19 = getelementptr inbounds i64, ptr %1, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !6
   store i64 %20, ptr %14, align 8, !tbaa !6
   br label %21
@@ -519,13 +519,13 @@ define internal i64 @ossl_pkcs7_s_sign(i32 noundef %0, ptr noundef readonly capt
 .preheader20:                                     ; preds = %3, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %.not109.i = icmp eq ptr %17, null
   br i1 %.not109.i, label %21, label %18
 
 18:                                               ; preds = %.preheader20
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !6
   store i64 %20, ptr %17, align 8, !tbaa !6
   br label %21
@@ -539,7 +539,7 @@ define internal i64 @ossl_pkcs7_s_sign(i32 noundef %0, ptr noundef readonly capt
   %22 = phi i1 [ false, %35 ], [ true, %21 ]
   %.185.i25 = phi i32 [ %.286.i, %35 ], [ 3, %21 ]
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv33
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv33
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = icmp slt i32 %.185.i25, %0
   %.not108.i = icmp eq ptr %24, null
@@ -550,7 +550,7 @@ define internal i64 @ossl_pkcs7_s_sign(i32 noundef %0, ptr noundef readonly capt
 
 27:                                               ; preds = %26
   %28 = sext i32 %.185.i25 to i64
-  %29 = getelementptr inbounds i64, ptr %1, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !6
   store i64 %30, ptr %24, align 8, !tbaa !6
   br label %31
@@ -690,7 +690,7 @@ define internal i64 @ossl_pkcs7_s_encrypt(i32 noundef %0, ptr noundef readonly c
   br i1 %.not109.i, label %18, label %15
 
 15:                                               ; preds = %.preheader17
-  %16 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !6
   store i64 %17, ptr %14, align 8, !tbaa !6
   br label %18
@@ -703,7 +703,7 @@ define internal i64 @ossl_pkcs7_s_encrypt(i32 noundef %0, ptr noundef readonly c
   %19 = phi i1 [ false, %32 ], [ true, %18 ]
   %.185.i22 = phi i32 [ %.286.i, %32 ], [ 2, %18 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv30
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv30
   %21 = load ptr, ptr %20, align 8, !tbaa !18
   %22 = icmp slt i32 %.185.i22, %0
   %.not108.i = icmp eq ptr %21, null
@@ -714,7 +714,7 @@ define internal i64 @ossl_pkcs7_s_encrypt(i32 noundef %0, ptr noundef readonly c
 
 24:                                               ; preds = %23
   %25 = sext i32 %.185.i22 to i64
-  %26 = getelementptr inbounds i64, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !6
   store i64 %27, ptr %21, align 8, !tbaa !6
   br label %28
@@ -1063,7 +1063,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %27, %21
 
 30:                                               ; preds = %36, %rbimpl_rstring_getmem.exit.i
   %indvars.iv.i = phi i64 [ 0, %rbimpl_rstring_getmem.exit.i ], [ %indvars.iv.next.i, %36 ]
-  %31 = getelementptr inbounds nuw %struct.anon.0, ptr @ossl_pkcs7_sym2typeid.p7_type_tab, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr @ossl_pkcs7_sym2typeid.p7_type_tab, i64 %indvars.iv.i
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #7
   %.not.i = icmp eq i64 %32, %.sroa.3.0.i
   br i1 %.not.i, label %33, label %36
@@ -1941,7 +1941,7 @@ define internal range(i64 0, 21) i64 @ossl_pkcs7_verify(i32 noundef %0, ptr noun
   br i1 %.not109.i, label %22, label %19
 
 19:                                               ; preds = %.preheader31
-  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !6
   store i64 %21, ptr %18, align 8, !tbaa !6
   br label %22
@@ -1954,7 +1954,7 @@ define internal range(i64 0, 21) i64 @ossl_pkcs7_verify(i32 noundef %0, ptr noun
   %23 = phi i1 [ false, %36 ], [ true, %22 ]
   %.185.i36 = phi i32 [ %.286.i, %36 ], [ 2, %22 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv44
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv44
   %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = icmp slt i32 %.185.i36, %0
   %.not108.i = icmp eq ptr %25, null
@@ -1965,7 +1965,7 @@ define internal range(i64 0, 21) i64 @ossl_pkcs7_verify(i32 noundef %0, ptr noun
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i36 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -2126,7 +2126,7 @@ define internal i64 @ossl_pkcs7_decrypt(i32 noundef %0, ptr noundef readonly cap
   %12 = phi i1 [ true, %.preheader ], [ false, %25 ]
   %.185.i19 = phi i32 [ 1, %.preheader ], [ %.286.i, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = icmp slt i32 %.185.i19, %0
   %.not108.i = icmp eq ptr %14, null
@@ -2137,7 +2137,7 @@ define internal i64 @ossl_pkcs7_decrypt(i32 noundef %0, ptr noundef readonly cap
 
 17:                                               ; preds = %16
   %18 = sext i32 %.185.i19 to i64
-  %19 = getelementptr inbounds i64, ptr %1, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !6
   store i64 %20, ptr %14, align 8, !tbaa !6
   br label %21

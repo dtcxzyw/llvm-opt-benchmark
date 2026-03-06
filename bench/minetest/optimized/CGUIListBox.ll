@@ -5,22 +5,16 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.irr::core::rect" = type { %"class.irr::core::vector2d", %"class.irr::core::vector2d" }
 %"class.irr::core::vector2d" = type { i32, i32 }
-%"struct.irr::gui::CGUIListBox::ListItem" = type <{ %"class.irr::core::string", i32, [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], [4 x i8] }>
+%"struct.irr::SEvent" = type { i32, %union.anon.14 }
+%union.anon.14 = type { %"struct.irr::SEvent::SGUIEvent", [24 x i8] }
+%"struct.irr::SEvent::SGUIEvent" = type { ptr, ptr, i32 }
 %"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor" = type { i8, %"class.irr::video::SColor" }
 %"class.irr::video::SColor" = type { i32 }
-%"struct.irr::SEvent" = type { i32, %union.anon.14 }
-%union.anon.14 = type { %"struct.irr::SEvent::SGUIEvent", [24 x i8] }
-%"struct.irr::SEvent::SGUIEvent" = type { ptr, ptr, i32 }
-%"struct.irr::gui::SGUISprite" = type { %"class.irr::core::array.23", i32, [4 x i8] }
-%"class.irr::core::array.23" = type <{ %"class.std::vector.24", i8, [7 x i8] }>
-%"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
-%"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<irr::gui::SGUISpriteFrame, std::allocator<irr::gui::SGUISpriteFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<irr::gui::SGUISpriteFrame, std::allocator<irr::gui::SGUISpriteFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::gui::SGUISpriteFrame, std::allocator<irr::gui::SGUISpriteFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<irr::gui::SGUISpriteFrame, std::allocator<irr::gui::SGUISpriteFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.irr::gui::CGUIListBox::ListItem" = type <{ %"class.irr::core::string", i32, [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], [4 x i8] }>
+%"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor" = type { i8, %"class.irr::video::SColor" }
 %"class.std::__cxx11::basic_string.6" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.10 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.10 = type { i64, [8 x i8] }
@@ -1115,7 +1109,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i6 = zext i32 %id to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !81
   br label %return
 
@@ -1141,7 +1135,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i5 = zext i32 %id to i64
-  %Icon.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i5
+  %Icon.split = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i5
   %Icon = getelementptr inbounds nuw i8, ptr %Icon.split, i64 32
   %2 = load i32, ptr %Icon, align 8, !tbaa !85
   br label %return
@@ -1206,7 +1200,7 @@ if.end11:                                         ; preds = %if.then7, %if.else,
   %3 = phi ptr [ %0, %if.else ], [ %.pre17, %if.then7 ], [ %0, %if.then3 ]
   %4 = phi ptr [ %1, %if.else ], [ %.pre, %if.then7 ], [ %1, %if.then3 ]
   %conv.i16 = zext i32 %id to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %4, i64 %conv.i16
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %conv.i16
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.pre-phi
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i.i
@@ -1668,7 +1662,7 @@ _ZNK3irr4core6stringIwEeqEPKw.exit.preheader:     ; preds = %for.cond.preheader
 
 _ZNK3irr4core6stringIwEeqEPKw.exit:               ; preds = %for.inc, %_ZNK3irr4core6stringIwEeqEPKw.exit.preheader
   %indvars.iv = phi i64 [ 0, %_ZNK3irr4core6stringIwEeqEPKw.exit.preheader ], [ %indvars.iv.next, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !81
   %call.i.i = tail call noundef i32 @wcscmp(ptr noundef %2, ptr noundef nonnull %item) #25
   %tobool3.not.i = icmp eq i32 %call.i.i, 0
@@ -1928,7 +1922,7 @@ if.then115:                                       ; preds = %land.lhs.true110, %
   %sub122 = add i64 %35, 4294967295
   %conv.i395 = and i64 %sub122, 4294967295
   %36 = load ptr, ptr %KeyBuffer, align 8, !tbaa !81
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %36, i64 %conv.i395
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %conv.i395
   store i32 %34, ptr %arrayidx.i.i, align 4, !tbaa !44
   br label %if.end131
 
@@ -1957,7 +1951,7 @@ if.then140:                                       ; preds = %land.lhs.true136
   %Items141 = getelementptr inbounds nuw i8, ptr %this, i64 312
   %conv.i398 = zext nneg i32 %39 to i64
   %41 = load ptr, ptr %Items141, align 8, !tbaa !82
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %41, i64 %conv.i398
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %41, i64 %conv.i398
   %_M_string_length.i.i399 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %42 = load i64, ptr %_M_string_length.i.i399, align 8, !tbaa !43
   %conv.i400 = trunc i64 %42 to i32
@@ -2017,7 +2011,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %50 = phi ptr [ %45, %for.body.lr.ph ], [ %70, %for.inc ]
   %current.0490 = phi i32 [ %current.0483, %for.body.lr.ph ], [ %current.0, %for.inc ]
   %conv.i413 = zext i32 %current.0490 to i64
-  %add.ptr.i.i414 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %49, i64 %conv.i413
+  %add.ptr.i.i414 = getelementptr inbounds nuw [72 x i8], ptr %49, i64 %conv.i413
   %_M_string_length.i.i415 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i414, i64 8
   %51 = load i64, ptr %_M_string_length.i.i415, align 8, !tbaa !43
   %conv.i416 = trunc i64 %51 to i32
@@ -2038,7 +2032,7 @@ if.then174:                                       ; preds = %for.body
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add i32 %i.029.i, 1
   %idxprom.i = zext i32 %inc.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %53, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %idxprom.i
   %55 = load i32, ptr %arrayidx.i, align 4, !tbaa !44
   %tobool.not.i = icmp eq i32 %55, 0
   br i1 %tobool.not.i, label %for.end.critedge.i, label %land.rhs.i, !llvm.loop !103
@@ -2047,7 +2041,7 @@ land.rhs.i:                                       ; preds = %if.then174, %for.co
   %56 = phi i32 [ %55, %for.cond.i ], [ %54, %if.then174 ]
   %idxprom30.i = phi i64 [ %idxprom.i, %for.cond.i ], [ 0, %if.then174 ]
   %i.029.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.then174 ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %.pre.pre, i64 %idxprom30.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %.pre.pre, i64 %idxprom30.i
   %57 = load i32, ptr %arrayidx.i.i.i, align 4, !tbaa !44
   %tobool3.not.i = icmp eq i32 %57, 0
   br i1 %tobool3.not.i, label %for.end.critedge.i, label %for.body.i
@@ -2145,7 +2139,7 @@ for.inc:                                          ; preds = %_ZN3irr4core6string
 for.body212:                                      ; preds = %for.inc257, %for.body212.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body212.lr.ph ], [ %indvars.iv.next, %for.inc257 ]
   %71 = load ptr, ptr %Items164, align 8, !tbaa !82
-  %add.ptr.i.i430 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %71, i64 %indvars.iv
+  %add.ptr.i.i430 = getelementptr inbounds nuw [72 x i8], ptr %71, i64 %indvars.iv
   %_M_string_length.i.i431 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i430, i64 8
   %72 = load i64, ptr %_M_string_length.i.i431, align 8, !tbaa !43
   %conv.i432 = trunc i64 %72 to i32
@@ -2166,7 +2160,7 @@ if.then220:                                       ; preds = %for.body212
 for.cond.i455:                                    ; preds = %for.body.i446
   %inc.i456 = add i32 %i.029.i443, 1
   %idxprom.i457 = zext i32 %inc.i456 to i64
-  %arrayidx.i458 = getelementptr inbounds nuw i32, ptr %74, i64 %idxprom.i457
+  %arrayidx.i458 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %idxprom.i457
   %76 = load i32, ptr %arrayidx.i458, align 4, !tbaa !44
   %tobool.not.i459 = icmp eq i32 %76, 0
   br i1 %tobool.not.i459, label %for.end.critedge.i460, label %land.rhs.i441, !llvm.loop !103
@@ -2175,7 +2169,7 @@ land.rhs.i441:                                    ; preds = %if.then220, %for.co
   %77 = phi i32 [ %76, %for.cond.i455 ], [ %75, %if.then220 ]
   %idxprom30.i442 = phi i64 [ %idxprom.i457, %for.cond.i455 ], [ 0, %if.then220 ]
   %i.029.i443 = phi i32 [ %inc.i456, %for.cond.i455 ], [ 0, %if.then220 ]
-  %arrayidx.i.i.i444 = getelementptr inbounds nuw i32, ptr %.pre498.pre, i64 %idxprom30.i442
+  %arrayidx.i.i.i444 = getelementptr inbounds nuw [4 x i8], ptr %.pre498.pre, i64 %idxprom30.i442
   %78 = load i32, ptr %arrayidx.i.i.i444, align 4, !tbaa !44
   %tobool3.not.i445 = icmp eq i32 %78, 0
   br i1 %tobool3.not.i445, label %for.end.critedge.i460, label %for.body.i446
@@ -2467,11 +2461,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %c, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %c, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !44
   %wide.load15 = load <4 x i32>, ptr %6, align 4, !tbaa !44
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !44
   store <4 x i32> %wide.load15, ptr %8, align 4, !tbaa !44
@@ -2493,9 +2487,9 @@ for.body.preheader:                               ; preds = %middle.block, %for.
 for.body.prol:                                    ; preds = %for.body.preheader, %for.body.prol
   %indvars.iv.prol = phi i64 [ %indvars.iv.next.prol, %for.body.prol ], [ %indvars.iv.ph, %for.body.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.prol ], [ 0, %for.body.preheader ]
-  %arrayidx.prol = getelementptr inbounds nuw i32, ptr %c, i64 %indvars.iv.prol
+  %arrayidx.prol = getelementptr inbounds nuw [4 x i8], ptr %c, i64 %indvars.iv.prol
   %10 = load i32, ptr %arrayidx.prol, align 4, !tbaa !44
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.prol
   store i32 %10, ptr %arrayidx.i.prol, align 4, !tbaa !44
   %indvars.iv.next.prol = add nuw nsw i64 %indvars.iv.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -2510,24 +2504,24 @@ for.body.prol.loopexit:                           ; preds = %for.body.prol, %for
 
 for.body:                                         ; preds = %for.body.prol.loopexit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next.3, %for.body ], [ %indvars.iv.unr, %for.body.prol.loopexit ]
-  %arrayidx = getelementptr inbounds i32, ptr %c, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv
   %13 = load i32, ptr %arrayidx, align 4, !tbaa !44
-  %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %13, ptr %arrayidx.i, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx.1 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next
+  %arrayidx.1 = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv.next
   %14 = load i32, ptr %arrayidx.1, align 4, !tbaa !44
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next
   store i32 %14, ptr %arrayidx.i.1, align 4, !tbaa !44
   %indvars.iv.next.1 = add nuw nsw i64 %indvars.iv, 2
-  %arrayidx.2 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.1
+  %arrayidx.2 = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv.next.1
   %15 = load i32, ptr %arrayidx.2, align 4, !tbaa !44
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.1
   store i32 %15, ptr %arrayidx.i.2, align 4, !tbaa !44
   %indvars.iv.next.2 = add nuw nsw i64 %indvars.iv, 3
-  %arrayidx.3 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.2
+  %arrayidx.3 = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv.next.2
   %16 = load i32, ptr %arrayidx.3, align 4, !tbaa !44
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.2
   store i32 %16, ptr %arrayidx.i.3, align 4, !tbaa !44
   %indvars.iv.next.3 = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not.3 = icmp eq i64 %indvars.iv.next.3, %conv
@@ -2552,7 +2546,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %inc = add i32 %i.029, 1
   %idxprom = zext i32 %inc to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4, !tbaa !44
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %for.end.critedge, label %land.rhs, !llvm.loop !103
@@ -2561,7 +2555,7 @@ land.rhs:                                         ; preds = %for.cond, %land.rhs
   %4 = phi i32 [ %1, %land.rhs.lr.ph ], [ %3, %for.cond ]
   %idxprom30 = phi i64 [ 0, %land.rhs.lr.ph ], [ %idxprom, %for.cond ]
   %i.029 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.cond ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom30
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %idxprom30
   %5 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !44
   %tobool3.not = icmp eq i32 %5, 0
   br i1 %tobool3.not, label %for.end.critedge, label %for.body
@@ -2634,7 +2628,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_checkEmPKc.exit.i.i: ;
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !42, !alias.scope !112
   %3 = load ptr, ptr %this, align 8, !tbaa !81, !noalias !112
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv
   %sub.i.i.i = sub nuw i64 %0, %conv
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %conv3)
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i)
@@ -2673,7 +2667,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm.exit: ; preds =
   %9 = phi i64 [ %.pre8.i.i.i, %if.end.i.i.i.i.i.i ], [ %5, %if.then.i.i.i.i.i ], [ %5, %if.end.i.i.i ]
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %9, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !112
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %9
+  %arrayidx.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   store i32 0, ptr %arrayidx.i.i.i.i, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -2714,7 +2708,7 @@ _ZN3irr4core6stringIwEC2EONSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE.e
   %16 = phi i64 [ %.pre8.i.i.i17, %if.end.i.i.i.i.i.i15 ], [ %12, %if.then.i.i.i.i.i14 ], [ %12, %if.end.i.i.i11 ]
   %_M_string_length.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %16, ptr %_M_string_length.i.i.i.i.i12, align 8, !tbaa !43
-  %arrayidx.i.i.i.i13 = getelementptr inbounds i32, ptr %15, i64 %16
+  %arrayidx.i.i.i.i13 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   store i32 0, ptr %arrayidx.i.i.i.i13, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i9)
   %17 = load ptr, ptr %ref.tmp, align 8, !tbaa !81
@@ -2732,7 +2726,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %_ZN3i
 if.then4:                                         ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
   %18 = load ptr, ptr %agg.result, align 8, !tbaa !81
   %19 = load i64, ptr %_M_string_length.i.i.i.i.i12, align 8, !tbaa !43
-  %add.ptr.i.i24 = getelementptr inbounds i32, ptr %18, i64 %19
+  %add.ptr.i.i24 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %cmp.i.not13.i.i = icmp eq i64 %19, 0
   br i1 %cmp.i.not13.i.i, label %return, label %for.body.i.i25.preheader
 
@@ -3386,7 +3380,7 @@ if.then108:                                       ; preds = %if.end103
 
 land.lhs.true110:                                 ; preds = %if.then108
   %74 = load ptr, ptr %Items, align 8, !tbaa !82
-  %Icon.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %74, i64 %indvars.iv
+  %Icon.split = getelementptr inbounds nuw [72 x i8], ptr %74, i64 %indvars.iv
   %Icon = getelementptr inbounds nuw i8, ptr %Icon.split, i64 32
   %75 = load i32, ptr %Icon, align 8, !tbaa !85
   %cmp113 = icmp sgt i32 %75, -1
@@ -3511,7 +3505,7 @@ if.end174:                                        ; preds = %if.end173, %land.lh
 if.then184:                                       ; preds = %if.end174
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp186)
   %101 = load ptr, ptr %Items, align 8, !tbaa !82
-  %add.ptr.i.i301 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %101, i64 %indvars.iv
+  %add.ptr.i.i301 = getelementptr inbounds nuw [72 x i8], ptr %101, i64 %indvars.iv
   %102 = load ptr, ptr %add.ptr.i.i301, align 8, !tbaa !81
   %103 = ptrtoint ptr %102 to i64
   store ptr %57, ptr %ref.tmp186, align 8, !tbaa !42
@@ -3560,11 +3554,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %108 = getelementptr inbounds i32, ptr %102, i64 %index
+  %108 = getelementptr inbounds [4 x i8], ptr %102, i64 %index
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %wide.load = load <4 x i32>, ptr %108, align 4, !tbaa !44
   %wide.load358 = load <4 x i32>, ptr %109, align 4, !tbaa !44
-  %110 = getelementptr inbounds i32, ptr %105, i64 %index
+  %110 = getelementptr inbounds [4 x i8], ptr %105, i64 %index
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store <4 x i32> %wide.load, ptr %110, align 4, !tbaa !44
   store <4 x i32> %wide.load358, ptr %111, align 4, !tbaa !44
@@ -3586,9 +3580,9 @@ for.body.i.i.preheader:                           ; preds = %middle.block, %for.
 for.body.i.i.prol:                                ; preds = %for.body.i.i.preheader, %for.body.i.i.prol
   %indvars.iv.i.i.prol = phi i64 [ %indvars.iv.next.i.i.prol, %for.body.i.i.prol ], [ %indvars.iv.i.i.ph, %for.body.i.i.preheader ]
   %prol.iter380 = phi i64 [ %prol.iter380.next, %for.body.i.i.prol ], [ 0, %for.body.i.i.preheader ]
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv.i.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv.i.i.prol
   %113 = load i32, ptr %arrayidx.i.i.prol, align 4, !tbaa !44
-  %arrayidx.i.i.i.prol = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i.i.prol
+  %arrayidx.i.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i.i.prol
   store i32 %113, ptr %arrayidx.i.i.i.prol, align 4, !tbaa !44
   %indvars.iv.next.i.i.prol = add nuw nsw i64 %indvars.iv.i.i.prol, 1
   %prol.iter380.next = add nuw nsw i64 %prol.iter380, 1
@@ -3603,24 +3597,24 @@ for.body.i.i.prol.loopexit:                       ; preds = %for.body.i.i.prol, 
 
 for.body.i.i:                                     ; preds = %for.body.i.i.prol.loopexit, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i.3, %for.body.i.i ], [ %indvars.iv.i.i.unr, %for.body.i.i.prol.loopexit ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %102, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %102, i64 %indvars.iv.i.i
   %116 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !44
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %105, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [4 x i8], ptr %105, i64 %indvars.iv.i.i
   store i32 %116, ptr %arrayidx.i.i.i, align 4, !tbaa !44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %102, i64 %indvars.iv.next.i.i
   %117 = load i32, ptr %arrayidx.i.i.1, align 4, !tbaa !44
-  %arrayidx.i.i.i.1 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i.i.1 = getelementptr inbounds [4 x i8], ptr %105, i64 %indvars.iv.next.i.i
   store i32 %117, ptr %arrayidx.i.i.i.1, align 4, !tbaa !44
   %indvars.iv.next.i.i.1 = add nuw nsw i64 %indvars.iv.i.i, 2
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv.next.i.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %102, i64 %indvars.iv.next.i.i.1
   %118 = load i32, ptr %arrayidx.i.i.2, align 4, !tbaa !44
-  %arrayidx.i.i.i.2 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv.next.i.i.1
+  %arrayidx.i.i.i.2 = getelementptr inbounds [4 x i8], ptr %105, i64 %indvars.iv.next.i.i.1
   store i32 %118, ptr %arrayidx.i.i.i.2, align 4, !tbaa !44
   %indvars.iv.next.i.i.2 = add nuw nsw i64 %indvars.iv.i.i, 3
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv.next.i.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %102, i64 %indvars.iv.next.i.i.2
   %119 = load i32, ptr %arrayidx.i.i.3, align 4, !tbaa !44
-  %arrayidx.i.i.i.3 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv.next.i.i.2
+  %arrayidx.i.i.i.3 = getelementptr inbounds [4 x i8], ptr %105, i64 %indvars.iv.next.i.i.2
   store i32 %119, ptr %arrayidx.i.i.i.3, align 4, !tbaa !44
   %indvars.iv.next.i.i.3 = add nuw nsw i64 %indvars.iv.i.i, 4
   %exitcond.not.i.i.3 = icmp eq i64 %indvars.iv.next.i.i.3, %conv.i.i304
@@ -3667,7 +3661,7 @@ _ZN3irr4core6stringIwED2Ev.exit:                  ; preds = %cond.end204, %if.th
 if.else208:                                       ; preds = %if.end174
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp210)
   %126 = load ptr, ptr %Items, align 8, !tbaa !82
-  %add.ptr.i.i308 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %126, i64 %indvars.iv
+  %add.ptr.i.i308 = getelementptr inbounds nuw [72 x i8], ptr %126, i64 %indvars.iv
   %127 = load ptr, ptr %add.ptr.i.i308, align 8, !tbaa !81
   %128 = ptrtoint ptr %127 to i64
   store ptr %55, ptr %ref.tmp210, align 8, !tbaa !42
@@ -3716,11 +3710,11 @@ vector.ph364:                                     ; preds = %for.body.lr.ph.i.i3
 
 vector.body369:                                   ; preds = %vector.body369, %vector.ph364
   %index370 = phi i64 [ 0, %vector.ph364 ], [ %index.next373, %vector.body369 ]
-  %133 = getelementptr inbounds i32, ptr %127, i64 %index370
+  %133 = getelementptr inbounds [4 x i8], ptr %127, i64 %index370
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %wide.load371 = load <4 x i32>, ptr %133, align 4, !tbaa !44
   %wide.load372 = load <4 x i32>, ptr %134, align 4, !tbaa !44
-  %135 = getelementptr inbounds i32, ptr %130, i64 %index370
+  %135 = getelementptr inbounds [4 x i8], ptr %130, i64 %index370
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store <4 x i32> %wide.load371, ptr %135, align 4, !tbaa !44
   store <4 x i32> %wide.load372, ptr %136, align 4, !tbaa !44
@@ -3742,9 +3736,9 @@ for.body.i.i317.preheader:                        ; preds = %middle.block361, %f
 for.body.i.i317.prol:                             ; preds = %for.body.i.i317.preheader, %for.body.i.i317.prol
   %indvars.iv.i.i318.prol = phi i64 [ %indvars.iv.next.i.i321.prol, %for.body.i.i317.prol ], [ %indvars.iv.i.i318.ph, %for.body.i.i317.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i317.prol ], [ 0, %for.body.i.i317.preheader ]
-  %arrayidx.i.i319.prol = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv.i.i318.prol
+  %arrayidx.i.i319.prol = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv.i.i318.prol
   %138 = load i32, ptr %arrayidx.i.i319.prol, align 4, !tbaa !44
-  %arrayidx.i.i.i320.prol = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv.i.i318.prol
+  %arrayidx.i.i.i320.prol = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv.i.i318.prol
   store i32 %138, ptr %arrayidx.i.i.i320.prol, align 4, !tbaa !44
   %indvars.iv.next.i.i321.prol = add nuw nsw i64 %indvars.iv.i.i318.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -3759,24 +3753,24 @@ for.body.i.i317.prol.loopexit:                    ; preds = %for.body.i.i317.pro
 
 for.body.i.i317:                                  ; preds = %for.body.i.i317.prol.loopexit, %for.body.i.i317
   %indvars.iv.i.i318 = phi i64 [ %indvars.iv.next.i.i321.3, %for.body.i.i317 ], [ %indvars.iv.i.i318.unr, %for.body.i.i317.prol.loopexit ]
-  %arrayidx.i.i319 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv.i.i318
+  %arrayidx.i.i319 = getelementptr inbounds [4 x i8], ptr %127, i64 %indvars.iv.i.i318
   %141 = load i32, ptr %arrayidx.i.i319, align 4, !tbaa !44
-  %arrayidx.i.i.i320 = getelementptr inbounds i32, ptr %130, i64 %indvars.iv.i.i318
+  %arrayidx.i.i.i320 = getelementptr inbounds [4 x i8], ptr %130, i64 %indvars.iv.i.i318
   store i32 %141, ptr %arrayidx.i.i.i320, align 4, !tbaa !44
   %indvars.iv.next.i.i321 = add nuw nsw i64 %indvars.iv.i.i318, 1
-  %arrayidx.i.i319.1 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv.next.i.i321
+  %arrayidx.i.i319.1 = getelementptr inbounds [4 x i8], ptr %127, i64 %indvars.iv.next.i.i321
   %142 = load i32, ptr %arrayidx.i.i319.1, align 4, !tbaa !44
-  %arrayidx.i.i.i320.1 = getelementptr inbounds i32, ptr %130, i64 %indvars.iv.next.i.i321
+  %arrayidx.i.i.i320.1 = getelementptr inbounds [4 x i8], ptr %130, i64 %indvars.iv.next.i.i321
   store i32 %142, ptr %arrayidx.i.i.i320.1, align 4, !tbaa !44
   %indvars.iv.next.i.i321.1 = add nuw nsw i64 %indvars.iv.i.i318, 2
-  %arrayidx.i.i319.2 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv.next.i.i321.1
+  %arrayidx.i.i319.2 = getelementptr inbounds [4 x i8], ptr %127, i64 %indvars.iv.next.i.i321.1
   %143 = load i32, ptr %arrayidx.i.i319.2, align 4, !tbaa !44
-  %arrayidx.i.i.i320.2 = getelementptr inbounds i32, ptr %130, i64 %indvars.iv.next.i.i321.1
+  %arrayidx.i.i.i320.2 = getelementptr inbounds [4 x i8], ptr %130, i64 %indvars.iv.next.i.i321.1
   store i32 %143, ptr %arrayidx.i.i.i320.2, align 4, !tbaa !44
   %indvars.iv.next.i.i321.2 = add nuw nsw i64 %indvars.iv.i.i318, 3
-  %arrayidx.i.i319.3 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv.next.i.i321.2
+  %arrayidx.i.i319.3 = getelementptr inbounds [4 x i8], ptr %127, i64 %indvars.iv.next.i.i321.2
   %144 = load i32, ptr %arrayidx.i.i319.3, align 4, !tbaa !44
-  %arrayidx.i.i.i320.3 = getelementptr inbounds i32, ptr %130, i64 %indvars.iv.next.i.i321.2
+  %arrayidx.i.i.i320.3 = getelementptr inbounds [4 x i8], ptr %130, i64 %indvars.iv.next.i.i321.2
   store i32 %144, ptr %arrayidx.i.i.i320.3, align 4, !tbaa !44
   %indvars.iv.next.i.i321.3 = add nuw nsw i64 %indvars.iv.i.i318, 4
   %exitcond.not.i.i322.3 = icmp eq i64 %indvars.iv.next.i.i321.3, %conv.i.i314
@@ -3950,11 +3944,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %6 = getelementptr inbounds i32, ptr %text, i64 %index
+  %6 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %wide.load = load <4 x i32>, ptr %6, align 4, !tbaa !44
   %wide.load14 = load <4 x i32>, ptr %7, align 4, !tbaa !44
-  %8 = getelementptr inbounds i32, ptr %3, i64 %index
+  %8 = getelementptr inbounds [4 x i8], ptr %3, i64 %index
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store <4 x i32> %wide.load, ptr %8, align 4, !tbaa !44
   store <4 x i32> %wide.load14, ptr %9, align 4, !tbaa !44
@@ -3976,9 +3970,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %11 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !44
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.prol
   store i32 %11, ptr %arrayidx.i.i.prol, align 4, !tbaa !44
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -3993,24 +3987,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %14 = load i32, ptr %arrayidx.i, align 4, !tbaa !44
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %14, ptr %arrayidx.i.i, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %15 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !44
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i
   store i32 %15, ptr %arrayidx.i.i.1, align 4, !tbaa !44
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %16 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !44
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i.1
   store i32 %16, ptr %arrayidx.i.i.2, align 4, !tbaa !44
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %17 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !44
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i.2
   store i32 %17, ptr %arrayidx.i.i.3, align 4, !tbaa !44
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -4111,7 +4105,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true2
   %call10 = tail call noundef nonnull align 8 dereferenceable(25) ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %conv.i45 = zext nneg i32 %icon to i64
   %6 = load ptr, ptr %call10, align 8, !tbaa !140
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::SGUISprite", ptr %6, i64 %conv.i45
+  %add.ptr.i.i = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %conv.i45
   %_M_finish.i.i46 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %7 = load ptr, ptr %_M_finish.i.i46, align 8, !tbaa !141
   %8 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !143
@@ -4129,7 +4123,7 @@ if.then:                                          ; preds = %land.lhs.true6
   %11 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef nonnull align 8 dereferenceable(25) ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %12 = load ptr, ptr %call17, align 8, !tbaa !140
-  %add.ptr.i.i53 = getelementptr inbounds nuw %"struct.irr::gui::SGUISprite", ptr %12, i64 %conv.i45
+  %add.ptr.i.i53 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %conv.i45
   %13 = load ptr, ptr %add.ptr.i.i53, align 8, !tbaa !143
   %rectNumber = getelementptr inbounds nuw i8, ptr %13, i64 4
   %14 = load i32, ptr %rectNumber, align 4, !tbaa !144
@@ -4155,7 +4149,7 @@ if.then27:                                        ; preds = %if.then
   %call31 = tail call noundef nonnull align 8 dereferenceable(25) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %19) #22
   %conv.i60 = zext i32 %14 to i64
   %21 = load ptr, ptr %call31, align 8, !tbaa !148
-  %add.ptr.i.i61 = getelementptr inbounds nuw %"class.irr::core::rect", ptr %21, i64 %conv.i60
+  %add.ptr.i.i61 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %conv.i60
   %LowerRightCorner.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i61, i64 8
   %22 = load i32, ptr %LowerRightCorner.i, align 4, !tbaa !121
   %23 = load i32, ptr %add.ptr.i.i61, align 4, !tbaa !120
@@ -4477,7 +4471,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i10 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i10
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i10
   %tobool.not.i = icmp eq ptr %text, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -4523,11 +4517,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index15 = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %7 = getelementptr inbounds i32, ptr %text, i64 %index15
+  %7 = getelementptr inbounds [4 x i8], ptr %text, i64 %index15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.load = load <4 x i32>, ptr %7, align 4, !tbaa !44
   %wide.load16 = load <4 x i32>, ptr %8, align 4, !tbaa !44
-  %9 = getelementptr inbounds i32, ptr %4, i64 %index15
+  %9 = getelementptr inbounds [4 x i8], ptr %4, i64 %index15
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store <4 x i32> %wide.load, ptr %9, align 4, !tbaa !44
   store <4 x i32> %wide.load16, ptr %10, align 4, !tbaa !44
@@ -4549,9 +4543,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %12 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !44
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.prol
   store i32 %12, ptr %arrayidx.i.i.prol, align 4, !tbaa !44
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -4566,24 +4560,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %15 = load i32, ptr %arrayidx.i, align 4, !tbaa !44
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %15, ptr %arrayidx.i.i, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %16 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !44
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv.next.i
   store i32 %16, ptr %arrayidx.i.i.1, align 4, !tbaa !44
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %17 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !44
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv.next.i.1
   store i32 %17, ptr %arrayidx.i.i.2, align 4, !tbaa !44
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %18 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !44
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv.next.i.2
   store i32 %18, ptr %arrayidx.i.i.3, align 4, !tbaa !44
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i11
@@ -4591,7 +4585,7 @@ for.body.i:                                       ; preds = %for.body.i.prol.loo
 
 _ZN3irr4core6stringIwEaSIwEERS2_PKT_.exit:        ; preds = %for.body.i, %for.body.i.prol.loopexit, %middle.block, %if.end.i, %_ZN3irr4core6stringIwE5clearEb.exit.i
   %19 = load ptr, ptr %Items, align 8, !tbaa !82
-  %Icon.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %19, i64 %conv.i10
+  %Icon.split = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %conv.i10
   %Icon = getelementptr inbounds nuw i8, ptr %Icon.split, i64 32
   store i32 %icon, ptr %Icon, align 8, !tbaa !85
   call void @_ZN3irr3gui11CGUIListBox21recalculateItemHeightEv(ptr noundef nonnull align 8 dereferenceable(437) %this)
@@ -4669,11 +4663,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index12 = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %6 = getelementptr inbounds i32, ptr %text, i64 %index12
+  %6 = getelementptr inbounds [4 x i8], ptr %text, i64 %index12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %wide.load = load <4 x i32>, ptr %6, align 4, !tbaa !44
   %wide.load13 = load <4 x i32>, ptr %7, align 4, !tbaa !44
-  %8 = getelementptr inbounds i32, ptr %3, i64 %index12
+  %8 = getelementptr inbounds [4 x i8], ptr %3, i64 %index12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store <4 x i32> %wide.load, ptr %8, align 4, !tbaa !44
   store <4 x i32> %wide.load13, ptr %9, align 4, !tbaa !44
@@ -4695,9 +4689,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %11 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !44
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.prol
   store i32 %11, ptr %arrayidx.i.i.prol, align 4, !tbaa !44
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -4712,24 +4706,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %14 = load i32, ptr %arrayidx.i, align 4, !tbaa !44
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %14, ptr %arrayidx.i.i, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %15 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !44
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i
   store i32 %15, ptr %arrayidx.i.i.1, align 4, !tbaa !44
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %16 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !44
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i.1
   store i32 %16, ptr %arrayidx.i.i.2, align 4, !tbaa !44
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %17 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !44
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i.2
   store i32 %17, ptr %arrayidx.i.i.3, align 4, !tbaa !44
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -4740,7 +4734,7 @@ _ZN3irr4core6stringIwEaSIwEERS2_PKT_.exit:        ; preds = %for.body.i, %for.bo
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 312
   %18 = load ptr, ptr %Items, align 8, !tbaa !75
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %18, i64 %conv.i5
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %18, i64 %conv.i5
   %call8.i = call ptr @_ZNSt6vectorIN3irr3gui11CGUIListBox8ListItemESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EERS8_(ptr noundef nonnull align 8 dereferenceable(24) %Items, ptr %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %i)
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 336
   store i8 0, ptr %is_sorted.i, align 8, !tbaa !6
@@ -4780,7 +4774,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %dummmy)
   %conv.i25 = zext i32 %index1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i25
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i25
   %2 = getelementptr inbounds nuw i8, ptr %dummmy, i64 16
   store ptr %2, ptr %dummmy, align 8, !tbaa !42
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %dummmy, i64 8
@@ -4800,8 +4794,8 @@ _ZN3irr3gui11CGUIListBox8ListItemC2ERKS2_.exit:   ; preds = %if.end.i.i.i, %if.e
   %Icon3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Icon.i, ptr noundef nonnull align 8 dereferenceable(36) %Icon3.i, i64 36, i1 false)
   %conv.i26 = zext i32 %index2 to i64
-  %add.ptr.i.i27 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %3, i64 %conv.i26
-  %add.ptr.i.i29 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %3, i64 %conv.i25
+  %add.ptr.i.i27 = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %conv.i26
+  %add.ptr.i.i29 = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %conv.i25
   %cmp.i.i = icmp eq i32 %index1, %index2
   br i1 %cmp.i.i, label %_ZN3irr3gui11CGUIListBox8ListItemaSERKS2_.exit, label %if.end.i.i
 
@@ -4814,7 +4808,7 @@ _ZN3irr3gui11CGUIListBox8ListItemaSERKS2_.exit:   ; preds = %if.end.i.i, %_ZN3ir
   %Icon3.i31 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i27, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Icon.i30, ptr noundef nonnull align 8 dereferenceable(36) %Icon3.i31, i64 36, i1 false)
   %4 = load ptr, ptr %Items, align 8, !tbaa !82
-  %add.ptr.i.i33 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %4, i64 %conv.i26
+  %add.ptr.i.i33 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %conv.i26
   %cmp.i.i34 = icmp eq ptr %add.ptr.i.i33, %dummmy
   br i1 %cmp.i.i34, label %_ZN3irr3gui11CGUIListBox8ListItemaSERKS2_.exit38, label %if.end.i.i35
 
@@ -4847,7 +4841,7 @@ entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 312
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Items, align 8, !tbaa !82
-  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i
+  %arrayidx.split = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %conv.i
   %arrayidx = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 36
   store i8 1, ptr %arrayidx, align 4, !tbaa !131
   %Color = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 40
@@ -4887,9 +4881,9 @@ entry:
 if.end:                                           ; preds = %entry
   %conv.i18 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
-  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i18
+  %arrayidx.split = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i18
   %arrayidx.split1 = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 36
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %arrayidx.split1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %arrayidx.split1, i64 %idxprom
   store i8 1, ptr %arrayidx, align 4, !tbaa !131
   %Color.idx = shl nuw nsw i64 %idxprom, 3
   %3 = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 40
@@ -4907,7 +4901,7 @@ entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 312
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Items, align 8, !tbaa !82
-  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i
+  %arrayidx.split = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %conv.i
   %arrayidx = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 36
   store i8 0, ptr %arrayidx, align 4, !tbaa !131
   %arrayidx.1 = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 44
@@ -4939,9 +4933,9 @@ entry:
 if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
-  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11
+  %arrayidx.split = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i11
   %arrayidx.split1 = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 36
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %arrayidx.split1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %arrayidx.split1, i64 %idxprom
   store i8 0, ptr %arrayidx, align 4, !tbaa !131
   br label %return
 
@@ -4969,9 +4963,9 @@ entry:
 if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
-  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11
+  %arrayidx.split = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i11
   %arrayidx.split1 = getelementptr inbounds nuw i8, ptr %arrayidx.split, i64 36
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %arrayidx.split1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %arrayidx.split1, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 4, !tbaa !131, !range !70, !noundef !71
   %tobool = icmp ne i8 %3, 0
   br label %return
@@ -5000,7 +4994,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
-  %Color.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11
+  %Color.split = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i11
   %3 = shl nuw nsw i32 %colorType, 3
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %Color.split, i64 %4
@@ -5029,7 +5023,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i32 %colorType to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3irr3gui11CGUIListBox19getItemDefaultColorENS0_18EGUI_LISTBOX_COLORE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK3irr3gui11CGUIListBox19getItemDefaultColorENS0_18EGUI_LISTBOX_COLORE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %vtable16 = load ptr, ptr %call, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable16, align 8
@@ -5587,11 +5581,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !44
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !44
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !44
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !44
@@ -5613,9 +5607,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !44
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !44
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -5630,24 +5624,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !44
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !44
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !44
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !44
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !44
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !44
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !44
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -5716,11 +5710,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !44
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !44
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !44
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !44
@@ -5742,9 +5736,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !44
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !44
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -5759,24 +5753,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !44
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !44
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !44
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !44
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !44
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !44
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !44
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -5962,7 +5956,7 @@ entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %Type, align 8, !tbaa !173
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !75
   ret ptr %1
 }
@@ -7126,7 +7120,7 @@ _ZNSt12_Vector_baseIN3irr3gui11CGUIListBox8ListItemESaIS3_EE13_M_deallocateEPS3_
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !82
   store ptr %__cur.0.lcssa.i.i.i.i.i48, ptr %_M_finish.i.i, align 8, !tbaa !83
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [72 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !137
   ret void
 }

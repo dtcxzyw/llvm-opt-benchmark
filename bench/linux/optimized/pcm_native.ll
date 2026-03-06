@@ -44,16 +44,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_pcm_mmap
 %struct.static_key = type { %struct.atomic_t, %union.anon.47 }
 %union.anon.47 = type { i64 }
 %struct.snd_mask = type { [8 x i32] }
-%struct.snd_interval = type { i32, i32, i8 }
-%struct.snd_pcm_hw_rule = type { i32, i32, [5 x i32], ptr, ptr }
 %struct.timespec64 = type { i64, i64 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.page = type { i64, %union.anon.28, %union.anon.36, %struct.atomic_t, [8 x i8] }
-%union.anon.28 = type { %struct.anon.29 }
-%struct.anon.29 = type { %union.anon.30, ptr, %union.anon.32, i64 }
-%union.anon.30 = type { %struct.list_head }
-%union.anon.32 = type { i64 }
-%union.anon.36 = type { %struct.atomic_t }
+%struct.snd_interval = type { i32, i32, i8 }
 %struct.snd_pcm_sw_params = type { i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i32, i32, [56 x i8] }
 %struct.snd_pcm_status64 = type { i32, [4 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i32, [20 x i8] }
 %struct.snd_pcm_status32 = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [36 x i8] }
@@ -469,13 +462,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
 
 25:                                               ; preds = %63, %19
   %26 = phi i64 [ 0, %19 ], [ %64, %63 ]
-  %27 = getelementptr %struct.snd_mask, ptr %23, i64 %26
+  %27 = getelementptr [32 x i8], ptr %23, i64 %26
   br label %28
 
 28:                                               ; preds = %28, %25
   %29 = phi i1 [ true, %25 ], [ false, %28 ]
   %30 = phi i64 [ 0, %25 ], [ 1, %28 ]
-  %31 = getelementptr i32, ptr %27, i64 %30
+  %31 = getelementptr [4 x i8], ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   %34 = and i1 %29, %33
@@ -493,7 +486,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   br i1 %41, label %63, label %.preheader23.preheader.critedge
 
 .preheader23.preheader.critedge:                  ; preds = %36
-  %42 = getelementptr %struct.snd_mask, ptr %22, i64 %26
+  %42 = getelementptr [32 x i8], ptr %22, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef align 4 dereferenceable(32) %27, i64 32, i1 false)
   %43 = load i32, ptr %42, align 4
@@ -511,7 +504,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
 .preheader23:                                     ; preds = %.preheader23.preheader.critedge, %.preheader23
   %51 = phi i1 [ false, %.preheader23 ], [ true, %.preheader23.preheader.critedge ]
   %52 = phi i64 [ 1, %.preheader23 ], [ 0, %.preheader23.preheader.critedge ]
-  %53 = getelementptr i32, ptr %27, i64 %52
+  %53 = getelementptr [4 x i8], ptr %27, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   %56 = and i1 %51, %55
@@ -550,7 +543,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
 70:                                               ; preds = %93, %66
   %71 = phi i64 [ 8, %66 ], [ %94, %93 ]
   %72 = add nsw i64 %71, -8
-  %73 = getelementptr %struct.snd_interval, ptr %68, i64 %72
+  %73 = getelementptr [12 x i8], ptr %68, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i8, ptr %74, align 4
   %76 = and i8 %75, 8
@@ -566,7 +559,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   br i1 %83, label %93, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr %struct.snd_interval, ptr %69, i64 %72
+  %85 = getelementptr [12 x i8], ptr %69, i64 %72
   %86 = tail call i32 @snd_interval_refine(ptr noundef %73, ptr noundef %85) #18
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %.thread16, label %88
@@ -616,7 +609,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   %110 = trunc i64 %109 to i32
   %111 = lshr i32 %105, %110
   %112 = and i32 %111, 1
-  %113 = getelementptr i32, ptr %3, i64 %109
+  %113 = getelementptr [4 x i8], ptr %3, i64 %109
   store i32 %112, ptr %113, align 4
   %114 = add nuw nsw i64 %109, 1
   %115 = icmp eq i64 %114, 20
@@ -634,7 +627,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   %122 = phi i8 [ %175, %.loopexit ], [ 0, %116 ]
   %123 = phi i32 [ %174, %.loopexit ], [ %118, %116 ]
   %124 = load ptr, ptr %107, align 8
-  %125 = getelementptr %struct.snd_pcm_hw_rule, ptr %124, i64 %121
+  %125 = getelementptr [48 x i8], ptr %124, i64 %121
   %126 = load i32, ptr %125, align 8
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %132, label %128
@@ -652,14 +645,14 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   br i1 %135, label %136, label %.loopexit
 
 136:                                              ; preds = %132
-  %137 = getelementptr i32, ptr %102, i64 %121
+  %137 = getelementptr [4 x i8], ptr %102, i64 %121
   %138 = load i32, ptr %137, align 4
   br label %145
 
 139:                                              ; preds = %145
   %140 = add i32 %147, 1
   %141 = zext i32 %140 to i64
-  %142 = getelementptr i32, ptr %133, i64 %141
+  %142 = getelementptr [4 x i8], ptr %133, i64 %141
   %143 = load i32, ptr %142, align 4
   %144 = icmp sgt i32 %143, -1
   br i1 %144, label %145, label %.loopexit, !llvm.loop !15
@@ -668,7 +661,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   %146 = phi i32 [ %134, %136 ], [ %143, %139 ]
   %147 = phi i32 [ 0, %136 ], [ %140, %139 ]
   %148 = zext nneg i32 %146 to i64
-  %149 = getelementptr i32, ptr %3, i64 %148
+  %149 = getelementptr [4 x i8], ptr %3, i64 %148
   %150 = load i32, ptr %149, align 4
   %151 = icmp ugt i32 %150, %138
   br i1 %151, label %152, label %139
@@ -697,7 +690,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   store i32 %166, ptr %24, align 4
   %167 = load i32, ptr %160, align 4
   %168 = sext i32 %167 to i64
-  %169 = getelementptr i32, ptr %3, i64 %168
+  %169 = getelementptr [4 x i8], ptr %3, i64 %168
   store i32 %123, ptr %169, align 4
   br label %170
 
@@ -1753,7 +1746,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_open_substream(ptr nound
 
 20:                                               ; preds = %20, %14
   %21 = phi i64 [ 0, %14 ], [ %23, %20 ]
-  %22 = getelementptr %struct.snd_mask, ptr %17, i64 %21
+  %22 = getelementptr [32 x i8], ptr %17, i64 %21
   store i64 -1, ptr %22, align 4
   %23 = add nuw nsw i64 %21, 1
   %24 = icmp eq i64 %23, 3
@@ -1761,7 +1754,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_open_substream(ptr nound
 
 25:                                               ; preds = %25, %18
   %26 = phi i64 [ 8, %18 ], [ %33, %25 ]
-  %27 = getelementptr %struct.snd_interval, ptr %19, i64 %26
+  %27 = getelementptr [12 x i8], ptr %19, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -96
   store i32 0, ptr %28, align 4
   %29 = getelementptr i8, ptr %27, i64 -88
@@ -2672,7 +2665,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_hw_params(ptr noun
 121:                                              ; preds = %134, %119
   %122 = phi i1 [ true, %119 ], [ false, %134 ]
   %123 = phi i64 [ 0, %119 ], [ 1, %134 ]
-  %124 = getelementptr i32, ptr %120, i64 %123
+  %124 = getelementptr [4 x i8], ptr %120, i64 %123
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %134, label %127
@@ -2699,7 +2692,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_hw_params(ptr noun
 138:                                              ; preds = %151, %.loopexit27
   %139 = phi i1 [ true, %.loopexit27 ], [ false, %151 ]
   %140 = phi i64 [ 0, %.loopexit27 ], [ 1, %151 ]
-  %141 = getelementptr i32, ptr %137, i64 %140
+  %141 = getelementptr [4 x i8], ptr %137, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %151, label %144
@@ -2726,7 +2719,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_hw_params(ptr noun
 155:                                              ; preds = %168, %.loopexit26
   %156 = phi i1 [ true, %.loopexit26 ], [ false, %168 ]
   %157 = phi i64 [ 0, %.loopexit26 ], [ 1, %168 ]
-  %158 = getelementptr i32, ptr %154, i64 %157
+  %158 = getelementptr [4 x i8], ptr %154, i64 %157
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %168, label %161
@@ -4078,7 +4071,7 @@ define internal range(i64 -9223372036854775808, 1152921504606846976) i64 @snd_pc
   %51 = phi ptr [ %55, %.preheader ], [ %9, %48 ]
   %52 = phi i64 [ %56, %.preheader ], [ 0, %48 ]
   %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr ptr, ptr %46, i64 %52
+  %54 = getelementptr [8 x i8], ptr %46, i64 %52
   store ptr %53, ptr %54, align 8
   %55 = getelementptr i8, ptr %51, i64 16
   %56 = add nuw i64 %52, 1
@@ -4899,7 +4892,7 @@ define internal range(i64 -9223372036854775808, 1152921504606846976) i64 @snd_pc
   %51 = phi ptr [ %55, %.preheader ], [ %9, %48 ]
   %52 = phi i64 [ %56, %.preheader ], [ 0, %48 ]
   %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr ptr, ptr %46, i64 %52
+  %54 = getelementptr [8 x i8], ptr %46, i64 %52
   store ptr %53, ptr %54, align 8
   %55 = getelementptr i8, ptr %51, i64 16
   %56 = add nuw i64 %52, 1
@@ -5955,7 +5948,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %8 = add i32 %6, -8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.snd_interval, ptr %7, i64 %9
+  %10 = getelementptr [12 x i8], ptr %7, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !annotation !13
@@ -5969,7 +5962,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
   %15 = phi i32 [ 0, %2 ], [ %39, %38 ]
   %16 = lshr i32 %15, 5
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr i32, ptr %12, i64 %17
+  %18 = getelementptr [4 x i8], ptr %12, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %15, 31
   %21 = shl nuw i32 1, %20
@@ -5994,7 +5987,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
 
 33:                                               ; preds = %30, %27
   %34 = xor i32 %21, -1
-  %35 = getelementptr i32, ptr %4, i64 %17
+  %35 = getelementptr [4 x i8], ptr %4, i64 %17
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, %34
   store i32 %37, ptr %35, align 4
@@ -6022,7 +6015,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
 .preheader:                                       ; preds = %.preheader.preheader.critedge, %.preheader
   %48 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader.critedge ]
   %49 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader.critedge ]
-  %50 = getelementptr i32, ptr %12, i64 %49
+  %50 = getelementptr [4 x i8], ptr %12, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   %53 = and i1 %48, %52
@@ -6057,7 +6050,7 @@ define internal i32 @snd_pcm_hw_rule_sample_bits(ptr noundef %0, ptr noundef rea
   %8 = phi i32 [ 0, %2 ], [ %24, %21 ]
   %9 = lshr i32 %8, 5
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr i32, ptr %4, i64 %10
+  %11 = getelementptr [4 x i8], ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %8, 31
   %14 = shl nuw i32 1, %13
@@ -6095,7 +6088,7 @@ define internal i32 @snd_pcm_hw_rule_sample_bits(ptr noundef %0, ptr noundef rea
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %33 = add i32 %31, -8
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.snd_interval, ptr %32, i64 %34
+  %35 = getelementptr [12 x i8], ptr %32, i64 %34
   %36 = call i32 @snd_interval_refine(ptr noundef %35, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %36
@@ -6111,18 +6104,18 @@ define internal i32 @snd_pcm_hw_rule_div(ptr noundef %0, ptr noundef readonly ca
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = add i32 %5, -8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.snd_interval, ptr %6, i64 %8
+  %9 = getelementptr [12 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.snd_interval, ptr %6, i64 %13
+  %14 = getelementptr [12 x i8], ptr %6, i64 %13
   call void @snd_interval_div(ptr noundef %9, ptr noundef %14, ptr noundef nonnull %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, -8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct.snd_interval, ptr %6, i64 %18
+  %19 = getelementptr [12 x i8], ptr %6, i64 %18
   %20 = call i32 @snd_interval_refine(ptr noundef %19, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %20
@@ -6138,18 +6131,18 @@ define internal i32 @snd_pcm_hw_rule_mul(ptr noundef %0, ptr noundef readonly ca
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = add i32 %5, -8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.snd_interval, ptr %6, i64 %8
+  %9 = getelementptr [12 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.snd_interval, ptr %6, i64 %13
+  %14 = getelementptr [12 x i8], ptr %6, i64 %13
   call void @snd_interval_mul(ptr noundef %9, ptr noundef %14, ptr noundef nonnull %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, -8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct.snd_interval, ptr %6, i64 %18
+  %19 = getelementptr [12 x i8], ptr %6, i64 %18
   %20 = call i32 @snd_interval_refine(ptr noundef %19, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %20
@@ -6165,7 +6158,7 @@ define internal i32 @snd_pcm_hw_rule_mulkdiv(ptr noundef %0, ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = add i32 %5, -8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.snd_interval, ptr %6, i64 %8
+  %9 = getelementptr [12 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -6174,13 +6167,13 @@ define internal i32 @snd_pcm_hw_rule_mulkdiv(ptr noundef %0, ptr noundef readonl
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, -8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.snd_interval, ptr %6, i64 %17
+  %18 = getelementptr [12 x i8], ptr %6, i64 %17
   call void @snd_interval_mulkdiv(ptr noundef %9, i32 noundef %13, ptr noundef %18, ptr noundef nonnull %3) #18
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, -8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.snd_interval, ptr %6, i64 %22
+  %23 = getelementptr [12 x i8], ptr %6, i64 %22
   %24 = call i32 @snd_interval_refine(ptr noundef %23, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %24
@@ -6196,12 +6189,12 @@ define internal i32 @snd_pcm_hw_rule_muldivk(ptr noundef %0, ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = add i32 %5, -8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.snd_interval, ptr %6, i64 %8
+  %9 = getelementptr [12 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.snd_interval, ptr %6, i64 %13
+  %14 = getelementptr [12 x i8], ptr %6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
@@ -6211,7 +6204,7 @@ define internal i32 @snd_pcm_hw_rule_muldivk(ptr noundef %0, ptr noundef readonl
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, -8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.snd_interval, ptr %6, i64 %22
+  %23 = getelementptr [12 x i8], ptr %6, i64 %22
   %24 = call i32 @snd_interval_refine(ptr noundef %23, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %24
@@ -6262,7 +6255,7 @@ define internal i32 @snd_pcm_hw_rule_buffer_bytes_max(ptr noundef %0, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %15 = add i32 %13, -8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.snd_interval, ptr %14, i64 %16
+  %17 = getelementptr [12 x i8], ptr %14, i64 %16
   %18 = call i32 @snd_interval_refine(ptr noundef %17, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
@@ -6277,7 +6270,7 @@ define internal i32 @snd_pcm_hw_rule_rate(ptr noundef %0, ptr noundef readonly c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %8 = add i32 %6, -8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.snd_interval, ptr %7, i64 %9
+  %10 = getelementptr [12 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @snd_interval_list(ptr noundef %10, i32 noundef 15, ptr noundef nonnull @rates, i32 noundef %12) #18
@@ -6303,7 +6296,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_subformats(ptr noundef ca
   %9 = phi i32 [ 1, %2 ], [ %31, %30 ]
   %10 = lshr i32 %8, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i32, ptr %4, i64 %11
+  %12 = getelementptr [4 x i8], ptr %4, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %8, 31
   %15 = shl nuw i32 1, %14
@@ -6351,7 +6344,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_subformats(ptr noundef ca
 .preheader:                                       ; preds = %.preheader.preheader.critedge, %.preheader
   %38 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader.critedge ]
   %39 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader.critedge ]
-  %40 = getelementptr i32, ptr %34, i64 %39
+  %40 = getelementptr [4 x i8], ptr %34, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   %43 = and i1 %38, %42
@@ -6435,7 +6428,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fixup_unreferenced_params(
   %26 = phi i1 [ true, %.critedge12.thread ], [ false, %37 ]
   %27 = phi i64 [ 0, %.critedge12.thread ], [ 1, %37 ]
   %28 = phi i32 [ 0, %.critedge12.thread ], [ %38, %37 ]
-  %29 = getelementptr i32, ptr %24, i64 %27
+  %29 = getelementptr [4 x i8], ptr %24, i64 %27
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %37, label %32
@@ -6454,7 +6447,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fixup_unreferenced_params(
 .preheader:                                       ; preds = %37, %51
   %39 = phi i1 [ false, %51 ], [ true, %37 ]
   %40 = phi i64 [ 1, %51 ], [ 0, %37 ]
-  %41 = getelementptr i32, ptr %24, i64 %40
+  %41 = getelementptr [4 x i8], ptr %24, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %51, label %44
@@ -6493,7 +6486,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fixup_unreferenced_params(
 63:                                               ; preds = %63, %59
   %64 = phi i1 [ true, %59 ], [ false, %63 ]
   %65 = phi i64 [ 0, %59 ], [ 1, %63 ]
-  %66 = getelementptr i32, ptr %60, i64 %65
+  %66 = getelementptr [4 x i8], ptr %60, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 0
   %69 = and i1 %64, %68
@@ -6560,7 +6553,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fixup_unreferenced_params(
   %102 = phi i1 [ true, %98 ], [ false, %113 ]
   %103 = phi i64 [ 0, %98 ], [ 1, %113 ]
   %104 = phi i32 [ 0, %98 ], [ %114, %113 ]
-  %105 = getelementptr i32, ptr %99, i64 %103
+  %105 = getelementptr [4 x i8], ptr %99, i64 %103
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %113, label %108
@@ -7438,7 +7431,7 @@ define internal noundef range(i32 0, 3) i32 @snd_pcm_mmap_data_fault(ptr noundef
   %42 = select i1 %38, i64 %39, i64 %41
   %43 = add i64 %37, %42
   %44 = lshr i64 %43, 12
-  %45 = getelementptr %struct.page, ptr %32, i64 %44
+  %45 = getelementptr [64 x i8], ptr %32, i64 %44
   br label %48
 
 46:                                               ; preds = %26
@@ -9285,9 +9278,9 @@ define internal fastcc i32 @snd_pcm_hw_refine_old_user(ptr noundef nonnull %0, p
 
 16:                                               ; preds = %16, %12
   %17 = phi i64 [ 0, %12 ], [ %21, %16 ]
-  %18 = getelementptr i32, ptr %14, i64 %17
+  %18 = getelementptr [4 x i8], ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr %struct.snd_mask, ptr %15, i64 %17
+  %20 = getelementptr [32 x i8], ptr %15, i64 %17
   store i32 %19, ptr %20, align 4
   %21 = add nuw nsw i64 %17, 1
   %22 = icmp eq i64 %21, 3
@@ -9350,9 +9343,9 @@ define internal fastcc i32 @snd_pcm_hw_refine_old_user(ptr noundef nonnull %0, p
 
 62:                                               ; preds = %62, %60
   %63 = phi i64 [ 0, %60 ], [ %67, %62 ]
-  %64 = getelementptr %struct.snd_mask, ptr %15, i64 %63
+  %64 = getelementptr [32 x i8], ptr %15, i64 %63
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr i32, ptr %14, i64 %63
+  %66 = getelementptr [4 x i8], ptr %14, i64 %63
   store i32 %65, ptr %66, align 4
   %67 = add nuw nsw i64 %63, 1
   %68 = icmp eq i64 %67, 3
@@ -9429,9 +9422,9 @@ define internal fastcc i32 @snd_pcm_hw_params_old_user(ptr noundef nonnull %0, p
 
 16:                                               ; preds = %16, %12
   %17 = phi i64 [ 0, %12 ], [ %21, %16 ]
-  %18 = getelementptr i32, ptr %14, i64 %17
+  %18 = getelementptr [4 x i8], ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr %struct.snd_mask, ptr %15, i64 %17
+  %20 = getelementptr [32 x i8], ptr %15, i64 %17
   store i32 %19, ptr %20, align 4
   %21 = add nuw nsw i64 %17, 1
   %22 = icmp eq i64 %21, 3
@@ -9489,9 +9482,9 @@ define internal fastcc i32 @snd_pcm_hw_params_old_user(ptr noundef nonnull %0, p
 
 59:                                               ; preds = %59, %57
   %60 = phi i64 [ 0, %57 ], [ %64, %59 ]
-  %61 = getelementptr %struct.snd_mask, ptr %15, i64 %60
+  %61 = getelementptr [32 x i8], ptr %15, i64 %60
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr i32, ptr %14, i64 %60
+  %63 = getelementptr [4 x i8], ptr %14, i64 %60
   store i32 %62, ptr %63, align 4
   %64 = add nuw nsw i64 %60, 1
   %65 = icmp eq i64 %64, 3
@@ -11072,7 +11065,7 @@ define internal fastcc i32 @snd_pcm_ioctl_xfern_compat(ptr noundef nonnull %0, i
   %50 = extractvalue { ptr, i32, i64 } %60, 1
   %51 = zext i32 %50 to i64
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr ptr, ptr %46, i64 %57
+  %53 = getelementptr [8 x i8], ptr %46, i64 %57
   store ptr %52, ptr %53, align 8
   %54 = getelementptr i8, ptr %58, i64 4
   %55 = add nuw nsw i64 %57, 1
@@ -11375,7 +11368,7 @@ define internal noundef range(i32 0, 3) i32 @snd_pcm_mmap_status_fault(ptr nound
   %19 = select i1 %15, i64 %16, i64 %18
   %20 = add i64 %14, %19
   %21 = lshr i64 %20, 12
-  %22 = getelementptr %struct.page, ptr %10, i64 %21
+  %22 = getelementptr [64 x i8], ptr %10, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -11452,7 +11445,7 @@ define internal noundef range(i32 0, 3) i32 @snd_pcm_mmap_control_fault(ptr noun
   %19 = select i1 %15, i64 %16, i64 %18
   %20 = add i64 %14, %19
   %21 = lshr i64 %20, 12
-  %22 = getelementptr %struct.page, ptr %10, i64 %21
+  %22 = getelementptr [64 x i8], ptr %10, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8

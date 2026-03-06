@@ -629,7 +629,7 @@ default.unreachable144:                           ; preds = %182, %2
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %172 = load i64, ptr %171, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  %173 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %170, i64 %172
+  %173 = getelementptr inbounds [64 x i8], ptr %170, i64 %172
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !134
   store ptr %170, ptr %19, align 8, !noalias !134
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1621,7 +1621,7 @@ default.unreachable144:                           ; preds = %182, %2
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %172 = load i64, ptr %171, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
-  %173 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %170, i64 %172
+  %173 = getelementptr inbounds [64 x i8], ptr %170, i64 %172
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !383
   store ptr %170, ptr %19, align 8, !noalias !383
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -2611,7 +2611,7 @@ default.unreachable145:                           ; preds = %183, %2
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %171 = load i64, ptr %170, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !626)
-  %172 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %169, i64 %171
+  %172 = getelementptr inbounds [64 x i8], ptr %169, i64 %171
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !629
   store ptr %169, ptr %18, align 8, !noalias !629
   %173 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -3981,7 +3981,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %22 = load i64, ptr %21, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !969
-  %23 = getelementptr inbounds { i8, [31 x i8] }, ptr %20, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %20, i64 %22
   store ptr %20, ptr %13, align 8, !noalias !969
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %23, ptr %24, align 8, !noalias !969
@@ -4047,7 +4047,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17hd7f624602862cb67E.llvm.3
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i64, ptr %50, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !977)
-  %52 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %49, i64 %51
+  %52 = getelementptr inbounds [64 x i8], ptr %49, i64 %51
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !980
   store ptr %49, ptr %10, align 8, !noalias !980
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9690,7 +9690,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7de7
   %14 = alloca [24 x i8], align 8
   %15 = alloca [56 x i8], align 8
   %16 = alloca [32 x i8], align 8
-  %17 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %17 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -10166,7 +10166,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h846e
   %18 = alloca [24 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [32 x i8], align 8
-  %21 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %21 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %1, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -10259,7 +10259,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h846e
   %.sroa.0.0.copyload.i.i = load ptr, ptr %26, align 8, !noalias !2134, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2134
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %46 = getelementptr inbounds { [3 x i64] }, ptr %45, i64 %.sroa.43.0.copyload.i.i
+  %46 = getelementptr inbounds [24 x i8], ptr %45, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false), !noalias !2142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !2133
   %.pr.i = load i64, ptr %14, align 8, !alias.scope !2143, !noalias !2129
@@ -10407,7 +10407,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17ha88c
   %16 = alloca [24 x i8], align 8
   %17 = alloca [56 x i8], align 8
   %18 = alloca [32 x i8], align 8
-  %19 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -10975,7 +10975,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17he0bf
   %5 = alloca [8 x i8], align 8
   %6 = alloca [16 x i8], align 8
   %7 = alloca [32 x i8], align 8
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -11124,7 +11124,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17he3a3
   %4 = alloca [8 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [32 x i8], align 8
-  %7 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %7 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -11484,7 +11484,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hd7f6
   %5 = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %7 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   store ptr %1, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8
@@ -13701,7 +13701,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 78:                                               ; preds = %73, %69
   %79 = load ptr, ptr %23, align 8, !alias.scope !2962, !noalias !2965, !nonnull !4, !noundef !4
-  %80 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %79, i64 %70
+  %80 = getelementptr inbounds [64 x i8], ptr %79, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %81 = add i64 %70, 1
   store i64 %81, ptr %24, align 8, !alias.scope !2962, !noalias !2965
@@ -13878,7 +13878,7 @@ _ZN5serde2de9SeqAccess12next_element17hd8c446f0d04cf6c8E.exit: ; preds = %25, %3
 
 52:                                               ; preds = %47, %43
   %53 = load ptr, ptr %19, align 8, !alias.scope !2982, !noalias !2985, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds { i8, [31 x i8] }, ptr %53, i64 %44
+  %54 = getelementptr inbounds [32 x i8], ptr %53, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %55 = add i64 %44, 1
   store i64 %55, ptr %20, align 8, !alias.scope !2982, !noalias !2985

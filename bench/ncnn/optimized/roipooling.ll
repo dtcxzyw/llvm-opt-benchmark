@@ -310,7 +310,7 @@ define internal void @_ZNK4ncnn10ROIPooling7forwardERKSt6vectorINS_3MatESaIS2_EE
   %94 = mul nsw i32 %81, %51
   %95 = add nsw i32 %83, %94
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds float, ptr %44, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %44, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !41
   br label %99
 
@@ -323,7 +323,7 @@ define internal void @_ZNK4ncnn10ROIPooling7forwardERKSt6vectorINS_3MatESaIS2_EE
 
 ._crit_edge119.us.us.us:                          ; preds = %._crit_edge.us.us.us.us, %99
   %.0106.lcssa.us.us.us = phi float [ %100, %99 ], [ %.sroa.speculated.us.us.us.us, %._crit_edge.us.us.us.us ]
-  %103 = getelementptr inbounds nuw float, ptr %.046123.us.us.us, i64 %indvars.iv147
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.046123.us.us.us, i64 %indvars.iv147
   store float %.0106.lcssa.us.us.us, ptr %103, align 4, !tbaa !41
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count
   br i1 %exitcond150.not, label %._crit_edge.us129.us.us, label %57, !llvm.loop !51
@@ -345,13 +345,13 @@ define internal void @_ZNK4ncnn10ROIPooling7forwardERKSt6vectorINS_3MatESaIS2_EE
   %indvars.iv143 = phi i64 [ %smin142, %.preheader.us.us.us.us.preheader ], [ %indvars.iv.next144, %._crit_edge.us.us.us.us ]
   %.0106117.us.us.us.us = phi float [ %100, %.preheader.us.us.us.us.preheader ], [ %.sroa.speculated.us.us.us.us, %._crit_edge.us.us.us.us ]
   %112 = mul nsw i64 %indvars.iv143, %52
-  %invariant.gep = getelementptr float, ptr %44, i64 %112
+  %invariant.gep = getelementptr [4 x i8], ptr %44, i64 %112
   br label %113
 
 113:                                              ; preds = %113, %.preheader.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %113 ], [ %smin, %.preheader.us.us.us.us ]
   %.1115.us.us.us.us = phi float [ %.sroa.speculated.us.us.us.us, %113 ], [ %.0106117.us.us.us.us, %.preheader.us.us.us.us ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %114 = load float, ptr %gep, align 4, !tbaa !41
   %.sroa.speculated.us.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.1115.us.us.us.us, float %114)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -366,7 +366,7 @@ define internal void @_ZNK4ncnn10ROIPooling7forwardERKSt6vectorINS_3MatESaIS2_EE
   br i1 %exitcond146.not, label %._crit_edge119.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !54
 
 ._crit_edge.us129.us.us:                          ; preds = %._crit_edge119.us.us.us
-  %115 = getelementptr inbounds nuw float, ptr %.046123.us.us.us, i64 %41
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %.046123.us.us.us, i64 %41
   %exitcond151.not = icmp eq i32 %55, %36
   br i1 %exitcond151.not, label %._crit_edge124.split.us.us.us, label %.preheader114.us.us.us, !llvm.loop !55
 

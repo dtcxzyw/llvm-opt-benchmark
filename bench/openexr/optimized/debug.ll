@@ -3,9 +3,6 @@ source_filename = "bench/openexr/original/debug.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"File '%s': ver %d flags%s%s%s%s\0A\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c" singletile\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -154,7 +151,7 @@ define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %0, i32 noundef %
 43:                                               ; preds = %.lr.ph97, %143
   %indvars.iv106 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next107, %143 ]
   %44 = load ptr, ptr %39, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv106
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv106
   %46 = load ptr, ptr %45, align 8, !tbaa !30
   br i1 %.not71, label %47, label %52
 
@@ -211,7 +208,7 @@ define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %0, i32 noundef %
 71:                                               ; preds = %70, %69
   %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
   %73 = load ptr, ptr %68, align 8, !tbaa !35
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !36
   tail call fastcc void @print_attr(ptr noundef %75, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -300,10 +297,10 @@ define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %0, i32 noundef %
 121:                                              ; preds = %.lr.ph88, %121
   %indvars.iv100 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next101, %121 ]
   %122 = load ptr, ptr %114, align 8, !tbaa !47
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv100
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv100
   %124 = load i32, ptr %123, align 4, !tbaa !48
   %125 = load ptr, ptr %115, align 8, !tbaa !49
-  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv100
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv100
   %127 = load i32, ptr %126, align 4, !tbaa !48
   %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %124, i32 noundef %127)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -319,10 +316,10 @@ define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %0, i32 noundef %
 132:                                              ; preds = %.lr.ph92, %132
   %indvars.iv103 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next104, %132 ]
   %133 = load ptr, ptr %119, align 8, !tbaa !51
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv103
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv103
   %135 = load i32, ptr %134, align 4, !tbaa !48
   %136 = load ptr, ptr %120, align 8, !tbaa !52
-  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv103
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv103
   %138 = load i32, ptr %137, align 4, !tbaa !48
   %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %135, i32 noundef %138)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
@@ -462,7 +459,7 @@ define internal fastcc void @print_attr(ptr noundef readonly captures(address_is
   %52 = phi ptr [ %.pre200, %50 ], [ %49, %.lr.ph189 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !71
-  %55 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %54, i64 %indvars.iv197
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %indvars.iv197
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !72
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -472,7 +469,7 @@ define internal fastcc void @print_attr(ptr noundef readonly captures(address_is
 
 switch.lookup:                                    ; preds = %51
   %61 = zext nneg i32 %59 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.print_attr, i64 %61
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.print_attr, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %62
 
@@ -527,7 +524,7 @@ switch.lookup:                                    ; preds = %51
 
 104:                                              ; preds = %100
   %105 = zext nneg i8 %102 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr @print_attr.compressionnames, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @print_attr.compressionnames, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !87
   br label %108
 
@@ -578,7 +575,7 @@ switch.lookup:                                    ; preds = %51
   %138 = phi ptr [ %145, %.lr.ph187 ], [ %135, %130 ]
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !91
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv194
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv194
   %142 = load float, ptr %141, align 4, !tbaa !92
   %143 = fpext float %142 to double
   %144 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %143)
@@ -623,7 +620,7 @@ switch.lookup:                                    ; preds = %51
 
 switch.lookup208:                                 ; preds = %170
   %175 = zext nneg i8 %172 to i64
-  %switch.gep209 = getelementptr inbounds nuw ptr, ptr @switch.table.print_attr.1, i64 %175
+  %switch.gep209 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.print_attr.1, i64 %175
   %switch.load210 = load ptr, ptr %switch.gep209, align 8
   br label %176
 
@@ -842,7 +839,7 @@ switch.lookup208:                                 ; preds = %170
   %356 = phi ptr [ %.pre, %354 ], [ %353, %.lr.ph ]
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %358 = load ptr, ptr %357, align 8, !tbaa !71
-  %359 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %358, i64 %indvars.iv
+  %359 = getelementptr inbounds nuw [16 x i8], ptr %358, i64 %indvars.iv
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %361 = load ptr, ptr %360, align 8, !tbaa !33
   %362 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef %361)
@@ -869,7 +866,7 @@ switch.lookup208:                                 ; preds = %170
 
 379:                                              ; preds = %367
   %380 = zext nneg i8 %372 to i64
-  %381 = getelementptr inbounds nuw ptr, ptr @print_attr.lvlModes, i64 %380
+  %381 = getelementptr inbounds nuw [8 x i8], ptr @print_attr.lvlModes, i64 %380
   %382 = load ptr, ptr %381, align 8, !tbaa !87
   br label %383
 

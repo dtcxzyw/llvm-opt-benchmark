@@ -67,7 +67,7 @@ post.exit:                                        ; preds = %3, %6
 .lr.ph:                                           ; preds = %post.exit, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %post.exit ]
   %12 = load ptr, ptr @threads, align 8
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = tail call i32 @uv_thread_join(ptr noundef %13) #9
   %.not4 = icmp eq i32 %14, 0
   br i1 %.not4, label %8, label %15
@@ -268,7 +268,7 @@ define internal void @init_once() #0 {
 .lr.ph.i:                                         ; preds = %29, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %29 ]
   %37 = load ptr, ptr @threads, align 8
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   %39 = call i32 @uv_thread_create_ex(ptr noundef %38, ptr noundef nonnull %1, ptr noundef nonnull @worker, ptr noundef nonnull %2) #9
   %.not11.i = icmp eq i32 %39, 0
   br i1 %.not11.i, label %32, label %40
@@ -482,10 +482,10 @@ define dso_local range(i32 -22, 1) i32 @uv_cancel(ptr noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_cancel, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel.4, i64 %6
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_cancel.4, i64 %6
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load20

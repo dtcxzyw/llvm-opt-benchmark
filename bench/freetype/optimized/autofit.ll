@@ -11,10 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_ServiceDescRec_ = type { ptr, ptr }
 %struct.FT_Service_PropertiesRec_ = type { ptr, ptr }
 %struct.hb_feature_t = type { i32, i32, i32, i32 }
-%struct.AF_Blue_StringRec_ = type { i32, i16 }
-%struct.FT_Vector_ = type { i64, i64 }
-%struct.AF_CJKBlueRec_ = type { %struct.AF_WidthRec_, %struct.AF_WidthRec_, i32 }
-%struct.AF_WidthRec_ = type { i64, i64, i64 }
 %struct.AF_GlyphHintsRec_ = type { ptr, i64, i64, i64, i64, i32, i32, ptr, i32, i32, ptr, [2 x %struct.AF_AxisHintsRec_], i32, i32, ptr, %struct.anon.0 }
 %struct.AF_AxisHintsRec_ = type { i32, i32, ptr, i32, i32, ptr, i32, %struct.anon }
 %struct.anon = type { [18 x %struct.AF_SegmentRec_], [12 x %struct.AF_EdgeRec_] }
@@ -26,14 +22,14 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AF_StyleMetricsRec_ = type { ptr, %struct.AF_ScalerRec_, i8, ptr }
 %struct.AF_ScalerRec_ = type { ptr, i64, i64, i64, i64, i32, i32 }
 %struct.AF_LatinAxisRec_ = type { i64, i64, i32, [16 x %struct.AF_WidthRec_], i64, i64, i8, i32, [8 x %struct.AF_LatinBlueRec_], i64, i64 }
+%struct.AF_WidthRec_ = type { i64, i64, i64 }
 %struct.AF_LatinBlueRec_ = type { %struct.AF_WidthRec_, %struct.AF_WidthRec_, i64, i64, i32 }
-%struct.hb_glyph_position_t = type { i32, i32, i32, i32, %union._hb_var_int_t }
-%union._hb_var_int_t = type { i32 }
-%struct.hb_glyph_info_t = type { i32, i32, i32, %union._hb_var_int_t, %union._hb_var_int_t }
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
+%struct.FT_Vector_ = type { i64, i64 }
 %struct.AF_LoaderRec_ = type { ptr, ptr, ptr, ptr, i8, %struct.FT_Matrix_, %struct.FT_Vector_, %struct.FT_Vector_, %struct.FT_Vector_ }
 %struct.AF_CJKMetricsRec_ = type { %struct.AF_StyleMetricsRec_, i32, [2 x %struct.AF_CJKAxisRec_] }
 %struct.AF_CJKAxisRec_ = type { i64, i64, i32, [16 x %struct.AF_WidthRec_], i64, i64, i8, i8, i32, [8 x %struct.AF_CJKBlueRec_], i64, i64 }
+%struct.AF_CJKBlueRec_ = type { %struct.AF_WidthRec_, %struct.AF_WidthRec_, i32 }
 
 @af_blue_strings = hidden constant [5531 x i8] c"\F0\9E\A4\8C \F0\9E\A4\85 \F0\9E\A4\88 \F0\9E\A4\8F \F0\9E\A4\94 \F0\9E\A4\9A\00\F0\9E\A4\82 \F0\9E\A4\96\00\F0\9E\A4\AC \F0\9E\A4\AE \F0\9E\A4\BB \F0\9E\A4\BC \F0\9E\A4\BE\00\F0\9E\A4\A4 \F0\9E\A4\A8 \F0\9E\A4\A9 \F0\9E\A4\AD \F0\9E\A4\B4 \F0\9E\A4\B8 \F0\9E\A4\BA \F0\9E\A5\80\00\D8\A7 \D8\A5 \D9\84 \D9\83 \D8\B7 \D8\B8\00\D8\AA \D8\AB \D8\B7 \D8\B8 \D9\83\00\D9\80\00\D4\B1 \D5\84 \D5\92 \D5\8D \D4\B2 \D4\B3 \D4\B4 \D5\95\00\D5\92 \D5\88 \D4\B4 \D5\83 \D5\87 \D5\8D \D5\8F \D5\95\00\D5\A5 \D5\A7 \D5\AB \D5\B4 \D5\BE \D6\86 \D5\B3\00\D5\A1 \D5\B5 \D6\82 \D5\BD \D5\A3 \D5\B7 \D6\80 \D6\85\00\D5\B0 \D5\B8 \D5\B3 \D5\A1 \D5\A5 \D5\AE \D5\BD \D6\85\00\D5\A2 \D5\A8 \D5\AB \D5\AC \D5\B2 \D5\BA \D6\83 \D6\81\00\F0\90\AC\80 \F0\90\AC\81 \F0\90\AC\90 \F0\90\AC\9B\00\F0\90\AC\80 \F0\90\AC\81\00\EA\9A\A7 \EA\9A\A8 \EA\9B\9B \EA\9B\89 \EA\9B\81 \EA\9B\88 \EA\9B\AB \EA\9B\AF\00\EA\9A\AD \EA\9A\B3 \EA\9A\B6 \EA\9B\AC \EA\9A\A2 \EA\9A\BD \EA\9B\AF \EA\9B\B2\00\E0\A6\85 \E0\A6\A1 \E0\A6\A4 \E0\A6\A8 \E0\A6\AC \E0\A6\AD \E0\A6\B2 \E0\A6\95\00\E0\A6\87 \E0\A6\9F \E0\A6\A0 \E0\A6\BF \E0\A7\80 \E0\A7\88 \E0\A7\97\00\E0\A6\93 \E0\A6\8F \E0\A6\A1 \E0\A6\A4 \E0\A6\A8 \E0\A6\AC \E0\A6\B2 \E0\A6\95\00\E1\9D\90 \E1\9D\88\00\E1\9D\85 \E1\9D\8A \E1\9D\8E\00\E1\9D\82 \E1\9D\83 \E1\9D\89 \E1\9D\8C\00\E1\9D\80 \E1\9D\83 \E1\9D\86 \E1\9D\89 \E1\9D\8B \E1\9D\8F \E1\9D\91\00\E1\97\9C \E1\96\B4 \E1\90\81 \E1\92\A3 \E1\91\AB \E1\91\8E \E1\94\91 \E1\97\B0\00\E1\97\B6 \E1\96\B5 \E1\92\A7 \E1\90\83 \E1\91\8C \E1\92\8D \E1\94\91 \E1\97\A2\00\E1\93\93 \E1\93\95 \E1\93\80 \E1\93\82 \E1\93\84 \E1\95\84 \E1\95\86 \E1\98\A3\00\E1\95\83 \E1\93\82 \E1\93\80 \E1\95\82 \E1\93\97 \E1\93\9A \E1\95\86 \E1\98\A3\00\E1\90\AA \E1\99\86 \E1\A3\98 \E1\90\A2 \E1\92\BE \E1\A3\97 \E1\94\86\00\E1\99\86 \E1\97\AE \E1\92\BB \E1\90\9E \E1\94\86 \E1\92\A1 \E1\92\A2 \E1\93\91\00\F0\90\8A\A7 \F0\90\8A\AB \F0\90\8A\AC \F0\90\8A\AD \F0\90\8A\B1 \F0\90\8A\BA \F0\90\8A\BC \F0\90\8A\BF\00\F0\90\8A\A3 \F0\90\8A\A7 \F0\90\8A\B7 \F0\90\8B\80 \F0\90\8A\AB \F0\90\8A\B8 \F0\90\8B\89\00\F0\91\84\83 \F0\91\84\85 \F0\91\84\89 \F0\91\84\99 \F0\91\84\97\00\F0\91\84\85 \F0\91\84\9B \F0\91\84\9D \F0\91\84\97 \F0\91\84\93\00\F0\91\84\96\F0\91\84\B3\F0\91\84\A2 \F0\91\84\98\F0\91\84\B3\F0\91\84\A2 \F0\91\84\99\F0\91\84\B3\F0\91\84\A2 \F0\91\84\A4\F0\91\84\B3\F0\91\84\A2 \F0\91\84\A5\F0\91\84\B3\F0\91\84\A2\00\E1\8F\86 \E1\8E\BB \E1\8E\AC \E1\8F\83 \E1\8E\A4 \E1\8F\A3 \E1\8E\A6 \E1\8F\95\00\EA\AE\92 \EA\AE\A4 \EA\AE\B6 \EA\AD\B4 \EA\AD\BE \EA\AE\97 \EA\AE\9D \EA\AE\BF\00\EA\AE\96 \EA\AD\BC \EA\AE\93 \EA\AE\A0 \EA\AE\B3 \EA\AD\B6 \EA\AE\A5 \EA\AE\BB\00\E1\8F\B8 \EA\AE\90 \EA\AD\B9 \EA\AD\BB\00\E2\B2\8C \E2\B2\8E \E2\B2\A0 \E2\B3\9E \E2\B2\9E \E2\B2\90 \E2\B2\A4 \E2\B3\8A\00\E2\B3\90 \E2\B3\98 \E2\B3\9E \E2\B2\8E \E2\B2\9E \E2\B2\90 \E2\B3\9C \E2\B2\B0\00\E2\B2\8D \E2\B2\8F \E2\B2\A1 \E2\B3\9F \E2\B2\9F \E2\B2\91 \E2\B2\A5 \E2\B3\8B\00\E2\B3\91 \E2\B3\99 \E2\B3\9F \E2\B2\8F \E2\B2\9F \E2\B2\91 \E2\B3\9D \E2\B3\92\00\F0\90\A0\8D \F0\90\A0\99 \F0\90\A0\B3 \F0\90\A0\B1 \F0\90\A0\85 \F0\90\A0\93 \F0\90\A0\A3 \F0\90\A0\A6\00\F0\90\A0\83 \F0\90\A0\8A \F0\90\A0\9B \F0\90\A0\A3 \F0\90\A0\B3 \F0\90\A0\B5 \F0\90\A0\90\00\F0\90\A0\88 \F0\90\A0\8F \F0\90\A0\96\00\D0\91 \D0\92 \D0\95 \D0\9F \D0\97 \D0\9E \D0\A1 \D0\AD\00\D0\91 \D0\92 \D0\95 \D0\A8 \D0\97 \D0\9E \D0\A1 \D0\AD\00\D1\85 \D0\BF \D0\BD \D1\88 \D0\B5 \D0\B7 \D0\BE \D1\81\00\D1\80 \D1\83 \D1\84\00\F0\90\90\82 \F0\90\90\84 \F0\90\90\8B \F0\90\90\97 \F0\90\90\91\00\F0\90\90\80 \F0\90\90\82 \F0\90\90\84 \F0\90\90\97 \F0\90\90\9B\00\F0\90\90\AA \F0\90\90\AC \F0\90\90\B3 \F0\90\90\BF \F0\90\90\B9\00\F0\90\90\A8 \F0\90\90\AA \F0\90\90\AC \F0\90\90\BF \F0\90\91\83\00\E0\A4\95 \E0\A4\A8 \E0\A4\AE \E0\A4\89 \E0\A4\9B \E0\A4\9F \E0\A4\A0 \E0\A4\A1\00\E0\A4\88 \E0\A4\90 \E0\A4\93 \E0\A4\94 \E0\A4\BF \E0\A5\80 \E0\A5\8B \E0\A5\8C\00\E0\A4\95 \E0\A4\AE \E0\A4\85 \E0\A4\86 \E0\A4\A5 \E0\A4\A7 \E0\A4\AD \E0\A4\B6\00\E0\A5\81 \E0\A5\83\00\E1\88\80 \E1\88\83 \E1\8B\98 \E1\8D\90 \E1\88\9B \E1\89\A0 \E1\8B\8B \E1\8B\90\00\E1\88\88 \E1\88\90 \E1\89\A0 \E1\8B\98 \E1\88\80 \E1\88\AA \E1\8B\90 \E1\8C\A8\00\E1\83\92 \E1\83\93 \E1\83\94 \E1\83\95 \E1\83\97 \E1\83\98 \E1\83\9D \E1\83\A6\00\E1\83\90 \E1\83\96 \E1\83\9B \E1\83\A1 \E1\83\A8 \E1\83\AB \E1\83\AE \E1\83\9E\00\E1\83\A1 \E1\83\AE \E1\83\A5 \E1\83\96 \E1\83\9B \E1\83\A8 \E1\83\A9 \E1\83\AC\00\E1\83\94 \E1\83\95 \E1\83\9F \E1\83\A2 \E1\83\A3 \E1\83\A4 \E1\83\A5 \E1\83\A7\00\E1\82\B1 \E1\82\A7 \E1\82\B9 \E1\82\BC \E1\82\A4 \E1\82\A5 \E1\82\B3 \E1\82\BA\00\E1\82\A4 \E1\82\A5 \E1\82\A7 \E1\82\A8 \E1\82\A6 \E1\82\B1 \E1\82\AA \E1\82\AB\00\E2\B4\81 \E2\B4\97 \E2\B4\82 \E2\B4\84 \E2\B4\85 \E2\B4\87 \E2\B4\94 \E2\B4\96\00\E2\B4\88 \E2\B4\8C \E2\B4\96 \E2\B4\8E \E2\B4\83 \E2\B4\86 \E2\B4\8B \E2\B4\A2\00\E2\B4\90 \E2\B4\91 \E2\B4\93 \E2\B4\95 \E2\B4\99 \E2\B4\9B \E2\B4\A1 \E2\B4\A3\00\E2\B4\84 \E2\B4\85 \E2\B4\94 \E2\B4\95 \E2\B4\81 \E2\B4\82 \E2\B4\98 \E2\B4\9D\00\E1\B2\9C \E1\B2\9F \E1\B2\B3 \E1\B2\B8 \E1\B2\92 \E1\B2\94 \E1\B2\9D \E1\B2\B4\00\E1\B2\98 \E1\B2\B2 \E1\B2\9D \E1\B2\A9 \E1\B2\9B \E1\B2\A8 \E1\B2\AF \E1\B2\BD\00\E2\B0\85 \E2\B0\94 \E2\B0\AA \E2\B0\84 \E2\B0\82 \E2\B0\8A \E2\B0\AB \E2\B0\8B\00\E2\B0\85 \E2\B0\84 \E2\B0\82 \E2\B0\AA \E2\B0\9E \E2\B0\A1 \E2\B0\8A \E2\B0\94\00\E2\B0\B5 \E2\B1\84 \E2\B1\9A \E2\B0\B4 \E2\B0\B2 \E2\B0\BA \E2\B1\9B \E2\B0\BB\00\E2\B0\B5 \E2\B0\B4 \E2\B0\B2 \E2\B1\9A \E2\B1\8E \E2\B1\91 \E2\B0\BA \E2\B1\84\00\F0\90\8C\B2 \F0\90\8C\B6 \F0\90\8D\80 \F0\90\8D\84 \F0\90\8C\B4 \F0\90\8D\83 \F0\90\8D\88 \F0\90\8C\BE\00\F0\90\8C\B6 \F0\90\8C\B4 \F0\90\8D\83 \F0\90\8D\88\00\CE\93 \CE\92 \CE\95 \CE\96 \CE\98 \CE\9F \CE\A9\00\CE\92 \CE\94 \CE\96 \CE\9E \CE\98 \CE\9F\00\CE\B2 \CE\B8 \CE\B4 \CE\B6 \CE\BB \CE\BE\00\CE\B1 \CE\B5 \CE\B9 \CE\BF \CF\80 \CF\83 \CF\84 \CF\89\00\CE\B2 \CE\B3 \CE\B7 \CE\BC \CF\81 \CF\86 \CF\87 \CF\88\00\E0\AA\A4 \E0\AA\A8 \E0\AA\8B \E0\AA\8C \E0\AA\9B \E0\AA\9F \E0\AA\B0 \E0\AB\A6\00\E0\AA\96 \E0\AA\97 \E0\AA\98 \E0\AA\9E \E0\AA\87 \E0\AA\88 \E0\AA\A0 \E0\AA\9C\00\E0\AA\88 \E0\AA\8A \E0\AA\BF \E0\AB\80 \E0\AA\B2\E0\AB\80 \E0\AA\B6\E0\AB\8D\E0\AA\9A\E0\AA\BF \E0\AA\9C\E0\AA\BF \E0\AA\B8\E0\AB\80\00\E0\AB\81 \E0\AB\83 \E0\AB\84 \E0\AA\96\E0\AB\81 \E0\AA\9B\E0\AB\83 \E0\AA\9B\E0\AB\84\00\E0\AB\A6 \E0\AB\A7 \E0\AB\A8 \E0\AB\A9 \E0\AB\AD\00\E0\A8\95 \E0\A8\97 \E0\A8\99 \E0\A8\9A \E0\A8\9C \E0\A8\A4 \E0\A8\A7 \E0\A8\B8\00\E0\A8\95 \E0\A8\97 \E0\A8\99 \E0\A8\9A \E0\A8\9C \E0\A8\A4 \E0\A8\A7 \E0\A8\B8\00\E0\A8\87 \E0\A8\88 \E0\A8\89 \E0\A8\8F \E0\A8\93 \E0\A9\B3 \E0\A8\BF \E0\A9\80\00\E0\A8\85 \E0\A8\8F \E0\A8\93 \E0\A8\97 \E0\A8\9C \E0\A8\A0 \E0\A8\B0 \E0\A8\B8\00\E0\A9\A6 \E0\A9\A7 \E0\A9\A8 \E0\A9\A9 \E0\A9\AD\00\D7\91 \D7\93 \D7\94 \D7\97 \D7\9A \D7\9B \D7\9D \D7\A1\00\D7\91 \D7\98 \D7\9B \D7\9D \D7\A1 \D7\A6\00\D7\A7 \D7\9A \D7\9F \D7\A3 \D7\A5\00\E0\B2\87 \E0\B2\8A \E0\B2\90 \E0\B2\A3 \E0\B2\B8\E0\B2\BE \E0\B2\A8\E0\B2\BE \E0\B2\A6\E0\B2\BE \E0\B2\B0\E0\B2\BE\00\E0\B2\85 \E0\B2\89 \E0\B2\8E \E0\B2\B2 \E0\B3\A6 \E0\B3\A8 \E0\B3\AC \E0\B3\AD\00\EA\A4\85 \EA\A4\8F \EA\A4\81 \EA\A4\8B \EA\A4\80 \EA\A4\8D\00\EA\A4\88 \EA\A4\98 \EA\A4\80 \EA\A4\8D \EA\A4\A2\00\EA\A4\96 \EA\A4\A1\00\EA\A4\91 \EA\A4\9C \EA\A4\9E\00\EA\A4\91\EA\A4\AC \EA\A4\9C\EA\A4\AD \EA\A4\94\EA\A4\AC\00\E1\9E\81 \E1\9E\91 \E1\9E\93 \E1\9E\A7 \E1\9E\A9 \E1\9E\B6\00\E1\9E\80\E1\9F\92\E1\9E\80 \E1\9E\80\E1\9F\92\E1\9E\81 \E1\9E\80\E1\9F\92\E1\9E\82 \E1\9E\80\E1\9F\92\E1\9E\90\00\E1\9E\81 \E1\9E\83 \E1\9E\85 \E1\9E\8B \E1\9E\94 \E1\9E\98 \E1\9E\99 \E1\9E\B2\00\E1\9E\8F\E1\9F\92\E1\9E\9A \E1\9E\9A\E1\9F\80 \E1\9E\B2\E1\9F\92\E1\9E\99 \E1\9E\A2\E1\9E\BF\00\E1\9E\93\E1\9F\92\E1\9E\8F\E1\9F\92\E1\9E\9A\E1\9F\83 \E1\9E\84\E1\9F\92\E1\9E\81\E1\9F\92\E1\9E\99 \E1\9E\80\E1\9F\92\E1\9E\94\E1\9F\80 \E1\9E\85\E1\9F\92\E1\9E\9A\E1\9F\80 \E1\9E\93\E1\9F\92\E1\9E\8F\E1\9E\BF \E1\9E\9B\E1\9F\92\E1\9E\94\E1\9E\BF\00\E1\A7\A0 \E1\A7\A1\00\E1\A7\B6 \E1\A7\B9\00\E0\BA\B2 \E0\BA\94 \E0\BA\AD \E0\BA\A1 \E0\BA\A5 \E0\BA\A7 \E0\BA\A3 \E0\BA\87\00\E0\BA\B2 \E0\BA\AD \E0\BA\9A \E0\BA\8D \E0\BA\A3 \E0\BA\AE \E0\BA\A7 \E0\BA\A2\00\E0\BA\9B \E0\BA\A2 \E0\BA\9F \E0\BA\9D\00\E0\BB\82 \E0\BB\84 \E0\BB\83\00\E0\BA\87 \E0\BA\8A \E0\BA\96 \E0\BA\BD \E0\BB\86 \E0\BA\AF\00T H E Z O C Q S\00H E Z L O C U S\00f i j k d b h\00u v x z o e s c\00n r x z o e s c\00p q g j y\00\E2\82\80 \E2\82\83 \E2\82\85 \E2\82\87 \E2\82\88\00\E2\82\80 \E2\82\81 \E2\82\82 \E2\82\83 \E2\82\88\00\E1\B5\A2 \E2\B1\BC \E2\82\95 \E2\82\96 \E2\82\97\00\E2\82\90 \E2\82\91 \E2\82\92 \E2\82\93 \E2\82\99 \E2\82\9B \E1\B5\A5 \E1\B5\A4 \E1\B5\A3\00\E1\B5\A6 \E1\B5\A7 \E1\B5\A8 \E1\B5\A9 \E2\82\9A\00\E2\81\B0 \C2\B3 \E2\81\B5 \E2\81\B7 \E1\B5\80 \E1\B4\B4 \E1\B4\B1 \E1\B4\BC\00\E2\81\B0 \C2\B9 \C2\B2 \C2\B3 \E1\B4\B1 \E1\B4\B8 \E1\B4\BC \E1\B5\81\00\E1\B5\87 \E1\B5\88 \E1\B5\8F \CA\B0 \CA\B2 \E1\B6\A0 \E2\81\B1\00\E1\B5\89 \E1\B5\92 \CA\B3 \CB\A2 \CB\A3 \E1\B6\9C \E1\B6\BB\00\E1\B5\96 \CA\B8 \E1\B5\8D\00\EA\93\A1 \EA\93\A7 \EA\93\B1 \EA\93\B6 \EA\93\A9 \EA\93\9A \EA\93\B5 \EA\93\B3\00\EA\93\95 \EA\93\9C \EA\93\9E \EA\93\A1 \EA\93\9B \EA\93\A2 \EA\93\B3 \EA\93\B4\00\E0\B4\92 \E0\B4\9F \E0\B4\A0 \E0\B4\B1 \E0\B4\9A \E0\B4\AA \E0\B4\9A\E0\B5\8D\E0\B4\9A \E0\B4\AA\E0\B5\8D\E0\B4\AA\00\E0\B4\9F \E0\B4\A0 \E0\B4\A7 \E0\B4\B6 \E0\B4\98 \E0\B4\9A \E0\B4\A5 \E0\B4\B2\00\F0\96\B9\80 \F0\96\B9\81 \F0\96\B9\82 \F0\96\B9\83 \F0\96\B9\8F \F0\96\B9\9A \F0\96\B9\9F\00\F0\96\B9\80 \F0\96\B9\81 \F0\96\B9\82 \F0\96\B9\83 \F0\96\B9\8F \F0\96\B9\9A \F0\96\B9\92 \F0\96\B9\93\00\F0\96\B9\A4 \F0\96\B9\AC \F0\96\B9\A7 \F0\96\B9\B4 \F0\96\B9\B6 \F0\96\B9\BE\00\F0\96\B9\A0 \F0\96\B9\A1 \F0\96\B9\A2 \F0\96\B9\B9 \F0\96\B9\B3 \F0\96\B9\AE\00\F0\96\B9\A0 \F0\96\B9\A1 \F0\96\B9\A2 \F0\96\B9\B3 \F0\96\B9\AD \F0\96\B9\BD\00\F0\96\B9\A5 \F0\96\B9\A8 \F0\96\B9\A9\00\F0\96\BA\80 \F0\96\BA\85 \F0\96\BA\88 \F0\96\BA\84 \F0\96\BA\8D\00\E1\A0\B3 \E1\A0\B4 \E1\A0\B6 \E1\A0\BD \E1\A1\82 \E1\A1\8A \E2\80\8D\E1\A1\A1\E2\80\8D \E2\80\8D\E1\A1\B3\E2\80\8D\00\E1\A1\83\00\E1\80\81 \E1\80\82 \E1\80\84 \E1\80\92 \E1\80\9D \E1\81\A5 \E1\81\8A \E1\81\8B\00\E1\80\84 \E1\80\8E \E1\80\92 \E1\80\95 \E1\80\97 \E1\80\9D \E1\81\8A \E1\81\8B\00\E1\80\A9 \E1\80\BC \E1\81\8D \E1\81\8F \E1\81\86 \E1\80\AB \E1\80\AD\00\E1\80\89 \E1\80\8A \E1\80\A5 \E1\80\A9 \E1\80\A8 \E1\81\82 \E1\81\85 \E1\81\89\00\DF\90 \DF\89 \DF\92 \DF\9F \DF\96 \DF\9C \DF\A0 \DF\A5\00\DF\80 \DF\98 \DF\A1 \DF\A0 \DF\A5\00\DF\8F \DF\9B \DF\8B\00\DF\8E \DF\8F \DF\9B \DF\8B\00\E1\B1\9B \E1\B1\9C \E1\B1\9D \E1\B1\A1 \E1\B1\A2 \E1\B1\A5\00\F0\90\B0\97 \F0\90\B0\98 \F0\90\B0\A7\00\F0\90\B0\89 \F0\90\B0\97 \F0\90\B0\A6 \F0\90\B0\A7\00\F0\90\92\BE \F0\90\93\8D \F0\90\93\92 \F0\90\93\93 \F0\90\92\BB \F0\90\93\82 \F0\90\92\B5 \F0\90\93\86\00\F0\90\92\B0 \F0\90\93\8D \F0\90\93\82 \F0\90\92\BF \F0\90\93\8E \F0\90\92\B9\00\F0\90\92\BC \F0\90\92\BD \F0\90\92\BE\00\F0\90\93\B5 \F0\90\93\B6 \F0\90\93\BA \F0\90\93\BB \F0\90\93\9D \F0\90\93\A3 \F0\90\93\AA \F0\90\93\AE\00\F0\90\93\98 \F0\90\93\9A \F0\90\93\A3 \F0\90\93\B5 \F0\90\93\A1 \F0\90\93\A7 \F0\90\93\AA \F0\90\93\B6\00\F0\90\93\A4 \F0\90\93\A6 \F0\90\93\B8 \F0\90\93\B9 \F0\90\93\9B\00\F0\90\93\A4 \F0\90\93\A5 \F0\90\93\A6\00\F0\90\92\86 \F0\90\92\89 \F0\90\92\90 \F0\90\92\92 \F0\90\92\98 \F0\90\92\9B \F0\90\92\A0 \F0\90\92\A3\00\F0\90\92\80 \F0\90\92\82 \F0\90\92\86 \F0\90\92\88 \F0\90\92\8A \F0\90\92\92 \F0\90\92\A0 \F0\90\92\A9\00\F0\90\B4\83 \F0\90\B4\80 \F0\90\B4\86 \F0\90\B4\96 \F0\90\B4\95\00\F0\90\B4\94 \F0\90\B4\96 \F0\90\B4\95 \F0\90\B4\91 \F0\90\B4\90\00\D9\80\00\EA\A2\9C \EA\A2\9E \EA\A2\B3 \EA\A2\82 \EA\A2\96 \EA\A2\92 \EA\A2\9D \EA\A2\9B\00\EA\A2\82 \EA\A2\A8 \EA\A2\BA \EA\A2\A4 \EA\A2\8E\00\F0\90\91\95 \F0\90\91\99\00\F0\90\91\94 \F0\90\91\96 \F0\90\91\97 \F0\90\91\B9 \F0\90\91\BB\00\F0\90\91\9F \F0\90\91\A3\00\F0\90\91\B1 \F0\90\91\B2 \F0\90\91\B3 \F0\90\91\B4 \F0\90\91\B8 \F0\90\91\BA \F0\90\91\BC\00\F0\90\91\B4 \F0\90\91\BB \F0\90\91\B9\00\E0\B6\89 \E0\B6\9A \E0\B6\9D \E0\B6\B3 \E0\B6\B4 \E0\B6\BA \E0\B6\BD \E0\B7\86\00\E0\B6\91 \E0\B6\94 \E0\B6\9D \E0\B6\A2 \E0\B6\A7 \E0\B6\AE \E0\B6\B0 \E0\B6\BB\00\E0\B6\AF \E0\B6\B3 \E0\B6\8B \E0\B6\BD \E0\B6\AD\E0\B7\96 \E0\B6\AD\E0\B7\94 \E0\B6\B6\E0\B7\94 \E0\B6\AF\E0\B7\94\00\E1\AE\8B \E1\AE\9E \E1\AE\AE \E1\AE\BD \E1\AE\B0 \E1\AE\88\00\E1\AE\84 \E1\AE\94 \E1\AE\95 \E1\AE\97 \E1\AE\B0 \E1\AE\86 \E1\AE\88 \E1\AE\89\00\E1\AE\BC \E1\B3\84\00\EA\AA\86 \EA\AA\94 \EA\AA\92 \EA\AA\96 \EA\AA\AB\00\EA\AA\89 \EA\AA\AB \EA\AA\AE\00\E0\AE\89 \E0\AE\92 \E0\AE\93 \E0\AE\B1 \E0\AE\88 \E0\AE\95 \E0\AE\99 \E0\AE\9A\00\E0\AE\95 \E0\AE\9A \E0\AE\B2 \E0\AE\B6 \E0\AE\89 \E0\AE\99 \E0\AE\9F \E0\AE\AA\00\E0\B0\87 \E0\B0\8C \E0\B0\99 \E0\B0\9E \E0\B0\A3 \E0\B0\B1 \E0\B1\AF\00\E0\B0\85 \E0\B0\95 \E0\B0\9A \E0\B0\B0 \E0\B0\BD \E0\B1\A8 \E0\B1\AC\00\E0\B8\9A \E0\B9\80 \E0\B9\81 \E0\B8\AD \E0\B8\81 \E0\B8\B2\00\E0\B8\9A \E0\B8\9B \E0\B8\A9 \E0\B8\AF \E0\B8\AD \E0\B8\A2 \E0\B8\AE\00\E0\B8\9B \E0\B8\9D \E0\B8\9F\00\E0\B9\82 \E0\B9\83 \E0\B9\84\00\E0\B8\8E \E0\B8\8F \E0\B8\A4 \E0\B8\A6\00\E0\B8\8D \E0\B8\90\00\E0\B9\90 \E0\B9\91 \E0\B9\93\00\E2\B5\94 \E2\B5\99 \E2\B5\9B \E2\B5\9E \E2\B4\B5 \E2\B4\BC \E2\B4\B9 \E2\B5\8E\00\EA\97\8D \EA\98\96 \EA\98\99 \EA\98\9C \EA\96\9C \EA\96\9D \EA\94\85 \EA\95\A2\00\EA\97\8D \EA\98\96 \EA\98\99 \EA\97\9E \EA\94\85 \EA\95\A2 \EA\96\9C \EA\94\86\00\E4\BB\96 \E4\BB\AC \E4\BD\A0 \E4\BE\86 \E5\80\91 \E5\88\B0 \E5\92\8C \E5\9C\B0 \E5\AF\B9 \E5\B0\8D \E5\B0\B1 \E5\B8\AD \E6\88\91 \E6\97\B6 \E6\99\82 \E6\9C\83 \E6\9D\A5 \E7\82\BA \E8\83\BD \E8\88\B0 \E8\AA\AA \E8\AF\B4 \E8\BF\99 \E9\80\99 \E9\BD\8A | \E5\86\9B \E5\90\8C \E5\B7\B2 \E6\84\BF \E6\97\A2 \E6\98\9F \E6\98\AF \E6\99\AF \E6\B0\91 \E7\85\A7 \E7\8E\B0 \E7\8F\BE \E7\90\86 \E7\94\A8 \E7\BD\AE \E8\A6\81 \E8\BB\8D \E9\82\A3 \E9\85\8D \E9\87\8C \E9\96\8B \E9\9B\B7 \E9\9C\B2 \E9\9D\A2 \E9\A1\BE\00\E4\B8\AA \E4\B8\BA \E4\BA\BA \E4\BB\96 \E4\BB\A5 \E4\BB\AC \E4\BD\A0 \E4\BE\86 \E5\80\8B \E5\80\91 \E5\88\B0 \E5\92\8C \E5\A4\A7 \E5\AF\B9 \E5\B0\8D \E5\B0\B1 \E6\88\91 \E6\97\B6 \E6\99\82 \E6\9C\89 \E6\9D\A5 \E7\82\BA \E8\A6\81 \E8\AA\AA \E8\AF\B4 | \E4\B8\BB \E4\BA\9B \E5\9B\A0 \E5\AE\83 \E6\83\B3 \E6\84\8F \E7\90\86 \E7\94\9F \E7\95\B6 \E7\9C\8B \E7\9D\80 \E7\BD\AE \E8\80\85 \E8\87\AA \E8\91\97 \E8\A3\A1 \E8\BF\87 \E8\BF\98 \E8\BF\9B \E9\80\B2 \E9\81\8E \E9\81\93 \E9\82\84 \E9\87\8C \E9\9D\A2\00", align 16
 @af_blue_stringsets = hidden local_unnamed_addr constant [265 x { i32, i16, [2 x i8] }] [{ i32, i16, [2 x i8] } { i32 0, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 30, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 40, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 65, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 105, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 123, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 138, i16 4, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 141, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 165, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 189, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 210, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 234, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 258, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 282, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 302, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 312, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 344, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 408, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 436, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 376, i16 13, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 376, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 468, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 476, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 488, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 504, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 795, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 820, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 845, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 532, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 564, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 596, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 628, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 660, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 688, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 720, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 760, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 910, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 910, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 942, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 974, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 974, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1006, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1022, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1054, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1086, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1118, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1150, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1190, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1225, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1225, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1240, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1264, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1288, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1288, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1312, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1453, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1485, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1421, i16 13, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1421, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1517, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1321, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1346, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1371, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1396, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1525, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1557, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1589, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1621, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1653, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1685, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1909, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1941, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1717, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1749, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1781, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1813, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1845, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1877, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 1973, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2005, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2037, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2069, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2101, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2141, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2161, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2182, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2200, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2218, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2218, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2242, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2266, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2298, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2330, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2380, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2413, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2497, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2465, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2433, i16 13, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2529, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2561, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2581, i16 17, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2605, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2623, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2638, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2682, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2714, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2738, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2758, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2766, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2778, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2799, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2823, i16 2, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2863, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2895, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 2929, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3016, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3024, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3032, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3064, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3096, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3112, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3124, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3148, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3164, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3180, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3194, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3210, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3226, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3236, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3256, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3276, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3296, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3296, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3332, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3352, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3383, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3412, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3438, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3438, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3463, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3474, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3506, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3538, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3582, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3614, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3649, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3689, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3719, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3749, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3779, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3794, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3819, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3863, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3867, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3899, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3931, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3959, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 3991, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4015, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4030, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4039, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4051, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4051, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4075, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4090, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4110, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4150, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4180, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4195, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4235, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4275, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4300, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4315, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4355, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4395, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4420, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4445, i16 4, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4448, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4480, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4500, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4510, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4535, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4545, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4580, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4595, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4627, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4659, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4703, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4727, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4759, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4799, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4831, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4767, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4787, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4863, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4891, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4919, i16 9, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4943, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4971, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4983, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 4995, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5011, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5019, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5031, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5031, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5063, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5095, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5127, i16 1, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5329, i16 0, [2 x i8] zeroinitializer }, { i32, i16, [2 x i8] } { i32 5531, i16 0, [2 x i8] zeroinitializer }], align 16
@@ -431,7 +427,7 @@ define internal noundef i32 @af_cjk_metrics_init(ptr noundef captures(none) init
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !34
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.AF_Blue_StringRec_, ptr @af_blue_stringsets, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @af_blue_stringsets, i64 %18
   %20 = tail call ptr @hb_buffer_create() #21
   %21 = load i32, ptr %19, align 8, !tbaa !36
   %.not253.i = icmp eq i32 %21, 5531
@@ -548,7 +544,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.0139228.us.us.i = phi i32 [ %.1140.us.us.i, %..loopexit_crit_edge.us.us.i ], [ -1, %.lr.ph231.split.us.i ]
   %.0143227.us.us.i = phi i64 [ %.1144.us.us.i, %..loopexit_crit_edge.us.us.i ], [ 0, %.lr.ph231.split.us.i ]
   %58 = add nsw i32 %.0132230.us.us.i, 1
-  %59 = getelementptr inbounds nuw i16, ptr %.sroa.696.0.copyload.i, i64 %indvars.iv295.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.696.0.copyload.i, i64 %indvars.iv295.i
   %60 = load i16, ptr %59, align 2, !tbaa !47
   %61 = zext i16 %60 to i32
   %.not169.us.us.i = icmp slt i32 %58, %61
@@ -565,7 +561,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.8222.us.us.i = phi i32 [ %.0139228.us.us.i, %.lr.ph224.us.us.preheader.i ], [ %.9.us.us.i, %.lr.ph224.us.us.i ]
   %.8151221.us.us.i = phi i64 [ %.0143227.us.us.i, %.lr.ph224.us.us.preheader.i ], [ %.9152.us.us.i, %.lr.ph224.us.us.i ]
   %64 = icmp slt i32 %.8222.us.us.i, 0
-  %.phi.trans.insert318.i = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.595.0.copyload.i, i64 %indvars.iv290.i
+  %.phi.trans.insert318.i = getelementptr inbounds nuw [16 x i8], ptr %.sroa.595.0.copyload.i, i64 %indvars.iv290.i
   %.phi.trans.insert319.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert318.i, i64 8
   %.pre320.i = load i64, ptr %.phi.trans.insert319.i, align 8, !tbaa !52
   %65 = icmp slt i64 %.pre320.i, %.8151221.us.us.i
@@ -590,7 +586,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.0139228.us.i = phi i32 [ %.1140.us.i, %..loopexit194_crit_edge.us.i ], [ -1, %.lr.ph231.split.us.i ]
   %.0143227.us.i = phi i64 [ %.1144.us.i, %..loopexit194_crit_edge.us.i ], [ 0, %.lr.ph231.split.us.i ]
   %67 = add nsw i32 %.0132230.us.i, 1
-  %68 = getelementptr inbounds nuw i16, ptr %.sroa.696.0.copyload.i, i64 %indvars.iv285.i
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.696.0.copyload.i, i64 %indvars.iv285.i
   %69 = load i16, ptr %68, align 2, !tbaa !47
   %70 = zext i16 %69 to i32
   %.not169.us.i = icmp slt i32 %67, %70
@@ -607,7 +603,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.6215.us.i = phi i32 [ %.0139228.us.i, %.lr.ph217.us.preheader.i ], [ %.7.us.i, %.lr.ph217.us.i ]
   %.6149214.us.i = phi i64 [ %.0143227.us.i, %.lr.ph217.us.preheader.i ], [ %.7150.us.i, %.lr.ph217.us.i ]
   %73 = icmp slt i32 %.6215.us.i, 0
-  %.phi.trans.insert315.i = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.595.0.copyload.i, i64 %indvars.iv280.i
+  %.phi.trans.insert315.i = getelementptr inbounds nuw [16 x i8], ptr %.sroa.595.0.copyload.i, i64 %indvars.iv280.i
   %.phi.trans.insert316.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert315.i, i64 8
   %.pre317.i = load i64, ptr %.phi.trans.insert316.i, align 8, !tbaa !52
   %74 = icmp sgt i64 %.pre317.i, %.6149214.us.i
@@ -635,7 +631,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.0139228.us235.i = phi i32 [ %.1140.us239.i, %..loopexit196_crit_edge.us.i ], [ -1, %.lr.ph231.split.i ]
   %.0143227.us236.i = phi i64 [ %.1144.us238.i, %..loopexit196_crit_edge.us.i ], [ 0, %.lr.ph231.split.i ]
   %76 = add nsw i32 %.0132230.us233.i, 1
-  %77 = getelementptr inbounds nuw i16, ptr %.sroa.696.0.copyload.i, i64 %indvars.iv275.i
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.696.0.copyload.i, i64 %indvars.iv275.i
   %78 = load i16, ptr %77, align 2, !tbaa !47
   %79 = zext i16 %78 to i32
   %.not169.us237.i = icmp slt i32 %76, %79
@@ -652,7 +648,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.4208.us.i = phi i32 [ %.0139228.us235.i, %.lr.ph210.us.preheader.i ], [ %.5.us.i, %.lr.ph210.us.i ]
   %.4147207.us.i = phi i64 [ %.0143227.us236.i, %.lr.ph210.us.preheader.i ], [ %.5148.us.i, %.lr.ph210.us.i ]
   %82 = icmp slt i32 %.4208.us.i, 0
-  %.phi.trans.insert313.i = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.595.0.copyload.i, i64 %indvars.iv270.i
+  %.phi.trans.insert313.i = getelementptr inbounds nuw [16 x i8], ptr %.sroa.595.0.copyload.i, i64 %indvars.iv270.i
   %.pre314.i = load i64, ptr %.phi.trans.insert313.i, align 8, !tbaa !57
   %83 = icmp slt i64 %.pre314.i, %.4147207.us.i
   %or.cond377.i = select i1 %82, i1 true, i1 %83
@@ -676,7 +672,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.0139228.i = phi i32 [ %.1140.i, %.loopexit198.i ], [ -1, %.lr.ph231.split.i ]
   %.0143227.i = phi i64 [ %.1144.i, %.loopexit198.i ], [ 0, %.lr.ph231.split.i ]
   %85 = add nsw i32 %.0132230.i, 1
-  %86 = getelementptr inbounds nuw i16, ptr %.sroa.696.0.copyload.i, i64 %indvars.iv265.i
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.696.0.copyload.i, i64 %indvars.iv265.i
   %87 = load i16, ptr %86, align 2, !tbaa !47
   %88 = zext i16 %87 to i32
   %.not169.i = icmp slt i32 %85, %88
@@ -693,7 +689,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   %.2141203.i = phi i32 [ %.0139228.i, %.lr.ph.preheader.i ], [ %.3142.i, %.lr.ph.i ]
   %.2145202.i = phi i64 [ %.0143227.i, %.lr.ph.preheader.i ], [ %.3146.i, %.lr.ph.i ]
   %91 = icmp slt i32 %.2141203.i, 0
-  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.595.0.copyload.i, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [16 x i8], ptr %.sroa.595.0.copyload.i, i64 %indvars.iv.i
   %.pre312.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !57
   %92 = icmp sgt i64 %.pre312.i, %.2145202.i
   %or.cond378.i = select i1 %91, i1 true, i1 %92
@@ -719,14 +715,14 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
 94:                                               ; preds = %._crit_edge.i
   %95 = add i32 %.0247.i, 1
   %96 = zext i32 %.0247.i to i64
-  %97 = getelementptr inbounds nuw i64, ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %96
   store i64 %.0143.lcssa.i, ptr %97, align 8, !tbaa !60
   br label %102
 
 98:                                               ; preds = %._crit_edge.i
   %99 = add i32 %.0127246.i, 1
   %100 = zext i32 %.0127246.i to i64
-  %101 = getelementptr inbounds nuw i64, ptr %5, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %100
   store i64 %.0143.lcssa.i, ptr %101, align 8, !tbaa !60
   br label %102
 
@@ -756,20 +752,20 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i.i, %.lr.ph.preheader.i.preheader.i
   %indvars.iv300.i = phi i64 [ 1, %.lr.ph.preheader.i.preheader.i ], [ %indvars.iv.next301.i, %._crit_edge.i.i ]
-  %.phi.trans.insert27.i.i = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv300.i
+  %.phi.trans.insert27.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv300.i
   %.pre.i.i = load i64, ptr %.phi.trans.insert27.i.i, align 8, !tbaa !60
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %112, %.lr.ph.preheader.i.i
   %indvars.iv302.i = phi i64 [ %109, %112 ], [ %indvars.iv300.i, %.lr.ph.preheader.i.i ]
   %109 = add nsw i64 %indvars.iv302.i, -1
-  %110 = getelementptr inbounds nuw i64, ptr %4, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !60
   %.not21.i.i = icmp slt i64 %.pre.i.i, %111
   br i1 %.not21.i.i, label %112, label %._crit_edge.i.i
 
 112:                                              ; preds = %.lr.ph.i.i
-  %113 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv302.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv302.i
   store i64 %111, ptr %113, align 8, !tbaa !60
   store i64 %.pre.i.i, ptr %110, align 8, !tbaa !60
   %.not.i177.wide.i = icmp eq i64 %109, 0
@@ -790,20 +786,20 @@ af_sort_pos.exit.i:                               ; preds = %._crit_edge.i.i, %1
 
 .lr.ph.preheader.i178.i:                          ; preds = %._crit_edge.i186.i, %.lr.ph.preheader.i178.preheader.i
   %indvars.iv306.i = phi i64 [ 1, %.lr.ph.preheader.i178.preheader.i ], [ %indvars.iv.next307.i, %._crit_edge.i186.i ]
-  %.phi.trans.insert27.i181.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv306.i
+  %.phi.trans.insert27.i181.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv306.i
   %.pre.i182.i = load i64, ptr %.phi.trans.insert27.i181.i, align 8, !tbaa !60
   br label %.lr.ph.i183.i
 
 .lr.ph.i183.i:                                    ; preds = %119, %.lr.ph.preheader.i178.i
   %indvars.iv308.i = phi i64 [ %116, %119 ], [ %indvars.iv306.i, %.lr.ph.preheader.i178.i ]
   %116 = add nsw i64 %indvars.iv308.i, -1
-  %117 = getelementptr inbounds nuw i64, ptr %5, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !60
   %.not21.i185.i = icmp slt i64 %.pre.i182.i, %118
   br i1 %.not21.i185.i, label %119, label %._crit_edge.i186.i
 
 119:                                              ; preds = %.lr.ph.i183.i
-  %120 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv308.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv308.i
   store i64 %118, ptr %120, align 8, !tbaa !60
   store i64 %.pre.i182.i, ptr %117, align 8, !tbaa !60
   %.not.i188.wide.i = icmp eq i64 %116, 0
@@ -819,7 +815,7 @@ af_sort_pos.exit189.thread.i:                     ; preds = %._crit_edge.i186.i
   %122 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 428
   %123 = load i32, ptr %122, align 4, !tbaa !63
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %121, i64 %124
+  %125 = getelementptr inbounds nuw [56 x i8], ptr %121, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = add i32 %123, 1
   store i32 %127, ptr %122, align 4, !tbaa !63
@@ -830,7 +826,7 @@ af_sort_pos.exit189.i:                            ; preds = %af_sort_pos.exit.i
   %129 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 428
   %130 = load i32, ptr %129, align 4, !tbaa !63
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %128, i64 %131
+  %132 = getelementptr inbounds nuw [56 x i8], ptr %128, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = add i32 %130, 1
   store i32 %134, ptr %129, align 4, !tbaa !63
@@ -839,7 +835,7 @@ af_sort_pos.exit189.i:                            ; preds = %af_sort_pos.exit.i
 135:                                              ; preds = %af_sort_pos.exit189.i
   %136 = lshr i32 %.1.i, 1
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw i64, ptr %4, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %137
   %139 = load i64, ptr %138, align 8, !tbaa !60
   store i64 %139, ptr %133, align 8, !tbaa !60
   store i64 %139, ptr %132, align 8, !tbaa !60
@@ -853,7 +849,7 @@ af_sort_pos.exit189.i:                            ; preds = %af_sort_pos.exit.i
   %143 = phi ptr [ %126, %af_sort_pos.exit189.thread.i ], [ %133, %140 ]
   %144 = lshr i32 %.1128.i, 1
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw i64, ptr %5, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %145
   %147 = load i64, ptr %146, align 8, !tbaa !60
   store i64 %147, ptr %143, align 8, !tbaa !60
   store i64 %147, ptr %142, align 8, !tbaa !60
@@ -864,12 +860,12 @@ af_sort_pos.exit189.i:                            ; preds = %af_sort_pos.exit.i
   %150 = phi ptr [ %126, %af_sort_pos.exit189.thread.i ], [ %133, %140 ]
   %151 = lshr i32 %.1.i, 1
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw i64, ptr %4, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !60
   store i64 %154, ptr %149, align 8, !tbaa !60
   %155 = lshr i32 %.1128.i, 1
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw i64, ptr %5, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !60
   store i64 %158, ptr %150, align 8, !tbaa !60
   %.not165.i = icmp eq i64 %158, %154
@@ -1544,7 +1540,7 @@ define internal range(i32 -1, 1) i32 @af_latin_metrics_init(ptr noundef initiali
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 4, !tbaa !125
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @af_script_classes, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @af_script_classes, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !126
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !128
@@ -1650,8 +1646,8 @@ af_shaper_get_elem.exit.i:                        ; preds = %48
 73:                                               ; preds = %._crit_edge123.i, %.preheader.i
   %74 = phi i1 [ true, %.preheader.i ], [ false, %._crit_edge123.i ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %._crit_edge123.i ]
-  %75 = getelementptr inbounds nuw %struct.AF_LatinAxisRec_, ptr %27, i64 %indvars.iv.i
-  %76 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %72, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [1024 x i8], ptr %27, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [2536 x i8], ptr %72, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %77 = trunc nuw nsw i64 %indvars.iv.i to i32
   %78 = call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %12, i32 noundef %77)
@@ -1706,7 +1702,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %48
   %spec.select.i = call i64 @llvm.abs.i64(i64 %104, i1 true)
   %105 = add nuw nsw i32 %88, 1
   %106 = zext nneg i32 %88 to i64
-  %107 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %86, i64 %106
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %106
   store i64 %spec.select.i, ptr %107, align 8, !tbaa !147
   br label %108
 
@@ -1740,7 +1736,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %48
 .loopexit.i:                                      ; preds = %.loopexit.i.preheader, %131
   %119 = phi i1 [ false, %131 ], [ true, %.loopexit.i.preheader ]
   %indvars.iv131.i = phi i64 [ 1, %131 ], [ 0, %.loopexit.i.preheader ]
-  %120 = getelementptr inbounds nuw %struct.AF_LatinAxisRec_, ptr %27, i64 %indvars.iv131.i
+  %120 = getelementptr inbounds nuw [1024 x i8], ptr %27, i64 %indvars.iv131.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i32, ptr %121, align 8, !tbaa !122
   %.not98.i = icmp eq i32 %122, 0
@@ -1779,7 +1775,7 @@ af_latin_metrics_init_widths.exit:                ; preds = %131
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 12
   %139 = load i32, ptr %138, align 4, !tbaa !34
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %struct.AF_Blue_StringRec_, ptr @af_blue_stringsets, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr @af_blue_stringsets, i64 %140
   %142 = load i32, ptr %21, align 8, !tbaa !118
   %143 = udiv i32 %142, 14
   %144 = zext nneg i32 %143 to i64
@@ -1865,11 +1861,11 @@ af_shaper_get_elem.exit.thread.i15:               ; preds = %169
   br label %.thread750.i
 
 af_shaper_get_elem.exit.i18:                      ; preds = %169
-  %174 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %171, i64 %indvars.iv889.i
+  %174 = getelementptr inbounds nuw [20 x i8], ptr %171, i64 %indvars.iv889.i
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 12
   %176 = load i32, ptr %175, align 4, !tbaa !157
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %170, i64 %indvars.iv889.i
+  %178 = getelementptr inbounds nuw [20 x i8], ptr %170, i64 %indvars.iv889.i
   %179 = load i32, ptr %178, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %180 = icmp eq i32 %179, 0
@@ -1911,7 +1907,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %.0558816.i = phi i32 [ -1, %.lr.ph822.preheader.i ], [ %190, %209 ]
   %.0569814.i = phi i64 [ 0, %.lr.ph822.preheader.i ], [ %.1570.i, %209 ]
   %187 = add nsw i32 %.0558816.i, 1
-  %188 = getelementptr inbounds nuw i16, ptr %.sroa.14.0.copyload.i, i64 %indvars.iv884.i
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.14.0.copyload.i, i64 %indvars.iv884.i
   %189 = load i16, ptr %188, align 2, !tbaa !47
   %190 = zext i16 %189 to i32
   %.not663.i = icmp slt i32 %187, %190
@@ -1930,7 +1926,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %.2503795.i = phi i32 [ %.3504.i, %200 ], [ %.0501819.i, %191 ]
   %.2571793.i = phi i64 [ %.3572.i, %200 ], [ %.0569814.i, %191 ]
   %194 = icmp slt i32 %.2503795.i, 0
-  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %indvars.iv.i20
+  %.phi.trans.insert.i = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %indvars.iv.i20
   %.phi.trans.insert926.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert926.i, align 8, !tbaa !52
   %195 = icmp sgt i64 %.pre.i, %.2571793.i
@@ -1963,7 +1959,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %.5506806.i = phi i32 [ %.6507.i, %207 ], [ %.0501819.i, %191 ]
   %.5574804.i = phi i64 [ %.6575.i, %207 ], [ %.0569814.i, %191 ]
   %201 = icmp slt i32 %.5506806.i, 0
-  %.phi.trans.insert927.i = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %indvars.iv879.i
+  %.phi.trans.insert927.i = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %indvars.iv879.i
   %.phi.trans.insert928.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert927.i, i64 8
   %.pre929.i = load i64, ptr %.phi.trans.insert928.i, align 8, !tbaa !52
   %202 = icmp slt i64 %.pre929.i, %.5574804.i
@@ -2016,7 +2012,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
 
 211:                                              ; preds = %._crit_edge823.i
   %212 = zext nneg i32 %.1502.i to i64
-  %213 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %212
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %212
   %214 = load i64, ptr %213, align 8, !tbaa !57
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload.i, i64 %212
   %216 = load i8, ptr %215, align 1, !tbaa !39
@@ -2033,7 +2029,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %221 = add nsw i32 %.0542.i, -1
   %.1553.i = select i1 %220, i32 %221, i32 %.1557.i
   %222 = sext i32 %.1553.i to i64
-  %223 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %222
+  %223 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load i64, ptr %224, align 8, !tbaa !52
   %226 = sub nsw i64 %225, %.1570.i
@@ -2075,7 +2071,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %244 = add nsw i32 %.0534.i, 1
   %.1551.i = select i1 %243, i32 %244, i32 %.1509.i
   %245 = sext i32 %.1551.i to i64
-  %246 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %245
+  %246 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load i64, ptr %247, align 8, !tbaa !52
   %249 = sub nsw i64 %248, %.1570.i
@@ -2114,10 +2110,10 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %267 = udiv i32 %266, 25
   %268 = zext nneg i32 %267 to i64
   %269 = sext i32 %.1535.i to i64
-  %270 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %269
+  %270 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %269
   %271 = load i64, ptr %270, align 8, !tbaa !57
   %272 = sext i32 %.1543.i to i64
-  %273 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %272
+  %273 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %272
   %274 = load i64, ptr %273, align 8, !tbaa !57
   %275 = sub nsw i64 %271, %274
   %276 = call i64 @llvm.abs.i64(i64 %275, i1 true)
@@ -2137,7 +2133,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %282 = add nsw i32 %.2554.i, -1
   %.3555.i = select i1 %281, i32 %282, i32 %.1557.i
   %283 = sext i32 %.3555.i to i64
-  %284 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %283
+  %284 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %283
   %285 = load i64, ptr %284, align 8, !tbaa !57
   %.not650.i = icmp ne i64 %285, %214
   %.not651.i = icmp eq i32 %.3555.i, %.1502.i
@@ -2183,7 +2179,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %298 = icmp slt i32 %.0493.i, %.1557.i
   %299 = add nsw i32 %.0493.i, 1
   %.1494.i = select i1 %298, i32 %299, i32 %.1509.i
-  %300 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %.pre-phi.i
+  %300 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %.pre-phi.i
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load i64, ptr %301, align 8, !tbaa !52
   %303 = sub nsw i64 %.1570.i, %302
@@ -2193,7 +2189,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
 
 306:                                              ; preds = %297
   %307 = sext i32 %.1494.i to i64
-  %308 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %307
+  %308 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %307
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %310 = load i64, ptr %309, align 8, !tbaa !52
   %311 = sub nsw i64 %310, %302
@@ -2231,7 +2227,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %325 = add nsw i32 %.3496.i, 1
   %.4497.i = select i1 %324, i32 %325, i32 %.1509.i
   %326 = sext i32 %.4497.i to i64
-  %327 = getelementptr inbounds %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %326
+  %327 = getelementptr inbounds [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %326
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %329 = load i64, ptr %328, align 8, !tbaa !52
   %reass.sub47 = sub i64 %329, %302
@@ -2284,10 +2280,10 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
 
 349:                                              ; preds = %.thread729.i
   %350 = zext nneg i32 %.7517.i to i64
-  %351 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %350
+  %351 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %350
   %352 = load i64, ptr %351, align 8, !tbaa !57
   %353 = zext nneg i32 %.7528.i to i64
-  %354 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.sroa.5397.0.copyload.i, i64 %353
+  %354 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5397.0.copyload.i, i64 %353
   %355 = load i64, ptr %354, align 8, !tbaa !57
   %356 = sub nsw i64 %352, %355
   %357 = call i64 @llvm.abs.i64(i64 %356, i1 true)
@@ -2368,7 +2364,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   %.1455.ph.i = phi i32 [ %.0454839.i, %377 ], [ %376, %375 ]
   %.1.ph.i = phi i32 [ %378, %377 ], [ %.0449840.i, %375 ]
   %379 = zext i32 %.0449840.sink.i to i64
-  %380 = getelementptr inbounds nuw i64, ptr %.sink1054.i, i64 %379
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %.sink1054.i, i64 %379
   store i64 %.2561.i, ptr %380, align 8, !tbaa !60
   br label %381
 
@@ -2398,20 +2394,20 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i.i, %.lr.ph.preheader.i.preheader.i
   %indvars.iv893.i = phi i64 [ 1, %.lr.ph.preheader.i.preheader.i ], [ %indvars.iv.next894.i, %._crit_edge.i.i ]
-  %.phi.trans.insert27.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv893.i
+  %.phi.trans.insert27.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv893.i
   %.pre.i684.i = load i64, ptr %.phi.trans.insert27.i.i, align 8, !tbaa !60
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %391, %.lr.ph.preheader.i.i
   %indvars.iv895.i = phi i64 [ %388, %391 ], [ %indvars.iv893.i, %.lr.ph.preheader.i.i ]
   %388 = add nsw i64 %indvars.iv895.i, -1
-  %389 = getelementptr inbounds nuw i64, ptr %8, i64 %388
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %388
   %390 = load i64, ptr %389, align 8, !tbaa !60
   %.not21.i.i = icmp slt i64 %.pre.i684.i, %390
   br i1 %.not21.i.i, label %391, label %._crit_edge.i.i
 
 391:                                              ; preds = %.lr.ph.i.i
-  %392 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv895.i
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv895.i
   store i64 %390, ptr %392, align 8, !tbaa !60
   store i64 %.pre.i684.i, ptr %389, align 8, !tbaa !60
   %.not.i685.wide.i = icmp eq i64 %388, 0
@@ -2432,20 +2428,20 @@ af_sort_pos.exit.i:                               ; preds = %._crit_edge.i.i, %3
 
 .lr.ph.preheader.i686.i:                          ; preds = %._crit_edge.i694.i, %.lr.ph.preheader.i686.preheader.i
   %indvars.iv899.i = phi i64 [ 1, %.lr.ph.preheader.i686.preheader.i ], [ %indvars.iv.next900.i, %._crit_edge.i694.i ]
-  %.phi.trans.insert27.i689.i = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv899.i
+  %.phi.trans.insert27.i689.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv899.i
   %.pre.i690.i = load i64, ptr %.phi.trans.insert27.i689.i, align 8, !tbaa !60
   br label %.lr.ph.i691.i
 
 .lr.ph.i691.i:                                    ; preds = %398, %.lr.ph.preheader.i686.i
   %indvars.iv901.i = phi i64 [ %395, %398 ], [ %indvars.iv899.i, %.lr.ph.preheader.i686.i ]
   %395 = add nsw i64 %indvars.iv901.i, -1
-  %396 = getelementptr inbounds nuw i64, ptr %7, i64 %395
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %395
   %397 = load i64, ptr %396, align 8, !tbaa !60
   %.not21.i693.i = icmp slt i64 %.pre.i690.i, %397
   br i1 %.not21.i693.i, label %398, label %._crit_edge.i694.i
 
 398:                                              ; preds = %.lr.ph.i691.i
-  %399 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv901.i
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv901.i
   store i64 %397, ptr %399, align 8, !tbaa !60
   store i64 %.pre.i690.i, ptr %396, align 8, !tbaa !60
   %.not.i696.wide.i = icmp eq i64 %395, 0
@@ -2459,7 +2455,7 @@ af_sort_pos.exit.i:                               ; preds = %._crit_edge.i.i, %3
 af_sort_pos.exit697.thread.i:                     ; preds = %._crit_edge.i694.i
   %400 = load i32, ptr %149, align 4, !tbaa !169
   %401 = zext i32 %400 to i64
-  %402 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %148, i64 %401
+  %402 = getelementptr inbounds nuw [72 x i8], ptr %148, i64 %401
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 24
   %404 = add i32 %400, 1
   store i32 %404, ptr %149, align 4, !tbaa !169
@@ -2468,7 +2464,7 @@ af_sort_pos.exit697.thread.i:                     ; preds = %._crit_edge.i694.i
 af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
   %405 = load i32, ptr %149, align 4, !tbaa !169
   %406 = zext i32 %405 to i64
-  %407 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %148, i64 %406
+  %407 = getelementptr inbounds nuw [72 x i8], ptr %148, i64 %406
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 24
   %409 = add i32 %405, 1
   store i32 %409, ptr %149, align 4, !tbaa !169
@@ -2477,7 +2473,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
 410:                                              ; preds = %af_sort_pos.exit697.i
   %411 = lshr i32 %.1455.i, 1
   %412 = zext nneg i32 %411 to i64
-  %413 = getelementptr inbounds nuw i64, ptr %8, i64 %412
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %412
   %414 = load i64, ptr %413, align 8, !tbaa !60
   store i64 %414, ptr %408, align 8, !tbaa !60
   store i64 %414, ptr %407, align 8, !tbaa !60
@@ -2491,7 +2487,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
   %418 = phi ptr [ %403, %af_sort_pos.exit697.thread.i ], [ %408, %415 ]
   %419 = lshr i32 %.1.i, 1
   %420 = zext nneg i32 %419 to i64
-  %421 = getelementptr inbounds nuw i64, ptr %7, i64 %420
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %420
   %422 = load i64, ptr %421, align 8, !tbaa !60
   store i64 %422, ptr %418, align 8, !tbaa !60
   store i64 %422, ptr %417, align 8, !tbaa !60
@@ -2502,12 +2498,12 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
   %425 = phi ptr [ %403, %af_sort_pos.exit697.thread.i ], [ %408, %415 ]
   %426 = lshr i32 %.1.i, 1
   %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds nuw i64, ptr %7, i64 %427
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %427
   %429 = load i64, ptr %428, align 8, !tbaa !60
   store i64 %429, ptr %424, align 8, !tbaa !60
   %430 = lshr i32 %.1455.i, 1
   %431 = zext nneg i32 %430 to i64
-  %432 = getelementptr inbounds nuw i64, ptr %8, i64 %431
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %431
   %433 = load i64, ptr %432, align 8, !tbaa !60
   store i64 %433, ptr %425, align 8, !tbaa !60
   %.not634.i = icmp eq i64 %433, %429
@@ -2575,8 +2571,8 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
 
 459:                                              ; preds = %459, %457
   %indvars.iv905.i = phi i64 [ 0, %457 ], [ %indvars.iv.next906.i, %459 ]
-  %460 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %458, i64 %indvars.iv905.i
-  %461 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv905.i
+  %460 = getelementptr inbounds nuw [72 x i8], ptr %458, i64 %indvars.iv905.i
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv905.i
   store ptr %460, ptr %461, align 8, !tbaa !175
   %indvars.iv.next906.i = add nuw nsw i64 %indvars.iv905.i, 1
   %exitcond909.not.i = icmp eq i64 %indvars.iv.next906.i, %wide.trip.count908.i
@@ -2588,7 +2584,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
 
 .lr.ph.preheader.i698.i:                          ; preds = %462, %._crit_edge.i702.i
   %indvars.iv910.i = phi i64 [ %indvars.iv.next911.i, %._crit_edge.i702.i ], [ 1, %462 ]
-  %.phi.trans.insert42.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv910.i
+  %.phi.trans.insert42.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv910.i
   %.pre.i700.i = load ptr, ptr %.phi.trans.insert42.i.i, align 8, !tbaa !175
   %.phi.trans.insert43.i.i = getelementptr inbounds nuw i8, ptr %.pre.i700.i, i64 64
   %.pre44.i.i = load i32, ptr %.phi.trans.insert43.i.i, align 8, !tbaa !173
@@ -2602,7 +2598,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
 .lr.ph.i701.i:                                    ; preds = %470, %.lr.ph.preheader.i698.i
   %indvars.iv912.i = phi i64 [ %464, %470 ], [ %indvars.iv910.i, %.lr.ph.preheader.i698.i ]
   %464 = add nsw i64 %indvars.iv912.i, -1
-  %465 = getelementptr inbounds nuw ptr, ptr %10, i64 %464
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %464
   %466 = load ptr, ptr %465, align 8, !tbaa !175
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 64
   %468 = load i32, ptr %467, align 8, !tbaa !173
@@ -2615,7 +2611,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
   br i1 %.not35.i.i, label %470, label %._crit_edge.i702.i
 
 470:                                              ; preds = %.lr.ph.i701.i
-  %471 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv912.i
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv912.i
   store ptr %466, ptr %471, align 8, !tbaa !175
   store ptr %.pre.i700.i, ptr %465, align 8, !tbaa !175
   %.not.i704.wide.i = icmp eq i64 %464, 0
@@ -2643,7 +2639,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
   %.0451.idx.i = select i1 %.not631.i, i64 0, i64 24
   %.0451.i = getelementptr inbounds nuw i8, ptr %474, i64 %.0451.idx.i
   %indvars.iv.next917.i = add nuw nsw i64 %indvars.iv916.i, 1
-  %476 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next917.i
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next917.i
   %477 = load ptr, ptr %476, align 8, !tbaa !175
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 64
   %479 = load i32, ptr %478, align 8, !tbaa !173
@@ -2681,7 +2677,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
 
 494:                                              ; preds = %501, %.lr.ph859.i
   %indvars.iv921.i = phi i64 [ 0, %.lr.ph859.i ], [ %indvars.iv.next922.i, %501 ]
-  %495 = getelementptr inbounds nuw i16, ptr %490, i64 %indvars.iv921.i
+  %495 = getelementptr inbounds nuw [2 x i8], ptr %490, i64 %indvars.iv921.i
   %496 = load i16, ptr %495, align 2, !tbaa !47
   %497 = and i16 %496, 16383
   %498 = zext nneg i16 %497 to i32
@@ -2925,7 +2921,7 @@ define internal i32 @af_latin_hints_apply(i32 noundef %0, ptr noundef initialize
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !182
   %28 = zext i32 %0 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !47
   %31 = and i16 %30, 16384
   %.not48 = icmp eq i16 %31, 0
@@ -3002,7 +2998,7 @@ define internal i32 @af_latin_hints_apply(i32 noundef %0, ptr noundef initialize
   %.067102.us.i = phi ptr [ null, %.lr.ph.us.i ], [ %.168.us.i, %117 ]
   %.069101.us.i = phi i8 [ 0, %.lr.ph.us.i ], [ %.170.us.i, %117 ]
   %.075100.us.i = phi i64 [ %spec.store.select.i, %.lr.ph.us.i ], [ %.176.us.i, %117 ]
-  %69 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %56, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [72 x i8], ptr %56, i64 %indvars.iv.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %71 = load i32, ptr %70, align 8, !tbaa !173
   %72 = and i32 %71, 1
@@ -3366,24 +3362,24 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !182
   %65 = zext i32 %3 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !47
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %.139.in58.i.i = and i16 %67, 16383
   %69 = zext nneg i16 %.139.in58.i.i to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !243
   %.not4559.i.i = icmp eq ptr %71, null
   br i1 %.not4559.i.i, label %.lr.ph.i.i, label %af_face_globals_get_metrics.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %62, %98
   %72 = phi i64 [ %102, %98 ], [ %69, %62 ]
-  %.in65.i.i = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %72
+  %.in65.i.i = getelementptr inbounds nuw [8 x i8], ptr @af_style_classes, i64 %72
   %73 = load ptr, ptr %.in65.i.i, align 8, !tbaa !244
   %.pn.in.in.i.i = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.pn.in.i.i = load i32, ptr %.pn.in.in.i.i, align 4, !tbaa !245
   %.pn.i.i = zext i32 %.pn.in.i.i to i64
-  %.in.i.i = getelementptr inbounds nuw ptr, ptr @af_writing_system_classes, i64 %.pn.i.i
+  %.in.i.i = getelementptr inbounds nuw [8 x i8], ptr @af_writing_system_classes, i64 %.pn.i.i
   %74 = load ptr, ptr %.in.i.i, align 8, !tbaa !246
   %75 = load ptr, ptr %59, align 8, !tbaa !248
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 184
@@ -3428,18 +3424,18 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
   br i1 %95, label %98, label %af_face_globals_get_metrics.exit.i
 
 96:                                               ; preds = %86, %82
-  %97 = getelementptr inbounds nuw ptr, ptr %68, i64 %72
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %72
   store ptr %80, ptr %97, align 8, !tbaa !243
   br label %af_face_globals_get_metrics.exit.thread.i
 
 98:                                               ; preds = %93
   %99 = load ptr, ptr %63, align 8, !tbaa !182
-  %100 = getelementptr inbounds nuw i16, ptr %99, i64 %65
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %65
   %101 = load i16, ptr %100, align 2, !tbaa !47
   store i32 0, ptr %6, align 4, !tbaa !43
   %.139.in.i.i = and i16 %101, 16383
   %102 = zext nneg i16 %.139.in.i.i to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %68, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !243
   %.not45.i.i = icmp eq ptr %104, null
   br i1 %.not45.i.i, label %.lr.ph.i.i, label %af_face_globals_get_metrics.exit.thread.i
@@ -3465,7 +3461,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !245
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr @af_writing_system_classes, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @af_writing_system_classes, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !246
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %.037.i230.i, ptr %112, align 8, !tbaa !255
@@ -3648,7 +3644,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
   %205 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %206 = load ptr, ptr %205, align 16, !tbaa !85
   %207 = zext i32 %198 to i64
-  %208 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [88 x i8], ptr %206, i64 %207
   %209 = getelementptr inbounds i8, ptr %208, i64 -80
   %210 = load i64, ptr %209, align 8, !tbaa !95
   %211 = sub nsw i64 %.pre281.i, %210
@@ -3857,7 +3853,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
 af_face_globals_is_digit.exit.i:                  ; preds = %338
   %343 = getelementptr inbounds nuw i8, ptr %339, i64 16
   %344 = load ptr, ptr %343, align 8, !tbaa !182
-  %345 = getelementptr inbounds nuw i16, ptr %344, i64 %65
+  %345 = getelementptr inbounds nuw [2 x i8], ptr %344, i64 %65
   %346 = load i16, ptr %345, align 2, !tbaa !47
   %.not211.i = icmp sgt i16 %346, -1
   br i1 %.not211.i, label %af_face_globals_is_digit.exit.thread.i, label %347
@@ -3998,12 +3994,12 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 4, !tbaa !295
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @coverages, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @coverages, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !296
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !125
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @scripts, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @scripts, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 3, ptr %7, align 4, !tbaa !43
@@ -4103,7 +4099,7 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %64 = load i32, ptr %63, align 4, !tbaa !34
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.AF_Blue_StringRec_, ptr @af_blue_stringsets, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @af_blue_stringsets, i64 %65
   %67 = load i32, ptr %66, align 8, !tbaa !36
   %.not92118 = icmp eq i32 %67, 5531
   br i1 %.not92118, label %.loopexit, label %.lr.ph122
@@ -4224,7 +4220,7 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
 
 110:                                              ; preds = %107
   %111 = zext i32 %108 to i64
-  %112 = getelementptr inbounds nuw i16, ptr %2, i64 %111
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !47
   %114 = icmp eq i16 %113, 16383
   br i1 %114, label %115, label %.backedge
@@ -4313,7 +4309,7 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 4, !tbaa !295
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @features, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @features, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !304
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !294
@@ -4390,9 +4386,9 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next, %50 ]
-  %46 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %41, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [20 x i8], ptr %41, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !44
-  %48 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %42, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [20 x i8], ptr %42, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !44
   %.not66 = icmp eq i32 %47, %49
   br i1 %.not66, label %50, label %._crit_edge76
@@ -4452,7 +4448,7 @@ define hidden range(i64 0, 4294967296) i64 @af_shaper_get_elem(ptr noundef readn
 
 11:                                               ; preds = %10
   %12 = zext i32 %2 to i64
-  %13 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !191
   %15 = sext i32 %14 to i64
   store i64 %15, ptr %3, align 8, !tbaa !60
@@ -4464,7 +4460,7 @@ define hidden range(i64 0, 4294967296) i64 @af_shaper_get_elem(ptr noundef readn
   br i1 %.not19, label %._crit_edge, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %8, i64 %.pre
+  %18 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 %.pre
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !157
   %21 = sext i32 %20 to i64
@@ -4472,7 +4468,7 @@ define hidden range(i64 0, 4294967296) i64 @af_shaper_get_elem(ptr noundef readn
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %17
-  %22 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %.pre
+  %22 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %.pre
   %23 = load i32, ptr %22, align 4, !tbaa !44
   %24 = zext i32 %23 to i64
   br label %25
@@ -4511,7 +4507,7 @@ define internal fastcc void @af_cjk_metrics_init_widths(ptr noundef captures(non
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !125
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr @af_script_classes, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @af_script_classes, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !126
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !128
@@ -4620,7 +4616,7 @@ af_shaper_get_elem.exit:                          ; preds = %32
 59:                                               ; preds = %.preheader, %._crit_edge122
   %60 = phi i1 [ true, %.preheader ], [ false, %._crit_edge122 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %._crit_edge122 ]
-  %61 = getelementptr inbounds nuw %struct.AF_CJKAxisRec_, ptr %11, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [896 x i8], ptr %11, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %4, i32 noundef %62)
@@ -4628,7 +4624,7 @@ af_shaper_get_elem.exit:                          ; preds = %32
   br i1 %.not95, label %64, label %97
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %58, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [2536 x i8], ptr %58, i64 %indvars.iv
   call fastcc void @af_latin_hints_link_segments(ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, i32 noundef %62)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !143
@@ -4672,7 +4668,7 @@ af_shaper_get_elem.exit:                          ; preds = %32
   %spec.select = call i64 @llvm.abs.i64(i64 %89, i1 true)
   %90 = add nuw nsw i32 %73, 1
   %91 = zext nneg i32 %73 to i64
-  %92 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %71, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %91
   store i64 %spec.select, ptr %92, align 8, !tbaa !147
   br label %93
 
@@ -4707,7 +4703,7 @@ af_shaper_get_elem.exit:                          ; preds = %32
 105:                                              ; preds = %.loopexit, %118
   %106 = phi i1 [ true, %.loopexit ], [ false, %118 ]
   %indvars.iv131 = phi i64 [ 0, %.loopexit ], [ 1, %118 ]
-  %107 = getelementptr inbounds nuw %struct.AF_CJKAxisRec_, ptr %11, i64 %indvars.iv131
+  %107 = getelementptr inbounds nuw [896 x i8], ptr %11, i64 %indvars.iv131
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i32, ptr %108, align 8, !tbaa !310
   %.not97 = icmp eq i32 %109, 0
@@ -4999,7 +4995,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
 .lr.ph:                                           ; preds = %88
   %105 = load i16, ptr %103, align 2, !tbaa !47
   %106 = zext i16 %105 to i64
-  %107 = getelementptr inbounds nuw %struct.AF_PointRec_, ptr %85, i64 %106
+  %107 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !110
   %sext337 = shl i64 %5, 32
@@ -5057,7 +5053,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %142 = getelementptr inbounds nuw i8, ptr %.0349, i64 16
   store i64 %140, ptr %142, align 8, !tbaa !333
   %143 = zext i16 %.0285346 to i64
-  %144 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %101, i64 %143
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %143
   %145 = load i64, ptr %144, align 8, !tbaa !57
   %146 = trunc i64 %145 to i16
   %147 = getelementptr inbounds nuw i8, ptr %.0287345, i64 24
@@ -5115,10 +5111,10 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
 
 182:                                              ; preds = %177
   %183 = sext i32 %178 to i64
-  %184 = getelementptr inbounds i16, ptr %103, i64 %183
+  %184 = getelementptr inbounds [2 x i8], ptr %103, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !47
   %186 = zext i16 %185 to i64
-  %187 = getelementptr inbounds nuw %struct.AF_PointRec_, ptr %85, i64 %186
+  %187 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %186
   br label %188
 
 188:                                              ; preds = %177, %182, %173
@@ -5146,7 +5142,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %.0303352 = phi ptr [ %203, %.lr.ph354 ], [ %194, %._crit_edge ]
   %.0305351 = phi ptr [ %204, %.lr.ph354 ], [ %103, %._crit_edge ]
   %.0306350 = phi i64 [ %202, %.lr.ph354 ], [ 0, %._crit_edge ]
-  %199 = getelementptr inbounds nuw %struct.AF_PointRec_, ptr %85, i64 %.0306350
+  %199 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %.0306350
   store ptr %199, ptr %.0303352, align 8, !tbaa !98
   %200 = load i16, ptr %.0305351, align 2, !tbaa !47
   %201 = zext i16 %200 to i64
@@ -5507,7 +5503,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [2536 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %0, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5991,7 +5987,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %240 = add i32 %239, 1
   store i32 %240, ptr %8, align 8, !tbaa !144
   %241 = zext i32 %239 to i64
-  %242 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %238, i64 %241
+  %242 = getelementptr inbounds nuw [80 x i8], ptr %238, i64 %241
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 0, ptr %242, align 8, !tbaa !39
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 1
@@ -6179,7 +6175,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 define internal fastcc void @af_latin_hints_link_segments(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [2536 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !143
   %.not = icmp eq ptr %9, null
@@ -6188,7 +6184,7 @@ define internal fastcc void @af_latin_hints_link_segments(ptr noundef readonly c
 10:                                               ; preds = %4
   %11 = load i32, ptr %7, align 8, !tbaa !144
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [80 x i8], ptr %9, i64 %12
   br label %14
 
 14:                                               ; preds = %4, %10
@@ -6199,7 +6195,7 @@ define internal fastcc void @af_latin_hints_link_segments(ptr noundef readonly c
 16:                                               ; preds = %14
   %17 = add i32 %1, -1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %2, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !147
   %21 = freeze i64 %20
   br label %22
@@ -6456,11 +6452,11 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr noundef nonnull cap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %.06882 = phi i32 [ %9, %13 ], [ %.07084, %.lr.ph.preheader ]
   %6 = zext i32 %.06882 to i64
-  %7 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !147
   %9 = add i32 %.06882, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !147
   %.not77 = icmp slt i64 %8, %12
   br i1 %.not77, label %13, label %._crit_edge
@@ -6492,7 +6488,7 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr noundef nonnull cap
   %.06694 = phi i32 [ 0, %.lr.ph97 ], [ %.167, %40 ]
   %.17193 = phi i32 [ 1, %.lr.ph97 ], [ %41, %40 ]
   %20 = zext i32 %.17193 to i64
-  %21 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !147
   %23 = sub nsw i64 %22, %.06595
   %24 = icmp sgt i64 %23, %2
@@ -6516,7 +6512,7 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr noundef nonnull cap
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv = phi i64 [ %28, %.lr.ph89.preheader ], [ %indvars.iv.next, %.lr.ph89 ]
   %.087 = phi i64 [ 0, %.lr.ph89.preheader ], [ %31, %.lr.ph89 ]
-  %29 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8, !tbaa !147
   %31 = add nsw i64 %30, %.087
   store i64 0, ptr %29, align 8, !tbaa !147
@@ -6528,7 +6524,7 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr noundef nonnull cap
   %.pre-phi = phi i64 [ %28, %26 ], [ %wide.trip.count, %.lr.ph89 ]
   %.0.lcssa = phi i64 [ 0, %26 ], [ %31, %.lr.ph89 ]
   %32 = sdiv i64 %.0.lcssa, %.pre-phi
-  %33 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %28
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %28
   store i64 %32, ptr %33, align 8, !tbaa !147
   %34 = icmp ult i32 %.272, %18
   br i1 %34, label %35, label %40
@@ -6536,7 +6532,7 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr noundef nonnull cap
 35:                                               ; preds = %._crit_edge90
   %36 = add nuw i32 %.272, 1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !147
   br label %40
 
@@ -6552,7 +6548,7 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr noundef nonnull cap
   %43 = phi i32 [ %51, %50 ], [ %.pre, %40 ]
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %50 ], [ 1, %40 ]
   %.299 = phi i32 [ %.3, %50 ], [ 1, %40 ]
-  %44 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %indvars.iv107
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv107
   %45 = load i64, ptr %44, align 8, !tbaa !147
   %.not = icmp eq i64 %45, 0
   br i1 %.not, label %50, label %46
@@ -6560,7 +6556,7 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr noundef nonnull cap
 46:                                               ; preds = %.lr.ph100
   %47 = add i32 %.299, 1
   %48 = zext i32 %.299 to i64
-  %49 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !tbaa.struct !367
   %.pre110 = load i32, ptr %0, align 4, !tbaa !43
   br label %50
@@ -6596,7 +6592,7 @@ define internal fastcc void @af_glyph_hints_done(ptr noundef nonnull captures(ad
 4:                                                ; preds = %.preheader, %19
   %5 = phi i1 [ true, %.preheader ], [ false, %19 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %19 ]
-  %6 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2536 x i8], ptr %3, i64 %indvars.iv
   store i32 0, ptr %6, align 8, !tbaa !144
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4, !tbaa !357
@@ -6692,7 +6688,7 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr noundef captures(none)
   %.061 = load i64, ptr %.061.in, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw %struct.AF_CJKAxisRec_, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [896 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 880
   %9 = load i64, ptr %8, align 8, !tbaa !375
   %10 = icmp eq i64 %9, %.060
@@ -6725,7 +6721,7 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr noundef captures(none)
 22:                                               ; preds = %.lr.ph, %82
   %23 = phi i32 [ %19, %.lr.ph ], [ %83, %82 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %24 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !377
   %sext = shl i64 %25, 32
   %26 = ashr exact i64 %sext, 32
@@ -6822,7 +6818,7 @@ define internal fastcc i32 @af_cjk_hints_detect_features(ptr noundef %0, i32 nou
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [2536 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !143
   %.not.i = icmp eq ptr %8, null
@@ -6897,7 +6893,7 @@ af_cjk_hints_compute_segments.exit.thread:        ; preds = %._crit_edge.i, %.pr
 35:                                               ; preds = %af_cjk_hints_compute_segments.exit.thread
   %36 = load i32, ptr %6, align 8, !tbaa !144
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [80 x i8], ptr %34, i64 %37
   br label %39
 
 39:                                               ; preds = %35, %af_cjk_hints_compute_segments.exit.thread
@@ -7192,7 +7188,7 @@ af_cjk_hints_compute_segments.exit.thread:        ; preds = %._crit_edge.i, %.pr
 af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
   %191 = load ptr, ptr %0, align 8, !tbaa !121
   %192 = load ptr, ptr %43, align 8, !tbaa !69
-  %193 = getelementptr inbounds nuw %struct.AF_CJKAxisRec_, ptr %192, i64 %5
+  %193 = getelementptr inbounds nuw [896 x i8], ptr %192, i64 %5
   %194 = load ptr, ptr %7, align 8, !tbaa !143
   %.not.i11 = icmp eq ptr %194, null
   br i1 %.not.i11, label %199, label %195
@@ -7200,7 +7196,7 @@ af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
 195:                                              ; preds = %af_cjk_hints_link_segments.exit
   %196 = load i32, ptr %6, align 8, !tbaa !144
   %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %194, i64 %197
+  %198 = getelementptr inbounds nuw [80 x i8], ptr %194, i64 %197
   br label %199
 
 199:                                              ; preds = %195, %af_cjk_hints_link_segments.exit
@@ -7260,7 +7256,7 @@ af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i, %260 ]
   %.0170264.i = phi ptr [ null, %.lr.ph.i18 ], [ %.1171.i, %260 ]
   %.0178263.i = phi i64 [ 65535, %.lr.ph.i18 ], [ %.1179.i, %260 ]
-  %226 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %220, i64 %indvars.iv.i
+  %226 = getelementptr inbounds nuw [88 x i8], ptr %220, i64 %indvars.iv.i
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 25
   %228 = load i8, ptr %227, align 1, !tbaa !204
   %.not225.i = icmp eq i8 %228, %222
@@ -7576,7 +7572,7 @@ af_cjk_hints_compute_edges.exit:                  ; preds = %369, %9, %295, %._c
 define internal fastcc void @af_cjk_hints_compute_blue_edges(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [2536 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !85
   %.not = icmp eq ptr %8, null
@@ -7586,13 +7582,13 @@ define internal fastcc void @af_cjk_hints_compute_blue_edges(ptr noundef readonl
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !90
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %8, i64 %12
   br label %14
 
 14:                                               ; preds = %3, %9
   %15 = phi ptr [ %13, %9 ], [ null, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %17 = getelementptr inbounds nuw %struct.AF_CJKAxisRec_, ptr %16, i64 %5
+  %17 = getelementptr inbounds nuw [896 x i8], ptr %16, i64 %5
   %18 = load i64, ptr %17, align 8, !tbaa !76
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load i32, ptr %19, align 8, !tbaa !26
@@ -7642,7 +7638,7 @@ define internal fastcc void @af_cjk_hints_compute_blue_edges(ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %75 ]
   %.05675.us = phi i64 [ %spec.store.select, %.preheader.us ], [ %.1.us, %75 ]
   %.05774.us = phi ptr [ null, %.preheader.us ], [ %.158.us, %75 ]
-  %43 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %34, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !384
   %46 = and i32 %45, 1
@@ -7706,7 +7702,7 @@ define internal fastcc void @af_cjk_hints_compute_blue_edges(ptr noundef readonl
 define internal fastcc void @af_cjk_hint_edges(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [2536 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !85
   %.not = icmp eq ptr %7, null
@@ -8209,7 +8205,7 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
   %8 = getelementptr inbounds i8, ptr %4, i64 %.idx131
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [2536 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !85
   %.not = icmp eq ptr %13, null
@@ -8239,7 +8235,7 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
   %26 = getelementptr inbounds i8, ptr %20, i64 -80
   %27 = icmp ult i32 %16, 9
   %28 = trunc nuw nsw i32 %. to i16
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %13, i64 %17
+  %.phi.trans.insert = getelementptr inbounds nuw [88 x i8], ptr %13, i64 %17
   %.145 = select i1 %18, i64 32, i64 40
   br label %29
 
@@ -8285,7 +8281,7 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
 
 .preheader:                                       ; preds = %46, %49
   %.091128 = phi i64 [ %50, %49 ], [ 0, %46 ]
-  %47 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %13, i64 %.091128
+  %47 = getelementptr inbounds nuw [88 x i8], ptr %13, i64 %.091128
   %48 = load i16, ptr %47, align 8, !tbaa !206
   %.not113 = icmp slt i16 %48, %.092.in
   br i1 %.not113, label %49, label %split
@@ -8306,7 +8302,7 @@ split:                                            ; preds = %.preheader, %._crit
   br i1 %.not114, label %.thread116, label %.loopexit
 
 .thread116:                                       ; preds = %split
-  %52 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %13, i64 %.091.lcssa
+  %52 = getelementptr inbounds nuw [88 x i8], ptr %13, i64 %.091.lcssa
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i64, ptr %53, align 8, !tbaa !94
   br label %100
@@ -8316,7 +8312,7 @@ split:                                            ; preds = %.preheader, %._crit
   %.297126 = phi i64 [ %.398, %67 ], [ 0, %46 ]
   %55 = add nuw nsw i64 %.093127, %.297126
   %56 = lshr i64 %55, 1
-  %57 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %13, i64 %56
+  %57 = getelementptr inbounds nuw [88 x i8], ptr %13, i64 %56
   %58 = load i16, ptr %57, align 8, !tbaa !206
   %59 = icmp slt i16 %.092.in, %58
   br i1 %59, label %67, label %60
@@ -8342,7 +8338,7 @@ split:                                            ; preds = %.preheader, %._crit
 
 .loopexit:                                        ; preds = %67, %split
   %.196 = phi i64 [ %.091.lcssa, %split ], [ %.398, %67 ]
-  %69 = getelementptr inbounds %struct.AF_EdgeRec_, ptr %13, i64 %.196
+  %69 = getelementptr inbounds [88 x i8], ptr %13, i64 %.196
   %70 = getelementptr inbounds i8, ptr %69, i64 -88
   %71 = getelementptr inbounds i8, ptr %69, i64 -56
   %72 = load i64, ptr %71, align 8, !tbaa !415
@@ -9184,7 +9180,7 @@ declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr readonly captures(none) %.5152.val, i32 noundef range(i32 0, 2) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %.5152.val, i64 80
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.AF_CJKAxisRec_, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [896 x i8], ptr %3, i64 %4
   %6 = and i32 %.5148.val, 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %88, label %7
@@ -9276,7 +9272,7 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr readon
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %5, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load i64, ptr %47, align 8, !tbaa !430
   %49 = sub nsw i64 %spec.select, %48
@@ -9381,7 +9377,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
   %.0152 = load i64, ptr %.0152.in, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw %struct.AF_LatinAxisRec_, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1008
   %9 = load i64, ptr %8, align 8, !tbaa !432
   %10 = icmp eq i64 %9, %.0
@@ -9414,7 +9410,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
 
 21:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %22 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load i32, ptr %23, align 8, !tbaa !173
   %25 = and i32 %24, 16
@@ -9480,7 +9476,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
 62:                                               ; preds = %.lr.ph212, %62
   %indvars.iv231 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next232, %62 ]
   %.0163210 = phi i64 [ %60, %.lr.ph212 ], [ %69, %62 ]
-  %63 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %19, i64 %indvars.iv231
+  %63 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %indvars.iv231
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load i64, ptr %64, align 8, !tbaa !170
   %.0163. = tail call i64 @llvm.smax.i64(i64 %.0163210, i64 %65)
@@ -9548,7 +9544,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
 
 89:                                               ; preds = %.lr.ph215, %89
   %indvars.iv236 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next237, %89 ]
-  %90 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %87, i64 %indvars.iv236
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %indvars.iv236
   %91 = load i64, ptr %90, align 8, !tbaa !147
   %sext200 = shl i64 %91, 32
   %92 = ashr exact i64 %sext200, 32
@@ -9602,7 +9598,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
 
 117:                                              ; preds = %.lr.ph218, %166
   %indvars.iv241 = phi i64 [ 0, %.lr.ph218 ], [ %indvars.iv.next242, %166 ]
-  %118 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %115, i64 %indvars.iv241
+  %118 = getelementptr inbounds nuw [72 x i8], ptr %115, i64 %indvars.iv241
   %119 = load i64, ptr %118, align 8, !tbaa !207
   %sext194 = shl i64 %119, 32
   %120 = ashr exact i64 %sext194, 32
@@ -9677,7 +9673,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
 
 167:                                              ; preds = %.lr.ph222, %.loopexit
   %indvars.iv251 = phi i64 [ 0, %.lr.ph222 ], [ %indvars.iv.next252, %.loopexit ]
-  %168 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %116, i64 %indvars.iv251
+  %168 = getelementptr inbounds nuw [72 x i8], ptr %116, i64 %indvars.iv251
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 64
   %170 = load i32, ptr %169, align 8, !tbaa !173
   %171 = and i32 %170, 5
@@ -9691,7 +9687,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
 
 174:                                              ; preds = %.preheader, %189
   %indvars.iv246 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next247, %189 ]
-  %175 = getelementptr inbounds nuw %struct.AF_LatinBlueRec_, ptr %116, i64 %indvars.iv246
+  %175 = getelementptr inbounds nuw [72 x i8], ptr %116, i64 %indvars.iv246
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 64
   %177 = load i32, ptr %176, align 8, !tbaa !173
   %178 = and i32 %177, 5
@@ -9742,16 +9738,16 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   tail call fastcc void @af_latin_hints_link_segments(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = zext nneg i32 %3 to i64
-  %10 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [2536 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %0, align 8, !tbaa !121
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %13 = load ptr, ptr %12, align 8, !tbaa !69
-  %14 = getelementptr inbounds nuw %struct.AF_LatinAxisRec_, ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [1024 x i8], ptr %13, i64 %9
   %15 = load ptr, ptr %13, align 8, !tbaa !251
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !125
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr @af_script_classes, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @af_script_classes, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !126
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !143
@@ -9761,7 +9757,7 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
 23:                                               ; preds = %7
   %24 = load i32, ptr %10, align 8, !tbaa !144
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %25
   br label %27
 
 27:                                               ; preds = %23, %7
@@ -9866,7 +9862,7 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
 
 85:                                               ; preds = %95, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %95 ]
-  %86 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %81, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [88 x i8], ptr %81, i64 %indvars.iv.i
   %87 = load i16, ptr %86, align 8, !tbaa !206
   %88 = sext i16 %87 to i64
   %89 = sub nsw i64 %84, %88
@@ -9970,7 +9966,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i
 
 134:                                              ; preds = %133, %.lr.ph276.i
   %indvars.iv293.i = phi i64 [ 0, %.lr.ph276.i ], [ %indvars.iv.next294.i, %133 ]
-  %135 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %129, i64 %indvars.iv293.i
+  %135 = getelementptr inbounds nuw [88 x i8], ptr %129, i64 %indvars.iv293.i
   %136 = load i16, ptr %135, align 8, !tbaa !206
   %137 = sext i16 %136 to i64
   %138 = sub nsw i64 %132, %137
@@ -10172,7 +10168,7 @@ af_latin_hints_compute_edges.exit:                ; preds = %222, %150, %._crit_
 define internal fastcc void @af_latin_hint_edges(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.AF_AxisHintsRec_, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [2536 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !85
   %.not = icmp eq ptr %7, null
@@ -10182,7 +10178,7 @@ define internal fastcc void @af_latin_hint_edges(ptr noundef readonly captures(n
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !90
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %11
   br label %13
 
 13:                                               ; preds = %2, %8
@@ -10197,7 +10193,7 @@ define internal fastcc void @af_latin_hint_edges(ptr noundef readonly captures(n
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !125
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @af_script_classes, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @af_script_classes, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !126
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i8, ptr %24, align 8, !tbaa !446
@@ -10915,7 +10911,7 @@ define internal fastcc void @af_latin_hint_edges(ptr noundef readonly captures(n
 define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr readonly captures(none) %.5152.val, i32 noundef range(i32 0, 2) %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #12 {
   %6 = getelementptr inbounds nuw i8, ptr %.5152.val, i64 80
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw %struct.AF_LatinAxisRec_, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 %7
   %.not7 = icmp eq i32 %0, 0
   %9 = and i32 %.5148.val, 4
   %.not = icmp eq i32 %9, 0
@@ -11067,7 +11063,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr read
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
-  %75 = getelementptr inbounds nuw %struct.AF_WidthRec_, ptr %8, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = load i64, ptr %76, align 8, !tbaa !430
   %78 = sub nsw i64 %spec.select, %77
@@ -11209,7 +11205,7 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef nonnul
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !245
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @af_writing_system_classes, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @af_writing_system_classes, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !246
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !463
@@ -11434,7 +11430,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %56 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv.i
   store i16 16383, ptr %56, align 2, !tbaa !47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -11452,7 +11448,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 4, !tbaa !125
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr @af_script_classes, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @af_script_classes, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !126
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !481
@@ -11493,7 +11489,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 83:                                               ; preds = %80
   %84 = zext i32 %79 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %54, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !47
   %87 = and i16 %86, 16383
   %88 = icmp eq i16 %87, 16383
@@ -11525,7 +11521,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 103:                                              ; preds = %100
   %104 = zext i32 %95 to i64
-  %105 = getelementptr inbounds nuw i16, ptr %54, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !47
   %107 = and i16 %106, 16383
   %108 = icmp eq i16 %107, 16383
@@ -11572,7 +11568,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 125:                                              ; preds = %122
   %126 = zext i32 %121 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %54, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !47
   %129 = and i16 %128, 16383
   %130 = zext nneg i16 %129 to i64
@@ -11606,7 +11602,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 147:                                              ; preds = %144
   %148 = zext i32 %139 to i64
-  %149 = getelementptr inbounds nuw i16, ptr %54, i64 %148
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !47
   %151 = and i16 %150, 16383
   %152 = zext nneg i16 %151 to i64
@@ -11638,7 +11634,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 .loopexit123.i:                                   ; preds = %._crit_edge137.i, %162, %._crit_edge134.i, %.preheader124.i
   %.197.i = phi i16 [ %.096143.i, %.preheader124.i ], [ %.096143.i, %162 ], [ %spec.select.i, %._crit_edge134.i ], [ %spec.select.i, %._crit_edge137.i ]
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
-  %164 = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %indvars.iv.next154.i
+  %164 = getelementptr inbounds nuw [8 x i8], ptr @af_style_classes, i64 %indvars.iv.next154.i
   %165 = load ptr, ptr %164, align 8, !tbaa !244
   %.not112.i = icmp eq i64 %indvars.iv.next154.i, 87
   br i1 %.not112.i, label %.preheader122.i, label %.preheader124.i, !llvm.loop !488
@@ -11657,14 +11653,14 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 172:                                              ; preds = %170, %.preheader122.i
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
-  %173 = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %indvars.iv.next157.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr @af_style_classes, i64 %indvars.iv.next157.i
   %174 = load ptr, ptr %173, align 8, !tbaa !244
   %.not113.i = icmp eq i64 %indvars.iv.next157.i, 87
   br i1 %.not113.i, label %175, label %.preheader122.i, !llvm.loop !489
 
 175:                                              ; preds = %172
   %176 = zext i16 %.197.i to i64
-  %177 = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr @af_style_classes, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !244
   %179 = call i32 @af_shaper_get_coverage(ptr noundef nonnull readonly %13, ptr noundef %178, ptr noundef %54, i8 noundef zeroext 1)
   br label %180
@@ -11682,7 +11678,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 185:                                              ; preds = %182
   %186 = zext i32 %181 to i64
-  %187 = getelementptr inbounds nuw i16, ptr %54, i64 %186
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !47
   %189 = or i16 %188, -32768
   store i16 %189, ptr %187, align 2, !tbaa !47
@@ -11712,7 +11708,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 196:                                              ; preds = %204, %.lr.ph149.i
   %indvars.iv163.i = phi i64 [ 0, %.lr.ph149.i ], [ %indvars.iv.next164.i, %204 ]
-  %197 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv163.i
+  %197 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv163.i
   %198 = load i16, ptr %197, align 2, !tbaa !47
   %199 = and i16 %198, 16383
   %200 = icmp eq i16 %199, 16383
@@ -11756,18 +11752,18 @@ define internal void @af_face_globals_free(ptr noundef %0) #0 {
 
 7:                                                ; preds = %2, %23
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !243
   %.not24 = icmp eq ptr %9, null
   br i1 %.not24, label %23, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @af_style_classes, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !244
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !245
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @af_writing_system_classes, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @af_writing_system_classes, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !246
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !254
@@ -12104,7 +12100,7 @@ define internal i32 @af_property_set(ptr noundef %0, ptr noundef readonly captur
 
 20:                                               ; preds = %16, %11
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %21 = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %indvars.iv.next184
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @af_style_classes, i64 %indvars.iv.next184
   %22 = load ptr, ptr %21, align 8, !tbaa !244
   %cond = icmp eq i64 %indvars.iv.next184, 87
   br i1 %cond, label %.loopexit, label %11, !llvm.loop !494
@@ -12200,7 +12196,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
   %.0118178 = phi ptr [ %2, %51 ], [ %60, %59 ]
   %53 = call i64 @strtol(ptr noundef %.0118178, ptr noundef nonnull %7, i32 noundef 10) #21
   %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %54, ptr %55, align 4, !tbaa !43
   %56 = load ptr, ptr %7, align 8, !tbaa !159
   %57 = load i8, ptr %56, align 1, !tbaa !39
@@ -12401,7 +12397,7 @@ af_property_get_face_globals.exit:                ; preds = %7, %12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !292
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @af_style_classes, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !244
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 4, !tbaa !125

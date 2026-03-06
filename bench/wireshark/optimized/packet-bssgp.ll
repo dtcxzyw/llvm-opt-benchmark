@@ -3336,8 +3336,8 @@ define hidden void @proto_register_bssgp() local_unnamed_addr #1 {
 13:                                               ; preds = %0, %13
   %indvars.iv18 = phi i64 [ 12, %0 ], [ %indvars.iv.next19, %13 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr i32, ptr @ett_bssgp_elem, i64 %indvars.iv
-  %15 = getelementptr ptr, ptr %1, i64 %indvars.iv18
+  %14 = getelementptr [4 x i8], ptr @ett_bssgp_elem, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv18
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -3347,8 +3347,8 @@ define hidden void @proto_register_bssgp() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %13, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 128, %13 ]
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %13 ]
-  %16 = getelementptr i32, ptr @ett_bssgp_msg, i64 %indvars.iv23
-  %17 = getelementptr ptr, ptr %1, i64 %indvars.iv25
+  %16 = getelementptr [4 x i8], ptr @ett_bssgp_msg, i64 %indvars.iv23
+  %17 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv25
   store ptr %16, ptr %17, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
@@ -3422,7 +3422,7 @@ define internal i32 @dissect_bssgp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = load i32, ptr @hf_bssgp_msg_type, align 4
   %20 = load i32, ptr %5, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr ptr, ptr @bssgp_msg_fcn, i64 %21
+  %22 = getelementptr [8 x i8], ptr @bssgp_msg_fcn, i64 %21
   %23 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load ptr, ptr %7, align 8

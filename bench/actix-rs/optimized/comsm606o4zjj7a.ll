@@ -722,7 +722,7 @@ default.unreachable:                              ; preds = %25
   br label %"_ZN6brotli3enc17brotli_bit_stream25CommandQueue$LT$Alloc$GT$13error_if_full17h1cec5dc07ffa019eE.exit"
 
 62:                                               ; preds = %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit"
-  %63 = getelementptr inbounds { i8, [39 x i8] }, ptr %.val10, i64 %5
+  %63 = getelementptr inbounds [40 x i8], ptr %.val10, i64 %5
   store i8 %26, ptr %63, align 8
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 %.sroa.423.0, ptr %.sroa.423.0..sroa_idx, align 1
@@ -1591,7 +1591,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !nonnull !62, !align !230, !noundef !62
-  %24 = getelementptr inbounds i32, ptr %23, i64 %12
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %12
   %25 = load i32, ptr %24, align 4, !noundef !62
   %26 = load ptr, ptr %0, align 8, !nonnull !62, !align !64, !noundef !62
   %27 = getelementptr inbounds i8, ptr %26, i64 %12
@@ -1642,7 +1642,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a
   %.val = load ptr, ptr %51, align 8, !nonnull !62, !align !64, !noundef !62
   %52 = getelementptr inbounds i8, ptr %.val, i64 %42
   %53 = load i8, ptr %52, align 1, !noundef !62
-  %54 = getelementptr inbounds i16, ptr %.val8, i64 %42
+  %54 = getelementptr inbounds [2 x i8], ptr %.val8, i64 %42
   %55 = load i16, ptr %54, align 2, !noundef !62
   %56 = zext i16 %55 to i64
   tail call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %53, i64 noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 1 %3, i64 noundef %4)
@@ -2437,7 +2437,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
 
 366:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i", %364
   %.08.i.i = phi i64 [ 0, %364 ], [ %368, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i" ]
-  %367 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} } }, ptr %365, i64 %.08.i.i
+  %367 = getelementptr inbounds nuw [16 x i8], ptr %365, i64 %.08.i.i
   %368 = add nuw nsw i64 %.08.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !362)
   call void @llvm.experimental.noalias.scope.decl(metadata !365)
@@ -2614,7 +2614,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %403 = phi i1 [ true, %.critedge ], [ false, %.noexc274 ]
   %.sroa.0.08.i.sroa.phi = phi ptr [ %26, %.critedge ], [ %.sroa.gep21, %.noexc274 ]
   %.sroa.0.08.i = phi i64 [ 0, %.critedge ], [ 1, %.noexc274 ]
-  %404 = getelementptr inbounds nuw [16 x float], ptr %401, i64 %.sroa.0.08.i
+  %404 = getelementptr inbounds nuw [64 x i8], ptr %401, i64 %.sroa.0.08.i
   %405 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %404, i64 noundef 16)
           to label %.noexc274 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2643,7 +2643,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %414 = phi i1 [ true, %.critedge269 ], [ false, %.noexc276 ]
   %.sroa.0.08.i275.sroa.phi = phi ptr [ %25, %.critedge269 ], [ %.sroa.gep25, %.noexc276 ]
   %.sroa.0.08.i275 = phi i64 [ 0, %.critedge269 ], [ 1, %.noexc276 ]
-  %415 = getelementptr inbounds nuw [16 x float], ptr %412, i64 %.sroa.0.08.i275
+  %415 = getelementptr inbounds nuw [64 x i8], ptr %412, i64 %.sroa.0.08.i275
   %416 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %415, i64 noundef 16)
           to label %.noexc276 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2672,7 +2672,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %425 = phi i1 [ true, %.critedge271 ], [ false, %.noexc279 ]
   %.sroa.0.08.i278.sroa.phi = phi ptr [ %24, %.critedge271 ], [ %.sroa.gep29, %.noexc279 ]
   %.sroa.0.08.i278 = phi i64 [ 0, %.critedge271 ], [ 1, %.noexc279 ]
-  %426 = getelementptr inbounds nuw [16 x float], ptr %423, i64 %.sroa.0.08.i278
+  %426 = getelementptr inbounds nuw [64 x i8], ptr %423, i64 %.sroa.0.08.i278
   %427 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %426, i64 noundef 16)
           to label %.noexc279 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2697,7 +2697,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %434 = phi i1 [ true, %431 ], [ false, %.noexc282 ]
   %.sroa.0.08.i281.sroa.phi = phi ptr [ %.sroa.032, %431 ], [ %.sroa.533, %.noexc282 ]
   %.sroa.0.08.i281 = phi i64 [ 0, %431 ], [ 1, %.noexc282 ]
-  %435 = getelementptr inbounds nuw [16 x float], ptr %401, i64 %.sroa.0.08.i281
+  %435 = getelementptr inbounds nuw [64 x i8], ptr %401, i64 %.sroa.0.08.i281
   %436 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %435, i64 noundef 16)
           to label %.noexc282 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit
 
@@ -2718,7 +2718,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %439 = phi i1 [ true, %437 ], [ false, %.noexc284 ]
   %.sroa.0.08.i283.sroa.phi = phi ptr [ %.sroa.035, %437 ], [ %.sroa.536, %.noexc284 ]
   %.sroa.0.08.i283 = phi i64 [ 0, %437 ], [ 1, %.noexc284 ]
-  %440 = getelementptr inbounds nuw [16 x float], ptr %412, i64 %.sroa.0.08.i283
+  %440 = getelementptr inbounds nuw [64 x i8], ptr %412, i64 %.sroa.0.08.i283
   %441 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %440, i64 noundef 16)
           to label %.noexc284 unwind label %.loopexit.split-lp95.loopexit
 
@@ -2739,7 +2739,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %444 = phi i1 [ true, %442 ], [ false, %.noexc287 ]
   %.sroa.0.08.i286.sroa.phi = phi ptr [ %.sroa.038, %442 ], [ %.sroa.539, %.noexc287 ]
   %.sroa.0.08.i286 = phi i64 [ 0, %442 ], [ 1, %.noexc287 ]
-  %445 = getelementptr inbounds nuw [16 x float], ptr %423, i64 %.sroa.0.08.i286
+  %445 = getelementptr inbounds nuw [64 x i8], ptr %423, i64 %.sroa.0.08.i286
   %446 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %445, i64 noundef 16)
           to label %.noexc287 unwind label %.loopexit94
 
@@ -4251,7 +4251,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
 
 366:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i", %364
   %.08.i.i = phi i64 [ 0, %364 ], [ %368, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i" ]
-  %367 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} } }, ptr %365, i64 %.08.i.i
+  %367 = getelementptr inbounds nuw [16 x i8], ptr %365, i64 %.08.i.i
   %368 = add nuw nsw i64 %.08.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !648)
   call void @llvm.experimental.noalias.scope.decl(metadata !651)
@@ -4428,7 +4428,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %403 = phi i1 [ true, %.critedge ], [ false, %.noexc274 ]
   %.sroa.0.08.i.sroa.phi = phi ptr [ %26, %.critedge ], [ %.sroa.gep21, %.noexc274 ]
   %.sroa.0.08.i = phi i64 [ 0, %.critedge ], [ 1, %.noexc274 ]
-  %404 = getelementptr inbounds nuw [16 x float], ptr %401, i64 %.sroa.0.08.i
+  %404 = getelementptr inbounds nuw [64 x i8], ptr %401, i64 %.sroa.0.08.i
   %405 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %404, i64 noundef 16)
           to label %.noexc274 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4457,7 +4457,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %414 = phi i1 [ true, %.critedge269 ], [ false, %.noexc276 ]
   %.sroa.0.08.i275.sroa.phi = phi ptr [ %25, %.critedge269 ], [ %.sroa.gep25, %.noexc276 ]
   %.sroa.0.08.i275 = phi i64 [ 0, %.critedge269 ], [ 1, %.noexc276 ]
-  %415 = getelementptr inbounds nuw [16 x float], ptr %412, i64 %.sroa.0.08.i275
+  %415 = getelementptr inbounds nuw [64 x i8], ptr %412, i64 %.sroa.0.08.i275
   %416 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %415, i64 noundef 16)
           to label %.noexc276 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4486,7 +4486,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %425 = phi i1 [ true, %.critedge271 ], [ false, %.noexc279 ]
   %.sroa.0.08.i278.sroa.phi = phi ptr [ %24, %.critedge271 ], [ %.sroa.gep29, %.noexc279 ]
   %.sroa.0.08.i278 = phi i64 [ 0, %.critedge271 ], [ 1, %.noexc279 ]
-  %426 = getelementptr inbounds nuw [16 x float], ptr %423, i64 %.sroa.0.08.i278
+  %426 = getelementptr inbounds nuw [64 x i8], ptr %423, i64 %.sroa.0.08.i278
   %427 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %426, i64 noundef 16)
           to label %.noexc279 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4511,7 +4511,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %434 = phi i1 [ true, %431 ], [ false, %.noexc282 ]
   %.sroa.0.08.i281.sroa.phi = phi ptr [ %.sroa.032, %431 ], [ %.sroa.533, %.noexc282 ]
   %.sroa.0.08.i281 = phi i64 [ 0, %431 ], [ 1, %.noexc282 ]
-  %435 = getelementptr inbounds nuw [16 x float], ptr %401, i64 %.sroa.0.08.i281
+  %435 = getelementptr inbounds nuw [64 x i8], ptr %401, i64 %.sroa.0.08.i281
   %436 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %435, i64 noundef 16)
           to label %.noexc282 unwind label %.loopexit.split-lp95.loopexit.split-lp.loopexit
 
@@ -4532,7 +4532,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %439 = phi i1 [ true, %437 ], [ false, %.noexc284 ]
   %.sroa.0.08.i283.sroa.phi = phi ptr [ %.sroa.035, %437 ], [ %.sroa.536, %.noexc284 ]
   %.sroa.0.08.i283 = phi i64 [ 0, %437 ], [ 1, %.noexc284 ]
-  %440 = getelementptr inbounds nuw [16 x float], ptr %412, i64 %.sroa.0.08.i283
+  %440 = getelementptr inbounds nuw [64 x i8], ptr %412, i64 %.sroa.0.08.i283
   %441 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %440, i64 noundef 16)
           to label %.noexc284 unwind label %.loopexit.split-lp95.loopexit
 
@@ -4553,7 +4553,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit230: ; pre
   %444 = phi i1 [ true, %442 ], [ false, %.noexc287 ]
   %.sroa.0.08.i286.sroa.phi = phi ptr [ %.sroa.038, %442 ], [ %.sroa.539, %.noexc287 ]
   %.sroa.0.08.i286 = phi i64 [ 0, %442 ], [ 1, %.noexc287 ]
-  %445 = getelementptr inbounds nuw [16 x float], ptr %423, i64 %.sroa.0.08.i286
+  %445 = getelementptr inbounds nuw [64 x i8], ptr %423, i64 %.sroa.0.08.i286
   %446 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %445, i64 noundef 16)
           to label %.noexc287 unwind label %.loopexit94
 
@@ -5406,7 +5406,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   br i1 %exitcond47.not, label %.invoke57, label %48, !prof !340
 
 48:                                               ; preds = %.lr.ph34
-  %49 = getelementptr inbounds i32, ptr %.sroa.0.0.pre-phi, i64 %.133
+  %49 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0.pre-phi, i64 %.133
   %50 = load i32, ptr %49, align 4, !noundef !62
   %51 = and i32 %50, 511
   %52 = lshr i32 %50, 9
@@ -5417,7 +5417,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
 55:                                               ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 %53
   %57 = load i8, ptr %56, align 1, !noundef !62
-  %58 = getelementptr inbounds nuw i16, ptr %13, i64 %53
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %53
   %59 = load i16, ptr %58, align 2, !noundef !62
   %60 = zext i16 %59 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %57, i64 noundef %60, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8)
@@ -5457,7 +5457,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   br i1 %exitcond.not, label %.invoke57, label %74, !prof !340
 
 74:                                               ; preds = %.lr.ph
-  %75 = getelementptr inbounds i32, ptr %.sroa.0.0.pre-phi, i64 %.032
+  %75 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0.pre-phi, i64 %.032
   %76 = load i32, ptr %75, align 4, !noundef !62
   %77 = and i32 %76, 511
   %78 = zext nneg i32 %77 to i64
@@ -5473,7 +5473,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   unreachable
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds nuw i32, ptr %12, i64 %78
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %78
   %83 = load i32, ptr %82, align 4, !noundef !62
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
@@ -6365,7 +6365,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17hdbbf4165a0e3226aE.exit1
   ret void
 
 327:                                              ; preds = %265
-  %328 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %12, i64 %.152484
+  %328 = getelementptr inbounds [16 x i8], ptr %12, i64 %.152484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull align 4 dereferenceable(16) %328, i64 16, i1 false)
   %329 = load i16, ptr %240, align 4, !noundef !62
   %330 = zext i16 %329 to i64
@@ -6437,7 +6437,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17hdbbf4165a0e3226aE.exit1
 
 360:                                              ; preds = %357
   %361 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1004, !noalias !1007, !nonnull !62, !align !230, !noundef !62
-  %362 = getelementptr inbounds i32, ptr %361, i64 %354
+  %362 = getelementptr inbounds [4 x i8], ptr %361, i64 %354
   %363 = load i32, ptr %362, align 4, !noalias !1010, !noundef !62
   %364 = load ptr, ptr %41, align 8, !alias.scope !1004, !noalias !1007, !nonnull !62, !align !64, !noundef !62
   %365 = getelementptr inbounds i8, ptr %364, i64 %354
@@ -6475,7 +6475,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17hdbbf4165a0e3226aE.exit1
   %.val.i = load ptr, ptr %.sroa.7235.0..sroa_idx, align 8, !alias.scope !1004, !noalias !1007, !nonnull !62, !align !64, !noundef !62
   %380 = getelementptr inbounds i8, ptr %.val.i, i64 %375
   %381 = load i8, ptr %380, align 1, !noundef !62
-  %382 = getelementptr inbounds i16, ptr %.val8.i, i64 %375
+  %382 = getelementptr inbounds [2 x i8], ptr %.val8.i, i64 %375
   %383 = load i16, ptr %382, align 2, !noundef !62
   %384 = zext i16 %383 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %381, i64 noundef %384, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -6611,7 +6611,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
 
 448:                                              ; preds = %445
   %449 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1011, !noalias !1016, !nonnull !62, !align !230, !noundef !62
-  %450 = getelementptr inbounds i32, ptr %449, i64 %442
+  %450 = getelementptr inbounds [4 x i8], ptr %449, i64 %442
   %451 = load i32, ptr %450, align 4, !noalias !1019, !noundef !62
   %452 = load ptr, ptr %41, align 8, !alias.scope !1011, !noalias !1016, !nonnull !62, !align !64, !noundef !62
   %453 = getelementptr inbounds i8, ptr %452, i64 %442
@@ -6638,7 +6638,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   br i1 %463, label %464, label %.invoke, !prof !88
 
 464:                                              ; preds = %458
-  %465 = getelementptr inbounds i32, ptr %.val87, i64 %462
+  %465 = getelementptr inbounds [4 x i8], ptr %.val87, i64 %462
   %466 = load i32, ptr %465, align 4, !alias.scope !1014, !noalias !1020, !noundef !62
   %467 = zext i32 %466 to i64
   %468 = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !1011, !noalias !1016, !noundef !62
@@ -6658,7 +6658,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   %.val.i194 = load ptr, ptr %.sroa.7235.0..sroa_idx, align 8, !alias.scope !1011, !noalias !1016, !nonnull !62, !align !64, !noundef !62
   %475 = getelementptr inbounds i8, ptr %.val.i194, i64 %470
   %476 = load i8, ptr %475, align 1, !noalias !1014, !noundef !62
-  %477 = getelementptr inbounds i16, ptr %.val10.i, i64 %470
+  %477 = getelementptr inbounds [2 x i8], ptr %.val10.i, i64 %470
   %478 = load i16, ptr %477, align 2, !noalias !1014, !noundef !62
   %479 = zext i16 %478 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %476, i64 noundef %479, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -7669,7 +7669,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17hdbbf4165a0e3226aE.exit1
   ret void
 
 327:                                              ; preds = %265
-  %328 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %12, i64 %.152484
+  %328 = getelementptr inbounds [16 x i8], ptr %12, i64 %.152484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull align 4 dereferenceable(16) %328, i64 16, i1 false)
   %329 = load i16, ptr %240, align 4, !noundef !62
   %330 = zext i16 %329 to i64
@@ -7741,7 +7741,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17hdbbf4165a0e3226aE.exit1
 
 360:                                              ; preds = %357
   %361 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1282, !noalias !1285, !nonnull !62, !align !230, !noundef !62
-  %362 = getelementptr inbounds i32, ptr %361, i64 %354
+  %362 = getelementptr inbounds [4 x i8], ptr %361, i64 %354
   %363 = load i32, ptr %362, align 4, !noalias !1288, !noundef !62
   %364 = load ptr, ptr %41, align 8, !alias.scope !1282, !noalias !1285, !nonnull !62, !align !64, !noundef !62
   %365 = getelementptr inbounds i8, ptr %364, i64 %354
@@ -7779,7 +7779,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17hdbbf4165a0e3226aE.exit1
   %.val.i = load ptr, ptr %.sroa.7235.0..sroa_idx, align 8, !alias.scope !1282, !noalias !1285, !nonnull !62, !align !64, !noundef !62
   %380 = getelementptr inbounds i8, ptr %.val.i, i64 %375
   %381 = load i8, ptr %380, align 1, !noundef !62
-  %382 = getelementptr inbounds i16, ptr %.val8.i, i64 %375
+  %382 = getelementptr inbounds [2 x i8], ptr %.val8.i, i64 %375
   %383 = load i16, ptr %382, align 2, !noundef !62
   %384 = zext i16 %383 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %381, i64 noundef %384, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -7915,7 +7915,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
 
 448:                                              ; preds = %445
   %449 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1289, !noalias !1294, !nonnull !62, !align !230, !noundef !62
-  %450 = getelementptr inbounds i32, ptr %449, i64 %442
+  %450 = getelementptr inbounds [4 x i8], ptr %449, i64 %442
   %451 = load i32, ptr %450, align 4, !noalias !1297, !noundef !62
   %452 = load ptr, ptr %41, align 8, !alias.scope !1289, !noalias !1294, !nonnull !62, !align !64, !noundef !62
   %453 = getelementptr inbounds i8, ptr %452, i64 %442
@@ -7942,7 +7942,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   br i1 %463, label %464, label %.invoke, !prof !88
 
 464:                                              ; preds = %458
-  %465 = getelementptr inbounds i32, ptr %.val87, i64 %462
+  %465 = getelementptr inbounds [4 x i8], ptr %.val87, i64 %462
   %466 = load i32, ptr %465, align 4, !alias.scope !1292, !noalias !1298, !noundef !62
   %467 = zext i32 %466 to i64
   %468 = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !1289, !noalias !1294, !noundef !62
@@ -7962,7 +7962,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   %.val.i194 = load ptr, ptr %.sroa.7235.0..sroa_idx, align 8, !alias.scope !1289, !noalias !1294, !nonnull !62, !align !64, !noundef !62
   %475 = getelementptr inbounds i8, ptr %.val.i194, i64 %470
   %476 = load i8, ptr %475, align 1, !noalias !1292, !noundef !62
-  %477 = getelementptr inbounds i16, ptr %.val10.i, i64 %470
+  %477 = getelementptr inbounds [2 x i8], ptr %.val10.i, i64 %470
   %478 = load i16, ptr %477, align 2, !noalias !1292, !noundef !62
   %479 = zext i16 %478 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %476, i64 noundef %479, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -8669,7 +8669,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not159, label %186, label %187
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds nuw i32, ptr %30, i64 %176
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %176
   %182 = load i32, ptr %181, align 4, !noundef !62
   %183 = sext i32 %182 to i64
   %184 = add i64 %173, %183
@@ -8794,7 +8794,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
   br i1 %212, label %213, label %.split.us, !prof !88
 
 213:                                              ; preds = %211
-  %214 = getelementptr inbounds i32, ptr %113, i64 %209
+  %214 = getelementptr inbounds [4 x i8], ptr %113, i64 %209
   %215 = load i32, ptr %214, align 4, !noundef !62
   %216 = getelementptr inbounds i8, ptr %107, i64 %209
   %217 = load i8, ptr %216, align 1, !noundef !62
@@ -9001,7 +9001,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
   %279 = xor i64 %notmask, -1
   %280 = and i64 %273, %279
   %281 = mul i64 %280, %179
-  %282 = getelementptr inbounds nuw i32, ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %179
+  %282 = getelementptr inbounds nuw [4 x i8], ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %179
   %283 = load i32, ptr %282, align 4, !noundef !62
   %284 = zext i32 %283 to i64
   %285 = add i64 %281, %284
@@ -9159,7 +9159,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
   br i1 %328, label %329, label %334, !prof !88
 
 329:                                              ; preds = %327
-  %330 = getelementptr inbounds i32, ptr %140, i64 %325
+  %330 = getelementptr inbounds [4 x i8], ptr %140, i64 %325
   %331 = load i32, ptr %330, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %332 = getelementptr inbounds i8, ptr %134, i64 %325
@@ -9217,7 +9217,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
   br i1 %352, label %353, label %358, !prof !88
 
 353:                                              ; preds = %351
-  %354 = getelementptr inbounds i32, ptr %148, i64 %349
+  %354 = getelementptr inbounds [4 x i8], ptr %148, i64 %349
   %355 = load i32, ptr %354, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %356 = getelementptr inbounds i8, ptr %142, i64 %349
@@ -9289,7 +9289,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
   unreachable
 
 376:                                              ; preds = %369
-  %377 = getelementptr inbounds i32, ptr %113, i64 %363
+  %377 = getelementptr inbounds [4 x i8], ptr %113, i64 %363
   %378 = load i32, ptr %377, align 4, !noundef !62
   %379 = getelementptr inbounds i8, ptr %107, i64 %363
   %380 = load i8, ptr %379, align 1, !noundef !62
@@ -9611,7 +9611,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not159, label %186, label %187
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds nuw i32, ptr %30, i64 %176
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %176
   %182 = load i32, ptr %181, align 4, !noundef !62
   %183 = sext i32 %182 to i64
   %184 = add i64 %173, %183
@@ -9736,7 +9736,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
   br i1 %212, label %213, label %.split.us, !prof !88
 
 213:                                              ; preds = %211
-  %214 = getelementptr inbounds i32, ptr %113, i64 %209
+  %214 = getelementptr inbounds [4 x i8], ptr %113, i64 %209
   %215 = load i32, ptr %214, align 4, !noundef !62
   %216 = getelementptr inbounds i8, ptr %107, i64 %209
   %217 = load i8, ptr %216, align 1, !noundef !62
@@ -9943,7 +9943,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
   %279 = xor i64 %notmask, -1
   %280 = and i64 %273, %279
   %281 = mul i64 %280, %179
-  %282 = getelementptr inbounds nuw i32, ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %179
+  %282 = getelementptr inbounds nuw [4 x i8], ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %179
   %283 = load i32, ptr %282, align 4, !noundef !62
   %284 = zext i32 %283 to i64
   %285 = add i64 %281, %284
@@ -10101,7 +10101,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
   br i1 %328, label %329, label %334, !prof !88
 
 329:                                              ; preds = %327
-  %330 = getelementptr inbounds i32, ptr %140, i64 %325
+  %330 = getelementptr inbounds [4 x i8], ptr %140, i64 %325
   %331 = load i32, ptr %330, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %332 = getelementptr inbounds i8, ptr %134, i64 %325
@@ -10159,7 +10159,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
   br i1 %352, label %353, label %358, !prof !88
 
 353:                                              ; preds = %351
-  %354 = getelementptr inbounds i32, ptr %148, i64 %349
+  %354 = getelementptr inbounds [4 x i8], ptr %148, i64 %349
   %355 = load i32, ptr %354, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %356 = getelementptr inbounds i8, ptr %142, i64 %349
@@ -10231,7 +10231,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
   unreachable
 
 376:                                              ; preds = %369
-  %377 = getelementptr inbounds i32, ptr %113, i64 %363
+  %377 = getelementptr inbounds [4 x i8], ptr %113, i64 %363
   %378 = load i32, ptr %377, align 4, !noundef !62
   %379 = getelementptr inbounds i8, ptr %107, i64 %363
   %380 = load i8, ptr %379, align 1, !noundef !62
@@ -10556,7 +10556,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   br i1 %.not159, label %195, label %196
 
 189:                                              ; preds = %184
-  %190 = getelementptr inbounds nuw i32, ptr %34, i64 %185
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %185
   %191 = load i32, ptr %190, align 4, !noundef !62
   %192 = sext i32 %191 to i64
   %193 = add i64 %182, %192
@@ -10771,7 +10771,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   %257 = xor i64 %notmask, -1
   %258 = and i64 %251, %257
   %259 = mul i64 %258, %188
-  %260 = getelementptr inbounds nuw i32, ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %188
+  %260 = getelementptr inbounds nuw [4 x i8], ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %188
   %261 = load i32, ptr %260, align 4, !noundef !62
   %262 = zext i32 %261 to i64
   %263 = add i64 %259, %262
@@ -10929,7 +10929,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   br i1 %306, label %307, label %312, !prof !88
 
 307:                                              ; preds = %305
-  %308 = getelementptr inbounds i32, ptr %149, i64 %303
+  %308 = getelementptr inbounds [4 x i8], ptr %149, i64 %303
   %309 = load i32, ptr %308, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %310 = getelementptr inbounds i8, ptr %143, i64 %303
@@ -10987,7 +10987,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   br i1 %330, label %331, label %336, !prof !88
 
 331:                                              ; preds = %329
-  %332 = getelementptr inbounds i32, ptr %157, i64 %327
+  %332 = getelementptr inbounds [4 x i8], ptr %157, i64 %327
   %333 = load i32, ptr %332, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %334 = getelementptr inbounds i8, ptr %151, i64 %327
@@ -11080,7 +11080,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 364:                                              ; preds = %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit.i198"
   %365 = trunc i64 %.sroa.6.0.copyload to i32
-  %366 = getelementptr inbounds { i8, [39 x i8] }, ptr %.val10.i190, i64 %345
+  %366 = getelementptr inbounds [40 x i8], ptr %.val10.i190, i64 %345
   store i8 2, ptr %366, align 8, !noalias !1580
   %.sroa.825.i185.sroa.5.0..sroa.825.0..sroa_idx.i207.sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 8
   store i64 %.sroa.11.sroa.0.0.copyload, ptr %.sroa.825.i185.sroa.5.0..sroa.825.0..sroa_idx.i207.sroa_idx, align 8, !noalias !1580
@@ -11181,7 +11181,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 394:                                              ; preds = %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit.i"
   %395 = trunc i64 %.sroa.14.0.copyload to i32
-  %396 = getelementptr inbounds { i8, [39 x i8] }, ptr %.val10.i, i64 %375
+  %396 = getelementptr inbounds [40 x i8], ptr %.val10.i, i64 %375
   store i8 2, ptr %396, align 8, !noalias !1606
   %.sroa.825.i.sroa.3.0..sroa.825.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 8
   store i64 %.sroa.19.0.copyload, ptr %.sroa.825.i.sroa.3.0..sroa.825.0..sroa_idx.i.sroa_idx, align 8, !noalias !1606
@@ -11282,7 +11282,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 420:                                              ; preds = %413
-  %421 = getelementptr inbounds i32, ptr %120, i64 %341
+  %421 = getelementptr inbounds [4 x i8], ptr %120, i64 %341
   %422 = load i32, ptr %421, align 4, !noundef !62
   %423 = getelementptr inbounds i8, ptr %114, i64 %341
   %424 = load i8, ptr %423, align 1, !noundef !62
@@ -11381,7 +11381,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260"
 
 450:                                              ; preds = %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit.i236"
-  %451 = getelementptr inbounds { i8, [39 x i8] }, ptr %.val10.i228, i64 %425
+  %451 = getelementptr inbounds [40 x i8], ptr %.val10.i228, i64 %425
   store i8 4, ptr %451, align 8, !noalias !1643
   %.sroa.423.0..sroa_idx.i243 = getelementptr inbounds nuw i8, ptr %451, i64 1
   store i8 %424, ptr %.sroa.423.0..sroa_idx.i243, align 1, !noalias !1643
@@ -11713,7 +11713,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not159, label %186, label %187
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds nuw i32, ptr %30, i64 %176
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %176
   %182 = load i32, ptr %181, align 4, !noundef !62
   %183 = sext i32 %182 to i64
   %184 = add i64 %173, %183
@@ -11838,7 +11838,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
   br i1 %212, label %213, label %.split.us, !prof !88
 
 213:                                              ; preds = %211
-  %214 = getelementptr inbounds i32, ptr %113, i64 %209
+  %214 = getelementptr inbounds [4 x i8], ptr %113, i64 %209
   %215 = load i32, ptr %214, align 4, !noundef !62
   %216 = getelementptr inbounds i8, ptr %107, i64 %209
   %217 = load i8, ptr %216, align 1, !noundef !62
@@ -12045,7 +12045,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
   %279 = xor i64 %notmask, -1
   %280 = and i64 %273, %279
   %281 = mul i64 %280, %179
-  %282 = getelementptr inbounds nuw i32, ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %179
+  %282 = getelementptr inbounds nuw [4 x i8], ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.86, i64 %179
   %283 = load i32, ptr %282, align 4, !noundef !62
   %284 = zext i32 %283 to i64
   %285 = add i64 %281, %284
@@ -12203,7 +12203,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
   br i1 %328, label %329, label %334, !prof !88
 
 329:                                              ; preds = %327
-  %330 = getelementptr inbounds i32, ptr %140, i64 %325
+  %330 = getelementptr inbounds [4 x i8], ptr %140, i64 %325
   %331 = load i32, ptr %330, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %332 = getelementptr inbounds i8, ptr %134, i64 %325
@@ -12261,7 +12261,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
   br i1 %352, label %353, label %358, !prof !88
 
 353:                                              ; preds = %351
-  %354 = getelementptr inbounds i32, ptr %148, i64 %349
+  %354 = getelementptr inbounds [4 x i8], ptr %148, i64 %349
   %355 = load i32, ptr %354, align 4, !noundef !62
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %356 = getelementptr inbounds i8, ptr %142, i64 %349
@@ -12333,7 +12333,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
   unreachable
 
 376:                                              ; preds = %369
-  %377 = getelementptr inbounds i32, ptr %113, i64 %363
+  %377 = getelementptr inbounds [4 x i8], ptr %113, i64 %363
   %378 = load i32, ptr %377, align 4, !noundef !62
   %379 = getelementptr inbounds i8, ptr %107, i64 %363
   %380 = load i8, ptr %379, align 1, !noundef !62
@@ -12376,7 +12376,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream22StoreSymbolWithC
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !nonnull !62, !align !230, !noundef !62
-  %28 = getelementptr inbounds i32, ptr %27, i64 %16
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %16
   %29 = load i32, ptr %28, align 4, !noundef !62
   %30 = load ptr, ptr %0, align 8, !nonnull !62, !align !64, !noundef !62
   %31 = getelementptr inbounds i8, ptr %30, i64 %16
@@ -12407,7 +12407,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream22StoreSymbolWithC
   br i1 %45, label %46, label %56, !prof !88
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i32, ptr %3, i64 %44
+  %47 = getelementptr inbounds [4 x i8], ptr %3, i64 %44
   %48 = load i32, ptr %47, align 4, !noundef !62
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -12440,7 +12440,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream22StoreSymbolWithC
   %.val = load ptr, ptr %63, align 8, !nonnull !62, !align !64, !noundef !62
   %64 = getelementptr inbounds i8, ptr %.val, i64 %53
   %65 = load i8, ptr %64, align 1, !noundef !62
-  %66 = getelementptr inbounds i16, ptr %.val10, i64 %53
+  %66 = getelementptr inbounds [2 x i8], ptr %.val10, i64 %53
   %67 = load i16, ptr %66, align 2, !noundef !62
   %68 = zext i16 %67 to i64
   tail call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %65, i64 noundef %68, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %6, i64 noundef %7)
@@ -12644,7 +12644,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   br label %77
 
 79:                                               ; preds = %.lr.ph63
-  %80 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.04360
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.04360
   %.sroa.0.0.copyload = load i32, ptr %80, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
@@ -12681,7 +12681,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   %93 = getelementptr inbounds i8, ptr %1, i64 %89
   %94 = load i8, ptr %93, align 1, !noundef !62
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %30, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %95
   %97 = load i32, ptr %96, align 4, !noundef !62
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 4
@@ -12884,7 +12884,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   br label %77
 
 79:                                               ; preds = %.lr.ph63
-  %80 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.04360
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.04360
   %.sroa.0.0.copyload = load i32, ptr %80, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
@@ -12921,7 +12921,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   %93 = getelementptr inbounds i8, ptr %1, i64 %89
   %94 = load i8, ptr %93, align 1, !noundef !62
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %30, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %95
   %97 = load i32, ptr %96, align 4, !noundef !62
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 4
@@ -13053,7 +13053,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   br i1 %exitcond.not, label %54, label %51, !prof !340
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds { [704 x i32], i64, float, [1 x i32] }, ptr %1, i64 %.07
+  %52 = getelementptr inbounds [2832 x i8], ptr %1, i64 %.07
   %53 = icmp ugt i64 %50, %.sroa.6.0
   br i1 %53, label %57, label %55
 
@@ -13073,7 +13073,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0.pre-phi, i64 %50
   %60 = sub nuw i64 %.sroa.6.0, %50
   %61 = sub nuw i64 %.sroa.65.0, %50
-  %62 = getelementptr inbounds i16, ptr %.sroa.03.0.pre-phi, i64 %50
+  %62 = getelementptr inbounds [2 x i8], ptr %.sroa.03.0.pre-phi, i64 %50
   tail call void @_ZN6brotli3enc17brotli_bit_stream24BuildAndStoreHuffmanTree17h4ba9d85e940a8dacE(ptr noalias noundef nonnull readonly align 4 %52, i64 noundef 704, i64 noundef %15, i64 noundef 704, ptr noalias noundef nonnull align 4 %4, i64 noundef %5, ptr noalias noundef nonnull align 1 %59, i64 noundef %60, ptr noalias noundef nonnull align 2 %62, i64 noundef %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8)
   %63 = add nuw i64 %.07, 1
   %exitcond15.not = icmp eq i64 %63, %3
@@ -13206,7 +13206,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   br i1 %exitcond.not, label %54, label %51, !prof !340
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds { [256 x i32], i64, float, [1 x i32] }, ptr %1, i64 %.07
+  %52 = getelementptr inbounds [1040 x i8], ptr %1, i64 %.07
   %53 = icmp ugt i64 %50, %.sroa.6.0
   br i1 %53, label %57, label %55
 
@@ -13226,7 +13226,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0.pre-phi, i64 %50
   %60 = sub nuw i64 %.sroa.6.0, %50
   %61 = sub nuw i64 %.sroa.65.0, %50
-  %62 = getelementptr inbounds i16, ptr %.sroa.03.0.pre-phi, i64 %50
+  %62 = getelementptr inbounds [2 x i8], ptr %.sroa.03.0.pre-phi, i64 %50
   tail call void @_ZN6brotli3enc17brotli_bit_stream24BuildAndStoreHuffmanTree17h4ba9d85e940a8dacE(ptr noalias noundef nonnull readonly align 4 %52, i64 noundef 256, i64 noundef %15, i64 noundef 256, ptr noalias noundef nonnull align 4 %4, i64 noundef %5, ptr noalias noundef nonnull align 1 %59, i64 noundef %60, ptr noalias noundef nonnull align 2 %62, i64 noundef %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8)
   %63 = add nuw i64 %.07, 1
   %exitcond15.not = icmp eq i64 %63, %3
@@ -13359,7 +13359,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   br i1 %exitcond.not, label %55, label %52, !prof !340
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds { [544 x i32], i64, float, [1 x i32] }, ptr %1, i64 %.07
+  %53 = getelementptr inbounds [2192 x i8], ptr %1, i64 %.07
   %54 = icmp ugt i64 %51, %.sroa.6.0
   br i1 %54, label %58, label %56
 
@@ -13379,7 +13379,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   %60 = getelementptr inbounds i8, ptr %.sroa.0.0.pre-phi, i64 %51
   %61 = sub nuw i64 %.sroa.6.0, %51
   %62 = sub nuw i64 %.sroa.65.0, %51
-  %63 = getelementptr inbounds i16, ptr %.sroa.03.0.pre-phi, i64 %51
+  %63 = getelementptr inbounds [2 x i8], ptr %.sroa.03.0.pre-phi, i64 %51
   tail call void @_ZN6brotli3enc17brotli_bit_stream24BuildAndStoreHuffmanTree17h4ba9d85e940a8dacE(ptr noalias noundef nonnull readonly align 4 %53, i64 noundef 544, i64 noundef %16, i64 noundef %4, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %60, i64 noundef %61, ptr noalias noundef nonnull align 2 %63, i64 noundef %62, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9)
   %64 = add nuw i64 %.07, 1
   %exitcond15.not = icmp eq i64 %64, %3
@@ -14433,14 +14433,14 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   unreachable
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %38, i64 %48
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %48
   %55 = zext i32 %.0132.lcssa to i64
   %56 = icmp ugt i64 %39, %55
   store i64 -1, ptr %54, align 4
   br i1 %56, label %57, label %.invoke, !prof !88
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %38, i64 %55
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %55
   %.0125369 = add i32 %.0132.lcssa, -1
   %59 = icmp sgt i32 %.0125369, 0
   store i64 -1, ptr %58, align 4
@@ -14567,10 +14567,10 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
 .thread:                                          ; preds = %._crit_edge381.thread, %92
   %.pre-phi540546 = phi i64 [ %.pre, %92 ], [ %.0126377, %._crit_edge381.thread ]
   %.0112.lcssa542545 = phi i64 [ %.0112.lcssa.ph, %92 ], [ 1, %._crit_edge381.thread ]
-  %96 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants14kZeroRepsDepth17h58d1f3198ac55dffE, i64 %.0112.lcssa542545
+  %96 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants14kZeroRepsDepth17h58d1f3198ac55dffE, i64 %.0112.lcssa542545
   %97 = load i32, ptr %96, align 4, !noundef !62
   %98 = trunc i32 %97 to i8
-  %99 = getelementptr inbounds nuw i64, ptr @_ZN6brotli3enc9constants13kZeroRepsBits17hdb0d52a42f3f66ceE, i64 %.0112.lcssa542545
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6brotli3enc9constants13kZeroRepsBits17hdb0d52a42f3f66ceE, i64 %.0112.lcssa542545
   %100 = load i64, ptr %99, align 8, !noundef !62
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %98, i64 noundef %100, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   br label %.loopexit265
@@ -14599,13 +14599,13 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   %108 = zext i8 %82 to i64
   %109 = icmp ult i8 %82, 18
   %110 = getelementptr inbounds nuw i8, ptr @_ZN6brotli3enc9constants16kCodeLengthDepth17h510df4c2adccb876E, i64 %108
-  %111 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants15kCodeLengthBits17h0805c86b26ef1466E, i64 %108
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants15kCodeLengthBits17h0805c86b26ef1466E, i64 %108
   br i1 %109, label %.lr.ph386.split, label %135, !prof !88
 
 112:                                              ; preds = %102
   %113 = getelementptr inbounds nuw i8, ptr @_ZN6brotli3enc9constants16kCodeLengthDepth17h510df4c2adccb876E, i64 %103
   %114 = load i8, ptr %113, align 1, !noundef !62
-  %115 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants15kCodeLengthBits17h0805c86b26ef1466E, i64 %103
+  %115 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants15kCodeLengthBits17h0805c86b26ef1466E, i64 %103
   %116 = load i32, ptr %115, align 4, !noundef !62
   %117 = zext i32 %116 to i64
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %114, i64 noundef %117, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
@@ -14626,10 +14626,10 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   unreachable
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants17kNonZeroRepsDepth17h315e9b1f68fc40c5E, i64 %121
+  %125 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants17kNonZeroRepsDepth17h315e9b1f68fc40c5E, i64 %121
   %126 = load i32, ptr %125, align 4, !noundef !62
   %127 = trunc i32 %126 to i8
-  %128 = getelementptr inbounds nuw i64, ptr @_ZN6brotli3enc9constants16kNonZeroRepsBits17h84cdc30ab3975cbfE, i64 %121
+  %128 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6brotli3enc9constants16kNonZeroRepsBits17h84cdc30ab3975cbfE, i64 %121
   %129 = load i64, ptr %128, align 8, !noundef !62
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %127, i64 noundef %129, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   br label %.loopexit265
@@ -14671,7 +14671,7 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   br i1 %143, label %.lr.ph392, label %.loopexit
 
 .lr.ph392:                                        ; preds = %141
-  %144 = getelementptr inbounds nuw i64, ptr %16, i64 %.0137393
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0137393
   br label %159
 
 145:                                              ; preds = %136
@@ -14708,7 +14708,7 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
 
 159:                                              ; preds = %.lr.ph392, %175
   %.0136390 = phi i64 [ %142, %.lr.ph392 ], [ %176, %175 ]
-  %160 = getelementptr inbounds nuw i64, ptr %16, i64 %.0136390
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0136390
   %161 = load i64, ptr %160, align 8, !noundef !62
   %162 = icmp ult i64 %161, %6
   br i1 %162, label %163, label %166, !prof !88
@@ -14758,9 +14758,9 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   br i1 %181, label %182, label %.invoke, !prof !88
 
 182:                                              ; preds = %179
-  %183 = getelementptr inbounds { i32, i16, i16 }, ptr %38, i64 %177
+  %183 = getelementptr inbounds [8 x i8], ptr %38, i64 %177
   %184 = load i32, ptr %183, align 4, !noundef !62
-  %185 = getelementptr inbounds { i32, i16, i16 }, ptr %38, i64 %180
+  %185 = getelementptr inbounds [8 x i8], ptr %38, i64 %180
   %186 = load i32, ptr %185, align 4, !noundef !62
   %.not204 = icmp ugt i32 %184, %186
   %.0130 = select i1 %.not204, i32 %.0122371, i32 %.0119372
@@ -14779,9 +14779,9 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   br i1 %193, label %194, label %.invoke, !prof !88
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds { i32, i16, i16 }, ptr %38, i64 %189
+  %195 = getelementptr inbounds [8 x i8], ptr %38, i64 %189
   %196 = load i32, ptr %195, align 4, !noundef !62
-  %197 = getelementptr inbounds { i32, i16, i16 }, ptr %38, i64 %192
+  %197 = getelementptr inbounds [8 x i8], ptr %38, i64 %192
   %198 = load i32, ptr %197, align 4, !noundef !62
   %.not205 = icmp ugt i32 %196, %198
   %.0131 = select i1 %.not205, i32 %.1123, i32 %.1120
@@ -14800,14 +14800,14 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   br i1 %205, label %206, label %.invoke, !prof !88
 
 206:                                              ; preds = %203
-  %207 = getelementptr inbounds { i32, i16, i16 }, ptr %38, i64 %201
+  %207 = getelementptr inbounds [8 x i8], ptr %38, i64 %201
   %208 = load i32, ptr %207, align 4, !noundef !62
   %209 = add i32 %.1133370, -1
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds { i32, i16, i16 }, ptr %38, i64 %204
+  %211 = getelementptr inbounds [8 x i8], ptr %38, i64 %204
   %212 = load i32, ptr %211, align 4, !noundef !62
   %213 = add i32 %212, %208
-  %214 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %38, i64 %210
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %210
   store i32 %213, ptr %214, align 4
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = trunc i32 %.0130 to i16
@@ -14820,14 +14820,14 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   br i1 %220, label %221, label %.invoke, !prof !88
 
 221:                                              ; preds = %206
-  %222 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %38, i64 %219
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %219
   %223 = add i32 %.1133370, 1
   %exitcond481.not = icmp eq i32 %.1133370, %61
   store i64 -1, ptr %222, align 4
   br i1 %exitcond481.not, label %._crit_edge376, label %.lr.ph375
 
 224:                                              ; preds = %.lr.ph366
-  %225 = getelementptr inbounds i32, ptr %1, i64 %41
+  %225 = getelementptr inbounds [4 x i8], ptr %1, i64 %41
   %226 = load i32, ptr %225, align 4, !noundef !62
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %230
@@ -14844,7 +14844,7 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
 
 233:                                              ; preds = %230
   %.0135. = call i32 @llvm.umax.i32(i32 %226, i32 %.0135)
-  %234 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %38, i64 %231
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %231
   %235 = trunc i64 %41 to i16
   store i32 %.0135., ptr %234, align 4
   %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 4
@@ -14865,7 +14865,7 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   unreachable
 
 241:                                              ; preds = %237
-  %242 = getelementptr inbounds i16, ptr %7, i64 %24
+  %242 = getelementptr inbounds [2 x i8], ptr %7, i64 %24
   store i16 0, ptr %242, align 2
   br label %.loopexit266
 
@@ -14874,7 +14874,7 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   unreachable
 
 244:                                              ; preds = %.lr.ph
-  %245 = getelementptr inbounds i32, ptr %1, i64 %.0117357
+  %245 = getelementptr inbounds [4 x i8], ptr %1, i64 %.0117357
   %246 = load i32, ptr %245, align 4, !noundef !62
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %251, label %249
@@ -14895,7 +14895,7 @@ common.resume:                                    ; preds = %42, %"_ZN63_$LT$all
   br i1 %253, label %._crit_edge, label %.lr.ph
 
 254:                                              ; preds = %249
-  %255 = getelementptr inbounds nuw i64, ptr %16, i64 %.0128356
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0128356
   store i64 %.0117357, ptr %255, align 8
   br label %256
 

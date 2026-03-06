@@ -55,7 +55,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
 
 for.body.us.us60:                                 ; preds = %for.body.lr.ph.split.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i4.i.us.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv130
+  %arrayidx.i4.i.us.us = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv130
   %6 = load i16, ptr %arrayidx.i4.i.us.us, align 2
   %cmp.i.i.us.us65 = icmp ult i16 %6, 256
   br i1 %cmp.i.i.us.us65, label %if.end.i.i.us.us66, label %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
@@ -73,7 +73,7 @@ _ZN6hermes12CompactArray6trySetEjj.exit.us.us69:  ; preds = %if.end.i.i.us.us66,
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i7.i.us = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv140
+  %arrayidx.i7.i.us = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv140
   %7 = load i32, ptr %arrayidx.i7.i.us, align 4
   %cmp.i.i.us = icmp ult i32 %7, 256
   br i1 %cmp.i.i.us, label %if.end.i.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us
@@ -100,7 +100,7 @@ for.body.us26.us:                                 ; preds = %for.body.lr.ph.spli
   %arrayidx.i.i.us35.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv120
   %8 = load i8, ptr %arrayidx.i.i.us35.us, align 1
   %conv1.i7.i.us.us = zext i8 %8 to i16
-  %arrayidx.i9.i.us.us = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv120
+  %arrayidx.i9.i.us.us = getelementptr inbounds nuw [2 x i8], ptr %call.i, i64 %indvars.iv120
   store i16 %conv1.i7.i.us.us, ptr %arrayidx.i9.i.us.us, align 2
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count143
@@ -108,9 +108,9 @@ for.body.us26.us:                                 ; preds = %for.body.lr.ph.spli
 
 for.body.us26.us73:                               ; preds = %for.body.lr.ph.split.us25, %for.body.us26.us73
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %for.body.us26.us73 ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i4.i.us32.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv115
+  %arrayidx.i4.i.us32.us = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv115
   %9 = load i16, ptr %arrayidx.i4.i.us32.us, align 2
-  %arrayidx.i9.i.us.us81 = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv115
+  %arrayidx.i9.i.us.us81 = getelementptr inbounds nuw [2 x i8], ptr %call.i, i64 %indvars.iv115
   store i16 %9, ptr %arrayidx.i9.i.us.us81, align 2
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count143
@@ -118,14 +118,14 @@ for.body.us26.us73:                               ; preds = %for.body.lr.ph.spli
 
 for.body.us26:                                    ; preds = %for.body.lr.ph.split.us25, %_ZN6hermes12CompactArray6trySetEjj.exit.us39
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i7.i.us30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv125
+  %arrayidx.i7.i.us30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv125
   %10 = load i32, ptr %arrayidx.i7.i.us30, align 4
   %cmp.i5.i.us = icmp ult i32 %10, 65536
   br i1 %cmp.i5.i.us, label %if.end.i6.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us39
 
 if.end.i6.i.us:                                   ; preds = %for.body.us26
   %conv1.i7.i.us = trunc nuw i32 %10 to i16
-  %arrayidx.i9.i.us = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv125
+  %arrayidx.i9.i.us = getelementptr inbounds nuw [2 x i8], ptr %call.i, i64 %indvars.iv125
   store i16 %conv1.i7.i.us, ptr %arrayidx.i9.i.us, align 2
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us39
 
@@ -145,7 +145,7 @@ for.body.us43.us:                                 ; preds = %for.body.lr.ph.spli
   %arrayidx.i.i.us52.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv105
   %11 = load i8, ptr %arrayidx.i.i.us52.us, align 1
   %conv.i.i.us53.us = zext i8 %11 to i32
-  %arrayidx.i11.i.us.us = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv105
+  %arrayidx.i11.i.us.us = getelementptr inbounds nuw [4 x i8], ptr %call.i, i64 %indvars.iv105
   store i32 %conv.i.i.us53.us, ptr %arrayidx.i11.i.us.us, align 4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count143
@@ -153,10 +153,10 @@ for.body.us43.us:                                 ; preds = %for.body.lr.ph.spli
 
 for.body.us43.us86:                               ; preds = %for.body.lr.ph.split.us42, %for.body.us43.us86
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us43.us86 ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i4.i.us49.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %arrayidx.i4.i.us49.us = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %12 = load i16, ptr %arrayidx.i4.i.us49.us, align 2
   %conv.i5.i.us50.us = zext i16 %12 to i32
-  %arrayidx.i11.i.us.us91 = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv
+  %arrayidx.i11.i.us.us91 = getelementptr inbounds nuw [4 x i8], ptr %call.i, i64 %indvars.iv
   store i32 %conv.i5.i.us50.us, ptr %arrayidx.i11.i.us.us91, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
@@ -164,9 +164,9 @@ for.body.us43.us86:                               ; preds = %for.body.lr.ph.spli
 
 for.body.us43:                                    ; preds = %for.body.lr.ph.split.us42, %for.body.us43
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %for.body.us43 ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i7.i.us47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv110
+  %arrayidx.i7.i.us47 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv110
   %13 = load i32, ptr %arrayidx.i7.i.us47, align 4
-  %arrayidx.i11.i.us = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv110
+  %arrayidx.i11.i.us = getelementptr inbounds nuw [4 x i8], ptr %call.i, i64 %indvars.iv110
   store i32 %13, ptr %arrayidx.i11.i.us, align 4
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count143

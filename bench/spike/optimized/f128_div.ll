@@ -172,7 +172,7 @@ softfloat_lt128.exit.thread:                      ; preds = %36, %softfloat_lt12
   %.0155 = phi i64 [ %76, %75 ], [ %59, %58 ]
   %.sroa.049.2 = phi i64 [ %77, %75 ], [ %70, %58 ]
   %.sroa.20.2 = phi i64 [ %81, %75 ], [ %74, %58 ]
-  %83 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %.0155, ptr %83, align 8, !tbaa !3
   %84 = lshr i64 %.sroa.20.2, 19
   %85 = and i64 %84, 4294967295

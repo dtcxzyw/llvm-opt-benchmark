@@ -11285,7 +11285,7 @@ default.unreachable.i.i.i:                        ; preds = %23
 
 49:                                               ; preds = %44, %40
   %50 = load ptr, ptr %14, align 8, !alias.scope !2373, !noalias !2376, !nonnull !3, !noundef !3
-  %51 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %50, i64 %41
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !2372
   %52 = add i64 %41, 1
   store i64 %52, ptr %15, align 8, !alias.scope !2373, !noalias !2376

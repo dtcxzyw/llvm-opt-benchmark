@@ -175,10 +175,10 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
 
 .preheader:                                       ; preds = %43, %.preheader
   %45 = phi i64 [ %50, %.preheader ], [ 0, %43 ]
-  %46 = getelementptr i64, ptr %30, i64 %45
+  %46 = getelementptr [8 x i8], ptr %30, i64 %45
   %47 = load i64, ptr %46, align 1
   %48 = tail call i64 @llvm.bswap.i64(i64 %47)
-  %49 = getelementptr i64, ptr %4, i64 %45
+  %49 = getelementptr [8 x i8], ptr %4, i64 %45
   store i64 %48, ptr %49, align 8
   %50 = add nuw nsw i64 %45, 1
   %51 = icmp eq i64 %50, 16
@@ -188,7 +188,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
   %52 = phi i64 [ %67, %.preheader2 ], [ 0, %43 ]
   %53 = add nuw nsw i64 %52, 14
   %54 = and i64 %53, 15
-  %55 = getelementptr i64, ptr %4, i64 %54
+  %55 = getelementptr [8 x i8], ptr %4, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 45)
   %58 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 3)
@@ -197,19 +197,19 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
   %61 = xor i64 %59, %60
   %62 = add nuw nsw i64 %52, 9
   %63 = and i64 %62, 15
-  %64 = getelementptr i64, ptr %4, i64 %63
+  %64 = getelementptr [8 x i8], ptr %4, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %61, %65
   %67 = add nuw nsw i64 %52, 1
   %68 = and i64 %67, 15
-  %69 = getelementptr i64, ptr %4, i64 %68
+  %69 = getelementptr [8 x i8], ptr %4, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = tail call i64 @llvm.fshl.i64(i64 %70, i64 %70, i64 63)
   %72 = tail call i64 @llvm.fshl.i64(i64 %70, i64 %70, i64 56)
   %73 = xor i64 %71, %72
   %74 = lshr i64 %70, 7
   %75 = xor i64 %73, %74
-  %76 = getelementptr i64, ptr %4, i64 %52
+  %76 = getelementptr [8 x i8], ptr %4, i64 %52
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %66, %77
   %79 = add i64 %78, %75
@@ -226,9 +226,9 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
   %86 = xor i64 %35, %34
   %87 = and i64 %86, %36
   %88 = xor i64 %87, %34
-  %89 = getelementptr i64, ptr @sha512_K, i64 %32
+  %89 = getelementptr [8 x i8], ptr @sha512_K, i64 %32
   %90 = load i64, ptr %89, align 16
-  %91 = getelementptr i64, ptr %4, i64 %41
+  %91 = getelementptr [8 x i8], ptr %4, i64 %41
   %92 = load i64, ptr %91, align 16
   %93 = add i64 %88, %33
   %94 = add i64 %93, %85
@@ -596,7 +596,7 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr noundef re
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %64 ]
   %85 = phi ptr [ %89, %.preheader.i ], [ %3, %64 ]
   %86 = phi i32 [ %91, %.preheader.i ], [ %83, %64 ]
-  %87 = getelementptr i64, ptr %5, i64 %indvars.iv.i
+  %87 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   %88 = load i64, ptr %87, align 8
   %89 = getelementptr i8, ptr %85, i64 8
   %90 = tail call i64 @llvm.bswap.i64(i64 %88)
@@ -667,7 +667,7 @@ define internal noundef i32 @sha512_final(ptr noundef %0, ptr noundef writeonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %18 ]
   %39 = phi ptr [ %43, %.preheader ], [ %1, %18 ]
   %40 = phi i32 [ %45, %.preheader ], [ %37, %18 ]
-  %41 = getelementptr i64, ptr %3, i64 %indvars.iv
+  %41 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr i8, ptr %39, i64 8
   %44 = tail call i64 @llvm.bswap.i64(i64 %42)

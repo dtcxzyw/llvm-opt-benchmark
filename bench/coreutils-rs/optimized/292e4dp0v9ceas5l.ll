@@ -1598,7 +1598,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %95 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %78
   %96 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %79
   %97 = and <16 x i1> %95, %96
-  %98 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0138.i.i.i
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.0138.i.i.i
   store <16 x i1> %97, ptr %98, align 2, !noalias !303
   %exitcond.not.i38.i.i = icmp eq i64 %91, 4
   br i1 %exitcond.not.i38.i.i, label %.preheader134.i.i.i, label %90
@@ -1616,7 +1616,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %.sroa.028.0140.i.i.i = phi i64 [ %104, %108 ], [ 0, %90 ]
   %.2139.i.i.i = phi i8 [ %.3.i.i.i, %108 ], [ 0, %90 ]
   %104 = add nuw nsw i64 %.sroa.028.0140.i.i.i, 1
-  %105 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0140.i.i.i
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.0140.i.i.i
   %106 = load i16, ptr %105, align 2, !noalias !303, !noundef !7
   %107 = icmp eq i16 %106, 0
   br i1 %107, label %108, label %109

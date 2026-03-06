@@ -53,7 +53,7 @@ define internal noundef i32 @gamma_convert(ptr readnone captures(none) %0, ptr n
   %17 = load i32, ptr %16, align 4, !tbaa !23
   %18 = sub i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   br label %22
 
@@ -67,15 +67,15 @@ define internal noundef i32 @gamma_convert(ptr readnone captures(none) %0, ptr n
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %28 = load i16, ptr %27, align 1, !tbaa !26
   %29 = zext i16 %24 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %7, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !27
   store i16 %31, ptr %23, align 1, !tbaa !26
   %32 = zext i16 %26 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %7, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !27
   store i16 %34, ptr %25, align 1, !tbaa !26
   %35 = zext i16 %28 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !27
   store i16 %37, ptr %27, align 1, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

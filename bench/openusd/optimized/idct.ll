@@ -579,9 +579,9 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr noundef captures(none
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_wide, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %7
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_high, i64 %7
   %11 = load i32, ptr %10, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   %12 = sext i32 %2 to i64
@@ -603,7 +603,7 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr noundef captures(none
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %15 = load i8, ptr %gep, align 1
   %16 = zext i8 %15 to i16
-  %gep66 = getelementptr inbounds nuw i16, ptr %invariant.gep65, i64 %indvars.iv
+  %gep66 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep65, i64 %indvars.iv
   store i16 %16, ptr %gep66, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -636,7 +636,7 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr noundef captures(none
 
 22:                                               ; preds = %.preheader.us, %22
   %indvars.iv52 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next53, %22 ]
-  %gep68 = getelementptr inbounds nuw i16, ptr %invariant.gep67, i64 %indvars.iv52
+  %gep68 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep67, i64 %indvars.iv52
   %23 = load i16, ptr %gep68, align 2
   %24 = trunc i16 %23 to i8
   %gep70 = getelementptr i8, ptr %invariant.gep69, i64 %indvars.iv52
@@ -675,7 +675,7 @@ define hidden void @av1_inverse_transform_block(ptr noundef readonly captures(no
   %20 = load i16, ptr %19, align 1
   %21 = and i16 %20, 7
   %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %15, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %24, ptr %25, align 4
@@ -750,9 +750,9 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
 
 59:                                               ; preds = %init_txfm_param.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %60 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %40
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_wide, i64 %40
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %40
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_high, i64 %40
   %63 = load i32, ptr %62, align 4
   %smax.i = tail call i32 @llvm.smax.i32(i32 %61, i32 1)
   %64 = sext i32 %6 to i64
@@ -774,7 +774,7 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %67 = load i8, ptr %gep.i, align 1
   %68 = zext i8 %67 to i16
-  %gep66.i = getelementptr inbounds nuw i16, ptr %invariant.gep65.i, i64 %indvars.iv.i
+  %gep66.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep65.i, i64 %indvars.iv.i
   store i16 %68, ptr %gep66.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -802,7 +802,7 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
 
 73:                                               ; preds = %73, %.preheader.us.i
   %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %73 ]
-  %gep68.i = getelementptr inbounds nuw i16, ptr %invariant.gep67.i, i64 %indvars.iv52.i
+  %gep68.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep67.i, i64 %indvars.iv52.i
   %74 = load i16, ptr %gep68.i, align 2
   %75 = trunc i16 %74 to i8
   %gep70.i = getelementptr i8, ptr %invariant.gep69.i, i64 %indvars.iv52.i

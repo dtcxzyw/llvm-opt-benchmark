@@ -3,11 +3,6 @@ source_filename = "bench/wireshark/original/uat.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._uat_field_t = type { ptr, ptr, i32, %struct.anon, %struct.anon.0, ptr, ptr, ptr }
-%struct.anon = type { ptr, ptr, ptr }
-%struct.anon.0 = type { ptr, ptr, ptr }
-%struct._value_string = type { i32, ptr }
-
 @all_uats = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"epan/uat.c\00", align 1
@@ -131,7 +126,7 @@ define noundef ptr @uat_new(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 n
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   store ptr %54, ptr %57, align 8
   %58 = zext i32 %55 to i64
-  %59 = getelementptr %struct._uat_field_t, ptr %13, i64 %58
+  %59 = getelementptr [96 x i8], ptr %13, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not79 = icmp eq ptr %61, null
@@ -600,7 +595,7 @@ define noundef ptr @uat_get_table_by_name(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
   %11 = phi ptr [ %6, %5 ], [ %2, %1 ]
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @g_str_equal(ptr noundef %15, ptr noundef %0)
@@ -912,7 +907,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
 110:                                              ; preds = %.lr.ph132, %110
   %indvars.iv158 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next159, %110 ]
   %111 = load ptr, ptr %109, align 8
-  %112 = getelementptr %struct._uat_field_t, ptr %111, i64 %indvars.iv158
+  %112 = getelementptr [96 x i8], ptr %111, i64 %indvars.iv158
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i32, ptr %113, align 8
   %cond2 = icmp eq i32 %114, 2
@@ -958,7 +953,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
 136:                                              ; preds = %.lr.ph137, %136
   %indvars.iv161 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next162, %136 ]
   %137 = load ptr, ptr %128, align 8
-  %138 = getelementptr %struct._uat_field_t, ptr %137, i64 %indvars.iv161
+  %138 = getelementptr [96 x i8], ptr %137, i64 %indvars.iv161
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load i32, ptr %139, align 8
   %cond1 = icmp eq i32 %140, 2
@@ -992,7 +987,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
 
 .lr.ph140:                                        ; preds = %.lr.ph143.split, %putfld.exit
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %putfld.exit ], [ 0, %.lr.ph143.split ]
-  %158 = getelementptr %struct._uat_field_t, ptr %157, i64 %indvars.iv164
+  %158 = getelementptr [96 x i8], ptr %157, i64 %indvars.iv164
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 40
@@ -1042,7 +1037,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
 
 175:                                              ; preds = %.lr.ph27.i
   %176 = zext i8 %173 to i64
-  %177 = getelementptr i16, ptr %135, i64 %176
+  %177 = getelementptr [2 x i8], ptr %135, i64 %176
   %178 = load i16, ptr %177, align 2
   %179 = and i16 %178, 64
   %.not.i = icmp eq i16 %179, 0
@@ -1179,7 +1174,7 @@ define hidden noundef ptr @uat_find(ptr noundef readonly captures(none) %0) loca
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef %10, ptr noundef %0) #20
@@ -1329,7 +1324,7 @@ define hidden void @uat_unload_all() local_unnamed_addr #0 {
   %4 = phi ptr [ %14, %13 ], [ %1, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %0 ]
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
@@ -1368,7 +1363,7 @@ define hidden void @uat_cleanup() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %4 = phi ptr [ %8, %.lr.ph ], [ %1, %0 ]
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @free_uat(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1421,7 +1416,7 @@ define internal fastcc void @free_uat(ptr noundef %0) unnamed_addr #0 {
   %23 = add i32 %.013, 1
   %24 = load ptr, ptr %16, align 8
   %25 = zext i32 %23 to i64
-  %26 = getelementptr %struct._uat_field_t, ptr %24, i64 %25
+  %26 = getelementptr [96 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
@@ -1458,7 +1453,7 @@ define void @uat_foreach_table(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %6 = phi ptr [ %10, %.lr.ph ], [ %3, %2 ]
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void %0(ptr noundef %9, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1487,7 +1482,7 @@ define hidden void @uat_load_all() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %0 ]
   %5 = phi ptr [ %19, %18 ], [ %2, %0 ]
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
@@ -1567,7 +1562,7 @@ define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr noundef readnone captures(
   %13 = getelementptr i8, ptr %1, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr i16, ptr %10, i64 %15
+  %16 = getelementptr [2 x i8], ptr %10, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not = icmp ne i16 %18, 0
@@ -2034,7 +2029,7 @@ define noundef zeroext i1 @uat_fld_chk_enum(ptr noundef readnone captures(none) 
 11:                                               ; preds = %.lr.ph
   %12 = add i32 %.01419, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.not = icmp eq ptr %16, null
@@ -2312,7 +2307,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly captures(address) %0, 
   %56 = getelementptr i8, ptr %.06777, i64 3
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %55 to i64
-  %59 = getelementptr i16, ptr %10, i64 %58
+  %59 = getelementptr [2 x i8], ptr %10, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 1024
   %.not73 = icmp eq i16 %61, 0
@@ -2320,7 +2315,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly captures(address) %0, 
 
 62:                                               ; preds = %53
   %63 = zext i8 %57 to i64
-  %64 = getelementptr i16, ptr %10, i64 %63
+  %64 = getelementptr [2 x i8], ptr %10, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 1024
   %.not74 = icmp eq i16 %66, 0
@@ -2406,7 +2401,7 @@ define hidden ptr @uat_esc(ptr noundef readonly captures(address) %0, i32 nounde
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i64
-  %16 = getelementptr i16, ptr %10, i64 %15
+  %16 = getelementptr [2 x i8], ptr %10, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 64
   %.not = icmp eq i16 %18, 0
@@ -2455,7 +2450,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isprint(ptr noundef readnone captures
   %10 = getelementptr i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %8, i64 %12
+  %13 = getelementptr [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 64
   %.not.not = icmp eq i16 %15, 0
@@ -2494,7 +2489,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isalpha(ptr noundef readnone captures
   %10 = getelementptr i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %8, i64 %12
+  %13 = getelementptr [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2
   %.not.not = icmp eq i16 %15, 0
@@ -2533,7 +2528,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isalnum(ptr noundef readnone captures
   %10 = getelementptr i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %8, i64 %12
+  %13 = getelementptr [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 1
   %.not.not = icmp eq i16 %15, 0
@@ -2572,7 +2567,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isdigit(ptr noundef readnone captures
   %10 = getelementptr i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %8, i64 %12
+  %13 = getelementptr [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8
   %.not.not = icmp eq i16 %15, 0
@@ -2611,7 +2606,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isxdigit(ptr noundef readnone capture
   %10 = getelementptr i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %8, i64 %12
+  %13 = getelementptr [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 1024
   %.not.not = icmp eq i16 %15, 0

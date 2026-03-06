@@ -96,7 +96,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %mul, 3
   %call5.i.i.i.i2.i.i30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #22
   store ptr %call5.i.i.i.i2.i.i30, ptr %dt_, align 8, !tbaa !22
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i30, i64 %mul
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i30, i64 %mul
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !23
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i30, align 8, !tbaa !24
@@ -146,7 +146,7 @@ if.then.i.i.i.i.i39:                              ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc54:                       ; preds = %if.then.i.i.i.i.i39
   store ptr %call5.i.i.i.i2.i.i55, ptr %eMinuskDt_, align 8, !tbaa !22
-  %add.ptr.i.i.i41 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i55, i64 %mul3
+  %add.ptr.i.i.i41 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i55, i64 %mul3
   %_M_end_of_storage.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %add.ptr.i.i.i41, ptr %_M_end_of_storage.i.i.i42, align 8, !tbaa !23
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i55, align 8, !tbaa !24
@@ -203,7 +203,7 @@ if.then.i.i.i.i.i65:                              ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc80:                       ; preds = %if.then.i.i.i.i.i65
   store ptr %call5.i.i.i.i2.i.i81, ptr %vPath_, align 8, !tbaa !22
-  %add.ptr.i.i.i67 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i81, i64 %add
+  %add.ptr.i.i.i67 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i81, i64 %add
   %_M_end_of_storage.i.i.i68 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store ptr %add.ptr.i.i.i67, ptr %_M_end_of_storage.i.i.i68, align 8, !tbaa !23
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i81, align 8, !tbaa !24
@@ -274,7 +274,7 @@ for.body23.preheader:                             ; preds = %for.cond20.preheade
 for.body23.us:                                    ; preds = %for.body23.us.preheader, %for.cond63.for.cond.cleanup66_crit_edge.us
   %i.0166.us = phi i64 [ %inc79.us, %for.cond63.for.cond.cleanup66_crit_edge.us ], [ 1, %for.body23.us.preheader ]
   %j.1165.us = phi i64 [ %inc72.us, %for.cond63.for.cond.cleanup66_crit_edge.us ], [ %numberSubSteps, %for.body23.us.preheader ]
-  %add.ptr.i99.us = getelementptr double, ptr %.pre, i64 %i.0166.us
+  %add.ptr.i99.us = getelementptr [8 x i8], ptr %.pre, i64 %i.0166.us
   %11 = load double, ptr %add.ptr.i99.us, align 8, !tbaa !24
   %add.ptr.i100.us = getelementptr i8, ptr %add.ptr.i99.us, i64 -8
   %12 = load double, ptr %add.ptr.i100.us, align 8, !tbaa !24
@@ -288,9 +288,9 @@ for.body23.us:                                    ; preds = %for.body23.us.prehe
 for.body67.us:                                    ; preds = %for.body23.us, %for.body67.us
   %k.0162.us = phi i64 [ %inc74.us, %for.body67.us ], [ 0, %for.body23.us ]
   %j.2161.us = phi i64 [ %inc72.us, %for.body67.us ], [ %j.1165.us, %for.body23.us ]
-  %add.ptr.i117.us = getelementptr inbounds nuw double, ptr %2, i64 %j.2161.us
+  %add.ptr.i117.us = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %j.2161.us
   store double %div29.us, ptr %add.ptr.i117.us, align 8, !tbaa !24
-  %add.ptr.i118.us = getelementptr inbounds nuw double, ptr %5, i64 %j.2161.us
+  %add.ptr.i118.us = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %j.2161.us
   store double %call32.us, ptr %add.ptr.i118.us, align 8, !tbaa !24
   %inc72.us = add i64 %j.2161.us, 1
   %inc74.us = add nuw i64 %k.0162.us, 1
@@ -306,7 +306,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %j.0159 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %13 = load double, ptr %.pre, align 8, !tbaa !24
   %div = fdiv double %13, %conv
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %2, i64 %j.0159
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %j.0159
   store double %div, ptr %add.ptr.i, align 8, !tbaa !24
   %inc = add nuw i64 %j.0159, 1
   %exitcond.not = icmp eq i64 %inc, %numberSubSteps
@@ -333,7 +333,7 @@ for.cond.cleanup:                                 ; preds = %for.cond63.for.cond
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.cond63.preheader
   %i.0166 = phi i64 [ %inc79, %for.cond63.preheader ], [ 1, %for.body23.preheader ]
-  %add.ptr.i99 = getelementptr double, ptr %.pre, i64 %i.0166
+  %add.ptr.i99 = getelementptr [8 x i8], ptr %.pre, i64 %i.0166
   %17 = load double, ptr %add.ptr.i99, align 8, !tbaa !24
   %add.ptr.i100 = getelementptr i8, ptr %add.ptr.i99, i64 -8
   %18 = load double, ptr %add.ptr.i100, align 8, !tbaa !24
@@ -721,7 +721,7 @@ entry:
   %ref.tmp = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
   %eMinuskDt_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %eMinuskDt_, align 8, !tbaa !22
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %j
   %1 = load double, ptr %add.ptr.i, align 8, !tbaa !24
   %theta_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load double, ptr %theta_, align 8, !tbaa !6
@@ -844,7 +844,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = phi i64 [ %.pre, %for.body.lr.ph ], [ %inc, %for.body ]
   %j.05 = phi i64 [ 0, %for.body.lr.ph ], [ %inc6, %for.body ]
   %3 = load ptr, ptr %variates, align 8, !tbaa !22
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %3, i64 %j.05
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %j.05
   %4 = load double, ptr %add.ptr.i, align 8, !tbaa !24
   tail call void @_ZN8QuantLib18SquareRootAndersen12DoOneSubStepERddm(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %v_, double noundef %4, i64 noundef %2)
   %5 = load i64, ptr %subStep_, align 8, !tbaa !54
@@ -852,7 +852,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %inc, ptr %subStep_, align 8, !tbaa !54
   %6 = load double, ptr %v_, align 8, !tbaa !43
   %7 = load ptr, ptr %vPath_, align 8, !tbaa !22
-  %add.ptr.i3 = getelementptr inbounds nuw double, ptr %7, i64 %inc
+  %add.ptr.i3 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %inc
   store double %6, ptr %add.ptr.i3, align 8, !tbaa !24
   %inc6 = add nuw i64 %j.05, 1
   %8 = load i64, ptr %numberSubSteps_, align 8, !tbaa !20
@@ -1020,7 +1020,7 @@ for.body.lr.ph:                                   ; preds = %do.end
   %20 = load ptr, ptr %vPath_, align 8, !tbaa !22
   %w2_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %21 = load double, ptr %w2_, align 8, !tbaa !26
-  %invariant.gep = getelementptr double, ptr %20, i64 %mul
+  %invariant.gep = getelementptr [8 x i8], ptr %20, i64 %mul
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %do.end
@@ -1033,7 +1033,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %do.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %k.048 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %stepVariance.047 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add35, %for.body ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %k.048
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %k.048
   %22 = load double, ptr %gep, align 8, !tbaa !24
   %add.ptr.i27 = getelementptr i8, ptr %gep, i64 8
   %23 = load double, ptr %add.ptr.i27, align 8, !tbaa !24

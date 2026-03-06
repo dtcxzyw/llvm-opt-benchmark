@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_pinstall_dirs_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.options_data_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @pmix_pinstalldirs_base_framework = external global %struct.pmix_mca_base_framework_t, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -237,7 +236,7 @@ data_init.exit.thread:                            ; preds = %36, %data_init.exit
 .lr.ph.split:                                     ; preds = %.lr.ph.splitthread-pre-split, %.lr.ph.split.preheader
   %59 = phi i32 [ %.pr389, %.lr.ph.splitthread-pre-split ], [ %53, %.lr.ph.split.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 1, %.lr.ph.split.preheader ]
-  %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !13
   %.not16.i = icmp slt i32 %59, 0
   br i1 %.not16.i, label %find_options_index.exit, label %.lr.ph19.i
@@ -245,7 +244,7 @@ data_init.exit.thread:                            ; preds = %36, %data_init.exit
 .lr.ph19.i:                                       ; preds = %.lr.ph.split, %.loopexit.i
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.loopexit.i ], [ 0, %.lr.ph.split ]
   %62 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %63 = getelementptr inbounds nuw %struct.options_data_t, ptr %62, i64 %indvars.iv23.i
+  %63 = getelementptr inbounds nuw [160 x i8], ptr %62, i64 %indvars.iv23.i
   %64 = load ptr, ptr %63, align 8, !tbaa !19
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit.i, label %.preheader.i
@@ -265,9 +264,9 @@ data_init.exit.thread:                            ; preds = %36, %data_init.exit
 .lr.ph.i:                                         ; preds = %.preheader.i, %68
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %68 ], [ 0, %.preheader.i ]
   %72 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %73 = getelementptr inbounds nuw %struct.options_data_t, ptr %72, i64 %indvars.iv23.i
+  %73 = getelementptr inbounds nuw [160 x i8], ptr %72, i64 %indvars.iv23.i
   %74 = load ptr, ptr %73, align 8, !tbaa !19
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8, !tbaa !13
   %77 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %76) #18
   %78 = icmp eq i32 %77, 0
@@ -318,7 +317,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %.crit
 91:                                               ; preds = %thread-pre-split
   %92 = load ptr, ptr @options_data, align 8, !tbaa !17
   %93 = zext nneg i32 %86 to i64
-  %94 = getelementptr inbounds nuw %struct.options_data_t, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [160 x i8], ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8, !tbaa !26
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 40
@@ -357,7 +356,7 @@ load_env_data.exit:                               ; preds = %91, %102, %110
   %112 = load ptr, ptr @options_data, align 8, !tbaa !17
   %113 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds %struct.options_data_t, ptr %112, i64 %114
+  %115 = getelementptr inbounds [160 x i8], ptr %112, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load ptr, ptr %116, align 8, !tbaa !26
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 64
@@ -392,7 +391,7 @@ load_env_data_argv.exit:                          ; preds = %load_env_data.exit,
   %130 = load ptr, ptr @options_data, align 8, !tbaa !17
   %131 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds %struct.options_data_t, ptr %130, i64 %132
+  %133 = getelementptr inbounds [160 x i8], ptr %130, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8, !tbaa !26
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 48
@@ -431,7 +430,7 @@ load_env_data_argv.exit193:                       ; preds = %load_env_data_argv.
   %151 = load ptr, ptr @options_data, align 8, !tbaa !17
   %152 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds %struct.options_data_t, ptr %151, i64 %153
+  %154 = getelementptr inbounds [160 x i8], ptr %151, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load ptr, ptr %155, align 8, !tbaa !26
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 88
@@ -466,7 +465,7 @@ load_env_data_argv.exit196:                       ; preds = %load_env_data_argv.
   %169 = load ptr, ptr @options_data, align 8, !tbaa !17
   %170 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.options_data_t, ptr %169, i64 %171
+  %172 = getelementptr inbounds [160 x i8], ptr %169, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = load ptr, ptr %173, align 8, !tbaa !26
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 104
@@ -501,7 +500,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %187 = load ptr, ptr @options_data, align 8, !tbaa !17
   %188 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct.options_data_t, ptr %187, i64 %189
+  %190 = getelementptr inbounds [160 x i8], ptr %187, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 136
   %192 = load ptr, ptr %191, align 8, !tbaa !29
   %.not170 = icmp eq ptr %192, null
@@ -536,7 +535,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %208 = load ptr, ptr @options_data, align 8, !tbaa !17
   %209 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds %struct.options_data_t, ptr %208, i64 %210
+  %211 = getelementptr inbounds [160 x i8], ptr %208, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 136
   %213 = load ptr, ptr %212, align 8, !tbaa !29
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -564,7 +563,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %.0151300 = phi i1 [ %.1152, %470 ], [ false, %218 ]
   %223 = load ptr, ptr %11, align 8, !tbaa !8
   %224 = sext i32 %.1137302 to i64
-  %225 = getelementptr inbounds ptr, ptr %223, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %223, i64 %224
   %226 = load ptr, ptr %225, align 8, !tbaa !13
   %227 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(8) @.str.16, i64 noundef 7) #18
   %228 = icmp eq i32 %227, 0
@@ -629,7 +628,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %263 = load ptr, ptr @options_data, align 8, !tbaa !17
   %264 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds %struct.options_data_t, ptr %263, i64 %265
+  %266 = getelementptr inbounds [160 x i8], ptr %263, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 64
   %268 = load ptr, ptr %267, align 8, !tbaa !33
   call fastcc void @print_flags(ptr noundef %268, ptr noundef nonnull @.str.28)
@@ -650,7 +649,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %276 = load ptr, ptr @options_data, align 8, !tbaa !17
   %277 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds %struct.options_data_t, ptr %276, i64 %278
+  %279 = getelementptr inbounds [160 x i8], ptr %276, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 88
   %281 = load ptr, ptr %280, align 8, !tbaa !34
   %282 = call ptr @PMIx_Argv_copy(ptr noundef %281) #16
@@ -659,7 +658,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %284 = load ptr, ptr @options_data, align 8, !tbaa !17
   %285 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds %struct.options_data_t, ptr %284, i64 %286
+  %287 = getelementptr inbounds [160 x i8], ptr %284, i64 %286
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 96
   %289 = load ptr, ptr %288, align 8, !tbaa !35
   %290 = call i32 @pmix_argv_insert(ptr noundef nonnull %13, i32 noundef %283, ptr noundef %289) #16
@@ -684,7 +683,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %300 = load ptr, ptr @options_data, align 8, !tbaa !17
   %301 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds %struct.options_data_t, ptr %300, i64 %302
+  %303 = getelementptr inbounds [160 x i8], ptr %300, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 88
   %305 = load ptr, ptr %304, align 8, !tbaa !34
   call fastcc void @print_flags(ptr noundef %305, ptr noundef nonnull @.str.31)
@@ -705,7 +704,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %313 = load ptr, ptr @options_data, align 8, !tbaa !17
   %314 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds %struct.options_data_t, ptr %313, i64 %315
+  %316 = getelementptr inbounds [160 x i8], ptr %313, i64 %315
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 104
   %318 = load ptr, ptr %317, align 8, !tbaa !36
   %319 = call ptr @PMIx_Argv_copy(ptr noundef %318) #16
@@ -714,7 +713,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %321 = load ptr, ptr @options_data, align 8, !tbaa !17
   %322 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %323 = sext i32 %322 to i64
-  %324 = getelementptr inbounds %struct.options_data_t, ptr %321, i64 %323
+  %324 = getelementptr inbounds [160 x i8], ptr %321, i64 %323
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 112
   %326 = load ptr, ptr %325, align 8, !tbaa !37
   %327 = call i32 @pmix_argv_insert(ptr noundef nonnull %14, i32 noundef %320, ptr noundef %326) #16
@@ -739,7 +738,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %337 = load ptr, ptr @options_data, align 8, !tbaa !17
   %338 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds %struct.options_data_t, ptr %337, i64 %339
+  %340 = getelementptr inbounds [160 x i8], ptr %337, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 104
   %342 = load ptr, ptr %341, align 8, !tbaa !36
   call fastcc void @print_flags(ptr noundef %342, ptr noundef nonnull @.str.36)
@@ -760,7 +759,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %351 = load ptr, ptr @options_data, align 8, !tbaa !17
   %352 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds %struct.options_data_t, ptr %351, i64 %353
+  %354 = getelementptr inbounds [160 x i8], ptr %351, i64 %353
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 16
   %356 = load ptr, ptr %355, align 8, !tbaa !38
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 32
@@ -791,7 +790,7 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %372 = load ptr, ptr @options_data, align 8, !tbaa !17
   %373 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds %struct.options_data_t, ptr %372, i64 %374
+  %375 = getelementptr inbounds [160 x i8], ptr %372, i64 %374
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 16
   %377 = load ptr, ptr %376, align 8, !tbaa !38
   %378 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45, i32 noundef 0, ptr noundef %371, ptr noundef %377, ptr noundef null) #16
@@ -1018,7 +1017,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %481 = load ptr, ptr @options_data, align 8, !tbaa !17
   %482 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %483 = sext i32 %482 to i64
-  %484 = getelementptr inbounds %struct.options_data_t, ptr %481, i64 %483
+  %484 = getelementptr inbounds [160 x i8], ptr %481, i64 %483
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 56
   %486 = load ptr, ptr %485, align 8, !tbaa !41
   %487 = call ptr @PMIx_Argv_split(ptr noundef %486, i32 noundef 32) #16
@@ -1042,7 +1041,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %495 = load ptr, ptr @options_data, align 8, !tbaa !17
   %496 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds %struct.options_data_t, ptr %495, i64 %497
+  %498 = getelementptr inbounds [160 x i8], ptr %495, i64 %497
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 80
   %500 = load ptr, ptr %499, align 8, !tbaa !42
   %501 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.0140237, ptr noundef %500) #16
@@ -1064,7 +1063,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %511 = load ptr, ptr @options_data, align 8, !tbaa !17
   %512 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %513 = sext i32 %512 to i64
-  %514 = getelementptr inbounds %struct.options_data_t, ptr %511, i64 %513
+  %514 = getelementptr inbounds [160 x i8], ptr %511, i64 %513
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 64
   %516 = load ptr, ptr %515, align 8, !tbaa !33
   %517 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %508, ptr noundef %516) #16
@@ -1080,7 +1079,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %522 = load ptr, ptr @options_data, align 8, !tbaa !17
   %523 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %524 = sext i32 %523 to i64
-  %525 = getelementptr inbounds %struct.options_data_t, ptr %522, i64 %524
+  %525 = getelementptr inbounds [160 x i8], ptr %522, i64 %524
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 72
   %527 = load ptr, ptr %526, align 8, !tbaa !43
   %528 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.2142, ptr noundef %527) #16
@@ -1098,7 +1097,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %534 = load ptr, ptr @options_data, align 8, !tbaa !17
   %535 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %536 = sext i32 %535 to i64
-  %537 = getelementptr inbounds %struct.options_data_t, ptr %534, i64 %536
+  %537 = getelementptr inbounds [160 x i8], ptr %534, i64 %536
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 88
   %539 = load ptr, ptr %538, align 8, !tbaa !34
   %540 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.3143, ptr noundef %539) #16
@@ -1109,7 +1108,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %544 = load ptr, ptr @options_data, align 8, !tbaa !17
   %545 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %546 = sext i32 %545 to i64
-  %547 = getelementptr inbounds %struct.options_data_t, ptr %544, i64 %546
+  %547 = getelementptr inbounds [160 x i8], ptr %544, i64 %546
   br i1 %.not180, label %.critedge, label %548
 
 548:                                              ; preds = %533
@@ -1121,7 +1120,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %554 = load ptr, ptr @options_data, align 8, !tbaa !17
   %555 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %556 = sext i32 %555 to i64
-  %557 = getelementptr inbounds %struct.options_data_t, ptr %554, i64 %556
+  %557 = getelementptr inbounds [160 x i8], ptr %554, i64 %556
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 104
   %559 = load ptr, ptr %558, align 8, !tbaa !36
   %560 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %553, ptr noundef %559) #16
@@ -1130,7 +1129,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   %563 = load ptr, ptr @options_data, align 8, !tbaa !17
   %564 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %565 = sext i32 %564 to i64
-  %566 = getelementptr inbounds %struct.options_data_t, ptr %563, i64 %565
+  %566 = getelementptr inbounds [160 x i8], ptr %563, i64 %565
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 112
   %568 = load ptr, ptr %567, align 8, !tbaa !37
   %569 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %562, ptr noundef %568) #16
@@ -1258,7 +1257,7 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
 .lr.ph.i200:                                      ; preds = %626, %options_data_free.exit.i
   %indvars.iv.i201 = phi i64 [ %indvars.iv.next.i202, %options_data_free.exit.i ], [ 0, %626 ]
   %628 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %629 = getelementptr inbounds nuw %struct.options_data_t, ptr %628, i64 %indvars.iv.i201
+  %629 = getelementptr inbounds nuw [160 x i8], ptr %628, i64 %indvars.iv.i201
   %630 = load ptr, ptr %629, align 8, !tbaa !19
   %.not.i.i = icmp eq ptr %630, null
   br i1 %.not.i.i, label %632, label %631
@@ -1463,7 +1462,7 @@ define internal fastcc i32 @find_options_index(ptr noundef readonly captures(non
 .lr.ph19:                                         ; preds = %1, %.loopexit
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.loopexit ], [ 0, %1 ]
   %3 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %4 = getelementptr inbounds nuw %struct.options_data_t, ptr %3, i64 %indvars.iv23
+  %4 = getelementptr inbounds nuw [160 x i8], ptr %3, i64 %indvars.iv23
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1483,9 +1482,9 @@ define internal fastcc i32 @find_options_index(ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.preheader ]
   %13 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %14 = getelementptr inbounds nuw %struct.options_data_t, ptr %13, i64 %indvars.iv23
+  %14 = getelementptr inbounds nuw [160 x i8], ptr %13, i64 %indvars.iv23
   %15 = load ptr, ptr %14, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %17) #18
   %19 = icmp eq i32 %18, 0
@@ -1540,7 +1539,7 @@ define internal fastcc void @print_flags(ptr noundef readonly captures(none) %0,
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %2 ]
   %4 = phi ptr [ %19, %17 ], [ %3, %2 ]
   %.016 = phi i8 [ %.1, %17 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %7 = tail call i32 @strncmp(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %6) #18
   %8 = icmp eq i32 %7, 0
@@ -1565,7 +1564,7 @@ define internal fastcc void @print_flags(ptr noundef readonly captures(none) %0,
 17:                                               ; preds = %.lr.ph, %12
   %.1 = phi i8 [ 1, %12 ], [ %.016, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
@@ -1662,7 +1661,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
   %22 = load ptr, ptr @options_data, align 8, !tbaa !17
   %23 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.options_data_t, ptr %22, i64 %24
+  %25 = getelementptr inbounds [160 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %21, ptr %26, align 8, !tbaa !30
   br label %341
@@ -1681,7 +1680,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
   %33 = load ptr, ptr @options_data, align 8, !tbaa !17
   %34 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.options_data_t, ptr %33, i64 %35
+  %36 = getelementptr inbounds [160 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store ptr %32, ptr %37, align 8, !tbaa !41
   br label %341
@@ -1700,7 +1699,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
   %44 = load ptr, ptr @options_data, align 8, !tbaa !17
   %45 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.options_data_t, ptr %44, i64 %46
+  %47 = getelementptr inbounds [160 x i8], ptr %44, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %43, ptr %48, align 8, !tbaa !38
   br label %341
@@ -1719,7 +1718,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
   %55 = load ptr, ptr @options_data, align 8, !tbaa !17
   %56 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.options_data_t, ptr %55, i64 %57
+  %58 = getelementptr inbounds [160 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr %54, ptr %59, align 8, !tbaa !39
   br label %341
@@ -1734,7 +1733,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
   %65 = load ptr, ptr @options_data, align 8, !tbaa !17
   %66 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.options_data_t, ptr %65, i64 %67
+  %68 = getelementptr inbounds [160 x i8], ptr %65, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = load ptr, ptr %69, align 8, !tbaa !33
   %71 = tail call i32 @PMIx_Argv_count(ptr noundef %70) #16
@@ -1742,7 +1741,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
   %73 = load ptr, ptr @options_data, align 8, !tbaa !17
   %74 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.options_data_t, ptr %73, i64 %75
+  %76 = getelementptr inbounds [160 x i8], ptr %73, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %78 = load ptr, ptr %77, align 8, !tbaa !33
   %79 = load ptr, ptr %78, align 8, !tbaa !13
@@ -1752,7 +1751,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
 .lr.ph.i:                                         ; preds = %63, %85
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %85 ], [ 0, %63 ]
   %80 = phi ptr [ %87, %85 ], [ %79, %63 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i
   %82 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %80) #16
   %83 = load ptr, ptr %81, align 8, !tbaa !13
   %.not15.i = icmp eq ptr %82, %83
@@ -1765,7 +1764,7 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
 
 85:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next.i
   %87 = load ptr, ptr %86, align 8, !tbaa !13
   %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %expand_flags.exit.loopexit, label %.lr.ph.i, !llvm.loop !49
@@ -1774,7 +1773,7 @@ expand_flags.exit.loopexit:                       ; preds = %85
   %.pre108 = load ptr, ptr @options_data, align 8, !tbaa !17
   %.pre109 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %.phi.trans.insert110 = sext i32 %.pre109 to i64
-  %.phi.trans.insert111 = getelementptr inbounds %struct.options_data_t, ptr %.pre108, i64 %.phi.trans.insert110
+  %.phi.trans.insert111 = getelementptr inbounds [160 x i8], ptr %.pre108, i64 %.phi.trans.insert110
   %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert111, i64 64
   %.pre113 = load ptr, ptr %.phi.trans.insert112, align 8, !tbaa !8
   br label %expand_flags.exit
@@ -1783,7 +1782,7 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
   %.pre-phi = phi i64 [ %.phi.trans.insert110, %expand_flags.exit.loopexit ], [ %75, %63 ]
   %88 = phi ptr [ %.pre113, %expand_flags.exit.loopexit ], [ %78, %63 ]
   %89 = phi ptr [ %.pre108, %expand_flags.exit.loopexit ], [ %73, %63 ]
-  %90 = getelementptr inbounds %struct.options_data_t, ptr %89, i64 %.pre-phi
+  %90 = getelementptr inbounds [160 x i8], ptr %89, i64 %.pre-phi
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %92 = tail call i32 @PMIx_Argv_count(ptr noundef %88) #16
@@ -1796,7 +1795,7 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
   %.01218.i = phi i32 [ %spec.select.i, %.loopexit.i ], [ 0, %expand_flags.exit ]
   %95 = load ptr, ptr %91, align 8, !tbaa !8
   %96 = zext nneg i32 %.01218.i to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !13
   br label %101
 
@@ -1807,7 +1806,7 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
 
 101:                                              ; preds = %99, %.lr.ph.i79
   %.01116.i = phi i64 [ 0, %.lr.ph.i79 ], [ %100, %99 ]
-  %102 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @filtered_args, i64 %.01116.i
   %103 = load ptr, ptr %102, align 8, !tbaa !13
   %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %103) #18
   %.not.not24.i.not.not.not.not.not = icmp ne i32 %104, 0
@@ -1840,7 +1839,7 @@ filter_flags.exit:                                ; preds = %.loopexit.i, %expan
   %115 = load ptr, ptr @options_data, align 8, !tbaa !17
   %116 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.options_data_t, ptr %115, i64 %117
+  %118 = getelementptr inbounds [160 x i8], ptr %115, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 72
   %120 = load ptr, ptr %119, align 8, !tbaa !43
   %121 = tail call i32 @PMIx_Argv_count(ptr noundef %120) #16
@@ -1848,7 +1847,7 @@ filter_flags.exit:                                ; preds = %.loopexit.i, %expan
   %123 = load ptr, ptr @options_data, align 8, !tbaa !17
   %124 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.options_data_t, ptr %123, i64 %125
+  %126 = getelementptr inbounds [160 x i8], ptr %123, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %128 = load ptr, ptr %127, align 8, !tbaa !43
   %129 = load ptr, ptr %128, align 8, !tbaa !13
@@ -1858,7 +1857,7 @@ filter_flags.exit:                                ; preds = %.loopexit.i, %expan
 .lr.ph.i81:                                       ; preds = %113, %135
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %135 ], [ 0, %113 ]
   %130 = phi ptr [ %137, %135 ], [ %129, %113 ]
-  %131 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv.i82
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv.i82
   %132 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %130) #16
   %133 = load ptr, ptr %131, align 8, !tbaa !13
   %.not15.i83 = icmp eq ptr %132, %133
@@ -1871,7 +1870,7 @@ filter_flags.exit:                                ; preds = %.loopexit.i, %expan
 
 135:                                              ; preds = %134, %.lr.ph.i81
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
-  %136 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv.next.i84
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv.next.i84
   %137 = load ptr, ptr %136, align 8, !tbaa !13
   %.not.i85 = icmp eq ptr %137, null
   br i1 %.not.i85, label %expand_flags.exit86.loopexit, label %.lr.ph.i81, !llvm.loop !49
@@ -1880,7 +1879,7 @@ expand_flags.exit86.loopexit:                     ; preds = %135
   %.pre = load ptr, ptr @options_data, align 8, !tbaa !17
   %.pre104 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %.phi.trans.insert = sext i32 %.pre104 to i64
-  %.phi.trans.insert105 = getelementptr inbounds %struct.options_data_t, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert105 = getelementptr inbounds [160 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert105, i64 72
   %.pre107 = load ptr, ptr %.phi.trans.insert106, align 8, !tbaa !8
   br label %expand_flags.exit86
@@ -1889,7 +1888,7 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
   %.pre-phi114 = phi i64 [ %.phi.trans.insert, %expand_flags.exit86.loopexit ], [ %125, %113 ]
   %138 = phi ptr [ %.pre107, %expand_flags.exit86.loopexit ], [ %128, %113 ]
   %139 = phi ptr [ %.pre, %expand_flags.exit86.loopexit ], [ %123, %113 ]
-  %140 = getelementptr inbounds %struct.options_data_t, ptr %139, i64 %.pre-phi114
+  %140 = getelementptr inbounds [160 x i8], ptr %139, i64 %.pre-phi114
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %142 = tail call i32 @PMIx_Argv_count(ptr noundef %138) #16
@@ -1902,7 +1901,7 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
   %.01218.i88 = phi i32 [ %spec.select.i93, %.loopexit.i92 ], [ 0, %expand_flags.exit86 ]
   %145 = load ptr, ptr %141, align 8, !tbaa !8
   %146 = zext nneg i32 %.01218.i88 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !13
   br label %151
 
@@ -1913,7 +1912,7 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
 
 151:                                              ; preds = %149, %.lr.ph.i87
   %.01116.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %150, %149 ]
-  %152 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i89
+  %152 = getelementptr inbounds nuw [8 x i8], ptr @filtered_args, i64 %.01116.i89
   %153 = load ptr, ptr %152, align 8, !tbaa !13
   %154 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %148, ptr noundef nonnull dereferenceable(1) %153) #18
   %.not.not24.i90.not.not.not.not.not = icmp ne i32 %154, 0
@@ -1946,7 +1945,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %165 = load ptr, ptr @options_data, align 8, !tbaa !17
   %166 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds %struct.options_data_t, ptr %165, i64 %167
+  %168 = getelementptr inbounds [160 x i8], ptr %165, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 80
   %170 = load ptr, ptr %169, align 8, !tbaa !42
   %171 = tail call i32 @PMIx_Argv_count(ptr noundef %170) #16
@@ -1954,7 +1953,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %173 = load ptr, ptr @options_data, align 8, !tbaa !17
   %174 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds %struct.options_data_t, ptr %173, i64 %175
+  %176 = getelementptr inbounds [160 x i8], ptr %173, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 80
   %178 = load ptr, ptr %177, align 8, !tbaa !42
   tail call fastcc void @expand_flags(ptr noundef %178)
@@ -1971,7 +1970,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %184 = load ptr, ptr @options_data, align 8, !tbaa !17
   %185 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds %struct.options_data_t, ptr %184, i64 %186
+  %187 = getelementptr inbounds [160 x i8], ptr %184, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 88
   %189 = load ptr, ptr %188, align 8, !tbaa !34
   %190 = tail call i32 @PMIx_Argv_count(ptr noundef %189) #16
@@ -1979,14 +1978,14 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %192 = load ptr, ptr @options_data, align 8, !tbaa !17
   %193 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds %struct.options_data_t, ptr %192, i64 %194
+  %195 = getelementptr inbounds [160 x i8], ptr %192, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 88
   %197 = load ptr, ptr %196, align 8, !tbaa !34
   tail call fastcc void @expand_flags(ptr noundef %197)
   %198 = load ptr, ptr @options_data, align 8, !tbaa !17
   %199 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds %struct.options_data_t, ptr %198, i64 %200
+  %201 = getelementptr inbounds [160 x i8], ptr %198, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 88
   tail call fastcc void @filter_flags(ptr noundef nonnull %202)
   tail call void @PMIx_Argv_free(ptr noundef %183) #16
@@ -2002,7 +2001,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %208 = load ptr, ptr @options_data, align 8, !tbaa !17
   %209 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds %struct.options_data_t, ptr %208, i64 %210
+  %211 = getelementptr inbounds [160 x i8], ptr %208, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 96
   %213 = load ptr, ptr %212, align 8, !tbaa !35
   %214 = tail call i32 @PMIx_Argv_count(ptr noundef %213) #16
@@ -2010,14 +2009,14 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %216 = load ptr, ptr @options_data, align 8, !tbaa !17
   %217 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds %struct.options_data_t, ptr %216, i64 %218
+  %219 = getelementptr inbounds [160 x i8], ptr %216, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 96
   %221 = load ptr, ptr %220, align 8, !tbaa !35
   tail call fastcc void @expand_flags(ptr noundef %221)
   %222 = load ptr, ptr @options_data, align 8, !tbaa !17
   %223 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds %struct.options_data_t, ptr %222, i64 %224
+  %225 = getelementptr inbounds [160 x i8], ptr %222, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 96
   tail call fastcc void @filter_flags(ptr noundef nonnull %226)
   tail call void @PMIx_Argv_free(ptr noundef %207) #16
@@ -2033,7 +2032,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %232 = load ptr, ptr @options_data, align 8, !tbaa !17
   %233 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds %struct.options_data_t, ptr %232, i64 %234
+  %235 = getelementptr inbounds [160 x i8], ptr %232, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 104
   %237 = load ptr, ptr %236, align 8, !tbaa !36
   %238 = tail call i32 @PMIx_Argv_count(ptr noundef %237) #16
@@ -2051,7 +2050,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %245 = load ptr, ptr @options_data, align 8, !tbaa !17
   %246 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds %struct.options_data_t, ptr %245, i64 %247
+  %248 = getelementptr inbounds [160 x i8], ptr %245, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 112
   %250 = load ptr, ptr %249, align 8, !tbaa !37
   %251 = tail call i32 @PMIx_Argv_count(ptr noundef %250) #16
@@ -2073,7 +2072,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %259 = load ptr, ptr @options_data, align 8, !tbaa !17
   %260 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds %struct.options_data_t, ptr %259, i64 %261
+  %262 = getelementptr inbounds [160 x i8], ptr %259, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 120
   store ptr %258, ptr %263, align 8, !tbaa !44
   br label %341
@@ -2092,7 +2091,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %270 = load ptr, ptr @options_data, align 8, !tbaa !17
   %271 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds %struct.options_data_t, ptr %270, i64 %272
+  %273 = getelementptr inbounds [160 x i8], ptr %270, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 128
   store ptr %269, ptr %274, align 8, !tbaa !45
   br label %341
@@ -2111,7 +2110,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %281 = load ptr, ptr @options_data, align 8, !tbaa !17
   %282 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds %struct.options_data_t, ptr %281, i64 %283
+  %284 = getelementptr inbounds [160 x i8], ptr %281, i64 %283
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 136
   store ptr %280, ptr %285, align 8, !tbaa !29
   br label %341
@@ -2130,7 +2129,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %292 = load ptr, ptr @options_data, align 8, !tbaa !17
   %293 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds %struct.options_data_t, ptr %292, i64 %294
+  %295 = getelementptr inbounds [160 x i8], ptr %292, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 24
   store ptr %291, ptr %296, align 8, !tbaa !26
   br label %341
@@ -2149,7 +2148,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %303 = load ptr, ptr @options_data, align 8, !tbaa !17
   %304 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds %struct.options_data_t, ptr %303, i64 %305
+  %306 = getelementptr inbounds [160 x i8], ptr %303, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 40
   store ptr %302, ptr %307, align 8, !tbaa !27
   br label %341
@@ -2168,7 +2167,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %314 = load ptr, ptr @options_data, align 8, !tbaa !17
   %315 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds %struct.options_data_t, ptr %314, i64 %316
+  %317 = getelementptr inbounds [160 x i8], ptr %314, i64 %316
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 48
   store ptr %313, ptr %318, align 8, !tbaa !28
   br label %341
@@ -2187,7 +2186,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %325 = load ptr, ptr @options_data, align 8, !tbaa !17
   %326 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds %struct.options_data_t, ptr %325, i64 %327
+  %328 = getelementptr inbounds [160 x i8], ptr %325, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 144
   store ptr %324, ptr %329, align 8, !tbaa !46
   br label %341
@@ -2204,7 +2203,7 @@ filter_flags.exit95:                              ; preds = %.loopexit.i92, %exp
   %336 = load ptr, ptr @options_data, align 8, !tbaa !17
   %337 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds %struct.options_data_t, ptr %336, i64 %338
+  %339 = getelementptr inbounds [160 x i8], ptr %336, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 152
   store ptr %335, ptr %340, align 8, !tbaa !32
   br label %341
@@ -2225,7 +2224,7 @@ define internal fastcc void @options_data_expand(ptr noundef %0) unnamed_addr #0
   %8 = tail call ptr @realloc(ptr noundef %4, i64 noundef %7) #22
   store ptr %8, ptr @options_data, align 8, !tbaa !17
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds %struct.options_data_t, ptr %8, i64 %9
+  %10 = getelementptr inbounds [160 x i8], ptr %8, i64 %9
   %11 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #20
   store ptr %11, ptr %10, align 8, !tbaa !19
   store ptr null, ptr %11, align 8, !tbaa !13
@@ -2274,7 +2273,7 @@ define internal fastcc void @options_data_expand(ptr noundef %0) unnamed_addr #0
   %31 = load ptr, ptr @options_data, align 8, !tbaa !17
   %32 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.options_data_t, ptr %31, i64 %33
+  %34 = getelementptr inbounds [160 x i8], ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !19
   %36 = tail call i32 @PMIx_Argv_count(ptr noundef %35) #16
   %37 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %34, i32 noundef %36, ptr noundef %30) #16
@@ -2303,7 +2302,7 @@ define internal fastcc void @expand_flags(ptr noundef captures(none) %0) unnamed
 .lr.ph:                                           ; preds = %1, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %1 ]
   %3 = phi ptr [ %10, %8 ], [ %2, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %3) #16
   %6 = load ptr, ptr %4, align 8, !tbaa !13
   %.not15 = icmp eq ptr %5, %6
@@ -2316,7 +2315,7 @@ define internal fastcc void @expand_flags(ptr noundef captures(none) %0) unnamed
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
@@ -2340,7 +2339,7 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
   %.01218 = phi i32 [ %spec.select, %.loopexit ], [ 0, %1 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !8
   %8 = zext nneg i32 %.01218 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   br label %13
 
@@ -2351,7 +2350,7 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %.lr.ph, %11
   %.01116 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
-  %14 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @filtered_args, i64 %.01116
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %15) #18
   %.not.not24.not.not = icmp ne i32 %16, 0

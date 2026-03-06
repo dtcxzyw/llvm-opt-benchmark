@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.(anonymous namespace)::TIME_UNITS" = type { ptr, ptr, ptr, ptr }
-%struct.PJ_UNITS = type { ptr, ptr, ptr, double }
 %struct.PJ_XYZ = type { double, double, double }
 %struct.PJ_LPZ = type { double, double, double }
 
@@ -136,7 +135,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
 
 29:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %27, i64 %indvars.iv.next.i
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv.next.i
   %31 = load ptr, ptr %30, align 8, !tbaa !56
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !58
@@ -149,7 +148,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
   br i1 %34, label %35, label %29
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %27, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv.i
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit
 
 ._crit_edge.i:                                    ; preds = %29, %25
@@ -160,7 +159,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
 
 39:                                               ; preds = %.lr.ph46.i
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %40 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %37, i64 %indvars.iv.next53.i
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %indvars.iv.next53.i
   %41 = load ptr, ptr %40, align 8, !tbaa !56
   %.not38.i = icmp eq ptr %41, null
   br i1 %.not38.i, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread, label %.lr.ph46.i, !llvm.loop !60
@@ -173,7 +172,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
   br i1 %44, label %45, label %39
 
 45:                                               ; preds = %.lr.ph46.i
-  %46 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %37, i64 %indvars.iv52.i
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %indvars.iv52.i
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit:    ; preds = %35, %45
@@ -251,7 +250,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %39, %._crit_edg
 
 74:                                               ; preds = %.lr.ph.i185
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i186, 1
-  %75 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %72, i64 %indvars.iv.next.i187
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %indvars.iv.next.i187
   %76 = load ptr, ptr %75, align 8, !tbaa !56
   %.not.i188 = icmp eq ptr %76, null
   br i1 %.not.i188, label %._crit_edge.i189, label %.lr.ph.i185, !llvm.loop !58
@@ -264,7 +263,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %39, %._crit_edg
   br i1 %79, label %80, label %74
 
 80:                                               ; preds = %.lr.ph.i185
-  %81 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %72, i64 %indvars.iv.i186
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %indvars.iv.i186
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit197
 
 ._crit_edge.i189:                                 ; preds = %74, %70
@@ -275,7 +274,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %39, %._crit_edg
 
 84:                                               ; preds = %.lr.ph46.i191
   %indvars.iv.next53.i193 = add nuw nsw i64 %indvars.iv52.i192, 1
-  %85 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %82, i64 %indvars.iv.next53.i193
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %82, i64 %indvars.iv.next53.i193
   %86 = load ptr, ptr %85, align 8, !tbaa !56
   %.not38.i194 = icmp eq ptr %86, null
   br i1 %.not38.i194, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit197.thread, label %.lr.ph46.i191, !llvm.loop !60
@@ -288,7 +287,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %39, %._crit_edg
   br i1 %89, label %90, label %84
 
 90:                                               ; preds = %.lr.ph46.i191
-  %91 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %82, i64 %indvars.iv52.i192
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %82, i64 %indvars.iv52.i192
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit197
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit197: ; preds = %80, %90
@@ -379,7 +378,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit197.thread: ; preds = %84, %._crit_
 
 125:                                              ; preds = %.lr.ph.i199
   %indvars.iv.next.i201 = add nuw nsw i64 %indvars.iv.i200, 1
-  %126 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %123, i64 %indvars.iv.next.i201
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %indvars.iv.next.i201
   %127 = load ptr, ptr %126, align 8, !tbaa !56
   %.not.i202 = icmp eq ptr %127, null
   br i1 %.not.i202, label %._crit_edge.i203, label %.lr.ph.i199, !llvm.loop !58
@@ -392,7 +391,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit197.thread: ; preds = %84, %._crit_
   br i1 %130, label %131, label %125
 
 131:                                              ; preds = %.lr.ph.i199
-  %132 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %123, i64 %indvars.iv.i200
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %indvars.iv.i200
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit211
 
 ._crit_edge.i203:                                 ; preds = %125, %121
@@ -403,7 +402,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit197.thread: ; preds = %84, %._crit_
 
 135:                                              ; preds = %.lr.ph46.i205
   %indvars.iv.next53.i207 = add nuw nsw i64 %indvars.iv52.i206, 1
-  %136 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %133, i64 %indvars.iv.next53.i207
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 %indvars.iv.next53.i207
   %137 = load ptr, ptr %136, align 8, !tbaa !56
   %.not38.i208 = icmp eq ptr %137, null
   br i1 %.not38.i208, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit211.thread, label %.lr.ph46.i205, !llvm.loop !60
@@ -416,7 +415,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit197.thread: ; preds = %84, %._crit_
   br i1 %140, label %141, label %135
 
 141:                                              ; preds = %.lr.ph46.i205
-  %142 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %133, i64 %indvars.iv52.i206
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 %indvars.iv52.i206
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit211
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit211: ; preds = %131, %141
@@ -473,7 +472,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit211.thread: ; preds = %135, %._crit
 
 162:                                              ; preds = %.lr.ph.i213
   %indvars.iv.next.i215 = add nuw nsw i64 %indvars.iv.i214, 1
-  %163 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %160, i64 %indvars.iv.next.i215
+  %163 = getelementptr inbounds nuw [32 x i8], ptr %160, i64 %indvars.iv.next.i215
   %164 = load ptr, ptr %163, align 8, !tbaa !56
   %.not.i216 = icmp eq ptr %164, null
   br i1 %.not.i216, label %._crit_edge.i217, label %.lr.ph.i213, !llvm.loop !58
@@ -486,7 +485,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit211.thread: ; preds = %135, %._crit
   br i1 %167, label %168, label %162
 
 168:                                              ; preds = %.lr.ph.i213
-  %169 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %160, i64 %indvars.iv.i214
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %160, i64 %indvars.iv.i214
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit225
 
 ._crit_edge.i217:                                 ; preds = %162, %158
@@ -497,7 +496,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit211.thread: ; preds = %135, %._crit
 
 172:                                              ; preds = %.lr.ph46.i219
   %indvars.iv.next53.i221 = add nuw nsw i64 %indvars.iv52.i220, 1
-  %173 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %170, i64 %indvars.iv.next53.i221
+  %173 = getelementptr inbounds nuw [32 x i8], ptr %170, i64 %indvars.iv.next53.i221
   %174 = load ptr, ptr %173, align 8, !tbaa !56
   %.not38.i222 = icmp eq ptr %174, null
   br i1 %.not38.i222, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit225.thread, label %.lr.ph46.i219, !llvm.loop !60
@@ -510,7 +509,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit211.thread: ; preds = %135, %._crit
   br i1 %177, label %178, label %172
 
 178:                                              ; preds = %.lr.ph46.i219
-  %179 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %170, i64 %indvars.iv52.i220
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %170, i64 %indvars.iv52.i220
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit225
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit225: ; preds = %168, %178
@@ -571,7 +570,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit225.thread: ; preds = %172, %._crit
 
 .preheader311:                                    ; preds = %.thread298, %204
   %indvars.iv = phi i64 [ %indvars.iv.next, %204 ], [ 0, %.thread298 ]
-  %201 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [32 x i8], ptr @_ZL10time_units, i64 %indvars.iv
   %202 = load ptr, ptr %201, align 16, !tbaa !63
   %203 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %200, ptr noundef nonnull dereferenceable(1) %202) #12
   %.not168 = icmp eq i32 %203, 0
@@ -605,7 +604,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit225.thread: ; preds = %172, %._crit
 
 .preheader:                                       ; preds = %209, %217
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %217 ], [ 0, %209 ]
-  %214 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv340
+  %214 = getelementptr inbounds nuw [32 x i8], ptr @_ZL10time_units, i64 %indvars.iv340
   %215 = load ptr, ptr %214, align 16, !tbaa !63
   %216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) %215) #12
   %.not171 = icmp eq i32 %216, 0
@@ -666,7 +665,7 @@ define internal void @_ZL10forward_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
 
 14:                                               ; preds = %2
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr @_ZL10time_units, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !72
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -683,7 +682,7 @@ define internal void @_ZL10forward_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
 
 26:                                               ; preds = %22
   %27 = zext nneg i32 %24 to i64
-  %28 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr @_ZL10time_units, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 16, !tbaa !74
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -722,7 +721,7 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
 
 15:                                               ; preds = %2
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr @_ZL10time_units, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -738,7 +737,7 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
 
 26:                                               ; preds = %23
   %27 = zext nneg i32 %24 to i64
-  %28 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr @_ZL10time_units, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 16, !tbaa !74
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1006,7 +1005,7 @@ define internal noundef double @_ZL15yyyymmdd_to_mjdd(double noundef %0) #7 {
   %16 = icmp eq i64 %10, 0
   %spec.store.select1.i = select i1 %16, i64 1, i64 %spec.store.select.i
   %spec.store.select2.i.i = tail call i64 @llvm.umax.i64(i64 %spec.store.select1.i, i64 1)
-  %17 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i.i
+  %17 = getelementptr [4 x i8], ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i.i
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4, !tbaa !78
   %20 = and i64 %4, 3
@@ -1041,7 +1040,7 @@ _ZL13days_in_monthmm.exit32.us.i:                 ; preds = %_ZL13days_in_monthm
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZL13days_in_monthmm.exit32.us.i ], [ 1, %_ZL13days_in_monthmm.exit.i ]
   %.01735.us.i = phi i32 [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ 0, %_ZL13days_in_monthmm.exit.i ]
   %spec.store.select.i.us.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv40.i, i64 12)
-  %33 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select.i.us.i
+  %33 = getelementptr [4 x i8], ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select.i.us.i
   %34 = getelementptr i8, ptr %33, i64 -4
   %35 = load i32, ptr %34, align 4, !tbaa !78
   %36 = icmp eq i64 %indvars.iv40.i, 2
@@ -1057,7 +1056,7 @@ _ZL13days_in_monthmm.exit32.i:                    ; preds = %_ZL13days_in_monthm
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL13days_in_monthmm.exit32.i ], [ 1, %_ZL13days_in_monthmm.exit.thread.i ]
   %.01735.i = phi i32 [ %44, %_ZL13days_in_monthmm.exit32.i ], [ 0, %_ZL13days_in_monthmm.exit.thread.i ]
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i, i64 12)
-  %39 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select.i.i
+  %39 = getelementptr [4 x i8], ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select.i.i
   %40 = getelementptr i8, ptr %39, i64 -4
   %41 = load i32, ptr %40, align 4, !tbaa !78
   %42 = icmp eq i64 %indvars.iv.i, 2
@@ -1172,7 +1171,7 @@ _ZL13days_in_monthmm.exit42.us:                   ; preds = %_ZL12days_in_yearl.
   %25 = icmp eq i32 %23, 0
   %narrow.us = select i1 %25, i32 1, i32 %24
   %spec.store.select2.i.us = zext nneg i32 %narrow.us to i64
-  %26 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i.us
+  %26 = getelementptr [4 x i8], ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i.us
   %27 = getelementptr i8, ptr %26, i64 -4
   %28 = load i32, ptr %27, align 4, !tbaa !78
   %29 = icmp eq i32 %narrow.us, 2
@@ -1202,7 +1201,7 @@ _ZL13days_in_monthmm.exit42:                      ; preds = %_ZL12days_in_yearl.
   %39 = icmp eq i32 %37, 0
   %narrow = select i1 %39, i32 1, i32 %38
   %spec.store.select2.i = zext nneg i32 %narrow to i64
-  %40 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i
+  %40 = getelementptr [4 x i8], ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i
   %41 = getelementptr i8, ptr %40, i64 -4
   %42 = load i32, ptr %41, align 4, !tbaa !78
   %43 = icmp eq i32 %narrow, 2

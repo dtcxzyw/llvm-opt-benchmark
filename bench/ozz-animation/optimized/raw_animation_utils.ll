@@ -3,25 +3,6 @@ source_filename = "bench/ozz-animation/original/raw_animation_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.ozz::animation::offline::RawAnimation::TranslationKey" = type { float, %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Float3" = type { float, float, float }
-%"struct.ozz::animation::offline::RawAnimation::RotationKey" = type { float, %"struct.ozz::math::Quaternion" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::animation::offline::RawAnimation::ScaleKey" = type { float, %"struct.ozz::math::Float3" }
-%"struct.ozz::animation::offline::RawAnimation::JointTrack" = type { %"class.std::vector", %"class.std::vector.0", %"class.std::vector.4" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.4" = type { %"struct.std::_Vector_base.5" }
-%"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
 %"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
 %"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<float, ozz::StdAllocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, ozz::StdAllocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, ozz::StdAllocator<float>>::_Vector_impl_data" }
@@ -230,7 +211,7 @@ _ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.e
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i ], [ %.val, %25 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i ], [ %8, %25 ]
   %27 = lshr i64 %.01116.i.i.i, 1
-  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.017.i.i.i, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !21
   %30 = fcmp olt float %29, %1
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -335,7 +316,7 @@ _ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit
   %.017.i.i.i29 = phi ptr [ %.1.i.i.i34, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i ], [ %.val19, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.preheader.i.i.i ]
   %.01116.i.i.i30 = phi i64 [ %.112.i.i.i33, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i ], [ %82, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.preheader.i.i.i ]
   %83 = lshr i64 %.01116.i.i.i30, 1
-  %84 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.017.i.i.i29, i64 %83
+  %84 = getelementptr inbounds nuw [20 x i8], ptr %.017.i.i.i29, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !30
   %86 = fcmp olt float %85, %1
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 20
@@ -486,7 +467,7 @@ _ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i
   %.017.i.i.i48 = phi ptr [ %.1.i.i.i53, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i ], [ %.val21, %166 ]
   %.01116.i.i.i49 = phi i64 [ %.112.i.i.i52, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i ], [ %149, %166 ]
   %168 = lshr i64 %.01116.i.i.i49, 1
-  %169 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.017.i.i.i48, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i48, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !37
   %171 = fcmp olt float %170, %1
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
@@ -569,9 +550,9 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline15SampleAnimationE
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %16 = phi ptr [ %22, %.lr.ph ], [ %8, %.preheader ]
   %.012 = phi i64 [ %20, %.lr.ph ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %16, i64 %.012
+  %17 = getelementptr inbounds nuw [72 x i8], ptr %16, i64 %.012
   %18 = load ptr, ptr %2, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %18, i64 %.012
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %.012
   tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_122SampleTrack_NoValidateERKNS1_12RawAnimation10JointTrackEfPNS_4math9TransformE(ptr noundef nonnull align 8 dereferenceable(72) %17, float noundef %1, ptr noundef %19)
   %20 = add nuw i64 %.012, 1
   %21 = load ptr, ptr %6, align 8, !tbaa !40
@@ -626,7 +607,7 @@ define dso_local void @_ZN3ozz9animation7offline17ExtractTimePointsERKNS1_12RawA
   %20 = phi ptr [ null, %.lr.ph ], [ %275, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKfS3_EES8_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKfS3_EES8_.exit ]
   %21 = phi ptr [ %7, %.lr.ph ], [ %277, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKfS3_EES8_.exit ]
-  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [72 x i8], ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !20
   %25 = load ptr, ptr %22, align 8, !tbaa !16
@@ -644,7 +625,7 @@ define dso_local void @_ZN3ozz9animation7offline17ExtractTimePointsERKNS1_12RawA
   %29 = phi ptr [ %75, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i ], [ %25, %.lr.ph.i.preheader ]
   %30 = phi ptr [ %76, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i ], [ %24, %.lr.ph.i.preheader ]
   %.05.i = phi i64 [ %77, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i ], [ 0, %.lr.ph.i.preheader ]
-  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %29, i64 %.05.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %.05.i
   %.not.i.i = icmp eq ptr %28, %27
   br i1 %.not.i.i, label %35, label %32
 
@@ -740,7 +721,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4
 .noexc:                                           ; preds = %64, %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit34.i
   store ptr %51, ptr %0, align 8, !tbaa !57
   store ptr %61, ptr %14, align 8, !tbaa !53
-  %71 = getelementptr inbounds nuw float, ptr %51, i64 %44
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %44
   store ptr %71, ptr %15, align 8, !tbaa !50
   %.pre.i = load ptr, ptr %23, align 8, !tbaa !20
   %.pre6.i = load ptr, ptr %22, align 8, !tbaa !16
@@ -781,7 +762,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_112CopyKeyTimesISt6vectorINS1_12RawAnimati
   %92 = phi ptr [ %138, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i27 ], [ %88, %.lr.ph.i24.preheader ]
   %93 = phi ptr [ %139, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i27 ], [ %87, %.lr.ph.i24.preheader ]
   %.05.i25 = phi i64 [ %140, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i27 ], [ 0, %.lr.ph.i24.preheader ]
-  %94 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %92, i64 %.05.i25
+  %94 = getelementptr inbounds nuw [20 x i8], ptr %92, i64 %.05.i25
   %.not.i.i26 = icmp eq ptr %91, %90
   br i1 %.not.i.i26, label %98, label %95
 
@@ -870,7 +851,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4
 .noexc30:                                         ; preds = %127, %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit34.i63
   store ptr %114, ptr %0, align 8, !tbaa !57
   store ptr %124, ptr %14, align 8, !tbaa !53
-  %134 = getelementptr inbounds nuw float, ptr %114, i64 %107
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %107
   store ptr %134, ptr %15, align 8, !tbaa !50
   %.pre.i28 = load ptr, ptr %86, align 8, !tbaa !29
   %.pre6.i29 = load ptr, ptr %85, align 8, !tbaa !26
@@ -911,7 +892,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_112CopyKeyTimesISt6vectorINS1_12RawAnimati
   %154 = phi ptr [ %200, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i35 ], [ %150, %.lr.ph.i32.preheader ]
   %155 = phi ptr [ %201, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i35 ], [ %149, %.lr.ph.i32.preheader ]
   %.05.i33 = phi i64 [ %202, %_ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit.i35 ], [ 0, %.lr.ph.i32.preheader ]
-  %156 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %154, i64 %.05.i33
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %154, i64 %.05.i33
   %.not.i.i34 = icmp eq ptr %153, %152
   br i1 %.not.i.i34, label %160, label %157
 
@@ -1000,7 +981,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4
 .noexc38:                                         ; preds = %189, %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit34.i83
   store ptr %176, ptr %0, align 8, !tbaa !57
   store ptr %186, ptr %14, align 8, !tbaa !53
-  %196 = getelementptr inbounds nuw float, ptr %176, i64 %169
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %169
   store ptr %196, ptr %15, align 8, !tbaa !50
   %.pre.i36 = load ptr, ptr %148, align 8, !tbaa !36
   %.pre6.i37 = load ptr, ptr %147, align 8, !tbaa !33
@@ -1125,7 +1106,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAlloca
   %242 = sub i64 %241, %212
   %243 = ashr exact i64 %242, 2
   %244 = sub nsw i64 0, %243
-  %245 = getelementptr inbounds float, ptr %240, i64 %244
+  %245 = getelementptr inbounds [4 x i8], ptr %240, i64 %244
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %245, ptr noundef nonnull align 4 dereferenceable(1) %209, i64 %242, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i
 
@@ -1350,16 +1331,16 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %24 = shl i64 %.034.i.i.i.i, 1
   %25 = add i64 %24, 2
-  %26 = getelementptr inbounds float, ptr %0, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %0, i64 %25
   %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds float, ptr %0, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %0, i64 %27
   %29 = load float, ptr %26, align 4, !tbaa !23
   %30 = load float, ptr %28, align 4, !tbaa !23
   %31 = fcmp olt float %29, %30
   %spec.select.i.i.i.i = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds float, ptr %0, i64 %spec.select.i.i.i.i
+  %32 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %33 = load float, ptr %32, align 4, !tbaa !23
-  %34 = getelementptr inbounds float, ptr %0, i64 %.034.i.i.i.i
+  %34 = getelementptr inbounds [4 x i8], ptr %0, i64 %.034.i.i.i.i
   store float %33, ptr %34, align 4, !tbaa !23
   %35 = icmp slt i64 %spec.select.i.i.i.i, %22
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !72
@@ -1379,9 +1360,9 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 .thread.i.i.i:                                    ; preds = %38
   %42 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds nuw float, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !23
-  %46 = getelementptr inbounds float, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %46 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store float %45, ptr %46, align 4, !tbaa !23
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -1397,20 +1378,20 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i56.i.i.i, %51 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i56.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %48 = getelementptr inbounds nuw float, ptr %0, i64 %.0920.i.i56.i.i.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i56.i.i.i
   %49 = load float, ptr %48, align 4, !tbaa !23
   %50 = fcmp olt float %49, %16
   br i1 %50, label %51, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds float, ptr %0, i64 %.019.i.i.i.i.i
+  %52 = getelementptr inbounds [4 x i8], ptr %0, i64 %.019.i.i.i.i.i
   store float %49, ptr %52, align 4, !tbaa !23
   %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !73
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %51 ]
-  %53 = getelementptr inbounds float, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store float %16, ptr %53, align 4, !tbaa !23
   %54 = icmp sgt i64 %19, 4
   br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !74
@@ -1418,7 +1399,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocator
 55:                                               ; preds = %11
   %56 = add nsw i64 %.018, -1
   %57 = lshr i64 %12, 1
-  %58 = getelementptr inbounds nuw float, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %57
   %59 = getelementptr inbounds i8, ptr %storemerge17, i64 -4
   %60 = load float, ptr %10, align 4, !tbaa !23
   %61 = load float, ptr %58, align 4, !tbaa !23
@@ -1542,13 +1523,13 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw float, ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw float, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
   %.07.us = phi i64 [ %43, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us ], [ %11, %9 ]
-  %20 = getelementptr inbounds float, ptr %0, i64 %.07.us
+  %20 = getelementptr inbounds [4 x i8], ptr %0, i64 %.07.us
   %21 = load float, ptr %20, align 4, !tbaa !23
   %22 = icmp slt i64 %.07.us, %13
   br i1 %22, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
@@ -1557,16 +1538,16 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.034.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.07.us, %.split.us ]
   %23 = shl i64 %.034.i.us, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds float, ptr %0, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds float, ptr %0, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %0, i64 %26
   %28 = load float, ptr %25, align 4, !tbaa !23
   %29 = load float, ptr %27, align 4, !tbaa !23
   %30 = fcmp olt float %28, %29
   %spec.select.i.us = select i1 %30, i64 %26, i64 %24
-  %31 = getelementptr inbounds float, ptr %0, i64 %spec.select.i.us
+  %31 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.us
   %32 = load float, ptr %31, align 4, !tbaa !23
-  %33 = getelementptr inbounds float, ptr %0, i64 %.034.i.us
+  %33 = getelementptr inbounds [4 x i8], ptr %0, i64 %.034.i.us
   store float %32, ptr %33, align 4, !tbaa !23
   %34 = icmp slt i64 %spec.select.i.us, %13
   br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !72
@@ -1579,20 +1560,20 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds nuw float, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i.us
   %37 = load float, ptr %36, align 4, !tbaa !23
   %38 = fcmp olt float %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
-  %40 = getelementptr inbounds nuw float, ptr %0, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.019.i.i.us
   store float %37, ptr %40, align 4, !tbaa !23
   %41 = icmp sgt i64 %.0920.i.i.us, %.07.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us, !llvm.loop !73
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
-  %42 = getelementptr inbounds nuw float, ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0.lcssa.i.i.us
   store float %21, ptr %42, align 4, !tbaa !23
   %.not.us = icmp eq i64 %.07.us, 0
   %43 = add nsw i64 %.07.us, -1
@@ -1600,7 +1581,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAlloca
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
   %.07 = phi i64 [ %71, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %44 = getelementptr inbounds float, ptr %0, i64 %.07
+  %44 = getelementptr inbounds [4 x i8], ptr %0, i64 %.07
   %45 = load float, ptr %44, align 4, !tbaa !23
   %46 = icmp slt i64 %.07, %13
   br i1 %46, label %.lr.ph.i, label %._crit_edge.i
@@ -1609,16 +1590,16 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAlloca
   %.034.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.07, %.split ]
   %47 = shl i64 %.034.i, 1
   %48 = add i64 %47, 2
-  %49 = getelementptr inbounds float, ptr %0, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %0, i64 %48
   %50 = or disjoint i64 %47, 1
-  %51 = getelementptr inbounds float, ptr %0, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %50
   %52 = load float, ptr %49, align 4, !tbaa !23
   %53 = load float, ptr %51, align 4, !tbaa !23
   %54 = fcmp olt float %52, %53
   %spec.select.i = select i1 %54, i64 %50, i64 %48
-  %55 = getelementptr inbounds float, ptr %0, i64 %spec.select.i
+  %55 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i
   %56 = load float, ptr %55, align 4, !tbaa !23
-  %57 = getelementptr inbounds float, ptr %0, i64 %.034.i
+  %57 = getelementptr inbounds [4 x i8], ptr %0, i64 %.034.i
   store float %56, ptr %57, align 4, !tbaa !23
   %58 = icmp slt i64 %spec.select.i, %13
   br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !72
@@ -1642,20 +1623,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAlloca
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds nuw float, ptr %0, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i
   %65 = load float, ptr %64, align 4, !tbaa !23
   %66 = fcmp olt float %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds nuw float, ptr %0, i64 %.019.i.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.019.i.i
   store float %65, ptr %68, align 4, !tbaa !23
   %69 = icmp sgt i64 %.0920.i.i, %.07
   br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !73
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds nuw float, ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0.lcssa.i.i
   store float %45, ptr %70, align 4, !tbaa !23
   %.not = icmp eq i64 %.07, 0
   %71 = add nsw i64 %.07, -1

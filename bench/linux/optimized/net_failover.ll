@@ -17,20 +17,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.27 = type { %struct.anon.28, [16 x i8] }
 %struct.anon.28 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.bus_type = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.netdevice_tracker = type {}
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.list_head = type { ptr, ptr }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.atomic64_t = type { i64 }
-%struct.spinlock = type { %union.anon.23 }
-%union.anon.23 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.24 }
-%union.anon.24 = type { %struct.atomic_t }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
 %struct.rtnl_link_stats64 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.netdev_lag_lower_state_info = type { i8 }
 
@@ -295,7 +281,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
 41:                                               ; preds = %41, %39
   %42 = phi i64 [ 0, %39 ], [ %45, %41 ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr %struct.netdev_queue, ptr %43, i64 %42
+  %44 = getelementptr [320 x i8], ptr %43, i64 %42
   tail call void @netif_tx_wake_queue(ptr noundef %44) #11
   %45 = add nuw nsw i64 %42, 1
   %46 = load i32, ptr %36, align 8
@@ -330,7 +316,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
 61:                                               ; preds = %61, %59
   %62 = phi i64 [ 0, %59 ], [ %68, %61 ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr %struct.netdev_queue, ptr %63, i64 %62
+  %64 = getelementptr [320 x i8], ptr %63, i64 %62
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %65) #11
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 132
@@ -376,7 +362,7 @@ define internal noundef i32 @net_failover_close(ptr noundef %0) #0 align 16 {
 11:                                               ; preds = %11, %9
   %12 = phi i64 [ 0, %9 ], [ %18, %11 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr %struct.netdev_queue, ptr %13, i64 %12
+  %14 = getelementptr [320 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %15) #11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 132
@@ -631,9 +617,9 @@ define internal void @net_failover_get_stats(ptr noundef %0, ptr noundef capture
 
 12:                                               ; preds = %29, %9
   %13 = phi i64 [ 0, %9 ], [ %30, %29 ]
-  %14 = getelementptr i64, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr i64, ptr %11, i64 %13
+  %16 = getelementptr [8 x i8], ptr %11, i64 %13
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %15, %17
   %19 = or i64 %17, %15
@@ -645,7 +631,7 @@ define internal void @net_failover_get_stats(ptr noundef %0, ptr noundef capture
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %12
-  %26 = getelementptr i64, ptr %1, i64 %13
+  %26 = getelementptr [8 x i8], ptr %1, i64 %13
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %23
   store i64 %28, ptr %26, align 8
@@ -673,9 +659,9 @@ define internal void @net_failover_get_stats(ptr noundef %0, ptr noundef capture
 
 40:                                               ; preds = %57, %37
   %41 = phi i64 [ 0, %37 ], [ %58, %57 ]
-  %42 = getelementptr i64, ptr %38, i64 %41
+  %42 = getelementptr [8 x i8], ptr %38, i64 %41
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr i64, ptr %39, i64 %41
+  %44 = getelementptr [8 x i8], ptr %39, i64 %41
   %45 = load i64, ptr %44, align 8
   %46 = sub i64 %43, %45
   %47 = or i64 %45, %43
@@ -687,7 +673,7 @@ define internal void @net_failover_get_stats(ptr noundef %0, ptr noundef capture
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %40
-  %54 = getelementptr i64, ptr %1, i64 %41
+  %54 = getelementptr [8 x i8], ptr %1, i64 %41
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, %51
   store i64 %56, ptr %54, align 8
@@ -1210,7 +1196,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
 39:                                               ; preds = %39, %37
   %40 = phi i64 [ 0, %37 ], [ %43, %39 ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr %struct.netdev_queue, ptr %41, i64 %40
+  %42 = getelementptr [320 x i8], ptr %41, i64 %40
   tail call void @netif_tx_wake_queue(ptr noundef %42) #11
   %43 = add nuw nsw i64 %40, 1
   %44 = load i32, ptr %34, align 8

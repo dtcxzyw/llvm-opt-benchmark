@@ -15,12 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr.31" = type { %"struct.std::__uniq_ptr_data.32" }
-%"struct.std::__uniq_ptr_data.32" = type { %"class.std::__uniq_ptr_impl.33" }
-%"class.std::__uniq_ptr_impl.33" = type { %"class.std::tuple.34" }
-%"class.std::tuple.34" = type { %"struct.std::_Tuple_impl.35" }
-%"struct.std::_Tuple_impl.35" = type { %"struct.std::_Head_base.38" }
-%"struct.std::_Head_base.38" = type { ptr }
 %"class.gmx::ExceptionInitializer" = type { %"class.std::__cxx11::basic_string", %"class.std::vector.49" }
 %"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
 %"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl" }
@@ -93,7 +87,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.198" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.200" = type { %"class.std::__shared_ptr.201" }
 %"class.std::__shared_ptr.201" = type { ptr, %"class.std::__shared_count" }
-%"class.gmx::Selection" = type { ptr }
 %"class.gmx::TextInputFile" = type { %"class.gmx::TextInputStream", %"class.std::unique_ptr.171" }
 %"class.std::unique_ptr.171" = type { %"struct.std::__uniq_ptr_data.172" }
 %"struct.std::__uniq_ptr_data.172" = type { %"class.std::__uniq_ptr_impl.173" }
@@ -790,7 +783,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS3_
 40:                                               ; preds = %.lr.ph, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit ]
   %41 = load ptr, ptr %37, align 8, !tbaa !85
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !86
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 121, ptr noundef %43)
           to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit unwind label %.loopexit
@@ -1289,7 +1282,7 @@ _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %30
   store ptr %23, ptr %3, align 8, !tbaa !105
   store ptr %29, ptr %4, align 8, !tbaa !99
-  %31 = getelementptr inbounds nuw %"class.std::__exception_ptr::exception_ptr", ptr %23, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %31, ptr %6, align 8, !tbaa !102
   %.pr = load ptr, ptr %2, align 8, !tbaa !103
   %.not.i = icmp eq ptr %.pr, null
@@ -1541,7 +1534,7 @@ _ZSt11make_uniqueIN3gmx19SelectionCollection4ImplEJEENSt8__detail9_MakeUniqIT_E1
 62:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %63 = phi ptr [ %51, %.lr.ph ], [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.02550 = phi i64 [ 0, %.lr.ph ], [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %63, i64 %.02550
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.02550
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %65 = load ptr, ptr %64, align 8, !tbaa !73
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
@@ -1629,7 +1622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %94 = load ptr, ptr %0, align 8, !tbaa !115
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8, !tbaa !71
-  %97 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %96, i64 %.02550
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.02550
   %98 = load ptr, ptr %97, align 8, !tbaa !73
   %99 = load ptr, ptr %64, align 8, !tbaa !73
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 264
@@ -2573,7 +2566,7 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZNSt6vectorINSt15_
 .lr.ph27:                                         ; preds = %.preheader, %140
   %137 = phi ptr [ %146, %140 ], [ %89, %.preheader ]
   %.026 = phi i64 [ %141, %140 ], [ 0, %.preheader ]
-  %138 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %137, i64 %.026
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %.026
   %139 = load ptr, ptr %138, align 8, !tbaa !73
   invoke void @_ZN3gmx8internal13SelectionData11refreshNameEv(ptr noundef nonnull align 8 dereferenceable(294) %139)
           to label %140 unwind label %152
@@ -3533,7 +3526,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %32, ptr %4, align 8, !tbaa !244
   store ptr %36, ptr %11, align 8, !tbaa !243
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %30
   store ptr %38, ptr %12, align 8, !tbaa !245
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -3749,7 +3742,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %3, align 8, !tbaa !244
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %26, ptr %4, align 8, !tbaa !243
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %11
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %11
   store ptr %27, ptr %15, align 8, !tbaa !245
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -3806,7 +3799,7 @@ _ZNSt12_Vector_baseIN3gmx19SelectionCollection4Impl10DebugLevelESaIS3_EE13_M_dea
   store ptr %49, ptr %29, align 8, !tbaa !246
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %36
   store ptr %53, ptr %31, align 8, !tbaa !248
-  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %38
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %38
   store ptr %54, ptr %42, align 8, !tbaa !249
   br label %_ZNSt6vectorIN3gmx19SelectionCollection4Impl10DebugLevelESaIS3_EE7reserveEm.exit
 
@@ -3876,7 +3869,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !244
   store ptr %29, ptr %4, align 8, !tbaa !243
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %11, align 8, !tbaa !245
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -3957,7 +3950,7 @@ _ZNSt6vectorIN3gmx19SelectionCollection4Impl10DebugLevelESaIS3_EE11_S_relocateEP
 _ZNSt6vectorIN3gmx19SelectionCollection4Impl10DebugLevelESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN3gmx19SelectionCollection4Impl10DebugLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %61, ptr %39, align 8, !tbaa !246
   store ptr %65, ptr %42, align 8, !tbaa !248
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %59
   store ptr %67, ptr %44, align 8, !tbaa !249
   br label %_ZNSt6vectorIN3gmx19SelectionCollection4Impl10DebugLevelESaIS3_EE9push_backEOS3_.exit
 
@@ -6376,7 +6369,7 @@ _ZNSt12_Vector_baseIN3gmx9SelectionESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; pred
   %.pre.pre = load ptr, ptr %47, align 8, !tbaa !112
   store ptr %387, ptr %0, align 8, !tbaa !122
   store ptr %387, ptr %388, align 8, !tbaa !297
-  %389 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %387, i64 %381
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %387, i64 %381
   store ptr %389, ptr %385, align 8, !tbaa !125
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE7reserveEm.exit
 
@@ -6470,7 +6463,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EE17_M_realloc_insertIJPNS0_8internal13Select
   %.pre258 = phi ptr [ %.pre258.pre, %420 ], [ %.pre258261, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i ]
   store ptr %414, ptr %0, align 8, !tbaa !122
   store ptr %419, ptr %393, align 8, !tbaa !297
-  %421 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %414, i64 %412
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %412
   store ptr %421, ptr %385, align 8, !tbaa !125
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE12emplace_backIJPNS0_8internal13SelectionDataEEEERS1_DpOT_.exit
 
@@ -6814,7 +6807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %90,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %98 = load ptr, ptr %71, align 8, !tbaa !308
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8, !tbaa !86
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull @.str.43, ptr noundef %100)
   invoke void @_ZN3gmx10TextWriter11writeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -6868,7 +6861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %109
   %118 = sub nuw i64 %.04486, %3
   %119 = trunc i64 %118 to i32
   %120 = add i32 %119, 1
-  %121 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %117, i64 %.04486
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.04486
   %122 = load ptr, ptr %121, align 8, !tbaa !73
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %124 = load ptr, ptr %123, align 8, !tbaa !67
@@ -8501,7 +8494,7 @@ define void @_ZNK3gmx19SelectionCollection13printXvgrInfoEP8_IO_FILE(ptr noundef
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %8, align 8, !tbaa !308
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !86
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.62, ptr noundef %16) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8517,7 +8510,7 @@ define void @_ZNK3gmx19SelectionCollection13printXvgrInfoEP8_IO_FILE(ptr noundef
 .lr.ph17:                                         ; preds = %.preheader, %.lr.ph17
   %22 = phi ptr [ %30, %.lr.ph17 ], [ %12, %.preheader ]
   %.016 = phi i64 [ %28, %.lr.ph17 ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %22, i64 %.016
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.016
   %24 = load ptr, ptr %23, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !67

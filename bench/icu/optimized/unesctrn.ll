@@ -904,7 +904,7 @@ define void @_ZN6icu_7722UnescapeTransliteratorC2ERKNS_13UnicodeStringEPKDs(ptr 
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %4 ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.i
   %6 = load i16, ptr %5, align 2, !tbaa !21
   %.not.i = icmp eq i16 %6, -1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -952,7 +952,7 @@ define void @_ZN6icu_7722UnescapeTransliteratorC2ERKS0_(ptr noundef nonnull alig
 
 5:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2, !tbaa !21
   %.not.i = icmp eq i16 %7, -1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1114,8 +1114,8 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef zeroext i16 %40(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.099179)
   %42 = load ptr, ptr %11, align 8, !tbaa !25
-  %43 = getelementptr i16, ptr %42, i64 %indvars.iv
-  %44 = getelementptr i16, ptr %43, i64 %31
+  %43 = getelementptr [2 x i8], ptr %42, i64 %indvars.iv
+  %44 = getelementptr [2 x i8], ptr %43, i64 %31
   %45 = load i16, ptr %44, align 2, !tbaa !21
   %.not127.not = icmp eq i16 %41, %45
   br i1 %.not127.not, label %32, label %.thread
@@ -1195,8 +1195,8 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef zeroext i16 %74(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.5104185)
   %76 = load ptr, ptr %11, align 8, !tbaa !25
-  %77 = getelementptr i16, ptr %76, i64 %indvars.iv217
-  %78 = getelementptr i16, ptr %77, i64 %65
+  %77 = getelementptr [2 x i8], ptr %76, i64 %indvars.iv217
+  %78 = getelementptr [2 x i8], ptr %77, i64 %65
   %79 = load i16, ptr %78, align 2, !tbaa !21
   %.not133.not = icmp eq i16 %75, %79
   br i1 %.not133.not, label %67, label %.thread
@@ -1237,7 +1237,7 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %94 = add i32 %93, %20
   %95 = load ptr, ptr %11, align 8, !tbaa !25
   %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds i16, ptr %95, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %95, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !21
   %.not = icmp eq i16 %98, -1
   br i1 %.not, label %.loopexit, label %.lr.ph196

@@ -3,7 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_submit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.nghttp2_origin_entry = type { ptr, i64 }
 %struct.nghttp2_data_provider_wrap = type { i32, %union.anon }
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { %union.nghttp2_data_source, ptr }
@@ -574,7 +573,7 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
 .preheader:                                       ; preds = %8, %.preheader
   %.071 = phi i64 [ %13, %.preheader ], [ 0, %8 ]
   %.06070 = phi i64 [ %12, %.preheader ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.071
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.071
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !48
   %12 = add i64 %11, %.06070
@@ -603,9 +602,9 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
 26:                                               ; preds = %23, %26
   %.173 = phi i64 [ 0, %23 ], [ %35, %26 ]
   %.06372 = phi ptr [ %25, %23 ], [ %34, %26 ]
-  %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %21, i64 %.173
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.173
   store ptr %.06372, ptr %27, align 8, !tbaa !52
-  %28 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.173
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.173
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8

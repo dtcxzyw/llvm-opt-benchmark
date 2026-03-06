@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/bn_ctx.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/bn/bn_ctx.c\00", align 1
 @__func__.BN_CTX_start = private unnamed_addr constant [13 x i8] c"BN_CTX_start\00", align 1
 @__func__.BN_CTX_get = private unnamed_addr constant [11 x i8] c"BN_CTX_get\00", align 1
@@ -209,7 +207,7 @@ BN_STACK_push.exit:                               ; preds = %._crit_edge.i, %.th
   %33 = add i32 %31, 1
   store i32 %33, ptr %13, align 8, !tbaa !28
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %34
   store i32 %12, ptr %35, align 4, !tbaa !30
   br label %39
 
@@ -256,7 +254,7 @@ define void @BN_CTX_end(ptr noundef captures(address_is_null) %0) local_unnamed_
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 8, !tbaa !28
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !27
@@ -423,7 +421,7 @@ BN_POOL_get.exit:                                 ; preds = %40, %._crit_edge.i,
   %52 = phi ptr [ %47, %._crit_edge.i ], [ %51, %49 ], [ %41, %40 ]
   %53 = add i32 %11, 1
   store i32 %53, ptr %10, align 8, !tbaa !31
-  %54 = getelementptr inbounds nuw %struct.bignum_st, ptr %52, i64 %.pre-phi.i
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %.pre-phi.i
   %55 = icmp eq ptr %52, null
   br i1 %55, label %BN_POOL_get.exit.thread, label %56
 

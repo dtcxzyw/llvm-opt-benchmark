@@ -9,12 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.44" = type { %"struct.std::_Head_base.45" }
 %"struct.std::_Head_base.45" = type { ptr }
 %"class.std::tuple.46" = type { i8 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.26" }
-%"struct.std::_Head_base.26" = type { ptr }
 %"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
@@ -24,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>, std::_Identity<cvc5::internal::NodeTemplate<true>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -325,7 +318,7 @@ _ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17Con
   br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i45
 
 _ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i45: ; preds = %79, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i43
-  %80 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12emplace_backIJRS8_EEESC_DpOT_.exit48
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i40
@@ -455,7 +448,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOrig
 _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE17_M_realloc_insertIJPS8_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i: ; preds = %127, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit22.i.i
   store ptr %121, ptr %38, align 8, !tbaa !38
   store ptr %126, ptr %102, align 8, !tbaa !34
-  %128 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %121, i64 %119
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %119
   store ptr %128, ptr %104, align 8, !tbaa !37
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12emplace_backIJPS8_EEERSB_DpOT_.exit
 
@@ -659,7 +652,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %.0.lcssa.i.i811.i.i = phi i64 [ 0, %32 ], [ %35, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   %40 = phi ptr [ null, %32 ], [ %39, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   store ptr %40, ptr %0, align 8, !tbaa !51
-  %41 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %40, i64 %.0.lcssa.i.i811.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0.lcssa.i.i811.i.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !53
   %43 = invoke noundef ptr @_ZSt16__do_uninit_copyISt23_Rb_tree_const_iteratorIN4cvc58internal12NodeTemplateILb1EEEEPS4_ET0_T_S8_S7_(ptr %33, ptr nonnull %5, ptr noundef %40)

@@ -64,7 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.libdecor_interface = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.wl_callback_listener = type { ptr }
 %struct.xdg_wm_base_listener = type { ptr }
-%struct._GLFWofferWayland = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"wl_display\00", align 1
 @wl_display_requests = internal constant [2 x %struct.wl_message] [%struct.wl_message { ptr @.str.130, ptr @.str.131, ptr getelementptr (i8, ptr @wayland_types, i64 64) }, %struct.wl_message { ptr @.str.132, ptr @.str.131, ptr getelementptr (i8, ptr @wayland_types, i64 72) }], align 16
@@ -1213,7 +1212,7 @@ thread-pre-split:                                 ; preds = %176
 
 292:                                              ; preds = %300, %284
   %indvars.iv.i = phi i64 [ 0, %284 ], [ %indvars.iv.next.i, %300 ]
-  %293 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %indvars.iv.i
+  %293 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %indvars.iv.i
   %294 = load i16, ptr %293, align 2, !tbaa !177
   %295 = icmp sgt i16 %294, 0
   br i1 %295, label %296, label %300
@@ -1221,7 +1220,7 @@ thread-pre-split:                                 ; preds = %176
 296:                                              ; preds = %292
   %297 = trunc i64 %indvars.iv.i to i16
   %298 = zext nneg i16 %294 to i64
-  %299 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 %298
+  %299 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 %298
   store i16 %297, ptr %299, align 2, !tbaa !177
   br label %300
 
@@ -1474,7 +1473,7 @@ define hidden void @_glfwTerminateWayland() #0 {
 .lr.ph73:                                         ; preds = %42, %.lr.ph73
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph73 ], [ 0, %42 ]
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134032), align 8, !tbaa !193
-  %47 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !195
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !117
@@ -2163,7 +2162,7 @@ define internal void @registryHandleGlobalRemove(ptr readnone captures(none) %0,
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !215
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load i32, ptr %10, align 8, !tbaa !217

@@ -108,7 +108,7 @@ define i32 @adjustInfoAfterSwap(ptr noundef captures(none) %0, i32 noundef %1, i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %6 = and i64 %5, %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -129,7 +129,7 @@ define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @Extra_Truth6ChangePhase.Truth6, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %6 = xor i64 %5, -1
   %7 = and i64 %0, %6
@@ -145,7 +145,7 @@ define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @Extra_Truth6ChangePhase.Truth6, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !10
   %8 = xor i64 %7, -1
   %9 = and i64 %0, %8
@@ -160,7 +160,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noun
   %spec.select61 = zext i1 %16 to i32
   %17 = add nsw i32 %1, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr @Extra_Truth6ChangePhase.Truth6, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !10
   %21 = xor i64 %20, -1
   %22 = and i64 %0, %21
@@ -181,7 +181,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noun
   %35 = icmp ult i64 %34, %.147
   %.248 = tail call i64 @llvm.umin.i64(i64 %34, i64 %.147)
   %.2 = select i1 %35, i32 3, i32 %.1
-  %36 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %5
+  %36 = getelementptr inbounds [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %5
   %37 = load i64, ptr %36, align 8, !tbaa !10
   %38 = and i64 %37, %0
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -282,7 +282,7 @@ adjustInfoAfterSwap.exit:                         ; preds = %69, %97, %85, %82
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !10
   %8 = and i64 %7, %0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -340,13 +340,13 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   %.122 = phi i64 [ %.0, %5 ], [ %.2, %108 ]
   %.01720 = phi i32 [ %6, %5 ], [ %.118, %108 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = icmp eq i32 %.01720, %9
   br i1 %10, label %11, label %108
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !10
   %14 = xor i64 %13, -1
   %15 = and i64 %.122, %14
@@ -360,7 +360,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   %23 = icmp ult i64 %22, %.122
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.122)
   %spec.select61.i = zext i1 %23 to i32
-  %24 = getelementptr inbounds nuw i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv.next
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = xor i64 %25, -1
   %27 = and i64 %.122, %26
@@ -381,7 +381,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   %40 = icmp ult i64 %39, %.147.i
   %.248.i = tail call i64 @llvm.umin.i64(i64 %39, i64 %.147.i)
   %.2.i = select i1 %40, i32 3, i32 %.1.i
-  %41 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8, !tbaa !10
   %43 = and i64 %42, %.122
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -507,13 +507,13 @@ define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef read
   %.122 = phi i64 [ %.0, %5 ], [ %.2, %Extra_Truth6MinimumRoundOne_noEBFC.exit ]
   %.01720 = phi i32 [ %6, %5 ], [ %.118, %Extra_Truth6MinimumRoundOne_noEBFC.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = icmp eq i32 %.01720, %9
   br i1 %10, label %11, label %Extra_Truth6MinimumRoundOne_noEBFC.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !10
   %14 = and i64 %13, %.122
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -593,13 +593,13 @@ define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly c
   %.122.i = phi i64 [ %.0.i, %.preheader ], [ %.2.i, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
   %.01720.i = phi i32 [ %10, %.preheader ], [ %.118.i, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next.i
   %14 = load i32, ptr %13, align 4, !tbaa !8
   %15 = icmp eq i32 %.01720.i, %14
   br i1 %15, label %16, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i
   %18 = load i64, ptr %17, align 8, !tbaa !10
   %19 = and i64 %18, %.122.i
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -669,13 +669,13 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap
   %.122.i49 = phi i64 [ %.0.i47, %51 ], [ %.2.i54, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
   %.01720.i50 = phi i32 [ %53, %51 ], [ %.118.i53, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
-  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i51
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next.i51
   %57 = load i32, ptr %56, align 4, !tbaa !8
   %58 = icmp eq i32 %.01720.i50, %57
   br i1 %58, label %59, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i48
+  %60 = getelementptr inbounds nuw [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i48
   %61 = load i64, ptr %60, align 8, !tbaa !10
   %62 = and i64 %61, %.122.i49
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -740,13 +740,13 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit60:       ; preds = %89
   %.122.i63 = phi i64 [ %.0.i61, %92 ], [ %.2.i68, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
   %.01720.i64 = phi i32 [ %91, %92 ], [ %.118.i67, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i62, 1
-  %94 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i65
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next.i65
   %95 = load i32, ptr %94, align 4, !tbaa !8
   %96 = icmp eq i32 %.01720.i64, %95
   br i1 %96, label %97, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i62
+  %98 = getelementptr inbounds nuw [24 x i8], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i62
   %99 = load i64, ptr %98, align 8, !tbaa !10
   %100 = and i64 %99, %.122.i63
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8

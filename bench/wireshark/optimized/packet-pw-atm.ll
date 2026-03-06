@@ -629,7 +629,7 @@ thread-pre-split139:                              ; preds = %111, %108
 
 switch.lookup:                                    ; preds = %115
   %119 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_control_word, i64 %119
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_control_word, i64 %119
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge
 
@@ -1813,7 +1813,7 @@ proto_item_set_generated.exit105:                 ; preds = %86, %83, %80, %prot
 
 switch.lookup:                                    ; preds = %proto_item_set_generated.exit105
   %90 = zext nneg i32 %22 to i64
-  %91 = getelementptr i32, ptr @switch.table.dissect_11_or_aal5_pdu, i64 %90
+  %91 = getelementptr [4 x i8], ptr @switch.table.dissect_11_or_aal5_pdu, i64 %90
   %switch.gep = getelementptr i8, ptr %91, i64 -12
   %switch.load = load i32, ptr %switch.gep, align 4
   %92 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %60, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.183, i32 noundef %.082, i32 noundef %switch.load)

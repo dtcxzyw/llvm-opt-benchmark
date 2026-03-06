@@ -18,8 +18,8 @@ define void @nxsem_initialize_holders() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = getelementptr inbounds nuw %struct.semholder_s, ptr @g_holderalloc, i64 %indvars.iv.next
-  %3 = getelementptr inbounds nuw %struct.semholder_s, ptr @g_holderalloc, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [40 x i8], ptr @g_holderalloc, i64 %indvars.iv.next
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @g_holderalloc, i64 %indvars.iv
   store ptr %2, ptr %3, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %4, label %1, !llvm.loop !6

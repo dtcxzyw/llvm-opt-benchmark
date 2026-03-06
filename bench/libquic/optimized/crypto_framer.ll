@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.net::QuicDataReader" = type { ptr, i64, i64 }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
-%"struct.std::pair.24" = type { i32, i64 }
 %"class.net::QuicDataWriter" = type { ptr, i64, i64 }
 
 $_ZTIN3net28CryptoFramerVisitorInterfaceE = comdat any
@@ -591,7 +590,7 @@ _ZNSt12_Vector_baseISt4pairIjmESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %
   store ptr %97, ptr %81, align 8, !tbaa !45
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 %95
   store ptr %101, ptr %92, align 8, !tbaa !46
-  %102 = getelementptr inbounds nuw %"struct.std::pair.24", ptr %97, i64 %83
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %83
   store ptr %102, ptr %84, align 8, !tbaa !68
   br label %_ZNSt6vectorISt4pairIjmESaIS1_EE7reserveEm.exit
 
@@ -631,7 +630,7 @@ _ZNSt6vectorISt4pairIjmESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
 116:                                              ; preds = %114
   %117 = load i32, ptr %9, align 4, !tbaa !65
   %118 = load ptr, ptr %111, align 8, !tbaa !45
-  %119 = getelementptr %"struct.std::pair.24", ptr %118, i64 %indvars.iv
+  %119 = getelementptr [16 x i8], ptr %118, i64 %indvars.iv
   %120 = getelementptr i8, ptr %119, i64 -16
   %121 = load i32, ptr %120, align 8, !tbaa !76
   %.not36 = icmp ugt i32 %117, %121
@@ -1012,7 +1011,7 @@ _ZNSt6vectorISt4pairIjmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %259, %_ZNSt6vectorISt4pairIjmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %254, ptr %111, align 8, !tbaa !45
   store ptr %258, ptr %112, align 8, !tbaa !46
-  %260 = getelementptr inbounds nuw %"struct.std::pair.24", ptr %254, i64 %252
+  %260 = getelementptr inbounds nuw [16 x i8], ptr %254, i64 %252
   store ptr %260, ptr %113, align 8, !tbaa !68
   br label %261
 

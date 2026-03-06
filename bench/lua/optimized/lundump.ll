@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.LoadState = type { ptr, ptr, ptr, ptr, i64, i64, i8 }
 %struct.TValue = type { %union.Value, i8 }
 %union.Value = type { ptr }
-%struct.Upvaldesc = type { ptr, i8, i8, i8 }
-%struct.LocVar = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"\1BLua\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"binary string\00", align 1
@@ -861,7 +859,7 @@ loadUint.exit.i45:                                ; preds = %190
 
 .lr.ph.i:                                         ; preds = %loadUint.exit.i45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %loadUint.exit.i45 ]
-  %202 = getelementptr inbounds nuw %struct.TValue, ptr %198, i64 %indvars.iv.i
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %198, i64 %indvars.iv.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i8 0, ptr %203, align 8, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -871,7 +869,7 @@ loadUint.exit.i45:                                ; preds = %190
 204:                                              ; preds = %254, %.lr.ph46.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph46.i ], [ %indvars.iv.next50.i, %254 ]
   %205 = load ptr, ptr %199, align 8, !tbaa !52
-  %206 = getelementptr inbounds nuw %struct.TValue, ptr %205, i64 %indvars.iv49.i
+  %206 = getelementptr inbounds nuw [16 x i8], ptr %205, i64 %indvars.iv49.i
   %207 = load ptr, ptr %7, align 8, !tbaa !17
   %208 = load i64, ptr %207, align 8, !tbaa !20
   %209 = add i64 %208, -1
@@ -1062,7 +1060,7 @@ loadUint.exit.i53:                                ; preds = %272
 
 .lr.ph.i55:                                       ; preds = %loadUint.exit.i53, %.lr.ph.i55
   %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i57, %.lr.ph.i55 ], [ 0, %loadUint.exit.i53 ]
-  %284 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %281, i64 %indvars.iv.i56
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %281, i64 %indvars.iv.i56
   store ptr null, ptr %284, align 8, !tbaa !59
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %277
@@ -1110,7 +1108,7 @@ loadByte.exit.i61:                                ; preds = %.loadByte.exit_crit
   %302 = load i64, ptr %8, align 8, !tbaa !19
   %303 = add i64 %302, 1
   store i64 %303, ptr %8, align 8, !tbaa !19
-  %304 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %298, i64 %indvars.iv34.i
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %indvars.iv34.i
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store i8 %301, ptr %305, align 8, !tbaa !61
   %306 = add i64 %299, -1
@@ -1151,7 +1149,7 @@ loadByte.exit25.i:                                ; preds = %.loadByte.exit25_cr
   %320 = phi i8 [ %310, %.thread.i24.i ], [ %314, %.loadByte.exit25_crit_edge.i ]
   %321 = add i64 %319, 1
   store i64 %321, ptr %8, align 8, !tbaa !19
-  %322 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %316, i64 %indvars.iv34.i
+  %322 = getelementptr inbounds nuw [16 x i8], ptr %316, i64 %indvars.iv34.i
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 9
   store i8 %320, ptr %323, align 1, !tbaa !62
   %324 = add i64 %317, -1
@@ -1188,7 +1186,7 @@ loadByte.exit28.i:                                ; preds = %.loadByte.exit28_cr
   %336 = phi i8 [ %328, %.thread.i27.i ], [ %332, %.loadByte.exit28_crit_edge.i ]
   %337 = add i64 %335, 1
   store i64 %337, ptr %8, align 8, !tbaa !19
-  %338 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %334, i64 %indvars.iv34.i
+  %338 = getelementptr inbounds nuw [16 x i8], ptr %334, i64 %indvars.iv34.i
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 10
   store i8 %336, ptr %339, align 2, !tbaa !63
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
@@ -1269,7 +1267,7 @@ loadUint.exit:                                    ; preds = %357
   %372 = load ptr, ptr %0, align 8, !tbaa !16
   %373 = call ptr @luaF_newproto(ptr noundef %372) #7
   %374 = load ptr, ptr %367, align 8, !tbaa !64
-  %375 = getelementptr inbounds nuw ptr, ptr %374, i64 %indvars.iv
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %indvars.iv
   store ptr %373, ptr %375, align 8, !tbaa !66
   %376 = load i8, ptr %370, align 1, !tbaa !35
   %377 = and i8 %376, 32
@@ -1287,7 +1285,7 @@ loadUint.exit:                                    ; preds = %357
   %383 = load ptr, ptr %0, align 8, !tbaa !16
   call void @luaC_barrier_(ptr noundef %383, ptr noundef nonnull %1, ptr noundef nonnull %373) #7
   %.pre134 = load ptr, ptr %367, align 8, !tbaa !64
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre134, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre134, i64 %indvars.iv
   %.pre135 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !66
   br label %384
 
@@ -1605,7 +1603,7 @@ loadUint.exit88.i:                                ; preds = %509
 
 .lr.ph.i73:                                       ; preds = %loadUint.exit88.i, %.lr.ph.i73
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.lr.ph.i73 ], [ 0, %loadUint.exit88.i ]
-  %520 = getelementptr inbounds nuw %struct.LocVar, ptr %517, i64 %indvars.iv.i74
+  %520 = getelementptr inbounds nuw [16 x i8], ptr %517, i64 %indvars.iv.i74
   store ptr null, ptr %520, align 8, !tbaa !73
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %513
@@ -1614,7 +1612,7 @@ loadUint.exit88.i:                                ; preds = %509
 .lr.ph116.i:                                      ; preds = %.lr.ph.i73, %loadInt.exit99.i
   %521 = phi ptr [ %576, %loadInt.exit99.i ], [ %517, %.lr.ph.i73 ]
   %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %loadInt.exit99.i ], [ 0, %.lr.ph.i73 ]
-  %522 = getelementptr inbounds nuw %struct.LocVar, ptr %521, i64 %indvars.iv130.i
+  %522 = getelementptr inbounds nuw [16 x i8], ptr %521, i64 %indvars.iv130.i
   call fastcc void @loadString(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %522)
   br label %523
 
@@ -1669,7 +1667,7 @@ loadByte.exit.i.i92.i:                            ; preds = %532, %.thread.i.i.i
 loadInt.exit.i:                                   ; preds = %541
   %547 = trunc nuw nsw i64 %546 to i32
   %548 = load ptr, ptr %518, align 8, !tbaa !71
-  %549 = getelementptr inbounds nuw %struct.LocVar, ptr %548, i64 %indvars.iv130.i
+  %549 = getelementptr inbounds nuw [16 x i8], ptr %548, i64 %indvars.iv130.i
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 8
   store i32 %547, ptr %550, align 8, !tbaa !75
   br label %551
@@ -1729,7 +1727,7 @@ loadByte.exit.i.i97.i:                            ; preds = %.loadByte.exit.i.i9
 loadInt.exit99.i:                                 ; preds = %570
   %575 = trunc nuw nsw i64 %574 to i32
   %576 = load ptr, ptr %518, align 8, !tbaa !71
-  %577 = getelementptr inbounds nuw %struct.LocVar, ptr %576, i64 %indvars.iv130.i
+  %577 = getelementptr inbounds nuw [16 x i8], ptr %576, i64 %indvars.iv130.i
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 12
   store i32 %575, ptr %578, align 4, !tbaa !76
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
@@ -1803,7 +1801,7 @@ loadUint.exit105.i:                               ; preds = %596
 604:                                              ; preds = %604, %.lr.ph118.i
   %indvars.iv136.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next137.i, %604 ]
   %605 = load ptr, ptr %282, align 8, !tbaa !57
-  %606 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %605, i64 %indvars.iv136.i
+  %606 = getelementptr inbounds nuw [16 x i8], ptr %605, i64 %indvars.iv136.i
   call fastcc void @loadString(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %606)
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %exitcond140.not.i = icmp eq i64 %indvars.iv.next137.i, %wide.trip.count139.i

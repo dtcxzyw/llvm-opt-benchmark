@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.rocksdb::OperationStageInfo" = type { i32, %"class.std::__cxx11::basic_string" }
 %"struct.rocksdb::StateInfo" = type { i32, %"class.std::__cxx11::basic_string" }
 %"struct.rocksdb::OperationProperty" = type { i32, %"class.std::__cxx11::basic_string" }
-%"struct.rocksdb::DbPath" = type { %"class.std::__cxx11::basic_string", i64 }
 %"struct.rocksdb::InfoLogPrefix" = type { [260 x i8], %"class.rocksdb::Slice" }
 %"class.rocksdb::Slice" = type { ptr, i64 }
 %"class.std::allocator.0" = type { i8 }
@@ -1562,7 +1561,7 @@ define void @_ZN7rocksdb13TableFileNameB5cxx11ERKSt6vectorINS_6DbPathESaIS1_EEmj
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 40
   %.not = icmp ugt i64 %14, %7
-  %15 = getelementptr inbounds nuw %"struct.rocksdb::DbPath", ptr %10, i64 %7
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %7
   %16 = getelementptr inbounds i8, ptr %9, i64 -40
   %17 = select i1 %.not, ptr %15, ptr %16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %17)
@@ -7248,7 +7247,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !301
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !298
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !300
   ret void
 

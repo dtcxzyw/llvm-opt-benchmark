@@ -4111,7 +4111,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc122384c2
   %100 = add i64 %.sroa.01.0.i.i.i, %99
   %101 = and i64 %100, %91
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %92, i64 %102
+  %103 = getelementptr inbounds [24 x i8], ptr %92, i64 %102
   %104 = getelementptr i8, ptr %103, i64 -8
   %.val4.i.i.i = load i64, ptr %104, align 8, !alias.scope !727, !noalias !732, !noundef !4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val4.i.i.i, 38
@@ -4262,7 +4262,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc122384c2
   %161 = add i64 %.sroa.01.0.i.i.i59, %160
   %162 = and i64 %161, %152
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, ptr %153, i64 %163
+  %164 = getelementptr inbounds [48 x i8], ptr %153, i64 %163
   %165 = getelementptr i8, ptr %164, i64 -32
   %.val4.i.i.i63 = load i64, ptr %165, align 8, !alias.scope !805, !noalias !810, !noundef !4
   %.not.i.i.i.i.i.i.i.i64 = icmp eq i64 %.val45, %.val4.i.i.i63
@@ -5138,7 +5138,7 @@ _ZN8schemars3gen15SchemaGenerator20json_schema_internal17hfa1c2caffd2a3091E.exit
   %83 = load ptr, ptr %82, align 8, !alias.scope !994, !nonnull !4, !noundef !4
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %85 = load i64, ptr %84, align 8, !alias.scope !994, !noundef !4
-  %86 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %83, i64 %85
+  %86 = getelementptr inbounds [16 x i8], ptr %83, i64 %85
   br label %87
 
 87:                                               ; preds = %90, %79
@@ -5310,7 +5310,7 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h39632703ebde94c6E.exit.i: ; preds = %3
-  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i64 %14
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %14
   call void @_ZN4core3ptr4swap17ha82ad9c80ebfaa5aE.llvm.10525918402515997389(ptr noundef nonnull %12, ptr noundef nonnull %17), !noalias !1024
   br label %.outer.i
 
@@ -5499,7 +5499,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %55 = add i64 %.sroa.01.0.i.i, %54
   %56 = and i64 %55, %46
   %57 = sub nsw i64 0, %56
-  %58 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %47, i64 %57
+  %58 = getelementptr inbounds [24 x i8], ptr %47, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 -24
   %60 = call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hebb030b84ac9a282E.llvm.3860437296372668795"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59), !noalias !1092
   br i1 %60, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1297fd13e1e2ae0dE.exit", label %63
@@ -7306,7 +7306,7 @@ define void @"_ZN102_$LT$context_servers..manager..ContextServerSettings$u20$as$
   %13 = load ptr, ptr %12, align 8, !alias.scope !1432, !noalias !1435, !nonnull !4, !align !5, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !1432, !noalias !1435, !noundef !4
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1440)
   %.sroa.4.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7490,7 +7490,7 @@ define void @_ZN15context_servers7manager20ContextServerManager10add_server17he5
   %40 = add i64 %.sroa.01.0.i.i.i, %39
   %41 = and i64 %40, %31
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, ptr }, ptr %32, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %32, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -32
   %45 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hebb030b84ac9a282E.llvm.3860437296372668795"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %44)
           to label %.noexc8 unwind label %.loopexit.split-lp.loopexit
@@ -7573,7 +7573,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %1
   %80 = add i64 %.sroa.01.0.i.i.i13, %79
   %81 = and i64 %80, %71
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %72, i64 %82
+  %83 = getelementptr inbounds [24 x i8], ptr %72, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -24
   %85 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hebb030b84ac9a282E.llvm.3860437296372668795"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84)
           to label %.noexc22 unwind label %.loopexit
@@ -7752,7 +7752,7 @@ define noundef ptr @_ZN15context_servers7manager20ContextServerManager10get_serv
   %25 = add i64 %.sroa.01.0.i.i.i, %24
   %26 = and i64 %25, %16
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, ptr }, ptr %17, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %17, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -16
   %.val5.i.i.i = load i64, ptr %29, align 8, !alias.scope !1573, !noalias !1580, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %2, %.val5.i.i.i
@@ -8266,7 +8266,7 @@ define void @_ZN15context_servers8registry21ContextServerRegistry16register_comm
   store i8 %50, ptr %57, align 1, !noalias !1668
   %58 = load ptr, ptr %.sroa.433.0.copyload, align 8, !alias.scope !1671, !noalias !1668, !nonnull !4, !noundef !4
   %59 = sub nsw i64 0, %40
-  %60 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %58, i64 %59
+  %60 = getelementptr inbounds [48 x i8], ptr %58, i64 %59
   %61 = and i8 %48, 1
   %62 = zext nneg i8 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.433.0.copyload, i64 16
@@ -8350,7 +8350,7 @@ define void @_ZN15context_servers8registry21ContextServerRegistry16register_comm
 94:                                               ; preds = %86, %77
   %95 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
   %96 = load ptr, ptr %95, align 8, !alias.scope !1676, !nonnull !4, !noundef !4
-  %97 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %96, i64 %83
+  %97 = getelementptr inbounds [16 x i8], ptr %96, i64 %83
   store ptr %78, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %80, ptr %98, align 8
@@ -8450,7 +8450,7 @@ define void @_ZN15context_servers8registry21ContextServerRegistry18unregister_co
   %35 = add i64 %.sroa.01.0.i.i.i, %34
   %36 = and i64 %35, %26
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %27, i64 %37
+  %38 = getelementptr inbounds [48 x i8], ptr %27, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -32
   %.val5.i.i.i = load i64, ptr %39, align 8, !alias.scope !1718, !noalias !1725, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %2, %.val5.i.i.i
@@ -8594,7 +8594,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %36 = add i64 %.sroa.01.0.i.i.i, %35
   %37 = and i64 %36, %27
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %28, i64 %38
+  %39 = getelementptr inbounds [48 x i8], ptr %28, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -32
   %.val5.i.i.i = load i64, ptr %40, align 8, !alias.scope !1778, !noalias !1785, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %3, %.val5.i.i.i
@@ -8957,7 +8957,7 @@ define hidden void @"_ZN15context_servers6client6Client7request28_$u7b$$u7b$clos
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h39632703ebde94c6E.exit: ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %13
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %13
   call void @_ZN4core3ptr4swap17ha82ad9c80ebfaa5aE.llvm.10525918402515997389(ptr noundef nonnull %11, ptr noundef nonnull %16), !noalias !1814
   br label %.outer
 

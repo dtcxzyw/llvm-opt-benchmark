@@ -209,7 +209,7 @@ define dso_local void @logfc(ptr noundef captures(address_is_null) %0, ptr nound
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = zext nneg i8 %27 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   call void @kfree(ptr noundef %44) #11
   %.pre = load i8, ptr %28, align 1
@@ -226,7 +226,7 @@ define dso_local void @logfc(ptr noundef captures(address_is_null) %0, ptr nound
   %50 = select i1 %49, ptr @.str.12, ptr %24
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = zext nneg i8 %27 to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   store ptr %50, ptr %53, align 8
   %54 = shl nuw i8 1, %27
   br i1 %49, label %59, label %55
@@ -887,7 +887,7 @@ define dso_local void @put_fs_context(ptr noundef %0) #0 align 16 {
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %52
-  %61 = getelementptr ptr, ptr %51, i64 %53
+  %61 = getelementptr [8 x i8], ptr %51, i64 %53
   %62 = load ptr, ptr %61, align 8
   tail call void @kfree(ptr noundef %62) #11
   br label %63

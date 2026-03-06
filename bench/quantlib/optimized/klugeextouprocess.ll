@@ -1043,7 +1043,7 @@ invoke.cont15:                                    ; preds = %.noexc7, %invoke.co
           to label %invoke.cont19 unwind label %lpad6
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %12 = getelementptr double, ptr %cond.i, i64 %call
+  %12 = getelementptr [8 x i8], ptr %cond.i, i64 %call
   %arrayidx.i = getelementptr i8, ptr %12, i64 -8
   store double %call20, ptr %arrayidx.i, align 8, !tbaa !69
   %13 = load ptr, ptr %x0, align 8, !tbaa !3
@@ -1165,7 +1165,7 @@ invoke.cont15:                                    ; preds = %.noexc9, %invoke.co
   %11 = load ptr, ptr %x, align 8, !tbaa !3
   %n_.i10 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %12 = load i64, ptr %n_.i10, align 8, !tbaa !61
-  %13 = getelementptr double, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %arrayidx.i = getelementptr i8, ptr %13, i64 -8
   %14 = load double, ptr %arrayidx.i, align 8, !tbaa !69
   %vtable19 = load ptr, ptr %10, align 8, !tbaa !28
@@ -1175,7 +1175,7 @@ invoke.cont15:                                    ; preds = %.noexc9, %invoke.co
           to label %invoke.cont21 unwind label %lpad6
 
 invoke.cont21:                                    ; preds = %invoke.cont15
-  %16 = getelementptr double, ptr %cond.i, i64 %call
+  %16 = getelementptr [8 x i8], ptr %cond.i, i64 %call
   %arrayidx.i12 = getelementptr i8, ptr %16, i64 -8
   store double %call22, ptr %arrayidx.i12, align 8, !tbaa !69
   %17 = load ptr, ptr %mu, align 8, !tbaa !3
@@ -1278,7 +1278,7 @@ invoke.cont:                                      ; preds = %.noexc, %_ZN8QuantL
   %8 = load ptr, ptr %x, align 8, !tbaa !3
   %n_.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %9 = load i64, ptr %n_.i, align 8, !tbaa !61
-  %10 = getelementptr double, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %arrayidx.i = getelementptr i8, ptr %10, i64 -8
   %11 = load double, ptr %arrayidx.i, align 8, !tbaa !69
   %vtable8 = load ptr, ptr %7, align 8, !tbaa !28
@@ -1327,7 +1327,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %invoke.cont13
 invoke.cont28:                                    ; preds = %_ZN8QuantLib6MatrixD2Ev.exit
   %mul = fmul double %call11, %18
   %mul.i.i = mul i64 %call4, %call27
-  %add.ptr.i.i16 = getelementptr inbounds nuw double, ptr %5, i64 %mul.i.i
+  %add.ptr.i.i16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %mul.i.i
   store double %mul, ptr %add.ptr.i.i16, align 8, !tbaa !69
   %sqrtMRho_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %20 = load double, ptr %sqrtMRho_, align 8, !tbaa !47
@@ -1346,9 +1346,9 @@ invoke.cont36:                                    ; preds = %invoke.cont28
 
 invoke.cont40:                                    ; preds = %invoke.cont36
   %mul.i.i18 = mul i64 %call35, %call4
-  %add.ptr.i.i19 = getelementptr inbounds nuw double, ptr %5, i64 %mul.i.i18
+  %add.ptr.i.i19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %mul.i.i18
   %mul31 = fmul double %call11, %20
-  %arrayidx42 = getelementptr inbounds nuw double, ptr %add.ptr.i.i19, i64 %call41
+  %arrayidx42 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i19, i64 %call41
   store double %mul31, ptr %arrayidx42, align 8, !tbaa !69
   ret void
 
@@ -1438,7 +1438,7 @@ invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i, 
   %9 = load ptr, ptr %dw, align 8, !tbaa !3
   %n_.i10 = getelementptr inbounds nuw i8, ptr %dw, i64 8
   %10 = load i64, ptr %n_.i10, align 8, !tbaa !61
-  %11 = getelementptr double, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %arrayidx.i = getelementptr i8, ptr %11, i64 -8
   %12 = load double, ptr %arrayidx.i, align 8, !tbaa !69
   %sqrtMRho_ = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -1466,7 +1466,7 @@ invoke.cont21:                                    ; preds = %.noexc14, %invoke.c
   %19 = load ptr, ptr %x0, align 8, !tbaa !3
   %n_.i15 = getelementptr inbounds nuw i8, ptr %x0, i64 8
   %20 = load i64, ptr %n_.i15, align 8, !tbaa !61
-  %21 = getelementptr double, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %arrayidx.i16 = getelementptr i8, ptr %21, i64 -8
   %22 = load double, ptr %arrayidx.i16, align 8, !tbaa !69
   %vtable25 = load ptr, ptr %17, align 8, !tbaa !28
@@ -1476,7 +1476,7 @@ invoke.cont21:                                    ; preds = %.noexc14, %invoke.c
           to label %invoke.cont27 unwind label %lpad15
 
 invoke.cont27:                                    ; preds = %invoke.cont21
-  %24 = getelementptr double, ptr %cond.i, i64 %call
+  %24 = getelementptr [8 x i8], ptr %cond.i, i64 %call
   %arrayidx.i18 = getelementptr i8, ptr %24, i64 -8
   store double %call28, ptr %arrayidx.i18, align 8, !tbaa !69
   %25 = load ptr, ptr %ev, align 8, !tbaa !3

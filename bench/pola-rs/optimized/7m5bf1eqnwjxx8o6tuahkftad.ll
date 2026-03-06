@@ -954,7 +954,7 @@ define { ptr, i64 } @_ZN12polars_utils7idx_map13bytes_idx_map3Key3get17h5b861b85
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i64 %2, %6
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %1, i64 %6
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !8, !noundef !8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8

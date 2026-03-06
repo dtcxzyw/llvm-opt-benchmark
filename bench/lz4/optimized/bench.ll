@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.compressionParameters = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.blockParam_t = type { ptr, i64, ptr, i64, i64, ptr, i64 }
 
 @g_additionalParam = dso_local local_unnamed_addr global i32 0, align 4
 @g_benchSeparately = dso_local local_unnamed_addr global i32 0, align 4
@@ -485,7 +484,7 @@ BMK_syntheticTest.exit:                           ; preds = %123
 139:                                              ; preds = %139, %138
   %indvars.iv.i = phi i64 [ 0, %138 ], [ %indvars.iv.next.i, %139 ]
   %.01618.i = phi i32 [ 0, %138 ], [ %142, %139 ]
-  %140 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %141 = tail call fastcc i32 @BMK_benchFileTable(ptr noundef readonly %140, i32 noundef 1, i32 noundef %spec.store.select, i32 noundef %minmaxop.i, ptr noundef %.047, i32 noundef range(i32 0, 65537) %.0)
   %142 = or i32 %141, %.01618.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -536,7 +535,7 @@ define internal fastcc range(i32 0, 2) i32 @BMK_benchFileTable(ptr noundef reado
 16:                                               ; preds = %UTIL_getFileSize.exit.i, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %UTIL_getFileSize.exit.i ]
   %.067.i = phi i64 [ 0, %6 ], [ %25, %UTIL_getFileSize.exit.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = call i32 @stat(ptr noundef readonly %18, ptr noundef nonnull %9) #19
@@ -705,7 +704,7 @@ UTIL_getTotalFileSize.exit:                       ; preds = %UTIL_getFileSize.ex
   %.091.i = phi i32 [ %1, %83 ], [ %.1.i57, %166 ]
   %.04290.i = phi i64 [ 0, %83 ], [ %.143.i, %166 ]
   %.04588.i = phi i64 [ 0, %83 ], [ %.146.i, %166 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i53
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i53
   %89 = load ptr, ptr %88, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %90 = call i32 @stat(ptr noundef readonly %89, ptr noundef nonnull %8) #19
@@ -746,7 +745,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
   br label %108
 
 108:                                              ; preds = %104, %101
-  %109 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i53
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i53
   store i64 0, ptr %109, align 8, !tbaa !11
   br label %166
 
@@ -856,7 +855,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
   %161 = trunc nuw i64 %indvars.iv.i53 to i32
   %spec.select63.i = select i1 %160, i32 %161, i32 %.091.i
   %162 = add i64 %spec.select.i59, %.04290.i
-  %163 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i53
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i53
   store i64 %spec.select.i59, ptr %163, align 8, !tbaa !11
   %164 = add i64 %spec.select.i59, %.04588.i
   %165 = tail call i32 @fclose(ptr noundef nonnull %112)
@@ -1151,7 +1150,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %.0284424.i = phi ptr [ %.1285.lcssa.i, %._crit_edge.i ], [ %0, %.preheader ]
   %.0288423.i = phi ptr [ %.1289.lcssa.i, %._crit_edge.i ], [ %64, %.preheader ]
   %.0291422.i = phi ptr [ %.1292.lcssa.i, %._crit_edge.i ], [ %71, %.preheader ]
-  %116 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv525.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv525.i
   %117 = load i64, ptr %116, align 8, !tbaa !11
   %118 = add i64 %117, %51
   %119 = udiv i64 %118, %50
@@ -1175,7 +1174,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %126 = mul i64 %125, %66
   %127 = icmp ult i64 %125, %67
   %128 = select i1 %127, i64 %126, i64 2113929216
-  %129 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv.i
   store ptr %.1285416.i, ptr %129, align 8, !tbaa !35
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %.1289415.i, ptr %130, align 8, !tbaa !37
@@ -1223,7 +1222,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 
 .lr.ph427.i:                                      ; preds = %.lr.ph427.i, %.lr.ph427.preheader.i
   %indvars.iv528.i = phi i64 [ 0, %.lr.ph427.preheader.i ], [ %indvars.iv.next529.i, %.lr.ph427.i ]
-  %146 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv528.i
+  %146 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv528.i
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load ptr, ptr %147, align 8, !tbaa !37
   %149 = load ptr, ptr %146, align 8, !tbaa !35
@@ -1313,7 +1312,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 191:                                              ; preds = %188
   %192 = load ptr, ptr @stderr, align 8, !tbaa !8
   %193 = zext nneg i32 %.0335462.i to i64
-  %194 = getelementptr inbounds nuw ptr, ptr @__const.BMK_benchMem.marks, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr @__const.BMK_benchMem.marks, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !19
   %196 = trunc i64 %.0328464.i to i32
   %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.27, ptr noundef %195, ptr noundef %.0.i, i32 noundef %196) #17
@@ -1328,7 +1327,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 
 .lr.ph430.i:                                      ; preds = %199, %.lr.ph430.i
   %indvars.iv534.i = phi i64 [ %indvars.iv.next535.i, %.lr.ph430.i ], [ 0, %199 ]
-  %200 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv534.i
+  %200 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv534.i
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 32
   store i64 0, ptr %201, align 8, !tbaa !43
   %indvars.iv.next535.i = add nuw nsw i64 %indvars.iv534.i, 1
@@ -1360,7 +1359,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %indvars.iv540.i = phi i64 [ 0, %.lr.ph435.us.i ], [ %indvars.iv.next541.i, %224 ]
   %.4433.us.i = phi i32 [ %.3439.us.i, %.lr.ph435.us.i ], [ %.5.us.i, %224 ]
   %206 = load ptr, ptr %38, align 8, !tbaa !31
-  %207 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv540.i
+  %207 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv540.i
   %208 = load ptr, ptr %207, align 8, !tbaa !35
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %210 = load ptr, ptr %209, align 8, !tbaa !37
@@ -1439,7 +1438,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 .lr.ph447.i:                                      ; preds = %242, %.lr.ph447.i
   %indvars.iv548.i = phi i64 [ %indvars.iv.next549.i, %.lr.ph447.i ], [ 0, %242 ]
   %.3334444.i = phi i64 [ %248, %.lr.ph447.i ], [ 0, %242 ]
-  %245 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv548.i
+  %245 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv548.i
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 32
   %247 = load i64, ptr %246, align 8, !tbaa !43
   %248 = add i64 %247, %.3334444.i
@@ -1465,7 +1464,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %257 = fdiv double %255, %256
   %258 = load ptr, ptr @stdout, align 8, !tbaa !8
   %259 = zext nneg i32 %251 to i64
-  %260 = getelementptr inbounds nuw ptr, ptr @__const.BMK_benchMem.marks, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr @__const.BMK_benchMem.marks, i64 %259
   %261 = load ptr, ptr %260, align 8, !tbaa !19
   %262 = trunc i64 %.0328464.i to i32
   %263 = trunc i64 %.3334.lcssa.i to i32
@@ -1522,7 +1521,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 
 278:                                              ; preds = %295, %.preheader.us.i
   %indvars.iv554.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next555.i, %295 ]
-  %279 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv554.i
+  %279 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv554.i
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load i64, ptr %280, align 8, !tbaa !39
   %282 = icmp ult i64 %281, %175
@@ -1626,7 +1625,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 .lr.ph459.i:                                      ; preds = %325, %.lr.ph459.i
   %indvars.iv561.i = phi i64 [ %indvars.iv.next562.i, %.lr.ph459.i ], [ 0, %325 ]
   %.2330457.i = phi i64 [ %330, %.lr.ph459.i ], [ 0, %325 ]
-  %327 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv561.i
+  %327 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv561.i
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 48
   %329 = load i64, ptr %328, align 8, !tbaa !52
   %330 = add i64 %329, %.2330457.i
@@ -1648,7 +1647,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 338:                                              ; preds = %.loopexit.i
   %339 = load ptr, ptr @stdout, align 8, !tbaa !8
   %340 = zext nneg i32 %332 to i64
-  %341 = getelementptr inbounds nuw ptr, ptr @__const.BMK_benchMem.marks, i64 %340
+  %341 = getelementptr inbounds nuw [8 x i8], ptr @__const.BMK_benchMem.marks, i64 %340
   %342 = load ptr, ptr %341, align 8, !tbaa !19
   %343 = trunc i64 %.1329.i to i32
   %344 = trunc i64 %.2333.i to i32
@@ -1697,7 +1696,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 .lr.ph483.i:                                      ; preds = %366, %375
   %indvars.iv568.i = phi i64 [ %indvars.iv.next569.i, %375 ], [ 0, %366 ]
   %.0281481.i = phi i64 [ %373, %375 ], [ 0, %366 ]
-  %370 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv568.i
+  %370 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %indvars.iv568.i
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %372 = load i64, ptr %371, align 8, !tbaa !39
   %373 = add i64 %372, %.0281481.i

@@ -91,7 +91,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef
   %.sroa.08.117.us.i = phi i32 [ %.sroa.08.025.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.08.3.us.i, %29 ]
   %.sroa.3.116.us.i = phi i8 [ %.sroa.3.024.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.3.3.us.i, %29 ]
   %.sroa.5.115.us.i = phi i8 [ %.sroa.5.023.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.5.3.us.i, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = xor i32 %31, %16
   %33 = trunc i64 %indvars.iv.i to i8
@@ -192,7 +192,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %.sroa.08.117.us.i = phi i32 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.08.3.us.i, %15 ]
   %.sroa.3.116.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.3.3.us.i, %15 ]
   %.sroa.5.115.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.5.3.us.i, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = trunc nuw nsw i64 %indvars.iv.i to i8
   %invariant.op = xor i32 %17, 17477

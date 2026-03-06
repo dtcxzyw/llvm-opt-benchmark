@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.std::pair" = type <{ i64, i32, [4 x i8] }>
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
@@ -202,7 +201,7 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture11setPropertyEid(ptr 
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds %"struct.std::pair", ptr %43, i64 %56
+  %65 = getelementptr inbounds [16 x i8], ptr %43, i64 %56
   br label %_ZStplRKSt15_Deque_iteratorISt4pairImjERS1_PS1_El.exit
 
 66:                                               ; preds = %62
@@ -215,12 +214,12 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture11setPropertyEid(ptr 
 
 70:                                               ; preds = %68, %66
   %71 = phi i64 [ %67, %66 ], [ %69, %68 ]
-  %72 = getelementptr inbounds ptr, ptr %25, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %25, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !42, !noalias !47
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 512
   %75 = shl nsw i64 %71, 5
   %76 = sub nsw i64 %60, %75
-  %77 = getelementptr inbounds %"struct.std::pair", ptr %73, i64 %76
+  %77 = getelementptr inbounds [16 x i8], ptr %73, i64 %76
   br label %_ZStplRKSt15_Deque_iteratorISt4pairImjERS1_PS1_El.exit
 
 _ZStplRKSt15_Deque_iteratorISt4pairImjERS1_PS1_El.exit: ; preds = %64, %70
@@ -1705,7 +1704,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !100
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -1797,7 +1796,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds =
   store ptr %46, ptr %47, align 8, !tbaa !40
   store ptr %37, ptr %35, align 8, !tbaa !152
   %48 = and i64 %1, 31
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !153
   ret void
 

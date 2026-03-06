@@ -1874,7 +1874,7 @@ _ZN5serde2de9SeqAccess12next_element17h486c51c4c09d52f3E.exit.i.i.i.i.i: ; preds
 
 135:                                              ; preds = %130, %126
   %136 = load ptr, ptr %117, align 8, !alias.scope !187, !noalias !190, !nonnull !4, !noundef !4
-  %137 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %136, i64 %127
+  %137 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !185
   %138 = add i64 %127, 1
   store i64 %138, ptr %118, align 8, !alias.scope !187, !noalias !190
@@ -2670,7 +2670,7 @@ _ZN5serde2de9SeqAccess12next_element17hfcd8549cfd864462E.exit.i.i.i.i.i: ; preds
 
 135:                                              ; preds = %130, %126
   %136 = load ptr, ptr %117, align 8, !alias.scope !294, !noalias !297, !nonnull !4, !noundef !4
-  %137 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %136, i64 %127
+  %137 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !293
   %138 = add i64 %127, 1
   store i64 %138, ptr %118, align 8, !alias.scope !294, !noalias !297

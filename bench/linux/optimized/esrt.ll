@@ -18,8 +18,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.sysfs_ops = type { ptr, ptr }
 %struct.esre_attribute = type { %struct.attribute, ptr, ptr }
 %struct.efi_memory_desc_t = type { i32, i32, i64, i64, i64, i64 }
-%struct.efi_system_resource_entry_v1 = type { %struct.guid_t, i32, i32, i32, i32, i32, i32 }
-%struct.guid_t = type { [16 x i8] }
 
 @efi = external dso_local global %struct.efi, align 8
 @.str = private unnamed_addr constant [47 x i8] c"\014esrt: ESRT header is not in the memory map.\0A\00", align 1
@@ -386,7 +384,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_entries() unnamed
 
 22:                                               ; preds = %.preheader
   %23 = sext i32 %18 to i64
-  %24 = getelementptr %struct.efi_system_resource_entry_v1, ptr %2, i64 %23
+  %24 = getelementptr [40 x i8], ptr %2, i64 %23
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %26 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 88) #14
   %27 = icmp eq ptr %26, null

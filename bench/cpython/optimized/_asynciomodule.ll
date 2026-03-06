@@ -2682,7 +2682,7 @@ Py_DECREF.exit117.i:                              ; preds = %52, %49, %47
 
 _PyList_AppendTakeRef.exit.thread.i:              ; preds = %70
   %.val12.i.i = load ptr, ptr %63, align 8, !tbaa !61
-  %73 = getelementptr ptr, ptr %.val12.i.i, i64 %.val.i141.i
+  %73 = getelementptr [8 x i8], ptr %.val12.i.i, i64 %.val.i141.i
   store ptr %65, ptr %73, align 8, !tbaa !37
   %74 = add nsw i64 %.val.i141.i, 1
   store i64 %74, ptr %61, align 8, !tbaa !38
@@ -2918,7 +2918,7 @@ Py_DECREF.exit93.i:                               ; preds = %149, %146, %144
 155:                                              ; preds = %.critedge.i, %.lr.ph29.i
   %.06028.i = phi i64 [ 0, %.lr.ph29.i ], [ %201, %.critedge.i ]
   %156 = load ptr, ptr %143, align 8, !tbaa !61
-  %157 = getelementptr ptr, ptr %156, i64 %.06028.i
+  %157 = getelementptr [8 x i8], ptr %156, i64 %.06028.i
   %158 = load ptr, ptr %157, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %158, ptr %5, align 8, !tbaa !37
@@ -5875,7 +5875,7 @@ Py_DECREF.exit64:                                 ; preds = %Py_DECREF.exit66, %
 61:                                               ; preds = %.lr.ph, %Py_DECREF.exit62
   %.04891 = phi i64 [ 0, %.lr.ph ], [ %88, %Py_DECREF.exit62 ]
   %62 = load ptr, ptr %55, align 8, !tbaa !61
-  %63 = getelementptr ptr, ptr %62, i64 %.04891
+  %63 = getelementptr [8 x i8], ptr %62, i64 %.04891
   %64 = load ptr, ptr %63, align 8, !tbaa !37
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !37
@@ -8585,7 +8585,7 @@ Py_DECREF.exit139.i:                              ; preds = %83, %80, %78, %76
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !61
-  %100 = getelementptr ptr, ptr %99, i64 %.09414.i
+  %100 = getelementptr [8 x i8], ptr %99, i64 %.09414.i
   %101 = load ptr, ptr %100, align 8, !tbaa !37
   %102 = load i32, ptr %101, align 8, !tbaa !36
   %103 = icmp slt i32 %102, 0
@@ -8609,7 +8609,7 @@ Py_INCREF.exit.i:                                 ; preds = %104, %97
 
 112:                                              ; preds = %110
   %.val.i = load ptr, ptr %92, align 8, !tbaa !61
-  %113 = getelementptr ptr, ptr %.val.i, i64 %.09613.i
+  %113 = getelementptr [8 x i8], ptr %.val.i, i64 %.09613.i
   store ptr %101, ptr %113, align 8, !tbaa !37
   %114 = add nsw i64 %.09613.i, 1
   br label %124
@@ -9021,7 +9021,7 @@ future_ensure_alive.exit.i:                       ; preds = %2
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._asyncio_Future__state_get, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._asyncio_Future__state_get, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_asyncio_Future__state_get_impl.exit
 
@@ -9237,7 +9237,7 @@ Py_DECREF.exit.i:                                 ; preds = %41, %_Py_NewRef.exi
   %.23859.i = phi i64 [ %.036.i, %.lr.ph.i ], [ %61, %Py_INCREF.exit.i ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !61
-  %54 = getelementptr ptr, ptr %53, i64 %.03460.i
+  %54 = getelementptr [8 x i8], ptr %53, i64 %.03460.i
   %55 = load ptr, ptr %54, align 8, !tbaa !37
   %56 = load i32, ptr %55, align 8, !tbaa !36
   %57 = icmp slt i32 %56, 0
@@ -9250,7 +9250,7 @@ Py_DECREF.exit.i:                                 ; preds = %41, %_Py_NewRef.exi
 
 Py_INCREF.exit.i:                                 ; preds = %58, %50
   %.val.i = load ptr, ptr %49, align 8, !tbaa !61
-  %60 = getelementptr ptr, ptr %.val.i, i64 %.23859.i
+  %60 = getelementptr [8 x i8], ptr %.val.i, i64 %.23859.i
   store ptr %55, ptr %60, align 8, !tbaa !37
   %61 = add nuw i64 %.23859.i, 1
   %62 = add nuw nsw i64 %.03460.i, 1

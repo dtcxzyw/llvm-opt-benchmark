@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<gmx::Isotope, std::allocator<gmx::Isotope>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::Isotope, std::allocator<gmx::Isotope>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::Isotope, std::allocator<gmx::Isotope>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::Isotope, std::allocator<gmx::Isotope>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 
 $_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
 
@@ -1150,7 +1149,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   store ptr %9, ptr %0, align 8, !tbaa !55
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !57
   store i32 0, ptr %9, align 4, !tbaa !58
@@ -1188,7 +1187,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   %27 = phi ptr [ %9, %.lr.ph ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load ptr, ptr %20, align 8, !tbaa !61
-  %29 = getelementptr inbounds nuw %struct.t_atom, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [36 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr %21, ptr %4, align 8, !tbaa !30
   %31 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #17
@@ -1303,7 +1302,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; 
   br label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %69, %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %62
   store ptr %70, ptr %23, align 8, !tbaa !57
   br label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE9push_backEOS1_.exit
 

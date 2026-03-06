@@ -33,14 +33,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_object_handlers = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._zend_function_entry = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct._zend_object_iterator_funcs = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.10, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.11, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.12, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.13 }
 %union.anon.10 = type { ptr }
 %union.anon.11 = type { ptr }
 %union.anon.12 = type { ptr }
 %union.anon.13 = type { %struct.anon.14 }
 %struct.anon.14 = type { ptr, i32, i32 }
-%struct._zend_try_catch_element = type { i32, i32, i32, i32 }
 
 @compiler_globals = external local_unnamed_addr global %struct._zend_compiler_globals, align 8
 @zend_ce_generator = dso_local local_unnamed_addr global ptr null, align 8
@@ -373,7 +371,7 @@ zend_object_release.exit:                         ; preds = %34, %29, %28, %19
   %52 = load i32, ptr %51, align 8, !tbaa !24
   %53 = add i32 %52, %50
   %54 = sext i32 %53 to i64
-  %55 = getelementptr %struct._zval_struct, ptr %4, i64 %54
+  %55 = getelementptr [16 x i8], ptr %4, i64 %54
   %56 = getelementptr i8, ptr %55, i64 80
   br label %57
 
@@ -1628,7 +1626,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
 
 17:                                               ; preds = %.preheader125
   %18 = load ptr, ptr %15, align 8, !tbaa !24
-  %19 = getelementptr inbounds nuw %struct._zval_struct, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !24
@@ -1667,7 +1665,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
 
 35:                                               ; preds = %.preheader
   %36 = load ptr, ptr %15, align 8, !tbaa !24
-  %37 = getelementptr inbounds nuw %struct._Bucket, ptr %36, i64 %indvars.iv141
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %indvars.iv141
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !24
@@ -3464,7 +3462,7 @@ zend_object_release.exit95:                       ; preds = %92, %89, %88, %83, 
 118:                                              ; preds = %.lr.ph, %132
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %132 ]
   %.0114 = phi i32 [ -1, %.lr.ph ], [ %.2.ph, %132 ]
-  %119 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %117, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4, !tbaa !153
   %121 = icmp ugt i32 %120, %112
   br i1 %121, label %._crit_edge, label %122
@@ -3505,7 +3503,7 @@ zend_object_release.exit95:                       ; preds = %92, %89, %88, %83, 
   %134 = load ptr, ptr %95, align 8, !tbaa !25
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 160
   %136 = load ptr, ptr %135, align 8, !tbaa !24
-  %137 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %136, i64 %indvars.iv129
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %indvars.iv129
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i32, ptr %138, align 4, !tbaa !157
   %140 = icmp ugt i32 %139, %112
@@ -3518,7 +3516,7 @@ zend_object_release.exit95:                       ; preds = %92, %89, %88, %83, 
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 12
   %146 = load i32, ptr %145, align 4, !tbaa !156
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %struct._zend_op, ptr %144, i64 %147
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load i32, ptr %149, align 8, !tbaa !24
   %151 = sext i32 %150 to i64
@@ -3535,7 +3533,7 @@ zend_object_release.exit95:                       ; preds = %92, %89, %88, %83, 
   %158 = load ptr, ptr %157, align 8, !tbaa !24
   %159 = load i32, ptr %142, align 4, !tbaa !157
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %struct._zend_op, ptr %158, i64 %160
+  %161 = getelementptr inbounds nuw [32 x i8], ptr %158, i64 %160
   %162 = getelementptr inbounds i8, ptr %161, i64 -32
   store ptr %162, ptr %21, align 8, !tbaa !82
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -3570,7 +3568,7 @@ zend_object_release.exit95:                       ; preds = %92, %89, %88, %83, 
   %175 = getelementptr inbounds nuw i8, ptr %134, i64 104
   %176 = load ptr, ptr %175, align 8, !tbaa !24
   %177 = zext i32 %172 to i64
-  %178 = getelementptr inbounds nuw %struct._zend_op, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %176, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load i32, ptr %179, align 8, !tbaa !24
   %181 = sext i32 %180 to i64
@@ -3582,7 +3580,7 @@ zend_object_release.exit95:                       ; preds = %92, %89, %88, %83, 
 
 185:                                              ; preds = %174
   %186 = zext i32 %184 to i64
-  %187 = getelementptr inbounds nuw %struct._zend_op, ptr %176, i64 %186
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %176, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 30
   %189 = load i8, ptr %188, align 2, !tbaa !158
   %190 = and i8 %189, 6

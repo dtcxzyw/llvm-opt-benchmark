@@ -17,13 +17,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.llvm::ArrayRef" = type { ptr, i64 }
+%"class.llvm::ArrayRef.131" = type { ptr, i64 }
 %"struct.std::pair" = type <{ %"class.std::vector.39", i32, [4 x i8] }>
 %"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
 %"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.llvm::ArrayRef.131" = type { ptr, i64 }
 
 $_ZNK4llvm20SubtargetFeatureInfo14getEnumBitNameB5cxx11Ev = comdat any
 
@@ -485,7 +485,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92:               ; preds = %170, %172
   %196 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %195) #17
   store ptr %196, ptr %9, align 8, !tbaa !73
   store ptr %196, ptr %194, align 8, !tbaa !76
-  %197 = getelementptr inbounds nuw %"struct.std::pair", ptr %196, i64 %3
+  %197 = getelementptr inbounds nuw [32 x i8], ptr %196, i64 %3
   store ptr %197, ptr %193, align 8, !tbaa !77
   %.idx = mul nuw nsw i64 %3, 472
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -5577,7 +5577,7 @@ _ZNSt6vectorISt4pairIS_IPKN4llvm6RecordESaIS4_EEiESaIS7_EE11_S_relocateEPS7_SA_S
 _ZNSt12_Vector_baseISt4pairISt6vectorIPKN4llvm6RecordESaIS5_EEiESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorISt4pairIS_IPKN4llvm6RecordESaIS4_EEiESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23, %60
   store ptr %21, ptr %0, align 8, !tbaa !73
   store ptr %.0.lcssa.i.i.i22, ptr %5, align 8, !tbaa !76
-  %64 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %17
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %64, ptr %59, align 8, !tbaa !77
   ret void
 }
@@ -5622,7 +5622,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 26:                                               ; preds = %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiED2Ev.exit10.i.i.i, %._crit_edge
   %.08.i.i.i = phi i64 [ %22, %._crit_edge ], [ %41, %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiED2Ev.exit10.i.i.i ]
-  %27 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.08.i.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08.i.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !80
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !85
@@ -5716,7 +5716,7 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiED2Ev.exit10.i.i.i: ; preds = %36,
   %69 = phi i64 [ %376, %19 ], [ %9, %.lr.ph ]
   %70 = add nsw i64 %.044169, -1
   %71 = lshr i64 %69, 1
-  %72 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %71
   %73 = getelementptr inbounds i8, ptr %storemerge43170, i64 -32
   %74 = load ptr, ptr %12, align 8, !tbaa !85
   %75 = load ptr, ptr %11, align 8, !tbaa !80
@@ -6473,9 +6473,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.051 = phi i64 [ %55, %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit ], [ %1, %4 ]
   %8 = shl i64 %.051, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = load ptr, ptr %10, align 8, !tbaa !80
@@ -6568,8 +6568,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   %53 = phi ptr [ %21, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit.thread" ], [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit" ], [ %14, %._crit_edge.i.i ], [ %14, %28 ], [ %14, %.thread.i.i45.i.i ]
   %54 = phi ptr [ %22, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit.thread" ], [ %15, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit" ], [ %15, %._crit_edge.i.i ], [ %15, %28 ], [ %15, %.thread.i.i45.i.i ]
   %55 = phi i64 [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit.thread" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit" ], [ %9, %._crit_edge.i.i ], [ %9, %28 ], [ %9, %.thread.i.i45.i.i ]
-  %56 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %55
-  %57 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.051
+  %56 = getelementptr inbounds [32 x i8], ptr %0, i64 %55
+  %57 = getelementptr inbounds [32 x i8], ptr %0, i64 %.051
   %58 = load ptr, ptr %57, align 8, !tbaa !80
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -6613,8 +6613,8 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit: ; preds = %"_ZN9__g
 78:                                               ; preds = %74
   %79 = shl nsw i64 %.0.lcssa, 1
   %80 = or disjoint i64 %79, 1
-  %81 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %80
-  %82 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %81 = getelementptr inbounds [32 x i8], ptr %0, i64 %80
+  %82 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %83 = load ptr, ptr %82, align 8, !tbaa !80
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -6671,7 +6671,7 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit25: ; preds = %78, %9
   %.016.i.us = phi i64 [ %.0918.i.us, %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i.us ], [ %.1, %.lr.ph.i.preheader ]
   %.0918.in.i.us = add nsw i64 %.016.i.us, -1
   %.0918.i.us = sdiv i64 %.0918.in.i.us, 2
-  %113 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0918.i.us
+  %113 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0918.i.us
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !85
   %116 = load ptr, ptr %113, align 8, !tbaa !80
@@ -6693,7 +6693,7 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit25: ; preds = %78, %9
   br i1 %126, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i.us", label %.critedge.i
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i.us": ; preds = %.preheader.i.i.i.us, %.lr.ph.i.us
-  %127 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.016.i.us
+  %127 = getelementptr inbounds [32 x i8], ptr %0, i64 %.016.i.us
   %128 = load ptr, ptr %127, align 8, !tbaa !80
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
@@ -6726,7 +6726,7 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i.us: ; preds = %134
   %.016.i = phi i64 [ %.0918.i, %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i ], [ %.1, %.lr.ph.i.preheader ]
   %.0918.in.i = add nsw i64 %.016.i, -1
   %.0918.i = sdiv i64 %.0918.in.i, 2
-  %142 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0918.i
+  %142 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0918.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !85
   %145 = load ptr, ptr %142, align 8, !tbaa !80
@@ -6801,7 +6801,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.
   br i1 %171, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i", label %.critedge.i
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i": ; preds = %.thread.i.i.thread.i.i.i, %.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESL_EEbT_RT0_.exit.i", %._crit_edge.i.i.i, %.lr.ph.i
-  %172 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.016.i
+  %172 = getelementptr inbounds [32 x i8], ptr %0, i64 %.016.i
   %173 = load ptr, ptr %172, align 8, !tbaa !80
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -6832,7 +6832,7 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i: ; preds = %179, %
 
 .critedge.i:                                      ; preds = %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i.us, %.preheader.i.i.i.us, %122, %151, %._crit_edge.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESL_EEbT_RT0_.exit.i", %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i, %.thread.i.i45.i.i.i, %99
   %.013.i = phi i64 [ %.016.i, %151 ], [ %.1, %99 ], [ %.016.i, %.thread.i.i45.i.i.i ], [ %.016.i, %._crit_edge.i.i.i ], [ %.0918.i, %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i ], [ %.016.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESL_EEbT_RT0_.exit.i" ], [ %.016.i.us, %.preheader.i.i.i.us ], [ %.0918.i.us, %_ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i.us ], [ %.016.i.us, %122 ]
-  %187 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.i
+  %187 = getelementptr inbounds [32 x i8], ptr %0, i64 %.013.i
   %188 = load ptr, ptr %187, align 8, !tbaa !80
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 16

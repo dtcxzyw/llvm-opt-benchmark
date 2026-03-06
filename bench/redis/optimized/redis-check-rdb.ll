@@ -143,7 +143,7 @@ define dso_local void @rdbCheckError(ptr noundef readonly captures(none) %0, ...
   %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %10, ptr noundef nonnull %2)
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr @rdb_check_doing_string, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @rdb_check_doing_string, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %15)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 8), align 8, !tbaa !23
@@ -167,7 +167,7 @@ define dso_local void @rdbCheckError(ptr noundef readonly captures(none) %0, ...
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @rdb_type_string, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @rdb_type_string, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !21
   br label %30
 

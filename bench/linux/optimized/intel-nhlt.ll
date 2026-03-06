@@ -361,7 +361,7 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   br i1 %54, label %.critedge, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr i32, ptr %46, i64 %52
+  %56 = getelementptr [4 x i8], ptr %46, i64 %52
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 3
   %59 = or i32 %58, %40

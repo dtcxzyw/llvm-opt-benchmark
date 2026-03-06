@@ -33,21 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::array.15" = type { [12 x float] }
-%struct.t_2morse = type { ptr, ptr, float }
-%struct.InteractionsOfType = type { %"class.std::vector.0", i32, i32, %"class.std::vector.5", %"class.std::vector", %"class.std::vector.10" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl" }
-%"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl" = type { %"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 
 $_ZN17InteractionOfTypeD2Ev = comdat any
 
@@ -165,7 +150,7 @@ _ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.exit.i: ; preds = %30, %28
           to label %42 unwind label %36
 
 42:                                               ; preds = %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.exit.i
-  %43 = getelementptr inbounds nuw %struct.t_2morse, ptr %.124.i, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %.124.i, i64 %indvars.iv.i
   store ptr %41, ptr %43, align 8, !tbaa !18
   %44 = invoke noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %5)
           to label %45 unwind label %36
@@ -259,7 +244,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %50, %52
 
 79:                                               ; preds = %.preheader, %409
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %409 ]
-  %80 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %82 = load i32, ptr %81, align 4, !tbaa !27
   %83 = and i32 %82, 16
@@ -269,7 +254,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %50, %52
   br i1 %or.cond, label %86, label %409
 
 86:                                               ; preds = %79
-  %87 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %71, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [104 x i8], ptr %71, i64 %indvars.iv
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !30
   %90 = load ptr, ptr %87, align 8, !tbaa !33
@@ -308,7 +293,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %50, %52
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %105 = load ptr, ptr %72, align 8, !tbaa !36
   %106 = sext i32 %102 to i64
-  %107 = getelementptr inbounds %struct.t_atom, ptr %105, i64 %106
+  %107 = getelementptr inbounds [36 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i16, ptr %108, align 4, !tbaa !55
   %110 = zext i16 %109 to i32
@@ -317,7 +302,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %50, %52
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %112 = load ptr, ptr %72, align 8, !tbaa !36
   %113 = sext i32 %104 to i64
-  %114 = getelementptr inbounds %struct.t_atom, ptr %112, i64 %113
+  %114 = getelementptr inbounds [36 x i8], ptr %112, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load i16, ptr %115, align 4, !tbaa !55
   %117 = zext i16 %116 to i32
@@ -333,7 +318,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %50, %52
   %.061137.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i70, %222 ]
   %.062136.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.163.i, %222 ]
   %.064135.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.2.i, %222 ]
-  %119 = getelementptr inbounds nuw %struct.t_2morse, ptr %.0.i, i64 %indvars.iv.i68
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %.0.i, i64 %indvars.iv.i68
   %120 = load ptr, ptr %119, align 8, !tbaa !18
   %121 = invoke noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef %120, ptr noundef %111)
           to label %.noexc unwind label %378
@@ -615,7 +600,7 @@ _ZL6nequalPKcS0_.exit125.i:                       ; preds = %.critedge.thread.lo
 .thread.i:                                        ; preds = %.noexc75, %.noexc73, %._crit_edge.i
   %.165127.i = phi i32 [ %.2.i, %._crit_edge.i ], [ %123, %.noexc73 ], [ %123, %.noexc75 ]
   %224 = sext i32 %.165127.i to i64
-  %225 = getelementptr inbounds %struct.t_2morse, ptr %.0.i, i64 %224
+  %225 = getelementptr inbounds [24 x i8], ptr %.0.i, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load float, ptr %226, align 8, !tbaa !24
   br label %_ZL13search_e_dissiP8t_2morsePKcS2_.exit
@@ -1516,7 +1501,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit26: ; p
 _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit26, %109
   store ptr %20, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !30
-  %113 = getelementptr inbounds nuw %class.InteractionOfType, ptr %20, i64 %16
+  %113 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %113, ptr %108, align 8, !tbaa !68
   ret void
 }

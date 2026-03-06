@@ -1159,7 +1159,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %40, 
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit:    ; preds = %24, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
@@ -1698,7 +1698,7 @@ _ZNK11StringPieceneERKS_.exit:                    ; preds = %68
   %76 = phi ptr [ %154, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ], [ %75, %.preheader ]
   %.0878 = phi i64 [ %152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %77 = getelementptr inbounds nuw %struct.StringPiece, ptr %76, i64 %.0878
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.0878
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i64, ptr %78, align 8, !tbaa !38, !noalias !82
@@ -2109,7 +2109,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10MountPoint5parseERKNSt7__
 
 .preheader:                                       ; preds = %2, %_ZNK11StringPieceeqERKS_.exit.thread
   %.01762 = phi i64 [ %27, %_ZNK11StringPieceeqERKS_.exit.thread ], [ 6, %2 ]
-  %21 = getelementptr inbounds nuw %struct.StringPiece, ptr %15, i64 %.01762
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.01762
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !38
   %24 = icmp eq i64 %23, 1
@@ -2431,7 +2431,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit: ; preds = %.noexc4.
 
 _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit40:    ; preds = %132, %_ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit
   %136 = phi ptr [ %.pre69, %132 ], [ %119, %_ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit ]
-  %137 = getelementptr %struct.StringPiece, ptr %136, i64 %.01762
+  %137 = getelementptr [16 x i8], ptr %136, i64 %.01762
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false), !tbaa.struct !102
@@ -3185,7 +3185,7 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
   %67 = phi ptr [ %274, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE12CGroupSubSysED2Ev.exit ], [ %.pre105, %.preheader ]
   %.0699 = phi i64 [ %272, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE12CGroupSubSysED2Ev.exit ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %68 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %67, i64 %.0699
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %67, i64 %.0699
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   store ptr %35, ptr %9, align 8, !tbaa !40, !alias.scope !120
   %69 = load ptr, ptr %68, align 8, !tbaa !15, !noalias !120
@@ -4150,7 +4150,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit:      ; preds = %._crit_edge, %84
   %90 = phi ptr [ %77, %.lr.ph ], [ %130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ]
   %.02146 = phi i64 [ 0, %.lr.ph ], [ %128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %91 = getelementptr inbounds nuw %struct.StringPiece, ptr %90, i64 %.02146
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %.02146
   call void @llvm.experimental.noalias.scope.decl(metadata !141)
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i64, ptr %92, align 8, !tbaa !38, !noalias !141
@@ -5536,7 +5536,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !115
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !118
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !128
   ret void
 }

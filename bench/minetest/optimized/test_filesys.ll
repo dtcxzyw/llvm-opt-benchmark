@@ -1846,7 +1846,7 @@ for.cond112.preheader.preheader:                  ; preds = %_ZNSt7__cxx1112basi
 
 for.cond112.preheader:                            ; preds = %for.cond112.preheader.preheader, %if.end236.11
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end236.11 ], [ 0, %for.cond112.preheader.preheader ]
-  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %paths, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %paths, i64 %indvars.iv
   %call = invoke noundef zeroext i1 @_ZN2fs14PathStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %paths)
           to label %invoke.cont119 unwind label %lpad118
 
@@ -2072,7 +2072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit798: ; preds = %ar
   br i1 %arraydestroy.done, label %ehcleanup257, label %arraydestroy.body
 
 invoke.cont119:                                   ; preds = %for.cond112.preheader
-  %arrayidx123 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv
+  %arrayidx123 = getelementptr inbounds nuw [48 x i8], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv
   br i1 %call, label %if.end236, label %if.then146
 
 if.then126:                                       ; preds = %if.then.11, %if.then.10, %if.then.9, %if.then.8, %if.then.7, %if.then.6, %if.then.5, %if.then.4, %if.then.3, %if.then.2, %if.then.1
@@ -14939,7 +14939,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !186
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !185
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !183
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 

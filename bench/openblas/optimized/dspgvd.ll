@@ -20,7 +20,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %17 = load i32, ptr %8, align 4, !tbaa !3
   %narrow = xor i32 %17, -1
   %18 = sext i32 %narrow to i64
-  %19 = getelementptr inbounds double, ptr %7, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %7, i64 %18
   %20 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str) #3
   %21 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.1) #3
   %22 = load i32, ptr %10, align 4, !tbaa !3
@@ -194,7 +194,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
   %indvars.iv177 = phi i64 [ 1, %.lr.ph174.preheader ], [ %indvars.iv.next178, %.lr.ph174 ]
   %93 = mul nsw i64 %indvars.iv177, %91
-  %94 = getelementptr double, ptr %19, i64 %93
+  %94 = getelementptr [8 x i8], ptr %19, i64 %93
   %95 = getelementptr i8, ptr %94, i64 8
   call void @dtpsv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %95, ptr noundef nonnull @c__1) #3
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
@@ -215,7 +215,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %99 = mul nsw i64 %indvars.iv, %97
-  %100 = getelementptr double, ptr %19, i64 %99
+  %100 = getelementptr [8 x i8], ptr %19, i64 %99
   %101 = getelementptr i8, ptr %100, i64 8
   call void @dtpmv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %101, ptr noundef nonnull @c__1) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

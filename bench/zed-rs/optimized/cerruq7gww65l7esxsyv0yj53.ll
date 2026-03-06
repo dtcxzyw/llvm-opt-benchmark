@@ -1639,7 +1639,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hb54544ac5e8f2e42E.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %9, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hb54544ac5e8f2e42E.exit.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %2, i64 %.sroa.0.09.i.i
+  %8 = getelementptr inbounds [16 x i8], ptr %2, i64 %.sroa.0.09.i.i
   %9 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
@@ -1665,7 +1665,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph12.i.i:                                     ; preds = %15, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hb54544ac5e8f2e42E.exit8.i.i"
   %.sroa.0.110.i.i = phi i64 [ %19, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hb54544ac5e8f2e42E.exit8.i.i" ], [ %9, %15 ]
-  %18 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %2, i64 %.sroa.0.110.i.i
+  %18 = getelementptr inbounds [16 x i8], ptr %2, i64 %.sroa.0.110.i.i
   %19 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
@@ -1741,7 +1741,7 @@ define internal fastcc void @"_ZN4core3ptr179drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr102drop_in_place$LT$sum_tree..Edit$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17hf13bee400a3ccc0aE.exit.i.i"
   %.sroa.0.012.i.i = phi i64 [ %9, %"_ZN4core3ptr102drop_in_place$LT$sum_tree..Edit$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17hf13bee400a3ccc0aE.exit.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %.sroa.0.012.i.i
+  %8 = getelementptr inbounds [104 x i8], ptr %2, i64 %.sroa.0.012.i.i
   %9 = add nuw i64 %.sroa.0.012.i.i, 1
   %10 = load i64, ptr %8, align 8, !range !236, !alias.scope !338, !noalias !335, !noundef !7
   switch i64 %10, label %11 [
@@ -1796,7 +1796,7 @@ define internal fastcc void @"_ZN4core3ptr179drop_in_place$LT$alloc..vec..in_pla
   br label %22
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %.sroa.0.1.i.i
+  %27 = getelementptr inbounds [104 x i8], ptr %2, i64 %.sroa.0.1.i.i
   %28 = add i64 %.sroa.0.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$sum_tree..Edit$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17hf13bee400a3ccc0aE"(ptr noalias noundef align 8 dereferenceable(104) %27) #39
           to label %22 unwind label %29, !noalias !335
@@ -1862,7 +1862,7 @@ define internal fastcc void @"_ZN4core3ptr203drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr114drop_in_place$LT$sum_tree..Edit$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h7d68ff55749369f9E.exit.i.i"
   %.sroa.0.010.i.i = phi i64 [ %9, %"_ZN4core3ptr114drop_in_place$LT$sum_tree..Edit$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h7d68ff55749369f9E.exit.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %.sroa.0.010.i.i
+  %8 = getelementptr inbounds [104 x i8], ptr %2, i64 %.sroa.0.010.i.i
   %9 = add nuw i64 %.sroa.0.010.i.i, 1
   %10 = load i64, ptr %8, align 8, !range !359, !alias.scope !360, !noalias !356, !noundef !7
   %.not.i.i.i = icmp eq i64 %10, -9223372036854775804
@@ -1884,7 +1884,7 @@ define internal fastcc void @"_ZN4core3ptr203drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph13.i.i:                                     ; preds = %13, %"_ZN4core3ptr114drop_in_place$LT$sum_tree..Edit$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h7d68ff55749369f9E.exit9.i.i"
   %.sroa.0.111.i.i = phi i64 [ %17, %"_ZN4core3ptr114drop_in_place$LT$sum_tree..Edit$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h7d68ff55749369f9E.exit9.i.i" ], [ %9, %13 ]
-  %16 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %.sroa.0.111.i.i
+  %16 = getelementptr inbounds [104 x i8], ptr %2, i64 %.sroa.0.111.i.i
   %17 = add i64 %.sroa.0.111.i.i, 1
   %18 = load i64, ptr %16, align 8, !range !359, !alias.scope !365, !noalias !356, !noundef !7
   %.not.i7.i.i = icmp eq i64 %18, -9223372036854775804
@@ -3723,7 +3723,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h2143ef
 
 .lr.ph.i.i:                                       ; preds = %16, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0cdb4739504fd1b9E.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %33, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0cdb4739504fd1b9E.exit.i.i" ], [ 0, %16 ]
-  %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %25, i64 %.sroa.0.09.i.i
+  %32 = getelementptr inbounds [24 x i8], ptr %25, i64 %.sroa.0.09.i.i
   %33 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
@@ -3989,7 +3989,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h69507a
   br i1 %30, label %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h49cdf384d3bab79aE.exit", label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %23, i64 %.sroa.0.0.i.i
+  %32 = getelementptr inbounds nuw [104 x i8], ptr %23, i64 %.sroa.0.0.i.i
   %33 = add nuw nsw i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr48drop_in_place$LT$language..buffer..Operation$GT$17hcde94a90fdb3434cE.llvm.15197529079933137319"(ptr noalias noundef nonnull align 8 dereferenceable(104) %32)
           to label %29 unwind label %36, !noalias !677
@@ -4005,7 +4005,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h69507a
   br label %34
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds { i64, [12 x i64] }, ptr %23, i64 %.sroa.0.1.i.i
+  %39 = getelementptr inbounds [104 x i8], ptr %23, i64 %.sroa.0.1.i.i
   %40 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr48drop_in_place$LT$language..buffer..Operation$GT$17hcde94a90fdb3434cE.llvm.15197529079933137319"(ptr noalias noundef nonnull align 8 dereferenceable(104) %39) #39
           to label %34 unwind label %41, !noalias !677
@@ -23752,10 +23752,10 @@ define internal noundef zeroext i1 @"_ZN78_$LT$tree_sitter..wasm_language..WasmE
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2876, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$tree_sitter..wasm_language..WasmErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d28fe2ec02a43b8E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$tree_sitter..wasm_language..WasmErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d28fe2ec02a43b8E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$tree_sitter..wasm_language..WasmErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d28fe2ec02a43b8E.27", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$tree_sitter..wasm_language..WasmErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d28fe2ec02a43b8E.27", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

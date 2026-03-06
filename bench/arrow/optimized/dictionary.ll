@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.arrow::ipc::internal::FieldPosition" = type { ptr, i32, i32 }
-%"class.std::shared_ptr.125" = type { %"class.std::__shared_ptr.126" }
-%"class.std::__shared_ptr.126" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.arrow::Status" = type { ptr }
 %"class.arrow::FieldPath" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
@@ -36,6 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::shared_ptr.122" = type { %"class.std::__shared_ptr.123" }
 %"class.std::__shared_ptr.123" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.arrow::Result.198" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.201" }
 %"class.arrow::internal::AlignedStorage.201" = type { [16 x i8] }
 %"class.std::shared_ptr.95" = type { %"class.std::__shared_ptr.96" }
@@ -53,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<std::pair<long, std::shared_ptr<arrow::Array>>, std::allocator<std::pair<long, std::shared_ptr<arrow::Array>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<long, std::shared_ptr<arrow::Array>>, std::allocator<std::pair<long, std::shared_ptr<arrow::Array>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<long, std::shared_ptr<arrow::Array>>, std::allocator<std::pair<long, std::shared_ptr<arrow::Array>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<long, std::shared_ptr<arrow::Array>>, std::allocator<std::pair<long, std::shared_ptr<arrow::Array>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.120" = type { i64, %"class.std::shared_ptr.122" }
 %"struct.arrow::ipc::(anonymous namespace)::DictionaryResolver" = type { ptr, ptr }
 %"struct.std::_Hashtable<arrow::FieldPath, std::pair<const arrow::FieldPath, long>, std::allocator<std::pair<const arrow::FieldPath, long>>, std::__detail::_Select1st, std::equal_to<arrow::FieldPath>, arrow::FieldPath::Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"class.arrow::util::detail::StringStreamWrapper" = type { %"class.std::unique_ptr.149", ptr }
@@ -499,7 +496,7 @@ define void @_ZN5arrow3ipc21DictionaryFieldMapperC2ERKNS_6SchemaE(ptr noundef no
   %.sroa.2.8.insert.insert.i.i.i = add nuw nsw i64 %.sroa.4.8.insert.shift.i.i.i, %indvars.iv.i.i
   store ptr %4, ptr %3, align 8
   store i64 %.sroa.2.8.insert.insert.i.i.i, ptr %23, align 8
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.125", ptr %25, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !53
   invoke void @_ZN5arrow3ipc21DictionaryFieldMapper4Impl11ImportFieldERKNS0_8internal13FieldPositionERKNS_5FieldE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(96) %29)
           to label %.noexc3 unwind label %.loopexit
@@ -655,7 +652,7 @@ define void @_ZN5arrow3ipc21DictionaryFieldMapper15AddSchemaFieldsERKNS_6SchemaE
   %.sroa.2.8.insert.insert.i.i.i.i = add nuw nsw i64 %.sroa.4.8.insert.shift.i.i.i.i, %indvars.iv.i.i.i
   store ptr %5, ptr %4, align 8, !noalias !67
   store i64 %.sroa.2.8.insert.insert.i.i.i.i, ptr %24, align 8, !noalias !67
-  %29 = getelementptr inbounds nuw %"class.std::shared_ptr.125", ptr %26, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv.i.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !53, !noalias !67
   call void @_ZN5arrow3ipc21DictionaryFieldMapper4Impl11ImportFieldERKNS0_8internal13FieldPositionERKNS_5FieldE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(96) %30), !noalias !67
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !67
@@ -1189,7 +1186,7 @@ define void @_ZNK5arrow3ipc14DictionaryMemo17GetDictionaryTypeEl(ptr dead_on_unw
   %19 = load i64, ptr %18, align 8, !tbaa !114
   %20 = urem i64 %2, %19
   %21 = load ptr, ptr %17, align 8, !tbaa !112
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !121
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %24
@@ -2195,7 +2192,7 @@ define noundef zeroext i1 @_ZNK5arrow3ipc14DictionaryMemo13HasDictionaryEl(ptr n
   %15 = load i64, ptr %14, align 8, !tbaa !111
   %16 = urem i64 %1, %15
   %17 = load ptr, ptr %3, align 8, !tbaa !109
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !121
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIlSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS4_EESt4hashIlESt8equal_toIlESaISt4pairIKlS6_EEE4findERSC_.exit, label %20
@@ -2749,7 +2746,7 @@ define linkonce_odr void @_ZN5arrow3ipc14DictionaryMemo4Impl14FindDictionaryEl(p
   %18 = load i64, ptr %17, align 8, !tbaa !111
   %19 = urem i64 %2, %18
   %20 = load ptr, ptr %1, align 8, !tbaa !109
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !121
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %23
@@ -3228,7 +3225,7 @@ _ZNSt12_Vector_baseISt4pairIlSt10shared_ptrIN5arrow5ArrayEEESaIS5_EE13_M_dealloc
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %24, ptr %10, align 8, !tbaa !197, !noalias !191
   store ptr %24, ptr %25, align 8, !tbaa !200, !noalias !191
-  %26 = getelementptr inbounds nuw %"struct.std::pair.120", ptr %24, i64 %18
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %18
   store ptr %26, ptr %22, align 8, !tbaa !201, !noalias !191
   br label %_ZNSt6vectorISt4pairIlSt10shared_ptrIN5arrow5ArrayEEESaIS5_EE7reserveEm.exit.i
 
@@ -3717,7 +3714,7 @@ define void @_ZN5arrow3ipc8internal19CollectDictionariesERKNS_11RecordBatchEPNS0
   %.sroa.2.8.insert.insert.i.i.i.i.i = add nuw nsw i64 %.sroa.4.8.insert.shift.i.i.i.i.i, %indvars.iv.i.i.i.i
   store ptr %5, ptr %4, align 8, !noalias !213
   store i64 %.sroa.2.8.insert.insert.i.i.i.i.i, ptr %31, align 8, !noalias !213
-  %36 = getelementptr inbounds nuw %"class.std::shared_ptr.125", ptr %33, i64 %indvars.iv.i.i.i.i
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv.i.i.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !53, !noalias !213
   call void @_ZN5arrow3ipc21DictionaryFieldMapper4Impl11ImportFieldERKNS0_8internal13FieldPositionERKNS_5FieldE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(96) %37), !noalias !213
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !213
@@ -4277,7 +4274,7 @@ define linkonce_odr void @_ZN5arrow3ipc21DictionaryFieldMapper4Impl11ImportField
   %.sroa.2.8.insert.insert.i.i = or disjoint i64 %.sroa.4.8.insert.shift.i.i, %indvars.iv24
   store ptr %1, ptr %5, align 8
   store i64 %.sroa.2.8.insert.insert.i.i, ptr %31, align 8
-  %36 = getelementptr inbounds nuw %"class.std::shared_ptr.125", ptr %33, i64 %indvars.iv24
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv24
   %37 = load ptr, ptr %36, align 8, !tbaa !53
   call void @_ZN5arrow3ipc21DictionaryFieldMapper4Impl11ImportFieldERKNS0_8internal13FieldPositionERKNS_5FieldE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(96) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4321,7 +4318,7 @@ define linkonce_odr void @_ZN5arrow3ipc21DictionaryFieldMapper4Impl11ImportField
   %.sroa.2.8.insert.insert.i.i15 = or disjoint i64 %.sroa.4.8.insert.shift.i.i13, %indvars.iv
   store ptr %1, ptr %4, align 8
   store i64 %.sroa.2.8.insert.insert.i.i15, ptr %57, align 8
-  %62 = getelementptr inbounds nuw %"class.std::shared_ptr.125", ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !53
   call void @_ZN5arrow3ipc21DictionaryFieldMapper4Impl11ImportFieldERKNS0_8internal13FieldPositionERKNS_5FieldE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(96) %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4366,7 +4363,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
 .noexc9.i:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   %11 = shl nuw nsw i64 %9, 2
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #24, !noalias !268
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %9
   store i32 0, ptr %12, align 4, !tbaa !128, !noalias !268
   %14 = getelementptr i8, ptr %12, i64 4
   %15 = add nsw i64 %9, -1
@@ -4390,7 +4387,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc9.i
   %20 = add nsw i64 %indvars.iv.i, -1
   %21 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !47, !noalias !268
-  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %20
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %20
   store i32 %22, ptr %23, align 4, !tbaa !128, !noalias !268
   %24 = load ptr, ptr %.0810.i, align 8, !tbaa !44, !noalias !268
   %25 = trunc nuw i64 %indvars.iv.i to i32
@@ -4544,7 +4541,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5arrow9FieldPathESt4pairIKS2_lENS_10_Select1st
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %0, align 8, !tbaa !32
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %44
   %49 = load ptr, ptr %48, align 8, !tbaa !121
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %.critedge28, label %50
@@ -4729,7 +4726,7 @@ _ZNSt10_HashtableIN5arrow9FieldPathESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1s
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8, !tbaa !284
   %33 = load ptr, ptr %0, align 8, !tbaa !32
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !121
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4755,7 +4752,7 @@ _ZNSt10_HashtableIN5arrow9FieldPathESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1s
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !284
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !121
   br label %49
 
@@ -4873,7 +4870,7 @@ _ZNSt10_HashtableIN5arrow9FieldPathESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1s
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !284
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !121
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4888,7 +4885,7 @@ _ZNSt10_HashtableIN5arrow9FieldPathESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1s
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !121
   br label %28
 
@@ -5106,7 +5103,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5arrow9FieldPathESt4pairIKS2_lENS_10_Select1st
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %0, align 8, !tbaa !32
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %44
   %49 = load ptr, ptr %48, align 8, !tbaa !121
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %.critedge28, label %50
@@ -5461,7 +5458,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5arrow9FieldPathESt4pairIKS2_lENS_10_Select1st
   %32 = load i64, ptr %31, align 8, !tbaa !40
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %0, align 8, !tbaa !32
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !121
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN5arrow9FieldPathESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %37
@@ -6633,7 +6630,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !136
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !139
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.122", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !140
   ret void
 }
@@ -7361,7 +7358,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZN5arrow6St
           to label %.noexc44 unwind label %89
 
 .noexc44:                                         ; preds = %.noexc9.i
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %49
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %49
   store i32 0, ptr %52, align 4, !tbaa !128, !noalias !339
   %54 = getelementptr i8, ptr %52, i64 4
   %55 = add nsw i64 %49, -1
@@ -7385,7 +7382,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc44
   %60 = add nsw i64 %indvars.iv.i, -1
   %61 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !47, !noalias !339
-  %63 = getelementptr inbounds nuw i32, ptr %52, i64 %60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %60
   store i32 %62, ptr %63, align 4, !tbaa !128, !noalias !339
   %64 = load ptr, ptr %.0810.i, align 8, !tbaa !44, !noalias !339
   %65 = trunc nuw i64 %indvars.iv.i to i32
@@ -7716,7 +7713,7 @@ define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector12W
   %24 = load ptr, ptr %19, align 8, !tbaa !141
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8, !tbaa !134
-  %27 = getelementptr inbounds nuw %"class.std::shared_ptr.95", ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv
   call void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.122") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -7997,7 +7994,7 @@ _ZNSt6vectorISt4pairIlSt10shared_ptrIN5arrow5ArrayEEESaIS5_EE11_S_relocateEPS5_S
 _ZNSt12_Vector_baseISt4pairIlSt10shared_ptrIN5arrow5ArrayEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt4pairIlSt10shared_ptrIN5arrow5ArrayEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33, %57
   store ptr %21, ptr %0, align 8, !tbaa !197
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !200
-  %61 = getelementptr inbounds nuw %"struct.std::pair.120", ptr %21, i64 %17
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %61, ptr %56, align 8, !tbaa !201
   ret void
 }
@@ -8051,7 +8048,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %23
 .noexc9.i:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   %29 = shl nuw nsw i64 %27, 2
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #24, !noalias !370
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %27
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %27
   store i32 0, ptr %30, align 4, !tbaa !128, !noalias !370
   %32 = getelementptr i8, ptr %30, i64 4
   %33 = add nsw i64 %27, -1
@@ -8074,7 +8071,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc9.i
   %37 = add nsw i64 %indvars.iv.i, -1
   %38 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !47, !noalias !370
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %37
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %37
   store i32 %39, ptr %40, align 4, !tbaa !128, !noalias !370
   %41 = load ptr, ptr %.0810.i, align 8, !tbaa !44, !noalias !370
   %42 = trunc nuw i64 %indvars.iv.i to i32
@@ -8766,7 +8763,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN5arrow8DataTypeEEESaIS6_ENSt8__deta
   %26 = load i64, ptr %25, align 8, !tbaa !114
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %0, align 8, !tbaa !112
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !121
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %.critedge28, label %44
@@ -8953,7 +8950,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN5arrow8DataTypeEEESaIS6_ENSt8__deta
 31:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN5arrow8DataTypeEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN5arrow8DataTypeEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !112
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !121
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -8979,7 +8976,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN5arrow8DataTypeEEESaIS6_ENSt8__deta
   %44 = load i64, ptr %9, align 8, !tbaa !114
   %45 = load i64, ptr %43, align 8, !tbaa !81
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !121
   br label %48
 
@@ -9106,7 +9103,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN5arrow8DataTypeEEESaIS6_ENSt8__deta
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !81
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !121
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -9121,7 +9118,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN5arrow8DataTypeEEESaIS6_ENSt8__deta
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !121
   br label %28
 
@@ -9265,7 +9262,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shar
   %20 = load i64, ptr %19, align 8, !tbaa !111
   %21 = urem i64 %8, %20
   %22 = load ptr, ptr %0, align 8, !tbaa !109
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !121
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %.critedge28, label %36
@@ -9407,7 +9404,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS6_E
 31:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS6_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS6_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !109
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !121
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -9433,7 +9430,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS6_E
   %44 = load i64, ptr %9, align 8, !tbaa !111
   %45 = load i64, ptr %43, align 8, !tbaa !81
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !121
   br label %48
 
@@ -9518,7 +9515,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS6_E
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !81
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !121
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -9533,7 +9530,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS6_E
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !121
   br label %28
 
@@ -9723,7 +9720,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !134
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !131
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.95", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !170
   ret void
 }
@@ -9748,7 +9745,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIlSt4pairIKlSt6vectorISt10shar
   %12 = load i64, ptr %11, align 8, !tbaa !111
   %13 = urem i64 %10, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !109
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !121
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %.critedge28, label %30

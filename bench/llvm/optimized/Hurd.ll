@@ -42,18 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::VersionTuple" = type { i64, i64 }
 %"class.llvm::SmallVector.175" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.176" }
 %"struct.llvm::SmallVectorStorage.176" = type { [32 x i8] }
-%"struct.clang::driver::MultilibSet::FlagMatcher" = type { %"class.std::__cxx11::basic_string", %"class.std::vector" }
-%"struct.clang::driver::custom_flag::Declaration" = type { %"class.std::__cxx11::basic_string", %"class.llvm::SmallVector.180", %"class.std::optional.185" }
-%"class.llvm::SmallVector.180" = type { %"class.llvm::SmallVectorImpl.181", %"struct.llvm::SmallVectorStorage.184" }
-%"class.llvm::SmallVectorImpl.181" = type { %"class.llvm::SmallVectorTemplateBase.182" }
-%"class.llvm::SmallVectorTemplateBase.182" = type { %"class.llvm::SmallVectorTemplateCommon.183" }
-%"class.llvm::SmallVectorTemplateCommon.183" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.184" = type { [96 x i8] }
-%"class.std::optional.185" = type { %"struct.std::_Optional_base.186" }
-%"struct.std::_Optional_base.186" = type { %"struct.std::_Optional_payload.188" }
-%"struct.std::_Optional_payload.188" = type { %"struct.std::_Optional_payload_base.base.190", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.190" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
 
 $_ZN5clang6driver11MultilibSetaSERKS1_ = comdat any
 
@@ -2090,8 +2078,8 @@ define hidden void @_ZNK5clang6driver10toolchains4Hurd25AddClangSystemIncludeArg
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !35, !noalias !162
   %41 = and i64 %38, 4294967295
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
-  %43 = getelementptr ptr, ptr %40, i64 %.sroa.4.0.extract.shift.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
+  %43 = getelementptr [8 x i8], ptr %40, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %41, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -2161,8 +2149,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !184
   %60 = load ptr, ptr %39, align 8, !tbaa !35, !noalias !184
   %61 = and i64 %59, 4294967295
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
-  %63 = getelementptr ptr, ptr %60, i64 %.sroa.4.0.extract.shift.i.i82
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
+  %63 = getelementptr [8 x i8], ptr %60, i64 %.sroa.4.0.extract.shift.i.i82
   %.not29.i.i.i.i83 = icmp samesign eq i64 %61, %.sroa.4.0.extract.shift.i.i82
   br i1 %.not29.i.i.i.i83, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i91, label %.lr.ph.i.i.i.i85
 
@@ -2309,8 +2297,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !190
   %107 = load ptr, ptr %39, align 8, !tbaa !35, !noalias !190
   %108 = and i64 %106, 4294967295
-  %109 = getelementptr inbounds nuw ptr, ptr %107, i64 %108
-  %110 = getelementptr ptr, ptr %107, i64 %.sroa.4.0.extract.shift.i.i109
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
+  %110 = getelementptr [8 x i8], ptr %107, i64 %.sroa.4.0.extract.shift.i.i109
   %.not29.i.i.i.i110 = icmp samesign eq i64 %108, %.sroa.4.0.extract.shift.i.i109
   br i1 %.not29.i.i.i.i110, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i118, label %.lr.ph.i.i.i.i112
 
@@ -2461,8 +2449,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !197
   %153 = load ptr, ptr %39, align 8, !tbaa !35, !noalias !197
   %154 = and i64 %152, 4294967295
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %154
-  %156 = getelementptr ptr, ptr %153, i64 %.sroa.4.0.extract.shift.i.i136
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %154
+  %156 = getelementptr [8 x i8], ptr %153, i64 %.sroa.4.0.extract.shift.i.i136
   %.not29.i.i.i.i137 = icmp samesign eq i64 %154, %.sroa.4.0.extract.shift.i.i136
   br i1 %.not29.i.i.i.i137, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i145, label %.lr.ph.i.i.i.i139
 
@@ -3073,7 +3061,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %10, %1
   %17 = phi i32 [ %11, %10 ], [ %.pre.i, %14 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !35
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = ptrtoint ptr %12 to i64
   store i64 %21, ptr %20, align 1
   %22 = load i32, ptr %7, align 8, !tbaa !38
@@ -4176,7 +4164,7 @@ _ZSt4copyIPKN5clang6driver11MultilibSet11FlagMatcherEPS3_ET0_T_S8_S7_.exit: ; pr
   %.pre-phi = phi i64 [ %.pre41, %_ZSt4copyIPKN5clang6driver11MultilibSet11FlagMatcherEPS3_ET0_T_S8_S7_.exit.loopexit ], [ %12, %13 ]
   %23 = phi ptr [ %.pre, %_ZSt4copyIPKN5clang6driver11MultilibSet11FlagMatcherEPS3_ET0_T_S8_S7_.exit.loopexit ], [ %14, %13 ]
   %.0 = phi ptr [ %20, %_ZSt4copyIPKN5clang6driver11MultilibSet11FlagMatcherEPS3_ET0_T_S8_S7_.exit.loopexit ], [ %14, %13 ]
-  %24 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %23, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %24
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -4375,13 +4363,13 @@ _ZSt4copyIPKN5clang6driver11MultilibSet11FlagMatcherEPS3_ET0_T_S8_S7_.exit37: ; 
   %95 = load ptr, ptr %1, align 8, !tbaa !35
   %96 = load i32, ptr %7, align 8, !tbaa !38
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [56 x i8], ptr %95, i64 %97
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %97
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN5clang6driver11MultilibSet11FlagMatcherEPS3_ET0_T_S8_S7_.exit37
-  %99 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %94, i64 %.022
-  %100 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %95, i64 %.022
+  %99 = getelementptr inbounds nuw [56 x i8], ptr %94, i64 %.022
+  %100 = getelementptr inbounds nuw [56 x i8], ptr %95, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN5clang6driver11MultilibSet11FlagMatcherEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i
@@ -4727,7 +4715,7 @@ _ZSt4copyIPKN5clang6driver11custom_flag11DeclarationEPS3_ET0_T_S8_S7_.exit: ; pr
   %.pre-phi = phi i64 [ %.pre38, %_ZSt4copyIPKN5clang6driver11custom_flag11DeclarationEPS3_ET0_T_S8_S7_.exit.loopexit ], [ %10, %11 ]
   %19 = phi ptr [ %.pre, %_ZSt4copyIPKN5clang6driver11custom_flag11DeclarationEPS3_ET0_T_S8_S7_.exit.loopexit ], [ %12, %11 ]
   %.0 = phi ptr [ %16, %_ZSt4copyIPKN5clang6driver11custom_flag11DeclarationEPS3_ET0_T_S8_S7_.exit.loopexit ], [ %12, %11 ]
-  %20 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %19, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [160 x i8], ptr %19, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %20
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -4817,14 +4805,14 @@ _ZSt4copyIPKN5clang6driver11custom_flag11DeclarationEPS3_ET0_T_S8_S7_.exit36: ; 
   %50 = load ptr, ptr %1, align 8, !tbaa !35
   %51 = load i32, ptr %5, align 8, !tbaa !38
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [160 x i8], ptr %50, i64 %52
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %52
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN5clang6driver11custom_flag11DeclarationEPS3_ET0_T_S8_S7_.exit36
   %54 = load ptr, ptr %0, align 8, !tbaa !35
-  %55 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %54, i64 %.022
-  %56 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %50, i64 %.022
+  %55 = getelementptr inbounds nuw [160 x i8], ptr %54, i64 %.022
+  %56 = getelementptr inbounds nuw [160 x i8], ptr %50, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -5141,7 +5129,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE7reserveEm.exit: ; preds = %.
   br i1 %.not9.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver8MultilibELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i8.preheader
 
 .lr.ph.i.i.i.i8.preheader:                        ; preds = %_ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE7reserveEm.exit
-  %36 = getelementptr inbounds nuw %"class.clang::driver::Multilib", ptr %35, i64 %.pre-phi
+  %36 = getelementptr inbounds nuw [192 x i8], ptr %35, i64 %.pre-phi
   br label %.lr.ph.i.i.i.i8
 
 .lr.ph.i.i.i.i8:                                  ; preds = %.lr.ph.i.i.i.i8.preheader, %.lr.ph.i.i.i.i8

@@ -61,12 +61,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.45" = type { %"class.llvm::SmallVectorTemplateCommon.46" }
 %"class.llvm::SmallVectorTemplateCommon.46" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.47" = type { [48 x i8] }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
 %"struct.(anonymous namespace)::ScalarDocNode" = type { %"class.llvm::msgpack::DocNode" }
 %"class.llvm::msgpack::DocNode" = type { ptr, %union.anon.0 }
 %union.anon.0 = type { %"class.llvm::StringRef" }
@@ -652,7 +646,7 @@ _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4
 _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %33
   store ptr %26, ptr %4, align 8, !tbaa !72
   store ptr %32, ptr %6, align 8, !tbaa !70
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %34, ptr %8, align 8, !tbaa !71
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
@@ -877,10 +871,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 
 switch.lookup:                                    ; preds = %76
   %84 = zext nneg i8 %74 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   %85 = zext nneg i8 %74 to i64
-  %switch.gep30 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.6, i64 %85
+  %switch.gep30 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.6, i64 %85
   %switch.load31 = load i64, ptr %switch.gep30, align 8
   br label %_ZNK12_GLOBAL__N_113ScalarDocNode10getYAMLTagEv.exit.i.i
 

@@ -333,7 +333,7 @@ define internal range(i32 0, 2) i32 @test_dhkem_encapsulate(i32 noundef %0) #0 {
   %7 = alloca %struct.ossl_param_st, align 8
   %8 = alloca %struct.ossl_param_st, align 8
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %9
+  %10 = getelementptr inbounds [120 x i8], ptr @ec_encapdata, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = add i32 %0, -5
   %.not = icmp ult i32 %12, -2
@@ -468,7 +468,7 @@ define internal range(i32 0, 2) i32 @test_dhkem_decapsulate(i32 noundef %0) #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca i64, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %4
+  %5 = getelementptr inbounds [120 x i8], ptr @ec_encapdata, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = add i32 %0, -5
   %.not = icmp ult i32 %7, -2
@@ -572,7 +572,7 @@ do_decap.exit:                                    ; preds = %27, %32, %35, %38, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_settables(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @rctx, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %4, ptr noundef null) #5
   %6 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.50, i32 noundef %5, i32 noundef 1) #5
@@ -620,7 +620,7 @@ define internal range(i32 0, 2) i32 @test_settables(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_init_multiple(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @rctx, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %4, ptr noundef null) #5
   %6 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 109, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.50, i32 noundef %5, i32 noundef 1) #5
@@ -655,10 +655,10 @@ define internal range(i32 0, 2) i32 @test_init_multiple(i32 noundef %0) #0 {
 define internal i32 @test_auth_key_type_mismatch(i32 noundef %0) #0 {
   %.not = icmp eq i32 %0, 0
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @rctx, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = zext i1 %.not to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @rkey, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @rkey, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %4, ptr noundef %7, ptr noundef nonnull @opparam) #5
   %9 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 266, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef %8, i32 noundef 0) #5
@@ -669,9 +669,9 @@ define internal i32 @test_auth_key_type_mismatch(i32 noundef %0) #0 {
 define internal range(i32 0, 2) i32 @test_no_operation_set(i32 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr @rctx, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !19
-  %6 = getelementptr inbounds %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %3
+  %6 = getelementptr inbounds [120 x i8], ptr @ec_encapdata, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !13
   %7 = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %5, ptr noundef null) #5
@@ -728,7 +728,7 @@ define internal range(i32 0, 2) i32 @test_ikm_small(i32 noundef %0) #0 {
   store i64 256, ptr %6, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds ptr, ptr @rctx, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i64 noundef 0) #5
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -777,7 +777,7 @@ define internal i32 @test_input_size_small(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 256, ptr %5, align 8, !tbaa !13
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds ptr, ptr @rctx, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %8, ptr noundef nonnull @opparam) #5
   %10 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 215, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.50, i32 noundef %9, i32 noundef 1) #5
@@ -853,9 +853,9 @@ define internal i32 @test_input_size_small(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_null_params(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @rctx, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !19
-  %5 = getelementptr inbounds %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %2
+  %5 = getelementptr inbounds [120 x i8], ptr @ec_encapdata, i64 %2
   %6 = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %4, ptr noundef null, ptr noundef nonnull @opparam) #5
   %7 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.74, i32 noundef %6, i32 noundef 0) #5
   %.not = icmp eq i32 %7, 0
@@ -917,7 +917,7 @@ define internal i32 @test_set_params(i32 noundef %0) #0 {
   %13 = alloca %struct.ossl_param_st, align 8
   %14 = alloca %struct.ossl_param_st, align 8
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds ptr, ptr @rctx, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @rctx, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1016,7 +1016,7 @@ define internal range(i32 0, 2) i32 @test_nopublic(i32 noundef %0) #0 {
   %4 = icmp sgt i32 %0, 1
   %5 = zext i1 %4 to i32
   %6 = zext i1 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %6
+  %7 = getelementptr inbounds nuw [120 x i8], ptr @ec_encapdata, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = select i1 %3, ptr @.str.93, ptr @.str.94
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.92, ptr noundef %8, ptr noundef nonnull %9) #5
@@ -1083,8 +1083,8 @@ define internal range(i32 0, 2) i32 @test_noauthpublic(i32 noundef %0) #0 {
   %4 = icmp sgt i32 %0, 1
   %5 = zext i1 %4 to i32
   %6 = zext i1 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %6
-  %8 = getelementptr inbounds nuw ptr, ptr @rctx, i64 %6
+  %7 = getelementptr inbounds nuw [120 x i8], ptr @ec_encapdata, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @rctx, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = load ptr, ptr %7, align 8, !tbaa !21
   %11 = select i1 %3, ptr @.str.93, ptr @.str.94
@@ -1150,7 +1150,7 @@ define internal range(i32 0, 2) i32 @test_ec_dhkem_derivekey(i32 noundef %0) #0 
   store ptr null, ptr %2, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds %struct.TEST_DERIVEKEY_DATA, ptr @ec_derivekey_data, i64 %10
+  %11 = getelementptr inbounds [56 x i8], ptr @ec_derivekey_data, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1286,7 +1286,7 @@ define internal range(i32 0, 2) i32 @test_ec_noikme(i32 noundef %0) #0 {
   %spec.select = select i1 %8, ptr @.str.39, ptr @.str.119
   %spec.select55 = select i1 %8, i32 %0, i32 %9
   %10 = sext i32 %spec.select55 to i64
-  %11 = getelementptr inbounds ptr, ptr @dhkem_supported_curves, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @dhkem_supported_curves, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !5
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.118, ptr noundef %12, ptr noundef nonnull %spec.select) #5
   %13 = load i8, ptr %12, align 1, !tbaa !49
@@ -1892,7 +1892,7 @@ define internal range(i32 0, 2) i32 @test_ecx_dhkem_derivekey(i32 noundef %0) #0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !13
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds %struct.TEST_DERIVEKEY_DATA, ptr @ecx_derivekey_data, i64 %10
+  %11 = getelementptr inbounds [56 x i8], ptr @ecx_derivekey_data, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48

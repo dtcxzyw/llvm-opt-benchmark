@@ -20,21 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.15 }
 %union.anon.15 = type { i64 }
 %struct.nodemask_t = type { [1 x i64] }
-%struct.mem_section = type { i64, ptr }
-%struct.page = type { i64, %union.anon, %union.anon.6, %struct.atomic_t, [8 x i8] }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %union.anon.0, ptr, %union.anon.2, i64 }
-%union.anon.0 = type { %struct.list_head }
-%union.anon.2 = type { i64 }
-%union.anon.6 = type { %struct.atomic_t }
-%struct.zone = type { [4 x i64], i64, i64, [4 x i64], i32, ptr, ptr, ptr, i32, i32, i32, i64, %struct.atomic64_t, i64, i64, ptr, i32, [20 x i8], %struct.cacheline_padding, [11 x %struct.free_area], i64, %struct.spinlock, [28 x i8], %struct.cacheline_padding, i64, i64, [2 x i64], i64, i64, i32, i32, i32, i8, i8, [2 x i8], %struct.cacheline_padding, [10 x %struct.atomic64_t], [6 x %struct.atomic64_t] }
-%struct.free_area = type { [4 x %struct.list_head], i64 }
-%struct.spinlock = type { %union.anon.7 }
-%union.anon.7 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.8 }
-%union.anon.8 = type { %struct.atomic_t }
-%struct.cacheline_padding = type { [0 x i8] }
 
 @hibernate_restore_protection = internal unnamed_addr global i1 false, align 1
 @reserved_size = dso_local local_unnamed_addr global i64 0, align 8
@@ -425,14 +410,14 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr ptr, ptr %51, i64 %45
+  %54 = getelementptr [8 x i8], ptr %51, i64 %45
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %53
   %58 = and i64 %39, 255
-  %59 = getelementptr %struct.mem_section, ptr %55, i64 %58
+  %59 = getelementptr [16 x i8], ptr %55, i64 %58
   br label %60
 
 60:                                               ; preds = %57, %53, %50, %47
@@ -668,7 +653,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
 
 41:                                               ; preds = %40, %.loopexit156
   %42 = phi i64 [ 0, %.loopexit156 ], [ %15, %40 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %42
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %42
   %43 = getelementptr i8, ptr %.split, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %44, i32 noundef %10, i64 noundef 32) #23
@@ -1007,7 +992,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   %224 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %225 = load ptr, ptr %224, align 8
   %226 = zext nneg i32 %223 to i64
-  %227 = getelementptr i64, ptr %225, i64 %226
+  %227 = getelementptr [8 x i8], ptr %225, i64 %226
   %228 = add nsw i32 %232, -1
   %229 = icmp sgt i32 %232, 1
   br i1 %229, label %.preheader144, label %.loopexit145.loopexit, !llvm.loop !41
@@ -1214,7 +1199,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   %332 = select i1 %328, i64 %329, i64 %331
   %333 = add i64 %327, %332
   %334 = lshr i64 %333, 12
-  %335 = getelementptr %struct.page, ptr %326, i64 %334
+  %335 = getelementptr [64 x i8], ptr %326, i64 %334
   %336 = load ptr, ptr @forbidden_pages_map, align 8
   %337 = icmp eq ptr %336, null
   br i1 %337, label %422, label %338
@@ -1311,7 +1296,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   %397 = getelementptr inbounds nuw i8, ptr %391, i64 16
   %398 = load ptr, ptr %397, align 8
   %399 = zext nneg i32 %396 to i64
-  %400 = getelementptr i64, ptr %398, i64 %399
+  %400 = getelementptr [8 x i8], ptr %398, i64 %399
   %401 = load i64, ptr %400, align 8
   %402 = icmp eq i64 %401, 0
   br i1 %402, label %403, label %404, !prof !18
@@ -1452,7 +1437,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   %485 = getelementptr inbounds nuw i8, ptr %479, i64 16
   %486 = load ptr, ptr %485, align 8
   %487 = zext nneg i32 %484 to i64
-  %488 = getelementptr i64, ptr %486, i64 %487
+  %488 = getelementptr [8 x i8], ptr %486, i64 %487
   %489 = load i64, ptr %488, align 8
   %490 = icmp eq i64 %489, 0
   br i1 %490, label %491, label %492, !prof !18
@@ -1531,7 +1516,7 @@ free_image_page.exit:                             ; preds = %422, %.loopexit128
   %529 = select i1 %525, i64 %526, i64 %528
   %530 = add i64 %524, %529
   %531 = lshr i64 %530, 12
-  %532 = getelementptr %struct.page, ptr %523, i64 %531
+  %532 = getelementptr [64 x i8], ptr %523, i64 %531
   %533 = load ptr, ptr @forbidden_pages_map, align 8
   %534 = icmp eq ptr %533, null
   br i1 %534, label %619, label %535
@@ -1628,7 +1613,7 @@ free_image_page.exit:                             ; preds = %422, %.loopexit128
   %594 = getelementptr inbounds nuw i8, ptr %588, i64 16
   %595 = load ptr, ptr %594, align 8
   %596 = zext nneg i32 %593 to i64
-  %597 = getelementptr i64, ptr %595, i64 %596
+  %597 = getelementptr [8 x i8], ptr %595, i64 %596
   %598 = load i64, ptr %597, align 8
   %599 = icmp eq i64 %598, 0
   br i1 %599, label %600, label %601, !prof !18
@@ -1769,7 +1754,7 @@ free_image_page.exit:                             ; preds = %422, %.loopexit128
   %682 = getelementptr inbounds nuw i8, ptr %676, i64 16
   %683 = load ptr, ptr %682, align 8
   %684 = zext nneg i32 %681 to i64
-  %685 = getelementptr i64, ptr %683, i64 %684
+  %685 = getelementptr [8 x i8], ptr %683, i64 %684
   %686 = load i64, ptr %685, align 8
   %687 = icmp eq i64 %686, 0
   br i1 %687, label %688, label %689, !prof !18
@@ -1906,7 +1891,7 @@ define dso_local void @free_basic_memory_bitmaps() local_unnamed_addr #3 align 1
   %28 = select i1 %24, i64 %25, i64 %27
   %29 = add i64 %23, %28
   %30 = lshr i64 %29, 12
-  %31 = getelementptr %struct.page, ptr %22, i64 %30
+  %31 = getelementptr [64 x i8], ptr %22, i64 %30
   %32 = load ptr, ptr @forbidden_pages_map, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %118, label %34
@@ -2003,7 +1988,7 @@ define dso_local void @free_basic_memory_bitmaps() local_unnamed_addr #3 align 1
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = zext nneg i32 %92 to i64
-  %96 = getelementptr i64, ptr %94, i64 %95
+  %96 = getelementptr [8 x i8], ptr %94, i64 %95
   %97 = load i64, ptr %96, align 8
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %99, label %100, !prof !18
@@ -2144,7 +2129,7 @@ define dso_local void @free_basic_memory_bitmaps() local_unnamed_addr #3 align 1
   %181 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = zext nneg i32 %180 to i64
-  %184 = getelementptr i64, ptr %182, i64 %183
+  %184 = getelementptr [8 x i8], ptr %182, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = icmp eq i64 %185, 0
   br i1 %186, label %187, label %188, !prof !18
@@ -2223,7 +2208,7 @@ free_image_page.exit:                             ; preds = %118, %.loopexit140
   %225 = select i1 %221, i64 %222, i64 %224
   %226 = add i64 %220, %225
   %227 = lshr i64 %226, 12
-  %228 = getelementptr %struct.page, ptr %219, i64 %227
+  %228 = getelementptr [64 x i8], ptr %219, i64 %227
   %229 = load ptr, ptr @forbidden_pages_map, align 8
   %230 = icmp eq ptr %229, null
   br i1 %230, label %315, label %231
@@ -2320,7 +2305,7 @@ free_image_page.exit:                             ; preds = %118, %.loopexit140
   %290 = getelementptr inbounds nuw i8, ptr %284, i64 16
   %291 = load ptr, ptr %290, align 8
   %292 = zext nneg i32 %289 to i64
-  %293 = getelementptr i64, ptr %291, i64 %292
+  %293 = getelementptr [8 x i8], ptr %291, i64 %292
   %294 = load i64, ptr %293, align 8
   %295 = icmp eq i64 %294, 0
   br i1 %295, label %296, label %297, !prof !18
@@ -2461,7 +2446,7 @@ free_image_page.exit:                             ; preds = %118, %.loopexit140
   %378 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %379 = load ptr, ptr %378, align 8
   %380 = zext nneg i32 %377 to i64
-  %381 = getelementptr i64, ptr %379, i64 %380
+  %381 = getelementptr [8 x i8], ptr %379, i64 %380
   %382 = load i64, ptr %381, align 8
   %383 = icmp eq i64 %382, 0
   br i1 %383, label %384, label %385, !prof !18
@@ -2568,7 +2553,7 @@ free_image_page.exit12:                           ; preds = %315, %.loopexit136
   %434 = select i1 %430, i64 %431, i64 %433
   %435 = add i64 %429, %434
   %436 = lshr i64 %435, 12
-  %437 = getelementptr %struct.page, ptr %428, i64 %436
+  %437 = getelementptr [64 x i8], ptr %428, i64 %436
   %438 = load ptr, ptr @forbidden_pages_map, align 8
   %439 = icmp eq ptr %438, null
   br i1 %439, label %524, label %440
@@ -2665,7 +2650,7 @@ free_image_page.exit12:                           ; preds = %315, %.loopexit136
   %499 = getelementptr inbounds nuw i8, ptr %493, i64 16
   %500 = load ptr, ptr %499, align 8
   %501 = zext nneg i32 %498 to i64
-  %502 = getelementptr i64, ptr %500, i64 %501
+  %502 = getelementptr [8 x i8], ptr %500, i64 %501
   %503 = load i64, ptr %502, align 8
   %504 = icmp eq i64 %503, 0
   br i1 %504, label %505, label %506, !prof !18
@@ -2806,7 +2791,7 @@ free_image_page.exit12:                           ; preds = %315, %.loopexit136
   %587 = getelementptr inbounds nuw i8, ptr %581, i64 16
   %588 = load ptr, ptr %587, align 8
   %589 = zext nneg i32 %586 to i64
-  %590 = getelementptr i64, ptr %588, i64 %589
+  %590 = getelementptr [8 x i8], ptr %588, i64 %589
   %591 = load i64, ptr %590, align 8
   %592 = icmp eq i64 %591, 0
   br i1 %592, label %593, label %594, !prof !18
@@ -2885,7 +2870,7 @@ free_image_page.exit13:                           ; preds = %524, %.loopexit120
   %631 = select i1 %627, i64 %628, i64 %630
   %632 = add i64 %626, %631
   %633 = lshr i64 %632, 12
-  %634 = getelementptr %struct.page, ptr %625, i64 %633
+  %634 = getelementptr [64 x i8], ptr %625, i64 %633
   %635 = load ptr, ptr @forbidden_pages_map, align 8
   %636 = icmp eq ptr %635, null
   br i1 %636, label %721, label %637
@@ -2982,7 +2967,7 @@ free_image_page.exit13:                           ; preds = %524, %.loopexit120
   %696 = getelementptr inbounds nuw i8, ptr %690, i64 16
   %697 = load ptr, ptr %696, align 8
   %698 = zext nneg i32 %695 to i64
-  %699 = getelementptr i64, ptr %697, i64 %698
+  %699 = getelementptr [8 x i8], ptr %697, i64 %698
   %700 = load i64, ptr %699, align 8
   %701 = icmp eq i64 %700, 0
   br i1 %701, label %702, label %703, !prof !18
@@ -3123,7 +3108,7 @@ free_image_page.exit13:                           ; preds = %524, %.loopexit120
   %784 = getelementptr inbounds nuw i8, ptr %778, i64 16
   %785 = load ptr, ptr %784, align 8
   %786 = zext nneg i32 %783 to i64
-  %787 = getelementptr i64, ptr %785, i64 %786
+  %787 = getelementptr [8 x i8], ptr %785, i64 %786
   %788 = load i64, ptr %787, align 8
   %789 = icmp eq i64 %788, 0
   br i1 %789, label %790, label %791, !prof !18
@@ -3335,14 +3320,14 @@ define dso_local void @clear_or_poison_free_pages() local_unnamed_addr #3 align 
   br i1 %75, label %83, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr ptr, ptr %74, i64 %68
+  %77 = getelementptr [8 x i8], ptr %74, i64 %68
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %76
   %81 = and i64 %62, 255
-  %82 = getelementptr %struct.mem_section, ptr %78, i64 %81
+  %82 = getelementptr [16 x i8], ptr %78, i64 %81
   br label %83
 
 83:                                               ; preds = %80, %76, %73, %70
@@ -4039,14 +4024,14 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   br i1 %296, label %304, label %297
 
 297:                                              ; preds = %294
-  %298 = getelementptr ptr, ptr %295, i64 %289
+  %298 = getelementptr [8 x i8], ptr %295, i64 %289
   %299 = load ptr, ptr %298, align 8
   %300 = icmp eq ptr %299, null
   br i1 %300, label %304, label %301
 
 301:                                              ; preds = %297
   %302 = and i64 %283, 255
-  %303 = getelementptr %struct.mem_section, ptr %299, i64 %302
+  %303 = getelementptr [16 x i8], ptr %299, i64 %302
   br label %304
 
 304:                                              ; preds = %301, %297, %294, %291
@@ -4120,7 +4105,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
 344:                                              ; preds = %341
   %345 = load i64, ptr @vmemmap_base, align 8
   %346 = inttoptr i64 %345 to ptr
-  %347 = getelementptr %struct.page, ptr %346, i64 %213
+  %347 = getelementptr [64 x i8], ptr %346, i64 %213
   %348 = load ptr, ptr @forbidden_pages_map, align 8
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 32
   %350 = load ptr, ptr %349, align 8
@@ -4696,7 +4681,7 @@ preallocate_image_memory.exit23:                  ; preds = %.lr.ph.i22, %223, %
   store i64 %330, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 48), align 8
   %331 = load i64, ptr @vmemmap_base, align 8
   %332 = inttoptr i64 %331 to ptr
-  %333 = getelementptr %struct.page, ptr %332, i64 %330
+  %333 = getelementptr [64 x i8], ptr %332, i64 %330
   %334 = load i32, ptr @alloc_normal, align 4
   %335 = add i32 %334, -1
   store i32 %335, ptr @alloc_normal, align 4
@@ -5069,7 +5054,7 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %146 = load ptr, ptr %145, align 8
   %147 = zext nneg i32 %144 to i64
-  %148 = getelementptr i64, ptr %146, i64 %147
+  %148 = getelementptr [8 x i8], ptr %146, i64 %147
   %149 = load i64, ptr %148, align 8
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %151, label %152, !prof !18
@@ -5309,14 +5294,14 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
 279:                                              ; preds = %._crit_edge
   %280 = load i64, ptr @vmemmap_base, align 8
   %281 = inttoptr i64 %280 to ptr
-  %282 = getelementptr %struct.page, ptr %281, i64 %221
+  %282 = getelementptr [64 x i8], ptr %281, i64 %221
   %283 = ptrtoint ptr %282 to i64
   %284 = sub i64 %283, %280
   %285 = shl i64 %284, 6
   %286 = load i64, ptr @page_offset_base, align 8
   %287 = add i64 %285, %286
   %288 = inttoptr i64 %287 to ptr
-  %289 = getelementptr %struct.page, ptr %281, i64 %276
+  %289 = getelementptr [64 x i8], ptr %281, i64 %276
   %290 = tail call zeroext i1 @kernel_page_present(ptr noundef %289) #20
   br i1 %290, label %291, label %310
 
@@ -5491,7 +5476,7 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   %401 = getelementptr inbounds nuw i8, ptr %395, i64 16
   %402 = load ptr, ptr %401, align 8
   %403 = zext nneg i32 %400 to i64
-  %404 = getelementptr i64, ptr %402, i64 %403
+  %404 = getelementptr [8 x i8], ptr %402, i64 %403
   %405 = load i64, ptr %404, align 8
   %406 = icmp eq i64 %405, 0
   br i1 %406, label %407, label %408, !prof !18
@@ -5681,7 +5666,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %26 = phi i64 [ %33, %41 ], [ 0, %22 ]
   %27 = phi i32 [ %43, %41 ], [ %24, %22 ]
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr ptr, ptr @node_data, i64 %28
+  %29 = getelementptr [8 x i8], ptr @node_data, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 13104
   %32 = load i64, ptr %31, align 16
@@ -5825,7 +5810,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
 
 .thread15:                                        ; preds = %119
   store i64 -1, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 48), align 8
-  %122 = getelementptr i64, ptr %75, i64 %77
+  %122 = getelementptr [8 x i8], ptr %75, i64 %77
   store i64 -1, ptr %122, align 8
   br label %.loopexit22
 
@@ -5849,7 +5834,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %132 = add i32 %126, 1
   store i32 %132, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 56), align 8
   store i64 %131, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 48), align 8
-  %133 = getelementptr i64, ptr %75, i64 %77
+  %133 = getelementptr [8 x i8], ptr %75, i64 %77
   store i64 %131, ptr %133, align 8
   %134 = icmp eq i64 %131, -1
   br i1 %134, label %.loopexit22, label %135, !prof !68
@@ -6279,7 +6264,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %64 = phi i64 [ %71, %79 ], [ 0, %60 ]
   %65 = phi i32 [ %81, %79 ], [ %62, %60 ]
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr ptr, ptr @node_data, i64 %66
+  %67 = getelementptr [8 x i8], ptr @node_data, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 13104
   %70 = load i64, ptr %69, align 16
@@ -6351,7 +6336,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
 
 109:                                              ; preds = %263, %107
   %110 = phi i64 [ 0, %107 ], [ %264, %263 ]
-  %111 = getelementptr i64, ptr %108, i64 %110
+  %111 = getelementptr [8 x i8], ptr %108, i64 %110
   %112 = load i64, ptr %111, align 8
   %113 = icmp eq i64 %112, -1
   br i1 %113, label %266, label %114, !prof !18
@@ -6394,14 +6379,14 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br i1 %132, label %140, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr ptr, ptr %131, i64 %125
+  %134 = getelementptr [8 x i8], ptr %131, i64 %125
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   br i1 %136, label %140, label %137
 
 137:                                              ; preds = %133
   %138 = and i64 %119, 255
-  %139 = getelementptr %struct.mem_section, ptr %135, i64 %138
+  %139 = getelementptr [16 x i8], ptr %135, i64 %138
   br label %140
 
 140:                                              ; preds = %137, %133, %130, %127
@@ -6561,14 +6546,14 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br i1 %213, label %221, label %214
 
 214:                                              ; preds = %211
-  %215 = getelementptr ptr, ptr %212, i64 %206
+  %215 = getelementptr [8 x i8], ptr %212, i64 %206
   %216 = load ptr, ptr %215, align 8
   %217 = icmp eq ptr %216, null
   br i1 %217, label %221, label %218
 
 218:                                              ; preds = %214
   %219 = and i64 %119, 255
-  %220 = getelementptr %struct.mem_section, ptr %216, i64 %219
+  %220 = getelementptr [16 x i8], ptr %216, i64 %219
   br label %221
 
 221:                                              ; preds = %218, %214, %211, %208
@@ -6900,7 +6885,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %423 = select i1 %419, i64 %420, i64 %422
   %424 = add i64 %418, %423
   %425 = lshr i64 %424, 12
-  %426 = getelementptr %struct.page, ptr %417, i64 %425
+  %426 = getelementptr [64 x i8], ptr %417, i64 %425
   %427 = load ptr, ptr @forbidden_pages_map, align 8
   %428 = icmp eq ptr %427, null
   br i1 %428, label %440, label %429
@@ -6967,7 +6952,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %460 = select i1 %456, i64 %457, i64 %459
   %461 = add i64 %455, %460
   %462 = lshr i64 %461, 12
-  %463 = getelementptr %struct.page, ptr %454, i64 %462
+  %463 = getelementptr [64 x i8], ptr %454, i64 %462
   %464 = load ptr, ptr @forbidden_pages_map, align 8
   %465 = icmp eq ptr %464, null
   br i1 %465, label %477, label %466
@@ -7037,7 +7022,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %497 = select i1 %493, i64 %494, i64 %496
   %498 = add i64 %492, %497
   %499 = lshr i64 %498, 12
-  %500 = getelementptr %struct.page, ptr %491, i64 %499
+  %500 = getelementptr [64 x i8], ptr %491, i64 %499
   %501 = load ptr, ptr @forbidden_pages_map, align 8
   %502 = icmp eq ptr %501, null
   br i1 %502, label %514, label %503
@@ -7117,7 +7102,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %539 = select i1 %535, i64 %536, i64 %538
   %540 = add i64 %534, %539
   %541 = lshr i64 %540, 12
-  %542 = getelementptr %struct.page, ptr %533, i64 %541
+  %542 = getelementptr [64 x i8], ptr %533, i64 %541
   %543 = load ptr, ptr @forbidden_pages_map, align 8
   %544 = icmp eq ptr %543, null
   br i1 %544, label %556, label %545
@@ -7184,7 +7169,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %576 = select i1 %572, i64 %573, i64 %575
   %577 = add i64 %571, %576
   %578 = lshr i64 %577, 12
-  %579 = getelementptr %struct.page, ptr %570, i64 %578
+  %579 = getelementptr [64 x i8], ptr %570, i64 %578
   %580 = load ptr, ptr @forbidden_pages_map, align 8
   %581 = icmp eq ptr %580, null
   br i1 %581, label %593, label %582
@@ -7254,7 +7239,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %613 = select i1 %609, i64 %610, i64 %612
   %614 = add i64 %608, %613
   %615 = lshr i64 %614, 12
-  %616 = getelementptr %struct.page, ptr %607, i64 %615
+  %616 = getelementptr [64 x i8], ptr %607, i64 %615
   %617 = load ptr, ptr @forbidden_pages_map, align 8
   %618 = icmp eq ptr %617, null
   br i1 %618, label %630, label %619
@@ -7732,7 +7717,7 @@ define internal fastcc ptr @get_buffer() unnamed_addr #3 align 16 {
 60:                                               ; preds = %._crit_edge51
   %61 = load i64, ptr @vmemmap_base, align 8
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr %struct.page, ptr %62, i64 %57
+  %63 = getelementptr [64 x i8], ptr %62, i64 %57
   %64 = load ptr, ptr @forbidden_pages_map, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %104, label %66
@@ -8125,7 +8110,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @memory_bm_find_bit(ptr nou
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr i64, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %67, !prof !18
@@ -8202,7 +8187,7 @@ define internal fastcc void @free_image_page(ptr noundef %0) unnamed_addr #15 al
   %17 = select i1 %13, i64 %14, i64 %16
   %18 = add i64 %12, %17
   %19 = lshr i64 %18, 12
-  %20 = getelementptr %struct.page, ptr %11, i64 %19
+  %20 = getelementptr [64 x i8], ptr %11, i64 %19
   %21 = load ptr, ptr @forbidden_pages_map, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %34, label %23
@@ -8347,14 +8332,14 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr ptr, ptr %33, i64 %27
+  %36 = getelementptr [8 x i8], ptr %33, i64 %27
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %35
   %40 = and i64 %21, 255
-  %41 = getelementptr %struct.mem_section, ptr %37, i64 %40
+  %41 = getelementptr [16 x i8], ptr %37, i64 %40
   br label %42
 
 42:                                               ; preds = %39, %35, %32, %29
@@ -8428,14 +8413,14 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
 82:                                               ; preds = %79
   %83 = load i64, ptr @vmemmap_base, align 8
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr %struct.page, ptr %84, i64 %18
+  %85 = getelementptr [64 x i8], ptr %84, i64 %18
   %86 = load i64, ptr %85, align 16
   %87 = lshr i64 %86, 58
-  %88 = getelementptr ptr, ptr @node_data, i64 %87
+  %88 = getelementptr [8 x i8], ptr @node_data, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = lshr i64 %86, 56
   %91 = and i64 %90, 3
-  %92 = getelementptr %struct.zone, ptr %89, i64 %91
+  %92 = getelementptr [1216 x i8], ptr %89, i64 %91
   %93 = icmp eq ptr %92, %0
   br i1 %93, label %94, label %.thread
 
@@ -8512,12 +8497,12 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
 
 127:                                              ; preds = %242, %.loopexit23
   %128 = phi i64 [ 0, %.loopexit23 ], [ %243, %242 ]
-  %129 = getelementptr %struct.free_area, ptr %17, i64 %128
+  %129 = getelementptr [72 x i8], ptr %17, i64 %128
   br label %130
 
 130:                                              ; preds = %.loopexit21, %127
   %131 = phi i64 [ 0, %127 ], [ %240, %.loopexit21 ]
-  %132 = getelementptr %struct.list_head, ptr %129, i64 %131
+  %132 = getelementptr [16 x i8], ptr %129, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, %132
   %135 = load ptr, ptr @free_pages_map, align 8
@@ -8643,7 +8628,7 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
   %209 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = zext nneg i32 %208 to i64
-  %212 = getelementptr i64, ptr %210, i64 %211
+  %212 = getelementptr [8 x i8], ptr %210, i64 %211
   %213 = load i64, ptr %212, align 8
   %214 = icmp eq i64 %213, 0
   br i1 %214, label %215, label %216, !prof !18
@@ -8755,14 +8740,14 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr ptr, ptr %21, i64 %15
+  %24 = getelementptr [8 x i8], ptr %21, i64 %15
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %23
   %28 = and i64 %9, 255
-  %29 = getelementptr %struct.mem_section, ptr %25, i64 %28
+  %29 = getelementptr [16 x i8], ptr %25, i64 %28
   br label %30
 
 30:                                               ; preds = %27, %23, %20, %17
@@ -8859,14 +8844,14 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br i1 %79, label %87, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr ptr, ptr %78, i64 %15
+  %81 = getelementptr [8 x i8], ptr %78, i64 %15
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %80
   %85 = and i64 %9, 255
-  %86 = getelementptr %struct.mem_section, ptr %82, i64 %85
+  %86 = getelementptr [16 x i8], ptr %82, i64 %85
   br label %87
 
 87:                                               ; preds = %84, %80, %77, %74
@@ -8938,7 +8923,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   %126 = icmp eq i32 %.fr, 0
   %127 = load i64, ptr @vmemmap_base, align 8
   %128 = inttoptr i64 %127 to ptr
-  %129 = getelementptr %struct.page, ptr %128, i64 %1
+  %129 = getelementptr [64 x i8], ptr %128, i64 %1
   %130 = icmp eq ptr %129, null
   %or.cond = select i1 %126, i1 true, i1 %130
   br i1 %or.cond, label %.thread, label %131
@@ -8946,11 +8931,11 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
 131:                                              ; preds = %124
   %132 = load i64, ptr %129, align 16
   %133 = lshr i64 %132, 58
-  %134 = getelementptr ptr, ptr @node_data, i64 %133
+  %134 = getelementptr [8 x i8], ptr @node_data, i64 %133
   %135 = load ptr, ptr %134, align 8
   %136 = lshr i64 %132, 56
   %137 = and i64 %136, 3
-  %138 = getelementptr %struct.zone, ptr %135, i64 %137
+  %138 = getelementptr [1216 x i8], ptr %135, i64 %137
   %139 = icmp eq ptr %138, %0
   br i1 %139, label %140, label %.thread
 

@@ -92,7 +92,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$alloc..rc..Rc$LT$syn..e
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr59drop_in_place$LT$alloc..rc..Rc$LT$syn..error..Error$GT$$GT$17h614e7b15e80a6f72E.exit"
   %.010 = phi i64 [ %5, %"_ZN4core3ptr59drop_in_place$LT$alloc..rc..Rc$LT$syn..error..Error$GT$$GT$17h614e7b15e80a6f72E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %.010
+  %4 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010
   %5 = add nuw i64 %.010, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
@@ -158,7 +158,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$alloc..rc..Rc$LT$syn..e
   br label %22
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %.1
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %.1
   %28 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$alloc..rc..Rc$LT$syn..error..Error$GT$$GT$17h614e7b15e80a6f72E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %27) #16
           to label %22 unwind label %30

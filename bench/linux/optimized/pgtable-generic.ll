@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
 %union.anon = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.pte_t = type { i64 }
 
 @.str = private unnamed_addr constant [29 x i8] c"\013%s:%d: bad pgd %p(%016lx)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"mm/pgtable-generic.c\00", align 1
@@ -183,7 +182,7 @@ define dso_local ptr @__pte_offset_map(ptr noundef %0, i64 noundef %1, ptr nound
   %23 = inttoptr i64 %22 to ptr
   %24 = lshr i64 %1, 12
   %25 = and i64 %24, 511
-  %26 = getelementptr %struct.pte_t, ptr %23, i64 %25
+  %26 = getelementptr [8 x i8], ptr %23, i64 %25
   br label %28
 
 27:                                               ; preds = %17, %8
@@ -231,7 +230,7 @@ define dso_local ptr @pte_offset_map_nolock(ptr noundef readnone captures(none) 
   %21 = inttoptr i64 %20 to ptr
   %22 = lshr i64 %2, 12
   %23 = and i64 %22, 511
-  %24 = getelementptr %struct.pte_t, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = icmp eq ptr %24, null
   br i1 %25, label %31, label %26, !prof !9
 
@@ -287,7 +286,7 @@ define dso_local ptr @__pte_offset_map_lock(ptr noundef readnone captures(none) 
   %22 = load i64, ptr @page_offset_base, align 8
   %23 = add i64 %22, %21
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr %struct.pte_t, ptr %24, i64 %8
+  %25 = getelementptr [8 x i8], ptr %24, i64 %8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %27, !prof !9
 

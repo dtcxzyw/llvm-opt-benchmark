@@ -358,7 +358,7 @@ parse_line.exit:                                  ; preds = %31, %41
 
 121:                                              ; preds = %.lr.ph124, %121
   %indvars.iv = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next, %121 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv
   %123 = load ptr, ptr %122, align 8, !tbaa !52
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i64, ptr %124, align 8, !tbaa !40

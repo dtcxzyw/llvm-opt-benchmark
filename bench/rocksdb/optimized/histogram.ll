@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -123,7 +121,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %21) #27
   store ptr %30, ptr %0, align 8, !tbaa !4
   store ptr %34, ptr %5, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %35, ptr %1, align 8, !tbaa !11
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -229,7 +227,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit
   %.013.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i ], [ %11, %14 ]
   %.sroa.011.012.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i ], [ %3, %14 ]
   %16 = lshr i64 %.013.i.i, 1
-  %17 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !12
   %19 = icmp ult i64 %18, %1
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -307,7 +305,7 @@ define void @_ZN7rocksdb13HistogramStatC2Ev(ptr noundef nonnull align 8 captures
 15:                                               ; preds = %15, %.lr.ph.i
   %16 = phi i64 [ 0, %.lr.ph.i ], [ %19, %15 ]
   %.04.i = phi i32 [ 0, %.lr.ph.i ], [ %18, %15 ]
-  %17 = getelementptr inbounds nuw %"struct.std::atomic", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   store atomic i64 0, ptr %17 monotonic, align 8
   %18 = add i32 %.04.i, 1
   %19 = zext i32 %18 to i64
@@ -346,7 +344,7 @@ define void @_ZN7rocksdb13HistogramStat5ClearEv(ptr noundef nonnull align 8 capt
 10:                                               ; preds = %.lr.ph, %10
   %11 = phi i64 [ 0, %.lr.ph ], [ %14, %10 ]
   %.04 = phi i32 [ 0, %.lr.ph ], [ %13, %10 ]
-  %12 = getelementptr inbounds nuw %"struct.std::atomic", ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   store atomic i64 0, ptr %12 monotonic, align 8
   %13 = add i32 %.04, 1
   %14 = zext i32 %13 to i64
@@ -387,7 +385,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit
   %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i.i ], [ %9, %12 ]
   %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i.i ], [ %3, %12 ]
   %14 = lshr i64 %.013.i.i.i, 1
-  %15 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !12
   %17 = icmp ult i64 %16, %1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -411,7 +409,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8
 _ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit: ; preds = %10, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i
   %.0.i = phi i64 [ %11, %10 ], [ %23, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = getelementptr inbounds nuw %"struct.std::atomic", ptr %24, i64 %.0.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0.i
   %26 = load atomic i64, ptr %25 monotonic, align 8
   %27 = add i64 %26, 1
   store atomic i64 %27, ptr %25 monotonic, align 8
@@ -512,8 +510,8 @@ define void @_ZN7rocksdb13HistogramStat5MergeERKS0_(ptr noundef nonnull align 8 
 33:                                               ; preds = %.lr.ph, %33
   %34 = phi i64 [ 0, %.lr.ph ], [ %40, %33 ]
   %.052 = phi i32 [ 0, %.lr.ph ], [ %39, %33 ]
-  %35 = getelementptr inbounds nuw %"struct.std::atomic", ptr %31, i64 %34
-  %36 = getelementptr inbounds nuw %"struct.std::atomic", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %34
   %37 = load atomic i64, ptr %36 monotonic, align 8
   %38 = atomicrmw add ptr %35, i64 %37 monotonic, align 8
   %39 = add i32 %.052, 1
@@ -542,7 +540,7 @@ define noundef double @_ZNK7rocksdb13HistogramStat6MedianEv(ptr noundef nonnull 
   %10 = phi i64 [ 0, %.lr.ph.i ], [ %43, %41 ]
   %.03559.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %41 ]
   %.03858.i = phi i32 [ 0, %.lr.ph.i ], [ %42, %41 ]
-  %11 = getelementptr inbounds nuw %"struct.std::atomic", ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load atomic i64, ptr %11 monotonic, align 8
   %13 = add i64 %12, %.03559.i
   %14 = uitofp i64 %13 to double
@@ -557,13 +555,13 @@ define noundef double @_ZNK7rocksdb13HistogramStat6MedianEv(ptr noundef nonnull 
 18:                                               ; preds = %16
   %19 = add i32 %.03858.i, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !12
   br label %.thread51.i
 
 .thread51.i:                                      ; preds = %18, %16
   %23 = phi i64 [ %22, %18 ], [ 0, %16 ]
-  %24 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %10
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %10
   %25 = load i64, ptr %24, align 8, !tbaa !12
   %.not.i = icmp eq i64 %12, 0
   %26 = uitofp i64 %.03559.i to double
@@ -623,7 +621,7 @@ define noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr noundef non
   %12 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
   %.03559 = phi i64 [ 0, %.lr.ph ], [ %15, %43 ]
   %.03858 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
-  %13 = getelementptr inbounds nuw %"struct.std::atomic", ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load atomic i64, ptr %13 monotonic, align 8
   %15 = add i64 %14, %.03559
   %16 = uitofp i64 %15 to double
@@ -638,13 +636,13 @@ define noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr noundef non
 20:                                               ; preds = %18
   %21 = add i32 %.03858, -1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %.pre, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !12
   br label %.thread51
 
 .thread51:                                        ; preds = %18, %20
   %25 = phi i64 [ %24, %20 ], [ 0, %18 ]
-  %26 = getelementptr inbounds nuw i64, ptr %.pre, i64 %12
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %12
   %27 = load i64, ptr %26, align 8, !tbaa !12
   %.not = icmp eq i64 %14, 0
   %28 = uitofp i64 %.03559 to double
@@ -813,7 +811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   %49 = phi i64 [ 0, %.lr.ph.i.i ], [ %82, %80 ]
   %.03559.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %52, %80 ]
   %.03858.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %81, %80 ]
-  %50 = getelementptr inbounds nuw %"struct.std::atomic", ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   %51 = load atomic i64, ptr %50 monotonic, align 8
   %52 = add i64 %51, %.03559.i.i
   %53 = uitofp i64 %52 to double
@@ -828,13 +826,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
 57:                                               ; preds = %55
   %58 = add i32 %.03858.i.i, -1
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !12
   br label %.thread51.i.i
 
 .thread51.i.i:                                    ; preds = %57, %55
   %62 = phi i64 [ %61, %57 ], [ 0, %55 ]
-  %63 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %49
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %49
   %64 = load i64, ptr %63, align 8, !tbaa !12
   %.not.i.i = icmp eq i64 %51, 0
   %65 = uitofp i64 %.03559.i.i to double
@@ -923,7 +921,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit83.thread159: ; preds = %_ZNSt7__c
   %116 = phi i64 [ 0, %.lr.ph.i ], [ %149, %147 ]
   %.03559.i = phi i64 [ 0, %.lr.ph.i ], [ %119, %147 ]
   %.03858.i = phi i32 [ 0, %.lr.ph.i ], [ %148, %147 ]
-  %117 = getelementptr inbounds nuw %"struct.std::atomic", ptr %114, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %116
   %118 = load atomic i64, ptr %117 monotonic, align 8
   %119 = add i64 %118, %.03559.i
   %120 = uitofp i64 %119 to double
@@ -938,13 +936,13 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit83.thread159: ; preds = %_ZNSt7__c
 124:                                              ; preds = %122
   %125 = add i32 %.03858.i, -1
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !12
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread
 
 _ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread: ; preds = %122, %124
   %129 = phi i64 [ %128, %124 ], [ 0, %122 ]
-  %130 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %116
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %116
   %131 = load i64, ptr %130, align 8, !tbaa !12
   %.not.i = icmp eq i64 %118, 0
   %132 = uitofp i64 %.03559.i to double
@@ -990,7 +988,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %147
   %156 = phi i64 [ 0, %.lr.ph.i43 ], [ %189, %187 ]
   %.03559.i44 = phi i64 [ 0, %.lr.ph.i43 ], [ %159, %187 ]
   %.03858.i45 = phi i32 [ 0, %.lr.ph.i43 ], [ %188, %187 ]
-  %157 = getelementptr inbounds nuw %"struct.std::atomic", ptr %114, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %156
   %158 = load atomic i64, ptr %157 monotonic, align 8
   %159 = add i64 %158, %.03559.i44
   %160 = uitofp i64 %159 to double
@@ -1005,13 +1003,13 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %147
 164:                                              ; preds = %162
   %165 = add i32 %.03858.i45, -1
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i64, ptr %.pre.i46, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i46, i64 %166
   %168 = load i64, ptr %167, align 8, !tbaa !12
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit55.thread
 
 _ZNK7rocksdb13HistogramStat10PercentileEd.exit55.thread: ; preds = %162, %164
   %169 = phi i64 [ %168, %164 ], [ 0, %162 ]
-  %170 = getelementptr inbounds nuw i64, ptr %.pre.i46, i64 %156
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i46, i64 %156
   %171 = load i64, ptr %170, align 8, !tbaa !12
   %.not.i48 = icmp eq i64 %158, 0
   %172 = uitofp i64 %.03559.i44 to double
@@ -1057,7 +1055,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit55: ; preds = %187
   %196 = phi i64 [ 0, %.lr.ph.i57 ], [ %229, %227 ]
   %.03559.i58 = phi i64 [ 0, %.lr.ph.i57 ], [ %199, %227 ]
   %.03858.i59 = phi i32 [ 0, %.lr.ph.i57 ], [ %228, %227 ]
-  %197 = getelementptr inbounds nuw %"struct.std::atomic", ptr %114, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %196
   %198 = load atomic i64, ptr %197 monotonic, align 8
   %199 = add i64 %198, %.03559.i58
   %200 = uitofp i64 %199 to double
@@ -1072,13 +1070,13 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit55: ; preds = %187
 204:                                              ; preds = %202
   %205 = add i32 %.03858.i59, -1
   %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds nuw i64, ptr %.pre.i60, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i60, i64 %206
   %208 = load i64, ptr %207, align 8, !tbaa !12
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit69.thread
 
 _ZNK7rocksdb13HistogramStat10PercentileEd.exit69.thread: ; preds = %202, %204
   %209 = phi i64 [ %208, %204 ], [ 0, %202 ]
-  %210 = getelementptr inbounds nuw i64, ptr %.pre.i60, i64 %196
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i60, i64 %196
   %211 = load i64, ptr %210, align 8, !tbaa !12
   %.not.i62 = icmp eq i64 %198, 0
   %212 = uitofp i64 %.03559.i58 to double
@@ -1124,7 +1122,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit69: ; preds = %227
   %236 = phi i64 [ 0, %.lr.ph.i71 ], [ %269, %267 ]
   %.03559.i72 = phi i64 [ 0, %.lr.ph.i71 ], [ %239, %267 ]
   %.03858.i73 = phi i32 [ 0, %.lr.ph.i71 ], [ %268, %267 ]
-  %237 = getelementptr inbounds nuw %"struct.std::atomic", ptr %114, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %236
   %238 = load atomic i64, ptr %237 monotonic, align 8
   %239 = add i64 %238, %.03559.i72
   %240 = uitofp i64 %239 to double
@@ -1139,13 +1137,13 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit69: ; preds = %227
 244:                                              ; preds = %242
   %245 = add i32 %.03858.i73, -1
   %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds nuw i64, ptr %.pre.i74, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i74, i64 %246
   %248 = load i64, ptr %247, align 8, !tbaa !12
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit83.thread
 
 _ZNK7rocksdb13HistogramStat10PercentileEd.exit83.thread: ; preds = %242, %244
   %249 = phi i64 [ %248, %244 ], [ 0, %242 ]
-  %250 = getelementptr inbounds nuw i64, ptr %.pre.i74, i64 %236
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i74, i64 %236
   %251 = load i64, ptr %250, align 8, !tbaa !12
   %.not.i76 = icmp eq i64 %238, 0
   %252 = uitofp i64 %.03559.i72 to double
@@ -1191,7 +1189,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit83: ; preds = %267
   %276 = phi i64 [ 0, %.lr.ph.i85 ], [ %309, %307 ]
   %.03559.i86 = phi i64 [ 0, %.lr.ph.i85 ], [ %279, %307 ]
   %.03858.i87 = phi i32 [ 0, %.lr.ph.i85 ], [ %308, %307 ]
-  %277 = getelementptr inbounds nuw %"struct.std::atomic", ptr %114, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %276
   %278 = load atomic i64, ptr %277 monotonic, align 8
   %279 = add i64 %278, %.03559.i86
   %280 = uitofp i64 %279 to double
@@ -1206,13 +1204,13 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit83: ; preds = %267
 284:                                              ; preds = %282
   %285 = add i32 %.03858.i87, -1
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw i64, ptr %.pre.i88, i64 %286
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i88, i64 %286
   %288 = load i64, ptr %287, align 8, !tbaa !12
   br label %.thread51.i89
 
 .thread51.i89:                                    ; preds = %284, %282
   %289 = phi i64 [ %288, %284 ], [ 0, %282 ]
-  %290 = getelementptr inbounds nuw i64, ptr %.pre.i88, i64 %276
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i88, i64 %276
   %291 = load i64, ptr %290, align 8, !tbaa !12
   %.not.i90 = icmp eq i64 %278, 0
   %292 = uitofp i64 %.03559.i86 to double
@@ -1309,7 +1307,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit105: ; pred
   %332 = phi i64 [ 0, %.lr.ph ], [ %382, %379 ]
   %.027203 = phi i32 [ 0, %.lr.ph ], [ %381, %379 ]
   %.028202 = phi i64 [ 0, %.lr.ph ], [ %.129, %379 ]
-  %333 = getelementptr inbounds nuw %"struct.std::atomic", ptr %329, i64 %332
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %332
   %334 = load atomic i64, ptr %333 monotonic, align 8
   %335 = uitofp i64 %334 to double
   %336 = icmp eq i64 %334, 0
@@ -1335,13 +1333,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit105: ; pred
 341:                                              ; preds = %337
   %342 = add i32 %.027203, -1
   %343 = zext i32 %342 to i64
-  %344 = getelementptr inbounds nuw i64, ptr %.pre, i64 %343
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %343
   %345 = load i64, ptr %344, align 8, !tbaa !12
   br label %346
 
 346:                                              ; preds = %337, %341
   %347 = phi i64 [ %345, %341 ], [ 0, %337 ]
-  %348 = getelementptr inbounds nuw i64, ptr %.pre, i64 %332
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %332
   %349 = load i64, ptr %348, align 8, !tbaa !12
   %350 = fmul double %327, %335
   %351 = uitofp i64 %338 to double
@@ -1478,7 +1476,7 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit.thread26: ; preds = %2
   %19 = phi i64 [ 0, %.lr.ph.i.i ], [ %52, %50 ]
   %.03559.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %22, %50 ]
   %.03858.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %51, %50 ]
-  %20 = getelementptr inbounds nuw %"struct.std::atomic", ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load atomic i64, ptr %20 monotonic, align 8
   %22 = add i64 %21, %.03559.i.i
   %23 = uitofp i64 %22 to double
@@ -1493,13 +1491,13 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit.thread26: ; preds = %2
 27:                                               ; preds = %25
   %28 = add i32 %.03858.i.i, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !12
   br label %_ZNK7rocksdb13HistogramStat6MedianEv.exit.thread
 
 _ZNK7rocksdb13HistogramStat6MedianEv.exit.thread: ; preds = %25, %27
   %32 = phi i64 [ %31, %27 ], [ 0, %25 ]
-  %33 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %19
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %19
   %34 = load i64, ptr %33, align 8, !tbaa !12
   %.not.i.i = icmp eq i64 %21, 0
   %35 = uitofp i64 %.03559.i.i to double
@@ -1546,7 +1544,7 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit:        ; preds = %50
   %59 = phi i64 [ 0, %.lr.ph.i ], [ %92, %90 ]
   %.03559.i = phi i64 [ 0, %.lr.ph.i ], [ %62, %90 ]
   %.03858.i = phi i32 [ 0, %.lr.ph.i ], [ %91, %90 ]
-  %60 = getelementptr inbounds nuw %"struct.std::atomic", ptr %17, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %59
   %61 = load atomic i64, ptr %60 monotonic, align 8
   %62 = add i64 %61, %.03559.i
   %63 = uitofp i64 %62 to double
@@ -1561,13 +1559,13 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit:        ; preds = %50
 67:                                               ; preds = %65
   %68 = add i32 %.03858.i, -1
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !12
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread
 
 _ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread: ; preds = %65, %67
   %72 = phi i64 [ %71, %67 ], [ 0, %65 ]
-  %73 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %59
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %59
   %74 = load i64, ptr %73, align 8, !tbaa !12
   %.not.i = icmp eq i64 %61, 0
   %75 = uitofp i64 %.03559.i to double
@@ -1615,7 +1613,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %90
   %100 = phi i64 [ 0, %.lr.ph.i11 ], [ %133, %131 ]
   %.03559.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %103, %131 ]
   %.03858.i13 = phi i32 [ 0, %.lr.ph.i11 ], [ %132, %131 ]
-  %101 = getelementptr inbounds nuw %"struct.std::atomic", ptr %17, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %100
   %102 = load atomic i64, ptr %101 monotonic, align 8
   %103 = add i64 %102, %.03559.i12
   %104 = uitofp i64 %103 to double
@@ -1630,13 +1628,13 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %90
 108:                                              ; preds = %106
   %109 = add i32 %.03858.i13, -1
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %.pre.i14, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i14, i64 %110
   %112 = load i64, ptr %111, align 8, !tbaa !12
   br label %.thread51.i15
 
 .thread51.i15:                                    ; preds = %108, %106
   %113 = phi i64 [ %112, %108 ], [ 0, %106 ]
-  %114 = getelementptr inbounds nuw i64, ptr %.pre.i14, i64 %100
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i14, i64 %100
   %115 = load i64, ptr %114, align 8, !tbaa !12
   %.not.i16 = icmp eq i64 %102, 0
   %116 = uitofp i64 %.03559.i12 to double
@@ -1763,7 +1761,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 14:                                               ; preds = %14, %.lr.ph.i
   %15 = phi i64 [ 0, %.lr.ph.i ], [ %18, %14 ]
   %.04.i = phi i32 [ 0, %.lr.ph.i ], [ %17, %14 ]
-  %16 = getelementptr inbounds nuw %"struct.std::atomic", ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   store atomic i64 0, ptr %16 monotonic, align 8
   %17 = add i32 %.04.i, 1
   %18 = zext i32 %17 to i64
@@ -1809,7 +1807,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit
   %.013.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i.i.i ], [ %10, %13 ]
   %.sroa.011.012.i.i.i.i = phi ptr [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i.i.i ], [ %4, %13 ]
   %15 = lshr i64 %.013.i.i.i.i, 1
-  %16 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i.i.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i.i, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp ult i64 %17, %1
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1833,7 +1831,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8
 _ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i.i, %11
   %.0.i.i = phi i64 [ %12, %11 ], [ %24, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = getelementptr inbounds nuw %"struct.std::atomic", ptr %25, i64 %.0.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0.i.i
   %27 = load atomic i64, ptr %26 monotonic, align 8
   %28 = add i64 %27, 1
   store atomic i64 %28, ptr %26 monotonic, align 8
@@ -1956,8 +1954,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %13
 49:                                               ; preds = %49, %.lr.ph.i.i
   %50 = phi i64 [ 0, %.lr.ph.i.i ], [ %56, %49 ]
   %.052.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %55, %49 ]
-  %51 = getelementptr inbounds nuw %"struct.std::atomic", ptr %47, i64 %50
-  %52 = getelementptr inbounds nuw %"struct.std::atomic", ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %54 = atomicrmw add ptr %51, i64 %53 monotonic, align 8
   %55 = add i32 %.052.i.i, 1
@@ -2048,8 +2046,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 38:                                               ; preds = %38, %.lr.ph.i
   %39 = phi i64 [ 0, %.lr.ph.i ], [ %45, %38 ]
   %.052.i = phi i32 [ 0, %.lr.ph.i ], [ %44, %38 ]
-  %40 = getelementptr inbounds nuw %"struct.std::atomic", ptr %36, i64 %39
-  %41 = getelementptr inbounds nuw %"struct.std::atomic", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %42 = load atomic i64, ptr %41 monotonic, align 8
   %43 = atomicrmw add ptr %40, i64 %42 monotonic, align 8
   %44 = add i32 %.052.i, 1
@@ -2083,7 +2081,7 @@ define noundef double @_ZNK7rocksdb13HistogramImpl6MedianEv(ptr noundef nonnull 
   %11 = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %42 ]
   %.03559.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %14, %42 ]
   %.03858.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %43, %42 ]
-  %12 = getelementptr inbounds nuw %"struct.std::atomic", ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load atomic i64, ptr %12 monotonic, align 8
   %14 = add i64 %13, %.03559.i.i
   %15 = uitofp i64 %14 to double
@@ -2098,13 +2096,13 @@ define noundef double @_ZNK7rocksdb13HistogramImpl6MedianEv(ptr noundef nonnull 
 19:                                               ; preds = %17
   %20 = add i32 %.03858.i.i, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %.thread51.i.i
 
 .thread51.i.i:                                    ; preds = %19, %17
   %24 = phi i64 [ %23, %19 ], [ 0, %17 ]
-  %25 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %11
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %11
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %.not.i.i = icmp eq i64 %13, 0
   %27 = uitofp i64 %.03559.i.i to double
@@ -2165,7 +2163,7 @@ define noundef double @_ZNK7rocksdb13HistogramImpl10PercentileEd(ptr noundef non
   %13 = phi i64 [ 0, %.lr.ph.i ], [ %46, %44 ]
   %.03559.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %44 ]
   %.03858.i = phi i32 [ 0, %.lr.ph.i ], [ %45, %44 ]
-  %14 = getelementptr inbounds nuw %"struct.std::atomic", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load atomic i64, ptr %14 monotonic, align 8
   %16 = add i64 %15, %.03559.i
   %17 = uitofp i64 %16 to double
@@ -2180,13 +2178,13 @@ define noundef double @_ZNK7rocksdb13HistogramImpl10PercentileEd(ptr noundef non
 21:                                               ; preds = %19
   %22 = add i32 %.03858.i, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !12
   br label %.thread51.i
 
 .thread51.i:                                      ; preds = %21, %19
   %26 = phi i64 [ %25, %21 ], [ 0, %19 ]
-  %27 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %13
   %28 = load i64, ptr %27, align 8, !tbaa !12
   %.not.i = icmp eq i64 %15, 0
   %29 = uitofp i64 %.03559.i to double

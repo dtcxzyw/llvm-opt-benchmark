@@ -3,8 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_map.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.nghttp2_map_bucket = type { i32, i32, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [14 x i8] c"@%zu <EMPTY>\0A\00", align 1
 @.str.1 = private unnamed_addr constant [43 x i8] c"@%zu hash=%zu key=%d base=%zu distance=%u\0A\00", align 1
@@ -60,7 +58,7 @@ define hidden i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, ptr 
 13:                                               ; preds = %7, %21
   %.01316 = phi i64 [ 0, %7 ], [ %22, %21 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !10
-  %15 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %14, i64 %.01316
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.01316
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = icmp eq ptr %17, null
@@ -99,7 +97,7 @@ define hidden void @nghttp2_map_print_distance(ptr noundef readonly captures(non
 11:                                               ; preds = %5, %32
   %.016 = phi i64 [ 0, %5 ], [ %33, %32 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !10
-  %13 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %12, i64 %.016
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.016
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = icmp eq ptr %15, null
@@ -184,7 +182,7 @@ define hidden range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures(no
   %notmask.i = shl nsw i32 -1, %26
   %30 = xor i32 %notmask.i, -1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %23, i64 %29
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %29
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = icmp eq ptr %34, null
@@ -221,7 +219,7 @@ define hidden range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures(no
   %45 = add i32 %.sroa.0.1.i, 1
   %46 = add nuw nsw i64 %.01537.i, 1
   %47 = and i64 %46, %31
-  %48 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %23, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !13
   %51 = icmp eq ptr %50, null
@@ -282,7 +280,7 @@ define internal fastcc range(i32 -901, 1) i32 @map_resize(ptr noundef captures(n
 22:                                               ; preds = %13, %54
   %.02228 = phi i64 [ 0, %13 ], [ %55, %54 ]
   %23 = load ptr, ptr %0, align 8, !tbaa !10
-  %24 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %23, i64 %.02228
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.02228
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   %27 = icmp eq ptr %26, null
@@ -294,7 +292,7 @@ define internal fastcc range(i32 -901, 1) i32 @map_resize(ptr noundef captures(n
   %31 = mul i32 %30, -1640531527
   %32 = lshr i32 %31, %19
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %8, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !13
   %37 = icmp eq ptr %36, null
@@ -343,7 +341,7 @@ insert.exit.thread:                               ; preds = %46, %28
   %47 = add i32 %.sroa.0.1.i, 1
   %48 = add nuw nsw i64 %.01537.i, 1
   %49 = and i64 %48, %21
-  %50 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %8, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !13
   %53 = icmp eq ptr %52, null
@@ -391,7 +389,7 @@ define hidden ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 
   %14 = xor i32 %notmask, -1
   %15 = zext nneg i32 %14 to i64
   %16 = load ptr, ptr %0, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = icmp eq ptr %19, null
@@ -408,7 +406,7 @@ define hidden ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 
   %.0161827 = phi i64 [ %31, %.lr.ph ], [ %13, %6 ]
   %.0151926 = phi i64 [ %21, %.lr.ph ], [ 0, %6 ]
   %24 = phi ptr [ %34, %.lr.ph ], [ %19, %6 ]
-  %25 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %.0161827
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.0161827
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !20
   %28 = icmp eq i32 %27, %1
@@ -417,7 +415,7 @@ define hidden ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 
 29:                                               ; preds = %.lr.ph.preheader
   %30 = add nuw nsw i64 %.0161827, 1
   %31 = and i64 %30, %15
-  %32 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = icmp eq ptr %34, null
@@ -447,7 +445,7 @@ define hidden range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures(no
   %14 = xor i32 %notmask, -1
   %15 = zext nneg i32 %14 to i64
   %16 = load ptr, ptr %0, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = icmp eq ptr %19, null
@@ -471,7 +469,7 @@ define hidden range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures(no
 .preheader:                                       ; preds = %25
   %.pn38 = add nuw nsw i64 %.03135, 1
   %.139 = and i64 %.pn38, %15
-  %29 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %.139
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.139
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %32 = icmp eq ptr %31, null
@@ -506,7 +504,7 @@ define hidden range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures(no
   %.pn = add nuw nsw i64 %.141, 1
   %.1 = and i64 %.pn, %15
   %41 = load ptr, ptr %0, align 8, !tbaa !10
-  %42 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %41, i64 %.1
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.1
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !13
   %45 = icmp eq ptr %44, null
@@ -516,7 +514,7 @@ define hidden range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures(no
   %47 = add nuw nsw i64 %.02936, 1
   %48 = add nuw nsw i64 %.03135, 1
   %49 = and i64 %48, %15
-  %50 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !13
   %53 = icmp eq ptr %52, null

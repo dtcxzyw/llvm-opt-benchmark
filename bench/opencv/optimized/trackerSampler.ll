@@ -9,17 +9,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"struct.cv::Ptr" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"struct.cv::MatSize" = type { ptr }
-%"struct.cv::MatStep" = type { ptr, [2 x i64] }
+%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"struct.cv::Ptr" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 
 $_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev = comdat any
 
@@ -265,7 +262,7 @@ _ZN2cv6detail8tracking21TrackerContribSampler12clearSamplesEv.exit: ; preds = %4
   %.023 = phi i64 [ 0, %.lr.ph24 ], [ %35, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %.023
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %.023
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !45
   %26 = load ptr, ptr %25, align 8, !tbaa !23
@@ -327,7 +324,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %45 = phi ptr [ %61, %58 ], [ %31, %.preheader ]
   %.0921 = phi i64 [ %59, %58 ], [ 0, %.preheader ]
   %46 = load ptr, ptr %10, align 8, !tbaa !49
-  %47 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.0921
+  %47 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.0921
   %48 = load ptr, ptr %17, align 8, !tbaa !50
   %.not.i = icmp eq ptr %46, %48
   br i1 %.not.i, label %52, label %49
@@ -1211,7 +1208,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !3
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !9
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !50
   ret void
 
@@ -1462,7 +1459,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !15
-  %88 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %88 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %88, ptr %87, align 8, !tbaa !58
   ret void
 }

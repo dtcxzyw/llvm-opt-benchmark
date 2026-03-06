@@ -2281,7 +2281,7 @@ define internal fastcc noundef i32 @dissect_ac_if_selector_unit(ptr noundef %0, 
 
 33:                                               ; preds = %32
   %34 = zext i8 %18 to i64
-  %35 = getelementptr i32, ptr %.0.i, i64 %34
+  %35 = getelementptr [4 x i8], ptr %.0.i, i64 %34
   store i32 7, ptr %35, align 4
   br label %set_entity_type.exit
 
@@ -2398,7 +2398,7 @@ define internal fastcc i32 @dissect_ac_if_feature_unit(ptr noundef %0, ptr nound
 
 32:                                               ; preds = %31
   %33 = zext i8 %17 to i64
-  %34 = getelementptr i32, ptr %.0.i, i64 %33
+  %34 = getelementptr [4 x i8], ptr %.0.i, i64 %33
   store i32 8, ptr %34, align 4
   br label %set_entity_type.exit
 
@@ -2587,7 +2587,7 @@ define internal fastcc void @dissect_ac_if_clock_source(ptr noundef %0, i16 %.80
 
 22:                                               ; preds = %21
   %23 = zext i8 %6 to i64
-  %24 = getelementptr i32, ptr %.0.i, i64 %23
+  %24 = getelementptr [4 x i8], ptr %.0.i, i64 %23
   store i32 2, ptr %24, align 4
   br label %set_entity_type.exit
 
@@ -2649,7 +2649,7 @@ define internal fastcc range(i32 0, -1) i32 @dissect_ac_if_clock_selector(ptr no
 
 22:                                               ; preds = %21
   %23 = zext i8 %6 to i64
-  %24 = getelementptr i32, ptr %.0.i, i64 %23
+  %24 = getelementptr [4 x i8], ptr %.0.i, i64 %23
   store i32 3, ptr %24, align 4
   br label %set_entity_type.exit
 
@@ -2726,7 +2726,7 @@ define internal fastcc range(i32 6, 5) i32 @dissect_ac_if_extension_unit(ptr nou
 
 22:                                               ; preds = %21
   %23 = zext i8 %6 to i64
-  %24 = getelementptr i32, ptr %.0.i, i64 %23
+  %24 = getelementptr [4 x i8], ptr %.0.i, i64 %23
   store i32 16, ptr %24, align 4
   br label %set_entity_type.exit
 
@@ -2808,7 +2808,7 @@ define internal fastcc range(i32 0, 14) i32 @dissect_as_if_general_body(ptr noun
 
 switch.lookup:                                    ; preds = %10
   %22 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_as_if_general_body, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_as_if_general_body, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = load i32, ptr @hf_as_if_gen_formats, align 4
   %24 = load i32, ptr @ett_as_if_gen_formats, align 4
@@ -3181,7 +3181,7 @@ define internal fastcc i32 @dissect_v1_control(ptr noundef %0, ptr noundef %1, p
   br i1 %.not6.i.i, label %24, label %get_addressed_entity_type.exit
 
 24:                                               ; preds = %21
-  %25 = getelementptr i32, ptr %20, i64 %17
+  %25 = getelementptr [4 x i8], ptr %20, i64 %17
   %26 = load i32, ptr %25, align 4
   br label %get_addressed_entity_type.exit
 
@@ -3430,7 +3430,7 @@ get_addressed_entity_type.exit.thread.i:          ; preds = %40, %32, %26
   br label %.thread122.i
 
 get_addressed_entity_type.exit.i:                 ; preds = %40
-  %43 = getelementptr i32, ptr %39, i64 %36
+  %43 = getelementptr [4 x i8], ptr %39, i64 %36
   %44 = load i32, ptr %43, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 16 dereferenceable(24) @__const.dissect_v2_control_cur_range.wvalue_fields, i64 24, i1 false)

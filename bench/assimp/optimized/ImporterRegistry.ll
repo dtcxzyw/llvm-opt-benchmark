@@ -178,7 +178,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %45, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %40, ptr %0, align 8
   store ptr %44, ptr %21, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %46, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit
 
@@ -244,7 +244,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i60: ; preds = %72, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i58
   store ptr %67, ptr %0, align 8
   store ptr %71, ptr %21, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
   store ptr %73, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit61
 
@@ -307,7 +307,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i68: ; preds = %98, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i66
   store ptr %93, ptr %0, align 8
   store ptr %97, ptr %21, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %99, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit69
 
@@ -373,7 +373,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76: ; preds = %125, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i74
   store ptr %120, ptr %0, align 8
   store ptr %124, ptr %21, align 8
-  %126 = getelementptr inbounds nuw ptr, ptr %120, i64 %118
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %118
   store ptr %126, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit77
 
@@ -439,7 +439,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i84: ; preds = %152, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i82
   store ptr %147, ptr %0, align 8
   store ptr %151, ptr %21, align 8
-  %153 = getelementptr inbounds nuw ptr, ptr %147, i64 %145
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %145
   store ptr %153, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit85
 
@@ -505,7 +505,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i92: ; preds = %179, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i90
   store ptr %174, ptr %0, align 8
   store ptr %178, ptr %21, align 8
-  %180 = getelementptr inbounds nuw ptr, ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit93
 
@@ -571,7 +571,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i100: ; preds = %206, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i98
   store ptr %201, ptr %0, align 8
   store ptr %205, ptr %21, align 8
-  %207 = getelementptr inbounds nuw ptr, ptr %201, i64 %199
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %199
   store ptr %207, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit101
 
@@ -637,7 +637,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i108: ; preds = %233, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i106
   store ptr %228, ptr %0, align 8
   store ptr %232, ptr %21, align 8
-  %234 = getelementptr inbounds nuw ptr, ptr %228, i64 %226
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %226
   store ptr %234, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit109
 
@@ -703,7 +703,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i116: ; preds = %260, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i114
   store ptr %255, ptr %0, align 8
   store ptr %259, ptr %21, align 8
-  %261 = getelementptr inbounds nuw ptr, ptr %255, i64 %253
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %253
   store ptr %261, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit117
 
@@ -769,7 +769,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i124: ; preds = %287, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i122
   store ptr %282, ptr %0, align 8
   store ptr %286, ptr %21, align 8
-  %288 = getelementptr inbounds nuw ptr, ptr %282, i64 %280
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %280
   store ptr %288, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit125
 
@@ -835,7 +835,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i132: ; preds = %314, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i130
   store ptr %309, ptr %0, align 8
   store ptr %313, ptr %21, align 8
-  %315 = getelementptr inbounds nuw ptr, ptr %309, i64 %307
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %307
   store ptr %315, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit133
 
@@ -901,7 +901,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i140: ; preds = %341, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i138
   store ptr %336, ptr %0, align 8
   store ptr %340, ptr %21, align 8
-  %342 = getelementptr inbounds nuw ptr, ptr %336, i64 %334
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %334
   store ptr %342, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit141
 
@@ -967,7 +967,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i148: ; preds = %368, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i146
   store ptr %363, ptr %0, align 8
   store ptr %367, ptr %21, align 8
-  %369 = getelementptr inbounds nuw ptr, ptr %363, i64 %361
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %363, i64 %361
   store ptr %369, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit149
 
@@ -1033,7 +1033,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i156: ; preds = %395, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i154
   store ptr %390, ptr %0, align 8
   store ptr %394, ptr %21, align 8
-  %396 = getelementptr inbounds nuw ptr, ptr %390, i64 %388
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %388
   store ptr %396, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit157
 
@@ -1099,7 +1099,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i164: ; preds = %422, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i162
   store ptr %417, ptr %0, align 8
   store ptr %421, ptr %21, align 8
-  %423 = getelementptr inbounds nuw ptr, ptr %417, i64 %415
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %417, i64 %415
   store ptr %423, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit165
 
@@ -1164,7 +1164,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i172: ; preds = %448, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i170
   store ptr %443, ptr %0, align 8
   store ptr %447, ptr %21, align 8
-  %449 = getelementptr inbounds nuw ptr, ptr %443, i64 %441
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %441
   store ptr %449, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit173
 
@@ -1229,7 +1229,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i180: ; preds = %474, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i178
   store ptr %469, ptr %0, align 8
   store ptr %473, ptr %21, align 8
-  %475 = getelementptr inbounds nuw ptr, ptr %469, i64 %467
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %467
   store ptr %475, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit181
 
@@ -1294,7 +1294,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i188: ; preds = %500, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i186
   store ptr %495, ptr %0, align 8
   store ptr %499, ptr %21, align 8
-  %501 = getelementptr inbounds nuw ptr, ptr %495, i64 %493
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %495, i64 %493
   store ptr %501, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit189
 
@@ -1359,7 +1359,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i196: ; preds = %526, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i194
   store ptr %521, ptr %0, align 8
   store ptr %525, ptr %21, align 8
-  %527 = getelementptr inbounds nuw ptr, ptr %521, i64 %519
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %521, i64 %519
   store ptr %527, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit197
 
@@ -1424,7 +1424,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i204: ; preds = %552, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i202
   store ptr %547, ptr %0, align 8
   store ptr %551, ptr %21, align 8
-  %553 = getelementptr inbounds nuw ptr, ptr %547, i64 %545
+  %553 = getelementptr inbounds nuw [8 x i8], ptr %547, i64 %545
   store ptr %553, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit205
 
@@ -1490,7 +1490,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i212: ; preds = %579, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i210
   store ptr %574, ptr %0, align 8
   store ptr %578, ptr %21, align 8
-  %580 = getelementptr inbounds nuw ptr, ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit213
 
@@ -1556,7 +1556,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i220: ; preds = %606, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i218
   store ptr %601, ptr %0, align 8
   store ptr %605, ptr %21, align 8
-  %607 = getelementptr inbounds nuw ptr, ptr %601, i64 %599
+  %607 = getelementptr inbounds nuw [8 x i8], ptr %601, i64 %599
   store ptr %607, ptr %2, align 8
   br label %608
 
@@ -1623,7 +1623,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i228: ; preds = %634, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i226
   store ptr %629, ptr %0, align 8
   store ptr %633, ptr %21, align 8
-  %635 = getelementptr inbounds nuw ptr, ptr %629, i64 %627
+  %635 = getelementptr inbounds nuw [8 x i8], ptr %629, i64 %627
   store ptr %635, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit229
 
@@ -1689,7 +1689,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i236: ; preds = %661, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i234
   store ptr %656, ptr %0, align 8
   store ptr %660, ptr %21, align 8
-  %662 = getelementptr inbounds nuw ptr, ptr %656, i64 %654
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %656, i64 %654
   store ptr %662, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit237
 
@@ -1755,7 +1755,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i244: ; preds = %688, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i242
   store ptr %683, ptr %0, align 8
   store ptr %687, ptr %21, align 8
-  %689 = getelementptr inbounds nuw ptr, ptr %683, i64 %681
+  %689 = getelementptr inbounds nuw [8 x i8], ptr %683, i64 %681
   store ptr %689, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit245
 
@@ -1824,7 +1824,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i252: ; preds = %716, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i250
   store ptr %711, ptr %0, align 8
   store ptr %715, ptr %21, align 8
-  %717 = getelementptr inbounds nuw ptr, ptr %711, i64 %709
+  %717 = getelementptr inbounds nuw [8 x i8], ptr %711, i64 %709
   store ptr %717, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit253
 
@@ -1890,7 +1890,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i260: ; preds = %743, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i258
   store ptr %738, ptr %0, align 8
   store ptr %742, ptr %21, align 8
-  %744 = getelementptr inbounds nuw ptr, ptr %738, i64 %736
+  %744 = getelementptr inbounds nuw [8 x i8], ptr %738, i64 %736
   store ptr %744, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit261
 
@@ -1956,7 +1956,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i268: ; preds = %770, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i266
   store ptr %765, ptr %0, align 8
   store ptr %769, ptr %21, align 8
-  %771 = getelementptr inbounds nuw ptr, ptr %765, i64 %763
+  %771 = getelementptr inbounds nuw [8 x i8], ptr %765, i64 %763
   store ptr %771, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit269
 
@@ -2022,7 +2022,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i276: ; preds = %797, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i274
   store ptr %792, ptr %0, align 8
   store ptr %796, ptr %21, align 8
-  %798 = getelementptr inbounds nuw ptr, ptr %792, i64 %790
+  %798 = getelementptr inbounds nuw [8 x i8], ptr %792, i64 %790
   store ptr %798, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit277
 
@@ -2088,7 +2088,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i284: ; preds = %824, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i282
   store ptr %819, ptr %0, align 8
   store ptr %823, ptr %21, align 8
-  %825 = getelementptr inbounds nuw ptr, ptr %819, i64 %817
+  %825 = getelementptr inbounds nuw [8 x i8], ptr %819, i64 %817
   store ptr %825, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit285
 
@@ -2154,7 +2154,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i292: ; preds = %851, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i290
   store ptr %846, ptr %0, align 8
   store ptr %850, ptr %21, align 8
-  %852 = getelementptr inbounds nuw ptr, ptr %846, i64 %844
+  %852 = getelementptr inbounds nuw [8 x i8], ptr %846, i64 %844
   store ptr %852, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit293
 
@@ -2235,7 +2235,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i300: ; preds = %885, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i298
   store ptr %880, ptr %0, align 8
   store ptr %884, ptr %21, align 8
-  %886 = getelementptr inbounds nuw ptr, ptr %880, i64 %878
+  %886 = getelementptr inbounds nuw [8 x i8], ptr %880, i64 %878
   store ptr %886, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit301
 
@@ -2301,7 +2301,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i308: ; preds = %912, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i306
   store ptr %907, ptr %0, align 8
   store ptr %911, ptr %21, align 8
-  %913 = getelementptr inbounds nuw ptr, ptr %907, i64 %905
+  %913 = getelementptr inbounds nuw [8 x i8], ptr %907, i64 %905
   store ptr %913, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit309
 
@@ -2367,7 +2367,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i316: ; preds = %939, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i314
   store ptr %934, ptr %0, align 8
   store ptr %938, ptr %21, align 8
-  %940 = getelementptr inbounds nuw ptr, ptr %934, i64 %932
+  %940 = getelementptr inbounds nuw [8 x i8], ptr %934, i64 %932
   store ptr %940, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit317
 
@@ -2432,7 +2432,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i324: ; preds = %965, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i322
   store ptr %960, ptr %0, align 8
   store ptr %964, ptr %21, align 8
-  %966 = getelementptr inbounds nuw ptr, ptr %960, i64 %958
+  %966 = getelementptr inbounds nuw [8 x i8], ptr %960, i64 %958
   store ptr %966, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit325
 
@@ -2498,7 +2498,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i332: ; preds = %992, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i330
   store ptr %987, ptr %0, align 8
   store ptr %991, ptr %21, align 8
-  %993 = getelementptr inbounds nuw ptr, ptr %987, i64 %985
+  %993 = getelementptr inbounds nuw [8 x i8], ptr %987, i64 %985
   store ptr %993, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit333
 
@@ -2564,7 +2564,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i340: ; preds = %1019, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i338
   store ptr %1014, ptr %0, align 8
   store ptr %1018, ptr %21, align 8
-  %1020 = getelementptr inbounds nuw ptr, ptr %1014, i64 %1012
+  %1020 = getelementptr inbounds nuw [8 x i8], ptr %1014, i64 %1012
   store ptr %1020, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit341
 
@@ -2629,7 +2629,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i348: ; preds = %1045, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i346
   store ptr %1040, ptr %0, align 8
   store ptr %1044, ptr %21, align 8
-  %1046 = getelementptr inbounds nuw ptr, ptr %1040, i64 %1038
+  %1046 = getelementptr inbounds nuw [8 x i8], ptr %1040, i64 %1038
   store ptr %1046, ptr %2, align 8
   br label %1047
 
@@ -2704,7 +2704,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i356: ; preds = %1077, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i354
   store ptr %1072, ptr %0, align 8
   store ptr %1076, ptr %21, align 8
-  %1078 = getelementptr inbounds nuw ptr, ptr %1072, i64 %1070
+  %1078 = getelementptr inbounds nuw [8 x i8], ptr %1072, i64 %1070
   store ptr %1078, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit357
 
@@ -2770,7 +2770,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i364: ; preds = %1104, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i362
   store ptr %1099, ptr %0, align 8
   store ptr %1103, ptr %21, align 8
-  %1105 = getelementptr inbounds nuw ptr, ptr %1099, i64 %1097
+  %1105 = getelementptr inbounds nuw [8 x i8], ptr %1099, i64 %1097
   store ptr %1105, ptr %2, align 8
   br label %1106
 
@@ -2857,7 +2857,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i372: ; preds = %1142, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i370
   store ptr %1137, ptr %0, align 8
   store ptr %1141, ptr %21, align 8
-  %1143 = getelementptr inbounds nuw ptr, ptr %1137, i64 %1135
+  %1143 = getelementptr inbounds nuw [8 x i8], ptr %1137, i64 %1135
   store ptr %1143, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit373
 
@@ -2922,7 +2922,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i380: ; preds = %1168, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i378
   store ptr %1163, ptr %0, align 8
   store ptr %1167, ptr %21, align 8
-  %1169 = getelementptr inbounds nuw ptr, ptr %1163, i64 %1161
+  %1169 = getelementptr inbounds nuw [8 x i8], ptr %1163, i64 %1161
   store ptr %1169, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit381
 
@@ -2988,7 +2988,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i388: ; preds = %1195, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i386
   store ptr %1190, ptr %0, align 8
   store ptr %1194, ptr %21, align 8
-  %1196 = getelementptr inbounds nuw ptr, ptr %1190, i64 %1188
+  %1196 = getelementptr inbounds nuw [8 x i8], ptr %1190, i64 %1188
   store ptr %1196, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit389
 
@@ -3054,7 +3054,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i396: ; preds = %1222, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i394
   store ptr %1217, ptr %0, align 8
   store ptr %1221, ptr %21, align 8
-  %1223 = getelementptr inbounds nuw ptr, ptr %1217, i64 %1215
+  %1223 = getelementptr inbounds nuw [8 x i8], ptr %1217, i64 %1215
   store ptr %1223, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit397
 
@@ -3119,7 +3119,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i404: ; preds = %1248, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i402
   store ptr %1243, ptr %0, align 8
   store ptr %1247, ptr %21, align 8
-  %1249 = getelementptr inbounds nuw ptr, ptr %1243, i64 %1241
+  %1249 = getelementptr inbounds nuw [8 x i8], ptr %1243, i64 %1241
   store ptr %1249, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit405
 
@@ -3185,7 +3185,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i412: ; preds = %1275, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i410
   store ptr %1270, ptr %0, align 8
   store ptr %1274, ptr %21, align 8
-  %1276 = getelementptr inbounds nuw ptr, ptr %1270, i64 %1268
+  %1276 = getelementptr inbounds nuw [8 x i8], ptr %1270, i64 %1268
   store ptr %1276, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit413
 
@@ -3251,7 +3251,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i420: ; preds = %1302, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i418
   store ptr %1297, ptr %0, align 8
   store ptr %1301, ptr %21, align 8
-  %1303 = getelementptr inbounds nuw ptr, ptr %1297, i64 %1295
+  %1303 = getelementptr inbounds nuw [8 x i8], ptr %1297, i64 %1295
   store ptr %1303, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit421
 
@@ -3317,7 +3317,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i428: ; preds = %1329, %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i426
   store ptr %1324, ptr %0, align 8
   store ptr %1328, ptr %21, align 8
-  %1330 = getelementptr inbounds nuw ptr, ptr %1324, i64 %1322
+  %1330 = getelementptr inbounds nuw [8 x i8], ptr %1324, i64 %1322
   store ptr %1330, ptr %2, align 8
   br label %_ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit429
 
@@ -3610,7 +3610,7 @@ define hidden void @_ZN6Assimp26DeleteImporterInstanceListERSt6vectorIPNS_12Base
 .lr.ph:                                           ; preds = %1, %13
   %5 = phi ptr [ %18, %13 ], [ %4, %1 ]
   %.07 = phi i64 [ %16, %13 ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.07
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.07
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
@@ -3625,7 +3625,7 @@ define hidden void @_ZN6Assimp26DeleteImporterInstanceListERSt6vectorIPNS_12Base
 
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi ptr [ %.pre, %9 ], [ %5, %.lr.ph ]
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.07
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.07
   store ptr null, ptr %15, align 8
   %16 = add nuw i64 %.07, 1
   %17 = load ptr, ptr %2, align 8

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/sync_queue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SyncQueueStream = type { ptr, %struct.AVRational, i64, i64, i32, i32, i64, i64, i64, i32 }
-%struct.AVRational = type { i32, i32 }
 %union.SyncQueueFrame = type { ptr }
 
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
@@ -50,7 +48,7 @@ define range(i32 -2147483648, 1) i32 @sq_send(ptr noundef captures(none) %0, i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %11, i64 %12
   %.in.i.not = icmp eq ptr %2, null
   br i1 %.in.i.not, label %14, label %17
 
@@ -245,7 +243,7 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = load i32, ptr %9, align 4, !tbaa !14
   %.not = icmp eq i32 %10, 0
@@ -286,7 +284,7 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %30 = load ptr, ptr %5, align 8, !tbaa !12
   %31 = zext nneg i32 %26 to i64
-  %32 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [72 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -308,7 +306,7 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
   %42 = phi i32 [ %.pre, %._crit_edge ], [ %1, %40 ]
   %43 = load ptr, ptr %5, align 8, !tbaa !12
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %struct.SyncQueueStream, ptr %43, i64 %44
+  %45 = getelementptr inbounds [72 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load i32, ptr %46, align 8, !tbaa !4
   %.not67 = icmp eq i32 %47, 0
@@ -323,7 +321,7 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
 51:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
   %52 = load ptr, ptr %5, align 8, !tbaa !12
-  %53 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [72 x i8], ptr %52, i64 %indvars.iv
   %.not57 = icmp eq ptr %45, %53
   br i1 %.not57, label %73, label %54
 
@@ -387,7 +385,7 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
 
 81:                                               ; preds = %.lr.ph66, %80
   %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %80 ]
-  %82 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %79, i64 %indvars.iv69
+  %82 = getelementptr inbounds nuw [72 x i8], ptr %79, i64 %indvars.iv69
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 36
   %84 = load i32, ptr %83, align 4, !tbaa !14
   %.not55 = icmp eq i32 %84, 0
@@ -418,7 +416,7 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %6
   %8 = icmp eq i64 %2, -9223372036854775808
   br i1 %8, label %queue_head_update.exit, label %9
 
@@ -437,7 +435,7 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
 
 16:                                               ; preds = %12
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -494,7 +492,7 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
 44:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %.054.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.ph.i, %55 ]
-  %45 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %43, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [72 x i8], ptr %43, i64 %indvars.iv.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 8, !tbaa !41
   %.not37.i = icmp eq i32 %47, 0
@@ -540,8 +538,8 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
   %56 = load ptr, ptr %4, align 8, !tbaa !12
   %57 = load i32, ptr %32, align 4, !tbaa !47
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds %struct.SyncQueueStream, ptr %56, i64 %58
-  %60 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %56, i64 %indvars.iv62.i
+  %59 = getelementptr inbounds [72 x i8], ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw [72 x i8], ptr %56, i64 %indvars.iv62.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !41
   %.not39.i = icmp eq i32 %62, 0
@@ -657,7 +655,7 @@ receive_internal.exit.thread25:                   ; preds = %._crit_edge.loopexi
   %.16592.i = phi i32 [ %1, %.lr.ph.i11 ], [ %.2.i, %48 ]
   %.06990.i = phi i64 [ -9223372036854775808, %.lr.ph.i11 ], [ %.170.i, %48 ]
   %30 = load ptr, ptr %27, align 8, !tbaa !12
-  %31 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [72 x i8], ptr %30, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i64, ptr %32, align 8, !tbaa !23
   %.not85.i = icmp eq i64 %33, -9223372036854775808
@@ -669,7 +667,7 @@ receive_internal.exit.thread25:                   ; preds = %._crit_edge.loopexi
 
 36:                                               ; preds = %34
   %37 = sext i32 %.16592.i to i64
-  %38 = getelementptr inbounds %struct.SyncQueueStream, ptr %30, i64 %37
+  %38 = getelementptr inbounds [72 x i8], ptr %30, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %41 = load i64, ptr %39, align 8
@@ -701,7 +699,7 @@ receive_internal.exit.thread25:                   ; preds = %._crit_edge.loopexi
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !12
   %55 = zext nneg i32 %.064.i to i64
-  %56 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [72 x i8], ptr %54, i64 %55
   br label %57
 
 57:                                               ; preds = %frame_end.exit.i, %52
@@ -756,7 +754,7 @@ frame_end.exit.i:                                 ; preds = %57
 84:                                               ; preds = %112, %.lr.ph96.i
   %indvars.iv101.i = phi i64 [ 0, %.lr.ph96.i ], [ %indvars.iv.next102.i, %112 ]
   %85 = load ptr, ptr %53, align 8, !tbaa !12
-  %86 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %85, i64 %indvars.iv101.i
+  %86 = getelementptr inbounds nuw [72 x i8], ptr %85, i64 %indvars.iv101.i
   %87 = icmp eq ptr %56, %86
   br i1 %87, label %112, label %88
 
@@ -893,7 +891,7 @@ define i32 @sq_add_stream(ptr noundef captures(none) %0, i32 noundef %1) local_u
   store ptr %9, ptr %3, align 8, !tbaa !12
   %11 = load i32, ptr %5, align 8, !tbaa !4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 72, i1 false)
   %14 = load i32, ptr %0, align 8, !tbaa !18
   %15 = icmp eq i32 %14, 1
@@ -960,7 +958,7 @@ define void @sq_limit_frames(ptr noundef captures(none) %0, i32 noundef %1, i64 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [72 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i64 %2, ptr %13, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1002,7 +1000,7 @@ define void @sq_frame_samples(ptr noundef captures(none) %0, i32 noundef %1, i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [72 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i32 %2, ptr %17, align 8, !tbaa !38
   %18 = tail call i64 @av_cpu_max_align() #7
@@ -1063,7 +1061,7 @@ define void @sq_free(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %8, i64 %indvars.iv
   tail call void @av_container_fifo_free(ptr noundef %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %3, align 8, !tbaa !4
@@ -1100,7 +1098,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @receive_for_stream(ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %14
   br label %16
 
 16:                                               ; preds = %3, %11
@@ -1119,7 +1117,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @receive_for_stream(ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = zext i32 %1 to i64
-  %26 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [72 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %28 = tail call i64 @av_container_fifo_can_read(ptr noundef %27) #7
   %.not = icmp eq i64 %28, 0
@@ -1655,7 +1653,7 @@ define internal fastcc void @offset_audio(ptr noundef captures(none) %0, i32 nou
 
 50:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !66
   %53 = getelementptr inbounds i8, ptr %52, i64 %32
   store ptr %53, ptr %51, align 8, !tbaa !66
@@ -1663,7 +1661,7 @@ define internal fastcc void @offset_audio(ptr noundef captures(none) %0, i32 nou
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr %53, ptr %56, align 8, !tbaa !66
   br label %57
 

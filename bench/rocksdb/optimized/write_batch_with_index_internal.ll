@@ -26,9 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.4" = type { ptr }
 %"struct.rocksdb::WriteBatchIndexEntry" = type { i64, i32, i32, i8, i8, i64, i64, ptr }
 %"struct.rocksdb::WriteEntry" = type { i32, %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
-%"struct.std::atomic.151" = type { %"struct.std::__atomic_base.152" }
-%"struct.std::__atomic_base.152" = type { ptr }
-%"class.rocksdb::WideColumn" = type { %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
 %"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
@@ -39,12 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.160" }
 %"union.std::__detail::__variant::_Variadic_union.160" = type { %"struct.std::__detail::__variant::_Uninitialized.161", [8 x i8] }
 %"struct.std::__detail::__variant::_Uninitialized.161" = type { %"class.rocksdb::Slice" }
-%"class.std::unique_ptr.139" = type { %"struct.std::__uniq_ptr_data.140" }
-%"struct.std::__uniq_ptr_data.140" = type { %"class.std::__uniq_ptr_impl.141" }
-%"class.std::__uniq_ptr_impl.141" = type { %"class.std::tuple.142" }
-%"class.std::tuple.142" = type { %"struct.std::_Tuple_impl.143" }
-%"struct.std::_Tuple_impl.143" = type { %"struct.std::_Head_base.146" }
-%"struct.std::_Head_base.146" = type { ptr }
+%"class.rocksdb::WideColumn" = type { %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
 %"class.std::vector.37" = type { %"struct.std::_Vector_base.38" }
 %"struct.std::_Vector_base.38" = type { %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl_data" }
@@ -1240,7 +1232,7 @@ define linkonce_odr void @_ZN7rocksdb16WBWIIteratorImpl10SeekToLastEv(ptr nounde
 .preheader:                                       ; preds = %.preheader.outer, %33
   %.010.i.i = phi i32 [ %34, %33 ], [ %.010.i.i.ph, %.preheader.outer ]
   %27 = sext i32 %.010.i.i to i64
-  %28 = getelementptr inbounds %"struct.std::atomic.151", ptr %26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   %29 = load atomic i64, ptr %28 acquire, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %.preheader.outer.loopexit
@@ -1264,7 +1256,7 @@ _ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparator
   %.020.us.i.i = phi i32 [ %48, %47 ], [ %.020.us.i.i.ph, %.split.us.i.i.outer ]
   %.018.us.i.i = phi ptr [ %.0.i.i.i.us.i.i, %47 ], [ %.018.us.i.i.ph, %.split.us.i.i.outer ]
   %39 = sext i32 %.020.us.i.i to i64
-  %40 = getelementptr inbounds %"struct.std::atomic.151", ptr %44, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %44, i64 %39
   %41 = load atomic i64, ptr %40 acquire, align 8
   %.0.i.i.i.us.i.i = inttoptr i64 %41 to ptr
   %.not.us.i.i = icmp eq ptr %.018.us.i.i, %.0.i.i.i.us.i.i
@@ -1371,7 +1363,7 @@ define linkonce_odr void @_ZN7rocksdb16WBWIIteratorImpl4SeekERKNS_5SliceE(ptr no
   br i1 %22, label %23, label %_ZNK7rocksdb16WBWIIteratorImpl16BeforeLowerBoundEPKNS_5SliceE.exit
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %25 = load ptr, ptr %24, align 8, !tbaa !169
   %.not.i.i = icmp eq ptr %25, null
   %spec.select.i.i = select i1 %.not.i.i, ptr %10, ptr %24
@@ -1490,7 +1482,7 @@ define linkonce_odr void @_ZN7rocksdb16WBWIIteratorImpl11SeekForPrevERKNS_5Slice
   br i1 %22, label %23, label %_ZNK7rocksdb16WBWIIteratorImpl19AtOrAfterUpperBoundEPKNS_5SliceE.exit
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %25 = load ptr, ptr %24, align 8, !tbaa !169
   %.not.i.i = icmp eq ptr %25, null
   %spec.select.i.i = select i1 %.not.i.i, ptr %10, ptr %24
@@ -1943,7 +1935,7 @@ define void @_ZNK7rocksdb16WBWIIteratorImpl5EntryEv(ptr dead_on_unwind noalias w
   br i1 %31, label %32, label %_ZNK7rocksdb25WriteBatchEntryComparator13GetComparatorEj.exit
 
 32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw ptr, ptr %26, i64 %22
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %22
   %34 = load ptr, ptr %33, align 8, !tbaa !169
   %.not.i = icmp eq ptr %34, null
   %spec.select.i = select i1 %.not.i, ptr %19, ptr %33
@@ -3043,7 +3035,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i
 _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE17_M_realloc_insertIJRKNS0_5SliceERS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %54, ptr %32, align 8, !tbaa !116
   store ptr %59, ptr %33, align 8, !tbaa !145
-  %61 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %54, i64 %52
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %52
   store ptr %61, ptr %35, align 8, !tbaa !117
   br label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNS0_5SliceERS5_EEERS1_DpOT_.exit
 
@@ -3829,7 +3821,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i
 _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE17_M_realloc_insertIJRKNS0_5SliceERS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i81: ; preds = %406, %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i78
   store ptr %400, ptr %378, align 8, !tbaa !116
   store ptr %405, ptr %379, align 8, !tbaa !145
-  %407 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %400, i64 %398
+  %407 = getelementptr inbounds nuw [32 x i8], ptr %400, i64 %398
   store ptr %407, ptr %381, align 8, !tbaa !117
   br label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNS0_5SliceERS5_EEERS1_DpOT_.exit82
 
@@ -5006,7 +4998,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit.i.us: ; preds = %45
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %50
-  %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %52
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %52
   %64 = load ptr, ptr %63, align 8, !tbaa !169
   %.not.i.i6.us = icmp eq ptr %64, null
   br i1 %.not.i.i6.us, label %65, label %_ZN7rocksdb16WBWIIteratorImpl10MatchesKeyEjRKNS_5SliceE.exit.us
@@ -5050,7 +5042,7 @@ _ZN7rocksdb16WBWIIteratorImpl10MatchesKeyEjRKNS_5SliceE.exit.us: ; preds = %65, 
   %.020.us.i.i.i = phi i32 [ %158, %157 ], [ %.020.us.i.i.i.ph, %.split.us.i.i.i.outer ]
   %.018.us.i.i.i = phi ptr [ %.0.i.i.i.us.i.i.i, %157 ], [ %.018.us.i.i.i.ph, %.split.us.i.i.i.outer ]
   %81 = sext i32 %.020.us.i.i.i to i64
-  %82 = getelementptr inbounds %"struct.std::atomic.151", ptr %80, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %80, i64 %81
   %83 = load atomic i64, ptr %82 acquire, align 8
   %.0.i.i.i.us.i.i.i = inttoptr i64 %83 to ptr
   %.not.us.i.i.i = icmp eq ptr %.018.us.i.i.i, %.0.i.i.i.us.i.i.i
@@ -5145,7 +5137,7 @@ _ZN7rocksdb16WBWIIteratorImpl10MatchesKeyEjRKNS_5SliceE.exit.us: ; preds = %65, 
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %129
-  %141 = getelementptr inbounds nuw ptr, ptr %134, i64 %130
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %130
   %142 = load ptr, ptr %141, align 8, !tbaa !169
   %.not.i.i.i8 = icmp eq ptr %142, null
   br i1 %.not.i.i.i8, label %143, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i
@@ -5261,7 +5253,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit.i:    ; preds = %177
   br i1 %193, label %194, label %197
 
 194:                                              ; preds = %182
-  %195 = getelementptr inbounds nuw ptr, ptr %188, i64 %184
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %184
   %196 = load ptr, ptr %195, align 8, !tbaa !169
   %.not.i.i6 = icmp eq ptr %196, null
   br i1 %.not.i.i6, label %197, label %_ZN7rocksdb16WBWIIteratorImpl10MatchesKeyEjRKNS_5SliceE.exit
@@ -5347,7 +5339,7 @@ define linkonce_odr void @_ZN7rocksdb16WBWIIteratorImpl4PrevEv(ptr noundef nonnu
   %.020.us.i.i = phi i32 [ %20, %19 ], [ %.020.us.i.i.ph, %.split.us.i.i.outer ]
   %.018.us.i.i = phi ptr [ %.0.i.i.i.us.i.i, %19 ], [ %.018.us.i.i.ph, %.split.us.i.i.outer ]
   %12 = sext i32 %.020.us.i.i to i64
-  %13 = getelementptr inbounds %"struct.std::atomic.151", ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load atomic i64, ptr %13 acquire, align 8
   %.0.i.i.i.us.i.i = inttoptr i64 %14 to ptr
   %.not.us.i.i = icmp eq ptr %.018.us.i.i, %.0.i.i.i.us.i.i
@@ -5445,7 +5437,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit:      ; preds = %11
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %18
-  %33 = getelementptr inbounds nuw ptr, ptr %26, i64 %22
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %22
   %34 = load ptr, ptr %33, align 8, !tbaa !169
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %35, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit
@@ -5574,7 +5566,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit:      ; preds = %32
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %39
-  %54 = getelementptr inbounds nuw ptr, ptr %47, i64 %43
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %43
   %55 = load ptr, ptr %54, align 8, !tbaa !169
   %.not.i14 = icmp eq ptr %55, null
   br i1 %.not.i14, label %56, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit
@@ -5692,7 +5684,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit23:    ; preds = %91
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %97
-  %111 = getelementptr inbounds nuw ptr, ptr %104, i64 %100
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %100
   %112 = load ptr, ptr %111, align 8, !tbaa !169
   %.not.i25 = icmp eq ptr %112, null
   br i1 %.not.i25, label %113, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit26
@@ -5815,7 +5807,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit35:    ; preds = %138
   %.020.us.i.i.i = phi i32 [ %160, %159 ], [ %.020.us.i.i.i.ph, %.split.us.i.i.i.outer ]
   %.018.us.i.i.i = phi ptr [ %.0.i.i.i.us.i.i.i, %159 ], [ %.018.us.i.i.i.ph, %.split.us.i.i.i.outer ]
   %152 = sext i32 %.020.us.i.i.i to i64
-  %153 = getelementptr inbounds %"struct.std::atomic.151", ptr %151, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %151, i64 %152
   %154 = load atomic i64, ptr %153 acquire, align 8
   %.0.i.i.i.us.i.i.i = inttoptr i64 %154 to ptr
   %.not.us.i.i.i = icmp eq ptr %.018.us.i.i.i, %.0.i.i.i.us.i.i.i
@@ -5886,7 +5878,7 @@ define noundef i32 @_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5S
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %17 = load ptr, ptr %16, align 8, !tbaa !169
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %20
@@ -6013,7 +6005,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %42, ptr %21, align 8, !tbaa !4
   store ptr %46, ptr %22, align 8, !tbaa !152
-  %48 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %48, ptr %24, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 
@@ -6145,7 +6137,7 @@ _ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE17_M_realloc_insertIJPS6_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %97, %_ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i
   store ptr %91, ptr %51, align 8, !tbaa !106
   store ptr %96, ptr %73, align 8, !tbaa !109
-  %98 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %91, i64 %89
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %98, ptr %75, align 8, !tbaa !114
   br label %_ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJPS6_EEERS9_DpOT_.exit
 
@@ -6227,7 +6219,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %133, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %128, ptr %100, align 8, !tbaa !4
   store ptr %132, ptr %109, align 8, !tbaa !152
-  %134 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %128, i64 %126
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %126
   store ptr %134, ptr %111, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 
@@ -6791,7 +6783,7 @@ define noundef i32 @_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchI
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %49
-  %61 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %62 = load ptr, ptr %61, align 8, !tbaa !169
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %63, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit
@@ -6867,7 +6859,7 @@ define noundef ptr @_ZNK7rocksdb25WriteBatchEntryComparator13GetComparatorEj(ptr
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %3
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %3
   %15 = load ptr, ptr %14, align 8, !tbaa !169
   %.not = icmp eq ptr %15, null
   %spec.select = select i1 %.not, ptr %0, ptr %14
@@ -9092,7 +9084,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb16WBWIIteratorImpl14TestOutO
   br i1 %21, label %22, label %_ZNK7rocksdb16WBWIIteratorImpl19AtOrAfterUpperBoundEPKNS_5SliceE.exit
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %12
   %24 = load ptr, ptr %23, align 8, !tbaa !169
   %.not.i.i = icmp eq ptr %24, null
   %spec.select.i.i = select i1 %.not.i.i, ptr %9, ptr %23
@@ -9132,7 +9124,7 @@ _ZNK7rocksdb16WBWIIteratorImpl19AtOrAfterUpperBoundEPKNS_5SliceE.exit.thread: ; 
   br i1 %47, label %48, label %_ZNK7rocksdb25WriteBatchEntryComparator13GetComparatorEj.exit.i3
 
 48:                                               ; preds = %33
-  %49 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %50 = load ptr, ptr %49, align 8, !tbaa !169
   %.not.i.i7 = icmp eq ptr %50, null
   %spec.select.i.i8 = select i1 %.not.i.i7, ptr %35, ptr %49
@@ -9174,7 +9166,7 @@ define linkonce_odr noundef ptr @_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntr
   %.019 = phi ptr [ %6, %2 ], [ %.2, %.thread ]
   %14 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %15 = sext i32 %.024 to i64
-  %16 = getelementptr inbounds %"struct.std::atomic.151", ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load atomic i64, ptr %16 acquire, align 8
   %.0.i.i.i = inttoptr i64 %17 to ptr
   %18 = icmp eq i64 %17, 0
@@ -9269,7 +9261,7 @@ define linkonce_odr noundef ptr @_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntr
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %65
-  %77 = getelementptr inbounds nuw ptr, ptr %70, i64 %66
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %66
   %78 = load ptr, ptr %77, align 8, !tbaa !169
   %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %79, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i
@@ -9422,7 +9414,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb8SkipListIPNS_20WriteBatchIn
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %54
-  %66 = getelementptr inbounds nuw ptr, ptr %59, i64 %55
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %55
   %67 = load ptr, ptr %66, align 8, !tbaa !169
   %.not.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i, label %68, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i
@@ -9496,7 +9488,7 @@ define linkonce_odr void @_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_2
 16:                                               ; preds = %.outer, %23
   %.010.i.i = phi i32 [ %24, %23 ], [ %.010.i.i.ph, %.outer ]
   %17 = sext i32 %.010.i.i to i64
-  %18 = getelementptr inbounds %"struct.std::atomic.151", ptr %15, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %17
   %19 = load atomic i64, ptr %18 acquire, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %.outer.loopexit
@@ -9557,7 +9549,7 @@ define linkonce_odr void @_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_2
   %.020.us.i.i = phi i32 [ %123, %122 ], [ %.020.us.i.i.ph, %.split.us.i.i.outer ]
   %.018.us.i.i = phi ptr [ %.0.i.i.i.us.i.i, %122 ], [ %.018.us.i.i.ph, %.split.us.i.i.outer ]
   %46 = sext i32 %.020.us.i.i to i64
-  %47 = getelementptr inbounds %"struct.std::atomic.151", ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = load atomic i64, ptr %47 acquire, align 8
   %.0.i.i.i.us.i.i = inttoptr i64 %48 to ptr
   %.not.us.i.i = icmp eq ptr %.018.us.i.i, %.0.i.i.i.us.i.i
@@ -9652,7 +9644,7 @@ define linkonce_odr void @_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_2
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %94
-  %106 = getelementptr inbounds nuw ptr, ptr %99, i64 %95
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %95
   %107 = load ptr, ptr %106, align 8, !tbaa !169
   %.not.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i, label %108, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i
@@ -9808,7 +9800,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb8SkipListIPNS_20WriteBatchIn
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %53
-  %65 = getelementptr inbounds nuw ptr, ptr %58, i64 %54
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %54
   %66 = load ptr, ptr %65, align 8, !tbaa !169
   %.not.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i, label %67, label %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i

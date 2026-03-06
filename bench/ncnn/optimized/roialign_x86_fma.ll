@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<ncnn::PreCalc<float>, std::allocator<ncnn::PreCalc<float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<ncnn::PreCalc<float>, std::allocator<ncnn::PreCalc<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<ncnn::PreCalc<float>, std::allocator<ncnn::PreCalc<float>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ncnn::PreCalc<float>, std::allocator<ncnn::PreCalc<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ncnn::PreCalc" = type { i32, i32, i32, i32, float, float, float, float }
 
 $_ZN4ncnn16ROIAlign_x86_fmaD0Ev = comdat any
 
@@ -199,7 +198,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds =
   %98 = shl nuw nsw i64 %96, 5
   %99 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %98) #17
   store ptr %99, ptr %12, align 8, !tbaa !47
-  %100 = getelementptr inbounds nuw %"struct.ncnn::PreCalc", ptr %99, i64 %96
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %96
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %100, ptr %101, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %99, i8 0, i64 32, i1 false)
@@ -333,7 +332,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i55: ; preds
   %150 = shl nuw nsw i64 %148, 5
   %151 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %150) #17
   store ptr %151, ptr %16, align 8, !tbaa !47
-  %152 = getelementptr inbounds nuw %"struct.ncnn::PreCalc", ptr %151, i64 %148
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %148
   %153 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %152, ptr %153, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %151, i8 0, i64 32, i1 false)
@@ -550,7 +549,7 @@ define linkonce_odr hidden void @_ZN4ncnn42original_pre_calc_for_bilinear_interp
   %86 = fmul fast float %.086.us.us, %.083.us.us
   %87 = fmul fast float %.085.us.us, %.083.us.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds nuw %"struct.ncnn::PreCalc", ptr %49, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv
   store i32 %80, ptr %88, align 4, !tbaa !16
   %.sroa.4.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i32 %81, ptr %.sroa.4.0..sroa_idx.us.us, align 4, !tbaa !16
@@ -730,7 +729,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %96 = sitofp i32 %93 to float
   %97 = fdiv fast float %.062.lcssa.us.us.us, %96
   %98 = select fast i1 %92, float 0.000000e+00, float %97
-  %99 = getelementptr inbounds nuw float, ptr %.063164.us.us.us, i64 %indvars.iv187
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.063164.us.us.us, i64 %indvars.iv187
   store float %98, ptr %99, align 4, !tbaa !40
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
   br i1 %exitcond190.not, label %._crit_edge.us170.us.us, label %58, !llvm.loop !68
@@ -752,12 +751,12 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %.060150.us.us.us.us = phi i32 [ %140, %103 ], [ 0, %.preheader.us.us.us.us ]
   %.1149.us.us.us.us = phi float [ %139, %103 ], [ %.062153.us.us.us.us, %.preheader.us.us.us.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %104 = getelementptr inbounds nuw %"struct.ncnn::PreCalc", ptr %101, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %101, i64 %indvars.iv
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load float, ptr %105, align 4, !tbaa !69
   %107 = load i32, ptr %104, align 4, !tbaa !71
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds float, ptr %49, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %49, i64 %108
   %110 = load float, ptr %109, align 4, !tbaa !40
   %111 = fmul fast float %110, %106
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 20
@@ -765,7 +764,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %114 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %115 = load i32, ptr %114, align 4, !tbaa !73
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds float, ptr %49, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %49, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !40
   %119 = fmul fast float %118, %113
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 24
@@ -773,7 +772,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %122 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %123 = load i32, ptr %122, align 4, !tbaa !75
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds float, ptr %49, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %49, i64 %124
   %126 = load float, ptr %125, align 4, !tbaa !40
   %127 = fmul fast float %126, %121
   %128 = getelementptr inbounds nuw i8, ptr %104, i64 28
@@ -781,7 +780,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %130 = getelementptr inbounds nuw i8, ptr %104, i64 12
   %131 = load i32, ptr %130, align 4, !tbaa !77
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds float, ptr %49, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr %49, i64 %132
   %134 = load float, ptr %133, align 4, !tbaa !40
   %135 = fmul fast float %134, %129
   %136 = fadd fast float %111, %.1149.us.us.us.us
@@ -799,7 +798,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   br i1 %exitcond186.not, label %._crit_edge155.us.us.us.loopexit, label %.preheader.us.us.us.us, !llvm.loop !79
 
 ._crit_edge.us170.us.us:                          ; preds = %._crit_edge155.us.us.us
-  %143 = getelementptr inbounds nuw float, ptr %.063164.us.us.us, i64 %43
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.063164.us.us.us, i64 %43
   %exitcond191.not = icmp eq i32 %56, %37
   br i1 %exitcond191.not, label %._crit_edge165.split.us.us.us, label %.preheader147.us.us.us, !llvm.loop !80
 
@@ -947,7 +946,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %72 = add nsw i32 %.098.us.us.us.us.us.us, %48
   %73 = add nsw i32 %.096.us.us.us.us.us.us, %49
   %74 = add nsw i32 %.098.us.us.us.us.us.us, %49
-  %75 = getelementptr inbounds nuw %"struct.ncnn::PreCalc", ptr %50, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %indvars.iv
   store i32 %71, ptr %75, align 4, !tbaa !16
   %.sroa.4.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i32 %72, ptr %.sroa.4.0..sroa_idx.us.us.us.us.us.us, align 4, !tbaa !16
@@ -966,7 +965,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   br label %78
 
 76:                                               ; preds = %.lr.ph.split.us130.us.us.us.us.us
-  %77 = getelementptr inbounds nuw %"struct.ncnn::PreCalc", ptr %50, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %77, i8 0, i64 32, i1 false)
   br label %78
 
@@ -1111,7 +1110,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %._crit_edge97.split.us.us.us.us.us.us.us, %.preheader88.us.us122.us.us.us.preheader
   %.us-phi.us.us.us.us = phi i32 [ %.053115.us.us.us.us, %.preheader88.us.us122.us.us.us.preheader ], [ %101, %._crit_edge97.split.us.us.us.us.us.us.us ]
-  %57 = getelementptr float, ptr %.055112.us.us.us.us, i64 %39
+  %57 = getelementptr [4 x i8], ptr %.055112.us.us.us.us, i64 %39
   %58 = add nuw nsw i32 %.052116.us.us.us.us, 1
   %exitcond153.not = icmp eq i32 %58, %34
   br i1 %exitcond153.not, label %._crit_edge117.split.us.us.us, label %.preheader89.us.us.us.us, !llvm.loop !94
@@ -1134,12 +1133,12 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %.04892.us.us.us.us.us.us.us = phi i32 [ %98, %61 ], [ 0, %.preheader.us.us.us.us.us.us.us ]
   %.191.us.us.us.us.us.us.us = phi float [ %97, %61 ], [ %.05095.us.us.us.us.us.us.us, %.preheader.us.us.us.us.us.us.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %62 = getelementptr inbounds nuw %"struct.ncnn::PreCalc", ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %59, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load float, ptr %63, align 4, !tbaa !69
   %65 = load i32, ptr %62, align 4, !tbaa !71
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds float, ptr %48, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %48, i64 %66
   %68 = load float, ptr %67, align 4, !tbaa !40
   %69 = fmul fast float %68, %64
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 20
@@ -1147,7 +1146,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !73
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds float, ptr %48, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %48, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !40
   %77 = fmul fast float %76, %71
   %78 = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -1155,7 +1154,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %80 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %81 = load i32, ptr %80, align 4, !tbaa !75
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds float, ptr %48, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %48, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !40
   %85 = fmul fast float %84, %79
   %86 = getelementptr inbounds nuw i8, ptr %62, i64 28
@@ -1163,7 +1162,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %88 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %89 = load i32, ptr %88, align 4, !tbaa !77
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds float, ptr %48, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %48, i64 %90
   %92 = load float, ptr %91, align 4, !tbaa !40
   %93 = fmul fast float %92, %87
   %94 = fadd fast float %69, %.191.us.us.us.us.us.us.us
@@ -1184,7 +1183,7 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %101 = add i32 %56, %.154101.us.us.us.us.us.us
   %102 = load float, ptr %9, align 4, !tbaa !40
   %103 = fdiv fast float %97, %102
-  %104 = getelementptr inbounds nuw float, ptr %.055112.us.us.us.us, i64 %indvars.iv149
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.055112.us.us.us.us, i64 %indvars.iv149
   store float %103, ptr %104, align 4, !tbaa !40
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, %40

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon.2 = type { i64 }
-%struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"src->graph\00", align 1
@@ -108,10 +106,10 @@ define range(i32 -12, 1) i32 @ff_append_inpad(ptr noundef captures(none) %0, ptr
 19:                                               ; preds = %.thread29.i
   store ptr %12, ptr %5, align 8, !tbaa !11
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %22 = load ptr, ptr %5, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr null, ptr %23, align 8, !tbaa !17
   %24 = load i32, ptr %3, align 8, !tbaa !4
   %25 = add i32 %24, 1
@@ -168,10 +166,10 @@ define range(i32 -12, 1) i32 @ff_append_inpad_free_name(ptr noundef captures(non
 21:                                               ; preds = %.thread29.i.i
   store ptr %15, ptr %8, align 8, !tbaa !11
   %22 = zext i32 %9 to i64
-  %23 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %13, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %24 = load ptr, ptr %8, align 8, !tbaa !11
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr null, ptr %25, align 8, !tbaa !17
   %26 = load i32, ptr %6, align 8, !tbaa !4
   %27 = add i32 %26, 1
@@ -225,10 +223,10 @@ define range(i32 -12, 1) i32 @ff_append_outpad(ptr noundef captures(none) %0, pt
 19:                                               ; preds = %.thread29.i
   store ptr %12, ptr %5, align 8, !tbaa !11
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %22 = load ptr, ptr %5, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr null, ptr %23, align 8, !tbaa !17
   %24 = load i32, ptr %3, align 8, !tbaa !4
   %25 = add i32 %24, 1
@@ -285,10 +283,10 @@ define range(i32 -12, 1) i32 @ff_append_outpad_free_name(ptr noundef captures(no
 21:                                               ; preds = %.thread29.i.i
   store ptr %15, ptr %8, align 8, !tbaa !11
   %22 = zext i32 %9 to i64
-  %23 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %13, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %24 = load ptr, ptr %8, align 8, !tbaa !11
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr null, ptr %25, align 8, !tbaa !17
   %26 = load i32, ptr %6, align 8, !tbaa !4
   %27 = add i32 %26, 1
@@ -348,7 +346,7 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = zext i32 %1 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %.not63 = icmp eq ptr %26, null
   br i1 %.not63, label %27, label %89
@@ -357,7 +355,7 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !17
   %.not64 = icmp eq ptr %32, null
   br i1 %.not64, label %33, label %89
@@ -383,12 +381,12 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !34
-  %45 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %44, i64 %24
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %24
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !35
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !36
-  %50 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %49, i64 %30
+  %50 = getelementptr inbounds nuw [48 x i8], ptr %49, i64 %30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !35
   %.not67 = icmp eq i32 %47, %52
@@ -403,7 +401,7 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !37
   %60 = load ptr, ptr %48, align 8, !tbaa !36
-  %61 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %60, i64 %30
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %30
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !35
   %64 = tail call ptr @av_get_media_type_string(i32 noundef %63) #15
@@ -419,20 +417,20 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %28, align 8, !tbaa !30
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %30
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %30
   store ptr %67, ptr %70, align 8, !tbaa !17
   %71 = load ptr, ptr %22, align 8, !tbaa !29
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %24
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %24
   store ptr %67, ptr %72, align 8, !tbaa !17
   store ptr %0, ptr %67, align 8, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %2, ptr %73, align 8, !tbaa !47
   %74 = load ptr, ptr %43, align 8, !tbaa !34
-  %75 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %74, i64 %24
+  %75 = getelementptr inbounds nuw [48 x i8], ptr %74, i64 %24
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !48
   %77 = load ptr, ptr %48, align 8, !tbaa !36
-  %78 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %77, i64 %30
+  %78 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %30
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %78, ptr %79, align 8, !tbaa !49
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -515,7 +513,7 @@ define void @ff_avfilter_link_set_in_status(ptr noundef captures(none) %0, i32 n
 
 19:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 368
   store i32 0, ptr %22, align 8, !tbaa !66
@@ -559,7 +557,7 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = and i64 %14, 4294967295
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   store ptr null, ptr %27, align 8, !tbaa !17
   %28 = tail call i32 @avfilter_link(ptr noundef %1, i32 noundef %3, ptr noundef %23, i32 noundef %15)
   %29 = icmp slt i32 %28, 0
@@ -569,7 +567,7 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %31 = load ptr, ptr %7, align 8, !tbaa !47
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !30
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %26
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %26
   store ptr %0, ptr %34, align 8, !tbaa !17
   br label %92
 
@@ -578,11 +576,11 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   %38 = zext i32 %2 to i64
-  %39 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %38
   store ptr %39, ptr %5, align 8, !tbaa !49
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %38
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %38
   store ptr %0, ptr %42, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %44 = load ptr, ptr %43, align 8, !tbaa !69
@@ -593,7 +591,7 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !29
   %48 = zext i32 %3 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 160
   tail call void @ff_formats_changeref(ptr noundef nonnull %43, ptr noundef nonnull %51) #15
@@ -609,7 +607,7 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !29
   %58 = zext i32 %3 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
   tail call void @ff_formats_changeref(ptr noundef nonnull %53, ptr noundef nonnull %61) #15
@@ -625,7 +623,7 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %67 = load ptr, ptr %66, align 8, !tbaa !29
   %68 = zext i32 %3 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !17
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 192
   tail call void @ff_formats_changeref(ptr noundef nonnull %63, ptr noundef nonnull %71) #15
@@ -641,7 +639,7 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %77 = load ptr, ptr %76, align 8, !tbaa !29
   %78 = zext i32 %3 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 168
   tail call void @ff_formats_changeref(ptr noundef nonnull %73, ptr noundef nonnull %81) #15
@@ -657,7 +655,7 @@ define range(i32 -22, 1) i32 @avfilter_insert_filter(ptr noundef %0, ptr noundef
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %87 = load ptr, ptr %86, align 8, !tbaa !29
   %88 = zext i32 %3 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 176
   tail call void @ff_channel_layouts_changeref(ptr noundef nonnull %83, ptr noundef nonnull %91) #15
@@ -686,7 +684,7 @@ define range(i32 -2147483648, 1) i32 @ff_filter_config_links(ptr noundef %0) loc
   %6 = phi i32 [ %3, %.lr.ph197 ], [ %172, %171 ]
   %indvars.iv227 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next228, %171 ]
   %7 = load ptr, ptr %4, align 8, !tbaa !30
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv227
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv227
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %171, label %10
@@ -795,7 +793,7 @@ define range(i32 -2147483648, 1) i32 @ff_filter_config_links(ptr noundef %0) loc
 55:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %56 = load ptr, ptr %51, align 8, !tbaa !80
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !81
   %59 = tail call i32 @av_frame_side_data_clone(ptr noundef nonnull %50, ptr noundef nonnull %48, ptr noundef %58, i32 noundef 0) #15
   %60 = icmp slt i32 %59, 0
@@ -1180,7 +1178,7 @@ update_link_current_pts.exit:                     ; preds = %24, %20, %12, %11
 
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 368
   store i32 0, ptr %34, align 8, !tbaa !66
@@ -1519,7 +1517,7 @@ define internal noundef i32 @default_execute(ptr noundef %0, ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = tail call i32 %1(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %4) #15
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %10, ptr %11, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1589,11 +1587,11 @@ define void @avfilter_free(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %22 = load ptr, ptr %15, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   tail call fastcc void @free_link(ptr noundef %24)
   %25 = load ptr, ptr %16, align 8, !tbaa !36
-  %26 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !14
   %29 = and i32 %28, 2
@@ -1614,11 +1612,11 @@ define void @avfilter_free(ptr noundef %0) local_unnamed_addr #0 {
 35:                                               ; preds = %.lr.ph51, %45
   %indvars.iv59 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next60, %45 ]
   %36 = load ptr, ptr %19, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv59
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv59
   %38 = load ptr, ptr %37, align 8, !tbaa !17
   tail call fastcc void @free_link(ptr noundef %38)
   %39 = load ptr, ptr %20, align 8, !tbaa !34
-  %40 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %39, i64 %indvars.iv59
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %indvars.iv59
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !14
   %43 = and i32 %42, 2
@@ -2110,7 +2108,7 @@ declare void @av_dict_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @avfilter_pad_get_name(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %struct.AVFilterPad, ptr %0, i64 %3
+  %4 = getelementptr inbounds [48 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !150
   ret ptr %5
 }
@@ -2118,7 +2116,7 @@ define ptr @avfilter_pad_get_name(ptr noundef readonly captures(none) %0, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @avfilter_pad_get_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %struct.AVFilterPad, ptr %0, i64 %3
+  %4 = getelementptr inbounds [48 x i8], ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !35
   ret i32 %6
@@ -2225,7 +2223,7 @@ define range(i32 -2147483648, 1) i32 @ff_filter_frame(ptr noundef %0, ptr nounde
 
 48:                                               ; preds = %48, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 368
   store i32 0, ptr %51, align 8, !tbaa !66
@@ -2322,7 +2320,7 @@ define range(i32 -1497649741, -1497649742) i32 @ff_filter_activate(ptr noundef i
 
 .critedge.i:                                      ; preds = %18, %.critedge.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.critedge.lr.ph.i ]
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 372
   %26 = load i32, ptr %25, align 4, !tbaa !63
@@ -2342,7 +2340,7 @@ define range(i32 -1497649741, -1497649742) i32 @ff_filter_activate(ptr noundef i
 30:                                               ; preds = %ff_inlink_set_status.exit.i, %.lr.ph119.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph119.i ], [ %indvars.iv.next.i, %ff_inlink_set_status.exit.i ]
   %31 = load ptr, ptr %29, align 8, !tbaa !30
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 384
   %35 = load i32, ptr %34, align 8, !tbaa !99
@@ -2370,7 +2368,7 @@ define range(i32 -1497649741, -1497649742) i32 @ff_filter_activate(ptr noundef i
 
 45:                                               ; preds = %45, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i.i.i
   %47 = load ptr, ptr %46, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 368
   store i32 0, ptr %48, align 8, !tbaa !66
@@ -2422,7 +2420,7 @@ ff_inlink_set_status.exit.i:                      ; preds = %58, %._crit_edge.i.
 
 62:                                               ; preds = %samples_ready.exit.thread.i, %.lr.ph.i
   %indvars.iv138.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next139.i, %samples_ready.exit.thread.i ]
-  %63 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv138.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv138.i
   %64 = load ptr, ptr %63, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 224
   %66 = load i32, ptr %65, align 8, !tbaa !165
@@ -2499,7 +2497,7 @@ ff_inlink_consume_frame.exit.thread.i.i:          ; preds = %ff_inlink_consume_f
 
 98:                                               ; preds = %98, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %98 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv.i.i.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i.i.i
   %100 = load ptr, ptr %99, align 8, !tbaa !17
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 368
   store i32 0, ptr %101, align 8, !tbaa !66
@@ -2667,7 +2665,7 @@ filter_frame_framed.exit.i.i:                     ; preds = %156, %evaluate_time
 
 181:                                              ; preds = %181, %.lr.ph.i.i.i66.i
   %indvars.iv.i.i.i68.i = phi i64 [ 0, %.lr.ph.i.i.i66.i ], [ %indvars.iv.next.i.i.i69.i, %181 ]
-  %182 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv.i.i.i68.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv.i.i.i68.i
   %183 = load ptr, ptr %182, align 8, !tbaa !17
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 368
   store i32 0, ptr %184, align 8, !tbaa !66
@@ -2712,7 +2710,7 @@ samples_ready.exit.thread.i:                      ; preds = %samples_ready.exit.
 
 .preheader97.i:                                   ; preds = %samples_ready.exit.thread.i, %forward_status_change.exit.i
   %indvars.iv142.i = phi i64 [ %indvars.iv.next143.i, %forward_status_change.exit.i ], [ 0, %samples_ready.exit.thread.i ]
-  %194 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv142.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv142.i
   %195 = load ptr, ptr %194, align 8, !tbaa !17
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 372
   %197 = load i32, ptr %196, align 4, !tbaa !63
@@ -2740,7 +2738,7 @@ samples_ready.exit.thread.i:                      ; preds = %samples_ready.exit.
   %.02439.i.i = phi i32 [ 0, %.lr.ph.i74.i ], [ %.226.i.i, %226 ]
   %207 = load ptr, ptr %204, align 8, !tbaa !29
   %208 = zext i32 %.02140.i.i to i64
-  %209 = getelementptr inbounds nuw ptr, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !17
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 372
   %212 = load i32, ptr %211, align 4, !tbaa !63
@@ -2795,7 +2793,7 @@ forward_status_change.exit.i:                     ; preds = %198, %.preheader97.
 
 229:                                              ; preds = %239, %.lr.ph117.i
   %indvars.iv147.i = phi i64 [ 0, %.lr.ph117.i ], [ %indvars.iv.next148.i, %239 ]
-  %230 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv147.i
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv147.i
   %231 = load ptr, ptr %230, align 8, !tbaa !17
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 388
   %233 = load i32, ptr %232, align 4, !tbaa !65
@@ -3493,7 +3491,7 @@ define void @ff_inlink_set_status(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 368
   store i32 0, ptr %18, align 8, !tbaa !66
@@ -3805,7 +3803,7 @@ ff_request_frame.exit:                            ; preds = %22, %14, %7
 43:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %.03743.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %.138.i, %55 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !17
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 384
   %47 = load i32, ptr %46, align 8, !tbaa !99
@@ -3846,7 +3844,7 @@ ff_request_frame.exit:                            ; preds = %22, %14, %7
 59:                                               ; preds = %59, %.lr.ph48.i
   %indvars.iv54.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next55.i, %59 ]
   %.245.i = phi i64 [ 9223372036854775807, %.lr.ph48.i ], [ %..2.i, %59 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv54.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv54.i
   %61 = load ptr, ptr %60, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 376
   %63 = load i64, ptr %62, align 8, !tbaa !64
@@ -3903,7 +3901,7 @@ guess_status_pts.exit:                            ; preds = %._crit_edge.i, %._c
 
 80:                                               ; preds = %80, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %80 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !17
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 368
   store i32 0, ptr %83, align 8, !tbaa !66

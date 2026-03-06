@@ -7,53 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.pull_coord_work_t = type { %struct.t_pull_coord, %"class.std::unique_ptr", double, %struct.PullCoordSpatialData, double, i8, %"class.gmx::PullCoordExpressionParser", %"class.std::vector.33" }
-%struct.t_pull_coord = type { i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", double, i32, %"struct.std::array", %"class.gmx::BasicVector", %"class.gmx::BasicVector.48", %"class.gmx::BasicVector.48", i8, float, float, float, float, i32 }
-%"struct.std::array" = type { [6 x i32] }
-%"class.gmx::BasicVector" = type { [3 x i32] }
-%"class.gmx::BasicVector.48" = type { [3 x float] }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.50" }
-%"struct.std::_Head_base.50" = type { ptr }
-%struct.PullCoordSpatialData = type { [3 x double], [3 x double], [3 x double], [3 x double], double, [3 x double], double, [3 x double], [3 x double], double }
-%"class.gmx::PullCoordExpressionParser" = type { %"class.std::__cxx11::basic_string", %"class.std::vector.33", %"class.std::unique_ptr.51" }
-%"class.std::unique_ptr.51" = type { %"struct.std::__uniq_ptr_data.52" }
-%"struct.std::__uniq_ptr_data.52" = type { %"class.std::__uniq_ptr_impl.53" }
-%"class.std::__uniq_ptr_impl.53" = type { %"class.std::tuple.54" }
-%"class.std::tuple.54" = type { %"struct.std::_Tuple_impl.55" }
-%"struct.std::_Tuple_impl.55" = type { %"struct.std::_Head_base.58" }
-%"struct.std::_Head_base.58" = type { ptr }
-%"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
-%"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.PullCoordinateHistory = type { double, double, double, [3 x double], [3 x double], [3 x double], [3 x double] }
-%class.PullGroupHistory = type { [3 x double] }
-%struct.pull_group_work_t = type { %struct.t_pull_group, i32, i32, i8, %"class.std::vector.64", %"class.gmx::LocalAtomSet", %"class.std::vector.64", %"class.std::unique_ptr.69", float, float, float, %"class.std::vector.28", %"class.std::vector.33", %"class.gmx::BasicVector.77", %"class.gmx::BasicVector.77", %"class.gmx::BasicVector.77" }
-%struct.t_pull_group = type { %"class.std::vector.59", %"class.std::vector.64", i32, i32 }
-%"class.std::vector.59" = type { %"struct.std::_Vector_base.60" }
-%"struct.std::_Vector_base.60" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::LocalAtomSet" = type { ptr }
-%"class.std::vector.64" = type { %"struct.std::_Vector_base.65" }
-%"struct.std::_Vector_base.65" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.69" = type { %"struct.std::__uniq_ptr_data.70" }
-%"struct.std::__uniq_ptr_data.70" = type { %"class.std::__uniq_ptr_impl.71" }
-%"class.std::__uniq_ptr_impl.71" = type { %"class.std::tuple.72" }
-%"class.std::tuple.72" = type { %"struct.std::_Tuple_impl.73" }
-%"struct.std::_Tuple_impl.73" = type { %"struct.std::_Head_base.76" }
-%"struct.std::_Head_base.76" = type { ptr }
-%"class.std::vector.28" = type { %"struct.std::_Vector_base.29" }
-%"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::BasicVector.77" = type { [3 x double] }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr.82" }
 %"class.std::unique_ptr.82" = type { %"struct.std::__uniq_ptr_data.83" }
@@ -228,8 +181,8 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 38:                                               ; preds = %.loopexit.i, %.lr.ph.i
   %.04552.i = phi i64 [ 0, %.lr.ph.i ], [ %86, %.loopexit.i ]
-  %39 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %12, i64 %.04552.i
-  %40 = getelementptr inbounds nuw %class.PullCoordinateHistory, ptr %27, i64 %.04552.i
+  %39 = getelementptr inbounds nuw [488 x i8], ptr %12, i64 %.04552.i
+  %40 = getelementptr inbounds nuw [120 x i8], ptr %27, i64 %.04552.i
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 192
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 376
   %43 = load double, ptr %42, align 8, !tbaa !80
@@ -264,21 +217,21 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 64:                                               ; preds = %64, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   %66 = load double, ptr %65, align 8, !tbaa !113
-  %67 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i
   %68 = load double, ptr %67, align 8, !tbaa !113
   %69 = fadd double %66, %68
   store double %69, ptr %67, align 8, !tbaa !113
-  %70 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i
   %71 = load double, ptr %70, align 8, !tbaa !113
-  %72 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i
   %73 = load double, ptr %72, align 8, !tbaa !113
   %74 = fadd double %71, %73
   store double %74, ptr %72, align 8, !tbaa !113
-  %75 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i
   %76 = load double, ptr %75, align 8, !tbaa !113
-  %77 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i
   %78 = load double, ptr %77, align 8, !tbaa !113
   %79 = fadd double %76, %78
   store double %79, ptr %77, align 8, !tbaa !113
@@ -288,9 +241,9 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 80:                                               ; preds = %80, %.preheader49.i
   %indvars.iv59.i = phi i64 [ 0, %.preheader49.i ], [ %indvars.iv.next60.i, %80 ]
-  %81 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv59.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv59.i
   %82 = load double, ptr %81, align 8, !tbaa !113
-  %83 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv59.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv59.i
   %84 = load double, ptr %83, align 8, !tbaa !113
   %85 = fadd double %82, %84
   store double %85, ptr %83, align 8, !tbaa !113
@@ -305,8 +258,8 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 87:                                               ; preds = %91, %.lr.ph55.i
   %.04654.i = phi i64 [ 0, %.lr.ph55.i ], [ %92, %91 ]
-  %88 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %37, i64 %.04654.i
-  %89 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %31, i64 %.04654.i
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.04654.i
+  %89 = getelementptr inbounds nuw [272 x i8], ptr %31, i64 %.04654.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 200
   br label %93
 
@@ -317,9 +270,9 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 93:                                               ; preds = %93, %87
   %indvars.iv64.i = phi i64 [ 0, %87 ], [ %indvars.iv.next65.i, %93 ]
-  %94 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv64.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv64.i
   %95 = load double, ptr %94, align 8, !tbaa !113
-  %96 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv64.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv64.i
   %97 = load double, ptr %96, align 8, !tbaa !113
   %98 = fadd double %95, %97
   store double %98, ptr %96, align 8, !tbaa !113
@@ -361,7 +314,7 @@ _ZL17addToPullxHistoryP6pull_t.exit:              ; preds = %91, %.preheader.i, 
 117:                                              ; preds = %.loopexit.i23, %.lr.ph.i22
   %118 = phi ptr [ %109, %.lr.ph.i22 ], [ %324, %.loopexit.i23 ]
   %.077109.i = phi i64 [ 0, %.lr.ph.i22 ], [ %322, %.loopexit.i23 ]
-  %119 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %118, i64 %.077109.i
+  %119 = getelementptr inbounds nuw [488 x i8], ptr %118, i64 %.077109.i
   %120 = load i8, ptr %7, align 8, !tbaa !59, !range !60, !noundef !61
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %122, label %184
@@ -370,7 +323,7 @@ _ZL17addToPullxHistoryP6pull_t.exit:              ; preds = %91, %.preheader.i, 
   %123 = load ptr, ptr %112, align 8, !tbaa !63
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !76
-  %126 = getelementptr inbounds nuw %class.PullCoordinateHistory, ptr %125, i64 %.077109.i
+  %126 = getelementptr inbounds nuw [120 x i8], ptr %125, i64 %.077109.i
   %127 = load i32, ptr %123, align 8, !tbaa !64
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %129 = load double, ptr %128, align 8, !tbaa !110
@@ -405,13 +358,13 @@ _ZL17addToPullxHistoryP6pull_t.exit:              ; preds = %91, %.preheader.i, 
 
 149:                                              ; preds = %157, %146
   %indvars.iv.i.i.i = phi i64 [ 0, %146 ], [ %indvars.iv.next.i.i.i, %157 ]
-  %150 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i.i.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.i.i.i
   %151 = load i32, ptr %150, align 4, !tbaa !125
   %.not.i.i.i = icmp eq i32 %151, 0
   br i1 %.not.i.i.i, label %157, label %152
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds nuw double, ptr %148, i64 %indvars.iv.i.i.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv.i.i.i
   %154 = load double, ptr %153, align 8, !tbaa !113
   %155 = fdiv double %154, %133
   %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, double noundef %155) #22
@@ -434,13 +387,13 @@ _ZL30pull_print_coord_dr_componentsP8_IO_FILEPKiPKdi.exit.i.i: ; preds = %157
 
 163:                                              ; preds = %171, %161
   %indvars.iv.i26.i.i = phi i64 [ 0, %161 ], [ %indvars.iv.next.i28.i.i, %171 ]
-  %164 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i26.i.i
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.i26.i.i
   %165 = load i32, ptr %164, align 4, !tbaa !125
   %.not.i27.i.i = icmp eq i32 %165, 0
   br i1 %.not.i27.i.i, label %171, label %166
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw double, ptr %162, i64 %indvars.iv.i26.i.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv.i26.i.i
   %168 = load double, ptr %167, align 8, !tbaa !113
   %169 = fdiv double %168, %133
   %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, double noundef %169) #22
@@ -462,13 +415,13 @@ _ZL30pull_print_coord_dr_componentsP8_IO_FILEPKiPKdi.exit30.i.i: ; preds = %171
 
 175:                                              ; preds = %183, %173
   %indvars.iv.i31.i.i = phi i64 [ 0, %173 ], [ %indvars.iv.next.i33.i.i, %183 ]
-  %176 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i31.i.i
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.i31.i.i
   %177 = load i32, ptr %176, align 4, !tbaa !125
   %.not.i32.i.i = icmp eq i32 %177, 0
   br i1 %.not.i32.i.i, label %183, label %178
 
 178:                                              ; preds = %175
-  %179 = getelementptr inbounds nuw double, ptr %174, i64 %indvars.iv.i31.i.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv.i31.i.i
   %180 = load double, ptr %179, align 8, !tbaa !113
   %181 = fdiv double %180, %133
   %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, double noundef %181) #22
@@ -511,13 +464,13 @@ _ZL30pull_print_coord_dr_componentsP8_IO_FILEPKiPKdi.exit30.i.i: ; preds = %171
 
 204:                                              ; preds = %211, %202
   %indvars.iv.i.i83.i = phi i64 [ 0, %202 ], [ %indvars.iv.next.i.i85.i, %211 ]
-  %205 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv.i.i83.i
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv.i.i83.i
   %206 = load i32, ptr %205, align 4, !tbaa !125
   %.not.i.i84.i = icmp eq i32 %206, 0
   br i1 %.not.i.i84.i, label %211, label %207
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw double, ptr %185, i64 %indvars.iv.i.i83.i
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv.i.i83.i
   %209 = load double, ptr %208, align 8, !tbaa !113
   %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, double noundef %209) #22
   br label %211
@@ -539,13 +492,13 @@ _ZL30pull_print_coord_dr_componentsP8_IO_FILEPKiPKdi.exit.i87.i: ; preds = %211
 
 217:                                              ; preds = %224, %215
   %indvars.iv.i26.i88.i = phi i64 [ 0, %215 ], [ %indvars.iv.next.i28.i90.i, %224 ]
-  %218 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv.i26.i88.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv.i26.i88.i
   %219 = load i32, ptr %218, align 4, !tbaa !125
   %.not.i27.i89.i = icmp eq i32 %219, 0
   br i1 %.not.i27.i89.i, label %224, label %220
 
 220:                                              ; preds = %217
-  %221 = getelementptr inbounds nuw double, ptr %216, i64 %indvars.iv.i26.i88.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %indvars.iv.i26.i88.i
   %222 = load double, ptr %221, align 8, !tbaa !113
   %223 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, double noundef %222) #22
   br label %224
@@ -566,13 +519,13 @@ _ZL30pull_print_coord_dr_componentsP8_IO_FILEPKiPKdi.exit30.i92.i: ; preds = %22
 
 228:                                              ; preds = %235, %226
   %indvars.iv.i31.i94.i = phi i64 [ 0, %226 ], [ %indvars.iv.next.i33.i96.i, %235 ]
-  %229 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv.i31.i94.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv.i31.i94.i
   %230 = load i32, ptr %229, align 4, !tbaa !125
   %.not.i32.i95.i = icmp eq i32 %230, 0
   br i1 %.not.i32.i95.i, label %235, label %231
 
 231:                                              ; preds = %228
-  %232 = getelementptr inbounds nuw double, ptr %227, i64 %indvars.iv.i31.i94.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv.i31.i94.i
   %233 = load double, ptr %232, align 8, !tbaa !113
   %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, double noundef %233) #22
   br label %235
@@ -608,7 +561,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 246:                                              ; preds = %260, %.preheader100.i
   %indvars.iv114.i = phi i64 [ 0, %.preheader100.i ], [ %indvars.iv.next115.i, %260 ]
-  %247 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv114.i
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %indvars.iv114.i
   %248 = load i32, ptr %247, align 4, !tbaa !125
   %.not79.i = icmp eq i32 %248, 0
   br i1 %.not79.i, label %260, label %249
@@ -617,7 +570,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   br i1 %.not80.i, label %254, label %250
 
 250:                                              ; preds = %249
-  %251 = getelementptr inbounds nuw double, ptr %244, i64 %indvars.iv114.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %indvars.iv114.i
   %252 = load double, ptr %251, align 8, !tbaa !113
   %253 = fdiv double %252, %.076.i
   br label %.sink.split.i
@@ -625,7 +578,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 254:                                              ; preds = %249
   %255 = load ptr, ptr %245, align 8, !tbaa !112
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 200
-  %257 = getelementptr inbounds nuw double, ptr %256, i64 %indvars.iv114.i
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %indvars.iv114.i
   %258 = load double, ptr %257, align 8, !tbaa !113
   br label %.sink.split.i
 
@@ -641,7 +594,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 261:                                              ; preds = %286, %.preheader102.i
   %indvars.iv.i24 = phi i64 [ 0, %.preheader102.i ], [ %indvars.iv.next.i26, %286 ]
-  %262 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv.i24
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %indvars.iv.i24
   %263 = load i32, ptr %262, align 4, !tbaa !125
   %.not.i25 = icmp eq i32 %263, 0
   br i1 %.not.i25, label %286, label %264
@@ -657,8 +610,8 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %270 = load i32, ptr %243, align 4, !tbaa !125
   %271 = sext i32 %270 to i64
   %272 = load ptr, ptr %269, align 8, !tbaa !79
-  %273 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %272, i64 %271
-  %274 = getelementptr inbounds nuw double, ptr %273, i64 %indvars.iv.i24
+  %273 = getelementptr inbounds nuw [24 x i8], ptr %272, i64 %271
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %indvars.iv.i24
   %275 = load double, ptr %274, align 8, !tbaa !113
   %276 = fdiv double %275, %.076.i
   br label %.sink.split132.i
@@ -667,9 +620,9 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %278 = load i32, ptr %243, align 4, !tbaa !125
   %279 = sext i32 %278 to i64
   %280 = load ptr, ptr %114, align 8, !tbaa !78
-  %281 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %280, i64 %279
+  %281 = getelementptr inbounds nuw [272 x i8], ptr %280, i64 %279
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 200
-  %283 = getelementptr inbounds nuw double, ptr %282, i64 %indvars.iv.i24
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %indvars.iv.i24
   %284 = load double, ptr %283, align 8, !tbaa !113
   br label %.sink.split132.i
 
@@ -695,7 +648,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 .preheader.i28:                                   ; preds = %292, %.preheader.lr.ph.i
   %indvars.iv122.i = phi i64 [ 1, %.preheader.lr.ph.i ], [ %indvars.iv.next123.i, %292 ]
-  %291 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv122.i
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %indvars.iv122.i
   br label %296
 
 292:                                              ; preds = %321
@@ -707,7 +660,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 296:                                              ; preds = %321, %.preheader.i28
   %indvars.iv118.i = phi i64 [ 0, %.preheader.i28 ], [ %indvars.iv.next119.i, %321 ]
-  %297 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv118.i
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %indvars.iv118.i
   %298 = load i32, ptr %297, align 4, !tbaa !125
   %.not78.i = icmp eq i32 %298, 0
   br i1 %.not78.i, label %321, label %299
@@ -723,8 +676,8 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %305 = load i32, ptr %291, align 4, !tbaa !125
   %306 = sext i32 %305 to i64
   %307 = load ptr, ptr %304, align 8, !tbaa !79
-  %308 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %307, i64 %306
-  %309 = getelementptr inbounds nuw double, ptr %308, i64 %indvars.iv118.i
+  %308 = getelementptr inbounds nuw [24 x i8], ptr %307, i64 %306
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %indvars.iv118.i
   %310 = load double, ptr %309, align 8, !tbaa !113
   %311 = fdiv double %310, %.076.i
   br label %.sink.split134.i
@@ -733,9 +686,9 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %313 = load i32, ptr %291, align 4, !tbaa !125
   %314 = sext i32 %313 to i64
   %315 = load ptr, ptr %114, align 8, !tbaa !78
-  %316 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %315, i64 %314
+  %316 = getelementptr inbounds nuw [272 x i8], ptr %315, i64 %314
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 200
-  %318 = getelementptr inbounds nuw double, ptr %317, i64 %indvars.iv118.i
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %indvars.iv118.i
   %319 = load double, ptr %318, align 8, !tbaa !113
   br label %.sink.split134.i
 
@@ -840,8 +793,8 @@ _ZL12pull_print_xP8_IO_FILEP6pull_td.exit:        ; preds = %.lr.ph39.preheader.
 
 373:                                              ; preds = %373, %.lr.ph.i30
   %.010.i = phi i64 [ 0, %.lr.ph.i30 ], [ %381, %373 ]
-  %374 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %356, i64 %.010.i
-  %375 = getelementptr inbounds nuw %class.PullCoordinateHistory, ptr %372, i64 %.010.i
+  %374 = getelementptr inbounds nuw [488 x i8], ptr %356, i64 %.010.i
+  %375 = getelementptr inbounds nuw [120 x i8], ptr %372, i64 %.010.i
   %376 = getelementptr inbounds nuw i8, ptr %374, i64 384
   %377 = load double, ptr %376, align 8, !tbaa !141
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -883,7 +836,7 @@ _ZL17addToPullfHistoryP6pull_t.exit:              ; preds = %373, %360, %354, %3
   %397 = load ptr, ptr %395, align 8, !tbaa !63
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load ptr, ptr %398, align 8, !tbaa !76
-  %400 = getelementptr inbounds nuw %class.PullCoordinateHistory, ptr %399, i64 %.023.i
+  %400 = getelementptr inbounds nuw [120 x i8], ptr %399, i64 %.023.i
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %402 = load double, ptr %401, align 8, !tbaa !142
   %403 = getelementptr inbounds nuw i8, ptr %397, i64 4
@@ -2648,7 +2601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144.us: ; preds = 
   br i1 %209, label %210, label %233
 
 210:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144.us
-  %211 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %.pre253.pre254.pre256, i64 %.045212.us
+  %211 = getelementptr inbounds nuw [488 x i8], ptr %.pre253.pre254.pre256, i64 %.045212.us
   %212 = load i32, ptr %211, align 8, !tbaa !169
   %.not.us = icmp eq i32 %212, 5
   br i1 %.not.us, label %233, label %213
@@ -2723,7 +2676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153.us: ; preds = 
   br i1 %235, label %236, label %_ZL31set_legend_for_coord_componentsPK17pull_coord_work_tiPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.us
 
 236:                                              ; preds = %233
-  %237 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %.pre253.pre254, i64 %.045212.us
+  %237 = getelementptr inbounds nuw [488 x i8], ptr %.pre253.pre254, i64 %.045212.us
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 88
   %239 = load i32, ptr %238, align 8, !tbaa !132
   %240 = icmp sgt i32 %239, 0
@@ -2744,7 +2697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153.us: ; preds = 
 
 247:                                              ; preds = %337, %.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us, %337 ]
-  %248 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv.i.us
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %indvars.iv.i.us
   %249 = load i32, ptr %248, align 4, !tbaa !125
   %.not.i160.us = icmp eq i32 %249, 0
   br i1 %.not.i160.us, label %337, label %250
@@ -3051,7 +3004,7 @@ _ZL31set_legend_for_coord_componentsPK17pull_coord_work_tiPSt6vectorINSt7__cxx11
 
 350:                                              ; preds = %430
   %351 = load ptr, ptr %159, align 8, !tbaa !122
-  %352 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %351, i64 %.045212.us
+  %352 = getelementptr inbounds nuw [488 x i8], ptr %351, i64 %.045212.us
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 88
   %354 = load i32, ptr %353, align 8, !tbaa !132
   %355 = icmp slt i32 %431, %354
@@ -3060,9 +3013,9 @@ _ZL31set_legend_for_coord_componentsPK17pull_coord_work_tiPSt6vectorINSt7__cxx11
 356:                                              ; preds = %.preheader.us, %430
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %430 ]
   %357 = load ptr, ptr %159, align 8, !tbaa !122
-  %358 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %357, i64 %.045212.us
+  %358 = getelementptr inbounds nuw [488 x i8], ptr %357, i64 %.045212.us
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 116
-  %360 = getelementptr inbounds nuw i32, ptr %359, i64 %indvars.iv
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %indvars.iv
   %361 = load i32, ptr %360, align 4, !tbaa !125
   %.not84.us = icmp eq i32 %361, 0
   br i1 %.not84.us, label %430, label %362
@@ -3227,7 +3180,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit170.us: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i.us, %422
   store ptr %394, ptr %11, align 8, !tbaa !175
   store ptr %421, ptr %171, align 8, !tbaa !164
-  %426 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %394, i64 %390
+  %426 = getelementptr inbounds nuw [32 x i8], ptr %394, i64 %390
   store ptr %426, ptr %172, align 8, !tbaa !167
   %.pre252 = load ptr, ptr %22, align 8, !tbaa !150
   %427 = icmp eq ptr %.pre252, %186
@@ -3254,7 +3207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.us: ; preds = 
   br label %356
 
 .preheader202.us:                                 ; preds = %_ZL31set_legend_for_coord_componentsPK17pull_coord_work_tiPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.us
-  %432 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %.pre253, i64 %.045212.us
+  %432 = getelementptr inbounds nuw [488 x i8], ptr %.pre253, i64 %.045212.us
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 88
   %434 = load i32, ptr %433, align 8, !tbaa !132
   %435 = icmp sgt i32 %434, 0
@@ -4214,7 +4167,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !175
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !164
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !167
   ret void
 }
@@ -4411,7 +4364,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !175
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !164
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !167
   ret void
 
@@ -4529,7 +4482,7 @@ _ZNSt6vectorI21PullCoordinateHistorySaIS0_EE6resizeEm.exit: ; preds = %_ZNSt10un
   br i1 %46, label %47, label %_ZNSt6vectorI16PullGroupHistorySaIS0_EE6resizeEm.exit
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %37, i64 %34
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %34
   %.not.i.i16 = icmp eq ptr %36, %48
   br i1 %.not.i.i16, label %_ZNSt6vectorI16PullGroupHistorySaIS0_EE6resizeEm.exit, label %49
 
@@ -4619,9 +4572,9 @@ _ZNSt6vectorI21PullCoordinateHistorySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ;
 
 _ZNSt12_Vector_baseI21PullCoordinateHistorySaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI21PullCoordinateHistorySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !76
-  %33 = getelementptr inbounds nuw %class.PullCoordinateHistory, ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [120 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !214
-  %34 = getelementptr inbounds nuw %class.PullCoordinateHistory, ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [120 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !215
   br label %35
 
@@ -4705,9 +4658,9 @@ _ZNSt6vectorI16PullGroupHistorySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; pred
 
 _ZNSt12_Vector_baseI16PullGroupHistorySaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI16PullGroupHistorySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !79
-  %33 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !213
-  %34 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !222
   br label %35
 

@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
 %struct.regmatch_t = type { i32, i32 }
-%struct.rpc_service = type { ptr, ptr, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.git_zstream = type { %struct.z_stream_s, i64, i64, i64, i64, ptr, ptr }
@@ -248,7 +247,7 @@ getdir.exit:                                      ; preds = %25, %33
 
 36:                                               ; preds = %getdir.exit, %61
   %indvars.iv = phi i64 [ 0, %getdir.exit ], [ %indvars.iv.next, %61 ]
-  %37 = getelementptr inbounds nuw %struct.service_cmd, ptr @services, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [24 x i8], ptr @services, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -380,7 +379,7 @@ getdir.exit:                                      ; preds = %25, %33
 
 91:                                               ; preds = %strbuf_setlen.exit.i, %84
   %indvars.iv.i = phi i64 [ 0, %84 ], [ %indvars.iv.next.i, %strbuf_setlen.exit.i ]
-  %92 = getelementptr inbounds nuw %struct.rpc_service, ptr @rpc_service, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [24 x i8], ptr @rpc_service, i64 %indvars.iv.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !25
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.121, ptr noundef %94) #19
@@ -1229,7 +1228,7 @@ skip_prefix.exit:                                 ; preds = %skip_prefix.exit.pr
 
 skip_prefix.exit.preheader:                       ; preds = %3, %skip_prefix.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %skip_prefix.exit ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw %struct.rpc_service, ptr @rpc_service, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr @rpc_service, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %scevgep.i) #21
   %.not = icmp eq i32 %12, 0

@@ -43,7 +43,7 @@ define hidden void @VP8SetHistogramData(ptr noundef readonly captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.018 = phi i32 [ 0, %2 ], [ %.1, %3 ]
   %.01316 = phi i32 [ 1, %2 ], [ %.114, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = icmp sgt i32 %5, 0
   %spec.select = tail call i32 @llvm.smax.i32(i32 %5, i32 %.018)
@@ -243,17 +243,17 @@ define internal void @FTransform_C(ptr noalias noundef readonly captures(none) %
 
 .preheader:                                       ; preds = %5, %.preheader
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader ], [ 0, %5 ]
-  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv67
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv67
   %56 = load i32, ptr %55, align 4, !tbaa !3
   %57 = or disjoint i64 %indvars.iv67, 12
-  %58 = getelementptr inbounds nuw i32, ptr %4, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = add nsw i32 %59, %56
   %61 = or disjoint i64 %indvars.iv67, 4
-  %62 = getelementptr inbounds nuw i32, ptr %4, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !3
   %64 = or disjoint i64 %indvars.iv67, 8
-  %65 = getelementptr inbounds nuw i32, ptr %4, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !3
   %67 = add nsw i32 %66, %63
   %68 = sub nsw i32 %63, %66
@@ -262,7 +262,7 @@ define internal void @FTransform_C(ptr noalias noundef readonly captures(none) %
   %71 = add i32 %70, %67
   %72 = lshr i32 %71, 4
   %73 = trunc i32 %72 to i16
-  %74 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv67
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv67
   store i16 %73, ptr %74, align 2, !tbaa !17
   %75 = mul nsw i32 %68, 2217
   %76 = mul nsw i32 %69, 5352
@@ -273,12 +273,12 @@ define internal void @FTransform_C(ptr noalias noundef readonly captures(none) %
   %81 = zext i1 %80 to i32
   %82 = add nuw nsw i32 %79, %81
   %83 = trunc i32 %82 to i16
-  %84 = getelementptr inbounds nuw i16, ptr %2, i64 %61
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %61
   store i16 %83, ptr %84, align 2, !tbaa !17
   %85 = sub i32 %70, %67
   %86 = lshr i32 %85, 4
   %87 = trunc i32 %86 to i16
-  %88 = getelementptr inbounds nuw i16, ptr %2, i64 %64
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %64
   store i16 %87, ptr %88, align 2, !tbaa !17
   %89 = mul nsw i32 %69, 2217
   %.neg = mul i32 %68, -5352
@@ -286,7 +286,7 @@ define internal void @FTransform_C(ptr noalias noundef readonly captures(none) %
   %91 = add i32 %90, %.neg
   %92 = lshr i32 %91, 16
   %93 = trunc nuw i32 %92 to i16
-  %94 = getelementptr inbounds nuw i16, ptr %2, i64 %57
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %57
   store i16 %93, ptr %94, align 2, !tbaa !17
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 4
@@ -341,17 +341,17 @@ define internal void @FTransformWHT_C(ptr noalias noundef readonly captures(none
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.preheader ], [ 0, %4 ]
-  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv57
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv57
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = or disjoint i64 %indvars.iv57, 8
-  %32 = getelementptr inbounds nuw i32, ptr %3, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = add nsw i32 %33, %30
   %35 = or disjoint i64 %indvars.iv57, 4
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = or disjoint i64 %indvars.iv57, 12
-  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !3
   %41 = add nsw i32 %40, %37
   %42 = sub nsw i32 %37, %40
@@ -362,19 +362,19 @@ define internal void @FTransformWHT_C(ptr noalias noundef readonly captures(none
   %47 = sub nsw i32 %34, %41
   %48 = lshr i32 %44, 1
   %49 = trunc i32 %48 to i16
-  %50 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv57
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv57
   store i16 %49, ptr %50, align 2, !tbaa !17
   %51 = lshr i32 %45, 1
   %52 = trunc i32 %51 to i16
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %35
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %35
   store i16 %52, ptr %53, align 2, !tbaa !17
   %54 = lshr i32 %46, 1
   %55 = trunc i32 %54 to i16
-  %56 = getelementptr inbounds nuw i16, ptr %1, i64 %31
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %31
   store i16 %55, ptr %56, align 2, !tbaa !17
   %57 = lshr i32 %47, 1
   %58 = trunc i32 %57 to i16
-  %59 = getelementptr inbounds nuw i16, ptr %1, i64 %38
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %38
   store i16 %58, ptr %59, align 2, !tbaa !17
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
@@ -434,7 +434,7 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_C(ptr noalias noundef reado
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.preheader.i ], [ 0, %6 ]
   %.05461.i = phi ptr [ %70, %.preheader.i ], [ %2, %6 ]
   %.05560.i = phi i32 [ %69, %.preheader.i ], [ 0, %6 ]
-  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv63.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv63.i
   %32 = load i32, ptr %31, align 4, !tbaa !3, !noalias !27
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %34 = load i32, ptr %33, align 4, !tbaa !3, !noalias !27
@@ -525,7 +525,7 @@ TTransform.exit:                                  ; preds = %.preheader.i
   %indvars.iv63.i11 = phi i64 [ %indvars.iv.next64.i14, %.preheader.i10 ], [ 0, %71 ]
   %.05461.i12 = phi ptr [ %135, %.preheader.i10 ], [ %2, %71 ]
   %.05560.i13 = phi i32 [ %134, %.preheader.i10 ], [ 0, %71 ]
-  %96 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63.i11
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv63.i11
   %97 = load i32, ptr %96, align 4, !tbaa !3, !noalias !35
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %99 = load i32, ptr %98, align 4, !tbaa !3, !noalias !35
@@ -642,7 +642,7 @@ define internal i32 @Disto16x16_C(ptr noalias noundef readonly captures(none) %0
   %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %.preheader.i.i ], [ 0, %7 ]
   %.05461.i.i = phi ptr [ %71, %.preheader.i.i ], [ %2, %7 ]
   %.05560.i.i = phi i32 [ %70, %.preheader.i.i ], [ 0, %7 ]
-  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv63.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv63.i.i
   %33 = load i32, ptr %32, align 4, !tbaa !3, !noalias !48
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load i32, ptr %34, align 4, !tbaa !3, !noalias !48
@@ -734,7 +734,7 @@ TTransform.exit.i:                                ; preds = %.preheader.i.i
   %indvars.iv63.i11.i = phi i64 [ %indvars.iv.next64.i14.i, %.preheader.i10.i ], [ 0, %72 ]
   %.05461.i12.i = phi ptr [ %136, %.preheader.i10.i ], [ %2, %72 ]
   %.05560.i13.i = phi i32 [ %135, %.preheader.i10.i ], [ 0, %72 ]
-  %97 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63.i11.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv63.i11.i
   %98 = load i32, ptr %97, align 4, !tbaa !3, !noalias !58
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %100 = load i32, ptr %99, align 4, !tbaa !3, !noalias !58
@@ -815,7 +815,7 @@ define internal void @CollectHistogram_C(ptr noalias noundef %0, ptr noalias nou
   %indvars.iv17 = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next18, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = load ptr, ptr @VP8FTransform, align 8, !tbaa !12
-  %11 = getelementptr inbounds i32, ptr @VP8DspScan, i64 %indvars.iv17
+  %11 = getelementptr inbounds [4 x i8], ptr @VP8DspScan, i64 %indvars.iv17
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -825,13 +825,13 @@ define internal void @CollectHistogram_C(ptr noalias noundef %0, ptr noalias nou
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2, !tbaa !17
   %19 = call i16 @llvm.abs.i16(i16 %18, i1 false)
   %20 = lshr i16 %19, 3
   %21 = call i16 @llvm.umin.i16(i16 %20, i16 31)
   %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 4, !tbaa !3
@@ -852,7 +852,7 @@ define internal void @CollectHistogram_C(ptr noalias noundef %0, ptr noalias nou
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %.preheader.preheader ]
   %.018.i = phi i32 [ %.1.i, %.preheader ], [ 0, %.preheader.preheader ]
   %.01316.i = phi i32 [ %.114.i, %.preheader ], [ 1, %.preheader.preheader ]
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = icmp sgt i32 %28, 0
   %spec.select.i = call i32 @llvm.smax.i32(i32 %28, i32 %.018.i)
@@ -1045,27 +1045,27 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_C(ptr noundef captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr @kZigzag, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !14
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !17
   %14 = tail call i16 @llvm.abs.i16(i16 %13, i1 false)
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %11
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %11
   %17 = load i16, ptr %16, align 2, !tbaa !17
   %18 = zext i16 %17 to i32
   %19 = add nuw nsw i32 %15, %18
-  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %11
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %11
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = icmp ugt i32 %19, %21
   br i1 %22, label %23, label %40
 
 23:                                               ; preds = %8
   %24 = icmp slt i16 %13, 0
-  %25 = getelementptr inbounds nuw i16, ptr %2, i64 %11
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %11
   %26 = load i16, ptr %25, align 2, !tbaa !17
-  %27 = getelementptr inbounds nuw i16, ptr %6, i64 %11
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %11
   %28 = load i16, ptr %27, align 2, !tbaa !17
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds nuw i32, ptr %7, i64 %11
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %11
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = mul i32 %19, %29
   %33 = add i32 %32, %31
@@ -1076,7 +1076,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_C(ptr noundef captures(none) 
   %36 = trunc nsw i32 %spec.select to i16
   %37 = mul i16 %26, %36
   store i16 %37, ptr %12, align 2, !tbaa !17
-  %38 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %36, ptr %38, align 2, !tbaa !17
   %.not = icmp eq i32 %spec.select, 0
   %39 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1084,7 +1084,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_C(ptr noundef captures(none) 
   br label %42
 
 40:                                               ; preds = %8
-  %41 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 0, ptr %41, align 2, !tbaa !17
   store i16 0, ptr %12, align 2, !tbaa !17
   br label %42
@@ -2317,7 +2317,7 @@ define internal void @Mean16x4_C(ptr noalias noundef readonly captures(none) %0,
   br i1 %exitcond28.not, label %9, label %.preheader, !llvm.loop !285
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv29
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv29
   store i32 %7, ptr %10, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %.01622, i64 4
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1

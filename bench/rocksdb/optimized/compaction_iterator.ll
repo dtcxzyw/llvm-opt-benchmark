@@ -31,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::shared_ptr.243" = type { %"class.std::__shared_ptr.244" }
-%"class.std::__shared_ptr.244" = type { ptr, %"class.std::__shared_count" }
 %"class.std::unique_ptr.25" = type { %"struct.std::__uniq_ptr_data.26" }
 %"struct.std::__uniq_ptr_data.26" = type { %"class.std::__uniq_ptr_impl.27" }
 %"class.std::__uniq_ptr_impl.27" = type { %"class.std::tuple.28" }
@@ -76,9 +74,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.84" = type { %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.rocksdb::WideColumn" = type { %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
 %"struct.std::__detail::_AllocNode" = type { ptr }
-%"struct.std::pair.255" = type { ptr, ptr }
+%"class.rocksdb::WideColumn" = type { %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
 %"class.std::vector.420" = type { %"struct.std::_Vector_base.421" }
 %"struct.std::_Vector_base.421" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" }
 %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data" }
@@ -1018,7 +1015,7 @@ _ZN7rocksdb18CompactionIterator44ComputeBlobGarbageCollectionCutoffFileNumberEPK
   br i1 %.not14.i, label %185, label %_ZN7rocksdb18CompactionIterator44ComputeBlobGarbageCollectionCutoffFileNumberEPKNS0_15CompactionProxyE.exit
 
 185:                                              ; preds = %.noexc47
-  %186 = getelementptr inbounds nuw %"class.std::shared_ptr.243", ptr %177, i64 %184
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %177, i64 %184
   %187 = load ptr, ptr %186, align 8, !tbaa !197
   %188 = load ptr, ptr %187, align 8, !tbaa !200
   %189 = load i64, ptr %188, align 8, !tbaa !203
@@ -1260,7 +1257,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %272
 
 .noexc61:                                         ; preds = %276
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %278, i8 0, i64 %277, i1 false), !tbaa !245
-  %279 = getelementptr inbounds nuw i64, ptr %278, i64 %273
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %273
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 %277
   br label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
 
@@ -1574,7 +1571,7 @@ define noundef i64 @_ZN7rocksdb18CompactionIterator44ComputeBlobGarbageCollectio
   br i1 %.not14, label %27, label %32
 
 27:                                               ; preds = %7
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.243", ptr %19, i64 %26
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !197
   %30 = load ptr, ptr %29, align 8, !tbaa !200
   %31 = load i64, ptr %30, align 8, !tbaa !203
@@ -7399,7 +7396,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i
 .noexc180:                                        ; preds = %511, %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i
   store ptr %497, ptr %29, align 8, !tbaa !388
   store ptr %510, ptr %465, align 8, !tbaa !400
-  %512 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %497, i64 %495
+  %512 = getelementptr inbounds nuw [32 x i8], ptr %497, i64 %495
   store ptr %512, ptr %466, align 8, !tbaa !391
   br label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEERS1_DpOT_.exit
 
@@ -8123,7 +8120,7 @@ _ZNSt12_Vector_baseIN7rocksdb10WideColumnESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   store ptr %19, ptr %0, align 8, !tbaa !388
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %23, ptr %14, align 8, !tbaa !400
-  %24 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %19, i64 %1
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %24, ptr %6, align 8, !tbaa !391
   br label %25
 
@@ -8297,7 +8294,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit
   %.013.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i ], [ %20, %14 ]
   %.sroa.011.012.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i ], [ %16, %14 ]
   %22 = lshr i64 %.013.i.i, 1
-  %23 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !245
   %25 = icmp ult i64 %24, %1
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -8442,7 +8439,7 @@ _ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE5countERKm.exit.us: ; preds
   %84 = load i64, ptr %55, align 8, !tbaa !143
   %85 = urem i64 %78, %84
   %86 = load ptr, ptr %47, align 8, !tbaa !142
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !430
   %.not.i.i.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE5countERKm.exit.thread, label %89
@@ -9664,7 +9661,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 13:                                               ; preds = %13, %.lr.ph._crit_edge
   %.09.i.i.i = phi i64 [ %12, %.lr.ph._crit_edge ], [ %15, %13 ]
-  %14 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %.09.i.i.i
+  %14 = getelementptr inbounds [16 x i8], ptr %0, i64 %.09.i.i.i
   %.sroa.02.0.copyload.i.i.i = load ptr, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -9990,7 +9987,7 @@ define linkonce_odr ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal
   %5 = sub i64 %3, %4
   %6 = ashr exact i64 %5, 4
   %7 = sdiv i64 %6, 2
-  %8 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 -16
   %11 = load ptr, ptr %9, align 8, !tbaa !372
@@ -10178,9 +10175,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %.040 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread38 ], [ %1, %5 ]
   %9 = shl i64 %.040, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %0, i64 %12
   %14 = load ptr, ptr %11, align 8, !tbaa !372
   %15 = load ptr, ptr %13, align 8, !tbaa !372
   %16 = icmp ult ptr %14, %15
@@ -10205,8 +10202,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread38: ; preds = %17, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread
   %24 = phi ptr [ %15, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread ], [ %14, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit ], [ %14, %17 ]
   %25 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit ], [ %10, %17 ]
-  %26 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %25
-  %27 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %.040
+  %26 = getelementptr inbounds [16 x i8], ptr %0, i64 %25
+  %27 = getelementptr inbounds [16 x i8], ptr %0, i64 %.040
   store ptr %24, ptr %27, align 8, !tbaa !372
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !375
@@ -10230,8 +10227,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_
 38:                                               ; preds = %34
   %39 = shl nsw i64 %.0.lcssa, 1
   %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %40
-  %42 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %.0.lcssa
+  %41 = getelementptr inbounds [16 x i8], ptr %0, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa
   %43 = load ptr, ptr %41, align 8, !tbaa !375
   store ptr %43, ptr %42, align 8, !tbaa !372
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -10249,7 +10246,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_
   %.022.i = phi i64 [ %.0923.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i ], [ %.1, %47 ]
   %.0923.in.i = add nsw i64 %.022.i, -1
   %.0923.i = sdiv i64 %.0923.in.i, 2
-  %49 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %.0923.i
+  %49 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0923.i
   %50 = load ptr, ptr %49, align 8, !tbaa !372
   %51 = icmp ult ptr %50, %3
   br i1 %51, label %.lr.ph._ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread_crit_edge.i, label %52
@@ -10271,7 +10268,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_E
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i, %.lr.ph._ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread_crit_edge.i
   %57 = phi ptr [ %.pre.i, %.lr.ph._ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread_crit_edge.i ], [ %55, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i ]
-  %58 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %.022.i
+  %58 = getelementptr inbounds [16 x i8], ptr %0, i64 %.022.i
   store ptr %50, ptr %58, align 8, !tbaa !372
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %57, ptr %59, align 8, !tbaa !376
@@ -10280,7 +10277,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_E
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit: ; preds = %52, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i, %47
   %.0.lcssa.i = phi i64 [ %.1, %47 ], [ %.022.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i ], [ %.0923.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i ], [ %.022.i, %52 ]
-  %61 = getelementptr inbounds %"struct.std::pair.255", ptr %0, i64 %.0.lcssa.i
+  %61 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %61, align 8, !tbaa !372
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %4, ptr %62, align 8, !tbaa !376
@@ -10328,7 +10325,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 19:                                               ; preds = %19, %16
   %.08.i.i.i = phi i64 [ %18, %16 ], [ %21, %19 ]
-  %20 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.08.i.i.i
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08.i.i.i
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_T2_(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %14, ptr noundef nonnull byval(%"class.rocksdb::WideColumn") align 8 %20)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %21 = add nsw i64 %.08.i.i.i, -1
@@ -10350,7 +10347,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 27:                                               ; preds = %13
   %28 = lshr i64 %14, 1
-  %29 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %storemerge23, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_SH_SH_SH_T0_(ptr %0, ptr nonnull %11, ptr %29, ptr nonnull %30)
   br label %31
@@ -10497,9 +10494,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.040 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.040, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10513,8 +10510,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %21 = icmp slt i32 %19, 0
   %22 = select i1 %.not.i.i.i, i1 %20, i1 %21
   %spec.select = select i1 %22, i64 %11, i64 %9
-  %23 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %spec.select
-  %24 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.040
+  %23 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds [32 x i8], ptr %0, i64 %.040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !401
   %25 = icmp slt i64 %spec.select, %6
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !460
@@ -10534,8 +10531,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 32:                                               ; preds = %28
   %33 = shl nsw i64 %.0.lcssa, 1
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0.lcssa
+  %35 = getelementptr inbounds [32 x i8], ptr %0, i64 %34
+  %36 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !401
   br label %37
 
@@ -10551,7 +10548,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.018.i = phi i64 [ %.0919.i, %47 ], [ %.1, %37 ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %39 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0919.i
+  %39 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0919.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !11
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 %.sroa.2.0.copyload)
@@ -10564,7 +10561,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   br i1 %46, label %47, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.018.i
+  %48 = getelementptr inbounds [32 x i8], ptr %0, i64 %.018.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !401
   %49 = icmp sgt i64 %.0919.i, %1
   br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !461
@@ -10572,7 +10569,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit: ; preds = %.lr.ph.i, %47, %37
   %.0.lcssa.i = phi i64 [ %.1, %37 ], [ %.018.i, %.lr.ph.i ], [ %.0919.i, %47 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %50 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0.lcssa.i
+  %50 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %.sroa.039.0.copyload, ptr %50, align 8, !tbaa !249
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !245
@@ -10738,7 +10735,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vec
   %19 = sub i64 %18, %6
   %20 = ashr exact i64 %19, 5
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %17, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %17, i64 %21
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !401
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -10818,7 +10815,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %9 = load i64, ptr %8, align 8, !tbaa !143
   %10 = urem i64 %7, %9
   %11 = load ptr, ptr %0, align 8, !tbaa !142
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !430
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %.critedge, label %26
@@ -10952,7 +10949,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 31:                                               ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !142
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !430
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -10978,7 +10975,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   %44 = load i64, ptr %9, align 8, !tbaa !143
   %45 = load i64, ptr %43, align 8, !tbaa !245
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !430
   br label %48
 
@@ -11052,7 +11049,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !245
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !430
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -11067,7 +11064,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !430
   br label %28
 
@@ -11429,7 +11426,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %53, %
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %49, ptr %6, align 8, !tbaa !706
   store ptr %54, ptr %19, align 8, !tbaa !705
-  %56 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %20, align 8, !tbaa !703
   br label %_ZNSt6vectorIPvSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 

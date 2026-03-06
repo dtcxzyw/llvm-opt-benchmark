@@ -104,7 +104,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef initializ
   %50 = and i32 %49, 197379
   %51 = or i32 %48, %50
   %52 = or i32 %51, -16777216
-  %53 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store i32 %52, ptr %53, align 4, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %.14959, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -113,10 +113,10 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef initializ
 
 55:                                               ; preds = %.preheader, %55
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr @ff_cga_palette, i64 %indvars.iv64
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ff_cga_palette, i64 %indvars.iv64
   %57 = load i32, ptr %56, align 4, !tbaa !35
   %58 = or i32 %57, -16777216
-  %59 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv64
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv64
   store i32 %58, ptr %59, align 4, !tbaa !35
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 16

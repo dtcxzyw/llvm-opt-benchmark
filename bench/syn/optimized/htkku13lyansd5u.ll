@@ -1928,7 +1928,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
 .noexc127:                                        ; preds = %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.preheader.i.i
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
   %68 = load i64, ptr %67, align 8, !noalias !319, !noundef !4
-  %69 = getelementptr inbounds { i32, [9 x i32] }, ptr %.sroa.0.1.i.i.i, i64 %68
+  %69 = getelementptr inbounds [40 x i8], ptr %.sroa.0.1.i.i.i, i64 %68
   br label %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i
 
 _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i: ; preds = %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i, %.noexc127
@@ -1998,7 +1998,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
 .noexc143:                                        ; preds = %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.preheader.i.i132
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i129, i64 8
   %91 = load i64, ptr %90, align 8, !noalias !325, !noundef !4
-  %92 = getelementptr inbounds { i32, [9 x i32] }, ptr %.sroa.0.1.i.i.i129, i64 %91
+  %92 = getelementptr inbounds [40 x i8], ptr %.sroa.0.1.i.i.i129, i64 %91
   br label %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i133
 
 _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i133: ; preds = %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i133, %.noexc143
@@ -2350,7 +2350,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %125, %1
   br label %200
 
 193:                                              ; preds = %178
-  %194 = getelementptr inbounds i64, ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0..0.53
+  %194 = getelementptr inbounds [8 x i8], ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0..0.53
   %195 = load i64, ptr %194, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %15, i64 %195, i1 false)
   %.0..0..0..0..0..0..pr = load i64, ptr %12, align 8
@@ -2359,7 +2359,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %125, %1
   br i1 %196, label %200, label %197
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i64, ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0..0..0..pr
+  %198 = getelementptr inbounds [8 x i8], ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0..0..0..pr
   %199 = load i64, ptr %198, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %12, i64 %199, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -5174,7 +5174,7 @@ define void @"_ZN65_$LT$syn..data..Field$u20$as$u20$syn..parse_quote..ParseQuote
 .noexc87:                                         ; preds = %42
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load i64, ptr %43, align 8, !noalias !997, !noundef !4
-  %45 = getelementptr inbounds { i32, [9 x i32] }, ptr %35, i64 %44
+  %45 = getelementptr inbounds [40 x i8], ptr %35, i64 %44
   br label %46
 
 46:                                               ; preds = %46, %.noexc87
@@ -5220,7 +5220,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
 
 62:                                               ; preds = %73, %69, %58, %55, %54
   %.0.i.i = phi i64 [ %..i.i, %73 ], [ %57, %55 ], [ 1, %54 ], [ 1, %69 ], [ 1, %58 ]
-  %63 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i, i64 %.0.i.i
+  %63 = getelementptr inbounds [40 x i8], ptr %.0.i.i.i, i64 %.0.i.i
   br label %64
 
 64:                                               ; preds = %64, %62
@@ -5275,7 +5275,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
 
 88:                                               ; preds = %99, %95, %84, %81, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
   %.0.i5.i = phi i64 [ %..i9.i, %99 ], [ %83, %81 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %95 ], [ 1, %84 ]
-  %89 = getelementptr inbounds { i32, [9 x i32] }, ptr %78, i64 %.0.i5.i
+  %89 = getelementptr inbounds [40 x i8], ptr %78, i64 %.0.i5.i
   br label %90
 
 90:                                               ; preds = %90, %88
@@ -5331,7 +5331,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread: ; preds 
 .noexc111:                                        ; preds = %112
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %114 = load i64, ptr %113, align 8, !noalias !1007, !noundef !4
-  %115 = getelementptr inbounds { i32, [9 x i32] }, ptr %105, i64 %114
+  %115 = getelementptr inbounds [40 x i8], ptr %105, i64 %114
   br label %116
 
 116:                                              ; preds = %116, %.noexc111
@@ -5377,7 +5377,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i91: ; preds = %.noe
 
 132:                                              ; preds = %143, %139, %128, %125, %124
   %.0.i.i105 = phi i64 [ %..i.i109, %143 ], [ %127, %125 ], [ 1, %124 ], [ 1, %139 ], [ 1, %128 ]
-  %133 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i99, i64 %.0.i.i105
+  %133 = getelementptr inbounds [40 x i8], ptr %.0.i.i.i99, i64 %.0.i.i105
   br label %134
 
 134:                                              ; preds = %134, %132
@@ -5432,7 +5432,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i91: ; preds = %.noe
 
 158:                                              ; preds = %169, %165, %154, %151, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i92"
   %.0.i5.i94 = phi i64 [ %..i9.i97, %169 ], [ %153, %151 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i92" ], [ 1, %165 ], [ 1, %154 ]
-  %159 = getelementptr inbounds { i32, [9 x i32] }, ptr %148, i64 %.0.i5.i94
+  %159 = getelementptr inbounds [40 x i8], ptr %148, i64 %.0.i5.i94
   br label %160
 
 160:                                              ; preds = %160, %158
@@ -5884,7 +5884,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
 .noexc54:                                         ; preds = %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.preheader.i.i
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
   %75 = load i64, ptr %74, align 8, !noalias !1063, !noundef !4
-  %76 = getelementptr inbounds { i32, [9 x i32] }, ptr %.sroa.0.1.i.i.i, i64 %75
+  %76 = getelementptr inbounds [40 x i8], ptr %.sroa.0.1.i.i.i, i64 %75
   br label %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i
 
 _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i: ; preds = %_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i.i.i, %.noexc54
@@ -5983,7 +5983,7 @@ _ZN3syn5parse11ParseBuffer5parse17h3a475120bcb667c6E.exit: ; preds = %95
   br label %111
 
 102:                                              ; preds = %_ZN3syn5parse11ParseBuffer5parse17h3a475120bcb667c6E.exit
-  %103 = getelementptr inbounds nuw i64, ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %98
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %98
   %104 = load i64, ptr %103, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %18, i64 %104, i1 false)
   %.0..0..0..0..0..0..pr = load i64, ptr %13, align 8
@@ -5993,11 +5993,11 @@ _ZN3syn5parse11ParseBuffer5parse17h3a475120bcb667c6E.exit: ; preds = %95
 
 106:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %107 = getelementptr inbounds i64, ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0..0..0..pr
+  %107 = getelementptr inbounds [8 x i8], ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0..0..0..pr
   %108 = load i64, ptr %107, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %13, i64 %108, i1 false)
   %.0..0..0..0. = load i64, ptr %17, align 8
-  %109 = getelementptr inbounds i64, ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0.
+  %109 = getelementptr inbounds [8 x i8], ptr @anon.67b65e521e72d52680c2b83e26507c19.32, i64 %.0..0..0..0.
   %110 = load i64, ptr %109, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %17, i64 %110, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -6819,7 +6819,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i254: ; preds = %151,
 
 176:                                              ; preds = %175, %173
   %.sroa.01.0.i = phi i64 [ %.sroa.05.0.copyload.i, %175 ], [ -9223372036854775807, %173 ]
-  %177 = getelementptr inbounds { { { { i64, [3 x i64] }, { {} } }, { i64, [7 x i64] } }, { [2 x i32] } }, ptr %.sroa.4287.0.copyload, i64 %.sroa.5288.0.copyload
+  %177 = getelementptr inbounds [104 x i8], ptr %.sroa.4287.0.copyload, i64 %.sroa.5288.0.copyload
   %178 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store ptr %.sroa.4287.0.copyload, ptr %178, align 8, !alias.scope !1189, !noalias !1197
   %.sroa.412.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 104
@@ -7112,10 +7112,10 @@ _ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624.exi
 _ZN3syn6buffer11same_buffer17hf491bc9bb2facc27E.exit: ; preds = %_ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !4
-  %24 = getelementptr inbounds { i32, [9 x i32] }, ptr %12, i64 %23
+  %24 = getelementptr inbounds [40 x i8], ptr %12, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %27 = getelementptr inbounds { i32, [9 x i32] }, ptr %15, i64 %26
+  %27 = getelementptr inbounds [40 x i8], ptr %15, i64 %26
   %28 = icmp eq ptr %24, %27
   br i1 %28, label %30, label %29
 
@@ -7209,7 +7209,7 @@ _ZN3syn6buffer11same_buffer17hf491bc9bb2facc27E.exit: ; preds = %_ZN3syn6buffer1
 .noexc11:                                         ; preds = %52
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.015.045, i64 8
   %54 = load i64, ptr %53, align 8, !noalias !1213, !noundef !4
-  %55 = getelementptr inbounds { i32, [9 x i32] }, ptr %.sroa.015.045, i64 %54
+  %55 = getelementptr inbounds [40 x i8], ptr %.sroa.015.045, i64 %54
   br label %56
 
 56:                                               ; preds = %56, %.noexc11

@@ -3698,7 +3698,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_
   store i32 %462, ptr %7, align 8, !tbaa !51
   %463 = sext i32 %461 to i64
   %.val8.i269.i = load ptr, ptr %357, align 8, !tbaa !56
-  %464 = getelementptr inbounds ptr, ptr %.val8.i269.i, i64 %463
+  %464 = getelementptr inbounds [8 x i8], ptr %.val8.i269.i, i64 %463
   store ptr null, ptr %464, align 8, !tbaa !77
   br label %.thread285.sink.split.i
 
@@ -3709,7 +3709,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_
   store i32 %467, ptr %7, align 8, !tbaa !51
   %468 = sext i32 %466 to i64
   %.val8.i.i = load ptr, ptr %357, align 8, !tbaa !56
-  %469 = getelementptr inbounds ptr, ptr %.val8.i.i, i64 %468
+  %469 = getelementptr inbounds [8 x i8], ptr %.val8.i.i, i64 %468
   store ptr %459, ptr %469, align 8, !tbaa !77
   %470 = invoke noundef ptr @_ZN6icu_7710MemoryPoolINS_10CharStringELi8EE6createIJS1_R10UErrorCodeEEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(60) %16, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %471 unwind label %475
@@ -4072,7 +4072,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %601, ptr %8, align 8, !tbaa !59
   %602 = sext i32 %600 to i64
   %.val8.i209316.i = load ptr, ptr %361, align 8, !tbaa !63
-  %603 = getelementptr inbounds ptr, ptr %.val8.i209316.i, i64 %602
+  %603 = getelementptr inbounds [8 x i8], ptr %.val8.i209316.i, i64 %602
   store ptr null, ptr %603, align 8, !tbaa !73
   br label %.thread318.i
 
@@ -4083,7 +4083,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %606, ptr %8, align 8, !tbaa !59
   %607 = sext i32 %605 to i64
   %.val8.i209.i = load ptr, ptr %361, align 8, !tbaa !63
-  %608 = getelementptr inbounds ptr, ptr %.val8.i209.i, i64 %607
+  %608 = getelementptr inbounds [8 x i8], ptr %.val8.i209.i, i64 %607
   store ptr %598, ptr %608, align 8, !tbaa !73
   store ptr %.3150.i, ptr %598, align 8, !tbaa !92
   %609 = getelementptr inbounds nuw i8, ptr %598, i64 8
@@ -4193,7 +4193,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %640, ptr %8, align 8, !tbaa !59
   %641 = sext i32 %639 to i64
   %.val8.i220330.i = load ptr, ptr %361, align 8, !tbaa !63
-  %642 = getelementptr inbounds ptr, ptr %.val8.i220330.i, i64 %641
+  %642 = getelementptr inbounds [8 x i8], ptr %.val8.i220330.i, i64 %641
   store ptr null, ptr %642, align 8, !tbaa !73
   br label %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit231.thread.i
 
@@ -4208,7 +4208,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %645, ptr %8, align 8, !tbaa !59
   %646 = sext i32 %644 to i64
   %.val8.i220.i = load ptr, ptr %361, align 8, !tbaa !63
-  %647 = getelementptr inbounds ptr, ptr %.val8.i220.i, i64 %646
+  %647 = getelementptr inbounds [8 x i8], ptr %.val8.i220.i, i64 %646
   store ptr %637, ptr %647, align 8, !tbaa !73
   store ptr @_ZN12_GLOBAL__N_19POSIX_KEYE, ptr %637, align 8, !tbaa !92
   %648 = getelementptr inbounds nuw i8, ptr %637, i64 8
@@ -4375,7 +4375,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   %717 = phi i32 [ %724, %723 ], [ %709, %.loopexit335.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %723 ], [ 0, %.loopexit335.i ]
   %718 = load ptr, ptr %378, align 8, !tbaa !70
-  %719 = getelementptr inbounds nuw ptr, ptr %718, i64 %indvars.iv.i.i
+  %719 = getelementptr inbounds nuw [8 x i8], ptr %718, i64 %indvars.iv.i.i
   %720 = load ptr, ptr %719, align 8, !tbaa !98
   %721 = icmp eq ptr %720, null
   br i1 %721, label %723, label %722
@@ -4451,7 +4451,7 @@ _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2E
   %741 = phi i32 [ %748, %747 ], [ %733, %_ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2Ev.exit.i ]
   %indvars.iv.i238.i = phi i64 [ %indvars.iv.next.i240.i, %747 ], [ 0, %_ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2Ev.exit.i ]
   %742 = load ptr, ptr %365, align 8, !tbaa !70
-  %743 = getelementptr inbounds nuw ptr, ptr %742, i64 %indvars.iv.i238.i
+  %743 = getelementptr inbounds nuw [8 x i8], ptr %742, i64 %indvars.iv.i238.i
   %744 = load ptr, ptr %743, align 8, !tbaa !98
   %745 = icmp eq ptr %744, null
   br i1 %745, label %747, label %746
@@ -4496,7 +4496,7 @@ _ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit241.i: ; preds = %736, %._c
   %757 = phi i32 [ %763, %762 ], [ %751, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit241.i ]
   %indvars.iv.i245.i = phi i64 [ %indvars.iv.next.i248.i, %762 ], [ 0, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit241.i ]
   %.val.i246.i = load ptr, ptr %361, align 8, !tbaa !63
-  %758 = getelementptr inbounds nuw ptr, ptr %.val.i246.i, i64 %indvars.iv.i245.i
+  %758 = getelementptr inbounds nuw [8 x i8], ptr %.val.i246.i, i64 %indvars.iv.i245.i
   %759 = load ptr, ptr %758, align 8, !tbaa !73
   %760 = icmp eq ptr %759, null
   br i1 %760, label %762, label %761
@@ -4540,7 +4540,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EED2Ev.exit.i: ; p
   %772 = phi i32 [ %778, %777 ], [ %766, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EED2Ev.exit.i ]
   %indvars.iv.i254.i = phi i64 [ %indvars.iv.next.i257.i, %777 ], [ 0, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EED2Ev.exit.i ]
   %.val.i255.i = load ptr, ptr %357, align 8, !tbaa !56
-  %773 = getelementptr inbounds nuw ptr, ptr %.val.i255.i, i64 %indvars.iv.i254.i
+  %773 = getelementptr inbounds nuw [8 x i8], ptr %.val.i255.i, i64 %indvars.iv.i254.i
   %774 = load ptr, ptr %773, align 8, !tbaa !77
   %775 = icmp eq ptr %774, null
   br i1 %775, label %777, label %776
@@ -5073,7 +5073,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
 
 .preheader572.i:                                  ; preds = %50, %109
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %109 ], [ 0, %50 ]
-  %59 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_16LEGACYE, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_16LEGACYE, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 16, !tbaa !91
   %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #20
   %62 = trunc i64 %61 to i32
@@ -5101,7 +5101,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   br i1 %73, label %74, label %109
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_16LEGACYE, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_16LEGACYE, i64 %indvars.iv.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !91
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #20
@@ -5189,7 +5189,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
 
 .preheader570.i:                                  ; preds = %141, %.preheader570.preheader.i
   %indvars.iv855.i = phi i64 [ 0, %.preheader570.preheader.i ], [ %indvars.iv.next856.i, %141 ]
-  %112 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv855.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv855.i
   %113 = load ptr, ptr %112, align 16, !tbaa !91
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #20
   %115 = trunc i64 %114 to i32
@@ -5209,7 +5209,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   ]
 
 122:                                              ; preds = %119, %119
-  %123 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv855.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv855.i
   %124 = getelementptr inbounds nuw i8, ptr %.1217884.i, i64 %114
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !91
@@ -5407,7 +5407,7 @@ _ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i402.i: ; preds = %.noexc403.i
 185:                                              ; preds = %183
   %186 = add nsw i32 %.0247715.i, 1
   %187 = sext i32 %.0247715.i to i64
-  %188 = getelementptr inbounds ptr, ptr %52, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %52, i64 %187
   store ptr %184, ptr %188, align 8, !tbaa !91
   %189 = icmp slt i32 %.0247715.i, 2
   %..i = select i1 %189, i16 190, i16 188
@@ -6093,7 +6093,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_118ExtensionListEntryEED2Ev.exit442.i: ; 
 398:                                              ; preds = %398, %396
   %indvars.iv.i82 = phi i64 [ 0, %396 ], [ %indvars.iv.next.i85, %398 ]
   %.056.i = phi i32 [ 0, %396 ], [ %spec.select.i84, %398 ]
-  %399 = getelementptr inbounds nuw ptr, ptr %397, i64 %indvars.iv.i82
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %indvars.iv.i82
   %400 = load ptr, ptr %399, align 8, !tbaa !91
   %.not.i83 = icmp ne ptr %400, null
   %401 = zext i1 %.not.i83 to i32
@@ -6675,7 +6675,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_
   store i32 %602, ptr %10, align 8, !tbaa !51
   %603 = sext i32 %601 to i64
   %.val8.i227.i.i = load ptr, ptr %527, align 8, !tbaa !56
-  %604 = getelementptr inbounds ptr, ptr %.val8.i227.i.i, i64 %603
+  %604 = getelementptr inbounds [8 x i8], ptr %.val8.i227.i.i, i64 %603
   store ptr null, ptr %604, align 8, !tbaa !77
   br label %.critedge159.sink.split.i.i
 
@@ -6686,7 +6686,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_
   store i32 %607, ptr %10, align 8, !tbaa !51
   %608 = sext i32 %606 to i64
   %.val8.i.i.i = load ptr, ptr %527, align 8, !tbaa !56
-  %609 = getelementptr inbounds ptr, ptr %.val8.i.i.i, i64 %608
+  %609 = getelementptr inbounds [8 x i8], ptr %.val8.i.i.i, i64 %608
   store ptr %599, ptr %609, align 8, !tbaa !77
   %610 = invoke noundef ptr @_ZN6icu_7710MemoryPoolINS_10CharStringELi8EE6createIJRPKcRiR10UErrorCodeEEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %611 unwind label %615
@@ -6835,7 +6835,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %667, ptr %18, align 8, !tbaa !59
   %668 = sext i32 %666 to i64
   %.val8.i155188.i = load ptr, ptr %511, align 8, !tbaa !63
-  %669 = getelementptr inbounds ptr, ptr %.val8.i155188.i, i64 %668
+  %669 = getelementptr inbounds [8 x i8], ptr %.val8.i155188.i, i64 %668
   store ptr null, ptr %669, align 8, !tbaa !73
   br label %.critedge159.sink.split.i.i
 
@@ -6846,7 +6846,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %672, ptr %18, align 8, !tbaa !59
   %673 = sext i32 %671 to i64
   %.val8.i155.i = load ptr, ptr %511, align 8, !tbaa !63
-  %674 = getelementptr inbounds ptr, ptr %.val8.i155.i, i64 %673
+  %674 = getelementptr inbounds [8 x i8], ptr %.val8.i155.i, i64 %673
   store ptr %664, ptr %674, align 8, !tbaa !73
   %675 = invoke noundef ptr @_ZN6icu_7710MemoryPoolINS_10CharStringELi8EE6createIJEEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %19)
           to label %676 unwind label %.loopexit.split-lp.i.i
@@ -6931,7 +6931,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit.i.i: ; preds =
   %702 = phi i32 [ %708, %707 ], [ %696, %.critedge156.i.i ]
   %indvars.iv.i.i.i121 = phi i64 [ %indvars.iv.next.i.i.i122, %707 ], [ 0, %.critedge156.i.i ]
   %.val.i175.i.i = load ptr, ptr %527, align 8, !tbaa !56
-  %703 = getelementptr inbounds nuw ptr, ptr %.val.i175.i.i, i64 %indvars.iv.i.i.i121
+  %703 = getelementptr inbounds nuw [8 x i8], ptr %.val.i175.i.i, i64 %indvars.iv.i.i.i121
   %704 = load ptr, ptr %703, align 8, !tbaa !77
   %705 = icmp eq ptr %704, null
   br i1 %705, label %707, label %706
@@ -6975,7 +6975,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit.i.i: ;
   %719 = phi i32 [ %726, %725 ], [ %711, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit.i.i ]
   %indvars.iv.i179.i.i = phi i64 [ %indvars.iv.next.i181.i.i, %725 ], [ 0, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit.i.i ]
   %720 = load ptr, ptr %523, align 8, !tbaa !70
-  %721 = getelementptr inbounds nuw ptr, ptr %720, i64 %indvars.iv.i179.i.i
+  %721 = getelementptr inbounds nuw [8 x i8], ptr %720, i64 %indvars.iv.i179.i.i
   %722 = load ptr, ptr %721, align 8, !tbaa !98
   %723 = icmp eq ptr %722, null
   br i1 %723, label %725, label %724
@@ -7349,7 +7349,7 @@ _ZN6icu_7715MaybeStackArrayIPN12_GLOBAL__N_118ExtensionListEntryELi8EE6resizeEii
   store i32 %852, ptr %18, align 8, !tbaa !59
   %853 = sext i32 %851 to i64
   %.val8.i142191.i = load ptr, ptr %511, align 8, !tbaa !63
-  %854 = getelementptr inbounds ptr, ptr %.val8.i142191.i, i64 %853
+  %854 = getelementptr inbounds [8 x i8], ptr %.val8.i142191.i, i64 %853
   store ptr null, ptr %854, align 8, !tbaa !73
   br label %.noexc96.thread.i
 
@@ -7364,7 +7364,7 @@ _ZN6icu_7715MaybeStackArrayIPN12_GLOBAL__N_118ExtensionListEntryELi8EE6resizeEii
   store i32 %857, ptr %18, align 8, !tbaa !59
   %858 = sext i32 %856 to i64
   %.val8.i142.i = load ptr, ptr %511, align 8, !tbaa !63
-  %859 = getelementptr inbounds ptr, ptr %.val8.i142.i, i64 %858
+  %859 = getelementptr inbounds [8 x i8], ptr %.val8.i142.i, i64 %858
   store ptr %849, ptr %859, align 8, !tbaa !73
   store ptr %.1100.i.i, ptr %849, align 8, !tbaa !92
   %860 = getelementptr inbounds nuw i8, ptr %849, i64 8
@@ -7548,7 +7548,7 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.
   %912 = phi i32 [ %918, %917 ], [ %906, %.critedge159.i.i ]
   %indvars.iv.i204.i.i = phi i64 [ %indvars.iv.next.i207.i.i, %917 ], [ 0, %.critedge159.i.i ]
   %.val.i205.i.i = load ptr, ptr %527, align 8, !tbaa !56
-  %913 = getelementptr inbounds nuw ptr, ptr %.val.i205.i.i, i64 %indvars.iv.i204.i.i
+  %913 = getelementptr inbounds nuw [8 x i8], ptr %.val.i205.i.i, i64 %indvars.iv.i204.i.i
   %914 = load ptr, ptr %913, align 8, !tbaa !77
   %915 = icmp eq ptr %914, null
   br i1 %915, label %917, label %916
@@ -7592,7 +7592,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit208.i.i
   %929 = phi i32 [ %936, %935 ], [ %921, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit208.i.i ]
   %indvars.iv.i212.i.i = phi i64 [ %indvars.iv.next.i214.i.i, %935 ], [ 0, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit208.i.i ]
   %930 = load ptr, ptr %523, align 8, !tbaa !70
-  %931 = getelementptr inbounds nuw ptr, ptr %930, i64 %indvars.iv.i212.i.i
+  %931 = getelementptr inbounds nuw [8 x i8], ptr %930, i64 %indvars.iv.i212.i.i
   %932 = load ptr, ptr %931, align 8, !tbaa !98
   %933 = icmp eq ptr %932, null
   br i1 %933, label %935, label %934
@@ -7689,7 +7689,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %965, ptr %18, align 8, !tbaa !59
   %966 = sext i32 %964 to i64
   %.val8.i194.i = load ptr, ptr %511, align 8, !tbaa !63
-  %967 = getelementptr inbounds ptr, ptr %.val8.i194.i, i64 %966
+  %967 = getelementptr inbounds [8 x i8], ptr %.val8.i194.i, i64 %966
   store ptr null, ptr %967, align 8, !tbaa !73
   br label %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread.i
 
@@ -7704,7 +7704,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %970, ptr %18, align 8, !tbaa !59
   %971 = sext i32 %969 to i64
   %.val8.i.i = load ptr, ptr %511, align 8, !tbaa !63
-  %972 = getelementptr inbounds ptr, ptr %.val8.i.i, i64 %971
+  %972 = getelementptr inbounds [8 x i8], ptr %.val8.i.i, i64 %971
   store ptr %962, ptr %972, align 8, !tbaa !73
   store ptr %.08.i183.i, ptr %962, align 8, !tbaa !92
   %973 = getelementptr inbounds nuw i8, ptr %962, i64 8
@@ -7837,7 +7837,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %1019, ptr %18, align 8, !tbaa !59
   %1020 = sext i32 %1018 to i64
   %.val8.i107199.i = load ptr, ptr %511, align 8, !tbaa !63
-  %1021 = getelementptr inbounds ptr, ptr %.val8.i107199.i, i64 %1020
+  %1021 = getelementptr inbounds [8 x i8], ptr %.val8.i107199.i, i64 %1020
   store ptr null, ptr %1021, align 8, !tbaa !73
   br label %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit118.thread.i
 
@@ -7852,7 +7852,7 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store i32 %1024, ptr %18, align 8, !tbaa !59
   %1025 = sext i32 %1023 to i64
   %.val8.i107.i = load ptr, ptr %511, align 8, !tbaa !63
-  %1026 = getelementptr inbounds ptr, ptr %.val8.i107.i, i64 %1025
+  %1026 = getelementptr inbounds [8 x i8], ptr %.val8.i107.i, i64 %1025
   store ptr %1016, ptr %1026, align 8, !tbaa !73
   store ptr @_ZN12_GLOBAL__N_114PRIVATEUSE_KEYE, ptr %1016, align 8, !tbaa !92
   %1027 = getelementptr inbounds nuw i8, ptr %1016, i64 8
@@ -8013,7 +8013,7 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.th
   %1093 = phi i32 [ %1100, %1099 ], [ %1085, %.loopexit.i108 ]
   %indvars.iv.i131.i = phi i64 [ %indvars.iv.next.i133.i, %1099 ], [ 0, %.loopexit.i108 ]
   %1094 = load ptr, ptr %515, align 8, !tbaa !70
-  %1095 = getelementptr inbounds nuw ptr, ptr %1094, i64 %indvars.iv.i131.i
+  %1095 = getelementptr inbounds nuw [8 x i8], ptr %1094, i64 %indvars.iv.i131.i
   %1096 = load ptr, ptr %1095, align 8, !tbaa !98
   %1097 = icmp eq ptr %1096, null
   br i1 %1097, label %1099, label %1098
@@ -8058,7 +8058,7 @@ _ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit.i: ; preds = %1088, %._cri
   %1109 = phi i32 [ %1115, %1114 ], [ %1103, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit.i ]
   %indvars.iv.i137.i = phi i64 [ %indvars.iv.next.i140.i, %1114 ], [ 0, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit.i ]
   %.val.i138.i = load ptr, ptr %511, align 8, !tbaa !63
-  %1110 = getelementptr inbounds nuw ptr, ptr %.val.i138.i, i64 %indvars.iv.i137.i
+  %1110 = getelementptr inbounds nuw [8 x i8], ptr %.val.i138.i, i64 %indvars.iv.i137.i
   %1111 = load ptr, ptr %1110, align 8, !tbaa !73
   %1112 = icmp eq ptr %1111, null
   br i1 %1112, label %1114, label %1113
@@ -8350,7 +8350,7 @@ _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc, %30
   store i32 %43, ptr %0, align 8, !tbaa !66
   %44 = sext i32 %42 to i64
   %45 = load ptr, ptr %4, align 8, !tbaa !70
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %44
   store ptr %31, ptr %46, align 8, !tbaa !98
   br label %_ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread
 
@@ -8459,7 +8459,7 @@ _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc, %30
   store i32 %43, ptr %0, align 8, !tbaa !66
   %44 = sext i32 %42 to i64
   %45 = load ptr, ptr %4, align 8, !tbaa !70
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %44
   store ptr %31, ptr %46, align 8, !tbaa !98
   br label %_ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread
 
@@ -8565,7 +8565,7 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.noexc, %31
   store i32 %43, ptr %0, align 8, !tbaa !66
   %44 = sext i32 %42 to i64
   %45 = load ptr, ptr %5, align 8, !tbaa !70
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %44
   store ptr %32, ptr %46, align 8, !tbaa !98
   br label %_ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread
 
@@ -8794,7 +8794,7 @@ _ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EED2Ev.exit: ; preds = %._crit_e
   %14 = phi i32 [ %2, %.lr.ph ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %15 = load ptr, ptr %4, align 8, !tbaa !70
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !98
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -8849,7 +8849,7 @@ _ZN6icu_7715MaybeStackArrayIPN12_GLOBAL__N_118ExtensionListEntryELi8EED2Ev.exit:
   %12 = phi i32 [ %2, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.val = load ptr, ptr %4, align 8, !tbaa !63
-  %13 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !73
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -8903,7 +8903,7 @@ _ZN6icu_7715MaybeStackArrayIPN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit:
   %12 = phi i32 [ %2, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.val = load ptr, ptr %4, align 8, !tbaa !56
-  %13 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !77
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -9104,7 +9104,7 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.noexc, %31
   store i32 %43, ptr %0, align 8, !tbaa !66
   %44 = sext i32 %42 to i64
   %45 = load ptr, ptr %5, align 8, !tbaa !70
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %44
   store ptr %32, ptr %46, align 8, !tbaa !98
   br label %_ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread
 
@@ -9199,7 +9199,7 @@ _ZN6icu_7710CharStringC2Ev.exit:                  ; preds = %31
   store i32 %36, ptr %0, align 8, !tbaa !66
   %37 = sext i32 %35 to i64
   %38 = load ptr, ptr %2, align 8, !tbaa !70
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %37
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %37
   store ptr %29, ptr %39, align 8, !tbaa !98
   br label %_ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread
 

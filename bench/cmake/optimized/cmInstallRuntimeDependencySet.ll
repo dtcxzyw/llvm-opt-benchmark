@@ -7,12 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cm::enum_set" = type { %"class.std::bitset" }
 %"class.std::bitset" = type { %"struct.std::_Base_bitset" }
 %"struct.std::_Base_bitset" = type { i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.7" }
-%"struct.std::_Head_base.7" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -293,7 +287,7 @@ _ZNSt6vectorISt10unique_ptrIN29cmInstallRuntimeDependencySet4ItemESt14default_de
 .noexc:                                           ; preds = %34, %_ZNSt6vectorISt10unique_ptrIN29cmInstallRuntimeDependencySet4ItemESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %28, ptr %15, align 8, !tbaa !40
   store ptr %33, ptr %8, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %35, ptr %10, align 8, !tbaa !27
   br label %_ZNSt10unique_ptrIN29cmInstallRuntimeDependencySet4ItemESt14default_deleteIS1_EED2Ev.exit
 
@@ -1098,7 +1092,7 @@ _ZNSt6vectorISt10unique_ptrIN29cmInstallRuntimeDependencySet4ItemESt14default_de
 _ZNSt12_Vector_baseISt10unique_ptrIN29cmInstallRuntimeDependencySet4ItemESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN29cmInstallRuntimeDependencySet4ItemESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !40
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !27
   ret void
 }

@@ -615,7 +615,7 @@ define internal fastcc void @_help_format_msg() unnamed_addr #8 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [32 x i8], ptr @fields, i64 %indvars.iv.next
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
@@ -810,7 +810,7 @@ define internal range(i32 0, 2) i32 @_addto_name_char_list_internal(ptr noundef 
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %1, align 1
   %8 = sext i8 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %6, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %6, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2048
   %.not = icmp eq i16 %11, 0

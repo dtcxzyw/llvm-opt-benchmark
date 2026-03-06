@@ -99,7 +99,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = add nsw i64 %conv, %1
   %3 = mul nsw i64 %2, %0
   %add.ptr = getelementptr inbounds i8, ptr %pixels, i64 %3
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i27, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i27, i64 %indvars.iv
   store ptr %add.ptr, ptr %add.ptr.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -255,7 +255,7 @@ invoke.cont6.preheader:                           ; preds = %invoke.cont
 
 invoke.cont6:                                     ; preds = %invoke.cont6.preheader, %invoke.cont6
   %indvars.iv = phi i64 [ 0, %invoke.cont6.preheader ], [ %indvars.iv.next, %invoke.cont6 ]
-  %arrayidx = getelementptr inbounds nuw float, ptr %pixels, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %pixels, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %mul.i = fmul float %0, 2.560000e+02
   %cmp.i.i14 = fcmp ult float %mul.i, 0.000000e+00

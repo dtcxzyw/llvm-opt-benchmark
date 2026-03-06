@@ -784,7 +784,7 @@ _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %79
   store ptr %23, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !29
-  %83 = getelementptr inbounds nuw %"struct.gmx::AtomicStructureFactor", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [120 x i8], ptr %23, i64 %17
   store ptr %83, ptr %78, align 8, !tbaa !32
   ret void
 

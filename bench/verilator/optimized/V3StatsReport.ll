@@ -3643,7 +3643,7 @@ _ZSt8_DestroyIP11V3StatisticS0_EvT_S2_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI11
 _ZNSt12_Vector_baseI11V3StatisticSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP11V3StatisticS0_EvT_S2_RSaIT0_E.exit, %65
   store ptr %22, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !10
-  %69 = getelementptr inbounds nuw %class.V3Statistic, ptr %22, i64 %16
+  %69 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %16
   store ptr %69, ptr %64, align 8, !tbaa !19
   ret void
 
@@ -7026,7 +7026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %54
   %566 = phi ptr [ %557, %.lr.ph320 ], [ %608, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit218 ]
   %567 = phi i64 [ %555, %.lr.ph320 ], [ %606, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit218 ]
   %.249318 = phi i32 [ %.148, %.lr.ph320 ], [ %605, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit218 ]
-  %568 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %566, i64 %567
+  %568 = getelementptr inbounds nuw [32 x i8], ptr %566, i64 %567
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.experimental.noalias.scope.decl(metadata !221)
   store ptr %344, ptr %34, align 8, !tbaa !44, !alias.scope !221
@@ -7983,7 +7983,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !178
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %45
   %51 = load ptr, ptr %50, align 8, !tbaa !246
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %.critedge28, label %52
@@ -8146,7 +8146,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !247
   %33 = load ptr, ptr %0, align 8, !tbaa !178
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !246
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -8172,7 +8172,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !247
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !246
   br label %49
 
@@ -8266,7 +8266,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !247
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !246
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -8281,7 +8281,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !246
   br label %28
 
@@ -8496,7 +8496,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !220
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !203
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !204
   ret void
 }

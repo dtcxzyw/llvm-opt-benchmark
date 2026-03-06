@@ -3,23 +3,6 @@ source_filename = "bench/gromacs/original/coordstate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx::DimParams" = type { %"class.std::variant", double }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.gmx::DimParams::PullDimParams" }
-%"struct.gmx::DimParams::PullDimParams" = type { double, double, double }
-%"class.gmx::AwhDimParams" = type { i32, i32, double, double, double, double, double, double, double }
-%"struct.gmx::GridPoint" = type { [4 x double], [4 x i32], %"class.std::vector.19" }
-%"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
-%"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -37,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.gmx::GridAxis" = type <{ double, double, double, double, i32, i32, i8, [7 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -124,14 +106,14 @@ define void @_ZN3gmx10CoordStateC2ERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimPar
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %2, i64 %indvars.iv
-  %25 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %8, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load double, ptr %26, align 8, !tbaa !15
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %29 = load double, ptr %28, align 8, !tbaa !19
   %30 = fmul double %27, %29
-  %31 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store double %30, ptr %31, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
@@ -211,8 +193,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %store_forwarded = phi double [ %load_initial, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
   %.01450.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
-  %33 = getelementptr double, ptr %20, i64 %.01450.i
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %.01450.i
+  %33 = getelementptr [8 x i8], ptr %20, i64 %.01450.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01450.i
   %35 = load double, ptr %34, align 8, !tbaa !28
   %36 = fadd double %store_forwarded, %35
   store double %36, ptr %33, align 8, !tbaa !28
@@ -319,7 +301,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.
   %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %120, %40 ]
   %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %20, %40 ]
   %122 = lshr i64 %.013.i.i.i, 1
-  %123 = getelementptr inbounds nuw double, ptr %.sroa.011.012.i.i.i, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i, i64 %122
   %124 = load double, ptr %123, align 8, !tbaa !28
   %125 = fcmp ogt double %124, %116
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -347,14 +329,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %130, %31
 _ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit: ; preds = %40, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i
   %.pre-phi.i = phi i64 [ %.pre.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i ], [ %118, %40 ]
   %132 = sext i32 %2 to i64
-  %133 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %132
+  %133 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %135 = sub i64 %.pre-phi.i, %118
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #18
   %sext = shl i64 %135, 29
   %136 = ashr i64 %sext, 32
   %137 = load ptr, ptr %134, align 8, !tbaa !36
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %136
   %139 = load i32, ptr %138, align 4, !tbaa !39
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %139, ptr %140, align 4, !tbaa !14
@@ -528,14 +510,14 @@ define void @_ZN3gmx10CoordState13setCoordValueERKNS_8BiasGridEPKd(ptr noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %20 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %11, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load double, ptr %21, align 8, !tbaa !60
   %23 = fcmp ogt double %22, 0.000000e+00
   br i1 %23, label %.lr.ph._crit_edge, label %24
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.phi.trans.insert51 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %.phi.trans.insert51 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %.pre52 = load double, ptr %.phi.trans.insert51, align 8, !tbaa !28
   br label %53
 
@@ -543,7 +525,7 @@ define void @_ZN3gmx10CoordState13setCoordValueERKNS_8BiasGridEPKd(ptr noundef n
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %26 = load double, ptr %25, align 8, !tbaa !63
   %27 = fmul double %26, 1.000000e+01
-  %28 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %29 = load double, ptr %28, align 8, !tbaa !28
   %30 = load double, ptr %20, align 8, !tbaa !64
   %31 = fsub double %30, %27
@@ -638,7 +620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %47, %
 
 53:                                               ; preds = %24, %.lr.ph._crit_edge
   %54 = phi double [ %.pre52, %.lr.ph._crit_edge ], [ %29, %24 ]
-  %55 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store double %54, ptr %55, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

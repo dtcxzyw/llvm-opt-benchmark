@@ -401,10 +401,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !17, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !18, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h281335c97aea11dcE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h281335c97aea11dcE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h281335c97aea11dcE.28", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h281335c97aea11dcE.28", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -862,7 +862,7 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$10dgram_send17hced98
   %33 = load ptr, ptr %32, align 8, !alias.scope !47, !noalias !52, !nonnull !8, !noundef !8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 13456
   %35 = load i64, ptr %34, align 16, !alias.scope !47, !noalias !52, !noundef !8
-  %36 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [2624 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 13464
   %38 = load i64, ptr %37, align 8, !alias.scope !47, !noalias !52, !noundef !8
   store ptr %33, ptr %4, align 8, !noalias !50
@@ -983,7 +983,7 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$14dgram_send_vec17hc
   %24 = load ptr, ptr %23, align 8, !alias.scope !61, !noalias !66, !nonnull !8, !noundef !8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 13456
   %26 = load i64, ptr %25, align 16, !alias.scope !61, !noalias !66, !noundef !8
-  %27 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [2624 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 13464
   %29 = load i64, ptr %28, align 8, !alias.scope !61, !noalias !66, !noundef !8
   store ptr %24, ptr %3, align 8, !noalias !64
@@ -1183,7 +1183,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   %.not.i.i = icmp ult i64 %71, %65
   %72 = select i1 %.not.i.i, i64 0, i64 %65
   %.sroa.01.0.i.i = sub nuw i64 %71, %72
-  %73 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %67, i64 %.sroa.01.0.i.i
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %67, i64 %.sroa.01.0.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load i64, ptr %74, align 8, !noalias !73, !noundef !8
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -1533,7 +1533,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   %.not.i.i90 = icmp ult i64 %212, %206
   %213 = select i1 %.not.i.i90, i64 0, i64 %206
   %.sroa.01.0.i.i91 = sub nuw i64 %212, %213
-  %214 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %208, i64 %.sroa.01.0.i.i91
+  %214 = getelementptr inbounds nuw [48 x i8], ptr %208, i64 %.sroa.01.0.i.i91
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %216 = load i64, ptr %215, align 8, !noalias !122, !noundef !8
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 16
@@ -1884,7 +1884,7 @@ define internal fastcc { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$22dgram_max
   %12 = load ptr, ptr %11, align 8, !alias.scope !160, !noalias !157, !nonnull !8, !noundef !8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 13456
   %14 = load i64, ptr %13, align 16, !alias.scope !160, !noalias !157, !noundef !8
-  %15 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [2624 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 13464
   %17 = load i64, ptr %16, align 8, !alias.scope !160, !noalias !157, !noundef !8
   store ptr %12, ptr %3, align 8, !noalias !162
@@ -2069,7 +2069,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.
   unreachable
 
 84:                                               ; preds = %.noexc19
-  %85 = getelementptr inbounds nuw { { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] }, { i64, [118 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] } }, ptr %80, i64 %81
+  %85 = getelementptr inbounds nuw [4080 x i8], ptr %80, i64 %81
   %86 = invoke { i64, i64 } @_ZN6quiche6packet13CryptoContext15crypto_overhead17h639915f4b747aea7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(4080) %85)
           to label %87 unwind label %.loopexit.split-lp
 
@@ -4003,7 +4003,7 @@ define void @_ZN12tokio_quiche4quic10connection3map13ConnectionMap6remove17h939b
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i": ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i"
-  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %.sroa.2.012.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.2.012.i
   store i64 %.sroa.0.0.i.i.i, ptr %22, align 8, !alias.scope !357, !noalias !378
   %23 = add nuw nsw i64 %.sroa.2.012.i, 1
   %24 = icmp eq i64 %18, 0
@@ -4231,7 +4231,7 @@ define void @_ZN12tokio_quiche4quic10connection3map13ConnectionMap9unmap_cid17hf
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i": ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i"
-  %20 = getelementptr inbounds nuw i64, ptr %4, i64 %.sroa.2.012.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.2.012.i
   store i64 %.sroa.0.0.i.i.i, ptr %20, align 8, !alias.scope !400, !noalias !421
   %21 = add nuw nsw i64 %.sroa.2.012.i, 1
   %22 = icmp eq i64 %16, 0
@@ -4420,7 +4420,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @_ZN12tokio_quiche4quic10c
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i": ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i"
-  %21 = getelementptr inbounds nuw i64, ptr %4, i64 %.sroa.2.012.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.2.012.i
   store i64 %.sroa.0.0.i.i.i, ptr %21, align 8, !alias.scope !437, !noalias !458
   %22 = add nuw nsw i64 %.sroa.2.012.i, 1
   %23 = icmp eq i64 %17, 0
@@ -4524,7 +4524,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit: ; preds = 
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31": ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28"
-  %51 = getelementptr inbounds nuw i64, ptr %5, i64 %.sroa.2.012.i24
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.2.012.i24
   store i64 %.sroa.0.0.i.i.i29, ptr %51, align 8, !alias.scope !468, !noalias !489
   %52 = add nuw nsw i64 %.sroa.2.012.i24, 1
   %53 = icmp eq i64 %47, 0
@@ -4650,7 +4650,7 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   %16 = load ptr, ptr %15, align 8, !alias.scope !499, !noalias !496, !nonnull !8, !noundef !8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 13456
   %18 = load i64, ptr %17, align 16, !alias.scope !499, !noalias !496, !noundef !8
-  %19 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [2624 x i8], ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 13464
   %21 = load i64, ptr %20, align 8, !alias.scope !499, !noalias !496, !noundef !8
   store ptr %16, ptr %4, align 8, !noalias !501

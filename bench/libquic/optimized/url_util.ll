@@ -239,7 +239,7 @@ _ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i
 _ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %28, ptr %2, align 8, !tbaa !8
   store ptr %32, ptr %9, align 8, !tbaa !11
-  %34 = getelementptr inbounds nuw %"struct.url::SchemeWithType", ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %34, ptr %11, align 8, !tbaa !12
   br label %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit
 
@@ -370,7 +370,7 @@ define noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef %
   %.sroa.04.010.i.i = phi ptr [ %19, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i ], [ %.val.i, %2 ]
   %8 = load i32, ptr %1, align 4, !tbaa !20
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %0, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %5, align 4, !tbaa !17
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %.sroa.04.010.i.i, align 8, !tbaa !21
@@ -636,7 +636,7 @@ define noundef zeroext i1 @_ZN3url20FindAndCompareSchemeEPKtiPKcPNS_9ComponentE(
 33:                                               ; preds = %28
   %.val.i = load i32, ptr %7, align 8
   %34 = sext i32 %.val.i to i64
-  %35 = getelementptr inbounds i16, ptr %11, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %11, i64 %34
   %36 = zext nneg i32 %.val16.i to i64
   %37 = icmp eq ptr %2, null
   br i1 %37, label %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i, label %38
@@ -1096,7 +1096,7 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_114DoCanonicalize
 32:                                               ; preds = %27
   %.val = load i32, ptr %10, align 4
   %33 = sext i32 %.val to i64
-  %34 = getelementptr inbounds i16, ptr %14, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %14, i64 %33
   %35 = zext nneg i32 %.val42 to i64
   %36 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN3url11kFileSchemeE) #20
   %37 = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEENS0_INS2_IcSt11char_traitsIcESaIcEEEEE(ptr %34, i64 %35, ptr nonnull @_ZN3url11kFileSchemeE, i64 %36)
@@ -1138,7 +1138,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
 47:                                               ; preds = %43
   %.val43 = load i32, ptr %10, align 4
   %48 = sext i32 %.val43 to i64
-  %49 = getelementptr inbounds i16, ptr %14, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %14, i64 %48
   %50 = zext nneg i32 %.val44.pr to i64
   %51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN3url17kFileSystemSchemeE) #20
   %52 = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEENS0_INS2_IcSt11char_traitsIcESaIcEEEEE(ptr %49, i64 %50, ptr nonnull @_ZN3url17kFileSystemSchemeE, i64 %51)
@@ -1176,7 +1176,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
   %.sroa.04.010.i.i = phi ptr [ %74, %.critedge.i.i ], [ %.val.i, %.noexc50 ]
   %63 = load i32, ptr %10, align 4, !tbaa !20
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i16, ptr %14, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %14, i64 %64
   %66 = load i32, ptr %17, align 4, !tbaa !17
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %.sroa.04.010.i.i, align 8, !tbaa !21
@@ -1227,7 +1227,7 @@ thread-pre-split61:                               ; preds = %.critedge.i.i
 85:                                               ; preds = %80
   %.val45 = load i32, ptr %10, align 4
   %86 = sext i32 %.val45 to i64
-  %87 = getelementptr inbounds i16, ptr %14, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %14, i64 %86
   %88 = zext nneg i32 %.val46 to i64
   %89 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN3url13kMailToSchemeE) #20
   %90 = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEENS0_INS2_IcSt11char_traitsIcESaIcEEEEE(ptr %87, i64 %88, ptr nonnull @_ZN3url13kMailToSchemeE, i64 %89)
@@ -2972,7 +2972,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i: ; preds = %113, %.noexc64
   %.sink.i61 = phi i32 [ %126, %.noexc64 ], [ %115, %113 ]
   %.sink5.i63 = load ptr, ptr %.sink5.in.i76, align 8, !tbaa !30
   %127 = sext i32 %.sink.i61 to i64
-  %128 = getelementptr inbounds i16, ptr %.sink5.i63, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr %.sink5.i63, i64 %127
   store i16 %114, ptr %128, align 2, !tbaa !58
   %129 = add nsw i32 %.sink.i61, 1
   store i32 %129, ptr %14, align 4, !tbaa !55
@@ -3045,7 +3045,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i: ; preds = %.noexc66, %140
   %.sink.i.i = phi i32 [ %155, %.noexc66 ], [ %144, %140 ]
   %.sink5.i.i = load ptr, ptr %.sink5.in.i76, align 8, !tbaa !30
   %156 = sext i32 %.sink.i.i to i64
-  %157 = getelementptr inbounds i16, ptr %.sink5.i.i, i64 %156
+  %157 = getelementptr inbounds [2 x i8], ptr %.sink5.i.i, i64 %156
   store i16 %143, ptr %157, align 2, !tbaa !58
   %158 = add nsw i32 %.sink.i.i, 1
   store i32 %158, ptr %14, align 4, !tbaa !55
@@ -3121,7 +3121,7 @@ _ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split: ; preds = %_Z
   %.sink245 = phi i16 [ %163, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %174, %173 ], [ %.sink245.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
   %.sink5.i24.i = load ptr, ptr %.sink5.in.i76, align 8, !tbaa !30
   %187 = sext i32 %.sink.i22.i.sink248 to i64
-  %188 = getelementptr inbounds i16, ptr %.sink5.i24.i, i64 %187
+  %188 = getelementptr inbounds [2 x i8], ptr %.sink5.i24.i, i64 %187
   store i16 %.sink245, ptr %188, align 2, !tbaa !58
   %189 = add nsw i32 %.sink.i22.i.sink248, 1
   store i32 %189, ptr %14, align 4, !tbaa !55
@@ -3192,7 +3192,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i74: ; preds = %.lr.ph137, %.noe
   %.sink.i75 = phi i32 [ %208, %.noexc78 ], [ %193, %.lr.ph137 ]
   %.sink5.i77 = load ptr, ptr %.sink5.in.i76, align 8, !tbaa !30
   %209 = sext i32 %.sink.i75 to i64
-  %210 = getelementptr inbounds i16, ptr %.sink5.i77, i64 %209
+  %210 = getelementptr inbounds [2 x i8], ptr %.sink5.i77, i64 %209
   store i16 %197, ptr %210, align 2, !tbaa !58
   %211 = add nsw i32 %.sink.i75, 1
   store i32 %211, ptr %14, align 4, !tbaa !55
@@ -3255,7 +3255,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i85: ; preds = %._crit_edge, %.n
   %.sink.i86 = phi i32 [ %232, %.noexc89 ], [ %217, %._crit_edge ]
   %.sink5.i88 = load ptr, ptr %.sink5.in.i76, align 8, !tbaa !30
   %233 = sext i32 %.sink.i86 to i64
-  %234 = getelementptr inbounds i16, ptr %.sink5.i88, i64 %233
+  %234 = getelementptr inbounds [2 x i8], ptr %.sink5.i88, i64 %233
   store i16 %221, ptr %234, align 2, !tbaa !58
   %235 = add nsw i32 %.sink.i86, 1
   store i32 %235, ptr %14, align 4, !tbaa !55
@@ -3581,7 +3581,7 @@ define noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPK
 9:                                                ; preds = %3
   %.val = load i32, ptr %1, align 4
   %10 = sext i32 %.val to i64
-  %11 = getelementptr inbounds i16, ptr %0, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %0, i64 %10
   %12 = zext nneg i32 %.val3 to i64
   %13 = icmp eq ptr %2, null
   br i1 %13, label %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i, label %14
@@ -3615,7 +3615,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_1
 
 9:                                                ; preds = %5
   store ptr %8, ptr %6, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw %"struct.url::SchemeWithType", ptr %8, i64 %2
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -3645,7 +3645,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_1
 19:                                               ; preds = %15, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit
   %.011 = phi i64 [ 0, %15 ], [ %49, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit ]
   %20 = load ptr, ptr %0, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw %"struct.url::SchemeWithType", ptr %1, i64 %.011
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.011
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -3704,7 +3704,7 @@ _ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i
 _ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %42, ptr %20, align 8, !tbaa !8
   store ptr %46, ptr %22, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw %"struct.url::SchemeWithType", ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %48, ptr %24, align 8, !tbaa !12
   br label %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit
 

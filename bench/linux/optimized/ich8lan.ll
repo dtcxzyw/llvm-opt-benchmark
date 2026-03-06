@@ -15,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic_t = type { i32 }
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
-%struct.e1000_shadow_ram = type { i16, i8 }
 
 @ich8_mac_ops = internal constant %struct.e1000_mac_operations { ptr null, ptr null, ptr null, ptr @e1000_check_for_copper_link_ich8lan, ptr null, ptr @e1000_clear_hw_cntrs_ich8lan, ptr null, ptr @e1000_get_bus_info_ich8lan, ptr @e1000_set_lan_id_single_port, ptr @e1000_get_link_up_info_ich8lan, ptr null, ptr null, ptr @e1000e_update_mc_addr_list_generic, ptr @e1000_reset_hw_ich8lan, ptr @e1000_init_hw_ich8lan, ptr @e1000_setup_link_ich8lan, ptr @e1000_setup_copper_link_ich8lan, ptr null, ptr null, ptr @e1000e_config_collision_dist_generic, ptr @e1000e_rar_set_generic, ptr null, ptr @e1000e_rar_get_count_generic }, align 8
 @ich8_phy_ops = internal constant %struct.e1000_phy_operations { ptr @e1000_acquire_swflag_ich8lan, ptr null, ptr null, ptr @e1000_check_reset_block_ich8lan, ptr null, ptr null, ptr @e1000_get_cfg_done_ich8lan, ptr @e1000e_get_cable_length_igp_2, ptr null, ptr null, ptr @e1000e_read_phy_reg_igp, ptr null, ptr null, ptr @e1000_release_swflag_ich8lan, ptr @e1000_phy_hw_reset_ich8lan, ptr @e1000_set_d0_lplu_state_ich8lan, ptr @e1000_set_d3_lplu_state_ich8lan, ptr @e1000e_write_phy_reg_igp, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -2133,7 +2132,7 @@ define internal i32 @e1000_get_variants_ich8lan(ptr noundef initializes((1726, 1
 
 75:                                               ; preds = %75, %72
   %76 = phi i64 [ 0, %72 ], [ %79, %75 ]
-  %77 = getelementptr %struct.e1000_shadow_ram, ptr %74, i64 %76
+  %77 = getelementptr [4 x i8], ptr %74, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 2
   store i8 0, ptr %78, align 2
   store i16 -1, ptr %77, align 2
@@ -6620,12 +6619,12 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_ich8lan(ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1178
   %26 = zext i16 %1 to i64
   %27 = zext i16 %2 to i64
-  %invariant.gep = getelementptr %struct.e1000_shadow_ram, ptr %25, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr %25, i64 %26
   br label %28
 
 28:                                               ; preds = %39, %.thread
   %29 = phi i64 [ 0, %.thread ], [ %43, %39 ]
-  %gep = getelementptr %struct.e1000_shadow_ram, ptr %invariant.gep, i64 %29
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %29
   %30 = getelementptr inbounds nuw i8, ptr %gep, i64 2
   %31 = load i8, ptr %30, align 2, !range !6, !noundef !7
   %32 = icmp eq i8 %31, 0
@@ -6642,7 +6641,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_ich8lan(ptr noundef
 39:                                               ; preds = %33, %28
   %40 = phi ptr [ %gep, %28 ], [ %6, %33 ]
   %41 = load i16, ptr %40, align 2
-  %42 = getelementptr i16, ptr %3, i64 %29
+  %42 = getelementptr [2 x i8], ptr %3, i64 %29
   store i16 %41, ptr %42, align 2
   %43 = add nuw nsw i64 %29, 1
   %44 = icmp eq i64 %43, %27
@@ -6732,7 +6731,7 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
 
 35:                                               ; preds = %.critedge10, %29
   %36 = phi i64 [ 0, %29 ], [ %33, %.critedge10 ]
-  %37 = getelementptr %struct.e1000_shadow_ram, ptr %32, i64 %36
+  %37 = getelementptr [4 x i8], ptr %32, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %39 = load i8, ptr %38, align 2, !range !6, !noundef !7
   %40 = icmp eq i8 %39, 0
@@ -6843,7 +6842,7 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
 
 .preheader:                                       ; preds = %93, %.preheader
   %98 = phi i64 [ %101, %.preheader ], [ 0, %93 ]
-  %99 = getelementptr %struct.e1000_shadow_ram, ptr %32, i64 %98
+  %99 = getelementptr [4 x i8], ptr %32, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i8 0, ptr %100, align 2
   store i16 -1, ptr %99, align 2
@@ -6978,10 +6977,10 @@ define internal noundef range(i32 -1, 1) i32 @e1000_write_nvm_ich8lan(ptr nounde
   %18 = phi i64 [ 0, %12 ], [ %25, %17 ]
   %19 = add nuw i64 %18, %6
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr %struct.e1000_shadow_ram, ptr %15, i64 %20
+  %21 = getelementptr [4 x i8], ptr %15, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   store i8 1, ptr %22, align 2
-  %23 = getelementptr i16, ptr %3, i64 %18
+  %23 = getelementptr [2 x i8], ptr %3, i64 %18
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %21, align 2
   %25 = add nuw nsw i64 %18, 1
@@ -7432,7 +7431,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
 36:                                               ; preds = %31
   %37 = add nuw nsw i32 %32, %8
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr %struct.e1000_shadow_ram, ptr %28, i64 %38
+  %39 = getelementptr [4 x i8], ptr %28, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i8, ptr %40, align 2, !range !6, !noundef !7
   %42 = icmp eq i8 %41, 0
@@ -7466,7 +7465,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %58 = add i16 %33, %27
   %59 = add nuw nsw i32 %32, %8
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr %struct.e1000_shadow_ram, ptr %28, i64 %60
+  %61 = getelementptr [4 x i8], ptr %28, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %63 = load i8, ptr %62, align 2, !range !6, !noundef !7
   %64 = icmp eq i8 %63, 0
@@ -7504,7 +7503,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
 82:                                               ; preds = %79, %.thread10
   %83 = phi i16 [ %81, %79 ], [ %78, %.thread10 ]
   %84 = zext i16 %33 to i64
-  %85 = getelementptr i16, ptr %3, i64 %84
+  %85 = getelementptr [2 x i8], ptr %3, i64 %84
   store i16 %83, ptr %85, align 2
   %86 = load i8, ptr %62, align 2, !range !6, !noundef !7
   %87 = icmp eq i8 %86, 0
@@ -7525,7 +7524,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %96 = phi ptr [ %3, %52 ], [ %3, %54 ], [ %3, %43 ], [ %26, %91 ], [ %26, %88 ]
   %97 = phi i16 [ %53, %52 ], [ %56, %54 ], [ %44, %43 ], [ %94, %91 ], [ %90, %88 ]
   %98 = zext i16 %33 to i64
-  %99 = getelementptr i16, ptr %96, i64 %98
+  %99 = getelementptr [2 x i8], ptr %96, i64 %98
   store i16 %97, ptr %99, align 2
   %100 = add i16 %33, 2
   %101 = zext i16 %100 to i32
@@ -7610,7 +7609,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = add i32 %31, %37
   %39 = call fastcc i32 @e1000_read_flash_dword_ich8lan(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %3)
-  %40 = getelementptr %struct.e1000_shadow_ram, ptr %32, i64 %36
+  %40 = getelementptr [4 x i8], ptr %32, i64 %36
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = load i8, ptr %41, align 2, !range !6, !noundef !7
   %43 = icmp eq i8 %42, 0
@@ -7710,7 +7709,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %94, %.preheader
   %99 = phi i64 [ %102, %.preheader ], [ 0, %94 ]
-  %100 = getelementptr %struct.e1000_shadow_ram, ptr %32, i64 %99
+  %100 = getelementptr [4 x i8], ptr %32, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 2
   store i8 0, ptr %101, align 2
   store i16 -1, ptr %100, align 2

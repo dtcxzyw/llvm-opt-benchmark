@@ -157,7 +157,7 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
 42:                                               ; preds = %.noexc1.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %44 = load ptr, ptr %43, align 8, !alias.scope !66, !noalias !67, !nonnull !16, !noundef !16
-  %45 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %40
   %46 = load i32, ptr %45, align 8, !range !68, !noalias !69, !noundef !16
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i32 %46 to i1
   br i1 %trunc.i.i.i.i.i.i.i.i, label %50, label %47
@@ -2033,7 +2033,7 @@ default.unreachable63:                            ; preds = %100, %2
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !16, !noundef !16
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %22 = getelementptr inbounds { { { i32, i32 } }, { { i64, i64 } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %22 = getelementptr inbounds [24 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !486
   store ptr %.sroa.2.0.copyload, ptr %11, align 8, !alias.scope !493, !noalias !497

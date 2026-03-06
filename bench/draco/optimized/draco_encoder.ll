@@ -243,7 +243,7 @@ sub_0.lr.ph:                                      ; preds = %2
 sub_0:                                            ; preds = %sub_0.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %.096403 = phi i32 [ 1, %sub_0.lr.ph ], [ %304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
   %58 = sext i32 %.096403 to i64
-  %59 = getelementptr inbounds ptr, ptr %1, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %1, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !28
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
@@ -332,7 +332,7 @@ sub_2364:                                         ; preds = %sub_1363
 96:                                               ; preds = %.tail361
   %97 = add nsw i32 %.096403, 1
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %1, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %1, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !28
   %101 = load i64, ptr %43, align 8, !tbaa !26
   %102 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #21
@@ -364,7 +364,7 @@ sub_2369:                                         ; preds = %sub_1368
 114:                                              ; preds = %.tail366
   %115 = add nsw i32 %.096403, 1
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds ptr, ptr %1, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %1, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !28
   %119 = load i64, ptr %46, align 8, !tbaa !26
   %120 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #21
@@ -390,7 +390,7 @@ sub_2369:                                         ; preds = %sub_1368
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %128 = add nsw i32 %.096403, 1
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %1, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %1, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !28
   store ptr %56, ptr %15, align 8, !tbaa !25
   %132 = icmp eq ptr %131, null
@@ -495,7 +495,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %143, 
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %160 = add nsw i32 %.096403, 1
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %1, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %1, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !28
   store ptr %54, ptr %16, align 8, !tbaa !25
   %164 = icmp eq ptr %163, null
@@ -600,7 +600,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %192 = add nsw i32 %.096403, 1
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds ptr, ptr %1, i64 %193
+  %194 = getelementptr inbounds [8 x i8], ptr %1, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !28
   store ptr %52, ptr %17, align 8, !tbaa !25
   %196 = icmp eq ptr %195, null
@@ -705,7 +705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %224 = add nsw i32 %.096403, 1
   %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds ptr, ptr %1, i64 %225
+  %226 = getelementptr inbounds [8 x i8], ptr %1, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !28
   store ptr %50, ptr %18, align 8, !tbaa !25
   %228 = icmp eq ptr %227, null
@@ -810,7 +810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %256 = add nsw i32 %.096403, 1
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds ptr, ptr %1, i64 %257
+  %258 = getelementptr inbounds [8 x i8], ptr %1, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !28
   store ptr %48, ptr %19, align 8, !tbaa !25
   %260 = icmp eq ptr %259, null
@@ -907,7 +907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218: ; preds = %27
 284:                                              ; preds = %282
   %285 = add nsw i32 %.096403, 1
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds ptr, ptr %1, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %1, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !28
   %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.15, ptr noundef nonnull dereferenceable(1) %288) #22
   %.not141 = icmp eq i32 %289, 0

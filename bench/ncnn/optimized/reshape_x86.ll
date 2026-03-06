@@ -1325,17 +1325,17 @@ define internal void @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %34 = trunc nsw i64 %indvars.iv to i32
   %.reass.us = mul i32 %factor.op.mul, %34
   %35 = sext i32 %.reass.us to i64
-  %36 = getelementptr inbounds float, ptr %25, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %25, i64 %35
   %37 = shl nsw i64 %indvars.iv, 2
   %38 = or disjoint i64 %37, 1
   %39 = mul nsw i64 %38, %32
-  %40 = getelementptr inbounds float, ptr %25, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %25, i64 %39
   %41 = or disjoint i64 %37, 2
   %42 = mul nsw i64 %41, %32
-  %43 = getelementptr inbounds float, ptr %25, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %25, i64 %42
   %44 = or disjoint i64 %37, 3
   %45 = mul nsw i64 %44, %32
-  %46 = getelementptr inbounds float, ptr %25, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %25, i64 %45
   %.reass101.us = mul i64 %factor.op.mul100, %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass101.us
   br label %48
@@ -1381,18 +1381,18 @@ define internal void @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %65 = shl i32 %64, 2
   %66 = mul i32 %65, %62
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds float, ptr %63, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %63, i64 %67
   %69 = shl nsw i64 %indvars.iv114, 2
   %70 = or disjoint i64 %69, 1
   %71 = sext i32 %62 to i64
   %72 = mul nsw i64 %70, %71
-  %73 = getelementptr inbounds float, ptr %63, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %63, i64 %72
   %74 = or disjoint i64 %69, 2
   %75 = mul nsw i64 %74, %71
-  %76 = getelementptr inbounds float, ptr %63, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %63, i64 %75
   %77 = or disjoint i64 %69, 3
   %78 = mul nsw i64 %77, %71
-  %79 = getelementptr inbounds float, ptr %63, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %63, i64 %78
   %80 = load ptr, ptr %5, align 8, !tbaa !43
   %81 = load i32, ptr %19, align 4, !tbaa !49
   %82 = sext i32 %81 to i64
@@ -1592,17 +1592,17 @@ define internal void @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %34 = shl nsw i64 %indvars.iv, 2
   %35 = or disjoint i64 %34, 3
   %36 = mul nsw i64 %35, %31
-  %37 = getelementptr inbounds float, ptr %25, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %25, i64 %36
   %38 = or disjoint i64 %34, 2
   %39 = mul nsw i64 %38, %31
-  %40 = getelementptr inbounds float, ptr %25, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %25, i64 %39
   %41 = or disjoint i64 %34, 1
   %42 = mul nsw i64 %41, %31
-  %43 = getelementptr inbounds float, ptr %25, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %25, i64 %42
   %44 = trunc nsw i64 %indvars.iv to i32
   %.reass106.us = mul i32 %factor.op.mul105, %44
   %45 = sext i32 %.reass106.us to i64
-  %46 = getelementptr inbounds float, ptr %25, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %25, i64 %45
   br label %47
 
 47:                                               ; preds = %.noexc.us.us, %47
@@ -1652,18 +1652,18 @@ define internal void @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %70 = or disjoint i64 %69, 3
   %71 = sext i32 %61 to i64
   %72 = mul nsw i64 %70, %71
-  %73 = getelementptr inbounds float, ptr %62, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %62, i64 %72
   %74 = or disjoint i64 %69, 2
   %75 = mul nsw i64 %74, %71
-  %76 = getelementptr inbounds float, ptr %62, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %62, i64 %75
   %77 = or disjoint i64 %69, 1
   %78 = mul nsw i64 %77, %71
-  %79 = getelementptr inbounds float, ptr %62, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %62, i64 %78
   %80 = trunc nsw i64 %indvars.iv119 to i32
   %81 = shl i32 %80, 2
   %82 = mul i32 %81, %61
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr %62, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %62, i64 %83
   %85 = icmp sgt i32 %61, 3
   br i1 %85, label %.lr.ph, label %.preheader
 
@@ -1822,7 +1822,7 @@ define internal void @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass.us
   %34 = mul nsw i64 %indvars.iv, %31
-  %35 = getelementptr inbounds float, ptr %25, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %25, i64 %34
   br label %36
 
 36:                                               ; preds = %.noexc.us.us, %36
@@ -1855,7 +1855,7 @@ define internal void @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
   %49 = sext i32 %41 to i64
   %50 = mul nsw i64 %indvars.iv62, %49
-  %51 = getelementptr inbounds float, ptr %42, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %42, i64 %50
   %52 = icmp sgt i32 %41, 3
   br i1 %52, label %.lr.ph, label %.preheader
 

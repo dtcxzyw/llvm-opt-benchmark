@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/heap_profiler_allocation_context.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.base::trace_event::StackFrame" = type { i32, ptr }
-
 @_ZN4base11trace_event9BacktraceC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base11trace_event9BacktraceC2Ev
 @_ZN4base11trace_event17AllocationContextC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base11trace_event17AllocationContextC2Ev
 @_ZN4base11trace_event17AllocationContextC1ERKNS0_9BacktraceEPKc = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4base11trace_event17AllocationContextC2ERKNS0_9BacktraceEPKc
@@ -241,10 +239,10 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_e
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %14, %.lr.ph ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.08
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.08
   store ptr %12, ptr %13, align 8, !tbaa !20
   %14 = add nuw i64 %.08, 1
   %.not = icmp eq i64 %14, %5
@@ -264,10 +262,10 @@ define noundef i64 @_ZNK9base_hash4hashIN4base11trace_event17AllocationContextEE
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.08.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.08.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.08.i
   store ptr %8, ptr %9, align 8, !tbaa !20
   %10 = add nuw i64 %.08.i, 1
   %.not.i = icmp eq i64 %10, %5

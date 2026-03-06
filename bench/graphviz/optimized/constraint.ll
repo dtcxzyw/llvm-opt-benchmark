@@ -1015,7 +1015,7 @@ points_append.exit.i:                             ; preds = %130
   %.0.in11.i.i.i = phi i64 [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.39.1.lcssa.i, %.lr.ph14.split.i.i.i ]
   %.0.i.i.i = add i64 %.0.in11.i.i.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %140 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.1.lcssa.i, i64 %.0.i.i.i
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.1.lcssa.i, i64 %.0.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !tbaa.struct !88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !88
@@ -1181,7 +1181,7 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
   br i1 %228, label %241, label %229
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %.sroa.39.1122.i
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %227, i64 %.sroa.39.1122.i
   %231 = sub i64 %spec.select.i.i69.i, %.sroa.39.1122.i
   %232 = shl i64 %231, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %230, i8 0, i64 %232, i1 false)
@@ -1192,8 +1192,8 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
 235:                                              ; preds = %229
   %236 = sub i64 %.sroa.39.1122.i, %.sroa.17.1120.i
   %237 = sub i64 %spec.select.i.i69.i, %236
-  %238 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %237
-  %239 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %.sroa.17.1120.i
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %227, i64 %237
+  %239 = getelementptr inbounds nuw [16 x i8], ptr %227, i64 %.sroa.17.1120.i
   %240 = shl i64 %236, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %238, ptr nonnull align 8 %239, i64 %240, i1 false)
   br label %points_append.exit72.i
@@ -1212,7 +1212,7 @@ points_append.exit72.i:                           ; preds = %235, %229, %220
   %.sroa.39.5.i = phi i64 [ %.sroa.39.1122.i, %220 ], [ %spec.select.i.i69.i, %235 ], [ %spec.select.i.i69.i, %229 ]
   %245 = add i64 %.sroa.17.9.i, %.sroa.30.1121.i
   %246 = urem i64 %245, %.sroa.39.5.i
-  %247 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.5.i, i64 %246
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.5.i, i64 %246
   store double %.sroa.0.0.i86, ptr %247, align 8, !tbaa !8
   %.sroa.2.0..sroa_idx.i.i68.i = getelementptr inbounds nuw i8, ptr %247, i64 8
   store double %.sroa.7.0.i, ptr %.sroa.2.0..sroa_idx.i.i68.i, align 8, !tbaa !8
@@ -1298,18 +1298,18 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
 
 ._crit_edge.thread.i:                             ; preds = %257
   %272 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #18
-  %273 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.4.i106117, i64 %260
+  %273 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.4.i106117, i64 %260
   %274 = load double, ptr %273, align 8, !tbaa !94
-  %275 = getelementptr inbounds nuw %struct.pointf_s, ptr %272, i64 %260
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %272, i64 %260
   store double %274, ptr %275, align 8, !tbaa !94
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store double 1.000000e+00, ptr %276, align 8, !tbaa !95
   br label %computeScaleXY.exit
 
 .lr.ph.split.us.preheader.i:                      ; preds = %265
-  %277 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.4.i106117, i64 %260
+  %277 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.4.i106117, i64 %260
   %278 = load double, ptr %277, align 8, !tbaa !94
-  %279 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %260
+  %279 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %260
   store double %278, ptr %279, align 8, !tbaa !94
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store double 1.000000e+00, ptr %280, align 8, !tbaa !95
@@ -1319,9 +1319,9 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
   %282 = phi double [ %288, %.lr.ph.split.us.i ], [ 1.000000e+00, %.lr.ph.split.us.preheader.i ]
   %.04145.us.i = phi i64 [ %291, %.lr.ph.split.us.i ], [ %281, %.lr.ph.split.us.preheader.i ]
-  %283 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.4.i106117, i64 %.04145.us.i
+  %283 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.4.i106117, i64 %.04145.us.i
   %284 = load double, ptr %283, align 8, !tbaa !94
-  %285 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %.04145.us.i
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %.04145.us.i
   store double %284, ptr %285, align 8, !tbaa !94
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %287 = load double, ptr %286, align 8, !tbaa !95
@@ -1336,7 +1336,7 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   %.049.i = phi i64 [ %298, %.lr.ph51.i ], [ 0, %.lr.ph.split.us.i ]
   %.04048.i = phi i64 [ %.1.i91, %.lr.ph51.i ], [ 0, %.lr.ph.split.us.i ]
   %.04247.i = phi double [ %.143.i, %.lr.ph51.i ], [ 0x7FF0000000000000, %.lr.ph.split.us.i ]
-  %292 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %.049.i
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %.049.i
   %293 = load double, ptr %292, align 8, !tbaa !94
   %294 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %295 = load double, ptr %294, align 8, !tbaa !95
@@ -1349,7 +1349,7 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   br i1 %exitcond.not.i92, label %computeScaleXY.exit.loopexit, label %.lr.ph51.i, !llvm.loop !96
 
 computeScaleXY.exit.loopexit:                     ; preds = %.lr.ph51.i
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %.1.i91
+  %.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %.1.i91
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !94
   br label %computeScaleXY.exit
 
@@ -1357,7 +1357,7 @@ computeScaleXY.exit:                              ; preds = %computeScaleXY.exit
   %299 = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %.pre, %computeScaleXY.exit.loopexit ]
   %300 = phi ptr [ %272, %._crit_edge.thread.i ], [ %266, %computeScaleXY.exit.loopexit ]
   %.040.lcssa.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.1.i91, %computeScaleXY.exit.loopexit ]
-  %301 = getelementptr inbounds nuw %struct.pointf_s, ptr %300, i64 %.040.lcssa.i
+  %301 = getelementptr inbounds nuw [16 x i8], ptr %300, i64 %.040.lcssa.i
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = load double, ptr %302, align 8, !tbaa !95
   call void @free(ptr noundef nonnull %300) #17
@@ -1673,9 +1673,9 @@ gv_recalloc.exit:                                 ; preds = %112, %114
   %120 = load i64, ptr %119, align 8, !tbaa !114
   %121 = add i64 %120, 1
   store i64 %121, ptr %119, align 8, !tbaa !114
-  %122 = getelementptr inbounds nuw ptr, ptr %107, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %120
   store ptr %86, ptr %122, align 8, !tbaa !122
-  %123 = getelementptr inbounds nuw ptr, ptr %107, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %121
   store ptr null, ptr %123, align 8, !tbaa !122
   %124 = load ptr, ptr %26, align 8, !tbaa !12
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 264
@@ -1726,9 +1726,9 @@ gv_recalloc.exit157:                              ; preds = %143, %145
   %151 = load i64, ptr %150, align 8, !tbaa !113
   %152 = add i64 %151, 1
   store i64 %152, ptr %150, align 8, !tbaa !113
-  %153 = getelementptr inbounds nuw ptr, ptr %138, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %151
   store ptr %86, ptr %153, align 8, !tbaa !122
-  %154 = getelementptr inbounds nuw ptr, ptr %138, i64 %152
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %152
   store ptr null, ptr %154, align 8, !tbaa !122
   br label %155
 
@@ -1950,9 +1950,9 @@ gv_recalloc.exit.i:                               ; preds = %254, %252
   %260 = load i64, ptr %259, align 8, !tbaa !114
   %261 = add i64 %260, 1
   store i64 %261, ptr %259, align 8, !tbaa !114
-  %262 = getelementptr inbounds nuw ptr, ptr %247, i64 %260
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %260
   store ptr %222, ptr %262, align 8, !tbaa !122
-  %263 = getelementptr inbounds nuw ptr, ptr %247, i64 %261
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %261
   store ptr null, ptr %263, align 8, !tbaa !122
   %264 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %265 = load ptr, ptr %264, align 8, !tbaa !12
@@ -2004,9 +2004,9 @@ gv_recalloc.exit52.i:                             ; preds = %286, %284
   %292 = load i64, ptr %291, align 8, !tbaa !113
   %293 = add i64 %292, 1
   store i64 %293, ptr %291, align 8, !tbaa !113
-  %294 = getelementptr inbounds nuw ptr, ptr %279, i64 %292
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %292
   store ptr %222, ptr %294, align 8, !tbaa !122
-  %295 = getelementptr inbounds nuw ptr, ptr %279, i64 %293
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %293
   store ptr null, ptr %295, align 8, !tbaa !122
   %.pre.i = load ptr, ptr %224, align 8, !tbaa !12
   br label %296
@@ -2253,9 +2253,9 @@ gv_recalloc.exit:                                 ; preds = %93, %95
   %101 = load i64, ptr %100, align 8, !tbaa !114
   %102 = add i64 %101, 1
   store i64 %102, ptr %100, align 8, !tbaa !114
-  %103 = getelementptr inbounds nuw ptr, ptr %88, i64 %101
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %101
   store ptr %.193130, ptr %103, align 8, !tbaa !122
-  %104 = getelementptr inbounds nuw ptr, ptr %88, i64 %102
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %102
   store ptr null, ptr %104, align 8, !tbaa !122
   %105 = load i32, ptr %.193130, align 8
   %106 = and i32 %105, 3
@@ -2338,7 +2338,7 @@ gv_recalloc.exit106:                              ; preds = %127, %134, %136
   %159 = load i64, ptr %158, align 8, !tbaa !113
   %160 = add i64 %159, 1
   store i64 %160, ptr %158, align 8, !tbaa !113
-  %161 = getelementptr inbounds nuw ptr, ptr %157, i64 %159
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %159
   store ptr %.193130, ptr %161, align 8, !tbaa !122
   %162 = load i32, ptr %.193130, align 8
   %163 = and i32 %162, 3
@@ -2352,7 +2352,7 @@ gv_recalloc.exit106:                              ; preds = %127, %134, %136
   %171 = load ptr, ptr %170, align 8, !tbaa !63
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 264
   %173 = load i64, ptr %172, align 8, !tbaa !113
-  %174 = getelementptr inbounds nuw ptr, ptr %171, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %173
   store ptr null, ptr %174, align 8, !tbaa !122
   %175 = tail call ptr @agnxtout(ptr noundef %6, ptr noundef nonnull %.193130) #17
   %.not96 = icmp eq ptr %175, null

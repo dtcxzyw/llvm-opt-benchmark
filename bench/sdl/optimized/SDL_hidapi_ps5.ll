@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.DS5EffectsState_t = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [11 x i8], [11 x i8], [6 x i8], i8, [2 x i8], i8, i8, i8, i8, i8, i8 }
-%struct.IMUCalibrationData = type { i16, float }
 
 @.str = private unnamed_addr constant [24 x i8] c"SDL_JOYSTICK_HIDAPI_PS5\00", align 1
 @SDL_HIDAPI_DriverPS5 = hidden local_unnamed_addr global { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str, i8 1, [7 x i8] zeroinitializer, ptr @HIDAPI_DriverPS5_RegisterHints, ptr @HIDAPI_DriverPS5_UnregisterHints, ptr @HIDAPI_DriverPS5_IsEnabled, ptr @HIDAPI_DriverPS5_IsSupportedDevice, ptr @HIDAPI_DriverPS5_InitDevice, ptr @HIDAPI_DriverPS5_GetDevicePlayerIndex, ptr @HIDAPI_DriverPS5_SetDevicePlayerIndex, ptr @HIDAPI_DriverPS5_UpdateDevice, ptr @HIDAPI_DriverPS5_OpenJoystick, ptr @HIDAPI_DriverPS5_RumbleJoystick, ptr @HIDAPI_DriverPS5_RumbleJoystickTriggers, ptr @HIDAPI_DriverPS5_GetJoystickCapabilities, ptr @HIDAPI_DriverPS5_SetJoystickLED, ptr @HIDAPI_DriverPS5_SendJoystickEffect, ptr @HIDAPI_DriverPS5_SetJoystickSensorsEnabled, ptr @HIDAPI_DriverPS5_CloseJoystick, ptr @HIDAPI_DriverPS5_FreeDevice }, align 8
@@ -289,7 +288,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_InitDevice(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %109
   %111 = zext nneg i8 %89 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.HIDAPI_DriverPS5_InitDevice, i64 %111
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.HIDAPI_DriverPS5_InitDevice, i64 %111
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %112
 
@@ -1418,7 +1417,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 106:                                              ; preds = %122, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %122 ]
-  %107 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %66, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i
   %108 = load i16, ptr %107, align 4
   %109 = sext i16 %108 to i32
   %110 = call i32 @SDL_abs_REAL(i32 noundef %109) #9

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"struct.(anonymous namespace)::Step" = type <{ ptr, i8, i8, [6 x i8] }>
 %struct.PJ_XYZ = type { double, double, double }
 %struct.PJ_LPZ = type { double, double, double }
 %union.PJ_COORD = type { [4 x double] }
@@ -218,7 +217,7 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %34, %._crit_edge.lo
   %.01113.i = phi ptr [ %51, %.lr.ph.i302 ], [ %43, %.preheader.i301 ]
   %48 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 9
   %49 = add i64 %.014.i, 1
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %.014.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.014.i
   store ptr %48, ptr %50, align 8, !tbaa !83
   %51 = load ptr, ptr %.01113.i, align 8, !tbaa !80
   %.not.i303 = icmp eq ptr %51, null
@@ -231,7 +230,7 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %34, %._crit_edge.lo
 
 .loopexit337:                                     ; preds = %.lr.ph.i302, %.preheader.i301
   %.0.lcssa.i304 = phi i64 [ 0, %.preheader.i301 ], [ %49, %.lr.ph.i302 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %46, i64 %.0.lcssa.i304
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0.lcssa.i304
   store ptr @.str.10, ptr %54, align 8, !tbaa !83
   store ptr %46, ptr %42, align 8, !tbaa !85
   %55 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef 8) #21
@@ -257,7 +256,7 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %34, %._crit_edge.lo
   %.0236360 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1237, %.critedge278 ]
   %.0238359 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1239, %.critedge278 ]
   %.0240358 = phi i32 [ -1, %.lr.ph.preheader ], [ %.2242, %.critedge278 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !83
   %.not = icmp eq ptr %62, null
   br i1 %.not, label %.critedge, label %63
@@ -427,7 +426,7 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
 .lr.ph391:                                        ; preds = %_ZL13set_ellipsoidP8PJconsts.exit
   %.1250375 = add nuw i32 %.0238.lcssa, 1
   %133 = sext i32 %.1250375 to i64
-  %134 = getelementptr inbounds ptr, ptr %46, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %46, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %136 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -439,7 +438,7 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
   tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %.1232390)
   %.0249368 = add nsw i32 %.0243389, 1
   %139 = sext i32 %.0249368 to i64
-  %140 = getelementptr inbounds ptr, ptr %46, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %46, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !83
   %142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.10, ptr noundef nonnull dereferenceable(1) %141) #22
   %.not273369 = icmp eq i32 %142, 0
@@ -467,10 +466,10 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
   %indvars.iv421 = phi i64 [ %indvars.iv.next422, %.lr.ph372 ], [ %139, %138 ]
   %148 = phi ptr [ %151, %.lr.ph372 ], [ %141, %138 ]
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
-  %149 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv423
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv423
   store ptr %148, ptr %149, align 8, !tbaa !83
   %indvars.iv.next422 = add nsw i64 %indvars.iv421, 1
-  %150 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.next422
+  %150 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv.next422
   %151 = load ptr, ptr %150, align 8, !tbaa !83
   %152 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.10, ptr noundef nonnull dereferenceable(1) %151) #22
   %.not273 = icmp eq i32 %152, 0
@@ -481,10 +480,10 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
   %indvars.iv428 = phi i64 [ %133, %.lr.ph379.preheader ], [ %indvars.iv.next429, %.lr.ph379 ]
   %153 = phi ptr [ %145, %.lr.ph379.preheader ], [ %156, %.lr.ph379 ]
   %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
-  %154 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv430
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv430
   store ptr %153, ptr %154, align 8, !tbaa !83
   %indvars.iv.next429 = add nsw i64 %indvars.iv428, 1
-  %155 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.next429
+  %155 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv.next429
   %156 = load ptr, ptr %155, align 8, !tbaa !83
   %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.10, ptr noundef nonnull dereferenceable(1) %156) #22
   %.not274 = icmp eq i32 %157, 0
@@ -507,7 +506,7 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
 
 .lr.ph383:                                        ; preds = %.lr.ph383.preheader, %.lr.ph383
   %indvars.iv435 = phi i64 [ 1, %.lr.ph383.preheader ], [ %indvars.iv.next436, %.lr.ph383 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv435
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv435
   %162 = load ptr, ptr %161, align 8, !tbaa !83
   tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef %162)
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
@@ -557,7 +556,7 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
 
 184:                                              ; preds = %.lr.ph387, %193
   %indvars.iv440 = phi i64 [ 0, %.lr.ph387 ], [ %indvars.iv.next441, %193 ]
-  %185 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv440
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv440
   %186 = load ptr, ptr %185, align 8, !tbaa !83
   %187 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.15, ptr noundef nonnull dereferenceable(1) %186) #22
   %188 = icmp eq i32 %187, 0
@@ -696,7 +695,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 250:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i, %246
   store ptr %225, ptr %135, align 8, !tbaa !113
   store ptr %245, ptr %136, align 8, !tbaa !107
-  %251 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %225, i64 %223
+  %251 = getelementptr inbounds nuw [16 x i8], ptr %225, i64 %223
   store ptr %251, ptr %137, align 8, !tbaa !108
   br label %252
 
@@ -824,7 +823,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 .lr.ph404:                                        ; preds = %.lr.ph404.preheader, %320
   %indvars.iv446 = phi i64 [ %302, %.lr.ph404.preheader ], [ %indvars.iv.next447, %320 ]
   %.val294 = load ptr, ptr %255, align 8, !tbaa !113
-  %303 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val294, i64 %indvars.iv446
+  %303 = getelementptr inbounds nuw [16 x i8], ptr %.val294, i64 %indvars.iv446
   %304 = load ptr, ptr %303, align 8, !tbaa !109
   %305 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %304)
   %306 = icmp eq i32 %305, 0
@@ -837,7 +836,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 
 310:                                              ; preds = %307
   %.val295 = load ptr, ptr %255, align 8, !tbaa !113
-  %311 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val295, i64 %indvars.iv446
+  %311 = getelementptr inbounds nuw [16 x i8], ptr %.val295, i64 %indvars.iv446
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
   %313 = load ptr, ptr %312, align 8, !tbaa !109
   %314 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %313)
@@ -867,7 +866,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 .lr.ph406:                                        ; preds = %.lr.ph406.preheader, %340
   %indvars.iv449 = phi i64 [ 1, %.lr.ph406.preheader ], [ %indvars.iv.next450, %340 ]
   %.val296 = load ptr, ptr %255, align 8, !tbaa !113
-  %323 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val296, i64 %indvars.iv449
+  %323 = getelementptr inbounds nuw [16 x i8], ptr %.val296, i64 %indvars.iv449
   %324 = load ptr, ptr %323, align 8, !tbaa !109
   %325 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %324)
   %326 = icmp eq i32 %325, 0
@@ -880,7 +879,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 
 330:                                              ; preds = %327
   %.val297 = load ptr, ptr %255, align 8, !tbaa !113
-  %331 = getelementptr %"struct.(anonymous namespace)::Step", ptr %.val297, i64 %indvars.iv449
+  %331 = getelementptr [16 x i8], ptr %.val297, i64 %indvars.iv449
   %332 = getelementptr i8, ptr %331, i64 -16
   %333 = load ptr, ptr %332, align 8, !tbaa !109
   %334 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %333)
@@ -909,11 +908,11 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 342:                                              ; preds = %341
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %.val298 = load ptr, ptr %255, align 8, !tbaa !113
-  %343 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val298, i64 %indvars.iv454
+  %343 = getelementptr inbounds nuw [16 x i8], ptr %.val298, i64 %indvars.iv454
   %344 = load ptr, ptr %343, align 8, !tbaa !109
   %345 = tail call noundef i32 @_Z8pj_rightP8PJconsts(ptr noundef %344)
   %.val299 = load ptr, ptr %255, align 8, !tbaa !113
-  %346 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val299, i64 %indvars.iv.next455
+  %346 = getelementptr inbounds nuw [16 x i8], ptr %.val299, i64 %indvars.iv.next455
   %347 = load ptr, ptr %346, align 8, !tbaa !109
   %348 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %347)
   %349 = icmp eq i32 %345, 0
@@ -2191,7 +2190,7 @@ _ZNSt11_Deque_baseIdSaIdEE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !124
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -2285,7 +2284,7 @@ _ZNSt11_Deque_baseIdSaIdEE15_M_create_nodesEPPdS3_.exit: ; preds = %_ZNSt11_Dequ
   store ptr %48, ptr %49, align 8, !tbaa !155
   store ptr %39, ptr %37, align 8, !tbaa !166
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw double, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !143
   ret void
 
@@ -2416,9 +2415,9 @@ define linkonce_odr void @_ZNSt5dequeIdSaIdEE17_M_reallocate_mapEmb(ptr noundef 
   %19 = load ptr, ptr %0, align 8, !tbaa !124
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -2437,12 +2436,12 @@ define linkonce_odr void @_ZNSt5dequeIdSaIdEE17_M_reallocate_mapEmb(ptr noundef 
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPdS1_ET0_T_S3_S2_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPdS1_ET0_T_S3_S2_.exit
 
@@ -2470,9 +2469,9 @@ _ZNSt11_Deque_baseIdSaIdEE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #24
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPdS1_ET0_T_S3_S2_.exit26, label %53
@@ -2500,7 +2499,7 @@ _ZSt4copyIPPdS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !155
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !153
   %64 = load ptr, ptr %63, align 8, !tbaa !131

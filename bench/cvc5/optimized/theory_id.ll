@@ -72,7 +72,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal6theory8toStringENS1_8Theory
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal6theorylsERSoNS1_8TheoryIdE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal6theorylsERSoNS1_8TheoryIdE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -88,7 +88,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal6theorylsERSoNS1_8TheoryIdE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal6theorylsERSoNS1_8TheoryIdE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal6theory8toStringENS1_8TheoryIdE.exit
 
@@ -439,7 +439,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader
   %12 = zext nneg i32 %.0712 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal6theory15TheoryIdSetUtil11setToStringB5cxx11Ej, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal6theory15TheoryIdSetUtil11setToStringB5cxx11Ej, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #12
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %switch.load, i64 noundef %13)

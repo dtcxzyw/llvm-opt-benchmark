@@ -52,12 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.28" }
 %"class.cv::Vec.28" = type { %"class.cv::Matx.29" }
 %"class.cv::Matx.29" = type { [4 x double] }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Vec.26" = type { %"class.cv::Matx.27" }
-%"class.cv::Matx.27" = type { [3 x double] }
 
 $_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EED2Ev = comdat any
 
@@ -1295,7 +1289,7 @@ _ZNSolsEPFRSoS_E.exit.thread:                     ; preds = %_ZNSt7__cxx1112basi
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270: ; preds = %402
   %404 = load i32, ptr %133, align 4, !tbaa !36
   %405 = sext i32 %404 to i64
-  %406 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN12_GLOBAL__N_113refineMethodsB5cxx11E, i64 %405
+  %406 = getelementptr inbounds [32 x i8], ptr @_ZN12_GLOBAL__N_113refineMethodsB5cxx11E, i64 %405
   %407 = load ptr, ptr %406, align 16, !tbaa !4
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %409 = load i64, ptr %408, align 8, !tbaa !15
@@ -2202,7 +2196,7 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit383.thread: ; preds = %.lr.ph.preh
   unreachable
 
 710:                                              ; preds = %702
-  %711 = getelementptr inbounds nuw %"class.std::vector.21", ptr %704, i64 %.050544
+  %711 = getelementptr inbounds nuw [24 x i8], ptr %704, i64 %.050544
   store i32 0, ptr %605, align 8, !tbaa !111
   store i32 0, ptr %606, align 4, !tbaa !112
   store i32 -2130509811, ptr %65, align 8, !tbaa !107
@@ -2229,7 +2223,7 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit383.thread: ; preds = %.lr.ph.preh
   unreachable
 
 713:                                              ; preds = %710
-  %714 = getelementptr inbounds nuw %"class.cv::Vec.26", ptr %.sroa.0430.0477, i64 %.050544
+  %714 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0430.0477, i64 %.050544
   store i32 -1040056314, ptr %68, align 8, !tbaa !107
   store ptr %714, ptr %614, align 8, !tbaa !110
   store i64 12884901889, ptr %615, align 8
@@ -2245,7 +2239,7 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit383.thread: ; preds = %.lr.ph.preh
   unreachable
 
 716:                                              ; preds = %713
-  %717 = getelementptr inbounds nuw %"class.cv::Vec.26", ptr %.sroa.0425.0, i64 %.050544
+  %717 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0425.0, i64 %.050544
   store i32 -1040056314, ptr %69, align 8, !tbaa !107
   store ptr %717, ptr %616, align 8, !tbaa !110
   store i64 12884901889, ptr %617, align 8
@@ -2485,12 +2479,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i416: ; preds = %.noexc419, %
   store i32 16842752, ptr %77, align 8, !tbaa !107
   store ptr %49, ptr %637, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
-  %787 = getelementptr inbounds nuw %"class.cv::Vec.26", ptr %.sroa.0430.0477, i64 %786
+  %787 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0430.0477, i64 %786
   store i32 -1056833530, ptr %78, align 8, !tbaa !107
   store ptr %787, ptr %639, align 8, !tbaa !110
   store i64 12884901889, ptr %638, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
-  %788 = getelementptr inbounds nuw %"class.cv::Vec.26", ptr %.sroa.0425.0, i64 %786
+  %788 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0425.0, i64 %786
   store i32 -1056833530, ptr %79, align 8, !tbaa !107
   store ptr %788, ptr %641, align 8, !tbaa !110
   store i64 12884901889, ptr %640, align 8

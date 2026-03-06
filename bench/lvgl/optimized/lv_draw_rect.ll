@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_area_t = type { i32, i32, i32, i32 }
 %struct.lv_image_header_t = type <{ i64, i32 }>
 %struct.lv_point_t = type { i32, i32 }
-%struct.lv_grad_stop_t = type { %struct.lv_color_t, i8, i8 }
-%struct.lv_color_t = type { i8, i8, i8 }
 
 @lv_font_montserrat_14 = external constant %struct._lv_font_t, align 8
 
@@ -272,7 +270,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %1, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [5 x i8], ptr %1, i64 %indvars.iv
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 59
   %76 = load i8, ptr %75, align 1, !tbaa !47
   %.not223 = icmp eq i8 %76, -1

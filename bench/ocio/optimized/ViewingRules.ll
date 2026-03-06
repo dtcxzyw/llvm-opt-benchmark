@@ -1332,7 +1332,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev11ViewingRule8validate
   br i1 %.not.i, label %81, label %_ZNK19OpenColorIO_v2_5dev13TokensManager8getTokenEi.exit
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %76, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !39
   br label %_ZNK19OpenColorIO_v2_5dev13TokensManager8getTokenEi.exit
 
@@ -1579,7 +1579,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_poli
   br i1 %.not.i75, label %169, label %_ZNK19OpenColorIO_v2_5dev13TokensManager8getTokenEi.exit77
 
 169:                                              ; preds = %162
-  %170 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %164, i64 %indvars.iv161
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %164, i64 %indvars.iv161
   %171 = load ptr, ptr %170, align 8, !tbaa !39
   br label %_ZNK19OpenColorIO_v2_5dev13TokensManager8getTokenEi.exit77
 
@@ -2380,7 +2380,7 @@ define noundef range(i64 0, -1) i64 @_ZNK19OpenColorIO_v2_5dev12ViewingRules15ge
   %.01727 = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader ]
   %14 = load ptr, ptr %5, align 8, !tbaa !6
   %15 = load ptr, ptr %14, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %15, i64 %.01727
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.01727
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %19 = load ptr, ptr %18, align 8, !tbaa !39
@@ -2480,7 +2480,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev12ViewingRules7getNameEm(ptr nounde
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %1)
   %5 = load ptr, ptr %3, align 8, !tbaa !6
   %6 = load ptr, ptr %5, align 8, !tbaa !11
-  %7 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !39
@@ -2494,7 +2494,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_5dev
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %1)
   %5 = load ptr, ptr %3, align 8, !tbaa !6
   %6 = load ptr, ptr %5, align 8, !tbaa !11
-  %7 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -2519,7 +2519,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev12ViewingRules13getColorSpaceEmm(pt
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %1)
   %10 = load ptr, ptr %8, align 8, !tbaa !6
   %11 = load ptr, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %11, i64 %1
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -2544,7 +2544,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = load ptr, ptr %8, align 8, !tbaa !6
   %27 = load ptr, ptr %26, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %27, i64 %1
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
   %31 = load ptr, ptr %30, align 8, !tbaa !39
@@ -2689,7 +2689,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %66
 
 77:                                               ; preds = %75
   %78 = and i64 %2, 2147483647
-  %79 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !39
   br label %_ZNK19OpenColorIO_v2_5dev13TokensManager8getTokenEi.exit
 
@@ -2737,7 +2737,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr %12, align 8, !tbaa !6
   %19 = load ptr, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %1
   %21 = load ptr, ptr %20, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8, !tbaa !39
@@ -2863,7 +2863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %53
 62:                                               ; preds = %14
   %63 = load ptr, ptr %12, align 8, !tbaa !6
   %64 = load ptr, ptr %63, align 8, !tbaa !11
-  %65 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %64, i64 %1
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %1
   %66 = load ptr, ptr %65, align 8, !tbaa !36
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 88
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 96
@@ -2886,7 +2886,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %77 = load ptr, ptr %12, align 8, !tbaa !6
   %78 = load ptr, ptr %77, align 8, !tbaa !11
-  %79 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %78, i64 %1
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %1
   %80 = load ptr, ptr %79, align 8, !tbaa !36
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %82 = load ptr, ptr %81, align 8, !tbaa !39
@@ -3207,7 +3207,7 @@ define void @_ZN19OpenColorIO_v2_5dev12ViewingRules16removeColorSpaceEmm(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = load ptr, ptr %6, align 8, !tbaa !11
-  %8 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   tail call void @_ZN19OpenColorIO_v2_5dev13TokensManager11removeTokenEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %4) #25
@@ -3489,7 +3489,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_5dev
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %1)
   %5 = load ptr, ptr %3, align 8, !tbaa !6
   %6 = load ptr, ptr %5, align 8, !tbaa !11
-  %7 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -3514,7 +3514,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev12ViewingRules11getEncodingEmm(ptr 
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %1)
   %10 = load ptr, ptr %8, align 8, !tbaa !6
   %11 = load ptr, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %11, i64 %1
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -3539,7 +3539,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = load ptr, ptr %8, align 8, !tbaa !6
   %27 = load ptr, ptr %26, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %27, i64 %1
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
   %31 = load ptr, ptr %30, align 8, !tbaa !39
@@ -3684,7 +3684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %66
 
 77:                                               ; preds = %75
   %78 = and i64 %2, 2147483647
-  %79 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !39
   br label %_ZNK19OpenColorIO_v2_5dev13TokensManager8getTokenEi.exit
 
@@ -3727,7 +3727,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr %12, align 8, !tbaa !6
   %19 = load ptr, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %1
   %21 = load ptr, ptr %20, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8, !tbaa !39
@@ -3853,7 +3853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %53
 62:                                               ; preds = %14
   %63 = load ptr, ptr %12, align 8, !tbaa !6
   %64 = load ptr, ptr %63, align 8, !tbaa !11
-  %65 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %64, i64 %1
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %1
   %66 = load ptr, ptr %65, align 8, !tbaa !36
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 64
@@ -3876,7 +3876,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %77 = load ptr, ptr %12, align 8, !tbaa !6
   %78 = load ptr, ptr %77, align 8, !tbaa !11
-  %79 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %78, i64 %1
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %1
   %80 = load ptr, ptr %79, align 8, !tbaa !36
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %82 = load ptr, ptr %81, align 8, !tbaa !39
@@ -4018,7 +4018,7 @@ define void @_ZN19OpenColorIO_v2_5dev12ViewingRules14removeEncodingEmm(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = load ptr, ptr %6, align 8, !tbaa !11
-  %8 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   tail call void @_ZN19OpenColorIO_v2_5dev13TokensManager11removeTokenEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %4) #25
@@ -4032,7 +4032,7 @@ define noundef i64 @_ZNK19OpenColorIO_v2_5dev12ViewingRules16getNumCustomKeysEm(
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %1)
   %5 = load ptr, ptr %3, align 8, !tbaa !6
   %6 = load ptr, ptr %5, align 8, !tbaa !11
-  %7 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i64, ptr %9, align 8, !tbaa !96
@@ -4050,7 +4050,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev12ViewingRules16getCustomKeyNameEmm
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %1)
   %10 = load ptr, ptr %8, align 8, !tbaa !6
   %11 = load ptr, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %11, i64 %1
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   invoke void @_ZNK19OpenColorIO_v2_5dev19CustomKeysContainer13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %2)
           to label %.noexc unwind label %25
@@ -4110,7 +4110,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = load ptr, ptr %8, align 8, !tbaa !6
   %36 = load ptr, ptr %35, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %36, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %1
   %38 = load ptr, ptr %37, align 8, !tbaa !36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = load ptr, ptr %39, align 8, !tbaa !39
@@ -4286,7 +4286,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev12ViewingRules17getCustomKeyValueEm
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %1)
   %10 = load ptr, ptr %8, align 8, !tbaa !6
   %11 = load ptr, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %11, i64 %1
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   invoke void @_ZNK19OpenColorIO_v2_5dev19CustomKeysContainer13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %2)
           to label %.noexc unwind label %25
@@ -4346,7 +4346,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = load ptr, ptr %8, align 8, !tbaa !6
   %36 = load ptr, ptr %35, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %36, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %1
   %38 = load ptr, ptr %37, align 8, !tbaa !36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = load ptr, ptr %39, align 8, !tbaa !39
@@ -4505,7 +4505,7 @@ define void @_ZN19OpenColorIO_v2_5dev12ViewingRules12setCustomKeyEmPKcS2_(ptr no
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %1)
   %11 = load ptr, ptr %9, align 8, !tbaa !6
   %12 = load ptr, ptr %11, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %12, i64 %1
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   invoke void @_ZN19OpenColorIO_v2_5dev19CustomKeysContainer3setEPKcS2_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %2, ptr noundef %3)
           to label %76 unwind label %15
@@ -4533,7 +4533,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = load ptr, ptr %9, align 8, !tbaa !6
   %26 = load ptr, ptr %25, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %26, i64 %1
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %1
   %28 = load ptr, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %30 = load ptr, ptr %29, align 8, !tbaa !39
@@ -5088,7 +5088,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 75:                                               ; preds = %74
   %76 = load ptr, ptr %28, align 8, !tbaa !6
   %77 = load ptr, ptr %76, align 8, !tbaa !35
-  %78 = getelementptr inbounds %"class.std::shared_ptr.0", ptr %77, i64 %1
+  %78 = getelementptr inbounds [16 x i8], ptr %77, i64 %1
   %79 = invoke ptr @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EERS8_(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr %78, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE9push_backERKS3_.exit unwind label %80
 
@@ -5735,7 +5735,7 @@ define void @_ZN19OpenColorIO_v2_5dev12ViewingRules10removeRuleEm(ptr noundef no
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %1)
   %5 = load ptr, ptr %3, align 8, !tbaa !6
   %6 = load ptr, ptr %5, align 8, !tbaa !35
-  %7 = getelementptr inbounds %"class.std::shared_ptr.0", ptr %6, i64 %1
+  %7 = getelementptr inbounds [16 x i8], ptr %6, i64 %1
   %8 = tail call ptr @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS3_S5_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %7)
   ret void
 }
@@ -5764,7 +5764,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %.06085)
   %14 = load ptr, ptr %3, align 8, !tbaa !6
   %15 = load ptr, ptr %14, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %15, i64 %.06085
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.06085
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %19 = load ptr, ptr %18, align 8, !tbaa !39
@@ -5792,7 +5792,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %28
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %.06085)
   %32 = load ptr, ptr %3, align 8, !tbaa !6
   %33 = load ptr, ptr %32, align 8, !tbaa !11
-  %34 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %33, i64 %.06085
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.06085
   %35 = load ptr, ptr %34, align 8, !tbaa !36
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
@@ -5855,7 +5855,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit74: ; preds = %50, %
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %66, i64 noundef %.06085)
   %67 = load ptr, ptr %3, align 8, !tbaa !6
   %68 = load ptr, ptr %67, align 8, !tbaa !11
-  %69 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %68, i64 %.06085
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %.06085
   %70 = load ptr, ptr %69, align 8, !tbaa !36
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 96
@@ -5918,7 +5918,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77: ; preds = %85, %
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %101, i64 noundef %.06085)
   %102 = load ptr, ptr %3, align 8, !tbaa !6
   %103 = load ptr, ptr %102, align 8, !tbaa !11
-  %104 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %103, i64 %.06085
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %.06085
   %105 = load ptr, ptr %104, align 8, !tbaa !36
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load i64, ptr %106, align 8, !tbaa !96
@@ -6038,7 +6038,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8FindRuleESt10shared_p
   call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %.01439)
   %22 = load ptr, ptr %20, align 8, !tbaa !6
   %23 = load ptr, ptr %22, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %23, i64 %.01439
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.01439
   %25 = load ptr, ptr %24, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %27 = load ptr, ptr %26, align 8, !tbaa !39
@@ -7900,7 +7900,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !53
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !91
   ret void
 }
@@ -9533,7 +9533,7 @@ _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE11_S_re
 _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !11
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !27
   ret void
 }
@@ -9654,7 +9654,7 @@ _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE11_S_re
 _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev11ViewingRuleEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !11
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !14
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !27
   ret void
 }

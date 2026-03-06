@@ -244,7 +244,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   %87 = call noundef ptr @_ZN28TemplateInterpreterGenerator25generate_return_entry_forE8TosStateim(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 7, i32 noundef %82, i64 noundef 2) #7
   %88 = call noundef ptr @_ZN28TemplateInterpreterGenerator25generate_return_entry_forE8TosStateim(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 9, i32 noundef %82, i64 noundef 2) #7
   call void @_ZN10EntryPointC1EPhS0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88) #7
-  %89 = getelementptr inbounds nuw %class.EntryPoint, ptr @_ZN19TemplateInterpreter13_return_entryE, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [80 x i8], ptr @_ZN19TemplateInterpreter13_return_entryE, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %89, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -261,23 +261,23 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   %96 = and i8 %95, 15
   %97 = zext nneg i8 %96 to i32
   %98 = zext nneg i8 %92 to i64
-  %99 = getelementptr inbounds nuw %class.EntryPoint, ptr @_ZN19TemplateInterpreter13_return_entryE, i64 %98
+  %99 = getelementptr inbounds nuw [80 x i8], ptr @_ZN19TemplateInterpreter13_return_entryE, i64 %98
   %100 = zext nneg i8 %94 to i64
-  %101 = getelementptr inbounds nuw %class.EntryPoint, ptr @_ZN19TemplateInterpreter13_return_entryE, i64 %100
+  %101 = getelementptr inbounds nuw [80 x i8], ptr @_ZN19TemplateInterpreter13_return_entryE, i64 %100
   br label %102
 
 102:                                              ; preds = %90, %102
   %indvars.iv277 = phi i64 [ 4, %90 ], [ %indvars.iv.next278, %102 ]
-  %103 = getelementptr inbounds nuw i32, ptr @__const._ZN28TemplateInterpreterGenerator12generate_allEv.states, i64 %indvars.iv277
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN28TemplateInterpreterGenerator12generate_allEv.states, i64 %indvars.iv277
   %104 = load i32, ptr %103, align 4
   %105 = call noundef ptr @_ZNK10EntryPoint5entryE8TosState(ptr noundef nonnull align 8 dereferenceable(80) %99, i32 noundef %104) #7
-  %106 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 %indvars.iv277
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 %indvars.iv277
   store ptr %105, ptr %106, align 8
   %107 = call noundef ptr @_ZNK10EntryPoint5entryE8TosState(ptr noundef nonnull align 8 dereferenceable(80) %101, i32 noundef %104) #7
-  %108 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 %indvars.iv277
+  %108 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 %indvars.iv277
   store ptr %107, ptr %108, align 8
   %109 = call noundef ptr @_ZN28TemplateInterpreterGenerator25generate_return_entry_forE8TosStateim(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %104, i32 noundef %97, i64 noundef 4) #7
-  %110 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 %indvars.iv277
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 %indvars.iv277
   store ptr %109, ptr %110, align 8
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next278, 10
@@ -291,11 +291,11 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv281 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next282, %.preheader ]
-  %111 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 %indvars.iv281
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 %indvars.iv281
   store ptr %.pre, ptr %111, align 8
-  %112 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 %indvars.iv281
+  %112 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 %indvars.iv281
   store ptr %.pre293, ptr %112, align 8
-  %113 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 %indvars.iv281
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 %indvars.iv281
   store ptr %.pre294, ptr %113, align 8
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next282, 4
@@ -323,7 +323,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   %123 = load i8, ptr %122, align 1
   %124 = call noundef i32 @_ZN19AbstractInterpreter18BasicType_as_indexE9BasicType(i8 noundef zeroext %123) #7
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %12, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %12, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %126, align 4
@@ -334,7 +334,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   %130 = call noundef ptr @_ZN28TemplateInterpreterGenerator27generate_result_handler_forE9BasicType(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext %123) #7
   %131 = call noundef i32 @_ZN19AbstractInterpreter18BasicType_as_indexE9BasicType(i8 noundef zeroext %123) #7
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds ptr, ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 %132
   store ptr %130, ptr %133, align 8
   br label %134
 
@@ -1065,7 +1065,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
   br i1 %357, label %_ZN9Bytecodes10is_definedEi.exit.i, label %_ZN9Bytecodes10is_definedEi.exit.thread.i
 
 _ZN9Bytecodes10is_definedEi.exit.i:               ; preds = %356
-  %358 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv.i
+  %358 = getelementptr inbounds nuw [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv.i
   %359 = load i16, ptr %358, align 2
   %.not.i166 = icmp eq i16 %359, 0
   br i1 %.not.i166, label %_ZN9Bytecodes10is_definedEi.exit.thread.i, label %360
@@ -1082,7 +1082,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread.i:        ; preds = %_ZN9Bytecodes10is_d
   %363 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i32 noundef %363, ptr noundef nonnull align 8 dereferenceable(80) %2) #7
   %364 = load ptr, ptr %67, align 8
-  %365 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %indvars.iv.i
+  %365 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %indvars.iv.i
   store ptr %364, ptr %365, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %366
@@ -1098,7 +1098,7 @@ _ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit: ; pred
   br i1 %367, label %_ZN9Bytecodes10is_definedEi.exit.i171, label %_ZN9Bytecodes10is_definedEi.exit.thread.i168
 
 _ZN9Bytecodes10is_definedEi.exit.i171:            ; preds = %_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit
-  %368 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv.i167
+  %368 = getelementptr inbounds nuw [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv.i167
   %369 = load i16, ptr %368, align 2
   %.not.i172 = icmp eq i16 %369, 0
   br i1 %.not.i172, label %_ZN9Bytecodes10is_definedEi.exit.thread.i168, label %370
@@ -1131,7 +1131,7 @@ _ZN28TemplateInterpreterGenerator28set_safepoints_for_all_bytesEv.exit: ; preds 
   %379 = call noundef ptr @_ZN28TemplateInterpreterGenerator24generate_deopt_entry_forE8TosStateiPh(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 7, i32 noundef %374, ptr noundef null) #7
   %380 = call noundef ptr @_ZN28TemplateInterpreterGenerator24generate_deopt_entry_forE8TosStateiPh(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 9, i32 noundef %374, ptr noundef null) #7
   call void @_ZN10EntryPointC1EPhS0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(80) %52, ptr noundef %375, ptr noundef %376, ptr noundef %377, ptr noundef %378, ptr noundef %379, ptr noundef %380) #7
-  %381 = getelementptr inbounds nuw %class.EntryPoint, ptr @_ZN19TemplateInterpreter12_deopt_entryE, i64 %indvars.iv289
+  %381 = getelementptr inbounds nuw [80 x i8], ptr @_ZN19TemplateInterpreter12_deopt_entryE, i64 %indvars.iv289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %381, ptr noundef nonnull align 8 dereferenceable(80) %52, i64 80, i1 false)
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next290, 7
@@ -1252,7 +1252,7 @@ define hidden noundef ptr @_ZN28TemplateInterpreterGenerator21generate_method_en
 
 10:                                               ; preds = %.thread
   %11 = select i1 %.01320, i64 3, i64 2
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %24
@@ -1263,7 +1263,7 @@ define hidden noundef ptr @_ZN28TemplateInterpreterGenerator21generate_method_en
 
 17:                                               ; preds = %.thread
   %18 = zext i1 %.01320 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -1291,7 +1291,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_
   br i1 %5, label %_ZN9Bytecodes10is_definedEi.exit, label %_ZN9Bytecodes10is_definedEi.exit.thread
 
 _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %4
-  %6 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %_ZN9Bytecodes10is_definedEi.exit.thread, label %8
@@ -1308,7 +1308,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %4, %_ZN9Bytecodes10
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(80) %2) #7
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %14
@@ -1332,7 +1332,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator28set_safepoints_for_all_by
   br i1 %3, label %_ZN9Bytecodes10is_definedEi.exit, label %_ZN9Bytecodes10is_definedEi.exit.thread
 
 _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %2
-  %4 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2
   %.not = icmp eq i16 %5, 0
   br i1 %.not, label %_ZN9Bytecodes10is_definedEi.exit.thread, label %6
@@ -1373,7 +1373,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator16set_entry_pointsEN9Byteco
   %12 = alloca ptr, align 8
   %13 = alloca %class.EntryPoint, align 8
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr @_ZN9Bytecodes5_nameE, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @_ZN9Bytecodes5_nameE, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %3, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16, i32 noundef %1) #7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1394,13 +1394,13 @@ define hidden void @_ZN28TemplateInterpreterGenerator16set_entry_pointsEN9Byteco
 
 _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %2
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %22
   %24 = load i16, ptr %23, align 2
   %.not = icmp eq i16 %24, 0
   br i1 %.not, label %_ZN9Bytecodes15wide_is_definedEi.exit.thread, label %_ZN9Bytecodes10is_definedEi.exit.i
 
 _ZN9Bytecodes10is_definedEi.exit.i:               ; preds = %_ZN9Bytecodes10is_definedEi.exit
-  %25 = getelementptr inbounds nuw %class.Template, ptr @_ZN13TemplateTable15_template_tableE, i64 %14
+  %25 = getelementptr inbounds nuw [32 x i8], ptr @_ZN13TemplateTable15_template_tableE, i64 %14
   call void @_ZN28TemplateInterpreterGenerator22set_short_entry_pointsEP8TemplateRPhS3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %.pre = load i16, ptr %23, align 2
   %26 = icmp eq i16 %.pre, 0
@@ -1413,7 +1413,7 @@ _ZN9Bytecodes15wide_is_definedEi.exit:            ; preds = %_ZN9Bytecodes10is_d
   br i1 %.not11, label %_ZN9Bytecodes15wide_is_definedEi.exit.thread, label %29
 
 29:                                               ; preds = %_ZN9Bytecodes15wide_is_definedEi.exit
-  %30 = getelementptr inbounds nuw %class.Template, ptr @_ZN13TemplateTable20_template_table_wideE, i64 %14
+  %30 = getelementptr inbounds nuw [32 x i8], ptr @_ZN13TemplateTable20_template_table_wideE, i64 %14
   %31 = load ptr, ptr %0, align 8
   %32 = load i8, ptr @PrintInterpreter, align 1
   %33 = trunc i8 %32 to i1
@@ -1444,7 +1444,7 @@ _ZN9Bytecodes15wide_is_definedEi.exit.thread:     ; preds = %_ZN9Bytecodes10is_d
   %47 = load ptr, ptr %12, align 8
   call void @_ZN10EntryPointC1EPhS0_S0_S0_S0_S0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef %39, ptr noundef %18, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47) #7
   call void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %13) #7
-  %48 = getelementptr inbounds ptr, ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %14
+  %48 = getelementptr inbounds [8 x i8], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %14
   store ptr %.0, ptr %48, align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %3) #7
   ret void
@@ -1459,7 +1459,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator17set_unimplementedEi(ptr n
   call void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %3) #7
   %6 = load ptr, ptr %4, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 %7
   store ptr %6, ptr %8, align 8
   ret void
 }

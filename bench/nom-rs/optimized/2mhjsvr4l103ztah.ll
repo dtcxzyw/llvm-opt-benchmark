@@ -270,7 +270,7 @@ define noundef zeroext i1 @"_ZN73_$LT$$RF$$u5b$char$u5d$$u20$as$u20$nom..traits.
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !42, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %9, %2
@@ -295,7 +295,7 @@ define noundef zeroext i1 @"_ZN77_$LT$$RF$$u5b$char$u5d$$u20$as$u20$nom..traits.
   %4 = load ptr, ptr %0, align 8, !alias.scope !48, !nonnull !4, !align !42, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !48, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   br label %8
 
 8:                                                ; preds = %10, %2

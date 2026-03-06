@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_.18" = type { double, double }
 
 $_ZNSt12__shared_ptrIN2cv8datasets9TRACK_votELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -437,7 +436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %74
   store i64 0, ptr %109, align 8
   store i32 50397184, ptr %14, align 8, !tbaa !36
   store ptr %12, ptr %108, align 8, !tbaa !39
-  %170 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %169, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %indvars.iv
   %171 = load <2 x double>, ptr %170, align 8
   %172 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %171)
   %173 = shufflevector <2 x double> %171, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -447,7 +446,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %74
   %.sroa.0.0.insert.ext.i = zext i32 %172 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %175 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %169, i64 %indvars.iv.next
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %indvars.iv.next
   %176 = load <2 x double>, ptr %175, align 8
   %177 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %176)
   %178 = shufflevector <2 x double> %176, <2 x double> poison, <2 x i32> <i32 1, i32 poison>

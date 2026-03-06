@@ -21,7 +21,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
   %.013.i = phi ptr [ %5, %4 ], [ %16, %15 ]
   %9 = load i8, ptr %.013.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 8192
   %.not.i = icmp eq i16 %13, 0
@@ -62,7 +62,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
 
 28:                                               ; preds = %.critedge.i
   %29 = zext i8 %19 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %7, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !9
   %32 = and i16 %31, 8192
   %.not20.i = icmp eq i16 %32, 0

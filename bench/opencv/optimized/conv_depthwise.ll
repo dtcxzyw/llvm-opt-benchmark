@@ -530,7 +530,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %177
 .lr.ph.preheader:                                 ; preds = %206
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %208, i8 0, i64 %207, i1 false), !tbaa !49
   %209 = zext nneg i32 %194 to i64
-  %210 = getelementptr inbounds nuw i32, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %209
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -558,7 +558,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %177
   store i32 %218, ptr %220, align 4, !tbaa !49
   %221 = mul nsw i32 %217, %141
   %222 = add nsw i32 %221, %218
-  %223 = getelementptr inbounds nuw i32, ptr %208, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %indvars.iv
   store i32 %222, ptr %223, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %209
@@ -1001,13 +1001,13 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   br i1 %.not, label %._crit_edge243, label %40
 
 40:                                               ; preds = %19
-  %41 = getelementptr inbounds float, ptr %10, i64 %.pre
+  %41 = getelementptr inbounds [4 x i8], ptr %10, i64 %.pre
   %42 = load float, ptr %41, align 4, !tbaa !90
   br label %._crit_edge243
 
 ._crit_edge243:                                   ; preds = %19, %40
   %43 = phi float [ %42, %40 ], [ 1.000000e+00, %19 ]
-  %44 = getelementptr inbounds float, ptr %9, i64 %.pre
+  %44 = getelementptr inbounds [4 x i8], ptr %9, i64 %.pre
   %45 = load float, ptr %44, align 4, !tbaa !90
   %46 = icmp sgt i32 %16, 0
   br i1 %46, label %.lr.ph228, label %._crit_edge229
@@ -1045,9 +1045,9 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   %64 = mul nsw i64 %indvars.iv238, %58
   %65 = sub nsw i64 %64, %59
   %66 = mul nsw i64 %65, %57
-  %67 = getelementptr inbounds float, ptr %11, i64 %66
-  %68 = getelementptr inbounds float, ptr %67, i64 %47
-  %69 = getelementptr inbounds float, ptr %67, i64 %48
+  %67 = getelementptr inbounds [4 x i8], ptr %11, i64 %66
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %47
+  %69 = getelementptr inbounds [4 x i8], ptr %67, i64 %48
   %70 = icmp slt i64 %65, 0
   br i1 %70, label %73, label %71
 
@@ -1068,23 +1068,23 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   %.0199 = phi float [ %34, %71 ], [ 0.000000e+00, %72 ], [ %34, %63 ]
   %.0198 = phi float [ %36, %71 ], [ 0.000000e+00, %72 ], [ %36, %63 ]
   %74 = mul nsw i64 %indvars.iv238, %62
-  %75 = getelementptr inbounds float, ptr %14, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %14, i64 %74
   br i1 %51, label %76, label %102
 
 76:                                               ; preds = %73
   %77 = load float, ptr %.0208, align 4, !tbaa !90
-  %78 = getelementptr inbounds float, ptr %.0208, i64 %52
+  %78 = getelementptr inbounds [4 x i8], ptr %.0208, i64 %52
   %79 = load float, ptr %78, align 4, !tbaa !90
   %80 = fmul float %.0201, %79
   %81 = tail call float @llvm.fmuladd.f32(float %77, float %.0202, float %80)
   %82 = load float, ptr %68, align 4, !tbaa !90
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %28, float %81)
-  %84 = getelementptr inbounds float, ptr %68, i64 %52
+  %84 = getelementptr inbounds [4 x i8], ptr %68, i64 %52
   %85 = load float, ptr %84, align 4, !tbaa !90
   %86 = tail call float @llvm.fmuladd.f32(float %85, float %30, float %83)
   %87 = load float, ptr %.0207, align 4, !tbaa !90
   %88 = tail call float @llvm.fmuladd.f32(float %87, float %.0199, float %86)
-  %89 = getelementptr inbounds float, ptr %.0207, i64 %52
+  %89 = getelementptr inbounds [4 x i8], ptr %.0207, i64 %52
   %90 = load float, ptr %89, align 4, !tbaa !90
   %91 = tail call float @llvm.fmuladd.f32(float %90, float %.0198, float %88)
   %92 = fadd float %45, %91
@@ -1132,40 +1132,40 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   %indvars.iv = phi i64 [ %104, %.lr.ph.preheader ], [ %indvars.iv.next, %148 ]
   %107 = mul nsw i64 %indvars.iv, %54
   %108 = sub nsw i64 %107, %55
-  %109 = getelementptr inbounds float, ptr %.0208, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %.0208, i64 %108
   %110 = load float, ptr %109, align 4, !tbaa !90
   %111 = add nsw i64 %108, %52
-  %112 = getelementptr inbounds float, ptr %.0208, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %.0208, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !90
   %114 = fmul float %.0202, %113
   %115 = tail call float @llvm.fmuladd.f32(float %110, float %.0203, float %114)
   %116 = add nsw i64 %108, %56
-  %117 = getelementptr inbounds float, ptr %.0208, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %.0208, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !90
   %119 = tail call float @llvm.fmuladd.f32(float %118, float %.0201, float %115)
-  %120 = getelementptr inbounds float, ptr %68, i64 %108
+  %120 = getelementptr inbounds [4 x i8], ptr %68, i64 %108
   %121 = load float, ptr %120, align 4, !tbaa !90
   %122 = tail call float @llvm.fmuladd.f32(float %121, float %26, float %119)
-  %123 = getelementptr inbounds float, ptr %68, i64 %111
+  %123 = getelementptr inbounds [4 x i8], ptr %68, i64 %111
   %124 = load float, ptr %123, align 4, !tbaa !90
   %125 = tail call float @llvm.fmuladd.f32(float %124, float %28, float %122)
-  %126 = getelementptr inbounds float, ptr %68, i64 %116
+  %126 = getelementptr inbounds [4 x i8], ptr %68, i64 %116
   %127 = load float, ptr %126, align 4, !tbaa !90
   %128 = tail call float @llvm.fmuladd.f32(float %127, float %30, float %125)
-  %129 = getelementptr inbounds float, ptr %.0207, i64 %108
+  %129 = getelementptr inbounds [4 x i8], ptr %.0207, i64 %108
   %130 = load float, ptr %129, align 4, !tbaa !90
   %131 = tail call float @llvm.fmuladd.f32(float %130, float %.0200, float %128)
-  %132 = getelementptr inbounds float, ptr %.0207, i64 %111
+  %132 = getelementptr inbounds [4 x i8], ptr %.0207, i64 %111
   %133 = load float, ptr %132, align 4, !tbaa !90
   %134 = tail call float @llvm.fmuladd.f32(float %133, float %.0199, float %131)
-  %135 = getelementptr inbounds float, ptr %.0207, i64 %116
+  %135 = getelementptr inbounds [4 x i8], ptr %.0207, i64 %116
   %136 = load float, ptr %135, align 4, !tbaa !90
   %137 = tail call float @llvm.fmuladd.f32(float %136, float %.0198, float %134)
   %138 = fadd float %45, %137
   br i1 %18, label %139, label %143
 
 139:                                              ; preds = %.lr.ph
-  %140 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   %141 = load float, ptr %140, align 4, !tbaa !90
   %142 = fadd float %138, %141
   br label %143
@@ -1182,7 +1182,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
 
 148:                                              ; preds = %144, %143
   %.3 = phi float [ %147, %144 ], [ %.2206, %143 ]
-  %149 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   store float %.3, ptr %149, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1203,13 +1203,13 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   %sext = shl i64 %151, 32
   %154 = ashr exact i64 %sext, 32
   %155 = select i1 %.not215, i64 %154, i64 0
-  %156 = getelementptr inbounds float, ptr %.0208, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr %.0208, i64 %155
   %157 = load float, ptr %156, align 4, !tbaa !90
   %158 = fmul float %.0203, %157
   %sext248 = shl i64 %152, 32
   %159 = ashr exact i64 %sext248, 32
   %160 = select i1 %.not216, i64 %159, i64 0
-  %161 = getelementptr inbounds float, ptr %.0208, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %.0208, i64 %160
   %162 = load float, ptr %161, align 4, !tbaa !90
   %163 = fmul float %.0202, %162
   %164 = fmul float %.0191, %163
@@ -1217,31 +1217,31 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   %sext249 = shl i64 %153, 32
   %166 = ashr exact i64 %sext249, 32
   %167 = select i1 %.not217, i64 %166, i64 0
-  %168 = getelementptr inbounds float, ptr %.0208, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %.0208, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !90
   %170 = fmul float %.0201, %169
   %171 = tail call float @llvm.fmuladd.f32(float %170, float %.0, float %165)
-  %172 = getelementptr inbounds float, ptr %68, i64 %155
+  %172 = getelementptr inbounds [4 x i8], ptr %68, i64 %155
   %173 = load float, ptr %172, align 4, !tbaa !90
   %174 = fmul float %26, %173
   %175 = tail call float @llvm.fmuladd.f32(float %174, float %.0192, float %171)
-  %176 = getelementptr inbounds float, ptr %68, i64 %160
+  %176 = getelementptr inbounds [4 x i8], ptr %68, i64 %160
   %177 = load float, ptr %176, align 4, !tbaa !90
   %178 = fmul float %28, %177
   %179 = tail call float @llvm.fmuladd.f32(float %178, float %.0191, float %175)
-  %180 = getelementptr inbounds float, ptr %68, i64 %167
+  %180 = getelementptr inbounds [4 x i8], ptr %68, i64 %167
   %181 = load float, ptr %180, align 4, !tbaa !90
   %182 = fmul float %30, %181
   %183 = tail call float @llvm.fmuladd.f32(float %182, float %.0, float %179)
-  %184 = getelementptr inbounds float, ptr %.0207, i64 %155
+  %184 = getelementptr inbounds [4 x i8], ptr %.0207, i64 %155
   %185 = load float, ptr %184, align 4, !tbaa !90
   %186 = fmul float %.0200, %185
   %187 = tail call float @llvm.fmuladd.f32(float %186, float %.0192, float %183)
-  %188 = getelementptr inbounds float, ptr %.0207, i64 %160
+  %188 = getelementptr inbounds [4 x i8], ptr %.0207, i64 %160
   %189 = load float, ptr %188, align 4, !tbaa !90
   %190 = fmul float %.0199, %189
   %191 = tail call float @llvm.fmuladd.f32(float %190, float %.0191, float %187)
-  %192 = getelementptr inbounds float, ptr %.0207, i64 %167
+  %192 = getelementptr inbounds [4 x i8], ptr %.0207, i64 %167
   %193 = load float, ptr %192, align 4, !tbaa !90
   %194 = fmul float %.0198, %193
   %195 = tail call float @llvm.fmuladd.f32(float %194, float %.0, float %191)
@@ -1249,7 +1249,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   br i1 %18, label %197, label %201
 
 197:                                              ; preds = %.lr.ph225
-  %198 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv233
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv233
   %199 = load float, ptr %198, align 4, !tbaa !90
   %200 = fadd float %196, %199
   br label %201
@@ -1266,7 +1266,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
 
 206:                                              ; preds = %202, %201
   %.5 = phi float [ %205, %202 ], [ %.4, %201 ]
-  %207 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv233
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv233
   store float %.5, ptr %207, align 4, !tbaa !90
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
@@ -1299,13 +1299,13 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   br i1 %.not, label %._crit_edge161, label %22
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds float, ptr %6, i64 %.pre
+  %23 = getelementptr inbounds [4 x i8], ptr %6, i64 %.pre
   %24 = load float, ptr %23, align 4, !tbaa !90
   br label %._crit_edge161
 
 ._crit_edge161:                                   ; preds = %13, %22
   %25 = phi float [ %24, %22 ], [ 1.000000e+00, %13 ]
-  %26 = getelementptr inbounds float, ptr %5, i64 %.pre
+  %26 = getelementptr inbounds [4 x i8], ptr %5, i64 %.pre
   %27 = load float, ptr %26, align 4, !tbaa !90
   %28 = icmp sgt i32 %4, 0
   br i1 %28, label %29, label %46
@@ -1313,7 +1313,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
 29:                                               ; preds = %._crit_edge161
   %30 = load float, ptr %7, align 4, !tbaa !90
   %31 = sext i32 %3 to i64
-  %32 = getelementptr inbounds float, ptr %7, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %7, i64 %31
   %33 = load float, ptr %32, align 4, !tbaa !90
   %34 = fmul float %18, %33
   %35 = tail call float @llvm.fmuladd.f32(float %30, float %16, float %34)
@@ -1356,25 +1356,25 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   %52 = sext i32 %3 to i64
   %53 = sext i32 %48 to i64
   %wide.trip.count154 = zext nneg i32 %.sroa.speculated to i64
-  %invariant.gep179 = getelementptr float, ptr %7, i64 %52
-  %invariant.gep181 = getelementptr float, ptr %7, i64 %53
+  %invariant.gep179 = getelementptr [4 x i8], ptr %7, i64 %52
+  %invariant.gep181 = getelementptr [4 x i8], ptr %7, i64 %53
   br i1 %12, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.lr.ph.split.us.split.us ], [ %49, %.lr.ph.split.us ]
   %54 = mul nsw i64 %indvars.iv151, %50
   %55 = sub nsw i64 %54, %51
-  %56 = getelementptr inbounds float, ptr %7, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %7, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !90
-  %gep180 = getelementptr float, ptr %invariant.gep179, i64 %55
+  %gep180 = getelementptr [4 x i8], ptr %invariant.gep179, i64 %55
   %58 = load float, ptr %gep180, align 4, !tbaa !90
   %59 = fmul float %16, %58
   %60 = tail call float @llvm.fmuladd.f32(float %57, float %14, float %59)
-  %gep182 = getelementptr float, ptr %invariant.gep181, i64 %55
+  %gep182 = getelementptr [4 x i8], ptr %invariant.gep181, i64 %55
   %61 = load float, ptr %gep182, align 4, !tbaa !90
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %18, float %60)
   %63 = fadd float %27, %62
-  %64 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv151
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv151
   %65 = load float, ptr %64, align 4, !tbaa !90
   %66 = fadd float %63, %65
   store float %66, ptr %64, align 4, !tbaa !90
@@ -1386,17 +1386,17 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph.split.us.split ], [ %49, %.lr.ph.split.us ]
   %67 = mul nsw i64 %indvars.iv146, %50
   %68 = sub nsw i64 %67, %51
-  %69 = getelementptr inbounds float, ptr %7, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %7, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !90
-  %gep176 = getelementptr float, ptr %invariant.gep179, i64 %68
+  %gep176 = getelementptr [4 x i8], ptr %invariant.gep179, i64 %68
   %71 = load float, ptr %gep176, align 4, !tbaa !90
   %72 = fmul float %16, %71
   %73 = tail call float @llvm.fmuladd.f32(float %70, float %14, float %72)
-  %gep178 = getelementptr float, ptr %invariant.gep181, i64 %68
+  %gep178 = getelementptr [4 x i8], ptr %invariant.gep181, i64 %68
   %74 = load float, ptr %gep178, align 4, !tbaa !90
   %75 = tail call float @llvm.fmuladd.f32(float %74, float %18, float %73)
   %76 = fadd float %27, %75
-  %77 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv146
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv146
   store float %76, ptr %77, align 4, !tbaa !90
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count154
@@ -1409,32 +1409,32 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
   %78 = sext i32 %48 to i64
   %79 = sext i32 %3 to i64
-  %invariant.gep = getelementptr float, ptr %7, i64 %79
-  %invariant.gep169 = getelementptr float, ptr %7, i64 %78
+  %invariant.gep = getelementptr [4 x i8], ptr %7, i64 %79
+  %invariant.gep169 = getelementptr [4 x i8], ptr %7, i64 %78
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
   %80 = sext i32 %3 to i64
   %81 = sext i32 %48 to i64
-  %invariant.gep171 = getelementptr float, ptr %7, i64 %80
-  %invariant.gep173 = getelementptr float, ptr %7, i64 %81
+  %invariant.gep171 = getelementptr [4 x i8], ptr %7, i64 %80
+  %invariant.gep173 = getelementptr [4 x i8], ptr %7, i64 %81
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
   %indvars.iv141 = phi i64 [ %49, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next142, %.lr.ph.split.split.us ]
   %82 = mul nsw i64 %indvars.iv141, %50
   %83 = sub nsw i64 %82, %51
-  %84 = getelementptr inbounds float, ptr %7, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %7, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !90
-  %gep172 = getelementptr float, ptr %invariant.gep171, i64 %83
+  %gep172 = getelementptr [4 x i8], ptr %invariant.gep171, i64 %83
   %86 = load float, ptr %gep172, align 4, !tbaa !90
   %87 = fmul float %16, %86
   %88 = tail call float @llvm.fmuladd.f32(float %85, float %14, float %87)
-  %gep174 = getelementptr float, ptr %invariant.gep173, i64 %83
+  %gep174 = getelementptr [4 x i8], ptr %invariant.gep173, i64 %83
   %89 = load float, ptr %gep174, align 4, !tbaa !90
   %90 = tail call float @llvm.fmuladd.f32(float %89, float %18, float %88)
   %91 = fadd float %27, %90
-  %92 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv141
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv141
   %93 = load float, ptr %92, align 4, !tbaa !90
   %94 = fadd float %91, %93
   %95 = fcmp ogt float %94, 0.000000e+00
@@ -1465,20 +1465,20 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   %indvars.iv = phi i64 [ %49, %.lr.ph.split.split.preheader ], [ %indvars.iv.next, %.lr.ph.split.split ]
   %106 = mul nsw i64 %indvars.iv, %50
   %107 = sub nsw i64 %106, %51
-  %108 = getelementptr inbounds float, ptr %7, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %7, i64 %107
   %109 = load float, ptr %108, align 4, !tbaa !90
-  %gep = getelementptr float, ptr %invariant.gep, i64 %107
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %107
   %110 = load float, ptr %gep, align 4, !tbaa !90
   %111 = fmul float %16, %110
   %112 = tail call float @llvm.fmuladd.f32(float %109, float %14, float %111)
-  %gep170 = getelementptr float, ptr %invariant.gep169, i64 %107
+  %gep170 = getelementptr [4 x i8], ptr %invariant.gep169, i64 %107
   %113 = load float, ptr %gep170, align 4, !tbaa !90
   %114 = tail call float @llvm.fmuladd.f32(float %113, float %18, float %112)
   %115 = fadd float %27, %114
   %116 = fcmp ogt float %115, 0.000000e+00
   %117 = fmul float %25, %115
   %118 = select i1 %116, float %115, float %117
-  %119 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store float %118, ptr %119, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count144
@@ -1499,13 +1499,13 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   %sext = shl i64 %122, 32
   %125 = ashr exact i64 %sext, 32
   %126 = select i1 %.not117, i64 %125, i64 0
-  %127 = getelementptr inbounds float, ptr %7, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %7, i64 %126
   %128 = load float, ptr %127, align 4, !tbaa !90
   %129 = fmul float %14, %128
   %sext164 = shl i64 %123, 32
   %130 = ashr exact i64 %sext164, 32
   %131 = select i1 %.not118, i64 %130, i64 0
-  %132 = getelementptr inbounds float, ptr %7, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %7, i64 %131
   %133 = load float, ptr %132, align 4, !tbaa !90
   %134 = fmul float %16, %133
   %135 = fmul float %.0104, %134
@@ -1513,7 +1513,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   %sext165 = shl i64 %124, 32
   %137 = ashr exact i64 %sext165, 32
   %138 = select i1 %.not119, i64 %137, i64 0
-  %139 = getelementptr inbounds float, ptr %7, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %7, i64 %138
   %140 = load float, ptr %139, align 4, !tbaa !90
   %141 = fmul float %18, %140
   %142 = tail call float @llvm.fmuladd.f32(float %141, float %.0, float %136)
@@ -1521,7 +1521,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   br i1 %12, label %144, label %148
 
 144:                                              ; preds = %120
-  %145 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv156
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv156
   %146 = load float, ptr %145, align 4, !tbaa !90
   %147 = fadd float %143, %146
   br label %148
@@ -1538,7 +1538,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
 
 153:                                              ; preds = %149, %148
   %.5 = phi float [ %152, %149 ], [ %.4, %148 ]
-  %154 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv156
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv156
   store float %.5, ptr %154, align 4, !tbaa !90
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
@@ -1706,20 +1706,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn12runDe
   %38 = load ptr, ptr %8, align 8, !tbaa !100
   %39 = load i64, ptr %38, align 8, !tbaa !57
   %40 = mul i64 %39, %indvars.iv.i.i.i
-  %41 = getelementptr inbounds nuw float, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = load ptr, ptr %9, align 8, !tbaa !101
   %43 = load ptr, ptr %42, align 8, !tbaa !50
   %44 = load ptr, ptr %10, align 8, !tbaa !102
   %45 = load i64, ptr %44, align 8, !tbaa !57
   %46 = mul i64 %45, %indvars.iv.i.i.i
-  %47 = getelementptr inbounds nuw float, ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %11, align 8, !tbaa !103
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = load ptr, ptr %12, align 8, !tbaa !104
   %51 = load i32, ptr %50, align 4, !tbaa !49
   %52 = mul nsw i32 %51, %35
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds float, ptr %49, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %49, i64 %53
   %55 = load ptr, ptr %13, align 8, !tbaa !105
   %56 = load i32, ptr %55, align 4, !tbaa !49
   %57 = icmp eq i32 %56, 1

@@ -73,7 +73,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %62
   %.04468 = phi i32 [ %63, %62 ], [ 2, %.lr.ph.preheader ]
   %21 = sext i32 %.04468 to i64
-  %22 = getelementptr inbounds ptr, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %24 = load i8, ptr %23, align 1, !tbaa !11
   %.not47 = icmp eq i8 %24, 45
@@ -97,7 +97,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 32:                                               ; preds = %28
   %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !8
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %35, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #12
   %37 = icmp slt i32 %36, 1
@@ -131,7 +131,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 49:                                               ; preds = %45
   %50 = sext i32 %46 to i64
-  %51 = getelementptr inbounds ptr, ptr %1, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !8
   %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %52, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #12
   %54 = icmp slt i32 %53, 1
@@ -165,7 +165,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   unreachable
 
 66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds ptr, ptr %1, i64 %21
+  %67 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   br i1 %.not.not, label %68, label %155
 
 68:                                               ; preds = %66
@@ -222,7 +222,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 .preheader50.i:                                   ; preds = %78, %111
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %111 ], [ 0, %78 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv70.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv70.i
   %96 = load ptr, ptr %95, align 8, !tbaa !48
   %indvars.iv70.tr.i = trunc i64 %indvars.iv70.i to i32
   %97 = shl i32 %indvars.iv70.tr.i, 12
@@ -258,7 +258,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 .preheader52.i:                                   ; preds = %78, %131
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %131 ], [ 0, %78 ]
-  %112 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv62.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv62.i
   %indvars.iv62.tr.i = trunc i64 %indvars.iv62.i to i32
   %113 = shl i32 %indvars.iv62.tr.i, 8
   %114 = udiv i32 %113, 480
@@ -314,7 +314,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 .lr.ph58.i:                                       ; preds = %.preheader.i, %.lr.ph58.i
   %138 = phi i32 [ %143, %.lr.ph58.i ], [ %135, %.preheader.i ]
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %.045.i, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.045.i, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !48
   store ptr %141, ptr %7, align 8, !tbaa !48
   %142 = call i32 @jpeg12_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 1) #12
@@ -326,7 +326,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 .lr.ph.i:                                         ; preds = %.preheader48.i, %.lr.ph.i
   %146 = phi i32 [ %151, %.lr.ph.i ], [ %135, %.preheader48.i ]
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %.044.i, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %.044.i, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !8
   store ptr %149, ptr %6, align 8, !tbaa !8
   %150 = call i32 @jpeg_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #12
@@ -534,7 +534,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
 
 61:                                               ; preds = %.lr.ph63.us, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph63.us ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !50
   %rev.us = call i16 @llvm.bswap.i16(i16 %63)
   store i16 %rev.us, ptr %62, align 2, !tbaa !50

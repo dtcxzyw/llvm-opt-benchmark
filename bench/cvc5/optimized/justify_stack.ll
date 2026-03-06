@@ -671,7 +671,7 @@ define hidden noundef ptr @_ZN4cvc58internal8decision12JustifyStack10getCurrentE
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !49
-  %8 = getelementptr %"class.std::shared_ptr", ptr %7, i64 %3
+  %8 = getelementptr [16 x i8], ptr %7, i64 %3
   %9 = getelementptr i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   br label %11
@@ -851,7 +851,7 @@ _ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_po
 
 77:                                               ; preds = %_ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %2
   %78 = phi ptr [ %.pre, %_ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %8, %2 ]
-  %79 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %78, i64 %1
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %1
   %80 = load ptr, ptr %79, align 8, !tbaa !67
   ret ptr %80
 }
@@ -1142,7 +1142,7 @@ define linkonce_odr hidden void @_ZN4cvc57context6CDListISt10shared_ptrINS_8inte
 _ZN4cvc57context6CDListISt10shared_ptrINS_8internal8decision11JustifyInfoEENS0_14DefaultCleanUpIS6_EESaIS6_EE12truncateListEm.exit: ; preds = %2, %.loopexit.sink.split.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !48
-  %11 = getelementptr inbounds %"class.std::shared_ptr", ptr %10, i64 %4
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !48
   %14 = ptrtoint ptr %10 to i64
@@ -1556,7 +1556,7 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal8decision11JustifyInfoEESaIS5_EE11_S_
 _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal8decision11JustifyInfoEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4cvc58internal8decision11JustifyInfoEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !50
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !62
   ret void
 }

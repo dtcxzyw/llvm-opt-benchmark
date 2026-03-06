@@ -29,11 +29,11 @@ define hidden void @opj_mct_encode(ptr noalias noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.054 = phi i64 [ %19, %.lr.ph ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.054
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.054
   %8 = load <4 x i32>, ptr %7, align 16, !tbaa !3
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %.054
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.054
   %10 = load <4 x i32>, ptr %9, align 16, !tbaa !3
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %.054
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.054
   %12 = load <4 x i32>, ptr %11, align 16, !tbaa !3
   %13 = shl <4 x i32> %10, splat (i32 1)
   %14 = add <4 x i32> %12, %8
@@ -50,11 +50,11 @@ define hidden void @opj_mct_encode(ptr noalias noundef captures(none) %0, ptr no
 
 .lr.ph56:                                         ; preds = %.preheader, %.lr.ph56
   %.155 = phi i64 [ %33, %.lr.ph56 ], [ %.0.lcssa, %.preheader ]
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %.155
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.155
   %22 = load i32, ptr %21, align 4, !tbaa !8
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %.155
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.155
   %24 = load i32, ptr %23, align 4, !tbaa !8
-  %25 = getelementptr inbounds nuw i32, ptr %2, i64 %.155
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.155
   %26 = load i32, ptr %25, align 4, !tbaa !8
   %27 = shl nsw i32 %24, 1
   %28 = add nsw i32 %27, %22
@@ -86,11 +86,11 @@ define hidden void @opj_mct_decode(ptr noalias noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.051 = phi i64 [ %18, %.lr.ph ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.051
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.051
   %8 = load <4 x i32>, ptr %7, align 16, !tbaa !3
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %.051
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.051
   %10 = load <4 x i32>, ptr %9, align 16, !tbaa !3
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %.051
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.051
   %12 = load <4 x i32>, ptr %11, align 16, !tbaa !3
   %13 = add <4 x i32> %12, %10
   %14 = ashr <4 x i32> %13, splat (i32 2)
@@ -106,11 +106,11 @@ define hidden void @opj_mct_decode(ptr noalias noundef captures(none) %0, ptr no
 
 .lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
   %.152 = phi i64 [ %31, %.lr.ph53 ], [ %.0.lcssa, %.preheader ]
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %.152
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.152
   %21 = load i32, ptr %20, align 4, !tbaa !8
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %.152
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.152
   %23 = load i32, ptr %22, align 4, !tbaa !8
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %.152
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.152
   %25 = load i32, ptr %24, align 4, !tbaa !8
   %26 = add nsw i32 %25, %23
   %27 = ashr i32 %26, 2
@@ -131,7 +131,7 @@ define hidden void @opj_mct_decode(ptr noalias noundef captures(none) %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden double @opj_mct_getnorm(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw double, ptr @opj_mct_norms, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @opj_mct_norms, i64 %2
   %4 = load double, ptr %3, align 8, !tbaa !13
   ret double %4
 }
@@ -209,11 +209,11 @@ define hidden void @opj_mct_encode_real(ptr noalias noundef captures(none) %0, p
 
 .lr.ph101:                                        ; preds = %._crit_edge, %.lr.ph101
   %.199 = phi i64 [ %65, %.lr.ph101 ], [ 0, %._crit_edge ]
-  %50 = getelementptr inbounds nuw float, ptr %.0.lcssa, i64 %.199
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.0.lcssa, i64 %.199
   %51 = load float, ptr %50, align 4, !tbaa !16
-  %52 = getelementptr inbounds nuw float, ptr %.090.lcssa, i64 %.199
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.090.lcssa, i64 %.199
   %53 = load float, ptr %52, align 4, !tbaa !16
-  %54 = getelementptr inbounds nuw float, ptr %.091.lcssa, i64 %.199
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.091.lcssa, i64 %.199
   %55 = load float, ptr %54, align 4, !tbaa !16
   %56 = fmul float %53, 0x3FE2C8B440000000
   %57 = tail call float @llvm.fmuladd.f32(float %51, float 0x3FD322D0E0000000, float %56)
@@ -297,11 +297,11 @@ define hidden void @opj_mct_decode_real(ptr noalias noundef captures(none) %0, p
 
 .lr.ph85:                                         ; preds = %._crit_edge, %.lr.ph85
   %.183 = phi i64 [ %48, %.lr.ph85 ], [ 0, %._crit_edge ]
-  %36 = getelementptr inbounds nuw float, ptr %.0.lcssa, i64 %.183
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.0.lcssa, i64 %.183
   %37 = load float, ptr %36, align 4, !tbaa !16
-  %38 = getelementptr inbounds nuw float, ptr %.074.lcssa, i64 %.183
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.074.lcssa, i64 %.183
   %39 = load float, ptr %38, align 4, !tbaa !16
-  %40 = getelementptr inbounds nuw float, ptr %.075.lcssa, i64 %.183
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.075.lcssa, i64 %.183
   %41 = load float, ptr %40, align 4, !tbaa !16
   %42 = tail call float @llvm.fmuladd.f32(float %41, float 0x3FF66E9780000000, float %37)
   %43 = fneg float %39
@@ -323,7 +323,7 @@ define hidden void @opj_mct_decode_real(ptr noalias noundef captures(none) %0, p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden double @opj_mct_getnorm_real(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw double, ptr @opj_mct_norms_real, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @opj_mct_norms_real, i64 %2
   %4 = load double, ptr %3, align 8, !tbaa !13
   ret double %4
 }
@@ -340,7 +340,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_encode_custom(ptr noundef readonly ca
 
 11:                                               ; preds = %5
   %12 = zext i32 %3 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   %14 = zext i32 %6 to i64
   %.not72 = icmp eq i32 %6, 0
   br i1 %.not72, label %.preheader54, label %.lr.ph
@@ -358,7 +358,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_encode_custom(ptr noundef readonly ca
 .preheader.us:                                    ; preds = %.lr.ph58.us, %17
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %17 ], [ 0, %.lr.ph58.us ]
   %.062.us = phi ptr [ %31, %17 ], [ %13, %.lr.ph58.us ]
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv84
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv84
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   store i32 0, ptr %16, align 4, !tbaa !8
   br label %19
@@ -375,7 +375,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_encode_custom(ptr noundef readonly ca
   %.160.us = phi ptr [ %31, %19 ], [ %.062.us, %.preheader.us ]
   %20 = phi i32 [ %30, %19 ], [ 0, %.preheader.us ]
   %21 = load i32, ptr %.160.us, align 4, !tbaa !8
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv79
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv79
   %23 = load i32, ptr %22, align 4, !tbaa !8
   %24 = sext i32 %21 to i64
   %25 = sext i32 %23 to i64
@@ -392,10 +392,10 @@ define hidden range(i32 0, 2) i32 @opj_mct_encode_custom(ptr noundef readonly ca
 
 .lr.ph58.us:                                      ; preds = %.lr.ph58.us.preheader, %.lr.ph58.us
   %indvars.iv = phi i64 [ 0, %.lr.ph58.us.preheader ], [ %indvars.iv.next, %.lr.ph58.us ]
-  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !21
   %34 = load i32, ptr %33, align 4, !tbaa !8
-  %35 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next, %12
@@ -413,7 +413,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_encode_custom(ptr noundef readonly ca
   %38 = load float, ptr %.04556, align 4, !tbaa !16
   %39 = fmul float %38, 8.192000e+03
   %40 = fptosi float %39 to i32
-  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %.04655
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.04655
   store i32 %40, ptr %41, align 4, !tbaa !8
   %42 = add nuw nsw i64 %.04655, 1
   %exitcond.not = icmp eq i64 %42, %14
@@ -443,7 +443,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_decode_custom(ptr noundef readonly ca
 
 10:                                               ; preds = %5
   %11 = zext i32 %3 to i64
-  %12 = getelementptr inbounds nuw float, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %.not56 = icmp eq i64 %1, 0
   %.not57 = icmp eq i32 %3, 0
   %or.cond = or i1 %.not56, %.not57
@@ -456,12 +456,12 @@ define hidden range(i32 0, 2) i32 @opj_mct_decode_custom(ptr noundef readonly ca
 ..preheader_crit_edge.us.us:                      ; preds = %25, %14
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %14 ], [ 0, %25 ]
   %.03745.us.us = phi ptr [ %20, %14 ], [ %0, %25 ]
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv65
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv65
   store float 0.000000e+00, ptr %13, align 4, !tbaa !16
   br label %18
 
 14:                                               ; preds = %18
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv65
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv65
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store ptr %17, ptr %15, align 8, !tbaa !29
@@ -476,7 +476,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_decode_custom(ptr noundef readonly ca
   %19 = phi float [ %24, %18 ], [ 0.000000e+00, %..preheader_crit_edge.us.us ]
   %20 = getelementptr inbounds nuw i8, ptr %.13843.us.us, i64 4
   %21 = load float, ptr %.13843.us.us, align 4, !tbaa !16
-  %22 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv60
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv60
   %23 = load float, ptr %22, align 4, !tbaa !16
   %24 = tail call float @llvm.fmuladd.f32(float %21, float %23, float %19)
   store float %24, ptr %13, align 4, !tbaa !16
@@ -486,10 +486,10 @@ define hidden range(i32 0, 2) i32 @opj_mct_decode_custom(ptr noundef readonly ca
 
 25:                                               ; preds = %.preheader41.us.us, %25
   %indvars.iv = phi i64 [ 0, %.preheader41.us.us ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = load float, ptr %27, align 4, !tbaa !16
-  %29 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store float %28, ptr %29, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
@@ -520,7 +520,7 @@ define hidden void @opj_calculate_norms(ptr noundef writeonly captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %4 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = trunc nuw i64 %indvars.iv to i32
   br label %6
 
@@ -529,7 +529,7 @@ define hidden void @opj_calculate_norms(ptr noundef writeonly captures(none) %0,
   %.02325 = phi i32 [ %5, %.lr.ph ], [ %11, %6 ]
   %7 = phi double [ 0.000000e+00, %.lr.ph ], [ %13, %6 ]
   %8 = zext i32 %.02325 to i64
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %8
   %10 = load float, ptr %9, align 4, !tbaa !16
   %11 = add i32 %.02325, %1
   %12 = fpext float %10 to double

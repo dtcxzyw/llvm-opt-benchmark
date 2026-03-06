@@ -595,7 +595,7 @@ define internal i32 @dissect_ftdi_ft(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %110
   %114 = zext nneg i8 %112 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ftdi_ft, i64 %114
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_ftdi_ft, i64 %114
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lindex_to_interface.exit
 

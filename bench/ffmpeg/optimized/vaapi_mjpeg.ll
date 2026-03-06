@@ -62,22 +62,22 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mjpeg_start_frame(ptr nound
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !50
   %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds nuw %struct.anon, ptr %.sroa.4.0..sroa_idx, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4.0..sroa_idx, i64 %indvars.iv
   store i8 %32, ptr %33, align 4, !tbaa !51
-  %34 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !50
   %36 = trunc i32 %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %36, ptr %37, align 1, !tbaa !53
-  %38 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !50
   %40 = trunc i32 %39 to i8
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 %40, ptr %41, align 2, !tbaa !54
-  %42 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !50
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 3
@@ -130,7 +130,7 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %indvars.iv111 = phi i64 [ 0, %3 ], [ 1, %42 ]
   store i8 1, ptr %indvars.iv111.sroa.phi, align 1, !tbaa !49
   %18 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv111
-  %19 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i64 %indvars.iv111
+  %19 = getelementptr inbounds nuw [208 x i8], ptr %12, i64 %indvars.iv111
   br label %22
 
 .preheader85:                                     ; preds = %22
@@ -206,13 +206,13 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %indvars.iv118 = phi i64 [ 0, %46 ], [ %indvars.iv.next119, %58 ]
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv118
   store i8 1, ptr %50, align 1, !tbaa !49
-  %51 = getelementptr inbounds nuw [64 x i16], ptr %47, i64 %indvars.iv118
+  %51 = getelementptr inbounds nuw [128 x i8], ptr %47, i64 %indvars.iv118
   %52 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv118
   br label %53
 
 53:                                               ; preds = %49, %53
   %indvars.iv114 = phi i64 [ 0, %49 ], [ %indvars.iv.next115, %53 ]
-  %54 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv114
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv114
   %55 = load i16, ptr %54, align 2, !tbaa !47
   %56 = trunc i16 %55 to i8
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv114
@@ -268,20 +268,20 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
 
 81:                                               ; preds = %.lr.ph, %81
   %indvars.iv122 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next123, %81 ]
-  %82 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv122
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv122
   %83 = load i32, ptr %82, align 4, !tbaa !50
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %76, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %76, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !50
   %87 = trunc i32 %86 to i8
-  %88 = getelementptr inbounds nuw %struct.anon.1, ptr %78, i64 %indvars.iv122
+  %88 = getelementptr inbounds nuw [3 x i8], ptr %78, i64 %indvars.iv122
   store i8 %87, ptr %88, align 1, !tbaa !70
-  %89 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv122
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv122
   %90 = load i32, ptr %89, align 4, !tbaa !50
   %91 = trunc i32 %90 to i8
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store i8 %91, ptr %92, align 1, !tbaa !72
-  %93 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv122
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv122
   %94 = load i32, ptr %93, align 4, !tbaa !50
   %95 = trunc i32 %94 to i8
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 2

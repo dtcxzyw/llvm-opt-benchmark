@@ -65,11 +65,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mini_qdisc_p
 %union.anon.57 = type { i64 }
 %struct.static_call_key = type { ptr, %union.anon.58 }
 %union.anon.58 = type { i64 }
-%struct.skb_array = type { %struct.ptr_ring }
-%struct.ptr_ring = type { i32, %struct.spinlock, [56 x i8], i32, i32, %struct.spinlock, [52 x i8], i32, i32, ptr, [48 x i8] }
 %struct.tc_prio_qopt = type { i32, [16 x i8] }
-%struct.xfrm_offload = type { %struct.anon.56, i32, i32, i8, i8 }
-%struct.anon.56 = type { i32, i32 }
 
 @pfifo_fast_ops = dso_local global %struct.Qdisc_ops { ptr null, ptr null, [16 x i8] c"pfifo_fast\00\00\00\00\00\00", i32 576, i32 288, ptr @pfifo_fast_enqueue, ptr @pfifo_fast_dequeue, ptr @pfifo_fast_peek, ptr @pfifo_fast_init, ptr @pfifo_fast_reset, ptr @pfifo_fast_destroy, ptr null, ptr null, ptr @pfifo_fast_change_tx_queue_len, ptr null, ptr @pfifo_fast_dump, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, section ".data..read_mostly", align 8
 @default_qdisc_ops = dso_local global ptr @pfifo_fast_ops, align 8
@@ -425,7 +421,7 @@ define dso_local void @__qdisc_run(ptr noundef %0) local_unnamed_addr #0 align 1
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = zext i16 %37 to i64
-  %41 = getelementptr %struct.netdev_queue, ptr %39, i64 %40
+  %41 = getelementptr [320 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 144
   %43 = load i64, ptr %42, align 16
   %44 = and i64 %43, 7
@@ -733,7 +729,7 @@ define dso_local void @__qdisc_run(ptr noundef %0) local_unnamed_addr #0 align 1
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %218 = load ptr, ptr %217, align 8
   %219 = zext i16 %216 to i64
-  %220 = getelementptr %struct.netdev_queue, ptr %218, i64 %219
+  %220 = getelementptr [320 x i8], ptr %218, i64 %219
   %221 = tail call zeroext i1 @sch_direct_xmit(ptr noundef nonnull %185, ptr noundef %0, ptr noundef %214, ptr noundef %220, ptr noundef %212, i1 noundef zeroext %.shrunk)
   br i1 %221, label %222, label %.thread16
 
@@ -781,7 +777,7 @@ define dso_local i64 @dev_trans_start(ptr noundef readonly captures(none) %0) #3
 11:                                               ; preds = %11, %9
   %12 = phi i64 [ 1, %9 ], [ %21, %11 ]
   %13 = phi i64 [ %5, %9 ], [ %20, %11 ]
-  %.split = getelementptr %struct.netdev_queue, ptr %3, i64 %12
+  %.split = getelementptr [320 x i8], ptr %3, i64 %12
   %14 = getelementptr i8, ptr %.split, i64 136
   %15 = load volatile i64, ptr %14, align 8
   %16 = icmp ne i64 %15, 0
@@ -815,7 +811,7 @@ define dso_local void @netif_tx_lock(ptr noundef %0) #0 align 16 {
 9:                                                ; preds = %9, %7
   %10 = phi i64 [ 0, %7 ], [ %16, %9 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr %struct.netdev_queue, ptr %11, i64 %10
+  %12 = getelementptr [320 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %13) #20
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 132
@@ -849,7 +845,7 @@ define internal fastcc void @netif_freeze_queues(ptr noundef readonly captures(n
 8:                                                ; preds = %8, %6
   %9 = phi i64 [ 0, %6 ], [ %15, %8 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr %struct.netdev_queue, ptr %10, i64 %9
+  %11 = getelementptr [320 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %12) #20
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 132
@@ -882,7 +878,7 @@ define dso_local void @netif_tx_unlock(ptr noundef %0) #0 align 16 {
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %12, %7 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %struct.netdev_queue, ptr %9, i64 %8
+  %10 = getelementptr [320 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i32 -5, ptr nonnull elementtype(i8) %11) #20, !srcloc !8
   tail call void @netif_schedule_queue(ptr noundef %10) #20
@@ -912,7 +908,7 @@ define internal fastcc void @netif_unfreeze_queues(ptr noundef readonly captures
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %12, %7 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %struct.netdev_queue, ptr %9, i64 %8
+  %10 = getelementptr [320 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i32 -5, ptr nonnull elementtype(i8) %11) #20, !srcloc !8
   tail call void @netif_schedule_queue(ptr noundef %10) #20
@@ -1115,7 +1111,7 @@ define internal noundef range(i32 0, 2) i32 @pfifo_fast_enqueue(ptr noundef %0, 
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %11 = zext i8 %9 to i64
-  %12 = getelementptr %struct.skb_array, ptr %10, i64 %11
+  %12 = getelementptr [192 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1130,7 +1126,7 @@ define internal noundef range(i32 0, 2) i32 @pfifo_fast_enqueue(ptr noundef %0, 
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %12, align 64
   %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %42
@@ -1142,7 +1138,7 @@ define internal noundef range(i32 0, 2) i32 @pfifo_fast_enqueue(ptr noundef %0, 
   %30 = add i32 %29, 1
   store i32 %30, ptr %12, align 64
   %31 = sext i32 %29 to i64
-  %32 = getelementptr ptr, ptr %28, i64 %31
+  %32 = getelementptr [8 x i8], ptr %28, i64 %31
   store volatile ptr %0, ptr %32, align 8
   %33 = load i32, ptr %12, align 64
   %34 = load i32, ptr %16, align 64
@@ -1223,7 +1219,7 @@ define internal ptr @pfifo_fast_dequeue(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %55, %4
   %7 = phi i64 [ 0, %4 ], [ %56, %55 ]
-  %8 = getelementptr %struct.skb_array, ptr %2, i64 %7
+  %8 = getelementptr [192 x i8], ptr %2, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load i32, ptr %9, align 64
   %11 = icmp eq i32 %10, 0
@@ -1235,7 +1231,7 @@ define internal ptr @pfifo_fast_dequeue(ptr noundef %0) #0 align 16 {
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %16 = load volatile i32, ptr %15, align 64
   %17 = sext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %55, label %21
@@ -1269,7 +1265,7 @@ define internal ptr @pfifo_fast_dequeue(ptr noundef %0) #0 align 16 {
   %40 = load ptr, ptr %26, align 8
   %41 = add i32 %39, -1
   %42 = sext i32 %39 to i64
-  %43 = getelementptr ptr, ptr %40, i64 %42
+  %43 = getelementptr [8 x i8], ptr %40, i64 %42
   store ptr null, ptr %43, align 8
   %44 = load i32, ptr %29, align 4
   %45 = icmp slt i32 %41, %44
@@ -1403,7 +1399,7 @@ define internal ptr @pfifo_fast_peek(ptr noundef readonly captures(none) %0) #3 
 
 3:                                                ; preds = %17, %1
   %4 = phi i64 [ 0, %1 ], [ %19, %17 ]
-  %5 = getelementptr %struct.skb_array, ptr %2, i64 %4
+  %5 = getelementptr [192 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load i32, ptr %6, align 64
   %8 = icmp eq i32 %7, 0
@@ -1415,7 +1411,7 @@ define internal ptr @pfifo_fast_peek(ptr noundef readonly captures(none) %0) #3 
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %13 = load i32, ptr %12, align 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr ptr, ptr %11, i64 %14
+  %15 = getelementptr [8 x i8], ptr %11, i64 %14
   %16 = load volatile ptr, ptr %15, align 8
   br label %17
 
@@ -1457,7 +1453,7 @@ define internal noundef range(i32 -22, 1) i32 @pfifo_fast_init(ptr noundef captu
 
 .split:                                           ; preds = %11, %23
   %18 = phi i64 [ %30, %23 ], [ 0, %11 ]
-  %19 = getelementptr %struct.skb_array, ptr %9, i64 %18
+  %19 = getelementptr [192 x i8], ptr %9, i64 %18
   %20 = tail call noalias ptr @kvmalloc_node(i64 noundef %14, i32 noundef 3520, i32 noundef -1) #23
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 136
   store ptr %20, ptr %21, align 8
@@ -1501,7 +1497,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
 
 3:                                                ; preds = %.thread, %1
   %4 = phi i64 [ 0, %1 ], [ %45, %.thread ]
-  %5 = getelementptr %struct.skb_array, ptr %2, i64 %4
+  %5 = getelementptr [192 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -1521,7 +1517,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %11, align 64
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %17, i64 %19
+  %20 = getelementptr [8 x i8], ptr %17, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread, label %23
@@ -1545,7 +1541,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %34 = load ptr, ptr %6, align 8
   %35 = add i32 %33, -1
   %36 = sext i32 %33 to i64
-  %37 = getelementptr ptr, ptr %34, i64 %36
+  %37 = getelementptr [8 x i8], ptr %34, i64 %36
   store ptr null, ptr %37, align 8
   %38 = load i32, ptr %12, align 4
   %39 = icmp slt i32 %35, %38
@@ -1605,7 +1601,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %65 = load ptr, ptr %53, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %61, 63
-  %68 = getelementptr i64, ptr @__per_cpu_offset, i64 %67
+  %68 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %66
   %71 = inttoptr i64 %70 to ptr
@@ -1657,8 +1653,8 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
 
 5:                                                ; preds = %5, %2
   %6 = phi i64 [ 0, %2 ], [ %9, %5 ]
-  %7 = getelementptr %struct.skb_array, ptr %4, i64 %6
-  %8 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [192 x i8], ptr %4, i64 %6
+  %8 = getelementptr [8 x i8], ptr %3, i64 %6
   store ptr %7, ptr %8, align 8
   %9 = add nuw nsw i64 %6, 1
   %10 = icmp eq i64 %9, 3
@@ -1685,7 +1681,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
 .split:                                           ; preds = %15, %28
   %23 = phi i64 [ %29, %28 ], [ 0, %15 ]
   %24 = tail call noalias ptr @kvmalloc_node(i64 noundef %18, i32 noundef 3520, i32 noundef -1) #23
-  %25 = getelementptr ptr, ptr %13, i64 %23
+  %25 = getelementptr [8 x i8], ptr %13, i64 %23
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
   br i1 %26, label %.loopexit12, label %28
@@ -1705,13 +1701,13 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
 
 31:                                               ; preds = %.thread7, %19
   %32 = phi i64 [ 0, %19 ], [ %112, %.thread7 ]
-  %33 = getelementptr ptr, ptr %3, i64 %32
+  %33 = getelementptr [8 x i8], ptr %3, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %35) #20
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   tail call void @_raw_spin_lock(ptr noundef nonnull %37) #20
-  %38 = getelementptr ptr, ptr %13, i64 %32
+  %38 = getelementptr [8 x i8], ptr %13, i64 %32
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 136
@@ -1732,7 +1728,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %50 = load ptr, ptr %41, align 8
   %51 = load i32, ptr %42, align 64
   %52 = sext i32 %51 to i64
-  %53 = getelementptr ptr, ptr %50, i64 %52
+  %53 = getelementptr [8 x i8], ptr %50, i64 %52
   %54 = load volatile ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread7, label %56
@@ -1756,7 +1752,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %67 = load ptr, ptr %41, align 8
   %68 = add i32 %66, -1
   %69 = sext i32 %66 to i64
-  %70 = getelementptr ptr, ptr %67, i64 %69
+  %70 = getelementptr [8 x i8], ptr %67, i64 %69
   store ptr null, ptr %70, align 8
   %71 = load i32, ptr %43, align 4
   %72 = icmp slt i32 %68, %71
@@ -1779,7 +1775,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   store volatile i32 %75, ptr %42, align 64
   %76 = add i32 %49, 1
   %77 = zext nneg i32 %49 to i64
-  %78 = getelementptr ptr, ptr %39, i64 %77
+  %78 = getelementptr [8 x i8], ptr %39, i64 %77
   store ptr %54, ptr %78, align 8
   %79 = icmp slt i32 %76, %1
   %80 = load i32, ptr %40, align 64
@@ -1791,7 +1787,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %83 = load ptr, ptr %41, align 8
   %84 = load i32, ptr %42, align 64
   %85 = sext i32 %84 to i64
-  %86 = getelementptr ptr, ptr %83, i64 %85
+  %86 = getelementptr [8 x i8], ptr %83, i64 %85
   %87 = load volatile ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %.thread7, label %89
@@ -1815,7 +1811,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %100 = load ptr, ptr %41, align 8
   %101 = add i32 %99, -1
   %102 = sext i32 %99 to i64
-  %103 = getelementptr ptr, ptr %100, i64 %102
+  %103 = getelementptr [8 x i8], ptr %100, i64 %102
   store ptr null, ptr %103, align 8
   %104 = load i32, ptr %43, align 4
   %105 = icmp slt i32 %101, %104
@@ -1863,7 +1859,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
 
 .preheader8:                                      ; preds = %.thread7, %.preheader8
   %114 = phi i64 [ %117, %.preheader8 ], [ 0, %.thread7 ]
-  %115 = getelementptr ptr, ptr %13, i64 %114
+  %115 = getelementptr [8 x i8], ptr %13, i64 %114
   %116 = load ptr, ptr %115, align 8
   tail call void @kvfree(ptr noundef %116) #20
   %117 = add nuw nsw i64 %114, 1
@@ -1874,7 +1870,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %119 = phi i64 [ %120, %.preheader ], [ %23, %.loopexit12 ]
   %120 = add nsw i64 %119, -1
   %121 = and i64 %120, 4294967295
-  %122 = getelementptr ptr, ptr %13, i64 %121
+  %122 = getelementptr [8 x i8], ptr %13, i64 %121
   %123 = load ptr, ptr %122, align 8
   tail call void @kvfree(ptr noundef %123) #20
   %124 = icmp sgt i64 %119, 1
@@ -2557,7 +2553,7 @@ define dso_local void @dev_activate(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %43, %.thread
   %19 = phi i64 [ %44, %43 ], [ 0, %.thread ]
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr %struct.netdev_queue, ptr %20, i64 %19
+  %21 = getelementptr [320 x i8], ptr %20, i64 %19
   %22 = load i64, ptr %0, align 8
   %23 = and i64 %22, 524288
   %24 = icmp eq i64 %23, 0
@@ -2673,7 +2669,7 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
 .preheader:                                       ; preds = %75, %.thread16
   %82 = phi i64 [ %102, %.thread16 ], [ 0, %75 ]
   %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr %struct.netdev_queue, ptr %83, i64 %82
+  %84 = getelementptr [320 x i8], ptr %83, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 16
   %87 = icmp eq ptr %86, null
@@ -2731,7 +2727,7 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
 112:                                              ; preds = %137, %110
   %113 = phi i64 [ %138, %137 ], [ 0, %110 ]
   %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr %struct.netdev_queue, ptr %114, i64 %113
+  %115 = getelementptr [320 x i8], ptr %114, i64 %113
   %116 = load i64, ptr %0, align 8
   %117 = and i64 %116, 524288
   %118 = icmp eq i64 %117, 0
@@ -2835,7 +2831,7 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
 174:                                              ; preds = %186, %172
   %175 = phi i64 [ 0, %172 ], [ %189, %186 ]
   %176 = load ptr, ptr %173, align 8
-  %177 = getelementptr %struct.netdev_queue, ptr %176, i64 %175
+  %177 = getelementptr [320 x i8], ptr %176, i64 %175
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 16
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
@@ -2966,7 +2962,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   %12 = phi i32 [ %7, %9 ], [ %27, %26 ]
   %13 = phi i64 [ 0, %9 ], [ %28, %26 ]
   %14 = load ptr, ptr %10, align 8
-  %.split = getelementptr %struct.netdev_queue, ptr %14, i64 %13
+  %.split = getelementptr [320 x i8], ptr %14, i64 %13
   %15 = getelementptr i8, ptr %.split, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -3044,7 +3040,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
 54:                                               ; preds = %54, %52
   %55 = phi i64 [ 0, %52 ], [ %61, %54 ]
   %56 = load ptr, ptr %53, align 8
-  %57 = getelementptr %struct.netdev_queue, ptr %56, i64 %55
+  %57 = getelementptr [320 x i8], ptr %56, i64 %55
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %58) #20
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 132
@@ -3085,7 +3081,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
 78:                                               ; preds = %78, %76
   %79 = phi i64 [ 0, %76 ], [ %83, %78 ]
   %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr %struct.netdev_queue, ptr %80, i64 %79
+  %81 = getelementptr [320 x i8], ptr %80, i64 %79
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 144
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %82, i32 -5, ptr nonnull elementtype(i8) %82) #20, !srcloc !8
   tail call void @netif_schedule_queue(ptr noundef %81) #20
@@ -3132,7 +3128,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   %100 = phi i32 [ %95, %97 ], [ %255, %dev_reset_queue.exit ]
   %101 = phi i64 [ 0, %97 ], [ %256, %dev_reset_queue.exit ]
   %102 = load ptr, ptr %98, align 8
-  %103 = getelementptr %struct.netdev_queue, ptr %102, i64 %101
+  %103 = getelementptr [320 x i8], ptr %102, i64 %101
   %104 = getelementptr i8, ptr %103, i64 16
   %.val = load ptr, ptr %104, align 16
   %105 = icmp eq ptr %.val, null
@@ -3484,7 +3480,7 @@ dev_reset_queue.exit16:                           ; preds = %276, %262, %.loopex
 .preheader:                                       ; preds = %.preheader21, %.preheader.backedge
   %291 = phi i64 [ %.be, %.preheader.backedge ], [ 0, %.preheader21 ]
   %292 = load ptr, ptr %284, align 8
-  %.split14 = getelementptr %struct.netdev_queue, ptr %292, i64 %291
+  %.split14 = getelementptr [320 x i8], ptr %292, i64 %291
   %293 = getelementptr i8, ptr %.split14, i64 16
   %294 = load ptr, ptr %293, align 16
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 172
@@ -3608,7 +3604,7 @@ define dso_local void @mq_change_real_num_tx(ptr noundef readonly captures(none)
   %19 = phi i32 [ %7, %9 ], [ %31, %30 ]
   %20 = phi i64 [ %11, %9 ], [ %32, %30 ]
   %21 = load ptr, ptr %10, align 8
-  %.split = getelementptr %struct.netdev_queue, ptr %21, i64 %20
+  %.split = getelementptr [320 x i8], ptr %21, i64 %20
   %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 16
   %24 = icmp eq ptr %23, @noop_qdisc
@@ -3635,7 +3631,7 @@ define dso_local void @mq_change_real_num_tx(ptr noundef readonly captures(none)
 35:                                               ; preds = %46, %14
   %36 = phi i64 [ %16, %14 ], [ %47, %46 ]
   %37 = load ptr, ptr %15, align 8
-  %.split7 = getelementptr %struct.netdev_queue, ptr %37, i64 %36
+  %.split7 = getelementptr [320 x i8], ptr %37, i64 %36
   %38 = getelementptr i8, ptr %.split7, i64 16
   %39 = load ptr, ptr %38, align 16
   %40 = icmp eq ptr %39, @noop_qdisc
@@ -3715,7 +3711,7 @@ define dso_local i32 @dev_qdisc_change_tx_queue_len(ptr noundef %0) local_unname
   %26 = phi i32 [ %16, %18 ], [ %21, %.thread ]
   %27 = phi i64 [ 0, %18 ], [ %22, %.thread ]
   %28 = load ptr, ptr %19, align 8
-  %.split = getelementptr %struct.netdev_queue, ptr %28, i64 %27
+  %.split = getelementptr [320 x i8], ptr %28, i64 %27
   %29 = getelementptr i8, ptr %.split, i64 16
   %30 = load ptr, ptr %29, align 16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -3764,7 +3760,7 @@ define dso_local void @dev_init_scheduler(ptr noundef %0) local_unnamed_addr #0 
 8:                                                ; preds = %8, %6
   %9 = phi i64 [ 0, %6 ], [ %14, %8 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr %struct.netdev_queue, ptr %10, i64 %9
+  %11 = getelementptr [320 x i8], ptr %10, i64 %9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !106
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store volatile ptr @noop_qdisc, ptr %12, align 8
@@ -3830,7 +3826,7 @@ define internal void @dev_watchdog(ptr noundef %0) #0 align 16 {
   br i1 %18, label %.critedge, label %19, !llvm.loop !108
 
 19:                                               ; preds = %15
-  %.split = getelementptr %struct.netdev_queue, ptr %9, i64 %17
+  %.split = getelementptr [320 x i8], ptr %9, i64 %17
   %20 = getelementptr i8, ptr %.split, i64 8
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, @noop_qdisc
@@ -3866,7 +3862,7 @@ define internal void @dev_watchdog(ptr noundef %0) #0 align 16 {
 
 40:                                               ; preds = %56, %37
   %41 = phi i64 [ 0, %37 ], [ %57, %56 ]
-  %42 = getelementptr %struct.netdev_queue, ptr %9, i64 %41
+  %42 = getelementptr [320 x i8], ptr %9, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %44 = load volatile i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 144
@@ -3954,7 +3950,7 @@ define dso_local void @dev_shutdown(ptr noundef %0) local_unnamed_addr #0 align 
 7:                                                ; preds = %.thread, %5
   %8 = phi i64 [ 0, %5 ], [ %28, %.thread ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %struct.netdev_queue, ptr %9, i64 %8
+  %10 = getelementptr [320 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 16
   %13 = icmp eq ptr %12, null
@@ -4304,7 +4300,7 @@ define internal fastcc ptr @xfrm_offload(ptr noundef nonnull readonly captures(n
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %24 = add i32 %17, -1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr %struct.xfrm_offload, ptr %23, i64 %25
+  %26 = getelementptr [20 x i8], ptr %23, i64 %25
   br label %.thread
 
 .thread:                                          ; preds = %1, %22, %19, %15, %6
@@ -4343,7 +4339,7 @@ define internal fastcc ptr @__skb_dequeue_bad_txq(ptr noundef %0) unnamed_addr #
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = zext i16 %20 to i64
-  %.split = getelementptr %struct.netdev_queue, ptr %22, i64 %23
+  %.split = getelementptr [320 x i8], ptr %22, i64 %23
   %24 = getelementptr i8, ptr %.split, i64 144
   %25 = load i64, ptr %24, align 16
   %26 = and i64 %25, 7

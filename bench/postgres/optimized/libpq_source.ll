@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/libpq_source.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.fetch_range_request = type { ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [26 x i8] c"SET statement_timeout = 0\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"SET lock_timeout = 0\00", align 1
 @.str.2 = private unnamed_addr constant [44 x i8] c"SET idle_in_transaction_session_timeout = 0\00", align 1
@@ -352,7 +350,7 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr %struct.fetch_range_request, ptr %0, i64 %9
+  %10 = getelementptr [24 x i8], ptr %0, i64 %9
   %11 = getelementptr i8, ptr %10, i64 56
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %10, i64 64
@@ -398,7 +396,7 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
   %31 = phi i32 [ %.pre.i, %29 ], [ %27, %26 ]
   %32 = tail call i64 @llvm.umin.i64(i64 %.24048.i, i64 1048576)
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.fetch_range_request, ptr %25, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %25, i64 %33
   store ptr %1, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.249.i, ptr %35, align 8
@@ -425,7 +423,7 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr %struct.fetch_range_request, ptr %0, i64 %9
+  %10 = getelementptr [24 x i8], ptr %0, i64 %9
   %11 = getelementptr i8, ptr %10, i64 56
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %10, i64 64
@@ -477,7 +475,7 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
   %34 = phi i32 [ %.pre, %32 ], [ %30, %29 ]
   %35 = tail call i64 @llvm.umin.i64(i64 %.24048, i64 1048576)
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.fetch_range_request, ptr %28, i64 %36
+  %37 = getelementptr inbounds [24 x i8], ptr %28, i64 %36
   store ptr %1, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %.249, ptr %38, align 8
@@ -686,7 +684,7 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
 
 28:                                               ; preds = %.lr.ph, %appendArrayEscapedString.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %appendArrayEscapedString.exit ]
-  %29 = getelementptr inbounds nuw %struct.fetch_range_request, ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv
   %.not180 = icmp eq i64 %indvars.iv, 0
   br i1 %.not180, label %31, label %30
 
@@ -856,7 +854,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
   %108 = phi ptr [ %104, %.lr.ph150 ], [ %188, %186 ]
   %.0149 = phi i32 [ 0, %.lr.ph150 ], [ %.1, %186 ]
   %109 = sext i32 %.0149 to i64
-  %110 = getelementptr inbounds %struct.fetch_range_request, ptr %105, i64 %109
+  %110 = getelementptr inbounds [24 x i8], ptr %105, i64 %109
   %111 = call i32 @PQresultStatus(ptr noundef nonnull %108) #10
   switch i32 %111, label %113 [
     i32 9, label %115

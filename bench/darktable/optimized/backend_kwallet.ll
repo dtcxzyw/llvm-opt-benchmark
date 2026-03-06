@@ -505,7 +505,7 @@ define internal fastcc noalias noundef ptr @char2qstring(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02833 = phi i64 [ %20, %.lr.ph ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds nuw i16, ptr %6, i64 %.02833
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.02833
   %19 = load i16, ptr %18, align 2, !tbaa !66
   %rev = call i16 @llvm.bswap.i16(i16 %19)
   store i16 %rev, ptr %18, align 2, !tbaa !66
@@ -836,7 +836,7 @@ define internal fastcc noalias ptr @array2string(ptr noundef nonnull readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !66
   %rev = tail call i16 @llvm.bswap.i16(i16 %13)
   store i16 %rev, ptr %12, align 2, !tbaa !66

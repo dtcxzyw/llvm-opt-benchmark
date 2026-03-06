@@ -1410,7 +1410,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %19
   br i1 %40, label %42, label %44
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds nuw i32, ptr %26, i64 %41
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %41
   store i32 1, ptr %43, align 4, !tbaa !90
   br label %_ZNK2cv3dnn12ArgLayerImpl14handleKeepDimsERSt6vectorIiSaIiEEi.exit
 
@@ -1648,14 +1648,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 55:                                               ; preds = %51
   %56 = zext nneg i32 %54 to i64
   %57 = load ptr, ptr %52, align 8, !tbaa !94
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8, !tbaa !50
   br label %98
 
 60:                                               ; preds = %51
   %61 = zext nneg i32 %54 to i64
   %62 = load ptr, ptr %52, align 8, !tbaa !96
-  %63 = getelementptr inbounds nuw double, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load double, ptr %63, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = call double @modf(double noundef %64, ptr noundef nonnull %7) #22
@@ -1707,7 +1707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %72,
 79:                                               ; preds = %51
   %80 = zext nneg i32 %54 to i64
   %81 = load ptr, ptr %52, align 8, !tbaa !101
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !33
   %84 = tail call i64 @strtol(ptr noundef nonnull captures(none) %83, ptr noundef null, i32 noundef 10) #22
   %sext = shl i64 %84, 32
@@ -2017,7 +2017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %42,
   %49 = phi i32 [ %2, %31 ], [ 0, %23 ]
   %50 = zext nneg i32 %49 to i64
   %51 = load ptr, ptr %48, align 8, !tbaa !101
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %53, ptr %0, align 8, !tbaa !21
   %54 = load ptr, ptr %52, align 8, !tbaa !33
@@ -2310,7 +2310,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.14", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !86
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !106

@@ -962,7 +962,7 @@ define internal fastcc noundef i32 @dissect_digitech_parameter(ptr noundef %0, p
 
 switch.lookup:                                    ; preds = %8
   %11 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_digitech_parameter, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_digitech_parameter, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_digitech_hf_parameter_id_by_position.exit
 

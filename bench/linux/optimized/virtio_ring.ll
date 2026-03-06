@@ -47,24 +47,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_virtqueue_dm
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_virtqueue_dma_sync_single_range_for_cpu: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad virtqueue_dma_sync_single_range_for_cpu ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_virtqueue_dma_sync_single_range_for_device: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad virtqueue_dma_sync_single_range_for_device ; .previous"
 
-%struct.vring_packed_desc = type { i64, i32, i16, i16 }
-%struct.vring_desc_extra = type { i64, i32, i16, i16 }
-%struct.vring_desc_state_packed = type { ptr, ptr, i16, i16 }
-%struct.vring_desc = type { i64, i32, i16, i16 }
-%struct.vring_desc_state_split = type { ptr, ptr }
-%struct.vring_used_elem = type { i32, i32 }
 %struct.vring_virtqueue_packed = type { %struct.anon.3, i8, i16, i16, i16, ptr, ptr, i64, i64, i64, i64, i64 }
 %struct.anon.3 = type { i32, ptr, ptr, ptr }
 %struct.vring_virtqueue_split = type { %struct.vring, i16, i16, ptr, ptr, i64, i64, i32, i8 }
 %struct.vring = type { i32, ptr, ptr, ptr }
-%struct.page = type { i64, %union.anon.6, %union.anon.14, %struct.atomic_t, [8 x i8] }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { %union.anon.8, ptr, %union.anon.10, i64 }
-%union.anon.8 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.10 = type { i64 }
-%union.anon.14 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @__UNIQUE_ID___addressable_virtio_max_dma_size359 = internal global ptr @virtio_max_dma_size, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_virtqueue_add_sgs386 = internal global ptr @virtqueue_add_sgs, section ".discard.addressable", align 8
@@ -159,7 +145,7 @@ define dso_local range(i32 -28, 1) i32 @virtqueue_add_sgs(ptr noundef %0, ptr no
 11:                                               ; preds = %.loopexit, %9
   %12 = phi i64 [ 0, %9 ], [ %23, %.loopexit ]
   %13 = phi i32 [ 0, %9 ], [ %22, %.loopexit ]
-  %14 = getelementptr ptr, ptr %1, i64 %12
+  %14 = getelementptr [8 x i8], ptr %1, i64 %12
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %.preheader
@@ -297,7 +283,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 69:                                               ; preds = %.loopexit103, %62
   %70 = phi i64 [ 0, %62 ], [ %123, %.loopexit103 ]
   %71 = phi i32 [ 0, %62 ], [ %122, %.loopexit103 ]
-  %72 = getelementptr ptr, ptr %1, i64 %70
+  %72 = getelementptr [8 x i8], ptr %1, i64 %70
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.loopexit103, label %75
@@ -355,7 +341,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 .thread:                                          ; preds = %84, %90, %100
   %112 = phi i64 [ %111, %100 ], [ %86, %84 ], [ %99, %90 ]
   %113 = zext i32 %80 to i64
-  %114 = getelementptr %struct.vring_packed_desc, ptr %46, i64 %113
+  %114 = getelementptr [16 x i8], ptr %46, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 14
   store i16 %78, ptr %115, align 2
   store i64 %112, ptr %114, align 8
@@ -394,15 +380,15 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %138 = load ptr, ptr %137, align 8
   %139 = zext i16 %42 to i64
-  %140 = getelementptr %struct.vring_packed_desc, ptr %138, i64 %139
+  %140 = getelementptr [16 x i8], ptr %138, i64 %139
   store i64 %126, ptr %140, align 8
   %141 = trunc i64 %44 to i32
   %142 = load ptr, ptr %137, align 8
-  %.split = getelementptr %struct.vring_packed_desc, ptr %142, i64 %139
+  %.split = getelementptr [16 x i8], ptr %142, i64 %139
   %143 = getelementptr i8, ptr %.split, i64 8
   store i32 %141, ptr %143, align 8
   %144 = load ptr, ptr %137, align 8
-  %.split41 = getelementptr %struct.vring_packed_desc, ptr %144, i64 %139
+  %.split41 = getelementptr [16 x i8], ptr %144, i64 %139
   %145 = getelementptr i8, ptr %.split41, i64 12
   store i16 %55, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 71
@@ -414,17 +400,17 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %151 = load ptr, ptr %150, align 8
   %152 = zext nneg i32 %56 to i64
-  %153 = getelementptr %struct.vring_desc_extra, ptr %151, i64 %152
+  %153 = getelementptr [16 x i8], ptr %151, i64 %152
   store i64 %126, ptr %153, align 8
   %154 = load ptr, ptr %150, align 8
-  %.split42 = getelementptr %struct.vring_desc_extra, ptr %154, i64 %152
+  %.split42 = getelementptr [16 x i8], ptr %154, i64 %152
   %155 = getelementptr i8, ptr %.split42, i64 8
   store i32 %141, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %157 = load i16, ptr %156, align 2
   %158 = or i16 %157, 4
   %159 = load ptr, ptr %150, align 8
-  %.split43 = getelementptr %struct.vring_desc_extra, ptr %159, i64 %152
+  %.split43 = getelementptr [16 x i8], ptr %159, i64 %152
   %160 = getelementptr i8, ptr %.split43, i64 12
   store i16 %158, ptr %160, align 4
   br label %161
@@ -435,7 +421,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %163 = load i16, ptr %162, align 2
   %164 = or i16 %163, 4
   %165 = load ptr, ptr %137, align 8
-  %.split44 = getelementptr %struct.vring_packed_desc, ptr %165, i64 %139
+  %.split44 = getelementptr [16 x i8], ptr %165, i64 %139
   %166 = getelementptr i8, ptr %.split44, i64 14
   store i16 %164, ptr %166, align 2
   %167 = load i32, ptr %36, align 4
@@ -464,25 +450,25 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %183 = load ptr, ptr %182, align 8
   %184 = zext nneg i32 %56 to i64
-  %.split45 = getelementptr %struct.vring_desc_extra, ptr %183, i64 %184
+  %.split45 = getelementptr [16 x i8], ptr %183, i64 %184
   %185 = getelementptr i8, ptr %.split45, i64 14
   %186 = load i16, ptr %185, align 2
   %187 = zext i16 %186 to i32
   store i32 %187, ptr %53, align 8
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %189 = load ptr, ptr %188, align 8
-  %.split46 = getelementptr %struct.vring_desc_state_packed, ptr %189, i64 %184
+  %.split46 = getelementptr [24 x i8], ptr %189, i64 %184
   %190 = getelementptr i8, ptr %.split46, i64 16
   store i16 1, ptr %190, align 8
   %191 = load ptr, ptr %188, align 8
-  %192 = getelementptr %struct.vring_desc_state_packed, ptr %191, i64 %184
+  %192 = getelementptr [24 x i8], ptr %191, i64 %184
   store ptr %5, ptr %192, align 8
   %193 = load ptr, ptr %188, align 8
-  %.split47 = getelementptr %struct.vring_desc_state_packed, ptr %193, i64 %184
+  %.split47 = getelementptr [24 x i8], ptr %193, i64 %184
   %194 = getelementptr i8, ptr %.split47, i64 8
   store ptr %46, ptr %194, align 8
   %195 = load ptr, ptr %188, align 8
-  %.split48 = getelementptr %struct.vring_desc_state_packed, ptr %195, i64 %184
+  %.split48 = getelementptr [24 x i8], ptr %195, i64 %184
   %196 = getelementptr i8, ptr %.split48, i64 18
   store i16 %55, ptr %196, align 2
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -515,7 +501,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br i1 %210, label %223, label %211
 
 211:                                              ; preds = %.split130
-  %212 = getelementptr %struct.vring_packed_desc, ptr %46, i64 %209
+  %212 = getelementptr [16 x i8], ptr %46, i64 %209
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 14
   %214 = load i16, ptr %213, align 2
   %215 = load ptr, ptr %204, align 8
@@ -604,7 +590,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %267 = phi i16 [ 0, %254 ], [ %355, %.loopexit100 ]
   %268 = phi i32 [ 0, %254 ], [ %354, %.loopexit100 ]
   %269 = phi i32 [ %240, %254 ], [ %353, %.loopexit100 ]
-  %270 = getelementptr ptr, ptr %1, i64 %264
+  %270 = getelementptr [8 x i8], ptr %1, i64 %264
   %271 = load ptr, ptr %270, align 8
   %272 = icmp eq ptr %271, null
   br i1 %272, label %.loopexit100, label %273
@@ -675,14 +661,14 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br i1 %320, label %.thread70._crit_edge, label %321
 
 321:                                              ; preds = %.thread70
-  %.split49 = getelementptr %struct.vring_packed_desc, ptr %239, i64 %.pre193
+  %.split49 = getelementptr [16 x i8], ptr %239, i64 %.pre193
   %322 = getelementptr i8, ptr %.split49, i64 14
   store i16 %319, ptr %322, align 2
   br label %.thread70._crit_edge
 
 .thread70._crit_edge:                             ; preds = %.thread70, %321
   %323 = phi i16 [ %280, %321 ], [ %319, %.thread70 ]
-  %324 = getelementptr %struct.vring_packed_desc, ptr %239, i64 %.pre193
+  %324 = getelementptr [16 x i8], ptr %239, i64 %.pre193
   store i64 %313, ptr %324, align 8
   %325 = getelementptr inbounds nuw i8, ptr %278, i64 12
   %326 = load i32, ptr %325, align 4
@@ -701,15 +687,15 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 331:                                              ; preds = %.thread70._crit_edge
   %332 = load ptr, ptr %259, align 8
   %333 = zext i16 %279 to i64
-  %334 = getelementptr %struct.vring_desc_extra, ptr %332, i64 %333
+  %334 = getelementptr [16 x i8], ptr %332, i64 %333
   store i64 %313, ptr %334, align 8
   %335 = load i32, ptr %325, align 4
   %336 = load ptr, ptr %259, align 8
-  %.split50 = getelementptr %struct.vring_desc_extra, ptr %336, i64 %333
+  %.split50 = getelementptr [16 x i8], ptr %336, i64 %333
   %337 = getelementptr i8, ptr %.split50, i64 8
   store i32 %335, ptr %337, align 8
   %338 = load ptr, ptr %259, align 8
-  %.split51 = getelementptr %struct.vring_desc_extra, ptr %338, i64 %333
+  %.split51 = getelementptr [16 x i8], ptr %338, i64 %333
   %339 = getelementptr i8, ptr %.split51, i64 12
   store i16 %319, ptr %339, align 4
   br label %340
@@ -717,7 +703,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 340:                                              ; preds = %._crit_edge, %331
   %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge ], [ %333, %331 ]
   %341 = load ptr, ptr %259, align 8
-  %.split52 = getelementptr %struct.vring_desc_extra, ptr %341, i64 %.pre-phi196
+  %.split52 = getelementptr [16 x i8], ptr %341, i64 %.pre-phi196
   %342 = getelementptr i8, ptr %.split52, i64 14
   %343 = load i16, ptr %342, align 2
   %344 = add i32 %282, 1
@@ -778,24 +764,24 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %380 = load ptr, ptr %379, align 8
   %381 = zext nneg i32 %248 to i64
-  %.split54 = getelementptr %struct.vring_desc_state_packed, ptr %380, i64 %381
+  %.split54 = getelementptr [24 x i8], ptr %380, i64 %381
   %382 = getelementptr i8, ptr %.split54, i64 16
   store i16 %378, ptr %382, align 8
   %383 = load ptr, ptr %379, align 8
-  %384 = getelementptr %struct.vring_desc_state_packed, ptr %383, i64 %381
+  %384 = getelementptr [24 x i8], ptr %383, i64 %381
   store ptr %5, ptr %384, align 8
   %385 = load ptr, ptr %379, align 8
-  %.split55 = getelementptr %struct.vring_desc_state_packed, ptr %385, i64 %381
+  %.split55 = getelementptr [24 x i8], ptr %385, i64 %381
   %386 = getelementptr i8, ptr %.split55, i64 8
   store ptr %6, ptr %386, align 8
   %387 = load ptr, ptr %379, align 8
-  %.split56 = getelementptr %struct.vring_desc_state_packed, ptr %387, i64 %381
+  %.split56 = getelementptr [24 x i8], ptr %387, i64 %381
   %388 = getelementptr i8, ptr %.split56, i64 18
   store i16 %371, ptr %388, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17
   %389 = load ptr, ptr %238, align 8
   %390 = zext i16 %228 to i64
-  %.split57 = getelementptr %struct.vring_packed_desc, ptr %389, i64 %390
+  %.split57 = getelementptr [16 x i8], ptr %389, i64 %390
   %391 = getelementptr i8, ptr %.split57, i64 14
   store i16 %372, ptr %391, align 2
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -821,7 +807,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %403 = phi i32 [ 0, %398 ], [ %435, %427 ]
   %404 = phi i32 [ %240, %398 ], [ %434, %427 ]
   %405 = zext i16 %402 to i64
-  %406 = getelementptr %struct.vring_desc_extra, ptr %401, i64 %405
+  %406 = getelementptr [16 x i8], ptr %401, i64 %405
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 12
   %408 = load i16, ptr %407, align 4
   %409 = zext i16 %408 to i32
@@ -854,7 +840,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 
 427:                                              ; preds = %418, %415, %412
   %428 = phi ptr [ %.pre191, %418 ], [ %401, %415 ], [ %401, %412 ]
-  %.split53 = getelementptr %struct.vring_desc_extra, ptr %428, i64 %405
+  %.split53 = getelementptr [16 x i8], ptr %428, i64 %405
   %429 = getelementptr i8, ptr %.split53, i64 14
   %430 = load i16, ptr %429, align 2
   %431 = add i32 %404, 1
@@ -933,7 +919,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %473 = phi i64 [ %474, %.preheader97 ], [ 0, %467 ]
   %474 = add nuw nsw i64 %473, 1
   %475 = trunc i64 %474 to i16
-  %.split58 = getelementptr %struct.vring_desc, ptr %471, i64 %473
+  %.split58 = getelementptr [16 x i8], ptr %471, i64 %473
   %476 = getelementptr i8, ptr %.split58, i64 14
   store i16 %475, ptr %476, align 2
   %477 = icmp eq i64 %474, %468
@@ -984,7 +970,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %502 = phi i64 [ %510, %.loopexit96.split.us.us ], [ 0, %496 ]
   %503 = phi i32 [ %509, %.loopexit96.split.us.us ], [ 0, %496 ]
   %504 = phi i32 [ %508, %.loopexit96.split.us.us ], [ %488, %496 ]
-  %505 = getelementptr ptr, ptr %1, i64 %502
+  %505 = getelementptr [8 x i8], ptr %1, i64 %502
   %506 = load ptr, ptr %505, align 8
   %507 = icmp eq ptr %506, null
   br i1 %507, label %.loopexit96.split.us.us, label %.preheader94.us
@@ -1046,13 +1032,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %546 = load i32, ptr %545, align 4
   %547 = load ptr, ptr %500, align 8
   %548 = zext i32 %513 to i64
-  %549 = getelementptr %struct.vring_desc, ptr %490, i64 %548
+  %549 = getelementptr [16 x i8], ptr %490, i64 %548
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 12
   store i16 1, ptr %550, align 4
   store i64 %544, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %549, i64 8
   store i32 %546, ptr %551, align 8
-  %552 = getelementptr %struct.vring_desc_extra, ptr %547, i64 %548
+  %552 = getelementptr [16 x i8], ptr %547, i64 %548
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 14
   %554 = load i16, ptr %553, align 2
   %555 = getelementptr inbounds nuw i8, ptr %549, i64 14
@@ -1103,7 +1089,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %579 = phi i64 [ %587, %.loopexit92.split.us.us ], [ %577, %572 ]
   %580 = phi i32 [ %586, %.loopexit92.split.us.us ], [ %569, %572 ]
   %581 = phi i32 [ %585, %.loopexit92.split.us.us ], [ %568, %572 ]
-  %582 = getelementptr ptr, ptr %1, i64 %579
+  %582 = getelementptr [8 x i8], ptr %1, i64 %579
   %583 = load ptr, ptr %582, align 8
   %584 = icmp eq ptr %583, null
   br i1 %584, label %.loopexit92.split.us.us, label %.preheader.us
@@ -1165,13 +1151,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %623 = load i32, ptr %622, align 4
   %624 = load ptr, ptr %576, align 8
   %625 = zext i32 %590 to i64
-  %626 = getelementptr %struct.vring_desc, ptr %490, i64 %625
+  %626 = getelementptr [16 x i8], ptr %490, i64 %625
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 12
   store i16 3, ptr %627, align 4
   store i64 %621, ptr %626, align 8
   %628 = getelementptr inbounds nuw i8, ptr %626, i64 8
   store i32 %623, ptr %628, align 8
-  %629 = getelementptr %struct.vring_desc_extra, ptr %624, i64 %625
+  %629 = getelementptr [16 x i8], ptr %624, i64 %625
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 14
   %631 = load i16, ptr %630, align 2
   %632 = getelementptr inbounds nuw i8, ptr %626, i64 14
@@ -1190,7 +1176,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %638 = phi i64 [ %690, %.loopexit96.split ], [ 0, %496 ]
   %639 = phi i32 [ %689, %.loopexit96.split ], [ 0, %496 ]
   %640 = phi i32 [ %688, %.loopexit96.split ], [ %488, %496 ]
-  %641 = getelementptr ptr, ptr %1, i64 %638
+  %641 = getelementptr [8 x i8], ptr %1, i64 %638
   %642 = load ptr, ptr %641, align 8
   %643 = icmp eq ptr %642, null
   br i1 %643, label %.loopexit96.split, label %.preheader94
@@ -1244,7 +1230,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %677 = getelementptr inbounds nuw i8, ptr %644, i64 12
   %678 = load i32, ptr %677, align 4
   %679 = zext i32 %645 to i64
-  %680 = getelementptr %struct.vring_desc, ptr %490, i64 %679
+  %680 = getelementptr [16 x i8], ptr %490, i64 %679
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 12
   store i16 1, ptr %681, align 4
   store i64 %676, ptr %680, align 8
@@ -1268,7 +1254,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %692 = phi i64 [ %744, %.loopexit92.split ], [ %577, %572 ]
   %693 = phi i32 [ %743, %.loopexit92.split ], [ %569, %572 ]
   %694 = phi i32 [ %742, %.loopexit92.split ], [ %568, %572 ]
-  %695 = getelementptr ptr, ptr %1, i64 %692
+  %695 = getelementptr [8 x i8], ptr %1, i64 %692
   %696 = load ptr, ptr %695, align 8
   %697 = icmp eq ptr %696, null
   br i1 %697, label %.loopexit92.split, label %.preheader
@@ -1322,7 +1308,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %731 = getelementptr inbounds nuw i8, ptr %698, i64 12
   %732 = load i32, ptr %731, align 4
   %733 = zext i32 %699 to i64
-  %734 = getelementptr %struct.vring_desc, ptr %490, i64 %733
+  %734 = getelementptr [16 x i8], ptr %490, i64 %733
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 12
   store i16 3, ptr %735, align 4
   store i64 %730, ptr %734, align 8
@@ -1346,7 +1332,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %746 = phi i32 [ %568, %.split135.us ], [ %585, %.loopexit92.split.us.us ], [ %742, %.loopexit92.split ]
   %747 = phi i32 [ %569, %.split135.us ], [ %586, %.loopexit92.split.us.us ], [ %743, %.loopexit92.split ]
   %748 = zext i32 %747 to i64
-  %.split59 = getelementptr %struct.vring_desc, ptr %490, i64 %748
+  %.split59 = getelementptr [16 x i8], ptr %490, i64 %748
   %749 = getelementptr i8, ptr %.split59, i64 12
   %750 = load i16, ptr %749, align 4
   %751 = and i16 %750, -2
@@ -1367,7 +1353,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %761 = add i32 %760, -1
   %762 = and i32 %761, %747
   %763 = zext i32 %762 to i64
-  %.split61 = getelementptr %struct.vring_desc_extra, ptr %759, i64 %763
+  %.split61 = getelementptr [16 x i8], ptr %759, i64 %763
   %764 = getelementptr i8, ptr %.split61, i64 12
   %765 = load i16, ptr %764, align 4
   %766 = and i16 %765, -2
@@ -1400,13 +1386,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %785 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %786 = load ptr, ptr %785, align 8
   %787 = zext i32 %457 to i64
-  %788 = getelementptr %struct.vring_desc, ptr %783, i64 %787
+  %788 = getelementptr [16 x i8], ptr %783, i64 %787
   %789 = getelementptr inbounds nuw i8, ptr %788, i64 12
   store i16 4, ptr %789, align 4
   store i64 %770, ptr %788, align 8
   %790 = getelementptr inbounds nuw i8, ptr %788, i64 8
   store i32 %784, ptr %790, align 8
-  %791 = getelementptr %struct.vring_desc_extra, ptr %786, i64 %787
+  %791 = getelementptr [16 x i8], ptr %786, i64 %787
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 14
   %793 = load i16, ptr %792, align 2
   %794 = getelementptr inbounds nuw i8, ptr %788, i64 14
@@ -1421,7 +1407,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   store i32 %798, ptr %491, align 4
   %799 = load ptr, ptr %785, align 8
   %800 = sext i32 %457 to i64
-  %.split60 = getelementptr %struct.vring_desc_extra, ptr %799, i64 %800
+  %.split60 = getelementptr [16 x i8], ptr %799, i64 %800
   %801 = getelementptr i8, ptr %.split60, i64 14
   %802 = load i16, ptr %801, align 2
   %803 = zext i16 %802 to i32
@@ -1442,10 +1428,10 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %811 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %812 = load ptr, ptr %811, align 8
-  %813 = getelementptr %struct.vring_desc_state_split, ptr %812, i64 %.pre-phi
+  %813 = getelementptr [16 x i8], ptr %812, i64 %.pre-phi
   store ptr %5, ptr %813, align 8
   %814 = load ptr, ptr %811, align 8
-  %.split62 = getelementptr %struct.vring_desc_state_split, ptr %814, i64 %.pre-phi
+  %.split62 = getelementptr [16 x i8], ptr %814, i64 %.pre-phi
   %815 = getelementptr i8, ptr %.split62, i64 8
   store ptr %808, ptr %815, align 8
   %816 = getelementptr inbounds nuw i8, ptr %0, i64 122
@@ -1459,7 +1445,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %824 = load ptr, ptr %823, align 8
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 4
   %826 = zext nneg i32 %821 to i64
-  %827 = getelementptr i16, ptr %825, i64 %826
+  %827 = getelementptr [2 x i8], ptr %825, i64 %826
   store i16 %822, ptr %827, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17
   %828 = load i16, ptr %816, align 2
@@ -1509,7 +1495,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %853 = phi i32 [ %879, %876 ], [ %457, %843 ]
   %854 = load ptr, ptr %846, align 8
   %855 = zext i32 %853 to i64
-  %856 = getelementptr %struct.vring_desc_extra, ptr %854, i64 %855
+  %856 = getelementptr [16 x i8], ptr %854, i64 %855
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 12
   %858 = load i16, ptr %857, align 4
   %859 = zext i16 %858 to i32
@@ -1553,7 +1539,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %884 = phi i32 [ %905, %901 ], [ 0, %.split147.preheader ]
   %885 = phi i32 [ %904, %901 ], [ %851, %.split147.preheader ]
   %886 = zext i32 %885 to i64
-  %887 = getelementptr %struct.vring_desc, ptr %490, i64 %886
+  %887 = getelementptr [16 x i8], ptr %490, i64 %886
   %888 = load i8, ptr %849, align 1, !range !9, !noundef !10
   %889 = icmp eq i8 %888, 0
   br i1 %889, label %901, label %890
@@ -1730,7 +1716,7 @@ define dso_local zeroext i1 @virtqueue_kick_prepare(ptr noundef captures(none) %
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %56, align 8
   %62 = zext i32 %61 to i64
-  %63 = getelementptr %struct.vring_used_elem, ptr %60, i64 %62
+  %63 = getelementptr [8 x i8], ptr %60, i64 %62
   %64 = load i16, ptr %63, align 4
   %65 = xor i16 %64, -1
   %66 = add i16 %49, %65
@@ -1859,7 +1845,7 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %48, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr %struct.vring_used_elem, ptr %52, i64 %54
+  %55 = getelementptr [8 x i8], ptr %52, i64 %54
   %56 = load i16, ptr %55, align 4
   %57 = xor i16 %56, -1
   %58 = add i16 %41, %57
@@ -1922,7 +1908,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i16 %14 to i64
-  %.split = getelementptr %struct.vring_packed_desc, ptr %16, i64 %17
+  %.split = getelementptr [16 x i8], ptr %16, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 14
   %19 = load i16, ptr %18, align 2
   %20 = lshr i16 %19, 7
@@ -1943,7 +1929,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %15, align 8
   %34 = zext nneg i16 %31 to i64
-  %35 = getelementptr %struct.vring_packed_desc, ptr %33, i64 %34
+  %35 = getelementptr [16 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %37 = load i16, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -1968,7 +1954,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %51 = load ptr, ptr %50, align 8
   %52 = zext i16 %37 to i64
-  %53 = getelementptr %struct.vring_desc_state_packed, ptr %51, i64 %52
+  %53 = getelementptr [24 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %62, !prof !11
@@ -1986,7 +1972,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
 62:                                               ; preds = %49
   tail call fastcc void @detach_buf_packed(ptr noundef %0, i32 noundef %40, ptr noundef %2)
   %63 = load ptr, ptr %50, align 8
-  %.split6 = getelementptr %struct.vring_desc_state_packed, ptr %63, i64 %52
+  %.split6 = getelementptr [24 x i8], ptr %63, i64 %52
   %64 = getelementptr i8, ptr %.split6, i64 16
   %65 = load i16, ptr %64, align 8
   %66 = add i16 %65, %31
@@ -2054,7 +2040,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %108 = load ptr, ptr %94, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = zext i16 %106 to i64
-  %111 = getelementptr %struct.vring_used_elem, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   %112 = load i32, ptr %111, align 4
   %.idx = shl nuw nsw i64 %110, 3
   %113 = getelementptr i8, ptr %109, i64 %.idx
@@ -2078,7 +2064,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %125 = load ptr, ptr %124, align 8
   %126 = zext i32 %112 to i64
-  %127 = getelementptr %struct.vring_desc_state_split, ptr %125, i64 %126
+  %127 = getelementptr [16 x i8], ptr %125, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, null
   br i1 %129, label %130, label %135, !prof !11
@@ -2111,7 +2097,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %148 = load i32, ptr %102, align 8
   %149 = zext i32 %148 to i64
-  %150 = getelementptr i16, ptr %147, i64 %149
+  %150 = getelementptr [2 x i8], ptr %147, i64 %149
   br i1 %144, label %153, label %151
 
 151:                                              ; preds = %142
@@ -2189,7 +2175,7 @@ define dso_local void @virtqueue_disable_cb(ptr noundef captures(none) %0) #4 al
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = load i32, ptr %18, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr i16, ptr %35, i64 %37
+  %38 = getelementptr [2 x i8], ptr %35, i64 %37
   store i16 0, ptr %38, align 2
   br label %40
 
@@ -2285,7 +2271,7 @@ define dso_local range(i32 0, 65536) i32 @virtqueue_enable_cb_prepare(ptr nounde
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %47, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr i16, ptr %52, i64 %54
+  %55 = getelementptr [2 x i8], ptr %52, i64 %54
   store i16 %49, ptr %55, align 2
   br label %56
 
@@ -2328,7 +2314,7 @@ define dso_local zeroext i1 @virtqueue_poll(ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = zext nneg i16 %18 to i64
-  %.split = getelementptr %struct.vring_packed_desc, ptr %20, i64 %21
+  %.split = getelementptr [16 x i8], ptr %20, i64 %21
   %22 = getelementptr i8, ptr %.split, i64 14
   %23 = load i16, ptr %22, align 2
   %24 = lshr i16 %23, 7
@@ -2438,7 +2424,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb(ptr noundef captures(none) %0) 
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %47, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr i16, ptr %52, i64 %54
+  %55 = getelementptr [2 x i8], ptr %52, i64 %54
   store i16 %49, ptr %55, align 2
   br label %56
 
@@ -2473,7 +2459,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb(ptr noundef captures(none) %0) 
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %73 = load ptr, ptr %72, align 8
   %74 = zext nneg i16 %71 to i64
-  %.split = getelementptr %struct.vring_packed_desc, ptr %73, i64 %74
+  %.split = getelementptr [16 x i8], ptr %73, i64 %74
   %75 = getelementptr i8, ptr %.split, i64 14
   %76 = load i16, ptr %75, align 2
   %77 = lshr i16 %76, 7
@@ -2588,7 +2574,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = load ptr, ptr %59, align 8
   %61 = zext nneg i16 %58 to i64
-  %.split = getelementptr %struct.vring_packed_desc, ptr %60, i64 %61
+  %.split = getelementptr [16 x i8], ptr %60, i64 %61
   %62 = getelementptr i8, ptr %.split, i64 14
   %63 = load i16, ptr %62, align 2
   %64 = lshr i16 %63, 7
@@ -2642,7 +2628,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %72, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr i16, ptr %100, i64 %102
+  %103 = getelementptr [2 x i8], ptr %100, i64 %102
   %104 = trunc nuw i32 %93 to i16
   %105 = add i16 %89, %104
   %106 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %103, i16 %105, ptr elementtype(i16) %103) #17, !srcloc !55
@@ -2656,7 +2642,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %72, align 8
   %114 = zext i32 %113 to i64
-  %115 = getelementptr i16, ptr %112, i64 %114
+  %115 = getelementptr [2 x i8], ptr %112, i64 %114
   store volatile i16 %109, ptr %115, align 2
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !56
   br label %116
@@ -2698,7 +2684,7 @@ define dso_local ptr @virtqueue_detach_unused_buf(ptr noundef captures(none) %0)
 
 13:                                               ; preds = %20, %9
   %14 = phi i64 [ %21, %20 ], [ 0, %9 ]
-  %15 = getelementptr %struct.vring_desc_state_packed, ptr %11, i64 %14
+  %15 = getelementptr [24 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %18
@@ -2735,7 +2721,7 @@ define dso_local ptr @virtqueue_detach_unused_buf(ptr noundef captures(none) %0)
 
 32:                                               ; preds = %45, %28
   %33 = phi i64 [ %46, %45 ], [ 0, %28 ]
-  %34 = getelementptr %struct.vring_desc_state_split, ptr %30, i64 %33
+  %34 = getelementptr [16 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %45, label %37
@@ -2788,7 +2774,7 @@ define dso_local noundef range(i32 0, 2) i32 @vring_interrupt(i32 %0, ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i16 %9 to i64
-  %.split = getelementptr %struct.vring_packed_desc, ptr %11, i64 %12
+  %.split = getelementptr [16 x i8], ptr %11, i64 %12
   %13 = getelementptr i8, ptr %.split, i64 14
   %14 = load i16, ptr %13, align 2
   %15 = lshr i16 %14, 7
@@ -2963,7 +2949,7 @@ define internal fastcc noundef ptr @vring_create_virtqueue_packed(i32 noundef %0
   %67 = phi i64 [ 0, %64 ], [ %68, %66 ]
   %68 = add nuw nsw i64 %67, 1
   %69 = trunc i64 %68 to i16
-  %.split = getelementptr %struct.vring_desc_extra, ptr %59, i64 %67
+  %.split = getelementptr [16 x i8], ptr %59, i64 %67
   %70 = getelementptr i8, ptr %.split, i64 14
   store i16 %69, ptr %70, align 2
   %71 = icmp eq i64 %68, %65
@@ -3221,7 +3207,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nound
   %65 = phi i64 [ 0, %62 ], [ %66, %64 ]
   %66 = add nuw nsw i64 %65, 1
   %67 = trunc i64 %66 to i16
-  %.split = getelementptr %struct.vring_desc_extra, ptr %57, i64 %65
+  %.split = getelementptr [16 x i8], ptr %57, i64 %65
   %68 = getelementptr i8, ptr %.split, i64 14
   store i16 %67, ptr %68, align 2
   %69 = icmp eq i64 %66, %63
@@ -3373,7 +3359,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nound
   %152 = phi i64 [ 0, %149 ], [ %153, %151 ]
   %153 = add nuw nsw i64 %152, 1
   %154 = trunc i64 %153 to i16
-  %.split13 = getelementptr %struct.vring_desc_extra, ptr %144, i64 %152
+  %.split13 = getelementptr [16 x i8], ptr %144, i64 %152
   %155 = getelementptr i8, ptr %.split13, i64 14
   store i16 %154, ptr %155, align 2
   %156 = icmp eq i64 %153, %150
@@ -3473,7 +3459,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nound
   %208 = load ptr, ptr %204, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %210 = sext i32 %203 to i64
-  %211 = getelementptr i16, ptr %209, i64 %210
+  %211 = getelementptr [2 x i8], ptr %209, i64 %210
   store i16 0, ptr %211, align 2
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %213 = load ptr, ptr %212, align 8
@@ -3483,7 +3469,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nound
   store i16 0, ptr %215, align 2
   %216 = load ptr, ptr %212, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %218 = getelementptr %struct.vring_used_elem, ptr %217, i64 %210
+  %218 = getelementptr [8 x i8], ptr %217, i64 %210
   store i16 0, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %203, ptr %219, align 4
@@ -3668,7 +3654,7 @@ define dso_local i32 @virtqueue_reset(ptr noundef %0, ptr noundef readonly captu
   %67 = load ptr, ptr %63, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = sext i32 %62 to i64
-  %70 = getelementptr i16, ptr %68, i64 %69
+  %70 = getelementptr [2 x i8], ptr %68, i64 %69
   store i16 0, ptr %70, align 2
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %72 = load ptr, ptr %71, align 8
@@ -3678,7 +3664,7 @@ define dso_local i32 @virtqueue_reset(ptr noundef %0, ptr noundef readonly captu
   store i16 0, ptr %74, align 2
   %75 = load ptr, ptr %71, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %77 = getelementptr %struct.vring_used_elem, ptr %76, i64 %69
+  %77 = getelementptr [8 x i8], ptr %76, i64 %69
   store i16 0, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %62, ptr %78, align 4
@@ -3754,7 +3740,7 @@ define dso_local noundef ptr @vring_new_virtqueue(i32 noundef %0, i32 noundef %1
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %24 = getelementptr i16, ptr %23, i64 %19
+  %24 = getelementptr [2 x i8], ptr %23, i64 %19
   %25 = ptrtoint ptr %24 to i64
   %26 = add nuw nsw i64 %17, 1
   %27 = add i64 %26, %25
@@ -3872,7 +3858,7 @@ define internal fastcc noundef ptr @__vring_new_virtqueue(i32 noundef %0, ptr no
   %66 = phi i64 [ 0, %63 ], [ %67, %65 ]
   %67 = add nuw nsw i64 %66, 1
   %68 = trunc i64 %67 to i16
-  %.split = getelementptr %struct.vring_desc_extra, ptr %58, i64 %66
+  %.split = getelementptr [16 x i8], ptr %58, i64 %66
   %69 = getelementptr i8, ptr %.split, i64 14
   store i16 %68, ptr %69, align 2
   %70 = icmp eq i64 %67, %64
@@ -4423,7 +4409,7 @@ define dso_local i64 @virtqueue_dma_map_single_attrs(ptr noundef readonly captur
   %44 = select i1 %40, i64 %41, i64 %43
   %45 = add i64 %39, %44
   %46 = lshr i64 %45, 12
-  %47 = getelementptr %struct.page, ptr %37, i64 %46
+  %47 = getelementptr [64 x i8], ptr %37, i64 %46
   %48 = and i64 %38, 4095
   %49 = tail call i64 @dma_map_page_attrs(ptr noundef %20, ptr noundef %47, i64 noundef %48, i64 noundef %2, i32 noundef %3, i64 noundef %4) #17
   br label %50
@@ -4620,7 +4606,7 @@ define internal fastcc i64 @vring_map_single(ptr noundef readonly captures(none)
   %42 = select i1 %38, i64 %39, i64 %41
   %43 = add i64 %37, %42
   %44 = lshr i64 %43, 12
-  %45 = getelementptr %struct.page, ptr %35, i64 %44
+  %45 = getelementptr [64 x i8], ptr %35, i64 %44
   %46 = and i64 %36, 4095
   %47 = tail call i64 @dma_map_page_attrs(ptr noundef %18, ptr noundef %45, i64 noundef %46, i64 noundef %2, i32 noundef 1, i64 noundef 0) #17
   br label %48
@@ -4650,7 +4636,7 @@ define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr %struct.vring_desc_state_packed, ptr %5, i64 %6
+  %7 = getelementptr [24 x i8], ptr %5, i64 %6
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
@@ -4660,7 +4646,7 @@ define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %.split = getelementptr %struct.vring_desc_extra, ptr %12, i64 %15
+  %.split = getelementptr [16 x i8], ptr %12, i64 %15
   %16 = getelementptr i8, ptr %.split, i64 14
   store i16 %10, ptr %16, align 2
   store i32 %1, ptr %8, align 8
@@ -4690,10 +4676,10 @@ define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i3
   %30 = phi i32 [ %37, %.preheader ], [ %1, %.preheader.preheader ]
   %31 = phi i32 [ %38, %.preheader ], [ 0, %.preheader.preheader ]
   %32 = zext i32 %30 to i64
-  %33 = getelementptr %struct.vring_desc_extra, ptr %29, i64 %32
+  %33 = getelementptr [16 x i8], ptr %29, i64 %32
   tail call fastcc void @vring_unmap_extra_packed(ptr noundef %0, ptr noundef %33)
   %34 = load ptr, ptr %11, align 8
-  %.split4 = getelementptr %struct.vring_desc_extra, ptr %34, i64 %32
+  %.split4 = getelementptr [16 x i8], ptr %34, i64 %32
   %35 = getelementptr i8, ptr %.split4, i64 14
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
@@ -4722,7 +4708,7 @@ define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i3
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %11, align 8
-  %.split5 = getelementptr %struct.vring_desc_extra, ptr %53, i64 %6
+  %.split5 = getelementptr [16 x i8], ptr %53, i64 %6
   %54 = getelementptr i8, ptr %.split5, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp ult i32 %55, 16
@@ -4741,7 +4727,7 @@ define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i3
   br i1 %62, label %75, label %63
 
 63:                                               ; preds = %.split7
-  %64 = getelementptr %struct.vring_packed_desc, ptr %47, i64 %60
+  %64 = getelementptr [16 x i8], ptr %47, i64 %60
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 14
   %66 = load i16, ptr %65, align 2
   %67 = load ptr, ptr %58, align 8
@@ -4784,11 +4770,11 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr %struct.vring_desc_state_split, ptr %5, i64 %6
+  %7 = getelementptr [16 x i8], ptr %5, i64 %6
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %.split = getelementptr %struct.vring_desc, ptr %9, i64 %6
+  %.split = getelementptr [16 x i8], ptr %9, i64 %6
   %10 = getelementptr i8, ptr %.split, i64 12
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 1
@@ -4812,7 +4798,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
   %20 = phi ptr [ %9, %14 ], [ %45, %44 ]
   %21 = phi ptr [ %.pre, %14 ], [ %46, %44 ]
   %22 = phi i64 [ %6, %14 ], [ %51, %44 ]
-  %23 = getelementptr %struct.vring_desc_extra, ptr %21, i64 %22
+  %23 = getelementptr [16 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i32
@@ -4847,14 +4833,14 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
 44:                                               ; preds = %35, %32, %29
   %45 = phi ptr [ %.pre13, %35 ], [ %20, %32 ], [ %20, %29 ]
   %46 = phi ptr [ %.pre12, %35 ], [ %21, %32 ], [ %21, %29 ]
-  %.split3 = getelementptr %struct.vring_desc_extra, ptr %46, i64 %22
+  %.split3 = getelementptr [16 x i8], ptr %46, i64 %22
   %47 = getelementptr i8, ptr %.split3, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = load i32, ptr %17, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %17, align 4
   %51 = zext i16 %48 to i64
-  %.split4 = getelementptr %struct.vring_desc, ptr %45, i64 %51
+  %.split4 = getelementptr [16 x i8], ptr %45, i64 %51
   %52 = getelementptr i8, ptr %.split4, i64 12
   %53 = load i16, ptr %52, align 4
   %54 = and i16 %53, 1
@@ -4865,7 +4851,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
   %56 = phi ptr [ %.pre14, %..loopexit9_crit_edge ], [ %46, %44 ]
   %57 = phi i64 [ %6, %..loopexit9_crit_edge ], [ %51, %44 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %59 = getelementptr %struct.vring_desc_extra, ptr %56, i64 %57
+  %59 = getelementptr [16 x i8], ptr %56, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i16, ptr %60, align 4
   %62 = zext i16 %61 to i32
@@ -4904,7 +4890,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load i32, ptr %85, align 8
   %87 = trunc i32 %86 to i16
-  %.split5 = getelementptr %struct.vring_desc_extra, ptr %84, i64 %57
+  %.split5 = getelementptr [16 x i8], ptr %84, i64 %57
   %88 = getelementptr i8, ptr %.split5, i64 14
   store i16 %87, ptr %88, align 2
   store i32 %1, ptr %85, align 8
@@ -4919,7 +4905,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
 
 95:                                               ; preds = %83
   %96 = load ptr, ptr %4, align 8
-  %.split6 = getelementptr %struct.vring_desc_state_split, ptr %96, i64 %6
+  %.split6 = getelementptr [16 x i8], ptr %96, i64 %6
   %97 = getelementptr i8, ptr %.split6, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
@@ -4927,7 +4913,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr %58, align 8
-  %102 = getelementptr %struct.vring_desc_extra, ptr %101, i64 %6
+  %102 = getelementptr [16 x i8], ptr %101, i64 %6
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i16, ptr %103, align 4
   %105 = and i16 %104, 4
@@ -4973,7 +4959,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
   br i1 %126, label %139, label %127
 
 127:                                              ; preds = %.split10
-  %128 = getelementptr %struct.vring_desc, ptr %98, i64 %124
+  %128 = getelementptr [16 x i8], ptr %98, i64 %124
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
   %130 = load i16, ptr %129, align 4
   %131 = load ptr, ptr %122, align 8
@@ -4995,7 +4981,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
 .loopexit:                                        ; preds = %139, %117
   tail call void @kfree(ptr noundef nonnull %98) #17
   %142 = load ptr, ptr %4, align 8
-  %.split7 = getelementptr %struct.vring_desc_state_split, ptr %142, i64 %6
+  %.split7 = getelementptr [16 x i8], ptr %142, i64 %6
   %143 = getelementptr i8, ptr %.split7, i64 8
   store ptr null, ptr %143, align 8
   br label %150
@@ -5006,7 +4992,7 @@ define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32
 
 146:                                              ; preds = %144
   %147 = load ptr, ptr %4, align 8
-  %.split8 = getelementptr %struct.vring_desc_state_split, ptr %147, i64 %6
+  %.split8 = getelementptr [16 x i8], ptr %147, i64 %6
   %148 = getelementptr i8, ptr %.split8, i64 8
   %149 = load ptr, ptr %148, align 8
   store ptr %149, ptr %2, align 8
@@ -5405,7 +5391,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %89 = getelementptr i16, ptr %88, i64 %84
+  %89 = getelementptr [2 x i8], ptr %88, i64 %84
   %90 = ptrtoint ptr %89 to i64
   %91 = add nuw nsw i64 %82, 1
   %92 = add i64 %91, %90

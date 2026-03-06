@@ -40,9 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::HeapPtrs" = type { ptr, %"union.absl::container_internal::MaybeInitializedPtr" }
 %"union.absl::container_internal::MaybeInitializedPtr" = type { ptr }
 %"class.absl::container_internal::(anonymous namespace)::CheckedAlloc.56" = type { i64, %"class.std::shared_ptr" }
-%"class.absl::container_internal::Tracked" = type { i32, %"class.std::shared_ptr.57", %"class.std::shared_ptr.57" }
-%"class.std::shared_ptr.57" = type { %"class.std::__shared_ptr.58" }
-%"class.std::__shared_ptr.58" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -2954,7 +2951,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EEC2INS0_7TrackedIi
   br i1 %47, label %48, label %66
 
 48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
   %50 = load i32, ptr %49, align 4, !tbaa !50
   store i32 %50, ptr %.0124.i, align 8, !tbaa !119
   %51 = getelementptr inbounds nuw i8, ptr %.pn2.i, i64 48
@@ -3007,7 +3004,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EEC2INS0_7TrackedIi
   br i1 %76, label %77, label %129
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.061
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.061
   %.val.i39 = load i32, ptr %78, align 4, !tbaa !50
   %79 = sext i32 %.val.i39 to i64
   %80 = load ptr, ptr %70, align 8, !tbaa !49, !noalias !126
@@ -3063,7 +3060,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EEC2INS0_7TrackedIi
   %111 = getelementptr i8, ptr %80, i64 %109
   %112 = getelementptr i8, ptr %111, i64 %110
   store i8 %106, ptr %112, align 1, !tbaa !117
-  %113 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val33, i64 %.sroa.011.0.i.i
+  %113 = getelementptr inbounds nuw [40 x i8], ptr %.val33, i64 %.sroa.011.0.i.i
   store i32 %.val.i39, ptr %113, align 8, !tbaa !119
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -5452,7 +5449,7 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_G
   %21 = zext nneg i16 %20 to i64
   %22 = add i64 %.sroa.7.0.i.i.i.i.i.i, %21
   %23 = and i64 %22, %5
-  %24 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val22.i.i.i.i.i.i, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %.val22.i.i.i.i.i.i, i64 %23
   %.val27.i.i.i.i.i.i = load i32, ptr %24, align 4, !tbaa !50, !noalias !199
   %25 = icmp eq i32 %.val27.i.i.i.i.i.i, %.0.val
   br i1 %25, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairINSB_8iteratorEbERKT_.exit.i.i.i.i, label %.critedge.i.i.i.i.i.i, !prof !203
@@ -5493,7 +5490,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %.val30.i.i.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !49, !noalias !199
   %.val31.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !49, !noalias !199
   %41 = getelementptr inbounds nuw i8, ptr %.val30.i.i.i.i.i.i, i64 %40
-  %42 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val31.i.i.i.i.i.i, i64 %40
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %.val31.i.i.i.i.i.i, i64 %40
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %41) ]
   store ptr %41, ptr %0, align 8, !alias.scope !199
   %.sroa.4.0..sroa_idx.i.i8.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7097,7 +7094,7 @@ _ZN7testing15AssertionResultD2Ev.exit51:          ; preds = %155, %_ZNKSt14defau
   %175 = zext nneg i16 %174 to i64
   %176 = add i64 %.sroa.6.0.i.i, %175
   %177 = and i64 %176, %165
-  %178 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val.i.i52, i64 %177
+  %178 = getelementptr inbounds nuw [40 x i8], ptr %.val.i.i52, i64 %177
   %.val15.i.i = load i32, ptr %178, align 4, !tbaa !50
   %179 = icmp eq i32 %.val15.i.i, 0
   br i1 %179, label %.thread35.i.i, label %184, !prof !203
@@ -8018,7 +8015,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_18containe
   store i8 %26, ptr %35, align 1, !tbaa !117
   %36 = getelementptr i8, ptr %5, i64 24
   %.val9.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !49
-  %37 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val9.i.i.i.i, i64 %25
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %.val9.i.i.i.i, i64 %25
   %38 = load i32, ptr %2, align 8, !tbaa !119
   store i32 %38, ptr %37, align 8, !tbaa !119
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -10510,7 +10507,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EEC2INS0_7TrackedIi
   br i1 %47, label %48, label %66
 
 48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
   %50 = load i32, ptr %49, align 4, !tbaa !50
   store i32 %50, ptr %.0124.i, align 8, !tbaa !119
   %51 = getelementptr inbounds nuw i8, ptr %.pn2.i, i64 48
@@ -10563,7 +10560,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EEC2INS0_7TrackedIi
   br i1 %76, label %77, label %129
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.061
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.061
   %.val.i39 = load i32, ptr %78, align 4, !tbaa !50
   %79 = sext i32 %.val.i39 to i64
   %80 = load ptr, ptr %70, align 8, !tbaa !49, !noalias !288
@@ -10619,7 +10616,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EEC2INS0_7TrackedIi
   %111 = getelementptr i8, ptr %80, i64 %109
   %112 = getelementptr i8, ptr %111, i64 %110
   store i8 %106, ptr %112, align 1, !tbaa !117
-  %113 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val33, i64 %.sroa.011.0.i.i
+  %113 = getelementptr inbounds nuw [40 x i8], ptr %.val33, i64 %.sroa.011.0.i.i
   store i32 %.val.i39, ptr %113, align 8, !tbaa !119
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -11832,7 +11829,7 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_G
   %21 = zext nneg i16 %20 to i64
   %22 = add i64 %.sroa.7.0.i.i.i.i.i.i, %21
   %23 = and i64 %22, %5
-  %24 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val22.i.i.i.i.i.i, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %.val22.i.i.i.i.i.i, i64 %23
   %.val27.i.i.i.i.i.i = load i32, ptr %24, align 4, !tbaa !50, !noalias !327
   %25 = icmp eq i32 %.val27.i.i.i.i.i.i, %.0.val
   br i1 %25, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE22find_or_prepare_insertIiEESt4pairINSB_8iteratorEbERKT_.exit.i.i.i.i, label %.critedge.i.i.i.i.i.i, !prof !203
@@ -11873,7 +11870,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %.val30.i.i.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !49, !noalias !327
   %.val31.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !49, !noalias !327
   %41 = getelementptr inbounds nuw i8, ptr %.val30.i.i.i.i.i.i, i64 %40
-  %42 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val31.i.i.i.i.i.i, i64 %40
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %.val31.i.i.i.i.i.i, i64 %40
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %41) ]
   store ptr %41, ptr %0, align 8, !alias.scope !327
   %.sroa.4.0..sroa_idx.i.i8.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11969,7 +11966,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_18containe
   store i8 %26, ptr %35, align 1, !tbaa !117
   %36 = getelementptr i8, ptr %5, i64 24
   %.val9.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !49
-  %37 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val9.i.i.i.i, i64 %25
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %.val9.i.i.i.i, i64 %25
   %38 = load i32, ptr %2, align 8, !tbaa !119
   store i32 %38, ptr %37, align 8, !tbaa !119
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -15065,7 +15062,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll
   %33 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %32, i1 true)
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
-  %36 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %26, i64 %34
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %34
   %37 = load i8, ptr %35, align 1, !tbaa !117
   %38 = icmp slt i8 %37, -1
   br i1 %38, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !354
@@ -16956,7 +16953,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKmEES4_EvT_S6_RSaIT0_E.exit: ; preds = %.lr.ph
 _ZNSt12_Vector_baseIN7testing7MatcherIRKmEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKmEES4_EvT_S6_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !364
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !367
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !368
   ret void
 }
@@ -17226,7 +17223,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKmE
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.97, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !364
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -17295,7 +17292,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKmE
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.98, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !364
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -19860,7 +19857,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnM
   %33 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %32, i1 true)
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
-  %36 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %26, i64 %34
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %34
   %37 = load i8, ptr %35, align 1, !tbaa !117
   %38 = icmp slt i8 %37, -1
   br i1 %38, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !503
@@ -20701,7 +20698,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EEC2INS0_7TrackedIi
   br i1 %47, label %48, label %66
 
 48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
   %50 = load i32, ptr %49, align 4, !tbaa !50
   store i32 %50, ptr %.0124.i, align 8, !tbaa !119
   %51 = getelementptr inbounds nuw i8, ptr %.pn2.i, i64 48
@@ -20754,7 +20751,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EEC2INS0_7TrackedIi
   br i1 %76, label %77, label %129
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.061
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.061
   %.val.i39 = load i32, ptr %78, align 4, !tbaa !50
   %79 = sext i32 %.val.i39 to i64
   %80 = load ptr, ptr %70, align 8, !tbaa !49, !noalias !522
@@ -20810,7 +20807,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EEC2INS0_7TrackedIi
   %111 = getelementptr i8, ptr %80, i64 %109
   %112 = getelementptr i8, ptr %111, i64 %110
   store i8 %106, ptr %112, align 1, !tbaa !117
-  %113 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val33, i64 %.sroa.011.0.i.i
+  %113 = getelementptr inbounds nuw [40 x i8], ptr %.val33, i64 %.sroa.011.0.i.i
   store i32 %.val.i39, ptr %113, align 8, !tbaa !119
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -22010,7 +22007,7 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_G
   %21 = zext nneg i16 %20 to i64
   %22 = add i64 %.sroa.7.0.i.i.i.i.i.i, %21
   %23 = and i64 %22, %5
-  %24 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val22.i.i.i.i.i.i, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %.val22.i.i.i.i.i.i, i64 %23
   %.val27.i.i.i.i.i.i = load i32, ptr %24, align 4, !tbaa !50, !noalias !558
   %25 = icmp eq i32 %.val27.i.i.i.i.i.i, %.0.val
   br i1 %25, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE22find_or_prepare_insertIiEESt4pairINSB_8iteratorEbERKT_.exit.i.i.i.i, label %.critedge.i.i.i.i.i.i, !prof !203
@@ -22051,7 +22048,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %.val30.i.i.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !49, !noalias !558
   %.val31.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !49, !noalias !558
   %41 = getelementptr inbounds nuw i8, ptr %.val30.i.i.i.i.i.i, i64 %40
-  %42 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val31.i.i.i.i.i.i, i64 %40
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %.val31.i.i.i.i.i.i, i64 %40
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %41) ]
   store ptr %41, ptr %0, align 8, !alias.scope !558
   %.sroa.4.0..sroa_idx.i.i8.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22222,7 +22219,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll
   %34 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %33, i1 true)
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 %35
-  %37 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %27, i64 %35
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %35
   %38 = load i8, ptr %36, align 1, !tbaa !117
   %39 = icmp slt i8 %38, -1
   br i1 %39, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !354
@@ -22789,7 +22786,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %56 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %55, i1 true)
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 %57
-  %59 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %49, i64 %57
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %57
   %60 = load i8, ptr %58, align 1, !tbaa !117
   %61 = icmp slt i8 %60, -1
   br i1 %61, label %.lr.ph.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE8iteratorppEv.exit.i.preheader, !llvm.loop !354
@@ -22840,7 +22837,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %78 = zext nneg i16 %77 to i64
   %79 = add i64 %.sroa.7.0.i.i.i.i.i.i.i.i, %78
   %80 = and i64 %79, %63
-  %81 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val22.i.i.i.i.i.i.i.i, i64 %80
+  %81 = getelementptr inbounds nuw [40 x i8], ptr %.val22.i.i.i.i.i.i.i.i, i64 %80
   %.val27.i.i.i.i.i.i.i.i = load i32, ptr %81, align 4, !tbaa !50, !noalias !591
   %82 = icmp eq i32 %.val27.i.i.i.i.i.i.i.i, %.val3.i.i.i.i.i
   br i1 %82, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertEOS9_.exit.i, label %.critedge.i.i.i.i.i.i.i.i, !prof !203
@@ -22872,7 +22869,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
 
 .noexc15:                                         ; preds = %90
   %.val31.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !49, !noalias !591
-  %96 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val31.i.i.i.i.i.i.i.i, i64 %95
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %.val31.i.i.i.i.i.i.i.i, i64 %95
   %97 = load i32, ptr %.sroa.826.038.i, align 4, !tbaa !50, !noalias !601
   store i32 %97, ptr %96, align 8, !tbaa !119, !noalias !601
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -23021,7 +23018,7 @@ _ZN4absl18container_internal12_GLOBAL__N_16Policy7destroyINS1_12CheckedAllocINS0
   %170 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %169, i1 true)
   %171 = zext nneg i32 %170 to i64
   %172 = getelementptr inbounds nuw i8, ptr %164, i64 %171
-  %173 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %163, i64 %171
+  %173 = getelementptr inbounds nuw [40 x i8], ptr %163, i64 %171
   %174 = load i8, ptr %172, align 1, !tbaa !117
   %175 = icmp slt i8 %174, -1
   br i1 %175, label %.lr.ph.i.i20.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE8iterator21skip_empty_or_deletedEv.exit.i.i, !llvm.loop !354
@@ -23182,7 +23179,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %56 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %55, i1 true)
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 %57
-  %59 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %49, i64 %57
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %57
   %60 = load i8, ptr %58, align 1, !tbaa !117
   %61 = icmp slt i8 %60, -1
   br i1 %61, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !503
@@ -23670,7 +23667,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %35 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %34, i1 true)
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 %36
-  %38 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %28, i64 %36
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %36
   %39 = load i8, ptr %37, align 1, !tbaa !117
   %40 = icmp slt i8 %39, -1
   br i1 %40, label %.lr.ph.i.i, label %.lr.ph, !llvm.loop !503
@@ -23724,7 +23721,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %58 = zext nneg i16 %57 to i64
   %59 = add i64 %.sroa.7.0.i.i.i.i.i.i.i, %58
   %60 = and i64 %59, %43
-  %61 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val22.i.i.i.i.i.i.i, i64 %60
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %.val22.i.i.i.i.i.i.i, i64 %60
   %.val27.i.i.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !50, !noalias !620
   %62 = icmp eq i32 %.val27.i.i.i.i.i.i.i, %.val3.i.i.i.i
   br i1 %62, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertEOS9_.exit, label %.critedge.i.i.i.i.i.i.i, !prof !203
@@ -23753,7 +23750,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %74 = and i64 %73, %43
   %75 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %42, i64 %74, i64 %.sroa.14.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE18GetPolicyFunctionsEvE5value), !noalias !620
   %.val31.i.i.i.i.i.i.i = load ptr, ptr %41, align 8, !tbaa !49, !noalias !620
-  %76 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val31.i.i.i.i.i.i.i, i64 %75
+  %76 = getelementptr inbounds nuw [40 x i8], ptr %.val31.i.i.i.i.i.i.i, i64 %75
   %77 = load i32, ptr %.sroa.826.038, align 4, !tbaa !50, !noalias !630
   store i32 %77, ptr %76, align 8, !tbaa !119, !noalias !630
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -23803,7 +23800,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %104 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %103, i1 true)
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 %105
-  %107 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %97, i64 %105
+  %107 = getelementptr inbounds nuw [40 x i8], ptr %97, i64 %105
   %108 = load i8, ptr %106, align 1, !tbaa !117
   %109 = icmp slt i8 %108, -1
   br i1 %109, label %.lr.ph.i.i20, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE8iterator21skip_empty_or_deletedEv.exit.i, !llvm.loop !503
@@ -23911,7 +23908,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll
   %41 = zext nneg i16 %40 to i64
   %42 = add i64 %.sroa.6.0.i.i, %41
   %43 = and i64 %42, %31
-  %44 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val.i.i, i64 %43
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %.val.i.i, i64 %43
   %.val15.i.i = load i32, ptr %44, align 4, !tbaa !50
   %45 = icmp eq i32 %.val15.i.i, 0
   br i1 %45, label %.loopexit, label %46, !prof !203
@@ -24855,7 +24852,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %63 = zext nneg i16 %62 to i64
   %64 = add i64 %.sroa.6.0.i.i, %63
   %65 = and i64 %64, %53
-  %66 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val.i.i, i64 %65
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %.val.i.i, i64 %65
   %.val15.i.i = load i32, ptr %66, align 4, !tbaa !50
   %67 = icmp eq i32 %.val15.i.i, 0
   br i1 %67, label %.loopexit, label %68, !prof !203
@@ -28919,7 +28916,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %39 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %38, i1 true)
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 %40
-  %42 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %32, i64 %40
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %40
   %43 = load i8, ptr %41, align 1, !tbaa !117
   %44 = icmp slt i8 %43, -1
   br i1 %44, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !354
@@ -29690,7 +29687,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %49 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %48, i1 true)
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 %50
-  %52 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %42, i64 %50
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %50
   %53 = load i8, ptr %51, align 1, !tbaa !117
   %54 = icmp slt i8 %53, -1
   br i1 %54, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !503
@@ -30418,7 +30415,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %44 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 %45
-  %47 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %37, i64 %45
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %45
   %48 = load i8, ptr %46, align 1, !tbaa !117
   %49 = icmp slt i8 %48, -1
   br i1 %49, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !354
@@ -31447,7 +31444,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %52 = zext nneg i16 %51 to i64
   %53 = add i64 %.sroa.6.0.i.i, %52
   %54 = and i64 %53, %42
-  %55 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val.i.i69, i64 %54
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %.val.i.i69, i64 %54
   %.val15.i.i = load i32, ptr %55, align 4, !tbaa !50
   %56 = icmp eq i32 %.val15.i.i, 0
   br i1 %56, label %.loopexit, label %57, !prof !203
@@ -34035,7 +34032,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__
   br i1 %31, label %32, label %50
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.03.i
   %34 = load i32, ptr %33, align 4, !tbaa !50
   store i32 %34, ptr %.0124.i, align 8, !tbaa !119
   %35 = getelementptr inbounds nuw i8, ptr %.pn2.i, i64 48
@@ -34088,7 +34085,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__
   br i1 %60, label %61, label %112
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.033
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.033
   %.val.i = load i32, ptr %62, align 4, !tbaa !50
   %63 = sext i32 %.val.i to i64
   %64 = load ptr, ptr %54, align 8, !tbaa !49, !noalias !744
@@ -34144,7 +34141,7 @@ _ZZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Ident
   %94 = getelementptr i8, ptr %64, i64 %92
   %95 = getelementptr i8, ptr %94, i64 %93
   store i8 %89, ptr %95, align 1, !tbaa !117
-  %96 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val22, i64 %.sroa.011.0.i.i
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %.val22, i64 %.sroa.011.0.i.i
   store i32 %.val.i, ptr %96, align 8, !tbaa !119
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -34396,7 +34393,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_18containe
   store i8 %26, ptr %35, align 1, !tbaa !117
   %36 = getelementptr i8, ptr %5, i64 24
   %.val9.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !49
-  %37 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val9.i.i.i.i, i64 %25
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %.val9.i.i.i.i, i64 %25
   %38 = load i32, ptr %2, align 8, !tbaa !119
   store i32 %38, ptr %37, align 8, !tbaa !119
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -35293,7 +35290,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %63 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %62, i1 true)
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 %64
-  %66 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %56, i64 %64
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %56, i64 %64
   %67 = load i8, ptr %65, align 1, !tbaa !117
   %68 = icmp slt i8 %67, -1
   br i1 %68, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !767
@@ -35354,7 +35351,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %89 = zext nneg i16 %88 to i64
   %90 = add i64 %.sroa.7.0.i.i.i.i.i.i.i.i.i.i, %89
   %91 = and i64 %90, %74
-  %92 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val22.i.i.i.i.i.i.i.i.i.i, i64 %91
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %.val22.i.i.i.i.i.i.i.i.i.i, i64 %91
   %.val31.i.i.i.i.i.i.i.i.i.i = load i32, ptr %92, align 4, !tbaa !50, !noalias !779
   %93 = icmp eq i32 %.val31.i.i.i.i.i.i.i.i.i.i, %.val3.i.i.i.i.i.i.i
   br i1 %93, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_6PAllocIcEEE6insertEONS0_7TrackedIiEE.exit.i.i.i, label %.critedge.i.i.i.i.i.i.i.i.i.i, !prof !203
@@ -35386,7 +35383,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
 
 .noexc17:                                         ; preds = %101
   %.val26.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %69, align 8, !tbaa !49, !noalias !779
-  %107 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %.val26.i.i.i.i.i.i.i.i.i.i, i64 %106
+  %107 = getelementptr inbounds nuw [40 x i8], ptr %.val26.i.i.i.i.i.i.i.i.i.i, i64 %106
   %108 = load i32, ptr %.sroa.828.040.i.i.i, align 4, !tbaa !50, !noalias !789
   store i32 %108, ptr %107, align 8, !tbaa !119, !noalias !789
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -35535,7 +35532,7 @@ _ZN4absl18container_internal12_GLOBAL__N_16Policy7destroyINS1_6PAllocIcEEEEvPT_P
   %181 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %180, i1 true)
   %182 = zext nneg i32 %181 to i64
   %183 = getelementptr inbounds nuw i8, ptr %175, i64 %182
-  %184 = getelementptr inbounds nuw %"class.absl::container_internal::Tracked", ptr %174, i64 %182
+  %184 = getelementptr inbounds nuw [40 x i8], ptr %174, i64 %182
   %185 = load i8, ptr %183, align 1, !tbaa !117
   %186 = icmp slt i8 %185, -1
   br i1 %186, label %.lr.ph.i.i22.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_6PAllocIcEEE8iterator21skip_empty_or_deletedEv.exit.i.i.i.i, !llvm.loop !767

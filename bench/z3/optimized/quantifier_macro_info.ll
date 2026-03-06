@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mk_pp = type { %struct.mk_ismt2_pp }
 %struct.mk_ismt2_pp = type { ptr, ptr, %class.params_ref, ptr, i32, i32, ptr }
 %class.params_ref = type { ptr }
-%class.obj_hash_entry = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -335,13 +334,13 @@ _ZN7obj_refI10quantifier11ast_managerED2Ev.exit:  ; preds = %._crit_edge, %54, %
 65:                                               ; preds = %63
   %66 = load ptr, ptr %6, align 8, !tbaa !36
   %67 = load ptr, ptr %4, align 8, !tbaa !46
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !50
   %70 = load ptr, ptr %47, align 8, !tbaa !51
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !54
   %73 = load ptr, ptr %48, align 8, !tbaa !51
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !54
   %76 = load ptr, ptr %49, align 8, !tbaa !55
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv
@@ -419,7 +418,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i12.i:      ; preds = %_ZN7obj_refI4expr11
   %112 = phi ptr [ %.pre.i.i.i, %.noexc27 ], [ %101, %103 ]
   %113 = getelementptr inbounds i8, ptr %112, i64 -4
   %114 = zext i32 %111 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %114
   store ptr %64, ptr %115, align 8, !tbaa !71
   %116 = add i32 %111, 1
   store i32 %116, ptr %113, align 4, !tbaa !49
@@ -1050,7 +1049,7 @@ _ZNK21quantifier_macro_info23unary_function_fragmentEv.exit: ; preds = %_ZStlsIS
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %.lr.ph.i.i.i, %55, %_ZNK21quantifier_macro_info23unary_function_fragmentEv.exit
   %.sroa.0.1.i = phi ptr [ %48, %_ZNK21quantifier_macro_info23unary_function_fragmentEv.exit ], [ %52, %55 ], [ %.sroa.0.0.i, %.lr.ph.i.i.i ]
-  %57 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %48, i64 %51
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %51
   %.not2526 = icmp eq ptr %.sroa.0.1.i, %57
   br i1 %.not2526, label %._crit_edge, label %.lr.ph
 

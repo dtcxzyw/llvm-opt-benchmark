@@ -257,7 +257,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 51:                                               ; preds = %37, %58
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %58 ]
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %58, label %55
@@ -311,7 +311,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 74:                                               ; preds = %.preheader, %86
   %indvars.iv76 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next77, %86 ]
   %.073 = phi i1 [ true, %.preheader ], [ %.1, %86 ]
-  %75 = getelementptr inbounds nuw i64, ptr %73, i64 %indvars.iv76
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv76
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %86, label %78
@@ -434,15 +434,15 @@ define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef ran
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = tail call ptr @slurm_ctime2(ptr noundef nonnull %6) #8
   %8 = load i64, ptr %6, align 8
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef %7, i64 noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i64, ptr %10, i64 %5
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %5
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i16, ptr %13, i64 %5
+  %14 = getelementptr inbounds [2 x i8], ptr %13, i64 %5
   %15 = load i16, ptr %14, align 2
   %16 = icmp ugt i16 %15, 1
   br i1 %16, label %17, label %20
@@ -455,11 +455,11 @@ define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef ran
 20:                                               ; preds = %17, %3
   %.0 = phi i64 [ %19, %17 ], [ %12, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i64, ptr %21, i64 %5
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %5
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %23)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %26 = getelementptr inbounds i64, ptr %25, i64 %5
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %5
   %27 = load i64, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %27)
   %29 = load i64, ptr %11, align 8

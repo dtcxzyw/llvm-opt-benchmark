@@ -77,7 +77,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %34 = load i8, ptr %33, align 1, !tbaa !9
   %35 = zext i8 %34 to i32
   %36 = add nuw i64 %.076106, 1
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %.076106
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.076106
   store i32 %35, ptr %37, align 4, !tbaa !11
   br label %.critedge2
 
@@ -92,7 +92,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %13, %43
   %45 = add nuw i64 %.076106, 1
-  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %.076106
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.076106
   store i32 %44, ptr %46, align 4, !tbaa !11
   br label %.critedge2
 
@@ -111,7 +111,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %56 = shl nuw nsw i32 %55, 8
   %57 = or disjoint i32 %56, %52
   %58 = add nuw i64 %.076106, 1
-  %59 = getelementptr inbounds nuw i32, ptr %5, i64 %.076106
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.076106
   store i32 %57, ptr %59, align 4, !tbaa !11
   %60 = add i64 %.2, 2
   br label %.critedge2
@@ -152,7 +152,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %.narrow = add i8 %76, %71
   %77 = zext i8 %.narrow to i32
   %78 = or disjoint i32 %13, %77
-  %79 = getelementptr inbounds nuw i32, ptr %5, i64 %.37999
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.37999
   store i32 %78, ptr %79, align 4, !tbaa !11
   %80 = add nsw i32 %.074100, -1
   %81 = add nuw i64 %.37999, 1
@@ -175,7 +175,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 %.581102
   %88 = load i8, ptr %87, align 1, !tbaa !9
   %89 = sext i8 %88 to i32
-  %90 = getelementptr inbounds nuw i32, ptr %5, i64 %.581102
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.581102
   store i32 %89, ptr %90, align 4, !tbaa !11
   %91 = add nsw i32 %.175103, -1
   %92 = add nuw i64 %.581102, 1
@@ -204,7 +204,7 @@ default.unreachable121:                           ; preds = %26
   %.lcssa = phi i1 [ %15, %12 ], [ %98, %.critedge2 ]
   %100 = add i64 %6, -1
   %101 = select i1 %.lcssa, i64 %.076.lcssa, i64 %100
-  %102 = getelementptr inbounds nuw i32, ptr %5, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %101
   store i32 0, ptr %102, align 4, !tbaa !11
   ret void
 }

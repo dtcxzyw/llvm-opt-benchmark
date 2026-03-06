@@ -332,7 +332,7 @@ define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(
 
 25:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !30, !noalias !21
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1, !tbaa !33, !noalias !21
@@ -345,10 +345,10 @@ define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i32 %34, ptr %35, align 4, !tbaa !35
   %36 = zext i8 %29 to i64
-  %37 = getelementptr inbounds nuw %struct.b2Vec2, ptr %2, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %36
   %.sroa.016.0.copyload.i = load <2 x float>, ptr %37, align 4, !noalias !21
   %38 = zext i8 %33 to i64
-  %39 = getelementptr inbounds nuw %struct.b2Vec2, ptr %12, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %38
   %.sroa.015.0.copyload.i = load <2 x float>, ptr %39, align 4, !noalias !21
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.016.0.copyload.i, i64 0
   %foldExtExtBinop = fmul <2 x float> %.sroa.575.0.copyload, %.sroa.016.0.copyload.i
@@ -503,15 +503,15 @@ b2MakeSimplexFromCache.exit:                      ; preds = %._crit_edge.i, %._c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %102 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !30
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 28
   %105 = load i32, ptr %104, align 4, !tbaa !34
-  %106 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %105, ptr %106, align 4, !tbaa !40
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %108 = load i32, ptr %107, align 4, !tbaa !35
-  %109 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %108, ptr %109, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -575,7 +575,7 @@ b2SolveSimplex2.exit.thread:                      ; preds = %._crit_edge, %117, 
 
 132:                                              ; preds = %b2SolveSimplex2.exit.thread
   %133 = sext i32 %.1220 to i64
-  %134 = getelementptr inbounds %struct.b2Simplex, ptr %3, i64 %133
+  %134 = getelementptr inbounds [112 x i8], ptr %3, i64 %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %134, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !39
   %135 = add nsw i32 %.1220, 1
   br label %136
@@ -634,7 +634,7 @@ b2ComputeSimplexSearchDirection.exit:             ; preds = %136, %137, %148, %1
 
 156:                                              ; preds = %b2ComputeSimplexSearchDirection.exit
   %157 = sext i32 %130 to i64
-  %158 = getelementptr inbounds ptr, ptr %9, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %9, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !30
   %160 = fneg float %.sroa.01.4.vec.extract.i
   %161 = fmul float %.sroa.05.4.vec.extract.i, %160
@@ -662,7 +662,7 @@ b2ComputeSimplexSearchDirection.exit:             ; preds = %136, %137, %148, %1
   %indvars.iv.i137 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i138, %.lr.ph.i136 ]
   %.021.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i136 ]
   %.01219.i = phi float [ %172, %.lr.ph.preheader.i ], [ %.113.i, %.lr.ph.i136 ]
-  %173 = getelementptr inbounds nuw %struct.b2Vec2, ptr %2, i64 %indvars.iv.i137
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i137
   %174 = load <2 x float>, ptr %173, align 4
   %.sroa.01.0.vec.extract.i15.i = extractelement <2 x float> %174, i64 0
   %175 = fmul float %163, %.sroa.01.0.vec.extract.i15.i
@@ -682,7 +682,7 @@ b2FindSupport.exit:                               ; preds = %.lr.ph.i136, %156
   %180 = getelementptr inbounds nuw i8, ptr %159, i64 28
   store i32 %.0.lcssa.i, ptr %180, align 4, !tbaa !34
   %181 = sext i32 %.0.lcssa.i to i64
-  %182 = getelementptr inbounds %struct.b2Vec2, ptr %2, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %2, i64 %181
   %183 = load <2 x float>, ptr %182, align 4
   %.sroa.0.0.vec.extract.i139 = extractelement <2 x float> %183, i64 0
   %foldExtExtBinop278 = fmul <2 x float> %.sroa.575.0.copyload, %183
@@ -723,7 +723,7 @@ b2FindSupport.exit:                               ; preds = %.lr.ph.i136, %156
   %indvars.iv.i156 = phi i64 [ 1, %.lr.ph.preheader.i151 ], [ %indvars.iv.next.i163, %.lr.ph.i155 ]
   %.021.i157 = phi i32 [ 0, %.lr.ph.preheader.i151 ], [ %.1.i162, %.lr.ph.i155 ]
   %.01219.i158 = phi float [ %203, %.lr.ph.preheader.i151 ], [ %.113.i161, %.lr.ph.i155 ]
-  %204 = getelementptr inbounds nuw %struct.b2Vec2, ptr %12, i64 %indvars.iv.i156
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i156
   %205 = load <2 x float>, ptr %204, align 4
   %.sroa.01.0.vec.extract.i15.i159 = extractelement <2 x float> %205, i64 0
   %206 = fmul float %194, %.sroa.01.0.vec.extract.i15.i159
@@ -744,7 +744,7 @@ b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2Fin
   store i32 %.0.lcssa.i150, ptr %211, align 4, !tbaa !35
   %212 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %213 = sext i32 %.0.lcssa.i150 to i64
-  %214 = getelementptr inbounds %struct.b2Vec2, ptr %12, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %12, i64 %213
   %215 = load <2 x float>, ptr %214, align 4
   %.sroa.0.0.vec.extract.i167 = extractelement <2 x float> %215, i64 0
   %foldExtExtBinop282 = fmul <2 x float> %.sroa.570.0.copyload, %215
@@ -775,13 +775,13 @@ b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2Fin
 
 .lr.ph217:                                        ; preds = %.lr.ph217.preheader, %235
   %indvars.iv224 = phi i64 [ 0, %.lr.ph217.preheader ], [ %indvars.iv.next225, %235 ]
-  %228 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv224
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv224
   %229 = load i32, ptr %228, align 4, !tbaa !40
   %230 = icmp eq i32 %.0.lcssa.i, %229
   br i1 %230, label %231, label %235
 
 231:                                              ; preds = %.lr.ph217
-  %232 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv224
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv224
   %233 = load i32, ptr %232, align 4, !tbaa !40
   %234 = icmp eq i32 %.0.lcssa.i150, %233
   br i1 %234, label %.thread, label %235
@@ -807,7 +807,7 @@ b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2Fin
 
 239:                                              ; preds = %.thread
   %240 = sext i32 %.2 to i64
-  %241 = getelementptr inbounds %struct.b2Simplex, ptr %3, i64 %240
+  %241 = getelementptr inbounds [112 x i8], ptr %3, i64 %240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %241, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !39
   %242 = add nsw i32 %.2, 1
   br label %243
@@ -953,7 +953,7 @@ b2ComputeSimplexWitnessPoints.exit:               ; preds = %243, %246, %262, %2
 
 322:                                              ; preds = %322, %.lr.ph.i185
   %indvars.iv.i186 = phi i64 [ 0, %.lr.ph.i185 ], [ %indvars.iv.next.i187, %322 ]
-  %323 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i186
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i186
   %324 = load ptr, ptr %323, align 8, !tbaa !30
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 28
   %326 = load i32, ptr %325, align 4, !tbaa !34
@@ -1332,7 +1332,7 @@ define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%str
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.021.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.01219.i = phi float [ %58, %.lr.ph.preheader.i ], [ %.113.i, %.lr.ph.i ]
-  %59 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %60 = load <2 x float>, ptr %59, align 8
   %.sroa.01.0.vec.extract.i15.i = extractelement <2 x float> %60, i64 0
   %.sroa.01.4.vec.extract.i17.i = extractelement <2 x float> %60, i64 1
@@ -1353,7 +1353,7 @@ b2FindSupport.exit.loopexit:                      ; preds = %.lr.ph.i
 
 b2FindSupport.exit:                               ; preds = %b2FindSupport.exit.loopexit, %._crit_edge
   %.0.lcssa.i = phi i64 [ 0, %._crit_edge ], [ %66, %b2FindSupport.exit.loopexit ]
-  %67 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %.0.lcssa.i
+  %67 = getelementptr inbounds [8 x i8], ptr %3, i64 %.0.lcssa.i
   %.sroa.050.0.copyload = load <2 x float>, ptr %67, align 8
   %68 = icmp sgt i32 %.lcssa, 1
   %.pre250 = load <2 x float>, ptr %4, align 8
@@ -1377,7 +1377,7 @@ b2FindSupport.exit.b2FindSupport.exit129_crit_edge: ; preds = %b2FindSupport.exi
   %indvars.iv.i120 = phi i64 [ 1, %.lr.ph.preheader.i115 ], [ %indvars.iv.next.i127, %.lr.ph.i119 ]
   %.021.i121 = phi i32 [ 0, %.lr.ph.preheader.i115 ], [ %.1.i126, %.lr.ph.i119 ]
   %.01219.i122 = phi float [ %71, %.lr.ph.preheader.i115 ], [ %.113.i125, %.lr.ph.i119 ]
-  %72 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv.i120
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i120
   %73 = load <2 x float>, ptr %72, align 8
   %.sroa.01.0.vec.extract.i15.i123 = extractelement <2 x float> %73, i64 0
   %74 = fmul float %42, %.sroa.01.0.vec.extract.i15.i123
@@ -1394,7 +1394,7 @@ b2FindSupport.exit.b2FindSupport.exit129_crit_edge: ; preds = %b2FindSupport.exi
 
 b2FindSupport.exit129.loopexit:                   ; preds = %.lr.ph.i119
   %.phi.trans.insert = sext i32 %.1.i126 to i64
-  %.phi.trans.insert255 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %.phi.trans.insert
+  %.phi.trans.insert255 = getelementptr inbounds [8 x i8], ptr %4, i64 %.phi.trans.insert
   %.sroa.043.0.copyload.pre = load <2 x float>, ptr %.phi.trans.insert255, align 8
   %.pre264 = extractelement <2 x float> %.sroa.043.0.copyload.pre, i64 0
   %.pre265 = extractelement <2 x float> %.sroa.043.0.copyload.pre, i64 1
@@ -1430,8 +1430,8 @@ b2FindSupport.exit129:                            ; preds = %b2FindSupport.exit.
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %94 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv
-  %95 = getelementptr inbounds nuw %struct.b2Vec2, ptr %26, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %96 = load <2 x float>, ptr %95, align 4
   %.sroa.0.0.vec.extract.i132 = extractelement <2 x float> %96, i64 0
   %97 = fmul float %17, %.sroa.0.0.vec.extract.i132
@@ -1484,7 +1484,7 @@ b2FindSupport.exit129:                            ; preds = %b2FindSupport.exit.
   %indvars.iv.i148 = phi i64 [ 1, %.lr.ph.preheader.i143 ], [ %indvars.iv.next.i155, %.lr.ph.i147 ]
   %.021.i149 = phi i32 [ 0, %.lr.ph.preheader.i143 ], [ %.1.i154, %.lr.ph.i147 ]
   %.01219.i150 = phi float [ %119, %.lr.ph.preheader.i143 ], [ %.113.i153, %.lr.ph.i147 ]
-  %120 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv.i148
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i148
   %121 = load <2 x float>, ptr %120, align 8
   %.sroa.01.4.vec.extract.i17.i152 = extractelement <2 x float> %121, i64 1
   %122 = fmul float %.sroa.01.4.vec.extract.i17.i152, %116
@@ -1502,7 +1502,7 @@ b2FindSupport.exit129:                            ; preds = %b2FindSupport.exit.
 b2FindSupport.exit157:                            ; preds = %.lr.ph.i147, %114
   %.0.lcssa.i142 = phi i32 [ 0, %114 ], [ %.1.i154, %.lr.ph.i147 ]
   %127 = sext i32 %.0.lcssa.i142 to i64
-  %128 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %3, i64 %127
   %.sroa.050.0.copyload52 = load <2 x float>, ptr %128, align 8
   br i1 %68, label %.lr.ph.preheader.i161, label %b2FindSupport.exit175
 
@@ -1517,7 +1517,7 @@ b2FindSupport.exit157:                            ; preds = %.lr.ph.i147, %114
   %indvars.iv.i166 = phi i64 [ 1, %.lr.ph.preheader.i161 ], [ %indvars.iv.next.i173, %.lr.ph.i165 ]
   %.021.i167 = phi i32 [ 0, %.lr.ph.preheader.i161 ], [ %.1.i172, %.lr.ph.i165 ]
   %.01219.i168 = phi float [ %131, %.lr.ph.preheader.i161 ], [ %.113.i171, %.lr.ph.i165 ]
-  %132 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv.i166
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i166
   %133 = load <2 x float>, ptr %132, align 8
   %foldExtExtBinop290 = fmul <2 x float> %.sroa.036.0245, %133
   %foldExtExtBinop292 = fmul <2 x float> %.sroa.036.0245, %133
@@ -1535,7 +1535,7 @@ b2FindSupport.exit157:                            ; preds = %.lr.ph.i147, %114
 b2FindSupport.exit175:                            ; preds = %.lr.ph.i165, %b2FindSupport.exit157
   %.0.lcssa.i160 = phi i32 [ 0, %b2FindSupport.exit157 ], [ %.1.i172, %.lr.ph.i165 ]
   %137 = sext i32 %.0.lcssa.i160 to i64
-  %138 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %4, i64 %137
   %.sroa.043.0.copyload46 = load <2 x float>, ptr %138, align 8
   %.sroa.0.0.vec.extract.i177 = extractelement <2 x float> %.sroa.043.0.copyload46, i64 0
   %foldExtExtBinop296 = fsub <2 x float> %.sroa.050.0.copyload52, %.sroa.043.0.copyload46
@@ -1586,7 +1586,7 @@ b2Normalize.exit:                                 ; preds = %b2FindSupport.exit1
   %158 = phi i32 [ 0, %156 ], [ %108, %b2Normalize.exit ]
   %.1 = phi float [ %154, %156 ], [ %.092246, %b2Normalize.exit ]
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr %6, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %6, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !30
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 28
   store i32 %.0.lcssa.i160, ptr %162, align 4, !tbaa !34
@@ -2043,11 +2043,11 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   store i32 0, ptr %33, align 8, !tbaa !79, !alias.scope !72
   %108 = load i8, ptr %31, align 2, !tbaa !33, !noalias !72
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %109
   %.sroa.035.0.copyload.i = load <2 x float>, ptr %110, align 4, !noalias !72
   %111 = load i8, ptr %36, align 1, !tbaa !33, !noalias !72
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %112
   %.sroa.034.0.copyload.i = load <2 x float>, ptr %113, align 4, !noalias !72
   %.sroa.0.0.vec.extract.i.i127 = extractelement <2 x float> %.sroa.035.0.copyload.i, i64 0
   %114 = fmul float %61, %.sroa.0.0.vec.extract.i.i127
@@ -2102,11 +2102,11 @@ b2Normalize.exit.i:                               ; preds = %136, %107
   store i32 2, ptr %33, align 8, !tbaa !79, !alias.scope !72
   %145 = load i8, ptr %36, align 1, !tbaa !33, !noalias !72
   %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %146
   %.sroa.028.0.copyload.i = load <2 x float>, ptr %147, align 4, !noalias !72
   %148 = load i8, ptr %37, align 2, !tbaa !33, !noalias !72
   %149 = zext i8 %148 to i64
-  %150 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %149
   %.sroa.026.0.copyload.i = load <2 x float>, ptr %150, align 4, !noalias !72
   %foldExtExtBinop = fsub <2 x float> %.sroa.026.0.copyload.i, %.sroa.028.0.copyload.i
   %.sroa.01.4.vec.extract.i.i = extractelement <2 x float> %.sroa.026.0.copyload.i, i64 1
@@ -2160,7 +2160,7 @@ b2Normalize.exit115.i:                            ; preds = %156, %144
   %179 = fadd float %177, %178
   %180 = fadd float %98, %179
   %181 = zext i8 %141 to i64
-  %182 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %181
   %.sroa.018.0.copyload.i = load <2 x float>, ptr %182, align 4, !noalias !72
   %.sroa.0.0.vec.extract.i127.i = extractelement <2 x float> %.sroa.018.0.copyload.i, i64 0
   %183 = fmul float %61, %.sroa.0.0.vec.extract.i127.i
@@ -2190,10 +2190,10 @@ b2Normalize.exit115.i:                            ; preds = %156, %144
 200:                                              ; preds = %140
   store i32 1, ptr %33, align 8, !tbaa !79, !alias.scope !72
   %201 = zext i8 %141 to i64
-  %202 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %201
   %.sroa.012.0.copyload.i = load <2 x float>, ptr %202, align 4, !noalias !72
   %203 = zext i8 %142 to i64
-  %204 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %203
   %.sroa.010.0.copyload.i = load <2 x float>, ptr %204, align 4, !noalias !72
   %foldExtExtBinop324 = fsub <2 x float> %.sroa.010.0.copyload.i, %.sroa.012.0.copyload.i
   %.sroa.01.4.vec.extract.i149.i = extractelement <2 x float> %.sroa.010.0.copyload.i, i64 1
@@ -2248,7 +2248,7 @@ b2Normalize.exit162.i:                            ; preds = %210, %200
   %234 = fadd float %70, %233
   %235 = load i8, ptr %36, align 1, !tbaa !33, !noalias !72
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %236
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %237, align 4, !noalias !72
   %.sroa.0.0.vec.extract.i178.i = extractelement <2 x float> %.sroa.03.0.copyload.i, i64 0
   %238 = fmul float %89, %.sroa.0.0.vec.extract.i178.i
@@ -2385,7 +2385,7 @@ b2MakeSeparationFunction.exit:                    ; preds = %b2Normalize.exit.i,
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.021.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.1.i.i, %.lr.ph.i.i ]
   %.01219.i.i = phi float [ %334, %.lr.ph.preheader.i.i ], [ %.113.i.i, %.lr.ph.i.i ]
-  %335 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv.i.i
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %336 = load <2 x float>, ptr %335, align 4
   %.sroa.01.0.vec.extract.i15.i.i = extractelement <2 x float> %336, i64 0
   %337 = fmul float %319, %.sroa.01.0.vec.extract.i15.i.i
@@ -2420,7 +2420,7 @@ b2FindSupport.exit.i:                             ; preds = %.lr.ph.i.i, %316
   %indvars.iv.i107.i = phi i64 [ 1, %.lr.ph.preheader.i102.i ], [ %indvars.iv.next.i114.i, %.lr.ph.i106.i ]
   %.021.i108.i = phi i32 [ 0, %.lr.ph.preheader.i102.i ], [ %.1.i113.i, %.lr.ph.i106.i ]
   %.01219.i109.i = phi float [ %347, %.lr.ph.preheader.i102.i ], [ %.113.i112.i, %.lr.ph.i106.i ]
-  %348 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv.i107.i
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i107.i
   %349 = load <2 x float>, ptr %348, align 4
   %.sroa.01.0.vec.extract.i15.i110.i = extractelement <2 x float> %349, i64 0
   %350 = fmul float %325, %.sroa.01.0.vec.extract.i15.i110.i
@@ -2438,10 +2438,10 @@ b2FindSupport.exit.i:                             ; preds = %.lr.ph.i.i, %316
 b2FindSupport.exit116.i:                          ; preds = %.lr.ph.i106.i, %b2FindSupport.exit.i
   %.0.lcssa.i101.i = phi i32 [ 0, %b2FindSupport.exit.i ], [ %.1.i113.i, %.lr.ph.i106.i ]
   %355 = sext i32 %.0.lcssa.i.i to i64
-  %356 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %355
+  %356 = getelementptr inbounds [8 x i8], ptr %0, i64 %355
   %.sroa.022.0.copyload.i = load <2 x float>, ptr %356, align 4
   %357 = sext i32 %.0.lcssa.i101.i to i64
-  %358 = getelementptr inbounds %struct.b2Vec2, ptr %10, i64 %357
+  %358 = getelementptr inbounds [8 x i8], ptr %10, i64 %357
   %.sroa.0.0.vec.extract.i117.i = extractelement <2 x float> %.sroa.022.0.copyload.i, i64 0
   %359 = fmul float %278, %.sroa.0.0.vec.extract.i117.i
   %.sroa.0.4.vec.extract.i118.i = extractelement <2 x float> %.sroa.022.0.copyload.i, i64 1
@@ -2494,7 +2494,7 @@ b2FindSupport.exit116.i:                          ; preds = %.lr.ph.i106.i, %b2F
   %indvars.iv.i163.i = phi i64 [ 1, %.lr.ph.preheader.i158.i ], [ %indvars.iv.next.i170.i, %.lr.ph.i162.i ]
   %.021.i164.i = phi i32 [ 0, %.lr.ph.preheader.i158.i ], [ %.1.i169.i, %.lr.ph.i162.i ]
   %.01219.i165.i = phi float [ %394, %.lr.ph.preheader.i158.i ], [ %.113.i168.i, %.lr.ph.i162.i ]
-  %395 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv.i163.i
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i163.i
   %396 = load <2 x float>, ptr %395, align 4
   %.sroa.01.0.vec.extract.i15.i166.i = extractelement <2 x float> %396, i64 0
   %397 = fmul float %385, %.sroa.01.0.vec.extract.i15.i166.i
@@ -2512,7 +2512,7 @@ b2FindSupport.exit116.i:                          ; preds = %.lr.ph.i106.i, %b2F
 b2FindSupport.exit172.i:                          ; preds = %.lr.ph.i162.i, %367
   %.0.lcssa.i157.i = phi i32 [ 0, %367 ], [ %.1.i169.i, %.lr.ph.i162.i ]
   %402 = sext i32 %.0.lcssa.i157.i to i64
-  %403 = getelementptr inbounds %struct.b2Vec2, ptr %10, i64 %402
+  %403 = getelementptr inbounds [8 x i8], ptr %10, i64 %402
   br label %b2FindMinSeparation.exit
 
 404:                                              ; preds = %258
@@ -2555,7 +2555,7 @@ b2FindSupport.exit172.i:                          ; preds = %.lr.ph.i162.i, %367
   %indvars.iv.i219.i = phi i64 [ 1, %.lr.ph.preheader.i214.i ], [ %indvars.iv.next.i226.i, %.lr.ph.i218.i ]
   %.021.i220.i = phi i32 [ 0, %.lr.ph.preheader.i214.i ], [ %.1.i225.i, %.lr.ph.i218.i ]
   %.01219.i221.i = phi float [ %431, %.lr.ph.preheader.i214.i ], [ %.113.i224.i, %.lr.ph.i218.i ]
-  %432 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv.i219.i
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i219.i
   %433 = load <2 x float>, ptr %432, align 4
   %.sroa.01.0.vec.extract.i15.i222.i = extractelement <2 x float> %433, i64 0
   %434 = fmul float %422, %.sroa.01.0.vec.extract.i15.i222.i
@@ -2573,7 +2573,7 @@ b2FindSupport.exit172.i:                          ; preds = %.lr.ph.i162.i, %367
 b2FindSupport.exit228.i:                          ; preds = %.lr.ph.i218.i, %404
   %.0.lcssa.i213.i = phi i32 [ 0, %404 ], [ %.1.i225.i, %.lr.ph.i218.i ]
   %439 = sext i32 %.0.lcssa.i213.i to i64
-  %440 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %439
+  %440 = getelementptr inbounds [8 x i8], ptr %0, i64 %439
   br label %b2FindMinSeparation.exit
 
 .unreachabledefault:                              ; preds = %258
@@ -2628,9 +2628,9 @@ b2FindMinSeparation.exit:                         ; preds = %b2FindSupport.exit1
 
 .preheader:                                       ; preds = %460
   %462 = sext i32 %.0212 to i64
-  %463 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %462
+  %463 = getelementptr inbounds [8 x i8], ptr %0, i64 %462
   %464 = sext i32 %.0211 to i64
-  %465 = getelementptr inbounds %struct.b2Vec2, ptr %10, i64 %464
+  %465 = getelementptr inbounds [8 x i8], ptr %10, i64 %464
   br label %466
 
 466:                                              ; preds = %.preheader, %592
@@ -2960,12 +2960,12 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
 92:                                               ; preds = %4
   %93 = load ptr, ptr %0, align 8, !tbaa !75
   %94 = sext i32 %1 to i64
-  %95 = getelementptr inbounds %struct.b2Vec2, ptr %93, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %93, i64 %94
   %.sroa.016.0.copyload = load <2 x float>, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !78
   %98 = sext i32 %2 to i64
-  %99 = getelementptr inbounds %struct.b2Vec2, ptr %97, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %97, i64 %98
   %.sroa.015.0.copyload = load <2 x float>, ptr %99, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.016.0.copyload, i64 0
   %100 = fmul float %37, %.sroa.0.0.vec.extract.i
@@ -3024,7 +3024,7 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !78
   %144 = sext i32 %2 to i64
-  %145 = getelementptr inbounds %struct.b2Vec2, ptr %143, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %143, i64 %144
   %.sroa.08.0.copyload = load <2 x float>, ptr %145, align 4
   %.sroa.0.0.vec.extract.i84 = extractelement <2 x float> %.sroa.08.0.copyload, i64 0
   %146 = fmul float %79, %.sroa.0.0.vec.extract.i84
@@ -3068,7 +3068,7 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   %177 = fadd float %89, %176
   %178 = load ptr, ptr %0, align 8, !tbaa !75
   %179 = sext i32 %1 to i64
-  %180 = getelementptr inbounds %struct.b2Vec2, ptr %178, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %178, i64 %179
   %.sroa.02.0.copyload = load <2 x float>, ptr %180, align 4
   %.sroa.0.0.vec.extract.i112 = extractelement <2 x float> %.sroa.02.0.copyload, i64 0
   %181 = fmul float %37, %.sroa.0.0.vec.extract.i112

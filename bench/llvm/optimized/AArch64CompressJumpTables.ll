@@ -6,12 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::once_flag" = type { i32 }
 %class.anon = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
-%"struct.llvm::MachineJumpTableEntry" = type <{ %"class.std::vector.5", i32, [4 x i8] }>
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<llvm::MachineBasicBlock *, std::allocator<llvm::MachineBasicBlock *>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::MachineBasicBlock *, std::allocator<llvm::MachineBasicBlock *>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::MachineBasicBlock *, std::allocator<llvm::MachineBasicBlock *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::MachineBasicBlock *, std::allocator<llvm::MachineBasicBlock *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { i32, ptr }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -345,7 +339,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i: ; preds = %29
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i, %29
   %.pre-phi.i.i30.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i ], [ 0, %29 ]
   %35 = load ptr, ptr %16, align 8, !tbaa !28
-  %36 = getelementptr i32, ptr %35, i64 %.pre-phi.i.i30.i
+  %36 = getelementptr [4 x i8], ptr %35, i64 %.pre-phi.i.i30.i
   %37 = sub nsw i64 %27, %.pre-phi.i.i30.i
   %38 = shl nsw i64 %37, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %38, i1 false), !tbaa !302
@@ -380,7 +374,7 @@ _ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i:     ; preds = %.sink.split.i.i.i, 
   %50 = load i32, ptr %49, align 8, !tbaa !305
   %51 = sext i32 %50 to i64
   %52 = load ptr, ptr %16, align 8, !tbaa !28
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %51
   store i32 %.015.i, ptr %53, align 4, !tbaa !302
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.025.045.i, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.025.045.i, i64 48
@@ -468,7 +462,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.024.040, i64 24
   %84 = load i32, ptr %83, align 8, !tbaa !305
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %82, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !302
   br label %.lr.ph
 
@@ -499,7 +493,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = sext i32 %95 to i64
   %101 = load ptr, ptr %99, align 8, !tbaa !366
-  %102 = getelementptr inbounds nuw %"struct.llvm::MachineJumpTableEntry", ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %101, i64 %100
   %103 = load ptr, ptr %102, align 8, !tbaa !369
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !369
@@ -526,7 +520,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load i32, ptr %115, align 8, !tbaa !305
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %107, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !302
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %.05356.i, i32 %119)
   %.not30.i = icmp sgt i32 %119, %.02558.i
@@ -580,12 +574,12 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i.i: ; preds = %144, %139
   %.pre-phi.i.i.i.i = phi i64 [ %132, %139 ], [ %.pre13.i.i.i.i, %144 ]
   %146 = load ptr, ptr %129, align 8, !tbaa !28
-  %147 = getelementptr inbounds nuw %"struct.std::pair", ptr %146, i64 %135
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %135
   %.not11.i.i.i.i = icmp samesign eq i64 %.pre-phi.i.i.i.i, %135
   br i1 %.not11.i.i.i.i, label %.sink.split.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i.i
-  %148 = getelementptr inbounds nuw %"struct.std::pair", ptr %146, i64 %.pre-phi.i.i.i.i
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %.pre-phi.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
@@ -641,12 +635,12 @@ _ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i.i: ; pr
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i33.i: ; preds = %170, %165
   %.pre-phi.i.i.i34.i = phi i64 [ %158, %165 ], [ %.pre13.i.i.i42.i, %170 ]
   %172 = load ptr, ptr %155, align 8, !tbaa !28
-  %173 = getelementptr inbounds nuw %"struct.std::pair", ptr %172, i64 %161
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %161
   %.not11.i.i.i35.i = icmp samesign eq i64 %.pre-phi.i.i.i34.i, %161
   br i1 %.not11.i.i.i35.i, label %.sink.split.i.i.i40.i, label %.lr.ph.preheader.i.i.i36.i
 
 .lr.ph.preheader.i.i.i36.i:                       ; preds = %_ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i33.i
-  %174 = getelementptr inbounds nuw %"struct.std::pair", ptr %172, i64 %.pre-phi.i.i.i34.i
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %.pre-phi.i.i.i34.i
   br label %.lr.ph.i.i.i37.i
 
 .lr.ph.i.i.i37.i:                                 ; preds = %.lr.ph.i.i.i37.i, %.lr.ph.preheader.i.i.i36.i
@@ -668,7 +662,7 @@ _ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i33.i: ; 
   %.sink.i = phi ptr [ %128, %127 ], [ %128, %.sink.split.i.i.i.i ], [ %128, %133 ], [ %154, %.sink.split.i.i.i40.i ], [ %154, %159 ], [ %154, %153 ]
   %.sink68.i = phi i64 [ -27456, %127 ], [ -27456, %.sink.split.i.i.i.i ], [ -27456, %133 ], [ -27392, %.sink.split.i.i.i40.i ], [ -27392, %159 ], [ -27392, %153 ]
   %.sink74.i = load ptr, ptr %.sink74.in.i, align 8, !tbaa !28
-  %177 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink74.i, i64 %100
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %.sink74.i, i64 %100
   store i32 %.sink72.i, ptr %177, align 8, !tbaa !372
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store ptr %.sink.i, ptr %178, align 8, !tbaa !374

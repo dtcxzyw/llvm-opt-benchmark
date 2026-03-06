@@ -298,7 +298,7 @@ define dso_local void @virtio_gpu_array_add_obj(ptr noundef captures(none) %0, p
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i32, ptr %3, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   store ptr %1, ptr %22, align 8
   %23 = add i32 %20, 1
   store i32 %23, ptr %3, align 8
@@ -390,10 +390,10 @@ define dso_local ptr @virtio_gpu_array_from_handles(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %39, %13
   %16 = phi i64 [ 0, %13 ], [ %40, %39 ]
-  %17 = getelementptr i32, ptr %1, i64 %16
+  %17 = getelementptr [4 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @drm_gem_object_lookup(ptr noundef %0, i32 noundef %18) #6
-  %20 = getelementptr ptr, ptr %14, i64 %16
+  %20 = getelementptr [8 x i8], ptr %14, i64 %16
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
   br i1 %21, label %22, label %39
@@ -410,7 +410,7 @@ define dso_local ptr @virtio_gpu_array_from_handles(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.thread6
   %26 = phi i64 [ %37, %.thread6 ], [ 0, %.preheader.preheader ]
-  %27 = getelementptr ptr, ptr %14, i64 %26
+  %27 = getelementptr [8 x i8], ptr %14, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread6, label %30
@@ -473,7 +473,7 @@ define dso_local void @virtio_gpu_array_put_free(ptr noundef %0) local_unnamed_a
 
 9:                                                ; preds = %.thread, %7
   %10 = phi i64 [ 0, %7 ], [ %21, %.thread ]
-  %11 = getelementptr ptr, ptr %8, i64 %10
+  %11 = getelementptr [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -549,7 +549,7 @@ define dso_local i32 @virtio_gpu_array_lock_resv(ptr noundef %0) local_unnamed_a
 
 .preheader:                                       ; preds = %16, %19
   %24 = phi i64 [ %20, %19 ], [ 0, %16 ]
-  %25 = getelementptr ptr, ptr %5, i64 %24
+  %25 = getelementptr [8 x i8], ptr %5, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 248
   %28 = load ptr, ptr %27, align 8
@@ -624,7 +624,7 @@ define dso_local void @virtio_gpu_array_add_fence(ptr noundef readonly captures(
 8:                                                ; preds = %8, %6
   %9 = phi i32 [ 0, %6 ], [ %15, %8 ]
   %10 = sext i32 %9 to i64
-  %11 = getelementptr ptr, ptr %7, i64 %10
+  %11 = getelementptr [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
@@ -697,7 +697,7 @@ define dso_local void @virtio_gpu_array_put_free_work(ptr noundef %0) local_unna
 
 19:                                               ; preds = %.thread, %17
   %20 = phi i64 [ 0, %17 ], [ %31, %.thread ]
-  %21 = getelementptr ptr, ptr %18, i64 %20
+  %21 = getelementptr [8 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24

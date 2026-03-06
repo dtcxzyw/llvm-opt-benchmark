@@ -31,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::once_flag" = type { i32 }
 %"class.llvm::SmallPtrSet.0" = type { %"class.llvm::SmallPtrSetImpl.base.2", [16 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.2" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::ScopedNoAliasAAResult" = type { i8 }
 %class.anon.32 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
@@ -130,7 +129,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -284,7 +283,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21ScopedNoAliasAAResult16mayAliasI
   %25 = lshr i64 %16, 2
   %26 = and i64 %25, 15
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds %"class.llvm::MDOperand", ptr %15, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %15, i64 %27
   %29 = lshr i64 %16, 6
   %30 = and i64 %29, 15
   br label %_ZNK4llvm6MDNode8operandsEv.exit
@@ -327,7 +326,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %18, %24
 
 _ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %._crit_edge
   %.sroa.0.4.i8.i = phi ptr [ %35, %._crit_edge ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %37, %.critedge2.i7.i.i9.i11.i ]
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %.v.i5.i3.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.v.i5.i3.i
   %.not5357 = icmp eq ptr %.sroa.0.4.i8.i, %40
   br i1 %.not5357, label %.critedge, label %.lr.ph60
 
@@ -385,7 +384,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %59
   %71 = lshr i64 %61, 2
   %72 = and i64 %71, 15
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds %"class.llvm::MDOperand", ptr %60, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %60, i64 %73
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %70, %.thread.i
@@ -690,7 +689,7 @@ define internal fastcc void @_ZL17collectMDInDomainPKN4llvm6MDNodeES2_RNS_15Smal
   %14 = lshr i64 %5, 2
   %15 = and i64 %14, 15
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %4, i64 %16
   %18 = lshr i64 %5, 6
   %19 = and i64 %18, 15
   br label %_ZNK4llvm6MDNode8operandsEv.exit
@@ -747,7 +746,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %28
   %40 = lshr i64 %30, 2
   %41 = and i64 %40, 15
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds %"class.llvm::MDOperand", ptr %29, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %29, i64 %42
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %39, %.thread.i
@@ -857,7 +856,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm13set_is_subsetINS_11SmallPtrSet
 
 _ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %14
   %.sroa.0.4.i8.i = phi ptr [ %15, %14 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %21, %.critedge2.i7.i.i9.i11.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %.v.i5.i3.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.v.i5.i3.i
   %.not22 = icmp eq ptr %.sroa.0.4.i8.i, %24
   br i1 %.not22, label %_ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE5countES3_.exit.thread, label %.lr.ph
 

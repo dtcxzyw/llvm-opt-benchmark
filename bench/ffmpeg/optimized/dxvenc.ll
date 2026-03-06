@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
 %struct.TextureDSPEncContext = type { ptr, ptr, ptr }
-%struct.HTEntry = type { i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"dxv\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"Resolume DXV\00", align 1
@@ -358,7 +357,7 @@ define internal range(i32 -1094995529, 1) i32 @dxv_compress_dxt1(ptr noundef rea
 
 11:                                               ; preds = %11, %1
   %.03.i = phi i64 [ 0, %1 ], [ %14, %11 ]
-  %12 = getelementptr inbounds nuw %struct.HTEntry, ptr %10, i64 %.03.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.03.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 -1, ptr %13, align 4, !tbaa !57
   %14 = add nuw nsw i64 %.03.i, 1
@@ -371,7 +370,7 @@ ht_init.exit:                                     ; preds = %11
 
 16:                                               ; preds = %16, %ht_init.exit
   %.03.i163 = phi i64 [ 0, %ht_init.exit ], [ %19, %16 ]
-  %17 = getelementptr inbounds nuw %struct.HTEntry, ptr %15, i64 %.03.i163
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.03.i163
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 -1, ptr %18, align 4, !tbaa !57
   %19 = add nuw nsw i64 %.03.i163, 1
@@ -452,7 +451,7 @@ bytestream2_put_le32.exit142:                     ; preds = %45, %bytestream2_pu
 .lr.ph.i:                                         ; preds = %57, %bytestream2_put_le32.exit142
   %.01520.i = phi i64 [ %58, %57 ], [ %55, %bytestream2_put_le32.exit142 ]
   %59 = and i64 %.01520.i, 262143
-  %60 = getelementptr inbounds nuw %struct.HTEntry, ptr %10, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !62
   %62 = icmp eq i32 %61, %52
   br i1 %62, label %split.i, label %63
@@ -489,7 +488,7 @@ ht_lookup_and_upsert.exit:                        ; preds = %57, %split.i
 .lr.ph.i167:                                      ; preds = %74, %ht_lookup_and_upsert.exit
   %.01520.i168 = phi i64 [ %75, %74 ], [ %72, %ht_lookup_and_upsert.exit ]
   %76 = and i64 %.01520.i168, 262143
-  %77 = getelementptr inbounds nuw %struct.HTEntry, ptr %15, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !62
   %79 = icmp eq i32 %78, %69
   br i1 %79, label %split.i171, label %80
@@ -542,7 +541,7 @@ ht_lookup_and_upsert.exit175:                     ; preds = %74, %split.i171
 .lr.ph.i176:                                      ; preds = %99, %.lr.ph
   %.01520.i177 = phi i64 [ %100, %99 ], [ %97, %.lr.ph ]
   %101 = and i64 %.01520.i177, 262143
-  %102 = getelementptr inbounds nuw %struct.HTEntry, ptr %10, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !62
   %104 = icmp eq i32 %103, %93
   %.phi.trans.insert.i182 = getelementptr inbounds nuw i8, ptr %102, i64 4
@@ -599,7 +598,7 @@ ht_lookup_and_upsert.exit184:                     ; preds = %.lr.ph.i176
   %.03757.i = phi i64 [ %.138.i, %145 ], [ undef, %113 ]
   %.04156.i = phi i64 [ %146, %145 ], [ %121, %113 ]
   %123 = and i64 %.04156.i, 262143
-  %124 = getelementptr inbounds nuw %struct.HTEntry, ptr %10, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !57
   %127 = icmp eq i32 %126, -1
@@ -697,7 +696,7 @@ ht_delete.exit:                                   ; preds = %.lr.ph.i185, %144, 
 .lr.ph.i189:                                      ; preds = %167, %161
   %.01520.i190 = phi i64 [ %168, %167 ], [ %165, %161 ]
   %169 = and i64 %.01520.i190, 262143
-  %170 = getelementptr inbounds nuw %struct.HTEntry, ptr %15, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !62
   %172 = icmp eq i32 %171, %153
   %.phi.trans.insert.i195 = getelementptr inbounds nuw i8, ptr %170, i64 4
@@ -755,7 +754,7 @@ ht_lookup_and_upsert.exit197:                     ; preds = %.lr.ph.i189
   %.03757.i200 = phi i64 [ %.138.i206, %212 ], [ undef, %179 ]
   %.04156.i201 = phi i64 [ %213, %212 ], [ %188, %179 ]
   %190 = and i64 %.04156.i201, 262143
-  %191 = getelementptr inbounds nuw %struct.HTEntry, ptr %15, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %193 = load i32, ptr %192, align 4, !tbaa !57
   %194 = icmp eq i32 %193, -1

@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::piecewise_construct_t" = type { i8 }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.pkpy::CodeObject::LineInfo" = type { i32, i8 }
-%"struct.pkpy::_FrameRecord" = type { i32, ptr, i64, ptr }
-%"struct.pkpy::_LineRecord" = type { i32, i64, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.51 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.51 = type { i64, [8 x i8] }
@@ -115,7 +112,7 @@ define void @_ZN4pkpy12LineProfiler5_stepEiPNS_5FrameE(ptr noundef nonnull align
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds %"struct.pkpy::CodeObject::LineInfo", ptr %10, i64 %9
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %9
   %.sroa.0.0.copyload = load i32, ptr %11, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 4
@@ -209,7 +206,7 @@ _ZNSt6vectorIN4pkpy12_FrameRecordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.
 _ZNSt6vectorIN4pkpy12_FrameRecordESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %51, %_ZNSt6vectorIN4pkpy12_FrameRecordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
   store ptr %46, ptr %20, align 8
   store ptr %50, ptr %22, align 8
-  %52 = getelementptr inbounds nuw %"struct.pkpy::_FrameRecord", ptr %46, i64 %44
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %44
   store ptr %52, ptr %28, align 8
   br label %_ZN4pkpy5stackINS_12_FrameRecordESt6vectorIS1_SaIS1_EEE4pushEOS1_.exit
 
@@ -247,7 +244,7 @@ _ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE6resizeEm.exit: ; preds = %59
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %66 = load ptr, ptr %54, align 8
-  %67 = getelementptr inbounds nuw %"struct.pkpy::_LineRecord", ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %indvars.iv
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -270,7 +267,7 @@ _ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE6resizeEm.exit: ; preds = %59
   unreachable
 
 _ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE2atEm.exit: ; preds = %.loopexit
-  %77 = getelementptr inbounds %"struct.pkpy::_LineRecord", ptr %71, i64 %69
+  %77 = getelementptr inbounds [24 x i8], ptr %71, i64 %69
   %78 = load ptr, ptr %22, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 -8
   store ptr %77, ptr %79, align 8
@@ -492,7 +489,7 @@ _ZNSt6vectorIN4pkpy12_FrameRecordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.
 _ZNSt6vectorIN4pkpy12_FrameRecordESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %84, %_ZNSt6vectorIN4pkpy12_FrameRecordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
   store ptr %79, ptr %12, align 8
   store ptr %83, ptr %13, align 8
-  %85 = getelementptr inbounds nuw %"struct.pkpy::_FrameRecord", ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %77
   store ptr %85, ptr %61, align 8
   br label %_ZN4pkpy5stackINS_12_FrameRecordESt6vectorIS1_SaIS1_EEE4pushEOS1_.exit
 
@@ -1065,7 +1062,7 @@ define void @_ZN4pkpy12LineProfiler5statsEv(ptr dead_on_unwind noalias writable 
   br i1 %.not.i.i, label %68, label %.invoke
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds %"struct.pkpy::_LineRecord", ptr %57, i64 %indvars.iv
+  %69 = getelementptr inbounds [24 x i8], ptr %57, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add nsw i64 %71, %.050199
@@ -1163,7 +1160,7 @@ define void @_ZN4pkpy12LineProfiler5statsEv(ptr dead_on_unwind noalias writable 
   unreachable
 
 114:                                              ; preds = %105
-  %115 = getelementptr inbounds %"struct.pkpy::_LineRecord", ptr %107, i64 %indvars.iv282
+  %115 = getelementptr inbounds [24 x i8], ptr %107, i64 %indvars.iv282
   %116 = load i32, ptr %115, align 8
   %.not123 = icmp eq i32 %116, -1
   br i1 %.not123, label %330, label %117
@@ -2791,9 +2788,9 @@ _ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; pr
 
 _ZNSt12_Vector_baseIN4pkpy11_LineRecordESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %35
   store ptr %28, ptr %0, align 8
-  %37 = getelementptr inbounds nuw %"struct.pkpy::_LineRecord", ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %1
   store ptr %37, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"struct.pkpy::_LineRecord", ptr %28, i64 %26
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %26
   store ptr %38, ptr %11, align 8
   br label %39
 

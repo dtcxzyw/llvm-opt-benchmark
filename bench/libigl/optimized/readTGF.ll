@@ -721,7 +721,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %167, %165, %163
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %281
   %indvars.iv = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next, %281 ]
-  %282 = getelementptr inbounds nuw %"class.std::vector.9", ptr %274, i64 %indvars.iv
+  %282 = getelementptr inbounds nuw [24 x i8], ptr %274, i64 %indvars.iv
   %283 = load ptr, ptr %282, align 8, !tbaa !21
   %284 = load i32, ptr %283, align 4, !tbaa !42
   %285 = icmp eq i32 %storemerge141, %284
@@ -793,7 +793,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %312 ], [ %.pre146, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %307, ptr %3, align 8, !tbaa !21
   store ptr %311, ptr %38, align 8, !tbaa !26
-  %313 = getelementptr inbounds nuw i32, ptr %307, i64 %305
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %305
   store ptr %313, ptr %270, align 8, !tbaa !24
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1680,7 +1680,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %66
   store ptr %20, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !10
-  %70 = getelementptr inbounds nuw %"class.std::vector.14", ptr %20, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !36
   ret void
 
@@ -1876,7 +1876,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %66
   store ptr %20, ptr %0, align 8, !tbaa !17
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !20
-  %70 = getelementptr inbounds nuw %"class.std::vector.9", ptr %20, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !44
   ret void
 

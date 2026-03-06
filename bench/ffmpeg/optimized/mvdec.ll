@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/mvdec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [3 x i8] c"mv\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"Silicon Graphics Movie\00", align 1
 @ff_mv_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 32, i32 0, [4 x i8] zeroinitializer, ptr @mv_probe, ptr @mv_read_header, ptr @mv_read_packet, ptr null, ptr @mv_read_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -516,10 +514,10 @@ define internal i32 @mv_read_packet(ptr noundef readonly captures(none) %0, ptr 
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !56
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !57
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i32, ptr %14, i64 %11
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %11
   %16 = load i32, ptr %15, align 4, !tbaa !59
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 328
   %18 = load i32, ptr %17, align 8, !tbaa !60
@@ -530,7 +528,7 @@ define internal i32 @mv_read_packet(ptr noundef readonly captures(none) %0, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 320
   %22 = load ptr, ptr %21, align 8, !tbaa !72
   %23 = sext i32 %16 to i64
-  %24 = getelementptr inbounds %struct.AVIndexEntry, ptr %22, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %22, i64 %23
   %25 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #8
   %26 = load i64, ptr %24, align 8, !tbaa !73
   %27 = icmp ugt i64 %26, %25
@@ -582,7 +580,7 @@ define internal i32 @mv_read_packet(ptr noundef readonly captures(none) %0, ptr 
   %56 = or i32 %55, 1
   store i32 %56, ptr %54, align 8, !tbaa !80
   %57 = sext i32 %49 to i64
-  %58 = getelementptr inbounds i32, ptr %14, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %14, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !59
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !59
@@ -620,7 +618,7 @@ define internal range(i32 -1094995529, 1) i32 @mv_read_seek(ptr noundef readonly
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !55
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = and i32 %3, 10
   %or.cond = icmp eq i32 %12, 0
@@ -652,7 +650,7 @@ define internal range(i32 -1094995529, 1) i32 @mv_read_seek(ptr noundef readonly
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %20, ptr %26, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %22, align 4, !tbaa !82

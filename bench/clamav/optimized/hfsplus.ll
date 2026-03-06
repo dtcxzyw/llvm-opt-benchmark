@@ -5,13 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hfsNodeDescriptor = type <{ i32, i32, i8, i8, i16, i16 }>
 %struct.hfsHeaderRecord = type <{ i16, i32, i32, i32, i32, i16, i16, i32, i32, i16, i32, i8, i8, i32, [16 x i32] }>
-%struct.hfsPlusExtentDescriptor = type { i32, i32 }
 %struct.hfsPlusCatalogFile = type { i16, i16, i32, i32, [5 x i32], %struct.hfsPlusBSDInfo, [8 x i16], [8 x i16], i32, i32, %struct.hfsPlusForkData, %struct.hfsPlusForkData }
 %struct.hfsPlusBSDInfo = type { i32, i32, i8, i8, i16, %union.anon }
 %union.anon = type { i32 }
 %struct.hfsPlusForkData = type { i64, i32, i32, [8 x %struct.hfsPlusExtentDescriptor] }
+%struct.hfsPlusExtentDescriptor = type { i32, i32 }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.hfsPlusResourceBlockTable = type { i32, i32 }
 %struct.hfsPlusResourceHeader = type { i32, i32, i32, i32 }
 %struct.hfsPlusResourceMap = type <{ [16 x i8], i32, i16, i16, i16, i16, i16 }>
 %struct.hfsPlusResourceType = type { [4 x i8], i16, i16 }
@@ -328,7 +327,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
 
 74:                                               ; preds = %74, %63
   %indvars.iv.i.i = phi i64 [ 0, %63 ], [ %indvars.iv.next.i.i, %74 ]
-  %75 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %73, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i.i
   %76 = load i32, ptr %75, align 1, !tbaa !39
   %77 = tail call i32 @llvm.bswap.i32(i32 %76)
   store i32 %77, ptr %75, align 1, !tbaa !39
@@ -358,7 +357,7 @@ forkdata_to_host.exit.i:                          ; preds = %74
 
 91:                                               ; preds = %91, %forkdata_to_host.exit.i
   %indvars.iv.i88.i = phi i64 [ 0, %forkdata_to_host.exit.i ], [ %indvars.iv.next.i89.i, %91 ]
-  %92 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %90, i64 %indvars.iv.i88.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv.i88.i
   %93 = load i32, ptr %92, align 1, !tbaa !39
   %94 = tail call i32 @llvm.bswap.i32(i32 %93)
   store i32 %94, ptr %92, align 1, !tbaa !39
@@ -388,7 +387,7 @@ forkdata_to_host.exit91.i:                        ; preds = %91
 
 108:                                              ; preds = %108, %forkdata_to_host.exit91.i
   %indvars.iv.i92.i = phi i64 [ 0, %forkdata_to_host.exit91.i ], [ %indvars.iv.next.i93.i, %108 ]
-  %109 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %107, i64 %indvars.iv.i92.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.i92.i
   %110 = load i32, ptr %109, align 1, !tbaa !39
   %111 = tail call i32 @llvm.bswap.i32(i32 %110)
   store i32 %111, ptr %109, align 1, !tbaa !39
@@ -418,7 +417,7 @@ forkdata_to_host.exit95.i:                        ; preds = %108
 
 125:                                              ; preds = %125, %forkdata_to_host.exit95.i
   %indvars.iv.i96.i = phi i64 [ 0, %forkdata_to_host.exit95.i ], [ %indvars.iv.next.i97.i, %125 ]
-  %126 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %124, i64 %indvars.iv.i96.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.i96.i
   %127 = load i32, ptr %126, align 1, !tbaa !39
   %128 = tail call i32 @llvm.bswap.i32(i32 %127)
   store i32 %128, ptr %126, align 1, !tbaa !39
@@ -448,7 +447,7 @@ forkdata_to_host.exit99.i:                        ; preds = %125
 
 142:                                              ; preds = %142, %forkdata_to_host.exit99.i
   %indvars.iv.i100.i = phi i64 [ 0, %forkdata_to_host.exit99.i ], [ %indvars.iv.next.i101.i, %142 ]
-  %143 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %141, i64 %indvars.iv.i100.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv.i100.i
   %144 = load i32, ptr %143, align 1, !tbaa !39
   %145 = tail call i32 @llvm.bswap.i32(i32 %144)
   store i32 %145, ptr %143, align 1, !tbaa !39
@@ -572,7 +571,7 @@ switch.lookup:
   %switch.idx.cast = zext i32 %switch.tableidx to i64
   %switch.idx.mult = mul nuw nsw i64 %switch.idx.cast, 80
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfsplus_readheader, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfsplus_readheader, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.idx.mult
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
@@ -1081,7 +1080,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
 
 166:                                              ; preds = %166, %159
   %indvars.iv.i = phi i64 [ 0, %159 ], [ %indvars.iv.next.i, %166 ]
-  %167 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %36, i64 %indvars.iv.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %168 = load i32, ptr %167, align 4, !tbaa !39
   %169 = call i32 @llvm.bswap.i32(i32 %168)
   store i32 %169, ptr %167, align 4, !tbaa !39
@@ -1099,7 +1098,7 @@ forkdata_to_host.exit:                            ; preds = %166
 
 173:                                              ; preds = %177, %forkdata_to_host.exit
   %indvars.iv.i429 = phi i64 [ 0, %forkdata_to_host.exit ], [ %indvars.iv.next.i430, %177 ]
-  %174 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %36, i64 %indvars.iv.i429
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i429
   %175 = load i32, ptr %174, align 4, !tbaa !39
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %forkdata_print.exit, label %177
@@ -1127,7 +1126,7 @@ forkdata_print.exit:                              ; preds = %173, %177
 
 187:                                              ; preds = %187, %forkdata_print.exit
   %indvars.iv.i432 = phi i64 [ 0, %forkdata_print.exit ], [ %indvars.iv.next.i433, %187 ]
-  %188 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %40, i64 %indvars.iv.i432
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i432
   %189 = load i32, ptr %188, align 4, !tbaa !39
   %190 = call i32 @llvm.bswap.i32(i32 %189)
   store i32 %190, ptr %188, align 4, !tbaa !39
@@ -1145,7 +1144,7 @@ forkdata_to_host.exit435:                         ; preds = %187
 
 194:                                              ; preds = %198, %forkdata_to_host.exit435
   %indvars.iv.i436 = phi i64 [ 0, %forkdata_to_host.exit435 ], [ %indvars.iv.next.i437, %198 ]
-  %195 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %40, i64 %indvars.iv.i436
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i436
   %196 = load i32, ptr %195, align 4, !tbaa !39
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %forkdata_print.exit439, label %198
@@ -1608,7 +1607,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %228, %270, %264, %2
   %.0232473 = phi i64 [ %.2234.lcssa, %419 ], [ 0, %361 ]
   %.13278472 = phi i1 [ %.15280.lcssa, %419 ], [ %.2267486, %361 ]
   %364 = zext i32 %.0229474 to i64
-  %365 = getelementptr inbounds nuw %struct.hfsPlusResourceBlockTable, ptr %.pre826, i64 %364
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %.pre826, i64 %364
   %366 = load i32, ptr %365, align 1, !tbaa !97
   %367 = add i32 %366, %359
   %368 = zext i32 %367 to i64
@@ -2258,7 +2257,7 @@ define internal fastcc void @forkdata_print(ptr noundef %0, ptr noundef nonnull 
 
 9:                                                ; preds = %2, %13
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
-  %10 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load i32, ptr %10, align 1, !tbaa !39
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %17, label %13
@@ -2344,7 +2343,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr noundef nonn
 39:                                               ; preds = %.preheader, %58
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %58 ]
   %.07029 = phi i32 [ %.07931, %.preheader ], [ %60, %58 ]
-  %40 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %32, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %41 = load i32, ptr %40, align 1, !tbaa !39
   %42 = icmp eq i32 %41, 0
   %43 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2536,7 +2535,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr noundef
 
 29:                                               ; preds = %.lr.ph
   %30 = trunc nuw nsw i64 %indvars.iv90 to i32
-  %31 = getelementptr inbounds nuw %struct.hfsPlusExtentDescriptor, ptr %23, i64 %indvars.iv90
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv90
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, i32 noundef %30) #12
   %32 = load i32, ptr %31, align 1, !tbaa !39
   %33 = icmp eq i32 %32, 0

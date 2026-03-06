@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.buffer = type { i32, %struct.stat, ptr, i64, i64, ptr, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.level_info = type { i32, i32, i32, i32 }
 
 @rcsid = internal constant [62 x i8] c"@(#)$File: funcs.c,v 1.142 2023/07/30 14:41:14 christos Exp $\00", align 16
 @.str.1 = private unnamed_addr constant [24 x i8] c"* not allowed in format\00", align 1
@@ -135,7 +134,7 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
   %.021.i = phi i32 [ 0, %.lr.ph.i ], [ %33, %28 ]
   %.01320.i = phi ptr [ %.1.lcssa, %.lr.ph.i ], [ %31, %28 ]
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !10
   %27 = and i16 %26, 2048
   %.not17.i = icmp eq i16 %27, 0
@@ -186,7 +185,7 @@ file_checkfield.exit:                             ; preds = %.critedge.i
   %.021.i23 = phi i32 [ 0, %.lr.ph.i22 ], [ %57, %52 ]
   %.01320.i24 = phi ptr [ %42, %.lr.ph.i22 ], [ %55, %52 ]
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !10
   %51 = and i16 %50, 2048
   %.not17.i25 = icmp eq i16 %51, 0
@@ -223,7 +222,7 @@ file_checkfield.exit32:                           ; preds = %._crit_edge, %.crit
   %65 = tail call ptr @__ctype_b_loc() #19
   %66 = load ptr, ptr %65, align 8, !tbaa !7
   %67 = zext i8 %64 to i64
-  %68 = getelementptr inbounds nuw i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !10
   %70 = and i16 %69, 1024
   %.not18 = icmp eq i16 %70, 0
@@ -1119,7 +1118,7 @@ define hidden ptr @file_getbuffer(ptr noundef captures(none) %0) local_unnamed_a
   %.03243 = phi ptr [ %24, %.lr.ph ], [ %.133, %56 ]
   %35 = load ptr, ptr %32, align 8, !tbaa !7
   %36 = zext i8 %34 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !10
   %39 = and i16 %38, 16384
   %.not41 = icmp eq i16 %39, 0
@@ -1219,7 +1218,7 @@ define hidden range(i32 -1, 1) i32 @file_check_mem(ptr noundef captures(none) %0
 
 23:                                               ; preds = %._crit_edge, %17
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %18, %17 ]
-  %25 = getelementptr inbounds nuw %struct.level_info, ptr %24, i64 %3
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %26, align 4, !tbaa !40
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1468,7 +1467,7 @@ define hidden noundef ptr @file_printable(ptr noundef readonly captures(none) %0
   %19 = tail call ptr @__ctype_b_loc() #19
   %20 = load ptr, ptr %19, align 8, !tbaa !7
   %21 = zext i8 %14 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !10
   %24 = and i16 %23, 16384
   %.not30 = icmp eq i16 %24, 0
@@ -1594,7 +1593,7 @@ define hidden noundef ptr @file_strtrim(ptr noundef captures(ret: address, prove
   %.010 = phi ptr [ %0, %1 ], [ %10, %4 ]
   %5 = load i8, ptr %.010, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !10
   %9 = and i16 %8, 8192
   %.not = icmp eq i16 %9, 0
@@ -1611,7 +1610,7 @@ define hidden noundef ptr @file_strtrim(ptr noundef captures(ret: address, prove
   %.1 = getelementptr inbounds i8, ptr %.0.pn, i64 -1
   %11 = load i8, ptr %.1, align 1, !tbaa !4
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !10
   %15 = and i16 %14, 8192
   %.not12 = icmp eq i16 %15, 0

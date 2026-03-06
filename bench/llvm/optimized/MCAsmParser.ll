@@ -166,7 +166,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -933,7 +933,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_11MCAsmPar
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseINS_11MCAsmParser14MCPendingErrorELb0EE28reserveForParamAndGetAddressERKS2_m.exit, label %9, !prof !33
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.llvm::MCAsmParser::MCPendingError", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [112 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -958,7 +958,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11MCAsmParser14MCPendingErrorELb0EE28reserv
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !26
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.llvm::MCAsmParser::MCPendingError", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %19, i64 %21
   %23 = load i64, ptr %.016.i.i, align 8, !tbaa !52
   store i64 %23, ptr %22, align 8, !tbaa !52
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1076,7 +1076,7 @@ _ZSt4moveIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit.i: ; preds = %_ZSt4moveIPN4llvm8
   %31 = add i32 %30, -1
   store i32 %31, ptr %9, align 8, !tbaa !26
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !78
   %36 = icmp ugt i32 %35, 64
@@ -1450,7 +1450,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_8AsmTokenEE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !26
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %7
   %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %42
 
@@ -1486,7 +1486,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   %.016.i.i.i = phi ptr [ %2, %10 ], [ %22, %17 ], [ %2, %.critedge.i.i.i ]
   %24 = load i32, ptr %5, align 8, !tbaa !26
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
@@ -1512,7 +1512,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit: ; pre
   store i32 %37, ptr %5, align 8, !tbaa !26
   %38 = load ptr, ptr %0, align 8, !tbaa !25
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -40
   br label %_ZN4llvm8AsmTokenaSERKS0_.exit
 
@@ -1551,7 +1551,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %45
   %59 = load i32, ptr %5, align 8, !tbaa !26
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %57, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %62, i64 24, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -1566,7 +1566,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   %69 = load ptr, ptr %0, align 8, !tbaa !25
   %70 = load i32, ptr %5, align 8, !tbaa !26
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %69, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 -40
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %58 to i64
@@ -1623,7 +1623,7 @@ _ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt13move
   %97 = add i32 %96, 1
   store i32 %97, ptr %5, align 8, !tbaa !26
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %95, i64 %98
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %95, i64 %98
   %100 = icmp uge ptr %.016.i.i, %58
   %101 = icmp ult ptr %.016.i.i, %99
   %spec.select.i = and i1 %100, %101

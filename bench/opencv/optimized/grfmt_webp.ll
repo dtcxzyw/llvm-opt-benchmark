@@ -1614,7 +1614,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %228, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %230, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %225, ptr %201, align 8, !tbaa !78
   store ptr %229, ptr %206, align 8, !tbaa !144
-  %231 = getelementptr inbounds nuw i32, ptr %225, i64 %223
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %223
   store ptr %231, ptr %208, align 8, !tbaa !145
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -3185,7 +3185,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   %166 = load ptr, ptr %18, align 8, !tbaa !74
-  %167 = getelementptr inbounds nuw %"class.cv::Mat", ptr %166, i64 %.068158.us
+  %167 = getelementptr inbounds nuw [96 x i8], ptr %166, i64 %.068158.us
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 12
   %169 = load i32, ptr %168, align 4, !tbaa !133
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -3204,7 +3204,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 179:                                              ; preds = %175
   %180 = load ptr, ptr %165, align 8, !tbaa !78
-  %181 = getelementptr inbounds nuw i32, ptr %180, i64 %.068158.us
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %.068158.us
   %182 = load i32, ptr %181, align 4, !tbaa !143
   %183 = add nsw i32 %182, %.069157.us
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
@@ -3246,7 +3246,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   %198 = load ptr, ptr %18, align 8, !tbaa !74
-  %199 = getelementptr inbounds nuw %"class.cv::Mat", ptr %198, i64 %.068158
+  %199 = getelementptr inbounds nuw [96 x i8], ptr %198, i64 %.068158
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 12
   %201 = load i32, ptr %200, align 4, !tbaa !133
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 8
@@ -3322,7 +3322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %21
 
 222:                                              ; preds = %217
   %223 = load ptr, ptr %165, align 8, !tbaa !78
-  %224 = getelementptr inbounds nuw i32, ptr %223, i64 %.068158
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %.068158
   %225 = load i32, ptr %224, align 4, !tbaa !143
   %226 = add nsw i32 %225, %.069157
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21

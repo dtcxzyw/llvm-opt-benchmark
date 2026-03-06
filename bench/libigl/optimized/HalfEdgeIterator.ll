@@ -98,8 +98,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = mul nsw i64 %11, %8
-  %13 = getelementptr i32, ptr %9, i64 %5
-  %14 = getelementptr i32, ptr %13, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %5
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = icmp ne i32 %15, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -119,8 +119,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %25 = sext i32 %24 to i64
   %26 = sext i32 %23 to i64
   %27 = mul nsw i64 %11, %26
-  %28 = getelementptr i32, ptr %9, i64 %25
-  %29 = getelementptr i32, ptr %28, i64 %27
+  %28 = getelementptr [4 x i8], ptr %9, i64 %25
+  %29 = getelementptr [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !30
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_E5flipFEv.exit, label %32
@@ -129,8 +129,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %33 = load ptr, ptr %18, align 8, !tbaa !25
   %34 = load i64, ptr %19, align 8, !tbaa !29
   %35 = mul nsw i64 %34, %26
-  %36 = getelementptr i32, ptr %33, i64 %25
-  %37 = getelementptr i32, ptr %36, i64 %35
+  %36 = getelementptr [4 x i8], ptr %33, i64 %25
+  %37 = getelementptr [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4, !tbaa !30
   store i32 %30, ptr %0, align 8, !tbaa !23
   %39 = xor i8 %22, 1
@@ -150,8 +150,8 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_E5flip
   %46 = xor i8 %40, 1
   %47 = sext i32 %45 to i64
   %48 = mul nsw i64 %11, %47
-  %49 = getelementptr i32, ptr %9, i64 %.pre-phi
-  %50 = getelementptr i32, ptr %49, i64 %48
+  %49 = getelementptr [4 x i8], ptr %9, i64 %.pre-phi
+  %50 = getelementptr [4 x i8], ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %21, !llvm.loop !32
@@ -172,8 +172,8 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_E5flip
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !29
   %59 = mul nsw i64 %58, %8
-  %60 = getelementptr i32, ptr %56, i64 %5
-  %61 = getelementptr i32, ptr %60, i64 %59
+  %60 = getelementptr [4 x i8], ptr %56, i64 %5
+  %61 = getelementptr [4 x i8], ptr %60, i64 %59
   %62 = load i32, ptr %61, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -203,8 +203,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = mul nsw i64 %11, %8
-  %13 = getelementptr i32, ptr %9, i64 %5
-  %14 = getelementptr i32, ptr %13, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %5
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = icmp eq i32 %15, -1
   ret i1 %16
@@ -223,8 +223,8 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = mul nsw i64 %11, %8
-  %13 = getelementptr i32, ptr %9, i64 %5
-  %14 = getelementptr i32, ptr %13, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %5
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %30, label %17
@@ -236,8 +236,8 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !29
   %23 = mul nsw i64 %22, %8
-  %24 = getelementptr i32, ptr %20, i64 %5
-  %25 = getelementptr i32, ptr %24, i64 %23
+  %24 = getelementptr [4 x i8], ptr %20, i64 %5
+  %25 = getelementptr [4 x i8], ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !23
   store i32 %26, ptr %6, align 4, !tbaa !24
@@ -307,8 +307,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !40
   %12 = mul nsw i64 %11, %8
-  %13 = getelementptr i32, ptr %9, i64 %5
-  %14 = getelementptr i32, ptr %13, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %5
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = icmp ne i32 %15, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -328,8 +328,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %25 = sext i32 %24 to i64
   %26 = sext i32 %23 to i64
   %27 = mul nsw i64 %11, %26
-  %28 = getelementptr i32, ptr %9, i64 %25
-  %29 = getelementptr i32, ptr %28, i64 %27
+  %28 = getelementptr [4 x i8], ptr %9, i64 %25
+  %29 = getelementptr [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !30
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFEv.exit, label %32
@@ -338,8 +338,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %33 = load ptr, ptr %18, align 8, !tbaa !38
   %34 = load i64, ptr %19, align 8, !tbaa !40
   %35 = mul nsw i64 %34, %26
-  %36 = getelementptr i32, ptr %33, i64 %25
-  %37 = getelementptr i32, ptr %36, i64 %35
+  %36 = getelementptr [4 x i8], ptr %33, i64 %25
+  %37 = getelementptr [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4, !tbaa !30
   store i32 %30, ptr %0, align 8, !tbaa !4
   %39 = xor i8 %22, 1
@@ -359,8 +359,8 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFE
   %46 = xor i8 %40, 1
   %47 = sext i32 %45 to i64
   %48 = mul nsw i64 %11, %47
-  %49 = getelementptr i32, ptr %9, i64 %.pre-phi
-  %50 = getelementptr i32, ptr %49, i64 %48
+  %49 = getelementptr [4 x i8], ptr %9, i64 %.pre-phi
+  %50 = getelementptr [4 x i8], ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %21, !llvm.loop !41
@@ -381,8 +381,8 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFE
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !40
   %59 = mul nsw i64 %58, %8
-  %60 = getelementptr i32, ptr %56, i64 %5
-  %61 = getelementptr i32, ptr %60, i64 %59
+  %60 = getelementptr [4 x i8], ptr %56, i64 %5
+  %61 = getelementptr [4 x i8], ptr %60, i64 %59
   %62 = load i32, ptr %61, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -412,8 +412,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !40
   %12 = mul nsw i64 %11, %8
-  %13 = getelementptr i32, ptr %9, i64 %5
-  %14 = getelementptr i32, ptr %13, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %5
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = icmp eq i32 %15, -1
   ret i1 %16
@@ -432,8 +432,8 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !40
   %12 = mul nsw i64 %11, %8
-  %13 = getelementptr i32, ptr %9, i64 %5
-  %14 = getelementptr i32, ptr %13, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %5
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %30, label %17
@@ -445,8 +445,8 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !40
   %23 = mul nsw i64 %22, %8
-  %24 = getelementptr i32, ptr %20, i64 %5
-  %25 = getelementptr i32, ptr %24, i64 %23
+  %24 = getelementptr [4 x i8], ptr %20, i64 %5
+  %25 = getelementptr [4 x i8], ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !4
   store i32 %26, ptr %6, align 4, !tbaa !12
@@ -501,8 +501,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixI
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !29
   %19 = mul nsw i64 %18, %15
-  %20 = getelementptr i32, ptr %16, i64 %14
-  %21 = getelementptr i32, ptr %20, i64 %19
+  %20 = getelementptr [4 x i8], ptr %16, i64 %14
+  %21 = getelementptr [4 x i8], ptr %20, i64 %19
   %.0 = load i32, ptr %21, align 4, !tbaa !30
   ret i32 %.0
 }
@@ -583,9 +583,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 .preheader.us.i.i:                                ; preds = %18, %..critedge_crit_edge.us.i.i
   %.01227.us.i.i = phi i64 [ %39, %..critedge_crit_edge.us.i.i ], [ 0, %18 ]
   %31 = mul nsw i64 %.01227.us.i.i, %25
-  %invariant.gep.us.i.i = getelementptr i32, ptr %23, i64 %31
+  %invariant.gep.us.i.i = getelementptr [4 x i8], ptr %23, i64 %31
   %32 = mul nuw nsw i64 %.01227.us.i.i, %28
-  %invariant.gep24.us.i.i = getelementptr i32, ptr %26, i64 %32
+  %invariant.gep24.us.i.i = getelementptr [4 x i8], ptr %26, i64 %32
   br label %35
 
 33:                                               ; preds = %35
@@ -595,8 +595,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 
 35:                                               ; preds = %33, %.preheader.us.i.i
   %.01323.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %34, %33 ]
-  %gep.us.i.i = getelementptr i32, ptr %invariant.gep.us.i.i, i64 %.01323.us.i.i
-  %gep25.us.i.i = getelementptr i32, ptr %invariant.gep24.us.i.i, i64 %.01323.us.i.i
+  %gep.us.i.i = getelementptr [4 x i8], ptr %invariant.gep.us.i.i, i64 %.01323.us.i.i
+  %gep25.us.i.i = getelementptr [4 x i8], ptr %invariant.gep24.us.i.i, i64 %.01323.us.i.i
   %36 = load i32, ptr %gep.us.i.i, align 4, !tbaa !30
   %37 = load i32, ptr %gep25.us.i.i, align 4, !tbaa !30
   %38 = icmp eq i32 %36, %37
@@ -628,9 +628,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 .preheader.us.i.i11:                              ; preds = %.loopexit42, %..critedge_crit_edge.us.i.i19
   %.01227.us.i.i12 = phi i64 [ %60, %..critedge_crit_edge.us.i.i19 ], [ 0, %.loopexit42 ]
   %52 = mul nsw i64 %.01227.us.i.i12, %46
-  %invariant.gep.us.i.i13 = getelementptr i32, ptr %44, i64 %52
+  %invariant.gep.us.i.i13 = getelementptr [4 x i8], ptr %44, i64 %52
   %53 = mul nuw nsw i64 %.01227.us.i.i12, %49
-  %invariant.gep24.us.i.i14 = getelementptr i32, ptr %47, i64 %53
+  %invariant.gep24.us.i.i14 = getelementptr [4 x i8], ptr %47, i64 %53
   br label %56
 
 54:                                               ; preds = %56
@@ -640,8 +640,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 
 56:                                               ; preds = %54, %.preheader.us.i.i11
   %.01323.us.i.i15 = phi i64 [ 0, %.preheader.us.i.i11 ], [ %55, %54 ]
-  %gep.us.i.i16 = getelementptr i32, ptr %invariant.gep.us.i.i13, i64 %.01323.us.i.i15
-  %gep25.us.i.i17 = getelementptr i32, ptr %invariant.gep24.us.i.i14, i64 %.01323.us.i.i15
+  %gep.us.i.i16 = getelementptr [4 x i8], ptr %invariant.gep.us.i.i13, i64 %.01323.us.i.i15
+  %gep25.us.i.i17 = getelementptr [4 x i8], ptr %invariant.gep24.us.i.i14, i64 %.01323.us.i.i15
   %57 = load i32, ptr %gep.us.i.i16, align 4, !tbaa !30
   %58 = load i32, ptr %gep25.us.i.i17, align 4, !tbaa !30
   %59 = icmp eq i32 %57, %58
@@ -673,9 +673,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 .preheader.us.i.i26:                              ; preds = %.loopexit, %..critedge_crit_edge.us.i.i34
   %.01227.us.i.i27 = phi i64 [ %81, %..critedge_crit_edge.us.i.i34 ], [ 0, %.loopexit ]
   %73 = mul nsw i64 %.01227.us.i.i27, %67
-  %invariant.gep.us.i.i28 = getelementptr i32, ptr %65, i64 %73
+  %invariant.gep.us.i.i28 = getelementptr [4 x i8], ptr %65, i64 %73
   %74 = mul nuw nsw i64 %.01227.us.i.i27, %70
-  %invariant.gep24.us.i.i29 = getelementptr i32, ptr %68, i64 %74
+  %invariant.gep24.us.i.i29 = getelementptr [4 x i8], ptr %68, i64 %74
   br label %77
 
 75:                                               ; preds = %77
@@ -685,8 +685,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 
 77:                                               ; preds = %75, %.preheader.us.i.i26
   %.01323.us.i.i30 = phi i64 [ 0, %.preheader.us.i.i26 ], [ %76, %75 ]
-  %gep.us.i.i31 = getelementptr i32, ptr %invariant.gep.us.i.i28, i64 %.01323.us.i.i30
-  %gep25.us.i.i32 = getelementptr i32, ptr %invariant.gep24.us.i.i29, i64 %.01323.us.i.i30
+  %gep.us.i.i31 = getelementptr [4 x i8], ptr %invariant.gep.us.i.i28, i64 %.01323.us.i.i30
+  %gep25.us.i.i32 = getelementptr [4 x i8], ptr %invariant.gep24.us.i.i29, i64 %.01323.us.i.i30
   %78 = load i32, ptr %gep.us.i.i31, align 4, !tbaa !30
   %79 = load i32, ptr %gep25.us.i.i32, align 4, !tbaa !30
   %80 = icmp eq i32 %78, %79
@@ -721,8 +721,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = mul nsw i64 %11, %8
-  %13 = getelementptr i32, ptr %9, i64 %5
-  %14 = getelementptr i32, ptr %13, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %5
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = icmp ne i32 %15, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -742,8 +742,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %25 = sext i32 %24 to i64
   %26 = sext i32 %23 to i64
   %27 = mul nsw i64 %11, %26
-  %28 = getelementptr i32, ptr %9, i64 %25
-  %29 = getelementptr i32, ptr %28, i64 %27
+  %28 = getelementptr [4 x i8], ptr %9, i64 %25
+  %29 = getelementptr [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !30
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES4_E5flipFEv.exit, label %32
@@ -752,8 +752,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %33 = load ptr, ptr %18, align 8, !tbaa !25
   %34 = load i64, ptr %19, align 8, !tbaa !29
   %35 = mul nsw i64 %34, %26
-  %36 = getelementptr i32, ptr %33, i64 %25
-  %37 = getelementptr i32, ptr %36, i64 %35
+  %36 = getelementptr [4 x i8], ptr %33, i64 %25
+  %37 = getelementptr [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4, !tbaa !30
   store i32 %30, ptr %0, align 8, !tbaa !15
   %39 = xor i8 %22, 1
@@ -773,8 +773,8 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin
   %46 = xor i8 %40, 1
   %47 = sext i32 %45 to i64
   %48 = mul nsw i64 %11, %47
-  %49 = getelementptr i32, ptr %9, i64 %.pre-phi
-  %50 = getelementptr i32, ptr %49, i64 %48
+  %49 = getelementptr [4 x i8], ptr %9, i64 %.pre-phi
+  %50 = getelementptr [4 x i8], ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %21, !llvm.loop !48
@@ -795,8 +795,8 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !29
   %59 = mul nsw i64 %58, %8
-  %60 = getelementptr i32, ptr %56, i64 %5
-  %61 = getelementptr i32, ptr %60, i64 %59
+  %60 = getelementptr [4 x i8], ptr %56, i64 %5
+  %61 = getelementptr [4 x i8], ptr %60, i64 %59
   %62 = load i32, ptr %61, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8

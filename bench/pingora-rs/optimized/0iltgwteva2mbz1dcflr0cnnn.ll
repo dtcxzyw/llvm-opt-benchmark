@@ -21,10 +21,10 @@ define { ptr, i64 } @_ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 %6
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %7
 

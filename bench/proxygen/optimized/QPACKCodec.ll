@@ -38,12 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"struct.std::pair.103" = type { %"class.proxygen::HPACKHeaderName", %"class.std::__cxx11::list" }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %struct.Initializer = type { i8 }
 %"class.std::length_error" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
@@ -1194,7 +1188,7 @@ while.cond.i.i:                                   ; preds = %while.body.preheade
 _ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i: ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast5.i.le.i = ptrtoint ptr %call3.i5.i to i64
   %sub.ptr.sub7.i.le.i = sub i64 %sub.ptr.lhs.cast5.i.le.i, %sub.ptr.rhs.cast.i.i
-  %arrayidx.i.le.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %66, i64 %sub.ptr.sub7.i.le.i
+  %arrayidx.i.le.i = getelementptr inbounds [32 x i8], ptr %66, i64 %sub.ptr.sub7.i.le.i
   br label %invoke.cont107
 
 invoke.cont107:                                   ; preds = %while.cond.i.i, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i, %while.body.preheader.i.i, %if.end103
@@ -1741,7 +1735,7 @@ lpad16:                                           ; preds = %while.body14
 while.end19:                                      ; preds = %_ZN6google12Check_NEImplIN8proxygen14HTTPHeaderCodeES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %entry, %_ZN6google12Check_NEImplIN8proxygen14HTTPHeaderCodeES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit14
   %call.i = call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
   %idx.ext.i = zext i8 %headerCode to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %call.i, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %this, align 8
   ret void
 }
@@ -1835,12 +1829,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx6 = getelementptr inbounds ptr, ptr %add.ptr.i.i9, i64 %i.017
+  %arrayidx6 = getelementptr inbounds [8 x i8], ptr %add.ptr.i.i9, i64 %i.017
   %14 = load ptr, ptr %arrayidx6, align 8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #26
   %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #26
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
-  %arrayidx8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %i.017
+  %arrayidx8 = getelementptr inbounds [32 x i8], ptr %0, i64 %i.017
   %call.i10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx8) #26
   %call3.i12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx8) #26
   %add.ptr.i13 = getelementptr inbounds i8, ptr %call.i10, i64 %call3.i12
@@ -1849,7 +1843,7 @@ if.then:                                          ; preds = %for.body
   %call.i14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen9CodecUtil17perHopHeaderCodesEv()
   %conv.i = zext i8 %13 to i64
   %div1.i.i.i.i.i = lshr i64 %conv.i, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %call.i14, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i14, i64 %div1.i.i.i.i.i
   %15 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %rem.i.i.i.i.i = and i64 %conv.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i
@@ -2494,7 +2488,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE7destroyIS8_EEvRS9_PT_.exit
   %i.04 = phi i64 [ %inc, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE7destroyIS8_EEvRS9_PT_.exit ], [ 0, %entry ]
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds %"struct.std::pair.103", ptr %0, i64 %i.04
+  %arrayidx = getelementptr inbounds [32 x i8], ptr %0, i64 %i.04
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %second.i.i.i, align 8
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %1, %second.i.i.i
@@ -2761,7 +2755,7 @@ entry:
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %conv.i.i
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -2810,7 +2804,7 @@ _ZN5folly6detail15reserveInTargetItPNS_14basic_fbstringIcSt11char_traitsIcESaIcE
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %_ZN5folly6detail15reserveInTargetItPNS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEEEEvRKT_RKT0_.exit
   %i.i.i.015.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetItPNS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEEEEvRKT_RKT0_.exit ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %7, %conv.i
   br i1 %cmp1.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -2835,7 +2829,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i, -2
   %div.i.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i.i, 100
   %rem.i.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i.i4 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i4 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i.i
   %8 = load i16, ptr %arrayidx.i.i.i.i.i.i4, align 2
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %sub.i.i.i.i.i.i
   store i16 %8, ptr %add.ptr.i.i.i.i.i.i, align 1
@@ -2846,7 +2840,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i = phi i64 [ %conv.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %div.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
   %9 = load i16, ptr %arrayidx2.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i5, label %if.else.i.i.i.i.i.i
@@ -3938,7 +3932,7 @@ lpad:                                             ; preds = %if.then
 if.else:                                          ; preds = %entry
   %call.i4 = tail call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
   %idx.ext.i = zext i8 %call3 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call.i4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %call.i4, i64 %idx.ext.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont

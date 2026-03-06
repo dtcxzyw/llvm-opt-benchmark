@@ -474,7 +474,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %134 ]
   %indvars100 = trunc i64 %indvars.iv to i32
   %126 = load ptr, ptr %124, align 8, !tbaa !44
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !48
   %129 = mul nuw nsw i32 %indvars100, 100
   %130 = or disjoint i32 %129, 1
@@ -1074,7 +1074,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %95, %.noex
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %96, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %97 = getelementptr inbounds nuw i32, ptr %92, i64 %90
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %90
   br label %98
 
 98:                                               ; preds = %79, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
@@ -1144,7 +1144,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.023162 = phi float [ %120, %.lr.ph ], [ 0.000000e+00, %106 ]
   %.024161 = phi i32 [ %.1, %.lr.ph ], [ %107, %106 ]
   %.025160 = phi i32 [ %.126, %.lr.ph ], [ %107, %106 ]
-  %117 = getelementptr inbounds nuw i32, ptr %.sroa.085.4.ph, i64 %.0163
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.085.4.ph, i64 %.0163
   %118 = load i32, ptr %117, align 4, !tbaa !72
   %119 = sitofp i32 %118 to float
   %120 = fadd float %.023162, %119

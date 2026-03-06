@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GLFWlibraryGLX = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct._GLFWlibraryLinux = type { i32, i32, %struct.re_pattern_buffer, i32, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
-%struct.GLFWvidmode = type { i32, i32, i32, i32, i32, i32 }
 %struct.GLFWgammaramp = type { ptr, ptr, ptr, i32 }
 
 @_glfw = external local_unnamed_addr global %struct._GLFWlibrary, align 8
@@ -108,7 +107,7 @@ define hidden void @_glfwInputMonitor(ptr noundef %0, i32 noundef %1, i32 nounde
 23:                                               ; preds = %8
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1928), align 8, !tbaa !8
   %25 = sext i32 %24 to i64
-  %26 = getelementptr ptr, ptr %14, i64 %25
+  %26 = getelementptr [8 x i8], ptr %14, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -8
   store ptr %0, ptr %27, align 8, !tbaa !95
   br label %.loopexit
@@ -165,13 +164,13 @@ define hidden void @_glfwInputMonitor(ptr noundef %0, i32 noundef %1, i32 nounde
 
 45:                                               ; preds = %.lr.ph37, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %44 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !95
   %48 = icmp eq ptr %47, %0
   br i1 %48, label %49, label %44
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %51 = add nsw i32 %28, -1
   store i32 %51, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1928), align 8, !tbaa !8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -371,7 +370,7 @@ refreshVideoModes.exit:                           ; preds = %.refreshVideoModes.
   %.04873.us = phi i32 [ %.149.us, %69 ], [ -1, %.lr.ph ]
   %.05272.us = phi i32 [ %.153.us, %69 ], [ -1, %.lr.ph ]
   %.05571.us = phi i32 [ %.156.us, %69 ], [ -1, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %struct.GLFWvidmode, ptr %15, i64 %indvars.iv122
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv122
   br i1 %.not62, label %35, label %30
 
 30:                                               ; preds = %.lr.ph.split.us
@@ -455,7 +454,7 @@ refreshVideoModes.exit:                           ; preds = %.refreshVideoModes.
   %.04873.us76 = phi i32 [ %.149.us88, %104 ], [ -1, %.lr.ph.split ]
   %.05272.us77 = phi i32 [ %.153.us87, %104 ], [ -1, %.lr.ph.split ]
   %.05571.us78 = phi i32 [ %.156.us86, %104 ], [ -1, %.lr.ph.split ]
-  %70 = getelementptr inbounds nuw %struct.GLFWvidmode, ptr %15, i64 %indvars.iv117
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv117
   br i1 %.not62, label %76, label %71
 
 71:                                               ; preds = %.lr.ph.split.split.us
@@ -528,7 +527,7 @@ refreshVideoModes.exit:                           ; preds = %.refreshVideoModes.
   %.04873.us93 = phi i32 [ %.149.us104, %137 ], [ -1, %.lr.ph.split.split ]
   %.05272.us94 = phi i32 [ %.153.us103, %137 ], [ -1, %.lr.ph.split.split ]
   %.05571.us95 = phi i32 [ %.156.us102, %137 ], [ -1, %.lr.ph.split.split ]
-  %105 = getelementptr inbounds nuw %struct.GLFWvidmode, ptr %15, i64 %indvars.iv112
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv112
   br i1 %.not62, label %111, label %106
 
 106:                                              ; preds = %.lr.ph.split.split.split.us
@@ -591,7 +590,7 @@ refreshVideoModes.exit:                           ; preds = %.refreshVideoModes.
   %.04873 = phi i32 [ %.149, %175 ], [ -1, %.lr.ph.split.split ]
   %.05272 = phi i32 [ %.153, %175 ], [ -1, %.lr.ph.split.split ]
   %.05571 = phi i32 [ %.156, %175 ], [ -1, %.lr.ph.split.split ]
-  %138 = getelementptr inbounds nuw %struct.GLFWvidmode, ptr %15, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   br i1 %.not62, label %144, label %139
 
 139:                                              ; preds = %.lr.ph.split.split.split
@@ -1253,7 +1252,7 @@ glfwGetGammaRamp.exit:                            ; preds = %6
   %34 = fadd float %33, 5.000000e-01
   %35 = tail call float @llvm.minnum.f32(float %34, float 6.553500e+04)
   %36 = fptoui float %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv
   store i16 %36, ptr %37, align 2, !tbaa !169
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %19, align 8, !tbaa !152

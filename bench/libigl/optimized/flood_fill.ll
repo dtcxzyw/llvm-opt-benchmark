@@ -55,7 +55,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %18 = trunc nsw i64 %17 to i32
   %.reass = mul i32 %factor.op.mul, %18
   %19 = sext i32 %.reass to i64
-  %20 = getelementptr inbounds float, ptr %7, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %7, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !8
   br label %.lr.ph81.us.us
 
@@ -82,7 +82,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.reass.us.us.us.us = add i32 %26, %29
   %30 = mul nsw i32 %11, %.reass.us.us.us.us
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds float, ptr %23, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %23, i64 %31
   %33 = load float, ptr %32, align 4, !tbaa !8
   br label %.lr.ph.us.us.us.us
 
@@ -91,10 +91,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.358.us.us.us.us = phi float [ %33, %28 ], [ %.25775.us.us.us.us, %27 ]
   %34 = add nuw nsw i64 %22, %indvars.iv127
   %35 = mul nuw nsw i64 %34, %14
-  %invariant.gep.i.us.us.us.us = getelementptr float, ptr %23, i64 %35
+  %invariant.gep.i.us.us.us.us = getelementptr [4 x i8], ptr %23, i64 %35
   %36 = add nsw i64 %indvars.iv127, -1
   %37 = and i64 %35, 4294967295
-  %38 = getelementptr inbounds nuw float, ptr %23, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %37
   br label %39
 
 39:                                               ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us, %.lr.ph.us.us.us.us
@@ -103,7 +103,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.04868.us87.us.us.us = phi i32 [ %.149.us107.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us ], [ -1, %.lr.ph.us.us.us.us ]
   %.15267.us88.us.us.us = phi i32 [ %.253.us106.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us ], [ %.05176.us.us.us.us, %.lr.ph.us.us.us.us ]
   %.466.us89.us.us.us = phi float [ %.5.us105.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us ], [ %.358.us.us.us.us, %.lr.ph.us.us.us.us ]
-  %40 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !8
   %42 = fcmp uno float %41, 0.000000e+00
   br i1 %42, label %66, label %43
@@ -116,7 +116,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
 
 .lr.ph.i.us90.us.us.us:                           ; preds = %43, %.lr.ph.i.us90.us.us.us
   %indvars.iv.i.us91.us.us.us = phi i64 [ %indvars.iv.next.i.us93.us.us.us, %.lr.ph.i.us90.us.us.us ], [ %44, %43 ]
-  %gep.i.us92.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
+  %gep.i.us92.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
   store float %41, ptr %gep.i.us92.us.us.us, align 4, !tbaa !8
   %indvars.iv.next.i.us93.us.us.us = add nsw i64 %indvars.iv.i.us91.us.us.us, -1
   %47 = icmp sgt i64 %indvars.iv.next.i.us93.us.us.us, %45
@@ -131,12 +131,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %indvars.iv56.i.us97.us.us.us = phi i64 [ %indvars.iv.next57.i.us102.us.us.us, %..loopexit38_crit_edge.us.i.us101.us.us.us ], [ %36, %.preheader39.i.us94.us.us.us ]
   %50 = add nsw i64 %indvars.iv56.i.us97.us.us.us, %22
   %51 = mul nsw i64 %50, %13
-  %52 = getelementptr float, ptr %23, i64 %51
+  %52 = getelementptr [4 x i8], ptr %23, i64 %51
   br label %53
 
 53:                                               ; preds = %53, %.preheader37.us.i.us96.us.us.us
   %indvars.iv53.i.us98.us.us.us = phi i64 [ 0, %.preheader37.us.i.us96.us.us.us ], [ %indvars.iv.next54.i.us99.us.us.us, %53 ]
-  %54 = getelementptr float, ptr %52, i64 %indvars.iv53.i.us98.us.us.us
+  %54 = getelementptr [4 x i8], ptr %52, i64 %indvars.iv53.i.us98.us.us.us
   store float %41, ptr %54, align 4, !tbaa !8
   %indvars.iv.next54.i.us99.us.us.us = add nuw nsw i64 %indvars.iv53.i.us98.us.us.us, 1
   %exitcond.not.i.us100.us.us.us = icmp eq i64 %indvars.iv.next54.i.us99.us.us.us, %13
@@ -162,12 +162,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %indvars.iv64.i.us.us.us.us = phi i64 [ %indvars.iv.next65.i.us.us.us.us, %._crit_edge.us.us.us.i.us.us.us.us ], [ 0, %.preheader35.us.us.i.us.us.us.us ]
   %60 = add nsw i64 %indvars.iv64.i.us.us.us.us, %59
   %61 = mul nsw i64 %60, %13
-  %62 = getelementptr float, ptr %23, i64 %61
+  %62 = getelementptr [4 x i8], ptr %23, i64 %61
   br label %63
 
 63:                                               ; preds = %63, %.preheader.us.us.us.i.us.us.us.us
   %indvars.iv59.i.us.us.us.us = phi i64 [ %indvars.iv.next60.i.us.us.us.us, %63 ], [ 0, %.preheader.us.us.us.i.us.us.us.us ]
-  %64 = getelementptr float, ptr %62, i64 %indvars.iv59.i.us.us.us.us
+  %64 = getelementptr [4 x i8], ptr %62, i64 %indvars.iv59.i.us.us.us.us
   store float %41, ptr %64, align 4, !tbaa !8
   %indvars.iv.next60.i.us.us.us.us = add nuw nsw i64 %indvars.iv59.i.us.us.us.us, 1
   %exitcond63.not.i.us.us.us.us = icmp eq i64 %indvars.iv.next60.i.us.us.us.us, %13
@@ -254,7 +254,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %18 = trunc nsw i64 %17 to i32
   %.reass = mul i32 %factor.op.mul, %18
   %19 = sext i32 %.reass to i64
-  %20 = getelementptr inbounds float, ptr %7, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %7, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !8
   br label %.lr.ph81.us.us
 
@@ -281,7 +281,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.reass.us.us.us.us = add i32 %26, %29
   %30 = mul nsw i32 %11, %.reass.us.us.us.us
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds float, ptr %23, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %23, i64 %31
   %33 = load float, ptr %32, align 4, !tbaa !8
   br label %.lr.ph.us.us.us.us
 
@@ -290,10 +290,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.358.us.us.us.us = phi float [ %33, %28 ], [ %.25775.us.us.us.us, %27 ]
   %34 = add nuw nsw i64 %22, %indvars.iv127
   %35 = mul nuw nsw i64 %34, %14
-  %invariant.gep.i.us.us.us.us = getelementptr float, ptr %23, i64 %35
+  %invariant.gep.i.us.us.us.us = getelementptr [4 x i8], ptr %23, i64 %35
   %36 = add nsw i64 %indvars.iv127, -1
   %37 = and i64 %35, 4294967295
-  %38 = getelementptr inbounds nuw float, ptr %23, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %37
   br label %39
 
 39:                                               ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us, %.lr.ph.us.us.us.us
@@ -302,7 +302,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.04868.us87.us.us.us = phi i32 [ %.149.us107.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us ], [ -1, %.lr.ph.us.us.us.us ]
   %.15267.us88.us.us.us = phi i32 [ %.253.us106.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us ], [ %.05176.us.us.us.us, %.lr.ph.us.us.us.us ]
   %.466.us89.us.us.us = phi float [ %.5.us105.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us ], [ %.358.us.us.us.us, %.lr.ph.us.us.us.us ]
-  %40 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !8
   %42 = fcmp uno float %41, 0.000000e+00
   br i1 %42, label %66, label %43
@@ -315,7 +315,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
 
 .lr.ph.i.us90.us.us.us:                           ; preds = %43, %.lr.ph.i.us90.us.us.us
   %indvars.iv.i.us91.us.us.us = phi i64 [ %indvars.iv.next.i.us93.us.us.us, %.lr.ph.i.us90.us.us.us ], [ %44, %43 ]
-  %gep.i.us92.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
+  %gep.i.us92.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
   store float %41, ptr %gep.i.us92.us.us.us, align 4, !tbaa !8
   %indvars.iv.next.i.us93.us.us.us = add nsw i64 %indvars.iv.i.us91.us.us.us, -1
   %47 = icmp sgt i64 %indvars.iv.next.i.us93.us.us.us, %45
@@ -330,12 +330,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %indvars.iv56.i.us97.us.us.us = phi i64 [ %indvars.iv.next57.i.us102.us.us.us, %..loopexit38_crit_edge.us.i.us101.us.us.us ], [ %36, %.preheader39.i.us94.us.us.us ]
   %50 = add nsw i64 %indvars.iv56.i.us97.us.us.us, %22
   %51 = mul nsw i64 %50, %13
-  %52 = getelementptr float, ptr %23, i64 %51
+  %52 = getelementptr [4 x i8], ptr %23, i64 %51
   br label %53
 
 53:                                               ; preds = %53, %.preheader37.us.i.us96.us.us.us
   %indvars.iv53.i.us98.us.us.us = phi i64 [ 0, %.preheader37.us.i.us96.us.us.us ], [ %indvars.iv.next54.i.us99.us.us.us, %53 ]
-  %54 = getelementptr float, ptr %52, i64 %indvars.iv53.i.us98.us.us.us
+  %54 = getelementptr [4 x i8], ptr %52, i64 %indvars.iv53.i.us98.us.us.us
   store float %41, ptr %54, align 4, !tbaa !8
   %indvars.iv.next54.i.us99.us.us.us = add nuw nsw i64 %indvars.iv53.i.us98.us.us.us, 1
   %exitcond.not.i.us100.us.us.us = icmp eq i64 %indvars.iv.next54.i.us99.us.us.us, %13
@@ -361,12 +361,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %indvars.iv64.i.us.us.us.us = phi i64 [ %indvars.iv.next65.i.us.us.us.us, %._crit_edge.us.us.us.i.us.us.us.us ], [ 0, %.preheader35.us.us.i.us.us.us.us ]
   %60 = add nsw i64 %indvars.iv64.i.us.us.us.us, %59
   %61 = mul nsw i64 %60, %13
-  %62 = getelementptr float, ptr %23, i64 %61
+  %62 = getelementptr [4 x i8], ptr %23, i64 %61
   br label %63
 
 63:                                               ; preds = %63, %.preheader.us.us.us.i.us.us.us.us
   %indvars.iv59.i.us.us.us.us = phi i64 [ %indvars.iv.next60.i.us.us.us.us, %63 ], [ 0, %.preheader.us.us.us.i.us.us.us.us ]
-  %64 = getelementptr float, ptr %62, i64 %indvars.iv59.i.us.us.us.us
+  %64 = getelementptr [4 x i8], ptr %62, i64 %indvars.iv59.i.us.us.us.us
   store float %41, ptr %64, align 4, !tbaa !8
   %indvars.iv.next60.i.us.us.us.us = add nuw nsw i64 %indvars.iv59.i.us.us.us.us, 1
   %exitcond63.not.i.us.us.us.us = icmp eq i64 %indvars.iv.next60.i.us.us.us.us, %13
@@ -453,7 +453,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %18 = trunc nsw i64 %17 to i32
   %.reass = mul i32 %factor.op.mul, %18
   %19 = sext i32 %.reass to i64
-  %20 = getelementptr inbounds double, ptr %7, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %7, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !29
   br label %.lr.ph81.us.us
 
@@ -480,7 +480,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.reass.us.us.us.us = add i32 %26, %29
   %30 = mul nsw i32 %11, %.reass.us.us.us.us
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds double, ptr %23, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %23, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !29
   br label %.lr.ph.us.us.us.us
 
@@ -489,10 +489,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.358.us.us.us.us = phi double [ %33, %28 ], [ %.25775.us.us.us.us, %27 ]
   %34 = add nuw nsw i64 %22, %indvars.iv127
   %35 = mul nuw nsw i64 %34, %14
-  %invariant.gep.i.us.us.us.us = getelementptr double, ptr %23, i64 %35
+  %invariant.gep.i.us.us.us.us = getelementptr [8 x i8], ptr %23, i64 %35
   %36 = add nsw i64 %indvars.iv127, -1
   %37 = and i64 %35, 4294967295
-  %38 = getelementptr inbounds nuw double, ptr %23, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %37
   br label %39
 
 39:                                               ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us, %.lr.ph.us.us.us.us
@@ -501,7 +501,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.04868.us87.us.us.us = phi i32 [ %.149.us107.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us ], [ -1, %.lr.ph.us.us.us.us ]
   %.15267.us88.us.us.us = phi i32 [ %.253.us106.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us ], [ %.05176.us.us.us.us, %.lr.ph.us.us.us.us ]
   %.466.us89.us.us.us = phi double [ %.5.us105.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us ], [ %.358.us.us.us.us, %.lr.ph.us.us.us.us ]
-  %40 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !29
   %42 = fcmp uno double %41, 0.000000e+00
   br i1 %42, label %66, label %43
@@ -514,7 +514,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
 
 .lr.ph.i.us90.us.us.us:                           ; preds = %43, %.lr.ph.i.us90.us.us.us
   %indvars.iv.i.us91.us.us.us = phi i64 [ %indvars.iv.next.i.us93.us.us.us, %.lr.ph.i.us90.us.us.us ], [ %44, %43 ]
-  %gep.i.us92.us.us.us = getelementptr double, ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
+  %gep.i.us92.us.us.us = getelementptr [8 x i8], ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
   store double %41, ptr %gep.i.us92.us.us.us, align 8, !tbaa !29
   %indvars.iv.next.i.us93.us.us.us = add nsw i64 %indvars.iv.i.us91.us.us.us, -1
   %47 = icmp sgt i64 %indvars.iv.next.i.us93.us.us.us, %45
@@ -529,12 +529,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %indvars.iv56.i.us97.us.us.us = phi i64 [ %indvars.iv.next57.i.us102.us.us.us, %..loopexit38_crit_edge.us.i.us101.us.us.us ], [ %36, %.preheader39.i.us94.us.us.us ]
   %50 = add nsw i64 %indvars.iv56.i.us97.us.us.us, %22
   %51 = mul nsw i64 %50, %13
-  %52 = getelementptr double, ptr %23, i64 %51
+  %52 = getelementptr [8 x i8], ptr %23, i64 %51
   br label %53
 
 53:                                               ; preds = %53, %.preheader37.us.i.us96.us.us.us
   %indvars.iv53.i.us98.us.us.us = phi i64 [ 0, %.preheader37.us.i.us96.us.us.us ], [ %indvars.iv.next54.i.us99.us.us.us, %53 ]
-  %54 = getelementptr double, ptr %52, i64 %indvars.iv53.i.us98.us.us.us
+  %54 = getelementptr [8 x i8], ptr %52, i64 %indvars.iv53.i.us98.us.us.us
   store double %41, ptr %54, align 8, !tbaa !29
   %indvars.iv.next54.i.us99.us.us.us = add nuw nsw i64 %indvars.iv53.i.us98.us.us.us, 1
   %exitcond.not.i.us100.us.us.us = icmp eq i64 %indvars.iv.next54.i.us99.us.us.us, %13
@@ -560,12 +560,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %indvars.iv64.i.us.us.us.us = phi i64 [ %indvars.iv.next65.i.us.us.us.us, %._crit_edge.us.us.us.i.us.us.us.us ], [ 0, %.preheader35.us.us.i.us.us.us.us ]
   %60 = add nsw i64 %indvars.iv64.i.us.us.us.us, %59
   %61 = mul nsw i64 %60, %13
-  %62 = getelementptr double, ptr %23, i64 %61
+  %62 = getelementptr [8 x i8], ptr %23, i64 %61
   br label %63
 
 63:                                               ; preds = %63, %.preheader.us.us.us.i.us.us.us.us
   %indvars.iv59.i.us.us.us.us = phi i64 [ %indvars.iv.next60.i.us.us.us.us, %63 ], [ 0, %.preheader.us.us.us.i.us.us.us.us ]
-  %64 = getelementptr double, ptr %62, i64 %indvars.iv59.i.us.us.us.us
+  %64 = getelementptr [8 x i8], ptr %62, i64 %indvars.iv59.i.us.us.us.us
   store double %41, ptr %64, align 8, !tbaa !29
   %indvars.iv.next60.i.us.us.us.us = add nuw nsw i64 %indvars.iv59.i.us.us.us.us, 1
   %exitcond63.not.i.us.us.us.us = icmp eq i64 %indvars.iv.next60.i.us.us.us.us, %13
@@ -652,7 +652,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %18 = trunc nsw i64 %17 to i32
   %.reass = mul i32 %factor.op.mul, %18
   %19 = sext i32 %.reass to i64
-  %20 = getelementptr inbounds double, ptr %7, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %7, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !29
   br label %.lr.ph81.us.us
 
@@ -679,7 +679,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.reass.us.us.us.us = add i32 %26, %29
   %30 = mul nsw i32 %11, %.reass.us.us.us.us
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds double, ptr %23, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %23, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !29
   br label %.lr.ph.us.us.us.us
 
@@ -688,10 +688,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.358.us.us.us.us = phi double [ %33, %28 ], [ %.25775.us.us.us.us, %27 ]
   %34 = add nuw nsw i64 %22, %indvars.iv127
   %35 = mul nuw nsw i64 %34, %14
-  %invariant.gep.i.us.us.us.us = getelementptr double, ptr %23, i64 %35
+  %invariant.gep.i.us.us.us.us = getelementptr [8 x i8], ptr %23, i64 %35
   %36 = add nsw i64 %indvars.iv127, -1
   %37 = and i64 %35, 4294967295
-  %38 = getelementptr inbounds nuw double, ptr %23, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %37
   br label %39
 
 39:                                               ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us, %.lr.ph.us.us.us.us
@@ -700,7 +700,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.04868.us87.us.us.us = phi i32 [ %.149.us107.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us ], [ -1, %.lr.ph.us.us.us.us ]
   %.15267.us88.us.us.us = phi i32 [ %.253.us106.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us ], [ %.05176.us.us.us.us, %.lr.ph.us.us.us.us ]
   %.466.us89.us.us.us = phi double [ %.5.us105.us.us.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us ], [ %.358.us.us.us.us, %.lr.ph.us.us.us.us ]
-  %40 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !29
   %42 = fcmp uno double %41, 0.000000e+00
   br i1 %42, label %66, label %43
@@ -713,7 +713,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
 
 .lr.ph.i.us90.us.us.us:                           ; preds = %43, %.lr.ph.i.us90.us.us.us
   %indvars.iv.i.us91.us.us.us = phi i64 [ %indvars.iv.next.i.us93.us.us.us, %.lr.ph.i.us90.us.us.us ], [ %44, %43 ]
-  %gep.i.us92.us.us.us = getelementptr double, ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
+  %gep.i.us92.us.us.us = getelementptr [8 x i8], ptr %invariant.gep.i.us.us.us.us, i64 %indvars.iv.i.us91.us.us.us
   store double %41, ptr %gep.i.us92.us.us.us, align 8, !tbaa !29
   %indvars.iv.next.i.us93.us.us.us = add nsw i64 %indvars.iv.i.us91.us.us.us, -1
   %47 = icmp sgt i64 %indvars.iv.next.i.us93.us.us.us, %45
@@ -728,12 +728,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %indvars.iv56.i.us97.us.us.us = phi i64 [ %indvars.iv.next57.i.us102.us.us.us, %..loopexit38_crit_edge.us.i.us101.us.us.us ], [ %36, %.preheader39.i.us94.us.us.us ]
   %50 = add nsw i64 %indvars.iv56.i.us97.us.us.us, %22
   %51 = mul nsw i64 %50, %13
-  %52 = getelementptr double, ptr %23, i64 %51
+  %52 = getelementptr [8 x i8], ptr %23, i64 %51
   br label %53
 
 53:                                               ; preds = %53, %.preheader37.us.i.us96.us.us.us
   %indvars.iv53.i.us98.us.us.us = phi i64 [ 0, %.preheader37.us.i.us96.us.us.us ], [ %indvars.iv.next54.i.us99.us.us.us, %53 ]
-  %54 = getelementptr double, ptr %52, i64 %indvars.iv53.i.us98.us.us.us
+  %54 = getelementptr [8 x i8], ptr %52, i64 %indvars.iv53.i.us98.us.us.us
   store double %41, ptr %54, align 8, !tbaa !29
   %indvars.iv.next54.i.us99.us.us.us = add nuw nsw i64 %indvars.iv53.i.us98.us.us.us, 1
   %exitcond.not.i.us100.us.us.us = icmp eq i64 %indvars.iv.next54.i.us99.us.us.us, %13
@@ -759,12 +759,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %indvars.iv64.i.us.us.us.us = phi i64 [ %indvars.iv.next65.i.us.us.us.us, %._crit_edge.us.us.us.i.us.us.us.us ], [ 0, %.preheader35.us.us.i.us.us.us.us ]
   %60 = add nsw i64 %indvars.iv64.i.us.us.us.us, %59
   %61 = mul nsw i64 %60, %13
-  %62 = getelementptr double, ptr %23, i64 %61
+  %62 = getelementptr [8 x i8], ptr %23, i64 %61
   br label %63
 
 63:                                               ; preds = %63, %.preheader.us.us.us.i.us.us.us.us
   %indvars.iv59.i.us.us.us.us = phi i64 [ %indvars.iv.next60.i.us.us.us.us, %63 ], [ 0, %.preheader.us.us.us.i.us.us.us.us ]
-  %64 = getelementptr double, ptr %62, i64 %indvars.iv59.i.us.us.us.us
+  %64 = getelementptr [8 x i8], ptr %62, i64 %indvars.iv59.i.us.us.us.us
   store double %41, ptr %64, align 8, !tbaa !29
   %indvars.iv.next60.i.us.us.us.us = add nuw nsw i64 %indvars.iv59.i.us.us.us.us, 1
   %exitcond63.not.i.us.us.us.us = icmp eq i64 %indvars.iv.next60.i.us.us.us.us, %13
@@ -845,7 +845,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %16 = mul i32 %15, %13
   %17 = mul i32 %16, %14
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds float, ptr %7, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %7, i64 %18
   %20 = load float, ptr %19, align 4, !tbaa !8
   br label %21
 
@@ -894,7 +894,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %37 = add nsw i32 %34, %36
   %38 = mul nsw i32 %37, %33
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds float, ptr %23, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %23, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !8
   br label %42
 
@@ -936,7 +936,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %54 = tail call float @llvm.fmuladd.f32(float %50, float %53, float %51)
   %55 = fptosi float %54 to i32
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds float, ptr %23, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %23, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !8
   %59 = fcmp uno float %58, 0.000000e+00
   br i1 %59, label %60, label %63
@@ -974,7 +974,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %76 = mul nsw i32 %75, %71
   %77 = add nsw i32 %76, %69
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds float, ptr %23, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %23, i64 %78
   store float %58, ptr %79, align 4, !tbaa !8
   %80 = add nsw i32 %69, -1
   %81 = icmp slt i32 %.04871, %80
@@ -1012,7 +1012,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %97 = mul nsw i32 %96, %92
   %98 = add nsw i32 %97, %.02940.i
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds float, ptr %23, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %23, i64 %99
   store float %58, ptr %100, align 4, !tbaa !8
   %101 = add nuw nsw i32 %.02940.i, 1
   %102 = uitofp nneg i32 %101 to float
@@ -1071,7 +1071,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %131 = mul nsw i32 %130, %126
   %132 = add nsw i32 %131, %.042.i
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds float, ptr %23, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %23, i64 %133
   store float %58, ptr %134, align 4, !tbaa !8
   %135 = add nuw nsw i32 %.042.i, 1
   %136 = uitofp nneg i32 %135 to float

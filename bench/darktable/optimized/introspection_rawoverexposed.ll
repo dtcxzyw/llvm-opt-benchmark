@@ -87,7 +87,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 28:                                               ; preds = %28, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   store i32 %27, ptr %29, align 4, !tbaa !74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -104,7 +104,7 @@ process_common_setup.exit:                        ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 2552
   %38 = load i32, ptr %37, align 8, !tbaa !78
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [4 x float], ptr @dt_iop_rawoverexposed_colors, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr @dt_iop_rawoverexposed_colors, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !79
   %43 = sext i32 %42 to i64
@@ -283,12 +283,12 @@ process_common_setup.exit:                        ; preds = %28
   %150 = zext nneg i32 %125 to i64
   %151 = mul nuw nsw i64 %98, %150
   %152 = zext nneg i32 %122 to i64
-  %153 = getelementptr i16, ptr %54, i64 %151
-  %154 = getelementptr i16, ptr %153, i64 %152
+  %153 = getelementptr [2 x i8], ptr %54, i64 %151
+  %154 = getelementptr [2 x i8], ptr %153, i64 %152
   %155 = load i16, ptr %154, align 2, !tbaa !123
   %156 = uitofp i16 %155 to float
   %157 = zext nneg i32 %.088 to i64
-  %158 = getelementptr inbounds nuw i32, ptr %9, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !74
   %160 = uitofp i32 %159 to float
   %161 = fcmp reassoc nsz arcp contract afn olt float %156, %160
@@ -302,19 +302,19 @@ process_common_setup.exit:                        ; preds = %28
   ]
 
 163:                                              ; preds = %162
-  %164 = getelementptr inbounds nuw float, ptr %3, i64 %119
-  %165 = getelementptr inbounds nuw [4 x float], ptr @dt_iop_rawoverexposed_colors, i64 %157
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %119
+  %165 = getelementptr inbounds nuw [16 x i8], ptr @dt_iop_rawoverexposed_colors, i64 %157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %164, ptr noundef nonnull align 16 dereferenceable(16) %165, i64 16, i1 false)
   br label %171
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw float, ptr %3, i64 %119
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %167, ptr noundef nonnull align 16 dereferenceable(16) %40, i64 16, i1 false)
   br label %171
 
 168:                                              ; preds = %162
-  %169 = getelementptr float, ptr %3, i64 %119
-  %170 = getelementptr float, ptr %169, i64 %157
+  %169 = getelementptr [4 x i8], ptr %3, i64 %119
+  %170 = getelementptr [4 x i8], ptr %169, i64 %157
   store float 0.000000e+00, ptr %170, align 4, !tbaa !121
   br label %171
 
@@ -337,9 +337,9 @@ process_common_setup.exit:                        ; preds = %28
 
 .lr.ph.i:                                         ; preds = %175, %.lr.ph.i
   %.09.i = phi i64 [ %185, %.lr.ph.i ], [ 3, %175 ]
-  %182 = getelementptr inbounds nuw float, ptr %2, i64 %.09.i
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.09.i
   %183 = load float, ptr %182, align 4, !tbaa !121
-  %184 = getelementptr inbounds nuw float, ptr %3, i64 %.09.i
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.09.i
   store float %183, ptr %184, align 4, !tbaa !121
   %185 = add nuw i64 %.09.i, 4
   %186 = icmp ult i64 %185, %181

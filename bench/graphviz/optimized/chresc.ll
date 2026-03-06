@@ -107,7 +107,7 @@ switch.hole_check:                                ; preds = %.preheader
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %32 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.chresc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.chresc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = shl i32 %.340, 4
   %34 = getelementptr inbounds nuw i8, ptr %.33138, i64 1

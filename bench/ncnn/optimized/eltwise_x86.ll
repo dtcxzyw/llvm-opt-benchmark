@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ident_t = type { i32, i32, i32, i32, ptr }
-%"class.ncnn::Mat" = type { ptr, ptr, i64, i32, ptr, i32, i32, i32, i32, i32, i64 }
 
 $_ZN4ncnn7EltwiseD2Ev = comdat any
 
@@ -207,7 +206,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %52 = phi ptr [ %57, %.lr.ph ], [ %46, %39 ]
   %.06668 = phi i64 [ %55, %.lr.ph ], [ 2, %39 ]
-  %53 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %52, i64 %.06668
+  %53 = getelementptr inbounds nuw [72 x i8], ptr %52, i64 %.06668
   %54 = load i32, ptr %42, align 4, !tbaa !43
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %8, i32 %54)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.1, ptr nonnull %5, ptr nonnull %53, ptr nonnull %23, ptr nonnull %6)
@@ -256,7 +255,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %39
 .lr.ph73:                                         ; preds = %74, %.lr.ph73
   %83 = phi ptr [ %88, %.lr.ph73 ], [ %77, %74 ]
   %.06771 = phi i64 [ %86, %.lr.ph73 ], [ 2, %74 ]
-  %84 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %83, i64 %.06771
+  %84 = getelementptr inbounds nuw [72 x i8], ptr %83, i64 %.06771
   %85 = load i32, ptr %72, align 4, !tbaa !43
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %8, i32 %85)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.3, ptr nonnull %5, ptr nonnull %84, ptr nonnull %23, ptr nonnull %6)
@@ -291,7 +290,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %39
 .lr.ph70:                                         ; preds = %94, %.lr.ph70
   %103 = phi ptr [ %109, %.lr.ph70 ], [ %97, %94 ]
   %storemerge69 = phi i64 [ %107, %.lr.ph70 ], [ 2, %94 ]
-  %104 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %103, i64 %storemerge69
+  %104 = getelementptr inbounds nuw [72 x i8], ptr %103, i64 %storemerge69
   %105 = load i32, ptr %72, align 4, !tbaa !43
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %8, i32 %105)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 6, ptr nonnull @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.5, ptr nonnull %5, ptr nonnull %104, ptr nonnull %23, ptr nonnull %0, ptr nonnull %7, ptr nonnull %6)
@@ -332,7 +331,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %39
 .lr.ph76:                                         ; preds = %117, %.lr.ph76
   %130 = phi ptr [ %135, %.lr.ph76 ], [ %124, %117 ]
   %.06574 = phi i64 [ %133, %.lr.ph76 ], [ 2, %117 ]
-  %131 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %130, i64 %.06574
+  %131 = getelementptr inbounds nuw [72 x i8], ptr %130, i64 %.06574
   %132 = load i32, ptr %120, align 4, !tbaa !43
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %8, i32 %132)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.7, ptr nonnull %5, ptr nonnull %131, ptr nonnull %23, ptr nonnull %6)
@@ -1348,7 +1347,7 @@ define internal void @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_E
   %factor.op.mul88 = mul i64 %34, %35
   %36 = load i64, ptr %6, align 8, !tbaa !49
   %37 = load ptr, ptr %25, align 8, !tbaa !16
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %36
   %39 = icmp sgt i32 %26, 0
   br i1 %39, label %.noexc.us.us.preheader, label %._crit_edge87
 
@@ -1404,7 +1403,7 @@ define internal void @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_E
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 %64
   %66 = load i64, ptr %6, align 8, !tbaa !49
   %67 = load ptr, ptr %25, align 8, !tbaa !16
-  %68 = getelementptr inbounds nuw float, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %66
   %69 = load float, ptr %68, align 4, !tbaa !63
   %70 = insertelement <4 x float> poison, float %69, i64 0
   %71 = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> zeroinitializer

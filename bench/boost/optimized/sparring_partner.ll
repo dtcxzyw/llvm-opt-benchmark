@@ -5445,7 +5445,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
   %13 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i ], [ %12, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ]
   store ptr %13, ptr %5, align 8, !tbaa !88
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %9
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !89
   %16 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SC_SB_(ptr noundef %6, ptr noundef %8, ptr noundef %13)
@@ -7199,7 +7199,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_15program_options19options_descriptionEEESa
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i64, ptr %38, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %38, i64 %43
   tail call void @_ZdlPvm(ptr noundef %44, i64 noundef %41) #37
   store ptr null, ptr %34, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9536,7 +9536,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %50, %.noex
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %45
   br label %.outer.outer
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -19355,7 +19355,7 @@ _ZN5boost8any_castISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   store ptr null, ptr %6, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %43 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit unwind label %94
 
@@ -19548,7 +19548,7 @@ _ZN5boost3anyD2Ev.exit48:                         ; preds = %104, %107
   %114 = call ptr @__cxa_begin_catch(ptr %.1) #34
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %115 = load ptr, ptr %1, align 8, !tbaa !88
-  %116 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %115, i64 %42
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %42
   invoke void @_ZN5boost15program_options20invalid_option_valueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(188) %9, ptr noundef nonnull align 8 dereferenceable(32) %116)
           to label %117 unwind label %119
 
@@ -20042,7 +20042,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !88
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !90
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !89
   ret void
 
@@ -20252,7 +20252,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !88
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !90
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !89
   ret void
 }
@@ -20640,7 +20640,7 @@ define linkonce_odr hidden void @_ZN5boost15program_options11to_internalINSt7__c
   %13 = phi i64 [ 0, %.lr.ph ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.0814 = phi i32 [ 0, %.lr.ph ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   invoke void @_ZN5boost15program_options11to_internalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %15 unwind label %44
 

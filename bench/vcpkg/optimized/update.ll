@@ -361,7 +361,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
 _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %4, align 8, !tbaa !13
   store ptr %67, ptr %42, align 8, !tbaa !4
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %44, align 8, !tbaa !10
   %.pr = load ptr, ptr %5, align 8, !tbaa !11
   %.not.i = icmp eq ptr %.pr, null
@@ -1753,7 +1753,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
 _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %70
   store ptr %63, ptr %4, align 8, !tbaa !13
   store ptr %69, ptr %44, align 8, !tbaa !4
-  %71 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %63, i64 %61
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   store ptr %71, ptr %46, align 8, !tbaa !10
   %.pr = load ptr, ptr %5, align 8, !tbaa !11
   %.not.i = icmp eq ptr %.pr, null
@@ -1954,7 +1954,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
 _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit68: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i150, %140
   store ptr %133, ptr %4, align 8, !tbaa !13
   store ptr %139, ptr %44, align 8, !tbaa !4
-  %141 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %133, i64 %131
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %131
   store ptr %141, ptr %46, align 8, !tbaa !10
   %.pr183 = load ptr, ptr %7, align 8, !tbaa !11
   %.not.i69 = icmp eq ptr %.pr183, null
@@ -3350,7 +3350,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
 _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %70
   store ptr %63, ptr %4, align 8, !tbaa !13
   store ptr %69, ptr %44, align 8, !tbaa !4
-  %71 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %63, i64 %61
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   store ptr %71, ptr %46, align 8, !tbaa !10
   %.pr = load ptr, ptr %5, align 8, !tbaa !11
   %.not.i = icmp eq ptr %.pr, null
@@ -3551,7 +3551,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
 _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit69: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i151, %140
   store ptr %133, ptr %4, align 8, !tbaa !13
   store ptr %139, ptr %44, align 8, !tbaa !4
-  %141 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %133, i64 %131
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %131
   store ptr %141, ptr %46, align 8, !tbaa !10
   %.pr184 = load ptr, ptr %7, align 8, !tbaa !11
   %.not.i70 = icmp eq ptr %.pr184, null
@@ -4938,7 +4938,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
 _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %54
   store ptr %47, ptr %2, align 8, !tbaa !13
   store ptr %53, ptr %28, align 8, !tbaa !4
-  %55 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %47, i64 %45
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %55, ptr %30, align 8, !tbaa !10
   %.pr = load ptr, ptr %3, align 8, !tbaa !11
   %.not.i = icmp eq ptr %.pr, null
@@ -6934,7 +6934,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !170
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !179
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -7125,7 +7125,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %2, ptr %32, align 8, !tbaa !180
   %33 = load ptr, ptr %0, align 8, !tbaa !170
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !179
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -7151,7 +7151,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %46 = load i64, ptr %45, align 8, !tbaa !180
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !179
   br label %49
 
@@ -7369,7 +7369,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !180
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !179
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -7384,7 +7384,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !179
   br label %28
 
@@ -7647,7 +7647,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !172
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !179
   %.02837 = load ptr, ptr %19, align 8, !tbaa !106
   %.not3038 = icmp eq ptr %.02837, null
@@ -7700,7 +7700,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !172
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !170
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !179
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -8063,7 +8063,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !33
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %45
   %51 = load ptr, ptr %50, align 8, !tbaa !179
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %.critedge28, label %52
@@ -8216,7 +8216,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %2, ptr %32, align 8, !tbaa !180
   %33 = load ptr, ptr %0, align 8, !tbaa !33
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !179
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -8242,7 +8242,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %46 = load i64, ptr %45, align 8, !tbaa !180
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !179
   br label %49
 
@@ -8435,7 +8435,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 112
   %16 = load i64, ptr %15, align 8, !tbaa !180
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !179
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -8450,7 +8450,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !179
   br label %28
 
@@ -9623,7 +9623,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg15OutdatedPackageESt
 20:                                               ; preds = %12
   %21 = add nsw i64 %.019, -1
   %22 = udiv i64 %13, 240
-  %23 = getelementptr inbounds nuw %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [120 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge18, i64 -120
   %25 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(120) %23)
   br i1 %25, label %26, label %28
@@ -9724,7 +9724,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 36:                                               ; preds = %_ZN5vcpkg15OutdatedPackageD2Ev.exit26, %11
   %.010 = phi i64 [ %13, %11 ], [ %110, %_ZN5vcpkg15OutdatedPackageD2Ev.exit26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %37 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %.010
+  %37 = getelementptr inbounds [120 x i8], ptr %0, i64 %.010
   %38 = load ptr, ptr %37, align 8, !tbaa !22
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = icmp eq ptr %38, %39
@@ -10353,13 +10353,13 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.047 = phi i64 [ %spec.select, %_ZN5vcpkg15OutdatedPackageaSEOS0_.exit ], [ %1, %5 ]
   %11 = shl i64 %.047, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %12
+  %13 = getelementptr inbounds [120 x i8], ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %14
+  %15 = getelementptr inbounds [120 x i8], ptr %0, i64 %14
   %16 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(120) %13, ptr noundef nonnull align 8 dereferenceable(120) %15)
   %spec.select = select i1 %16, i64 %14, i64 %12
-  %17 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %.047
+  %17 = getelementptr inbounds [120 x i8], ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds [120 x i8], ptr %0, i64 %.047
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = icmp eq ptr %19, %20
@@ -10468,8 +10468,8 @@ _ZN5vcpkg15OutdatedPackageaSEOS0_.exit:           ; preds = %25, %_ZNSt7__cxx111
 63:                                               ; preds = %59
   %64 = shl nsw i64 %.0.lcssa, 1
   %65 = or disjoint i64 %64, 1
-  %66 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %65
-  %67 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %.0.lcssa
+  %66 = getelementptr inbounds [120 x i8], ptr %0, i64 %65
+  %67 = getelementptr inbounds [120 x i8], ptr %0, i64 %.0.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !22
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = icmp eq ptr %68, %69
@@ -10778,13 +10778,13 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iter
   %.027 = phi i64 [ %.0928, %_ZN5vcpkg15OutdatedPackageaSEOS0_.exit ], [ %1, %5 ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %7 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %.0928
+  %7 = getelementptr inbounds [120 x i8], ptr %0, i64 %.0928
   %8 = load ptr, ptr %4, align 8, !tbaa !256
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(120) %3)
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %.027
+  %11 = getelementptr inbounds [120 x i8], ptr %0, i64 %.027
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = icmp eq ptr %12, %13
@@ -10880,7 +10880,7 @@ _ZN5vcpkg15OutdatedPackageaSEOS0_.exit:           ; preds = %18, %_ZNSt7__cxx111
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN5vcpkg15OutdatedPackageaSEOS0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZN5vcpkg15OutdatedPackageaSEOS0_.exit ], [ %.027, %.lr.ph ]
-  %50 = getelementptr inbounds %"struct.vcpkg::OutdatedPackage", ptr %0, i64 %.0.lcssa
+  %50 = getelementptr inbounds [120 x i8], ptr %0, i64 %.0.lcssa
   %51 = load ptr, ptr %50, align 8, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = icmp eq ptr %51, %52

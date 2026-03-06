@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.MemoizeEntry = type { ptr, ptr, i32, i8, i8 }
-%struct.MemoizeInstrumentation = type { i64, i64, i64, i64, i64 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @TTSOpsMinimalTuple = external constant %struct.TupleTableSlotOps, align 8
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
@@ -96,14 +91,14 @@ define dso_local noundef ptr @ExecInitMemoize(ptr noundef %0, ptr noundef %1, i3
 42:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = load ptr, ptr %19, align 8
   %47 = getelementptr i8, ptr %46, i64 16
   %.val = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %50 = call zeroext i1 @get_op_hash_functions(i32 noundef %45, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   br i1 %50, label %54, label %51
@@ -117,14 +112,14 @@ define dso_local noundef ptr @ExecInitMemoize(ptr noundef %0, ptr noundef %1, i3
 54:                                               ; preds = %42
   %55 = load i32, ptr %4, align 4
   %56 = load ptr, ptr %37, align 8
-  %57 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [48 x i8], ptr %56, i64 %indvars.iv
   call void @fmgr_info(i32 noundef %55, ptr noundef %57) #11
   %58 = call ptr @ExecInitExpr(ptr noundef %49, ptr noundef nonnull %6) #11
   %59 = load ptr, ptr %31, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   store ptr %58, ptr %60, align 8
   %61 = call i32 @get_opcode(i32 noundef %45) #11
-  %62 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store i32 %61, ptr %62, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -243,7 +238,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
 38:                                               ; preds = %38, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
   %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i.i
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %36, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i.i
@@ -251,7 +246,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i64 %45(ptr noundef %41, ptr noundef nonnull %30, ptr noundef %43) #11
   %47 = load ptr, ptr %37, align 8
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i
   store i64 %46, ptr %48, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -298,7 +293,7 @@ prepare_probe_slot.exit.i:                        ; preds = %38, %20
   %.val96.i.i.i = load i32, ptr %56, align 4
   %68 = and i32 %.val96.i.i.i, %52
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %72 = load i8, ptr %71, align 4
   %73 = icmp eq i8 %72, 0
@@ -361,7 +356,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %87, %85
 
 .preheader13.i.preheader.i.i:                     ; preds = %memoize_distance.exit.i.i.i
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 20
   %97 = load i8, ptr %96, align 4
   %.not12.i32.i.i = icmp eq i8 %97, 0
@@ -387,7 +382,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %87, %85
   %108 = add i32 %98, 1
   %109 = and i32 %108, %.val97.i.i.i
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %110
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %113 = load i8, ptr %112, align 4
   %.not12.i.i.i = icmp eq i8 %113, 0
@@ -407,7 +402,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %87, %85
   %114 = add i32 %.08242.i.i.i, -1
   %115 = and i32 %.val102.i.i.i, %114
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %116
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.28641.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
   %.not95.i.i.i = icmp eq i32 %115, %.078.i27.i.i
   br i1 %.not95.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
@@ -437,7 +432,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %87, %85
 
 130:                                              ; preds = %123, %120
   %131 = zext i32 %93 to i64
-  %132 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %131
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 20
   %134 = load i8, ptr %133, align 4
   %135 = icmp eq i8 %134, 0
@@ -599,7 +594,7 @@ prepare_probe_slot.exit40.i:                      ; preds = %214, %197
   %231 = getelementptr inbounds nuw i8, ptr %226, i64 24
   %232 = load ptr, ptr %231, align 8
   %233 = zext i32 %230 to i64
-  %234 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %232, i64 %233
+  %234 = getelementptr inbounds nuw [24 x i8], ptr %232, i64 %233
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 20
   %236 = load i8, ptr %235, align 4
   %237 = icmp eq i8 %236, 0
@@ -633,7 +628,7 @@ prepare_probe_slot.exit40.i:                      ; preds = %214, %197
   %248 = add i32 %.0175.i.i.i, 1
   %249 = and i32 %.val19.i.i.i, %248
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %247, i64 %250
+  %251 = getelementptr inbounds nuw [24 x i8], ptr %247, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 20
   %253 = load i8, ptr %252, align 4
   %254 = icmp eq i8 %253, 0
@@ -997,7 +992,7 @@ define dso_local void @ExecEndMemoize(ptr noundef captures(none) %0) local_unnam
 15:                                               ; preds = %12, %7
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = zext nneg i32 %5 to i64
-  %18 = getelementptr inbounds nuw %struct.MemoizeInstrumentation, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %19
 
@@ -1395,7 +1390,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef capture
 65:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
   %66 = load ptr, ptr %62, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %63, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv.i
@@ -1403,7 +1398,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef capture
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i64 %72(ptr noundef %68, ptr noundef nonnull %57, ptr noundef %70) #11
   %74 = load ptr, ptr %64, align 8
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i
   store i64 %73, ptr %75, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1453,7 +1448,7 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = zext i32 %103 to i64
-  %107 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %109 = load i8, ptr %108, align 4
   %110 = icmp eq i8 %109, 0
@@ -1487,7 +1482,7 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   %121 = add i32 %.0175.i.i, 1
   %122 = and i32 %.val19.i.i, %121
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %120, i64 %123
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 20
   %126 = load i8, ptr %125, align 4
   %127 = icmp eq i8 %126, 0
@@ -1595,7 +1590,7 @@ prepare_probe_slot.exit:                          ; preds = %20, %38
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = zext i32 %54 to i64
-  %58 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = icmp eq i8 %60, 0
@@ -1695,12 +1690,12 @@ memoize_lookup.exit.thread44:                     ; preds = %slot_getallattrs.ex
 115:                                              ; preds = %113
   %116 = load ptr, ptr %85, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %118 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %117, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %indvars.iv.i
   %119 = load ptr, ptr %104, align 8
-  %120 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv.i
   %121 = load i64, ptr %120, align 8
   %122 = load ptr, ptr %105, align 8
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv.i
   %124 = load i64, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 6
   %126 = load i8, ptr %125, align 2, !range !6, !noundef !7
@@ -1759,7 +1754,7 @@ MemoizeHash_equal.exit:                           ; preds = %132
   %146 = add i32 %.0175.i.i, 1
   %147 = and i32 %.val19.i.i, %146
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %145, i64 %148
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 20
   %151 = load i8, ptr %150, align 4
   %152 = icmp eq i8 %151, 0
@@ -1843,7 +1838,7 @@ entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i35, %156
   %193 = add i32 %189, 1
   %194 = and i32 %193, %.val3034.i.i
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %184, i64 %195
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %184, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 20
   %198 = load i8, ptr %197, align 4
   %.not35.i.i = icmp eq i8 %198, 1
@@ -1867,7 +1862,7 @@ entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i35, %156
   %206 = and i32 %.val30.i.i, %205
   %207 = load ptr, ptr %183, align 8
   %208 = zext i32 %206 to i64
-  %209 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [24 x i8], ptr %207, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 20
   %211 = load i8, ptr %210, align 4
   %.not.i11.i = icmp eq i8 %211, 1
@@ -1941,9 +1936,9 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
 23:                                               ; preds = %17
   %24 = load ptr, ptr %15, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %25, i64 %indvars.iv10
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv10
   %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv10
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv10
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 6
   %31 = load i8, ptr %30, align 2, !range !6, !noundef !7
@@ -1986,11 +1981,11 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   br i1 %52, label %63, label %53
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %41, i64 %indvars.iv
-  %55 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %41, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %46, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8
   %60 = tail call i64 @FunctionCall1Coll(ptr noundef %54, i32 noundef %56, i64 noundef %59) #11
   %61 = trunc i64 %60 to i32
@@ -2083,7 +2078,7 @@ memoize_update_parameters.exit:                   ; preds = %memoize_compute_siz
 .lr.ph:                                           ; preds = %memoize_update_parameters.exit, %45
   %37 = phi i64 [ %47, %45 ], [ 0, %memoize_update_parameters.exit ]
   %.063 = phi i32 [ %46, %45 ], [ 0, %memoize_update_parameters.exit ]
-  %38 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i8, ptr %39, align 4
   %.not = icmp eq i8 %40, 1
@@ -2110,7 +2105,7 @@ memoize_update_parameters.exit:                   ; preds = %memoize_compute_siz
   %.169 = phi i32 [ %67, %64 ], [ 0, %.lr.ph70.preheader ]
   %.05168 = phi i32 [ %spec.store.select, %64 ], [ %.05168.ph, %.lr.ph70.preheader ]
   %49 = zext i32 %.05168 to i64
-  %50 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %5, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 1
@@ -2126,7 +2121,7 @@ memoize_update_parameters.exit:                   ; preds = %memoize_compute_siz
   %.val57.pn = phi i32 [ %.val57, %54 ], [ %62, %56 ]
   %.048 = and i32 %.val57.pn, %.val59
   %57 = zext i32 %.048 to i64
-  %58 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %18, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = icmp eq i8 %60, 0
@@ -2231,12 +2226,12 @@ slot_getallattrs.exit40:                          ; preds = %slot_getallattrs.ex
 48:                                               ; preds = %46
   %49 = load ptr, ptr %18, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %37, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8
   %55 = load ptr, ptr %38, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %59 = load i8, ptr %58, align 2, !range !6, !noundef !7

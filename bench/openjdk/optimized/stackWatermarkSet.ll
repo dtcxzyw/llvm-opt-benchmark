@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.ThreadsListHandle = type { %class.SafeThreadsListPtr, %class.elapsedTimer }
 %class.SafeThreadsListPtr = type <{ ptr, ptr, ptr, i8, i8, [6 x i8] }>
 %class.elapsedTimer = type <{ i64, i64, i8, [7 x i8] }>
-%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN14StackWatermark13before_unwindEv = comdat any
 
@@ -210,7 +209,7 @@ _ZNK5frame14is_first_frameEv.exit.thread:         ; preds = %21, %_ZNK5frame20is
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i32 %33 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   br label %_ZNK5frame7real_fpEv.exit.i
 
 40:                                               ; preds = %31, %29
@@ -301,7 +300,7 @@ define linkonce_odr hidden void @_ZN14StackWatermark12after_unwindEv(ptr noundef
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %20 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   br label %_ZNK5frame7real_fpEv.exit.i
 
 27:                                               ; preds = %18, %15
@@ -369,7 +368,7 @@ define hidden void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(p
 22:                                               ; preds = %18
   %23 = load ptr, ptr %7, align 8
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   br label %_ZNK5frame7real_fpEv.exit.i.i
 
 26:                                               ; preds = %18, %16
@@ -579,7 +578,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %7, %_ZN17StackWater
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %17 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %24
@@ -780,7 +779,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %7, %_ZNK11RegisterM
 33:                                               ; preds = %29
   %34 = load ptr, ptr %18, align 8
   %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   br label %_ZNK5frame7real_fpEv.exit.i.i.i
 
 37:                                               ; preds = %29, %27
@@ -1007,7 +1006,7 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -1062,7 +1061,7 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   %45 = lshr i32 %44, 24
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4

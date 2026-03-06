@@ -51,9 +51,9 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef captures(add
   %33 = or disjoint i32 %22, 1
   %34 = mul nuw nsw i32 %33, %1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %35
   %37 = sub nsw i64 0, %27
-  %38 = getelementptr inbounds i16, ptr %36, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %36, i64 %37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %38, i8 0, i64 %28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
@@ -167,11 +167,11 @@ CountLevels.exit.i:                               ; preds = %65
   %85 = phi i32 [ 0, %78 ], [ %83, %80 ], [ %77, %76 ]
   %86 = lshr i32 %85, 2
   %87 = trunc i32 %86 to i16
-  %88 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv.i52.i
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv.i52.i
   store i16 %87, ptr %88, align 2, !tbaa !10
   %89 = sub i16 0, %87
   %90 = sub nsw i64 0, %indvars.iv.i52.i
-  %91 = getelementptr inbounds i16, ptr %69, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %69, i64 %90
   store i16 %89, ptr %91, align 2, !tbaa !10
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i52.i, 1
   %exitcond.not.i55.i = icmp eq i64 %indvars.iv.next.i54.i, 1024
@@ -190,12 +190,12 @@ CountLevels.exit.i:                               ; preds = %65
   %97 = zext nneg i32 %.1 to i64
   %98 = add nuw nsw i32 %.1, 1
   %wide.trip.count.i34 = zext nneg i32 %98 to i64
-  %invariant.gep.i = getelementptr i16, ptr %36, i64 %97
+  %invariant.gep.i = getelementptr [2 x i8], ptr %36, i64 %97
   %99 = sub nsw i32 %1, %.1
   %100 = icmp slt i32 %98, %99
   %101 = xor i32 %.1, -1
   %102 = zext nneg i32 %99 to i64
-  %103 = getelementptr i16, ptr %36, i64 %27
+  %103 = getelementptr [2 x i8], ptr %36, i64 %27
   %104 = getelementptr i8, ptr %103, i64 -2
   %105 = add nsw i32 %24, -2
   br label %.lr.ph.preheader.i
@@ -215,13 +215,13 @@ CountLevels.exit.i:                               ; preds = %65
   %107 = load i8, ptr %106, align 1, !tbaa !3
   %108 = zext i8 %107 to i16
   %109 = add i16 %.038.i, %108
-  %110 = getelementptr inbounds nuw i16, ptr %.sroa.43.098, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.43.098, i64 %indvars.iv.i
   %111 = load i16, ptr %110, align 2, !tbaa !10
   %112 = add i16 %109, %111
-  %113 = getelementptr inbounds nuw i16, ptr %.sroa.36.097, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.36.097, i64 %indvars.iv.i
   %114 = load i16, ptr %113, align 2, !tbaa !10
   %115 = sub i16 %112, %114
-  %116 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %indvars.iv.i
   store i16 %115, ptr %116, align 2, !tbaa !10
   store i16 %112, ptr %113, align 2, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -229,7 +229,7 @@ CountLevels.exit.i:                               ; preds = %65
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %117 = getelementptr inbounds nuw i16, ptr %.sroa.36.097, i64 %27
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.36.097, i64 %27
   %118 = icmp eq ptr %117, %36
   %spec.select86 = select i1 %118, ptr %31, ptr %117
   %119 = icmp sgt i32 %.sroa.14.094, -1
@@ -245,18 +245,18 @@ CountLevels.exit.i:                               ; preds = %65
 
 .lr.ph.i35:                                       ; preds = %._crit_edge.i.loopexit, %.lr.ph.i35
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %.lr.ph.i35 ], [ 0, %._crit_edge.i.loopexit ]
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i36
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i36
   %121 = getelementptr i8, ptr %gep.i, i64 -2
   %122 = load i16, ptr %121, align 2, !tbaa !10
   %123 = sub nsw i64 %97, %indvars.iv.i36
-  %124 = getelementptr inbounds nuw i16, ptr %36, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !10
   %126 = add i16 %125, %122
   %127 = zext i16 %126 to i32
   %128 = mul nuw i32 %94, %127
   %129 = lshr i32 %128, 16
   %130 = trunc nuw i32 %129 to i16
-  %131 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i36
+  %131 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv.i36
   store i16 %130, ptr %131, align 2, !tbaa !10
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
@@ -277,19 +277,19 @@ CountLevels.exit.i:                               ; preds = %65
 
 .lr.ph57.i:                                       ; preds = %.preheader53.i, %.lr.ph57.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.lr.ph57.i ], [ %wide.trip.count.i34, %.preheader53.i ]
-  %gep74.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv63.i
+  %gep74.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv63.i
   %135 = load i16, ptr %gep74.i, align 2, !tbaa !10
   %136 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %137 = add i32 %136, %101
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i16, ptr %36, i64 %138
+  %139 = getelementptr inbounds [2 x i8], ptr %36, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !10
   %141 = sub i16 %135, %140
   %142 = zext i16 %141 to i32
   %143 = mul nuw i32 %94, %142
   %144 = lshr i32 %143, 16
   %145 = trunc nuw i32 %144 to i16
-  %146 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv63.i
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv63.i
   store i16 %145, ptr %146, align 2, !tbaa !10
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %147 = icmp samesign ult i64 %indvars.iv.next64.i, %102
@@ -303,11 +303,11 @@ CountLevels.exit.i:                               ; preds = %65
   %152 = add i32 %.1, %151
   %153 = sub i32 %105, %152
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i16, ptr %36, i64 %154
+  %155 = getelementptr inbounds [2 x i8], ptr %36, i64 %154
   %156 = load i16, ptr %155, align 2, !tbaa !10
   %157 = add i32 %151, %101
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i16, ptr %36, i64 %158
+  %159 = getelementptr inbounds [2 x i8], ptr %36, i64 %158
   %160 = load i16, ptr %159, align 2, !tbaa !10
   %161 = add i16 %156, %160
   %162 = sub i16 %150, %161
@@ -315,7 +315,7 @@ CountLevels.exit.i:                               ; preds = %65
   %164 = mul nuw i32 %94, %163
   %165 = lshr i32 %164, 16
   %166 = trunc nuw i32 %165 to i16
-  %167 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv66.i
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv66.i
   store i16 %166, ptr %167, align 2, !tbaa !10
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %27
@@ -335,13 +335,13 @@ CountLevels.exit.i:                               ; preds = %65
   br i1 %or.cond89, label %173, label %187
 
 173:                                              ; preds = %.lr.ph.i41
-  %174 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i43
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv.i43
   %175 = load i16, ptr %174, align 2, !tbaa !10
   %176 = zext i16 %175 to i32
   %177 = shl nuw nsw i32 %170, 2
   %178 = sub nsw i32 %176, %177
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i16, ptr %69, i64 %179
+  %180 = getelementptr inbounds [2 x i8], ptr %69, i64 %179
   %181 = load i16, ptr %180, align 2, !tbaa !10
   %182 = sext i16 %181 to i32
   %183 = add nsw i32 %182, %170

@@ -90,22 +90,22 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .preheader1.us.us.i:                              ; preds = %._crit_edge5.split.us.us.us.i, %.preheader2.us.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %._crit_edge5.split.us.us.us.i ], [ 0, %.preheader2.us.i ]
-  %gep27.i = getelementptr inbounds nuw i32, ptr %invariant.gep26.i, i64 %indvars.iv18.i
+  %gep27.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep26.i, i64 %indvars.iv18.i
   %28 = add nsw i64 %indvars.iv18.i, %27
   %29 = mul nsw i64 %28, %26
-  %invariant.gep.i = getelementptr i32, ptr %.val, i64 %29
+  %invariant.gep.i = getelementptr [4 x i8], ptr %.val, i64 %29
   br label %.preheader.us.us.us.i
 
 .preheader.us.us.us.i:                            ; preds = %._crit_edge.us.us.us.i, %.preheader1.us.us.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader1.us.us.i ]
   %30 = mul nsw i64 %indvars.iv13.i, %25
   %.pre.i = load i32, ptr %gep27.i, align 4, !tbaa !41
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %30
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %30
   br label %31
 
 31:                                               ; preds = %31, %.preheader.us.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %31 ], [ 0, %.preheader.us.us.us.i ]
-  %32 = getelementptr i32, ptr %gep.i, i64 %indvars.iv.i
+  %32 = getelementptr [4 x i8], ptr %gep.i, i64 %indvars.iv.i
   store i32 %.pre.i, ptr %32, align 4, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26

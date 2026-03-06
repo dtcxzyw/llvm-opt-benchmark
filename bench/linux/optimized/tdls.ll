@@ -23,23 +23,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_td
 %struct.ieee80211_mcs_info = type { [10 x i8], i16, i8, [3 x i8] }
 %struct.ieee80211_sta_vht_cap = type { i8, i32, %struct.ieee80211_vht_mcs_info }
 %struct.ieee80211_vht_mcs_info = type { i16, i16, i16, i16 }
-%struct.ieee80211_sband_iftype_data = type <{ i16, %struct.ieee80211_sta_he_cap, %struct.ieee80211_he_6ghz_capa, %struct.ieee80211_sta_eht_cap, %struct.anon.127 }>
-%struct.ieee80211_sta_he_cap = type <{ i8, %struct.ieee80211_he_cap_elem, %struct.ieee80211_he_mcs_nss_supp, [25 x i8] }>
-%struct.ieee80211_he_cap_elem = type { [6 x i8], [11 x i8] }
-%struct.ieee80211_he_mcs_nss_supp = type { i16, i16, i16, i16, i16, i16 }
-%struct.ieee80211_he_6ghz_capa = type { i16 }
-%struct.ieee80211_sta_eht_cap = type { i8, %struct.ieee80211_eht_cap_elem_fixed, %struct.ieee80211_eht_mcs_nss_supp, [32 x i8] }
-%struct.ieee80211_eht_cap_elem_fixed = type { [2 x i8], [9 x i8] }
-%struct.ieee80211_eht_mcs_nss_supp = type { %union.anon.24 }
-%union.anon.24 = type { %struct.anon.27 }
-%struct.anon.27 = type { %struct.ieee80211_eht_mcs_nss_supp_bw, %struct.ieee80211_eht_mcs_nss_supp_bw, %struct.ieee80211_eht_mcs_nss_supp_bw }
-%struct.ieee80211_eht_mcs_nss_supp_bw = type { %union.anon.28 }
-%union.anon.28 = type { %struct.anon.29 }
-%struct.anon.29 = type { i8, i8, i8 }
-%struct.anon.127 = type { ptr, i32 }
-%struct.ieee80211_tx_queue_params = type { i16, i16, i16, i8, i8, i8, i8, %struct.ieee80211_he_mu_edca_param_ac_rec }
-%struct.ieee80211_he_mu_edca_param_ac_rec = type { i8, i8, i8 }
-%struct.ieee80211_wmm_ac_param = type { i8, i8, i16 }
 
 @.str = private unnamed_addr constant [20 x i8] c"net/mac80211/tdls.c\00", align 1
 @.str.1 = private unnamed_addr constant [57 x i8] c"\013%s: Discarding TDLS oper %d - not STA or disconnected\0A\00", align 1
@@ -717,7 +700,7 @@ define internal fastcc void @iee80211_tdls_recalc_chanctx(ptr %.1256.val, ptr %.
   %9 = load ptr, ptr %.4912.val, align 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %8, i64 %11
+  %12 = getelementptr [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %.4912.val, i64 -88
   tail call void @ieee80211_recalc_chanctx_chantype(ptr noundef %.1256.val, ptr noundef %14) #13
@@ -1870,7 +1853,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   tail call void @__rcu_read_lock() #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3904
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24, !prof !69
@@ -1981,7 +1964,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 312
   %80 = zext i32 %76 to i64
-  %81 = getelementptr ptr, ptr %79, i64 %80
+  %81 = getelementptr [8 x i8], ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %88, label %84
@@ -2038,7 +2021,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 312
   %114 = zext i32 %110 to i64
-  %115 = getelementptr ptr, ptr %113, i64 %114
+  %115 = getelementptr [8 x i8], ptr %113, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %122, label %118
@@ -2125,7 +2108,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 312
   %164 = zext i32 %160 to i64
-  %165 = getelementptr ptr, ptr %163, i64 %164
+  %165 = getelementptr [8 x i8], ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %172, label %168
@@ -2177,7 +2160,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 312
   %193 = zext i32 %189 to i64
-  %194 = getelementptr ptr, ptr %192, i64 %193
+  %194 = getelementptr [8 x i8], ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
   br i1 %196, label %197, label %198, !prof !73
@@ -2255,7 +2238,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %243 = load ptr, ptr %221, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 312
   %245 = zext i32 %242 to i64
-  %246 = getelementptr ptr, ptr %244, i64 %245
+  %246 = getelementptr [8 x i8], ptr %244, i64 %245
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, null
   br i1 %248, label %255, label %249
@@ -2510,7 +2493,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 385:                                              ; preds = %392, %379
   %386 = phi i64 [ 0, %379 ], [ %393, %392 ]
-  %387 = getelementptr %struct.ieee80211_sband_iftype_data, ptr %375, i64 %386
+  %387 = getelementptr [128 x i8], ptr %375, i64 %386
   %388 = load i16, ptr %387, align 8
   %389 = zext i16 %388 to i64
   %390 = and i64 %383, %389
@@ -2579,7 +2562,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 423:                                              ; preds = %430, %417
   %424 = phi i64 [ 0, %417 ], [ %431, %430 ]
-  %425 = getelementptr %struct.ieee80211_sband_iftype_data, ptr %413, i64 %424
+  %425 = getelementptr [128 x i8], ptr %413, i64 %424
   %426 = load i16, ptr %425, align 8
   %427 = zext i16 %426 to i64
   %428 = and i64 %421, %427
@@ -2786,7 +2769,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 550:                                              ; preds = %557, %544
   %551 = phi i64 [ 0, %544 ], [ %558, %557 ]
-  %552 = getelementptr %struct.ieee80211_sband_iftype_data, ptr %540, i64 %551
+  %552 = getelementptr [128 x i8], ptr %540, i64 %551
   %553 = load i16, ptr %552, align 8
   %554 = zext i16 %553 to i64
   %555 = and i64 %548, %554
@@ -2966,7 +2949,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %665 = load ptr, ptr %664, align 8
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 312
   %667 = zext i32 %663 to i64
-  %668 = getelementptr ptr, ptr %666, i64 %667
+  %668 = getelementptr [8 x i8], ptr %666, i64 %667
   %669 = load ptr, ptr %668, align 8
   %670 = icmp eq ptr %669, null
   br i1 %670, label %671, label %672, !prof !73
@@ -3073,7 +3056,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 719:                                              ; preds = %718, %717, %716, %715, %712
   %720 = phi i64 [ 0, %718 ], [ 1, %717 ], [ 3, %716 ], [ 2, %712 ], [ 2, %715 ]
-  %721 = getelementptr %struct.ieee80211_tx_queue_params, ptr %710, i64 %720
+  %721 = getelementptr [14 x i8], ptr %710, i64 %720
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 6
   %723 = load i8, ptr %722, align 2
   %724 = getelementptr inbounds nuw i8, ptr %721, i64 7
@@ -3085,7 +3068,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %730 = trunc i64 %713 to i8
   %731 = shl i8 %730, 5
   %732 = or disjoint i8 %729, %731
-  %733 = getelementptr %struct.ieee80211_wmm_ac_param, ptr %711, i64 %713
+  %733 = getelementptr [4 x i8], ptr %711, i64 %713
   store i8 %732, ptr %733, align 1
   %734 = getelementptr inbounds nuw i8, ptr %721, i64 2
   %735 = load i16, ptr %734, align 2
@@ -3419,7 +3402,7 @@ define internal fastcc void @ieee80211_tdls_chandef_vht_upgrade(ptr noundef read
 
 21:                                               ; preds = %18, %14
   %22 = phi i64 [ 0, %14 ], [ %19, %18 ]
-  %23 = getelementptr i16, ptr @ieee80211_tdls_chandef_vht_upgrade.centers_80mhz, i64 %22
+  %23 = getelementptr [2 x i8], ptr @ieee80211_tdls_chandef_vht_upgrade.centers_80mhz, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = sub i32 %17, %25

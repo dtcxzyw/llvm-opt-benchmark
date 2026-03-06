@@ -138,7 +138,7 @@ define dso_local void @_ZN4llvm17FileCollectorBaseD2Ev(ptr noundef nonnull align
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !14
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %13 [
@@ -637,7 +637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 92:                                               ; preds = %2
   %93 = load ptr, ptr %0, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %93, i64 %29
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %93, i64 %29
   %94 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !26
@@ -2067,7 +2067,7 @@ define linkonce_odr hidden void @_ZN4llvm13FileCollectorD2Ev(ptr noundef nonnull
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %22 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !14
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %magicptr.i.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i.i, label %13 [
@@ -2218,7 +2218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNS
 .lr.ph.i.i6:                                      ; preds = %79, %.lr.ph.preheader.i.i5
   %indvars.iv.i.i7 = phi i64 [ 0, %.lr.ph.preheader.i.i5 ], [ %indvars.iv.next.i.i9, %79 ]
   %73 = load ptr, ptr %65, align 8, !tbaa !14
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i.i7
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i.i7
   %75 = load ptr, ptr %74, align 8, !tbaa !15
   %magicptr.i.i8 = ptrtoint ptr %75 to i64
   switch i64 %magicptr.i.i8, label %76 [
@@ -2260,7 +2260,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15Mall
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #20
   %6 = load ptr, ptr %0, align 8, !tbaa !14
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2312,7 +2312,7 @@ _ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9S
   %25 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #20
   %26 = load ptr, ptr %0, align 8, !tbaa !14
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -2861,7 +2861,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINSt7__cxx1112basic_st
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #20
   %6 = load ptr, ptr %0, align 8, !tbaa !14
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2919,7 +2919,7 @@ _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6c
   %28 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #20
   %29 = load ptr, ptr %0, align 8, !tbaa !14
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6createINS_15MallocAllocatorEJEEEPS7_NS_9StringRefERT_DpOT0_.exit

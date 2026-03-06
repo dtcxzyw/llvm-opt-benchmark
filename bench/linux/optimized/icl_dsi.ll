@@ -323,7 +323,7 @@ define dso_local void @icl_dsi_init(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %125, label %.loopexit, label %126
 
 126:                                              ; preds = %122
-  %127 = getelementptr ptr, ptr %114, i64 %116
+  %127 = getelementptr [8 x i8], ptr %114, i64 %116
   store ptr %124, ptr %127, align 8
   br label %128
 
@@ -744,7 +744,7 @@ define internal void @gen11_dsi_pre_pll_enable(ptr readnone captures(none) %0, p
   br i1 %120, label %128, label %121
 
 121:                                              ; preds = %.preheader
-  %122 = getelementptr i32, ptr @constinit.37, i64 %115
+  %122 = getelementptr [4 x i8], ptr @constinit.37, i64 %115
   %123 = load i32, ptr %122, align 4
   %124 = add i32 %123, 416
   %125 = load ptr, ptr %76, align 8
@@ -823,7 +823,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %48, label %55, label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr i32, ptr @constinit.72, i64 %44
+  %50 = getelementptr [4 x i8], ptr @constinit.72, i64 %44
   %51 = load i32, ptr %50, align 4
   %52 = shl nuw i32 1, %51
   %53 = xor i32 %52, -1
@@ -888,7 +888,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %92, label %.loopexit60, label %93
 
 93:                                               ; preds = %86
-  %94 = getelementptr i32, ptr @constinit.37, i64 %87
+  %94 = getelementptr [4 x i8], ptr @constinit.37, i64 %87
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, 912
   %97 = load ptr, ptr %81, align 8
@@ -930,7 +930,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %123, label %159, label %124
 
 124:                                              ; preds = %117
-  %125 = getelementptr i32, ptr @constinit.37, i64 %118
+  %125 = getelementptr [4 x i8], ptr @constinit.37, i64 %118
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %126, 904
   %128 = load ptr, ptr %81, align 8
@@ -996,7 +996,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %173, label %188, label %174
 
 174:                                              ; preds = %167
-  %175 = getelementptr i32, ptr @constinit.37, i64 %168
+  %175 = getelementptr [4 x i8], ptr @constinit.37, i64 %168
   %176 = load i32, ptr %175, align 4
   %177 = add i32 %176, 2052
   %178 = load ptr, ptr %165, align 8
@@ -1028,7 +1028,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %196, label %205, label %197
 
 197:                                              ; preds = %.preheader59
-  %198 = getelementptr i32, ptr @constinit.37, i64 %191
+  %198 = getelementptr [4 x i8], ptr @constinit.37, i64 %191
   %199 = load i32, ptr %198, align 4
   %200 = add i32 %199, 20
   %201 = load ptr, ptr %165, align 8
@@ -1053,7 +1053,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %213, label %228, label %214
 
 214:                                              ; preds = %.preheader58
-  %215 = getelementptr i32, ptr @constinit.37, i64 %208
+  %215 = getelementptr [4 x i8], ptr @constinit.37, i64 %208
   %216 = load i32, ptr %215, align 4
   %217 = add i32 %216, 2196
   %218 = load ptr, ptr %165, align 8
@@ -1092,7 +1092,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %242, label %.loopexit57, label %243
 
 243:                                              ; preds = %236
-  %244 = getelementptr i32, ptr @constinit.37, i64 %237
+  %244 = getelementptr [4 x i8], ptr @constinit.37, i64 %237
   %245 = load i32, ptr %244, align 4
   %246 = add i32 %245, 2196
   %247 = load ptr, ptr %234, align 8
@@ -1163,7 +1163,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %297, label %312, label %298
 
 298:                                              ; preds = %.preheader56
-  %299 = getelementptr i32, ptr @constinit.37, i64 %292
+  %299 = getelementptr [4 x i8], ptr @constinit.37, i64 %292
   %300 = load i32, ptr %299, align 4
   %301 = add i32 %300, 2196
   %302 = load ptr, ptr %165, align 8
@@ -1343,7 +1343,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %416, label %425, label %417
 
 417:                                              ; preds = %410
-  %418 = getelementptr i32, ptr @constinit.37, i64 %411
+  %418 = getelementptr [4 x i8], ptr @constinit.37, i64 %411
   %419 = load i32, ptr %418, align 4
   %420 = add i32 %419, 404
   %421 = load ptr, ptr %409, align 8
@@ -1453,7 +1453,7 @@ define internal void @gen11_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   br i1 %489, label %495, label %490
 
 490:                                              ; preds = %484
-  %491 = getelementptr i32, ptr @constinit.72, i64 %485
+  %491 = getelementptr [4 x i8], ptr @constinit.72, i64 %485
   %492 = load i32, ptr %491, align 4
   %493 = shl nuw i32 1, %492
   %494 = or i32 %493, %486
@@ -1965,7 +1965,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %824 = select i1 %823, i64 5, i64 6
   %825 = load ptr, ptr %814, align 8
   %826 = getelementptr inbounds nuw i8, ptr %825, i64 64
-  %827 = getelementptr i32, ptr %826, i64 %824
+  %827 = getelementptr [4 x i8], ptr %826, i64 %824
   %828 = load i32, ptr %827, align 4
   %829 = load i32, ptr %826, align 4
   %830 = getelementptr inbounds nuw i8, ptr %825, i64 32
@@ -2090,7 +2090,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %915 = select i1 %914, i64 5, i64 6
   %916 = load ptr, ptr %901, align 8
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 64
-  %918 = getelementptr i32, ptr %917, i64 %915
+  %918 = getelementptr [4 x i8], ptr %917, i64 %915
   %919 = load i32, ptr %918, align 4
   %920 = load i32, ptr %917, align 4
   %921 = getelementptr inbounds nuw i8, ptr %916, i64 32
@@ -2139,7 +2139,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %943 = or i32 %942, -2147483648
   %944 = load ptr, ptr %901, align 8
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 64
-  %946 = getelementptr i32, ptr %945, i64 %915
+  %946 = getelementptr [4 x i8], ptr %945, i64 %915
   %947 = load i32, ptr %946, align 4
   %948 = load i32, ptr %945, align 4
   %949 = getelementptr inbounds nuw i8, ptr %944, i64 32
@@ -2239,7 +2239,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1011 = tail call i32 %1010(ptr noundef nonnull %995, i32 %1009, i1 noundef zeroext true) #11
   %1012 = shl i32 %1011, 2
   %1013 = and i32 %1012, 1020
-  %1014 = getelementptr ptr, ptr %997, i64 %1001
+  %1014 = getelementptr [8 x i8], ptr %997, i64 %1001
   %1015 = load ptr, ptr %1014, align 8
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 48
   %1017 = load ptr, ptr %1016, align 8
@@ -2507,7 +2507,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1178 = select i1 %1177, i64 5, i64 6
   %1179 = load ptr, ptr %1161, align 8
   %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 64
-  %1181 = getelementptr i32, ptr %1180, i64 %1178
+  %1181 = getelementptr [4 x i8], ptr %1180, i64 %1178
   %1182 = load i32, ptr %1181, align 4
   %1183 = load i32, ptr %1180, align 4
   %1184 = getelementptr inbounds nuw i8, ptr %1179, i64 32
@@ -2597,7 +2597,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1239 = select i1 %1238, i64 5, i64 6
   %1240 = load ptr, ptr %1161, align 8
   %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 64
-  %1242 = getelementptr i32, ptr %1241, i64 %1239
+  %1242 = getelementptr [4 x i8], ptr %1241, i64 %1239
   %1243 = load i32, ptr %1242, align 4
   %1244 = load i32, ptr %1241, align 4
   %1245 = getelementptr inbounds nuw i8, ptr %1240, i64 32
@@ -2637,7 +2637,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1269 = select i1 %1268, i64 5, i64 6
   %1270 = load ptr, ptr %1161, align 8
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 64
-  %1272 = getelementptr i32, ptr %1271, i64 %1269
+  %1272 = getelementptr [4 x i8], ptr %1271, i64 %1269
   %1273 = load i32, ptr %1272, align 4
   %1274 = load i32, ptr %1271, align 4
   %1275 = getelementptr inbounds nuw i8, ptr %1270, i64 32
@@ -2720,7 +2720,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1323 = select i1 %1322, i64 5, i64 6
   %1324 = load ptr, ptr %1161, align 8
   %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 64
-  %1326 = getelementptr i32, ptr %1325, i64 %1323
+  %1326 = getelementptr [4 x i8], ptr %1325, i64 %1323
   %1327 = load i32, ptr %1326, align 4
   %1328 = load i32, ptr %1325, align 4
   %1329 = getelementptr inbounds nuw i8, ptr %1324, i64 32
@@ -2760,7 +2760,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1351 = select i1 %1350, i64 5, i64 6
   %1352 = load ptr, ptr %1161, align 8
   %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 64
-  %1354 = getelementptr i32, ptr %1353, i64 %1351
+  %1354 = getelementptr [4 x i8], ptr %1353, i64 %1351
   %1355 = load i32, ptr %1354, align 4
   %1356 = load i32, ptr %1353, align 4
   %1357 = getelementptr inbounds nuw i8, ptr %1352, i64 32
@@ -2797,7 +2797,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1377 = select i1 %1376, i64 5, i64 6
   %1378 = load ptr, ptr %1161, align 8
   %1379 = getelementptr inbounds nuw i8, ptr %1378, i64 64
-  %1380 = getelementptr i32, ptr %1379, i64 %1377
+  %1380 = getelementptr [4 x i8], ptr %1379, i64 %1377
   %1381 = load i32, ptr %1380, align 4
   %1382 = load i32, ptr %1379, align 4
   %1383 = getelementptr inbounds nuw i8, ptr %1378, i64 32
@@ -2913,7 +2913,7 @@ thread-pre-split:                                 ; preds = %47
   %68 = select i1 %67, i64 5, i64 6
   %69 = load ptr, ptr %53, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 36
-  %71 = getelementptr i32, ptr %70, i64 %68
+  %71 = getelementptr [4 x i8], ptr %70, i64 %68
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %70, align 4
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -2928,7 +2928,7 @@ thread-pre-split:                                 ; preds = %47
   tail call void %82(ptr noundef nonnull %54, i32 %78, i32 noundef %81, i1 noundef zeroext true) #11
   %83 = load ptr, ptr %53, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 36
-  %85 = getelementptr i32, ptr %84, i64 %68
+  %85 = getelementptr [4 x i8], ptr %84, i64 %68
   %86 = load i32, ptr %85, align 4
   %87 = load i32, ptr %84, align 4
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 32
@@ -2999,7 +2999,7 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   %23 = select i1 %22, i64 5, i64 6
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %26 = getelementptr i32, ptr %25, i64 %23
+  %26 = getelementptr [4 x i8], ptr %25, i64 %23
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -3014,7 +3014,7 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   tail call void %37(ptr noundef nonnull %9, i32 %33, i32 noundef %36, i1 noundef zeroext true) #11
   %38 = load ptr, ptr %8, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 36
-  %40 = getelementptr i32, ptr %39, i64 %23
+  %40 = getelementptr [4 x i8], ptr %39, i64 %23
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %39, align 4
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -3219,7 +3219,7 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   %165 = select i1 %164, i64 5, i64 6
   %166 = load ptr, ptr %108, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 64
-  %168 = getelementptr i32, ptr %167, i64 %165
+  %168 = getelementptr [4 x i8], ptr %167, i64 %165
   %169 = load i32, ptr %168, align 4
   %170 = load i32, ptr %167, align 4
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 32
@@ -3259,7 +3259,7 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   %195 = select i1 %194, i64 5, i64 6
   %196 = load ptr, ptr %108, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 64
-  %198 = getelementptr i32, ptr %197, i64 %195
+  %198 = getelementptr [4 x i8], ptr %197, i64 %195
   %199 = load i32, ptr %198, align 4
   %200 = load i32, ptr %197, align 4
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 32
@@ -3302,7 +3302,7 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   br i1 %226, label %233, label %227
 
 227:                                              ; preds = %221
-  %228 = getelementptr i32, ptr @constinit.72, i64 %222
+  %228 = getelementptr [4 x i8], ptr @constinit.72, i64 %222
   %229 = load i32, ptr %228, align 4
   %230 = shl nuw i32 1, %229
   %231 = xor i32 %230, -1
@@ -3434,7 +3434,7 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   br i1 %304, label %310, label %305
 
 305:                                              ; preds = %299
-  %306 = getelementptr i32, ptr @constinit.72, i64 %300
+  %306 = getelementptr [4 x i8], ptr @constinit.72, i64 %300
   %307 = load i32, ptr %306, align 4
   %308 = shl nuw i32 1, %307
   %309 = or i32 %308, %301
@@ -3495,7 +3495,7 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   br i1 %345, label %350, label %346
 
 346:                                              ; preds = %339
-  %347 = getelementptr i64, ptr %334, i64 %340
+  %347 = getelementptr [8 x i8], ptr %334, i64 %340
   store i64 0, ptr %347, align 8
   %348 = icmp eq i64 %340, 0
   %349 = select i1 %348, i32 29, i32 30
@@ -4139,7 +4139,7 @@ define internal zeroext i1 @gen11_dsi_get_hw_state(ptr noundef readonly captures
   %23 = select i1 %22, i64 5, i64 6
   %24 = load ptr, ptr %10, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %26 = getelementptr i32, ptr %25, i64 %23
+  %26 = getelementptr [4 x i8], ptr %25, i64 %23
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -4186,7 +4186,7 @@ define internal zeroext i1 @gen11_dsi_get_hw_state(ptr noundef readonly captures
   store i32 %49, ptr %1, align 4
   %50 = load ptr, ptr %10, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 36
-  %52 = getelementptr i32, ptr %51, i64 %23
+  %52 = getelementptr [4 x i8], ptr %51, i64 %23
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %51, align 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -4278,7 +4278,7 @@ define internal void @gen11_dsi_gate_clocks(ptr noundef readonly captures(none) 
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr i32, ptr @constinit.72, i64 %12
+  %18 = getelementptr [4 x i8], ptr @constinit.72, i64 %12
   %19 = load i32, ptr %18, align 4
   %20 = shl nuw i32 1, %19
   %21 = or i32 %20, %13
@@ -4319,7 +4319,7 @@ define internal zeroext i1 @gen11_dsi_is_clock_enabled(ptr noundef readonly capt
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr i32, ptr @constinit.72, i64 %11
+  %17 = getelementptr [4 x i8], ptr @constinit.72, i64 %11
   %18 = load i32, ptr %17, align 4
   %19 = shl nuw i32 1, %18
   %20 = and i32 %19, %6
@@ -4433,7 +4433,7 @@ define internal fastcc void @get_dsi_io_power_domains(ptr noundef %0, ptr nounde
   br i1 %12, label %32, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr i64, ptr %4, i64 %7
+  %14 = getelementptr [8 x i8], ptr %4, i64 %7
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %28, label %17, !prof !6
@@ -4527,7 +4527,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
   br i1 %13, label %26, label %14
 
 14:                                               ; preds = %.split.us
-  %15 = getelementptr ptr, ptr %5, i64 %8
+  %15 = getelementptr [8 x i8], ptr %5, i64 %8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
@@ -4584,7 +4584,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
   br i1 %49, label %63, label %50
 
 50:                                               ; preds = %.split
-  %51 = getelementptr ptr, ptr %5, i64 %44
+  %51 = getelementptr [8 x i8], ptr %5, i64 %44
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8

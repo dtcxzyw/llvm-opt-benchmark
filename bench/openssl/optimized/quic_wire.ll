@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/quic_wire.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ossl_quic_ack_range_st = type { i64, i64 }
-
 @.str = private unnamed_addr constant [8 x i8] c"PADDING\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"PING\00", align 1
 @.str.2 = private unnamed_addr constant [16 x i8] c"ACK_WITHOUT_ECN\00", align 1
@@ -69,7 +67,7 @@ define range(i32 0, 2) i32 @ossl_quic_frame_ack_contains_pn(ptr noundef readonly
 
 6:                                                ; preds = %.lr.ph, %12
   %.012 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
-  %7 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %5, i64 %.012
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.012
   %8 = load i64, ptr %7, align 8, !tbaa !13
   %.not = icmp ult i64 %1, %8
   br i1 %.not, label %12, label %9
@@ -164,7 +162,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_ack(ptr noundef %0, i32 
 .lr.ph:                                           ; preds = %.preheader, %32
   %.04357 = phi i64 [ %33, %32 ], [ 1, %.preheader ]
   %34 = load ptr, ptr %2, align 8, !tbaa !12
-  %35 = getelementptr %struct.ossl_quic_ack_range_st, ptr %34, i64 %.04357
+  %35 = getelementptr [16 x i8], ptr %34, i64 %.04357
   %36 = getelementptr i8, ptr %35, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !13
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -1557,7 +1555,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 176:                                              ; preds = %172
   %177 = sub i64 %168, %162
   %178 = load ptr, ptr %2, align 8, !tbaa !12
-  %179 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %178, i64 %173
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %178, i64 %173
   store i64 %177, ptr %179, align 8, !tbaa !13
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i64 %168, ptr %180, align 8, !tbaa !15
@@ -3553,7 +3551,7 @@ define noundef ptr @ossl_quic_frame_type_to_string(i64 noundef %0) local_unnamed
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_frame_type_to_string, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_quic_frame_type_to_string, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %3
 
@@ -3568,7 +3566,7 @@ define noundef ptr @ossl_quic_err_to_string(i64 noundef %0) local_unnamed_addr #
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_err_to_string, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_quic_err_to_string, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %3
 

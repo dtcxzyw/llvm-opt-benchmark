@@ -114,7 +114,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_c_sraiP11p
   %25 = ashr exact i64 %24, 32
   %26 = and i64 %20, 7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load i64, ptr %28, align 8, !tbaa !3
   %30 = shl i64 %29, 32
   %31 = ashr exact i64 %30, 32
@@ -167,7 +167,7 @@ define noundef i64 @_Z17fast_rv64i_c_sraiP11processor_t6insn_tm(ptr noundef capt
   %18 = add i64 %2, 2
   %19 = and i64 %15, 7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = ashr i64 %22, %17
   store i64 %23, ptr %21, align 8, !tbaa !3
@@ -222,7 +222,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_c_sraiP1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %28 = and i64 %21, 7
   %29 = or disjoint i64 %28, 8
-  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = shl i64 %31, 32
   %33 = ashr exact i64 %32, 32
@@ -357,7 +357,7 @@ define noundef i64 @_Z19logged_rv64i_c_sraiP11processor_t6insn_tm(ptr noundef %0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = and i64 %16, 7
   %22 = or disjoint i64 %21, 8
-  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = ashr i64 %24, %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -419,7 +419,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_c_sraiP11p
   %25 = add i64 %24, 8589934592
   %26 = ashr exact i64 %25, 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %23
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %23
   %29 = load i64, ptr %28, align 8, !tbaa !3
   %30 = shl i64 %29, 32
   %31 = ashr exact i64 %30, 32
@@ -457,7 +457,7 @@ define noundef i64 @_Z17fast_rv64e_c_sraiP11processor_t6insn_tm(ptr noundef capt
   %18 = and i64 %15, 7
   %19 = add i64 %2, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %18
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = ashr i64 %22, %17
   store i64 %23, ptr %21, align 8, !tbaa !3
@@ -512,7 +512,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_c_sraiP1
   %27 = add i64 %26, 8589934592
   %28 = ashr exact i64 %27, 32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %25
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %25
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = shl i64 %31, 32
   %33 = ashr exact i64 %32, 32
@@ -561,7 +561,7 @@ define noundef i64 @_Z19logged_rv64e_c_sraiP11processor_t6insn_tm(ptr noundef %0
   %20 = or disjoint i64 %19, 8
   %21 = add i64 %2, 2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = ashr i64 %24, %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3840

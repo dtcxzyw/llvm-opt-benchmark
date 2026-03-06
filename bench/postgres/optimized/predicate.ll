@@ -6,16 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SlruCtlData = type { ptr, i16, i8, i32, ptr, [64 x i8] }
 %struct.PREDICATELOCKTARGETTAG = type { i32, i32, i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.LWLockPadded = type { %struct.LWLock, [112 x i8] }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.proclist_head = type { i32, i32 }
-%struct.SERIALIZABLEXACT = type { %struct.VirtualTransactionId, i64, i64, %union.anon, %struct.dlist_head, %struct.dlist_head, %struct.dlist_head, %struct.dlist_node, %struct.dlist_node, %struct.LWLock, %struct.dlist_head, i32, i32, i32, i32, i32, i32 }
-%struct.VirtualTransactionId = type { i32, i32 }
-%union.anon = type { i64 }
-%struct.dlist_node = type { ptr, ptr }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.RWConflictData = type { %struct.dlist_node, %struct.dlist_node, ptr, ptr }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.SERIALIZABLEXIDTAG = type { i32 }
 %struct.PREDICATELOCKTAG = type { ptr, ptr }
@@ -241,7 +231,7 @@ define dso_local void @PredicateLockShmemInit() local_unnamed_addr #0 {
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = and i32 %21, 15
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw %union.LWLockPadded, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [128 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 25216
   store ptr %26, ptr @ScratchPartitionLock, align 8
   store i64 16, ptr %12, align 8
@@ -296,13 +286,13 @@ define dso_local void @PredicateLockShmemInit() local_unnamed_addr #0 {
   %.02428 = phi i32 [ %70, %dlist_push_tail.exit ], [ 0, %38 ]
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %55, i64 %53
+  %56 = getelementptr inbounds [168 x i8], ptr %55, i64 %53
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 112
   call void @LWLockInitialize(ptr noundef nonnull %57, i32 noundef 76) #11
   %58 = load ptr, ptr @PredXact, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 80
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %60, i64 %53
+  %61 = getelementptr inbounds [168 x i8], ptr %60, i64 %53
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %64 = load ptr, ptr %63, align 8
@@ -464,7 +454,7 @@ CreatePredXact.exit:                              ; preds = %._crit_edge, %dlist
   %145 = phi i64 [ 0, %.lr.ph31 ], [ %155, %dlist_push_tail.exit27 ]
   %.029 = phi i32 [ 0, %.lr.ph31 ], [ %154, %dlist_push_tail.exit27 ]
   %146 = load ptr, ptr %141, align 8
-  %147 = getelementptr inbounds %struct.RWConflictData, ptr %146, i64 %145
+  %147 = getelementptr inbounds [48 x i8], ptr %146, i64 %145
   %148 = load ptr, ptr %143, align 8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %dlist_push_tail.exit27
@@ -619,7 +609,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr @MainLWLockArray, align 8
-  %5 = getelementptr inbounds nuw %union.LWLockPadded, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 25216
   %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -655,11 +645,11 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   %.01923 = phi i32 [ %33, %.lr.ph ], [ 0, %8 ]
   %25 = load ptr, ptr %18, align 8
   %26 = sext i32 %.01923 to i64
-  %27 = getelementptr inbounds %struct.PREDICATELOCKTARGETTAG, ptr %25, i64 %26
+  %27 = getelementptr inbounds [16 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %29 = load ptr, ptr %21, align 8
-  %30 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %29, i64 %26
+  %30 = getelementptr inbounds [168 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load ptr, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %32, i64 168, i1 true)
@@ -677,7 +667,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
 37:                                               ; preds = %._crit_edge, %37
   %indvars.iv26 = phi i64 [ 15, %._crit_edge ], [ %indvars.iv.next27, %37 ]
   %38 = load ptr, ptr @MainLWLockArray, align 8
-  %39 = getelementptr %union.LWLockPadded, ptr %38, i64 %indvars.iv26
+  %39 = getelementptr [128 x i8], ptr %38, i64 %indvars.iv26
   %40 = getelementptr i8, ptr %39, i64 25216
   call void @LWLockRelease(ptr noundef nonnull %40) #11
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, -1
@@ -756,7 +746,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %31
@@ -1137,7 +1127,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %97, %89, %86
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = sext i32 %.029.i.i to i64
-  %143 = getelementptr inbounds ptr, ptr %141, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = shl nuw nsw i64 %64, 3
   %146 = and i64 %145, 8184
@@ -1619,7 +1609,7 @@ define dso_local zeroext i1 @PageIsPredicateLocked(ptr noundef readonly captures
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = and i32 %12, 15
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %union.LWLockPadded, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 25216
   %18 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %17, i32 noundef 1) #11
   %19 = load ptr, ptr @PredicateLockTargetHash, align 8
@@ -1977,7 +1967,7 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   %127 = load ptr, ptr @MainLWLockArray, align 8
   %128 = and i32 %126, 15
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw %union.LWLockPadded, ptr %127, i64 %129
+  %130 = getelementptr inbounds nuw [128 x i8], ptr %127, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 25216
   %132 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %131, i32 noundef 0) #11
   %133 = load ptr, ptr %.sroa.8.0.in31.i, align 8
@@ -2259,7 +2249,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
 31:                                               ; preds = %31, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %31 ]
   %32 = load ptr, ptr @MainLWLockArray, align 8
-  %33 = getelementptr inbounds nuw %union.LWLockPadded, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [128 x i8], ptr %32, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 25216
   %35 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %34, i32 noundef 0) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2479,7 +2469,7 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
 136:                                              ; preds = %136, %._crit_edge88.i
   %indvars.iv92.i = phi i64 [ 15, %._crit_edge88.i ], [ %indvars.iv.next93.i, %136 ]
   %137 = load ptr, ptr @MainLWLockArray, align 8
-  %138 = getelementptr %union.LWLockPadded, ptr %137, i64 %indvars.iv92.i
+  %138 = getelementptr [128 x i8], ptr %137, i64 %indvars.iv92.i
   %139 = getelementptr i8, ptr %138, i64 25216
   call void @LWLockRelease(ptr noundef nonnull %139) #11
   %indvars.iv.next93.i = add nsw i64 %indvars.iv92.i, -1
@@ -2574,11 +2564,11 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = and i32 %16, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %union.LWLockPadded, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 25216
   %24 = and i32 %18, 15
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw %union.LWLockPadded, ptr %19, i64 %25
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 25216
   br i1 %4, label %28, label %35
 
@@ -3886,7 +3876,7 @@ dlist_push_tail.exit:                             ; preds = %346, %353
   %445 = load ptr, ptr @MainLWLockArray, align 8
   %446 = and i32 %444, 15
   %447 = zext nneg i32 %446 to i64
-  %448 = getelementptr inbounds nuw %union.LWLockPadded, ptr %445, i64 %447
+  %448 = getelementptr inbounds nuw [128 x i8], ptr %445, i64 %447
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 25216
   %450 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %449, i32 noundef 0) #11
   %451 = getelementptr inbounds i8, ptr %.sroa.0.161.i, i64 -16
@@ -4013,7 +4003,7 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   %25 = load ptr, ptr @MainLWLockArray, align 8
   %26 = and i32 %24, 15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %union.LWLockPadded, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [128 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 25216
   %30 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %29, i32 noundef 0) #11
   %31 = getelementptr inbounds i8, ptr %.sroa.0.079.us, i64 -16
@@ -4130,7 +4120,7 @@ RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_pus
   %86 = load ptr, ptr @MainLWLockArray, align 8
   %87 = and i32 %85, 15
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw %union.LWLockPadded, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [128 x i8], ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 25216
   %91 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %90, i32 noundef 0) #11
   %92 = getelementptr inbounds i8, ptr %.sroa.0.079, i64 -16
@@ -4530,7 +4520,7 @@ SerialGetMinConflictCommitSeqNo.exit:             ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = shl nuw nsw i64 %54, 3
   %64 = and i64 %63, 8184
@@ -4770,7 +4760,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %0, %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4780,7 +4770,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
 
 .preheader.i:                                     ; preds = %39, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %39 ]
-  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   %.val20.i.i = load <4 x i32>, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.val1421.i.i = load <4 x i32>, ptr %25, align 1
@@ -4810,7 +4800,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
 41:                                               ; preds = %39
   %42 = add i32 %14, -16
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %12, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %43
   %.val20.i18.i = load <4 x i32>, ptr %44, align 1
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %.val1421.i19.i = load <4 x i32>, ptr %45, align 1
@@ -5324,7 +5314,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = and i32 %4, 15
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw %union.LWLockPadded, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 25216
   %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 1) #11
   %11 = load ptr, ptr @PredicateLockTargetHash, align 8
@@ -5685,7 +5675,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
 22:                                               ; preds = %16, %22
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr @MainLWLockArray, align 8
-  %24 = getelementptr inbounds nuw %union.LWLockPadded, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 25216
   %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %25, i32 noundef 1) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5806,7 +5796,7 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexi
 74:                                               ; preds = %._crit_edge, %74
   %indvars.iv48 = phi i64 [ 15, %._crit_edge ], [ %indvars.iv.next49, %74 ]
   %75 = load ptr, ptr @MainLWLockArray, align 8
-  %76 = getelementptr %union.LWLockPadded, ptr %75, i64 %indvars.iv48
+  %76 = getelementptr [128 x i8], ptr %75, i64 %indvars.iv48
   %77 = getelementptr i8, ptr %76, i64 25216
   call void @LWLockRelease(ptr noundef nonnull %77) #11
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
@@ -6306,7 +6296,7 @@ define internal fastcc void @CreatePredicateLock(ptr noundef %0, i32 noundef %1,
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = and i32 %1, 15
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw %union.LWLockPadded, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 25216
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 3840
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %11, i32 noundef 1) #11

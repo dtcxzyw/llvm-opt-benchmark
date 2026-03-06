@@ -1504,7 +1504,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !61
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !11
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !14
   ret void
 }
@@ -1705,7 +1705,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !61
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !11
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !14
   ret void
 

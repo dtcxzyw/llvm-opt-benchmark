@@ -56,13 +56,13 @@ define hidden ptr @cmsCIECAM02Init(ptr noundef %0, ptr noundef readonly captures
 
 switch.lookup:                                    ; preds = %8
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.cmsCIECAM02Init, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmsCIECAM02Init, i64 %33
   %switch.load = load double, ptr %switch.gep, align 8
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep115 = getelementptr inbounds nuw double, ptr @switch.table.cmsCIECAM02Init.6, i64 %34
+  %switch.gep115 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmsCIECAM02Init.6, i64 %34
   %switch.load116 = load double, ptr %switch.gep115, align 8
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep117 = getelementptr inbounds nuw double, ptr @switch.table.cmsCIECAM02Init.7, i64 %35
+  %switch.gep117 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmsCIECAM02Init.7, i64 %35
   %switch.load118 = load double, ptr %switch.gep117, align 8
   br label %36
 
@@ -138,14 +138,14 @@ switch.lookup:                                    ; preds = %8
 
 79:                                               ; preds = %79, %64
   %indvars.iv.i = phi i64 [ 0, %64 ], [ %indvars.iv.next.i, %79 ]
-  %80 = getelementptr inbounds nuw double, ptr %.sroa.7.0..sroa_idx70, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.7.0..sroa_idx70, i64 %indvars.iv.i
   %81 = load double, ptr %80, align 8, !noalias !6
   %82 = fdiv double %65, %81
   %83 = tail call double @llvm.fmuladd.f64(double %12, double %82, double %76)
-  %84 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.i
   %85 = load double, ptr %84, align 8
   %86 = fmul double %85, %83
-  %87 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i
   store double %86, ptr %87, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -184,7 +184,7 @@ ChromaticAdaptation.exit:                         ; preds = %79
 
 100:                                              ; preds = %120, %ChromaticAdaptation.exit
   %indvars.iv.i62 = phi i64 [ 0, %ChromaticAdaptation.exit ], [ %indvars.iv.next.i63, %120 ]
-  %101 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv.i62
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i62
   %102 = load double, ptr %101, align 8
   %103 = fcmp olt double %102, 0.000000e+00
   br i1 %103, label %104, label %112
@@ -211,7 +211,7 @@ ChromaticAdaptation.exit:                         ; preds = %79
 
 120:                                              ; preds = %112, %104
   %.sink.i = phi double [ %111, %104 ], [ %119, %112 ]
-  %121 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv.i62
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i62
   store double %.sink.i, ptr %121, align 8
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 3
@@ -312,14 +312,14 @@ define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, p
 
 28:                                               ; preds = %28, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %30 = load double, ptr %29, align 8, !noalias !15
   %31 = fdiv double %25, %30
   %32 = tail call double @llvm.fmuladd.f64(double %23, double %31, double %27)
-  %33 = getelementptr inbounds nuw double, ptr %.sroa.14.0..sroa_idx64, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.0..sroa_idx64, i64 %indvars.iv.i
   %34 = load double, ptr %33, align 8
   %35 = fmul double %34, %32
-  %36 = getelementptr inbounds nuw double, ptr %.sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx, i64 %indvars.iv.i
   store double %35, ptr %36, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -394,7 +394,7 @@ ChromaticAdaptation.exit:                         ; preds = %28
 
 49:                                               ; preds = %69, %ChromaticAdaptation.exit
   %indvars.iv.i10 = phi i64 [ 0, %ChromaticAdaptation.exit ], [ %indvars.iv.next.i11, %69 ]
-  %50 = getelementptr inbounds nuw double, ptr %.sroa.14.sroa.15.sroa.15.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, i64 %indvars.iv.i10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.sroa.15.sroa.15.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, i64 %indvars.iv.i10
   %51 = load double, ptr %50, align 8
   %52 = fcmp olt double %51, 0.000000e+00
   br i1 %52, label %53, label %61
@@ -421,7 +421,7 @@ ChromaticAdaptation.exit:                         ; preds = %28
 
 69:                                               ; preds = %61, %53
   %.sink.i = phi double [ %60, %53 ], [ %68, %61 ]
-  %70 = getelementptr inbounds nuw double, ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, i64 %indvars.iv.i10
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, i64 %indvars.iv.i10
   store double %.sink.i, ptr %70, align 8
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 3
@@ -685,7 +685,7 @@ InverseCorrelates.exit:                           ; preds = %55, %71
 
 98:                                               ; preds = %98, %InverseCorrelates.exit
   %indvars.iv.i = phi i64 [ 0, %InverseCorrelates.exit ], [ %indvars.iv.next.i, %98 ]
-  %99 = getelementptr inbounds nuw double, ptr %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx63.sroa_idx, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx63.sroa_idx, i64 %indvars.iv.i
   %100 = load double, ptr %99, align 8
   %101 = fadd double %100, -1.000000e-01
   %102 = fcmp olt double %101, 0.000000e+00
@@ -696,7 +696,7 @@ InverseCorrelates.exit:                           ; preds = %55, %71
   %107 = fdiv double %105, %106
   %108 = tail call double @pow(double noundef %107, double noundef 0x40030C30C30C30C3) #7, !noalias !27
   %109 = fmul double %108, %103
-  %110 = getelementptr inbounds nuw double, ptr %.sroa.14.sroa.0.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.sroa.0.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx, i64 %indvars.iv.i
   store double %109, ptr %110, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -772,15 +772,15 @@ InverseNonlinearity.exit:                         ; preds = %98
 
 126:                                              ; preds = %126, %InverseNonlinearity.exit
   %indvars.iv.i10 = phi i64 [ 0, %InverseNonlinearity.exit ], [ %indvars.iv.next.i11, %126 ]
-  %127 = getelementptr inbounds nuw double, ptr %.sroa.14.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx, i64 %indvars.iv.i10
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx, i64 %indvars.iv.i10
   %128 = load double, ptr %127, align 8
-  %129 = getelementptr inbounds nuw double, ptr %125, i64 %indvars.iv.i10
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv.i10
   %130 = load double, ptr %129, align 8, !noalias !31
   %131 = fdiv double %124, %130
   %132 = fadd double %131, 1.000000e+00
   %133 = fsub double %132, %123
   %134 = fdiv double %128, %133
-  %135 = getelementptr inbounds nuw double, ptr %.sroa.14.0..sroa_idx65, i64 %indvars.iv.i10
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.0..sroa_idx65, i64 %indvars.iv.i10
   store double %134, ptr %135, align 8
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 3

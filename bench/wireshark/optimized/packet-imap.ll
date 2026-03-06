@@ -343,7 +343,7 @@ proto_item_set_hidden.exit:                       ; preds = %67, %75, %78
   %107 = sub i32 %103, %100
   %108 = call ptr @tvb_get_string_enc(ptr noundef %106, ptr noundef %0, i32 noundef %100, i32 noundef %107, i32 noundef 0)
   %109 = sext i32 %.0315 to i64
-  %110 = getelementptr %struct.simple_token_info, ptr %12, i64 %109
+  %110 = getelementptr [16 x i8], ptr %12, i64 %109
   store ptr %108, ptr %110, align 16
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 %100, ptr %111, align 8
@@ -374,7 +374,7 @@ proto_item_set_hidden.exit:                       ; preds = %67, %75, %78
 
 .preheader:                                       ; preds = %.preheader.preheader, %120
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %120 ]
-  %121 = getelementptr %struct.simple_token_info, ptr %12, i64 %indvars.iv
+  %121 = getelementptr [16 x i8], ptr %12, i64 %indvars.iv
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 12

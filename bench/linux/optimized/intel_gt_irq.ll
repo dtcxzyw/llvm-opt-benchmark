@@ -156,8 +156,8 @@ define dso_local void @gen11_gt_irq_handler(ptr noundef %0, i32 noundef %1) loca
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 4256
   %97 = and i64 %63, 7
   %98 = and i64 %64, 63
-  %.split = getelementptr [9 x ptr], ptr %96, i64 %97
-  %99 = getelementptr ptr, ptr %.split, i64 %98
+  %.split = getelementptr [72 x i8], ptr %96, i64 %97
+  %99 = getelementptr [8 x i8], ptr %.split, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %105, label %102

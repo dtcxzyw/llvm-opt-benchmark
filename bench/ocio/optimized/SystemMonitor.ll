@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.OpenColorIO_v2_5dev::SystemMonitorsImpl::MonitorInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev14SystemMonitorsELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -560,7 +559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32
   resume { ptr, i32 } %.pn.pn
 
 41:                                               ; preds = %2
-  %42 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::SystemMonitorsImpl::MonitorInfo", ptr %8, i64 %1
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %1
   %43 = load ptr, ptr %42, align 8, !tbaa !34
   ret ptr %43
 
@@ -693,7 +692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32
   resume { ptr, i32 } %.pn.pn
 
 41:                                               ; preds = %2
-  %42 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::SystemMonitorsImpl::MonitorInfo", ptr %8, i64 %1
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %1
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   ret ptr %44

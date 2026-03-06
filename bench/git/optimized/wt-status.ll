@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.setup_revision_opt = type { ptr, ptr, i8, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.grab_1st_switch_cbdata = type { %struct.strbuf, %struct.object_id }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -723,7 +722,7 @@ wt_status_collect_changes_worktree.exit:          ; preds = %26, %.sink.split.i
 68:                                               ; preds = %128, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %128 ]
   %69 = load ptr, ptr %58, align 8, !tbaa !125
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8, !tbaa !126
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %73 = load i32, ptr %72, align 8, !tbaa !128
@@ -988,7 +987,7 @@ wt_status_collect_changes_index.exit:             ; preds = %137, %142
 207:                                              ; preds = %216, %.lr.ph.i27
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i27 ], [ %indvars.iv.next.i29, %216 ]
   %208 = load ptr, ptr %200, align 8, !tbaa !157
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv.i28
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %indvars.iv.i28
   %210 = load ptr, ptr %209, align 8, !tbaa !158
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
   %212 = load i32, ptr %210, align 4, !tbaa !128
@@ -1010,7 +1009,7 @@ wt_status_collect_changes_index.exit:             ; preds = %137, %142
 220:                                              ; preds = %229, %.lr.ph33.i
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next36.i, %229 ]
   %221 = load ptr, ptr %205, align 8, !tbaa !161
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv35.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv35.i
   %223 = load ptr, ptr %222, align 8, !tbaa !158
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %225 = load i32, ptr %223, align 4, !tbaa !128
@@ -1086,7 +1085,7 @@ wt_status_collect_untracked.exit:                 ; preds = %174, %._crit_edge.i
 
 257:                                              ; preds = %256, %.lr.ph.i30
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i34, %256 ]
-  %258 = getelementptr inbounds nuw %struct.string_list_item, ptr %255, i64 %indvars.iv.i31
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %255, i64 %indvars.iv.i31
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load ptr, ptr %259, align 8, !tbaa !131
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
@@ -1390,7 +1389,7 @@ wt_status_get_detached_from.exit:                 ; preds = %62, %108
 124:                                              ; preds = %124, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %124 ]
   %.018.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %124 ]
-  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8, !tbaa !126
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 56
   %128 = load i32, ptr %127, align 8, !tbaa !128
@@ -2107,7 +2106,7 @@ wt_porcelain_v2_print_stash.exit.i:               ; preds = %126, %120, %117
   %154 = phi i64 [ %134, %.lr.ph.i ], [ %247, %246 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %246 ]
   %155 = load ptr, ptr %133, align 8, !tbaa !166
-  %156 = getelementptr inbounds nuw %struct.string_list_item, ptr %155, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %indvars.iv.i
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !131
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -2310,7 +2309,7 @@ wt_porcelain_v2_print_changed_entry.exit.i:       ; preds = %.thread.i.i, %220
   %255 = phi i64 [ %247, %.lr.ph70.i ], [ %351, %350 ]
   %indvars.iv82.i = phi i64 [ 0, %.lr.ph70.i ], [ %indvars.iv.next83.i, %350 ]
   %256 = load ptr, ptr %133, align 8, !tbaa !166
-  %257 = getelementptr inbounds nuw %struct.string_list_item, ptr %256, i64 %indvars.iv82.i
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %256, i64 %indvars.iv82.i
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !131
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
@@ -2385,7 +2384,7 @@ wt_porcelain_v2_submodule_state.exit.i45.i:       ; preds = %290, %281
 
 switch.lookup:                                    ; preds = %wt_porcelain_v2_submodule_state.exit.i45.i
   %294 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wt_status_print, i64 %294
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wt_status_print, i64 %294
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %15, i8 0, i64 120, i1 false)
   %295 = load ptr, ptr %257, align 8, !tbaa !203
@@ -2407,7 +2406,7 @@ switch.lookup:                                    ; preds = %wt_porcelain_v2_sub
 305:                                              ; preds = %316, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %304, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %316 ]
   %.04045.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %328, %316 ]
-  %306 = getelementptr inbounds ptr, ptr %.pre.i51.i, i64 %indvars.iv.i.i
+  %306 = getelementptr inbounds [8 x i8], ptr %.pre.i51.i, i64 %indvars.iv.i.i
   %307 = load ptr, ptr %306, align 8, !tbaa !126
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 56
   %309 = load i32, ptr %308, align 8, !tbaa !128
@@ -2426,7 +2425,7 @@ switch.lookup:                                    ; preds = %wt_porcelain_v2_sub
   %318 = load i32, ptr %317, align 4, !tbaa !128
   %319 = add nsw i32 %311, -1
   %320 = zext nneg i32 %319 to i64
-  %321 = getelementptr inbounds nuw %struct.anon, ptr %15, i64 %320
+  %321 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %320
   store i32 %318, ptr %321, align 8, !tbaa !208
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %323 = getelementptr inbounds nuw i8, ptr %307, i64 72
@@ -2504,7 +2503,7 @@ wt_porcelain_v2_print_unmerged_entry.exit.i:      ; preds = %336, %333
 358:                                              ; preds = %wt_porcelain_v2_print_other.exit.i, %.lr.ph72.i
   %indvars.iv85.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next86.i, %wt_porcelain_v2_print_other.exit.i ]
   %359 = load ptr, ptr %250, align 8, !tbaa !212
-  %360 = getelementptr inbounds nuw %struct.string_list_item, ptr %359, i64 %indvars.iv85.i
+  %360 = getelementptr inbounds nuw [16 x i8], ptr %359, i64 %indvars.iv85.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) @__const.wt_longstatus_print_other.buf, i64 24, i1 false)
   %361 = load i32, ptr %251, align 8, !tbaa !195
@@ -2532,7 +2531,7 @@ wt_porcelain_v2_print_other.exit.i:               ; preds = %363, %358
 370:                                              ; preds = %wt_porcelain_v2_print_other.exit61.i, %.lr.ph74.i
   %indvars.iv88.i = phi i64 [ 0, %.lr.ph74.i ], [ %indvars.iv.next89.i, %wt_porcelain_v2_print_other.exit61.i ]
   %371 = load ptr, ptr %354, align 8, !tbaa !214
-  %372 = getelementptr inbounds nuw %struct.string_list_item, ptr %371, i64 %indvars.iv88.i
+  %372 = getelementptr inbounds nuw [16 x i8], ptr %371, i64 %indvars.iv88.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.wt_longstatus_print_other.buf, i64 24, i1 false)
   %373 = load i32, ptr %355, align 8, !tbaa !195
@@ -2885,7 +2884,7 @@ wt_longstatus_print_tracking.exit.i:              ; preds = %447, %509, %452
 
 526:                                              ; preds = %525, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %525 ]
-  %527 = getelementptr inbounds nuw %struct.string_list_item, ptr %524, i64 %indvars.iv.i.i.i.i
+  %527 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %indvars.iv.i.i.i.i
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 8
   %529 = load ptr, ptr %528, align 8, !tbaa !131
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
@@ -3104,7 +3103,7 @@ show_am_in_progress.exit.i.i:                     ; preds = %_.exit36.i.i.i, %56
 
 595:                                              ; preds = %594, %.lr.ph.i.i49.i.i
   %indvars.iv.i.i50.i.i = phi i64 [ 0, %.lr.ph.i.i49.i.i ], [ %indvars.iv.next.i.i58.i.i, %594 ]
-  %596 = getelementptr inbounds nuw %struct.string_list_item, ptr %593, i64 %indvars.iv.i.i50.i.i
+  %596 = getelementptr inbounds nuw [16 x i8], ptr %593, i64 %indvars.iv.i.i50.i.i
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %598 = load ptr, ptr %597, align 8, !tbaa !131
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 8
@@ -3656,7 +3655,7 @@ _.exit148.i:                                      ; preds = %_.exit148.sink.spli
 
 792:                                              ; preds = %825, %.outer.i.i
   %indvars.iv.i.i24 = phi i64 [ %indvars.iv.next.i.i25, %825 ], [ %indvars.iv.ph.i.i, %.outer.i.i ]
-  %793 = getelementptr inbounds nuw %struct.string_list_item, ptr %791, i64 %indvars.iv.i.i24
+  %793 = getelementptr inbounds nuw [16 x i8], ptr %791, i64 %indvars.iv.i.i24
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 8
   %795 = load ptr, ptr %794, align 8, !tbaa !131
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 4
@@ -3787,7 +3786,7 @@ wt_longstatus_print_updated.exit.i:               ; preds = %.thread.i.i27, %._c
 
 833:                                              ; preds = %933, %.outer.i168.i
   %indvars.iv.i171.i = phi i64 [ %indvars.iv.next.i184.i, %933 ], [ %indvars.iv.ph.i170.i, %.outer.i168.i ]
-  %834 = getelementptr inbounds nuw %struct.string_list_item, ptr %832, i64 %indvars.iv.i171.i
+  %834 = getelementptr inbounds nuw [16 x i8], ptr %832, i64 %indvars.iv.i171.i
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 8
   %836 = load ptr, ptr %835, align 8, !tbaa !131
   %837 = getelementptr inbounds nuw i8, ptr %836, i64 8
@@ -3828,7 +3827,7 @@ _.exit.i.i179.i:                                  ; preds = %845, %841
   %.03368.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.1.i.i.i, %858 ]
   %.03467.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.135.i.i.i, %858 ]
   %.03666.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.137.i.i.i, %858 ]
-  %850 = getelementptr inbounds nuw %struct.string_list_item, ptr %848, i64 %indvars.iv.i.i.i
+  %850 = getelementptr inbounds nuw [16 x i8], ptr %848, i64 %indvars.iv.i.i.i
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 8
   %852 = load ptr, ptr %851, align 8, !tbaa !131
   %853 = getelementptr inbounds nuw i8, ptr %852, i64 8
@@ -4146,7 +4145,7 @@ wt_longstatus_print_unmerged.exit.i..lr.ph.i.i187.i_crit_edge: ; preds = %wt_lon
   %.021.i.i = phi i32 [ 0, %.lr.ph.i.i187.i ], [ %.1.i.i26, %953 ]
   %indvars.iv.i.i188.i = phi i64 [ 0, %.lr.ph.i.i187.i ], [ %indvars.iv.next.i.i190.i, %953 ]
   %.01217.i.i.i = phi i32 [ 0, %.lr.ph.i.i187.i ], [ %.1.i.i189.i, %953 ]
-  %944 = getelementptr inbounds nuw %struct.string_list_item, ptr %942, i64 %indvars.iv.i.i188.i
+  %944 = getelementptr inbounds nuw [16 x i8], ptr %942, i64 %indvars.iv.i.i188.i
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 8
   %946 = load ptr, ptr %945, align 8, !tbaa !131
   %947 = load i32, ptr %946, align 8, !tbaa !201
@@ -4248,7 +4247,7 @@ wt_longstatus_print_dirty_header.exit.i.i:        ; preds = %_.exit27.i.i205.i, 
   %972 = phi i64 [ %980, %979 ], [ %971, %wt_longstatus_print_dirty_header.exit.i.i ]
   %indvars.iv.i208.i = phi i64 [ %indvars.iv.next.i209.i, %979 ], [ 0, %wt_longstatus_print_dirty_header.exit.i.i ]
   %973 = load ptr, ptr %786, align 8, !tbaa !166
-  %974 = getelementptr inbounds nuw %struct.string_list_item, ptr %973, i64 %indvars.iv.i208.i
+  %974 = getelementptr inbounds nuw [16 x i8], ptr %973, i64 %indvars.iv.i208.i
   %975 = getelementptr inbounds nuw i8, ptr %974, i64 8
   %976 = load ptr, ptr %975, align 8, !tbaa !131
   %977 = load i32, ptr %976, align 8, !tbaa !201
@@ -4569,7 +4568,7 @@ _.exit.i258.i:                                    ; preds = %1100, %1098
 1111:                                             ; preds = %1118, %.lr.ph.i.i243.i
   %indvars.iv.i.i244.i = phi i64 [ 0, %.lr.ph.i.i243.i ], [ %indvars.iv.next.i.i247.i, %1118 ]
   %.01217.i.i245.i = phi i32 [ 0, %.lr.ph.i.i243.i ], [ %.1.i.i246.i, %1118 ]
-  %1112 = getelementptr inbounds nuw %struct.string_list_item, ptr %1110, i64 %indvars.iv.i.i244.i
+  %1112 = getelementptr inbounds nuw [16 x i8], ptr %1110, i64 %indvars.iv.i.i244.i
   %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 8
   %1114 = load ptr, ptr %1113, align 8, !tbaa !131
   %1115 = load i32, ptr %1114, align 8, !tbaa !201
@@ -5189,7 +5188,7 @@ wt_shortstatus_print_tracking.exit:               ; preds = %9, %149
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 487
   %166 = load ptr, ptr %156, align 8, !tbaa !166
   %167 = load i64, ptr %158, align 8, !tbaa !165
-  %168 = getelementptr inbounds nuw %struct.string_list_item, ptr %166, i64 %167
+  %168 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %167
   %169 = icmp ult ptr %157, %168
   br i1 %169, label %.lr.ph62, label %.critedge
 
@@ -5351,7 +5350,7 @@ wt_shortstatus_unmerged.exit:                     ; preds = %239, %228, %222, %1
   %245 = getelementptr inbounds nuw i8, ptr %.04661, i64 16
   %246 = load ptr, ptr %156, align 8, !tbaa !166
   %247 = load i64, ptr %158, align 8, !tbaa !165
-  %248 = getelementptr inbounds nuw %struct.string_list_item, ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %246, i64 %247
   %249 = icmp ult ptr %245, %248
   br i1 %249, label %.lr.ph62, label %.critedge
 
@@ -5365,7 +5364,7 @@ wt_shortstatus_unmerged.exit:                     ; preds = %239, %228, %222, %1
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %253 = load ptr, ptr %250, align 8, !tbaa !212
   %254 = load i64, ptr %252, align 8, !tbaa !190
-  %255 = getelementptr inbounds nuw %struct.string_list_item, ptr %253, i64 %254
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %254
   %256 = icmp ult ptr %251, %255
   br i1 %256, label %.lr.ph64, label %.critedge2
 
@@ -5375,7 +5374,7 @@ wt_shortstatus_unmerged.exit:                     ; preds = %239, %228, %222, %1
   %257 = getelementptr inbounds nuw i8, ptr %.14963, i64 16
   %258 = load ptr, ptr %250, align 8, !tbaa !212
   %259 = load i64, ptr %252, align 8, !tbaa !190
-  %260 = getelementptr inbounds nuw %struct.string_list_item, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw [16 x i8], ptr %258, i64 %259
   %261 = icmp ult ptr %257, %260
   br i1 %261, label %.lr.ph64, label %.critedge2
 
@@ -5389,7 +5388,7 @@ wt_shortstatus_unmerged.exit:                     ; preds = %239, %228, %222, %1
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %265 = load ptr, ptr %262, align 8, !tbaa !214
   %266 = load i64, ptr %264, align 8, !tbaa !191
-  %267 = getelementptr inbounds nuw %struct.string_list_item, ptr %265, i64 %266
+  %267 = getelementptr inbounds nuw [16 x i8], ptr %265, i64 %266
   %268 = icmp ult ptr %263, %267
   br i1 %268, label %.lr.ph66, label %.critedge4
 
@@ -5399,7 +5398,7 @@ wt_shortstatus_unmerged.exit:                     ; preds = %239, %228, %222, %1
   %269 = getelementptr inbounds nuw i8, ptr %.25365, i64 16
   %270 = load ptr, ptr %262, align 8, !tbaa !214
   %271 = load i64, ptr %264, align 8, !tbaa !191
-  %272 = getelementptr inbounds nuw %struct.string_list_item, ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [16 x i8], ptr %270, i64 %271
   %273 = icmp ult ptr %269, %272
   br i1 %273, label %.lr.ph66, label %.critedge4
 
@@ -5781,7 +5780,7 @@ define internal void @wt_status_collect_changed_cb(ptr noundef readonly captures
 11:                                               ; preds = %.lr.ph, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !250
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !251
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !253
@@ -6053,7 +6052,7 @@ define internal void @wt_status_collect_updated_cb(ptr noundef readonly captures
 9:                                                ; preds = %.lr.ph, %125
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %125 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !250
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !251
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !253
@@ -6217,7 +6216,7 @@ define internal void @wt_status_collect_updated_cb(ptr noundef readonly captures
   %indvars.iv.i = phi i64 [ %107, %.lr.ph.i ], [ %indvars.iv.next.i, %118 ]
   %.01521.i = phi i32 [ 0, %.lr.ph.i ], [ %121, %118 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %109 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i
   %110 = load ptr, ptr %109, align 8, !tbaa !126
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 108
   %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %96) #21
@@ -6607,7 +6606,7 @@ wt_longstatus_print_other_header.exit:            ; preds = %9, %_.exit.i
 24:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %25 = load ptr, ptr %1, align 8, !tbaa !269
-  %26 = getelementptr inbounds nuw %struct.string_list_item, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !203
   %28 = load ptr, ptr %21, align 8, !tbaa !193
   %29 = call ptr @quote_path(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %5, i32 noundef 0) #20
@@ -6784,7 +6783,7 @@ Q_.exit:                                          ; preds = %25, %28
 .lr.ph:                                           ; preds = %Q_.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %33, %Q_.exit ]
   %35 = load ptr, ptr %3, align 8, !tbaa !269
-  %36 = getelementptr inbounds %struct.string_list_item, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds [16 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !203
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.129, ptr noundef %37)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6854,7 +6853,7 @@ Q_.exit51:                                        ; preds = %55, %58
   %62 = phi i1 [ false, %.lr.ph57 ], [ true, %Q_.exit51 ]
   %indvars.iv61 = phi i64 [ 1, %.lr.ph57 ], [ 0, %Q_.exit51 ]
   %63 = load ptr, ptr %4, align 8, !tbaa !269
-  %64 = getelementptr inbounds nuw %struct.string_list_item, ptr %63, i64 %indvars.iv61
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv61
   %65 = load ptr, ptr %64, align 8, !tbaa !203
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.129, ptr noundef %65)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
@@ -6955,7 +6954,7 @@ _.exit25:                                         ; preds = %8, %9
 
 23:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %24 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !131
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -7079,7 +7078,7 @@ _.exit25:                                         ; preds = %8, %9
 
 23:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %24 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !131
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -7264,7 +7263,7 @@ strbuf_setlen.exit:                               ; preds = %46, %52
   %54 = phi ptr [ %56, %.lr.ph.i ], [ %53, %strbuf_setlen.exit ]
   call void @strbuf_addbuf(ptr noundef nonnull %4, ptr noundef nonnull %54) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %55 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.next.i
   %56 = load ptr, ptr %55, align 8, !tbaa !278
   %.not26.i = icmp eq ptr %56, null
   br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !280

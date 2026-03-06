@@ -1071,7 +1071,7 @@ define internal noundef zeroext i1 @dissect_rlc_heur(ptr noundef %0, ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %.0129, i64 692
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr i32, ptr %.0128, i64 %26
+  %27 = getelementptr [4 x i8], ptr %.0128, i64 %26
   store i32 1, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0128, i64 384
   %29 = getelementptr inbounds nuw i8, ptr %.0128, i64 320
@@ -1132,7 +1132,7 @@ define internal noundef zeroext i1 @dissect_rlc_heur(ptr noundef %0, ptr noundef
   %49 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %35)
   %50 = load i32, ptr %24, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %.0128, i64 %51
+  %52 = getelementptr [4 x i8], ptr %.0128, i64 %51
   store i32 %49, ptr %52, align 4
   br label %73
 
@@ -1149,7 +1149,7 @@ define internal noundef zeroext i1 @dissect_rlc_heur(ptr noundef %0, ptr noundef
   %60 = zext i8 %59 to i32
   %61 = load i32, ptr %24, align 4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr i32, ptr %28, i64 %62
+  %63 = getelementptr [4 x i8], ptr %28, i64 %62
   store i32 %60, ptr %63, align 4
   br label %73
 
@@ -1327,7 +1327,7 @@ define internal fastcc range(i32 -1, 1) i32 @rlc_channel_assign(ptr noundef writ
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 692
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i32, ptr %10, i64 %16
+  %17 = getelementptr [4 x i8], ptr %10, i64 %16
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %24, label %19
@@ -1386,7 +1386,7 @@ define internal fastcc range(i32 -1, 1) i32 @rlc_channel_assign(ptr noundef writ
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 384
   %51 = load i32, ptr %14, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr i32, ptr %50, i64 %52
+  %53 = getelementptr [4 x i8], ptr %50, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %54, ptr %55, align 4
@@ -1479,7 +1479,7 @@ define internal fastcc void @add_channel_info(ptr noundef readonly captures(none
   %18 = tail call ptr @val_to_str_const(i32 noundef %17, ptr noundef nonnull @rlc_dir_vals, ptr noundef nonnull @.str.190)
   %19 = load i32, ptr %10, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr i32, ptr %3, i64 %20
+  %21 = getelementptr [4 x i8], ptr %3, i64 %20
   %22 = load i32, ptr %21, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.189, i32 noundef %15, ptr noundef %18, i32 noundef %22)
   %.not.i = icmp eq ptr %6, null
@@ -1546,7 +1546,7 @@ proto_item_set_generated.exit25:                  ; preds = %proto_item_set_gene
   %54 = load i32, ptr @hf_rlc_channel_ueid, align 4
   %55 = load i32, ptr %10, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr i32, ptr %3, i64 %56
+  %57 = getelementptr [4 x i8], ptr %3, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = tail call ptr @proto_tree_add_uint(ptr noundef %8, i32 noundef %54, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %58)
   %.not.i26 = icmp eq ptr %59, null
@@ -1622,7 +1622,7 @@ define internal fastcc void @rlc_call_subdissector(i32 noundef range(i32 0, 9) %
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 692
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %.038, i64 %28
+  %29 = getelementptr [4 x i8], ptr %.038, i64 %28
   store i32 %.039, ptr %29, align 4
   br label %.critedge
 
@@ -1857,7 +1857,7 @@ define internal fastcc void @dissect_rlc_um(i32 noundef range(i32 3, 9) %0, ptr 
   br i1 %37, label %is_ciphered_according_to_rrc.exit, label %38
 
 38:                                               ; preds = %31
-  %39 = getelementptr i32, ptr %17, i64 %.pre115
+  %39 = getelementptr [4 x i8], ptr %17, i64 %.pre115
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %42 = sext i32 %40 to i64
@@ -1872,7 +1872,7 @@ define internal fastcc void @dissect_rlc_um(i32 noundef range(i32 3, 9) %0, ptr 
   %not..i = xor i8 %47, 1
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 272
   %49 = zext nneg i8 %not..i to i64
-  %50 = getelementptr i32, ptr %48, i64 %49
+  %50 = getelementptr [4 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %.not24.i = icmp eq i32 %51, 0
   br i1 %.not24.i, label %is_ciphered_according_to_rrc.exit, label %52
@@ -1882,8 +1882,8 @@ define internal fastcc void @dissect_rlc_um(i32 noundef range(i32 3, 9) %0, ptr 
   %54 = getelementptr i8, ptr %53, i64 %.pre115
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
-  %57 = getelementptr [2 x i32], ptr %44, i64 %56
-  %58 = getelementptr i32, ptr %57, i64 %49
+  %57 = getelementptr [8 x i8], ptr %44, i64 %56
+  %58 = getelementptr [4 x i8], ptr %57, i64 %49
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %61 = load i32, ptr %60, align 4
@@ -1940,7 +1940,7 @@ is_ciphered_according_to_rrc.exit:                ; preds = %31, %38, %45, %52, 
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %17, i64 384
-  %94 = getelementptr i32, ptr %93, i64 %.pre115
+  %94 = getelementptr [4 x i8], ptr %93, i64 %.pre115
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %100
@@ -2068,7 +2068,7 @@ proto_item_set_hidden.exit:                       ; preds = %133, %130, %129, %1
   %.0120151.i = phi i8 [ 0, %.lr.ph.i ], [ %266, %.thread.i ]
   %.0121150.i = phi i16 [ %110, %.lr.ph.i ], [ %265, %.thread.i ]
   %.phi.trans.insert.i = zext i8 %.0120151.i to i64
-  %.phi.trans.insert160.i = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert.i
+  %.phi.trans.insert160.i = getelementptr [16 x i8], ptr %8, i64 %.phi.trans.insert.i
   %.pre.i = load i16, ptr %.phi.trans.insert160.i, align 16
   %167 = icmp eq i16 %.pre.i, 127
   %or.cond.not188.i = select i1 %not..0.in, i1 %167, i1 false
@@ -2125,7 +2125,7 @@ proto_item_set_hidden.exit:                       ; preds = %133, %130, %129, %1
   %192 = getelementptr inbounds nuw i8, ptr %185, i64 692
   %193 = load i32, ptr %192, align 4
   %194 = sext i32 %193 to i64
-  %195 = getelementptr i32, ptr %188, i64 %194
+  %195 = getelementptr [4 x i8], ptr %188, i64 %194
   %196 = load i32, ptr %195, align 4
   %.not.i.i = icmp eq i32 %196, 0
   br i1 %.not.i.i, label %198, label %197
@@ -2163,7 +2163,7 @@ proto_item_set_hidden.exit:                       ; preds = %133, %130, %129, %1
   store i8 %209, ptr %160, align 1
   store i32 1, ptr %161, align 4
   %210 = getelementptr inbounds nuw i8, ptr %188, i64 384
-  %211 = getelementptr i32, ptr %210, i64 %194
+  %211 = getelementptr [4 x i8], ptr %210, i64 %194
   %212 = load i32, ptr %211, align 4
   store i32 %212, ptr %162, align 4
   %213 = call fastcc ptr @get_endlist(ptr noundef %2, ptr noundef nonnull %7, ptr noundef readonly %5)
@@ -2404,7 +2404,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %21 = add nuw nsw i32 %.1146.us, 2
   %22 = trunc i16 %20 to i8
   %23 = and i8 %22, 1
-  %24 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv211
+  %24 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv211
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i8 %23, ptr %25, align 4
   %26 = lshr i16 %20, 1
@@ -2467,7 +2467,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %42 = add nuw nsw i32 %.1146, 1
   %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.1146)
   %44 = and i8 %43, 1
-  %45 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv
+  %45 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i8 %44, ptr %46, align 4
   %47 = lshr i8 %43, 1
@@ -2592,7 +2592,7 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 692
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr i32, ptr %14, i64 %20
+  %21 = getelementptr [4 x i8], ptr %14, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %28, label %23
@@ -2647,7 +2647,7 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 384
-  %53 = getelementptr i32, ptr %52, i64 %20
+  %53 = getelementptr [4 x i8], ptr %52, i64 %20
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %54, ptr %55, align 8
@@ -3140,7 +3140,7 @@ define internal fastcc void @add_fragment(i32 noundef range(i32 1, 3) %0, ptr no
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 692
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr i32, ptr %21, i64 %27
+  %28 = getelementptr [4 x i8], ptr %21, i64 %27
   %29 = load i32, ptr %28, align 4
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %35, label %30
@@ -3195,7 +3195,7 @@ define internal fastcc void @add_fragment(i32 noundef range(i32 1, 3) %0, ptr no
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %0, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 384
-  %60 = getelementptr i32, ptr %59, i64 %27
+  %60 = getelementptr [4 x i8], ptr %59, i64 %27
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %61, ptr %62, align 4
@@ -3226,7 +3226,7 @@ define internal fastcc void @add_fragment(i32 noundef range(i32 1, 3) %0, ptr no
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 692
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr i32, ptr %75, i64 %81
+  %82 = getelementptr [4 x i8], ptr %75, i64 %81
   %83 = load i32, ptr %82, align 4
   %.not.i281 = icmp eq i32 %83, 0
   br i1 %.not.i281, label %89, label %84
@@ -3280,7 +3280,7 @@ define internal fastcc void @add_fragment(i32 noundef range(i32 1, 3) %0, ptr no
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %0, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %75, i64 384
-  %113 = getelementptr i32, ptr %112, i64 %81
+  %113 = getelementptr [4 x i8], ptr %112, i64 %81
   %114 = load i32, ptr %113, align 4
   %115 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %114, ptr %115, align 4
@@ -3418,7 +3418,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
 .lr.ph:                                           ; preds = %169, %194
   %.0213307 = phi i16 [ %198, %194 ], [ %175, %169 ]
   %190 = sext i16 %.0213307 to i64
-  %191 = getelementptr ptr, ptr %.0.i273, i64 %190
+  %191 = getelementptr [8 x i8], ptr %.0.i273, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
   br i1 %193, label %206, label %194
@@ -3450,7 +3450,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
 
 208:                                              ; preds = %206
   %209 = and i64 %177, 32767
-  %210 = getelementptr ptr, ptr %.0.i273, i64 %209
+  %210 = getelementptr [8 x i8], ptr %.0.i273, i64 %209
   %211 = load ptr, ptr %210, align 8
   %.not261 = icmp eq ptr %211, null
   br i1 %.not261, label %216, label %212
@@ -3491,7 +3491,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
 
 231:                                              ; preds = %226
   %232 = and i64 %228, 32767
-  %233 = getelementptr ptr, ptr %.0.i273, i64 %232
+  %233 = getelementptr [8 x i8], ptr %.0.i273, i64 %232
   %234 = load ptr, ptr %233, align 8
   %.not260 = icmp eq ptr %234, null
   br i1 %.not260, label %238, label %235
@@ -3535,7 +3535,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
   %258 = call ptr @tvb_memdup(ptr noundef %255, ptr noundef %1, i32 noundef %256, i64 noundef %257)
   store ptr %258, ptr %252, align 8
   %259 = zext nneg i16 %5 to i64
-  %260 = getelementptr ptr, ptr %.0.i273, i64 %259
+  %260 = getelementptr [8 x i8], ptr %.0.i273, i64 %259
   %261 = load ptr, ptr %260, align 8
   %.not240 = icmp eq ptr %261, null
   br i1 %.not240, label %269, label %262
@@ -3637,7 +3637,7 @@ thread-pre-split:                                 ; preds = %284, %286
 
 311:                                              ; preds = %308
   %312 = sext i32 %297 to i64
-  %313 = getelementptr ptr, ptr %.0.i273, i64 %312
+  %313 = getelementptr [8 x i8], ptr %.0.i273, i64 %312
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 32
   %316 = load i16, ptr %315, align 8
@@ -3692,7 +3692,7 @@ thread-pre-split:                                 ; preds = %284, %286
   %.0210314 = phi i16 [ %.0210, %359 ], [ %.0210308, %332 ]
   %.0210.in313 = phi i32 [ %361, %359 ], [ %297, %332 ]
   %344 = sext i16 %.0210314 to i64
-  %345 = getelementptr ptr, ptr %.0.i273, i64 %344
+  %345 = getelementptr [8 x i8], ptr %.0.i273, i64 %344
   %346 = load ptr, ptr %345, align 8
   %347 = icmp eq ptr %346, null
   br i1 %347, label %348, label %359
@@ -3796,7 +3796,7 @@ define internal fastcc ptr @get_reassembled_data(i32 noundef range(i32 1, 3) %0,
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 692
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr i32, ptr %23, i64 %29
+  %30 = getelementptr [4 x i8], ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4
   %.not.i47 = icmp eq i32 %31, 0
   br i1 %.not.i47, label %37, label %32
@@ -3851,7 +3851,7 @@ define internal fastcc ptr @get_reassembled_data(i32 noundef range(i32 1, 3) %0,
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %0, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 384
-  %62 = getelementptr i32, ptr %61, i64 %29
+  %62 = getelementptr [4 x i8], ptr %61, i64 %29
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %63, ptr %64, align 4
@@ -4116,7 +4116,7 @@ define internal fastcc void @reassemble_sequence(ptr noundef captures(none) %0, 
 26:                                               ; preds = %.lr.ph, %rlc_sdu_add_fragment.exit
   %.051 = phi i16 [ %3, %.lr.ph ], [ %99, %rlc_sdu_add_fragment.exit ]
   %27 = zext i16 %.051 to i64
-  %28 = getelementptr ptr, ptr %0, i64 %27
+  %28 = getelementptr [8 x i8], ptr %0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
@@ -4285,7 +4285,7 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %91
   %111 = tail call ptr @g_list_remove_link(ptr noundef %110, ptr noundef nonnull %108)
   store ptr %111, ptr %106, align 8
   %112 = zext i16 %4 to i64
-  %113 = getelementptr ptr, ptr %0, i64 %112
+  %113 = getelementptr [8 x i8], ptr %0, i64 %112
   %114 = load ptr, ptr %113, align 8
   %.not32 = icmp eq ptr %114, null
   %.not33 = icmp eq ptr %111, null
@@ -4549,7 +4549,7 @@ dissect_rlc_control.exit:                         ; preds = %38, %48, %50, %59
   br i1 %91, label %is_ciphered_according_to_rrc.exit, label %92
 
 92:                                               ; preds = %86
-  %93 = getelementptr i32, ptr %18, i64 %.pre149
+  %93 = getelementptr [4 x i8], ptr %18, i64 %.pre149
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %96 = sext i32 %94 to i64
@@ -4564,7 +4564,7 @@ dissect_rlc_control.exit:                         ; preds = %38, %48, %50, %59
   %not..i = xor i8 %101, 1
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 272
   %103 = zext nneg i8 %not..i to i64
-  %104 = getelementptr i32, ptr %102, i64 %103
+  %104 = getelementptr [4 x i8], ptr %102, i64 %103
   %105 = load i32, ptr %104, align 4
   %.not24.i = icmp eq i32 %105, 0
   br i1 %.not24.i, label %is_ciphered_according_to_rrc.exit, label %106
@@ -4574,8 +4574,8 @@ dissect_rlc_control.exit:                         ; preds = %38, %48, %50, %59
   %108 = getelementptr i8, ptr %107, i64 %.pre149
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i64
-  %111 = getelementptr [2 x i32], ptr %98, i64 %110
-  %112 = getelementptr i32, ptr %111, i64 %103
+  %111 = getelementptr [8 x i8], ptr %98, i64 %110
+  %112 = getelementptr [4 x i8], ptr %111, i64 %103
   %113 = load i32, ptr %112, align 4
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %115 = load i32, ptr %114, align 4
@@ -4629,7 +4629,7 @@ is_ciphered_according_to_rrc.exit:                ; preds = %86, %92, %99, %106,
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  %146 = getelementptr i32, ptr %145, i64 %.pre149
+  %146 = getelementptr [4 x i8], ptr %145, i64 %.pre149
   %147 = load i32, ptr %146, align 4
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %152
@@ -4809,7 +4809,7 @@ define internal fastcc void @rlc_am_reassemble(ptr noundef %0, i16 noundef zeroe
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 692
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr i32, ptr %23, i64 %29
+  %30 = getelementptr [4 x i8], ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %37, label %32
@@ -4864,7 +4864,7 @@ define internal fastcc void @rlc_am_reassemble(ptr noundef %0, i16 noundef zeroe
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 2, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 384
-  %62 = getelementptr i32, ptr %61, i64 %29
+  %62 = getelementptr [4 x i8], ptr %61, i64 %29
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %63, ptr %64, align 4
@@ -4890,14 +4890,14 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   %.0112142 = phi i8 [ 0, %.lr.ph ], [ %115, %.thread ]
   %.0113141 = phi i16 [ %1, %.lr.ph ], [ %114, %.thread ]
   %.phi.trans.insert = zext i8 %.0112142 to i64
-  %.phi.trans.insert152 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
+  %.phi.trans.insert152 = getelementptr [16 x i8], ptr %8, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert152, align 8
   %70 = icmp ne i16 %.pre, 126
   %or.cond175.not = select i1 %11, i1 true, i1 %70
   br i1 %or.cond175.not, label %._crit_edge151, label %.thread
 
 ._crit_edge151:                                   ; preds = %68
-  %71 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
+  %71 = getelementptr [16 x i8], ptr %8, i64 %.phi.trans.insert
   %72 = icmp eq i16 %.pre, 32766
   br i1 %72, label %.thread, label %73
 
@@ -4973,7 +4973,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   %.1111133 = phi i1 [ true, %68 ], [ true, %._crit_edge151 ], [ %.0110144, %89 ], [ %.0110144, %101 ], [ %.0110144, %110 ], [ %.0110144, %104 ]
   %.1114132 = phi i16 [ %.0113141, %68 ], [ %.0113141, %._crit_edge151 ], [ %92, %89 ], [ %.0113141, %101 ], [ %.0113141, %110 ], [ %.0113141, %104 ]
   %.1108 = phi i8 [ %.0107145, %68 ], [ %.0107145, %._crit_edge151 ], [ %.0107145, %89 ], [ %.0107145, %101 ], [ 1, %110 ], [ %.0107145, %104 ]
-  %111 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
+  %111 = getelementptr [16 x i8], ptr %8, i64 %.phi.trans.insert
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %113 = load i16, ptr %112, align 2
   %114 = add i16 %113, %.1114132

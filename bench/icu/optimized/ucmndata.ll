@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.commonDataFuncs = type { ptr, ptr }
-%struct.UDataOffsetTOCEntry = type { i32, i32 }
-%struct.PointerTOCEntry = type { ptr, ptr }
 
 @_ZL9CmnDFuncs = internal constant %struct.commonDataFuncs { ptr @_ZL17offsetTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode, ptr @_ZL19offsetTOCEntryCountPK11UDataMemory }, align 8
 @_ZL9ToCPFuncs = internal constant %struct.commonDataFuncs { ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode, ptr @_ZL20pointerTOCEntryCountPK11UDataMemory }, align 8
@@ -213,7 +211,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %15
 24:                                               ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i
   %25 = add nsw i32 %8, -1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !27
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 %29
@@ -250,7 +248,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i:          ; preds = %31
   %42 = lshr i32 %41, 1
   %43 = tail call i32 @llvm.smin.i32(i32 %.05366.i, i32 %.05167.i)
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr inbounds nuw %struct.UDataOffsetTOCEntry, ptr %9, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !27
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 %47
@@ -300,7 +298,7 @@ _ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit: ; preds = %
 _ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24: ; preds = %61, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit
   %.0.i26 = phi i32 [ %25, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %42, %61 ]
   %68 = zext nneg i32 %.0.i26 to i64
-  %69 = getelementptr inbounds nuw %struct.UDataOffsetTOCEntry, ptr %9, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %68
   %70 = add nuw nsw i32 %.0.i26, 1
   %71 = icmp slt i32 %70, %8
   br i1 %71, label %72, label %78
@@ -386,7 +384,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %13
 22:                                               ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i
   %23 = add nsw i32 %8, -1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.PointerTOCEntry, ptr %9, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %9, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   br label %27
 
@@ -421,7 +419,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i:          ; preds = %27
   %38 = lshr i32 %37, 1
   %39 = tail call i32 @llvm.smin.i32(i32 %.05063.i, i32 %.04864.i)
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw %struct.PointerTOCEntry, ptr %9, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !35
   %43 = sext i32 %39 to i64
   %44 = getelementptr inbounds i8, ptr %1, i64 %43
@@ -470,7 +468,7 @@ _ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15: ; preds 
   %.0.i17 = phi i32 [ %23, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %38, %55 ]
   store i32 -1, ptr %2, align 4, !tbaa !32
   %62 = zext nneg i32 %.0.i17 to i64
-  %63 = getelementptr inbounds nuw %struct.PointerTOCEntry, ptr %9, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !39
   %66 = tail call ptr @UDataMemory_normalizeDataPointer_77(ptr noundef %65)

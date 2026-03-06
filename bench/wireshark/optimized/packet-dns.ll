@@ -2626,7 +2626,7 @@ define internal noundef i32 @dns_qr_stats_tree_packet(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %90
   %97 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dns_qr_stats_tree_packet, i64 %97
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dns_qr_stats_tree_packet, i64 %97
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %98
 
@@ -3829,7 +3829,7 @@ switch.lookup:                                    ; preds = %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %837 ]
   %789 = load i32, ptr @st_node_qr_rt_packets, align 4
   %790 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.970, i32 noundef %789, i1 noundef zeroext true, i32 noundef 1)
-  %791 = getelementptr i32, ptr @dns_qr_r_ra_ttls, i64 %indvars.iv
+  %791 = getelementptr [4 x i8], ptr @dns_qr_r_ra_ttls, i64 %indvars.iv
   %792 = load i32, ptr %791, align 4
   %793 = icmp eq i32 %792, 0
   br i1 %793, label %794, label %797
@@ -3934,7 +3934,7 @@ switch.lookup:                                    ; preds = %90
   %indvars.iv431 = phi i64 [ 0, %.lr.ph422 ], [ %indvars.iv.next432, %890 ]
   %842 = load i32, ptr @st_node_qr_rt_packets, align 4
   %843 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.971, i32 noundef %842, i1 noundef zeroext true, i32 noundef 1)
-  %844 = getelementptr i32, ptr @dns_qr_r_ru_ttls, i64 %indvars.iv431
+  %844 = getelementptr [4 x i8], ptr @dns_qr_r_ru_ttls, i64 %indvars.iv431
   %845 = load i32, ptr %844, align 4
   %846 = icmp eq i32 %845, 0
   br i1 %846, label %847, label %850
@@ -4039,7 +4039,7 @@ switch.lookup:                                    ; preds = %90
   %indvars.iv436 = phi i64 [ 0, %.lr.ph426 ], [ %indvars.iv.next437, %943 ]
   %895 = load i32, ptr @st_node_qr_rt_packets, align 4
   %896 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.972, i32 noundef %895, i1 noundef zeroext true, i32 noundef 1)
-  %897 = getelementptr i32, ptr @dns_qr_r_rd_ttls, i64 %indvars.iv436
+  %897 = getelementptr [4 x i8], ptr @dns_qr_r_rd_ttls, i64 %indvars.iv436
   %898 = load i32, ptr %897, align 4
   %899 = icmp eq i32 %898, 0
   br i1 %899, label %900, label %903
@@ -6182,7 +6182,7 @@ define internal fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %1, i
   %213 = add nuw nsw i32 %208, 1
   store i32 %213, ptr %207, align 4
   %214 = zext nneg i32 %208 to i64
-  %215 = getelementptr i32, ptr %212, i64 %214
+  %215 = getelementptr [4 x i8], ptr %212, i64 %214
   store i32 %211, ptr %215, align 4
   br label %216
 
@@ -6852,7 +6852,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
 
 552:                                              ; preds = %545, %558
   %.021222327 = phi i64 [ 31, %545 ], [ %559, %558 ]
-  %553 = getelementptr ptr, ptr %511, i64 %.021222327
+  %553 = getelementptr [8 x i8], ptr %511, i64 %.021222327
   %554 = load ptr, ptr %553, align 8
   call void @wmem_strbuf_append(ptr noundef %547, ptr noundef %554)
   %555 = and i64 %.021222327, 3

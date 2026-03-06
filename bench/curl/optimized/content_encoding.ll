@@ -1107,7 +1107,7 @@ brotli_map_error.exit:                            ; preds = %29, %28, %28
 
 switch.lookup:                                    ; preds = %32
   %40 = sext i32 %34 to i64
-  %41 = getelementptr i32, ptr @switch.table.brotli_do_write, i64 %40
+  %41 = getelementptr [4 x i8], ptr @switch.table.brotli_do_write, i64 %40
   %switch.gep = getelementptr i8, ptr %41, i64 120
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge

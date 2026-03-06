@@ -174,18 +174,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_filemap_rele
 %struct.folio_batch = type { i8, i8, [15 x ptr] }
 %struct.wait_page_queue = type { ptr, i32, %struct.wait_queue_entry }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.page = type { i64, %union.anon.9, %union.anon.17, %struct.atomic_t, [8 x i8] }
-%union.anon.9 = type { %struct.anon.10 }
-%struct.anon.10 = type { %union.anon.11, ptr, %union.anon.13, i64 }
-%union.anon.11 = type { %struct.list_head }
-%union.anon.13 = type { i64 }
-%union.anon.17 = type { %struct.atomic_t }
 %struct.wait_page_key = type { ptr, i32, i32 }
 %struct.readahead_control = type { ptr, ptr, ptr, i64, i32, i32, i8, i64 }
-%struct.pipe_buffer = type { ptr, i32, i32, ptr, i32, i64 }
 %struct.kiocb = type { ptr, i64, ptr, ptr, i32, i16, %union.anon.47 }
 %union.anon.47 = type { ptr }
-%struct.pte_t = type { i64 }
 %struct.cachestat_range = type { i64, i64 }
 %struct.cachestat = type { i64, i64, i64, i64, i64 }
 
@@ -1105,7 +1097,7 @@ define internal fastcc void @filemap_unaccount_folio(ptr noundef %0, ptr noundef
   %57 = phi i32 [ %55, %53 ], [ 1, %49 ]
   %58 = sub i32 0, %57
   %59 = lshr i64 %50, 58
-  %60 = getelementptr ptr, ptr @node_data, i64 %59
+  %60 = getelementptr [8 x i8], ptr @node_data, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %58 to i64
   tail call void @__mod_node_page_state(ptr noundef %61, i32 noundef 19, i64 noundef %62) #14
@@ -1116,7 +1108,7 @@ define internal fastcc void @filemap_unaccount_folio(ptr noundef %0, ptr noundef
 
 66:                                               ; preds = %56
   %67 = lshr i64 %63, 58
-  %68 = getelementptr ptr, ptr @node_data, i64 %67
+  %68 = getelementptr [8 x i8], ptr @node_data, i64 %67
   %69 = load ptr, ptr %68, align 8
   tail call void @__mod_node_page_state(ptr noundef %69, i32 noundef 23, i64 noundef %62) #14
   br label %70
@@ -1314,7 +1306,7 @@ define dso_local void @delete_from_page_cache_batch(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %38, %12
   %15 = phi i64 [ 0, %12 ], [ %39, %38 ]
-  %16 = getelementptr ptr, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_filemap_delete_from_page_cache, i64 8), i32 2) #14
           to label %38 [label %18], !srcloc !18
@@ -1413,7 +1405,7 @@ define dso_local void @delete_from_page_cache_batch(ptr noundef %0, ptr noundef 
 
 71:                                               ; preds = %67
   %72 = zext nneg i32 %62 to i64
-  %73 = getelementptr ptr, ptr %45, i64 %72
+  %73 = getelementptr [8 x i8], ptr %45, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %63, %74
   br i1 %75, label %76, label %95
@@ -1489,7 +1481,7 @@ define dso_local void @delete_from_page_cache_batch(ptr noundef %0, ptr noundef 
 
 120:                                              ; preds = %114
   %121 = zext i8 %115 to i64
-  %122 = getelementptr ptr, ptr %113, i64 %121
+  %122 = getelementptr [8 x i8], ptr %113, i64 %121
   %123 = load volatile ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 3
@@ -1551,7 +1543,7 @@ define dso_local void @delete_from_page_cache_batch(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %151, %182
   %156 = phi i64 [ %183, %182 ], [ 0, %151 ]
-  %157 = getelementptr ptr, ptr %45, i64 %156
+  %157 = getelementptr [8 x i8], ptr %45, i64 %156
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %52, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 80
@@ -1921,7 +1913,7 @@ define dso_local range(i32 -28, 1) i32 @filemap_fdatawait_range(ptr noundef %0, 
 
 16:                                               ; preds = %16, %14
   %17 = phi i64 [ 0, %14 ], [ %21, %16 ]
-  %18 = getelementptr ptr, ptr %10, i64 %17
+  %18 = getelementptr [8 x i8], ptr %10, i64 %17
   %19 = load ptr, ptr %18, align 8
   call void @folio_wait_writeback(ptr noundef %19) #14
   %20 = getelementptr i8, ptr %19, i64 1
@@ -2010,7 +2002,7 @@ define dso_local noundef range(i32 -28, 1) i32 @filemap_fdatawait_range_keep_err
 
 16:                                               ; preds = %16, %14
   %17 = phi i64 [ 0, %14 ], [ %21, %16 ]
-  %18 = getelementptr ptr, ptr %10, i64 %17
+  %18 = getelementptr [8 x i8], ptr %10, i64 %17
   %19 = load ptr, ptr %18, align 8
   call void @folio_wait_writeback(ptr noundef %19) #14
   %20 = getelementptr i8, ptr %19, i64 1
@@ -2085,7 +2077,7 @@ define dso_local i32 @file_fdatawait_range(ptr noundef %0, i64 noundef %1, i64 n
 
 18:                                               ; preds = %18, %16
   %19 = phi i64 [ 0, %16 ], [ %23, %18 ]
-  %20 = getelementptr ptr, ptr %12, i64 %19
+  %20 = getelementptr [8 x i8], ptr %12, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @folio_wait_writeback(ptr noundef %21) #14
   %22 = getelementptr i8, ptr %21, i64 1
@@ -2205,7 +2197,7 @@ define dso_local noundef range(i32 -28, 1) i32 @filemap_fdatawait_keep_errors(pt
 
 10:                                               ; preds = %10, %8
   %11 = phi i64 [ 0, %8 ], [ %15, %10 ]
-  %12 = getelementptr ptr, ptr %4, i64 %11
+  %12 = getelementptr [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   call void @folio_wait_writeback(ptr noundef %13) #14
   %14 = getelementptr i8, ptr %13, i64 1
@@ -2347,7 +2339,7 @@ define dso_local noundef zeroext i1 @filemap_range_has_writeback(ptr noundef %0,
 
 57:                                               ; preds = %51
   %58 = zext i8 %52 to i64
-  %59 = getelementptr ptr, ptr %50, i64 %58
+  %59 = getelementptr [8 x i8], ptr %50, i64 %58
   %60 = load volatile ptr, ptr %59, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = and i64 %61, 3
@@ -2462,7 +2454,7 @@ define dso_local i32 @filemap_write_and_wait_range(ptr noundef %0, i64 noundef %
 
 45:                                               ; preds = %45, %43
   %46 = phi i64 [ 0, %43 ], [ %50, %45 ]
-  %47 = getelementptr ptr, ptr %39, i64 %46
+  %47 = getelementptr [8 x i8], ptr %39, i64 %46
   %48 = load ptr, ptr %47, align 8
   call void @folio_wait_writeback(ptr noundef %48) #14
   %49 = getelementptr i8, ptr %48, i64 1
@@ -2680,7 +2672,7 @@ define dso_local i32 @file_write_and_wait_range(ptr noundef %0, i64 noundef %1, 
 
 49:                                               ; preds = %49, %47
   %50 = phi i64 [ 0, %47 ], [ %54, %49 ]
-  %51 = getelementptr ptr, ptr %43, i64 %50
+  %51 = getelementptr [8 x i8], ptr %43, i64 %50
   %52 = load ptr, ptr %51, align 8
   call void @folio_wait_writeback(ptr noundef %52) #14
   %53 = getelementptr i8, ptr %52, i64 1
@@ -2775,7 +2767,7 @@ define dso_local void @replace_page_cache_folio(ptr noundef %0, ptr noundef %1) 
   %37 = phi i32 [ %35, %33 ], [ 1, %29 ]
   %38 = sub i32 0, %37
   %39 = lshr i64 %30, 58
-  %40 = getelementptr ptr, ptr @node_data, i64 %39
+  %40 = getelementptr [8 x i8], ptr @node_data, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %38 to i64
   call void @__mod_node_page_state(ptr noundef %41, i32 noundef 19, i64 noundef %42) #14
@@ -2809,7 +2801,7 @@ define dso_local void @replace_page_cache_folio(ptr noundef %0, ptr noundef %1) 
 60:                                               ; preds = %56, %52
   %61 = phi i64 [ %59, %56 ], [ 1, %52 ]
   %62 = lshr i64 %53, 58
-  %63 = getelementptr ptr, ptr @node_data, i64 %62
+  %63 = getelementptr [8 x i8], ptr @node_data, i64 %62
   %64 = load ptr, ptr %63, align 8
   call void @__mod_node_page_state(ptr noundef %64, i32 noundef 19, i64 noundef %61) #14
   br label %65
@@ -2835,7 +2827,7 @@ define dso_local void @replace_page_cache_folio(ptr noundef %0, ptr noundef %1) 
   %77 = phi i32 [ %75, %73 ], [ 1, %69 ]
   %78 = sub i32 0, %77
   %79 = lshr i64 %70, 58
-  %80 = getelementptr ptr, ptr @node_data, i64 %79
+  %80 = getelementptr [8 x i8], ptr @node_data, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = sext i32 %78 to i64
   call void @__mod_node_page_state(ptr noundef %81, i32 noundef 23, i64 noundef %82) #14
@@ -2862,7 +2854,7 @@ define dso_local void @replace_page_cache_folio(ptr noundef %0, ptr noundef %1) 
 95:                                               ; preds = %91, %87
   %96 = phi i64 [ %94, %91 ], [ 1, %87 ]
   %97 = lshr i64 %88, 58
-  %98 = getelementptr ptr, ptr @node_data, i64 %97
+  %98 = getelementptr [8 x i8], ptr @node_data, i64 %97
   %99 = load ptr, ptr %98, align 8
   call void @__mod_node_page_state(ptr noundef %99, i32 noundef 23, i64 noundef %96) #14
   br label %100
@@ -3109,7 +3101,7 @@ define dso_local i32 @__filemap_add_folio(ptr noundef %0, ptr noundef %1, i64 no
 131:                                              ; preds = %128
   %132 = load i64, ptr %1, align 16
   %133 = lshr i64 %132, 58
-  %134 = getelementptr ptr, ptr @node_data, i64 %133
+  %134 = getelementptr [8 x i8], ptr @node_data, i64 %133
   %135 = load ptr, ptr %134, align 8
   call void @__mod_node_page_state(ptr noundef %135, i32 noundef 19, i64 noundef %66) #14
   br label %136
@@ -3467,7 +3459,7 @@ define dso_local void @pagecache_init() local_unnamed_addr #4 section ".init.tex
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %4, %1 ]
-  %3 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %2
+  %3 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %2
   tail call void @__init_waitqueue_head(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull @pagecache_init.__key) #14
   %4 = add nuw nsw i64 %2, 1
   %5 = icmp eq i64 %4, 256
@@ -3504,7 +3496,7 @@ define dso_local void @migration_entry_wait_on_locked(i64 %0, ptr noundef %1) lo
 9:                                                ; preds = %8, %2, %2
   %10 = phi i64 [ 17179869183, %8 ], [ 1099511627775, %2 ], [ 1099511627775, %2 ]
   %11 = and i64 %10, %0
-  %12 = getelementptr %struct.page, ptr %7, i64 %11
+  %12 = getelementptr [64 x i8], ptr %7, i64 %11
   %13 = add i64 %0, -8935141660703064064
   %14 = icmp ult i64 %13, -864691128455135232
   br i1 %14, label %46, label %15
@@ -3610,7 +3602,7 @@ define dso_local void @migration_entry_wait_on_locked(i64 %0, ptr noundef %1) lo
   %75 = inttoptr i64 %74 to ptr
   %76 = mul i64 %74, 7046029254386353131
   %77 = lshr i64 %76, 56
-  %78 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %77
+  %78 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %77
   %79 = load volatile i64, ptr %75, align 8
   %80 = and i64 %79, 8
   %81 = icmp eq i64 %80, 0
@@ -3838,7 +3830,7 @@ define internal fastcc range(i32 -4, 1) i32 @folio_wait_bit_common(ptr noundef %
   %7 = ptrtoint ptr %0 to i64
   %8 = mul i64 %7, 7046029254386353131
   %9 = lshr i64 %8, 56
-  %10 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %9
+  %10 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %9
   %11 = load i32, ptr @sysctl_page_lock_unfairness, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4115,7 +4107,7 @@ define dso_local void @folio_add_wait_queue(ptr noundef %0, ptr noundef %1) #1 a
   %3 = ptrtoint ptr %0 to i64
   %4 = mul i64 %3, 7046029254386353131
   %5 = lshr i64 %4, 56
-  %6 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %5
+  %6 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %5
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #14
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4147,7 +4139,7 @@ define dso_local void @folio_unlock(ptr noundef %0) #1 align 16 {
   %7 = ptrtoint ptr %0 to i64
   %8 = mul i64 %7, 7046029254386353131
   %9 = lshr i64 %8, 56
-  %10 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %9
+  %10 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4191,7 +4183,7 @@ define dso_local void @folio_end_read(ptr noundef %0, i1 noundef zeroext %1) #1 
   %9 = ptrtoint ptr %0 to i64
   %10 = mul i64 %9, 7046029254386353131
   %11 = lshr i64 %10, 56
-  %12 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %11
+  %12 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4230,7 +4222,7 @@ define dso_local void @folio_end_private_2(ptr noundef %0) #1 align 16 {
   %4 = ptrtoint ptr %0 to i64
   %5 = mul i64 %4, 7046029254386353131
   %6 = lshr i64 %5, 56
-  %7 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %6
+  %7 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4334,7 +4326,7 @@ define dso_local void @folio_end_writeback(ptr noundef %0) #1 align 16 {
   %12 = ptrtoint ptr %0 to i64
   %13 = mul i64 %12, 7046029254386353131
   %14 = lshr i64 %13, 56
-  %15 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %14
+  %15 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4363,7 +4355,7 @@ define dso_local void @folio_end_writeback(ptr noundef %0) #1 align 16 {
 27:                                               ; preds = %26, %8
   %28 = load i64, ptr %0, align 16
   %29 = lshr i64 %28, 58
-  %30 = getelementptr ptr, ptr @node_data, i64 %29
+  %30 = getelementptr [8 x i8], ptr @node_data, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 13272
   %33 = load volatile i32, ptr %32, align 4
@@ -4575,7 +4567,7 @@ define dso_local i64 @page_cache_next_miss(ptr noundef %0, i64 noundef %1, i64 n
   store i8 %33, ptr %8, align 2
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %35 = zext i8 %33 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load volatile ptr, ptr %36, align 8
   br label %38
 
@@ -4652,7 +4644,7 @@ define dso_local i64 @page_cache_prev_miss(ptr noundef %0, i64 noundef %1, i64 n
   store i8 %33, ptr %8, align 2
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %35 = zext i8 %33 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load volatile ptr, ptr %36, align 8
   br label %38
 
@@ -4750,7 +4742,7 @@ define dso_local ptr @filemap_get_entry(ptr noundef %0, i64 noundef %1) local_un
   %39 = lshr i64 %36, %38
   %40 = and i64 %39, 63
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %42 = getelementptr ptr, ptr %41, i64 %40
+  %42 = getelementptr [8 x i8], ptr %41, i64 %40
   %43 = load volatile ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, 3
@@ -4762,7 +4754,7 @@ define dso_local ptr @filemap_get_entry(ptr noundef %0, i64 noundef %1) local_un
 49:                                               ; preds = %35
   %50 = lshr i64 %44, 2
   %51 = and i64 %50, 255
-  %52 = getelementptr ptr, ptr %41, i64 %51
+  %52 = getelementptr [8 x i8], ptr %41, i64 %51
   br label %53
 
 53:                                               ; preds = %49, %32
@@ -5060,7 +5052,7 @@ define dso_local ptr @__filemap_get_folio(ptr noundef %0, i64 noundef %1, i32 no
   %147 = ptrtoint ptr %108 to i64
   %148 = mul i64 %147, 7046029254386353131
   %149 = lshr i64 %148, 56
-  %150 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %149
+  %150 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %149
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %108, ptr %6, align 8
   store i32 0, ptr %7, align 8
@@ -5172,7 +5164,7 @@ define dso_local range(i32 0, 256) i32 @find_get_entries(ptr noundef %0, ptr nou
   %44 = lshr i64 %41, %43
   %45 = and i64 %44, 63
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %47 = getelementptr ptr, ptr %46, i64 %45
+  %47 = getelementptr [8 x i8], ptr %46, i64 %45
   %48 = load volatile ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, 3
@@ -5184,7 +5176,7 @@ define dso_local range(i32 0, 256) i32 @find_get_entries(ptr noundef %0, ptr nou
 54:                                               ; preds = %40
   %55 = lshr i64 %49, 2
   %56 = and i64 %55, 255
-  %57 = getelementptr ptr, ptr %46, i64 %56
+  %57 = getelementptr [8 x i8], ptr %46, i64 %56
   br label %58
 
 58:                                               ; preds = %54, %37
@@ -5219,13 +5211,13 @@ define dso_local range(i32 0, 256) i32 @find_get_entries(ptr noundef %0, ptr nou
   %71 = load i64, ptr %9, align 8
   %72 = load i8, ptr %3, align 8
   %73 = zext i8 %72 to i64
-  %74 = getelementptr i64, ptr %4, i64 %73
+  %74 = getelementptr [8 x i8], ptr %4, i64 %73
   store i64 %71, ptr %74, align 8
   %75 = load i8, ptr %3, align 8
   %76 = add i8 %75, 1
   store i8 %76, ptr %3, align 8
   %77 = zext i8 %75 to i64
-  %78 = getelementptr ptr, ptr %13, i64 %77
+  %78 = getelementptr [8 x i8], ptr %13, i64 %77
   store ptr %15, ptr %78, align 8
   %79 = icmp eq i8 %76, 15
   br i1 %79, label %80, label %.backedge
@@ -5241,7 +5233,7 @@ define dso_local range(i32 0, 256) i32 @find_get_entries(ptr noundef %0, ptr nou
 
 83:                                               ; preds = %80
   %84 = zext i8 %81 to i64
-  %85 = getelementptr ptr, ptr %3, i64 %84
+  %85 = getelementptr [8 x i8], ptr %3, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = and i64 %87, 1
@@ -5262,7 +5254,7 @@ define dso_local range(i32 0, 256) i32 @find_get_entries(ptr noundef %0, ptr nou
 
 98:                                               ; preds = %94, %90, %83
   %99 = phi i64 [ 1, %83 ], [ %97, %94 ], [ 1, %90 ]
-  %100 = getelementptr i64, ptr %4, i64 %84
+  %100 = getelementptr [8 x i8], ptr %4, i64 %84
   %101 = getelementptr i8, ptr %100, i64 -8
   %102 = load i64, ptr %101, align 8
   %103 = add i64 %102, %99
@@ -5351,7 +5343,7 @@ define dso_local range(i32 0, 256) i32 @find_lock_entries(ptr noundef %0, ptr no
   %47 = lshr i64 %44, %46
   %48 = and i64 %47, 63
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %50 = getelementptr ptr, ptr %49, i64 %48
+  %50 = getelementptr [8 x i8], ptr %49, i64 %48
   %51 = load volatile ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, 3
@@ -5363,7 +5355,7 @@ define dso_local range(i32 0, 256) i32 @find_lock_entries(ptr noundef %0, ptr no
 57:                                               ; preds = %43
   %58 = lshr i64 %52, 2
   %59 = and i64 %58, 255
-  %60 = getelementptr ptr, ptr %49, i64 %59
+  %60 = getelementptr [8 x i8], ptr %49, i64 %59
   br label %61
 
 61:                                               ; preds = %57, %40
@@ -5446,13 +5438,13 @@ define dso_local range(i32 0, 256) i32 @find_lock_entries(ptr noundef %0, ptr no
   %105 = load i64, ptr %10, align 8
   %106 = load i8, ptr %3, align 8
   %107 = zext i8 %106 to i64
-  %108 = getelementptr i64, ptr %4, i64 %107
+  %108 = getelementptr [8 x i8], ptr %4, i64 %107
   store i64 %105, ptr %108, align 8
   %109 = load i8, ptr %3, align 8
   %110 = add i8 %109, 1
   store i8 %110, ptr %3, align 8
   %111 = zext i8 %109 to i64
-  %112 = getelementptr ptr, ptr %16, i64 %111
+  %112 = getelementptr [8 x i8], ptr %16, i64 %111
   store ptr %18, ptr %112, align 8
   %113 = icmp eq i8 %110, 15
   br i1 %113, label %137, label %.backedge
@@ -5467,7 +5459,7 @@ define dso_local range(i32 0, 256) i32 @find_lock_entries(ptr noundef %0, ptr no
 118:                                              ; preds = %114
   %119 = mul i64 %19, 7046029254386353131
   %120 = lshr i64 %119, 56
-  %121 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %120
+  %121 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %120
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %18, ptr %6, align 8
   store i32 0, ptr %14, align 8
@@ -5514,7 +5506,7 @@ define dso_local range(i32 0, 256) i32 @find_lock_entries(ptr noundef %0, ptr no
 
 140:                                              ; preds = %137
   %141 = zext i8 %138 to i64
-  %142 = getelementptr ptr, ptr %3, i64 %141
+  %142 = getelementptr [8 x i8], ptr %3, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = ptrtoint ptr %143 to i64
   %145 = and i64 %144, 1
@@ -5535,7 +5527,7 @@ define dso_local range(i32 0, 256) i32 @find_lock_entries(ptr noundef %0, ptr no
 
 155:                                              ; preds = %151, %147, %140
   %156 = phi i64 [ 1, %140 ], [ %154, %151 ], [ 1, %147 ]
-  %157 = getelementptr i64, ptr %4, i64 %141
+  %157 = getelementptr [8 x i8], ptr %4, i64 %141
   %158 = getelementptr i8, ptr %157, i64 -8
   %159 = load i64, ptr %158, align 8
   %160 = add i64 %159, %156
@@ -5638,7 +5630,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_tag(ptr noundef %0, p
   %49 = lshr i64 %46, %48
   %50 = and i64 %49, 63
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %52 = getelementptr ptr, ptr %51, i64 %50
+  %52 = getelementptr [8 x i8], ptr %51, i64 %50
   %53 = load volatile ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 3
@@ -5650,7 +5642,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_tag(ptr noundef %0, p
 59:                                               ; preds = %45
   %60 = lshr i64 %54, 2
   %61 = and i64 %60, 255
-  %62 = getelementptr ptr, ptr %51, i64 %61
+  %62 = getelementptr [8 x i8], ptr %51, i64 %61
   br label %63
 
 63:                                               ; preds = %59, %42
@@ -5761,7 +5753,7 @@ find_get_entry.exit.thread:                       ; preds = %66, %find_get_entry
   %114 = lshr i64 %111, %113
   %115 = and i64 %114, 63
   %116 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  %117 = getelementptr ptr, ptr %116, i64 %115
+  %117 = getelementptr [8 x i8], ptr %116, i64 %115
   %118 = load volatile ptr, ptr %117, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = and i64 %119, 3
@@ -5773,7 +5765,7 @@ find_get_entry.exit.thread:                       ; preds = %66, %find_get_entry
 124:                                              ; preds = %110
   %125 = lshr i64 %119, 2
   %126 = and i64 %125, 255
-  %127 = getelementptr ptr, ptr %116, i64 %126
+  %127 = getelementptr [8 x i8], ptr %116, i64 %126
   br label %128
 
 128:                                              ; preds = %124, %107
@@ -5815,7 +5807,7 @@ find_get_entry.exit4:                             ; preds = %87
   %141 = add i8 %140, 1
   store i8 %141, ptr %4, align 8
   %142 = zext i8 %140 to i64
-  %143 = getelementptr ptr, ptr %74, i64 %142
+  %143 = getelementptr [8 x i8], ptr %74, i64 %142
   store ptr %75, ptr %143, align 8
   %144 = icmp eq i8 %141, 15
   br i1 %144, label %145, label %.preheader
@@ -5936,7 +5928,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_contig(ptr noundef %0
   %49 = lshr i64 %46, %48
   %50 = and i64 %49, 63
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %52 = getelementptr ptr, ptr %51, i64 %50
+  %52 = getelementptr [8 x i8], ptr %51, i64 %50
   %53 = load volatile ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 3
@@ -5948,7 +5940,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_contig(ptr noundef %0
 59:                                               ; preds = %45
   %60 = lshr i64 %54, 2
   %61 = and i64 %60, 255
-  %62 = getelementptr ptr, ptr %51, i64 %61
+  %62 = getelementptr [8 x i8], ptr %51, i64 %61
   br label %63
 
 63:                                               ; preds = %59, %42
@@ -5966,7 +5958,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_contig(ptr noundef %0
   %71 = add i8 %70, 1
   store i8 %71, ptr %3, align 8
   %72 = zext i8 %70 to i64
-  %73 = getelementptr ptr, ptr %19, i64 %72
+  %73 = getelementptr [8 x i8], ptr %19, i64 %72
   store ptr %21, ptr %73, align 8
   %74 = icmp eq i8 %71, 15
   br i1 %74, label %75, label %93
@@ -6037,7 +6029,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_contig(ptr noundef %0
   store i8 %111, ptr %10, align 2
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %113 = zext i8 %111 to i64
-  %114 = getelementptr ptr, ptr %112, i64 %113
+  %114 = getelementptr [8 x i8], ptr %112, i64 %113
   %115 = load volatile ptr, ptr %114, align 8
   br label %116
 
@@ -6056,7 +6048,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_contig(ptr noundef %0
 
 124:                                              ; preds = %.loopexit
   %125 = zext i8 %122 to i64
-  %126 = getelementptr ptr, ptr %3, i64 %125
+  %126 = getelementptr [8 x i8], ptr %3, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load i64, ptr %128, align 16
@@ -6217,7 +6209,7 @@ define dso_local i64 @filemap_read(ptr noundef captures(none) %0, ptr noundef %1
   %83 = phi i64 [ %33, %79 ], [ %113, %111 ]
   %84 = phi i32 [ %48, %79 ], [ %117, %111 ]
   %85 = phi i64 [ %32, %79 ], [ %115, %111 ]
-  %86 = getelementptr ptr, ptr %30, i64 %82
+  %86 = getelementptr [8 x i8], ptr %30, i64 %82
   %87 = load ptr, ptr %86, align 8
   %88 = load volatile i64, ptr %87, align 8
   %89 = and i64 %88, 64
@@ -6280,7 +6272,7 @@ define dso_local i64 @filemap_read(ptr noundef captures(none) %0, ptr noundef %1
 
 124:                                              ; preds = %133, %122
   %125 = phi i64 [ 0, %122 ], [ %134, %133 ]
-  %126 = getelementptr ptr, ptr %30, i64 %125
+  %126 = getelementptr [8 x i8], ptr %30, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 52
   %129 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %128, ptr nonnull elementtype(i32) %128) #14, !srcloc !57
@@ -6533,7 +6525,7 @@ filemap_add_folio.exit:                           ; preds = %76, %85
   %113 = add i8 %112, 1
   store i8 %113, ptr %2, align 8
   %114 = zext i8 %112 to i64
-  %115 = getelementptr ptr, ptr %30, i64 %114
+  %115 = getelementptr [8 x i8], ptr %30, i64 %114
   store ptr %68, ptr %115, align 8
   br label %.thread18
 
@@ -6560,7 +6552,7 @@ filemap_add_folio.exit:                           ; preds = %76, %85
   %125 = zext i8 %124 to i64
   %126 = add nuw nsw i64 %125, 4294967295
   %127 = and i64 %126, 4294967295
-  %128 = getelementptr ptr, ptr %30, i64 %127
+  %128 = getelementptr [8 x i8], ptr %30, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = load volatile i64, ptr %129, align 8
   %131 = and i64 %130, 262144
@@ -6662,7 +6654,7 @@ filemap_add_folio.exit:                           ; preds = %76, %85
   %177 = ptrtoint ptr %129 to i64
   %178 = mul i64 %177, 7046029254386353131
   %179 = lshr i64 %178, 56
-  %180 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %179
+  %180 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %179
   store ptr %129, ptr %176, align 8
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i32 0, ptr %181, align 8
@@ -6822,7 +6814,7 @@ filemap_add_folio.exit:                           ; preds = %76, %85
   %270 = ptrtoint ptr %129 to i64
   %271 = mul i64 %270, 7046029254386353131
   %272 = lshr i64 %271, 56
-  %273 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %272
+  %273 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %272
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %129, ptr %6, align 8
   store i32 0, ptr %39, align 8
@@ -7185,7 +7177,7 @@ define dso_local i64 @splice_folio_into_pipe(ptr noundef captures(none) %0, ptr 
   %15 = add i64 %14, -1
   %16 = and i64 %15, %2
   %17 = lshr i64 %16, 12
-  %18 = getelementptr %struct.page, ptr %1, i64 %17
+  %18 = getelementptr [64 x i8], ptr %1, i64 %17
   %19 = load volatile i64, ptr %1, align 8
   %20 = and i64 %19, 64
   %21 = icmp eq i64 %20, 0
@@ -7233,7 +7225,7 @@ define dso_local i64 @splice_folio_into_pipe(ptr noundef captures(none) %0, ptr 
   %52 = add i32 %51, -1
   %53 = and i32 %52, %41
   %54 = zext i32 %53 to i64
-  %55 = getelementptr %struct.pipe_buffer, ptr %50, i64 %54
+  %55 = getelementptr [40 x i8], ptr %50, i64 %54
   %56 = sub nuw nsw i64 4096, %44
   %57 = sub i64 %30, %43
   %58 = tail call i64 @llvm.umin.i64(i64 %56, i64 %57)
@@ -7410,7 +7402,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %110 = phi i64 [ %197, %195 ], [ 0, %103 ]
   %111 = phi i64 [ %196, %195 ], [ %92, %103 ]
   %112 = phi i64 [ %187, %195 ], [ %93, %103 ]
-  %113 = getelementptr ptr, ptr %78, i64 %110
+  %113 = getelementptr [8 x i8], ptr %78, i64 %110
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %116 = load i64, ptr %115, align 8
@@ -7440,7 +7432,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %133 = add i64 %132, -1
   %134 = and i64 %133, %120
   %135 = lshr i64 %134, 12
-  %136 = getelementptr %struct.page, ptr %114, i64 %135
+  %136 = getelementptr [64 x i8], ptr %114, i64 %135
   %137 = load volatile i64, ptr %114, align 8
   %138 = and i64 %137, 64
   %139 = icmp eq i64 %138, 0
@@ -7483,7 +7475,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %165 = add i32 %164, -1
   %166 = and i32 %165, %154
   %167 = zext i32 %166 to i64
-  %168 = getelementptr %struct.pipe_buffer, ptr %163, i64 %167
+  %168 = getelementptr [40 x i8], ptr %163, i64 %167
   %169 = sub nuw nsw i64 4096, %157
   %170 = sub i64 %148, %156
   %171 = call i64 @llvm.umin.i64(i64 %169, i64 %170)
@@ -7670,7 +7662,7 @@ define dso_local i64 @mapping_seek_hole_data(ptr noundef %0, i64 noundef %1, i64
   %53 = lshr i64 %50, %52
   %54 = and i64 %53, 63
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %56 = getelementptr ptr, ptr %55, i64 %54
+  %56 = getelementptr [8 x i8], ptr %55, i64 %54
   %57 = load volatile ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 3
@@ -7682,7 +7674,7 @@ define dso_local i64 @mapping_seek_hole_data(ptr noundef %0, i64 noundef %1, i64
 63:                                               ; preds = %49
   %64 = lshr i64 %58, 2
   %65 = and i64 %64, 255
-  %66 = getelementptr ptr, ptr %55, i64 %65
+  %66 = getelementptr [8 x i8], ptr %55, i64 %65
   br label %67
 
 67:                                               ; preds = %63, %46
@@ -7869,7 +7861,7 @@ define dso_local i64 @mapping_seek_hole_data(ptr noundef %0, i64 noundef %1, i64
 177:                                              ; preds = %.loopexit
   %178 = mul i64 %25, 7046029254386353131
   %179 = lshr i64 %178, 56
-  %180 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %179
+  %180 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %179
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %24, ptr %5, align 8
   store i32 0, ptr %19, align 8
@@ -8311,7 +8303,7 @@ define dso_local range(i32 1, 1032) i32 @filemap_fault(ptr noundef captures(none
   %198 = ptrtoint ptr %114 to i64
   %199 = mul i64 %198, 7046029254386353131
   %200 = lshr i64 %199, 56
-  %201 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %200
+  %201 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %200
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %114, ptr %2, align 8
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8360,7 +8352,7 @@ folio_unlock.exit:                                ; preds = %193, %212
   %223 = ptrtoint ptr %114 to i64
   %224 = mul i64 %223, 7046029254386353131
   %225 = lshr i64 %224, 56
-  %226 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %225
+  %226 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %225
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %114, ptr %3, align 8
   %227 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8430,7 +8422,7 @@ folio_unlock.exit:                                ; preds = %193, %212
 
 262:                                              ; preds = %256, %252
   %263 = phi i64 [ %261, %256 ], [ 0, %252 ]
-  %264 = getelementptr %struct.page, ptr %114, i64 %263
+  %264 = getelementptr [64 x i8], ptr %114, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %264, ptr %265, align 8
   %266 = or i32 %115, 512
@@ -8854,7 +8846,7 @@ define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 no
   %58 = ptrtoint ptr %19 to i64
   %59 = mul i64 %58, 7046029254386353131
   %60 = lshr i64 %59, 56
-  %61 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %60
+  %61 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %60
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %19, ptr %7, align 8
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -8903,7 +8895,7 @@ define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 no
   %87 = shl i64 %86, 12
   %88 = add i64 %87, %83
   %89 = load ptr, ptr %47, align 8
-  %90 = getelementptr %struct.pte_t, ptr %89, i64 %86
+  %90 = getelementptr [8 x i8], ptr %89, i64 %86
   store ptr %90, ptr %47, align 8
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %92 = load i64, ptr %91, align 16
@@ -8952,7 +8944,7 @@ define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 no
   %120 = trunc i64 %119 to i32
   %121 = add i32 %120, 1
   %122 = sub i64 %85, %92
-  %123 = getelementptr %struct.page, ptr %81, i64 %122
+  %123 = getelementptr [64 x i8], ptr %81, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %81, i64 52
   %125 = trunc i64 %118 to i32
   %126 = trunc i64 %85 to i32
@@ -8970,7 +8962,7 @@ define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 no
   %129 = phi i32 [ %146, %144 ], [ %.ph, %.outer ]
   %130 = phi i32 [ %145, %144 ], [ 0, %.outer ]
   %131 = zext i32 %130 to i64
-  %132 = getelementptr %struct.pte_t, ptr %127, i64 %131
+  %132 = getelementptr [8 x i8], ptr %127, i64 %131
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %133 = load volatile i64, ptr %132, align 8
   store volatile i64 %133, ptr %5, align 8
@@ -9005,8 +8997,8 @@ define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 no
   %149 = phi i32 [ %.ph7, %136 ], [ %143, %138 ]
   %150 = add i32 %130, 1
   %151 = zext i32 %150 to i64
-  %152 = getelementptr %struct.page, ptr %.ph8, i64 %151
-  %153 = getelementptr %struct.pte_t, ptr %148, i64 %151
+  %152 = getelementptr [64 x i8], ptr %.ph8, i64 %151
+  %153 = getelementptr [8 x i8], ptr %148, i64 %151
   store ptr %153, ptr %47, align 8
   %154 = shl nuw nsw i64 %151, 12
   %155 = add i64 %154, %.ph9
@@ -9051,7 +9043,7 @@ define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 no
   %177 = ptrtoint ptr %81 to i64
   %178 = mul i64 %177, 7046029254386353131
   %179 = lshr i64 %178, 56
-  %180 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %179
+  %180 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %179
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %81, ptr %4, align 8
   store i32 0, ptr %51, align 8
@@ -9151,7 +9143,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
 
 29:                                               ; preds = %24
   %30 = zext i8 %25 to i64
-  %31 = getelementptr ptr, ptr %23, i64 %30
+  %31 = getelementptr [8 x i8], ptr %23, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 3
@@ -9243,7 +9235,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
   %82 = lshr i64 %79, %81
   %83 = and i64 %82, 63
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %85 = getelementptr ptr, ptr %84, i64 %83
+  %85 = getelementptr [8 x i8], ptr %84, i64 %83
   %86 = load volatile ptr, ptr %85, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = and i64 %87, 3
@@ -9255,7 +9247,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
 92:                                               ; preds = %78
   %93 = lshr i64 %87, 2
   %94 = and i64 %93, 255
-  %95 = getelementptr ptr, ptr %84, i64 %94
+  %95 = getelementptr [8 x i8], ptr %84, i64 %94
   br label %96
 
 96:                                               ; preds = %92, %75
@@ -9321,7 +9313,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
 134:                                              ; preds = %130
   %135 = mul i64 %50, 7046029254386353131
   %136 = lshr i64 %135, 56
-  %137 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %136
+  %137 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %136
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %47, ptr %4, align 8
   store i32 0, ptr %43, align 8
@@ -9392,7 +9384,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
 
 173:                                              ; preds = %168
   %174 = zext i8 %169 to i64
-  %175 = getelementptr ptr, ptr %167, i64 %174
+  %175 = getelementptr [8 x i8], ptr %167, i64 %174
   %176 = load volatile ptr, ptr %175, align 8
   %177 = ptrtoint ptr %176 to i64
   %178 = and i64 %177, 3
@@ -9544,7 +9536,7 @@ define dso_local noundef range(i32 256, 513) i32 @filemap_page_mkwrite(ptr nound
 77:                                               ; preds = %73
   %78 = mul i64 %37, 7046029254386353131
   %79 = lshr i64 %78, 56
-  %80 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %79
+  %80 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %79
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %38, ptr %2, align 8
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9838,7 +9830,7 @@ filemap_add_folio.exit.thread:                    ; preds = %37, %41
   %73 = ptrtoint ptr %24 to i64
   %74 = mul i64 %73, 7046029254386353131
   %75 = lshr i64 %74, 56
-  %76 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %75
+  %76 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %75
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %24, ptr %8, align 8
   store i32 0, ptr %17, align 8
@@ -9892,7 +9884,7 @@ filemap_add_folio.exit.thread:                    ; preds = %37, %41
   %101 = ptrtoint ptr %24 to i64
   %102 = mul i64 %101, 7046029254386353131
   %103 = lshr i64 %102, 56
-  %104 = getelementptr %struct.wait_queue_head, ptr @folio_wait_table, i64 %103
+  %104 = getelementptr [24 x i8], ptr @folio_wait_table, i64 %103
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %24, ptr %7, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -10022,7 +10014,7 @@ define dso_local ptr @read_cache_page(ptr noundef %0, i64 noundef %1, ptr nounde
 
 19:                                               ; preds = %13, %9
   %20 = phi i64 [ %18, %13 ], [ 0, %9 ]
-  %21 = getelementptr %struct.page, ptr %7, i64 %20
+  %21 = getelementptr [64 x i8], ptr %7, i64 %20
   br label %22
 
 22:                                               ; preds = %19, %4
@@ -10052,7 +10044,7 @@ define dso_local ptr @read_cache_page_gfp(ptr noundef %0, i64 noundef %1, i32 no
 
 16:                                               ; preds = %10, %6
   %17 = phi i64 [ %15, %10 ], [ 0, %6 ]
-  %18 = getelementptr %struct.page, ptr %4, i64 %17
+  %18 = getelementptr [64 x i8], ptr %4, i64 %17
   br label %19
 
 19:                                               ; preds = %16, %3
@@ -10769,7 +10761,7 @@ define internal fastcc range(i64 -95, 1) i64 @__se_sys_cachestat(i64 noundef %0,
 
 146:                                              ; preds = %140
   %147 = zext i8 %141 to i64
-  %148 = getelementptr ptr, ptr %139, i64 %147
+  %148 = getelementptr [8 x i8], ptr %139, i64 %147
   %149 = load volatile ptr, ptr %148, align 8
   %150 = ptrtoint ptr %149 to i64
   %151 = and i64 %150, 3
@@ -11214,7 +11206,7 @@ define internal fastcc void @filemap_get_read_batch(ptr noundef %0, i64 noundef 
   %51 = lshr i64 %48, %50
   %52 = and i64 %51, 63
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %54 = getelementptr ptr, ptr %53, i64 %52
+  %54 = getelementptr [8 x i8], ptr %53, i64 %52
   %55 = load volatile ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 3
@@ -11226,7 +11218,7 @@ define internal fastcc void @filemap_get_read_batch(ptr noundef %0, i64 noundef 
 61:                                               ; preds = %47
   %62 = lshr i64 %56, 2
   %63 = and i64 %62, 255
-  %64 = getelementptr ptr, ptr %53, i64 %63
+  %64 = getelementptr [8 x i8], ptr %53, i64 %63
   br label %65
 
 65:                                               ; preds = %61, %44
@@ -11244,7 +11236,7 @@ define internal fastcc void @filemap_get_read_batch(ptr noundef %0, i64 noundef 
   %73 = add i8 %72, 1
   store i8 %73, ptr %3, align 8
   %74 = zext i8 %72 to i64
-  %75 = getelementptr ptr, ptr %13, i64 %74
+  %75 = getelementptr [8 x i8], ptr %13, i64 %74
   store ptr %15, ptr %75, align 8
   %76 = icmp eq i8 %73, 15
   br i1 %76, label %.loopexit, label %77
@@ -11348,7 +11340,7 @@ define internal fastcc void @filemap_get_read_batch(ptr noundef %0, i64 noundef 
   store i8 %136, ptr %9, align 2
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %138 = zext i8 %136 to i64
-  %139 = getelementptr ptr, ptr %137, i64 %138
+  %139 = getelementptr [8 x i8], ptr %137, i64 %138
   %140 = load volatile ptr, ptr %139, align 8
   br label %141
 

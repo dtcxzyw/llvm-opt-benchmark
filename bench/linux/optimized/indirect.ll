@@ -231,7 +231,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 108:                                              ; preds = %101
   %109 = zext nneg i32 %.ph33 to i64
-  %110 = getelementptr %struct.Indirect, ptr %10, i64 %109
+  %110 = getelementptr [24 x i8], ptr %10, i64 %109
   %111 = getelementptr i8, ptr %110, i64 -24
   %112 = getelementptr i8, ptr %110, i64 -16
   %113 = load i32, ptr %112, align 8
@@ -249,7 +249,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 121:                                              ; preds = %116
   %122 = load ptr, ptr %111, align 8
   %123 = sext i32 %117 to i64
-  %124 = getelementptr i32, ptr %122, i64 %123
+  %124 = getelementptr [4 x i8], ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4
   %126 = zext i32 %125 to i64
   %127 = add nsw i64 %123, %114
@@ -283,7 +283,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 147:                                              ; preds = %147, %145
   %148 = phi i64 [ %146, %145 ], [ %156, %147 ]
   %149 = phi i32 [ 0, %145 ], [ %155, %147 ]
-  %150 = getelementptr i32, ptr %9, i64 %148
+  %150 = getelementptr [4 x i8], ptr %9, i64 %148
   %151 = load i32, ptr %150, align 4
   %152 = xor i32 %151, -1
   %153 = add i32 %149, 1
@@ -421,7 +421,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %230, ptr %231, align 8
   %232 = zext nneg i32 %.ph33 to i64
-  %233 = getelementptr %struct.Indirect, ptr %10, i64 %232
+  %233 = getelementptr [24 x i8], ptr %10, i64 %232
   %234 = ptrtoint ptr %233 to i64
   %235 = ptrtoint ptr %106 to i64
   %236 = sub i64 %234, %235
@@ -455,7 +455,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 256:                                              ; preds = %261, %246
   %257 = phi i64 [ %262, %261 ], [ 1, %246 ]
-  %258 = getelementptr i32, ptr %247, i64 %257
+  %258 = getelementptr [4 x i8], ptr %247, i64 %257
   %259 = load i32, ptr %258, align 4
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %263
@@ -488,7 +488,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 274:                                              ; preds = %266
   %275 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %276 = zext nneg i32 %239 to i64
-  %277 = getelementptr i64, ptr %5, i64 %276
+  %277 = getelementptr [8 x i8], ptr %5, i64 %276
   br label %278
 
 278:                                              ; preds = %375, %274
@@ -509,12 +509,12 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %288 = and i32 %287, 1024
   %289 = call i64 @ext4_new_meta_blocks(ptr noundef %0, ptr noundef %285, i64 noundef %286, i32 noundef %288, ptr noundef null, ptr noundef nonnull %6) #12
   %290 = sext i32 %280 to i64
-  %291 = getelementptr i64, ptr %5, i64 %290
+  %291 = getelementptr [8 x i8], ptr %5, i64 %290
   store i64 %289, ptr %291, align 8
   store i64 %289, ptr %231, align 8
   %292 = add i32 %280, 1
   %293 = sext i32 %292 to i64
-  %.split = getelementptr %struct.Indirect, ptr %106, i64 %293
+  %.split = getelementptr [24 x i8], ptr %106, i64 %293
   %294 = getelementptr i8, ptr %.split, i64 16
   store ptr null, ptr %294, align 8
   br label %295
@@ -530,10 +530,10 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 300:                                              ; preds = %295
   %301 = sext i32 %280 to i64
-  %302 = getelementptr i64, ptr %5, i64 %301
+  %302 = getelementptr [8 x i8], ptr %5, i64 %301
   %303 = load i64, ptr %302, align 8
   %304 = trunc i64 %303 to i32
-  %305 = getelementptr %struct.Indirect, ptr %106, i64 %301
+  %305 = getelementptr [24 x i8], ptr %106, i64 %301
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i32 %304, ptr %306, align 8
   %307 = icmp eq i32 %280, 0
@@ -545,7 +545,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %311 = load ptr, ptr %310, align 8
   %312 = add i32 %280, -1
   %313 = sext i32 %312 to i64
-  %314 = getelementptr i64, ptr %5, i64 %313
+  %314 = getelementptr [8 x i8], ptr %5, i64 %313
   %315 = load i64, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %311, i64 200
   %317 = load ptr, ptr %316, align 8
@@ -602,10 +602,10 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %350 = load i64, ptr %349, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %348, i8 0, i64 %350, i1 false)
   %351 = load ptr, ptr %347, align 8
-  %352 = getelementptr i32, ptr %272, i64 %301
+  %352 = getelementptr [4 x i8], ptr %272, i64 %301
   %353 = load i32, ptr %352, align 4
   %354 = zext i32 %353 to i64
-  %355 = getelementptr i32, ptr %351, i64 %354
+  %355 = getelementptr [4 x i8], ptr %351, i64 %354
   store ptr %355, ptr %305, align 8
   %356 = load i32, ptr %268, align 8
   %357 = select i1 %281, i32 %356, i32 %279
@@ -656,7 +656,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 381:                                              ; preds = %.loopexit43
   %382 = load ptr, ptr %7, align 8
   %383 = zext nneg i32 %239 to i64
-  %384 = getelementptr i64, ptr %5, i64 %383
+  %384 = getelementptr [8 x i8], ptr %5, i64 %383
   %385 = load i64, ptr %384, align 8
   %386 = load i32, ptr %268, align 8
   %387 = zext i32 %386 to i64
@@ -679,10 +679,10 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %397 = shl i64 %395, 32
   %398 = add i64 %397, 4294967296
   %399 = ashr exact i64 %398, 32
-  %.split31 = getelementptr %struct.Indirect, ptr %106, i64 %399
+  %.split31 = getelementptr [24 x i8], ptr %106, i64 %399
   %400 = getelementptr i8, ptr %.split31, i64 16
   %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr i64, ptr %5, i64 %395
+  %402 = getelementptr [8 x i8], ptr %5, i64 %395
   %403 = load i64, ptr %402, align 8
   %404 = icmp eq ptr %401, null
   %405 = select i1 %404, i32 0, i32 2
@@ -731,7 +731,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %420 = load i32, ptr %419, align 8
   %421 = or i32 %420, 16
   store i32 %421, ptr %419, align 8
-  %422 = getelementptr %struct.Indirect, ptr %10, i64 %.pre-phi
+  %422 = getelementptr [24 x i8], ptr %10, i64 %.pre-phi
   %423 = getelementptr i8, ptr %422, i64 -16
   %424 = load i32, ptr %423, align 8
   %425 = zext i32 %424 to i64
@@ -834,7 +834,7 @@ define internal fastcc noundef ptr @ext4_get_branch(ptr noundef %0, i32 noundef 
   %8 = getelementptr i8, ptr %0, i64 -296
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr i32, ptr %8, i64 %10
+  %11 = getelementptr [4 x i8], ptr %8, i64 %10
   store ptr %11, ptr %3, align 8
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -942,7 +942,7 @@ define internal fastcc noundef ptr @ext4_get_branch(ptr noundef %0, i32 noundef 
   %87 = getelementptr i8, ptr %21, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = zext i32 %88 to i64
-  %90 = getelementptr i32, ptr %86, i64 %89
+  %90 = getelementptr [4 x i8], ptr %86, i64 %89
   store ptr %90, ptr %84, align 8
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr i8, ptr %22, i64 32
@@ -1000,7 +1000,7 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
   %24 = add i32 %.in, 1
   %25 = load ptr, ptr %2, align 8
   %26 = sext i32 %23 to i64
-  %27 = getelementptr i32, ptr %25, i64 %26
+  %27 = getelementptr [4 x i8], ptr %25, i64 %26
   store i32 %24, ptr %27, align 4
   %28 = add nuw i32 %23, 1
   %29 = load i32, ptr %20, align 8
@@ -1032,7 +1032,7 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
   %43 = phi i32 [ %48, %.preheader ], [ 1, %40 ]
   %44 = load ptr, ptr %1, align 8
   %45 = sext i32 %43 to i64
-  %.split = getelementptr %struct.Indirect, ptr %2, i64 %45
+  %.split = getelementptr [24 x i8], ptr %2, i64 %45
   %46 = getelementptr i8, ptr %.split, i64 16
   %47 = load ptr, ptr %46, align 8
   tail call void @ext4_free_blocks(ptr noundef %0, ptr noundef %44, ptr noundef %47, i64 noundef 0, i64 noundef 1, i32 noundef 2) #12
@@ -1043,7 +1043,7 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
 .loopexit:                                        ; preds = %.preheader, %40
   %50 = load ptr, ptr %1, align 8
   %51 = sext i32 %3 to i64
-  %.split5 = getelementptr %struct.Indirect, ptr %2, i64 %51
+  %.split5 = getelementptr [24 x i8], ptr %2, i64 %51
   %52 = getelementptr i8, ptr %.split5, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
@@ -1240,7 +1240,7 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
 
 80:                                               ; preds = %74
   %81 = zext nneg i32 %75 to i64
-  %82 = getelementptr i32, ptr %6, i64 %81
+  %82 = getelementptr [4 x i8], ptr %6, i64 %81
   %83 = getelementptr i8, ptr %1, i64 -248
   %84 = icmp ult ptr %82, %83
   br i1 %84, label %.preheader, label %.thread
@@ -1317,7 +1317,7 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
   %126 = load ptr, ptr %112, align 8
   %127 = getelementptr i8, ptr %126, i64 4
   %128 = zext nneg i32 %76 to i64
-  %129 = getelementptr %struct.Indirect, ptr %4, i64 %128
+  %129 = getelementptr [24 x i8], ptr %4, i64 %128
   %130 = getelementptr i8, ptr %129, i64 -24
   %131 = ptrtoint ptr %130 to i64
   %132 = ptrtoint ptr %112 to i64
@@ -1336,7 +1336,7 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
   %140 = shl i64 %10, 30
   %141 = ashr i64 %140, 32
   %142 = zext nneg i32 %76 to i64
-  %143 = getelementptr %struct.Indirect, ptr %139, i64 %142
+  %143 = getelementptr [24 x i8], ptr %139, i64 %142
   %144 = ptrtoint ptr %143 to i64
   br label %145
 
@@ -1348,7 +1348,7 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
   %150 = getelementptr i8, ptr %149, i64 4
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr i32, ptr %152, i64 %141
+  %153 = getelementptr [4 x i8], ptr %152, i64 %141
   %154 = ptrtoint ptr %146 to i64
   %155 = sub i64 %144, %154
   %156 = sdiv exact i64 %155, 24
@@ -1448,7 +1448,7 @@ define internal fastcc ptr @ext4_find_shared(ptr noundef %0, i32 noundef range(i
 .preheader17:                                     ; preds = %5, %14
   %9 = phi i32 [ %15, %14 ], [ %1, %5 ]
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr i32, ptr %7, i64 %10
+  %11 = getelementptr [4 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.loopexit18
@@ -1463,7 +1463,7 @@ define internal fastcc ptr @ext4_find_shared(ptr noundef %0, i32 noundef range(i
   %18 = call fastcc ptr @ext4_get_branch(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6)
   %19 = icmp eq ptr %18, null
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr %struct.Indirect, ptr %3, i64 %20
+  %21 = getelementptr [24 x i8], ptr %3, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = select i1 %19, ptr %22, ptr %18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1636,7 +1636,7 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
 56:                                               ; preds = %45
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr i32, ptr %58, i64 %33
+  %59 = getelementptr [4 x i8], ptr %58, i64 %33
   tail call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef %58, ptr noundef %59, i32 noundef %22)
   %60 = icmp eq ptr %47, null
   br i1 %60, label %62, label %61
@@ -2011,8 +2011,8 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 
 .thread173:                                       ; preds = %.thread172
   %121 = zext nneg i32 %28 to i64
-  %122 = getelementptr i32, ptr %11, i64 %77
-  %123 = getelementptr i32, ptr %11, i64 %121
+  %122 = getelementptr [4 x i8], ptr %11, i64 %77
+  %123 = getelementptr [4 x i8], ptr %11, i64 %121
   %124 = icmp ult ptr %122, %123
   br i1 %124, label %.preheader, label %.thread
 
@@ -2068,7 +2068,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br i1 %39, label %154, label %184
 
 154:                                              ; preds = %153
-  %155 = getelementptr i32, ptr %11, i64 %77
+  %155 = getelementptr [4 x i8], ptr %11, i64 %77
   %156 = getelementptr i8, ptr %1, i64 -248
   %157 = icmp ult ptr %155, %156
   br i1 %157, label %.preheader69, label %.thread62
@@ -2145,7 +2145,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %199 = load ptr, ptr %185, align 8
   %200 = getelementptr i8, ptr %199, i64 4
   %201 = zext nneg i32 %81 to i64
-  %202 = getelementptr %struct.Indirect, ptr %7, i64 %201
+  %202 = getelementptr [24 x i8], ptr %7, i64 %201
   %203 = getelementptr i8, ptr %202, i64 -24
   %204 = ptrtoint ptr %203 to i64
   %205 = ptrtoint ptr %185 to i64
@@ -2162,7 +2162,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 211:                                              ; preds = %209
   %212 = getelementptr i8, ptr %7, i64 -24
   %213 = zext nneg i32 %81 to i64
-  %214 = getelementptr %struct.Indirect, ptr %212, i64 %213
+  %214 = getelementptr [24 x i8], ptr %212, i64 %213
   %215 = ptrtoint ptr %214 to i64
   %216 = ashr exact i64 %34, 30
   br label %217
@@ -2206,7 +2206,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 242:                                              ; preds = %238, %236
   %243 = getelementptr i8, ptr %8, i64 -24
   %244 = zext nneg i32 %118 to i64
-  %245 = getelementptr %struct.Indirect, ptr %243, i64 %244
+  %245 = getelementptr [24 x i8], ptr %243, i64 %244
   %246 = ptrtoint ptr %245 to i64
   br label %247
 
@@ -2255,9 +2255,9 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 .preheader72:                                     ; preds = %265, %277
   %280 = phi i32 [ %278, %277 ], [ 0, %265 ]
   %281 = sext i32 %280 to i64
-  %282 = getelementptr i32, ptr %5, i64 %281
+  %282 = getelementptr [4 x i8], ptr %5, i64 %281
   %283 = load i32, ptr %282, align 4
-  %284 = getelementptr i32, ptr %6, i64 %281
+  %284 = getelementptr [4 x i8], ptr %6, i64 %281
   %285 = load i32, ptr %284, align 4
   %286 = icmp eq i32 %283, %285
   br i1 %286, label %277, label %287
@@ -2269,7 +2269,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 289:                                              ; preds = %287
   %290 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %291 = zext nneg i32 %81 to i64
-  %292 = getelementptr %struct.Indirect, ptr %7, i64 %291
+  %292 = getelementptr [24 x i8], ptr %7, i64 %291
   %293 = getelementptr i8, ptr %292, i64 -24
   %294 = ptrtoint ptr %293 to i64
   %295 = sub i64 %294, %266
@@ -2286,7 +2286,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %302 = load ptr, ptr %261, align 8
   %303 = getelementptr i8, ptr %302, i64 4
   %304 = zext nneg i32 %81 to i64
-  %305 = getelementptr %struct.Indirect, ptr %7, i64 %304
+  %305 = getelementptr [24 x i8], ptr %7, i64 %304
   %306 = getelementptr i8, ptr %305, i64 -24
   %307 = ptrtoint ptr %306 to i64
   %308 = sub i64 %307, %266
@@ -2310,10 +2310,10 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %317 = getelementptr i8, ptr %7, i64 -24
   %318 = getelementptr i8, ptr %8, i64 -24
   %319 = zext nneg i32 %81 to i64
-  %320 = getelementptr %struct.Indirect, ptr %317, i64 %319
+  %320 = getelementptr [24 x i8], ptr %317, i64 %319
   %321 = ptrtoint ptr %320 to i64
   %322 = zext nneg i32 %118 to i64
-  %323 = getelementptr %struct.Indirect, ptr %318, i64 %322
+  %323 = getelementptr [24 x i8], ptr %318, i64 %322
   %324 = ptrtoint ptr %323 to i64
   %325 = icmp ugt ptr %261, %7
   %326 = icmp ugt ptr %262, %8

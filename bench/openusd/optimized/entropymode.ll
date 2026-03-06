@@ -3,29 +3,6 @@ source_filename = "bench/openusd/original/entropymode.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.RefCntBuffer = type { i32, i32, [7 x i32], i32, [7 x i32], ptr, ptr, %struct.segmentation, i32, i32, i32, i32, [8 x %struct.WarpedMotionParams], i32, i8, %struct.aom_film_grain_t, %struct.aom_codec_frame_buffer, %struct.yv12_buffer_config, i8, [4 x i32], [8 x i8], [2 x i8], %struct.frame_contexts }
-%struct.segmentation = type { i8, i8, i8, i8, [8 x [8 x i16]], [8 x i32], i32, i8 }
-%struct.WarpedMotionParams = type { [8 x i32], i16, i16, i16, i16, i8, i8 }
-%struct.aom_film_grain_t = type { i32, i32, [14 x [2 x i32]], i32, [10 x [2 x i32]], i32, [10 x [2 x i32]], i32, i32, i32, [24 x i32], [25 x i32], [25 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16 }
-%struct.aom_codec_frame_buffer = type { ptr, i64, ptr }
-%struct.yv12_buffer_config = type { %union.anon, %union.anon.0, %union.anon.2, %union.anon.4, %union.anon.6, %union.anon.8, i32, [3 x ptr], ptr, i32, ptr, i64, i32, i64, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, i32 }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { i32, i32 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i32, i32 }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { i32, i32 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr, ptr }
-%struct.frame_contexts = type { [5 x [13 x [3 x i16]]], [5 x [2 x [9 x [3 x i16]]]], [2 x [3 x [3 x i16]]], [2 x [2 x [6 x i16]]], [2 x [2 x [7 x i16]]], [2 x [2 x [8 x i16]]], [2 x [2 x [9 x i16]]], [2 x [2 x [10 x i16]]], [2 x [2 x [11 x i16]]], [2 x [2 x [12 x i16]]], [5 x [2 x [4 x [4 x i16]]]], [5 x [2 x [42 x [5 x i16]]]], [5 x [2 x [21 x [5 x i16]]]], [6 x [3 x i16]], [2 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [8 x [9 x i16]], [22 x [3 x i16]], [22 x [17 x i16]], [4 x [3 x i16]], [22 x [3 x i16]], [4 x [5 x i16]], [22 x [4 x i16]], [22 x [3 x i16]], [7 x [8 x i16]], [7 x [8 x i16]], [7 x [5 x [9 x i16]]], [7 x [5 x [9 x i16]]], [7 x [3 x [3 x i16]]], [2 x [3 x i16]], [5 x [3 x i16]], [3 x [6 x [3 x i16]]], [5 x [3 x i16]], [3 x [3 x [3 x i16]]], [3 x [3 x [3 x i16]]], [3 x [2 x [3 x i16]]], [21 x [3 x i16]], [6 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [3 x [3 x i16]], [4 x [3 x i16]], %struct.nmv_context, %struct.nmv_context, [3 x i16], %struct.segmentation_probs, [22 x [3 x i16]], [6 x i16], [4 x i16], [3 x i16], [3 x i16], [4 x [14 x i16]], [2 x [13 x [15 x i16]]], [20 x [11 x i16]], [16 x [4 x i16]], [5 x [5 x [14 x i16]]], [8 x [8 x i16]], [4 x [3 x [4 x i16]]], [5 x i16], [4 x [5 x i16]], [5 x i16], [3 x [4 x [13 x [17 x i16]]]], [4 x [4 x [17 x i16]]], [9 x i16], [6 x [17 x i16]], i32 }
-%struct.nmv_context = type { [5 x i16], [2 x %struct.nmv_component] }
-%struct.nmv_component = type { [12 x i16], [2 x [5 x i16]], [5 x i16], [3 x i16], [3 x i16], [3 x i16], [3 x i16], [10 x [3 x i16]] }
-%struct.segmentation_probs = type { [9 x i16], [3 x [3 x i16]], [3 x [9 x i16]] }
-
 @av1_get_palette_color_index_context.weights = internal unnamed_addr constant [3 x i32] [i32 2, i32 1, i32 2], align 4
 @palette_color_index_context_lookup = internal unnamed_addr constant [9 x i32] [i32 -1, i32 -1, i32 0, i32 -1, i32 -1, i32 4, i32 3, i32 2, i32 1], align 16
 @__const.av1_fast_palette_color_index_context.scores = private unnamed_addr constant [3 x i32] [i32 2, i32 2, i32 1], align 4
@@ -150,16 +127,16 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 
 41:                                               ; preds = %38, %52
   %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %52 ]
-  %42 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i32, ptr @av1_get_palette_color_index_context.weights, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @av1_get_palette_color_index_context.weights, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = zext nneg i32 %43 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %9, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, %47
   store i32 %51, ptr %49, align 4
@@ -176,7 +153,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %54 = trunc i64 %indvars.iv107 to i8
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv107
   store i8 %54, ptr %55, align 1
-  %56 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv107
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv107
   store i32 %53, ptr %56, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 8
@@ -190,7 +167,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 .preheader:                                       ; preds = %.preheader.preheader, %87
   %indvars.iv122 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next123, %87 ]
   %indvars.iv111 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next112, %87 ]
-  %58 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv122
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv122
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %59 = icmp slt i64 %indvars.iv.next123, %57
   %60 = trunc nuw nsw i64 %indvars.iv122 to i32
@@ -204,7 +181,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %indvars.iv113 = phi i64 [ %indvars.iv111, %.lr.ph.preheader ], [ %indvars.iv.next114, %.lr.ph ]
   %.08098 = phi i32 [ %61, %.lr.ph.preheader ], [ %spec.select91, %.lr.ph ]
   %.08297 = phi i32 [ %60, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %62 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv113
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv113
   %63 = load i32, ptr %62, align 4
   %64 = icmp sgt i32 %63, %.08098
   %65 = trunc nuw nsw i64 %indvars.iv113 to i32
@@ -222,7 +199,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 
 67:                                               ; preds = %._crit_edge
   %68 = sext i32 %.082.lcssa to i64
-  %69 = getelementptr inbounds i32, ptr %9, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %9, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %5, i64 %68
   %72 = load i8, ptr %71, align 1
@@ -232,16 +209,16 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 .lr.ph101:                                        ; preds = %67, %.lr.ph101
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph101 ], [ %68, %67 ]
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, -1
-  %74 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next120
+  %74 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv.next120
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv119
+  %76 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv119
   store i32 %75, ptr %76, align 4
   %77 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next120
   %78 = load i8, ptr %77, align 1
   %79 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv119
   store i8 %78, ptr %79, align 1
   %80 = zext i8 %78 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %10, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %80
   %82 = trunc nuw nsw i64 %indvars.iv119 to i32
   store i32 %82, ptr %81, align 4
   %83 = icmp sgt i64 %indvars.iv.next120, %indvars.iv122
@@ -252,7 +229,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv122
   store i8 %72, ptr %84, align 1
   %85 = zext i8 %72 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %10, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %85
   store i32 %60, ptr %86, align 4
   br label %87
 
@@ -272,7 +249,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %93 = getelementptr inbounds i8, ptr %0, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %10, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %95
   %97 = load i32, ptr %96, align 4
   store i32 %97, ptr %6, align 4
   br label %.preheader142
@@ -283,9 +260,9 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 98:                                               ; preds = %.preheader142, %98
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %98 ], [ 0, %.preheader142 ]
   %.078104 = phi i32 [ %104, %98 ], [ 0, %.preheader142 ]
-  %99 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv126
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv126
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds nuw i32, ptr @av1_fast_palette_color_index_context.hash_multipliers, i64 %indvars.iv126
+  %101 = getelementptr inbounds nuw [4 x i8], ptr @av1_fast_palette_color_index_context.hash_multipliers, i64 %indvars.iv126
   %102 = load i32, ptr %101, align 4
   %103 = mul nsw i32 %102, %100
   %104 = add nsw i32 %103, %.078104
@@ -295,7 +272,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 
 105:                                              ; preds = %98
   %106 = sext i32 %104 to i64
-  %107 = getelementptr inbounds i32, ptr @palette_color_index_context_lookup, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr @palette_color_index_context_lookup, i64 %106
   %108 = load i32, ptr %107, align 4
   ret i32 %108
 }
@@ -400,18 +377,18 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
 53:                                               ; preds = %52, %63
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %63 ]
   %.082 = phi i32 [ 0, %52 ], [ %.1, %63 ]
-  %54 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %.not75 = icmp eq i32 %55, -1
   br i1 %.not75, label %63, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %.082 to i64
-  %60 = getelementptr inbounds i32, ptr %9, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %9, i64 %59
   store i32 %58, ptr %60, align 4
-  %61 = getelementptr inbounds i32, ptr %8, i64 %59
+  %61 = getelementptr inbounds [4 x i8], ptr %8, i64 %59
   store i32 %55, ptr %61, align 4
   %62 = add nsw i32 %.082, 1
   br label %63
@@ -508,7 +485,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   %107 = phi i32 [ %105, %99 ], [ %117, %116 ]
   %indvars.iv88 = phi i64 [ 0, %99 ], [ %indvars.iv.next89, %116 ]
   %.05683 = phi i32 [ -1, %99 ], [ %.157, %116 ]
-  %108 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv88
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv88
   %109 = load i32, ptr %108, align 4
   %110 = icmp sgt i32 %109, %105
   br i1 %110, label %111, label %113
@@ -545,9 +522,9 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
 120:                                              ; preds = %.preheader, %120
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %120 ], [ 0, %.preheader ]
   %.05485 = phi i32 [ %126, %120 ], [ 0, %.preheader ]
-  %121 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv92
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv92
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds nuw i32, ptr @av1_fast_palette_color_index_context.hash_multipliers, i64 %indvars.iv92
+  %123 = getelementptr inbounds nuw [4 x i8], ptr @av1_fast_palette_color_index_context.hash_multipliers, i64 %indvars.iv92
   %124 = load i32, ptr %123, align 4
   %125 = mul nsw i32 %124, %122
   %126 = add nsw i32 %125, %.05485
@@ -557,7 +534,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
 
 127:                                              ; preds = %120
   %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds i32, ptr @palette_color_index_context_lookup, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr @palette_color_index_context_lookup, i64 %128
   %130 = load i32, ptr %129, align 4
   ret i32 %130
 }
@@ -727,14 +704,14 @@ define hidden void @av1_setup_frame_contexts(ptr noundef readonly captures(none)
 
 get_ref_frame_map_idx.exit.i:                     ; preds = %.preheader18, %get_ref_frame_buf.exit.thread
   %indvars.iv = phi i64 [ 1, %.preheader18 ], [ %indvars.iv.next, %get_ref_frame_buf.exit.thread ]
-  %11 = getelementptr i32, ptr %9, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %12, -1
   br i1 %.not.i, label %get_ref_frame_buf.exit.thread, label %get_ref_frame_buf.exit
 
 get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_idx.exit.i
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not16 = icmp eq ptr %15, null
   br i1 %.not16, label %get_ref_frame_buf.exit.thread, label %16
@@ -753,7 +730,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_i
 19:                                               ; preds = %.preheader, %19
   %indvars.iv22 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next23, %19 ]
   %20 = load ptr, ptr %10, align 16
-  %21 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %20, i64 %indvars.iv22
+  %21 = getelementptr inbounds nuw [22816 x i8], ptr %20, i64 %indvars.iv22
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1616
   %23 = load ptr, ptr %4, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %22, ptr noundef nonnull align 4 dereferenceable(21264) %23, i64 21264, i1 false)
@@ -967,14 +944,14 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
 
 get_ref_frame_map_idx.exit.i.i:                   ; preds = %get_ref_frame_buf.exit.thread.i, %.preheader18.i
   %indvars.iv.i = phi i64 [ 1, %.preheader18.i ], [ %indvars.iv.next.i, %get_ref_frame_buf.exit.thread.i ]
-  %104 = getelementptr i32, ptr %102, i64 %indvars.iv.i
+  %104 = getelementptr [4 x i8], ptr %102, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4
   %.not.i.i = icmp eq i32 %105, -1
   br i1 %.not.i.i, label %get_ref_frame_buf.exit.thread.i, label %get_ref_frame_buf.exit.i
 
 get_ref_frame_buf.exit.i:                         ; preds = %get_ref_frame_map_idx.exit.i.i
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds ptr, ptr %101, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %101, i64 %106
   %108 = load ptr, ptr %107, align 8
   %.not16.i = icmp eq ptr %108, null
   br i1 %.not16.i, label %get_ref_frame_buf.exit.thread.i, label %109
@@ -993,7 +970,7 @@ get_ref_frame_buf.exit.thread.i:                  ; preds = %109, %get_ref_frame
 112:                                              ; preds = %112, %.preheader.i
   %indvars.iv22.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next23.i, %112 ]
   %113 = load ptr, ptr %103, align 16
-  %114 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %113, i64 %indvars.iv22.i
+  %114 = getelementptr inbounds nuw [22816 x i8], ptr %113, i64 %indvars.iv22.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 1616
   %116 = load ptr, ptr %39, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %115, ptr noundef nonnull align 4 dereferenceable(21264) %116, i64 21264, i1 false)

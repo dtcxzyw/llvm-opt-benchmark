@@ -246,7 +246,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread.us70: ; preds = %32, %30
   %.026.in.i.fr = freeze i32 %.026.in.i
   %.026.i = sdiv i32 %.026.in.i.fr, 2
   %52 = sext i32 %.026.i to i64
-  %53 = getelementptr inbounds i16, ptr %2, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %2, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !23
   %55 = icmp eq i16 %54, %51
   br i1 %55, label %_ZN6icu_77L12binarySearchEPKtit.exit, label %56

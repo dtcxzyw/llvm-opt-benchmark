@@ -185,7 +185,7 @@ define internal i32 @p4_pmu_handle_irq(ptr noundef %0) #4 align 16 {
 17:                                               ; preds = %11
   %18 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !15
   %19 = sext i32 %18 to i64
-  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
+  %20 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @p4_running to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -197,7 +197,7 @@ define internal i32 @p4_pmu_handle_irq(ptr noundef %0) #4 align 16 {
   br label %89
 
 28:                                               ; preds = %11
-  %29 = getelementptr ptr, ptr %4, i64 %12
+  %29 = getelementptr [8 x i8], ptr %4, i64 %12
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 396
   %32 = load i32, ptr %31, align 4
@@ -340,7 +340,7 @@ define internal void @p4_pmu_disable_all() #4 align 16 {
 
 7:                                                ; preds = %24, %5
   %8 = phi i64 [ 0, %5 ], [ %25, %24 ]
-  %9 = getelementptr ptr, ptr %2, i64 %8
+  %9 = getelementptr [8 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %8) #13, !srcloc !14
   %12 = icmp ult i8 %11, 2
@@ -389,7 +389,7 @@ define internal void @p4_pmu_enable_all(i32 %0) #4 align 16 {
 
 8:                                                ; preds = %16, %6
   %9 = phi i64 [ 0, %6 ], [ %17, %16 ]
-  %10 = getelementptr ptr, ptr %3, i64 %9
+  %10 = getelementptr [8 x i8], ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %9) #13, !srcloc !14
   %13 = icmp ult i8 %12, 2
@@ -419,7 +419,7 @@ define internal void @p4_pmu_enable_event(ptr noundef readonly captures(none) %0
   %4 = sext i32 %3 to i64
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !28
   %6 = sext i32 %5 to i64
-  %7 = getelementptr i64, ptr @__per_cpu_offset, i64 %6
+  %7 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, ptrtoint (ptr @p4_running to i64)
   %10 = inttoptr i64 %9 to ptr
@@ -454,7 +454,7 @@ define internal i32 @p4_pmu_set_period(ptr noundef %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr i64, ptr @pmc_prev_left, i64 %4
+  %5 = getelementptr [8 x i8], ptr @pmc_prev_left, i64 %4
   %6 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5) #13, !srcloc !30
   %7 = tail call i32 @x86_perf_event_set_period(ptr noundef %0) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -659,7 +659,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   %113 = phi i64 [ 0, %._crit_edge ], [ %89, %97 ], [ %89, %95 ]
   %114 = lshr i64 %112, 32
   %115 = trunc nuw i64 %114 to i32
-  %.split = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %113
+  %.split = getelementptr [28 x i8], ptr @p4_event_bind_map, i64 %113
   %116 = getelementptr i8, ptr %.split, i64 12
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 33553920
@@ -681,7 +681,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   %129 = lshr i64 %112, 57
   %130 = and i64 %129, 63
   %131 = icmp samesign ugt i64 %130, 45
-  %132 = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %130
+  %132 = getelementptr [28 x i8], ptr @p4_event_bind_map, i64 %130
   %133 = icmp eq ptr %132, null
   %134 = or i1 %131, %133
   br i1 %134, label %.thread12, label %135
@@ -739,7 +739,7 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
 12:                                               ; preds = %203, %8
   %13 = phi i64 [ 0, %8 ], [ %206, %203 ]
   %14 = phi i32 [ %1, %8 ], [ %207, %203 ]
-  %15 = getelementptr ptr, ptr %9, i64 %13
+  %15 = getelementptr [8 x i8], ptr %9, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 360
   %18 = load i32, ptr @smp_num_siblings, align 4
@@ -776,10 +776,10 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
   %37 = lshr i64 %35, 57
   %38 = and i64 %37, 63
   %39 = icmp samesign ult i64 %38, 46
-  %40 = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %38
+  %40 = getelementptr [28 x i8], ptr @p4_event_bind_map, i64 %38
   %41 = select i1 %39, ptr %40, ptr null
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %43 = getelementptr i32, ptr %42, i64 %32
+  %43 = getelementptr [4 x i8], ptr %42, i64 %32
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, -928
   %46 = icmp ugt i32 %45, 65
@@ -787,7 +787,7 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
 
 47:                                               ; preds = %34
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr i32, ptr @p4_escr_table, i64 %48
+  %49 = getelementptr [4 x i8], ptr @p4_escr_table, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
   %52 = icmp ne i32 %50, %44
@@ -1043,7 +1043,7 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
 
 200:                                              ; preds = %199, %80
   %201 = phi i32 [ %58, %80 ], [ %111, %199 ]
-  %202 = getelementptr i32, ptr %2, i64 %13
+  %202 = getelementptr [4 x i8], ptr %2, i64 %13
   store i32 %201, ptr %202, align 4
   br label %203
 
@@ -1072,12 +1072,12 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define internal i64 @p4_pmu_event_map(i32 noundef %0) #6 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @p4_general_events, i64 %2
+  %3 = getelementptr [8 x i8], ptr @p4_general_events, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 57
   %6 = and i64 %5, 63
   %7 = icmp samesign ult i64 %6, 46
-  %8 = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %6
+  %8 = getelementptr [28 x i8], ptr @p4_event_bind_map, i64 %6
   %9 = select i1 %7, ptr %8, ptr null
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %10, 13
@@ -1121,9 +1121,9 @@ define internal fastcc void @__p4_pmu_enable_event(ptr noundef readonly captures
   %4 = lshr i64 %3, 63
   %5 = lshr i64 %3, 57
   %6 = and i64 %5, 63
-  %7 = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %6
+  %7 = getelementptr [28 x i8], ptr @p4_event_bind_map, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = getelementptr i32, ptr %8, i64 %4
+  %9 = getelementptr [4 x i8], ptr %8, i64 %4
   %10 = load i32, ptr %9, align 4
   %11 = and i64 %3, 1073741824
   %12 = icmp eq i64 %11, 0
@@ -1161,7 +1161,7 @@ define internal fastcc void @__p4_pmu_enable_event(ptr noundef readonly captures
   br i1 %29, label %42, label %30
 
 30:                                               ; preds = %19
-  %31 = getelementptr %struct.p4_pebs_bind, ptr @p4_pebs_bind_map, i64 %28
+  %31 = getelementptr [8 x i8], ptr @p4_pebs_bind_map, i64 %28
   %32 = load i32, ptr %31, align 8
   %33 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1009, i32 %32, i32 0) #13, !srcloc !8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #13

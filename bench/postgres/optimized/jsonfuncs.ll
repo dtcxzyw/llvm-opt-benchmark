@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.JsValue = type { i8, %union.anon.6 }
 %union.anon.6 = type { %struct.anon.7 }
 %struct.anon.7 = type { ptr, i32, i32 }
-%struct.NullableDatum = type { i64, i8 }
 %struct.ErrorSaveContext = type { i32, i8, i8, ptr }
 %struct.PopulateArrayState = type { ptr, ptr, ptr, ptr, i32 }
 %struct.JsonSemAction = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -22,13 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.ColumnIOData = type { i32, i32, i32, %struct.ScalarIOData, %union.anon.8 }
-%struct.ScalarIOData = type { i32, %struct.FmgrInfo }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.anon.8 = type { %struct.CompositeIOData }
-%struct.CompositeIOData = type { ptr, ptr, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [27 x i8] c"cannot call %s on a scalar\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"jsonb_object_keys\00", align 1
@@ -387,7 +379,7 @@ define dso_local i64 @jsonb_object_keys(ptr noundef %0) local_unnamed_addr #0 {
   %59 = add i32 %58, 1
   store i32 %59, ptr %35, align 4
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds ptr, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   store ptr %50, ptr %61, align 8
   br label %.backedge
 
@@ -416,7 +408,7 @@ define dso_local i64 @jsonb_object_keys(ptr noundef %0) local_unnamed_addr #0 {
   %76 = add nsw i32 %69, 1
   store i32 %76, ptr %68, align 8
   %77 = sext i32 %69 to i64
-  %78 = getelementptr inbounds ptr, ptr %75, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %75, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = load i64, ptr %65, align 8
   %81 = add i64 %80, 1
@@ -675,7 +667,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   %68 = add nsw i32 %61, 1
   store i32 %68, ptr %60, align 8
   %69 = sext i32 %61 to i64
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = load i64, ptr %57, align 8
   %73 = add i64 %72, 1
@@ -778,7 +770,7 @@ define internal noundef i32 @okeys_object_field_start(ptr noundef captures(none)
   %24 = add i32 %23, 1
   store i32 %24, ptr %8, align 4
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   store ptr %20, ptr %26, align 8
   br label %27
 
@@ -1468,11 +1460,11 @@ define internal fastcc i64 @get_path_all(ptr noundef captures(none) %0, i1 nound
 .lr.ph:                                           ; preds = %18, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %18 ]
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = inttoptr i64 %31 to ptr
   %33 = call ptr @text_to_cstring(ptr noundef %32) #14
-  %34 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store ptr %33, ptr %34, align 8
   %35 = load i8, ptr %33, align 1
   %.not34 = icmp eq i8 %35, 0
@@ -1502,13 +1494,13 @@ define internal fastcc i64 @get_path_all(ptr noundef captures(none) %0, i1 nound
 
 47:                                               ; preds = %45, %36, %43
   %.sink = phi i32 [ -2147483648, %36 ], [ %spec.select, %45 ], [ -2147483648, %43 ]
-  %48 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 %.sink, ptr %48, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 49:                                               ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 -2147483648, ptr %50, align 4
   br label %51
 
@@ -1700,7 +1692,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   br i1 %.181115, label %32, label %61
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8
   %35 = inttoptr i64 %34 to ptr
   %36 = call ptr @pg_detoast_datum_packed(ptr noundef %35) #14
@@ -1746,7 +1738,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   br i1 %.186114, label %62, label %91
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8
   %65 = inttoptr i64 %64 to ptr
   %66 = call ptr @text_to_cstring(ptr noundef %65) #14
@@ -1993,7 +1985,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   br i1 %51, label %71, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i64, ptr %1, i64 %20
+  %53 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %54 to ptr
   %56 = call ptr @text_to_cstring(ptr noundef %55) #14
@@ -2269,7 +2261,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   br i1 %165, label %171, label %166
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds i64, ptr %1, i64 %20
+  %167 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %168 = load i64, ptr %167, align 8
   %169 = inttoptr i64 %168 to ptr
   %170 = call ptr @pg_detoast_datum_packed(ptr noundef %169) #14
@@ -3385,7 +3377,7 @@ define internal fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef %
   %.056 = phi ptr [ null, %40 ], [ null, %37 ], [ %29, %32 ], [ %29, %25 ], [ null, %20 ], [ null, %.thread70 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = zext i1 %3 to i64
-  %44 = getelementptr inbounds nuw %struct.NullableDatum, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8, !range !4, !noundef !5
   %47 = trunc nuw i8 %46 to i1
@@ -4037,7 +4029,7 @@ populate_array_json.exit:                         ; preds = %182
 
 .lr.ph:                                           ; preds = %194, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %194 ]
-  %201 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %indvars.iv
   store i32 1, ptr %201, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %202 = load i32, ptr %151, align 8
@@ -4234,7 +4226,7 @@ define internal fastcc void @populate_recordset_worker(ptr noundef %0, ptr nound
   %.078 = phi ptr [ null, %62 ], [ null, %59 ], [ %51, %54 ], [ %51, %47 ], [ null, %42 ], [ null, %.thread96 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = zext i1 %3 to i64
-  %66 = getelementptr inbounds nuw %struct.NullableDatum, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i8, ptr %67, align 8, !range !4, !noundef !5
   %69 = trunc nuw i8 %68 to i1
@@ -5436,7 +5428,7 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
   br i1 %59, label %91, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8
   %63 = inttoptr i64 %62 to ptr
   %64 = load i8, ptr %63, align 1
@@ -7427,11 +7419,11 @@ define internal noundef i32 @get_array_start(ptr noundef captures(none) %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %11, i64 %12
   store i32 -1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %12
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %12
   %17 = load i32, ptr %16, align 4
   %or.cond = icmp ult i32 %17, -2147483647
   br i1 %or.cond, label %38, label %18
@@ -7450,7 +7442,7 @@ define internal noundef i32 @get_array_start(ptr noundef captures(none) %0) #0 {
 
 23:                                               ; preds = %21, %18
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %12
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %12
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 0, %26
   %28 = load i32, ptr %2, align 4
@@ -7541,7 +7533,7 @@ define internal noundef i32 @get_object_field_start(ptr noundef captures(none) %
   br i1 %.not27, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %22 = load ptr, ptr %21, align 8
   %.not28 = icmp eq ptr %22, null
   br i1 %.not28, label %.critedge, label %23
@@ -7618,7 +7610,7 @@ define internal noundef i32 @get_object_field_end(ptr noundef captures(none) %0,
   br i1 %.not31, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %22 = load ptr, ptr %21, align 8
   %.not32 = icmp eq ptr %22, null
   br i1 %.not32, label %.critedge, label %23
@@ -7689,7 +7681,7 @@ define internal noundef i32 @get_array_element_start(ptr noundef captures(none) 
   %10 = load ptr, ptr %9, align 8
   %11 = add i32 %5, -1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %10, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -7720,9 +7712,9 @@ define internal noundef i32 @get_array_element_start(ptr noundef captures(none) 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %22
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %22
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i32, ptr %28, i64 %22
+  %34 = getelementptr inbounds [4 x i8], ptr %28, i64 %22
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %33, %35
   br i1 %36, label %37, label %.critedge
@@ -7797,9 +7789,9 @@ define internal noundef i32 @get_array_element_end(ptr noundef captures(none) %0
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 %12
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %12
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i32, ptr %18, i64 %12
+  %24 = getelementptr inbounds [4 x i8], ptr %18, i64 %12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %23, %25
   br i1 %26, label %27, label %.critedge
@@ -8700,7 +8692,7 @@ populate_array_assign_ndims.exit.thread.thread:   ; preds = %26
 41:                                               ; preds = %41, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %41 ]
   %42 = load ptr, ptr %38, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   store i32 -1, ptr %43, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %35
@@ -8771,7 +8763,7 @@ populate_array_element.exit.thread:               ; preds = %57, %68, %71
   %81 = load ptr, ptr %50, align 8
   %82 = call ptr @accumArrayResult(ptr noundef %75, i64 noundef %66, i1 noundef zeroext %77, i32 noundef %80, ptr noundef %81) #14
   %83 = load ptr, ptr %51, align 8
-  %84 = getelementptr inbounds i32, ptr %83, i64 %53
+  %84 = getelementptr inbounds [4 x i8], ptr %83, i64 %53
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4
@@ -8840,7 +8832,7 @@ define internal range(i32 0, 24) i32 @populate_array_object_start(ptr noundef re
 19:                                               ; preds = %19, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %19 ]
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   store i32 -1, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
@@ -8891,7 +8883,7 @@ define internal range(i32 0, 24) i32 @populate_array_array_end(ptr noundef reado
 20:                                               ; preds = %20, %13
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   store i32 -1, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
@@ -9051,7 +9043,7 @@ populate_array_element.exit.thread:               ; preds = %32, %47, %50
   %64 = load ptr, ptr %63, align 8
   %65 = add i32 %9, -1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %64, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %64, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -9099,7 +9091,7 @@ define internal range(i32 0, 24) i32 @populate_array_scalar(ptr noundef captures
 21:                                               ; preds = %21, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %21 ]
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
   store i32 -1, ptr %23, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
@@ -9181,7 +9173,7 @@ define internal fastcc void @populate_array_report_expected_array(ptr noundef re
 23:                                               ; preds = %21, %23
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %23 ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.71, i32 noundef %26) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9238,11 +9230,11 @@ define internal fastcc noundef zeroext i1 @populate_array_check_dimension(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i32, ptr %9, i64 %5
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %5
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %14
@@ -9271,7 +9263,7 @@ define internal fastcc noundef zeroext i1 @populate_array_check_dimension(ptr no
 
 23:                                               ; preds = %14, %13
   %24 = phi ptr [ %4, %14 ], [ %.pre, %13 ]
-  %25 = getelementptr inbounds i32, ptr %24, i64 %5
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %5
   store i32 0, ptr %25, align 4
   %26 = icmp sgt i32 %1, 0
   br i1 %26, label %27, label %34
@@ -9279,7 +9271,7 @@ define internal fastcc noundef zeroext i1 @populate_array_check_dimension(ptr no
 27:                                               ; preds = %23
   %28 = load ptr, ptr %3, align 8
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr i32, ptr %28, i64 %29
+  %30 = getelementptr [4 x i8], ptr %28, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
@@ -9451,7 +9443,7 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
   %indvars.iv = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next, %.lr.ph108 ]
-  %82 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv
   store i64 0, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv
   store i8 1, ptr %83, align 1
@@ -9495,7 +9487,7 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   %99 = shl nsw i64 %98, 4
   %100 = getelementptr i8, ptr %0, i64 %99
   %101 = getelementptr i8, ptr %100, i64 24
-  %102 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %101, i64 %indvars.iv113
+  %102 = getelementptr inbounds nuw [100 x i8], ptr %101, i64 %indvars.iv113
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -9567,7 +9559,7 @@ JsObjectGetField.exit:                            ; preds = %123, %131
   br i1 %or.cond5, label %134, label %150
 
 134:                                              ; preds = %JsObjectGetField.exit
-  %135 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %95, i64 %indvars.iv113
+  %135 = getelementptr inbounds nuw [104 x i8], ptr %95, i64 %indvars.iv113
   %136 = getelementptr inbounds nuw i8, ptr %102, i64 68
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i8, ptr %102, i64 76
@@ -9578,14 +9570,14 @@ JsObjectGetField.exit:                            ; preds = %123, %131
   br i1 %142, label %146, label %143
 
 143:                                              ; preds = %134
-  %144 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv113
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv113
   %145 = load i64, ptr %144, align 8
   br label %146
 
 146:                                              ; preds = %134, %143
   %147 = phi i64 [ %145, %143 ], [ 0, %134 ]
   %148 = call fastcc i64 @populate_record_field(ptr noundef nonnull %135, i32 noundef %137, i32 noundef %139, ptr noundef nonnull %103, ptr noundef %3, i64 noundef %147, ptr noundef %8, ptr noundef nonnull %140, ptr noundef %5, i1 noundef zeroext false)
-  %149 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv113
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv113
   store i64 %148, ptr %149, align 8
   br label %150
 
@@ -10221,7 +10213,7 @@ define internal fastcc void @push_path(ptr noundef nonnull %0, i32 noundef %1, p
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8
   %25 = inttoptr i64 %24 to ptr
   %26 = call ptr @text_to_cstring(ptr noundef %25) #14
@@ -10275,7 +10267,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
   %47 = trunc nsw i64 %indvars.iv to i32
   %48 = sub i32 %47, %1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %13, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %13, i64 %49
   store i32 %.sink, ptr %50, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -10290,7 +10282,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
 .loopexit:                                        ; preds = %46, %6, %.critedge
   %51 = add i32 %10, -1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %13, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %13, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 16
   %. = select i1 %55, i32 3, i32 2
@@ -10315,7 +10307,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
   %64 = trunc nsw i64 %indvars.iv55 to i32
   %65 = sub i32 %64, %1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %13, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %13, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 17
   %.67 = select i1 %69, i32 7, i32 5

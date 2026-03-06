@@ -103,7 +103,7 @@ define noundef i32 @Map_SuperTableInsertC(ptr noundef captures(none) %0, ptr nou
   %17 = urem i32 %16, %11
   %18 = load ptr, ptr %0, align 8, !tbaa !25
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %.033 = load ptr, ptr %20, align 8, !tbaa !28
   %cond34 = icmp eq ptr %.033, null
   br i1 %cond34, label %._crit_edge, label %.lr.ph
@@ -137,7 +137,7 @@ define noundef i32 @Map_SuperTableInsertC(ptr noundef captures(none) %0, ptr nou
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %33, ptr %34, align 4, !tbaa !27
   %35 = load ptr, ptr %0, align 8, !tbaa !25
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %19
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %19
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %37, ptr %38, align 8, !tbaa !31
@@ -205,7 +205,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %8
 
 16:                                               ; preds = %.lr.ph47, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %.not36 = icmp eq ptr %18, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph
@@ -221,7 +221,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %8
   %25 = add i32 %24, %21
   %26 = urem i32 %25, %6
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %.sink58, i64 24
   store ptr %29, ptr %30, align 8, !tbaa !31
@@ -275,7 +275,7 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr noundef captures(none) %0, 
   %18 = urem i32 %17, %12
   %19 = load ptr, ptr %0, align 8, !tbaa !25
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %.03133 = load ptr, ptr %21, align 8, !tbaa !28
   %.not3234 = icmp eq ptr %.03133, null
   br i1 %.not3234, label %._crit_edge, label %.lr.ph
@@ -313,7 +313,7 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr noundef captures(none) %0, 
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %3, ptr %37, align 8, !tbaa !39
   %38 = load ptr, ptr %0, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %20
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %20
   %40 = load ptr, ptr %39, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %40, ptr %41, align 8, !tbaa !31
@@ -342,7 +342,7 @@ define ptr @Map_SuperTableLookupC(ptr noundef readonly captures(none) %0, ptr no
   %12 = urem i32 %7, %11
   %13 = load ptr, ptr %9, align 8, !tbaa !25
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %.01214 = load ptr, ptr %15, align 8, !tbaa !28
   %.not15 = icmp eq ptr %.01214, null
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -387,7 +387,7 @@ define ptr @Map_SuperTableLookup(ptr noundef readonly captures(none) %0, ptr nou
   %11 = urem i32 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !25
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %.01416 = load ptr, ptr %14, align 8, !tbaa !28
   %.not17 = icmp eq ptr %.01416, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -468,7 +468,7 @@ define void @Map_SuperTableSortSupergates(ptr noundef readonly captures(none) %0
 10:                                               ; preds = %.lr.ph55, %._crit_edge50
   %indvars.iv60 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next61, %._crit_edge50 ]
   %.03152 = phi i32 [ 0, %.lr.ph55 ], [ %.132.lcssa, %._crit_edge50 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv60
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv60
   %.03444 = load ptr, ptr %11, align 8, !tbaa !28
   %.not3745 = icmp eq ptr %.03444, null
   br i1 %.not3745, label %._crit_edge50, label %.lr.ph49
@@ -489,7 +489,7 @@ define void @Map_SuperTableSortSupergates(ptr noundef readonly captures(none) %0
   %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03343 = phi ptr [ %.03340, %.lr.ph.preheader ], [ %.033, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %14 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %.03343, ptr %14, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %.03343, i64 248
   %.033 = load ptr, ptr %15, align 8, !tbaa !43
@@ -524,7 +524,7 @@ define void @Map_SuperTableSortSupergates(ptr noundef readonly captures(none) %0
 
 19:                                               ; preds = %._crit_edge56, %25
   %indvars.iv63 = phi i64 [ 0, %._crit_edge56 ], [ %indvars.iv.next64, %25 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv63
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv63
   %21 = load ptr, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !44
@@ -580,7 +580,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr noundef readonly captures(n
   %9 = phi i32 [ %31, %._crit_edge47 ], [ %7, %2 ]
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge47 ], [ 0, %2 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv56
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv56
   %.03342 = load ptr, ptr %11, align 8, !tbaa !28
   %.not3543 = icmp eq ptr %.03342, null
   br i1 %.not3543, label %._crit_edge47, label %.lr.ph46
@@ -596,7 +596,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph46 ]
   %.03240 = phi ptr [ %.032, %.lr.ph ], [ %.03237, %.lr.ph46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %.03240, ptr %13, align 8, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %.03240, i64 248
   %.032 = load ptr, ptr %14, align 8, !tbaa !43
@@ -614,7 +614,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr noundef readonly captures(n
 17:                                               ; preds = %._crit_edge, %17
   %indvars.iv53 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next54, %17 ]
   %18 = phi ptr [ %.promoted, %._crit_edge ], [ %22, %17 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv53
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv53
   %20 = load ptr, ptr %19, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 248
   store ptr %18, ptr %21, align 8, !tbaa !34

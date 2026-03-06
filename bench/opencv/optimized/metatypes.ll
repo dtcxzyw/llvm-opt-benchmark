@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
-%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
@@ -934,7 +932,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN3ade11IDataBufferEESaIS3_EE13_M_deallocateEP
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !62
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !52
-  %49 = getelementptr inbounds nuw %"class.std::shared_ptr.3", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !53
   ret void
 }

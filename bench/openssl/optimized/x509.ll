@@ -3001,7 +3001,7 @@ parse_ext_names.exit.thread:                      ; preds = %13, %parse_ext_name
 
 44:                                               ; preds = %43
   %45 = sext i32 %.0.ph33.i to i64
-  %46 = getelementptr inbounds ptr, ptr %32, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %32, i64 %45
   store ptr %.017.ph32.i, ptr %46, align 8, !tbaa !8
   store i8 0, ptr %.01728.i, align 1, !tbaa !26
   %47 = add nsw i32 %.0.ph33.i, 1
@@ -3041,7 +3041,7 @@ parse_ext_names.exit.thread:                      ; preds = %13, %parse_ext_name
 .preheader.us:                                    ; preds = %57, %71
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %57 ]
   %.374.us = phi ptr [ %.5.us, %71 ], [ %.176.us, %57 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !8
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %61) #8
   %63 = icmp eq i32 %62, 0

@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.Representation = type { %class.PairRep }
 %class.PairRep = type { i64, i64 }
 %class.XStatTimer = type { i8, ptr, %class.TimeInstant }
-%class.XForwardingEntry = type { i64 }
 
 $_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
 
@@ -369,7 +368,7 @@ define hidden void @_ZNK11XForwarding6verifyEv(ptr noundef nonnull align 8 deref
   %.036 = phi i32 [ 0, %.lr.ph37 ], [ %.1, %131 ]
   %.0735 = phi i64 [ 0, %.lr.ph37 ], [ %.18, %131 ]
   %storemerge34 = phi i64 [ 0, %.lr.ph37 ], [ %.pre-phi, %131 ]
-  %19 = getelementptr inbounds %class.XForwardingEntry, ptr %13, i64 %storemerge34
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %storemerge34
   %20 = load volatile i64, ptr %19, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %21 = trunc i64 %20 to i1
@@ -431,7 +430,7 @@ _ZNK5XPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5XPage22ob
 
 .lr.ph:                                           ; preds = %.preheader, %54
   %storemerge1033 = phi i64 [ %storemerge10, %54 ], [ %storemerge1032, %.preheader ]
-  %42 = getelementptr inbounds %class.XForwardingEntry, ptr %13, i64 %storemerge1033
+  %42 = getelementptr inbounds [8 x i8], ptr %13, i64 %storemerge1033
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %44 = trunc i64 %43 to i1

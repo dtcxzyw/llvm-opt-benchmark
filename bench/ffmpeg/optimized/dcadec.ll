@@ -64,7 +64,7 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
 13:                                               ; preds = %.preheader
   %14 = add nsw i32 %.03852, 1
   %15 = sext i32 %.03852 to i64
-  %16 = getelementptr inbounds i32, ptr %1, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %1, i64 %15
   store i32 %.04151, ptr %16, align 4, !tbaa !43
   br label %17
 
@@ -107,7 +107,7 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
 
 33:                                               ; preds = %27
   %34 = zext i8 %29 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %34
   store i32 %24, ptr %35, align 4, !tbaa !43
   %36 = or i32 %31, %.03748
   br label %37
@@ -128,11 +128,11 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
   br i1 %.not, label %47, label %41
 
 41:                                               ; preds = %.preheader46
-  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv54
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv54
   %43 = load i32, ptr %42, align 4, !tbaa !43
   %44 = add nsw i32 %.350, 1
   %45 = sext i32 %.350 to i64
-  %46 = getelementptr inbounds i32, ptr %1, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %1, i64 %45
   store i32 %43, ptr %46, align 4, !tbaa !43
   br label %47
 
@@ -198,21 +198,21 @@ define void @ff_dca_downmix_to_stereo_fixed(ptr noundef readonly captures(none) 
   %30 = add nuw nsw i32 %29, %28
   %31 = and i32 %30, 63
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %32
   %34 = and i32 %4, 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %36 = load ptr, ptr %35, align 8, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !52
   %39 = zext nneg i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !43
   %42 = sext i32 %3 to i64
   tail call void %36(ptr noundef %38, i32 noundef %41, i64 noundef %42) #7
   %43 = load ptr, ptr %35, align 8, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !52
-  %46 = getelementptr inbounds nuw i32, ptr %33, i64 %39
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %39
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !43
   tail call void %43(ptr noundef %45, i32 noundef %48, i64 noundef %42) #7
@@ -242,7 +242,7 @@ define void @ff_dca_downmix_to_stereo_fixed(ptr noundef readonly captures(none) 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %49, align 8, !tbaa !53
   %62 = load ptr, ptr %37, align 8, !tbaa !52
-  %63 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   tail call void %61(ptr noundef %62, ptr noundef %64, i32 noundef %57, i64 noundef %42) #7
   br label %65
@@ -257,7 +257,7 @@ define void @ff_dca_downmix_to_stereo_fixed(ptr noundef readonly captures(none) 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %49, align 8, !tbaa !53
   %71 = load ptr, ptr %44, align 8, !tbaa !52
-  %72 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   tail call void %70(ptr noundef %71, ptr noundef %73, i32 noundef %66, i64 noundef %42) #7
   br label %74
@@ -324,14 +324,14 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
   %30 = add nuw nsw i32 %29, %28
   %31 = and i32 %30, 63
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %32
   %34 = and i32 %4, 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !55
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !57
   %39 = zext nneg i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !43
   %42 = sitofp i32 %41 to float
   %43 = fmul nnan nsz float %42, 0x3F00000000000000
@@ -339,7 +339,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
   %44 = load ptr, ptr %35, align 8, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !57
-  %47 = getelementptr inbounds nuw i32, ptr %33, i64 %39
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %39
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !43
   %50 = sitofp i32 %49 to float
@@ -371,7 +371,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
 63:                                               ; preds = %59
   %64 = load ptr, ptr %52, align 8, !tbaa !58
   %65 = load ptr, ptr %37, align 8, !tbaa !57
-  %66 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !57
   %68 = sitofp i32 %60 to float
   %69 = fmul nnan nsz float %68, 0x3F00000000000000
@@ -388,7 +388,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %52, align 8, !tbaa !58
   %76 = load ptr, ptr %45, align 8, !tbaa !57
-  %77 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !57
   %79 = sitofp i32 %71 to float
   %80 = fmul nnan nsz float %79, 0x3F00000000000000

@@ -230,14 +230,14 @@ _ZNK3smt5enode12get_num_argsEv.exit24:            ; preds = %_ZNK3smt5enode12get
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us ], [ 0, %.lr.ph ]
-  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv46
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv46
   %74 = load ptr, ptr %73, align 8, !tbaa !48
   %75 = load i32, ptr %74, align 4, !tbaa !50
   %76 = load ptr, ptr %2, align 8, !tbaa !51
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !52
-  %80 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv46
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv46
   store ptr %79, ptr %80, align 8, !tbaa !52
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !24
@@ -272,7 +272,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us: ; preds = %97, %91
   %99 = phi ptr [ %.pre.i.us, %97 ], [ %89, %91 ]
   %100 = getelementptr inbounds i8, ptr %99, i64 -4
   %101 = zext i32 %98 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %101
   store ptr %1, ptr %102, align 8, !tbaa !52
   %103 = add i32 %98, 1
   store i32 %103, ptr %100, align 4, !tbaa !53
@@ -285,14 +285,14 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us: ; preds = %97, %91
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %104 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !48
   %106 = load i32, ptr %105, align 4, !tbaa !50
   %107 = load ptr, ptr %2, align 8, !tbaa !51
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !52
-  %111 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   store ptr %110, ptr %111, align 8, !tbaa !52
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !24
@@ -371,7 +371,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %3
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !24
@@ -636,7 +636,7 @@ define hidden void @_ZN3smt5enode14set_generationERNS_7contextEj(ptr noundef non
   %21 = phi ptr [ %.pre.i.i, %.noexc5 ], [ %11, %13 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -4
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   store ptr %9, ptr %24, align 8, !tbaa !68
   %25 = add i32 %20, 1
   store i32 %25, ptr %22, align 4, !tbaa !53
@@ -686,7 +686,7 @@ define hidden void @_ZN3smt5enode12set_lbl_hashERNS_7contextE(ptr noundef nonnul
   %18 = phi ptr [ %.pre.i.i, %.noexc10 ], [ %8, %10 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 -4
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   store ptr %6, ptr %21, align 8, !tbaa !68
   %22 = add i32 %17, 1
   store i32 %22, ptr %19, align 4, !tbaa !53
@@ -755,7 +755,7 @@ define hidden void @_ZN3smt5enode12set_lbl_hashERNS_7contextE(ptr noundef nonnul
   %65 = phi ptr [ %.pre.i.i11, %.noexc15 ], [ %55, %57 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -4
   %67 = zext i32 %64 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   store ptr %53, ptr %68, align 8, !tbaa !68
   %69 = add i32 %64, 1
   store i32 %69, ptr %66, align 4, !tbaa !53
@@ -942,11 +942,11 @@ _ZNK3smt5enode12get_num_argsEv.exit36:            ; preds = %_ZNK3smt5enode12get
 
 51:                                               ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !24
@@ -977,7 +977,7 @@ define hidden noundef i32 @_ZN3smt18get_max_generationEjPKPNS_5enodeE(i32 nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.011 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %3 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !27
@@ -1001,7 +1001,7 @@ define hidden void @_ZN3smt13unmark_enodesEjPKPNS_5enodeE(i32 noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %6 = load i16, ptr %5, align 4
@@ -1026,7 +1026,7 @@ define hidden void @_ZN3smt14unmark_enodes2EjPKPNS_5enodeE(i32 noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %6 = load i16, ptr %5, align 4

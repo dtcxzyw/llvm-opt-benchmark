@@ -1838,7 +1838,7 @@ ehcleanup301:                                     ; preds = %lpad296, %lpad293
 for.body:                                         ; preds = %invoke.cont298, %invoke.cont313
   %i.0545 = phi i64 [ %inc, %invoke.cont313 ], [ 0, %invoke.cont298 ]
   %172 = load ptr, ptr %fixedPayDates, align 8, !tbaa !132
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %172, i64 %i.0545
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %i.0545
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp307)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp307)
           to label %invoke.cont309 unwind label %lpad308
@@ -1853,7 +1853,7 @@ invoke.cont312:                                   ; preds = %invoke.cont309
           to label %invoke.cont313 unwind label %lpad311
 
 invoke.cont313:                                   ; preds = %invoke.cont312
-  %add.ptr.i283 = getelementptr inbounds nuw double, ptr %fixedPayTimes.sroa.0.0, i64 %i.0545
+  %add.ptr.i283 = getelementptr inbounds nuw [8 x i8], ptr %fixedPayTimes.sroa.0.0, i64 %i.0545
   store double %call314, ptr %add.ptr.i283, align 8, !tbaa !131
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp310)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp307)
@@ -2133,7 +2133,7 @@ for.body353:                                      ; preds = %_ZNK8QuantLib20OneF
   %i349.0549 = phi i64 [ %inc391, %invoke.cont384 ], [ 0, %_ZNK8QuantLib20OneFactorAffineModel12discountBondEddd.exit ]
   %value.0548 = phi double [ %214, %invoke.cont384 ], [ 0.000000e+00, %_ZNK8QuantLib20OneFactorAffineModel12discountBondEddd.exit ]
   %204 = load ptr, ptr %fixedPayDates, align 8, !tbaa !132
-  %add.ptr.i367 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %204, i64 %i349.0549
+  %add.ptr.i367 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %i349.0549
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp357)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp357)
           to label %invoke.cont359 unwind label %lpad358
@@ -2214,7 +2214,7 @@ invoke.cont379:                                   ; preds = %.noexc388, %invoke.
 
 invoke.cont384:                                   ; preds = %invoke.cont379
   %212 = load ptr, ptr %amounts, align 8, !tbaa !129
-  %add.ptr.i390 = getelementptr inbounds nuw double, ptr %212, i64 %i349.0549
+  %add.ptr.i390 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %i349.0549
   %213 = load double, ptr %add.ptr.i390, align 8, !tbaa !131
   %214 = call double @llvm.fmuladd.f64(double %213, double %call385, double %value.0548)
   %inc391 = add nuw i64 %i349.0549, 1
@@ -5984,7 +5984,7 @@ _ZNK5boost10shared_ptrIN8QuantLib20OneFactorAffineModelEEptEv.exit9: ; preds = %
   %12 = phi ptr [ %11, %for.body ], [ %.pre.i8, %cond.false.i7 ]
   %13 = load double, ptr %maturity_, align 8, !tbaa !138
   %14 = load ptr, ptr %times_, align 8, !tbaa !129
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %14, i64 %i.022
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %i.022
   %15 = load double, ptr %add.ptr.i, align 8, !tbaa !131
   %vtable.i10 = load ptr, ptr %12, align 8, !tbaa !35
   %vfn.i11 = getelementptr inbounds nuw i8, ptr %vtable.i10, i64 80
@@ -6001,7 +6001,7 @@ _ZNK5boost10shared_ptrIN8QuantLib20OneFactorAffineModelEEptEv.exit9: ; preds = %
   %div = fdiv double %mul6.i19, %mul6.i
   %18 = load ptr, ptr %amounts_, align 8, !tbaa !191
   %19 = load ptr, ptr %18, align 8, !tbaa !129
-  %add.ptr.i20 = getelementptr inbounds nuw double, ptr %19, i64 %i.022
+  %add.ptr.i20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %i.022
   %20 = load double, ptr %add.ptr.i20, align 8, !tbaa !131
   %neg = fneg double %20
   %21 = tail call double @llvm.fmuladd.f64(double %neg, double %div, double %value.023)

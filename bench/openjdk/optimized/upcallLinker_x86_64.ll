@@ -202,7 +202,7 @@ define hidden noundef ptr @_ZN12UpcallLinker16make_upcall_stubEP8_jobjectP6Metho
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %79
   %indvars.iv.i.i.i = phi i64 [ 0, %79 ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %83 = getelementptr inbounds nuw %class.VMStorage, ptr %80, i64 %indvars.iv.i.i.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i.i.i
   store i8 -1, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store i16 0, ptr %84, align 2
@@ -240,7 +240,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %or.cond.i.i.i = icmp samesign ult i32 %91, 31
   %spec.select.i.i17.i = select i1 %or.cond.i.i.i, i32 %97, i32 -1
   %98 = sext i32 %spec.select.i.i17.i to i64
-  %99 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %98
+  %99 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %98
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i32
   %102 = sub i32 %101, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
@@ -286,7 +286,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %or.cond.i.i19.i = icmp samesign ult i32 %108, 31
   %spec.select.i.i20.i = select i1 %or.cond.i.i19.i, i32 %121, i32 -1
   %122 = sext i32 %spec.select.i.i20.i to i64
-  %123 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %122
+  %123 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %122
   %124 = ptrtoint ptr %123 to i64
   %125 = trunc i64 %124 to i32
   %126 = sub i32 %125, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
@@ -438,7 +438,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %120
   %or.cond.i.i.i134 = icmp samesign ult i32 %193, 31
   %spec.select.i.i48.i = select i1 %or.cond.i.i.i134, i32 %200, i32 -1
   %201 = sext i32 %spec.select.i.i48.i to i64
-  %202 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %201
+  %202 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %201
   %203 = ptrtoint ptr %202 to i64
   %204 = trunc i64 %203 to i32
   %205 = sub i32 %204, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
@@ -518,7 +518,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %120
   %or.cond.i.i50.i = icmp samesign ult i32 %212, 31
   %spec.select.i.i51.i = select i1 %or.cond.i.i50.i, i32 %226, i32 -1
   %227 = sext i32 %spec.select.i.i51.i to i64
-  %228 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %227
+  %228 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %227
   %229 = ptrtoint ptr %228 to i64
   %230 = trunc i64 %229 to i32
   %231 = sub i32 %230, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
@@ -777,7 +777,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %345 ]
   %.0128182 = phi i32 [ 0, %.lr.ph ], [ %346, %345 ]
   %338 = load ptr, ptr %320, align 8
-  %339 = getelementptr inbounds nuw %class.VMStorage, ptr %338, i64 %indvars.iv
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %indvars.iv
   %340 = load i64, ptr %339, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %340 to i8
   switch i8 %.sroa.0.0.extract.trunc, label %343 [
@@ -949,7 +949,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %or.cond.i.i.i148 = icmp samesign ult i32 %398, 31
   %spec.select.i.i37.i = select i1 %or.cond.i.i.i148, i32 %405, i32 -1
   %406 = sext i32 %spec.select.i.i37.i to i64
-  %407 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %406
+  %407 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %406
   %408 = ptrtoint ptr %407 to i64
   %409 = trunc i64 %408 to i32
   %410 = sub i32 %409, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
@@ -1029,7 +1029,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %or.cond.i.i39.i = icmp samesign ult i32 %417, 31
   %spec.select.i.i40.i = select i1 %or.cond.i.i39.i, i32 %431, i32 -1
   %432 = sext i32 %spec.select.i.i40.i to i64
-  %433 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %432
+  %433 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %432
   %434 = ptrtoint ptr %433 to i64
   %435 = trunc i64 %434 to i32
   %436 = sub i32 %435, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)

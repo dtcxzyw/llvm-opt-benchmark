@@ -13,8 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.drm_i915_query_memory_regions = type { i32, [3 x i32], [0 x %struct.drm_i915_memory_region_info] }
 %struct.drm_i915_query_topology_info = type { i16, i16, i16, i16, i16, i16, i16, i16, [0 x i8] }
 %struct.drm_i915_perf_oa_config = type { [36 x i8], i32, i32, i32, i64, i64, i64 }
-%struct.i915_oa_reg = type { %struct.i915_reg_t, i32 }
-%struct.i915_reg_t = type { i32 }
 %struct.__large_struct = type { [100 x i64] }
 
 @i915_query_funcs = internal unnamed_addr constant [6 x ptr] [ptr @query_topology_info, ptr @query_engine_info, ptr @query_perf_config, ptr @query_memregion_info, ptr @query_hwconfig_blob, ptr @query_geometry_subslices], align 16
@@ -64,7 +62,7 @@ define dso_local range(i32 -22, 1) i32 @i915_query_ioctl(ptr noundef %0, ptr nou
   %27 = add nsw i64 %22, -1
   %28 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 6, i64 %27) #11, !srcloc !7
   %29 = and i64 %28, %27
-  %30 = getelementptr ptr, ptr @i915_query_funcs, i64 %29
+  %30 = getelementptr [8 x i8], ptr @i915_query_funcs, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31(ptr noundef %0, ptr noundef nonnull %4) #11
   br label %33
@@ -392,7 +390,7 @@ define internal i32 @query_perf_config(ptr noundef %0, ptr noundef readonly capt
 59:                                               ; preds = %.preheader8
   %60 = sext i32 %.pre to i64
   %61 = sext i32 %57 to i64
-  %62 = getelementptr i64, ptr %52, i64 %61
+  %62 = getelementptr [8 x i8], ptr %52, i64 %61
   store i64 %60, ptr %62, align 8
   br label %63
 
@@ -514,7 +512,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
 14:                                               ; preds = %26, %12
   %15 = phi i64 [ 0, %12 ], [ %28, %26 ]
   %16 = phi i32 [ 16, %12 ], [ %27, %26 ]
-  %17 = getelementptr ptr, ptr %13, i64 %15
+  %17 = getelementptr [8 x i8], ptr %13, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %26, label %20
@@ -577,7 +575,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
 
 52:                                               ; preds = %43, %.thread7.thread
   %53 = phi i64 [ 0, %.thread7.thread ], [ %44, %43 ]
-  %54 = getelementptr i32, ptr %42, i64 %53
+  %54 = getelementptr [4 x i8], ptr %42, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %43, label %.thread
@@ -585,7 +583,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
 57:                                               ; preds = %96, %46
   %58 = phi i64 [ 0, %46 ], [ %98, %96 ]
   %59 = phi ptr [ %8, %46 ], [ %97, %96 ]
-  %60 = getelementptr ptr, ptr %13, i64 %58
+  %60 = getelementptr [8 x i8], ptr %13, i64 %58
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %96, label %63
@@ -1198,7 +1196,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @copy_perf_config_registers
 .preheader:                                       ; preds = %15, %25
   %17 = phi i64 [ %26, %25 ], [ 0, %15 ]
   %18 = phi ptr [ %27, %25 ], [ %5, %15 ]
-  %19 = getelementptr %struct.i915_oa_reg, ptr %0, i64 %17
+  %19 = getelementptr [8 x i8], ptr %0, i64 %17
   %20 = load i32, ptr %19, align 4
   callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(%struct.__large_struct) %18) #11
           to label %21 [label %29], !srcloc !40

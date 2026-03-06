@@ -326,7 +326,7 @@ bytestream2_get_be16.exit.i:                      ; preds = %114, %113
 125:                                              ; preds = %125, %.preheader.i
   %indvars.iv325.i = phi i64 [ %124, %.preheader.i ], [ %indvars.iv.next326.i, %125 ]
   %.0158260.i = phi i32 [ 0, %.preheader.i ], [ %127, %125 ]
-  %126 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv325.i
+  %126 = getelementptr inbounds [2 x i8], ptr %61, i64 %indvars.iv325.i
   store i16 %.0.i211.i, ptr %126, align 2, !tbaa !47
   %indvars.iv.next326.i = add nsw i64 %indvars.iv325.i, 1
   %127 = add nuw nsw i32 %.0158260.i, 1
@@ -491,9 +491,9 @@ bytestream2_get_be16.exit215.i:                   ; preds = %148, %147
   %220 = lshr i32 %215, %219
   %221 = and i32 %220, 3
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw i16, ptr %5, i64 %222
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %222
   %224 = load i16, ptr %223, align 2, !tbaa !47
-  %225 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv320.i
+  %225 = getelementptr inbounds [2 x i8], ptr %61, i64 %indvars.iv320.i
   store i16 %224, ptr %225, align 2, !tbaa !47
   %indvars.iv.next321.i = add nsw i64 %indvars.iv320.i, 1
   %226 = add nuw nsw i32 %.1159250.i, 1
@@ -564,7 +564,7 @@ bytestream2_get_be16.exit215.i:                   ; preds = %148, %147
 252:                                              ; preds = %248, %246
   %.promoted284.i = phi ptr [ %249, %248 ], [ %.promoted283.i, %246 ]
   %.7.i = phi i16 [ %251, %248 ], [ %.6245.i, %246 ]
-  %253 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv.i
+  %253 = getelementptr inbounds [2 x i8], ptr %61, i64 %indvars.iv.i
   store i16 %.7.i, ptr %253, align 2, !tbaa !47
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %254 = add nuw nsw i32 %.2160244.i, 1

@@ -393,7 +393,7 @@ Vec_StrPush.exit.i.i59:                           ; preds = %151, %Vec_StrGrow.e
   %155 = sext i32 %131 to i64
   %156 = getelementptr inbounds i8, ptr %153, i64 %155
   store i8 32, ptr %156, align 1, !tbaa !12
-  %157 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %158 = load ptr, ptr %157, align 8, !tbaa !15
   %159 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %158) #13
   %160 = trunc i64 %159 to i32

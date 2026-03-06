@@ -42,11 +42,11 @@ define void @daxpy_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %.neg = sub nsw i64 1, %9
   %.neg44 = mul nsw i64 %.neg, %11
   %.038.idx = select i1 %27, i64 %.neg44, i64 0
-  %.038 = getelementptr inbounds nuw double, ptr %2, i64 %.038.idx
+  %.038 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.038.idx
   %28 = icmp slt i32 %12, 0
   %.neg46 = mul nsw i64 %.neg, %13
   %.039.idx = select i1 %28, i64 %.neg46, i64 0
-  %.039 = getelementptr inbounds nuw double, ptr %4, i64 %.039.idx
+  %.039 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.039.idx
   %or.cond3 = select i1 %18, i1 true, i1 %19
   %29 = icmp samesign ult i32 %8, 10001
   %or.cond5 = or i1 %29, %or.cond3

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.QOAChannel = type { [4 x i32], [4 x i32] }
 
 @.str = private unnamed_addr constant [4 x i8] c"qoa\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"QOA (Quite OK Audio)\00", align 1
@@ -169,7 +168,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
 82:                                               ; preds = %77, %91
   %indvars.iv138 = phi i64 [ 0, %77 ], [ %indvars.iv.next139, %91 ]
   %.sroa.0.0121 = phi ptr [ %.sroa.0.8, %77 ], [ %93, %91 ]
-  %83 = getelementptr inbounds nuw %struct.QOAChannel, ptr %6, i64 %indvars.iv138
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv138
   br label %85
 
 .preheader116:                                    ; preds = %85
@@ -183,7 +182,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   %87 = load i16, ptr %.sroa.0.1117, align 1, !tbaa !31
   %88 = tail call i16 @llvm.bswap.i16(i16 %87)
   %89 = sext i16 %88 to i32
-  %90 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv
   store i32 %89, ptr %90, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -201,7 +200,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   %94 = load i16, ptr %.sroa.0.2119, align 1, !tbaa !31
   %95 = tail call i16 @llvm.bswap.i16(i16 %94)
   %96 = sext i16 %95 to i32
-  %97 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv134
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv134
   store i32 %96, ptr %97, align 4, !tbaa !41
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 4
@@ -230,7 +229,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   %indvars.iv149 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next150, %._crit_edge ]
   %indvars.iv144 = phi i64 [ %indvars.iv142, %.preheader ], [ %indvars.iv.next145, %._crit_edge ]
   %.sroa.0.4125 = phi ptr [ %.sroa.0.3127, %.preheader ], [ %106, %._crit_edge ]
-  %105 = getelementptr inbounds nuw %struct.QOAChannel, ptr %6, i64 %indvars.iv149
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv149
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.4125, i64 8
   %107 = load i32, ptr %57, align 8, !tbaa !39
   %..i = tail call i32 @llvm.smin.i32(i32 %99, i32 %107)
@@ -245,7 +244,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   %113 = tail call noundef i64 @llvm.bswap.i64(i64 %112)
   %114 = lshr i64 %113, 60
   %115 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %116 = getelementptr inbounds nuw [8 x i16], ptr @qoa_dequant_tab, i64 %114
+  %116 = getelementptr inbounds nuw [16 x i8], ptr @qoa_dequant_tab, i64 %114
   %scevgep.i = getelementptr i8, ptr %105, i64 4
   %117 = getelementptr inbounds nuw i8, ptr %105, i64 12
   br label %118
@@ -264,9 +263,9 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
 119:                                              ; preds = %119, %118
   %indvars.iv.i = phi i64 [ 0, %118 ], [ %indvars.iv.next.i, %119 ]
   %.078.i = phi i32 [ 0, %118 ], [ %125, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
   %121 = load i32, ptr %120, align 4, !tbaa !41
-  %122 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i
   %123 = load i32, ptr %122, align 4, !tbaa !41
   %124 = mul i32 %123, %121
   %125 = add i32 %124, %.078.i
@@ -278,14 +277,14 @@ qoa_lms_predict.exit:                             ; preds = %119
   %126 = ashr i32 %125, 13
   %127 = lshr i64 %.082123, 57
   %128 = and i64 %127, 7
-  %129 = getelementptr inbounds nuw i16, ptr %116, i64 %128
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %116, i64 %128
   %130 = load i16, ptr %129, align 2, !tbaa !49
   %131 = sext i16 %130 to i32
   %132 = add nsw i32 %126, %131
   %133 = tail call i32 @llvm.smax.i32(i32 %132, i32 -32768)
   %134 = tail call i32 @llvm.smin.i32(i32 %133, i32 32767)
   %.0.i94 = trunc nsw i32 %134 to i16
-  %135 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv146
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv146
   store i16 %.0.i94, ptr %135, align 2, !tbaa !49
   %136 = ashr i32 %131, 4
   %137 = sub nsw i32 0, %136
@@ -293,11 +292,11 @@ qoa_lms_predict.exit:                             ; preds = %119
 
 138:                                              ; preds = %138, %qoa_lms_predict.exit
   %indvars.iv.i95 = phi i64 [ 0, %qoa_lms_predict.exit ], [ %indvars.iv.next.i96, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i95
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i95
   %140 = load i32, ptr %139, align 4, !tbaa !41
   %141 = icmp slt i32 %140, 0
   %142 = select i1 %141, i32 %137, i32 %136
-  %143 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i95
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i95
   %144 = load i32, ptr %143, align 4, !tbaa !41
   %145 = add nsw i32 %142, %144
   store i32 %145, ptr %143, align 4, !tbaa !41

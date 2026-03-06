@@ -306,7 +306,7 @@ define void @_ZN11uu_basename6uu_app17h37a7ad3c5727968aE(ptr noalias noundef wri
   %99 = phi i64 [ %.pre.i.i, %.noexc.i36 ], [ %90, %87 ]
   %100 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %101 = load ptr, ptr %100, align 8, !alias.scope !79, !noalias !84, !nonnull !22, !noundef !22
-  %102 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %101, i64 %99
+  %102 = getelementptr inbounds [16 x i8], ptr %101, i64 %99
   store ptr @anon.ca818324d2982f2c8a01a2d74294020c.0.llvm.8167911707826711531, ptr %102, align 8, !noalias !84
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 8, ptr %103, align 8, !noalias !89
@@ -578,7 +578,7 @@ define void @_ZN11uu_basename6uu_app17h37a7ad3c5727968aE(ptr noalias noundef wri
   %173 = phi i64 [ %.pre.i.i63, %.noexc.i62 ], [ %164, %161 ]
   %174 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %175 = load ptr, ptr %174, align 8, !alias.scope !182, !noalias !187, !nonnull !22, !noundef !22
-  %176 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %175, i64 %173
+  %176 = getelementptr inbounds [16 x i8], ptr %175, i64 %173
   store ptr @anon.ca818324d2982f2c8a01a2d74294020c.2.llvm.8167911707826711531, ptr %176, align 8, !noalias !187
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i64 6, ptr %177, align 8, !noalias !192
@@ -752,7 +752,7 @@ define void @_ZN11uu_basename6uu_app17h37a7ad3c5727968aE(ptr noalias noundef wri
   %223 = phi i64 [ %.pre.i.i86, %.noexc.i85 ], [ %214, %211 ]
   %224 = getelementptr inbounds nuw i8, ptr %19, i64 136
   %225 = load ptr, ptr %224, align 8, !alias.scope !246, !noalias !251, !nonnull !22, !noundef !22
-  %226 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %225, i64 %223
+  %226 = getelementptr inbounds [16 x i8], ptr %225, i64 %223
   store ptr @anon.ca818324d2982f2c8a01a2d74294020c.3.llvm.8167911707826711531, ptr %226, align 8, !noalias !251
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i64 4, ptr %227, align 8, !noalias !256

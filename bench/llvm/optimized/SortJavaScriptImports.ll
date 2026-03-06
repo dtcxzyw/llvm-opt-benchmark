@@ -116,12 +116,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.67" = type { %"class.llvm::SmallVectorTemplateCommon.68" }
 %"class.llvm::SmallVectorTemplateCommon.68" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.69" = type { [8 x i8] }
-%"struct.clang::format::UnwrappedLine" = type <{ %"class.std::__cxx11::list", i32, i32, i8, i8, i8, i8, i32, i8, i8, i8, [5 x i8], i64, i64, i32, [4 x i8] }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node" = type { ptr }
 %"class.llvm::SmallVector.197" = type { %"class.llvm::SmallVectorImpl.198", %"struct.llvm::SmallVectorStorage.201" }
 %"class.llvm::SmallVectorImpl.198" = type { %"class.llvm::SmallVectorTemplateBase.199" }
@@ -141,12 +135,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
 %"struct.clang::format::JsImportedSymbol" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.clang::SourceRange" }
 %"class.std::_Temporary_buffer" = type { i64, i64, ptr }
-%"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.228 }
-%union.anon.228 = type { %"class.clang::SrcMgr::FileInfo" }
-%"class.clang::SrcMgr::FileInfo" = type { %"class.clang::SourceLocation", i32, %"class.llvm::PointerIntPair.229" }
-%"class.llvm::PointerIntPair.229" = type { %"struct.llvm::detail::PunnedPointer.230" }
-%"struct.llvm::detail::PunnedPointer.230" = type { [8 x i8] }
-%"struct.std::pair.231" = type { ptr, i64 }
 
 $_ZN5clang6format22JavaScriptImportSorterD2Ev = comdat any
 
@@ -666,7 +654,7 @@ _ZN5clang6format11FormatTokenD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
   %52 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1160
   %53 = load i32, ptr %52, align 8, !tbaa !73
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [72 x i8], ptr %51, i64 %54
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %51, ptr noundef %55)
   %56 = load ptr, ptr %50, align 8, !tbaa !72
   %57 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1152
@@ -882,7 +870,7 @@ _ZNSt4pairIN5clang7tooling12ReplacementsEjEC2IRS2_iTnNSt9enable_ifIXaaclsr5_PCCP
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 124
   %72 = load i64, ptr %71, align 4
   %73 = zext i32 %51 to i64
-  %74 = getelementptr %"struct.clang::format::JsModuleReference", ptr %70, i64 %73
+  %74 = getelementptr [136 x i8], ptr %70, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -8
   %.sroa.0.0.copyload.i = load i32, ptr %75, align 4, !tbaa !93
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -998,7 +986,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5clang6format17JsModuleReferenceD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %124 = load ptr, ptr %11, align 8, !tbaa !72
-  %125 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [136 x i8], ptr %124, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %15, ptr noundef nonnull align 8 dereferenceable(132) %125, i64 56, i1 false)
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
   store ptr %96, ptr %95, align 8, !tbaa !72
@@ -1064,7 +1052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %139
 
 146:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
   %147 = load ptr, ptr %11, align 8, !tbaa !72
-  %148 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %147, i64 %indvars.iv.next
+  %148 = getelementptr inbounds nuw [136 x i8], ptr %147, i64 %indvars.iv.next
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1
   %150 = load i8, ptr %149, align 1, !tbaa !3, !range !22, !noundef !23
   %151 = trunc nuw i8 %150 to i1
@@ -1566,7 +1554,7 @@ define linkonce_odr hidden void @_ZN5clang6format22JavaScriptImportSorter21parse
 60:                                               ; preds = %58
   %61 = load ptr, ptr %6, align 8, !tbaa !72
   %62 = zext i32 %59 to i64
-  %63 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [136 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %16, align 8, !tbaa !271
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i16, ptr %65, align 8, !tbaa !262
@@ -1884,7 +1872,7 @@ define linkonce_odr hidden void @_ZN5clang6format22JavaScriptImportSorter20sortM
   %15 = phi ptr [ %5, %.preheader.lr.ph ], [ %133, %_ZN4llvm11SmallVectorIN5clang6format17JsModuleReferenceELj16EED2Ev.exit ]
   %.049 = phi ptr [ %5, %.preheader.lr.ph ], [ %.2.lcssa, %_ZN4llvm11SmallVectorIN5clang6format17JsModuleReferenceELj16EED2Ev.exit ]
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [136 x i8], ptr %15, i64 %16
   %.not1738 = icmp eq ptr %.049, %17
   br i1 %.not1738, label %.critedge, label %.lr.ph.preheader
 
@@ -1916,7 +1904,7 @@ define linkonce_odr hidden void @_ZN5clang6format22JavaScriptImportSorter20sortM
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE28reserveForParamAndGetAddressERKS3_m.exit.i, label %26, !prof !295
 
 26:                                               ; preds = %.lr.ph75
-  %27 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.pre3.i, i64 %23
+  %27 = getelementptr inbounds nuw [136 x i8], ptr %.pre3.i, i64 %23
   %28 = icmp uge ptr %.13974, %.pre3.i
   %29 = icmp ult ptr %.13974, %27
   %spec.select.i.i.i.i.i = and i1 %28, %29
@@ -1941,7 +1929,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE28reser
   %.016.i.i.i = phi ptr [ %.13974, %.lr.ph75 ], [ %35, %30 ], [ %.13974, %.critedge.i.i.i ]
   %37 = load i32, ptr %7, align 8, !tbaa !73
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %39, ptr noundef nonnull align 8 dereferenceable(132) %.016.i.i.i, i64 56, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 56
@@ -1997,7 +1985,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE9push_b
   %60 = load ptr, ptr %2, align 8, !tbaa !72
   %61 = load i32, ptr %9, align 8, !tbaa !73
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [136 x i8], ptr %60, i64 %62
   %.not17 = icmp eq ptr %59, %63
   br i1 %.not17, label %.critedge, label %.lr.ph, !llvm.loop !294
 
@@ -2009,7 +1997,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE9push_b
   store ptr %11, ptr %4, align 8, !tbaa !72
   store i32 0, ptr %12, align 8, !tbaa !73
   store i32 16, ptr %13, align 4, !tbaa !74
-  %65 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %64, i64 %.pre-phi
+  %65 = getelementptr inbounds nuw [136 x i8], ptr %64, i64 %.pre-phi
   %.not1842 = icmp eq ptr %.1.lcssa, %65
   br i1 %.not1842, label %.critedge2, label %.lr.ph44
 
@@ -2029,7 +2017,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE9push_b
   br i1 %.not.i.i.not.i19, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE28reserveForParamAndGetAddressERKS3_m.exit.i24, label %73, !prof !295
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.pre3.i20, i64 %70
+  %74 = getelementptr inbounds nuw [136 x i8], ptr %.pre3.i20, i64 %70
   %75 = icmp uge ptr %.243, %.pre3.i20
   %76 = icmp ult ptr %.243, %74
   %spec.select.i.i.i.i.i21 = and i1 %75, %76
@@ -2054,7 +2042,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE28reser
   %.016.i.i.i25 = phi ptr [ %.243, %69 ], [ %82, %77 ], [ %.243, %.critedge.i.i.i22 ]
   %84 = load i32, ptr %12, align 8, !tbaa !73
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %83, i64 %85
+  %86 = getelementptr inbounds nuw [136 x i8], ptr %83, i64 %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %86, ptr noundef nonnull align 8 dereferenceable(132) %.016.i.i.i25, i64 56, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
   %88 = getelementptr inbounds nuw i8, ptr %.016.i.i.i25, i64 56
@@ -2110,7 +2098,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE9push_b
   %107 = load ptr, ptr %2, align 8, !tbaa !72
   %108 = load i32, ptr %9, align 8, !tbaa !73
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [136 x i8], ptr %107, i64 %109
   %.not18 = icmp eq ptr %106, %110
   br i1 %.not18, label %.critedge2, label %.lr.ph44, !llvm.loop !296
 
@@ -2121,11 +2109,11 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE9push_b
   %111 = load ptr, ptr %0, align 8, !tbaa !72
   %112 = load i32, ptr %7, align 8, !tbaa !73
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw [136 x i8], ptr %111, i64 %113
   %115 = load ptr, ptr %4, align 8, !tbaa !72
   %116 = load i32, ptr %12, align 8, !tbaa !73
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %115, i64 %117
+  %118 = getelementptr inbounds nuw [136 x i8], ptr %115, i64 %117
   %119 = call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE6insertIPS3_vEES6_S6_T_S7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %114, ptr noundef %115, ptr noundef %118)
   %120 = load ptr, ptr %4, align 8, !tbaa !72
   %121 = load i32, ptr %12, align 8, !tbaa !73
@@ -2173,7 +2161,7 @@ _ZN4llvm11SmallVectorIN5clang6format17JsModuleReferenceELj16EED2Ev.exit: ; preds
   %133 = load ptr, ptr %2, align 8, !tbaa !72
   %134 = load i32, ptr %9, align 8, !tbaa !73
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [136 x i8], ptr %133, i64 %135
   %.not = icmp eq ptr %.2.lcssa, %136
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !297
 
@@ -3448,7 +3436,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6forma
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE28reserveForParamAndGetAddressERKS3_m.exit, label %9, !prof !295
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [136 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -3473,7 +3461,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE28reser
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !73
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %22, ptr noundef nonnull align 8 dereferenceable(132) %.016.i.i, i64 56, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
@@ -4418,7 +4406,7 @@ _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit95: ; preds = %241, %24
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE9push_backERKS3_.exit, label %283, !prof !295
 
 283:                                              ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit95
-  %284 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %.pre3.i, i64 %280
+  %284 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %280
   %285 = icmp uge ptr %4, %.pre3.i
   %286 = icmp ult ptr %4, %284
   %spec.select.i.i.i.i.i = and i1 %285, %286
@@ -4442,7 +4430,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE9push_ba
   %.016.i.i.i = phi ptr [ %4, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit95 ], [ %291, %287 ], [ %4, %.critedge.i.i.i ]
   %293 = load i32, ptr %166, align 8, !tbaa !73
   %294 = zext i32 %293 to i64
-  %295 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %292, i64 %294
+  %295 = getelementptr inbounds nuw [40 x i8], ptr %292, i64 %294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %295, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %296 = load i32, ptr %166, align 8, !tbaa !73
   %297 = add i32 %296, 1
@@ -4733,7 +4721,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35: ; preds = %3
   %.idx40 = mul nuw nsw i64 %.026, 40
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !72
-  %45 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %.026
   %.idx3941 = sub nsw i64 %40, %.026
   %gepdiff = mul nsw i64 %.idx3941, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -4844,7 +4832,7 @@ _ZSt4copyIPKN5clang6format16JsImportedSymbolEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i
   %.idx36.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.022.i.i.i.i.i.i.i.i, 40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx36.i.i.i.i.i.i.i.i
   %43 = load ptr, ptr %14, align 8, !tbaa !72
-  %44 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %43, i64 %.022.i.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %.022.i.i.i.i.i.i.i.i
   %.idx3537.i.i.i.i.i.i.i.i = sub nsw i64 %39, %.022.i.i.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i.i.i = mul nsw i64 %.idx3537.i.i.i.i.i.i.i.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 8 %42, i64 %gepdiff.i.i.i.i.i.i.i.i, i1 false)
@@ -4874,7 +4862,7 @@ _ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit: ; preds = %
   %.pre-phi = phi i64 [ %.pre56, %_ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %10, %11 ]
   %51 = phi ptr [ %.pre, %_ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %12, %11 ]
   %.0 = phi ptr [ %48, %_ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %12, %11 ]
-  %52 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %51, i64 %.pre-phi
+  %52 = getelementptr inbounds nuw [136 x i8], ptr %51, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %52
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -5008,7 +4996,7 @@ _ZSt4copyIPKN5clang6format16JsImportedSymbolEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i
   %.idx36.i.i.i.i.i.i.i.i46 = mul nuw nsw i64 %.022.i.i.i.i.i.i.i.i44, 40
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx36.i.i.i.i.i.i.i.i46
   %104 = load ptr, ptr %75, align 8, !tbaa !72
-  %105 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %104, i64 %.022.i.i.i.i.i.i.i.i44
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %.022.i.i.i.i.i.i.i.i44
   %.idx3537.i.i.i.i.i.i.i.i47 = sub nsw i64 %100, %.022.i.i.i.i.i.i.i.i44
   %gepdiff.i.i.i.i.i.i.i.i48 = mul nsw i64 %.idx3537.i.i.i.i.i.i.i.i47, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 8 %103, i64 %gepdiff.i.i.i.i.i.i.i.i48, i1 false)
@@ -5033,14 +5021,14 @@ _ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit49: ; preds =
   %112 = load ptr, ptr %1, align 8, !tbaa !72
   %113 = load i32, ptr %5, align 8, !tbaa !73
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [136 x i8], ptr %112, i64 %114
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %114
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit49
   %116 = load ptr, ptr %0, align 8, !tbaa !72
-  %117 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %116, i64 %.022
-  %118 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %112, i64 %.022
+  %117 = getelementptr inbounds nuw [136 x i8], ptr %116, i64 %.022
+  %118 = getelementptr inbounds nuw [136 x i8], ptr %112, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN5clang6format17JsModuleReferenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
@@ -5463,7 +5451,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %32, %.lr.ph57, %39,
   %.lcssa55 = phi i32 [ %7, %.lr.ph ], [ %103, %32 ], [ %36, %.lr.ph57 ], [ %36, %39 ], [ %36, %42 ], [ %36, %45 ], [ %36, %48 ], [ %36, %51 ], [ %36, %54 ], [ %36, %57 ], [ %36, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %36, %59 ]
   %.lcssa = phi ptr [ %8, %.lr.ph ], [ %104, %32 ], [ %35, %.lr.ph57 ], [ %35, %39 ], [ %35, %42 ], [ %35, %45 ], [ %35, %48 ], [ %35, %51 ], [ %35, %54 ], [ %35, %57 ], [ %35, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %35, %59 ]
   %62 = zext i32 %.lcssa55 to i64
-  %63 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.lcssa, i64 %62
+  %63 = getelementptr inbounds nuw [136 x i8], ptr %.lcssa, i64 %62
   %.not35 = icmp eq ptr %28, %63
   br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !340
 
@@ -5488,7 +5476,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread32:       ; preds = %60, %_ZN4llvmneENS_
 _ZN4llvm15SmallVectorImplIN5clang6format16JsImportedSymbolEE6appendERKS4_.exit: ; preds = %72, %_ZN4llvmneENS_9StringRefES0_.exit.thread32
   %.pre-phi = phi i64 [ %.pre41, %72 ], [ %67, %_ZN4llvmneENS_9StringRefES0_.exit.thread32 ]
   %73 = load ptr, ptr %23, align 8, !tbaa !72
-  %74 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %73, i64 %.pre-phi
+  %74 = getelementptr inbounds nuw [40 x i8], ptr %73, i64 %.pre-phi
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 8 %64, i64 %.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %24, align 8, !tbaa !73
   %75 = add i32 %.pre.i.i, %58
@@ -5497,7 +5485,7 @@ _ZN4llvm15SmallVectorImplIN5clang6format16JsImportedSymbolEE6appendERKS4_.exit: 
   %76 = load ptr, ptr %1, align 8, !tbaa !72
   %77 = load i32, ptr %3, align 8, !tbaa !73
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [136 x i8], ptr %76, i64 %78
   %80 = ptrtoint ptr %79 to i64
   %81 = sub i64 %80, %29
   %82 = icmp sgt i64 %81, 0
@@ -5535,7 +5523,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i: ; preds = %
   %95 = add i32 %94, -1
   store i32 %95, ptr %3, align 8, !tbaa !73
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %93, i64 %96
+  %97 = getelementptr inbounds nuw [136 x i8], ptr %93, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %99 = load ptr, ptr %98, align 8, !tbaa !72
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 72
@@ -5553,7 +5541,7 @@ _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5eraseEPKS3_.exit: 
   %.pre-phi43 = phi i64 [ %96, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i ], [ %.pre42, %102 ]
   %103 = phi i32 [ %95, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i ], [ %.pre40, %102 ]
   %104 = phi ptr [ %93, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i ], [ %.pre, %102 ]
-  %105 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %104, i64 %.pre-phi43
+  %105 = getelementptr inbounds nuw [136 x i8], ptr %104, i64 %.pre-phi43
   %.not = icmp eq ptr %.027.ph37, %105
   br i1 %.not, label %.loopexit, label %32, !llvm.loop !340
 
@@ -5570,7 +5558,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang6format
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !73
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [136 x i8], ptr %5, i64 %11
   %13 = icmp eq ptr %1, %12
   %14 = ptrtoint ptr %3 to i64
   %15 = ptrtoint ptr %2 to i64
@@ -5601,7 +5589,7 @@ _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE7reserveEm.exit.i: 
   br i1 %.not9.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE6appendIPS3_vEEvT_S7_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE7reserveEm.exit.i
-  %26 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.pre87, i64 %.pre-phi.i
+  %26 = getelementptr inbounds nuw [136 x i8], ptr %.pre87, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt10_ConstructIN5clang6format17JsModuleReferenceEJRS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
@@ -5725,7 +5713,7 @@ _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE7reserveEm.exit.i45
 
 .lr.ph.i.i.i.i.preheader.i47:                     ; preds = %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE7reserveEm.exit.i45
   %72 = load ptr, ptr %0, align 8, !tbaa !72
-  %73 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %72, i64 %.pre-phi.i46
+  %73 = getelementptr inbounds nuw [136 x i8], ptr %72, i64 %.pre-phi.i46
   br label %.lr.ph.i.i.i.i.i48
 
 .lr.ph.i.i.i.i.i48:                               ; preds = %_ZSt10_ConstructIN5clang6format17JsModuleReferenceEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i47
@@ -5867,7 +5855,7 @@ _ZSt4copyIPKN5clang6format16JsImportedSymbolEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i
   %.idx36.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.022.i.i.i.i.i.i.i.i, 40
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx36.i.i.i.i.i.i.i.i
   %133 = load ptr, ptr %104, align 8, !tbaa !72
-  %134 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %133, i64 %.022.i.i.i.i.i.i.i.i
+  %134 = getelementptr inbounds nuw [40 x i8], ptr %133, i64 %.022.i.i.i.i.i.i.i.i
   %.idx3537.i.i.i.i.i.i.i.i = sub nsw i64 %129, %.022.i.i.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i.i.i = mul nsw i64 %.idx3537.i.i.i.i.i.i.i.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 8 %132, i64 %gepdiff.i.i.i.i.i.i.i.i, i1 false)
@@ -5896,9 +5884,9 @@ _ZN5clang6format17JsModuleReferenceaSERKS1_.exit.i.i.i.i.i: ; preds = %.sink.spl
 
 .lr.ph.i.i.i.i.i58.preheader:                     ; preds = %141
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %60, i64 %144
+  %145 = getelementptr inbounds nuw [136 x i8], ptr %60, i64 %144
   %146 = sub nsw i64 0, %63
-  %147 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %145, i64 %146
+  %147 = getelementptr inbounds [136 x i8], ptr %145, i64 %146
   br label %.lr.ph.i.i.i.i.i58
 
 .lr.ph.i.i.i.i.i58:                               ; preds = %.lr.ph.i.i.i.i.i58.preheader, %_ZSt10_ConstructIN5clang6format17JsModuleReferenceEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i62
@@ -6058,7 +6046,7 @@ _ZSt4copyIPKN5clang6format16JsImportedSymbolEPS2_ET0_T_S7_S6_.exit31.i.i.i: ; pr
   %.idx36.i.i.i = mul nuw nsw i64 %.022.i.i.i, 40
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx36.i.i.i
   %209 = load ptr, ptr %180, align 8, !tbaa !72
-  %210 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %209, i64 %.022.i.i.i
+  %210 = getelementptr inbounds nuw [40 x i8], ptr %209, i64 %.022.i.i.i
   %.idx3537.i.i.i = sub nsw i64 %205, %.022.i.i.i
   %gepdiff.i.i.i = mul nsw i64 %.idx3537.i.i.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %210, ptr align 8 %208, i64 %gepdiff.i.i.i, i1 false)
@@ -6204,7 +6192,7 @@ common.ret18:                                     ; preds = %7, %common.ret
 7:                                                ; preds = %2
   %8 = udiv exact i64 %5, 136
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %9
   tail call void @_ZSt21__inplace_stable_sortIPN5clang6format17JsModuleReferenceEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %0, ptr noundef %10)
   tail call void @_ZSt21__inplace_stable_sortIPN5clang6format17JsModuleReferenceEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %10, ptr noundef %1)
   %11 = ptrtoint ptr %10 to i64
@@ -6222,7 +6210,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIPN5clang6format17JsModule
   %8 = sdiv exact i64 %7, 136
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %0, i64 %10
+  %11 = getelementptr inbounds [136 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -6408,7 +6396,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i: ; preds = 
   %.idx40.i = mul nuw nsw i64 %.026.i, 40
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx40.i
   %75 = load ptr, ptr %34, align 8, !tbaa !72
-  %76 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %75, i64 %.026.i
+  %76 = getelementptr inbounds nuw [40 x i8], ptr %75, i64 %.026.i
   %.idx3941.i = sub nsw i64 %71, %.026.i
   %gepdiff.i = mul nsw i64 %.idx3941.i, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 8 %74, i64 %gepdiff.i, i1 false)
@@ -6511,7 +6499,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i25: ; preds 
   %.idx40.i28 = mul nuw nsw i64 %.026.i26, 40
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx40.i28
   %111 = load ptr, ptr %11, align 8, !tbaa !72
-  %112 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %111, i64 %.026.i26
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %111, i64 %.026.i26
   %.idx3941.i29 = sub nsw i64 %107, %.026.i26
   %gepdiff.i30 = mul nsw i64 %.idx3941.i29, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 8 %110, i64 %gepdiff.i30, i1 false)
@@ -6587,7 +6575,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIPN5clang6format17JsModule
 
 _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit: ; preds = %15
   %18 = sdiv i64 %.tr6472, 2
-  %19 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.tr69, i64 %18
+  %19 = getelementptr inbounds [136 x i8], ptr %.tr69, i64 %18
   %20 = sub i64 %8, %17
   %21 = icmp sgt i64 %20, 0
   br i1 %21, label %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i, label %_ZSt13__lower_boundIPN5clang6format17JsModuleReferenceES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit
@@ -6600,7 +6588,7 @@ _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i: ; preds = %_ZS
   %.017.i = phi ptr [ %.1.i, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i ], [ %.tr6270, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i ]
   %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i ], [ %22, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i ]
   %23 = lshr i64 %.01116.i, 1
-  %24 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.017.i, i64 %23
+  %24 = getelementptr inbounds nuw [136 x i8], ptr %.017.i, i64 %23
   %25 = tail call noundef zeroext i1 @_ZN5clang6formatltERKNS0_17JsModuleReferenceES3_(ptr noundef nonnull align 8 dereferenceable(132) %24, ptr noundef nonnull align 8 dereferenceable(132) %19)
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %27 = xor i64 %23, -1
@@ -6623,7 +6611,7 @@ _ZSt13__lower_boundIPN5clang6format17JsModuleReferenceES2_N9__gnu_cxx5__ops14_It
 
 _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit39: ; preds = %15
   %32 = sdiv i64 %.tr6573, 2
-  %33 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.tr6270, i64 %32
+  %33 = getelementptr inbounds [136 x i8], ptr %.tr6270, i64 %32
   %34 = ptrtoint ptr %.tr69 to i64
   %35 = sub i64 %17, %34
   %36 = icmp sgt i64 %35, 0
@@ -6637,7 +6625,7 @@ _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i42: ; preds = %_
   %.017.i43 = phi ptr [ %.1.i48, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i42 ], [ %.tr69, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i41 ]
   %.01116.i44 = phi i64 [ %.112.i47, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i42 ], [ %37, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i41 ]
   %38 = lshr i64 %.01116.i44, 1
-  %39 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.017.i43, i64 %38
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %.017.i43, i64 %38
   %40 = tail call noundef zeroext i1 @_ZN5clang6formatltERKNS0_17JsModuleReferenceES3_(ptr noundef nonnull align 8 dereferenceable(132) %33, ptr noundef nonnull align 8 dereferenceable(132) %39)
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %42 = xor i64 %38, -1
@@ -6813,7 +6801,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i: ; preds = 
   %.idx40.i = mul nuw nsw i64 %.026.i, 40
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx40.i
   %59 = load ptr, ptr %21, align 8, !tbaa !72
-  %60 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %59, i64 %.026.i
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %.026.i
   %.idx3941.i = sub nsw i64 %55, %.026.i
   %gepdiff.i = mul nsw i64 %.idx3941.i, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 8 %58, i64 %gepdiff.i, i1 false)
@@ -6965,7 +6953,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i: ; preds = 
   %.idx40.i = mul nuw nsw i64 %.026.i, 40
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx40.i
   %56 = load ptr, ptr %16, align 8, !tbaa !72
-  %57 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %56, i64 %.026.i
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %56, i64 %.026.i
   %.idx3941.i = sub nsw i64 %52, %.026.i
   %gepdiff.i = mul nsw i64 %.idx3941.i, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 8 %55, i64 %gepdiff.i, i1 false)
@@ -7054,7 +7042,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPN5clang6format17JsModuleRef
   br i1 %38, label %.lr.ph161.preheader, label %._crit_edge162
 
 .lr.ph161.preheader:                              ; preds = %37
-  %39 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.042, i64 %.0135
+  %39 = getelementptr inbounds [136 x i8], ptr %.042, i64 %.0135
   br label %.lr.ph161
 
 ._crit_edge162:                                   ; preds = %_ZSt4swapIN5clang6format17JsModuleReferenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, %37
@@ -7225,7 +7213,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i: ; preds = 
   %.idx40.i = mul nuw nsw i64 %.026.i, 40
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx40.i
   %98 = load ptr, ptr %57, align 8, !tbaa !72
-  %99 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %98, i64 %.026.i
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %98, i64 %.026.i
   %.idx3941.i = sub nsw i64 %94, %.026.i
   %gepdiff.i = mul nsw i64 %.idx3941.i, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 8 %97, i64 %gepdiff.i, i1 false)
@@ -7329,7 +7317,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i.i: ; preds 
   %.idx40.i.i = mul nuw nsw i64 %.026.i.i, 40
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 %.idx40.i.i
   %137 = load ptr, ptr %58, align 8, !tbaa !72
-  %138 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %137, i64 %.026.i.i
+  %138 = getelementptr inbounds nuw [40 x i8], ptr %137, i64 %.026.i.i
   %.idx3941.i.i = sub nsw i64 %133, %.026.i.i
   %gepdiff.i.i = mul nsw i64 %.idx3941.i.i, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr align 8 %136, i64 %gepdiff.i.i, i1 false)
@@ -7367,9 +7355,9 @@ _ZSt4swapIN5clang6format17JsModuleReferenceEENSt9enable_ifIXsr6__and_ISt6__not_I
   br label %.backedge
 
 147:                                              ; preds = %34
-  %148 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.042, i64 %.0139
+  %148 = getelementptr inbounds [136 x i8], ptr %.042, i64 %.0139
   %149 = sub i64 0, %35
-  %150 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %148, i64 %149
+  %150 = getelementptr inbounds [136 x i8], ptr %148, i64 %149
   %151 = icmp sgt i64 %.0135, 0
   br i1 %151, label %.lr.ph, label %._crit_edge
 
@@ -7549,7 +7537,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i99: ; preds 
   %.idx40.i102 = mul nuw nsw i64 %.026.i100, 40
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 %.idx40.i102
   %212 = load ptr, ptr %171, align 8, !tbaa !72
-  %213 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %212, i64 %.026.i100
+  %213 = getelementptr inbounds nuw [40 x i8], ptr %212, i64 %.026.i100
   %.idx3941.i103 = sub nsw i64 %208, %.026.i100
   %gepdiff.i104 = mul nsw i64 %.idx3941.i103, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %213, ptr align 8 %211, i64 %gepdiff.i104, i1 false)
@@ -7653,7 +7641,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i.i66: ; pred
   %.idx40.i.i69 = mul nuw nsw i64 %.026.i.i67, 40
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 %.idx40.i.i69
   %252 = load ptr, ptr %172, align 8, !tbaa !72
-  %253 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %252, i64 %.026.i.i67
+  %253 = getelementptr inbounds nuw [40 x i8], ptr %252, i64 %.026.i.i67
   %.idx3941.i.i70 = sub nsw i64 %248, %.026.i.i67
   %gepdiff.i.i71 = mul nsw i64 %.idx3941.i.i70, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %253, ptr align 8 %251, i64 %gepdiff.i.i71, i1 false)
@@ -7964,7 +7952,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i99: ; preds 
   %.idx40.i102 = mul nuw nsw i64 %.026.i100, 40
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx40.i102
   %124 = load ptr, ptr %81, align 8, !tbaa !72
-  %125 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %124, i64 %.026.i100
+  %125 = getelementptr inbounds nuw [40 x i8], ptr %124, i64 %.026.i100
   %.idx3941.i103 = sub nsw i64 %120, %.026.i100
   %gepdiff.i104 = mul nsw i64 %.idx3941.i103, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 8 %123, i64 %gepdiff.i104, i1 false)
@@ -8081,7 +8069,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i83: ; preds 
   %.idx40.i86 = mul nuw nsw i64 %.026.i84, 40
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx40.i86
   %173 = load ptr, ptr %130, align 8, !tbaa !72
-  %174 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %173, i64 %.026.i84
+  %174 = getelementptr inbounds nuw [40 x i8], ptr %173, i64 %.026.i84
   %.idx3941.i87 = sub nsw i64 %169, %.026.i84
   %gepdiff.i88 = mul nsw i64 %.idx3941.i87, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %174, ptr align 8 %172, i64 %gepdiff.i88, i1 false)
@@ -8220,7 +8208,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i67: ; preds 
   %.idx40.i70 = mul nuw nsw i64 %.026.i68, 40
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 %.idx40.i70
   %230 = load ptr, ptr %187, align 8, !tbaa !72
-  %231 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %230, i64 %.026.i68
+  %231 = getelementptr inbounds nuw [40 x i8], ptr %230, i64 %.026.i68
   %.idx3941.i71 = sub nsw i64 %226, %.026.i68
   %gepdiff.i72 = mul nsw i64 %.idx3941.i71, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %231, ptr align 8 %229, i64 %gepdiff.i72, i1 false)
@@ -8355,7 +8343,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i: ; preds = 
   %.idx40.i = mul nuw nsw i64 %.026.i58, 40
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 %.idx40.i
   %286 = load ptr, ptr %243, align 8, !tbaa !72
-  %287 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %286, i64 %.026.i58
+  %287 = getelementptr inbounds nuw [40 x i8], ptr %286, i64 %.026.i58
   %.idx3941.i = sub nsw i64 %282, %.026.i58
   %gepdiff.i = mul nsw i64 %.idx3941.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %287, ptr align 8 %285, i64 %gepdiff.i, i1 false)
@@ -8388,7 +8376,7 @@ _ZSt17__merge_sort_loopIPN5clang6format17JsModuleReferenceES3_lN9__gnu_cxx5__ops
   %.0.lcssa.i20 = phi ptr [ %0, %14 ], [ %17, %_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit ]
   %.lcssa.i = phi i64 [ %7, %14 ], [ %295, %_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0208, i64 %.lcssa.i)
-  %296 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.0.lcssa.i20, i64 %.sroa.speculated.i
+  %296 = getelementptr inbounds [136 x i8], ptr %.0.lcssa.i20, i64 %.sroa.speculated.i
   %297 = tail call noundef ptr @_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_(ptr noundef %.0.lcssa.i20, ptr noundef %296, ptr noundef %296, ptr noundef %1, ptr noundef %.017.lcssa.i)
   %298 = shl nsw i64 %.0208, 2
   %.not24.i21 = icmp slt i64 %13, %298
@@ -8631,7 +8619,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i165: ; preds
   %.idx40.i168 = mul nuw nsw i64 %.026.i166, 40
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 %.idx40.i168
   %407 = load ptr, ptr %364, align 8, !tbaa !72
-  %408 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %407, i64 %.026.i166
+  %408 = getelementptr inbounds nuw [40 x i8], ptr %407, i64 %.026.i166
   %.idx3941.i169 = sub nsw i64 %403, %.026.i166
   %gepdiff.i170 = mul nsw i64 %.idx3941.i169, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %408, ptr align 8 %406, i64 %gepdiff.i170, i1 false)
@@ -8748,7 +8736,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i149: ; preds
   %.idx40.i152 = mul nuw nsw i64 %.026.i150, 40
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 %.idx40.i152
   %456 = load ptr, ptr %413, align 8, !tbaa !72
-  %457 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %456, i64 %.026.i150
+  %457 = getelementptr inbounds nuw [40 x i8], ptr %456, i64 %.026.i150
   %.idx3941.i153 = sub nsw i64 %452, %.026.i150
   %gepdiff.i154 = mul nsw i64 %.idx3941.i153, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %457, ptr align 8 %455, i64 %gepdiff.i154, i1 false)
@@ -8887,7 +8875,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i133: ; preds
   %.idx40.i136 = mul nuw nsw i64 %.026.i134, 40
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 %.idx40.i136
   %513 = load ptr, ptr %470, align 8, !tbaa !72
-  %514 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %513, i64 %.026.i134
+  %514 = getelementptr inbounds nuw [40 x i8], ptr %513, i64 %.026.i134
   %.idx3941.i137 = sub nsw i64 %509, %.026.i134
   %gepdiff.i138 = mul nsw i64 %.idx3941.i137, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %514, ptr align 8 %512, i64 %gepdiff.i138, i1 false)
@@ -9022,7 +9010,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit35.i117: ; preds
   %.idx40.i120 = mul nuw nsw i64 %.026.i118, 40
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 %.idx40.i120
   %569 = load ptr, ptr %526, align 8, !tbaa !72
-  %570 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %569, i64 %.026.i118
+  %570 = getelementptr inbounds nuw [40 x i8], ptr %569, i64 %.026.i118
   %.idx3941.i121 = sub nsw i64 %565, %.026.i118
   %gepdiff.i122 = mul nsw i64 %.idx3941.i121, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %570, ptr align 8 %568, i64 %gepdiff.i122, i1 false)
@@ -9055,7 +9043,7 @@ _ZSt17__merge_sort_loopIPN5clang6format17JsModuleReferenceES3_lN9__gnu_cxx5__ops
   %.0.lcssa.i27 = phi ptr [ %2, %_ZSt17__merge_sort_loopIPN5clang6format17JsModuleReferenceES3_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_T2_.exit ], [ %300, %_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit56 ]
   %.lcssa.i28 = phi i64 [ %13, %_ZSt17__merge_sort_loopIPN5clang6format17JsModuleReferenceES3_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_T2_.exit ], [ %578, %_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit56 ]
   %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %15, i64 %.lcssa.i28)
-  %579 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.0.lcssa.i27, i64 %.sroa.speculated.i29
+  %579 = getelementptr inbounds [136 x i8], ptr %.0.lcssa.i27, i64 %.sroa.speculated.i29
   %580 = tail call noundef ptr @_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_(ptr noundef %.0.lcssa.i27, ptr noundef %579, ptr noundef %579, ptr noundef nonnull %8, ptr noundef %.017.lcssa.i26)
   %581 = icmp slt i64 %298, %7
   br i1 %581, label %14, label %._crit_edge, !llvm.loop !360
@@ -9224,7 +9212,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit67: ; preds = %
 
 _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit: ; preds = %70
   %71 = sdiv i64 %.tr107121, 2
-  %72 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.tr119, i64 %71
+  %72 = getelementptr inbounds [136 x i8], ptr %.tr119, i64 %71
   %73 = sub i64 %8, %56
   %74 = icmp sgt i64 %73, 0
   br i1 %74, label %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i, label %_ZSt13__lower_boundIPN5clang6format17JsModuleReferenceES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit
@@ -9237,7 +9225,7 @@ _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i: ; preds = %_ZS
   %.017.i = phi ptr [ %.1.i70, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i ], [ %.tr105120, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i ]
   %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i ], [ %75, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i ]
   %76 = lshr i64 %.01116.i, 1
-  %77 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.017.i, i64 %76
+  %77 = getelementptr inbounds nuw [136 x i8], ptr %.017.i, i64 %76
   %78 = tail call noundef zeroext i1 @_ZN5clang6formatltERKNS0_17JsModuleReferenceES3_(ptr noundef nonnull align 8 dereferenceable(132) %77, ptr noundef nonnull align 8 dereferenceable(132) %72)
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 136
   %80 = xor i64 %76, -1
@@ -9260,7 +9248,7 @@ _ZSt13__lower_boundIPN5clang6format17JsModuleReferenceES2_N9__gnu_cxx5__ops14_It
 
 _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit74: ; preds = %70
   %85 = sdiv i64 %.tr108122, 2
-  %86 = getelementptr inbounds %"struct.clang::format::JsModuleReference", ptr %.tr105120, i64 %85
+  %86 = getelementptr inbounds [136 x i8], ptr %.tr105120, i64 %85
   %87 = ptrtoint ptr %.tr119 to i64
   %88 = sub i64 %56, %87
   %89 = icmp sgt i64 %88, 0
@@ -9274,7 +9262,7 @@ _ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i78: ; preds = %_
   %.017.i79 = phi ptr [ %.1.i84, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i78 ], [ %.tr119, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i77 ]
   %.01116.i80 = phi i64 [ %.112.i83, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.i78 ], [ %90, %_ZSt7advanceIPN5clang6format17JsModuleReferenceElEvRT_T0_.exit.preheader.i77 ]
   %91 = lshr i64 %.01116.i80, 1
-  %92 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %.017.i79, i64 %91
+  %92 = getelementptr inbounds nuw [136 x i8], ptr %.017.i79, i64 %91
   %93 = tail call noundef zeroext i1 @_ZN5clang6formatltERKNS0_17JsModuleReferenceES3_(ptr noundef nonnull align 8 dereferenceable(132) %86, ptr noundef nonnull align 8 dereferenceable(132) %92)
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 136
   %95 = xor i64 %91, -1
@@ -9841,7 +9829,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %_Z
   %.pre-phi = phi i64 [ %.pre70, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.loopexit ], [ %36, %37 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.loopexit ], [ %38, %37 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.loopexit ], [ %38, %37 ]
-  %49 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [136 x i8], ptr %48, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %49
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE13destroy_rangeEPS3_S5_.exit, label %.lr.ph.i
 
@@ -9964,14 +9952,14 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit57: ; preds = %
   %90 = load ptr, ptr %1, align 8, !tbaa !72
   %91 = load i32, ptr %31, align 8, !tbaa !73
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw [136 x i8], ptr %90, i64 %92
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %92
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %.lr.ph.i.i.i.i.i58.preheader
 
 .lr.ph.i.i.i.i.i58.preheader:                     ; preds = %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit57
   %94 = load ptr, ptr %0, align 8, !tbaa !72
-  %95 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %94, i64 %.026
-  %96 = getelementptr inbounds nuw %"struct.clang::format::JsModuleReference", ptr %90, i64 %.026
+  %95 = getelementptr inbounds nuw [136 x i8], ptr %94, i64 %.026
+  %96 = getelementptr inbounds nuw [136 x i8], ptr %90, i64 %.026
   br label %.lr.ph.i.i.i.i.i58
 
 .lr.ph.i.i.i.i.i58:                               ; preds = %.lr.ph.i.i.i.i.i58.preheader, %_ZSt10_ConstructIN5clang6format17JsModuleReferenceEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -10086,7 +10074,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %16 = lshr i32 %14, 6
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %15, align 8, !tbaa !72
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = and i32 %14, 63
   %21 = load i64, ptr %19, align 8, !tbaa !27
   %22 = zext nneg i32 %20 to i64
@@ -10100,7 +10088,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %28 = lshr i64 %26, 5
   %29 = load ptr, ptr %27, align 8, !tbaa !72
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !364
   %.not.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i, label %32, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, !prof !103
@@ -10132,7 +10120,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i, %25
   %40 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i ], [ %31, %25 ]
   %41 = and i64 %26, 31
-  %42 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 43:                                               ; preds = %13
@@ -10149,7 +10137,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = zext nneg i32 %.sroa.02.0.i.i to i64
   %49 = load ptr, ptr %47, align 8, !tbaa !72
-  %50 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %48
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
@@ -10199,7 +10187,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %13 = lshr i32 %11, 6
   %14 = zext nneg i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !72
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = and i32 %11, 63
   %18 = load i64, ptr %16, align 8, !tbaa !27
   %19 = zext nneg i32 %17 to i64
@@ -10213,7 +10201,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = lshr i64 %23, 5
   %26 = load ptr, ptr %24, align 8, !tbaa !72
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !364
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %29, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !103
@@ -10245,7 +10233,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %22
   %37 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %28, %22 ]
   %38 = and i64 %23, 31
-  %39 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 40:                                               ; preds = %10
@@ -10256,7 +10244,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; pre
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = zext nneg i32 %1 to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !72
-  %46 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %44
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40, %42
@@ -10293,7 +10281,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %66 = lshr i32 %64, 6
   %67 = zext nneg i32 %66 to i64
   %68 = load ptr, ptr %65, align 8, !tbaa !72
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = and i32 %64, 63
   %71 = load i64, ptr %69, align 8, !tbaa !27
   %72 = zext nneg i32 %70 to i64
@@ -10307,7 +10295,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %78 = lshr i64 %76, 5
   %79 = load ptr, ptr %77, align 8, !tbaa !72
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !364
   %.not.i.i.i.i.i13 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i13, label %82, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, !prof !103
@@ -10339,7 +10327,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i, %75
   %90 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i ], [ %81, %75 ]
   %91 = and i64 %76, 31
-  %92 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %91
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 93:                                               ; preds = %63
@@ -10349,7 +10337,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
 95:                                               ; preds = %61
   %96 = zext nneg i32 %4 to i64
   %97 = load ptr, ptr %53, align 8, !tbaa !72
-  %98 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %96
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, %93, %95
@@ -10434,7 +10422,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !72
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.231", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -10475,7 +10463,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !72
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !73
@@ -10538,7 +10526,7 @@ define linkonce_odr hidden void @_ZSt21__inplace_stable_sortIPN5clang6format16Js
   %16 = ptrtoint ptr %.019.i to i64
   %17 = sub i64 %16, %6
   %.neg.i.i.i.i.i.i = sdiv exact i64 %17, -40
-  %18 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %15, i64 %.neg.i.i.i.i.i.i
+  %18 = getelementptr inbounds [40 x i8], ptr %15, i64 %.neg.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !299
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -10583,7 +10571,7 @@ common.ret27:                                     ; preds = %.preheader.i, %9, %
 25:                                               ; preds = %2
   %26 = udiv exact i64 %7, 40
   %27 = lshr i64 %26, 1
-  %28 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %27
   tail call void @_ZSt21__inplace_stable_sortIPN5clang6format16JsImportedSymbolEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_(ptr noundef %0, ptr noundef %28)
   tail call void @_ZSt21__inplace_stable_sortIPN5clang6format16JsImportedSymbolEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_(ptr noundef %28, ptr noundef %1)
   %29 = ptrtoint ptr %28 to i64
@@ -10601,7 +10589,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIPN5clang6format16J
   %8 = sdiv exact i64 %7, 40
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %0, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -10700,7 +10688,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIPN5clang6format16J
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit: ; preds = %20
   %23 = sdiv i64 %.tr6977, 2
-  %24 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr75, i64 %23
+  %24 = getelementptr inbounds [40 x i8], ptr %.tr75, i64 %23
   %25 = sub i64 %12, %22
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
@@ -10714,7 +10702,7 @@ _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i: ; preds = %_ZSt
   %.017.i = phi ptr [ %.tr6776, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i ]
   %.01116.i = phi i64 [ %27, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i ]
   %28 = lshr i64 %.01116.i, 1
-  %29 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %.017.i, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %.017.i, i64 %28
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %24, align 8, !tbaa !26
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !27
   %30 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i) #16
@@ -10740,7 +10728,7 @@ _ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Ite
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit42: ; preds = %20
   %38 = sdiv i64 %.tr7078, 2
-  %39 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr6776, i64 %38
+  %39 = getelementptr inbounds [40 x i8], ptr %.tr6776, i64 %38
   %40 = ptrtoint ptr %.tr75 to i64
   %41 = sub i64 %22, %40
   %42 = icmp sgt i64 %41, 0
@@ -10754,7 +10742,7 @@ _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i44: ; preds = %_Z
   %.017.i45 = phi ptr [ %.1.i53, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i44 ], [ %.tr75, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i ]
   %.01116.i46 = phi i64 [ %.112.i52, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i44 ], [ %43, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i ]
   %44 = lshr i64 %.01116.i46, 1
-  %45 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %.017.i45, i64 %44
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %.017.i45, i64 %44
   %.sroa.0.0.copyload.i.i.i49 = load ptr, ptr %45, align 8, !tbaa !26
   %.sroa.2.0..sroa_idx.i.i.i50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %.sroa.2.0.copyload.i.i.i51 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i50, align 8, !tbaa !27
@@ -10834,7 +10822,7 @@ _ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val
   br i1 %77, label %.lr.ph89.preheader.i.i, label %._crit_edge90.i.i
 
 .lr.ph89.preheader.i.i:                           ; preds = %76
-  %78 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.042.i.i, i64 %.066.i.i
+  %78 = getelementptr inbounds [40 x i8], ptr %.042.i.i, i64 %.066.i.i
   br label %.lr.ph89.i.i
 
 ._crit_edge90.i.i:                                ; preds = %.lr.ph89.i.i, %76
@@ -10863,9 +10851,9 @@ _ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val
   br label %.backedge
 
 85:                                               ; preds = %73
-  %86 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.042.i.i, i64 %.070.i.i
+  %86 = getelementptr inbounds [40 x i8], ptr %.042.i.i, i64 %.070.i.i
   %87 = sub i64 0, %74
-  %88 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %86, i64 %87
+  %88 = getelementptr inbounds [40 x i8], ptr %86, i64 %87
   %89 = icmp sgt i64 %.066.i.i, 0
   br i1 %89, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -11053,7 +11041,7 @@ _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.sink.
   %52 = ptrtoint ptr %5 to i64
   %53 = sub i64 %51, %52
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %53, -40
-  %54 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
+  %54 = getelementptr inbounds [40 x i8], ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr align 8 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit
 
@@ -11063,7 +11051,7 @@ _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.sink.
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit: ; preds = %55
   %57 = sdiv i64 %.tr115129, 2
-  %58 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr127, i64 %57
+  %58 = getelementptr inbounds [40 x i8], ptr %.tr127, i64 %57
   %59 = sub i64 %8, %56
   %60 = icmp sgt i64 %59, 0
   br i1 %60, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
@@ -11077,7 +11065,7 @@ _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i: ; preds = %_ZSt
   %.017.i = phi ptr [ %.tr113128, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i ], [ %.1.i83, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i ]
   %.01116.i = phi i64 [ %61, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i ]
   %62 = lshr i64 %.01116.i, 1
-  %63 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %.017.i, i64 %62
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %.017.i, i64 %62
   %.sroa.0.0.copyload.i.i.i81 = load ptr, ptr %58, align 8, !tbaa !26
   %.sroa.2.0.copyload.i.i.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i80, align 8, !tbaa !27
   %64 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr %.sroa.0.0.copyload.i.i.i81, i64 %.sroa.2.0.copyload.i.i.i82) #16
@@ -11103,7 +11091,7 @@ _ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Ite
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87: ; preds = %55
   %72 = sdiv i64 %.tr116130, 2
-  %73 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr113128, i64 %72
+  %73 = getelementptr inbounds [40 x i8], ptr %.tr113128, i64 %72
   %74 = ptrtoint ptr %.tr127 to i64
   %75 = sub i64 %56, %74
   %76 = icmp sgt i64 %75, 0
@@ -11117,7 +11105,7 @@ _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90: ; preds = %_Z
   %.017.i91 = phi ptr [ %.1.i99, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90 ], [ %.tr127, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i ]
   %.01116.i92 = phi i64 [ %.112.i98, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90 ], [ %77, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i ]
   %78 = lshr i64 %.01116.i92, 1
-  %79 = getelementptr inbounds nuw %"struct.clang::format::JsImportedSymbol", ptr %.017.i91, i64 %78
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %.017.i91, i64 %78
   %.sroa.0.0.copyload.i.i.i95 = load ptr, ptr %79, align 8, !tbaa !26
   %.sroa.2.0..sroa_idx.i.i.i96 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.2.0.copyload.i.i.i97 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i96, align 8, !tbaa !27
@@ -11211,7 +11199,7 @@ _ZSt16__insertion_sortIPN5clang6format16JsImportedSymbolEN9__gnu_cxx5__ops15_Ite
   %23 = ptrtoint ptr %.019.i to i64
   %24 = sub i64 %23, %16
   %.neg.i.i.i.i.i.i = sdiv exact i64 %24, -40
-  %25 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %22, i64 %.neg.i.i.i.i.i.i
+  %25 = getelementptr inbounds [40 x i8], ptr %22, i64 %.neg.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(1) %.039, i64 %24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.039, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !299
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -11288,7 +11276,7 @@ _ZSt16__insertion_sortIPN5clang6format16JsImportedSymbolEN9__gnu_cxx5__ops15_Ite
   %41 = ptrtoint ptr %.019.i18 to i64
   %42 = sub i64 %41, %.lcssa
   %.neg.i.i.i.i.i.i36 = sdiv exact i64 %42, -40
-  %43 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %40, i64 %.neg.i.i.i.i.i.i36
+  %43 = getelementptr inbounds [40 x i8], ptr %40, i64 %.neg.i.i.i.i.i.i36
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa, i64 %42, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !299
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11529,7 +11517,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit: ; preds = %13,
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -40
-  %21 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %2, i64 %.neg.i.i.i.i.i
+  %21 = getelementptr inbounds [40 x i8], ptr %2, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit
 
@@ -11578,13 +11566,13 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit42: ; preds = %_
 
 34:                                               ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit42
   %.neg.i.i.i.i.i44 = sdiv exact i64 %29, -40
-  %35 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %2, i64 %.neg.i.i.i.i.i44
+  %35 = getelementptr inbounds [40 x i8], ptr %2, i64 %.neg.i.i.i.i.i44
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit46
 
 _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit46: ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit42, %34
   %.pre-phi.i.i.i.i.i45 = phi i64 [ %.neg.i.i.i.i.i44, %34 ], [ 0, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit42 ]
-  %36 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %2, i64 %.pre-phi.i.i.i.i.i45
+  %36 = getelementptr inbounds [40 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i45
   br label %_ZNSt3_V26rotateIPN5clang6format16JsImportedSymbolEEET_S5_S5_S5_.exit
 
 37:                                               ; preds = %24
@@ -11638,7 +11626,7 @@ _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit46: ; 
   br i1 %60, label %.lr.ph89.preheader.i.i, label %._crit_edge90.i.i
 
 .lr.ph89.preheader.i.i:                           ; preds = %59
-  %61 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.042.i.i, i64 %.066.i.i
+  %61 = getelementptr inbounds [40 x i8], ptr %.042.i.i, i64 %.066.i.i
   br label %.lr.ph89.i.i
 
 ._crit_edge90.i.i:                                ; preds = %.lr.ph89.i.i, %59
@@ -11667,9 +11655,9 @@ _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit46: ; 
   br label %.backedge
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.042.i.i, i64 %.070.i.i
+  %69 = getelementptr inbounds [40 x i8], ptr %.042.i.i, i64 %.070.i.i
   %70 = sub i64 0, %57
-  %71 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %69, i64 %70
+  %71 = getelementptr inbounds [40 x i8], ptr %69, i64 %70
   %72 = icmp sgt i64 %.066.i.i, 0
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -12765,7 +12753,7 @@ _ZNSt7__cxx1110_List_baseIN5clang6format17UnwrappedLineNodeESaIS3_EED2Ev.exit.lo
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !73
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %7, ptr noundef %11)
   %12 = load ptr, ptr %6, align 8, !tbaa !72
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 40

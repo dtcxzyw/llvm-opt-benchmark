@@ -1328,7 +1328,7 @@ define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE14_M_fi
 
 _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !45
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit, label %26
@@ -1337,7 +1337,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit
 
@@ -1448,7 +1448,7 @@ _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_R
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw ptr, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -1470,7 +1470,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET
 _ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !46
   store ptr %72, ptr %8, align 8, !tbaa !45
-  %75 = getelementptr inbounds nuw ptr, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !238
   br label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit
 
@@ -1538,7 +1538,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit: ; preds = %13, %16
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %10, align 8, !tbaa !242
-  %26 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double 1.000000e-09, ptr %26, align 8, !tbaa !61
   %27 = load ptr, ptr %5, align 8, !tbaa !35
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 224
@@ -1577,7 +1577,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %10, align 8, !tbaa !242
-  %47 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store double -1.000000e-09, ptr %47, align 8, !tbaa !61
   %48 = load ptr, ptr %5, align 8, !tbaa !35
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 224
@@ -1610,10 +1610,10 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %57
   %62 = fsub double %37, %58
   %63 = load ptr, ptr %10, align 8, !tbaa !242
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   store double 0.000000e+00, ptr %64, align 8, !tbaa !61
   %65 = load ptr, ptr %11, align 8, !tbaa !109, !noalias !247
-  %66 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = fmul double %62, 0x41BDCD64FFFFFFFF
   store double %67, ptr %66, align 8, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1698,7 +1698,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit: ; preds = %14, %17
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %11, align 8, !tbaa !251
-  %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store double 1.000000e-09, ptr %28, align 8, !tbaa !61
   %29 = load ptr, ptr %6, align 8, !tbaa !35
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 224
@@ -1737,7 +1737,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %11, align 8, !tbaa !251
-  %49 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   store double -1.000000e-09, ptr %49, align 8, !tbaa !61
   %50 = load ptr, ptr %6, align 8, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 224
@@ -1770,10 +1770,10 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %59
   %64 = fsub double %39, %60
   %65 = load ptr, ptr %11, align 8, !tbaa !251
-  %66 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   store double 0.000000e+00, ptr %66, align 8, !tbaa !61
   %67 = load ptr, ptr %12, align 8, !tbaa !111, !noalias !254
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %69 = fmul double %64, 0x41BDCD64FFFFFFFF
   store double %69, ptr %68, align 8, !tbaa !61
   br i1 %22, label %21, label %14, !llvm.loop !257
@@ -1886,7 +1886,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13V
   %48 = load ptr, ptr %41, align 8, !tbaa !271
   %49 = load <2 x double>, ptr %48, align 1, !tbaa !60
   %50 = load ptr, ptr %42, align 16, !tbaa !258
-  %51 = getelementptr double, ptr %50, i64 %.07.i.i.i.i.i.i.i.i
+  %51 = getelementptr [8 x i8], ptr %50, i64 %.07.i.i.i.i.i.i.i.i
   %52 = load double, ptr %51, align 8, !tbaa !61
   %53 = insertelement <2 x double> poison, double %52, i64 0
   %54 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> zeroinitializer
@@ -1896,7 +1896,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13V
   store <2 x double> %57, ptr %47, align 1, !tbaa !60
   %58 = getelementptr i8, ptr %47, i64 16
   %59 = load ptr, ptr %31, align 8, !tbaa !109, !noalias !272
-  %60 = getelementptr inbounds nuw double, ptr %59, i64 %.07.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.07.i.i.i.i.i.i.i.i
   %61 = load double, ptr %38, align 16, !tbaa !61
   %62 = load double, ptr %60, align 8, !tbaa !61
   %63 = fmul double %61, %62
@@ -2012,7 +2012,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13V
   %140 = load ptr, ptr %132, align 8, !tbaa !271
   %141 = load <2 x double>, ptr %140, align 1, !tbaa !60
   %142 = load ptr, ptr %133, align 16, !tbaa !217
-  %143 = getelementptr double, ptr %142, i64 %.07.i.i.i.i.i.i.i.i.i.i
+  %143 = getelementptr [8 x i8], ptr %142, i64 %.07.i.i.i.i.i.i.i.i.i.i
   %144 = load double, ptr %143, align 8, !tbaa !61
   %145 = insertelement <2 x double> poison, double %144, i64 0
   %146 = shufflevector <2 x double> %145, <2 x double> poison, <2 x i32> zeroinitializer
@@ -2022,7 +2022,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13V
   store <2 x double> %149, ptr %139, align 1, !tbaa !60
   %150 = getelementptr i8, ptr %139, i64 16
   %151 = load ptr, ptr %123, align 8, !tbaa !111, !noalias !293
-  %152 = getelementptr inbounds nuw double, ptr %151, i64 %.07.i.i.i.i.i.i.i.i.i.i
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %.07.i.i.i.i.i.i.i.i.i.i
   %153 = load double, ptr %129, align 16, !tbaa !61
   %154 = load double, ptr %152, align 8, !tbaa !61
   %155 = fmul double %153, %154

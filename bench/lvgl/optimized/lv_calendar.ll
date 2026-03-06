@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._lv_obj_class_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.lv_calendar_date_t = type { i16, i8, i8 }
 
 @lv_obj_class = external constant %struct._lv_obj_class_t, align 8
 @.str = private unnamed_addr constant [9 x i8] c"calendar\00", align 1
@@ -50,7 +49,7 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr @.str.2, ptr %16, align 8, !tbaa !24
   br label %28
 
@@ -59,9 +58,9 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw ptr, ptr @day_names_def, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @day_names_def, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !24
   br label %28
 
@@ -69,7 +68,7 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
   %24 = zext i8 %.049 to i64
   %25 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 %24
   store i8 120, ptr %25, align 1, !tbaa !26
-  %26 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %25, ptr %26, align 8, !tbaa !24
   %27 = add i8 %.049, 1
   br label %28
@@ -134,9 +133,9 @@ define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly capt
 
 4:                                                ; preds = %.preheader9, %4
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !24
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %6, ptr %7, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -219,7 +218,7 @@ define internal fastcc void @highlight_update(ptr noundef nonnull readonly captu
   %33 = phi i64 [ 0, %.lr.ph ], [ %53, %50 ]
   %.025 = phi i32 [ 0, %.lr.ph ], [ %52, %50 ]
   %34 = load ptr, ptr %26, align 8, !tbaa !31
-  %35 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %33
   %36 = load i16, ptr %35, align 2, !tbaa !33
   %37 = load i16, ptr %4, align 4, !tbaa !21
   %38 = icmp eq i16 %36, %37

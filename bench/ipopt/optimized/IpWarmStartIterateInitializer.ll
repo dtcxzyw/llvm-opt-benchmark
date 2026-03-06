@@ -15411,9 +15411,9 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit52:           ; preds = %36, %_ZNK5Ipopt16De
 
 .lr.ph:                                           ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit52, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %_ZN5Ipopt11DenseVector6ValuesEv.exit52 ]
-  %56 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %57 = load double, ptr %56, align 8, !tbaa !655
-  %58 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %59 = load double, ptr %58, align 8, !tbaa !655
   %60 = fmul double %59, 1.000000e+04
   %61 = fcmp ogt double %57, %60

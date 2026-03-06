@@ -31,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::StringSet" = type { %"class.llvm::StringMap" }
 %"class.llvm::StringMap" = type { %"class.llvm::StringMapImpl" }
 %"class.llvm::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
-%"struct.llvm::detail::DenseMapPair.180" = type { %"struct.std::pair.181" }
-%"struct.std::pair.181" = type { i32, %"class.std::__cxx11::basic_string" }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.189" }
 %"class.llvm::SmallVector.189" = type { %"class.llvm::SmallVectorImpl.190", %"struct.llvm::SmallVectorStorage.193" }
 %"class.llvm::SmallVectorImpl.190" = type { %"class.llvm::SmallVectorTemplateBase.191" }
@@ -165,7 +163,7 @@ _ZN4llvm6TripleD2Ev.exit.i.i:                     ; preds = %_ZN4llvm6TripleC2ER
 52:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread.i.i, %_ZN4llvm6TripleD2Ev.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN4llvm6TripleD2Ev.exit.i.i ], [ %indvars.iv.next.i.i, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread.i.i ]
   %53 = lshr i64 %indvars.iv.i.i, 6
-  %54 = getelementptr inbounds nuw i64, ptr %39, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !23
   %56 = and i64 %indvars.iv.i.i, 63
   %57 = shl nuw i64 1, %56
@@ -196,7 +194,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i.i.i: ; preds = %_ZNK4l
   ]
 
 70:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i.i.i
-  %71 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %indvars.iv.i.i
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %indvars.iv.i.i
   %.sroa.05.0.copyload.i.i.i = load ptr, ptr %71, align 16, !tbaa !40
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !tbaa !23
@@ -213,7 +211,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i.i.i: ; preds = %_ZNK4l
   %78 = mul i32 %indvars.iv.tr.i.i, 37
   %.01726.i.i.i.i.i.i = and i32 %77, %78
   %79 = zext i32 %.01726.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.180", ptr %73, i64 %79
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %73, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !45
   %82 = zext i32 %81 to i64
   %83 = icmp eq i64 %indvars.iv.i.i, %82
@@ -231,7 +229,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i.i.i: ; preds = %_ZNK4l
   %88 = add i32 %.01527.i.i.i.i.i.i, %.01728.i.i.i.i.i.i
   %.017.i.i.i.i.i.i = and i32 %88, %77
   %89 = zext i32 %.017.i.i.i.i.i.i to i64
-  %90 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.180", ptr %73, i64 %89
+  %90 = getelementptr inbounds nuw [40 x i8], ptr %73, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !45
   %92 = zext i32 %91 to i64
   %93 = icmp eq i64 %indvars.iv.i.i, %92
@@ -239,7 +237,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i.i.i: ; preds = %_ZNK4l
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i.i, %72
   %94 = zext i32 %74 to i64
-  %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.180", ptr %73, i64 %94
+  %95 = getelementptr inbounds nuw [40 x i8], ptr %73, i64 %94
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i.i.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i.i.i: ; preds = %86, %.loopexit.i.i.i.i, %76
@@ -410,7 +408,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_14TargetLoweringEE6insertES3_.exit.i.i: ; preds =
 
 164:                                              ; preds = %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_.exit.i.i, %.preheader.i.i
   %indvars.iv54.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next55.i.i, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_.exit.i.i ]
-  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv54.i.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv54.i.i
   %166 = load ptr, ptr %165, align 8, !tbaa !40
   %.not27.i.i = icmp eq ptr %166, null
   br i1 %.not27.i.i, label %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_.exit.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
@@ -421,7 +419,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %164
   %169 = call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull %166, i64 %167, i32 noundef %168) #12
   %170 = load ptr, ptr %13, align 8, !tbaa !73
   %171 = zext i32 %169 to i64
-  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !74
   %magicptr.i.i.i = ptrtoint ptr %173 to i64
   switch i64 %magicptr.i.i.i, label %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_.exit.i.i [
@@ -537,7 +535,7 @@ _ZN12_GLOBAL__N_126PreserveLibCallsAndAsmUsed12findInModuleERN4llvm6ModuleE.exit
 .lr.ph.i.i4:                                      ; preds = %212, %.lr.ph.preheader.i.i
   %indvars.iv.i.i5 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i6, %212 ]
   %206 = load ptr, ptr %13, align 8, !tbaa !73
-  %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv.i.i5
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv.i.i5
   %208 = load ptr, ptr %207, align 8, !tbaa !74
   %magicptr.i.i = ptrtoint ptr %208 to i64
   switch i64 %magicptr.i.i, label %209 [
@@ -711,7 +709,7 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %55, ptr %35, align 8, !tbaa !87
   store ptr %59, ptr %36, align 8, !tbaa !101
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %38, align 8, !tbaa !89
   br label %_ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE9push_backEOS2_.exit
 
@@ -801,7 +799,7 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i22: ; preds = %107, %_ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i20
   store ptr %102, ptr %82, align 8, !tbaa !87
   store ptr %106, ptr %83, align 8, !tbaa !101
-  %108 = getelementptr inbounds nuw ptr, ptr %102, i64 %100
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %100
   store ptr %108, ptr %85, align 8, !tbaa !89
   br label %_ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE9push_backEOS2_.exit23
 
@@ -840,7 +838,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15Mall
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #12
   %6 = load ptr, ptr %0, align 8, !tbaa !73
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !74
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -892,7 +890,7 @@ _ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9S
   %25 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #12
   %26 = load ptr, ptr %0, align 8, !tbaa !73
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit

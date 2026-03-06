@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.boost::thread_specific_ptr" = type { ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
@@ -2861,7 +2860,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = zext nneg i32 %.0.i to i64
-  %10 = getelementptr inbounds nuw %"class.boost::thread_specific_ptr", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %61
@@ -2974,7 +2973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %57
 
 47:                                               ; preds = %12
-  %48 = getelementptr inbounds nuw i32, ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 %9
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 %9
   %49 = load i32, ptr %48, align 4, !tbaa !75
   %50 = load ptr, ptr %14, align 8, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
@@ -5192,7 +5191,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu12collate_implIwE12do
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i
   store i64 %19, ptr %12, align 8, !tbaa !112
-  %25 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   store i32 0, ptr %25, align 4, !tbaa !115
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = load ptr, ptr %7, align 8, !tbaa !92
@@ -5480,7 +5479,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = zext nneg i32 %.0.i to i64
-  %10 = getelementptr inbounds nuw %"class.boost::thread_specific_ptr", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %61
@@ -5587,7 +5586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %57
 
 45:                                               ; preds = %12
-  %46 = getelementptr inbounds nuw i32, ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 %9
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 %9
   %47 = load i32, ptr %46, align 4, !tbaa !75
   %48 = load ptr, ptr %14, align 8, !tbaa !30
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 152

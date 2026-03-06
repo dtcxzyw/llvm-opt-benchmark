@@ -3,11 +3,6 @@ source_filename = "bench/luajit/original/lj_ccallback.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
-%union.TValue = type { i64 }
-%union.FPRCBArg = type { double }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 -1, 947854885) i32 @lj_ccallback_ptr2slot(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -126,7 +121,7 @@ define hidden ptr @lj_ccallback_enter(ptr noundef %0, ptr noundef %1) local_unna
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load ptr, ptr %43, align 8, !tbaa !59
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !60
   %.not.i = icmp eq i16 %47, 0
   br i1 %.not.i, label %73, label %48
@@ -134,7 +129,7 @@ define hidden ptr @lj_ccallback_enter(ptr noundef %0, ptr noundef %1) local_unna
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !61
   %50 = zext i16 %47 to i64
-  %51 = getelementptr inbounds nuw %struct.CType, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 8, !tbaa !62
   %53 = and i32 %52, 65535
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -149,7 +144,7 @@ define hidden ptr @lj_ccallback_enter(ptr noundef %0, ptr noundef %1) local_unna
   %61 = load i64, ptr %60, align 8, !tbaa !67
   %62 = inttoptr i64 %61 to ptr
   %63 = sext i32 %38 to i64
-  %64 = getelementptr inbounds %union.TValue, ptr %62, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   br label %67
 
 65:                                               ; preds = %48
@@ -246,7 +241,7 @@ lj_state_checkstack.exit.i:                       ; preds = %102, %97
   %.088104.i = phi i32 [ 0, %.lr.ph.i ], [ %.189.i, %143 ]
   %106 = load ptr, ptr %0, align 8, !tbaa !61
   %107 = zext i16 %.078.in109.i to i64
-  %108 = getelementptr inbounds nuw %struct.CType, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %107
   %109 = load i32, ptr %108, align 8, !tbaa !62
   %110 = icmp slt i32 %109, -1879048192
   br i1 %110, label %143, label %.preheader.i
@@ -255,7 +250,7 @@ lj_state_checkstack.exit.i:                       ; preds = %102, %97
   %111 = phi i32 [ %115, %.preheader.i ], [ %109, %105 ]
   %112 = and i32 %111, 65535
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw %struct.CType, ptr %106, i64 %113
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %113
   %115 = load i32, ptr %114, align 8, !tbaa !62
   %116 = icmp slt i32 %115, -1879048192
   br i1 %116, label %.preheader.i, label %ctype_rawchild.exit.i, !llvm.loop !71
@@ -276,7 +271,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i
 
 126:                                              ; preds = %123
   %127 = zext nneg i32 %.081106.i to i64
-  %128 = getelementptr inbounds nuw %union.FPRCBArg, ptr %34, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %127
   br label %139
 
 129:                                              ; preds = %ctype_rawchild.exit.i
@@ -286,12 +281,12 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i
 
 132:                                              ; preds = %129
   %133 = zext nneg i32 %.088104.i to i64
-  %134 = getelementptr inbounds nuw i64, ptr %104, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %133
   br label %139
 
 135:                                              ; preds = %129, %123
   %136 = zext i32 %.085105.i to i64
-  %137 = getelementptr inbounds nuw i64, ptr %36, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %136
   %138 = add i32 %122, %.085105.i
   br label %139
 
@@ -383,7 +378,7 @@ define hidden void @lj_ccallback_leave(ptr noundef %0, ptr noundef %1) local_unn
   %21 = getelementptr inbounds i8, ptr %20, i64 -92
   %22 = load i32, ptr %21, align 4, !tbaa !80
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = ptrtoint ptr %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -401,7 +396,7 @@ define hidden void @lj_ccallback_leave(ptr noundef %0, ptr noundef %1) local_unn
 
 34:                                               ; preds = %34, %30
   %.pn.i = phi i64 [ %32, %30 ], [ %38, %34 ]
-  %.0.i.i = getelementptr inbounds nuw %struct.CType, ptr %33, i64 %.pn.i
+  %.0.i.i = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %.pn.i
   %35 = load i32, ptr %.0.i.i, align 8, !tbaa !62
   %36 = icmp slt i32 %35, -1879048192
   %37 = and i32 %35, 65535
@@ -503,7 +498,7 @@ define hidden ptr @lj_ccallback_new(ptr noundef %0, ptr noundef readonly capture
   %11 = phi i32 [ %15, %10 ], [ %4, %.preheader57.i ]
   %12 = and i32 %11, 65535
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !62
   %16 = icmp slt i32 %15, -1879048192
   br i1 %16, label %10, label %ctype_rawchild.exit.i, !llvm.loop !71
@@ -517,7 +512,7 @@ ctype_rawchild.exit.i:                            ; preds = %10
   %18 = phi i32 [ %22, %.preheader56.i ], [ %15, %ctype_rawchild.exit.i ]
   %19 = and i32 %18, 65535
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !62
   %23 = icmp slt i32 %22, -1879048192
   br i1 %23, label %.preheader56.i, label %ctype_rawchild.exit49.i, !llvm.loop !71
@@ -555,7 +550,7 @@ ctype_rawchild.exit49.i:                          ; preds = %.preheader56.i
   %.030.in66.i = phi i16 [ %53, %51 ], [ %25, %.preheader55.i ]
   %.03265.i = phi i32 [ %.133.i, %51 ], [ 0, %.preheader55.i ]
   %33 = zext i16 %.030.in66.i to i64
-  %34 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %33
   %35 = load i32, ptr %34, align 8, !tbaa !62
   %36 = icmp slt i32 %35, -1879048192
   br i1 %36, label %51, label %.preheader.i
@@ -564,7 +559,7 @@ ctype_rawchild.exit49.i:                          ; preds = %.preheader56.i
   %37 = phi i32 [ %41, %.preheader.i ], [ %35, %.lr.ph.i ]
   %38 = and i32 %37, 65535
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %39
   %41 = load i32, ptr %40, align 8, !tbaa !62
   %42 = icmp slt i32 %41, -1879048192
   br i1 %42, label %.preheader.i, label %ctype_rawchild.exit51.i, !llvm.loop !71
@@ -614,7 +609,7 @@ callback_checkfunc.exit:                          ; preds = %51, %.preheader55.i
 
 .lr.ph.i24:                                       ; preds = %65, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %61, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %65 ]
-  %62 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv.i
   %63 = load i16, ptr %62, align 2, !tbaa !60
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %.loopexit.loopexit.i, label %65, !prof !78
@@ -729,7 +724,7 @@ callback_mcode_new.exit:                          ; preds = %110
   %118 = tail call ptr @lj_mem_grow(ptr noundef %117, ptr noundef %55, ptr noundef nonnull %58, i32 noundef 896, i32 noundef 2) #7
   store ptr %118, ptr %54, align 8, !tbaa !59
   %119 = zext nneg i32 %.0.lcssa.i to i64
-  %120 = getelementptr inbounds nuw i16, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %118, i64 %119
   %121 = load i32, ptr %58, align 8, !tbaa !58
   %122 = sub i32 %121, %.0.lcssa.i
   %123 = zext i32 %122 to i64
@@ -747,7 +742,7 @@ callback_slot_new.exit:                           ; preds = %115, %.loopexit.loo
   %.030.i = phi i32 [ %125, %.loopexit.loopexit.i ], [ %.0.lcssa.i, %115 ]
   %.027.i = phi ptr [ %55, %.loopexit.loopexit.i ], [ %118, %115 ]
   %126 = trunc i32 %11 to i16
-  %127 = getelementptr inbounds nuw i16, ptr %.027.i, i64 %.pre-phi.i
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %.027.i, i64 %.pre-phi.i
   store i16 %126, ptr %127, align 2, !tbaa !60
   %128 = add nuw i32 %.030.i, 1
   store i32 %128, ptr %56, align 4, !tbaa !84
@@ -764,7 +759,7 @@ callback_slot_new.exit:                           ; preds = %115, %.loopexit.loo
   %137 = load i64, ptr %136, align 8, !tbaa !67
   %138 = inttoptr i64 %137 to ptr
   %139 = sext i32 %.030.i to i64
-  %140 = getelementptr inbounds %union.TValue, ptr %138, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %138, i64 %139
   br label %144
 
 141:                                              ; preds = %callback_slot_new.exit

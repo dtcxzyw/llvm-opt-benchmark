@@ -8,19 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.35 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.io_cancel_data = type { ptr, %union.anon, i8, i32, i32 }
 %union.anon = type { i64 }
-%struct.io_hash_bucket = type { %struct.spinlock, %struct.hlist_head, [48 x i8] }
-%struct.spinlock = type { %union.anon.14 }
-%union.anon.14 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.11 }
-%union.anon.11 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.hlist_head = type { ptr }
 %struct.io_uring_sync_cancel_reg = type { i64, i32, i32, %struct.__kernel_timespec, i8, [7 x i8], [3 x i64] }
 %struct.__kernel_timespec = type { i64, i64 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.io_fixed_file = type { i64 }
 
 @.str = private unnamed_addr constant [18 x i8] c"io_uring/cancel.c\00", align 1
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
@@ -527,10 +518,10 @@ define dso_local void @init_hash_table(ptr noundef readonly captures(none) %0, i
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ 0, %4 ], [ %12, %6 ]
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr %struct.io_hash_bucket, ptr %8, i64 %7
+  %9 = getelementptr [64 x i8], ptr %8, i64 %7
   store i32 0, ptr %9, align 64
   %10 = load ptr, ptr %0, align 8
-  %.split = getelementptr %struct.io_hash_bucket, ptr %10, i64 %7
+  %.split = getelementptr [64 x i8], ptr %10, i64 %7
   %11 = getelementptr i8, ptr %.split, i64 8
   store ptr null, ptr %11, align 8
   %12 = add nuw nsw i64 %7, 1
@@ -613,7 +604,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 
 43:                                               ; preds = %40, %33
   %44 = phi i64 [ 0, %33 ], [ %41, %40 ]
-  %45 = getelementptr i64, ptr %34, i64 %44
+  %45 = getelementptr [8 x i8], ptr %34, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %40, label %.loopexit14
@@ -666,7 +657,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %79 = load ptr, ptr %78, align 8
   %80 = zext i32 %77 to i64
-  %81 = getelementptr %struct.io_fixed_file, ptr %79, i64 %80
+  %81 = getelementptr [8 x i8], ptr %79, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = and i64 %82, -4
   %84 = inttoptr i64 %83 to ptr
@@ -735,7 +726,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
   %129 = getelementptr inbounds nuw i8, ptr %115, i64 136
   %130 = load ptr, ptr %129, align 8
   %131 = zext i32 %128 to i64
-  %132 = getelementptr %struct.io_fixed_file, ptr %130, i64 %131
+  %132 = getelementptr [8 x i8], ptr %130, i64 %131
   %133 = load i64, ptr %132, align 8
   %134 = and i64 %133, -4
   %135 = inttoptr i64 %134 to ptr

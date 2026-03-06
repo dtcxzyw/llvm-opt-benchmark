@@ -7,9 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strvec = type { ptr, i64, i64 }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.ident_split = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.sigcheck_gpg_trust_level = type { ptr, ptr, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.anon = type { i8, ptr, i32 }
 
 @.str = private unnamed_addr constant [32 x i8] c"bad/incompatible signature '%s'\00", align 1
 @configured_min_trust_level = internal unnamed_addr global i32 0, align 4
@@ -198,7 +196,7 @@ gpg_interface_lazy_init.exit:                     ; preds = %3, %6
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %gpg_interface_lazy_init.exit
   %.01019.i = phi i64 [ 0, %gpg_interface_lazy_init.exit ], [ %20, %._crit_edge.i ]
-  %10 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01019.i
+  %10 = getelementptr inbounds nuw [64 x i8], ptr @gpg_format, i64 %.01019.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = load ptr, ptr %12, align 8, !tbaa !25
@@ -208,7 +206,7 @@ gpg_interface_lazy_init.exit:                     ; preds = %3, %6
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load ptr, ptr %11, align 8, !tbaa !22
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
@@ -400,7 +398,7 @@ define dso_local i64 @parse_signed_buffer(ptr noundef %0, i64 noundef %1) local_
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.lr.ph
   %.01019.i = phi i64 [ 0, %.lr.ph ], [ %14, %._crit_edge.i ]
-  %4 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01019.i
+  %4 = getelementptr inbounds nuw [64 x i8], ptr @gpg_format, i64 %.01019.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = load ptr, ptr %6, align 8, !tbaa !25
@@ -410,7 +408,7 @@ define dso_local i64 @parse_signed_buffer(ptr noundef %0, i64 noundef %1) local_
 8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load ptr, ptr %5, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next.i
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
@@ -462,7 +460,7 @@ define dso_local range(i32 0, 2) i32 @parse_signature(ptr noundef %0, i64 nounde
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.lr.ph.i
   %.01019.i.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %._crit_edge.i.i ]
-  %6 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01019.i.i
+  %6 = getelementptr inbounds nuw [64 x i8], ptr @gpg_format, i64 %.01019.i.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = load ptr, ptr %8, align 8, !tbaa !25
@@ -472,7 +470,7 @@ define dso_local range(i32 0, 2) i32 @parse_signature(ptr noundef %0, i64 nounde
 10:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %11 = load ptr, ptr %7, align 8, !tbaa !22
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !26
@@ -662,7 +660,7 @@ define dso_local ptr @gpg_trust_level_to_str(i32 noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.sigcheck_gpg_trust_level, ptr @sigcheck_gpg_trust_level, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @sigcheck_gpg_trust_level, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !42
   %.not = icmp eq i32 %8, %0
@@ -751,7 +749,7 @@ set_signing_key.exit:                             ; preds = %9, %10
 
 .preheader:                                       ; preds = %16, %19
   %.0610.i = phi i64 [ %20, %19 ], [ 0, %16 ]
-  %21 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.0610.i
+  %21 = getelementptr inbounds nuw [64 x i8], ptr @gpg_format, i64 %.0610.i
   %22 = load ptr, ptr %21, align 16, !tbaa !47
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %1) #18
   %.not.i = icmp eq i32 %23, 0
@@ -799,7 +797,7 @@ get_format_by_name.exit:                          ; preds = %.preheader
 
 38:                                               ; preds = %36, %34
   %.07.i = phi i64 [ 0, %34 ], [ %37, %36 ]
-  %39 = getelementptr inbounds nuw %struct.sigcheck_gpg_trust_level, ptr @sigcheck_gpg_trust_level, i64 %.07.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr @sigcheck_gpg_trust_level, i64 %.07.i
   %40 = load ptr, ptr %39, align 8, !tbaa !49
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %35) #18
   %.not.i59 = icmp eq i32 %41, 0
@@ -889,7 +887,7 @@ _.exit63:                                         ; preds = %44, %46
   %71 = add nuw nsw i64 %.0610.i6477, 1
   %exitcond.not.i66 = icmp ne i64 %71, 3
   tail call void @llvm.assume(i1 %exitcond.not.i66)
-  %72 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %71
+  %72 = getelementptr inbounds nuw [64 x i8], ptr @gpg_format, i64 %71
   %73 = load ptr, ptr %72, align 16, !tbaa !47
   %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull readonly dereferenceable(1) %.2) #18
   %.not.i65 = icmp eq i32 %74, 0
@@ -1064,7 +1062,7 @@ _.exit15:                                         ; preds = %23, %25
 
 skip_prefix.exit.preheader.i:                     ; preds = %.preheader.i, %skip_prefix.exit70.i
   %.050132.i = phi i64 [ %139, %skip_prefix.exit70.i ], [ 0, %.preheader.i ]
-  %73 = getelementptr inbounds nuw %struct.anon, ptr @sigcheck_gpg_status, i64 %.050132.i
+  %73 = getelementptr inbounds nuw [24 x i8], ptr @sigcheck_gpg_status, i64 %.050132.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !63
   br label %76
@@ -1147,7 +1145,7 @@ replace_cstring.exit.i:                           ; preds = %90, %86
 
 107:                                              ; preds = %105, %102
   %.07.i71.i = phi i64 [ 0, %102 ], [ %106, %105 ]
-  %108 = getelementptr inbounds nuw %struct.sigcheck_gpg_trust_level, ptr @sigcheck_gpg_trust_level, i64 %.07.i71.i
+  %108 = getelementptr inbounds nuw [24 x i8], ptr @sigcheck_gpg_trust_level, i64 %.07.i71.i
   %109 = load ptr, ptr %108, align 8, !tbaa !49
   %110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull readonly dereferenceable(1) %104) #18
   %.not.i72.i = icmp eq i32 %110, 0

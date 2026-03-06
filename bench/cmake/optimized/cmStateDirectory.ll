@@ -11,44 +11,26 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.cmStateDetail::BuildsystemDirectoryStateType" = type { %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector", %"class.std::vector", %"class.std::vector", %"class.std::vector", %"class.std::vector.3", %"class.std::vector.3", %"class.std::__cxx11::basic_string", %class.cmPropertyMap, %"class.std::vector.13" }
-%"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator" = type { ptr, i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.cmPropertyMap = type { %"class.std::unordered_map" }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl" }
-%"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::reverse_iterator.98" = type { %"class.__gnu_cxx::__normal_iterator" }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"struct.cmStateDetail::SnapshotDataType" = type { %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator", %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator", %"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator", %"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator", %"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator", i32, i8, %"class.cmLinkedTree<std::__cxx11::basic_string<char>>::iterator", %"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator", %"class.cmLinkedTree<cmDefinitions>::iterator", %"class.cmLinkedTree<cmDefinitions>::iterator", %"class.cmLinkedTree<cmDefinitions>::iterator", i64, i64, i64, i64, i64 }
-%"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator" = type { ptr, i64 }
-%"class.cmLinkedTree<std::__cxx11::basic_string<char>>::iterator" = type { ptr, i64 }
-%"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator" = type { ptr, i64 }
-%"class.cmLinkedTree<cmDefinitions>::iterator" = type { ptr, i64 }
+%"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator.18" }
+%"class.__gnu_cxx::__normal_iterator.18" = type { ptr }
+%"struct.std::vector<BT<std::__cxx11::basic_string<char>>>::_Temporary_value" = type { ptr, %"union.std::vector<BT<std::__cxx11::basic_string<char>>>::_Temporary_value::_Storage" }
+%"union.std::vector<BT<std::__cxx11::basic_string<char>>>::_Temporary_value::_Storage" = type { %class.BT }
 %class.BT = type { %"class.std::__cxx11::basic_string", %class.cmListFileBacktrace }
 %class.cmListFileBacktrace = type { %class.cmConstStack }
 %class.cmConstStack = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator.18" }
-%"class.__gnu_cxx::__normal_iterator.18" = type { ptr }
-%"struct.std::vector<BT<std::__cxx11::basic_string<char>>>::_Temporary_value" = type { ptr, %"union.std::vector<BT<std::__cxx11::basic_string<char>>>::_Temporary_value::_Storage" }
-%"union.std::vector<BT<std::__cxx11::basic_string<char>>>::_Temporary_value::_Storage" = type { %class.BT }
 %class.cmStateSnapshot = type { ptr, %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator" }
+%"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator" = type { ptr, i64 }
 %class.cmStateDirectory = type { %"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator", %class.cmStateSnapshot }
+%"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator" = type { ptr, i64 }
+%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
+%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.cmRange = type { %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator" }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_less_val" = type { i8 }
@@ -181,7 +163,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK16cmStateD
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %5, i64 %4
+  %6 = getelementptr [360 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -344
   ret ptr %7
 }
@@ -195,7 +177,7 @@ define dso_local void @_ZN16cmStateDirectory16SetCurrentSourceERKNSt7__cxx1112ba
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8, !tbaa !12
-  %8 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %7, i64 %6
+  %8 = getelementptr [360 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -344
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -218,7 +200,7 @@ define dso_local void @_ZN16cmStateDirectory16SetCurrentSourceERKNSt7__cxx1112ba
   %17 = load ptr, ptr %0, align 8, !tbaa !4
   %18 = load i64, ptr %5, align 8, !tbaa !11
   %19 = load ptr, ptr %17, align 8, !tbaa !12
-  %20 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %19, i64 %18
+  %20 = getelementptr [360 x i8], ptr %19, i64 %18
   %21 = getelementptr i8, ptr %20, i64 -344
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr i8, ptr %20, i64 -336
@@ -267,7 +249,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK16cmStateD
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %5, i64 %4
+  %6 = getelementptr [360 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -312
   ret ptr %7
 }
@@ -281,7 +263,7 @@ define dso_local void @_ZN16cmStateDirectory16SetCurrentBinaryERKNSt7__cxx1112ba
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8, !tbaa !12
-  %8 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %7, i64 %6
+  %8 = getelementptr [360 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -312
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -304,7 +286,7 @@ define dso_local void @_ZN16cmStateDirectory16SetCurrentBinaryERKNSt7__cxx1112ba
   %17 = load ptr, ptr %0, align 8, !tbaa !4
   %18 = load i64, ptr %5, align 8, !tbaa !11
   %19 = load ptr, ptr %17, align 8, !tbaa !12
-  %20 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %19, i64 %18
+  %20 = getelementptr [360 x i8], ptr %19, i64 %18
   %21 = getelementptr i8, ptr %20, i64 -312
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr i8, ptr %20, i64 -304
@@ -367,18 +349,18 @@ define dso_local { ptr, ptr } @_ZNK16cmStateDirectory28GetIncludeDirectoriesEntr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %8, i64 %7
+  %9 = getelementptr [360 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -280
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !31
   %15 = load ptr, ptr %12, align 8, !tbaa !32
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %16 = getelementptr [208 x i8], ptr %15, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -40
   %18 = load i64, ptr %17, align 8, !tbaa !35
   %19 = load ptr, ptr %10, align 8, !tbaa !45
-  %20 = getelementptr inbounds %class.BT, ptr %19, i64 %18
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
@@ -410,13 +392,13 @@ define dso_local void @_ZN16cmStateDirectory29AppendIncludeDirectoriesEntryERK2B
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
-  %12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %11
+  %12 = getelementptr [208 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -40
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !11
-  %18 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %15, i64 %17
+  %18 = getelementptr [360 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -280
   tail call void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %20 = getelementptr i8, ptr %18, i64 -272
@@ -442,7 +424,7 @@ define dso_local void @_ZN16cmStateDirectory30PrependIncludeDirectoriesEntryERK2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !11
   %9 = load ptr, ptr %6, align 8, !tbaa !12
-  %10 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %9, i64 %8
+  %10 = getelementptr [360 x i8], ptr %9, i64 %8
   %11 = getelementptr i8, ptr %10, i64 -280
   %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -450,10 +432,10 @@ define dso_local void @_ZN16cmStateDirectory30PrependIncludeDirectoriesEntryERK2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !31
   %17 = load ptr, ptr %14, align 8, !tbaa !32
-  %18 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %17, i64 %16
+  %18 = getelementptr [208 x i8], ptr %17, i64 %16
   %19 = getelementptr i8, ptr %18, i64 -40
   %20 = load i64, ptr %19, align 8, !tbaa !35
-  %21 = getelementptr inbounds %class.BT, ptr %12, i64 %20
+  %21 = getelementptr inbounds [48 x i8], ptr %12, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %12 to i64
@@ -470,13 +452,13 @@ define dso_local void @_ZN16cmStateDirectory30PrependIncludeDirectoriesEntryERK2
   %26 = load ptr, ptr %0, align 8, !tbaa !4
   %27 = load i64, ptr %7, align 8, !tbaa !11
   %28 = load ptr, ptr %26, align 8, !tbaa !12
-  %29 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %28, i64 %27
+  %29 = getelementptr [360 x i8], ptr %28, i64 %27
   %30 = getelementptr i8, ptr %29, i64 -280
   %31 = call ptr @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS7_S9_EERSC_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %25, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %32 = load ptr, ptr %0, align 8, !tbaa !4
   %33 = load i64, ptr %7, align 8, !tbaa !11
   %34 = load ptr, ptr %32, align 8, !tbaa !12
-  %35 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %34, i64 %33
+  %35 = getelementptr [360 x i8], ptr %34, i64 %33
   %36 = getelementptr i8, ptr %35, i64 -280
   %37 = getelementptr i8, ptr %35, i64 -272
   %38 = load ptr, ptr %37, align 8, !tbaa !53
@@ -488,7 +470,7 @@ define dso_local void @_ZN16cmStateDirectory30PrependIncludeDirectoriesEntryERK2
   %44 = load ptr, ptr %13, align 8, !tbaa !29
   %45 = load i64, ptr %15, align 8, !tbaa !31
   %46 = load ptr, ptr %44, align 8, !tbaa !32
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %45
+  %47 = getelementptr [208 x i8], ptr %46, i64 %45
   %48 = getelementptr i8, ptr %47, i64 -40
   store i64 %43, ptr %48, align 8, !tbaa !35
   ret void
@@ -813,14 +795,14 @@ define dso_local void @_ZN16cmStateDirectory21SetIncludeDirectoriesERK2BTINSt7__
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %3, align 8, !tbaa !12
-  %7 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %6, i64 %5
+  %7 = getelementptr [360 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -280
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !31
   %13 = load ptr, ptr %10, align 8, !tbaa !32
-  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %14 = getelementptr [208 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -40
   tail call void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
@@ -942,14 +924,14 @@ define dso_local void @_ZN16cmStateDirectory23ClearIncludeDirectoriesEv(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %5, i64 %4
+  %6 = getelementptr [360 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -280
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = load ptr, ptr %9, align 8, !tbaa !32
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %11
+  %13 = getelementptr [208 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -40
   %15 = getelementptr i8, ptr %6, i64 -272
   %16 = load ptr, ptr %15, align 8, !tbaa !53
@@ -979,18 +961,18 @@ define dso_local { ptr, ptr } @_ZNK16cmStateDirectory28GetCompileDefinitionsEntr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %8, i64 %7
+  %9 = getelementptr [360 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -256
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !31
   %15 = load ptr, ptr %12, align 8, !tbaa !32
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %16 = getelementptr [208 x i8], ptr %15, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -32
   %18 = load i64, ptr %17, align 8, !tbaa !82
   %19 = load ptr, ptr %10, align 8, !tbaa !45
-  %20 = getelementptr inbounds %class.BT, ptr %19, i64 %18
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
@@ -1022,13 +1004,13 @@ define dso_local void @_ZN16cmStateDirectory29AppendCompileDefinitionsEntryERK2B
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
-  %12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %11
+  %12 = getelementptr [208 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -32
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !11
-  %18 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %15, i64 %17
+  %18 = getelementptr [360 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -256
   tail call void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %20 = getelementptr i8, ptr %18, i64 -248
@@ -1051,14 +1033,14 @@ define dso_local void @_ZN16cmStateDirectory21SetCompileDefinitionsERK2BTINSt7__
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %3, align 8, !tbaa !12
-  %7 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %6, i64 %5
+  %7 = getelementptr [360 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -256
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !31
   %13 = load ptr, ptr %10, align 8, !tbaa !32
-  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %14 = getelementptr [208 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -32
   tail call void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
@@ -1070,14 +1052,14 @@ define dso_local void @_ZN16cmStateDirectory23ClearCompileDefinitionsEv(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %5, i64 %4
+  %6 = getelementptr [360 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -256
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = load ptr, ptr %9, align 8, !tbaa !32
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %11
+  %13 = getelementptr [208 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -32
   %15 = getelementptr i8, ptr %6, i64 -248
   %16 = load ptr, ptr %15, align 8, !tbaa !53
@@ -1107,18 +1089,18 @@ define dso_local { ptr, ptr } @_ZNK16cmStateDirectory24GetCompileOptionsEntriesB
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %8, i64 %7
+  %9 = getelementptr [360 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -232
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !31
   %15 = load ptr, ptr %12, align 8, !tbaa !32
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %16 = getelementptr [208 x i8], ptr %15, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8, !tbaa !89
   %19 = load ptr, ptr %10, align 8, !tbaa !45
-  %20 = getelementptr inbounds %class.BT, ptr %19, i64 %18
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
@@ -1150,13 +1132,13 @@ define dso_local void @_ZN16cmStateDirectory25AppendCompileOptionsEntryERK2BTINS
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
-  %12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %11
+  %12 = getelementptr [208 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !11
-  %18 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %15, i64 %17
+  %18 = getelementptr [360 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -232
   tail call void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %20 = getelementptr i8, ptr %18, i64 -224
@@ -1179,14 +1161,14 @@ define dso_local void @_ZN16cmStateDirectory17SetCompileOptionsERK2BTINSt7__cxx1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %3, align 8, !tbaa !12
-  %7 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %6, i64 %5
+  %7 = getelementptr [360 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -232
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !31
   %13 = load ptr, ptr %10, align 8, !tbaa !32
-  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %14 = getelementptr [208 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -24
   tail call void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
@@ -1198,14 +1180,14 @@ define dso_local void @_ZN16cmStateDirectory19ClearCompileOptionsEv(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %5, i64 %4
+  %6 = getelementptr [360 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -232
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = load ptr, ptr %9, align 8, !tbaa !32
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %11
+  %13 = getelementptr [208 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = getelementptr i8, ptr %6, i64 -224
   %16 = load ptr, ptr %15, align 8, !tbaa !53
@@ -1235,18 +1217,18 @@ define dso_local { ptr, ptr } @_ZNK16cmStateDirectory21GetLinkOptionsEntriesB5cx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %8, i64 %7
+  %9 = getelementptr [360 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -208
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !31
   %15 = load ptr, ptr %12, align 8, !tbaa !32
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %16 = getelementptr [208 x i8], ptr %15, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -16
   %18 = load i64, ptr %17, align 8, !tbaa !96
   %19 = load ptr, ptr %10, align 8, !tbaa !45
-  %20 = getelementptr inbounds %class.BT, ptr %19, i64 %18
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
@@ -1278,13 +1260,13 @@ define dso_local void @_ZN16cmStateDirectory22AppendLinkOptionsEntryERK2BTINSt7_
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
-  %12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %11
+  %12 = getelementptr [208 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -16
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !11
-  %18 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %15, i64 %17
+  %18 = getelementptr [360 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -208
   tail call void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %20 = getelementptr i8, ptr %18, i64 -200
@@ -1307,14 +1289,14 @@ define dso_local void @_ZN16cmStateDirectory14SetLinkOptionsERK2BTINSt7__cxx1112
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %3, align 8, !tbaa !12
-  %7 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %6, i64 %5
+  %7 = getelementptr [360 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -208
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !31
   %13 = load ptr, ptr %10, align 8, !tbaa !32
-  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %14 = getelementptr [208 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -16
   tail call void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
@@ -1326,14 +1308,14 @@ define dso_local void @_ZN16cmStateDirectory16ClearLinkOptionsEv(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %5, i64 %4
+  %6 = getelementptr [360 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -208
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = load ptr, ptr %9, align 8, !tbaa !32
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %11
+  %13 = getelementptr [208 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -16
   %15 = getelementptr i8, ptr %6, i64 -200
   %16 = load ptr, ptr %15, align 8, !tbaa !53
@@ -1363,18 +1345,18 @@ define dso_local { ptr, ptr } @_ZNK16cmStateDirectory25GetLinkDirectoriesEntries
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %8, i64 %7
+  %9 = getelementptr [360 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -184
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !31
   %15 = load ptr, ptr %12, align 8, !tbaa !32
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %16 = getelementptr [208 x i8], ptr %15, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !103
   %19 = load ptr, ptr %10, align 8, !tbaa !45
-  %20 = getelementptr inbounds %class.BT, ptr %19, i64 %18
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
@@ -1406,13 +1388,13 @@ define dso_local void @_ZN16cmStateDirectory26AppendLinkDirectoriesEntryERK2BTIN
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
-  %12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %11
+  %12 = getelementptr [208 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !11
-  %18 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %15, i64 %17
+  %18 = getelementptr [360 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -184
   tail call void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %20 = getelementptr i8, ptr %18, i64 -176
@@ -1438,7 +1420,7 @@ define dso_local void @_ZN16cmStateDirectory27PrependLinkDirectoriesEntryERK2BTI
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !11
   %9 = load ptr, ptr %6, align 8, !tbaa !12
-  %10 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %9, i64 %8
+  %10 = getelementptr [360 x i8], ptr %9, i64 %8
   %11 = getelementptr i8, ptr %10, i64 -184
   %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1446,10 +1428,10 @@ define dso_local void @_ZN16cmStateDirectory27PrependLinkDirectoriesEntryERK2BTI
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !31
   %17 = load ptr, ptr %14, align 8, !tbaa !32
-  %18 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %17, i64 %16
+  %18 = getelementptr [208 x i8], ptr %17, i64 %16
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !103
-  %21 = getelementptr inbounds %class.BT, ptr %12, i64 %20
+  %21 = getelementptr inbounds [48 x i8], ptr %12, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %12 to i64
@@ -1466,13 +1448,13 @@ define dso_local void @_ZN16cmStateDirectory27PrependLinkDirectoriesEntryERK2BTI
   %26 = load ptr, ptr %0, align 8, !tbaa !4
   %27 = load i64, ptr %7, align 8, !tbaa !11
   %28 = load ptr, ptr %26, align 8, !tbaa !12
-  %29 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %28, i64 %27
+  %29 = getelementptr [360 x i8], ptr %28, i64 %27
   %30 = getelementptr i8, ptr %29, i64 -184
   %31 = call ptr @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS7_S9_EERSC_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %25, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %32 = load ptr, ptr %0, align 8, !tbaa !4
   %33 = load i64, ptr %7, align 8, !tbaa !11
   %34 = load ptr, ptr %32, align 8, !tbaa !12
-  %35 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %34, i64 %33
+  %35 = getelementptr [360 x i8], ptr %34, i64 %33
   %36 = getelementptr i8, ptr %35, i64 -184
   %37 = getelementptr i8, ptr %35, i64 -176
   %38 = load ptr, ptr %37, align 8, !tbaa !53
@@ -1484,7 +1466,7 @@ define dso_local void @_ZN16cmStateDirectory27PrependLinkDirectoriesEntryERK2BTI
   %44 = load ptr, ptr %13, align 8, !tbaa !29
   %45 = load i64, ptr %15, align 8, !tbaa !31
   %46 = load ptr, ptr %44, align 8, !tbaa !32
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %45
+  %47 = getelementptr [208 x i8], ptr %46, i64 %45
   %48 = getelementptr i8, ptr %47, i64 -8
   store i64 %43, ptr %48, align 8, !tbaa !103
   ret void
@@ -1496,14 +1478,14 @@ define dso_local void @_ZN16cmStateDirectory18SetLinkDirectoriesERK2BTINSt7__cxx
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %3, align 8, !tbaa !12
-  %7 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %6, i64 %5
+  %7 = getelementptr [360 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -184
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !31
   %13 = load ptr, ptr %10, align 8, !tbaa !32
-  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %14 = getelementptr [208 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -8
   tail call void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
@@ -1515,14 +1497,14 @@ define dso_local void @_ZN16cmStateDirectory20ClearLinkDirectoriesEv(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %5, i64 %4
+  %6 = getelementptr [360 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -184
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = load ptr, ptr %9, align 8, !tbaa !32
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %11
+  %13 = getelementptr [208 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = getelementptr i8, ptr %6, i64 -176
   %16 = load ptr, ptr %15, align 8, !tbaa !53
@@ -1577,14 +1559,14 @@ define dso_local void @_ZN16cmStateDirectory11SetPropertyERKNSt7__cxx1112basic_s
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !11
   %31 = load ptr, ptr %28, align 8, !tbaa !12
-  %32 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %31, i64 %30
+  %32 = getelementptr [360 x i8], ptr %31, i64 %30
   %33 = getelementptr i8, ptr %32, i64 -280
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i64, ptr %36, align 8, !tbaa !31
   %38 = load ptr, ptr %35, align 8, !tbaa !32
-  %39 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %38, i64 %37
+  %39 = getelementptr [208 x i8], ptr %38, i64 %37
   %40 = getelementptr i8, ptr %39, i64 -40
   %41 = getelementptr i8, ptr %32, i64 -272
   %42 = load ptr, ptr %41, align 8, !tbaa !53
@@ -1713,14 +1695,14 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !11
   %100 = load ptr, ptr %97, align 8, !tbaa !12
-  %101 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %100, i64 %99
+  %101 = getelementptr [360 x i8], ptr %100, i64 %99
   %102 = getelementptr i8, ptr %101, i64 -280
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load ptr, ptr %103, align 8, !tbaa !29
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %106 = load i64, ptr %105, align 8, !tbaa !31
   %107 = load ptr, ptr %104, align 8, !tbaa !32
-  %108 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %107, i64 %106
+  %108 = getelementptr [208 x i8], ptr %107, i64 %106
   %109 = getelementptr i8, ptr %108, i64 -40
   invoke void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %_ZN16cmStateDirectory21SetIncludeDirectoriesERK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit unwind label %162
@@ -1882,14 +1864,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %162
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %175 = load i64, ptr %174, align 8, !tbaa !11
   %176 = load ptr, ptr %173, align 8, !tbaa !12
-  %177 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %176, i64 %175
+  %177 = getelementptr [360 x i8], ptr %176, i64 %175
   %178 = getelementptr i8, ptr %177, i64 -232
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %180 = load ptr, ptr %179, align 8, !tbaa !29
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %182 = load i64, ptr %181, align 8, !tbaa !31
   %183 = load ptr, ptr %180, align 8, !tbaa !32
-  %184 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %183, i64 %182
+  %184 = getelementptr [208 x i8], ptr %183, i64 %182
   %185 = getelementptr i8, ptr %184, i64 -24
   %186 = getelementptr i8, ptr %177, i64 -224
   %187 = load ptr, ptr %186, align 8, !tbaa !53
@@ -2018,14 +2000,14 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %244 = load i64, ptr %243, align 8, !tbaa !11
   %245 = load ptr, ptr %242, align 8, !tbaa !12
-  %246 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %245, i64 %244
+  %246 = getelementptr [360 x i8], ptr %245, i64 %244
   %247 = getelementptr i8, ptr %246, i64 -232
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %249 = load ptr, ptr %248, align 8, !tbaa !29
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %251 = load i64, ptr %250, align 8, !tbaa !31
   %252 = load ptr, ptr %249, align 8, !tbaa !32
-  %253 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %252, i64 %251
+  %253 = getelementptr [208 x i8], ptr %252, i64 %251
   %254 = getelementptr i8, ptr %253, i64 -24
   invoke void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %247, ptr noundef nonnull align 8 dereferenceable(8) %254, ptr noundef nonnull align 8 dereferenceable(48) %12)
           to label %_ZN16cmStateDirectory17SetCompileOptionsERK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit unwind label %307
@@ -2187,14 +2169,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %307
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %320 = load i64, ptr %319, align 8, !tbaa !11
   %321 = load ptr, ptr %318, align 8, !tbaa !12
-  %322 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %321, i64 %320
+  %322 = getelementptr [360 x i8], ptr %321, i64 %320
   %323 = getelementptr i8, ptr %322, i64 -256
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %325 = load ptr, ptr %324, align 8, !tbaa !29
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %327 = load i64, ptr %326, align 8, !tbaa !31
   %328 = load ptr, ptr %325, align 8, !tbaa !32
-  %329 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %328, i64 %327
+  %329 = getelementptr [208 x i8], ptr %328, i64 %327
   %330 = getelementptr i8, ptr %329, i64 -32
   %331 = getelementptr i8, ptr %322, i64 -248
   %332 = load ptr, ptr %331, align 8, !tbaa !53
@@ -2323,14 +2305,14 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %389 = load i64, ptr %388, align 8, !tbaa !11
   %390 = load ptr, ptr %387, align 8, !tbaa !12
-  %391 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %390, i64 %389
+  %391 = getelementptr [360 x i8], ptr %390, i64 %389
   %392 = getelementptr i8, ptr %391, i64 -256
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %394 = load ptr, ptr %393, align 8, !tbaa !29
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %396 = load i64, ptr %395, align 8, !tbaa !31
   %397 = load ptr, ptr %394, align 8, !tbaa !32
-  %398 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %397, i64 %396
+  %398 = getelementptr [208 x i8], ptr %397, i64 %396
   %399 = getelementptr i8, ptr %398, i64 -32
   invoke void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %392, ptr noundef nonnull align 8 dereferenceable(8) %399, ptr noundef nonnull align 8 dereferenceable(48) %15)
           to label %_ZN16cmStateDirectory21SetCompileDefinitionsERK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit unwind label %452
@@ -2492,14 +2474,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %452
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %465 = load i64, ptr %464, align 8, !tbaa !11
   %466 = load ptr, ptr %463, align 8, !tbaa !12
-  %467 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %466, i64 %465
+  %467 = getelementptr [360 x i8], ptr %466, i64 %465
   %468 = getelementptr i8, ptr %467, i64 -208
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %470 = load ptr, ptr %469, align 8, !tbaa !29
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %472 = load i64, ptr %471, align 8, !tbaa !31
   %473 = load ptr, ptr %470, align 8, !tbaa !32
-  %474 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %473, i64 %472
+  %474 = getelementptr [208 x i8], ptr %473, i64 %472
   %475 = getelementptr i8, ptr %474, i64 -16
   %476 = getelementptr i8, ptr %467, i64 -200
   %477 = load ptr, ptr %476, align 8, !tbaa !53
@@ -2628,14 +2610,14 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %534 = load i64, ptr %533, align 8, !tbaa !11
   %535 = load ptr, ptr %532, align 8, !tbaa !12
-  %536 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %535, i64 %534
+  %536 = getelementptr [360 x i8], ptr %535, i64 %534
   %537 = getelementptr i8, ptr %536, i64 -208
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %539 = load ptr, ptr %538, align 8, !tbaa !29
   %540 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %541 = load i64, ptr %540, align 8, !tbaa !31
   %542 = load ptr, ptr %539, align 8, !tbaa !32
-  %543 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %542, i64 %541
+  %543 = getelementptr [208 x i8], ptr %542, i64 %541
   %544 = getelementptr i8, ptr %543, i64 -16
   invoke void @_Z10SetContentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_RT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(24) %537, ptr noundef nonnull align 8 dereferenceable(8) %544, ptr noundef nonnull align 8 dereferenceable(48) %18)
           to label %_ZN16cmStateDirectory14SetLinkOptionsERK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit unwind label %597
@@ -2909,7 +2891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %64
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %652 = load i64, ptr %651, align 8, !tbaa !11
   %653 = load ptr, ptr %650, align 8, !tbaa !12
-  %654 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %653, i64 %652
+  %654 = getelementptr [360 x i8], ptr %653, i64 %652
   %655 = getelementptr i8, ptr %654, i64 -80
   tail call void @_ZN13cmPropertyMap11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7cmValue(ptr noundef nonnull align 8 dereferenceable(56) %655, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2)
   br label %656
@@ -3193,13 +3175,13 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %78 = load ptr, ptr %77, align 8, !tbaa !12
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !11
-  %81 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %78, i64 %80
+  %81 = getelementptr [360 x i8], ptr %78, i64 %80
   %82 = getelementptr i8, ptr %81, i64 -280
   invoke void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %.noexc unwind label %144
 
 .noexc:                                           ; preds = %71
-  %83 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %74, i64 %76
+  %83 = getelementptr [208 x i8], ptr %74, i64 %76
   %84 = getelementptr i8, ptr %83, i64 -40
   %85 = getelementptr i8, ptr %81, i64 -272
   %86 = load ptr, ptr %85, align 8, !tbaa !53
@@ -3478,13 +3460,13 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %203 = load ptr, ptr %202, align 8, !tbaa !12
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %205 = load i64, ptr %204, align 8, !tbaa !11
-  %206 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %203, i64 %205
+  %206 = getelementptr [360 x i8], ptr %203, i64 %205
   %207 = getelementptr i8, ptr %206, i64 -232
   invoke void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %207, ptr noundef nonnull align 8 dereferenceable(48) %14)
           to label %.noexc36 unwind label %269
 
 .noexc36:                                         ; preds = %196
-  %208 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %199, i64 %201
+  %208 = getelementptr [208 x i8], ptr %199, i64 %201
   %209 = getelementptr i8, ptr %208, i64 -24
   %210 = getelementptr i8, ptr %206, i64 -224
   %211 = load ptr, ptr %210, align 8, !tbaa !53
@@ -3763,13 +3745,13 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %328 = load ptr, ptr %327, align 8, !tbaa !12
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %330 = load i64, ptr %329, align 8, !tbaa !11
-  %331 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %328, i64 %330
+  %331 = getelementptr [360 x i8], ptr %328, i64 %330
   %332 = getelementptr i8, ptr %331, i64 -256
   invoke void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %332, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %.noexc64 unwind label %394
 
 .noexc64:                                         ; preds = %321
-  %333 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %324, i64 %326
+  %333 = getelementptr [208 x i8], ptr %324, i64 %326
   %334 = getelementptr i8, ptr %333, i64 -32
   %335 = getelementptr i8, ptr %331, i64 -248
   %336 = load ptr, ptr %335, align 8, !tbaa !53
@@ -4048,13 +4030,13 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %453 = load ptr, ptr %452, align 8, !tbaa !12
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %455 = load i64, ptr %454, align 8, !tbaa !11
-  %456 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %453, i64 %455
+  %456 = getelementptr [360 x i8], ptr %453, i64 %455
   %457 = getelementptr i8, ptr %456, i64 -208
   invoke void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %457, ptr noundef nonnull align 8 dereferenceable(48) %20)
           to label %.noexc92 unwind label %519
 
 .noexc92:                                         ; preds = %446
-  %458 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %449, i64 %451
+  %458 = getelementptr [208 x i8], ptr %449, i64 %451
   %459 = getelementptr i8, ptr %458, i64 -16
   %460 = getelementptr i8, ptr %456, i64 -200
   %461 = load ptr, ptr %460, align 8, !tbaa !53
@@ -4333,13 +4315,13 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES5_19cmListFileBa
   %578 = load ptr, ptr %577, align 8, !tbaa !12
   %579 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %580 = load i64, ptr %579, align 8, !tbaa !11
-  %581 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %578, i64 %580
+  %581 = getelementptr [360 x i8], ptr %578, i64 %580
   %582 = getelementptr i8, ptr %581, i64 -184
   invoke void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %582, ptr noundef nonnull align 8 dereferenceable(48) %23)
           to label %.noexc120 unwind label %644
 
 .noexc120:                                        ; preds = %571
-  %583 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %574, i64 %576
+  %583 = getelementptr [208 x i8], ptr %574, i64 %576
   %584 = getelementptr i8, ptr %583, i64 -8
   %585 = getelementptr i8, ptr %581, i64 -176
   %586 = load ptr, ptr %585, align 8, !tbaa !53
@@ -4500,7 +4482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %64
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %653 = load i64, ptr %652, align 8, !tbaa !11
   %654 = load ptr, ptr %651, align 8, !tbaa !12
-  %655 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %654, i64 %653
+  %655 = getelementptr [360 x i8], ptr %654, i64 %653
   %656 = getelementptr i8, ptr %655, i64 -80
   tail call void @_ZN13cmPropertyMap14AppendPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr noundef nonnull align 8 dereferenceable(56) %656, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
   br label %657
@@ -4597,7 +4579,7 @@ define dso_local ptr @_ZNK16cmStateDirectory11GetPropertyERKNSt7__cxx1112basic_s
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !11
   %51 = load ptr, ptr %48, align 8, !tbaa !12
-  %52 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %51, i64 %50
+  %52 = getelementptr [360 x i8], ptr %51, i64 %50
   %53 = getelementptr i8, ptr %52, i64 -344
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
@@ -4630,7 +4612,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !11
   %68 = load ptr, ptr %65, align 8, !tbaa !12
-  %69 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %68, i64 %67
+  %69 = getelementptr [360 x i8], ptr %68, i64 %67
   %70 = getelementptr i8, ptr %69, i64 -312
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK16cmStateDirectory11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE6outputB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %70)
   br label %467
@@ -4656,7 +4638,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !11
   %81 = load ptr, ptr %78, align 8, !tbaa !12
-  %82 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %81, i64 %80
+  %82 = getelementptr [360 x i8], ptr %81, i64 %80
   %83 = getelementptr i8, ptr %82, i64 -344
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK16cmStateDirectory11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE6outputB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %83)
   br label %467
@@ -4684,7 +4666,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %93 = load i64, ptr %92, align 8, !tbaa !11
   %94 = load ptr, ptr %91, align 8, !tbaa !12
-  %95 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %94, i64 %93
+  %95 = getelementptr [360 x i8], ptr %94, i64 %93
   %96 = getelementptr i8, ptr %95, i64 -24
   %97 = getelementptr i8, ptr %95, i64 -16
   %98 = load ptr, ptr %97, align 8, !tbaa !120
@@ -4719,7 +4701,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.pre.pre = load ptr, ptr %96, align 8, !tbaa !124
   store ptr %109, ptr %8, align 8, !tbaa !125
   store ptr %109, ptr %110, align 8, !tbaa !128
-  %111 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %109, i64 %103
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %109, i64 %103
   store ptr %111, ptr %107, align 8, !tbaa !129
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
 
@@ -4778,7 +4760,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
   %127 = load ptr, ptr %9, align 8, !tbaa !4
   %128 = load i64, ptr %115, align 8, !tbaa !11
   %129 = load ptr, ptr %127, align 8, !tbaa !12
-  %130 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %129, i64 %128
+  %130 = getelementptr [360 x i8], ptr %129, i64 %128
   %131 = getelementptr i8, ptr %130, i64 -344
   %132 = load ptr, ptr %114, align 8, !tbaa !128
   %133 = load ptr, ptr %107, align 8, !tbaa !129
@@ -5019,7 +5001,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %214 = load i64, ptr %213, align 8, !tbaa !11
   %215 = load ptr, ptr %212, align 8, !tbaa !12
-  %216 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %215, i64 %214
+  %216 = getelementptr [360 x i8], ptr %215, i64 %214
   %217 = getelementptr i8, ptr %216, i64 -160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %.sroa.0.0.copyload.i63 = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !tbaa !18, !noalias !139
@@ -5150,7 +5132,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %262 = load i64, ptr %261, align 8, !tbaa !11
   %263 = load ptr, ptr %260, align 8, !tbaa !12
-  %264 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %263, i64 %262
+  %264 = getelementptr [360 x i8], ptr %263, i64 %262
   %265 = getelementptr i8, ptr %264, i64 -136
   call void @_ZN6cmList9to_stringISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEES7_RKSB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %265)
   %266 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK16cmStateDirectory11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE6outputB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %12) #26
@@ -5631,7 +5613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %43
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %453 = load i64, ptr %452, align 8, !tbaa !11
   %454 = load ptr, ptr %451, align 8, !tbaa !12
-  %455 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %454, i64 %453
+  %455 = getelementptr [360 x i8], ptr %454, i64 %453
   %456 = getelementptr i8, ptr %455, i64 -80
   %457 = tail call ptr @_ZNK13cmPropertyMap16GetPropertyValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %456, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not122 = icmp eq ptr %457, null
@@ -5865,7 +5847,7 @@ define dso_local void @_ZNK16cmStateDirectory15GetPropertyKeysB5cxx11Ev(ptr dead
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %3, align 8, !tbaa !12
-  %7 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %6, i64 %5
+  %7 = getelementptr [360 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -80
   tail call void @_ZNK13cmPropertyMap7GetKeysB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %8)
   ret void
@@ -5880,7 +5862,7 @@ define dso_local void @_ZN16cmStateDirectory19AddNormalTargetNameERKNSt7__cxx111
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8, !tbaa !12
-  %8 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %7, i64 %6
+  %8 = getelementptr [360 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -152
   %10 = load ptr, ptr %9, align 8, !tbaa !128
   %11 = getelementptr i8, ptr %8, i64 -144
@@ -5951,7 +5933,7 @@ define dso_local void @_ZN16cmStateDirectory21AddImportedTargetNameERKNSt7__cxx1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8, !tbaa !12
-  %8 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %7, i64 %6
+  %8 = getelementptr [360 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -128
   %10 = load ptr, ptr %9, align 8, !tbaa !128
   %11 = getelementptr i8, ptr %8, i64 -120
@@ -6291,7 +6273,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !125
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !128
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !129
   ret void
 
@@ -6915,7 +6897,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit36, %98
   store ptr %23, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !53
-  %102 = getelementptr inbounds nuw %class.BT, ptr %23, i64 %17
+  %102 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %102, ptr %97, align 8, !tbaa !62
   ret void
 
@@ -7433,7 +7415,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIc
   br i1 %14, label %15, label %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE15_M_erase_at_endEPS7_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %class.BT, ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE15_M_erase_at_endEPS7_.exit, label %.lr.ph.i.i.i.i
 
@@ -7649,9 +7631,9 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit31: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %57
   store ptr %27, ptr %0, align 8, !tbaa !55
-  %61 = getelementptr inbounds nuw %class.BT, ptr %28, i64 %1
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %28, i64 %1
   store ptr %61, ptr %4, align 8, !tbaa !53
-  %62 = getelementptr inbounds nuw %class.BT, ptr %27, i64 %25
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %25
   store ptr %62, ptr %11, align 8, !tbaa !62
   br label %63
 
@@ -8195,7 +8177,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11cha
   %86 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %85, ptr %3, ptr noundef %13)
   %87 = sub nuw nsw i64 %9, %20
   %88 = load ptr, ptr %12, align 8, !tbaa !128
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %87
   store ptr %89, ptr %12, align 8, !tbaa !128
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit61, label %.lr.ph.i.i.i.i.i54
@@ -8415,7 +8397,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %166
   store ptr %128, ptr %0, align 8, !tbaa !125
   store ptr %.0.lcssa.i.i.i.i.i83, ptr %12, align 8, !tbaa !128
-  %170 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %124
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %124
   store ptr %170, ptr %10, align 8, !tbaa !129
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit
 
@@ -8620,7 +8602,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
 
 21:                                               ; preds = %13
   %22 = lshr i64 %14, 1
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge14, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_SF_SF_T0_(ptr %0, ptr nonnull %11, ptr %23, ptr nonnull %24)
   br label %25
@@ -8731,7 +8713,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08
   store ptr %14, ptr %4, align 8, !tbaa !15
   %20 = load ptr, ptr %19, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -9039,9 +9021,9 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.047 = phi i64 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9068,8 +9050,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %.0.i.i.i = phi i32 [ %22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %.0.i6.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i ]
   %24 = icmp slt i32 %.0.i.i.i, 0
   %spec.select = select i1 %24, i64 %13, i64 %11
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %spec.select
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.047
+  %25 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %26 = getelementptr inbounds [32 x i8], ptr %0, i64 %.047
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = icmp eq ptr %27, %28
@@ -9171,8 +9153,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %33
 65:                                               ; preds = %61
   %66 = shl nsw i64 %.0.lcssa, 1
   %67 = or disjoint i64 %66, 1
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %67
-  %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %68 = getelementptr inbounds [32 x i8], ptr %0, i64 %67
+  %69 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %70 = load ptr, ptr %69, align 8, !tbaa !19
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = icmp eq ptr %70, %71
@@ -9342,7 +9324,7 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iter
   %.027 = phi i64 [ %1, %.lr.ph ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0928
+  %9 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0928
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %12 = load i64, ptr %7, align 8, !tbaa !22
@@ -9370,7 +9352,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basi
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.027
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.027
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = icmp eq ptr %21, %22
@@ -9452,7 +9434,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %27
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %.027, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ]
-  %46 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %46 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = icmp eq ptr %47, %48

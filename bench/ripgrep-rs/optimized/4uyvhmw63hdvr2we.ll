@@ -283,7 +283,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new1
 25:                                               ; preds = %._crit_edge.i, %14
   %26 = phi ptr [ %.pre, %._crit_edge.i ], [ %15, %14 ]
   %27 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %16, %14 ]
-  %28 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %26, i64 %27
+  %28 = getelementptr inbounds [64 x i8], ptr %26, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %28, ptr noundef nonnull align 64 dereferenceable(64) %3, i64 64, i1 false)
   %29 = add i64 %27, 1
   store i64 %29, ptr %9, align 8, !alias.scope !4, !noalias !7
@@ -424,7 +424,7 @@ common.resume:                                    ; preds = %38, %32, %82
   %47 = urem i64 %2, %16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !9, !noundef !9
-  %50 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [64 x i8], ptr %49, i64 %47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %51 = cmpxchg ptr %50, i32 0, i32 1 acquire monotonic, align 4, !noalias !22
   %52 = extractvalue { i32, i1 } %51, 1
@@ -543,7 +543,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %73, %_ZN3
   tail call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %94 = load ptr, ptr %93, align 8, !alias.scope !28, !nonnull !9, !noundef !9
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %90
+  %95 = getelementptr inbounds [8 x i8], ptr %94, i64 %90
   %96 = load ptr, ptr %95, align 8, !noalias !28, !nonnull !9, !align !34, !noundef !9
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %97, align 8
@@ -698,7 +698,7 @@ common.resume:                                    ; preds = %34, %28, %83
   %43 = urem i64 %2, %15
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !9, !noundef !9
-  %46 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [64 x i8], ptr %45, i64 %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %47 = cmpxchg ptr %46, i32 0, i32 1 acquire monotonic, align 4, !noalias !49
   %48 = extractvalue { i32, i1 } %47, 1
@@ -822,7 +822,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %69, %_ZN3
   tail call void @llvm.assume(i1 %93)
   %94 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %95 = load ptr, ptr %94, align 8, !alias.scope !55, !nonnull !9, !noundef !9
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %91
+  %96 = getelementptr inbounds [8 x i8], ptr %95, i64 %91
   %97 = load ptr, ptr %96, align 8, !noalias !55, !nonnull !9, !align !34, !noundef !9
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %98, align 8
@@ -4766,7 +4766,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h536e3cfcc80cdd
 
 10:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Stealer$LT$ignore..walk..Message$GT$$GT$17h758ed9f2db040745E.exit.i", %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Stealer$LT$ignore..walk..Message$GT$$GT$17h758ed9f2db040745E.exit.i" ]
-  %11 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %7, i64 %.09.i
+  %11 = getelementptr inbounds [16 x i8], ptr %7, i64 %.09.i
   %12 = add nuw i64 %.09.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !711)
   call void @llvm.experimental.noalias.scope.decl(metadata !714)
@@ -4814,7 +4814,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h536e3cfcc80cdd
   br label %21
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %7, i64 %.1.i
+  %26 = getelementptr inbounds [16 x i8], ptr %7, i64 %.1.i
   %27 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Stealer$LT$ignore..walk..Message$GT$$GT$17h758ed9f2db040745E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #19
           to label %21 unwind label %29

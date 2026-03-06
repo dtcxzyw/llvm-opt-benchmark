@@ -17,7 +17,7 @@ define hidden range(i32 -1073741824, 1073741824) i32 @SearchColorNoIdx(ptr nound
   %6 = add nsw i32 %.018, %.021
   %7 = ashr i32 %6, 1
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %0, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %.not = icmp eq i32 %10, %1
   %11 = icmp ult i32 %10, %1
@@ -41,7 +41,7 @@ define hidden void @PrepareMapToPalette(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %4, %SearchColorNoIdx.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %SearchColorNoIdx.exit ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = load i32, ptr %2, align 4, !tbaa !3
   %10 = icmp eq i32 %9, %8
@@ -53,7 +53,7 @@ define hidden void @PrepareMapToPalette(ptr noundef readonly captures(none) %0, 
   %11 = add nsw i32 %.018.i, %.021.i
   %12 = ashr i32 %11, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %2, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %.not.i = icmp eq i32 %15, %8
   %16 = icmp ult i32 %15, %8
@@ -67,7 +67,7 @@ SearchColorNoIdx.exit.loopexit:                   ; preds = %.preheader.i
 
 SearchColorNoIdx.exit:                            ; preds = %.lr.ph, %SearchColorNoIdx.exit.loopexit
   %.0.i = phi i64 [ %17, %SearchColorNoIdx.exit.loopexit ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds i32, ptr %3, i64 %.0.i
+  %18 = getelementptr inbounds [4 x i8], ptr %3, i64 %.0.i
   %19 = trunc nuw i64 %indvars.iv to i32
   store i32 %19, ptr %18, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -132,7 +132,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv = phi i64 [ 0, %.preheader64.us ], [ %indvars.iv.next, %.loopexit.us ]
   %.178.us = phi i32 [ %.04186.us, %.preheader64.us ], [ %.2.ph.us, %.loopexit.us ]
   %.14877.us = phi i32 [ %.04784.us, %.preheader64.us ], [ %.249.ph.us, %.loopexit.us ]
-  %17 = getelementptr inbounds nuw i32, ptr %.04685.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.04685.us, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp eq i32 %18, %.178.us
   br i1 %19, label %.loopexit.us, label %20
@@ -149,7 +149,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph.us:                                        ; preds = %20, %30
   %26 = phi i64 [ %33, %30 ], [ %23, %20 ]
   %.04074.us = phi i32 [ %32, %30 ], [ %22, %20 ]
-  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = icmp eq i32 %28, %18
   br i1 %29, label %.loopexit.us, label %30
@@ -166,7 +166,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
 ._crit_edge.us:                                   ; preds = %30, %20
   %.lcssa72.us = phi i64 [ %23, %20 ], [ %33, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %.lcssa72.us
-  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %.lcssa72.us
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.lcssa72.us
   store i32 %18, ptr %37, align 4, !tbaa !3
   store i8 1, ptr %36, align 1, !tbaa !17
   %38 = add nsw i32 %.14877.us, 1
@@ -183,7 +183,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
 ._crit_edge80.us:                                 ; preds = %.loopexit.us
   %40 = load i32, ptr %11, align 8, !tbaa !19
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %.04685.us, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %.04685.us, i64 %41
   %43 = add nuw nsw i32 %.05183.us, 1
   %exitcond93.not = icmp eq i32 %43, %8
   br i1 %exitcond93.not, label %._crit_edge87, label %.preheader64.us, !llvm.loop !20
@@ -202,10 +202,10 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not57, label %52, label %46
 
 46:                                               ; preds = %.preheader
-  %47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv94
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv94
   %48 = load i32, ptr %47, align 4, !tbaa !3
   %49 = sext i32 %.589 to i64
-  %50 = getelementptr inbounds i32, ptr %1, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %1, i64 %49
   store i32 %48, ptr %50, align 4, !tbaa !3
   %51 = add nsw i32 %.589, 1
   br label %52
@@ -256,7 +256,7 @@ define hidden range(i32 0, 2) i32 @PaletteSort(i32 noundef %0, ptr noundef reado
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr nonnull align 4 %15, i64 %18, i1 false)
-  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %17
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %17
   store i32 0, ptr %19, align 4, !tbaa !3
   br label %PaletteSortMinimizeDeltas.exit
 
@@ -281,7 +281,7 @@ define hidden range(i32 0, 2) i32 @PaletteSort(i32 noundef %0, ptr noundef reado
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.030.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %28, %.lr.ph.i.i ]
   %.02228.i.i = phi i8 [ 0, %.lr.ph.preheader.i.i ], [ %.3.i.i, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = and i32 %.030.i.i, 65280
   %30 = sub i32 %28, %29
@@ -331,7 +331,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
 57:                                               ; preds = %54
   %58 = add nsw i32 %3, -1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %4, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !3
   store i32 0, ptr %60, align 4, !tbaa !3
   store i32 %61, ptr %4, align 4, !tbaa !3
@@ -357,7 +357,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   %indvars.iv47.i = phi i64 [ %indvars.iv.i, %.preheader.i ], [ %indvars.iv.next48.i, %66 ]
   %.03144.i = phi i32 [ -1, %.preheader.i ], [ %spec.select40.i, %66 ]
   %.03243.i = phi i32 [ %65, %.preheader.i ], [ %spec.select.i, %66 ]
-  %67 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv47.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv47.i
   %68 = load i32, ptr %67, align 4, !tbaa !3
   %69 = or i32 %68, 16711680
   %70 = sub i32 %69, %63
@@ -395,8 +395,8 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
 
 97:                                               ; preds = %66
   %98 = sext i32 %spec.select.i to i64
-  %99 = getelementptr inbounds i32, ptr %4, i64 %98
-  %100 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %99 = getelementptr inbounds [4 x i8], ptr %4, i64 %98
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %101 = load i32, ptr %99, align 4, !tbaa !3
   %102 = load i32, ptr %100, align 4, !tbaa !3
   store i32 %102, ptr %99, align 4, !tbaa !3
@@ -444,7 +444,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
 
 .lr.ph.i.i.i:                                     ; preds = %SearchColorNoIdx.exit.i.i.i, %120
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %SearchColorNoIdx.exit.i.i.i ], [ 0, %120 ]
-  %125 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.i.i
   %126 = load i32, ptr %125, align 4, !tbaa !3
   %127 = icmp eq i32 %124, %126
   br i1 %127, label %SearchColorNoIdx.exit.i.i.i, label %.preheader.i.i.i.i
@@ -455,7 +455,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   %128 = add nsw i32 %.018.i.i.i.i, %.021.i.i.i.i
   %129 = ashr i32 %128, 1
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i32, ptr %7, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %7, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !3
   %.not.i.i.i.i = icmp eq i32 %132, %126
   %133 = icmp ult i32 %132, %126
@@ -465,7 +465,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
 
 SearchColorNoIdx.exit.i.i.i:                      ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i
   %.0.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %130, %.preheader.i.i.i.i ]
-  %134 = getelementptr inbounds i32, ptr %6, i64 %.0.i.i.i.i
+  %134 = getelementptr inbounds [4 x i8], ptr %6, i64 %.0.i.i.i.i
   %135 = trunc nuw i64 %indvars.iv.i.i.i to i32
   store i32 %135, ptr %134, align 4, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -487,7 +487,7 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
 .preheader.i.preheader.i:                         ; preds = %.preheader.lr.ph.i.i
   %142 = xor i32 %113, -1
   %143 = sext i32 %121 to i64
-  %144 = getelementptr inbounds i32, ptr %118, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %118, i64 %143
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %PrepareMapToPalette.exit.i.i, %.preheader.i.preheader.i
@@ -509,7 +509,7 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
   %indvars.iv95.i.i = phi i64 [ %indvars.iv.next96.i.i, %178 ], [ 0, %.lr.ph.i.i27 ]
   %.179.us.i.i = phi i32 [ %.2.us.i.i, %178 ], [ %.06186.i.i, %.lr.ph.i.i27 ]
   %.16378.us.i.i = phi i32 [ %.264.us.i.i, %178 ], [ %.06285.i.i, %.lr.ph.i.i27 ]
-  %147 = getelementptr inbounds nuw i32, ptr %.06583.i.i, i64 %indvars.iv95.i.i
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %.06583.i.i, i64 %indvars.iv95.i.i
   %148 = load i32, ptr %147, align 4, !tbaa !3
   %.not.us.i.i = icmp eq i32 %148, %.16378.us.i.i
   br i1 %.not.us.i.i, label %160, label %149
@@ -525,7 +525,7 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
   %152 = add nsw i32 %.018.i.us.i.i, %.021.i.us.i.i
   %153 = ashr i32 %152, 1
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %7, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %7, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !3
   %.not.i.us.i.i = icmp eq i32 %156, %148
   %157 = icmp ult i32 %156, %148
@@ -535,14 +535,14 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
 
 SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i, %149
   %.0.i.us.i.i = phi i64 [ 0, %149 ], [ %154, %.preheader.i.us.i.i ]
-  %158 = getelementptr inbounds i32, ptr %6, i64 %.0.i.us.i.i
+  %158 = getelementptr inbounds [4 x i8], ptr %6, i64 %.0.i.us.i.i
   %159 = load i32, ptr %158, align 4, !tbaa !3
   br label %160
 
 160:                                              ; preds = %SearchColorNoIdx.exit.us.i.i, %.lr.ph.split.us.i.i
   %.264.us.i.i = phi i32 [ %148, %SearchColorNoIdx.exit.us.i.i ], [ %.16378.us.i.i, %.lr.ph.split.us.i.i ]
   %.2.us.i.i = phi i32 [ %159, %SearchColorNoIdx.exit.us.i.i ], [ %.179.us.i.i, %.lr.ph.split.us.i.i ]
-  %161 = getelementptr inbounds nuw i32, ptr %.06087.i.i, i64 %indvars.iv95.i.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.06087.i.i, i64 %indvars.iv95.i.i
   store i32 %.2.us.i.i, ptr %161, align 4, !tbaa !3
   %.not72.us.i.i = icmp eq i64 %indvars.iv95.i.i, 0
   br i1 %.not72.us.i.i, label %178, label %162
@@ -557,14 +557,14 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i
   %166 = mul i32 %.2.us.i.i, %3
   %167 = add i32 %164, %166
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %108, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !3
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 4, !tbaa !3
   %172 = mul i32 %164, %3
   %173 = add i32 %172, %.2.us.i.i
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw i32, ptr %108, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !3
   %177 = add i32 %176, 1
   store i32 %177, ptr %175, align 4, !tbaa !3
@@ -581,7 +581,7 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i
   %indvars.iv.i.i28 = phi i64 [ %indvars.iv.next.i.i30, %229 ], [ 0, %.lr.ph.i.i27 ]
   %.179.i.i = phi i32 [ %.2.i.i, %229 ], [ %.06186.i.i, %.lr.ph.i.i27 ]
   %.16378.i.i = phi i32 [ %.264.i.i, %229 ], [ %.06285.i.i, %.lr.ph.i.i27 ]
-  %182 = getelementptr inbounds nuw i32, ptr %.06583.i.i, i64 %indvars.iv.i.i28
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %.06583.i.i, i64 %indvars.iv.i.i28
   %183 = load i32, ptr %182, align 4, !tbaa !3
   %.not.i.i29 = icmp eq i32 %183, %.16378.i.i
   br i1 %.not.i.i29, label %195, label %184
@@ -597,7 +597,7 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i
   %187 = add nsw i32 %.018.i.i.i, %.021.i.i.i
   %188 = ashr i32 %187, 1
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i32, ptr %7, i64 %189
+  %190 = getelementptr inbounds [4 x i8], ptr %7, i64 %189
   %191 = load i32, ptr %190, align 4, !tbaa !3
   %.not.i.i.i = icmp eq i32 %191, %183
   %192 = icmp ult i32 %191, %183
@@ -607,14 +607,14 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i
 
 SearchColorNoIdx.exit.i.i:                        ; preds = %.preheader.i.i.i, %184
   %.0.i.i.i = phi i64 [ 0, %184 ], [ %189, %.preheader.i.i.i ]
-  %193 = getelementptr inbounds i32, ptr %6, i64 %.0.i.i.i
+  %193 = getelementptr inbounds [4 x i8], ptr %6, i64 %.0.i.i.i
   %194 = load i32, ptr %193, align 4, !tbaa !3
   br label %195
 
 195:                                              ; preds = %SearchColorNoIdx.exit.i.i, %.lr.ph.split.i.i
   %.264.i.i = phi i32 [ %183, %SearchColorNoIdx.exit.i.i ], [ %.16378.i.i, %.lr.ph.split.i.i ]
   %.2.i.i = phi i32 [ %194, %SearchColorNoIdx.exit.i.i ], [ %.179.i.i, %.lr.ph.split.i.i ]
-  %196 = getelementptr inbounds nuw i32, ptr %.06087.i.i, i64 %indvars.iv.i.i28
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %.06087.i.i, i64 %indvars.iv.i.i28
   store i32 %.2.i.i, ptr %196, align 4, !tbaa !3
   %.not72.i.i = icmp eq i64 %indvars.iv.i.i28, 0
   br i1 %.not72.i.i, label %213, label %197
@@ -629,21 +629,21 @@ SearchColorNoIdx.exit.i.i:                        ; preds = %.preheader.i.i.i, %
   %201 = mul i32 %.2.i.i, %3
   %202 = add i32 %199, %201
   %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %108, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !3
   %206 = add i32 %205, 1
   store i32 %206, ptr %204, align 4, !tbaa !3
   %207 = mul i32 %199, %3
   %208 = add i32 %207, %.2.i.i
   %209 = zext i32 %208 to i64
-  %210 = getelementptr inbounds nuw i32, ptr %108, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !3
   %212 = add i32 %211, 1
   store i32 %212, ptr %210, align 4, !tbaa !3
   br label %213
 
 213:                                              ; preds = %200, %197, %195
-  %214 = getelementptr inbounds nuw i32, ptr %.05989.i.i, i64 %indvars.iv.i.i28
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %.05989.i.i, i64 %indvars.iv.i.i28
   %215 = load i32, ptr %214, align 4, !tbaa !3
   %.not75.i.i = icmp eq i32 %.2.i.i, %215
   br i1 %.not75.i.i, label %229, label %216
@@ -652,14 +652,14 @@ SearchColorNoIdx.exit.i.i:                        ; preds = %.preheader.i.i.i, %
   %217 = mul i32 %.2.i.i, %3
   %218 = add i32 %215, %217
   %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds nuw i32, ptr %108, i64 %219
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !3
   %222 = add i32 %221, 1
   store i32 %222, ptr %220, align 4, !tbaa !3
   %223 = mul i32 %215, %3
   %224 = add i32 %223, %.2.i.i
   %225 = zext i32 %224 to i64
-  %226 = getelementptr inbounds nuw i32, ptr %108, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %225
   %227 = load i32, ptr %226, align 4, !tbaa !3
   %228 = add i32 %227, 1
   store i32 %228, ptr %226, align 4, !tbaa !3
@@ -678,7 +678,7 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   %.1.lcssa.i.i = phi i32 [ %.06186.i.i, %.preheader.i.i ], [ %.2.us.i.i, %178 ], [ %.2.i.i, %229 ]
   %234 = load i32, ptr %139, align 8, !tbaa !19
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i32, ptr %.06583.i.i, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %.06583.i.i, i64 %235
   %237 = add nuw nsw i32 %.06682.i.i, 1
   %238 = load i32, ptr %136, align 4, !tbaa !15
   %239 = icmp slt i32 %237, %238
@@ -709,7 +709,7 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   %244 = trunc nuw i64 %indvars.iv.i113.i to i32
   %245 = add i32 %242, %244
   %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds nuw i32, ptr %108, i64 %246
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %246
   %248 = load i32, ptr %247, align 4, !tbaa !3
   %249 = add i32 %248, %.040.i.i
   %indvars.iv.next.i114.i = add nuw nsw i64 %indvars.iv.i113.i, 1
@@ -738,7 +738,7 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   %259 = trunc nuw i64 %indvars.iv.i21 to i32
   %260 = add i32 %256, %259
   %261 = zext i32 %260 to i64
-  %262 = getelementptr inbounds nuw i32, ptr %108, i64 %261
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %261
   %263 = load i32, ptr %262, align 4, !tbaa !3
   %264 = icmp ugt i32 %263, %.03144.i.i
   %265 = trunc i64 %indvars.iv.i21 to i8
@@ -777,16 +777,16 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %277 = trunc nuw i64 %indvars.iv162.i to i32
   %278 = trunc i64 %indvars.iv162.i to i8
   %279 = zext i32 %.088132.i to i64
-  %280 = getelementptr inbounds nuw %struct.Sum, ptr %9, i64 %279
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %279
   store i8 %278, ptr %280, align 8, !tbaa !31
   %281 = mul i32 %3, %277
   %282 = add i32 %281, %255
   %283 = zext i32 %282 to i64
-  %284 = getelementptr inbounds nuw i32, ptr %108, i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !3
   %286 = add i32 %281, %270
   %287 = zext i32 %286 to i64
-  %288 = getelementptr inbounds nuw i32, ptr %108, i64 %287
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %287
   %289 = load i32, ptr %288, align 4, !tbaa !3
   %290 = add i32 %289, %285
   %291 = getelementptr inbounds nuw i8, ptr %280, i64 4
@@ -847,7 +847,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %315 = zext i8 %312 to i32
   %316 = add i32 %307, %315
   %317 = zext i32 %316 to i64
-  %318 = getelementptr inbounds nuw i32, ptr %108, i64 %317
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %317
   %319 = load i32, ptr %318, align 4, !tbaa !3
   %320 = mul nsw i32 %319, %314
   %321 = add nsw i32 %320, %.087136.i
@@ -875,7 +875,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %330 = getelementptr inbounds nuw i8, ptr %8, i64 %329
   store i8 %300, ptr %330, align 1, !tbaa !17
   %331 = add nsw i64 %indvars.iv174.i, -1
-  %332 = getelementptr inbounds nuw %struct.Sum, ptr %9, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %331
   %333 = load i64, ptr %332, align 8
   store i64 %333, ptr %.3146.i, align 4
   %.not.wide.i = icmp eq i64 %331, 0
@@ -889,12 +889,12 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
 336:                                              ; preds = %336, %.lr.ph141.i
   %indvars.iv165.i = phi i64 [ 0, %.lr.ph141.i ], [ %indvars.iv.next166.i, %336 ]
   %.4138.i = phi ptr [ %9, %.lr.ph141.i ], [ %spec.select111.i, %336 ]
-  %337 = getelementptr inbounds nuw %struct.Sum, ptr %9, i64 %indvars.iv165.i
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv165.i
   %338 = load i8, ptr %337, align 8, !tbaa !31
   %339 = zext i8 %338 to i32
   %340 = add i32 %335, %339
   %341 = zext i32 %340 to i64
-  %342 = getelementptr inbounds nuw i32, ptr %108, i64 %341
+  %342 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %341
   %343 = load i32, ptr %342, align 4, !tbaa !3
   %344 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %345 = load i32, ptr %344, align 4, !tbaa !33
@@ -922,9 +922,9 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %354 = getelementptr inbounds nuw i8, ptr %8, i64 %353
   %355 = load i8, ptr %354, align 1, !tbaa !17
   %356 = zext i8 %355 to i64
-  %357 = getelementptr inbounds nuw i32, ptr %2, i64 %356
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %356
   %358 = load i32, ptr %357, align 4, !tbaa !3
-  %359 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv179.i
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv179.i
   store i32 %358, ptr %359, align 4, !tbaa !3
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond184.not.i = icmp eq i64 %indvars.iv.next180.i, %122

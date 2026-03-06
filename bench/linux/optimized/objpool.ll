@@ -120,7 +120,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %72, label %81, label %73
 
 73:                                               ; preds = %50
-  %74 = getelementptr i64, ptr @__per_cpu_offset, i64 %45
+  %74 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %45
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, ptrtoint (ptr @numa_node to i64)
   %77 = inttoptr i64 %76 to ptr
@@ -131,7 +131,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 81:                                               ; preds = %50
   %82 = sext i32 %69 to i64
-  %83 = getelementptr i64, ptr @__per_cpu_offset, i64 %45
+  %83 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %45
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, ptrtoint (ptr @numa_node to i64)
   %86 = inttoptr i64 %85 to ptr
@@ -149,7 +149,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
   %94 = sext i32 %69 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %91, i8 0, i64 %94, i1 false)
   %95 = load ptr, ptr %36, align 8
-  %96 = getelementptr ptr, ptr %95, i64 %45
+  %96 = getelementptr [8 x i8], ptr %95, i64 %45
   store ptr %91, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %98 = load i32, ptr %27, align 4
@@ -161,7 +161,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 102:                                              ; preds = %93
   %103 = sext i32 %98 to i64
-  %104 = getelementptr ptr, ptr %97, i64 %103
+  %104 = getelementptr [8 x i8], ptr %97, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %106 = getelementptr inbounds nuw i8, ptr %91, i64 8
   br i1 %42, label %.split.us, label %.split
@@ -180,7 +180,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
   %113 = phi ptr [ %104, %.split.us ], [ %117, %109 ]
   %114 = and i32 %99, %111
   %115 = zext i32 %114 to i64
-  %116 = getelementptr ptr, ptr %97, i64 %115
+  %116 = getelementptr [8 x i8], ptr %97, i64 %115
   store ptr %113, ptr %116, align 1
   %117 = getelementptr i8, ptr %113, i64 %108
   %118 = add i32 %111, 1
@@ -207,7 +207,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
   %128 = load i32, ptr %100, align 1
   %129 = and i32 %128, %127
   %130 = zext i32 %129 to i64
-  %131 = getelementptr ptr, ptr %97, i64 %130
+  %131 = getelementptr [8 x i8], ptr %97, i64 %130
   store ptr %123, ptr %131, align 1
   %132 = load i32, ptr %0, align 8
   %133 = sext i32 %132 to i64
@@ -244,7 +244,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
 .preheader:                                       ; preds = %148, %.preheader
   %151 = phi i64 [ %155, %.preheader ], [ 0, %148 ]
   %152 = load ptr, ptr %36, align 8
-  %153 = getelementptr ptr, ptr %152, i64 %151
+  %153 = getelementptr [8 x i8], ptr %152, i64 %151
   %154 = load ptr, ptr %153, align 8
   tail call void @kvfree(ptr noundef %154) #11
   %155 = add nuw nsw i64 %151, 1
@@ -291,7 +291,7 @@ define dso_local noundef i32 @objpool_push(ptr noundef %0, ptr noundef readonly 
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %5 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load volatile i32, ptr %11, align 1
@@ -331,7 +331,7 @@ define dso_local noundef i32 @objpool_push(ptr noundef %0, ptr noundef readonly 
   %32 = load i32, ptr %31, align 1
   %33 = and i32 %32, %15
   %34 = zext i32 %33 to i64
-  %35 = getelementptr ptr, ptr %30, i64 %34
+  %35 = getelementptr [8 x i8], ptr %30, i64 %34
   store volatile ptr %0, ptr %35, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -371,7 +371,7 @@ define dso_local ptr @objpool_pop(ptr noundef readonly captures(none) %0) #0 ali
   %11 = phi i32 [ %50, %.thread5 ], [ %4, %1 ]
   %12 = load ptr, ptr %5, align 8
   %13 = sext i32 %11 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = load volatile i32, ptr %15, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
@@ -402,7 +402,7 @@ define dso_local ptr @objpool_pop(ptr noundef readonly captures(none) %0) #0 ali
   %32 = load i32, ptr %22, align 1
   %33 = and i32 %32, %24
   %34 = zext i32 %33 to i64
-  %35 = getelementptr ptr, ptr %21, i64 %34
+  %35 = getelementptr [8 x i8], ptr %21, i64 %34
   %36 = load volatile ptr, ptr %35, align 1
   %37 = add i32 %24, 1
   %38 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 %37, ptr elementtype(i32) %15, i32 %24) #11, !srcloc !27
@@ -468,7 +468,7 @@ define dso_local void @objpool_free(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %5, %.preheader
   %9 = phi i64 [ %13, %.preheader ], [ 0, %5 ]
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %9
+  %11 = getelementptr [8 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8
   tail call void @kvfree(ptr noundef %12) #11
   %13 = add nuw nsw i64 %9, 1
@@ -536,7 +536,7 @@ define dso_local noundef range(i32 -22, 1) i32 @objpool_drop(ptr noundef readnon
 .preheader:                                       ; preds = %17, %.preheader
   %21 = phi i64 [ %25, %.preheader ], [ 0, %17 ]
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %21
+  %23 = getelementptr [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
   tail call void @kvfree(ptr noundef %24) #11
   %25 = add nuw nsw i64 %21, 1
@@ -612,7 +612,7 @@ define dso_local void @objpool_fini(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %21, %.preheader
   %25 = phi i64 [ %29, %.preheader ], [ 0, %21 ]
   %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr ptr, ptr %26, i64 %25
+  %27 = getelementptr [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8
   tail call void @kvfree(ptr noundef %28) #11
   %29 = add nuw nsw i64 %25, 1

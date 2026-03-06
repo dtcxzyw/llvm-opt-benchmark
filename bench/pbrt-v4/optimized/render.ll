@@ -80,8 +80,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::aligned_storage<256, 8>::type" = type { [256 x i8] }
 %"class.pbrt::Normal3" = type { %"class.pbrt::Tuple3.148" }
 %"class.pbrt::Tuple3.148" = type { float, float, float }
-%"class.pstd::optional.211" = type { %"union.std::aligned_storage<16, 8>::type", i8, [7 x i8] }
-%"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
 %"class.pstd::optional.153" = type { %"union.std::aligned_storage<8, 8>::type", i8, [7 x i8] }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.pstd::optional.175" = type { %"union.std::aligned_storage<8, 8>::type", i8, [7 x i8] }
@@ -1165,7 +1163,7 @@ _ZN4pbrt3LogIJmEEEvNS_8LogLevelEPKciS3_DpOT_.exit: ; preds = %363, %_ZNKSt7__cxx
 383:                                              ; preds = %383, %380
   %store_forwarded = phi float [ 5.950000e+02, %380 ], [ %storemerge.i, %383 ]
   %indvars.iv.i = phi i64 [ 1, %380 ], [ %indvars.iv.next.i, %383 ]
-  %384 = getelementptr float, ptr %34, i64 %indvars.iv.i
+  %384 = getelementptr [4 x i8], ptr %34, i64 %indvars.iv.i
   %385 = fadd float %store_forwarded, 1.175000e+02
   %386 = fcmp ogt float %385, 8.300000e+02
   %387 = fadd float %385, -8.300000e+02
@@ -1178,7 +1176,7 @@ _ZN4pbrt3LogIJmEEEvNS_8LogLevelEPKciS3_DpOT_.exit: ; preds = %363, %_ZNKSt7__cxx
 
 389:                                              ; preds = %389, %.preheader.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next26.i, %389 ]
-  %390 = getelementptr inbounds nuw float, ptr %382, i64 %indvars.iv25.i
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %indvars.iv25.i
   store float 0x3F616E0680000000, ptr %390, align 4, !tbaa !94, !alias.scope !91
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
@@ -2463,7 +2461,7 @@ _ZNSt12_Vector_baseIN4pstd8optionalIN4pbrt11ThreadLocalINS0_3pmr21polymorphic_al
   %8 = mul nuw nsw i64 %6, 24
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #28
   store ptr %9, ptr %3, align 8, !tbaa !171
-  %10 = getelementptr inbounds nuw %"class.pstd::optional.211", ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %6
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %9, i64 %8
   br label %11

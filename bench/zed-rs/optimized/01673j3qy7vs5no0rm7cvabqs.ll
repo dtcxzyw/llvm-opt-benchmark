@@ -129,7 +129,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %36 = phi i64 [ %.pre.i.us, %.noexc17.us ], [ %32, %.lr.ph81.split.us ]
   %.sroa.01.0.i.us = phi ptr [ %7, %.noexc17.us ], [ %.sink9.i.i.us, %.lr.ph81.split.us ]
   %.sroa.0.0.i16.us = phi ptr [ %35, %.noexc17.us ], [ %.sink10.i.i.us, %.lr.ph81.split.us ]
-  %37 = getelementptr inbounds { i64, i64 }, ptr %.sroa.0.0.i16.us, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.i16.us, i64 %36
   store i64 %.sroa.0.0.copyload18, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %.sroa.6.0.copyload20, ptr %38, align 8
@@ -148,7 +148,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 41:                                               ; preds = %.lr.ph
   %42 = icmp eq i64 %.sroa.7.076, 0
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds { i64, i64 }, ptr %.sink10.i, i64 %.sroa.732.075
+  %43 = getelementptr inbounds [16 x i8], ptr %.sink10.i, i64 %.sroa.732.075
   store i64 %.sroa.0.0.copyload18, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %.sroa.6.0.copyload20, ptr %44, align 8

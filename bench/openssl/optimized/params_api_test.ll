@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.anon = type { i64, [20 x i8] }
 
 @.str = private unnamed_addr constant [15 x i8] c"test_param_int\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"test_param_long\00", align 1
@@ -208,7 +207,7 @@ define internal range(i32 0, 2) i32 @test_param_int(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -6
   %9 = icmp ult i64 %8, 8
   br i1 %9, label %12, label %10
@@ -285,7 +284,7 @@ define internal range(i32 0, 2) i32 @test_param_long(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -10
   %9 = icmp ult i64 %8, 4
   br i1 %9, label %12, label %10
@@ -362,7 +361,7 @@ define internal range(i32 0, 2) i32 @test_param_uint(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -6
   %9 = icmp ult i64 %8, 8
   br i1 %9, label %12, label %10
@@ -439,7 +438,7 @@ define internal range(i32 0, 2) i32 @test_param_ulong(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -10
   %9 = icmp ult i64 %8, 4
   br i1 %9, label %12, label %10
@@ -516,7 +515,7 @@ define internal range(i32 0, 2) i32 @test_param_int32(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -6
   %9 = icmp ult i64 %8, 8
   br i1 %9, label %12, label %10
@@ -593,7 +592,7 @@ define internal range(i32 0, 2) i32 @test_param_uint32(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -6
   %9 = icmp ult i64 %8, 8
   br i1 %9, label %12, label %10
@@ -670,7 +669,7 @@ define internal range(i32 0, 2) i32 @test_param_size_t(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -10
   %9 = icmp ult i64 %8, 4
   br i1 %9, label %12, label %10
@@ -747,7 +746,7 @@ define internal range(i32 0, 2) i32 @test_param_time_t(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -10
   %9 = icmp ult i64 %8, 4
   br i1 %9, label %12, label %10
@@ -824,7 +823,7 @@ define internal range(i32 0, 2) i32 @test_param_int64(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -10
   %9 = icmp ult i64 %8, 4
   br i1 %9, label %12, label %10
@@ -901,7 +900,7 @@ define internal range(i32 0, 2) i32 @test_param_uint64(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = add nsw i64 %6, -10
   %9 = icmp ult i64 %8, 4
   br i1 %9, label %12, label %10
@@ -977,7 +976,7 @@ define internal range(i32 0, 2) i32 @test_param_bignum(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = load i64, ptr %7, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !16
@@ -1057,7 +1056,7 @@ define internal range(i32 0, 2) i32 @test_param_signed_bignum(i32 noundef %0) #0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @raw_values, i64 %6
   %8 = load i64, ptr %7, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !16
@@ -1352,7 +1351,7 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
 
 .preheader142:                                    ; preds = %61, %91
   %.086146 = phi i64 [ %92, %91 ], [ 0, %61 ]
-  %64 = getelementptr inbounds nuw ptr, ptr @test_param_construct.int_names, i64 %.086146
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @test_param_construct.int_names, i64 %.086146
   %65 = load ptr, ptr %64, align 8, !tbaa !27
   %66 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef %65) #4
   %67 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 653, ptr noundef nonnull @.str.83, ptr noundef %66) #4
@@ -1404,7 +1403,7 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %91, %120
   %.1147 = phi i64 [ %121, %120 ], [ 0, %91 ]
-  %93 = getelementptr inbounds nuw ptr, ptr @test_param_construct.uint_names, i64 %.1147
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @test_param_construct.uint_names, i64 %.1147
   %94 = load ptr, ptr %93, align 8, !tbaa !27
   %95 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef %94) #4
   %96 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 664, ptr noundef nonnull @.str.90, ptr noundef %95) #4

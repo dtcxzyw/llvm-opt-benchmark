@@ -8,12 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.8" }
-%"struct.std::_Head_base.8" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -356,7 +350,7 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit:     ; preds = %117, %.sink.split.i
   %129 = or disjoint i64 %indvars.iv, %84
   %130 = shl nuw i64 1, %129
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i, i64 24
-  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %83
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %83
   %133 = load i64, ptr %132, align 8, !tbaa !71
   %134 = or i64 %133, %130
   store i64 %134, ptr %132, align 8, !tbaa !71
@@ -414,7 +408,7 @@ define dso_local void @_ZN4llvm3pdb20writeSparseBitVectorERNS_18BinaryStreamWrit
   tail call void @llvm.assume(i1 %23)
   %24 = xor i32 %.09.i.i, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !71
   %.not.i.i = icmp eq i64 %27, 0
   %28 = add nuw nsw i32 %.09.i.i, 1
@@ -637,7 +631,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit:   ; preds = %109
   %113 = lshr i32 %.12567, 6
   %114 = and i32 %113, 1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %112, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !71
   %118 = and i32 %.12567, 63
   %119 = zext nneg i32 %118 to i64
@@ -896,7 +890,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !116
   store ptr %67, ptr %41, align 8, !tbaa !112
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !114
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -1046,7 +1040,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !116
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !112
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !114
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -1169,7 +1163,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !116
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !112
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !114
   ret void
 }

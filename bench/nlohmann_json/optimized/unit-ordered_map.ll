@@ -14576,7 +14576,7 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPSt4pairIKNSt7__cxx1112basic_stringIcSt
 
 26:                                               ; preds = %15
   %27 = sub nuw nsw i64 %22, %10
-  %28 = getelementptr inbounds nuw %"struct.std::pair", ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %27
   %.not.i.i = icmp eq ptr %13, %28
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -15529,7 +15529,7 @@ _ZNSt12_Vector_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %9 = shl nuw nsw i64 %6, 6
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #27
   store ptr %10, ptr %0, align 8, !tbaa !17
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !60
   br label %.lr.ph.i.i.i.i
@@ -16300,7 +16300,7 @@ _ZNSt12_Vector_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %0, align 8, !tbaa !17
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %6, align 8, !tbaa !20
-  %93 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i64 %18
+  %93 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %18
   store ptr %93, ptr %92, align 8, !tbaa !60
   ret void
 
@@ -16710,7 +16710,7 @@ _ZSt10_ConstructISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
 .body:                                            ; preds = %48
   %54 = extractvalue { ptr, i32 } %49, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #23
-  %56 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %1
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %1
   invoke void @_ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_EvT_SA_RSaIT0_E(ptr noundef nonnull %33, ptr noundef nonnull %56, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %.thread unwind label %57
 
@@ -16765,9 +16765,9 @@ _ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E
 
 _ZNSt12_Vector_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE13_M_deallocateEPS8_m.exit50: ; preds = %_ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_EvT_SA_RSaIT0_E.exit, %68
   store ptr %32, ptr %0, align 8, !tbaa !17
-  %69 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %1
+  %69 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %1
   store ptr %69, ptr %4, align 8, !tbaa !20
-  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %30
+  %70 = getelementptr inbounds nuw [64 x i8], ptr %32, i64 %30
   store ptr %70, ptr %11, align 8, !tbaa !60
   br label %71
 
@@ -17035,7 +17035,7 @@ _ZNSt12_Vector_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !17
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !20
-  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %61, ptr %60, align 8, !tbaa !60
   ret void
 

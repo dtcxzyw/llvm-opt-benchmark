@@ -429,7 +429,7 @@ define internal fastcc void @nf_nat_masq_schedule(ptr noundef %0, ptr noundef re
 38:                                               ; preds = %34, %31
   %39 = phi i64 [ 0, %31 ], [ %37, %34 ]
   %40 = or i32 %4, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %39
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %39
   %41 = getelementptr i8, ptr %.split, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %42, i32 noundef %40, i64 noundef 72) #10

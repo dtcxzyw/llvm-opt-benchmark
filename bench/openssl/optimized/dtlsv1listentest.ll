@@ -43,7 +43,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @dtls_listen_test(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.tests, ptr @testpackets, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr @testpackets, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call ptr @DTLS_server_method() #5
   %6 = tail call ptr @SSL_CTX_new(ptr noundef %5) #5

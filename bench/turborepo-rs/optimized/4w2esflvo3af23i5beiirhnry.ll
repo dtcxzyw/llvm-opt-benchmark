@@ -105,10 +105,10 @@ define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10Me
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %., i64 24, i1 false)
   %20 = xor i1 %19, true
   %21 = zext i1 %20 to i64
-  %22 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %21
   store ptr %22, ptr %6, align 8
   %23 = zext i1 %19 to i64
-  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %12, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %23
   store ptr %24, ptr %7, align 8
   %25 = icmp eq ptr %22, %1
   %26 = icmp eq ptr %24, %2
@@ -155,10 +155,10 @@ define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10Me
   %.sroa.05.0 = select i1 %18, ptr %.sroa.0.09, ptr %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.0, i64 24, i1 false)
   %20 = zext i1 %19 to i64
-  %21 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %20
   store ptr %21, ptr %0, align 8
   %22 = zext i1 %18 to i64
-  %23 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.09, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.09, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %24, ptr %9, align 8
   %25 = icmp ne ptr %21, %6
@@ -181,8 +181,8 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtC
   br i1 %11, label %50, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %4
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
+  %13 = getelementptr inbounds [24 x i8], ptr %0, i64 %4
+  %14 = getelementptr inbounds [24 x i8], ptr %0, i64 %1
   %.not = icmp ugt i64 %4, %10
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = mul i64 %.sroa.0.0.sroa.speculated.i, 24
@@ -214,9 +214,9 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtC
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %..i, i64 24, i1 false), !noalias !24
   %26 = xor i1 %25, true
   %27 = zext i1 %26 to i64
-  %28 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %27
   %29 = zext i1 %25 to i64
-  %30 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %29
   %31 = icmp eq ptr %28, %0
   %32 = icmp eq ptr %30, %2
   %or.cond.i = select i1 %31, i1 true, i1 %32
@@ -243,9 +243,9 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtC
   %.sroa.05.0.i = select i1 %38, ptr %.sroa.0.09.i, ptr %.sroa.0.2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.0.i, i64 24, i1 false), !noalias !27
   %40 = zext i1 %39 to i64
-  %41 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.2, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.2, i64 %40
   %42 = zext i1 %38 to i64
-  %43 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.09.i, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.09.i, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.13.3, i64 24
   %45 = icmp ne ptr %41, %16
   %46 = icmp ne ptr %43, %14

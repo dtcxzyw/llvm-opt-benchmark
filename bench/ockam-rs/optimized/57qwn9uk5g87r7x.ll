@@ -271,7 +271,7 @@ default.unreachable:                              ; preds = %67
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !8
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !8
-  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8
@@ -1299,7 +1299,7 @@ default.unreachable:                              ; preds = %67
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !147
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !147
-  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !147, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !147
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !147
@@ -12204,7 +12204,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17h1eecdea9
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hc1fc2b11cd5075fdE.exit": ; preds = %6
   %13 = and i64 %7, 31
-  %14 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [88 x i8], ptr %8, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2832
   %16 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %15), !noalias !1548
@@ -12247,7 +12247,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17hbd9043d1
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h1074579d6e3f9733E.exit": ; preds = %6
   %13 = and i64 %7, 31
-  %14 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [232 x i8], ptr %8, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %14, ptr noundef nonnull align 8 dereferenceable(232) %3, i64 232, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 7440
   %16 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %15), !noalias !1554
@@ -12899,7 +12899,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h08c59f5eb2
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [8 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
   br label %13
 }
@@ -12928,7 +12928,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h3dc9c2f830
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [232 x i8], ptr %1, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %16, ptr noundef nonnull align 8 dereferenceable(232) %15, i64 232, i1 false)
   br label %13
@@ -12959,7 +12959,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hcf955d672b
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %15, i64 88, i1 false)
   br label %13
 }
@@ -12967,7 +12967,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hcf955d672b
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17h167d8c3f792a88a0E"(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = and i64 %1, 31
-  %5 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %7 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %6)
@@ -12979,7 +12979,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17h167d8c3f7
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17ha394b6f77dcca6a3E"(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(232) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = and i64 %1, 31
-  %5 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [232 x i8], ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %5, ptr noundef nonnull align 8 dereferenceable(232) %2, i64 232, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7440
   %7 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %6)

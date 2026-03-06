@@ -264,7 +264,7 @@ define internal fastcc void @kwsysTerminalSetVT100Color(ptr noundef captures(non
 switch.lookup:                                    ; preds = %24
   %28 = lshr exact i32 %26, 4
   %29 = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.kwsysTerminalSetVT100Color, i64 %29
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.kwsysTerminalSetVT100Color, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
   %30 = tail call i64 @fwrite(ptr nonnull %switch.load, i64 5, i64 1, ptr %0)
   br label %31

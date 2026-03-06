@@ -15,19 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.6" = type { i8 }
-%"class.QuantLib::Path" = type { %"class.QuantLib::TimeGrid", %"class.QuantLib::Array" }
-%"class.QuantLib::TimeGrid" = type { %"class.std::vector.33", %"class.std::vector.33", %"class.std::vector.33" }
-%"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
-%"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::Array" = type { %"class.std::unique_ptr", i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.39" }
-%"struct.std::_Head_base.39" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -393,7 +380,7 @@ invoke.cont42.us:                                 ; preds = %for.cond36.preheade
   %bestYield.0130.us = phi double [ 0xFFEFFFFFFFFFFFFF, %for.cond36.preheader.us ], [ %bestYield.2.us, %for.inc.us ]
   %bestPrice.0129.us = phi double [ 0.000000e+00, %for.cond36.preheader.us ], [ %bestPrice.2.us, %for.inc.us ]
   %div.i.i.i.i.i49.us = sdiv i64 %j.0132.us, 64
-  %add.ptr.i.i.i.i.i50.us = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i49.us
+  %add.ptr.i.i.i.i.i50.us = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i49.us
   %23 = and i64 %j.0132.us, -9223372036854775745
   %cmp.i.i.i.i.i51.us = icmp ugt i64 %23, -9223372036854775808
   %storemerge.idx.i.i.i.i.i52.us = select i1 %cmp.i.i.i.i.i51.us, i64 -8, i64 0
@@ -406,10 +393,10 @@ invoke.cont42.us:                                 ; preds = %for.cond36.preheade
   br i1 %tobool.i.not.us, label %for.inc.us, label %invoke.cont50.us
 
 invoke.cont50.us:                                 ; preds = %invoke.cont42.us
-  %add.ptr.i.i58.us = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %1, i64 %j.0132.us
+  %add.ptr.i.i58.us = getelementptr inbounds nuw [88 x i8], ptr %1, i64 %j.0132.us
   %values_.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i58.us, i64 72
   %25 = load ptr, ptr %values_.i.us, align 8, !tbaa !30
-  %arrayidx.i.i.us = getelementptr inbounds nuw double, ptr %25, i64 %i.0136.us
+  %arrayidx.i.i.us = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %i.0136.us
   %26 = load double, ptr %arrayidx.i.i.us, align 8, !tbaa !31
   %27 = load double, ptr %25, align 8, !tbaa !31
   %div.us = fdiv double %26, %27
@@ -429,7 +416,7 @@ for.inc.us:                                       ; preds = %invoke.cont50.us, %
 
 for.cond36.invoke.cont66_crit_edge.us:            ; preds = %for.inc.us
   %div.i.i.i.i.i43.us = sdiv i64 %removeAsset.2.us, 64
-  %add.ptr.i.i.i.i.i44.us = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i43.us
+  %add.ptr.i.i.i.i.i44.us = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i43.us
   %28 = and i64 %removeAsset.2.us, -9223372036854775745
   %cmp.i.i.i.i.i45.us = icmp ugt i64 %28, -9223372036854775808
   %storemerge.idx.i.i.i.i.i46.us = select i1 %cmp.i.i.i.i.i45.us, i64 -8, i64 0

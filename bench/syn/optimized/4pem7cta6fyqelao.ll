@@ -7221,7 +7221,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i: ; preds = %21, %19, 
 
 24:                                               ; preds = %24, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i
   %25 = phi i64 [ 0, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i ], [ %27, %24 ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   store i32 %.0.i.i, ptr %26, align 4, !noalias !1288
   %27 = add nuw nsw i64 %25, 1
   %exitcond.not.i = icmp eq i64 %27, 3
@@ -7338,7 +7338,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i: ; preds = %21, %19, 
 
 24:                                               ; preds = %24, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i
   %25 = phi i64 [ 0, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i ], [ %27, %24 ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   store i32 %.0.i.i, ptr %26, align 4, !noalias !1299
   %27 = add nuw nsw i64 %25, 1
   %exitcond.not.i = icmp eq i64 %27, 3
@@ -9969,7 +9969,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i: ; preds = %21, %19, 
 
 24:                                               ; preds = %24, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i
   %25 = phi i64 [ 0, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i ], [ %27, %24 ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   store i32 %.0.i.i, ptr %26, align 4, !noalias !1560
   %27 = add nuw nsw i64 %25, 1
   %exitcond.not.i = icmp eq i64 %27, 3
@@ -10187,7 +10187,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i: ; preds = %21, %19, 
 
 24:                                               ; preds = %24, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i
   %25 = phi i64 [ 0, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i ], [ %27, %24 ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   store i32 %.0.i.i, ptr %26, align 4, !noalias !1581
   %27 = add nuw nsw i64 %25, 1
   %exitcond.not.i = icmp eq i64 %27, 3
@@ -10986,7 +10986,7 @@ define void @"_ZN64_$LT$syn..token..DotDotDot$u20$as$u20$core..default..Default$
 
 4:                                                ; preds = %1, %4
   %5 = phi i64 [ 0, %1 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %5
   store i32 %3, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 3
@@ -11013,7 +11013,7 @@ define void @"_ZN63_$LT$syn..token..DotDotEq$u20$as$u20$core..default..Default$G
 
 4:                                                ; preds = %1, %4
   %5 = phi i64 [ 0, %1 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %5
   store i32 %3, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 3
@@ -11520,7 +11520,7 @@ define void @"_ZN60_$LT$syn..token..ShlEq$u20$as$u20$core..default..Default$GT$7
 
 4:                                                ; preds = %1, %4
   %5 = phi i64 [ 0, %1 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %5
   store i32 %3, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 3
@@ -11564,7 +11564,7 @@ define void @"_ZN60_$LT$syn..token..ShrEq$u20$as$u20$core..default..Default$GT$7
 
 4:                                                ; preds = %1, %4
   %5 = phi i64 [ 0, %1 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %5
   store i32 %3, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 3

@@ -236,7 +236,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %41, %26, %51, %_ZN9
   %74 = load i64, ptr %7, align 8, !tbaa !15
   %75 = urem i64 %73, %74
   %76 = load ptr, ptr %3, align 8, !tbaa !3
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %75
   %78 = load ptr, ptr %77, align 8, !tbaa !60
   %.not.i.i.i.i14 = icmp eq ptr %78, null
   br i1 %.not.i.i.i.i14, label %_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread, label %79
@@ -443,7 +443,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %13, %2, %24, %_ZN9_
   %43 = load i64, ptr %42, align 8, !tbaa !15
   %44 = urem i64 %41, %43
   %45 = load ptr, ptr %0, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8, !tbaa !60
   %.not.i.i.i.i13 = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i, label %48
@@ -664,7 +664,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit25:          ; preds = %106, %._crit_edge, 
   %135 = load i64, ptr %42, align 8, !tbaa !15
   %136 = urem i64 %134, %135
   %137 = load ptr, ptr %0, align 8, !tbaa !3
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %136
   %139 = load ptr, ptr %138, align 8, !tbaa !60
   %.not.i.i.i.i26 = icmp eq ptr %139, null
   br i1 %.not.i.i.i.i26, label %.loopexit.i.i32, label %140
@@ -955,7 +955,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit49:          ; preds = %222, %"_ZN3ade4util
   %257 = load i64, ptr %42, align 8, !tbaa !15
   %258 = urem i64 %256, %257
   %259 = load ptr, ptr %0, align 8, !tbaa !3
-  %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %258
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %258
   %261 = load ptr, ptr %260, align 8, !tbaa !60
   %.not.i.i.i.i50 = icmp eq ptr %261, null
   br i1 %.not.i.i.i.i50, label %_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread, label %262
@@ -1232,7 +1232,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
 31:                                               ; preds = %_ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !60
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1259,7 +1259,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
   %45 = load ptr, ptr %43, align 8, !tbaa !58
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !60
   br label %49
 
@@ -1355,7 +1355,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !60
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -1370,7 +1370,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !60
   br label %29
 

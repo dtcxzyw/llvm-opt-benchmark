@@ -238,7 +238,7 @@ _set_exit_code.exit:                              ; preds = %26, %32, %34
 
 57:                                               ; preds = %53
   %58 = zext nneg i32 %54 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %.0225406, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.0225406, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @xstrcmp(ptr noundef %60, ptr noundef nonnull @.str.5) #13
   %.not334 = icmp eq i32 %61, 0
@@ -248,7 +248,7 @@ _set_exit_code.exit:                              ; preds = %26, %32, %34
   %63 = load i32, ptr %8, align 4
   %64 = sub nsw i32 %.0228404, %63
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds ptr, ptr %.0225406, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %.0225406, i64 %65
   br label %67
 
 67:                                               ; preds = %53, %57, %62
@@ -290,7 +290,7 @@ _set_exit_code.exit:                              ; preds = %26, %32, %34
 .lr.ph.i:                                         ; preds = %83, %96
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %96 ], [ 0, %83 ]
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv.i
   %88 = load ptr, ptr %87, align 8
   %89 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.48, ptr noundef %88) #13
   %90 = icmp slt i32 %89, 0
@@ -298,7 +298,7 @@ _set_exit_code.exit:                              ; preds = %26, %32, %34
 
 91:                                               ; preds = %.lr.ph.i
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.i
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef %94) #13
   br label %96
@@ -594,7 +594,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   %218 = phi i32 [ %221, %.lr.ph ], [ %217, %216 ]
   %219 = call ptr @xsignal(i32 noundef %218, ptr noundef nonnull @_signal_while_allocating) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %220 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
+  %220 = getelementptr inbounds nuw [4 x i8], ptr @sig_array, i64 %indvars.iv.next
   %221 = load i32, ptr %220, align 4
   %.not287 = icmp eq i32 %221, 0
   br i1 %.not287, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -1459,7 +1459,7 @@ _fork_command.exit:                               ; preds = %477, %479
 
 switch.lookup:                                    ; preds = %602
   %606 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %606
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.main, i64 %606
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_forward_signal.exit
 

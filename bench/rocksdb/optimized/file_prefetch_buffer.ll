@@ -2034,7 +2034,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %53, %
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %49, ptr %4, align 8, !tbaa !158
   store ptr %54, ptr %15, align 8, !tbaa !157
-  %56 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %16, align 8, !tbaa !155
   br label %_ZNSt6vectorIPvSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
@@ -2097,7 +2097,7 @@ _ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
   br label %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %79, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  %80 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   br label %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -2714,7 +2714,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %48, %
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %44, ptr %3, align 8, !tbaa !158
   store ptr %49, ptr %14, align 8, !tbaa !157
-  %51 = getelementptr inbounds nuw ptr, ptr %44, i64 %42
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   store ptr %51, ptr %15, align 8, !tbaa !155
   br label %_ZNSt6vectorIPvSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
@@ -3215,11 +3215,11 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE9pop_frontEv.exit.i: ; preds = %40, %
 
 116:                                              ; preds = %114, %112
   %117 = phi i64 [ %113, %112 ], [ %115, %114 ]
-  %118 = getelementptr inbounds ptr, ptr %63, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %63, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !106, !noalias !185
   %120 = shl nsw i64 %117, 6
   %121 = sub nsw i64 %106, %120
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %110, %116
@@ -3289,7 +3289,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %110, %116
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %163
-  %166 = getelementptr inbounds ptr, ptr %148, i64 %.036
+  %166 = getelementptr inbounds [8 x i8], ptr %148, i64 %.036
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25
 
 167:                                              ; preds = %163
@@ -3302,11 +3302,11 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %110, %116
 
 171:                                              ; preds = %169, %167
   %172 = phi i64 [ %168, %167 ], [ %170, %169 ]
-  %173 = getelementptr inbounds ptr, ptr %132, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %132, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !106, !noalias !188
   %175 = shl nsw i64 %172, 6
   %176 = sub nsw i64 %161, %175
-  %177 = getelementptr inbounds ptr, ptr %174, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %174, i64 %176
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25: ; preds = %165, %171
@@ -4109,11 +4109,11 @@ _ZN7rocksdb6StatusC2EOS0_.exit.thread105:         ; preds = %_ZN7rocksdb10Buffer
 
 149:                                              ; preds = %147, %145
   %150 = phi i64 [ %146, %145 ], [ %148, %147 ]
-  %151 = getelementptr inbounds ptr, ptr %111, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %111, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !106, !noalias !210
   %153 = shl nsw i64 %150, 6
   %154 = sub nsw i64 %139, %153
-  %155 = getelementptr inbounds ptr, ptr %152, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %152, i64 %154
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %143, %149
@@ -7580,9 +7580,9 @@ define linkonce_odr void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE17_M_reallo
   %19 = load ptr, ptr %0, align 8, !tbaa !194
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -7601,12 +7601,12 @@ define linkonce_odr void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE17_M_reallo
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit
 
@@ -7634,9 +7634,9 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE15_M_allocate_mapEm.exit: ; pr
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #17
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26, label %53
@@ -7664,7 +7664,7 @@ _ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !108
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !105
   %64 = load ptr, ptr %63, align 8, !tbaa !106
@@ -7842,7 +7842,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE15_M_erase_at_endESt15_Deque_iterator
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds ptr, ptr %67, i64 %43
+  %109 = getelementptr inbounds [8 x i8], ptr %67, i64 %43
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS2_PS3_El.exit
 
 110:                                              ; preds = %106
@@ -7855,12 +7855,12 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE15_M_erase_at_endESt15_Deque_iterator
 
 114:                                              ; preds = %112, %110
   %115 = phi i64 [ %111, %110 ], [ %113, %112 ]
-  %116 = getelementptr inbounds ptr, ptr %49, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %49, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !106, !noalias !321
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 512
   %119 = shl nsw i64 %115, 6
   %120 = sub nsw i64 %104, %119
-  %121 = getelementptr inbounds ptr, ptr %117, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %117, i64 %120
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS2_PS3_El.exit
 
 _ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS2_PS3_El.exit: ; preds = %108, %114
@@ -7992,7 +7992,7 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !194
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -8086,7 +8086,7 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE15_M_create_nodesEPPS2_S6_.exi
   store ptr %48, ptr %49, align 8, !tbaa !108
   store ptr %39, ptr %37, align 8, !tbaa !110
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !109
   ret void
 
@@ -8193,7 +8193,7 @@ define linkonce_odr void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE19_M_range_
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds ptr, ptr %61, i64 %66
+  %72 = getelementptr inbounds [8 x i8], ptr %61, i64 %66
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit
 
 73:                                               ; preds = %69
@@ -8206,12 +8206,12 @@ define linkonce_odr void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE19_M_range_
 
 77:                                               ; preds = %75, %73
   %78 = phi i64 [ %74, %73 ], [ %76, %75 ]
-  %79 = getelementptr inbounds ptr, ptr %65, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %65, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !106, !noalias !340
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 512
   %82 = shl nsw i64 %78, 6
   %83 = sub nsw i64 %67, %82
-  %84 = getelementptr inbounds ptr, ptr %80, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %80, i64 %83
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %71, %77
@@ -8338,7 +8338,7 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_destroy_nodesEPPS2_S6_.ex
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds ptr, ptr %131, i64 %44
+  %144 = getelementptr inbounds [8 x i8], ptr %131, i64 %44
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit
 
 145:                                              ; preds = %141
@@ -8351,12 +8351,12 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_destroy_nodesEPPS2_S6_.ex
 
 149:                                              ; preds = %147, %145
   %150 = phi i64 [ %146, %145 ], [ %148, %147 ]
-  %151 = getelementptr inbounds ptr, ptr %135, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %135, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !106, !noalias !361
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 512
   %154 = shl nsw i64 %150, 6
   %155 = sub nsw i64 %139, %154
-  %156 = getelementptr inbounds ptr, ptr %152, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %152, i64 %155
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit: ; preds = %143, %149
@@ -8550,7 +8550,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i: ; pred
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds ptr, ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -8563,12 +8563,12 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i: ; pred
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !106, !noalias !379
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 6
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i: ; preds = %44, %38
@@ -8644,7 +8644,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i17: ; pr
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds ptr, ptr %.sroa.058.0, i64 %.sroa.speculated.i12
+  %84 = getelementptr inbounds [8 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19
 
 85:                                               ; preds = %81
@@ -8657,12 +8657,12 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i17: ; pr
 
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
-  %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !106, !noalias !383
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 6
   %95 = sub nsw i64 %79, %94
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %92, i64 %95
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19: ; preds = %89, %83
@@ -8717,7 +8717,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i34: ; pr
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds ptr, ptr %.sroa.064.0, i64 %.sroa.speculated.i29
+  %119 = getelementptr inbounds [8 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i36
 
 120:                                              ; preds = %116
@@ -8730,12 +8730,12 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i34: ; pr
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !106, !noalias !386
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 6
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds ptr, ptr %127, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %127, i64 %130
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i36: ; preds = %124, %118
@@ -8806,7 +8806,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i51: ; pr
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -8819,12 +8819,12 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i51: ; pr
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !106, !noalias !390
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 6
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53: ; preds = %167, %161
@@ -8987,7 +8987,7 @@ define linkonce_odr void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE13_M_insert
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds ptr, ptr %111, i64 %112
+  %118 = getelementptr inbounds [8 x i8], ptr %111, i64 %112
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit
 
 119:                                              ; preds = %115
@@ -9000,12 +9000,12 @@ define linkonce_odr void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE13_M_insert
 
 123:                                              ; preds = %121, %119
   %124 = phi i64 [ %120, %119 ], [ %122, %121 ]
-  %125 = getelementptr inbounds ptr, ptr %108, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %108, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !106, !noalias !396
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 512
   %128 = shl nsw i64 %124, 6
   %129 = sub nsw i64 %113, %128
-  %130 = getelementptr inbounds ptr, ptr %126, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %126, i64 %129
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %117, %123
@@ -9026,7 +9026,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds nuw ptr, ptr %111, i64 %77
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %77
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit
 
 141:                                              ; preds = %137
@@ -9039,12 +9039,12 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE28_M_reserve_elements_at_frontEm.exit
 
 145:                                              ; preds = %143, %141
   %146 = phi i64 [ %142, %141 ], [ %144, %143 ]
-  %147 = getelementptr inbounds ptr, ptr %108, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %108, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !106, !noalias !399
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 512
   %150 = shl nsw i64 %146, 6
   %151 = sub nsw i64 %135, %150
-  %152 = getelementptr inbounds ptr, ptr %148, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %148, i64 %151
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit: ; preds = %139, %145
@@ -9078,7 +9078,7 @@ _ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit: ; preds = %1
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds ptr, ptr %154, i64 %4
+  %167 = getelementptr inbounds [8 x i8], ptr %154, i64 %4
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit35
 
 168:                                              ; preds = %164
@@ -9091,12 +9091,12 @@ _ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit: ; preds = %1
 
 172:                                              ; preds = %170, %168
   %173 = phi i64 [ %169, %168 ], [ %171, %170 ]
-  %174 = getelementptr inbounds ptr, ptr %157, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %157, i64 %173
   %175 = load ptr, ptr %174, align 8, !tbaa !106, !noalias !402
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 512
   %177 = shl nsw i64 %173, 6
   %178 = sub nsw i64 %162, %177
-  %179 = getelementptr inbounds ptr, ptr %175, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %175, i64 %178
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit35
 
 _ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit35: ; preds = %166, %172
@@ -9209,7 +9209,7 @@ _ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit35: ; preds = 
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds ptr, ptr %218, i64 %112
+  %231 = getelementptr inbounds [8 x i8], ptr %218, i64 %112
   br label %_ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit
 
 232:                                              ; preds = %228
@@ -9222,12 +9222,12 @@ _ZStplRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit35: ; preds = 
 
 236:                                              ; preds = %234, %232
   %237 = phi i64 [ %233, %232 ], [ %235, %234 ]
-  %238 = getelementptr inbounds ptr, ptr %221, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %221, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !106, !noalias !431
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 512
   %241 = shl nsw i64 %237, 6
   %242 = sub nsw i64 %226, %241
-  %243 = getelementptr inbounds ptr, ptr %239, i64 %242
+  %243 = getelementptr inbounds [8 x i8], ptr %239, i64 %242
   br label %_ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit: ; preds = %230, %236
@@ -9307,7 +9307,7 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit: ; preds = %2
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds ptr, ptr %261, i64 %268
+  %278 = getelementptr inbounds [8 x i8], ptr %261, i64 %268
   br label %_ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit
 
 279:                                              ; preds = %275
@@ -9320,12 +9320,12 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit: ; preds = %2
 
 283:                                              ; preds = %281, %279
   %284 = phi i64 [ %280, %279 ], [ %282, %281 ]
-  %285 = getelementptr inbounds ptr, ptr %267, i64 %284
+  %285 = getelementptr inbounds [8 x i8], ptr %267, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !106
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 512
   %288 = shl nsw i64 %284, 6
   %289 = sub nsw i64 %273, %288
-  %290 = getelementptr inbounds ptr, ptr %286, i64 %289
+  %290 = getelementptr inbounds [8 x i8], ptr %286, i64 %289
   br label %_ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit: ; preds = %283, %277
@@ -9500,7 +9500,7 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_destroy_nodesEPPS2_S6_.ex
   br i1 %359, label %360, label %362
 
 360:                                              ; preds = %358
-  %361 = getelementptr inbounds ptr, ptr %355, i64 %4
+  %361 = getelementptr inbounds [8 x i8], ptr %355, i64 %4
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit
 
 362:                                              ; preds = %358
@@ -9513,12 +9513,12 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_destroy_nodesEPPS2_S6_.ex
 
 366:                                              ; preds = %364, %362
   %367 = phi i64 [ %363, %362 ], [ %365, %364 ]
-  %368 = getelementptr inbounds ptr, ptr %352, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %352, i64 %367
   %369 = load ptr, ptr %368, align 8, !tbaa !106, !noalias !455
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 512
   %371 = shl nsw i64 %367, 6
   %372 = sub nsw i64 %356, %371
-  %373 = getelementptr inbounds ptr, ptr %369, i64 %372
+  %373 = getelementptr inbounds [8 x i8], ptr %369, i64 %372
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit: ; preds = %360, %366
@@ -9540,7 +9540,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit:
   br i1 %382, label %383, label %385
 
 383:                                              ; preds = %381
-  %384 = getelementptr inbounds ptr, ptr %355, i64 %375
+  %384 = getelementptr inbounds [8 x i8], ptr %355, i64 %375
   br label %_ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit42
 
 385:                                              ; preds = %381
@@ -9553,12 +9553,12 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit:
 
 389:                                              ; preds = %387, %385
   %390 = phi i64 [ %386, %385 ], [ %388, %387 ]
-  %391 = getelementptr inbounds ptr, ptr %352, i64 %390
+  %391 = getelementptr inbounds [8 x i8], ptr %352, i64 %390
   %392 = load ptr, ptr %391, align 8, !tbaa !106, !noalias !458
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 512
   %394 = shl nsw i64 %390, 6
   %395 = sub nsw i64 %379, %394
-  %396 = getelementptr inbounds ptr, ptr %392, i64 %395
+  %396 = getelementptr inbounds [8 x i8], ptr %392, i64 %395
   br label %_ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit42
 
 _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit42: ; preds = %383, %389
@@ -9593,7 +9593,7 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit42: ; preds = 
   br i1 %411, label %412, label %414
 
 412:                                              ; preds = %410
-  %413 = getelementptr inbounds ptr, ptr %399, i64 %403
+  %413 = getelementptr inbounds [8 x i8], ptr %399, i64 %403
   br label %_ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit44
 
 414:                                              ; preds = %410
@@ -9606,12 +9606,12 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit42: ; preds = 
 
 418:                                              ; preds = %416, %414
   %419 = phi i64 [ %415, %414 ], [ %417, %416 ]
-  %420 = getelementptr inbounds ptr, ptr %402, i64 %419
+  %420 = getelementptr inbounds [8 x i8], ptr %402, i64 %419
   %421 = load ptr, ptr %420, align 8, !tbaa !106, !noalias !461
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 512
   %423 = shl nsw i64 %419, 6
   %424 = sub nsw i64 %408, %423
-  %425 = getelementptr inbounds ptr, ptr %421, i64 %424
+  %425 = getelementptr inbounds [8 x i8], ptr %421, i64 %424
   br label %_ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit44
 
 _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit44: ; preds = %412, %418
@@ -9782,7 +9782,7 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit44: ; preds = 
   br i1 %499, label %500, label %502
 
 500:                                              ; preds = %498
-  %501 = getelementptr inbounds ptr, ptr %485, i64 %374
+  %501 = getelementptr inbounds [8 x i8], ptr %485, i64 %374
   br label %_ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit52
 
 502:                                              ; preds = %498
@@ -9795,12 +9795,12 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit44: ; preds = 
 
 506:                                              ; preds = %504, %502
   %507 = phi i64 [ %503, %502 ], [ %505, %504 ]
-  %508 = getelementptr inbounds ptr, ptr %491, i64 %507
+  %508 = getelementptr inbounds [8 x i8], ptr %491, i64 %507
   %509 = load ptr, ptr %508, align 8, !tbaa !106
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 512
   %511 = shl nsw i64 %507, 6
   %512 = sub nsw i64 %496, %511
-  %513 = getelementptr inbounds ptr, ptr %509, i64 %512
+  %513 = getelementptr inbounds [8 x i8], ptr %509, i64 %512
   br label %_ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit52
 
 _ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit52: ; preds = %506, %500
@@ -10031,7 +10031,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE23_M_reserve_map_at_frontEm.exit: ; p
 
 _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; preds = %42
   %44 = sub nsw i64 0, %.01422
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store ptr %43, ptr %45, align 8, !tbaa !106
   %46 = add nuw nsw i64 %.01422, 1
   %exitcond = icmp eq i64 %.01422, %35
@@ -10053,7 +10053,7 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; p
   %.023 = phi i64 [ %56, %.lr.ph25 ], [ 1, %47 ]
   %52 = load ptr, ptr %7, align 8, !tbaa !104
   %53 = sub nsw i64 0, %.023
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !106
   tail call void @_ZdlPvm(ptr noundef %55, i64 noundef 512) #20
   %56 = add nuw nsw i64 %.023, 1
@@ -10154,7 +10154,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE22_M_reserve_map_at_backEm.exit: ; pr
           to label %_ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_allocate_nodeEv.exit unwind label %49
 
 _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; preds = %45
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %.01423
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.01423
   store ptr %46, ptr %47, align 8, !tbaa !106
   %48 = add nuw nsw i64 %.01423, 1
   %exitcond = icmp eq i64 %.01423, %35
@@ -10175,7 +10175,7 @@ _ZNSt11_Deque_baseIPN7rocksdb10BufferInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; p
 .lr.ph26:                                         ; preds = %49, %.lr.ph26
   %.024 = phi i64 [ %57, %.lr.ph26 ], [ 1, %49 ]
   %54 = load ptr, ptr %5, align 8, !tbaa !195
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.024
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.024
   %56 = load ptr, ptr %55, align 8, !tbaa !106
   tail call void @_ZdlPvm(ptr noundef %56, i64 noundef 512) #20
   %57 = add nuw nsw i64 %.024, 1
@@ -10597,7 +10597,7 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i: ; pred
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds ptr, ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -10610,12 +10610,12 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i: ; pred
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !106, !noalias !601
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 6
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i: ; preds = %44, %38
@@ -10691,7 +10691,7 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i17: ; pr
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds ptr, ptr %.sroa.058.0, i64 %.sroa.speculated.i12
+  %84 = getelementptr inbounds [8 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19
 
 85:                                               ; preds = %81
@@ -10704,12 +10704,12 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i17: ; pr
 
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
-  %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !106, !noalias !605
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 6
   %95 = sub nsw i64 %79, %94
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %92, i64 %95
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19: ; preds = %89, %83
@@ -10764,7 +10764,7 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i34: ; pr
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds ptr, ptr %.sroa.064.0, i64 %.sroa.speculated.i29
+  %119 = getelementptr inbounds [8 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i36
 
 120:                                              ; preds = %116
@@ -10777,12 +10777,12 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i34: ; pr
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !106, !noalias !608
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 6
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds ptr, ptr %127, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %127, i64 %130
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i36: ; preds = %124, %118
@@ -10853,7 +10853,7 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i51: ; pr
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -10866,12 +10866,12 @@ _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES3_ET1_T0_S5_S4_.exit.i51: ; pr
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !106, !noalias !612
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 6
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53: ; preds = %167, %161
@@ -10964,7 +10964,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN7rocksdb10BufferI
   %gepdiff.i = sub nsw i64 0, %.idx41.i
   %38 = ashr exact i64 %gepdiff.i, 3
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds ptr, ptr %.0938.i, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.0938.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !615
   %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated39.i
   %42 = icmp sgt i64 %41, -1
@@ -10975,7 +10975,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN7rocksdb10BufferI
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds ptr, ptr %.sroa.088.0, i64 %36
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -10988,12 +10988,12 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN7rocksdb10BufferI
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.1291.0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !106, !noalias !615
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 6
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i: ; preds = %51, %45
@@ -11074,7 +11074,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__ena
   %gepdiff.i17 = sub nsw i64 0, %.idx41.i16
   %90 = ashr exact i64 %gepdiff.i17, 3
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds ptr, ptr %.0938.i15, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.0938.i15, i64 %91
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !619
   %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated39.i14
   %94 = icmp sgt i64 %93, -1
@@ -11085,7 +11085,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__ena
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds ptr, ptr %.sroa.076.0, i64 %88
+  %98 = getelementptr inbounds [8 x i8], ptr %.sroa.076.0, i64 %88
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24
 
 99:                                               ; preds = %95
@@ -11098,12 +11098,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__ena
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.1279.0, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !106, !noalias !619
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 6
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %106, i64 %109
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24: ; preds = %103, %97
@@ -11164,7 +11164,7 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24: ; preds = 
   %gepdiff.i40 = sub nsw i64 0, %.idx41.i39
   %133 = ashr exact i64 %gepdiff.i40, 3
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds ptr, ptr %.0938.i38, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %.0938.i38, i64 %134
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !622
   %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated39.i37
   %137 = icmp sgt i64 %136, -1
@@ -11175,7 +11175,7 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24: ; preds = 
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds ptr, ptr %.sroa.082.0, i64 %131
+  %141 = getelementptr inbounds [8 x i8], ptr %.sroa.082.0, i64 %131
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i47
 
 142:                                              ; preds = %138
@@ -11188,12 +11188,12 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24: ; preds = 
 
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ %143, %142 ], [ %145, %144 ]
-  %148 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !106, !noalias !622
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
   %151 = shl nsw i64 %147, 6
   %152 = sub nsw i64 %136, %151
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %149, i64 %152
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i47
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i47: ; preds = %146, %140
@@ -11271,7 +11271,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__ena
   %gepdiff.i63 = sub nsw i64 0, %.idx41.i62
   %185 = ashr exact i64 %gepdiff.i63, 3
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds ptr, ptr %.0938.i61, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %.0938.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !626
   %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated39.i60
   %189 = icmp sgt i64 %188, -1
@@ -11282,7 +11282,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__ena
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %183
+  %193 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %183
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70
 
 194:                                              ; preds = %190
@@ -11295,12 +11295,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__ena
 
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
-  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !106, !noalias !626
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 6
   %204 = sub nsw i64 %188, %203
-  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %201, i64 %204
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70
 
 _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70: ; preds = %198, %192

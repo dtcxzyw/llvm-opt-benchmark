@@ -3,14 +3,6 @@ source_filename = "bench/ffmpeg/original/ffv1.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PlaneContext = type { i32, i32, ptr, ptr }
-%struct.VlcState = type { i32, i16, i8, i8 }
-%struct.FFV1SliceContext = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, %struct.PutBitContext, %struct.RangeCoder, i32, %union.anon.0, [4 x i32], [4 x ptr], [4 x ptr], [4 x ptr], [4 x i32], [4 x i32], [4 x ptr] }
-%struct.PutBitContext = type { i32, i32, ptr, ptr, ptr }
-%struct.RangeCoder = type { i32, i32, i32, i32, [256 x i8], [256 x i8], ptr, ptr, ptr, i32 }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { [256 x [2 x i64]], [8 x ptr] }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"max_slice_count > 0\00", align 1
 @.str.2 = private unnamed_addr constant [18 x i8] c"libavcodec/ffv1.c\00", align 1
@@ -67,7 +59,7 @@ define internal void @planes_free(ptr readnone captures(none) %0, ptr noundef %1
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.PlaneContext, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @av_freep(ptr noundef nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -92,7 +84,7 @@ define range(i32 -12, 1) i32 @ff_ffv1_init_slice_state(ptr noundef readonly capt
 8:                                                ; preds = %.lr.ph46, %.critedge
   %indvars.iv50 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next51, %.critedge ]
   %9 = load ptr, ptr %6, align 8, !tbaa !44
-  %10 = getelementptr inbounds nuw %struct.PlaneContext, ptr %9, i64 %indvars.iv50
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv50
   %11 = load i32, ptr %7, align 4, !tbaa !49
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %20, label %12
@@ -138,7 +130,7 @@ define range(i32 -12, 1) i32 @ff_ffv1_init_slice_state(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %30 = getelementptr inbounds nuw %struct.VlcState, ptr %27, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store i32 4, ptr %30, align 4, !tbaa !55
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 7
   store i8 1, ptr %31, align 1, !tbaa !58
@@ -206,7 +198,7 @@ define range(i32 -12, 1) i32 @ff_ffv1_init_slices_state(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %1, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !65
-  %11 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [5008 x i8], ptr %10, i64 %indvars.iv
   %12 = tail call i32 @ff_ffv1_init_slice_state(ptr noundef nonnull %0, ptr noundef %11) #13
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %._crit_edge, label %6
@@ -324,7 +316,7 @@ define range(i32 -12, 1) i32 @ff_ffv1_init_slice_contexts(ptr noundef captures(n
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %20 = load ptr, ptr %12, align 8, !tbaa !65
-  %21 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [5008 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %2, align 8, !tbaa !39
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = srem i32 %23, %22
@@ -405,11 +397,11 @@ define range(i32 -12, 1) i32 @ff_ffv1_allocate_initial_states(ptr noundef captur
 
 7:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !79
   %10 = sext i32 %9 to i64
   %11 = tail call ptr @av_malloc_array(i64 noundef %10, i64 noundef 32) #12
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !80
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %13
@@ -455,7 +447,7 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
 
 .preheader.us:                                    ; preds = %.loopexit.us, %.lr.ph29.split.us
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.loopexit.us ], [ 0, %.lr.ph29.split.us ]
-  %12 = getelementptr inbounds nuw %struct.PlaneContext, ptr %11, i64 %indvars.iv40
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv40
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !53
   %15 = icmp sgt i32 %14, 0
@@ -463,7 +455,7 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
 
 16:                                               ; preds = %.lr.ph.us, %16
   %indvars.iv35 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next36, %16 ]
-  %17 = getelementptr inbounds nuw %struct.VlcState, ptr %22, i64 %indvars.iv35
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv35
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i16 0, ptr %18, align 4, !tbaa !82
   store i32 4, ptr %17, align 4, !tbaa !55
@@ -494,7 +486,7 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
   %23 = phi i32 [ %.pr, %.lr.ph29.splitthread-pre-split ], [ 1, %.lr.ph29 ]
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph29.splitthread-pre-split ], [ 0, %.lr.ph29 ]
   %24 = load ptr, ptr %6, align 8, !tbaa !44
-  %25 = getelementptr inbounds nuw %struct.PlaneContext, ptr %24, i64 %indvars.iv32
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv32
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.preheader, label %31
 
@@ -513,7 +505,7 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
 31:                                               ; preds = %.lr.ph29.split
   %32 = load i32, ptr %25, align 8, !tbaa !86
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %8, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %8, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !80
   %.not26 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -534,7 +526,7 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw %struct.VlcState, ptr %30, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i16 0, ptr %46, align 4, !tbaa !82
   store i32 4, ptr %45, align 4, !tbaa !55
@@ -598,7 +590,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv72
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv72
   %23 = load i32, ptr %22, align 4, !tbaa !79
   %24 = shl i32 %23, 1
   %25 = add i32 %24, -2
@@ -616,7 +608,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
   %32 = load i8, ptr %31, align 1, !tbaa !61
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %.1.i68.us, %33
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv72
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv72
   store i32 %34, ptr %35, align 4, !tbaa !79
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %36 = load i32, ptr %18, align 8, !tbaa !90
@@ -638,7 +630,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %44 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !79
   %46 = shl i32 %45, 1
   %47 = add i32 %46, -2
@@ -656,11 +648,11 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
   %54 = load i8, ptr %53, align 1, !tbaa !61
   %55 = zext i8 %54 to i32
   %56 = add nuw nsw i32 %.1.i68, %55
-  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %56, ptr %57, align 4, !tbaa !79
   %notmask = shl nsw i32 -1, %56
   %58 = xor i32 %notmask, -1
-  %59 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %58, ptr %59, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %18, align 8, !tbaa !90
@@ -1192,7 +1184,7 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv46 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next47, %14 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !65
-  %8 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %7, i64 %indvars.iv46
+  %8 = getelementptr inbounds nuw [5008 x i8], ptr %7, i64 %indvars.iv46
   tail call void @av_freep(ptr noundef %8) #12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @av_freep(ptr noundef nonnull %9) #12
@@ -1213,13 +1205,13 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 
 19:                                               ; preds = %6, %19
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %20) #12
-  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %21) #12
-  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 0, ptr %22, align 4, !tbaa !79
-  %23 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 0, ptr %23, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1241,7 +1233,7 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 
 31:                                               ; preds = %.lr.ph43, %._crit_edge40
   %indvars.iv52 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next53, %._crit_edge40 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv52
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv52
   tail call void @av_freep(ptr noundef nonnull %32) #12
   %33 = load i32, ptr %2, align 8, !tbaa !63
   %34 = icmp sgt i32 %33, 0
@@ -1250,9 +1242,9 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 .lr.ph39:                                         ; preds = %31, %.lr.ph39
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph39 ], [ 0, %31 ]
   %35 = load ptr, ptr %29, align 8, !tbaa !65
-  %36 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %35, i64 %indvars.iv49
+  %36 = getelementptr inbounds nuw [5008 x i8], ptr %35, i64 %indvars.iv49
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4768
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv52
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv52
   tail call void @av_freep(ptr noundef nonnull %38) #12
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %39 = load i32, ptr %2, align 8, !tbaa !63
@@ -1261,7 +1253,7 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %41, label %.lr.ph39, label %._crit_edge40, !llvm.loop !102
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %31
-  %42 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv52
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv52
   tail call void @av_freep(ptr noundef nonnull %42) #12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %43 = load i32, ptr %25, align 8, !tbaa !78

@@ -3105,9 +3105,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %68 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %69 = load double, ptr %68, align 8, !tbaa !76
-  %70 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   store double %69, ptr %70, align 8, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3683,7 +3683,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %12, %8, %3
   %48 = load i32, ptr %21, align 8, !tbaa !66
   %49 = mul nsw i32 %48, %.010
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds double, ptr %2, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %2, i64 %50
   call void %45(ptr noundef nonnull %4, ptr noundef %46, ptr noundef nonnull %40, ptr noundef %47, ptr noundef nonnull %42, ptr noundef nonnull %29, ptr noundef nonnull %23, ptr noundef %51, ptr noundef nonnull %36, ptr noundef nonnull %30, ptr noundef nonnull %43, ptr noundef nonnull %5)
   %52 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %52, %1
@@ -4045,9 +4045,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %3
 .lr.ph:                                           ; preds = %81, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %81 ]
   %89 = load ptr, ptr %29, align 8, !tbaa !42
-  %90 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4, !tbaa !62
-  %92 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4, !tbaa !62
   %94 = load ptr, ptr %89, align 8, !tbaa !8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16

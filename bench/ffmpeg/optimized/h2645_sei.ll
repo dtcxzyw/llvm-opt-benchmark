@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/h2645_sei.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVRational = type { i32, i32 }
-
 @.str = private unnamed_addr constant [76 x i8] c"Unsupported User Data Registered ITU-T T35 SEI message (country_code = %d)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [88 x i8] c"Unsupported User Data Registered ITU-T T35 SEI message (atsc user_identifier = 0x%04x)\0A\00", align 1
 @.str.2 = private unnamed_addr constant [77 x i8] c"Unsupported User Data Registered ITU-T T35 SEI message (provider_code = %d)\0A\00", align 1
@@ -281,7 +279,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %152 = add i32 %151, 1
   store i32 %152, ptr %132, align 8, !tbaa !25
   %153 = zext i32 %151 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %150, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %153
   store ptr %140, ptr %154, align 8, !tbaa !27
   %155 = icmp eq i32 %2, 27
   br i1 %155, label %156, label %decode_registered_user_data.exit
@@ -600,7 +598,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %386 = lshr i32 %385, 7
   store i32 %spec.select.i79.i, ptr %230, align 8, !tbaa !29
   %387 = and i32 %386, 1
-  %388 = getelementptr inbounds nuw i32, ptr %368, i64 %indvars.iv.i
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %indvars.iv.i
   store i32 %387, ptr %388, align 4, !tbaa !64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -608,7 +606,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
 
 389:                                              ; preds = %.loopexit.i, %.preheader84.i
   %indvars.iv101.i = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next102.i, %.loopexit.i ]
-  %390 = getelementptr inbounds nuw i32, ptr %368, i64 %indvars.iv101.i
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %indvars.iv101.i
   %391 = load i32, ptr %390, align 4, !tbaa !64
   %.not76.i = icmp eq i32 %391, 0
   br i1 %.not76.i, label %.loopexit.i, label %392
@@ -630,7 +628,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %405, ptr %230, align 8, !tbaa !29
   %406 = trunc nuw nsw i32 %403 to i16
   %407 = add nuw nsw i16 %406, 1
-  %408 = getelementptr inbounds nuw i16, ptr %369, i64 %indvars.iv101.i
+  %408 = getelementptr inbounds nuw [2 x i8], ptr %369, i64 %indvars.iv101.i
   store i16 %407, ptr %408, align 2, !tbaa !67
   %409 = lshr i32 %405, 3
   %410 = zext nneg i32 %409 to i64
@@ -658,7 +656,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph89.i:                                       ; preds = %.preheader.i
   %424 = getelementptr inbounds nuw [256 x i8], ptr %371, i64 %indvars.iv101.i
   %425 = getelementptr inbounds nuw [256 x i8], ptr %372, i64 %indvars.iv101.i
-  %426 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %373, i64 %indvars.iv101.i
+  %426 = getelementptr inbounds nuw [3072 x i8], ptr %373, i64 %indvars.iv101.i
   %427 = zext i16 %423 to i64
   br label %428
 
@@ -705,7 +703,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.i:                                         ; preds = %428
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !11
   %.sroa.77.0.copyload.i.i.i.i = load i32, ptr %237, align 8, !tbaa !64
-  %460 = getelementptr inbounds nuw [6 x i16], ptr %426, i64 %indvars.iv98.i
+  %460 = getelementptr inbounds nuw [12 x i8], ptr %426, i64 %indvars.iv98.i
   br label %461
 
 ._crit_edge.i:                                    ; preds = %get_se_golomb_long.exit.i, %428
@@ -810,7 +808,7 @@ get_se_golomb_long.exit.i:                        ; preds = %507, %503, %461
   %529 = xor i32 %527, %528
   %530 = trunc i32 %529 to i16
   %531 = add i16 %530, 1
-  %532 = getelementptr inbounds nuw i16, ptr %460, i64 %indvars.iv95.i
+  %532 = getelementptr inbounds nuw [2 x i8], ptr %460, i64 %indvars.iv95.i
   store i16 %531, ptr %532, align 2, !tbaa !67
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %533 = load i8, ptr %421, align 1, !tbaa !12
@@ -1334,7 +1332,7 @@ decode_frame_packing_arrangement.exit:            ; preds = %get_ue_golomb_long.
   store ptr %885, ptr %4, align 8, !tbaa !11
   %886 = load i16, ptr %884, align 1, !tbaa !12
   %887 = tail call i16 @llvm.bswap.i16(i16 %886)
-  %888 = getelementptr inbounds nuw [2 x i16], ptr %882, i64 %indvars.iv.i54
+  %888 = getelementptr inbounds nuw [4 x i8], ptr %882, i64 %indvars.iv.i54
   store i16 %887, ptr %888, align 4, !tbaa !67
   %889 = getelementptr inbounds nuw i8, ptr %884, i64 4
   store ptr %889, ptr %4, align 8, !tbaa !11
@@ -1435,7 +1433,7 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_ctx_replace(ptr noundef %0, p
 .lr.ph:                                           ; preds = %.preheader63, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader63 ]
   %14 = load ptr, ptr %6, align 8, !tbaa !95
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   tail call void @av_buffer_unref(ptr noundef %15) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %7, align 8, !tbaa !93
@@ -1464,11 +1462,11 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_ctx_replace(ptr noundef %0, p
 .lr.ph69:                                         ; preds = %.preheader, %34
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %34 ], [ 0, %.preheader ]
   %28 = load ptr, ptr %20, align 8, !tbaa !95
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv75
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv75
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = tail call ptr @av_buffer_ref(ptr noundef %30) #9
   %32 = load ptr, ptr %6, align 8, !tbaa !95
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv75
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv75
   store ptr %31, ptr %33, align 8, !tbaa !27
   %.not59 = icmp eq ptr %31, null
   br i1 %.not59, label %.loopexit, label %34
@@ -1495,8 +1493,8 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_ctx_replace(ptr noundef %0, p
 
 42:                                               ; preds = %.critedge, %41
   %indvars.iv78 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next79, %41 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv78
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv78
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv78
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv78
   %45 = load ptr, ptr %44, align 8, !tbaa !27
   %46 = tail call i32 @av_buffer_replace(ptr noundef nonnull %43, ptr noundef %45) #9
   %47 = icmp slt i32 %46, 0
@@ -1947,7 +1945,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
 .lr.ph:                                           ; preds = %4, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %4 ]
   %14 = load ptr, ptr %9, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %.not118 = icmp eq ptr %16, null
   br i1 %.not118, label %22, label %17
@@ -1959,7 +1957,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   tail call void @av_buffer_unref(ptr noundef %21) #9
   br label %22
 
@@ -2051,13 +2049,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
 56:                                               ; preds = %52, %56
   %indvars.iv169 = phi i64 [ 0, %52 ], [ %indvars.iv.next170, %56 ]
   %57 = phi i32 [ 1, %52 ], [ %74, %56 ]
-  %58 = getelementptr inbounds nuw i32, ptr @__const.h2645_sei_to_side_data.mapping, i64 %indvars.iv169
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @__const.h2645_sei_to_side_data.mapping, i64 %indvars.iv169
   %59 = load i32, ptr %58, align 4, !tbaa !64
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [2 x i16], ptr %55, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %60
   %62 = load i16, ptr %61, align 4, !tbaa !67
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv169
   store i32 %63, ptr %64, align 4, !tbaa !165
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 50000, ptr %65, align 4, !tbaa !166
@@ -2341,7 +2339,7 @@ define void @ff_h2645_sei_reset(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %13 = load ptr, ptr %2, align 8, !tbaa !95
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   tail call void @av_buffer_unref(ptr noundef %14) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %3, align 8, !tbaa !93

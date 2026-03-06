@@ -293,11 +293,11 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %56 = load i8, ptr %55, align 1, !tbaa !25
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %3, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = mul i32 %59, %54
   %61 = trunc i32 %60 to i16
-  %62 = getelementptr inbounds nuw i16, ptr %1, i64 %57
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %57
   store i16 %61, ptr %62, align 2, !tbaa !26
   %.not = icmp eq i64 %indvars.iv, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -362,11 +362,11 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv91
   %92 = load i8, ptr %91, align 1, !tbaa !25
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %3, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !14
   %96 = mul i32 %95, %90
   %97 = trunc i32 %96 to i16
-  %98 = getelementptr inbounds nuw i16, ptr %1, i64 %93
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %93
   store i16 %97, ptr %98, align 2, !tbaa !26
   %99 = and i64 %indvars.iv.next92, 4294967295
   %.not61 = icmp eq i64 %99, 0
@@ -426,11 +426,11 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %126 = load i8, ptr %125, align 1, !tbaa !25
   %127 = ashr i32 %122, 24
   %128 = zext i8 %126 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %3, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !14
   %131 = mul i32 %127, %130
   %132 = trunc i32 %131 to i16
-  %133 = getelementptr inbounds nuw i16, ptr %1, i64 %128
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %128
   store i16 %132, ptr %133, align 2, !tbaa !26
   %134 = and i64 %indvars.iv.next95, 4294967295
   %.not64 = icmp eq i64 %134, 0
@@ -439,11 +439,11 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
 ._crit_edge89:                                    ; preds = %114, %.preheader
   %135 = load i8, ptr %2, align 1, !tbaa !25
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %3, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !14
   %139 = mul i32 %138, %17
   %140 = trunc i32 %139 to i16
-  %141 = getelementptr inbounds nuw i16, ptr %1, i64 %136
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %136
   store i16 %140, ptr %141, align 2, !tbaa !26
   br label %142
 
@@ -463,14 +463,14 @@ define void @ff_rtjpeg_decode_init(ptr noundef captures(none) %0, i32 noundef %1
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !25
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = zext i8 %11 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %14
   store i32 %13, ptr %15, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
-  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %14
   store i32 %17, ptr %18, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64

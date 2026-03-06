@@ -6719,7 +6719,7 @@ define void @_ZNK6casadi4Expm16get_jac_sparsityExxb(ptr dead_on_unwind noalias w
   unreachable
 
 _ZNK6casadi16FunctionInternal7nnz_outEx.exit:     ; preds = %10
-  %20 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %14, i64 %2
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %21 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -7122,7 +7122,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal14get_nominal_inEx
   unreachable
 
 _ZNK6casadi16FunctionInternal6nnz_inEx.exit:      ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %7, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %2
   %14 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %15 = icmp ugt i64 %14, 1152921504606846975
   br i1 %15, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -7143,7 +7143,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %16 = shl nuw nsw i64 %14, 3
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #31
   store ptr %17, ptr %0, align 8, !tbaa !171
-  %18 = getelementptr inbounds nuw double, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8, !tbaa !174
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %16
@@ -7181,7 +7181,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal15get_nominal_outE
   unreachable
 
 _ZNK6casadi16FunctionInternal7nnz_outEx.exit:     ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %7, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %2
   %14 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %15 = icmp ugt i64 %14, 1152921504606846975
   br i1 %15, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -7202,7 +7202,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %16 = shl nuw nsw i64 %14, 3
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #31
   store ptr %17, ptr %0, align 8, !tbaa !171
-  %18 = getelementptr inbounds nuw double, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8, !tbaa !174
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %16

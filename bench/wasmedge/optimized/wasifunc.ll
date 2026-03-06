@@ -53,22 +53,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.86" = type { %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl" }
 %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl" = type { %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.__wasi_subscription_t = type { i64, %struct.__wasi_subscription_u_t }
-%struct.__wasi_subscription_u_t = type { i8, %union.__wasi_subscription_u_u_t }
-%union.__wasi_subscription_u_u_t = type { %struct.__wasi_subscription_clock_t }
-%struct.__wasi_subscription_clock_t = type { i32, i64, i64, i16 }
-%struct.__wasi_event_t = type { i64, i16, i8, %struct.__wasi_event_fd_readwrite_t }
-%struct.__wasi_event_fd_readwrite_t = type { i64, i16 }
-%"struct.WasmEdge::Host::WASI::Poller::OptionalEvent" = type <{ %struct.__wasi_event_t, i8, [7 x i8] }>
 %class.anon.711 = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.WasmEdge::Host::(anonymous namespace)::StaticVector" = type { i64, [16384 x i8] }
-%"struct.cxx20::span.141" = type { %"class.cxx20::detail::span_storage.142" }
-%"class.cxx20::detail::span_storage.142" = type { ptr, i64 }
 %"class.WasmEdge::Host::(anonymous namespace)::StaticVector.250" = type { i64, [16384 x i8] }
-%"struct.cxx20::span.251" = type { %"class.cxx20::detail::span_storage.252" }
-%"class.cxx20::detail::span_storage.252" = type { ptr, i64 }
 %"class.std::_Node_handle" = type { %"class.std::_Node_handle_common", ptr, ptr }
 %"class.std::_Node_handle_common" = type { ptr }
 %"struct.std::_Node_insert_return" = type { %"struct.std::__detail::_Node_iterator", i8, %"class.std::_Node_handle" }
@@ -111,6 +100,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::linear_congruential_engine" = type { i64 }
 %"class.std::uniform_int_distribution.758" = type { %"struct.std::uniform_int_distribution<unsigned int>::param_type" }
 %"struct.std::uniform_int_distribution<unsigned int>::param_type" = type { i32, i32 }
+%"struct.cxx20::span.141" = type { %"class.cxx20::detail::span_storage.142" }
+%"class.cxx20::detail::span_storage.142" = type { ptr, i64 }
+%"struct.cxx20::span.251" = type { %"class.cxx20::detail::span_storage.252" }
+%"class.cxx20::detail::span_storage.252" = type { ptr, i64 }
 %"struct.cxx20::span.525" = type { %"class.cxx20::detail::span_storage.526" }
 %"class.cxx20::detail::span_storage.526" = type { ptr, i64 }
 %"struct.cxx20::span.527" = type { %"class.cxx20::detail::span_storage.528" }
@@ -142,9 +135,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator.586" = type { i8 }
 %struct._Guard = type { ptr }
 %"struct.std::_Hashtable<int, std::pair<const int, std::shared_ptr<WasmEdge::Host::WASI::VINode>>, std::allocator<std::pair<const int, std::shared_ptr<WasmEdge::Host::WASI::VINode>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
-%"class.WasmEdge::ValType" = type { %union.anon.831 }
-%union.anon.831 = type { %struct.anon.832 }
-%struct.anon.832 = type { i8, i8, i8, i8, i32 }
 
 $_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEC5ERNS2_7EnvironE = comdat any
 
@@ -569,9 +559,9 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
 
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.i, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds nuw %struct.__wasi_event_t, ptr %.sroa.0.0.i71, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.i71, i64 %indvars.iv
   store i64 %61, ptr %62, align 8
   %63 = load i16, ptr %58, align 8
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -682,7 +672,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %109, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i.i
   store ptr %104, ptr %75, align 8
   store ptr %108, ptr %76, align 8
-  %110 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %102
   store ptr %110, ptr %78, align 8
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit.i
 
@@ -792,7 +782,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i93: ; preds = %147, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i.i91
   store ptr %142, ptr %75, align 8
   store ptr %146, ptr %76, align 8
-  %148 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %142, i64 %140
+  %148 = getelementptr inbounds nuw [40 x i8], ptr %142, i64 %140
   store ptr %148, ptr %78, align 8
   br label %_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t.exit95
 
@@ -895,7 +885,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i109: ; preds = %185, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i.i107
   store ptr %180, ptr %75, align 8
   store ptr %184, ptr %76, align 8
-  %186 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [40 x i8], ptr %180, i64 %178
   store ptr %186, ptr %78, align 8
   br label %_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t.exit111
 
@@ -971,7 +961,7 @@ _ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t.exit: 
 209:                                              ; preds = %.lr.ph.i
   %210 = zext i32 %.012.i to i64
   %211 = load ptr, ptr %205, align 8
-  %212 = getelementptr inbounds nuw %struct.__wasi_event_t, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [32 x i8], ptr %211, i64 %210
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.011.i, i64 32, i1 false)
   %213 = add i32 %.012.i, 1
   br label %214
@@ -1084,7 +1074,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %_ZNK8WasmEdge4Hos
   %273 = load i32, ptr %272, align 4
   %274 = sext i32 %273 to i64
   %275 = urem i64 %274, %254
-  %276 = getelementptr inbounds ptr, ptr %270, i64 %275
+  %276 = getelementptr inbounds [8 x i8], ptr %270, i64 %275
   store ptr %255, ptr %276, align 8
   br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
 
@@ -1137,7 +1127,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %302 = load i32, ptr %301, align 4
   %303 = sext i32 %302 to i64
   %304 = urem i64 %303, %283
-  %305 = getelementptr inbounds ptr, ptr %299, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %299, i64 %304
   store ptr %284, ptr %305, align 8
   br label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit
 
@@ -1311,7 +1301,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = urem i64 %58, %39
-  %60 = getelementptr inbounds ptr, ptr %54, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %54, i64 %59
   store ptr %40, ptr %60, align 8
   br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
 
@@ -1363,7 +1353,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %87 = urem i64 %86, %67
-  %88 = getelementptr inbounds ptr, ptr %82, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %82, i64 %87
   store ptr %68, ptr %88, align 8
   br label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit
 
@@ -1483,7 +1473,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
   store ptr %29, ptr %5, align 8
   store ptr %33, ptr %6, align 8
-  %35 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %27
   store ptr %35, ptr %16, align 8
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
 
@@ -2109,9 +2099,9 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
 
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.i, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds nuw %struct.__wasi_event_t, ptr %.sroa.0.0.i71, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.i71, i64 %indvars.iv
   store i64 %61, ptr %62, align 8
   %63 = load i16, ptr %58, align 8
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -2222,7 +2212,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %109, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i.i
   store ptr %104, ptr %75, align 8
   store ptr %108, ptr %76, align 8
-  %110 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %102
   store ptr %110, ptr %78, align 8
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit.i
 
@@ -2332,7 +2322,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i93: ; preds = %147, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i.i91
   store ptr %142, ptr %75, align 8
   store ptr %146, ptr %76, align 8
-  %148 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %142, i64 %140
+  %148 = getelementptr inbounds nuw [40 x i8], ptr %142, i64 %140
   store ptr %148, ptr %78, align 8
   br label %_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t.exit95
 
@@ -2435,7 +2425,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i109: ; preds = %185, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i.i107
   store ptr %180, ptr %75, align 8
   store ptr %184, ptr %76, align 8
-  %186 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [40 x i8], ptr %180, i64 %178
   store ptr %186, ptr %78, align 8
   br label %_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t.exit111
 
@@ -2511,7 +2501,7 @@ _ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t.exit: 
 209:                                              ; preds = %.lr.ph.i
   %210 = zext i32 %.012.i to i64
   %211 = load ptr, ptr %205, align 8
-  %212 = getelementptr inbounds nuw %struct.__wasi_event_t, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [32 x i8], ptr %211, i64 %210
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.011.i, i64 32, i1 false)
   %213 = add i32 %.012.i, 1
   br label %214
@@ -2624,7 +2614,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %_ZNK8WasmEdge4Hos
   %273 = load i32, ptr %272, align 4
   %274 = sext i32 %273 to i64
   %275 = urem i64 %274, %254
-  %276 = getelementptr inbounds ptr, ptr %270, i64 %275
+  %276 = getelementptr inbounds [8 x i8], ptr %270, i64 %275
   store ptr %255, ptr %276, align 8
   br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
 
@@ -2677,7 +2667,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %302 = load i32, ptr %301, align 4
   %303 = sext i32 %302 to i64
   %304 = urem i64 %303, %283
-  %305 = getelementptr inbounds ptr, ptr %299, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %299, i64 %304
   store ptr %284, ptr %305, align 8
   br label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit
 
@@ -3883,7 +3873,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %2
   %21 = load i64, ptr %20, align 8
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, label %26
@@ -4026,7 +4016,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt10shar
   %91 = sext i32 %90 to i64
   %92 = urem i64 %91, %89
   %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %92
+  %94 = getelementptr inbounds [8 x i8], ptr %93, i64 %92
   %95 = load ptr, ptr %94, align 8
   br label %96
 
@@ -5236,7 +5226,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %64 = tail call i32 @llvm.uadd.sat.i32(i32 %57, i32 %.062)
   %65 = icmp samesign ult i64 %54, 1024
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw %"struct.cxx20::span.141", ptr %52, i64 %54
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   store ptr %.sroa.0.0.i38, ptr %66, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %60, ptr %.sroa.247.0..sroa_idx, align 8
@@ -5892,7 +5882,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %64 = tail call i32 @llvm.uadd.sat.i32(i32 %57, i32 %.062)
   %65 = icmp samesign ult i64 %54, 1024
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %52, i64 %54
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   store ptr %.sroa.0.0.i38, ptr %66, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %60, ptr %.sroa.247.0..sroa_idx, align 8
@@ -6147,7 +6137,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %63 = tail call i32 @llvm.uadd.sat.i32(i32 %56, i32 %.060)
   %64 = icmp samesign ult i64 %53, 1024
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw %"struct.cxx20::span.141", ptr %51, i64 %53
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %53
   store ptr %.sroa.0.0.i36, ptr %65, align 8
   %.sroa.245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %59, ptr %.sroa.245.0..sroa_idx, align 8
@@ -6546,7 +6536,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %3
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, label %28
@@ -6619,7 +6609,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %.sroa.06.1.i.i4144 = phi ptr [ %.sroa.06.1.i.i, %..thread_crit_edge ], [ %29, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39 ]
   %53 = sext i32 %2 to i64
   %54 = urem i64 %53, %52
-  %55 = getelementptr inbounds ptr, ptr %51, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %51, i64 %54
   %56 = load ptr, ptr %55, align 8
   %.not.i.i.i.i3 = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i3, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, label %57
@@ -6666,7 +6656,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %.sroa.06.1.i.i4143 = phi ptr [ %.sroa.06.1.i.i4144, %57 ], [ %.sroa.06.1.i.i, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %.sroa.06.1.i.i4144, %62 ]
   %.sroa.06.1.i.i9 = phi ptr [ %58, %57 ], [ %.sroa.06.0.i.i11, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %64, %62 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %.pre-phi79
+  %72 = getelementptr inbounds [8 x i8], ptr %70, i64 %.pre-phi79
   %73 = load ptr, ptr %72, align 8
   br label %74
 
@@ -6689,7 +6679,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %80 = sext i32 %79 to i64
   %81 = urem i64 %80, %78
   %82 = load ptr, ptr %10, align 8, !noalias !67
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8, !noalias !67
   br label %85
 
@@ -6718,10 +6708,10 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   br i1 %.not9.i.i.i.i, label %112, label %95
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds ptr, ptr %82, i64 %94
+  %96 = getelementptr inbounds [8 x i8], ptr %82, i64 %94
   store ptr %84, ptr %96, align 8, !noalias !71
   %.pre.i.i.i = load ptr, ptr %10, align 8, !noalias !71
-  %.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %81
+  %.phi.trans.insert.i.i.i = getelementptr inbounds [8 x i8], ptr %.pre.i.i.i, i64 %81
   %.pre27.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !noalias !71
   br label %.thread25.i.i.i
 
@@ -6729,7 +6719,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %97 = phi ptr [ %84, %89 ], [ %.pre27.i.i.i, %95 ]
   %98 = phi ptr [ %82, %89 ], [ %.pre.i.i.i, %95 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %100 = getelementptr inbounds ptr, ptr %98, i64 %81
+  %100 = getelementptr inbounds [8 x i8], ptr %98, i64 %81
   %101 = icmp eq ptr %99, %97
   br i1 %101, label %102, label %103
 
@@ -6753,7 +6743,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   br i1 %.not18.i.i.i, label %112, label %110
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds ptr, ptr %82, i64 %109
+  %111 = getelementptr inbounds [8 x i8], ptr %82, i64 %109
   store ptr %.0.i.i.i, ptr %111, align 8, !noalias !71
   br label %112
 
@@ -7588,7 +7578,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %63 = tail call i32 @llvm.uadd.sat.i32(i32 %56, i32 %.060)
   %64 = icmp samesign ult i64 %53, 1024
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %51, i64 %53
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %53
   store ptr %.sroa.0.0.i36, ptr %65, align 8
   %.sroa.245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %59, ptr %.sroa.245.0..sroa_idx, align 8
@@ -13217,7 +13207,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %71 = tail call i32 @llvm.uadd.sat.i32(i32 %64, i32 %.074)
   %72 = icmp samesign ult i64 %61, 1024
   tail call void @llvm.assume(i1 %72)
-  %73 = getelementptr inbounds nuw %"struct.cxx20::span.141", ptr %59, i64 %61
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %61
   store ptr %.sroa.0.0.i44, ptr %73, align 8
   %.sroa.253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %67, ptr %.sroa.253.0..sroa_idx, align 8
@@ -13499,7 +13489,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %85 = tail call i32 @llvm.uadd.sat.i32(i32 %78, i32 %.094)
   %86 = icmp samesign ult i64 %75, 1024
   tail call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds nuw %"struct.cxx20::span.141", ptr %73, i64 %75
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %75
   store ptr %.sroa.0.0.i60, ptr %87, align 8
   %.sroa.269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %81, ptr %.sroa.269.0..sroa_idx, align 8
@@ -13768,7 +13758,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %68 = tail call i32 @llvm.uadd.sat.i32(i32 %61, i32 %.068)
   %69 = icmp samesign ult i64 %58, 1024
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %56, i64 %58
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %58
   store ptr %.sroa.0.0.i39, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 %64, ptr %71, align 8
@@ -14057,7 +14047,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %85 = tail call i32 @llvm.uadd.sat.i32(i32 %78, i32 %.04294)
   %86 = icmp samesign ult i64 %75, 1024
   tail call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %73, i64 %75
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %75
   store ptr %.sroa.0.0.i58, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %81, ptr %88, align 8
@@ -14799,7 +14789,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 
 136:                                              ; preds = %127
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 %128
-  %138 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv.i
   store ptr %137, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -14838,7 +14828,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 .lr.ph.i:                                         ; preds = %147, %169
   %156 = phi i64 [ %173, %169 ], [ 0, %147 ]
   %.06.i = phi i32 [ %172, %169 ], [ 0, %147 ]
-  %157 = getelementptr inbounds nuw ptr, ptr %148, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %156
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %160 = load i32, ptr %159, align 4
@@ -14855,7 +14845,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 
 169:                                              ; preds = %.lr.ph.i
   %170 = getelementptr inbounds nuw i8, ptr %166, i64 %161
-  %171 = getelementptr inbounds nuw ptr, ptr %154, i64 %156
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %156
   store ptr %170, ptr %171, align 8
   %172 = add i32 %.06.i, 1
   %173 = zext i32 %172 to i64
@@ -14881,7 +14871,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 .lr.ph.i68:                                       ; preds = %"_ZZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjjENK3$_1clEN5cxx204spanIP17__wasi_addrinfo_tLm18446744073709551615EEENS8_IP17__wasi_sockaddr_tLm18446744073709551615EEE.exit", %196
   %183 = phi i64 [ %201, %196 ], [ 0, %"_ZZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjjENK3$_1clEN5cxx204spanIP17__wasi_addrinfo_tLm18446744073709551615EEENS8_IP17__wasi_sockaddr_tLm18446744073709551615EEE.exit" ]
   %.011.i = phi i32 [ %200, %196 ], [ 0, %"_ZZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjjENK3$_1clEN5cxx204spanIP17__wasi_addrinfo_tLm18446744073709551615EEENS8_IP17__wasi_sockaddr_tLm18446744073709551615EEE.exit" ]
-  %184 = getelementptr inbounds nuw ptr, ptr %175, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %183
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load i32, ptr %186, align 4
@@ -14902,7 +14892,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
   %197 = load ptr, ptr %56, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 %190
   %.sroa.0.0.i.i = select i1 %.not.i.i69, ptr %198, ptr null
-  %199 = getelementptr inbounds nuw ptr, ptr %181, i64 %183
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %183
   store ptr %.sroa.0.0.i.i, ptr %199, align 8
   %200 = add i32 %.011.i, 1
   %201 = zext i32 %200 to i64
@@ -14924,7 +14914,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 .lr.ph.i72:                                       ; preds = %.loopexit187, %224
   %211 = phi i64 [ %229, %224 ], [ 0, %.loopexit187 ]
   %.011.i73 = phi i32 [ %228, %224 ], [ 0, %.loopexit187 ]
-  %212 = getelementptr inbounds nuw ptr, ptr %203, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %211
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load i32, ptr %214, align 4
@@ -14945,7 +14935,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
   %225 = load ptr, ptr %56, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 %218
   %.sroa.0.0.i.i78 = select i1 %.not.i.i74, ptr %226, ptr null
-  %227 = getelementptr inbounds nuw ptr, ptr %209, i64 %211
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %211
   store ptr %.sroa.0.0.i.i78, ptr %227, align 8
   %228 = add i32 %.011.i73, 1
   %229 = zext i32 %228 to i64
@@ -15142,7 +15132,7 @@ _ZNSt12_Vector_baseIP17__wasi_addrinfo_tSaIS1_EEC2EmRKS2_.exit.thread: ; preds =
   store ptr %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %9
@@ -15188,7 +15178,7 @@ _ZNSt12_Vector_baseIP17__wasi_sockaddr_tSaIS1_EEC2EmRKS2_.exit.thread: ; preds =
   store ptr %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %9
@@ -15234,7 +15224,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread: ; preds = %_ZNSt6vectorIPcS
   store ptr %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %9
@@ -16239,7 +16229,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %71 = tail call i32 @llvm.uadd.sat.i32(i32 %64, i32 %.074)
   %72 = icmp samesign ult i64 %61, 1024
   tail call void @llvm.assume(i1 %72)
-  %73 = getelementptr inbounds nuw %"struct.cxx20::span.141", ptr %59, i64 %61
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %61
   store ptr %.sroa.0.0.i44, ptr %73, align 8
   %.sroa.253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %67, ptr %.sroa.253.0..sroa_idx, align 8
@@ -16441,7 +16431,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %94 = tail call i32 @llvm.uadd.sat.i32(i32 %87, i32 %.051112)
   %95 = icmp samesign ult i64 %84, 1024
   tail call void @llvm.assume(i1 %95)
-  %96 = getelementptr inbounds nuw %"struct.cxx20::span.141", ptr %82, i64 %84
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %84
   store ptr %.sroa.0.0.i74, ptr %96, align 8
   %.sroa.283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %90, ptr %.sroa.283.0..sroa_idx, align 8
@@ -16611,7 +16601,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %68 = tail call i32 @llvm.uadd.sat.i32(i32 %61, i32 %.068)
   %69 = icmp samesign ult i64 %58, 1024
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %56, i64 %58
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %58
   store ptr %.sroa.0.0.i39, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 %64, ptr %71, align 8
@@ -16807,7 +16797,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %89 = tail call i32 @llvm.uadd.sat.i32(i32 %82, i32 %.04498)
   %90 = icmp samesign ult i64 %79, 1024
   tail call void @llvm.assume(i1 %90)
-  %91 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %77, i64 %79
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %79
   store ptr %.sroa.0.0.i62, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 %85, ptr %92, align 8
@@ -17792,7 +17782,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr nounde
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = urem i64 %53, %33
-  %55 = getelementptr inbounds ptr, ptr %49, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %49, i64 %54
   store ptr %34, ptr %55, align 8
   br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit
 
@@ -17845,7 +17835,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = urem i64 %82, %62
-  %84 = getelementptr inbounds ptr, ptr %78, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %78, i64 %83
   store ptr %63, ptr %84, align 8
   br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit9
 
@@ -18105,7 +18095,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
   %21 = load i64, ptr %20, align 8
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %26
@@ -18335,7 +18325,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.WasmEdge::Host::WASI::EVPoller", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [216 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 }
@@ -18610,7 +18600,7 @@ declare void @_ZN8WasmEdge4Host4WASI6Poller5closeERKNS1_5INodeE(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
@@ -18631,10 +18621,10 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4
   br i1 %.not9.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEEm.exit, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds ptr, ptr %5, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %5, i64 %17
   store ptr %7, ptr %19, align 8
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %1
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %1
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread23
 
@@ -18642,7 +18632,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4
   %20 = phi ptr [ %2, %10 ], [ %.pre25, %18 ]
   %21 = phi ptr [ %5, %10 ], [ %.pre, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %1
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %1
   %24 = icmp eq ptr %22, %20
   br i1 %24, label %25, label %26
 
@@ -18668,7 +18658,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4
   br i1 %.not17, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEEm.exit, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds ptr, ptr %5, i64 %34
+  %36 = getelementptr inbounds [8 x i8], ptr %5, i64 %34
   store ptr %2, ptr %36, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEEm.exit
 
@@ -18899,7 +18889,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8W
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %.loopexit, label %18
@@ -19021,7 +19011,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -19030,7 +19020,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit
@@ -19051,13 +19041,13 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %48 = load i32, ptr %46, align 4
   %49 = sext i32 %48 to i64
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %45, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %45, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %44, %40
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %41, ptr %54, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit
 
@@ -19302,7 +19292,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -19317,7 +19307,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8
   br label %29
 
@@ -19765,7 +19755,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %27 = load i64, ptr %26, align 8
   %28 = urem i64 %25, %27
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit.thread, label %48
@@ -20455,7 +20445,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %62, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
   store ptr %57, ptr %20, align 8
   store ptr %61, ptr %41, align 8
-  %63 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %63, ptr %21, align 8
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE11pushRetTypeISt5tupleIJjEEJLm0EEEEvSt16integer_sequenceImJXspT0_EEE.exit
 
@@ -20780,7 +20770,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %23, ptr %2, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit
 
@@ -20842,7 +20832,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %53, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
   store ptr %48, ptr %2, align 8
   store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   store ptr %54, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit12
 
@@ -20904,7 +20894,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %78, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
   store ptr %73, ptr %2, align 8
   store ptr %77, ptr %3, align 8
-  %79 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %79, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit20
 
@@ -20965,7 +20955,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %103, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
   store ptr %98, ptr %2, align 8
   store ptr %102, ptr %3, align 8
-  %104 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit28
 
@@ -21113,7 +21103,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %62, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
   store ptr %57, ptr %20, align 8
   store ptr %61, ptr %41, align 8
-  %63 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %63, ptr %21, align 8
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE11pushRetTypeISt5tupleIJjEEJLm0EEEEvSt16integer_sequenceImJXspT0_EEE.exit
 
@@ -21288,7 +21278,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %23, ptr %2, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit
 
@@ -21350,7 +21340,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %53, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
   store ptr %48, ptr %2, align 8
   store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   store ptr %54, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit12
 
@@ -21412,7 +21402,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %78, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
   store ptr %73, ptr %2, align 8
   store ptr %77, ptr %3, align 8
-  %79 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %79, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit20
 
@@ -21473,7 +21463,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %103, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
   store ptr %98, ptr %2, align 8
   store ptr %102, ptr %3, align 8
-  %104 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backEOS1_.exit28
 

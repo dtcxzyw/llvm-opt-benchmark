@@ -3476,7 +3476,7 @@ _ZNSt12_Vector_baseIP4NodeSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6v
   store ptr %19, ptr %0, align 8, !tbaa !83
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %23, ptr %14, align 8, !tbaa !110
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %1
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %1
   store ptr %24, ptr %6, align 8, !tbaa !84
   br label %25
 
@@ -3547,7 +3547,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i: ; preds = %_ZN
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !83
   store ptr %28, ptr %3, align 8, !tbaa !110
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !84
   br label %31
 
@@ -4336,7 +4336,7 @@ _ZNSt6vectorI10EvalStringSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit36: ; preds = 
 _ZNSt12_Vector_baseI10EvalStringSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI10EvalStringSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit36, %72
   store ptr %20, ptr %0, align 8, !tbaa !99
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !93
-  %76 = getelementptr inbounds nuw %struct.EvalString, ptr %20, i64 %16
+  %76 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %76, ptr %71, align 8, !tbaa !96
   ret void
 

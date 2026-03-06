@@ -546,10 +546,10 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
 
 269:                                              ; preds = %.preheader
   %270 = load ptr, ptr %57, align 8
-  %271 = getelementptr i32, ptr %270, i64 %264
+  %271 = getelementptr [4 x i8], ptr %270, i64 %264
   %272 = load i32, ptr %271, align 4
   %273 = load ptr, ptr %103, align 8
-  %274 = getelementptr i64, ptr %273, i64 %260
+  %274 = getelementptr [8 x i8], ptr %273, i64 %260
   %275 = load i64, ptr %274, align 8
   %276 = tail call zeroext i1 %267(ptr noundef %1, i32 noundef %272, i64 noundef %275) #13
   br i1 %276, label %277, label %281
@@ -570,7 +570,7 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
 
 .loopexit:                                        ; preds = %281, %259
   %286 = load ptr, ptr %103, align 8
-  %287 = getelementptr i64, ptr %286, i64 %260
+  %287 = getelementptr [8 x i8], ptr %286, i64 %260
   %288 = load i64, ptr %287, align 8
   %289 = getelementptr inbounds nuw i8, ptr %261, i64 16
   store i64 %288, ptr %289, align 8
@@ -1133,7 +1133,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getplane_res(ptr nounde
 56:                                               ; preds = %53
   %57 = load i32, ptr %50, align 8
   %58 = sext i32 %26 to i64
-  %59 = getelementptr i32, ptr %15, i64 %58
+  %59 = getelementptr [4 x i8], ptr %15, i64 %58
   %60 = tail call i64 @llvm.read_register.i64(metadata !0)
   %61 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %59, i32 %57, i64 4, i64 %60) #13, !srcloc !74
   %62 = extractvalue { ptr, i64 } %61, 0
@@ -1356,7 +1356,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_check_pixel_format(ptr
 
 11:                                               ; preds = %15, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %7 ]
-  %12 = getelementptr i32, ptr %9, i64 %indvars.iv
+  %12 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %.loopexit, label %15
@@ -1397,7 +1397,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_check_pixel_format(ptr
 
 35:                                               ; preds = %39, %31
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %39 ], [ 0, %31 ]
-  %36 = getelementptr i64, ptr %33, i64 %indvars.iv15
+  %36 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv15
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %2
   br i1 %38, label %41, label %39
@@ -1443,7 +1443,7 @@ define dso_local noundef zeroext i1 @drm_any_plane_has_format(ptr noundef readon
 
 15:                                               ; preds = %20, %11
   %16 = phi i64 [ %21, %20 ], [ 0, %11 ]
-  %17 = getelementptr i32, ptr %13, i64 %16
+  %17 = getelementptr [4 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %23, label %20
@@ -1484,7 +1484,7 @@ define dso_local noundef zeroext i1 @drm_any_plane_has_format(ptr noundef readon
 
 42:                                               ; preds = %47, %38
   %43 = phi i64 [ %48, %47 ], [ 0, %38 ]
-  %44 = getelementptr i64, ptr %40, i64 %43
+  %44 = getelementptr [8 x i8], ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, %2
   br i1 %46, label %50, label %47
@@ -2696,7 +2696,7 @@ define dso_local ptr @drm_create_scaling_filter_prop(ptr noundef %0, i32 noundef
 .preheader:                                       ; preds = %9, %30
   %13 = phi i1 [ false, %30 ], [ true, %9 ]
   %14 = phi i64 [ 1, %30 ], [ 0, %9 ]
-  %15 = getelementptr %struct.drm_prop_enum_list, ptr @drm_create_scaling_filter_prop.props, i64 %14
+  %15 = getelementptr [16 x i8], ptr @drm_create_scaling_filter_prop.props, i64 %14
   %16 = load i32, ptr %15, align 16
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
@@ -2760,7 +2760,7 @@ define dso_local i32 @drm_plane_create_scaling_filter_property(ptr noundef %0, i
 .preheader.i:                                     ; preds = %10, %31
   %14 = phi i1 [ false, %31 ], [ true, %10 ]
   %15 = phi i64 [ 1, %31 ], [ 0, %10 ]
-  %16 = getelementptr %struct.drm_prop_enum_list, ptr @drm_create_scaling_filter_prop.props, i64 %15
+  %16 = getelementptr [16 x i8], ptr @drm_create_scaling_filter_prop.props, i64 %15
   %17 = load i32, ptr %16, align 16
   %18 = zext nneg i32 %17 to i64
   %19 = shl nuw i64 1, %18
@@ -2991,7 +2991,7 @@ define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.v
 
 30:                                               ; preds = %35, %26
   %31 = phi i64 [ %36, %35 ], [ 0, %26 ]
-  %32 = getelementptr i32, ptr %28, i64 %31
+  %32 = getelementptr [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %20
   br i1 %34, label %38, label %35
@@ -3037,7 +3037,7 @@ define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.v
 
 57:                                               ; preds = %62, %53
   %58 = phi i64 [ %63, %62 ], [ 0, %53 ]
-  %59 = getelementptr i64, ptr %55, i64 %58
+  %59 = getelementptr [8 x i8], ptr %55, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %22
   br i1 %61, label %65, label %62

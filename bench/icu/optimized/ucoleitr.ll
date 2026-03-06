@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/ucoleitr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.RCEI = type { i32, i32, i32 }
-%"struct.icu_77::PCEI" = type { i64, i32, i32 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UObject" = type { ptr }
@@ -12,6 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_77::ConstChar16Ptr" = type { ptr }
 %"struct.icu_77::RCEBuffer" = type { [16 x %struct.RCEI], ptr, i32, i32 }
+%struct.RCEI = type { i32, i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -141,7 +140,7 @@ define void @_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align
   %30 = phi i32 [ %10, %._crit_edge ], [ %.pre15, %.thread ]
   %31 = phi ptr [ %.pre14, %._crit_edge ], [ %17, %.thread ]
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %struct.RCEI, ptr %31, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %31, i64 %32
   store i32 %1, ptr %33, align 4, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %2, ptr %34, align 4, !tbaa !16
@@ -174,7 +173,7 @@ define noundef ptr @_ZN6icu_779RCEBuffer3getEv(ptr noundef nonnull align 8 captu
   %8 = add nsw i32 %3, -1
   store i32 %8, ptr %2, align 8, !tbaa !10
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.RCEI, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %9
   br label %11
 
 11:                                               ; preds = %1, %5
@@ -289,7 +288,7 @@ define void @_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align
   %30 = phi i32 [ %10, %._crit_edge ], [ %.pre15, %.thread ]
   %31 = phi ptr [ %.pre14, %._crit_edge ], [ %17, %.thread ]
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %31, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %31, i64 %32
   store i64 %1, ptr %33, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %2, ptr %34, align 8, !tbaa !26
@@ -316,7 +315,7 @@ define noundef ptr @_ZN6icu_779PCEBuffer3getEv(ptr noundef nonnull align 8 captu
   %8 = add nsw i32 %3, -1
   store i32 %8, ptr %2, align 8, !tbaa !21
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.icu_77::PCEI", ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %9
   br label %11
 
 11:                                               ; preds = %1, %5
@@ -1004,7 +1003,7 @@ _ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit:   ; preds = %._crit_edge.i, %.th
   %58 = phi i32 [ %42, %._crit_edge.i ], [ %.pre15.i, %.thread.i ]
   %59 = phi ptr [ %.pre14.i, %._crit_edge.i ], [ %48, %.thread.i ]
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds %struct.RCEI, ptr %59, i64 %60
+  %61 = getelementptr inbounds [12 x i8], ptr %59, i64 %60
   store i32 %27, ptr %61, align 4, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 %30, ptr %62, align 4, !tbaa !16
@@ -1043,7 +1042,7 @@ _ZN6icu_779RCEBuffer3getEv.exit:                  ; preds = %.lr.ph
   %76 = add nsw i32 %73, -1
   store i32 %76, ptr %12, align 8, !tbaa !10
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw %struct.RCEI, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [12 x i8], ptr %75, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !14
   %80 = load i32, ptr %15, align 8, !tbaa !42
   switch i32 %80, label %81 [
@@ -1161,7 +1160,7 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit.thread72: ; preds = %102, %_ZN6icu_77
   %130 = phi i32 [ %113, %._crit_edge.i64 ], [ %.pre15.i63, %.thread.i62 ]
   %131 = phi ptr [ %.pre14.i66, %._crit_edge.i64 ], [ %119, %.thread.i62 ]
   %132 = sext i32 %130 to i64
-  %133 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %131, i64 %132
+  %133 = getelementptr inbounds [16 x i8], ptr %131, i64 %132
   store i64 %.022.i75, ptr %133, align 8, !tbaa !23
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store i32 %110, ptr %134, align 8, !tbaa !26
@@ -1234,7 +1233,7 @@ _ZN6icu_779PCEBuffer3getEv.exit:                  ; preds = %.critedge2, %.prehe
   %152 = add nsw i32 %149, -1
   store i32 %152, ptr %8, align 8, !tbaa !21
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw %"struct.icu_77::PCEI", ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %153
   %.not53 = icmp eq ptr %1, null
   br i1 %.not53, label %158, label %155
 

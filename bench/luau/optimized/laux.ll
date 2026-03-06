@@ -280,7 +280,7 @@ _Z15luaL_optlstringP9lua_StateiPKcPm.exit:        ; preds = %11, %8, %5
 
 21:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8, !tbaa !35
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !36
@@ -1338,7 +1338,7 @@ define dso_local noundef ptr @_Z14luaL_tolstringP9lua_StateiPm(ptr noundef %0, i
 
 32:                                               ; preds = %29, %28
   %.1 = phi ptr [ %31, %29 ], [ %.04249, %28 ]
-  %33 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !56
   %35 = fpext float %34 to double
   %36 = call noundef ptr @_Z12luai_num2strPcd(ptr noundef %.1, double noundef %35)

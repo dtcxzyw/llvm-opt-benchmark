@@ -160,7 +160,7 @@ define dso_local range(i32 0, 2) i32 @bsearch_hash(ptr noundef readonly captures
 git_bswap32.exit:
   %5 = load i8, ptr %0, align 1, !tbaa !35
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !37
   %9 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !38
   %10 = icmp eq i8 %5, 0
@@ -169,7 +169,7 @@ git_bswap32.exit:
 11:                                               ; preds = %git_bswap32.exit
   %12 = add nuw nsw i64 %6, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !37
   %16 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #7, !srcloc !38
   br label %git_bswap32.exit39

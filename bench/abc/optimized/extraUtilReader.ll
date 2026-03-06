@@ -244,7 +244,7 @@ define i32 @Extra_FileReaderGetLineNumber(ptr noundef readonly captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !38
   ret i32 %9
 }
@@ -453,7 +453,7 @@ Vec_PtrPush.exit.i:                               ; preds = %105, %Vec_PtrGrow.e
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %81, align 4, !tbaa !26
   %110 = sext i32 %108 to i64
-  %111 = getelementptr inbounds ptr, ptr %107, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %107, i64 %110
   store ptr %.04560.i, ptr %111, align 8, !tbaa !41
   %112 = load ptr, ptr %4, align 8, !tbaa !36
   %113 = load i32, ptr %13, align 8, !tbaa !37
@@ -521,7 +521,7 @@ Vec_IntPush.exit.i:                               ; preds = %138, %Vec_IntGrow.e
   %142 = add nsw i32 %141, 1
   store i32 %142, ptr %114, align 4, !tbaa !31
   %143 = sext i32 %141 to i64
-  %144 = getelementptr inbounds i32, ptr %140, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %140, i64 %143
   store i32 %113, ptr %144, align 4, !tbaa !38
   br label %148
 

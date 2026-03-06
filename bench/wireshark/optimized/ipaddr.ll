@@ -105,7 +105,7 @@ define internal zeroext i1 @df_func_ip_special_name(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fvalue_type_ftenum(ptr noundef %12)
   switch i32 %13, label %21 [
@@ -499,7 +499,7 @@ define internal zeroext i1 @df_func_ip_special_mask(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %.preheader, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.preheader ]
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fvalue_type_ftenum(ptr noundef %12)
   switch i32 %13, label %21 [
@@ -599,7 +599,7 @@ define internal zeroext i1 @df_func_ip_is_link_local(ptr noundef readonly captur
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ip_is_link_local.exit ], [ 0, %.preheader.i ]
   %9 = tail call ptr @fvalue_new(i32 noundef 2)
   %10 = load ptr, ptr %.val, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fvalue_type_ftenum(ptr noundef %12)
   switch i32 %13, label %27 [
@@ -676,7 +676,7 @@ define internal zeroext i1 @df_func_ip_is_multicast(ptr noundef readonly capture
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ip_is_multicast.exit ], [ 0, %.preheader.i ]
   %9 = tail call ptr @fvalue_new(i32 noundef 2)
   %10 = load ptr, ptr %.val, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fvalue_type_ftenum(ptr noundef %12)
   switch i32 %13, label %22 [
@@ -738,7 +738,7 @@ define internal zeroext i1 @df_func_ip_is_rfc1918(ptr noundef readonly captures(
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ipv4_is_rfc1918.exit ], [ 0, %.preheader.i ]
   %9 = tail call ptr @fvalue_new(i32 noundef 2)
   %10 = load ptr, ptr %.val, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fvalue_type_ftenum(ptr noundef %12)
   switch i32 %13, label %30 [
@@ -835,7 +835,7 @@ define internal zeroext i1 @df_func_ip_is_ula(ptr noundef readonly captures(none
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ipv6_is_ula.exit ], [ 0, %.preheader.i ]
   %9 = tail call ptr @fvalue_new(i32 noundef 2)
   %10 = load ptr, ptr %.val, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fvalue_type_ftenum(ptr noundef %12)
   switch i32 %13, label %19 [

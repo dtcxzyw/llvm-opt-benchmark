@@ -1605,7 +1605,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(384) ptr @_ZN5boo
 
 3:                                                ; preds = %3, %2
   %.0.i.i = phi i64 [ 0, %2 ], [ %7, %3 ]
-  %4 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i
+  %4 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.0.i.i
   %5 = load i16, ptr %4, align 2, !tbaa !77
   %6 = icmp eq i16 %5, 0
   %7 = add i64 %.0.i.i, 1
@@ -2484,7 +2484,7 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE
   %30 = load ptr, ptr %7, align 8, !tbaa !90
   %sext.i.i = shl i64 %29, 30
   %31 = ashr i64 %sext.i.i, 32
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store ptr %32, ptr %7, align 8, !tbaa !90
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE4syncEv.exit.i
 
@@ -2581,7 +2581,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(432) ptr @_ZN5boo
 
 3:                                                ; preds = %3, %2
   %.0.i.i = phi i64 [ 0, %2 ], [ %7, %3 ]
-  %4 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i
+  %4 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.0.i.i
   %5 = load i16, ptr %4, align 2, !tbaa !77
   %6 = icmp eq i16 %5, 0
   %7 = add i64 %.0.i.i, 1
@@ -5178,7 +5178,7 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE
   %29 = load ptr, ptr %4, align 8, !tbaa !90
   %sext = shl i64 %28, 30
   %30 = ashr i64 %sext, 32
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %29, i64 %30
   store ptr %31, ptr %4, align 8, !tbaa !90
   br label %32
 
@@ -5253,7 +5253,7 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE
   %31 = load ptr, ptr %6, align 8, !tbaa !90
   %sext.i = shl i64 %30, 30
   %32 = ashr i64 %sext.i, 32
-  %33 = getelementptr inbounds i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %31, i64 %32
   store ptr %33, ptr %6, align 8, !tbaa !90
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE4syncEv.exit
 
@@ -5350,7 +5350,7 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE
   %30 = load ptr, ptr %5, align 8, !tbaa !90
   %sext.i = shl i64 %29, 30
   %31 = ashr i64 %sext.i, 32
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store ptr %32, ptr %5, align 8, !tbaa !90
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE4syncEv.exit
 
@@ -5399,10 +5399,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; preds = %55, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i
   %56 = phi ptr [ %.pre.i.i, %55 ], [ %48, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i ]
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %42
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %42
   store i32 %1, ptr %57, align 4, !tbaa !75
   store i64 %47, ptr %41, align 8, !tbaa !104
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %47
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %47
   store i32 0, ptr %58, align 4, !tbaa !75
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE9push_backEw.exit
 
@@ -7027,7 +7027,7 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE
   %32 = load ptr, ptr %9, align 8, !tbaa !90
   %sext.i.i = shl i64 %31, 30
   %33 = ashr i64 %sext.i.i, 32
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %32, i64 %33
   store ptr %34, ptr %9, align 8, !tbaa !90
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE4syncEv.exit.i
 

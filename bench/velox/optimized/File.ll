@@ -11,19 +11,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.folly::IOBuf" = type { ptr, ptr, ptr, ptr, i64, i64, i64 }
-%"struct.facebook::velox::common::Region" = type { i64, i64, %"class.std::basic_string_view" }
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator" = type { i8 }
 %"class.folly::IOBuf::Iterator" = type { ptr, ptr, %"class.folly::Range.7" }
 %"class.folly::Range.7" = type { ptr, ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
+%"class.std::basic_string_view" = type { i64, ptr }
 %"class.google::LogMessage" = type { ptr, ptr }
 %"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
 %"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl" }
 %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl" = type { %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon = type { ptr, ptr, ptr, ptr }
-%struct.iovec = type { ptr, i64 }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr.15" }
 %"class.std::unique_ptr.15" = type { %"struct.std::__uniq_ptr_data.16" }
@@ -295,8 +293,8 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.025 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::common::Region", ptr %regions.coerce0, i64 %i.025
-  %arrayidx.i19 = getelementptr inbounds %"class.folly::IOBuf", ptr %iobufs.coerce0, i64 %i.025
+  %arrayidx.i = getelementptr inbounds [32 x i8], ptr %regions.coerce0, i64 %i.025
+  %arrayidx.i19 = getelementptr inbounds [56 x i8], ptr %iobufs.coerce0, i64 %i.025
   %length = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %0 = load i64, ptr %length, align 8
   call void @_ZN5folly5IOBufC1ENS0_8CreateOpEm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i32 noundef 0, i64 noundef %0)
@@ -924,7 +922,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorI5iovec
 _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i31, ptr %iovecs, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i32, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %struct.iovec, ptr %call5.i.i.i.i.i.i31, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i31, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont27
 
@@ -1029,7 +1027,7 @@ if.then.i18.i.i.i64:                              ; preds = %_ZNSt6vectorI5iovec
 _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65: ; preds = %if.then.i18.i.i.i64, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i61
   store ptr %call5.i.i.i.i.i.i71, ptr %iovecs, align 8
   store ptr %incdec.ptr.i.i.i62, ptr %_M_finish.i32, align 8
-  %add.ptr19.i.i.i66 = getelementptr inbounds nuw %struct.iovec, ptr %call5.i.i.i.i.i.i71, i64 %cond.i.i.i.i56
+  %add.ptr19.i.i.i66 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i71, i64 %cond.i.i.i.i56
   store ptr %add.ptr19.i.i.i66, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 

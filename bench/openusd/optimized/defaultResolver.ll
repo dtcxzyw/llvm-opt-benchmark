@@ -1537,7 +1537,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   br label %.lr.ph.i.i.i.i.i

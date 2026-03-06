@@ -216,7 +216,7 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %12, %
 17:                                               ; preds = %.lr.ph, %Py_DECREF.exit22
   %.027 = phi i64 [ 0, %.lr.ph ], [ %38, %Py_DECREF.exit22 ]
   %18 = load ptr, ptr %9, align 8, !tbaa !34
-  %19 = getelementptr ptr, ptr %18, i64 %.027
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.027
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !24
@@ -399,7 +399,7 @@ define internal noundef ptr @atexit_unregister(ptr readnone captures(none) %0, p
 .lr.ph.i:                                         ; preds = %2, %27
   %.01624.i = phi i64 [ %28, %27 ], [ 0, %2 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !34
-  %13 = getelementptr ptr, ptr %12, i64 %.01624.i
+  %13 = getelementptr [8 x i8], ptr %12, i64 %.01624.i
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !24

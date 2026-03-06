@@ -486,7 +486,7 @@ define internal range(i32 14, 0) i32 @bmp_decode_frame(ptr noundef %0, ptr nound
   %224 = zext i8 %223 to i32
   %225 = or disjoint i32 %222, %224
   %226 = or disjoint i32 %225, -16777216
-  %227 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv576
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %216, i64 %indvars.iv576
   store i32 %226, ptr %227, align 4, !tbaa !34
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond580.not = icmp eq i64 %indvars.iv.next577, %wide.trip.count579
@@ -498,7 +498,7 @@ define internal range(i32 14, 0) i32 @bmp_decode_frame(ptr noundef %0, ptr nound
   %229 = getelementptr inbounds nuw i8, ptr %.4468524, i64 4
   %230 = load i32, ptr %.4468524, align 1, !tbaa !16
   %231 = or i32 %230, -16777216
-  %232 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv
   store i32 %231, ptr %232, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

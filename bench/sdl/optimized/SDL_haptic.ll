@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SDL_Haptic_VIDPID_Naxes = type { i16, i16, i16 }
-%struct.haptic_effect = type { %union.SDL_HapticEffect, ptr }
-%union.SDL_HapticEffect = type { %struct.SDL_HapticCustom, [16 x i8] }
-%struct.SDL_HapticCustom = type { i16, %struct.SDL_HapticDirection, i32, i16, i16, i16, i8, i16, i16, ptr, i16, i16, i16, i16 }
-%struct.SDL_HapticDirection = type { i8, [3 x i32] }
 
 @SDL_haptics = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [26 x i8] c"Parameter '%s' is invalid\00", align 1
@@ -89,7 +85,7 @@ define hidden noalias ptr @SDL_GetHaptics_REAL(ptr noundef writeonly captures(ad
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars23 = trunc i64 %indvars.iv to i32
   %11 = tail call i32 @SDL_SYS_HapticInstanceID(i32 noundef %indvars23) #9
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -101,7 +97,7 @@ define hidden noalias ptr @SDL_GetHaptics_REAL(ptr noundef writeonly captures(ad
 
 ._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit
   %.016.lcssa = phi i64 [ %13, %._crit_edge.loopexit ], [ 0, %9 ]
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.lcssa
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.lcssa
   store i32 0, ptr %14, align 4
   br label %17
 
@@ -700,7 +696,7 @@ SDL_IsJoystickHaptic_REAL.exit:                   ; preds = %8
 .thread.i.i:                                      ; preds = %51, %.lr.ph.i.i
   %.135.i = phi ptr [ %.034.i, %.lr.ph.i.i ], [ %54, %51 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %55 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.135.i, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [6 x i8], ptr %.135.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %55, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %56 = load i8, ptr %47, align 1
   %57 = icmp eq i8 %56, 44
@@ -743,7 +739,7 @@ SDL_Haptic_Get_Naxes.exit.thread55:               ; preds = %62
 
 .lr.ph.i15.i:                                     ; preds = %71, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %71 ]
-  %64 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %indvars.iv.i.i
+  %64 = getelementptr inbounds nuw [6 x i8], ptr %.2.i, i64 %indvars.iv.i.i
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, -1
   br i1 %66, label %67, label %71
@@ -761,7 +757,7 @@ SDL_Haptic_Get_Naxes.exit.thread55:               ; preds = %62
 
 SDL_Haptic_Naxes_List_Index.exit.i:               ; preds = %67
   %72 = and i64 %indvars.iv.i.i, 4294967295
-  %73 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %72
+  %73 = getelementptr inbounds nuw [6 x i8], ptr %.2.i, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
@@ -773,7 +769,7 @@ SDL_Haptic_Naxes_List_Index.exit.i:               ; preds = %67
 
 .lr.ph.i21.i:                                     ; preds = %84, %.lr.ph.preheader.i19.i
   %indvars.iv.i22.i = phi i64 [ 0, %.lr.ph.preheader.i19.i ], [ %indvars.iv.next.i23.i, %84 ]
-  %77 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %indvars.iv.i22.i
+  %77 = getelementptr inbounds nuw [6 x i8], ptr %.2.i, i64 %indvars.iv.i22.i
   %78 = load i16, ptr %77, align 2
   %79 = icmp eq i16 %78, %37
   br i1 %79, label %80, label %84
@@ -791,7 +787,7 @@ SDL_Haptic_Naxes_List_Index.exit.i:               ; preds = %67
 
 SDL_Haptic_Naxes_List_Index.exit26.i:             ; preds = %80
   %85 = and i64 %indvars.iv.i22.i, 4294967295
-  %86 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %85
+  %86 = getelementptr inbounds nuw [6 x i8], ptr %.2.i, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
@@ -935,7 +931,7 @@ define hidden void @SDL_CloseHaptic_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %18 = phi i32 [ %13, %.lr.ph ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw %struct.haptic_effect, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
@@ -1048,7 +1044,7 @@ ValidEffect.exit:                                 ; preds = %9, %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw %struct.haptic_effect, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [80 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -1248,7 +1244,7 @@ SDL_HapticEffectSupported_REAL.exit:              ; preds = %9
 
 28:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %29 = getelementptr inbounds nuw %struct.haptic_effect, ptr %25, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -1261,7 +1257,7 @@ SDL_HapticEffectSupported_REAL.exit:              ; preds = %9
 35:                                               ; preds = %33
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = load ptr, ptr %24, align 8
-  %38 = getelementptr inbounds nuw %struct.haptic_effect, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [80 x i8], ptr %37, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   br label %41
 
@@ -1330,7 +1326,7 @@ ValidEffect.exit:                                 ; preds = %11, %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr inbounds nuw %struct.haptic_effect, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %24
   %26 = load i16, ptr %25, align 8
   %.not19 = icmp eq i16 %21, %26
   br i1 %.not19, label %29, label %27
@@ -1345,7 +1341,7 @@ ValidEffect.exit:                                 ; preds = %11, %13
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %22, align 8
-  %33 = getelementptr inbounds nuw %struct.haptic_effect, ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [80 x i8], ptr %32, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   br label %34
 
@@ -1393,7 +1389,7 @@ ValidEffect.exit:                                 ; preds = %11, %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.haptic_effect, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %20
   %22 = tail call zeroext i1 @SDL_SYS_HapticRunEffect(ptr noundef nonnull %0, ptr noundef %21, i32 noundef %2) #9
   br label %23
 
@@ -1441,7 +1437,7 @@ ValidEffect.exit:                                 ; preds = %10, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw %struct.haptic_effect, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [80 x i8], ptr %18, i64 %19
   %21 = tail call zeroext i1 @SDL_SYS_HapticStopEffect(ptr noundef nonnull %0, ptr noundef %20) #9
   br label %22
 
@@ -1505,7 +1501,7 @@ ValidEffect.exit:                                 ; preds = %10, %12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds nuw %struct.haptic_effect, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %26
   %28 = tail call i32 @SDL_SYS_HapticGetEffectStatus(ptr noundef nonnull %0, ptr noundef %27) #9
   %29 = icmp sgt i32 %28, 0
   br label %30
@@ -1833,7 +1829,7 @@ ValidEffect.exit.i:                               ; preds = %42, %40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = zext nneg i32 %32 to i64
-  %50 = getelementptr inbounds nuw %struct.haptic_effect, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [80 x i8], ptr %48, i64 %49
   %51 = tail call zeroext i1 @SDL_SYS_HapticRunEffect(ptr noundef nonnull %0, ptr noundef %50, i32 noundef 1) #9
   br label %SDL_RunHapticEffect_REAL.exit
 
@@ -1891,7 +1887,7 @@ ValidEffect.exit.i:                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %7 to i64
-  %27 = getelementptr inbounds nuw %struct.haptic_effect, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %26
   %28 = tail call zeroext i1 @SDL_SYS_HapticStopEffect(ptr noundef nonnull %0, ptr noundef %27) #9
   br label %SDL_StopHapticEffect_REAL.exit
 

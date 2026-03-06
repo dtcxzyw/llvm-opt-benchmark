@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%struct.MatchRecord = type <{ i64, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -484,7 +483,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %78, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %73, ptr %0, align 8
   store ptr %77, ptr %5, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %79, ptr %55, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -795,7 +794,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE8TestInfoEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %77, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.i.i
   store ptr %58, ptr %33, align 8
   store ptr %76, ptr %35, align 8
-  %78 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.13", ptr %58, i64 %56
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %56
   store ptr %78, ptr %37, align 8
   br label %_ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE8TestInfoEEESaIS8_EE9push_backEOS8_.exit
 
@@ -2813,7 +2812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i256: ; preds
   %547 = phi ptr [ %542, %.lr.ph ], [ %634, %633 ]
   %.036341 = phi i64 [ 0, %.lr.ph ], [ %635, %633 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %548 = getelementptr inbounds nuw %struct.MatchRecord, ptr %547, i64 %.036341
+  %548 = getelementptr inbounds nuw [16 x i8], ptr %547, i64 %.036341
   invoke void @_ZN7testing8internal11CmpHelperEQIyyEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %36, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %543, ptr noundef nonnull align 8 dereferenceable(8) %548)
           to label %_ZN7testing8internal8EqHelperILb0EE7CompareIyyEENS_15AssertionResultEPKcS6_RKT_RKT0_.exit unwind label %551
 
@@ -2992,7 +2991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i274: ; preds
 608:                                              ; preds = %.noexc.i.i272, %598, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i274, %.critedge144
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %609 = load ptr, ptr %316, align 8
-  %610 = getelementptr inbounds nuw %struct.MatchRecord, ptr %609, i64 %.036341
+  %610 = getelementptr inbounds nuw [16 x i8], ptr %609, i64 %.036341
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
   %612 = load i32, ptr %611, align 8
   %.02022.i.i.i = load ptr, ptr %537, align 8
@@ -4573,7 +4572,7 @@ _ZNSt12_Vector_baseI7patternSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %76 = getelementptr inbounds nuw %struct.pattern, ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8
   ret void
 }
@@ -8631,7 +8630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i347: ; preds
   %757 = phi ptr [ %752, %.lr.ph ], [ %844, %843 ]
   %.042429 = phi i64 [ 0, %.lr.ph ], [ %845, %843 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %758 = getelementptr inbounds nuw %struct.MatchRecord, ptr %757, i64 %.042429
+  %758 = getelementptr inbounds nuw [16 x i8], ptr %757, i64 %.042429
   invoke void @_ZN7testing8internal11CmpHelperEQIyyEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %49, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %753, ptr noundef nonnull align 8 dereferenceable(8) %758)
           to label %_ZN7testing8internal8EqHelperILb0EE7CompareIyyEENS_15AssertionResultEPKcS6_RKT_RKT0_.exit unwind label %761
 
@@ -8810,7 +8809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i365: ; preds
 818:                                              ; preds = %.noexc.i.i363, %808, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i365, %.critedge180
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %819 = load ptr, ptr %329, align 8
-  %820 = getelementptr inbounds nuw %struct.MatchRecord, ptr %819, i64 %.042429
+  %820 = getelementptr inbounds nuw [16 x i8], ptr %819, i64 %.042429
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 8
   %822 = load i32, ptr %821, align 8
   %.02022.i.i.i = load ptr, ptr %747, align 8
@@ -11656,7 +11655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i256: ; preds
   %549 = phi ptr [ %544, %.lr.ph ], [ %636, %635 ]
   %.036341 = phi i64 [ 0, %.lr.ph ], [ %637, %635 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %550 = getelementptr inbounds nuw %struct.MatchRecord, ptr %549, i64 %.036341
+  %550 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %.036341
   invoke void @_ZN7testing8internal11CmpHelperEQIyyEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %38, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %545, ptr noundef nonnull align 8 dereferenceable(8) %550)
           to label %_ZN7testing8internal8EqHelperILb0EE7CompareIyyEENS_15AssertionResultEPKcS6_RKT_RKT0_.exit unwind label %553
 
@@ -11835,7 +11834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i274: ; preds
 610:                                              ; preds = %.noexc.i.i272, %600, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i274, %.critedge144
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %611 = load ptr, ptr %318, align 8
-  %612 = getelementptr inbounds nuw %struct.MatchRecord, ptr %611, i64 %.036341
+  %612 = getelementptr inbounds nuw [16 x i8], ptr %611, i64 %.036341
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 8
   %614 = load i32, ptr %613, align 8
   %.02022.i.i.i = load ptr, ptr %539, align 8
@@ -15053,7 +15052,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_111PatternInfoEEEvEESaISF_EE9push_backEOSF_.exit.i.i: ; preds = %138, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_111PatternInfoEEEvEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit30.i.i.i.i.i
   store ptr %114, ptr %75, align 8
   store ptr %137, ptr %80, align 8
-  %139 = getelementptr inbounds nuw %"struct.std::pair.58", ptr %114, i64 %110
+  %139 = getelementptr inbounds nuw [40 x i8], ptr %114, i64 %110
   store ptr %139, ptr %82, align 8
   %.pre1.i.i = load ptr, ptr %1, align 8
   %140 = icmp eq ptr %.pre1.i.i, %76

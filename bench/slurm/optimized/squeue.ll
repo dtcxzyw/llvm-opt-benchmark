@@ -11,10 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.data_parser_dump_cli_ctxt_t = type { i32, i32, ptr, ptr, ptr }
 %struct.openapi_resp_job_info_msg_t = type { ptr, ptr, ptr, ptr, i64, i64 }
 %struct.openapi_resp_job_step_info_msg_t = type { ptr, ptr, ptr, ptr, i64 }
-%struct.job_state_response_job_t = type { i32, i32, i32, ptr, i32, i32 }
-%struct.job_info = type { ptr, i64, ptr, ptr, i32, ptr, i32, i32, i32, ptr, i32, ptr, i16, ptr, i64, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i16, double, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i32, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, i64, ptr, i16, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, i16, i32, i32, i32, i16, ptr, ptr, i64, i16, i32, i64, i64, i64, i32, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i16, i64, i16, ptr, ptr, ptr, ptr, i16, i32, i16, i16, i64, i16, ptr, i32, ptr, ptr, ptr, i16, i64, i64, ptr, i32, i32, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr }
-%struct.slurm_selected_step_t = type { ptr, i32, i32, %struct.slurm_step_id_msg }
-%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 
 @__const.main.opts = private unnamed_addr constant { i32, i32, i32, i8, i8, i8, i8, i32 } { i32 3, i32 0, i32 0, i8 1, i8 0, i8 0, i8 0, i32 0 }, align 8
 @params = dso_local global %struct.squeue_parameters zeroinitializer, align 8
@@ -685,9 +681,9 @@ define internal fastcc i32 @_get_info(i1 noundef zeroext %0, i1 noundef zeroext 
   %216 = phi ptr [ %252, %_populate_array_job_states.exit.i.i ], [ %214, %209 ]
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds nuw %struct.job_state_response_job_t, ptr %218, i64 %indvars.iv.i.i
+  %219 = getelementptr inbounds nuw [32 x i8], ptr %218, i64 %indvars.iv.i.i
   %220 = load ptr, ptr %213, align 8
-  %221 = getelementptr inbounds nuw %struct.job_info, ptr %220, i64 %indvars.iv.i.i
+  %221 = getelementptr inbounds nuw [968 x i8], ptr %220, i64 %indvars.iv.i.i
   %222 = load i32, ptr %219, align 8
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 412
   store i32 %222, ptr %223, align 4
@@ -1030,7 +1026,7 @@ define internal noundef i32 @_foreach_add_job(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %4, i64 %7
+  %8 = getelementptr inbounds [40 x i8], ptr %4, i64 %7
   store ptr null, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 -2, ptr %.sroa.2.0..sroa_idx, align 8

@@ -664,7 +664,7 @@ switch.hole_check:                                ; preds = %.critedge233._crit_
 
 switch.lookup593:                                 ; preds = %switch.hole_check
   %290 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm, i64 %290
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm, i64 %290
   %switch.load = load ptr, ptr %switch.gep, align 8
   %291 = load i32, ptr %23, align 4, !tbaa !18
   %292 = icmp sgt i32 %291, 0
@@ -2045,7 +2045,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %977 = add nsw i32 %976, -1
   store i32 %977, ptr %27, align 8, !tbaa !27
   %978 = sext i32 %977 to i64
-  %979 = getelementptr inbounds i32, ptr %26, i64 %978
+  %979 = getelementptr inbounds [4 x i8], ptr %26, i64 %978
   %980 = load i32, ptr %979, align 4, !tbaa !28
   store i32 %980, ptr %10, align 8, !tbaa !17
   br label %.critedge51.preheader.i
@@ -2072,7 +2072,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %991 = add nsw i32 %990, -1
   store i32 %991, ptr %27, align 8, !tbaa !27
   %992 = sext i32 %991 to i64
-  %993 = getelementptr inbounds i32, ptr %26, i64 %992
+  %993 = getelementptr inbounds [4 x i8], ptr %26, i64 %992
   %994 = load i32, ptr %993, align 4, !tbaa !28
   store i32 %994, ptr %10, align 8, !tbaa !17
   br label %.critedge51.preheader.i
@@ -2121,7 +2121,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %1017 = add nsw i32 %1016, -1
   store i32 %1017, ptr %27, align 8, !tbaa !27
   %1018 = sext i32 %1017 to i64
-  %1019 = getelementptr inbounds i32, ptr %26, i64 %1018
+  %1019 = getelementptr inbounds [4 x i8], ptr %26, i64 %1018
   %1020 = load i32, ptr %1019, align 4, !tbaa !28
   store i32 %1020, ptr %10, align 8, !tbaa !17
   br label %.critedge51.backedge.i
@@ -2965,7 +2965,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberE
   %56 = add nsw i32 %52, 1
   store i32 %56, ptr %51, align 8, !tbaa !27
   %57 = sext i32 %52 to i64
-  %58 = getelementptr inbounds i32, ptr %55, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %55, i64 %57
   store i32 %47, ptr %58, align 4, !tbaa !28
   store i32 %54, ptr %2, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit

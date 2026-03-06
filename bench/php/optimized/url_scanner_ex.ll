@@ -5007,7 +5007,7 @@ smart_str_alloc.exit:                             ; preds = %8, %15
   %27 = load i8, ptr %26, align 1, !tbaa !18
   %28 = load ptr, ptr %22, align 8, !tbaa !91
   %29 = zext i8 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %.035 = load i32, ptr %30, align 4, !tbaa !93
   %31 = trunc i32 %.035 to i8
   store i8 %31, ptr %26, align 1, !tbaa !18
@@ -5527,7 +5527,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
   %.0332 = phi ptr [ %.0324, %.lr.ph ], [ %32, %25 ]
   %27 = load ptr, ptr %24, align 8, !tbaa !91
   %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !93
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %.0332, align 1, !tbaa !18
@@ -5670,7 +5670,7 @@ define internal fastcc void @php_ini_on_update_hosts(ptr noundef %0, i1 noundef 
   %.0222 = phi ptr [ %.0214, %.lr.ph ], [ %18, %11 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !91
   %14 = sext i8 %12 to i64
-  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !93
   %17 = trunc i32 %16 to i8
   store i8 %17, ptr %.0222, align 1, !tbaa !18

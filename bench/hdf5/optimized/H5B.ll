@@ -376,12 +376,12 @@ define range(i32 -1, -2147483648) i32 @H5B_find(ptr noundef %0, ptr noundef %1, 
   %45 = load ptr, ptr %39, align 8, !tbaa !36
   %46 = load ptr, ptr %40, align 8, !tbaa !47
   %47 = zext nneg i32 %43 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 %49
   %51 = add nuw i32 %43, 1
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !29
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 %54
   %56 = call i32 %44(ptr noundef %50, ptr noundef %4, ptr noundef %55) #6
@@ -409,7 +409,7 @@ define range(i32 -1, -2147483648) i32 @H5B_find(ptr noundef %0, ptr noundef %1, 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %29, i64 288
   %66 = load ptr, ptr %65, align 8, !tbaa !38
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %47
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %47
   %68 = load i64, ptr %67, align 8, !tbaa !29
   %69 = call i32 @H5B_find(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %68, ptr noundef %3, ptr noundef %4)
   %70 = icmp slt i32 %69, 0
@@ -426,11 +426,11 @@ define range(i32 -1, -2147483648) i32 @H5B_find(ptr noundef %0, ptr noundef %1, 
   %77 = load ptr, ptr %76, align 8, !tbaa !50
   %78 = getelementptr inbounds nuw i8, ptr %29, i64 288
   %79 = load ptr, ptr %78, align 8, !tbaa !38
-  %80 = getelementptr inbounds nuw i64, ptr %79, i64 %47
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %47
   %81 = load i64, ptr %80, align 8, !tbaa !29
   %82 = load ptr, ptr %39, align 8, !tbaa !36
   %83 = load ptr, ptr %40, align 8, !tbaa !47
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %47
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %47
   %85 = load i64, ptr %84, align 8, !tbaa !29
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 %85
   %87 = call i32 %77(ptr noundef %0, i64 noundef %81, ptr noundef %86, ptr noundef %3, ptr noundef %4) #6
@@ -588,7 +588,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 260
   %75 = load i32, ptr %74, align 4, !tbaa !25
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !29
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -922,12 +922,12 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %46 = load ptr, ptr %40, align 8, !tbaa !36
   %47 = load ptr, ptr %41, align 8, !tbaa !47
   %48 = zext nneg i32 %44 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !29
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
   %52 = add nuw i32 %44, 1
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %47, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 %55
   %57 = tail call i32 %45(ptr noundef %51, ptr noundef %6, ptr noundef %56) #6
@@ -1135,7 +1135,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %201 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %202 = load ptr, ptr %201, align 8, !tbaa !38
   %203 = zext nneg i32 %200 to i64
-  %204 = getelementptr inbounds nuw i64, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %203
   %205 = load i64, ptr %204, align 8, !tbaa !29
   %206 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %205, ptr %206, align 8, !tbaa !51
@@ -1155,11 +1155,11 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %215 = load ptr, ptr %214, align 8, !tbaa !36
   %216 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %217 = load ptr, ptr %216, align 8, !tbaa !47
-  %218 = getelementptr inbounds nuw i64, ptr %217, i64 %203
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %203
   %219 = load i64, ptr %218, align 8, !tbaa !29
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 %219
   %221 = zext i32 %.pre to i64
-  %222 = getelementptr inbounds nuw i64, ptr %217, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %221
   %223 = load i64, ptr %222, align 8, !tbaa !29
   %224 = getelementptr inbounds nuw i8, ptr %215, i64 %223
   %225 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef %220, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %224, ptr noundef %8, ptr noundef %15)
@@ -1185,17 +1185,17 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %239 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %240 = load ptr, ptr %239, align 8, !tbaa !38
   %241 = zext nneg i32 %236 to i64
-  %242 = getelementptr inbounds nuw i64, ptr %240, i64 %241
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %241
   %243 = load i64, ptr %242, align 8, !tbaa !29
   %244 = getelementptr inbounds nuw i8, ptr %23, i64 280
   %245 = load ptr, ptr %244, align 8, !tbaa !36
   %246 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %247 = load ptr, ptr %246, align 8, !tbaa !47
-  %248 = getelementptr inbounds nuw i64, ptr %247, i64 %241
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %241
   %249 = load i64, ptr %248, align 8, !tbaa !29
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 %249
   %251 = zext i32 %.pre to i64
-  %252 = getelementptr inbounds nuw i64, ptr %247, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %251
   %253 = load i64, ptr %252, align 8, !tbaa !29
   %254 = getelementptr inbounds nuw i8, ptr %245, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1215,7 +1215,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %265 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %266 = load ptr, ptr %265, align 8, !tbaa !47
   %267 = zext i32 %.pre to i64
-  %268 = getelementptr inbounds nuw i64, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %267
   %269 = load i64, ptr %268, align 8, !tbaa !29
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 %269
   %271 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1225,7 +1225,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %274 = load ptr, ptr %273, align 8, !tbaa !60
   %275 = load ptr, ptr %263, align 8, !tbaa !36
   %276 = load ptr, ptr %265, align 8, !tbaa !47
-  %277 = getelementptr inbounds nuw i64, ptr %276, i64 %267
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %267
   %278 = load i64, ptr %277, align 8, !tbaa !29
   %279 = getelementptr inbounds nuw i8, ptr %275, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1262,7 +1262,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %298 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %299 = load ptr, ptr %298, align 8, !tbaa !38
   %300 = zext nneg i32 %44 to i64
-  %301 = getelementptr inbounds nuw i64, ptr %299, i64 %300
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %300
   %302 = load i64, ptr %301, align 8, !tbaa !29
   %303 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %302, ptr %303, align 8, !tbaa !51
@@ -1282,11 +1282,11 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %312 = load ptr, ptr %311, align 8, !tbaa !36
   %313 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %314 = load ptr, ptr %313, align 8, !tbaa !47
-  %315 = getelementptr inbounds nuw i64, ptr %314, i64 %300
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %300
   %316 = load i64, ptr %315, align 8, !tbaa !29
   %317 = getelementptr inbounds nuw i8, ptr %312, i64 %316
   %318 = zext i32 %195 to i64
-  %319 = getelementptr inbounds nuw i64, ptr %314, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %318
   %320 = load i64, ptr %319, align 8, !tbaa !29
   %321 = getelementptr inbounds nuw i8, ptr %312, i64 %320
   %322 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef %317, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %321, ptr noundef %8, ptr noundef %15)
@@ -1305,17 +1305,17 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %331 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %332 = load ptr, ptr %331, align 8, !tbaa !38
   %333 = zext nneg i32 %44 to i64
-  %334 = getelementptr inbounds nuw i64, ptr %332, i64 %333
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %333
   %335 = load i64, ptr %334, align 8, !tbaa !29
   %336 = getelementptr inbounds nuw i8, ptr %23, i64 280
   %337 = load ptr, ptr %336, align 8, !tbaa !36
   %338 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %339 = load ptr, ptr %338, align 8, !tbaa !47
-  %340 = getelementptr inbounds nuw i64, ptr %339, i64 %333
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %333
   %341 = load i64, ptr %340, align 8, !tbaa !29
   %342 = getelementptr inbounds nuw i8, ptr %337, i64 %341
   %343 = zext i32 %195 to i64
-  %344 = getelementptr inbounds nuw i64, ptr %339, i64 %343
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %343
   %345 = load i64, ptr %344, align 8, !tbaa !29
   %346 = getelementptr inbounds nuw i8, ptr %337, i64 %345
   %347 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1392,7 +1392,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %385 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %386 = load ptr, ptr %385, align 8, !tbaa !47
   %387 = zext i32 %378 to i64
-  %388 = getelementptr inbounds nuw i64, ptr %386, i64 %387
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %387
   %389 = load i64, ptr %388, align 8, !tbaa !29
   %390 = getelementptr inbounds nuw i8, ptr %384, i64 %389
   %391 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1410,7 +1410,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %398 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %399 = load ptr, ptr %398, align 8, !tbaa !38
   %400 = zext nneg i32 %.1265 to i64
-  %401 = getelementptr inbounds nuw i64, ptr %399, i64 %400
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %399, i64 %400
   store i64 %397, ptr %401, align 8, !tbaa !29
   %402 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %403 = load i32, ptr %402, align 8, !tbaa !57
@@ -1567,7 +1567,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %505 = load ptr, ptr %1, align 8, !tbaa !54
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 288
   %507 = load ptr, ptr %506, align 8, !tbaa !38
-  %508 = getelementptr inbounds nuw i64, ptr %507, i64 %493
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %493
   %509 = zext i32 %459 to i64
   %510 = shl nuw nsw i64 %509, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %504, ptr align 8 %508, i64 %510, i1 false)
@@ -1689,7 +1689,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %581 = load ptr, ptr %580, align 8, !tbaa !47
   %582 = add nuw i32 %.2266, 1
   %583 = zext i32 %582 to i64
-  %584 = getelementptr inbounds nuw i64, ptr %581, i64 %583
+  %584 = getelementptr inbounds nuw [8 x i8], ptr %581, i64 %583
   %585 = load i64, ptr %584, align 8, !tbaa !29
   %586 = getelementptr inbounds nuw i8, ptr %579, i64 %585
   %587 = getelementptr inbounds nuw i8, ptr %.0257, i64 260
@@ -1714,9 +1714,9 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %600 = getelementptr inbounds nuw i8, ptr %.0257, i64 288
   %601 = load ptr, ptr %600, align 8, !tbaa !38
   %602 = zext nneg i32 %.2266 to i64
-  %603 = getelementptr inbounds nuw i64, ptr %601, i64 %602
+  %603 = getelementptr inbounds nuw [8 x i8], ptr %601, i64 %602
   %604 = load i64, ptr %603, align 8, !tbaa !29
-  %605 = getelementptr inbounds nuw i64, ptr %601, i64 %583
+  %605 = getelementptr inbounds nuw [8 x i8], ptr %601, i64 %583
   store i64 %604, ptr %605, align 8, !tbaa !29
   br label %623
 
@@ -1734,7 +1734,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %614 = getelementptr inbounds nuw i8, ptr %.0257, i64 288
   %615 = load ptr, ptr %614, align 8, !tbaa !38
   %616 = zext i32 %spec.select.i293 to i64
-  %617 = getelementptr inbounds nuw i64, ptr %615, i64 %616
+  %617 = getelementptr inbounds nuw [8 x i8], ptr %615, i64 %616
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
   %619 = load i32, ptr %587, align 4, !tbaa !25
   %620 = sub i32 %619, %spec.select.i293
@@ -1747,7 +1747,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %.pre-phi.i = phi i64 [ %583, %594 ], [ %602, %599 ], [ %616, %606 ]
   %624 = getelementptr inbounds nuw i8, ptr %.0257, i64 288
   %625 = load ptr, ptr %624, align 8, !tbaa !38
-  %626 = getelementptr inbounds nuw i64, ptr %625, i64 %.pre-phi.i
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %625, i64 %.pre-phi.i
   store i64 %567, ptr %626, align 8, !tbaa !29
   %627 = load i32, ptr %587, align 4, !tbaa !25
   %628 = add i32 %627, 1
@@ -1938,7 +1938,7 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %33, align 8, !tbaa !38
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !29
   %46 = add i32 %41, -1
   %47 = call fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, i64 noundef %45, i32 noundef %46, ptr noundef %4, ptr noundef %5)
@@ -1947,13 +1947,13 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %34, align 8, !tbaa !36
   %50 = load ptr, ptr %35, align 8, !tbaa !47
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8, !tbaa !29
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
   %54 = load ptr, ptr %33, align 8, !tbaa !38
-  %55 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load i64, ptr %55, align 8, !tbaa !29
-  %57 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !29
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 %59
@@ -2111,12 +2111,12 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %47 = load ptr, ptr %41, align 8, !tbaa !36
   %48 = load ptr, ptr %42, align 8, !tbaa !47
   %49 = zext nneg i32 %45 to i64
-  %50 = getelementptr inbounds nuw i64, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !29
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %51
   %53 = add nuw i32 %45, 1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !29
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 %56
   %58 = call i32 %46(ptr noundef %52, ptr noundef %6, ptr noundef %57) #6
@@ -2146,15 +2146,15 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %31, i64 288
   %71 = load ptr, ptr %70, align 8, !tbaa !38
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %49
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %49
   %73 = load i64, ptr %72, align 8, !tbaa !29
   %74 = add nsw i32 %3, 1
   %75 = load ptr, ptr %41, align 8, !tbaa !36
   %76 = load ptr, ptr %42, align 8, !tbaa !47
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %49
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %49
   %78 = load i64, ptr %77, align 8, !tbaa !29
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 %78
-  %80 = getelementptr inbounds nuw i64, ptr %76, i64 %54
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %54
   %81 = load i64, ptr %80, align 8, !tbaa !29
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 %81
   %83 = call fastcc i32 @H5B__remove_helper(ptr noundef %0, i64 noundef %73, ptr noundef nonnull %2, i32 noundef %74, ptr noundef %79, ptr noundef %5, ptr noundef %6, ptr noundef %82, ptr noundef %8)
@@ -2176,14 +2176,14 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %31, i64 288
   %94 = load ptr, ptr %93, align 8, !tbaa !38
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %49
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %49
   %96 = load i64, ptr %95, align 8, !tbaa !29
   %97 = load ptr, ptr %41, align 8, !tbaa !36
   %98 = load ptr, ptr %42, align 8, !tbaa !47
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %49
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %49
   %100 = load i64, ptr %99, align 8, !tbaa !29
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 %100
-  %102 = getelementptr inbounds nuw i64, ptr %98, i64 %54
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %54
   %103 = load i64, ptr %102, align 8, !tbaa !29
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 %103
   %105 = call i32 %91(ptr noundef %0, i64 noundef %96, ptr noundef %101, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %104, ptr noundef nonnull %8) #6
@@ -2243,7 +2243,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
 131:                                              ; preds = %127
   %132 = load ptr, ptr %41, align 8, !tbaa !36
   %133 = load ptr, ptr %42, align 8, !tbaa !47
-  %134 = getelementptr inbounds nuw i64, ptr %133, i64 %54
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %54
   %135 = load i64, ptr %134, align 8, !tbaa !29
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2295,7 +2295,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %164 = getelementptr inbounds nuw i8, ptr %150, i64 260
   %165 = load i32, ptr %164, align 4, !tbaa !25
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i64, ptr %163, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %166
   %168 = load i64, ptr %167, align 8, !tbaa !29
   %169 = getelementptr inbounds nuw i8, ptr %162, i64 %168
   %170 = load ptr, ptr %41, align 8, !tbaa !36
@@ -2463,13 +2463,13 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br i1 %275, label %281, label %297
 
 281:                                              ; preds = %274
-  %282 = getelementptr inbounds nuw i64, ptr %280, i64 %49
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %49
   %283 = load i64, ptr %282, align 8, !tbaa !29
   %284 = getelementptr inbounds nuw i8, ptr %279, i64 %283
   br i1 %278, label %285, label %291
 
 285:                                              ; preds = %281
-  %286 = getelementptr inbounds nuw i64, ptr %280, i64 %54
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %54
   %287 = load i64, ptr %286, align 8, !tbaa !29
   %288 = getelementptr inbounds nuw i8, ptr %279, i64 %287
   %289 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2494,10 +2494,10 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br i1 %278, label %298, label %310
 
 298:                                              ; preds = %297
-  %299 = getelementptr inbounds nuw i64, ptr %280, i64 %49
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %49
   %300 = load i64, ptr %299, align 8, !tbaa !29
   %301 = getelementptr inbounds nuw i8, ptr %279, i64 %300
-  %302 = getelementptr inbounds nuw i64, ptr %280, i64 %54
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %54
   %303 = load i64, ptr %302, align 8, !tbaa !29
   %304 = getelementptr inbounds nuw i8, ptr %279, i64 %303
   %305 = sub i32 %142, %45
@@ -2510,12 +2510,12 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %325
 
 310:                                              ; preds = %297
-  %311 = getelementptr inbounds nuw i64, ptr %280, i64 %54
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %54
   %312 = load i64, ptr %311, align 8, !tbaa !29
   %313 = getelementptr inbounds nuw i8, ptr %279, i64 %312
   %314 = add nuw i32 %45, 2
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw i64, ptr %280, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %315
   %317 = load i64, ptr %316, align 8, !tbaa !29
   %318 = getelementptr inbounds nuw i8, ptr %279, i64 %317
   %319 = xor i32 %45, -1
@@ -2531,7 +2531,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %.pre-phi = phi i32 [ %319, %310 ], [ %.pre, %298 ]
   %326 = getelementptr inbounds nuw i8, ptr %31, i64 288
   %327 = load ptr, ptr %326, align 8, !tbaa !38
-  %328 = getelementptr inbounds nuw i64, ptr %327, i64 %49
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %49
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = load i32, ptr %38, align 4, !tbaa !25
   %331 = add i32 %330, %.pre-phi
@@ -2575,7 +2575,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %353 = getelementptr inbounds nuw i8, ptr %343, i64 260
   %354 = load i32, ptr %353, align 4, !tbaa !25
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds nuw i64, ptr %352, i64 %355
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %355
   %357 = load i64, ptr %356, align 8, !tbaa !29
   %358 = getelementptr inbounds nuw i8, ptr %351, i64 %357
   %359 = getelementptr inbounds nuw i8, ptr %.1241, i64 280
@@ -2629,7 +2629,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %393 = getelementptr inbounds nuw i8, ptr %.1241, i64 260
   %394 = load i32, ptr %393, align 4, !tbaa !25
   %395 = zext i32 %394 to i64
-  %396 = getelementptr inbounds nuw i64, ptr %388, i64 %395
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %395
   %397 = load i64, ptr %396, align 8, !tbaa !29
   %398 = getelementptr inbounds nuw i8, ptr %392, i64 %397
   %399 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2750,7 +2750,7 @@ define noundef range(i32 -1, 1) i32 @H5B_delete(ptr noundef %0, ptr noundef %1, 
 46:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %47 = load ptr, ptr %41, align 8, !tbaa !38
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8, !tbaa !29
   %50 = call i32 @H5B_delete(ptr noundef %0, ptr noundef %1, i64 noundef %49, ptr noundef %3)
   %51 = icmp slt i32 %50, 0
@@ -2787,15 +2787,15 @@ define noundef range(i32 -1, 1) i32 @H5B_delete(ptr noundef %0, ptr noundef %1, 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %57, align 8, !tbaa !70
   %69 = load ptr, ptr %60, align 8, !tbaa !38
-  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv65
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv65
   %71 = load i64, ptr %70, align 8, !tbaa !29
   %72 = load ptr, ptr %61, align 8, !tbaa !36
   %73 = load ptr, ptr %62, align 8, !tbaa !47
-  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %indvars.iv65
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv65
   %75 = load i64, ptr %74, align 8, !tbaa !29
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 %75
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %indvars.iv.next66
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.next66
   %78 = load i64, ptr %77, align 8, !tbaa !29
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 %78
   %80 = call i32 %68(ptr noundef %0, i64 noundef %71, ptr noundef %76, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %79, ptr noundef nonnull %7) #6
@@ -2924,7 +2924,7 @@ define ptr @H5B_shared_new(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
 59:                                               ; preds = %.lr.ph, %59
   %.04757 = phi i64 [ 0, %.lr.ph ], [ %62, %59 ]
   %60 = mul i64 %58, %.04757
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %.04757
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.04757
   store i64 %60, ptr %61, align 8, !tbaa !29
   %62 = add nuw nsw i64 %.04757, 1
   %exitcond.not = icmp eq i64 %62, %31

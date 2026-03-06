@@ -25675,7 +25675,7 @@ _ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   %.130.i.add.i.i.i91 = add nsw i64 %.130.i.idx.i.i.i89, -4
   %.ptr.i.i.i92 = getelementptr inbounds i8, ptr %9, i64 %.130.i.add.i.i.i91
   %268 = urem i64 %.229.i.i.i.i90, 10
-  %269 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %268
+  %269 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %268
   %270 = load i32, ptr %269, align 4, !tbaa !160, !noalias !159
   store i32 %270, ptr %.ptr.i.i.i92, align 4, !tbaa !160, !noalias !159
   %271 = udiv i64 %.229.i.i.i.i90, 10
@@ -25690,7 +25690,7 @@ _ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit: ; preds = %.preheader.i.i.i.i
   %272 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i, ptr noundef nonnull %.ptr.i.i.i92.le, i64 noundef 19) #35
   %.pre.i.i.i.i.i = load i8, ptr %10, align 4, !tbaa !163, !alias.scope !159
   %273 = zext i8 %.pre.i.i.i.i.i to i64
-  %274 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i, i64 %273
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i.i, i64 %273
   store i32 0, ptr %274, align 4, !tbaa !160, !alias.scope !159
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !159
   %275 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i.i, ptr noundef null, i32 noundef 10) #35
@@ -25709,7 +25709,7 @@ select.unfold.i.i.i99:                            ; preds = %select.unfold.i.i.i
   %.02232.i.add4.i.i.i102 = add nsw i64 %.02232.i.idx.i.i.i100, -4
   %.ptr8.i.i.i103 = getelementptr inbounds i8, ptr %7, i64 %.02232.i.add4.i.i.i102
   %278 = urem i64 %.12431.i.i.i.i101, 10
-  %279 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %278
+  %279 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !160, !noalias !171
   store i32 %280, ptr %.ptr8.i.i.i103, align 4, !tbaa !160, !noalias !171
   %281 = udiv i64 %.12431.i.i.i.i101, 10
@@ -25728,7 +25728,7 @@ _ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit114: ; preds = %select.unfold.i
   %285 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i110, ptr noundef nonnull %7, i64 noundef 20) #35
   %.pre.i.i.i.i.i111 = load i8, ptr %8, align 4, !tbaa !163, !alias.scope !171
   %286 = zext i8 %.pre.i.i.i.i.i111 to i64
-  %287 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i110, i64 %286
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i.i110, i64 %286
   store i32 0, ptr %287, align 4, !tbaa !160, !alias.scope !171
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !171
   %288 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i.i110, ptr noundef null, i32 noundef 10) #35
@@ -25747,7 +25747,7 @@ _ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit114: ; preds = %select.unfold.i
   %.0811.i.i.i.i117 = phi ptr [ %292, %.preheader.i.i.i.i115 ], [ %291, %_ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit114 ]
   %292 = getelementptr inbounds i8, ptr %.0811.i.i.i.i117, i64 -4
   %293 = urem i64 %.012.i.i.i.i116, 10
-  %294 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %293
   %295 = load i32, ptr %294, align 4, !tbaa !160, !noalias !179
   store i32 %295, ptr %292, align 4, !tbaa !160, !noalias !179
   %296 = udiv i64 %.012.i.i.i.i116, 10
@@ -25761,7 +25761,7 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit: ; preds = %.preheader.i.i.i.i
   %297 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i120, ptr noundef nonnull %5, i64 noundef 20) #35
   %.pre.i.i.i.i.i121 = load i8, ptr %6, align 4, !tbaa !163, !alias.scope !179
   %298 = zext i8 %.pre.i.i.i.i.i121 to i64
-  %299 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i120, i64 %298
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i.i120, i64 %298
   store i32 0, ptr %299, align 4, !tbaa !160, !alias.scope !179
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !179
   %300 = call i64 @wcstoull(ptr noundef nonnull %scevgep.i.i.i.i.i120, ptr noundef null, i32 noundef 10) #35
@@ -25780,7 +25780,7 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit: ; preds = %.preheader.i.i.i.i
   %.0811.i.i.i.i126 = phi ptr [ %304, %.preheader.i.i.i.i124 ], [ %303, %_ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit ]
   %304 = getelementptr inbounds i8, ptr %.0811.i.i.i.i126, i64 -4
   %305 = urem i64 %.012.i.i.i.i125, 10
-  %306 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %305
+  %306 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %305
   %307 = load i32, ptr %306, align 4, !tbaa !160, !noalias !187
   store i32 %307, ptr %304, align 4, !tbaa !160, !noalias !187
   %308 = udiv i64 %.012.i.i.i.i125, 10
@@ -25794,7 +25794,7 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit133: ; preds = %.preheader.i.i.
   %309 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i129, ptr noundef nonnull %3, i64 noundef 20) #35
   %.pre.i.i.i.i.i130 = load i8, ptr %4, align 4, !tbaa !163, !alias.scope !187
   %310 = zext i8 %.pre.i.i.i.i.i130 to i64
-  %311 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i129, i64 %310
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i.i129, i64 %310
   store i32 0, ptr %311, align 4, !tbaa !160, !alias.scope !187
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !187
   %312 = call i64 @wcstoull(ptr noundef nonnull %scevgep.i.i.i.i.i129, ptr noundef null, i32 noundef 10) #35
@@ -25852,7 +25852,7 @@ _ZN5boost14static_strings17to_static_wstringEf.exit: ; preds = %326
   %332 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef nonnull %2, i64 noundef %323) #35
   %.pre.i.i.i.i.i134 = load i8, ptr %27, align 4, !tbaa !195
   %333 = zext i8 %.pre.i.i.i.i.i134 to i64
-  %334 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %333
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i, i64 %333
   store i32 0, ptr %334, align 4, !tbaa !160, !alias.scope !194
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !194
   %335 = zext i8 %.pre.i.i.i.i.i134 to i64
@@ -25970,7 +25970,7 @@ _ZN5boost14static_strings17to_static_wstringEd.exit: ; preds = %365
   %371 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i152, ptr noundef nonnull %1, i64 noundef %362) #35
   %.pre.i.i.i.i.i153 = load i8, ptr %28, align 4, !tbaa !204
   %372 = zext i8 %.pre.i.i.i.i.i153 to i64
-  %373 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i152, i64 %372
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i152, i64 %372
   store i32 0, ptr %373, align 4, !tbaa !160, !alias.scope !203
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !203
   %374 = zext i8 %.pre.i.i.i.i.i153 to i64
@@ -26088,7 +26088,7 @@ _ZN5boost14static_strings17to_static_wstringEe.exit: ; preds = %404
   %410 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i172, ptr noundef nonnull %0, i64 noundef %401) #35
   %.pre.i.i.i.i.i173 = load i8, ptr %29, align 4, !tbaa !213
   %411 = zext i8 %.pre.i.i.i.i.i173 to i64
-  %412 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i172, i64 %411
+  %412 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i172, i64 %411
   store i32 0, ptr %412, align 4, !tbaa !160, !alias.scope !212
   call void @llvm.lifetime.end.p0(ptr nonnull %0), !noalias !212
   %413 = zext i8 %.pre.i.i.i.i.i173 to i64
@@ -26805,7 +26805,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
   %11 = urem i32 %.12431.i.i.i, 10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !160, !noalias !269
   store i32 %14, ptr %.ptr8.i.i, align 4, !tbaa !160, !noalias !269
   %15 = udiv i32 %.12431.i.i.i, 10
@@ -26833,7 +26833,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
   %22 = urem i32 %.229.i.i.i, 10
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !160, !noalias !269
   store i32 %25, ptr %.ptr.i.i, align 4, !tbaa !160, !noalias !269
   %26 = udiv i32 %.229.i.i.i, 10
@@ -26885,7 +26885,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
 
 _ZN5boost14static_strings17to_static_wstringEi.exit: ; preds = %30, %33
   %39 = phi i64 [ 0, %30 ], [ %35, %33 ]
-  %40 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i, i64 %39
   store i32 0, ptr %40, align 4, !tbaa !160, !alias.scope !269
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !269
   %41 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef null, i32 noundef 10) #35
@@ -26939,7 +26939,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 -4
   %11 = urem i32 %.012.i.i.i, 10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !160, !noalias !280
   store i32 %14, ptr %10, align 4, !tbaa !160, !noalias !280
   %15 = udiv i32 %.012.i.i.i, 10
@@ -26977,7 +26977,7 @@ _ZN5boost14static_strings17to_static_wstringEj.exit: ; preds = %.loopexit.i.i
   %26 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef nonnull %.09.i.i.i, i64 noundef %19) #35
   %.pre.i.i.i.i = load i8, ptr %5, align 4, !tbaa !282, !alias.scope !280
   %27 = zext i8 %.pre.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i, i64 %27
   store i32 0, ptr %28, align 4, !tbaa !160, !alias.scope !280
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !280
   %29 = call i64 @wcstoull(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef null, i32 noundef 10) #35
@@ -27035,7 +27035,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.02232.i.add4.i.i = add nsw i64 %.02232.i.idx.i.i, -4
   %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
   %11 = urem i64 %.12431.i.i.i, 10
-  %12 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !160, !noalias !290
   store i32 %13, ptr %.ptr8.i.i, align 4, !tbaa !160, !noalias !290
   %14 = udiv i64 %.12431.i.i.i, 10
@@ -27062,7 +27062,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.130.i.add.i.i = add nsw i64 %.130.i.idx.i.i, -4
   %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
   %21 = urem i64 %.229.i.i.i, 10
-  %22 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @.str.6174, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !160, !noalias !290
   store i32 %23, ptr %.ptr.i.i, align 4, !tbaa !160, !noalias !290
   %24 = udiv i64 %.229.i.i.i, 10
@@ -27114,7 +27114,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
 
 _ZN5boost14static_strings17to_static_wstringEx.exit: ; preds = %28, %31
   %37 = phi i64 [ 0, %28 ], [ %33, %31 ]
-  %38 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i, i64 %37
   store i32 0, ptr %38, align 4, !tbaa !160, !alias.scope !290
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !290
   %39 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef null, i32 noundef 10) #35
@@ -27196,7 +27196,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 
 _ZN5boost14static_strings17to_static_wstringEd.exit: ; preds = %14, %17
   %23 = phi i64 [ 0, %14 ], [ %19, %17 ]
-  %24 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !160, !alias.scope !297
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !297
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27288,7 +27288,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 
 _ZN5boost14static_strings17to_static_wstringEe.exit: ; preds = %14, %17
   %23 = phi i64 [ 0, %14 ], [ %19, %17 ]
-  %24 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !160, !alias.scope !307
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !307
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27381,7 +27381,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 
 _ZN5boost14static_strings17to_static_wstringEf.exit: ; preds = %15, %18
   %24 = phi i64 [ 0, %15 ], [ %20, %18 ]
-  %25 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i.i.i, i64 %24
   store i32 0, ptr %25, align 4, !tbaa !160, !alias.scope !314
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !314
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -102227,7 +102227,7 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112bas
   %23 = phi ptr [ %17, %._crit_edge.i.i ], [ %17, %18 ], [ %.pre7.i.i, %20 ]
   %24 = phi i64 [ %16, %._crit_edge.i.i ], [ %16, %18 ], [ %.pre6.i.i, %20 ]
   store i64 %24, ptr %12, align 8, !tbaa !1537
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   store i32 0, ptr %25, align 4, !tbaa !160
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

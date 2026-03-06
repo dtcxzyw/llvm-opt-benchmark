@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jpeg_destination_mgr = type { ptr, i64, ptr, ptr, ptr }
 %struct.jpeg_decompress_struct = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, double, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, [4 x ptr], [4 x ptr], [4 x ptr], i32, ptr, i32, i32, i32, [16 x i8], [16 x i8], [16 x i8], i32, i32, i8, i8, i8, i16, i16, i32, i8, i32, ptr, i32, i32, i32, i32, i32, ptr, i32, [4 x ptr], i32, i32, i32, [10 x i32], i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.jpeg_compress_struct = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i32, i32, double, i32, i32, i32, i32, i32, i32, i32, ptr, [4 x ptr], [4 x i32], [4 x ptr], [4 x ptr], [16 x i8], [16 x i8], [16 x i8], i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i16, i16, i32, i32, i32, i32, i32, i32, i32, i32, i32, [4 x ptr], i32, i32, i32, [10 x i32], i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.dt_magic_bytes_t = type { i32, i32, i32, i32, ptr, [32 x i8], ptr }
 %struct.rusage = type { %struct.timeval, %struct.timeval, %union.anon, %union.anon.17, %union.anon.18, %union.anon.19, %union.anon.20, %union.anon.21, %union.anon.22, %union.anon.23, %union.anon.24, %union.anon.25, %union.anon.26, %union.anon.27, %union.anon.28, %union.anon.29 }
 %struct.timeval = type { i64, i64 }
 %union.anon = type { i64 }
@@ -630,7 +629,7 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
   %30 = uitofp i8 %29 to float
   %31 = fsub reassoc nsz arcp contract afn float %30, %2
   %32 = fmul reassoc nsz arcp contract afn float %31, %13
-  %33 = getelementptr float, ptr %26, i64 %indvars.iv123
+  %33 = getelementptr [4 x i8], ptr %26, i64 %indvars.iv123
   store float %32, ptr %33, align 4, !tbaa !88
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
@@ -674,11 +673,11 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
   %45 = tail call i32 @llvm.abs.i32(i32 %spec.select83, i1 false)
   %46 = zext i32 %45 to i64
   %47 = mul nsw i64 %46, %.071
-  %48 = getelementptr inbounds nuw float, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %47
   %49 = sext i32 %.170 to i64
   %50 = tail call i64 @llvm.abs.i64(i64 %49, i1 true)
   %51 = mul nsw i64 %50, %.072
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %51
   %53 = sext i32 %9 to i64
   %54 = icmp sgt i32 %5, 0
   %55 = sext i32 %4 to i64
@@ -695,7 +694,7 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
 .preheader87.lr.ph.us.us:                         ; preds = %.preheader87.lr.ph.us.us.preheader, %._crit_edge93.split.us.us.us
   %indvars.iv118 = phi i64 [ 0, %.preheader87.lr.ph.us.us.preheader ], [ %indvars.iv.next119, %._crit_edge93.split.us.us.us ]
   %58 = mul nsw i64 %indvars.iv118, %57
-  %59 = getelementptr inbounds float, ptr %52, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %52, i64 %58
   %60 = mul nsw i64 %indvars.iv118, %53
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 %60
   br label %.preheader87.us.us.us
@@ -713,7 +712,7 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
   %65 = uitofp i8 %64 to float
   %66 = fsub reassoc nsz arcp contract afn float %65, %2
   %67 = fmul reassoc nsz arcp contract afn float %66, %13
-  %68 = getelementptr inbounds nuw float, ptr %.06690.us.us.us, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.06690.us.us.us, i64 %indvars.iv
   store float %67, ptr %68, align 4, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -721,7 +720,7 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
 
 ._crit_edge.us.us.us:                             ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %.06591.us.us.us, i64 %55
-  %70 = getelementptr inbounds float, ptr %.06690.us.us.us, i64 %49
+  %70 = getelementptr inbounds [4 x i8], ptr %.06690.us.us.us, i64 %49
   %71 = add nuw nsw i32 %.06492.us.us.us, 1
   %exitcond117.not = icmp eq i32 %71, %5
   br i1 %exitcond117.not, label %._crit_edge93.split.us.us.us, label %.preheader87.us.us.us
@@ -827,7 +826,7 @@ define internal fastcc ptr @_find_signature(ptr noundef readonly captures(addres
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %_memfind.exit.thread.us
   %.03061.us = phi i64 [ %38, %_memfind.exit.thread.us ], [ 0, %.preheader.split.us.preheader ]
-  %12 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03061.us
+  %12 = getelementptr inbounds nuw [64 x i8], ptr @_magic_signatures, i64 %.03061.us
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !92
   %15 = zext i32 %14 to i64
@@ -881,7 +880,7 @@ _memfind.exit.thread.us:                          ; preds = %36, %24, %.preheade
 
 .preheader.split:                                 ; preds = %.preheader, %_memfind.exit.thread
   %.03061 = phi i64 [ %66, %_memfind.exit.thread ], [ 0, %.preheader ]
-  %39 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03061
+  %39 = getelementptr inbounds nuw [64 x i8], ptr @_magic_signatures, i64 %.03061
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !92
   %42 = zext i32 %41 to i64
@@ -1761,7 +1760,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 402:                                              ; preds = %413, %398
   %indvars.iv = phi i64 [ %indvars.iv.next, %413 ], [ 0, %398 ]
   %403 = add nuw nsw i64 %400, %indvars.iv
-  %404 = getelementptr inbounds nuw float, ptr %387, i64 %403
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %403
   %405 = load float, ptr %404, align 4, !tbaa !88
   %406 = fmul reassoc nsz arcp contract afn float %405, 6.553500e+04
   %407 = fcmp reassoc nsz arcp contract afn ogt float %406, 6.553500e+04
@@ -1778,7 +1777,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 
 413:                                              ; preds = %410, %408, %402
   %414 = phi i16 [ -1, %402 ], [ %412, %410 ], [ 0, %408 ]
-  %415 = getelementptr inbounds nuw i16, ptr %387, i64 %403
+  %415 = getelementptr inbounds nuw [2 x i8], ptr %387, i64 %403
   store i16 %414, ptr %415, align 2, !tbaa !197
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1807,7 +1806,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
   %.0375494 = phi i64 [ %460, %455 ], [ 0, %.preheader468 ]
   %421 = shl i64 %.0375494, 2
   %422 = or disjoint i64 %421, 2
-  %423 = getelementptr inbounds nuw float, ptr %387, i64 %422
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %422
   %424 = load float, ptr %423, align 4, !tbaa !88
   %425 = fmul reassoc nsz arcp contract afn float %424, 2.550000e+02
   %426 = fcmp reassoc nsz arcp contract afn ogt float %425, 2.550000e+02
@@ -1825,7 +1824,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 432:                                              ; preds = %429, %427, %.lr.ph495
   %433 = phi i8 [ -1, %.lr.ph495 ], [ %431, %429 ], [ 0, %427 ]
   %434 = or disjoint i64 %421, 1
-  %435 = getelementptr inbounds nuw float, ptr %387, i64 %434
+  %435 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %434
   %436 = load float, ptr %435, align 4, !tbaa !88
   %437 = fmul reassoc nsz arcp contract afn float %436, 2.550000e+02
   %438 = fcmp reassoc nsz arcp contract afn ogt float %437, 2.550000e+02
@@ -1842,7 +1841,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 
 444:                                              ; preds = %441, %439, %432
   %445 = phi i8 [ -1, %432 ], [ %443, %441 ], [ 0, %439 ]
-  %446 = getelementptr inbounds nuw float, ptr %387, i64 %421
+  %446 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %421
   %447 = load float, ptr %446, align 4, !tbaa !88
   %448 = fmul reassoc nsz arcp contract afn float %447, 2.550000e+02
   %449 = fcmp reassoc nsz arcp contract afn ogt float %448, 2.550000e+02
@@ -1885,7 +1884,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 .lr.ph499:                                        ; preds = %.preheader, %499
   %.0366498 = phi i64 [ %504, %499 ], [ 0, %.preheader ]
   %465 = shl i64 %.0366498, 2
-  %466 = getelementptr inbounds nuw float, ptr %387, i64 %465
+  %466 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %465
   %467 = load float, ptr %466, align 4, !tbaa !88
   %468 = fmul reassoc nsz arcp contract afn float %467, 2.550000e+02
   %469 = fcmp reassoc nsz arcp contract afn ogt float %468, 2.550000e+02
@@ -1903,7 +1902,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 475:                                              ; preds = %472, %470, %.lr.ph499
   %476 = phi i8 [ -1, %.lr.ph499 ], [ %474, %472 ], [ 0, %470 ]
   %477 = or disjoint i64 %465, 1
-  %478 = getelementptr inbounds nuw float, ptr %387, i64 %477
+  %478 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %477
   %479 = load float, ptr %478, align 4, !tbaa !88
   %480 = fmul reassoc nsz arcp contract afn float %479, 2.550000e+02
   %481 = fcmp reassoc nsz arcp contract afn ogt float %480, 2.550000e+02
@@ -1921,7 +1920,7 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 487:                                              ; preds = %484, %482, %475
   %488 = phi i8 [ -1, %475 ], [ %486, %484 ], [ 0, %482 ]
   %489 = or disjoint i64 %465, 2
-  %490 = getelementptr inbounds nuw float, ptr %387, i64 %489
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %489
   %491 = load float, ptr %490, align 4, !tbaa !88
   %492 = fmul reassoc nsz arcp contract afn float %491, 2.550000e+02
   %493 = fcmp reassoc nsz arcp contract afn ogt float %492, 2.550000e+02

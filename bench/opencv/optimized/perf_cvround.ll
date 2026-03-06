@@ -1379,7 +1379,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1694,11 +1694,11 @@ define hidden void @_ZN11opencv_test26Size_MatType_CvRound_Float12PerfTestBodyEv
 
 .lr.ph.i:                                         ; preds = %.lr.ph4.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph4.split.i ]
-  %60 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %61 = load float, ptr %60, align 4, !tbaa !94
   %62 = insertelement <4 x float> poison, float %61, i64 0
   %63 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %62)
-  %64 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %65 = load i32, ptr %33, align 4, !tbaa !91
@@ -1796,11 +1796,11 @@ _ZN11opencv_testL10cvRoundMatIfEEvRKN2cv3MatERS2_.exit: ; preds = %._crit_edge.i
 
 .lr.ph.i31:                                       ; preds = %.lr.ph4.split.i27, %.lr.ph.i31
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %.lr.ph.i31 ], [ 0, %.lr.ph4.split.i27 ]
-  %101 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv.i32
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i32
   %102 = load double, ptr %101, align 8, !tbaa !100
   %103 = insertelement <2 x double> poison, double %102, i64 0
   %104 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %103)
-  %105 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.i32
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i32
   store i32 %104, ptr %105, align 4, !tbaa !96
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %106 = load i32, ptr %27, align 4, !tbaa !91
@@ -2371,7 +2371,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -2686,11 +2686,11 @@ define hidden void @_ZN11opencv_test31Size_MatType_CvRound_Float_Ceil12PerfTestB
 
 .lr.ph.i:                                         ; preds = %.lr.ph4.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph4.split.i ]
-  %60 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %61 = load float, ptr %60, align 4, !tbaa !94
   %62 = call float @llvm.ceil.f32(float %61)
   %63 = fptosi float %62 to i32
-  %64 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %65 = load i32, ptr %33, align 4, !tbaa !91
@@ -2788,11 +2788,11 @@ _ZN11opencv_testL9cvCeilMatIfEEvRKN2cv3MatERS2_.exit: ; preds = %._crit_edge.i, 
 
 .lr.ph.i31:                                       ; preds = %.lr.ph4.split.i27, %.lr.ph.i31
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %.lr.ph.i31 ], [ 0, %.lr.ph4.split.i27 ]
-  %101 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv.i32
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i32
   %102 = load double, ptr %101, align 8, !tbaa !100
   %103 = call double @llvm.ceil.f64(double %102)
   %104 = fptosi double %103 to i32
-  %105 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.i32
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i32
   store i32 %104, ptr %105, align 4, !tbaa !96
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %106 = load i32, ptr %27, align 4, !tbaa !91
@@ -3306,7 +3306,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -3621,11 +3621,11 @@ define hidden void @_ZN11opencv_test32Size_MatType_CvRound_Float_Floor12PerfTest
 
 .lr.ph.i:                                         ; preds = %.lr.ph4.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph4.split.i ]
-  %60 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %61 = load float, ptr %60, align 4, !tbaa !94
   %62 = call float @llvm.floor.f32(float %61)
   %63 = fptosi float %62 to i32
-  %64 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %65 = load i32, ptr %33, align 4, !tbaa !91
@@ -3723,11 +3723,11 @@ _ZN11opencv_testL10cvFloorMatIfEEvRKN2cv3MatERS2_.exit: ; preds = %._crit_edge.i
 
 .lr.ph.i31:                                       ; preds = %.lr.ph4.split.i27, %.lr.ph.i31
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %.lr.ph.i31 ], [ 0, %.lr.ph4.split.i27 ]
-  %101 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv.i32
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i32
   %102 = load double, ptr %101, align 8, !tbaa !100
   %103 = call double @llvm.floor.f64(double %102)
   %104 = fptosi double %103 to i32
-  %105 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.i32
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i32
   store i32 %104, ptr %105, align 4, !tbaa !96
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %106 = load i32, ptr %27, align 4, !tbaa !91
@@ -4241,7 +4241,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -4556,11 +4556,11 @@ define hidden void @_ZN11opencv_test30Size_MatType_CvRound_Float_NaN12PerfTestBo
 
 .lr.ph.i:                                         ; preds = %.lr.ph4.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph4.split.i ]
-  %60 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %61 = load float, ptr %60, align 4, !tbaa !94
   %62 = fcmp ord float %61, 0.000000e+00
   %63 = select i1 %62, i32 2, i32 1
-  %64 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %65 = load i32, ptr %33, align 4, !tbaa !91
@@ -4658,11 +4658,11 @@ _ZN11opencv_testL10cvIsNaNMatIfEEvRKN2cv3MatERS2_.exit: ; preds = %._crit_edge.i
 
 .lr.ph.i31:                                       ; preds = %.lr.ph4.split.i27, %.lr.ph.i31
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %.lr.ph.i31 ], [ 0, %.lr.ph4.split.i27 ]
-  %101 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv.i32
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i32
   %102 = load double, ptr %101, align 8, !tbaa !100
   %103 = fcmp ord double %102, 0.000000e+00
   %104 = select i1 %103, i32 2, i32 1
-  %105 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.i32
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i32
   store i32 %104, ptr %105, align 4, !tbaa !96
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %106 = load i32, ptr %27, align 4, !tbaa !91
@@ -5176,7 +5176,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -5491,12 +5491,12 @@ define hidden void @_ZN11opencv_test30Size_MatType_CvRound_Float_Inf12PerfTestBo
 
 .lr.ph.i:                                         ; preds = %.lr.ph4.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph4.split.i ]
-  %60 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %61 = load float, ptr %60, align 4, !tbaa !94
   %62 = call float @llvm.fabs.f32(float %61)
   %63 = fcmp une float %62, 0x7FF0000000000000
   %64 = select i1 %63, i32 2, i32 1
-  %65 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   store i32 %64, ptr %65, align 4, !tbaa !96
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i32, ptr %33, align 4, !tbaa !91
@@ -5594,12 +5594,12 @@ _ZN11opencv_testL10cvIsInfMatIfEEvRKN2cv3MatERS2_.exit: ; preds = %._crit_edge.i
 
 .lr.ph.i31:                                       ; preds = %.lr.ph4.split.i27, %.lr.ph.i31
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %.lr.ph.i31 ], [ 0, %.lr.ph4.split.i27 ]
-  %102 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv.i32
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i32
   %103 = load double, ptr %102, align 8, !tbaa !100
   %104 = call double @llvm.fabs.f64(double %103)
   %105 = fcmp une double %104, 0x7FF0000000000000
   %106 = select i1 %105, i32 2, i32 1
-  %107 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv.i32
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv.i32
   store i32 %106, ptr %107, align 4, !tbaa !96
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %108 = load i32, ptr %27, align 4, !tbaa !91
@@ -6835,7 +6835,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !210
   store ptr %35, ptr %4, align 8, !tbaa !202
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.69", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !205
   ret void
 
@@ -10450,7 +10450,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !341
   store ptr %35, ptr %4, align 8, !tbaa !337
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.100", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !340
   ret void
 
@@ -11111,7 +11111,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !351
   store ptr %35, ptr %4, align 8, !tbaa !347
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.105", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !350
   ret void
 
@@ -11772,7 +11772,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !361
   store ptr %35, ptr %4, align 8, !tbaa !357
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.110", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !360
   ret void
 
@@ -12433,7 +12433,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !371
   store ptr %35, ptr %4, align 8, !tbaa !367
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.115", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !370
   ret void
 
@@ -15193,7 +15193,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !374
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !66
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_MatType_CvRound_Float>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !69
   ret void
 }
@@ -17286,7 +17286,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !442
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !115
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_MatType_CvRound_Float_Ceil>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !118
   ret void
 }
@@ -19379,7 +19379,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !472
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !137
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_MatType_CvRound_Float_Floor>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !140
   ret void
 }
@@ -21472,7 +21472,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !502
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !159
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_MatType_CvRound_Float_NaN>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !162
   ret void
 }
@@ -23559,7 +23559,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !532
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !181
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_MatType_CvRound_Float_Inf>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !184
   ret void
 }

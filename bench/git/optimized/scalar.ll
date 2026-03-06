@@ -15,9 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 %struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.scalar_config = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [16 x i8] c"not implemented\00", align 1
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -332,7 +330,7 @@ sub_138:                                          ; preds = %sub_1, %.tail
 
 .critedge:                                        ; preds = %.critedge.preheader, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.critedge.preheader ]
-  %41 = getelementptr inbounds nuw %struct.anon, ptr @builtins, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @builtins, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 16, !tbaa !13
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %6) #19
   %.not34 = icmp eq i32 %43, 0
@@ -355,7 +353,7 @@ sub_138:                                          ; preds = %sub_1, %.tail
 
 52:                                               ; preds = %.critedge35, %52
   %indvars.iv80 = phi i64 [ 0, %.critedge35 ], [ %indvars.iv.next81, %52 ]
-  %53 = getelementptr inbounds nuw %struct.anon, ptr @builtins, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw [16 x i8], ptr @builtins, i64 %indvars.iv80
   %54 = load ptr, ptr %53, align 16, !tbaa !13
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef %54) #18
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -1327,7 +1325,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @__const.cmd_run.tasks, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 16, !tbaa !39
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef %8) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1354,7 +1352,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 .preheader38:                                     ; preds = %14, %20
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %20 ], [ 0, %14 ]
-  %17 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv45
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @__const.cmd_run.tasks, i64 %indvars.iv45
   %18 = load ptr, ptr %17, align 16, !tbaa !39
   %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %15) #19
   %.not31 = icmp eq i32 %19, 0
@@ -1395,7 +1393,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 33:                                               ; preds = %31
   %34 = zext nneg i32 %.1 to i64
-  %35 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @__const.cmd_run.tasks, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !43
   %38 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.161, ptr noundef %37, ptr noundef null)
@@ -1413,7 +1411,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 .preheader:                                       ; preds = %39, %41
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %41 ], [ 1, %39 ]
-  %42 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv48
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @__const.cmd_run.tasks, i64 %indvars.iv48
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !43
   %45 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.161, ptr noundef %44, ptr noundef null)
@@ -1520,7 +1518,7 @@ define internal range(i32 -1, 1) i32 @cmd_reconfigure(i32 noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %9, i8 0, i64 464, i1 false)
   %40 = load ptr, ptr %6, align 8, !tbaa !48
-  %41 = getelementptr inbounds nuw %struct.string_list_item, ptr %40, i64 %.02157
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.02157
   %42 = load ptr, ptr %41, align 8, !tbaa !49
   store i64 0, ptr %34, align 8, !tbaa !32
   %43 = load ptr, ptr %35, align 8, !tbaa !17
@@ -2148,7 +2146,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_recommended_config(i32 noundef 
 
 4:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.scalar_config, ptr @__const.set_recommended_config.config, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @__const.set_recommended_config.config, i64 %indvars.iv
   %6 = tail call fastcc i32 @set_scalar_config(ptr noundef %5, i32 noundef %0)
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %3, label %7

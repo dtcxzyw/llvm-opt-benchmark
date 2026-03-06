@@ -1231,7 +1231,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorI9NodeT
 
 _ZNSt6vectorI9NodeTimerSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorI9NodeTimerSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit40.i.i
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !83
-  %add.ptr19.i.i = getelementptr inbounds nuw %class.NodeTimer, ptr %call5.i.i.i.i.i51, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i51, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !81
   br label %invoke.cont
 

@@ -52,7 +52,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   %indvars.iv.next = add nsw i64 %indvars.iv98, 1
   %17 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %17, ptr @toptind, align 4, !tbaa !5
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv98
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv98
   %19 = load ptr, ptr %18, align 8, !tbaa !9
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = icmp eq i8 %20, 45
@@ -73,7 +73,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   br i1 %28, label %..critedge_crit_edge.critedge, label %30
 
 ..critedge_crit_edge.critedge:                    ; preds = %25
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv98
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv98
   store ptr null, ptr %29, align 8, !tbaa !9
   br label %.critedge
 
@@ -185,7 +185,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
 76:                                               ; preds = %.thread81
   %77 = load i32, ptr @toptind, align 4, !tbaa !5
   %78 = sext i32 %77 to i64
-  %79 = getelementptr ptr, ptr %1, i64 %78
+  %79 = getelementptr [8 x i8], ptr %1, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -8
   store ptr null, ptr %80, align 8, !tbaa !9
   store ptr null, ptr @tgetopt.nextchar, align 8, !tbaa !9
@@ -208,7 +208,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   %indvars.iv66 = phi i64 [ %84, %.lr.ph54.preheader ], [ %indvars.iv.next67, %92 ]
   %85 = phi i32 [ %0, %.lr.ph54.preheader ], [ %93, %92 ]
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
-  %86 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next67
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next67
   %87 = load ptr, ptr %86, align 8, !tbaa !9
   %.not46 = icmp eq ptr %87, null
   br i1 %.not46, label %92, label %88
@@ -217,7 +217,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   %89 = add nsw i32 %85, -1
   store i32 %89, ptr @toptind, align 4, !tbaa !5
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds ptr, ptr %1, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %1, i64 %90
   store ptr %87, ptr %91, align 8, !tbaa !9
   br label %92
 

@@ -3057,7 +3057,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %frames, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %frames, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %vtable5 = load ptr, ptr %call.i.i, align 8
   %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 16
@@ -3502,7 +3502,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

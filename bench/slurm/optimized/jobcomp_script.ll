@@ -587,10 +587,10 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   %143 = add i64 %142, 8
   %144 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %143, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %144, ptr %23, align 8
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %141
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %141
   store ptr null, ptr %145, align 8
   %146 = load ptr, ptr %23, align 8
-  %147 = getelementptr ptr, ptr %146, i64 %141
+  %147 = getelementptr [8 x i8], ptr %146, i64 %141
   br label %148
 
 148:                                              ; preds = %148, %138
@@ -627,10 +627,10 @@ _env_append.exit.i.i.i:                           ; preds = %_extend_env.exit.i.
   %162 = add i64 %161, 8
   %163 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %162, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %163, ptr %23, align 8
-  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %160
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %160
   store ptr null, ptr %164, align 8
   %165 = load ptr, ptr %23, align 8
-  %166 = getelementptr ptr, ptr %165, i64 %160
+  %166 = getelementptr [8 x i8], ptr %165, i64 %160
   br label %167
 
 167:                                              ; preds = %167, %157
@@ -666,10 +666,10 @@ _env_append.exit74.i.i.i:                         ; preds = %_extend_env.exit.i7
   %181 = add i64 %180, 8
   %182 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %181, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %182, ptr %23, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %179
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %179
   store ptr null, ptr %183, align 8
   %184 = load ptr, ptr %23, align 8
-  %185 = getelementptr ptr, ptr %184, i64 %179
+  %185 = getelementptr [8 x i8], ptr %184, i64 %179
   br label %186
 
 186:                                              ; preds = %186, %176
@@ -705,10 +705,10 @@ _env_append.exit80.i.i.i:                         ; preds = %_extend_env.exit.i7
   %200 = add i64 %199, 8
   %201 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %200, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %201, ptr %23, align 8
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %198
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %198
   store ptr null, ptr %202, align 8
   %203 = load ptr, ptr %23, align 8
-  %204 = getelementptr ptr, ptr %203, i64 %198
+  %204 = getelementptr [8 x i8], ptr %203, i64 %198
   br label %205
 
 205:                                              ; preds = %205, %195
@@ -744,10 +744,10 @@ _env_append.exit86.i.i.i:                         ; preds = %_extend_env.exit.i8
   %219 = add i64 %218, 8
   %220 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %219, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %220, ptr %23, align 8
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %217
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %217
   store ptr null, ptr %221, align 8
   %222 = load ptr, ptr %23, align 8
-  %223 = getelementptr ptr, ptr %222, i64 %217
+  %223 = getelementptr [8 x i8], ptr %222, i64 %217
   br label %224
 
 224:                                              ; preds = %224, %214
@@ -783,10 +783,10 @@ _env_append.exit92.i.i.i:                         ; preds = %_extend_env.exit.i9
   %238 = add i64 %237, 8
   %239 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %238, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %239, ptr %23, align 8
-  %240 = getelementptr inbounds nuw ptr, ptr %239, i64 %236
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %236
   store ptr null, ptr %240, align 8
   %241 = load ptr, ptr %23, align 8
-  %242 = getelementptr ptr, ptr %241, i64 %236
+  %242 = getelementptr [8 x i8], ptr %241, i64 %236
   br label %243
 
 243:                                              ; preds = %243, %233
@@ -822,10 +822,10 @@ _env_append.exit98.i.i.i:                         ; preds = %_extend_env.exit.i9
   %257 = add i64 %256, 8
   %258 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %257, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %258, ptr %23, align 8
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %255
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %255
   store ptr null, ptr %259, align 8
   %260 = load ptr, ptr %23, align 8
-  %261 = getelementptr ptr, ptr %260, i64 %255
+  %261 = getelementptr [8 x i8], ptr %260, i64 %255
   br label %262
 
 262:                                              ; preds = %262, %252
@@ -861,10 +861,10 @@ _env_append.exit104.i.i.i:                        ; preds = %_extend_env.exit.i1
   %276 = add i64 %275, 8
   %277 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %276, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %277, ptr %23, align 8
-  %278 = getelementptr inbounds nuw ptr, ptr %277, i64 %274
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %274
   store ptr null, ptr %278, align 8
   %279 = load ptr, ptr %23, align 8
-  %280 = getelementptr ptr, ptr %279, i64 %274
+  %280 = getelementptr [8 x i8], ptr %279, i64 %274
   br label %281
 
 281:                                              ; preds = %281, %271
@@ -900,10 +900,10 @@ _env_append.exit110.i.i.i:                        ; preds = %_extend_env.exit.i1
   %295 = add i64 %294, 8
   %296 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %295, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %296, ptr %23, align 8
-  %297 = getelementptr inbounds nuw ptr, ptr %296, i64 %293
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %293
   store ptr null, ptr %297, align 8
   %298 = load ptr, ptr %23, align 8
-  %299 = getelementptr ptr, ptr %298, i64 %293
+  %299 = getelementptr [8 x i8], ptr %298, i64 %293
   br label %300
 
 300:                                              ; preds = %300, %290
@@ -939,10 +939,10 @@ _env_append.exit116.i.i.i:                        ; preds = %_extend_env.exit.i1
   %314 = add i64 %313, 8
   %315 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %314, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %315, ptr %23, align 8
-  %316 = getelementptr inbounds nuw ptr, ptr %315, i64 %312
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %312
   store ptr null, ptr %316, align 8
   %317 = load ptr, ptr %23, align 8
-  %318 = getelementptr ptr, ptr %317, i64 %312
+  %318 = getelementptr [8 x i8], ptr %317, i64 %312
   br label %319
 
 319:                                              ; preds = %319, %309
@@ -978,10 +978,10 @@ _env_append.exit122.i.i.i:                        ; preds = %_extend_env.exit.i1
   %333 = add i64 %332, 8
   %334 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %333, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %334, ptr %23, align 8
-  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %331
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %331
   store ptr null, ptr %335, align 8
   %336 = load ptr, ptr %23, align 8
-  %337 = getelementptr ptr, ptr %336, i64 %331
+  %337 = getelementptr [8 x i8], ptr %336, i64 %331
   br label %338
 
 338:                                              ; preds = %338, %328
@@ -1017,10 +1017,10 @@ _env_append.exit128.i.i.i:                        ; preds = %_extend_env.exit.i1
   %352 = add i64 %351, 8
   %353 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %352, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %353, ptr %23, align 8
-  %354 = getelementptr inbounds nuw ptr, ptr %353, i64 %350
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %350
   store ptr null, ptr %354, align 8
   %355 = load ptr, ptr %23, align 8
-  %356 = getelementptr ptr, ptr %355, i64 %350
+  %356 = getelementptr [8 x i8], ptr %355, i64 %350
   br label %357
 
 357:                                              ; preds = %357, %347
@@ -1056,10 +1056,10 @@ _env_append.exit134.i.i.i:                        ; preds = %_extend_env.exit.i1
   %371 = add i64 %370, 8
   %372 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %371, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %372, ptr %23, align 8
-  %373 = getelementptr inbounds nuw ptr, ptr %372, i64 %369
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %369
   store ptr null, ptr %373, align 8
   %374 = load ptr, ptr %23, align 8
-  %375 = getelementptr ptr, ptr %374, i64 %369
+  %375 = getelementptr [8 x i8], ptr %374, i64 %369
   br label %376
 
 376:                                              ; preds = %376, %366
@@ -1095,10 +1095,10 @@ _env_append.exit140.i.i.i:                        ; preds = %_extend_env.exit.i1
   %390 = add i64 %389, 8
   %391 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %390, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %391, ptr %23, align 8
-  %392 = getelementptr inbounds nuw ptr, ptr %391, i64 %388
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %391, i64 %388
   store ptr null, ptr %392, align 8
   %393 = load ptr, ptr %23, align 8
-  %394 = getelementptr ptr, ptr %393, i64 %388
+  %394 = getelementptr [8 x i8], ptr %393, i64 %388
   br label %395
 
 395:                                              ; preds = %395, %385
@@ -1134,10 +1134,10 @@ _env_append.exit146.i.i.i:                        ; preds = %_extend_env.exit.i1
   %409 = add i64 %408, 8
   %410 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %409, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %410, ptr %23, align 8
-  %411 = getelementptr inbounds nuw ptr, ptr %410, i64 %407
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %407
   store ptr null, ptr %411, align 8
   %412 = load ptr, ptr %23, align 8
-  %413 = getelementptr ptr, ptr %412, i64 %407
+  %413 = getelementptr [8 x i8], ptr %412, i64 %407
   br label %414
 
 414:                                              ; preds = %414, %404
@@ -1174,10 +1174,10 @@ _env_append.exit152.i.i.i:                        ; preds = %_extend_env.exit.i1
   %429 = add i64 %428, 8
   %430 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %429, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %430, ptr %23, align 8
-  %431 = getelementptr inbounds nuw ptr, ptr %430, i64 %427
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %430, i64 %427
   store ptr null, ptr %431, align 8
   %432 = load ptr, ptr %23, align 8
-  %433 = getelementptr ptr, ptr %432, i64 %427
+  %433 = getelementptr [8 x i8], ptr %432, i64 %427
   br label %434
 
 434:                                              ; preds = %434, %424
@@ -1215,10 +1215,10 @@ _env_append.exit158.i.i.i:                        ; preds = %_extend_env.exit.i1
   %448 = add i64 %447, 8
   %449 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %448, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %449, ptr %23, align 8
-  %450 = getelementptr inbounds nuw ptr, ptr %449, i64 %446
+  %450 = getelementptr inbounds nuw [8 x i8], ptr %449, i64 %446
   store ptr null, ptr %450, align 8
   %451 = load ptr, ptr %23, align 8
-  %452 = getelementptr ptr, ptr %451, i64 %446
+  %452 = getelementptr [8 x i8], ptr %451, i64 %446
   br label %453
 
 453:                                              ; preds = %453, %443
@@ -1259,10 +1259,10 @@ _env_append.exit164.i.i.i:                        ; preds = %_extend_env.exit.i1
   %468 = add i64 %467, 8
   %469 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %468, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %469, ptr %23, align 8
-  %470 = getelementptr inbounds nuw ptr, ptr %469, i64 %466
+  %470 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %466
   store ptr null, ptr %470, align 8
   %471 = load ptr, ptr %23, align 8
-  %472 = getelementptr ptr, ptr %471, i64 %466
+  %472 = getelementptr [8 x i8], ptr %471, i64 %466
   br label %473
 
 473:                                              ; preds = %473, %463
@@ -1303,10 +1303,10 @@ _env_append.exit170.i.i.i:                        ; preds = %_extend_env.exit.i1
   %488 = add i64 %487, 8
   %489 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %488, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %489, ptr %23, align 8
-  %490 = getelementptr inbounds nuw ptr, ptr %489, i64 %486
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %489, i64 %486
   store ptr null, ptr %490, align 8
   %491 = load ptr, ptr %23, align 8
-  %492 = getelementptr ptr, ptr %491, i64 %486
+  %492 = getelementptr [8 x i8], ptr %491, i64 %486
   br label %493
 
 493:                                              ; preds = %493, %483
@@ -1344,10 +1344,10 @@ _env_append.exit176.i.i.i:                        ; preds = %_extend_env.exit.i1
   %507 = add i64 %506, 8
   %508 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %507, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %508, ptr %23, align 8
-  %509 = getelementptr inbounds nuw ptr, ptr %508, i64 %505
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %508, i64 %505
   store ptr null, ptr %509, align 8
   %510 = load ptr, ptr %23, align 8
-  %511 = getelementptr ptr, ptr %510, i64 %505
+  %511 = getelementptr [8 x i8], ptr %510, i64 %505
   br label %512
 
 512:                                              ; preds = %512, %502
@@ -1389,10 +1389,10 @@ _env_append.exit182.i.i.i:                        ; preds = %_extend_env.exit.i1
   %526 = add i64 %525, 8
   %527 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %526, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %527, ptr %23, align 8
-  %528 = getelementptr inbounds nuw ptr, ptr %527, i64 %524
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %527, i64 %524
   store ptr null, ptr %528, align 8
   %529 = load ptr, ptr %23, align 8
-  %530 = getelementptr ptr, ptr %529, i64 %524
+  %530 = getelementptr [8 x i8], ptr %529, i64 %524
   br label %531
 
 531:                                              ; preds = %531, %521
@@ -2156,10 +2156,10 @@ define internal void @_env_append_fmt(ptr noundef nonnull %0, ptr noundef %1, pt
   %15 = add i64 %14, 8
   %16 = call ptr @slurm_xrecalloc(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 337, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %13
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %13
+  %19 = getelementptr [8 x i8], ptr %18, i64 %13
   br label %20
 
 20:                                               ; preds = %20, %10

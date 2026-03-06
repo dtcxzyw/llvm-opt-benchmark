@@ -148,7 +148,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %49 = phi ptr [ %.pre.i.i.i, %.noexc18 ], [ %38, %40 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 -4
   %51 = zext i32 %48 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   store ptr %29, ptr %52, align 8, !tbaa !93
   %53 = add i32 %48, 1
   store i32 %53, ptr %50, align 4, !tbaa !92

@@ -84,7 +84,7 @@ define i64 @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_hashParams___spec_
 6:                                                ; preds = %.lr.ph, %62
   %.02547 = phi i64 [ %1, %.lr.ph ], [ %65, %62 ]
   %.02746 = phi i64 [ %3, %.lr.ph ], [ %64, %62 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02547
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02547
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -619,7 +619,7 @@ lean_nat_lt.exit:
 3:                                                ; preds = %.lr.ph, %23
   %.016.i38 = phi i64 [ 0, %.lr.ph ], [ %26, %23 ]
   %.018.i37 = phi i64 [ 7, %.lr.ph ], [ %25, %23 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %.016.i38
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.016.i38
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i1
@@ -690,7 +690,7 @@ define i64 @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_hashAlts___spec__1
 6:                                                ; preds = %.lr.ph, %26
   %.01627 = phi i64 [ %1, %.lr.ph ], [ %29, %26 ]
   %.01826 = phi i64 [ %3, %.lr.ph ], [ %28, %26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01627
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01627
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -909,7 +909,7 @@ lean_dec.exit12:                                  ; preds = %25, %24, %22
 27:                                               ; preds = %47, %.lr.ph.i
   %.01627.i = phi i64 [ %.val21, %.lr.ph.i ], [ %50, %47 ]
   %.01826.i = phi i64 [ %.val22, %.lr.ph.i ], [ %49, %47 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01627.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.01627.i
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1

@@ -91,14 +91,14 @@ st_mult.exit.i:                                   ; preds = %2
 bitmap_grow.exit:                                 ; preds = %._crit_edge.i, %st_mult.exit.i
   %13 = phi i64 [ %5, %._crit_edge.i ], [ %.pre17.i, %st_mult.exit.i ]
   %14 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %12, %st_mult.exit.i ]
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %5
   %16 = sub i64 %13, %5
   %17 = shl i64 %16, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %17, i1 false)
   %18 = and i64 %1, 63
   %19 = shl nuw i64 1, %18
   %20 = load ptr, ptr %0, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %3
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %3
   %22 = load i64, ptr %21, align 8, !tbaa !12
   %23 = or i64 %22, %19
   store i64 %23, ptr %21, align 8, !tbaa !12
@@ -118,7 +118,7 @@ define dso_local void @bitmap_unset(ptr noundef readonly captures(none) %0, i64 
   %9 = shl nuw i64 1, %8
   %10 = xor i64 %9, -1
   %11 = load ptr, ptr %0, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %3
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %3
   %13 = load i64, ptr %12, align 8, !tbaa !12
   %14 = and i64 %13, %10
   store i64 %14, ptr %12, align 8, !tbaa !12
@@ -138,7 +138,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_get(ptr noundef readonly captures(n
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %3
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %3
   %10 = load i64, ptr %9, align 8, !tbaa !12
   %11 = and i64 %1, 63
   %12 = lshr i64 %10, %11
@@ -169,7 +169,7 @@ define dso_local ptr @bitmap_to_ewah(ptr noundef readonly captures(none) %0) loc
   %.022 = phi i64 [ %.1, %22 ], [ 0, %.lr.ph.preheader ]
   %.01621 = phi i64 [ %.117, %22 ], [ 0, %.lr.ph.preheader ]
   %.01820 = phi i64 [ %25, %22 ], [ 0, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds nuw i64, ptr %6, i64 %.01820
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01820
   %8 = load i64, ptr %7, align 8, !tbaa !12
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %12
@@ -196,7 +196,7 @@ define dso_local ptr @bitmap_to_ewah(ptr noundef readonly captures(none) %0) loc
 
 18:                                               ; preds = %16, %15
   %19 = load ptr, ptr %0, align 8, !tbaa !4
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %.01820
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01820
   %21 = load i64, ptr %20, align 8, !tbaa !12
   %.pre24 = load i64, ptr %3, align 8, !tbaa !11
   br label %22
@@ -272,7 +272,7 @@ st_mult.exit:                                     ; preds = %11
 20:                                               ; preds = %.lr.ph._crit_edge, %st_mult.exit
   %21 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %19, %st_mult.exit ]
   %22 = load i64, ptr %3, align 8, !tbaa !12
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %.021
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.021
   store i64 %22, ptr %23, align 8, !tbaa !12
   %24 = call i32 @ewah_iterator_next(ptr noundef nonnull %3, ptr noundef nonnull %2) #13
   %.not = icmp eq i32 %24, 0
@@ -309,10 +309,10 @@ define dso_local void @bitmap_and_not(ptr noundef readonly captures(none) %0, pt
 
 9:                                                ; preds = %.lr.ph, %9
   %.012 = phi i64 [ 0, %.lr.ph ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw i64, ptr %7, i64 %.012
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.012
   %11 = load i64, ptr %10, align 8, !tbaa !12
   %12 = xor i64 %11, -1
-  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %.012
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.012
   %14 = load i64, ptr %13, align 8, !tbaa !12
   %15 = and i64 %14, %12
   store i64 %15, ptr %13, align 8, !tbaa !12
@@ -361,7 +361,7 @@ st_mult.exit.i:                                   ; preds = %8
 bitmap_grow.exit:                                 ; preds = %._crit_edge.i, %st_mult.exit.i
   %17 = phi i64 [ %6, %._crit_edge.i ], [ %.pre17.i, %st_mult.exit.i ]
   %18 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %16, %st_mult.exit.i ]
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %6
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %6
   %20 = sub i64 %17, %6
   %21 = shl i64 %20, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %21, i1 false)
@@ -376,9 +376,9 @@ bitmap_grow.exit:                                 ; preds = %._crit_edge.i, %st_
 
 25:                                               ; preds = %.lr.ph, %25
   %.08 = phi i64 [ 0, %.lr.ph ], [ %31, %25 ]
-  %26 = getelementptr inbounds nuw i64, ptr %23, i64 %.08
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.08
   %27 = load i64, ptr %26, align 8, !tbaa !12
-  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %.08
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.08
   %29 = load i64, ptr %28, align 8, !tbaa !12
   %30 = or i64 %29, %27
   store i64 %30, ptr %28, align 8, !tbaa !12
@@ -421,7 +421,7 @@ define dso_local range(i32 0, 2) i32 @ewah_bitmap_is_subset(ptr noundef %0, ptr 
 12:                                               ; preds = %.lr.ph
   %13 = load i64, ptr %4, align 8, !tbaa !12
   %14 = load ptr, ptr %1, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %.012
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.012
   %16 = load i64, ptr %15, align 8, !tbaa !12
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
@@ -466,7 +466,7 @@ st_mult.exit:                                     ; preds = %2
   %12 = shl nuw nsw i64 %10, 3
   %13 = tail call ptr @xrealloc(ptr noundef %11, i64 noundef %12) #13
   store ptr %13, ptr %0, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %6
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %6
   %15 = load i64, ptr %5, align 8, !tbaa !11
   %16 = sub i64 %15, %6
   %17 = shl i64 %16, 3
@@ -484,7 +484,7 @@ st_mult.exit:                                     ; preds = %2
   %20 = load i64, ptr %4, align 8, !tbaa !12
   %21 = load ptr, ptr %0, align 8, !tbaa !4
   %22 = add i64 %.018, 1
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %.018
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.018
   %24 = load i64, ptr %23, align 8, !tbaa !12
   %25 = or i64 %24, %20
   store i64 %25, ptr %23, align 8, !tbaa !12
@@ -515,7 +515,7 @@ define dso_local i64 @bitmap_popcount(ptr noundef readonly captures(none) %0) lo
 5:                                                ; preds = %.lr.ph, %5
   %.08 = phi i64 [ 0, %.lr.ph ], [ %22, %5 ]
   %.067 = phi i64 [ 0, %.lr.ph ], [ %23, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %.067
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.067
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = and i64 %7, 6148914691236517205
   %9 = lshr i64 %7, 1
@@ -599,7 +599,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_empty(ptr noundef readonly captu
 
 7:                                                ; preds = %.lr.ph, %5
   %.06 = phi i64 [ 0, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %.06
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.06
   %9 = load i64, ptr %8, align 8, !tbaa !12
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %5, label %._crit_edge
@@ -640,9 +640,9 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals(ptr noundef readonly capture
 
 16:                                               ; preds = %.lr.ph, %21
   %.025 = phi i64 [ 0, %.lr.ph ], [ %22, %21 ]
-  %17 = getelementptr inbounds nuw i64, ptr %10, i64 %.025
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.025
   %18 = load i64, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw i64, ptr %11, i64 %.025
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.025
   %20 = load i64, ptr %19, align 8, !tbaa !12
   %.not21 = icmp eq i64 %18, %20
   br i1 %.not21, label %21, label %.loopexit
@@ -659,7 +659,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals(ptr noundef readonly capture
 
 25:                                               ; preds = %.lr.ph27, %23
   %.126 = phi i64 [ %9, %.lr.ph27 ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw i64, ptr %15, i64 %.126
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.126
   %27 = load i64, ptr %26, align 8, !tbaa !12
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %23, label %.loopexit
@@ -703,7 +703,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals_ewah(ptr noundef readonly ca
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8, !tbaa !4
   %17 = add nuw i64 %.0, 1
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %.0
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0
   %19 = load i64, ptr %18, align 8, !tbaa !12
   br label %20
 
@@ -720,7 +720,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals_ewah(ptr noundef readonly ca
 
 24:                                               ; preds = %.lr.ph, %22
   %.215 = phi i64 [ %.0, %.lr.ph ], [ %23, %22 ]
-  %25 = getelementptr inbounds nuw i64, ptr %10, i64 %.215
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.215
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %.not11 = icmp eq i64 %26, 0
   br i1 %.not11, label %22, label %.loopexit
@@ -756,7 +756,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr noundef readonly capt
 
 12:                                               ; preds = %.lr.ph, %10
   %.024 = phi i64 [ %6, %.lr.ph ], [ %11, %10 ]
-  %13 = getelementptr inbounds nuw i64, ptr %9, i64 %.024
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.024
   %14 = load i64, ptr %13, align 8, !tbaa !12
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %10, label %.loopexit
@@ -778,9 +778,9 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr noundef readonly capt
 
 19:                                               ; preds = %.lr.ph26, %17
   %.125 = phi i64 [ 0, %.lr.ph26 ], [ %18, %17 ]
-  %20 = getelementptr inbounds nuw i64, ptr %15, i64 %.125
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.125
   %21 = load i64, ptr %20, align 8, !tbaa !12
-  %22 = getelementptr inbounds nuw i64, ptr %16, i64 %.125
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.125
   %23 = load i64, ptr %22, align 8, !tbaa !12
   %24 = xor i64 %23, -1
   %25 = and i64 %21, %24

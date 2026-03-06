@@ -6,17 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component" = type { i32, i32, i32 }
-%"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Segment" = type { i64, i64 }
-%"class.pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression" = type { %"class.std::vector.36", %"class.std::vector.41", %"class.std::__cxx11::basic_string" }
-%"class.std::vector.36" = type { %"struct.std::_Vector_base.37" }
-%"struct.std::_Vector_base.37" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op>>::_Vector_impl" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.41" = type { %"struct.std::_Vector_base.42" }
-%"struct.std::_Vector_base.42" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall>>::_Vector_impl" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.33" = type { i8 }
 %"class.pxrInternal_v0_24__pxrReserved__::TfFunctionRef.46" = type { ptr, ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext" = type <{ ptr, ptr, i64, ptr, i8, [7 x i8] }>
@@ -30,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPrimTag, 24, 8>::Handle" = type { i32 }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathNodeHandleImpl.1" = type { %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPropTag, 24, 8>::Handle" }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPropTag, 24, 8>::Handle" = type { i32 }
-%"class.pxrInternal_v0_24__pxrReserved__::ArchRegex" = type { i32, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %class.anon.79 = type { i8 }
 %class.anon.80 = type { ptr, ptr }
 %class.anon.81 = type { ptr }
@@ -198,7 +183,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %13 = and i32 %9, 255
   %14 = lshr i32 %9, 8
   %15 = zext nneg i32 %13 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = mul nuw nsw i32 %14, 24
   %19 = zext nneg i32 %18 to i64
@@ -218,7 +203,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %25 = and i32 %23, 255
   %26 = lshr i32 %23, 8
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = mul nuw nsw i32 %26, 24
   %31 = zext nneg i32 %30 to i64
@@ -303,7 +288,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalB
   store ptr %72, ptr %47, align 8
   %76 = getelementptr inbounds i8, ptr %72, i64 %70
   store ptr %76, ptr %67, align 8
-  %77 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %72, i64 %55
+  %77 = getelementptr inbounds nuw [12 x i8], ptr %72, i64 %55
   store ptr %77, ptr %59, align 8
   %.pre = load ptr, ptr %48, align 8
   %.pre88 = load ptr, ptr %49, align 8
@@ -470,7 +455,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_P
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase8_SegmentESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i25: ; preds = %154, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase8_SegmentESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i23
   store ptr %149, ptr %88, align 8
   store ptr %153, ptr %89, align 8
-  %155 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Segment", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %90, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase8_SegmentESaIS3_EE9push_backEOS3_.exit26
 
@@ -575,7 +560,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_P
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase10_ComponentESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %199, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase10_ComponentESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %194, ptr %47, align 8
   store ptr %198, ptr %84, align 8
-  %200 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %194, i64 %192
+  %200 = getelementptr inbounds nuw [12 x i8], ptr %194, i64 %192
   store ptr %200, ptr %59, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase10_ComponentESaIS3_EE9push_backEOS3_.exit
 
@@ -681,7 +666,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_P
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase10_ComponentESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i39: ; preds = %241, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase10_ComponentESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i37
   store ptr %236, ptr %47, align 8
   store ptr %240, ptr %84, align 8
-  %242 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %236, i64 %234
+  %242 = getelementptr inbounds nuw [12 x i8], ptr %236, i64 %234
   store ptr %242, ptr %59, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase10_ComponentESaIS3_EE9push_backEOS3_.exit
 
@@ -709,7 +694,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_P
 249:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase10_ComponentESaIS3_EE9push_backEOS3_.exit
   %250 = sext i32 %248 to i64
   %251 = load ptr, ptr %46, align 8
-  %252 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression", ptr %251, i64 %250
+  %252 = getelementptr inbounds [80 x i8], ptr %251, i64 %250
   %253 = call noundef i32 %3(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %252)
   %254 = load ptr, ptr %84, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 -4
@@ -811,7 +796,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_P
   %302 = load i32, ptr %301, align 4
   %303 = sext i32 %302 to i64
   %304 = load ptr, ptr %300, align 8
-  %305 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %304, i64 %303
+  %305 = getelementptr inbounds [32 x i8], ptr %304, i64 %303
   %306 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %305) #21
   br i1 %306, label %308, label %307
 
@@ -840,7 +825,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInte
   %8 = and i32 %4, 255
   %9 = lshr i32 %4, 8
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = mul nuw nsw i32 %9, 24
   %14 = zext nneg i32 %13 to i64
@@ -860,7 +845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %20 = and i32 %18, 255
   %21 = lshr i32 %18, 8
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = mul nuw nsw i32 %21, 24
   %26 = zext nneg i32 %25 to i64
@@ -1112,7 +1097,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %98 = load i64, ptr %84, align 8
   %99 = load i64, ptr %.sroa.0124.0230, align 8
   %100 = sub i64 %98, %99
-  %101 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.0229, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0229, i64 %100
   %102 = load i8, ptr %76, align 1
   %103 = trunc i8 %102 to i1
   %.not196 = xor i1 %103, true
@@ -1131,7 +1116,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
 
 110:                                              ; preds = %106
   %111 = sub i64 0, %87
-  %112 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %62, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %62, i64 %111
   %113 = invoke fastcc i64 @"_ZZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase6_MatchERKNS_7SdfPathENS_13TfFunctionRefIFNS_26SdfPredicateFunctionResultEiS4_EEEENK3$_0clERKNS1_8_SegmentEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS2_SaIS2_EEEE"(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %86, i64 %69, ptr %112)
           to label %114 unwind label %.loopexit.split-lp.loopexit
 
@@ -1144,7 +1129,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %sext65 = shl i64 %88, 32
   %117 = ashr exact i64 %sext65, 32
   %118 = sub nsw i64 0, %117
-  %119 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %62, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %62, i64 %118
   %120 = ptrtoint ptr %119 to i64
   %121 = sub i64 %120, %79
   %122 = ashr exact i64 %121, 3
@@ -1186,7 +1171,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %134 = load i64, ptr %84, align 8
   %135 = load i64, ptr %.sroa.0124.0230, align 8
   %136 = sub i64 %134, %135
-  %137 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.2, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %.sroa.0.2, i64 %136
   br label %138
 
 138:                                              ; preds = %114, %97, %133
@@ -1244,7 +1229,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %148 = and i32 %146, 255
   %149 = lshr i32 %146, 8
   %150 = zext nneg i32 %148 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %150
   %152 = load ptr, ptr %151, align 8
   %153 = mul nuw nsw i32 %149, 24
   %154 = zext nneg i32 %153 to i64
@@ -1349,13 +1334,13 @@ define internal fastcc range(i64 0, -1) i64 @"_ZZNK32pxrInternal_v0_24__pxrReser
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %5, i64 %.8.val
+  %6 = getelementptr inbounds [12 x i8], ptr %5, i64 %.8.val
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not3655 = icmp eq i64 %.0.val, %.8.val
   br i1 %.not3655, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %5, i64 %.0.val
+  %8 = getelementptr inbounds [12 x i8], ptr %5, i64 %.0.val
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %11
@@ -1374,7 +1359,7 @@ define internal fastcc range(i64 0, -1) i64 @"_ZZNK32pxrInternal_v0_24__pxrReser
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %16
+  %18 = getelementptr inbounds [32 x i8], ptr %17, i64 %16
   %19 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
   br i1 %19, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread35, label %20
 
@@ -1402,7 +1387,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::ArchRegex", ptr %34, i64 %33
+  %35 = getelementptr inbounds [56 x i8], ptr %34, i64 %33
   %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetNameB5cxx11Ev(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.011.057)
   %37 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9ArchRegex5MatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(32) %36)
   br i1 %37, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread35, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
@@ -1452,7 +1437,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPa
   %7 = and i32 %5, 255
   %8 = lshr i32 %5, 8
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = mul nuw nsw i32 %8, 24
   %13 = zext nneg i32 %12 to i64
@@ -1658,7 +1643,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %.pre-phi255 = phi i64 [ %.pre254, %87 ], [ %77, %71 ]
   %90 = phi ptr [ %.pre, %87 ], [ %81, %71 ]
   %91 = phi ptr [ %88, %87 ], [ %72, %71 ]
-  %92 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Segment", ptr %90, i64 %.pre-phi255
+  %92 = getelementptr inbounds [16 x i8], ptr %90, i64 %.pre-phi255
   %.not109 = icmp ne ptr %91, %73
   br i1 %.not109, label %93, label %.critedge
 
@@ -1704,7 +1689,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %115 = and i32 %113, 255
   %116 = lshr i32 %113, 8
   %117 = zext nneg i32 %115 to i64
-  %118 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = mul nuw nsw i32 %116, 24
   %121 = zext nneg i32 %120 to i64
@@ -1721,12 +1706,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %112, %114
   %128 = load ptr, ptr %53, align 8
   %129 = load i64, ptr %99, align 8
   %130 = load i64, ptr %92, align 8
-  %131 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %128, i64 %130
+  %131 = getelementptr inbounds [12 x i8], ptr %128, i64 %130
   %.not229239 = icmp eq i64 %129, %130
   br i1 %.not229239, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
-  %132 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %128, i64 %129
+  %132 = getelementptr inbounds [12 x i8], ptr %128, i64 %129
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br label %135
@@ -1743,7 +1728,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %112, %114
   %141 = load i32, ptr %140, align 4
   %142 = sext i32 %141 to i64
   %143 = load ptr, ptr %133, align 8
-  %144 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %143, i64 %142
+  %144 = getelementptr inbounds [32 x i8], ptr %143, i64 %142
   %145 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %144) #21
   br i1 %145, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread223, label %146
 
@@ -1817,7 +1802,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread: ; preds = %168
   %173 = and i32 %170, 255
   %174 = lshr i32 %170, 8
   %175 = zext nneg i32 %173 to i64
-  %176 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = mul nuw nsw i32 %174, 24
   %179 = zext nneg i32 %178 to i64
@@ -1851,7 +1836,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %172, %185
   %191 = and i32 %.pr, 255
   %192 = lshr i32 %.pr, 8
   %193 = zext nneg i32 %191 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = mul nuw nsw i32 %192, 24
   %197 = zext nneg i32 %196 to i64
@@ -1885,7 +1870,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
   %207 = phi i64 [ %.pre250, %._crit_edge.loopexit ], [ %129, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit ]
   %208 = phi ptr [ %.pre249, %._crit_edge.loopexit ], [ %128, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit ]
-  %209 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathExpressionEvalBase::_PatternImplBase::_Component", ptr %208, i64 %207
+  %209 = getelementptr inbounds [12 x i8], ptr %208, i64 %207
   %210 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1914,7 +1899,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 222:                                              ; preds = %217
   %223 = sext i32 %219 to i64
-  %224 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::ArchRegex", ptr %220, i64 %223
+  %224 = getelementptr inbounds [56 x i8], ptr %220, i64 %223
   %225 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9ArchRegex5MatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %224, ptr noundef nonnull align 8 dereferenceable(32) %221)
           to label %226 unwind label %.loopexit
 
@@ -1969,7 +1954,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit146.thread: ; preds = %
   %244 = and i32 %241, 255
   %245 = lshr i32 %241, 8
   %246 = zext nneg i32 %244 to i64
-  %247 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %246
   %248 = load ptr, ptr %247, align 8
   %249 = mul nuw nsw i32 %245, 24
   %250 = zext nneg i32 %249 to i64
@@ -2003,7 +1988,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit146: ; preds = %243, %2
   %262 = and i32 %.pr225, 255
   %263 = lshr i32 %.pr225, 8
   %264 = zext nneg i32 %262 to i64
-  %265 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %264
+  %265 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %264
   %266 = load ptr, ptr %265, align 8
   %267 = mul nuw nsw i32 %263, 24
   %268 = zext nneg i32 %267 to i64
@@ -2124,7 +2109,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
@@ -2214,7 +2199,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %0, align 8
   store ptr %29, ptr %3, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %5, align 8
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
 
@@ -2567,7 +2552,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_Op
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %34, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
   store ptr %29, ptr %8, align 8
   store ptr %33, ptr %9, align 8
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   store ptr %35, ptr %11, align 8
   br label %"_ZZN32pxrInternal_v0_24__pxrReserved__30Sdf_MakePathExpressionEvalImplERNS_26Sdf_PathExpressionEvalBaseERKNS_17SdfPathExpressionENS_13TfFunctionRefIFvRKNS_14SdfPathPatternEEEEENK3$_0clENS2_2OpEi.exit"
 
@@ -2640,7 +2625,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_Op
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i12.i: ; preds = %63, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i10.i
   store ptr %58, ptr %37, align 8
   store ptr %62, ptr %38, align 8
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %56
   store ptr %64, ptr %40, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE9push_backEOS2_.exit13.i
 
@@ -2704,7 +2689,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_Op
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i20.i: ; preds = %91, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i18.i
   store ptr %86, ptr %65, align 8
   store ptr %90, ptr %66, align 8
-  %92 = getelementptr inbounds nuw i32, ptr %86, i64 %84
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %84
   store ptr %92, ptr %68, align 8
   br label %"_ZZN32pxrInternal_v0_24__pxrReserved__30Sdf_MakePathExpressionEvalImplERNS_26Sdf_PathExpressionEvalBaseERKNS_17SdfPathExpressionENS_13TfFunctionRefIFvRKNS_14SdfPathPatternEEEEENK3$_0clENS2_2OpEi.exit"
 
@@ -2772,7 +2757,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_Op
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i28.i: ; preds = %122, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i26.i
   store ptr %117, ptr %96, align 8
   store ptr %121, ptr %97, align 8
-  %123 = getelementptr inbounds nuw i32, ptr %117, i64 %115
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %115
   store ptr %123, ptr %99, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE9push_backEOS2_.exit29.i
 
@@ -2836,7 +2821,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_Op
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i36.i: ; preds = %150, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase3_OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i34.i
   store ptr %145, ptr %124, align 8
   store ptr %149, ptr %125, align 8
-  %151 = getelementptr inbounds nuw i32, ptr %145, i64 %143
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %143
   store ptr %151, ptr %127, align 8
   br label %"_ZZN32pxrInternal_v0_24__pxrReserved__30Sdf_MakePathExpressionEvalImplERNS_26Sdf_PathExpressionEvalBaseERKNS_17SdfPathExpressionENS_13TfFunctionRefIFvRKNS_14SdfPathPatternEEEEENK3$_0clENS2_2OpEi.exit"
 
@@ -2986,7 +2971,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 
@@ -3165,7 +3150,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9ArchRegexESaIS1_EE11_S_relocate
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9ArchRegexESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9ArchRegexESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %48
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %52 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::ArchRegex", ptr %21, i64 %17
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %17
   store ptr %52, ptr %47, align 8
   ret void
 

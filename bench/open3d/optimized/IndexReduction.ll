@@ -91,7 +91,7 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit: ; preds = %18,
   %23 = phi i32 [ %16, %18 ], [ %.pre.i, %.noexc ]
   %24 = load ptr, ptr %5, align 8, !tbaa !4
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   store i64 %0, ptr %26, align 1
   %27 = load i32, ptr %9, align 8, !tbaa !10
   br label %41
@@ -121,7 +121,7 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit33: ; preds = %3
   %36 = phi i32 [ %16, %30 ], [ %.pre.i31, %.noexc32 ]
   %37 = load ptr, ptr %5, align 8, !tbaa !4
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   store i64 %31, ptr %39, align 1
   %40 = load i32, ptr %9, align 8, !tbaa !10
   br label %41
@@ -165,7 +165,7 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit37: ; preds = %.
   %51 = phi i32 [ %46, %.lr.ph53 ], [ %.pre.i35, %.noexc36 ]
   %52 = load ptr, ptr %5, align 8, !tbaa !4
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   store i64 %.052, ptr %54, align 1
   %55 = load i32, ptr %9, align 8, !tbaa !10
   %56 = add i32 %55, 1

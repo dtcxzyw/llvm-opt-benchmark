@@ -146,7 +146,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %.body, %_ZNKSt14def
   %44 = load i64, ptr %43, align 8, !tbaa !34
   %45 = urem i64 %38, %44
   %46 = load ptr, ptr %1, align 8, !tbaa !42
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !43
   %.not.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %49
@@ -447,7 +447,7 @@ _ZN7rocksdb6StatusC2ERKS0_.exit:                  ; preds = %11, %31
   %51 = load i64, ptr %50, align 8, !tbaa !34
   %52 = urem i64 %35, %51
   %53 = load ptr, ptr %1, align 8, !tbaa !42
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load ptr, ptr %54, align 8, !tbaa !43
   %.not.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %56
@@ -1249,7 +1249,7 @@ _ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter13BlobInOutFlowEESaIS5_E
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter13BlobInOutFlowEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter13BlobInOutFlowEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !42
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !43
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1275,7 +1275,7 @@ _ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter13BlobInOutFlowEESaIS5_E
   %44 = load i64, ptr %9, align 8, !tbaa !34
   %45 = load i64, ptr %43, align 8, !tbaa !4
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !43
   br label %48
 
@@ -1352,7 +1352,7 @@ _ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter13BlobInOutFlowEESaIS5_E
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !4
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1367,7 +1367,7 @@ _ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter13BlobInOutFlowEESaIS5_E
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !43
   br label %28
 

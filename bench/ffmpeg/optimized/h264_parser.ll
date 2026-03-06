@@ -488,7 +488,7 @@ get_ue_golomb.exit.thread.i:                      ; preds = %get_ue_golomb.exit.
   %.0.i309.i = phi i32 [ %222, %get_ue_golomb.exit.thread307.i ], [ %237, %get_ue_golomb.exit.i ]
   %240 = getelementptr inbounds nuw i8, ptr %56, i64 304
   %241 = zext nneg i32 %.0.i309.i to i64
-  %242 = getelementptr inbounds nuw ptr, ptr %240, i64 %241
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %241
   %243 = load ptr, ptr %242, align 8, !tbaa !98
   %.not243.i = icmp eq ptr %243, null
   br i1 %.not243.i, label %244, label %245
@@ -1031,7 +1031,7 @@ get_ue_golomb.exit.i.i:                           ; preds = %get_ue_golomb.exit.
   br i1 %560, label %.lr.ph.i296.i, label %._crit_edge.i294.i
 
 .lr.ph.i296.i:                                    ; preds = %.preheader16.i.i
-  %561 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i293.i
+  %561 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i293.i
   %562 = load i32, ptr %561, align 4, !tbaa !47
   %smax.i.i = call i32 @llvm.smax.i32(i32 %562, i32 0)
   br label %get_ue_golomb_long.exit.i.i
@@ -1386,7 +1386,7 @@ scan_mmco_reset.exit.i:                           ; preds = %708, %658, %.thread
 
 switch.lookup:                                    ; preds = %744
   %758 = zext nneg i32 %746 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.h264_parse, i64 %758
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.h264_parse, i64 %758
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %748, align 4, !tbaa !142
   %.pr314.i = load i32, ptr %363, align 4, !tbaa !125

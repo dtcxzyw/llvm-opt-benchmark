@@ -2118,7 +2118,7 @@ _ZN3std7process7Command6stderr17h0d2d9b94faba7ce5E.exit: ; preds = %_ZN3std7proc
           to label %.loopexit123 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %95
-  %98 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %91, i64 %93
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %93
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 32
   br label %.lr.ph.i.i
 
@@ -2509,7 +2509,7 @@ define noundef range(i8 0, 4) i8 @_ZN3git6status9GitStatus3get17hf353843cd49339f
   %11 = add i64 %10, %.sroa.03.021.i
   %12 = icmp ult i64 %11, %8
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %9, i64 %11
+  %13 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   %14 = getelementptr i8, ptr %13, i64 8
   %.val17.i = load ptr, ptr %14, align 8, !alias.scope !411, !noalias !414, !nonnull !4, !noundef !4
   %15 = getelementptr i8, ptr %13, i64 16

@@ -70,7 +70,7 @@ define internal range(i32 0, 2) i32 @cp1250_is_code_ctype(i32 noundef %0, i32 no
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw i16, ptr @EncCP1250_CtypeTable, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr @EncCP1250_CtypeTable, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !12
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
@@ -134,7 +134,7 @@ define internal i32 @case_map(ptr noundef captures(none) %0, ptr noundef capture
 
 28:                                               ; preds = %.lr.ph
   %29 = zext i8 %14 to i64
-  %30 = getelementptr inbounds nuw i16, ptr @EncCP1250_CtypeTable, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr @EncCP1250_CtypeTable, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !12
   %32 = and i16 %31, 1024
   %.not = icmp eq i16 %32, 0

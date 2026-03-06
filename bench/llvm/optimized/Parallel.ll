@@ -550,7 +550,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %30
   store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm8parallel6detail12_GLOBAL__N_18Executor18getDefaultExecutorEvE4Exec, i64 152), align 8, !tbaa !96
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm8parallel6detail12_GLOBAL__N_18Executor18getDefaultExecutorEvE4Exec, i64 160), align 8, !tbaa !97
-  %32 = getelementptr inbounds nuw %"class.std::thread", ptr %26, i64 %15
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %15
   store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm8parallel6detail12_GLOBAL__N_18Executor18getDefaultExecutorEvE4Exec, i64 168), align 8, !tbaa !95
   %.pre2 = ptrtoint ptr %26 to i64
   br label %_ZNSt6vectorISt6threadSaIS0_EE7reserveEm.exit
@@ -1191,9 +1191,9 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %32
   store ptr %26, ptr %0, align 8, !tbaa !96
-  %34 = getelementptr inbounds nuw %"class.std::thread", ptr %27, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !97
-  %35 = getelementptr inbounds nuw %"class.std::thread", ptr %26, i64 %24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %35, ptr %11, align 8, !tbaa !95
   br label %36
 
@@ -1363,7 +1363,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i.i.i.i.i:
 _ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorC1ENS4_18ThreadPoolStrategyEENKUlvE_clEvEUlvE_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i.i.i.i.i
   store ptr %43, ptr %9, align 8, !tbaa !96
   store ptr %54, ptr %11, align 8, !tbaa !97
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %43, i64 %41
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   store ptr %59, ptr %12, align 8, !tbaa !95
   br label %_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorC1ENS4_18ThreadPoolStrategyEENKUlvE_clEvEUlvE_EEERS0_DpOT_.exit.i.i.i.i.i
 
@@ -1922,7 +1922,7 @@ _ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25: ; pre
 _ZNSt12_Vector_baseISt8functionIFvvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !119
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !120
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !122
   ret void
 }

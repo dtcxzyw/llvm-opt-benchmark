@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_GPUTextureCreateInfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.SDL_GPUTextureTransferInfo = type { ptr, i32, i32, i32 }
 %struct.SDL_GPUTextureRegion = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.SDL_FPoint = type { float, float }
 %struct.SDL_FColor = type { float, float, float, float }
 %struct.SDL_GPUTransferBufferLocation = type { ptr, i32 }
 %struct.SDL_GPUBufferRegion = type { ptr, i32, i32 }
@@ -25,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.GPU_PipelineParameters = type { i32, i32, i32, i32, i32, ptr }
 %struct.SDL_GPUTextureSamplerBinding = type { ptr, ptr }
 %struct.SDL_GPUBufferBinding = type { ptr, i32 }
-%struct.SDL_GPURenderStateUniformBuffer = type { i32, ptr, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"gpu\00", align 1
 @GPU_RenderDriver = hidden local_unnamed_addr global %struct.SDL_RenderDriver { ptr @GPU_CreateRenderer, ptr @.str }, align 8
@@ -729,7 +727,7 @@ define internal noundef zeroext i1 @GPU_QueueDrawPoints(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01518 = phi ptr [ %9, %.lr.ph.preheader ], [ %21, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %15 = load float, ptr %14, align 4
   %16 = fadd float %15, 5.000000e-01
   %17 = getelementptr inbounds nuw i8, ptr %.01518, i64 4
@@ -799,13 +797,13 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   br label %45
 
 38:                                               ; preds = %.lr.ph.split.us.split.us
-  %39 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv82
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv82
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   br label %45
 
 42:                                               ; preds = %.lr.ph.split.us.split.us
-  %43 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv82
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv82
   %44 = load i32, ptr %43, align 4
   br label %45
 
@@ -866,13 +864,13 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   br label %82
 
 75:                                               ; preds = %.lr.ph.split.us.split
-  %76 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv77
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv77
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
   br label %82
 
 79:                                               ; preds = %.lr.ph.split.us.split
-  %80 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv77
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv77
   %81 = load i32, ptr %80, align 4
   br label %82
 
@@ -935,13 +933,13 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   br label %119
 
 112:                                              ; preds = %.lr.ph.split.split.us
-  %113 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv72
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv72
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i32
   br label %119
 
 116:                                              ; preds = %.lr.ph.split.split.us
-  %117 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv72
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv72
   %118 = load i32, ptr %117, align 4
   br label %119
 
@@ -1006,12 +1004,12 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   ]
 
 153:                                              ; preds = %.lr.ph.split.split
-  %154 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %155 = load i32, ptr %154, align 4
   br label %164
 
 156:                                              ; preds = %.lr.ph.split.split
-  %157 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
   br label %164
@@ -1987,7 +1985,7 @@ define internal void @GPU_DestroyRenderer(ptr noundef readonly captures(none) %0
 
 14:                                               ; preds = %9, %19
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %19 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not38 = icmp eq ptr %16, null
   br i1 %.not38, label %19, label %17
@@ -2416,9 +2414,9 @@ RestartRenderPass.exit:                           ; preds = %5, %19
   %87 = icmp eq i32 %82, 2
   %88 = select i1 %87, i64 4, i64 0
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %86
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %84
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %86
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %84
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %88
   %93 = load ptr, ptr %92, align 8
   %.not.i95 = icmp eq ptr %93, null
   br i1 %.not.i95, label %94, label %GetSampler.exit
@@ -2553,7 +2551,7 @@ GetSampler.exit:                                  ; preds = %74, %.sink.split.i
 144:                                              ; preds = %.lr.ph, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
   %145 = load ptr, ptr %142, align 8
-  %146 = getelementptr inbounds nuw %struct.SDL_GPURenderStateUniformBuffer, ptr %145, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %indvars.iv
   %147 = load ptr, ptr %143, align 8
   %148 = load i32, ptr %146, align 8
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 8

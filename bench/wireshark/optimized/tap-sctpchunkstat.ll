@@ -343,7 +343,7 @@ copy_address.exit.i61:                            ; preds = %98, %92
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %.04382, i64 60
   %141 = zext nneg i8 %135 to i64
-  %142 = getelementptr i32, ptr %140, i64 %141
+  %142 = getelementptr [4 x i8], ptr %140, i64 %141
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4
@@ -351,11 +351,11 @@ copy_address.exit.i61:                            ; preds = %98, %92
 
 145:                                              ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
-  %146 = getelementptr ptr, ptr %133, i64 %indvars.iv
+  %146 = getelementptr [8 x i8], ptr %133, i64 %indvars.iv
   %147 = load ptr, ptr %146, align 8
   %148 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %147, i32 noundef 0)
   %149 = zext i8 %148 to i64
-  %150 = getelementptr i32, ptr %138, i64 %149
+  %150 = getelementptr [4 x i8], ptr %138, i64 %149
   %151 = load i32, ptr %150, align 4
   %152 = add i32 %151, 1
   store i32 %152, ptr %150, align 4

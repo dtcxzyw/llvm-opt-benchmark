@@ -63,7 +63,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %.0163226 = phi i1 [ false, %.lr.ph ], [ %.2165, %303 ]
   %.0168225 = phi i32 [ 8, %.lr.ph ], [ %.5173, %303 ]
   %.0174223 = phi i32 [ 0, %.lr.ph ], [ %.1175, %303 ]
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %.thread [
     i32 3, label %20
@@ -75,7 +75,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   ]
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @DecodeTime(ptr noundef %22, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %.not200 = icmp eq i32 %23, 0
@@ -86,7 +86,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %298
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 58) #15
@@ -128,7 +128,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %.2170 = select i1 %47, i32 18, i32 %.0168225
   %48 = tail call ptr @__errno_location() #16
   store i32 0, ptr %48, align 4
-  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @strtoint(ptr noundef %50, ptr noundef nonnull %7, i32 noundef 10) #14
   store i32 %51, ptr %9, align 4
@@ -512,7 +512,7 @@ AdjustFractDays.exit204:                          ; preds = %.thread215, %205, %
   br label %298
 
 285:                                              ; preds = %17, %17
-  %286 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %287 = load ptr, ptr %286, align 8
   %288 = trunc nuw nsw i64 %indvars.iv to i32
   %289 = call i32 @DecodeUnits(i32 noundef %288, ptr noundef %287, ptr noundef nonnull %9) #14
@@ -1439,7 +1439,7 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   %43 = tail call ptr @__ctype_b_loc() #16
   %44 = load ptr, ptr %43, align 8
   %45 = zext i8 %37 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2
   %.fr25.i.i = freeze i16 %47
   %48 = and i16 %.fr25.i.i, 2048
@@ -1702,7 +1702,7 @@ AdjustFractSeconds.exit101.i:                     ; preds = %178, %166
   %203 = load ptr, ptr %43, align 8
   %204 = load i8, ptr %72, align 1
   %205 = zext i8 %204 to i64
-  %206 = getelementptr inbounds nuw i16, ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw [2 x i8], ptr %203, i64 %205
   %207 = load i16, ptr %206, align 2
   %.fr25.i102.i = freeze i16 %207
   %208 = and i16 %.fr25.i102.i, 2048
@@ -1965,7 +1965,7 @@ AdjustFractSeconds.exit118.i:                     ; preds = %342, %338
   %357 = load ptr, ptr %43, align 8
   %358 = load i8, ptr %72, align 1
   %359 = zext i8 %358 to i64
-  %360 = getelementptr inbounds nuw i16, ptr %357, i64 %359
+  %360 = getelementptr inbounds nuw [2 x i8], ptr %357, i64 %359
   %361 = load i16, ptr %360, align 2
   %.fr25.i119.i = freeze i16 %361
   %362 = and i16 %.fr25.i119.i, 2048
@@ -2276,7 +2276,7 @@ define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, 
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %0, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %8
   %10 = load i16, ptr %9, align 2
   %.fr25 = freeze i16 %10
   %11 = and i16 %.fr25, 2048

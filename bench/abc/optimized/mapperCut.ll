@@ -30,7 +30,7 @@ define i32 @Map_MappingCountAllCuts(ptr noundef readonly captures(none) %0) loca
 6:                                                ; preds = %.lr.ph31, %._crit_edge26
   %indvars.iv = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next, %._crit_edge26 ]
   %.029 = phi i32 [ 0, %.lr.ph31 ], [ %.1.lcssa, %._crit_edge26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %.01420 = load ptr, ptr %7, align 8, !tbaa !23
   %.not21 = icmp eq ptr %.01420, null
   br i1 %.not21, label %._crit_edge26, label %.lr.ph25
@@ -134,7 +134,7 @@ Abc_Clock.exit:                                   ; preds = %1, %10
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %17, align 8, !tbaa !44
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = call ptr @Map_CutAlloc(ptr noundef nonnull %0) #18
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 76
@@ -229,7 +229,7 @@ Map_CutTableStart.exit:                           ; preds = %.preheader.i.i, %42
   %indvars.iv78 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next79, %Extra_ProgressBarUpdate.exit ]
   %63 = load ptr, ptr %34, align 8, !tbaa !46
   %64 = load ptr, ptr %63, align 8, !tbaa !60
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv78
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv78
   %66 = load ptr, ptr %65, align 8, !tbaa !23
   %67 = call i32 @Map_NodeIsBuf(ptr noundef %66) #18
   %.not32 = icmp eq i32 %67, 0
@@ -297,7 +297,7 @@ Map_CutTableStart.exit:                           ; preds = %.preheader.i.i, %42
 .lr.ph.i.i.i:                                     ; preds = %83, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %83 ]
   %.068.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i ], [ %90, %83 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i.i.i
   store ptr %.068.i.i.i, ptr %104, align 8, !tbaa !24
   %105 = load ptr, ptr %.068.i.i.i, align 8, !tbaa !63
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -316,7 +316,7 @@ Map_CutList2Array.exit.i.i:                       ; preds = %._crit_edge.loopexi
 .lr.ph.i187.i.i:                                  ; preds = %Map_CutList2Array.exit.i.i, %.lr.ph.i187.i.i
   %indvars.iv.i188.i.i = phi i64 [ %indvars.iv.next.i190.i.i, %.lr.ph.i187.i.i ], [ 0, %Map_CutList2Array.exit.i.i ]
   %.068.i189.i.i = phi ptr [ %108, %.lr.ph.i187.i.i ], [ %97, %Map_CutList2Array.exit.i.i ]
-  %107 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.i188.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv.i188.i.i
   store ptr %.068.i189.i.i, ptr %107, align 8, !tbaa !24
   %108 = load ptr, ptr %.068.i189.i.i, align 8, !tbaa !63
   %indvars.iv.next.i190.i.i = add nuw nsw i64 %indvars.iv.i188.i.i, 1
@@ -354,10 +354,10 @@ Map_CutList2Array.exit194.i.i:                    ; preds = %._crit_edge.loopexi
 
 117:                                              ; preds = %117, %.lr.ph.i195.i.i
   %indvars.iv.i196.i.i = phi i64 [ 0, %.lr.ph.i195.i.i ], [ %indvars.iv.next.i197.i.i, %117 ]
-  %118 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i196.i.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i196.i.i
   %119 = load i32, ptr %118, align 4, !tbaa !66
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds ptr, ptr %115, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %115, i64 %120
   store ptr null, ptr %121, align 8, !tbaa !24
   %indvars.iv.next.i197.i.i = add nuw nsw i64 %indvars.iv.i196.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i197.i.i, %wide.trip.count.i.i.i
@@ -378,7 +378,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %indvars.iv245.i.i = phi i64 [ 0, %.preheader203.lr.ph.i.i ], [ %indvars.iv.next246.i.i, %._crit_edge.i.i ]
   %indvars.iv243.i.i = phi i64 [ 1, %.preheader203.lr.ph.i.i ], [ %indvars.iv.next244.i.i, %._crit_edge.i.i ]
   %.0155214.i.i = phi i32 [ 0, %.preheader203.lr.ph.i.i ], [ %.3.lcssa.i.i, %._crit_edge.i.i ]
-  %125 = getelementptr inbounds nuw ptr, ptr %.0151.i.i, i64 %indvars.iv245.i.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.0151.i.i, i64 %indvars.iv245.i.i
   br label %178
 
 .preheader199.i.i:                                ; preds = %._crit_edge.i.i
@@ -395,13 +395,13 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
 .preheader198.us.i.i:                             ; preds = %._crit_edge220.us.i.i, %.preheader198.lr.ph.i.i
   %indvars.iv256.i.i = phi i64 [ %smin.i.i, %.preheader198.lr.ph.i.i ], [ %indvars.iv.next257.i.i, %._crit_edge220.us.i.i ]
   %.5222.us.i.i = phi i32 [ %.3.lcssa.i.i, %.preheader198.lr.ph.i.i ], [ %.7.us.i.i, %._crit_edge220.us.i.i ]
-  %130 = getelementptr inbounds ptr, ptr %.0150.i.i, i64 %indvars.iv256.i.i
+  %130 = getelementptr inbounds [8 x i8], ptr %.0150.i.i, i64 %indvars.iv256.i.i
   br label %131
 
 131:                                              ; preds = %176, %.preheader198.us.i.i
   %indvars.iv252.i.i = phi i64 [ 0, %.preheader198.us.i.i ], [ %indvars.iv.next253.i.i, %176 ]
   %.6217.us.i.i = phi i32 [ %.5222.us.i.i, %.preheader198.us.i.i ], [ %.7.us.i.i, %176 ]
-  %132 = getelementptr inbounds nuw ptr, ptr %.0151.i.i, i64 %indvars.iv252.i.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.0151.i.i, i64 %indvars.iv252.i.i
   %133 = load ptr, ptr %132, align 8, !tbaa !24
   %134 = load ptr, ptr %130, align 8, !tbaa !24
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 76
@@ -457,7 +457,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %169 = getelementptr inbounds nuw i8, ptr %158, i64 76
   %170 = load i8, ptr %169, align 4, !tbaa !26
   %171 = sext i8 %170 to i64
-  %172 = getelementptr inbounds ptr, ptr %6, i64 %171
+  %172 = getelementptr inbounds [8 x i8], ptr %6, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !24
   store ptr %173, ptr %158, align 8, !tbaa !63
   store ptr %158, ptr %172, align 8, !tbaa !24
@@ -482,14 +482,14 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   br i1 %.not.i.i35, label %._crit_edge.i.i, label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %.preheader201.i.i
-  %177 = getelementptr inbounds nuw ptr, ptr %.0150.i.i, i64 %indvars.iv245.i.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %.0150.i.i, i64 %indvars.iv245.i.i
   br label %224
 
 178:                                              ; preds = %223, %.preheader203.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader203.i.i ], [ %indvars.iv.next.i.i, %223 ]
   %.1156210.i.i = phi i32 [ %.0155214.i.i, %.preheader203.i.i ], [ %.2157.i.i, %223 ]
   %179 = load ptr, ptr %125, align 8, !tbaa !24
-  %180 = getelementptr inbounds nuw ptr, ptr %.0150.i.i, i64 %indvars.iv.i.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %.0150.i.i, i64 %indvars.iv.i.i
   %181 = load ptr, ptr %180, align 8, !tbaa !24
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 76
   %183 = load i8, ptr %182, align 4, !tbaa !26
@@ -544,7 +544,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %216 = getelementptr inbounds nuw i8, ptr %205, i64 76
   %217 = load i8, ptr %216, align 4, !tbaa !26
   %218 = sext i8 %217 to i64
-  %219 = getelementptr inbounds ptr, ptr %6, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %6, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !24
   store ptr %220, ptr %205, align 8, !tbaa !63
   store ptr %205, ptr %219, align 8, !tbaa !24
@@ -561,7 +561,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
 224:                                              ; preds = %269, %.lr.ph.i.i36
   %indvars.iv238.i.i = phi i64 [ 0, %.lr.ph.i.i36 ], [ %indvars.iv.next239.i.i, %269 ]
   %.3212.i.i = phi i32 [ %.2157.i.i, %.lr.ph.i.i36 ], [ %.4.i.i, %269 ]
-  %225 = getelementptr inbounds nuw ptr, ptr %.0151.i.i, i64 %indvars.iv238.i.i
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %.0151.i.i, i64 %indvars.iv238.i.i
   %226 = load ptr, ptr %225, align 8, !tbaa !24
   %227 = load ptr, ptr %177, align 8, !tbaa !24
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 76
@@ -617,7 +617,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %262 = getelementptr inbounds nuw i8, ptr %251, i64 76
   %263 = load i8, ptr %262, align 4, !tbaa !26
   %264 = sext i8 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr %6, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr %6, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !24
   store ptr %266, ptr %251, align 8, !tbaa !63
   store ptr %251, ptr %265, align 8, !tbaa !24
@@ -652,7 +652,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
 .lr.ph228.i.i:                                    ; preds = %276, %.lr.ph228.preheader.i.i
   %indvars.iv259.i.i = phi i64 [ 1, %.lr.ph228.preheader.i.i ], [ %indvars.iv.next260.i.i, %276 ]
   %.0148226.i.i = phi ptr [ %5, %.lr.ph228.preheader.i.i ], [ %.1149.i.i, %276 ]
-  %272 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv259.i.i
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv259.i.i
   %273 = load ptr, ptr %272, align 8, !tbaa !24
   %274 = icmp eq ptr %273, null
   br i1 %274, label %276, label %.preheader.i.i34
@@ -720,7 +720,7 @@ Map_CutUnionLists.exit.i:                         ; preds = %.lr.ph.i49.i
   %indvars.iv25.i = phi i32 [ %indvars.iv.next26.i, %.lr.ph.i.i44 ], [ 1, %Map_CutUnionLists.exit.i ]
   %indvars.iv.i.i45 = phi i64 [ %indvars.iv.next.i.i46, %.lr.ph.i.i44 ], [ 0, %Map_CutUnionLists.exit.i ]
   %.068.i.i = phi ptr [ %287, %.lr.ph.i.i44 ], [ %.14271.i, %Map_CutUnionLists.exit.i ]
-  %286 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv.i.i45
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv.i.i45
   store ptr %.068.i.i, ptr %286, align 8, !tbaa !24
   %287 = load ptr, ptr %.068.i.i, align 8, !tbaa !63
   %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i45, 1
@@ -748,7 +748,7 @@ Map_CutList2Array.exit.i:                         ; preds = %.lr.ph.i.i44
 291:                                              ; preds = %291, %.preheader.i50
   %indvars.iv.i52 = phi i64 [ 249, %.preheader.i50 ], [ %indvars.iv.next.i53, %291 ]
   %292 = load ptr, ptr %61, align 8, !tbaa !81
-  %293 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv.i52
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv.i52
   %294 = load ptr, ptr %293, align 8, !tbaa !24
   call void @Extra_MmFixedEntryRecycle(ptr noundef %292, ptr noundef %294) #18
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
@@ -768,7 +768,7 @@ Map_CutList2Array.exit.i:                         ; preds = %.lr.ph.i.i44
 .lr.ph.i15.i:                                     ; preds = %.lr.ph.i15.i, %.lr.ph.preheader.i.i
   %indvars.iv.i16.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i17.i, %.lr.ph.i15.i ]
   %.089.i.i = phi ptr [ %2, %.lr.ph.preheader.i.i ], [ %298, %.lr.ph.i15.i ]
-  %297 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv.i16.i
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv.i16.i
   %298 = load ptr, ptr %297, align 8, !tbaa !24
   store ptr %298, ptr %.089.i.i, align 8, !tbaa !24
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
@@ -834,13 +834,13 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
   %indvars.iv76.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next77.i.i, %._crit_edge.us.i.i ]
-  %315 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv76.i.i
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv76.i.i
   %316 = load ptr, ptr %315, align 8, !tbaa !23
   br label %317
 
 317:                                              ; preds = %321, %.preheader.us.i.i
   %indvars.iv.i56.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i57.i, %321 ]
-  %318 = getelementptr inbounds nuw ptr, ptr %306, i64 %indvars.iv.i56.i
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %indvars.iv.i56.i
   %319 = load ptr, ptr %318, align 8, !tbaa !23
   %320 = icmp eq ptr %316, %319
   br i1 %320, label %._crit_edge.us.i.i, label %321
@@ -987,7 +987,7 @@ Map_CutTableStop.exit:                            ; preds = %346, %348
 356:                                              ; preds = %._crit_edge26.i, %.lr.ph31.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next.i, %._crit_edge26.i ]
   %.029.i = phi i32 [ 0, %.lr.ph31.i ], [ %.1.lcssa.i, %._crit_edge26.i ]
-  %357 = getelementptr inbounds nuw ptr, ptr %355, i64 %indvars.iv.i
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %indvars.iv.i
   %.01420.i = load ptr, ptr %357, align 8, !tbaa !23
   %.not21.i39 = icmp eq ptr %.01420.i, null
   br i1 %.not21.i39, label %._crit_edge26.i, label %.lr.ph25.i
@@ -1136,10 +1136,10 @@ define ptr @Map_CutMergeLists2(ptr noundef %0, ptr noundef captures(none) %1, pt
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !66
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %13, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %13, i64 %19
   store ptr null, ptr %20, align 8, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1189,7 +1189,7 @@ Map_CutTableRestart.exit:                         ; preds = %16, %6
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 76
   %41 = load i8, ptr %40, align 4, !tbaa !26
   %42 = sext i8 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %9, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %9, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !24
   store ptr %44, ptr %32, align 8, !tbaa !63
   store ptr %32, ptr %43, align 8, !tbaa !24
@@ -1223,7 +1223,7 @@ Map_CutTableRestart.exit:                         ; preds = %16, %6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
   %.04266 = phi ptr [ %8, %.lr.ph.preheader ], [ %.143, %57 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = icmp eq ptr %54, null
   br i1 %55, label %57, label %.preheader
@@ -1295,18 +1295,18 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 19:                                               ; preds = %.lr.ph166, %17
   %indvars.iv230 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next231, %17 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv230
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv230
   %21 = load ptr, ptr %20, align 8, !tbaa !23
-  %22 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv230
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv230
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %.not127 = icmp eq ptr %21, %23
   br i1 %.not127, label %17, label %.loopexit
 
 24:                                               ; preds = %.lr.ph168, %24
   %indvars.iv235 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next236, %24 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv235
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv235
   %26 = load ptr, ptr %25, align 8, !tbaa !23
-  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv235
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv235
   store ptr %26, ptr %27, align 8, !tbaa !23
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
@@ -1335,12 +1335,12 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 35:                                               ; preds = %.lr.ph162, %44
   %indvars.iv220 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next221, %44 ]
   %.0161 = phi i32 [ 0, %.lr.ph162 ], [ %.1, %44 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv220
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv220
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = trunc nuw nsw i64 %indvars.iv220 to i32
   %39 = sub nsw i32 %38, %.0161
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %33, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %33, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !23
   %.not125 = icmp eq ptr %37, %42
   br i1 %.not125, label %44, label %43
@@ -1357,9 +1357,9 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 45:                                               ; preds = %.lr.ph164, %45
   %indvars.iv225 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next226, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv225
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv225
   %47 = load ptr, ptr %46, align 8, !tbaa !23
-  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv225
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv225
   store ptr %47, ptr %48, align 8, !tbaa !23
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
@@ -1396,9 +1396,9 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = sub nsw i32 %61, %.2145
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %57, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %57, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !23
-  %66 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !23
   %.not = icmp eq ptr %65, %67
   br i1 %.not, label %69, label %68
@@ -1415,9 +1415,9 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 70:                                               ; preds = %.lr.ph147, %70
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next180, %70 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv179
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv179
   %72 = load ptr, ptr %71, align 8, !tbaa !23
-  %73 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv179
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv179
   store ptr %72, ptr %73, align 8, !tbaa !23
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
@@ -1449,7 +1449,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 .preheader137.us:                                 ; preds = %.preheader137.us.preheader, %.thread.us
   %indvars.iv198 = phi i64 [ 0, %.preheader137.us.preheader ], [ %indvars.iv.next199, %.thread.us ]
   %.0117150.us = phi i32 [ %7, %.preheader137.us.preheader ], [ %.1118.us, %.thread.us ]
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv198
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv198
   %81 = load ptr, ptr %80, align 8, !tbaa !23
   br label %87
 
@@ -1461,13 +1461,13 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 83:                                               ; preds = %._crit_edge.us
   %84 = add nsw i32 %.0117150.us, 1
   %85 = sext i32 %.0117150.us to i64
-  %86 = getelementptr inbounds ptr, ptr %2, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %2, i64 %85
   store ptr %81, ptr %86, align 8, !tbaa !23
   br label %.thread.us
 
 87:                                               ; preds = %.preheader137.us, %82
   %indvars.iv193 = phi i64 [ 0, %.preheader137.us ], [ %indvars.iv.next194, %82 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv193
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv193
   %89 = load ptr, ptr %88, align 8, !tbaa !23
   %90 = icmp eq ptr %81, %89
   br i1 %90, label %.thread.us, label %82
@@ -1503,10 +1503,10 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   br label %101
 
 .thread:                                          ; preds = %.preheader137
-  %96 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv184
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv184
   %97 = load ptr, ptr %96, align 8, !tbaa !23
   %indvars.iv.next187 = add nsw i64 %indvars.iv186, 1
-  %98 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv186
+  %98 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv186
   store ptr %97, ptr %98, align 8, !tbaa !23
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count191
@@ -1524,9 +1524,9 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 101:                                              ; preds = %.lr.ph153, %101
   %indvars.iv203 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next204, %101 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv203
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv203
   %103 = load ptr, ptr %102, align 8, !tbaa !23
-  %104 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv203
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv203
   store ptr %103, ptr %104, align 8, !tbaa !23
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
@@ -1542,12 +1542,12 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %indvars.iv210 = phi i64 [ %indvars.iv208, %.lr.ph156.preheader ], [ %indvars.iv.next211, %.lr.ph156 ]
   %.0108155 = phi i32 [ %105, %.lr.ph156.preheader ], [ %spec.select, %.lr.ph156 ]
-  %106 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv210
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv210
   %107 = load ptr, ptr %106, align 8, !tbaa !23
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i32, ptr %108, align 8, !tbaa !110
   %110 = sext i32 %.0108155 to i64
-  %111 = getelementptr inbounds ptr, ptr %2, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %2, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !23
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i32, ptr %113, align 8, !tbaa !110
@@ -1559,10 +1559,10 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   br i1 %exitcond214.not, label %._crit_edge, label %.lr.ph156, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph156
-  %117 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv215
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv215
   %118 = load ptr, ptr %117, align 8, !tbaa !23
   %119 = sext i32 %spec.select to i64
-  %120 = getelementptr inbounds ptr, ptr %2, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %2, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !23
   store ptr %121, ptr %117, align 8, !tbaa !23
   store ptr %118, ptr %120, align 8, !tbaa !23
@@ -1587,9 +1587,9 @@ define internal fastcc ptr @Map_CutTableConsider(ptr noundef %0, ptr noundef cap
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.078.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %13, %.lr.ph.i.i ]
-  %6 = getelementptr inbounds nuw i32, ptr @s_HashPrimes, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @s_HashPrimes, i64 %indvars.iv.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !66
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !110
@@ -1605,7 +1605,7 @@ Map_CutTableHash.exit.i:                          ; preds = %.lr.ph.i.i
   %16 = urem i32 %13, %15
   %17 = load ptr, ptr %1, align 8, !tbaa !55
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %.not31.i = icmp eq ptr %20, null
   br i1 %.not31.i, label %.lr.ph, label %.lr.ph33.split.us.i
@@ -1629,9 +1629,9 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
 
 29:                                               ; preds = %.preheader.us.i, %42
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %42 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !23
-  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !23
   %.not27.us.i = icmp eq ptr %31, %33
   br i1 %.not27.us.i, label %42, label %._crit_edge.us.i
@@ -1645,7 +1645,7 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
   %37 = add nsw i32 %.02232.us.i, 1
   %38 = srem i32 %37, %15
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %17, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %17, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !24
   %.not.us.i = icmp eq ptr %41, null
   br i1 %.not.us.i, label %Map_CutTableLookup.exit, label %.lr.ph33.split.us.i, !llvm.loop !114
@@ -1664,7 +1664,7 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
   %44 = add nsw i32 %.02232.i, 1
   %45 = srem i32 %44, %22
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %23, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %23, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !24
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %Map_CutTableLookup.exit.thread47, label %.lr.ph33.split.split.i, !llvm.loop !114
@@ -1689,9 +1689,9 @@ Map_CutTableLookup.exit.thread47:                 ; preds = %.lr.ph33.split.spli
 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !23
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   store ptr %57, ptr %58, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1710,7 +1710,7 @@ Map_CutTableLookup.exit.thread47:                 ; preds = %.lr.ph33.split.spli
   %.023.i2743 = phi i32 [ %.023.i2743.ph, %._crit_edge.sink.split ], [ %.023.i2744, %55 ]
   %63 = load ptr, ptr %1, align 8, !tbaa !55
   %64 = sext i32 %.023.i2743 to i64
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   store ptr %62, ptr %65, align 8, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !56
@@ -1719,7 +1719,7 @@ Map_CutTableLookup.exit.thread47:                 ; preds = %.lr.ph33.split.spli
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %68, align 8, !tbaa !65
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i32, ptr %67, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %67, i64 %71
   store i32 %.023.i2743, ptr %72, align 4, !tbaa !66
   br label %Map_CutTableLookup.exit.thread
 
@@ -1746,7 +1746,7 @@ define internal fastcc ptr @Map_CutSortCuts(ptr noundef readonly captures(none) 
   %indvars.iv25 = phi i32 [ %indvars.iv.next26, %.lr.ph.i ], [ 1, %3 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %3 ]
   %.068.i = phi ptr [ %8, %.lr.ph.i ], [ %2, %3 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr %.068.i, ptr %7, align 8, !tbaa !24
   %8 = load ptr, ptr %.068.i, align 8, !tbaa !63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1777,7 +1777,7 @@ Map_CutList2Array.exit:                           ; preds = %.lr.ph.i
   %indvars.iv = phi i64 [ 249, %.preheader ], [ %indvars.iv.next, %14 ]
   %15 = load ptr, ptr %12, align 8, !tbaa !81
   %16 = load ptr, ptr %5, align 8, !tbaa !58
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %15, ptr noundef %18) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1799,7 +1799,7 @@ Map_CutList2Array.exit:                           ; preds = %.lr.ph.i
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i17, %.lr.ph.i15 ]
   %.089.i = phi ptr [ %4, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i15 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i16
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i16
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   store ptr %24, ptr %.089.i, align 8, !tbaa !24
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1

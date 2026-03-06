@@ -278,7 +278,7 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
 
 .preheader27.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
-  %17 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16, !tbaa !56
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
@@ -299,7 +299,7 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
   %.sroa.9.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
   %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
   %26 = load double, ptr %25, align 16, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8, !tbaa !56
@@ -495,7 +495,7 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
 
 .preheader27.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
-  %17 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16, !tbaa !56
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
@@ -516,7 +516,7 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
   %.sroa.9.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
   %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
   %26 = load double, ptr %25, align 16, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8, !tbaa !56
@@ -1098,7 +1098,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
 
 .preheader27:                                     ; preds = %5, %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i
   %9 = load double, ptr %8, align 16, !tbaa !56
   %10 = fcmp oeq double %0, %9
   br i1 %10, label %11, label %15
@@ -1119,7 +1119,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %.sroa.09.057.i = phi double [ %17, %44 ], [ 0xC00921FB54442D1A, %15 ]
   %.sroa.9.056.i = phi double [ %19, %44 ], [ 0x3FE921FB54442D18, %15 ]
   %.04855.i = phi i32 [ %.149.i, %44 ], [ 0, %15 ]
-  %16 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i
   %17 = load double, ptr %16, align 16, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load double, ptr %18, align 8, !tbaa !56
@@ -1235,7 +1235,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
 
 82:                                               ; preds = %90, %46
   %indvars.iv.i13 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i14, %90 ]
-  %83 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv.i13
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i13
   %84 = load double, ptr %83, align 16, !tbaa !56
   %85 = fcmp oeq double %0, %84
   br i1 %85, label %86, label %90
@@ -1256,7 +1256,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %.sroa.09.057.i17 = phi double [ %92, %119 ], [ 0xC00921FB54442D1A, %90 ]
   %.sroa.9.056.i18 = phi double [ %94, %119 ], [ 0x3FE921FB54442D21, %90 ]
   %.04855.i19 = phi i32 [ %.149.i20, %119 ], [ 0, %90 ]
-  %91 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv60.i16
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv60.i16
   %92 = load double, ptr %91, align 16, !tbaa !56
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load double, ptr %93, align 8, !tbaa !56
@@ -1599,7 +1599,7 @@ _ZL16get_rotate_indexi.exit:                      ; preds = %121, %120, %119, %1
   %123 = phi double [ 0xBFF921FB54442D18, %100 ], [ 0x3FF921FB54442D18, %107 ], [ 0x3FF921FB54442D18, %92 ], [ 0x3FF921FB54442D18, %99 ], [ 0x3FF921FB54442D18, %98 ], [ 0x3FF921FB54442D18, %97 ], [ 0x3FF921FB54442D18, %94 ], [ 0x3FF921FB54442D18, %95 ], [ 0x3FF921FB54442D18, %96 ], [ 0xBFF921FB54442D18, %106 ], [ 0xBFF921FB54442D18, %105 ], [ 0xBFF921FB54442D18, %104 ], [ 0xBFF921FB54442D18, %101 ], [ 0xBFF921FB54442D18, %102 ], [ 0xBFF921FB54442D18, %103 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %114 ]
   %.sroa.30.0.ph78 = phi double [ %.0.i, %100 ], [ 0x3FF921FB54442D18, %107 ], [ %.0.i, %92 ], [ %.0.i, %99 ], [ %.0.i, %98 ], [ %.0.i, %97 ], [ %.0.i, %94 ], [ %.0.i, %95 ], [ %.0.i, %96 ], [ %.0.i, %106 ], [ %.0.i, %105 ], [ %.0.i, %104 ], [ %.0.i, %101 ], [ %.0.i, %102 ], [ %.0.i, %103 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %114 ]
   %.sroa.2144.0.ph76 = phi double [ %.sroa.2144.0.ph, %100 ], [ %25, %107 ], [ %.sroa.2144.0.ph, %92 ], [ %.sroa.2144.0.ph, %99 ], [ %.sroa.2144.0.ph, %98 ], [ %.sroa.2144.0.ph, %97 ], [ %.sroa.2144.0.ph, %94 ], [ %.sroa.2144.0.ph, %95 ], [ %.sroa.2144.0.ph, %96 ], [ %.sroa.2144.0.ph, %106 ], [ %.sroa.2144.0.ph, %105 ], [ %.sroa.2144.0.ph, %104 ], [ %.sroa.2144.0.ph, %101 ], [ %.sroa.2144.0.ph, %102 ], [ %.sroa.2144.0.ph, %103 ], [ %25, %113 ], [ %25, %112 ], [ %25, %111 ], [ %25, %108 ], [ %25, %109 ], [ %25, %110 ], [ %59, %121 ], [ %59, %120 ], [ %59, %119 ], [ %59, %116 ], [ %59, %117 ], [ %59, %118 ], [ %59, %114 ]
-  %124 = getelementptr inbounds nuw [2 x [2 x double]], ptr @_ZL3rot, i64 %.0.i23.sink
+  %124 = getelementptr inbounds nuw [32 x i8], ptr @_ZL3rot, i64 %.0.i23.sink
   %125 = fsub double %0, %.sroa.2144.0.ph76
   %126 = fsub double %1, %.sroa.30.0.ph78
   br label %_ZL10vector_subPKdS0_Pd.exit
@@ -1608,7 +1608,7 @@ _ZL10vector_subPKdS0_Pd.exit:                     ; preds = %_ZL16get_rotate_ind
   %127 = phi i1 [ false, %135 ], [ true, %_ZL16get_rotate_indexi.exit ]
   %indvars.iv18.i.sroa.phi = phi ptr [ %.sroa.453, %135 ], [ %.sroa.052, %_ZL16get_rotate_indexi.exit ]
   %indvars.iv18.i = phi i64 [ 1, %135 ], [ 0, %_ZL16get_rotate_indexi.exit ]
-  %128 = getelementptr inbounds nuw [2 x double], ptr %124, i64 %indvars.iv18.i
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %indvars.iv18.i
   br label %129
 
 129:                                              ; preds = %129, %_ZL10vector_subPKdS0_Pd.exit
@@ -1616,7 +1616,7 @@ _ZL10vector_subPKdS0_Pd.exit:                     ; preds = %_ZL16get_rotate_ind
   %indvars.iv.i27.sroa.phi.sroa.speculated = phi double [ %125, %_ZL10vector_subPKdS0_Pd.exit ], [ %126, %129 ]
   %indvars.iv.i27 = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit ], [ 1, %129 ]
   %131 = phi double [ 0.000000e+00, %_ZL10vector_subPKdS0_Pd.exit ], [ %134, %129 ]
-  %132 = getelementptr inbounds nuw double, ptr %128, i64 %indvars.iv.i27
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv.i27
   %133 = load double, ptr %132, align 8, !tbaa !56
   %134 = tail call double @llvm.fmuladd.f64(double %133, double %indvars.iv.i27.sroa.phi.sroa.speculated, double %131)
   br i1 %130, label %129, label %135, !llvm.loop !63

@@ -63,37 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.139" = type { %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor" = type { ptr, %"class.std::vector.51", %"class.std::vector.56", %"class.std::vector.61", %"class.std::unordered_map.66", %"class.std::unordered_map", %"class.std::unordered_map", %"class.std::vector.0", %"class.std::vector.0", %"class.std::vector.0", %"class.std::unique_ptr.86" }
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
-%"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.61" = type { %"struct.std::_Vector_base.62" }
-%"struct.std::_Vector_base.62" = type { %"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl" }
-%"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl" = type { %"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_map.66" = type { %"class.std::_Hashtable.67" }
-%"class.std::_Hashtable.67" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.86" = type { %"struct.std::__uniq_ptr_data.87" }
-%"struct.std::__uniq_ptr_data.87" = type { %"class.std::__uniq_ptr_impl.88" }
-%"class.std::__uniq_ptr_impl.88" = type { %"class.std::tuple.89" }
-%"class.std::tuple.89" = type { %"struct.std::_Tuple_impl.90" }
-%"struct.std::_Tuple_impl.90" = type { %"struct.std::_Head_base.93" }
-%"struct.std::_Head_base.93" = type { ptr }
-%"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor" = type { %"class.std::basic_string_view", %"class.std::basic_string_view", i64, i64, i64, %"class.std::vector.51", %"class.std::function", %"class.std::function.106", i8, ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function.106" = type { %"class.std::_Function_base", ptr }
 %"class.cxx20::expected" = type { %"struct.cxx20::detail::expected_move_assign_base" }
 %"struct.cxx20::detail::expected_move_assign_base" = type { %"struct.cxx20::detail::expected_copy_assign_base" }
 %"struct.cxx20::detail::expected_copy_assign_base" = type { %"struct.cxx20::detail::expected_move_base" }
@@ -1583,167 +1552,167 @@ define linkonce_odr hidden void @_ZN8WasmEdge6Driver17DriverToolOptions10add_opt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %6, i64 %5
+  %7 = getelementptr inbounds [328 x i8], ptr %6, i64 %5
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull align 8 dereferenceable(105) %0) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load i64, ptr %4, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %10, i64 %9
+  %11 = getelementptr inbounds [328 x i8], ptr %10, i64 %9
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_4ListINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(328) %11, ptr noundef nonnull align 8 dereferenceable(114) %8) #23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = load i64, ptr %4, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %14, i64 %13
+  %15 = getelementptr inbounds [328 x i8], ptr %14, i64 %13
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %15, i64 7, ptr nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(25) %12) #23
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %17 = load i64, ptr %4, align 8
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %18, i64 %17
+  %19 = getelementptr inbounds [328 x i8], ptr %18, i64 %17
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_4ListINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvSt17basic_string_viewIcS8_ERT_(ptr noundef nonnull align 8 dereferenceable(328) %19, i64 3, ptr nonnull @.str.70, ptr noundef nonnull align 8 dereferenceable(114) %16) #23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %21 = load i64, ptr %4, align 8
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %22, i64 %21
+  %23 = getelementptr inbounds [328 x i8], ptr %22, i64 %21
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_4ListINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvSt17basic_string_viewIcS8_ERT_(ptr noundef nonnull align 8 dereferenceable(328) %23, i64 3, ptr nonnull @.str.71, ptr noundef nonnull align 8 dereferenceable(114) %20) #23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %25 = load i64, ptr %4, align 8
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %26, i64 %25
+  %27 = getelementptr inbounds [328 x i8], ptr %26, i64 %25
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %27, i64 24, ptr nonnull @.str.72, ptr noundef nonnull align 8 dereferenceable(25) %24) #23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %29 = load i64, ptr %4, align 8
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %30, i64 %29
+  %31 = getelementptr inbounds [328 x i8], ptr %30, i64 %29
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %31, i64 20, ptr nonnull @.str.73, ptr noundef nonnull align 8 dereferenceable(25) %28) #23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %33 = load i64, ptr %4, align 8
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %34, i64 %33
+  %35 = getelementptr inbounds [328 x i8], ptr %34, i64 %33
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %35, i64 21, ptr nonnull @.str.74, ptr noundef nonnull align 8 dereferenceable(25) %32) #23
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %37 = load i64, ptr %4, align 8
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %38, i64 %37
+  %39 = getelementptr inbounds [328 x i8], ptr %38, i64 %37
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %39, i64 21, ptr nonnull @.str.75, ptr noundef nonnull align 8 dereferenceable(25) %36) #23
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %41 = load i64, ptr %4, align 8
   %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %42, i64 %41
+  %43 = getelementptr inbounds [328 x i8], ptr %42, i64 %41
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %43, i64 10, ptr nonnull @.str.76, ptr noundef nonnull align 8 dereferenceable(25) %40) #23
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %45 = load i64, ptr %4, align 8
   %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %46, i64 %45
+  %47 = getelementptr inbounds [328 x i8], ptr %46, i64 %45
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %47, i64 17, ptr nonnull @.str.77, ptr noundef nonnull align 8 dereferenceable(25) %44) #23
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %49 = load i64, ptr %4, align 8
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %50, i64 %49
+  %51 = getelementptr inbounds [328 x i8], ptr %50, i64 %49
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %51, i64 33, ptr nonnull @.str.78, ptr noundef nonnull align 8 dereferenceable(25) %48) #23
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %53 = load i64, ptr %4, align 8
   %54 = load ptr, ptr %1, align 8
-  %55 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %54, i64 %53
+  %55 = getelementptr inbounds [328 x i8], ptr %54, i64 %53
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %55, i64 29, ptr nonnull @.str.79, ptr noundef nonnull align 8 dereferenceable(25) %52) #23
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %57 = load i64, ptr %4, align 8
   %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %58, i64 %57
+  %59 = getelementptr inbounds [328 x i8], ptr %58, i64 %57
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %59, i64 32, ptr nonnull @.str.80, ptr noundef nonnull align 8 dereferenceable(25) %56) #23
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %61 = load i64, ptr %4, align 8
   %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %62, i64 %61
+  %63 = getelementptr inbounds [328 x i8], ptr %62, i64 %61
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %63, i64 19, ptr nonnull @.str.81, ptr noundef nonnull align 8 dereferenceable(25) %60) #23
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %65 = load i64, ptr %4, align 8
   %66 = load ptr, ptr %1, align 8
-  %67 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %66, i64 %65
+  %67 = getelementptr inbounds [328 x i8], ptr %66, i64 %65
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %67, i64 19, ptr nonnull @.str.82, ptr noundef nonnull align 8 dereferenceable(25) %64) #23
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %69 = load i64, ptr %4, align 8
   %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %70, i64 %69
+  %71 = getelementptr inbounds [328 x i8], ptr %70, i64 %69
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %71, i64 23, ptr nonnull @.str.83, ptr noundef nonnull align 8 dereferenceable(25) %68) #23
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %73 = load i64, ptr %4, align 8
   %74 = load ptr, ptr %1, align 8
-  %75 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %74, i64 %73
+  %75 = getelementptr inbounds [328 x i8], ptr %74, i64 %73
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %75, i64 12, ptr nonnull @.str.84, ptr noundef nonnull align 8 dereferenceable(25) %72) #23
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %77 = load i64, ptr %4, align 8
   %78 = load ptr, ptr %1, align 8
-  %79 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %78, i64 %77
+  %79 = getelementptr inbounds [328 x i8], ptr %78, i64 %77
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %79, i64 13, ptr nonnull @.str.85, ptr noundef nonnull align 8 dereferenceable(25) %76) #23
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %81 = load i64, ptr %4, align 8
   %82 = load ptr, ptr %1, align 8
-  %83 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %82, i64 %81
+  %83 = getelementptr inbounds [328 x i8], ptr %82, i64 %81
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %83, i64 16, ptr nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(25) %80) #23
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %85 = load i64, ptr %4, align 8
   %86 = load ptr, ptr %1, align 8
-  %87 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %86, i64 %85
+  %87 = getelementptr inbounds [328 x i8], ptr %86, i64 %85
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %87, i64 21, ptr nonnull @.str.87, ptr noundef nonnull align 8 dereferenceable(25) %84) #23
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %89 = load i64, ptr %4, align 8
   %90 = load ptr, ptr %1, align 8
-  %91 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %90, i64 %89
+  %91 = getelementptr inbounds [328 x i8], ptr %90, i64 %89
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %91, i64 25, ptr nonnull @.str.88, ptr noundef nonnull align 8 dereferenceable(25) %88) #23
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %93 = load i64, ptr %4, align 8
   %94 = load ptr, ptr %1, align 8
-  %95 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %94, i64 %93
+  %95 = getelementptr inbounds [328 x i8], ptr %94, i64 %93
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %95, i64 9, ptr nonnull @.str.89, ptr noundef nonnull align 8 dereferenceable(25) %92) #23
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %97 = load i64, ptr %4, align 8
   %98 = load ptr, ptr %1, align 8
-  %99 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %98, i64 %97
+  %99 = getelementptr inbounds [328 x i8], ptr %98, i64 %97
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %99, i64 19, ptr nonnull @.str.90, ptr noundef nonnull align 8 dereferenceable(25) %96) #23
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %101 = load i64, ptr %4, align 8
   %102 = load ptr, ptr %1, align 8
-  %103 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %102, i64 %101
+  %103 = getelementptr inbounds [328 x i8], ptr %102, i64 %101
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %103, i64 14, ptr nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(25) %100) #23
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %105 = load i64, ptr %4, align 8
   %106 = load ptr, ptr %1, align 8
-  %107 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %106, i64 %105
+  %107 = getelementptr inbounds [328 x i8], ptr %106, i64 %105
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %107, i64 19, ptr nonnull @.str.92, ptr noundef nonnull align 8 dereferenceable(25) %104) #23
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %109 = load i64, ptr %4, align 8
   %110 = load ptr, ptr %1, align 8
-  %111 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %110, i64 %109
+  %111 = getelementptr inbounds [328 x i8], ptr %110, i64 %109
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %111, i64 25, ptr nonnull @.str.93, ptr noundef nonnull align 8 dereferenceable(25) %108) #23
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %113 = load i64, ptr %4, align 8
   %114 = load ptr, ptr %1, align 8
-  %115 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %114, i64 %113
+  %115 = getelementptr inbounds [328 x i8], ptr %114, i64 %113
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %115, i64 16, ptr nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(25) %112) #23
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %117 = load i64, ptr %4, align 8
   %118 = load ptr, ptr %1, align 8
-  %119 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %118, i64 %117
+  %119 = getelementptr inbounds [328 x i8], ptr %118, i64 %117
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %119, i64 10, ptr nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(25) %116) #23
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %121 = load i64, ptr %4, align 8
   %122 = load ptr, ptr %1, align 8
-  %123 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %122, i64 %121
+  %123 = getelementptr inbounds [328 x i8], ptr %122, i64 %121
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionImNS0_6ParserImEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %123, i64 10, ptr nonnull @.str.96, ptr noundef nonnull align 8 dereferenceable(57) %120) #23
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %125 = load i64, ptr %4, align 8
   %126 = load ptr, ptr %1, align 8
-  %127 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %126, i64 %125
+  %127 = getelementptr inbounds [328 x i8], ptr %126, i64 %125
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_4ListIiNS0_6ParserIiEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %127, i64 9, ptr nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(114) %124) #23
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %129 = load i64, ptr %4, align 8
   %130 = load ptr, ptr %1, align 8
-  %131 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %130, i64 %129
+  %131 = getelementptr inbounds [328 x i8], ptr %130, i64 %129
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_4ListIiNS0_6ParserIiEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %131, i64 17, ptr nonnull @.str.98, ptr noundef nonnull align 8 dereferenceable(114) %128) #23
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %133 = load i64, ptr %4, align 8
   %134 = load ptr, ptr %1, align 8
-  %135 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %134, i64 %133
+  %135 = getelementptr inbounds [328 x i8], ptr %134, i64 %133
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_4ListINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvSt17basic_string_viewIcS8_ERT_(ptr noundef nonnull align 8 dereferenceable(328) %135, i64 16, ptr nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(114) %132) #23
   call void @_ZN8WasmEdge6Plugin6Plugin21getDefaultPluginPathsB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.138") align 8 %3) #23
   %136 = load ptr, ptr %3, align 8
@@ -1878,7 +1847,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi i64 [ %.pre.pre, %33 ], [ %29, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i ]
   store ptr %27, ptr %4, align 8
   store ptr %32, ptr %6, align 8
-  %34 = getelementptr inbounds nuw i64, ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -1911,9 +1880,9 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt6vectorIN8WasmEdge2PO14ArgumentParser20SubCommandDescriptorESaIS3_EE12emplace_backIJRNS1_10SubCommandEEEERS3_DpOT_.exit: ; preds = %48, %45
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %49, i64 %35
+  %50 = getelementptr inbounds [328 x i8], ptr %49, i64 %35
   %51 = load i64, ptr %5, align 8
-  %52 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %49, i64 %51
+  %52 = getelementptr inbounds [328 x i8], ptr %49, i64 %51
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor9add_childIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(328) %50, ptr noundef nonnull align 8 dereferenceable(328) %52, ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   ret ptr %0
 
@@ -1930,122 +1899,122 @@ define linkonce_odr hidden void @_ZN8WasmEdge6Driver21DriverCompilerOptions10add
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %5, i64 %4
+  %6 = getelementptr inbounds [328 x i8], ptr %5, i64 %4
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(328) %6, ptr noundef nonnull align 8 dereferenceable(105) %0) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i64, ptr %3, align 8
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %9, i64 %8
+  %10 = getelementptr inbounds [328 x i8], ptr %9, i64 %8
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(328) %10, ptr noundef nonnull align 8 dereferenceable(105) %7) #23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load i64, ptr %3, align 8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %13, i64 %12
+  %14 = getelementptr inbounds [328 x i8], ptr %13, i64 %12
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %14, i64 4, ptr nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(25) %11) #23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = load i64, ptr %3, align 8
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %17, i64 %16
+  %18 = getelementptr inbounds [328 x i8], ptr %17, i64 %16
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %18, i64 13, ptr nonnull @.str.102, ptr noundef nonnull align 8 dereferenceable(25) %15) #23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %20 = load i64, ptr %3, align 8
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %21, i64 %20
+  %22 = getelementptr inbounds [328 x i8], ptr %21, i64 %20
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %22, i64 24, ptr nonnull @.str.72, ptr noundef nonnull align 8 dereferenceable(25) %19) #23
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %24 = load i64, ptr %3, align 8
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %25, i64 %24
+  %26 = getelementptr inbounds [328 x i8], ptr %25, i64 %24
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %26, i64 20, ptr nonnull @.str.73, ptr noundef nonnull align 8 dereferenceable(25) %23) #23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %28 = load i64, ptr %3, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %29, i64 %28
+  %30 = getelementptr inbounds [328 x i8], ptr %29, i64 %28
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %30, i64 21, ptr nonnull @.str.74, ptr noundef nonnull align 8 dereferenceable(25) %27) #23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %32 = load i64, ptr %3, align 8
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %33, i64 %32
+  %34 = getelementptr inbounds [328 x i8], ptr %33, i64 %32
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %34, i64 21, ptr nonnull @.str.75, ptr noundef nonnull align 8 dereferenceable(25) %31) #23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %36 = load i64, ptr %3, align 8
   %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %37, i64 %36
+  %38 = getelementptr inbounds [328 x i8], ptr %37, i64 %36
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %38, i64 14, ptr nonnull @.str.103, ptr noundef nonnull align 8 dereferenceable(25) %35) #23
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %40 = load i64, ptr %3, align 8
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %41, i64 %40
+  %42 = getelementptr inbounds [328 x i8], ptr %41, i64 %40
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %42, i64 33, ptr nonnull @.str.78, ptr noundef nonnull align 8 dereferenceable(25) %39) #23
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %44 = load i64, ptr %3, align 8
   %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %45, i64 %44
+  %46 = getelementptr inbounds [328 x i8], ptr %45, i64 %44
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %46, i64 29, ptr nonnull @.str.79, ptr noundef nonnull align 8 dereferenceable(25) %43) #23
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %48 = load i64, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %49, i64 %48
+  %50 = getelementptr inbounds [328 x i8], ptr %49, i64 %48
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %50, i64 32, ptr nonnull @.str.80, ptr noundef nonnull align 8 dereferenceable(25) %47) #23
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %52 = load i64, ptr %3, align 8
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %53, i64 %52
+  %54 = getelementptr inbounds [328 x i8], ptr %53, i64 %52
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %54, i64 19, ptr nonnull @.str.81, ptr noundef nonnull align 8 dereferenceable(25) %51) #23
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %56 = load i64, ptr %3, align 8
   %57 = load ptr, ptr %1, align 8
-  %58 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %57, i64 %56
+  %58 = getelementptr inbounds [328 x i8], ptr %57, i64 %56
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %58, i64 19, ptr nonnull @.str.82, ptr noundef nonnull align 8 dereferenceable(25) %55) #23
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %60 = load i64, ptr %3, align 8
   %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %61, i64 %60
+  %62 = getelementptr inbounds [328 x i8], ptr %61, i64 %60
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %62, i64 23, ptr nonnull @.str.83, ptr noundef nonnull align 8 dereferenceable(25) %59) #23
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %64 = load i64, ptr %3, align 8
   %65 = load ptr, ptr %1, align 8
-  %66 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %65, i64 %64
+  %66 = getelementptr inbounds [328 x i8], ptr %65, i64 %64
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %66, i64 12, ptr nonnull @.str.84, ptr noundef nonnull align 8 dereferenceable(25) %63) #23
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %68 = load i64, ptr %3, align 8
   %69 = load ptr, ptr %1, align 8
-  %70 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %69, i64 %68
+  %70 = getelementptr inbounds [328 x i8], ptr %69, i64 %68
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %70, i64 16, ptr nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(25) %67) #23
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %72 = load i64, ptr %3, align 8
   %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %73, i64 %72
+  %74 = getelementptr inbounds [328 x i8], ptr %73, i64 %72
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %74, i64 21, ptr nonnull @.str.87, ptr noundef nonnull align 8 dereferenceable(25) %71) #23
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %76 = load i64, ptr %3, align 8
   %77 = load ptr, ptr %1, align 8
-  %78 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %77, i64 %76
+  %78 = getelementptr inbounds [328 x i8], ptr %77, i64 %76
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %78, i64 25, ptr nonnull @.str.88, ptr noundef nonnull align 8 dereferenceable(25) %75) #23
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %80 = load i64, ptr %3, align 8
   %81 = load ptr, ptr %1, align 8
-  %82 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %81, i64 %80
+  %82 = getelementptr inbounds [328 x i8], ptr %81, i64 %80
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %82, i64 19, ptr nonnull @.str.90, ptr noundef nonnull align 8 dereferenceable(25) %79) #23
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %84 = load i64, ptr %3, align 8
   %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %85, i64 %84
+  %86 = getelementptr inbounds [328 x i8], ptr %85, i64 %84
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %86, i64 14, ptr nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(25) %83) #23
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %88 = load i64, ptr %3, align 8
   %89 = load ptr, ptr %1, align 8
-  %90 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %89, i64 %88
+  %90 = getelementptr inbounds [328 x i8], ptr %89, i64 %88
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %90, i64 19, ptr nonnull @.str.92, ptr noundef nonnull align 8 dereferenceable(25) %87) #23
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %92 = load i64, ptr %3, align 8
   %93 = load ptr, ptr %1, align 8
-  %94 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %93, i64 %92
+  %94 = getelementptr inbounds [328 x i8], ptr %93, i64 %92
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %94, i64 10, ptr nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(25) %91) #23
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %96 = load i64, ptr %3, align 8
   %97 = load ptr, ptr %1, align 8
-  %98 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %97, i64 %96
+  %98 = getelementptr inbounds [328 x i8], ptr %97, i64 %96
   tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ParserISA_EEEEEEvSt17basic_string_viewIcS8_ERT_(ptr noundef nonnull align 8 dereferenceable(328) %98, i64 8, ptr nonnull @.str.104, ptr noundef nonnull align 8 dereferenceable(105) %95) #23
   ret void
 }
@@ -2207,7 +2176,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %28
@@ -2331,7 +2300,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %87, %.no
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %84, ptr %58, align 8
   store ptr %88, ptr %65, align 8
-  %90 = getelementptr inbounds nuw i64, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %67, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -2453,7 +2422,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %140, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %135, ptr %115, align 8
   store ptr %139, ptr %116, align 8
-  %141 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %135, i64 %133
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %133
   store ptr %141, ptr %118, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -2468,7 +2437,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %146 = load i64, ptr %143, align 8
   %147 = load ptr, ptr %145, align 8
-  %148 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %147, i64 %146
+  %148 = getelementptr inbounds [160 x i8], ptr %147, i64 %146
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 56
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 64
   %151 = load ptr, ptr %150, align 8
@@ -2540,7 +2509,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i28: ; preds = %174, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i25
   store ptr %169, ptr %149, align 8
   store ptr %173, ptr %150, align 8
-  %175 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %169, i64 %167
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %167
   store ptr %175, ptr %152, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -2937,7 +2906,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS2_m.exit.thread, label %31
@@ -3073,7 +3042,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
 31:                                               ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -3082,7 +3051,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE.exit
@@ -3103,13 +3072,13 @@ _ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   %48 = load ptr, ptr %46, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %45, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %45, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %44, %40
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %41, ptr %54, align 8
   br label %_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE.exit
 
@@ -3170,7 +3139,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -3185,7 +3154,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8
   br label %29
 
@@ -3314,7 +3283,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread, label %38
@@ -3458,7 +3427,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -3467,7 +3436,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb1EEE.exit
@@ -3487,13 +3456,13 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb1EEE.exit
 
@@ -3553,7 +3522,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3568,7 +3537,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -3826,7 +3795,7 @@ _ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relo
 _ZNSt12_Vector_baseIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, %100
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i26, ptr %4, align 8
-  %104 = getelementptr inbounds nuw %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %20, i64 %16
+  %104 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %16
   store ptr %104, ptr %99, align 8
   ret void
 }
@@ -4286,7 +4255,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread, label %38
@@ -4531,7 +4500,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %23
@@ -4643,7 +4612,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %74, %.noex
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %76, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %71, ptr %45, align 8
   store ptr %75, ptr %52, align 8
-  %77 = getelementptr inbounds nuw i64, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr %54, align 8
   br label %_ZNSt6vectorImSaImEE12emplace_backIJmEEERmDpOT_.exit
 
@@ -4784,7 +4753,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i11: ; preds = %138, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %140, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i11
   store ptr %134, ptr %112, align 8
   store ptr %139, ptr %114, align 8
-  %141 = getelementptr inbounds nuw i64, ptr %134, i64 %132
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %132
   store ptr %141, ptr %116, align 8
   br label %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE12emplace_backIJRNS1_6OptionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6ParserISD_EEEEEEERS3_DpOT_.exit
 
@@ -4820,7 +4789,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS2_m.exit.thread, label %31
@@ -5139,7 +5108,7 @@ _ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relo
 _ZNSt12_Vector_baseIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, %111
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i26, ptr %4, align 8
-  %115 = getelementptr inbounds nuw %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %20, i64 %16
+  %115 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %16
   store ptr %115, ptr %110, align 8
   ret void
 }
@@ -5323,7 +5292,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %23
@@ -5435,7 +5404,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %74, %.noex
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %76, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %71, ptr %45, align 8
   store ptr %75, ptr %52, align 8
-  %77 = getelementptr inbounds nuw i64, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr %54, align 8
   br label %_ZNSt6vectorImSaImEE12emplace_backIJmEEERmDpOT_.exit
 
@@ -5575,7 +5544,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i11: ; preds = %143, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %145, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i11
   store ptr %139, ptr %117, align 8
   store ptr %144, ptr %119, align 8
-  %146 = getelementptr inbounds nuw i64, ptr %139, i64 %137
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %137
   store ptr %146, ptr %121, align 8
   br label %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE12emplace_backIJRNS1_4ListINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6ParserISD_EEEEEEERS3_DpOT_.exit
 
@@ -5611,7 +5580,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS2_m.exit.thread, label %31
@@ -5935,7 +5904,7 @@ _ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relo
 _ZNSt12_Vector_baseIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, %118
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i26, ptr %4, align 8
-  %122 = getelementptr inbounds nuw %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %22, i64 %16
+  %122 = getelementptr inbounds nuw [160 x i8], ptr %22, i64 %16
   store ptr %122, ptr %117, align 8
   ret void
 }
@@ -6140,7 +6109,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 
@@ -6278,7 +6247,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %28
@@ -6402,7 +6371,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %87, %.no
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %84, ptr %58, align 8
   store ptr %88, ptr %65, align 8
-  %90 = getelementptr inbounds nuw i64, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %67, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -6542,7 +6511,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %156, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %151, ptr %131, align 8
   store ptr %155, ptr %132, align 8
-  %157 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %151, i64 %149
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %149
   store ptr %157, ptr %134, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -6557,7 +6526,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %162 = load i64, ptr %159, align 8
   %163 = load ptr, ptr %161, align 8
-  %164 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %163, i64 %162
+  %164 = getelementptr inbounds [160 x i8], ptr %163, i64 %162
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 64
   %167 = load ptr, ptr %166, align 8
@@ -6629,7 +6598,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i28: ; preds = %190, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i25
   store ptr %185, ptr %165, align 8
   store ptr %189, ptr %166, align 8
-  %191 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %185, i64 %183
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %185, i64 %183
   store ptr %191, ptr %168, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -6681,7 +6650,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %28
@@ -6805,7 +6774,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %87, %.no
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %84, ptr %58, align 8
   store ptr %88, ptr %65, align 8
-  %90 = getelementptr inbounds nuw i64, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %67, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -6946,7 +6915,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %151, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %146, ptr %126, align 8
   store ptr %150, ptr %127, align 8
-  %152 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %146, i64 %144
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %144
   store ptr %152, ptr %129, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -6961,7 +6930,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %157 = load i64, ptr %154, align 8
   %158 = load ptr, ptr %156, align 8
-  %159 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %158, i64 %157
+  %159 = getelementptr inbounds [160 x i8], ptr %158, i64 %157
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 56
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 64
   %162 = load ptr, ptr %161, align 8
@@ -7033,7 +7002,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i28: ; preds = %185, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i25
   store ptr %180, ptr %160, align 8
   store ptr %184, ptr %161, align 8
-  %186 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %178
   store ptr %186, ptr %163, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -7069,7 +7038,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS2_m.exit.thread, label %31
@@ -7388,7 +7357,7 @@ _ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relo
 _ZNSt12_Vector_baseIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, %111
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i26, ptr %4, align 8
-  %115 = getelementptr inbounds nuw %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %20, i64 %16
+  %115 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %16
   store ptr %115, ptr %110, align 8
   ret void
 }
@@ -7710,7 +7679,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %28
@@ -7834,7 +7803,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %87, %.no
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %84, ptr %58, align 8
   store ptr %88, ptr %65, align 8
-  %90 = getelementptr inbounds nuw i64, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %67, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -7974,7 +7943,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %156, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %151, ptr %131, align 8
   store ptr %155, ptr %132, align 8
-  %157 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %151, i64 %149
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %149
   store ptr %157, ptr %134, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -7989,7 +7958,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %162 = load i64, ptr %159, align 8
   %163 = load ptr, ptr %161, align 8
-  %164 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %163, i64 %162
+  %164 = getelementptr inbounds [160 x i8], ptr %163, i64 %162
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 64
   %167 = load ptr, ptr %166, align 8
@@ -8061,7 +8030,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i28: ; preds = %190, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i25
   store ptr %185, ptr %165, align 8
   store ptr %189, ptr %166, align 8
-  %191 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %185, i64 %183
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %185, i64 %183
   store ptr %191, ptr %168, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -8097,7 +8066,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS2_m.exit.thread, label %31
@@ -8421,7 +8390,7 @@ _ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relo
 _ZNSt12_Vector_baseIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, %118
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i26, ptr %4, align 8
-  %122 = getelementptr inbounds nuw %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %22, i64 %16
+  %122 = getelementptr inbounds nuw [160 x i8], ptr %22, i64 %16
   store ptr %122, ptr %117, align 8
   ret void
 }
@@ -8571,7 +8540,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %40, ptr %1, align 8
   store ptr %45, ptr %19, align 8
-  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %38
   store ptr %47, ptr %21, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -8818,7 +8787,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %28
@@ -8942,7 +8911,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %87, %.no
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %84, ptr %58, align 8
   store ptr %88, ptr %65, align 8
-  %90 = getelementptr inbounds nuw i64, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %67, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -9083,7 +9052,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %151, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %146, ptr %126, align 8
   store ptr %150, ptr %127, align 8
-  %152 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %146, i64 %144
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %144
   store ptr %152, ptr %129, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -9098,7 +9067,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %157 = load i64, ptr %154, align 8
   %158 = load ptr, ptr %156, align 8
-  %159 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %158, i64 %157
+  %159 = getelementptr inbounds [160 x i8], ptr %158, i64 %157
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 56
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 64
   %162 = load ptr, ptr %161, align 8
@@ -9170,7 +9139,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i28: ; preds = %185, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i25
   store ptr %180, ptr %160, align 8
   store ptr %184, ptr %161, align 8
-  %186 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %178
   store ptr %186, ptr %163, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -9333,7 +9302,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %32, %.noex
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %29, ptr %9, align 8
   store ptr %33, ptr %10, align 8
-  %35 = getelementptr inbounds nuw i64, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %12, align 8
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -9409,7 +9378,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %61, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %56, ptr %36, align 8
   store ptr %60, ptr %37, align 8
-  %62 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %54
   store ptr %62, ptr %39, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -9505,7 +9474,7 @@ _ZNSt6vectorIN8WasmEdge2PO14ArgumentParser20SubCommandDescriptorESaIS3_EE11_S_re
 _ZNSt12_Vector_baseIN8WasmEdge2PO14ArgumentParser20SubCommandDescriptorESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge2PO14ArgumentParser20SubCommandDescriptorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [328 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 }
@@ -9595,7 +9564,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDesc
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = urem i64 %56, %36
-  %58 = getelementptr inbounds ptr, ptr %52, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %52, i64 %57
   store ptr %37, ptr %58, align 8
   br label %_ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEEC2EOS9_.exit
 
@@ -9647,7 +9616,7 @@ _ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEEC2EOS9_.e
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %84 = load i64, ptr %83, align 8
   %85 = urem i64 %84, %65
-  %86 = getelementptr inbounds ptr, ptr %81, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %81, i64 %85
   store ptr %66, ptr %86, align 8
   br label %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEC2EOSC_.exit
 
@@ -9699,7 +9668,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %111 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %112 = load i64, ptr %111, align 8
   %113 = urem i64 %112, %93
-  %114 = getelementptr inbounds ptr, ptr %109, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %109, i64 %113
   store ptr %94, ptr %114, align 8
   br label %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEC2EOSC_.exit14
 
@@ -9850,7 +9819,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread, label %38

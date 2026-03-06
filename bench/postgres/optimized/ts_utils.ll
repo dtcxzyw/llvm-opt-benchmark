@@ -113,7 +113,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   %.061 = phi ptr [ %15, %.lr.ph ], [ %28, %25 ]
   %20 = load ptr, ptr %17, align 8
   %21 = zext i8 %19 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8192
   %.not53 = icmp eq i16 %24, 0
@@ -168,11 +168,11 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   %47 = call ptr %2(ptr noundef nonnull %15, i64 noundef %46, i32 noundef 100) #8
   %48 = load i32, ptr %1, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %.3, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %.3, i64 %49
   store ptr %47, ptr %50, align 8
   %51 = load i32, ptr %1, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %.3, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.3, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not56 = icmp eq ptr %54, %15
   br i1 %.not56, label %60, label %55
@@ -184,7 +184,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
 56:                                               ; preds = %44
   %57 = load i32, ptr %1, align 8
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %.3, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %.3, i64 %58
   store ptr %15, ptr %59, align 8
   br label %60
 

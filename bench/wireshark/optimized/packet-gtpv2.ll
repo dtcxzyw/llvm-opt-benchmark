@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.true_false_string = type { ptr, ptr }
 %struct.unit_name_string = type { ptr, ptr }
 %struct._value_string = type { i32, ptr }
-%struct._gtpv2_information_element_instance = type { i8, i8, i8, i8, ptr }
-%struct._gtpv2_ie = type { i32, ptr }
 %struct.gtpv2_msg_hash_entry = type { i8, i32, %struct.nstime_t, i32, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
@@ -4410,7 +4408,7 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
 32:                                               ; preds = %18
   %33 = add nuw nsw i32 %23, 4
   %34 = zext i8 %19 to i64
-  %35 = getelementptr i32, ptr @ett_gtpv2_ies, i64 %34
+  %35 = getelementptr [4 x i8], ptr @ett_gtpv2_ies, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = zext i8 %19 to i32
   %38 = call ptr @val_to_str_ext_const(i32 noundef %37, ptr noundef nonnull @gtpv2_element_type_vals_ext, ptr noundef nonnull @.str.14)
@@ -4439,7 +4437,7 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
 
 .preheader107:                                    ; preds = %48, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %48 ]
-  %55 = getelementptr %struct._gtpv2_information_element_instance, ptr @gtpv2_information_element_instance_vals, i64 %indvars.iv
+  %55 = getelementptr [16 x i8], ptr @gtpv2_information_element_instance_vals, i64 %indvars.iv
   %56 = load i8, ptr %55, align 16
   %57 = icmp eq i8 %56, %4
   br i1 %57, label %58, label %73
@@ -4495,7 +4493,7 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %83, label %79
 
 79:                                               ; preds = %.preheader
-  %80 = getelementptr %struct._gtpv2_ie, ptr @gtpv2_ies, i64 %indvars.iv.next134
+  %80 = getelementptr [16 x i8], ptr @gtpv2_ies, i64 %indvars.iv.next134
   %81 = load i32, ptr %80, align 16
   %82 = icmp eq i32 %81, %37
   br i1 %82, label %83, label %.preheader, !llvm.loop !10
@@ -4623,8 +4621,8 @@ define hidden void @proto_register_gtpv2() local_unnamed_addr #1 {
 1:                                                ; preds = %0, %1
   %indvars.iv10 = phi i64 [ 85, %0 ], [ %indvars.iv.next11, %1 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr i32, ptr @ett_gtpv2_ies, i64 %indvars.iv
-  %3 = getelementptr ptr, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 %indvars.iv10
+  %2 = getelementptr [4 x i8], ptr @ett_gtpv2_ies, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 %indvars.iv10
   store ptr %2, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
@@ -8091,7 +8089,7 @@ define internal void @dissect_gtpv2_F_cause(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %10
   %15 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gtpv2_ran_nas_cause, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_gtpv2_ran_nas_cause, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = load i32, ptr %switch.load, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
@@ -8117,7 +8115,7 @@ switch.lookup:                                    ; preds = %10
 
 switch.lookup40:                                  ; preds = %20
   %25 = zext nneg i8 %23 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gtpv2_ran_nas_cause, i64 %25
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_gtpv2_ran_nas_cause, i64 %25
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   %26 = load i32, ptr %switch.load42, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
@@ -9130,7 +9128,7 @@ define internal void @dissect_gtpv2_ran_nas_cause(ptr noundef %0, ptr readnone c
 
 switch.lookup:                                    ; preds = %13
   %18 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gtpv2_ran_nas_cause, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_gtpv2_ran_nas_cause, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = load i32, ptr %switch.load, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._spiral = type { i32, i32 }
 %struct.cmsSpherical = type { double, double, double }
 %struct.cmsVEC3 = type { [3 x double] }
-%struct.cmsGDBPoint = type { i32, %struct.cmsSpherical }
 %struct.cmsLine = type { %struct.cmsVEC3, %struct.cmsVEC3 }
 
 @.str = private unnamed_addr constant [29 x i8] c"spherical value out of range\00", align 1
@@ -186,9 +185,9 @@ QuantizeToSector.exit:                            ; preds = %ToSpherical.exit, %
 62:                                               ; preds = %QuantizeToSector.exit
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = zext nneg i32 %.022 to i64
-  %65 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [512 x i8], ptr %63, i64 %64
   %66 = zext nneg i32 %spec.select to i64
-  %67 = getelementptr inbounds nuw %struct.cmsGDBPoint, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %66
   br label %68
 
 68:                                               ; preds = %62, %60, %46
@@ -271,9 +270,9 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
   %8 = alloca %struct.cmsLine, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds [16 x %struct.cmsGDBPoint], ptr %9, i64 %10
+  %11 = getelementptr inbounds [512 x i8], ptr %9, i64 %10
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %struct.cmsGDBPoint, ptr %11, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.preheader, label %203
@@ -281,7 +280,7 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
 .preheader:                                       ; preds = %3, %30
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %3 ]
   %.028.i = phi i32 [ %.1.i, %30 ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw %struct._spiral, ptr @Spiral, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @Spiral, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 8
   %17 = add nsw i32 %16, %1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -290,9 +289,9 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
   %spec.select.i = and i32 %17, 15
   %.020.i = and i32 %20, 15
   %21 = zext nneg i32 %.020.i to i64
-  %22 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %9, i64 %21
+  %22 = getelementptr inbounds nuw [512 x i8], ptr %9, i64 %21
   %23 = zext nneg i32 %spec.select.i to i64
-  %24 = getelementptr inbounds nuw %struct.cmsGDBPoint, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %30, label %26
@@ -300,7 +299,7 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
 26:                                               ; preds = %.preheader
   %27 = add nsw i32 %.028.i, 1
   %28 = sext i32 %.028.i to i64
-  %29 = getelementptr inbounds ptr, ptr %7, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %7, i64 %28
   store ptr %24, ptr %29, align 8
   br label %30
 
@@ -387,7 +386,7 @@ FindNearSectors.exit:                             ; preds = %30
   br i1 %80, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %79
-  %81 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv81
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv81
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -414,7 +413,7 @@ FindNearSectors.exit:                             ; preds = %30
   %99 = fmul double %90, %98
   %100 = fmul double %91, %98
   %101 = fmul double %96, %97
-  %102 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv77
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv77
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16

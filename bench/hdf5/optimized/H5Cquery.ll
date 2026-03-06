@@ -297,7 +297,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
   %31 = lshr i64 %1, 3
   %32 = and i64 %31, 65535
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 280
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %32
   %.05885 = load ptr, ptr %34, align 8, !tbaa !64
   %cond86 = icmp eq ptr %.05885, null
   %.not72 = icmp eq i64 %1, -1
@@ -545,7 +545,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr noundef readonly captures(no
   %17 = lshr i64 %1, 3
   %18 = and i64 %17, 65535
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 280
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %.03240 = load ptr, ptr %20, align 8, !tbaa !64
   %cond41 = icmp eq ptr %.03240, null
   %.not36 = icmp eq i64 %1, -1

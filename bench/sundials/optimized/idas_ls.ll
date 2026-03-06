@@ -2462,9 +2462,9 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
   %.090103 = phi i64 [ 0, %.lr.ph ], [ %90, %87 ]
   %38 = tail call ptr @SUNDenseMatrix_Column(ptr noundef %5, i64 noundef %.090103) #14
   tail call void @N_VSetArrayPointer(ptr noundef %38, ptr noundef %12) #14
-  %39 = getelementptr inbounds nuw double, ptr %16, i64 %.090103
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.090103
   %40 = load double, ptr %39, align 8, !tbaa !115
-  %41 = getelementptr inbounds nuw double, ptr %17, i64 %.090103
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.090103
   %42 = load double, ptr %41, align 8, !tbaa !115
   %43 = tail call double @llvm.fabs.f64(double %40)
   %44 = load double, ptr %33, align 8, !tbaa !122
@@ -2473,7 +2473,7 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
   %47 = fcmp ogt double %43, %46
   %. = select i1 %47, double %43, double %46
   %48 = fmul double %31, %.
-  %49 = getelementptr inbounds nuw double, ptr %15, i64 %.090103
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.090103
   %50 = load double, ptr %49, align 8, !tbaa !115
   %51 = fdiv double 1.000000e+00, %50
   %52 = fcmp ogt double %48, %51
@@ -2488,7 +2488,7 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
   br i1 %.not100, label %78, label %59
 
 59:                                               ; preds = %37
-  %60 = getelementptr inbounds nuw double, ptr %.089, i64 %.090103
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.089, i64 %.090103
   %61 = load double, ptr %60, align 8, !tbaa !115
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fcmp oeq double %62, 1.000000e+00
@@ -2616,11 +2616,11 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 
 49:                                               ; preds = %.lr.ph, %88
   %.0172201 = phi i64 [ %47, %.lr.ph ], [ %95, %88 ]
-  %50 = getelementptr inbounds double, ptr %20, i64 %.0172201
+  %50 = getelementptr inbounds [8 x i8], ptr %20, i64 %.0172201
   %51 = load double, ptr %50, align 8, !tbaa !115
-  %52 = getelementptr inbounds double, ptr %21, i64 %.0172201
+  %52 = getelementptr inbounds [8 x i8], ptr %21, i64 %.0172201
   %53 = load double, ptr %52, align 8, !tbaa !115
-  %54 = getelementptr inbounds double, ptr %18, i64 %.0172201
+  %54 = getelementptr inbounds [8 x i8], ptr %18, i64 %.0172201
   %55 = load double, ptr %54, align 8, !tbaa !115
   %56 = tail call double @llvm.fabs.f64(double %51)
   %57 = load double, ptr %43, align 8, !tbaa !122
@@ -2640,7 +2640,7 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
   br i1 %.not196, label %88, label %69
 
 69:                                               ; preds = %49
-  %70 = getelementptr inbounds double, ptr %.0170, i64 %.0172201
+  %70 = getelementptr inbounds [8 x i8], ptr %.0170, i64 %.0172201
   %71 = load double, ptr %70, align 8, !tbaa !115
   %72 = tail call double @llvm.fabs.f64(double %71)
   %73 = fcmp oeq double %72, 1.000000e+00
@@ -2672,11 +2672,11 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 
 88:                                               ; preds = %78, %74, %82, %86, %80, %49
   %.1168 = phi double [ %79, %78 ], [ %68, %74 ], [ %87, %86 ], [ %68, %82 ], [ %68, %80 ], [ %68, %49 ]
-  %89 = getelementptr inbounds double, ptr %23, i64 %.0172201
+  %89 = getelementptr inbounds [8 x i8], ptr %23, i64 %.0172201
   %90 = load double, ptr %89, align 8, !tbaa !115
   %91 = fadd double %.1168, %90
   store double %91, ptr %89, align 8, !tbaa !115
-  %92 = getelementptr inbounds double, ptr %24, i64 %.0172201
+  %92 = getelementptr inbounds [8 x i8], ptr %24, i64 %.0172201
   %93 = load double, ptr %92, align 8, !tbaa !115
   %94 = tail call double @llvm.fmuladd.f64(double %1, double %.1168, double %93)
   store double %94, ptr %92, align 8, !tbaa !115
@@ -2696,16 +2696,16 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 
 .lr.ph208:                                        ; preds = %._crit_edge, %._crit_edge206
   %.1173207 = phi i64 [ %158, %._crit_edge206 ], [ %47, %._crit_edge ]
-  %102 = getelementptr inbounds double, ptr %20, i64 %.1173207
+  %102 = getelementptr inbounds [8 x i8], ptr %20, i64 %.1173207
   %103 = load double, ptr %102, align 8, !tbaa !115
-  %104 = getelementptr inbounds double, ptr %23, i64 %.1173207
+  %104 = getelementptr inbounds [8 x i8], ptr %23, i64 %.1173207
   store double %103, ptr %104, align 8, !tbaa !115
-  %105 = getelementptr inbounds double, ptr %21, i64 %.1173207
+  %105 = getelementptr inbounds [8 x i8], ptr %21, i64 %.1173207
   %106 = load double, ptr %105, align 8, !tbaa !115
-  %107 = getelementptr inbounds double, ptr %24, i64 %.1173207
+  %107 = getelementptr inbounds [8 x i8], ptr %24, i64 %.1173207
   store double %106, ptr %107, align 8, !tbaa !115
   %108 = tail call ptr @SUNBandMatrix_Column(ptr noundef %5, i64 noundef %.1173207) #14
-  %109 = getelementptr inbounds double, ptr %18, i64 %.1173207
+  %109 = getelementptr inbounds [8 x i8], ptr %18, i64 %.1173207
   %110 = load double, ptr %109, align 8, !tbaa !115
   %111 = tail call double @llvm.fabs.f64(double %103)
   %112 = load double, ptr %43, align 8, !tbaa !122
@@ -2727,7 +2727,7 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
   br i1 %.not194, label %144, label %125
 
 125:                                              ; preds = %.lr.ph208
-  %126 = getelementptr inbounds double, ptr %.0170, i64 %.1173207
+  %126 = getelementptr inbounds [8 x i8], ptr %.0170, i64 %.1173207
   %127 = load double, ptr %126, align 8, !tbaa !115
   %128 = tail call double @llvm.fabs.f64(double %127)
   %129 = fcmp oeq double %128, 1.000000e+00
@@ -2769,14 +2769,14 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 
 .lr.ph205:                                        ; preds = %144, %.lr.ph205
   %.0171203 = phi i64 [ %157, %.lr.ph205 ], [ %147, %144 ]
-  %149 = getelementptr inbounds nuw double, ptr %22, i64 %.0171203
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0171203
   %150 = load double, ptr %149, align 8, !tbaa !115
-  %151 = getelementptr inbounds nuw double, ptr %19, i64 %.0171203
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0171203
   %152 = load double, ptr %151, align 8, !tbaa !115
   %153 = fsub double %150, %152
   %154 = fmul double %145, %153
   %155 = sub nsw i64 %.0171203, %.1173207
-  %156 = getelementptr inbounds double, ptr %108, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %108, i64 %155
   store double %154, ptr %156, align 8, !tbaa !115
   %157 = add nuw nsw i64 %.0171203, 1
   %.not195.not = icmp slt i64 %.0171203, %.200

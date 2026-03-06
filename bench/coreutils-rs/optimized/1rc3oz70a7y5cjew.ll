@@ -751,7 +751,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf9e2899c602
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -3259,7 +3259,7 @@ default.unreachable:                              ; preds = %397, %224, %174
 359:                                              ; preds = %._crit_edge.i.i, %"_ZN63_$LT$std..path..Path$u20$as$u20$uu_tail..paths..PathExtTail$GT$9is_orphan17h9c56f2d02dfdd95eE.exit.thread.i"
   %360 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %338, %"_ZN63_$LT$std..path..Path$u20$as$u20$uu_tail..paths..PathExtTail$GT$9is_orphan17h9c56f2d02dfdd95eE.exit.thread.i" ]
   %361 = load ptr, ptr %273, align 8, !alias.scope !503, !noalias !506, !nonnull !4, !noundef !4
-  %362 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %361, i64 %360
+  %362 = getelementptr inbounds [24 x i8], ptr %361, i64 %360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %363 = load i64, ptr %272, align 8, !alias.scope !503, !noalias !506, !noundef !4
   %364 = add i64 %363, 1
@@ -5276,7 +5276,7 @@ _ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit: ;
   br i1 %.0.i.i246, label %757, label %.noexc.i237
 
 757:                                              ; preds = %754
-  %758 = getelementptr { { { { { i64, ptr, {} }, i64 } } } }, ptr %486, i64 %487
+  %758 = getelementptr [24 x i8], ptr %486, i64 %487
   %759 = getelementptr i8, ptr %758, i64 -24
   %760 = icmp eq ptr %759, null
   br i1 %760, label %.invoke.i, label %762
@@ -6240,7 +6240,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %1025
 1050:                                             ; preds = %1049, %967
   %.val207 = load ptr, ptr %232, align 8, !nonnull !4, !noundef !4
   %.val208 = load i64, ptr %233, align 8, !noundef !4
-  %1051 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %.val207, i64 %.val208
+  %1051 = getelementptr inbounds [24 x i8], ptr %.val207, i64 %.val208
   br label %1052
 
 1052:                                             ; preds = %1078, %1050

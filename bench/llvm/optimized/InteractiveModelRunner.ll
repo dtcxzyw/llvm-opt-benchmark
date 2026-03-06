@@ -53,10 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected" = type { %union.anon.38, i8, [7 x i8] }
 %union.anon.38 = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [8 x i8] }
-%"class.std::vector.42" = type { %"struct.std::_Vector_base.43" }
-%"struct.std::_Vector_base.43" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" }
-%"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.llvm::cl::initializer" = type { ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 
@@ -160,7 +156,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -298,7 +294,7 @@ _ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i: ; preds = %_ZNSt6vector
   %32 = shl nuw nsw i64 %25, 3
   %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #20
   store ptr %33, ptr %28, align 8, !tbaa !74
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %34, ptr %35, align 8, !tbaa !75
   store ptr null, ptr %33, align 8, !tbaa !76
@@ -780,7 +776,7 @@ _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit: ; pr
 237:                                              ; preds = %.lr.ph, %_ZN4llvm13MLModelRunner20setUpBufferForTensorEmRKNS_10TensorSpecEPv.exit
   %238 = phi ptr [ %227, %.lr.ph ], [ %270, %_ZN4llvm13MLModelRunner20setUpBufferForTensorEmRKNS_10TensorSpecEPv.exit ]
   %.043 = phi i64 [ 0, %.lr.ph ], [ %268, %_ZN4llvm13MLModelRunner20setUpBufferForTensorEmRKNS_10TensorSpecEPv.exit ]
-  %239 = getelementptr inbounds nuw %"class.llvm::TensorSpec", ptr %238, i64 %.043
+  %239 = getelementptr inbounds nuw [80 x i8], ptr %238, i64 %.043
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 64
   %241 = load i64, ptr %240, align 8, !tbaa !124
@@ -814,7 +810,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6
   %251 = shl nuw nsw i64 %244, 3
   %252 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %251) #20
   store ptr %252, ptr %245, align 8, !tbaa !162
-  %253 = getelementptr inbounds nuw ptr, ptr %252, i64 %244
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %244
   %254 = getelementptr inbounds nuw i8, ptr %245, i64 16
   store ptr %253, ptr %254, align 8, !tbaa !165
   store ptr null, ptr %252, align 8, !tbaa !54
@@ -849,7 +845,7 @@ _ZN4llvm13MLModelRunner20setUpBufferForTensorEmRKNS_10TensorSpecEPv.exit: ; pred
   %264 = getelementptr inbounds i8, ptr %263, i64 -24
   %265 = load ptr, ptr %264, align 8, !tbaa !162
   %266 = load ptr, ptr %28, align 8, !tbaa !74
-  %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %.043
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %.043
   store ptr %265, ptr %267, align 8, !tbaa !76
   %268 = add nuw i64 %.043, 1
   %269 = load ptr, ptr %55, align 8, !tbaa !56
@@ -1124,11 +1120,11 @@ _ZN4llvm6Logger5flushEv.exit:                     ; preds = %._crit_edge, %19
   %.01123 = phi i64 [ 0, %.lr.ph ], [ %47, %32 ]
   %33 = load ptr, ptr %5, align 8, !tbaa !154
   %34 = load ptr, ptr %11, align 8, !tbaa !74
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.01123
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.01123
   %36 = load ptr, ptr %35, align 8, !tbaa !76
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !59
-  %39 = getelementptr inbounds nuw %"class.llvm::TensorSpec", ptr %38, i64 %.01123
+  %39 = getelementptr inbounds nuw [80 x i8], ptr %38, i64 %.01123
   %40 = load ptr, ptr %33, align 8, !tbaa !153
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %42 = load i64, ptr %41, align 8, !tbaa !124
@@ -1475,7 +1471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %22 ]
   %16 = load ptr, ptr %8, align 8, !tbaa !186
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !187
   %magicptr.i = ptrtoint ptr %18 to i64
   switch i64 %magicptr.i, label %19 [
@@ -1657,7 +1653,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread.i.i.i: ; preds = %_ZNSt6vect
   %28 = shl nuw nsw i64 %24, 3
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #20
   store ptr %29, ptr %23, align 8, !tbaa !162
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !165
   store ptr null, ptr %29, align 8, !tbaa !54
@@ -1743,7 +1739,7 @@ _ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds =
 _ZNSt12_Vector_baseISt6vectorIPcSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %57
   store ptr %22, ptr %0, align 8, !tbaa !172
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !160
-  %61 = getelementptr inbounds nuw %"class.std::vector.42", ptr %22, i64 %16
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %16
   store ptr %61, ptr %56, align 8, !tbaa !161
   ret void
 }

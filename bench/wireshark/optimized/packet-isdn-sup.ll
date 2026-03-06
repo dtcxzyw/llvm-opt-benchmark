@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct._isdn_sup_op_t = type { i32, ptr, ptr }
-%struct.isdn_sup_err_t = type { i32, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.2, %struct.anon.3, ptr }
 %struct.anon = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
 %union.anon = type { %struct.anon.0 }
@@ -927,7 +925,7 @@ define hidden void @proto_reg_handoff_isdn_sup() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr %struct._isdn_sup_op_t, ptr @isdn_sup_op_tab, i64 %indvars.iv
+  %2 = getelementptr [24 x i8], ptr @isdn_sup_op_tab, i64 %indvars.iv
   %3 = load i32, ptr %2, align 8
   %4 = load ptr, ptr @isdn_sup_arg_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str, i32 noundef %3, ptr noundef %4)
@@ -939,7 +937,7 @@ define hidden void @proto_reg_handoff_isdn_sup() local_unnamed_addr #0 {
 
 .preheader17:                                     ; preds = %1, %.preheader17
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader17 ], [ 0, %1 ]
-  %6 = getelementptr %struct._isdn_global_sup_op_t, ptr @isdn_sup_global_op_tab, i64 %indvars.iv22
+  %6 = getelementptr [24 x i8], ptr @isdn_sup_global_op_tab, i64 %indvars.iv22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
@@ -952,7 +950,7 @@ define hidden void @proto_reg_handoff_isdn_sup() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader17, %.preheader
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.preheader ], [ 0, %.preheader17 ]
-  %12 = getelementptr %struct.isdn_sup_err_t, ptr @isdn_sup_err_tab, i64 %indvars.iv26
+  %12 = getelementptr [16 x i8], ptr @isdn_sup_err_tab, i64 %indvars.iv26
   %13 = load i32, ptr %12, align 16
   %14 = load ptr, ptr @isdn_sup_err_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.4, i32 noundef %13, ptr noundef %14)
@@ -1051,7 +1049,7 @@ define internal i32 @dissect_isdn_sup_arg(ptr noundef %0, ptr noundef %1, ptr no
 21:                                               ; preds = %19, %16
   %.06.i = phi i32 [ 31, %16 ], [ %20, %19 ]
   %22 = zext nneg i32 %.06.i to i64
-  %23 = getelementptr %struct._isdn_sup_op_t, ptr @isdn_sup_op_tab, i64 %22
+  %23 = getelementptr [24 x i8], ptr @isdn_sup_op_tab, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %18
   br i1 %25, label %get_op.exit, label %19
@@ -1154,7 +1152,7 @@ define internal i32 @dissect_isdn_sup_res(ptr noundef %0, ptr noundef %1, ptr no
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 31, %15 ], [ %19, %18 ]
   %21 = zext nneg i32 %.06.i to i64
-  %22 = getelementptr %struct._isdn_sup_op_t, ptr @isdn_sup_op_tab, i64 %21
+  %22 = getelementptr [24 x i8], ptr @isdn_sup_op_tab, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %17
   br i1 %24, label %get_op.exit, label %18
@@ -1257,7 +1255,7 @@ define internal i32 @dissect_isdn_sup_err(ptr noundef %0, ptr noundef %1, ptr no
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 30, %15 ], [ %19, %18 ]
   %21 = zext nneg i32 %.06.i to i64
-  %22 = getelementptr %struct.isdn_sup_err_t, ptr @isdn_sup_err_tab, i64 %21
+  %22 = getelementptr [16 x i8], ptr @isdn_sup_err_tab, i64 %21
   %23 = load i32, ptr %22, align 16
   %24 = icmp eq i32 %23, %17
   br i1 %24, label %get_err.exit, label %18

@@ -217,7 +217,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !21, !nonnull !8, !align !23, !noundef !8
-  %33 = getelementptr inbounds nuw { ptr, i64 }, ptr %32, i64 %28
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %28
   %34 = load ptr, ptr %33, align 8, !noalias !21, !nonnull !8, !align !22, !noundef !8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i64, ptr %35, align 8, !noalias !21, !noundef !8
@@ -1036,7 +1036,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   %52 = add i64 %.sroa.01.0.i.i, %51
   %53 = and i64 %52, %43
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds { { ptr, i64 }, {} }, ptr %44, i64 %54
+  %55 = getelementptr inbounds [16 x i8], ptr %44, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -8
   %.val5.i.i = load i64, ptr %56, align 8, !alias.scope !140, !noalias !145, !noundef !8
   %.not.i.i.i.i.i.i = icmp eq i64 %2, %.val5.i.i
@@ -1108,7 +1108,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf1b8
   %17 = add i64 %.sroa.01.0.i, %16
   %18 = and i64 %17, %8
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds { { ptr, i64 }, {} }, ptr %9, i64 %19
+  %20 = getelementptr inbounds [16 x i8], ptr %9, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -8
   %.val5.i = load i64, ptr %21, align 8, !alias.scope !166, !noalias !171, !noundef !8
   %.not.i.i.i.i.i = icmp eq i64 %3, %.val5.i
@@ -1215,7 +1215,7 @@ define void @_ZN16html_to_markdown12html_element11HtmlElement4attr17h7bed20d13dd
   %16 = load ptr, ptr %15, align 8, !nonnull !8, !noundef !8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i64, ptr %17, align 8, !noundef !8
-  %19 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %16, i64 %18
+  %19 = getelementptr inbounds [40 x i8], ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1447,7 +1447,7 @@ define void @_ZN16html_to_markdown12html_element11HtmlElement7classes17he829ebe8
   %13 = load ptr, ptr %12, align 8, !nonnull !8, !noundef !8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1732,7 +1732,7 @@ define noundef zeroext i1 @_ZN16html_to_markdown12html_element11HtmlElement9has_
   %13 = load ptr, ptr %12, align 8, !noalias !296, !nonnull !8, !noundef !8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8, !noalias !296, !noundef !8
-  %16 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %13, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !296
   store ptr %5, ptr %4, align 8, !noalias !299
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1788,7 +1788,7 @@ define noundef zeroext i1 @_ZN16html_to_markdown12html_element11HtmlElement15has
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [40 x i8], ptr %11, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !noalias !317
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8

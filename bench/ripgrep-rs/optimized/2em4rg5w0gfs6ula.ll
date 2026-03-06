@@ -77,7 +77,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   store i64 0, ptr %5, align 8, !alias.scope !8, !noalias !5
   %26 = load ptr, ptr %4, align 8, !alias.scope !8, !noalias !5, !nonnull !4, !noundef !4
   %27 = sub nuw i64 %23, %.val28
-  %28 = getelementptr inbounds { i8, i8 }, ptr %26, i64 %.val28
+  %28 = getelementptr inbounds [2 x i8], ptr %26, i64 %.val28
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.val28, ptr %29, align 8, !alias.scope !5, !noalias !8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -103,9 +103,9 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
 
 36:                                               ; preds = %.preheader.split
   %37 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %38 = getelementptr { i8, i8 }, ptr %37, i64 %34
+  %38 = getelementptr [2 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -2
-  %40 = getelementptr inbounds { i8, i8 }, ptr %37, i64 %.sroa.01.037
+  %40 = getelementptr inbounds [2 x i8], ptr %37, i64 %.sroa.01.037
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -143,7 +143,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit: ; preds 
 
 53:                                               ; preds = %.critedge
   %54 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds { i8, i8 }, ptr %54, i64 %.sroa.01.037
+  %55 = getelementptr inbounds [2 x i8], ptr %54, i64 %.sroa.01.037
   %56 = load i8, ptr %55, align 1, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %57, align 1, !noundef !4
@@ -160,7 +160,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit: ; preds 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit": ; preds = %53, %61
   %62 = phi ptr [ %.pre, %61 ], [ %54, %53 ]
   %63 = phi i64 [ %.pre.i, %61 ], [ %34, %53 ]
-  %64 = getelementptr inbounds { i8, i8 }, ptr %62, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %62, i64 %63
   store i8 %56, ptr %64, align 1
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i8 %58, ptr %65, align 1
@@ -240,7 +240,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   store i64 0, ptr %5, align 8, !alias.scope !44, !noalias !41
   %24 = load ptr, ptr %4, align 8, !alias.scope !44, !noalias !41, !nonnull !4, !noundef !4
   %25 = sub nuw i64 %21, %.val27
-  %26 = getelementptr inbounds { i32, i32 }, ptr %24, i64 %.val27
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %.val27
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.val27, ptr %27, align 8, !alias.scope !41, !noalias !44
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -266,9 +266,9 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
 
 34:                                               ; preds = %.preheader.split
   %35 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr { i32, i32 }, ptr %35, i64 %32
+  %36 = getelementptr [8 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -8
-  %38 = getelementptr inbounds { i32, i32 }, ptr %35, i64 %.sroa.01.039
+  %38 = getelementptr inbounds [8 x i8], ptr %35, i64 %.sroa.01.039
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -304,7 +304,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds 
 
 49:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
   %50 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds { i32, i32 }, ptr %50, i64 %.sroa.01.039
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %.sroa.01.039
   %52 = load i32, ptr %51, align 4, !range !40, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load i32, ptr %53, align 4, !range !40, !noundef !4
@@ -321,7 +321,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit": ; preds = %49, %57
   %58 = phi ptr [ %.pre, %57 ], [ %50, %49 ]
   %59 = phi i64 [ %.pre.i, %57 ], [ %32, %49 ]
-  %60 = getelementptr inbounds { i32, i32 }, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   store i32 %52, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %54, ptr %61, align 4

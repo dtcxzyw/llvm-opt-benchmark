@@ -3,19 +3,12 @@ source_filename = "bench/llvm/original/ASTConcept.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.354" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.354" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.355" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.355" = type { %"class.llvm::PointerIntPair.356" }
-%"class.llvm::PointerIntPair.356" = type { %"struct.llvm::detail::PunnedPointer.357" }
-%"struct.llvm::detail::PunnedPointer.357" = type { [8 x i8] }
 %"struct.clang::DeclarationNameInfo" = type { %"class.clang::DeclarationName", %"class.clang::SourceLocation", %"class.clang::DeclarationNameLoc" }
 %"class.clang::DeclarationName" = type { i64 }
 %"class.clang::SourceLocation" = type { i32 }
 %"class.clang::DeclarationNameLoc" = type { %union.anon.365 }
 %union.anon.365 = type { %"struct.clang::DeclarationNameLoc::NT" }
 %"struct.clang::DeclarationNameLoc::NT" = type { ptr }
-%"struct.std::pair.380" = type { ptr, i64 }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -62,8 +55,8 @@ define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextE
   %21 = phi i64 [ 0, %.lr.ph ], [ %26, %20 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %25, %20 ]
   %22 = load ptr, ptr %4, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw %"class.llvm::PointerUnion", ptr %22, i64 %21
-  %24 = getelementptr inbounds nuw %"class.llvm::PointerUnion", ptr %19, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %.val = load i64, ptr %23, align 8
   tail call fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.val, ptr noundef nonnull %24)
   %25 = add i32 %.010, 1
@@ -200,8 +193,8 @@ define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextE
 17:                                               ; preds = %.lr.ph, %17
   %18 = phi i64 [ 0, %.lr.ph ], [ %22, %17 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %21, %17 ]
-  %19 = getelementptr inbounds nuw %"class.llvm::PointerUnion", ptr %15, i64 %18
-  %20 = getelementptr inbounds nuw %"class.llvm::PointerUnion", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %.val = load i64, ptr %19, align 8
   tail call fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.val, ptr noundef nonnull %20)
   %21 = add i32 %.010, 1
@@ -314,7 +307,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %12, %5
   %16 = phi i32 [ %9, %5 ], [ %.pre.i.i.i.i.i, %12 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !30
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 %7, ptr %19, align 1
   %20 = load i32, ptr %8, align 8, !tbaa !3
   %21 = add i32 %20, 1
@@ -337,7 +330,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %29 = trunc nuw i64 %28 to i32
   %30 = load ptr, ptr %0, align 8, !tbaa !30
   %31 = zext i32 %27 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 %29, ptr %32, align 1
   %33 = load i32, ptr %8, align 8, !tbaa !3
   %34 = add i32 %33, 1
@@ -359,7 +352,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %37, %_ZN4llvm16Fol
   %41 = phi i32 [ %34, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i.i.i, %37 ]
   %42 = load ptr, ptr %0, align 8, !tbaa !30
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %35, ptr %44, align 1
   %45 = load i32, ptr %8, align 8, !tbaa !3
   %46 = add i32 %45, 1
@@ -382,7 +375,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSe
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %0, align 8, !tbaa !30
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %8, align 8, !tbaa !3
   %59 = add i32 %58, 1
@@ -599,7 +592,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !30
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.380", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -640,7 +633,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !30
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !3

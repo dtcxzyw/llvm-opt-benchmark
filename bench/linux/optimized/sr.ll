@@ -287,7 +287,7 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   %126 = load i8, ptr %125, align 1
   %127 = lshr i8 %126, 5
   %128 = zext nneg i8 %127 to i64
-  %129 = getelementptr ptr, ptr @get_capabilities.loadmech, i64 %128
+  %129 = getelementptr [8 x i8], ptr @get_capabilities.loadmech, i64 %128
   %130 = load ptr, ptr %129, align 8
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.16, ptr noundef %97, ptr noundef nonnull %51, ptr noundef nonnull @.str.18, i32 noundef %102, i32 noundef %87, ptr noundef nonnull %108, ptr noundef nonnull %111, ptr noundef nonnull %116, ptr noundef nonnull %121, ptr noundef nonnull %124, ptr noundef %130) #10
   %131 = load i8, ptr %125, align 1

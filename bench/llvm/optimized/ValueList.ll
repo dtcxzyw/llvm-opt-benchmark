@@ -7,11 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.21 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.21 = type { i64, [8 x i8] }
-%"struct.std::pair" = type <{ %"class.llvm::WeakTrackingVH", i32, [4 x i8] }>
-%"class.llvm::WeakTrackingVH" = type { %"class.llvm::ValueHandleBase" }
-%"class.llvm::ValueHandleBase" = type { %"class.llvm::PointerIntPair", ptr, ptr }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 %class.anon = type { i8 }
 %"class.llvm::Expected" = type { %union.anon, i8, [7 x i8] }
 %union.anon = type { %"struct.llvm::AlignedCharArrayUnion" }
@@ -19,12 +14,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
-%"struct.std::_Head_base.2" = type { ptr }
+%"struct.std::pair" = type <{ %"class.llvm::WeakTrackingVH", i32, [4 x i8] }>
+%"class.llvm::WeakTrackingVH" = type { %"class.llvm::ValueHandleBase" }
+%"class.llvm::ValueHandleBase" = type { %"class.llvm::PointerIntPair", ptr, ptr }
+%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
+%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 
 $_ZNSt6vectorISt4pairIN4llvm14WeakTrackingVHEjESaIS3_EE17_M_realloc_insertIJRPNS1_5ValueERjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_ = comdat any
 
@@ -128,7 +122,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %29, %_ZNSt16allocat
   br i1 %39, label %40, label %_ZN4llvm22BitcodeReaderValueList6resizeEj.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %33
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %33
   %.not.i.i.i = icmp eq ptr %11, %41
   br i1 %.not.i.i.i, label %_ZN4llvm22BitcodeReaderValueList6resizeEj.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -159,7 +153,7 @@ _ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit.i.i.i: ;
 _ZN4llvm22BitcodeReaderValueList6resizeEj.exit:   ; preds = %_ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit.i.i.i, %40, %38, %36, %30
   %46 = zext i32 %2 to i64
   %47 = load ptr, ptr %1, align 8, !tbaa !9
-  %48 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !20
   %.not17 = icmp eq ptr %50, null
@@ -285,7 +279,7 @@ define dso_local noundef ptr @_ZN4llvm22BitcodeReaderValueList14getValueFwdRefEj
   br i1 %33, label %34, label %_ZN4llvm22BitcodeReaderValueList6resizeEj.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %27
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %27
   %.not.i.i.i = icmp eq ptr %18, %35
   br i1 %.not.i.i.i, label %_ZN4llvm22BitcodeReaderValueList6resizeEj.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -316,7 +310,7 @@ _ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit.i.i.i: ;
 _ZN4llvm22BitcodeReaderValueList6resizeEj.exit:   ; preds = %_ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit.i.i.i, %34, %32, %30, %16
   %40 = zext i32 %1 to i64
   %41 = load ptr, ptr %0, align 8, !tbaa !9
-  %42 = getelementptr inbounds nuw %"struct.std::pair", ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %40
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   %.not21.not = icmp eq ptr %44, null
@@ -445,7 +439,7 @@ _ZNSt4pairIN4llvm14WeakTrackingVHEjEC2IRPNS0_5ValueERjTnNSt9enable_ifIXaaclsr5_P
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %3, ptr %85, align 8, !tbaa !21
   %86 = load ptr, ptr %0, align 8, !tbaa !9
-  %87 = getelementptr inbounds nuw %"struct.std::pair", ptr %86, i64 %40
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %40
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !20
   %90 = icmp eq ptr %89, %84
@@ -678,7 +672,7 @@ _ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit: ; preds
 _ZNSt12_Vector_baseISt4pairIN4llvm14WeakTrackingVHEjESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit, %59
   store ptr %21, ptr %0, align 8, !tbaa !9
   store ptr %.0.lcssa.i.i.i.i.i26, ptr %5, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %17
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %63, ptr %58, align 8, !tbaa !14
   ret void
 }
@@ -837,9 +831,9 @@ _ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit: ; preds
 
 _ZNSt12_Vector_baseISt4pairIN4llvm14WeakTrackingVHEjESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4llvm14WeakTrackingVHEjES3_EvT_S5_RSaIT0_E.exit, %49
   store ptr %28, ptr %0, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %29, i64 %1
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %1
   store ptr %53, ptr %4, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %26
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %26
   store ptr %54, ptr %11, align 8, !tbaa !14
   br label %55
 
@@ -1142,7 +1136,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !102
   store ptr %67, ptr %41, align 8, !tbaa !99
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !101
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -1292,7 +1286,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !102
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !99
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !101
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -1412,7 +1406,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !102
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !99
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !101
   ret void
 }

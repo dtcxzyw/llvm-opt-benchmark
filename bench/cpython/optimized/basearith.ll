@@ -24,9 +24,9 @@ define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr noundef writeonly captures(n
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.040 = phi i64 [ %21, %.lr.ph ], [ 0, %5 ]
   %.03639 = phi i64 [ %17, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr i64, ptr %1, i64 %.040
+  %8 = getelementptr [8 x i8], ptr %1, i64 %.040
   %9 = load i64, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr i64, ptr %2, i64 %.040
+  %10 = getelementptr [8 x i8], ptr %2, i64 %.040
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = add i64 %9, %.03639
   %13 = add i64 %12, %11
@@ -36,7 +36,7 @@ define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr noundef writeonly captures(n
   %17 = zext i1 %16 to i64
   %18 = add i64 %13, 8446744073709551616
   %19 = select i1 %16, i64 %18, i64 %13
-  %20 = getelementptr i64, ptr %0, i64 %.040
+  %20 = getelementptr [8 x i8], ptr %0, i64 %.040
   store i64 %19, ptr %20, align 8, !tbaa !3
   %21 = add nuw i64 %.040, 1
   %exitcond.not = icmp eq i64 %21, %4
@@ -54,12 +54,12 @@ define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr noundef writeonly captures(n
 
 .lr.ph43:                                         ; preds = %.preheader38, %.lr.ph43
   %.142 = phi i64 [ %30, %.lr.ph43 ], [ %4, %.preheader38 ]
-  %24 = getelementptr i64, ptr %1, i64 %.142
+  %24 = getelementptr [8 x i8], ptr %1, i64 %.142
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = add i64 %25, 1
   %27 = icmp eq i64 %26, -8446744073709551616
   %28 = select i1 %27, i64 0, i64 %26
-  %29 = getelementptr i64, ptr %0, i64 %.142
+  %29 = getelementptr [8 x i8], ptr %0, i64 %.142
   store i64 %28, ptr %29, align 8, !tbaa !3
   %30 = add nuw i64 %.142, 1
   %31 = icmp ult i64 %30, %3
@@ -68,9 +68,9 @@ define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr noundef writeonly captures(n
 
 .lr.ph47:                                         ; preds = %.preheader, %.lr.ph47
   %.246 = phi i64 [ %36, %.lr.ph47 ], [ %.1.lcssa, %.preheader ]
-  %33 = getelementptr i64, ptr %1, i64 %.246
+  %33 = getelementptr [8 x i8], ptr %1, i64 %.246
   %34 = load i64, ptr %33, align 8, !tbaa !3
-  %35 = getelementptr i64, ptr %0, i64 %.246
+  %35 = getelementptr [8 x i8], ptr %0, i64 %.246
   store i64 %34, ptr %35, align 8, !tbaa !3
   %36 = add nuw i64 %.246, 1
   %exitcond52.not = icmp eq i64 %36, %3
@@ -91,9 +91,9 @@ define hidden void @_mpd_baseaddto(ptr noundef captures(none) %0, ptr noundef re
 .preheader30:                                     ; preds = %3, %.preheader30
   %.032 = phi i64 [ %17, %.preheader30 ], [ 0, %3 ]
   %.02731 = phi i64 [ %14, %.preheader30 ], [ 0, %3 ]
-  %5 = getelementptr i64, ptr %0, i64 %.032
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.032
   %6 = load i64, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr i64, ptr %1, i64 %.032
+  %7 = getelementptr [8 x i8], ptr %1, i64 %.032
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %6, %.02731
   %10 = add i64 %9, %8
@@ -110,7 +110,7 @@ define hidden void @_mpd_baseaddto(ptr noundef captures(none) %0, ptr noundef re
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.134 = phi i64 [ %22, %.lr.ph ], [ %2, %.preheader ]
-  %18 = getelementptr i64, ptr %0, i64 %.134
+  %18 = getelementptr [8 x i8], ptr %0, i64 %.134
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = add i64 %19, 1
   %.not = icmp eq i64 %20, -8446744073709551616
@@ -139,7 +139,7 @@ define hidden range(i64 0, 2) i64 @_mpd_shortadd(ptr noundef captures(none) %0, 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.022 = phi i64 [ %18, %.lr.ph ], [ 1, %3 ]
-  %13 = getelementptr i64, ptr %0, i64 %.022
+  %13 = getelementptr [8 x i8], ptr %0, i64 %.022
   %14 = load i64, ptr %13, align 8, !tbaa !3
   %15 = add i64 %14, 1
   %16 = icmp eq i64 %15, -8446744073709551616
@@ -163,7 +163,7 @@ define hidden range(i64 0, 2) i64 @_mpd_baseincr(ptr noundef captures(none) %0, 
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.013 = phi i64 [ %8, %.lr.ph ], [ 0, %2 ]
-  %3 = getelementptr i64, ptr %0, i64 %.013
+  %3 = getelementptr [8 x i8], ptr %0, i64 %.013
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = add i64 %4, 1
   %6 = icmp eq i64 %5, -8446744073709551616
@@ -196,9 +196,9 @@ define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.039 = phi i64 [ %19, %.lr.ph ], [ 0, %5 ]
   %.03538 = phi i64 [ %15, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr i64, ptr %1, i64 %.039
+  %8 = getelementptr [8 x i8], ptr %1, i64 %.039
   %9 = load i64, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr i64, ptr %2, i64 %.039
+  %10 = getelementptr [8 x i8], ptr %2, i64 %.039
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = add i64 %11, %.03538
   %13 = sub i64 %9, %12
@@ -206,7 +206,7 @@ define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %0, ptr no
   %15 = zext i1 %14 to i64
   %16 = add i64 %13, -8446744073709551616
   %17 = select i1 %14, i64 %16, i64 %13
-  %18 = getelementptr i64, ptr %0, i64 %.039
+  %18 = getelementptr [8 x i8], ptr %0, i64 %.039
   store i64 %17, ptr %18, align 8, !tbaa !3
   %19 = add nuw i64 %.039, 1
   %exitcond.not = icmp eq i64 %19, %4
@@ -219,12 +219,12 @@ define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %0, ptr no
 
 .lr.ph42:                                         ; preds = %.preheader37, %.lr.ph42
   %.141 = phi i64 [ %27, %.lr.ph42 ], [ %4, %.preheader37 ]
-  %21 = getelementptr i64, ptr %1, i64 %.141
+  %21 = getelementptr [8 x i8], ptr %1, i64 %.141
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = add i64 %22, -1
   %24 = icmp eq i64 %22, 0
   %25 = select i1 %24, i64 -8446744073709551617, i64 %23
-  %26 = getelementptr i64, ptr %0, i64 %.141
+  %26 = getelementptr [8 x i8], ptr %0, i64 %.141
   store i64 %25, ptr %26, align 8, !tbaa !3
   %27 = add nuw i64 %.141, 1
   %28 = icmp ult i64 %27, %3
@@ -233,9 +233,9 @@ define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %0, ptr no
 
 .lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
   %.244 = phi i64 [ %33, %.lr.ph45 ], [ %.1.lcssa, %.preheader ]
-  %30 = getelementptr i64, ptr %1, i64 %.244
+  %30 = getelementptr [8 x i8], ptr %1, i64 %.244
   %31 = load i64, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr i64, ptr %0, i64 %.244
+  %32 = getelementptr [8 x i8], ptr %0, i64 %.244
   store i64 %31, ptr %32, align 8, !tbaa !3
   %33 = add nuw i64 %.244, 1
   %exitcond49.not = icmp eq i64 %33, %3
@@ -256,9 +256,9 @@ define hidden void @_mpd_basesubfrom(ptr noundef captures(none) %0, ptr noundef 
 .preheader30:                                     ; preds = %3, %.preheader30
   %.032 = phi i64 [ %15, %.preheader30 ], [ 0, %3 ]
   %.02731 = phi i64 [ %12, %.preheader30 ], [ 0, %3 ]
-  %5 = getelementptr i64, ptr %0, i64 %.032
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.032
   %6 = load i64, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr i64, ptr %1, i64 %.032
+  %7 = getelementptr [8 x i8], ptr %1, i64 %.032
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %.02731
   %10 = sub i64 %6, %9
@@ -273,7 +273,7 @@ define hidden void @_mpd_basesubfrom(ptr noundef captures(none) %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.134 = phi i64 [ %20, %.lr.ph ], [ %2, %.preheader ]
-  %16 = getelementptr i64, ptr %0, i64 %.134
+  %16 = getelementptr [8 x i8], ptr %0, i64 %.134
   %17 = load i64, ptr %16, align 8, !tbaa !3
   %18 = add i64 %17, -1
   %.not = icmp eq i64 %17, 0
@@ -300,7 +300,7 @@ define hidden void @_mpd_shortmul(ptr noundef writeonly captures(none) %0, ptr n
 8:                                                ; preds = %.lr.ph, %8
   %.017 = phi i64 [ 0, %.lr.ph ], [ %46, %8 ]
   %.01416 = phi i64 [ 0, %.lr.ph ], [ %43, %8 ]
-  %9 = getelementptr i64, ptr %1, i64 %.017
+  %9 = getelementptr [8 x i8], ptr %1, i64 %.017
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = zext i64 %10 to i128
   %12 = mul nuw i128 %11, %5
@@ -311,7 +311,7 @@ define hidden void @_mpd_shortmul(ptr noundef writeonly captures(none) %0, ptr n
   %17 = icmp ult i64 %16, %.01416
   %18 = zext i1 %17 to i64
   %spec.select = add nuw i64 %18, %14
-  %19 = getelementptr i64, ptr %0, i64 %.017
+  %19 = getelementptr [8 x i8], ptr %0, i64 %.017
   %.lobit.i = ashr i64 %16, 63
   %20 = and i64 %.lobit.i, -8446744073709551616
   %21 = add i64 %20, %16
@@ -348,14 +348,14 @@ define hidden void @_mpd_shortmul(ptr noundef writeonly captures(none) %0, ptr n
 
 ._crit_edge:                                      ; preds = %8, %4
   %.014.lcssa = phi i64 [ 0, %4 ], [ %43, %8 ]
-  %47 = getelementptr i64, ptr %0, i64 %2
+  %47 = getelementptr [8 x i8], ptr %0, i64 %2
   store i64 %.014.lcssa, ptr %47, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_mpd_basemul(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
-  %invariant.gep34 = getelementptr i64, ptr %0, i64 %3
+  %invariant.gep34 = getelementptr [8 x i8], ptr %0, i64 %3
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge37, label %.preheader.lr.ph
 
@@ -372,14 +372,14 @@ define hidden void @_mpd_basemul(ptr noundef captures(none) %0, ptr noundef read
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.036.us = phi i64 [ %54, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %invariant.gep.us = getelementptr i64, ptr %0, i64 %.036.us
-  %9 = getelementptr i64, ptr %2, i64 %.036.us
+  %invariant.gep.us = getelementptr [8 x i8], ptr %0, i64 %.036.us
+  %9 = getelementptr [8 x i8], ptr %2, i64 %.036.us
   br label %10
 
 10:                                               ; preds = %.preheader.us, %10
   %.02133.us = phi i64 [ 0, %.preheader.us ], [ %53, %10 ]
   %.03032.us = phi i64 [ 0, %.preheader.us ], [ %50, %10 ]
-  %11 = getelementptr i64, ptr %1, i64 %.02133.us
+  %11 = getelementptr [8 x i8], ptr %1, i64 %.02133.us
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = load i64, ptr %9, align 8, !tbaa !3
   %14 = zext i64 %12 to i128
@@ -388,7 +388,7 @@ define hidden void @_mpd_basemul(ptr noundef captures(none) %0, ptr noundef read
   %17 = lshr i128 %16, 64
   %18 = trunc nuw i128 %17 to i64
   %19 = trunc i128 %16 to i64
-  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %.02133.us
+  %gep.us = getelementptr [8 x i8], ptr %invariant.gep.us, i64 %.02133.us
   %20 = load i64, ptr %gep.us, align 8, !tbaa !3
   %21 = add i64 %20, %19
   %22 = icmp ult i64 %21, %20
@@ -433,7 +433,7 @@ define hidden void @_mpd_basemul(ptr noundef captures(none) %0, ptr noundef read
   br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !21
 
 ._crit_edge.us:                                   ; preds = %10
-  %gep35.us = getelementptr i64, ptr %invariant.gep34, i64 %.036.us
+  %gep35.us = getelementptr [8 x i8], ptr %invariant.gep34, i64 %.036.us
   store i64 %50, ptr %gep35.us, align 8, !tbaa !3
   %54 = add nuw i64 %.036.us, 1
   %exitcond40.not = icmp eq i64 %54, %4
@@ -461,13 +461,13 @@ define hidden i64 @_mpd_shortdiv(ptr noundef writeonly captures(none) %0, ptr no
   %9 = lshr i128 %8, 64
   %10 = trunc nuw i128 %9 to i64
   %11 = trunc i128 %8 to i64
-  %12 = getelementptr i64, ptr %1, i64 %.0
+  %12 = getelementptr [8 x i8], ptr %1, i64 %.0
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = add i64 %13, %11
   %15 = icmp ult i64 %14, %13
   %16 = zext i1 %15 to i64
   %spec.select = add nuw i64 %16, %10
-  %17 = getelementptr i64, ptr %0, i64 %.0
+  %17 = getelementptr [8 x i8], ptr %0, i64 %.0
   %18 = zext i64 %spec.select to i128
   %19 = shl nuw i128 %18, 64
   %20 = zext i64 %14 to i128
@@ -509,7 +509,7 @@ define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr noundef writeonly captur
 sub_size_t.exit:                                  ; preds = %6
   %18 = sub nuw i64 %4, %5
   %19 = add i64 %5, -1
-  %20 = getelementptr i64, ptr %3, i64 %19
+  %20 = getelementptr [8 x i8], ptr %3, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = add i64 %21, 1
   %23 = udiv i64 -8446744073709551616, %22
@@ -547,7 +547,7 @@ sub_size_t.exit:                                  ; preds = %6
 39:                                               ; preds = %39, %.lr.ph.i
   %.017.i = phi i64 [ 0, %.lr.ph.i ], [ %77, %39 ]
   %.01416.i = phi i64 [ 0, %.lr.ph.i ], [ %74, %39 ]
-  %40 = getelementptr i64, ptr %2, i64 %.017.i
+  %40 = getelementptr [8 x i8], ptr %2, i64 %.017.i
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = zext i64 %41 to i128
   %43 = mul nuw i128 %42, %36
@@ -558,7 +558,7 @@ sub_size_t.exit:                                  ; preds = %6
   %48 = icmp ult i64 %47, %.01416.i
   %49 = zext i1 %48 to i64
   %spec.select.i = add nuw i64 %49, %45
-  %50 = getelementptr i64, ptr %.094, i64 %.017.i
+  %50 = getelementptr [8 x i8], ptr %.094, i64 %.017.i
   %.lobit.i.i = ashr i64 %47, 63
   %51 = and i64 %.lobit.i.i, -8446744073709551616
   %52 = add i64 %51, %47
@@ -595,7 +595,7 @@ sub_size_t.exit:                                  ; preds = %6
 
 _mpd_shortmul.exit:                               ; preds = %39, %35
   %.014.lcssa.i = phi i64 [ 0, %35 ], [ %74, %39 ]
-  %78 = getelementptr i64, ptr %.094, i64 %4
+  %78 = getelementptr [8 x i8], ptr %.094, i64 %4
   store i64 %.014.lcssa.i, ptr %78, align 8, !tbaa !3
   %.not.i115 = icmp eq i64 %5, 0
   br i1 %.not.i115, label %_mpd_shortmul.exit125, label %.lr.ph.i116
@@ -609,7 +609,7 @@ _mpd_shortmul.exit:                               ; preds = %39, %35
 82:                                               ; preds = %82, %.lr.ph.i116
   %.017.i117 = phi i64 [ 0, %.lr.ph.i116 ], [ %120, %82 ]
   %.01416.i118 = phi i64 [ 0, %.lr.ph.i116 ], [ %117, %82 ]
-  %83 = getelementptr i64, ptr %3, i64 %.017.i117
+  %83 = getelementptr [8 x i8], ptr %3, i64 %.017.i117
   %84 = load i64, ptr %83, align 8, !tbaa !3
   %85 = zext i64 %84 to i128
   %86 = mul nuw i128 %85, %79
@@ -620,7 +620,7 @@ _mpd_shortmul.exit:                               ; preds = %39, %35
   %91 = icmp ult i64 %90, %.01416.i118
   %92 = zext i1 %91 to i64
   %spec.select.i119 = add nuw i64 %92, %88
-  %93 = getelementptr i64, ptr %.097, i64 %.017.i117
+  %93 = getelementptr [8 x i8], ptr %.097, i64 %.017.i117
   %.lobit.i.i120 = ashr i64 %90, 63
   %94 = and i64 %.lobit.i.i120, -8446744073709551616
   %95 = add i64 %94, %90
@@ -657,13 +657,13 @@ _mpd_shortmul.exit:                               ; preds = %39, %35
 
 _mpd_shortmul.exit125:                            ; preds = %82, %_mpd_shortmul.exit
   %.014.lcssa.i124 = phi i64 [ 0, %_mpd_shortmul.exit ], [ %117, %82 ]
-  %121 = getelementptr i64, ptr %.097, i64 %5
+  %121 = getelementptr [8 x i8], ptr %.097, i64 %5
   store i64 %.014.lcssa.i124, ptr %121, align 8, !tbaa !3
   %.not162 = icmp eq i64 %18, -1
   br i1 %.not162, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_mpd_shortmul.exit125
-  %122 = getelementptr i64, ptr %.097, i64 %19
+  %122 = getelementptr [8 x i8], ptr %.097, i64 %19
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %124 = getelementptr i8, ptr %121, i64 -16
   %125 = load i64, ptr @mprime_rdx, align 8
@@ -674,8 +674,8 @@ _mpd_shortmul.exit125:                            ; preds = %82, %_mpd_shortmul.
 
 128:                                              ; preds = %.lr.ph, %_mpd_baseadd.exit
   %.091163 = phi i64 [ %18, %.lr.ph ], [ %275, %_mpd_baseadd.exit ]
-  %129 = getelementptr i64, ptr %.094, i64 %.091163
-  %130 = getelementptr i64, ptr %129, i64 %5
+  %129 = getelementptr [8 x i8], ptr %.094, i64 %.091163
+  %130 = getelementptr [8 x i8], ptr %129, i64 %5
   %131 = getelementptr i8, ptr %130, i64 -8
   %132 = load i64, ptr %122, align 8, !tbaa !3
   %133 = zext i64 %132 to i128
@@ -690,13 +690,13 @@ _mpd_shortmul.exit125:                            ; preds = %82, %_mpd_shortmul.
   %137 = lshr i128 %136, 64
   %138 = trunc nuw i128 %137 to i64
   %139 = trunc i128 %136 to i64
-  %140 = getelementptr i64, ptr %131, i64 %.0.i
+  %140 = getelementptr [8 x i8], ptr %131, i64 %.0.i
   %141 = load i64, ptr %140, align 8, !tbaa !3
   %142 = add i64 %141, %139
   %143 = icmp ult i64 %142, %141
   %144 = zext i1 %143 to i64
   %spec.select.i127 = add nuw i64 %144, %138
-  %145 = getelementptr i64, ptr %9, i64 %.0.i
+  %145 = getelementptr [8 x i8], ptr %9, i64 %.0.i
   %146 = zext i64 %spec.select.i127 to i128
   %147 = shl nuw i128 %146, 64
   %148 = zext i64 %142 to i128
@@ -800,7 +800,7 @@ split:                                            ; preds = %197, %198, %._crit_
 209:                                              ; preds = %split, %209
   %.092161 = phi i64 [ 0, %split ], [ %253, %209 ]
   %.093160 = phi i64 [ 0, %split ], [ %252, %209 ]
-  %210 = getelementptr i64, ptr %.097, i64 %.092161
+  %210 = getelementptr [8 x i8], ptr %.097, i64 %.092161
   %211 = load i64, ptr %210, align 8, !tbaa !3
   %212 = zext i64 %211 to i128
   %213 = mul nuw i128 %.pre-phi, %212
@@ -841,7 +841,7 @@ split:                                            ; preds = %197, %198, %._crit_
   %243 = add i64 %242, %.neg164
   %244 = and i64 %242, -8446744073709551616
   %245 = add i64 %244, %238
-  %gep = getelementptr i64, ptr %129, i64 %.092161
+  %gep = getelementptr [8 x i8], ptr %129, i64 %.092161
   %246 = load i64, ptr %gep, align 8, !tbaa !3
   %247 = sub i64 %246, %245
   %248 = icmp ult i64 %246, %245
@@ -855,7 +855,7 @@ split:                                            ; preds = %197, %198, %._crit_
   br i1 %exitcond, label %254, label %209, !llvm.loop !27
 
 254:                                              ; preds = %209
-  %255 = getelementptr i64, ptr %0, i64 %.091163
+  %255 = getelementptr [8 x i8], ptr %0, i64 %.091163
   store i64 %.1, ptr %255, align 8, !tbaa !3
   %.not114 = icmp eq i64 %252, 0
   br i1 %.not114, label %_mpd_baseadd.exit, label %256
@@ -871,9 +871,9 @@ split:                                            ; preds = %197, %198, %._crit_
 .lr.ph.i135:                                      ; preds = %256, %.lr.ph.i135
   %.040.i = phi i64 [ %270, %.lr.ph.i135 ], [ 0, %256 ]
   %.03639.i = phi i64 [ %267, %.lr.ph.i135 ], [ 0, %256 ]
-  %258 = getelementptr i64, ptr %129, i64 %.040.i
+  %258 = getelementptr [8 x i8], ptr %129, i64 %.040.i
   %259 = load i64, ptr %258, align 8, !tbaa !3
-  %260 = getelementptr i64, ptr %.097, i64 %.040.i
+  %260 = getelementptr [8 x i8], ptr %.097, i64 %.040.i
   %261 = load i64, ptr %260, align 8, !tbaa !3
   %262 = add i64 %259, %.03639.i
   %263 = add i64 %262, %261
@@ -921,13 +921,13 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   %281 = lshr i128 %280, 64
   %282 = trunc nuw i128 %281 to i64
   %283 = trunc i128 %280 to i64
-  %284 = getelementptr i64, ptr %.094, i64 %.0.i140
+  %284 = getelementptr [8 x i8], ptr %.094, i64 %.0.i140
   %285 = load i64, ptr %284, align 8, !tbaa !3
   %286 = add i64 %285, %283
   %287 = icmp ult i64 %286, %285
   %288 = zext i1 %287 to i64
   %spec.select.i141 = add nuw i64 %288, %282
-  %289 = getelementptr i64, ptr %1, i64 %.0.i140
+  %289 = getelementptr [8 x i8], ptr %1, i64 %.0.i140
   %290 = zext i64 %spec.select.i141 to i128
   %291 = shl nuw i128 %290, 64
   %292 = zext i64 %286 to i128
@@ -947,7 +947,7 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   br i1 %299, label %300, label %_mpd_shortdiv.exit144
 
 300:                                              ; preds = %.preheader
-  %301 = getelementptr i64, ptr %.094, i64 %298
+  %301 = getelementptr [8 x i8], ptr %.094, i64 %298
   %302 = load i64, ptr %301, align 8, !tbaa !3
   %.not.i146 = icmp eq i64 %302, 0
   br i1 %.not.i146, label %.preheader, label %_mpd_shortdiv.exit144, !llvm.loop !29
@@ -998,16 +998,16 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not, label %.preheader, label %11
 
 .preheader:                                       ; preds = %5
-  %invariant.gep = getelementptr i64, ptr %0, i64 %9
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %9
   %.not2737 = icmp eq i64 %3, 0
   br i1 %.not2737, label %.loopexit, label %.lr.ph39
 
 11:                                               ; preds = %5
-  %12 = getelementptr i64, ptr @mpd_pow10, i64 %10
+  %12 = getelementptr [8 x i8], ptr @mpd_pow10, i64 %10
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = add i64 %2, -1
   %15 = add i64 %3, -2
-  %16 = getelementptr i64, ptr %1, i64 %3
+  %16 = getelementptr [8 x i8], ptr %1, i64 %3
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = sub i64 19, %10
@@ -1018,7 +1018,7 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
 
 21:                                               ; preds = %11
   %22 = add i64 %2, -2
-  %23 = getelementptr i64, ptr %0, i64 %14
+  %23 = getelementptr [8 x i8], ptr %0, i64 %14
   store i64 %20, ptr %23, align 8, !tbaa !3
   br label %24
 
@@ -1032,13 +1032,13 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
   %.136 = phi i64 [ %34, %.lr.ph ], [ %.0, %24 ]
   %.02235 = phi i64 [ %33, %.lr.ph ], [ %15, %24 ]
   %25 = phi i64 [ %32, %.lr.ph ], [ %.promoted, %24 ]
-  %26 = getelementptr i64, ptr %1, i64 %.02235
+  %26 = getelementptr [8 x i8], ptr %1, i64 %.02235
   %27 = load i64, ptr %26, align 8, !tbaa !3
   call fastcc void @_mpd_divmod_pow10(ptr noundef %8, ptr noundef %6, i64 noundef %27, i64 noundef %19)
   %28 = mul i64 %25, %13
   %29 = load i64, ptr %8, align 8, !tbaa !3
   %30 = add i64 %28, %29
-  %31 = getelementptr i64, ptr %0, i64 %.136
+  %31 = getelementptr [8 x i8], ptr %0, i64 %.136
   store i64 %30, ptr %31, align 8, !tbaa !3
   %32 = load i64, ptr %6, align 8, !tbaa !3
   %33 = add i64 %.02235, -1
@@ -1049,16 +1049,16 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.lcssa = phi i64 [ %.promoted, %24 ], [ %32, %.lr.ph ]
   %35 = mul i64 %.lcssa, %13
-  %36 = getelementptr i64, ptr %0, i64 %9
+  %36 = getelementptr [8 x i8], ptr %0, i64 %9
   store i64 %35, ptr %36, align 8, !tbaa !3
   br label %.loopexit
 
 .lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
   %.12338 = phi i64 [ %37, %.lr.ph39 ], [ %3, %.preheader ]
   %37 = add i64 %.12338, -1
-  %38 = getelementptr i64, ptr %1, i64 %37
+  %38 = getelementptr [8 x i8], ptr %1, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !3
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %37
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %37
   store i64 %39, ptr %gep, align 8, !tbaa !3
   %.not27 = icmp eq i64 %37, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph39, !llvm.loop !32
@@ -1294,9 +1294,9 @@ define hidden i64 @_mpd_baseshiftr(ptr noundef writeonly captures(none) %0, ptr 
 
 12:                                               ; preds = %4
   %13 = sub i64 19, %11
-  %14 = getelementptr i64, ptr @mpd_pow10, i64 %13
+  %14 = getelementptr [8 x i8], ptr @mpd_pow10, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr i64, ptr %1, i64 %10
+  %16 = getelementptr [8 x i8], ptr %1, i64 %10
   %17 = load i64, ptr %16, align 8, !tbaa !3
   call fastcc void @_mpd_divmod_pow10(ptr noundef %7, ptr noundef %9, i64 noundef %17, i64 noundef %11)
   %18 = load i64, ptr %9, align 8, !tbaa !3
@@ -1315,7 +1315,7 @@ define hidden i64 @_mpd_baseshiftr(ptr noundef writeonly captures(none) %0, ptr 
 
 24:                                               ; preds = %.preheader
   %25 = add nsw i64 %.0.i, -1
-  %26 = getelementptr i64, ptr %1, i64 %25
+  %26 = getelementptr [8 x i8], ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %.preheader, label %_mpd_isallzero.exit, !llvm.loop !29
@@ -1336,13 +1336,13 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
   %.049 = phi i64 [ %.0, %.lr.ph ], [ %.047, %.lr.ph.preheader ]
   %.02548 = phi i64 [ %40, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %32 = phi i64 [ %39, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
-  %33 = getelementptr i64, ptr %1, i64 %.049
+  %33 = getelementptr [8 x i8], ptr %1, i64 %.049
   %34 = load i64, ptr %33, align 8, !tbaa !3
   call fastcc void @_mpd_divmod_pow10(ptr noundef %6, ptr noundef %5, i64 noundef %34, i64 noundef %11)
   %35 = load i64, ptr %5, align 8, !tbaa !3
   %36 = mul i64 %35, %15
   %37 = add i64 %36, %32
-  %38 = getelementptr i64, ptr %0, i64 %.02548
+  %38 = getelementptr [8 x i8], ptr %0, i64 %.02548
   store i64 %37, ptr %38, align 8, !tbaa !3
   %39 = load i64, ptr %6, align 8, !tbaa !3
   %40 = add nuw i64 %.02548, 1
@@ -1357,7 +1357,7 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
   br i1 %.not34, label %.loopexit, label %41
 
 41:                                               ; preds = %._crit_edge
-  %42 = getelementptr i64, ptr %0, i64 %.025.lcssa
+  %42 = getelementptr [8 x i8], ptr %0, i64 %.025.lcssa
   store i64 %.lcssa, ptr %42, align 8, !tbaa !3
   br label %.loopexit
 
@@ -1366,7 +1366,7 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
   br i1 %.not31, label %_mpd_isallzero.exit38, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr i64, ptr %1, i64 %10
+  %45 = getelementptr [8 x i8], ptr %1, i64 %10
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = udiv i64 %47, 1000000000000000000
@@ -1387,7 +1387,7 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
 
 55:                                               ; preds = %53
   %56 = add nsw i64 %.0.i35, -1
-  %57 = getelementptr i64, ptr %1, i64 %56
+  %57 = getelementptr [8 x i8], ptr %1, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !3
   %.not.i37 = icmp eq i64 %58, 0
   br i1 %.not.i37, label %53, label %_mpd_isallzero.exit38, !llvm.loop !29
@@ -1399,14 +1399,14 @@ _mpd_isallzero.exit38:                            ; preds = %55, %53, %44, %43
   br i1 %.not54, label %.loopexit, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %_mpd_isallzero.exit38
-  %61 = getelementptr i64, ptr %1, i64 %10
+  %61 = getelementptr [8 x i8], ptr %1, i64 %10
   br label %62
 
 62:                                               ; preds = %.lr.ph53, %62
   %.151 = phi i64 [ 0, %.lr.ph53 ], [ %66, %62 ]
-  %63 = getelementptr i64, ptr %61, i64 %.151
+  %63 = getelementptr [8 x i8], ptr %61, i64 %.151
   %64 = load i64, ptr %63, align 8, !tbaa !3
-  %65 = getelementptr i64, ptr %0, i64 %.151
+  %65 = getelementptr [8 x i8], ptr %0, i64 %.151
   store i64 %64, ptr %65, align 8, !tbaa !3
   %66 = add nuw i64 %.151, 1
   %exitcond57.not = icmp eq i64 %66, %60
@@ -1452,7 +1452,7 @@ define hidden range(i64 0, 2) i64 @_mpd_shortadd_b(ptr noundef captures(none) %0
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.025 = phi i64 [ %19, %.lr.ph ], [ 1, %4 ]
-  %14 = getelementptr i64, ptr %0, i64 %.025
+  %14 = getelementptr [8 x i8], ptr %0, i64 %.025
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %16 = add i64 %15, 1
   %17 = icmp eq i64 %16, %3
@@ -1483,7 +1483,7 @@ define hidden i64 @_mpd_shortmul_c(ptr noundef writeonly captures(none) %0, ptr 
 8:                                                ; preds = %.lr.ph, %8
   %.015 = phi i64 [ 0, %.lr.ph ], [ %46, %8 ]
   %.01214 = phi i64 [ 0, %.lr.ph ], [ %43, %8 ]
-  %9 = getelementptr i64, ptr %1, i64 %.015
+  %9 = getelementptr [8 x i8], ptr %1, i64 %.015
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = zext i64 %10 to i128
   %12 = mul nuw i128 %11, %5
@@ -1494,7 +1494,7 @@ define hidden i64 @_mpd_shortmul_c(ptr noundef writeonly captures(none) %0, ptr 
   %17 = icmp ult i64 %16, %.01214
   %18 = zext i1 %17 to i64
   %spec.select = add nuw i64 %18, %14
-  %19 = getelementptr i64, ptr %0, i64 %.015
+  %19 = getelementptr [8 x i8], ptr %0, i64 %.015
   %.lobit.i = ashr i64 %16, 63
   %20 = and i64 %.lobit.i, -8446744073709551616
   %21 = add i64 %20, %16
@@ -1547,7 +1547,7 @@ define hidden i64 @_mpd_shortmul_b(ptr noundef writeonly captures(none) %0, ptr 
 8:                                                ; preds = %.lr.ph, %8
   %.016 = phi i64 [ 0, %.lr.ph ], [ %28, %8 ]
   %.01315 = phi i64 [ 0, %.lr.ph ], [ %25, %8 ]
-  %9 = getelementptr i64, ptr %1, i64 %.016
+  %9 = getelementptr [8 x i8], ptr %1, i64 %.016
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = zext i64 %10 to i128
   %12 = mul nuw i128 %11, %6
@@ -1558,7 +1558,7 @@ define hidden i64 @_mpd_shortmul_b(ptr noundef writeonly captures(none) %0, ptr 
   %17 = icmp ult i64 %16, %.01315
   %18 = zext i1 %17 to i64
   %spec.select = add nuw i64 %18, %14
-  %19 = getelementptr i64, ptr %0, i64 %.016
+  %19 = getelementptr [8 x i8], ptr %0, i64 %.016
   %20 = zext i64 %spec.select to i128
   %21 = shl nuw i128 %20, 64
   %22 = zext i64 %16 to i128
@@ -1596,13 +1596,13 @@ define hidden i64 @_mpd_shortdiv_b(ptr noundef writeonly captures(none) %0, ptr 
   %11 = lshr i128 %10, 64
   %12 = trunc nuw i128 %11 to i64
   %13 = trunc i128 %10 to i64
-  %14 = getelementptr i64, ptr %1, i64 %.0
+  %14 = getelementptr [8 x i8], ptr %1, i64 %.0
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %16 = add i64 %15, %13
   %17 = icmp ult i64 %16, %15
   %18 = zext i1 %17 to i64
   %spec.select = add nuw i64 %18, %12
-  %19 = getelementptr i64, ptr %0, i64 %.0
+  %19 = getelementptr [8 x i8], ptr %0, i64 %.0
   %20 = zext i64 %spec.select to i128
   %21 = shl nuw i128 %20, 64
   %22 = zext i64 %16 to i128

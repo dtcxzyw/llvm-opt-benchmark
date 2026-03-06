@@ -136,7 +136,7 @@ define i32 @ff_iamf_read_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 69:                                               ; preds = %68, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %68 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i.i
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %73 = load i32, ptr %72, align 4, !tbaa !30
@@ -279,7 +279,7 @@ parameter_block_obu.exit.thread:                  ; preds = %112
 
 126:                                              ; preds = %125, %.lr.ph.i.i79
   %indvars.iv.i.i81 = phi i64 [ 0, %.lr.ph.i.i79 ], [ %indvars.iv.next.i.i82, %125 ]
-  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.i.i81
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.i.i81
   %128 = load ptr, ptr %127, align 8, !tbaa !56
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !58
@@ -491,7 +491,7 @@ av_iamf_param_definition_get_subblock.exit.i:     ; preds = %175
   %230 = phi i32 [ %225, %.lr.ph.i ], [ %254, %.loopexit.i ]
   %indvars.iv246.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next247.i, %.loopexit.i ]
   %231 = load ptr, ptr %226, align 8, !tbaa !84
-  %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv246.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv246.i
   %233 = load ptr, ptr %232, align 8, !tbaa !85
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %235 = load i32, ptr %234, align 8, !tbaa !87

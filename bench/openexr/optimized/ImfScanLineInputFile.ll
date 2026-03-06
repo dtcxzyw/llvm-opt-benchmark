@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.Imf_3_4::Slice" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8, [6 x i8] }>
 %struct.exr_chunk_info_t = type { i32, i32, i32, i32, i32, i8, i8, i8, i8, i64, i64, i64, i64, i64 }
 %"class.IlmThread_3_4::ProcessGroup" = type { %"class.IlmThread_3_4::Semaphore", %"class.std::vector.18", %"struct.std::atomic", %"struct.std::atomic.23" }
 %"class.IlmThread_3_4::Semaphore" = type { ptr, %union.sem_t }
@@ -47,10 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.7" }
 %"struct.std::_Head_base.7" = type { ptr }
-%"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess" = type { i32, i8, %struct.exr_chunk_info_t, %struct._exr_decode_pipeline, ptr }
-%struct._exr_decode_pipeline = type { i64, ptr, i16, i16, i32, ptr, %struct.exr_chunk_info_t, i32, i32, i64, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, [5 x %struct.exr_coding_channel_info_t] }
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon.25 }
-%union.anon.25 = type { ptr }
 %"struct.std::_Rb_tree<Imf_3_4::Name, std::pair<const Imf_3_4::Name, Imf_3_4::Slice>, std::_Select1st<std::pair<const Imf_3_4::Name, Imf_3_4::Slice>>, std::less<Imf_3_4::Name>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 
 $_ZNSt12__shared_ptrIN7Imf_3_417ScanLineInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -814,7 +809,7 @@ _ZNSt6vectorIN7Imf_3_45SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN7Imf_3_45SliceESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %61, %_ZNSt6vectorIN7Imf_3_45SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %56, ptr %34, align 8, !tbaa !92
   store ptr %60, ptr %36, align 8, !tbaa !93
-  %62 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [56 x i8], ptr %56, i64 %54
   store ptr %62, ptr %38, align 8, !tbaa !94
   br label %_ZNSt6vectorIN7Imf_3_45SliceESaIS1_EE9push_backERKS1_.exit
 
@@ -1221,12 +1216,12 @@ _ZNKSt6vectorIN7Imf_3_412_GLOBAL__N_115ScanLineProcessESaIS2_EE12_M_check_lenEmP
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i33.i.i.i
   store ptr %81, ptr %76, align 8, !tbaa !130
-  %85 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %81, i64 %77
+  %85 = getelementptr inbounds nuw [584 x i8], ptr %81, i64 %77
   store ptr %85, ptr %78, align 8, !tbaa !132
   store ptr %85, ptr %79, align 8, !tbaa !133
   %86 = add nsw i32 %74, -1
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %81, i64 %87
+  %88 = getelementptr inbounds nuw [584 x i8], ptr %81, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 576
   br label %92
 
@@ -1252,8 +1247,8 @@ common.resume:                                    ; preds = %338, %198, %90
 
 94:                                               ; preds = %92
   %95 = add nuw nsw i64 %indvars.iv.i, 1
-  %96 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %81, i64 %95
-  %97 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %81, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [584 x i8], ptr %81, i64 %95
+  %97 = getelementptr inbounds nuw [584 x i8], ptr %81, i64 %indvars.iv.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 576
   store ptr %96, ptr %98, align 8, !tbaa !134
   %exitcond.not.i = icmp eq i64 %95, %77
@@ -1738,7 +1733,7 @@ _ZNKSt14default_deleteIN7Imf_3_412_GLOBAL__N_115ScanLineProcessEEclEPS2_.exit.i.
 .lr.ph.i.i:                                       ; preds = %267, %306
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %306 ], [ 0, %267 ]
   %270 = load ptr, ptr %210, align 8, !tbaa !189
-  %271 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %270, i64 %indvars.iv.i.i
+  %271 = getelementptr inbounds nuw [48 x i8], ptr %270, i64 %indvars.iv.i.i
   %272 = load ptr, ptr %271, align 8, !tbaa !190
   %273 = invoke noundef ptr @_ZNK7Imf_3_411FrameBuffer9findSliceEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %272)
           to label %.noexc74 unwind label %.loopexit101
@@ -2606,7 +2601,7 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_dec
 51:                                               ; preds = %88, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %88 ]
   %52 = load ptr, ptr %49, align 8, !tbaa !189
-  %53 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %52, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8, !tbaa !190
   %55 = tail call noundef ptr @_ZNK7Imf_3_411FrameBuffer9findSliceEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %54)
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8

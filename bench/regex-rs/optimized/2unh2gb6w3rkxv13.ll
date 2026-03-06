@@ -1255,7 +1255,7 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
   %98 = load ptr, ptr %97, align 8, !nonnull !5, !noundef !5
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %100 = load i64, ptr %99, align 8, !noundef !5
-  %101 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %98, i64 %100
+  %101 = getelementptr inbounds [24 x i8], ptr %98, i64 %100
   %102 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly align 8 %98, ptr noundef nonnull readonly %101, i64 noundef %100)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %94
 
@@ -1633,7 +1633,7 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
   %98 = load ptr, ptr %97, align 8, !nonnull !5, !noundef !5
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %100 = load i64, ptr %99, align 8, !noundef !5
-  %101 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %98, i64 %100
+  %101 = getelementptr inbounds [24 x i8], ptr %98, i64 %100
   %102 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly align 8 %98, ptr noundef nonnull readonly %101, i64 noundef %100)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %94
 

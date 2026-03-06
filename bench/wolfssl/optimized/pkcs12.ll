@@ -2265,7 +2265,7 @@ wc_PKCS12_create_key_bag.exit77.i:                ; preds = %71
 
 switch.lookup:                                    ; preds = %111
   %113 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_PKCS12_create, i64 %113
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_PKCS12_create, i64 %113
   %switch.load = load i32, ptr %switch.gep, align 4
   %114 = add nsw i32 %6, 55
   %.not104.i = icmp eq ptr %7, null

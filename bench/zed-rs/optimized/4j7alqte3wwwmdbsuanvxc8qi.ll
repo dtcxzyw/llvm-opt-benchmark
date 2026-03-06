@@ -157,7 +157,7 @@ define void @_ZN10file_icons9FileIcons8get_icon17h71d36ab2c63efbbaE(ptr dead_on_
   %58 = add i64 %.sroa.01.0.i.i.i.i, %57
   %59 = and i64 %58, %49
   %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %50, i64 %60
+  %61 = getelementptr inbounds [48 x i8], ptr %50, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -32
   %.val5.i.i.i.i = load i64, ptr %62, align 8, !alias.scope !69, !noalias !76, !noundef !5
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %35, %.val5.i.i.i.i
@@ -233,7 +233,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %94 = add i64 %.sroa.01.0.i.i.i13.i, %93
   %95 = and i64 %94, %85
   %96 = sub nsw i64 0, %95
-  %97 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %86, i64 %96
+  %97 = getelementptr inbounds [48 x i8], ptr %86, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -32
   %.val5.i.i.i17.i = load i64, ptr %98, align 8, !alias.scope !126, !noalias !133, !noundef !5
   %.not.i.i.i.i.i.i.i18.i = icmp eq i64 %35, %.val5.i.i.i17.i
@@ -359,7 +359,7 @@ define void @_ZN10file_icons9FileIcons13get_type_icon17hd49fd1aef0b5176bE(ptr de
   %27 = add i64 %.sroa.01.0.i.i.i, %26
   %28 = and i64 %27, %18
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, [2 x i64] } } } }, ptr %19, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %19, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -32
   %.val5.i.i.i = load i64, ptr %31, align 8, !alias.scope !192, !noalias !199, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %3, %.val5.i.i.i

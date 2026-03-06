@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.gmx::SimulationWorkload" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -484,7 +478,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
   %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   ret ptr %7
 }
@@ -535,7 +529,7 @@ define noundef zeroext i1 @_ZNK3gmx19DeviceStreamManager13streamIsValidENS_16Dev
   %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8

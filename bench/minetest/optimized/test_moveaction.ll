@@ -7838,7 +7838,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !134
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !133
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !131
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
@@ -8903,7 +8903,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i.noexc
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !57
   %rem.i.i.i.i.i = urem i64 %9, %11
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !17
   %__ht_n.077 = load ptr, ptr %2, align 8, !tbaa !51
   %tobool17.not78 = icmp eq ptr %__ht_n.077, null
@@ -8956,7 +8956,7 @@ invoke.cont22:                                    ; preds = %call5.i.i.i.i.noexc
   %19 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !57
   %rem.i.i.i = urem i64 %18, %19
   %20 = load ptr, ptr %this, align 8, !tbaa !55
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %20, i64 %rem.i.i.i
   %21 = load ptr, ptr %arrayidx, align 8, !tbaa !17
   %tobool31.not = icmp eq ptr %21, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -10918,7 +10918,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i.noexc
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !314
   %rem.i.i.i.i.i = urem i64 %9, %11
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !17
   %__ht_n.077 = load ptr, ptr %2, align 8, !tbaa !51
   %tobool17.not78 = icmp eq ptr %__ht_n.077, null
@@ -10971,7 +10971,7 @@ invoke.cont22:                                    ; preds = %call5.i.i.i.i.noexc
   %19 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !314
   %rem.i.i.i = urem i64 %18, %19
   %20 = load ptr, ptr %this, align 8, !tbaa !313
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %20, i64 %rem.i.i.i
   %21 = load ptr, ptr %arrayidx, align 8, !tbaa !17
   %tobool31.not = icmp eq ptr %21, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -11266,7 +11266,7 @@ invoke.cont15:                                    ; preds = %if.end5
   %sext = shl i64 %4, 32
   %conv.i.i.i.i.i.i = ashr exact i64 %sext, 32
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i, %5
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !17
   %__ht_n.070 = load ptr, ptr %3, align 8, !tbaa !51
   %tobool17.not71 = icmp eq ptr %__ht_n.070, null
@@ -11289,7 +11289,7 @@ invoke.cont22:                                    ; preds = %for.body
   %conv.i.i.i.i = ashr exact i64 %sext74, 32
   %rem.i.i.i = urem i64 %conv.i.i.i.i, %5
   %7 = load ptr, ptr %this, align 8, !tbaa !331
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %7, i64 %rem.i.i.i
   %8 = load ptr, ptr %arrayidx, align 8, !tbaa !17
   %tobool31.not = icmp eq ptr %8, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -11450,7 +11450,7 @@ invoke.cont15:                                    ; preds = %if.end5
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !316
   %rem.i.i.i.i.i = urem i64 %4, %6
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !17
   %__ht_n.068 = load ptr, ptr %2, align 8, !tbaa !51
   %tobool17.not69 = icmp eq ptr %__ht_n.068, null
@@ -11473,7 +11473,7 @@ invoke.cont22:                                    ; preds = %for.body
   %9 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !316
   %rem.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %this, align 8, !tbaa !315
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i
   %11 = load ptr, ptr %arrayidx, align 8, !tbaa !17
   %tobool31.not = icmp eq ptr %11, null
   br i1 %tobool31.not, label %if.then32, label %if.end35

@@ -1104,11 +1104,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIiEEEENS_19__allocation_re
   %54 = shl nuw i64 %.0.i.i.i, 2
   %55 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #26
   %56 = getelementptr inbounds i8, ptr %55, i64 %43
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %.0.i.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.0.i.i.i
   store i32 %33, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %59 = sub nsw i64 0, %44
-  %60 = getelementptr inbounds i32, ptr %56, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %56, i64 %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %60, ptr align 4 %40, i64 %43, i1 false)
   store ptr %60, ptr %13, align 16
   store ptr %58, ptr %15, align 8
@@ -1204,7 +1204,7 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = load ptr, ptr %17, align 16
-  %22 = getelementptr inbounds nuw %"class.mitsuba::ref.65", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
@@ -2474,7 +2474,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -3032,7 +3032,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -3125,7 +3125,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -3469,7 +3469,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_5ShapeI
   %21 = shl nuw i64 %.0.i, 3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #26
   %23 = getelementptr inbounds i8, ptr %22, i64 %9
-  %24 = getelementptr inbounds nuw %"class.mitsuba::ref.65", ptr %22, i64 %.0.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0.i
   %25 = load ptr, ptr %1, align 8
   store ptr %25, ptr %23, align 8
   store ptr null, ptr %1, align 8
@@ -3481,7 +3481,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_5ShapeI
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %"class.mitsuba::ref.65", ptr %23, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %23, i64 %33
   %.not13.i.i = icmp eq ptr %28, %27
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_5ShapeIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEEERNS_9allocatorISA_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.compression_state = type { ptr, i64, i32, [1024 x i8] }
-%struct.png_sPLT_entry_struct = type { i16, i16, i16, i16, i16 }
 
 @.str = private unnamed_addr constant [38 x i8] c"Invalid bit depth for grayscale image\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"Invalid bit depth for RGB image\00", align 1
@@ -2126,7 +2125,7 @@ png_write_chunk_data.exit36:                      ; preds = %75, %59
   %100 = load ptr, ptr %43, align 8, !tbaa !133
   %101 = load i32, ptr %11, align 8, !tbaa !128
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.png_sPLT_entry_struct, ptr %100, i64 %102
+  %103 = getelementptr inbounds [10 x i8], ptr %100, i64 %102
   %104 = icmp ult ptr %99, %103
   br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !143
 
@@ -2934,7 +2933,7 @@ png_write_chunk_data.exit.lr.ph:                  ; preds = %png_write_chunk_hea
 
 png_write_chunk_data.exit:                        ; preds = %png_write_chunk_data.exit.lr.ph, %png_write_chunk_data.exit
   %indvars.iv = phi i64 [ 0, %png_write_chunk_data.exit.lr.ph ], [ %indvars.iv.next, %png_write_chunk_data.exit ]
-  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !186
   %33 = lshr i16 %32, 8
   %34 = trunc nuw i16 %33 to i8
@@ -3684,13 +3683,13 @@ define void @png_write_pCAL(ptr noalias noundef %0, ptr noundef %1, i32 noundef 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.04762 = phi i64 [ %27, %.lr.ph ], [ %42, %34 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !222
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #15
   %38 = icmp ne i64 %indvars.iv, %33
   %39 = zext i1 %38 to i64
   %40 = add i64 %37, %39
-  %41 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store i64 %40, ptr %41, align 8, !tbaa !223
   %42 = add i64 %40, %.04762
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3780,9 +3779,9 @@ png_write_chunk_data.exit55:                      ; preds = %png_write_chunk_dat
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65.split.preheader, %png_write_chunk_data.exit58
   %indvars.iv70 = phi i64 [ 0, %.lr.ph65.split.preheader ], [ %indvars.iv.next71, %png_write_chunk_data.exit58 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv70
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv70
   %67 = load ptr, ptr %66, align 8, !tbaa !222
-  %68 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv70
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv70
   %69 = load i64, ptr %68, align 8, !tbaa !223
   %70 = icmp ne ptr %67, null
   %71 = icmp ne i64 %69, 0

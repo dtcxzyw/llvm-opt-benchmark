@@ -110,7 +110,7 @@ define void @_ZN5faiss17IndexPreTransform5trainElPKf(ptr noundef nonnull align 8
 
 23:                                               ; preds = %21
   %24 = and i64 %indvars.iv.next, 2147483647
-  %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i8, ptr %27, align 8, !tbaa !28, !range !22, !noundef !23
@@ -157,7 +157,7 @@ define void @_ZN5faiss17IndexPreTransform5trainElPKf(ptr noundef nonnull align 8
   br i1 %47, label %48, label %68
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv67
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv67
   %50 = load ptr, ptr %49, align 8, !tbaa !26
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i8, ptr %51, align 8, !tbaa !28, !range !22, !noundef !23
@@ -237,7 +237,7 @@ define void @_ZN5faiss17IndexPreTransform5trainElPKf(ptr noundef nonnull align 8
 
 92:                                               ; preds = %84, %81
   %93 = phi ptr [ %.pre, %84 ], [ %.pre71, %81 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv67
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv67
   %95 = load ptr, ptr %94, align 8, !tbaa !26
   %96 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %95, i64 noundef %1, ptr noundef %.03758)
           to label %97 unwind label %98
@@ -358,7 +358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   %33 = phi ptr [ %39, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %32, %28 ]
   %.028.i = phi ptr [ %36, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %2, %28 ]
   %.sroa.020.026.i = phi ptr [ %36, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ null, %28 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !26
   %36 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %35, i64 noundef %1, ptr noundef %.028.i)
           to label %37 unwind label %45
@@ -512,7 +512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24, %
   %34 = phi ptr [ %40, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %33, %29 ]
   %.028.i = phi ptr [ %37, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %2, %29 ]
   %.sroa.020.026.i = phi ptr [ %37, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ null, %29 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %37 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %36, i64 noundef %1, ptr noundef %.028.i)
           to label %38 unwind label %46
@@ -723,7 +723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %50,
   %60 = phi ptr [ %66, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %59, %55 ]
   %.028.i = phi ptr [ %63, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %2, %55 ]
   %.sroa.020.026.i = phi ptr [ %63, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ null, %55 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8, !tbaa !26
   %63 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %62, i64 noundef %1, ptr noundef %.028.i)
           to label %64 unwind label %72
@@ -886,7 +886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %26, %
   %36 = phi ptr [ %42, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %35, %31 ]
   %.028.i = phi ptr [ %39, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %2, %31 ]
   %.sroa.020.026.i = phi ptr [ %39, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ null, %31 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %38, i64 noundef %1, ptr noundef %.028.i)
           to label %40 unwind label %48
@@ -1261,7 +1261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %51,
   %61 = phi ptr [ %67, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %60, %56 ]
   %.028.i = phi ptr [ %64, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %2, %56 ]
   %.sroa.020.026.i = phi ptr [ %64, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ null, %56 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8, !tbaa !26
   %64 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %63, i64 noundef %1, ptr noundef %.028.i)
           to label %65 unwind label %73
@@ -1487,7 +1487,7 @@ define void @_ZNK5faiss17IndexPreTransform9sa_encodeElPKfPh(ptr noundef nonnull 
   %9 = phi ptr [ %15, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %8, %4 ]
   %.028.i = phi ptr [ %12, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %2, %4 ]
   %.sroa.020.026.i = phi ptr [ %12, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ null, %4 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %1, ptr noundef %.028.i)
           to label %13 unwind label %21
@@ -1779,10 +1779,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %57,
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %69 = phi ptr [ %79, %.lr.ph ], [ %30, %.preheader ]
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !26
   %72 = load ptr, ptr %34, align 8, !tbaa !25
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !26
   %75 = load ptr, ptr %71, align 8, !tbaa !42
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -2091,7 +2091,7 @@ define linkonce_odr ptr @_ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE6insertE
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds ptr, ptr %9, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %9, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %18, i64 %25, i1 false)
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !25
   br label %29
@@ -2155,7 +2155,7 @@ _ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   %52 = getelementptr inbounds i8, ptr %47, i64 %48
   store ptr %42, ptr %0, align 8, !tbaa !25
   store ptr %52, ptr %8, align 8, !tbaa !24
-  %53 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %53, ptr %10, align 8, !tbaa !83
   br label %54
 
@@ -2205,7 +2205,7 @@ define void @_ZN5faiss17IndexPreTransformD2Ev(ptr noundef nonnull align 8 derefe
   %12 = phi ptr [ %22, %21 ], [ %8, %.preheader ]
   %13 = phi ptr [ %23, %21 ], [ %7, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
@@ -2289,7 +2289,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10uniqu
   %8 = phi ptr [ %14, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15 ], [ %7, %3 ]
   %.028 = phi ptr [ %11, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15 ], [ %2, %3 ]
   %.sroa.020.026 = phi ptr [ %11, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15 ], [ null, %3 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %10, i64 noundef %1, ptr noundef %.028)
           to label %12 unwind label %20
@@ -2366,7 +2366,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %4, %._crit_e
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !85
@@ -2382,7 +2382,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %4, %._crit_e
   %29 = phi ptr [ %3, %.lr.ph ], [ %27, %17 ]
   %30 = icmp eq ptr %29, %3
   %31 = select i1 %30, ptr null, ptr %29
-  %32 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -2450,7 +2450,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_128PreTransformDistanceComputer9set_
   %9 = phi ptr [ %15, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %8, %2 ]
   %.028.i = phi ptr [ %12, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ %1, %2 ]
   %.sroa.020.026.i = phi ptr [ %12, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i ], [ null, %2 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef 1, ptr noundef %.028.i)
           to label %13 unwind label %21

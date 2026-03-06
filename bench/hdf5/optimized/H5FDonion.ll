@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5T_vlen_alloc_info_t = type { ptr, ptr, ptr, ptr }
 %struct.H5T_conv_cb_t = type { ptr, ptr }
 %struct.H5VL_connector_prop_t = type { ptr, ptr }
-%struct.H5FD_onion_record_loc_t = type { i64, i64, i32 }
 %struct.H5FD_onion_index_entry_t = type { i64, i64 }
 
 @H5FD_ONION_id_g = local_unnamed_addr global i64 -1, align 8
@@ -1955,7 +1954,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %134 = call ptr @H5MM_xfree(ptr noundef %133) #18
   store ptr %129, ptr %132, align 8, !tbaa !82
   %135 = load i64, ptr %95, align 8, !tbaa !63
-  %136 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %129, i64 %135
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %135
   store i64 %63, ptr %136, align 8, !tbaa !83
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 %55, ptr %137, align 8, !tbaa !85
@@ -1993,7 +1992,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %150 = call i32 @H5_checksum_fletcher32(ptr noundef nonnull %48, i64 noundef 16) #18
   %151 = load ptr, ptr %132, align 8, !tbaa !82
   %152 = load i64, ptr %95, align 8, !tbaa !63
-  %153 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %151, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store i32 %150, ptr %154, align 8, !tbaa !89
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 448

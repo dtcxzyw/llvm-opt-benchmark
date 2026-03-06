@@ -22232,7 +22232,7 @@ define internal void @_ZN12_GLOBAL__N_148StrJoin_TestIteratorRequirementsNoForma
   %9 = phi i64 [ %14, %.lr.ph.i.i.i.i ], [ 1, %1 ]
   %.02127.i.i.i.i = phi i64 [ %13, %.lr.ph.i.i.i.i ], [ 1, %1 ]
   %10 = add i64 %.02127.i.i.i.i, 1
-  %11 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   %12 = load i64, ptr %11, align 8, !tbaa !78
   %13 = add i64 %10, %12
   %14 = add nuw nsw i64 %9, 1
@@ -22261,7 +22261,7 @@ define internal void @_ZN12_GLOBAL__N_148StrJoin_TestIteratorRequirementsNoForma
   %.029.i.i.i.i = phi ptr [ %28, %.lr.ph30.i.i.i.i ], [ %17, %.lr.ph30.preheader.i.i.i.i ]
   store i8 45, ptr %.029.i.i.i.i, align 1
   %23 = getelementptr inbounds nuw i8, ptr %.029.i.i.i.i, i64 1
-  %24 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %6, i64 %22
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !82
   %27 = load i64, ptr %24, align 8, !tbaa !78
@@ -22526,7 +22526,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %15 unwind label %.loopexit.i.i.i
 
 15:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
-  %16 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %6, i64 %.sroa.52.08.i.i.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.sroa.52.08.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !82
   %19 = load i64, ptr %16, align 8, !tbaa !78

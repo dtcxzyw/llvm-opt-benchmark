@@ -476,7 +476,7 @@ _ZNSt6vectorIP10EditPluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 _ZNSt6vectorIP10EditPluginSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIP10EditPluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %23, ptr %0, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIP10EditPluginSaIS1_EE9push_backERKS1_.exit
 

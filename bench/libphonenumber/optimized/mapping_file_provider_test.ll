@@ -3869,7 +3869,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit896: ; preds = %12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef ptr @_ZN4i18n12phonenumbers12_GLOBAL__N_126test_get_country_languagesEi(i32 noundef %0) #7 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @_ZN4i18n12phonenumbers12_GLOBAL__N_117country_languagesE, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @_ZN4i18n12phonenumbers12_GLOBAL__N_117country_languagesE, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !117
   ret ptr %4
 }

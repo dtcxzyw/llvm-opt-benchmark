@@ -15,9 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct._GTypeQuery = type { i64, ptr, i32, i32 }
 %struct._GTypeInfo = type { i16, ptr, ptr, ptr, ptr, ptr, i16, i16, ptr, ptr }
-%struct.dt_signal_description = type { ptr, ptr, ptr, i64, ptr, i32, ptr, ptr, i32 }
-%struct._GValue = type { i64, [2 x %union.anon] }
-%union.anon = type { i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.async_com_data = type { %struct._GCond, %union._GMutex, ptr }
 %struct._GCond = type { ptr, [2 x i32] }
@@ -114,7 +111,7 @@ define noalias noundef ptr @dt_control_signal_init() local_unnamed_addr #0 {
 
 14:                                               ; preds = %0, %32
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %32 ]
-  %15 = getelementptr inbounds nuw %struct.dt_signal_description, ptr @_signal_description, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [72 x i8], ptr @_signal_description, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = load i64, ptr @_signal_type, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -176,7 +173,7 @@ define noundef i32 @_async_com_callback(ptr noundef %0) #0 {
 9:                                                ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
   %10 = load ptr, ptr %4, align 8, !tbaa !34
-  %11 = getelementptr inbounds nuw %struct._GValue, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv.i
   tail call void @g_value_unset(ptr noundef %11) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr %8, align 4, !tbaa !38
@@ -213,7 +210,7 @@ define internal noundef i32 @_signal_raise(ptr noundef captures(none) %0) #0 {
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !34
-  %10 = getelementptr inbounds nuw %struct._GValue, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   tail call void @g_value_unset(ptr noundef %10) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %5, align 4, !tbaa !38
@@ -236,7 +233,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 6:                                                ; preds = %2
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.dt_signal_description, ptr @_signal_description, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @_signal_description, i64 %7
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %.not52 = icmp eq ptr %9, null
   br i1 %.not52, label %105, label %10
@@ -279,10 +276,10 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 28:                                               ; preds = %.lr.ph, %81
   %indvars.iv71 = phi i32 [ 2, %.lr.ph ], [ %indvars.iv.next72, %81 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %29 = getelementptr i64, ptr %24, i64 %indvars.iv
+  %29 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load i64, ptr %30, align 8, !tbaa !20
-  %32 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %33 = call ptr @g_value_init(ptr noundef nonnull %32, i64 noundef %31) #12
   switch i64 %31, label %76 [
     i64 28, label %34
@@ -380,7 +377,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 79:                                               ; preds = %76, %79
   %indvars.iv68 = phi i64 [ 0, %76 ], [ %indvars.iv.next69, %79 ]
-  %80 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv68
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv68
   call void @g_value_unset(ptr noundef nonnull %80) #12
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count74
@@ -425,7 +422,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 95:                                               ; preds = %95, %94
   %indvars.iv.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i, %95 ]
   %96 = load ptr, ptr %9, align 8, !tbaa !34
-  %97 = getelementptr inbounds nuw %struct._GValue, ptr %96, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %indvars.iv.i
   call void @g_value_unset(ptr noundef %97) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %98 = load i32, ptr %86, align 4, !tbaa !38
@@ -515,7 +512,7 @@ define void @dt_control_signal_connect(ptr noundef readonly captures(none) %0, i
   %5 = load ptr, ptr %0, align 8, !tbaa !21
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef 80) #12
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.dt_signal_description, ptr @_signal_description, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @_signal_description, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = tail call i64 @g_signal_connect_data(ptr noundef %6, ptr noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 0) #12
   ret void

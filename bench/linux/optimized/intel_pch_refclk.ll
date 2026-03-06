@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.static_call_key = type { ptr, %union.anon.70 }
 %union.anon.70 = type { i64 }
-%struct.intel_shared_dpll = type { %struct.intel_shared_dpll_state, i8, i8, i8, ptr, i64 }
-%struct.intel_shared_dpll_state = type { i8, %struct.intel_dpll_hw_state }
-%struct.intel_dpll_hw_state = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"%s %s: %s\00", align 1
 @.str.1 = private unnamed_addr constant [42 x i8] c"drm_WARN_ON(lpt_iclkip_freq(&p) != clock)\00", align 1
@@ -401,7 +398,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 53:                                               ; preds = %48, %45
   %54 = phi i64 [ %49, %48 ], [ 0, %45 ]
-  %55 = getelementptr %struct.intel_shared_dpll, ptr %41, i64 %54
+  %55 = getelementptr [160 x i8], ptr %41, i64 %54
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %57
 

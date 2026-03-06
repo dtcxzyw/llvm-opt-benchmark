@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct.anon.0 = type { i32 }
 
 @.str = private unnamed_addr constant [21 x i8] c"rtp_dyn_payload_type\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"VND.3GPP.IUFP\00", align 1
@@ -3114,7 +3113,7 @@ find_iuup_circuit.exit.i.i:                       ; preds = %90, %74
 .lr.ph64.i.i:                                     ; preds = %153, %.lr.ph64.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph64.preheader.i.i ], [ %indvars.iv.next.i.i, %153 ]
   %.04662.i.i = phi i32 [ 0, %.lr.ph64.preheader.i.i ], [ %.1.i.i, %153 ]
-  %109 = getelementptr %struct.anon.0, ptr %103, i64 %indvars.iv.i.i
+  %109 = getelementptr [4 x i8], ptr %103, i64 %indvars.iv.i.i
   %110 = load i32, ptr %109, align 4
   %.not54.i.i = icmp eq i32 %110, 0
   br i1 %.not54.i.i, label %153, label %111
@@ -3122,8 +3121,8 @@ find_iuup_circuit.exit.i.i:                       ; preds = %90, %74
 111:                                              ; preds = %.lr.ph64.i.i
   %112 = load i32, ptr %.04561.i.i, align 8
   %113 = zext i32 %112 to i64
-  %114 = getelementptr [8 x i32], ptr @hf_iuup_rfci_subflow, i64 %113
-  %115 = getelementptr i32, ptr %114, i64 %indvars.iv.i.i
+  %114 = getelementptr [32 x i8], ptr @hf_iuup_rfci_subflow, i64 %113
+  %115 = getelementptr [4 x i8], ptr %114, i64 %indvars.iv.i.i
   %116 = load i32, ptr %115, align 4
   %117 = lshr i32 %.04662.i.i, 3
   %118 = add i32 %117, %.0.i.i
@@ -3283,7 +3282,7 @@ iuup_proto_tree_add_bits.exit.i.i:                ; preds = %132, %111
   %.not.i.i50 = icmp eq i64 %199, 0
   %200 = zext i1 %.not.i.i50 to i32
   %spec.select.i.i = add i32 %.02.i.i, %200
-  %201 = getelementptr i32, ptr @hf_iuup_rfci_ratectl, i64 %indvars.iv.i.i49
+  %201 = getelementptr [4 x i8], ptr @hf_iuup_rfci_ratectl, i64 %indvars.iv.i.i49
   %202 = load i32, ptr %201, align 4
   %203 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %202, ptr noundef %.039, i32 noundef %spec.select.i.i, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i49, 1
@@ -3419,7 +3418,7 @@ find_iuup_circuit.exit.i.i46:                     ; preds = %213
 276:                                              ; preds = %276, %269
   %indvars.iv.i107.i = phi i64 [ 0, %269 ], [ %indvars.iv.next.i109.i, %276 ]
   %277 = phi i32 [ %.pre.i.i, %269 ], [ %spec.select.i108.i, %276 ]
-  %278 = getelementptr i32, ptr @hf_iuup_init_ipti, i64 %indvars.iv.i107.i
+  %278 = getelementptr [4 x i8], ptr @hf_iuup_init_ipti, i64 %indvars.iv.i107.i
   %279 = load i32, ptr %278, align 4
   %280 = tail call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %279, ptr noundef %.039, i32 noundef %277, i32 noundef 1, i32 noundef 0)
   %281 = trunc nuw nsw i64 %indvars.iv.i107.i to i32
@@ -3444,7 +3443,7 @@ find_iuup_circuit.exit.i.i46:                     ; preds = %213
 
 291:                                              ; preds = %291, %285
   %indvars.iv75.i.i = phi i64 [ 0, %285 ], [ %indvars.iv.next76.i.i, %291 ]
-  %292 = getelementptr i32, ptr @hf_iuup_mode_versions_a, i64 %indvars.iv75.i.i
+  %292 = getelementptr [4 x i8], ptr @hf_iuup_mode_versions_a, i64 %indvars.iv75.i.i
   %293 = load i32, ptr %292, align 4
   %294 = tail call ptr @proto_tree_add_item(ptr noundef %290, i32 noundef %293, ptr noundef %.039, i32 noundef %286, i32 noundef 2, i32 noundef 0)
   %indvars.iv.next76.i.i = add nuw nsw i64 %indvars.iv75.i.i, 1
@@ -3483,7 +3482,7 @@ dissect_iuup_init.exit.i:                         ; preds = %295, %.thread.i.i
   %.not.i117.i = icmp eq i64 %306, 0
   %307 = zext i1 %.not.i117.i to i32
   %spec.select.i118.i = add i32 %.02.i116.i, %307
-  %308 = getelementptr i32, ptr @hf_iuup_rfci_ratectl, i64 %indvars.iv.i115.i
+  %308 = getelementptr [4 x i8], ptr @hf_iuup_rfci_ratectl, i64 %indvars.iv.i115.i
   %309 = load i32, ptr %308, align 4
   %310 = tail call ptr @proto_tree_add_item(ptr noundef %305, i32 noundef %309, ptr noundef %.039, i32 noundef %spec.select.i118.i, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next.i119.i = add nuw nsw i64 %indvars.iv.i115.i, 1
@@ -3908,15 +3907,15 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef -1, i32 noundef 0)
   %17 = load i32, ptr @ett_rfci, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17)
-  %19 = getelementptr i32, ptr @hf_iuup_init_rfci_lri, i64 %indvars.iv10
+  %19 = getelementptr [4 x i8], ptr @hf_iuup_init_rfci_lri, i64 %indvars.iv10
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %2, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %23 = getelementptr i32, ptr @hf_iuup_init_rfci_li, i64 %indvars.iv10
+  %23 = getelementptr [4 x i8], ptr @hf_iuup_init_rfci_li, i64 %indvars.iv10
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %2, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %24, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
-  %27 = getelementptr i32, ptr @hf_iuup_init_rfci, i64 %indvars.iv10
+  %27 = getelementptr [4 x i8], ptr @hf_iuup_init_rfci, i64 %indvars.iv10
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0)
@@ -3946,7 +3945,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %.not65.not = icmp eq i32 %37, 0
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %46 = getelementptr [8 x i32], ptr @hf_iuup_init_rfci_flow_len, i64 %indvars.iv10
+  %46 = getelementptr [32 x i8], ptr @hf_iuup_init_rfci_flow_len, i64 %indvars.iv10
   br i1 %.not65.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -3954,12 +3953,12 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %indvars.iv7 = phi i64 [ %indvars.iv.next8, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %47)
   %49 = zext i8 %48 to i32
-  %50 = getelementptr %struct.anon.0, ptr %44, i64 %indvars.iv7
+  %50 = getelementptr [4 x i8], ptr %44, i64 %indvars.iv7
   store i32 %49, ptr %50, align 4
   %51 = load i32, ptr %45, align 4
   %52 = add i32 %51, %49
   store i32 %52, ptr %45, align 4
-  %53 = getelementptr i32, ptr %46, i64 %indvars.iv7
+  %53 = getelementptr [4 x i8], ptr %46, i64 %indvars.iv7
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %2, align 4
   %56 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %49)
@@ -3977,12 +3976,12 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62)
   %64 = zext i16 %63 to i32
-  %65 = getelementptr %struct.anon.0, ptr %44, i64 %indvars.iv
+  %65 = getelementptr [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %64, ptr %65, align 4
   %66 = load i32, ptr %45, align 4
   %67 = add i32 %66, %64
   store i32 %67, ptr %45, align 4
-  %68 = getelementptr i32, ptr %46, i64 %indvars.iv
+  %68 = getelementptr [4 x i8], ptr %46, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %2, align 4
   %71 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 2, i32 noundef %64)

@@ -120,7 +120,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %51 = getelementptr i8, ptr %48, i64 1
   %52 = and i8 %46, 127
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr i32, ptr %47, i64 %53
+  %54 = getelementptr [4 x i8], ptr %47, i64 %53
   br label %.loopexit, !llvm.loop !5
 
 55:                                               ; preds = %.preheader
@@ -286,7 +286,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
 
 159:                                              ; preds = %.thread, %149, %151, %155
   %160 = phi i64 [ 196, %155 ], [ 128, %.thread ], [ 112, %149 ], [ 100, %151 ]
-  %161 = getelementptr i32, ptr %0, i64 %160
+  %161 = getelementptr [4 x i8], ptr %0, i64 %160
   %162 = getelementptr i8, ptr %161, i64 4
   store i32 0, ptr %162, align 4
   br label %.critedge
@@ -328,7 +328,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %188 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i64
-  %191 = getelementptr ptr, ptr %187, i64 %190
+  %191 = getelementptr [8 x i8], ptr %187, i64 %190
   br label %192
 
 192:                                              ; preds = %186, %180
@@ -355,7 +355,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %209 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %210 = load i8, ptr %209, align 1
   %211 = zext i8 %210 to i64
-  %212 = getelementptr ptr, ptr %208, i64 %211
+  %212 = getelementptr [8 x i8], ptr %208, i64 %211
   br label %213
 
 213:                                              ; preds = %207, %192
@@ -382,7 +382,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %230 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i64
-  %233 = getelementptr ptr, ptr %229, i64 %232
+  %233 = getelementptr [8 x i8], ptr %229, i64 %232
   br label %234
 
 234:                                              ; preds = %228, %213
@@ -408,7 +408,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %250 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %251 = load i8, ptr %250, align 1
   %252 = zext i8 %251 to i64
-  %253 = getelementptr ptr, ptr %249, i64 %252
+  %253 = getelementptr [8 x i8], ptr %249, i64 %252
   br label %254
 
 254:                                              ; preds = %248, %234, %172
@@ -460,7 +460,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
 
 291:                                              ; preds = %286, %284, %267
   %292 = phi i64 [ 18, %267 ], [ 24, %284 ], [ %290, %286 ]
-  %293 = getelementptr i32, ptr %0, i64 %292
+  %293 = getelementptr [4 x i8], ptr %0, i64 %292
   %294 = getelementptr i8, ptr %293, i64 4
   store i32 %279, ptr %294, align 4
   br label %295
@@ -503,7 +503,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
 
 .thread22:                                        ; preds = %318, %316, %299
   %322 = phi i64 [ %spec.select40, %318 ], [ 20, %299 ], [ 26, %316 ]
-  %323 = getelementptr i32, ptr %0, i64 %322
+  %323 = getelementptr [4 x i8], ptr %0, i64 %322
   %324 = getelementptr i8, ptr %323, i64 4
   store i32 %311, ptr %324, align 4
   %325 = load ptr, ptr %2, align 8
@@ -532,7 +532,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
 .thread34.thread:                                 ; preds = %333, %329, %.thread22, %331
   %339 = phi i32 [ %335, %333 ], [ 2432, %331 ], [ 1664, %329 ], [ 832, %.thread22 ]
   %340 = phi i64 [ %spec.select74, %333 ], [ 28, %331 ], [ 28, %329 ], [ 22, %.thread22 ]
-  %341 = getelementptr i32, ptr %0, i64 %340
+  %341 = getelementptr [4 x i8], ptr %0, i64 %340
   %342 = getelementptr i8, ptr %341, i64 4
   store i32 %339, ptr %342, align 4
   br label %343
@@ -566,7 +566,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
 
 select.unfold36:                                  ; preds = %358, %343, %354, %356
   %.ph38 = phi i64 [ 112, %343 ], [ 84, %356 ], [ 96, %354 ], [ 88, %358 ]
-  %362 = getelementptr i32, ptr %0, i64 %.ph38
+  %362 = getelementptr [4 x i8], ptr %0, i64 %.ph38
   %363 = getelementptr i8, ptr %362, i64 4
   %364 = load i32, ptr %363, align 4
   %365 = and i32 %364, -16777473
@@ -610,7 +610,7 @@ define dso_local void @lrc_reset_regs(ptr noundef readonly captures(none) %0, pt
 
 select.unfold:                                    ; preds = %19, %2, %15, %17
   %.ph = phi i64 [ 112, %2 ], [ 84, %17 ], [ 96, %15 ], [ 88, %19 ]
-  %23 = getelementptr i32, ptr %4, i64 %.ph
+  %23 = getelementptr [4 x i8], ptr %4, i64 %.ph
   %24 = getelementptr i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, -16777473
@@ -1069,7 +1069,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
 
 .thread:                                          ; preds = %122, %120, %61
   %125 = phi i64 [ %spec.select, %122 ], [ 20, %61 ], [ 26, %120 ]
-  %126 = getelementptr i32, ptr %99, i64 %125
+  %126 = getelementptr [4 x i8], ptr %99, i64 %125
   %127 = getelementptr i8, ptr %126, i64 4
   store i32 %115, ptr %127, align 4
   %128 = load ptr, ptr %1, align 8
@@ -1097,7 +1097,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
 .thread15.thread:                                 ; preds = %136, %132, %.thread, %134
   %141 = phi i32 [ %138, %136 ], [ 2432, %134 ], [ 1664, %132 ], [ 832, %.thread ]
   %142 = phi i64 [ %spec.select23, %136 ], [ 28, %134 ], [ 28, %132 ], [ 22, %.thread ]
-  %143 = getelementptr i32, ptr %99, i64 %142
+  %143 = getelementptr [4 x i8], ptr %99, i64 %142
   %144 = getelementptr i8, ptr %143, i64 4
   store i32 %141, ptr %144, align 4
   %145 = load ptr, ptr %6, align 8
@@ -1226,7 +1226,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   %241 = add i32 %238, %240
   %242 = or i32 %241, 5
   %243 = add i32 %242, 4096
-  %244 = getelementptr i32, ptr %218, i64 %236
+  %244 = getelementptr [4 x i8], ptr %218, i64 %236
   %245 = getelementptr i8, ptr %244, i64 4
   store i32 %243, ptr %245, align 4
   br label %246
@@ -2065,7 +2065,7 @@ define dso_local void @lrc_update_offsets(ptr noundef readonly captures(none) %0
   %49 = getelementptr i8, ptr %46, i64 1
   %50 = and i8 %44, 127
   %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr i32, ptr %45, i64 %51
+  %52 = getelementptr [4 x i8], ptr %45, i64 %51
   br label %.loopexit, !llvm.loop !5
 
 53:                                               ; preds = %.preheader
@@ -2217,7 +2217,7 @@ define dso_local void @lrc_check_regs(ptr noundef readonly captures(none) %0, pt
 
 select.unfold:                                    ; preds = %64, %48, %60, %62
   %.ph = phi i64 [ 112, %48 ], [ 84, %62 ], [ 96, %60 ], [ 88, %64 ]
-  %68 = getelementptr i32, ptr %7, i64 %.ph
+  %68 = getelementptr [4 x i8], ptr %7, i64 %.ph
   %69 = getelementptr i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = lshr i32 %70, 16

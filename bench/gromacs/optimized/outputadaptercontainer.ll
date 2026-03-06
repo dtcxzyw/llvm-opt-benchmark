@@ -20,12 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %"class.std::unique_ptr.5" = type { %"struct.std::__uniq_ptr_data.6" }
 %"struct.std::__uniq_ptr_data.6" = type { %"class.std::__uniq_ptr_impl.7" }
 %"class.std::__uniq_ptr_impl.7" = type { %"class.std::tuple.8" }
@@ -71,7 +65,7 @@ define void @_ZN3gmx22OutputAdapterContainer10addAdapterESt10unique_ptrINS_14IOu
   %4 = alloca %"class.gmx::InternalError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.gmx::ExceptionInfo", align 8
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %0, i64 %2
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %2
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9

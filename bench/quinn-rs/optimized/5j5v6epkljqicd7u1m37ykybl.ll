@@ -1561,7 +1561,7 @@ common.resume:                                    ; preds = %53, %33
   br i1 %82, label %97, label %101
 
 84:                                               ; preds = %.noexc
-  %85 = getelementptr inbounds nuw { ptr, ptr, i64, { ptr } }, ptr %4, i64 %.sroa.0.04.i
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.sroa.0.04.i
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %86 = load ptr, ptr %85, align 8, !alias.scope !89, !noalias !79, !nonnull !3, !align !4, !noundef !3

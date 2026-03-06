@@ -68,7 +68,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   %7 = phi i32 [ %.pr, %.lr.ph ], [ %13, %6 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !26
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   tail call void @av_frame_free(ptr noundef %11) #3
   %12 = load i32, ptr %3, align 8, !tbaa !27
@@ -169,19 +169,19 @@ define internal range(i32 -12, 1) i32 @filter_frame(ptr noundef readonly capture
   %46 = phi i32 [ %.pre43, %45 ], [ %34, %33 ]
   %47 = phi ptr [ %44, %45 ], [ %40, %33 ]
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   store ptr %1, ptr %49, align 8, !tbaa !42
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %51 = load i64, ptr %50, align 8, !tbaa !44
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !20
-  %54 = getelementptr inbounds i64, ptr %53, i64 %48
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %48
   store i64 %51, ptr %54, align 8, !tbaa !49
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %56 = load i64, ptr %55, align 8, !tbaa !50
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !25
-  %59 = getelementptr inbounds i64, ptr %58, i64 %48
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %48
   store i64 %56, ptr %59, align 8, !tbaa !49
   store i32 %.pre-phi48, ptr %6, align 8, !tbaa !27
   br label %60
@@ -214,7 +214,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = zext nneg i32 %11 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -222,7 +222,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %23 = load i32, ptr %22, align 8, !tbaa !55
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %21, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %21, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 408
   store i64 %26, ptr %27, align 8, !tbaa !50
@@ -230,7 +230,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %30 = add nsw i32 %23, 1
   store i32 %30, ptr %22, align 8, !tbaa !55
-  %31 = getelementptr inbounds i64, ptr %29, i64 %24
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %24
   %32 = load i64, ptr %31, align 8, !tbaa !49
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 136
   store i64 %32, ptr %33, align 8, !tbaa !44
@@ -238,7 +238,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %35 = load ptr, ptr %14, align 8, !tbaa !26
   %36 = load i32, ptr %4, align 8, !tbaa !27
   %37 = sext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %35, i64 %37
+  %38 = getelementptr [8 x i8], ptr %35, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -8
   store ptr null, ptr %39, align 8, !tbaa !42
   %40 = add nsw i32 %36, -1
@@ -279,7 +279,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = zext nneg i32 %11 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -287,7 +287,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %23 = load i32, ptr %22, align 8, !tbaa !55
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %21, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %21, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 408
   store i64 %26, ptr %27, align 8, !tbaa !50
@@ -295,7 +295,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %30 = add nsw i32 %23, 1
   store i32 %30, ptr %22, align 8, !tbaa !55
-  %31 = getelementptr inbounds i64, ptr %29, i64 %24
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %24
   %32 = load i64, ptr %31, align 8, !tbaa !49
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %34 = load i64, ptr %33, align 8, !tbaa !56
@@ -307,7 +307,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 
 37:                                               ; preds = %13
   %38 = sext i32 %30 to i64
-  %39 = getelementptr inbounds i64, ptr %29, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %29, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !49
   %41 = getelementptr i8, ptr %39, i64 -8
   %42 = load i64, ptr %41, align 8, !tbaa !49
@@ -352,7 +352,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %56, align 8, !tbaa !60
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv186.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv186.i
   %63 = load ptr, ptr %62, align 8, !tbaa !61
   %64 = load i32, ptr %57, align 8, !tbaa !57
   %65 = icmp sgt i32 %64, 1
@@ -379,7 +379,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 
 73:                                               ; preds = %58
   %74 = load ptr, ptr %56, align 8, !tbaa !60
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv186.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv186.i
   %76 = load ptr, ptr %75, align 8, !tbaa !61
   %77 = load i32, ptr %57, align 8, !tbaa !57
   %78 = icmp sgt i32 %77, 1
@@ -393,9 +393,9 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 .lr.ph134.i:                                      ; preds = %.lr.ph134.i, %.lr.ph134.preheader.i
   %indvars.iv174.i = phi i64 [ 0, %.lr.ph134.preheader.i ], [ %indvars.iv.next175.i, %.lr.ph134.i ]
   %indvars.iv172.i = phi i64 [ %80, %.lr.ph134.preheader.i ], [ %indvars.iv.next173.i, %.lr.ph134.i ]
-  %81 = getelementptr inbounds i16, ptr %76, i64 %indvars.iv172.i
+  %81 = getelementptr inbounds [2 x i8], ptr %76, i64 %indvars.iv172.i
   %82 = load i16, ptr %81, align 2, !tbaa !64
-  %83 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv174.i
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %indvars.iv174.i
   %84 = load i16, ptr %83, align 2, !tbaa !64
   store i16 %84, ptr %81, align 2, !tbaa !64
   store i16 %82, ptr %83, align 2, !tbaa !64
@@ -406,7 +406,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 
 86:                                               ; preds = %58
   %87 = load ptr, ptr %56, align 8, !tbaa !60
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv186.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv186.i
   %89 = load ptr, ptr %88, align 8, !tbaa !61
   %90 = load i32, ptr %57, align 8, !tbaa !57
   %91 = icmp sgt i32 %90, 1
@@ -420,9 +420,9 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 .lr.ph130.i:                                      ; preds = %.lr.ph130.i, %.lr.ph130.preheader.i
   %indvars.iv167.i = phi i64 [ 0, %.lr.ph130.preheader.i ], [ %indvars.iv.next168.i, %.lr.ph130.i ]
   %indvars.iv165.i = phi i64 [ %93, %.lr.ph130.preheader.i ], [ %indvars.iv.next166.i, %.lr.ph130.i ]
-  %94 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv165.i
+  %94 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv165.i
   %95 = load i32, ptr %94, align 4, !tbaa !67
-  %96 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv167.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv167.i
   %97 = load i32, ptr %96, align 4, !tbaa !67
   store i32 %97, ptr %94, align 4, !tbaa !67
   store i32 %95, ptr %96, align 4, !tbaa !67
@@ -433,7 +433,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 
 99:                                               ; preds = %58
   %100 = load ptr, ptr %56, align 8, !tbaa !60
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv186.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv186.i
   %102 = load ptr, ptr %101, align 8, !tbaa !61
   %103 = load i32, ptr %57, align 8, !tbaa !57
   %104 = icmp sgt i32 %103, 1
@@ -447,9 +447,9 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 .lr.ph126.i:                                      ; preds = %.lr.ph126.i, %.lr.ph126.preheader.i
   %indvars.iv160.i = phi i64 [ 0, %.lr.ph126.preheader.i ], [ %indvars.iv.next161.i, %.lr.ph126.i ]
   %indvars.iv158.i = phi i64 [ %106, %.lr.ph126.preheader.i ], [ %indvars.iv.next159.i, %.lr.ph126.i ]
-  %107 = getelementptr inbounds i64, ptr %102, i64 %indvars.iv158.i
+  %107 = getelementptr inbounds [8 x i8], ptr %102, i64 %indvars.iv158.i
   %108 = load i64, ptr %107, align 8, !tbaa !49
-  %109 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv160.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv160.i
   %110 = load i64, ptr %109, align 8, !tbaa !49
   store i64 %110, ptr %107, align 8, !tbaa !49
   store i64 %108, ptr %109, align 8, !tbaa !49
@@ -460,7 +460,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 
 112:                                              ; preds = %58
   %113 = load ptr, ptr %56, align 8, !tbaa !60
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv186.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv186.i
   %115 = load ptr, ptr %114, align 8, !tbaa !61
   %116 = load i32, ptr %57, align 8, !tbaa !57
   %117 = icmp sgt i32 %116, 1
@@ -474,9 +474,9 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 .lr.ph122.i:                                      ; preds = %.lr.ph122.i, %.lr.ph122.preheader.i
   %indvars.iv153.i = phi i64 [ 0, %.lr.ph122.preheader.i ], [ %indvars.iv.next154.i, %.lr.ph122.i ]
   %indvars.iv151.i = phi i64 [ %119, %.lr.ph122.preheader.i ], [ %indvars.iv.next152.i, %.lr.ph122.i ]
-  %120 = getelementptr inbounds float, ptr %115, i64 %indvars.iv151.i
+  %120 = getelementptr inbounds [4 x i8], ptr %115, i64 %indvars.iv151.i
   %121 = load float, ptr %120, align 4, !tbaa !70
-  %122 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv153.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv153.i
   %123 = load float, ptr %122, align 4, !tbaa !70
   store float %123, ptr %120, align 4, !tbaa !70
   store float %121, ptr %122, align 4, !tbaa !70
@@ -487,7 +487,7 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 
 125:                                              ; preds = %58
   %126 = load ptr, ptr %56, align 8, !tbaa !60
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv186.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv186.i
   %128 = load ptr, ptr %127, align 8, !tbaa !61
   %129 = load i32, ptr %57, align 8, !tbaa !57
   %130 = icmp sgt i32 %129, 1
@@ -501,9 +501,9 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv146.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next147.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %132, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %133 = getelementptr inbounds double, ptr %128, i64 %indvars.iv.i
+  %133 = getelementptr inbounds [8 x i8], ptr %128, i64 %indvars.iv.i
   %134 = load double, ptr %133, align 8, !tbaa !73
-  %135 = getelementptr inbounds nuw double, ptr %128, i64 %indvars.iv146.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv146.i
   %136 = load double, ptr %135, align 8, !tbaa !73
   store double %136, ptr %133, align 8, !tbaa !73
   store double %134, ptr %135, align 8, !tbaa !73
@@ -596,15 +596,15 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %indvars.iv274.i = phi i64 [ %169, %.preheader175.us.preheader.i ], [ %indvars.iv.next275.i, %._crit_edge.us208.i ]
   %171 = mul nsw i64 %indvars.iv274.i, %170
   %172 = mul nuw nsw i64 %indvars.iv276.i, %170
-  %invariant.gep318.i = getelementptr i16, ptr %163, i64 %171
-  %invariant.gep320.i = getelementptr inbounds nuw i16, ptr %163, i64 %172
+  %invariant.gep318.i = getelementptr [2 x i8], ptr %163, i64 %171
+  %invariant.gep320.i = getelementptr inbounds nuw [2 x i8], ptr %163, i64 %172
   br label %173
 
 173:                                              ; preds = %173, %.preheader175.us.i
   %indvars.iv269.i = phi i64 [ 0, %.preheader175.us.i ], [ %indvars.iv.next270.i, %173 ]
-  %gep319.i = getelementptr i16, ptr %invariant.gep318.i, i64 %indvars.iv269.i
+  %gep319.i = getelementptr [2 x i8], ptr %invariant.gep318.i, i64 %indvars.iv269.i
   %174 = load i16, ptr %gep319.i, align 2, !tbaa !64
-  %gep321.i = getelementptr inbounds nuw i16, ptr %invariant.gep320.i, i64 %indvars.iv269.i
+  %gep321.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep320.i, i64 %indvars.iv269.i
   %175 = load i16, ptr %gep321.i, align 2, !tbaa !64
   store i16 %175, ptr %gep319.i, align 2, !tbaa !64
   store i16 %174, ptr %gep321.i, align 2, !tbaa !64
@@ -640,15 +640,15 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %indvars.iv262.i = phi i64 [ %186, %.preheader177.us.preheader.i ], [ %indvars.iv.next263.i, %._crit_edge.us203.i ]
   %188 = mul nsw i64 %indvars.iv262.i, %187
   %189 = mul nuw nsw i64 %indvars.iv264.i, %187
-  %invariant.gep314.i = getelementptr i32, ptr %180, i64 %188
-  %invariant.gep316.i = getelementptr inbounds nuw i32, ptr %180, i64 %189
+  %invariant.gep314.i = getelementptr [4 x i8], ptr %180, i64 %188
+  %invariant.gep316.i = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %189
   br label %190
 
 190:                                              ; preds = %190, %.preheader177.us.i
   %indvars.iv257.i = phi i64 [ 0, %.preheader177.us.i ], [ %indvars.iv.next258.i, %190 ]
-  %gep315.i = getelementptr i32, ptr %invariant.gep314.i, i64 %indvars.iv257.i
+  %gep315.i = getelementptr [4 x i8], ptr %invariant.gep314.i, i64 %indvars.iv257.i
   %191 = load i32, ptr %gep315.i, align 4, !tbaa !67
-  %gep317.i = getelementptr inbounds nuw i32, ptr %invariant.gep316.i, i64 %indvars.iv257.i
+  %gep317.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep316.i, i64 %indvars.iv257.i
   %192 = load i32, ptr %gep317.i, align 4, !tbaa !67
   store i32 %192, ptr %gep315.i, align 4, !tbaa !67
   store i32 %191, ptr %gep317.i, align 4, !tbaa !67
@@ -684,15 +684,15 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %indvars.iv250.i = phi i64 [ %203, %.preheader179.us.preheader.i ], [ %indvars.iv.next251.i, %._crit_edge.us198.i ]
   %205 = mul nsw i64 %indvars.iv250.i, %204
   %206 = mul nuw nsw i64 %indvars.iv252.i, %204
-  %invariant.gep310.i = getelementptr i64, ptr %197, i64 %205
-  %invariant.gep312.i = getelementptr inbounds nuw i64, ptr %197, i64 %206
+  %invariant.gep310.i = getelementptr [8 x i8], ptr %197, i64 %205
+  %invariant.gep312.i = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %206
   br label %207
 
 207:                                              ; preds = %207, %.preheader179.us.i
   %indvars.iv245.i = phi i64 [ 0, %.preheader179.us.i ], [ %indvars.iv.next246.i, %207 ]
-  %gep311.i = getelementptr i64, ptr %invariant.gep310.i, i64 %indvars.iv245.i
+  %gep311.i = getelementptr [8 x i8], ptr %invariant.gep310.i, i64 %indvars.iv245.i
   %208 = load i64, ptr %gep311.i, align 8, !tbaa !49
-  %gep313.i = getelementptr inbounds nuw i64, ptr %invariant.gep312.i, i64 %indvars.iv245.i
+  %gep313.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep312.i, i64 %indvars.iv245.i
   %209 = load i64, ptr %gep313.i, align 8, !tbaa !49
   store i64 %209, ptr %gep311.i, align 8, !tbaa !49
   store i64 %208, ptr %gep313.i, align 8, !tbaa !49
@@ -728,15 +728,15 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %indvars.iv238.i = phi i64 [ %220, %.preheader181.us.preheader.i ], [ %indvars.iv.next239.i, %._crit_edge.us193.i ]
   %222 = mul nsw i64 %indvars.iv238.i, %221
   %223 = mul nuw nsw i64 %indvars.iv240.i, %221
-  %invariant.gep306.i = getelementptr float, ptr %214, i64 %222
-  %invariant.gep308.i = getelementptr inbounds nuw float, ptr %214, i64 %223
+  %invariant.gep306.i = getelementptr [4 x i8], ptr %214, i64 %222
+  %invariant.gep308.i = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %223
   br label %224
 
 224:                                              ; preds = %224, %.preheader181.us.i
   %indvars.iv233.i = phi i64 [ 0, %.preheader181.us.i ], [ %indvars.iv.next234.i, %224 ]
-  %gep307.i = getelementptr float, ptr %invariant.gep306.i, i64 %indvars.iv233.i
+  %gep307.i = getelementptr [4 x i8], ptr %invariant.gep306.i, i64 %indvars.iv233.i
   %225 = load float, ptr %gep307.i, align 4, !tbaa !70
-  %gep309.i = getelementptr inbounds nuw float, ptr %invariant.gep308.i, i64 %indvars.iv233.i
+  %gep309.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep308.i, i64 %indvars.iv233.i
   %226 = load float, ptr %gep309.i, align 4, !tbaa !70
   store float %226, ptr %gep307.i, align 4, !tbaa !70
   store float %225, ptr %gep309.i, align 4, !tbaa !70
@@ -772,15 +772,15 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   %indvars.iv226.i = phi i64 [ %237, %.preheader183.us.preheader.i ], [ %indvars.iv.next227.i, %._crit_edge.us.i ]
   %239 = mul nsw i64 %indvars.iv226.i, %238
   %240 = mul nuw nsw i64 %indvars.iv228.i, %238
-  %invariant.gep.i = getelementptr double, ptr %231, i64 %239
-  %invariant.gep304.i = getelementptr inbounds nuw double, ptr %231, i64 %240
+  %invariant.gep.i = getelementptr [8 x i8], ptr %231, i64 %239
+  %invariant.gep304.i = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %240
   br label %241
 
 241:                                              ; preds = %241, %.preheader183.us.i
   %indvars.iv.i32 = phi i64 [ 0, %.preheader183.us.i ], [ %indvars.iv.next.i33, %241 ]
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i32
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i32
   %242 = load double, ptr %gep.i, align 8, !tbaa !73
-  %gep305.i = getelementptr inbounds nuw double, ptr %invariant.gep304.i, i64 %indvars.iv.i32
+  %gep305.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep304.i, i64 %indvars.iv.i32
   %243 = load double, ptr %gep305.i, align 8, !tbaa !73
   store double %243, ptr %gep.i, align 8, !tbaa !73
   store double %242, ptr %gep305.i, align 8, !tbaa !73
@@ -799,7 +799,7 @@ reverse_samples_planar.exit:                      ; preds = %.loopexit.i, %._cri
   %246 = load ptr, ptr %14, align 8, !tbaa !26
   %247 = load i32, ptr %4, align 8, !tbaa !27
   %248 = sext i32 %247 to i64
-  %249 = getelementptr ptr, ptr %246, i64 %248
+  %249 = getelementptr [8 x i8], ptr %246, i64 %248
   %250 = getelementptr i8, ptr %249, i64 -8
   store ptr null, ptr %250, align 8, !tbaa !42
   %251 = add nsw i32 %247, -1

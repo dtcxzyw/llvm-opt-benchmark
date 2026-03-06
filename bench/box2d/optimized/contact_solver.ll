@@ -4,22 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.b2Softness = type { float, float, float }
-%struct.b2ContactSim = type { i32, i32, i32, i32, i32, float, float, float, float, %struct.b2Manifold, float, float, float, float, i32, %struct.b2SimplexCache }
-%struct.b2Manifold = type { %struct.b2Vec2, float, [2 x %struct.b2ManifoldPoint], i32 }
 %struct.b2Vec2 = type { float, float }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i16, i8 }
-%struct.b2SimplexCache = type { i16, [3 x i8], [3 x i8] }
-%struct.b2ContactConstraint = type { i32, i32, [2 x %struct.b2ContactConstraintPoint], %struct.b2Vec2, float, float, float, float, float, float, float, float, float, float, %struct.b2Softness, i32 }
-%struct.b2ContactConstraintPoint = type { %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float }
-%struct.b2BodyState = type { %struct.b2Vec2, float, i32, %struct.b2Vec2, %struct.b2Rot }
 %struct.b2Rot = type { float, float }
-%struct.b2ContactConstraintSIMD = type { [4 x i32], [4 x i32], <4 x float>, <4 x float>, <4 x float>, <4 x float>, %struct.b2Vec2W, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, %struct.b2Vec2W, %struct.b2Vec2W, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, %struct.b2Vec2W, %struct.b2Vec2W, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float> }
-%struct.b2Vec2W = type { <4 x float>, <4 x float> }
-%struct.b2GraphColor = type { %struct.b2BitSet, %struct.b2ContactSimArray, %struct.b2JointSimArray, %union.anon }
-%struct.b2BitSet = type { ptr, i32, i32 }
-%struct.b2ContactSimArray = type { ptr, i32, i32 }
-%struct.b2JointSimArray = type { ptr, i32, i32 }
-%union.anon = type { ptr }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -61,7 +47,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
 
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %._crit_edge
   %indvars.iv212 = phi i64 [ 0, %.lr.ph209.preheader ], [ %indvars.iv.next213, %._crit_edge ]
-  %23 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %13, i64 %indvars.iv212
+  %23 = getelementptr inbounds nuw [176 x i8], ptr %13, i64 %indvars.iv212
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %26 = load i32, ptr %25, align 4, !tbaa !85
@@ -69,7 +55,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %28 = load i32, ptr %27, align 4, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %30 = load i32, ptr %29, align 4, !tbaa !90
-  %31 = getelementptr inbounds nuw %struct.b2ContactConstraint, ptr %9, i64 %indvars.iv212
+  %31 = getelementptr inbounds nuw [160 x i8], ptr %9, i64 %indvars.iv212
   store i32 %28, ptr %31, align 4, !tbaa !91
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %30, ptr %32, align 4, !tbaa !93
@@ -117,7 +103,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
 
 .thread220:                                       ; preds = %.lr.ph209
   %62 = sext i32 %28 to i64
-  %63 = getelementptr inbounds %struct.b2BodyState, ptr %15, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %15, i64 %62
   %.sroa.074.0.copyload = load <2 x float>, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load float, ptr %64, align 4, !tbaa !109
@@ -135,7 +121,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %.sroa.074.1227.ph = phi <2 x float> [ zeroinitializer, %57 ], [ %.sroa.074.0.copyload, %.thread220 ]
   %.0141224.ph = phi float [ 0.000000e+00, %57 ], [ %65, %.thread220 ]
   %70 = sext i32 %30 to i64
-  %71 = getelementptr inbounds %struct.b2BodyState, ptr %15, i64 %70
+  %71 = getelementptr inbounds [32 x i8], ptr %15, i64 %70
   %.sroa.063.0.copyload = load <2 x float>, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load float, ptr %72, align 4, !tbaa !109
@@ -189,8 +175,8 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
 
 91:                                               ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
-  %92 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %88, i64 %indvars.iv
-  %93 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %89, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [48 x i8], ptr %88, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [44 x i8], ptr %89, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %95 = load float, ptr %94, align 4, !tbaa !119
   %96 = fmul float %21, %95
@@ -313,17 +299,17 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.cont
   %indvars.iv127 = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvars.iv.next128, %.cont ]
   %.sroa.5.0120 = phi float [ 0.000000e+00, %.lr.ph123.preheader ], [ %.sroa.5.1, %.cont ]
-  %14 = getelementptr inbounds nuw %struct.b2ContactConstraint, ptr %5, i64 %indvars.iv127
+  %14 = getelementptr inbounds nuw [160 x i8], ptr %5, i64 %indvars.iv127
   %15 = load i32, ptr %14, align 4, !tbaa !91
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !93
   %18 = icmp eq i32 %15, -1
   %19 = sext i32 %15 to i64
-  %20 = getelementptr inbounds %struct.b2BodyState, ptr %12, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %12, i64 %19
   %21 = select i1 %18, ptr %.sroa.0, ptr %20
   %22 = icmp eq i32 %17, -1
   %23 = sext i32 %17 to i64
-  %24 = getelementptr inbounds %struct.b2BodyState, ptr %12, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %12, i64 %23
   %25 = select i1 %22, ptr %.sroa.0, ptr %24
   %.sroa.032.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.gep99 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -406,7 +392,7 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   %.072115 = phi float [ %26, %.lr.ph ], [ %64, %47 ]
   %.sroa.027.0114 = phi <2 x float> [ %.sroa.027.0.copyload, %.lr.ph ], [ %.sroa.03.4.vec.insert.i98, %47 ]
   %.073113 = phi float [ %27, %.lr.ph ], [ %73, %47 ]
-  %48 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %40, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [44 x i8], ptr %40, i64 %indvars.iv
   %.sroa.09.0.copyload = load <2 x float>, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.08.0.copyload = load <2 x float>, ptr %49, align 4
@@ -499,7 +485,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
 20:                                               ; preds = %.lr.ph378, %.cont
   %indvars.iv390 = phi i64 [ 0, %.lr.ph378 ], [ %indvars.iv.next391, %.cont ]
   %.sroa.5.0375 = phi float [ 0.000000e+00, %.lr.ph378 ], [ %.sroa.5.1, %.cont ]
-  %21 = getelementptr inbounds nuw %struct.b2ContactConstraint, ptr %6, i64 %indvars.iv390
+  %21 = getelementptr inbounds nuw [160 x i8], ptr %6, i64 %indvars.iv390
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load float, ptr %22, align 4, !tbaa !112
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 112
@@ -511,7 +497,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %30 = load i32, ptr %21, align 4, !tbaa !91
   %31 = icmp eq i32 %30, -1
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %struct.b2BodyState, ptr %13, i64 %32
+  %33 = getelementptr inbounds [32 x i8], ptr %13, i64 %32
   %34 = select i1 %31, ptr %.sroa.0, ptr %33
   %.sroa.0124.0.copyload = load <2 x float>, ptr %34, align 4
   %.sroa.gep333 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -530,7 +516,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %37 = load i32, ptr %36, align 4, !tbaa !93
   %38 = icmp eq i32 %37, -1
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds %struct.b2BodyState, ptr %13, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %13, i64 %39
   %41 = select i1 %38, ptr %.sroa.0, ptr %40
   %.sroa.0105.0.copyload = load <2 x float>, ptr %41, align 4
   %.sroa.gep342 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -596,7 +582,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %.sroa.0105.0358 = phi <2 x float> [ %.sroa.0105.0.copyload, %.lr.ph ], [ %.sroa.03.4.vec.insert.i269, %94 ]
   %.0185357 = phi float [ %42, %.lr.ph ], [ %146, %94 ]
   %.0187356 = phi float [ 0.000000e+00, %.lr.ph ], [ %126, %94 ]
-  %60 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %55, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [44 x i8], ptr %55, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load <2 x float>, ptr %61, align 4
   %.sroa.0.0.vec.extract.i200 = extractelement <2 x float> %62, i64 0
@@ -769,7 +755,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %.1368 = phi float [ %137, %.lr.ph370 ], [ %209, %167 ]
   %.sroa.0105.1367 = phi <2 x float> [ %.sroa.03.4.vec.insert.i269, %.lr.ph370 ], [ %.sroa.03.4.vec.insert.i323, %167 ]
   %.1186366 = phi float [ %146, %.lr.ph370 ], [ %218, %167 ]
-  %168 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %56, i64 %indvars.iv385
+  %168 = getelementptr inbounds nuw [44 x i8], ptr %56, i64 %indvars.iv385
   %.sroa.026.0.copyload = load <2 x float>, ptr %168, align 4
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %.sroa.024.0.copyload = load <2 x float>, ptr %169, align 4
@@ -874,7 +860,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
 17:                                               ; preds = %.lr.ph165, %.cont
   %indvars.iv168 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next169, %.cont ]
   %.sroa.5.0162 = phi float [ 0.000000e+00, %.lr.ph165 ], [ %.sroa.5.1, %.cont ]
-  %18 = getelementptr inbounds nuw %struct.b2ContactConstraint, ptr %5, i64 %indvars.iv168
+  %18 = getelementptr inbounds nuw [160 x i8], ptr %5, i64 %indvars.iv168
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 124
   %20 = load float, ptr %19, align 4, !tbaa !97
   %21 = fcmp oeq float %20, 0.000000e+00
@@ -892,7 +878,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %31 = load i32, ptr %18, align 4, !tbaa !91
   %32 = icmp eq i32 %31, -1
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.b2BodyState, ptr %12, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %12, i64 %33
   %35 = select i1 %32, ptr %.sroa.0, ptr %34
   %.sroa.049.0.copyload = load <2 x float>, ptr %35, align 4
   %.sroa.gep141 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -908,7 +894,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %38 = load i32, ptr %37, align 4, !tbaa !93
   %39 = icmp eq i32 %38, -1
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %struct.b2BodyState, ptr %12, i64 %40
+  %41 = getelementptr inbounds [32 x i8], ptr %12, i64 %40
   %42 = select i1 %39, ptr %.sroa.0, ptr %41
   %.sroa.039.0.copyload = load <2 x float>, ptr %42, align 4
   %.sroa.gep143 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -961,7 +947,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %.090157 = phi float [ %36, %.lr.ph ], [ %.1, %106 ]
   %.sroa.039.0156 = phi <2 x float> [ %.sroa.039.0.copyload, %.lr.ph ], [ %.sroa.039.1, %106 ]
   %.091155 = phi float [ %43, %.lr.ph ], [ %.192, %106 ]
-  %50 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %48, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [44 x i8], ptr %48, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load float, ptr %51, align 4, !tbaa !130
   %53 = fcmp ogt float %52, %16
@@ -1077,8 +1063,8 @@ define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) 
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %._crit_edge
   %indvars.iv41 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next42, %._crit_edge ]
-  %11 = getelementptr inbounds nuw %struct.b2ContactConstraint, ptr %5, i64 %indvars.iv41
-  %12 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %7, i64 %indvars.iv41
+  %11 = getelementptr inbounds nuw [160 x i8], ptr %5, i64 %indvars.iv41
+  %12 = getelementptr inbounds nuw [176 x i8], ptr %7, i64 %indvars.iv41
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %14 = load i32, ptr %13, align 4, !tbaa !85
   %15 = icmp sgt i32 %14, 0
@@ -1101,10 +1087,10 @@ define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) 
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %16, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [44 x i8], ptr %16, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load float, ptr %23, align 4, !tbaa !121
-  %25 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %17, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
   store float %24, ptr %26, align 4, !tbaa !119
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 28
@@ -1168,7 +1154,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv474 = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next475, %59 ]
-  %20 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %9, i64 %indvars.iv474
+  %20 = getelementptr inbounds [624 x i8], ptr %9, i64 %indvars.iv474
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -1218,7 +1204,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 
 60:                                               ; preds = %.lr.ph, %312
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %312 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %61 = load ptr, ptr %gep, align 8, !tbaa !156
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %273, label %62
@@ -1229,9 +1215,9 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %65 = load i32, ptr %64, align 4, !tbaa !87
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !90
-  %68 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store i32 %65, ptr %68, align 4, !tbaa !157
-  %69 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %67, ptr %69, align 4, !tbaa !157
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %71 = load float, ptr %70, align 4, !tbaa !105
@@ -1242,7 +1228,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 
 74:                                               ; preds = %62
   %75 = sext i32 %65 to i64
-  %76 = getelementptr inbounds %struct.b2BodyState, ptr %11, i64 %75
+  %76 = getelementptr inbounds [32 x i8], ptr %11, i64 %75
   %.sroa.0120.0.copyload = load <2 x float>, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load float, ptr %77, align 4, !tbaa !109
@@ -1260,7 +1246,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 
 84:                                               ; preds = %79
   %85 = sext i32 %67 to i64
-  %86 = getelementptr inbounds %struct.b2BodyState, ptr %11, i64 %85
+  %86 = getelementptr inbounds [32 x i8], ptr %11, i64 %85
   %.sroa.0103.0.copyload = load <2 x float>, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load float, ptr %87, align 4, !tbaa !109
@@ -1269,19 +1255,19 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 89:                                               ; preds = %84, %79
   %.0357 = phi float [ %88, %84 ], [ 0.000000e+00, %79 ]
   %.sroa.0103.2 = phi <2 x float> [ %.sroa.0103.0.copyload, %84 ], [ zeroinitializer, %79 ]
-  %90 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   store float %71, ptr %90, align 4, !tbaa !24
-  %91 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   store float %81, ptr %91, align 4, !tbaa !24
-  %92 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store float %73, ptr %92, align 4, !tbaa !24
-  %93 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   store float %83, ptr %93, align 4, !tbaa !24
   %94 = fadd float %73, %83
   %95 = fcmp ogt float %94, 0.000000e+00
   %96 = fdiv float 1.000000e+00, %94
   %97 = select i1 %95, float %96, float 0.000000e+00
-  %98 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store float %97, ptr %98, align 4, !tbaa !24
   %or.cond = or i1 %.not361, %.not362
   %.sroa.0337.0.copyload..sroa.0339.0.copyload = select i1 %or.cond, float %.sroa.0337.0.copyload, float %.sroa.0339.0.copyload
@@ -1289,37 +1275,37 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %.sroa.5338.0.copyload..sroa.5341.0.copyload = select i1 %or.cond, float %.sroa.5338.0.copyload, float %.sroa.5341.0.copyload
   %.sroa.070.0.copyload = load <2 x float>, ptr %63, align 4
   %.sroa.070.0.vec.extract = extractelement <2 x float> %.sroa.070.0.copyload, i64 0
-  %99 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store float %.sroa.070.0.vec.extract, ptr %99, align 4, !tbaa !24
   %.sroa.070.4.vec.extract = extractelement <2 x float> %.sroa.070.0.copyload, i64 1
-  %100 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   store float %.sroa.070.4.vec.extract, ptr %100, align 4, !tbaa !24
   %101 = getelementptr inbounds nuw i8, ptr %61, i64 148
   %102 = load float, ptr %101, align 4, !tbaa !94
-  %103 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store float %102, ptr %103, align 4, !tbaa !24
   %104 = getelementptr inbounds nuw i8, ptr %61, i64 160
   %105 = load float, ptr %104, align 4, !tbaa !102
-  %106 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   store float %105, ptr %106, align 4, !tbaa !24
   %107 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %108 = load float, ptr %107, align 4, !tbaa !96
-  %109 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   store float %108, ptr %109, align 4, !tbaa !24
   %110 = getelementptr inbounds nuw i8, ptr %61, i64 156
   %111 = load float, ptr %110, align 4, !tbaa !98
-  %112 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store float %111, ptr %112, align 4, !tbaa !24
   %113 = getelementptr inbounds nuw i8, ptr %61, i64 44
   %114 = load float, ptr %113, align 4, !tbaa !100
   %115 = fmul float %17, %114
-  %116 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store float %115, ptr %116, align 4, !tbaa !24
-  %117 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store float %.sroa.0337.0.copyload..sroa.0339.0.copyload, ptr %117, align 4, !tbaa !24
-  %118 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   store float %.sroa.4.0.copyload..sroa.4340.0.copyload, ptr %118, align 4, !tbaa !24
-  %119 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store float %.sroa.5338.0.copyload..sroa.5341.0.copyload, ptr %119, align 4, !tbaa !24
   %120 = fneg float %.sroa.070.0.vec.extract
   %121 = getelementptr inbounds nuw i8, ptr %61, i64 56
@@ -1327,16 +1313,16 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %122 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %.sroa.051.0.copyload = load <2 x float>, ptr %122, align 4
   %.sroa.056.0.vec.extract = extractelement <2 x float> %.sroa.056.0.copyload, i64 0
-  %123 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   store float %.sroa.056.0.vec.extract, ptr %123, align 4, !tbaa !24
   %.sroa.056.4.vec.extract = extractelement <2 x float> %.sroa.056.0.copyload, i64 1
-  %124 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store float %.sroa.056.4.vec.extract, ptr %124, align 4, !tbaa !24
   %.sroa.051.0.vec.extract = extractelement <2 x float> %.sroa.051.0.copyload, i64 0
-  %125 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store float %.sroa.051.0.vec.extract, ptr %125, align 4, !tbaa !24
   %.sroa.051.4.vec.extract = extractelement <2 x float> %.sroa.051.0.copyload, i64 1
-  %126 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store float %.sroa.051.4.vec.extract, ptr %126, align 4, !tbaa !24
   %127 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %128 = load float, ptr %127, align 4, !tbaa !126
@@ -1347,19 +1333,19 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %131 = fmul float %.sroa.070.4.vec.extract, %129
   %132 = fadd float %130, %131
   %133 = fsub float %128, %132
-  %134 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   store float %133, ptr %134, align 4, !tbaa !24
   %135 = getelementptr inbounds nuw i8, ptr %61, i64 76
   %136 = load float, ptr %135, align 4, !tbaa !119
   %137 = fmul float %17, %136
-  %138 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store float %137, ptr %138, align 4, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %61, i64 80
   %140 = load float, ptr %139, align 4, !tbaa !123
   %141 = fmul float %17, %140
-  %142 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   store float %141, ptr %142, align 4, !tbaa !24
-  %143 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store float 0.000000e+00, ptr %143, align 4, !tbaa !24
   %144 = fmul float %.sroa.070.4.vec.extract, %.sroa.056.0.vec.extract
   %145 = fmul float %.sroa.070.0.vec.extract, %.sroa.056.4.vec.extract
@@ -1377,7 +1363,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %157 = fcmp ogt float %156, 0.000000e+00
   %158 = fdiv float 1.000000e+00, %156
   %159 = select i1 %157, float %158, float 0.000000e+00
-  %160 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   store float %159, ptr %160, align 4, !tbaa !24
   %161 = fmul float %.sroa.056.0.vec.extract, %120
   %162 = fmul float %.sroa.070.4.vec.extract, %.sroa.056.4.vec.extract
@@ -1394,7 +1380,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %173 = fcmp ogt float %172, 0.000000e+00
   %174 = fdiv float 1.000000e+00, %172
   %175 = select i1 %173, float %174, float 0.000000e+00
-  %176 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store float %175, ptr %176, align 4, !tbaa !24
   %177 = fmul float %.0356, %.sroa.056.0.vec.extract
   %.sroa.01.0.vec.extract.i389 = extractelement <2 x float> %.sroa.0120.2, i64 0
@@ -1413,12 +1399,12 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %187 = fmul float %.sroa.070.0.vec.extract, %185
   %188 = fmul float %.sroa.070.4.vec.extract, %186
   %189 = fadd float %187, %188
-  %190 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   store float %189, ptr %190, align 4, !tbaa !24
   %191 = getelementptr inbounds nuw i8, ptr %61, i64 144
   %192 = load i32, ptr %191, align 4, !tbaa !85
   %193 = icmp eq i32 %192, 2
-  %194 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   br i1 %193, label %195, label %263
 
 195:                                              ; preds = %89
@@ -1427,13 +1413,13 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %197 = getelementptr inbounds nuw i8, ptr %61, i64 112
   %.sroa.018.0.copyload = load <2 x float>, ptr %197, align 4
   %.sroa.023.0.vec.extract = extractelement <2 x float> %.sroa.023.0.copyload, i64 0
-  %198 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store float %.sroa.023.0.vec.extract, ptr %198, align 4, !tbaa !24
   %.sroa.023.4.vec.extract = extractelement <2 x float> %.sroa.023.0.copyload, i64 1
-  %199 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store float %.sroa.023.4.vec.extract, ptr %199, align 4, !tbaa !24
   %.sroa.018.0.vec.extract = extractelement <2 x float> %.sroa.018.0.copyload, i64 0
-  %200 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   store float %.sroa.018.0.vec.extract, ptr %200, align 4, !tbaa !24
   %.sroa.018.4.vec.extract = extractelement <2 x float> %.sroa.018.0.copyload, i64 1
   store float %.sroa.018.4.vec.extract, ptr %194, align 4, !tbaa !24
@@ -1446,19 +1432,19 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %205 = fmul float %.sroa.070.4.vec.extract, %203
   %206 = fadd float %204, %205
   %207 = fsub float %202, %206
-  %208 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store float %207, ptr %208, align 4, !tbaa !24
   %209 = getelementptr inbounds nuw i8, ptr %61, i64 124
   %210 = load float, ptr %209, align 4, !tbaa !119
   %211 = fmul float %17, %210
-  %212 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   store float %211, ptr %212, align 4, !tbaa !24
   %213 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %214 = load float, ptr %213, align 4, !tbaa !123
   %215 = fmul float %17, %214
-  %216 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   store float %215, ptr %216, align 4, !tbaa !24
-  %217 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   store float 0.000000e+00, ptr %217, align 4, !tbaa !24
   %218 = fmul float %.sroa.070.4.vec.extract, %.sroa.023.0.vec.extract
   %219 = fmul float %.sroa.070.0.vec.extract, %.sroa.023.4.vec.extract
@@ -1475,7 +1461,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %230 = fcmp ogt float %229, 0.000000e+00
   %231 = fdiv float 1.000000e+00, %229
   %232 = select i1 %230, float %231, float 0.000000e+00
-  %233 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   store float %232, ptr %233, align 4, !tbaa !24
   %234 = fmul float %.sroa.023.0.vec.extract, %120
   %235 = fmul float %.sroa.070.4.vec.extract, %.sroa.023.4.vec.extract
@@ -1492,7 +1478,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %246 = fcmp ogt float %245, 0.000000e+00
   %247 = fdiv float 1.000000e+00, %245
   %248 = select i1 %246, float %247, float 0.000000e+00
-  %249 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   store float %248, ptr %249, align 4, !tbaa !24
   %250 = fmul float %.0356, %.sroa.023.0.vec.extract
   %251 = fmul float %.0356, %.sroa.023.4.vec.extract
@@ -1510,109 +1496,109 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   br label %312
 
 263:                                              ; preds = %89
-  %264 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store float 0.000000e+00, ptr %264, align 4, !tbaa !24
-  %265 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   store float 0.000000e+00, ptr %265, align 4, !tbaa !24
-  %266 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   store float 0.000000e+00, ptr %266, align 4, !tbaa !24
-  %267 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   store float 0.000000e+00, ptr %267, align 4, !tbaa !24
-  %268 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store float 0.000000e+00, ptr %268, align 4, !tbaa !24
-  %269 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store float 0.000000e+00, ptr %269, align 4, !tbaa !24
-  %270 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   store float 0.000000e+00, ptr %270, align 4, !tbaa !24
   store float 0.000000e+00, ptr %194, align 4, !tbaa !24
-  %271 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   store float 0.000000e+00, ptr %271, align 4, !tbaa !24
-  %272 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   store float 0.000000e+00, ptr %272, align 4, !tbaa !24
   br label %312
 
 273:                                              ; preds = %60
-  %274 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store i32 -1, ptr %274, align 4, !tbaa !157
-  %275 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 -1, ptr %275, align 4, !tbaa !157
-  %276 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   store float 0.000000e+00, ptr %276, align 4, !tbaa !24
-  %277 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   store float 0.000000e+00, ptr %277, align 4, !tbaa !24
-  %278 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store float 0.000000e+00, ptr %278, align 4, !tbaa !24
-  %279 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   store float 0.000000e+00, ptr %279, align 4, !tbaa !24
-  %280 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store float 0.000000e+00, ptr %280, align 4, !tbaa !24
-  %281 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   store float 0.000000e+00, ptr %281, align 4, !tbaa !24
-  %282 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store float 0.000000e+00, ptr %282, align 4, !tbaa !24
-  %283 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   store float 0.000000e+00, ptr %283, align 4, !tbaa !24
-  %284 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store float 0.000000e+00, ptr %284, align 4, !tbaa !24
-  %285 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store float 0.000000e+00, ptr %285, align 4, !tbaa !24
-  %286 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store float 0.000000e+00, ptr %286, align 4, !tbaa !24
-  %287 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store float 0.000000e+00, ptr %287, align 4, !tbaa !24
-  %288 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   store float 0.000000e+00, ptr %288, align 4, !tbaa !24
-  %289 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store float 0.000000e+00, ptr %289, align 4, !tbaa !24
-  %290 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   store float 0.000000e+00, ptr %290, align 4, !tbaa !24
-  %291 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store float 0.000000e+00, ptr %291, align 4, !tbaa !24
-  %292 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store float 0.000000e+00, ptr %292, align 4, !tbaa !24
-  %293 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store float 0.000000e+00, ptr %293, align 4, !tbaa !24
-  %294 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   store float 0.000000e+00, ptr %294, align 4, !tbaa !24
-  %295 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store float 0.000000e+00, ptr %295, align 4, !tbaa !24
-  %296 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   store float 0.000000e+00, ptr %296, align 4, !tbaa !24
-  %297 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store float 0.000000e+00, ptr %297, align 4, !tbaa !24
-  %298 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   store float 0.000000e+00, ptr %298, align 4, !tbaa !24
-  %299 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store float 0.000000e+00, ptr %299, align 4, !tbaa !24
-  %300 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store float 0.000000e+00, ptr %300, align 4, !tbaa !24
-  %301 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store float 0.000000e+00, ptr %301, align 4, !tbaa !24
-  %302 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   store float 0.000000e+00, ptr %302, align 4, !tbaa !24
-  %303 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   store float 0.000000e+00, ptr %303, align 4, !tbaa !24
-  %304 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store float 0.000000e+00, ptr %304, align 4, !tbaa !24
-  %305 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   store float 0.000000e+00, ptr %305, align 4, !tbaa !24
-  %306 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   store float 0.000000e+00, ptr %306, align 4, !tbaa !24
-  %307 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   store float 0.000000e+00, ptr %307, align 4, !tbaa !24
-  %308 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   store float 0.000000e+00, ptr %308, align 4, !tbaa !24
-  %309 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   store float 0.000000e+00, ptr %309, align 4, !tbaa !24
-  %310 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   store float 0.000000e+00, ptr %310, align 4, !tbaa !24
-  %311 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   store float 0.000000e+00, ptr %311, align 4, !tbaa !24
   br label %312
 
 312:                                              ; preds = %195, %263, %273
   %.sink = phi float [ %262, %195 ], [ 0.000000e+00, %263 ], [ 0.000000e+00, %273 ]
-  %313 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   store float %.sink, ptr %313, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1626,7 +1612,7 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds %struct.b2GraphColor, ptr %8, i64 %9
+  %10 = getelementptr inbounds [56 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = icmp slt i32 %0, %1
@@ -1642,7 +1628,7 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %b2ScatterBodies.exit85
   %indvars.iv = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next, %b2ScatterBodies.exit85 ]
-  %15 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds [624 x i8], ptr %12, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %16 = load i32, ptr %15, align 4, !tbaa !157, !alias.scope !162, !noalias !164
@@ -1651,7 +1637,7 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
 
 18:                                               ; preds = %.lr.ph
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %6, i64 %19
   %.val.i = load <4 x float>, ptr %20, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %.thread.i
 
@@ -1664,7 +1650,7 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
 
 25:                                               ; preds = %.thread.i
   %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %6, i64 %26
   %.val71.i = load <4 x float>, ptr %27, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %.thread77.i
 
@@ -1677,7 +1663,7 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
 
 32:                                               ; preds = %.thread77.i
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %6, i64 %33
   %.val73.i = load <4 x float>, ptr %34, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %.thread78.i
 
@@ -1690,7 +1676,7 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
 
 39:                                               ; preds = %.thread78.i
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %40
+  %41 = getelementptr inbounds [32 x i8], ptr %6, i64 %40
   %.val75.i = load <4 x float>, ptr %41, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %b2GatherBodies.exit
 
@@ -1713,7 +1699,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %39
 
 54:                                               ; preds = %b2GatherBodies.exit
   %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %55
+  %56 = getelementptr inbounds [32 x i8], ptr %6, i64 %55
   %.val.i69 = load <4 x float>, ptr %56, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %.thread.i71
 
@@ -1726,7 +1712,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %39
 
 61:                                               ; preds = %.thread.i71
   %62 = sext i32 %59 to i64
-  %63 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %6, i64 %62
   %.val71.i72 = load <4 x float>, ptr %63, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %.thread77.i74
 
@@ -1739,7 +1725,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %39
 
 68:                                               ; preds = %.thread77.i74
   %69 = sext i32 %66 to i64
-  %70 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %69
+  %70 = getelementptr inbounds [32 x i8], ptr %6, i64 %69
   %.val73.i75 = load <4 x float>, ptr %70, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %.thread78.i77
 
@@ -1752,7 +1738,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %39
 
 75:                                               ; preds = %.thread78.i77
   %76 = sext i32 %73 to i64
-  %77 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %76
+  %77 = getelementptr inbounds [32 x i8], ptr %6, i64 %76
   %.val75.i78 = load <4 x float>, ptr %77, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %b2GatherBodies.exit80
 
@@ -1865,7 +1851,7 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %75
 
 170:                                              ; preds = %b2GatherBodies.exit80
   %171 = sext i32 %16 to i64
-  %172 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %171
+  %172 = getelementptr inbounds [32 x i8], ptr %6, i64 %171
   %173 = shufflevector <4 x float> %166, <4 x float> %168, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %173, ptr %172, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %174
@@ -1875,7 +1861,7 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %75
 
 175:                                              ; preds = %174
   %176 = sext i32 %23 to i64
-  %177 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %176
+  %177 = getelementptr inbounds [32 x i8], ptr %6, i64 %176
   %178 = shufflevector <4 x float> %166, <4 x float> %168, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %178, ptr %177, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %179
@@ -1885,7 +1871,7 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %75
 
 180:                                              ; preds = %179
   %181 = sext i32 %30 to i64
-  %182 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %181
+  %182 = getelementptr inbounds [32 x i8], ptr %6, i64 %181
   %183 = shufflevector <4 x float> %167, <4 x float> %169, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %183, ptr %182, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %184
@@ -1895,7 +1881,7 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %75
 
 185:                                              ; preds = %184
   %186 = sext i32 %37 to i64
-  %187 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %186
+  %187 = getelementptr inbounds [32 x i8], ptr %6, i64 %186
   %188 = shufflevector <4 x float> %167, <4 x float> %169, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %188, ptr %187, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %b2ScatterBodies.exit
@@ -1913,7 +1899,7 @@ b2ScatterBodies.exit:                             ; preds = %184, %185
 
 194:                                              ; preds = %b2ScatterBodies.exit
   %195 = sext i32 %193 to i64
-  %196 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %195
+  %196 = getelementptr inbounds [32 x i8], ptr %6, i64 %195
   %197 = shufflevector <4 x float> %189, <4 x float> %191, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %197, ptr %196, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %198
@@ -1925,7 +1911,7 @@ b2ScatterBodies.exit:                             ; preds = %184, %185
 
 200:                                              ; preds = %198
   %201 = sext i32 %199 to i64
-  %202 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %201
+  %202 = getelementptr inbounds [32 x i8], ptr %6, i64 %201
   %203 = shufflevector <4 x float> %189, <4 x float> %191, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %203, ptr %202, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %204
@@ -1937,7 +1923,7 @@ b2ScatterBodies.exit:                             ; preds = %184, %185
 
 206:                                              ; preds = %204
   %207 = sext i32 %205 to i64
-  %208 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %207
+  %208 = getelementptr inbounds [32 x i8], ptr %6, i64 %207
   %209 = shufflevector <4 x float> %190, <4 x float> %192, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %209, ptr %208, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %210
@@ -1949,7 +1935,7 @@ b2ScatterBodies.exit:                             ; preds = %184, %185
 
 212:                                              ; preds = %210
   %213 = sext i32 %211 to i64
-  %214 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %213
+  %214 = getelementptr inbounds [32 x i8], ptr %6, i64 %213
   %215 = shufflevector <4 x float> %190, <4 x float> %192, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %215, ptr %214, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %b2ScatterBodies.exit85
@@ -1967,7 +1953,7 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds %struct.b2GraphColor, ptr %9, i64 %10
+  %11 = getelementptr inbounds [56 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1994,7 +1980,7 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %b2ScatterBodies.exit300
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %b2ScatterBodies.exit300 ]
-  %27 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %13, i64 %indvars.iv
+  %27 = getelementptr inbounds [624 x i8], ptr %13, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %28 = load i32, ptr %27, align 4, !tbaa !157, !alias.scope !193, !noalias !195
@@ -2003,7 +1989,7 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
 
 30:                                               ; preds = %.lr.ph
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %31
+  %32 = getelementptr inbounds [32 x i8], ptr %7, i64 %31
   %.val.i = load <4 x float>, ptr %32, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %.val70.i = load <4 x float>, ptr %33, align 16, !tbaa !24, !alias.scope !190, !noalias !197
@@ -2019,7 +2005,7 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
 
 39:                                               ; preds = %.thread.i
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %40
+  %41 = getelementptr inbounds [32 x i8], ptr %7, i64 %40
   %.val71.i = load <4 x float>, ptr %41, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %.val72.i = load <4 x float>, ptr %42, align 16, !tbaa !24, !alias.scope !190, !noalias !197
@@ -2035,7 +2021,7 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
 
 48:                                               ; preds = %.thread77.i
   %49 = sext i32 %46 to i64
-  %50 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %49
+  %50 = getelementptr inbounds [32 x i8], ptr %7, i64 %49
   %.val73.i = load <4 x float>, ptr %50, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %.val74.i = load <4 x float>, ptr %51, align 16, !tbaa !24, !alias.scope !190, !noalias !197
@@ -2051,7 +2037,7 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
 
 57:                                               ; preds = %.thread78.i
   %58 = sext i32 %55 to i64
-  %59 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %58
+  %59 = getelementptr inbounds [32 x i8], ptr %7, i64 %58
   %.val75.i = load <4 x float>, ptr %59, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %.val76.i = load <4 x float>, ptr %60, align 16, !tbaa !24, !alias.scope !190, !noalias !197
@@ -2085,7 +2071,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %57
 
 82:                                               ; preds = %b2GatherBodies.exit
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %83
+  %84 = getelementptr inbounds [32 x i8], ptr %7, i64 %83
   %.val.i284 = load <4 x float>, ptr %84, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %.val70.i285 = load <4 x float>, ptr %85, align 16, !tbaa !24, !alias.scope !198, !noalias !205
@@ -2101,7 +2087,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %57
 
 91:                                               ; preds = %.thread.i286
   %92 = sext i32 %89 to i64
-  %93 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %92
+  %93 = getelementptr inbounds [32 x i8], ptr %7, i64 %92
   %.val71.i287 = load <4 x float>, ptr %93, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %.val72.i288 = load <4 x float>, ptr %94, align 16, !tbaa !24, !alias.scope !198, !noalias !205
@@ -2117,7 +2103,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %57
 
 100:                                              ; preds = %.thread77.i289
   %101 = sext i32 %98 to i64
-  %102 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %101
+  %102 = getelementptr inbounds [32 x i8], ptr %7, i64 %101
   %.val73.i290 = load <4 x float>, ptr %102, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %.val74.i291 = load <4 x float>, ptr %103, align 16, !tbaa !24, !alias.scope !198, !noalias !205
@@ -2133,7 +2119,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %57
 
 109:                                              ; preds = %.thread78.i292
   %110 = sext i32 %107 to i64
-  %111 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %110
+  %111 = getelementptr inbounds [32 x i8], ptr %7, i64 %110
   %.val75.i293 = load <4 x float>, ptr %111, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %.val76.i294 = load <4 x float>, ptr %112, align 16, !tbaa !24, !alias.scope !198, !noalias !205
@@ -2485,7 +2471,7 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
 
 426:                                              ; preds = %138
   %427 = sext i32 %28 to i64
-  %428 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %427
+  %428 = getelementptr inbounds [32 x i8], ptr %7, i64 %427
   %429 = shufflevector <4 x float> %422, <4 x float> %424, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %429, ptr %428, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %430
@@ -2497,7 +2483,7 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
 
 432:                                              ; preds = %430
   %433 = sext i32 %431 to i64
-  %434 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %433
+  %434 = getelementptr inbounds [32 x i8], ptr %7, i64 %433
   %435 = shufflevector <4 x float> %422, <4 x float> %424, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %435, ptr %434, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %436
@@ -2509,7 +2495,7 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
 
 438:                                              ; preds = %436
   %439 = sext i32 %437 to i64
-  %440 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %439
+  %440 = getelementptr inbounds [32 x i8], ptr %7, i64 %439
   %441 = shufflevector <4 x float> %423, <4 x float> %425, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %441, ptr %440, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %442
@@ -2521,7 +2507,7 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
 
 444:                                              ; preds = %442
   %445 = sext i32 %443 to i64
-  %446 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %445
+  %446 = getelementptr inbounds [32 x i8], ptr %7, i64 %445
   %447 = shufflevector <4 x float> %423, <4 x float> %425, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %447, ptr %446, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %b2ScatterBodies.exit
@@ -2539,7 +2525,7 @@ b2ScatterBodies.exit:                             ; preds = %442, %444
 
 453:                                              ; preds = %b2ScatterBodies.exit
   %454 = sext i32 %452 to i64
-  %455 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %454
+  %455 = getelementptr inbounds [32 x i8], ptr %7, i64 %454
   %456 = shufflevector <4 x float> %448, <4 x float> %450, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %456, ptr %455, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %457
@@ -2551,7 +2537,7 @@ b2ScatterBodies.exit:                             ; preds = %442, %444
 
 459:                                              ; preds = %457
   %460 = sext i32 %458 to i64
-  %461 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %460
+  %461 = getelementptr inbounds [32 x i8], ptr %7, i64 %460
   %462 = shufflevector <4 x float> %448, <4 x float> %450, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %462, ptr %461, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %463
@@ -2563,7 +2549,7 @@ b2ScatterBodies.exit:                             ; preds = %442, %444
 
 465:                                              ; preds = %463
   %466 = sext i32 %464 to i64
-  %467 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %466
+  %467 = getelementptr inbounds [32 x i8], ptr %7, i64 %466
   %468 = shufflevector <4 x float> %449, <4 x float> %451, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %468, ptr %467, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %469
@@ -2575,7 +2561,7 @@ b2ScatterBodies.exit:                             ; preds = %442, %444
 
 471:                                              ; preds = %469
   %472 = sext i32 %470 to i64
-  %473 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %472
+  %473 = getelementptr inbounds [32 x i8], ptr %7, i64 %472
   %474 = shufflevector <4 x float> %449, <4 x float> %451, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %474, ptr %473, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %b2ScatterBodies.exit300
@@ -2593,7 +2579,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds %struct.b2GraphColor, ptr %8, i64 %9
+  %10 = getelementptr inbounds [56 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2615,7 +2601,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %b2ScatterBodies.exit135
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %b2ScatterBodies.exit135 ]
-  %21 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %12, i64 %indvars.iv
+  %21 = getelementptr inbounds [624 x i8], ptr %12, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %22 = load i32, ptr %21, align 4, !tbaa !157, !alias.scope !226, !noalias !228
@@ -2624,7 +2610,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
 
 24:                                               ; preds = %.lr.ph
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %6, i64 %25
   %.val.i = load <4 x float>, ptr %26, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %.thread.i
 
@@ -2637,7 +2623,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
 
 31:                                               ; preds = %.thread.i
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %32
+  %33 = getelementptr inbounds [32 x i8], ptr %6, i64 %32
   %.val71.i = load <4 x float>, ptr %33, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %.thread77.i
 
@@ -2650,7 +2636,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
 
 38:                                               ; preds = %.thread77.i
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %6, i64 %39
   %.val73.i = load <4 x float>, ptr %40, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %.thread78.i
 
@@ -2663,7 +2649,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
 
 45:                                               ; preds = %.thread78.i
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %46
+  %47 = getelementptr inbounds [32 x i8], ptr %6, i64 %46
   %.val75.i = load <4 x float>, ptr %47, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %b2GatherBodies.exit
 
@@ -2686,7 +2672,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %45
 
 60:                                               ; preds = %b2GatherBodies.exit
   %61 = sext i32 %58 to i64
-  %62 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %61
+  %62 = getelementptr inbounds [32 x i8], ptr %6, i64 %61
   %.val.i119 = load <4 x float>, ptr %62, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %.thread.i121
 
@@ -2699,7 +2685,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %45
 
 67:                                               ; preds = %.thread.i121
   %68 = sext i32 %65 to i64
-  %69 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %68
+  %69 = getelementptr inbounds [32 x i8], ptr %6, i64 %68
   %.val71.i122 = load <4 x float>, ptr %69, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %.thread77.i124
 
@@ -2712,7 +2698,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %45
 
 74:                                               ; preds = %.thread77.i124
   %75 = sext i32 %72 to i64
-  %76 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %75
+  %76 = getelementptr inbounds [32 x i8], ptr %6, i64 %75
   %.val73.i125 = load <4 x float>, ptr %76, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %.thread78.i127
 
@@ -2725,7 +2711,7 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %45
 
 81:                                               ; preds = %.thread78.i127
   %82 = sext i32 %79 to i64
-  %83 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %82
+  %83 = getelementptr inbounds [32 x i8], ptr %6, i64 %82
   %.val75.i128 = load <4 x float>, ptr %83, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %b2GatherBodies.exit130
 
@@ -2885,7 +2871,7 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %81
 
 219:                                              ; preds = %b2GatherBodies.exit130
   %220 = sext i32 %22 to i64
-  %221 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %220
+  %221 = getelementptr inbounds [32 x i8], ptr %6, i64 %220
   %222 = shufflevector <4 x float> %215, <4 x float> %217, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %222, ptr %221, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %223
@@ -2897,7 +2883,7 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %81
 
 225:                                              ; preds = %223
   %226 = sext i32 %224 to i64
-  %227 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %226
+  %227 = getelementptr inbounds [32 x i8], ptr %6, i64 %226
   %228 = shufflevector <4 x float> %215, <4 x float> %217, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %228, ptr %227, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %229
@@ -2909,7 +2895,7 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %81
 
 231:                                              ; preds = %229
   %232 = sext i32 %230 to i64
-  %233 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %232
+  %233 = getelementptr inbounds [32 x i8], ptr %6, i64 %232
   %234 = shufflevector <4 x float> %216, <4 x float> %218, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %234, ptr %233, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %235
@@ -2921,7 +2907,7 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %81
 
 237:                                              ; preds = %235
   %238 = sext i32 %236 to i64
-  %239 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %238
+  %239 = getelementptr inbounds [32 x i8], ptr %6, i64 %238
   %240 = shufflevector <4 x float> %216, <4 x float> %218, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %240, ptr %239, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %b2ScatterBodies.exit
@@ -2939,7 +2925,7 @@ b2ScatterBodies.exit:                             ; preds = %235, %237
 
 246:                                              ; preds = %b2ScatterBodies.exit
   %247 = sext i32 %245 to i64
-  %248 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %247
+  %248 = getelementptr inbounds [32 x i8], ptr %6, i64 %247
   %249 = shufflevector <4 x float> %241, <4 x float> %243, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %249, ptr %248, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %250
@@ -2951,7 +2937,7 @@ b2ScatterBodies.exit:                             ; preds = %235, %237
 
 252:                                              ; preds = %250
   %253 = sext i32 %251 to i64
-  %254 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %253
+  %254 = getelementptr inbounds [32 x i8], ptr %6, i64 %253
   %255 = shufflevector <4 x float> %241, <4 x float> %243, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %255, ptr %254, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %256
@@ -2963,7 +2949,7 @@ b2ScatterBodies.exit:                             ; preds = %235, %237
 
 258:                                              ; preds = %256
   %259 = sext i32 %257 to i64
-  %260 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %259
+  %260 = getelementptr inbounds [32 x i8], ptr %6, i64 %259
   %261 = shufflevector <4 x float> %242, <4 x float> %244, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %261, ptr %260, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %262
@@ -2975,7 +2961,7 @@ b2ScatterBodies.exit:                             ; preds = %235, %237
 
 264:                                              ; preds = %262
   %265 = sext i32 %263 to i64
-  %266 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %265
+  %266 = getelementptr inbounds [32 x i8], ptr %6, i64 %265
   %267 = shufflevector <4 x float> %242, <4 x float> %244, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   store <4 x float> %267, ptr %266, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %b2ScatterBodies.exit135
@@ -3005,7 +2991,7 @@ define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv116 = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next117, %20 ]
-  %10 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %7, i64 %indvars.iv116
+  %10 = getelementptr inbounds [624 x i8], ptr %7, i64 %indvars.iv116
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 368
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 496
@@ -3026,45 +3012,45 @@ define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noun
 
 21:                                               ; preds = %.lr.ph, %.cont
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.cont ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %22 = load ptr, ptr %gep, align 8, !tbaa !156
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.cont, label %.else
 
 .else:                                            ; preds = %21
   %.sroa.gep77 = getelementptr inbounds nuw i8, ptr %22, i64 44
-  %24 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !36
   store float %25, ptr %.sroa.gep77, align 4, !tbaa !100
-  %26 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !36
   %.sroa.gep74 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store float %27, ptr %.sroa.gep74, align 4, !tbaa !119
-  %28 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !36
   %.sroa.gep71 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store float %29, ptr %.sroa.gep71, align 4, !tbaa !123
-  %30 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !36
   %.sroa.gep68 = getelementptr inbounds nuw i8, ptr %22, i64 84
   store float %31, ptr %.sroa.gep68, align 4, !tbaa !150
-  %32 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !36
   %.sroa.gep65 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store float %33, ptr %.sroa.gep65, align 4, !tbaa !151
-  %34 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !36
   %.sroa.gep62 = getelementptr inbounds nuw i8, ptr %22, i64 124
   store float %35, ptr %.sroa.gep62, align 4, !tbaa !119
-  %36 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !36
   %.sroa.gep59 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store float %37, ptr %.sroa.gep59, align 4, !tbaa !123
-  %38 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !36
   %.sroa.gep56 = getelementptr inbounds nuw i8, ptr %22, i64 132
   store float %39, ptr %.sroa.gep56, align 4, !tbaa !150
-  %40 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !36
   %.sroa.gep54 = getelementptr inbounds nuw i8, ptr %22, i64 136
   store float %41, ptr %.sroa.gep54, align 4, !tbaa !151

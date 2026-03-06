@@ -272,7 +272,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 .lr.ph172.i:                                      ; preds = %.lr.ph172.i, %.lr.ph172.preheader.i
   %indvars.iv194.i = phi i64 [ %68, %.lr.ph172.preheader.i ], [ %indvars.iv.next195.i, %.lr.ph172.i ]
   %.0150170.i = phi i16 [ 0, %.lr.ph172.preheader.i ], [ %74, %.lr.ph172.i ]
-  %73 = getelementptr i16, ptr %44, i64 %indvars.iv194.i
+  %73 = getelementptr [2 x i8], ptr %44, i64 %indvars.iv194.i
   store i16 %.0152174.i, ptr %73, align 2
   %indvars.iv.next195.i = add nuw nsw i64 %indvars.iv194.i, 1
   %74 = add nuw nsw i16 %.0150170.i, 1
@@ -288,7 +288,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %82 = zext nneg i16 %.0151175.i to i64
   %83 = getelementptr i8, ptr %42, i64 %82
   store i8 %81, ptr %83, align 1
-  %84 = getelementptr i16, ptr %44, i64 %82
+  %84 = getelementptr [2 x i8], ptr %44, i64 %82
   store i16 %79, ptr %84, align 2
   %85 = add i16 %.0152174.i, 2
   %86 = add nuw nsw i16 %.0151175.i, 1
@@ -298,7 +298,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %88 = zext nneg i16 %.0151175.i to i64
   %89 = getelementptr i8, ptr %42, i64 %88
   store i8 %58, ptr %89, align 1
-  %90 = getelementptr i16, ptr %44, i64 %88
+  %90 = getelementptr [2 x i8], ptr %44, i64 %88
   store i16 %.0152174.i, ptr %90, align 2
   %91 = add nuw nsw i16 %.0151175.i, 1
   %92 = add nuw i16 %.0152174.i, 1
@@ -323,7 +323,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %99 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %98)
   %100 = getelementptr i8, ptr %42, i64 %indvars.iv.i
   store i8 %99, ptr %100, align 1
-  %101 = getelementptr i16, ptr %44, i64 %indvars.iv.i
+  %101 = getelementptr [2 x i8], ptr %44, i64 %indvars.iv.i
   %102 = trunc nuw nsw i64 %indvars.iv.i to i16
   store i16 %102, ptr %101, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -334,7 +334,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %.4.lcssa.sink218.i = phi i16 [ %.2.i, %.loopexit.i ], [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %spec.store.select.i, %.lr.ph.i ]
   %.4.lcssa.sink.i = phi i16 [ %.1153.i, %.loopexit.i ], [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %spec.store.select.i, %.lr.ph.i ]
   %103 = zext i16 %.4.lcssa.sink218.i to i64
-  %104 = getelementptr i16, ptr %44, i64 %103
+  %104 = getelementptr [2 x i8], ptr %44, i64 %103
   store i16 %.4.lcssa.sink.i, ptr %104, align 2
   %105 = icmp eq i8 %49, 1
   %or.cond.i = or i1 %105, %55
@@ -421,7 +421,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 
 152:                                              ; preds = %138
   %153 = sext i32 %142 to i64
-  %154 = getelementptr ptr, ptr @dissect_enttec_dmx_data.chan_format, i64 %153
+  %154 = getelementptr [8 x i8], ptr @dissect_enttec_dmx_data.chan_format, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = zext i8 %141 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef %155, i32 noundef %156)
@@ -439,11 +439,11 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %.lcssa.i = phi i32 [ %124, %.preheader.i ], [ %126, %.lr.ph181.i ], [ %160, %157 ]
   %162 = mul i32 %.lcssa.i, %indvars.iv197.i
   %163 = sext i32 %162 to i64
-  %164 = getelementptr i16, ptr %44, i64 %163
+  %164 = getelementptr [2 x i8], ptr %44, i64 %163
   %165 = load i16, ptr %164, align 2
   %166 = add i32 %162, %.lcssa167.i
   %167 = sext i32 %166 to i64
-  %168 = getelementptr i16, ptr %44, i64 %167
+  %168 = getelementptr [2 x i8], ptr %44, i64 %167
   %169 = load i16, ptr %168, align 2
   %170 = load i32, ptr @hf_enttec_dmx_data_dmx_data, align 4
   %171 = zext i16 %165 to i32
@@ -452,7 +452,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %174 = sub nsw i32 %173, %171
   %175 = load i32, ptr @global_disp_chan_nr_type, align 4
   %176 = sext i32 %175 to i64
-  %177 = getelementptr ptr, ptr @dissect_enttec_dmx_data.string_format, i64 %176
+  %177 = getelementptr [8 x i8], ptr @dissect_enttec_dmx_data.string_format, i64 %176
   %178 = load ptr, ptr %177, align 8
   %179 = add i32 %162, 1
   %180 = tail call ptr @wmem_strbuf_get_str(ptr noundef %122)

@@ -171,7 +171,7 @@ define noalias noundef ptr @ucptrie_openFromBinary_77(i32 noundef %0, i32 nounde
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %88, ptr %83, align 8, !tbaa !17
   %89 = zext i16 %43 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %89
   %.not115 = icmp samesign ult i32 %58, %50
   %91 = add nsw i32 %50, -2
   %spec.select118 = select i1 %.not115, i32 %58, i32 %91
@@ -185,13 +185,13 @@ define noalias noundef ptr @ucptrie_openFromBinary_77(i32 noundef %0, i32 nounde
   ]
 
 94:                                               ; preds = %86
-  %95 = getelementptr inbounds i16, ptr %90, i64 %93
+  %95 = getelementptr inbounds [2 x i8], ptr %90, i64 %93
   %96 = load i16, ptr %95, align 2, !tbaa !22
   %97 = zext i16 %96 to i32
   br label %105
 
 98:                                               ; preds = %86
-  %99 = getelementptr inbounds i32, ptr %90, i64 %93
+  %99 = getelementptr inbounds [4 x i8], ptr %90, i64 %93
   %100 = load i32, ptr %99, align 4, !tbaa !23
   br label %105
 
@@ -262,14 +262,14 @@ define range(i32 0, 262159) i32 @ucptrie_internalSmallIndex_77(ptr noundef reado
   %.025 = add nsw i32 %.025.v, %3
   %7 = load ptr, ptr %0, align 8, !tbaa !17
   %8 = sext i32 %.025 to i64
-  %9 = getelementptr inbounds i16, ptr %7, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %7, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !22
   %11 = zext i16 %10 to i32
   %12 = lshr i32 %1, 9
   %13 = and i32 %12, 31
   %14 = add nuw nsw i32 %13, %11
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !22
   %18 = zext i16 %17 to i32
   %19 = lshr i32 %1, 4
@@ -280,7 +280,7 @@ define range(i32 0, 262159) i32 @ucptrie_internalSmallIndex_77(ptr noundef reado
 22:                                               ; preds = %2
   %23 = add nuw nsw i32 %20, %18
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !22
   %27 = zext i16 %26 to i32
   br label %50
@@ -293,7 +293,7 @@ define range(i32 0, 262159) i32 @ucptrie_internalSmallIndex_77(ptr noundef reado
   %33 = add nuw nsw i32 %32, %29
   %34 = and i32 %19, 7
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !22
   %38 = zext i16 %37 to i32
   %39 = shl nuw nsw i32 %34, 1
@@ -303,7 +303,7 @@ define range(i32 0, 262159) i32 @ucptrie_internalSmallIndex_77(ptr noundef reado
   %43 = add nuw nsw i32 %34, 1
   %44 = add nuw nsw i32 %43, %33
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %7, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !22
   %48 = zext i16 %47 to i32
   %49 = or disjoint i32 %42, %48
@@ -344,14 +344,14 @@ define range(i32 -2147483648, 2147483646) i32 @ucptrie_internalSmallU8Index_77(p
   %.025.i = add nsw i32 %.025.v.i, %18
   %22 = load ptr, ptr %0, align 8, !tbaa !17
   %23 = sext i32 %.025.i to i64
-  %24 = getelementptr inbounds i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !22
   %26 = zext i16 %25 to i32
   %27 = lshr i32 %10, 9
   %28 = and i32 %27, 31
   %29 = add nuw nsw i32 %28, %26
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %22, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !22
   %33 = zext i16 %32 to i32
   %34 = lshr i32 %10, 4
@@ -362,7 +362,7 @@ define range(i32 -2147483648, 2147483646) i32 @ucptrie_internalSmallU8Index_77(p
 37:                                               ; preds = %17
   %38 = add nuw nsw i32 %35, %33
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %22, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !22
   %42 = zext i16 %41 to i32
   br label %ucptrie_internalSmallIndex_77.exit
@@ -375,7 +375,7 @@ define range(i32 -2147483648, 2147483646) i32 @ucptrie_internalSmallU8Index_77(p
   %48 = add nuw nsw i32 %44, %47
   %49 = and i32 %34, 7
   %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %22, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !22
   %53 = zext i16 %52 to i32
   %54 = shl nuw nsw i32 %49, 1
@@ -385,7 +385,7 @@ define range(i32 -2147483648, 2147483646) i32 @ucptrie_internalSmallU8Index_77(p
   %58 = add nuw nsw i32 %49, 1
   %59 = add nuw nsw i32 %58, %48
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %22, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !22
   %63 = zext i16 %62 to i32
   %64 = or disjoint i32 %57, %63
@@ -424,7 +424,7 @@ define i32 @ucptrie_internalU8PrevIndex_77(ptr noundef readonly captures(none) %
   %16 = load ptr, ptr %0, align 8, !tbaa !17
   %17 = lshr i32 %12, 6
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !22
   %21 = zext i16 %20 to i32
   %22 = and i32 %12, 63
@@ -456,14 +456,14 @@ define i32 @ucptrie_internalU8PrevIndex_77(ptr noundef readonly captures(none) %
   %.025.i = add nuw nsw i32 %.025.v.i, %34
   %38 = load ptr, ptr %0, align 8, !tbaa !17
   %39 = zext nneg i32 %.025.i to i64
-  %40 = getelementptr inbounds nuw i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !22
   %42 = zext i16 %41 to i32
   %43 = lshr i32 %12, 9
   %44 = and i32 %43, 31
   %45 = add nuw nsw i32 %44, %42
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !22
   %49 = zext i16 %48 to i32
   %50 = lshr i32 %12, 4
@@ -474,7 +474,7 @@ define i32 @ucptrie_internalU8PrevIndex_77(ptr noundef readonly captures(none) %
 53:                                               ; preds = %33
   %54 = add nuw nsw i32 %51, %49
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %38, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !22
   %58 = zext i16 %57 to i32
   br label %ucptrie_internalSmallIndex_77.exit
@@ -487,7 +487,7 @@ define i32 @ucptrie_internalU8PrevIndex_77(ptr noundef readonly captures(none) %
   %64 = add nuw nsw i32 %60, %63
   %65 = and i32 %50, 7
   %66 = zext nneg i32 %64 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %38, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !22
   %69 = zext i16 %68 to i32
   %70 = shl nuw nsw i32 %65, 1
@@ -497,7 +497,7 @@ define i32 @ucptrie_internalU8PrevIndex_77(ptr noundef readonly captures(none) %
   %74 = add nuw nsw i32 %65, 1
   %75 = add nuw nsw i32 %74, %64
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %38, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !22
   %79 = zext i16 %78 to i32
   %80 = or disjoint i32 %73, %79
@@ -543,7 +543,7 @@ define i32 @ucptrie_get_77(ptr noundef readonly captures(none) %0, i32 noundef %
   %10 = load ptr, ptr %0, align 8, !tbaa !17
   %11 = lshr i32 %1, 6
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !22
   %15 = zext i16 %14 to i32
   %16 = and i32 %1, 63
@@ -572,14 +572,14 @@ define i32 @ucptrie_get_77(ptr noundef readonly captures(none) %0, i32 noundef %
   %.025.i = add nuw nsw i32 %.025.v.i, %28
   %29 = load ptr, ptr %0, align 8, !tbaa !17
   %30 = zext nneg i32 %.025.i to i64
-  %31 = getelementptr inbounds nuw i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !22
   %33 = zext i16 %32 to i32
   %34 = lshr i32 %1, 9
   %35 = and i32 %34, 31
   %36 = add nuw nsw i32 %35, %33
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %29, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !22
   %40 = zext i16 %39 to i32
   %41 = lshr i32 %1, 4
@@ -590,7 +590,7 @@ define i32 @ucptrie_get_77(ptr noundef readonly captures(none) %0, i32 noundef %
 44:                                               ; preds = %27
   %45 = add nuw nsw i32 %42, %40
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %29, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !22
   %49 = zext i16 %48 to i32
   br label %ucptrie_internalSmallIndex_77.exit
@@ -603,7 +603,7 @@ define i32 @ucptrie_get_77(ptr noundef readonly captures(none) %0, i32 noundef %
   %55 = add nuw nsw i32 %51, %54
   %56 = and i32 %41, 7
   %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %29, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !22
   %60 = zext i16 %59 to i32
   %61 = shl nuw nsw i32 %56, 1
@@ -613,7 +613,7 @@ define i32 @ucptrie_get_77(ptr noundef readonly captures(none) %0, i32 noundef %
   %65 = add nuw nsw i32 %56, 1
   %66 = add nuw nsw i32 %65, %55
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw i16, ptr %29, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !22
   %70 = zext i16 %69 to i32
   %71 = or disjoint i32 %64, %70
@@ -645,14 +645,14 @@ ucptrie_internalSmallIndex_77.exit:               ; preds = %44, %50
 
 82:                                               ; preds = %78
   %83 = sext i32 %.0 to i64
-  %84 = getelementptr inbounds i16, ptr %.sroa.0.0.copyload, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %.sroa.0.0.copyload, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !22
   %86 = zext i16 %85 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit
 
 87:                                               ; preds = %78
   %88 = sext i32 %.0 to i64
-  %89 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0.copyload, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !23
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit
 
@@ -821,14 +821,14 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj
 
 18:                                               ; preds = %13
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds i16, ptr %.sroa.0101.0.copyload, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %.sroa.0101.0.copyload, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !22
   %22 = zext i16 %21 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit
 
 23:                                               ; preds = %13
   %24 = sext i32 %16 to i64
-  %25 = getelementptr inbounds i32, ptr %.sroa.0101.0.copyload, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %.sroa.0101.0.copyload, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !23
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit
 
@@ -902,14 +902,14 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13
   %.0210 = add nuw nsw i32 %.0210.v, %55
   %57 = load ptr, ptr %0, align 8, !tbaa !17
   %58 = zext nneg i32 %.0210 to i64
-  %59 = getelementptr inbounds nuw i16, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !22
   %61 = zext i16 %60 to i32
   %62 = lshr i32 %.0184, 9
   %63 = and i32 %62, 31
   %64 = add nuw nsw i32 %63, %61
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %57, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !22
   %68 = zext i16 %67 to i32
   %69 = icmp eq i32 %.0172, %68
@@ -967,7 +967,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13
   %94 = sub nsw i32 0, %.1212
   %95 = sext i32 %.1220 to i64
   %96 = zext nneg i32 %.0224 to i64
-  %invariant.gep = getelementptr i16, ptr %41, i64 %96
+  %invariant.gep = getelementptr [2 x i8], ptr %41, i64 %96
   br label %97
 
 97:                                               ; preds = %.loopexit, %90
@@ -980,7 +980,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13
   br i1 %91, label %98, label %101
 
 98:                                               ; preds = %97
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv485
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv485
   %99 = load i16, ptr %gep, align 2, !tbaa !22
   %100 = zext i16 %99 to i32
   br label %123
@@ -993,7 +993,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13
   %106 = add nsw i32 %104, %105
   %107 = and i32 %102, 7
   %108 = sext i32 %106 to i64
-  %109 = getelementptr inbounds i16, ptr %41, i64 %108
+  %109 = getelementptr inbounds [2 x i8], ptr %41, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !22
   %111 = zext i16 %110 to i32
   %112 = shl nuw nsw i32 %107, 1
@@ -1003,7 +1003,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13
   %116 = add nuw nsw i32 %107, 1
   %117 = add i32 %116, %106
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i16, ptr %41, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %41, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !22
   %121 = zext i16 %120 to i32
   %122 = or disjoint i32 %115, %121
@@ -1064,14 +1064,14 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13
 
 145:                                              ; preds = %142
   %146 = zext nneg i32 %144 to i64
-  %147 = getelementptr inbounds nuw i16, ptr %.sroa.07.0.copyload, i64 %146
+  %147 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.07.0.copyload, i64 %146
   %148 = load i16, ptr %147, align 2, !tbaa !22
   %149 = zext i16 %148 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit286
 
 150:                                              ; preds = %142
   %151 = zext nneg i32 %144 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %.sroa.07.0.copyload, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.07.0.copyload, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !23
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit286
 
@@ -1166,7 +1166,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit290: ; preds = %169, %172
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %182 = add nuw nsw i32 %144, 1
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw i16, ptr %.sroa.06.0.copyload.us, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.06.0.copyload.us, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !22
   %186 = zext i16 %185 to i32
   %.not274.us.us426 = icmp eq i32 %.11206, %186
@@ -1174,7 +1174,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit290: ; preds = %169, %172
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us: ; preds = %.lr.ph427
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
-  %187 = getelementptr inbounds nuw i16, ptr %.sroa.06.0.copyload.us, i64 %indvars.iv.next483
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.06.0.copyload.us, i64 %indvars.iv.next483
   %188 = load i16, ptr %187, align 2, !tbaa !22
   %189 = zext i16 %188 to i32
   %.not274.us.us = icmp eq i32 %.11206, %189
@@ -1191,14 +1191,14 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us: ; pr
 .lr.ph.split.us.split.us389:                      ; preds = %.lr.ph.split.us
   %193 = add nuw nsw i32 %144, 1
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw i32, ptr %.sroa.06.0.copyload.us, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.06.0.copyload.us, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !23
   %.not274.us.us394430 = icmp eq i32 %196, %.11206
   br i1 %.not274.us.us394430, label %.lr.ph431, label %.thread322
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us392: ; preds = %.lr.ph431
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
-  %197 = getelementptr inbounds nuw i32, ptr %.sroa.06.0.copyload.us, i64 %indvars.iv.next480
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.06.0.copyload.us, i64 %indvars.iv.next480
   %198 = load i32, ptr %197, align 4, !tbaa !23
   %.not274.us.us394 = icmp eq i32 %198, %.11206
   br i1 %.not274.us.us394, label %.lr.ph431, label %.thread322, !llvm.loop !31
@@ -1261,13 +1261,13 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419: ;
   ]
 
 217:                                              ; preds = %.lr.ph.split
-  %218 = getelementptr inbounds nuw i16, ptr %.sroa.06.0.copyload, i64 %indvars.iv.next
+  %218 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.06.0.copyload, i64 %indvars.iv.next
   %219 = load i16, ptr %218, align 2, !tbaa !22
   %220 = zext i16 %219 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292
 
 221:                                              ; preds = %.lr.ph.split
-  %222 = getelementptr inbounds nuw i32, ptr %.sroa.06.0.copyload, i64 %indvars.iv.next
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.06.0.copyload, i64 %indvars.iv.next
   %223 = load i32, ptr %222, align 4, !tbaa !23
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292
 
@@ -1341,14 +1341,14 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %228, %231
 
 245:                                              ; preds = %241
   %246 = sext i32 %244 to i64
-  %247 = getelementptr inbounds i16, ptr %.sroa.0.0.copyload, i64 %246
+  %247 = getelementptr inbounds [2 x i8], ptr %.sroa.0.0.copyload, i64 %246
   %248 = load i16, ptr %247, align 2, !tbaa !22
   %249 = zext i16 %248 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit297
 
 250:                                              ; preds = %241
   %251 = sext i32 %244 to i64
-  %252 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %251
+  %252 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0.copyload, i64 %251
   %253 = load i32, ptr %252, align 4, !tbaa !23
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit297
 

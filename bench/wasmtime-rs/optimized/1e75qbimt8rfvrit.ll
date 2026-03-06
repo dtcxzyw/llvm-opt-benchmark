@@ -191,8 +191,8 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   br i1 %14, label %15, label %.split22.us, !prof !5
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.0.us
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %10, i64 %.sroa.0.0.us
+  %16 = getelementptr inbounds [24 x i8], ptr %7, i64 %.sroa.0.0.us
+  %17 = getelementptr inbounds [24 x i8], ptr %10, i64 %.sroa.0.0.us
   %18 = tail call i8 @"_ZN56_$LT$alloc..string..String$u20$as$u20$core..cmp..Ord$GT$3cmp17h552da3dc21f4fe08E"(ptr align 8 %16, ptr align 8 %17), !range !6
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.split.us, label %.loopexit
@@ -230,8 +230,8 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   unreachable
 
 27:                                               ; preds = %.check
-  %28 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.0
-  %29 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %10, i64 %.sroa.0.0
+  %28 = getelementptr inbounds [24 x i8], ptr %7, i64 %.sroa.0.0
+  %29 = getelementptr inbounds [24 x i8], ptr %10, i64 %.sroa.0.0
   %30 = tail call i8 @"_ZN56_$LT$alloc..string..String$u20$as$u20$core..cmp..Ord$GT$3cmp17h552da3dc21f4fe08E"(ptr align 8 %28, ptr align 8 %29), !range !6
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %.split, label %.loopexit, !llvm.loop !7
@@ -330,8 +330,8 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.01.0, i64 1)
-  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [24 x i8], ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds [24 x i8], ptr %2, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb98cf542c1373edE"(ptr align 8 %7, ptr align 8 %8)
   br i1 %9, label %.preheader.split, label %.critedge
 

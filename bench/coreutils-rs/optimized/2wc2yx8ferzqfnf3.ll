@@ -123,7 +123,7 @@ define hidden void @_ZN12clap_builder7builder14possible_value13PossibleValue5ali
   %13 = phi i64 [ %.pre.i, %.noexc ], [ %6, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !4, !noalias !7, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds { { { ptr, i64 } } }, ptr %15, i64 %13
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 %13
   store ptr %2, ptr %16, align 8, !noalias !7
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %3, ptr %17, align 8
@@ -508,7 +508,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg14overrides_with17hf5b3f506
   %14 = phi i64 [ %.pre.i, %.noexc ], [ %7, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %16 = load ptr, ptr %15, align 8, !alias.scope !80, !noalias !83, !nonnull !9, !noundef !9
-  %17 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %14
   store ptr %2, ptr %17, align 8, !noalias !83
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %3, ptr %18, align 8
@@ -843,7 +843,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg5alias17h2206b334013d5844E(
   %14 = phi i64 [ %.pre.i, %.noexc ], [ %7, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %16 = load ptr, ptr %15, align 8, !alias.scope !115, !noalias !118, !nonnull !9, !noundef !9
-  %17 = getelementptr inbounds { { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [24 x i8], ptr %16, i64 %14
   store ptr %2, ptr %17, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2614,7 +2614,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h452516c52728e96fE.ll
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
-  %13 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %10
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %2, ptr %14, align 8
@@ -2641,7 +2641,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8f99d31a152f710E.ll
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
-  %13 = getelementptr inbounds { { { ptr, i64 } } }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %10
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %2, ptr %14, align 8

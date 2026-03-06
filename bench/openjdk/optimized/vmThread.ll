@@ -40,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.StorageHost = type { %class.Position, %class.Adapter }
 %class.Position = type { ptr, ptr, ptr }
 %class.Adapter = type { ptr, ptr }
-%"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord" = type { double, ptr, %class.FormatStringLogMessage }
 
 $_ZN7LogImplILN6LogTag4typeE174ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
 
@@ -1726,7 +1725,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -3296,14 +3295,14 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %27 = getelementptr inbounds [280 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %0, ptr %28, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  %30 = getelementptr inbounds [280 x i8], ptr %29, i64 %26
   store double %12, ptr %30, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %32 = getelementptr inbounds [280 x i8], ptr %31, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #14

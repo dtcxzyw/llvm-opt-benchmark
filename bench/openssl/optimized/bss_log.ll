@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/bss_log.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { i32, [10 x i8], i32 }
-
 @.str = private unnamed_addr constant [7 x i8] c"syslog\00", align 1
 @methods_slg = internal constant { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 1025, [4 x i8] zeroinitializer, ptr @.str, ptr @bwrite_conv, ptr @slg_write, ptr null, ptr null, ptr @slg_puts, ptr null, ptr @slg_ctrl, ptr @slg_new, ptr @slg_free, ptr null, ptr null, ptr null }, align 8
 @slg_write.mapping = internal constant [20 x { i32, [10 x i8], [2 x i8], i32 }] [{ i32, [10 x i8], [2 x i8], i32 } { i32 6, [10 x i8] c"PANIC \00\00\00\00", [2 x i8] zeroinitializer, i32 0 }, { i32, [10 x i8], [2 x i8], i32 } { i32 6, [10 x i8] c"EMERG \00\00\00\00", [2 x i8] zeroinitializer, i32 0 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"EMR \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 0 }, { i32, [10 x i8], [2 x i8], i32 } { i32 6, [10 x i8] c"ALERT \00\00\00\00", [2 x i8] zeroinitializer, i32 1 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"ALR \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 1 }, { i32, [10 x i8], [2 x i8], i32 } { i32 5, [10 x i8] c"CRIT \00\00\00\00\00", [2 x i8] zeroinitializer, i32 2 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"CRI \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 2 }, { i32, [10 x i8], [2 x i8], i32 } { i32 6, [10 x i8] c"ERROR \00\00\00\00", [2 x i8] zeroinitializer, i32 3 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"ERR \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 3 }, { i32, [10 x i8], [2 x i8], i32 } { i32 8, [10 x i8] c"WARNING \00\00", [2 x i8] zeroinitializer, i32 4 }, { i32, [10 x i8], [2 x i8], i32 } { i32 5, [10 x i8] c"WARN \00\00\00\00\00", [2 x i8] zeroinitializer, i32 4 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"WAR \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 4 }, { i32, [10 x i8], [2 x i8], i32 } { i32 7, [10 x i8] c"NOTICE \00\00\00", [2 x i8] zeroinitializer, i32 5 }, { i32, [10 x i8], [2 x i8], i32 } { i32 5, [10 x i8] c"NOTE \00\00\00\00\00", [2 x i8] zeroinitializer, i32 5 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"NOT \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 5 }, { i32, [10 x i8], [2 x i8], i32 } { i32 5, [10 x i8] c"INFO \00\00\00\00\00", [2 x i8] zeroinitializer, i32 6 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"INF \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 6 }, { i32, [10 x i8], [2 x i8], i32 } { i32 6, [10 x i8] c"DEBUG \00\00\00\00", [2 x i8] zeroinitializer, i32 7 }, { i32, [10 x i8], [2 x i8], i32 } { i32 4, [10 x i8] c"DBG \00\00\00\00\00\00", [2 x i8] zeroinitializer, i32 7 }, { i32, [10 x i8], [2 x i8], i32 } { i32 0, [10 x i8] zeroinitializer, [2 x i8] zeroinitializer, i32 3 }], align 16
@@ -40,7 +38,7 @@ define internal range(i32 0, -2147483648) i32 @slg_write(ptr readnone captures(n
 
 13:                                               ; preds = %13, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %10 ]
-  %14 = getelementptr inbounds nuw %struct.anon, ptr @slg_write.mapping, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [20 x i8], ptr @slg_write.mapping, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %14, align 4, !tbaa !6
   %17 = sext i32 %16 to i64
@@ -85,7 +83,7 @@ define internal range(i32 0, -2147483648) i32 @slg_puts(ptr readnone captures(no
 
 14:                                               ; preds = %14, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %11 ]
-  %15 = getelementptr inbounds nuw %struct.anon, ptr @slg_write.mapping, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [20 x i8], ptr @slg_write.mapping, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %15, align 4, !tbaa !6
   %18 = sext i32 %17 to i64

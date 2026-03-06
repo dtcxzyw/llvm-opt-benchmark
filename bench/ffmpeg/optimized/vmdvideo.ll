@@ -77,7 +77,7 @@ define internal range(i32 -1094995529, 1) i32 @vmdvideo_decode_init(ptr noundef 
   %35 = or disjoint i32 %34, %32
   %36 = zext i8 %30 to i32
   %37 = or disjoint i32 %35, %36
-  %38 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %39 = lshr i32 %37, 6
   %40 = and i32 %39, 197379
   %41 = or disjoint i32 %37, %40
@@ -287,7 +287,7 @@ bytestream2_init.exit.i:                          ; preds = %84
   %115 = or disjoint i32 %114, %105
   %116 = and i32 %113, 252
   %117 = or disjoint i32 %115, %116
-  %118 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv.i
   %119 = lshr i32 %117, 6
   %120 = and i32 %119, 197379
   %121 = or disjoint i32 %117, %120

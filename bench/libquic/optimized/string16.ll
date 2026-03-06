@@ -645,7 +645,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !12
-  %5 = getelementptr inbounds nuw i16, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %1
   store i16 0, ptr %5, align 2, !tbaa !3
   ret void
 }
@@ -775,7 +775,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt.
   %17 = phi ptr [ %.pre6, %12 ], [ %.pre6, %14 ], [ %13, %.lr.ph.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %18, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw i16, ptr %17, i64 %1
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %1
   store i16 0, ptr %19, align 2, !tbaa !3
   ret void
 }
@@ -872,7 +872,7 @@ define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string
   %4 = icmp ult ptr %1, %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %6
   %8 = icmp ult ptr %7, %1
   %9 = select i1 %4, i1 true, i1 %8
   ret i1 %9
@@ -1095,7 +1095,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   %28 = phi ptr [ %21, %24 ], [ %.pre, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %29, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw i16, ptr %28, i64 %4
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %4
   store i16 0, ptr %30, align 2, !tbaa !3
   br label %31
 
@@ -1189,7 +1189,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   br i1 %or.cond, label %36, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit26
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
-  %37 = getelementptr inbounds nuw i16, ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %1
   %38 = icmp eq i64 %4, 1
   br i1 %38, label %39, label %41
 
@@ -1208,10 +1208,10 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   br i1 %.not25, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27, label %43
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit26
-  %44 = getelementptr inbounds nuw i16, ptr %29, i64 %1
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %4
-  %46 = getelementptr inbounds nuw i16, ptr %12, i64 %1
-  %47 = getelementptr inbounds nuw i16, ptr %46, i64 %2
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %1
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %4
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %1
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %2
   %48 = icmp eq i64 %9, 1
   br i1 %48, label %49, label %51
 
@@ -1256,8 +1256,8 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 
 9:                                                ; preds = %3
   %10 = sub i64 %5, %6
-  %11 = getelementptr inbounds nuw i16, ptr %.pre12, i64 %1
-  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %2
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %.pre12, i64 %1
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %2
   %13 = icmp eq i64 %10, 1
   br i1 %13, label %14, label %16
 
@@ -1278,7 +1278,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
   %19 = phi i64 [ %.pre, %16 ], [ %5, %14 ], [ %5, %3 ]
   %20 = sub i64 %19, %2
   store i64 %20, ptr %4, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %20
   store i16 0, ptr %21, align 2, !tbaa !3
   ret void
 }
@@ -1462,7 +1462,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
   %10 = load ptr, ptr %1, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw i16, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %2
   %12 = sub nuw i64 %8, %2
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %3, i64 %12)
   %.idx = shl nuw nsw i64 %spec.select.i, 1
@@ -1524,7 +1524,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %5
   %10 = load ptr, ptr %1, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw i16, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %2
   %12 = sub nuw i64 %8, %2
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %12)
   %.idx = shl nuw nsw i64 %spec.select.i, 1
@@ -1752,7 +1752,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   %17 = phi ptr [ %.pre6.i, %12 ], [ %.pre6.i, %14 ], [ %13, %.lr.ph.i.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %18, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw i16, ptr %17, i64 %1
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %1
   store i16 0, ptr %19, align 2, !tbaa !3
   ret void
 }
@@ -1913,7 +1913,7 @@ define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %4
   ret ptr %5
 }
 
@@ -2058,7 +2058,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   %28 = phi ptr [ %21, %24 ], [ %.pre.i.i, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %29, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw i16, ptr %28, i64 %4
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %4
   store i16 0, ptr %30, align 2, !tbaa !3
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignERKS4_.exit
 
@@ -2140,7 +2140,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   %28 = phi ptr [ %21, %24 ], [ %.pre.i, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %29, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw i16, ptr %28, i64 %4
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %4
   store i16 0, ptr %30, align 2, !tbaa !3
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_assignERKS4_.exit
 
@@ -2289,7 +2289,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
   %.pre.i8 = phi ptr [ %6, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i ], [ %.pre.i7, %17 ], [ %.pre.i7, %.lr.ph.i.i.i.i ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %20, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw i16, ptr %.pre.i8, i64 %1
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i8, i64 %1
   store i16 0, ptr %21, align 2, !tbaa !3
   ret ptr %0
 }
@@ -2343,7 +2343,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   %19 = phi i64 [ %.pre, %16 ], [ 1, %14 ], [ %11, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %19, ptr %20, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw i16, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %19
   store i16 0, ptr %21, align 2, !tbaa !3
   br label %33
 
@@ -2422,7 +2422,7 @@ define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsES
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %4
   ret ptr %5
 }
 
@@ -2431,7 +2431,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   store ptr %6, ptr %0, align 8, !tbaa !28
   ret void
 }
@@ -2441,7 +2441,7 @@ define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traits
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   store ptr %6, ptr %0, align 8, !tbaa !28
   ret void
 }
@@ -2471,7 +2471,7 @@ define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %4
   ret ptr %5
 }
 
@@ -2480,7 +2480,7 @@ define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traits
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   store ptr %6, ptr %0, align 8, !tbaa !28
   ret void
 }
@@ -2511,7 +2511,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 12:                                               ; preds = %10
   store i64 %1, ptr %4, align 8, !tbaa !18
   %13 = load ptr, ptr %0, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i16, ptr %13, i64 %1
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1
   store i16 0, ptr %14, align 2, !tbaa !3
   br label %15
 
@@ -2604,7 +2604,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
   br i1 %.not30.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit, label %28
 
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i
-  %29 = getelementptr inbounds nuw i16, ptr %.pre.i, i64 %5
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i, i64 %5
   %cond.i = icmp eq i64 %1, 1
   br i1 %cond.i, label %30, label %.lr.ph.i.i.i.i
 
@@ -2623,7 +2623,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i, %30
   store i64 %9, ptr %4, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw i16, ptr %.pre.i, i64 %9
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i, i64 %9
   store i16 0, ptr %33, align 2, !tbaa !3
   ret ptr %0
 }
@@ -2647,7 +2647,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 11:                                               ; preds = %9
   store i64 %1, ptr %3, align 8, !tbaa !18
   %12 = load ptr, ptr %0, align 8, !tbaa !12
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %1
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %1
   store i16 0, ptr %13, align 2, !tbaa !3
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEmt.exit
 
@@ -2868,14 +2868,14 @@ define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
-  %4 = getelementptr inbounds nuw i16, ptr %3, i64 %1
+  %4 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
-  %4 = getelementptr inbounds nuw i16, ptr %3, i64 %1
+  %4 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -2892,7 +2892,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw i16, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %1
   ret ptr %8
 }
 
@@ -2909,7 +2909,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112b
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw i16, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %1
   ret ptr %8
 }
 
@@ -2930,7 +2930,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112b
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !12
-  %5 = getelementptr i16, ptr %4, i64 %3
+  %5 = getelementptr [2 x i8], ptr %4, i64 %3
   %6 = getelementptr i8, ptr %5, i64 -2
   ret ptr %6
 }
@@ -2940,7 +2940,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !12
-  %5 = getelementptr i16, ptr %4, i64 %3
+  %5 = getelementptr [2 x i8], ptr %4, i64 %3
   %6 = getelementptr i8, ptr %5, i64 -2
   ret ptr %6
 }
@@ -2983,7 +2983,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds nuw i16, ptr %12, i64 %7
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %7
   %22 = icmp eq i64 %5, 1
   br i1 %22, label %23, label %25
 
@@ -3004,7 +3004,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_.exit: ; preds = %19, %23, %25, %27
   store i64 %11, ptr %6, align 8, !tbaa !18
   %28 = load ptr, ptr %0, align 8, !tbaa !12
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %11
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %11
   store i16 0, ptr %29, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3047,7 +3047,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds nuw i16, ptr %12, i64 %7
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %7
   %22 = icmp eq i64 %5, 1
   br i1 %22, label %23, label %25
 
@@ -3068,7 +3068,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit: ; preds = %19, %23, %25, %27
   store i64 %11, ptr %6, align 8, !tbaa !18
   %28 = load ptr, ptr %0, align 8, !tbaa !12
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %11
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %11
   store i16 0, ptr %29, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3122,7 +3122,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKt.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i16, ptr %16, i64 %11
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %11
   %26 = icmp eq i64 %8, 2
   br i1 %26, label %27, label %29
 
@@ -3142,7 +3142,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKt.exit: ; preds = %23, %27, %29, %30
   store i64 %15, ptr %10, align 8, !tbaa !18
   %31 = load ptr, ptr %0, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %15
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %15
   store i16 0, ptr %32, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3196,7 +3196,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i16, ptr %16, i64 %11
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %11
   %26 = icmp eq i64 %8, 2
   br i1 %26, label %27, label %29
 
@@ -3216,7 +3216,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.exit: ; preds = %23, %27, %29, %30
   store i64 %15, ptr %10, align 8, !tbaa !18
   %31 = load ptr, ptr %0, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %15
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %15
   store i16 0, ptr %32, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3293,10 +3293,10 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKt
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.thread.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit.i
   %26 = phi ptr [ %6, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.thread.i ], [ %20, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit.i ], [ %6, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i ]
-  %27 = getelementptr inbounds nuw i16, ptr %26, i64 %4
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %4
   store i16 %1, ptr %27, align 2, !tbaa !3
   store i64 %5, ptr %3, align 8, !tbaa !18
-  %28 = getelementptr inbounds nuw i16, ptr %26, i64 %5
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %5
   store i16 0, ptr %28, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3373,10 +3373,10 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKt
 
 26:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.thread, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
   %27 = phi ptr [ %6, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.thread ], [ %20, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit ], [ %6, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit ]
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %4
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %4
   store i16 %1, ptr %28, align 2, !tbaa !3
   store i64 %5, ptr %3, align 8, !tbaa !18
-  %29 = getelementptr inbounds nuw i16, ptr %27, i64 %5
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %5
   store i16 0, ptr %29, align 2, !tbaa !3
   ret void
 }
@@ -3416,7 +3416,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i16, ptr %10, i64 %5
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %5
   %20 = icmp eq i64 %2, 1
   br i1 %20, label %21, label %23
 
@@ -3437,7 +3437,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit: ; preds = %17, %21, %23, %25
   store i64 %9, ptr %4, align 8, !tbaa !18
   %26 = load ptr, ptr %0, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw i16, ptr %26, i64 %9
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %9
   store i16 0, ptr %27, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3477,7 +3477,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i16, ptr %10, i64 %5
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %5
   %20 = icmp eq i64 %2, 1
   br i1 %20, label %21, label %23
 
@@ -3498,7 +3498,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.exit: ; preds = %17, %21, %23, %25
   store i64 %9, ptr %4, align 8, !tbaa !18
   %26 = load ptr, ptr %0, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw i16, ptr %26, i64 %9
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %9
   store i16 0, ptr %27, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3516,7 +3516,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
   %9 = load ptr, ptr %1, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw i16, ptr %9, i64 %2
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %2
   %11 = sub nuw i64 %6, %2
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3552,7 +3552,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i16, ptr %18, i64 %13
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %13
   %28 = icmp eq i64 %spec.select.i, 1
   br i1 %28, label %29, label %31
 
@@ -3573,7 +3573,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit: ; preds = %25, %29, %31, %33
   store i64 %17, ptr %12, align 8, !tbaa !18
   %34 = load ptr, ptr %0, align 8, !tbaa !12
-  %35 = getelementptr inbounds nuw i16, ptr %34, i64 %17
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %17
   store i16 0, ptr %35, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3604,7 +3604,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i16, ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %5
   %17 = icmp eq i64 %2, 1
   br i1 %17, label %18, label %20
 
@@ -3625,7 +3625,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit: ; preds = %20, %18, %14, %22
   store i64 %6, ptr %4, align 8, !tbaa !18
   %23 = load ptr, ptr %0, align 8, !tbaa !12
-  %24 = getelementptr inbounds nuw i16, ptr %23, i64 %6
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %6
   store i16 0, ptr %24, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3671,9 +3671,9 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i16, ptr %13, i64 %1
-  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %3
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %2
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %3
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %2
   %27 = icmp eq i64 %22, 1
   br i1 %27, label %28, label %30
 
@@ -3697,7 +3697,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
   br i1 %.not30, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt.exit, label %33
 
 33:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit
-  %34 = getelementptr inbounds nuw i16, ptr %.pre, i64 %1
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   %cond = icmp eq i64 %3, 1
   br i1 %cond, label %35, label %.lr.ph.i.i.i
 
@@ -3716,7 +3716,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt.exit: ; preds = %.lr.ph.i.i.i, %35, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit
   store i64 %12, ptr %6, align 8, !tbaa !18
-  %38 = getelementptr inbounds nuw i16, ptr %.pre, i64 %12
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %12
   store i16 0, ptr %38, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3756,7 +3756,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not8.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i16, ptr %10, i64 %5
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %5
   %20 = icmp eq i64 %2, 1
   br i1 %20, label %21, label %23
 
@@ -3777,7 +3777,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit: ; preds = %17, %21, %23, %25
   store i64 %9, ptr %4, align 8, !tbaa !18
   %26 = load ptr, ptr %0, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw i16, ptr %26, i64 %9
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %9
   store i16 0, ptr %27, align 2, !tbaa !3
   ret ptr %0
 }
@@ -3831,7 +3831,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   %19 = phi i64 [ %.pre.i, %16 ], [ 1, %14 ], [ %11, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %19, ptr %20, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw i16, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %19
   store i16 0, ptr %21, align 2, !tbaa !3
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEOS4_.exit
 
@@ -3889,7 +3889,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   %9 = load ptr, ptr %1, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !18
-  %12 = getelementptr inbounds nuw i16, ptr %9, i64 %2
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %2
   %13 = sub nuw i64 %6, %2
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %13)
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %11, ptr noundef %12, i64 noundef %spec.select.i)
@@ -3929,11 +3929,11 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not, label %95, label %20
 
 20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
-  %21 = getelementptr inbounds nuw i16, ptr %13, i64 %1
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
   %24 = icmp ult ptr %3, %13
-  %25 = getelementptr inbounds nuw i16, ptr %13, i64 %7
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
   br i1 %27, label %28, label %41
@@ -3945,8 +3945,8 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i16, ptr %21, i64 %4
-  %31 = getelementptr inbounds nuw i16, ptr %21, i64 %2
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %4
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %2
   %32 = icmp eq i64 %23, 1
   br i1 %32, label %33, label %35
 
@@ -4003,8 +4003,8 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
   br i1 %or.cond92, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit94, label %49
 
 49:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit93
-  %50 = getelementptr inbounds nuw i16, ptr %21, i64 %4
-  %51 = getelementptr inbounds nuw i16, ptr %21, i64 %2
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %4
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %2
   %52 = icmp eq i64 %23, 1
   br i1 %52, label %53, label %55
 
@@ -4022,8 +4022,8 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
   br i1 %.not83, label %57, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
 
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit94
-  %58 = getelementptr inbounds nuw i16, ptr %3, i64 %4
-  %59 = getelementptr inbounds nuw i16, ptr %21, i64 %2
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %4
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %2
   %.not86 = icmp ugt ptr %58, %59
   br i1 %.not86, label %66, label %60
 
@@ -4050,7 +4050,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
   %69 = ptrtoint ptr %21 to i64
   %70 = sub i64 %68, %69
   %71 = getelementptr i8, ptr %21, i64 %70
-  %72 = getelementptr i16, ptr %71, i64 %11
+  %72 = getelementptr [2 x i8], ptr %71, i64 %11
   %73 = icmp eq i64 %4, 1
   br i1 %73, label %74, label %76
 
@@ -4083,7 +4083,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit97: ; preds = %84, %86
   %87 = getelementptr inbounds nuw i8, ptr %21, i64 %81
-  %88 = getelementptr inbounds nuw i16, ptr %21, i64 %4
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %4
   %89 = sub i64 %4, %82
   %90 = icmp eq i64 %89, 1
   br i1 %90, label %91, label %93
@@ -4105,7 +4105,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit, %93, %91, %76, %74, %64, %62, %39, %37, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit94, %95
   store i64 %12, ptr %6, align 8, !tbaa !18
   %96 = load ptr, ptr %0, align 8, !tbaa !12
-  %97 = getelementptr inbounds nuw i16, ptr %96, i64 %12
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %12
   store i16 0, ptr %97, align 2, !tbaa !3
   ret ptr %0
 }
@@ -4165,7 +4165,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 %8
-  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %2
   %26 = icmp eq i64 %22, 1
   br i1 %26, label %27, label %29
 
@@ -4217,7 +4217,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 %8
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %2
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %2
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   %46 = icmp eq i64 %32, 1
   br i1 %46, label %47, label %49
@@ -4276,7 +4276,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_mt.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.i, %53
   %.pre.i.i10 = phi ptr [ %.pre.i.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.i ], [ %.pre.i.i9, %53 ], [ %.pre.i.i9, %.lr.ph.i.i.i.i.i ]
   store i64 %15, ptr %10, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw i16, ptr %.pre.i.i10, i64 %15
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i.i10, i64 %15
   store i16 0, ptr %56, align 2, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %.pre.i.i10, i64 %8
   ret ptr %57
@@ -4331,7 +4331,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 %9
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %3
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %3
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %12
   %34 = icmp eq i64 %29, 1
   br i1 %34, label %35, label %37
@@ -4375,7 +4375,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i, %42
   store i64 %20, ptr %14, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw i16, ptr %.pre.i, i64 %20
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i, i64 %20
   store i16 0, ptr %45, align 2, !tbaa !3
   ret ptr %0
 }
@@ -4465,7 +4465,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %14 = sub nuw i64 %7, %3
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %14)
   %15 = load ptr, ptr %2, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw i16, ptr %15, i64 %3
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %3
   %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef 0, ptr noundef %16, i64 noundef %spec.select.i)
   ret ptr %17
 }
@@ -4566,8 +4566,8 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %or.cond.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i16, ptr %13, i64 %1
-  %23 = getelementptr inbounds nuw i16, ptr %22, i64 %2
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %2
   %24 = icmp eq i64 %20, 1
   br i1 %24, label %25, label %27
 
@@ -4619,9 +4619,9 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   br i1 %.not25.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i, label %41
 
 41:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i
-  %42 = getelementptr inbounds nuw i16, ptr %36, i64 %1
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %2
-  %44 = getelementptr inbounds nuw i16, ptr %13, i64 %1
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %1
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %2
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1
   %45 = icmp eq i64 %30, 1
   br i1 %45, label %46, label %48
 
@@ -4659,7 +4659,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.thread: ; preds = %25, %27, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i
   %.pre.i8 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i ], [ %.pre.i7.pre, %27 ], [ %13, %25 ]
-  %51 = getelementptr inbounds nuw i16, ptr %.pre.i8, i64 %1
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i8, i64 %1
   %cond.i = icmp eq i64 %2, 1
   br i1 %cond.i, label %52, label %.lr.ph.i.i.i.i
 
@@ -4679,7 +4679,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i, %52
   %.pre.i9 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i ], [ %.pre.i8, %52 ], [ %.pre.i8, %.lr.ph.i.i.i.i ]
   store i64 %12, ptr %5, align 8, !tbaa !18
-  %55 = getelementptr inbounds nuw i16, ptr %.pre.i9, i64 %12
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i9, i64 %12
   store i16 0, ptr %55, align 2, !tbaa !3
   ret ptr %0
 }
@@ -4817,7 +4817,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
   %50 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %7
   store i16 %2, ptr %50, align 2, !tbaa !3
   store i64 %13, ptr %9, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw i16, ptr %.pre.i, i64 %13
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i, i64 %13
   store i16 0, ptr %51, align 2, !tbaa !3
   ret ptr %50
 }
@@ -4842,7 +4842,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 8:                                                ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
   store i64 %1, ptr %4, align 8, !tbaa !18
   %9 = load ptr, ptr %0, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw i16, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1
   store i16 0, ptr %10, align 2, !tbaa !3
   br label %29
 
@@ -4858,8 +4858,8 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 
 16:                                               ; preds = %11
   %17 = sub i64 %5, %13
-  %18 = getelementptr inbounds nuw i16, ptr %.pre12.i, i64 %1
-  %19 = getelementptr inbounds nuw i16, ptr %18, i64 %spec.select.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.pre12.i, i64 %1
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %spec.select.i
   %20 = icmp eq i64 %17, 1
   br i1 %20, label %21, label %23
 
@@ -4880,7 +4880,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exi
   %26 = phi i64 [ %.pre.i, %23 ], [ %5, %21 ], [ %5, %11 ]
   %27 = sub i64 %26, %spec.select.i
   store i64 %27, ptr %4, align 8, !tbaa !18
-  %28 = getelementptr inbounds nuw i16, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %27
   store i16 0, ptr %28, align 2, !tbaa !3
   br label %29
 
@@ -4925,7 +4925,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exi
   %21 = phi i64 [ %.pre.i, %18 ], [ %9, %16 ], [ %9, %2 ]
   %22 = add i64 %21, -1
   store i64 %22, ptr %8, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw i16, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %22
   store i16 0, ptr %23, align 2, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 %6
   ret ptr %24
@@ -4940,7 +4940,7 @@ define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsES
   %8 = ashr exact i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !18
-  %11 = getelementptr inbounds nuw i16, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %10
   %12 = icmp eq ptr %2, %11
   br i1 %12, label %13, label %15
 
@@ -4984,7 +4984,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exi
   %32 = phi i64 [ %.pre.i, %29 ], [ %10, %27 ], [ %10, %15 ]
   %33 = sub i64 %32, %18
   store i64 %33, ptr %9, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw i16, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %33
   store i16 0, ptr %34, align 2, !tbaa !3
   br label %35
 
@@ -5001,7 +5001,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   %.pre12.i = load ptr, ptr %0, align 8, !tbaa !12
   %4 = add i64 %3, -1
   store i64 %4, ptr %2, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw i16, ptr %.pre12.i, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %.pre12.i, i64 %4
   store i16 0, ptr %5, align 2, !tbaa !3
   ret void
 }
@@ -5052,7 +5052,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %15 = sub nuw i64 %8, %4
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 %15)
   %16 = load ptr, ptr %3, align 8, !tbaa !12
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %4
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %4
   %18 = sub nuw i64 %12, %1
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %18)
   %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %spec.select.i.i, ptr noundef %17, i64 noundef %spec.select.i)
@@ -5142,9 +5142,9 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %or.cond.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i16, ptr %16, i64 %1
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %3
-  %29 = getelementptr inbounds nuw i16, ptr %27, i64 %spec.select.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %1
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %3
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %spec.select.i
   %30 = icmp eq i64 %25, 1
   br i1 %30, label %31, label %33
 
@@ -5168,7 +5168,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
   br i1 %.not30.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit, label %36
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i
-  %37 = getelementptr inbounds nuw i16, ptr %.pre.i, i64 %1
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i, i64 %1
   %cond.i = icmp eq i64 %3, 1
   br i1 %cond.i, label %38, label %.lr.ph.i.i.i.i
 
@@ -5187,7 +5187,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i, %38
   store i64 %15, ptr %6, align 8, !tbaa !18
-  %41 = getelementptr inbounds nuw i16, ptr %.pre.i, i64 %15
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i, i64 %15
   store i16 0, ptr %41, align 2, !tbaa !3
   ret ptr %0
 }
@@ -5452,7 +5452,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 
 10:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
   %11 = load ptr, ptr %0, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %3
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %3
   %13 = icmp eq i64 %spec.select.i, 1
   br i1 %13, label %14, label %16
 
@@ -5635,8 +5635,8 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
   br i1 %.not3344, label %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %6
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %6
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %2
   %17 = ptrtoint ptr %15 to i64
   br label %.lr.ph.i.i.preheader
 
@@ -5723,8 +5723,8 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
   br i1 %.not3344.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
-  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %8
-  %18 = getelementptr inbounds nuw i16, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %8
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %2
   %19 = ptrtoint ptr %17 to i64
   br label %.lr.ph.i.i.preheader.i
 
@@ -5822,8 +5822,8 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
   br i1 %.not3344.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
-  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %12
-  %22 = getelementptr inbounds nuw i16, ptr %19, i64 %2
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %12
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %2
   %23 = ptrtoint ptr %21 to i64
   br label %.lr.ph.i.i.preheader.i
 
@@ -5893,7 +5893,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 .lr.ph.i.i.preheader:                             ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !12
   %8 = sub nuw i64 %5, %2
-  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %2
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %2
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %12
@@ -5943,7 +5943,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 .lr.ph.i.i.preheader.i:                           ; preds = %9, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.i
   %.0.i = phi i64 [ %19, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.i ], [ %.sroa.speculated.i, %9 ]
-  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %.0.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %.0.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15, %.lr.ph.i.i.preheader.i
@@ -5988,7 +5988,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 .lr.ph.i.i.preheader:                             ; preds = %7, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit
   %.0 = phi i64 [ %17, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit ], [ %.sroa.speculated, %7 ]
-  %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.0
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %.0
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %13
@@ -6047,7 +6047,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
 
 .lr.ph.i.i.preheader.i:                           ; preds = %13, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.i
   %.0.i = phi i64 [ %23, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.i ], [ %.sroa.speculated.i, %13 ]
-  %16 = getelementptr inbounds nuw i16, ptr %15, i64 %.0.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %.0.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %19, %.lr.ph.i.i.preheader.i
@@ -6098,7 +6098,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 12:                                               ; preds = %11
   %13 = add i64 %.1, -1
-  %14 = getelementptr inbounds nuw i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !3
   %16 = icmp eq i16 %15, %1
   br i1 %16, label %.loopexit, label %11, !llvm.loop !31
@@ -6126,7 +6126,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 11:                                               ; preds = %19, %.lr.ph.i
   %.01123.i = phi i64 [ %2, %.lr.ph.i ], [ %20, %19 ]
-  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %.01123.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %.01123.i
   %13 = load i16, ptr %12, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6168,7 +6168,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 9:                                                ; preds = %.lr.ph, %17
   %.01123 = phi i64 [ %2, %.lr.ph ], [ %18, %17 ]
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %.01123
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.01123
   %11 = load i16, ptr %10, align 2, !tbaa !3
   br label %.lr.ph.i.i
 
@@ -6224,7 +6224,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
 
 15:                                               ; preds = %23, %.lr.ph.i
   %.01123.i = phi i64 [ %2, %.lr.ph.i ], [ %24, %23 ]
-  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %.01123.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %.01123.i
   %17 = load i16, ptr %16, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6261,7 +6261,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 .lr.ph.i.i.preheader.i:                           ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !12
   %8 = sub nuw i64 %5, %2
-  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %2
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %2
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.preheader.i
@@ -6312,7 +6312,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 14:                                               ; preds = %22, %11
   %.1.i = phi i64 [ %spec.select.i, %11 ], [ %23, %22 ]
-  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %.1.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %.1.i
   %16 = load i16, ptr %15, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6356,7 +6356,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 12:                                               ; preds = %20, %9
   %.1 = phi i64 [ %spec.select, %9 ], [ %21, %20 ]
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %.1
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %.1
   %14 = load i16, ptr %13, align 2, !tbaa !3
   br label %.lr.ph.i.i
 
@@ -6414,7 +6414,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
 
 18:                                               ; preds = %26, %15
   %.1.i = phi i64 [ %spec.select.i, %15 ], [ %27, %26 ]
-  %19 = getelementptr inbounds nuw i16, ptr %17, i64 %.1.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %.1.i
   %20 = load i16, ptr %19, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6463,7 +6463,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 12:                                               ; preds = %11
   %13 = add i64 %.1.i, -1
-  %14 = getelementptr inbounds nuw i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !3
   %16 = icmp eq i16 %15, %1
   br i1 %16, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEtm.exit, label %11, !llvm.loop !31
@@ -6490,7 +6490,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 .lr.ph.i.i.preheader.i:                           ; preds = %.lr.ph.i, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i
   %.0712.i = phi i64 [ %18, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ], [ %2, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw i16, ptr %10, i64 %.0712.i
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %.0712.i
   %12 = load i16, ptr %11, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6531,7 +6531,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit
   %.0712 = phi i64 [ %16, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit ], [ %2, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i16, ptr %8, i64 %.0712
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.0712
   %10 = load i16, ptr %9, align 2, !tbaa !3
   br label %.lr.ph.i.i
 
@@ -6586,7 +6586,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
 
 .lr.ph.i.i.preheader.i:                           ; preds = %.lr.ph.i, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i
   %.0712.i = phi i64 [ %22, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ], [ %2, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %.0712.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %.0712.i
   %16 = load i16, ptr %15, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6626,7 +6626,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 8:                                                ; preds = %.lr.ph, %12
   %.06 = phi i64 [ %2, %.lr.ph ], [ %13, %12 ]
-  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %.06
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.06
   %10 = load i16, ptr %9, align 2, !tbaa !3
   %11 = icmp eq i16 %10, %1
   br i1 %11, label %12, label %._crit_edge
@@ -6660,7 +6660,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 .lr.ph.i.i.preheader.i:                           ; preds = %9, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i
   %.1.i = phi i64 [ %19, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ], [ %spec.select.i, %9 ]
-  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %.1.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %.1.i
   %13 = load i16, ptr %12, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6703,7 +6703,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 .lr.ph.i.i.preheader:                             ; preds = %7, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit
   %.1 = phi i64 [ %17, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit ], [ %spec.select, %7 ]
-  %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.1
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %.1
   %11 = load i16, ptr %10, align 2, !tbaa !3
   br label %.lr.ph.i.i
 
@@ -6760,7 +6760,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
 
 .lr.ph.i.i.preheader.i:                           ; preds = %13, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i
   %.1.i = phi i64 [ %23, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ], [ %spec.select.i, %13 ]
-  %16 = getelementptr inbounds nuw i16, ptr %15, i64 %.1.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %.1.i
   %17 = load i16, ptr %16, align 2, !tbaa !3
   br label %.lr.ph.i.i.i
 
@@ -6802,7 +6802,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 
 9:                                                ; preds = %13, %6
   %.1 = phi i64 [ %spec.select, %6 ], [ %14, %13 ]
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %.1
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.1
   %11 = load i16, ptr %10, align 2, !tbaa !3
   %12 = icmp eq i16 %11, %1
   br i1 %12, label %13, label %.loopexit
@@ -6904,7 +6904,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 .lr.ph.i.i.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
   %12 = load ptr, ptr %3, align 8, !tbaa !12
   %13 = load ptr, ptr %0, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i16, ptr %13, i64 %1
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %17
@@ -6972,9 +6972,9 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit13
   %17 = load ptr, ptr %3, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %4
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %4
   %19 = load ptr, ptr %0, align 8, !tbaa !12
-  %20 = getelementptr inbounds nuw i16, ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %23
@@ -7100,7 +7100,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %_ZNKSt7__cxx1112bas
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
   %16 = load ptr, ptr %0, align 8, !tbaa !12
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %1
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %20
@@ -7156,7 +7156,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
   %11 = load ptr, ptr %0, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %1
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %15

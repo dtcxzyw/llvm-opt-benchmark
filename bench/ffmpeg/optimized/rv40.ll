@@ -215,7 +215,7 @@ define internal range(i32 -2147483648, 1) i32 @rv40_parse_slice_header(ptr nound
   %102 = tail call i32 @llvm.umin.i32(i32 %16, i32 %101)
   store i32 %102, ptr %8, align 8, !tbaa !63
   %103 = zext nneg i32 %100 to i64
-  %104 = getelementptr inbounds nuw i32, ptr @rv40_standard_widths, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr @rv40_standard_widths, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !71
   %.not.i.i = icmp eq i32 %100, 7
   br i1 %.not.i.i, label %.preheader.i.i, label %get_dimension.exit.i
@@ -264,7 +264,7 @@ get_dimension.exit.i:                             ; preds = %111, %107, %91
   %135 = tail call i32 @llvm.umin.i32(i32 %16, i32 %134)
   store i32 %135, ptr %8, align 8, !tbaa !63
   %136 = zext nneg i32 %133 to i64
-  %137 = getelementptr inbounds nuw i32, ptr @rv40_standard_heights, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr @rv40_standard_heights, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !71
   %139 = icmp ugt i32 %132, -1073741825
   br i1 %139, label %140, label %156
@@ -285,7 +285,7 @@ get_dimension.exit.i:                             ; preds = %111, %107, %91
   %151 = and i32 %150, 1
   %152 = sub i32 %151, %138
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr @rv40_standard_heights, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr @rv40_standard_heights, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !71
   br label %156
 
@@ -388,7 +388,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
   %21 = shl i32 %19, %20
   %22 = lshr i32 %21, 25
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.VLCElem, ptr @aic_top_vlc, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @aic_top_vlc, i64 %23
   %25 = load i16, ptr %24, align 4, !tbaa !65
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %27 = load i16, ptr %26, align 2, !tbaa !65
@@ -438,7 +438,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
 
 61:                                               ; preds = %42, %66
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %66 ]
-  %62 = getelementptr inbounds nuw i16, ptr @rv40_aic_table_index, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [2 x i8], ptr @rv40_aic_table_index, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !81
   %64 = zext i16 %63 to i32
   %65 = icmp eq i32 %60, %64
@@ -455,7 +455,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
 
 68:                                               ; preds = %67
   %69 = and i64 %indvars.iv, 4294967295
-  %70 = getelementptr inbounds nuw ptr, ptr @aic_mode2_vlc, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @aic_mode2_vlc, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !83
   %72 = load i32, ptr %6, align 8, !tbaa !63
   %73 = load i32, ptr %7, align 8, !tbaa !66
@@ -469,7 +469,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
   %81 = shl i32 %79, %80
   %82 = lshr i32 %81, 23
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %struct.VLCElem, ptr %71, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !65
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 2
   %87 = load i16, ptr %86, align 2, !tbaa !65
@@ -492,7 +492,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
   %102 = lshr i32 %100, %101
   %103 = add i32 %102, %91
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %struct.VLCElem, ptr %71, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !65
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %108 = load i16, ptr %107, align 2, !tbaa !65
@@ -521,7 +521,7 @@ get_vlc2.exit:                                    ; preds = %68, %90
   %117 = mul nsw i32 %56, 10
   %118 = add nsw i32 %117, %53
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr @aic_mode1_vlc, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr @aic_mode1_vlc, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !83
   %122 = load i32, ptr %6, align 8, !tbaa !63
   %123 = load i32, ptr %7, align 8, !tbaa !66
@@ -535,7 +535,7 @@ get_vlc2.exit:                                    ; preds = %68, %90
   %131 = shl i32 %129, %130
   %132 = lshr i32 %131, 25
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw %struct.VLCElem, ptr %121, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !65
   %136 = zext i16 %135 to i32
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 2
@@ -754,11 +754,11 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
 
 81:                                               ; preds = %78
   %82 = sext i32 %11 to i64
-  %83 = getelementptr i32, ptr %.pre, i64 %82
+  %83 = getelementptr [4 x i8], ptr %.pre, i64 %82
   %84 = getelementptr i8, ptr %83, i64 -4
   %85 = load i32, ptr %84, align 4, !tbaa !71
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %2, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %2, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !71
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %87, align 4, !tbaa !71
@@ -767,10 +767,10 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
 ._crit_edge:                                      ; preds = %78, %81
   %90 = sub nsw i32 %11, %9
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i32, ptr %.pre, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !71
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i32, ptr %2, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %2, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !71
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %95, align 4, !tbaa !71
@@ -783,7 +783,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %101 = getelementptr i8, ptr %92, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !71
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %2, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %2, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !71
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %104, align 4, !tbaa !71
@@ -799,10 +799,10 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %111 = xor i32 %9, -1
   %112 = add i32 %11, %111
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i32, ptr %.pre, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !71
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i32, ptr %2, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %2, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !71
   %119 = add nsw i32 %118, 1
   store i32 %119, ptr %117, align 4, !tbaa !71
@@ -815,7 +815,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ 0, %.preheader ]
   %.075 = phi i32 [ %.1, %127 ], [ 0, %.preheader ]
   %.05474 = phi i32 [ %.2, %127 ], [ 0, %.preheader ]
-  %121 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %122 = load i32, ptr %121, align 4, !tbaa !71
   %123 = icmp sgt i32 %122, %.075
   br i1 %123, label %124, label %127
@@ -847,7 +847,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 6544
   %134 = load ptr, ptr %133, align 8, !tbaa !93
   %135 = sext i32 %11 to i64
-  %136 = getelementptr i32, ptr %134, i64 %135
+  %136 = getelementptr [4 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -4
   %138 = load i32, ptr %137, align 4, !tbaa !71
   br label %139
@@ -876,11 +876,11 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %157 = getelementptr inbounds i8, ptr @block_num_to_ptype_vlc_num, i64 %143
   %158 = load i8, ptr %157, align 1, !tbaa !65
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr @ptype_vlc, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @ptype_vlc, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !83
   %162 = lshr i32 %155, 25
   %163 = zext nneg i32 %162 to i64
-  %164 = getelementptr inbounds nuw %struct.VLCElem, ptr %161, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %163
   %165 = load i16, ptr %164, align 2, !tbaa !65
   %166 = sext i16 %165 to i32
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 2
@@ -896,11 +896,11 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %174 = getelementptr inbounds i8, ptr @block_num_to_btype_vlc_num, i64 %143
   %175 = load i8, ptr %174, align 1, !tbaa !65
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr @btype_vlc, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr @btype_vlc, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !83
   %179 = lshr i32 %155, 26
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw %struct.VLCElem, ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !65
   %183 = sext i16 %182 to i32
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 2
@@ -926,7 +926,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %196 = shl i32 %194, %195
   %197 = lshr i32 %196, %.sink103
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw %struct.VLCElem, ptr %.sink99, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %.sink99, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 2
   %201 = load i16, ptr %200, align 2, !tbaa !65
   %202 = sext i16 %201 to i32
@@ -1002,7 +1002,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0248340 = phi i32 [ 0, %.lr.ph ], [ %53, %.thread ]
   %39 = load ptr, ptr %32, align 8, !tbaa !98
-  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !71
   %42 = and i32 %41, 16777223
   %or.cond298 = icmp eq i32 %42, 0
@@ -1012,10 +1012,10 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %44 = and i32 %41, 7
   %.not296 = icmp eq i32 %44, 0
   %45 = load ptr, ptr %33, align 8, !tbaa !99
-  %46 = getelementptr inbounds i16, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds [2 x i8], ptr %45, i64 %indvars.iv
   store i16 -1, ptr %46, align 2, !tbaa !81
   %47 = load ptr, ptr %34, align 8, !tbaa !100
-  %48 = getelementptr inbounds i16, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %indvars.iv
   store i16 -1, ptr %48, align 2, !tbaa !81
   br i1 %.not296, label %.thread, label %49
 
@@ -1115,44 +1115,44 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
 
 113:                                              ; preds = %96, %156
   %indvars.iv360 = phi i64 [ 0, %96 ], [ %indvars.iv.next361, %156 ]
-  %114 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv360
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv360
   %115 = load i32, ptr %114, align 4, !tbaa !71
   %.not294 = icmp eq i32 %115, 0
   br i1 %.not294, label %149, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds nuw i32, ptr @neighbour_offs_x, i64 %indvars.iv360
+  %117 = getelementptr inbounds nuw [4 x i8], ptr @neighbour_offs_x, i64 %indvars.iv360
   %118 = load i32, ptr %117, align 4, !tbaa !71
   %119 = add nsw i32 %118, %112
-  %120 = getelementptr inbounds nuw i32, ptr @neighbour_offs_y, i64 %indvars.iv360
+  %120 = getelementptr inbounds nuw [4 x i8], ptr @neighbour_offs_y, i64 %indvars.iv360
   %121 = load i32, ptr %120, align 4, !tbaa !71
   %122 = load i32, ptr %26, align 4, !tbaa !89
   %123 = mul nsw i32 %122, %121
   %124 = add nsw i32 %119, %123
   %125 = load ptr, ptr %66, align 8, !tbaa !99
   %126 = sext i32 %124 to i64
-  %127 = getelementptr inbounds i16, ptr %125, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %125, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !81
   %129 = zext i16 %128 to i32
-  %130 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv360
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv360
   store i32 %129, ptr %130, align 4, !tbaa !71
   %131 = load ptr, ptr %67, align 8, !tbaa !98
-  %132 = getelementptr inbounds i32, ptr %131, i64 %126
+  %132 = getelementptr inbounds [4 x i8], ptr %131, i64 %126
   %133 = load i32, ptr %132, align 4, !tbaa !71
-  %134 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv360
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv360
   store i32 %133, ptr %134, align 4, !tbaa !71
   %135 = load ptr, ptr %68, align 8, !tbaa !100
-  %136 = getelementptr inbounds i16, ptr %135, i64 %126
+  %136 = getelementptr inbounds [2 x i8], ptr %135, i64 %126
   %137 = load i16, ptr %136, align 2, !tbaa !81
   %138 = zext i16 %137 to i32
-  %139 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv360
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv360
   store i32 %138, ptr %139, align 4, !tbaa !71
   %140 = load ptr, ptr %69, align 8, !tbaa !101
   %141 = getelementptr inbounds i8, ptr %140, i64 %126
   %142 = load i8, ptr %141, align 1, !tbaa !65
   %143 = and i8 %142, 15
   %144 = zext nneg i8 %143 to i32
-  %145 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 %indvars.iv360
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv360
   store i32 %144, ptr %145, align 8, !tbaa !71
   %146 = lshr i8 %142, 4
   %147 = zext nneg i8 %146 to i32
@@ -1161,14 +1161,14 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   br label %156
 
 149:                                              ; preds = %113
-  %150 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv360
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv360
   store i32 0, ptr %150, align 4, !tbaa !71
   %151 = load i32, ptr %19, align 16, !tbaa !71
-  %152 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv360
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv360
   store i32 %151, ptr %152, align 4, !tbaa !71
-  %153 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv360
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv360
   store i32 0, ptr %153, align 4, !tbaa !71
-  %154 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 %indvars.iv360
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv360
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   store i32 0, ptr %155, align 4, !tbaa !71
   store i32 0, ptr %154, align 8, !tbaa !71
@@ -1179,7 +1179,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %158 = and i32 %157, 16777223
   %159 = icmp ne i32 %158, 0
   %160 = zext i1 %159 to i32
-  %161 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv360
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv360
   store i32 %160, ptr %161, align 4, !tbaa !71
   %162 = zext i1 %159 to i64
   %163 = getelementptr inbounds nuw [32 x i8], ptr @rv40_filter_clip_tbl, i64 %162
@@ -1187,7 +1187,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %165 = getelementptr inbounds i8, ptr %164, i64 %100
   %166 = load i8, ptr %165, align 1, !tbaa !65
   %167 = zext i8 %166 to i32
-  %168 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv360
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv360
   store i32 %167, ptr %168, align 4, !tbaa !71
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next361, 4
@@ -1267,7 +1267,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %indvars.iv363.sroa.phi404 = phi ptr [ %.sroa.0406, %201 ], [ %.sroa.4407, %239 ]
   %indvars.iv363.sroa.phi408 = phi ptr [ %23, %201 ], [ %indvars.iv363.sroa.gep409, %239 ]
   %indvars.iv363 = phi i64 [ 0, %201 ], [ 1, %239 ]
-  %212 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv363
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv363
   %213 = load i32, ptr %212, align 4, !tbaa !71
   %214 = shl i32 %213, 4
   %215 = load i32, ptr %indvars.iv363.sroa.phi408, align 4, !tbaa !71
@@ -1275,14 +1275,14 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   store i32 %216, ptr %indvars.iv363.sroa.phi, align 4, !tbaa !71
   %217 = shl i32 %215, 1
   %218 = and i32 %217, -6
-  %219 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv363
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv363
   %220 = load i32, ptr %219, align 4, !tbaa !71
   %221 = lshr i32 %220, 1
   %222 = and i32 %221, 5
   %223 = or disjoint i32 %218, %222
   %224 = or i32 %223, %216
   store i32 %224, ptr %indvars.iv363.sroa.phi404, align 4, !tbaa !71
-  %225 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv363
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv363
   %226 = load i32, ptr %225, align 4, !tbaa !71
   %227 = lshr i32 %226, 2
   %228 = and i32 %227, 3
@@ -1635,12 +1635,12 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %386, %390, %392, %3
   %indvars.iv373.sroa.phi396 = phi ptr [ %.sroa.0400, %.preheader338 ], [ %.sroa.4401, %573 ]
   %indvars.iv373.sroa.phi402 = phi ptr [ %.sroa.0406, %.preheader338 ], [ %.sroa.4407, %573 ]
   %indvars.iv373 = phi i64 [ 0, %.preheader338 ], [ 1, %573 ]
-  %404 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv373
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv373
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = load i32, ptr %indvars.iv373.sroa.phi, align 4, !tbaa !71
   %407 = load i32, ptr %indvars.iv373.sroa.phi396, align 4, !tbaa !71
-  %408 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv373
-  %409 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv373
+  %408 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv373
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv373
   br label %410
 
 410:                                              ; preds = %.preheader, %572
@@ -2007,10 +2007,10 @@ define internal void @rv40_init_tables() #1 {
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw [9 x [2 x i8]], ptr @aic_mode1_vlc_tabs, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [18 x i8], ptr @aic_mode1_vlc_tabs, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %10 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %9, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
-  %11 = getelementptr inbounds nuw ptr, ptr @aic_mode1_vlc, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @aic_mode1_vlc, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !83
   br label %12
 
@@ -2028,7 +2028,7 @@ define internal void @rv40_init_tables() #1 {
 14:                                               ; preds = %18
   %15 = getelementptr inbounds nuw [81 x i8], ptr @aic_mode2_vlc_bits, i64 %indvars.iv40
   %16 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 81, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #8
-  %17 = getelementptr inbounds nuw ptr, ptr @aic_mode2_vlc, i64 %indvars.iv40
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @aic_mode2_vlc, i64 %indvars.iv40
   store ptr %16, ptr %17, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
@@ -2044,7 +2044,7 @@ define internal void @rv40_init_tables() #1 {
   %23 = shl nuw i16 %21, 8
   %24 = and i16 %23, 3840
   %25 = or disjoint i16 %24, %22
-  %26 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv36
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv36
   store i16 %25, ptr %26, align 2, !tbaa !81
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 81
@@ -2052,10 +2052,10 @@ define internal void @rv40_init_tables() #1 {
 
 .preheader28:                                     ; preds = %14, %.preheader28
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader28 ], [ 0, %14 ]
-  %27 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @ptype_vlc_tabs, i64 %indvars.iv44
+  %27 = getelementptr inbounds nuw [16 x i8], ptr @ptype_vlc_tabs, i64 %indvars.iv44
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %28, i32 noundef 2, ptr noundef nonnull %27, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
-  %30 = getelementptr inbounds nuw ptr, ptr @ptype_vlc, i64 %indvars.iv44
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @ptype_vlc, i64 %indvars.iv44
   store ptr %29, ptr %30, align 8, !tbaa !83
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 7
@@ -2063,10 +2063,10 @@ define internal void @rv40_init_tables() #1 {
 
 .preheader:                                       ; preds = %.preheader28, %.preheader
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 0, %.preheader28 ]
-  %31 = getelementptr inbounds nuw [7 x [2 x i8]], ptr @btype_vlc_tabs, i64 %indvars.iv48
+  %31 = getelementptr inbounds nuw [14 x i8], ptr @btype_vlc_tabs, i64 %indvars.iv48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 6, i32 noundef 7, ptr noundef nonnull %32, i32 noundef 2, ptr noundef nonnull %31, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
-  %34 = getelementptr inbounds nuw ptr, ptr @btype_vlc, i64 %indvars.iv48
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @btype_vlc, i64 %indvars.iv48
   store ptr %33, ptr %34, align 8, !tbaa !83
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 6

@@ -52,7 +52,7 @@ define void @ff_gradfun_filter_line_c(ptr noundef writeonly captures(none) %0, p
   %21 = mul i32 %20, %19
   %22 = ashr i32 %21, 14
   %23 = and i64 %indvars.iv, 7
-  %24 = getelementptr inbounds nuw i16, ptr %5, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !7
   %26 = zext i16 %25 to i32
   %27 = add nuw nsw i32 %11, %26
@@ -66,7 +66,7 @@ define void @ff_gradfun_filter_line_c(ptr noundef writeonly captures(none) %0, p
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %.0.i, ptr %33, align 1, !tbaa !4
   %34 = and i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i16, ptr %.024, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %.024, i64 %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -92,7 +92,7 @@ define void @ff_gradfun_blur_line_c(ptr noundef writeonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2, !tbaa !7
   %11 = shl nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
@@ -112,11 +112,11 @@ define void @ff_gradfun_blur_line_c(ptr noundef writeonly captures(none) %0, ptr
   %24 = load i8, ptr %gep26, align 1, !tbaa !4
   %25 = zext i8 %24 to i16
   %26 = add i16 %23, %25
-  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !7
   store i16 %26, ptr %27, align 2, !tbaa !7
   %29 = sub i16 %26, %28
-  %30 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %29, ptr %30, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -209,13 +209,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 32:                                               ; preds = %21, %filter.exit
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %filter.exit ]
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %.not57 = icmp eq ptr %34, null
   br i1 %.not57, label %.critedge, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !51
   %.not58 = icmp eq i32 %37, 0
   br i1 %.not58, label %.critedge, label %38
@@ -232,12 +232,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %39 = tail call i32 @llvm.smin.i32(i32 %.048, i32 %.047)
   %40 = shl nsw i32 %.0, 1
   %41 = icmp sgt i32 %39, %40
-  %42 = getelementptr inbounds nuw ptr, ptr %.051, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.051, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !50
   br i1 %41, label %44, label %165
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !51
   %47 = add nsw i32 %.048, 15
   %48 = ashr i32 %47, 1
@@ -247,7 +247,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %52 = load ptr, ptr %28, align 8, !tbaa !52
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = sext i32 %49 to i64
-  %55 = getelementptr inbounds i16, ptr %52, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %52, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
   %57 = load i32, ptr %29, align 4, !tbaa !30
   %58 = add nsw i32 %49, 16
@@ -280,7 +280,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %69 = icmp sgt i32 %.0, 1
   %70 = icmp slt i32 %.0, 1
   %71 = sext i32 %68 to i64
-  %72 = getelementptr inbounds i16, ptr %53, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %53, i64 %71
   %smax.i = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
   %73 = zext nneg i32 %smax.i to i64
   %74 = sext i32 %.0 to i64
@@ -296,10 +296,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
   %79 = load ptr, ptr %30, align 8, !tbaa !32
   %80 = mul nsw i64 %indvars.iv.i, %54
-  %81 = getelementptr inbounds i16, ptr %56, i64 %80
+  %81 = getelementptr inbounds [2 x i8], ptr %56, i64 %80
   %82 = add nsw i64 %indvars.iv.i, -1
   %83 = mul nsw i64 %82, %54
-  %84 = getelementptr inbounds i16, ptr %56, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %56, i64 %83
   %85 = trunc nuw nsw i64 %indvars.iv.i to i32
   %86 = mul i32 %62, %85
   %87 = sext i32 %86 to i64
@@ -321,13 +321,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %95 = srem i32 %94, %.0
   %96 = mul nsw i32 %95, %49
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %56, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %56, i64 %97
   %.not.i = icmp eq i32 %95, 0
   %.v.i = select i1 %.not.i, i32 %.0, i32 %95
   %99 = add nsw i32 %.v.i, -1
   %100 = mul nsw i32 %99, %49
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i16, ptr %56, i64 %101
+  %102 = getelementptr inbounds [2 x i8], ptr %56, i64 %101
   %103 = load ptr, ptr %30, align 8, !tbaa !32
   %104 = mul nsw i32 %93, %37
   %105 = sext i32 %104 to i64
@@ -344,7 +344,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph148.i:                                      ; preds = %92, %.lr.ph148.i
   %indvars.iv172.i = phi i64 [ %indvars.iv.next173.i, %.lr.ph148.i ], [ 0, %92 ]
   %.0147.i = phi i32 [ %111, %.lr.ph148.i ], [ 0, %92 ]
-  %108 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv172.i
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv172.i
   %109 = load i16, ptr %108, align 2, !tbaa !7
   %110 = zext i16 %109 to i32
   %111 = add nuw nsw i32 %.0147.i, %110
@@ -368,11 +368,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph153.i:                                      ; preds = %.preheader143.i, %.lr.ph153.i
   %indvars.iv177.i = phi i64 [ %indvars.iv.next178.i, %.lr.ph153.i ], [ %73, %.preheader143.i ]
   %.1152.i = phi i32 [ %125, %.lr.ph153.i ], [ %.0.lcssa.i, %.preheader143.i ]
-  %117 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv177.i
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv177.i
   %118 = load i16, ptr %117, align 2, !tbaa !7
   %119 = zext i16 %118 to i32
   %120 = sub nsw i64 %indvars.iv177.i, %74
-  %121 = getelementptr inbounds i16, ptr %53, i64 %120
+  %121 = getelementptr inbounds [2 x i8], ptr %53, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !7
   %123 = zext i16 %122 to i32
   %124 = sub nsw i32 %119, %123
@@ -388,7 +388,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 129:                                              ; preds = %129, %.lr.ph157.i
   %indvars.iv182.i = phi i64 [ %116, %.lr.ph157.i ], [ %indvars.iv.next183.i, %129 ]
   %130 = sub nsw i64 %indvars.iv182.i, %74
-  %131 = getelementptr inbounds i16, ptr %53, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %53, i64 %130
   store i16 %115, ptr %131, align 2, !tbaa !7
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
   %exitcond186.not.i = icmp eq i64 %indvars.iv.next183.i, %wide.trip.count185.i
@@ -403,7 +403,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 133:                                              ; preds = %133, %.lr.ph160.i
   %indvars.iv187.i = phi i64 [ %71, %.lr.ph160.i ], [ %indvars.iv.next188.i, %133 ]
-  %134 = getelementptr inbounds i16, ptr %53, i64 %indvars.iv187.i
+  %134 = getelementptr inbounds [2 x i8], ptr %53, i64 %indvars.iv187.i
   store i16 %132, ptr %134, align 2, !tbaa !7
   %indvars.iv.next188.i = add nsw i64 %indvars.iv187.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next188.i to i32
@@ -428,7 +428,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %139 = mul nsw i64 %indvars.iv192.i, %77
   %140 = getelementptr inbounds i8, ptr %34, i64 %139
   %141 = and i64 %indvars.iv192.i, 7
-  %142 = getelementptr inbounds nuw [8 x i16], ptr @dither, i64 %141
+  %142 = getelementptr inbounds nuw [16 x i8], ptr @dither, i64 %141
   tail call void %136(ptr noundef %138, ptr noundef nonnull %140, ptr noundef nonnull %72, i32 noundef %.048, i32 noundef %57, ptr noundef nonnull %142) #7
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %exitcond196.not.i = icmp eq i64 %indvars.iv.next193.i, %wide.trip.count175.i.pre-phi
@@ -446,7 +446,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %149 = getelementptr inbounds i8, ptr %34, i64 %148
   %150 = and i32 %.2132.i, 7
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [8 x i16], ptr @dither, i64 %151
+  %152 = getelementptr inbounds nuw [16 x i8], ptr @dither, i64 %151
   tail call void %143(ptr noundef %146, ptr noundef nonnull %149, ptr noundef nonnull %72, i32 noundef %.048, i32 noundef %57, ptr noundef nonnull %152) #7
   %.not138.i = icmp slt i32 %.pre-phi, %.047
   br i1 %.not138.i, label %153, label %filter.exit
@@ -461,7 +461,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %160 = getelementptr inbounds i8, ptr %34, i64 %159
   %161 = and i32 %.pre-phi, 7
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [8 x i16], ptr @dither, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr @dither, i64 %162
   tail call void %154(ptr noundef %157, ptr noundef nonnull %160, ptr noundef nonnull %72, i32 noundef %.048, i32 noundef %57, ptr noundef nonnull %163) #7
   %164 = add nuw nsw i32 %.2132.i, 2
   %.not139.i = icmp slt i32 %164, %.047
@@ -472,7 +472,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not61, label %filter.exit, label %166
 
 166:                                              ; preds = %165
-  %167 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %168 = load i32, ptr %167, align 4, !tbaa !51
   tail call void @av_image_copy_plane(ptr noundef %43, i32 noundef %168, ptr noundef nonnull %34, i32 noundef %37, i32 noundef %.048, i32 noundef %.047) #7
   br label %filter.exit

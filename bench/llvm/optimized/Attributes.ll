@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.clang::ParsedAttrInfo::Spelling" = type { i32, ptr }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector" }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
 %"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
@@ -1182,7 +1181,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit53.thread104:    ; preds = %_ZNK4llvm9StringRef
   %43 = load ptr, ptr %42, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %45 = load i64, ptr %44, align 8, !tbaa !23
-  %46 = getelementptr inbounds nuw %"struct.clang::ParsedAttrInfo::Spelling", ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %45
   %47 = call noundef ptr @_ZSt9__find_ifIPKN5clang14ParsedAttrInfo8SpellingEN9__gnu_cxx5__ops10_Iter_predIZNKS1_11hasSpellingENS0_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRS3_E_EEET_SF_SF_T0_St26random_access_iterator_tag(ptr noundef %43, ptr noundef %46, ptr nonnull %8, ptr nonnull %7)
   %.not114 = icmp eq ptr %46, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -13413,7 +13412,7 @@ define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6S
 define dso_local noundef nonnull ptr @_ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

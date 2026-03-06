@@ -62,7 +62,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
 15:                                               ; preds = %18, %9
   %.val18.i = phi i64 [ %.sroa.6.0.copyload, %9 ], [ %20, %18 ]
   %.0.i7 = phi i64 [ 0, %9 ], [ %21, %18 ]
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 %.0.i7
+  %16 = getelementptr inbounds [16 x i8], ptr %7, i64 %.0.i7
   %.val19.i = load ptr, ptr %16, align 8, !noalias !5, !nonnull !4, !align !8, !noundef !4
   %17 = getelementptr i8, ptr %16, i64 8
   %.val20.i = load i64, ptr %17, align 8, !noalias !5, !noundef !4
@@ -71,7 +71,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
           to label %18 unwind label %24, !noalias !5
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.9.0.copyload, i64 %.val18.i
+  %19 = getelementptr inbounds [24 x i8], ptr %.sroa.9.0.copyload, i64 %.val18.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false), !noalias !12
   %20 = add i64 %.val18.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i), !noalias !9
@@ -100,7 +100,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   %32 = sub nuw i64 %30, %31
   %33 = lshr exact i64 %32, 4
   %.not.i.not = icmp ult i64 %27, %33
-  %34 = getelementptr inbounds nuw { ptr, i64 }, ptr %.pre, i64 %27
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %storemerge.i = select i1 %.not.i.not, ptr %35, ptr %29
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !17
@@ -148,7 +148,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %13, %5
   %.val18.i.i = phi i64 [ %.sroa.52.0.copyload, %5 ], [ %15, %13 ]
   %.0.i7.i = phi i64 [ 0, %5 ], [ %16, %13 ]
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %.0.i7.i
+  %11 = getelementptr inbounds [16 x i8], ptr %3, i64 %.0.i7.i
   %.val19.i.i = load ptr, ptr %11, align 8, !noalias !21, !nonnull !4, !align !8, !noundef !4
   %12 = getelementptr i8, ptr %11, i64 8
   %.val20.i.i = load i64, ptr %12, align 8, !noalias !21, !noundef !4
@@ -157,7 +157,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %13 unwind label %18, !noalias !21
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.73.0.copyload, i64 %.val18.i.i
+  %14 = getelementptr inbounds [24 x i8], ptr %.sroa.73.0.copyload, i64 %.val18.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !30
   %15 = add i64 %.val18.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i), !noalias !27
@@ -180,7 +180,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %24 = sub nuw i64 %22, %23
   %25 = lshr exact i64 %24, 4
   %.not.i.not.i = icmp ult i64 %21, %25
-  %26 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.0.0.copyload, i64 %21
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br i1 %.not.i.not.i, label %._crit_edge.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd7d1821ff62bfd4eE.llvm.5952769917390182195.exit"
 

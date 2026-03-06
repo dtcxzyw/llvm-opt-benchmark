@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/plaCom.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Vec_Int_t_ = type { i32, i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"Two-level\00", align 1
@@ -117,7 +116,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReadPla(ptr noundef captures(non
 
 12:                                               ; preds = %8
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds ptr, ptr %2, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %2, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.9)
   %17 = icmp eq ptr %16, null
@@ -214,7 +213,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWritePla(ptr noundef readonly ca
 
 21:                                               ; preds = %18
   %22 = sext i32 %13 to i64
-  %23 = getelementptr inbounds ptr, ptr %2, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %2, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   br label %26
 
@@ -335,7 +334,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPs(ptr noundef readonly captures
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.next.i.i, %..critedge2_crit_edge.us.i.i ]
   %.022.us.i.i = phi i32 [ 0, %.lr.ph.us.preheader.i.i ], [ %45, %..critedge2_crit_edge.us.i.i ]
   %31 = mul nsw i64 %indvars.iv.i.i, %30
-  %32 = getelementptr inbounds i64, ptr %.val18.i.i, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val18.i.i, i64 %31
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.us.i.i
@@ -343,7 +342,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPs(ptr noundef readonly captures
   %.01519.us.i.i = phi i32 [ 0, %.lr.ph.us.i.i ], [ %46, %33 ]
   %34 = lshr i32 %.01519.us.i.i, 5
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !40
   %38 = shl nuw i32 %.01519.us.i.i, 1
   %39 = and i32 %38, 62
@@ -387,7 +386,7 @@ Pla_ManLitInNum.exit.i:                           ; preds = %..critedge2_crit_ed
   %indvars.iv.i20.i = phi i64 [ 0, %.lr.ph.us.preheader.i16.i ], [ %indvars.iv.next.i26.i, %..critedge2_crit_edge.us.i25.i ]
   %.022.us.i21.i = phi i32 [ 0, %.lr.ph.us.preheader.i16.i ], [ %67, %..critedge2_crit_edge.us.i25.i ]
   %53 = mul nsw i64 %indvars.iv.i20.i, %52
-  %54 = getelementptr inbounds i64, ptr %.val18.i14.i, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.val18.i14.i, i64 %53
   br label %55
 
 55:                                               ; preds = %55, %.lr.ph.us.i19.i
@@ -395,7 +394,7 @@ Pla_ManLitInNum.exit.i:                           ; preds = %..critedge2_crit_ed
   %.01519.us.i23.i = phi i32 [ 0, %.lr.ph.us.i19.i ], [ %68, %55 ]
   %56 = lshr i32 %.01519.us.i23.i, 5
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !40
   %60 = shl nuw i32 %.01519.us.i23.i, 1
   %61 = and i32 %60, 62
@@ -517,7 +516,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef captures(none) %
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #12
   %13 = trunc i64 %12 to i32
@@ -533,7 +532,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef captures(none) %
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !9
   %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #12
   %23 = trunc i64 %22 to i32
@@ -549,7 +548,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef captures(none) %
 
 28:                                               ; preds = %26
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds ptr, ptr %2, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %2, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   %32 = tail call i64 @strtol(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #12
   %33 = trunc i64 %32 to i32
@@ -565,7 +564,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef captures(none) %
 
 38:                                               ; preds = %36
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds ptr, ptr %2, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %2, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !9
   %42 = tail call i64 @strtol(ptr noundef nonnull captures(none) %41, ptr noundef null, i32 noundef 10) #12
   %43 = trunc i64 %42 to i32
@@ -738,7 +737,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr readnone captures(none)
 
 9:                                                ; preds = %6
   %10 = sext i32 %7 to i64
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #12
   %14 = trunc i64 %13 to i32
@@ -852,7 +851,7 @@ Vec_WrdErase.exit21.i:                            ; preds = %20, %Vec_WrdErase.e
   %26 = phi i32 [ %36, %35 ], [ %23, %Vec_WrdErase.exit21.i ]
   %27 = phi ptr [ %37, %35 ], [ %.pre.i.i, %Vec_WrdErase.exit21.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %35 ], [ 0, %Vec_WrdErase.exit21.i ]
-  %28 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %27, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !51
   %.not15.i.i = icmp eq ptr %30, null
@@ -861,7 +860,7 @@ Vec_WrdErase.exit21.i:                            ; preds = %20, %Vec_WrdErase.e
 31:                                               ; preds = %.lr.ph.i.i
   tail call void @free(ptr noundef nonnull %30) #12
   %32 = load ptr, ptr %25, align 8, !tbaa !56
-  %33 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %32, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv.i.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %34, align 8, !tbaa !51
   %.pre18.i.i = load i32, ptr %22, align 8, !tbaa !55
@@ -900,7 +899,7 @@ Vec_WecErase.exit.i:                              ; preds = %._crit_edge.thread.
   %46 = phi i32 [ %56, %55 ], [ %43, %Vec_WecErase.exit.i ]
   %47 = phi ptr [ %57, %55 ], [ %.pre.i23.i, %Vec_WecErase.exit.i ]
   %indvars.iv.i28.i = phi i64 [ %indvars.iv.next.i31.i, %55 ], [ 0, %Vec_WecErase.exit.i ]
-  %48 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %47, i64 %indvars.iv.i28.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv.i28.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !51
   %.not15.i29.i = icmp eq ptr %50, null
@@ -909,7 +908,7 @@ Vec_WecErase.exit.i:                              ; preds = %._crit_edge.thread.
 51:                                               ; preds = %.lr.ph.i27.i
   tail call void @free(ptr noundef nonnull %50) #12
   %52 = load ptr, ptr %45, align 8, !tbaa !56
-  %53 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %52, i64 %indvars.iv.i28.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %indvars.iv.i28.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr null, ptr %54, align 8, !tbaa !51
   %.pre18.i30.i = load i32, ptr %42, align 8, !tbaa !55

@@ -807,7 +807,7 @@ print_address_list.exit101.thread:                ; preds = %interleave_addrinfo
   %.0108.ph152 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %.1109, %.loopexit ]
   %65 = icmp slt i32 %.081.ph153, %spec.store.select
   %66 = sext i32 %.081.ph153 to i64
-  %67 = getelementptr inbounds %struct.ConnectionAttempt, ptr %12, i64 %66
+  %67 = getelementptr inbounds [24 x i8], ptr %12, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   br i1 %65, label %.lr.ph.split, label %.loopexit122
@@ -970,7 +970,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next, %.lr.ph158 ]
-  %133 = getelementptr inbounds nuw %struct.ConnectionAttempt, ptr %12, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   %134 = load i32, ptr %133, align 8, !tbaa !42
   %135 = call i32 @close(i32 noundef %134) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -982,7 +982,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
   br label %233
 
 136:                                              ; preds = %.loopexit123
-  %137 = getelementptr inbounds %struct.pollfd, ptr %13, i64 %66
+  %137 = getelementptr inbounds [8 x i8], ptr %13, i64 %66
   store i32 %131, ptr %137, align 8, !tbaa !4
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   store i16 4, ptr %138, align 4, !tbaa !10
@@ -1027,7 +1027,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
   %.384148 = phi i32 [ %.4, %218 ], [ %.283, %144 ]
   store i32 0, ptr %14, align 4, !tbaa !12
   %157 = sext i32 %.180149 to i64
-  %158 = getelementptr inbounds %struct.pollfd, ptr %13, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %13, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 6
   %160 = load i16, ptr %159, align 2, !tbaa !11
   %.not89 = icmp eq i16 %160, 0
@@ -1035,7 +1035,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
 
 161:                                              ; preds = %.lr.ph150
   store i32 4, ptr %15, align 4, !tbaa !12
-  %162 = getelementptr inbounds %struct.ConnectionAttempt, ptr %12, i64 %157
+  %162 = getelementptr inbounds [24 x i8], ptr %12, i64 %157
   %163 = load i32, ptr %162, align 8, !tbaa !42
   %164 = call i32 @getsockopt(i32 noundef %163, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %14, ptr noundef nonnull %15) #12
   %.not90 = icmp eq i32 %164, 0
@@ -1074,7 +1074,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
   br i1 %.not93, label %.critedge, label %175
 
 175:                                              ; preds = %.lr.ph160
-  %176 = getelementptr inbounds nuw %struct.ConnectionAttempt, ptr %12, i64 %indvars.iv193
+  %176 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv193
   %177 = load i32, ptr %176, align 8, !tbaa !42
   %178 = call i32 @close(i32 noundef %177) #12
   br label %.critedge
@@ -1097,7 +1097,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
   br label %233
 
 186:                                              ; preds = %.critedge119, %165, %.lr.ph150
-  %187 = getelementptr inbounds %struct.ConnectionAttempt, ptr %12, i64 %157
+  %187 = getelementptr inbounds [24 x i8], ptr %12, i64 %157
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load i64, ptr %188, align 8, !tbaa !44
   %190 = call i64 @av_gettime_relative() #12
@@ -1131,13 +1131,13 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
   %206 = call i32 @close(i32 noundef %205) #12
   %207 = add nsw i32 %.180149, 1
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds %struct.ConnectionAttempt, ptr %12, i64 %208
+  %209 = getelementptr inbounds [24 x i8], ptr %12, i64 %208
   %210 = xor i32 %.180149, -1
   %211 = add i32 %.384148, %210
   %212 = sext i32 %211 to i64
   %213 = mul nsw i64 %212, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %187, ptr nonnull align 8 %209, i64 %213, i1 false)
-  %214 = getelementptr inbounds %struct.pollfd, ptr %13, i64 %208
+  %214 = getelementptr inbounds [8 x i8], ptr %13, i64 %208
   %215 = shl nsw i64 %212, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %158, ptr nonnull align 8 %214, i64 %215, i1 false)
   %216 = add nsw i32 %.180149, -1
@@ -1162,7 +1162,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %123
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %.lr.ph163
   %indvars.iv200 = phi i64 [ 0, %.lr.ph163.preheader ], [ %indvars.iv.next201, %.lr.ph163 ]
-  %222 = getelementptr inbounds nuw %struct.ConnectionAttempt, ptr %12, i64 %indvars.iv200
+  %222 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv200
   %223 = load i32, ptr %222, align 8, !tbaa !42
   %224 = call i32 @close(i32 noundef %223) #12
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1

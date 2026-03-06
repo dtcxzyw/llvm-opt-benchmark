@@ -188,10 +188,10 @@ define internal fastcc ptr @cryptohash_internal(i32 noundef range(i32 2, 6) %0, 
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cryptohash_internal, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cryptohash_internal, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep36 = getelementptr inbounds nuw ptr, ptr @switch.table.cryptohash_internal.1, i64 %3
+  %switch.gep36 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cryptohash_internal.1, i64 %3
   %switch.load37 = load ptr, ptr %switch.gep36, align 8
   %4 = add nuw nsw i32 %switch.load, 4
   %5 = zext nneg i32 %4 to i64

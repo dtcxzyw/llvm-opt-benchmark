@@ -1422,7 +1422,7 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit42: ; preds
 _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit42, %145
   store ptr %22, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i41, ptr %6, align 8, !tbaa !90
-  %149 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %22, i64 %18
+  %149 = getelementptr inbounds nuw [216 x i8], ptr %22, i64 %18
   store ptr %149, ptr %144, align 8, !tbaa !93
   ret void
 

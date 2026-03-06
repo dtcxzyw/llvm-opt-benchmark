@@ -21,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::optional_detail::OptionalStorage" = type { %"struct.llvh::AlignedCharArrayUnion.176", i8, [7 x i8] }
 %"struct.llvh::AlignedCharArrayUnion.176" = type { %"struct.llvh::AlignedCharArray.177" }
 %"struct.llvh::AlignedCharArray.177" = type { [24 x i8] }
-%"class.hermes::vm::GCHermesValueBase" = type { %"class.hermes::vm::HermesValue32" }
 %"class.hermes::vm::HermesValue32" = type { i32 }
 %"class.hermes::vm::MutableHandle.182" = type { %"class.hermes::vm::Handle" }
 %"class.hermes::vm::Handle" = type { %"class.hermes::vm::HandleBase" }
@@ -436,7 +435,7 @@ while.body.lr.ph:                                 ; preds = %_ZN6hermes2vm13Muta
 while.body:                                       ; preds = %while.body.lr.ph, %if.end195
   %size.sroa.0.0239 = phi i64 [ %conv.i, %while.body.lr.ph ], [ %size.sroa.0.1, %if.end195 ]
   %27 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %27, i64 %conv.i67
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %conv.i67
   %28 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %28, i64 128
   store i32 %26, ptr %curChunkIndex_.i, align 8
@@ -810,7 +809,7 @@ _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i: ; preds = %
   %inc13.i = add i32 %84, 1
   store i32 %inc13.i, ptr %index_12.i, align 8
   %idxprom14.i = zext i32 %84 to i64
-  %arrayidx15.i = getelementptr inbounds nuw i16, ptr %retval.0.i12.i, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i12.i, i64 %idxprom14.i
   store i16 44, ptr %arrayidx15.i, align 2
   br label %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit
 
@@ -842,7 +841,7 @@ if.else.i.i199:                                   ; preds = %cond.true.i193
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %88, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %89 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %89 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %.pre-phi, %conv.i.i.i.i.i.i.i.i
@@ -855,7 +854,7 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_
   %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i199 ], [ %sub.i, %cond.true.i193 ]
   %data_.i.i.i200 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i200, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i200, i64 %idxprom.i.i.i
   %retval.sroa.0.0.i.i201 = load i32, ptr %arrayidx.i.i.i, align 4
   %91 = and i32 %retval.sroa.0.0.i.i201, -8
   %92 = zext i32 %91 to i64
@@ -1117,7 +1116,7 @@ if.else.i.i:                                      ; preds = %cond.true.i
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %34, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %35 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %35 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %33
@@ -1130,7 +1129,7 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %cond.true.i, %if.el
   %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i ], [ %sub.i, %cond.true.i ]
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.i.i = load i32, ptr %arrayidx.i.i.i, align 4
   store i32 %retval.sroa.0.0.i.i, ptr %elm, align 4
   %cmp.i44 = icmp eq i32 %retval.sroa.0.0.i.i, 7
@@ -1295,7 +1294,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %for.inc, %for.body.
   %finalSizeEstimate.sroa.11.1366 = phi i32 [ 0, %for.body.lr.ph ], [ %finalSizeEstimate.sroa.11.2, %for.inc ]
   %finalSizeEstimate.sroa.0.1365 = phi i64 [ %finalSizeEstimate.sroa.0.0, %for.body.lr.ph ], [ %add.i92, %for.inc ]
   %idx.neg.i.i.i = sub nsw i64 0, %i.0367
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %14, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %14, i64 %idx.neg.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
   %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i74 = icmp ugt i64 %retval.sroa.0.0.copyload.i, -844424930131969
@@ -1690,7 +1689,7 @@ if.else.i.i235:                                   ; preds = %cond.true.i233
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %64, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %65 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %65 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %43
@@ -1703,7 +1702,7 @@ cond.end:                                         ; preds = %cond.true.i233, %if
   %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i235 ], [ %sub.i, %cond.true.i233 ]
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.i.i = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i236 = icmp eq i32 %retval.sroa.0.0.i.i, 7
   br i1 %cmp.i236, label %if.else182, label %land.lhs.true171
@@ -1738,7 +1737,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then177
   %div1.i.i.i.i.i = lshr i32 %sub.i.i.i.i.i, 10
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 16392
   %idx.ext.i.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i to i64
-  %add.ptr.i.i.i1.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i
   %71 = load i32, ptr %add.ptr.i.i.i1.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext i32 %71 to i64
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i.i, %43
@@ -1751,7 +1750,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEER
   %rem.i.sink.i.i.i.i = phi i32 [ %rem.i.i.i.i.i, %if.else.i.i.i.i ], [ %sub.i247, %if.then177 ]
   %data_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i.i.i, i64 8
   %idxprom.i.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i.i.i, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i.i.i, i64 %idxprom.i.i.i.i.i
   %73 = load ptr, ptr %youngGen_.i.i.i.i.i, align 8
   %74 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %and.i.i.i.i.i.i = and i64 %74, -4194304
@@ -1795,7 +1794,7 @@ if.then217:                                       ; preds = %if.end211
 
 if.end246:                                        ; preds = %if.then217, %if.end211
   %78 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %78, i64 %conv.i261
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %conv.i261
   %79 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %79, i64 128
   store i32 %42, ptr %curChunkIndex_.i, align 8
@@ -1812,7 +1811,7 @@ for.inc249:                                       ; preds = %_ZN6hermes2vm9Array
 for.end252:                                       ; preds = %for.inc249, %if.end157
   %n.1.lcssa = phi i64 [ %n.0376, %if.end157 ], [ %inc251, %for.inc249 ]
   %80 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i267 = getelementptr inbounds nuw ptr, ptr %80, i64 %conv.i261
+  %arrayidx.i20.i267 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %conv.i261
   %81 = load ptr, ptr %arrayidx.i20.i267, align 8
   %add.ptr.i268 = getelementptr inbounds nuw i8, ptr %81, i64 128
   store i32 %42, ptr %curChunkIndex_.i, align 8
@@ -1863,7 +1862,7 @@ if.end287:                                        ; preds = %if.else271
 
 if.end311:                                        ; preds = %if.end287, %if.then263
   %83 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i294 = getelementptr inbounds nuw ptr, ptr %83, i64 %conv.i261
+  %arrayidx.i20.i294 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %conv.i261
   %84 = load ptr, ptr %arrayidx.i20.i294, align 8
   %add.ptr.i295 = getelementptr inbounds nuw i8, ptr %84, i64 128
   store i32 %42, ptr %curChunkIndex_.i, align 8
@@ -1883,7 +1882,7 @@ for.inc315:                                       ; preds = %for.end252, %if.end
 cond.true.i302:                                   ; preds = %for.inc315
   %86 = load ptr, ptr %args, align 8, !noalias !24
   %idx.neg.i.i.i304 = xor i64 %i70.0375, -1
-  %add.ptr.i.i.i305 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %86, i64 %idx.neg.i.i.i304
+  %add.ptr.i.i.i305 = getelementptr inbounds [8 x i8], ptr %86, i64 %idx.neg.i.i.i304
   %incdec.ptr.i.i.i306 = getelementptr inbounds i8, ptr %add.ptr.i.i.i305, i64 -8
   %retval.sroa.0.0.copyload.i307 = load i64, ptr %incdec.ptr.i.i.i306, align 8
   br label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit308
@@ -2445,7 +2444,7 @@ if.else.i.i197:                                   ; preds = %cond.true.i191
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %76, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %77 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %77 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %.pre-phi, %conv.i.i.i.i.i.i.i.i
@@ -2458,7 +2457,7 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_
   %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i197 ], [ %sub.i, %cond.true.i191 ]
   %data_.i.i.i198 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i198, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i198, i64 %idxprom.i.i.i
   %retval.sroa.0.0.i.i199 = load i32, ptr %arrayidx.i.i.i, align 4
   %79 = and i32 %retval.sroa.0.0.i.i199, -8
   %80 = zext i32 %79 to i64
@@ -2734,7 +2733,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.end89:                                         ; preds = %for.body
   %31 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %31, i64 %conv.i48
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %conv.i48
   %32 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %32, i64 128
   store i32 %29, ptr %curChunkIndex_.i, align 8
@@ -3139,7 +3138,7 @@ while.body.lr.ph:                                 ; preds = %_ZN6hermes2vm13Muta
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end114
   %35 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %35, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %conv.i
   %36 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %36, i64 128
   store i32 %33, ptr %curChunkIndex_.i, align 8
@@ -3669,7 +3668,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i32 %index.061, 1
   %call.i = tail call i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr nonnull %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index.061, ptr nonnull %incdec.ptr.i.i) #8
   %24 = load ptr, ptr %chunks_.i.i.i.phi.trans.insert, align 8
-  %arrayidx.i20.i.i = getelementptr inbounds nuw ptr, ptr %24, i64 %conv.i.i43
+  %arrayidx.i20.i.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %conv.i.i43
   %25 = load ptr, ptr %arrayidx.i20.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %25, i64 128
   store i32 %21, ptr %curChunkIndex_.i.i, align 8
@@ -3682,7 +3681,7 @@ for.end:                                          ; preds = %for.body, %_ZN6herm
   %conv.i.i.i.pre-phi = phi i64 [ %.pre62, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit39.for.end_crit_edge ], [ %conv.i.i43, %for.body ]
   %26 = phi ptr [ %.pre, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit39.for.end_crit_edge ], [ %24, %for.body ]
   %retval.sroa.0.0.copyload.i47 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %26, i64 %conv.i.i.i.pre-phi
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %conv.i.i.i.pre-phi
   %27 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i49 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store i32 %21, ptr %curChunkIndex_.i.i, align 8
@@ -4064,7 +4063,7 @@ if.end162:                                        ; preds = %if.then153, %if.end
   store i64 %retval.sroa.0.0.i109, ptr %retval.0.i.i.i.i.i.i48, align 8
   %inc = add i32 %n.0136, 1
   %49 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %49, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %conv.i
   %50 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %50, i64 128
   store i32 %42, ptr %curChunkIndex_.i, align 8
@@ -4484,7 +4483,7 @@ if.then173:                                       ; preds = %if.end168
 
 if.end182:                                        ; preds = %if.then173, %if.end168
   %56 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %56, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %conv.i
   %57 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %57, i64 128
   store i32 %53, ptr %curChunkIndex_.i, align 8
@@ -4589,7 +4588,7 @@ if.else:                                          ; preds = %if.end279
 
 if.end325:                                        ; preds = %if.else, %if.then285
   %69 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i258 = getelementptr inbounds nuw ptr, ptr %69, i64 %conv.i257
+  %arrayidx.i20.i258 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %conv.i257
   %70 = load ptr, ptr %arrayidx.i20.i258, align 8
   %add.ptr.i259 = getelementptr inbounds nuw i8, ptr %70, i64 128
   store i32 %53, ptr %curChunkIndex_.i, align 8
@@ -4625,7 +4624,7 @@ if.end360:                                        ; preds = %while.body
   %retval.sroa.0.0.i277 = select i1 %72, i64 9221120237041090560, i64 %73
   store i64 %retval.sroa.0.0.i277, ptr %retval.0.i.i.i.i.i.i175, align 8
   %74 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i280 = getelementptr inbounds nuw ptr, ptr %74, i64 %conv.i279
+  %arrayidx.i20.i280 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %conv.i279
   %75 = load ptr, ptr %arrayidx.i20.i280, align 8
   %add.ptr.i281 = getelementptr inbounds nuw i8, ptr %75, i64 128
   store i32 %53, ptr %curChunkIndex_.i, align 8
@@ -4695,7 +4694,7 @@ if.else449:                                       ; preds = %if.end420
 
 if.end467:                                        ; preds = %if.else449, %if.then426
   %83 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i323 = getelementptr inbounds nuw ptr, ptr %83, i64 %conv.i322
+  %arrayidx.i20.i323 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %conv.i322
   %84 = load ptr, ptr %arrayidx.i20.i323, align 8
   %add.ptr.i324 = getelementptr inbounds nuw i8, ptr %84, i64 128
   store i32 %53, ptr %curChunkIndex_.i, align 8
@@ -4725,7 +4724,7 @@ for.body482:                                      ; preds = %for.body482.lr.ph, 
   %cmp.i330 = icmp ugt i32 %87, %conv487
   %88 = load ptr, ptr %args, align 8
   %idx.neg.i.i.i = sub nsw i64 0, %j478.0431
-  %add.ptr.i.i.i332 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %88, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i332 = getelementptr inbounds [8 x i8], ptr %88, i64 %idx.neg.i.i.i
   %incdec.ptr.i.i.i333 = getelementptr inbounds i8, ptr %add.ptr.i.i.i332, i64 -8
   %retval.sroa.0.0.i334 = select i1 %cmp.i330, ptr %incdec.ptr.i.i.i333, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
   %call.i343 = call i32 @_ZN6hermes2vm8JSObject27putComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_S7_NS0_11PropOpFlagsE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i185, ptr nonnull %retval.sroa.0.0.i334, ptr %retval.0.i.i.i.i.i.i, i32 1) #8
@@ -4741,7 +4740,7 @@ if.end506:                                        ; preds = %for.body482
   %retval.sroa.0.0.i349 = select i1 %90, i64 9221120237041090560, i64 %91
   store i64 %retval.sroa.0.0.i349, ptr %retval.0.i.i.i.i.i.i185, align 8
   %92 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i352 = getelementptr inbounds nuw ptr, ptr %92, i64 %conv.i351
+  %arrayidx.i20.i352 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %conv.i351
   %93 = load ptr, ptr %arrayidx.i20.i352, align 8
   %add.ptr.i353 = getelementptr inbounds nuw i8, ptr %93, i64 128
   store i32 %53, ptr %curChunkIndex_.i, align 8
@@ -5180,7 +5179,7 @@ if.end209:                                        ; preds = %if.else191, %if.the
   store i64 %retval.sroa.0.0.i151, ptr %retval.0.i.i.i.i.i.i96, align 8
   %dec = fadd double %count.0178, -1.000000e+00
   %65 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i = getelementptr inbounds nuw ptr, ptr %65, i64 %conv.i.i
+  %arrayidx.i20.i.i = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %conv.i.i
   %66 = load ptr, ptr %arrayidx.i20.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %66, i64 128
   store i32 %56, ptr %curChunkIndex_.i, align 8
@@ -5199,7 +5198,7 @@ cleanup:                                          ; preds = %if.else191, %if.the
   %retval.sroa.0.1 = phi i32 [ 1, %for.end ], [ 0, %for.body ], [ 0, %if.end147 ], [ 0, %if.then168 ], [ 0, %if.else191 ]
   %retval.sroa.12.1 = phi i64 [ %retval.sroa.0.0.copyload.i155, %for.end ], [ undef, %for.body ], [ undef, %if.end147 ], [ undef, %if.then168 ], [ undef, %if.else191 ]
   %67 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %67, i64 %conv.i.i.i.pre-phi
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %conv.i.i.i.pre-phi
   %68 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i156 = getelementptr inbounds nuw i8, ptr %68, i64 128
   store i32 %56, ptr %curChunkIndex_.i, align 8
@@ -5750,7 +5749,7 @@ if.end186:                                        ; preds = %if.else, %if.then14
   %retval.sroa.0.0.i154 = select i1 %45, i64 9221120237041090560, i64 %46
   store i64 %retval.sroa.0.0.i154, ptr %retval.0.i.i.i.i.i.i81, align 8
   %47 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %47, i64 %conv.i.i.i
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %conv.i.i.i
   %48 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 128
   store i32 %.pre235, ptr %curChunkIndex_.i, align 8
@@ -5822,7 +5821,7 @@ if.end247:                                        ; preds = %_ZN6hermes2vm15Hand
 cleanup252.critedge:                              ; preds = %if.else, %if.then146, %while.body
   %conv.i.i.i210 = zext i32 %.pre235 to i64
   %57 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i211 = getelementptr inbounds nuw ptr, ptr %57, i64 %conv.i.i.i210
+  %arrayidx.i20.i.i.i211 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %conv.i.i.i210
   %58 = load ptr, ptr %arrayidx.i20.i.i.i211, align 8
   %add.ptr.i.i.i212 = getelementptr inbounds nuw i8, ptr %58, i64 128
   store i32 %.pre235, ptr %curChunkIndex_.i, align 8
@@ -6114,7 +6113,7 @@ while.body.lr.ph:                                 ; preds = %_ZN6hermes2vm13Muta
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end159
   %41 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %41, i64 %conv.i112
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %conv.i112
   %42 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %42, i64 128
   store i32 %40, ptr %curChunkIndex_.i, align 8
@@ -6196,7 +6195,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.end192:                                        ; preds = %for.body
   %57 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i154 = getelementptr inbounds nuw ptr, ptr %57, i64 %conv.i153
+  %arrayidx.i20.i154 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %conv.i153
   %58 = load ptr, ptr %arrayidx.i20.i154, align 8
   %add.ptr.i155 = getelementptr inbounds nuw i8, ptr %58, i64 128
   store i32 %40, ptr %curChunkIndex_.i, align 8
@@ -6539,7 +6538,7 @@ while.body.lr.ph:                                 ; preds = %_ZN6hermes2vm13Muta
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end145
   %36 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %36, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %conv.i
   %37 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %37, i64 128
   store i32 %34, ptr %curChunkIndex_.i, align 8
@@ -6882,7 +6881,7 @@ while.body.lr.ph:                                 ; preds = %_ZN6hermes2vm13Muta
 while.body:                                       ; preds = %while.body.lr.ph, %if.end150
   %to.0115 = phi i32 [ 0, %while.body.lr.ph ], [ %to.1, %if.end150 ]
   %39 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %39, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %conv.i
   %40 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %40, i64 128
   store i32 %37, ptr %curChunkIndex_.i, align 8
@@ -7201,7 +7200,7 @@ if.end115:                                        ; preds = %while.body
   %retval.sroa.0.0.i79 = select i1 %44, i64 9221120237041090560, i64 %45
   store i64 %retval.sroa.0.0.i79, ptr %retval.0.i.i.i.i.i.i70, align 8
   %46 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %46, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %conv.i
   %47 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %47, i64 128
   store i32 %42, ptr %curChunkIndex_.i, align 8
@@ -7459,7 +7458,7 @@ while.body.lr.ph:                                 ; preds = %if.end52
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end245
   %30 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %30, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %conv.i
   %31 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %31, i64 128
   store i32 %21, ptr %curChunkIndex_.i, align 8
@@ -7492,7 +7491,7 @@ if.end89:                                         ; preds = %if.then78
   %37 = extractvalue { i32, i64 } %call.i86, 1
   store i64 %37, ptr %retval.0.i.i.i.i.i.i51, align 8
   %38 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i92 = getelementptr inbounds nuw ptr, ptr %38, i64 %conv.i
+  %arrayidx.i20.i92 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %conv.i
   %39 = load ptr, ptr %arrayidx.i20.i92, align 8
   %add.ptr.i93 = getelementptr inbounds nuw i8, ptr %39, i64 128
   store i32 %21, ptr %curChunkIndex_.i, align 8
@@ -7521,7 +7520,7 @@ if.end121:                                        ; preds = %if.then106
   %42 = extractvalue { i32, i64 } %call.i104, 1
   store i64 %42, ptr %retval.0.i.i.i.i.i.i61, align 8
   %43 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i110 = getelementptr inbounds nuw ptr, ptr %43, i64 %conv.i
+  %arrayidx.i20.i110 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %conv.i
   %44 = load ptr, ptr %arrayidx.i20.i110, align 8
   %add.ptr.i111 = getelementptr inbounds nuw i8, ptr %44, i64 128
   store i32 %21, ptr %curChunkIndex_.i, align 8
@@ -7738,7 +7737,7 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
 while.body:                                       ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.end100
   %k.160 = phi double [ %inc, %if.end100 ], [ %k.0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
   %25 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %25, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %conv.i
   %26 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %26, i64 128
   store i32 %24, ptr %curChunkIndex_.i, align 8
@@ -7931,7 +7930,7 @@ cond.true.i:                                      ; preds = %for.body
   %21 = load ptr, ptr %args, align 8, !noalias !162
   %conv.i51 = zext i32 %conv.i48103 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i51
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %21, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %21, i64 %idx.neg.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
   %retval.sroa.0.0.copyload.i52 = load i64, ptr %incdec.ptr.i.i.i, align 8
   br label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
@@ -7952,7 +7951,7 @@ if.end91:                                         ; preds = %_ZNK6hermes2vm10Nat
   %retval.sroa.0.0.i59 = select i1 %23, i64 9221120237041090560, i64 %24
   store i64 %retval.sroa.0.0.i59, ptr %retval.0.i.i.i.i.i.i35, align 8
   %25 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i = getelementptr inbounds nuw ptr, ptr %25, i64 %conv.i.i
+  %arrayidx.i20.i.i = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %conv.i.i
   %26 = load ptr, ptr %arrayidx.i20.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %26, i64 128
   store i32 %18, ptr %curChunkIndex_.i, align 8
@@ -8000,7 +7999,7 @@ cleanup:                                          ; preds = %_ZNK6hermes2vm10Nat
   %retval.sroa.0.1 = phi i32 [ %spec.select, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit73 ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ]
   %retval.sroa.7.1 = phi i64 [ %spec.select97, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit73 ], [ undef, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ]
   %32 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %32, i64 %conv.i.i.i.pre-phi
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %conv.i.i.i.pre-phi
   %33 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i88 = getelementptr inbounds nuw i8, ptr %33, i64 128
   store i32 %18, ptr %curChunkIndex_.i, align 8
@@ -8185,7 +8184,7 @@ if.then71:                                        ; preds = %if.end69
 cleanup.thread:                                   ; preds = %if.then71
   %conv.i.i.i412 = zext i32 %21 to i64
   %23 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i413 = getelementptr inbounds nuw ptr, ptr %23, i64 %conv.i.i.i412
+  %arrayidx.i20.i.i.i413 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %conv.i.i.i412
   %24 = load ptr, ptr %arrayidx.i20.i.i.i413, align 8
   %add.ptr.i.i.i119414 = getelementptr inbounds nuw i8, ptr %24, i64 128
   store i32 %21, ptr %curChunkIndex_.i, align 8
@@ -8199,7 +8198,7 @@ cleanup:                                          ; preds = %if.then71
   store i64 %or.i.i.i.i.i118, ptr %retval.0.i.i.i.i.i.i108, align 8
   %conv.i.i.i = zext i32 %21 to i64
   %26 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %26, i64 %conv.i.i.i
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %conv.i.i.i
   %27 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i119 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store i32 %21, ptr %curChunkIndex_.i, align 8
@@ -8382,7 +8381,7 @@ if.end236:                                        ; preds = %if.end208
   %chunks_.i.i.i208 = getelementptr inbounds nuw i8, ptr %47, i64 144
   %conv.i.i.i209 = zext i32 %45 to i64
   %59 = load ptr, ptr %chunks_.i.i.i208, align 8
-  %arrayidx.i20.i.i.i210 = getelementptr inbounds nuw ptr, ptr %59, i64 %conv.i.i.i209
+  %arrayidx.i20.i.i.i210 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %conv.i.i.i209
   %60 = load ptr, ptr %arrayidx.i20.i.i.i210, align 8
   %add.ptr.i.i.i211 = getelementptr inbounds nuw i8, ptr %60, i64 128
   store i32 %45, ptr %curChunkIndex_.i.i163450, align 8
@@ -8409,7 +8408,7 @@ cleanup247.critedge:                              ; preds = %if.end236, %if.end1
   %chunks_.i.i.i219 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %conv.i.i.i220 = zext i32 %66 to i64
   %67 = load ptr, ptr %chunks_.i.i.i219, align 8
-  %arrayidx.i20.i.i.i221 = getelementptr inbounds nuw ptr, ptr %67, i64 %conv.i.i.i220
+  %arrayidx.i20.i.i.i221 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %conv.i.i.i220
   %68 = load ptr, ptr %arrayidx.i20.i.i.i221, align 8
   %add.ptr.i.i.i222 = getelementptr inbounds nuw i8, ptr %68, i64 128
   store i32 %66, ptr %curChunkIndex_.i.i163432, align 8
@@ -8662,7 +8661,7 @@ if.end428:                                        ; preds = %if.end404
   %chunks_.i.i.i346 = getelementptr inbounds nuw i8, ptr %97, i64 144
   %conv.i.i.i347 = zext i32 %99 to i64
   %109 = load ptr, ptr %chunks_.i.i.i346, align 8
-  %arrayidx.i20.i.i.i348 = getelementptr inbounds nuw ptr, ptr %109, i64 %conv.i.i.i347
+  %arrayidx.i20.i.i.i348 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %conv.i.i.i347
   %110 = load ptr, ptr %arrayidx.i20.i.i.i348, align 8
   %add.ptr.i.i.i349 = getelementptr inbounds nuw i8, ptr %110, i64 128
   store i32 %99, ptr %curChunkIndex_.i.i314, align 8
@@ -8689,7 +8688,7 @@ cleanup465.critedge:                              ; preds = %if.end404, %if.then
   %chunks_.i.i.i373 = getelementptr inbounds nuw i8, ptr %97, i64 144
   %conv.i.i.i374 = zext i32 %99 to i64
   %112 = load ptr, ptr %chunks_.i.i.i373, align 8
-  %arrayidx.i20.i.i.i375 = getelementptr inbounds nuw ptr, ptr %112, i64 %conv.i.i.i374
+  %arrayidx.i20.i.i.i375 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %conv.i.i.i374
   %113 = load ptr, ptr %arrayidx.i20.i.i.i375, align 8
   %add.ptr.i.i.i376 = getelementptr inbounds nuw i8, ptr %113, i64 128
   store i32 %99, ptr %curChunkIndex_.i.i314, align 8
@@ -9059,7 +9058,7 @@ if.else.i:                                        ; preds = %if.end22
   %add.i = add i32 %mul.i, 4096
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16392
   %idx.ext.i.i.i = zext i32 %sub2.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idx.ext.i.i.i
   %11 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %11, 0
   %conv.i.i.i.i.i.i.i = zext i32 %11 to i64
@@ -9090,7 +9089,7 @@ if.else.i43:                                      ; preds = %for.body
   %sub.i.i = add i32 %numProps.0244, -4096
   %div1.i.i = lshr i32 %sub.i.i, 10
   %idx.ext.i.i.i44 = zext nneg i32 %div1.i.i to i64
-  %add.ptr.i.i.i45 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i, i64 %idx.ext.i.i.i44
+  %add.ptr.i.i.i45 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i, i64 %idx.ext.i.i.i44
   %14 = load i32, ptr %add.ptr.i.i.i45, align 4
   %conv.i.i.i.i.i.i.i46 = zext i32 %14 to i64
   %add.i.i.i.i.i.i.i47 = add i64 %conv.i.i.i.i.i.i.i46, %2
@@ -9103,7 +9102,7 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_
   %rem.i.sink.i = phi i32 [ %rem.i.i, %if.else.i43 ], [ %numProps.0244, %for.body ]
   %data_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i, i64 8
   %idxprom.i.i = zext nneg i32 %rem.i.sink.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.i = load i32, ptr %arrayidx.i.i, align 4
   %16 = trunc i32 %retval.sroa.0.0.i to i8
   %conv.i.i = and i8 %16, 7
@@ -9212,7 +9211,7 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
 for.body67:                                       ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit73, %for.inc119
   %i.0247 = phi i32 [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit73 ], [ %inc120, %for.inc119 ]
   %29 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i = getelementptr inbounds nuw ptr, ptr %29, i64 %conv.i.i75
+  %arrayidx.i20.i.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %conv.i.i75
   %30 = load ptr, ptr %arrayidx.i20.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %30, i64 128
   store i32 %28, ptr %curChunkIndex_.i, align 8
@@ -9229,7 +9228,7 @@ if.else.i81:                                      ; preds = %for.body67
   %div1.i.i83 = lshr i32 %sub.i.i82, 10
   %add.ptr.i.i.i5.i84 = getelementptr inbounds nuw i8, ptr %31, i64 16392
   %idx.ext.i.i.i85 = zext nneg i32 %div1.i.i83 to i64
-  %add.ptr.i.i.i86 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i84, i64 %idx.ext.i.i.i85
+  %add.ptr.i.i.i86 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i84, i64 %idx.ext.i.i.i85
   %32 = load i32, ptr %add.ptr.i.i.i86, align 4
   %conv.i.i.i.i.i.i.i87 = zext i32 %32 to i64
   %add.i.i.i.i.i.i.i88 = add i64 %conv.i.i.i.i.i.i.i87, %2
@@ -9242,7 +9241,7 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_
   %rem.i.sink.i91 = phi i32 [ %rem.i.i89, %if.else.i81 ], [ %i.0247, %for.body67 ]
   %data_.i.i92 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i90, i64 8
   %idxprom.i.i93 = zext nneg i32 %rem.i.sink.i91 to i64
-  %arrayidx.i.i94 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i92, i64 %idxprom.i.i93
+  %arrayidx.i.i94 = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i92, i64 %idxprom.i.i93
   %retval.sroa.0.0.i95 = load i32, ptr %arrayidx.i.i94, align 4
   %34 = trunc i32 %retval.sroa.0.0.i95 to i8
   %conv.i.i97 = and i8 %34, 15
@@ -9456,7 +9455,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN6hermes2vm13Herm
   %div1.i.i.i.i.i = lshr i32 %sub.i.i.i.i.i, 10
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 16392
   %idx.ext.i.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i to i64
-  %add.ptr.i.i.i1.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i
   %51 = load i32, ptr %add.ptr.i.i.i1.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext i32 %51 to i64
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i.i, %2
@@ -9469,7 +9468,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEER
   %rem.i.sink.i.i.i.i = phi i32 [ %rem.i.i.i.i.i, %if.else.i.i.i.i ], [ %sub.i, %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit ]
   %data_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i.i.i, i64 8
   %idxprom.i.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i.i.i, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i.i.i, i64 %idxprom.i.i.i.i.i
   %53 = load ptr, ptr %youngGen_.i.i.i.i.i, align 8
   %54 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %and.i.i.i.i.i.i = and i64 %54, -4194304
@@ -9495,7 +9494,7 @@ for.inc119:                                       ; preds = %_ZN6hermes2vm9Array
 
 for.end121:                                       ; preds = %for.inc119
   %56 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i135 = getelementptr inbounds nuw ptr, ptr %56, i64 %conv.i.i75
+  %arrayidx.i20.i.i135 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %conv.i.i75
   %57 = load ptr, ptr %arrayidx.i20.i.i135, align 8
   %add.ptr.i.i136 = getelementptr inbounds nuw i8, ptr %57, i64 128
   store i32 %28, ptr %curChunkIndex_.i, align 8
@@ -9518,7 +9517,7 @@ for.cond134:                                      ; preds = %_ZNK6hermes2vm13Her
 for.body136:                                      ; preds = %for.end121, %for.cond134
   %i133.0248 = phi i32 [ %inc172, %for.cond134 ], [ 0, %for.end121 ]
   %58 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i147 = getelementptr inbounds nuw ptr, ptr %58, i64 %conv.i.i75
+  %arrayidx.i20.i.i147 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %conv.i.i75
   %59 = load ptr, ptr %arrayidx.i20.i.i147, align 8
   %add.ptr.i.i148 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store i32 %28, ptr %curChunkIndex_.i, align 8
@@ -9551,7 +9550,7 @@ if.else.i.i:                                      ; preds = %cond.true.i
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %63, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i.i162 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i162 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %64 = load i32, ptr %add.ptr.i.i.i.i162, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %64 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -9564,7 +9563,7 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %cond.true.i, %if.el
   %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i ], [ %sub.i160, %cond.true.i ]
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.i.i163 = load i32, ptr %arrayidx.i.i.i, align 4
   %66 = trunc i32 %retval.sroa.0.0.i.i163 to i8
   %conv.i.i164 = and i8 %66, 15
@@ -9663,7 +9662,7 @@ cleanup178:                                       ; preds = %_ZN6hermes2vm9Array
   %retval.sroa.0.1 = phi i32 [ 0, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit201 ], [ 1, %for.end173 ], [ 0, %for.end121 ], [ 0, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ 0, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit ]
   %retval.sroa.11.1 = phi i64 [ undef, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit201 ], [ %retval.sroa.0.0.copyload.i217, %for.end173 ], [ undef, %for.end121 ], [ undef, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ undef, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit ]
   %73 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %73, i64 %conv.i.i75
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %conv.i.i75
   %74 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i220 = getelementptr inbounds nuw i8, ptr %74, i64 128
   store i32 %28, ptr %curChunkIndex_.i, align 8
@@ -9998,7 +9997,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %targetIndex.0119 = phi i64 [ %start, %while.body.lr.ph ], [ %targetIndex.1, %if.end193 ]
   %sourceIndex.0118 = phi i64 [ 0, %while.body.lr.ph ], [ %inc194, %if.end193 ]
   %7 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %7, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %conv.i
   %8 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 128
   store i32 %6, ptr %curChunkIndex_.i, align 8
@@ -10398,7 +10397,7 @@ _ZN6hermes2vm13MutableHandleINS0_8JSObjectEEC2ERNS0_15HandleRootOwnerEPS2_.exit:
   %slot.i.i = getelementptr inbounds nuw i8, ptr %desc, i64 4
   %conv181 = select i1 %reverse, double -1.000000e+00, double 1.000000e+00
   %39 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.us111 = getelementptr inbounds nuw ptr, ptr %39, i64 %conv.i
+  %arrayidx.i20.i.us111 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %conv.i
   %40 = load ptr, ptr %arrayidx.i20.i.us111, align 8
   %add.ptr.i.us112 = getelementptr inbounds nuw i8, ptr %40, i64 128
   store ptr %add.ptr.i.us112, ptr %curChunkEnd_.i, align 8
@@ -10440,7 +10439,7 @@ if.end175.us:                                     ; preds = %land.lhs.true.us, %
   %retval.sroa.0.0.i89.us = select i1 %45, i64 9221120237041090560, i64 %46
   store i64 %retval.sroa.0.0.i89.us, ptr %retval.0.i.i.i.i.i.i43, align 8
   %47 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.us = getelementptr inbounds nuw ptr, ptr %47, i64 %conv.i
+  %arrayidx.i20.i.us = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %conv.i
   %48 = load ptr, ptr %arrayidx.i20.i.us, align 8
   %add.ptr.i.us = getelementptr inbounds nuw i8, ptr %48, i64 128
   store i32 %38, ptr %curChunkIndex_.i, align 8
@@ -10488,7 +10487,7 @@ if.end175:                                        ; preds = %land.lhs.true, %if.
   %retval.sroa.0.0.i89 = select i1 %53, i64 9221120237041090560, i64 %54
   store i64 %retval.sroa.0.0.i89, ptr %retval.0.i.i.i.i.i.i43, align 8
   %55 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %55, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %conv.i
   %56 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %56, i64 128
   store i32 %38, ptr %curChunkIndex_.i, align 8
@@ -10739,7 +10738,7 @@ while.body.lr.ph:                                 ; preds = %_ZN6hermes2vm13Muta
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end143
   %37 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %37, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %conv.i
   %38 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %38, i64 128
   store i32 %35, ptr %curChunkIndex_.i, align 8
@@ -11010,7 +11009,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %sub61.us = fadd double %sub.us, -1.000000e+00
   store double %sub61.us, ptr %retval.0.i.i.i.i.i.i41, align 8
   %31 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.us = getelementptr inbounds nuw ptr, ptr %31, i64 %conv.i
+  %arrayidx.i20.i.us = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %conv.i
   %32 = load ptr, ptr %arrayidx.i20.i.us, align 8
   %add.ptr.i.us = getelementptr inbounds nuw i8, ptr %32, i64 128
   store i32 %30, ptr %curChunkIndex_.i, align 8
@@ -11053,7 +11052,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.080 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.lr.ph ]
   store double %conv5781, ptr %retval.0.i.i.i.i.i.i41, align 8
   %37 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %37, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %conv.i
   %38 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %38, i64 128
   store i32 %30, ptr %curChunkIndex_.i, align 8
@@ -11357,7 +11356,7 @@ while.cond.preheader:                             ; preds = %_ZN6hermes2vm13Muta
   %conv.i = zext i32 %38 to i64
   %slot.i.i = getelementptr inbounds nuw i8, ptr %kDesc, i64 4
   %39 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.us173 = getelementptr inbounds nuw ptr, ptr %39, i64 %conv.i
+  %arrayidx.i20.i.us173 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %conv.i
   %40 = load ptr, ptr %arrayidx.i20.i.us173, align 8
   %add.ptr.i.us174 = getelementptr inbounds nuw i8, ptr %40, i64 128
   store i32 %38, ptr %curChunkIndex_.i, align 8
@@ -11382,7 +11381,7 @@ while.body.us.critedge:                           ; preds = %if.end114.us
   %retval.sroa.0.0.i105.us.c = select i1 %43, i64 9221120237041090560, i64 %44
   store i64 %retval.sroa.0.0.i105.us.c, ptr %retval.0.i.i.i.i.i.i59, align 8
   %45 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.us = getelementptr inbounds nuw ptr, ptr %45, i64 %conv.i
+  %arrayidx.i20.i.us = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %conv.i
   %46 = load ptr, ptr %arrayidx.i20.i.us, align 8
   %add.ptr.i.us = getelementptr inbounds nuw i8, ptr %46, i64 128
   store i32 %38, ptr %curChunkIndex_.i, align 8
@@ -11444,7 +11443,7 @@ while.body.critedge:                              ; preds = %if.end114
   %retval.sroa.0.0.i105.c = select i1 %56, i64 9221120237041090560, i64 %57
   store i64 %retval.sroa.0.0.i105.c, ptr %retval.0.i.i.i.i.i.i59, align 8
   %58 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i = getelementptr inbounds nuw ptr, ptr %58, i64 %conv.i
+  %arrayidx.i20.i = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %conv.i
   %59 = load ptr, ptr %arrayidx.i20.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %59, i64 128
   store i32 %38, ptr %curChunkIndex_.i, align 8
@@ -11501,7 +11500,7 @@ if.end136:                                        ; preds = %if.then120, %if.the
 
 while.cond137:                                    ; preds = %if.end218, %if.end136
   %67 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i116 = getelementptr inbounds nuw ptr, ptr %67, i64 %conv.i115.pre-phi
+  %arrayidx.i20.i116 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %conv.i115.pre-phi
   %68 = load ptr, ptr %arrayidx.i20.i116, align 8
   %add.ptr.i117 = getelementptr inbounds nuw i8, ptr %68, i64 128
   store i32 %38, ptr %curChunkIndex_.i, align 8
@@ -11732,7 +11731,7 @@ for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZN6hermes2vm15Stri
   %index_18.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i32, ptr %index_18.i, align 8
   %idx.ext19.i = zext i32 %8 to i64
-  %add.ptr20.i = getelementptr inbounds nuw i16, ptr %retval.0.i13.i, i64 %idx.ext19.i
+  %add.ptr20.i = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i13.i, i64 %idx.ext19.i
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
@@ -12227,7 +12226,7 @@ _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit: ; preds = %if
 if.then.i.i.i.i.i:                                ; preds = %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit
   %add.ptr.idx = shl nsw i64 %str.coerce1, 1
   %idx.ext = zext i32 %.pre35 to i64
-  %add.ptr24 = getelementptr inbounds nuw i16, ptr %retval.0.i23, i64 %idx.ext
+  %add.ptr24 = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i23, i64 %idx.ext
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr24, ptr align 2 %str.coerce0, i64 %add.ptr.idx, i1 false)
   %.pre34 = load i32, ptr %index_23, align 8
   br label %_ZSt4copyIPKDsPDsET0_T_S4_S3_.exit
@@ -12645,7 +12644,7 @@ cleanup:                                          ; preds = %if.else156, %if.end
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %conv.i.i.i = zext i32 %gcMarker.sroa.4.8.copyload to i64
   %70 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %70, i64 %conv.i.i.i
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %conv.i.i.i
   %71 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %71, i64 128
   %curChunkIndex_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
@@ -12840,7 +12839,7 @@ cleanup:                                          ; preds = %if.end143, %if.else
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %conv.i.i.i = zext i32 %gcMarker.sroa.4.8.copyload to i64
   %40 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %40, i64 %conv.i.i.i
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %conv.i.i.i
   %41 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 128
   %curChunkIndex_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224

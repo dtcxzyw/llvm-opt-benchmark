@@ -373,7 +373,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
 
 .preheader65.i:                                   ; preds = %116, %136
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %136 ], [ 0, %116 ]
-  %122 = getelementptr inbounds nuw %struct.parse_cmd, ptr @command, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [24 x i8], ptr @command, i64 %indvars.iv.i
   %123 = load ptr, ptr %122, align 8, !tbaa !29
   %124 = load ptr, ptr %104, align 8, !tbaa !27
   %125 = call i32 @starts_with(ptr noundef %124, ptr noundef %123) #11
@@ -617,7 +617,7 @@ update_refs_stdin.exit:                           ; preds = %._crit_edge.i, %180
 
 217:                                              ; preds = %219, %214
   %.0811.i.i = phi i64 [ 0, %214 ], [ %220, %219 ]
-  %218 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %218 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %216, %218
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %219
 
@@ -983,7 +983,7 @@ define internal void @parse_cmd_verify(ptr noundef %0, ptr noundef %1, ptr nound
 
 15:                                               ; preds = %17, %11
   %.0811.i.i = phi i64 [ 0, %11 ], [ %18, %17 ]
-  %16 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %16 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %14, %16
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %17
 
@@ -1735,7 +1735,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull c
 
 27:                                               ; preds = %29, %24
   %.0811.i.i = phi i64 [ 0, %24 ], [ %30, %29 ]
-  %28 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %28 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %26, %28
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %29
 
@@ -1795,7 +1795,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull c
 
 53:                                               ; preds = %55, %49
   %.0811.i.i52 = phi i64 [ 0, %49 ], [ %56, %55 ]
-  %54 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i52
+  %54 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i52
   %.not.i.i53 = icmp eq ptr %52, %54
   br i1 %.not.i.i53, label %.split.loop.exit9.i.i56, label %55
 

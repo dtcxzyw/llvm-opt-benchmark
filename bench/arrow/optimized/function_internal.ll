@@ -124,19 +124,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.210" = type { %"struct.std::_Vector_base<arrow::TypeHolder, std::allocator<arrow::TypeHolder>>::_Vector_impl" }
 %"struct.std::_Vector_base<arrow::TypeHolder, std::allocator<arrow::TypeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::TypeHolder, std::allocator<arrow::TypeHolder>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<arrow::TypeHolder, std::allocator<arrow::TypeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.arrow::Datum" = type { %"class.std::variant.171" }
-%"class.std::variant.171" = type { %"struct.std::__detail::__variant::_Variant_base.base.200", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base.200" = type { %"struct.std::__detail::__variant::_Move_assign_base.base.199" }
-%"struct.std::__detail::__variant::_Move_assign_base.base.199" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base.198" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base.198" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base.197" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base.197" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base.196" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base.196" = type { %"struct.std::__detail::__variant::_Variant_storage.base.195" }
-%"struct.std::__detail::__variant::_Variant_storage.base.195" = type { %"union.std::__detail::__variant::_Variadic_union.178", i8 }
-%"union.std::__detail::__variant::_Variadic_union.178" = type { %"union.std::__detail::__variant::_Variadic_union.180" }
-%"union.std::__detail::__variant::_Variadic_union.180" = type { %"struct.std::__detail::__variant::_Uninitialized.181" }
-%"struct.std::__detail::__variant::_Uninitialized.181" = type { %"struct.__gnu_cxx::__aligned_membuf.182" }
-%"struct.__gnu_cxx::__aligned_membuf.182" = type { [16 x i8] }
-%"struct.arrow::TypeHolder" = type { ptr, %"class.std::shared_ptr" }
 %"class.std::shared_ptr.44" = type { %"class.std::__shared_ptr.45" }
 %"class.std::__shared_ptr.45" = type { ptr, %"class.std::__shared_count" }
 
@@ -7045,7 +7032,7 @@ _ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZNSt6v
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %32 = phi ptr [ %75, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %16, %.lr.ph.preheader ]
   %.030 = phi i64 [ %73, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %.lr.ph.preheader ]
-  %33 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %32, i64 %.030
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.030
   %34 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Datum4typeEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %35 unwind label %80
 
@@ -7074,7 +7061,7 @@ _ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZNSt6v
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %35, %42, %45
   %47 = load ptr, ptr %4, align 8, !tbaa !287
-  %48 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %47, i64 %.030
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %.030
   store ptr %36, ptr %48, align 8, !tbaa !292
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %36, ptr %49, align 8, !tbaa !294
@@ -8437,7 +8424,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !92
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !63
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !66
   ret void
 }
@@ -8931,7 +8918,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6ScalarEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %37
   store ptr %20, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !85
-  %41 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %36, align 8, !tbaa !88
   ret void
 

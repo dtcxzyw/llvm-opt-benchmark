@@ -41,22 +41,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_extract_iter
 %struct.anon.8 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.static_call_key = type { ptr, %union.anon.24 }
 %union.anon.24 = type { i64 }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.page = type { i64, %union.anon, %union.anon.6, %struct.atomic_t, [8 x i8] }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %union.anon.0, ptr, %union.anon.2, i64 }
-%union.anon.0 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.2 = type { i64 }
-%union.anon.6 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 %struct.sg_append_table = type { %struct.sg_table, ptr, i32 }
 %struct.sg_table = type { ptr, i32, i32 }
 %struct.sg_mapping_iter = type { ptr, ptr, i64, i64, %struct.sg_page_iter, i32, i32, i32 }
 %struct.sg_page_iter = type { ptr, i32, i32, i32 }
 %struct.xa_state = type { ptr, i64, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.kvec = type { ptr, i64 }
 
 @__UNIQUE_ID___addressable_sg_next369 = internal global ptr @sg_next, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_sg_nents370 = internal global ptr @sg_nents, section ".discard.addressable", align 8
@@ -271,7 +260,7 @@ define dso_local void @sg_init_table(ptr noundef captures(none) %0, i32 noundef 
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %4, i1 false)
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr %struct.scatterlist, ptr %0, i64 %6
+  %7 = getelementptr [32 x i8], ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, -4
   %10 = or disjoint i64 %9, 2
@@ -346,7 +335,7 @@ define dso_local void @__sg_free_table(ptr noundef captures(none) %0, i32 nounde
 19:                                               ; preds = %13
   %20 = add i32 %14, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr %struct.scatterlist, ptr %15, i64 %21
+  %22 = getelementptr [32 x i8], ptr %15, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, -4
   %25 = inttoptr i64 %24 to ptr
@@ -529,7 +518,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr noundef cap
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %34, i8 0, i64 %36, i1 false)
   %37 = add i32 %23, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr %struct.scatterlist, ptr %34, i64 %38
+  %39 = getelementptr [32 x i8], ptr %34, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, -4
   %42 = or disjoint i64 %41, 2
@@ -544,7 +533,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr noundef cap
 46:                                               ; preds = %.thread
   %47 = add i32 %19, -1
   %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.scatterlist, ptr %16, i64 %48
+  %49 = getelementptr [32 x i8], ptr %16, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 12
@@ -566,7 +555,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr noundef cap
 .thread6:                                         ; preds = %56
   %58 = add i32 %22, -1
   %59 = zext i32 %58 to i64
-  %60 = getelementptr %struct.scatterlist, ptr %34, i64 %59
+  %60 = getelementptr [32 x i8], ptr %34, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, -4
   %63 = or disjoint i64 %62, 2
@@ -632,7 +621,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr noundef captu
   %33 = zext nneg i32 %32 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %33, i1 false)
   %34 = zext nneg i32 %14 to i64
-  %35 = getelementptr %struct.scatterlist, ptr %25, i64 %34
+  %35 = getelementptr [32 x i8], ptr %25, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -32
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, -4
@@ -646,7 +635,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr noundef captu
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr %struct.scatterlist, ptr %9, i64 %11
+  %44 = getelementptr [32 x i8], ptr %9, i64 %11
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 12
@@ -668,7 +657,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr noundef captu
 53:                                               ; preds = %51
   %54 = add i32 %13, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr %struct.scatterlist, ptr %25, i64 %55
+  %56 = getelementptr [32 x i8], ptr %25, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = and i64 %57, -4
   %59 = or disjoint i64 %58, 2
@@ -736,7 +725,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
 
 41:                                               ; preds = %39
   %42 = inttoptr i64 %20 to ptr
-  %43 = getelementptr %struct.page, ptr %42, i64 %31
+  %43 = getelementptr [64 x i8], ptr %42, i64 %31
   %44 = getelementptr i8, ptr %43, i64 -64
   br label %45
 
@@ -809,7 +798,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
   br i1 %88, label %89, label %102
 
 89:                                               ; preds = %83
-  %90 = getelementptr ptr, ptr %74, i64 %84
+  %90 = getelementptr [8 x i8], ptr %74, i64 %84
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr i8, ptr %90, i64 -8
   %93 = load ptr, ptr %92, align 8
@@ -879,10 +868,10 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
 
 141:                                              ; preds = %138
   %142 = zext i32 %136 to i64
-  %143 = getelementptr ptr, ptr %74, i64 %142
+  %143 = getelementptr [8 x i8], ptr %74, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = zext i32 %135 to i64
-  %146 = getelementptr ptr, ptr %74, i64 %145
+  %146 = getelementptr [8 x i8], ptr %74, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = ptrtoint ptr %144 to i64
   %149 = sub i64 %148, %130
@@ -955,7 +944,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %192, i8 0, i64 %195, i1 false)
   %196 = add nsw i32 %182, -1
   %197 = zext i32 %196 to i64
-  %198 = getelementptr %struct.scatterlist, ptr %192, i64 %197
+  %198 = getelementptr [32 x i8], ptr %192, i64 %197
   %199 = load i64, ptr %198, align 8
   %200 = and i64 %199, -4
   %201 = or disjoint i64 %200, 2
@@ -1004,7 +993,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
 
 221:                                              ; preds = %211
   %222 = zext i32 %129 to i64
-  %223 = getelementptr ptr, ptr %74, i64 %222
+  %223 = getelementptr [8 x i8], ptr %74, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = ptrtoint ptr %224 to i64
   %226 = and i64 %225, 3
@@ -1159,7 +1148,7 @@ define dso_local ptr @sgl_alloc_order(i64 noundef %0, i32 noundef %1, i1 noundef
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %27, i1 false)
   %32 = add i32 %25, -1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr %struct.scatterlist, ptr %29, i64 %33
+  %34 = getelementptr [32 x i8], ptr %29, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, -4
   %37 = or disjoint i64 %36, 2
@@ -2008,7 +1997,7 @@ sg_miter_stop.exit:                               ; preds = %8, %41
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr %struct.page, ptr %48, i64 %51
+  %52 = getelementptr [64 x i8], ptr %48, i64 %51
   store ptr %52, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %54 = load i32, ptr %53, align 4
@@ -2550,7 +2539,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr %struct.scatterlist, ptr %13, i64 %16
+  %17 = getelementptr [32 x i8], ptr %13, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !annotation !60
@@ -2558,7 +2547,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %19 = shl nuw nsw i64 %18, 5
   %20 = getelementptr i8, ptr %13, i64 %19
   %21 = sub nsw i64 0, %18
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   store ptr %22, ptr %7, align 8
   br label %23
 
@@ -2650,7 +2639,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %79 = add i32 %77, -1
   store i32 %79, ptr %14, align 8
   %80 = zext i32 %79 to i64
-  %81 = getelementptr %struct.scatterlist, ptr %78, i64 %80
+  %81 = getelementptr [32 x i8], ptr %78, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = and i64 %82, -4
   %84 = inttoptr i64 %83 to ptr
@@ -2681,7 +2670,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %99 = load ptr, ptr %2, align 8
   %100 = load i32, ptr %92, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr %struct.scatterlist, ptr %99, i64 %101
+  %102 = getelementptr [32 x i8], ptr %99, i64 %101
   br label %113
 
 103:                                              ; preds = %._crit_edge67, %.thread
@@ -2705,7 +2694,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %119 = phi i32 [ %110, %103 ], [ 0, %96 ]
   %120 = phi i64 [ %108, %103 ], [ %98, %96 ]
   %121 = phi ptr [ %109, %103 ], [ %102, %96 ]
-  %122 = getelementptr %struct.bio_vec, ptr %91, i64 %115
+  %122 = getelementptr [16 x i8], ptr %91, i64 %115
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 8
   %125 = zext i32 %124 to i64
@@ -2784,7 +2773,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %170 = load ptr, ptr %2, align 8
   %171 = load i32, ptr %163, align 8
   %172 = zext i32 %171 to i64
-  %173 = getelementptr %struct.scatterlist, ptr %170, i64 %172
+  %173 = getelementptr [32 x i8], ptr %170, i64 %172
   br label %184
 
 174:                                              ; preds = %._crit_edge, %.thread32
@@ -2808,7 +2797,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %190 = phi i64 [ %179, %174 ], [ %169, %167 ]
   %191 = phi i32 [ %181, %174 ], [ 0, %167 ]
   %192 = phi i64 [ %180, %174 ], [ 0, %167 ]
-  %193 = getelementptr %struct.kvec, ptr %162, i64 %186
+  %193 = getelementptr [16 x i8], ptr %162, i64 %186
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = icmp ult i64 %190, %195
@@ -2857,7 +2846,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   %228 = select i1 %224, i64 %225, i64 %227
   %229 = add i64 %223, %228
   %230 = lshr i64 %229, 12
-  %231 = getelementptr %struct.page, ptr %222, i64 %230
+  %231 = getelementptr [64 x i8], ptr %222, i64 %230
   br label %232
 
 232:                                              ; preds = %220, %218
@@ -2948,7 +2937,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
 
 282:                                              ; preds = %263
   %283 = zext i32 %266 to i64
-  %284 = getelementptr %struct.scatterlist, ptr %264, i64 %283
+  %284 = getelementptr [32 x i8], ptr %264, i64 %283
   br label %285
 
 285:                                              ; preds = %.loopexit40, %282
@@ -3102,7 +3091,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
 
 379:                                              ; preds = %373
   %380 = zext i8 %374 to i64
-  %381 = getelementptr ptr, ptr %372, i64 %380
+  %381 = getelementptr [8 x i8], ptr %372, i64 %380
   %382 = load volatile ptr, ptr %381, align 8
   %383 = ptrtoint ptr %382 to i64
   %384 = and i64 %383, 3

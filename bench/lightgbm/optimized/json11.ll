@@ -853,7 +853,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK24json11_internal_li
   br label %_ZN24json11_internal_lightgbmL11static_nullEv.exit
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw %"class.json11_internal_lightgbm::Json", ptr %6, i64 %1
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   br label %_ZN24json11_internal_lightgbmL11static_nullEv.exit
 
 _ZN24json11_internal_lightgbmL11static_nullEv.exit: ; preds = %16, %14, %11, %18
@@ -6084,7 +6084,7 @@ _ZNSt6vectorIN24json11_internal_lightgbm4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 .noexc174:                                        ; preds = %492, %_ZNSt6vectorIN24json11_internal_lightgbm4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %480, ptr %38, align 8, !tbaa !11
   store ptr %491, ptr %453, align 8, !tbaa !5
-  %493 = getelementptr inbounds nuw %"class.json11_internal_lightgbm::Json", ptr %480, i64 %478
+  %493 = getelementptr inbounds nuw [16 x i8], ptr %480, i64 %478
   store ptr %493, ptr %454, align 8, !tbaa !99
   br label %_ZNSt6vectorIN24json11_internal_lightgbm4JsonESaIS1_EE9push_backEOS1_.exit
 
@@ -10442,7 +10442,7 @@ _ZNSt12_Vector_baseIN24json11_internal_lightgbm4JsonESaIS1_EE13_M_deallocateEPS1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !11
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !5
-  %41 = getelementptr inbounds nuw %"class.json11_internal_lightgbm::Json", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8, !tbaa !99
   ret void
 }

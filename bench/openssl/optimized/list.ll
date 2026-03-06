@@ -4186,7 +4186,7 @@ define internal fastcc void @display_random(ptr noundef %0, ptr noundef %1) unna
 
 switch.lookup:                                    ; preds = %8
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.display_random, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.display_random, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %20
 

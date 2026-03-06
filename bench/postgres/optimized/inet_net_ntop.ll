@@ -104,7 +104,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %45 = shl nuw nsw i32 %41, %44
   %46 = lshr i64 %indvars.iv.i, 1
   %47 = and i64 %46, 2147483647
-  %48 = getelementptr inbounds nuw i32, ptr %7, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %45, %49
   store i32 %50, ptr %48, align 4
@@ -118,7 +118,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.sroa.10.0123.i = phi i32 [ %.sroa.10.1.i, %62 ], [ 0, %38 ]
   %.sroa.041.0122.i = phi i32 [ %.sroa.041.2.i, %62 ], [ -1, %38 ]
   %.sroa.16.0121.i = phi i32 [ %.sroa.16.2.i, %62 ], [ 0, %38 ]
-  %51 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv155.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv155.i
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   %54 = icmp eq i32 %.sroa.0.0124.i, -1
@@ -205,7 +205,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 
 .thread.us.i:                                     ; preds = %81, %80
   %.3107.us.i = phi ptr [ %82, %81 ], [ %.084126.us.i, %80 ]
-  %83 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv159.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv159.i
   %84 = load i32, ptr %83, align 4
   %85 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3107.us.i, ptr noundef nonnull @.str.2, i32 noundef %84) #8
   %86 = sext i32 %85 to i64
@@ -257,7 +257,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 
 .thread.us134.i:                                  ; preds = %99, %98
   %.3107.us135.i = phi ptr [ %100, %99 ], [ %.084126.us129.i, %98 ]
-  %102 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv167.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv167.i
   %103 = load i32, ptr %102, align 4
   %104 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3107.us135.i, ptr noundef nonnull @.str.2, i32 noundef %103) #8
   %105 = sext i32 %104 to i64
@@ -372,7 +372,7 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
 
 .thread.i:                                        ; preds = %123, %117, %116
   %.3107.i = phi ptr [ %118, %117 ], [ %118, %123 ], [ %.084126.i, %116 ]
-  %151 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv163.i
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv163.i
   %152 = load i32, ptr %151, align 4
   %153 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3107.i, ptr noundef nonnull @.str.2, i32 noundef %152) #8
   %154 = sext i32 %153 to i64

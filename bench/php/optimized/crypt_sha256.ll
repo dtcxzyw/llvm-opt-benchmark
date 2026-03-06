@@ -252,10 +252,10 @@ sub_2:                                            ; preds = %sub_1
 
 119:                                              ; preds = %119, %._crit_edge.i
   %indvars.iv.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next.i, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %121 = load i32, ptr %120, align 4, !tbaa !11
   %122 = call i32 @llvm.bswap.i32(i32 %121)
-  %123 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %122, ptr %123, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -359,10 +359,10 @@ sha256_finish_ctx.exit._crit_edge:                ; preds = %sha256_finish_ctx.e
 
 169:                                              ; preds = %169, %._crit_edge.i439
   %indvars.iv.i442 = phi i64 [ 0, %._crit_edge.i439 ], [ %indvars.iv.next.i443, %169 ]
-  %170 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i442
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i442
   %171 = load i32, ptr %170, align 4, !tbaa !11
   %172 = call i32 @llvm.bswap.i32(i32 %171)
-  %173 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i442
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i442
   store i32 %172, ptr %173, align 4, !tbaa !11
   %indvars.iv.next.i443 = add nuw nsw i64 %indvars.iv.i442, 1
   %exitcond.not.i444 = icmp eq i64 %indvars.iv.next.i443, 8
@@ -443,10 +443,10 @@ sha256_finish_ctx.exit445:                        ; preds = %169
 
 204:                                              ; preds = %204, %._crit_edge.i446.thread
   %indvars.iv.i449 = phi i64 [ 0, %._crit_edge.i446.thread ], [ %indvars.iv.next.i450, %204 ]
-  %205 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i449
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i449
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = call i32 @llvm.bswap.i32(i32 %206)
-  %208 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i449
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i449
   store i32 %207, ptr %208, align 4, !tbaa !11
   %indvars.iv.next.i450 = add nuw nsw i64 %indvars.iv.i449, 1
   %exitcond.not.i451 = icmp eq i64 %indvars.iv.next.i450, 8
@@ -560,10 +560,10 @@ sha256_finish_ctx.exit452:                        ; preds = %204
 
 263:                                              ; preds = %263, %._crit_edge.i453
   %indvars.iv.i456 = phi i64 [ 0, %._crit_edge.i453 ], [ %indvars.iv.next.i457, %263 ]
-  %264 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i456
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i456
   %265 = load i32, ptr %264, align 4, !tbaa !11
   %266 = call i32 @llvm.bswap.i32(i32 %265)
-  %267 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i456
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i456
   store i32 %266, ptr %267, align 4, !tbaa !11
   %indvars.iv.next.i457 = add nuw nsw i64 %indvars.iv.i456, 1
   %exitcond.not.i458 = icmp eq i64 %indvars.iv.next.i457, 8
@@ -683,10 +683,10 @@ sha256_finish_ctx.exit459:                        ; preds = %263
 
 318:                                              ; preds = %318, %._crit_edge.i460
   %indvars.iv.i463 = phi i64 [ 0, %._crit_edge.i460 ], [ %indvars.iv.next.i464, %318 ]
-  %319 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i463
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i463
   %320 = load i32, ptr %319, align 4, !tbaa !11
   %321 = call i32 @llvm.bswap.i32(i32 %320)
-  %322 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i463
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i463
   store i32 %321, ptr %322, align 4, !tbaa !11
   %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i463, 1
   %exitcond.not.i465 = icmp eq i64 %indvars.iv.next.i464, 8
@@ -1186,10 +1186,10 @@ sha256_finish_ctx.exit466:                        ; preds = %318
 
 607:                                              ; preds = %607, %._crit_edge.i468
   %indvars.iv.i471 = phi i64 [ 0, %._crit_edge.i468 ], [ %indvars.iv.next.i472, %607 ]
-  %608 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i471
+  %608 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i471
   %609 = load i32, ptr %608, align 4, !tbaa !11
   %610 = call i32 @llvm.bswap.i32(i32 %609)
-  %611 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i471
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i471
   store i32 %610, ptr %611, align 4, !tbaa !11
   %indvars.iv.next.i472 = add nuw nsw i64 %indvars.iv.i471, 1
   %exitcond.not.i473 = icmp eq i64 %indvars.iv.next.i472, 8
@@ -1486,7 +1486,7 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   %.1137 = phi ptr [ %.0158, %.lr.ph ], [ %35, %31 ]
   %32 = load i32, ptr %.1137, align 4, !tbaa !11
   %33 = tail call i32 @llvm.bswap.i32(i32 %32)
-  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %.1137, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1496,7 +1496,7 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
 36:                                               ; preds = %.preheader135, %36
   %37 = phi i32 [ %.pre, %.preheader135 ], [ %52, %36 ]
   %indvars.iv177 = phi i64 [ 16, %.preheader135 ], [ %indvars.iv.next178, %36 ]
-  %38 = getelementptr i32, ptr %4, i64 %indvars.iv177
+  %38 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv177
   %39 = getelementptr i8, ptr %38, i64 -8
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 15)
@@ -1504,11 +1504,11 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   %43 = xor i32 %41, %42
   %44 = lshr i32 %40, 10
   %45 = xor i32 %43, %44
-  %46 = getelementptr i32, ptr %4, i64 %indvars.iv177
+  %46 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv177
   %47 = getelementptr i8, ptr %46, i64 -28
   %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = add i32 %45, %48
-  %50 = getelementptr i32, ptr %4, i64 %indvars.iv177
+  %50 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv177
   %51 = getelementptr i8, ptr %50, i64 -60
   %52 = load i32, ptr %51, align 4, !tbaa !11
   %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 25)
@@ -1518,7 +1518,7 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   %57 = xor i32 %55, %56
   %58 = add i32 %49, %37
   %59 = add i32 %58, %57
-  %60 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv177
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv177
   store i32 %59, ptr %60, align 4, !tbaa !11
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 64
@@ -1543,9 +1543,9 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   %67 = xor i32 %.1128142, -1
   %68 = and i32 %.1132140, %67
   %69 = or i32 %66, %68
-  %70 = getelementptr inbounds nuw i32, ptr @K, i64 %indvars.iv181
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %indvars.iv181
   %71 = load i32, ptr %70, align 4, !tbaa !11
-  %72 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv181
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv181
   %73 = load i32, ptr %72, align 4, !tbaa !11
   %74 = add i32 %69, %.1134139
   %75 = add i32 %74, %65

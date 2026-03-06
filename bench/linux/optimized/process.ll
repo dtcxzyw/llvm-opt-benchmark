@@ -961,7 +961,7 @@ define dso_local void @speculative_store_bypass_ht_init() local_unnamed_addr #7 
   %8 = zext i32 %3 to i64
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %9, align 8
-  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
+  %10 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @cpu_sibling_map to i64)
   %13 = inttoptr i64 %12 to ptr
@@ -987,7 +987,7 @@ define dso_local void @speculative_store_bypass_ht_init() local_unnamed_addr #7 
 
 26:                                               ; preds = %24
   %27 = and i64 %21, 63
-  %28 = getelementptr i64, ptr @__per_cpu_offset, i64 %27
+  %28 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, ptrtoint (ptr @ssb_state to i64)
   %31 = inttoptr i64 %30 to ptr

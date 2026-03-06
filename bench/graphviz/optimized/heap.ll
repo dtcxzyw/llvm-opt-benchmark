@@ -3,8 +3,6 @@ source_filename = "bench/graphviz/original/heap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Halfedge = type { ptr, ptr, ptr, i32, i8, ptr, double, ptr }
-
 @sqrt_nsites = external local_unnamed_addr global i32, align 4
 @ymax = external local_unnamed_addr global double, align 8
 @ymin = external local_unnamed_addr global double, align 8
@@ -60,7 +58,7 @@ define void @PQinsert(ptr noundef captures(none) %0, ptr noundef initializes((32
 
 PQbucket.exit:                                    ; preds = %27, %31
   %32 = sext i32 %.0.i to i64
-  %33 = getelementptr inbounds %struct.Halfedge, ptr %10, i64 %32
+  %33 = getelementptr inbounds [56 x i8], ptr %10, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !23
   %.not24 = icmp eq ptr %35, null
@@ -154,7 +152,7 @@ define void @PQdelete(ptr noundef captures(none) %0, ptr noundef captures(addres
 
 PQbucket.exit:                                    ; preds = %24, %28
   %29 = sext i32 %.0.i to i64
-  %30 = getelementptr inbounds %struct.Halfedge, ptr %6, i64 %29
+  %30 = getelementptr inbounds [56 x i8], ptr %6, i64 %29
   br label %31
 
 31:                                               ; preds = %31, %PQbucket.exit
@@ -197,7 +195,7 @@ define { double, double } @PQ_min(ptr noundef captures(none) %0) local_unnamed_a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load i32, ptr %3, align 8, !tbaa !22
   %4 = sext i32 %.promoted to i64
-  %5 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %4
+  %5 = getelementptr inbounds [56 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = icmp eq ptr %7, null
@@ -206,7 +204,7 @@ define { double, double } @PQ_min(ptr noundef captures(none) %0) local_unnamed_a
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %4, %1 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %indvars.iv.next
+  %9 = getelementptr inbounds [56 x i8], ptr %2, i64 %indvars.iv.next
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = icmp eq ptr %11, null
@@ -235,7 +233,7 @@ define ptr @PQextractmin(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !22
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48

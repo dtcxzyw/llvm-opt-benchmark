@@ -415,7 +415,7 @@ define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr nounde
   %10 = load ptr, ptr @g_ascii_table, align 8
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %10, i64 %12
+  %13 = getelementptr [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 64
   %.not = icmp eq i16 %15, 0
@@ -1373,7 +1373,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   %44 = add i32 %.1170, %30
   %45 = add i32 %.0171, 1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr ptr, ptr %26, i64 %46
+  %47 = getelementptr [8 x i8], ptr %26, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not168 = icmp ne ptr %48, null
   %49 = zext i1 %.not168 to i32

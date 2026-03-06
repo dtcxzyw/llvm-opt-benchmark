@@ -1668,13 +1668,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   %569 = add nuw i64 %.021380, 1
   %570 = trunc i64 %569 to i32
   %571 = trunc i64 %567 to i32
-  %572 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %568, i64 %.021380
+  %572 = getelementptr inbounds nuw [32 x i8], ptr %568, i64 %.021380
   %573 = load ptr, ptr %572, align 8, !tbaa !15
   %574 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %570, i32 noundef %571, ptr noundef %573)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %575 = load ptr, ptr %38, align 8, !tbaa !66
-  %576 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %575, i64 %.021380
+  %576 = getelementptr inbounds nuw [32 x i8], ptr %575, i64 %.021380
   %577 = load ptr, ptr %576, align 8, !tbaa !15
   store ptr %524, ptr %45, align 8, !tbaa !4
   %578 = icmp eq ptr %577, null
@@ -1748,7 +1748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %598 = load ptr, ptr %39, align 8, !tbaa !66
-  %599 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %598, i64 %.021380
+  %599 = getelementptr inbounds nuw [32 x i8], ptr %598, i64 %.021380
   store ptr %526, ptr %46, align 8, !tbaa !4
   %600 = load ptr, ptr %599, align 8, !tbaa !15
   %601 = getelementptr inbounds nuw i8, ptr %599, i64 8
@@ -2610,7 +2610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %87
   %.020386 = phi i64 [ 0, %.lr.ph387 ], [ %983, %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
-  %881 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %880, i64 %.020386
+  %881 = getelementptr inbounds nuw [32 x i8], ptr %880, i64 %.020386
   %882 = load ptr, ptr %881, align 8, !tbaa !15
   %883 = getelementptr inbounds nuw i8, ptr %881, i64 8
   %884 = load i64, ptr %883, align 8, !tbaa !10
@@ -2620,7 +2620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %87
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit: ; preds = %879
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %886 = load ptr, ptr %52, align 8, !tbaa !66
-  %887 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %886, i64 %.020386
+  %887 = getelementptr inbounds nuw [32 x i8], ptr %886, i64 %.020386
   invoke void @_ZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %887, i32 noundef 1)
           to label %888 unwind label %906
 
@@ -2711,7 +2711,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   store ptr %60, ptr %762, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %912 = load ptr, ptr %59, align 8, !tbaa !94
-  %913 = getelementptr inbounds nuw %"class.std::vector.17", ptr %912, i64 %.019381
+  %913 = getelementptr inbounds nuw [24 x i8], ptr %912, i64 %.019381
   store i32 0, ptr %764, align 8, !tbaa !71
   store i32 0, ptr %765, align 4, !tbaa !72
   store i32 -2130509811, ptr %67, align 8, !tbaa !67
@@ -2730,7 +2730,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   store i32 50397184, ptr %69, align 8, !tbaa !67
   store ptr %60, ptr %769, align 8, !tbaa !70
   %915 = load ptr, ptr %56, align 8, !tbaa !75
-  %916 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %915, i64 %.019381
+  %916 = getelementptr inbounds nuw [16 x i8], ptr %915, i64 %.019381
   %.sroa.0.0.copyload = load i64, ptr %916, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %916, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4

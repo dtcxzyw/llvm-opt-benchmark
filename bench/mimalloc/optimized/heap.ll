@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
 %union.anon = type { %struct.mi_memid_os_info }
 %struct.mi_memid_os_info = type { ptr, i64 }
-%struct.mi_page_s = type { i8, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, ptr, i16, i8, i8, i64, ptr, i64, i64, ptr, ptr }
-%union.mi_page_flags_s = type { i8 }
 %struct.mi_heap_area_ex_s = type { %struct.mi_heap_area_s, ptr }
 %struct.mi_heap_area_s = type { ptr, i64, i64, i64, i64, i64, i32 }
 
@@ -87,7 +85,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
 
 35:                                               ; preds = %.critedge.i, %.preheader.i
   %.02229.i = phi i64 [ 0, %.preheader.i ], [ %40, %.critedge.i ]
-  %36 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %34, i64 %.02229.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.02229.i
   %37 = load ptr, ptr %36, align 8, !tbaa !32
   %.not.i37 = icmp eq ptr %37, null
   br i1 %.not.i37, label %.critedge.i, label %.lr.ph
@@ -122,7 +120,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
 
 .preheader.i21.split.us:                          ; preds = %.preheader.i21, %.critedge.i26.us
   %.02229.i22.us = phi i64 [ %50, %.critedge.i26.us ], [ 0, %.preheader.i21 ]
-  %48 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %47, i64 %.02229.i22.us
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %.02229.i22.us
   %49 = load ptr, ptr %48, align 8, !tbaa !32
   %.not.i2439.us = icmp eq ptr %49, null
   br i1 %.not.i2439.us, label %.critedge.i26.us, label %.lr.ph41.us
@@ -156,7 +154,7 @@ mi_heap_page_collect.exit.us.us:                  ; preds = %56, %55
 
 .preheader.i21.split:                             ; preds = %.preheader.i21, %.critedge.i26
   %.02229.i22 = phi i64 [ %64, %.critedge.i26 ], [ 0, %.preheader.i21 ]
-  %57 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %47, i64 %.02229.i22
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %.02229.i22
   %58 = load ptr, ptr %57, align 8, !tbaa !32
   %.not.i2439 = icmp eq ptr %58, null
   br i1 %.not.i2439, label %.critedge.i26, label %.lr.ph41
@@ -445,7 +443,7 @@ define hidden void @_mi_heap_destroy_pages(ptr noundef captures(address_is_null)
 
 8:                                                ; preds = %.critedge.i, %.preheader.i
   %.02229.i = phi i64 [ 0, %.preheader.i ], [ %16, %.critedge.i ]
-  %9 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %7, i64 %.02229.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.02229.i
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %.not.i2 = icmp eq ptr %10, null
   br i1 %.not.i2, label %.critedge.i, label %.lr.ph
@@ -512,7 +510,7 @@ define hidden void @mi_heap_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %.critedge.i.i, %.preheader.i.i
   %.02229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %22, %.critedge.i.i ]
-  %15 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %13, i64 %.02229.i.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.02229.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   %.not.i2.i = icmp eq ptr %16, null
   br i1 %.not.i2.i, label %.critedge.i.i, label %.lr.ph.i
@@ -662,8 +660,8 @@ mi_heaps_are_compatible.exit:                     ; preds = %8
 
 31:                                               ; preds = %31, %23
   %.018.i = phi i64 [ 0, %23 ], [ %39, %31 ]
-  %32 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %25, i64 %.018.i
-  %33 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %26, i64 %.018.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.018.i
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %.018.i
   %34 = tail call i64 @_mi_page_queue_append(ptr noundef nonnull %7, ptr noundef nonnull %32, ptr noundef nonnull %33) #11
   %35 = load i64, ptr %27, align 8, !tbaa !31
   %36 = add i64 %35, %34
@@ -776,7 +774,7 @@ define hidden void @_mi_heap_unsafe_destroy_all(ptr noundef readonly captures(ad
 
 18:                                               ; preds = %.critedge.i.i, %.preheader.i.i
   %.02229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %26, %.critedge.i.i ]
-  %19 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %17, i64 %.02229.i.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.02229.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %.not.i2.i = icmp eq ptr %20, null
   br i1 %.not.i2.i, label %.critedge.i.i, label %.lr.ph.i
@@ -868,7 +866,7 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %21 = load i64, ptr %20, align 16, !tbaa !58
   %22 = lshr i64 %19, %21
-  %23 = getelementptr inbounds nuw %struct.mi_page_s, ptr %12, i64 %22
+  %23 = getelementptr inbounds nuw [80 x i8], ptr %12, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 216
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %26 = inttoptr i64 %25 to ptr
@@ -905,7 +903,7 @@ define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captu
 
 13:                                               ; preds = %.critedge.i, %.preheader.i
   %.02229.i = phi i64 [ 0, %.preheader.i ], [ %27, %.critedge.i ]
-  %14 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %12, i64 %.02229.i
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.02229.i
   %.020.i11 = load ptr, ptr %14, align 8, !tbaa !59
   %.not.i12 = icmp eq ptr %.020.i11, null
   br i1 %.not.i12, label %.critedge.i, label %.lr.ph
@@ -969,7 +967,7 @@ define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_a
 
 14:                                               ; preds = %.critedge.i.i, %.preheader.i.i
   %.02229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %28, %.critedge.i.i ]
-  %15 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %13, i64 %.02229.i.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.02229.i.i
   %.020.i11.i = load ptr, ptr %15, align 8, !tbaa !59
   %.not.i12.i = icmp eq ptr %.020.i11.i, null
   br i1 %.not.i12.i, label %.critedge.i.i, label %.lr.ph.i
@@ -1120,7 +1118,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
 47:                                               ; preds = %41
   %48 = zext nneg i16 %46 to i64
   %49 = shl nsw i64 -1, %48
-  %50 = getelementptr i64, ptr %6, i64 %44
+  %50 = getelementptr [8 x i8], ptr %6, i64 %44
   %51 = getelementptr i8, ptr %50, i64 -8
   store i64 %49, ptr %51, align 8, !tbaa !46
   br label %52
@@ -1162,7 +1160,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %72 = lshr i64 %71, 6
   %73 = and i64 %71, 63
   %74 = shl nuw i64 1, %73
-  %75 = getelementptr inbounds nuw i64, ptr %6, i64 %72
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %72
   %76 = load i64, ptr %75, align 8, !tbaa !46
   %77 = or i64 %76, %74
   store i64 %77, ptr %75, align 8, !tbaa !46
@@ -1174,7 +1172,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
 79:                                               ; preds = %.lr.ph137, %.critedge115
   %.092135 = phi i64 [ 0, %.lr.ph137 ], [ %98, %.critedge115 ]
   %.093134 = phi ptr [ %20, %.lr.ph137 ], [ %.396, %.critedge115 ]
-  %80 = getelementptr inbounds nuw i64, ptr %6, i64 %.092135
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.092135
   %81 = load i64, ptr %80, align 8, !tbaa !46
   %82 = icmp eq i64 %81, 0
   br i1 %82, label %.preheader121, label %87
@@ -1266,7 +1264,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
 
 .preheader.i.i.split.us:                          ; preds = %.preheader.i.i, %.critedge.i.i.us
   %.02229.i.i.us = phi i64 [ %21, %.critedge.i.i.us ], [ 0, %.preheader.i.i ]
-  %19 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %11, i64 %.02229.i.i.us
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %.02229.i.i.us
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %.not.i3.i.us = icmp eq ptr %20, null
   br i1 %.not.i3.i.us, label %.critedge.i.i.us, label %.lr.ph.i.us.us
@@ -1322,7 +1320,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
 
 .preheader.i.i.split:                             ; preds = %.preheader.i.i, %.critedge.i.i
   %.02229.i.i = phi i64 [ %65, %.critedge.i.i ], [ 0, %.preheader.i.i ]
-  %44 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %11, i64 %.02229.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %.02229.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !32
   %.not.i3.i = icmp eq ptr %45, null
   br i1 %.not.i3.i, label %.critedge.i.i, label %.lr.ph.i

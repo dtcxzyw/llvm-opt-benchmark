@@ -15243,7 +15243,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17h4830affbc988ac74E(p
   %.val = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val7 = load i64, ptr %15, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %.val, i64 %.val7
+  %16 = getelementptr inbounds nuw [104 x i8], ptr %.val, i64 %.val7
   store ptr %.val, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %16, ptr %17, align 8
@@ -15523,7 +15523,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17h5adc6ce512607df6E(p
   %.val = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val7 = load i64, ptr %15, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %.val, i64 %.val7
+  %16 = getelementptr inbounds nuw [104 x i8], ptr %.val, i64 %.val7
   store ptr %.val, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %16, ptr %17, align 8
@@ -15803,7 +15803,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17h9411a9e23b20edccE(p
   %.val = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val7 = load i64, ptr %15, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %.val, i64 %.val7
+  %16 = getelementptr inbounds nuw [80 x i8], ptr %.val, i64 %.val7
   store ptr %.val, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %16, ptr %17, align 8
@@ -16082,7 +16082,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17ha8c66162590e40daE(p
   %.val = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val7 = load i64, ptr %15, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %.val, i64 %.val7
+  %16 = getelementptr inbounds nuw [104 x i8], ptr %.val, i64 %.val7
   store ptr %.val, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %16, ptr %17, align 8
@@ -16362,7 +16362,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17hb7b31e819280a58bE(p
   %.val = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val7 = load i64, ptr %15, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %.val, i64 %.val7
+  %16 = getelementptr inbounds nuw [80 x i8], ptr %.val, i64 %.val7
   store ptr %.val, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %16, ptr %17, align 8
@@ -16641,7 +16641,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17he0fba3d0bb7fe6f1E(p
   %.val = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val7 = load i64, ptr %15, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %.val, i64 %.val7
+  %16 = getelementptr inbounds nuw [80 x i8], ptr %.val, i64 %.val7
   store ptr %.val, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %16, ptr %17, align 8
@@ -104330,10 +104330,10 @@ define void @"_ZN80_$LT$polars_plan..dsl..options..Engine$u20$as$u20$core..str..
 define { ptr, i64 } @_ZN11polars_plan3dsl7options6Engine15into_static_str17hb965932f85a331e4E(i8 noundef range(i8 0, 5) %0) unnamed_addr #1 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11polars_plan3dsl7options6Engine15into_static_str17hb965932f85a331e4E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11polars_plan3dsl7options6Engine15into_static_str17hb965932f85a331e4E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_plan3dsl7options6Engine15into_static_str17hb965932f85a331e4E.1072, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11polars_plan3dsl7options6Engine15into_static_str17hb965932f85a331e4E.1072, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -104365,9 +104365,9 @@ switch.lookup:
   %4 = icmp ne i64 %2, 2
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11polars_plan3dsl7options8FileType9extension17h9e62a3f50527c5f2E, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11polars_plan3dsl7options8FileType9extension17h9e62a3f50527c5f2E, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_plan3dsl7options8FileType9extension17h9e62a3f50527c5f2E.1073, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11polars_plan3dsl7options8FileType9extension17h9e62a3f50527c5f2E.1073, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1
@@ -104521,10 +104521,10 @@ define noundef zeroext i1 @"_ZN182_$LT$polars_plan..dsl..options.._..$LT$impl$u2
 define { ptr, i64 } @"_ZN11polars_plan3dsl7options105_$LT$impl$u20$core..convert..From$LT$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17h4eb1bda06f8352bbE"(i8 noundef range(i8 0, 3) %0) unnamed_addr #1 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE.1075", i64 %2
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE.1075", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -104536,10 +104536,10 @@ define { ptr, i64 } @"_ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !1300, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE.1075", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN11polars_plan3dsl7options109_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..options..WindowMapping$GT$$u20$for$u20$$RF$str$GT$4from17hc392d7cf814edf1cE.1075", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

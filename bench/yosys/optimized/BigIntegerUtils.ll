@@ -641,9 +641,9 @@ _ZN15NumberlikeArrayItED2Ev.exit2.i88:            ; preds = %76, %71
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc93, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.noexc93 ]
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %indvars.iv.i.i.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv.i.i.i
   %89 = load i64, ptr %88, align 8, !tbaa !36
-  %90 = getelementptr inbounds nuw i64, ptr %84, i64 %indvars.iv.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i.i.i
   store i64 %89, ptr %90, align 8, !tbaa !36
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %82
@@ -712,9 +712,9 @@ _ZN15NumberlikeArrayItED2Ev.exit2.i94:            ; preds = %102, %97
 
 .lr.ph.i.i.i100:                                  ; preds = %.noexc104, %.lr.ph.i.i.i100
   %indvars.iv.i.i.i101 = phi i64 [ %indvars.iv.next.i.i.i102, %.lr.ph.i.i.i100 ], [ 0, %.noexc104 ]
-  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %indvars.iv.i.i.i101
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv.i.i.i101
   %115 = load i64, ptr %114, align 8, !tbaa !36
-  %116 = getelementptr inbounds nuw i64, ptr %110, i64 %indvars.iv.i.i.i101
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i.i.i101
   store i64 %115, ptr %116, align 8, !tbaa !36
   %indvars.iv.next.i.i.i102 = add nuw nsw i64 %indvars.iv.i.i.i101, 1
   %exitcond.not.i.i.i103 = icmp eq i64 %indvars.iv.next.i.i.i102, %108

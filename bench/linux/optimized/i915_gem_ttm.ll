@@ -14,14 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic64_t = type { i64 }
 %struct.radix_tree_iter = type { i64, i64, i64, ptr }
 %struct.ttm_operation_ctx = type { i8, i8, i8, i8, i8, ptr, i64 }
-%struct.page = type { i64, %union.anon.56, %union.anon.64, %struct.atomic_t, [8 x i8] }
-%union.anon.56 = type { %struct.anon.57 }
-%struct.anon.57 = type { %union.anon.58, ptr, %union.anon.60, i64 }
-%union.anon.58 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.60 = type { i64 }
-%union.anon.64 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @i915_sys_placement = internal global %struct.ttm_placement { i32 1, ptr @sys_placement_flags, i32 1, ptr @sys_placement_flags }, align 8
 @i915_ttm_bo_driver = internal global %struct.ttm_device_funcs { ptr @i915_ttm_tt_create, ptr @i915_ttm_tt_populate, ptr @i915_ttm_tt_unpopulate, ptr @i915_ttm_tt_destroy, ptr @i915_ttm_eviction_valuable, ptr @i915_ttm_evict_flags, ptr @i915_ttm_move, ptr @i915_ttm_delete_mem_notify, ptr @i915_ttm_swap_notify, ptr @i915_ttm_io_mem_reserve, ptr null, ptr @i915_ttm_io_mem_pfn, ptr @i915_ttm_access_memory, ptr null }, align 8
@@ -571,7 +563,7 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %82 = load ptr, ptr %59, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 144
   %84 = sext i32 %77 to i64
-  %85 = getelementptr ptr, ptr %83, i64 %84
+  %85 = getelementptr [8 x i8], ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i64 @i915_ttm_buddy_man_visible_size(ptr noundef %86) #11
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -850,7 +842,7 @@ define internal noundef ptr @i915_ttm_tt_create(ptr noundef %0, i32 noundef %1) 
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %25 = sext i32 %22 to i64
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1, !range !16, !noundef !17
@@ -1006,7 +998,7 @@ define internal i32 @i915_ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr no
   %56 = lshr i32 %50, 12
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr i8, ptr %55, i64 %53
-  %59 = getelementptr %struct.page, ptr %58, i64 %57
+  %59 = getelementptr [64 x i8], ptr %58, i64 %57
   %60 = icmp eq ptr %59, null
   %61 = select i1 %54, i1 true, i1 %60
   br i1 %61, label %.loopexit, label %.preheader.preheader
@@ -1027,7 +1019,7 @@ define internal i32 @i915_ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr no
   %71 = phi ptr [ %103, %.thread13 ], [ %46, %.preheader.preheader ]
   %72 = load ptr, ptr %1, align 8
   %73 = add i64 %67, 1
-  %74 = getelementptr ptr, ptr %72, i64 %67
+  %74 = getelementptr [8 x i8], ptr %72, i64 %67
   store ptr %66, ptr %74, align 8
   %75 = add i32 %69, 4096
   %76 = icmp ult i32 %75, %68
@@ -1079,8 +1071,8 @@ define internal i32 @i915_ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr no
   %109 = inttoptr i64 %108 to ptr
   %110 = lshr i32 %105, 12
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr %struct.page, ptr %109, i64 %104
-  %113 = getelementptr %struct.page, ptr %112, i64 %111
+  %112 = getelementptr [64 x i8], ptr %109, i64 %104
+  %113 = getelementptr [64 x i8], ptr %112, i64 %111
   %114 = icmp eq ptr %113, null
   %115 = select i1 %107, i1 true, i1 %114
   br i1 %115, label %.loopexit, label %.preheader, !llvm.loop !24
@@ -1642,9 +1634,9 @@ define internal i32 @i915_ttm_get_pages(ptr noundef %0) #1 align 16 {
 29:                                               ; preds = %29, %26
   %30 = phi i64 [ 0, %26 ], [ %37, %29 ]
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr ptr, ptr %31, i64 %30
+  %32 = getelementptr [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr %struct.ttm_place, ptr %3, i64 %30
+  %34 = getelementptr [16 x i8], ptr %3, i64 %30
   %35 = load i64, ptr %23, align 8
   %36 = load i64, ptr %5, align 8
   call fastcc void @i915_ttm_place_from_region(ptr noundef %33, ptr noundef %34, i64 noundef %35, i64 noundef %36, i32 noundef %13)
@@ -2366,7 +2358,7 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   %74 = phi i64 [ 0, %59 ], [ %69, %.thread ]
   %75 = phi i32 [ -19, %59 ], [ %68, %.thread ]
   %76 = load ptr, ptr %60, align 8
-  %77 = getelementptr ptr, ptr %76, i64 %74
+  %77 = getelementptr [8 x i8], ptr %76, i64 %74
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 120
   %80 = load i64, ptr %79, align 8

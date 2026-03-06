@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
 %struct.mi_page_queue_s = type { ptr, ptr, i64 }
 %struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32 }
-%struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
-%union.mi_page_flags_s = type { i8 }
 %struct.mi_heap_area_ex_s = type { %struct.mi_heap_area_s, ptr }
 %struct.mi_heap_area_s = type { ptr, i64, i64, i64, i64, i64 }
 
@@ -72,7 +70,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
 
 27:                                               ; preds = %._crit_edge, %.preheader.i
   %.03036.i = phi i64 [ 0, %.preheader.i ], [ %32, %._crit_edge ]
-  %28 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %26, i64 %.03036.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %.03036.i
   %29 = load ptr, ptr %28, align 8, !tbaa !28
   %.not.i35 = icmp eq ptr %29, null
   br i1 %.not.i35, label %._crit_edge, label %.lr.ph
@@ -105,7 +103,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
 
 .preheader.i22.split.us:                          ; preds = %.preheader.i22, %._crit_edge41.split.us.us
   %.03036.i23.us = phi i64 [ %40, %._crit_edge41.split.us.us ], [ 0, %.preheader.i22 ]
-  %38 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %37, i64 %.03036.i23.us
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.03036.i23.us
   %39 = load ptr, ptr %38, align 8, !tbaa !28
   %.not.i2537.us = icmp eq ptr %39, null
   br i1 %.not.i2537.us, label %._crit_edge41.split.us.us, label %.lr.ph40.us
@@ -139,7 +137,7 @@ mi_heap_page_collect.exit.us.us:                  ; preds = %46, %45
 
 .preheader.i22.split:                             ; preds = %.preheader.i22, %._crit_edge41.split
   %.03036.i23 = phi i64 [ %54, %._crit_edge41.split ], [ 0, %.preheader.i22 ]
-  %47 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %37, i64 %.03036.i23
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.03036.i23
   %48 = load ptr, ptr %47, align 8, !tbaa !28
   %.not.i2537 = icmp eq ptr %48, null
   br i1 %.not.i2537, label %._crit_edge41.split, label %.lr.ph40
@@ -308,7 +306,7 @@ define hidden void @_mi_heap_destroy_pages(ptr noundef captures(address_is_null)
 
 9:                                                ; preds = %._crit_edge, %.preheader.i
   %.03036.i = phi i64 [ 0, %.preheader.i ], [ %25, %._crit_edge ]
-  %10 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %8, i64 %.03036.i
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.03036.i
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %.not.i2 = icmp eq ptr %11, null
   br i1 %.not.i2, label %._crit_edge, label %.lr.ph
@@ -390,7 +388,7 @@ define hidden void @mi_heap_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %._crit_edge.i, %.preheader.i.i
   %.03036.i.i = phi i64 [ 0, %.preheader.i.i ], [ %31, %._crit_edge.i ]
-  %16 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %14, i64 %.03036.i.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.03036.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %.not.i2.i = icmp eq ptr %17, null
   br i1 %.not.i2.i, label %._crit_edge.i, label %.lr.ph.i
@@ -537,8 +535,8 @@ define hidden void @mi_heap_delete(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %20, %13
   %.018.i = phi i64 [ 0, %13 ], [ %28, %20 ]
-  %21 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %14, i64 %.018.i
-  %22 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %15, i64 %.018.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.018.i
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %.018.i
   %23 = tail call i64 @_mi_page_queue_append(ptr noundef %7, ptr noundef nonnull %21, ptr noundef nonnull %22) #8
   %24 = load i64, ptr %16, align 8, !tbaa !27
   %25 = add i64 %24, %23
@@ -658,7 +656,7 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   %15 = lshr i64 %7, 16
   %16 = and i64 %15, 1023
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 368
-  %18 = getelementptr inbounds nuw %struct.mi_page_s, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [80 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !55
   %21 = zext i32 %20 to i64
@@ -701,7 +699,7 @@ define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captu
 
 14:                                               ; preds = %._crit_edge, %.preheader.i
   %.03036.i = phi i64 [ 0, %.preheader.i ], [ %40, %._crit_edge ]
-  %15 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %13, i64 %.03036.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.03036.i
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %.not.i11 = icmp eq ptr %16, null
   br i1 %.not.i11, label %._crit_edge, label %.lr.ph
@@ -784,7 +782,7 @@ define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_a
 
 15:                                               ; preds = %._crit_edge.i, %.preheader.i.i
   %.03036.i.i = phi i64 [ 0, %.preheader.i.i ], [ %41, %._crit_edge.i ]
-  %16 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %14, i64 %.03036.i.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.03036.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %.not.i11.i = icmp eq ptr %17, null
   br i1 %.not.i11.i, label %._crit_edge.i, label %.lr.ph.i
@@ -869,7 +867,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
 
 24:                                               ; preds = %._crit_edge, %.preheader.i.i
   %.03036.i.i = phi i64 [ 0, %.preheader.i.i ], [ %121, %._crit_edge ]
-  %25 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %17, i64 %.03036.i.i
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.03036.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !28
   %.not.i.i16 = icmp eq ptr %26, null
   br i1 %.not.i.i16, label %._crit_edge, label %.lr.ph
@@ -1032,7 +1030,7 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   %90 = lshr i64 %89, 3
   %91 = and i64 %89, 7
   %92 = shl nuw nsw i64 1, %91
-  %93 = getelementptr inbounds nuw i64, ptr %8, i64 %90
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %90
   %94 = load i64, ptr %93, align 8, !tbaa !43
   %95 = or i64 %92, %94
   store i64 %95, ptr %93, align 8, !tbaa !43
@@ -1046,7 +1044,7 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   %.06481.i.i = phi i64 [ 0, %.lr.ph83.i.i ], [ %119, %117 ]
   %99 = lshr i64 %.06481.i.i, 3
   %100 = and i64 %.06481.i.i, 7
-  %101 = getelementptr inbounds nuw i64, ptr %8, i64 %99
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %99
   %102 = load i64, ptr %101, align 8, !tbaa !43
   %103 = icmp eq i64 %100, 0
   %104 = icmp eq i64 %102, -1

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.ErrorHandler = type <{ i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] }>
-%"struct.CmdExtract::ExtractRef" = type { ptr, ptr, i64 }
 %class.uiMsgStore = type <{ [8 x ptr], [8 x i32], i32, i32, i32, [4 x i8] }>
 %struct.FindData = type <{ [2048 x i32], i64, i32, i8, i8, [2 x i8], %class.RarTime, %class.RarTime, %class.RarTime, i32, i8, [3 x i8] }>
 %class.RarTime = type { i64 }
@@ -213,7 +212,7 @@ define void @_ZN10CmdExtractD2Ev(ptr noundef nonnull align 8 dereferenceable(168
 .lr.ph.i:                                         ; preds = %1, %12
   %.06.i = phi i64 [ %20, %12 ], [ 0, %1 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !41
-  %7 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %6, i64 %.06.i
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.06.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   %.not.i = icmp eq ptr %9, null
@@ -229,11 +228,11 @@ define void @_ZN10CmdExtractD2Ev(ptr noundef nonnull align 8 dereferenceable(168
 
 12:                                               ; preds = %.noexc, %.lr.ph.i
   %13 = phi ptr [ %.pre.i, %.noexc ], [ %6, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %13, i64 %.06.i
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06.i
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   tail call void @free(ptr noundef %15) #23
   %16 = load ptr, ptr %0, align 8, !tbaa !41
-  %17 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %16, i64 %.06.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.06.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   tail call void @free(ptr noundef %19) #23
@@ -326,7 +325,7 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE5ResetEv.exit: ; preds = %._crit_edge, %5
 .lr.ph:                                           ; preds = %1, %14
   %.06 = phi i64 [ %22, %14 ], [ 0, %1 ]
   %8 = load ptr, ptr %0, align 8, !tbaa !41
-  %9 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %8, i64 %.06
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.06
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !43
   %.not = icmp eq ptr %11, null
@@ -339,11 +338,11 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE5ResetEv.exit: ; preds = %._crit_edge, %5
 
 14:                                               ; preds = %12, %.lr.ph
   %15 = phi ptr [ %.pre, %12 ], [ %8, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %15, i64 %.06
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %.06
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   tail call void @free(ptr noundef %17) #23
   %18 = load ptr, ptr %0, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %18, i64 %.06
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.06
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !43
   tail call void @free(ptr noundef %21) #23
@@ -512,7 +511,7 @@ define void @_ZN10CmdExtract9DoExtractEv(ptr noundef nonnull align 8 dereference
 
 74:                                               ; preds = %74, %73
   %indvars.iv.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i, %74 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i
   store ptr @.str, ptr %75, align 8, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -1020,7 +1019,7 @@ define void @_ZN10CmdExtract14AnalyzeArchiveEPKwbb(ptr noundef nonnull align 8 c
 .lr.ph.i:                                         ; preds = %4, %17
   %.06.i = phi i64 [ %25, %17 ], [ 0, %4 ]
   %11 = load ptr, ptr %0, align 8, !tbaa !41
-  %12 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %11, i64 %.06.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %.06.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !43
   %.not.i = icmp eq ptr %14, null
@@ -1033,11 +1032,11 @@ define void @_ZN10CmdExtract14AnalyzeArchiveEPKwbb(ptr noundef nonnull align 8 c
 
 17:                                               ; preds = %15, %.lr.ph.i
   %18 = phi ptr [ %.pre.i, %15 ], [ %11, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %18, i64 %.06.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.06.i
   %20 = load ptr, ptr %19, align 8, !tbaa !45
   tail call void @free(ptr noundef %20) #23
   %21 = load ptr, ptr %0, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %21, i64 %.06.i
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %.06.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !43
   tail call void @free(ptr noundef %24) #23
@@ -1250,7 +1249,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
 
 117:                                              ; preds = %.lr.ph, %115
   %.055113 = phi i64 [ 0, %.lr.ph ], [ %116, %115 ]
-  %118 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %114, i64 %.055113
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %.055113
   %119 = load ptr, ptr %118, align 8, !tbaa !45
   %120 = call i32 @wcscmp(ptr noundef nonnull %54, ptr noundef %119) #25
   %121 = icmp eq i32 %120, 0
@@ -1326,7 +1325,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
 _ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i, %.noexc81
   %147 = phi ptr [ %.pre1.i, %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i ], [ %144, %.noexc81 ]
   %148 = phi i64 [ %129, %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i ], [ %.pre.i79, %.noexc81 ]
-  %149 = getelementptr %"struct.CmdExtract::ExtractRef", ptr %147, i64 %148
+  %149 = getelementptr [24 x i8], ptr %147, i64 %148
   %150 = getelementptr i8, ptr %149, i64 -24
   store ptr %127, ptr %150, align 8, !tbaa !77
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %149, i64 -16
@@ -1743,7 +1742,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
 
 193:                                              ; preds = %193, %192
   %indvars.iv.i.i = phi i64 [ 0, %192 ], [ %indvars.iv.next.i.i, %193 ]
-  %194 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i
   store ptr @.str, ptr %194, align 8, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -1792,7 +1791,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
 
 209:                                              ; preds = %.lr.ph, %207
   %.0318508 = phi i64 [ 0, %.lr.ph ], [ %208, %207 ]
-  %210 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %206, i64 %.0318508
+  %210 = getelementptr inbounds nuw [24 x i8], ptr %206, i64 %.0318508
   %211 = load ptr, ptr %210, align 8, !tbaa !45
   %212 = call i32 @wcscmp(ptr noundef nonnull %16, ptr noundef %211) #25
   %213 = icmp eq i32 %212, 0
@@ -1964,7 +1963,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
 
 307:                                              ; preds = %307, %305
   %indvars.iv.i.i.i = phi i64 [ 0, %305 ], [ %indvars.iv.next.i.i.i, %307 ]
-  %308 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i.i
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i.i
   store ptr @.str, ptr %308, align 8, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -2083,7 +2082,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
 
 368:                                              ; preds = %368, %367
   %indvars.iv.i.i422 = phi i64 [ 0, %367 ], [ %indvars.iv.next.i.i423, %368 ]
-  %369 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i422
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i422
   store ptr @.str, ptr %369, align 8, !tbaa !77
   %indvars.iv.next.i.i423 = add nuw nsw i64 %indvars.iv.i.i422, 1
   %exitcond.not.i.i424 = icmp eq i64 %indvars.iv.next.i.i423, 8
@@ -2125,7 +2124,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit425: ; preds = %_ZN10uiMsgStor
 
 380:                                              ; preds = %380, %379
   %indvars.iv.i.i426 = phi i64 [ 0, %379 ], [ %indvars.iv.next.i.i427, %380 ]
-  %381 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i426
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i426
   store ptr @.str, ptr %381, align 8, !tbaa !77
   %indvars.iv.next.i.i427 = add nuw nsw i64 %indvars.iv.i.i426, 1
   %exitcond.not.i.i428 = icmp eq i64 %indvars.iv.next.i.i427, 8
@@ -2382,7 +2381,7 @@ switch.early.test:                                ; preds = %436
 
 478:                                              ; preds = %478, %477
   %indvars.iv.i.i431 = phi i64 [ 0, %477 ], [ %indvars.iv.next.i.i432, %478 ]
-  %479 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i431
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i431
   store ptr @.str, ptr %479, align 8, !tbaa !77
   %indvars.iv.next.i.i432 = add nuw nsw i64 %indvars.iv.i.i431, 1
   %exitcond.not.i.i433 = icmp eq i64 %indvars.iv.next.i.i432, 8
@@ -2644,7 +2643,7 @@ _Z13SlashToNativePKwPwm.exit:                     ; preds = %561
 
 593:                                              ; preds = %593, %592
   %indvars.iv.i.i436 = phi i64 [ 0, %592 ], [ %indvars.iv.next.i.i437, %593 ]
-  %594 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i436
+  %594 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i436
   store ptr @.str, ptr %594, align 8, !tbaa !77
   %indvars.iv.next.i.i437 = add nuw nsw i64 %indvars.iv.i.i436, 1
   %exitcond.not.i.i438 = icmp eq i64 %indvars.iv.next.i.i437, 8
@@ -2851,7 +2850,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i439:     ; preds = %593
 
 694:                                              ; preds = %694, %693
   %indvars.iv.i.i441 = phi i64 [ 0, %693 ], [ %indvars.iv.next.i.i442, %694 ]
-  %695 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i441
+  %695 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i441
   store ptr @.str, ptr %695, align 8, !tbaa !77
   %indvars.iv.next.i.i442 = add nuw nsw i64 %indvars.iv.i.i441, 1
   %exitcond.not.i.i443 = icmp eq i64 %indvars.iv.next.i.i442, 8
@@ -2881,7 +2880,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit445: ; preds = %_ZN10uiMsgStor
 
 702:                                              ; preds = %702, %701
   %indvars.iv.i.i446 = phi i64 [ 0, %701 ], [ %indvars.iv.next.i.i447, %702 ]
-  %703 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i446
+  %703 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i446
   store ptr @.str, ptr %703, align 8, !tbaa !77
   %indvars.iv.next.i.i447 = add nuw nsw i64 %indvars.iv.i.i446, 1
   %exitcond.not.i.i448 = icmp eq i64 %indvars.iv.next.i.i447, 8
@@ -3039,7 +3038,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit450: ; preds = %_ZN10uiMsgStor
 
 777:                                              ; preds = %777, %776
   %indvars.iv.i.i451 = phi i64 [ 0, %776 ], [ %indvars.iv.next.i.i452, %777 ]
-  %778 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i451
+  %778 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i451
   store ptr @.str, ptr %778, align 8, !tbaa !77
   %indvars.iv.next.i.i452 = add nuw nsw i64 %indvars.iv.i.i451, 1
   %exitcond.not.i.i453 = icmp eq i64 %indvars.iv.next.i.i452, 8
@@ -3276,14 +3275,14 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
   br i1 %47, label %48, label %69
 
 48:                                               ; preds = %45
-  %49 = getelementptr i32, ptr %41, i64 %42
+  %49 = getelementptr [4 x i8], ptr %41, i64 %42
   %50 = getelementptr i8, ptr %49, i64 -4
   %51 = load i32, ptr %50, align 4, !tbaa !14
   %52 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %51)
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i32, ptr %2, i64 %42
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %42
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %55)
   br i1 %56, label %60, label %57
@@ -3294,7 +3293,7 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
   br i1 %59, label %60, label %69
 
 60:                                               ; preds = %57, %53, %48
-  %61 = getelementptr inbounds nuw i32, ptr %2, i64 %42
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %42
   br label %62
 
 62:                                               ; preds = %62, %60
@@ -3424,7 +3423,7 @@ define noundef zeroext i1 @_ZN10CmdExtract11CheckUnpVerER7ArchivePKw(ptr noundef
 
 17:                                               ; preds = %17, %15
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   store ptr @.str, ptr %18, align 8, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3713,7 +3712,7 @@ define void @_ZN10CmdExtract13ExtrCreateDirER7ArchivePKw(ptr noundef nonnull ali
 
 50:                                               ; preds = %50, %49
   %indvars.iv.i.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.i, %50 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i
   store ptr @.str, ptr %51, align 8, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3738,7 +3737,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %50
 
 56:                                               ; preds = %56, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit
   %indvars.iv.i.i31 = phi i64 [ 0, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ %indvars.iv.next.i.i32, %56 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i31
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i31
   store ptr @.str, ptr %57, align 8, !tbaa !77
   %indvars.iv.next.i.i32 = add nuw nsw i64 %indvars.iv.i.i31, 1
   %exitcond.not.i.i33 = icmp eq i64 %indvars.iv.next.i.i32, 8
@@ -3824,7 +3823,7 @@ _Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %56
 
 99:                                               ; preds = %99, %.thread49
   %indvars.iv.i.i34 = phi i64 [ 0, %.thread49 ], [ %indvars.iv.next.i.i35, %99 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i34
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i34
   store ptr @.str, ptr %100, align 8, !tbaa !77
   %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i.i34, 1
   %exitcond.not.i.i36 = icmp eq i64 %indvars.iv.next.i.i35, 8
@@ -3943,7 +3942,7 @@ define noundef zeroext i1 @_ZN10CmdExtract14ExtrCreateFileER7ArchiveR4File(ptr n
 
 35:                                               ; preds = %35, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i
   store ptr @.str, ptr %36, align 8, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3971,7 +3970,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %35
 
 44:                                               ; preds = %44, %43
   %indvars.iv.i.i18 = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.i19, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i18
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i18
   store ptr @.str, ptr %45, align 8, !tbaa !77
   %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i18, 1
   %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i.i19, 8
@@ -4025,7 +4024,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %44
 
 70:                                               ; preds = %70, %69
   %indvars.iv.i.i21 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i.i22, %70 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i21
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i21
   store ptr @.str, ptr %71, align 8, !tbaa !77
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %exitcond.not.i.i23 = icmp eq i64 %indvars.iv.next.i.i22, 8
@@ -4111,7 +4110,7 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
 
 19:                                               ; preds = %.lr.ph, %62
   %.047115 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
-  %20 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %16, i64 %.047115
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.047115
   %21 = load ptr, ptr %20, align 8, !tbaa !45
   %22 = call i32 @wcscmp(ptr noundef %3, ptr noundef %21) #25
   %23 = icmp eq i32 %22, 0
@@ -4175,12 +4174,12 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
 
 .thread:                                          ; preds = %48, %49
   %53 = load ptr, ptr %0, align 8, !tbaa !41
-  %54 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %53, i64 %.047115
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %.047115
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !43
   call void @free(ptr noundef %56) #23
   %57 = load ptr, ptr %0, align 8, !tbaa !41
-  %58 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %57, i64 %.047115
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %.047115
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr null, ptr %59, align 8, !tbaa !43
   br label %.thread103
@@ -4211,7 +4210,7 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
 
 65:                                               ; preds = %65, %64
   %indvars.iv.i.i = phi i64 [ 0, %64 ], [ %indvars.iv.next.i.i, %65 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   store ptr @.str, ptr %66, align 8, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -4239,7 +4238,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i:        ; preds = %65
 
 73:                                               ; preds = %73, %72
   %indvars.iv.i.i66 = phi i64 [ 0, %72 ], [ %indvars.iv.next.i.i67, %73 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i66
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i66
   store ptr @.str, ptr %74, align 8, !tbaa !77
   %indvars.iv.next.i.i67 = add nuw nsw i64 %indvars.iv.i.i66, 1
   %exitcond.not.i.i68 = icmp eq i64 %indvars.iv.next.i.i67, 8

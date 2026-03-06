@@ -21,7 +21,7 @@ define dso_local noundef i32 @blake2s_init_param(ptr noundef captures(none) init
   %5 = shl nuw nsw i64 %.09, 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = load i32, ptr %6, align 1
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.09
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = xor i32 %9, %7
   store i32 %10, ptr %8, align 4, !tbaa !4
@@ -66,7 +66,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr noundef captures(none) %
   %13 = shl nuw nsw i64 %.09.i, 2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09.i
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = xor i32 %17, %15
   store i32 %18, ptr %16, align 4, !tbaa !4
@@ -126,7 +126,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr noundef captures(non
   %21 = shl nuw nsw i64 %.09.i, 2
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09.i
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = xor i32 %25, %23
   store i32 %26, ptr %24, align 4, !tbaa !4
@@ -1444,9 +1444,9 @@ define internal fastcc void @blake2s_compress(ptr noundef captures(none) %0, ptr
 
 1162:                                             ; preds = %.preheader.preheader, %1162
   %.223 = phi i64 [ 0, %.preheader.preheader ], [ %1171, %1162 ]
-  %1163 = getelementptr inbounds nuw i32, ptr %0, i64 %.223
+  %1163 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.223
   %1164 = load i32, ptr %1163, align 4, !tbaa !4
-  %1165 = getelementptr inbounds nuw i32, ptr %2, i64 %.223
+  %1165 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.223
   %1166 = load i32, ptr %1165, align 4, !tbaa !4
   %1167 = xor i32 %1166, %1164
   %1168 = getelementptr inbounds nuw i8, ptr %1165, i64 32
@@ -1583,7 +1583,7 @@ blake2s_init_key.exit.thread:                     ; preds = %21
   %31 = shl nuw nsw i64 %.09.i.i, 2
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i32, ptr %11, i64 %.09.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.09.i.i
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = xor i32 %35, %33
   store i32 %36, ptr %34, align 4, !tbaa !4
@@ -1633,7 +1633,7 @@ blake2s_init_key.exit:                            ; preds = %30
   %55 = shl nuw nsw i64 %.09.i.i29, 2
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %.09.i.i29
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.09.i.i29
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = xor i32 %59, %57
   store i32 %60, ptr %58, align 4, !tbaa !4

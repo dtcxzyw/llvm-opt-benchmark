@@ -454,12 +454,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.wait_bit_queue_entry = type { %struct.wait_bit_key, %struct.wait_queue_entry }
 %struct.wait_bit_key = type { ptr, i32, i64 }
-%struct.page = type { i64, %union.anon.31, %union.anon.39, %struct.atomic_t, [8 x i8] }
-%union.anon.31 = type { %struct.anon.32 }
-%struct.anon.32 = type { %union.anon.33, ptr, %union.anon.35, i64 }
-%union.anon.33 = type { %struct.list_head }
-%union.anon.35 = type { i64 }
-%union.anon.39 = type { %struct.atomic_t }
 
 @__tpstrtab_jbd2_checkpoint = internal constant [16 x i8] c"jbd2_checkpoint\00", section "__tracepoints_strings", align 16
 @__SCK__tp_func_jbd2_checkpoint = dso_local global %struct.static_call_key { ptr @__traceiter_jbd2_checkpoint, %union.anon.0 { i64 1 } }, align 8
@@ -4060,7 +4054,7 @@ define dso_local i32 @jbd2_journal_load(ptr noundef %0) #1 align 16 {
   %21 = phi i32 [ 0, %.thread9 ], [ %13, %18 ]
   tail call void @mutex_lock(ptr noundef nonnull @jbd2_journal_create_slab.jbd2_slab_create_mutex) #20
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr ptr, ptr @jbd2_slab, i64 %22
+  %23 = getelementptr [8 x i8], ptr @jbd2_slab, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
@@ -4071,7 +4065,7 @@ define dso_local i32 @jbd2_journal_load(ptr noundef %0) #1 align 16 {
 
 27:                                               ; preds = %20
   %28 = shl nuw nsw i32 1024, %21
-  %29 = getelementptr ptr, ptr @jbd2_slab_names, i64 %22
+  %29 = getelementptr [8 x i8], ptr @jbd2_slab_names, i64 %22
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @kmem_cache_create(ptr noundef %30, i32 noundef %28, i32 noundef %28, i32 noundef 0, ptr noundef null) #20
   store ptr %31, ptr %23, align 8
@@ -5018,7 +5012,7 @@ jbd2_free.exit:                                   ; preds = %jbd2_free.exit.back
   %32 = select i1 %28, i64 %29, i64 %31
   %33 = add i64 %27, %32
   %34 = lshr i64 %33, 12
-  %35 = getelementptr %struct.page, ptr %25, i64 %34
+  %35 = getelementptr [64 x i8], ptr %25, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load volatile i64, ptr %36, align 8
   %38 = and i64 %37, 1
@@ -5171,7 +5165,7 @@ jbd2_free.exit:                                   ; preds = %jbd2_free.exit.back
 129:                                              ; preds = %.thread3.i, %127
   %130 = phi i32 [ 0, %.thread3.i ], [ %124, %127 ]
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr ptr, ptr @jbd2_slab, i64 %131
+  %132 = getelementptr [8 x i8], ptr @jbd2_slab, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %136, !prof !30
@@ -5219,7 +5213,7 @@ jbd2_free.exit.backedge:                          ; preds = %137, %136
   %160 = select i1 %156, i64 %157, i64 %159
   %161 = add i64 %155, %160
   %162 = lshr i64 %161, 12
-  %163 = getelementptr %struct.page, ptr %153, i64 %162
+  %163 = getelementptr [64 x i8], ptr %153, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load volatile i64, ptr %164, align 8
   %166 = and i64 %165, 1
@@ -5428,7 +5422,7 @@ define dso_local ptr @jbd2_alloc(i64 noundef %0, i32 noundef %1) local_unnamed_a
 18:                                               ; preds = %.thread3, %16
   %19 = phi i32 [ 0, %.thread3 ], [ %13, %16 ]
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr ptr, ptr @jbd2_slab, i64 %20
+  %21 = getelementptr [8 x i8], ptr @jbd2_slab, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25, !prof !30
@@ -5497,7 +5491,7 @@ define dso_local void @jbd2_free(ptr noundef %0, i64 noundef %1) local_unnamed_a
 14:                                               ; preds = %.thread3, %12
   %15 = phi i32 [ 0, %.thread3 ], [ %9, %12 ]
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr ptr, ptr @jbd2_slab, i64 %16
+  %17 = getelementptr [8 x i8], ptr @jbd2_slab, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21, !prof !30
@@ -6211,7 +6205,7 @@ define dso_local i32 @jbd2_fc_get_buf(ptr noundef %0, ptr noundef writeonly capt
 52:                                               ; preds = %36
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %14
+  %55 = getelementptr [8 x i8], ptr %54, i64 %14
   store ptr %50, ptr %55, align 8
   store ptr %50, ptr %1, align 8
   br label %56
@@ -6240,7 +6234,7 @@ define dso_local noundef range(i32 -5, 1) i32 @jbd2_fc_wait_bufs(ptr noundef cap
   %13 = phi i32 [ %5, %9 ], [ %12, %29 ]
   %14 = load ptr, ptr %10, align 8
   %15 = sext i32 %12 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @__SCT__might_resched() #20
   %19 = load volatile i64, ptr %17, align 8
@@ -6268,7 +6262,7 @@ define dso_local noundef range(i32 -5, 1) i32 @jbd2_fc_wait_bufs(ptr noundef cap
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %30, ptr nonnull elementtype(i32) %30) #20, !srcloc !111
   %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr ptr, ptr %31, i64 %15
+  %32 = getelementptr [8 x i8], ptr %31, i64 %15
   store ptr null, ptr %32, align 8
   %33 = add i32 %12, -1
   %34 = icmp slt i32 %33, %6
@@ -6293,7 +6287,7 @@ define dso_local noundef i32 @jbd2_fc_release_bufs(ptr noundef readonly captures
   %8 = phi i32 [ %18, %14 ], [ %6, %1 ]
   %9 = load ptr, ptr %5, align 8
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
@@ -6302,7 +6296,7 @@ define dso_local noundef i32 @jbd2_fc_release_bufs(ptr noundef readonly captures
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, ptr nonnull elementtype(i32) %15) #20, !srcloc !111
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr ptr, ptr %16, i64 %10
+  %17 = getelementptr [8 x i8], ptr %16, i64 %10
   store ptr null, ptr %17, align 8
   %18 = add nsw i32 %8, -1
   %19 = icmp sgt i32 %8, 0
@@ -8282,7 +8276,7 @@ define dso_local void @jbd2_journal_put_journal_head(ptr noundef %0) #1 align 16
 86:                                               ; preds = %.thread3.i, %84
   %87 = phi i32 [ 0, %.thread3.i ], [ %81, %84 ]
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr ptr, ptr @jbd2_slab, i64 %88
+  %89 = getelementptr [8 x i8], ptr @jbd2_slab, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %93, !prof !30
@@ -8343,7 +8337,7 @@ jbd2_free.exit:                                   ; preds = %94, %93, %66
 117:                                              ; preds = %.thread3.i2, %115
   %118 = phi i32 [ 0, %.thread3.i2 ], [ %112, %115 ]
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr ptr, ptr @jbd2_slab, i64 %119
+  %120 = getelementptr [8 x i8], ptr @jbd2_slab, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %124, !prof !30
@@ -8452,7 +8446,7 @@ define internal fastcc void @jbd2_journal_destroy_caches() unnamed_addr #1 align
 
 4:                                                ; preds = %4, %0
   %5 = phi i64 [ 0, %0 ], [ %8, %4 ]
-  %6 = getelementptr ptr, ptr @jbd2_slab, i64 %5
+  %6 = getelementptr [8 x i8], ptr @jbd2_slab, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @kmem_cache_destroy(ptr noundef %7) #20
   store ptr null, ptr %6, align 8

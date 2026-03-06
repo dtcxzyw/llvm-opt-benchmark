@@ -2220,7 +2220,7 @@ define hidden void @_ZN2cv3ccm5Color7channelENS_3MatEi(ptr dead_on_unwind noalia
 
 10:                                               ; preds = %8
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds %"class.cv::Mat", ptr %5, i64 %11
+  %12 = getelementptr inbounds [96 x i8], ptr %5, i64 %11
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %.preheader unwind label %13
 

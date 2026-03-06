@@ -18,7 +18,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN8LogLevel11from_stringEPKc(ptr nou
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN8LogLevel5_nameE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8LogLevel5_nameE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %4) #5
   %6 = icmp eq i32 %5, 0
@@ -50,7 +50,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN8LogLevel11fuzzy_matchEPKc(ptr nou
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
   %.019 = phi i32 [ 7, %1 ], [ %.1, %3 ]
   %.01318 = phi double [ 4.000000e-01, %1 ], [ %.114, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN8LogLevel5_nameE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8LogLevel5_nameE, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #5
   %7 = tail call noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef nonnull %0, i64 noundef %2, ptr noundef nonnull %5, i64 noundef %6) #6

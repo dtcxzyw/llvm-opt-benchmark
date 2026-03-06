@@ -2058,7 +2058,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
 
 .split9:                                          ; preds = %14
   %16 = load ptr, ptr %1, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.013
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.013
   br label %.split
 
 18:                                               ; preds = %.split, %14

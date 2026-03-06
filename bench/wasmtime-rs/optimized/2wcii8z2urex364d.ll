@@ -1757,10 +1757,10 @@ define nonnull align 8 ptr @"_ZN90_$LT$cranelift_codegen_meta..cdsl..typevar..Ty
 define hidden { ptr, i64 } @_ZN22cranelift_codegen_meta4cdsl7typevar11DerivedFunc4name17h03bdc88ed605b8dfE(i8 %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN22cranelift_codegen_meta4cdsl7typevar11DerivedFunc4name17h03bdc88ed605b8dfE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN22cranelift_codegen_meta4cdsl7typevar11DerivedFunc4name17h03bdc88ed605b8dfE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN22cranelift_codegen_meta4cdsl7typevar11DerivedFunc4name17h03bdc88ed605b8dfE.1, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN22cranelift_codegen_meta4cdsl7typevar11DerivedFunc4name17h03bdc88ed605b8dfE.1, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -3196,10 +3196,10 @@ define hidden zeroext i1 @"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..Deri
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !5, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..DerivedFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h69dac2f91082989aE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..DerivedFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h69dac2f91082989aE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..DerivedFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h69dac2f91082989aE.2", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..DerivedFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h69dac2f91082989aE.2", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 %switch.load3, i64 %switch.load)
   ret i1 %5

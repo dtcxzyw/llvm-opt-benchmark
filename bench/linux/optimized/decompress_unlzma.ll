@@ -246,7 +246,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
 
 142:                                              ; preds = %142, %140
   %143 = phi i64 [ 0, %140 ], [ %145, %142 ]
-  %144 = getelementptr i16, ptr %138, i64 %143
+  %144 = getelementptr [2 x i8], ptr %138, i64 %143
   store i16 1024, ptr %144, align 2
   %145 = add nuw nsw i64 %143, 1
   %146 = icmp eq i64 %145, %141
@@ -308,9 +308,9 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %180 = load i32, ptr %11, align 4
   %181 = shl i32 %180, 4
   %182 = sext i32 %181 to i64
-  %183 = getelementptr i16, ptr %138, i64 %182
+  %183 = getelementptr [2 x i8], ptr %138, i64 %182
   %184 = zext nneg i32 %179 to i64
-  %185 = getelementptr i16, ptr %183, i64 %184
+  %185 = getelementptr [2 x i8], ptr %183, i64 %184
   %186 = call fastcc i32 @rc_is_bit_0(ptr noundef nonnull %9, ptr noundef %185) #12, !range !12
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %192, label %188
@@ -488,9 +488,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr noundef ca
   %47 = shl i32 %46, 1
   %48 = and i32 %47, 256
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr i16, ptr %43, i64 %49
+  %50 = getelementptr [2 x i8], ptr %43, i64 %49
   %51 = sext i32 %45 to i64
-  %52 = getelementptr i16, ptr %50, i64 %51
+  %52 = getelementptr [2 x i8], ptr %50, i64 %51
   %53 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %52, ptr noundef nonnull %8) #12, !range !12
   %54 = icmp eq i32 %53, 0
   %55 = icmp eq i32 %48, 0
@@ -512,7 +512,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr noundef ca
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %59 = phi i32 [ %63, %.preheader ], [ %.ph, %.preheader.preheader ]
   %60 = sext i32 %59 to i64
-  %61 = getelementptr i16, ptr %35, i64 %60
+  %61 = getelementptr [2 x i8], ptr %35, i64 %60
   %62 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %61, ptr noundef nonnull %8) #12, !range !12
   %63 = load i32, ptr %8, align 4
   %64 = icmp slt i32 %63, 256
@@ -568,7 +568,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %21 = getelementptr i8, ptr %3, i64 384
   %22 = load i32, ptr %2, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr i16, ptr %21, i64 %23
+  %24 = getelementptr [2 x i8], ptr %21, i64 %23
   %25 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %24) #12, !range !12
   %26 = icmp eq i32 %25, 0
   %27 = load i32, ptr %10, align 8
@@ -612,7 +612,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %53 = getelementptr i8, ptr %3, i64 408
   %54 = load i32, ptr %2, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr i16, ptr %53, i64 %55
+  %56 = getelementptr [2 x i8], ptr %53, i64 %55
   %57 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %56) #12, !range !12
   %58 = icmp eq i32 %57, 0
   %59 = load i32, ptr %10, align 8
@@ -631,9 +631,9 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %68 = load i32, ptr %2, align 4
   %69 = shl i32 %68, 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr i16, ptr %67, i64 %70
+  %71 = getelementptr [2 x i8], ptr %67, i64 %70
   %72 = zext nneg i32 %4 to i64
-  %73 = getelementptr i16, ptr %71, i64 %72
+  %73 = getelementptr [2 x i8], ptr %71, i64 %72
   %74 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %73) #12, !range !12
   %75 = icmp eq i32 %74, 0
   %76 = load i32, ptr %10, align 8
@@ -685,7 +685,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %107 = getelementptr i8, ptr %3, i64 432
   %108 = load i32, ptr %2, align 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr i16, ptr %107, i64 %109
+  %110 = getelementptr [2 x i8], ptr %107, i64 %109
   %111 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %110) #12, !range !12
   %112 = icmp eq i32 %111, 0
   %113 = load i32, ptr %10, align 8
@@ -718,7 +718,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %131 = getelementptr i8, ptr %3, i64 456
   %132 = load i32, ptr %2, align 4
   %133 = sext i32 %132 to i64
-  %134 = getelementptr i16, ptr %131, i64 %133
+  %134 = getelementptr [2 x i8], ptr %131, i64 %133
   %135 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %134) #12, !range !12
   %136 = icmp eq i32 %135, 0
   %137 = load i32, ptr %10, align 8
@@ -800,7 +800,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %187 = getelementptr i8, ptr %176, i64 4
   %188 = shl i32 %4, 3
   %189 = sext i32 %188 to i64
-  %190 = getelementptr i16, ptr %187, i64 %189
+  %190 = getelementptr [2 x i8], ptr %187, i64 %189
   br label %223
 
 191:                                              ; preds = %173
@@ -832,7 +832,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %210 = getelementptr i8, ptr %176, i64 260
   %211 = shl i32 %4, 3
   %212 = sext i32 %211 to i64
-  %213 = getelementptr i16, ptr %210, i64 %212
+  %213 = getelementptr [2 x i8], ptr %210, i64 %212
   br label %223
 
 214:                                              ; preds = %191
@@ -861,7 +861,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %229 = add nsw i32 %228, -1
   %230 = load i32, ptr %7, align 4
   %231 = sext i32 %230 to i64
-  %232 = getelementptr i16, ptr %225, i64 %231
+  %232 = getelementptr [2 x i8], ptr %225, i64 %231
   %233 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %232, ptr noundef nonnull %7) #12, !range !12
   %234 = icmp eq i32 %229, 0
   br i1 %234, label %rc_bit_tree_decode.exit, label %227, !llvm.loop !16
@@ -889,7 +889,7 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %244 = tail call i32 @llvm.smin.i32(i32 %238, i32 3)
   %245 = shl i32 %244, 6
   %246 = sext i32 %245 to i64
-  %247 = getelementptr i16, ptr %243, i64 %246
+  %247 = getelementptr [2 x i8], ptr %243, i64 %246
   store i32 1, ptr %8, align 4
   br label %248
 
@@ -898,7 +898,7 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %250 = add nsw i32 %249, -1
   %251 = load i32, ptr %8, align 4
   %252 = sext i32 %251 to i64
-  %253 = getelementptr i16, ptr %247, i64 %252
+  %253 = getelementptr [2 x i8], ptr %247, i64 %252
   %254 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %253, ptr noundef nonnull %8) #12, !range !12
   %255 = icmp eq i32 %250, 0
   br i1 %255, label %256, label %248, !llvm.loop !16
@@ -925,10 +925,10 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %268 = shl i32 %263, %267
   store i32 %268, ptr %264, align 4
   %269 = zext i32 %268 to i64
-  %270 = getelementptr i16, ptr %3, i64 %269
+  %270 = getelementptr [2 x i8], ptr %3, i64 %269
   %271 = zext nneg i32 %258 to i64
   %272 = sub nsw i64 0, %271
-  %273 = getelementptr i16, ptr %270, i64 %272
+  %273 = getelementptr [2 x i8], ptr %270, i64 %272
   %274 = getelementptr i8, ptr %273, i64 1374
   br label %288
 
@@ -967,7 +967,7 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %294 = add nsw i32 %292, -1
   %295 = load i32, ptr %9, align 4
   %296 = sext i32 %295 to i64
-  %297 = getelementptr i16, ptr %289, i64 %296
+  %297 = getelementptr [2 x i8], ptr %289, i64 %296
   %298 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %297, ptr noundef nonnull %9) #12, !range !12
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %303, label %300

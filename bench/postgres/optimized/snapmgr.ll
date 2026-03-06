@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pairingheap_node = type { ptr, ptr, ptr }
 %struct.pairingheap = type { ptr, ptr, ptr }
 %struct.ResourceOwnerDesc = type { ptr, i32, i32, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -1303,7 +1302,7 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
 11:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @unlink(ptr noundef %15) #17
@@ -1625,7 +1624,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   %.044 = phi i32 [ 0, %.lr.ph ], [ %116, %111 ]
   %112 = load ptr, ptr %110, align 8
   %113 = sext i32 %.044 to i64
-  %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %112, i64 %113
   %115 = load i32, ptr %114, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, i32 noundef %115) #17
   %116 = add nuw i32 %.044, 1
@@ -1682,7 +1681,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
 138:                                              ; preds = %.lr.ph47, %138
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %138 ]
   %139 = load ptr, ptr %136, align 8
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %indvars.iv
   %141 = load i32, ptr %140, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.22, i32 noundef %141) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1694,7 +1693,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %indvars.iv52 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next53, %.lr.ph49 ]
   %145 = load ptr, ptr %2, align 8
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv52
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv52
   %147 = load i32, ptr %146, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.22, i32 noundef %147) #17
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -2017,7 +2016,7 @@ parseVxidFromText.exit:                           ; preds = %77
 .lr.ph:                                           ; preds = %102, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %102 ]
   %107 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.48, ptr noundef %4, ptr noundef %2)
-  %108 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv
   store i32 %107, ptr %108, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %103
@@ -2062,7 +2061,7 @@ parseVxidFromText.exit:                           ; preds = %77
 .lr.ph50:                                         ; preds = %124, %.lr.ph50
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph50 ], [ 0, %124 ]
   %129 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.51, ptr noundef %4, ptr noundef %2)
-  %130 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv54
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv54
   store i32 %129, ptr %130, align 4
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %125
@@ -2817,9 +2816,9 @@ define dso_local noundef ptr @RestoreSnapshot(ptr noundef readonly captures(none
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %3
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %3
   store ptr %29, ptr %15, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull align 4 %30, i64 %7, i1 false)
   br label %31
 
@@ -2894,14 +2893,14 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nound
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %0, %31
   br i1 %32, label %pg_lfind32.exit.thread, label %29
 
 .preheader.i:                                     ; preds = %48, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %48 ]
-  %33 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %.val20.i.i = load <4 x i32>, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.val1421.i.i = load <4 x i32>, ptr %34, align 1
@@ -2931,7 +2930,7 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nound
 pg_lfind32.exit:                                  ; preds = %48
   %50 = add i32 %22, -16
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %20, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %51
   %.val20.i18.i = load <4 x i32>, ptr %52, align 1
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %.val1421.i19.i = load <4 x i32>, ptr %53, align 1
@@ -2994,14 +2993,14 @@ pg_lfind32.exit.thread69:                         ; preds = %29, %.pg_lfind32.ex
 
 .lr.ph.i.i40:                                     ; preds = %79, %.lr.ph.preheader.i.i38
   %indvars.iv.i.i41 = phi i64 [ 0, %.lr.ph.preheader.i.i38 ], [ %indvars.iv.next.i.i42, %79 ]
-  %80 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i.i41
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i.i41
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %.022, %81
   br i1 %82, label %pg_lfind32.exit.thread, label %79
 
 .preheader.i24:                                   ; preds = %98, %.preheader.preheader.i23
   %indvars.iv.i25 = phi i64 [ 0, %.preheader.preheader.i23 ], [ %indvars.iv.next.i32, %98 ]
-  %83 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i25
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i25
   %.val20.i.i26 = load <4 x i32>, ptr %83, align 1
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %.val1421.i.i27 = load <4 x i32>, ptr %84, align 1
@@ -3031,7 +3030,7 @@ pg_lfind32.exit.thread69:                         ; preds = %29, %.pg_lfind32.ex
 pg_lfind32.exit44:                                ; preds = %98
   %100 = add i32 %74, -16
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %72, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %101
   %.val20.i18.i33 = load <4 x i32>, ptr %102, align 1
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %.val1421.i19.i34 = load <4 x i32>, ptr %103, align 1
@@ -3093,14 +3092,14 @@ pg_lfind32.exit44:                                ; preds = %98
 
 .lr.ph.i.i62:                                     ; preds = %133, %.lr.ph.preheader.i.i60
   %indvars.iv.i.i63 = phi i64 [ 0, %.lr.ph.preheader.i.i60 ], [ %indvars.iv.next.i.i64, %133 ]
-  %134 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i.i63
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i.i63
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %.1, %135
   br i1 %136, label %pg_lfind32.exit.thread, label %133
 
 .preheader.i46:                                   ; preds = %152, %.preheader.preheader.i45
   %indvars.iv.i47 = phi i64 [ 0, %.preheader.preheader.i45 ], [ %indvars.iv.next.i54, %152 ]
-  %137 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i47
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i47
   %.val20.i.i48 = load <4 x i32>, ptr %137, align 1
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %.val1421.i.i49 = load <4 x i32>, ptr %138, align 1
@@ -3130,7 +3129,7 @@ pg_lfind32.exit44:                                ; preds = %98
 pg_lfind32.exit66:                                ; preds = %152
   %154 = add i32 %126, -16
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw i32, ptr %124, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %155
   %.val20.i18.i55 = load <4 x i32>, ptr %156, align 1
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %.val1421.i19.i56 = load <4 x i32>, ptr %157, align 1

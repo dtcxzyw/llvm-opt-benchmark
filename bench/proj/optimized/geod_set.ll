@@ -75,7 +75,7 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %.05979 = phi ptr [ %8, %.lr.ph.preheader ], [ %19, %18 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = tail call noundef ptr @_Z10pj_mkparamPKc(ptr noundef %15)
   store ptr %16, ptr %.05979, align 8, !tbaa !9
@@ -144,7 +144,7 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
 40:                                               ; preds = %.lr.ph90, %33, %36
   %.1 = phi i1 [ true, %36 ], [ %.0618188, %33 ], [ %.0618188, %.lr.ph90 ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next99
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next99
   %42 = load ptr, ptr %41, align 8, !tbaa !13
   %.not71 = icmp eq ptr %42, null
   br i1 %.not71, label %.critedge, label %.lr.ph90

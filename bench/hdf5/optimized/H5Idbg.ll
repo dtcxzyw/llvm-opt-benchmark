@@ -45,7 +45,7 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef %0) #5
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds ptr, ptr @H5I_type_info_array_g, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @H5I_type_info_array_g, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %.not = icmp eq ptr %16, null
   %17 = load ptr, ptr @stderr, align 8, !tbaa !11

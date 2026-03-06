@@ -68,7 +68,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 ._crit_edge21.i.i:                                ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.sroa.5.0.i = phi i64 [ %.sroa.4.0.copyload, %.preheader.i.i ], [ %11, %.lr.ph.i.i ]
-  %5 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %.sroa.52.0.copyload, i64 %.sroa.5.0.i
+  %5 = getelementptr inbounds [32 x i8], ptr %.sroa.52.0.copyload, i64 %.sroa.5.0.i
   store i64 %.sroa.5.0.copyload, ptr %5, align 8, !noalias !4
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !4
@@ -83,7 +83,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %7 = phi i64 [ %11, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %.preheader.i.i ]
   %8 = phi i64 [ %9, %.lr.ph.i.i ], [ %.sroa.0.0.copyload, %.preheader.i.i ]
   %9 = add nuw i64 %8, 1
-  %10 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %.sroa.52.0.copyload, i64 %7
+  %10 = getelementptr inbounds [32 x i8], ptr %.sroa.52.0.copyload, i64 %7
   store i64 %8, ptr %10, align 8, !noalias !19
   %.sroa.0.sroa.4.0..sroa_idx.i.i13.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i13.i.i, align 8, !noalias !19
@@ -238,7 +238,7 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   %18 = load ptr, ptr %17, align 8, !alias.scope !78, !noalias !79, !noundef !35
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !78, !noalias !79, !noundef !35
-  %21 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %18, i64 %20
   store i64 %9, ptr %21, align 8, !noalias !78
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !78
@@ -267,7 +267,7 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %29 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %12, i64 %26
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %26
   store i64 %27, ptr %29, align 8, !noalias !54
   %.sroa.0.sroa.4.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i13, align 8, !noalias !54
@@ -1493,7 +1493,7 @@ define hidden void @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..ite
 ._crit_edge21.i:                                  ; preds = %.preheader.i, %.thread.i
   %.sroa.5.0 = phi i64 [ %17, %.thread.i ], [ %.sroa.5.0.copyload, %.preheader.i ]
   store i8 1, ptr %3, align 8, !alias.scope !264, !noalias !267
-  %11 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %.sroa.11.0.copyload, i64 %.sroa.5.0
+  %11 = getelementptr inbounds [32 x i8], ptr %.sroa.11.0.copyload, i64 %.sroa.5.0
   store i64 %9, ptr %11, align 8, !noalias !278
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !278
@@ -1508,7 +1508,7 @@ define hidden void @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..ite
   %13 = phi i64 [ %17, %.lr.ph.i ], [ %.sroa.5.0.copyload, %.preheader.i ]
   %14 = phi i64 [ %15, %.lr.ph.i ], [ %8, %.preheader.i ]
   %15 = add nuw i64 %14, 1
-  %16 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %.sroa.11.0.copyload, i64 %13
+  %16 = getelementptr inbounds [32 x i8], ptr %.sroa.11.0.copyload, i64 %13
   store i64 %14, ptr %16, align 8, !noalias !287
   %.sroa.0.sroa.4.0..sroa_idx.i.i13.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i13.i, align 8, !noalias !287

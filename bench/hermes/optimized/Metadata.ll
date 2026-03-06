@@ -75,7 +75,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %2, ptr %arrayidx.i.i, align 1
   %second = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.060, i64 40
   %3 = load ptr, ptr %second, align 8
-  %arrayidx.i.i29 = getelementptr inbounds ptr, ptr %names, i64 %i.061
+  %arrayidx.i.i29 = getelementptr inbounds [8 x i8], ptr %names, i64 %i.061
   store ptr %3, ptr %arrayidx.i.i29, align 8
   %inc = add i64 %i.061, 1
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.060) #15
@@ -105,7 +105,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   store i8 %5, ptr %arrayidx.i.i34, align 1
   %second29 = getelementptr inbounds nuw i8, ptr %__begin214.sroa.0.063, i64 40
   %6 = load ptr, ptr %second29, align 8
-  %arrayidx.i.i35 = getelementptr inbounds ptr, ptr %names, i64 %i.164
+  %arrayidx.i.i35 = getelementptr inbounds [8 x i8], ptr %names, i64 %i.164
   store ptr %6, ptr %arrayidx.i.i35, align 8
   %inc32 = add i64 %i.164, 1
   %call.i36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin214.sroa.0.063) #15
@@ -140,7 +140,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   store i8 %8, ptr %arrayidx.i.i41, align 1
   %second54 = getelementptr inbounds nuw i8, ptr %__begin239.sroa.0.067, i64 40
   %9 = load ptr, ptr %second54, align 8
-  %arrayidx.i.i42 = getelementptr inbounds ptr, ptr %names, i64 %i.268
+  %arrayidx.i.i42 = getelementptr inbounds [8 x i8], ptr %names, i64 %i.268
   store ptr %9, ptr %arrayidx.i.i42, align 8
   %inc57 = add i64 %i.268, 1
   %call.i43 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin239.sroa.0.067) #15
@@ -175,7 +175,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   store i8 %11, ptr %arrayidx.i.i48, align 1
   %second79 = getelementptr inbounds nuw i8, ptr %__begin264.sroa.0.071, i64 40
   %12 = load ptr, ptr %second79, align 8
-  %arrayidx.i.i49 = getelementptr inbounds ptr, ptr %names, i64 %i.372
+  %arrayidx.i.i49 = getelementptr inbounds [8 x i8], ptr %names, i64 %i.372
   store ptr %12, ptr %arrayidx.i.i49, align 8
   %inc82 = add i64 %i.372, 1
   %call.i50 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin264.sroa.0.071) #15
@@ -661,7 +661,7 @@ if.then4.i.i74:                                   ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit79:               ; preds = %if.then.i.i77, %if.then4.i.i74
   %phi.call.i76 = phi ptr [ %retval.0.i, %if.then4.i.i74 ], [ %call3.i.i78, %if.then.i.i77 ]
-  %arrayidx.i.i80 = getelementptr inbounds nuw ptr, ptr %names, i64 %i.0209
+  %arrayidx.i.i80 = getelementptr inbounds nuw [8 x i8], ptr %names, i64 %i.0209
   %18 = load ptr, ptr %arrayidx.i.i80, align 8
   %tobool.i.not.i = icmp eq ptr %18, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit95, label %cond.true.i.split.i

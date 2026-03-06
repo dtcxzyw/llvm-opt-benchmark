@@ -562,9 +562,9 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
 19:                                               ; preds = %16, %.backedge
   %20 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv
   %21 = getelementptr inbounds nuw [12 x i8], ptr @test_nonces, i64 %indvars.iv
-  %22 = getelementptr inbounds nuw i32, ptr @test_counters, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @test_counters, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !8
-  %24 = getelementptr inbounds nuw i64, ptr @test_lengths, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @test_lengths, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw [375 x i8], ptr @test_input, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

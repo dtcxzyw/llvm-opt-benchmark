@@ -358,7 +358,7 @@ define internal i32 @scale_vaapi_filter_frame(ptr noundef readonly captures(none
 
 switch.lookup:                                    ; preds = %86
   %98 = zext nneg i32 %96 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.scale_vaapi_filter_frame, i64 %98
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.scale_vaapi_filter_frame, i64 %98
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %scale_vaapi_mode_name.exit
 

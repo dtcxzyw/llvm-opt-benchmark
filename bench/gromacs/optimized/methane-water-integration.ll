@@ -4939,7 +4939,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_
   store ptr %1722, ptr %193, align 8, !tbaa !34
   %1723 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr %1722, ptr %1723, align 8, !tbaa !38
-  %1724 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %1722, i64 %1717
+  %1724 = getelementptr inbounds nuw [12 x i8], ptr %1722, i64 %1717
   %1725 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store ptr %1724, ptr %1725, align 8, !tbaa !37
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %1722, i8 0, i64 %1721, i1 false)
@@ -8827,7 +8827,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !273
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !316
   %.02837 = load ptr, ptr %19, align 8, !tbaa !274
   %.not3038 = icmp eq ptr %.02837, null
@@ -8880,7 +8880,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !273
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !272
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !316
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -9137,7 +9137,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKiSt13unordered_mapINSt7_
   %30 = load i32, ptr %27, align 4, !tbaa !59
   %31 = sext i32 %30 to i64
   %32 = urem i64 %31, %29
-  %33 = getelementptr inbounds nuw ptr, ptr %26, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %32
   store ptr %24, ptr %33, align 8, !tbaa !316
   br label %_ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IS8_iSt4hashIS8_ESt8equal_toIS8_ESaIS0_IKS8_iEEESA_SC_SaIS0_ISD_SG_EEEESaISK_ENSt8__detail10_Select1stESB_IiES9_IiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEPNSM_10_Hash_nodeISK_Lb0EEE.exit
 
@@ -9166,7 +9166,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKiSt13unordered_mapINSt7_
   %42 = sext i32 %41 to i64
   %43 = urem i64 %42, %40
   %44 = load ptr, ptr %0, align 8, !tbaa !318
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !316
   %.not32 = icmp eq ptr %46, null
   br i1 %.not32, label %47, label %52
@@ -9422,7 +9422,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !334
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !316
   %.02837 = load ptr, ptr %19, align 8, !tbaa !274
   %.not3038 = icmp eq ptr %.02837, null
@@ -9475,7 +9475,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !334
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !333
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !316
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -9728,7 +9728,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !344
   %32 = urem i64 %27, %31
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   store ptr %28, ptr %33, align 8, !tbaa !316
   %.02834 = load ptr, ptr %19, align 8, !tbaa !274
   %.not3035 = icmp eq ptr %.02834, null
@@ -9751,7 +9751,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %40 = load i64, ptr %30, align 8, !tbaa !344
   %41 = urem i64 %39, %40
   %42 = load ptr, ptr %0, align 8, !tbaa !342
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !316
   %.not32 = icmp eq ptr %44, null
   br i1 %.not32, label %45, label %50

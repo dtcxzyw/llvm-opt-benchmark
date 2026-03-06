@@ -2250,7 +2250,7 @@ define internal i32 @dissect_rtp_midi(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup458:                                 ; preds = %45
   %47 = zext nneg i32 %.0302.i to i64
-  %switch.gep459 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_rtp_midi.39, i64 %47
+  %switch.gep459 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_rtp_midi.39, i64 %47
   %switch.load460 = load ptr, ptr %switch.gep459, align 8
   %switch.offset = add nuw nsw i32 %.0302.i, 1
   %switch.offset461 = add nuw nsw i32 %.0302.i, 1
@@ -4284,7 +4284,7 @@ decode_sj_chapter_f.exit.i:                       ; preds = %1192, %1191, %decod
 
 switch.lookup:                                    ; preds = %1244
   %1246 = zext nneg i32 %.01183.i.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_rtp_midi, i64 %1246
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_rtp_midi, i64 %1246
   %switch.load = load ptr, ptr %switch.gep, align 8
   %1247 = load i32, ptr %switch.load, align 4
   %1248 = tail call ptr @proto_tree_add_uint(ptr noundef %1202, i32 noundef %1247, ptr noundef %0, i32 noundef %.1129.i.i, i32 noundef %1241, i32 noundef %1240)

@@ -27,7 +27,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %13 = load i32, ptr %5, align 4, !tbaa !3
   %narrow = xor i32 %13, -1
   %14 = sext i32 %narrow to i64
-  %15 = getelementptr inbounds double, ptr %4, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %4, i64 %14
   %16 = getelementptr inbounds i8, ptr %7, i64 -8
   store i32 0, ptr %8, align 4, !tbaa !3
   %17 = load i32, ptr %3, align 4, !tbaa !3
@@ -124,7 +124,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %or.cond = or i1 %.not, %.ph
   %49 = shl nuw i32 %43, 1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr double, ptr %16, i64 %50
+  %51 = getelementptr [8 x i8], ptr %16, i64 %50
   %52 = getelementptr i8, ptr %51, i64 8
   %53 = zext nneg i32 %43 to i64
   br label %54
@@ -140,14 +140,14 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph194:                                        ; preds = %54, %.lr.ph194
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph194 ], [ %57, %54 ]
   %58 = call double @dlarnd_(ptr noundef nonnull @c__3, ptr noundef %6) #5
-  %59 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
+  %59 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv
   store double %58, ptr %59, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not173.not = icmp slt i64 %indvars.iv, %53
   br i1 %.not173.not, label %.lr.ph194, label %._crit_edge195, !llvm.loop !9
 
 ._crit_edge195:                                   ; preds = %.lr.ph194, %54
-  %60 = getelementptr inbounds double, ptr %16, i64 %57
+  %60 = getelementptr inbounds [8 x i8], ptr %16, i64 %57
   %61 = call double @dnrm2_(ptr noundef nonnull %12, ptr noundef nonnull %60, ptr noundef nonnull @c__1) #5
   %62 = load double, ptr %60, align 8, !tbaa !7
   %63 = fcmp ult double %62, 0.000000e+00
@@ -165,7 +165,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %72 = select i1 %71, double %69, double %.neg175
   %73 = add nsw i32 %56, %43
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds double, ptr %16, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %16, i64 %74
   store double %72, ptr %75, align 8, !tbaa !7
   %76 = fadd double %66, %62
   %77 = fmul double %66, %76
@@ -185,7 +185,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 83:                                               ; preds = %81
   %84 = add nsw i32 %56, %13
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %15, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %15, i64 %85
   call void @dgemv_(ptr noundef nonnull @.str.3, ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull @c_b10, ptr noundef %86, ptr noundef nonnull %5, ptr noundef nonnull %60, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b9, ptr noundef %52, ptr noundef nonnull @c__1) #5
   %87 = fneg double %82
   store double %87, ptr %11, align 8, !tbaa !7
@@ -195,7 +195,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread:                                          ; preds = %81, %83
   %88 = mul nsw i32 %56, %13
   %89 = sext i32 %88 to i64
-  %90 = getelementptr double, ptr %15, i64 %89
+  %90 = getelementptr [8 x i8], ptr %15, i64 %89
   %91 = getelementptr i8, ptr %90, i64 8
   call void @dgemv_(ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull @c_b10, ptr noundef %91, ptr noundef nonnull %5, ptr noundef nonnull %60, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b9, ptr noundef %52, ptr noundef nonnull @c__1) #5
   %92 = fneg double %82
@@ -221,7 +221,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %101 = select i1 %100, double %98, double %.neg
   %102 = shl nuw nsw i32 %43, 1
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw double, ptr %16, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %103
   store double %101, ptr %104, align 8, !tbaa !7
   %or.cond5 = or i1 %.not, %.ph
   br i1 %or.cond5, label %105, label %.loopexit188.thread
@@ -234,15 +234,15 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph204.preheader:                              ; preds = %105
   %107 = zext nneg i32 %43 to i64
   %108 = sext i32 %13 to i64
-  %invariant.gep = getelementptr inbounds nuw double, ptr %16, i64 %107
-  %invariant.gep222 = getelementptr double, ptr %15, i64 %108
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %107
+  %invariant.gep222 = getelementptr [8 x i8], ptr %15, i64 %108
   %109 = zext nneg i32 %106 to i64
   br label %.lr.ph204
 
 .lr.ph204:                                        ; preds = %.lr.ph204.preheader, %.lr.ph204
   %indvars.iv211 = phi i64 [ 1, %.lr.ph204.preheader ], [ %indvars.iv.next212, %.lr.ph204 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv211
-  %gep223 = getelementptr double, ptr %invariant.gep222, i64 %indvars.iv211
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv211
+  %gep223 = getelementptr [8 x i8], ptr %invariant.gep222, i64 %indvars.iv211
   call void @dscal_(ptr noundef nonnull %3, ptr noundef nonnull %gep, ptr noundef %gep223, ptr noundef nonnull %5) #5
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %.not171.not = icmp samesign ult i64 %indvars.iv211, %109
@@ -259,15 +259,15 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph208.preheader:                              ; preds = %.loopexit188.thread
   %111 = zext nneg i32 %34 to i64
   %112 = sext i32 %13 to i64
-  %invariant.gep224 = getelementptr inbounds nuw double, ptr %16, i64 %111
+  %invariant.gep224 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %111
   %113 = zext nneg i32 %110 to i64
   br label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
   %indvars.iv214 = phi i64 [ 1, %.lr.ph208.preheader ], [ %indvars.iv.next215, %.lr.ph208 ]
-  %gep225 = getelementptr inbounds nuw double, ptr %invariant.gep224, i64 %indvars.iv214
+  %gep225 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep224, i64 %indvars.iv214
   %114 = mul nsw i64 %indvars.iv214, %112
-  %115 = getelementptr double, ptr %15, i64 %114
+  %115 = getelementptr [8 x i8], ptr %15, i64 %114
   %116 = getelementptr i8, ptr %115, i64 8
   call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %gep225, ptr noundef %116, ptr noundef nonnull @c__1) #5
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1

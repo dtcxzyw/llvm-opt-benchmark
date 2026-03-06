@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/tls13groupselection_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.tls13groupselection_test_st = type { ptr, ptr, i32, ptr, i32 }
-
 @.str = private unnamed_addr constant [43 x i8] c"../openssl/test/tls13groupselection_test.c\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"cert = test_get_argument(0)\00", align 1
 @cert = internal unnamed_addr global ptr null, align 8
@@ -122,7 +120,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @tls13groupselection_test(i32 noundef %0) #0 {
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.4, i32 noundef %0) #6
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.tls13groupselection_test_st, ptr @tls13groupselection_tests, i64 %2
+  %3 = getelementptr inbounds [40 x i8], ptr @tls13groupselection_tests, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.5, i64 noundef 15) #7

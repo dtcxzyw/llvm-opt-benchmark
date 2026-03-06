@@ -1014,7 +1014,7 @@ setLastError.exit:                                ; preds = %35, %39
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %75 ]
-  %63 = getelementptr inbounds nuw %struct.AllowedPeerInfo, ptr @_peers, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [32 x i8], ptr @_peers, i64 %indvars.iv.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   br label %67
 
@@ -1834,7 +1834,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %.023.i.i = phi ptr [ %.1.i.i, %83 ], [ null, %71 ]
   %85 = load i32, ptr @_peers_cnt, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr @_peers, i64 %86
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.022.i.i, ptr noundef nonnull %4) #13
@@ -1890,7 +1890,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %.not28.i.i = icmp eq ptr %.023.i.i, null
   %110 = load i32, ptr @_peers_cnt, align 4
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %111
+  %112 = getelementptr inbounds [32 x i8], ptr @_peers, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   br i1 %.not28.i.i, label %157, label %114
 

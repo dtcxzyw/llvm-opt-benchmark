@@ -118,7 +118,7 @@ define dso_local void @init_node_conf() #0 {
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %11
   %indvars.iv = phi i64 [ %6, %.preheader.i.preheader ], [ %indvars.iv.next, %11 ]
-  %9 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %11, label %next_node.exit
@@ -193,7 +193,7 @@ define dso_local i32 @build_all_nodeline_info(i1 noundef zeroext %0, i32 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @config_record_from_conf_node(ptr noundef %9, i32 noundef %1)
   %11 = call i32 @expand_nodeline_info(ptr noundef %9, ptr noundef %10, ptr noundef null, ptr noundef nonnull @_check_callback)
@@ -259,7 +259,7 @@ define dso_local void @rehash_node() #0 {
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %11
   %indvars.iv = phi i64 [ %6, %.preheader.i.preheader ], [ %indvars.iv.next, %11 ]
-  %9 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %11, label %next_node.exit
@@ -1252,7 +1252,7 @@ define dso_local range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) lo
   br label %.loopexit
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %34 = getelementptr i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sdiv i32 %35, %28
@@ -1270,7 +1270,7 @@ define dso_local range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) lo
   %43 = zext nneg i32 %.0 to i64
   tail call void @bit_nclear(ptr noundef %41, i64 noundef %42, i64 noundef %43) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %44 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.next
   %45 = load i32, ptr %44, align 4
   %.not38 = icmp eq i32 %45, -1
   br i1 %.not38, label %.loopexit, label %.lr.ph
@@ -1434,7 +1434,7 @@ define dso_local void @grow_node_record_table_ptr() local_unnamed_addr #0 {
 
 .preheader.i.i:                                   ; preds = %21, %.preheader.i.preheader.i
   %indvars.iv.i = phi i64 [ %16, %.preheader.i.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %19 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %.not9.i.i = icmp eq ptr %20, null
   br i1 %.not9.i.i, label %21, label %next_node.exit.i
@@ -1545,7 +1545,7 @@ define dso_local ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr 
   %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 536, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.20, i32 noundef 890, ptr noundef nonnull @__func__.create_node_record_at) #15
   %20 = load ptr, ptr @node_record_table_ptr, align 8
   %21 = sext i32 %0 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   store ptr %19, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 208
   store i32 %0, ptr %23, align 8
@@ -1863,7 +1863,7 @@ define dso_local range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not19 = icmp eq ptr %10, null
   br i1 %.not19, label %11, label %25
@@ -1915,7 +1915,7 @@ declare void @gres_init_node_config(ptr noundef, ptr noundef) local_unnamed_addr
 define dso_local void @insert_node_record_at(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @node_record_table_ptr, align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %13, label %7
@@ -1974,7 +1974,7 @@ define dso_local void @insert_node_record_at(ptr noundef %0, i32 noundef %1) loc
 
 35:                                               ; preds = %32, %28
   %36 = load ptr, ptr @node_record_table_ptr, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %4
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %4
   store ptr %0, ptr %37, align 8
   %38 = load ptr, ptr %24, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
@@ -2025,7 +2025,7 @@ define dso_local void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr %3, align 8
   %8 = load i32, ptr @last_node_index, align 4
@@ -2045,7 +2045,7 @@ define dso_local void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 
 
 15:                                               ; preds = %12
   %16 = add nsw i64 %indvars.iv, -1
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %12, label %19, !llvm.loop !27
@@ -2111,7 +2111,7 @@ define dso_local void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 
 
 .preheader.i.i:                                   ; preds = %44, %.preheader.i.preheader.i
   %indvars.iv.i = phi i64 [ %41, %.preheader.i.preheader.i ], [ %indvars.iv.next.i, %44 ]
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i
+  %42 = getelementptr inbounds [8 x i8], ptr %33, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   %.not9.i.i = icmp eq ptr %43, null
   br i1 %.not9.i.i, label %44, label %next_node.exit.i
@@ -2366,7 +2366,7 @@ define dso_local ptr @next_node(ptr noundef captures(none) %0) local_unnamed_add
   %6 = phi i32 [ %12, %11 ], [ %4, %3 ]
   %7 = load ptr, ptr @node_record_table_ptr, align 8
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %11, label %.loopexit
@@ -2450,7 +2450,7 @@ define dso_local void @node_fini2() local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %10
   %indvars.iv = phi i64 [ %5, %.preheader.i.preheader ], [ %indvars.iv.next, %10 ]
-  %8 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not9.i = icmp eq ptr %9, null
   br i1 %.not9.i, label %10, label %next_node.exit
@@ -2570,7 +2570,7 @@ define dso_local void @add_nodes_with_feature_to_bitmap(ptr noundef %0, ptr noun
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %24
   %indvars.iv = phi i64 [ %19, %.preheader.i.preheader ], [ %indvars.iv.next, %24 ]
-  %22 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %22 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.not9.i = icmp eq ptr %23, null
   br i1 %.not9.i, label %24, label %next_node.exit
@@ -3006,7 +3006,7 @@ define dso_local void @cr_init_global_core_data(ptr noundef readonly captures(no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
   %.021 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %28 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %28, label %10
@@ -3015,7 +3015,7 @@ define dso_local void @cr_init_global_core_data(ptr noundef readonly captures(no
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 512
   %12 = load i16, ptr %11, align 8
   %13 = load ptr, ptr @cr_node_num_cores, align 8
-  %14 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv
   store i16 %12, ptr %14, align 2
   %.not19 = icmp eq i64 %indvars.iv, 0
   %15 = load ptr, ptr @cr_node_cores_offset, align 8
@@ -3023,14 +3023,14 @@ define dso_local void @cr_init_global_core_data(ptr noundef readonly captures(no
 
 16:                                               ; preds = %10
   %17 = sext i32 %.021 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr @cr_node_num_cores, align 8
-  %21 = getelementptr inbounds i16, ptr %20, i64 %17
+  %21 = getelementptr inbounds [2 x i8], ptr %20, i64 %17
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
   %24 = add i32 %19, %23
-  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %24, ptr %25, align 4
   %26 = trunc nuw i64 %indvars.iv to i32
   br label %28
@@ -3053,14 +3053,14 @@ define dso_local void @cr_init_global_core_data(ptr noundef readonly captures(no
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %30 = phi ptr [ %7, %2 ], [ %.pre, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %2 ], [ %29, %._crit_edge.loopexit ]
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.0.lcssa
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %.0.lcssa
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr @cr_node_num_cores, align 8
-  %34 = getelementptr inbounds i16, ptr %33, i64 %.0.lcssa
+  %34 = getelementptr inbounds [2 x i8], ptr %33, i64 %.0.lcssa
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   %37 = add i32 %32, %36
-  %38 = getelementptr inbounds i32, ptr %30, i64 %3
+  %38 = getelementptr inbounds [4 x i8], ptr %30, i64 %3
   store i32 %37, ptr %38, align 4
   ret void
 }
@@ -3090,7 +3090,7 @@ define dso_local i32 @cr_get_coremap_offset(i32 noundef %0) local_unnamed_addr #
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %9
   %indvars.iv = phi i64 [ %4, %.preheader.i.preheader ], [ %indvars.iv.next, %9 ]
-  %7 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not9.i = icmp eq ptr %8, null
   br i1 %.not9.i, label %9, label %next_node.exit
@@ -3117,7 +3117,7 @@ next_node.exit:                                   ; preds = %.preheader.i
 13:                                               ; preds = %next_node.exit.thread, %next_node.exit.thread9, %next_node.exit
   %14 = phi i64 [ %12, %next_node.exit ], [ %11, %next_node.exit.thread ], [ %10, %next_node.exit.thread9 ]
   %15 = load ptr, ptr @cr_node_cores_offset, align 8
-  %.0.in = getelementptr inbounds i32, ptr %15, i64 %14
+  %.0.in = getelementptr inbounds [4 x i8], ptr %15, i64 %14
   %.0 = load i32, ptr %.0.in, align 4
   ret i32 %.0
 }
@@ -3199,7 +3199,7 @@ define dso_local ptr @node_conf_get_active_bitmap() local_unnamed_addr #0 {
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.preheader.i.preheader.i ], [ %indvars.iv.next.i, %13 ]
-  %11 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %.not9.i.i = icmp eq ptr %12, null
   br i1 %.not9.i.i, label %13, label %next_node.exit.i
@@ -3247,7 +3247,7 @@ define dso_local void @node_conf_set_all_active_bits(ptr noundef %0) local_unnam
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %11
   %indvars.iv = phi i64 [ %6, %.preheader.i.preheader ], [ %indvars.iv.next, %11 ]
-  %9 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %11, label %next_node.exit
@@ -3307,7 +3307,7 @@ define dso_local noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %12, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 2048
   %.not23 = icmp eq i16 %18, 0
@@ -3343,7 +3343,7 @@ cr_get_coremap_offset.exit:                       ; preds = %1
   %3 = load i32, ptr @node_record_count, align 4
   %4 = sext i32 %3 to i64
   %5 = load ptr, ptr @cr_node_cores_offset, align 8
-  %.0.in.i = getelementptr inbounds i32, ptr %5, i64 %4
+  %.0.in.i = getelementptr inbounds [4 x i8], ptr %5, i64 %4
   %.0.i = load i32, ptr %.0.in.i, align 4
   %6 = zext i32 %.0.i to i64
   %7 = tail call ptr @bit_alloc(i64 noundef %6) #15

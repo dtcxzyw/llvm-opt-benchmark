@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_.3" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -986,7 +985,7 @@ _ZNSolsEPFRSoS_E.exit._crit_edge:                 ; preds = %_ZNSolsEPFRSoS_E.ex
   store i64 0, ptr %61, align 8
   store i32 50397184, ptr %11, align 8, !tbaa !49
   store ptr %6, ptr %60, align 8, !tbaa !51
-  %84 = getelementptr inbounds nuw %"class.cv::Point_.3", ptr %83, i64 %.034108
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.034108
   %85 = load float, ptr %84, align 4, !tbaa !57
   %86 = insertelement <4 x float> poison, float %85, i64 0
   %87 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %86)
@@ -1254,7 +1253,7 @@ _ZNSolsEm.exit72:                                 ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit74: ; preds = %_ZNSolsEm.exit72
   %183 = load ptr, ptr %5, align 8, !tbaa !56
-  %184 = getelementptr inbounds nuw %"class.cv::Point_.3", ptr %183, i64 %.0109
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %.0109
   %185 = load float, ptr %184, align 4, !tbaa !57
   %186 = fpext float %185 to double
   %187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %181, double noundef %186)
@@ -1266,7 +1265,7 @@ _ZNSolsEf.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77: ; preds = %_ZNSolsEf.exit
   %189 = load ptr, ptr %5, align 8, !tbaa !56
-  %190 = getelementptr inbounds nuw %"class.cv::Point_.3", ptr %189, i64 %.0109
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.0109
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %192 = load float, ptr %191, align 4, !tbaa !60
   %193 = fpext float %192 to double

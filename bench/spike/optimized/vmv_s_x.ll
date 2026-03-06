@@ -212,7 +212,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmv_s_xP11
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %81 = lshr i64 %1, 15
   %82 = and i64 %81, 31
-  %83 = getelementptr inbounds nuw i64, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !146
   switch i64 %79, label %94 [
     i64 8, label %85
@@ -513,7 +513,7 @@ define noundef i64 @_Z18fast_rv64i_vmv_s_xP11processor_t6insn_tm(ptr noundef %0,
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %81 = lshr i64 %1, 15
   %82 = and i64 %81, 31
-  %83 = getelementptr inbounds nuw i64, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !146
   switch i64 %79, label %94 [
     i64 8, label %85
@@ -696,7 +696,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmv_s_xP
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %81 = lshr i64 %1, 15
   %82 = and i64 %81, 31
-  %83 = getelementptr inbounds nuw i64, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !146
   switch i64 %79, label %94 [
     i64 8, label %85
@@ -881,7 +881,7 @@ define noundef i64 @_Z20logged_rv64i_vmv_s_xP11processor_t6insn_tm(ptr noundef %
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %81 = lshr i64 %1, 15
   %82 = and i64 %81, 31
-  %83 = getelementptr inbounds nuw i64, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !146
   switch i64 %79, label %94 [
     i64 8, label %85
@@ -1087,7 +1087,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_s_xP11
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %81
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %81
   %92 = load i64, ptr %91, align 8, !tbaa !146
   %93 = trunc i64 %92 to i8
   %94 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1111,7 +1111,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_s_xP11
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %81
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %81
   %104 = load i64, ptr %103, align 8, !tbaa !146
   %105 = trunc i64 %104 to i16
   %106 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1135,7 +1135,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_s_xP11
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %81
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %81
   %116 = load i64, ptr %115, align 8, !tbaa !146
   %117 = trunc i64 %116 to i32
   %118 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1159,7 +1159,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_s_xP11
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %81
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %81
   %128 = load i64, ptr %127, align 8, !tbaa !146
   %129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
   store i64 %128, ptr %129, align 8, !tbaa !146
@@ -1342,7 +1342,7 @@ define noundef i64 @_Z18fast_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %0,
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %81
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %81
   %92 = load i64, ptr %91, align 8, !tbaa !146
   %93 = trunc i64 %92 to i8
   %94 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1366,7 +1366,7 @@ define noundef i64 @_Z18fast_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %0,
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %81
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %81
   %104 = load i64, ptr %103, align 8, !tbaa !146
   %105 = trunc i64 %104 to i16
   %106 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1390,7 +1390,7 @@ define noundef i64 @_Z18fast_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %0,
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %81
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %81
   %116 = load i64, ptr %115, align 8, !tbaa !146
   %117 = trunc i64 %116 to i32
   %118 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1414,7 +1414,7 @@ define noundef i64 @_Z18fast_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %0,
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %81
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %81
   %128 = load i64, ptr %127, align 8, !tbaa !146
   %129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
   store i64 %128, ptr %129, align 8, !tbaa !146
@@ -1595,7 +1595,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_s_xP
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %81
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %81
   %92 = load i64, ptr %91, align 8, !tbaa !146
   %93 = trunc i64 %92 to i8
   %94 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1619,7 +1619,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_s_xP
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %81
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %81
   %104 = load i64, ptr %103, align 8, !tbaa !146
   %105 = trunc i64 %104 to i16
   %106 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1643,7 +1643,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_s_xP
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %81
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %81
   %116 = load i64, ptr %115, align 8, !tbaa !146
   %117 = trunc i64 %116 to i32
   %118 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1667,7 +1667,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_s_xP
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %81
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %81
   %128 = load i64, ptr %127, align 8, !tbaa !146
   %129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
   store i64 %128, ptr %129, align 8, !tbaa !146
@@ -1850,7 +1850,7 @@ define noundef i64 @_Z20logged_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %81
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %81
   %92 = load i64, ptr %91, align 8, !tbaa !146
   %93 = trunc i64 %92 to i8
   %94 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1874,7 +1874,7 @@ define noundef i64 @_Z20logged_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %81
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %81
   %104 = load i64, ptr %103, align 8, !tbaa !146
   %105 = trunc i64 %104 to i16
   %106 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1898,7 +1898,7 @@ define noundef i64 @_Z20logged_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %81
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %81
   %116 = load i64, ptr %115, align 8, !tbaa !146
   %117 = trunc i64 %116 to i32
   %118 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
@@ -1922,7 +1922,7 @@ define noundef i64 @_Z20logged_rv64e_vmv_s_xP11processor_t6insn_tm(ptr noundef %
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %81
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %81
   %128 = load i64, ptr %127, align 8, !tbaa !146
   %129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %17, i64 noundef %78, i64 noundef 0, i1 noundef zeroext true)
   store i64 %128, ptr %129, align 8, !tbaa !146

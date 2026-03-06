@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [47 x i8] c"could not find tuple for parent of relation %u\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"partition.c\00", align 1
@@ -161,7 +160,7 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
 .lr.ph46:                                         ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %11) #4
@@ -287,7 +286,7 @@ list_head.exit:                                   ; preds = %11, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.02646 = phi ptr [ %18, %.lr.ph ], [ %.127, %43 ]
   %.val42 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw i16, ptr %.val42, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.val42, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2
   %.not36 = icmp eq i16 %25, 0
   br i1 %.not36, label %32, label %26
@@ -332,7 +331,7 @@ list_head.exit:                                   ; preds = %11, %15
 .critedge:                                        ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %.02646, i64 8
   %40 = sext i32 %.val43 to i64
-  %41 = getelementptr inbounds %union.ListCell, ptr %.val44, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.val44, i64 %40
   %42 = icmp ult ptr %39, %41
   %..i = select i1 %42, ptr %39, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -1577,7 +1577,7 @@ _ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EEC2EmRKS3_.exit.thread
   %21 = ashr exact i64 %12, 1
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #23
   store ptr %22, ptr %6, align 8, !tbaa !193
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %13
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !196
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %21
@@ -1729,7 +1729,7 @@ _ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EEC2EmRKS3_.exit.thread
   %21 = ashr exact i64 %12, 1
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #23
   store ptr %22, ptr %6, align 8, !tbaa !193
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %13
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !196
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %21

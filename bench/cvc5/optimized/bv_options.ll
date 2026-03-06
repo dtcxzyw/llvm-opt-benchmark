@@ -594,7 +594,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7
 
 switch.lookup:                                    ; preds = %2
   %12 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12BoolToBVModeE, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12BoolToBVModeE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load, i64 noundef 3)
   ret ptr %0

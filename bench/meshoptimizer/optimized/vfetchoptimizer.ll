@@ -34,10 +34,10 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetchRemap(
 .lr.ph:                                           ; preds = %4, %15
   %.014 = phi i32 [ %.1, %15 ], [ 0, %4 ]
   %.01213 = phi i64 [ %16, %15 ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %.01213
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01213
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %15
@@ -112,7 +112,7 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %30
   %.04.i = phi i64 [ 1, %30 ], [ %18, %.lr.ph.i.preheader ]
   %26 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
-  %27 = getelementptr ptr, ptr %7, i64 %.04.i
+  %27 = getelementptr [8 x i8], ptr %7, i64 %.04.i
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   invoke void %26(ptr noundef %29)
@@ -141,10 +141,10 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %30
 .lr.ph:                                           ; preds = %24, %49
   %.03542 = phi i64 [ %51, %49 ], [ 0, %24 ]
   %.03641 = phi i32 [ %.1, %49 ], [ 0, %24 ]
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %.03542
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.03542
   %37 = load i32, ptr %36, align 4, !tbaa !4
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %23, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !4
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %49
@@ -193,7 +193,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
-  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.04
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !10
   invoke void %4(ptr noundef %7)

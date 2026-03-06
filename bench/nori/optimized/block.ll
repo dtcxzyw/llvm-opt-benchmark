@@ -9,16 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"struct.nori::Color4f" = type { %"class.Eigen::Array.28" }
-%"class.Eigen::Array.28" = type { %"class.Eigen::PlainObjectBase.29" }
-%"class.Eigen::PlainObjectBase.29" = type { %"class.Eigen::DenseStorage.36" }
-%"class.Eigen::DenseStorage.36" = type { %"struct.Eigen::internal::plain_array.37" }
-%"struct.Eigen::internal::plain_array.37" = type { [4 x float] }
-%"struct.nori::Color3f" = type { %"class.Eigen::Array.18" }
-%"class.Eigen::Array.18" = type { %"class.Eigen::PlainObjectBase.19" }
-%"class.Eigen::PlainObjectBase.19" = type { %"class.Eigen::DenseStorage.26" }
-%"class.Eigen::DenseStorage.26" = type { %"struct.Eigen::internal::plain_array.27" }
-%"struct.Eigen::internal::plain_array.27" = type { [3 x float] }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -186,7 +176,7 @@ _ZN3tbb5mutexC2Ev.exit:                           ; preds = %3, %14
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store float %32, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -419,8 +409,8 @@ _ZN4nori6BitmapC2ERKNS_7TVectorIiLi2EEE.exit.preheader: ; preds = %_ZN5Eigen15Pl
   %39 = load ptr, ptr %0, align 8
   %40 = load i64, ptr %22, align 8
   %41 = mul nsw i64 %40, %35
-  %42 = getelementptr %"struct.nori::Color4f", ptr %39, i64 %38
-  %43 = getelementptr %"struct.nori::Color4f", ptr %42, i64 %41
+  %42 = getelementptr [16 x i8], ptr %39, i64 %38
+  %43 = getelementptr [16 x i8], ptr %42, i64 %41
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load float, ptr %44, align 4, !noalias !7
   %46 = fcmp une float %45, 0.000000e+00
@@ -444,8 +434,8 @@ _ZNK4nori7Color4f20divideByFilterWeightEv.exit:   ; preds = %32, %47
   %56 = load ptr, ptr %calloc, align 8
   %57 = load i64, ptr %23, align 8
   %58 = mul nsw i64 %57, %indvars.iv17
-  %59 = getelementptr %"struct.nori::Color3f", ptr %56, i64 %indvars.iv
-  %60 = getelementptr %"struct.nori::Color3f", ptr %59, i64 %58
+  %59 = getelementptr [12 x i8], ptr %56, i64 %indvars.iv
+  %60 = getelementptr [12 x i8], ptr %59, i64 %58
   store float %.sink6.i, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float %.sink5.i, ptr %61, align 4
@@ -527,19 +517,19 @@ define hidden void @_ZN4nori10ImageBlock10fromBitmapERKNS_6BitmapE(ptr noundef n
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %5, align 8
   %28 = mul nsw i64 %27, %indvars.iv25
-  %29 = getelementptr %"struct.nori::Color4f", ptr %26, i64 %indvars.iv
-  %30 = getelementptr %"struct.nori::Color4f", ptr %29, i64 %28
+  %29 = getelementptr [16 x i8], ptr %26, i64 %indvars.iv
+  %30 = getelementptr [16 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %1, align 8
   %32 = load i64, ptr %3, align 8
   %33 = mul nsw i64 %32, %indvars.iv25
-  %34 = getelementptr %"struct.nori::Color3f", ptr %31, i64 %indvars.iv
-  %35 = getelementptr %"struct.nori::Color3f", ptr %34, i64 %33
+  %34 = getelementptr [12 x i8], ptr %31, i64 %indvars.iv
+  %35 = getelementptr [12 x i8], ptr %34, i64 %33
   br label %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph
   %.052.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %39, %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph ]
-  %36 = getelementptr float, ptr %30, i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i
-  %37 = getelementptr float, ptr %35, i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i
+  %36 = getelementptr [4 x i8], ptr %30, i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i
+  %37 = getelementptr [4 x i8], ptr %35, i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i
   %38 = load float, ptr %37, align 4, !noalias !13
   store float %38, ptr %36, align 4, !noalias !13
   %39 = add nuw nsw i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -779,11 +769,11 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %89 = fmul float %87, %88
   %90 = fptosi float %89 to i32
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds float, ptr %84, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %84, i64 %91
   %93 = load float, ptr %92, align 4
   %94 = load ptr, ptr %75, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv
   store float %93, ptr %95, align 4
   %96 = add nuw nsw i32 %.03168, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -818,11 +808,11 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %113 = fmul float %111, %112
   %114 = fptosi float %113 to i32
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds float, ptr %108, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %108, i64 %115
   %117 = load float, ptr %116, align 4
   %118 = load ptr, ptr %80, align 8
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %119 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv85
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv85
   store float %117, ptr %119, align 4
   %120 = add nuw nsw i32 %.02971, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -845,17 +835,17 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %126 = insertelement <4 x float> %125, float %123, i64 1
   %.sroa.0.12.vec.insert = insertelement <4 x float> %126, float %124, i64 2
   %127 = load ptr, ptr %99, align 8
-  %128 = getelementptr inbounds nuw float, ptr %127, i64 %indvars.iv90
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv90
   %129 = load float, ptr %128, align 4, !noalias !33
   %130 = load ptr, ptr %100, align 8
-  %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv99
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv99
   %132 = load float, ptr %131, align 4, !noalias !36
   %.sroa.236.20.vec.insert = insertelement <4 x float> %.sroa.236.175, float %129, i64 0
   %133 = load ptr, ptr %0, align 8
   %134 = load i64, ptr %63, align 8
   %135 = mul nsw i64 %134, %indvars.iv101
-  %136 = getelementptr %"struct.nori::Color4f", ptr %133, i64 %indvars.iv92
-  %137 = getelementptr %"struct.nori::Color4f", ptr %136, i64 %135
+  %136 = getelementptr [16 x i8], ptr %133, i64 %indvars.iv92
+  %137 = getelementptr [16 x i8], ptr %136, i64 %135
   %138 = shufflevector <4 x float> %.sroa.236.20.vec.insert, <4 x float> poison, <4 x i32> zeroinitializer
   %139 = fmul <4 x float> %.sroa.0.12.vec.insert, %138
   %140 = insertelement <4 x float> poison, float %132, i64 0
@@ -936,11 +926,11 @@ define hidden void @_ZN4nori10ImageBlock3putERS0_(ptr noundef nonnull align 8 de
   %36 = sext i32 %26 to i64
   %37 = sext i32 %23 to i64
   %38 = load ptr, ptr %0, align 8, !noalias !44
-  %39 = getelementptr inbounds %"struct.nori::Color4f", ptr %38, i64 %35
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i64, ptr %40, align 8, !noalias !44
   %42 = mul nsw i64 %41, %34
-  %43 = getelementptr inbounds %"struct.nori::Color4f", ptr %39, i64 %42
+  %43 = getelementptr inbounds [16 x i8], ptr %39, i64 %42
   %44 = icmp sgt i32 %26, 0
   %45 = icmp sgt i32 %23, 0
   %or.cond = select i1 %44, i1 %45, i1 false
@@ -949,15 +939,15 @@ define hidden void @_ZN4nori10ImageBlock3putERS0_(ptr noundef nonnull align 8 de
 .preheader.i.i.i.i.i.i:                           ; preds = %30, %._crit_edge.i.i.i.i.i.i
   %.0810.i.i.i.i.i.i = phi i64 [ %52, %._crit_edge.i.i.i.i.i.i ], [ 0, %30 ]
   %46 = mul nsw i64 %.0810.i.i.i.i.i.i, %41
-  %invariant.gep.i.i.i.i.i = getelementptr %"struct.nori::Color4f", ptr %43, i64 %46
+  %invariant.gep.i.i.i.i.i = getelementptr [16 x i8], ptr %43, i64 %46
   %47 = mul nsw i64 %.0810.i.i.i.i.i.i, %33
-  %invariant.gep13.i.i.i.i.i = getelementptr %"struct.nori::Color4f", ptr %31, i64 %47
+  %invariant.gep13.i.i.i.i.i = getelementptr [16 x i8], ptr %31, i64 %47
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i = getelementptr %"struct.nori::Color4f", ptr %invariant.gep.i.i.i.i.i, i64 %.09.i.i.i.i.i.i
-  %gep14.i.i.i.i.i = getelementptr %"struct.nori::Color4f", ptr %invariant.gep13.i.i.i.i.i, i64 %.09.i.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr [16 x i8], ptr %invariant.gep.i.i.i.i.i, i64 %.09.i.i.i.i.i.i
+  %gep14.i.i.i.i.i = getelementptr [16 x i8], ptr %invariant.gep13.i.i.i.i.i, i64 %.09.i.i.i.i.i.i
   %48 = load <4 x float>, ptr %gep14.i.i.i.i.i, align 16
   %49 = load <4 x float>, ptr %gep.i.i.i.i.i, align 16
   %50 = fadd <4 x float> %48, %49
@@ -1063,7 +1053,7 @@ define linkonce_odr hidden void @_ZNK4nori6TPointIiLi2EE8toStringB5cxx11Ev(ptr d
 6:                                                ; preds = %12, %2
   %7 = phi i1 [ true, %2 ], [ false, %12 ]
   %.079 = phi i64 [ 0, %2 ], [ 1, %12 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %.079
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.079
   %9 = load i32, ptr %8, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %9) #20
   %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -1130,7 +1120,7 @@ define linkonce_odr hidden void @_ZNK4nori7TVectorIiLi2EE8toStringB5cxx11Ev(ptr 
 6:                                                ; preds = %12, %2
   %7 = phi i1 [ true, %2 ], [ false, %12 ]
   %.079 = phi i64 [ 0, %2 ], [ 1, %12 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %.079
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.079
   %9 = load i32, ptr %8, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %9) #20
   %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -1521,7 +1511,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %49, label %44
@@ -1885,7 +1875,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %115 = add nsw i32 %112, 1
   store i32 %115, ptr %5, align 4
   %116 = sext i32 %112 to i64
-  %117 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %4, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %117, align 8
@@ -1947,7 +1937,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %157 = add nsw i32 %154, 1
   store i32 %157, ptr %5, align 4
   %158 = sext i32 %154 to i64
-  %159 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %158
+  %159 = getelementptr inbounds [24 x i8], ptr %4, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %159, align 8

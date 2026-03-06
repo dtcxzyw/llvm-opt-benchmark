@@ -1956,7 +1956,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
 
 19:                                               ; preds = %.lr.ph208.i
   %20 = zext i8 %18 to i64
-  %21 = getelementptr i32, ptr @ws_utf8_seqlen, i64 %20
+  %21 = getelementptr [4 x i8], ptr @ws_utf8_seqlen, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.preheader.i, label %json_string_unescape.exit

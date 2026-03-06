@@ -7,15 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.APVVLCLUT = type { [6 x [512 x %struct.APVSingleVLCLUTEntry]], [3 x [5 x [512 x %struct.APVMultiVLCLUTEntry]]], [3 x [5 x [512 x %struct.APVMultiVLCLUTEntry]]] }
 %struct.APVSingleVLCLUTEntry = type { i16, i8, i8 }
 %struct.APVMultiVLCLUTEntry = type { i8, i8, [2 x i8], [2 x i16], [4 x i8] }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
-%struct.APVRawMetadataPayload = type { i32, i32, %union.anon.1 }
-%union.anon.1 = type { %struct.APVRawMetadataUserDefined }
-%struct.APVRawMetadataUserDefined = type { [16 x i8], ptr, ptr, i64 }
-%struct.AVRational = type { i32, i32 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 %struct.APVEntropyState = type { ptr, ptr, i16, i8, i8 }
-%struct.APVRawTile = type { %struct.APVRawTileHeader, [4 x ptr], ptr, i32 }
-%struct.APVRawTileHeader = type { i16, i16, [4 x i32], [4 x i8], i8 }
 
 @.str = private unnamed_addr constant [4 x i8] c"apv\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"Advanced Professional Video\00", align 1
@@ -109,7 +102,7 @@ define internal i32 @apv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 37:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %38 = load ptr, ptr %16, align 8, !tbaa !42
-  %39 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 8, !tbaa !43
   switch i32 %40, label %182 [
     i32 1, label %41
@@ -155,11 +148,11 @@ define internal i32 @apv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %63 = load i8, ptr %62, align 4, !tbaa !56
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [5 x i32], ptr @apv_format_table, i64 %64
+  %65 = getelementptr inbounds nuw [20 x i8], ptr @apv_format_table, i64 %64
   %66 = add nuw nsw i32 %56, 4
   %67 = lshr i32 %66, 2
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %65, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !57
   store i32 %70, ptr %21, align 8, !tbaa !58
   %71 = getelementptr inbounds nuw i8, ptr %43, i64 12
@@ -258,7 +251,7 @@ apv_decode.exit:                                  ; preds = %114, %98
 
 123:                                              ; preds = %173, %.lr.ph.i
   %indvars.iv78.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next79.i, %173 ]
-  %124 = getelementptr inbounds nuw %struct.APVRawMetadataPayload, ptr %122, i64 %indvars.iv78.i
+  %124 = getelementptr inbounds nuw [48 x i8], ptr %122, i64 %indvars.iv78.i
   %125 = load i32, ptr %124, align 8, !tbaa !89
   switch i32 %125, label %173 [
     i32 5, label %126
@@ -292,16 +285,16 @@ apv_decode.exit:                                  ; preds = %114, %98
 133:                                              ; preds = %133, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %133 ]
   %134 = load ptr, ptr %5, align 8, !tbaa !91
-  %135 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %134, i64 %indvars.iv.i
-  %136 = getelementptr inbounds nuw i16, ptr %127, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %127, i64 %indvars.iv.i
   %137 = load i16, ptr %136, align 2, !tbaa !93
   %.sroa.0.0.insert.ext.i59.i = zext i16 %137 to i64
   %.sroa.0.0.insert.insert.i60.i = or disjoint i64 %.sroa.0.0.insert.ext.i59.i, 281474976710656
   store i64 %.sroa.0.0.insert.insert.i60.i, ptr %135, align 4
   %138 = load ptr, ptr %5, align 8, !tbaa !91
-  %139 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %138, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %indvars.iv.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %141 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %indvars.iv.i
   %142 = load i16, ptr %141, align 2, !tbaa !93
   %.sroa.0.0.insert.ext.i61.i = zext i16 %142 to i64
   %.sroa.0.0.insert.insert.i62.i = or disjoint i64 %.sroa.0.0.insert.ext.i61.i, 281474976710656
@@ -499,19 +492,19 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %31 = phi i32 [ %29, %23 ], [ 0, %4 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 3504
   %33 = sext i32 %17 to i64
-  %34 = getelementptr inbounds %struct.APVRawTile, ptr %32, i64 %33
+  %34 = getelementptr inbounds [80 x i8], ptr %32, i64 %33
   %35 = load i8, ptr %14, align 2, !tbaa !128
   %36 = zext i8 %35 to i32
   %37 = sdiv i32 %17, %36
   %38 = srem i32 %17, %36
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds i16, ptr %39, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %39, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !93
   %43 = zext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 54
   %45 = sext i32 %37 to i64
-  %46 = getelementptr inbounds i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !93
   %48 = zext i16 %47 to i32
   %49 = getelementptr i8, ptr %41, i64 2
@@ -542,10 +535,10 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   store i32 0, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %67 = sext i32 %18 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !136
   %70 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %71 = getelementptr inbounds i32, ptr %70, i64 %67
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %67
   %72 = load i32, ptr %71, align 4, !tbaa !57
   %or.cond.i = icmp ugt i32 %72, 268435455
   %73 = shl nuw nsw i32 %72, 3
@@ -582,7 +575,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %93 = zext i8 %92 to i16
   %94 = load i32, ptr %13, align 4, !tbaa !143
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %96 = getelementptr inbounds [8 x [8 x i8]], ptr %95, i64 %67
+  %96 = getelementptr inbounds [64 x i8], ptr %95, i64 %67
   br label %.preheader154
 
 .preheader154:                                    ; preds = %84, %133
@@ -630,9 +623,9 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %.0120157.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us ], [ %129, %117 ]
   %109 = load ptr, ptr %99, align 8, !tbaa !74
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
-  %111 = getelementptr inbounds i32, ptr %110, i64 %67
+  %111 = getelementptr inbounds [4 x i8], ptr %110, i64 %67
   %112 = load i32, ptr %111, align 4, !tbaa !57
-  %113 = getelementptr inbounds ptr, ptr %109, i64 %67
+  %113 = getelementptr inbounds [8 x i8], ptr %109, i64 %67
   %114 = load ptr, ptr %113, align 8, !tbaa !136
   %.val.us.us.us.us.us.us = load ptr, ptr %9, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -685,7 +678,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %135 = load i8, ptr %gep, align 1, !tbaa !40
   %136 = zext i8 %135 to i16
   %137 = mul nuw i16 %136, %93
-  %gep199 = getelementptr inbounds nuw i16, ptr %invariant.gep198, i64 %indvars.iv
+  %gep199 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep198, i64 %indvars.iv
   store i16 %137, ptr %gep199, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

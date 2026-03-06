@@ -4,32 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::ThreadPoolStrategy" = type <{ i32, i8, i8, [2 x i8] }>
-%"struct.llvm::object::FpoData" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral.69" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [4 x i8] }
-%"struct.llvm::support::detail::packed_endian_specific_integral.69" = type { %struct.anon.70 }
-%struct.anon.70 = type { [2 x i8] }
 %"class.llvm::Error" = type { ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::optional.38" = type { %"struct.std::_Optional_base.39" }
-%"struct.std::_Optional_base.39" = type { %"struct.std::_Optional_payload.41" }
-%"struct.std::_Optional_payload.41" = type { %"struct.std::_Optional_payload.base.45", [7 x i8] }
-%"struct.std::_Optional_payload.base.45" = type { %"struct.std::_Optional_payload_base.base.44" }
-%"struct.std::_Optional_payload_base.base.44" = type { %"union.std::_Optional_payload_base<llvm::pdb::DbiStreamBuilder::DebugStream>::_Storage", i8 }
-%"union.std::_Optional_payload_base<llvm::pdb::DbiStreamBuilder::DebugStream>::_Storage" = type { %"struct.llvm::pdb::DbiStreamBuilder::DebugStream" }
-%"struct.llvm::pdb::DbiStreamBuilder::DebugStream" = type <{ %"class.std::function", i32, i16, [2 x i8] }>
 %"class.llvm::Expected" = type { %union.anon, i8, [7 x i8] }
 %union.anon = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [8 x i8] }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.73" }
-%"struct.std::_Head_base.73" = type { ptr }
 %"struct.std::pair.100" = type <{ %"class.llvm::StringRef", i32, [4 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::Expected.103" = type { %union.anon.104, i8, [7 x i8] }
@@ -49,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.25" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
 %"class.llvm::BinaryStreamWriter" = type { ptr, %"class.llvm::WritableBinaryStreamRef", i64 }
-%"struct.llvm::pdb::SecMapEntry" = type { %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral" }
+%"struct.llvm::pdb::DbiStreamBuilder::DebugStream" = type <{ %"class.std::function", i32, i16, [2 x i8] }>
 %class.anon.190 = type { i8 }
 %class.anon.189 = type { ptr }
 %"class.std::vector.191" = type { %"struct.std::_Vector_base.192" }
@@ -77,6 +59,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.119" = type { %"struct.std::_Head_base.122" }
 %"struct.std::_Head_base.122" = type { ptr }
 %"struct.llvm::pdb::SecMapHeader" = type { %"struct.llvm::support::detail::packed_endian_specific_integral.69", %"struct.llvm::support::detail::packed_endian_specific_integral.69" }
+%"struct.llvm::support::detail::packed_endian_specific_integral.69" = type { %struct.anon.70 }
+%struct.anon.70 = type { [2 x i8] }
 %"class.llvm::BinaryStreamRef" = type { %"class.llvm::BinaryStreamRefBase.134" }
 %"class.llvm::BinaryStreamRefBase.134" = type { %"class.std::shared_ptr.135", ptr, i64, %"class.std::optional.20" }
 %"class.std::shared_ptr.135" = type { %"class.std::__shared_ptr.136" }
@@ -86,13 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.77 = type { i64, [8 x i8] }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.std::pair.183" = type { ptr, i64 }
-%"class.std::unique_ptr.144" = type { %"struct.std::__uniq_ptr_data.145" }
-%"struct.std::__uniq_ptr_data.145" = type { %"class.std::__uniq_ptr_impl.146" }
-%"class.std::__uniq_ptr_impl.146" = type { %"class.std::tuple.147" }
-%"class.std::tuple.147" = type { %"struct.std::_Tuple_impl.148" }
-%"struct.std::_Tuple_impl.148" = type { %"struct.std::_Head_base.151" }
-%"struct.std::_Head_base.151" = type { ptr }
 
 $_ZN4llvm23MutableBinaryByteStreamD2Ev = comdat any
 
@@ -380,7 +357,7 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
 .lr.ph.i.i.i:                                     ; preds = %66, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %66 ]
   %60 = load ptr, ptr %52, align 8, !tbaa !124
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i.i.i
   %62 = load ptr, ptr %61, align 8, !tbaa !125
   %magicptr.i.i.i = ptrtoint ptr %62 to i64
   switch i64 %magicptr.i.i.i, label %63 [
@@ -429,7 +406,7 @@ _ZN4llvm3pdb21PDBStringTableBuilderD2Ev.exit:     ; preds = %66, %_ZN4llvm19Bina
 .lr.ph.i:                                         ; preds = %88, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %88 ]
   %82 = load ptr, ptr %74, align 8, !tbaa !124
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv.i
   %84 = load ptr, ptr %83, align 8, !tbaa !125
   %magicptr.i = ptrtoint ptr %84 to i64
   switch i64 %magicptr.i, label %85 [
@@ -725,7 +702,7 @@ _ZNSt6vectorIN4llvm6object7FpoDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i
 _ZNSt6vectorIN4llvm6object7FpoDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN4llvm6object7FpoDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !133
   store ptr %28, ptr %4, align 8, !tbaa !155
-  %30 = getelementptr inbounds nuw %"struct.llvm::object::FpoData", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !134
   br label %_ZNSt6vectorIN4llvm6object7FpoDataESaIS2_EE9push_backERKS2_.exit
 
@@ -742,7 +719,7 @@ define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder12addDbgStreamENS0_13DbgHea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0, i8 0, i64 36, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = zext i16 %2 to i64
-  %10 = getelementptr inbounds nuw %"class.std::optional.38", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i8, ptr %11, align 8, !tbaa !105, !range !107, !noundef !108
   %13 = trunc nuw i8 %12 to i1
@@ -891,7 +868,7 @@ _ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit.i: ; preds = %._cri
 _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit.i.i: ; preds = %.preheader.i.i.i.i.i, %_ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit.i
   %.sroa.0.1.i.i.i = phi ptr [ %21, %_ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit.i ], [ %.sroa.0.0.i.i.i, %.preheader.i.i.i.i.i ]
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %27
   %.not8.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %28
   br i1 %.not8.i.i, label %_ZNK4llvm3pdb16DbiStreamBuilder30calculateFileInfoSubstreamSizeEv.exit, label %.lr.ph.preheader.i.i
 
@@ -1061,7 +1038,7 @@ _ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit: ; preds = %1, %._c
 _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit.i: ; preds = %.preheader.i.i.i.i, %_ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit
   %.sroa.0.1.i.i = phi ptr [ %21, %_ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %27
   %.not8.i = icmp eq ptr %.sroa.0.1.i.i, %28
   br i1 %.not8.i, label %_ZNK4llvm3pdb16DbiStreamBuilder24calculateNamesBufferSizeEv.exit, label %.lr.ph.preheader.i
 
@@ -1276,7 +1253,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm3pdb26DbiModuleDescriptorBuilderESt14default_d
 _ZNSt6vectorISt10unique_ptrIN4llvm3pdb26DbiModuleDescriptorBuilderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm3pdb26DbiModuleDescriptorBuilderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %42
   store ptr %35, ptr %5, align 8, !tbaa !139
   store ptr %41, ptr %6, align 8, !tbaa !140
-  %43 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %35, i64 %33
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %43, ptr %17, align 8, !tbaa !144
   br label %_ZNSt10unique_ptrIN4llvm3pdb26DbiModuleDescriptorBuilderESt14default_deleteIS2_EED2Ev.exit
 
@@ -1350,7 +1327,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
 
 23:                                               ; preds = %4
   %24 = load ptr, ptr %6, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %24, i64 %13
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %24, i64 %13
   %25 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !125
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1436,7 +1413,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb16DbiStreamBuilder24calculateNamesBuf
 _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %1
   %.sroa.0.1.i = phi ptr [ %3, %1 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   %.not8 = icmp eq ptr %.sroa.0.1.i, %10
   br i1 %.not8, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %.lr.ph.preheader
 
@@ -1550,7 +1527,7 @@ _ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit.i: ; preds = %._cri
 _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit.i.i: ; preds = %.preheader.i.i.i.i.i, %_ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit.i
   %.sroa.0.1.i.i.i = phi ptr [ %36, %_ZNK4llvm3pdb16DbiStreamBuilder20calculateNamesOffsetEv.exit.i ], [ %.sroa.0.0.i.i.i, %.preheader.i.i.i.i.i ]
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %36, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %42
   %.not8.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %43
   br i1 %.not8.i.i, label %_ZNK4llvm3pdb16DbiStreamBuilder30calculateFileInfoSubstreamSizeEv.exit, label %.lr.ph.preheader.i.i
 
@@ -2366,7 +2343,7 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
 _ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151
   %.sroa.0.1.i = phi ptr [ %393, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %398 = zext i32 %394 to i64
-  %399 = getelementptr inbounds nuw ptr, ptr %393, i64 %398
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %398
   %.not250266 = icmp eq ptr %.sroa.0.1.i, %399
   br i1 %.not250266, label %.critedge95, label %.lr.ph
 
@@ -2460,7 +2437,7 @@ _ZN4llvm5ErrorD2Ev.exit156.backedge:              ; preds = %_ZN4llvm5ErrorD2Ev.
 
 _ZN4llvm5ErrorD2Ev.exit162:                       ; preds = %.lr.ph270
   %434 = load ptr, ptr %35, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %434, i64 %427
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %434, i64 %427
   %435 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !125
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %437 = load i32, ptr %436, align 8, !tbaa !244
@@ -3417,7 +3394,7 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit15
 _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit15.i.i.i
   store ptr %31, ptr %10, align 8, !tbaa !111
   store ptr %35, ptr %11, align 8, !tbaa !281
-  %37 = getelementptr inbounds nuw %"struct.llvm::pdb::SecMapEntry", ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 %29
   store ptr %37, ptr %13, align 8, !tbaa !112
   br label %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit"
 
@@ -3496,7 +3473,7 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit15
 _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i22: ; preds = %69, %_ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit15.i.i.i20
   store ptr %64, ptr %5, align 8, !tbaa !111
   store ptr %68, ptr %6, align 8, !tbaa !281
-  %70 = getelementptr inbounds nuw %"struct.llvm::pdb::SecMapEntry", ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [20 x i8], ptr %64, i64 %62
   store ptr %70, ptr %7, align 8, !tbaa !112
   br label %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit23"
 
@@ -3735,7 +3712,7 @@ _ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i: ; preds = %86
   %92 = shl nuw nsw i64 %.sroa.speculated.i.i.i, 3
   %93 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #24, !noalias !284
   store ptr %93, ptr %17, align 8, !tbaa !292, !noalias !284
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %.sroa.speculated.i.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.sroa.speculated.i.i.i
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %94, ptr %95, align 8, !tbaa !295, !noalias !284
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %93, i8 0, i64 %92, i1 false), !tbaa !296, !noalias !284
@@ -3764,10 +3741,10 @@ _ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i: ; preds = %86
 107:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i, %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i
   %.02540.i.i.i = phi i64 [ 0, %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i ], [ %117, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ]
   %.sroa.031.039.i.i.i = phi ptr [ %.val, %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i ], [ %111, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ]
-  %108 = getelementptr inbounds %"class.std::unique_ptr", ptr %.sroa.031.039.i.i.i, i64 %98
+  %108 = getelementptr inbounds [8 x i8], ptr %.sroa.031.039.i.i.i, i64 %98
   %109 = icmp samesign ult i64 %.02540.i.i.i, %99
   %110 = zext i1 %109 to i64
-  %111 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %110
   %112 = ptrtoint ptr %.sroa.031.039.i.i.i to i64
   store i64 0, ptr %102, align 8, !noalias !284
   %113 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24, !noalias !284
@@ -5058,7 +5035,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #21
   %7 = load ptr, ptr %0, align 8, !tbaa !124
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !125
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -5113,7 +5090,7 @@ _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJjEEEPS1_NS_9StringRefER
   %28 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #21
   %29 = load ptr, ptr %0, align 8, !tbaa !124
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJjEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -5283,7 +5260,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !422
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.183", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -5324,7 +5301,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !422
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !420
@@ -5615,7 +5592,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i.i.i:                ; preds = %56, %"_ZZN4llvm20pa
   %71 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %72 = load i64, ptr %71, align 8, !tbaa !467
   %73 = load ptr, ptr %70, align 8, !tbaa !292
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   store ptr %.0.lcssa.i.i.i, ptr %74, align 8, !tbaa !296
   ret void
 }
@@ -5823,7 +5800,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !480
   store ptr %67, ptr %41, align 8, !tbaa !477
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.144", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !479
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -5973,7 +5950,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !480
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !477
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.144", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !479
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -6093,7 +6070,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !480
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !477
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.144", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !479
   ret void
 }

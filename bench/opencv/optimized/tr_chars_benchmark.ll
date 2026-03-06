@@ -28,9 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"struct.cv::Ptr.12" = type { %"class.std::shared_ptr.13" }
-%"class.std::shared_ptr.13" = type { %"class.std::__shared_ptr.14" }
-%"class.std::__shared_ptr.14" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt12__shared_ptrIN2cv4text13OCRHMMDecoder18ClassifierCallbackELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -644,7 +641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %24
   %251 = phi ptr [ %137, %._crit_edge.i.i146.lr.ph ], [ %377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ]
   %.059281 = phi i32 [ 0, %._crit_edge.i.i146.lr.ph ], [ %.160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ]
   %.061280 = phi i32 [ 0, %._crit_edge.i.i146.lr.ph ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ]
-  %252 = getelementptr inbounds nuw %"struct.cv::Ptr.12", ptr %251, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [16 x i8], ptr %251, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !37
   %254 = load ptr, ptr %253, align 8, !tbaa !12
   %255 = trunc nuw i64 %indvars.iv to i32

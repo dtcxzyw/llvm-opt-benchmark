@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @add_test(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @num_tests, align 4, !tbaa !3
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %4
+  %5 = getelementptr inbounds [32 x i8], ptr @all_tests, i64 %4
   store ptr %0, ptr %5, align 16, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !11
@@ -65,7 +65,7 @@ define void @add_test(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 define void @add_all_tests(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @num_tests, align 4, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @all_tests, i64 %6
   store ptr %0, ptr %7, align 16, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %8, align 16, !tbaa !13
@@ -298,7 +298,7 @@ set_seed.exit.i:                                  ; preds = %26, %23
 
 .lr.ph.i.i:                                       ; preds = %39, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %39 ]
-  %33 = getelementptr inbounds nuw %struct.test_info, ptr @all_tests, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [32 x i8], ptr @all_tests, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 16, !tbaa !7
   %35 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i.ph, ptr noundef nonnull dereferenceable(1) %34) #14
   %36 = icmp eq i32 %35, 0
@@ -355,7 +355,7 @@ set_seed.exit.i:                                  ; preds = %26, %23
 
 57:                                               ; preds = %55
   %58 = sext i32 %56 to i64
-  %59 = getelementptr %struct.test_info, ptr @all_tests, i64 %58
+  %59 = getelementptr [32 x i8], ptr @all_tests, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -8
   %61 = load i32, ptr %60, align 8, !tbaa !12
   %62 = icmp eq i32 %61, -1
@@ -432,7 +432,7 @@ process_shared_options.exit:                      ; preds = %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %95 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %96 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %96, ptr %95, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -456,9 +456,9 @@ process_shared_options.exit:                      ; preds = %4
   %100 = trunc nuw nsw i64 %indvars.iv170 to i32
   %101 = urem i32 %99, %100
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %3, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !3
-  %105 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next171
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next171
   %106 = load i32, ptr %105, align 4, !tbaa !3
   store i32 %106, ptr %103, align 4, !tbaa !3
   store i32 %104, ptr %105, align 4, !tbaa !3
@@ -482,7 +482,7 @@ process_shared_options.exit:                      ; preds = %4
   %.078156 = phi i32 [ %.1, %217 ], [ 0, %.lr.ph158.preheader ]
   %.079155 = phi i32 [ %.180, %217 ], [ 0, %.lr.ph158.preheader ]
   %.090153 = phi i32 [ %.191, %217 ], [ 0, %.lr.ph158.preheader ]
-  %109 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv173
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv173
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = load i32, ptr @single_test, align 4, !tbaa !3
   %.not106 = icmp eq i32 %111, -1
@@ -494,7 +494,7 @@ process_shared_options.exit:                      ; preds = %4
 113:                                              ; preds = %.lr.ph158
   %.b103 = load i1, ptr @show_list, align 4
   %114 = sext i32 %110 to i64
-  %115 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %114
+  %115 = getelementptr inbounds [32 x i8], ptr @all_tests, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load i32, ptr %116, align 8, !tbaa !12
   %.not115 = icmp eq i32 %117, -1
@@ -820,7 +820,7 @@ define noundef ptr @glue_strings(ptr noundef readonly captures(none) %0, ptr nou
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
   %6 = add i64 %5, %.02028
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
@@ -854,7 +854,7 @@ define noundef ptr @glue_strings(ptr noundef readonly captures(none) %0, ptr nou
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01931) #14
   %18 = getelementptr inbounds nuw i8, ptr %.01931, i64 %17
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next36
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next36
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %.not26 = icmp eq ptr %20, null
   br i1 %.not26, label %.loopexit, label %.lr.ph33, !llvm.loop !27

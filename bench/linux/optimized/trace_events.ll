@@ -1707,7 +1707,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   %30 = phi i32 [ %17, %21 ], [ %238, %.loopexit20 ]
   %31 = load ptr, ptr %22, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr ptr, ptr %0, i64 %28
+  %33 = getelementptr [8 x i8], ptr %0, i64 %28
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %32, %35
@@ -2088,7 +2088,7 @@ define internal noundef i32 @setup_trace_triggers(ptr noundef %0) #4 section ".i
 
 9:                                                ; preds = %5
   %10 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.22) #20
-  %11 = getelementptr %struct.boot_triggers, ptr @bootup_triggers, i64 %6
+  %11 = getelementptr [16 x i8], ptr @bootup_triggers, i64 %6
   store ptr %10, ptr %11, align 16
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2732,7 +2732,7 @@ define dso_local void @__trace_early_add_events(ptr noundef %0) local_unnamed_ad
 
 .preheader:                                       ; preds = %38, %56
   %42 = phi i64 [ %57, %56 ], [ 0, %38 ]
-  %43 = getelementptr %struct.boot_triggers, ptr @bootup_triggers, i64 %42
+  %43 = getelementptr [16 x i8], ptr @bootup_triggers, i64 %42
   %44 = load ptr, ptr %43, align 16
   %45 = tail call i32 @strcmp(ptr noundef %39, ptr noundef %44) #20
   %46 = icmp eq i32 %45, 0
@@ -3159,7 +3159,7 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
   %50 = load ptr, ptr %35, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = and i64 %46, 63
-  %53 = getelementptr i64, ptr @__per_cpu_offset, i64 %52
+  %53 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %51
   %56 = inttoptr i64 %55 to ptr
@@ -7478,7 +7478,7 @@ define internal noundef i32 @trace_module_notify(ptr readnone captures(none) %0,
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %6, align 16
   %18 = zext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %16, i64 %18
+  %19 = getelementptr [8 x i8], ptr %16, i64 %18
   %20 = icmp ult ptr %16, %19
   br i1 %20, label %.preheader9, label %.loopexit10
 

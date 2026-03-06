@@ -197,7 +197,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 42:                                               ; preds = %40
   %43 = zext nneg i32 %20 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = call noalias ptr @fopen(ptr noundef %45, ptr noundef nonnull @.str.2)
   %47 = icmp eq ptr %46, null
@@ -572,7 +572,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %.0131281 = phi i32 [ 0, %.lr.ph ], [ %.1132, %291 ]
   %.0133280 = phi i32 [ 1, %.lr.ph ], [ %292, %291 ]
   %18 = sext i32 %.0133280 to i64
-  %19 = getelementptr inbounds ptr, ptr %2, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = load i8, ptr %20, align 1, !tbaa !9
   %.not = icmp eq i8 %21, 45
@@ -612,7 +612,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 34:                                               ; preds = %31
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = call i32 @keymatch(ptr noundef %37, ptr noundef nonnull @.str.13, i32 noundef 1) #12
   %.not187 = icmp eq i32 %38, 0
@@ -677,7 +677,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   br i1 %.not184, label %61, label %split
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds ptr, ptr %2, i64 %60
+  %62 = getelementptr inbounds [8 x i8], ptr %2, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !4
   %64 = call i32 @jtransform_parse_crop_spec(ptr noundef nonnull @transformoption, ptr noundef %63) #12
   %.not185 = icmp eq i32 %64, 0
@@ -686,7 +686,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 split:                                            ; preds = %61, %58
   %65 = load ptr, ptr @stderr, align 8, !tbaa !53
   %66 = load ptr, ptr @progname, align 8, !tbaa !4
-  %67 = getelementptr inbounds ptr, ptr %2, i64 %60
+  %67 = getelementptr inbounds [8 x i8], ptr %2, i64 %60
   %68 = load ptr, ptr %67, align 8, !tbaa !4
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.18, ptr noundef %66, ptr noundef %68) #13
   call void @exit(i32 noundef 1) #14
@@ -713,7 +713,7 @@ split:                                            ; preds = %61, %58
   br i1 %.not181, label %78, label %split298
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds ptr, ptr %2, i64 %77
+  %79 = getelementptr inbounds [8 x i8], ptr %2, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !4
   %81 = call i32 @jtransform_parse_crop_spec(ptr noundef nonnull @transformoption, ptr noundef %80) #12
   %82 = icmp eq i32 %81, 0
@@ -728,7 +728,7 @@ split:                                            ; preds = %61, %58
 split298:                                         ; preds = %78, %75
   %87 = load ptr, ptr @stderr, align 8, !tbaa !53
   %88 = load ptr, ptr @progname, align 8, !tbaa !4
-  %89 = getelementptr inbounds ptr, ptr %2, i64 %77
+  %89 = getelementptr inbounds [8 x i8], ptr %2, i64 %77
   %90 = load ptr, ptr %89, align 8, !tbaa !4
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.20, ptr noundef %88, ptr noundef %90) #13
   call void @exit(i32 noundef 1) #14
@@ -745,7 +745,7 @@ split298:                                         ; preds = %78, %75
 
 95:                                               ; preds = %92
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds ptr, ptr %2, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %2, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !4
   store ptr %98, ptr @dropfilename, align 8, !tbaa !4
   %99 = load i32, ptr @transformoption, align 8, !tbaa !74
@@ -826,7 +826,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 133:                                              ; preds = %130
   %134 = sext i32 %131 to i64
-  %135 = getelementptr inbounds ptr, ptr %2, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %2, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !4
   %137 = call i32 @keymatch(ptr noundef %136, ptr noundef nonnull @.str.33, i32 noundef 1) #12
   %.not178 = icmp eq i32 %137, 0
@@ -880,7 +880,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 154:                                              ; preds = %151
   %155 = sext i32 %152 to i64
-  %156 = getelementptr inbounds ptr, ptr %2, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %2, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !4
   store ptr %157, ptr @icc_filename, align 8, !tbaa !4
   br label %291
@@ -904,7 +904,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 163:                                              ; preds = %160
   %164 = sext i32 %161 to i64
-  %165 = getelementptr inbounds ptr, ptr %2, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %2, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !4
   %167 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %166, ptr noundef nonnull @.str.38, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %168 = icmp slt i32 %167, 1
@@ -944,7 +944,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 182:                                              ; preds = %179
   %183 = sext i32 %180 to i64
-  %184 = getelementptr inbounds ptr, ptr %2, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %2, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !4
   %186 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %185, ptr noundef nonnull @.str.40, ptr noundef nonnull @max_scans) #12
   %.not174 = icmp eq i32 %186, 1
@@ -984,7 +984,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 198:                                              ; preds = %195
   %199 = sext i32 %196 to i64
-  %200 = getelementptr inbounds ptr, ptr %2, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %2, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !4
   store ptr %201, ptr @outfilename, align 8, !tbaa !4
   br label %291
@@ -1031,7 +1031,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 215:                                              ; preds = %212
   %216 = sext i32 %213 to i64
-  %217 = getelementptr inbounds ptr, ptr %2, i64 %216
+  %217 = getelementptr inbounds [8 x i8], ptr %2, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !4
   %219 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %218, ptr noundef nonnull @.str.38, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
   %220 = icmp slt i32 %219, 1
@@ -1084,7 +1084,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 236:                                              ; preds = %233
   %237 = sext i32 %234 to i64
-  %238 = getelementptr inbounds ptr, ptr %2, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %2, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !4
   %240 = call i32 @keymatch(ptr noundef %239, ptr noundef nonnull @.str.49, i32 noundef 2) #12
   %.not168 = icmp eq i32 %240, 0
@@ -1134,7 +1134,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 256:                                              ; preds = %253
   %257 = sext i32 %254 to i64
-  %258 = getelementptr inbounds ptr, ptr %2, i64 %257
+  %258 = getelementptr inbounds [8 x i8], ptr %2, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !4
   br label %291
 
@@ -1195,7 +1195,7 @@ select_transform.exit:                            ; preds = %95, %95
   br i1 %.not164, label %280, label %split300
 
 280:                                              ; preds = %277
-  %281 = getelementptr inbounds ptr, ptr %2, i64 %279
+  %281 = getelementptr inbounds [8 x i8], ptr %2, i64 %279
   %282 = load ptr, ptr %281, align 8, !tbaa !4
   %283 = call i32 @jtransform_parse_crop_spec(ptr noundef nonnull @transformoption, ptr noundef %282) #12
   %.not165 = icmp eq i32 %283, 0
@@ -1204,7 +1204,7 @@ select_transform.exit:                            ; preds = %95, %95
 split300:                                         ; preds = %280, %277
   %284 = load ptr, ptr @stderr, align 8, !tbaa !53
   %285 = load ptr, ptr @progname, align 8, !tbaa !4
-  %286 = getelementptr inbounds ptr, ptr %2, i64 %279
+  %286 = getelementptr inbounds [8 x i8], ptr %2, i64 %279
   %287 = load ptr, ptr %286, align 8, !tbaa !4
   %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.58, ptr noundef %285, ptr noundef %287) #13
   call void @exit(i32 noundef 1) #14

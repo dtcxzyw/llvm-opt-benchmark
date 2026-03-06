@@ -2594,7 +2594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %37 = phi i64 [ %29, %._crit_edge.i.i5 ], [ %29, %31 ], [ %.pre6.i.i, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %37, ptr %38, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 0, ptr %39, align 4, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64

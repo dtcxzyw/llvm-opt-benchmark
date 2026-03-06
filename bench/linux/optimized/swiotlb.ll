@@ -56,10 +56,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.9 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.io_tlb_area = type { i64, i32, %struct.spinlock }
-%struct.spinlock = type { %union.anon.7 }
-%union.anon.7 = type { %struct.raw_spinlock }
-%struct.io_tlb_slot = type { i64, i64, i32 }
 
 @__tpstrtab_swiotlb_bounced = internal constant [16 x i8] c"swiotlb_bounced\00", section "__tracepoints_strings", align 16
 @__SCK__tp_func_swiotlb_bounced = dso_local global %struct.static_call_key { ptr @__traceiter_swiotlb_bounced, %union.anon.0 { i64 1 } }, align 8
@@ -719,15 +715,15 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
 .preheader4.i:                                    ; preds = %71, %.preheader4.i
   %87 = phi i64 [ %94, %.preheader4.i ], [ 0, %71 ]
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %.split.i = getelementptr %struct.io_tlb_area, ptr %88, i64 %87
+  %.split.i = getelementptr [16 x i8], ptr %88, i64 %87
   %89 = getelementptr i8, ptr %.split.i, i64 12
   store i32 0, ptr %89, align 4
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %.split1.i = getelementptr %struct.io_tlb_area, ptr %90, i64 %87
+  %.split1.i = getelementptr [16 x i8], ptr %90, i64 %87
   %91 = getelementptr i8, ptr %.split1.i, i64 8
   store i32 0, ptr %91, align 8
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %93 = getelementptr %struct.io_tlb_area, ptr %92, i64 %87
+  %93 = getelementptr [16 x i8], ptr %92, i64 %87
   store i64 0, ptr %93, align 8
   %94 = add nuw nsw i64 %87, 1
   %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
@@ -744,14 +740,14 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %103 = tail call i64 @llvm.umin.i64(i64 %101, i64 %102)
   %104 = trunc nuw nsw i64 %103 to i32
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %.split2.i = getelementptr %struct.io_tlb_slot, ptr %105, i64 %99
+  %.split2.i = getelementptr [24 x i8], ptr %105, i64 %99
   %106 = getelementptr i8, ptr %.split2.i, i64 16
   store i32 %104, ptr %106, align 8
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %108 = getelementptr %struct.io_tlb_slot, ptr %107, i64 %99
+  %108 = getelementptr [24 x i8], ptr %107, i64 %99
   store i64 -1, ptr %108, align 8
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %.split3.i = getelementptr %struct.io_tlb_slot, ptr %109, i64 %99
+  %.split3.i = getelementptr [24 x i8], ptr %109, i64 %99
   %110 = getelementptr i8, ptr %.split3.i, i64 8
   store i64 0, ptr %110, align 8
   %111 = add nuw i64 %99, 1
@@ -1154,15 +1150,15 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 .preheader19:                                     ; preds = %157, %.preheader19
   %175 = phi i64 [ %182, %.preheader19 ], [ 0, %157 ]
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %.split = getelementptr %struct.io_tlb_area, ptr %176, i64 %175
+  %.split = getelementptr [16 x i8], ptr %176, i64 %175
   %177 = getelementptr i8, ptr %.split, i64 12
   store i32 0, ptr %177, align 4
   %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %.split15 = getelementptr %struct.io_tlb_area, ptr %178, i64 %175
+  %.split15 = getelementptr [16 x i8], ptr %178, i64 %175
   %179 = getelementptr i8, ptr %.split15, i64 8
   store i32 0, ptr %179, align 8
   %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %181 = getelementptr %struct.io_tlb_area, ptr %180, i64 %175
+  %181 = getelementptr [16 x i8], ptr %180, i64 %175
   store i64 0, ptr %181, align 8
   %182 = add nuw nsw i64 %175, 1
   %183 = load i32, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
@@ -1179,14 +1175,14 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %191 = tail call i64 @llvm.umin.i64(i64 %189, i64 %190)
   %192 = trunc nuw nsw i64 %191 to i32
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %.split16 = getelementptr %struct.io_tlb_slot, ptr %193, i64 %187
+  %.split16 = getelementptr [24 x i8], ptr %193, i64 %187
   %194 = getelementptr i8, ptr %.split16, i64 16
   store i32 %192, ptr %194, align 8
   %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %196 = getelementptr %struct.io_tlb_slot, ptr %195, i64 %187
+  %196 = getelementptr [24 x i8], ptr %195, i64 %187
   store i64 -1, ptr %196, align 8
   %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %.split17 = getelementptr %struct.io_tlb_slot, ptr %197, i64 %187
+  %.split17 = getelementptr [24 x i8], ptr %197, i64 %187
   %198 = getelementptr i8, ptr %.split17, i64 8
   store i64 0, ptr %198, align 8
   %199 = add nuw i64 %187, 1
@@ -1425,7 +1421,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %55 = phi i32 [ %221, %217 ], [ %42, %35 ]
   %56 = load ptr, ptr %43, align 8
   %57 = sext i32 %55 to i64
-  %58 = getelementptr %struct.io_tlb_area, ptr %56, i64 %57
+  %58 = getelementptr [16 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %10, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %65, label %61
@@ -1572,7 +1568,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 
 154:                                              ; preds = %148
   %155 = load ptr, ptr %53, align 8
-  %.split = getelementptr %struct.io_tlb_slot, ptr %155, i64 %149
+  %.split = getelementptr [24 x i8], ptr %155, i64 %149
   %156 = getelementptr i8, ptr %.split, i64 16
   %157 = load i32, ptr %156, align 8
   %158 = icmp ult i32 %157, %47
@@ -1601,7 +1597,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 168:                                              ; preds = %168, %162
   %169 = phi i64 [ %149, %162 ], [ %180, %168 ]
   %170 = load ptr, ptr %53, align 8
-  %.split25 = getelementptr %struct.io_tlb_slot, ptr %170, i64 %169
+  %.split25 = getelementptr [24 x i8], ptr %170, i64 %169
   %171 = getelementptr i8, ptr %.split25, i64 16
   store i32 0, ptr %171, align 8
   %172 = trunc i64 %169 to i32
@@ -1611,7 +1607,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %176 = zext i32 %175 to i64
   %177 = sub i64 %37, %176
   %178 = load ptr, ptr %53, align 8
-  %.split26 = getelementptr %struct.io_tlb_slot, ptr %178, i64 %169
+  %.split26 = getelementptr [24 x i8], ptr %178, i64 %169
   %179 = getelementptr i8, ptr %.split26, i64 8
   store i64 %177, ptr %179, align 8
   %180 = add nuw nsw i64 %169, 1
@@ -1623,7 +1619,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %183 = phi i32 [ %191, %189 ], [ %164, %.loopexit35 ]
   %184 = phi i32 [ %190, %189 ], [ 0, %.loopexit35 ]
   %185 = load ptr, ptr %53, align 8
-  %.split27 = getelementptr %struct.io_tlb_slot, ptr %185, i64 %182
+  %.split27 = getelementptr [24 x i8], ptr %185, i64 %182
   %186 = getelementptr i8, ptr %.split27, i64 16
   %187 = load i32, ptr %186, align 8
   %188 = icmp eq i32 %187, 0
@@ -1712,7 +1708,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %239 = load ptr, ptr %53, align 8
   %240 = add i32 %236, %131
   %241 = zext i32 %240 to i64
-  %242 = getelementptr %struct.io_tlb_slot, ptr %239, i64 %241
+  %242 = getelementptr [24 x i8], ptr %239, i64 %241
   store i64 %238, ptr %242, align 8
   %243 = add i32 %236, 1
   %244 = zext i32 %243 to i64
@@ -1748,7 +1744,7 @@ define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 
   %10 = load ptr, ptr %9, align 8
   %11 = shl i64 %8, 21
   %12 = ashr i64 %11, 32
-  %13 = getelementptr %struct.io_tlb_slot, ptr %10, i64 %12
+  %13 = getelementptr [24 x i8], ptr %10, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
@@ -1932,7 +1928,7 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %33 = load ptr, ptr %32, align 8
   %34 = shl i64 %30, 32
   %35 = ashr exact i64 %34, 32
-  %.split = getelementptr %struct.io_tlb_slot, ptr %33, i64 %35
+  %.split = getelementptr [24 x i8], ptr %33, i64 %35
   %36 = getelementptr i8, ptr %.split, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = add nuw nsw i64 %26, 2047
@@ -1944,7 +1940,7 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %43 to i64
-  %47 = getelementptr %struct.io_tlb_area, ptr %45, i64 %46
+  %47 = getelementptr [16 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %49 = load i32, ptr %48, align 4
   %50 = icmp ult i32 %43, %49
@@ -1968,7 +1964,7 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
 60:                                               ; preds = %52
   %61 = load ptr, ptr %32, align 8
   %62 = sext i32 %56 to i64
-  %.split3 = getelementptr %struct.io_tlb_slot, ptr %61, i64 %62
+  %.split3 = getelementptr [24 x i8], ptr %61, i64 %62
   %63 = getelementptr i8, ptr %.split3, i64 16
   %64 = load i32, ptr %63, align 8
   br label %65
@@ -1992,14 +1988,14 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %75 = add i32 %74, 1
   %76 = load ptr, ptr %32, align 8
   %77 = sext i32 %73 to i64
-  %.split4 = getelementptr %struct.io_tlb_slot, ptr %76, i64 %77
+  %.split4 = getelementptr [24 x i8], ptr %76, i64 %77
   %78 = getelementptr i8, ptr %.split4, i64 16
   store i32 %75, ptr %78, align 8
   %79 = load ptr, ptr %32, align 8
-  %80 = getelementptr %struct.io_tlb_slot, ptr %79, i64 %77
+  %80 = getelementptr [24 x i8], ptr %79, i64 %77
   store i64 -1, ptr %80, align 8
   %81 = load ptr, ptr %32, align 8
-  %.split5 = getelementptr %struct.io_tlb_slot, ptr %81, i64 %77
+  %.split5 = getelementptr [24 x i8], ptr %81, i64 %77
   %82 = getelementptr i8, ptr %.split5, i64 8
   store i64 0, ptr %82, align 8
   %83 = add i32 %73, -1
@@ -2011,7 +2007,7 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %86 = phi i32 [ %93, %92 ], [ %69, %.loopexit10 ]
   %87 = sext i32 %85 to i64
   %88 = load ptr, ptr %32, align 8
-  %.split6 = getelementptr %struct.io_tlb_slot, ptr %88, i64 %87
+  %.split6 = getelementptr [24 x i8], ptr %88, i64 %87
   %89 = getelementptr i8, ptr %.split6, i64 16
   %90 = load i32, ptr %89, align 8
   %91 = icmp eq i32 %90, 0

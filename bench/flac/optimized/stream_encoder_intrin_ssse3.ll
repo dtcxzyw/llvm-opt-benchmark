@@ -55,7 +55,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
   %indvars.iv206 = phi i64 [ %24, %.lr.ph145.preheader ], [ %indvars.iv.next207, %.lr.ph145 ]
   %30 = phi <4 x i32> [ zeroinitializer, %.lr.ph145.preheader ], [ %34, %.lr.ph145 ]
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv206
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv206
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %.scalar = tail call i32 @llvm.abs.i32(i32 %32, i1 false)
   %33 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar, i64 0
@@ -81,7 +81,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
 .lr.ph149:                                        ; preds = %.lr.ph149.preheader, %.lr.ph149
   %indvars.iv209 = phi i64 [ %28, %.lr.ph149.preheader ], [ %indvars.iv.next210, %.lr.ph149 ]
   %39 = phi <4 x i32> [ %.lcssa, %.lr.ph149.preheader ], [ %43, %.lr.ph149 ]
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv209
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv209
   %41 = load <4 x i32>, ptr %40, align 1, !tbaa !9
   %42 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %41, i1 false)
   %43 = add <4 x i32> %42, %39
@@ -92,7 +92,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
   %indvars.iv212 = phi i64 [ %38, %.lr.ph153.preheader ], [ %indvars.iv.next213, %.lr.ph153 ]
   %45 = phi <4 x i32> [ %.lcssa125, %.lr.ph153.preheader ], [ %49, %.lr.ph153 ]
-  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv212
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv212
   %47 = load i32, ptr %46, align 4, !tbaa !3
   %.scalar225 = tail call i32 @llvm.abs.i32(i32 %47, i1 false)
   %48 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar225, i64 0
@@ -110,7 +110,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
   %53 = add <4 x i32> %51, %52
   %54 = extractelement <4 x i32> %53, i64 0
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv218
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv218
   store i64 %55, ptr %56, align 8, !tbaa !12
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %indvars.iv.next215 = add i32 %indvars.iv214, %9
@@ -149,7 +149,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %63, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0109127 = phi <2 x i64> [ zeroinitializer, %.lr.ph.preheader ], [ %71, %.lr.ph ]
-  %67 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !3
   %.scalar226 = tail call i32 @llvm.abs.i32(i32 %68, i1 false)
   %69 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar226, i64 0
@@ -176,7 +176,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
   %indvars.iv192 = phi i64 [ %65, %.lr.ph132.preheader ], [ %indvars.iv.next193, %.lr.ph132 ]
   %.1110130 = phi <2 x i64> [ %.0109.lcssa, %.lr.ph132.preheader ], [ %82, %.lr.ph132 ]
-  %75 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv192
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv192
   %76 = load i64, ptr %75, align 1, !tbaa !9
   %77 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %76, i64 0
   %78 = bitcast <2 x i64> %77 to <4 x i32>
@@ -191,7 +191,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
   %indvars.iv195 = phi i64 [ %74, %.lr.ph137.preheader ], [ %indvars.iv.next196, %.lr.ph137 ]
   %.2111135 = phi <2 x i64> [ %.1110.lcssa, %.lr.ph137.preheader ], [ %88, %.lr.ph137 ]
-  %84 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv195
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv195
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %.scalar227 = tail call i32 @llvm.abs.i32(i32 %85, i1 false)
   %86 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar227, i64 0
@@ -206,7 +206,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
   %.7.lcssa = phi i32 [ %.6.lcssa, %.preheader121 ], [ %indvars.iv197, %.lr.ph137 ]
   %89 = shufflevector <2 x i64> %.2111.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %90 = add <2 x i64> %.2111.lcssa, %89
-  %91 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv201
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv201
   %92 = extractelement <2 x i64> %90, i64 0
   store i64 %92, ptr %91, align 1, !tbaa !9
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
@@ -239,16 +239,16 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
   %.1161 = phi i32 [ %102, %.lr.ph164 ], [ %.096171, %.lr.ph174 ]
   %.198160 = phi i32 [ %105, %.lr.ph164 ], [ %.097170, %.lr.ph174 ]
   %94 = zext i32 %.198160 to i64
-  %95 = getelementptr inbounds nuw i64, ptr %1, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !12
   %97 = add i32 %.198160, 1
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw i64, ptr %1, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !12
   %101 = add i64 %100, %96
   %102 = add i32 %.1161, 1
   %103 = zext i32 %.1161 to i64
-  %104 = getelementptr inbounds nuw i64, ptr %1, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %103
   store i64 %101, ptr %104, align 8, !tbaa !12
   %105 = add i32 %.198160, 2
   %106 = add nuw nsw i32 %.0162, 1

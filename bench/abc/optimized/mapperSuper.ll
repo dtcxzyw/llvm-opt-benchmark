@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/mapperSuper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Map_TimeStruct_t_ = type { float, float, float }
-
 @.str = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"Cannot open input file \22%s\22.\0A\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"%5d : \00", align 1
@@ -224,9 +222,9 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %86 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #11
   %87 = call double @strtod(ptr noundef nonnull captures(none) %86, ptr noundef null) #11
   %88 = fptrunc double %87 to float
-  %89 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %84, i64 %indvars.iv.i.i
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %84, i64 %indvars.iv.i.i
   store float %88, ptr %89, align 4, !tbaa !33
-  %90 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %61, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw [12 x i8], ptr %61, i64 %indvars.iv.i.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 156
   store float %88, ptr %91, align 4, !tbaa !34
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -462,7 +460,7 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr noundef write
   store i8 0, ptr %.14870, align 1, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %.14870, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %36, ptr %37, align 8, !tbaa !46
   %38 = load i8, ptr %36, align 1, !tbaa !3
   %.not6069 = icmp eq i8 %38, 0

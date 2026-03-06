@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr, i64, ptr, i64, i64 }
 %struct.redisObject = type { i32, i32, ptr }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 %struct.anon.5 = type { i64, ptr, ptr }
 %struct.anon.6 = type { i32, i64, ptr, i64 }
 %struct.streamID = type { i64, i64 }
@@ -6911,7 +6910,7 @@ define dso_local i64 @rdbSaveDb(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %10 = select i1 %.not, ptr @.str.35, ptr @.str.34
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !157
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %struct.redisDb, ptr %11, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !158
   %15 = tail call i64 @kvstoreSize(ptr noundef %14) #23
   %16 = icmp eq i64 %15, 0
@@ -12506,7 +12505,7 @@ rioRead.exit302:                                  ; preds = %162, %164
 
 189:                                              ; preds = %181
   %190 = load ptr, ptr %3, align 8, !tbaa !233
-  %191 = getelementptr inbounds nuw %struct.redisDb, ptr %190, i64 %178
+  %191 = getelementptr inbounds nuw [88 x i8], ptr %190, i64 %178
   br label %select.unfold
 
 192:                                              ; preds = %rdbLoadType.exit
@@ -13751,7 +13750,7 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %0, pt
   %47 = load ptr, ptr %46, align 8, !tbaa !264
   %48 = add nsw i32 %.04765.us, 1
   %49 = sext i32 %.04765.us to i64
-  %50 = getelementptr inbounds ptr, ptr %31, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %31, i64 %49
   store ptr %47, ptr %50, align 8, !tbaa !265
   br label %51
 
@@ -13784,7 +13783,7 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %0, pt
   %66 = load ptr, ptr %65, align 8, !tbaa !264
   %67 = add nsw i32 %.04765, 1
   %68 = sext i32 %.04765 to i64
-  %69 = getelementptr inbounds ptr, ptr %31, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %31, i64 %68
   store ptr %66, ptr %69, align 8, !tbaa !265
   %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7276), align 4, !tbaa !266
   %71 = mul nsw i32 %70, 1000

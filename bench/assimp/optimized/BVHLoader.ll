@@ -34,19 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<Assimp::BVHLoader::ChannelType, std::pair<const Assimp::BVHLoader::ChannelType, int>, std::_Select1st<std::pair<const Assimp::BVHLoader::ChannelType, int>>, std::less<Assimp::BVHLoader::ChannelType>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.Assimp::BVHLoader::Node" = type { ptr, %"class.std::vector.34", %"class.std::vector.39" }
-%"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
-%"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<Assimp::BVHLoader::ChannelType, std::allocator<Assimp::BVHLoader::ChannelType>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::BVHLoader::ChannelType, std::allocator<Assimp::BVHLoader::ChannelType>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::BVHLoader::ChannelType, std::allocator<Assimp::BVHLoader::ChannelType>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::BVHLoader::ChannelType, std::allocator<Assimp::BVHLoader::ChannelType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
-%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
-%class.aiVector3t = type { float, float, float }
-%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
-%class.aiQuaterniont = type { float, float, float, float }
 
 $_ZN17DeadlyImportErrorC2IJRA21_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S1_EEEDpOT_ = comdat any
 
@@ -1050,7 +1037,7 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %48 = load ptr, ptr %14, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   store ptr null, ptr %49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %13, align 8
@@ -1064,7 +1051,7 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
 .lr.ph366:                                        ; preds = %.preheader248, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv325365 = phi i64 [ %indvars.iv.next326, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %.preheader248 ]
   %53 = load ptr, ptr %28, align 8
-  %54 = getelementptr inbounds nuw %"struct.Assimp::BVHLoader::Node", ptr %53, i64 %indvars.iv325365
+  %54 = getelementptr inbounds nuw [56 x i8], ptr %53, i64 %indvars.iv325365
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
@@ -1117,7 +1104,7 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1080) %69, i8 0, i64 1044, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
   %74 = load ptr, ptr %14, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv325365
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv325365
   store ptr %69, ptr %75, align 8
   %76 = load i64, ptr %42, align 8
   %77 = icmp ugt i64 %76, 1023
@@ -1160,7 +1147,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   %90 = phi ptr [ %125, %120 ], [ %86, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %91 = phi i64 [ %123, %120 ], [ 0, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %.0103283 = phi i32 [ %122, %120 ], [ 0, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   %93 = load ptr, ptr %44, align 8
   %.not10.i.i.i.i = icmp eq ptr %93, null
   %.pre.i = load i32, ptr %92, align 4
@@ -1274,7 +1261,7 @@ _ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_E
   br i1 %140, label %.loopexit246, label %141
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %138, i64 %136
+  %142 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %136
   br label %143
 
 143:                                              ; preds = %143, %141
@@ -1378,8 +1365,8 @@ _ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findE
   %181 = mul i64 %180, %indvars.iv318362
   %182 = sext i32 %174 to i64
   %183 = load ptr, ptr %150, align 8
-  %184 = getelementptr float, ptr %183, i64 %181
-  %185 = getelementptr float, ptr %184, i64 %182
+  %184 = getelementptr [4 x i8], ptr %183, i64 %181
+  %185 = getelementptr [4 x i8], ptr %184, i64 %182
   %186 = load float, ptr %185, align 4
   switch i32 %storemerge285, label %default.unreachable [
     i32 0, label %187
@@ -1454,7 +1441,7 @@ default.unreachable:                              ; preds = %172
   br label %._crit_edge309
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %208, i64 %.pre-phi
+  %212 = getelementptr inbounds nuw [32 x i8], ptr %208, i64 %.pre-phi
   br label %213
 
 213:                                              ; preds = %213, %211
@@ -1615,7 +1602,7 @@ default.unreachable:                              ; preds = %172
   %.sroa.22.0288 = phi float [ 0.000000e+00, %.lr.ph296 ], [ %.sroa.22.1, %407 ]
   %.sroa.11167.0287 = phi float [ 0.000000e+00, %.lr.ph296 ], [ %.sroa.11167.1, %407 ]
   %.sroa.0163.0286 = phi float [ 1.000000e+00, %.lr.ph296 ], [ %.sroa.0163.1, %407 ]
-  %300 = getelementptr inbounds nuw i32, ptr %224, i64 %299
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %299
   %301 = load i32, ptr %300, align 4
   switch i32 %301, label %407 [
     i32 3, label %302
@@ -1625,8 +1612,8 @@ default.unreachable:                              ; preds = %172
 
 302:                                              ; preds = %298
   %303 = load ptr, ptr %222, align 8
-  %304 = getelementptr float, ptr %303, i64 %231
-  %305 = getelementptr float, ptr %304, i64 %299
+  %304 = getelementptr [4 x i8], ptr %303, i64 %231
+  %305 = getelementptr [4 x i8], ptr %304, i64 %299
   %306 = load float, ptr %305, align 4
   %307 = fmul float %306, 0x400921FB60000000
   %308 = fdiv float %307, 1.800000e+02
@@ -1664,8 +1651,8 @@ default.unreachable:                              ; preds = %172
 
 339:                                              ; preds = %298
   %340 = load ptr, ptr %222, align 8
-  %341 = getelementptr float, ptr %340, i64 %230
-  %342 = getelementptr float, ptr %341, i64 %299
+  %341 = getelementptr [4 x i8], ptr %340, i64 %230
+  %342 = getelementptr [4 x i8], ptr %341, i64 %299
   %343 = load float, ptr %342, align 4
   %344 = fmul float %343, 0x400921FB60000000
   %345 = fdiv float %344, 1.800000e+02
@@ -1697,8 +1684,8 @@ default.unreachable:                              ; preds = %172
 
 370:                                              ; preds = %298
   %371 = load ptr, ptr %222, align 8
-  %372 = getelementptr float, ptr %371, i64 %229
-  %373 = getelementptr float, ptr %372, i64 %299
+  %372 = getelementptr [4 x i8], ptr %371, i64 %229
+  %373 = getelementptr [4 x i8], ptr %372, i64 %299
   %374 = load float, ptr %373, align 4
   %375 = fmul float %374, 0x400921FB60000000
   %376 = fdiv float %375, 1.800000e+02
@@ -2228,7 +2215,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %82, %_ZNSt6vec
   store ptr %79, ptr %51, align 8
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 %77
   store ptr %83, ptr %74, align 8
-  %84 = getelementptr inbounds nuw float, ptr %79, i64 %62
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %62
   store ptr %84, ptr %66, align 8
   %.pre = load ptr, ptr %39, align 8
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
@@ -2604,7 +2591,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %221, %.n
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %223, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %218, ptr %111, align 8
   store ptr %222, ptr %112, align 8
-  %224 = getelementptr inbounds nuw float, ptr %218, i64 %216
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %216
   store ptr %224, ptr %113, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
@@ -2977,7 +2964,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %96, %_ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %97 = getelementptr inbounds nuw ptr, ptr %91, i64 %89
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit
 
 .loopexit95:                                      ; preds = %72, %_ZNKSt6vectorIP6aiNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -3166,7 +3153,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i37: ; preds 
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i39
 
 _ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i39: ; preds = %158, %_ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i37
-  %159 = getelementptr inbounds nuw ptr, ptr %153, i64 %151
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %151
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit
 
 .loopexit:                                        ; preds = %134, %_ZNKSt6vectorIP6aiNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i34
@@ -3549,7 +3536,7 @@ _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %32, ptr %6, align 8
   store ptr %36, ptr %7, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %30
   store ptr %38, ptr %8, align 8
   br label %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE9push_backEOS2_.exit
 
@@ -3636,7 +3623,7 @@ _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i22: ; preds = %68, %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i20
   store ptr %63, ptr %6, align 8
   store ptr %67, ptr %7, align 8
-  %69 = getelementptr inbounds nuw i32, ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %61
   store ptr %69, ptr %8, align 8
   br label %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE9push_backEOS2_.exit
 
@@ -3718,7 +3705,7 @@ _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i32: ; preds = %97, %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i30
   store ptr %92, ptr %6, align 8
   store ptr %96, ptr %7, align 8
-  %98 = getelementptr inbounds nuw i32, ptr %92, i64 %90
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %90
   store ptr %98, ptr %8, align 8
   br label %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE9push_backEOS2_.exit
 
@@ -3800,7 +3787,7 @@ _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i42: ; preds = %126, %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i40
   store ptr %121, ptr %6, align 8
   store ptr %125, ptr %7, align 8
-  %127 = getelementptr inbounds nuw i32, ptr %121, i64 %119
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %119
   store ptr %127, ptr %8, align 8
   br label %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE9push_backEOS2_.exit
 
@@ -3882,7 +3869,7 @@ _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i52: ; preds = %155, %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i50
   store ptr %150, ptr %6, align 8
   store ptr %154, ptr %7, align 8
-  %156 = getelementptr inbounds nuw i32, ptr %150, i64 %148
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %148
   store ptr %156, ptr %8, align 8
   br label %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE9push_backEOS2_.exit
 
@@ -3964,7 +3951,7 @@ _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i62: ; preds = %184, %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i60
   store ptr %179, ptr %6, align 8
   store ptr %183, ptr %7, align 8
-  %185 = getelementptr inbounds nuw i32, ptr %179, i64 %177
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %177
   store ptr %185, ptr %8, align 8
   br label %_ZNSt6vectorIN6Assimp9BVHLoader11ChannelTypeESaIS2_EE9push_backEOS2_.exit
 
@@ -4789,7 +4776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %68 = uitofp i64 %67 to double
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, %68
   %74 = fptrunc double %73 to float
@@ -7076,7 +7063,7 @@ _ZNSt6vectorIN6Assimp9BVHLoader4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32
 _ZNSt12_Vector_baseIN6Assimp9BVHLoader4NodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp9BVHLoader4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %68
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %72 = getelementptr inbounds nuw %"struct.Assimp::BVHLoader::Node", ptr %20, i64 %16
+  %72 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %72, ptr %67, align 8
   ret void
 }

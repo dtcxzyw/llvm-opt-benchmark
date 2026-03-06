@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H2645Packet = type { ptr, %struct.H2645RBSP, i32, i32, i32 }
 %struct.H2645RBSP = type { ptr, ptr, i32, i32 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.H2645NAL = type { ptr, i32, i32, i32, ptr, %struct.GetBitContext, i32, i32, i32, i32, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [43 x i8] c"luma_log2_weight_denom %d is out of range\0A\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"chroma_log2_weight_denom %d is out of range\0A\00", align 1
@@ -130,19 +129,19 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 70:                                               ; preds = %._crit_edge, %64
   %or.cond314 = phi i1 [ %.not195, %64 ], [ false, %._crit_edge ]
   %indvars.iv300 = phi i64 [ 0, %64 ], [ 1, %._crit_edge ]
-  %71 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv300
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv300
   store i32 0, ptr %71, align 4, !tbaa !25
-  %72 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv300
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv300
   store i32 0, ptr %72, align 4, !tbaa !25
-  %73 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv300
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv300
   %74 = load i32, ptr %73, align 4, !tbaa !25
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %70
   %76 = load ptr, ptr %0, align 8, !tbaa !15
-  %invariant.gep = getelementptr inbounds nuw [2 x i32], ptr %67, i64 %indvars.iv300
-  %invariant.gep267 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %68, i64 %indvars.iv300
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv300
+  %invariant.gep267 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv300
   br label %77
 
 77:                                               ; preds = %.lr.ph, %.loopexit
@@ -228,7 +227,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 
 get_se_golomb.exit:                               ; preds = %99, %109
   %.0.i = phi i32 [ %108, %99 ], [ %134, %109 ]
-  %gep = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv297
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv297
   store i32 %.0.i, ptr %gep, align 4, !tbaa !25
   %135 = load i32, ptr %9, align 8, !tbaa !10
   %136 = load i32, ptr %11, align 8, !tbaa !14
@@ -317,7 +316,7 @@ get_se_golomb.exit225:                            ; preds = %145, %155
   br label %189
 
 187:                                              ; preds = %77
-  %gep266 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv297
+  %gep266 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv297
   store i32 %35, ptr %gep266, align 4, !tbaa !25
   %188 = getelementptr inbounds nuw i8, ptr %gep266, i64 4
   store i32 0, ptr %188, align 4, !tbaa !25
@@ -344,7 +343,7 @@ get_se_golomb.exit225:                            ; preds = %145, %155
   %202 = lshr exact i32 128, %201
   %203 = and i32 %202, %200
   %.not203 = icmp eq i32 %203, 0
-  %gep270 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep267, i64 %indvars.iv297
+  %gep270 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep267, i64 %indvars.iv297
   br i1 %.not203, label %.preheader255, label %.preheader256
 
 .preheader256:                                    ; preds = %191, %303
@@ -415,7 +414,7 @@ get_se_golomb.exit225:                            ; preds = %145, %155
 
 get_se_golomb.exit237:                            ; preds = %214, %224
   %.0.i235 = phi i32 [ %223, %214 ], [ %249, %224 ]
-  %250 = getelementptr inbounds nuw [2 x i32], ptr %gep270, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %gep270, i64 %indvars.iv
   store i32 %.0.i235, ptr %250, align 4, !tbaa !25
   %251 = load i32, ptr %9, align 8, !tbaa !10
   %252 = load i32, ptr %11, align 8, !tbaa !14
@@ -526,14 +525,14 @@ get_se_golomb.exit248:                            ; preds = %261, %271
   br i1 %69, label %309, label %.loopexit
 
 309:                                              ; preds = %.thread
-  %gep272 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv297
+  %gep272 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv297
   %310 = load i32, ptr %gep272, align 4, !tbaa !25
   %311 = shl nuw nsw i64 %indvars.iv297, 1
   %312 = add nuw nsw i64 %311, 16
   %313 = add nuw nsw i64 %311, 17
-  %gep274 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %313
+  %gep274 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %313
   store i32 %310, ptr %gep274, align 4, !tbaa !25
-  %gep276 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %312
+  %gep276 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %312
   store i32 %310, ptr %gep276, align 4, !tbaa !25
   %314 = getelementptr inbounds nuw i8, ptr %gep272, i64 4
   %315 = load i32, ptr %314, align 4, !tbaa !25
@@ -546,19 +545,19 @@ get_se_golomb.exit248:                            ; preds = %261, %271
   br i1 %.not208, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %309
-  %gep278 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep267, i64 %indvars.iv297
-  %gep280 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep267, i64 %313
-  %gep282 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep267, i64 %312
+  %gep278 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep267, i64 %indvars.iv297
+  %gep280 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep267, i64 %313
+  %gep282 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep267, i64 %312
   br label %319
 
 319:                                              ; preds = %.preheader, %319
   %320 = phi i1 [ true, %.preheader ], [ false, %319 ]
   %indvars.iv294 = phi i64 [ 0, %.preheader ], [ 1, %319 ]
-  %321 = getelementptr inbounds nuw [2 x i32], ptr %gep278, i64 %indvars.iv294
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %gep278, i64 %indvars.iv294
   %322 = load i32, ptr %321, align 4, !tbaa !25
-  %323 = getelementptr inbounds nuw [2 x i32], ptr %gep280, i64 %indvars.iv294
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %gep280, i64 %indvars.iv294
   store i32 %322, ptr %323, align 4, !tbaa !25
-  %324 = getelementptr inbounds nuw [2 x i32], ptr %gep282, i64 %indvars.iv294
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %gep282, i64 %indvars.iv294
   store i32 %322, ptr %324, align 4, !tbaa !25
   %325 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %326 = load i32, ptr %325, align 4, !tbaa !25
@@ -647,7 +646,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_check_intra4x4_pred_mode(ptr nound
 
 .preheader:                                       ; preds = %.loopexit46, %.thread44
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.thread44 ], [ 0, %.loopexit46 ]
-  %19 = getelementptr inbounds nuw i32, ptr @ff_h264_check_intra4x4_pred_mode.mask, i64 %indvars.iv53
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @ff_h264_check_intra4x4_pred_mode.mask, i64 %indvars.iv53
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %21 = and i32 %20, %3
   %.not40 = icmp eq i32 %21, 0
@@ -1088,7 +1087,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
 74:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.095114 = phi i64 [ 0, %.lr.ph ], [ %78, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !25
   %77 = sext i32 %76 to i64
   %78 = add nsw i64 %.095114, %77
@@ -1115,7 +1114,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
 87:                                               ; preds = %.lr.ph120, %87
   %indvars.iv124 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next125, %87 ]
   %.093117 = phi i64 [ %83, %.lr.ph120 ], [ %91, %87 ]
-  %88 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv124
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv124
   %89 = load i32, ptr %88, align 4, !tbaa !25
   %90 = sext i32 %89 to i64
   %91 = add nsw i64 %.093117, %90
@@ -1520,7 +1519,7 @@ define internal fastcc i32 @decode_extradata_ps(ptr noundef %0, i32 noundef %1, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread49 ]
   %.13657 = phi i32 [ %9, %.lr.ph ], [ %.352, %.thread49 ]
   %19 = load ptr, ptr %6, align 8, !tbaa !60
-  %20 = getelementptr inbounds nuw %struct.H2645NAL, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load i32, ptr %21, align 8, !tbaa !61
   switch i32 %22, label %51 [

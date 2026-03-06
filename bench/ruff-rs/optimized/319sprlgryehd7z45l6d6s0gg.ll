@@ -1853,7 +1853,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
   %566 = icmp eq <16 x i8> %.val3.i.i.i.i, %552
   %567 = icmp eq <16 x i8> %.val.i.i.i.i, %553
   %narrow.i.i.i.i = select <16 x i1> %566, <16 x i1> %567, <16 x i1> zeroinitializer
-  %568 = getelementptr inbounds nuw i16, ptr %83, i64 %.sroa.023.0114.i.i.i
+  %568 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %.sroa.023.0114.i.i.i
   store <16 x i1> %narrow.i.i.i.i, ptr %568, align 2, !noalias !139
   %exitcond.not.i27.i.i = icmp eq i64 %562, 4
   br i1 %exitcond.not.i27.i.i, label %.preheader111.i.i.i, label %561
@@ -1871,7 +1871,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
   %574 = phi i64 [ %579, %578 ], [ 1, %561 ]
   %.sroa.028.0116.i.i.i = phi i64 [ %574, %578 ], [ 0, %561 ]
   %.sroa.014.2115.i.i.i = phi i8 [ %.sroa.014.3.i.i.i, %578 ], [ 0, %561 ]
-  %575 = getelementptr inbounds nuw i16, ptr %83, i64 %.sroa.028.0116.i.i.i
+  %575 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %.sroa.028.0116.i.i.i
   %576 = load i16, ptr %575, align 2, !noalias !139, !noundef !3
   %577 = icmp eq i16 %576, 0
   br i1 %577, label %578, label %580
@@ -2454,7 +2454,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
   store i64 %.sroa.0162.0.i, ptr %28, align 8, !noalias !210
   store ptr %.sroa.6165.0.i, ptr %.sroa.6165.0..sroa_idx.i, align 8, !noalias !210
   store i64 %.sroa.7170.0.i, ptr %.sroa.7170.0..sroa_idx.i, align 8, !noalias !210
-  %750 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %747, i64 %.sroa.06.0.i.i
+  %750 = getelementptr inbounds nuw [24 x i8], ptr %747, i64 %.sroa.06.0.i.i
   store ptr %750, ptr %221, align 8, !noalias !210
   %751 = getelementptr i8, ptr %750, i64 8
   %.val.i.i = load ptr, ptr %751, align 8, !noalias !214, !nonnull !3, !noundef !3
@@ -2750,7 +2750,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !256
   store i64 %817, ptr %20, align 8, !noalias !252
   store ptr %820, ptr %228, align 8, !noalias !252
-  %822 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %.sroa.048.0.i, i64 %.sroa.3.0.i
+  %822 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.048.0.i, i64 %.sroa.3.0.i
   %823 = icmp eq i64 %817, 0
   br i1 %823, label %.loopexit.i127, label %.lr.ph.i.i
 
@@ -2769,7 +2769,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
 "_ZN75_$LT$ruff_db..system..path..SystemPathBuf$u20$as$u20$core..clone..Clone$GT$5clone17hde2c4ca38f2e8691E.exit.i.i": ; preds = %826
   %827 = add nuw nsw i64 %.sroa.7.020.i.i, 1
   %828 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i.i, i64 24
-  %829 = getelementptr inbounds nuw { [3 x i64] }, ptr %820, i64 %.sroa.7.020.i.i
+  %829 = getelementptr inbounds nuw [24 x i8], ptr %820, i64 %.sroa.7.020.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %829, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !259
   %830 = icmp eq i64 %824, 0
   br i1 %830, label %.loopexit.i127, label %.lr.ph.i.i
@@ -2968,7 +2968,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
   %.sroa.5155.0.copyload.i = load i64, ptr %.sroa.5155.0..sroa_idx.i, align 8, !noalias !163
   %873 = icmp ult i64 %.sroa.5155.0.copyload.i, 288230376151711744
   call void @llvm.assume(i1 %873)
-  %874 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i32, [1 x i32] }, ptr %.sroa.4154.0.copyload.i, i64 %.sroa.5155.0.copyload.i
+  %874 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.4154.0.copyload.i, i64 %.sroa.5155.0.copyload.i
   %875 = icmp sgt i64 %.sroa.0153.0.copyload.i, -1
   call void @llvm.assume(i1 %875)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !266
@@ -3698,12 +3698,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
 
 1044:                                             ; preds = %1042
   store i64 %1043, ptr %108, align 8
-  %1045 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1037, i64 %.val111.us
+  %1045 = getelementptr inbounds nuw [24 x i8], ptr %1037, i64 %.val111.us
   %1046 = icmp samesign eq i64 %.val.us, %.val111.us
   br i1 %1046, label %._crit_edge.split.us.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %1044
-  %1047 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1037, i64 %.val.us
+  %1047 = getelementptr inbounds nuw [24 x i8], ptr %1037, i64 %.val.us
   %.sroa.081.1651.us = getelementptr inbounds nuw i8, ptr %1047, i64 24
   br label %.lr.ph.us
 
@@ -3814,12 +3814,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
 
 1066:                                             ; preds = %1059
   store i64 %1060, ptr %108, align 8
-  %1067 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1054, i64 %.val111
+  %1067 = getelementptr inbounds nuw [24 x i8], ptr %1054, i64 %.val111
   %1068 = icmp samesign eq i64 %.val, %.val111
   br i1 %1068, label %._crit_edge.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1066
-  %1069 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1054, i64 %.val
+  %1069 = getelementptr inbounds nuw [24 x i8], ptr %1054, i64 %.val
   %.sroa.081.1651 = getelementptr inbounds nuw i8, ptr %1069, i64 24
   br label %.lr.ph
 

@@ -142,7 +142,7 @@ define hidden void @_Z16print_raw_memoryR12FormatBufferILm8192EEPv(ptr noundef n
 _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit: ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 552
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %16
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %16
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit.thread, label %24
@@ -220,7 +220,7 @@ define hidden void @_ZN17ShenandoahAsserts9print_objER12FormatBufferILm8192EEP7o
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 552
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8
   br label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
 
@@ -277,7 +277,7 @@ _ZNK7oopDesc5klassEv.exit27:                      ; preds = %40, %50
   %56 = lshr i64 %7, %55
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %56
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
   %.not36 = icmp ult ptr %1, %60
   %61 = select i1 %.not36, ptr @.str.8, ptr @.str.7
@@ -291,7 +291,7 @@ _ZNK7oopDesc5klassEv.exit27:                      ; preds = %40, %50
   %65 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %66 = lshr i64 %7, %65
   %67 = load ptr, ptr %57, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %66
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8
   %.not.i = icmp ult ptr %1, %69
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
@@ -309,7 +309,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %_ZNK
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = lshr i64 %78, 6
-  %82 = getelementptr inbounds nuw i64, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %78, 63
   %85 = shl nuw i64 1, %84
@@ -327,7 +327,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %89 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %90 = lshr i64 %7, %89
   %91 = load ptr, ptr %57, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %90
+  %92 = getelementptr inbounds [8 x i8], ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8
   %.not.i28 = icmp ult ptr %1, %93
   br i1 %.not.i28, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
@@ -346,7 +346,7 @@ _ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit: ; preds = %87
   %104 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = lshr i64 %103, 6
-  %107 = getelementptr inbounds nuw i64, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = and i64 %103, 63
   %110 = shl nuw i64 1, %109
@@ -440,7 +440,7 @@ define hidden void @_ZN17ShenandoahAsserts13print_non_objER12FormatBufferILm8192
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 552
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %17
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %17
   %25 = load ptr, ptr %24, align 8
   br label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
 
@@ -509,7 +509,7 @@ define hidden void @_ZN17ShenandoahAsserts14print_obj_safeER12FormatBufferILm819
 _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit: ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 552
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %16
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %16
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit.thread, label %24
@@ -864,7 +864,7 @@ define hidden void @_ZN17ShenandoahAsserts24assert_in_correct_regionEPvP7oopDesc
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 552
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   %20 = load ptr, ptr %19, align 8
   br label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
 
@@ -988,7 +988,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %.lr.ph, %.thread
   %.037 = phi i64 [ %83, %.lr.ph ], [ %106, %.thread ]
   %95 = icmp ult i64 %.037, %92
   tail call void @llvm.assume(i1 %95)
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %.037
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %.037
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq i64 %.037, %83
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -1077,7 +1077,7 @@ define hidden void @_ZN17ShenandoahAsserts13assert_markedEPvP7oopDescPKci(ptr no
   %10 = lshr i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ult ptr %1, %14
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
@@ -1097,7 +1097,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = lshr i64 %23, 6
-  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %25, %30
   %.not = icmp eq i64 %31, 0
@@ -1122,7 +1122,7 @@ define hidden void @_ZN17ShenandoahAsserts18assert_marked_weakEPvP7oopDescPKci(p
   %10 = lshr i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ult ptr %1, %14
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
@@ -1141,7 +1141,7 @@ _ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit: ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = lshr i64 %24, 6
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %24, 63
   %31 = shl nuw i64 1, %30
@@ -1168,7 +1168,7 @@ define hidden void @_ZN17ShenandoahAsserts20assert_marked_strongEPvP7oopDescPKci
   %10 = lshr i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ult ptr %1, %14
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
@@ -1186,7 +1186,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = lshr i64 %23, 6
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %23, 63
   %30 = shl nuw i64 1, %29

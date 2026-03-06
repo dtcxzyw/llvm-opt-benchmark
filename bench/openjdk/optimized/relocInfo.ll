@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogDecorators = type { i32 }
 %struct.NarrowPtrStruct = type { ptr, i32, i8 }
 %class.relocInfo = type { i16 }
-%class.CodeSection = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i32, i8, ptr }
 %class.RelocIterator = type { ptr, ptr, ptr, ptr, ptr, i16, ptr, i16, [3 x ptr], [3 x ptr], %class.RelocationHolder }
 
 $_ZN14DataRelocation12verify_valueEPh = comdat any
@@ -361,7 +360,7 @@ define hidden void @_ZN9relocInfo29change_reloc_info_for_addressEP13RelocIterato
   %26 = load i16, ptr %18, align 2
   %27 = and i16 %26, 1023
   %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr %class.relocInfo, ptr %18, i64 %28
+  %29 = getelementptr [2 x i8], ptr %18, i64 %28
   br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
 
 30:                                               ; preds = %22
@@ -577,7 +576,7 @@ define hidden void @_ZN13RelocIterator10set_limitsEPhS0_(ptr noundef nonnull ali
   %22 = load i16, ptr %13, align 2
   %23 = and i16 %22, 1023
   %24 = zext nneg i16 %23 to i64
-  %25 = getelementptr %class.relocInfo, ptr %13, i64 %24
+  %25 = getelementptr [2 x i8], ptr %13, i64 %24
   br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i.us
 
 26:                                               ; preds = %18
@@ -631,7 +630,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i.us: ; preds = %26, %20
   %45 = load i16, ptr %36, align 2
   %46 = and i16 %45, 1023
   %47 = zext nneg i16 %46 to i64
-  %48 = getelementptr %class.relocInfo, ptr %36, i64 %47
+  %48 = getelementptr [2 x i8], ptr %36, i64 %47
   br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
 
 49:                                               ; preds = %41
@@ -707,13 +706,13 @@ define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull
 
 24:                                               ; preds = %4, %24
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw %class.CodeSection, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [88 x i8], ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store ptr %29, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -754,7 +753,7 @@ define hidden void @_ZN13RelocIterator19advance_over_prefixEv(ptr noundef nonnul
   %9 = load i16, ptr %3, align 2
   %10 = and i16 %9, 1023
   %11 = zext nneg i16 %10 to i64
-  %12 = getelementptr %class.relocInfo, ptr %3, i64 %11
+  %12 = getelementptr [2 x i8], ptr %3, i64 %11
   br label %17
 
 13:                                               ; preds = %1
@@ -1514,7 +1513,7 @@ _ZN13RelocIterator18section_word_relocEv.exit:    ; preds = %379, %387, %389
   %394 = and i32 %392, 3
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %396 = zext nneg i32 %394 to i64
-  %397 = getelementptr inbounds nuw ptr, ptr %395, i64 %396
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %395, i64 %396
   %398 = load ptr, ptr %397, align 8
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %394, ptr %399, align 8
@@ -2063,10 +2062,10 @@ define hidden noundef ptr @_ZN10Relocation12old_addr_forEPhPK10CodeBufferPS1_(pt
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds %class.CodeSection, ptr %9, i64 %10
+  %11 = getelementptr inbounds [88 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds %class.CodeSection, ptr %13, i64 %10
+  %14 = getelementptr inbounds [88 x i8], ptr %13, i64 %10
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %1 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -2103,10 +2102,10 @@ define hidden noundef ptr @_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_(pt
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds %class.CodeSection, ptr %11, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = getelementptr inbounds %class.CodeSection, ptr %15, i64 %12
+  %16 = getelementptr inbounds [88 x i8], ptr %15, i64 %12
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %1 to i64
   %19 = ptrtoint ptr %14 to i64
@@ -2157,10 +2156,10 @@ define hidden void @_ZN10Relocation17normalize_addressERPhPK11CodeSectionb(ptr n
 _ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit: ; preds = %.lr.ph.i
   %21 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds %class.CodeSection, ptr %21, i64 %22
+  %23 = getelementptr inbounds [88 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %26 = getelementptr inbounds %class.CodeSection, ptr %25, i64 %22
+  %26 = getelementptr inbounds [88 x i8], ptr %25, i64 %22
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %5 to i64
   %29 = ptrtoint ptr %24 to i64
@@ -2200,10 +2199,10 @@ define hidden void @_ZN14CallRelocation25fix_relocation_after_moveEPK10CodeBuffe
 _ZN10Relocation12old_addr_forEPhPK10CodeBufferPS1_.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = sext i32 %8 to i64
-  %13 = getelementptr inbounds %class.CodeSection, ptr %11, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = getelementptr inbounds %class.CodeSection, ptr %15, i64 %12
+  %16 = getelementptr inbounds [88 x i8], ptr %15, i64 %12
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %7 to i64
   %19 = ptrtoint ptr %17 to i64
@@ -2415,10 +2414,10 @@ define hidden void @_ZN23virtual_call_Relocation12pack_data_toEP11CodeSection(pt
 _ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i: ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %25 = sext i32 %19 to i64
-  %26 = getelementptr inbounds %class.CodeSection, ptr %24, i64 %25
+  %26 = getelementptr inbounds [88 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %29 = getelementptr inbounds %class.CodeSection, ptr %28, i64 %25
+  %29 = getelementptr inbounds [88 x i8], ptr %28, i64 %25
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %8 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -2715,10 +2714,10 @@ define hidden void @_ZN22static_stub_Relocation12pack_data_toEP11CodeSection(ptr
 _ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i: ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %25 = sext i32 %19 to i64
-  %26 = getelementptr inbounds %class.CodeSection, ptr %24, i64 %25
+  %26 = getelementptr inbounds [88 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %29 = getelementptr inbounds %class.CodeSection, ptr %28, i64 %25
+  %29 = getelementptr inbounds [88 x i8], ptr %28, i64 %25
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %9 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -2858,10 +2857,10 @@ define hidden void @_ZN26trampoline_stub_Relocation12pack_data_toEP11CodeSection
 _ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i: ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %25 = sext i32 %19 to i64
-  %26 = getelementptr inbounds %class.CodeSection, ptr %24, i64 %25
+  %26 = getelementptr inbounds [88 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %29 = getelementptr inbounds %class.CodeSection, ptr %28, i64 %25
+  %29 = getelementptr inbounds [88 x i8], ptr %28, i64 %25
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %9 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -3080,10 +3079,10 @@ define hidden void @_ZN24internal_word_Relocation12pack_data_toEP11CodeSection(p
 _ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i: ; preds = %.lr.ph.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %23 = sext i32 %17 to i64
-  %24 = getelementptr inbounds %class.CodeSection, ptr %22, i64 %23
+  %24 = getelementptr inbounds [88 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %27 = getelementptr inbounds %class.CodeSection, ptr %26, i64 %23
+  %27 = getelementptr inbounds [88 x i8], ptr %26, i64 %23
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %6 to i64
   %30 = ptrtoint ptr %25 to i64
@@ -3179,7 +3178,7 @@ _ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit.thread: ; preds = %2
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = sext i32 %.024 to i64
-  %81 = getelementptr inbounds %class.CodeSection, ptr %79, i64 %80
+  %81 = getelementptr inbounds [88 x i8], ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
   %.not.i33 = icmp uge ptr %76, %82
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 24
@@ -3322,7 +3321,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
   %24 = and i32 %22, 3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %24, ptr %29, align 8
@@ -3355,7 +3354,7 @@ define hidden noundef ptr @_ZN14oop_Relocation8oop_addrEv(ptr noundef nonnull al
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
   %16 = sext i32 %3 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   br label %19
 
@@ -3387,7 +3386,7 @@ define hidden noundef ptr @_ZN14oop_Relocation9oop_valueEv(ptr noundef nonnull a
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
   %16 = sext i32 %3 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   br label %_ZN14oop_Relocation8oop_addrEv.exit
 
@@ -3415,7 +3414,7 @@ _ZN14oop_Relocation8oop_addrEv.exit:              ; preds = %5, %7
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   %34 = sext i32 %21 to i64
-  %35 = getelementptr ptr, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -8
   br label %_ZN14oop_Relocation8oop_addrEv.exit3
 
@@ -3560,7 +3559,7 @@ define hidden noundef ptr @_ZN19metadata_Relocation13metadata_addrEv(ptr noundef
   %18 = zext i16 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %20 = sext i32 %3 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   br label %23
 
@@ -3594,7 +3593,7 @@ define hidden noundef ptr @_ZN19metadata_Relocation14metadata_valueEv(ptr nounde
   %18 = zext i16 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %20 = sext i32 %3 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   br label %_ZN19metadata_Relocation13metadata_addrEv.exit
 
@@ -3662,7 +3661,7 @@ define hidden noundef ptr @_ZN23virtual_call_Relocation12method_valueEv(ptr noun
   %18 = zext i16 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %20 = sext i32 %9 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
   br label %_ZNK7nmethod11metadata_atEi.exit
@@ -3817,7 +3816,7 @@ define hidden noundef ptr @_ZN27opt_virtual_call_Relocation12method_valueEv(ptr 
   %18 = zext i16 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %20 = sext i32 %9 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
   br label %_ZNK7nmethod11metadata_atEi.exit
@@ -3976,7 +3975,7 @@ _ZN13RelocIterator10initializeEP7nmethodPhS2_.exit: ; preds = %1
   %64 = load i16, ptr %56, align 2
   %65 = and i16 %64, 1023
   %66 = zext nneg i16 %65 to i64
-  %67 = getelementptr %class.relocInfo, ptr %56, i64 %66
+  %67 = getelementptr [2 x i8], ptr %56, i64 %66
   br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
 
 68:                                               ; preds = %60
@@ -4118,7 +4117,7 @@ define hidden noundef ptr @_ZN22static_call_Relocation12method_valueEv(ptr nound
   %18 = zext i16 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %20 = sext i32 %9 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
   br label %_ZNK7nmethod11metadata_atEi.exit
@@ -4351,7 +4350,7 @@ _ZN13RelocIterator10initializeEP7nmethodPhS2_.exit: ; preds = %1
   %64 = load i16, ptr %56, align 2
   %65 = and i16 %64, 1023
   %66 = zext nneg i16 %65 to i64
-  %67 = getelementptr %class.relocInfo, ptr %56, i64 %66
+  %67 = getelementptr [2 x i8], ptr %56, i64 %66
   br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
 
 68:                                               ; preds = %60
@@ -4561,7 +4560,7 @@ _ZN13RelocIterator10initializeEP7nmethodPhS2_.exit: ; preds = %2
   %57 = load i16, ptr %48, align 2
   %58 = and i16 %57, 1023
   %59 = zext nneg i16 %58 to i64
-  %60 = getelementptr %class.relocInfo, ptr %48, i64 %59
+  %60 = getelementptr [2 x i8], ptr %48, i64 %59
   br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i.us.i
 
 61:                                               ; preds = %53
@@ -4627,7 +4626,7 @@ _ZN13RelocIterator10set_limitsEPhS0_.exit:        ; preds = %_ZN13RelocIterator1
   %85 = load i16, ptr %77, align 2
   %86 = and i16 %85, 1023
   %87 = zext nneg i16 %86 to i64
-  %88 = getelementptr %class.relocInfo, ptr %77, i64 %87
+  %88 = getelementptr [2 x i8], ptr %77, i64 %87
   br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
 
 89:                                               ; preds = %81
@@ -4843,10 +4842,10 @@ _ZN24internal_word_Relocation6targetEv.exit:      ; preds = %18, %20
 _ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit: ; preds = %.lr.ph.i
   %27 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %28 = sext i32 %22 to i64
-  %29 = getelementptr inbounds %class.CodeSection, ptr %27, i64 %28
+  %29 = getelementptr inbounds [88 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %32 = getelementptr inbounds %class.CodeSection, ptr %31, i64 %28
+  %32 = getelementptr inbounds [88 x i8], ptr %31, i64 %28
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %.0.i to i64
   %35 = ptrtoint ptr %30 to i64
@@ -4970,7 +4969,7 @@ define linkonce_odr hidden noundef ptr @_ZN14oop_Relocation5valueEv(ptr noundef 
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
   %16 = sext i32 %3 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   br label %_ZN14oop_Relocation8oop_addrEv.exit
 
@@ -5054,7 +5053,7 @@ define linkonce_odr hidden noundef ptr @_ZN19metadata_Relocation5valueEv(ptr nou
   %18 = zext i16 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %20 = sext i32 %3 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   br label %_ZN19metadata_Relocation13metadata_addrEv.exit
 

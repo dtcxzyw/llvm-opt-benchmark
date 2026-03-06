@@ -82,7 +82,7 @@ define i32 @udat_toCalendarDateField_77(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZL17gDateFieldMapping, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17gDateFieldMapping, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   br label %6
 
@@ -1198,7 +1198,7 @@ _ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit: ; preds = %10
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %18, %.preheader.i.i ], [ 0, %13 ]
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i.i.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.0.i.i.i.i
   %16 = load i16, ptr %15, align 2, !tbaa !35
   %17 = icmp eq i16 %16, 0
   %18 = add i64 %.0.i.i.i.i, 1
@@ -1768,7 +1768,7 @@ define noundef i32 @udat_getSymbols_77(ptr noundef %0, i32 noundef %1, i32 nound
 
 100:                                              ; preds = %97
   %101 = sext i32 %2 to i64
-  %102 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.053, i64 %101
+  %102 = getelementptr inbounds [64 x i8], ptr %.053, i64 %101
   store ptr %3, ptr %10, align 8, !tbaa !28
   %103 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %102, ptr noundef nonnull %10, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %104 unwind label %106
@@ -2206,7 +2206,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter6setEraEPNS_1
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2250,7 +2250,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setEraNameE
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2294,7 +2294,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter8setMonthEPNS
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2338,7 +2338,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter13setShortMon
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2382,7 +2382,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter14setNarrowMo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2426,7 +2426,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter18setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2470,7 +2470,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter23setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2514,7 +2514,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter24setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2558,7 +2558,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setWeekdayE
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2602,7 +2602,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortWee
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2646,7 +2646,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter17setShorterW
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2690,7 +2690,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowWe
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2734,7 +2734,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2778,7 +2778,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2822,7 +2822,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter27setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2866,7 +2866,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2910,7 +2910,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setQuarterE
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2954,7 +2954,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortQua
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -2998,7 +2998,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowQu
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -3042,7 +3042,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -3086,7 +3086,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -3130,7 +3130,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandalo
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -3174,7 +3174,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter17setShortYea
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -3218,7 +3218,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter19setShortZod
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -3262,7 +3262,7 @@ define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter7setAmPmEPNS_
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %7, i64 %16
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17

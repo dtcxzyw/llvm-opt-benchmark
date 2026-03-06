@@ -3,9 +3,6 @@ source_filename = "bench/luau/original/UnwindBuilderDwarf2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Luau::CodeGen::UnwindFunctionDwarf2" = type { i32, i32, i32 }
-%"struct.Luau::CodeGen::A64::RegisterA64" = type { i8 }
-
 $_ZN4Luau7CodeGen19UnwindBuilderDwarf2D2Ev = comdat any
 
 $_ZN4Luau7CodeGen19UnwindBuilderDwarf2D0Ev = comdat any
@@ -185,7 +182,7 @@ _ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE17_M_realloc_insertIJR
   %.pre = phi ptr [ %.pre.pre, %34 ], [ %3, %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
   store ptr %29, ptr %9, align 8, !tbaa !25
   store ptr %33, ptr %10, align 8, !tbaa !21
-  %35 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindFunctionDwarf2", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %35, ptr %12, align 8, !tbaa !22
   br label %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE9push_backERKS2_.exit
 
@@ -302,7 +299,7 @@ _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %12
 .lr.ph:                                           ; preds = %_ZL25defineCfaExpressionOffsetPhj.exit, %_ZL27defineSavedRegisterLocationPhij.exit
   %21 = phi ptr [ %35, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %20, %_ZL25defineCfaExpressionOffsetPhj.exit ]
   %.013 = phi i64 [ %36, %_ZL27defineSavedRegisterLocationPhij.exit ], [ 0, %_ZL25defineCfaExpressionOffsetPhj.exit ]
-  %22 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::RegisterA64", ptr %3, i64 %.013
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.013
   %23 = load i8, ptr %22, align 1
   %24 = lshr i8 %23, 3
   %.0.tr = trunc i64 %.013 to i32
@@ -431,7 +428,7 @@ _ZL25defineCfaExpressionOffsetPhj.exit29:         ; preds = %26
 _ZL25defineCfaExpressionOffsetPhj.exit35:         ; preds = %38
   %43 = lshr i8 %.sroa.0.0.copyload, 3
   %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr @_ZL18regIndexToDwRegX64, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZL18regIndexToDwRegX64, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !23
   %47 = trunc i32 %46 to i8
   %48 = xor i8 %47, -128

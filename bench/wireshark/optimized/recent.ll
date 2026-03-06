@@ -1129,7 +1129,7 @@ define hidden range(i32 0, 3) i32 @recent_set_arg(ptr noundef %0) local_unnamed_
   %.012 = getelementptr i8, ptr %.pn, i64 1
   %7 = load i8, ptr %.012, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr i16, ptr %5, i64 %8
+  %9 = getelementptr [2 x i8], ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 256
   %.not = icmp eq i16 %11, 0

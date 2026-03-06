@@ -239,7 +239,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %5 = load ptr, ptr %4, align 8, !alias.scope !21, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !21, !noundef !4
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4, !noalias !21
   %9 = add i64 %7, 1
   store i64 %9, ptr %6, align 8, !alias.scope !21
@@ -255,7 +255,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %5 = load ptr, ptr %4, align 8, !alias.scope !28, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !28, !noundef !4
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4, !noalias !28
   %9 = add i64 %7, 1
   store i64 %9, ptr %6, align 8, !alias.scope !28
@@ -271,7 +271,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %5 = load ptr, ptr %4, align 8, !alias.scope !35, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !35, !noundef !4
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4, !noalias !35
   %9 = add i64 %7, 1
   store i64 %9, ptr %6, align 8, !alias.scope !35
@@ -295,7 +295,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %5 = load ptr, ptr %4, align 8, !alias.scope !47, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !47, !noundef !4
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4, !noalias !47
   %9 = add i64 %7, 1
   store i64 %9, ptr %6, align 8, !alias.scope !47
@@ -320,7 +320,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %5 = load ptr, ptr %4, align 8, !alias.scope !54, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !54, !noundef !4
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4, !noalias !54
   %9 = add i64 %7, 1
   store i64 %9, ptr %6, align 8, !alias.scope !54
@@ -651,7 +651,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !140, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !140, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4, !noalias !140
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !140
@@ -665,7 +665,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !143, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !143, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4, !noalias !143
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !143
@@ -679,7 +679,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !146, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !146, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4, !noalias !146
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !146
@@ -693,7 +693,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !149, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !149, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4, !noalias !149
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !149
@@ -707,7 +707,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !152, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !152, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4, !noalias !152
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !152
@@ -1033,7 +1033,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -1046,7 +1046,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -1059,7 +1059,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -1072,7 +1072,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -1085,7 +1085,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8

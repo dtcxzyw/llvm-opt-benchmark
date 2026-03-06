@@ -7,14 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::util::bad_any_cast" = type { %"class.std::bad_cast" }
 %"class.std::bad_cast" = type { %"class.std::exception" }
 %"class.std::exception" = type { ptr }
-%"class.cv::GArg" = type { i32, i32, %"class.cv::util::any" }
-%"class.cv::util::any" = type { %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.12" }
-%"struct.std::_Head_base.12" = type { ptr }
 %"class.cv::util::bad_variant_access" = type { %"class.std::exception" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -116,7 +108,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext5inMa
   unreachable
 
 _ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i:      ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.cv::GArg", ptr %7, i64 %4
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = icmp eq ptr %15, null
@@ -179,7 +171,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext7outM
   %17 = load i64, ptr %16, align 8, !tbaa !27
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8, !tbaa !28
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
@@ -263,7 +255,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext5inVa
   unreachable
 
 _ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i:      ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.cv::GArg", ptr %7, i64 %4
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = icmp eq ptr %15, null
@@ -326,7 +318,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext7outV
   %17 = load i64, ptr %16, align 8, !tbaa !27
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8, !tbaa !28
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
@@ -422,7 +414,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext9outV
   %17 = load i64, ptr %16, align 8, !tbaa !27
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8, !tbaa !28
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
@@ -517,7 +509,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext12out
   %17 = load i64, ptr %16, align 8, !tbaa !27
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8, !tbaa !28
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22

@@ -38,17 +38,17 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %24 = sext i32 %6 to i64
   %25 = load ptr, ptr %1, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = getelementptr i32, ptr %25, i64 %24
+  %27 = getelementptr [4 x i8], ptr %25, i64 %24
   %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
   %30 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !16
-  %31 = getelementptr inbounds double, ptr %30, i64 %29
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !19
   %34 = load double, ptr %31, align 8, !tbaa !20
   store double %34, ptr %12, align 16, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %36 = getelementptr inbounds double, ptr %31, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -58,14 +58,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   store double %40, ptr %38, align 16, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %41 = load i64, ptr %26, align 8, !tbaa !22
-  %42 = getelementptr i32, ptr %27, i64 %41
+  %42 = getelementptr [4 x i8], ptr %27, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds double, ptr %30, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %30, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %13, align 16, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %48 = getelementptr inbounds double, ptr %45, i64 %33
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %33
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -77,11 +77,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %53 = getelementptr i8, ptr %27, i64 %.idx213
   %54 = load i32, ptr %53, align 4, !tbaa !11
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds double, ptr %30, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %30, i64 %55
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %14, align 16, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %59 = getelementptr inbounds double, ptr %56, i64 %33
+  %59 = getelementptr inbounds [8 x i8], ptr %56, i64 %33
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -103,7 +103,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %73 = load double, ptr %68, align 8, !tbaa !20
   store double %73, ptr %15, align 16, !tbaa !20
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %75 = getelementptr inbounds double, ptr %68, i64 %72
+  %75 = getelementptr inbounds [8 x i8], ptr %68, i64 %72
   %76 = load double, ptr %75, align 8, !tbaa !20
   store double %76, ptr %74, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %72, 4
@@ -114,15 +114,15 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %79 = sext i32 %2 to i64
   %80 = sext i32 %65 to i64
   %81 = mul nsw i64 %41, %80
-  %82 = getelementptr i32, ptr %25, i64 %79
-  %83 = getelementptr i32, ptr %82, i64 %81
+  %82 = getelementptr [4 x i8], ptr %25, i64 %79
+  %83 = getelementptr [4 x i8], ptr %82, i64 %81
   %84 = load i32, ptr %83, align 4, !tbaa !11
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %30, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %30, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !20
   store double %87, ptr %15, align 16, !tbaa !20
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %89 = getelementptr inbounds double, ptr %86, i64 %33
+  %89 = getelementptr inbounds [8 x i8], ptr %86, i64 %33
   %90 = load double, ptr %89, align 8, !tbaa !20
   store double %90, ptr %88, align 8, !tbaa !20
   %91 = getelementptr inbounds i8, ptr %86, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -146,7 +146,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %103 = load i64, ptr %102, align 8, !tbaa !19
   %104 = load double, ptr %99, align 8, !tbaa !20
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %104, i64 0
-  %105 = getelementptr inbounds double, ptr %99, i64 %103
+  %105 = getelementptr inbounds [8 x i8], ptr %99, i64 %103
   %106 = load double, ptr %105, align 8, !tbaa !20
   %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %106, i64 1
   %.idx.i.i.i.i.i.i.i.i.i.i.i49 = shl nsw i64 %103, 4
@@ -157,14 +157,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %109 = sext i32 %2 to i64
   %110 = sext i32 %96 to i64
   %111 = mul nsw i64 %41, %110
-  %112 = getelementptr i32, ptr %25, i64 %109
-  %113 = getelementptr i32, ptr %112, i64 %111
+  %112 = getelementptr [4 x i8], ptr %25, i64 %109
+  %113 = getelementptr [4 x i8], ptr %112, i64 %111
   %114 = load i32, ptr %113, align 4, !tbaa !11
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds double, ptr %30, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %30, i64 %115
   %117 = load double, ptr %116, align 8, !tbaa !20
   %.sroa.0.0.vec.insert194 = insertelement <2 x double> poison, double %117, i64 0
-  %118 = getelementptr inbounds double, ptr %116, i64 %33
+  %118 = getelementptr inbounds [8 x i8], ptr %116, i64 %33
   %119 = load double, ptr %118, align 8, !tbaa !20
   %.sroa.0.8.vec.insert196 = insertelement <2 x double> %.sroa.0.0.vec.insert194, double %119, i64 1
   %120 = getelementptr inbounds i8, ptr %116, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -279,7 +279,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
 .lr.ph85.i.i.i.i32.i.i.i.i:                       ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i
   %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %187, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
   %.182.i.i.i.i34.i.i.i.i = phi double [ %186, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %181, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %182 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
   %183 = load double, ptr %182, align 8, !tbaa !20
   %184 = fmul double %.155.i.i.i, %183
   %185 = fmul double %184, %184
@@ -484,16 +484,16 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %315 = sext i32 %2 to i64
   %316 = load ptr, ptr %1, align 8, !tbaa !4
-  %317 = getelementptr i32, ptr %316, i64 %315
+  %317 = getelementptr [4 x i8], ptr %316, i64 %315
   %318 = load i32, ptr %317, align 4, !tbaa !11
   %319 = sext i32 %318 to i64
   %320 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !46
-  %321 = getelementptr inbounds double, ptr %320, i64 %319
+  %321 = getelementptr inbounds [8 x i8], ptr %320, i64 %319
   %322 = load i64, ptr %32, align 8, !tbaa !19
   %323 = load double, ptr %321, align 8, !tbaa !20
   store double %323, ptr %21, align 16, !tbaa !20
   %324 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %325 = getelementptr inbounds double, ptr %321, i64 %322
+  %325 = getelementptr inbounds [8 x i8], ptr %321, i64 %322
   %326 = load double, ptr %325, align 8, !tbaa !20
   store double %326, ptr %324, align 8, !tbaa !20
   %327 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -502,15 +502,15 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %329 = load double, ptr %328, align 8, !tbaa !20
   store double %329, ptr %327, align 16, !tbaa !20
   %330 = load i64, ptr %26, align 8, !tbaa !22
-  %331 = getelementptr i32, ptr %317, i64 %330
+  %331 = getelementptr [4 x i8], ptr %317, i64 %330
   %332 = load i32, ptr %331, align 4, !tbaa !11
   %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds double, ptr %320, i64 %333
+  %334 = getelementptr inbounds [8 x i8], ptr %320, i64 %333
   %335 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %336 = load double, ptr %334, align 8, !tbaa !20
   store double %336, ptr %335, align 8, !tbaa !20
   %337 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %338 = getelementptr inbounds double, ptr %334, i64 %322
+  %338 = getelementptr inbounds [8 x i8], ptr %334, i64 %322
   %339 = load double, ptr %338, align 8, !tbaa !20
   store double %339, ptr %337, align 16, !tbaa !20
   %340 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -521,12 +521,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %343 = getelementptr i8, ptr %317, i64 %.idx214
   %344 = load i32, ptr %343, align 4, !tbaa !11
   %345 = sext i32 %344 to i64
-  %346 = getelementptr inbounds double, ptr %320, i64 %345
+  %346 = getelementptr inbounds [8 x i8], ptr %320, i64 %345
   %347 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %348 = load double, ptr %346, align 8, !tbaa !20
   store double %348, ptr %347, align 16, !tbaa !20
   %349 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %350 = getelementptr inbounds double, ptr %346, i64 %322
+  %350 = getelementptr inbounds [8 x i8], ptr %346, i64 %322
   %351 = load double, ptr %350, align 8, !tbaa !20
   store double %351, ptr %349, align 8, !tbaa !20
   %352 = getelementptr inbounds nuw i8, ptr %21, i64 64
@@ -534,7 +534,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %354 = load double, ptr %353, align 8, !tbaa !20
   store double %354, ptr %352, align 16, !tbaa !20
   %355 = sext i32 %4 to i64
-  %356 = getelementptr inbounds %"class.Eigen::Matrix", ptr %21, i64 %355
+  %356 = getelementptr inbounds [24 x i8], ptr %21, i64 %355
   %357 = load ptr, ptr %5, align 8, !tbaa !23
   %358 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %359 = load ptr, ptr %358, align 8, !tbaa !27
@@ -543,7 +543,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %362 = load double, ptr %357, align 8, !tbaa !20
   store double %362, ptr %356, align 8, !tbaa !20
   %363 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  %364 = getelementptr inbounds double, ptr %357, i64 %361
+  %364 = getelementptr inbounds [8 x i8], ptr %357, i64 %361
   %365 = load double, ptr %364, align 8, !tbaa !20
   store double %365, ptr %363, align 8, !tbaa !20
   %366 = getelementptr inbounds nuw i8, ptr %356, i64 16
@@ -556,15 +556,15 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %370 = srem i32 %369, 3
   %371 = sext i32 %370 to i64
   %372 = mul nsw i64 %330, %371
-  %373 = getelementptr i32, ptr %316, i64 %24
-  %374 = getelementptr i32, ptr %373, i64 %372
+  %373 = getelementptr [4 x i8], ptr %316, i64 %24
+  %374 = getelementptr [4 x i8], ptr %373, i64 %372
   %375 = load i32, ptr %374, align 4, !tbaa !11
   %376 = sext i32 %375 to i64
-  %377 = getelementptr inbounds double, ptr %320, i64 %376
+  %377 = getelementptr inbounds [8 x i8], ptr %320, i64 %376
   %378 = load double, ptr %377, align 8, !tbaa !20
   store double %378, ptr %22, align 16, !tbaa !20
   %379 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %380 = getelementptr inbounds double, ptr %377, i64 %322
+  %380 = getelementptr inbounds [8 x i8], ptr %377, i64 %322
   %381 = load double, ptr %380, align 8, !tbaa !20
   store double %381, ptr %379, align 8, !tbaa !20
   %382 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -575,13 +575,13 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %386 = srem i32 %385, 3
   %387 = sext i32 %386 to i64
   %388 = mul nsw i64 %330, %387
-  %389 = getelementptr i32, ptr %373, i64 %388
+  %389 = getelementptr [4 x i8], ptr %373, i64 %388
   %390 = load i32, ptr %389, align 4, !tbaa !11
   %391 = sext i32 %390 to i64
-  %392 = getelementptr inbounds double, ptr %320, i64 %391
+  %392 = getelementptr inbounds [8 x i8], ptr %320, i64 %391
   %393 = load double, ptr %392, align 8, !tbaa !20
   %.sroa.0204.0.vec.insert = insertelement <2 x double> poison, double %393, i64 0
-  %394 = getelementptr inbounds double, ptr %392, i64 %322
+  %394 = getelementptr inbounds [8 x i8], ptr %392, i64 %322
   %395 = load double, ptr %394, align 8, !tbaa !20
   %.sroa.0204.8.vec.insert = insertelement <2 x double> %.sroa.0204.0.vec.insert, double %395, i64 1
   %396 = getelementptr inbounds i8, ptr %392, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
@@ -694,7 +694,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
 .lr.ph85.i.i.i.i32.i.i.i.i79:                     ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i79.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i79
   %.05283.i.i.i.i33.i.i.i.i80 = phi i64 [ %469, %.lr.ph85.i.i.i.i32.i.i.i.i79 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i79.preheader ]
   %.182.i.i.i.i34.i.i.i.i81 = phi double [ %468, %.lr.ph85.i.i.i.i32.i.i.i.i79 ], [ %463, %.lr.ph85.i.i.i.i32.i.i.i.i79.preheader ]
-  %464 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i80
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i80
   %465 = load double, ptr %464, align 8, !tbaa !20
   %466 = fmul double %.155.i.i.i73, %465
   %467 = fmul double %466, %466
@@ -933,17 +933,17 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %24 = sext i32 %6 to i64
   %25 = load ptr, ptr %1, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = getelementptr i32, ptr %25, i64 %24
+  %27 = getelementptr [4 x i8], ptr %25, i64 %24
   %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
   %30 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !58
-  %31 = getelementptr inbounds double, ptr %30, i64 %29
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !19
   %34 = load double, ptr %31, align 8, !tbaa !20
   store double %34, ptr %12, align 16, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %36 = getelementptr inbounds double, ptr %31, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -953,14 +953,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   store double %40, ptr %38, align 16, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %41 = load i64, ptr %26, align 8, !tbaa !22
-  %42 = getelementptr i32, ptr %27, i64 %41
+  %42 = getelementptr [4 x i8], ptr %27, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds double, ptr %30, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %30, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %13, align 16, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %48 = getelementptr inbounds double, ptr %45, i64 %33
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %33
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -972,11 +972,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %53 = getelementptr i8, ptr %27, i64 %.idx206
   %54 = load i32, ptr %53, align 4, !tbaa !11
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds double, ptr %30, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %30, i64 %55
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %14, align 16, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %59 = getelementptr inbounds double, ptr %56, i64 %33
+  %59 = getelementptr inbounds [8 x i8], ptr %56, i64 %33
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1000,15 +1000,15 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %72 = sext i32 %2 to i64
   %73 = sext i32 %65 to i64
   %74 = mul nsw i64 %41, %73
-  %75 = getelementptr i32, ptr %25, i64 %72
-  %76 = getelementptr i32, ptr %75, i64 %74
+  %75 = getelementptr [4 x i8], ptr %25, i64 %72
+  %76 = getelementptr [4 x i8], ptr %75, i64 %74
   %77 = load i32, ptr %76, align 4, !tbaa !11
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %30, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %30, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !20
   store double %80, ptr %15, align 16, !tbaa !20
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %82 = getelementptr inbounds double, ptr %79, i64 %33
+  %82 = getelementptr inbounds [8 x i8], ptr %79, i64 %33
   %83 = load double, ptr %82, align 8, !tbaa !20
   store double %83, ptr %81, align 8, !tbaa !20
   %84 = getelementptr inbounds i8, ptr %79, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -1034,14 +1034,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %96 = sext i32 %2 to i64
   %97 = sext i32 %89 to i64
   %98 = mul nsw i64 %41, %97
-  %99 = getelementptr i32, ptr %25, i64 %96
-  %100 = getelementptr i32, ptr %99, i64 %98
+  %99 = getelementptr [4 x i8], ptr %25, i64 %96
+  %100 = getelementptr [4 x i8], ptr %99, i64 %98
   %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds double, ptr %30, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %30, i64 %102
   %104 = load double, ptr %103, align 8, !tbaa !20
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %104, i64 0
-  %105 = getelementptr inbounds double, ptr %103, i64 %33
+  %105 = getelementptr inbounds [8 x i8], ptr %103, i64 %33
   %106 = load double, ptr %105, align 8, !tbaa !20
   %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %106, i64 1
   %107 = getelementptr inbounds i8, ptr %103, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -1156,7 +1156,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
 .lr.ph85.i.i.i.i32.i.i.i.i:                       ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i
   %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %174, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
   %.182.i.i.i.i34.i.i.i.i = phi double [ %173, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %168, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %169 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
   %170 = load double, ptr %169, align 8, !tbaa !20
   %171 = fmul double %.155.i.i.i, %170
   %172 = fmul double %171, %171
@@ -1361,16 +1361,16 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %302 = sext i32 %2 to i64
   %303 = load ptr, ptr %1, align 8, !tbaa !4
-  %304 = getelementptr i32, ptr %303, i64 %302
+  %304 = getelementptr [4 x i8], ptr %303, i64 %302
   %305 = load i32, ptr %304, align 4, !tbaa !11
   %306 = sext i32 %305 to i64
   %307 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !72
-  %308 = getelementptr inbounds double, ptr %307, i64 %306
+  %308 = getelementptr inbounds [8 x i8], ptr %307, i64 %306
   %309 = load i64, ptr %32, align 8, !tbaa !19
   %310 = load double, ptr %308, align 8, !tbaa !20
   store double %310, ptr %21, align 16, !tbaa !20
   %311 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %312 = getelementptr inbounds double, ptr %308, i64 %309
+  %312 = getelementptr inbounds [8 x i8], ptr %308, i64 %309
   %313 = load double, ptr %312, align 8, !tbaa !20
   store double %313, ptr %311, align 8, !tbaa !20
   %314 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1379,15 +1379,15 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %316 = load double, ptr %315, align 8, !tbaa !20
   store double %316, ptr %314, align 16, !tbaa !20
   %317 = load i64, ptr %26, align 8, !tbaa !22
-  %318 = getelementptr i32, ptr %304, i64 %317
+  %318 = getelementptr [4 x i8], ptr %304, i64 %317
   %319 = load i32, ptr %318, align 4, !tbaa !11
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds double, ptr %307, i64 %320
+  %321 = getelementptr inbounds [8 x i8], ptr %307, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %323 = load double, ptr %321, align 8, !tbaa !20
   store double %323, ptr %322, align 8, !tbaa !20
   %324 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %325 = getelementptr inbounds double, ptr %321, i64 %309
+  %325 = getelementptr inbounds [8 x i8], ptr %321, i64 %309
   %326 = load double, ptr %325, align 8, !tbaa !20
   store double %326, ptr %324, align 16, !tbaa !20
   %327 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -1398,12 +1398,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %330 = getelementptr i8, ptr %304, i64 %.idx207
   %331 = load i32, ptr %330, align 4, !tbaa !11
   %332 = sext i32 %331 to i64
-  %333 = getelementptr inbounds double, ptr %307, i64 %332
+  %333 = getelementptr inbounds [8 x i8], ptr %307, i64 %332
   %334 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %335 = load double, ptr %333, align 8, !tbaa !20
   store double %335, ptr %334, align 16, !tbaa !20
   %336 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %337 = getelementptr inbounds double, ptr %333, i64 %309
+  %337 = getelementptr inbounds [8 x i8], ptr %333, i64 %309
   %338 = load double, ptr %337, align 8, !tbaa !20
   store double %338, ptr %336, align 8, !tbaa !20
   %339 = getelementptr inbounds nuw i8, ptr %21, i64 64
@@ -1411,7 +1411,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %341 = load double, ptr %340, align 8, !tbaa !20
   store double %341, ptr %339, align 16, !tbaa !20
   %342 = sext i32 %4 to i64
-  %343 = getelementptr inbounds %"class.Eigen::Matrix", ptr %21, i64 %342
+  %343 = getelementptr inbounds [24 x i8], ptr %21, i64 %342
   %344 = load ptr, ptr %5, align 8, !tbaa !61
   %345 = load <2 x double>, ptr %344, align 16, !tbaa !30
   store <2 x double> %345, ptr %343, align 8, !tbaa !30
@@ -1424,15 +1424,15 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %350 = srem i32 %349, 3
   %351 = sext i32 %350 to i64
   %352 = mul nsw i64 %317, %351
-  %353 = getelementptr i32, ptr %303, i64 %24
-  %354 = getelementptr i32, ptr %353, i64 %352
+  %353 = getelementptr [4 x i8], ptr %303, i64 %24
+  %354 = getelementptr [4 x i8], ptr %353, i64 %352
   %355 = load i32, ptr %354, align 4, !tbaa !11
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds double, ptr %307, i64 %356
+  %357 = getelementptr inbounds [8 x i8], ptr %307, i64 %356
   %358 = load double, ptr %357, align 8, !tbaa !20
   store double %358, ptr %22, align 16, !tbaa !20
   %359 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %360 = getelementptr inbounds double, ptr %357, i64 %309
+  %360 = getelementptr inbounds [8 x i8], ptr %357, i64 %309
   %361 = load double, ptr %360, align 8, !tbaa !20
   store double %361, ptr %359, align 8, !tbaa !20
   %362 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -1443,13 +1443,13 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %366 = srem i32 %365, 3
   %367 = sext i32 %366 to i64
   %368 = mul nsw i64 %317, %367
-  %369 = getelementptr i32, ptr %353, i64 %368
+  %369 = getelementptr [4 x i8], ptr %353, i64 %368
   %370 = load i32, ptr %369, align 4, !tbaa !11
   %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds double, ptr %307, i64 %371
+  %372 = getelementptr inbounds [8 x i8], ptr %307, i64 %371
   %373 = load double, ptr %372, align 8, !tbaa !20
   %.sroa.0197.0.vec.insert = insertelement <2 x double> poison, double %373, i64 0
-  %374 = getelementptr inbounds double, ptr %372, i64 %309
+  %374 = getelementptr inbounds [8 x i8], ptr %372, i64 %309
   %375 = load double, ptr %374, align 8, !tbaa !20
   %.sroa.0197.8.vec.insert = insertelement <2 x double> %.sroa.0197.0.vec.insert, double %375, i64 1
   %376 = getelementptr inbounds i8, ptr %372, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
@@ -1562,7 +1562,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
 .lr.ph85.i.i.i.i32.i.i.i.i76:                     ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i76.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i76
   %.05283.i.i.i.i33.i.i.i.i77 = phi i64 [ %449, %.lr.ph85.i.i.i.i32.i.i.i.i76 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i76.preheader ]
   %.182.i.i.i.i34.i.i.i.i78 = phi double [ %448, %.lr.ph85.i.i.i.i32.i.i.i.i76 ], [ %443, %.lr.ph85.i.i.i.i32.i.i.i.i76.preheader ]
-  %444 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i77
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i77
   %445 = load double, ptr %444, align 8, !tbaa !20
   %446 = fmul double %.155.i.i.i70, %445
   %447 = fmul double %446, %446
@@ -1799,17 +1799,17 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %24 = sext i32 %6 to i64
   %25 = load ptr, ptr %1, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = getelementptr i32, ptr %25, i64 %24
+  %27 = getelementptr [4 x i8], ptr %25, i64 %24
   %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
   %30 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !84
-  %31 = getelementptr inbounds double, ptr %30, i64 %29
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !19
   %34 = load double, ptr %31, align 8, !tbaa !20
   store double %34, ptr %12, align 16, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %36 = getelementptr inbounds double, ptr %31, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1819,14 +1819,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   store double %40, ptr %38, align 16, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %41 = load i64, ptr %26, align 8, !tbaa !22
-  %42 = getelementptr i32, ptr %27, i64 %41
+  %42 = getelementptr [4 x i8], ptr %27, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds double, ptr %30, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %30, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %13, align 16, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %48 = getelementptr inbounds double, ptr %45, i64 %33
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %33
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1838,11 +1838,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %53 = getelementptr i8, ptr %27, i64 %.idx213
   %54 = load i32, ptr %53, align 4, !tbaa !11
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds double, ptr %30, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %30, i64 %55
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %14, align 16, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %59 = getelementptr inbounds double, ptr %56, i64 %33
+  %59 = getelementptr inbounds [8 x i8], ptr %56, i64 %33
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1864,7 +1864,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %73 = load double, ptr %68, align 8, !tbaa !20
   store double %73, ptr %15, align 16, !tbaa !20
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %75 = getelementptr inbounds double, ptr %68, i64 %72
+  %75 = getelementptr inbounds [8 x i8], ptr %68, i64 %72
   %76 = load double, ptr %75, align 8, !tbaa !20
   store double %76, ptr %74, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %72, 4
@@ -1875,15 +1875,15 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %79 = sext i32 %2 to i64
   %80 = sext i32 %65 to i64
   %81 = mul nsw i64 %41, %80
-  %82 = getelementptr i32, ptr %25, i64 %79
-  %83 = getelementptr i32, ptr %82, i64 %81
+  %82 = getelementptr [4 x i8], ptr %25, i64 %79
+  %83 = getelementptr [4 x i8], ptr %82, i64 %81
   %84 = load i32, ptr %83, align 4, !tbaa !11
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %30, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %30, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !20
   store double %87, ptr %15, align 16, !tbaa !20
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %89 = getelementptr inbounds double, ptr %86, i64 %33
+  %89 = getelementptr inbounds [8 x i8], ptr %86, i64 %33
   %90 = load double, ptr %89, align 8, !tbaa !20
   store double %90, ptr %88, align 8, !tbaa !20
   %91 = getelementptr inbounds i8, ptr %86, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -1907,7 +1907,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %103 = load i64, ptr %102, align 8, !tbaa !19
   %104 = load double, ptr %99, align 8, !tbaa !20
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %104, i64 0
-  %105 = getelementptr inbounds double, ptr %99, i64 %103
+  %105 = getelementptr inbounds [8 x i8], ptr %99, i64 %103
   %106 = load double, ptr %105, align 8, !tbaa !20
   %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %106, i64 1
   %.idx.i.i.i.i.i.i.i.i.i.i.i49 = shl nsw i64 %103, 4
@@ -1918,14 +1918,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %109 = sext i32 %2 to i64
   %110 = sext i32 %96 to i64
   %111 = mul nsw i64 %41, %110
-  %112 = getelementptr i32, ptr %25, i64 %109
-  %113 = getelementptr i32, ptr %112, i64 %111
+  %112 = getelementptr [4 x i8], ptr %25, i64 %109
+  %113 = getelementptr [4 x i8], ptr %112, i64 %111
   %114 = load i32, ptr %113, align 4, !tbaa !11
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds double, ptr %30, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %30, i64 %115
   %117 = load double, ptr %116, align 8, !tbaa !20
   %.sroa.0.0.vec.insert194 = insertelement <2 x double> poison, double %117, i64 0
-  %118 = getelementptr inbounds double, ptr %116, i64 %33
+  %118 = getelementptr inbounds [8 x i8], ptr %116, i64 %33
   %119 = load double, ptr %118, align 8, !tbaa !20
   %.sroa.0.8.vec.insert196 = insertelement <2 x double> %.sroa.0.0.vec.insert194, double %119, i64 1
   %120 = getelementptr inbounds i8, ptr %116, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -2040,7 +2040,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
 .lr.ph85.i.i.i.i32.i.i.i.i:                       ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i
   %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %187, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
   %.182.i.i.i.i34.i.i.i.i = phi double [ %186, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %181, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %182 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
   %183 = load double, ptr %182, align 8, !tbaa !20
   %184 = fmul double %.155.i.i.i, %183
   %185 = fmul double %184, %184
@@ -2245,16 +2245,16 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %315 = sext i32 %2 to i64
   %316 = load ptr, ptr %1, align 8, !tbaa !4
-  %317 = getelementptr i32, ptr %316, i64 %315
+  %317 = getelementptr [4 x i8], ptr %316, i64 %315
   %318 = load i32, ptr %317, align 4, !tbaa !11
   %319 = sext i32 %318 to i64
   %320 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !101
-  %321 = getelementptr inbounds double, ptr %320, i64 %319
+  %321 = getelementptr inbounds [8 x i8], ptr %320, i64 %319
   %322 = load i64, ptr %32, align 8, !tbaa !19
   %323 = load double, ptr %321, align 8, !tbaa !20
   store double %323, ptr %21, align 16, !tbaa !20
   %324 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %325 = getelementptr inbounds double, ptr %321, i64 %322
+  %325 = getelementptr inbounds [8 x i8], ptr %321, i64 %322
   %326 = load double, ptr %325, align 8, !tbaa !20
   store double %326, ptr %324, align 8, !tbaa !20
   %327 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -2263,15 +2263,15 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %329 = load double, ptr %328, align 8, !tbaa !20
   store double %329, ptr %327, align 16, !tbaa !20
   %330 = load i64, ptr %26, align 8, !tbaa !22
-  %331 = getelementptr i32, ptr %317, i64 %330
+  %331 = getelementptr [4 x i8], ptr %317, i64 %330
   %332 = load i32, ptr %331, align 4, !tbaa !11
   %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds double, ptr %320, i64 %333
+  %334 = getelementptr inbounds [8 x i8], ptr %320, i64 %333
   %335 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %336 = load double, ptr %334, align 8, !tbaa !20
   store double %336, ptr %335, align 8, !tbaa !20
   %337 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %338 = getelementptr inbounds double, ptr %334, i64 %322
+  %338 = getelementptr inbounds [8 x i8], ptr %334, i64 %322
   %339 = load double, ptr %338, align 8, !tbaa !20
   store double %339, ptr %337, align 16, !tbaa !20
   %340 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -2282,12 +2282,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %343 = getelementptr i8, ptr %317, i64 %.idx214
   %344 = load i32, ptr %343, align 4, !tbaa !11
   %345 = sext i32 %344 to i64
-  %346 = getelementptr inbounds double, ptr %320, i64 %345
+  %346 = getelementptr inbounds [8 x i8], ptr %320, i64 %345
   %347 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %348 = load double, ptr %346, align 8, !tbaa !20
   store double %348, ptr %347, align 16, !tbaa !20
   %349 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %350 = getelementptr inbounds double, ptr %346, i64 %322
+  %350 = getelementptr inbounds [8 x i8], ptr %346, i64 %322
   %351 = load double, ptr %350, align 8, !tbaa !20
   store double %351, ptr %349, align 8, !tbaa !20
   %352 = getelementptr inbounds nuw i8, ptr %21, i64 64
@@ -2295,7 +2295,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %354 = load double, ptr %353, align 8, !tbaa !20
   store double %354, ptr %352, align 16, !tbaa !20
   %355 = sext i32 %4 to i64
-  %356 = getelementptr inbounds %"class.Eigen::Matrix", ptr %21, i64 %355
+  %356 = getelementptr inbounds [24 x i8], ptr %21, i64 %355
   %357 = load ptr, ptr %5, align 8, !tbaa !87
   %358 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %359 = load ptr, ptr %358, align 8, !tbaa !89
@@ -2304,7 +2304,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %362 = load double, ptr %357, align 8, !tbaa !20
   store double %362, ptr %356, align 8, !tbaa !20
   %363 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  %364 = getelementptr inbounds double, ptr %357, i64 %361
+  %364 = getelementptr inbounds [8 x i8], ptr %357, i64 %361
   %365 = load double, ptr %364, align 8, !tbaa !20
   store double %365, ptr %363, align 8, !tbaa !20
   %366 = getelementptr inbounds nuw i8, ptr %356, i64 16
@@ -2317,15 +2317,15 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %370 = srem i32 %369, 3
   %371 = sext i32 %370 to i64
   %372 = mul nsw i64 %330, %371
-  %373 = getelementptr i32, ptr %316, i64 %24
-  %374 = getelementptr i32, ptr %373, i64 %372
+  %373 = getelementptr [4 x i8], ptr %316, i64 %24
+  %374 = getelementptr [4 x i8], ptr %373, i64 %372
   %375 = load i32, ptr %374, align 4, !tbaa !11
   %376 = sext i32 %375 to i64
-  %377 = getelementptr inbounds double, ptr %320, i64 %376
+  %377 = getelementptr inbounds [8 x i8], ptr %320, i64 %376
   %378 = load double, ptr %377, align 8, !tbaa !20
   store double %378, ptr %22, align 16, !tbaa !20
   %379 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %380 = getelementptr inbounds double, ptr %377, i64 %322
+  %380 = getelementptr inbounds [8 x i8], ptr %377, i64 %322
   %381 = load double, ptr %380, align 8, !tbaa !20
   store double %381, ptr %379, align 8, !tbaa !20
   %382 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -2336,13 +2336,13 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %386 = srem i32 %385, 3
   %387 = sext i32 %386 to i64
   %388 = mul nsw i64 %330, %387
-  %389 = getelementptr i32, ptr %373, i64 %388
+  %389 = getelementptr [4 x i8], ptr %373, i64 %388
   %390 = load i32, ptr %389, align 4, !tbaa !11
   %391 = sext i32 %390 to i64
-  %392 = getelementptr inbounds double, ptr %320, i64 %391
+  %392 = getelementptr inbounds [8 x i8], ptr %320, i64 %391
   %393 = load double, ptr %392, align 8, !tbaa !20
   %.sroa.0204.0.vec.insert = insertelement <2 x double> poison, double %393, i64 0
-  %394 = getelementptr inbounds double, ptr %392, i64 %322
+  %394 = getelementptr inbounds [8 x i8], ptr %392, i64 %322
   %395 = load double, ptr %394, align 8, !tbaa !20
   %.sroa.0204.8.vec.insert = insertelement <2 x double> %.sroa.0204.0.vec.insert, double %395, i64 1
   %396 = getelementptr inbounds i8, ptr %392, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
@@ -2455,7 +2455,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
 .lr.ph85.i.i.i.i32.i.i.i.i79:                     ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i79.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i79
   %.05283.i.i.i.i33.i.i.i.i80 = phi i64 [ %469, %.lr.ph85.i.i.i.i32.i.i.i.i79 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i79.preheader ]
   %.182.i.i.i.i34.i.i.i.i81 = phi double [ %468, %.lr.ph85.i.i.i.i32.i.i.i.i79 ], [ %463, %.lr.ph85.i.i.i.i32.i.i.i.i79.preheader ]
-  %464 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i80
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i80
   %465 = load double, ptr %464, align 8, !tbaa !20
   %466 = fmul double %.155.i.i.i73, %465
   %467 = fmul double %466, %466

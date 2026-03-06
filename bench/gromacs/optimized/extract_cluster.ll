@@ -823,7 +823,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS2_E
 _ZNSt6vectorISt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %93
   store ptr %86, ptr %20, align 8, !tbaa !41
   store ptr %92, ptr %27, align 8, !tbaa !44
-  %94 = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %86, i64 %84
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %84
   store ptr %94, ptr %28, align 8, !tbaa !49
   %.pr = load ptr, ptr %8, align 8, !tbaa !45
   %.not.i29 = icmp eq ptr %.pr, null
@@ -1005,7 +1005,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_114ExtractCluster12an
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = sext i32 %1 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !97
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %10
   %13 = load i32, ptr %12, align 4, !tbaa !150
   %.not11 = icmp eq i32 %13, -1
   br i1 %.not11, label %30, label %14
@@ -1026,7 +1026,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_114ExtractCluster12an
 25:                                               ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !41
-  %28 = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %27, i64 %15
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %15
   %29 = load ptr, ptr %28, align 8, !tbaa !45
   tail call void @_ZN3gmx21TrajectoryFrameWriter20prepareAndWriteFrameEiRK10t_trxframe(ptr noundef nonnull align 8 dereferenceable(4272) %29, i32 noundef %1, ptr noundef nonnull align 1 %2)
   br label %32

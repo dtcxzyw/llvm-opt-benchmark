@@ -106,7 +106,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.8.025
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %.sroa.8.025
   br label %.loopexit
 
 24:                                               ; preds = %16
@@ -2601,7 +2601,7 @@ define { ptr, ptr } @_ZN7uu_tail7uu_tail17h3fecf2ee11269d0aE(ptr noalias noundef
 
 74:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !586
-  %75 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %37, i64 %38
+  %75 = getelementptr inbounds [48 x i8], ptr %37, i64 %38
   store ptr %37, ptr %19, align 8, !noalias !586
   %76 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %75, ptr %76, align 8, !noalias !586

@@ -1819,12 +1819,12 @@ define void @_ZN6statrs10statistics16slice_statistics16handle_rank_ties17hcf6583
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf5f7695f6c46f2e8E.exit": ; preds = %24
-  %28 = getelementptr inbounds { i64, ptr }, ptr %2, i64 %5
+  %28 = getelementptr inbounds [16 x i8], ptr %2, i64 %5
   %29 = icmp eq i64 %4, %5
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit.preheader"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit.preheader": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf5f7695f6c46f2e8E.exit"
-  %30 = getelementptr inbounds { i64, ptr }, ptr %2, i64 %4
+  %30 = getelementptr inbounds [16 x i8], ptr %2, i64 %4
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit.preheader", %33
@@ -1838,7 +1838,7 @@ define void @_ZN6statrs10statistics16slice_statistics16handle_rank_ties17hcf6583
 
 33:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit"
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 16
-  %35 = getelementptr inbounds double, ptr %0, i64 %31
+  %35 = getelementptr inbounds [8 x i8], ptr %0, i64 %31
   store double %.sroa.01.0, ptr %35, align 8
   %36 = icmp eq ptr %34, %28
   br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit"

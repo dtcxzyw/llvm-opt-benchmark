@@ -1694,10 +1694,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !align !48, !noundef !12
   %.val = load i8, ptr %2, align 1, !range !262, !noundef !12
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd73a45a15077bf08E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd73a45a15077bf08E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd73a45a15077bf08E.73", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd73a45a15077bf08E.73", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1709,10 +1709,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !align !48, !noundef !12
   %.val = load i8, ptr %2, align 1, !range !263, !noundef !12
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he29ccaef7ba84001E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he29ccaef7ba84001E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he29ccaef7ba84001E.74", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he29ccaef7ba84001E.74", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1892,7 +1892,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !284
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !284
   %36 = load ptr, ptr %35, align 8, !alias.scope !284, !nonnull !12, !align !13, !noundef !12
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %32
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %32
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha32111718540f633E.llvm.12734007390182477403"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.381f4748dbb996f3e8f202cd01f95d1c.2.llvm.3020970440203120126)
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !284, !nonnull !12, !noundef !12
@@ -2008,7 +2008,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit59.i: ; preds = %47
   %78 = call { ptr, i64 } @"_ZN91_$LT$uv_pep440..version_specifier..VersionSpecifiers$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0d6c1eb273d7cdeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %77)
   %79 = extractvalue { ptr, i64 } %78, 0
   %80 = extractvalue { ptr, i64 } %78, 1
-  %81 = getelementptr inbounds { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %79, i64 %80
+  %81 = getelementptr inbounds [24 x i8], ptr %79, i64 %80
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9977f82a23f4554eE.llvm.12734007390182477403"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noundef nonnull %79, ptr noundef %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.381f4748dbb996f3e8f202cd01f95d1c.2.llvm.3020970440203120126)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !284
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !284

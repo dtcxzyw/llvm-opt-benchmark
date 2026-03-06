@@ -54,7 +54,7 @@ define internal range(i64 0, 2) i64 @null_ctrl(ptr readnone captures(none) %0, i
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.null_ctrl, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.null_ctrl, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %7
 

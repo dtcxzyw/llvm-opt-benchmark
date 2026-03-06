@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [23 x i8] c"shadows and highlights\00", align 1
 @.str.1 = private unnamed_addr constant [94 x i8] c"modify the tonal range of the shadows and highlights\0Aof an image by enhancing local contrast.\00", align 1
@@ -417,7 +414,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader255:                                    ; preds = %91, %.preheader255
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader255 ], [ 0, %91 ]
-  %92 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %92, align 4, !tbaa !99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -425,7 +422,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader:                                       ; preds = %.preheader255, %.preheader
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.preheader ], [ 0, %.preheader255 ]
-  %93 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv284
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv284
   store float 0xC7EFFFFFE0000000, ptr %93, align 4, !tbaa !99
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, 4
@@ -492,7 +489,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 122:                                              ; preds = %.lr.ph276, %._crit_edge270
   %.0190274 = phi i64 [ 0, %.lr.ph276 ], [ %319, %._crit_edge270 ]
-  %123 = getelementptr inbounds nuw float, ptr %2, i64 %.0190274
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0190274
   %124 = load float, ptr %123, align 4, !tbaa !99
   %125 = fmul reassoc nsz arcp contract afn float %124, 0x3F847AE140000000
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 4
@@ -501,7 +498,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %130 = load float, ptr %129, align 4, !tbaa !99
   %131 = fmul reassoc nsz arcp contract afn float %130, 7.812500e-03
-  %132 = getelementptr inbounds nuw float, ptr %3, i64 %.0190274
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0190274
   %133 = load float, ptr %132, align 4, !tbaa !99
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -1131,7 +1128,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

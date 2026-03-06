@@ -180,7 +180,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %cached_blocks_19.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 88
   %17 = load ptr, ptr %cached_blocks_19.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %17, i64 %sub.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %sub.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   store ptr %18, ptr %6, align 8
   store ptr %6, ptr %arrayidx.i.i.i, align 8
@@ -197,7 +197,7 @@ if.end46:                                         ; preds = %if.end.i.i.i, %_ZSt
   %current_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load i32, ptr %current_size_, align 8
   %idxprom = sext i32 %21 to i64
-  %arrayidx51 = getelementptr inbounds ptr, ptr %elements50, i64 %idxprom
+  %arrayidx51 = getelementptr inbounds [8 x i8], ptr %elements50, i64 %idxprom
   ret ptr %arrayidx51
 }
 
@@ -266,7 +266,7 @@ for.body.i.preheader:                             ; preds = %_ZNK6google8protobu
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %cond.i5, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i5, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %isnull.i.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit, label %delete.notnull.i.i.i
@@ -372,7 +372,7 @@ if.then21.i:                                      ; preds = %if.else18.i
   %add.i = add nsw i32 %5, 1
   store i32 %add.i, ptr %current_size_.i7.i, align 8
   %idxprom.i = sext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %elements.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %idxprom.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIPFPvPNS0_5ArenaEEEEPDaT_.exit
 
@@ -386,7 +386,7 @@ if.end25.i:                                       ; preds = %if.else18.i, %if.th
   %add31.i = add nsw i32 %11, 1
   store i32 %add31.i, ptr %current_size_.i7.i, align 8
   %idxprom33.i = sext i32 %11 to i64
-  %arrayidx34.i = getelementptr inbounds ptr, ptr %elements29.i, i64 %idxprom33.i
+  %arrayidx34.i = getelementptr inbounds [8 x i8], ptr %elements29.i, i64 %idxprom33.i
   %call35.i = tail call noundef ptr %factory(ptr noundef %0)
   store ptr %call35.i, ptr %arrayidx34.i, align 8
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIPFPvPNS0_5ArenaEEEEPDaT_.exit
@@ -431,10 +431,10 @@ for.body.lr.ph:                                   ; preds = %if.else
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %4, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds ptr, ptr %elements, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %elements, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %7 = sub nsw i64 %indvars.iv, %5
-  %arrayidx8 = getelementptr inbounds ptr, ptr %elements, i64 %7
+  %arrayidx8 = getelementptr inbounds [8 x i8], ptr %elements, i64 %7
   store ptr %6, ptr %arrayidx8, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %2, align 8
@@ -525,7 +525,7 @@ if.then21.i:                                      ; preds = %if.else18.i
   %add.i = add nsw i32 %6, 1
   store i32 %add.i, ptr %current_size_.i7.i, align 8
   %idxprom.i = sext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %elements.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   br label %"_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIZNS2_10AddMessageEPKNS0_11MessageLiteEE3$_0EEPDaT_.exit"
 
@@ -539,7 +539,7 @@ if.end25.i:                                       ; preds = %if.else18.i, %if.th
   %add31.i = add nsw i32 %12, 1
   store i32 %add31.i, ptr %current_size_.i7.i, align 8
   %idxprom33.i = sext i32 %12 to i64
-  %arrayidx34.i = getelementptr inbounds ptr, ptr %elements29.i, i64 %idxprom33.i
+  %arrayidx34.i = getelementptr inbounds [8 x i8], ptr %elements29.i, i64 %idxprom33.i
   %vtable.i13.i = load ptr, ptr %prototype, align 8
   %vfn.i14.i = getelementptr inbounds nuw i8, ptr %vtable.i13.i, i64 16
   %13 = load ptr, ptr %vfn.i14.i, align 8
@@ -593,7 +593,7 @@ if.then.i:                                        ; preds = %entry
   %elements4.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %cond.i = select i1 %cmp.i.i, ptr %this, ptr %elements4.i
   %idx.ext.i = sext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %cond.i, i64 %idx.ext.i
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15InternalReserveEi.exit
 
 if.end.i:                                         ; preds = %entry
@@ -618,7 +618,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase15InternalReserveEi.exit: ; pr
   %elements.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %cond.i27 = select i1 %cmp.i.i26, ptr %from, ptr %elements.i
   %idx.ext = sext i32 %7 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %cond.i27, i64 %idx.ext
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %cond.i27, i64 %idx.ext
   %and.i.i.i = and i64 %.pre-phi, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %cond.true.i.i, label %cond.false.i.i
@@ -762,7 +762,7 @@ entry:
   %current_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %current_size_, align 8
   %idx.ext = sext i32 %3 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %cond.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %cond.i, i64 %idx.ext
   %4 = load ptr, ptr %from, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i6 = and i64 %5, 1
@@ -797,9 +797,9 @@ for.body.preheader:                               ; preds = %_ZNK6google8protobu
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
-  %arrayidx7 = getelementptr inbounds nuw ptr, ptr %cond.i9, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw [8 x i8], ptr %cond.i9, i64 %indvars.iv
   %10 = load ptr, ptr %arrayidx7, align 8
   %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
@@ -837,7 +837,7 @@ if.then.i:                                        ; preds = %entry
   %elements4.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %cond.i = select i1 %cmp.i.i, ptr %this, ptr %elements4.i
   %idx.ext.i = sext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %cond.i, i64 %idx.ext.i
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15InternalReserveEi.exit
 
 if.end.i:                                         ; preds = %entry
@@ -862,7 +862,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase15InternalReserveEi.exit: ; pr
   %elements.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %cond.i16 = select i1 %cmp.i.i15, ptr %from, ptr %elements.i
   %idx.ext = sext i32 %7 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %cond.i16, i64 %idx.ext
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %cond.i16, i64 %idx.ext
   %and.i.i.i = and i64 %.pre-phi, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.thread
@@ -891,7 +891,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.i: ; pr
   %elements.i.i39.sink = phi ptr [ %elements.i.i39, %cond.false.i.i.i ], [ %this, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit ]
   %cond3.i.i.i = phi i32 [ %13, %cond.false.i.i.i ], [ %cond.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit ]
   %idx.ext.i2441 = sext i32 %.sink to i64
-  %add.ptr.i2542 = getelementptr inbounds ptr, ptr %elements.i.i39.sink, i64 %idx.ext.i2441
+  %add.ptr.i2542 = getelementptr inbounds [8 x i8], ptr %elements.i.i39.sink, i64 %idx.ext.i2441
   %sub.i.i27 = sub nsw i32 %cond3.i.i.i, %.sink
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %7, i32 %sub.i.i27)
   %cmp11.i = icmp sgt i32 %.sroa.speculated.i, 0
@@ -903,9 +903,9 @@ for.body.preheader.i:                             ; preds = %_ZNK6google8protobu
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i2542, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i2542, i64 %indvars.iv.i
   %15 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx7.i = getelementptr inbounds nuw ptr, ptr %cond.i16, i64 %indvars.iv.i
+  %arrayidx7.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i16, i64 %indvars.iv.i
   %16 = load ptr, ptr %arrayidx7.i, align 8
   %vtable.i = load ptr, ptr %15, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
@@ -917,8 +917,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit: ; preds = %for.body.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.i
   %idx.ext8 = sext i32 %.sroa.speculated.i to i64
-  %add.ptr9 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idx.ext8
-  %add.ptr11 = getelementptr inbounds ptr, ptr %cond.i16, i64 %idx.ext8
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %idx.ext8
+  %add.ptr11 = getelementptr inbounds [8 x i8], ptr %cond.i16, i64 %idx.ext8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.thread, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit
@@ -998,7 +998,7 @@ if.then.i:                                        ; preds = %entry
   %elements4.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %cond.i = select i1 %cmp.i.i, ptr %this, ptr %elements4.i
   %idx.ext.i = sext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %cond.i, i64 %idx.ext.i
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15InternalReserveEi.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1023,7 +1023,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase15InternalReserveEi.exit: ; pr
   %elements.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %cond.i18 = select i1 %cmp.i.i17, ptr %from, ptr %elements.i
   %idx.ext = sext i32 %7 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %cond.i18, i64 %idx.ext
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %cond.i18, i64 %idx.ext
   %11 = load ptr, ptr %cond.i18, align 8
   %and.i.i.i = and i64 %.pre-phi, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -1053,7 +1053,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.i: ; pr
   %elements.i.i41.sink = phi ptr [ %elements.i.i41, %cond.false.i.i.i ], [ %this, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit ]
   %cond3.i.i.i = phi i32 [ %14, %cond.false.i.i.i ], [ %cond.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit ]
   %idx.ext.i2643 = sext i32 %.sink to i64
-  %add.ptr.i2744 = getelementptr inbounds ptr, ptr %elements.i.i41.sink, i64 %idx.ext.i2643
+  %add.ptr.i2744 = getelementptr inbounds [8 x i8], ptr %elements.i.i41.sink, i64 %idx.ext.i2643
   %sub.i.i29 = sub nsw i32 %cond3.i.i.i, %.sink
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %7, i32 %sub.i.i29)
   %cmp11.i = icmp sgt i32 %.sroa.speculated.i, 0
@@ -1065,9 +1065,9 @@ for.body.preheader.i:                             ; preds = %_ZNK6google8protobu
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i2744, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i2744, i64 %indvars.iv.i
   %16 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx7.i = getelementptr inbounds nuw ptr, ptr %cond.i18, i64 %indvars.iv.i
+  %arrayidx7.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i18, i64 %indvars.iv.i
   %17 = load ptr, ptr %arrayidx7.i, align 8
   %vtable.i = load ptr, ptr %16, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
@@ -1079,8 +1079,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit: ; preds = %for.body.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.i
   %idx.ext8 = sext i32 %.sroa.speculated.i to i64
-  %add.ptr9 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idx.ext8
-  %add.ptr11 = getelementptr inbounds ptr, ptr %cond.i18, i64 %idx.ext8
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %idx.ext8
+  %add.ptr11 = getelementptr inbounds [8 x i8], ptr %cond.i18, i64 %idx.ext8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.thread, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit

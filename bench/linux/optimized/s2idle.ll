@@ -26,9 +26,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_unregis
 %struct.acpi_table_fadt = type <{ %struct.acpi_table_header, i32, i32, i8, i8, i16, i32, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i8, i8, i8, i8, i8, i16, i8, i32, %struct.acpi_generic_address, i8, i16, i8, i64, i64, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, i64 }>
 %struct.acpi_table_header = type { [4 x i8], i32, i8, i8, [6 x i8], [8 x i8], i32, [4 x i8], i32 }
 %struct.acpi_generic_address = type <{ i8, i8, i8, i8, i64 }>
-%struct.lpi_constraints = type { ptr, i32 }
-%union.acpi_object = type { %struct.anon.10 }
-%struct.anon.10 = type { i32, i32, i64, i32 }
 
 @__param_str_sleep_no_lps0 = internal constant [19 x i8] c"acpi.sleep_no_lps0\00", align 16
 @param_ops_bool = external dso_local constant %struct.kernel_param_ops, align 8
@@ -101,7 +98,7 @@ define dso_local i32 @acpi_get_lps0_constraint(ptr noundef readonly captures(non
 
 12:                                               ; preds = %9, %5
   %13 = phi i64 [ 0, %5 ], [ %10, %9 ]
-  %14 = getelementptr %struct.lpi_constraints, ptr %2, i64 %13
+  %14 = getelementptr [16 x i8], ptr %2, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %7, %15
   br i1 %16, label %17, label %9
@@ -180,7 +177,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 41:                                               ; preds = %36, %30, %28, %17
   %42 = add nuw nsw i64 %18, 1
   %43 = load ptr, ptr @lpi_constraints_table, align 8
-  %44 = getelementptr %struct.lpi_constraints, ptr %43, i64 %42
+  %44 = getelementptr [16 x i8], ptr %43, i64 %42
   %45 = load i32, ptr @lpi_constraints_table_size, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %42, %46
@@ -985,7 +982,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %127 = phi i32 [ 0, %124 ], [ %206, %.loopexit ]
   %128 = load ptr, ptr %125, align 8
   %129 = sext i32 %127 to i64
-  %130 = getelementptr %union.acpi_object, ptr %128, i64 %129
+  %130 = getelementptr [24 x i8], ptr %128, i64 %129
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, 4
   br i1 %132, label %133, label %.loopexit
@@ -1026,9 +1023,9 @@ split.thread:                                     ; preds = %38, %44, %split
   %153 = phi i32 [ 0, %148 ], [ %203, %.thread36 ]
   %154 = load ptr, ptr %149, align 8
   %155 = sext i32 %153 to i64
-  %156 = getelementptr %union.acpi_object, ptr %154, i64 %155
+  %156 = getelementptr [24 x i8], ptr %154, i64 %155
   %157 = sext i32 %151 to i64
-  %158 = getelementptr %struct.lpi_constraints, ptr %152, i64 %157
+  %158 = getelementptr [16 x i8], ptr %152, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, 0
@@ -1045,7 +1042,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %168 = phi ptr [ null, %162 ], [ %184, %183 ]
   %169 = phi i32 [ 0, %162 ], [ %187, %183 ]
   %170 = sext i32 %169 to i64
-  %171 = getelementptr %union.acpi_object, ptr %164, i64 %170
+  %171 = getelementptr [24 x i8], ptr %164, i64 %170
   switch i32 %169, label %183 [
     i32 0, label %172
     i32 1, label %176
@@ -1146,7 +1143,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %228 = phi i32 [ 0, %225 ], [ %309, %.thread41 ]
   %229 = load ptr, ptr %226, align 8
   %230 = sext i32 %228 to i64
-  %231 = getelementptr %union.acpi_object, ptr %229, i64 %230
+  %231 = getelementptr [24 x i8], ptr %229, i64 %230
   %232 = icmp eq ptr %231, null
   br i1 %232, label %.thread41, label %233
 
@@ -1168,7 +1165,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %244 = phi i32 [ 0, %237 ], [ %263, %261 ]
   %245 = phi ptr [ null, %237 ], [ %262, %261 ]
   %246 = sext i32 %241 to i64
-  %247 = getelementptr %union.acpi_object, ptr %239, i64 %246
+  %247 = getelementptr [24 x i8], ptr %239, i64 %246
   %248 = load i32, ptr %247, align 8
   switch i32 %248, label %261 [
     i32 1, label %249
@@ -1215,7 +1212,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %275 = load ptr, ptr @lpi_constraints_table, align 8
   %276 = load i32, ptr @lpi_constraints_table_size, align 4
   %277 = sext i32 %276 to i64
-  %278 = getelementptr %struct.lpi_constraints, ptr %275, i64 %277
+  %278 = getelementptr [16 x i8], ptr %275, i64 %277
   %279 = tail call i32 @acpi_get_handle(ptr noundef null, ptr noundef nonnull %262, ptr noundef %278) #8
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %281, label %.thread41
@@ -1233,7 +1230,7 @@ split.thread:                                     ; preds = %38, %44, %split
 286:                                              ; preds = %301, %284
   %.pr60 = phi i32 [ -1, %284 ], [ %.pr, %301 ]
   %287 = phi i64 [ 0, %284 ], [ %302, %301 ]
-  %288 = getelementptr %union.acpi_object, ptr %264, i64 %287
+  %288 = getelementptr [24 x i8], ptr %264, i64 %287
   %289 = load i32, ptr %288, align 8
   %290 = icmp eq i32 %289, 4
   br i1 %290, label %291, label %301

@@ -20,10 +20,8 @@ module asm ".previous\09\09\09\09\09"
 %struct.thermal_zone_device_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.dmi_system_id = type { ptr, ptr, [4 x %struct.dmi_strmatch], ptr }
 %struct.dmi_strmatch = type { i8, [79 x i8] }
-%struct.acpi_thermal_active = type { %struct.acpi_thermal_trip }
-%struct.acpi_thermal_trip = type { i64, %struct.acpi_handle_list }
-%struct.acpi_handle_list = type { i32, ptr }
 %struct.adjust_trip_data = type { ptr, i32 }
+%struct.acpi_handle_list = type { i32, ptr }
 %struct.acpi_thermal_bind_data = type { ptr, ptr, i8 }
 
 @__param_str_act = internal constant [12 x i8] c"thermal.act\00", align 1
@@ -237,7 +235,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 
 57:                                               ; preds = %57, %54
   %58 = phi i64 [ %56, %54 ], [ %60, %57 ]
-  %59 = getelementptr %struct.acpi_thermal_active, ptr %55, i64 %58
+  %59 = getelementptr [24 x i8], ptr %55, i64 %58
   store i64 -274000, ptr %59, align 8
   %60 = add nuw nsw i64 %58, 1
   %61 = icmp eq i64 %60, 10
@@ -440,7 +438,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 179:                                              ; preds = %194, %175
   %180 = phi i64 [ 0, %175 ], [ %198, %194 ]
   %181 = phi ptr [ %177, %175 ], [ %197, %194 ]
-  %182 = getelementptr %struct.acpi_thermal_active, ptr %178, i64 %180
+  %182 = getelementptr [24 x i8], ptr %178, i64 %180
   %183 = load i64, ptr %182, align 8
   %184 = icmp eq i64 %183, -274000
   br i1 %184, label %200, label %185
@@ -906,7 +904,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef no
 61:                                               ; preds = %2
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = sext i32 %1 to i64
-  %64 = getelementptr %struct.acpi_thermal_active, ptr %62, i64 %63
+  %64 = getelementptr [24 x i8], ptr %62, i64 %63
   %65 = load i32, ptr @act, align 4
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %91, label %67
@@ -1306,7 +1304,7 @@ define internal i32 @bind_unbind_cdev_cb(ptr noundef %0, ptr noundef readonly ca
   %19 = phi i32 [ 0, %15 ], [ %33, %.thread ]
   %20 = load ptr, ptr %16, align 8
   %21 = sext i32 %19 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %23) #12
   %25 = icmp eq ptr %24, %9
@@ -1569,7 +1567,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef r
 
 10:                                               ; preds = %.loopexit, %8
   %11 = phi i64 [ 0, %8 ], [ %31, %.loopexit ]
-  %12 = getelementptr %struct.acpi_thermal_active, ptr %9, i64 %11
+  %12 = getelementptr [24 x i8], ptr %9, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, -274000
   br i1 %14, label %33, label %15
@@ -1588,7 +1586,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef r
   %22 = phi i32 [ 0, %19 ], [ %28, %21 ]
   %23 = load ptr, ptr %20, align 8
   %24 = sext i32 %22 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @acpi_bus_update_power(ptr noundef %26, ptr noundef nonnull %2) #12
   %28 = add nuw i32 %22, 1

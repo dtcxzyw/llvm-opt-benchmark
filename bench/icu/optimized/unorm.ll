@@ -307,7 +307,7 @@ define internal fastcc noundef i32 @_ZL12_concatenatePKDsiS0_iPDsiPKN6icu_7711No
 26:                                               ; preds = %25
   %.not61 = icmp uge ptr %2, %4
   %27 = zext nneg i32 %5 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %4, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %27
   %29 = icmp ult ptr %2, %28
   %or.cond68 = select i1 %.not61, i1 %29, i1 false
   br i1 %or.cond68, label %35, label %30
@@ -317,7 +317,7 @@ define internal fastcc noundef i32 @_ZL12_concatenatePKDsiS0_iPDsiPKN6icu_7711No
   %.not62 = icmp uge ptr %4, %2
   %or.cond69.not75 = and i1 %31, %.not62
   %32 = zext nneg i32 %3 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %2, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %32
   %34 = icmp ult ptr %4, %33
   %or.cond72 = select i1 %or.cond69.not75, i1 %34, i1 false
   br i1 %or.cond72, label %35, label %36

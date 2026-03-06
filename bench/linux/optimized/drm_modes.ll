@@ -365,7 +365,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
   br i1 %12, label %264, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr %struct.analog_parameters, ptr @tv_modes_parameters, i64 %9
+  %14 = getelementptr [96 x i8], ptr @tv_modes_parameters, i64 %9
   %15 = udiv i64 1000000000, %2
   %16 = icmp eq ptr %0, null
   br i1 %16, label %20, label %17
@@ -1997,7 +1997,7 @@ define dso_local ptr @drm_get_mode_status_name(i32 noundef %0) local_unnamed_add
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr ptr, ptr @drm_mode_status_names, i64 %6
+  %7 = getelementptr [8 x i8], ptr @drm_mode_status_names, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -2215,7 +2215,7 @@ drm_mode_debug_printmodeline.exit:                ; preds = %._crit_edge.i, %94,
 
 153:                                              ; preds = %drm_mode_debug_printmodeline.exit
   %154 = zext nneg i32 %150 to i64
-  %155 = getelementptr ptr, ptr @drm_mode_status_names, i64 %154
+  %155 = getelementptr [8 x i8], ptr @drm_mode_status_names, i64 %154
   %156 = load ptr, ptr %155, align 8
   br label %157
 
@@ -2773,7 +2773,7 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
 
 79:                                               ; preds = %.preheader117, %76
   %80 = phi i64 [ %77, %76 ], [ 0, %.preheader117 ]
-  %81 = getelementptr %struct.drm_named_mode, ptr @drm_named_modes, i64 %80
+  %81 = getelementptr [32 x i8], ptr @drm_named_modes, i64 %80
   %82 = load ptr, ptr %81, align 16
   %83 = tail call i64 @strlen(ptr noundef %82) #14
   %84 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %82, i64 noundef %83) #14
@@ -3542,7 +3542,7 @@ define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef read
 
 18:                                               ; preds = %15, %13
   %19 = phi i64 [ 0, %13 ], [ %16, %15 ]
-  %20 = getelementptr %struct.drm_named_mode, ptr @drm_named_modes, i64 %19
+  %20 = getelementptr [32 x i8], ptr @drm_named_modes, i64 %19
   %21 = load ptr, ptr %20, align 16
   %22 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %21) #14
   %23 = icmp eq i32 %22, 0

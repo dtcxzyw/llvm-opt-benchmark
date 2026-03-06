@@ -16,10 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
 %"class.llvm::MIMetadata" = type { %"class.llvm::DebugLoc", ptr, ptr }
-%"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"struct.llvm::MachineFrameInfo::StackObject" = type <{ i64, i64, %"struct.llvm::Align", i8, i8, i8, i8, [3 x i8], ptr, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.llvm::Align" = type { i8 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -326,11 +322,11 @@ _ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread101: ; preds = %30, %_Z
   %69 = load ptr, ptr %43, align 8, !tbaa !305, !noalias !306
   %70 = load ptr, ptr %44, align 8, !tbaa !309, !noalias !306
   %71 = zext nneg i32 %63 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 4, !tbaa !310, !noalias !306
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i16, ptr %69, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !312, !noalias !306
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i16 %77, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i
@@ -356,11 +352,11 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !320
 
 _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i: ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i, %68
-  %87 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %70, i64 %45
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %45
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 4, !tbaa !310, !noalias !322
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw i16, ptr %69, i64 %90
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !312, !noalias !322
   %.not.i.i.i.i.i.i.i = icmp eq i16 %92, 0
   br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
@@ -482,7 +478,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZL13getArg
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %143 = trunc nuw i8 %.pre to i1
   %.neg = select i1 %143, i64 -359, i64 -358
-  %144 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.pre136, i64 %.neg
+  %144 = getelementptr inbounds [32 x i8], ptr %.pre136, i64 %.neg
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, i8 0, i64 16, i1 false)
   %145 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr %134, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %144, i32 %131)
   %146 = extractvalue { ptr, ptr } %145, 0
@@ -655,7 +651,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %200 = add i32 %195, %193
   %201 = zext i32 %200 to i64
   %202 = load ptr, ptr %163, align 8, !tbaa !383
-  %203 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %202, i64 %201
+  %203 = getelementptr inbounds nuw [40 x i8], ptr %202, i64 %201
   %204 = load i64, ptr %203, align 8, !tbaa !386
   %205 = icmp slt i64 %204, 0
   br i1 %205, label %.thread, label %206

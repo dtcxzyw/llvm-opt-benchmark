@@ -1544,7 +1544,7 @@ define dso_local void @gdb_syscall_entry(ptr noundef %0, i32 noundef %1) local_u
 should_catch_syscall.exit:                        ; preds = %5
   %6 = zext nneg i32 %1 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %6, 63
   %11 = lshr i64 %9, %10
@@ -1577,7 +1577,7 @@ define dso_local void @gdb_syscall_return(ptr noundef %0, i32 noundef %1) local_
 should_catch_syscall.exit:                        ; preds = %5
   %6 = zext nneg i32 %1 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %6, 63
   %11 = lshr i64 %9, %10
@@ -1677,7 +1677,7 @@ sub_0:
   %35 = and i64 %34, 63
   %36 = shl nuw i64 1, %35
   %37 = lshr i64 %34, 6
-  %38 = getelementptr inbounds nuw i64, ptr %2, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %39, %36
   store i64 %40, ptr %38, align 8

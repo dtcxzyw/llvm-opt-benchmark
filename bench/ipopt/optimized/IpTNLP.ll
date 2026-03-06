@@ -898,14 +898,14 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit: ; preds = %337, %342
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv512 = phi i64 [ %indvars.iv.next513, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %349 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv512
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %indvars.iv512
   %350 = load i32, ptr %349, align 4, !tbaa !80
   %351 = sext i32 %350 to i64
-  %352 = getelementptr inbounds double, ptr %6, i64 %351
+  %352 = getelementptr inbounds [8 x i8], ptr %6, i64 %351
   %353 = load double, ptr %352, align 8, !tbaa !79
   %354 = fmul double %336, %353
   store double %354, ptr %352, align 8, !tbaa !79
-  %355 = getelementptr inbounds double, ptr %7, i64 %351
+  %355 = getelementptr inbounds [8 x i8], ptr %7, i64 %351
   %356 = load double, ptr %355, align 8, !tbaa !79
   %357 = fmul double %336, %356
   store double %357, ptr %355, align 8, !tbaa !79
@@ -1065,14 +1065,14 @@ _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit348: ; preds = %409, %404, %_ZN5I
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %423 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %indvars.iv
   %424 = load i32, ptr %423, align 4, !tbaa !80
   %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds double, ptr %6, i64 %425
+  %426 = getelementptr inbounds [8 x i8], ptr %6, i64 %425
   %427 = load double, ptr %426, align 8, !tbaa !79
   %428 = fneg double %427
   %429 = fmul double %336, %428
-  %430 = getelementptr inbounds double, ptr %7, i64 %425
+  %430 = getelementptr inbounds [8 x i8], ptr %7, i64 %425
   %431 = load double, ptr %430, align 8, !tbaa !79
   %432 = fneg double %431
   %433 = fmul double %336, %432
@@ -8444,7 +8444,7 @@ _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit465: ; preds = %_ZN5Ipopt8SmartPt
   %637 = sub i32 %636, %209
   %638 = add i32 %637, %635
   %639 = sext i32 %638 to i64
-  %640 = getelementptr inbounds double, ptr %632, i64 %639
+  %640 = getelementptr inbounds [8 x i8], ptr %632, i64 %639
   br label %641
 
 641:                                              ; preds = %.split.us, %631
@@ -8453,17 +8453,17 @@ _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit465: ; preds = %_ZN5Ipopt8SmartPt
   %642 = fneg double %.0207.us
   %643 = fcmp ogt double %642, 0.000000e+00
   %.sroa.speculated.i.us = select i1 %643, double %642, double 0.000000e+00
-  %644 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv1233
+  %644 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv1233
   %645 = load i32, ptr %644, align 4, !tbaa !80
   %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds double, ptr %5, i64 %646
+  %647 = getelementptr inbounds [8 x i8], ptr %5, i64 %646
   store double %.sroa.speculated.i.us, ptr %647, align 8, !tbaa !79
   br i1 %215, label %648, label %651
 
 648:                                              ; preds = %641
   %649 = fcmp ogt double %.0207.us, 0.000000e+00
   %.sroa.speculated.i474.us = select i1 %649, double %.0207.us, double 0.000000e+00
-  %650 = getelementptr inbounds double, ptr %6, i64 %646
+  %650 = getelementptr inbounds [8 x i8], ptr %6, i64 %646
   store double %.sroa.speculated.i474.us, ptr %650, align 8, !tbaa !79
   br label %651
 
@@ -8487,10 +8487,10 @@ _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit465: ; preds = %_ZN5Ipopt8SmartPt
   %.0207.us1209.us = load double, ptr %630, align 8, !tbaa !79
   %652 = fcmp ogt double %.0207.us1209.us, 0.000000e+00
   %.sroa.speculated.i474.us1210.us = select i1 %652, double %.0207.us1209.us, double 0.000000e+00
-  %653 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv1228
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv1228
   %654 = load i32, ptr %653, align 4, !tbaa !80
   %655 = sext i32 %654 to i64
-  %656 = getelementptr inbounds double, ptr %6, i64 %655
+  %656 = getelementptr inbounds [8 x i8], ptr %6, i64 %655
   store double %.sroa.speculated.i474.us1210.us, ptr %656, align 8, !tbaa !79
   %indvars.iv.next1229 = add nuw nsw i64 %indvars.iv1228, 1
   %exitcond1232.not = icmp eq i64 %indvars.iv.next1229, %wide.trip.count1231
@@ -8513,14 +8513,14 @@ _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit465: ; preds = %_ZN5Ipopt8SmartPt
   %661 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass.us = add i32 %invariant.op, %661
   %662 = sext i32 %.reass.us to i64
-  %663 = getelementptr inbounds double, ptr %657, i64 %662
+  %663 = getelementptr inbounds [8 x i8], ptr %657, i64 %662
   %.0207.us1212 = load double, ptr %663, align 8, !tbaa !79
   %664 = fcmp ogt double %.0207.us1212, 0.000000e+00
   %.sroa.speculated.i474.us1213 = select i1 %664, double %.0207.us1212, double 0.000000e+00
-  %665 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv
+  %665 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv
   %666 = load i32, ptr %665, align 4, !tbaa !80
   %667 = sext i32 %666 to i64
-  %668 = getelementptr inbounds double, ptr %6, i64 %667
+  %668 = getelementptr inbounds [8 x i8], ptr %6, i64 %667
   store double %.sroa.speculated.i474.us1213, ptr %668, align 8, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10822,13 +10822,13 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit632.thread: ; preds = %_ZN5Ipopt8SmartPt
   %1853 = sub i32 %1852, %209
   %1854 = add i32 %1853, %1851
   %1855 = sext i32 %1854 to i64
-  %1856 = getelementptr inbounds double, ptr %1772, i64 %1855
+  %1856 = getelementptr inbounds [8 x i8], ptr %1772, i64 %1855
   %1857 = load double, ptr %1856, align 8, !tbaa !79
   %1858 = fneg double %1857
-  %1859 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv1238
+  %1859 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv1238
   %1860 = load i32, ptr %1859, align 4, !tbaa !80
   %1861 = sext i32 %1860 to i64
-  %1862 = getelementptr inbounds double, ptr %7, i64 %1861
+  %1862 = getelementptr inbounds [8 x i8], ptr %7, i64 %1861
   store double %1858, ptr %1862, align 8, !tbaa !79
   br label %1863
 
@@ -10843,13 +10843,13 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit632.thread: ; preds = %_ZN5Ipopt8SmartPt
   %1869 = sub i32 %1868, %209
   %1870 = add i32 %1869, %1867
   %1871 = sext i32 %1870 to i64
-  %1872 = getelementptr inbounds double, ptr %1751, i64 %1871
+  %1872 = getelementptr inbounds [8 x i8], ptr %1751, i64 %1871
   %1873 = load double, ptr %1872, align 8, !tbaa !79
   %1874 = fneg double %1873
-  %1875 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv1238
+  %1875 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv1238
   %1876 = load i32, ptr %1875, align 4, !tbaa !80
   %1877 = sext i32 %1876 to i64
-  %1878 = getelementptr inbounds double, ptr %8, i64 %1877
+  %1878 = getelementptr inbounds [8 x i8], ptr %8, i64 %1877
   store double %1874, ptr %1878, align 8, !tbaa !79
   br label %1879
 
@@ -12019,13 +12019,13 @@ _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit650: ; preds = %2400, %2405
   %2441 = trunc nuw nsw i64 %indvars.iv1248 to i32
   %.reass1221 = add i32 %invariant.op1220, %2441
   %2442 = sext i32 %.reass1221 to i64
-  %2443 = getelementptr inbounds double, ptr %2413, i64 %2442
+  %2443 = getelementptr inbounds [8 x i8], ptr %2413, i64 %2442
   %2444 = load double, ptr %2443, align 8, !tbaa !79
   %2445 = fsub double 1.000000e+00, %2444
-  %2446 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv1248
+  %2446 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv1248
   %2447 = load i32, ptr %2446, align 4, !tbaa !80
   %2448 = sext i32 %2447 to i64
-  %2449 = getelementptr inbounds double, ptr %9, i64 %2448
+  %2449 = getelementptr inbounds [8 x i8], ptr %9, i64 %2448
   %2450 = load double, ptr %2449, align 8, !tbaa !79
   %2451 = call double @llvm.fmuladd.f64(double %2440, double %2445, double %2450)
   store double %2451, ptr %2449, align 8, !tbaa !79
@@ -12038,15 +12038,15 @@ _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit650: ; preds = %2400, %2405
   %2453 = trunc nuw nsw i64 %indvars.iv1243 to i32
   %.reass = add i32 %invariant.op1217, %2453
   %2454 = sext i32 %.reass to i64
-  %2455 = getelementptr inbounds double, ptr %2419, i64 %2454
+  %2455 = getelementptr inbounds [8 x i8], ptr %2419, i64 %2454
   %2456 = load double, ptr %2455, align 8, !tbaa !79
-  %2457 = getelementptr inbounds double, ptr %2413, i64 %2454
+  %2457 = getelementptr inbounds [8 x i8], ptr %2413, i64 %2454
   %2458 = load double, ptr %2457, align 8, !tbaa !79
   %2459 = fsub double 1.000000e+00, %2458
-  %2460 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv1243
+  %2460 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv1243
   %2461 = load i32, ptr %2460, align 4, !tbaa !80
   %2462 = sext i32 %2461 to i64
-  %2463 = getelementptr inbounds double, ptr %9, i64 %2462
+  %2463 = getelementptr inbounds [8 x i8], ptr %9, i64 %2462
   %2464 = load double, ptr %2463, align 8, !tbaa !79
   %2465 = call double @llvm.fmuladd.f64(double %2456, double %2459, double %2464)
   store double %2465, ptr %2463, align 8, !tbaa !79

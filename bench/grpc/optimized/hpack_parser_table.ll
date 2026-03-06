@@ -29,8 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::UniquePtrWithBitset" = type { i64 }
-%"struct.std::atomic.21" = type { %"struct.std::__atomic_base.22" }
-%"struct.std::__atomic_base.22" = type { i64 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<grpc_core::HPackTable::Memento, std::allocator<grpc_core::HPackTable::Memento>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_core::HPackTable::Memento, std::allocator<grpc_core::HPackTable::Memento>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::HPackTable::Memento, std::allocator<grpc_core::HPackTable::Memento>>::_Vector_impl_data" }
@@ -47,14 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.absl::lts_20240722::functional_internal::VoidPtr" = type { ptr }
 %class.anon.28 = type { i8 }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"struct.std::atomic.21", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.21"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic.21"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic.21"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic.21"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.21"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.21"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.21"] }
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet.166" }
 %"class.grpc_core::BitSet.166" = type { [1 x i8] }
 %"class.grpc_core::Duration" = type { i64 }
@@ -810,7 +800,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %52, %53
 
 60:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %44
   %61 = phi ptr [ %.pre, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ %13, %44 ]
-  %62 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %61, i64 %48
+  %62 = getelementptr inbounds nuw [56 x i8], ptr %61, i64 %48
   %63 = load ptr, ptr %1, align 8, !tbaa !26
   store ptr %63, ptr %62, align 8, !tbaa !26
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -943,7 +933,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %28, %29, %.thread.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1512
   %49 = tail call noundef i32 @_ZN9grpc_core20Histogram_1800000_409BucketForEi(i32 noundef %46)
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds %"struct.std::atomic.21", ptr %48, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %48, i64 %50
   %52 = atomicrmw add ptr %51, i64 1 monotonic, align 8
   store i32 -1, ptr %12, align 4, !tbaa !36
   %.pre = load i32, ptr %1, align 8, !tbaa !35
@@ -959,7 +949,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %28, %29, %.thread.i
   store i32 %57, ptr %4, align 4, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !19
-  %60 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %59, i64 %11
+  %60 = getelementptr inbounds nuw [56 x i8], ptr %59, i64 %11
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load i64, ptr %61, align 8, !tbaa !33
   %63 = and i64 %62, 1
@@ -1009,7 +999,7 @@ define noundef ptr @_ZN9grpc_core10HPackTable17MementoRingBuffer6LookupEj(ptr no
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = zext i32 %12 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i64, ptr %17, align 8, !tbaa !33
   %19 = and i64 %18, 1
@@ -1047,7 +1037,7 @@ define noundef ptr @_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj(ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = zext i32 %12 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %14
   br label %17
 
 17:                                               ; preds = %2, %5
@@ -1196,7 +1186,7 @@ _ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EED2Ev.exit: ; preds = %_ZSt8
   %66 = sub i64 %64, %65
   %67 = sdiv exact i64 %66, 56
   %68 = urem i64 %61, %67
-  %69 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %63, i64 %68
+  %69 = getelementptr inbounds nuw [56 x i8], ptr %63, i64 %68
   %70 = load ptr, ptr %14, align 8, !tbaa !18
   %71 = load ptr, ptr %15, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %70, %71
@@ -1335,7 +1325,7 @@ _ZNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE13_M_deallocateEPS2_
   store ptr %19, ptr %0, align 8, !tbaa !19
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %40, ptr %14, align 8, !tbaa !18
-  %41 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %19, i64 %1
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %1
   store ptr %41, ptr %6, align 8, !tbaa !25
   br label %42
 
@@ -1452,7 +1442,7 @@ _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i: ; preds = %"_ZZN9gr
   %14 = load i32, ptr %5, align 8, !tbaa !16
   %15 = urem i32 %13, %14
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %16
   %18 = getelementptr i8, ptr %17, i64 48
   %.val.i = load i64, ptr %18, align 8, !tbaa !33
   %19 = and i64 %.val.i, 1
@@ -2039,7 +2029,7 @@ _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i: ; preds = %"_ZZNK9g
   %44 = urem i32 %42, %43
   %45 = zext i32 %44 to i64
   %46 = load ptr, ptr %20, align 8, !tbaa !19
-  %47 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %46, i64 %45
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNKS0_28TestOnlyDynamicTableAsStringB5cxx11EvE3$_0EEvT_.exit", label %48
 
@@ -2315,7 +2305,7 @@ define void @_ZN9grpc_core10HPackTable14StaticMementosC2Ev(ptr noundef nonnull a
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %20 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::StaticTableEntry", ptr @_ZN9grpc_core12_GLOBAL__N_112kStaticTableE, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStaticTableE, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load ptr, ptr %20, align 16, !tbaa !84, !noalias !81
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.6.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !84, !noalias !81
@@ -2416,7 +2406,7 @@ _ZN9grpc_core15metadata_detail19EncodableNameLookupIJNS_16HttpPathMetadataENS_21
 
 _ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i: ; preds = %40, %43, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %54 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %indvars.iv
   %55 = load ptr, ptr %6, align 8, !tbaa !26
   store ptr %55, ptr %54, align 8, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -2604,7 +2594,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !114
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !124
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -8249,7 +8239,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %47 = load ptr, ptr %46, align 8, !noalias !364
   %.sink2.i.i.i.i = select i1 %44, ptr %47, ptr %46
-  %48 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store double %26, ptr %48, align 8, !tbaa !355
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -8372,7 +8362,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i: ; preds = %2
   %14 = mul nuw nsw i64 %10, 40
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #37
-  %16 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %.sink1.i
   %17 = load double, ptr %1, align 8, !tbaa !355
   store double %17, ptr %16, align 8, !tbaa !355
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -8415,7 +8405,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i:                                         ; preds = %30, %48
   %.sroa.021.0 = phi ptr [ %52, %48 ], [ %.sink2.i, %30 ]
   %.012.i = phi i64 [ %53, %48 ], [ 0, %30 ]
-  %34 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %15, i64 %.012.i
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %.012.i
   %35 = load double, ptr %.sroa.021.0, align 8, !tbaa !355
   store double %35, ptr %34, align 8, !tbaa !355
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -8460,7 +8450,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i15:                                       ; preds = %48, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %54, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %48 ]
   %54 = add nsw i64 %.06.i, -1
-  %55 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i, i64 %54
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -9318,7 +9308,7 @@ _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit:    ; preds = %.invoke, %16, %12, 
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %26, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
   %35 = phi i64 [ %34, %26 ], [ 0, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit ]
-  %36 = getelementptr inbounds nuw %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEE6vtable, i64 %35
+  %36 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEE6vtable, i64 %35
   store ptr %36, ptr %0, align 8, !tbaa !26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %20, ptr %37, align 8, !tbaa !31
@@ -9879,7 +9869,7 @@ _ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, %61
   store ptr %20, ptr %0, align 8, !tbaa !19
   store ptr %.0.lcssa.i.i.i22, ptr %4, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !25
   ret void
 }

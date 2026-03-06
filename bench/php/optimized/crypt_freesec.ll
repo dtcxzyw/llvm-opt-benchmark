@@ -156,18 +156,18 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
 
 .preheader142:                                    ; preds = %.preheader144, %169
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %169 ], [ 0, %.preheader144 ]
-  %53 = getelementptr inbounds nuw [256 x i32], ptr @ip_maskl, i64 %indvars.iv218
-  %54 = getelementptr inbounds nuw [256 x i32], ptr @ip_maskr, i64 %indvars.iv218
-  %55 = getelementptr inbounds nuw [256 x i32], ptr @fp_maskl, i64 %indvars.iv218
-  %56 = getelementptr inbounds nuw [256 x i32], ptr @fp_maskr, i64 %indvars.iv218
+  %53 = getelementptr inbounds nuw [1024 x i8], ptr @ip_maskl, i64 %indvars.iv218
+  %54 = getelementptr inbounds nuw [1024 x i8], ptr @ip_maskr, i64 %indvars.iv218
+  %55 = getelementptr inbounds nuw [1024 x i8], ptr @fp_maskl, i64 %indvars.iv218
+  %56 = getelementptr inbounds nuw [1024 x i8], ptr @fp_maskr, i64 %indvars.iv218
   %57 = shl nuw nsw i64 %indvars.iv218, 3
   br label %63
 
 .preheader141:                                    ; preds = %112
-  %58 = getelementptr inbounds nuw [128 x i32], ptr @key_perm_maskl, i64 %indvars.iv218
-  %59 = getelementptr inbounds nuw [128 x i32], ptr @key_perm_maskr, i64 %indvars.iv218
-  %60 = getelementptr inbounds nuw [128 x i32], ptr @comp_maskl, i64 %indvars.iv218
-  %61 = getelementptr inbounds nuw [128 x i32], ptr @comp_maskr, i64 %indvars.iv218
+  %58 = getelementptr inbounds nuw [512 x i8], ptr @key_perm_maskl, i64 %indvars.iv218
+  %59 = getelementptr inbounds nuw [512 x i8], ptr @key_perm_maskr, i64 %indvars.iv218
+  %60 = getelementptr inbounds nuw [512 x i8], ptr @comp_maskl, i64 %indvars.iv218
+  %61 = getelementptr inbounds nuw [512 x i8], ptr @comp_maskr, i64 %indvars.iv218
   %62 = mul nuw nsw i64 %indvars.iv218, 7
   %invariant.gep242 = getelementptr inbounds nuw i8, ptr %1, i64 %57
   %invariant.gep244 = getelementptr inbounds nuw i8, ptr %2, i64 %62
@@ -175,13 +175,13 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
 
 63:                                               ; preds = %.preheader142, %112
   %indvars.iv202 = phi i64 [ 0, %.preheader142 ], [ %indvars.iv.next203, %112 ]
-  %64 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv202
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv202
   store i32 0, ptr %64, align 4, !tbaa !7
-  %65 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv202
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv202
   store i32 0, ptr %65, align 4, !tbaa !7
-  %66 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv202
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv202
   store i32 0, ptr %66, align 4, !tbaa !7
-  %67 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv202
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv202
   store i32 0, ptr %67, align 4, !tbaa !7
   %68 = trunc nuw nsw i64 %indvars.iv202 to i32
   br label %69
@@ -205,7 +205,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   %81 = load i8, ptr %80, align 1, !tbaa !4
   %82 = icmp ult i8 %81, 32
   %83 = zext i8 %81 to i64
-  %84 = getelementptr i32, ptr @bits32, i64 %83
+  %84 = getelementptr [4 x i8], ptr @bits32, i64 %83
   br i1 %82, label %85, label %88
 
 85:                                               ; preds = %78
@@ -228,7 +228,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   %96 = load i8, ptr %95, align 1, !tbaa !4
   %97 = icmp ult i8 %96, 32
   %98 = zext i8 %96 to i64
-  %99 = getelementptr i32, ptr @bits32, i64 %98
+  %99 = getelementptr [4 x i8], ptr @bits32, i64 %98
   br i1 %97, label %100, label %103
 
 100:                                              ; preds = %92
@@ -260,9 +260,9 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
 
 113:                                              ; preds = %.preheader141, %168
   %indvars.iv214 = phi i64 [ 0, %.preheader141 ], [ %indvars.iv.next215, %168 ]
-  %114 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv214
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv214
   store i32 0, ptr %114, align 4, !tbaa !7
-  %115 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv214
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv214
   store i32 0, ptr %115, align 4, !tbaa !7
   %116 = trunc nuw nsw i64 %indvars.iv214 to i32
   br label %117
@@ -288,7 +288,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
 127:                                              ; preds = %124
   %128 = icmp ult i8 %125, 28
   %129 = zext i8 %125 to i64
-  %130 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @bits32, i64 16), i64 %129
+  %130 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @bits32, i64 16), i64 %129
   br i1 %128, label %131, label %134
 
 131:                                              ; preds = %127
@@ -311,9 +311,9 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   br i1 %exitcond209.not, label %141, label %117
 
 141:                                              ; preds = %138
-  %142 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv214
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv214
   store i32 0, ptr %142, align 4, !tbaa !7
-  %143 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv214
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv214
   store i32 0, ptr %143, align 4, !tbaa !7
   br label %144
 
@@ -338,7 +338,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
 154:                                              ; preds = %151
   %155 = icmp ult i8 %152, 24
   %156 = zext i8 %152 to i64
-  %157 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @bits32, i64 32), i64 %156
+  %157 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @bits32, i64 32), i64 %156
   br i1 %155, label %158, label %161
 
 158:                                              ; preds = %154
@@ -385,14 +385,14 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader140, %196
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %196 ], [ 0, %.preheader140 ]
-  %176 = getelementptr inbounds nuw [256 x i32], ptr @psbox, i64 %indvars.iv234
+  %176 = getelementptr inbounds nuw [1024 x i8], ptr @psbox, i64 %indvars.iv234
   %177 = shl nuw nsw i64 %indvars.iv234, 3
   %invariant.gep246 = getelementptr inbounds nuw i8, ptr %6, i64 %177
   br label %178
 
 178:                                              ; preds = %.preheader, %195
   %indvars.iv230 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next231, %195 ]
-  %179 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv230
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv230
   store i32 0, ptr %179, align 4, !tbaa !7
   %180 = trunc nuw nsw i64 %indvars.iv230 to i32
   br label %181
@@ -411,7 +411,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   %gep247 = getelementptr inbounds nuw i8, ptr %invariant.gep246, i64 %indvars.iv226
   %188 = load i8, ptr %gep247, align 1, !tbaa !4
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds nuw i32, ptr @bits32, i64 %189
+  %190 = getelementptr inbounds nuw [4 x i8], ptr @bits32, i64 %189
   %191 = load i32, ptr %190, align 4, !tbaa !7
   %192 = or i32 %182, %191
   store i32 %192, ptr %179, align 4, !tbaa !7
@@ -901,64 +901,64 @@ define internal fastcc void @des_setkey(ptr noundef nonnull readonly captures(no
   store i32 %37, ptr %49, align 4, !tbaa !11
   %50 = lshr i32 %15, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr @key_perm_maskl, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @key_perm_maskl, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !7
   %54 = lshr i32 %12, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 512), i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 512), i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !7
   %58 = or i32 %57, %53
   %59 = lshr i32 %8, 1
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 1024), i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 1024), i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !7
   %63 = or i32 %58, %62
   %64 = lshr i32 %5, 1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 1536), i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 1536), i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !7
   %68 = or i32 %63, %67
   %69 = lshr i32 %33, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 2048), i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 2048), i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !7
   %73 = or i32 %68, %72
   %74 = lshr i32 %29, 1
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 2560), i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 2560), i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !7
   %78 = or i32 %73, %77
   %79 = lshr i32 %25, 1
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 3072), i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 3072), i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !7
   %83 = or i32 %78, %82
   %84 = lshr i32 %22, 1
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 3584), i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskl, i64 3584), i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !7
   %88 = or i32 %83, %87
-  %89 = getelementptr inbounds nuw i32, ptr @key_perm_maskr, i64 %51
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @key_perm_maskr, i64 %51
   %90 = load i32, ptr %89, align 4, !tbaa !7
-  %91 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 512), i64 %55
+  %91 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 512), i64 %55
   %92 = load i32, ptr %91, align 4, !tbaa !7
   %93 = or i32 %92, %90
-  %94 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 1024), i64 %60
+  %94 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 1024), i64 %60
   %95 = load i32, ptr %94, align 4, !tbaa !7
   %96 = or i32 %93, %95
-  %97 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 1536), i64 %65
+  %97 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 1536), i64 %65
   %98 = load i32, ptr %97, align 4, !tbaa !7
   %99 = or i32 %96, %98
-  %100 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 2048), i64 %70
+  %100 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 2048), i64 %70
   %101 = load i32, ptr %100, align 4, !tbaa !7
   %102 = or i32 %99, %101
-  %103 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 2560), i64 %75
+  %103 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 2560), i64 %75
   %104 = load i32, ptr %103, align 4, !tbaa !7
   %105 = or i32 %102, %104
-  %106 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 3072), i64 %80
+  %106 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 3072), i64 %80
   %107 = load i32, ptr %106, align 4, !tbaa !7
   %108 = or i32 %105, %107
-  %109 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 3584), i64 %85
+  %109 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @key_perm_maskr, i64 3584), i64 %85
   %110 = load i32, ptr %109, align 4, !tbaa !7
   %111 = or i32 %108, %110
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -984,79 +984,79 @@ define internal fastcc void @des_setkey(ptr noundef nonnull readonly captures(no
   %128 = lshr i32 %124, 21
   %129 = and i32 %128, 127
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw i32, ptr @comp_maskl, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr @comp_maskl, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !7
   %133 = lshr i32 %124, 14
   %134 = and i32 %133, 127
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 512), i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 512), i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !7
   %138 = or i32 %137, %132
   %139 = lshr i32 %124, 7
   %140 = and i32 %139, 127
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 1024), i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 1024), i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !7
   %144 = or i32 %138, %143
   %145 = and i32 %124, 127
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 1536), i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 1536), i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !7
   %149 = or i32 %144, %148
   %150 = lshr i32 %127, 21
   %151 = and i32 %150, 127
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 2048), i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 2048), i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !7
   %155 = or i32 %149, %154
   %156 = lshr i32 %127, 14
   %157 = and i32 %156, 127
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 2560), i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 2560), i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !7
   %161 = or i32 %155, %160
   %162 = lshr i32 %127, 7
   %163 = and i32 %162, 127
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 3072), i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 3072), i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !7
   %167 = or i32 %161, %166
   %168 = and i32 %127, 127
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 3584), i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskl, i64 3584), i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !7
   %172 = or i32 %167, %171
-  %173 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv
   store i32 %172, ptr %173, align 4, !tbaa !7
   %174 = sub nuw nsw i64 15, %indvars.iv
-  %175 = getelementptr inbounds nuw i32, ptr %113, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %174
   store i32 %172, ptr %175, align 4, !tbaa !7
-  %176 = getelementptr inbounds nuw i32, ptr @comp_maskr, i64 %130
+  %176 = getelementptr inbounds nuw [4 x i8], ptr @comp_maskr, i64 %130
   %177 = load i32, ptr %176, align 4, !tbaa !7
-  %178 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 512), i64 %135
+  %178 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 512), i64 %135
   %179 = load i32, ptr %178, align 4, !tbaa !7
   %180 = or i32 %179, %177
-  %181 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1024), i64 %141
+  %181 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1024), i64 %141
   %182 = load i32, ptr %181, align 4, !tbaa !7
   %183 = or i32 %180, %182
-  %184 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1536), i64 %146
+  %184 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1536), i64 %146
   %185 = load i32, ptr %184, align 4, !tbaa !7
   %186 = or i32 %183, %185
-  %187 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2048), i64 %152
+  %187 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2048), i64 %152
   %188 = load i32, ptr %187, align 4, !tbaa !7
   %189 = or i32 %186, %188
-  %190 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2560), i64 %158
+  %190 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2560), i64 %158
   %191 = load i32, ptr %190, align 4, !tbaa !7
   %192 = or i32 %189, %191
-  %193 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3072), i64 %164
+  %193 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3072), i64 %164
   %194 = load i32, ptr %193, align 4, !tbaa !7
   %195 = or i32 %192, %194
-  %196 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3584), i64 %169
+  %196 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3584), i64 %169
   %197 = load i32, ptr %196, align 4, !tbaa !7
   %198 = or i32 %195, %197
-  %199 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
   store i32 %198, ptr %199, align 4, !tbaa !7
-  %200 = getelementptr inbounds nuw i32, ptr %115, i64 %174
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %174
   store i32 %198, ptr %200, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1078,68 +1078,68 @@ define internal fastcc void @do_des(i32 noundef %0, i32 noundef %1, ptr noundef 
   %.081 = getelementptr inbounds nuw i8, ptr %5, i64 %.081.v
   %8 = lshr i32 %0, 24
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @ip_maskl, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @ip_maskl, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !7
   %12 = lshr i32 %0, 16
   %13 = and i32 %12, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 1024), i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 1024), i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = or i32 %16, %11
   %18 = lshr i32 %0, 8
   %19 = and i32 %18, 255
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 2048), i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 2048), i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !7
   %23 = or i32 %17, %22
   %24 = and i32 %0, 255
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 3072), i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 3072), i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = or i32 %23, %27
   %29 = lshr i32 %1, 24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 4096), i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 4096), i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !7
   %33 = or i32 %28, %32
   %34 = lshr i32 %1, 16
   %35 = and i32 %34, 255
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 5120), i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 5120), i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !7
   %39 = or i32 %33, %38
   %40 = lshr i32 %1, 8
   %41 = and i32 %40, 255
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 6144), i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 6144), i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !7
   %45 = or i32 %39, %44
   %46 = and i32 %1, 255
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 7168), i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskl, i64 7168), i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !7
   %50 = or i32 %45, %49
-  %51 = getelementptr inbounds nuw i32, ptr @ip_maskr, i64 %9
+  %51 = getelementptr inbounds nuw [4 x i8], ptr @ip_maskr, i64 %9
   %52 = load i32, ptr %51, align 4, !tbaa !7
-  %53 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 1024), i64 %14
+  %53 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 1024), i64 %14
   %54 = load i32, ptr %53, align 4, !tbaa !7
   %55 = or i32 %54, %52
-  %56 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 2048), i64 %20
+  %56 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 2048), i64 %20
   %57 = load i32, ptr %56, align 4, !tbaa !7
   %58 = or i32 %55, %57
-  %59 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 3072), i64 %25
+  %59 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 3072), i64 %25
   %60 = load i32, ptr %59, align 4, !tbaa !7
   %61 = or i32 %58, %60
-  %62 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 4096), i64 %30
+  %62 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 4096), i64 %30
   %63 = load i32, ptr %62, align 4, !tbaa !7
   %64 = or i32 %61, %63
-  %65 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 5120), i64 %36
+  %65 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 5120), i64 %36
   %66 = load i32, ptr %65, align 4, !tbaa !7
   %67 = or i32 %64, %66
-  %68 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 6144), i64 %42
+  %68 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 6144), i64 %42
   %69 = load i32, ptr %68, align 4, !tbaa !7
   %70 = or i32 %67, %69
-  %71 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 7168), i64 %47
+  %71 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ip_maskr, i64 7168), i64 %47
   %72 = load i32, ptr %71, align 4, !tbaa !7
   %73 = or i32 %70, %72
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1207,14 +1207,14 @@ select.unfold.loopexit:                           ; preds = %77
   %118 = getelementptr inbounds nuw i8, ptr @m_sbox, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !4
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr @psbox, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr @psbox, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !7
   %123 = and i32 %111, 4095
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @m_sbox, i64 4096), i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !4
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @psbox, i64 1024), i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @psbox, i64 1024), i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !7
   %130 = or i32 %129, %122
   %131 = lshr i32 %115, 12
@@ -1222,7 +1222,7 @@ select.unfold.loopexit:                           ; preds = %77
   %133 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @m_sbox, i64 8192), i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !4
   %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @psbox, i64 2048), i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @psbox, i64 2048), i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !7
   %138 = or i32 %130, %137
   %139 = and i32 %115, 4095
@@ -1230,7 +1230,7 @@ select.unfold.loopexit:                           ; preds = %77
   %141 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @m_sbox, i64 12288), i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !4
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @psbox, i64 3072), i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @psbox, i64 3072), i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !7
   %146 = or i32 %138, %145
   %147 = xor i32 %146, %.17892
@@ -1240,69 +1240,69 @@ select.unfold.loopexit:                           ; preds = %77
 148:                                              ; preds = %select.unfold.loopexit
   %149 = lshr i32 %147, 24
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw i32, ptr @fp_maskl, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr @fp_maskl, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !7
   %153 = lshr i32 %147, 16
   %154 = and i32 %153, 255
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 1024), i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 1024), i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !7
   %158 = or i32 %157, %152
   %159 = lshr i32 %147, 8
   %160 = and i32 %159, 255
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 2048), i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 2048), i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !7
   %164 = or i32 %158, %163
   %165 = and i32 %147, 255
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 3072), i64 %166
+  %167 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 3072), i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !7
   %169 = or i32 %164, %168
   %170 = lshr i32 %.18689, 24
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 4096), i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 4096), i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !7
   %174 = or i32 %169, %173
   %175 = lshr i32 %.18689, 16
   %176 = and i32 %175, 255
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 5120), i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 5120), i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !7
   %180 = or i32 %174, %179
   %181 = lshr i32 %.18689, 8
   %182 = and i32 %181, 255
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 6144), i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 6144), i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !7
   %186 = or i32 %180, %185
   %187 = and i32 %.18689, 255
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 7168), i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskl, i64 7168), i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !7
   %191 = or i32 %186, %190
   store i32 %191, ptr %2, align 4, !tbaa !7
-  %192 = getelementptr inbounds nuw i32, ptr @fp_maskr, i64 %150
+  %192 = getelementptr inbounds nuw [4 x i8], ptr @fp_maskr, i64 %150
   %193 = load i32, ptr %192, align 4, !tbaa !7
-  %194 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 1024), i64 %155
+  %194 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 1024), i64 %155
   %195 = load i32, ptr %194, align 4, !tbaa !7
   %196 = or i32 %195, %193
-  %197 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 2048), i64 %161
+  %197 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 2048), i64 %161
   %198 = load i32, ptr %197, align 4, !tbaa !7
   %199 = or i32 %196, %198
-  %200 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 3072), i64 %166
+  %200 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 3072), i64 %166
   %201 = load i32, ptr %200, align 4, !tbaa !7
   %202 = or i32 %199, %201
-  %203 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 4096), i64 %171
+  %203 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 4096), i64 %171
   %204 = load i32, ptr %203, align 4, !tbaa !7
   %205 = or i32 %202, %204
-  %206 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 5120), i64 %177
+  %206 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 5120), i64 %177
   %207 = load i32, ptr %206, align 4, !tbaa !7
   %208 = or i32 %205, %207
-  %209 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 6144), i64 %183
+  %209 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 6144), i64 %183
   %210 = load i32, ptr %209, align 4, !tbaa !7
   %211 = or i32 %208, %210
-  %212 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 7168), i64 %188
+  %212 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @fp_maskr, i64 7168), i64 %188
   %213 = load i32, ptr %212, align 4, !tbaa !7
   %214 = or i32 %211, %213
   store i32 %214, ptr %3, align 4, !tbaa !7

@@ -8,19 +8,10 @@ target triple = "x86_64-pc-linux-gnu"
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Tuple_impl.0", %"struct.std::_Head_base.3" }
-%"struct.std::_Tuple_impl.0" = type { %"struct.std::_Tuple_impl.1", %"struct.std::_Head_base.2" }
-%"struct.std::_Tuple_impl.1" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { i32 }
-%"struct.std::_Head_base.2" = type { i32 }
-%"struct.std::_Head_base.3" = type { i32 }
-%"class.lp::column" = type { ptr, ptr, ptr }
 %class.anon = type { ptr }
 %class.anon.199 = type { ptr }
 %class.anon.200 = type { ptr }
 %class.anon.201 = type { ptr, ptr, ptr }
-%"struct.lp::numeric_pair" = type { %class.rational, %class.rational }
 %"class.nla::new_lemma" = type { ptr, ptr }
 %"class.nla::ineq" = type { i32, [4 x i8], %"class.lp::lar_term", %class.rational }
 %"class.lp::lar_term" = type { %class.u_map, i32, [4 x i8] }
@@ -29,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.table2map.203 = type { %class.core_hashtable.204 }
 %class.core_hashtable.204 = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %struct._key_data = type { i32, %class.rational }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -191,7 +180,7 @@ _ZN6vectorISt5tupleIJjjjEELb1EjE9push_backEOS1_.exit: ; preds = %12, %18
   %20 = phi ptr [ %.pre.i, %18 ], [ %10, %12 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 -4
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %22
   store i32 %3, ptr %23, align 4, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %2, ptr %24, align 4, !tbaa !9
@@ -230,7 +219,7 @@ _ZN6vectorISt5tupleIJjjjEELb1EjE9push_backEOS1_.exit: ; preds = %12, %18
   %42 = phi ptr [ %.pre.i.i, %.noexc5 ], [ %32, %34 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -4
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   store ptr %30, ptr %45, align 8, !tbaa !22
   %46 = add i32 %41, 1
   store i32 %46, ptr %43, align 4, !tbaa !9
@@ -277,7 +266,7 @@ _ZN6vectorISt5tupleIJjjjEELb1EjE9push_backEOS1_.exit: ; preds = %12, %18
   %20 = phi ptr [ %.pre.i, %18 ], [ %10, %12 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 -4
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %22
   store i32 %3, ptr %23, align 4, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %2, ptr %24, align 4, !tbaa !9
@@ -316,7 +305,7 @@ _ZN6vectorISt5tupleIJjjjEELb1EjE9push_backEOS1_.exit: ; preds = %12, %18
   %42 = phi ptr [ %.pre.i.i, %.noexc5 ], [ %32, %34 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -4
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   store ptr %30, ptr %45, align 8, !tbaa !22
   %46 = add i32 %41, 1
   store i32 %46, ptr %43, align 4, !tbaa !9
@@ -342,7 +331,7 @@ define hidden void @_ZN3nla9divisions20add_bounded_divisionEjjj(ptr noundef nonn
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1320
   %13 = load ptr, ptr %12, align 8, !tbaa !189
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw %"class.lp::column", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !192
   %.not = icmp eq ptr %17, null
@@ -350,7 +339,7 @@ define hidden void @_ZN3nla9divisions20add_bounded_divisionEjjj(ptr noundef nonn
 
 18:                                               ; preds = %8
   %19 = zext i32 %3 to i64
-  %20 = getelementptr inbounds nuw %"class.lp::column", ptr %13, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !192
   %.not12 = icmp eq ptr %22, null
@@ -358,7 +347,7 @@ define hidden void @_ZN3nla9divisions20add_bounded_divisionEjjj(ptr noundef nonn
 
 23:                                               ; preds = %18
   %24 = zext i32 %1 to i64
-  %25 = getelementptr inbounds nuw %"class.lp::column", ptr %13, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !192
   %.not13 = icmp eq ptr %27, null
@@ -392,7 +381,7 @@ _ZN6vectorISt5tupleIJjjjEELb1EjE9push_backEOS1_.exit: ; preds = %32, %38
   %41 = phi ptr [ %.pre.i, %38 ], [ %30, %32 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %"class.std::tuple", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 %43
   store i32 %3, ptr %44, align 4, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %2, ptr %45, align 4, !tbaa !9
@@ -430,7 +419,7 @@ _ZN6vectorISt5tupleIJjjjEELb1EjE9push_backEOS1_.exit: ; preds = %32, %38
   %62 = phi ptr [ %.pre.i.i, %.noexc5 ], [ %52, %54 ]
   %63 = getelementptr inbounds i8, ptr %62, i64 -4
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %64
   store ptr %50, ptr %65, align 8, !tbaa !22
   %66 = add i32 %61, 1
   store i32 %66, ptr %63, align 4, !tbaa !9
@@ -563,7 +552,7 @@ _ZNK3nla4core11is_relevantEj.exit.thread:         ; preds = %78, %_ZNK3nla4core1
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 536
   %88 = load ptr, ptr %87, align 8, !tbaa !202
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [64 x i8], ptr %88, i64 %89
   store i32 0, ptr %10, align 8, !tbaa !205
   %91 = load i8, ptr %43, align 4
   %92 = and i8 %91, -4
@@ -618,7 +607,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i:   ; preds = %102, %100
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 536
   %117 = load ptr, ptr %116, align 8, !tbaa !202
   %118 = zext i32 %114 to i64
-  %119 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [64 x i8], ptr %117, i64 %118
   store i32 0, ptr %11, align 8, !tbaa !205
   %120 = load i8, ptr %48, align 4
   %121 = and i8 %120, -4
@@ -673,7 +662,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i192: ; preds = %131, %129
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 536
   %146 = load ptr, ptr %145, align 8, !tbaa !202
   %147 = zext i32 %143 to i64
-  %148 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [64 x i8], ptr %146, i64 %147
   store i32 0, ptr %12, align 8, !tbaa !205
   %149 = load i8, ptr %53, align 4
   %150 = and i8 %149, -4
@@ -927,7 +916,7 @@ _ZNK3nla4core11is_relevantEj.exit207.thread:      ; preds = %254, %_ZNK3nla4core
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 536
   %263 = load ptr, ptr %262, align 8, !tbaa !202
   %264 = zext i32 %260 to i64
-  %265 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %263, i64 %264
+  %265 = getelementptr inbounds nuw [64 x i8], ptr %263, i64 %264
   store i32 0, ptr %14, align 8, !tbaa !205
   %266 = load i8, ptr %63, align 4
   %267 = and i8 %266, -4
@@ -982,7 +971,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i208: ; preds = %277, %275
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 536
   %292 = load ptr, ptr %291, align 8, !tbaa !202
   %293 = zext i32 %289 to i64
-  %294 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw [64 x i8], ptr %292, i64 %293
   store i32 0, ptr %15, align 8, !tbaa !205
   %295 = load i8, ptr %68, align 4
   %296 = and i8 %295, -4
@@ -1037,7 +1026,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i212: ; preds = %306, %304
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 536
   %321 = load ptr, ptr %320, align 8, !tbaa !202
   %322 = zext i32 %318 to i64
-  %323 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %321, i64 %322
+  %323 = getelementptr inbounds nuw [64 x i8], ptr %321, i64 %322
   store i32 0, ptr %16, align 8, !tbaa !205
   %324 = load i8, ptr %73, align 4
   %325 = and i8 %324, -4
@@ -1350,7 +1339,7 @@ _ZNK3nla4core11is_relevantEj.exit236.thread:      ; preds = %439, %_ZNK3nla4core
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 536
   %449 = load ptr, ptr %448, align 8, !tbaa !202
   %450 = zext i32 %446 to i64
-  %451 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %449, i64 %450
+  %451 = getelementptr inbounds nuw [64 x i8], ptr %449, i64 %450
   store i32 0, ptr %17, align 8, !tbaa !205
   %452 = load i8, ptr %406, align 4
   %453 = and i8 %452, -4
@@ -1405,7 +1394,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i237: ; preds = %463, %461
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 536
   %478 = load ptr, ptr %477, align 8, !tbaa !202
   %479 = zext i32 %475 to i64
-  %480 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %478, i64 %479
+  %480 = getelementptr inbounds nuw [64 x i8], ptr %478, i64 %479
   store i32 0, ptr %18, align 8, !tbaa !205
   %481 = load i8, ptr %411, align 4
   %482 = and i8 %481, -4
@@ -1460,7 +1449,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i239: ; preds = %492, %490
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 536
   %507 = load ptr, ptr %506, align 8, !tbaa !202
   %508 = zext i32 %504 to i64
-  %509 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %507, i64 %508
+  %509 = getelementptr inbounds nuw [64 x i8], ptr %507, i64 %508
   store i32 0, ptr %19, align 8, !tbaa !205
   %510 = load i8, ptr %416, align 4
   %511 = and i8 %510, -4
@@ -1676,7 +1665,7 @@ _ZNK3nla4core11is_relevantEj.exit258.thread:      ; preds = %594, %_ZNK3nla4core
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 536
   %603 = load ptr, ptr %602, align 8, !tbaa !202
   %604 = zext i32 %600 to i64
-  %605 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %603, i64 %604
+  %605 = getelementptr inbounds nuw [64 x i8], ptr %603, i64 %604
   store i32 0, ptr %21, align 8, !tbaa !205
   %606 = load i8, ptr %424, align 4
   %607 = and i8 %606, -4
@@ -1731,7 +1720,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i259: ; preds = %617, %615
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 536
   %632 = load ptr, ptr %631, align 8, !tbaa !202
   %633 = zext i32 %629 to i64
-  %634 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %632, i64 %633
+  %634 = getelementptr inbounds nuw [64 x i8], ptr %632, i64 %633
   store i32 0, ptr %22, align 8, !tbaa !205
   %635 = load i8, ptr %429, align 4
   %636 = and i8 %635, -4
@@ -1786,7 +1775,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i263: ; preds = %646, %644
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 536
   %661 = load ptr, ptr %660, align 8, !tbaa !202
   %662 = zext i32 %658 to i64
-  %663 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %661, i64 %662
+  %663 = getelementptr inbounds nuw [64 x i8], ptr %661, i64 %662
   store i32 0, ptr %23, align 8, !tbaa !205
   %664 = load i8, ptr %434, align 4
   %665 = and i8 %664, -4
@@ -2430,7 +2419,7 @@ _ZNK6vectorISt5tupleIJjjjEELb1EjE4sizeEv.exit:    ; preds = %1
   %78 = urem i32 %77, %28
   %79 = load ptr, ptr %24, align 8, !tbaa !3
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw %"class.std::tuple", ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %79, i64 %80
   %.sroa.0.0.copyload = load i32, ptr %81, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 4
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
@@ -2454,7 +2443,7 @@ _ZNK3nla4core11is_relevantEj.exit.thread:         ; preds = %76, %_ZNK3nla4core1
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 536
   %87 = load ptr, ptr %86, align 8, !tbaa !202
   %88 = zext i32 %.sroa.7.0.copyload to i64
-  %89 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %87, i64 %88
   store i32 0, ptr %4, align 8, !tbaa !205
   %90 = load i8, ptr %33, align 4
   %91 = and i8 %90, -4
@@ -2508,7 +2497,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i:   ; preds = %101, %99
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 536
   %115 = load ptr, ptr %114, align 8, !tbaa !202
   %116 = zext i32 %.sroa.0.0.copyload to i64
-  %117 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [64 x i8], ptr %115, i64 %116
   store i32 0, ptr %5, align 8, !tbaa !205
   %118 = load i8, ptr %38, align 4
   %119 = and i8 %118, -4
@@ -2562,7 +2551,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i83: ; preds = %129, %127
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 536
   %143 = load ptr, ptr %142, align 8, !tbaa !202
   %144 = zext i32 %.sroa.10.0.copyload to i64
-  %145 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %143, i64 %144
   store i32 0, ptr %6, align 8, !tbaa !205
   %146 = load i8, ptr %43, align 4
   %147 = and i8 %146, -4
@@ -7490,7 +7479,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rat
   %.idx.i = mul nuw nsw i64 %13, 48
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %15
   %.not30.i = icmp eq i32 %11, %9
   br i1 %.not30.i, label %.preheader.i, label %.lr.ph.i
 
@@ -7689,7 +7678,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %20, 48
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %22 = zext i32 %15 to i64
-  %23 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %22
   %.not63 = icmp eq i32 %18, %15
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -8195,7 +8184,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %6, 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -8568,7 +8557,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %9, 48
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %11
   %.not39 = icmp eq i32 %7, %5
   br i1 %.not39, label %.preheader, label %.lr.ph
 
@@ -8829,7 +8818,7 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %29, %_ZN5u_mapI8rationalEC2Ev.exit
   %.sroa.0.1.i.i.i = phi ptr [ %21, %_ZN5u_mapI8rationalEC2Ev.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %25, %29 ]
-  %31 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %24
   %.not23 = icmp eq ptr %.sroa.0.1.i.i.i, %31
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 

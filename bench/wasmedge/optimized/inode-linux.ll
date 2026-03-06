@@ -62,9 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.WasmEdge::Host::WASI::Poller::Timer" = type { %"struct.WasmEdge::Host::WASI::FdHolder.base", i32 }
 %"struct.std::_Hashtable<__wasi_clockid_t, std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>, std::allocator<std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>>, std::__detail::_Select1st, std::equal_to<__wasi_clockid_t>, std::hash<__wasi_clockid_t>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
 %struct.itimerspec = type { %struct.timespec, %struct.timespec }
-%"struct.WasmEdge::Host::WASI::Poller::OptionalEvent" = type <{ %struct.__wasi_event_t, i8, [7 x i8] }>
-%struct.__wasi_event_t = type { i64, i16, i8, %struct.__wasi_event_fd_readwrite_t }
-%struct.__wasi_event_fd_readwrite_t = type { i64, i16 }
 %struct.epoll_event = type <{ i32, %union.epoll_data }>
 %union.epoll_data = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
@@ -362,7 +359,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define linkonce_odr hidden noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %0) local_unnamed_addr #0 comdat {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN8WasmEdge4Host4WASI6detail9fromErrNoEi, i64 %1
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN8WasmEdge4Host4WASI6detail9fromErrNoEi, i64 %1
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
 }
@@ -375,7 +372,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8fdAdviseEmm15__wa
 switch.lookup:
   %4 = load i32, ptr %0, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8fdAdviseEmm15__wasi_advice_t, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8fdAdviseEmm15__wasi_advice_t, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = tail call i32 @posix_fadvise(i32 noundef %4, i64 noundef %1, i64 noundef %2, i32 noundef %switch.load) #25
   %.not = icmp eq i32 %6, 0
@@ -900,7 +897,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdPreadEN5cxx204s
   %.023 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
   %.01622 = phi ptr [ %14, %.lr.ph ], [ %1, %5 ]
   %8 = load ptr, ptr %.01622, align 8
-  %9 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %.023
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.023
   store ptr %8, ptr %9, align 16
   %10 = getelementptr inbounds nuw i8, ptr %.01622, i64 8
   %11 = load i64, ptr %10, align 8
@@ -964,7 +961,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8fdPwriteEN5cxx204
   %.023 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
   %.01622 = phi ptr [ %14, %.lr.ph ], [ %1, %5 ]
   %8 = load ptr, ptr %.01622, align 8
-  %9 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %.023
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.023
   store ptr %8, ptr %9, align 16
   %10 = getelementptr inbounds nuw i8, ptr %.01622, i64 8
   %11 = load i64, ptr %10, align 8
@@ -1028,7 +1025,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdReadEN5cxx204sp
   %.022 = phi i64 [ %12, %.lr.ph ], [ 0, %4 ]
   %.01521 = phi ptr [ %13, %.lr.ph ], [ %1, %4 ]
   %7 = load ptr, ptr %.01521, align 8
-  %8 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.022
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.022
   store ptr %7, ptr %8, align 16
   %9 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
   %10 = load i64, ptr %9, align 8
@@ -1538,7 +1535,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdWriteEN5cxx204s
   %.023 = phi i64 [ %12, %.lr.ph ], [ 0, %4 ]
   %.01522 = phi ptr [ %13, %.lr.ph ], [ %1, %4 ]
   %7 = load ptr, ptr %.01522, align 8
-  %8 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.023
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.023
   store ptr %7, ptr %8, align 16
   %9 = getelementptr inbounds nuw i8, ptr %.01522, i64 8
   %10 = load i64, ptr %9, align 8
@@ -2142,21 +2139,21 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_strin
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %44 = load i8, ptr %43, align 2
   %45 = zext nneg i8 %44 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj, i64 %45
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %switch.load, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = zext nneg i8 %48 to i64
-  %switch.gep106 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 %49
+  %switch.gep106 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 %49
   %switch.load107 = load i32, ptr %switch.gep106, align 4
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %switch.load107, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %52 = load i8, ptr %51, align 4
   %53 = zext nneg i8 %52 to i64
-  %switch.gep100 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj.3, i64 %53
+  %switch.gep100 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj.3, i64 %53
   %switch.load101 = load i32, ptr %switch.gep100, align 4
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %switch.load101, ptr %54, align 4
@@ -2176,7 +2173,7 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_strin
 
 switch.lookup:                                    ; preds = %60
   %62 = sext i32 %59 to i64
-  %63 = getelementptr i32, ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj.4, i64 %62
+  %63 = getelementptr [4 x i8], ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj.4, i64 %62
   %switch.gep102 = getelementptr i8, ptr %63, i64 44
   %switch.load103 = load i32, ptr %switch.gep102, align 4
   br label %_ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit
@@ -2216,7 +2213,7 @@ switch.lookup104:                                 ; preds = %.lr.ph, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
   %.05291.in = phi ptr [ %13, %.lr.ph ], [ %145, %144 ]
   %.05291 = load ptr, ptr %.05291.in, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %75 = load i32, ptr %.05291, align 8
   %.not.i72 = trunc i32 %75 to i16
   %.2.i = and i16 %.not.i72, 7
@@ -2301,7 +2298,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit: ; preds = %_ZN8WasmEdge
   %109 = load ptr, ptr %74, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 20
   store i32 %108, ptr %110, align 4
-  %111 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %104, align 8
   %114 = load ptr, ptr %74, align 8
@@ -2324,7 +2321,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit: ; preds = %_ZN8WasmEdge
   br i1 %.not56, label %144, label %124
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %126 = getelementptr inbounds nuw i8, ptr %.05291, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = load i16, ptr %127, align 2
@@ -2355,7 +2352,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit78: ; preds = %124, %129,
   %135 = load i8, ptr %134, align 4
   %136 = icmp eq i8 %135, 1
   %. = select i1 %136, i64 14, i64 26
-  %137 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %126, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 2
@@ -2433,7 +2430,7 @@ define void @_ZN8WasmEdge4Host4WASI5INode8sockOpenE23__wasi_address_family_t18__
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8WasmEdge4Host4WASI5INode8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8WasmEdge4Host4WASI5INode8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   switch i8 %2, label %9 [
     i8 1, label %11
@@ -2801,7 +2798,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5c
   %.04170 = phi i64 [ %23, %.lr.ph ], [ 0, %9 ]
   %.04269 = phi ptr [ %24, %.lr.ph ], [ %1, %9 ]
   %18 = load ptr, ptr %.04269, align 8
-  %19 = getelementptr inbounds nuw %struct.iovec, ptr %10, i64 %.04170
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.04170
   store ptr %18, ptr %19, align 16
   %20 = getelementptr inbounds nuw i8, ptr %.04269, i64 8
   %21 = load i64, ptr %20, align 8
@@ -3094,7 +3091,7 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   %.02263 = phi i64 [ %33, %.lr.ph ], [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
   %.02362 = phi ptr [ %34, %.lr.ph ], [ %1, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
   %28 = load ptr, ptr %.02362, align 8
-  %29 = getelementptr inbounds nuw %struct.iovec, ptr %10, i64 %.02263
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.02263
   store ptr %28, ptr %29, align 16
   %30 = getelementptr inbounds nuw i8, ptr %.02362, i64 8
   %31 = load i64, ptr %30, align 8
@@ -3183,7 +3180,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__w
 switch.lookup:
   %4 = alloca i32, align 4
   %5 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
@@ -3228,7 +3225,7 @@ switch.lookup32:                                  ; preds = %19
   store i64 4, ptr %6, align 8
   %29 = load i32, ptr %28, align 4
   %30 = zext nneg i32 %29 to i64
-  %switch.gep33 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 %30
+  %switch.gep33 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 %30
   %switch.load34 = load i32, ptr %switch.gep33, align 4
   store i32 %switch.load34, ptr %28, align 4
   br label %33
@@ -3250,7 +3247,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 switch.lookup:
   %5 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = load i32, ptr %0, align 8
   %7 = trunc i64 %4 to i32
@@ -3531,7 +3528,7 @@ _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread: ; preds = %5, %1
 
 switch.lookup:                                    ; preds = %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8filetypeEv, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8filetypeEv, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit
 
@@ -3684,7 +3681,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %10 = load i64, ptr %9, align 8
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %15
@@ -3955,7 +3952,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
   %11 = load i64, ptr %10, align 8
   %12 = urem i64 %9, %11
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %16
@@ -4244,7 +4241,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE13_M_deal
   store ptr %22, ptr %5, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 %20
   store ptr %26, ptr %17, align 8
-  %27 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %22, i64 %2
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %2
   store ptr %27, ptr %9, align 8
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE7reserveEm.exit
 
@@ -4294,7 +4291,7 @@ _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds =
   store ptr %44, ptr %30, align 8
   %48 = getelementptr inbounds i8, ptr %44, i64 %42
   store ptr %48, ptr %39, align 8
-  %49 = getelementptr inbounds nuw %struct.epoll_event, ptr %44, i64 %2
+  %49 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %2
   store ptr %49, ptr %31, align 8
   br label %_ZNSt6vectorI11epoll_eventSaIS0_EE7reserveEm.exit
 
@@ -4408,7 +4405,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE13_M_deallocateEPS
   store ptr %19, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8
-  %42 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::Timer", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8
   br label %43
 
@@ -4489,7 +4486,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
   store ptr %33, ptr %9, align 8
   store ptr %37, ptr %10, align 8
-  %39 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %31
   store ptr %39, ptr %20, align 8
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
 
@@ -4659,7 +4656,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit: ; preds
   %127 = load i64, ptr %126, align 8
   %128 = urem i64 %125, %127
   %129 = load ptr, ptr %124, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %128
+  %130 = getelementptr inbounds [8 x i8], ptr %129, i64 %128
   %131 = load ptr, ptr %130, align 8
   %.not.i.i.i.i = icmp eq ptr %131, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %132
@@ -4732,7 +4729,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %161 = sext i32 %160 to i64
   %162 = urem i64 %161, %159
   %163 = load ptr, ptr %124, align 8
-  %164 = getelementptr inbounds ptr, ptr %163, i64 %162
+  %164 = getelementptr inbounds [8 x i8], ptr %163, i64 %162
   %165 = load ptr, ptr %164, align 8
   br label %166
 
@@ -4760,10 +4757,10 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %.not9.i.i.i.i.i, label %193, label %176
 
 176:                                              ; preds = %171
-  %177 = getelementptr inbounds ptr, ptr %163, i64 %175
+  %177 = getelementptr inbounds [8 x i8], ptr %163, i64 %175
   store ptr %165, ptr %177, align 8
   %.pre.i.i.i.i = load ptr, ptr %124, align 8
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %162
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.pre.i.i.i.i, i64 %162
   %.pre25.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
   br label %.thread23.i.i.i.i
 
@@ -4771,7 +4768,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %178 = phi ptr [ %165, %170 ], [ %.pre25.i.i.i.i, %176 ]
   %179 = phi ptr [ %163, %170 ], [ %.pre.i.i.i.i, %176 ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %181 = getelementptr inbounds ptr, ptr %179, i64 %162
+  %181 = getelementptr inbounds [8 x i8], ptr %179, i64 %162
   %182 = icmp eq ptr %180, %178
   br i1 %182, label %183, label %184
 
@@ -4795,7 +4792,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %.not17.i.i.i.i39, label %193, label %191
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds ptr, ptr %163, i64 %190
+  %192 = getelementptr inbounds [8 x i8], ptr %163, i64 %190
   store ptr %.0.i.i.i.i, ptr %192, align 8
   br label %193
 
@@ -4991,7 +4988,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
   store ptr %30, ptr %6, align 8
   store ptr %34, ptr %7, align 8
-  %36 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %28
   store ptr %36, ptr %17, align 8
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
 
@@ -5012,7 +5009,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJ
   %46 = load i64, ptr %45, align 8
   %47 = urem i64 %44, %46
   %48 = load ptr, ptr %43, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %51
@@ -5097,7 +5094,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %83 = load i64, ptr %82, align 8
   %84 = urem i64 %81, %83
   %85 = load ptr, ptr %80, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %84
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %84
   %87 = load ptr, ptr %86, align 8
   %.not.i.i.i.i37 = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i37, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE4findERSA_.exit, label %88
@@ -5193,7 +5190,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %129 = sext i32 %128 to i64
   %130 = urem i64 %129, %127
   %131 = load ptr, ptr %43, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %130
+  %132 = getelementptr inbounds [8 x i8], ptr %131, i64 %130
   %133 = load ptr, ptr %132, align 8
   br label %134
 
@@ -5221,10 +5218,10 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %.not9.i.i.i.i.i, label %161, label %144
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds ptr, ptr %131, i64 %143
+  %145 = getelementptr inbounds [8 x i8], ptr %131, i64 %143
   store ptr %133, ptr %145, align 8
   %.pre.i.i.i.i = load ptr, ptr %43, align 8
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %130
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.pre.i.i.i.i, i64 %130
   %.pre25.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
   br label %.thread23.i.i.i.i
 
@@ -5232,7 +5229,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %146 = phi ptr [ %133, %138 ], [ %.pre25.i.i.i.i, %144 ]
   %147 = phi ptr [ %131, %138 ], [ %.pre.i.i.i.i, %144 ]
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %130
+  %149 = getelementptr inbounds [8 x i8], ptr %147, i64 %130
   %150 = icmp eq ptr %148, %146
   br i1 %150, label %151, label %152
 
@@ -5256,7 +5253,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %.not17.i.i.i.i44, label %161, label %159
 
 159:                                              ; preds = %154
-  %160 = getelementptr inbounds ptr, ptr %131, i64 %158
+  %160 = getelementptr inbounds [8 x i8], ptr %131, i64 %158
   store ptr %.0.i.i.i.i, ptr %160, align 8
   br label %161
 
@@ -5379,7 +5376,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
   store ptr %30, ptr %6, align 8
   store ptr %34, ptr %7, align 8
-  %36 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent", ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %28
   store ptr %36, ptr %17, align 8
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
 
@@ -5400,7 +5397,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJ
   %46 = load i64, ptr %45, align 8
   %47 = urem i64 %44, %46
   %48 = load ptr, ptr %43, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %51
@@ -5485,7 +5482,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %83 = load i64, ptr %82, align 8
   %84 = urem i64 %81, %83
   %85 = load ptr, ptr %80, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %84
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %84
   %87 = load ptr, ptr %86, align 8
   %.not.i.i.i.i37 = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i37, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE4findERSA_.exit, label %88
@@ -5581,7 +5578,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %129 = sext i32 %128 to i64
   %130 = urem i64 %129, %127
   %131 = load ptr, ptr %43, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %130
+  %132 = getelementptr inbounds [8 x i8], ptr %131, i64 %130
   %133 = load ptr, ptr %132, align 8
   br label %134
 
@@ -5609,10 +5606,10 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %.not9.i.i.i.i.i, label %161, label %144
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds ptr, ptr %131, i64 %143
+  %145 = getelementptr inbounds [8 x i8], ptr %131, i64 %143
   store ptr %133, ptr %145, align 8
   %.pre.i.i.i.i = load ptr, ptr %43, align 8
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %130
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.pre.i.i.i.i, i64 %130
   %.pre25.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
   br label %.thread23.i.i.i.i
 
@@ -5620,7 +5617,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %146 = phi ptr [ %133, %138 ], [ %.pre25.i.i.i.i, %144 ]
   %147 = phi ptr [ %131, %138 ], [ %.pre.i.i.i.i, %144 ]
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %130
+  %149 = getelementptr inbounds [8 x i8], ptr %147, i64 %130
   %150 = icmp eq ptr %148, %146
   br i1 %150, label %151, label %152
 
@@ -5644,7 +5641,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %.not17.i.i.i.i44, label %161, label %159
 
 159:                                              ; preds = %154
-  %160 = getelementptr inbounds ptr, ptr %131, i64 %158
+  %160 = getelementptr inbounds [8 x i8], ptr %131, i64 %158
   store ptr %.0.i.i.i.i, ptr %160, align 8
   br label %161
 
@@ -5736,7 +5733,7 @@ define void @_ZN8WasmEdge4Host4WASI6Poller4waitEv(ptr noundef nonnull align 8 de
   %19 = load i64, ptr %7, align 8
   %20 = urem i64 %18, %19
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %24
@@ -5815,7 +5812,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   br i1 %59, label %60, label %_ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds %struct.epoll_event, ptr %50, i64 %47
+  %61 = getelementptr inbounds [12 x i8], ptr %50, i64 %47
   %.not.i.i38 = icmp eq ptr %49, %61
   br i1 %.not.i.i38, label %_ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit, label %62
 
@@ -5873,7 +5870,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI11epo
 86:                                               ; preds = %.lr.ph90, %141
   %indvars.iv = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next, %141 ]
   %87 = load ptr, ptr %39, align 8
-  %88 = getelementptr inbounds nuw %struct.epoll_event, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [12 x i8], ptr %87, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i64, ptr %73, align 8
   %.not.not.i.i39 = icmp eq i64 %90, 0
@@ -5897,7 +5894,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI11epo
   %98 = load i64, ptr %75, align 8
   %99 = urem i64 %97, %98
   %100 = load ptr, ptr %74, align 8
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %99
+  %101 = getelementptr inbounds [8 x i8], ptr %100, i64 %99
   %102 = load ptr, ptr %101, align 8
   %.not.i.i.i.i40 = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i40, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE4findERSA_.exit50, label %103
@@ -6098,7 +6095,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %184 = load i32, ptr %183, align 4
   %185 = sext i32 %184 to i64
   %186 = urem i64 %185, %172
-  %187 = getelementptr inbounds ptr, ptr %168, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %168, i64 %186
   store ptr %173, ptr %187, align 8
   %.pre113 = load ptr, ptr %4, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEv.exit.i.i.i
@@ -6115,7 +6112,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %193 = load i32, ptr %191, align 4
   %194 = sext i32 %193 to i64
   %195 = urem i64 %194, %192
-  %196 = getelementptr inbounds ptr, ptr %190, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %190, i64 %195
   store ptr %4, ptr %196, align 8
   br label %_ZSt4swapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEvRSt13unordered_mapIT_T0_T1_T2_T3_ESK_.exit
 
@@ -6455,7 +6452,7 @@ _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6P
 31:                                               ; preds = %_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -6464,7 +6461,7 @@ _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6P
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSD_10_Hash_nodeISB_Lb0EEE.exit
@@ -6485,13 +6482,13 @@ _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6P
   %48 = load i32, ptr %46, align 4
   %49 = zext i32 %48 to i64
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %44, %40
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %41, ptr %54, align 8
   br label %_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSD_10_Hash_nodeISB_Lb0EEE.exit
 
@@ -6629,7 +6626,7 @@ _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6P
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -6644,7 +6641,7 @@ _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6P
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8
   br label %29
 
@@ -6805,7 +6802,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_S_relocateEPS4_S7_S7_R
 _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %64
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %68 = getelementptr inbounds nuw %"struct.WasmEdge::Host::WASI::Poller::Timer", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8
   ret void
 }
@@ -6865,7 +6862,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -6874,7 +6871,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS9_10_Hash_nodeIS7_Lb0EEE.exit
@@ -6895,13 +6892,13 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %48 = load i32, ptr %46, align 4
   %49 = sext i32 %48 to i64
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %45, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %45, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %44, %40
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %41, ptr %54, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS9_10_Hash_nodeIS7_Lb0EEE.exit
 
@@ -6960,7 +6957,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -6975,7 +6972,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8
   br label %29
 
@@ -7051,7 +7048,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %20 = sext i32 %8 to i64
   %21 = urem i64 %20, %19
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %21
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %21
   %.pre37 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNKSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
 
@@ -7062,7 +7059,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %26 = load i64, ptr %25, align 8
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %.not.i22 = icmp eq ptr %30, null
   br i1 %.not.i22, label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, label %31
@@ -7131,10 +7128,10 @@ _ZNKSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__d
   br i1 %.not9.i.i, label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE.exit, label %60
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds ptr, ptr %54, i64 %59
+  %61 = getelementptr inbounds [8 x i8], ptr %54, i64 %59
   store ptr %53, ptr %61, align 8
   %.pre.i = load ptr, ptr %0, align 8
-  %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %.0165561
+  %.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %.0165561
   %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %.thread23.i
 
@@ -7146,7 +7143,7 @@ _ZNKSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__d
   %63 = phi ptr [ %46, %50 ], [ %.pre25.i, %60 ], [ %30, %_ZNKSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ]
   %64 = phi ptr [ %47, %50 ], [ %.pre.i, %60 ], [ %28, %_ZNKSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %.0165562
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %.0165562
   %67 = icmp eq ptr %65, %63
   br i1 %67, label %68, label %69
 
@@ -7170,7 +7167,7 @@ _ZNKSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__d
   br i1 %.not17.i23, label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE.exit, label %76
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds ptr, ptr %47, i64 %75
+  %77 = getelementptr inbounds [8 x i8], ptr %47, i64 %75
   store ptr %.015, ptr %77, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE.exit
 
@@ -7292,9 +7289,9 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %
 
 _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
   store ptr %32, ptr %0, align 8
-  %44 = getelementptr inbounds nuw %struct.epoll_event, ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8
-  %45 = getelementptr inbounds nuw %struct.epoll_event, ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8
   br label %46
 

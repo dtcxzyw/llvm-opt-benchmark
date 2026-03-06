@@ -1757,7 +1757,7 @@ switch.lookup:                                    ; preds = %86
   store i64 0, ptr %220, align 8
   %221 = load i8, ptr %82, align 1, !range !584, !noundef !7
   %222 = zext nneg i8 %221 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35cab97cc162E", i64 %222
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35cab97cc162E", i64 %222
   %switch.load = load i32, ptr %switch.gep, align 4
   invoke void @"_ZN6flate24zlib5write20ZlibEncoder$LT$W$GT$3new17h0789f35ea181ea14E"(ptr noalias noundef nonnull sret({ { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { ptr, i64, i64 } } } }) align 8 captures(none) dereferenceable(72) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %20, i32 noundef %switch.load)
           to label %225 unwind label %223

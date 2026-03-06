@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
 %struct.parse_error_callback_arg = type { ptr, ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 
@@ -204,7 +203,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   ]
 
 100:                                              ; preds = %.lr.ph.split
-  %101 = getelementptr inbounds nuw i32, ptr %.0284, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.0284, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
   %103 = tail call ptr @check_valid_polymorphic_signature(i32 noundef %102, ptr noundef nonnull %81, i32 noundef %38) #7
   %.not378 = icmp eq ptr %103, null
@@ -292,7 +291,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw i32, ptr %.0284, i64 %indvars.iv449
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.0284, i64 %indvars.iv449
   %137 = load i32, ptr %136, align 4
   switch i32 %137, label %140 [
     i32 2276, label %151
@@ -688,7 +687,7 @@ list_length.exit:                                 ; preds = %.loopexit400, %186
 
 331:                                              ; preds = %.lr.ph423, %352
   %indvars.iv457 = phi i64 [ 0, %.lr.ph423 ], [ %indvars.iv.next458, %352 ]
-  %332 = getelementptr inbounds nuw ptr, ptr %328, i64 %indvars.iv457
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %indvars.iv457
   %333 = load ptr, ptr %332, align 8
   %334 = icmp eq ptr %333, null
   br i1 %334, label %352, label %335
@@ -698,7 +697,7 @@ list_length.exit:                                 ; preds = %.loopexit400, %186
   br i1 %.not362, label %336, label %342
 
 336:                                              ; preds = %335
-  %337 = getelementptr inbounds nuw ptr, ptr %329, i64 %indvars.iv457
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %indvars.iv457
   %338 = load ptr, ptr %337, align 8
   %339 = icmp eq ptr %338, null
   br i1 %339, label %342, label %340
@@ -712,7 +711,7 @@ list_length.exit:                                 ; preds = %.loopexit400, %186
   %343 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   %344 = call i32 @errcode(i32 noundef 50724996) #7
   %345 = load ptr, ptr %35, align 8
-  %346 = getelementptr inbounds nuw ptr, ptr %345, i64 %indvars.iv457
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %indvars.iv457
   %347 = load ptr, ptr %346, align 8
   %348 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %347) #7
   %349 = load i32, ptr %259, align 4
@@ -793,14 +792,14 @@ list_length.exit390:                              ; preds = %370, %375
   %386 = sext i16 %385 to i32
   %387 = sub i32 %378, %386
   %388 = sext i32 %387 to i64
-  %389 = getelementptr inbounds %union.ListCell, ptr %.val384, i64 %388
+  %389 = getelementptr inbounds [8 x i8], ptr %.val384, i64 %388
   br label %.lr.ph430
 
 .lr.ph430:                                        ; preds = %.lr.ph430.preheader, %402
   %indvars.iv462 = phi i64 [ 0, %.lr.ph430.preheader ], [ %indvars.iv.next463, %402 ]
   %.0292424429 = phi ptr [ %389, %.lr.ph430.preheader ], [ %..i, %402 ]
   %390 = load ptr, ptr %381, align 8
-  %391 = getelementptr inbounds nuw %union.ListCell, ptr %390, i64 %indvars.iv462
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %indvars.iv462
   %392 = load ptr, ptr %391, align 8
   %393 = load ptr, ptr %.0292424429, align 8
   %394 = call i32 @exprType(ptr noundef %392) #7
@@ -823,7 +822,7 @@ list_length.exit390:                              ; preds = %370, %375
   %.val386 = load ptr, ptr %379, align 8
   %403 = getelementptr inbounds nuw i8, ptr %.0292424429, i64 8
   %404 = sext i32 %.val385 to i64
-  %405 = getelementptr inbounds %union.ListCell, ptr %.val386, i64 %404
+  %405 = getelementptr inbounds [8 x i8], ptr %.val386, i64 %404
   %406 = icmp ult ptr %403, %405
   %..i = select i1 %406, ptr %403, ptr null
   %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
@@ -929,7 +928,7 @@ list_length.exit390:                              ; preds = %370, %375
 .lr.ph433:                                        ; preds = %.lr.ph433.preheader, %453
   %indvars.iv465 = phi i64 [ 0, %.lr.ph433.preheader ], [ %indvars.iv.next466, %453 ]
   store i32 1247, ptr %33, align 4
-  %448 = getelementptr inbounds nuw i32, ptr %.0284, i64 %indvars.iv465
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %.0284, i64 %indvars.iv465
   %449 = load i32, ptr %448, align 4
   store i32 %449, ptr %443, align 4
   store i32 0, ptr %444, align 4
@@ -1347,7 +1346,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
 43:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.097117 = phi i8 [ 0, %.lr.ph ], [ %.198, %56 ]
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = tail call signext i8 @get_typtype(i32 noundef %45) #7
   %47 = icmp eq i8 %46, 112
@@ -1450,7 +1449,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph128 ], [ 0, %.lr.ph121 ]
   %.094119126 = phi ptr [ %95, %.lr.ph128 ], [ null, %.lr.ph121 ]
   %91 = load ptr, ptr %88, align 8
-  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv147
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv147
   %93 = load ptr, ptr %92, align 8
   call void @AcquireRewriteLocks(ptr noundef %93, i1 noundef zeroext true, i1 noundef zeroext false) #7
   %94 = call ptr @pg_rewrite_query(ptr noundef %93) #7
@@ -1481,7 +1480,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.lr.ph141 ], [ 0, %.lr.ph133 ]
   %.2131139 = phi ptr [ %111, %.lr.ph141 ], [ null, %.lr.ph133 ]
   %107 = load ptr, ptr %104, align 8
-  %108 = getelementptr inbounds nuw %union.ListCell, ptr %107, i64 %indvars.iv150
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv150
   %109 = load ptr, ptr %108, align 8
   %110 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef %109, ptr noundef %66, ptr noundef nonnull @sql_fn_parser_setup, ptr noundef %102, ptr noundef null) #7
   %111 = call ptr @lappend(ptr noundef %.2131139, ptr noundef %110) #7
@@ -1769,7 +1768,7 @@ define dso_local ptr @oid_array_to_list(i64 noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %.08 = phi ptr [ %12, %.lr.ph ], [ null, %1 ]
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = call ptr @lappend_oid(ptr noundef %.08, i32 noundef %11) #7

@@ -597,8 +597,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %14, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %17 = getelementptr inbounds double, ptr %12, i64 %.05.i.i.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %12, i64 %.05.i.i.i.i.i.i.i.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %19 = load double, ptr %18, align 8, !tbaa !18
   store double %19, ptr %17, align 8, !tbaa !18
   %20 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -607,8 +607,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %10 ]
-  %21 = getelementptr inbounds nuw double, ptr %12, i64 %.011.i.i.i.i.i.i.i.i
-  %22 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.011.i.i.i.i.i.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %23 = load <2 x double>, ptr %22, align 16, !tbaa !12
   store <2 x double> %23, ptr %21, align 16, !tbaa !12
   %24 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
@@ -644,8 +644,8 @@ thread-pre-split.i.i.i.i.i.i.i4:                  ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i7:                        ; preds = %._crit_edge.i.i.i.i.i.i.i.i6, %.lr.ph.i.i.i.i.i.i.i.i.i7
   %.05.i.i.i.i.i.i.i.i.i8 = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i.i.i.i7 ], [ %36, %._crit_edge.i.i.i.i.i.i.i.i6 ]
-  %39 = getelementptr inbounds double, ptr %34, i64 %.05.i.i.i.i.i.i.i.i.i8
-  %40 = getelementptr inbounds double, ptr %27, i64 %.05.i.i.i.i.i.i.i.i.i8
+  %39 = getelementptr inbounds [8 x i8], ptr %34, i64 %.05.i.i.i.i.i.i.i.i.i8
+  %40 = getelementptr inbounds [8 x i8], ptr %27, i64 %.05.i.i.i.i.i.i.i.i.i8
   %41 = load double, ptr %40, align 8, !tbaa !18
   store double %41, ptr %39, align 8, !tbaa !18
   %42 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i8, 1
@@ -654,8 +654,8 @@ thread-pre-split.i.i.i.i.i.i.i4:                  ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i10:                         ; preds = %32, %.lr.ph.i.i.i.i.i.i.i.i10
   %.011.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i10 ], [ 0, %32 ]
-  %43 = getelementptr inbounds nuw double, ptr %34, i64 %.011.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds nuw double, ptr %27, i64 %.011.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.011.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.011.i.i.i.i.i.i.i.i11
   %45 = load <2 x double>, ptr %44, align 16, !tbaa !12
   store <2 x double> %45, ptr %43, align 16, !tbaa !12
   %46 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i11, 2
@@ -712,8 +712,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %4
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %29, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %21, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %25 = getelementptr inbounds double, ptr %19, i64 %.05.i.i.i.i.i.i.i.i.i
-  %26 = getelementptr inbounds double, ptr %13, i64 %.05.i.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds [8 x i8], ptr %19, i64 %.05.i.i.i.i.i.i.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %13, i64 %.05.i.i.i.i.i.i.i.i.i
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = fmul double %1, %27
   store double %28, ptr %25, align 8, !tbaa !18
@@ -723,8 +723,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %4
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i.i.i ]
-  %30 = getelementptr inbounds nuw double, ptr %19, i64 %.011.i.i.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw double, ptr %13, i64 %.011.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.011.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.011.i.i.i.i.i.i.i.i
   %32 = load <2 x double>, ptr %31, align 16, !tbaa !12
   %33 = fmul <2 x double> %23, %32
   store <2 x double> %33, ptr %30, align 16, !tbaa !12
@@ -829,16 +829,16 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   %.054.in79.i.i.i.i.i = phi i64 [ %.05480.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %83 ]
   %.17378.i.i.i.i.i = phi <2 x double> [ %97, %.lr.ph.i.i.i.i.i ], [ %81, %83 ]
   %.07577.i.i.i.i.i = phi <2 x double> [ %104, %.lr.ph.i.i.i.i.i ], [ %88, %83 ]
-  %92 = getelementptr inbounds nuw double, ptr %72, i64 %.05480.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.05480.i.i.i.i.i
   %93 = load <2 x double>, ptr %92, align 16, !tbaa !12
-  %94 = getelementptr inbounds nuw double, ptr %73, i64 %.05480.i.i.i.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.05480.i.i.i.i.i
   %95 = load <2 x double>, ptr %94, align 16, !tbaa !12
   %96 = fmul <2 x double> %93, %95
   %97 = fadd <2 x double> %.17378.i.i.i.i.i, %96
   %98 = add nuw nsw i64 %.054.in79.i.i.i.i.i, 6
-  %99 = getelementptr inbounds nuw double, ptr %72, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %98
   %100 = load <2 x double>, ptr %99, align 16, !tbaa !12
-  %101 = getelementptr inbounds nuw double, ptr %73, i64 %98
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %98
   %102 = load <2 x double>, ptr %101, align 16, !tbaa !12
   %103 = fmul <2 x double> %100, %102
   %104 = fadd <2 x double> %.07577.i.i.i.i.i, %103
@@ -847,9 +847,9 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   br i1 %105, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !59
 
 106:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %107 = getelementptr inbounds nuw double, ptr %72, i64 %75
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %75
   %108 = load <2 x double>, ptr %107, align 16, !tbaa !12
-  %109 = getelementptr inbounds nuw double, ptr %73, i64 %75
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %75
   %110 = load <2 x double>, ptr %109, align 16, !tbaa !12
   %111 = fmul <2 x double> %108, %110
   %112 = fadd <2 x double> %90, %111
@@ -866,8 +866,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
 .lr.ph85.i.i.i.i.i:                               ; preds = %113, %.lr.ph85.i.i.i.i.i
   %.05283.i.i.i.i.i = phi i64 [ %122, %.lr.ph85.i.i.i.i.i ], [ %77, %113 ]
   %.182.i.i.i.i.i = phi double [ %121, %.lr.ph85.i.i.i.i.i ], [ %114, %113 ]
-  %116 = getelementptr inbounds double, ptr %72, i64 %.05283.i.i.i.i.i
-  %117 = getelementptr inbounds double, ptr %73, i64 %.05283.i.i.i.i.i
+  %116 = getelementptr inbounds [8 x i8], ptr %72, i64 %.05283.i.i.i.i.i
+  %117 = getelementptr inbounds [8 x i8], ptr %73, i64 %.05283.i.i.i.i.i
   %118 = load double, ptr %116, align 8, !tbaa !18
   %119 = load double, ptr %117, align 8, !tbaa !18
   %120 = fmul double %118, %119
@@ -1005,11 +1005,11 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   %.054.in79.i.i.i.i.i.i = phi i64 [ %.05480.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %16 ]
   %.17378.i.i.i.i.i.i = phi <2 x double> [ %26, %.lr.ph.i.i.i.i.i.i ], [ %14, %16 ]
   %.07577.i.i.i.i.i.i = phi <2 x double> [ %31, %.lr.ph.i.i.i.i.i.i ], [ %19, %16 ]
-  %23 = getelementptr inbounds nuw double, ptr %7, i64 %.05480.i.i.i.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.05480.i.i.i.i.i.i
   %24 = load <2 x double>, ptr %23, align 16, !tbaa !12
   %25 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %24)
   %26 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17378.i.i.i.i.i.i, <2 x double> %25) #38, !srcloc !62
-  %27 = getelementptr inbounds nuw double, ptr %7, i64 %.054.in79.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.054.in79.i.i.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load <2 x double>, ptr %28, align 16, !tbaa !12
   %30 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %29)
@@ -1019,7 +1019,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   br i1 %32, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !63
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %34 = getelementptr inbounds nuw double, ptr %7, i64 %9
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %35 = load <2 x double>, ptr %34, align 16, !tbaa !12
   %36 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %35)
   %37 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %21, <2 x double> %36) #38, !srcloc !62
@@ -1037,7 +1037,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
 .lr.ph85.i.i.i.i.i.i:                             ; preds = %38, %.lr.ph85.i.i.i.i.i.i
   %.05283.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph85.i.i.i.i.i.i ], [ %11, %38 ]
   %.182.i.i.i.i.i.i = phi double [ %46, %.lr.ph85.i.i.i.i.i.i ], [ %40, %38 ]
-  %42 = getelementptr inbounds double, ptr %7, i64 %.05283.i.i.i.i.i.i
+  %42 = getelementptr inbounds [8 x i8], ptr %7, i64 %.05283.i.i.i.i.i.i
   %43 = load double, ptr %42, align 8, !tbaa !18
   %44 = tail call noundef double @llvm.fabs.f64(double %43)
   %45 = fcmp olt double %.182.i.i.i.i.i.i, %44
@@ -2513,8 +2513,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %47
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %67, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %61, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %64 = getelementptr inbounds double, ptr %59, i64 %.05.i.i.i.i.i.i.i.i.i
-  %65 = getelementptr inbounds double, ptr %52, i64 %.05.i.i.i.i.i.i.i.i.i
+  %64 = getelementptr inbounds [8 x i8], ptr %59, i64 %.05.i.i.i.i.i.i.i.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %52, i64 %.05.i.i.i.i.i.i.i.i.i
   %66 = load double, ptr %65, align 8, !tbaa !18
   store double %66, ptr %64, align 8, !tbaa !18
   %67 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -2523,8 +2523,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %47
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %57, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %71, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %57 ]
-  %68 = getelementptr inbounds nuw double, ptr %59, i64 %.011.i.i.i.i.i.i.i.i
-  %69 = getelementptr inbounds nuw double, ptr %52, i64 %.011.i.i.i.i.i.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.011.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.011.i.i.i.i.i.i.i.i
   %70 = load <2 x double>, ptr %69, align 16, !tbaa !12
   store <2 x double> %70, ptr %68, align 16, !tbaa !12
   %71 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
@@ -2586,11 +2586,11 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %.054.in79.i.i.i.i.i.i.i = phi i64 [ %.05480.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %94 ]
   %.17378.i.i.i.i.i.i.i = phi <2 x double> [ %104, %.lr.ph.i.i.i.i.i.i.i ], [ %92, %94 ]
   %.07577.i.i.i.i.i.i.i = phi <2 x double> [ %109, %.lr.ph.i.i.i.i.i.i.i ], [ %97, %94 ]
-  %101 = getelementptr inbounds nuw double, ptr %85, i64 %.05480.i.i.i.i.i.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.05480.i.i.i.i.i.i.i
   %102 = load <2 x double>, ptr %101, align 16, !tbaa !12
   %103 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %102)
   %104 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17378.i.i.i.i.i.i.i, <2 x double> %103) #38, !srcloc !62
-  %105 = getelementptr inbounds nuw double, ptr %85, i64 %.054.in79.i.i.i.i.i.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.054.in79.i.i.i.i.i.i.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %107 = load <2 x double>, ptr %106, align 16, !tbaa !12
   %108 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %107)
@@ -2600,7 +2600,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   br i1 %110, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !63
 
 111:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %112 = getelementptr inbounds nuw double, ptr %85, i64 %87
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   %113 = load <2 x double>, ptr %112, align 16, !tbaa !12
   %114 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %113)
   %115 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %99, <2 x double> %114) #38, !srcloc !62
@@ -2618,7 +2618,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 .lr.ph85.i.i.i.i.i.i.i:                           ; preds = %116, %.lr.ph85.i.i.i.i.i.i.i
   %.05283.i.i.i.i.i.i.i = phi i64 [ %125, %.lr.ph85.i.i.i.i.i.i.i ], [ %89, %116 ]
   %.182.i.i.i.i.i.i.i = phi double [ %124, %.lr.ph85.i.i.i.i.i.i.i ], [ %118, %116 ]
-  %120 = getelementptr inbounds double, ptr %85, i64 %.05283.i.i.i.i.i.i.i
+  %120 = getelementptr inbounds [8 x i8], ptr %85, i64 %.05283.i.i.i.i.i.i.i
   %121 = load double, ptr %120, align 8, !tbaa !18
   %122 = call noundef double @llvm.fabs.f64(double %121)
   %123 = fcmp olt double %.182.i.i.i.i.i.i.i, %122
@@ -3117,8 +3117,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %319
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %334, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %328, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %331 = getelementptr inbounds double, ptr %326, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %332 = getelementptr inbounds double, ptr %321, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %331 = getelementptr inbounds [8 x i8], ptr %326, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %332 = getelementptr inbounds [8 x i8], ptr %321, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %333 = load double, ptr %332, align 8, !tbaa !18
   store double %333, ptr %331, align 8, !tbaa !18
   %334 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
@@ -3127,8 +3127,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %319
 
 .lr.ph.i.i.i.i.i.i.i.i.i117:                      ; preds = %324, %.lr.ph.i.i.i.i.i.i.i.i.i117
   %.011.i.i.i.i.i.i.i.i.i = phi i64 [ %338, %.lr.ph.i.i.i.i.i.i.i.i.i117 ], [ 0, %324 ]
-  %335 = getelementptr inbounds nuw double, ptr %326, i64 %.011.i.i.i.i.i.i.i.i.i
-  %336 = getelementptr inbounds nuw double, ptr %321, i64 %.011.i.i.i.i.i.i.i.i.i
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %.011.i.i.i.i.i.i.i.i.i
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %.011.i.i.i.i.i.i.i.i.i
   %337 = load <2 x double>, ptr %336, align 16, !tbaa !12
   store <2 x double> %337, ptr %335, align 16, !tbaa !12
   %338 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i, 2
@@ -3165,8 +3165,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i:                     ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i, %.lr.ph.i.i.i.i.i.i.i.i.i10.i
   %.05.i.i.i.i.i.i.i.i.i11.i = phi i64 [ %353, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ], [ %347, %._crit_edge.i.i.i.i.i.i.i.i9.i ]
-  %350 = getelementptr inbounds double, ptr %345, i64 %.05.i.i.i.i.i.i.i.i.i11.i
-  %351 = getelementptr inbounds double, ptr %340, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %350 = getelementptr inbounds [8 x i8], ptr %345, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %351 = getelementptr inbounds [8 x i8], ptr %340, i64 %.05.i.i.i.i.i.i.i.i.i11.i
   %352 = load double, ptr %351, align 8, !tbaa !18
   store double %352, ptr %350, align 8, !tbaa !18
   %353 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i, 1
@@ -3175,8 +3175,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i:                       ; preds = %343, %.lr.ph.i.i.i.i.i.i.i.i13.i
   %.011.i.i.i.i.i.i.i.i14.i = phi i64 [ %357, %.lr.ph.i.i.i.i.i.i.i.i13.i ], [ 0, %343 ]
-  %354 = getelementptr inbounds nuw double, ptr %345, i64 %.011.i.i.i.i.i.i.i.i14.i
-  %355 = getelementptr inbounds nuw double, ptr %340, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %.011.i.i.i.i.i.i.i.i14.i
   %356 = load <2 x double>, ptr %355, align 16, !tbaa !12
   store <2 x double> %356, ptr %354, align 16, !tbaa !12
   %357 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i, 2
@@ -3233,8 +3233,8 @@ thread-pre-split.i.i.i.i.i.i.i.i121:              ; preds = %365
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i134:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i123, %.lr.ph.i.i.i.i.i.i.i.i.i.i134
   %.05.i.i.i.i.i.i.i.i.i.i135 = phi i64 [ %382, %.lr.ph.i.i.i.i.i.i.i.i.i.i134 ], [ %376, %._crit_edge.i.i.i.i.i.i.i.i.i123 ]
-  %379 = getelementptr inbounds double, ptr %374, i64 %.05.i.i.i.i.i.i.i.i.i.i135
-  %380 = getelementptr inbounds double, ptr %368, i64 %.05.i.i.i.i.i.i.i.i.i.i135
+  %379 = getelementptr inbounds [8 x i8], ptr %374, i64 %.05.i.i.i.i.i.i.i.i.i.i135
+  %380 = getelementptr inbounds [8 x i8], ptr %368, i64 %.05.i.i.i.i.i.i.i.i.i.i135
   %381 = load double, ptr %380, align 8, !tbaa !18
   store double %381, ptr %379, align 8, !tbaa !18
   %382 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i135, 1
@@ -3243,8 +3243,8 @@ thread-pre-split.i.i.i.i.i.i.i.i121:              ; preds = %365
 
 .lr.ph.i.i.i.i.i.i.i.i.i137:                      ; preds = %372, %.lr.ph.i.i.i.i.i.i.i.i.i137
   %.011.i.i.i.i.i.i.i.i.i138 = phi i64 [ %386, %.lr.ph.i.i.i.i.i.i.i.i.i137 ], [ 0, %372 ]
-  %383 = getelementptr inbounds nuw double, ptr %374, i64 %.011.i.i.i.i.i.i.i.i.i138
-  %384 = getelementptr inbounds nuw double, ptr %368, i64 %.011.i.i.i.i.i.i.i.i.i138
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %.011.i.i.i.i.i.i.i.i.i138
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %368, i64 %.011.i.i.i.i.i.i.i.i.i138
   %385 = load <2 x double>, ptr %384, align 16, !tbaa !12
   store <2 x double> %385, ptr %383, align 16, !tbaa !12
   %386 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i138, 2
@@ -3284,8 +3284,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i126:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i129:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i128, %.lr.ph.i.i.i.i.i.i.i.i.i10.i129
   %.05.i.i.i.i.i.i.i.i.i11.i130 = phi i64 [ %404, %.lr.ph.i.i.i.i.i.i.i.i.i10.i129 ], [ %398, %._crit_edge.i.i.i.i.i.i.i.i9.i128 ]
-  %401 = getelementptr inbounds double, ptr %396, i64 %.05.i.i.i.i.i.i.i.i.i11.i130
-  %402 = getelementptr inbounds double, ptr %390, i64 %.05.i.i.i.i.i.i.i.i.i11.i130
+  %401 = getelementptr inbounds [8 x i8], ptr %396, i64 %.05.i.i.i.i.i.i.i.i.i11.i130
+  %402 = getelementptr inbounds [8 x i8], ptr %390, i64 %.05.i.i.i.i.i.i.i.i.i11.i130
   %403 = load double, ptr %402, align 8, !tbaa !18
   store double %403, ptr %401, align 8, !tbaa !18
   %404 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i130, 1
@@ -3294,8 +3294,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i126:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i132:                    ; preds = %394, %.lr.ph.i.i.i.i.i.i.i.i13.i132
   %.011.i.i.i.i.i.i.i.i14.i133 = phi i64 [ %408, %.lr.ph.i.i.i.i.i.i.i.i13.i132 ], [ 0, %394 ]
-  %405 = getelementptr inbounds nuw double, ptr %396, i64 %.011.i.i.i.i.i.i.i.i14.i133
-  %406 = getelementptr inbounds nuw double, ptr %390, i64 %.011.i.i.i.i.i.i.i.i14.i133
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %.011.i.i.i.i.i.i.i.i14.i133
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %.011.i.i.i.i.i.i.i.i14.i133
   %407 = load <2 x double>, ptr %406, align 16, !tbaa !12
   store <2 x double> %407, ptr %405, align 16, !tbaa !12
   %408 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i133, 2
@@ -3516,8 +3516,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %57
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %77, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %71, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %74 = getelementptr inbounds double, ptr %69, i64 %.05.i.i.i.i.i.i.i.i.i
-  %75 = getelementptr inbounds double, ptr %62, i64 %.05.i.i.i.i.i.i.i.i.i
+  %74 = getelementptr inbounds [8 x i8], ptr %69, i64 %.05.i.i.i.i.i.i.i.i.i
+  %75 = getelementptr inbounds [8 x i8], ptr %62, i64 %.05.i.i.i.i.i.i.i.i.i
   %76 = load double, ptr %75, align 8, !tbaa !18
   store double %76, ptr %74, align 8, !tbaa !18
   %77 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -3526,8 +3526,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %57
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %67, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %81, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %67 ]
-  %78 = getelementptr inbounds nuw double, ptr %69, i64 %.011.i.i.i.i.i.i.i.i
-  %79 = getelementptr inbounds nuw double, ptr %62, i64 %.011.i.i.i.i.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.011.i.i.i.i.i.i.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.011.i.i.i.i.i.i.i.i
   %80 = load <2 x double>, ptr %79, align 16, !tbaa !12
   store <2 x double> %80, ptr %78, align 16, !tbaa !12
   %81 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
@@ -3636,8 +3636,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %107
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %127, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %121, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %124 = getelementptr inbounds double, ptr %119, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %125 = getelementptr inbounds double, ptr %112, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %124 = getelementptr inbounds [8 x i8], ptr %119, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %125 = getelementptr inbounds [8 x i8], ptr %112, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %126 = load double, ptr %125, align 8, !tbaa !18
   store double %126, ptr %124, align 8, !tbaa !18
   %127 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
@@ -3646,8 +3646,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %107
 
 .lr.ph.i.i.i.i.i.i.i.i.i78:                       ; preds = %117, %.lr.ph.i.i.i.i.i.i.i.i.i78
   %.011.i.i.i.i.i.i.i.i.i = phi i64 [ %131, %.lr.ph.i.i.i.i.i.i.i.i.i78 ], [ 0, %117 ]
-  %128 = getelementptr inbounds nuw double, ptr %119, i64 %.011.i.i.i.i.i.i.i.i.i
-  %129 = getelementptr inbounds nuw double, ptr %112, i64 %.011.i.i.i.i.i.i.i.i.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %.011.i.i.i.i.i.i.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.011.i.i.i.i.i.i.i.i.i
   %130 = load <2 x double>, ptr %129, align 16, !tbaa !12
   store <2 x double> %130, ptr %128, align 16, !tbaa !12
   %131 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i, 2
@@ -3690,8 +3690,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i:                     ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i, %.lr.ph.i.i.i.i.i.i.i.i.i10.i
   %.05.i.i.i.i.i.i.i.i.i11.i = phi i64 [ %152, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ], [ %146, %._crit_edge.i.i.i.i.i.i.i.i9.i ]
-  %149 = getelementptr inbounds double, ptr %144, i64 %.05.i.i.i.i.i.i.i.i.i11.i
-  %150 = getelementptr inbounds double, ptr %137, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %149 = getelementptr inbounds [8 x i8], ptr %144, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %150 = getelementptr inbounds [8 x i8], ptr %137, i64 %.05.i.i.i.i.i.i.i.i.i11.i
   %151 = load double, ptr %150, align 8, !tbaa !18
   store double %151, ptr %149, align 8, !tbaa !18
   %152 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i, 1
@@ -3700,8 +3700,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i:                       ; preds = %142, %.lr.ph.i.i.i.i.i.i.i.i13.i
   %.011.i.i.i.i.i.i.i.i14.i = phi i64 [ %156, %.lr.ph.i.i.i.i.i.i.i.i13.i ], [ 0, %142 ]
-  %153 = getelementptr inbounds nuw double, ptr %144, i64 %.011.i.i.i.i.i.i.i.i14.i
-  %154 = getelementptr inbounds nuw double, ptr %137, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %.011.i.i.i.i.i.i.i.i14.i
   %155 = load <2 x double>, ptr %154, align 16, !tbaa !12
   store <2 x double> %155, ptr %153, align 16, !tbaa !12
   %156 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i, 2
@@ -3934,8 +3934,8 @@ thread-pre-split.i.i.i.i.i.i.i.i89:               ; preds = %237
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i102:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i91, %.lr.ph.i.i.i.i.i.i.i.i.i.i102
   %.05.i.i.i.i.i.i.i.i.i.i103 = phi i64 [ %257, %.lr.ph.i.i.i.i.i.i.i.i.i.i102 ], [ %251, %._crit_edge.i.i.i.i.i.i.i.i.i91 ]
-  %254 = getelementptr inbounds double, ptr %249, i64 %.05.i.i.i.i.i.i.i.i.i.i103
-  %255 = getelementptr inbounds double, ptr %242, i64 %.05.i.i.i.i.i.i.i.i.i.i103
+  %254 = getelementptr inbounds [8 x i8], ptr %249, i64 %.05.i.i.i.i.i.i.i.i.i.i103
+  %255 = getelementptr inbounds [8 x i8], ptr %242, i64 %.05.i.i.i.i.i.i.i.i.i.i103
   %256 = load double, ptr %255, align 8, !tbaa !18
   store double %256, ptr %254, align 8, !tbaa !18
   %257 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i103, 1
@@ -3944,8 +3944,8 @@ thread-pre-split.i.i.i.i.i.i.i.i89:               ; preds = %237
 
 .lr.ph.i.i.i.i.i.i.i.i.i105:                      ; preds = %247, %.lr.ph.i.i.i.i.i.i.i.i.i105
   %.011.i.i.i.i.i.i.i.i.i106 = phi i64 [ %261, %.lr.ph.i.i.i.i.i.i.i.i.i105 ], [ 0, %247 ]
-  %258 = getelementptr inbounds nuw double, ptr %249, i64 %.011.i.i.i.i.i.i.i.i.i106
-  %259 = getelementptr inbounds nuw double, ptr %242, i64 %.011.i.i.i.i.i.i.i.i.i106
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %.011.i.i.i.i.i.i.i.i.i106
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %.011.i.i.i.i.i.i.i.i.i106
   %260 = load <2 x double>, ptr %259, align 16, !tbaa !12
   store <2 x double> %260, ptr %258, align 16, !tbaa !12
   %261 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i106, 2
@@ -3988,8 +3988,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i94:              ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i97:                   ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i96, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97
   %.05.i.i.i.i.i.i.i.i.i11.i98 = phi i64 [ %282, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97 ], [ %276, %._crit_edge.i.i.i.i.i.i.i.i9.i96 ]
-  %279 = getelementptr inbounds double, ptr %274, i64 %.05.i.i.i.i.i.i.i.i.i11.i98
-  %280 = getelementptr inbounds double, ptr %267, i64 %.05.i.i.i.i.i.i.i.i.i11.i98
+  %279 = getelementptr inbounds [8 x i8], ptr %274, i64 %.05.i.i.i.i.i.i.i.i.i11.i98
+  %280 = getelementptr inbounds [8 x i8], ptr %267, i64 %.05.i.i.i.i.i.i.i.i.i11.i98
   %281 = load double, ptr %280, align 8, !tbaa !18
   store double %281, ptr %279, align 8, !tbaa !18
   %282 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i98, 1
@@ -3998,8 +3998,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i94:              ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i100:                    ; preds = %272, %.lr.ph.i.i.i.i.i.i.i.i13.i100
   %.011.i.i.i.i.i.i.i.i14.i101 = phi i64 [ %286, %.lr.ph.i.i.i.i.i.i.i.i13.i100 ], [ 0, %272 ]
-  %283 = getelementptr inbounds nuw double, ptr %274, i64 %.011.i.i.i.i.i.i.i.i14.i101
-  %284 = getelementptr inbounds nuw double, ptr %267, i64 %.011.i.i.i.i.i.i.i.i14.i101
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %.011.i.i.i.i.i.i.i.i14.i101
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %.011.i.i.i.i.i.i.i.i14.i101
   %285 = load <2 x double>, ptr %284, align 16, !tbaa !12
   store <2 x double> %285, ptr %283, align 16, !tbaa !12
   %286 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i101, 2
@@ -4042,8 +4042,8 @@ thread-pre-split.i.i.i.i.i.i.i.i111:              ; preds = %288
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i124:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i113, %.lr.ph.i.i.i.i.i.i.i.i.i.i124
   %.05.i.i.i.i.i.i.i.i.i.i125 = phi i64 [ %308, %.lr.ph.i.i.i.i.i.i.i.i.i.i124 ], [ %302, %._crit_edge.i.i.i.i.i.i.i.i.i113 ]
-  %305 = getelementptr inbounds double, ptr %300, i64 %.05.i.i.i.i.i.i.i.i.i.i125
-  %306 = getelementptr inbounds double, ptr %293, i64 %.05.i.i.i.i.i.i.i.i.i.i125
+  %305 = getelementptr inbounds [8 x i8], ptr %300, i64 %.05.i.i.i.i.i.i.i.i.i.i125
+  %306 = getelementptr inbounds [8 x i8], ptr %293, i64 %.05.i.i.i.i.i.i.i.i.i.i125
   %307 = load double, ptr %306, align 8, !tbaa !18
   store double %307, ptr %305, align 8, !tbaa !18
   %308 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i125, 1
@@ -4052,8 +4052,8 @@ thread-pre-split.i.i.i.i.i.i.i.i111:              ; preds = %288
 
 .lr.ph.i.i.i.i.i.i.i.i.i127:                      ; preds = %298, %.lr.ph.i.i.i.i.i.i.i.i.i127
   %.011.i.i.i.i.i.i.i.i.i128 = phi i64 [ %312, %.lr.ph.i.i.i.i.i.i.i.i.i127 ], [ 0, %298 ]
-  %309 = getelementptr inbounds nuw double, ptr %300, i64 %.011.i.i.i.i.i.i.i.i.i128
-  %310 = getelementptr inbounds nuw double, ptr %293, i64 %.011.i.i.i.i.i.i.i.i.i128
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %.011.i.i.i.i.i.i.i.i.i128
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %.011.i.i.i.i.i.i.i.i.i128
   %311 = load <2 x double>, ptr %310, align 16, !tbaa !12
   store <2 x double> %311, ptr %309, align 16, !tbaa !12
   %312 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i128, 2
@@ -4096,8 +4096,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i116:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i119:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i118, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119
   %.05.i.i.i.i.i.i.i.i.i11.i120 = phi i64 [ %333, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119 ], [ %327, %._crit_edge.i.i.i.i.i.i.i.i9.i118 ]
-  %330 = getelementptr inbounds double, ptr %325, i64 %.05.i.i.i.i.i.i.i.i.i11.i120
-  %331 = getelementptr inbounds double, ptr %318, i64 %.05.i.i.i.i.i.i.i.i.i11.i120
+  %330 = getelementptr inbounds [8 x i8], ptr %325, i64 %.05.i.i.i.i.i.i.i.i.i11.i120
+  %331 = getelementptr inbounds [8 x i8], ptr %318, i64 %.05.i.i.i.i.i.i.i.i.i11.i120
   %332 = load double, ptr %331, align 8, !tbaa !18
   store double %332, ptr %330, align 8, !tbaa !18
   %333 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i120, 1
@@ -4106,8 +4106,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i116:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i122:                    ; preds = %323, %.lr.ph.i.i.i.i.i.i.i.i13.i122
   %.011.i.i.i.i.i.i.i.i14.i123 = phi i64 [ %337, %.lr.ph.i.i.i.i.i.i.i.i13.i122 ], [ 0, %323 ]
-  %334 = getelementptr inbounds nuw double, ptr %325, i64 %.011.i.i.i.i.i.i.i.i14.i123
-  %335 = getelementptr inbounds nuw double, ptr %318, i64 %.011.i.i.i.i.i.i.i.i14.i123
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %.011.i.i.i.i.i.i.i.i14.i123
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %.011.i.i.i.i.i.i.i.i14.i123
   %336 = load <2 x double>, ptr %335, align 16, !tbaa !12
   store <2 x double> %336, ptr %334, align 16, !tbaa !12
   %337 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i123, 2
@@ -4288,11 +4288,11 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   %.054.in79.i.i.i.i.i.i.i = phi i64 [ %.05480.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %48 ]
   %.17378.i.i.i.i.i.i.i = phi <2 x double> [ %58, %.lr.ph.i.i.i.i.i.i.i ], [ %46, %48 ]
   %.07577.i.i.i.i.i.i.i = phi <2 x double> [ %63, %.lr.ph.i.i.i.i.i.i.i ], [ %51, %48 ]
-  %55 = getelementptr inbounds nuw double, ptr %39, i64 %.05480.i.i.i.i.i.i.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.05480.i.i.i.i.i.i.i
   %56 = load <2 x double>, ptr %55, align 16, !tbaa !12
   %57 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %56)
   %58 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17378.i.i.i.i.i.i.i, <2 x double> %57) #38, !srcloc !62
-  %59 = getelementptr inbounds nuw double, ptr %39, i64 %.054.in79.i.i.i.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.054.in79.i.i.i.i.i.i.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load <2 x double>, ptr %60, align 16, !tbaa !12
   %62 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %61)
@@ -4302,7 +4302,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   br i1 %64, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !63
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %66 = getelementptr inbounds nuw double, ptr %39, i64 %41
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %41
   %67 = load <2 x double>, ptr %66, align 16, !tbaa !12
   %68 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %67)
   %69 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %53, <2 x double> %68) #38, !srcloc !62
@@ -4320,7 +4320,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
 .lr.ph85.i.i.i.i.i.i.i:                           ; preds = %70, %.lr.ph85.i.i.i.i.i.i.i
   %.05283.i.i.i.i.i.i.i = phi i64 [ %79, %.lr.ph85.i.i.i.i.i.i.i ], [ %43, %70 ]
   %.182.i.i.i.i.i.i.i = phi double [ %78, %.lr.ph85.i.i.i.i.i.i.i ], [ %72, %70 ]
-  %74 = getelementptr inbounds double, ptr %39, i64 %.05283.i.i.i.i.i.i.i
+  %74 = getelementptr inbounds [8 x i8], ptr %39, i64 %.05283.i.i.i.i.i.i.i
   %75 = load double, ptr %74, align 8, !tbaa !18
   %76 = call noundef double @llvm.fabs.f64(double %75)
   %77 = fcmp olt double %.182.i.i.i.i.i.i.i, %76
@@ -4369,8 +4369,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %_ZNK5ceres8internal
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %99, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %93, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %96 = getelementptr inbounds double, ptr %91, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %97 = getelementptr inbounds double, ptr %85, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %96 = getelementptr inbounds [8 x i8], ptr %91, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %97 = getelementptr inbounds [8 x i8], ptr %85, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %98 = load double, ptr %97, align 8, !tbaa !18
   store double %98, ptr %96, align 8, !tbaa !18
   %99 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
@@ -4379,8 +4379,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %_ZNK5ceres8internal
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %89, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i.i = phi i64 [ %103, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %89 ]
-  %100 = getelementptr inbounds nuw double, ptr %91, i64 %.011.i.i.i.i.i.i.i.i.i
-  %101 = getelementptr inbounds nuw double, ptr %85, i64 %.011.i.i.i.i.i.i.i.i.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.011.i.i.i.i.i.i.i.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.011.i.i.i.i.i.i.i.i.i
   %102 = load <2 x double>, ptr %101, align 16, !tbaa !12
   store <2 x double> %102, ptr %100, align 16, !tbaa !12
   %103 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i, 2
@@ -4420,8 +4420,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i:                     ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i, %.lr.ph.i.i.i.i.i.i.i.i.i10.i
   %.05.i.i.i.i.i.i.i.i.i11.i = phi i64 [ %121, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ], [ %115, %._crit_edge.i.i.i.i.i.i.i.i9.i ]
-  %118 = getelementptr inbounds double, ptr %113, i64 %.05.i.i.i.i.i.i.i.i.i11.i
-  %119 = getelementptr inbounds double, ptr %107, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %118 = getelementptr inbounds [8 x i8], ptr %113, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %119 = getelementptr inbounds [8 x i8], ptr %107, i64 %.05.i.i.i.i.i.i.i.i.i11.i
   %120 = load double, ptr %119, align 8, !tbaa !18
   store double %120, ptr %118, align 8, !tbaa !18
   %121 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i, 1
@@ -4430,8 +4430,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i:                       ; preds = %111, %.lr.ph.i.i.i.i.i.i.i.i13.i
   %.011.i.i.i.i.i.i.i.i14.i = phi i64 [ %125, %.lr.ph.i.i.i.i.i.i.i.i13.i ], [ 0, %111 ]
-  %122 = getelementptr inbounds nuw double, ptr %113, i64 %.011.i.i.i.i.i.i.i.i14.i
-  %123 = getelementptr inbounds nuw double, ptr %107, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.011.i.i.i.i.i.i.i.i14.i
   %124 = load <2 x double>, ptr %123, align 16, !tbaa !12
   store <2 x double> %124, ptr %122, align 16, !tbaa !12
   %125 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i, 2
@@ -4549,8 +4549,8 @@ thread-pre-split.i.i.i.i.i.i.i.i150:              ; preds = %184
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i163:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i152, %.lr.ph.i.i.i.i.i.i.i.i.i.i163
   %.05.i.i.i.i.i.i.i.i.i.i164 = phi i64 [ %199, %.lr.ph.i.i.i.i.i.i.i.i.i.i163 ], [ %193, %._crit_edge.i.i.i.i.i.i.i.i.i152 ]
-  %196 = getelementptr inbounds double, ptr %191, i64 %.05.i.i.i.i.i.i.i.i.i.i164
-  %197 = getelementptr inbounds double, ptr %186, i64 %.05.i.i.i.i.i.i.i.i.i.i164
+  %196 = getelementptr inbounds [8 x i8], ptr %191, i64 %.05.i.i.i.i.i.i.i.i.i.i164
+  %197 = getelementptr inbounds [8 x i8], ptr %186, i64 %.05.i.i.i.i.i.i.i.i.i.i164
   %198 = load double, ptr %197, align 8, !tbaa !18
   store double %198, ptr %196, align 8, !tbaa !18
   %199 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i164, 1
@@ -4559,8 +4559,8 @@ thread-pre-split.i.i.i.i.i.i.i.i150:              ; preds = %184
 
 .lr.ph.i.i.i.i.i.i.i.i.i166:                      ; preds = %189, %.lr.ph.i.i.i.i.i.i.i.i.i166
   %.011.i.i.i.i.i.i.i.i.i167 = phi i64 [ %203, %.lr.ph.i.i.i.i.i.i.i.i.i166 ], [ 0, %189 ]
-  %200 = getelementptr inbounds nuw double, ptr %191, i64 %.011.i.i.i.i.i.i.i.i.i167
-  %201 = getelementptr inbounds nuw double, ptr %186, i64 %.011.i.i.i.i.i.i.i.i.i167
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %.011.i.i.i.i.i.i.i.i.i167
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.011.i.i.i.i.i.i.i.i.i167
   %202 = load <2 x double>, ptr %201, align 16, !tbaa !12
   store <2 x double> %202, ptr %200, align 16, !tbaa !12
   %203 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i167, 2
@@ -4597,8 +4597,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i155:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i158:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i157, %.lr.ph.i.i.i.i.i.i.i.i.i10.i158
   %.05.i.i.i.i.i.i.i.i.i11.i159 = phi i64 [ %218, %.lr.ph.i.i.i.i.i.i.i.i.i10.i158 ], [ %212, %._crit_edge.i.i.i.i.i.i.i.i9.i157 ]
-  %215 = getelementptr inbounds double, ptr %210, i64 %.05.i.i.i.i.i.i.i.i.i11.i159
-  %216 = getelementptr inbounds double, ptr %205, i64 %.05.i.i.i.i.i.i.i.i.i11.i159
+  %215 = getelementptr inbounds [8 x i8], ptr %210, i64 %.05.i.i.i.i.i.i.i.i.i11.i159
+  %216 = getelementptr inbounds [8 x i8], ptr %205, i64 %.05.i.i.i.i.i.i.i.i.i11.i159
   %217 = load double, ptr %216, align 8, !tbaa !18
   store double %217, ptr %215, align 8, !tbaa !18
   %218 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i159, 1
@@ -4607,8 +4607,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i155:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i161:                    ; preds = %208, %.lr.ph.i.i.i.i.i.i.i.i13.i161
   %.011.i.i.i.i.i.i.i.i14.i162 = phi i64 [ %222, %.lr.ph.i.i.i.i.i.i.i.i13.i161 ], [ 0, %208 ]
-  %219 = getelementptr inbounds nuw double, ptr %210, i64 %.011.i.i.i.i.i.i.i.i14.i162
-  %220 = getelementptr inbounds nuw double, ptr %205, i64 %.011.i.i.i.i.i.i.i.i14.i162
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.011.i.i.i.i.i.i.i.i14.i162
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %.011.i.i.i.i.i.i.i.i14.i162
   %221 = load <2 x double>, ptr %220, align 16, !tbaa !12
   store <2 x double> %221, ptr %219, align 16, !tbaa !12
   %222 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i162, 2
@@ -4649,8 +4649,8 @@ thread-pre-split.i.i.i.i.i.i.i.i172:              ; preds = %.loopexit466
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i185:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i174, %.lr.ph.i.i.i.i.i.i.i.i.i.i185
   %.05.i.i.i.i.i.i.i.i.i.i186 = phi i64 [ %240, %.lr.ph.i.i.i.i.i.i.i.i.i.i185 ], [ %234, %._crit_edge.i.i.i.i.i.i.i.i.i174 ]
-  %237 = getelementptr inbounds double, ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i.i186
-  %238 = getelementptr inbounds double, ptr %226, i64 %.05.i.i.i.i.i.i.i.i.i.i186
+  %237 = getelementptr inbounds [8 x i8], ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i.i186
+  %238 = getelementptr inbounds [8 x i8], ptr %226, i64 %.05.i.i.i.i.i.i.i.i.i.i186
   %239 = load double, ptr %238, align 8, !tbaa !18
   store double %239, ptr %237, align 8, !tbaa !18
   %240 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i186, 1
@@ -4659,8 +4659,8 @@ thread-pre-split.i.i.i.i.i.i.i.i172:              ; preds = %.loopexit466
 
 .lr.ph.i.i.i.i.i.i.i.i.i188:                      ; preds = %230, %.lr.ph.i.i.i.i.i.i.i.i.i188
   %.011.i.i.i.i.i.i.i.i.i189 = phi i64 [ %244, %.lr.ph.i.i.i.i.i.i.i.i.i188 ], [ 0, %230 ]
-  %241 = getelementptr inbounds nuw double, ptr %232, i64 %.011.i.i.i.i.i.i.i.i.i189
-  %242 = getelementptr inbounds nuw double, ptr %226, i64 %.011.i.i.i.i.i.i.i.i.i189
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %.011.i.i.i.i.i.i.i.i.i189
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %.011.i.i.i.i.i.i.i.i.i189
   %243 = load <2 x double>, ptr %242, align 16, !tbaa !12
   store <2 x double> %243, ptr %241, align 16, !tbaa !12
   %244 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i189, 2
@@ -4700,8 +4700,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i177:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i180:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i179, %.lr.ph.i.i.i.i.i.i.i.i.i10.i180
   %.05.i.i.i.i.i.i.i.i.i11.i181 = phi i64 [ %262, %.lr.ph.i.i.i.i.i.i.i.i.i10.i180 ], [ %256, %._crit_edge.i.i.i.i.i.i.i.i9.i179 ]
-  %259 = getelementptr inbounds double, ptr %254, i64 %.05.i.i.i.i.i.i.i.i.i11.i181
-  %260 = getelementptr inbounds double, ptr %248, i64 %.05.i.i.i.i.i.i.i.i.i11.i181
+  %259 = getelementptr inbounds [8 x i8], ptr %254, i64 %.05.i.i.i.i.i.i.i.i.i11.i181
+  %260 = getelementptr inbounds [8 x i8], ptr %248, i64 %.05.i.i.i.i.i.i.i.i.i11.i181
   %261 = load double, ptr %260, align 8, !tbaa !18
   store double %261, ptr %259, align 8, !tbaa !18
   %262 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i181, 1
@@ -4710,8 +4710,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i177:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i183:                    ; preds = %252, %.lr.ph.i.i.i.i.i.i.i.i13.i183
   %.011.i.i.i.i.i.i.i.i14.i184 = phi i64 [ %266, %.lr.ph.i.i.i.i.i.i.i.i13.i183 ], [ 0, %252 ]
-  %263 = getelementptr inbounds nuw double, ptr %254, i64 %.011.i.i.i.i.i.i.i.i14.i184
-  %264 = getelementptr inbounds nuw double, ptr %248, i64 %.011.i.i.i.i.i.i.i.i14.i184
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %.011.i.i.i.i.i.i.i.i14.i184
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %.011.i.i.i.i.i.i.i.i14.i184
   %265 = load <2 x double>, ptr %264, align 16, !tbaa !12
   store <2 x double> %265, ptr %263, align 16, !tbaa !12
   %266 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i184, 2
@@ -4866,8 +4866,8 @@ thread-pre-split.i.i.i.i.i.i.i.i198:              ; preds = %308
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i211:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i200, %.lr.ph.i.i.i.i.i.i.i.i.i.i211
   %.05.i.i.i.i.i.i.i.i.i.i212 = phi i64 [ %322, %.lr.ph.i.i.i.i.i.i.i.i.i.i211 ], [ %316, %._crit_edge.i.i.i.i.i.i.i.i.i200 ]
-  %319 = getelementptr inbounds double, ptr %314, i64 %.05.i.i.i.i.i.i.i.i.i.i212
-  %320 = getelementptr inbounds double, ptr %309, i64 %.05.i.i.i.i.i.i.i.i.i.i212
+  %319 = getelementptr inbounds [8 x i8], ptr %314, i64 %.05.i.i.i.i.i.i.i.i.i.i212
+  %320 = getelementptr inbounds [8 x i8], ptr %309, i64 %.05.i.i.i.i.i.i.i.i.i.i212
   %321 = load double, ptr %320, align 8, !tbaa !18
   store double %321, ptr %319, align 8, !tbaa !18
   %322 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i212, 1
@@ -4876,8 +4876,8 @@ thread-pre-split.i.i.i.i.i.i.i.i198:              ; preds = %308
 
 .lr.ph.i.i.i.i.i.i.i.i.i214:                      ; preds = %312, %.lr.ph.i.i.i.i.i.i.i.i.i214
   %.011.i.i.i.i.i.i.i.i.i215 = phi i64 [ %326, %.lr.ph.i.i.i.i.i.i.i.i.i214 ], [ 0, %312 ]
-  %323 = getelementptr inbounds nuw double, ptr %314, i64 %.011.i.i.i.i.i.i.i.i.i215
-  %324 = getelementptr inbounds nuw double, ptr %309, i64 %.011.i.i.i.i.i.i.i.i.i215
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %.011.i.i.i.i.i.i.i.i.i215
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %.011.i.i.i.i.i.i.i.i.i215
   %325 = load <2 x double>, ptr %324, align 16, !tbaa !12
   store <2 x double> %325, ptr %323, align 16, !tbaa !12
   %326 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i215, 2
@@ -4914,8 +4914,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i203:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i206:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i205, %.lr.ph.i.i.i.i.i.i.i.i.i10.i206
   %.05.i.i.i.i.i.i.i.i.i11.i207 = phi i64 [ %341, %.lr.ph.i.i.i.i.i.i.i.i.i10.i206 ], [ %335, %._crit_edge.i.i.i.i.i.i.i.i9.i205 ]
-  %338 = getelementptr inbounds double, ptr %333, i64 %.05.i.i.i.i.i.i.i.i.i11.i207
-  %339 = getelementptr inbounds double, ptr %328, i64 %.05.i.i.i.i.i.i.i.i.i11.i207
+  %338 = getelementptr inbounds [8 x i8], ptr %333, i64 %.05.i.i.i.i.i.i.i.i.i11.i207
+  %339 = getelementptr inbounds [8 x i8], ptr %328, i64 %.05.i.i.i.i.i.i.i.i.i11.i207
   %340 = load double, ptr %339, align 8, !tbaa !18
   store double %340, ptr %338, align 8, !tbaa !18
   %341 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i207, 1
@@ -4924,8 +4924,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i203:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i209:                    ; preds = %331, %.lr.ph.i.i.i.i.i.i.i.i13.i209
   %.011.i.i.i.i.i.i.i.i14.i210 = phi i64 [ %345, %.lr.ph.i.i.i.i.i.i.i.i13.i209 ], [ 0, %331 ]
-  %342 = getelementptr inbounds nuw double, ptr %333, i64 %.011.i.i.i.i.i.i.i.i14.i210
-  %343 = getelementptr inbounds nuw double, ptr %328, i64 %.011.i.i.i.i.i.i.i.i14.i210
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %.011.i.i.i.i.i.i.i.i14.i210
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %.011.i.i.i.i.i.i.i.i14.i210
   %344 = load <2 x double>, ptr %343, align 16, !tbaa !12
   store <2 x double> %344, ptr %342, align 16, !tbaa !12
   %345 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i210, 2
@@ -4966,8 +4966,8 @@ thread-pre-split.i.i.i.i.i.i.i.i220:              ; preds = %.loopexit470
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i233:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i222, %.lr.ph.i.i.i.i.i.i.i.i.i.i233
   %.05.i.i.i.i.i.i.i.i.i.i234 = phi i64 [ %363, %.lr.ph.i.i.i.i.i.i.i.i.i.i233 ], [ %357, %._crit_edge.i.i.i.i.i.i.i.i.i222 ]
-  %360 = getelementptr inbounds double, ptr %355, i64 %.05.i.i.i.i.i.i.i.i.i.i234
-  %361 = getelementptr inbounds double, ptr %349, i64 %.05.i.i.i.i.i.i.i.i.i.i234
+  %360 = getelementptr inbounds [8 x i8], ptr %355, i64 %.05.i.i.i.i.i.i.i.i.i.i234
+  %361 = getelementptr inbounds [8 x i8], ptr %349, i64 %.05.i.i.i.i.i.i.i.i.i.i234
   %362 = load double, ptr %361, align 8, !tbaa !18
   store double %362, ptr %360, align 8, !tbaa !18
   %363 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i234, 1
@@ -4976,8 +4976,8 @@ thread-pre-split.i.i.i.i.i.i.i.i220:              ; preds = %.loopexit470
 
 .lr.ph.i.i.i.i.i.i.i.i.i236:                      ; preds = %353, %.lr.ph.i.i.i.i.i.i.i.i.i236
   %.011.i.i.i.i.i.i.i.i.i237 = phi i64 [ %367, %.lr.ph.i.i.i.i.i.i.i.i.i236 ], [ 0, %353 ]
-  %364 = getelementptr inbounds nuw double, ptr %355, i64 %.011.i.i.i.i.i.i.i.i.i237
-  %365 = getelementptr inbounds nuw double, ptr %349, i64 %.011.i.i.i.i.i.i.i.i.i237
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %.011.i.i.i.i.i.i.i.i.i237
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %.011.i.i.i.i.i.i.i.i.i237
   %366 = load <2 x double>, ptr %365, align 16, !tbaa !12
   store <2 x double> %366, ptr %364, align 16, !tbaa !12
   %367 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i237, 2
@@ -5017,8 +5017,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i225:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i228:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i227, %.lr.ph.i.i.i.i.i.i.i.i.i10.i228
   %.05.i.i.i.i.i.i.i.i.i11.i229 = phi i64 [ %385, %.lr.ph.i.i.i.i.i.i.i.i.i10.i228 ], [ %379, %._crit_edge.i.i.i.i.i.i.i.i9.i227 ]
-  %382 = getelementptr inbounds double, ptr %377, i64 %.05.i.i.i.i.i.i.i.i.i11.i229
-  %383 = getelementptr inbounds double, ptr %371, i64 %.05.i.i.i.i.i.i.i.i.i11.i229
+  %382 = getelementptr inbounds [8 x i8], ptr %377, i64 %.05.i.i.i.i.i.i.i.i.i11.i229
+  %383 = getelementptr inbounds [8 x i8], ptr %371, i64 %.05.i.i.i.i.i.i.i.i.i11.i229
   %384 = load double, ptr %383, align 8, !tbaa !18
   store double %384, ptr %382, align 8, !tbaa !18
   %385 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i229, 1
@@ -5027,8 +5027,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i225:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i231:                    ; preds = %375, %.lr.ph.i.i.i.i.i.i.i.i13.i231
   %.011.i.i.i.i.i.i.i.i14.i232 = phi i64 [ %389, %.lr.ph.i.i.i.i.i.i.i.i13.i231 ], [ 0, %375 ]
-  %386 = getelementptr inbounds nuw double, ptr %377, i64 %.011.i.i.i.i.i.i.i.i14.i232
-  %387 = getelementptr inbounds nuw double, ptr %371, i64 %.011.i.i.i.i.i.i.i.i14.i232
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %.011.i.i.i.i.i.i.i.i14.i232
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %.011.i.i.i.i.i.i.i.i14.i232
   %388 = load <2 x double>, ptr %387, align 16, !tbaa !12
   store <2 x double> %388, ptr %386, align 16, !tbaa !12
   %389 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i232, 2
@@ -5172,8 +5172,8 @@ thread-pre-split.i.i.i.i.i.i.i.i247:              ; preds = %423
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i260:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i249, %.lr.ph.i.i.i.i.i.i.i.i.i.i260
   %.05.i.i.i.i.i.i.i.i.i.i261 = phi i64 [ %437, %.lr.ph.i.i.i.i.i.i.i.i.i.i260 ], [ %431, %._crit_edge.i.i.i.i.i.i.i.i.i249 ]
-  %434 = getelementptr inbounds double, ptr %429, i64 %.05.i.i.i.i.i.i.i.i.i.i261
-  %435 = getelementptr inbounds double, ptr %424, i64 %.05.i.i.i.i.i.i.i.i.i.i261
+  %434 = getelementptr inbounds [8 x i8], ptr %429, i64 %.05.i.i.i.i.i.i.i.i.i.i261
+  %435 = getelementptr inbounds [8 x i8], ptr %424, i64 %.05.i.i.i.i.i.i.i.i.i.i261
   %436 = load double, ptr %435, align 8, !tbaa !18
   store double %436, ptr %434, align 8, !tbaa !18
   %437 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i261, 1
@@ -5182,8 +5182,8 @@ thread-pre-split.i.i.i.i.i.i.i.i247:              ; preds = %423
 
 .lr.ph.i.i.i.i.i.i.i.i.i263:                      ; preds = %427, %.lr.ph.i.i.i.i.i.i.i.i.i263
   %.011.i.i.i.i.i.i.i.i.i264 = phi i64 [ %441, %.lr.ph.i.i.i.i.i.i.i.i.i263 ], [ 0, %427 ]
-  %438 = getelementptr inbounds nuw double, ptr %429, i64 %.011.i.i.i.i.i.i.i.i.i264
-  %439 = getelementptr inbounds nuw double, ptr %424, i64 %.011.i.i.i.i.i.i.i.i.i264
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %429, i64 %.011.i.i.i.i.i.i.i.i.i264
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %424, i64 %.011.i.i.i.i.i.i.i.i.i264
   %440 = load <2 x double>, ptr %439, align 16, !tbaa !12
   store <2 x double> %440, ptr %438, align 16, !tbaa !12
   %441 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i264, 2
@@ -5220,8 +5220,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i252:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i255:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i254, %.lr.ph.i.i.i.i.i.i.i.i.i10.i255
   %.05.i.i.i.i.i.i.i.i.i11.i256 = phi i64 [ %456, %.lr.ph.i.i.i.i.i.i.i.i.i10.i255 ], [ %450, %._crit_edge.i.i.i.i.i.i.i.i9.i254 ]
-  %453 = getelementptr inbounds double, ptr %448, i64 %.05.i.i.i.i.i.i.i.i.i11.i256
-  %454 = getelementptr inbounds double, ptr %443, i64 %.05.i.i.i.i.i.i.i.i.i11.i256
+  %453 = getelementptr inbounds [8 x i8], ptr %448, i64 %.05.i.i.i.i.i.i.i.i.i11.i256
+  %454 = getelementptr inbounds [8 x i8], ptr %443, i64 %.05.i.i.i.i.i.i.i.i.i11.i256
   %455 = load double, ptr %454, align 8, !tbaa !18
   store double %455, ptr %453, align 8, !tbaa !18
   %456 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i256, 1
@@ -5230,8 +5230,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i252:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i258:                    ; preds = %446, %.lr.ph.i.i.i.i.i.i.i.i13.i258
   %.011.i.i.i.i.i.i.i.i14.i259 = phi i64 [ %460, %.lr.ph.i.i.i.i.i.i.i.i13.i258 ], [ 0, %446 ]
-  %457 = getelementptr inbounds nuw double, ptr %448, i64 %.011.i.i.i.i.i.i.i.i14.i259
-  %458 = getelementptr inbounds nuw double, ptr %443, i64 %.011.i.i.i.i.i.i.i.i14.i259
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %448, i64 %.011.i.i.i.i.i.i.i.i14.i259
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %.011.i.i.i.i.i.i.i.i14.i259
   %459 = load <2 x double>, ptr %458, align 16, !tbaa !12
   store <2 x double> %459, ptr %457, align 16, !tbaa !12
   %460 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i259, 2
@@ -5272,8 +5272,8 @@ thread-pre-split.i.i.i.i.i.i.i.i269:              ; preds = %.loopexit468
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i282:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i271, %.lr.ph.i.i.i.i.i.i.i.i.i.i282
   %.05.i.i.i.i.i.i.i.i.i.i283 = phi i64 [ %478, %.lr.ph.i.i.i.i.i.i.i.i.i.i282 ], [ %472, %._crit_edge.i.i.i.i.i.i.i.i.i271 ]
-  %475 = getelementptr inbounds double, ptr %470, i64 %.05.i.i.i.i.i.i.i.i.i.i283
-  %476 = getelementptr inbounds double, ptr %464, i64 %.05.i.i.i.i.i.i.i.i.i.i283
+  %475 = getelementptr inbounds [8 x i8], ptr %470, i64 %.05.i.i.i.i.i.i.i.i.i.i283
+  %476 = getelementptr inbounds [8 x i8], ptr %464, i64 %.05.i.i.i.i.i.i.i.i.i.i283
   %477 = load double, ptr %476, align 8, !tbaa !18
   store double %477, ptr %475, align 8, !tbaa !18
   %478 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i283, 1
@@ -5282,8 +5282,8 @@ thread-pre-split.i.i.i.i.i.i.i.i269:              ; preds = %.loopexit468
 
 .lr.ph.i.i.i.i.i.i.i.i.i285:                      ; preds = %468, %.lr.ph.i.i.i.i.i.i.i.i.i285
   %.011.i.i.i.i.i.i.i.i.i286 = phi i64 [ %482, %.lr.ph.i.i.i.i.i.i.i.i.i285 ], [ 0, %468 ]
-  %479 = getelementptr inbounds nuw double, ptr %470, i64 %.011.i.i.i.i.i.i.i.i.i286
-  %480 = getelementptr inbounds nuw double, ptr %464, i64 %.011.i.i.i.i.i.i.i.i.i286
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %470, i64 %.011.i.i.i.i.i.i.i.i.i286
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %464, i64 %.011.i.i.i.i.i.i.i.i.i286
   %481 = load <2 x double>, ptr %480, align 16, !tbaa !12
   store <2 x double> %481, ptr %479, align 16, !tbaa !12
   %482 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i286, 2
@@ -5323,8 +5323,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i274:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i277:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i276, %.lr.ph.i.i.i.i.i.i.i.i.i10.i277
   %.05.i.i.i.i.i.i.i.i.i11.i278 = phi i64 [ %500, %.lr.ph.i.i.i.i.i.i.i.i.i10.i277 ], [ %494, %._crit_edge.i.i.i.i.i.i.i.i9.i276 ]
-  %497 = getelementptr inbounds double, ptr %492, i64 %.05.i.i.i.i.i.i.i.i.i11.i278
-  %498 = getelementptr inbounds double, ptr %486, i64 %.05.i.i.i.i.i.i.i.i.i11.i278
+  %497 = getelementptr inbounds [8 x i8], ptr %492, i64 %.05.i.i.i.i.i.i.i.i.i11.i278
+  %498 = getelementptr inbounds [8 x i8], ptr %486, i64 %.05.i.i.i.i.i.i.i.i.i11.i278
   %499 = load double, ptr %498, align 8, !tbaa !18
   store double %499, ptr %497, align 8, !tbaa !18
   %500 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i278, 1
@@ -5333,8 +5333,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i274:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i280:                    ; preds = %490, %.lr.ph.i.i.i.i.i.i.i.i13.i280
   %.011.i.i.i.i.i.i.i.i14.i281 = phi i64 [ %504, %.lr.ph.i.i.i.i.i.i.i.i13.i280 ], [ 0, %490 ]
-  %501 = getelementptr inbounds nuw double, ptr %492, i64 %.011.i.i.i.i.i.i.i.i14.i281
-  %502 = getelementptr inbounds nuw double, ptr %486, i64 %.011.i.i.i.i.i.i.i.i14.i281
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %.011.i.i.i.i.i.i.i.i14.i281
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %486, i64 %.011.i.i.i.i.i.i.i.i14.i281
   %503 = load <2 x double>, ptr %502, align 16, !tbaa !12
   store <2 x double> %503, ptr %501, align 16, !tbaa !12
   %504 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i281, 2
@@ -5544,8 +5544,8 @@ thread-pre-split.i.i.i.i.i.i.i.i312:              ; preds = %553
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i325:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i314, %.lr.ph.i.i.i.i.i.i.i.i.i.i325
   %.05.i.i.i.i.i.i.i.i.i.i326 = phi i64 [ %568, %.lr.ph.i.i.i.i.i.i.i.i.i.i325 ], [ %562, %._crit_edge.i.i.i.i.i.i.i.i.i314 ]
-  %565 = getelementptr inbounds double, ptr %560, i64 %.05.i.i.i.i.i.i.i.i.i.i326
-  %566 = getelementptr inbounds double, ptr %555, i64 %.05.i.i.i.i.i.i.i.i.i.i326
+  %565 = getelementptr inbounds [8 x i8], ptr %560, i64 %.05.i.i.i.i.i.i.i.i.i.i326
+  %566 = getelementptr inbounds [8 x i8], ptr %555, i64 %.05.i.i.i.i.i.i.i.i.i.i326
   %567 = load double, ptr %566, align 8, !tbaa !18
   store double %567, ptr %565, align 8, !tbaa !18
   %568 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i326, 1
@@ -5554,8 +5554,8 @@ thread-pre-split.i.i.i.i.i.i.i.i312:              ; preds = %553
 
 .lr.ph.i.i.i.i.i.i.i.i.i328:                      ; preds = %558, %.lr.ph.i.i.i.i.i.i.i.i.i328
   %.011.i.i.i.i.i.i.i.i.i329 = phi i64 [ %572, %.lr.ph.i.i.i.i.i.i.i.i.i328 ], [ 0, %558 ]
-  %569 = getelementptr inbounds nuw double, ptr %560, i64 %.011.i.i.i.i.i.i.i.i.i329
-  %570 = getelementptr inbounds nuw double, ptr %555, i64 %.011.i.i.i.i.i.i.i.i.i329
+  %569 = getelementptr inbounds nuw [8 x i8], ptr %560, i64 %.011.i.i.i.i.i.i.i.i.i329
+  %570 = getelementptr inbounds nuw [8 x i8], ptr %555, i64 %.011.i.i.i.i.i.i.i.i.i329
   %571 = load <2 x double>, ptr %570, align 16, !tbaa !12
   store <2 x double> %571, ptr %569, align 16, !tbaa !12
   %572 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i329, 2
@@ -5592,8 +5592,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i317:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i320:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i319, %.lr.ph.i.i.i.i.i.i.i.i.i10.i320
   %.05.i.i.i.i.i.i.i.i.i11.i321 = phi i64 [ %587, %.lr.ph.i.i.i.i.i.i.i.i.i10.i320 ], [ %581, %._crit_edge.i.i.i.i.i.i.i.i9.i319 ]
-  %584 = getelementptr inbounds double, ptr %579, i64 %.05.i.i.i.i.i.i.i.i.i11.i321
-  %585 = getelementptr inbounds double, ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i11.i321
+  %584 = getelementptr inbounds [8 x i8], ptr %579, i64 %.05.i.i.i.i.i.i.i.i.i11.i321
+  %585 = getelementptr inbounds [8 x i8], ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i11.i321
   %586 = load double, ptr %585, align 8, !tbaa !18
   store double %586, ptr %584, align 8, !tbaa !18
   %587 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i321, 1
@@ -5602,8 +5602,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i317:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i323:                    ; preds = %577, %.lr.ph.i.i.i.i.i.i.i.i13.i323
   %.011.i.i.i.i.i.i.i.i14.i324 = phi i64 [ %591, %.lr.ph.i.i.i.i.i.i.i.i13.i323 ], [ 0, %577 ]
-  %588 = getelementptr inbounds nuw double, ptr %579, i64 %.011.i.i.i.i.i.i.i.i14.i324
-  %589 = getelementptr inbounds nuw double, ptr %574, i64 %.011.i.i.i.i.i.i.i.i14.i324
+  %588 = getelementptr inbounds nuw [8 x i8], ptr %579, i64 %.011.i.i.i.i.i.i.i.i14.i324
+  %589 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %.011.i.i.i.i.i.i.i.i14.i324
   %590 = load <2 x double>, ptr %589, align 16, !tbaa !12
   store <2 x double> %590, ptr %588, align 16, !tbaa !12
   %591 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i324, 2
@@ -5828,8 +5828,8 @@ thread-pre-split.i.i.i.i.i.i.i.i335:              ; preds = %657
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i348:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i337, %.lr.ph.i.i.i.i.i.i.i.i.i.i348
   %.05.i.i.i.i.i.i.i.i.i.i349 = phi i64 [ %673, %.lr.ph.i.i.i.i.i.i.i.i.i.i348 ], [ %667, %._crit_edge.i.i.i.i.i.i.i.i.i337 ]
-  %670 = getelementptr inbounds double, ptr %665, i64 %.05.i.i.i.i.i.i.i.i.i.i349
-  %671 = getelementptr inbounds double, ptr %660, i64 %.05.i.i.i.i.i.i.i.i.i.i349
+  %670 = getelementptr inbounds [8 x i8], ptr %665, i64 %.05.i.i.i.i.i.i.i.i.i.i349
+  %671 = getelementptr inbounds [8 x i8], ptr %660, i64 %.05.i.i.i.i.i.i.i.i.i.i349
   %672 = load double, ptr %671, align 8, !tbaa !18
   store double %672, ptr %670, align 8, !tbaa !18
   %673 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i349, 1
@@ -5838,8 +5838,8 @@ thread-pre-split.i.i.i.i.i.i.i.i335:              ; preds = %657
 
 .lr.ph.i.i.i.i.i.i.i.i.i351:                      ; preds = %663, %.lr.ph.i.i.i.i.i.i.i.i.i351
   %.011.i.i.i.i.i.i.i.i.i352 = phi i64 [ %677, %.lr.ph.i.i.i.i.i.i.i.i.i351 ], [ 0, %663 ]
-  %674 = getelementptr inbounds nuw double, ptr %665, i64 %.011.i.i.i.i.i.i.i.i.i352
-  %675 = getelementptr inbounds nuw double, ptr %660, i64 %.011.i.i.i.i.i.i.i.i.i352
+  %674 = getelementptr inbounds nuw [8 x i8], ptr %665, i64 %.011.i.i.i.i.i.i.i.i.i352
+  %675 = getelementptr inbounds nuw [8 x i8], ptr %660, i64 %.011.i.i.i.i.i.i.i.i.i352
   %676 = load <2 x double>, ptr %675, align 16, !tbaa !12
   store <2 x double> %676, ptr %674, align 16, !tbaa !12
   %677 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i352, 2
@@ -5876,8 +5876,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i340:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i343:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i342, %.lr.ph.i.i.i.i.i.i.i.i.i10.i343
   %.05.i.i.i.i.i.i.i.i.i11.i344 = phi i64 [ %692, %.lr.ph.i.i.i.i.i.i.i.i.i10.i343 ], [ %686, %._crit_edge.i.i.i.i.i.i.i.i9.i342 ]
-  %689 = getelementptr inbounds double, ptr %684, i64 %.05.i.i.i.i.i.i.i.i.i11.i344
-  %690 = getelementptr inbounds double, ptr %679, i64 %.05.i.i.i.i.i.i.i.i.i11.i344
+  %689 = getelementptr inbounds [8 x i8], ptr %684, i64 %.05.i.i.i.i.i.i.i.i.i11.i344
+  %690 = getelementptr inbounds [8 x i8], ptr %679, i64 %.05.i.i.i.i.i.i.i.i.i11.i344
   %691 = load double, ptr %690, align 8, !tbaa !18
   store double %691, ptr %689, align 8, !tbaa !18
   %692 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i344, 1
@@ -5886,8 +5886,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i340:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i346:                    ; preds = %682, %.lr.ph.i.i.i.i.i.i.i.i13.i346
   %.011.i.i.i.i.i.i.i.i14.i347 = phi i64 [ %696, %.lr.ph.i.i.i.i.i.i.i.i13.i346 ], [ 0, %682 ]
-  %693 = getelementptr inbounds nuw double, ptr %684, i64 %.011.i.i.i.i.i.i.i.i14.i347
-  %694 = getelementptr inbounds nuw double, ptr %679, i64 %.011.i.i.i.i.i.i.i.i14.i347
+  %693 = getelementptr inbounds nuw [8 x i8], ptr %684, i64 %.011.i.i.i.i.i.i.i.i14.i347
+  %694 = getelementptr inbounds nuw [8 x i8], ptr %679, i64 %.011.i.i.i.i.i.i.i.i14.i347
   %695 = load <2 x double>, ptr %694, align 16, !tbaa !12
   store <2 x double> %695, ptr %693, align 16, !tbaa !12
   %696 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i347, 2
@@ -6137,8 +6137,8 @@ thread-pre-split.i.i.i.i.i.i.i.i374:              ; preds = %766
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i387:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i376, %.lr.ph.i.i.i.i.i.i.i.i.i.i387
   %.05.i.i.i.i.i.i.i.i.i.i388 = phi i64 [ %781, %.lr.ph.i.i.i.i.i.i.i.i.i.i387 ], [ %775, %._crit_edge.i.i.i.i.i.i.i.i.i376 ]
-  %778 = getelementptr inbounds double, ptr %772, i64 %.05.i.i.i.i.i.i.i.i.i.i388
-  %779 = getelementptr inbounds double, ptr %770, i64 %.05.i.i.i.i.i.i.i.i.i.i388
+  %778 = getelementptr inbounds [8 x i8], ptr %772, i64 %.05.i.i.i.i.i.i.i.i.i.i388
+  %779 = getelementptr inbounds [8 x i8], ptr %770, i64 %.05.i.i.i.i.i.i.i.i.i.i388
   %780 = load double, ptr %779, align 8, !tbaa !18
   store double %780, ptr %778, align 8, !tbaa !18
   %781 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i388, 1
@@ -6147,8 +6147,8 @@ thread-pre-split.i.i.i.i.i.i.i.i374:              ; preds = %766
 
 .lr.ph.i.i.i.i.i.i.i.i.i390:                      ; preds = %771, %.lr.ph.i.i.i.i.i.i.i.i.i390
   %.011.i.i.i.i.i.i.i.i.i391 = phi i64 [ %785, %.lr.ph.i.i.i.i.i.i.i.i.i390 ], [ 0, %771 ]
-  %782 = getelementptr inbounds nuw double, ptr %772, i64 %.011.i.i.i.i.i.i.i.i.i391
-  %783 = getelementptr inbounds nuw double, ptr %770, i64 %.011.i.i.i.i.i.i.i.i.i391
+  %782 = getelementptr inbounds nuw [8 x i8], ptr %772, i64 %.011.i.i.i.i.i.i.i.i.i391
+  %783 = getelementptr inbounds nuw [8 x i8], ptr %770, i64 %.011.i.i.i.i.i.i.i.i.i391
   %784 = load <2 x double>, ptr %783, align 16, !tbaa !12
   store <2 x double> %784, ptr %782, align 16, !tbaa !12
   %785 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i391, 2
@@ -6190,8 +6190,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i379:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i382:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i381, %.lr.ph.i.i.i.i.i.i.i.i.i10.i382
   %.05.i.i.i.i.i.i.i.i.i11.i383 = phi i64 [ %798, %.lr.ph.i.i.i.i.i.i.i.i.i10.i382 ], [ %792, %._crit_edge.i.i.i.i.i.i.i.i9.i381 ]
-  %795 = getelementptr inbounds double, ptr %789, i64 %.05.i.i.i.i.i.i.i.i.i11.i383
-  %796 = getelementptr inbounds double, ptr %787, i64 %.05.i.i.i.i.i.i.i.i.i11.i383
+  %795 = getelementptr inbounds [8 x i8], ptr %789, i64 %.05.i.i.i.i.i.i.i.i.i11.i383
+  %796 = getelementptr inbounds [8 x i8], ptr %787, i64 %.05.i.i.i.i.i.i.i.i.i11.i383
   %797 = load double, ptr %796, align 8, !tbaa !18
   store double %797, ptr %795, align 8, !tbaa !18
   %798 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i383, 1
@@ -6200,8 +6200,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i379:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i385:                    ; preds = %788, %.lr.ph.i.i.i.i.i.i.i.i13.i385
   %.011.i.i.i.i.i.i.i.i14.i386 = phi i64 [ %802, %.lr.ph.i.i.i.i.i.i.i.i13.i385 ], [ 0, %788 ]
-  %799 = getelementptr inbounds nuw double, ptr %789, i64 %.011.i.i.i.i.i.i.i.i14.i386
-  %800 = getelementptr inbounds nuw double, ptr %787, i64 %.011.i.i.i.i.i.i.i.i14.i386
+  %799 = getelementptr inbounds nuw [8 x i8], ptr %789, i64 %.011.i.i.i.i.i.i.i.i14.i386
+  %800 = getelementptr inbounds nuw [8 x i8], ptr %787, i64 %.011.i.i.i.i.i.i.i.i14.i386
   %801 = load <2 x double>, ptr %800, align 16, !tbaa !12
   store <2 x double> %801, ptr %799, align 16, !tbaa !12
   %802 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i386, 2
@@ -6785,11 +6785,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
   %.054.in79.i.i.i.i.i.i.i = phi i64 [ %.05480.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %199 ]
   %.17378.i.i.i.i.i.i.i = phi <2 x double> [ %209, %.lr.ph.i.i.i.i.i.i.i ], [ %197, %199 ]
   %.07577.i.i.i.i.i.i.i = phi <2 x double> [ %214, %.lr.ph.i.i.i.i.i.i.i ], [ %202, %199 ]
-  %206 = getelementptr inbounds nuw double, ptr %190, i64 %.05480.i.i.i.i.i.i.i
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %.05480.i.i.i.i.i.i.i
   %207 = load <2 x double>, ptr %206, align 16, !tbaa !12
   %208 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %207)
   %209 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17378.i.i.i.i.i.i.i, <2 x double> %208) #38, !srcloc !62
-  %210 = getelementptr inbounds nuw double, ptr %190, i64 %.054.in79.i.i.i.i.i.i.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %.054.in79.i.i.i.i.i.i.i
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 48
   %212 = load <2 x double>, ptr %211, align 16, !tbaa !12
   %213 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %212)
@@ -6799,7 +6799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
   br i1 %215, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !63
 
 216:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %217 = getelementptr inbounds nuw double, ptr %190, i64 %192
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %192
   %218 = load <2 x double>, ptr %217, align 16, !tbaa !12
   %219 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %218)
   %220 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %204, <2 x double> %219) #38, !srcloc !62
@@ -6817,7 +6817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
 .lr.ph85.i.i.i.i.i.i.i:                           ; preds = %221, %.lr.ph85.i.i.i.i.i.i.i
   %.05283.i.i.i.i.i.i.i = phi i64 [ %230, %.lr.ph85.i.i.i.i.i.i.i ], [ %194, %221 ]
   %.182.i.i.i.i.i.i.i = phi double [ %229, %.lr.ph85.i.i.i.i.i.i.i ], [ %223, %221 ]
-  %225 = getelementptr inbounds double, ptr %190, i64 %.05283.i.i.i.i.i.i.i
+  %225 = getelementptr inbounds [8 x i8], ptr %190, i64 %.05283.i.i.i.i.i.i.i
   %226 = load double, ptr %225, align 8, !tbaa !18
   %227 = tail call noundef double @llvm.fabs.f64(double %226)
   %228 = fcmp olt double %.182.i.i.i.i.i.i.i, %227
@@ -6900,8 +6900,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %270
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %285, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %279, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %282 = getelementptr inbounds double, ptr %277, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %283 = getelementptr inbounds double, ptr %272, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %282 = getelementptr inbounds [8 x i8], ptr %277, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %283 = getelementptr inbounds [8 x i8], ptr %272, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %284 = load double, ptr %283, align 8, !tbaa !18
   store double %284, ptr %282, align 8, !tbaa !18
   %285 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
@@ -6910,8 +6910,8 @@ thread-pre-split.i.i.i.i.i.i.i.i:                 ; preds = %270
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %275, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i.i = phi i64 [ %289, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %275 ]
-  %286 = getelementptr inbounds nuw double, ptr %277, i64 %.011.i.i.i.i.i.i.i.i.i
-  %287 = getelementptr inbounds nuw double, ptr %272, i64 %.011.i.i.i.i.i.i.i.i.i
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %.011.i.i.i.i.i.i.i.i.i
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %.011.i.i.i.i.i.i.i.i.i
   %288 = load <2 x double>, ptr %287, align 16, !tbaa !12
   store <2 x double> %288, ptr %286, align 16, !tbaa !12
   %289 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i, 2
@@ -6945,8 +6945,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i:                     ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i, %.lr.ph.i.i.i.i.i.i.i.i.i10.i
   %.05.i.i.i.i.i.i.i.i.i11.i = phi i64 [ %304, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ], [ %298, %._crit_edge.i.i.i.i.i.i.i.i9.i ]
-  %301 = getelementptr inbounds double, ptr %296, i64 %.05.i.i.i.i.i.i.i.i.i11.i
-  %302 = getelementptr inbounds double, ptr %291, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %301 = getelementptr inbounds [8 x i8], ptr %296, i64 %.05.i.i.i.i.i.i.i.i.i11.i
+  %302 = getelementptr inbounds [8 x i8], ptr %291, i64 %.05.i.i.i.i.i.i.i.i.i11.i
   %303 = load double, ptr %302, align 8, !tbaa !18
   store double %303, ptr %301, align 8, !tbaa !18
   %304 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i, 1
@@ -6955,8 +6955,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i:                ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i:                       ; preds = %294, %.lr.ph.i.i.i.i.i.i.i.i13.i
   %.011.i.i.i.i.i.i.i.i14.i = phi i64 [ %308, %.lr.ph.i.i.i.i.i.i.i.i13.i ], [ 0, %294 ]
-  %305 = getelementptr inbounds nuw double, ptr %296, i64 %.011.i.i.i.i.i.i.i.i14.i
-  %306 = getelementptr inbounds nuw double, ptr %291, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %.011.i.i.i.i.i.i.i.i14.i
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %.011.i.i.i.i.i.i.i.i14.i
   %307 = load <2 x double>, ptr %306, align 16, !tbaa !12
   store <2 x double> %307, ptr %305, align 16, !tbaa !12
   %308 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i, 2
@@ -7591,8 +7591,8 @@ thread-pre-split.i.i.i.i.i.i.i.i233:              ; preds = %540
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i246:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i235, %.lr.ph.i.i.i.i.i.i.i.i.i.i246
   %.05.i.i.i.i.i.i.i.i.i.i247 = phi i64 [ %554, %.lr.ph.i.i.i.i.i.i.i.i.i.i246 ], [ %548, %._crit_edge.i.i.i.i.i.i.i.i.i235 ]
-  %551 = getelementptr inbounds double, ptr %546, i64 %.05.i.i.i.i.i.i.i.i.i.i247
-  %552 = getelementptr inbounds double, ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i247
+  %551 = getelementptr inbounds [8 x i8], ptr %546, i64 %.05.i.i.i.i.i.i.i.i.i.i247
+  %552 = getelementptr inbounds [8 x i8], ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i247
   %553 = load double, ptr %552, align 8, !tbaa !18
   store double %553, ptr %551, align 8, !tbaa !18
   %554 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i247, 1
@@ -7601,8 +7601,8 @@ thread-pre-split.i.i.i.i.i.i.i.i233:              ; preds = %540
 
 .lr.ph.i.i.i.i.i.i.i.i.i249:                      ; preds = %544, %.lr.ph.i.i.i.i.i.i.i.i.i249
   %.011.i.i.i.i.i.i.i.i.i250 = phi i64 [ %558, %.lr.ph.i.i.i.i.i.i.i.i.i249 ], [ 0, %544 ]
-  %555 = getelementptr inbounds nuw double, ptr %546, i64 %.011.i.i.i.i.i.i.i.i.i250
-  %556 = getelementptr inbounds nuw double, ptr %541, i64 %.011.i.i.i.i.i.i.i.i.i250
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %546, i64 %.011.i.i.i.i.i.i.i.i.i250
+  %556 = getelementptr inbounds nuw [8 x i8], ptr %541, i64 %.011.i.i.i.i.i.i.i.i.i250
   %557 = load <2 x double>, ptr %556, align 16, !tbaa !12
   store <2 x double> %557, ptr %555, align 16, !tbaa !12
   %558 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i250, 2
@@ -7639,8 +7639,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i238:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i241:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i240, %.lr.ph.i.i.i.i.i.i.i.i.i10.i241
   %.05.i.i.i.i.i.i.i.i.i11.i242 = phi i64 [ %573, %.lr.ph.i.i.i.i.i.i.i.i.i10.i241 ], [ %567, %._crit_edge.i.i.i.i.i.i.i.i9.i240 ]
-  %570 = getelementptr inbounds double, ptr %565, i64 %.05.i.i.i.i.i.i.i.i.i11.i242
-  %571 = getelementptr inbounds double, ptr %560, i64 %.05.i.i.i.i.i.i.i.i.i11.i242
+  %570 = getelementptr inbounds [8 x i8], ptr %565, i64 %.05.i.i.i.i.i.i.i.i.i11.i242
+  %571 = getelementptr inbounds [8 x i8], ptr %560, i64 %.05.i.i.i.i.i.i.i.i.i11.i242
   %572 = load double, ptr %571, align 8, !tbaa !18
   store double %572, ptr %570, align 8, !tbaa !18
   %573 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i242, 1
@@ -7649,8 +7649,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i238:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i244:                    ; preds = %563, %.lr.ph.i.i.i.i.i.i.i.i13.i244
   %.011.i.i.i.i.i.i.i.i14.i245 = phi i64 [ %577, %.lr.ph.i.i.i.i.i.i.i.i13.i244 ], [ 0, %563 ]
-  %574 = getelementptr inbounds nuw double, ptr %565, i64 %.011.i.i.i.i.i.i.i.i14.i245
-  %575 = getelementptr inbounds nuw double, ptr %560, i64 %.011.i.i.i.i.i.i.i.i14.i245
+  %574 = getelementptr inbounds nuw [8 x i8], ptr %565, i64 %.011.i.i.i.i.i.i.i.i14.i245
+  %575 = getelementptr inbounds nuw [8 x i8], ptr %560, i64 %.011.i.i.i.i.i.i.i.i14.i245
   %576 = load <2 x double>, ptr %575, align 16, !tbaa !12
   store <2 x double> %576, ptr %574, align 16, !tbaa !12
   %577 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i245, 2
@@ -7813,8 +7813,8 @@ thread-pre-split.i.i.i.i.i.i.i.i258:              ; preds = %626
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i271:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i260, %.lr.ph.i.i.i.i.i.i.i.i.i.i271
   %.05.i.i.i.i.i.i.i.i.i.i272 = phi i64 [ %640, %.lr.ph.i.i.i.i.i.i.i.i.i.i271 ], [ %634, %._crit_edge.i.i.i.i.i.i.i.i.i260 ]
-  %637 = getelementptr inbounds double, ptr %632, i64 %.05.i.i.i.i.i.i.i.i.i.i272
-  %638 = getelementptr inbounds double, ptr %627, i64 %.05.i.i.i.i.i.i.i.i.i.i272
+  %637 = getelementptr inbounds [8 x i8], ptr %632, i64 %.05.i.i.i.i.i.i.i.i.i.i272
+  %638 = getelementptr inbounds [8 x i8], ptr %627, i64 %.05.i.i.i.i.i.i.i.i.i.i272
   %639 = load double, ptr %638, align 8, !tbaa !18
   store double %639, ptr %637, align 8, !tbaa !18
   %640 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i272, 1
@@ -7823,8 +7823,8 @@ thread-pre-split.i.i.i.i.i.i.i.i258:              ; preds = %626
 
 .lr.ph.i.i.i.i.i.i.i.i.i274:                      ; preds = %630, %.lr.ph.i.i.i.i.i.i.i.i.i274
   %.011.i.i.i.i.i.i.i.i.i275 = phi i64 [ %644, %.lr.ph.i.i.i.i.i.i.i.i.i274 ], [ 0, %630 ]
-  %641 = getelementptr inbounds nuw double, ptr %632, i64 %.011.i.i.i.i.i.i.i.i.i275
-  %642 = getelementptr inbounds nuw double, ptr %627, i64 %.011.i.i.i.i.i.i.i.i.i275
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %632, i64 %.011.i.i.i.i.i.i.i.i.i275
+  %642 = getelementptr inbounds nuw [8 x i8], ptr %627, i64 %.011.i.i.i.i.i.i.i.i.i275
   %643 = load <2 x double>, ptr %642, align 16, !tbaa !12
   store <2 x double> %643, ptr %641, align 16, !tbaa !12
   %644 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i275, 2
@@ -7861,8 +7861,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i263:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i266:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i265, %.lr.ph.i.i.i.i.i.i.i.i.i10.i266
   %.05.i.i.i.i.i.i.i.i.i11.i267 = phi i64 [ %659, %.lr.ph.i.i.i.i.i.i.i.i.i10.i266 ], [ %653, %._crit_edge.i.i.i.i.i.i.i.i9.i265 ]
-  %656 = getelementptr inbounds double, ptr %651, i64 %.05.i.i.i.i.i.i.i.i.i11.i267
-  %657 = getelementptr inbounds double, ptr %646, i64 %.05.i.i.i.i.i.i.i.i.i11.i267
+  %656 = getelementptr inbounds [8 x i8], ptr %651, i64 %.05.i.i.i.i.i.i.i.i.i11.i267
+  %657 = getelementptr inbounds [8 x i8], ptr %646, i64 %.05.i.i.i.i.i.i.i.i.i11.i267
   %658 = load double, ptr %657, align 8, !tbaa !18
   store double %658, ptr %656, align 8, !tbaa !18
   %659 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i267, 1
@@ -7871,8 +7871,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i263:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i269:                    ; preds = %649, %.lr.ph.i.i.i.i.i.i.i.i13.i269
   %.011.i.i.i.i.i.i.i.i14.i270 = phi i64 [ %663, %.lr.ph.i.i.i.i.i.i.i.i13.i269 ], [ 0, %649 ]
-  %660 = getelementptr inbounds nuw double, ptr %651, i64 %.011.i.i.i.i.i.i.i.i14.i270
-  %661 = getelementptr inbounds nuw double, ptr %646, i64 %.011.i.i.i.i.i.i.i.i14.i270
+  %660 = getelementptr inbounds nuw [8 x i8], ptr %651, i64 %.011.i.i.i.i.i.i.i.i14.i270
+  %661 = getelementptr inbounds nuw [8 x i8], ptr %646, i64 %.011.i.i.i.i.i.i.i.i14.i270
   %662 = load <2 x double>, ptr %661, align 16, !tbaa !12
   store <2 x double> %662, ptr %660, align 16, !tbaa !12
   %663 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i270, 2
@@ -7915,8 +7915,8 @@ thread-pre-split.i.i.i.i.i.i.i.i280:              ; preds = %665
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i293:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i282, %.lr.ph.i.i.i.i.i.i.i.i.i.i293
   %.05.i.i.i.i.i.i.i.i.i.i294 = phi i64 [ %680, %.lr.ph.i.i.i.i.i.i.i.i.i.i293 ], [ %674, %._crit_edge.i.i.i.i.i.i.i.i.i282 ]
-  %677 = getelementptr inbounds double, ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i294
-  %678 = getelementptr inbounds double, ptr %667, i64 %.05.i.i.i.i.i.i.i.i.i.i294
+  %677 = getelementptr inbounds [8 x i8], ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i294
+  %678 = getelementptr inbounds [8 x i8], ptr %667, i64 %.05.i.i.i.i.i.i.i.i.i.i294
   %679 = load double, ptr %678, align 8, !tbaa !18
   store double %679, ptr %677, align 8, !tbaa !18
   %680 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i294, 1
@@ -7925,8 +7925,8 @@ thread-pre-split.i.i.i.i.i.i.i.i280:              ; preds = %665
 
 .lr.ph.i.i.i.i.i.i.i.i.i296:                      ; preds = %670, %.lr.ph.i.i.i.i.i.i.i.i.i296
   %.011.i.i.i.i.i.i.i.i.i297 = phi i64 [ %684, %.lr.ph.i.i.i.i.i.i.i.i.i296 ], [ 0, %670 ]
-  %681 = getelementptr inbounds nuw double, ptr %672, i64 %.011.i.i.i.i.i.i.i.i.i297
-  %682 = getelementptr inbounds nuw double, ptr %667, i64 %.011.i.i.i.i.i.i.i.i.i297
+  %681 = getelementptr inbounds nuw [8 x i8], ptr %672, i64 %.011.i.i.i.i.i.i.i.i.i297
+  %682 = getelementptr inbounds nuw [8 x i8], ptr %667, i64 %.011.i.i.i.i.i.i.i.i.i297
   %683 = load <2 x double>, ptr %682, align 16, !tbaa !12
   store <2 x double> %683, ptr %681, align 16, !tbaa !12
   %684 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i.i297, 2
@@ -7963,8 +7963,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i.i10.i288:                  ; preds = %._crit_edge.i.i.i.i.i.i.i.i9.i287, %.lr.ph.i.i.i.i.i.i.i.i.i10.i288
   %.05.i.i.i.i.i.i.i.i.i11.i289 = phi i64 [ %699, %.lr.ph.i.i.i.i.i.i.i.i.i10.i288 ], [ %693, %._crit_edge.i.i.i.i.i.i.i.i9.i287 ]
-  %696 = getelementptr inbounds double, ptr %691, i64 %.05.i.i.i.i.i.i.i.i.i11.i289
-  %697 = getelementptr inbounds double, ptr %686, i64 %.05.i.i.i.i.i.i.i.i.i11.i289
+  %696 = getelementptr inbounds [8 x i8], ptr %691, i64 %.05.i.i.i.i.i.i.i.i.i11.i289
+  %697 = getelementptr inbounds [8 x i8], ptr %686, i64 %.05.i.i.i.i.i.i.i.i.i11.i289
   %698 = load double, ptr %697, align 8, !tbaa !18
   store double %698, ptr %696, align 8, !tbaa !18
   %699 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11.i289, 1
@@ -7973,8 +7973,8 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
 
 .lr.ph.i.i.i.i.i.i.i.i13.i291:                    ; preds = %689, %.lr.ph.i.i.i.i.i.i.i.i13.i291
   %.011.i.i.i.i.i.i.i.i14.i292 = phi i64 [ %703, %.lr.ph.i.i.i.i.i.i.i.i13.i291 ], [ 0, %689 ]
-  %700 = getelementptr inbounds nuw double, ptr %691, i64 %.011.i.i.i.i.i.i.i.i14.i292
-  %701 = getelementptr inbounds nuw double, ptr %686, i64 %.011.i.i.i.i.i.i.i.i14.i292
+  %700 = getelementptr inbounds nuw [8 x i8], ptr %691, i64 %.011.i.i.i.i.i.i.i.i14.i292
+  %701 = getelementptr inbounds nuw [8 x i8], ptr %686, i64 %.011.i.i.i.i.i.i.i.i14.i292
   %702 = load <2 x double>, ptr %701, align 16, !tbaa !12
   store <2 x double> %702, ptr %700, align 16, !tbaa !12
   %703 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14.i292, 2
@@ -8378,7 +8378,7 @@ _ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %62
   store ptr %20, ptr %0, align 8, !tbaa !87
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !83
-  %66 = getelementptr inbounds nuw %"struct.ceres::internal::FunctionSample", ptr %20, i64 %16
+  %66 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %16
   store ptr %66, ptr %61, align 8, !tbaa !86
   ret void
 
@@ -8550,7 +8550,7 @@ _ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %65
   store ptr %21, ptr %0, align 8, !tbaa !87
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !83
-  %69 = getelementptr inbounds nuw %"struct.ceres::internal::FunctionSample", ptr %21, i64 %17
+  %69 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %17
   store ptr %69, ptr %64, align 8, !tbaa !86
   ret void
 

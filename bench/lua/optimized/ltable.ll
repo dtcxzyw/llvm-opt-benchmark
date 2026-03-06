@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.Value = type { ptr }
-%union.Node = type { %struct.NodeKey }
-%struct.NodeKey = type { %union.Value, i8, i8, i32, %union.Value }
 %struct.TValue = type { %union.Value, i8 }
 %struct.Table = type { ptr, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr }
 %struct.Counters = type { i32, i32, i32, [32 x i32] }
@@ -96,7 +94,7 @@ findindex.exit:                                   ; preds = %3, %12, %23
   %48 = load ptr, ptr %34, align 8, !tbaa !19
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = sub nsw i64 0, %indvars.iv
-  %51 = getelementptr inbounds %union.Value, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !16
   store i64 %52, ptr %46, align 8, !tbaa !16
   br label %.loopexit
@@ -131,7 +129,7 @@ findindex.exit:                                   ; preds = %3, %12, %23
 63:                                               ; preds = %.lr.ph56, %60
   %.14354 = phi i32 [ %53, %.lr.ph56 ], [ %61, %60 ]
   %64 = zext i32 %.14354 to i64
-  %65 = getelementptr inbounds nuw %union.Node, ptr %59, i64 %64
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i8, ptr %66, align 8, !tbaa !16
   %68 = and i8 %67, 15
@@ -220,7 +218,7 @@ define hidden void @luaH_resize(ptr noundef %0, ptr noundef captures(none) %1, i
   %34 = or disjoint i64 %33, 8
   %35 = tail call ptr @luaM_malloc_(ptr noundef %0, i64 noundef %34, i32 noundef 0) #13
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = getelementptr inbounds nuw %union.Node, ptr %36, i64 %31
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %31
   store ptr %37, ptr %35, align 8, !tbaa !16
   br label %38
 
@@ -236,7 +234,7 @@ define hidden void @luaH_resize(ptr noundef %0, ptr noundef captures(none) %1, i
 
 41:                                               ; preds = %41, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds nuw %union.Node, ptr %.sink, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %.sink, i64 %indvars.iv.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 0, ptr %43, align 4, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 9
@@ -298,7 +296,7 @@ setnodevector.exit:                               ; preds = %41, %16
   store i8 %67, ptr %61, align 8, !tbaa !14
   %72 = getelementptr inbounds i8, ptr %64, i64 -8
   %73 = sub nsw i64 0, %indvars.iv.i35
-  %74 = getelementptr inbounds %union.Value, ptr %72, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !16
   store i64 %75, ptr %7, align 8, !tbaa !16
   %76 = call fastcc i32 @insertkey(ptr noundef nonnull readonly %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -348,7 +346,7 @@ resizearray.exit.thread:                          ; preds = %90
   %93 = load ptr, ptr %92, align 8, !tbaa !19
   %94 = zext i32 %10 to i64
   %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds %union.Value, ptr %93, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %93, i64 %95
   %97 = icmp eq i32 %10, 0
   %98 = mul nuw nsw i64 %94, 9
   %99 = add nuw nsw i64 %98, 4
@@ -365,7 +363,7 @@ resizearray.exit.thread:                          ; preds = %90
   br i1 %105, label %resizearray.exit, label %106
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds nuw %union.Value, ptr %104, i64 %101
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %101
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %resizearray.exit, label %108
 
@@ -380,11 +378,11 @@ resizearray.exit.thread:                          ; preds = %90
   %116 = select i1 %114, i64 %111, i64 %103
   %117 = zext i32 %115 to i64
   %118 = sub nsw i64 0, %117
-  %119 = getelementptr inbounds %union.Value, ptr %107, i64 %118
-  %120 = getelementptr inbounds %union.Value, ptr %113, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %107, i64 %118
+  %120 = getelementptr inbounds [8 x i8], ptr %113, i64 %118
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %119, ptr noundef nonnull align 8 dereferenceable(1) %120, i64 %116, i1 false)
   %121 = sub nsw i64 0, %109
-  %122 = getelementptr inbounds %union.Value, ptr %113, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %113, i64 %121
   tail call void @luaM_free_(ptr noundef %0, ptr noundef nonnull %122, i64 noundef %111) #13
   br label %resizearray.exit
 
@@ -453,7 +451,7 @@ clearNewSlice.exit:                               ; preds = %145, %142
 151:                                              ; preds = %182, %clearNewSlice.exit
   %.01.i = phi i32 [ 0, %clearNewSlice.exit ], [ %183, %182 ]
   %152 = zext i32 %.01.i to i64
-  %153 = getelementptr inbounds nuw %union.Node, ptr %132, i64 %152
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %132, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i8, ptr %154, align 8, !tbaa !16
   %156 = and i8 %155, 15
@@ -491,7 +489,7 @@ clearNewSlice.exit:                               ; preds = %145, %142
   %176 = load ptr, ptr %139, align 8, !tbaa !19
   %177 = getelementptr inbounds i8, ptr %176, i64 -8
   %178 = sub nsw i64 0, %174
-  %179 = getelementptr inbounds %union.Value, ptr %177, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %177, i64 %178
   %180 = load i64, ptr %153, align 8, !tbaa !16
   store i64 %180, ptr %179, align 8, !tbaa !16
   br label %newcheckedkey.exit.i
@@ -669,7 +667,7 @@ freehash.exit:                                    ; preds = %2, %6
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = zext i32 %18 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds %union.Value, ptr %22, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %24
   %26 = mul nuw nsw i64 %23, 9
   %27 = add nuw nsw i64 %26, 4
   tail call void @luaM_free_(ptr noundef %0, ptr noundef nonnull %25, i64 noundef %27) #13
@@ -711,7 +709,7 @@ define hidden zeroext i8 @luaH_getint(ptr noundef readonly captures(none) %0, i6
   store i8 %17, ptr %21, align 8, !tbaa !14
   %22 = getelementptr inbounds i8, ptr %12, i64 -8
   %23 = sub nsw i64 0, %15
-  %24 = getelementptr inbounds %union.Value, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !16
   store i64 %25, ptr %2, align 8, !tbaa !16
   br label %66
@@ -740,7 +738,7 @@ define hidden zeroext i8 @luaH_getint(ptr noundef readonly captures(none) %0, i6
 
 hashint.exit.i:                                   ; preds = %38, %35
   %.sink.i.i = phi i64 [ %40, %38 ], [ %37, %35 ]
-  %41 = getelementptr inbounds nuw %union.Node, ptr %29, i64 %.sink.i.i
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.sink.i.i
   br label %42
 
 42:                                               ; preds = %50, %hashint.exit.i
@@ -761,7 +759,7 @@ hashint.exit.i:                                   ; preds = %38, %35
   %52 = load i32, ptr %51, align 4, !tbaa !16
   %53 = icmp eq i32 %52, 0
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds %union.Node, ptr %.012.i, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %.012.i, i64 %54
   br i1 %53, label %getintfromhash.exit, label %42
 
 getintfromhash.exit:                              ; preds = %46, %50
@@ -803,7 +801,7 @@ define hidden ptr @luaH_Hgetshortstr(ptr noundef readonly captures(none) %0, ptr
   %10 = xor i32 %notmask, -1
   %11 = and i32 %6, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw %union.Node, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %12
   br label %14
 
 14:                                               ; preds = %22, %2
@@ -824,7 +822,7 @@ define hidden ptr @luaH_Hgetshortstr(ptr noundef readonly captures(none) %0, ptr
   %24 = load i32, ptr %23, align 4, !tbaa !16
   %.not = icmp eq i32 %24, 0
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %union.Node, ptr %.013, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %.013, i64 %25
   br i1 %.not, label %27, label %14
 
 27:                                               ; preds = %18, %22
@@ -845,7 +843,7 @@ define hidden zeroext range(i8 0, 64) i8 @luaH_getshortstr(ptr noundef readonly 
   %11 = xor i32 %notmask.i, -1
   %12 = and i32 %7, %11
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %union.Node, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %13
   br label %15
 
 15:                                               ; preds = %23, %3
@@ -866,7 +864,7 @@ define hidden zeroext range(i8 0, 64) i8 @luaH_getshortstr(ptr noundef readonly 
   %25 = load i32, ptr %24, align 4, !tbaa !16
   %.not.i = icmp eq i32 %25, 0
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %union.Node, ptr %.013.i, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %.013.i, i64 %26
   br i1 %.not.i, label %luaH_Hgetshortstr.exit, label %15
 
 luaH_Hgetshortstr.exit:                           ; preds = %19, %23
@@ -911,7 +909,7 @@ define hidden zeroext range(i8 0, 64) i8 @luaH_getstr(ptr noundef readonly captu
   %16 = xor i32 %notmask.i.i, -1
   %17 = and i32 %12, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %union.Node, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %18
   br label %20
 
 20:                                               ; preds = %28, %8
@@ -932,7 +930,7 @@ define hidden zeroext range(i8 0, 64) i8 @luaH_getstr(ptr noundef readonly captu
   %30 = load i32, ptr %29, align 4, !tbaa !16
   %.not.i.i = icmp eq i32 %30, 0
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %union.Node, ptr %.013.i.i, i64 %31
+  %32 = getelementptr inbounds [24 x i8], ptr %.013.i.i, i64 %31
   br i1 %.not.i.i, label %Hgetstr.exit, label %20
 
 33:                                               ; preds = %3
@@ -995,7 +993,7 @@ define hidden zeroext i8 @luaH_get(ptr noundef readonly captures(none) %0, ptr n
   %17 = xor i32 %notmask.i, -1
   %18 = and i32 %13, %17
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw %union.Node, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %19
   br label %21
 
 21:                                               ; preds = %29, %8
@@ -1016,7 +1014,7 @@ define hidden zeroext i8 @luaH_get(ptr noundef readonly captures(none) %0, ptr n
   %31 = load i32, ptr %30, align 4, !tbaa !16
   %.not.i = icmp eq i32 %31, 0
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %union.Node, ptr %.013.i, i64 %32
+  %33 = getelementptr inbounds [24 x i8], ptr %.013.i, i64 %32
   br i1 %.not.i, label %luaH_Hgetshortstr.exit, label %21
 
 34:                                               ; preds = %3
@@ -1048,7 +1046,7 @@ define hidden zeroext i8 @luaH_get(ptr noundef readonly captures(none) %0, ptr n
   store i8 %49, ptr %53, align 8, !tbaa !14
   %54 = getelementptr inbounds i8, ptr %44, i64 -8
   %55 = sub nsw i64 0, %47
-  %56 = getelementptr inbounds %union.Value, ptr %54, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %54, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !16
   store i64 %57, ptr %2, align 8, !tbaa !16
   br label %luaH_getint.exit
@@ -1077,7 +1075,7 @@ define hidden zeroext i8 @luaH_get(ptr noundef readonly captures(none) %0, ptr n
 
 hashint.exit.i.i:                                 ; preds = %70, %67
   %.sink.i.i.i = phi i64 [ %72, %70 ], [ %69, %67 ]
-  %73 = getelementptr inbounds nuw %union.Node, ptr %61, i64 %.sink.i.i.i
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %.sink.i.i.i
   br label %74
 
 74:                                               ; preds = %82, %hashint.exit.i.i
@@ -1098,7 +1096,7 @@ hashint.exit.i.i:                                 ; preds = %70, %67
   %84 = load i32, ptr %83, align 4, !tbaa !16
   %85 = icmp eq i32 %84, 0
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds %union.Node, ptr %.012.i.i, i64 %86
+  %87 = getelementptr inbounds [24 x i8], ptr %.012.i.i, i64 %86
   br i1 %85, label %getintfromhash.exit.i, label %74
 
 getintfromhash.exit.i:                            ; preds = %82, %78
@@ -1162,7 +1160,7 @@ luaH_getint.exit27.thread29:                      ; preds = %98
   store i8 %116, ptr %120, align 8, !tbaa !14
   %121 = getelementptr inbounds i8, ptr %111, i64 -8
   %122 = sub nsw i64 0, %114
-  %123 = getelementptr inbounds %union.Value, ptr %121, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %121, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !16
   store i64 %124, ptr %2, align 8, !tbaa !16
   br label %luaH_getint.exit27.thread
@@ -1191,7 +1189,7 @@ luaH_getint.exit27.thread29:                      ; preds = %98
 
 hashint.exit.i.i21:                               ; preds = %137, %134
   %.sink.i.i.i22 = phi i64 [ %139, %137 ], [ %136, %134 ]
-  %140 = getelementptr inbounds nuw %union.Node, ptr %128, i64 %.sink.i.i.i22
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %128, i64 %.sink.i.i.i22
   br label %141
 
 141:                                              ; preds = %149, %hashint.exit.i.i21
@@ -1212,7 +1210,7 @@ hashint.exit.i.i21:                               ; preds = %137, %134
   %151 = load i32, ptr %150, align 4, !tbaa !16
   %152 = icmp eq i32 %151, 0
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds %union.Node, ptr %.012.i.i23, i64 %153
+  %154 = getelementptr inbounds [24 x i8], ptr %.012.i.i23, i64 %153
   br i1 %152, label %getintfromhash.exit.i24, label %141
 
 getintfromhash.exit.i24:                          ; preds = %149, %145
@@ -1348,7 +1346,7 @@ equalkey.exit.thread.us:                          ; preds = %23, %18, %14, %10, 
   %36 = load i32, ptr %35, align 4, !tbaa !16
   %.not15.us = icmp eq i32 %36, 0
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %union.Node, ptr %.012.us, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %.012.us, i64 %37
   br i1 %.not15.us, label %equalkey.exit.thread18, label %.split.us
 
 .split:                                           ; preds = %3, %equalkey.exit.thread
@@ -1426,7 +1424,7 @@ equalkey.exit.thread:                             ; preds = %46, %50, %55, %59, 
   %72 = load i32, ptr %71, align 4, !tbaa !16
   %.not15 = icmp eq i32 %72, 0
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %union.Node, ptr %.012, i64 %73
+  %74 = getelementptr inbounds [24 x i8], ptr %.012, i64 %73
   br i1 %.not15, label %equalkey.exit.thread18, label %.split
 
 equalkey.exit.thread18:                           ; preds = %equalkey.exit.thread, %equalkey.exit, %45, %45, %45, %.thread.i, %59, %55, %50, %46, %9, %9, %9, %equalkey.exit.us, %equalkey.exit.thread.us, %.thread.i.us, %10, %14, %18, %23
@@ -1466,7 +1464,7 @@ define hidden range(i32 -2147483645, -2147483648) i32 @luaH_psetint(ptr noundef 
 
 hashint.exit.i:                                   ; preds = %16, %7
   %.sink.i.i = phi i64 [ %23, %16 ], [ %15, %7 ]
-  %24 = getelementptr inbounds nuw %union.Node, ptr %6, i64 %.sink.i.i
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.sink.i.i
   br label %25
 
 25:                                               ; preds = %33, %hashint.exit.i
@@ -1487,7 +1485,7 @@ hashint.exit.i:                                   ; preds = %16, %7
   %35 = load i32, ptr %34, align 4, !tbaa !16
   %36 = icmp eq i32 %35, 0
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds %union.Node, ptr %.012.i, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %.012.i, i64 %37
   br i1 %36, label %getintfromhash.exit, label %25
 
 getintfromhash.exit:                              ; preds = %29, %33
@@ -1538,7 +1536,7 @@ define hidden range(i32 -2147483645, -2147483648) i32 @luaH_psetshortstr(ptr nou
   %12 = xor i32 %notmask.i, -1
   %13 = and i32 %8, %12
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw %union.Node, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %14
   br label %16
 
 16:                                               ; preds = %24, %3
@@ -1559,7 +1557,7 @@ define hidden range(i32 -2147483645, -2147483648) i32 @luaH_psetshortstr(ptr nou
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %.not.i = icmp eq i32 %26, 0
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %union.Node, ptr %.013.i, i64 %27
+  %28 = getelementptr inbounds [24 x i8], ptr %.013.i, i64 %27
   br i1 %.not.i, label %luaH_Hgetshortstr.exit, label %16
 
 luaH_Hgetshortstr.exit:                           ; preds = %20, %24
@@ -1718,7 +1716,7 @@ define internal fastcc range(i32 0, 2) i32 @insertkey(ptr noundef readonly captu
 
 35:                                               ; preds = %34
   %36 = add nsw i64 %indvars.iv.i, -1
-  %37 = getelementptr inbounds nuw %union.Node, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 9
   %39 = load i8, ptr %38, align 1, !tbaa !16
   %.not21.i = icmp eq i8 %39, 0
@@ -1748,7 +1746,7 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
   %45 = getelementptr inbounds nuw i8, ptr %.050, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !16
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %union.Node, ptr %.050, i64 %47
+  %48 = getelementptr inbounds [24 x i8], ptr %.050, i64 %47
   %.not59 = icmp eq ptr %48, %5
   br i1 %.not59, label %49, label %.preheader
 
@@ -1794,7 +1792,7 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
 
 70:                                               ; preds = %67
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %union.Node, ptr %5, i64 %71
+  %72 = getelementptr inbounds [24 x i8], ptr %5, i64 %71
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %.2.i to i64
   %75 = sub i64 %73, %74
@@ -2006,7 +2004,7 @@ define internal fastcc i32 @psetint(ptr noundef readonly captures(none) %0, i64 
   %28 = load ptr, ptr %10, align 8, !tbaa !19
   %29 = getelementptr inbounds i8, ptr %28, i64 -8
   %30 = sub nsw i64 1, %1
-  %31 = getelementptr inbounds %union.Value, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load i64, ptr %2, align 8, !tbaa !16
   store i64 %32, ptr %31, align 8, !tbaa !16
   br label %luaH_psetint.exit
@@ -2047,7 +2045,7 @@ define internal fastcc i32 @psetint(ptr noundef readonly captures(none) %0, i64 
 
 hashint.exit.i.i:                                 ; preds = %49, %40
   %.sink.i.i.i = phi i64 [ %56, %49 ], [ %48, %40 ]
-  %57 = getelementptr inbounds nuw %union.Node, ptr %39, i64 %.sink.i.i.i
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %.sink.i.i.i
   br label %58
 
 58:                                               ; preds = %66, %hashint.exit.i.i
@@ -2068,7 +2066,7 @@ hashint.exit.i.i:                                 ; preds = %49, %40
   %68 = load i32, ptr %67, align 4, !tbaa !16
   %69 = icmp eq i32 %68, 0
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds %union.Node, ptr %.012.i.i, i64 %70
+  %71 = getelementptr inbounds [24 x i8], ptr %.012.i.i, i64 %70
   br i1 %69, label %getintfromhash.exit.i, label %58
 
 getintfromhash.exit.i:                            ; preds = %66, %62
@@ -2169,7 +2167,7 @@ define hidden void @luaH_finishset(ptr noundef %0, ptr noundef %1, ptr noundef r
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !18
   %33 = zext nneg i32 %4 to i64
-  %34 = getelementptr %union.Node, ptr %32, i64 %33
+  %34 = getelementptr [24 x i8], ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -72
   %36 = load i64, ptr %3, align 8, !tbaa !16
   store i64 %36, ptr %35, align 8, !tbaa !16
@@ -2192,7 +2190,7 @@ define hidden void @luaH_finishset(ptr noundef %0, ptr noundef %1, ptr noundef r
   %49 = load ptr, ptr %44, align 8, !tbaa !19
   %50 = getelementptr inbounds i8, ptr %49, i64 -8
   %51 = sub nsw i64 0, %47
-  %52 = getelementptr inbounds %union.Value, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load i64, ptr %3, align 8, !tbaa !16
   store i64 %53, ptr %52, align 8, !tbaa !16
   br label %54
@@ -2235,7 +2233,7 @@ define internal fastcc void @luaH_newkey(ptr noundef %0, ptr noundef %1, ptr nou
   %23 = trunc nuw i64 %19 to i32
   %24 = tail call zeroext i8 @luaO_ceillog2(i32 noundef %23) #13
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %13, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !23
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4, !tbaa !23
@@ -2258,7 +2256,7 @@ countint.exit.i:                                  ; preds = %22, %18, %12
   %indvars.iv.i.i = phi i64 [ %34, %countint.exit.i ], [ %indvars.iv.next.i.i, %countint.exit.i.i ]
   %.01112.i.i = phi i32 [ 0, %countint.exit.i ], [ %.1.i.i, %countint.exit.i.i ]
   %38 = load ptr, ptr %32, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw %union.Node, ptr %38, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv.i.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !16
   %42 = and i8 %41, 15
@@ -2283,7 +2281,7 @@ countint.exit.i:                                  ; preds = %22, %18, %12
   %55 = trunc nuw i64 %51 to i32
   %56 = tail call zeroext i8 @luaO_ceillog2(i32 noundef %55) #13
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %13, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !23
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !23
@@ -2355,7 +2353,7 @@ numusehash.exit.i:                                ; preds = %countint.exit.i.i
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %74
   %.2.lcssa.i.i = phi i32 [ %.02848.i.i, %74 ], [ %85, %._crit_edge.i.loopexit.i ]
   %.026.lcssa.i.i = phi i32 [ 0, %74 ], [ %spec.select.i.i, %._crit_edge.i.loopexit.i ]
-  %86 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i15.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i15.i
   %87 = load i32, ptr %86, align 4, !tbaa !23
   %88 = add i32 %87, %.026.lcssa.i.i
   store i32 %88, ptr %86, align 4, !tbaa !23
@@ -2384,7 +2382,7 @@ numusearray.exit.i:                               ; preds = %._crit_edge.i.i, %7
   br i1 %.not22.i.i, label %rehash.exit, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i17.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i17.i
   %99 = load i32, ptr %98, align 4, !tbaa !23
   %100 = add i32 %99, %.01927.i.i
   %.not23.i.i = icmp eq i32 %99, 0
@@ -2437,7 +2435,7 @@ rehash.exit:                                      ; preds = %95, %97, %numusehas
   %126 = load ptr, ptr %120, align 8, !tbaa !19
   %127 = getelementptr inbounds i8, ptr %126, i64 -8
   %128 = sub nsw i64 0, %124
-  %129 = getelementptr inbounds %union.Value, ptr %127, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %127, i64 %128
   %130 = load i64, ptr %3, align 8, !tbaa !16
   store i64 %130, ptr %129, align 8, !tbaa !16
   br label %newcheckedkey.exit
@@ -2516,7 +2514,7 @@ define hidden void @luaH_setint(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %21 = load ptr, ptr %15, align 8, !tbaa !19
   %22 = getelementptr inbounds i8, ptr %21, i64 -8
   %23 = sub nsw i64 0, %19
-  %24 = getelementptr inbounds %union.Value, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %3, align 8, !tbaa !16
   store i64 %25, ptr %24, align 8, !tbaa !16
   br label %64
@@ -2545,7 +2543,7 @@ define hidden void @luaH_setint(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 
 hashint.exit.i:                                   ; preds = %38, %35
   %.sink.i.i = phi i64 [ %40, %38 ], [ %37, %35 ]
-  %41 = getelementptr inbounds nuw %union.Node, ptr %29, i64 %.sink.i.i
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.sink.i.i
   br label %42
 
 42:                                               ; preds = %50, %hashint.exit.i
@@ -2566,7 +2564,7 @@ hashint.exit.i:                                   ; preds = %38, %35
   %52 = load i32, ptr %51, align 4, !tbaa !16
   %53 = icmp eq i32 %52, 0
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds %union.Node, ptr %.012.i, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %.012.i, i64 %54
   br i1 %53, label %getintfromhash.exit, label %42
 
 getintfromhash.exit:                              ; preds = %46, %50
@@ -2776,7 +2774,7 @@ hashint.exit.i.i:                                 ; preds = %70
   %.pn = or i32 %.pn.in, 1
   %.sink.i.i.i.in = urem i32 %74, %.pn
   %.sink.i.i.i = zext nneg i32 %.sink.i.i.i.in to i64
-  %78 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %.sink.i.i.i
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.sink.i.i.i
   br label %79
 
 79:                                               ; preds = %87, %hashint.exit.i.i
@@ -2797,7 +2795,7 @@ hashint.exit.i.i:                                 ; preds = %70
   %89 = load i32, ptr %88, align 4, !tbaa !16
   %90 = icmp eq i32 %89, 0
   %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds %union.Node, ptr %.012.i.i, i64 %91
+  %92 = getelementptr inbounds [24 x i8], ptr %.012.i.i, i64 %91
   br i1 %90, label %hashkeyisempty.exit, label %79
 
 hashkeyisempty.exit:                              ; preds = %83, %87
@@ -2844,7 +2842,7 @@ hashkeyisempty.exit:                              ; preds = %83, %87
 
 hashint.exit.i.i.i:                               ; preds = %113, %109
   %.sink.i.i.i.i = phi i64 [ %114, %113 ], [ %112, %109 ]
-  %115 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %.sink.i.i.i.i
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.sink.i.i.i.i
   br label %116
 
 116:                                              ; preds = %124, %hashint.exit.i.i.i
@@ -2865,7 +2863,7 @@ hashint.exit.i.i.i:                               ; preds = %113, %109
   %126 = load i32, ptr %125, align 4, !tbaa !16
   %127 = icmp eq i32 %126, 0
   %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds %union.Node, ptr %.012.i.i.i, i64 %128
+  %129 = getelementptr inbounds [24 x i8], ptr %.012.i.i.i, i64 %128
   br i1 %127, label %hashkeyisempty.exit.i, label %116
 
 hashkeyisempty.exit.i:                            ; preds = %124, %120
@@ -2883,7 +2881,7 @@ hashkeyisempty.exit.i:                            ; preds = %124, %120
   %136 = or i32 %135, 1
   %137 = zext nneg i32 %136 to i64
   %138 = urem i64 9223372036854775807, %137
-  %139 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %138
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %138
   br label %140
 
 140:                                              ; preds = %148, %133
@@ -2904,7 +2902,7 @@ hashkeyisempty.exit.i:                            ; preds = %124, %120
   %150 = load i32, ptr %149, align 4, !tbaa !16
   %151 = icmp eq i32 %150, 0
   %152 = sext i32 %150 to i64
-  %153 = getelementptr inbounds %union.Node, ptr %.012.i.i29.i, i64 %152
+  %153 = getelementptr inbounds [24 x i8], ptr %.012.i.i29.i, i64 %152
   br i1 %151, label %hashkeyisempty.exit31.i, label %140
 
 hashkeyisempty.exit31.i:                          ; preds = %148, %144
@@ -2949,7 +2947,7 @@ hashkeyisempty.exit31.i:                          ; preds = %148, %144
 
 hashint.exit.i.i33.i:                             ; preds = %171, %167
   %.sink.i.i.i34.i = phi i64 [ %172, %171 ], [ %170, %167 ]
-  %173 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %.sink.i.i.i34.i
+  %173 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.sink.i.i.i34.i
   br label %174
 
 174:                                              ; preds = %182, %hashint.exit.i.i33.i
@@ -2970,7 +2968,7 @@ hashint.exit.i.i33.i:                             ; preds = %171, %167
   %184 = load i32, ptr %183, align 4, !tbaa !16
   %185 = icmp eq i32 %184, 0
   %186 = sext i32 %184 to i64
-  %187 = getelementptr inbounds %union.Node, ptr %.012.i.i35.i, i64 %186
+  %187 = getelementptr inbounds [24 x i8], ptr %.012.i.i35.i, i64 %186
   br i1 %185, label %hashkeyisempty.exit38.i, label %174
 
 hashkeyisempty.exit38.i:                          ; preds = %182, %178
@@ -3045,7 +3043,7 @@ define internal fastcc ptr @mainpositionTV(ptr noundef readonly captures(none) %
 
 hashint.exit:                                     ; preds = %12, %21
   %.sink.i = phi i64 [ %28, %21 ], [ %20, %12 ]
-  %29 = getelementptr inbounds nuw %union.Node, ptr %11, i64 %.sink.i
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %.sink.i
   br label %130
 
 30:                                               ; preds = %2
@@ -3080,7 +3078,7 @@ l_hashfloat.exit:                                 ; preds = %30, %38
   %48 = or i32 %47, 1
   %49 = urem i32 %.0.i, %48
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw %union.Node, ptr %33, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %50
   br label %130
 
 52:                                               ; preds = %2
@@ -3096,7 +3094,7 @@ l_hashfloat.exit:                                 ; preds = %30, %38
   %61 = xor i32 %notmask35, -1
   %62 = and i32 %57, %61
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw %union.Node, ptr %55, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %63
   br label %130
 
 65:                                               ; preds = %2
@@ -3111,7 +3109,7 @@ l_hashfloat.exit:                                 ; preds = %30, %38
   %73 = xor i32 %notmask34, -1
   %74 = and i32 %69, %73
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw %union.Node, ptr %68, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %75
   br label %130
 
 77:                                               ; preds = %2
@@ -3126,7 +3124,7 @@ l_hashfloat.exit:                                 ; preds = %30, %38
   %84 = load i8, ptr %83, align 1, !tbaa !20
   %85 = icmp ne i8 %84, 0
   %86 = zext i1 %85 to i64
-  %87 = getelementptr inbounds nuw %union.Node, ptr %82, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %86
   br label %130
 
 88:                                               ; preds = %2
@@ -3143,7 +3141,7 @@ l_hashfloat.exit:                                 ; preds = %30, %38
   %98 = or i32 %97, 1
   %99 = urem i32 %93, %98
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw %union.Node, ptr %91, i64 %100
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %100
   br label %130
 
 102:                                              ; preds = %2
@@ -3160,7 +3158,7 @@ l_hashfloat.exit:                                 ; preds = %30, %38
   %112 = or i32 %111, 1
   %113 = urem i32 %107, %112
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw %union.Node, ptr %105, i64 %114
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %114
   br label %130
 
 116:                                              ; preds = %2
@@ -3177,7 +3175,7 @@ l_hashfloat.exit:                                 ; preds = %30, %38
   %126 = or i32 %125, 1
   %127 = urem i32 %121, %126
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw %union.Node, ptr %119, i64 %128
+  %129 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %128
   br label %130
 
 130:                                              ; preds = %116, %102, %88, %80, %77, %65, %52, %l_hashfloat.exit, %hashint.exit

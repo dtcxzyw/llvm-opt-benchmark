@@ -882,7 +882,7 @@ protoset_index.exit:                              ; preds = %95
   %.060116 = phi i64 [ %109, %.lr.ph117 ], [ 0, %protoset_index.exit ]
   %108 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %107) #19
   %109 = add i64 %.060116, 1
-  %110 = getelementptr inbounds nuw ptr, ptr %12, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !30
   %112 = icmp ne ptr %111, null
   %.not77 = icmp eq i32 %108, 0
@@ -1340,7 +1340,7 @@ define dso_local range(i32 0, 5) i32 @str2tls_max(ptr noundef writeonly captures
 
 .preheader:                                       ; preds = %2, %3
   %.010 = phi i64 [ %4, %3 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw %struct.s_tls_max, ptr @str2tls_max.tls_max_array, i64 %.010
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @str2tls_max.tls_max_array, i64 %.010
   %6 = load ptr, ptr %5, align 16, !tbaa !63
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #21
   %.not9 = icmp eq i32 %7, 0

@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/XRayInstr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::StringRef" = type { ptr, i64 }
-
 @.str = private unnamed_addr constant [4 x i8] c"all\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"custom\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"function\00", align 1
@@ -90,7 +88,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %12 = phi i32 [ %5, %3 ], [ %.pre.i, %8 ]
   %13 = load ptr, ptr %1, align 8, !tbaa !11
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   store ptr @.str, ptr %15, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 3, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -119,7 +117,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit10: ; pr
   %27 = phi i32 [ %20, %18 ], [ %.pre.i8, %23 ]
   %28 = load ptr, ptr %1, align 8, !tbaa !11
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %29
   store ptr @.str.6, ptr %30, align 1
   %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i9, align 1
@@ -153,7 +151,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit14: ; pr
   %44 = phi i32 [ %37, %35 ], [ %.pre.i12, %40 ]
   %45 = load ptr, ptr %1, align 8, !tbaa !11
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   store ptr @.str.1, ptr %47, align 1
   %.sroa.2.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 6, ptr %.sroa.2.0..sroa_idx.i13, align 1
@@ -187,7 +185,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit18: ; pr
   %61 = phi i32 [ %54, %52 ], [ %.pre.i16, %57 ]
   %62 = load ptr, ptr %1, align 8, !tbaa !11
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %63
   store ptr @.str.5, ptr %64, align 1
   %.sroa.2.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 5, ptr %.sroa.2.0..sroa_idx.i17, align 1
@@ -226,7 +224,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit22: ; pr
   %80 = phi i32 [ %72, %75 ], [ %.pre.i20, %76 ]
   %81 = load ptr, ptr %1, align 8, !tbaa !11
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %82
   store ptr @.str.2, ptr %83, align 1
   %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 8, ptr %.sroa.2.0..sroa_idx.i21, align 1
@@ -250,7 +248,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit26: ; pr
   %91 = phi i32 [ %72, %86 ], [ %.pre.i24, %87 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !11
   %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   store ptr @.str.3, ptr %94, align 1
   %.sroa.2.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i64 14, ptr %.sroa.2.0..sroa_idx.i25, align 1
@@ -282,7 +280,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit30: ; pr
   %107 = phi i32 [ %100, %98 ], [ %.pre.i28, %103 ]
   %108 = load ptr, ptr %1, align 8, !tbaa !11
   %109 = zext i32 %107 to i64
-  %110 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %109
   store ptr @.str.4, ptr %110, align 1
   %.sroa.2.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i64 13, ptr %.sroa.2.0..sroa_idx.i29, align 1

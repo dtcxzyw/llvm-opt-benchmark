@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/srt_table.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._srt_procedure_t = type { i32, %struct._timestat_t, ptr }
-%struct._timestat_t = type { i32, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, double }
 %struct.nstime_t = type { i64, i32 }
 
 @registered_srt_tables = internal unnamed_addr global ptr null, align 8
@@ -77,12 +75,12 @@ define void @free_srt_table_data(ptr noundef captures(none) %0) local_unnamed_ad
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr %struct._srt_procedure_t, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [88 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10)
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr %struct._srt_procedure_t, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [88 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr null, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -117,7 +115,7 @@ define void @free_srt_table(ptr noundef captures(none) %0, ptr noundef %1) local
 .lr.ph:                                           ; preds = %2, %free_srt_table_data.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %free_srt_table_data.exit ], [ 0, %2 ]
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
@@ -131,12 +129,12 @@ define void @free_srt_table(ptr noundef captures(none) %0, ptr noundef %1) local
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr %struct._srt_procedure_t, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr [88 x i8], ptr %13, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load ptr, ptr %15, align 8
   tail call void @g_free(ptr noundef %16)
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr %struct._srt_procedure_t, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr [88 x i8], ptr %17, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store ptr null, ptr %19, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -185,7 +183,7 @@ define void @reset_srt_table(ptr noundef readonly captures(none) %0) local_unnam
   %4 = phi i32 [ %19, %reset_srt_table_data.exit ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %reset_srt_table_data.exit ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
@@ -199,7 +197,7 @@ define void @reset_srt_table(ptr noundef readonly captures(none) %0) local_unnam
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr %struct._srt_procedure_t, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr [88 x i8], ptr %13, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   tail call void @time_stat_init(ptr noundef nonnull %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -439,14 +437,14 @@ define ptr @init_srt_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr %struct._srt_procedure_t, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [88 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   tail call void @time_stat_init(ptr noundef nonnull %21)
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr %struct._srt_procedure_t, ptr %22, i64 %indvars.iv
+  %23 = getelementptr [88 x i8], ptr %22, i64 %indvars.iv
   store i32 0, ptr %23, align 8
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr %struct._srt_procedure_t, ptr %24, i64 %indvars.iv
+  %25 = getelementptr [88 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   store ptr null, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -506,15 +504,15 @@ define void @init_srt_table_row(ptr noundef captures(none) %0, i32 noundef %1, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr %struct._srt_procedure_t, ptr %16, i64 %indvars.iv
+  %17 = getelementptr [88 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void @time_stat_init(ptr noundef nonnull %18)
   %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr %struct._srt_procedure_t, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [88 x i8], ptr %19, i64 %indvars.iv
   %21 = trunc nsw i64 %indvars.iv to i32
   store i32 %21, ptr %20, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr %struct._srt_procedure_t, ptr %22, i64 %indvars.iv
+  %23 = getelementptr [88 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store ptr null, ptr %24, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -527,11 +525,11 @@ define void @init_srt_table_row(ptr noundef captures(none) %0, i32 noundef %1, p
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %1 to i64
-  %31 = getelementptr %struct._srt_procedure_t, ptr %29, i64 %30
+  %31 = getelementptr [88 x i8], ptr %29, i64 %30
   store i32 %1, ptr %31, align 8
   %32 = tail call noalias ptr @g_strdup(ptr noundef %2)
   %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr %struct._srt_procedure_t, ptr %33, i64 %30
+  %34 = getelementptr [88 x i8], ptr %33, i64 %30
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   store ptr %32, ptr %35, align 8
   ret void
@@ -549,7 +547,7 @@ define void @add_srt_table_data(ptr noundef readonly captures(none) %0, i32 noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr %struct._srt_procedure_t, ptr %8, i64 %9
+  %10 = getelementptr [88 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %2)

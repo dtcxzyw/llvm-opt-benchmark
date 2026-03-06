@@ -161,7 +161,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers22ExpressionMinerManage
   %35 = load i64, ptr %34, align 8
   %36 = lshr i64 %35, 32
   %37 = and i64 %36, 67108863
-  %38 = getelementptr inbounds nuw ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %37
   %.not28 = icmp eq ptr %spec.select.i.i, %38
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
@@ -1208,7 +1208,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !266
   store ptr %42, ptr %4, align 8, !tbaa !224
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !225
   ret void
 

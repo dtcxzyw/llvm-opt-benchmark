@@ -176,7 +176,7 @@ _ZL19pj_igh_o_setup_zoneP8PJconstsPN11pj_igh_o_ns13pj_igh_o_dataEiPFS0_S0_Eddd.e
 
 .preheader.i:                                     ; preds = %_ZL19pj_igh_o_setup_zoneP8PJconstsPN11pj_igh_o_ns13pj_igh_o_dataEiPFS0_S0_Eddd.exit.thread, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %_ZL19pj_igh_o_setup_zoneP8PJconstsPN11pj_igh_o_ns13pj_igh_o_dataEiPFS0_S0_Eddd.exit.thread ]
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8, !tbaa !42
   %.not.i79 = icmp eq ptr %60, null
   br i1 %.not.i79, label %65, label %61
@@ -397,7 +397,7 @@ define internal noundef ptr @_ZL19pj_igh_o_destructorP8PJconstsi(ptr noundef %0,
 
 .preheader:                                       ; preds = %4, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %4 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -496,7 +496,7 @@ select.unfold99:                                  ; preds = %23
 34:                                               ; preds = %23, %32, %17, %29, %15, %select.unfold97, %21, %select.unfold99, %28, %select.unfold, %31, %select.unfold98
   %.087 = phi i32 [ 10, %31 ], [ 9, %29 ], [ 3, %17 ], [ 1, %15 ], [ 12, %32 ], [ 6, %23 ], [ 4, %21 ], [ 7, %28 ], [ 8, %select.unfold ], [ 2, %select.unfold97 ], [ 11, %select.unfold98 ], [ 5, %select.unfold99 ]
   %35 = zext nneg i32 %.087 to i64
-  %36 = getelementptr ptr, ptr %5, i64 %35
+  %36 = getelementptr [8 x i8], ptr %5, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 456
@@ -715,7 +715,7 @@ define internal { double, double } @_ZL15igh_o_s_forward5PJ_LPP8PJconsts(double 
 
 26:                                               ; preds = %24, %23, %21, %20, %15, %13, %9, %7
   %.0 = phi i64 [ 9, %23 ], [ %., %9 ], [ 0, %7 ], [ %.28, %24 ], [ %.26, %15 ], [ 3, %13 ], [ 6, %20 ], [ %.27, %21 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0
   %28 = load ptr, ptr %27, align 8, !tbaa !42
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 440
   %30 = load double, ptr %29, align 8, !tbaa !46

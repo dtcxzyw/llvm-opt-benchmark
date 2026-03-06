@@ -83,9 +83,9 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffTokens(i32 noundef %0, ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = sext i32 %10 to i64
-  %19 = getelementptr inbounds [3 x [11 x i32]], ptr %17, i64 %18
+  %19 = getelementptr inbounds [132 x i8], ptr %17, i64 %18
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds [11 x i32], ptr %19, i64 %20
+  %21 = getelementptr inbounds [44 x i8], ptr %19, i64 %20
   %22 = icmp sgt i32 %9, -1
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !14
@@ -138,7 +138,7 @@ TBufferNewPage.exit.i:                            ; preds = %29
   %47 = or i32 %15, %46
   %48 = trunc i32 %47 to i16
   %49 = sext i32 %45 to i64
-  %50 = getelementptr inbounds i16, ptr %43, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %43, i64 %49
   store i16 %48, ptr %50, align 2, !tbaa !31
   br label %AddToken.exit
 
@@ -171,7 +171,7 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
   %.0120307 = phi i32 [ %15, %.lr.ph ], [ %.1121, %714 ]
   %.0124306 = phi ptr [ %21, %.lr.ph ], [ %.1125, %714 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
+  %65 = getelementptr inbounds [2 x i8], ptr %5, i64 %indvars.iv
   %66 = load i16, ptr %65, align 2, !tbaa !31
   %.lobit = and i16 %66, -32768
   %67 = tail call i16 @llvm.abs.i16(i16 %66, i1 false)
@@ -224,7 +224,7 @@ TBufferNewPage.exit.i142:                         ; preds = %75
   %90 = or i32 %89, %69
   %91 = trunc i32 %90 to i16
   %92 = sext i32 %88 to i64
-  %93 = getelementptr inbounds i16, ptr %86, i64 %92
+  %93 = getelementptr inbounds [2 x i8], ptr %86, i64 %92
   store i16 %91, ptr %93, align 2, !tbaa !31
   br label %AddToken.exit146
 
@@ -248,7 +248,7 @@ AddToken.exit146:                                 ; preds = %TBufferNewPage.exit
   %106 = mul nsw i32 %105, 33
   %107 = load ptr, ptr %16, align 8, !tbaa !29
   %108 = zext i8 %103 to i64
-  %109 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [132 x i8], ptr %107, i64 %108
   br label %714, !llvm.loop !35
 
 110:                                              ; preds = %AddToken.exit146
@@ -300,7 +300,7 @@ TBufferNewPage.exit.i150:                         ; preds = %118
   %133 = or i32 %132, %112
   %134 = trunc i32 %133 to i16
   %135 = sext i32 %131 to i64
-  %136 = getelementptr inbounds i16, ptr %129, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %129, i64 %135
   store i16 %134, ptr %136, align 2, !tbaa !31
   br label %AddToken.exit154
 
@@ -365,7 +365,7 @@ TBufferNewPage.exit.i158:                         ; preds = %152
   %167 = or i32 %166, %146
   %168 = trunc i32 %167 to i16
   %169 = sext i32 %165 to i64
-  %170 = getelementptr inbounds i16, ptr %163, i64 %169
+  %170 = getelementptr inbounds [2 x i8], ptr %163, i64 %169
   store i16 %168, ptr %170, align 2, !tbaa !31
   br label %AddToken.exit162
 
@@ -430,7 +430,7 @@ TBufferNewPage.exit.i166:                         ; preds = %185
   %200 = or i32 %199, %181
   %201 = trunc i32 %200 to i16
   %202 = sext i32 %198 to i64
-  %203 = getelementptr inbounds i16, ptr %196, i64 %202
+  %203 = getelementptr inbounds [2 x i8], ptr %196, i64 %202
   store i16 %201, ptr %203, align 2, !tbaa !31
   br label %AddToken.exit170
 
@@ -495,7 +495,7 @@ TBufferNewPage.exit.i174:                         ; preds = %219
   %234 = or i32 %233, %213
   %235 = trunc i32 %234 to i16
   %236 = sext i32 %232 to i64
-  %237 = getelementptr inbounds i16, ptr %230, i64 %236
+  %237 = getelementptr inbounds [2 x i8], ptr %230, i64 %236
   store i16 %235, ptr %237, align 2, !tbaa !31
   br label %AddToken.exit178
 
@@ -558,7 +558,7 @@ TBufferNewPage.exit.i182:                         ; preds = %251
   %266 = or i32 %265, %247
   %267 = trunc i32 %266 to i16
   %268 = sext i32 %264 to i64
-  %269 = getelementptr inbounds i16, ptr %262, i64 %268
+  %269 = getelementptr inbounds [2 x i8], ptr %262, i64 %268
   store i16 %267, ptr %269, align 2, !tbaa !31
   br label %AddToken.exit186
 
@@ -623,7 +623,7 @@ TBufferNewPage.exit.i190:                         ; preds = %285
   %300 = or i32 %299, %279
   %301 = trunc i32 %300 to i16
   %302 = sext i32 %298 to i64
-  %303 = getelementptr inbounds i16, ptr %296, i64 %302
+  %303 = getelementptr inbounds [2 x i8], ptr %296, i64 %302
   store i16 %301, ptr %303, align 2, !tbaa !31
   br label %AddToken.exit194
 
@@ -684,7 +684,7 @@ TBufferNewPage.exit.i197:                         ; preds = %317
   store i32 %330, ptr %23, align 8, !tbaa !14
   %331 = select i1 %314, i16 -16225, i16 16543
   %332 = sext i32 %330 to i64
-  %333 = getelementptr inbounds i16, ptr %328, i64 %332
+  %333 = getelementptr inbounds [2 x i8], ptr %328, i64 %332
   store i16 %331, ptr %333, align 2, !tbaa !31
   br label %AddConstantToken.exit
 
@@ -736,7 +736,7 @@ TBufferNewPage.exit.i203:                         ; preds = %338
   store i32 %351, ptr %23, align 8, !tbaa !14
   %352 = select i1 %335, i16 -16219, i16 16549
   %353 = sext i32 %351 to i64
-  %354 = getelementptr inbounds i16, ptr %349, i64 %353
+  %354 = getelementptr inbounds [2 x i8], ptr %349, i64 %353
   store i16 %352, ptr %354, align 2, !tbaa !31
   br label %AddConstantToken.exit207
 
@@ -785,7 +785,7 @@ TBufferNewPage.exit.i210:                         ; preds = %359
   %373 = shl i16 %67, 15
   %374 = xor i16 %373, -16239
   %375 = sext i32 %372 to i64
-  %376 = getelementptr inbounds i16, ptr %370, i64 %375
+  %376 = getelementptr inbounds [2 x i8], ptr %370, i64 %375
   store i16 %374, ptr %376, align 2, !tbaa !31
   br label %AddConstantToken.exit
 
@@ -839,7 +839,7 @@ TBufferNewPage.exit.i218:                         ; preds = %385
   %399 = trunc i32 %.0120307 to i16
   %400 = add i16 %399, 8
   %401 = sext i32 %398 to i64
-  %402 = getelementptr inbounds i16, ptr %396, i64 %401
+  %402 = getelementptr inbounds [2 x i8], ptr %396, i64 %401
   store i16 %400, ptr %402, align 2, !tbaa !31
   br label %AddToken.exit222
 
@@ -897,7 +897,7 @@ TBufferNewPage.exit.i226:                         ; preds = %414
   %428 = trunc i32 %.0120307 to i16
   %429 = add i16 %428, 9
   %430 = sext i32 %427 to i64
-  %431 = getelementptr inbounds i16, ptr %425, i64 %430
+  %431 = getelementptr inbounds [2 x i8], ptr %425, i64 %430
   store i16 %429, ptr %431, align 2, !tbaa !31
   br label %AddToken.exit230
 
@@ -962,7 +962,7 @@ TBufferNewPage.exit.i234:                         ; preds = %446
   %460 = trunc i32 %.0120307 to i16
   %461 = add i16 %460, 8
   %462 = sext i32 %459 to i64
-  %463 = getelementptr inbounds i16, ptr %457, i64 %462
+  %463 = getelementptr inbounds [2 x i8], ptr %457, i64 %462
   store i16 %461, ptr %463, align 2, !tbaa !31
   br label %AddToken.exit238
 
@@ -1021,7 +1021,7 @@ TBufferNewPage.exit.i242:                         ; preds = %475
   %490 = add i16 %489, 9
   %491 = or i16 %490, -32768
   %492 = sext i32 %488 to i64
-  %493 = getelementptr inbounds i16, ptr %486, i64 %492
+  %493 = getelementptr inbounds [2 x i8], ptr %486, i64 %492
   store i16 %491, ptr %493, align 2, !tbaa !31
   br label %AddToken.exit246
 
@@ -1087,7 +1087,7 @@ TBufferNewPage.exit.i250:                         ; preds = %508
   %523 = add i16 %522, 8
   %524 = or i16 %523, -32768
   %525 = sext i32 %521 to i64
-  %526 = getelementptr inbounds i16, ptr %519, i64 %525
+  %526 = getelementptr inbounds [2 x i8], ptr %519, i64 %525
   store i16 %524, ptr %526, align 2, !tbaa !31
   br label %AddToken.exit254
 
@@ -1145,7 +1145,7 @@ TBufferNewPage.exit.i258:                         ; preds = %538
   %552 = trunc i32 %.0120307 to i16
   %553 = add i16 %552, 10
   %554 = sext i32 %551 to i64
-  %555 = getelementptr inbounds i16, ptr %549, i64 %554
+  %555 = getelementptr inbounds [2 x i8], ptr %549, i64 %554
   store i16 %553, ptr %555, align 2, !tbaa !31
   br label %AddToken.exit262
 
@@ -1204,7 +1204,7 @@ TBufferNewPage.exit.i266:                         ; preds = %565
   %580 = add i16 %579, 8
   %581 = or i16 %580, -32768
   %582 = sext i32 %578 to i64
-  %583 = getelementptr inbounds i16, ptr %576, i64 %582
+  %583 = getelementptr inbounds [2 x i8], ptr %576, i64 %582
   store i16 %581, ptr %583, align 2, !tbaa !31
   br label %AddToken.exit270
 
@@ -1263,7 +1263,7 @@ TBufferNewPage.exit.i274:                         ; preds = %595
   %610 = add i16 %609, 10
   %611 = or i16 %610, -32768
   %612 = sext i32 %608 to i64
-  %613 = getelementptr inbounds i16, ptr %606, i64 %612
+  %613 = getelementptr inbounds [2 x i8], ptr %606, i64 %612
   store i16 %611, ptr %613, align 2, !tbaa !31
   br label %AddToken.exit278
 
@@ -1337,7 +1337,7 @@ TBufferNewPage.exit.i281:                         ; preds = %631
   %645 = select i1 %.not, i16 16384, i16 -16384
   %646 = or disjoint i16 %645, %626
   %647 = sext i32 %644 to i64
-  %648 = getelementptr inbounds i16, ptr %642, i64 %647
+  %648 = getelementptr inbounds [2 x i8], ptr %642, i64 %647
   store i16 %646, ptr %648, align 2, !tbaa !31
   br label %AddConstantToken.exit285
 
@@ -1357,7 +1357,7 @@ AddConstantToken.exit:                            ; preds = %AddConstantToken.ex
   %655 = add i32 %654, %.sink367
   %656 = load ptr, ptr %16, align 8, !tbaa !29
   %657 = zext i8 %651 to i64
-  %658 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %656, i64 %657
+  %658 = getelementptr inbounds nuw [132 x i8], ptr %656, i64 %657
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 %.sink362
   %660 = load i32, ptr %23, align 8, !tbaa !14
   %661 = icmp sgt i32 %660, 0
@@ -1402,7 +1402,7 @@ TBufferNewPage.exit.i288:                         ; preds = %664
   store i32 %677, ptr %23, align 8, !tbaa !14
   %678 = or disjoint i16 %.lobit, 16512
   %679 = sext i32 %677 to i64
-  %680 = getelementptr inbounds i16, ptr %675, i64 %679
+  %680 = getelementptr inbounds [2 x i8], ptr %675, i64 %679
   store i16 %678, ptr %680, align 2, !tbaa !31
   br label %AddConstantToken.exit292
 
@@ -1457,7 +1457,7 @@ TBufferNewPage.exit.i296:                         ; preds = %688
   %703 = or i32 %655, %702
   %704 = trunc i32 %703 to i16
   %705 = sext i32 %701 to i64
-  %706 = getelementptr inbounds i16, ptr %699, i64 %705
+  %706 = getelementptr inbounds [2 x i8], ptr %699, i64 %705
   store i16 %704, ptr %706, align 2, !tbaa !31
   br label %AddToken.exit300
 
@@ -1524,7 +1524,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %32
   %indvars.iv36 = phi i64 [ %17, %.lr.ph.us.preheader ], [ %indvars.iv.next37, %32 ]
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, -1
-  %19 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv.next37
+  %19 = getelementptr inbounds [2 x i8], ptr %15, i64 %indvars.iv.next37
   %20 = load i16, ptr %19, align 2, !tbaa !31
   %21 = zext i16 %20 to i32
   %22 = lshr i32 %21, 15
@@ -1575,7 +1575,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %46 = getelementptr inbounds i16, ptr %42, i64 %indvars.iv.next
+  %46 = getelementptr inbounds [2 x i8], ptr %42, i64 %indvars.iv.next
   %47 = load i16, ptr %46, align 2, !tbaa !31
   %48 = zext i16 %47 to i32
   %49 = lshr i32 %48, 15
@@ -1661,7 +1661,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
   %.130 = phi i64 [ %.033, %.lr.ph.preheader ], [ %.2, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv.next
+  %18 = getelementptr inbounds [2 x i8], ptr %15, i64 %indvars.iv.next
   %19 = load i16, ptr %18, align 2, !tbaa !31
   %20 = zext i16 %19 to i32
   %21 = and i32 %20, 16384
@@ -1689,7 +1689,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
 
 31:                                               ; preds = %25, %22
   %.pn.i.pn = phi i64 [ %.pn.i, %22 ], [ %.pn.i26, %25 ]
-  %.pn.in.in.in = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i.pn
+  %.pn.in.in.in = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i.pn
   %.pn.in.in = load i16, ptr %.pn.in.in.in, align 2, !tbaa !31
   %.pn = zext i16 %.pn.in.in to i64
   %.2 = add i64 %.130, %.pn

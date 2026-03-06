@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/dconf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.dconf_module = type { ptr, ptr, i32, i8 }
-
 @.str = private unnamed_addr constant [3 x i8] c"PE\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"ELF\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"MACHO\00", align 1
@@ -158,7 +156,7 @@ define ptr @cli_dconf_init(ptr noundef %0) local_unnamed_addr #0 {
 sub_0:                                            ; preds = %.preheader, %128
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %128 ]
   %13 = phi ptr [ @.str, %.preheader ], [ %130, %128 ]
-  %14 = getelementptr inbounds nuw %struct.dconf_module, ptr @modules, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr @modules, i64 %indvars.iv
   %15 = load i8, ptr %13, align 1
   %.not76 = icmp eq i8 %15, 80
   br i1 %.not76, label %sub_1, label %.tail.thread
@@ -381,7 +379,7 @@ sub_1:                                            ; preds = %sub_0
 
 128:                                              ; preds = %24, %21, %43, %40, %63, %60, %83, %80, %103, %100, %118, %123, %120, %110, %113, %90, %93, %70, %73, %50, %53, %30, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %129 = getelementptr inbounds nuw %struct.dconf_module, ptr @modules, i64 %indvars.iv.next
+  %129 = getelementptr inbounds nuw [24 x i8], ptr @modules, i64 %indvars.iv.next
   %130 = load ptr, ptr %129, align 8, !tbaa !23
   %.not52 = icmp eq i64 %indvars.iv.next, 91
   br i1 %.not52, label %.loopexit, label %sub_0
@@ -424,7 +422,7 @@ sub_0:                                            ; preds = %1, %154
   %.092162 = phi i32 [ 0, %1 ], [ %.193, %154 ]
   %.094161 = phi i32 [ 0, %1 ], [ %.195, %154 ]
   %.096160 = phi i32 [ 0, %1 ], [ %.298, %154 ]
-  %12 = getelementptr inbounds nuw %struct.dconf_module, ptr @modules, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr @modules, i64 %indvars.iv
   %13 = load i8, ptr %11, align 1
   %.not172 = icmp eq i8 %13, 80
   br i1 %.not172, label %sub_1, label %.tail.thread
@@ -778,7 +776,7 @@ sub_1:                                            ; preds = %sub_0
   %.171 = phi i32 [ %.070170, %140 ], [ %.070170, %147 ], [ %.070170, %145 ], [ 1, %133 ], [ 1, %131 ], [ %.070170, %119 ], [ %.070170, %117 ], [ %.070170, %105 ], [ %.070170, %103 ], [ %.070170, %91 ], [ %.070170, %89 ], [ %.070170, %77 ], [ %.070170, %75 ], [ %.070170, %63 ], [ %.070170, %61 ], [ %.070170, %49 ], [ %.070170, %47 ], [ %.070170, %38 ], [ %.070170, %39 ], [ %.070170, %32 ], [ %.070170, %33 ], [ %.070170, %24 ], [ %.070170, %22 ]
   %.1 = phi i32 [ %.0171, %140 ], [ 1, %147 ], [ 1, %145 ], [ %.0171, %133 ], [ %.0171, %131 ], [ %.0171, %119 ], [ %.0171, %117 ], [ %.0171, %105 ], [ %.0171, %103 ], [ %.0171, %91 ], [ %.0171, %89 ], [ %.0171, %77 ], [ %.0171, %75 ], [ %.0171, %63 ], [ %.0171, %61 ], [ %.0171, %49 ], [ %.0171, %47 ], [ %.0171, %38 ], [ %.0171, %39 ], [ %.0171, %32 ], [ %.0171, %33 ], [ %.0171, %24 ], [ %.0171, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %155 = getelementptr inbounds nuw %struct.dconf_module, ptr @modules, i64 %indvars.iv.next
+  %155 = getelementptr inbounds nuw [24 x i8], ptr @modules, i64 %indvars.iv.next
   %156 = load ptr, ptr %155, align 8, !tbaa !23
   %.not = icmp eq i64 %indvars.iv.next, 91
   br i1 %.not, label %157, label %sub_0
@@ -1084,7 +1082,7 @@ define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) un
   %5 = load ptr, ptr %4, align 8, !tbaa !48
   %6 = load i8, ptr %2, align 1, !tbaa !50
   %7 = sext i8 %6 to i64
-  %8 = getelementptr inbounds i16, ptr %5, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %5, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !51
   %10 = and i16 %9, 2048
   %.not16 = icmp eq i16 %10, 0
@@ -1110,7 +1108,7 @@ define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) un
   %19 = load ptr, ptr %4, align 8, !tbaa !48
   %20 = load i8, ptr %17, align 1, !tbaa !50
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %19, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %19, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !51
   %24 = and i16 %23, 2048
   %.not18 = icmp eq i16 %24, 0

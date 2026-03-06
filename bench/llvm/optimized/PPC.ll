@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::opt::arg_iterator.83" = type <{ ptr, ptr, [3 x %"class.llvm::opt::OptSpecifier"], [4 x i8] }>
 
 $_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDES6_S6_EEEPNS0_3ArgEDpT_ = comdat any
@@ -203,7 +202,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i:
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %32, ptr %3, align 8, !tbaa !24
   store ptr %36, ptr %13, align 8, !tbaa !18
-  %38 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %38, ptr %15, align 8, !tbaa !21
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit
 
@@ -281,7 +280,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i3
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37: ; preds = %66, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i34
   store ptr %61, ptr %3, align 8, !tbaa !24
   store ptr %65, ptr %42, align 8, !tbaa !18
-  %67 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %59
   store ptr %67, ptr %44, align 8, !tbaa !21
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit38
 
@@ -358,7 +357,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i4
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i51: ; preds = %94, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i48
   store ptr %89, ptr %3, align 8, !tbaa !24
   store ptr %93, ptr %70, align 8, !tbaa !18
-  %95 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %87
   store ptr %95, ptr %72, align 8, !tbaa !21
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit52
 
@@ -375,8 +374,8 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit52: ; preds = %_ZNSt6v
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !44, !noalias !41
   %103 = and i64 %100, 4294967295
-  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %103
-  %105 = getelementptr ptr, ptr %102, i64 %.sroa.4.0.extract.shift.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %103
+  %105 = getelementptr [8 x i8], ptr %102, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %103, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -446,8 +445,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !67
   %122 = load ptr, ptr %101, align 8, !tbaa !44, !noalias !67
   %123 = and i64 %121, 4294967295
-  %124 = getelementptr inbounds nuw ptr, ptr %122, i64 %123
-  %125 = getelementptr ptr, ptr %122, i64 %.sroa.4.0.extract.shift.i.i63
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %123
+  %125 = getelementptr [8 x i8], ptr %122, i64 %.sroa.4.0.extract.shift.i.i63
   %.not29.i.i.i.i64 = icmp samesign eq i64 %123, %.sroa.4.0.extract.shift.i.i63
   br i1 %.not29.i.i.i.i64, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i72, label %.lr.ph.i.i.i.i66
 
@@ -574,7 +573,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %157
   %171 = add i32 %153, -1
   store i32 %171, ptr %152, align 8, !tbaa !131
   %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds nuw ptr, ptr %170, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !150
   store i8 0, ptr %174, align 8, !tbaa !133
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 424
@@ -633,7 +632,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %197 = add i8 %196, 1
   store i8 %197, ptr %194, align 8, !tbaa !133
   %198 = zext i8 %196 to i64
-  %199 = getelementptr inbounds nuw i64, ptr %195, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %198
   store i64 ptrtoint (ptr @.str.20 to i64), ptr %199, align 8, !tbaa !23
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %201 = load i8, ptr %200, align 8, !tbaa !153, !range !156, !noundef !157
@@ -744,7 +743,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i107:   ; preds = %235
   %249 = add i32 %231, -1
   store i32 %249, ptr %230, align 8, !tbaa !131
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw ptr, ptr %248, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %250
   %252 = load ptr, ptr %251, align 8, !tbaa !150
   store i8 0, ptr %252, align 8, !tbaa !133
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 424
@@ -803,7 +802,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %275 = add i8 %274, 1
   store i8 %275, ptr %272, align 8, !tbaa !133
   %276 = zext i8 %274 to i64
-  %277 = getelementptr inbounds nuw i64, ptr %273, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %276
   store i64 ptrtoint (ptr @.str.20 to i64), ptr %277, align 8, !tbaa !23
   %278 = getelementptr inbounds nuw i8, ptr %272, i64 1
   %279 = zext i8 %275 to i64
@@ -815,7 +814,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %284 = add i8 %283, 1
   store i8 %284, ptr %281, align 8, !tbaa !133
   %285 = zext i8 %283 to i64
-  %286 = getelementptr inbounds nuw i64, ptr %282, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %285
   store i64 ptrtoint (ptr @.str.21 to i64), ptr %286, align 8, !tbaa !23
   %287 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %288 = load i8, ptr %287, align 8, !tbaa !153, !range !156, !noundef !157
@@ -1003,8 +1002,8 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5clang6driver5tools3ppc20getPPC
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !44, !noalias !166
   %8 = and i64 %5, 4294967295
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
-  %10 = getelementptr ptr, ptr %7, i64 %.sroa.4.0.extract.shift.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
+  %10 = getelementptr [8 x i8], ptr %7, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %8, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1157,8 +1156,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !44, !noalias !171
   %12 = and i64 %9, 4294967295
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %.sroa.4.0.extract.shift.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.sroa.4.0.extract.shift.i
   store ptr %13, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %14, ptr %15, align 8
@@ -1281,8 +1280,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6driver5tools3ppc12hasPPCAbiArgERK
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !44, !noalias !175
   %7 = and i64 %4, 4294967295
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
-  %9 = getelementptr ptr, ptr %6, i64 %.sroa.4.0.extract.shift.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
+  %9 = getelementptr [8 x i8], ptr %6, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %7, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1404,7 +1403,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !131
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !150
   br label %43
 
@@ -1571,7 +1570,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !131
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !150
   store i8 0, ptr %32, align 8, !tbaa !133
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -1679,7 +1678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !133
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !151
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77

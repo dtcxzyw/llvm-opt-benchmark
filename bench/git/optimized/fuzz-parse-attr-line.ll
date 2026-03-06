@@ -3,8 +3,6 @@ source_filename = "bench/git/original/fuzz-parse-attr-line.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.attr_state = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [6 x i8] c"dummy\00", align 1
 @git_attr__true = external constant [0 x i8], align 1
 @git_attr__false = external constant [0 x i8], align 1
@@ -33,7 +31,7 @@ define dso_local noundef i32 @LLVMFuzzerTestOneInput(ptr noundef readonly captur
 .lr.ph:                                           ; preds = %.preheader, %18
   %10 = phi i64 [ %19, %18 ], [ %9, %.preheader ]
   %.02327 = phi i64 [ %20, %18 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw %struct.attr_state, ptr %7, i64 %.02327
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.02327
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = icmp eq ptr %13, @git_attr__true

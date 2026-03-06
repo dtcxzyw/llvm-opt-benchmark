@@ -475,7 +475,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE7inverseEv(ptr dead_o
 
 .preheader30:                                     ; preds = %23, %83
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %83 ], [ 0, %23 ]
-  %82 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv39
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv39
   br label %84
 
 83:                                               ; preds = %84
@@ -485,7 +485,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE7inverseEv(ptr dead_o
 
 84:                                               ; preds = %.preheader30, %84
   %indvars.iv = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next, %84 ]
-  %85 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   %86 = load float, ptr %85, align 4, !tbaa !18
   %87 = fdiv float %86, %77
   store float %87, ptr %85, align 4, !tbaa !18
@@ -499,12 +499,12 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE7inverseEv(ptr dead_o
 
 .preheader:                                       ; preds = %88, %.critedge
   %indvars.iv47 = phi i64 [ 0, %88 ], [ %indvars.iv.next48, %.critedge ]
-  %90 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv47
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv47
   br label %91
 
 91:                                               ; preds = %.preheader, %96
   %indvars.iv43 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next44, %96 ]
-  %92 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv43
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv43
   %93 = load float, ptr %92, align 4, !tbaa !18
   %94 = tail call float @llvm.fabs.f32(float %93)
   %95 = fcmp ogt float %89, %94
@@ -716,10 +716,10 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 .lr.ph.preheader:                                 ; preds = %.loopexit, %2
   %indvars.iv146 = phi i64 [ 0, %2 ], [ %indvars.iv.next147, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %.loopexit ]
-  %61 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %indvars.iv146
-  %62 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv146
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv146
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv146
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %invariant.gep = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv146
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv146
   %63 = trunc nuw nsw i64 %indvars.iv146 to i32
   %64 = load float, ptr %62, align 4, !tbaa !18
   %65 = fcmp olt float %64, 0.000000e+00
@@ -731,7 +731,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   %indvars.iv131 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next132, %.lr.ph ]
   %.198115 = phi float [ %.097, %.lr.ph.preheader ], [ %.299, %.lr.ph ]
   %.0100114 = phi i32 [ %63, %.lr.ph.preheader ], [ %.1101, %.lr.ph ]
-  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv131
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv131
   %67 = load float, ptr %gep, align 4, !tbaa !18
   %68 = fcmp olt float %67, 0.000000e+00
   %69 = fneg float %67
@@ -770,22 +770,22 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   br i1 %.not, label %.lr.ph122, label %.preheader112
 
 .preheader112:                                    ; preds = %79
-  %81 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %80
-  %82 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv146
-  %83 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %80
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv146
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %80
   br label %84
 
 84:                                               ; preds = %.preheader112, %84
   %indvars.iv134 = phi i64 [ 0, %.preheader112 ], [ %indvars.iv.next135, %84 ]
-  %85 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv134
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv134
   %86 = load float, ptr %85, align 4, !tbaa !18
-  %87 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv134
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv134
   %88 = load float, ptr %87, align 4, !tbaa !18
   store float %88, ptr %85, align 4, !tbaa !18
   store float %86, ptr %87, align 4, !tbaa !18
-  %89 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv134
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv134
   %90 = load float, ptr %89, align 4, !tbaa !18
-  %91 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv134
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv134
   %92 = load float, ptr %91, align 4, !tbaa !18
   store float %92, ptr %89, align 4, !tbaa !18
   store float %90, ptr %91, align 4, !tbaa !18
@@ -794,31 +794,31 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   br i1 %exitcond137.not, label %.lr.ph122, label %84, !llvm.loop !26
 
 .lr.ph122:                                        ; preds = %84, %79
-  %93 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv146
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv146
   br label %94
 
 94:                                               ; preds = %.lr.ph122, %113
   %indvars.iv142 = phi i64 [ %indvars.iv, %.lr.ph122 ], [ %indvars.iv.next143, %113 ]
-  %95 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %indvars.iv142
-  %96 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv146
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv142
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv146
   %97 = load float, ptr %96, align 4, !tbaa !18
   %98 = load float, ptr %62, align 4, !tbaa !18
   %99 = fneg float %97
   %100 = fdiv float %99, %98
-  %101 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv142
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv142
   br label %102
 
 102:                                              ; preds = %94, %102
   %indvars.iv138 = phi i64 [ 0, %94 ], [ %indvars.iv.next139, %102 ]
-  %103 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv138
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv138
   %104 = load float, ptr %103, align 4, !tbaa !18
-  %105 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv138
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv138
   %106 = load float, ptr %105, align 4, !tbaa !18
   %107 = tail call float @llvm.fmuladd.f32(float %100, float %104, float %106)
   store float %107, ptr %105, align 4, !tbaa !18
-  %108 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv138
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv138
   %109 = load float, ptr %108, align 4, !tbaa !18
-  %110 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv138
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv138
   %111 = load float, ptr %110, align 4, !tbaa !18
   %112 = tail call float @llvm.fmuladd.f32(float %100, float %109, float %111)
   store float %112, ptr %110, align 4, !tbaa !18
@@ -835,7 +835,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   %114 = phi float [ %58, %.preheader110.lr.ph ], [ %149, %._crit_edge128 ]
   %115 = phi ptr [ %60, %.preheader110.lr.ph ], [ %147, %._crit_edge128 ]
   %indvars.iv162169 = phi i64 [ 3, %.preheader110.lr.ph ], [ %indvars.iv.next163, %._crit_edge128 ]
-  %116 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv162169
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv162169
   br label %123
 
 .thread109:                                       ; preds = %._crit_edge128, %.preheader111.preheader
@@ -860,11 +860,11 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 
 123:                                              ; preds = %.preheader110, %123
   %indvars.iv150 = phi i64 [ 0, %.preheader110 ], [ %indvars.iv.next151, %123 ]
-  %124 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv150
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv150
   %125 = load float, ptr %124, align 4, !tbaa !18
   %126 = fdiv float %125, %114
   store float %126, ptr %124, align 4, !tbaa !18
-  %127 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv150
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv150
   %128 = load float, ptr %127, align 4, !tbaa !18
   %129 = fdiv float %128, %114
   store float %129, ptr %127, align 4, !tbaa !18
@@ -874,24 +874,24 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 
 .lr.ph127:                                        ; preds = %.preheader, %146
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %146 ], [ 0, %.preheader ]
-  %130 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %indvars.iv158
-  %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv162169
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv158
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv162169
   %132 = load float, ptr %131, align 4, !tbaa !18
   %133 = fneg float %132
-  %134 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv158
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv158
   br label %135
 
 135:                                              ; preds = %.lr.ph127, %135
   %indvars.iv154 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next155, %135 ]
-  %136 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv154
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv154
   %137 = load float, ptr %136, align 4, !tbaa !18
-  %138 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv154
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv154
   %139 = load float, ptr %138, align 4, !tbaa !18
   %140 = tail call float @llvm.fmuladd.f32(float %133, float %137, float %139)
   store float %140, ptr %138, align 4, !tbaa !18
-  %141 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv154
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv154
   %142 = load float, ptr %141, align 4, !tbaa !18
-  %143 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv154
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv154
   %144 = load float, ptr %143, align 4, !tbaa !18
   %145 = tail call float @llvm.fmuladd.f32(float %133, float %142, float %144)
   store float %145, ptr %143, align 4, !tbaa !18
@@ -906,8 +906,8 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 
 ._crit_edge128:                                   ; preds = %146
   %indvars.iv.next163 = add nsw i64 %indvars.iv162169, -1
-  %147 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %indvars.iv.next163
-  %148 = getelementptr inbounds nuw float, ptr %147, i64 %indvars.iv.next163
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.next163
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.next163
   %149 = load float, ptr %148, align 4, !tbaa !18
   %150 = fcmp une float %149, 0.000000e+00
   br i1 %150, label %.preheader110, label %.thread109, !llvm.loop !32

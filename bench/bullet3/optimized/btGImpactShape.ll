@@ -495,7 +495,7 @@ define dso_local void @_ZNK22btGImpactCompoundShape21calculateLocalInertiaEfR9bt
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load ptr, ptr %16, align 8, !tbaa !49
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.next
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %indvars.iv.next
   %24 = load ptr, ptr %23, align 8, !tbaa !53
   %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -509,7 +509,7 @@ define dso_local void @_ZNK22btGImpactCompoundShape21calculateLocalInertiaEfR9bt
 
 32:                                               ; preds = %21
   %33 = load ptr, ptr %19, align 8, !tbaa !55
-  %34 = getelementptr inbounds %class.btTransform, ptr %33, i64 %indvars.iv.next
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %indvars.iv.next
   %35 = load float, ptr %34, align 4, !tbaa !23, !noalias !59
   %36 = load float, ptr %4, align 4, !tbaa !23, !noalias !59
   %37 = fmul float %35, %36
@@ -818,7 +818,7 @@ define dso_local void @_ZNK18btGImpactMeshShape21calculateLocalInertiaEfR9btVect
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load ptr, ptr %11, align 8, !tbaa !78
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.next
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !79
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
@@ -934,7 +934,7 @@ define dso_local void @_ZNK22btGImpactMeshShapePart22processAllTrianglesRayEP18b
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %12, align 8, !tbaa !86
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.next
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv.next
   %58 = load i32, ptr %57, align 4, !tbaa !92
   %59 = load ptr, ptr %0, align 8, !tbaa !30
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 168
@@ -951,7 +951,7 @@ define dso_local void @_ZNK22btGImpactMeshShapePart22processAllTrianglesRayEP18b
 
 _ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit: ; preds = %.noexc
   %66 = load ptr, ptr %12, align 8, !tbaa !86
-  %67 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.next
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %indvars.iv.next
   %68 = load i32, ptr %67, align 4, !tbaa !92
   %69 = load ptr, ptr %1, align 8, !tbaa !30
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -1111,7 +1111,7 @@ define dso_local void @_ZNK22btGImpactMeshShapePart19processAllTrianglesEP18btTr
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %13, align 8, !tbaa !86
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv.next
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %indvars.iv.next
   %37 = load i32, ptr %36, align 4, !tbaa !92
   %38 = load ptr, ptr %0, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 168
@@ -1128,7 +1128,7 @@ define dso_local void @_ZNK22btGImpactMeshShapePart19processAllTrianglesEP18btTr
 
 _ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit: ; preds = %.noexc
   %45 = load ptr, ptr %13, align 8, !tbaa !86
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.next
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %indvars.iv.next
   %47 = load i32, ptr %46, align 4, !tbaa !92
   %48 = load ptr, ptr %1, align 8, !tbaa !30
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -1212,7 +1212,7 @@ define dso_local void @_ZNK18btGImpactMeshShape19processAllTrianglesEP18btTriang
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %10 = load ptr, ptr %7, align 8, !tbaa !78
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
@@ -1241,7 +1241,7 @@ define dso_local void @_ZNK18btGImpactMeshShape22processAllTrianglesRayEP18btTri
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %10 = load ptr, ptr %7, align 8, !tbaa !78
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 288
@@ -1274,9 +1274,9 @@ define dso_local noundef nonnull ptr @_ZNK18btGImpactMeshShape9serializeEPvP12bt
 
 17:                                               ; preds = %17, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !23
-  %20 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   store float %19, ptr %20, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1745,7 +1745,7 @@ define linkonce_odr dso_local void @_ZNK22btGImpactCompoundShape12getChildAabbEi
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load ptr, ptr %11, align 8, !tbaa !49
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   br i1 %10, label %16, label %111
 
@@ -1753,7 +1753,7 @@ define linkonce_odr dso_local void @_ZNK22btGImpactCompoundShape12getChildAabbEi
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %18 = load ptr, ptr %17, align 8, !tbaa !55
-  %19 = getelementptr inbounds %class.btTransform, ptr %18, i64 %13
+  %19 = getelementptr inbounds [64 x i8], ptr %18, i64 %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %20 = load float, ptr %19, align 4, !tbaa !23, !noalias !123
   %21 = load float, ptr %2, align 4, !tbaa !23, !noalias !123
@@ -1893,7 +1893,7 @@ define linkonce_odr dso_local noundef ptr @_ZN22btGImpactCompoundShape13getChild
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8, !tbaa !49
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !53
   ret ptr %7
 }
@@ -1903,7 +1903,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK22btGImpactCompoundShape13getChil
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8, !tbaa !49
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !53
   ret ptr %7
 }
@@ -1913,7 +1913,7 @@ define linkonce_odr dso_local void @_ZNK22btGImpactCompoundShape17getChildTransf
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds %class.btTransform, ptr %5, i64 %6
+  %7 = getelementptr inbounds [64 x i8], ptr %5, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 16, i1 false), !tbaa.struct !63
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1932,7 +1932,7 @@ define linkonce_odr dso_local void @_ZN22btGImpactCompoundShape17setChildTransfo
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %class.btTransform, ptr %5, i64 %6
+  %7 = getelementptr inbounds [64 x i8], ptr %5, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 16, i1 false), !tbaa.struct !63
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2189,7 +2189,7 @@ define linkonce_odr dso_local void @_ZN18btGImpactMeshShapeD2Ev(ptr noundef nonn
   %indvars.iv = phi i64 [ %5, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = load ptr, ptr %4, align 8, !tbaa !78
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next
+  %8 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 8, !tbaa !79
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
@@ -2299,7 +2299,7 @@ define linkonce_odr dso_local void @_ZN18btGImpactMeshShape15setLocalScalingERK9
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %9 = load ptr, ptr %6, align 8, !tbaa !78
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8, !tbaa !79
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -2337,7 +2337,7 @@ define linkonce_odr dso_local void @_ZN18btGImpactMeshShape9setMarginEf(ptr noun
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %9 = load ptr, ptr %6, align 8, !tbaa !78
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8, !tbaa !79
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
@@ -2396,7 +2396,7 @@ define linkonce_odr dso_local void @_ZN18btGImpactMeshShape13calcLocalAABBEv(ptr
   %21 = phi ptr [ %.pre, %.lr.ph ], [ %38, %_ZN23btGImpactShapeInterface11updateBoundEv.exit ]
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %_ZN23btGImpactShapeInterface11updateBoundEv.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8, !tbaa !79
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 68
   %25 = load i8, ptr %24, align 4, !tbaa !25, !range !44, !noundef !133
@@ -2416,7 +2416,7 @@ define linkonce_odr dso_local void @_ZN18btGImpactMeshShape13calcLocalAABBEv(ptr
   %.pre10 = load float, ptr %6, align 4, !tbaa !23
   %.pre11 = load float, ptr %7, align 8, !tbaa !23
   %.pre12 = load float, ptr %8, align 4, !tbaa !23
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre6, i64 %indvars.iv.next
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre6, i64 %indvars.iv.next
   %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !79
   br label %_ZN23btGImpactShapeInterface11updateBoundEv.exit
 
@@ -2490,7 +2490,7 @@ define linkonce_odr dso_local void @_ZN18btGImpactMeshShape10postUpdateEv(ptr no
   %indvars.iv = phi i64 [ %5, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = load ptr, ptr %4, align 8, !tbaa !78
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next
+  %8 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 8, !tbaa !79
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144

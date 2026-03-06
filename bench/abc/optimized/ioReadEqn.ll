@@ -128,7 +128,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
 .lr.ph82.i:                                       ; preds = %49, %.lr.ph82.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph82.i ], [ 0, %49 ]
   %.val69.i = load ptr, ptr %16, align 8, !tbaa !28
-  %53 = getelementptr inbounds nuw ptr, ptr %.val69.i, i64 %indvars.iv87.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.val69.i, i64 %indvars.iv87.i
   %54 = load ptr, ptr %53, align 8, !tbaa !32
   %55 = tail call ptr @Io_ReadCreatePi(ptr noundef %6, ptr noundef %54) #9
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
@@ -153,7 +153,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
 .lr.ph.i:                                         ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %63 ]
   %.val70.i = load ptr, ptr %16, align 8, !tbaa !28
-  %65 = getelementptr inbounds nuw ptr, ptr %.val70.i, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.val70.i, i64 %indvars.iv.i
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = tail call ptr @Io_ReadCreatePo(ptr noundef %6, ptr noundef %66) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -370,7 +370,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %5, align 4, !tbaa !25
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %30, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %30, i64 %33
   store ptr %.012.us, ptr %34, align 8, !tbaa !32
   %35 = tail call ptr @strtok(ptr noundef null, ptr noundef %1) #9
   %.not.us = icmp eq ptr %35, null
@@ -389,7 +389,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
 
 37:                                               ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !32
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %.012) #11
   %41 = icmp eq i32 %40, 0
@@ -460,7 +460,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %5, align 4, !tbaa !25
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds ptr, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   store ptr %.012, ptr %69, align 8, !tbaa !32
   br label %Io_ReadEqnStrFind.exit
 

@@ -1410,7 +1410,7 @@ define dso_local void @load_sacctmgr_cfg_file(i32 noundef %0, ptr noundef readon
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %120 ]
   %.04691026 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2471, %120 ]
   %.04721025 = phi i32 [ 0, %.lr.ph.preheader ], [ %.6478, %120 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @parse_option_end(ptr noundef %47) #12
   %.not666 = icmp eq i32 %48, 0
@@ -1741,7 +1741,7 @@ _strip_comments.exit.i:                           ; preds = %190, %188, %.lr.ph.
   %201 = tail call ptr @__ctype_b_loc() #16
   %202 = load ptr, ptr %201, align 8
   %203 = sext i8 %196 to i64
-  %204 = getelementptr inbounds i16, ptr %202, i64 %203
+  %204 = getelementptr inbounds [2 x i8], ptr %202, i64 %203
   %205 = load i16, ptr %204, align 2
   %206 = and i16 %205, 8192
   %207 = icmp ne i16 %206, 0
@@ -5276,10 +5276,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %9 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._mod_assoc, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._mod_assoc, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext nneg i32 %2 to i64
-  %switch.gep350 = getelementptr inbounds nuw ptr, ptr @switch.table._mod_assoc.16, i64 %10
+  %switch.gep350 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._mod_assoc.16, i64 %10
   %switch.load351 = load ptr, ptr %switch.gep350, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %.0200 = load ptr, ptr %11, align 8

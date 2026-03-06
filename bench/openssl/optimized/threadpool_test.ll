@@ -321,7 +321,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   %63 = trunc nuw nsw i64 %62 to i32
   store i32 %63, ptr %2, align 4, !tbaa !4
   %64 = call ptr @ossl_crypto_thread_start(ptr noundef null, ptr noundef nonnull @test_thread_native_fn, ptr noundef nonnull %2) #6
-  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0
   %66 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @.str.29, ptr noundef %64) #6
   %.not83 = icmp eq i32 %66, 0
   br i1 %.not83, label %.loopexit, label %67
@@ -379,10 +379,10 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 90:                                               ; preds = %.preheader106
   %91 = add nuw nsw i64 %.1, 1
   %92 = trunc nuw nsw i64 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %2, i64 %.1
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.1
   store i32 %92, ptr %93, align 4, !tbaa !4
   %94 = call ptr @ossl_crypto_thread_start(ptr noundef null, ptr noundef nonnull @test_thread_native_fn, ptr noundef nonnull %93) #6
-  %95 = getelementptr inbounds nuw ptr, ptr %3, i64 %.1
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1
   store ptr %94, ptr %95, align 8, !tbaa !8
   %96 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 202, ptr noundef nonnull @.str.29, ptr noundef %94) #6
   %.not82 = icmp eq i32 %96, 0
@@ -395,9 +395,9 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 
 .preheader104:                                    ; preds = %.preheader106, %97
   %.2110 = phi i64 [ %98, %97 ], [ 0, %.preheader106 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %3, i64 %.2110
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.2110
   %100 = load ptr, ptr %99, align 8, !tbaa !8
-  %101 = getelementptr inbounds nuw i32, ptr %1, i64 %.2110
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.2110
   %102 = call i32 @ossl_crypto_thread_join(ptr noundef %100, ptr noundef nonnull %101) #6
   %103 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 206, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.11, i32 noundef %102, i32 noundef 1) #6
   %.not81 = icmp eq i32 %103, 0
@@ -409,7 +409,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   br i1 %exitcond120.not, label %121, label %104
 
 104:                                              ; preds = %.preheader102
-  %105 = getelementptr inbounds nuw i32, ptr %1, i64 %.3
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.3
   %106 = load i32, ptr %105, align 4, !tbaa !4
   %107 = add nuw nsw i64 %.3, 1
   %108 = trunc nuw nsw i64 %107 to i32
@@ -418,7 +418,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   br i1 %.not78, label %.loopexit, label %110
 
 110:                                              ; preds = %104
-  %111 = getelementptr inbounds nuw i32, ptr %2, i64 %.3
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.3
   %112 = load i32, ptr %111, align 4, !tbaa !4
   %113 = trunc nuw nsw i64 %.3 to i32
   %114 = add nuw nsw i32 %113, 2
@@ -427,7 +427,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   br i1 %.not79, label %.loopexit, label %116
 
 116:                                              ; preds = %110
-  %117 = getelementptr inbounds nuw ptr, ptr %3, i64 %.3
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.3
   %118 = load ptr, ptr %117, align 8, !tbaa !8
   %119 = call i32 @ossl_crypto_thread_clean(ptr noundef %118) #6
   %120 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 212, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.11, i32 noundef %119, i32 noundef 1) #6
@@ -448,10 +448,10 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 124:                                              ; preds = %.preheader100
   %125 = add nuw nsw i64 %.4, 1
   %126 = trunc nuw nsw i64 %125 to i32
-  %127 = getelementptr inbounds nuw i32, ptr %2, i64 %.4
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.4
   store i32 %126, ptr %127, align 4, !tbaa !4
   %128 = call ptr @ossl_crypto_thread_start(ptr noundef null, ptr noundef nonnull @test_thread_native_fn, ptr noundef nonnull %127) #6
-  %129 = getelementptr inbounds nuw ptr, ptr %3, i64 %.4
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.4
   store ptr %128, ptr %129, align 8, !tbaa !8
   %130 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 224, ptr noundef nonnull @.str.29, ptr noundef %128) #6
   %.not77 = icmp eq i32 %130, 0
@@ -464,9 +464,9 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 
 .preheader98:                                     ; preds = %.preheader100, %131
   %.5111 = phi i64 [ %132, %131 ], [ 0, %.preheader100 ]
-  %133 = getelementptr inbounds nuw ptr, ptr %3, i64 %.5111
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.5111
   %134 = load ptr, ptr %133, align 8, !tbaa !8
-  %135 = getelementptr inbounds nuw i32, ptr %1, i64 %.5111
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.5111
   %136 = call i32 @ossl_crypto_thread_join(ptr noundef %134, ptr noundef nonnull %135) #6
   %137 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 228, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.11, i32 noundef %136, i32 noundef 1) #6
   %.not76 = icmp eq i32 %137, 0
@@ -478,7 +478,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   br i1 %exitcond123.not, label %155, label %138
 
 138:                                              ; preds = %.preheader
-  %139 = getelementptr inbounds nuw i32, ptr %1, i64 %.6
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.6
   %140 = load i32, ptr %139, align 4, !tbaa !4
   %141 = add nuw nsw i64 %.6, 1
   %142 = trunc nuw nsw i64 %141 to i32
@@ -487,7 +487,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   br i1 %.not73, label %.loopexit, label %144
 
 144:                                              ; preds = %138
-  %145 = getelementptr inbounds nuw i32, ptr %2, i64 %.6
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.6
   %146 = load i32, ptr %145, align 4, !tbaa !4
   %147 = trunc nuw nsw i64 %.6 to i32
   %148 = add nuw nsw i32 %147, 2
@@ -496,7 +496,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   br i1 %.not74, label %.loopexit, label %150
 
 150:                                              ; preds = %144
-  %151 = getelementptr inbounds nuw ptr, ptr %3, i64 %.6
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.6
   %152 = load ptr, ptr %151, align 8, !tbaa !8
   %153 = call i32 @ossl_crypto_thread_clean(ptr noundef %152) #6
   %154 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 234, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.11, i32 noundef %153, i32 noundef 1) #6

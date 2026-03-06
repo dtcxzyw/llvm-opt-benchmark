@@ -12378,7 +12378,7 @@ _ZNSt13random_deviceclEv.exit1:                   ; preds = %_ZNSt13random_devic
 26:                                               ; preds = %26, %_ZNSt13random_deviceclEv.exit1
   %store_forwarded = phi i64 [ %25, %_ZNSt13random_deviceclEv.exit1 ], [ %31, %26 ]
   %.011.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit1 ], [ %32, %26 ]
-  %27 = getelementptr i64, ptr @_ZZN5arrow8internal13GetRandomSeedEvE8seed_gen, i64 %.011.i.i
+  %27 = getelementptr [8 x i8], ptr @_ZZN5arrow8internal13GetRandomSeedEvE8seed_gen, i64 %.011.i.i
   %28 = lshr i64 %store_forwarded, 62
   %29 = xor i64 %28, %store_forwarded
   %30 = mul i64 %29, 6364136223846793005
@@ -12436,10 +12436,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -12463,10 +12463,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -12504,7 +12504,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !664
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !9
   %55 = lshr i64 %54, 29
   %56 = and i64 %55, 22906492245
@@ -17339,7 +17339,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !634
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !546
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !548
   ret void
 
@@ -17549,7 +17549,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !634
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !546
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !548
   ret void
 }
@@ -18860,7 +18860,7 @@ _ZSt8_DestroyIPN5arrow8internal16PlatformFilenameES2_EvT_S4_RSaIT0_E.exit: ; pre
 _ZNSt12_Vector_baseIN5arrow8internal16PlatformFilenameESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN5arrow8internal16PlatformFilenameES2_EvT_S4_RSaIT0_E.exit, %76
   store ptr %23, ptr %0, align 8, !tbaa !235
   store ptr %.0.lcssa.i.i.i.i.i42, ptr %5, align 8, !tbaa !238
-  %80 = getelementptr inbounds nuw %"class.arrow::internal::PlatformFilename", ptr %23, i64 %17
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %17
   store ptr %80, ptr %75, align 8, !tbaa !239
   ret void
 

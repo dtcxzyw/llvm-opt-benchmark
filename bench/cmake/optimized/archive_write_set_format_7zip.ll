@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.archive_rb_tree_ops = type { ptr, ptr }
 %struct.IPpmd7 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.lzma_options_lzma = type { i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.anon.0 = type { i64, i64 }
 
 @archive_write_set_format_7zip.rb_ops = internal constant %struct.archive_rb_tree_ops { ptr @file_cmp_node, ptr @file_cmp_key }, align 8
 @.str = private unnamed_addr constant [30 x i8] c"archive_write_set_format_7zip\00", align 1
@@ -3604,7 +3603,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @make_time(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !59
@@ -3825,7 +3824,7 @@ enc_uint64.exit124:                               ; preds = %.thread, %83, %._cr
 
 114:                                              ; preds = %.lr.ph164
   %115 = getelementptr inbounds nuw i8, ptr %.161162, i64 64
-  %116 = getelementptr inbounds nuw %struct.anon.0, ptr %115, i64 %17
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %17
   %117 = load i64, ptr %116, align 8, !tbaa !56
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %119 = load i64, ptr %118, align 8, !tbaa !58

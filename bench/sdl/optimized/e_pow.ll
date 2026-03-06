@@ -302,7 +302,7 @@ define hidden double @SDL_uclibc_pow(double noundef %0, double noundef %1) local
   %.sroa.024.4.insert.insert = or disjoint i64 %.sroa.024.4.insert.shift, %.sroa.024.4.insert.mask
   %158 = bitcast i64 %.sroa.024.4.insert.insert to double
   %159 = zext nneg i32 %.0301 to i64
-  %160 = getelementptr inbounds nuw double, ptr @bp, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @bp, i64 %159
   %161 = load double, ptr %160, align 8
   %162 = fsub double %158, %161
   %163 = fadd double %161, %158
@@ -356,12 +356,12 @@ define hidden double @SDL_uclibc_pow(double noundef %0, double noundef %1) local
   %206 = fmul double %203, 0x3FEEC709E0000000
   %207 = fmul double %205, 0x3FEEC709DC3A03FD
   %208 = tail call double @llvm.fmuladd.f64(double %203, double 0xBE3E2FE0145B01F5, double %207)
-  %209 = getelementptr inbounds nuw double, ptr @dp_l, i64 %159
+  %209 = getelementptr inbounds nuw [8 x i8], ptr @dp_l, i64 %159
   %210 = load double, ptr %209, align 8
   %211 = fadd double %210, %208
   %212 = sitofp i32 %.1304 to double
   %213 = fadd double %206, %211
-  %214 = getelementptr inbounds nuw double, ptr @dp_h, i64 %159
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @dp_h, i64 %159
   %215 = load double, ptr %214, align 8
   %216 = fadd double %215, %213
   %217 = fadd double %216, %212

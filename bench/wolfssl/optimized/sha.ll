@@ -98,7 +98,7 @@ AddLength.exit:                                   ; preds = %13, %18
 
 .lr.ph26.i:                                       ; preds = %33, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %33 ]
-  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv30.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv30.i
   %37 = load i32, ptr %36, align 4, !tbaa !9
   %38 = tail call noundef i32 @llvm.bswap.i32(i32 %37)
   store i32 %38, ptr %36, align 4, !tbaa !9
@@ -141,7 +141,7 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
 
 .lr.ph26.i67.us:                                  ; preds = %.lr.ph26.i67.preheader.us, %.lr.ph26.i67.us
   %indvars.iv30.i68.us = phi i64 [ %indvars.iv.next31.i69.us, %.lr.ph26.i67.us ], [ 0, %.lr.ph26.i67.preheader.us ]
-  %46 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv30.i68.us
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv30.i68.us
   %47 = load i32, ptr %46, align 4, !tbaa !9
   %48 = tail call noundef i32 @llvm.bswap.i32(i32 %47)
   store i32 %48, ptr %46, align 4, !tbaa !9
@@ -1229,10 +1229,10 @@ define range(i32 -173, 1) i32 @wc_ShaFinalRaw(ptr noundef %0, ptr noundef writeo
 
 .lr.ph26.i:                                       ; preds = %6, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv30.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv30.i
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
-  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv30.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv30.i
   store i32 %12, ptr %13, align 4, !tbaa !9
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 5
@@ -1310,7 +1310,7 @@ define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i.preheader, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %.lr.ph26.i.preheader ]
-  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv30.i
   %26 = load i32, ptr %25, align 4, !tbaa !9
   %27 = tail call noundef i32 @llvm.bswap.i32(i32 %26)
   store i32 %27, ptr %25, align 4, !tbaa !9
@@ -1329,7 +1329,7 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph26.i
 
 .lr.ph26.i55:                                     ; preds = %.lr.ph26.i55.preheader, %.lr.ph26.i55
   %indvars.iv30.i56 = phi i64 [ %indvars.iv.next31.i57, %.lr.ph26.i55 ], [ 0, %.lr.ph26.i55.preheader ]
-  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i56
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv30.i56
   %29 = load i32, ptr %28, align 4, !tbaa !9
   %30 = tail call noundef i32 @llvm.bswap.i32(i32 %29)
   store i32 %30, ptr %28, align 4, !tbaa !9
@@ -1366,7 +1366,7 @@ ByteReverseWords.exit59:                          ; preds = %.lr.ph.i50, %.lr.ph
 
 .lr.ph26.i67:                                     ; preds = %ByteReverseWords.exit59, %.lr.ph26.i67
   %indvars.iv30.i68 = phi i64 [ %indvars.iv.next31.i69, %.lr.ph26.i67 ], [ 0, %ByteReverseWords.exit59 ]
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv30.i68
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv30.i68
   %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = tail call noundef i32 @llvm.bswap.i32(i32 %44)
   store i32 %45, ptr %43, align 4, !tbaa !9

@@ -818,7 +818,7 @@ define void @_ZN5arrow8internal22ComputeRowMajorStridesERKNS_14FixedWidthTypeERK
 .lr.ph:                                           ; preds = %21, %28
   %.02141 = phi i64 [ %30, %28 ], [ 1, %21 ]
   %.140 = phi i64 [ %29, %28 ], [ %22, %21 ]
-  %23 = getelementptr inbounds nuw i64, ptr %12, i64 %.02141
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.02141
   %24 = load i64, ptr %23, align 8, !tbaa !12
   %25 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.140, i64 %24)
   %26 = extractvalue { i64, i1 } %25, 1
@@ -906,7 +906,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %56, %_ZNKS
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %58, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %53, ptr %3, align 8, !tbaa !11
   store ptr %57, ptr %34, align 8, !tbaa !6
-  %59 = getelementptr inbounds nuw i64, ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %59, ptr %36, align 8, !tbaa !22
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -925,7 +925,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %38, %_ZNSt6vectorIl
   %.043 = phi i64 [ %92, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit29 ], [ 1, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %.242 = phi i64 [ %67, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit29 ], [ %.1.lcssa, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %64 = load ptr, ptr %2, align 8, !tbaa !11
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %.043
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.043
   %66 = load i64, ptr %65, align 8, !tbaa !12
   %67 = sdiv i64 %.242, %66
   %.not.i22 = icmp eq ptr %63, %62
@@ -981,7 +981,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i26: ; preds = %86, %_ZN
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i28: ; preds = %88, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i26
   store ptr %83, ptr %3, align 8, !tbaa !11
   store ptr %87, ptr %34, align 8, !tbaa !6
-  %89 = getelementptr inbounds nuw i64, ptr %83, i64 %81
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %81
   store ptr %89, ptr %36, align 8, !tbaa !22
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit29
 
@@ -1028,7 +1028,7 @@ define void @_ZN5arrow8internal25ComputeColumnMajorStridesERKNS_14FixedWidthType
 .lr.ph:                                           ; preds = %22, %30
   %.02243 = phi i64 [ %32, %30 ], [ 0, %22 ]
   %.142 = phi i64 [ %31, %30 ], [ %23, %22 ]
-  %25 = getelementptr inbounds nuw i64, ptr %12, i64 %.02243
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.02243
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %27 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.142, i64 %26)
   %28 = extractvalue { i64, i1 } %27, 1
@@ -1134,7 +1134,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %60, %_ZNKS
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %57, ptr %3, align 8, !tbaa !11
   store ptr %61, ptr %40, align 8, !tbaa !6
-  %63 = getelementptr inbounds nuw i64, ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %63, ptr %41, align 8, !tbaa !22
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -1201,7 +1201,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i27: ; preds = %86, %_ZN
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i29: ; preds = %88, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i27
   store ptr %83, ptr %3, align 8, !tbaa !11
   store ptr %87, ptr %36, align 8, !tbaa !6
-  %89 = getelementptr inbounds nuw i64, ptr %83, i64 %81
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %81
   store ptr %89, ptr %37, align 8, !tbaa !22
   %.pre52 = load ptr, ptr %2, align 8, !tbaa !11
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit30
@@ -1210,7 +1210,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit30:        ; preds = %68, %_ZNSt6vectorIl
   %90 = phi ptr [ %65, %68 ], [ %.pre52, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i29 ]
   %91 = phi ptr [ %66, %68 ], [ %89, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i29 ]
   %92 = phi ptr [ %69, %68 ], [ %87, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i29 ]
-  %93 = getelementptr inbounds nuw i64, ptr %90, i64 %.045
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.045
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = mul nsw i64 %94, %.244
   %96 = add nuw i64 %.045, 1
@@ -1831,13 +1831,13 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.e
 .lr.ph.i:                                         ; preds = %178, %.lr.ph.preheader.i
   %.027.i = phi i64 [ %179, %178 ], [ 0, %.lr.ph.preheader.i ]
   %.01226.i = phi i64 [ %.2.i, %178 ], [ 0, %.lr.ph.preheader.i ]
-  %161 = getelementptr inbounds nuw i64, ptr %.val28, i64 %.027.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %.val28, i64 %.027.i
   %162 = load i64, ptr %161, align 8, !tbaa !12, !noalias !103
   %163 = icmp eq i64 %162, 0
   br i1 %163, label %178, label %164
 
 164:                                              ; preds = %.lr.ph.i
-  %165 = getelementptr inbounds nuw i64, ptr %105, i64 %.027.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.027.i
   %166 = load i64, ptr %165, align 8, !tbaa !12, !noalias !103
   %167 = icmp slt i64 %166, 0
   br i1 %167, label %168, label %169
@@ -7063,7 +7063,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow6Tensor8dim_na
 .critedge15:                                      ; preds = %20, %.critedge
   %28 = phi ptr [ %16, %20 ], [ %.pre, %.critedge ]
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %29
   br label %33
 
 31:                                               ; preds = %26
@@ -9550,7 +9550,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !353
 
 _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %1
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !11
   store ptr %17, ptr %21, align 8, !tbaa !6
@@ -11153,7 +11153,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -11216,7 +11216,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %43 = load i16, ptr %42, align 2, !tbaa !291
   %44 = trunc i16 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -11291,7 +11291,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %93 = load i16, ptr %92, align 2, !tbaa !291
   %94 = trunc i16 %93 to i8
   br label %95
@@ -11345,7 +11345,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -11408,7 +11408,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %43 = load i16, ptr %42, align 2, !tbaa !291
   %44 = trunc i16 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -11483,7 +11483,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %93 = load i16, ptr %92, align 2, !tbaa !291
   %94 = trunc i16 %93 to i8
   br label %95
@@ -11537,7 +11537,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -11600,7 +11600,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %43 = load i32, ptr %42, align 4, !tbaa !133
   %44 = trunc i32 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -11675,7 +11675,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %93 = load i32, ptr %92, align 4, !tbaa !133
   %94 = trunc i32 %93 to i8
   br label %95
@@ -11729,7 +11729,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -11792,7 +11792,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %43 = load i32, ptr %42, align 4, !tbaa !133
   %44 = trunc i32 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -11867,7 +11867,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %93 = load i32, ptr %92, align 4, !tbaa !133
   %94 = trunc i32 %93 to i8
   br label %95
@@ -11921,7 +11921,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -11984,7 +11984,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %43 = load i64, ptr %42, align 8, !tbaa !12
   %44 = trunc i64 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -12059,7 +12059,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %93 = load i64, ptr %92, align 8, !tbaa !12
   %94 = trunc i64 %93 to i8
   br label %95
@@ -12113,7 +12113,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -12176,7 +12176,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %43 = load i64, ptr %42, align 8, !tbaa !12
   %44 = trunc i64 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -12251,7 +12251,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %93 = load i64, ptr %92, align 8, !tbaa !12
   %94 = trunc i64 %93 to i8
   br label %95
@@ -12305,7 +12305,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -12368,7 +12368,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %43 = load i16, ptr %42, align 2, !tbaa !291
   %44 = trunc i16 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -12443,7 +12443,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %93 = load i16, ptr %92, align 2, !tbaa !291
   %94 = trunc i16 %93 to i8
   br label %95
@@ -12497,7 +12497,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -12560,7 +12560,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %43 = load float, ptr %42, align 4, !tbaa !321
   %44 = fptoui float %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -12635,7 +12635,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %93 = load float, ptr %92, align 4, !tbaa !321
   %94 = fptoui float %93 to i8
   br label %95
@@ -12689,7 +12689,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -12752,7 +12752,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %43 = load double, ptr %42, align 8, !tbaa !327
   %44 = fptoui double %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !407
@@ -12827,7 +12827,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %93 = load double, ptr %92, align 8, !tbaa !327
   %94 = fptoui double %93 to i8
   br label %95
@@ -13374,7 +13374,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -13496,7 +13496,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   %82 = trunc i16 %81 to i8
   br label %83
@@ -13548,7 +13548,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -13670,7 +13670,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   %82 = trunc i16 %81 to i8
   br label %83
@@ -13722,7 +13722,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -13844,7 +13844,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load i32, ptr %80, align 4, !tbaa !133
   %82 = trunc i32 %81 to i8
   br label %83
@@ -13896,7 +13896,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -14018,7 +14018,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load i32, ptr %80, align 4, !tbaa !133
   %82 = trunc i32 %81 to i8
   br label %83
@@ -14070,7 +14070,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -14192,7 +14192,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load i64, ptr %80, align 8, !tbaa !12
   %82 = trunc i64 %81 to i8
   br label %83
@@ -14244,7 +14244,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -14366,7 +14366,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load i64, ptr %80, align 8, !tbaa !12
   %82 = trunc i64 %81 to i8
   br label %83
@@ -14418,7 +14418,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -14540,7 +14540,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   %82 = trunc i16 %81 to i8
   br label %83
@@ -14592,7 +14592,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -14714,7 +14714,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load float, ptr %80, align 4, !tbaa !321
   %82 = fptoui float %81 to i8
   br label %83
@@ -14766,7 +14766,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIhE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -14888,7 +14888,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load double, ptr %80, align 8, !tbaa !327
   %82 = fptoui double %81 to i8
   br label %83
@@ -15482,7 +15482,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -15491,7 +15491,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = sext i8 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -15566,8 +15566,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -15671,7 +15671,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -15680,7 +15680,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = zext i8 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -15755,8 +15755,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -15795,7 +15795,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -15860,15 +15860,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %50
   store i16 %49, ptr %gep, align 2, !tbaa !291
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -15929,7 +15929,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %86 = load i16, ptr %85, align 2, !tbaa !291
   br label %87
 
@@ -15942,8 +15942,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !232
   %95 = sext i32 %94 to i64
-  %96 = getelementptr i16, ptr %90, i64 %93
-  %97 = getelementptr i16, ptr %96, i64 %95
+  %96 = getelementptr [2 x i8], ptr %90, i64 %93
+  %97 = getelementptr [2 x i8], ptr %96, i64 %95
   store i16 %88, ptr %97, align 2, !tbaa !291
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !515
@@ -15982,7 +15982,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16047,15 +16047,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %50
   store i16 %49, ptr %gep, align 2, !tbaa !291
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -16116,7 +16116,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %86 = load i16, ptr %85, align 2, !tbaa !291
   br label %87
 
@@ -16129,8 +16129,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !232
   %95 = sext i32 %94 to i64
-  %96 = getelementptr i16, ptr %90, i64 %93
-  %97 = getelementptr i16, ptr %96, i64 %95
+  %96 = getelementptr [2 x i8], ptr %90, i64 %93
+  %97 = getelementptr [2 x i8], ptr %96, i64 %95
   store i16 %88, ptr %97, align 2, !tbaa !291
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !515
@@ -16169,7 +16169,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16234,16 +16234,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = trunc i32 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -16304,7 +16304,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = trunc i32 %87 to i16
   br label %89
@@ -16318,8 +16318,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -16358,7 +16358,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16423,16 +16423,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = trunc i32 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -16493,7 +16493,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = trunc i32 %87 to i16
   br label %89
@@ -16507,8 +16507,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -16547,7 +16547,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16612,16 +16612,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = trunc i64 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -16682,7 +16682,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = trunc i64 %87 to i16
   br label %89
@@ -16696,8 +16696,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -16736,7 +16736,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16801,16 +16801,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = trunc i64 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -16871,7 +16871,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = trunc i64 %87 to i16
   br label %89
@@ -16885,8 +16885,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -16925,7 +16925,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16990,15 +16990,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %50
   store i16 %49, ptr %gep, align 2, !tbaa !291
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -17059,7 +17059,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %86 = load i16, ptr %85, align 2, !tbaa !291
   br label %87
 
@@ -17072,8 +17072,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !232
   %95 = sext i32 %94 to i64
-  %96 = getelementptr i16, ptr %90, i64 %93
-  %97 = getelementptr i16, ptr %96, i64 %95
+  %96 = getelementptr [2 x i8], ptr %90, i64 %93
+  %97 = getelementptr [2 x i8], ptr %96, i64 %95
   store i16 %88, ptr %97, align 2, !tbaa !291
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !515
@@ -17112,7 +17112,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -17177,16 +17177,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load float, ptr %48, align 4, !tbaa !321
   %50 = fptoui float %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -17247,7 +17247,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load float, ptr %86, align 4, !tbaa !321
   %88 = fptoui float %87 to i16
   br label %89
@@ -17261,8 +17261,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -17301,7 +17301,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -17366,16 +17366,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !232
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load double, ptr %48, align 8, !tbaa !327
   %50 = fptoui double %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -17436,7 +17436,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load double, ptr %86, align 8, !tbaa !327
   %88 = fptoui double %87 to i16
   br label %89
@@ -17450,8 +17450,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !232
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !515
@@ -17847,7 +17847,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -17971,7 +17971,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   br label %82
 
@@ -18026,7 +18026,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18081,7 +18081,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !574
   %45 = load ptr, ptr %44, align 8, !tbaa !226
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !226
   br label %.loopexit
 
@@ -18140,7 +18140,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.08
   %80 = load i16, ptr %79, align 2, !tbaa !291
   br label %81
 
@@ -18191,7 +18191,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18316,7 +18316,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i16
   br label %84
@@ -18372,7 +18372,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18497,7 +18497,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i16
   br label %84
@@ -18553,7 +18553,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18678,7 +18678,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i16
   br label %84
@@ -18734,7 +18734,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18859,7 +18859,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i16
   br label %84
@@ -18915,7 +18915,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18970,7 +18970,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !574
   %45 = load ptr, ptr %44, align 8, !tbaa !226
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !226
   br label %.loopexit
 
@@ -19029,7 +19029,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.08
   %80 = load i16, ptr %79, align 2, !tbaa !291
   br label %81
 
@@ -19080,7 +19080,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -19205,7 +19205,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptoui float %82 to i16
   br label %84
@@ -19261,7 +19261,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorItE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -19386,7 +19386,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptoui double %82 to i16
   br label %84
@@ -19992,8 +19992,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -20068,8 +20068,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -20181,8 +20181,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -20257,8 +20257,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -20297,7 +20297,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -20362,7 +20362,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %45 = load i16, ptr %44, align 2, !tbaa !291
   %46 = sext i16 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !237
@@ -20370,8 +20370,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -20432,7 +20432,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = sext i16 %89 to i32
   br label %91
@@ -20446,8 +20446,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -20486,7 +20486,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -20551,7 +20551,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %45 = load i16, ptr %44, align 2, !tbaa !291
   %46 = zext i16 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !237
@@ -20559,8 +20559,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -20621,7 +20621,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i32
   br label %91
@@ -20635,8 +20635,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -20675,7 +20675,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -20740,15 +20740,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %53, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %45 = load i32, ptr %44, align 4, !tbaa !133
   %46 = load i32, ptr %41, align 8, !tbaa !237
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %.01116, %47
   %49 = load i32, ptr %42, align 4, !tbaa !239
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %40, i64 %48
-  %52 = getelementptr i32, ptr %51, i64 %50
+  %51 = getelementptr [4 x i8], ptr %40, i64 %48
+  %52 = getelementptr [4 x i8], ptr %51, i64 %50
   store i32 %45, ptr %52, align 4, !tbaa !133
   %53 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %53, %35
@@ -20809,7 +20809,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   br label %89
 
@@ -20822,8 +20822,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !239
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i32, ptr %92, i64 %95
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store i32 %90, ptr %99, align 4, !tbaa !133
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !619
@@ -20862,7 +20862,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -20927,15 +20927,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %53, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %45 = load i32, ptr %44, align 4, !tbaa !133
   %46 = load i32, ptr %41, align 8, !tbaa !237
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %.01116, %47
   %49 = load i32, ptr %42, align 4, !tbaa !239
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %40, i64 %48
-  %52 = getelementptr i32, ptr %51, i64 %50
+  %51 = getelementptr [4 x i8], ptr %40, i64 %48
+  %52 = getelementptr [4 x i8], ptr %51, i64 %50
   store i32 %45, ptr %52, align 4, !tbaa !133
   %53 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %53, %35
@@ -20996,7 +20996,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   br label %89
 
@@ -21009,8 +21009,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !239
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i32, ptr %92, i64 %95
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store i32 %90, ptr %99, align 4, !tbaa !133
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !619
@@ -21049,7 +21049,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -21114,7 +21114,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !237
@@ -21122,8 +21122,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -21184,7 +21184,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   %90 = trunc i64 %89 to i32
   br label %91
@@ -21198,8 +21198,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -21238,7 +21238,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -21303,7 +21303,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !237
@@ -21311,8 +21311,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -21373,7 +21373,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   %90 = trunc i64 %89 to i32
   br label %91
@@ -21387,8 +21387,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -21427,7 +21427,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -21492,7 +21492,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %45 = load i16, ptr %44, align 2, !tbaa !291
   %46 = zext i16 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !237
@@ -21500,8 +21500,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -21562,7 +21562,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i32
   br label %91
@@ -21576,8 +21576,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -21616,7 +21616,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -21681,7 +21681,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %45 = load float, ptr %44, align 4, !tbaa !321
   %46 = fptoui float %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !237
@@ -21689,8 +21689,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -21751,7 +21751,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load float, ptr %88, align 4, !tbaa !321
   %90 = fptoui float %89 to i32
   br label %91
@@ -21765,8 +21765,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -21805,7 +21805,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -21870,7 +21870,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %45 = load double, ptr %44, align 8, !tbaa !327
   %46 = fptoui double %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !237
@@ -21878,8 +21878,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !239
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -21940,7 +21940,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load double, ptr %88, align 8, !tbaa !327
   %90 = fptoui double %89 to i32
   br label %91
@@ -21954,8 +21954,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !239
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !619
@@ -22351,7 +22351,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -22476,7 +22476,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = sext i16 %82 to i32
   br label %84
@@ -22532,7 +22532,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -22657,7 +22657,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i32
   br label %84
@@ -22713,7 +22713,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -22837,7 +22837,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load i32, ptr %80, align 4, !tbaa !133
   br label %82
 
@@ -22892,7 +22892,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -22947,7 +22947,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %42, ptr align 4 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !678
   %45 = load ptr, ptr %44, align 8, !tbaa !233
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !233
   br label %.loopexit
 
@@ -23006,7 +23006,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw i32, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.08
   %80 = load i32, ptr %79, align 4, !tbaa !133
   br label %81
 
@@ -23057,7 +23057,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -23182,7 +23182,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i32
   br label %84
@@ -23238,7 +23238,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -23363,7 +23363,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i32
   br label %84
@@ -23419,7 +23419,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -23544,7 +23544,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i32
   br label %84
@@ -23600,7 +23600,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -23725,7 +23725,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptoui float %82 to i32
   br label %84
@@ -23781,7 +23781,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIjE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -23906,7 +23906,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptoui double %82 to i32
   br label %84
@@ -24504,7 +24504,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -24513,7 +24513,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = sext i8 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -24589,8 +24589,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -24694,7 +24694,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -24703,7 +24703,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = zext i8 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -24779,8 +24779,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -24819,7 +24819,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -24884,16 +24884,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = sext i16 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -24955,7 +24955,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = sext i16 %89 to i64
   br label %91
@@ -24969,8 +24969,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -25009,7 +25009,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -25074,16 +25074,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = zext i16 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -25145,7 +25145,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i64
   br label %91
@@ -25159,8 +25159,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -25199,7 +25199,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -25264,16 +25264,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -25335,7 +25335,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   %90 = sext i32 %89 to i64
   br label %91
@@ -25349,8 +25349,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -25389,7 +25389,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -25454,16 +25454,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = zext i32 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -25525,7 +25525,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   %90 = zext i32 %89 to i64
   br label %91
@@ -25539,8 +25539,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -25579,7 +25579,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -25644,15 +25644,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %50
   store i64 %49, ptr %gep, align 8, !tbaa !12
   %51 = add nuw nsw i64 %.01116, 1
   %52 = load i64, ptr %34, align 8, !tbaa !389
@@ -25714,7 +25714,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   br label %89
 
@@ -25727,8 +25727,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !244
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i64, ptr %92, i64 %95
-  %99 = getelementptr i64, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store i64 %90, ptr %99, align 8, !tbaa !12
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !723
@@ -25767,7 +25767,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -25832,15 +25832,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %50
   store i64 %49, ptr %gep, align 8, !tbaa !12
   %51 = add nuw nsw i64 %.01116, 1
   %52 = load i64, ptr %34, align 8, !tbaa !389
@@ -25902,7 +25902,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   br label %89
 
@@ -25915,8 +25915,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !244
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i64, ptr %92, i64 %95
-  %99 = getelementptr i64, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store i64 %90, ptr %99, align 8, !tbaa !12
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !723
@@ -25955,7 +25955,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -26020,16 +26020,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = zext i16 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -26091,7 +26091,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i64
   br label %91
@@ -26105,8 +26105,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -26145,7 +26145,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -26210,16 +26210,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load float, ptr %48, align 4, !tbaa !321
   %50 = fptoui float %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -26281,7 +26281,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load float, ptr %88, align 4, !tbaa !321
   %90 = fptoui float %89 to i64
   br label %91
@@ -26295,8 +26295,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -26335,7 +26335,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -26400,16 +26400,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !244
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load double, ptr %48, align 8, !tbaa !327
   %50 = fptoui double %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -26471,7 +26471,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load double, ptr %88, align 8, !tbaa !327
   %90 = fptoui double %89 to i64
   br label %91
@@ -26485,8 +26485,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !244
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !723
@@ -26882,7 +26882,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -27007,7 +27007,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = sext i16 %82 to i64
   br label %84
@@ -27063,7 +27063,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -27188,7 +27188,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i64
   br label %84
@@ -27244,7 +27244,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -27369,7 +27369,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = sext i32 %82 to i64
   br label %84
@@ -27425,7 +27425,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -27550,7 +27550,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = zext i32 %82 to i64
   br label %84
@@ -27606,7 +27606,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -27730,7 +27730,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load i64, ptr %80, align 8, !tbaa !12
   br label %82
 
@@ -27785,7 +27785,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -27840,7 +27840,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !782
   %45 = load ptr, ptr %44, align 8, !tbaa !99
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !99
   br label %.loopexit
 
@@ -27899,7 +27899,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw i64, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.08
   %80 = load i64, ptr %79, align 8, !tbaa !12
   br label %81
 
@@ -27950,7 +27950,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -28075,7 +28075,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i64
   br label %84
@@ -28131,7 +28131,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -28256,7 +28256,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptoui float %82 to i64
   br label %84
@@ -28312,7 +28312,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorImE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -28437,7 +28437,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptoui double %82 to i64
   br label %84
@@ -29350,7 +29350,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -29413,7 +29413,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %43 = load i16, ptr %42, align 2, !tbaa !291
   %44 = trunc i16 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -29488,7 +29488,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %93 = load i16, ptr %92, align 2, !tbaa !291
   %94 = trunc i16 %93 to i8
   br label %95
@@ -29542,7 +29542,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -29605,7 +29605,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %43 = load i16, ptr %42, align 2, !tbaa !291
   %44 = trunc i16 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -29680,7 +29680,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %93 = load i16, ptr %92, align 2, !tbaa !291
   %94 = trunc i16 %93 to i8
   br label %95
@@ -29734,7 +29734,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -29797,7 +29797,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %43 = load i32, ptr %42, align 4, !tbaa !133
   %44 = trunc i32 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -29872,7 +29872,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %93 = load i32, ptr %92, align 4, !tbaa !133
   %94 = trunc i32 %93 to i8
   br label %95
@@ -29926,7 +29926,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -29989,7 +29989,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %43 = load i32, ptr %42, align 4, !tbaa !133
   %44 = trunc i32 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -30064,7 +30064,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %93 = load i32, ptr %92, align 4, !tbaa !133
   %94 = trunc i32 %93 to i8
   br label %95
@@ -30118,7 +30118,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -30181,7 +30181,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %43 = load i64, ptr %42, align 8, !tbaa !12
   %44 = trunc i64 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -30256,7 +30256,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %93 = load i64, ptr %92, align 8, !tbaa !12
   %94 = trunc i64 %93 to i8
   br label %95
@@ -30310,7 +30310,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -30373,7 +30373,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %43 = load i64, ptr %42, align 8, !tbaa !12
   %44 = trunc i64 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -30448,7 +30448,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %93 = load i64, ptr %92, align 8, !tbaa !12
   %94 = trunc i64 %93 to i8
   br label %95
@@ -30502,7 +30502,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -30565,7 +30565,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %43 = load i16, ptr %42, align 2, !tbaa !291
   %44 = trunc i16 %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -30640,7 +30640,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %93 = load i16, ptr %92, align 2, !tbaa !291
   %94 = trunc i16 %93 to i8
   br label %95
@@ -30694,7 +30694,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -30757,7 +30757,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %43 = load float, ptr %42, align 4, !tbaa !321
   %44 = fptosi float %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -30832,7 +30832,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %93 = load float, ptr %92, align 4, !tbaa !321
   %94 = fptosi float %93 to i8
   br label %95
@@ -30886,7 +30886,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -30949,7 +30949,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 41:                                               ; preds = %.lr.ph17, %41
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %41 ]
-  %42 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %43 = load double, ptr %42, align 8, !tbaa !327
   %44 = fptosi double %43 to i8
   %45 = load ptr, ptr %1, align 8, !tbaa !828
@@ -31024,7 +31024,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82, %84, %86, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %92 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %93 = load double, ptr %92, align 8, !tbaa !327
   %94 = fptosi double %93 to i8
   br label %95
@@ -31416,7 +31416,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -31538,7 +31538,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   %82 = trunc i16 %81 to i8
   br label %83
@@ -31590,7 +31590,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -31712,7 +31712,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   %82 = trunc i16 %81 to i8
   br label %83
@@ -31764,7 +31764,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -31886,7 +31886,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load i32, ptr %80, align 4, !tbaa !133
   %82 = trunc i32 %81 to i8
   br label %83
@@ -31938,7 +31938,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -32060,7 +32060,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load i32, ptr %80, align 4, !tbaa !133
   %82 = trunc i32 %81 to i8
   br label %83
@@ -32112,7 +32112,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -32234,7 +32234,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load i64, ptr %80, align 8, !tbaa !12
   %82 = trunc i64 %81 to i8
   br label %83
@@ -32286,7 +32286,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -32408,7 +32408,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load i64, ptr %80, align 8, !tbaa !12
   %82 = trunc i64 %81 to i8
   br label %83
@@ -32460,7 +32460,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -32582,7 +32582,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   %82 = trunc i16 %81 to i8
   br label %83
@@ -32634,7 +32634,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -32756,7 +32756,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load float, ptr %80, align 4, !tbaa !321
   %82 = fptosi float %81 to i8
   br label %83
@@ -32808,7 +32808,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIaE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -32930,7 +32930,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load double, ptr %80, align 8, !tbaa !327
   %82 = fptosi double %81 to i8
   br label %83
@@ -33524,7 +33524,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -33533,7 +33533,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = sext i8 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -33608,8 +33608,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -33713,7 +33713,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -33722,7 +33722,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = zext i8 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -33797,8 +33797,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -33837,7 +33837,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -33902,15 +33902,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %50
   store i16 %49, ptr %gep, align 2, !tbaa !291
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -33971,7 +33971,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %86 = load i16, ptr %85, align 2, !tbaa !291
   br label %87
 
@@ -33984,8 +33984,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !250
   %95 = sext i32 %94 to i64
-  %96 = getelementptr i16, ptr %90, i64 %93
-  %97 = getelementptr i16, ptr %96, i64 %95
+  %96 = getelementptr [2 x i8], ptr %90, i64 %93
+  %97 = getelementptr [2 x i8], ptr %96, i64 %95
   store i16 %88, ptr %97, align 2, !tbaa !291
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !931
@@ -34024,7 +34024,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -34089,15 +34089,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %50
   store i16 %49, ptr %gep, align 2, !tbaa !291
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -34158,7 +34158,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %86 = load i16, ptr %85, align 2, !tbaa !291
   br label %87
 
@@ -34171,8 +34171,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !250
   %95 = sext i32 %94 to i64
-  %96 = getelementptr i16, ptr %90, i64 %93
-  %97 = getelementptr i16, ptr %96, i64 %95
+  %96 = getelementptr [2 x i8], ptr %90, i64 %93
+  %97 = getelementptr [2 x i8], ptr %96, i64 %95
   store i16 %88, ptr %97, align 2, !tbaa !291
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !931
@@ -34211,7 +34211,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -34276,16 +34276,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = trunc i32 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -34346,7 +34346,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = trunc i32 %87 to i16
   br label %89
@@ -34360,8 +34360,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -34400,7 +34400,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -34465,16 +34465,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = trunc i32 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -34535,7 +34535,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = trunc i32 %87 to i16
   br label %89
@@ -34549,8 +34549,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -34589,7 +34589,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -34654,16 +34654,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = trunc i64 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -34724,7 +34724,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = trunc i64 %87 to i16
   br label %89
@@ -34738,8 +34738,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -34778,7 +34778,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -34843,16 +34843,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = trunc i64 %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -34913,7 +34913,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = trunc i64 %87 to i16
   br label %89
@@ -34927,8 +34927,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -34967,7 +34967,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -35032,15 +35032,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %50
   store i16 %49, ptr %gep, align 2, !tbaa !291
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -35101,7 +35101,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %86 = load i16, ptr %85, align 2, !tbaa !291
   br label %87
 
@@ -35114,8 +35114,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !250
   %95 = sext i32 %94 to i64
-  %96 = getelementptr i16, ptr %90, i64 %93
-  %97 = getelementptr i16, ptr %96, i64 %95
+  %96 = getelementptr [2 x i8], ptr %90, i64 %93
+  %97 = getelementptr [2 x i8], ptr %96, i64 %95
   store i16 %88, ptr %97, align 2, !tbaa !291
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !931
@@ -35154,7 +35154,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -35219,16 +35219,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load float, ptr %48, align 4, !tbaa !321
   %50 = fptosi float %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -35289,7 +35289,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load float, ptr %86, align 4, !tbaa !321
   %88 = fptosi float %87 to i16
   br label %89
@@ -35303,8 +35303,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -35343,7 +35343,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -35408,16 +35408,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !250
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i16, ptr %40, i64 %46
+  %invariant.gep = getelementptr [2 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load double, ptr %48, align 8, !tbaa !327
   %50 = fptosi double %49 to i16
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %51
   store i16 %50, ptr %gep, align 2, !tbaa !291
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -35478,7 +35478,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load double, ptr %86, align 8, !tbaa !327
   %88 = fptosi double %87 to i16
   br label %89
@@ -35492,8 +35492,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !250
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i16, ptr %92, i64 %95
-  %99 = getelementptr i16, ptr %98, i64 %97
+  %98 = getelementptr [2 x i8], ptr %92, i64 %95
+  %99 = getelementptr [2 x i8], ptr %98, i64 %97
   store i16 %90, ptr %99, align 2, !tbaa !291
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !931
@@ -35889,7 +35889,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -35944,7 +35944,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !990
   %45 = load ptr, ptr %44, align 8, !tbaa !226
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !226
   br label %.loopexit
 
@@ -36003,7 +36003,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.08
   %80 = load i16, ptr %79, align 2, !tbaa !291
   br label %81
 
@@ -36054,7 +36054,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -36178,7 +36178,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   br label %82
 
@@ -36233,7 +36233,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -36358,7 +36358,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i16
   br label %84
@@ -36414,7 +36414,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -36539,7 +36539,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i16
   br label %84
@@ -36595,7 +36595,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -36720,7 +36720,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i16
   br label %84
@@ -36776,7 +36776,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -36901,7 +36901,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i16
   br label %84
@@ -36957,7 +36957,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -37081,7 +37081,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %81 = load i16, ptr %80, align 2, !tbaa !291
   br label %82
 
@@ -37136,7 +37136,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -37261,7 +37261,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptosi float %82 to i16
   br label %84
@@ -37317,7 +37317,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIsE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -37442,7 +37442,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptosi double %82 to i16
   br label %84
@@ -38048,8 +38048,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -38124,8 +38124,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -38237,8 +38237,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -38313,8 +38313,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -38353,7 +38353,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -38418,7 +38418,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %45 = load i16, ptr %44, align 2, !tbaa !291
   %46 = sext i16 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !251
@@ -38426,8 +38426,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -38488,7 +38488,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = sext i16 %89 to i32
   br label %91
@@ -38502,8 +38502,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -38542,7 +38542,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -38607,7 +38607,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %45 = load i16, ptr %44, align 2, !tbaa !291
   %46 = zext i16 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !251
@@ -38615,8 +38615,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -38677,7 +38677,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i32
   br label %91
@@ -38691,8 +38691,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -38731,7 +38731,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -38796,15 +38796,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %53, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %45 = load i32, ptr %44, align 4, !tbaa !133
   %46 = load i32, ptr %41, align 8, !tbaa !251
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %.01116, %47
   %49 = load i32, ptr %42, align 4, !tbaa !253
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %40, i64 %48
-  %52 = getelementptr i32, ptr %51, i64 %50
+  %51 = getelementptr [4 x i8], ptr %40, i64 %48
+  %52 = getelementptr [4 x i8], ptr %51, i64 %50
   store i32 %45, ptr %52, align 4, !tbaa !133
   %53 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %53, %35
@@ -38865,7 +38865,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   br label %89
 
@@ -38878,8 +38878,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !253
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i32, ptr %92, i64 %95
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store i32 %90, ptr %99, align 4, !tbaa !133
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -38918,7 +38918,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -38983,15 +38983,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %53, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %45 = load i32, ptr %44, align 4, !tbaa !133
   %46 = load i32, ptr %41, align 8, !tbaa !251
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %.01116, %47
   %49 = load i32, ptr %42, align 4, !tbaa !253
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %40, i64 %48
-  %52 = getelementptr i32, ptr %51, i64 %50
+  %51 = getelementptr [4 x i8], ptr %40, i64 %48
+  %52 = getelementptr [4 x i8], ptr %51, i64 %50
   store i32 %45, ptr %52, align 4, !tbaa !133
   %53 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %53, %35
@@ -39052,7 +39052,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   br label %89
 
@@ -39065,8 +39065,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !253
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i32, ptr %92, i64 %95
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store i32 %90, ptr %99, align 4, !tbaa !133
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -39105,7 +39105,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -39170,7 +39170,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !251
@@ -39178,8 +39178,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -39240,7 +39240,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   %90 = trunc i64 %89 to i32
   br label %91
@@ -39254,8 +39254,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -39294,7 +39294,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -39359,7 +39359,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !251
@@ -39367,8 +39367,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -39429,7 +39429,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   %90 = trunc i64 %89 to i32
   br label %91
@@ -39443,8 +39443,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -39483,7 +39483,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -39548,7 +39548,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %45 = load i16, ptr %44, align 2, !tbaa !291
   %46 = zext i16 %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !251
@@ -39556,8 +39556,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -39618,7 +39618,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i32
   br label %91
@@ -39632,8 +39632,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -39672,7 +39672,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -39737,7 +39737,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %45 = load float, ptr %44, align 4, !tbaa !321
   %46 = fptosi float %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !251
@@ -39745,8 +39745,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -39807,7 +39807,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load float, ptr %88, align 4, !tbaa !321
   %90 = fptosi float %89 to i32
   br label %91
@@ -39821,8 +39821,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -39861,7 +39861,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -39926,7 +39926,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
 
 43:                                               ; preds = %.lr.ph17, %43
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %45 = load double, ptr %44, align 8, !tbaa !327
   %46 = fptosi double %45 to i32
   %47 = load i32, ptr %41, align 8, !tbaa !251
@@ -39934,8 +39934,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = mul nsw i64 %.01116, %48
   %50 = load i32, ptr %42, align 4, !tbaa !253
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %40, i64 %49
-  %53 = getelementptr i32, ptr %52, i64 %51
+  %52 = getelementptr [4 x i8], ptr %40, i64 %49
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   store i32 %46, ptr %53, align 4, !tbaa !133
   %54 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %54, %35
@@ -39996,7 +39996,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load double, ptr %88, align 8, !tbaa !327
   %90 = fptosi double %89 to i32
   br label %91
@@ -40010,8 +40010,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !253
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %94, i64 %97
-  %101 = getelementptr i32, ptr %100, i64 %99
+  %100 = getelementptr [4 x i8], ptr %94, i64 %97
+  %101 = getelementptr [4 x i8], ptr %100, i64 %99
   store i32 %92, ptr %101, align 4, !tbaa !133
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1035
@@ -40407,7 +40407,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -40532,7 +40532,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = sext i16 %82 to i32
   br label %84
@@ -40588,7 +40588,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -40713,7 +40713,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i32
   br label %84
@@ -40769,7 +40769,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -40824,7 +40824,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %42, ptr align 4 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !1094
   %45 = load ptr, ptr %44, align 8, !tbaa !233
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !233
   br label %.loopexit
 
@@ -40883,7 +40883,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw i32, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.08
   %80 = load i32, ptr %79, align 4, !tbaa !133
   br label %81
 
@@ -40934,7 +40934,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -41058,7 +41058,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %81 = load i32, ptr %80, align 4, !tbaa !133
   br label %82
 
@@ -41113,7 +41113,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -41238,7 +41238,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i32
   br label %84
@@ -41294,7 +41294,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -41419,7 +41419,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i32
   br label %84
@@ -41475,7 +41475,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -41600,7 +41600,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i32
   br label %84
@@ -41656,7 +41656,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -41781,7 +41781,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptosi float %82 to i32
   br label %84
@@ -41837,7 +41837,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIiE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -41962,7 +41962,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptosi double %82 to i32
   br label %84
@@ -42560,7 +42560,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -42569,7 +42569,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = sext i8 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -42645,8 +42645,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -42750,7 +42750,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -42759,7 +42759,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = zext i8 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -42835,8 +42835,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -42875,7 +42875,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -42940,16 +42940,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = sext i16 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -43011,7 +43011,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = sext i16 %89 to i64
   br label %91
@@ -43025,8 +43025,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -43065,7 +43065,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -43130,16 +43130,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = zext i16 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -43201,7 +43201,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i64
   br label %91
@@ -43215,8 +43215,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -43255,7 +43255,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -43320,16 +43320,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -43391,7 +43391,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   %90 = sext i32 %89 to i64
   br label %91
@@ -43405,8 +43405,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -43445,7 +43445,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -43510,16 +43510,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = zext i32 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -43581,7 +43581,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   %90 = zext i32 %89 to i64
   br label %91
@@ -43595,8 +43595,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -43635,7 +43635,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -43700,15 +43700,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %50
   store i64 %49, ptr %gep, align 8, !tbaa !12
   %51 = add nuw nsw i64 %.01116, 1
   %52 = load i64, ptr %34, align 8, !tbaa !389
@@ -43770,7 +43770,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   br label %89
 
@@ -43783,8 +43783,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !256
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i64, ptr %92, i64 %95
-  %99 = getelementptr i64, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store i64 %90, ptr %99, align 8, !tbaa !12
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -43823,7 +43823,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -43888,15 +43888,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %50
   store i64 %49, ptr %gep, align 8, !tbaa !12
   %51 = add nuw nsw i64 %.01116, 1
   %52 = load i64, ptr %34, align 8, !tbaa !389
@@ -43958,7 +43958,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %77, %79, %81, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   br label %89
 
@@ -43971,8 +43971,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !256
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i64, ptr %92, i64 %95
-  %99 = getelementptr i64, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store i64 %90, ptr %99, align 8, !tbaa !12
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -44011,7 +44011,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -44076,16 +44076,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = zext i16 %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -44147,7 +44147,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %89 = load i16, ptr %88, align 2, !tbaa !291
   %90 = zext i16 %89 to i64
   br label %91
@@ -44161,8 +44161,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -44201,7 +44201,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -44266,16 +44266,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load float, ptr %48, align 4, !tbaa !321
   %50 = fptosi float %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -44337,7 +44337,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %89 = load float, ptr %88, align 4, !tbaa !321
   %90 = fptosi float %89 to i64
   br label %91
@@ -44351,8 +44351,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -44391,7 +44391,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -44456,16 +44456,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !256
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr i64, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load double, ptr %48, align 8, !tbaa !327
   %50 = fptosi double %49 to i64
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store i64 %50, ptr %gep, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.01116, 1
   %53 = load i64, ptr %34, align 8, !tbaa !389
@@ -44527,7 +44527,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78, %80, %82, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %88 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %89 = load double, ptr %88, align 8, !tbaa !327
   %90 = fptosi double %89 to i64
   br label %91
@@ -44541,8 +44541,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %97 = mul nsw i64 %.015, %96
   %98 = load i32, ptr %38, align 4, !tbaa !256
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i64, ptr %94, i64 %97
-  %101 = getelementptr i64, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %94, i64 %97
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store i64 %92, ptr %101, align 8, !tbaa !12
   %102 = add nuw nsw i64 %.015, 1
   %103 = load ptr, ptr %5, align 8, !tbaa !1139
@@ -44938,7 +44938,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -45063,7 +45063,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = sext i16 %82 to i64
   br label %84
@@ -45119,7 +45119,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -45244,7 +45244,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i64
   br label %84
@@ -45300,7 +45300,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -45425,7 +45425,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = sext i32 %82 to i64
   br label %84
@@ -45481,7 +45481,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -45606,7 +45606,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = zext i32 %82 to i64
   br label %84
@@ -45662,7 +45662,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -45717,7 +45717,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !1198
   %45 = load ptr, ptr %44, align 8, !tbaa !99
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !99
   br label %.loopexit
 
@@ -45776,7 +45776,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw i64, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.08
   %80 = load i64, ptr %79, align 8, !tbaa !12
   br label %81
 
@@ -45827,7 +45827,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -45951,7 +45951,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %70, %72, %74, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %81 = load i64, ptr %80, align 8, !tbaa !12
   br label %82
 
@@ -46006,7 +46006,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -46131,7 +46131,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = zext i16 %82 to i64
   br label %84
@@ -46187,7 +46187,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -46312,7 +46312,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptosi float %82 to i64
   br label %84
@@ -46368,7 +46368,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIlE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -46493,7 +46493,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptosi double %82 to i64
   br label %84
@@ -47091,7 +47091,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -47100,7 +47100,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = sitofp i8 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -47175,8 +47175,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -47280,7 +47280,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -47289,7 +47289,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = uitofp i8 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -47364,8 +47364,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -47404,7 +47404,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -47469,16 +47469,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = sitofp i16 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -47539,7 +47539,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   %88 = sitofp i16 %87 to float
   br label %89
@@ -47553,8 +47553,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -47593,7 +47593,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -47658,16 +47658,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = uitofp i16 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -47728,7 +47728,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   %88 = uitofp i16 %87 to float
   br label %89
@@ -47742,8 +47742,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -47782,7 +47782,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -47847,16 +47847,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = sitofp i32 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -47917,7 +47917,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = sitofp i32 %87 to float
   br label %89
@@ -47931,8 +47931,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -47971,7 +47971,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -48036,16 +48036,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = uitofp i32 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -48106,7 +48106,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = uitofp i32 %87 to float
   br label %89
@@ -48120,8 +48120,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -48160,7 +48160,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -48225,16 +48225,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = sitofp i64 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -48295,7 +48295,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = sitofp i64 %87 to float
   br label %89
@@ -48309,8 +48309,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -48349,7 +48349,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -48414,16 +48414,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = uitofp i64 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -48484,7 +48484,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = uitofp i64 %87 to float
   br label %89
@@ -48498,8 +48498,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -48538,7 +48538,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -48603,16 +48603,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = uitofp i16 %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -48673,7 +48673,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   %88 = uitofp i16 %87 to float
   br label %89
@@ -48687,8 +48687,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -48727,7 +48727,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -48792,15 +48792,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load float, ptr %48, align 4, !tbaa !321
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %50
   store float %49, ptr %gep, align 4, !tbaa !321
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -48861,7 +48861,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %86 = load float, ptr %85, align 4, !tbaa !321
   br label %87
 
@@ -48874,8 +48874,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !263
   %95 = sext i32 %94 to i64
-  %96 = getelementptr float, ptr %90, i64 %93
-  %97 = getelementptr float, ptr %96, i64 %95
+  %96 = getelementptr [4 x i8], ptr %90, i64 %93
+  %97 = getelementptr [4 x i8], ptr %96, i64 %95
   store float %88, ptr %97, align 4, !tbaa !321
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -48914,7 +48914,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -48979,16 +48979,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !263
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr float, ptr %40, i64 %46
+  %invariant.gep = getelementptr [4 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load double, ptr %48, align 8, !tbaa !327
   %50 = fptrunc double %49 to float
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr float, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   store float %50, ptr %gep, align 4, !tbaa !321
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -49049,7 +49049,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load double, ptr %86, align 8, !tbaa !327
   %88 = fptrunc double %87 to float
   br label %89
@@ -49063,8 +49063,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !263
   %97 = sext i32 %96 to i64
-  %98 = getelementptr float, ptr %92, i64 %95
-  %99 = getelementptr float, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %92, i64 %95
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   store float %90, ptr %99, align 4, !tbaa !321
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1243
@@ -49460,7 +49460,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -49585,7 +49585,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = sitofp i16 %82 to float
   br label %84
@@ -49641,7 +49641,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -49766,7 +49766,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = uitofp i16 %82 to float
   br label %84
@@ -49822,7 +49822,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -49947,7 +49947,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = sitofp i32 %82 to float
   br label %84
@@ -50003,7 +50003,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -50128,7 +50128,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = uitofp i32 %82 to float
   br label %84
@@ -50184,7 +50184,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -50309,7 +50309,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = sitofp i64 %82 to float
   br label %84
@@ -50365,7 +50365,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -50490,7 +50490,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = uitofp i64 %82 to float
   br label %84
@@ -50546,7 +50546,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -50671,7 +50671,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = uitofp i16 %82 to float
   br label %84
@@ -50727,7 +50727,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -50782,7 +50782,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %42, ptr align 4 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !1302
   %45 = load ptr, ptr %44, align 8, !tbaa !257
-  %46 = getelementptr inbounds nuw float, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !257
   br label %.loopexit
 
@@ -50841,7 +50841,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw float, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.08
   %80 = load float, ptr %79, align 4, !tbaa !321
   br label %81
 
@@ -50892,7 +50892,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIfE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -51017,7 +51017,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptrunc double %82 to float
   br label %84
@@ -51615,7 +51615,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -51624,7 +51624,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = sitofp i8 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -51699,8 +51699,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -51804,7 +51804,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
@@ -51813,7 +51813,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %49 = load i8, ptr %48, align 1, !tbaa !92
   %50 = uitofp i8 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -51888,8 +51888,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -51928,7 +51928,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -51993,16 +51993,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = sitofp i16 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -52063,7 +52063,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   %88 = sitofp i16 %87 to double
   br label %89
@@ -52077,8 +52077,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -52117,7 +52117,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -52182,16 +52182,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = uitofp i16 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -52252,7 +52252,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   %88 = uitofp i16 %87 to double
   br label %89
@@ -52266,8 +52266,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -52306,7 +52306,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -52371,16 +52371,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = sitofp i32 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -52441,7 +52441,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = sitofp i32 %87 to double
   br label %89
@@ -52455,8 +52455,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -52495,7 +52495,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -52560,16 +52560,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load i32, ptr %48, align 4, !tbaa !133
   %50 = uitofp i32 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -52630,7 +52630,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load i32, ptr %86, align 4, !tbaa !133
   %88 = uitofp i32 %87 to double
   br label %89
@@ -52644,8 +52644,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -52684,7 +52684,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -52749,16 +52749,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = sitofp i64 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -52819,7 +52819,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = sitofp i64 %87 to double
   br label %89
@@ -52833,8 +52833,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -52873,7 +52873,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -52938,16 +52938,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = uitofp i64 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -53008,7 +53008,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %87 = load i64, ptr %86, align 8, !tbaa !12
   %88 = uitofp i64 %87 to double
   br label %89
@@ -53022,8 +53022,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -53062,7 +53062,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -53127,16 +53127,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.01116
   %49 = load i16, ptr %48, align 2, !tbaa !291
   %50 = uitofp i16 %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -53197,7 +53197,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   %88 = uitofp i16 %87 to double
   br label %89
@@ -53211,8 +53211,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -53251,7 +53251,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -53316,16 +53316,16 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.01116
   %49 = load float, ptr %48, align 4, !tbaa !321
   %50 = fpext float %49 to double
   %51 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %51
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %51
   store double %50, ptr %gep, align 8, !tbaa !327
   %52 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %52, %35
@@ -53386,7 +53386,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %76, %78, %80, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %86 = getelementptr inbounds nuw float, ptr %16, i64 %.015
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.015
   %87 = load float, ptr %86, align 4, !tbaa !321
   %88 = fpext float %87 to double
   br label %89
@@ -53400,8 +53400,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %95 = mul nsw i64 %.015, %94
   %96 = load i32, ptr %38, align 4, !tbaa !270
   %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %92, i64 %95
-  %99 = getelementptr double, ptr %98, i64 %97
+  %98 = getelementptr [8 x i8], ptr %92, i64 %95
+  %99 = getelementptr [8 x i8], ptr %98, i64 %97
   store double %90, ptr %99, align 8, !tbaa !327
   %100 = add nuw nsw i64 %.015, 1
   %101 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -53440,7 +53440,7 @@ define linkonce_odr void @_ZN5arrow8internal37ConvertColumnsToTensorRowMajorVisi
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !381
   %15 = load i64, ptr %8, align 8, !tbaa !384
-  %16 = getelementptr inbounds double, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !385
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -53505,15 +53505,15 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !270
   %46 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr [8 x i8], ptr %40, i64 %46
   br label %47
 
 47:                                               ; preds = %.lr.ph17, %47
   %.01116 = phi i64 [ 0, %.lr.ph17 ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw double, ptr %16, i64 %.01116
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01116
   %49 = load double, ptr %48, align 8, !tbaa !327
   %50 = mul nsw i64 %.01116, %43
-  %gep = getelementptr double, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %50
   store double %49, ptr %gep, align 8, !tbaa !327
   %51 = add nuw nsw i64 %.01116, 1
   %exitcond.not = icmp eq i64 %51, %35
@@ -53574,7 +53574,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %75, %77, %79, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %85 = getelementptr inbounds nuw double, ptr %16, i64 %.015
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015
   %86 = load double, ptr %85, align 8, !tbaa !327
   br label %87
 
@@ -53587,8 +53587,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %71
   %93 = mul nsw i64 %.015, %92
   %94 = load i32, ptr %38, align 4, !tbaa !270
   %95 = sext i32 %94 to i64
-  %96 = getelementptr double, ptr %90, i64 %93
-  %97 = getelementptr double, ptr %96, i64 %95
+  %96 = getelementptr [8 x i8], ptr %90, i64 %93
+  %97 = getelementptr [8 x i8], ptr %96, i64 %95
   store double %88, ptr %97, align 8, !tbaa !327
   %98 = add nuw nsw i64 %.015, 1
   %99 = load ptr, ptr %5, align 8, !tbaa !1347
@@ -53984,7 +53984,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -54109,7 +54109,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = sitofp i16 %82 to double
   br label %84
@@ -54165,7 +54165,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -54290,7 +54290,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = uitofp i16 %82 to double
   br label %84
@@ -54346,7 +54346,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -54471,7 +54471,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = sitofp i32 %82 to double
   br label %84
@@ -54527,7 +54527,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -54652,7 +54652,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = uitofp i32 %82 to double
   br label %84
@@ -54708,7 +54708,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -54833,7 +54833,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = sitofp i64 %82 to double
   br label %84
@@ -54889,7 +54889,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -55014,7 +55014,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = uitofp i64 %82 to double
   br label %84
@@ -55070,7 +55070,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -55195,7 +55195,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = uitofp i16 %82 to double
   br label %84
@@ -55251,7 +55251,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds float, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -55376,7 +55376,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %71, %73, %75, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fpext float %82 to double
   br label %84
@@ -55432,7 +55432,7 @@ define linkonce_odr void @_ZN5arrow8internal29ConvertColumnsToTensorVisitorIdE5V
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !381
   %18 = load i64, ptr %8, align 8, !tbaa !384
-  %19 = getelementptr inbounds double, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !385
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -55487,7 +55487,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %19, i64 %43, i1 false)
   %44 = load ptr, ptr %1, align 8, !tbaa !1406
   %45 = load ptr, ptr %44, align 8, !tbaa !264
-  %46 = getelementptr inbounds nuw double, ptr %45, i64 %15
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %15
   store ptr %46, ptr %44, align 8, !tbaa !264
   br label %.loopexit
 
@@ -55546,7 +55546,7 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %69, %71, %73, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
-  %79 = getelementptr inbounds nuw double, ptr %19, i64 %.08
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.08
   %80 = load double, ptr %79, align 8, !tbaa !327
   br label %81
 
@@ -55838,7 +55838,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -55850,7 +55850,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -55865,7 +55865,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -55912,7 +55912,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -55924,7 +55924,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -55939,7 +55939,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -55986,7 +55986,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -55998,7 +55998,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -56013,7 +56013,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56060,7 +56060,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56072,7 +56072,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -56087,7 +56087,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56134,7 +56134,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56146,7 +56146,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -56161,7 +56161,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56208,7 +56208,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56220,7 +56220,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -56235,7 +56235,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56282,7 +56282,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56294,7 +56294,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -56309,7 +56309,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56356,7 +56356,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56368,7 +56368,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -56383,7 +56383,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56430,7 +56430,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56442,7 +56442,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %39
 
@@ -56457,7 +56457,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56504,7 +56504,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56516,7 +56516,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %40
 
@@ -56531,7 +56531,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 
@@ -56578,7 +56578,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %13 = add nsw i32 %12, -1
   %14 = icmp eq i32 %0, %13
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp sgt i64 %17, 0
   br i1 %14, label %.preheader, label %.preheader33
@@ -56590,7 +56590,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %19 = add nsw i32 %0, 1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
   br label %40
 
@@ -56605,7 +56605,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %28 = getelementptr inbounds i8, ptr %27, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %15
   %32 = load i64, ptr %31, align 8, !tbaa !12
   br label %33
 

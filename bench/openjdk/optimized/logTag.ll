@@ -191,7 +191,7 @@ define hidden noundef range(i32 0, 177) i32 @_ZN6LogTag11from_stringEPKc(ptr nou
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN6LogTag5_nameE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6LogTag5_nameE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %4) #5
   %6 = icmp eq i32 %5, 0
@@ -224,7 +224,7 @@ define hidden noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef %0) local_unn
   %.01318 = phi double [ 5.000000e-01, %1 ], [ %.114, %3 ]
   %.01517 = phi i64 [ 1, %1 ], [ %10, %3 ]
   %4 = trunc nuw nsw i64 %.01517 to i32
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZN6LogTag5_nameE, i64 %.01517
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6LogTag5_nameE, i64 %.01517
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #5
   %8 = tail call noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef nonnull %6, i64 noundef %7, ptr noundef nonnull %0, i64 noundef %2) #6
@@ -252,7 +252,7 @@ define hidden void @_ZN6LogTag9list_tagsEP12outputStream(ptr noundef %0) local_u
   %.05 = phi i64 [ 1, %1 ], [ %7, %2 ]
   %3 = icmp eq i64 %.05, 1
   %4 = select i1 %3, ptr @.str, ptr @.str.181
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZN6LogTag5_nameE, i64 %.05
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6LogTag5_nameE, i64 %.05
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.180, ptr noundef nonnull %4, ptr noundef %6) #6
   %7 = add nuw nsw i64 %.05, 1

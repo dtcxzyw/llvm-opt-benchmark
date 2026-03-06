@@ -2933,7 +2933,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %32, ptr %11, align 8
   store ptr %36, ptr %12, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %14, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 

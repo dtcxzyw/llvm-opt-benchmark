@@ -7,17 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>, std::allocator<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>, std::allocator<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>, std::allocator<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>, std::allocator<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::Ptr.21" = type { %"class.std::shared_ptr.22" }
-%"class.std::shared_ptr.22" = type { %"class.std::__shared_ptr.23" }
-%"class.std::__shared_ptr.23" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.18" = type { i8 }
+%"struct.cv::Ptr.21" = type { %"class.std::shared_ptr.22" }
+%"class.std::shared_ptr.22" = type { %"class.std::__shared_ptr.23" }
+%"class.std::__shared_ptr.23" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt6vectorIS_ISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EESaIS9_EED2Ev = comdat any
 
@@ -629,7 +625,7 @@ define void @_ZN2cv6detail8tracking12TrackerModel11modelUpdateEv(ptr noundef non
 18:                                               ; preds = %7
   %19 = sdiv i32 %6, 2
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"class.std::vector.0", ptr %11, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %11, i64 %20
   %22 = tail call ptr @_ZNSt6vectorIS_ISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EESaIS9_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS9_SB_EESF_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %11, ptr %21)
   %.pr.pre = load i32, ptr %5, align 8, !tbaa !6
   %.not4 = icmp eq i32 %.pr.pre, -1
@@ -653,7 +649,7 @@ define void @_ZN2cv6detail8tracking12TrackerModel11modelUpdateEv(ptr noundef non
 33:                                               ; preds = %.thread21
   %34 = sdiv i32 %.pr24, 2
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.cv::Ptr.21", ptr %26, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %26, i64 %35
   %37 = tail call ptr @_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS5_S7_EESB_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %26, ptr %36)
   br label %.thread
 
@@ -1856,7 +1852,7 @@ _ZNSt12_Vector_baseISt6vectorISt4pairIN2cv3PtrINS2_6detail8tracking18TrackerTarg
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !32
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !33
-  %77 = getelementptr inbounds nuw %"class.std::vector.0", ptr %20, i64 %16
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %77, ptr %76, align 8, !tbaa !50
   ret void
 
@@ -2015,7 +2011,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !46
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !47
-  %49 = getelementptr inbounds nuw %"struct.cv::Ptr.21", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !67
   ret void
 }

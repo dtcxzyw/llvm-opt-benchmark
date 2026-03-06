@@ -7,12 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_key = type { %struct.atomic_t, %union.anon.39 }
 %struct.atomic_t = type { i32 }
 %union.anon.39 = type { i64 }
-%struct.nfs4_secinfo4 = type { i32, %struct.rpcsec_gss_info }
-%struct.rpcsec_gss_info = type { %struct.rpcsec_gss_oid, i32, i32 }
-%struct.rpcsec_gss_oid = type { i32, [32 x i8] }
-%struct.nfs4_string = type { i32, ptr }
-%struct.nfs4_fs_location = type { i32, [10 x %struct.nfs4_string], %struct.nfs4_pathname }
-%struct.nfs4_pathname = type { i32, [512 x %struct.nfs4_string] }
 
 @vmemmap_base = external dso_local local_unnamed_addr global i64, align 8
 @page_offset_base = external dso_local local_unnamed_addr global i64, align 8
@@ -112,7 +106,7 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
 
 29:                                               ; preds = %.thread, %22
   %30 = phi i64 [ 0, %22 ], [ %49, %.thread ]
-  %31 = getelementptr %struct.nfs4_secinfo4, ptr %27, i64 %30
+  %31 = getelementptr [48 x i8], ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4
   switch i32 %32, label %.thread [
     i32 0, label %33
@@ -377,7 +371,7 @@ select.unfold:                                    ; preds = %81, %77
   %101 = phi i32 [ 0, %95 ], [ %98, %97 ]
   %102 = phi i64 [ 0, %95 ], [ %109, %97 ]
   %103 = sext i32 %101 to i64
-  %104 = getelementptr %struct.nfs4_string, ptr %96, i64 %103
+  %104 = getelementptr [16 x i8], ptr %96, i64 %103
   %105 = load i32, ptr %104, align 8
   %106 = icmp ult i32 %105, 256
   %107 = add nuw nsw i32 %105, 1
@@ -407,7 +401,7 @@ select.unfold:                                    ; preds = %81, %77
   %121 = phi i32 [ 0, %118 ], [ %131, %120 ]
   %122 = phi ptr [ %113, %118 ], [ %130, %120 ]
   %123 = sext i32 %121 to i64
-  %124 = getelementptr %struct.nfs4_string, ptr %119, i64 %123
+  %124 = getelementptr [16 x i8], ptr %119, i64 %123
   %125 = getelementptr i8, ptr %122, i64 1
   store i8 47, ptr %122, align 1
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -455,7 +449,7 @@ select.unfold:                                    ; preds = %81, %77
 146:                                              ; preds = %.thread56, %142
   %147 = phi i64 [ 0, %142 ], [ %295, %.thread56 ]
   %148 = phi i32 [ -2, %142 ], [ %294, %.thread56 ]
-  %149 = getelementptr %struct.nfs4_fs_location, ptr %143, i64 %147
+  %149 = getelementptr [8368 x i8], ptr %143, i64 %147
   %150 = icmp eq ptr %149, null
   br i1 %150, label %.thread56, label %151
 
@@ -479,7 +473,7 @@ select.unfold:                                    ; preds = %81, %77
 162:                                              ; preds = %162, %158
   %163 = phi i64 [ 0, %158 ], [ %168, %162 ]
   %164 = phi i32 [ 0, %158 ], [ %167, %162 ]
-  %165 = getelementptr %struct.nfs4_string, ptr %160, i64 %163
+  %165 = getelementptr [16 x i8], ptr %160, i64 %163
   %166 = load i32, ptr %165, align 8
   %167 = call i32 @llvm.umax.i32(i32 %166, i32 %164)
   %168 = add nuw nsw i64 %163, 1
@@ -517,7 +511,7 @@ select.unfold:                                    ; preds = %81, %77
   %188 = phi i32 [ 0, %182 ], [ %185, %184 ]
   %189 = phi i64 [ 0, %182 ], [ %196, %184 ]
   %190 = sext i32 %188 to i64
-  %191 = getelementptr %struct.nfs4_string, ptr %183, i64 %190
+  %191 = getelementptr [16 x i8], ptr %183, i64 %190
   %192 = load i32, ptr %191, align 16
   %193 = icmp ult i32 %192, 256
   %194 = add nuw nsw i32 %192, 1
@@ -549,7 +543,7 @@ select.unfold:                                    ; preds = %81, %77
   %209 = phi i32 [ 0, %206 ], [ %219, %208 ]
   %210 = phi ptr [ %201, %206 ], [ %218, %208 ]
   %211 = sext i32 %209 to i64
-  %212 = getelementptr %struct.nfs4_string, ptr %207, i64 %211
+  %212 = getelementptr [16 x i8], ptr %207, i64 %211
   %213 = getelementptr i8, ptr %210, i64 1
   store i8 47, ptr %210, align 1
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
@@ -604,7 +598,7 @@ select.unfold:                                    ; preds = %81, %77
 243:                                              ; preds = %.thread54, %240
   %244 = phi i64 [ 0, %240 ], [ %289, %.thread54 ]
   %245 = phi i32 [ -2, %240 ], [ %288, %.thread54 ]
-  %246 = getelementptr %struct.nfs4_string, ptr %160, i64 %244
+  %246 = getelementptr [16 x i8], ptr %160, i64 %244
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load ptr, ptr %247, align 16
   %249 = load i32, ptr %246, align 8
@@ -790,7 +784,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
 25:                                               ; preds = %.thread17, %17
   %26 = phi i64 [ 0, %17 ], [ %21, %.thread17 ]
   %27 = phi i32 [ -12, %17 ], [ %20, %.thread17 ]
-  %28 = getelementptr %struct.nfs4_fs_location, ptr %18, i64 %26
+  %28 = getelementptr [8368 x i8], ptr %18, i64 %26
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread17, label %30
 
@@ -834,7 +828,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
 54:                                               ; preds = %.thread13, %46
   %55 = phi i64 [ 0, %46 ], [ %50, %.thread13 ]
   %56 = phi i32 [ -2, %46 ], [ %49, %.thread13 ]
-  %57 = getelementptr %struct.nfs4_string, ptr %47, i64 %55
+  %57 = getelementptr [16 x i8], ptr %47, i64 %55
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.thread13, label %60

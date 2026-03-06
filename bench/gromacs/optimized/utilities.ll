@@ -7,11 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector" }
-%"class.gmx::ListOfLists" = type { %"class.std::vector", %"class.std::vector" }
 
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
@@ -72,7 +67,7 @@ define void @_Z14genQmmmIndicesRK10gmx_mtop_t(ptr dead_on_unwind noalias writabl
   %.01555.us.us = phi i32 [ %37, %._crit_edge.split.us.us.us ], [ 0, %.preheader.us.us.preheader ]
   %.154.us.us = phi i32 [ %.2.lcssa.us.us, %._crit_edge.split.us.us.us ], [ %.02671.us, %.preheader.us.us.preheader ]
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [2408 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !24
   %30 = icmp sgt i32 %29, 0
@@ -157,7 +152,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.us.us.us: ; preds = %5
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.us.us.us: ; preds = %61, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.us.us.us
   %.pre115 = phi ptr [ %.pre115.pre, %61 ], [ %.pre115124, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.us.us.us ]
   store ptr %60, ptr %10, align 8, !tbaa !45
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %54
   store ptr %62, ptr %11, align 8, !tbaa !46
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us.us.us
 
@@ -171,7 +166,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us.us.us: ; preds = %_ZNSt6vectorIiSaIiE
   %68 = add nuw nsw i32 %.042.us.us.us, 1
   %69 = load i32, ptr %.sroa.020.069.us, align 8, !tbaa !20
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %63, i64 %70
+  %71 = getelementptr inbounds nuw [2408 x i8], ptr %63, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !24
   %74 = icmp slt i32 %68, %73
@@ -213,7 +208,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us.us.us: ; preds = %_ZNSt6vectorIiSaIiE
   %.01555 = phi i32 [ %102, %._crit_edge.split ], [ 0, %.preheader.preheader ]
   %.154 = phi i32 [ %.2.lcssa, %._crit_edge.split ], [ %.02671, %.preheader.preheader ]
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [2408 x i8], ptr %84, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !24
   %90 = icmp sgt i32 %89, 0
@@ -331,7 +326,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %129, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %131, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   %.pre108 = phi ptr [ %.pre108.pre, %131 ], [ %.pre108119, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %130, ptr %10, align 8, !tbaa !45
-  %132 = getelementptr inbounds nuw i32, ptr %125, i64 %123
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %123
   store ptr %132, ptr %11, align 8, !tbaa !46
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -380,7 +375,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %144 = add nuw nsw i32 %.042, 1
   %145 = load i32, ptr %.sroa.020.069, align 8, !tbaa !20
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %140, i64 %146
+  %147 = getelementptr inbounds nuw [2408 x i8], ptr %140, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i32, ptr %148, align 8, !tbaa !24
   %150 = icmp slt i32 %144, %149

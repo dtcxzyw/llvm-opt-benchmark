@@ -22,13 +22,11 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.10 = type { i64 }
 %union.anon.11 = type { i64 }
 %union.anon.12 = type { i64 }
-%union.ListCell = type { ptr }
 %struct.QueryCompletion = type { i32, i64 }
 %struct.ParamsErrorCbData = type { ptr, ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.BindParamCbData = type { ptr, i32, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.ParamExternData = type { i64, i8, i16, i32 }
 
 @whereToSendOutput = dso_local local_unnamed_addr global i32 1, align 4
 @Log_disconnections = dso_local local_unnamed_addr global i8 0, align 1
@@ -606,7 +604,7 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
 
 101:                                              ; preds = %ProcessRecoveryConflictInterrupt.exit.i, %100
   %indvars.iv.i = phi i64 [ 7, %100 ], [ %indvars.iv.next.i, %ProcessRecoveryConflictInterrupt.exit.i ]
-  %102 = getelementptr inbounds nuw i32, ptr @RecoveryConflictPendingReasons, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr @RecoveryConflictPendingReasons, i64 %indvars.iv.i
   %103 = load volatile i32, ptr %102, align 4
   %.not.i = icmp eq i32 %103, 0
   br i1 %.not.i, label %ProcessRecoveryConflictInterrupt.exit.i, label %104
@@ -1192,7 +1190,7 @@ define dso_local ptr @pg_analyze_and_rewrite_varparams(ptr noundef %0, ptr nound
 
 18:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %27 [
     i32 705, label %21
@@ -1330,7 +1328,7 @@ define dso_local ptr @pg_plan_queries(ptr noundef readonly captures(address_is_n
   %.0242935 = phi ptr [ %50, %pg_plan_query.exit ], [ null, %.lr.ph ]
   %indvars.iv34 = phi i64 [ %indvars.iv.next, %pg_plan_query.exit ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv34
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv34
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1692,7 +1690,7 @@ define dso_local void @FloatExceptionHandler(i32 %0) #7 {
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @HandleRecoveryConflictInterrupt(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @RecoveryConflictPendingReasons, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @RecoveryConflictPendingReasons, i64 %2
   store volatile i32 1, ptr %3, align 4
   store volatile i32 1, ptr @RecoveryConflictPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
@@ -1881,7 +1879,7 @@ define dso_local noundef zeroext i1 @check_restrict_nonsystem_relation_kind(ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph ]
   %.0224350 = phi i32 [ %28, %27 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.38) #21
   %23 = icmp eq i32 %22, 0
@@ -2016,7 +2014,7 @@ switch.hole_check:                                ; preds = %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_postgres_switches, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_postgres_switches, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @SetConfigOption(ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.60, i32 noundef %1, i32 noundef %2) #21
   br label %7
@@ -2223,7 +2221,7 @@ switch.hole_check:                                ; preds = %58
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_postgres_switches, i64 %62
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_postgres_switches, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @SetConfigOption(ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.60, i32 noundef %2, i32 noundef %.070) #21
   br label %.backedge.backedge
@@ -2349,7 +2347,7 @@ get_stats_option_name.exit.thread:                ; preds = %87, %get_stats_opti
   %105 = add i32 %101, 1
   store i32 %105, ptr @optind, align 4
   %106 = sext i32 %101 to i64
-  %107 = getelementptr inbounds ptr, ptr %.069, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.069, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = call noalias ptr @strdup(ptr noundef %108) #21
   store ptr %109, ptr %3, align 8
@@ -2376,7 +2374,7 @@ set_plan_disabling_options.exit.thread:           ; preds = %switch.hole_check, 
 118:                                              ; preds = %.thread99
   %119 = load i32, ptr @optind, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds ptr, ptr %.069, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %.069, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.84, ptr noundef %122) #21
   %124 = load ptr, ptr @progname, align 8
@@ -2388,7 +2386,7 @@ set_plan_disabling_options.exit.thread:           ; preds = %switch.hole_check, 
   %127 = load ptr, ptr @progname, align 8
   %128 = load i32, ptr @optind, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %.069, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %.069, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.86, ptr noundef %127, ptr noundef %131) #21
   %133 = load ptr, ptr @progname, align 8
@@ -3254,7 +3252,7 @@ forbidden_in_wal_sender.exit:                     ; preds = %297
 312:                                              ; preds = %308, %312
   %indvars.iv = phi i64 [ 0, %308 ], [ %indvars.iv.next, %312 ]
   %313 = call i32 @pq_getmsgint(ptr noundef nonnull %31, i32 noundef 4) #21
-  %314 = getelementptr inbounds nuw i32, ptr %311, i64 %indvars.iv
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %indvars.iv
   store i32 %313, ptr %314, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %309
@@ -3493,7 +3491,7 @@ IsTransactionExitStmt.exit.thread.i:              ; preds = %392, %382
 
 415:                                              ; preds = %424, %.lr.ph.i126
   %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.i126 ], [ %indvars.iv.next.i129, %424 ]
-  %416 = getelementptr inbounds nuw i32, ptr %412, i64 %indvars.iv.i128
+  %416 = getelementptr inbounds nuw [4 x i8], ptr %412, i64 %indvars.iv.i128
   %417 = load i32, ptr %416, align 4
   switch i32 %417, label %424 [
     i32 705, label %418
@@ -3604,7 +3602,7 @@ pg_analyze_and_rewrite_varparams.exit131:         ; preds = %._crit_edge.i125, %
 
 469:                                              ; preds = %478, %.lr.ph.i120
   %indvars.iv.i122 = phi i64 [ 0, %.lr.ph.i120 ], [ %indvars.iv.next.i123, %478 ]
-  %470 = getelementptr inbounds nuw i32, ptr %466, i64 %indvars.iv.i122
+  %470 = getelementptr inbounds nuw [4 x i8], ptr %466, i64 %indvars.iv.i122
   %471 = load i32, ptr %470, align 4
   switch i32 %471, label %478 [
     i32 705, label %472
@@ -3988,7 +3986,7 @@ forbidden_in_wal_sender.exit67:                   ; preds = %604
 
 .critedge211.i:                                   ; preds = %644, %.critedge211.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.critedge211.lr.ph.i ], [ %indvars.iv.next.i, %644 ]
-  %645 = getelementptr inbounds nuw %union.ListCell, ptr %643, i64 %indvars.iv.i
+  %645 = getelementptr inbounds nuw [8 x i8], ptr %643, i64 %indvars.iv.i
   %646 = load ptr, ptr %645, align 8
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 16
   %648 = load i64, ptr %647, align 8
@@ -4094,7 +4092,7 @@ start_xact_command.exit166:                       ; preds = %enable_statement_ti
   %indvars.iv242.i = phi i64 [ 0, %685 ], [ %indvars.iv.next243.i, %689 ]
   %690 = call i32 @pq_getmsgint(ptr noundef nonnull %31, i32 noundef 2) #21
   %691 = trunc i32 %690 to i16
-  %692 = getelementptr inbounds nuw i16, ptr %688, i64 %indvars.iv242.i
+  %692 = getelementptr inbounds nuw [2 x i8], ptr %688, i64 %indvars.iv242.i
   store i16 %691, ptr %692, align 2
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
   %exitcond246.not.i = icmp eq i64 %indvars.iv.next243.i, %wide.trip.count245.i
@@ -4250,7 +4248,7 @@ IsTransactionExitStmt.exit.thread.i72:            ; preds = %719, %716, %713, %7
   %indvars.iv247.i = phi i64 [ 0, %.critedge222.i ], [ %indvars.iv.next248.i, %835 ]
   %.0169233.i = phi ptr [ null, %.critedge222.i ], [ %.4.i, %835 ]
   %765 = load ptr, ptr %756, align 8
-  %766 = getelementptr inbounds nuw i32, ptr %765, i64 %indvars.iv247.i
+  %766 = getelementptr inbounds nuw [4 x i8], ptr %765, i64 %indvars.iv247.i
   %767 = load i32, ptr %766, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %768 = trunc nuw nsw i64 %indvars.iv247.i to i32
@@ -4279,7 +4277,7 @@ IsTransactionExitStmt.exit.thread.i72:            ; preds = %719, %716, %713, %7
   br i1 %694, label %780, label %778
 
 778:                                              ; preds = %777
-  %779 = getelementptr inbounds nuw i16, ptr %.0158.i, i64 %indvars.iv247.i
+  %779 = getelementptr inbounds nuw [2 x i8], ptr %.0158.i, i64 %indvars.iv247.i
   br label %781
 
 780:                                              ; preds = %777
@@ -4349,7 +4347,7 @@ IsTransactionExitStmt.exit.thread.i72:            ; preds = %719, %716, %713, %7
 
 806:                                              ; preds = %802, %800
   %.sink257.i = phi ptr [ %801, %800 ], [ %805, %802 ]
-  %807 = getelementptr inbounds nuw ptr, ptr %.3.i, i64 %indvars.iv247.i
+  %807 = getelementptr inbounds nuw [8 x i8], ptr %.3.i, i64 %indvars.iv247.i
   store ptr %.sink257.i, ptr %807, align 8
   store ptr %793, ptr @CurrentMemoryContext, align 8
   br label %808
@@ -4420,7 +4418,7 @@ IsTransactionExitStmt.exit.thread.i72:            ; preds = %719, %716, %713, %7
   br label %835
 
 835:                                              ; preds = %831, %830
-  %836 = getelementptr inbounds nuw %struct.ParamExternData, ptr %759, i64 %indvars.iv247.i
+  %836 = getelementptr inbounds nuw [16 x i8], ptr %759, i64 %indvars.iv247.i
   store i64 %.0165.i, ptr %836, align 8
   %837 = getelementptr inbounds nuw i8, ptr %836, i64 8
   store i8 %771, ptr %837, align 8
@@ -4470,7 +4468,7 @@ IsTransactionExitStmt.exit.thread.i72:            ; preds = %719, %716, %713, %7
   %indvars.iv252.i = phi i64 [ 0, %848 ], [ %indvars.iv.next253.i, %852 ]
   %853 = call i32 @pq_getmsgint(ptr noundef nonnull %31, i32 noundef 2) #21
   %854 = trunc i32 %853 to i16
-  %855 = getelementptr inbounds nuw i16, ptr %851, i64 %indvars.iv252.i
+  %855 = getelementptr inbounds nuw [2 x i8], ptr %851, i64 %indvars.iv252.i
   store i16 %854, ptr %855, align 2
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %exitcond256.not.i = icmp eq i64 %indvars.iv.next253.i, %wide.trip.count255.i
@@ -4817,7 +4815,7 @@ IsTransactionStmtList.exit.i:                     ; preds = %.thread.i.i, %998, 
 
 .critedge79.i:                                    ; preds = %1019, %.critedge79.lr.ph.i
   %indvars.iv.i90 = phi i64 [ 0, %.critedge79.lr.ph.i ], [ %indvars.iv.next.i92, %1019 ]
-  %1020 = getelementptr inbounds nuw %union.ListCell, ptr %1018, i64 %indvars.iv.i90
+  %1020 = getelementptr inbounds nuw [8 x i8], ptr %1018, i64 %indvars.iv.i90
   %1021 = load ptr, ptr %1020, align 8
   %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 8
   %1023 = load i64, ptr %1022, align 8
@@ -4951,7 +4949,7 @@ start_xact_command.exit194:                       ; preds = %enable_statement_ti
 .lr.ph30.i.i:                                     ; preds = %.lr.ph.split.i.i, %1074
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %1074 ], [ 0, %.lr.ph.split.i.i ]
   %1078 = load ptr, ptr %1071, align 8
-  %1079 = getelementptr inbounds nuw %union.ListCell, ptr %1078, i64 %indvars.iv.i.i
+  %1079 = getelementptr inbounds nuw [8 x i8], ptr %1078, i64 %indvars.iv.i.i
   %1080 = load ptr, ptr %1079, align 8
   %1081 = call i32 @GetCommandLogLevel(ptr noundef %1080) #21
   %1082 = load i32, ptr @log_statement, align 4
@@ -5676,7 +5674,7 @@ start_xact_command.exit201:                       ; preds = %enable_statement_ti
 1395:                                             ; preds = %1395, %.lr.ph.i104
   %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next.i106, %1395 ]
   %1396 = load ptr, ptr %1392, align 8
-  %1397 = getelementptr inbounds nuw i32, ptr %1396, i64 %indvars.iv.i105
+  %1397 = getelementptr inbounds nuw [4 x i8], ptr %1396, i64 %indvars.iv.i105
   %1398 = load i32, ptr %1397, align 4
   call void @enlargeStringInfo(ptr noundef nonnull @row_description_buf, i32 noundef 4) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
@@ -6113,7 +6111,7 @@ check_log_statement.exit.thread.thread120:        ; preds = %.preheader.i
 .lr.ph30.i:                                       ; preds = %.lr.ph.split.i, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %.lr.ph.split.i ]
   %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @GetCommandLogLevel(ptr noundef %38) #21
   %40 = load i32, ptr @log_statement, align 4
@@ -6141,7 +6139,7 @@ check_log_statement.exit:                         ; preds = %.lr.ph30.i, %pg_par
   %49 = phi i32 [ %66, %.critedge25.i ], [ %47, %.lr.ph.i ]
   %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i87, %.critedge25.i ], [ 0, %.lr.ph.i ]
   %50 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv.i86
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i86
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -6203,7 +6201,7 @@ check_log_statement.exit.thread:                  ; preds = %pg_parse_query.exit
 .lr.ph145:                                        ; preds = %.lr.ph, %178
   %indvars.iv144 = phi i64 [ %indvars.iv.next, %178 ], [ 0, %.lr.ph ]
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv144
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv144
   %78 = load ptr, ptr %77, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6293,7 +6291,7 @@ IsTransactionExitStmt.exit.thread:                ; preds = %93, %.lr.ph145
   %.val81 = load ptr, ptr %73, align 8
   %109 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %110 = sext i32 %.val to i64
-  %111 = getelementptr inbounds %union.ListCell, ptr %.val81, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %.val81, i64 %110
   %.not = icmp ult ptr %109, %111
   %112 = load ptr, ptr @MessageContext, align 8
   br i1 %.not, label %113, label %115
@@ -6399,7 +6397,7 @@ pg_analyze_and_rewrite_fixedparams.exit:          ; preds = %121, %125
   %.val82 = load i32, ptr %72, align 4
   %.val83 = load ptr, ptr %73, align 8
   %158 = sext i32 %.val82 to i64
-  %159 = getelementptr inbounds %union.ListCell, ptr %.val83, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %.val83, i64 %158
   %.not123 = icmp ult ptr %109, %159
   br i1 %.not123, label %166, label %160
 
@@ -6538,7 +6536,7 @@ finish_xact_command.exit:                         ; preds = %87, %disable_statem
   %200 = phi i32 [ %217, %.critedge25.i104 ], [ %198, %.lr.ph.i101 ]
   %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i105, %.critedge25.i104 ], [ 0, %.lr.ph.i101 ]
   %201 = load ptr, ptr %197, align 8
-  %202 = getelementptr inbounds nuw %union.ListCell, ptr %201, i64 %indvars.iv.i103
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv.i103
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load ptr, ptr %204, align 8
@@ -6715,7 +6713,7 @@ define internal fastcc void @errdetail_recovery_conflict(i32 noundef range(i32 0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.errdetail_recovery_conflict, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.errdetail_recovery_conflict, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %switch.load) #21
   br label %5

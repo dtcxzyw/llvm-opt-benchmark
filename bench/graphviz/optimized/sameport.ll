@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.same_list_t = type { ptr, i64, i64, i64 }
-%struct.same_t = type { ptr, %struct.edge_list_t }
 %struct.edge_list_t = type { ptr, i64, i64, i64 }
 %struct.pointf_s = type { double, double }
 
@@ -139,7 +138,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %59 ]
   %60 = add i64 %57, %.08.i
   %61 = urem i64 %60, %58
-  %62 = getelementptr inbounds nuw %struct.same_t, ptr %56, i64 %61
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %56, i64 %61
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !30
   tail call void @free(ptr noundef %.sroa.2.0.copyload.i) #15
@@ -163,7 +162,7 @@ same_list_clear.exit:                             ; preds = %59, %17, %.preheade
   %.04672 = phi i64 [ 0, %.lr.ph73 ], [ %76, %75 ]
   %68 = add i64 %20, %.04672
   %69 = urem i64 %68, %21
-  %70 = getelementptr inbounds nuw %struct.same_t, ptr %19, i64 %69
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %69
   %71 = getelementptr i8, ptr %70, i64 24
   %.val56 = load i64, ptr %71, align 8, !tbaa !33
   %72 = icmp ugt i64 %.val56, 1
@@ -189,7 +188,7 @@ same_list_clear.exit:                             ; preds = %59, %17, %.preheade
   %.08.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %84, %80 ]
   %81 = add i64 %78, %.08.i60
   %82 = urem i64 %81, %79
-  %83 = getelementptr inbounds nuw %struct.same_t, ptr %77, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %77, i64 %82
   %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.2.0.copyload.i62 = load ptr, ptr %.sroa.2.0..sroa_idx.i61, align 8, !tbaa !30
   tail call void @free(ptr noundef %.sroa.2.0.copyload.i62) #15
@@ -207,7 +206,7 @@ same_list_clear.exit63:                           ; preds = %80, %same_list_clea
   %.074 = phi i64 [ 0, %.lr.ph75 ], [ %95, %94 ]
   %87 = add i64 %65, %.074
   %88 = urem i64 %87, %66
-  %89 = getelementptr inbounds nuw %struct.same_t, ptr %64, i64 %88
+  %89 = getelementptr inbounds nuw [40 x i8], ptr %64, i64 %88
   %90 = getelementptr i8, ptr %89, i64 24
   %.val57 = load i64, ptr %90, align 8, !tbaa !33
   %91 = icmp ugt i64 %.val57, 1
@@ -275,7 +274,7 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   %.01240 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
   %13 = add i64 %7, %.01240
   %14 = urem i64 %13, %9
-  %15 = getelementptr inbounds nuw %struct.same_t, ptr %5, i64 %14
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %14
   %.sroa.033.0.copyload = load ptr, ptr %15, align 8, !tbaa !45
   %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.033.0.copyload, ptr noundef nonnull readonly dereferenceable(1) %2) #16
   %17 = icmp eq i32 %16, 0
@@ -312,7 +311,7 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
 
 32:                                               ; preds = %27
   %33 = load i64, ptr %21, align 8, !tbaa !47
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
   %35 = sub i64 %spec.select.i.i, %33
   %36 = shl i64 %35, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %34, i8 0, i64 %36, i1 false)
@@ -326,8 +325,8 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
 42:                                               ; preds = %32
   %43 = sub i64 %33, %38
   %44 = sub i64 %spec.select.i.i, %43
-  %45 = getelementptr inbounds nuw ptr, ptr %30, i64 %44
-  %46 = getelementptr inbounds nuw ptr, ptr %30, i64 %38
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %38
   %47 = shl i64 %43, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 8 %46, i64 %47, i1 false)
   store i64 %44, ptr %37, align 8, !tbaa !48
@@ -354,7 +353,7 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   %58 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %49, %48 ]
   %59 = add i64 %58, %57
   %60 = urem i64 %59, %56
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %60
   store ptr %1, ptr %61, align 8, !tbaa !52
   %62 = add i64 %57, 1
   store i64 %62, ptr %19, align 8, !tbaa !33
@@ -400,7 +399,7 @@ edge_list_append.exit20:                          ; preds = %._crit_edge
 
 78:                                               ; preds = %73
   %79 = load i64, ptr %68, align 8, !tbaa !14
-  %80 = getelementptr inbounds nuw %struct.same_t, ptr %76, i64 %79
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %79
   %81 = sub i64 %spec.select.i.i24, %79
   %82 = mul i64 %81, 40
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %80, i8 0, i64 %82, i1 false)
@@ -414,8 +413,8 @@ edge_list_append.exit20:                          ; preds = %._crit_edge
 88:                                               ; preds = %78
   %89 = sub i64 %79, %84
   %90 = sub i64 %spec.select.i.i24, %89
-  %91 = getelementptr inbounds nuw %struct.same_t, ptr %76, i64 %90
-  %92 = getelementptr inbounds nuw %struct.same_t, ptr %76, i64 %84
+  %91 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %90
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %84
   %93 = mul i64 %89, 40
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %91, ptr nonnull align 8 %92, i64 %93, i1 false)
   store i64 %90, ptr %83, align 8, !tbaa !13
@@ -442,7 +441,7 @@ same_list_append.exit:                            ; preds = %._crit_edge.i.i21, 
   %103 = phi i64 [ %.pre.i.i23, %._crit_edge.i.i21 ], [ %95, %94 ]
   %104 = add i64 %103, %102
   %105 = urem i64 %104, %101
-  %106 = getelementptr inbounds nuw %struct.same_t, ptr %100, i64 %105
+  %106 = getelementptr inbounds nuw [40 x i8], ptr %100, i64 %105
   store ptr %2, ptr %106, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %malloc, ptr %.sroa.4.0..sroa_idx, align 8
@@ -588,7 +587,7 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %.0186192 = phi i64 [ 0, %.lr.ph ], [ %116, %102 ]
   %86 = add i64 %7, %.0186192
   %87 = urem i64 %86, %9
-  %88 = getelementptr inbounds nuw ptr, ptr %5, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !52
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 3
@@ -639,7 +638,7 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %.0181203 = phi i64 [ 0, %.lr.ph205 ], [ %223, %._crit_edge202 ]
   %120 = add i64 %82, %.0181203
   %121 = urem i64 %120, %84
-  %122 = getelementptr inbounds nuw ptr, ptr %80, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %121
   %.0199 = load ptr, ptr %122, align 8, !tbaa !52
   %.not200 = icmp eq ptr %.0199, null
   br i1 %.not200, label %._crit_edge202, label %.preheader191

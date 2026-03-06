@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
-%struct.CollAliasData = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"from\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"locale\00", align 1
@@ -125,7 +123,7 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %64
   %indvars.iv247 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph248.preheader ]
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv247
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv247
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
@@ -1233,7 +1231,7 @@ normalize_libc_locale_name.exit:                  ; preds = %69
   %.3 = phi ptr [ %85, %81 ], [ %.0104, %80 ]
   %87 = call ptr @pstrdup(ptr noundef nonnull %4) #10
   %88 = sext i32 %.058103 to i64
-  %89 = getelementptr inbounds %struct.CollAliasData, ptr %.3, i64 %88
+  %89 = getelementptr inbounds [24 x i8], ptr %.3, i64 %88
   store ptr %87, ptr %89, align 8
   %90 = call ptr @pstrdup(ptr noundef nonnull %5) #10
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -1277,7 +1275,7 @@ create_collation_from_locale.exit.thread:         ; preds = %58, %52, %45, %50, 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %113
   %indvars.iv = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next, %113 ]
   %.290108 = phi i32 [ %.189, %.lr.ph111.preheader ], [ %.391, %113 ]
-  %102 = getelementptr inbounds nuw %struct.CollAliasData, ptr %.1, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %.1, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %105 = load ptr, ptr %104, align 8
@@ -1371,7 +1369,7 @@ create_collation_from_locale.exit.thread:         ; preds = %58, %52, %45, %50, 
 
 .lr.ph.i:                                         ; preds = %138, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %138 ]
-  %139 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i
   %140 = load i16, ptr %139, align 2
   %141 = icmp ugt i16 %140, 127
   br i1 %141, label %get_icu_locale_comment.exit.thread, label %138
@@ -1384,7 +1382,7 @@ create_collation_from_locale.exit.thread:         ; preds = %58, %52, %45, %50, 
 
 .lr.ph20.i:                                       ; preds = %.lr.ph20.i, %._crit_edge.i
   %indvars.iv23.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next24.i, %.lr.ph20.i ]
-  %145 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv23.i
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv23.i
   %146 = load i16, ptr %145, align 2
   %147 = trunc i16 %146 to i8
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 %indvars.iv23.i

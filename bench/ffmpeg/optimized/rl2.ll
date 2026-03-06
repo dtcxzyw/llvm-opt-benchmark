@@ -81,7 +81,7 @@ define internal range(i32 -2147483648, 1) i32 @rl2_decode_init(ptr noundef %0) #
   %43 = or disjoint i32 %35, %39
   %44 = or disjoint i32 %43, %42
   %45 = or disjoint i32 %44, -16777216
-  %46 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store i32 %45, ptr %46, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

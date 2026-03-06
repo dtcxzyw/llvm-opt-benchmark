@@ -399,7 +399,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm13set_is_subsetINS_11SmallPtrSet
 
 _ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %14
   %.sroa.0.4.i8.i = phi ptr [ %15, %14 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %21, %.critedge2.i7.i.i9.i11.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %.v.i5.i3.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.v.i5.i3.i
   %.not22 = icmp eq ptr %.sroa.0.4.i8.i, %24
   br i1 %.not22, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph
 
@@ -646,7 +646,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %7, %2
   %11 = phi i32 [ %4, %2 ], [ %.pre.i.i.i.i.i, %7 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !136
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 ptrtoint (ptr @_ZZNK5clang4ento24NoOwnershipChangeVisitor7ProfileERN4llvm16FoldingSetNodeIDEE3Tag to i32), ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !133
   %16 = add i32 %15, 1
@@ -669,7 +669,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %24 = trunc nuw i64 %23 to i32
   %25 = load ptr, ptr %1, align 8, !tbaa !136
   %26 = zext i32 %22 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 %24, ptr %27, align 1
   %28 = load i32, ptr %3, align 8, !tbaa !133
   %29 = add i32 %28, 1
@@ -694,7 +694,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i5: ; preds = %35, %_ZN4llvm16
   %39 = phi i32 [ %29, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i.i.i.i4, %35 ]
   %40 = load ptr, ptr %1, align 8, !tbaa !136
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %33, ptr %42, align 1
   %43 = load i32, ptr %3, align 8, !tbaa !133
   %44 = add i32 %43, 1
@@ -717,7 +717,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit8: ; preds = %_ZN4llvm16FoldingSe
   %52 = trunc nuw i64 %51 to i32
   %53 = load ptr, ptr %1, align 8, !tbaa !136
   %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %3, align 8, !tbaa !133
   %57 = add i32 %56, 1

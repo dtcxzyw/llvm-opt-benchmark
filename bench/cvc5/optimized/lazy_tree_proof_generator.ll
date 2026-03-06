@@ -24,11 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.cvc5::internal::detail::TreeProofNode" = type { i64, i32, %"class.std::vector.0", %"class.std::vector.0", %"class.cvc5::internal::NodeTemplate", %"class.std::vector.5" }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<cvc5::internal::detail::TreeProofNode, std::allocator<cvc5::internal::detail::TreeProofNode>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::detail::TreeProofNode, std::allocator<cvc5::internal::detail::TreeProofNode>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::detail::TreeProofNode, std::allocator<cvc5::internal::detail::TreeProofNode>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::detail::TreeProofNode, std::allocator<cvc5::internal::detail::TreeProofNode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN4cvc58internal6detail13TreeProofNodeD2Ev = comdat any
 
@@ -308,7 +303,7 @@ _ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EE11_S_relocateEPS4_S7
 _ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %66, %_ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %61, ptr %6, align 8, !tbaa !40
   store ptr %65, ptr %42, align 8, !tbaa !35
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %67, ptr %44, align 8, !tbaa !38
   br label %_ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit
 
@@ -638,7 +633,7 @@ _ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EE11_S_relocateEPS4_S7
 _ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %36, ptr %16, align 8, !tbaa !40
   store ptr %40, ptr %2, align 8, !tbaa !35
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %42, ptr %19, align 8, !tbaa !38
   br label %43
 
@@ -4322,7 +4317,7 @@ _ZSt8_DestroyIPN4cvc58internal6detail13TreeProofNodeES3_EvT_S5_RSaIT0_E.exit: ; 
 _ZNSt12_Vector_baseIN4cvc58internal6detail13TreeProofNodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal6detail13TreeProofNodeES3_EvT_S5_RSaIT0_E.exit, %56
   store ptr %21, ptr %0, align 8, !tbaa !41
   store ptr %.0.lcssa.i.i.i.i.i37, ptr %3, align 8, !tbaa !42
-  %60 = getelementptr inbounds nuw %"struct.cvc5::internal::detail::TreeProofNode", ptr %21, i64 %15
+  %60 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %15
   store ptr %60, ptr %55, align 8, !tbaa !45
   ret void
 
@@ -5342,7 +5337,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !47
   store ptr %42, ptr %4, align 8, !tbaa !48
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !50
   ret void
 
@@ -5623,7 +5618,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !47
   store ptr %42, ptr %4, align 8, !tbaa !48
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !50
   ret void
 
@@ -5699,7 +5694,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1E
 
 22:                                               ; preds = %17
   %23 = sub nsw i64 0, %9
-  %24 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %13, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %13, i64 %23
   %25 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN4cvc58internal12NodeTemplateILb1EEEES5_ET0_T_S8_S7_(ptr %24, ptr %13, ptr noundef %13)
   %26 = load ptr, ptr %12, align 8, !tbaa !48
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %8
@@ -5847,7 +5842,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EE
   %98 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_(ptr %97, ptr %3, ptr noundef %13)
   %99 = sub nuw nsw i64 %9, %20
   %100 = load ptr, ptr %12, align 8, !tbaa !48
-  %101 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %99
   store ptr %101, ptr %12, align 8, !tbaa !48
   %102 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN4cvc58internal12NodeTemplateILb1EEEES5_ET0_T_S8_S7_(ptr %1, ptr %13, ptr noundef %101)
   %103 = load ptr, ptr %12, align 8, !tbaa !48
@@ -6012,7 +6007,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %172
   store ptr %154, ptr %0, align 8, !tbaa !47
   store ptr %157, ptr %12, align 8, !tbaa !48
-  %176 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %154, i64 %150
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %150
   store ptr %176, ptr %10, align 8, !tbaa !50
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
@@ -6370,7 +6365,7 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_S_relocateEPS4
 _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !70
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !73
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !75
   ret void
 }
@@ -6457,9 +6452,9 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_S_relocateEPS4
 
 _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE13_M_deallocateEPS4_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !70
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !73
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !75
   br label %39
 

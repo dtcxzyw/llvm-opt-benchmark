@@ -32,12 +32,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.llvm::TimerGroup::PrintRecord" = type { %"class.llvm::TimeRecord", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.llvm::format_object.24" = type { %"class.llvm::format_object_base", %"class.std::tuple.25" }
 %"class.std::tuple.25" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
 %"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.21", %"struct.std::_Head_base.27" }>
 %"struct.std::_Head_base.27" = type { i32 }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
+%"struct.llvm::TimerGroup::PrintRecord" = type { %"class.llvm::TimeRecord", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.llvm::cl::value_desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::LocationClass" = type { ptr }
@@ -1522,7 +1522,7 @@ _ZN4llvm10TimerGroupC2ENS_9StringRefES1_.exit:    ; preds = %6, %14
 _ZNK4llvm9StringMapINS_10TimeRecordENS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZN4llvm10TimerGroupC2ENS_9StringRefES1_.exit
   %.sroa.0.1.i = phi ptr [ %21, %_ZN4llvm10TimerGroupC2ENS_9StringRefES1_.exit ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %27
   %.not30 = icmp eq ptr %.sroa.0.1.i, %28
   br i1 %.not30, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_10TimeRecordEEEKNS_14StringMapEntryIS2_EEEppEv.exit._crit_edge, label %.lr.ph
 
@@ -1861,7 +1861,7 @@ _ZNSt12_Vector_baseIN4llvm10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_
   store ptr %19, ptr %0, align 8, !tbaa !146
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8, !tbaa !62
-  %42 = getelementptr inbounds nuw %"struct.llvm::TimerGroup::PrintRecord", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [104 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8, !tbaa !63
   br label %43
 
@@ -3460,7 +3460,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt4pairIPNS_10TimerGr
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #21
   %6 = load ptr, ptr %0, align 8, !tbaa !139
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !124
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -3516,7 +3516,7 @@ _ZN4llvm14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15M
   %27 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #21
   %28 = load ptr, ptr %0, align 8, !tbaa !139
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEE6createIS6_JEEEPS9_NS_9StringRefERT_DpOT0_.exit
@@ -3553,7 +3553,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_5TimerENS_15Malloc
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #21
   %6 = load ptr, ptr %0, align 8, !tbaa !139
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !124
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -3615,7 +3615,7 @@ _ZN4llvm14StringMapEntryINS_5TimerEE6createINS_15MallocAllocatorEJEEEPS2_NS_9Str
   %31 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #21
   %32 = load ptr, ptr %0, align 8, !tbaa !139
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryINS_5TimerEE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -3687,7 +3687,7 @@ define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call
 _ZN4llvm9StringMapISt4pairIPNS_10TimerGroupENS0_INS_5TimerENS_15MallocAllocatorEEEES5_E5beginEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i, %9
   %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %9 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %16 = zext i32 %12 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %.not5.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i, %17
   br i1 %.not5.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN12_GLOBAL__N_112Name2PairMapEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
@@ -3763,7 +3763,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringMapISt4pairIPNS_10TimerGroupENS0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !139
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !124
   %magicptr = ptrtoint ptr %11 to i64
   switch i64 %magicptr, label %12 [
@@ -3792,7 +3792,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringMapISt4pairIPNS_10TimerGroupENS0
 .lr.ph.i.i.i.i:                                   ; preds = %29, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %29 ]
   %22 = load ptr, ptr %14, align 8, !tbaa !139
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !124
   %magicptr.i.i.i.i = ptrtoint ptr %24 to i64
   switch i64 %magicptr.i.i.i.i, label %25 [
@@ -4092,7 +4092,7 @@ _ZSt8_DestroyIPN4llvm10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit: ; preds 
 _ZNSt12_Vector_baseIN4llvm10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit, %43
   store ptr %22, ptr %0, align 8, !tbaa !146
   store ptr %.0.lcssa.i.i.i.i.i25, ptr %6, align 8, !tbaa !62
-  %47 = getelementptr inbounds nuw %"struct.llvm::TimerGroup::PrintRecord", ptr %22, i64 %18
+  %47 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %18
   store ptr %47, ptr %42, align 8, !tbaa !63
   ret void
 }
@@ -4298,7 +4298,7 @@ _ZSt8_DestroyIPN4llvm10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit: ; preds 
 _ZNSt12_Vector_baseIN4llvm10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit, %43
   store ptr %22, ptr %0, align 8, !tbaa !146
   store ptr %.0.lcssa.i.i.i.i.i25, ptr %6, align 8, !tbaa !62
-  %47 = getelementptr inbounds nuw %"struct.llvm::TimerGroup::PrintRecord", ptr %22, i64 %18
+  %47 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %18
   store ptr %47, ptr %42, align 8, !tbaa !63
   ret void
 }
@@ -4347,7 +4347,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm10TimerGroup11PrintRe
 19:                                               ; preds = %11
   %20 = add nsw i64 %.014, -1
   %21 = udiv i64 %12, 208
-  %22 = getelementptr inbounds nuw %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [104 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %storemerge13, i64 -104
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %0, ptr nonnull %10, ptr %22, ptr nonnull %23)
   %24 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN4llvm10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_SC_T0_(ptr nonnull %10, ptr %storemerge13, ptr %0)
@@ -4388,7 +4388,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4ll
 22:                                               ; preds = %_ZN4llvm10TimerGroup11PrintRecordD2Ev.exit13, %11
   %.07 = phi i64 [ %13, %11 ], [ %32, %_ZN4llvm10TimerGroup11PrintRecordD2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %.07
+  %23 = getelementptr inbounds [104 x i8], ptr %0, i64 %.07
   call void @_ZN4llvm10TimerGroup11PrintRecordC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(104) %23)
   call void @_ZN4llvm10TimerGroup11PrintRecordC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %4)
   call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_(ptr %0, i64 noundef %.07, i64 noundef %9, ptr noundef nonnull %5)
@@ -4532,15 +4532,15 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4
   %.034 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.034, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %10
+  %11 = getelementptr inbounds [104 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %12
+  %13 = getelementptr inbounds [104 x i8], ptr %0, i64 %12
   %14 = load double, ptr %11, align 8, !tbaa !76
   %15 = load double, ptr %13, align 8, !tbaa !76
   %16 = fcmp olt double %14, %15
   %spec.select = select i1 %16, i64 %12, i64 %10
-  %17 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %.034
+  %17 = getelementptr inbounds [104 x i8], ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds [104 x i8], ptr %0, i64 %.034
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %18, ptr noundef nonnull align 8 dereferenceable(104) %17, i64 40, i1 false), !tbaa.struct !145
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -4566,8 +4566,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4
 30:                                               ; preds = %26
   %31 = shl nsw i64 %.0.lcssa, 1
   %32 = or disjoint i64 %31, 1
-  %33 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %32
-  %34 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %.0.lcssa
+  %33 = getelementptr inbounds [104 x i8], ptr %0, i64 %32
+  %34 = getelementptr inbounds [104 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull align 8 dereferenceable(104) %33, i64 40, i1 false), !tbaa.struct !145
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -4587,14 +4587,14 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4
   %.018.i = phi i64 [ %.0919.i, %45 ], [ %.1, %39 ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %41 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %.0919.i
+  %41 = getelementptr inbounds [104 x i8], ptr %0, i64 %.0919.i
   %42 = load double, ptr %41, align 8, !tbaa !76
   %43 = load double, ptr %5, align 8, !tbaa !76
   %44 = fcmp olt double %42, %43
   br i1 %44, label %45, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_less_valEEvT_T0_SD_T1_RT2_.exit
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %.018.i
+  %46 = getelementptr inbounds [104 x i8], ptr %0, i64 %.018.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %46, ptr noundef nonnull align 8 dereferenceable(104) %41, i64 40, i1 false), !tbaa.struct !145
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -4607,7 +4607,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_less_valEEvT_T0_SD_T1_RT2_.exit: ; preds = %.lr.ph.i, %45, %39
   %.0.lcssa.i = phi i64 [ %.1, %39 ], [ %.018.i, %.lr.ph.i ], [ %.0919.i, %45 ]
-  %52 = getelementptr inbounds %"struct.llvm::TimerGroup::PrintRecord", ptr %0, i64 %.0.lcssa.i
+  %52 = getelementptr inbounds [104 x i8], ptr %0, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %52, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 40, i1 false), !tbaa.struct !145
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -5324,7 +5324,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %28 = phi i32 [ %23, %6 ], [ %.pre.i.i, %25 ]
   %29 = load ptr, ptr %12, align 8, !tbaa !239
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = ptrtoint ptr %22 to i64
   store i64 %32, ptr %31, align 1
   %33 = load i32, ptr %14, align 8, !tbaa !240
@@ -5402,7 +5402,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !239
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !240
@@ -5490,7 +5490,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !239
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !240
@@ -6198,7 +6198,7 @@ define linkonce_odr hidden void @_ZN4llvm12TimerGlobalsD2Ev(ptr noundef nonnull 
 _ZN4llvm9StringMapISt4pairIPNS_10TimerGroupENS0_INS_5TimerENS_15MallocAllocatorEEEES5_E5beginEv.exit.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i, %6
   %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %7, %6 ], [ %.sroa.0.0.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ]
   %13 = zext i32 %9 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %.not5.i.i.i.i.i = icmp eq ptr %.sroa.0.1.i.i.i.i.i.i, %14
   br i1 %.not5.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN12_GLOBAL__N_112Name2PairMapEE10_M_destroyEv.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 

@@ -1099,7 +1099,7 @@ define i32 @uprv_convertToPosix_77(i32 noundef %0, ptr noundef writeonly capture
 
 7:                                                ; preds = %4, %6
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixMap", ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = load i32, ptr %10, align 8, !tbaa !20
@@ -1118,7 +1118,7 @@ define i32 @uprv_convertToPosix_77(i32 noundef %0, ptr noundef writeonly capture
 
 15:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %10, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 8, !tbaa !20
   %18 = icmp eq i32 %17, %0
   br i1 %18, label %19, label %14
@@ -1203,7 +1203,7 @@ define i32 @uprv_convertToLCID_77(ptr noundef readonly captures(address_is_null)
 
 17:                                               ; preds = %.preheader
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixMap", ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1232,7 +1232,7 @@ define i32 @uprv_convertToLCID_77(ptr noundef readonly captures(address_is_null)
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %50 ]
   %.03352.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.235.ph.i, %50 ]
   %.03651.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.238.ph.i, %50 ]
-  %30 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %21, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = load i8, ptr %32, align 1, !tbaa !25
@@ -1292,7 +1292,7 @@ _ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i:            ; preds = %.lr.ph.i.i, %.lr.ph
 
 52:                                               ; preds = %._crit_edge.i, %._crit_edge.i
   %53 = sext i32 %.235.ph.i to i64
-  %54 = getelementptr inbounds %"struct.(anonymous namespace)::ILcidPosixElement", ptr %21, i64 %53
+  %54 = getelementptr inbounds [16 x i8], ptr %21, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !24
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %51
@@ -1325,7 +1325,7 @@ _ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i:            ; preds = %.lr.ph.i.i, %.lr.ph
 .lr.ph.i50:                                       ; preds = %64, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread ], [ 0, %64 ]
   %.03496 = phi i32 [ %.1, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread ], [ -1, %64 ]
-  %67 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixMap", ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %indvars.iv
   %68 = load i32, ptr %67, align 16, !tbaa !22
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !17
@@ -1336,7 +1336,7 @@ _ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i:            ; preds = %.lr.ph.i.i, %.lr.ph
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.i50 ], [ %indvars.iv.next.i64, %91 ]
   %.03352.i57 = phi i32 [ 0, %.lr.ph.i50 ], [ %.235.ph.i63, %91 ]
   %.03651.i58 = phi i32 [ 0, %.lr.ph.i50 ], [ %.238.ph.i62, %91 ]
-  %71 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %70, i64 %indvars.iv.i56
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv.i56
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !24
   %74 = load i8, ptr %73, align 1, !tbaa !25
@@ -1396,7 +1396,7 @@ _ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread8
 
 95:                                               ; preds = %._crit_edge.loopexit58.i66, %._crit_edge.loopexit58.i66
   %96 = sext i32 %.235.ph.i63 to i64
-  %97 = getelementptr inbounds %"struct.(anonymous namespace)::ILcidPosixElement", ptr %70, i64 %96
+  %97 = getelementptr inbounds [16 x i8], ptr %70, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !24
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %92

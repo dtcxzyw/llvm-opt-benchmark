@@ -228,7 +228,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h5bbba64a5cf48677E.exit.thread.
           to label %.body.i unwind label %27, !noalias !31
 
 60:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit.i.i.i"
-  %61 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i64 %55
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %55
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull %61, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26ec85436023eb02c0fe64393a44fa07.8)
           to label %62 unwind label %58, !noalias !31
 
@@ -244,7 +244,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h5bbba64a5cf48677E.exit.thread.
 
 67:                                               ; preds = %66, %62
   %68 = load ptr, ptr %53, align 8, !alias.scope !39, !noalias !42, !nonnull !12, !noundef !12
-  %69 = getelementptr inbounds nuw { ptr, i64 }, ptr %68, i64 %63
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %63
   store ptr %35, ptr %69, align 8, !noalias !45
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %36, ptr %70, align 8, !noalias !31
@@ -261,7 +261,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h5bbba64a5cf48677E.exit.thread.
   br label %_ZN15ruff_python_ast4name13SegmentsStack6extend17h5bbba64a5cf48677E.exit.i.i
 
 73:                                               ; preds = %37
-  %74 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i64 %38
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %38
   store ptr %32, ptr %74, align 8, !alias.scope !33, !noalias !31
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %33, ptr %75, align 8, !alias.scope !33, !noalias !31
@@ -639,7 +639,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17habcb0be4e1313a91E.exit.thread.
           to label %.body.i unwind label %43, !noalias !84
 
 97:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit.i.i.i"
-  %98 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i64 %92
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %92
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(136) %13, ptr noundef nonnull %98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26ec85436023eb02c0fe64393a44fa07.8)
           to label %99 unwind label %95, !noalias !84
 
@@ -655,7 +655,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17habcb0be4e1313a91E.exit.thread.
 
 104:                                              ; preds = %103, %99
   %105 = load ptr, ptr %90, align 8, !alias.scope !138, !noalias !141, !nonnull !12, !noundef !12
-  %106 = getelementptr inbounds nuw { ptr, i64 }, ptr %105, i64 %100
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %100
   store ptr %.pn5.i.i1647.i.i.i, ptr %106, align 8, !noalias !143
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 %.pn3.i.i1748.i.i.i, ptr %107, align 8, !noalias !84
@@ -672,7 +672,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17habcb0be4e1313a91E.exit.thread.
   br label %_ZN15ruff_python_ast4name13SegmentsStack6extend17habcb0be4e1313a91E.exit.i.i
 
 110:                                              ; preds = %74
-  %111 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i64 %75
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %75
   store ptr %.pn5.i.i34.i.i.i, ptr %111, align 8, !alias.scope !134, !noalias !84
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %.pn3.i.i35.i.i.i, ptr %112, align 8, !alias.scope !134, !noalias !84
@@ -935,7 +935,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
           to label %.body.i unwind label %25, !noalias !176
 
 58:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit.i.i.i"
-  %59 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i64 %53
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %53
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull %59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26ec85436023eb02c0fe64393a44fa07.8)
           to label %60 unwind label %56, !noalias !176
 
@@ -951,7 +951,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
 
 65:                                               ; preds = %64, %60
   %66 = load ptr, ptr %51, align 8, !alias.scope !182, !noalias !185, !nonnull !12, !noundef !12
-  %67 = getelementptr inbounds nuw { ptr, i64 }, ptr %66, i64 %61
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %61
   store ptr %33, ptr %67, align 8, !noalias !187
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %34, ptr %68, align 8, !noalias !176
@@ -968,7 +968,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
   br label %_ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.i.i
 
 71:                                               ; preds = %35
-  %72 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i64 %36
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %36
   store ptr %30, ptr %72, align 8, !alias.scope !178, !noalias !176
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 %31, ptr %73, align 8, !alias.scope !178, !noalias !176
@@ -1324,7 +1324,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h46f1b128c1eaee2eE.exit.thread.
           to label %.body.i unwind label %43, !noalias !227
 
 92:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit.i.i.i"
-  %93 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i64 %87
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %87
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(136) %13, ptr noundef nonnull %93, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26ec85436023eb02c0fe64393a44fa07.8)
           to label %94 unwind label %90, !noalias !227
 
@@ -1340,7 +1340,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h46f1b128c1eaee2eE.exit.thread.
 
 99:                                               ; preds = %98, %94
   %100 = load ptr, ptr %85, align 8, !alias.scope !267, !noalias !270, !nonnull !12, !noundef !12
-  %101 = getelementptr inbounds nuw { ptr, i64 }, ptr %100, i64 %95
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %95
   store ptr %.pn5.i.i1344.i.i.i, ptr %101, align 8, !noalias !272
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i64 %.pn3.i.i1445.i.i.i, ptr %102, align 8, !noalias !227
@@ -1357,7 +1357,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h46f1b128c1eaee2eE.exit.thread.
   br label %_ZN15ruff_python_ast4name13SegmentsStack6extend17h46f1b128c1eaee2eE.exit.i.i
 
 105:                                              ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62f12f8bc7cf981cE.exit.thread25.i.i.i"
-  %106 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i64 %71
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %71
   store ptr %.pn5.i.i31.i.i.i, ptr %106, align 8, !alias.scope !263, !noalias !227
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 %.pn3.i.i32.i.i.i, ptr %107, align 8, !alias.scope !263, !noalias !227
@@ -1628,7 +1628,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h5c93547db28d50b1E.exit.thread.
           to label %.body.i unwind label %27, !noalias !305
 
 60:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit.i.i.i"
-  %61 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i64 %55
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %55
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull %61, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26ec85436023eb02c0fe64393a44fa07.8)
           to label %62 unwind label %58, !noalias !305
 
@@ -1644,7 +1644,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h5c93547db28d50b1E.exit.thread.
 
 67:                                               ; preds = %66, %62
   %68 = load ptr, ptr %53, align 8, !alias.scope !311, !noalias !314, !nonnull !12, !noundef !12
-  %69 = getelementptr inbounds nuw { ptr, i64 }, ptr %68, i64 %63
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %63
   store ptr %35, ptr %69, align 8, !noalias !316
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %36, ptr %70, align 8, !noalias !305
@@ -1661,7 +1661,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h5c93547db28d50b1E.exit.thread.
   br label %_ZN15ruff_python_ast4name13SegmentsStack6extend17h5c93547db28d50b1E.exit.i.i
 
 73:                                               ; preds = %37
-  %74 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i64 %38
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %38
   store ptr %32, ptr %74, align 8, !alias.scope !307, !noalias !305
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %33, ptr %75, align 8, !alias.scope !307, !noalias !305
@@ -1885,7 +1885,7 @@ define hidden void @_ZN15ruff_python_ast4name13QualifiedName14extend_members17h7
   %53 = icmp ugt i64 %52, 4
   %54 = load ptr, ptr %10, align 8, !alias.scope !357, !noalias !360, !nonnull !12
   %.sink11.i.i.i15.i.i = select i1 %53, ptr %54, ptr %10
-  %55 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sink11.i.i.i15.i.i, i64 %50
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %.sink11.i.i.i15.i.i, i64 %50
   %56 = load ptr, ptr %55, align 8, !noalias !344, !nonnull !12, !align !225, !noundef !12
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i64, ptr %57, align 8, !noalias !344, !noundef !12
@@ -1952,7 +1952,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h3d42b0bb097ce57cE.exit.thread.
           to label %21 unwind label %29, !noalias !344
 
 79:                                               ; preds = %69
-  %80 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i64 %74
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %74
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26ec85436023eb02c0fe64393a44fa07.8)
           to label %81 unwind label %77, !noalias !344
 
@@ -1968,7 +1968,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h3d42b0bb097ce57cE.exit.thread.
 
 86:                                               ; preds = %85, %81
   %87 = load ptr, ptr %72, align 8, !alias.scope !365, !noalias !368, !nonnull !12, !noundef !12
-  %88 = getelementptr inbounds nuw { ptr, i64 }, ptr %87, i64 %82
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %82
   store ptr %56, ptr %88, align 8, !noalias !370
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %58, ptr %89, align 8, !noalias !344
@@ -1985,11 +1985,11 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h3d42b0bb097ce57cE.exit.thread.
   br label %_ZN15ruff_python_ast4name13SegmentsStack6extend17h3d42b0bb097ce57cE.exit.i
 
 92:                                               ; preds = %45
-  %93 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sink11.i.i.i.i.i, i64 %46
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %.sink11.i.i.i.i.i, i64 %46
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8, !noalias !344, !noundef !12
   %96 = load ptr, ptr %93, align 8, !noalias !344, !nonnull !12, !align !225, !noundef !12
-  %97 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i64 %47
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %47
   store ptr %96, ptr %97, align 8, !alias.scope !356, !noalias !344
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %95, ptr %98, align 8, !alias.scope !356, !noalias !344
@@ -2139,7 +2139,7 @@ define internal fastcc void @_ZN15ruff_python_ast4name13SegmentsStack7reserve17h
           to label %34 unwind label %32
 
 28:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit"
-  %29 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %22
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %22
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %1, ptr noundef nonnull %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26ec85436023eb02c0fe64393a44fa07.13)
           to label %30 unwind label %26
 
@@ -2163,7 +2163,7 @@ define internal fastcc void @_ZN15ruff_python_ast4name13SegmentsStack7reserve17h
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h1488effc04d722bcE"(ptr noalias noundef readonly align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { ptr, [16 x i64] } }, ptr %1, i64 %2
+  %4 = getelementptr inbounds nuw [136 x i8], ptr %1, i64 %2
   br label %5
 
 5:                                                ; preds = %7, %3

@@ -28194,7 +28194,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_trai
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8
-  %62 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8
   ret void
 }
@@ -28443,7 +28443,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %68, %_ZNKSt14defaul
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %75, i64 noundef %.019)
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @.str.101)
   %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %"class.testing::Matcher", ptr %78, i64 %.019
+  %79 = getelementptr inbounds [24 x i8], ptr %78, i64 %.019
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
@@ -28650,7 +28650,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %49, %_ZNKSt14defaul
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %56, i64 noundef %.016)
   %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull @.str.101)
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %"class.testing::Matcher", ptr %59, i64 %.016
+  %60 = getelementptr inbounds [24 x i8], ptr %59, i64 %.016
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
@@ -28772,7 +28772,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %28, ptr %10, align 8
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %30, ptr %31, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -28835,7 +28835,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %54
   %55 = load ptr, ptr %17, align 8
-  %56 = getelementptr inbounds %"class.testing::Matcher", ptr %55, i64 %storemerge138.us
+  %56 = getelementptr inbounds [24 x i8], ptr %55, i64 %storemerge138.us
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.097.0137.us, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -28872,7 +28872,7 @@ _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %54
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %69
   %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %70, i64 %storemerge138.us
+  %71 = getelementptr inbounds [32 x i8], ptr %70, i64 %storemerge138.us
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = icmp eq ptr %72, %73
@@ -29000,7 +29000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us: ; preds = %_Z
   br i1 %.not, label %.critedge, label %112
 
 112:                                              ; preds = %.lr.ph.split
-  %113 = getelementptr inbounds %"class.testing::Matcher", ptr %107, i64 %storemerge138
+  %113 = getelementptr inbounds [24 x i8], ptr %107, i64 %storemerge138
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.097.0137, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %42, align 8
@@ -29270,7 +29270,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %192
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %194
   %.pre189 = load ptr, ptr %14, align 8
   %196 = load ptr, ptr %10, align 8
-  %197 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %196, i64 %storemerge.lcssa
+  %197 = getelementptr inbounds [32 x i8], ptr %196, i64 %storemerge.lcssa
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load i64, ptr %198, align 8
   %200 = icmp eq i64 %199, 0
@@ -29298,7 +29298,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %194
 .lr.ph180:                                        ; preds = %.lr.ph180.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.027179 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph180.preheader ]
   %storemerge36178 = phi i64 [ %222, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph180.preheader ]
-  %206 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge36178
+  %206 = getelementptr inbounds [32 x i8], ptr %.pre, i64 %storemerge36178
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load i64, ptr %207, align 8
   %209 = icmp eq i64 %208, 0

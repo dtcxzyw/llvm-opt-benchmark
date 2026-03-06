@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [64 x i8] }
-%"class.llvm::RISCVMatInt::Inst" = type { i32, i32 }
 %"class.llvm::MCInstBuilder" = type { %"class.llvm::MCInst" }
 %"class.llvm::MCInst" = type { i32, i32, %"class.llvm::SMLoc", %"class.llvm::SmallVector.5" }
 %"class.llvm::SMLoc" = type { ptr }
@@ -20,8 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.9" = type { [96 x i8] }
 %"class.llvm::APInt" = type <{ %union.anon.10, i32, [4 x i8] }>
 %union.anon.10 = type { i64 }
-%"class.llvm::MCOperand" = type { i8, %union.anon.11 }
-%union.anon.11 = type { i64 }
 
 $_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE9push_backERKS1_ = comdat any
 
@@ -113,7 +110,7 @@ define dso_local void @_ZN4llvm11RISCVMatInt15generateInstSeqElRKNS_15MCSubtarge
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %4, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %48, i64 %39
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %39
   store i32 12904, ptr %49, align 4, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %27, ptr %50, align 4, !tbaa !16
@@ -177,7 +174,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i: ; preds = %67,
   %.idx36.i.i = shl nuw nsw i64 %.022.i.i, 3
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx36.i.i
   %75 = load ptr, ptr %0, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %75, i64 %.022.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.022.i.i
   %77 = sub nsw i64 %71, %.022.i.i
   %gepdiff.i.i = shl nsw i64 %77, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 4 %74, i64 %gepdiff.i.i, i1 false)
@@ -244,7 +241,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %_ZN4llvm1
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %5, align 8, !tbaa !3
-  %103 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %102, i64 %93
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %93
   store i32 11754, ptr %103, align 4, !tbaa !14
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = trunc nsw i64 %.neg to i32
@@ -309,7 +306,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i148: ; preds = %
   %.idx36.i.i151 = shl nuw nsw i64 %.022.i.i149, 3
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx36.i.i151
   %130 = load ptr, ptr %0, align 8, !tbaa !3
-  %131 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %130, i64 %.022.i.i149
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.022.i.i149
   %132 = sub nsw i64 %126, %.022.i.i149
   %gepdiff.i.i152 = shl nsw i64 %132, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 4 %129, i64 %gepdiff.i.i152, i1 false)
@@ -385,7 +382,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit154: ; preds = %_ZN4ll
 
 161:                                              ; preds = %158
   %162 = load ptr, ptr %6, align 8, !tbaa !3
-  %163 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %162, i64 %153
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %153
   store i32 13773, ptr %163, align 4, !tbaa !14
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   store i32 -1, ptr %164, align 4, !tbaa !16
@@ -449,7 +446,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i164: ; preds = %
   %.idx36.i.i167 = shl nuw nsw i64 %.022.i.i165, 3
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx36.i.i167
   %189 = load ptr, ptr %0, align 8, !tbaa !3
-  %190 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %189, i64 %.022.i.i165
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.022.i.i165
   %191 = sub nsw i64 %185, %.022.i.i165
   %gepdiff.i.i168 = shl nsw i64 %191, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %190, ptr align 4 %188, i64 %gepdiff.i.i168, i1 false)
@@ -523,7 +520,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit170: ; preds = %_ZN4ll
 
 218:                                              ; preds = %215
   %219 = load ptr, ptr %7, align 8, !tbaa !3
-  %220 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %219, i64 %210
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %210
   store i32 12747, ptr %220, align 4, !tbaa !14
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
   store i32 0, ptr %221, align 4, !tbaa !16
@@ -587,7 +584,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i180: ; preds = %
   %.idx36.i.i183 = shl nuw nsw i64 %.022.i.i181, 3
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 %.idx36.i.i183
   %246 = load ptr, ptr %0, align 8, !tbaa !3
-  %247 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %246, i64 %.022.i.i181
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %.022.i.i181
   %248 = sub nsw i64 %242, %.022.i.i181
   %gepdiff.i.i184 = shl nsw i64 %248, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %247, ptr align 4 %245, i64 %gepdiff.i.i184, i1 false)
@@ -665,7 +662,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit185: ; preds = %.s
 277:                                              ; preds = %.preheader314
   %278 = zext i32 %274 to i64
   %279 = load ptr, ptr %8, align 8, !tbaa !3
-  %280 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %279, i64 %278
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %278
   store i32 11955, ptr %280, align 4, !tbaa !14
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
   store i32 %273, ptr %281, align 4, !tbaa !16
@@ -735,7 +732,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i196: ; preds = %
   %.idx36.i.i199 = shl nuw nsw i64 %.022.i.i197, 3
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 %.idx36.i.i199
   %309 = load ptr, ptr %0, align 8, !tbaa !3
-  %310 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %309, i64 %.022.i.i197
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %.022.i.i197
   %311 = sub nsw i64 %305, %.022.i.i197
   %gepdiff.i.i200 = shl nsw i64 %311, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %310, ptr align 4 %308, i64 %gepdiff.i.i200, i1 false)
@@ -803,7 +800,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit201: ; preds = %.s
 337:                                              ; preds = %.preheader
   %338 = zext i32 %334 to i64
   %339 = load ptr, ptr %9, align 8, !tbaa !3
-  %340 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %339, i64 %338
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %338
   store i32 11942, ptr %340, align 4, !tbaa !14
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 4
   store i32 %333, ptr %341, align 4, !tbaa !16
@@ -873,7 +870,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i212: ; preds = %
   %.idx36.i.i215 = shl nuw nsw i64 %.022.i.i213, 3
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 %.idx36.i.i215
   %369 = load ptr, ptr %0, align 8, !tbaa !3
-  %370 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %369, i64 %.022.i.i213
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %.022.i.i213
   %371 = sub nsw i64 %365, %.022.i.i213
   %gepdiff.i.i216 = shl nsw i64 %371, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %370, ptr align 4 %368, i64 %gepdiff.i.i216, i1 false)
@@ -967,7 +964,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217: ; preds = %.s
 
 411:                                              ; preds = %407
   %412 = load ptr, ptr %11, align 8, !tbaa !3
-  %413 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %412, i64 %402
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %402
   %414 = load i32, ptr %10, align 4, !tbaa !20
   store i32 %414, ptr %413, align 4, !tbaa !14
   %415 = getelementptr inbounds nuw i8, ptr %413, i64 4
@@ -1033,7 +1030,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227: ; preds = %
   %.idx36.i.i230 = shl nuw nsw i64 %.022.i.i228, 3
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 %.idx36.i.i230
   %440 = load ptr, ptr %0, align 8, !tbaa !3
-  %441 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %440, i64 %.022.i.i228
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %440, i64 %.022.i.i228
   %442 = sub nsw i64 %436, %.022.i.i228
   %gepdiff.i.i231 = shl nsw i64 %442, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %441, ptr align 4 %439, i64 %gepdiff.i.i231, i1 false)
@@ -1099,7 +1096,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227: ; preds = %
 
 475:                                              ; preds = %471
   %476 = load ptr, ptr %11, align 8, !tbaa !3
-  %477 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %476, i64 %466
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %466
   %478 = load i32, ptr %10, align 4, !tbaa !20
   store i32 %478, ptr %477, align 4, !tbaa !14
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 4
@@ -1122,7 +1119,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjiEEERS2_DpOT_
 484:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjiEEERS2_DpOT_.exit235
   %485 = zext i32 %482 to i64
   %486 = load ptr, ptr %11, align 8, !tbaa !3
-  %487 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %486, i64 %485
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %486, i64 %485
   store i32 11754, ptr %487, align 4, !tbaa !14
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 4
   %489 = trunc nsw i64 %446 to i32
@@ -1187,7 +1184,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245: ; preds = %
   %.idx36.i.i248 = shl nuw nsw i64 %.022.i.i246, 3
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 %.idx36.i.i248
   %514 = load ptr, ptr %0, align 8, !tbaa !3
-  %515 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %514, i64 %.022.i.i246
+  %515 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %.022.i.i246
   %516 = sub nsw i64 %510, %.022.i.i246
   %gepdiff.i.i249 = shl nsw i64 %516, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %515, ptr align 4 %513, i64 %gepdiff.i.i249, i1 false)
@@ -1349,7 +1346,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %10
 25:                                               ; preds = %16
   %26 = zext i32 %21 to i64
   %27 = load ptr, ptr %1, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   store i32 11955, ptr %28, align 4, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %19, ptr %29, align 4, !tbaa !16
@@ -1388,7 +1385,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %10
 45:                                               ; preds = %39
   %46 = zext i32 %41 to i64
   %47 = load ptr, ptr %1, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   store i32 12681, ptr %48, align 4, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = trunc nuw nsw i64 %36 to i32
@@ -1421,7 +1418,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %10
 61:                                               ; preds = %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit.thread"
   %62 = zext i32 %56 to i64
   %63 = load ptr, ptr %1, align 8, !tbaa !3
-  %64 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   store i32 %54, ptr %64, align 4, !tbaa !14
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = trunc nsw i64 %38 to i32
@@ -1529,7 +1526,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
 110:                                              ; preds = %102
   %111 = zext i32 %105 to i64
   %112 = load ptr, ptr %1, align 8, !tbaa !3
-  %113 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %111
   store i32 %.039, ptr %113, align 4, !tbaa !14
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %103, ptr %114, align 4, !tbaa !16
@@ -1560,7 +1557,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT
 123:                                              ; preds = %117
   %124 = zext i32 %119 to i64
   %125 = load ptr, ptr %1, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   store i32 11754, ptr %126, align 4, !tbaa !14
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = trunc nsw i64 %71 to i32
@@ -1624,7 +1621,7 @@ define internal fastcc void @_ZL27generateInstSeqLeadingZeroslRKN4llvm15MCSubtar
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %4, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %29, i64 %17
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %17
   store i32 12922, ptr %30, align 4, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %6, ptr %31, align 4, !tbaa !16
@@ -1690,7 +1687,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i: ; preds = %50,
   %.idx36.i.i = shl nuw nsw i64 %.022.i.i, 3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx36.i.i
   %58 = load ptr, ptr %2, align 8, !tbaa !3
-  %59 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %58, i64 %.022.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.022.i.i
   %60 = sub nsw i64 %54, %.022.i.i
   %gepdiff.i.i = shl nsw i64 %60, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 4 %57, i64 %gepdiff.i.i, i1 false)
@@ -1732,7 +1729,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit: ; preds = %.sink
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %4, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %75, i64 %64
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %64
   store i32 12922, ptr %76, align 4, !tbaa !14
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 %6, ptr %77, align 4, !tbaa !16
@@ -1798,7 +1795,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i42: ; preds = %9
   %.idx36.i.i45 = shl nuw nsw i64 %.022.i.i43, 3
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx36.i.i45
   %104 = load ptr, ptr %2, align 8, !tbaa !3
-  %105 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %104, i64 %.022.i.i43
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.022.i.i43
   %106 = sub nsw i64 %100, %.022.i.i43
   %gepdiff.i.i46 = shl nsw i64 %106, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 4 %103, i64 %gepdiff.i.i46, i1 false)
@@ -1848,7 +1845,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit47: ; preds = %.si
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %4, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %125, i64 %114
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %114
   store i32 11757, ptr %126, align 4, !tbaa !14
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 0, ptr %127, align 4, !tbaa !16
@@ -1914,7 +1911,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i57: ; preds = %1
   %.idx36.i.i60 = shl nuw nsw i64 %.022.i.i58, 3
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx36.i.i60
   %154 = load ptr, ptr %2, align 8, !tbaa !3
-  %155 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %154, i64 %.022.i.i58
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %.022.i.i58
   %156 = sub nsw i64 %150, %.022.i.i58
   %gepdiff.i.i61 = shl nsw i64 %156, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr align 4 %153, i64 %gepdiff.i.i61, i1 false)
@@ -2207,7 +2204,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE28reserveForParamAndGetAddressERKS1_m.exit, label %9, !prof !13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.llvm::MCInst", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -2232,7 +2229,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE28reserveForParamAndGetAddress
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !9
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::MCInst", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %.016.i.i, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
@@ -2612,7 +2609,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !9
   %15 = add i32 %14, 1
@@ -2651,14 +2648,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.0.0.insert.ext
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   store i64 %.sroa.0.0.insert.insert, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !9
   %19 = add i32 %18, 1
   store i32 %19, ptr %6, align 8, !tbaa !9
   %20 = load ptr, ptr %0, align 8, !tbaa !3
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   ret ptr %23
 }
@@ -2690,14 +2687,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   store i64 %.sroa.0.0.insert.insert, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !9
   %19 = add i32 %18, 1
   store i32 %19, ptr %6, align 8, !tbaa !9
   %20 = load ptr, ptr %0, align 8, !tbaa !3
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   ret ptr %23
 }
@@ -2748,7 +2745,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.0.0.insert.ext
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !9
   %15 = add i32 %14, 1
@@ -2781,7 +2778,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !9
   %15 = add i32 %14, 1
@@ -2817,7 +2814,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !9
   %15 = add i32 %14, 1
@@ -2852,14 +2849,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   store i64 %.sroa.0.0.insert.insert, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !9
   %19 = add i32 %18, 1
   store i32 %19, ptr %6, align 8, !tbaa !9
   %20 = load ptr, ptr %0, align 8, !tbaa !3
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   ret ptr %23
 }
@@ -3057,7 +3054,7 @@ _ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit35: ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)

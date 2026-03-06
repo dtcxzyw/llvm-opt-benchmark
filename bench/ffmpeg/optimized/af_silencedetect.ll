@@ -61,7 +61,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   %16 = phi ptr [ %.pre, %.lr.ph ], [ %41, %39 ]
   %17 = phi ptr [ %.pre, %.lr.ph ], [ %42, %39 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !27
   %.not = icmp eq i64 %19, -9223372036854775808
   br i1 %.not, label %39, label %20
@@ -73,7 +73,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = srem i32 %22, %15
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %17, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %26, -9223372036854775808
   br i1 %.not62.i, label %update.exit, label %27
@@ -103,9 +103,9 @@ update.exit:                                      ; preds = %20, %32
   %.pre15 = phi i32 [ %.pre1516, %20 ], [ %.pre15.pre, %32 ]
   %35 = phi ptr [ %16, %20 ], [ %.pre14, %32 ]
   %36 = load ptr, ptr %13, align 8, !tbaa !30
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %24
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %24
   store i64 0, ptr %37, align 8, !tbaa !27
-  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %24
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %24
   store i64 -9223372036854775808, ptr %38, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -168,7 +168,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !27
   %29 = mul nsw i64 %28, %22
   %30 = sdiv i64 %29, %25
@@ -262,7 +262,7 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store i64 -9223372036854775808, ptr %28, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -388,7 +388,7 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
   %33 = srem i32 %.034, %32
   %34 = load ptr, ptr %21, align 8, !tbaa !26
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %37, -9223372036854775808
   br i1 %narrow.not, label %74, label %38
@@ -398,7 +398,7 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %22, align 8, !tbaa !30
-  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %35
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %35
   %42 = load i64, ptr %41, align 8, !tbaa !27
   %43 = add nsw i64 %42, 1
   store i64 %43, ptr %41, align 8, !tbaa !27
@@ -454,7 +454,7 @@ set_meta.exit:                                    ; preds = %61, %64
 69:                                               ; preds = %68, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %70 = load ptr, ptr %21, align 8, !tbaa !26
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %35
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %35
   %72 = load i64, ptr %71, align 8, !tbaa !27
   %73 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %72, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %73) #7
@@ -532,9 +532,9 @@ set_meta.exit23:                                  ; preds = %87, %89
 105:                                              ; preds = %102, %74
   %106 = phi ptr [ %.pre, %102 ], [ %34, %74 ]
   %107 = load ptr, ptr %22, align 8, !tbaa !30
-  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %35
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %35
   store i64 0, ptr %108, align 8, !tbaa !27
-  %109 = getelementptr inbounds nuw i64, ptr %106, i64 %35
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %35
   store i64 -9223372036854775808, ptr %109, align 8, !tbaa !27
   br label %update.exit
 
@@ -601,7 +601,7 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
   %34 = srem i32 %.034, %33
   %35 = load ptr, ptr %22, align 8, !tbaa !26
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %38, -9223372036854775808
   br i1 %narrow.not, label %75, label %39
@@ -611,7 +611,7 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %23, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %36
   %43 = load i64, ptr %42, align 8, !tbaa !27
   %44 = add nsw i64 %43, 1
   store i64 %44, ptr %42, align 8, !tbaa !27
@@ -667,7 +667,7 @@ set_meta.exit:                                    ; preds = %62, %65
 70:                                               ; preds = %69, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %71 = load ptr, ptr %22, align 8, !tbaa !26
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %36
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %36
   %73 = load i64, ptr %72, align 8, !tbaa !27
   %74 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %73, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %74) #7
@@ -745,9 +745,9 @@ set_meta.exit23:                                  ; preds = %88, %90
 106:                                              ; preds = %103, %75
   %107 = phi ptr [ %.pre, %103 ], [ %35, %75 ]
   %108 = load ptr, ptr %23, align 8, !tbaa !30
-  %109 = getelementptr inbounds nuw i64, ptr %108, i64 %36
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %36
   store i64 0, ptr %109, align 8, !tbaa !27
-  %110 = getelementptr inbounds nuw i64, ptr %107, i64 %36
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %36
   store i64 -9223372036854775808, ptr %110, align 8, !tbaa !27
   br label %update.exit
 
@@ -814,7 +814,7 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
   %34 = srem i32 %.034, %33
   %35 = load ptr, ptr %22, align 8, !tbaa !26
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %38, -9223372036854775808
   br i1 %narrow.not, label %75, label %39
@@ -824,7 +824,7 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %23, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %36
   %43 = load i64, ptr %42, align 8, !tbaa !27
   %44 = add nsw i64 %43, 1
   store i64 %44, ptr %42, align 8, !tbaa !27
@@ -880,7 +880,7 @@ set_meta.exit:                                    ; preds = %62, %65
 70:                                               ; preds = %69, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %71 = load ptr, ptr %22, align 8, !tbaa !26
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %36
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %36
   %73 = load i64, ptr %72, align 8, !tbaa !27
   %74 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %73, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %74) #7
@@ -958,9 +958,9 @@ set_meta.exit23:                                  ; preds = %88, %90
 106:                                              ; preds = %103, %75
   %107 = phi ptr [ %.pre, %103 ], [ %35, %75 ]
   %108 = load ptr, ptr %23, align 8, !tbaa !30
-  %109 = getelementptr inbounds nuw i64, ptr %108, i64 %36
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %36
   store i64 0, ptr %109, align 8, !tbaa !27
-  %110 = getelementptr inbounds nuw i64, ptr %107, i64 %36
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %36
   store i64 -9223372036854775808, ptr %110, align 8, !tbaa !27
   br label %update.exit
 
@@ -1029,7 +1029,7 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
   %36 = srem i32 %.034, %35
   %37 = load ptr, ptr %23, align 8, !tbaa !26
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %40, -9223372036854775808
   br i1 %narrow.not, label %77, label %41
@@ -1039,7 +1039,7 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %24, align 8, !tbaa !30
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %38
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %38
   %45 = load i64, ptr %44, align 8, !tbaa !27
   %46 = add nsw i64 %45, 1
   store i64 %46, ptr %44, align 8, !tbaa !27
@@ -1095,7 +1095,7 @@ set_meta.exit:                                    ; preds = %64, %67
 72:                                               ; preds = %71, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %73 = load ptr, ptr %23, align 8, !tbaa !26
-  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %38
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %38
   %75 = load i64, ptr %74, align 8, !tbaa !27
   %76 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %75, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %76) #7
@@ -1173,9 +1173,9 @@ set_meta.exit23:                                  ; preds = %90, %92
 108:                                              ; preds = %105, %77
   %109 = phi ptr [ %.pre, %105 ], [ %37, %77 ]
   %110 = load ptr, ptr %24, align 8, !tbaa !30
-  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %38
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %38
   store i64 0, ptr %111, align 8, !tbaa !27
-  %112 = getelementptr inbounds nuw i64, ptr %109, i64 %38
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %38
   store i64 -9223372036854775808, ptr %112, align 8, !tbaa !27
   br label %update.exit
 
@@ -1255,9 +1255,9 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
 37:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
   %38 = load ptr, ptr %21, align 8, !tbaa !74
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !60
-  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv51
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv51
   %42 = load double, ptr %41, align 8, !tbaa !61
   %43 = fcmp nsz uge double %42, %18
   %44 = fcmp nsz ule double %42, %22
@@ -1274,7 +1274,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   %48 = srem i32 %47, %46
   %49 = load ptr, ptr %24, align 8, !tbaa !26
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds i64, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %52, -9223372036854775808
   br i1 %narrow.not, label %89, label %53
@@ -1284,7 +1284,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %25, align 8, !tbaa !30
-  %56 = getelementptr inbounds i64, ptr %55, i64 %50
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %50
   %57 = load i64, ptr %56, align 8, !tbaa !27
   %58 = add nsw i64 %57, 1
   store i64 %58, ptr %56, align 8, !tbaa !27
@@ -1342,7 +1342,7 @@ set_meta.exit:                                    ; preds = %77, %79
 84:                                               ; preds = %83, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %85 = load ptr, ptr %24, align 8, !tbaa !26
-  %86 = getelementptr inbounds i64, ptr %85, i64 %50
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %50
   %87 = load i64, ptr %86, align 8, !tbaa !27
   %88 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %87, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %88) #7
@@ -1423,9 +1423,9 @@ set_meta.exit33:                                  ; preds = %102, %104
 120:                                              ; preds = %117, %89
   %121 = phi ptr [ %.pre, %117 ], [ %49, %89 ]
   %122 = load ptr, ptr %25, align 8, !tbaa !30
-  %123 = getelementptr inbounds i64, ptr %122, i64 %50
+  %123 = getelementptr inbounds [8 x i8], ptr %122, i64 %50
   store i64 0, ptr %123, align 8, !tbaa !27
-  %124 = getelementptr inbounds i64, ptr %121, i64 %50
+  %124 = getelementptr inbounds [8 x i8], ptr %121, i64 %50
   store i64 -9223372036854775808, ptr %124, align 8, !tbaa !27
   br label %update.exit
 
@@ -1504,9 +1504,9 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
 38:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
   %39 = load ptr, ptr %22, align 8, !tbaa !74
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !60
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv51
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv51
   %43 = load float, ptr %42, align 4, !tbaa !63
   %44 = fcmp nsz uge float %43, %19
   %45 = fcmp nsz ule float %43, %23
@@ -1523,7 +1523,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   %49 = srem i32 %48, %47
   %50 = load ptr, ptr %25, align 8, !tbaa !26
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds i64, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %53, -9223372036854775808
   br i1 %narrow.not, label %90, label %54
@@ -1533,7 +1533,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %26, align 8, !tbaa !30
-  %57 = getelementptr inbounds i64, ptr %56, i64 %51
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %51
   %58 = load i64, ptr %57, align 8, !tbaa !27
   %59 = add nsw i64 %58, 1
   store i64 %59, ptr %57, align 8, !tbaa !27
@@ -1591,7 +1591,7 @@ set_meta.exit:                                    ; preds = %78, %80
 85:                                               ; preds = %84, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %86 = load ptr, ptr %25, align 8, !tbaa !26
-  %87 = getelementptr inbounds i64, ptr %86, i64 %51
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %51
   %88 = load i64, ptr %87, align 8, !tbaa !27
   %89 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %88, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %89) #7
@@ -1672,9 +1672,9 @@ set_meta.exit33:                                  ; preds = %103, %105
 121:                                              ; preds = %118, %90
   %122 = phi ptr [ %.pre, %118 ], [ %50, %90 ]
   %123 = load ptr, ptr %26, align 8, !tbaa !30
-  %124 = getelementptr inbounds i64, ptr %123, i64 %51
+  %124 = getelementptr inbounds [8 x i8], ptr %123, i64 %51
   store i64 0, ptr %124, align 8, !tbaa !27
-  %125 = getelementptr inbounds i64, ptr %122, i64 %51
+  %125 = getelementptr inbounds [8 x i8], ptr %122, i64 %51
   store i64 -9223372036854775808, ptr %125, align 8, !tbaa !27
   br label %update.exit
 
@@ -1753,9 +1753,9 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
 38:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
   %39 = load ptr, ptr %22, align 8, !tbaa !74
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !60
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv51
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv51
   %43 = load i32, ptr %42, align 4, !tbaa !66
   %44 = icmp sge i32 %43, %19
   %45 = icmp sle i32 %43, %23
@@ -1772,7 +1772,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   %49 = srem i32 %48, %47
   %50 = load ptr, ptr %25, align 8, !tbaa !26
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds i64, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %53, -9223372036854775808
   br i1 %narrow.not, label %90, label %54
@@ -1782,7 +1782,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %26, align 8, !tbaa !30
-  %57 = getelementptr inbounds i64, ptr %56, i64 %51
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %51
   %58 = load i64, ptr %57, align 8, !tbaa !27
   %59 = add nsw i64 %58, 1
   store i64 %59, ptr %57, align 8, !tbaa !27
@@ -1840,7 +1840,7 @@ set_meta.exit:                                    ; preds = %78, %80
 85:                                               ; preds = %84, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %86 = load ptr, ptr %25, align 8, !tbaa !26
-  %87 = getelementptr inbounds i64, ptr %86, i64 %51
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %51
   %88 = load i64, ptr %87, align 8, !tbaa !27
   %89 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %88, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %89) #7
@@ -1921,9 +1921,9 @@ set_meta.exit33:                                  ; preds = %103, %105
 121:                                              ; preds = %118, %90
   %122 = phi ptr [ %.pre, %118 ], [ %50, %90 ]
   %123 = load ptr, ptr %26, align 8, !tbaa !30
-  %124 = getelementptr inbounds i64, ptr %123, i64 %51
+  %124 = getelementptr inbounds [8 x i8], ptr %123, i64 %51
   store i64 0, ptr %124, align 8, !tbaa !27
-  %125 = getelementptr inbounds i64, ptr %122, i64 %51
+  %125 = getelementptr inbounds [8 x i8], ptr %122, i64 %51
   store i64 -9223372036854775808, ptr %125, align 8, !tbaa !27
   br label %update.exit
 
@@ -2003,9 +2003,9 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
 39:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
   %40 = load ptr, ptr %22, align 8, !tbaa !74
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !60
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv51
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv51
   %44 = load i16, ptr %43, align 2, !tbaa !68
   %45 = icmp sge i16 %44, %19
   %46 = sext i16 %44 to i32
@@ -2023,7 +2023,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   %51 = srem i32 %50, %49
   %52 = load ptr, ptr %26, align 8, !tbaa !26
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !27
   %.not62.i = icmp eq i64 %55, -9223372036854775808
   br i1 %narrow.not, label %92, label %56
@@ -2033,7 +2033,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %27, align 8, !tbaa !30
-  %59 = getelementptr inbounds i64, ptr %58, i64 %53
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %53
   %60 = load i64, ptr %59, align 8, !tbaa !27
   %61 = add nsw i64 %60, 1
   store i64 %61, ptr %59, align 8, !tbaa !27
@@ -2091,7 +2091,7 @@ set_meta.exit:                                    ; preds = %80, %82
 87:                                               ; preds = %86, %set_meta.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %88 = load ptr, ptr %26, align 8, !tbaa !26
-  %89 = getelementptr inbounds i64, ptr %88, i64 %53
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %53
   %90 = load i64, ptr %89, align 8, !tbaa !27
   %91 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %10, i64 noundef %90, i64 %4) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %91) #7
@@ -2172,9 +2172,9 @@ set_meta.exit33:                                  ; preds = %105, %107
 123:                                              ; preds = %120, %92
   %124 = phi ptr [ %.pre, %120 ], [ %52, %92 ]
   %125 = load ptr, ptr %27, align 8, !tbaa !30
-  %126 = getelementptr inbounds i64, ptr %125, i64 %53
+  %126 = getelementptr inbounds [8 x i8], ptr %125, i64 %53
   store i64 0, ptr %126, align 8, !tbaa !27
-  %127 = getelementptr inbounds i64, ptr %124, i64 %53
+  %127 = getelementptr inbounds [8 x i8], ptr %124, i64 %53
   store i64 -9223372036854775808, ptr %127, align 8, !tbaa !27
   br label %update.exit
 

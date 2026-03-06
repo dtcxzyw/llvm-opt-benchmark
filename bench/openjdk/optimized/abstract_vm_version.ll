@@ -181,7 +181,7 @@ define hidden void @_ZN19Abstract_VM_Version21insert_features_namesEPcmPPKc(ptr 
   br i1 %.not15, label %13, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %.020, i64 noundef %.01317, ptr noundef nonnull @.str.22, ptr noundef %8) #8
   %10 = sext i32 %9 to i64
@@ -223,7 +223,7 @@ define hidden noundef zeroext i1 @_ZN19Abstract_VM_Version30print_matching_lines
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !8

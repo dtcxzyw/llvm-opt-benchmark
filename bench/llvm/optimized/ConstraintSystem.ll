@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.2" = type { %"class.llvm::SmallVectorTemplateCommon.3" }
 %"class.llvm::SmallVectorTemplateCommon.3" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.4" = type { [128 x i8] }
-%"struct.llvm::ConstraintSystem::Entry" = type <{ i64, i16, [6 x i8] }>
 %"class.llvm::SmallVector.5" = type { %"class.llvm::SmallVectorImpl.6", %"struct.llvm::SmallVectorStorage.9" }
 %"class.llvm::SmallVectorImpl.6" = type { %"class.llvm::SmallVectorTemplateBase.7" }
 %"class.llvm::SmallVectorTemplateBase.7" = type { %"class.llvm::SmallVectorTemplateCommon.8" }
@@ -32,6 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.llvm::SmallVector.20" = type { %"class.llvm::SmallVectorImpl.1", %"struct.llvm::SmallVectorStorage.21" }
 %"struct.llvm::SmallVectorStorage.21" = type { [64 x i8] }
+%"struct.llvm::ConstraintSystem::Entry" = type <{ i64, i16, [6 x i8] }>
 
 $_ZN4llvm16ConstraintSystem6negateENS_11SmallVectorIlLj8EEE = comdat any
 
@@ -99,7 +99,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16ConstraintSystem16eliminateUsingF
   %22 = zext i32 %.in to i64
   %23 = zext i32 %.062162 to i64
   %24 = load ptr, ptr %10, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [144 x i8], ptr %24, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !19
   %28 = icmp eq i32 %27, 0
@@ -108,7 +108,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16ConstraintSystem16eliminateUsingF
 29:                                               ; preds = %21
   %30 = zext i32 %27 to i64
   %31 = load ptr, ptr %25, align 8, !tbaa !18
-  %32 = getelementptr %"struct.llvm::ConstraintSystem::Entry", ptr %31, i64 %30
+  %32 = getelementptr [16 x i8], ptr %31, i64 %30
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load i16, ptr %33, align 8, !tbaa !21
   %35 = icmp eq i16 %34, %13
@@ -135,13 +135,13 @@ _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit:
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE8pop_backEv.exit
 
 44:                                               ; preds = %_ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit
-  %45 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %24, i64 %22
+  %45 = getelementptr inbounds nuw [144 x i8], ptr %24, i64 %22
   %46 = getelementptr inbounds i8, ptr %45, i64 -144
   call void @_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef nonnull align 8 dereferenceable(144) %46)
   %47 = load ptr, ptr %10, align 8, !tbaa !18
   %48 = load i32, ptr %11, align 8, !tbaa !19
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [144 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -144
   %52 = load i32, ptr %8, align 8, !tbaa !19
   %53 = zext i32 %52 to i64
@@ -152,7 +152,7 @@ _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit:
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE28reserveForParamAndGetAddressERS4_m.exit.i, label %56, !prof !25
 
 56:                                               ; preds = %44
-  %57 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %.pre4.i, i64 %53
+  %57 = getelementptr inbounds nuw [144 x i8], ptr %.pre4.i, i64 %53
   %58 = icmp uge ptr %51, %.pre4.i
   %59 = icmp ult ptr %51, %57
   %spec.select.i.i.i.i.i = and i1 %58, %59
@@ -177,7 +177,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   %.016.i.i.i = phi ptr [ %51, %44 ], [ %65, %60 ], [ %51, %.critedge.i.i.i ]
   %67 = load i32, ptr %8, align 8, !tbaa !19
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [144 x i8], ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %70, ptr %69, align 8, !tbaa !18
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -202,7 +202,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   store i32 %80, ptr %11, align 8, !tbaa !19
   %81 = load ptr, ptr %10, align 8, !tbaa !18
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [144 x i8], ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %86 = icmp eq ptr %84, %85
@@ -233,7 +233,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
 .lr.ph176:                                        ; preds = %90, %.thread157
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.thread157 ], [ %indvars.iv, %90 ]
   %91 = load ptr, ptr %2, align 8, !tbaa !18
-  %92 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %91, i64 %indvars.iv184
+  %92 = getelementptr inbounds nuw [144 x i8], ptr %91, i64 %indvars.iv184
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !19
   %95 = icmp eq i32 %94, 0
@@ -242,7 +242,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
 96:                                               ; preds = %.lr.ph176
   %97 = zext i32 %94 to i64
   %98 = load ptr, ptr %92, align 8, !tbaa !18
-  %99 = getelementptr %"struct.llvm::ConstraintSystem::Entry", ptr %98, i64 %97
+  %99 = getelementptr [16 x i8], ptr %98, i64 %97
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load i16, ptr %100, align 8, !tbaa !21
   %102 = icmp eq i16 %101, %14
@@ -255,7 +255,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
 
 _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit90: ; preds = %.lr.ph176, %96, %103
   %.0.i89 = phi i64 [ 0, %.lr.ph176 ], [ %105, %103 ], [ 0, %96 ]
-  %106 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %91, i64 %indvars.iv187
+  %106 = getelementptr inbounds nuw [144 x i8], ptr %91, i64 %indvars.iv187
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i32, ptr %107, align 8, !tbaa !19
   %109 = icmp eq i32 %108, 0
@@ -264,7 +264,7 @@ _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit9
 110:                                              ; preds = %_ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit90
   %111 = zext i32 %108 to i64
   %112 = load ptr, ptr %106, align 8, !tbaa !18
-  %113 = getelementptr %"struct.llvm::ConstraintSystem::Entry", ptr %112, i64 %111
+  %113 = getelementptr [16 x i8], ptr %112, i64 %111
   %114 = getelementptr i8, ptr %113, i64 -8
   %115 = load i16, ptr %114, align 8, !tbaa !21
   %116 = icmp eq i16 %115, %14
@@ -305,9 +305,9 @@ _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit9
   store i32 0, ptr %16, align 8, !tbaa !19
   store i32 8, ptr %17, align 4, !tbaa !20
   %128 = and i64 %.0143, 4294967295
-  %129 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %91, i64 %128
+  %129 = getelementptr inbounds nuw [144 x i8], ptr %91, i64 %128
   %130 = and i64 %.0144.in, 4294967295
-  %131 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %91, i64 %130
+  %131 = getelementptr inbounds nuw [144 x i8], ptr %91, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i32, ptr %132, align 8, !tbaa !19
   %.not165.not = icmp eq i32 %133, 0
@@ -330,11 +330,11 @@ _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit9
 140:                                              ; preds = %136
   %141 = zext i32 %.064167 to i64
   %142 = load ptr, ptr %131, align 8, !tbaa !18
-  %143 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %142, i64 %138
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %138
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i16, ptr %144, align 2, !tbaa !30
   %146 = load ptr, ptr %129, align 8, !tbaa !18
-  %147 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %146, i64 %141
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %141
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i16, ptr %148, align 2, !tbaa !30
   %.sroa.speculated = call i16 @llvm.umin.i16(i16 %145, i16 %149)
@@ -393,7 +393,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_16ConstraintSystem5EntryELb1EE18growAndEmpl
   %.pre.i.i = load i32, ptr %16, align 8, !tbaa !19
   %175 = load ptr, ptr %3, align 8, !tbaa !18
   %176 = zext i32 %.pre.i.i to i64
-  %177 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %176
   store i64 %168, ptr %177, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i16 %.sroa.speculated, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -402,7 +402,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_16ConstraintSystem5EntryELb1EE18growAndEmpl
 
 179:                                              ; preds = %171
   %180 = load ptr, ptr %3, align 8, !tbaa !18
-  %181 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %180, i64 %173
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %173
   store i64 %168, ptr %181, align 8, !tbaa !24
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i16 %.sroa.speculated, ptr %182, align 8, !tbaa !21
@@ -436,7 +436,7 @@ _ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS
   br i1 %.not.i.i.not.i96, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE28reserveForParamAndGetAddressERS4_m.exit.i101, label %194, !prof !25
 
 194:                                              ; preds = %189
-  %195 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %.pre4.i97, i64 %191
+  %195 = getelementptr inbounds nuw [144 x i8], ptr %.pre4.i97, i64 %191
   %196 = icmp uge ptr %3, %.pre4.i97
   %197 = icmp ult ptr %3, %195
   %spec.select.i.i.i.i.i98 = and i1 %196, %197
@@ -460,7 +460,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   %.016.i.i.i102 = phi ptr [ %3, %189 ], [ %202, %198 ], [ %3, %.critedge.i.i.i99 ]
   %204 = load i32, ptr %11, align 8, !tbaa !19
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw [144 x i8], ptr %203, i64 %205
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store ptr %207, ptr %206, align 8, !tbaa !18
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -1078,7 +1078,7 @@ _ZSt4moveIPlS0_ET0_T_S2_S1_.exit35.i:             ; preds = %80, %79, %77
   %.idx40.i = shl nuw nsw i64 %.026.i, 3
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx40.i
   %87 = load ptr, ptr %1, align 8, !tbaa !18
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %.026.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.026.i
   %89 = sub nsw i64 %83, %.026.i
   %gepdiff.i = shl nsw i64 %89, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 8 %86, i64 %gepdiff.i, i1 false)
@@ -1542,7 +1542,7 @@ _ZN4llvm6all_ofINS_8ArrayRefIlEEZNS_16ConstraintSystem14addVariableRowES2_EUllE_
 56:                                               ; preds = %51
   %57 = zext i32 %52 to i64
   %58 = load ptr, ptr %4, align 8, !tbaa !18
-  %59 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %60 = trunc i64 %.sroa.7.039 to i16
   store i64 %49, ptr %59, align 8, !tbaa !24
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -1626,7 +1626,7 @@ _ZN4llvm11SmallVectorINS_16ConstraintSystem5EntryELj8EEC2EONS_15SmallVectorImplI
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE28reserveForParamAndGetAddressERS4_m.exit.i, label %87, !prof !25
 
 87:                                               ; preds = %_ZN4llvm11SmallVectorINS_16ConstraintSystem5EntryELj8EEC2EONS_15SmallVectorImplIS2_EE.exit
-  %88 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %.pre4.i, i64 %83
+  %88 = getelementptr inbounds nuw [144 x i8], ptr %.pre4.i, i64 %83
   %89 = icmp uge ptr %6, %.pre4.i
   %90 = icmp ult ptr %6, %88
   %spec.select.i.i.i.i.i = and i1 %89, %90
@@ -1651,7 +1651,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   %.016.i.i.i = phi ptr [ %6, %_ZN4llvm11SmallVectorINS_16ConstraintSystem5EntryELj8EEC2EONS_15SmallVectorImplIS2_EE.exit ], [ %96, %91 ], [ %6, %.critedge.i.i.i ]
   %98 = load i32, ptr %47, align 8, !tbaa !19
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [144 x i8], ptr %97, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %101, ptr %100, align 8, !tbaa !18
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -1796,7 +1796,7 @@ _ZSt4copyIPKN4llvm16ConstraintSystem5EntryEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i.i
   %.idx36.i.i.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i.i.i, 4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx36.i.i.i.i.i.i.i
   %41 = load ptr, ptr %.0812.i.i.i.i.i, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %41, i64 %.022.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.022.i.i.i.i.i.i.i
   %43 = sub nsw i64 %37, %.022.i.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i.i = shl nsw i64 %43, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 8 %40, i64 %gepdiff.i.i.i.i.i.i.i, i1 false)
@@ -1823,7 +1823,7 @@ _ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_
   %.pre-phi = phi i64 [ %.pre55, %_ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit.loopexit ], [ %10, %11 ]
   %48 = phi ptr [ %.pre, %_ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit.loopexit ], [ %12, %11 ]
   %.0 = phi ptr [ %45, %_ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit.loopexit ], [ %12, %11 ]
-  %49 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [144 x i8], ptr %48, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %49
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -1952,7 +1952,7 @@ _ZSt4copyIPKN4llvm16ConstraintSystem5EntryEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i.i
   %.idx36.i.i.i.i.i.i.i46 = shl nuw nsw i64 %.022.i.i.i.i.i.i.i44, 4
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx36.i.i.i.i.i.i.i46
   %97 = load ptr, ptr %.0812.i.i.i.i.i34, align 8, !tbaa !18
-  %98 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %97, i64 %.022.i.i.i.i.i.i.i44
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %.022.i.i.i.i.i.i.i44
   %99 = sub nsw i64 %93, %.022.i.i.i.i.i.i.i44
   %gepdiff.i.i.i.i.i.i.i47 = shl nsw i64 %99, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 8 %96, i64 %gepdiff.i.i.i.i.i.i.i47, i1 false)
@@ -1974,14 +1974,14 @@ _ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_
   %104 = load ptr, ptr %1, align 8, !tbaa !18
   %105 = load i32, ptr %5, align 8, !tbaa !19
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %104, i64 %106
+  %107 = getelementptr inbounds nuw [144 x i8], ptr %104, i64 %106
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %106
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit48
   %108 = load ptr, ptr %0, align 8, !tbaa !18
-  %109 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %108, i64 %.022
-  %110 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %104, i64 %.022
+  %109 = getelementptr inbounds nuw [144 x i8], ptr %108, i64 %.022
+  %110 = getelementptr inbounds nuw [144 x i8], ptr %104, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i
@@ -2231,7 +2231,7 @@ _ZSt4moveIPN4llvm16ConstraintSystem5EntryES3_ET0_T_S5_S4_.exit35: ; preds = %37,
   %.idx40 = shl nuw nsw i64 %.026, 4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -2274,7 +2274,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_16ConstraintSystem5EntryELb1EE9push_backES2
   %15 = trunc i64 %5 to i16
   %16 = load ptr, ptr %0, align 8, !tbaa !18
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i64 %4, ptr %18, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i16 %15, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -2283,7 +2283,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_16ConstraintSystem5EntryELb1EE9push_backES2
   store i32 %20, ptr %6, align 8, !tbaa !19
   %21 = load ptr, ptr %0, align 8, !tbaa !18
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -16
   ret ptr %24
 }
@@ -2384,9 +2384,9 @@ _ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE7reserveEm.exit40: ; pred
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE7reserveEm.exit40, %.lr.ph
   %.03648 = phi i64 [ %50, %.lr.ph ], [ 0, %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE7reserveEm.exit40 ]
   %46 = load ptr, ptr %0, align 8, !tbaa !18
-  %47 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %46, i64 %.03648
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %.03648
   %48 = load ptr, ptr %1, align 8, !tbaa !18
-  %49 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %48, i64 %.03648
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %.03648
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %47, ptr noundef nonnull align 8 dereferenceable(10) %49, i64 10, i1 false), !tbaa.struct !58
@@ -2406,7 +2406,7 @@ _ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE7reserveEm.exit40: ; pred
   %.idx44 = shl nuw nsw i64 %spec.select, 4
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx44
   %56 = load ptr, ptr %1, align 8, !tbaa !18
-  %57 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %56, i64 %44
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %44
   %58 = sub nsw i64 %43, %spec.select
   %gepdiff45 = shl nsw i64 %58, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 8 %55, i64 %gepdiff45, i1 false)
@@ -2434,7 +2434,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_16ConstraintSystem5EntryELb1EE18uninitializ
   %.idx43 = shl nuw nsw i64 %spec.select, 4
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx43
   %68 = load ptr, ptr %0, align 8, !tbaa !18
-  %69 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %68, i64 %43
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %43
   %70 = sub nsw i64 %44, %spec.select
   %gepdiff = shl nsw i64 %70, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 8 %67, i64 %gepdiff, i1 false)
@@ -2500,7 +2500,7 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RKT1_.exit
   %20 = load ptr, ptr %0, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.pre-phi
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.pre-phi
   %22 = sub nuw nsw i64 %1, %.pre-phi
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %24
@@ -2559,8 +2559,8 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %0, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %45, i64 %1
-  %47 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %45, i64 %.pre-phi
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %1
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %.pre-phi
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i

@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%union.t_iparams = type { %struct.anon.139 }
-%struct.anon.139 = type { [3 x float], [3 x float], [3 x float], [3 x float] }
 
 $_ZN3gmx11ListOfListsIiED2Ev = comdat any
 
@@ -131,7 +129,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %switch.edge.
           to label %.noexc67.i unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.loopexit
 
 .noexc67.i:                                       ; preds = %61
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %58
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %58
   store i32 0, ptr %63, align 4, !tbaa !128
   %65 = getelementptr i8, ptr %63, i64 4
   %66 = add nsw i64 %58, -1
@@ -439,18 +437,18 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !148
   %22 = load ptr, ptr %0, align 8, !tbaa !148
-  %23 = getelementptr i32, ptr %22, i64 %19
+  %23 = getelementptr [4 x i8], ptr %22, i64 %19
   %24 = load i32, ptr %23, align 4, !tbaa !128
   %25 = getelementptr i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !128
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %21, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %21, i64 %27
   %.not105112 = icmp eq i32 %24, %26
   br i1 %.not105112, label %._crit_edge116, label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %13
   %29 = sext i32 %24 to i64
-  %30 = getelementptr inbounds i32, ptr %21, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1512
   %32 = load ptr, ptr %31, align 8, !tbaa !148
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1496
@@ -463,14 +461,14 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %40 = inttoptr i64 %39 to ptr
   %41 = ashr exact i64 %37, 2
   %42 = sub nsw i64 0, %41
-  %invariant.gep = getelementptr i32, ptr %32, i64 %42
+  %invariant.gep = getelementptr [4 x i8], ptr %32, i64 %42
   %43 = and i32 %7, 1
   %44 = icmp eq i32 %43, 0
   %45 = add nsw i32 %6, 1
   %46 = icmp slt i32 %45, %7
   %47 = mul nsw i32 %7, 1000
   %48 = sext i32 %6 to i64
-  %49 = getelementptr inbounds i32, ptr %40, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %40, i64 %48
   %50 = ptrtoint ptr %3 to i64
   %51 = ptrtoint ptr %2 to i64
   %52 = sub i64 %50, %51
@@ -501,7 +499,7 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
 .lr.ph:                                           ; preds = %60, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %60 ]
   %.071107 = phi i1 [ %spec.select, %.lr.ph ], [ true, %60 ]
-  %62 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !128
   %64 = icmp ne i32 %61, %63
   %spec.select = select i1 %64, i1 %.071107, i1 false
@@ -514,10 +512,10 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %66 = sext i32 %65 to i64
   %67 = icmp sgt i64 %41, %66
   %.0.i.v = select i1 %67, ptr %18, ptr %invariant.gep
-  %.0.i = getelementptr i32, ptr %.0.i.v, i64 %66
+  %.0.i = getelementptr [4 x i8], ptr %.0.i.v, i64 %66
   %68 = load i32, ptr %.0.i, align 4, !tbaa !128
   %69 = sext i32 %68 to i64
-  %gep = getelementptr %union.t_iparams, ptr %invariant.gep129, i64 %69
+  %gep = getelementptr [48 x i8], ptr %invariant.gep129, i64 %69
   %.073 = load float, ptr %gep, align 4, !tbaa !160
   %70 = fadd float %9, %.073
   %71 = fadd float %10, %.073
@@ -554,11 +552,11 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
 .lr.ph110:                                        ; preds = %80, %.lr.ph110
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph110 ], [ 0, %80 ]
   %89 = load ptr, ptr @debug, align 8, !tbaa !163
-  %90 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv117
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv117
   %91 = load i32, ptr %90, align 4, !tbaa !128
   %92 = load i32, ptr %.0.i, align 4, !tbaa !128
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %93
+  %94 = getelementptr inbounds [48 x i8], ptr %2, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !160
   %96 = fpext float %95 to double
   %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.3, i32 noundef %91, double noundef %96) #14

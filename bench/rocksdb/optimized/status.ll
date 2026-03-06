@@ -790,7 +790,7 @@ define void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr dead_on_unwind noalias wr
 
 43:                                               ; preds = %36
   %44 = zext i8 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr @_ZN7rocksdbL4msgsE, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdbL4msgsE, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !4
   %47 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #14
   %48 = load i64, ptr %38, align 8, !tbaa !37

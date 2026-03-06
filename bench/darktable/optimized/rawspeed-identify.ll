@@ -1285,7 +1285,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   %370 = icmp samesign ult i64 %indvars.iv329, %368
   call void @llvm.assume(i1 %370)
   %371 = mul nuw nsw i64 %indvars.iv329, %369
-  %372 = getelementptr inbounds nuw i16, ptr %353, i64 %371
+  %372 = getelementptr inbounds nuw [2 x i8], ptr %353, i64 %371
   br label %373
 
 373:                                              ; preds = %.lr.ph276.us, %373
@@ -1296,7 +1296,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   call void @llvm.assume(i1 %375)
   %376 = icmp samesign ult i64 %indvars.iv324, %367
   call void @llvm.assume(i1 %376)
-  %377 = getelementptr inbounds nuw i16, ptr %372, i64 %indvars.iv324
+  %377 = getelementptr inbounds nuw [2 x i8], ptr %372, i64 %indvars.iv324
   %378 = load i16, ptr %377, align 2, !tbaa !174
   %379 = uitofp i16 %378 to double
   %380 = fadd double %.5273.us, %379
@@ -1347,7 +1347,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   %399 = icmp samesign ult i64 %indvars.iv339, %397
   call void @llvm.assume(i1 %399)
   %400 = mul nuw nsw i64 %indvars.iv339, %398
-  %401 = getelementptr inbounds nuw float, ptr %382, i64 %400
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %400
   br label %402
 
 402:                                              ; preds = %.lr.ph288.us, %402
@@ -1358,7 +1358,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   call void @llvm.assume(i1 %404)
   %405 = icmp samesign ult i64 %indvars.iv334, %396
   call void @llvm.assume(i1 %405)
-  %406 = getelementptr inbounds nuw float, ptr %401, i64 %indvars.iv334
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %401, i64 %indvars.iv334
   %407 = load float, ptr %406, align 4, !tbaa !154
   %408 = fpext float %407 to double
   %409 = fadd double %.382285.us, %408

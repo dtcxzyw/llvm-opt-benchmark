@@ -1033,7 +1033,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %202
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1e97d9acd6eca520E.exit": ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit, %._crit_edge.i
   %218 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %210, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ]
   %219 = load ptr, ptr %154, align 8, !alias.scope !175, !noalias !178, !nonnull !14, !noundef !14
-  %220 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %219, i64 %218
+  %220 = getelementptr inbounds [24 x i8], ptr %219, i64 %218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %220, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %221 = load i64, ptr %155, align 8, !alias.scope !175, !noalias !178, !noundef !14
   %222 = add i64 %221, 1
@@ -1697,7 +1697,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %202
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1e97d9acd6eca520E.exit": ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit, %._crit_edge.i
   %218 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %210, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ]
   %219 = load ptr, ptr %154, align 8, !alias.scope !283, !noalias !286, !nonnull !14, !noundef !14
-  %220 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %219, i64 %218
+  %220 = getelementptr inbounds [24 x i8], ptr %219, i64 %218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %220, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %221 = load i64, ptr %155, align 8, !alias.scope !283, !noalias !286, !noundef !14
   %222 = add i64 %221, 1

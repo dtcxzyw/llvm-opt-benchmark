@@ -276,7 +276,7 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %.07380 = phi i64 [ 15, %.loopexit77 ], [ %indvars.iv83, %29 ]
   %30 = shl nuw i64 %.07380, 1
   %31 = and i64 %30, 4294967294
-  %32 = getelementptr inbounds nuw float, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %31
   %33 = load float, ptr %32, align 8
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %26, float %22)
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -746,7 +746,7 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   %.033.i = phi i64 [ %indvars.iv35.i, %.loopexit30.i ], [ 39, %.loopexit30.i.preheader ]
   %23 = shl nuw i64 %.033.i, 1
   %24 = and i64 %23, 4294967294
-  %25 = getelementptr inbounds nuw float, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %24
   %26 = load float, ptr %25, align 8
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %4, float %1)
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -821,7 +821,7 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   %.033 = phi i64 [ %indvars.iv35, %.loopexit30 ], [ 39, %.loopexit30.preheader ]
   %19 = shl nuw i64 %.033, 1
   %20 = and i64 %19, 4294967294
-  %21 = getelementptr inbounds nuw float, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %20
   %22 = load float, ptr %21, align 8
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %4, float %1)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -1026,7 +1026,7 @@ define void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef %0, float nounde
   %36 = zext i8 %35 to i64
   %.idx = mul nuw nsw i64 %36, 12
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
-  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -1235,7 +1235,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   tail call void %103(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %97, float noundef %2, float noundef %100, i32 noundef %35)
   %104 = shl nuw i64 %.0141, 1
   %105 = and i64 %104, 4294967294
-  %106 = getelementptr inbounds nuw float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %105
   %107 = load float, ptr %106, align 8
   %108 = tail call float @llvm.fmuladd.f32(float %107, float %41, float %37)
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 4
@@ -1767,7 +1767,7 @@ _ZN13duDisplayList6resizeEi.exit:                 ; preds = %._crit_edge12.i, %3
   %38 = load ptr, ptr %37, align 8
   %39 = mul nsw i32 %36, 3
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds float, ptr %38, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %38, i64 %40
   store float %1, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store float %2, ptr %42, align 4
@@ -1777,7 +1777,7 @@ _ZN13duDisplayList6resizeEi.exit:                 ; preds = %._crit_edge12.i, %3
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %6, align 8
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %45, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %45, i64 %47
   store i32 %4, ptr %48, align 4
   %49 = load i32, ptr %6, align 8
   %50 = add nsw i32 %49, 1
@@ -1846,7 +1846,7 @@ define void @_ZN13duDisplayList4drawEP11duDebugDraw(ptr noundef nonnull readonly
   %.idx = mul nuw nsw i64 %indvars.iv, 12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40

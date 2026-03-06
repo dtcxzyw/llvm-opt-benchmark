@@ -502,7 +502,7 @@ _ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i
 _ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !29
   store ptr %73, ptr %51, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !28
   br label %_ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE9push_backERKS3_.exit
 
@@ -570,7 +570,7 @@ _ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !33
   store ptr %98, ptr %76, align 8, !tbaa !30
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE9push_backERKS2_.exit
 
@@ -2910,7 +2910,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !51
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -2966,7 +2966,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !204
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -4738,7 +4738,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   %22 = shl nuw nsw i64 %20, 3
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #33
   store ptr %23, ptr %10, align 8, !tbaa !290
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !292
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %22, i1 false), !tbaa !64
@@ -4758,7 +4758,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i32: ; preds = %_ZNSt6vectorIdS
 
 .noexc34:                                         ; preds = %.noexc25
   store ptr %28, ptr %11, align 8, !tbaa !290
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %20
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %20
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !292
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %22, i1 false), !tbaa !64
@@ -5030,7 +5030,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
 22:                                               ; preds = %18
   %23 = load ptr, ptr %11, align 8, !tbaa !307
   %24 = load ptr, ptr %23, align 8, !tbaa !308
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %.049246
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.049246
   %26 = load float, ptr %25, align 4, !tbaa !311
   br label %27
 
@@ -5038,7 +5038,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
   %28 = phi float [ %26, %22 ], [ 1.000000e+00, %18 ]
   %29 = load ptr, ptr %12, align 8, !tbaa !313
   %30 = load ptr, ptr %29, align 8, !tbaa !308
-  %31 = getelementptr inbounds nuw float, ptr %30, i64 %.049246
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.049246
   %32 = load float, ptr %31, align 4, !tbaa !311
   %33 = fptosi float %32 to i32
   %34 = icmp sgt i32 %33, -1
@@ -5055,7 +5055,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
   %41 = load ptr, ptr %15, align 8, !tbaa !315
   %42 = load ptr, ptr %41, align 8, !tbaa !308
   %43 = mul i64 %37, %.049246
-  %44 = getelementptr inbounds nuw float, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %.idx.i.i = shl nuw nsw i64 %37, 2
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i
   %.not10.i.i.i = icmp eq i64 %37, 0
@@ -5080,7 +5080,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
 _ZN7xgboost6metric14EvalMatchError7EvalRowEiPKfm.exit.i: ; preds = %.lr.ph.i.i.i, %40
   %.09.lcssa.i.i.i = phi ptr [ %44, %40 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
   %51 = zext nneg i32 %33 to i64
-  %52 = getelementptr inbounds nuw float, ptr %44, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %51
   %53 = icmp ne ptr %.09.lcssa.i.i.i, %52
   %54 = uitofp i1 %53 to float
   %55 = fmul float %28, %54
@@ -5253,14 +5253,14 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 95:                                               ; preds = %92
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !296
   %96 = load ptr, ptr %.sroa.2.0.copyload, align 8, !tbaa !308
-  %97 = getelementptr inbounds nuw float, ptr %96, i64 %.044243
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.044243
   %98 = load float, ptr %97, align 4, !tbaa !311
   br label %99
 
 99:                                               ; preds = %95, %92
   %100 = phi float [ %98, %95 ], [ 1.000000e+00, %92 ]
   %101 = load ptr, ptr %.sroa.3.0.copyload, align 8, !tbaa !308
-  %102 = getelementptr inbounds nuw float, ptr %101, i64 %.044243
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %.044243
   %103 = load float, ptr %102, align 4, !tbaa !311
   %104 = fptosi float %103 to i32
   %105 = icmp sgt i32 %104, -1
@@ -5275,7 +5275,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 110:                                              ; preds = %106
   %111 = load ptr, ptr %.sroa.6132.0.copyload, align 8, !tbaa !308
   %112 = mul i64 %107, %.044243
-  %113 = getelementptr inbounds nuw float, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   %.idx.i.i.i = shl nuw nsw i64 %107, 2
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i.i.i
   %.not10.i.i.i.i = icmp eq i64 %107, 0
@@ -5300,7 +5300,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZN7xgboost6metric14EvalMatchError7EvalRowEiPKfm.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %110
   %.09.lcssa.i.i.i.i = phi ptr [ %113, %110 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ]
   %120 = zext nneg i32 %104 to i64
-  %121 = getelementptr inbounds nuw float, ptr %113, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %120
   %122 = icmp ne ptr %.09.lcssa.i.i.i.i, %121
   %123 = uitofp i1 %122 to float
   %124 = fmul float %100, %123
@@ -5372,14 +5372,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 140:                                              ; preds = %137
   %.sroa.2144.0.copyload = load ptr, ptr %.sroa.2144.0..sroa_idx, align 8, !tbaa !296
   %141 = load ptr, ptr %.sroa.2144.0.copyload, align 8, !tbaa !308
-  %142 = getelementptr inbounds nuw float, ptr %141, i64 %.043240
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %.043240
   %143 = load float, ptr %142, align 4, !tbaa !311
   br label %144
 
 144:                                              ; preds = %140, %137
   %145 = phi float [ %143, %140 ], [ 1.000000e+00, %137 ]
   %146 = load ptr, ptr %.sroa.3145.0.copyload, align 8, !tbaa !308
-  %147 = getelementptr inbounds nuw float, ptr %146, i64 %.043240
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %.043240
   %148 = load float, ptr %147, align 4, !tbaa !311
   %149 = fptosi float %148 to i32
   %150 = icmp sgt i32 %149, -1
@@ -5394,7 +5394,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 155:                                              ; preds = %151
   %156 = load ptr, ptr %.sroa.6148.0.copyload, align 8, !tbaa !308
   %157 = mul i64 %152, %.043240
-  %158 = getelementptr inbounds nuw float, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %157
   %.idx.i.i.i64 = shl nuw nsw i64 %152, 2
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i.i.i64
   %.not10.i.i.i.i65 = icmp eq i64 %152, 0
@@ -5419,7 +5419,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 _ZN7xgboost6metric14EvalMatchError7EvalRowEiPKfm.exit.i.i73: ; preds = %.lr.ph.i.i.i.i68, %155
   %.09.lcssa.i.i.i.i74 = phi ptr [ %158, %155 ], [ %.1.i.i.i.i71, %.lr.ph.i.i.i.i68 ]
   %165 = zext nneg i32 %149 to i64
-  %166 = getelementptr inbounds nuw float, ptr %158, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %165
   %167 = icmp ne ptr %.09.lcssa.i.i.i.i74, %166
   %168 = uitofp i1 %167 to float
   %169 = fmul float %145, %168
@@ -5460,14 +5460,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 183:                                              ; preds = %180
   %.sroa.2160.0.copyload = load ptr, ptr %.sroa.2160.0..sroa_idx, align 8, !tbaa !296
   %184 = load ptr, ptr %.sroa.2160.0.copyload, align 8, !tbaa !308
-  %185 = getelementptr inbounds nuw float, ptr %184, i64 %.042237
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %.042237
   %186 = load float, ptr %185, align 4, !tbaa !311
   br label %187
 
 187:                                              ; preds = %183, %180
   %188 = phi float [ %186, %183 ], [ 1.000000e+00, %180 ]
   %189 = load ptr, ptr %.sroa.3161.0.copyload, align 8, !tbaa !308
-  %190 = getelementptr inbounds nuw float, ptr %189, i64 %.042237
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %.042237
   %191 = load float, ptr %190, align 4, !tbaa !311
   %192 = fptosi float %191 to i32
   %193 = icmp sgt i32 %192, -1
@@ -5482,7 +5482,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 198:                                              ; preds = %194
   %199 = load ptr, ptr %.sroa.6164.0.copyload, align 8, !tbaa !308
   %200 = mul i64 %195, %.042237
-  %201 = getelementptr inbounds nuw float, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %200
   %.idx.i.i.i76 = shl nuw nsw i64 %195, 2
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 %.idx.i.i.i76
   %.not10.i.i.i.i77 = icmp eq i64 %195, 0
@@ -5507,7 +5507,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 _ZN7xgboost6metric14EvalMatchError7EvalRowEiPKfm.exit.i.i85: ; preds = %.lr.ph.i.i.i.i80, %198
   %.09.lcssa.i.i.i.i86 = phi ptr [ %201, %198 ], [ %.1.i.i.i.i83, %.lr.ph.i.i.i.i80 ]
   %208 = zext nneg i32 %192 to i64
-  %209 = getelementptr inbounds nuw float, ptr %201, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %208
   %210 = icmp ne ptr %.09.lcssa.i.i.i.i86, %209
   %211 = uitofp i1 %210 to float
   %212 = fmul float %188, %211
@@ -5579,14 +5579,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 228:                                              ; preds = %225
   %.sroa.2176.0.copyload = load ptr, ptr %.sroa.2176.0..sroa_idx, align 8, !tbaa !296
   %229 = load ptr, ptr %.sroa.2176.0.copyload, align 8, !tbaa !308
-  %230 = getelementptr inbounds nuw float, ptr %229, i64 %.041234
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %.041234
   %231 = load float, ptr %230, align 4, !tbaa !311
   br label %232
 
 232:                                              ; preds = %228, %225
   %233 = phi float [ %231, %228 ], [ 1.000000e+00, %225 ]
   %234 = load ptr, ptr %.sroa.3177.0.copyload, align 8, !tbaa !308
-  %235 = getelementptr inbounds nuw float, ptr %234, i64 %.041234
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %.041234
   %236 = load float, ptr %235, align 4, !tbaa !311
   %237 = fptosi float %236 to i32
   %238 = icmp sgt i32 %237, -1
@@ -5601,7 +5601,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 243:                                              ; preds = %239
   %244 = load ptr, ptr %.sroa.6180.0.copyload, align 8, !tbaa !308
   %245 = mul i64 %240, %.041234
-  %246 = getelementptr inbounds nuw float, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %245
   %.idx.i.i.i88 = shl nuw nsw i64 %240, 2
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 %.idx.i.i.i88
   %.not10.i.i.i.i89 = icmp eq i64 %240, 0
@@ -5626,7 +5626,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 _ZN7xgboost6metric14EvalMatchError7EvalRowEiPKfm.exit.i.i97: ; preds = %.lr.ph.i.i.i.i92, %243
   %.09.lcssa.i.i.i.i98 = phi ptr [ %246, %243 ], [ %.1.i.i.i.i95, %.lr.ph.i.i.i.i92 ]
   %253 = zext nneg i32 %237 to i64
-  %254 = getelementptr inbounds nuw float, ptr %246, i64 %253
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %253
   %255 = icmp ne ptr %.09.lcssa.i.i.i.i98, %254
   %256 = uitofp i1 %255 to float
   %257 = fmul float %233, %256
@@ -5667,14 +5667,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 271:                                              ; preds = %268
   %.sroa.2192.0.copyload = load ptr, ptr %.sroa.2192.0..sroa_idx, align 8, !tbaa !296
   %272 = load ptr, ptr %.sroa.2192.0.copyload, align 8, !tbaa !308
-  %273 = getelementptr inbounds nuw float, ptr %272, i64 %.040231
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %.040231
   %274 = load float, ptr %273, align 4, !tbaa !311
   br label %275
 
 275:                                              ; preds = %271, %268
   %276 = phi float [ %274, %271 ], [ 1.000000e+00, %268 ]
   %277 = load ptr, ptr %.sroa.3193.0.copyload, align 8, !tbaa !308
-  %278 = getelementptr inbounds nuw float, ptr %277, i64 %.040231
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %.040231
   %279 = load float, ptr %278, align 4, !tbaa !311
   %280 = fptosi float %279 to i32
   %281 = icmp sgt i32 %280, -1
@@ -5689,7 +5689,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 286:                                              ; preds = %282
   %287 = load ptr, ptr %.sroa.6196.0.copyload, align 8, !tbaa !308
   %288 = mul i64 %283, %.040231
-  %289 = getelementptr inbounds nuw float, ptr %287, i64 %288
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %288
   %.idx.i.i.i100 = shl nuw nsw i64 %283, 2
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 %.idx.i.i.i100
   %.not10.i.i.i.i101 = icmp eq i64 %283, 0
@@ -5714,7 +5714,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 _ZN7xgboost6metric14EvalMatchError7EvalRowEiPKfm.exit.i.i109: ; preds = %.lr.ph.i.i.i.i104, %286
   %.09.lcssa.i.i.i.i110 = phi ptr [ %289, %286 ], [ %.1.i.i.i.i107, %.lr.ph.i.i.i.i104 ]
   %296 = zext nneg i32 %280 to i64
-  %297 = getelementptr inbounds nuw float, ptr %289, i64 %296
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %289, i64 %296
   %298 = icmp ne ptr %.09.lcssa.i.i.i.i110, %297
   %299 = uitofp i1 %298 to float
   %300 = fmul float %276, %299
@@ -5755,14 +5755,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 314:                                              ; preds = %311
   %.sroa.2208.0.copyload = load ptr, ptr %.sroa.2208.0..sroa_idx, align 8, !tbaa !296
   %315 = load ptr, ptr %.sroa.2208.0.copyload, align 8, !tbaa !308
-  %316 = getelementptr inbounds nuw float, ptr %315, i64 %.0229
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %.0229
   %317 = load float, ptr %316, align 4, !tbaa !311
   br label %318
 
 318:                                              ; preds = %314, %311
   %319 = phi float [ %317, %314 ], [ 1.000000e+00, %311 ]
   %320 = load ptr, ptr %.sroa.3209.0.copyload, align 8, !tbaa !308
-  %321 = getelementptr inbounds nuw float, ptr %320, i64 %.0229
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %.0229
   %322 = load float, ptr %321, align 4, !tbaa !311
   %323 = fptosi float %322 to i32
   %324 = icmp sgt i32 %323, -1
@@ -5777,7 +5777,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 329:                                              ; preds = %325
   %330 = load ptr, ptr %.sroa.6212.0.copyload, align 8, !tbaa !308
   %331 = mul i64 %326, %.0229
-  %332 = getelementptr inbounds nuw float, ptr %330, i64 %331
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %331
   %.idx.i.i.i112 = shl nuw nsw i64 %326, 2
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 %.idx.i.i.i112
   %.not10.i.i.i.i113 = icmp eq i64 %326, 0
@@ -5802,7 +5802,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_14
 _ZN7xgboost6metric14EvalMatchError7EvalRowEiPKfm.exit.i.i121: ; preds = %.lr.ph.i.i.i.i116, %329
   %.09.lcssa.i.i.i.i122 = phi ptr [ %332, %329 ], [ %.1.i.i.i.i119, %.lr.ph.i.i.i.i116 ]
   %339 = zext nneg i32 %323 to i64
-  %340 = getelementptr inbounds nuw float, ptr %332, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %332, i64 %339
   %341 = icmp ne ptr %.09.lcssa.i.i.i.i122, %340
   %342 = uitofp i1 %341 to float
   %343 = fmul float %319, %342
@@ -6601,7 +6601,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   %22 = shl nuw nsw i64 %20, 3
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #33
   store ptr %23, ptr %10, align 8, !tbaa !290
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !292
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %22, i1 false), !tbaa !64
@@ -6621,7 +6621,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i32: ; preds = %_ZNSt6vectorIdS
 
 .noexc34:                                         ; preds = %.noexc25
   store ptr %28, ptr %11, align 8, !tbaa !290
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %20
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %20
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !292
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %22, i1 false), !tbaa !64
@@ -6889,7 +6889,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
 22:                                               ; preds = %18
   %23 = load ptr, ptr %11, align 8, !tbaa !358
   %24 = load ptr, ptr %23, align 8, !tbaa !308
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %.049201
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.049201
   %26 = load float, ptr %25, align 4, !tbaa !311
   br label %27
 
@@ -6897,7 +6897,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
   %28 = phi float [ %26, %22 ], [ 1.000000e+00, %18 ]
   %29 = load ptr, ptr %12, align 8, !tbaa !359
   %30 = load ptr, ptr %29, align 8, !tbaa !308
-  %31 = getelementptr inbounds nuw float, ptr %30, i64 %.049201
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.049201
   %32 = load float, ptr %31, align 4, !tbaa !311
   %33 = fptosi float %32 to i32
   %34 = icmp sgt i32 %33, -1
@@ -6914,9 +6914,9 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
   %41 = load ptr, ptr %15, align 8, !tbaa !361
   %42 = load ptr, ptr %41, align 8, !tbaa !308
   %43 = mul i64 %37, %.049201
-  %44 = getelementptr inbounds nuw float, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %45 = zext nneg i32 %33 to i64
-  %46 = getelementptr inbounds nuw float, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !311
   %48 = fcmp ogt float %47, 0x3C9CD2B2A0000000
   br i1 %48, label %49, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i
@@ -7098,14 +7098,14 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 92:                                               ; preds = %89
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !296
   %93 = load ptr, ptr %.sroa.2.0.copyload, align 8, !tbaa !308
-  %94 = getelementptr inbounds nuw float, ptr %93, i64 %.044198
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %.044198
   %95 = load float, ptr %94, align 4, !tbaa !311
   br label %96
 
 96:                                               ; preds = %92, %89
   %97 = phi float [ %95, %92 ], [ 1.000000e+00, %89 ]
   %98 = load ptr, ptr %.sroa.3.0.copyload, align 8, !tbaa !308
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %.044198
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %.044198
   %100 = load float, ptr %99, align 4, !tbaa !311
   %101 = fptosi float %100 to i32
   %102 = icmp sgt i32 %101, -1
@@ -7120,9 +7120,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 107:                                              ; preds = %103
   %108 = load ptr, ptr %.sroa.687.0.copyload, align 8, !tbaa !308
   %109 = mul i64 %104, %.044198
-  %110 = getelementptr inbounds nuw float, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %109
   %111 = zext nneg i32 %101 to i64
-  %112 = getelementptr inbounds nuw float, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !311
   %114 = fcmp ogt float %113, 0x3C9CD2B2A0000000
   br i1 %114, label %115, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i
@@ -7203,14 +7203,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 134:                                              ; preds = %131
   %.sroa.299.0.copyload = load ptr, ptr %.sroa.299.0..sroa_idx, align 8, !tbaa !296
   %135 = load ptr, ptr %.sroa.299.0.copyload, align 8, !tbaa !308
-  %136 = getelementptr inbounds nuw float, ptr %135, i64 %.043195
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %.043195
   %137 = load float, ptr %136, align 4, !tbaa !311
   br label %138
 
 138:                                              ; preds = %134, %131
   %139 = phi float [ %137, %134 ], [ 1.000000e+00, %131 ]
   %140 = load ptr, ptr %.sroa.3100.0.copyload, align 8, !tbaa !308
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %.043195
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.043195
   %142 = load float, ptr %141, align 4, !tbaa !311
   %143 = fptosi float %142 to i32
   %144 = icmp sgt i32 %143, -1
@@ -7225,9 +7225,9 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 149:                                              ; preds = %145
   %150 = load ptr, ptr %.sroa.6103.0.copyload, align 8, !tbaa !308
   %151 = mul i64 %146, %.043195
-  %152 = getelementptr inbounds nuw float, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %151
   %153 = zext nneg i32 %143 to i64
-  %154 = getelementptr inbounds nuw float, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %153
   %155 = load float, ptr %154, align 4, !tbaa !311
   %156 = fcmp ogt float %155, 0x3C9CD2B2A0000000
   br i1 %156, label %157, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i64
@@ -7277,14 +7277,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 174:                                              ; preds = %171
   %.sroa.2115.0.copyload = load ptr, ptr %.sroa.2115.0..sroa_idx, align 8, !tbaa !296
   %175 = load ptr, ptr %.sroa.2115.0.copyload, align 8, !tbaa !308
-  %176 = getelementptr inbounds nuw float, ptr %175, i64 %.042192
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %.042192
   %177 = load float, ptr %176, align 4, !tbaa !311
   br label %178
 
 178:                                              ; preds = %174, %171
   %179 = phi float [ %177, %174 ], [ 1.000000e+00, %171 ]
   %180 = load ptr, ptr %.sroa.3116.0.copyload, align 8, !tbaa !308
-  %181 = getelementptr inbounds nuw float, ptr %180, i64 %.042192
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %.042192
   %182 = load float, ptr %181, align 4, !tbaa !311
   %183 = fptosi float %182 to i32
   %184 = icmp sgt i32 %183, -1
@@ -7299,9 +7299,9 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 189:                                              ; preds = %185
   %190 = load ptr, ptr %.sroa.6119.0.copyload, align 8, !tbaa !308
   %191 = mul i64 %186, %.042192
-  %192 = getelementptr inbounds nuw float, ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %191
   %193 = zext nneg i32 %183 to i64
-  %194 = getelementptr inbounds nuw float, ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %193
   %195 = load float, ptr %194, align 4, !tbaa !311
   %196 = fcmp ogt float %195, 0x3C9CD2B2A0000000
   br i1 %196, label %197, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i67
@@ -7382,14 +7382,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 216:                                              ; preds = %213
   %.sroa.2131.0.copyload = load ptr, ptr %.sroa.2131.0..sroa_idx, align 8, !tbaa !296
   %217 = load ptr, ptr %.sroa.2131.0.copyload, align 8, !tbaa !308
-  %218 = getelementptr inbounds nuw float, ptr %217, i64 %.041189
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %.041189
   %219 = load float, ptr %218, align 4, !tbaa !311
   br label %220
 
 220:                                              ; preds = %216, %213
   %221 = phi float [ %219, %216 ], [ 1.000000e+00, %213 ]
   %222 = load ptr, ptr %.sroa.3132.0.copyload, align 8, !tbaa !308
-  %223 = getelementptr inbounds nuw float, ptr %222, i64 %.041189
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %.041189
   %224 = load float, ptr %223, align 4, !tbaa !311
   %225 = fptosi float %224 to i32
   %226 = icmp sgt i32 %225, -1
@@ -7404,9 +7404,9 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 231:                                              ; preds = %227
   %232 = load ptr, ptr %.sroa.6135.0.copyload, align 8, !tbaa !308
   %233 = mul i64 %228, %.041189
-  %234 = getelementptr inbounds nuw float, ptr %232, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %233
   %235 = zext nneg i32 %225 to i64
-  %236 = getelementptr inbounds nuw float, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %235
   %237 = load float, ptr %236, align 4, !tbaa !311
   %238 = fcmp ogt float %237, 0x3C9CD2B2A0000000
   br i1 %238, label %239, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i70
@@ -7456,14 +7456,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 256:                                              ; preds = %253
   %.sroa.2147.0.copyload = load ptr, ptr %.sroa.2147.0..sroa_idx, align 8, !tbaa !296
   %257 = load ptr, ptr %.sroa.2147.0.copyload, align 8, !tbaa !308
-  %258 = getelementptr inbounds nuw float, ptr %257, i64 %.040186
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %.040186
   %259 = load float, ptr %258, align 4, !tbaa !311
   br label %260
 
 260:                                              ; preds = %256, %253
   %261 = phi float [ %259, %256 ], [ 1.000000e+00, %253 ]
   %262 = load ptr, ptr %.sroa.3148.0.copyload, align 8, !tbaa !308
-  %263 = getelementptr inbounds nuw float, ptr %262, i64 %.040186
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %.040186
   %264 = load float, ptr %263, align 4, !tbaa !311
   %265 = fptosi float %264 to i32
   %266 = icmp sgt i32 %265, -1
@@ -7478,9 +7478,9 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 271:                                              ; preds = %267
   %272 = load ptr, ptr %.sroa.6151.0.copyload, align 8, !tbaa !308
   %273 = mul i64 %268, %.040186
-  %274 = getelementptr inbounds nuw float, ptr %272, i64 %273
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %273
   %275 = zext nneg i32 %265 to i64
-  %276 = getelementptr inbounds nuw float, ptr %274, i64 %275
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %274, i64 %275
   %277 = load float, ptr %276, align 4, !tbaa !311
   %278 = fcmp ogt float %277, 0x3C9CD2B2A0000000
   br i1 %278, label %279, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i73
@@ -7530,14 +7530,14 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 296:                                              ; preds = %293
   %.sroa.2163.0.copyload = load ptr, ptr %.sroa.2163.0..sroa_idx, align 8, !tbaa !296
   %297 = load ptr, ptr %.sroa.2163.0.copyload, align 8, !tbaa !308
-  %298 = getelementptr inbounds nuw float, ptr %297, i64 %.0184
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %297, i64 %.0184
   %299 = load float, ptr %298, align 4, !tbaa !311
   br label %300
 
 300:                                              ; preds = %296, %293
   %301 = phi float [ %299, %296 ], [ 1.000000e+00, %293 ]
   %302 = load ptr, ptr %.sroa.3164.0.copyload, align 8, !tbaa !308
-  %303 = getelementptr inbounds nuw float, ptr %302, i64 %.0184
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %302, i64 %.0184
   %304 = load float, ptr %303, align 4, !tbaa !311
   %305 = fptosi float %304 to i32
   %306 = icmp sgt i32 %305, -1
@@ -7552,9 +7552,9 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
 311:                                              ; preds = %307
   %312 = load ptr, ptr %.sroa.6167.0.copyload, align 8, !tbaa !308
   %313 = mul i64 %308, %.0184
-  %314 = getelementptr inbounds nuw float, ptr %312, i64 %313
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %312, i64 %313
   %315 = zext nneg i32 %305 to i64
-  %316 = getelementptr inbounds nuw float, ptr %314, i64 %315
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %314, i64 %315
   %317 = load float, ptr %316, align 4, !tbaa !311
   %318 = fcmp ogt float %317, 0x3C9CD2B2A0000000
   br i1 %318, label %319, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i76

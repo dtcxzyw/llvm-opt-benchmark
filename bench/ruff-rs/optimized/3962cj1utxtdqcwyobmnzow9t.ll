@@ -629,7 +629,7 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
 
 .lr.ph.i:                                         ; preds = %42, %37
   %57 = load ptr, ptr %.sroa.46.0..sroa_idx, align 8, !alias.scope !41, !noalias !44, !nonnull !3, !noundef !3
-  %58 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %57, i64 %38
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %59 = add i64 %38, 1
   store i64 %59, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !41, !noalias !44
@@ -695,7 +695,7 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
 
 76:                                               ; preds = %71, %66
   %77 = load ptr, ptr %.sroa.46.0..sroa_idx, align 8, !alias.scope !54, !noalias !57, !nonnull !3, !noundef !3
-  %78 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %77, i64 %67
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %79 = add i64 %67, 1
   store i64 %79, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !54, !noalias !57
@@ -5013,10 +5013,10 @@ define internal noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..NodeK
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !657, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN73_$LT$ruff_python_ast..generated..NodeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd313fb99d2f14d1bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN73_$LT$ruff_python_ast..generated..NodeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd313fb99d2f14d1bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$ruff_python_ast..generated..NodeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd313fb99d2f14d1bE.55", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN73_$LT$ruff_python_ast..generated..NodeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd313fb99d2f14d1bE.55", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -5654,7 +5654,7 @@ define hidden void @"_ZN98_$LT$ruff_formatter..builders..SourcePosition$u20$as$u
 
 12:                                               ; preds = %3
   %13 = extractvalue { ptr, i64 } %10, 0
-  %14 = getelementptr { i8, [23 x i8] }, ptr %13, i64 %11
+  %14 = getelementptr [24 x i8], ptr %13, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %16 = load i8, ptr %15, align 8, !range !581, !noundef !3
@@ -6336,7 +6336,7 @@ define internal fastcc void @"_ZN160_$LT$ruff_python_formatter..comments..format
   %9 = alloca [8 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %11 = alloca [16 x i8], align 8
-  %12 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %1, i64 %2
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %12, ptr %13, align 8
@@ -6685,7 +6685,7 @@ define void @"_ZN161_$LT$ruff_python_formatter..comments..format..FormatTrailing
   %17 = load ptr, ptr %1, align 8, !nonnull !3, !align !534, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %17, i64 %19
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %20, ptr %21, align 8
@@ -6962,7 +6962,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %3
 43:                                               ; preds = %40, %33
   %.sroa.03.0 = phi ptr [ %34, %33 ], [ %41, %40 ]
   %.sroa.3.0 = phi i64 [ %35, %33 ], [ %42, %40 ]
-  %44 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.03.0, i64 %.sroa.3.0
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.03.0, i64 %.sroa.3.0
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.sroa.03.0, ptr %14, align 8
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -7199,7 +7199,7 @@ define void @"_ZN176_$LT$ruff_python_formatter..comments..format..FormatDangling
   %9 = load ptr, ptr %1, align 8, !nonnull !3, !align !534, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %12, ptr %13, align 8
@@ -7835,7 +7835,7 @@ define void @"_ZN162_$LT$ruff_python_formatter..comments..format..FormatNormaliz
 
 28:                                               ; preds = %23
   %29 = extractvalue { ptr, i64 } %26, 0
-  %30 = getelementptr { i8, [23 x i8] }, ptr %29, i64 %27
+  %30 = getelementptr [24 x i8], ptr %29, i64 %27
   %31 = getelementptr i8, ptr %30, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %32 = load i8, ptr %31, align 8, !range !581, !noalias !1000, !noundef !3
@@ -7959,7 +7959,7 @@ define void @"_ZN162_$LT$ruff_python_formatter..comments..format..FormatNormaliz
 
 80:                                               ; preds = %75
   %81 = extractvalue { ptr, i64 } %78, 0
-  %82 = getelementptr { i8, [23 x i8] }, ptr %81, i64 %79
+  %82 = getelementptr [24 x i8], ptr %81, i64 %79
   %83 = getelementptr i8, ptr %82, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   %84 = load i8, ptr %83, align 8, !range !581, !noalias !1008, !noundef !3
@@ -8418,7 +8418,7 @@ define void @"_ZN177_$LT$ruff_python_formatter..comments..format..FormatEmptyLin
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !534, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %7
   br label %9
 
 9:                                                ; preds = %12, %3
@@ -8518,7 +8518,7 @@ define void @"_ZN175_$LT$ruff_python_formatter..comments..format..FormatEmptyLin
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !534, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %7
   br label %9
 
 9:                                                ; preds = %12, %3
@@ -10157,7 +10157,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 82:                                               ; preds = %.noexc10
   %83 = extractvalue { ptr, i64 } %80, 0
-  %84 = getelementptr { i8, [23 x i8] }, ptr %83, i64 %81
+  %84 = getelementptr [24 x i8], ptr %83, i64 %81
   %85 = getelementptr i8, ptr %84, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %86 = load i8, ptr %85, align 8, !range !581, !noalias !1263, !noundef !3
@@ -10456,7 +10456,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 82:                                               ; preds = %.noexc10
   %83 = extractvalue { ptr, i64 } %80, 0
-  %84 = getelementptr { i8, [23 x i8] }, ptr %83, i64 %81
+  %84 = getelementptr [24 x i8], ptr %83, i64 %81
   %85 = getelementptr i8, ptr %84, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %86 = load i8, ptr %85, align 8, !range !581, !noalias !1286, !noundef !3
@@ -10755,7 +10755,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 82:                                               ; preds = %.noexc10
   %83 = extractvalue { ptr, i64 } %80, 0
-  %84 = getelementptr { i8, [23 x i8] }, ptr %83, i64 %81
+  %84 = getelementptr [24 x i8], ptr %83, i64 %81
   %85 = getelementptr i8, ptr %84, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %86 = load i8, ptr %85, align 8, !range !581, !noalias !1309, !noundef !3
@@ -11054,7 +11054,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 82:                                               ; preds = %.noexc10
   %83 = extractvalue { ptr, i64 } %80, 0
-  %84 = getelementptr { i8, [23 x i8] }, ptr %83, i64 %81
+  %84 = getelementptr [24 x i8], ptr %83, i64 %81
   %85 = getelementptr i8, ptr %84, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %86 = load i8, ptr %85, align 8, !range !581, !noalias !1332, !noundef !3
@@ -11353,7 +11353,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 82:                                               ; preds = %.noexc10
   %83 = extractvalue { ptr, i64 } %80, 0
-  %84 = getelementptr { i8, [23 x i8] }, ptr %83, i64 %81
+  %84 = getelementptr [24 x i8], ptr %83, i64 %81
   %85 = getelementptr i8, ptr %84, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %86 = load i8, ptr %85, align 8, !range !581, !noalias !1355, !noundef !3
@@ -11665,7 +11665,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 88:                                               ; preds = %.noexc10
   %89 = extractvalue { ptr, i64 } %86, 0
-  %90 = getelementptr { i8, [23 x i8] }, ptr %89, i64 %87
+  %90 = getelementptr [24 x i8], ptr %89, i64 %87
   %91 = getelementptr i8, ptr %90, i64 -24
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %89) ]
   %92 = load i8, ptr %91, align 8, !range !581, !noalias !1378, !noundef !3

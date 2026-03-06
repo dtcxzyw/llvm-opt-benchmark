@@ -510,7 +510,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
   br i1 %23, label %.loopexit54.thread.i, label %.preheader.i
 
 .loopexit54.thread.i:                             ; preds = %22
-  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv59.i
   store ptr %.ptr46.i, ptr %24, align 8, !tbaa !18
   br label %._crit_edge.i
 
@@ -527,7 +527,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
 
 .loopexit54.i:                                    ; preds = %.preheader.i, %11
   %28 = phi ptr [ null, %11 ], [ %.ptr46.i, %.preheader.i ]
-  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv59.i
   store ptr %28, ptr %29, align 8, !tbaa !18
   %.not55.i = icmp slt i32 %13, 0
   br i1 %.not55.i, label %._crit_edge.i, label %.lr.ph.preheader.i
@@ -543,7 +543,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
 
 .lr.ph.i:                                         ; preds = %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i ]
-  %30 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %28, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %indvars.iv.i
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %32 = call ptr @udbg_enumName(i32 noundef range(i32 -2147483648, 6) %12, i32 noundef %31)
   %33 = icmp eq ptr %32, null
@@ -604,18 +604,18 @@ _ZL10udbg_setupv.exit:                            ; preds = %8, %.loopexit.loope
   %or.cond13 = select i1 %51, i1 true, i1 %52
   %53 = load ptr, ptr @_ZL4strs, align 8, !tbaa !15
   %54 = zext nneg i32 %0 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !18
   br i1 %or.cond13, label %57, label %60
 
 57:                                               ; preds = %49
   %58 = sext i32 %50 to i64
-  %59 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %56, i64 %58
+  %59 = getelementptr inbounds [64 x i8], ptr %56, i64 %58
   br label %63
 
 60:                                               ; preds = %49
   %61 = zext nneg i32 %1 to i64
-  %62 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %56, i64 %61
+  %62 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %61
   br label %63
 
 63:                                               ; preds = %57, %60, %46
@@ -645,9 +645,9 @@ define range(i32 -1, 2147483647) i32 @udbg_enumByString(i32 noundef %0, ptr noun
 10:                                               ; preds = %.lr.ph, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ]
   %11 = load ptr, ptr @_ZL4strs, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !18
-  %14 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv
   %15 = load i16, ptr %8, align 8, !tbaa !22
   %16 = and i16 %15, 1
   %.not.i = icmp eq i16 %16, 0
@@ -841,7 +841,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %_ZNK6icu_7713Unicod
   %.not.i.i.i = icmp eq i16 %26, 0
   %27 = load ptr, ptr %20, align 8
   %28 = select i1 %.not.i.i.i, ptr %27, ptr %19
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !28
   %31 = zext i16 %30 to i32
   %32 = call noundef signext i8 @_ZN6icu_7711ICU_Utility13isUnprintableEi(i32 noundef %31)
@@ -951,7 +951,7 @@ define internal noundef signext i8 @_ZL10tu_cleanupv() #0 {
 .preheader6.i:                                    ; preds = %0, %16
   %4 = phi ptr [ %17, %16 ], [ %1, %0 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %0 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8

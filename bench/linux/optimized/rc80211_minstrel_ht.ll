@@ -8,14 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { ptr }
 %struct.mcs_group = type { i16, i8, i8, i8, [10 x i16] }
 %struct.rate_control_ops = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ieee80211_rate = type { i32, i16, i16, i16 }
-%struct.ieee80211_rate_status = type { %struct.rate_info, i8, i8 }
-%struct.rate_info = type { i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.ieee80211_tx_rate = type <{ i8, i16 }>
-%struct.minstrel_mcs_group_data = type { i8, i8, [4 x i16], i16, [10 x %struct.minstrel_rate_stats] }
-%struct.minstrel_rate_stats = type { i16, i16, i16, i16, i32, i32, i16, i16, i8, i8, i8 }
-%struct.minstrel_sample_category = type { i8, [5 x i16], [5 x i16] }
-%struct.anon.30 = type { i8, i8, i8, i8, i16 }
 
 @__param_str_minstrel_vht_only = internal constant [27 x i8] c"mac80211.minstrel_vht_only\00", align 16
 @param_ops_bool = external dso_local constant %struct.kernel_param_ops, align 8
@@ -73,10 +65,10 @@ define dso_local range(i32 0, 1048576) i32 @minstrel_ht_get_tp_avg(ptr noundef r
 25:                                               ; preds = %20
   %26 = zext i16 %22 to i64
   %27 = lshr i64 %26, 4
-  %28 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %27
+  %28 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   %30 = and i64 %26, 15
-  %31 = getelementptr i16, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 3
@@ -101,10 +93,10 @@ define dso_local range(i32 0, 1048576) i32 @minstrel_ht_get_tp_avg(ptr noundef r
   %47 = mul i32 %45, 1000
   %48 = udiv i32 %47, %46
   %49 = sext i32 %1 to i64
-  %50 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %49
+  %50 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %52 = sext i32 %2 to i64
-  %53 = getelementptr i16, ptr %51, i64 %52
+  %53 = getelementptr [2 x i8], ptr %51, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 3
@@ -264,7 +256,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #3 align 
 
 36:                                               ; preds = %.loopexit12, %32
   %37 = phi i64 [ 0, %32 ], [ %58, %.loopexit12 ]
-  %38 = getelementptr %struct.ieee80211_rate, ptr %34, i64 %37
+  %38 = getelementptr [12 x i8], ptr %34, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, %21
   %41 = icmp eq i32 %40, %21
@@ -283,7 +275,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #3 align 
 
 49:                                               ; preds = %46, %42
   %50 = phi i64 [ 0, %42 ], [ %47, %46 ]
-  %51 = getelementptr i16, ptr @minstrel_cck_bitrates, i64 %50
+  %51 = getelementptr [2 x i8], ptr @minstrel_cck_bitrates, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = sext i16 %52 to i32
   %54 = icmp eq i32 %45, %53
@@ -308,7 +300,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #3 align 
   %62 = phi i64 [ 0, %.loopexit13 ], [ %99, %.loopexit10 ]
   %63 = getelementptr [8 x i8], ptr %60, i64 %62
   store i64 -1, ptr %63, align 8
-  %64 = getelementptr ptr, ptr %25, i64 %62
+  %64 = getelementptr [8 x i8], ptr %25, i64 %62
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.loopexit10, label %67
@@ -327,7 +319,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #3 align 
 
 75:                                               ; preds = %.loopexit, %71
   %76 = phi i64 [ 0, %71 ], [ %97, %.loopexit ]
-  %77 = getelementptr %struct.ieee80211_rate, ptr %73, i64 %76
+  %77 = getelementptr [12 x i8], ptr %73, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, %21
   %80 = icmp eq i32 %79, %21
@@ -346,7 +338,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #3 align 
 
 88:                                               ; preds = %85, %81
   %89 = phi i64 [ 0, %81 ], [ %86, %85 ]
-  %90 = getelementptr i16, ptr @minstrel_ofdm_bitrates, i64 %89
+  %90 = getelementptr [2 x i8], ptr @minstrel_ofdm_bitrates, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = sext i16 %91 to i32
   %93 = icmp eq i32 %84, %92
@@ -534,7 +526,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %86 = getelementptr i8, ptr %75, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i64
-  %89 = getelementptr i16, ptr @minstrel_cck_bitrates, i64 %88
+  %89 = getelementptr [2 x i8], ptr @minstrel_cck_bitrates, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i32
   %92 = icmp eq i32 %74, %91
@@ -545,7 +537,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %95 = getelementptr i8, ptr %.split, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i64
-  %98 = getelementptr i16, ptr @minstrel_ofdm_bitrates, i64 %97
+  %98 = getelementptr [2 x i8], ptr @minstrel_ofdm_bitrates, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %99 to i32
   %101 = icmp eq i32 %74, %100
@@ -579,7 +571,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 119:                                              ; preds = %113
   %120 = add i32 %114, 1
   %121 = sext i32 %120 to i64
-  %122 = getelementptr %struct.ieee80211_rate_status, ptr %.pre90, i64 %121
+  %122 = getelementptr [16 x i8], ptr %.pre90, i64 %121
   %123 = icmp eq ptr %122, null
   br i1 %123, label %.loopexit52, label %124
 
@@ -617,7 +609,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %144 = getelementptr i8, ptr %106, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i64
-  %147 = getelementptr i16, ptr @minstrel_cck_bitrates, i64 %146
+  %147 = getelementptr [2 x i8], ptr @minstrel_cck_bitrates, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = sext i16 %148 to i32
   %150 = icmp eq i32 %135, %149
@@ -628,7 +620,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %153 = getelementptr i8, ptr %.split21, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i64
-  %156 = getelementptr i16, ptr @minstrel_ofdm_bitrates, i64 %155
+  %156 = getelementptr [2 x i8], ptr @minstrel_ofdm_bitrates, i64 %155
   %157 = load i16, ptr %156, align 2
   %158 = sext i16 %157 to i32
   %159 = icmp eq i32 %135, %158
@@ -644,7 +636,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 .loopexit52:                                      ; preds = %142, %119, %124, %128, %.loopexit52.loopexit, %113
   %164 = phi i1 [ true, %113 ], [ true, %119 ], [ true, %124 ], [ false, %128 ], [ %163, %.loopexit52.loopexit ], [ false, %142 ]
   %165 = sext i32 %114 to i64
-  %166 = getelementptr %struct.ieee80211_rate_status, ptr %.pre90, i64 %165
+  %166 = getelementptr [16 x i8], ptr %.pre90, i64 %165
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i32
   %169 = and i32 %168, 1
@@ -715,7 +707,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %221 = getelementptr i8, ptr %106, i64 %220
   %222 = load i8, ptr %221, align 1
   %223 = zext i8 %222 to i64
-  %224 = getelementptr i16, ptr @minstrel_cck_bitrates, i64 %223
+  %224 = getelementptr [2 x i8], ptr @minstrel_cck_bitrates, i64 %223
   %225 = load i16, ptr %224, align 2
   %226 = sext i16 %225 to i32
   %227 = icmp eq i32 %193, %226
@@ -748,7 +740,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %246 = getelementptr i8, ptr %.split22, i64 %245
   %247 = load i8, ptr %246, align 1
   %248 = zext i8 %247 to i64
-  %249 = getelementptr i16, ptr @minstrel_ofdm_bitrates, i64 %248
+  %249 = getelementptr [2 x i8], ptr @minstrel_ofdm_bitrates, i64 %248
   %250 = load i16, ptr %249, align 2
   %251 = sext i16 %250 to i32
   %252 = icmp eq i32 %193, %251
@@ -786,7 +778,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 
 270:                                              ; preds = %264, %.loopexit51
   %271 = phi ptr [ %.pre91, %264 ], [ %.pre90, %.loopexit51 ]
-  %.split25 = getelementptr %struct.ieee80211_rate_status, ptr %271, i64 %165
+  %.split25 = getelementptr [16 x i8], ptr %271, i64 %165
   %272 = getelementptr i8, ptr %.split25, i64 14
   %273 = load i8, ptr %272, align 2
   %274 = zext i8 %273 to i16
@@ -870,7 +862,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 325:                                              ; preds = %322
   %326 = add i32 %323, 1
   %327 = sext i32 %326 to i64
-  %328 = getelementptr %struct.ieee80211_tx_rate, ptr %7, i64 %327
+  %328 = getelementptr [3 x i8], ptr %7, i64 %327
   %329 = load i8, ptr %328, align 1
   %330 = icmp slt i8 %329, 0
   br i1 %330, label %.loopexit47, label %331
@@ -922,7 +914,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 .loopexit47:                                      ; preds = %.preheader, %325, %331, %336, %.loopexit47.loopexit, %322
   %358 = phi i1 [ true, %322 ], [ true, %325 ], [ true, %331 ], [ false, %336 ], [ %357, %.loopexit47.loopexit ], [ false, %.preheader ]
   %359 = sext i32 %323 to i64
-  %360 = getelementptr %struct.ieee80211_tx_rate, ptr %7, i64 %359
+  %360 = getelementptr [3 x i8], ptr %7, i64 %359
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 1
   %362 = load i16, ptr %361, align 1
   %363 = lshr i16 %362, 5
@@ -1106,14 +1098,14 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %488 = lshr i16 %470, 4
   %489 = getelementptr inbounds nuw i8, ptr %2, i64 154
   %490 = zext nneg i16 %488 to i64
-  %.split35 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %490
+  %.split35 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %490
   %491 = getelementptr i8, ptr %.split35, i64 2
   br label %492
 
 492:                                              ; preds = %498, %487
   %493 = phi i64 [ %490, %487 ], [ %494, %498 ]
   %494 = add nsw i64 %493, -1
-  %495 = getelementptr i16, ptr %489, i64 %494
+  %495 = getelementptr [2 x i8], ptr %489, i64 %494
   %496 = load i16, ptr %495, align 2
   %497 = icmp eq i16 %496, 0
   br i1 %497, label %498, label %500
@@ -1123,7 +1115,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   br i1 %499, label %492, label %.loopexit45, !llvm.loop !26
 
 500:                                              ; preds = %492
-  %.split36 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %494
+  %.split36 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %494
   %501 = getelementptr i8, ptr %.split36, i64 2
   %502 = load i8, ptr %501, align 2
   %503 = load i8, ptr %491, align 2
@@ -1169,14 +1161,14 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %528 = lshr i16 %511, 4
   %529 = getelementptr inbounds nuw i8, ptr %2, i64 154
   %530 = zext nneg i16 %528 to i64
-  %.split41 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %530
+  %.split41 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %530
   %531 = getelementptr i8, ptr %.split41, i64 2
   br label %532
 
 532:                                              ; preds = %538, %527
   %533 = phi i64 [ %530, %527 ], [ %534, %538 ]
   %534 = add nsw i64 %533, -1
-  %535 = getelementptr i16, ptr %529, i64 %534
+  %535 = getelementptr [2 x i8], ptr %529, i64 %534
   %536 = load i16, ptr %535, align 2
   %537 = icmp eq i16 %536, 0
   br i1 %537, label %538, label %540
@@ -1186,7 +1178,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   br i1 %539, label %532, label %.loopexit, !llvm.loop !26
 
 540:                                              ; preds = %532
-  %.split42 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %534
+  %.split42 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %534
   %541 = getelementptr i8, ptr %.split42, i64 2
   %542 = load i8, ptr %541, align 2
   %543 = load i8, ptr %531, align 2
@@ -1309,13 +1301,13 @@ define internal void @minstrel_ht_get_rate(ptr noundef readonly captures(none) %
 
 54:                                               ; preds = %51, %48
   %55 = phi i64 [ 0, %48 ], [ %52, %51 ]
-  %56 = getelementptr i16, ptr %50, i64 %55
+  %56 = getelementptr [2 x i8], ptr %50, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %51, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr i16, ptr %50, i64 %55
+  %60 = getelementptr [2 x i8], ptr %50, i64 %55
   store i16 0, ptr %60, align 2
   %61 = lshr i16 %57, 4
   %62 = zext nneg i16 %61 to i64
@@ -1464,10 +1456,10 @@ define internal range(i32 -2097152, 2097152) i32 @minstrel_ht_get_expected_throu
 27:                                               ; preds = %21
   %28 = zext i16 %3 to i64
   %29 = lshr i64 %28, 4
-  %30 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %29
+  %30 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 6
   %32 = and i64 %28, 15
-  %33 = getelementptr i16, ptr %31, i64 %32
+  %33 = getelementptr [2 x i8], ptr %31, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 3
@@ -1491,9 +1483,9 @@ define internal range(i32 -2097152, 2097152) i32 @minstrel_ht_get_expected_throu
   %48 = phi i32 [ 1, %18 ], [ %26, %25 ], [ %45, %43 ], [ 2, %27 ], [ 4, %41 ]
   %49 = mul i32 %47, 1000
   %50 = udiv i32 %49, %48
-  %51 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %6
+  %51 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %6
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 6
-  %53 = getelementptr i16, ptr %52, i64 %7
+  %53 = getelementptr [2 x i8], ptr %52, i64 %7
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 3
@@ -1580,7 +1572,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %41 = load i32, ptr %17, align 8
   %42 = zext i32 %41 to i64
-  %43 = getelementptr i32, ptr %40, i64 %42
+  %43 = getelementptr [4 x i8], ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   br label %46
@@ -1610,7 +1602,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
 
 .critedge:                                        ; preds = %37, %.critedge.loopexit, %.loopexit12
   %56 = phi i64 [ 0, %.loopexit12 ], [ 0, %37 ], [ %55, %.critedge.loopexit ]
-  %57 = getelementptr %struct.ieee80211_rate, ptr %33, i64 %56
+  %57 = getelementptr [12 x i8], ptr %33, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = load i32, ptr %17, align 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -1669,10 +1661,10 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
 
 102:                                              ; preds = %189, %82
   %103 = phi i64 [ 0, %82 ], [ %190, %189 ]
-  %104 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %103
+  %104 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
-  %107 = getelementptr i16, ptr %93, i64 %103
+  %107 = getelementptr [2 x i8], ptr %93, i64 %103
   store i16 0, ptr %107, align 2
   %108 = and i64 %103, 62
   %109 = icmp eq i64 %108, 16
@@ -1897,7 +1889,7 @@ default.unreachable29:                            ; preds = %174
   %229 = or i16 %227, %228
   store i16 %229, ptr %221, align 2
   %230 = load ptr, ptr %32, align 8
-  %231 = getelementptr %struct.ieee80211_rate, ptr %230, i64 %222
+  %231 = getelementptr [12 x i8], ptr %230, i64 %222
   %232 = load i32, ptr %231, align 4
   %233 = and i32 %232, 1
   %234 = icmp eq i32 %233, 0
@@ -1925,7 +1917,7 @@ default.unreachable29:                            ; preds = %174
 246:                                              ; preds = %.split14
   %247 = load i32, ptr %17, align 8
   %248 = zext i32 %247 to i64
-  %249 = getelementptr i32, ptr %220, i64 %248
+  %249 = getelementptr [4 x i8], ptr %220, i64 %248
   %250 = load i32, ptr %249, align 4
   %251 = zext i32 %250 to i64
   %252 = zext nneg i8 %244 to i64
@@ -1941,7 +1933,7 @@ default.unreachable29:                            ; preds = %174
   %259 = or i16 %257, %258
   store i16 %259, ptr %221, align 2
   %260 = load ptr, ptr %32, align 8
-  %261 = getelementptr %struct.ieee80211_rate, ptr %260, i64 %242
+  %261 = getelementptr [12 x i8], ptr %260, i64 %242
   %262 = load i32, ptr %261, align 4
   %263 = and i32 %262, 1
   %264 = icmp eq i32 %263, 0
@@ -2005,7 +1997,7 @@ default.unreachable29:                            ; preds = %174
 298:                                              ; preds = %.split15
   %299 = load i32, ptr %17, align 8
   %300 = zext i32 %299 to i64
-  %301 = getelementptr i32, ptr %281, i64 %300
+  %301 = getelementptr [4 x i8], ptr %281, i64 %300
   %302 = load i32, ptr %301, align 4
   %303 = zext i32 %302 to i64
   %304 = zext nneg i8 %296 to i64
@@ -2104,7 +2096,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 
 45:                                               ; preds = %45, %43
   %46 = phi i64 [ 0, %43 ], [ %48, %45 ]
-  %47 = getelementptr i16, ptr %5, i64 %46
+  %47 = getelementptr [2 x i8], ptr %5, i64 %46
   store i16 %44, ptr %47, align 2
   %48 = add nuw nsw i64 %46, 1
   %49 = icmp eq i64 %48, 4
@@ -2130,7 +2122,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 
 63:                                               ; preds = %63, %50
   %64 = phi i64 [ 0, %50 ], [ %66, %63 ]
-  %65 = getelementptr i16, ptr %3, i64 %64
+  %65 = getelementptr [2 x i8], ptr %3, i64 %64
   store i16 %56, ptr %65, align 2
   %66 = add nuw nsw i64 %64, 1
   %67 = icmp eq i64 %66, 4
@@ -2138,8 +2130,8 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 
 68:                                               ; preds = %518, %57
   %69 = phi i64 [ 0, %57 ], [ %519, %518 ]
-  %70 = getelementptr %struct.minstrel_mcs_group_data, ptr %58, i64 %69
-  %71 = getelementptr i16, ptr %34, i64 %69
+  %70 = getelementptr [252 x i8], ptr %58, i64 %69
+  %71 = getelementptr [2 x i8], ptr %34, i64 %69
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, 0
   br i1 %73, label %518, label %74
@@ -2151,7 +2143,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 
 77:                                               ; preds = %77, %74
   %78 = phi i64 [ 0, %74 ], [ %80, %77 ]
-  %79 = getelementptr i16, ptr %4, i64 %78
+  %79 = getelementptr [2 x i8], ptr %4, i64 %78
   store i16 %76, ptr %79, align 2
   %80 = add nuw nsw i64 %78, 1
   %81 = icmp eq i64 %80, 4
@@ -2165,7 +2157,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   %87 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %88 = and i64 %69, 62
   %89 = icmp eq i64 %88, 16
-  %90 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %69
+  %90 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %69
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 6
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 3
   br label %93
@@ -2183,7 +2175,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 101:                                              ; preds = %93
   %102 = add nuw nsw i64 %94, %86
   %103 = trunc i64 %102 to i16
-  %104 = getelementptr %struct.minstrel_rate_stats, ptr %87, i64 %94
+  %104 = getelementptr [24 x i8], ptr %87, i64 %94
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 22
   store i8 0, ptr %105, align 2
   %106 = load i16, ptr %104, align 4
@@ -2300,10 +2292,10 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 171:                                              ; preds = %167
   %172 = zext i16 %168 to i64
   %173 = lshr i64 %172, 4
-  %174 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %173
+  %174 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 6
   %176 = and i64 %172, 15
-  %177 = getelementptr i16, ptr %175, i64 %176
+  %177 = getelementptr [2 x i8], ptr %175, i64 %176
   %178 = load i16, ptr %177, align 2
   %179 = zext i16 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 3
@@ -2327,7 +2319,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   %192 = phi i32 [ 1, %160 ], [ %166, %165 ], [ 1, %167 ], [ 2, %171 ], [ 4, %185 ], [ %189, %187 ]
   %193 = mul i32 %191, 1000
   %194 = udiv i32 %193, %192
-  %195 = getelementptr i16, ptr %91, i64 %94
+  %195 = getelementptr [2 x i8], ptr %91, i64 %94
   %196 = load i16, ptr %195, align 2
   %197 = zext i16 %196 to i32
   %198 = load i8, ptr %92, align 1
@@ -2381,10 +2373,10 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 230:                                              ; preds = %226
   %231 = zext i16 %227 to i64
   %232 = lshr i64 %231, 4
-  %233 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %232
+  %233 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 6
   %235 = and i64 %231, 15
-  %236 = getelementptr i16, ptr %234, i64 %235
+  %236 = getelementptr [2 x i8], ptr %234, i64 %235
   %237 = load i16, ptr %236, align 2
   %238 = zext i16 %237 to i32
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 3
@@ -2408,9 +2400,9 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   %251 = phi i32 [ 1, %219 ], [ %225, %224 ], [ 1, %226 ], [ 2, %230 ], [ 4, %244 ], [ %248, %246 ]
   %252 = mul i32 %250, 1000
   %253 = udiv i32 %252, %251
-  %254 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %210
+  %254 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %210
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 6
-  %256 = getelementptr i16, ptr %255, i64 %94
+  %256 = getelementptr [2 x i8], ptr %255, i64 %94
   %257 = load i16, ptr %256, align 2
   %258 = zext i16 %257 to i32
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 3
@@ -2433,7 +2425,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 272:                                              ; preds = %347, %270
   %273 = phi i64 [ %274, %347 ], [ 4, %270 ]
   %274 = add nsw i64 %273, -1
-  %275 = getelementptr i16, ptr %85, i64 %274
+  %275 = getelementptr [2 x i8], ptr %85, i64 %274
   %276 = load i16, ptr %275, align 2
   %277 = lshr i16 %276, 4
   %278 = and i16 %276, 15
@@ -2475,10 +2467,10 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 300:                                              ; preds = %296
   %301 = zext i16 %297 to i64
   %302 = lshr i64 %301, 4
-  %303 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %302
+  %303 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 6
   %305 = and i64 %301, 15
-  %306 = getelementptr i16, ptr %304, i64 %305
+  %306 = getelementptr [2 x i8], ptr %304, i64 %305
   %307 = load i16, ptr %306, align 2
   %308 = zext i16 %307 to i32
   %309 = getelementptr inbounds nuw i8, ptr %303, i64 3
@@ -2502,9 +2494,9 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   %321 = phi i32 [ 1, %289 ], [ %295, %294 ], [ 1, %296 ], [ 2, %300 ], [ 4, %314 ], [ %318, %316 ]
   %322 = mul i32 %320, 1000
   %323 = udiv i32 %322, %321
-  %324 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %279
+  %324 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %279
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 6
-  %326 = getelementptr i16, ptr %325, i64 %280
+  %326 = getelementptr [2 x i8], ptr %325, i64 %280
   %327 = load i16, ptr %326, align 2
   %328 = zext i16 %327 to i32
   %329 = getelementptr inbounds nuw i8, ptr %324, i64 3
@@ -2543,7 +2535,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 .thread15.i:                                      ; preds = %347, %349
   %352 = phi i32 [ %350, %349 ], [ 0, %347 ]
   %353 = sext i32 %352 to i64
-  %354 = getelementptr i16, ptr %85, i64 %353
+  %354 = getelementptr [2 x i8], ptr %85, i64 %353
   %355 = getelementptr i8, ptr %354, i64 2
   %356 = sub i32 3, %352
   %357 = sext i32 %356 to i64
@@ -2557,7 +2549,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 
 361:                                              ; preds = %359, %.thread15.i
   %362 = phi i64 [ %353, %.thread15.i ], [ 3, %359 ]
-  %363 = getelementptr i16, ptr %85, i64 %362
+  %363 = getelementptr [2 x i8], ptr %85, i64 %362
   store i16 %103, ptr %363, align 2
   br label %minstrel_ht_sort_best_tp_rates.exit
 
@@ -2591,10 +2583,10 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 378:                                              ; preds = %374
   %379 = zext i16 %375 to i64
   %380 = lshr i64 %379, 4
-  %381 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %380
+  %381 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %380
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 6
   %383 = and i64 %379, 15
-  %384 = getelementptr i16, ptr %382, i64 %383
+  %384 = getelementptr [2 x i8], ptr %382, i64 %383
   %385 = load i16, ptr %384, align 2
   %386 = zext i16 %385 to i32
   %387 = getelementptr inbounds nuw i8, ptr %381, i64 3
@@ -2618,9 +2610,9 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   %399 = phi i32 [ 1, %367 ], [ %373, %372 ], [ 1, %374 ], [ 2, %378 ], [ 4, %392 ], [ %396, %394 ]
   %400 = mul i32 %398, 1000
   %401 = udiv i32 %400, %399
-  %402 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %210
+  %402 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %210
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 6
-  %404 = getelementptr i16, ptr %403, i64 %94
+  %404 = getelementptr [2 x i8], ptr %403, i64 %94
   %405 = load i16, ptr %404, align 2
   %406 = zext i16 %405 to i32
   %407 = getelementptr inbounds nuw i8, ptr %402, i64 3
@@ -2643,7 +2635,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 420:                                              ; preds = %495, %418
   %421 = phi i64 [ %422, %495 ], [ 4, %418 ]
   %422 = add nsw i64 %421, -1
-  %423 = getelementptr i16, ptr %4, i64 %422
+  %423 = getelementptr [2 x i8], ptr %4, i64 %422
   %424 = load i16, ptr %423, align 2
   %425 = lshr i16 %424, 4
   %426 = and i16 %424, 15
@@ -2685,10 +2677,10 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 448:                                              ; preds = %444
   %449 = zext i16 %445 to i64
   %450 = lshr i64 %449, 4
-  %451 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %450
+  %451 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %450
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 6
   %453 = and i64 %449, 15
-  %454 = getelementptr i16, ptr %452, i64 %453
+  %454 = getelementptr [2 x i8], ptr %452, i64 %453
   %455 = load i16, ptr %454, align 2
   %456 = zext i16 %455 to i32
   %457 = getelementptr inbounds nuw i8, ptr %451, i64 3
@@ -2712,9 +2704,9 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   %469 = phi i32 [ 1, %437 ], [ %443, %442 ], [ 1, %444 ], [ 2, %448 ], [ 4, %462 ], [ %466, %464 ]
   %470 = mul i32 %468, 1000
   %471 = udiv i32 %470, %469
-  %472 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %427
+  %472 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %427
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 6
-  %474 = getelementptr i16, ptr %473, i64 %428
+  %474 = getelementptr [2 x i8], ptr %473, i64 %428
   %475 = load i16, ptr %474, align 2
   %476 = zext i16 %475 to i32
   %477 = getelementptr inbounds nuw i8, ptr %472, i64 3
@@ -2753,7 +2745,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 .thread15.i90:                                    ; preds = %495, %497
   %500 = phi i32 [ %498, %497 ], [ 0, %495 ]
   %501 = sext i32 %500 to i64
-  %502 = getelementptr i16, ptr %4, i64 %501
+  %502 = getelementptr [2 x i8], ptr %4, i64 %501
   %503 = getelementptr i8, ptr %502, i64 2
   %504 = sub i32 3, %500
   %505 = sext i32 %504 to i64
@@ -2767,7 +2759,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 
 509:                                              ; preds = %507, %.thread15.i90
   %510 = phi i64 [ %501, %.thread15.i90 ], [ 3, %507 ]
-  %511 = getelementptr i16, ptr %4, i64 %510
+  %511 = getelementptr [2 x i8], ptr %4, i64 %510
   store i16 %103, ptr %511, align 2
   br label %.critedge
 
@@ -2831,10 +2823,10 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 547:                                              ; preds = %543
   %548 = zext i16 %544 to i64
   %549 = lshr i64 %548, 4
-  %550 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %549
+  %550 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %549
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 6
   %552 = and i64 %548, 15
-  %553 = getelementptr i16, ptr %551, i64 %552
+  %553 = getelementptr [2 x i8], ptr %551, i64 %552
   %554 = load i16, ptr %553, align 2
   %555 = zext i16 %554 to i32
   %556 = getelementptr inbounds nuw i8, ptr %550, i64 3
@@ -2858,9 +2850,9 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   %568 = phi i32 [ 1, %536 ], [ %542, %541 ], [ 1, %543 ], [ 2, %547 ], [ 4, %561 ], [ %565, %563 ]
   %569 = mul i32 %567, 1000
   %570 = udiv i32 %569, %568
-  %571 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %525
+  %571 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %525
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 6
-  %573 = getelementptr i16, ptr %572, i64 %526
+  %573 = getelementptr [2 x i8], ptr %572, i64 %526
   %574 = load i16, ptr %573, align 2
   %575 = zext i16 %574 to i32
   %576 = getelementptr inbounds nuw i8, ptr %571, i64 3
@@ -2919,10 +2911,10 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 613:                                              ; preds = %609
   %614 = zext i16 %610 to i64
   %615 = lshr i64 %614, 4
-  %616 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %615
+  %616 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %615
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 6
   %618 = and i64 %614, 15
-  %619 = getelementptr i16, ptr %617, i64 %618
+  %619 = getelementptr [2 x i8], ptr %617, i64 %618
   %620 = load i16, ptr %619, align 2
   %621 = zext i16 %620 to i32
   %622 = getelementptr inbounds nuw i8, ptr %616, i64 3
@@ -2946,9 +2938,9 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   %634 = phi i32 [ 1, %602 ], [ %608, %607 ], [ 1, %609 ], [ 2, %613 ], [ 4, %627 ], [ %631, %629 ]
   %635 = mul i32 %633, 1000
   %636 = udiv i32 %635, %634
-  %637 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %592
+  %637 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %592
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 6
-  %639 = getelementptr i16, ptr %638, i64 %593
+  %639 = getelementptr [2 x i8], ptr %638, i64 %593
   %640 = load i16, ptr %639, align 2
   %641 = zext i16 %640 to i32
   %642 = getelementptr inbounds nuw i8, ptr %637, i64 3
@@ -2971,7 +2963,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 
 .preheader:                                       ; preds = %653, %minstrel_ht_sort_best_tp_rates.exit97
   %656 = phi i64 [ %816, %minstrel_ht_sort_best_tp_rates.exit97 ], [ 0, %653 ]
-  %657 = getelementptr i16, ptr %5, i64 %656
+  %657 = getelementptr [2 x i8], ptr %5, i64 %656
   %658 = load i16, ptr %657, align 2
   %659 = lshr i16 %658, 4
   %660 = and i16 %658, 15
@@ -3013,10 +3005,10 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 682:                                              ; preds = %678
   %683 = zext i16 %679 to i64
   %684 = lshr i64 %683, 4
-  %685 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %684
+  %685 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %684
   %686 = getelementptr inbounds nuw i8, ptr %685, i64 6
   %687 = and i64 %683, 15
-  %688 = getelementptr i16, ptr %686, i64 %687
+  %688 = getelementptr [2 x i8], ptr %686, i64 %687
   %689 = load i16, ptr %688, align 2
   %690 = zext i16 %689 to i32
   %691 = getelementptr inbounds nuw i8, ptr %685, i64 3
@@ -3040,9 +3032,9 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   %703 = phi i32 [ 1, %671 ], [ %677, %676 ], [ 1, %678 ], [ 2, %682 ], [ 4, %696 ], [ %700, %698 ]
   %704 = mul i32 %702, 1000
   %705 = udiv i32 %704, %703
-  %706 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %661
+  %706 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %661
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 6
-  %708 = getelementptr i16, ptr %707, i64 %662
+  %708 = getelementptr [2 x i8], ptr %707, i64 %662
   %709 = load i16, ptr %708, align 2
   %710 = zext i16 %709 to i32
   %711 = getelementptr inbounds nuw i8, ptr %706, i64 3
@@ -3065,7 +3057,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 724:                                              ; preds = %799, %722
   %725 = phi i64 [ %726, %799 ], [ 4, %722 ]
   %726 = add nsw i64 %725, -1
-  %727 = getelementptr i16, ptr %3, i64 %726
+  %727 = getelementptr [2 x i8], ptr %3, i64 %726
   %728 = load i16, ptr %727, align 2
   %729 = lshr i16 %728, 4
   %730 = and i16 %728, 15
@@ -3107,10 +3099,10 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 752:                                              ; preds = %748
   %753 = zext i16 %749 to i64
   %754 = lshr i64 %753, 4
-  %755 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %754
+  %755 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %754
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 6
   %757 = and i64 %753, 15
-  %758 = getelementptr i16, ptr %756, i64 %757
+  %758 = getelementptr [2 x i8], ptr %756, i64 %757
   %759 = load i16, ptr %758, align 2
   %760 = zext i16 %759 to i32
   %761 = getelementptr inbounds nuw i8, ptr %755, i64 3
@@ -3134,9 +3126,9 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   %773 = phi i32 [ 1, %741 ], [ %747, %746 ], [ 1, %748 ], [ 2, %752 ], [ 4, %766 ], [ %770, %768 ]
   %774 = mul i32 %772, 1000
   %775 = udiv i32 %774, %773
-  %776 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %731
+  %776 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %731
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 6
-  %778 = getelementptr i16, ptr %777, i64 %732
+  %778 = getelementptr [2 x i8], ptr %777, i64 %732
   %779 = load i16, ptr %778, align 2
   %780 = zext i16 %779 to i32
   %781 = getelementptr inbounds nuw i8, ptr %776, i64 3
@@ -3175,7 +3167,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 .thread15.i96:                                    ; preds = %799, %801
   %804 = phi i32 [ %802, %801 ], [ 0, %799 ]
   %805 = sext i32 %804 to i64
-  %806 = getelementptr i16, ptr %3, i64 %805
+  %806 = getelementptr [2 x i8], ptr %3, i64 %805
   %807 = getelementptr i8, ptr %806, i64 2
   %808 = sub i32 3, %804
   %809 = sext i32 %808 to i64
@@ -3189,7 +3181,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
 
 813:                                              ; preds = %811, %.thread15.i96
   %814 = phi i64 [ %805, %.thread15.i96 ], [ 3, %811 ]
-  %815 = getelementptr i16, ptr %3, i64 %814
+  %815 = getelementptr [2 x i8], ptr %3, i64 %814
   store i16 %658, ptr %815, align 2
   br label %minstrel_ht_sort_best_tp_rates.exit97
 
@@ -3206,10 +3198,10 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %821 = icmp eq i16 %820, 256
   %822 = lshr i64 %818, 4
   %823 = and i64 %822, 4095
-  %824 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %823
+  %824 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %823
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 6
   %826 = and i64 %818, 15
-  %827 = getelementptr i16, ptr %825, i64 %826
+  %827 = getelementptr [2 x i8], ptr %825, i64 %826
   %828 = getelementptr inbounds nuw i8, ptr %824, i64 3
   %829 = lshr i64 %818, 4
   %830 = and i64 %818, 15
@@ -3223,17 +3215,17 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %836 = icmp eq i16 %835, 256
   %837 = lshr i64 %818, 4
   %838 = and i64 %837, 4095
-  %839 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %838
+  %839 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %838
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 6
   %841 = and i64 %818, 15
-  %842 = getelementptr i16, ptr %840, i64 %841
+  %842 = getelementptr [2 x i8], ptr %840, i64 %841
   %843 = getelementptr inbounds nuw i8, ptr %839, i64 3
   br label %844
 
 844:                                              ; preds = %.loopexit113, %.loopexit114
   %845 = phi i64 [ 0, %.loopexit114 ], [ %1042, %.loopexit113 ]
   %846 = phi i16 [ %56, %.loopexit114 ], [ %1041, %.loopexit113 ]
-  %847 = getelementptr i16, ptr %34, i64 %845
+  %847 = getelementptr [2 x i8], ptr %34, i64 %845
   %848 = load i16, ptr %847, align 2
   %849 = icmp eq i16 %848, 0
   br i1 %849, label %.loopexit113, label %850
@@ -3245,8 +3237,8 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %853 = getelementptr i8, ptr %58, i64 %.idx56
   %854 = getelementptr i8, ptr %853, i64 10
   store i16 %852, ptr %854, align 2
-  %855 = getelementptr %struct.minstrel_mcs_group_data, ptr %58, i64 %845
-  %856 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %845
+  %855 = getelementptr [252 x i8], ptr %58, i64 %845
+  %856 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %845
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 6
   %858 = getelementptr inbounds nuw i8, ptr %856, i64 3
   %859 = getelementptr inbounds nuw i8, ptr %855, i64 10
@@ -3266,7 +3258,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 869:                                              ; preds = %860
   %870 = or disjoint i64 %862, %851
   %871 = trunc i64 %870 to i16
-  %872 = getelementptr %struct.minstrel_rate_stats, ptr %855, i64 %862
+  %872 = getelementptr [24 x i8], ptr %855, i64 %862
   %873 = lshr i16 %863, 4
   %874 = and i16 %863, 15
   %875 = zext nneg i16 %873 to i64
@@ -3324,9 +3316,9 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %907 = phi i32 [ 1, %885 ], [ %891, %890 ], [ 1, %892 ], [ 2, %893 ], [ 4, %900 ], [ %904, %902 ]
   %908 = mul i32 %906, 1000
   %909 = udiv i32 %908, %907
-  %910 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %875
+  %910 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %875
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 6
-  %912 = getelementptr i16, ptr %911, i64 %876
+  %912 = getelementptr [2 x i8], ptr %911, i64 %876
   %913 = load i16, ptr %912, align 2
   %914 = zext i16 %913 to i32
   %915 = getelementptr inbounds nuw i8, ptr %910, i64 3
@@ -3356,7 +3348,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %935 = load i8, ptr %843, align 1
   %936 = zext nneg i8 %935 to i32
   %937 = shl i32 %934, %936
-  %938 = getelementptr i16, ptr %857, i64 %862
+  %938 = getelementptr [2 x i8], ptr %857, i64 %862
   %939 = load i16, ptr %938, align 2
   %940 = zext i16 %939 to i32
   %941 = load i8, ptr %858, align 1
@@ -3471,9 +3463,9 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1008 = phi i32 [ 1, %991 ], [ %997, %996 ], [ 1, %998 ], [ 2, %999 ], [ 4, %1001 ], [ %1005, %1003 ]
   %1009 = mul i32 %1007, 1000
   %1010 = udiv i32 %1009, %1008
-  %1011 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %950
+  %1011 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %950
   %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 6
-  %1013 = getelementptr i16, ptr %1012, i64 %951
+  %1013 = getelementptr [2 x i8], ptr %1012, i64 %951
   %1014 = load i16, ptr %1013, align 2
   %1015 = zext i16 %1014 to i32
   %1016 = getelementptr inbounds nuw i8, ptr %1011, i64 3
@@ -3532,17 +3524,17 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br label %.loopexit112
 
 1048:                                             ; preds = %1044
-  %.split = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %.pre187
+  %.split = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %.pre187
   %1049 = getelementptr i8, ptr %.split, i64 2
   %1050 = load i8, ptr %1049, align 2
   %1051 = and i16 %819, -32
   %1052 = icmp eq i16 %1051, 256
   %1053 = lshr i64 %818, 4
   %1054 = and i64 %1053, 4095
-  %1055 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1054
+  %1055 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1054
   %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 6
   %1057 = and i64 %818, 15
-  %1058 = getelementptr i16, ptr %1056, i64 %1057
+  %1058 = getelementptr [2 x i8], ptr %1056, i64 %1057
   %1059 = getelementptr inbounds nuw i8, ptr %1055, i64 3
   br label %1060
 
@@ -3550,7 +3542,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1061 = phi i16 [ %1041, %1048 ], [ %1158, %.critedge84 ]
   %1062 = phi i64 [ 0, %1048 ], [ %1160, %.critedge84 ]
   %1063 = phi i32 [ 0, %1048 ], [ %1159, %.critedge84 ]
-  %1064 = getelementptr i16, ptr %34, i64 %1062
+  %1064 = getelementptr [2 x i8], ptr %34, i64 %1062
   %1065 = load i16, ptr %1064, align 2
   %1066 = icmp eq i16 %1065, 0
   %1067 = icmp eq i64 %1062, 16
@@ -3558,7 +3550,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br i1 %1068, label %.critedge84, label %1069
 
 1069:                                             ; preds = %1060
-  %1070 = getelementptr %struct.minstrel_mcs_group_data, ptr %58, i64 %1062
+  %1070 = getelementptr [252 x i8], ptr %58, i64 %1062
   %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 10
   %1072 = load i16, ptr %1071, align 2
   %1073 = and i16 %1072, 15
@@ -3614,9 +3606,9 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1104 = phi i32 [ 1, %1082 ], [ %1088, %1087 ], [ 1, %1089 ], [ 2, %1090 ], [ 4, %1097 ], [ %1101, %1099 ]
   %1105 = mul i32 %1103, 1000
   %1106 = udiv i32 %1105, %1104
-  %1107 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1062
+  %1107 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1062
   %1108 = getelementptr inbounds nuw i8, ptr %1107, i64 6
-  %1109 = getelementptr i16, ptr %1108, i64 %1074
+  %1109 = getelementptr [2 x i8], ptr %1108, i64 %1074
   %1110 = load i16, ptr %1109, align 2
   %1111 = zext i16 %1110 to i32
   %1112 = getelementptr inbounds nuw i8, ptr %1107, i64 3
@@ -3701,19 +3693,19 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1162 = phi i16 [ %1041, %..loopexit112_crit_edge ], [ %1158, %.critedge84 ]
   %1163 = zext i16 %1162 to i64
   %1164 = lshr i64 %1163, 4
-  %1165 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1164
+  %1165 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1164
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 6
   %1167 = and i64 %1163, 15
-  %1168 = getelementptr i16, ptr %1166, i64 %1167
+  %1168 = getelementptr [2 x i8], ptr %1166, i64 %1167
   %1169 = load i16, ptr %1168, align 2
   %1170 = zext i16 %1169 to i32
   %1171 = getelementptr inbounds nuw i8, ptr %1165, i64 3
   %1172 = load i8, ptr %1171, align 1
   %1173 = zext nneg i8 %1172 to i32
   %1174 = shl i32 %1170, %1173
-  %1175 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %.pre-phi188
+  %1175 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %.pre-phi188
   %1176 = getelementptr inbounds nuw i8, ptr %1175, i64 6
-  %1177 = getelementptr i16, ptr %1176, i64 %.pre-phi190
+  %1177 = getelementptr [2 x i8], ptr %1176, i64 %.pre-phi190
   %1178 = load i16, ptr %1177, align 2
   %1179 = zext i16 %1178 to i32
   %1180 = getelementptr inbounds nuw i8, ptr %1175, i64 3
@@ -3724,10 +3716,10 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1185 = load i16, ptr %1184, align 2
   %1186 = zext i16 %1185 to i64
   %1187 = lshr i64 %1186, 4
-  %1188 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1187
+  %1188 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1187
   %1189 = getelementptr inbounds nuw i8, ptr %1188, i64 6
   %1190 = and i64 %1186, 15
-  %1191 = getelementptr i16, ptr %1189, i64 %1190
+  %1191 = getelementptr [2 x i8], ptr %1189, i64 %1190
   %1192 = load i16, ptr %1191, align 2
   %1193 = zext i16 %1192 to i32
   %1194 = getelementptr inbounds nuw i8, ptr %1188, i64 3
@@ -3742,7 +3734,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1201:                                             ; preds = %1230, %.loopexit112
   %1202 = phi i64 [ 0, %.loopexit112 ], [ %1232, %1230 ]
   %1203 = phi i32 [ 0, %.loopexit112 ], [ %1231, %1230 ]
-  %1204 = getelementptr i16, ptr %1200, i64 %1202
+  %1204 = getelementptr [2 x i8], ptr %1200, i64 %1202
   %1205 = load i16, ptr %1204, align 2
   %1206 = icmp eq i16 %1205, 0
   br i1 %1206, label %1230, label %1207
@@ -3750,10 +3742,10 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1207:                                             ; preds = %1201
   %1208 = zext i16 %1205 to i64
   %1209 = lshr i64 %1208, 4
-  %1210 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1209
+  %1210 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1209
   %1211 = getelementptr inbounds nuw i8, ptr %1210, i64 6
   %1212 = and i64 %1208, 15
-  %1213 = getelementptr i16, ptr %1211, i64 %1212
+  %1213 = getelementptr [2 x i8], ptr %1211, i64 %1212
   %1214 = load i16, ptr %1213, align 2
   %1215 = zext i16 %1214 to i32
   %1216 = getelementptr inbounds nuw i8, ptr %1210, i64 3
@@ -3771,7 +3763,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1224:                                             ; preds = %1221
   %1225 = add i32 %1203, 1
   %1226 = sext i32 %1203 to i64
-  %1227 = getelementptr i16, ptr %1200, i64 %1226
+  %1227 = getelementptr [2 x i8], ptr %1200, i64 %1226
   store i16 %1205, ptr %1227, align 2
   br label %1228
 
@@ -3816,7 +3808,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1253 = urem i16 %1252, 42
   %1254 = trunc nuw nsw i16 %1253 to i8
   %1255 = zext nneg i16 %1253 to i64
-  %1256 = getelementptr i16, ptr %34, i64 %1255
+  %1256 = getelementptr [2 x i8], ptr %34, i64 %1255
   %1257 = load i16, ptr %1256, align 2
   %1258 = icmp eq i16 %1257, 0
   br i1 %1258, label %.thread, label %1259
@@ -3836,9 +3828,9 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1267:                                             ; preds = %1262
   %1268 = or disjoint i64 %1263, %1261
   %1269 = lshr i64 %1268, 4
-  %1270 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1269
+  %1270 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1269
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 6
-  %1272 = getelementptr i16, ptr %1271, i64 %1263
+  %1272 = getelementptr [2 x i8], ptr %1271, i64 %1263
   %1273 = load i16, ptr %1272, align 2
   %1274 = zext i16 %1273 to i32
   %1275 = getelementptr inbounds nuw i8, ptr %1270, i64 3
@@ -3890,14 +3882,14 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 
 .thread98:                                        ; preds = %.thread
   store i8 %1254, ptr %1236, align 2
-  %1305 = getelementptr i16, ptr %1200, i64 %1246
+  %1305 = getelementptr [2 x i8], ptr %1200, i64 %1246
   store i16 0, ptr %1305, align 2
   br label %.loopexit111
 
 1306:                                             ; preds = %1290, %1300
   %1307 = trunc nuw nsw i32 %1289 to i16
   store i8 %1254, ptr %1236, align 2
-  %1308 = getelementptr i16, ptr %1200, i64 %1246
+  %1308 = getelementptr [2 x i8], ptr %1200, i64 %1246
   store i16 %1307, ptr %1308, align 2
   %1309 = icmp eq i32 %1289, 0
   br i1 %1309, label %.loopexit111, label %1241
@@ -3909,7 +3901,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1311:                                             ; preds = %1340, %.loopexit111
   %1312 = phi i64 [ 0, %.loopexit111 ], [ %1342, %1340 ]
   %1313 = phi i32 [ 0, %.loopexit111 ], [ %1341, %1340 ]
-  %1314 = getelementptr i16, ptr %1310, i64 %1312
+  %1314 = getelementptr [2 x i8], ptr %1310, i64 %1312
   %1315 = load i16, ptr %1314, align 2
   %1316 = icmp eq i16 %1315, 0
   br i1 %1316, label %1340, label %1317
@@ -3917,10 +3909,10 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1317:                                             ; preds = %1311
   %1318 = zext i16 %1315 to i64
   %1319 = lshr i64 %1318, 4
-  %1320 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1319
+  %1320 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1319
   %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 6
   %1322 = and i64 %1318, 15
-  %1323 = getelementptr i16, ptr %1321, i64 %1322
+  %1323 = getelementptr [2 x i8], ptr %1321, i64 %1322
   %1324 = load i16, ptr %1323, align 2
   %1325 = zext i16 %1324 to i32
   %1326 = getelementptr inbounds nuw i8, ptr %1320, i64 3
@@ -3938,7 +3930,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1334:                                             ; preds = %1331
   %1335 = add i32 %1313, 1
   %1336 = sext i32 %1313 to i64
-  %1337 = getelementptr i16, ptr %1310, i64 %1336
+  %1337 = getelementptr [2 x i8], ptr %1310, i64 %1336
   store i16 %1315, ptr %1337, align 2
   br label %1338
 
@@ -3960,7 +3952,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1346:                                             ; preds = %1377, %1344
   %1347 = phi i64 [ 0, %1344 ], [ %1379, %1377 ]
   %1348 = phi i32 [ 0, %1344 ], [ %1378, %1377 ]
-  %1349 = getelementptr i16, ptr %1345, i64 %1347
+  %1349 = getelementptr [2 x i8], ptr %1345, i64 %1347
   %1350 = load i16, ptr %1349, align 2
   %1351 = icmp eq i16 %1350, 0
   br i1 %1351, label %1377, label %1352
@@ -3968,10 +3960,10 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1352:                                             ; preds = %1346
   %1353 = zext i16 %1350 to i64
   %1354 = lshr i64 %1353, 4
-  %1355 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1354
+  %1355 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1354
   %1356 = getelementptr inbounds nuw i8, ptr %1355, i64 6
   %1357 = and i64 %1353, 15
-  %1358 = getelementptr i16, ptr %1356, i64 %1357
+  %1358 = getelementptr [2 x i8], ptr %1356, i64 %1357
   %1359 = load i16, ptr %1358, align 2
   %1360 = zext i16 %1359 to i32
   %1361 = getelementptr inbounds nuw i8, ptr %1355, i64 3
@@ -3991,7 +3983,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1371:                                             ; preds = %1368
   %1372 = add i32 %1348, 1
   %1373 = sext i32 %1348 to i64
-  %1374 = getelementptr i16, ptr %1345, i64 %1373
+  %1374 = getelementptr [2 x i8], ptr %1345, i64 %1373
   store i16 %1350, ptr %1374, align 2
   br label %1375
 
@@ -4039,7 +4031,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1403 = urem i16 %1402, 42
   %1404 = trunc nuw nsw i16 %1403 to i8
   %1405 = zext nneg i16 %1403 to i64
-  %1406 = getelementptr i16, ptr %34, i64 %1405
+  %1406 = getelementptr [2 x i8], ptr %34, i64 %1405
   %1407 = load i16, ptr %1406, align 2
   %1408 = icmp eq i16 %1407, 0
   br i1 %1408, label %.thread99, label %1409
@@ -4059,9 +4051,9 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1417:                                             ; preds = %1412
   %1418 = or disjoint i64 %1413, %1411
   %1419 = lshr i64 %1418, 4
-  %1420 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1419
+  %1420 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1419
   %1421 = getelementptr inbounds nuw i8, ptr %1420, i64 6
-  %1422 = getelementptr i16, ptr %1421, i64 %1413
+  %1422 = getelementptr [2 x i8], ptr %1421, i64 %1413
   %1423 = load i16, ptr %1422, align 2
   %1424 = zext i16 %1423 to i32
   %1425 = getelementptr inbounds nuw i8, ptr %1420, i64 3
@@ -4080,7 +4072,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br i1 %1435, label %1412, label %.thread99, !llvm.loop !58
 
 1436:                                             ; preds = %1417
-  %1437 = getelementptr %struct.minstrel_mcs_group_data, ptr %58, i64 %1405
+  %1437 = getelementptr [252 x i8], ptr %58, i64 %1405
   %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 1
   %1439 = load i8, ptr %1438, align 1
   %1440 = load i8, ptr %1437, align 4
@@ -4136,10 +4128,10 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   %1471 = or disjoint i16 %1410, %1470
   %1472 = zext nneg i16 %1471 to i64
   %1473 = lshr i64 %1472, 4
-  %1474 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %1473
+  %1474 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %1473
   %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 6
   %1476 = and i64 %1472, 15
-  %1477 = getelementptr i16, ptr %1475, i64 %1476
+  %1477 = getelementptr [2 x i8], ptr %1475, i64 %1476
   %1478 = load i16, ptr %1477, align 2
   %1479 = zext i16 %1478 to i32
   %1480 = getelementptr inbounds nuw i8, ptr %1474, i64 3
@@ -4192,7 +4184,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 1508:                                             ; preds = %1502
   %1509 = add nsw i32 %1397, 1
   %1510 = sext i32 %1397 to i64
-  %1511 = getelementptr i16, ptr %1345, i64 %1510
+  %1511 = getelementptr [2 x i8], ptr %1345, i64 %1510
   store i16 %1471, ptr %1511, align 2
   %1512 = icmp sgt i32 %1397, 3
   %1513 = select i1 %1512, i32 %1199, i32 %1400
@@ -4207,13 +4199,13 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 
 .thread108:                                       ; preds = %.thread99
   store i8 %1404, ptr %1384, align 2
-  %1516 = getelementptr i16, ptr %1310, i64 %1391
+  %1516 = getelementptr [2 x i8], ptr %1310, i64 %1391
   store i16 0, ptr %1516, align 2
   br label %.loopexit.preheader
 
 1517:                                             ; preds = %1497
   store i8 %1404, ptr %1384, align 2
-  %1518 = getelementptr i16, ptr %1310, i64 %1391
+  %1518 = getelementptr [2 x i8], ptr %1310, i64 %1391
   store i16 %1471, ptr %1518, align 2
   %1519 = icmp eq i16 %1471, 0
   br i1 %1519, label %.loopexit.preheader, label %1386
@@ -4223,7 +4215,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %1520 = phi i64 [ %1524, %.loopexit ], [ 0, %.loopexit.preheader ]
-  %1521 = getelementptr %struct.minstrel_sample_category, ptr %1236, i64 %1520
+  %1521 = getelementptr [22 x i8], ptr %1236, i64 %1520
   %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 12
   %1523 = getelementptr inbounds nuw i8, ptr %1521, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %1522, ptr noundef nonnull align 2 dereferenceable(10) %1523, i64 10, i1 false)
@@ -4271,7 +4263,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
 
 19:                                               ; preds = %19, %16
   %20 = phi i64 [ 1, %16 ], [ %25, %19 ]
-  %21 = getelementptr i16, ptr %12, i64 %20
+  %21 = getelementptr [2 x i8], ptr %12, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
   %24 = trunc i64 %20 to i32
@@ -4298,7 +4290,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
   %35 = phi i32 [ %30, %29 ], [ %27, %.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %37 = sext i32 %35 to i64
-  %38 = getelementptr %struct.anon.30, ptr %36, i64 %37
+  %38 = getelementptr [6 x i8], ptr %36, i64 %37
   store i8 -1, ptr %38, align 2
   br label %39
 
@@ -4320,9 +4312,9 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
   br i1 %51, label %83, label %52
 
 52:                                               ; preds = %39
-  %53 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %43
+  %53 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %43
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
-  %55 = getelementptr i16, ptr %54, i64 %46
+  %55 = getelementptr [2 x i8], ptr %54, i64 %46
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 3
@@ -4390,7 +4382,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #9 align 16 {
   %6 = lshr i32 %4, 4
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %7
+  %8 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = zext nneg i32 %4 to i64
   %11 = lshr i64 %10, 4
@@ -4432,10 +4424,10 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
 32:                                               ; preds = %27
   %33 = zext i16 %29 to i64
   %34 = lshr i64 %33, 4
-  %35 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %34
+  %35 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   %37 = and i64 %33, 15
-  %38 = getelementptr i16, ptr %36, i64 %37
+  %38 = getelementptr [2 x i8], ptr %36, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 3
@@ -4472,9 +4464,9 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
   store i8 2, ptr %56, align 4
   store i8 2, ptr %57, align 1
   store i8 1, ptr %16, align 2
-  %59 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %11
+  %59 = getelementptr [26 x i8], ptr @minstrel_mcs_groups, i64 %11
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
-  %61 = getelementptr i16, ptr %60, i64 %12
+  %61 = getelementptr [2 x i8], ptr %60, i64 %12
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 3
@@ -4568,7 +4560,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
 134:                                              ; preds = %.loopexit.thread, %130, %.loopexit
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %136 = sext i32 %3 to i64
-  %137 = getelementptr %struct.anon.30, ptr %135, i64 %136
+  %137 = getelementptr [6 x i8], ptr %135, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   store i8 2, ptr %138, align 1
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 3
@@ -4580,7 +4572,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
 141:                                              ; preds = %130
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %143 = sext i32 %3 to i64
-  %144 = getelementptr %struct.anon.30, ptr %142, i64 %143
+  %144 = getelementptr [6 x i8], ptr %142, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 1
   store i8 %132, ptr %145, align 1
   %146 = load i8, ptr %131, align 4
@@ -4661,7 +4653,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
 
 195:                                              ; preds = %192, %184
   %196 = sext i32 %3 to i64
-  %197 = getelementptr %struct.anon.30, ptr %2, i64 %196
+  %197 = getelementptr [6 x i8], ptr %2, i64 %196
   %198 = getelementptr i8, ptr %197, i64 17
   store i8 %152, ptr %198, align 1
   %199 = or i16 %9, 1
@@ -4671,7 +4663,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
   %201 = phi i16 [ %199, %195 ], [ %9, %192 ], [ %9, %187 ]
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %203 = sext i32 %3 to i64
-  %204 = getelementptr %struct.anon.30, ptr %202, i64 %203
+  %204 = getelementptr [6 x i8], ptr %202, i64 %203
   store i8 %185, ptr %204, align 2
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
   store i16 %201, ptr %205, align 2

@@ -60,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.19 = type { ptr }
 %"class.fmt::v8::detail::locale_ref" = type { ptr }
 %"class.fmt::v8::basic_format_arg" = type <{ %"class.fmt::v8::detail::value", i32, [12 x i8] }>
-%"struct.fmt::v8::detail::named_arg_info" = type { ptr, i32 }
 %"struct.fmt::v8::detail::error_handler" = type { i8 }
 %class.anon.25 = type { ptr, ptr, ptr, ptr }
 %"class.fmt::v8::basic_memory_buffer" = type <{ %"class.fmt::v8::detail::buffer", [500 x i32], [8 x i8] }>
@@ -2020,7 +2019,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_10spec_fieldIciLi1EEENS2_
   %38 = lshr i16 %33, 4
   %39 = and i16 %38, 7
   %40 = zext nneg i16 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !14
   %43 = zext i32 %42 to i64
   %44 = shl nuw i64 %43, 32
@@ -2099,7 +2098,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %66 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %67 = xor i32 %66, 31
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !43
   %71 = add i64 %70, %.sroa.0.0.insert.ext.i
   %72 = lshr i64 %71, 32
@@ -2751,7 +2750,7 @@ _ZN3fmt2v86detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringI
   %414 = lshr i16 %409, 4
   %415 = and i16 %414, 7
   %416 = zext nneg i16 %415 to i64
-  %417 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %416
+  %417 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %416
   %418 = load i32, ptr %417, align 4, !tbaa !14
   %419 = zext i32 %418 to i64
   %420 = shl nuw i64 %419, 32
@@ -2826,7 +2825,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %442 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %441, i1 true)
   %443 = xor i32 %442, 31
   %444 = zext nneg i32 %443 to i64
-  %445 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %444
+  %445 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %444
   %446 = load i64, ptr %445, align 8, !tbaa !43
   %447 = add i64 %446, %.sroa.0.0.insert.ext.i130.pre-phi
   %448 = lshr i64 %447, 32
@@ -3514,7 +3513,7 @@ define linkonce_odr void @_ZN3fmt2v86detail19handle_dynamic_specINS1_13width_che
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !34, !noalias !117
   %20 = sext i32 %9 to i64
-  %21 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %19, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %19, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %21, i64 20, i1 false), !tbaa.struct !120
   br label %.sink.split
 
@@ -3536,7 +3535,7 @@ define linkonce_odr void @_ZN3fmt2v86detail19handle_dynamic_specINS1_13width_che
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !34, !noalias !117
   %34 = sext i32 %9 to i64
-  %35 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !122
   br label %.sink.split
 
@@ -3569,7 +3568,7 @@ define linkonce_odr void @_ZN3fmt2v86detail19handle_dynamic_specINS1_13width_che
 
 49:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %56, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %50 = getelementptr inbounds nuw %"struct.fmt::v8::detail::named_arg_info", ptr %48, i64 %.01116.i.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %.01116.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !130, !noalias !123
   %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #39, !noalias !123
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %52, i64 %.sroa.2.0.copyload)
@@ -3611,7 +3610,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextISt20back_insert_iterat
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %58 to i64
-  %68 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %43, i64 %67
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %68, i64 20, i1 false), !tbaa.struct !120
   br label %.sink.split
 
@@ -3631,7 +3630,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextISt20back_insert_iterat
 
 78:                                               ; preds = %71
   %79 = zext nneg i32 %58 to i64
-  %80 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %43, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !122
   br label %.sink.split
 
@@ -3681,7 +3680,7 @@ define linkonce_odr void @_ZN3fmt2v86detail19handle_dynamic_specINS1_17precision
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !34, !noalias !143
   %20 = sext i32 %9 to i64
-  %21 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %19, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %19, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %21, i64 20, i1 false), !tbaa.struct !120
   br label %.sink.split
 
@@ -3703,7 +3702,7 @@ define linkonce_odr void @_ZN3fmt2v86detail19handle_dynamic_specINS1_17precision
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !34, !noalias !143
   %34 = sext i32 %9 to i64
-  %35 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !122
   br label %.sink.split
 
@@ -3736,7 +3735,7 @@ define linkonce_odr void @_ZN3fmt2v86detail19handle_dynamic_specINS1_17precision
 
 49:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %56, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %50 = getelementptr inbounds nuw %"struct.fmt::v8::detail::named_arg_info", ptr %48, i64 %.01116.i.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %.01116.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !130, !noalias !144
   %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #39, !noalias !144
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %52, i64 %.sroa.2.0.copyload)
@@ -3778,7 +3777,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextISt20back_insert_iterat
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %58 to i64
-  %68 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %43, i64 %67
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %68, i64 20, i1 false), !tbaa.struct !120
   br label %.sink.split
 
@@ -3798,7 +3797,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextISt20back_insert_iterat
 
 78:                                               ; preds = %71
   %79 = zext nneg i32 %58 to i64
-  %80 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %43, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !122
   br label %.sink.split
 
@@ -4303,7 +4302,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail19write_int_localizedISt20back_insert_
   %14 = load i8, ptr %13, align 1, !tbaa !34
   %15 = zext i8 %14 to i32
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !43
   %19 = icmp ult i64 %1, %18
   %.neg.i.i = sext i1 %19 to i32
@@ -4614,7 +4613,7 @@ _ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit: ; preds = %2
   %.pre-phi.i25 = phi i64 [ %33, %32 ], [ %.pre2.i27, %.noexc28 ]
   %42 = phi i64 [ %18, %32 ], [ %.pre.i26, %.noexc28 ]
   store i64 %.pre-phi.i25, ptr %9, align 8, !tbaa !171
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   store i32 %31, ptr %43, align 4, !tbaa !14
   %.not.i = icmp eq i8 %40, 0
   br i1 %.not.i, label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.thread.loopexit, label %15
@@ -4663,7 +4662,7 @@ _ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit: ; preds = %._crit_edge, 
   %55 = sub i64 %3, %indvars.iv
   %56 = load ptr, ptr %7, align 8, !tbaa !168
   %57 = sext i32 %.053 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = trunc i64 %55 to i32
   %61 = icmp eq i32 %59, %60
@@ -5048,7 +5047,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_10spec_fieldIcjLi2EEENS1_
   %34 = lshr i16 %33, 4
   %35 = and i16 %34, 7
   %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !14
   %.sroa.0.0.insert.ext.i = zext i32 %31 to i64
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -5118,7 +5117,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %60 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %61 = xor i32 %60, 31
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !43
   %65 = add i64 %64, %.sroa.0.0.insert.ext.i
   %66 = lshr i64 %65, 32
@@ -5762,7 +5761,7 @@ _ZN3fmt2v86detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt1
   %404 = lshr i16 %403, 4
   %405 = and i16 %404, 7
   %406 = zext nneg i16 %405 to i64
-  %407 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %406
+  %407 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %406
   %408 = load i32, ptr %407, align 4, !tbaa !14
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %410 = load i8, ptr %409, align 8, !tbaa !84
@@ -5827,7 +5826,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %430 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %429, i1 true)
   %431 = xor i32 %430, 31
   %432 = zext nneg i32 %431 to i64
-  %433 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %432
+  %433 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %432
   %434 = load i64, ptr %433, align 8, !tbaa !43
   %435 = add i64 %434, %.sroa.024.0.insert.ext.i
   %436 = lshr i64 %435, 32

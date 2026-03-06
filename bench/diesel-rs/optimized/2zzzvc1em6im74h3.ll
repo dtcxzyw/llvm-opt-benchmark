@@ -2333,7 +2333,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %185 = icmp eq i8 %184, 7
   %186 = select i1 %185, i8 0, i8 %184
   %187 = zext nneg i8 %186 to i64
-  %188 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.dd40432c9c4c41a3fd2f427162d90805.53, i64 %187
+  %188 = getelementptr inbounds nuw [16 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.53, i64 %187
   %189 = icmp samesign ult i32 %179, 5864
   %190 = lshr i32 %179, 3
   %191 = zext nneg i32 %190 to i64
@@ -2490,9 +2490,9 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %292 = icmp eq i8 %291, 7
   %293 = select i1 %292, i8 0, i8 %291
   %294 = zext nneg i8 %293 to i64
-  %295 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.dd40432c9c4c41a3fd2f427162d90805.82, i64 %294
+  %295 = getelementptr inbounds nuw [16 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.82, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %297 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.dd40432c9c4c41a3fd2f427162d90805.53, i64 %294
+  %297 = getelementptr inbounds nuw [16 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.53, i64 %294
   %298 = and i32 %.val279.i, 8191
   %299 = icmp samesign ult i32 %298, 5864
   %300 = lshr i32 %298, 3
@@ -3293,7 +3293,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i198: ; preds = 
   br i1 %563, label %564, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit69.thread.i.invoke, !prof !258
 
 564:                                              ; preds = %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i198
-  %565 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.dd40432c9c4c41a3fd2f427162d90805.96, i64 %562
+  %565 = getelementptr inbounds nuw [16 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.96, i64 %562
   %566 = load ptr, ptr %565, align 8, !noalias !255, !nonnull !4, !align !197, !noundef !4
   %567 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !259, !noalias !268, !noundef !4
   %568 = load i64, ptr %74, align 8, !alias.scope !259, !noalias !268, !noundef !4
@@ -3335,7 +3335,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i192: ; preds = 
   br i1 %585, label %586, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit69.thread.i.invoke, !prof !258
 
 586:                                              ; preds = %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i192
-  %587 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.dd40432c9c4c41a3fd2f427162d90805.69, i64 %584
+  %587 = getelementptr inbounds nuw [16 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.69, i64 %584
   %588 = load ptr, ptr %587, align 8, !noalias !272, !nonnull !4, !align !197, !noundef !4
   %589 = getelementptr inbounds nuw i8, ptr %587, i64 8
   %590 = load i64, ptr %589, align 8, !noalias !272, !noundef !4
@@ -4056,7 +4056,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit69.i: ; preds = %
   br i1 %818, label %819, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit69.thread.i.invoke, !prof !258
 
 819:                                              ; preds = %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit69.i
-  %820 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.dd40432c9c4c41a3fd2f427162d90805.96, i64 %817
+  %820 = getelementptr inbounds nuw [16 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.96, i64 %817
   %821 = load ptr, ptr %820, align 8, !noalias !456, !nonnull !4, !align !197, !noundef !4
   %822 = load i64, ptr %74, align 8, !alias.scope !490, !noalias !499, !noundef !4
   %823 = sub i64 %822, %810

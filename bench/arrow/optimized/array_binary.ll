@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.25" = type { %"class.std::__shared_ptr.26" }
 %"class.std::__shared_ptr.26" = type { ptr, %"class.std::__shared_count" }
 %"class.arrow::Status" = type { ptr }
-%"union.arrow::BinaryViewType::c_type" = type { %struct.anon }
-%struct.anon = type { i32, %"struct.std::array" }
-%"struct.std::array" = type { [12 x i8] }
 
 $_ZN5arrow18TypedChunkLocationIiEC5Eii = comdat any
 
@@ -464,7 +461,7 @@ define void @_ZN5arrow11BinaryArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr nound
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %15
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %15
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i: ; preds = %24, %20, %.noexc
@@ -855,7 +852,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i32, ptr %148, i64 %139
+  %149 = getelementptr inbounds [4 x i8], ptr %148, i64 %139
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i: ; preds = %146, %142, %.noexc23
@@ -1413,7 +1410,7 @@ define void @_ZN5arrow16LargeBinaryArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i64, ptr %27, i64 %16
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %16
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i: ; preds = %25, %21, %.noexc
@@ -1797,7 +1794,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i64, ptr %148, i64 %139
+  %149 = getelementptr inbounds [8 x i8], ptr %148, i64 %139
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i: ; preds = %146, %142, %.noexc23
@@ -2155,7 +2152,7 @@ define void @_ZN5arrow11StringArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr nound
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %14
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %14
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i: ; preds = %23, %19, %.noexc
@@ -2539,7 +2536,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i32, ptr %147, i64 %138
+  %148 = getelementptr inbounds [4 x i8], ptr %147, i64 %138
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_i.exit.i: ; preds = %145, %141, %.noexc23
@@ -2908,7 +2905,7 @@ define void @_ZN5arrow16LargeStringArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i64, ptr %25, i64 %14
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %14
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i: ; preds = %23, %19, %.noexc
@@ -3292,7 +3289,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i64, ptr %147, i64 %138
+  %148 = getelementptr inbounds [8 x i8], ptr %147, i64 %138
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_i.exit.i: ; preds = %145, %141, %.noexc23
@@ -3770,7 +3767,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %74, i64 %65
+  %75 = getelementptr inbounds [16 x i8], ptr %74, i64 %65
   br label %76
 
 76:                                               ; preds = %72, %68, %.noexc
@@ -4095,7 +4092,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %115, i64 %106
+  %116 = getelementptr inbounds [16 x i8], ptr %115, i64 %106
   br label %117
 
 117:                                              ; preds = %113, %109, %.noexc15
@@ -4308,7 +4305,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 define { i64, ptr } @_ZNK5arrow15BinaryViewArray7GetViewEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !117
-  %5 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %4, i64 %1
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 %1
   %6 = load i32, ptr %5, align 8, !tbaa !101
   %7 = icmp slt i32 %6, 13
   br i1 %7, label %8, label %10
@@ -4326,7 +4323,7 @@ define { i64, ptr } @_ZNK5arrow15BinaryViewArray7GetViewEl(ptr noundef nonnull r
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !101
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %"class.std::shared_ptr.25", ptr %15, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !80
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 9
   %22 = load i8, ptr %21, align 1, !tbaa !83, !range !92, !noundef !93
@@ -4510,7 +4507,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %74, i64 %65
+  %75 = getelementptr inbounds [16 x i8], ptr %74, i64 %65
   br label %76
 
 76:                                               ; preds = %72, %68, %.noexc
@@ -6164,7 +6161,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !79
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !106
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.25", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !103
   ret void
 }

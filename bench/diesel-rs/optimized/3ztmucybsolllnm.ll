@@ -876,7 +876,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he9b3992cc395b74dE.ll
   %10 = phi i64 [ %.pre, %._crit_edge ], [ %5, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   store ptr %1, ptr %13, align 8
   %14 = load i64, ptr %4, align 8, !noundef !5
   %15 = add i64 %14, 1
@@ -1015,7 +1015,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(256) ptr @"_ZN9ha
   %54 = add i64 %.sroa.01.0.i.i.i, %51
   %55 = and i64 %54, %.val5
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { ptr, { { i64, [28 x i64] }, { { i64, ptr }, i64 } } }, ptr %.val, i64 %56
+  %57 = getelementptr inbounds [264 x i8], ptr %.val, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -264
   %.val4.i.i.i = load ptr, ptr %58, align 8, !alias.scope !220, !noalias !225, !nonnull !5, !align !229, !noundef !5
   %59 = call noundef zeroext i1 @"_ZN59_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14896d5e45a0210dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val4.i.i.i), !noalias !230
@@ -1105,7 +1105,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.49.0.copyload = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !nonnull !5, !noundef !5
   %.sroa.510.0.copyload = load i64, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8
-  %26 = getelementptr inbounds ptr, ptr %.sroa.49.0.copyload, i64 %.sroa.510.0.copyload
+  %26 = getelementptr inbounds [8 x i8], ptr %.sroa.49.0.copyload, i64 %.sroa.510.0.copyload
   store ptr %.sroa.49.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.3.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1325,7 +1325,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
   %39 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %30, %28 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load ptr, ptr %40, align 8, !alias.scope !285, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %39
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %39
   store ptr %.fca.0.extract.i.i, ptr %42, align 8
   %43 = load i64, ptr %29, align 8, !alias.scope !285, !noundef !5
   %44 = add i64 %43, 1
@@ -2358,7 +2358,7 @@ common.resume:                                    ; preds = %401, %388, %378, %3
   %321 = load ptr, ptr %320, align 8, !nonnull !5, !noundef !5
   %322 = getelementptr inbounds nuw i8, ptr %312, i64 248
   %323 = load i64, ptr %322, align 8, !noundef !5
-  %324 = getelementptr inbounds ptr, ptr %321, i64 %323
+  %324 = getelementptr inbounds [8 x i8], ptr %321, i64 %323
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17he5e7a5039f920939E.llvm.12119415816518131457"(ptr noalias noundef nonnull align 8 dereferenceable(24) %319, ptr noundef nonnull %321, ptr noundef nonnull %324)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h4dff6e8f5eae1373E.exit" unwind label %326
 

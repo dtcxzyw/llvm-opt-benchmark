@@ -270,7 +270,7 @@ bytestream2_get_byte.exit119:                     ; preds = %bytestream2_get_byt
 bytestream2_get_be32.exit:                        ; preds = %127, %131
   %.sroa.0.13 = phi ptr [ %132, %131 ], [ %16, %127 ]
   %.0.i120 = phi i32 [ %135, %131 ], [ 0, %127 ]
-  %136 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv224
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv224
   store i32 %.0.i120, ptr %136, align 4, !tbaa !39
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next225, 256

@@ -6962,7 +6962,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit.th
 110:                                              ; preds = %.noexc88.i, %105
   %111 = phi i64 [ %.pre.i.i, %.noexc88.i ], [ %106, %105 ]
   %112 = load ptr, ptr %48, align 8, !alias.scope !204, !noalias !193, !nonnull !4, !noundef !4
-  %113 = getelementptr inbounds i32, ptr %112, i64 %111
+  %113 = getelementptr inbounds [4 x i8], ptr %112, i64 %111
   store i32 %.sroa.9103.0.copyload.i, ptr %113, align 4, !noalias !193
   %114 = load i64, ptr %49, align 8, !alias.scope !204, !noalias !193, !noundef !4
   %115 = add i64 %114, 1
@@ -7115,7 +7115,7 @@ thread-pre-split387:                              ; preds = %152
 152:                                              ; preds = %.noexc94.i, %147
   %153 = phi i64 [ %.pre.i93.i, %.noexc94.i ], [ %148, %147 ]
   %154 = load ptr, ptr %48, align 8, !alias.scope !224, !noalias !193, !nonnull !4, !noundef !4
-  %155 = getelementptr inbounds i32, ptr %154, i64 %153
+  %155 = getelementptr inbounds [4 x i8], ptr %154, i64 %153
   store i32 %.079.i, ptr %155, align 4, !noalias !193
   %156 = load i64, ptr %49, align 8, !alias.scope !224, !noalias !193, !noundef !4
   %157 = add i64 %156, 1

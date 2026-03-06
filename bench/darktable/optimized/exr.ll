@@ -1392,7 +1392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %.b
 429:                                              ; preds = %422
   %430 = lshr i32 %427, 23
   %431 = zext nneg i32 %430 to i64
-  %432 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %431
+  %432 = getelementptr inbounds nuw [2 x i8], ptr @_ZN4half5_eLutE, i64 %431
   %433 = load i16, ptr %432, align 2, !tbaa !74
   %.not.i.us = icmp eq i16 %433, 0
   br i1 %.not.i.us, label %443, label %434
@@ -1429,7 +1429,7 @@ _ZN4halfC2Ef.exit.us:                             ; preds = %445, %443, %434
 452:                                              ; preds = %_ZN4halfC2Ef.exit.us
   %453 = lshr i32 %450, 23
   %454 = zext nneg i32 %453 to i64
-  %455 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %454
+  %455 = getelementptr inbounds nuw [2 x i8], ptr @_ZN4half5_eLutE, i64 %454
   %456 = load i16, ptr %455, align 2, !tbaa !74
   %.not.i346.us = icmp eq i16 %456, 0
   br i1 %.not.i346.us, label %466, label %457
@@ -1467,7 +1467,7 @@ _ZN4halfC2Ef.exit349.us:                          ; preds = %468, %466, %457
 476:                                              ; preds = %_ZN4halfC2Ef.exit349.us
   %477 = lshr i32 %474, 23
   %478 = zext nneg i32 %477 to i64
-  %479 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %478
+  %479 = getelementptr inbounds nuw [2 x i8], ptr @_ZN4half5_eLutE, i64 %478
   %480 = load i16, ptr %479, align 2, !tbaa !74
   %.not.i350.us = icmp eq i16 %480, 0
   br i1 %.not.i350.us, label %490, label %481
@@ -2089,7 +2089,7 @@ _ZNSt12forward_listISt4pairIiPvESaIS2_EE13emplace_frontIJRiRPfEEERS2_DpOT_.exit:
 685:                                              ; preds = %.preheader.us, %_ZN4halfC2Ef.exit385.us
   %.0234538.us = phi i64 [ 0, %.preheader.us ], [ %711, %_ZN4halfC2Ef.exit385.us ]
   %686 = add i64 %.0234538.us, %684
-  %687 = getelementptr inbounds nuw float, ptr %656, i64 %686
+  %687 = getelementptr inbounds nuw [4 x i8], ptr %656, i64 %686
   %688 = load float, ptr %687, align 4, !tbaa !63
   %689 = bitcast float %688 to i32
   %690 = fcmp reassoc nsz arcp contract afn oeq float %688, 0.000000e+00
@@ -2098,7 +2098,7 @@ _ZNSt12forward_listISt4pairIiPvESaIS2_EE13emplace_frontIJRiRPfEEERS2_DpOT_.exit:
 691:                                              ; preds = %685
   %692 = lshr i32 %689, 23
   %693 = zext nneg i32 %692 to i64
-  %694 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %693
+  %694 = getelementptr inbounds nuw [2 x i8], ptr @_ZN4half5_eLutE, i64 %693
   %695 = load i16, ptr %694, align 2, !tbaa !74
   %.not.i382.us = icmp eq i16 %695, 0
   br i1 %.not.i382.us, label %705, label %696
@@ -2125,7 +2125,7 @@ _ZNSt12forward_listISt4pairIiPvESaIS2_EE13emplace_frontIJRiRPfEEERS2_DpOT_.exit:
 
 _ZN4halfC2Ef.exit385.us:                          ; preds = %707, %705, %696
   %storemerge10.i383.us = phi i16 [ %709, %707 ], [ %704, %696 ], [ %706, %705 ]
-  %710 = getelementptr inbounds nuw i16, ptr %682, i64 %686
+  %710 = getelementptr inbounds nuw [2 x i8], ptr %682, i64 %686
   store i16 %storemerge10.i383.us, ptr %710, align 2, !tbaa !74
   %711 = add nuw i64 %.0234538.us, 1
   %exitcond599.not = icmp eq i64 %711, %677

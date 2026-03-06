@@ -5,10 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.font_header_bin = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16 }
 %struct.lv_fs_file_t = type { ptr, ptr, ptr }
-%struct.cmap_table_bin = type { i32, i32, i16, i16, i16, i8, i8 }
-%struct.lv_font_fmt_txt_cmap_t = type { i32, i16, i16, ptr, ptr, i16, i32 }
 %struct.bit_iterator_t = type { ptr, i8, i8 }
-%struct.lv_font_fmt_txt_glyph_dsc_t = type { i32, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [5 x i8] c"kern\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"head\00", align 1
@@ -219,7 +216,7 @@ load_cmaps.exit.thread78.i:                       ; preds = %83
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %164
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %164 ], [ 0, %.preheader.i.i.i ]
-  %111 = getelementptr inbounds nuw %struct.cmap_table_bin, ptr %102, i64 %indvars.iv.i.i.i
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %indvars.iv.i.i.i
   %112 = load i32, ptr %111, align 4, !tbaa !31
   %113 = add i32 %112, %26
   %114 = call i32 @lv_fs_seek(ptr noundef nonnull %12, i32 noundef %113, i32 noundef 0) #3
@@ -228,7 +225,7 @@ load_cmaps.exit.thread78.i:                       ; preds = %83
 
 115:                                              ; preds = %.lr.ph.i.i.i
   %116 = load ptr, ptr %93, align 8, !tbaa !30
-  %117 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %116, i64 %indvars.iv.i.i.i
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %indvars.iv.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !33
   store i32 %119, ptr %117, align 8, !tbaa !34
@@ -390,7 +387,7 @@ read_label.exit75.i:                              ; preds = %173
 189:                                              ; preds = %.lr.ph.i
   %190 = load i16, ptr %11, align 2, !tbaa !50
   %191 = zext i16 %190 to i32
-  %192 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv.i
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv.i
   store i32 %191, ptr %192, align 4, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -539,7 +536,7 @@ define void @lv_binfont_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %26 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %23, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !44
   tail call void @lv_free(ptr noundef %28) #3
@@ -849,8 +846,8 @@ read_label.exit:                                  ; preds = %15
 34:                                               ; preds = %.lr.ph, %200
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %200 ]
   %.0127339 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %200 ]
-  %35 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_glyph_dsc_t, ptr %22, i64 %indvars.iv
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !29
   %38 = add i32 %37, %2
   %39 = call i32 @lv_fs_seek(ptr noundef nonnull %0, i32 noundef %38, i32 noundef 0) #3
@@ -1179,7 +1176,7 @@ read_bits.exit205:                                ; preds = %160
   br i1 %181, label %182, label %186
 
 182:                                              ; preds = %.loopexit301
-  %183 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %185 = load i32, ptr %184, align 4, !tbaa !29
   br label %186
@@ -1257,7 +1254,7 @@ read_bits.exit205:                                ; preds = %160
 216:                                              ; preds = %.lr.ph347, %320
   %indvars.iv380 = phi i64 [ 1, %.lr.ph347 ], [ %indvars.iv.next381, %320 ]
   %.5132346 = phi i32 [ 0, %.lr.ph347 ], [ %.7134, %320 ]
-  %217 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv380
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv380
   %218 = load i32, ptr %217, align 4, !tbaa !29
   %219 = add i32 %218, %2
   %220 = call i32 @lv_fs_seek(ptr noundef nonnull %0, i32 noundef %219, i32 noundef 0) #3
@@ -1310,7 +1307,7 @@ read_bits.exit205:                                ; preds = %160
 
 .loopexit:                                        ; preds = %240, %221
   %.pre.i237390 = phi i8 [ 0, %221 ], [ %241, %240 ]
-  %242 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_glyph_dsc_t, ptr %22, i64 %indvars.iv380
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv380
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %244 = load i8, ptr %243, align 4, !tbaa !83
   %245 = zext i8 %244 to i32
@@ -1326,7 +1323,7 @@ read_bits.exit205:                                ; preds = %160
   br i1 %252, label %253, label %257
 
 253:                                              ; preds = %251
-  %254 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv380
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv380
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %256 = load i32, ptr %255, align 4, !tbaa !29
   br label %257

@@ -27,20 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rawspeed::DataBuffer.base" = type { %"class.rawspeed::Buffer.base", i16 }
 %"class.rawspeed::Buffer.base" = type <{ ptr, i32 }>
 %"struct.std::array.181" = type { [4 x i8] }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.10" }
-%"struct.std::_Head_base.10" = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.rawspeed::VC5Decompressor::Channel" = type { %"struct.std::array.56" }
-%"struct.std::array.56" = type { [4 x %"class.rawspeed::VC5Decompressor::Wavelet"] }
-%"class.rawspeed::VC5Decompressor::Wavelet" = type <{ i32, i32, i16, [6 x i8], %"class.std::vector", i32, [4 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>, std::allocator<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>, std::allocator<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>, std::allocator<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>, std::allocator<std::unique_ptr<rawspeed::VC5Decompressor::Wavelet::AbstractBand>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.rawspeed::PrefixCode" = type { %"class.rawspeed::AbstractPrefixCode", %"class.std::vector.11", %"class.std::vector.23" }
 %"class.rawspeed::AbstractPrefixCode" = type { %"class.std::vector.11" }
 %"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
@@ -51,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.24" = type { %"struct.std::_Vector_base<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol, std::allocator<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol>>::_Vector_impl" }
 %"struct.std::_Vector_base<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol, std::allocator<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol>>::_Vector_impl" = type { %"struct.std::_Vector_base<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol, std::allocator<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol, std::allocator<rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol" = type <{ i32, i8, [3 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -298,7 +284,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
 .lr.ph108:                                        ; preds = %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i
   %.pre-phi.i.i.i = phi i64 [ 0, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %27, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
   %29 = phi ptr [ null, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %28, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %26
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %29, i64 %.pre-phi.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -342,7 +328,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %45 = shl nuw nsw i32 %12, 1
   %46 = icmp samesign ule i32 %45, %25
   %47 = zext nneg i32 %12 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %29, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %47
   %49 = zext nneg i32 %23 to i64
   %50 = zext nneg i32 %18 to i64
   %51 = zext nneg i32 %15 to i64
@@ -368,26 +354,26 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv125 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next126, %77 ]
   %55 = icmp samesign ult i64 %indvars.iv125, %47
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i16, ptr %.sroa.1878.32.copyload, i64 %indvars.iv125
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.1878.32.copyload, i64 %indvars.iv125
   %57 = load i16, ptr %56, align 2, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 47244640257, ptr %8, align 8
   store i64 8589934588, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !40
   %58 = icmp samesign ult i64 %indvars.iv125, %42
   tail call void @llvm.assume(i1 %58)
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %indvars.iv125
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv125
   br label %59
 
 59:                                               ; preds = %59, %54
   %indvars.iv.i.i.i.i = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.i.i.i, %59 ]
   %.067.i.i.i.i = phi i32 [ 0, %54 ], [ %67, %59 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %60 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i.i.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i
   %61 = load i32, ptr %60, align 4, !tbaa !33
   %62 = icmp samesign ult i64 %indvars.iv.i.i.i.i, %43
   tail call void @llvm.assume(i1 %62)
   %63 = mul nuw nsw i64 %indvars.iv.i.i.i.i, %41
-  %gep.i.i.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i, i64 %63
+  %gep.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i.i.i, i64 %63
   %64 = load i16, ptr %gep.i.i.i.i, align 2, !tbaa !39
   %65 = sext i16 %64 to i32
   %66 = mul nsw i32 %61, %65
@@ -406,12 +392,12 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i32.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i34.i, %68 ]
   %.067.i.i.i33.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %76, %68 ]
   %indvars.iv.next.i.i.i34.i = add nuw nsw i64 %indvars.iv.i.i.i32.i, 1
-  %69 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i.i.i34.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next.i.i.i34.i
   %70 = load i32, ptr %69, align 4, !tbaa !33
   %71 = icmp samesign ult i64 %indvars.iv.i.i.i32.i, %43
   tail call void @llvm.assume(i1 %71)
   %72 = mul nuw nsw i64 %indvars.iv.i.i.i32.i, %41
-  %gep.i.i.i35.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i, i64 %72
+  %gep.i.i.i35.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i.i.i, i64 %72
   %73 = load i16, ptr %gep.i.i.i35.i, align 2, !tbaa !39
   %74 = sext i16 %73 to i32
   %75 = mul nsw i32 %70, %74
@@ -431,10 +417,10 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %85 = sub nsw i32 %84, %80
   %86 = lshr i32 %85, 1
   %87 = trunc i32 %82 to i16
-  %88 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv125
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv125
   store i16 %87, ptr %88, align 2, !tbaa !39
   %89 = trunc i32 %86 to i16
-  %90 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv125
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %indvars.iv125
   store i16 %89, ptr %90, align 2, !tbaa !39
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %47
@@ -446,7 +432,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %94 = icmp samesign ult i64 %indvars.iv130, %51
   tail call void @llvm.assume(i1 %94)
   %95 = mul nuw nsw i64 %indvars.iv130, %50
-  %96 = getelementptr inbounds nuw i16, ptr %.sroa.1878.32.copyload, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.1878.32.copyload, i64 %95
   tail call void @llvm.assume(i1 %38)
   tail call void @llvm.assume(i1 %39)
   tail call void @llvm.assume(i1 %40)
@@ -461,7 +447,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %101 = add nuw nsw i64 %100, %47
   %102 = icmp samesign ule i64 %101, %26
   tail call void @llvm.assume(i1 %102)
-  %103 = getelementptr inbounds nuw i16, ptr %29, i64 %100
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %100
   %104 = or disjoint i64 %99, 1
   %105 = icmp samesign ult i64 %104, %49
   tail call void @llvm.assume(i1 %105)
@@ -469,7 +455,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %107 = add nuw nsw i64 %106, %47
   %108 = icmp samesign ule i64 %107, %26
   tail call void @llvm.assume(i1 %108)
-  %109 = getelementptr inbounds nuw i16, ptr %29, i64 %106
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %106
   br label %161
 
 .lr.ph103:                                        ; preds = %91
@@ -479,7 +465,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %113 = add nuw nsw i64 %112, %47
   %114 = icmp samesign ule i64 %113, %26
   tail call void @llvm.assume(i1 %114)
-  %115 = getelementptr inbounds nuw i16, ptr %29, i64 %112
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %112
   %116 = or disjoint i64 %111, 1
   %117 = icmp samesign ult i64 %116, %49
   tail call void @llvm.assume(i1 %117)
@@ -487,34 +473,34 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %119 = add nuw nsw i64 %118, %47
   %120 = icmp samesign ule i64 %119, %26
   tail call void @llvm.assume(i1 %120)
-  %121 = getelementptr inbounds nuw i16, ptr %29, i64 %118
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %118
   br label %122
 
 122:                                              ; preds = %.lr.ph103, %147
   %indvars.iv120 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next121, %147 ]
   %123 = icmp samesign ult i64 %indvars.iv120, %47
   tail call void @llvm.assume(i1 %123)
-  %124 = getelementptr inbounds nuw i16, ptr %96, i64 %indvars.iv120
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %indvars.iv120
   %125 = load i16, ptr %124, align 2, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 4294967297, ptr %6, align 8
   store i64 -4294967288, ptr %.sroa.3.0..sroa_idx.i.i.i33, align 8, !tbaa !40
   %126 = icmp samesign ult i64 %indvars.iv120, %42
   tail call void @llvm.assume(i1 %126)
-  %invariant.gep.i.i.i.i34 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %indvars.iv120
+  %invariant.gep.i.i.i.i34 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv120
   br label %127
 
 127:                                              ; preds = %127, %122
   %indvars.iv.i.i.i.i35 = phi i64 [ 0, %122 ], [ %indvars.iv.next.i.i.i.i37, %127 ]
   %.067.i.i.i.i36 = phi i32 [ 0, %122 ], [ %136, %127 ]
   %indvars.iv.next.i.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i.i35, 1
-  %128 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next.i.i.i.i37
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i37
   %129 = load i32, ptr %128, align 4, !tbaa !33
   %130 = add nuw nsw i64 %indvars.iv.i.i.i.i35, %110
   %131 = icmp samesign ult i64 %130, %43
   tail call void @llvm.assume(i1 %131)
   %132 = mul nuw nsw i64 %130, %41
-  %gep.i.i.i.i38 = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i34, i64 %132
+  %gep.i.i.i.i38 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i.i.i34, i64 %132
   %133 = load i16, ptr %gep.i.i.i.i38, align 2, !tbaa !39
   %134 = sext i16 %133 to i32
   %135 = mul nsw i32 %129, %134
@@ -533,13 +519,13 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i33.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i35.i, %137 ]
   %.067.i.i.i34.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %146, %137 ]
   %indvars.iv.next.i.i.i35.i = add nuw nsw i64 %indvars.iv.i.i.i33.i, 1
-  %138 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i.i.i35.i
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next.i.i.i35.i
   %139 = load i32, ptr %138, align 4, !tbaa !33
   %140 = add nuw nsw i64 %indvars.iv.i.i.i33.i, %110
   %141 = icmp samesign ult i64 %140, %43
   tail call void @llvm.assume(i1 %141)
   %142 = mul nuw nsw i64 %140, %41
-  %gep.i.i.i36.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i34, i64 %142
+  %gep.i.i.i36.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i.i.i34, i64 %142
   %143 = load i16, ptr %gep.i.i.i36.i, align 2, !tbaa !39
   %144 = sext i16 %143 to i32
   %145 = mul nsw i32 %139, %144
@@ -559,10 +545,10 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %155 = sub nsw i32 %154, %150
   %156 = lshr i32 %155, 1
   %157 = trunc i32 %152 to i16
-  %158 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv120
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %indvars.iv120
   store i16 %157, ptr %158, align 2, !tbaa !39
   %159 = trunc i32 %156 to i16
-  %160 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv120
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %121, i64 %indvars.iv120
   store i16 %159, ptr %160, align 2, !tbaa !39
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %47
@@ -572,27 +558,27 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %186 ]
   %162 = icmp samesign ult i64 %indvars.iv, %47
   tail call void @llvm.assume(i1 %162)
-  %163 = getelementptr inbounds nuw i16, ptr %96, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %indvars.iv
   %164 = load i16, ptr %163, align 2, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -4294967295, ptr %4, align 8
   store i64 21474836484, ptr %.sroa.3.0..sroa_idx.i.i.i60, align 8, !tbaa !40
   %165 = icmp samesign ult i64 %indvars.iv, %42
   tail call void @llvm.assume(i1 %165)
-  %invariant.gep.i.i.i.i62 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %invariant.gep.i.i.i.i62 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %166
 
 166:                                              ; preds = %166, %161
   %indvars.iv.i.i.i.i63 = phi i64 [ 0, %161 ], [ %indvars.iv.next.i.i.i.i65, %166 ]
   %.067.i.i.i.i64 = phi i32 [ 0, %161 ], [ %175, %166 ]
   %indvars.iv.next.i.i.i.i65 = add nuw nsw i64 %indvars.iv.i.i.i.i63, 1
-  %167 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i.i.i.i65
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i.i.i.i65
   %168 = load i32, ptr %167, align 4, !tbaa !33
   %169 = add nuw nsw i64 %indvars.iv.i.i.i.i63, %97
   %170 = icmp samesign ult i64 %169, %43
   tail call void @llvm.assume(i1 %170)
   %171 = mul nuw nsw i64 %169, %41
-  %gep.i.i.i.i66 = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i62, i64 %171
+  %gep.i.i.i.i66 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i.i.i62, i64 %171
   %172 = load i16, ptr %gep.i.i.i.i66, align 2, !tbaa !39
   %173 = sext i16 %172 to i32
   %174 = mul nsw i32 %168, %173
@@ -611,13 +597,13 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i33.i69 = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i35.i71, %176 ]
   %.067.i.i.i34.i70 = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %185, %176 ]
   %indvars.iv.next.i.i.i35.i71 = add nuw nsw i64 %indvars.iv.i.i.i33.i69, 1
-  %177 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.i.i35.i71
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i.i.i35.i71
   %178 = load i32, ptr %177, align 4, !tbaa !33
   %179 = add nuw nsw i64 %indvars.iv.i.i.i33.i69, %97
   %180 = icmp samesign ult i64 %179, %43
   tail call void @llvm.assume(i1 %180)
   %181 = mul nuw nsw i64 %179, %41
-  %gep.i.i.i36.i72 = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i62, i64 %181
+  %gep.i.i.i36.i72 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i.i.i62, i64 %181
   %182 = load i16, ptr %gep.i.i.i36.i72, align 2, !tbaa !39
   %183 = sext i16 %182 to i32
   %184 = mul nsw i32 %178, %183
@@ -637,10 +623,10 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %194 = sub nsw i32 %193, %189
   %195 = lshr i32 %194, 1
   %196 = trunc i32 %191 to i16
-  %197 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %indvars.iv
   store i16 %196, ptr %197, align 2, !tbaa !39
   %198 = trunc i32 %195 to i16
-  %199 = getelementptr inbounds nuw i16, ptr %109, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %indvars.iv
   store i16 %198, ptr %199, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %47
@@ -719,7 +705,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
 .lr.ph98:                                         ; preds = %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i
   %.pre-phi.i.i.i = phi i64 [ 0, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %28, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
   %30 = phi ptr [ null, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %29, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %27
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %27
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %30, i64 %.pre-phi.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -780,7 +766,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %53 = icmp samesign ult i64 %indvars.iv, %51
   tail call void @llvm.assume(i1 %53)
   %54 = mul nuw nsw i64 %indvars.iv, %50
-  %55 = getelementptr inbounds nuw i16, ptr %.sroa.1871.32.copyload, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.1871.32.copyload, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 47244640257, ptr %11, align 8
@@ -788,18 +774,18 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %57 = icmp samesign ult i64 %indvars.iv, %49
   tail call void @llvm.assume(i1 %57)
   %58 = mul nuw nsw i64 %indvars.iv, %48
-  %59 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload, i64 %58
   br label %60
 
 60:                                               ; preds = %60, %52
   %indvars.iv.i.i.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i.i.i, %60 ]
   %.067.i.i.i.i = phi i32 [ 0, %52 ], [ %68, %60 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %61 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.next.i.i.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !33
   %63 = icmp samesign ult i64 %indvars.iv.i.i.i.i, %42
   tail call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv.i.i.i.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv.i.i.i.i
   %65 = load i16, ptr %64, align 2, !tbaa !39
   %66 = sext i16 %65 to i32
   %67 = mul nsw i32 %62, %66
@@ -818,11 +804,11 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i34.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i36.i, %69 ]
   %.067.i.i.i35.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %77, %69 ]
   %indvars.iv.next.i.i.i36.i = add nuw nsw i64 %indvars.iv.i.i.i34.i, 1
-  %70 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i.i.i36.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next.i.i.i36.i
   %71 = load i32, ptr %70, align 4, !tbaa !33
   %72 = icmp samesign ult i64 %indvars.iv.i.i.i34.i, %42
   tail call void @llvm.assume(i1 %72)
-  %73 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv.i.i.i34.i
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv.i.i.i34.i
   %74 = load i16, ptr %73, align 2, !tbaa !39
   %75 = sext i16 %74 to i32
   %76 = mul nsw i32 %71, %75
@@ -860,7 +846,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %94 = add nuw nsw i64 %93, %44
   %95 = icmp samesign ule i64 %94, %27
   tail call void @llvm.assume(i1 %95)
-  %96 = getelementptr inbounds nuw i16, ptr %30, i64 %93
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %93
   store i16 %92, ptr %96, align 2, !tbaa !39
   %97 = trunc i32 %.06.i to i16
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 2
@@ -871,7 +857,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %"_ZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaii.exit" ], [ 1, %"_ZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaii.exit" ]
   %99 = icmp samesign ult i64 %indvars.iv106, %45
   tail call void @llvm.assume(i1 %99)
-  %100 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv106
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv106
   %101 = load i16, ptr %100, align 2, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 4294967297, ptr %9, align 8
@@ -883,12 +869,12 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i25 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i.i.i27, %103 ]
   %.067.i.i.i.i26 = phi i32 [ 0, %.lr.ph ], [ %112, %103 ]
   %indvars.iv.next.i.i.i.i27 = add nuw nsw i64 %indvars.iv.i.i.i.i25, 1
-  %104 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next.i.i.i.i27
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next.i.i.i.i27
   %105 = load i32, ptr %104, align 4, !tbaa !33
   %106 = add nuw nsw i64 %indvars.iv.i.i.i.i25, %102
   %107 = icmp samesign ult i64 %106, %42
   tail call void @llvm.assume(i1 %107)
-  %108 = getelementptr inbounds nuw i16, ptr %59, i64 %106
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %106
   %109 = load i16, ptr %108, align 2, !tbaa !39
   %110 = sext i16 %109 to i32
   %111 = mul nsw i32 %105, %110
@@ -907,12 +893,12 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i35.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i, %113 ]
   %.067.i.i.i36.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %122, %113 ]
   %indvars.iv.next.i.i.i37.i = add nuw nsw i64 %indvars.iv.i.i.i35.i, 1
-  %114 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i.i.i37.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next.i.i.i37.i
   %115 = load i32, ptr %114, align 4, !tbaa !33
   %116 = add nuw nsw i64 %indvars.iv.i.i.i35.i, %102
   %117 = icmp samesign ult i64 %116, %42
   tail call void @llvm.assume(i1 %117)
-  %118 = getelementptr inbounds nuw i16, ptr %59, i64 %116
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %116
   %119 = load i16, ptr %118, align 2, !tbaa !39
   %120 = sext i16 %119 to i32
   %121 = mul nsw i32 %115, %120
@@ -947,13 +933,13 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %.0.i31 = phi i32 [ %135, %134 ], [ %128, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i" ]
   %137 = trunc i32 %.0.i31 to i16
   %138 = shl nuw nsw i64 %indvars.iv106, 1
-  %139 = getelementptr inbounds nuw i16, ptr %96, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %138
   store i16 %137, ptr %139, align 2, !tbaa !39
   %140 = trunc i32 %.06.i30 to i16
   %141 = or disjoint i64 %138, 1
   %142 = icmp samesign ult i64 %141, %44
   tail call void @llvm.assume(i1 %142)
-  %143 = getelementptr inbounds nuw i16, ptr %96, i64 %141
+  %143 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %141
   store i16 %140, ptr %143, align 2, !tbaa !39
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
@@ -964,7 +950,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %144 = icmp samesign ult i32 %.0.lcssa, %13
   tail call void @llvm.assume(i1 %144)
   %145 = zext nneg i32 %.0.lcssa to i64
-  %146 = getelementptr inbounds nuw i16, ptr %55, i64 %145
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -4294967295, ptr %7, align 8
@@ -979,12 +965,12 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i54 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i.i.i56, %150 ]
   %.067.i.i.i.i55 = phi i32 [ 0, %._crit_edge ], [ %159, %150 ]
   %indvars.iv.next.i.i.i.i56 = add nuw nsw i64 %indvars.iv.i.i.i.i54, 1
-  %151 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i.i.i.i56
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next.i.i.i.i56
   %152 = load i32, ptr %151, align 4, !tbaa !33
   %153 = add nuw nsw i64 %indvars.iv.i.i.i.i54, %148
   %154 = icmp samesign ult i64 %153, %42
   tail call void @llvm.assume(i1 %154)
-  %155 = getelementptr inbounds nuw i16, ptr %59, i64 %153
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %153
   %156 = load i16, ptr %155, align 2, !tbaa !39
   %157 = sext i16 %156 to i32
   %158 = mul nsw i32 %152, %157
@@ -1003,12 +989,12 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i35.i59 = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i61, %160 ]
   %.067.i.i.i36.i60 = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %169, %160 ]
   %indvars.iv.next.i.i.i37.i61 = add nuw nsw i64 %indvars.iv.i.i.i35.i59, 1
-  %161 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next.i.i.i37.i61
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next.i.i.i37.i61
   %162 = load i32, ptr %161, align 4, !tbaa !33
   %163 = add nuw nsw i64 %indvars.iv.i.i.i35.i59, %148
   %164 = icmp samesign ult i64 %163, %42
   tail call void @llvm.assume(i1 %164)
-  %165 = getelementptr inbounds nuw i16, ptr %59, i64 %163
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %163
   %166 = load i16, ptr %165, align 2, !tbaa !39
   %167 = sext i16 %166 to i32
   %168 = mul nsw i32 %162, %167
@@ -1044,14 +1030,14 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %185 = trunc i32 %.0.i64 to i16
   %186 = shl nuw nsw i32 %.0.lcssa, 1
   %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw i16, ptr %96, i64 %187
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %187
   store i16 %185, ptr %188, align 2, !tbaa !39
   %189 = trunc i32 %.06.i63 to i16
   %190 = or disjoint i32 %186, 1
   %191 = icmp samesign ult i32 %190, %24
   tail call void @llvm.assume(i1 %191)
   %192 = zext nneg i32 %190 to i64
-  %193 = getelementptr inbounds nuw i16, ptr %96, i64 %192
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %192
   store i16 %189, ptr %193, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, %51
@@ -1886,9 +1872,9 @@ _ZNSt6vectorISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandESt
 
 _ZNSt12_Vector_baseISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit37.i: ; preds = %145, %_ZNSt6vectorISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i
   store ptr %139, ptr %116, align 8, !tbaa !69
-  %147 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %140, i64 %128
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %128
   store ptr %147, ptr %119, align 8, !tbaa !74
-  %148 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %139, i64 %137
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %137
   store ptr %148, ptr %129, align 8, !tbaa !204
   br label %_ZNSt6vectorISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandESt14default_deleteIS4_EESaIS7_EE6resizeEm.exit
 
@@ -1897,7 +1883,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12Abstract
   br i1 %150, label %151, label %_ZNSt6vectorISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandESt14default_deleteIS4_EESaIS7_EE6resizeEm.exit
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %121, i64 %118
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %118
   %.not.i.i = icmp eq ptr %120, %152
   br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandESt14default_deleteIS4_EESaIS7_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -2176,7 +2162,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit60:         ; preds = %_ZN8rawspeed10ByteS
 .preheader:                                       ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit60
   %59 = load i16, ptr %19, align 8, !tbaa !222
   %60 = zext i16 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.rawspeed::VC5Decompressor::Channel", ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw [192 x i8], ptr %0, i64 %60
   %62 = zext i16 %spec.select.i.i.i.i.i.i59 to i32
   br label %119
 
@@ -2325,7 +2311,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit60:         ; preds = %_ZN8rawspeed10ByteS
 119:                                              ; preds = %.preheader, %119
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %119 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %120 = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %61, i64 %indvars.iv.next
+  %120 = getelementptr inbounds nuw [48 x i8], ptr %61, i64 %indvars.iv.next
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %121 = shl i32 %indvars.iv.tr, 1
   %122 = sub i32 14, %121
@@ -2664,7 +2650,7 @@ _ZNKSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS
 
 _ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS4_EE17_M_realloc_insertIJRKjRKhEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %34, %.noexc25
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.056.1106, i64 noundef %19) #36
-  %35 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   br label %_ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS4_EE12emplace_backIJRKjRKhEEERS4_DpOT_.exit
 
 _ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS4_EE12emplace_backIJRKjRKhEEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS4_EE17_M_realloc_insertIJRKjRKhEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %12
@@ -2779,7 +2765,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %63
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %78, %.noexc30
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1110, i64 noundef %66) #36
-  %79 = getelementptr inbounds nuw i32, ptr %75, i64 %73
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %73
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJRjEEES3_DpOT_.exit
 
 _ZNSt6vectorIjSaIjEE12emplace_backIJRjEEES3_DpOT_.exit: ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %62
@@ -3157,7 +3143,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIjSaIj
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.014.023, i64 4
   %84 = load i8, ptr %83, align 4, !tbaa !249
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %78, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !33
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 4, !tbaa !33
@@ -3256,7 +3242,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
 
 36:                                               ; preds = %.lr.ph70, %._crit_edge
   %.04669 = phi i64 [ 0, %.lr.ph70 ], [ %102, %._crit_edge ]
-  %37 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol", ptr %22, i64 %.04669
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.04669
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i8, ptr %38, align 4, !tbaa !249
   %.fr100 = freeze i8 %39
@@ -3277,7 +3263,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   br i1 %.not5261, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42
-  %50 = getelementptr inbounds nuw i32, ptr %28, i64 %.04669
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.04669
   %51 = load i32, ptr %50, align 4, !tbaa !33
   %.fr = freeze i32 %51
   %52 = load i8, ptr %0, align 8, !range !58
@@ -3317,7 +3303,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
 
 .thread.us.us:                                    ; preds = %.lr.ph.split.us.split.us
   tail call void @llvm.assume(i1 %69)
-  %73 = getelementptr inbounds nuw i32, ptr %30, i64 %71
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %71
   store i32 %55, ptr %73, align 4, !tbaa !33
   %74 = add i16 %.04562.us.us, 1
   %.not52.us.us = icmp ugt i16 %74, %49
@@ -3341,7 +3327,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   br i1 %77, label %78, label %.split65.us
 
 78:                                               ; preds = %.lr.ph.split.us.split.split.us.split.us
-  %79 = getelementptr inbounds nuw i32, ptr %30, i64 %76
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %76
   store i32 %63, ptr %79, align 4, !tbaa !33
   %80 = add i16 %.04562.us.us66.us, 1
   %.not52.us.us67.us = icmp ugt i16 %80, %49
@@ -3354,7 +3340,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   br i1 %82, label %.split.us.us, label %.split65.us
 
 .split.us.us:                                     ; preds = %.lr.ph.split.us.split.split.us.split
-  %83 = getelementptr inbounds nuw i32, ptr %30, i64 %81
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %81
   tail call void @llvm.assume(i1 %64)
   %84 = zext i16 %.04562.us.us66 to i32
   %85 = lshr i32 %84, %65
@@ -3377,7 +3363,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   br i1 %94, label %.split49.us, label %.split65.us
 
 .split49.us:                                      ; preds = %.lr.ph.split.us.split.split
-  %95 = getelementptr inbounds nuw i32, ptr %30, i64 %93
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %93
   store i32 %75, ptr %95, align 4, !tbaa !33
   %96 = add i16 %.04562.us, 1
   %.not52.us = icmp ugt i16 %96, %49
@@ -3394,7 +3380,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   unreachable
 
 99:                                               ; preds = %.lr.ph.split
-  %100 = getelementptr inbounds nuw i32, ptr %30, i64 %97
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %97
   store i32 %56, ptr %100, align 4, !tbaa !33
   %101 = add i16 %.04562, 1
   %.not52 = icmp ugt i16 %101, %49
@@ -3534,7 +3520,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %22
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %36, %.noexc5.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val3.val.i.i, i64 noundef %24) #36
-  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %31
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   br label %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i
 
 _ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i: ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i, %21
@@ -3616,16 +3602,16 @@ define hidden void @_ZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10Byte
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i16, ptr %8, align 2, !tbaa !39
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE21subband_wavelet_index, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE21subband_wavelet_index, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !33
-  %14 = getelementptr inbounds nuw i32, ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE18subband_band_index, i64 %11
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE18subband_band_index, i64 %11
   %15 = load i32, ptr %14, align 4, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %17 = load i16, ptr %9, align 8, !tbaa !222
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.rawspeed::VC5Decompressor::Channel", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [192 x i8], ptr %16, i64 %18
   %20 = sext i32 %13 to i64
-  %21 = getelementptr %"class.rawspeed::VC5Decompressor::Wavelet", ptr %19, i64 %20
+  %21 = getelementptr [48 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 48
   %23 = getelementptr i8, ptr %21, i64 88
   %24 = load i32, ptr %23, align 8, !tbaa !6
@@ -3643,7 +3629,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10Byte
   %30 = getelementptr i8, ptr %21, i64 64
   %31 = sext i32 %15 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !69
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = icmp eq i16 %10, 0
   br i1 %34, label %35, label %81
 
@@ -4182,7 +4168,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
 16:                                               ; preds = %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i
   %.pre-phi.i.i.i = phi i64 [ 0, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %12, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
   %17 = phi ptr [ null, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %13, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %10
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %10
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %17, i64 %.pre-phi.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4238,7 +4224,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %.sroa.6.031.us = phi i32 [ %71, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.sroa.012.030.us = phi i64 [ %72, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %42 = mul nuw nsw i64 %indvars.iv38, %41
-  %43 = getelementptr inbounds nuw i16, ptr %17, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %42
   br label %44
 
 44:                                               ; preds = %.preheader.us, %67
@@ -4300,7 +4286,7 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getI
   %70 = lshr i64 %68, %39
   %71 = sub nsw i32 %69, %34
   %72 = shl i64 %68, %40
-  %73 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv
   %74 = trunc i64 %70 to i16
   store i16 %74, ptr %73, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4408,7 +4394,7 @@ _ZN8rawspeed15VC5Decompressor8BandDataC2Eii.exit: ; preds = %_ZNSt16allocator_tr
   %30 = phi i32 [ %23, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %.pre, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
   %.pre-phi.i.i.i = phi i64 [ 0, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %28, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
   %31 = phi ptr [ null, %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %29, %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %26
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %26
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %31, i64 %.pre-phi.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4464,7 +4450,7 @@ _ZN8rawspeed15VC5Decompressor8BandDataC2Eii.exit: ; preds = %_ZNSt16allocator_tr
   %indvars.iv68 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next69, %._crit_edge ]
   %57 = icmp samesign ult i64 %indvars.iv68, %53
   %58 = mul nuw nsw i64 %indvars.iv68, %52
-  %59 = getelementptr inbounds nuw i16, ptr %31, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %58
   br label %63
 
 ._crit_edge55:                                    ; preds = %._crit_edge
@@ -4577,7 +4563,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %95 = phi i32 [ %88, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i ], [ %66, %68 ]
   %96 = lshr i64 %94, 53
   %97 = load ptr, ptr %44, align 8, !tbaa !272
-  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %96
   %99 = load i32, ptr %98, align 4, !tbaa !33
   %100 = ashr i32 %99, 9
   %101 = and i32 %99, 255
@@ -4636,7 +4622,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %130 = or disjoint i32 %128, %129
   %131 = add i8 %.sroa.5.030.i.i, 1
   %132 = zext i8 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %118, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !33
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %136 = load i32, ptr %135, align 4, !tbaa !33
@@ -4655,7 +4641,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 .critedge.i.i:                                    ; preds = %138, %.critedge.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %137, %.critedge.preheader.i.i ], [ %indvars.iv.next.i.i, %138 ]
-  %139 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol", ptr %119, i64 %indvars.iv.i.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv.i.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i8, ptr %140, align 4, !tbaa !249
   %142 = icmp eq i8 %131, %141
@@ -4681,7 +4667,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 _ZNK8rawspeed23PrefixCodeVectorDecoderINS_10VC5CodeTagEE26finishReadingPartialSymbolINS_14BitStreamerMSBEEESt4pairINS_18AbstractPrefixCodeIS1_E10CodeSymbolEiERT_S8_.exit.i: ; preds = %.critedge.i.i
   store i64 %127, ptr %9, align 8, !tbaa !312
   %146 = load ptr, ptr %49, align 8, !tbaa !215
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %indvars.iv.i.i
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv.i.i
   %148 = load i32, ptr %147, align 4, !tbaa !33
   br label %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoderIS1_EEE6decodeINS_14BitStreamerMSBELb0EEEiRT_.exit.i
 
@@ -4746,7 +4732,7 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoder
   %169 = icmp samesign ult i64 %indvars.iv, %52
   tail call void @llvm.assume(i1 %169)
   tail call void @llvm.assume(i1 %57)
-  %170 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv
   store i16 %.pre.i44, ptr %170, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not13 = icmp eq i64 %indvars.iv.next, %54
@@ -4788,7 +4774,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTas
 3:                                                ; preds = %2, %.critedge28
   %indvars.iv36 = phi i64 [ 3, %2 ], [ %indvars.iv.next37, %.critedge28 ]
   %4 = icmp eq i64 %indvars.iv36, 0
-  %invariant.gep = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36
+  %invariant.gep = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv36
   %5 = select i1 %4, i64 0, i64 3
   br label %.preheader
 
@@ -4806,7 +4792,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTas
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.025.idx31
   %8 = getelementptr inbounds nuw i8, ptr %gep, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !69
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = load ptr, ptr %0, align 8, !tbaa !82
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4839,7 +4825,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor12decodeThreadERb(ptr noundef 
 3:                                                ; preds = %.critedge28.i, %2
   %indvars.iv36.i = phi i64 [ 3, %2 ], [ %indvars.iv.next37.i, %.critedge28.i ]
   %4 = icmp eq i64 %indvars.iv36.i, 0
-  %invariant.gep.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i
+  %invariant.gep.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv36.i
   %5 = select i1 %4, i64 0, i64 3
   br label %.preheader.i
 
@@ -4857,7 +4843,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor12decodeThreadERb(ptr noundef 
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.025.idx31.i
   %8 = getelementptr inbounds nuw i8, ptr %gep.i, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !69
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = load ptr, ptr %0, align 8, !tbaa !82
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4948,7 +4934,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor6decodeEjjjj(ptr noundef nonnul
 19:                                               ; preds = %.critedge28.i.i, %18
   %indvars.iv36.i.i = phi i64 [ 3, %18 ], [ %indvars.iv.next37.i.i, %.critedge28.i.i ]
   %20 = icmp eq i64 %indvars.iv36.i.i, 0
-  %invariant.gep.i.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i.i
+  %invariant.gep.i.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv36.i.i
   %21 = select i1 %20, i64 0, i64 3
   br label %.preheader.i.i
 
@@ -4966,7 +4952,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor6decodeEjjjj(ptr noundef nonnul
   %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.025.idx31.i.i
   %24 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !69
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !70
   %28 = load ptr, ptr %0, align 8, !tbaa !82
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -5193,19 +5179,19 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %71 = icmp samesign ult i64 %indvars.iv324, %63
   tail call void @llvm.assume(i1 %71)
   %72 = mul nuw nsw i64 %indvars.iv324, %64
-  %73 = getelementptr inbounds nuw i16, ptr %.sroa.0257.0.copyload, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0257.0.copyload, i64 %72
   %74 = icmp samesign ult i64 %indvars.iv324, %65
   tail call void @llvm.assume(i1 %74)
   %75 = mul nuw nsw i64 %indvars.iv324, %66
-  %76 = getelementptr inbounds nuw i16, ptr %.sroa.0270.0.copyload, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0270.0.copyload, i64 %75
   %77 = icmp samesign ult i64 %indvars.iv324, %67
   tail call void @llvm.assume(i1 %77)
   %78 = mul nuw nsw i64 %indvars.iv324, %68
-  %79 = getelementptr inbounds nuw i16, ptr %.sroa.0284.0.copyload, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0284.0.copyload, i64 %78
   %80 = icmp samesign ult i64 %indvars.iv324, %69
   tail call void @llvm.assume(i1 %80)
   %81 = mul nuw nsw i64 %indvars.iv324, %70
-  %82 = getelementptr inbounds nuw i16, ptr %.sroa.0298.0.copyload, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0298.0.copyload, i64 %81
   %83 = shl nuw nsw i64 %indvars.iv324, 1
   br label %84
 
@@ -5213,21 +5199,21 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %indvars.iv321 = phi i64 [ 0, %.preheader308.us ], [ %indvars.iv.next322, %118 ]
   %85 = icmp samesign ult i64 %indvars.iv321, %59
   tail call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv321
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %indvars.iv321
   %87 = load i16, ptr %86, align 2, !tbaa !39
   %88 = sext i16 %87 to i32
   %89 = icmp samesign ult i64 %indvars.iv321, %60
   tail call void @llvm.assume(i1 %89)
-  %90 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv321
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %indvars.iv321
   %91 = load i16, ptr %90, align 2, !tbaa !39
   %92 = sext i16 %91 to i32
   %93 = icmp samesign ult i64 %indvars.iv321, %61
   tail call void @llvm.assume(i1 %93)
-  %94 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv321
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %indvars.iv321
   %95 = load i16, ptr %94, align 2, !tbaa !39
   %96 = icmp samesign ult i64 %indvars.iv321, %62
   tail call void @llvm.assume(i1 %96)
-  %97 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv321
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 %indvars.iv321
   %98 = sext i16 %95 to i32
   %99 = load i16, ptr %97, align 2, !tbaa !39
   %100 = sext i16 %99 to i32
@@ -5253,7 +5239,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %.sroa.speculate.load.false.sroa.speculated.i.i.us = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
   %111 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i.i.us, i32 4095)
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %55, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !33
   store i32 %114, ptr %.048.ptr.us, align 4, !tbaa !33
   %.048.add.us = add nuw nsw i64 %.048.idx309.us, 4
@@ -5286,14 +5272,14 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %122 = icmp samesign ult i64 %121, %57
   tail call void @llvm.assume(i1 %122)
   %123 = mul nuw nsw i64 %121, %58
-  %124 = getelementptr inbounds nuw i16, ptr %5, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %123
   %125 = load i32, ptr %120, align 8, !tbaa !33
-  %126 = getelementptr inbounds nuw i16, ptr %124, i64 %115
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %115
   %127 = trunc i32 %125 to i16
   store i16 %127, ptr %126, align 2, !tbaa !39
   %128 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %129 = load i32, ptr %128, align 4, !tbaa !33
-  %130 = getelementptr inbounds nuw i16, ptr %124, i64 %116
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %116
   %131 = trunc i32 %129 to i16
   store i16 %131, ptr %130, align 2, !tbaa !39
   br i1 %119, label %.preheader.us, label %118, !llvm.loop !344
@@ -5443,9 +5429,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %wide.trip.count325 = zext nneg i32 %26 to i64
   %wide.trip.count = zext nneg i32 %25 to i64
   %79 = xor i64 %63, -1
-  %80 = getelementptr i32, ptr %4, i64 %79
+  %80 = getelementptr [4 x i8], ptr %4, i64 %79
   %81 = ptrtoint ptr %62 to i64
-  %82 = getelementptr i32, ptr %80, i64 %81
+  %82 = getelementptr [4 x i8], ptr %80, i64 %81
   br label %.preheader306.us
 
 .preheader306.us:                                 ; preds = %.preheader306.us.preheader, %._crit_edge.us
@@ -5453,19 +5439,19 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %83 = icmp samesign ult i64 %indvars.iv322, %71
   call void @llvm.assume(i1 %83)
   %84 = mul nuw nsw i64 %indvars.iv322, %72
-  %85 = getelementptr inbounds nuw i16, ptr %.sroa.0257.0.copyload, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0257.0.copyload, i64 %84
   %86 = icmp samesign ult i64 %indvars.iv322, %73
   call void @llvm.assume(i1 %86)
   %87 = mul nuw nsw i64 %indvars.iv322, %74
-  %88 = getelementptr inbounds nuw i16, ptr %.sroa.0270.0.copyload, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0270.0.copyload, i64 %87
   %89 = icmp samesign ult i64 %indvars.iv322, %75
   call void @llvm.assume(i1 %89)
   %90 = mul nuw nsw i64 %indvars.iv322, %76
-  %91 = getelementptr inbounds nuw i16, ptr %.sroa.0284.0.copyload, i64 %90
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0284.0.copyload, i64 %90
   %92 = icmp samesign ult i64 %indvars.iv322, %77
   call void @llvm.assume(i1 %92)
   %93 = mul nuw nsw i64 %indvars.iv322, %78
-  %94 = getelementptr inbounds nuw i16, ptr %.sroa.0298.0.copyload, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0298.0.copyload, i64 %93
   %95 = shl nuw nsw i64 %indvars.iv322, 1
   br label %96
 
@@ -5473,21 +5459,21 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %indvars.iv319 = phi i64 [ 0, %.preheader306.us ], [ %indvars.iv.next320, %142 ]
   %97 = icmp samesign ult i64 %indvars.iv319, %67
   call void @llvm.assume(i1 %97)
-  %98 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv319
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %indvars.iv319
   %99 = load i16, ptr %98, align 2, !tbaa !39
   %100 = sext i16 %99 to i32
   %101 = icmp samesign ult i64 %indvars.iv319, %68
   call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv319
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %indvars.iv319
   %103 = load i16, ptr %102, align 2, !tbaa !39
   %104 = sext i16 %103 to i32
   %105 = icmp samesign ult i64 %indvars.iv319, %69
   call void @llvm.assume(i1 %105)
-  %106 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv319
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv319
   %107 = load i16, ptr %106, align 2, !tbaa !39
   %108 = icmp samesign ult i64 %indvars.iv319, %70
   call void @llvm.assume(i1 %108)
-  %109 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv319
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv319
   %110 = sext i16 %107 to i32
   %111 = load i16, ptr %109, align 2, !tbaa !39
   %112 = sext i16 %111 to i32
@@ -5513,7 +5499,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %.sroa.speculate.load.false.sroa.speculated.i.i.us = call i32 @llvm.smax.i32(i32 %122, i32 0)
   %123 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i.i.us, i32 4095)
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %59, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !33
   store i32 %126, ptr %.048.ptr.us, align 4, !tbaa !33
   %.048.add.us = add nuw nsw i64 %.048.idx307.us, 4
@@ -5535,7 +5521,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %indvars.iv71.i.i.us = phi i64 [ 0, %127 ], [ 1, %.preheader.i.i.us ]
   %129 = shl nuw nsw i64 %indvars.iv71.i.i.us, 1
   %130 = xor i64 %129, 2
-  %131 = getelementptr inbounds nuw i32, ptr %3, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %130
   %.idx.i.i.us = shl nuw nsw i64 %indvars.iv71.i.i.us, 3
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.us
   %133 = load i32, ptr %131, align 8, !tbaa !33
@@ -5585,14 +5571,14 @@ _ZN8rawspeed15applyPhaseShiftIiEESt5arrayIT_Lm4EES3_NS_10BayerPhaseES4_.exit.i.u
   %146 = icmp samesign ult i64 %145, %65
   call void @llvm.assume(i1 %146)
   %147 = mul nuw nsw i64 %145, %66
-  %148 = getelementptr inbounds nuw i16, ptr %9, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %147
   %149 = load i32, ptr %144, align 8, !tbaa !33
-  %150 = getelementptr inbounds nuw i16, ptr %148, i64 %139
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %148, i64 %139
   %151 = trunc i32 %149 to i16
   store i16 %151, ptr %150, align 2, !tbaa !39
   %152 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %153 = load i32, ptr %152, align 4, !tbaa !33
-  %154 = getelementptr inbounds nuw i16, ptr %148, i64 %140
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %148, i64 %140
   %155 = trunc i32 %153 to i16
   store i16 %155, ptr %154, align 2, !tbaa !39
   br i1 %143, label %.preheader.us, label %142, !llvm.loop !351
@@ -6169,7 +6155,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %38 = lshr i64 %36, 53
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = load ptr, ptr %39, align 8, !tbaa !272
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %38
   %42 = load i32, ptr %41, align 4, !tbaa !33
   %43 = ashr i32 %42, 9
   %44 = and i32 %42, 255
@@ -6232,7 +6218,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %77 = or disjoint i32 %75, %76
   %78 = add i8 %.sroa.5.030.i, 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %64, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !33
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !33
@@ -6251,7 +6237,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 .critedge.i:                                      ; preds = %85, %.critedge.preheader.i
   %indvars.iv.i = phi i64 [ %84, %.critedge.preheader.i ], [ %indvars.iv.next.i, %85 ]
-  %86 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol", ptr %66, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i8, ptr %87, align 4, !tbaa !249
   %89 = icmp eq i8 %78, %88
@@ -6275,7 +6261,7 @@ _ZNK8rawspeed23PrefixCodeVectorDecoderINS_10VC5CodeTagEE26finishReadingPartialSy
   store i64 %74, ptr %1, align 8, !tbaa !312
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !215
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i
   %97 = load i32, ptr %96, align 4, !tbaa !33
   br label %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoderIS1_EEE6decodeINS_14BitStreamerMSBELb0EEEiRT_.exit
 
@@ -6371,7 +6357,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10PrefixCodeINS_10VC5CodeTagEE17ver
 .lr.ph:                                           ; preds = %1, %31
   %.01825 = phi i32 [ %33, %31 ], [ 2, %1 ]
   %.01924 = phi i64 [ %34, %31 ], [ 1, %1 ]
-  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.01924
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.01924
   %28 = load i32, ptr %27, align 4, !tbaa !33
   %29 = icmp ugt i32 %28, %.01825
   br i1 %29, label %30, label %31
@@ -6397,7 +6383,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixC
   br i1 %.not31, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %.preheader
-  %35 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol", ptr %12, i64 %.01729
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01729
   %36 = load i32, ptr %35, align 4, !tbaa !247
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i8, ptr %37, align 4, !tbaa !249
@@ -6421,7 +6407,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixC
 
 44:                                               ; preds = %.lr.ph27, %41
   %.026 = phi i64 [ 0, %.lr.ph27 ], [ %42, %41 ]
-  %45 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol", ptr %12, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.026
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i8, ptr %46, align 4, !tbaa !249
   %48 = zext i8 %47 to i32
@@ -6529,9 +6515,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !215
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !255
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !216
   br label %41
 
@@ -6599,7 +6585,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %35, %_ZNSt6vec
   store ptr %32, ptr %6, align 8, !tbaa !215
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %30
   store ptr %36, ptr %27, align 8, !tbaa !255
-  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %15
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %15
   store ptr %37, ptr %19, align 8, !tbaa !216
   %.pre18 = ptrtoint ptr %32 to i64
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
@@ -6660,7 +6646,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %45, %47, %48, %50
   %.07 = phi i64 [ %92, %_ZNSt6vectorIjSaIjEE12emplace_backIJRjEEES3_DpOT_.exit ], [ 1, %.lr.ph.preheader ]
   %61 = getelementptr inbounds i8, ptr %60, i64 -4
   %62 = load i32, ptr %61, align 4, !tbaa !33
-  %63 = getelementptr inbounds nuw i32, ptr %57, i64 %.07
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.07
   %64 = load i32, ptr %63, align 4, !tbaa !33
   %65 = add i32 %64, %62
   %.not.i = icmp eq ptr %60, %59
@@ -6720,7 +6706,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRjEEEvN9__gnu_cxx17__normal_iteratorIPj
   %.pre10 = phi ptr [ %.pre10.pre, %86 ], [ %.pre1012, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   store ptr %81, ptr %6, align 8, !tbaa !215
   store ptr %85, ptr %40, align 8, !tbaa !255
-  %87 = getelementptr inbounds nuw i32, ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %79
   store ptr %87, ptr %19, align 8, !tbaa !216
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJRjEEES3_DpOT_.exit
 
@@ -6829,9 +6815,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !272
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !270
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !353
   br label %41
 

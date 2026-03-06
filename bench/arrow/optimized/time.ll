@@ -13,9 +13,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { i32, i64 } @_ZN5arrow4util22GetTimestampConversionENS_8TimeUnit4typeES2_(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [4 x %"struct.std::pair"], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 %3
+  %4 = getelementptr inbounds [64 x i8], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 %3
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   %.sroa.0.0.copyload = load i32, ptr %6, align 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
@@ -33,9 +33,9 @@ define void @_ZN5arrow4util21ConvertTimestampValueERKSt10shared_ptrINS_8DataType
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !11
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds [4 x %"struct.std::pair"], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 %11
+  %12 = getelementptr inbounds [64 x i8], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 %11
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds %"struct.std::pair", ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 16
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8

@@ -3,16 +3,15 @@ source_filename = "bench/duckdb/original/set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %class.LogMessage = type { i8, %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -24,6 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
 %"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
 %"struct.std::_Head_base.25" = type { ptr }
+%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -148,7 +148,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duc
 .lr.ph:                                           ; preds = %1, %22
   %18 = phi ptr [ %25, %22 ], [ %5, %1 ]
   %.06 = phi i64 [ %23, %22 ], [ 0, %1 ]
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %18, i64 %.06
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %.06
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !42
   invoke void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
@@ -628,13 +628,13 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit.preheader: ; preds = %137
   %151 = icmp ult i16 %150, 2
   %152 = load ptr, ptr %145, align 8
   %.0.i = select i1 %151, ptr %145, ptr %152
-  %153 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8, !tbaa !74
   %155 = invoke noundef ptr @_ZN10duckdb_re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %154)
           to label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit unwind label %157
 
 _ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit:  ; preds = %.lr.ph
-  %156 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv
   store ptr %155, ptr %156, align 8, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -647,7 +647,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit:  ; preds = %.lr.ph
 
 _ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit._crit_edge: ; preds = %_ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit.preheader
   %159 = zext i16 %139 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %144, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %159
   store ptr %133, ptr %160, align 8, !tbaa !74
   invoke void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %36)
           to label %161 unwind label %163
@@ -1101,10 +1101,10 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duc
 
 .lr.ph:                                           ; preds = %_ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit ]
-  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !42
-  %61 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   store ptr %60, ptr %61, align 8, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %45
@@ -1553,7 +1553,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %145 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %146 = load ptr, ptr %145, align 8, !tbaa !109
   %147 = sext i32 %121 to i64
-  %148 = getelementptr inbounds i32, ptr %146, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %146, i64 %147
   invoke void @_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %146, ptr noundef nonnull %148)
           to label %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit unwind label %109
 
@@ -2011,7 +2011,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !34
   store ptr %.0.lcssa.i.i.i.i36, ptr %5, align 8, !tbaa !33
-  %80 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %17
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %80, ptr %79, align 8, !tbaa !46
   ret void
 }
@@ -2059,7 +2059,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 30:                                               ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEED2Ev.exit15.i.i.i, %20
   %.010.i.i.i = phi i64 [ %23, %20 ], [ %53, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEED2Ev.exit15.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.010.i.i.i
+  %31 = getelementptr inbounds [40 x i8], ptr %0, i64 %.010.i.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !36
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = icmp eq ptr %32, %33
@@ -2295,7 +2295,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 110:                                              ; preds = %17
   %111 = add nsw i64 %.026, -1
   %112 = udiv i64 %18, 80
-  %113 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %112
+  %113 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %112
   %114 = getelementptr inbounds i8, ptr %storemerge25, i64 -40
   %.val1.i.i.i = load i64, ptr %13, align 8, !tbaa !66
   %115 = getelementptr i8, ptr %113, i64 8
@@ -2575,9 +2575,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.050 = phi i64 [ %spec.select, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEaSEOS9_.exit ], [ %1, %4 ]
   %9 = shl i64 %.050, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %12
+  %13 = getelementptr inbounds [40 x i8], ptr %0, i64 %12
   %14 = getelementptr i8, ptr %11, i64 8
   %.val1.i = load i64, ptr %14, align 8, !tbaa !66
   %15 = getelementptr i8, ptr %13, i64 8
@@ -2604,8 +2604,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %.0.i.i.i.i = phi i32 [ %17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %19 = icmp slt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %19, i64 %12, i64 %10
-  %20 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.050
+  %20 = getelementptr inbounds [40 x i8], ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds [40 x i8], ptr %0, i64 %.050
   %22 = load ptr, ptr %21, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = icmp eq ptr %22, %23
@@ -2711,8 +2711,8 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26Re
 63:                                               ; preds = %59
   %64 = shl nsw i64 %.0.lcssa, 1
   %65 = or disjoint i64 %64, 1
-  %66 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %65
-  %67 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %66 = getelementptr inbounds [40 x i8], ptr %0, i64 %65
+  %67 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !36
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = icmp eq ptr %68, %69
@@ -2847,7 +2847,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26Re
   %.010.i = phi i64 [ %.0911.i, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEaSEOS9_.exit.i ], [ %.1, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEC2EOS9_.exit ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %120 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0911.i
+  %120 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0911.i
   %.val10.i = load i64, ptr %115, align 8, !tbaa !66
   %121 = getelementptr i8, ptr %120, i64 8
   %.val2.i.i = load i64, ptr %121, align 8, !tbaa !66
@@ -2875,7 +2875,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   br i1 %125, label %126, label %.critedge.i
 
 126:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN10duckdb_re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESI_EEbT_RT0_.exit.i"
-  %127 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.010.i
+  %127 = getelementptr inbounds [40 x i8], ptr %0, i64 %.010.i
   %128 = load ptr, ptr %127, align 8, !tbaa !36
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %130 = icmp eq ptr %128, %129
@@ -2961,7 +2961,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26Re
 
 .critedge.i:                                      ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEaSEOS9_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN10duckdb_re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESI_EEbT_RT0_.exit.i", %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEC2EOS9_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEC2EOS9_.exit ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN10duckdb_re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESI_EEbT_RT0_.exit.i" ], [ %.0911.i, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEaSEOS9_.exit.i ]
-  %156 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i
+  %156 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa.i
   %157 = load ptr, ptr %156, align 8, !tbaa !36
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %159 = icmp eq ptr %157, %158

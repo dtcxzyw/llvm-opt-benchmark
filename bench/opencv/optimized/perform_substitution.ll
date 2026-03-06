@@ -1599,7 +1599,7 @@ _ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEESt4pairIKS4_S4_ENS_10_
   %48 = urem i64 %45, %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !82
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   %52 = load ptr, ptr %51, align 8, !tbaa !83
   %.not.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN3ade6HandleINS0_4NodeEEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_12HandleHasherIS2_EENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit, label %53
@@ -2166,7 +2166,7 @@ _ZNSt12_Vector_baseIN3ade6HandleINS0_4EdgeEEESaIS3_EE13_M_deallocateEPS3_m.exit:
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !17
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw %"class.ade::Handle.34", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8, !tbaa !110
   ret void
 }

@@ -129,7 +129,7 @@ define i64 @autoinc(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 57:                                               ; preds = %44, %99
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %99 ]
   %.097 = phi i32 [ 0, %44 ], [ %.1, %99 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @SPI_fnumber(ptr noundef %48, ptr noundef %59) #6
   %61 = icmp slt i32 %60, 1
@@ -167,14 +167,14 @@ define i64 @autoinc(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 80:                                               ; preds = %74
   %81 = sext i32 %.097 to i64
-  %82 = getelementptr inbounds i32, ptr %52, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %52, i64 %81
   store i32 %60, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = call ptr @cstring_to_text(ptr noundef %84) #6
   %86 = ptrtoint ptr %85 to i64
   %87 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %86) #6
-  %88 = getelementptr inbounds i64, ptr %54, i64 %81
+  %88 = getelementptr inbounds [8 x i8], ptr %54, i64 %81
   %sext = shl i64 %87, 32
   %89 = ashr exact i64 %sext, 32
   store i64 %89, ptr %88, align 8

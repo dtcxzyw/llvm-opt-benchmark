@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.revindex_entry = type { i64, i32 }
 %struct.midx_pack_key = type { i32, i64, i32, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"invalid checksum\00", align 1
@@ -381,7 +380,7 @@ define internal fastcc range(i32 -1, 1) i32 @create_pack_revindex_in_memory(ptr 
   %31 = zext i32 %30 to i64
   %32 = mul nuw i64 %29, %31
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 %32
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %31
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   %wide.trip.count66.i = zext i32 %8 to i64
   br label %.lr.ph57.i
 
@@ -443,7 +442,7 @@ define internal fastcc range(i32 -1, 1) i32 @create_pack_revindex_in_memory(ptr 
 79:                                               ; preds = %40, %38
   %.sink.i = phi i64 [ %39, %38 ], [ %77, %40 ]
   %.147.i = phi ptr [ %.04655.i, %38 ], [ %78, %40 ]
-  %80 = getelementptr inbounds nuw %struct.revindex_entry, ptr %19, i64 %indvars.iv63.i
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv63.i
   store i64 %.sink.i, ptr %80, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = trunc nuw i64 %indvars.iv63.i to i32
@@ -461,7 +460,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   %87 = load i32, ptr %86, align 4, !tbaa !4
   %88 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %87) #14, !srcloc !41
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct.revindex_entry, ptr %19, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv.i
   store i64 %89, ptr %90, align 8, !tbaa !50
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i32 %83, ptr %91, align 8, !tbaa !52
@@ -475,7 +474,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   %94 = and i64 %15, 4294967295
   %95 = sub nsw i64 %93, %94
   %96 = zext i32 %8 to i64
-  %97 = getelementptr inbounds nuw %struct.revindex_entry, ptr %19, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %96
   store i64 %95, ptr %97, align 8, !tbaa !50
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 -1, ptr %98, align 8, !tbaa !52
@@ -499,7 +498,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
 103:                                              ; preds = %103, %.preheader47.us.i.i
   %104 = phi i32 [ 0, %.preheader47.us.i.i ], [ %107, %103 ]
   %indvars.iv86.i.i = phi i64 [ 1, %.preheader47.us.i.i ], [ %indvars.iv.next87.i.i, %103 ]
-  %105 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv86.i.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv86.i.i
   %106 = load i32, ptr %105, align 4, !tbaa !4
   %107 = add i32 %106, %104
   store i32 %107, ptr %105, align 4, !tbaa !4
@@ -523,16 +522,16 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
 .preheader.us65.i.i:                              ; preds = %..preheader47_crit_edge.us68.i.i, %.preheader.us65.i.i
   %indvars.iv79.i.i = phi i64 [ %109, %.preheader.us65.i.i ], [ %96, %..preheader47_crit_edge.us68.i.i ]
   %109 = add nsw i64 %indvars.iv79.i.i, -1
-  %110 = getelementptr inbounds nuw %struct.revindex_entry, ptr %.04155.us61.i.i, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %.04155.us61.i.i, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !50
   %112 = ashr i64 %111, %indvars.iv83.i.i
   %113 = and i64 %112, 65535
-  %114 = getelementptr inbounds nuw i32, ptr %100, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !4
   %116 = add i32 %115, -1
   store i32 %116, ptr %114, align 4, !tbaa !4
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw %struct.revindex_entry, ptr %.04254.us62.i.i, i64 %117
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %.04254.us62.i.i, i64 %117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false), !tbaa.struct !58
   %.not46.us.wide.i.i = icmp eq i64 %109, 0
   br i1 %.not46.us.wide.i.i, label %._crit_edge.us.i.i, label %.preheader.us65.i.i, !llvm.loop !59
@@ -540,7 +539,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
 ..preheader47_crit_edge.us68.i.i:                 ; preds = %..preheader47_crit_edge.us68.preheader.i.i, %..preheader47_crit_edge.us68.i.i
   %119 = phi i32 [ %.pre.i.i, %..preheader47_crit_edge.us68.preheader.i.i ], [ %122, %..preheader47_crit_edge.us68.i.i ]
   %indvars.iv75.i.i = phi i64 [ 1, %..preheader47_crit_edge.us68.preheader.i.i ], [ %indvars.iv.next76.i.i, %..preheader47_crit_edge.us68.i.i ]
-  %120 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv75.i.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv75.i.i
   %121 = load i32, ptr %120, align 4, !tbaa !4
   %122 = add i32 %121, %119
   store i32 %122, ptr %120, align 4, !tbaa !4
@@ -550,11 +549,11 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
 
 123:                                              ; preds = %123, %.lr.ph.us67.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.us67.i.i ], [ %indvars.iv.next.i.i, %123 ]
-  %124 = getelementptr inbounds nuw %struct.revindex_entry, ptr %.04155.us61.i.i, i64 %indvars.iv.i.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %.04155.us61.i.i, i64 %indvars.iv.i.i
   %125 = load i64, ptr %124, align 8, !tbaa !50
   %126 = ashr i64 %125, %indvars.iv83.i.i
   %127 = and i64 %126, 65535
-  %128 = getelementptr inbounds nuw i32, ptr %100, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !4
   %130 = add i32 %129, 1
   store i32 %130, ptr %128, align 4, !tbaa !4
@@ -647,11 +646,11 @@ _.exit:                                           ; preds = %11, %13
   %.133 = phi i32 [ %.020, %.lr.ph ], [ %.2, %51 ]
   %.02132 = phi i64 [ 0, %.lr.ph ], [ %53, %51 ]
   %23 = load ptr, ptr %20, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw %struct.revindex_entry, ptr %23, i64 %.02132
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.02132
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !52
   %27 = load ptr, ptr %5, align 8, !tbaa !8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.02132
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.02132
   %29 = load i8, ptr %28, align 1, !tbaa !49
   %30 = zext i8 %29 to i32
   %31 = shl nuw i32 %30, 24
@@ -927,7 +926,7 @@ define dso_local i64 @pack_pos_to_offset(ptr noundef %0, i32 noundef %1) local_u
 
 17:                                               ; preds = %.thread
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %struct.revindex_entry, ptr %4, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !50
   br label %54
 
@@ -956,7 +955,7 @@ define dso_local i64 @pack_pos_to_offset(ptr noundef %0, i32 noundef %1) local_u
 
 pack_pos_to_index.exit:                           ; preds = %32
   %34 = zext i32 %1 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %7, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !49
   %37 = zext i8 %36 to i32
   %38 = shl nuw i32 %37, 24
@@ -1017,14 +1016,14 @@ define dso_local i32 @pack_pos_to_index(ptr noundef readonly captures(none) %0, 
 
 15:                                               ; preds = %.thread
   %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw %struct.revindex_entry, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !52
   br label %40
 
 20:                                               ; preds = %9
   %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !49
   %24 = zext i8 %23 to i32
   %25 = shl nuw i32 %24, 24
@@ -1077,7 +1076,7 @@ define dso_local i32 @pack_pos_to_midx(ptr noundef readonly captures(none) %0, i
 
 10:                                               ; preds = %6
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !49
   %14 = zext i8 %13 to i32
   %15 = shl nuw i32 %14, 24
@@ -1219,7 +1218,7 @@ _.exit:                                           ; preds = %14, %16
 
 pack_pos_to_midx.exit.i:                          ; preds = %38
   %43 = and i64 %36, 4294967295
-  %44 = getelementptr inbounds nuw i32, ptr %32, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !49
   %46 = zext i8 %45 to i32
   %47 = shl nuw i32 %46, 24

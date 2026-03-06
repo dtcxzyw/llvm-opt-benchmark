@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.chunk_info = type { i32, i64, ptr, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"chunk-format.c\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"chunkfile\00", align 1
@@ -100,7 +99,7 @@ st_mult.exit:                                     ; preds = %11
   %.pre-phi = phi i64 [ %7, %._crit_edge ], [ %.pre23, %st_mult.exit ]
   %22 = phi i64 [ %6, %._crit_edge ], [ %.pre22, %st_mult.exit ]
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %20, %st_mult.exit ]
-  %24 = getelementptr inbounds nuw %struct.chunk_info, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %22
   store i32 %1, ptr %24, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %3, ptr %25, align 8, !tbaa !18
@@ -145,7 +144,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hashwrite_be32.exit ]
   %.03964 = phi i64 [ %17, %.lr.ph ], [ %30, %hashwrite_be32.exit ]
   %20 = load ptr, ptr %0, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %struct.chunk_info, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %indvars.iv
   %22 = load i32, ptr %21, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #13, !srcloc !28
@@ -159,7 +158,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   call void @hashwrite(ptr noundef %24, ptr noundef nonnull %5, i32 noundef 8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = load ptr, ptr %18, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw %struct.chunk_info, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !19
   %30 = add i64 %29, %.03964
@@ -207,7 +206,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %.val49 = phi i32 [ %.val49.pre, %.lr.ph66 ], [ %.val51, %38 ]
   %43 = phi ptr [ %.pre80, %.lr.ph66 ], [ %50, %38 ]
   %indvars.iv77 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next78, %38 ]
-  %44 = getelementptr inbounds nuw %struct.chunk_info, ptr %42, i64 %indvars.iv77
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %indvars.iv77
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !18
   %47 = call i32 %46(ptr noundef nonnull %43, ptr noundef %1) #11
@@ -226,7 +225,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %55 = sub i64 %53, %54
   %56 = add i64 %55, %.val52
   %57 = load ptr, ptr %37, align 8, !tbaa !12
-  %58 = getelementptr inbounds nuw %struct.chunk_info, ptr %57, i64 %indvars.iv77
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %indvars.iv77
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !19
   %.not46 = icmp eq i64 %56, %60
@@ -466,7 +465,7 @@ _.exit74:                                         ; preds = %145, %147
 
 .lr.ph:                                           ; preds = %.preheader, %150
   %indvars.iv = phi i64 [ %indvars.iv.next, %150 ], [ 0, %.preheader ]
-  %151 = getelementptr inbounds nuw %struct.chunk_info, ptr %.pre, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %indvars.iv
   %152 = load i32, ptr %151, align 8, !tbaa !15
   %153 = icmp eq i32 %152, %46
   br i1 %153, label %154, label %150
@@ -486,7 +485,7 @@ _.exit77:                                         ; preds = %154, %156
   br label %.thread
 
 ._crit_edge:                                      ; preds = %150, %.preheader
-  %159 = getelementptr inbounds nuw %struct.chunk_info, ptr %.pre, i64 %144
+  %159 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %144
   store i32 %46, ptr %159, align 8, !tbaa !15
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 %84
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 24
@@ -581,7 +580,7 @@ define dso_local range(i32 -2, 1) i32 @pair_chunk(ptr noundef readonly captures(
 
 10:                                               ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw %struct.chunk_info, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %9
@@ -619,7 +618,7 @@ define dso_local i32 @read_chunk(ptr noundef readonly captures(none) %0, i32 nou
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %struct.chunk_info, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %9
@@ -643,7 +642,7 @@ define dso_local zeroext range(i8 1, 3) i8 @oid_version(ptr noundef readnone cap
 
 2:                                                ; preds = %4, %1
   %.0811.i = phi i64 [ 0, %1 ], [ %5, %4 ]
-  %3 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
+  %3 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %0, %3
   br i1 %.not.i, label %hash_algo_by_ptr.exit, label %4
 

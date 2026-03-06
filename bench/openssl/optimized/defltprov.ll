@@ -1047,7 +1047,7 @@ define internal noundef ptr @deflt_query(ptr readnone captures(none) %0, i32 nou
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.deflt_query, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.deflt_query, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

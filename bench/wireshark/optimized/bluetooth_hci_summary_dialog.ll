@@ -3041,7 +3041,7 @@ define void @_ZN25BluetoothHciSummaryDialog28resultsFilterLineEditChangedERK7QSt
 28:                                               ; preds = %26
   call void @_ZNK15QTreeWidgetItem18executePendingSortEv(ptr noundef align 8 dereferenceable_or_null(92) %14)
   %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit
 
@@ -4029,7 +4029,7 @@ _ZNK15QTreeWidgetItem5childEi.exit1495.thread.preheader: ; preds = %1417, %1935,
 
 .noexc854:                                        ; preds = %431
   %432 = load ptr, ptr %419, align 8
-  %433 = getelementptr ptr, ptr %432, i64 %indvars.iv2918
+  %433 = getelementptr [8 x i8], ptr %432, i64 %indvars.iv2918
   %434 = load ptr, ptr %433, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit
 
@@ -4147,7 +4147,7 @@ _ZN7QStringD2Ev.exit872:                          ; preds = %_ZN17QArrayDataPoin
 
 .noexc875:                                        ; preds = %471
   %472 = load ptr, ptr %419, align 8
-  %473 = getelementptr ptr, ptr %472, i64 %470
+  %473 = getelementptr [8 x i8], ptr %472, i64 %470
   %474 = load ptr, ptr %473, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit876
 
@@ -5698,7 +5698,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit1181:          ; preds = %902, %_ZN17QArrayDa
 
 .noexc1185:                                       ; preds = %944
   %945 = load ptr, ptr %932, align 8
-  %946 = getelementptr ptr, ptr %945, i64 %indvars.iv2912
+  %946 = getelementptr [8 x i8], ptr %945, i64 %indvars.iv2912
   %947 = load ptr, ptr %946, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1186
 
@@ -5812,7 +5812,7 @@ _ZN7QStringD2Ev.exit1209:                         ; preds = %_ZN17QArrayDataPoin
 
 .noexc1212:                                       ; preds = %980
   %981 = load ptr, ptr %932, align 8
-  %982 = getelementptr ptr, ptr %981, i64 %979
+  %982 = getelementptr [8 x i8], ptr %981, i64 %979
   %983 = load ptr, ptr %982, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1213
 
@@ -6326,7 +6326,7 @@ _ZN7QStringD2Ev.exit1299:                         ; preds = %1123, %_ZN17QArrayD
 
 .noexc1302:                                       ; preds = %1139
   %1140 = load ptr, ptr %1136, align 8
-  %1141 = getelementptr ptr, ptr %1140, i64 %indvars.iv2915
+  %1141 = getelementptr [8 x i8], ptr %1140, i64 %indvars.iv2915
   %1142 = load ptr, ptr %1141, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1303
 
@@ -7073,7 +7073,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit1452:          ; preds = %1342, %_ZN17QArrayD
 
 .noexc1455:                                       ; preds = %1368
   %1369 = load ptr, ptr %1356, align 8
-  %1370 = getelementptr ptr, ptr %1369, i64 %indvars.iv2900
+  %1370 = getelementptr [8 x i8], ptr %1369, i64 %indvars.iv2900
   %1371 = load ptr, ptr %1370, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1456
 
@@ -7238,7 +7238,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1489:  ; preds = %_ZN17QArrayDataPoin
 
 _ZNK15QTreeWidgetItem5childEi.exit1495:           ; preds = %1416
   %1420 = load ptr, ptr %1356, align 8
-  %1421 = getelementptr ptr, ptr %1420, i64 %1415
+  %1421 = getelementptr [8 x i8], ptr %1420, i64 %1415
   %1422 = load ptr, ptr %1421, align 8
   %1423 = icmp eq ptr %1422, null
   br i1 %1423, label %_ZNK15QTreeWidgetItem5childEi.exit1495.thread.preheader, label %.preheader2740
@@ -7279,7 +7279,7 @@ _ZNK15QTreeWidgetItem5childEi.exit1495:           ; preds = %1416
 
 .noexc1498:                                       ; preds = %1440
   %1441 = load ptr, ptr %1428, align 8
-  %1442 = getelementptr ptr, ptr %1441, i64 %indvars.iv2903
+  %1442 = getelementptr [8 x i8], ptr %1441, i64 %indvars.iv2903
   %1443 = load ptr, ptr %1442, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1499
 
@@ -7437,7 +7437,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1532:  ; preds = %_ZN17QArrayDataPoin
 
 .noexc1537:                                       ; preds = %1488
   %1489 = load ptr, ptr %1428, align 8
-  %1490 = getelementptr ptr, ptr %1489, i64 %1487
+  %1490 = getelementptr [8 x i8], ptr %1489, i64 %1487
   %1491 = load ptr, ptr %1490, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1538
 
@@ -8273,7 +8273,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit1696:          ; preds = %1729, %_ZN17QArrayD
 
 .noexc1699:                                       ; preds = %1740
   %1741 = load ptr, ptr %1686, align 8
-  %1742 = getelementptr ptr, ptr %1741, i64 %indvars.iv2906
+  %1742 = getelementptr [8 x i8], ptr %1741, i64 %indvars.iv2906
   %1743 = load ptr, ptr %1742, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1700
 
@@ -8393,7 +8393,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1717:  ; preds = %1770
 
 .noexc1722:                                       ; preds = %1778
   %1779 = load ptr, ptr %1686, align 8
-  %1780 = getelementptr ptr, ptr %1779, i64 %1777
+  %1780 = getelementptr [8 x i8], ptr %1779, i64 %1777
   %1781 = load ptr, ptr %1780, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1723
 
@@ -8431,7 +8431,7 @@ _ZNK15QTreeWidgetItem5childEi.exit1723:           ; preds = %1776, %.noexc1722
 
 .noexc1726:                                       ; preds = %1795
   %1796 = load ptr, ptr %1786, align 8
-  %1797 = getelementptr ptr, ptr %1796, i64 %indvars.iv2909
+  %1797 = getelementptr [8 x i8], ptr %1796, i64 %indvars.iv2909
   %1798 = load ptr, ptr %1797, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1727
 
@@ -8596,7 +8596,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1754:  ; preds = %_ZN7QStringD2Ev.exi
 
 _ZNK15QTreeWidgetItem5childEi.exit1760:           ; preds = %1845
   %1846 = load ptr, ptr %1786, align 8
-  %1847 = getelementptr ptr, ptr %1846, i64 %1844
+  %1847 = getelementptr [8 x i8], ptr %1846, i64 %1844
   %1848 = load ptr, ptr %1847, align 8
   %1849 = icmp eq ptr %1848, null
   br i1 %1849, label %_ZNK15QTreeWidgetItem5childEi.exit1760.thread, label %1850
@@ -8896,7 +8896,7 @@ _ZN7QStringD2Ev.exit1800:                         ; preds = %1930, %_ZN17QArrayD
 
 .noexc1803:                                       ; preds = %1957
   %1958 = load ptr, ptr %1945, align 8
-  %1959 = getelementptr ptr, ptr %1958, i64 %indvars.iv2897
+  %1959 = getelementptr [8 x i8], ptr %1958, i64 %indvars.iv2897
   %1960 = load ptr, ptr %1959, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1804
 
@@ -9061,7 +9061,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1841:  ; preds = %_ZN17QArrayDataPoin
 
 _ZNK15QTreeWidgetItem5childEi.exit1831:           ; preds = %1993
   %2009 = load ptr, ptr %1945, align 8
-  %2010 = getelementptr ptr, ptr %2009, i64 %1992
+  %2010 = getelementptr [8 x i8], ptr %2009, i64 %1992
   %2011 = load ptr, ptr %2010, align 8
   %.not645 = icmp eq ptr %2011, null
   br i1 %.not645, label %_ZNK15QTreeWidgetItem5childEi.exit1831.thread, label %2103
@@ -9772,7 +9772,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit1969:          ; preds = %2208, %_ZN17QArrayD
 
 .noexc1972:                                       ; preds = %2232
   %2233 = load ptr, ptr %2222, align 8
-  %2234 = getelementptr ptr, ptr %2233, i64 %indvars.iv2894
+  %2234 = getelementptr [8 x i8], ptr %2233, i64 %indvars.iv2894
   %2235 = load ptr, ptr %2234, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit1973
 
@@ -9901,7 +9901,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1992:  ; preds = %2268
 
 _ZNK15QTreeWidgetItem5childEi.exit1990:           ; preds = %2265
   %2277 = load ptr, ptr %2222, align 8
-  %2278 = getelementptr ptr, ptr %2277, i64 %2264
+  %2278 = getelementptr [8 x i8], ptr %2277, i64 %2264
   %2279 = load ptr, ptr %2278, align 8
   %.not621 = icmp eq ptr %2279, null
   br i1 %.not621, label %_ZNK15QTreeWidgetItem5childEi.exit1990.thread, label %2369
@@ -10576,7 +10576,7 @@ _ZN7QStringD2Ev.exit2094:                         ; preds = %2465, %_ZN17QArrayD
 
 .noexc2097:                                       ; preds = %2491
   %2492 = load ptr, ptr %2479, align 8
-  %2493 = getelementptr ptr, ptr %2492, i64 %indvars.iv2891
+  %2493 = getelementptr [8 x i8], ptr %2492, i64 %indvars.iv2891
   %2494 = load ptr, ptr %2493, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit2098
 
@@ -10741,7 +10741,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2135:  ; preds = %_ZN17QArrayDataPoin
 
 _ZNK15QTreeWidgetItem5childEi.exit2125:           ; preds = %2527
   %2543 = load ptr, ptr %2479, align 8
-  %2544 = getelementptr ptr, ptr %2543, i64 %2526
+  %2544 = getelementptr [8 x i8], ptr %2543, i64 %2526
   %2545 = load ptr, ptr %2544, align 8
   %.not598 = icmp eq ptr %2545, null
   br i1 %.not598, label %_ZNK15QTreeWidgetItem5childEi.exit2125.thread, label %2637
@@ -11454,7 +11454,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit2263:          ; preds = %2742, %_ZN17QArrayD
 
 .noexc2266:                                       ; preds = %2768
   %2769 = load ptr, ptr %2756, align 8
-  %2770 = getelementptr ptr, ptr %2769, i64 %indvars.iv
+  %2770 = getelementptr [8 x i8], ptr %2769, i64 %indvars.iv
   %2771 = load ptr, ptr %2770, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit2267
 
@@ -11619,7 +11619,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2304:  ; preds = %_ZN17QArrayDataPoin
 
 _ZNK15QTreeWidgetItem5childEi.exit2294:           ; preds = %2804
   %2820 = load ptr, ptr %2756, align 8
-  %2821 = getelementptr ptr, ptr %2820, i64 %2803
+  %2821 = getelementptr [8 x i8], ptr %2820, i64 %2803
   %2822 = load ptr, ptr %2821, align 8
   %.not574 = icmp eq ptr %2822, null
   br i1 %.not574, label %_ZNK15QTreeWidgetItem5childEi.exit2294.thread, label %2933
@@ -18896,7 +18896,7 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i55: 
 58:                                               ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i54, %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i55
   %59 = load ptr, ptr %46, align 8
   %60 = load i64, ptr %47, align 8
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %.not = icmp eq ptr %.sroa.0306.0, %61
   br i1 %.not, label %359, label %62
 
@@ -20418,7 +20418,7 @@ define void @_ZN25BluetoothHciSummaryDialog22recursiveCopyTreeItemsEP15QTreeWidg
 54:                                               ; preds = %52
   call void @_ZNK15QTreeWidgetItem18executePendingSortEv(ptr noundef align 8 dereferenceable_or_null(92) %1)
   %55 = load ptr, ptr %43, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %indvars.iv
+  %56 = getelementptr [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   br label %_ZNK15QTreeWidgetItem5childEi.exit
 
@@ -25124,7 +25124,7 @@ _ZNK17QArrayDataPointerIP7QActionE14freeSpaceAtEndEv.exit: ; preds = %7
   br i1 %.not, label %27, label %22
 
 22:                                               ; preds = %_ZNK17QArrayDataPointerIP7QActionE14freeSpaceAtEndEv.exit
-  %23 = getelementptr ptr, ptr %14, i64 %1
+  %23 = getelementptr [8 x i8], ptr %14, i64 %1
   %24 = load ptr, ptr %2, align 8
   store ptr %24, ptr %23, align 8
   %25 = load i64, ptr %8, align 8
@@ -25169,7 +25169,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread: ; preds = %3, %27
   tail call void @_ZN17QArrayDataPointerIP7QActionE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS1_PS2_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %spec.store.select, i64 noundef 1, ptr noundef null, ptr noundef null)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr ptr, ptr %48, i64 %1
+  %49 = getelementptr [8 x i8], ptr %48, i64 %1
   br i1 %or.cond, label %57, label %50
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread
@@ -25291,14 +25291,14 @@ _ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i: ; preds = %
   %48 = load ptr, ptr %3, align 8
   %49 = load ptr, ptr %21, align 8
   %50 = load i64, ptr %29, align 8
-  %51 = getelementptr ptr, ptr %49, i64 %50
+  %51 = getelementptr [8 x i8], ptr %49, i64 %50
   %52 = icmp uge ptr %48, %49
   %53 = icmp ult ptr %48, %51
   %spec.select.i.i.i = and i1 %52, %53
   br i1 %spec.select.i.i.i, label %54, label %_ZN17QArrayDataPointerIP7QActionE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit.thread22
 
 54:                                               ; preds = %47
-  %55 = getelementptr ptr, ptr %48, i64 %38
+  %55 = getelementptr [8 x i8], ptr %48, i64 %38
   store ptr %55, ptr %3, align 8
   br label %_ZN17QArrayDataPointerIP7QActionE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit.thread22
 
@@ -25412,14 +25412,14 @@ _ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i: ; preds = %53
   %56 = load ptr, ptr %3, align 8
   %57 = load ptr, ptr %44, align 8
   %58 = load i64, ptr %47, align 8
-  %59 = getelementptr ptr, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   %60 = icmp uge ptr %56, %57
   %61 = icmp ult ptr %56, %59
   %spec.select.i.i = and i1 %60, %61
   br i1 %spec.select.i.i, label %62, label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit
 
 62:                                               ; preds = %55
-  %63 = getelementptr ptr, ptr %56, i64 %43
+  %63 = getelementptr [8 x i8], ptr %56, i64 %43
   store ptr %63, ptr %3, align 8
   br label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit
 
@@ -25553,7 +25553,7 @@ _ZN9QtPrivate12QPodArrayOpsIP7QActionE10copyAppendEPKS2_S5_.exit.sink.split: ; p
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr ptr, ptr %31, i64 %54
+  %55 = getelementptr [8 x i8], ptr %31, i64 %54
   %56 = ashr exact i64 %.idx.sink55, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink55, i1 noundef false) #23
   %57 = load i64, ptr %53, align 8
@@ -25702,8 +25702,8 @@ _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit33: ; preds = %38
   %56 = sdiv i64 %55, 2
   %57 = call noundef i64 @llvm.smax.i64(i64 %56, i64 0)
   %.pr.pre = load ptr, ptr %1, align 8
-  %58 = getelementptr ptr, ptr %34, i64 %57
-  %59 = getelementptr ptr, ptr %58, i64 %2
+  %58 = getelementptr [8 x i8], ptr %34, i64 %57
+  %59 = getelementptr [8 x i8], ptr %58, i64 %2
   %.not.i34 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i34, label %_ZNK17QArrayDataPointerIP7QActionE5flagsEv.exit, label %60
 
@@ -25864,7 +25864,7 @@ _ZN9QtPrivate12QPodArrayOpsIP15QTreeWidgetItemE10copyAppendEPKS2_S5_.exit.sink.s
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr ptr, ptr %31, i64 %54
+  %55 = getelementptr [8 x i8], ptr %31, i64 %54
   %56 = ashr exact i64 %.idx.sink55, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink55, i1 noundef false) #23
   %57 = load i64, ptr %53, align 8
@@ -26013,8 +26013,8 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE16freeSpaceAtBeginEv.exit33: ; preds 
   %56 = sdiv i64 %55, 2
   %57 = call noundef i64 @llvm.smax.i64(i64 %56, i64 0)
   %.pr.pre = load ptr, ptr %1, align 8
-  %58 = getelementptr ptr, ptr %34, i64 %57
-  %59 = getelementptr ptr, ptr %58, i64 %2
+  %58 = getelementptr [8 x i8], ptr %34, i64 %57
+  %59 = getelementptr [8 x i8], ptr %58, i64 %2
   %.not.i34 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i34, label %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE5flagsEv.exit, label %60
 

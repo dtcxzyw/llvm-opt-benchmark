@@ -29,7 +29,7 @@ define dso_local void @FLAC__replaygain_synthesis__init_dither_context(ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 540
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %8, i8 noundef 0, i64 noundef 512, i1 noundef false) #6
   %9 = zext nneg i32 %spec.store.select2 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @FLAC__replaygain_synthesis__init_dither_context.F, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__replaygain_synthesis__init_dither_context.F, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   store ptr %11, ptr %0, align 8, !tbaa !15
   %12 = sub nsw i32 32, %1
@@ -61,7 +61,7 @@ define dso_local void @FLAC__replaygain_synthesis__init_dither_context(ptr nound
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply_gain(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, double noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11) local_unnamed_addr #1 {
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw i64, ptr @FLAC__replaygain_synthesis__apply_gain.hard_clip_factors_, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__replaygain_synthesis__apply_gain.hard_clip_factors_, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !21
   %16 = add i32 %6, -1
   %17 = shl nuw i32 1, %16
@@ -110,10 +110,10 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %45 = zext i32 %.08195.us to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %3, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !22
   %48 = sext i32 %.08195.us to i64
-  %49 = getelementptr inbounds [16 x float], ptr %31, i64 %48
+  %49 = getelementptr inbounds [64 x i8], ptr %31, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
@@ -129,7 +129,7 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 52
   %63 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 60
-  %65 = getelementptr inbounds [16 x float], ptr %32, i64 %48
+  %65 = getelementptr inbounds [64 x i8], ptr %32, i64 %48
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
@@ -145,13 +145,13 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 52
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 60
-  %81 = getelementptr inbounds i32, ptr %35, i64 %48
+  %81 = getelementptr inbounds [4 x i8], ptr %35, i64 %48
   br label %82
 
 82:                                               ; preds = %.lr.ph.us, %331
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %331 ]
   %.094.us = phi ptr [ %44, %.lr.ph.us ], [ %332, %331 ]
-  %83 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !24
   %85 = sitofp i32 %84 to double
   %86 = fmul double %19, %85
@@ -233,7 +233,7 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %145 = fmul double %144, %108
   %146 = load ptr, ptr %11, align 8, !tbaa !15
   %147 = zext nneg i32 %105 to i64
-  %148 = getelementptr inbounds nuw float, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %147
   %149 = load float, ptr %49, align 4, !tbaa !25
   %150 = load float, ptr %148, align 4, !tbaa !25
   %151 = load float, ptr %50, align 4, !tbaa !25
@@ -303,7 +303,7 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %215 = and i32 %104, 15
   %216 = xor i32 %215, 15
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw float, ptr %49, i64 %217
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %217
   store float %214, ptr %218, align 4, !tbaa !25
   %219 = fpext float %214 to double
   %220 = fadd double %102, %219
@@ -367,7 +367,7 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %277 = sitofp i64 %276 to double
   %278 = fsub double %220, %277
   %279 = fptrunc double %278 to float
-  %280 = getelementptr inbounds nuw float, ptr %65, i64 %217
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %217
   store float %279, ptr %280, align 4, !tbaa !25
   br label %dither_output_.exit.us
 

@@ -72,7 +72,7 @@ define internal i32 @chr_dev_init() #1 section ".init.text" align 16 {
   br i1 %.not, label %11, label %17
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr %struct.memdev, ptr @devlist, i64 %8
+  %12 = getelementptr [24 x i8], ptr @devlist, i64 %8
   %13 = load ptr, ptr %12, align 8
   %14 = trunc i64 %8 to i32
   %15 = or i32 %14, 1048576
@@ -127,7 +127,7 @@ define internal i32 @memory_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %.not, label %11, label %26
 
 11:                                               ; preds = %7
-  %12 = getelementptr %struct.memdev, ptr @devlist, i64 %8
+  %12 = getelementptr [24 x i8], ptr @devlist, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -168,7 +168,7 @@ define internal noalias noundef ptr @mem_devnode(ptr noundef readonly captures(n
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %4
-  %.split = getelementptr %struct.memdev, ptr @devlist, i64 %8
+  %.split = getelementptr [24 x i8], ptr @devlist, i64 %8
   %13 = getelementptr i8, ptr %.split, i64 20
   %14 = load i16, ptr %13, align 4
   store i16 %14, ptr %1, align 2

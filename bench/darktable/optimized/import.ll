@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.dt_action_def_t = type { ptr, ptr, ptr, ptr, i32 }
 %struct._GtkTreeIter = type { i32, ptr, ptr, ptr }
-%struct.anon.0 = type { ptr, ptr, i32 }
 %struct._GdkRGBA = type { double, double, double, double }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
 %struct.dt_image_t = type { i32, i32, float, float, float, float, float, float, float, [64 x i8], [64 x i8], [128 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], i64, i32, %union.dt_image_correction_data_t, [64 x i8], [64 x i8], [64 x i8], [128 x i8], i32, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i32, [12 x i8], %struct.dt_iop_buffer_dsc_t, [9 x float], ptr, i32, i32, %struct.dt_image_raw_parameters_t, %struct.dt_image_geoloc_t, %struct._color_harmony_t, i16, [4 x i16], i32, i32, float, float, [4 x float], [4 x [3 x float]], [4 x float], ptr, ptr, i32, i32, [8 x i8] }
@@ -1051,7 +1050,7 @@ define noundef ptr @get_params(ptr noundef readnone captures(none) %0, ptr nound
 
 4:                                                ; preds = %24, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %24 ]
-  %5 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @_pref, i64 %indvars.iv.i
   %6 = icmp samesign ult i64 %indvars.iv.i, 5
   br i1 %6, label %7, label %13
 
@@ -1179,7 +1178,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
 
 .preheader.i:                                     ; preds = %5, %19
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %19 ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @_pref, i64 %indvars.iv.i.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !141
   switch i32 %9, label %19 [
@@ -1262,7 +1261,7 @@ _set_default_preferences.exit.i:                  ; preds = %27
 
 .preheader.i73.i:                                 ; preds = %35, %41
   %indvars.iv.i74.i = phi i64 [ %indvars.iv.next.i75.i, %41 ], [ 0, %35 ]
-  %37 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i74.i
+  %37 = getelementptr inbounds nuw [24 x i8], ptr @_pref, i64 %indvars.iv.i74.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !138
   %40 = tail call i32 @g_strcmp0(ptr noundef nonnull %34, ptr noundef %39) #16
@@ -1277,7 +1276,7 @@ _set_default_preferences.exit.i:                  ; preds = %27
 _get_key_index.exit.i:                            ; preds = %.preheader.i73.i
   %sext.i = shl i64 %indvars.iv.i74.i, 32
   %42 = ashr exact i64 %sext.i, 32
-  %43 = getelementptr inbounds %struct.anon.0, ptr @_pref, i64 %42
+  %43 = getelementptr inbounds [24 x i8], ptr @_pref, i64 %42
   %44 = icmp samesign ult i64 %indvars.iv.i74.i, 5
   br i1 %44, label %45, label %50
 
@@ -1606,13 +1605,13 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %9 = load i32, ptr %8, align 8, !tbaa !89
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_import_text, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_import_text, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !137
   %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %12, i32 noundef 5) #16
   %14 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #16
   %15 = load i32, ptr %8, align 8, !tbaa !89
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @_import_text, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_import_text, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !137
   %19 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %18, i32 noundef 5) #16
   %20 = tail call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef %13, ptr noundef null, i32 noundef 1, ptr noundef %14, i32 noundef -6, ptr noundef %19, i32 noundef -3, ptr noundef null) #16

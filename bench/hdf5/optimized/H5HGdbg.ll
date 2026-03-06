@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5HG_obj_t = type { i32, i64, ptr }
 
 @H5HG_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -97,7 +96,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %.0114136 = phi i32 [ 0, %.lr.ph ], [ %.1115, %38 ]
   %.0116135 = phi i32 [ 0, %.lr.ph ], [ %.1117, %38 ]
   %.0118134 = phi i32 [ 1, %.lr.ph ], [ %44, %38 ]
-  %40 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %.not130 = icmp ne ptr %42, null
@@ -149,7 +148,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %69 = phi ptr [ %.pre, %.lr.ph146 ], [ %155, %153 ]
   %70 = phi i64 [ 1, %.lr.ph146 ], [ %157, %153 ]
   %.1119144 = phi i32 [ 1, %.lr.ph146 ], [ %156, %153 ]
-  %71 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !31
   %.not127 = icmp eq ptr %73, null
@@ -160,7 +159,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.13, i32 noundef %.1119144) #6
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #6
   %77 = load ptr, ptr %55, align 8, !tbaa !30
-  %78 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %77, i64 %70
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %70
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !31
   %81 = load ptr, ptr %65, align 8, !tbaa !36
@@ -169,18 +168,18 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %84 = sub i64 %82, %83
   %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %62, ptr noundef nonnull @.str.3, i32 noundef %64, ptr noundef nonnull @.str.15, i64 noundef %84) #6
   %86 = load ptr, ptr %55, align 8, !tbaa !30
-  %87 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %86, i64 %70
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %70
   %88 = load i32, ptr %87, align 8, !tbaa !37
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %62, ptr noundef nonnull @.str.3, i32 noundef %64, ptr noundef nonnull @.str.16, i32 noundef %88) #6
   %90 = load ptr, ptr %55, align 8, !tbaa !30
-  %91 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %90, i64 %70
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %70
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i64, ptr %92, align 8, !tbaa !35
   %94 = add i64 %93, 7
   %95 = and i64 %94, -8
   %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %62, ptr noundef nonnull @.str.3, i32 noundef %64, ptr noundef nonnull @.str.18, i64 noundef %93, i64 noundef %95) #6
   %97 = load ptr, ptr %55, align 8, !tbaa !30
-  %98 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %97, i64 %70
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %70
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !31
   %101 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
@@ -189,7 +188,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %104 = and i64 %103, 504
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 %104
   %106 = load ptr, ptr %55, align 8, !tbaa !30
-  %107 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %106, i64 %70
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %70
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !35
   %.not148 = icmp eq i64 %109, 0
@@ -213,7 +212,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
 115:                                              ; preds = %114, %112
   %116 = or disjoint i64 %indvars.iv, %111
   %117 = load ptr, ptr %55, align 8, !tbaa !30
-  %118 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %117, i64 %70
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %70
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !35
   %121 = icmp ugt i64 %120, %116
@@ -239,7 +238,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %139 ], [ 0, %129 ]
   %130 = or disjoint i64 %indvars.iv150, %111
   %131 = load ptr, ptr %55, align 8, !tbaa !30
-  %132 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %131, i64 %70
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %70
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load i64, ptr %133, align 8, !tbaa !35
   %135 = icmp ugt i64 %134, %130
@@ -270,7 +269,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %145 = add i32 %.0113140, 16
   %146 = zext i32 %145 to i64
   %147 = load ptr, ptr %55, align 8, !tbaa !30
-  %148 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %147, i64 %70
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %70
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load i64, ptr %149, align 8, !tbaa !35
   %151 = icmp ugt i64 %150, %146

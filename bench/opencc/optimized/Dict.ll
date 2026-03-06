@@ -757,7 +757,7 @@ _ZNSt6vectorIPKN6opencc9DictEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 
 _ZNSt6vectorIPKN6opencc9DictEntryESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorIPKN6opencc9DictEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %66, ptr %14, align 8, !tbaa !27
-  %68 = getelementptr inbounds nuw ptr, ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   store ptr %68, ptr %15, align 8, !tbaa !31
   br label %_ZNSt6vectorIPKN6opencc9DictEntryESaIS3_EE9push_backERKS3_.exit
 

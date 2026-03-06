@@ -259,7 +259,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %10 = extractvalue { i64, i64 } %9, 1
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 584
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 528
   store ptr %11, ptr %15, align 8
@@ -289,7 +289,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %8 = extractvalue { i64, i64 } %7, 1
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %11, align 8
   store ptr %9, ptr %12, align 8
   %13 = trunc i64 %8 to i16
@@ -320,7 +320,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %10 = extractvalue { i64, i64 } %9, 1
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   store ptr %11, ptr %14, align 8
   %15 = trunc i64 %10 to i16
@@ -351,7 +351,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %10 = extractvalue { i64, i64 } %9, 1
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   store ptr %11, ptr %14, align 8
   %15 = trunc i64 %10 to i16
@@ -380,7 +380,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %8 = extractvalue { i64, i64 } %7, 1
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 584
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 528
   store ptr %9, ptr %13, align 8
@@ -410,7 +410,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %8 = extractvalue { i64, i64 } %7, 1
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %11, align 8
   store ptr %9, ptr %12, align 8
   %13 = trunc i64 %8 to i16
@@ -464,7 +464,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   store ptr %3, ptr %29, align 8
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 144
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %26
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %26
   %33 = load ptr, ptr %32, align 8
   store ptr %30, ptr %33, align 8
   %34 = trunc nuw nsw i64 %26 to i16
@@ -522,7 +522,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   store ptr %3, ptr %29, align 8
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 584
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %26
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %26
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 528
   store ptr %30, ptr %34, align 8
@@ -591,7 +591,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   store ptr %4, ptr %31, align 8
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 144
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %28
   %35 = load ptr, ptr %34, align 8
   store ptr %32, ptr %35, align 8
   %36 = trunc nuw nsw i64 %28 to i16
@@ -627,7 +627,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$alloc..coll
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %14 = phi { i64, i64 } [ %20, %.lr.ph.i.i ], [ %11, %2 ]
   %15 = extractvalue { i64, i64 } %14, 1
-  %16 = getelementptr inbounds ptr, ptr %7, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %17 = load ptr, ptr %16, align 8
   store ptr %6, ptr %17, align 8
   %18 = trunc i64 %15 to i16
@@ -673,7 +673,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$alloc..coll
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %14 = phi { i64, i64 } [ %20, %.lr.ph.i.i ], [ %11, %2 ]
   %15 = extractvalue { i64, i64 } %14, 1
-  %16 = getelementptr inbounds ptr, ptr %7, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %17 = load ptr, ptr %16, align 8
   store ptr %6, ptr %17, align 8
   %18 = trunc i64 %15 to i16
@@ -720,7 +720,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$alloc..coll
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %15 = phi { i64, i64 } [ %22, %.lr.ph.i.i ], [ %12, %2 ]
   %16 = extractvalue { i64, i64 } %15, 1
-  %17 = getelementptr inbounds ptr, ptr %8, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 528
   store ptr %7, ptr %19, align 8
@@ -764,7 +764,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$alloc..coll
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %11 = phi { i64, i64 } [ %17, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
   %12 = extractvalue { i64, i64 } %11, 1
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   store ptr %0, ptr %14, align 8
   %15 = trunc i64 %12 to i16
@@ -806,7 +806,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$alloc..coll
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %11 = phi { i64, i64 } [ %17, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
   %12 = extractvalue { i64, i64 } %11, 1
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   store ptr %0, ptr %14, align 8
   %15 = trunc i64 %12 to i16
@@ -848,7 +848,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$alloc..coll
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %11 = phi { i64, i64 } [ %18, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
   %12 = extractvalue { i64, i64 } %11, 1
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 528
   store ptr %0, ptr %15, align 8
@@ -979,7 +979,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..coll
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %14 = phi { i64, i64 } [ %20, %.lr.ph.i.i.i ], [ %11, %2 ]
   %15 = extractvalue { i64, i64 } %14, 1
-  %16 = getelementptr inbounds ptr, ptr %7, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %17 = load ptr, ptr %16, align 8
   store ptr %6, ptr %17, align 8
   %18 = trunc i64 %15 to i16
@@ -1026,7 +1026,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..coll
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %15 = phi { i64, i64 } [ %22, %.lr.ph.i.i.i ], [ %12, %2 ]
   %16 = extractvalue { i64, i64 } %15, 1
-  %17 = getelementptr inbounds ptr, ptr %8, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 528
   store ptr %7, ptr %19, align 8
@@ -1073,7 +1073,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..coll
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %14 = phi { i64, i64 } [ %20, %.lr.ph.i.i.i ], [ %11, %2 ]
   %15 = extractvalue { i64, i64 } %14, 1
-  %16 = getelementptr inbounds ptr, ptr %7, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %17 = load ptr, ptr %16, align 8
   store ptr %6, ptr %17, align 8
   %18 = trunc i64 %15 to i16
@@ -1099,13 +1099,13 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
-  %8 = getelementptr inbounds i32, ptr %0, i64 %2
+  %8 = getelementptr inbounds [4 x i8], ptr %0, i64 %2
   store i32 %3, ptr %8, align 4
   ret void
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i32, ptr %0, i64 %2
-  %11 = getelementptr inbounds i32, ptr %0, i64 %5
+  %10 = getelementptr inbounds [4 x i8], ptr %0, i64 %2
+  %11 = getelementptr inbounds [4 x i8], ptr %0, i64 %5
   %12 = xor i64 %2, -1
   %13 = add i64 %1, %12
   %14 = shl i64 %13, 2
@@ -1120,13 +1120,13 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h5fa60257b1a644c7E
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
-  %8 = getelementptr inbounds ptr, ptr %0, i64 %2
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
   store ptr %3, ptr %8, align 8
   ret void
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %5
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %5
   %12 = xor i64 %2, -1
   %13 = add i64 %1, %12
   %14 = shl i64 %13, 3
@@ -1141,13 +1141,13 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h7cf98ffe84d6ebe7E
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
-  %8 = getelementptr inbounds ptr, ptr %0, i64 %2
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
   store ptr %3, ptr %8, align 8
   ret void
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %5
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %5
   %12 = xor i64 %2, -1
   %13 = add i64 %1, %12
   %14 = shl i64 %13, 3
@@ -1162,15 +1162,15 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %11, %5
-  %9 = getelementptr inbounds { [2 x i32] }, ptr %0, i64 %2
+  %9 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
   store i32 %3, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %4, ptr %10, align 4
   ret void
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds { [2 x i32] }, ptr %0, i64 %2
-  %13 = getelementptr inbounds { [2 x i32] }, ptr %0, i64 %6
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %6
   %14 = xor i64 %2, -1
   %15 = add i64 %1, %14
   %16 = shl i64 %15, 3
@@ -1185,13 +1185,13 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17hbe6d89a331b06908E
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
-  %8 = getelementptr inbounds ptr, ptr %0, i64 %2
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
   store ptr %3, ptr %8, align 8
   ret void
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %5
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %5
   %12 = xor i64 %2, -1
   %13 = add i64 %1, %12
   %14 = shl i64 %13, 3
@@ -1206,13 +1206,13 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
-  %8 = getelementptr inbounds i64, ptr %0, i64 %2
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
   store i64 %3, ptr %8, align 8
   ret void
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i64, ptr %0, i64 %2
-  %11 = getelementptr inbounds i64, ptr %0, i64 %5
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %5
   %12 = xor i64 %2, -1
   %13 = add i64 %1, %12
   %14 = shl i64 %13, 3
@@ -1227,13 +1227,13 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17hd1941e587a7e077eE
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
-  %8 = getelementptr inbounds { [6 x i64] }, ptr %0, i64 %2
+  %8 = getelementptr inbounds [48 x i8], ptr %0, i64 %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   ret void
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds { [6 x i64] }, ptr %0, i64 %2
-  %11 = getelementptr inbounds { [6 x i64] }, ptr %0, i64 %5
+  %10 = getelementptr inbounds [48 x i8], ptr %0, i64 %2
+  %11 = getelementptr inbounds [48 x i8], ptr %0, i64 %5
   %12 = xor i64 %2, -1
   %13 = add i64 %1, %12
   %14 = mul i64 %13, 48
@@ -1352,7 +1352,7 @@ define nonnull align 4 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %3, i64 %5
   ret ptr %6
 }
 
@@ -1361,7 +1361,7 @@ define align 8 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collec
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { [6 x i64] }, ptr %2, i64 %4
+  %5 = getelementptr inbounds [48 x i8], ptr %2, i64 %4
   ret ptr %5
 }
 
@@ -1370,7 +1370,7 @@ define align 8 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collec
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { [6 x i64] }, ptr %2, i64 %4
+  %5 = getelementptr inbounds [48 x i8], ptr %2, i64 %4
   ret ptr %5
 }
 
@@ -1380,7 +1380,7 @@ define nonnull align 4 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %3, i64 %5
   ret ptr %6
 }
 
@@ -1900,9 +1900,9 @@ define { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { [2 x i32] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %8 = getelementptr inbounds i32, ptr %7, i64 %5
+  %8 = getelementptr inbounds [4 x i8], ptr %7, i64 %5
   %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   ret { ptr, ptr } %10
@@ -1913,7 +1913,7 @@ define void @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { [6 x i64] }, ptr %2, i64 %4
+  %5 = getelementptr inbounds [48 x i8], ptr %2, i64 %4
   tail call void @"_ZN4core3ptr57drop_in_place$LT$logos_codegen..graph..meta..MetaItem$GT$17hd609f65b46837803E"(ptr align 8 %5)
   ret void
 }
@@ -1934,9 +1934,9 @@ define { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { [2 x i32] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %8 = getelementptr inbounds i32, ptr %7, i64 %5
+  %8 = getelementptr inbounds [4 x i8], ptr %7, i64 %5
   %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   ret { ptr, ptr } %10
@@ -1948,9 +1948,9 @@ define { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i64, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %8 = getelementptr inbounds i32, ptr %7, i64 %5
+  %8 = getelementptr inbounds [4 x i8], ptr %7, i64 %5
   %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   ret { ptr, ptr } %10
@@ -1962,8 +1962,8 @@ define { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
-  %7 = getelementptr inbounds { [6 x i64] }, ptr %2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %3, i64 %5
+  %7 = getelementptr inbounds [48 x i8], ptr %2, i64 %5
   %8 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
   ret { ptr, ptr } %9
@@ -1975,7 +1975,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -1991,7 +1991,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2007,7 +2007,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2023,7 +2023,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2039,7 +2039,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2055,7 +2055,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2071,7 +2071,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2087,7 +2087,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..colle
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2255,8 +2255,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h8eaea22dfcd293feE.exit"
-  %20 = getelementptr inbounds i32, ptr %13, i64 %16
-  %21 = getelementptr inbounds i32, ptr %13, i64 %17
+  %20 = getelementptr inbounds [4 x i8], ptr %13, i64 %16
+  %21 = getelementptr inbounds [4 x i8], ptr %13, i64 %17
   %22 = xor i64 %16, -1
   %23 = add i64 %14, %22
   %24 = shl i64 %23, 2
@@ -2264,7 +2264,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %25
 
 25:                                               ; preds = %19, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h8eaea22dfcd293feE.exit"
-  %26 = getelementptr inbounds i32, ptr %13, i64 %16
+  %26 = getelementptr inbounds [4 x i8], ptr %13, i64 %16
   store i32 %2, ptr %26, align 4
   %27 = load ptr, ptr %1, align 8
   %28 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc7cb4799dd716d4bE"(i64 %10, ptr %27, i64 11)
@@ -2280,8 +2280,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit"
-  %35 = getelementptr inbounds { [6 x i64] }, ptr %29, i64 %31
-  %36 = getelementptr inbounds { [6 x i64] }, ptr %29, i64 %32
+  %35 = getelementptr inbounds [48 x i8], ptr %29, i64 %31
+  %36 = getelementptr inbounds [48 x i8], ptr %29, i64 %32
   %37 = xor i64 %31, -1
   %38 = add i64 %30, %37
   %39 = mul i64 %38, 48
@@ -2289,7 +2289,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %40
 
 40:                                               ; preds = %34, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit"
-  %41 = getelementptr inbounds { [6 x i64] }, ptr %29, i64 %31
+  %41 = getelementptr inbounds [48 x i8], ptr %29, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, i64 48, i1 false)
   %42 = load ptr, ptr %1, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 582
@@ -2340,8 +2340,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %18, label %19, label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds { [2 x i32] }, ptr %13, i64 %16
-  %21 = getelementptr inbounds { [2 x i32] }, ptr %13, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
+  %21 = getelementptr inbounds [8 x i8], ptr %13, i64 %17
   %22 = xor i64 %16, -1
   %23 = add i64 %14, %22
   %24 = shl i64 %23, 3
@@ -2349,7 +2349,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit: ; preds = %5, %19
-  %25 = getelementptr inbounds { [2 x i32] }, ptr %13, i64 %16
+  %25 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   store i32 %2, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %3, ptr %26, align 4
@@ -2364,8 +2364,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit: ; pred
   br i1 %34, label %35, label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 35:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit
-  %36 = getelementptr inbounds i32, ptr %30, i64 %32
-  %37 = getelementptr inbounds i32, ptr %30, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %30, i64 %32
+  %37 = getelementptr inbounds [4 x i8], ptr %30, i64 %33
   %38 = xor i64 %32, -1
   %39 = add i64 %31, %38
   %40 = shl i64 %39, 2
@@ -2373,7 +2373,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit: ; pred
   br label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit, %35
-  %41 = getelementptr inbounds i32, ptr %30, i64 %32
+  %41 = getelementptr inbounds [4 x i8], ptr %30, i64 %32
   store i32 %4, ptr %41, align 4
   %42 = load ptr, ptr %1, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 142
@@ -2409,8 +2409,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %17, label %18, label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i64, ptr %12, i64 %15
-  %20 = getelementptr inbounds i64, ptr %12, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
+  %20 = getelementptr inbounds [8 x i8], ptr %12, i64 %16
   %21 = xor i64 %15, -1
   %22 = add i64 %13, %21
   %23 = shl i64 %22, 3
@@ -2418,7 +2418,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit: ; preds = %4, %18
-  %24 = getelementptr inbounds i64, ptr %12, i64 %15
+  %24 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   store i64 %2, ptr %24, align 8
   %25 = load ptr, ptr %1, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
@@ -2431,8 +2431,8 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit: ; pred
   br i1 %32, label %33, label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 33:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit
-  %34 = getelementptr inbounds i32, ptr %28, i64 %30
-  %35 = getelementptr inbounds i32, ptr %28, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %36 = xor i64 %30, -1
   %37 = add i64 %29, %36
   %38 = shl i64 %37, 2
@@ -2440,7 +2440,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit: ; pred
   br label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit, %33
-  %39 = getelementptr inbounds i32, ptr %28, i64 %30
+  %39 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
   store i32 %3, ptr %39, align 4
   %40 = load ptr, ptr %1, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 142
@@ -2901,8 +2901,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %34, label %35, label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds { [2 x i32] }, ptr %31, i64 %.sroa.6.0.copyload
-  %37 = getelementptr inbounds { [2 x i32] }, ptr %31, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %31, i64 %.sroa.6.0.copyload
+  %37 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %38 = xor i64 %.sroa.6.0.copyload, -1
   %39 = add i64 %32, %38
   %40 = shl i64 %39, 3
@@ -2910,7 +2910,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i
 
 _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i: ; preds = %35, %27
-  %41 = getelementptr inbounds { [2 x i32] }, ptr %31, i64 %.sroa.6.0.copyload
+  %41 = getelementptr inbounds [8 x i8], ptr %31, i64 %.sroa.6.0.copyload
   store i32 %2, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %3, ptr %42, align 4
@@ -2922,8 +2922,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i: ; pr
   br i1 %47, label %48, label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf6735f4b9e0d80b3E.exit"
 
 48:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i
-  %49 = getelementptr inbounds i32, ptr %45, i64 %.sroa.6.0.copyload
-  %50 = getelementptr inbounds i32, ptr %45, i64 %33
+  %49 = getelementptr inbounds [4 x i8], ptr %45, i64 %.sroa.6.0.copyload
+  %50 = getelementptr inbounds [4 x i8], ptr %45, i64 %33
   %51 = xor i64 %.sroa.6.0.copyload, -1
   %52 = add i64 %46, %51
   %53 = shl i64 %52, 2
@@ -2931,7 +2931,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i: ; pr
   br label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf6735f4b9e0d80b3E.exit"
 
 "_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf6735f4b9e0d80b3E.exit": ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i, %48
-  %54 = getelementptr inbounds i32, ptr %45, i64 %.sroa.6.0.copyload
+  %54 = getelementptr inbounds [4 x i8], ptr %45, i64 %.sroa.6.0.copyload
   store i32 %4, ptr %54, align 4
   store i16 %narrow, ptr %16, align 2
   store ptr null, ptr %0, align 8
@@ -3090,8 +3090,8 @@ common.resume:                                    ; preds = %85, %77, %68, %60
   br i1 %99, label %100, label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i61
 
 100:                                              ; preds = %89
-  %101 = getelementptr inbounds { [2 x i32] }, ptr %96, i64 %.sroa.5.0
-  %102 = getelementptr inbounds { [2 x i32] }, ptr %96, i64 %98
+  %101 = getelementptr inbounds [8 x i8], ptr %96, i64 %.sroa.5.0
+  %102 = getelementptr inbounds [8 x i8], ptr %96, i64 %98
   %103 = xor i64 %.sroa.5.0, -1
   %104 = add i64 %97, %103
   %105 = shl i64 %104, 3
@@ -3099,7 +3099,7 @@ common.resume:                                    ; preds = %85, %77, %68, %60
   br label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i61
 
 _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i61: ; preds = %100, %89
-  %106 = getelementptr inbounds { [2 x i32] }, ptr %96, i64 %.sroa.5.0
+  %106 = getelementptr inbounds [8 x i8], ptr %96, i64 %.sroa.5.0
   store i32 %2, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %3, ptr %107, align 4
@@ -3111,8 +3111,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i61: ; 
   br i1 %112, label %113, label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf6735f4b9e0d80b3E.exit62"
 
 113:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i61
-  %114 = getelementptr inbounds i32, ptr %110, i64 %.sroa.5.0
-  %115 = getelementptr inbounds i32, ptr %110, i64 %98
+  %114 = getelementptr inbounds [4 x i8], ptr %110, i64 %.sroa.5.0
+  %115 = getelementptr inbounds [4 x i8], ptr %110, i64 %98
   %116 = xor i64 %.sroa.5.0, -1
   %117 = add i64 %111, %116
   %118 = shl i64 %117, 2
@@ -3120,7 +3120,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i61: ; 
   br label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf6735f4b9e0d80b3E.exit62"
 
 "_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf6735f4b9e0d80b3E.exit62": ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit.i61, %113
-  %119 = getelementptr inbounds i32, ptr %110, i64 %.sroa.5.0
+  %119 = getelementptr inbounds [4 x i8], ptr %110, i64 %.sroa.5.0
   store i32 %4, ptr %119, align 4
   %120 = trunc i64 %93 to i16
   store i16 %120, ptr %90, align 2
@@ -3189,8 +3189,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %29, label %30, label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i64, ptr %26, i64 %.sroa.6.0.copyload
-  %32 = getelementptr inbounds i64, ptr %26, i64 %28
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %.sroa.6.0.copyload
+  %32 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   %33 = xor i64 %.sroa.6.0.copyload, -1
   %34 = add i64 %27, %33
   %35 = shl i64 %34, 3
@@ -3198,7 +3198,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i
 
 _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i: ; preds = %30, %22
-  %36 = getelementptr inbounds i64, ptr %26, i64 %.sroa.6.0.copyload
+  %36 = getelementptr inbounds [8 x i8], ptr %26, i64 %.sroa.6.0.copyload
   store i64 %2, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %38 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h492c4521af831b05E"(i64 %23, ptr nonnull %37, i64 11)
@@ -3208,8 +3208,8 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i: ; pr
   br i1 %41, label %42, label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf7e60ee3c73e4ca5E.exit"
 
 42:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i
-  %43 = getelementptr inbounds i32, ptr %39, i64 %.sroa.6.0.copyload
-  %44 = getelementptr inbounds i32, ptr %39, i64 %28
+  %43 = getelementptr inbounds [4 x i8], ptr %39, i64 %.sroa.6.0.copyload
+  %44 = getelementptr inbounds [4 x i8], ptr %39, i64 %28
   %45 = xor i64 %.sroa.6.0.copyload, -1
   %46 = add i64 %40, %45
   %47 = shl i64 %46, 2
@@ -3217,7 +3217,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i: ; pr
   br label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf7e60ee3c73e4ca5E.exit"
 
 "_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf7e60ee3c73e4ca5E.exit": ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i, %42
-  %48 = getelementptr inbounds i32, ptr %39, i64 %.sroa.6.0.copyload
+  %48 = getelementptr inbounds [4 x i8], ptr %39, i64 %.sroa.6.0.copyload
   store i32 %3, ptr %48, align 4
   store i16 %narrow, ptr %11, align 2
   store ptr null, ptr %0, align 8
@@ -3367,8 +3367,8 @@ common.resume:                                    ; preds = %83, %74, %64, %55
   br i1 %97, label %98, label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i61
 
 98:                                               ; preds = %87
-  %99 = getelementptr inbounds i64, ptr %94, i64 %.sroa.5.0
-  %100 = getelementptr inbounds i64, ptr %94, i64 %96
+  %99 = getelementptr inbounds [8 x i8], ptr %94, i64 %.sroa.5.0
+  %100 = getelementptr inbounds [8 x i8], ptr %94, i64 %96
   %101 = xor i64 %.sroa.5.0, -1
   %102 = add i64 %95, %101
   %103 = shl i64 %102, 3
@@ -3376,7 +3376,7 @@ common.resume:                                    ; preds = %83, %74, %64, %55
   br label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i61
 
 _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i61: ; preds = %98, %87
-  %104 = getelementptr inbounds i64, ptr %94, i64 %.sroa.5.0
+  %104 = getelementptr inbounds [8 x i8], ptr %94, i64 %.sroa.5.0
   store i64 %2, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 96
   %106 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h492c4521af831b05E"(i64 %91, ptr nonnull %105, i64 11)
@@ -3386,8 +3386,8 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i61: ; 
   br i1 %109, label %110, label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf7e60ee3c73e4ca5E.exit62"
 
 110:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i61
-  %111 = getelementptr inbounds i32, ptr %107, i64 %.sroa.5.0
-  %112 = getelementptr inbounds i32, ptr %107, i64 %96
+  %111 = getelementptr inbounds [4 x i8], ptr %107, i64 %.sroa.5.0
+  %112 = getelementptr inbounds [4 x i8], ptr %107, i64 %96
   %113 = xor i64 %.sroa.5.0, -1
   %114 = add i64 %108, %113
   %115 = shl i64 %114, 2
@@ -3395,7 +3395,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i61: ; 
   br label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf7e60ee3c73e4ca5E.exit62"
 
 "_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hf7e60ee3c73e4ca5E.exit62": ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit.i61, %110
-  %116 = getelementptr inbounds i32, ptr %107, i64 %.sroa.5.0
+  %116 = getelementptr inbounds [4 x i8], ptr %107, i64 %.sroa.5.0
   store i32 %3, ptr %116, align 4
   %117 = trunc i64 %91 to i16
   store i16 %117, ptr %88, align 2
@@ -3471,8 +3471,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h8eaea22dfcd293feE.exit.i"
-  %34 = getelementptr inbounds i32, ptr %29, i64 %.sroa.6.0.copyload
-  %35 = getelementptr inbounds i32, ptr %29, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %29, i64 %.sroa.6.0.copyload
+  %35 = getelementptr inbounds [4 x i8], ptr %29, i64 %31
   %36 = xor i64 %.sroa.6.0.copyload, -1
   %37 = add i64 %30, %36
   %38 = shl i64 %37, 2
@@ -3480,7 +3480,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %39
 
 39:                                               ; preds = %33, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h8eaea22dfcd293feE.exit.i"
-  %40 = getelementptr inbounds i32, ptr %29, i64 %.sroa.6.0.copyload
+  %40 = getelementptr inbounds [4 x i8], ptr %29, i64 %.sroa.6.0.copyload
   store i32 %2, ptr %40, align 4
   %41 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc7cb4799dd716d4bE"(i64 %26, ptr nonnull %17, i64 11)
           to label %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit.i" unwind label %51
@@ -3492,8 +3492,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %44, label %45, label %165
 
 45:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit.i"
-  %46 = getelementptr inbounds { [6 x i64] }, ptr %42, i64 %.sroa.6.0.copyload
-  %47 = getelementptr inbounds { [6 x i64] }, ptr %42, i64 %31
+  %46 = getelementptr inbounds [48 x i8], ptr %42, i64 %.sroa.6.0.copyload
+  %47 = getelementptr inbounds [48 x i8], ptr %42, i64 %31
   %48 = xor i64 %.sroa.6.0.copyload, -1
   %49 = add i64 %43, %48
   %50 = mul i64 %49, 48
@@ -3753,8 +3753,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %137, label %138, label %144
 
 138:                                              ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h8eaea22dfcd293feE.exit.i76"
-  %139 = getelementptr inbounds i32, ptr %134, i64 %.sroa.5.0
-  %140 = getelementptr inbounds i32, ptr %134, i64 %136
+  %139 = getelementptr inbounds [4 x i8], ptr %134, i64 %.sroa.5.0
+  %140 = getelementptr inbounds [4 x i8], ptr %134, i64 %136
   %141 = xor i64 %.sroa.5.0, -1
   %142 = add i64 %135, %141
   %143 = shl i64 %142, 2
@@ -3762,7 +3762,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br label %144
 
 144:                                              ; preds = %138, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h8eaea22dfcd293feE.exit.i76"
-  %145 = getelementptr inbounds i32, ptr %134, i64 %.sroa.5.0
+  %145 = getelementptr inbounds [4 x i8], ptr %134, i64 %.sroa.5.0
   store i32 %2, ptr %145, align 4
   %146 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc7cb4799dd716d4bE"(i64 %131, ptr nonnull %.sroa.021.0, i64 11)
           to label %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit.i77" unwind label %156
@@ -3774,8 +3774,8 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   br i1 %149, label %150, label %160
 
 150:                                              ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit.i77"
-  %151 = getelementptr inbounds { [6 x i64] }, ptr %147, i64 %.sroa.5.0
-  %152 = getelementptr inbounds { [6 x i64] }, ptr %147, i64 %136
+  %151 = getelementptr inbounds [48 x i8], ptr %147, i64 %.sroa.5.0
+  %152 = getelementptr inbounds [48 x i8], ptr %147, i64 %136
   %153 = xor i64 %.sroa.5.0, -1
   %154 = add i64 %148, %153
   %155 = mul i64 %154, 48
@@ -3799,7 +3799,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
           to label %.body unwind label %163
 
 160:                                              ; preds = %150, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit.i77"
-  %161 = getelementptr inbounds { [6 x i64] }, ptr %147, i64 %.sroa.5.0
+  %161 = getelementptr inbounds [48 x i8], ptr %147, i64 %.sroa.5.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %161, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   %162 = trunc i64 %131 to i16
   store i16 %162, ptr %128, align 2
@@ -3813,7 +3813,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   unreachable
 
 165:                                              ; preds = %45, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h3ba6d7d23999c174E.exit.i"
-  %166 = getelementptr inbounds { [6 x i64] }, ptr %42, i64 %.sroa.6.0.copyload
+  %166 = getelementptr inbounds [48 x i8], ptr %42, i64 %.sroa.6.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %166, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false)
   store i16 %narrow, ptr %18, align 2
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3924,7 +3924,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
 .lr.ph.i.i:                                       ; preds = %.noexc6, %.lr.ph.i.i
   %43 = phi { i64, i64 } [ %49, %.lr.ph.i.i ], [ %40, %.noexc6 ]
   %44 = extractvalue { i64, i64 } %43, 1
-  %45 = getelementptr inbounds ptr, ptr %25, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %25, i64 %44
   %46 = load ptr, ptr %45, align 8
   store ptr %10, ptr %46, align 8
   %47 = trunc i64 %44 to i16
@@ -4052,7 +4052,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
 .lr.ph.i.i:                                       ; preds = %.noexc6, %.lr.ph.i.i
   %43 = phi { i64, i64 } [ %49, %.lr.ph.i.i ], [ %40, %.noexc6 ]
   %44 = extractvalue { i64, i64 } %43, 1
-  %45 = getelementptr inbounds ptr, ptr %25, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %25, i64 %44
   %46 = load ptr, ptr %45, align 8
   store ptr %11, ptr %46, align 8
   %47 = trunc i64 %44 to i16
@@ -4195,7 +4195,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
 .lr.ph.i.i:                                       ; preds = %.noexc6, %.noexc7
   %47 = phi { i64, i64 } [ %54, %.noexc7 ], [ %44, %.noexc6 ]
   %48 = extractvalue { i64, i64 } %47, 1
-  %49 = getelementptr inbounds ptr, ptr %28, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %28, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 528
   store ptr %12, ptr %51, align 8
@@ -4264,8 +4264,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h1dc6ad19d2e44ea7E.exit"
-  %22 = getelementptr inbounds i32, ptr %15, i64 %18
-  %23 = getelementptr inbounds i32, ptr %15, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %15, i64 %19
   %24 = xor i64 %18, -1
   %25 = add i64 %16, %24
   %26 = shl i64 %25, 2
@@ -4273,7 +4273,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %27
 
 27:                                               ; preds = %21, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h1dc6ad19d2e44ea7E.exit"
-  %28 = getelementptr inbounds i32, ptr %15, i64 %18
+  %28 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
   store i32 %1, ptr %28, align 4
   %29 = load ptr, ptr %0, align 8
   %30 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc7cb4799dd716d4bE"(i64 %12, ptr %29, i64 11)
@@ -4289,8 +4289,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br i1 %35, label %36, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h78b1fc65e8936362E.exit"
 
 36:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h91a1f4ce669db080E.exit"
-  %37 = getelementptr inbounds { [6 x i64] }, ptr %31, i64 %33
-  %38 = getelementptr inbounds { [6 x i64] }, ptr %31, i64 %34
+  %37 = getelementptr inbounds [48 x i8], ptr %31, i64 %33
+  %38 = getelementptr inbounds [48 x i8], ptr %31, i64 %34
   %39 = xor i64 %33, -1
   %40 = add i64 %32, %39
   %41 = mul i64 %40, 48
@@ -4298,7 +4298,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h78b1fc65e8936362E.exit"
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h78b1fc65e8936362E.exit": ; preds = %36, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h91a1f4ce669db080E.exit"
-  %42 = getelementptr inbounds { [6 x i64] }, ptr %31, i64 %33
+  %42 = getelementptr inbounds [48 x i8], ptr %31, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i64 48, i1 false)
   %43 = add nuw nsw i64 %11, 2
   %44 = load ptr, ptr %0, align 8
@@ -4313,8 +4313,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br i1 %52, label %53, label %.noexc
 
 53:                                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h78b1fc65e8936362E.exit"
-  %54 = getelementptr inbounds ptr, ptr %47, i64 %50
-  %55 = getelementptr inbounds ptr, ptr %47, i64 %51
+  %54 = getelementptr inbounds [8 x i8], ptr %47, i64 %50
+  %55 = getelementptr inbounds [8 x i8], ptr %47, i64 %51
   %reass.sub = sub i64 %48, %49
   %56 = shl i64 %reass.sub, 3
   %57 = add i64 %56, -16
@@ -4322,7 +4322,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %.noexc
 
 .noexc:                                           ; preds = %53, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h78b1fc65e8936362E.exit"
-  %58 = getelementptr inbounds ptr, ptr %47, i64 %50
+  %58 = getelementptr inbounds [8 x i8], ptr %47, i64 %50
   store ptr %3, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 582
@@ -4344,7 +4344,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %69 = extractvalue { i64, i64 } %68, 1
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 584
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %69
+  %72 = getelementptr inbounds [8 x i8], ptr %71, i64 %69
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 528
   store ptr %70, ptr %74, align 8
@@ -4395,8 +4395,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br i1 %20, label %21, label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds { [2 x i32] }, ptr %15, i64 %18
-  %23 = getelementptr inbounds { [2 x i32] }, ptr %15, i64 %19
+  %22 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %15, i64 %19
   %24 = xor i64 %18, -1
   %25 = add i64 %16, %24
   %26 = shl i64 %25, 3
@@ -4404,7 +4404,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit: ; preds = %6, %21
-  %27 = getelementptr inbounds { [2 x i32] }, ptr %15, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   store i32 %1, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %2, ptr %28, align 4
@@ -4419,8 +4419,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit: ; pred
   br i1 %36, label %37, label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 37:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit
-  %38 = getelementptr inbounds i32, ptr %32, i64 %34
-  %39 = getelementptr inbounds i32, ptr %32, i64 %35
+  %38 = getelementptr inbounds [4 x i8], ptr %32, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %32, i64 %35
   %40 = xor i64 %34, -1
   %41 = add i64 %33, %40
   %42 = shl i64 %41, 2
@@ -4428,7 +4428,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit: ; pred
   br label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h89da0751b3785e62E.exit, %37
-  %43 = getelementptr inbounds i32, ptr %32, i64 %34
+  %43 = getelementptr inbounds [4 x i8], ptr %32, i64 %34
   store i32 %3, ptr %43, align 4
   %44 = add nuw nsw i64 %11, 2
   %45 = load ptr, ptr %0, align 8
@@ -4443,8 +4443,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; pred
   br i1 %53, label %54, label %_ZN5alloc11collections5btree4node12slice_insert17h5fa60257b1a644c7E.exit
 
 54:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
-  %55 = getelementptr inbounds ptr, ptr %48, i64 %51
-  %56 = getelementptr inbounds ptr, ptr %48, i64 %52
+  %55 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
+  %56 = getelementptr inbounds [8 x i8], ptr %48, i64 %52
   %reass.sub = sub i64 %49, %50
   %57 = shl i64 %reass.sub, 3
   %58 = add i64 %57, -16
@@ -4452,7 +4452,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; pred
   br label %_ZN5alloc11collections5btree4node12slice_insert17h5fa60257b1a644c7E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h5fa60257b1a644c7E.exit: ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit, %54
-  %59 = getelementptr inbounds ptr, ptr %48, i64 %51
+  %59 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   store ptr %4, ptr %59, align 8
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 142
@@ -4474,7 +4474,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h5fa60257b1a644c7E.exit: ; pred
   %70 = extractvalue { i64, i64 } %69, 1
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 144
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %70
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load ptr, ptr %73, align 8
   store ptr %71, ptr %74, align 8
   %75 = trunc i64 %70 to i16
@@ -4509,8 +4509,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br i1 %19, label %20, label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i64, ptr %14, i64 %17
-  %22 = getelementptr inbounds i64, ptr %14, i64 %18
+  %21 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
+  %22 = getelementptr inbounds [8 x i8], ptr %14, i64 %18
   %23 = xor i64 %17, -1
   %24 = add i64 %15, %23
   %25 = shl i64 %24, 3
@@ -4518,7 +4518,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit: ; preds = %5, %20
-  %26 = getelementptr inbounds i64, ptr %14, i64 %17
+  %26 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   store i64 %1, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
@@ -4531,8 +4531,8 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit: ; pred
   br i1 %34, label %35, label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 35:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit
-  %36 = getelementptr inbounds i32, ptr %30, i64 %32
-  %37 = getelementptr inbounds i32, ptr %30, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %30, i64 %32
+  %37 = getelementptr inbounds [4 x i8], ptr %30, i64 %33
   %38 = xor i64 %32, -1
   %39 = add i64 %31, %38
   %40 = shl i64 %39, 2
@@ -4540,7 +4540,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit: ; pred
   br label %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hc9efd057bee2d2c5E.exit, %35
-  %41 = getelementptr inbounds i32, ptr %30, i64 %32
+  %41 = getelementptr inbounds [4 x i8], ptr %30, i64 %32
   store i32 %2, ptr %41, align 4
   %42 = add nuw nsw i64 %10, 2
   %43 = load ptr, ptr %0, align 8
@@ -4555,8 +4555,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; pred
   br i1 %51, label %52, label %_ZN5alloc11collections5btree4node12slice_insert17h7cf98ffe84d6ebe7E.exit
 
 52:                                               ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit
-  %53 = getelementptr inbounds ptr, ptr %46, i64 %49
-  %54 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %53 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
+  %54 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   %reass.sub = sub i64 %47, %48
   %55 = shl i64 %reass.sub, 3
   %56 = add i64 %55, -16
@@ -4564,7 +4564,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit: ; pred
   br label %_ZN5alloc11collections5btree4node12slice_insert17h7cf98ffe84d6ebe7E.exit
 
 _ZN5alloc11collections5btree4node12slice_insert17h7cf98ffe84d6ebe7E.exit: ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h0b9b9b30c6116493E.exit, %52
-  %57 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %57 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %3, ptr %57, align 8
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 142
@@ -4586,7 +4586,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h7cf98ffe84d6ebe7E.exit: ; pred
   %68 = extractvalue { i64, i64 } %67, 1
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 144
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %68
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %68
   %72 = load ptr, ptr %71, align 8
   store ptr %69, ptr %72, align 8
   %73 = trunc i64 %68 to i16
@@ -4608,7 +4608,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 584
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 528
   store ptr %2, ptr %8, align 8
@@ -4624,7 +4624,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   %8 = trunc i64 %4 to i16
@@ -4639,7 +4639,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   %8 = trunc i64 %4 to i16
@@ -5540,7 +5540,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 142
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw { i32, i32 }, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   store ptr %7, ptr %5, align 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
@@ -5594,7 +5594,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 144
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5615,7 +5615,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 142
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   store ptr %7, ptr %5, align 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
@@ -5669,7 +5669,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 144
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5690,7 +5690,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 142
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw { i32, i32 }, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   store ptr %7, ptr %5, align 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
@@ -5744,7 +5744,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 144
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5765,7 +5765,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 582
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %10
   store ptr %7, ptr %5, align 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
@@ -5819,7 +5819,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 584
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5840,7 +5840,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 582
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %10
   store ptr %7, ptr %5, align 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
@@ -5894,7 +5894,7 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 584
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5908,7 +5908,7 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 142
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw { i32, i32 }, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   store ptr %6, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -5964,7 +5964,7 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 142
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw { i32, i32 }, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   store ptr %6, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -6020,7 +6020,7 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 582
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %9
   store ptr %6, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -6076,7 +6076,7 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 582
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %9
   store ptr %6, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -6132,7 +6132,7 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 142
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   store ptr %6, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -6188,8 +6188,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 142
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds { i32, i32 }, ptr %6, i64 %2
-  %11 = getelementptr inbounds nuw { i32, i32 }, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   store ptr %10, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6241,8 +6241,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 142
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds { i32, i32 }, ptr %6, i64 %2
-  %11 = getelementptr inbounds nuw { i32, i32 }, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   store ptr %10, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6294,8 +6294,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 142
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %6, i64 %2
-  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   store ptr %10, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6347,8 +6347,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 582
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %6, i64 %2
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %6, i64 %2
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %9
   store ptr %10, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6400,8 +6400,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 582
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %6, i64 %2
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %6, i64 %2
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %9
   store ptr %10, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6532,7 +6532,7 @@ define void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..colle
 
 13:                                               ; preds = %2
   %14 = getelementptr i8, ptr %5, i64 152
-  %15 = getelementptr ptr, ptr %14, i64 %7
+  %15 = getelementptr [8 x i8], ptr %14, i64 %7
   %16 = load ptr, ptr %15, align 8
   %17 = add i64 %4, -1
   %18 = icmp eq i64 %17, 0
@@ -6579,7 +6579,7 @@ define void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..colle
 
 13:                                               ; preds = %2
   %14 = getelementptr i8, ptr %5, i64 592
-  %15 = getelementptr ptr, ptr %14, i64 %7
+  %15 = getelementptr [8 x i8], ptr %14, i64 %7
   %16 = load ptr, ptr %15, align 8
   %17 = add i64 %4, -1
   %18 = icmp eq i64 %17, 0
@@ -6626,7 +6626,7 @@ define void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..colle
 
 13:                                               ; preds = %2
   %14 = getelementptr i8, ptr %5, i64 152
-  %15 = getelementptr ptr, ptr %14, i64 %7
+  %15 = getelementptr [8 x i8], ptr %14, i64 %7
   %16 = load ptr, ptr %15, align 8
   %17 = add i64 %4, -1
   %18 = icmp eq i64 %17, 0
@@ -6792,7 +6792,7 @@ define void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..colle
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 152
-  %21 = getelementptr ptr, ptr %20, i64 %.sroa.4.0.lcssa
+  %21 = getelementptr [8 x i8], ptr %20, i64 %.sroa.4.0.lcssa
   %22 = load ptr, ptr %21, align 8
   %23 = add i64 %.sroa.3.0.lcssa, -1
   %24 = icmp eq i64 %23, 0
@@ -6886,7 +6886,7 @@ define void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..colle
 
 20:                                               ; preds = %._crit_edge
   %21 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 592
-  %22 = getelementptr ptr, ptr %21, i64 %.sroa.4.0.lcssa
+  %22 = getelementptr [8 x i8], ptr %21, i64 %.sroa.4.0.lcssa
   %23 = load ptr, ptr %22, align 8
   %24 = add i64 %.sroa.3.0.lcssa, -1
   %25 = icmp eq i64 %24, 0
@@ -6979,7 +6979,7 @@ define void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..colle
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 152
-  %21 = getelementptr ptr, ptr %20, i64 %.sroa.4.0.lcssa
+  %21 = getelementptr [8 x i8], ptr %20, i64 %.sroa.4.0.lcssa
   %22 = load ptr, ptr %21, align 8
   %23 = add i64 %.sroa.3.0.lcssa, -1
   %24 = icmp eq i64 %23, 0

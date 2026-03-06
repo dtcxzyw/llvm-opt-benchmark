@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, i32 }
 %"struct.icu_77::number::impl::Endpoints" = type { i32, i32 }
 %"struct.icu_77::number::impl::ParsedPatternInfo::ParserState" = type <{ ptr, i32, [4 x i8] }>
-%"struct.icu_77::number::impl::CompactModInfo" = type { ptr, ptr }
 %"class.icu_77::number::impl::RoundingImpl" = type <{ %"class.icu_77::number::Precision", i32, i8, [3 x i8] }>
 %"class.icu_77::number::Precision" = type <{ i32, [4 x i8], %"union.icu_77::number::Precision::PrecisionUnion", i32, [4 x i8] }>
 %"union.icu_77::number::Precision::PrecisionUnion" = type { %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings" }
@@ -859,7 +858,7 @@ define noundef ptr @_ZNK6icu_776number4impl11CompactData10getPatternEiPKNS_11Plu
   %.sink33 = phi i64 [ 64, %17 ], [ 56, %15 ]
   %19 = shl nsw i32 %spec.select, 3
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %0, i64 %20
+  %21 = getelementptr [8 x i8], ptr %0, i64 %20
   %22 = getelementptr i8, ptr %21, i64 %.sink33
   %.024 = load ptr, ptr %22, align 8, !tbaa !32
   %.not = icmp eq ptr %.024, null
@@ -895,7 +894,7 @@ _ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixed
   %32 = shl nsw i32 %spec.select, 3
   %33 = add nsw i32 %.0.i, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !32
   %37 = icmp eq ptr %36, null
   %38 = icmp ne i32 %.0.i, 5
@@ -904,7 +903,7 @@ _ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixed
 
 39:                                               ; preds = %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit
   %40 = sext i32 %32 to i64
-  %41 = getelementptr ptr, ptr %31, i64 %40
+  %41 = getelementptr [8 x i8], ptr %31, i64 %40
   %42 = getelementptr i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !32
   br label %44
@@ -1043,7 +1042,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = add nsw i32 %40, %36
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !32
   %.not55 = icmp eq ptr %49, null
   br i1 %.not55, label %50, label %.thread64
@@ -1071,7 +1070,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   %.040 = phi ptr [ @.str.7, %60 ], [ %54, %57 ]
   %62 = load ptr, ptr %16, align 8, !tbaa !40
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %47
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %47
   store ptr %.040, ptr %64, align 8, !tbaa !32
   %65 = icmp eq i8 %.04387, 0
   br i1 %65, label %66, label %.thread68
@@ -1088,7 +1087,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
 .lr.ph.i:                                         ; preds = %78, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %78 ]
   %.078.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %78 ]
-  %69 = getelementptr inbounds nuw i16, ptr %.040, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.040, i64 %indvars.iv.i
   %70 = load i16, ptr %69, align 2, !tbaa !43
   %71 = icmp eq i16 %70, 48
   br i1 %71, label %72, label %74
@@ -1493,7 +1492,7 @@ _ZNK6icu_777UVectorixEi.exit:                     ; preds = %59
 
 .preheader.i.i:                                   ; preds = %_ZNK6icu_777UVectorixEi.exit, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %66, %.preheader.i.i ], [ 0, %_ZNK6icu_777UVectorixEi.exit ]
-  %63 = getelementptr inbounds nuw i16, ptr %61, i64 %.0.i.i.i.i
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %.0.i.i.i.i
   %64 = load i16, ptr %63, align 2, !tbaa !43
   %65 = icmp eq i16 %64, 0
   %66 = add i64 %.0.i.i.i.i, 1
@@ -1512,7 +1511,7 @@ _ZNK6icu_777UVectorixEi.exit:                     ; preds = %59
 
 _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i52
   %70 = load ptr, ptr %34, align 8, !tbaa !72
-  %71 = getelementptr inbounds nuw %"struct.icu_77::number::impl::CompactModInfo", ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6icu_776number4impl17ParsedPatternInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(433) %6)
           to label %72 unwind label %85
@@ -1525,7 +1524,7 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i52
 
 .preheader.i.i53:                                 ; preds = %72, %.preheader.i.i53
   %.0.i.i.i.i54 = phi i64 [ %76, %.preheader.i.i53 ], [ 0, %72 ]
-  %73 = getelementptr inbounds nuw i16, ptr %61, i64 %.0.i.i.i.i54
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %.0.i.i.i.i54
   %74 = load i16, ptr %73, align 2, !tbaa !43
   %75 = icmp eq i16 %74, 0
   %76 = add i64 %.0.i.i.i.i54, 1
@@ -1740,7 +1739,7 @@ _ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EED2Ev.exit: ; p
   %20 = phi i32 [ %3, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %21 = load ptr, ptr %5, align 8, !tbaa !72
-  %22 = getelementptr inbounds nuw %"struct.icu_77::number::impl::CompactModInfo", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !88
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
@@ -1859,7 +1858,7 @@ define void @_ZNK6icu_776number4impl14CompactHandler15processQuantityERNS1_15Dec
 44:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %45 = load ptr, ptr %39, align 8, !tbaa !72
-  %46 = getelementptr inbounds nuw %"struct.icu_77::number::impl::CompactModInfo", ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !91
   %49 = tail call i32 @u_strcmp_77(ptr noundef nonnull %31, ptr noundef %48)
@@ -1880,7 +1879,7 @@ define void @_ZNK6icu_776number4impl14CompactHandler15processQuantityERNS1_15Dec
 
 .preheader.i.i:                                   ; preds = %53, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %58, %.preheader.i.i ], [ 0, %53 ]
-  %55 = getelementptr inbounds nuw i16, ptr %31, i64 %.0.i.i.i.i
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %.0.i.i.i.i
   %56 = load i16, ptr %55, align 2, !tbaa !43
   %57 = icmp eq i16 %56, 0
   %58 = add i64 %.0.i.i.i.i, 1

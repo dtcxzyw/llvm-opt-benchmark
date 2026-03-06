@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.encryption_states_handler_s = type { i16, [4096 x i32] }
 %struct.zb_secur_ccm_nonce_s = type <{ [8 x i8], i32, i8 }>
 %struct.zb_direct_key_record_t = type { i32, [8 x i8], [8 x i8], [16 x i8], ptr }
-%struct.uat_key_record_s = type { ptr, ptr, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 
 @proto_register_zb_direct.hf = internal global [26 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_zb_direct_unrecognized_msg, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_info_type, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 1, ptr @info_type_str, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_info_key, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_info_zdd_ieee, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_info_zvd_ieee, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_info_encryption, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_msg_type, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr @msg_type_str, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_info, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_c25519_aesmmo, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_c25519_sha256, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_p256, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_form, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_status, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_join, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_permit_join, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_leave, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_manage_joiners, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_identify, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_finding_binding, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_char_tunneling, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_comm_permit_time, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_comm_rejoin, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_comm_rm_children, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_comm_identify_time, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_comm_fb_endpoint, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zb_direct_comm_fb_initiator, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_zb_direct_unrecognized_msg = internal global i32 0, align 4
@@ -266,14 +264,14 @@ define internal void @zb_direct_init() #2 {
 2:                                                ; preds = %0, %.critedge
   %3 = phi i1 [ true, %0 ], [ false, %.critedge ]
   %indvars.iv13 = phi i64 [ 0, %0 ], [ 1, %.critedge ]
-  %4 = getelementptr %struct.encryption_states_handler_s, ptr @enc_h, i64 %indvars.iv13
+  %4 = getelementptr [16388 x i8], ptr @enc_h, i64 %indvars.iv13
   store i16 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %6
 
 6:                                                ; preds = %2, %9
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %9 ]
-  %7 = getelementptr i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -686,7 +684,7 @@ define internal void @uat_key_record_post_update() #0 {
   %25 = phi i32 [ %11, %.lr.ph31 ], [ %57, %56 ]
   %26 = phi ptr [ %9, %.lr.ph31 ], [ %58, %56 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next, %56 ]
-  %27 = getelementptr %struct.uat_key_record_s, ptr %26, i64 %indvars.iv
+  %27 = getelementptr [32 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = call fastcc zeroext i1 @zbd_parse_uat_hexline(ptr noundef %28, ptr noundef nonnull %2, i32 noundef 8)
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -767,7 +765,7 @@ define hidden void @proto_reg_handoff_zb_direct() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0, %3
   %.08 = phi i64 [ 0, %0 ], [ %13, %3 ]
-  %4 = getelementptr %struct.zb_direct_service_t, ptr @proto_reg_handoff_zb_direct.services, i64 %.08
+  %4 = getelementptr [24 x i8], ptr @proto_reg_handoff_zb_direct.services, i64 %.08
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @bluetooth_uuids, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -887,7 +885,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
 
 62:                                               ; preds = %61
   %63 = zext i16 %57 to i64
-  %64 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %63
+  %64 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %63
   %65 = getelementptr i8, ptr %64, i64 -4
   %66 = load i32, ptr %65, align 4
   %.not10.i = icmp ule i32 %.pre.i, %66
@@ -899,7 +897,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
   %.pre-phi.i = phi i64 [ %63, %62 ], [ 0, %61 ]
   %68 = or disjoint i16 %57, 1
   store i16 %68, ptr @enc_h, align 16
-  %69 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %.pre-phi.i
+  %69 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %.pre-phi.i
   store i32 %.pre.i, ptr %69, align 4
   br label %80
 
@@ -910,7 +908,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %73 = load i32, ptr %72, align 4
   %74 = zext i16 %57 to i64
-  %75 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %74
+  %75 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %74
   %76 = getelementptr i8, ptr %75, i64 -4
   %77 = load i32, ptr %76, align 4
   %.not.i32 = icmp ugt i32 %73, %77
@@ -1467,7 +1465,7 @@ define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef rea
   %.13946.us = phi ptr [ %11, %.split.us.preheader ], [ %19, %17 ]
   %.148.us = load i8, ptr %.148.us.in, align 1
   %13 = zext i8 %.148.us to i64
-  %14 = getelementptr i16, ptr %12, i64 %13
+  %14 = getelementptr [2 x i8], ptr %12, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 64
   %.not44.us.not.not = icmp ne i16 %16, 0
@@ -1500,7 +1498,7 @@ define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef rea
   %.341 = phi ptr [ %21, %20 ], [ %.13946, %.split ]
   %.3 = phi i8 [ %22, %20 ], [ %.148, %.split ]
   %24 = zext i8 %.3 to i64
-  %25 = getelementptr i16, ptr %10, i64 %24
+  %25 = getelementptr [2 x i8], ptr %10, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 1024
   %.not = icmp eq i16 %27, 0
@@ -1514,7 +1512,7 @@ define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef rea
   store i8 %30, ptr %31, align 1
   %32 = load i8, ptr %.341, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr i16, ptr %10, i64 %33
+  %34 = getelementptr [2 x i8], ptr %10, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 1024
   %.not43 = icmp eq i16 %36, 0
@@ -1616,7 +1614,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
 
 35:                                               ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
-  %36 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %indvars.iv.i.i
+  %36 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %indvars.iv.i.i
   %37 = load i32, ptr %36, align 4
   %38 = icmp ult i32 %37, %32
   br i1 %38, label %39, label %45
@@ -2048,10 +2046,10 @@ switch.lookup:
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %switch.tableidx = add nsw i32 %4, -9
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_zb_direct_secur_common, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_zb_direct_secur_common, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_zb_direct_secur_common.4, i64 %9
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_zb_direct_secur_common.4, i64 %9
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %10 = call fastcc i32 @dissect_zb_direct_common(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull %switch.load)
   %11 = load ptr, ptr %6, align 8
@@ -2095,7 +2093,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = zext i16 %28 to i64
-  %35 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %34
+  %35 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %34
   %36 = getelementptr i8, ptr %35, i64 -4
   %37 = load i32, ptr %36, align 4
   %.not.i34 = icmp ugt i32 %33, %37
@@ -2121,7 +2119,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
 
 44:                                               ; preds = %43
   %45 = zext i16 %41 to i64
-  %46 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %45
+  %46 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %45
   %47 = getelementptr i8, ptr %46, i64 -4
   %48 = load i32, ptr %47, align 4
   %.not10.i = icmp ule i32 %.pre.i, %48
@@ -2133,7 +2131,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
   %.pre-phi.i = phi i64 [ %45, %44 ], [ 0, %43 ]
   %50 = or disjoint i16 %41, 1
   store i16 %50, ptr @enc_h, align 16
-  %51 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %.pre-phi.i
+  %51 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 %.pre-phi.i
   store i32 %.pre.i, ptr %51, align 4
   br label %zb_direct_encryption_disable.exit.thread
 
@@ -2153,7 +2151,7 @@ zb_direct_encryption_disable.exit:                ; preds = %proto_item_set_gene
   %58 = and i64 %57, 4294967295
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr %struct._value_string, ptr @msg_type_str, i64 %58
+  %61 = getelementptr [16 x i8], ptr @msg_type_str, i64 %58
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef %63)

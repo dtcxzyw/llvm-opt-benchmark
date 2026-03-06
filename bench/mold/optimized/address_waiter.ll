@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.tbb::detail::r1::circular_doubly_linked_list_with_sentinel::base_node" = type { ptr, ptr }
-%"class.tbb::detail::r1::address_waiter" = type { %"class.tbb::detail::r1::concurrent_monitor_base.base", [4 x i8] }
-%"class.tbb::detail::r1::concurrent_monitor_base.base" = type <{ %"class.tbb::detail::r1::concurrent_monitor_mutex", %"class.tbb::detail::r1::circular_doubly_linked_list_with_sentinel", %"struct.std::atomic.2" }>
-%"class.tbb::detail::r1::concurrent_monitor_mutex" = type { %"struct.std::atomic", %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.tbb::detail::r1::circular_doubly_linked_list_with_sentinel" = type { %"struct.std::atomic.0", %"struct.tbb::detail::r1::circular_doubly_linked_list_with_sentinel::base_node" }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { i32 }
 %"class.tbb::detail::r1::sleep_node" = type <{ %"class.tbb::detail::r1::wait_node", %"class.tbb::detail::d0::aligned_space", [4 x i8] }>
 %"class.tbb::detail::r1::wait_node" = type { ptr, %"struct.tbb::detail::r1::circular_doubly_linked_list_with_sentinel::base_node", %"struct.tbb::detail::r1::address_context", %"struct.std::atomic.4", i8, i8, i8, i32 }
 %"struct.tbb::detail::r1::address_context" = type { ptr, i64 }
@@ -22,6 +12,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.tbb::detail::d0::aligned_space" = type { [4 x i8] }
 %"class.tbb::detail::d0::raii_guard" = type <{ %class.anon.10, i8, [7 x i8] }>
 %class.anon.10 = type { ptr, ptr }
+%"class.tbb::detail::r1::circular_doubly_linked_list_with_sentinel" = type { %"struct.std::atomic.0", %"struct.tbb::detail::r1::circular_doubly_linked_list_with_sentinel::base_node" }
+%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
+%"struct.std::__atomic_base.1" = type { i64 }
 
 $_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE4waitINS1_10sleep_nodeIS3_EERNS0_2d113delegate_baseEEEbOT0_OT_ = comdat any
 
@@ -83,7 +76,7 @@ define void @_ZN3tbb6detail2r126clear_address_waiter_tableEv() local_unnamed_add
 
 3:                                                ; preds = %0, %3
   %.03 = phi i64 [ 0, %0 ], [ %5, %3 ]
-  %4 = getelementptr inbounds nuw %"class.tbb::detail::r1::address_waiter", ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %.03
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %.03
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1, !tbaa !3
   call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, ptr nonnull elementtype(i8) %1) #7, !srcloc !6
@@ -101,7 +94,7 @@ define void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr 
   %6 = lshr i64 %5, 5
   %7 = xor i64 %6, %5
   %8 = and i64 %7, 2047
-  %9 = getelementptr inbounds nuw %"class.tbb::detail::r1::address_waiter", ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr inttoptr (i64 3452816845 to ptr), ptr %10, align 8, !tbaa !9
@@ -273,7 +266,7 @@ define void @_ZN3tbb6detail2r117notify_by_addressEPvm(ptr noundef %0, i64 nounde
   %5 = lshr i64 %4, 5
   %6 = xor i64 %5, %4
   %7 = and i64 %6, 2047
-  %8 = getelementptr inbounds nuw %"class.tbb::detail::r1::address_waiter", ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp eq i64 %10, 0
@@ -445,7 +438,7 @@ define void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef %0) local_u
   %3 = lshr i64 %2, 5
   %4 = xor i64 %3, %2
   %5 = and i64 %4, 2047
-  %6 = getelementptr inbounds nuw %"class.tbb::detail::r1::address_waiter", ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %9 = icmp eq i64 %8, 0
@@ -591,7 +584,7 @@ define void @_ZN3tbb6detail2r121notify_by_address_allEPv(ptr noundef %0) local_u
   %4 = lshr i64 %3, 5
   %5 = xor i64 %4, %3
   %6 = and i64 %5, 2047
-  %7 = getelementptr inbounds nuw %"class.tbb::detail::r1::address_waiter", ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load atomic i64, ptr %8 monotonic, align 8
   %10 = icmp eq i64 %9, 0

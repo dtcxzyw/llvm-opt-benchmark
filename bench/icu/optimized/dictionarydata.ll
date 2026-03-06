@@ -183,7 +183,7 @@ _ZN6icu_7710UCharsTrie5firstEi.exit.us.us:        ; preds = %24, %22
 
 39:                                               ; preds = %38
   %40 = sext i32 %.044.us.us to i64
-  %41 = getelementptr inbounds i32, ptr %5, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %5, i64 %40
   store i32 %32, ptr %41, align 4, !tbaa !21
   br label %42
 
@@ -266,7 +266,7 @@ _ZN6icu_7710UCharsTrie5firstEi.exit.us.us81:      ; preds = %56, %54
 
 70:                                               ; preds = %68
   %71 = sext i32 %.044.us.us78 to i64
-  %72 = getelementptr inbounds i32, ptr %4, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %4, i64 %71
   store i32 %63, ptr %72, align 4, !tbaa !21
   %73 = add nsw i32 %.044.us.us78, 1
   br label %74
@@ -343,9 +343,9 @@ _ZN6icu_7710UCharsTrie5firstEi.exit.us:           ; preds = %86, %84
 
 100:                                              ; preds = %98
   %101 = sext i32 %.044.us to i64
-  %102 = getelementptr inbounds i32, ptr %4, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %4, i64 %101
   store i32 %93, ptr %102, align 4, !tbaa !21
-  %103 = getelementptr inbounds i32, ptr %5, i64 %101
+  %103 = getelementptr inbounds [4 x i8], ptr %5, i64 %101
   store i32 %94, ptr %103, align 4, !tbaa !21
   %104 = add nsw i32 %.044.us, 1
   br label %105
@@ -501,7 +501,7 @@ _ZN6icu_7710UCharsTrie5firstEi.exit:              ; preds = %117, %120
 _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %168, %161, %156, %146, %140, %136
   %176 = phi i32 [ %137, %136 ], [ %153, %146 ], [ %145, %140 ], [ %158, %156 ], [ %167, %161 ], [ %175, %168 ]
   %177 = sext i32 %.044 to i64
-  %178 = getelementptr inbounds i32, ptr %6, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %6, i64 %177
   store i32 %176, ptr %178, align 4, !tbaa !21
   br i1 %.not55, label %183, label %181
 
@@ -516,7 +516,7 @@ _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %168, %161, %156, %1
   br label %.loopexit
 
 181:                                              ; preds = %_ZNK6icu_7710UCharsTrie8getValueEv.exit
-  %182 = getelementptr inbounds i32, ptr %4, i64 %177
+  %182 = getelementptr inbounds [4 x i8], ptr %4, i64 %177
   store i32 %126, ptr %182, align 4, !tbaa !21
   br label %183
 
@@ -524,7 +524,7 @@ _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %168, %161, %156, %1
   br i1 %.not56, label %186, label %184
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds i32, ptr %5, i64 %177
+  %185 = getelementptr inbounds [4 x i8], ptr %5, i64 %177
   store i32 %127, ptr %185, align 4, !tbaa !21
   br label %186
 
@@ -781,7 +781,7 @@ _ZN6icu_779BytesTrie5firstEi.exit:                ; preds = %_ZNK6icu_7722BytesD
 
 _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %56
   %63 = sext i32 %.043 to i64
-  %64 = getelementptr inbounds i32, ptr %6, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %6, i64 %63
   store i32 %62, ptr %64, align 4, !tbaa !21
   br label %69
 
@@ -800,7 +800,7 @@ _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %56
 
 70:                                               ; preds = %69
   %71 = sext i32 %.043 to i64
-  %72 = getelementptr inbounds i32, ptr %4, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %4, i64 %71
   store i32 %50, ptr %72, align 4, !tbaa !21
   br label %73
 
@@ -809,7 +809,7 @@ _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %56
 
 74:                                               ; preds = %73
   %75 = sext i32 %.043 to i64
-  %76 = getelementptr inbounds i32, ptr %5, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %5, i64 %75
   store i32 %51, ptr %76, align 4, !tbaa !21
   br label %77
 
@@ -945,10 +945,10 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 
 55:                                               ; preds = %54, %55
   %indvars.iv = phi i64 [ 0, %54 ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !21
   %58 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %57)
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %58, ptr %59, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

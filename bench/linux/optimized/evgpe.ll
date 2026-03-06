@@ -3,11 +3,6 @@ source_filename = "bench/linux/original/evgpe.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.acpi_gpe_event_info = type { %union.acpi_gpe_dispatch_info, ptr, i8, i8, i8, i8 }
-%union.acpi_gpe_dispatch_info = type { ptr }
-%struct.acpi_gpe_register_info = type { %struct.acpi_gpe_address, %struct.acpi_gpe_address, i16, i8, i8, i8, i8 }
-%struct.acpi_gpe_address = type { i8, i64 }
-
 @acpi_gbl_gpe_fadt_blocks = external dso_local local_unnamed_addr global [2 x ptr], align 16
 @acpi_gbl_gpe_lock = external dso_local local_unnamed_addr global ptr, align 8
 @acpi_gpe_count = external dso_local local_unnamed_addr global i32, align 4
@@ -276,7 +271,7 @@ define dso_local ptr @acpi_ev_low_get_gpe_info(i32 noundef %0, ptr noundef reado
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr %struct.acpi_gpe_event_info, ptr %17, i64 %18
+  %19 = getelementptr [24 x i8], ptr %17, i64 %18
   br label %20
 
 20:                                               ; preds = %15, %9, %4, %2
@@ -298,7 +293,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
 .preheader:                                       ; preds = %2, %.preheader.backedge
   %4 = phi i1 [ false, %.preheader.backedge ], [ true, %2 ]
   %5 = phi i64 [ 1, %.preheader.backedge ], [ 0, %2 ]
-  %6 = getelementptr ptr, ptr @acpi_gbl_gpe_fadt_blocks, i64 %5
+  %6 = getelementptr [8 x i8], ptr @acpi_gbl_gpe_fadt_blocks, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
@@ -322,7 +317,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %15 to i64
-  %24 = getelementptr %struct.acpi_gpe_event_info, ptr %22, i64 %23
+  %24 = getelementptr [24 x i8], ptr %22, i64 %23
   %25 = icmp eq ptr %24, null
   %brmerge.not = and i1 %25, %4
   br i1 %brmerge.not, label %.preheader.backedge, label %.loopexit
@@ -357,7 +352,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i32 %39 to i64
-  %48 = getelementptr %struct.acpi_gpe_event_info, ptr %46, i64 %47
+  %48 = getelementptr [24 x i8], ptr %46, i64 %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %20, %44, %38, %33, %29, %26
@@ -410,7 +405,7 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly captures(address_i
   %27 = phi i64 [ %15, %21 ], [ %59, %.loopexit ]
   %28 = phi i32 [ %16, %21 ], [ %58, %.loopexit ]
   %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr %struct.acpi_gpe_register_info, ptr %29, i64 %26
+  %30 = getelementptr [40 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 35
   %32 = load i8, ptr %31, align 1
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 34
@@ -430,7 +425,7 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly captures(address_i
   %42 = phi i32 [ %28, %37 ], [ %52, %39 ]
   %43 = load ptr, ptr %23, align 8
   %44 = getelementptr i8, ptr %43, i64 %.idx
-  %45 = getelementptr %struct.acpi_gpe_event_info, ptr %44, i64 %40
+  %45 = getelementptr [24 x i8], ptr %44, i64 %40
   %46 = load i16, ptr %38, align 8
   %47 = zext i16 %46 to i32
   %48 = trunc i64 %40 to i32
@@ -499,7 +494,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
 .preheader:                                       ; preds = %9, %.thread
   %11 = phi i1 [ false, %.thread ], [ true, %9 ]
   %12 = phi i64 [ 1, %.thread ], [ 0, %9 ]
-  %13 = getelementptr ptr, ptr @acpi_gbl_gpe_fadt_blocks, i64 %12
+  %13 = getelementptr [8 x i8], ptr @acpi_gbl_gpe_fadt_blocks, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -523,7 +518,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %22 to i64
-  %31 = getelementptr %struct.acpi_gpe_event_info, ptr %29, i64 %30
+  %31 = getelementptr [24 x i8], ptr %29, i64 %30
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread, label %.thread15
 
@@ -557,7 +552,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = zext nneg i32 %46 to i64
-  %55 = getelementptr %struct.acpi_gpe_event_info, ptr %53, i64 %54
+  %55 = getelementptr [24 x i8], ptr %53, i64 %54
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread14, label %.thread15
 

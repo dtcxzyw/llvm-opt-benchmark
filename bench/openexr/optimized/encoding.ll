@@ -3,9 +3,6 @@ source_filename = "bench/openexr/original/encoding.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [29 x i8] c"Part index (%d) out of range\00", align 1
 @.str.1 = private unnamed_addr constant [71 x i8] c"Cross-wired request for default routines from different context / part\00", align 1
 @.str.2 = private unnamed_addr constant [66 x i8] c"Invalid request for encoding update from different context / part\00", align 1
@@ -61,7 +58,7 @@ define i32 @exr_encoding_initialize(ptr noundef %0, i32 noundef %1, ptr noundef 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %32 = icmp ne ptr %2, null
   %33 = icmp ne ptr %3, null
@@ -191,7 +188,7 @@ define i32 @exr_encoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %.not42 = icmp eq ptr %2, null
   br i1 %.not42, label %31, label %41
@@ -333,7 +330,7 @@ define internal i32 @default_yield(ptr noundef %0) #0 {
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = zext nneg i32 %12 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = tail call i32 @internal_validate_next_chunk(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %33) #5
   %35 = load i8, ptr %3, align 8, !tbaa !3
@@ -515,7 +512,7 @@ define i32 @exr_encoding_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %32 = icmp ne ptr %2, null
   %33 = icmp ne ptr %3, null
@@ -660,7 +657,7 @@ define i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %.not164 = icmp eq ptr %2, null
   br i1 %.not164, label %31, label %41
@@ -767,7 +764,7 @@ define i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
 91:                                               ; preds = %.lr.ph, %168
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %168 ]
   %.0146221 = phi i64 [ 0, %.lr.ph ], [ %.2148, %168 ]
-  %92 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %90, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [48 x i8], ptr %90, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !60
   %95 = icmp eq i32 %94, 0

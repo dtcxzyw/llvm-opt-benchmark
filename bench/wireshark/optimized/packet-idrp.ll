@@ -898,7 +898,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 
 switch.lookup:                                    ; preds = %314
   %319 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_idrp, i64 %319
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_idrp, i64 %319
   %switch.load = load ptr, ptr %switch.gep, align 8
   %320 = load i32, ptr %switch.load, align 4
   %321 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %320, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0)

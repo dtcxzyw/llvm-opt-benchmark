@@ -17,13 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic64_t = type { i64 }
 %struct.lock_class_key = type {}
 %struct.folio_batch = type { i8, i8, [15 x ptr] }
-%struct.page = type { i64, %union.anon.0, %union.anon.7, %struct.atomic_t, [8 x i8] }
-%union.anon.0 = type { %struct.anon }
-%struct.anon = type { %union.anon.1, ptr, %union.anon.3, i64 }
-%union.anon.1 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.3 = type { i64 }
-%union.anon.7 = type { %struct.atomic_t }
 %struct.writeback_control = type { i64, i64, i64, i64, i32, i8, ptr }
 
 @vmemmap_base = external dso_local local_unnamed_addr global i64, align 8
@@ -72,7 +65,7 @@ define dso_local void @shmem_sg_free_table(ptr noundef %0, ptr noundef %1, i1 no
   %18 = lshr i32 %12, 12
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %15
-  %21 = getelementptr %struct.page, ptr %20, i64 %19
+  %21 = getelementptr [64 x i8], ptr %20, i64 %19
   %22 = icmp eq ptr %21, null
   %23 = select i1 %16, i1 true, i1 %22
   br i1 %23, label %.loopexit.thread, label %24
@@ -155,7 +148,7 @@ define dso_local void @shmem_sg_free_table(ptr noundef %0, ptr noundef %1, i1 no
   %71 = add i8 %70, 1
   store i8 %71, ptr %5, align 8
   %72 = zext i8 %70 to i64
-  %73 = getelementptr ptr, ptr %29, i64 %72
+  %73 = getelementptr [8 x i8], ptr %29, i64 %72
   store ptr %62, ptr %73, align 8
   %74 = icmp eq i8 %71, 15
   br i1 %74, label %75, label %77
@@ -218,8 +211,8 @@ define dso_local void @shmem_sg_free_table(ptr noundef %0, ptr noundef %1, i1 no
   %113 = inttoptr i64 %112 to ptr
   %114 = lshr i32 %109, 12
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr %struct.page, ptr %113, i64 %108
-  %117 = getelementptr %struct.page, ptr %116, i64 %115
+  %116 = getelementptr [64 x i8], ptr %113, i64 %108
+  %117 = getelementptr [64 x i8], ptr %116, i64 %115
   %118 = icmp eq ptr %117, null
   %119 = select i1 %111, i1 true, i1 %118
   br i1 %119, label %.loopexit, label %30, !llvm.loop !16
@@ -1048,7 +1041,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   %43 = lshr i32 %37, 12
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr i8, ptr %42, i64 %40
-  %46 = getelementptr %struct.page, ptr %45, i64 %44
+  %46 = getelementptr [64 x i8], ptr %45, i64 %44
   %47 = icmp eq ptr %46, null
   %48 = select i1 %41, i1 true, i1 %47
   br i1 %48, label %.loopexit, label %.preheader.preheader
@@ -1169,8 +1162,8 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   %124 = inttoptr i64 %123 to ptr
   %125 = lshr i32 %120, 12
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr %struct.page, ptr %124, i64 %119
-  %128 = getelementptr %struct.page, ptr %127, i64 %126
+  %127 = getelementptr [64 x i8], ptr %124, i64 %119
+  %128 = getelementptr [64 x i8], ptr %127, i64 %126
   %129 = icmp eq ptr %128, null
   %130 = select i1 %122, i1 true, i1 %129
   br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !36

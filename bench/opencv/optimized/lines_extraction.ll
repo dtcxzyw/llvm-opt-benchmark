@@ -32,8 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"struct.cv::line_descriptor::KeyLine" = type { float, i32, i32, %"class.cv::Point_", float, float, float, float, float, float, float, float, float, float, float, i32 }
-%"class.cv::Point_" = type { float, float }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -454,7 +452,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %103
   %153 = phi ptr [ %140, %.lr.ph ], [ %179, %178 ]
   %154 = phi ptr [ %139, %.lr.ph ], [ %180, %178 ]
   %.036115 = phi i64 [ 0, %.lr.ph ], [ %181, %178 ]
-  %155 = getelementptr inbounds nuw %"struct.cv::line_descriptor::KeyLine", ptr %153, i64 %.036115
+  %155 = getelementptr inbounds nuw [68 x i8], ptr %153, i64 %.036115
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !52
   %156 = icmp eq i32 %.sroa.4.0.copyload, 0

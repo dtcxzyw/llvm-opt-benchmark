@@ -169,7 +169,7 @@ define dso_local noundef i32 @convert_to_sparse(ptr noundef %0, i32 noundef %1) 
 
 15:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load i32, ptr %18, align 8, !tbaa !28
@@ -251,7 +251,7 @@ define internal fastcc i32 @convert_to_sparse_rec(ptr noundef %0, i32 noundef %1
 
 15:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load i32, ptr %18, align 8, !tbaa !28
@@ -295,7 +295,7 @@ define internal fastcc i32 @convert_to_sparse_rec(ptr noundef %0, i32 noundef %1
   store i32 %36, ptr %34, align 8, !tbaa !28
   %37 = load ptr, ptr %0, align 8, !tbaa !49
   %38 = sext i32 %1 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   store ptr %33, ptr %39, align 8, !tbaa !52
   br label %79
 
@@ -304,7 +304,7 @@ define internal fastcc i32 @convert_to_sparse_rec(ptr noundef %0, i32 noundef %1
   %.15869 = phi i32 [ %2, %.lr.ph71 ], [ %.2, %76 ]
   %41 = load ptr, ptr %0, align 8, !tbaa !49
   %42 = sext i32 %.15869 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 108
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %5
@@ -329,7 +329,7 @@ define internal fastcc i32 @convert_to_sparse_rec(ptr noundef %0, i32 noundef %1
   %55 = phi ptr [ %.pre, %..thread_crit_edge ], [ %41, %40 ]
   %56 = add nsw i32 %.05670, 1
   %57 = sext i32 %.05670 to i64
-  %58 = getelementptr inbounds ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %55, i64 %57
   store ptr %44, ptr %58, align 8, !tbaa !52
   %59 = add nsw i32 %.15869, 1
   br label %76, !llvm.loop !58
@@ -351,7 +351,7 @@ strbuf_setlen.exit:                               ; preds = %60, %62
   call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %45, i64 noundef %64) #12
   %65 = load ptr, ptr %31, align 8, !tbaa !63
   %66 = zext nneg i32 %53 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !66
   %69 = load ptr, ptr %68, align 8, !tbaa !68
   %70 = load i32, ptr %69, align 8, !tbaa !69
@@ -482,7 +482,7 @@ _.exit:                                           ; preds = %21, %23
 48:                                               ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
   %49 = load ptr, ptr %0, align 8, !tbaa !49
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -515,7 +515,7 @@ _.exit:                                           ; preds = %21, %23
 set_index_entry.exit:                             ; preds = %55, %60
   %67 = phi ptr [ %.pre.i, %55 ], [ %66, %60 ]
   %68 = sext i32 %56 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   store ptr %51, ptr %69, align 8, !tbaa !52
   call void @add_name_hash(ptr noundef nonnull %29, ptr noundef nonnull %51) #12
   br label %111
@@ -555,7 +555,7 @@ set_index_entry.exit:                             ; preds = %55, %60
 set_index_entry.exit77:                           ; preds = %77, %82
   %89 = phi ptr [ %.pre.i75, %77 ], [ %88, %82 ]
   %90 = sext i32 %78 to i64
-  %91 = getelementptr inbounds ptr, ptr %89, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %89, i64 %90
   store ptr %51, ptr %91, align 8, !tbaa !52
   call void @add_name_hash(ptr noundef nonnull %29, ptr noundef nonnull %51) #12
   br label %111
@@ -803,7 +803,7 @@ strbuf_setlen.exit33:                             ; preds = %37, %39
 set_index_entry.exit:                             ; preds = %43, %58
   %65 = phi ptr [ %.pre.i, %43 ], [ %64, %58 ]
   %66 = sext i32 %53 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %65, i64 %66
   store ptr %47, ptr %67, align 8, !tbaa !52
   call void @add_name_hash(ptr noundef nonnull %51, ptr noundef nonnull %47) #12
   %68 = load i64, ptr %1, align 8, !tbaa !78
@@ -908,7 +908,7 @@ define dso_local void @clear_skip_worktree_from_present_files(ptr noundef %0) lo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %8 ]
   %.028.i = phi i32 [ %.3.ph.i, %30 ], [ 0, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !49
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load i32, ptr %16, align 8, !tbaa !28
@@ -977,7 +977,7 @@ ensure_full_index.exit:                           ; preds = %._crit_edge.loopexi
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i9, %62 ], [ 0, %ensure_full_index.exit ]
   %.018.i = phi i32 [ %.1.i8, %62 ], [ 0, %ensure_full_index.exit ]
   %44 = load ptr, ptr %0, align 8, !tbaa !49
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i6
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i6
   %46 = load ptr, ptr %45, align 8, !tbaa !52
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 52
   %48 = load i32, ptr %47, align 4, !tbaa !28

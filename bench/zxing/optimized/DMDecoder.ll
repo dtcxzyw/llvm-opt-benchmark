@@ -40,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<ZXing::DataMatrix::DataBlock, std::allocator<ZXing::DataMatrix::DataBlock>>::_Vector_impl" }
 %"struct.std::_Vector_base<ZXing::DataMatrix::DataBlock, std::allocator<ZXing::DataMatrix::DataBlock>>::_Vector_impl" = type { %"struct.std::_Vector_base<ZXing::DataMatrix::DataBlock, std::allocator<ZXing::DataMatrix::DataBlock>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ZXing::DataMatrix::DataBlock, std::allocator<ZXing::DataMatrix::DataBlock>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ZXing::DataMatrix::DataBlock" = type { i32, %"class.ZXing::ByteArray" }
 
 $_ZN5ZXing13DecoderResultD2Ev = comdat any
 
@@ -1382,7 +1381,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %"_ZN5ZXing15
 .lr.ph482:                                        ; preds = %.lr.ph482.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147
   %indvars.iv537 = phi i64 [ 0, %.lr.ph482.preheader ], [ %indvars.iv.next538, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ]
   %389 = load ptr, ptr %44, align 8, !tbaa !71
-  %390 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %389, i64 %indvars.iv537
+  %390 = getelementptr inbounds nuw [32 x i8], ptr %389, i64 %indvars.iv537
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
   %392 = load i32, ptr %390, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -1414,7 +1413,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIi
 
 .noexc136:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
   store ptr %401, ptr %38, align 8, !tbaa !78
-  %402 = getelementptr inbounds nuw i32, ptr %401, i64 %398
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %401, i64 %398
   store ptr %402, ptr %113, align 8, !tbaa !81
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 

@@ -27,12 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr.5" }
-%"class.std::unique_ptr.165" = type { %"struct.std::__uniq_ptr_data.166" }
-%"struct.std::__uniq_ptr_data.166" = type { %"class.std::__uniq_ptr_impl.167" }
-%"class.std::__uniq_ptr_impl.167" = type { %"class.std::tuple.168" }
-%"class.std::tuple.168" = type { %"struct.std::_Tuple_impl.169" }
-%"struct.std::_Tuple_impl.169" = type { %"struct.std::_Head_base.172" }
-%"struct.std::_Head_base.172" = type { ptr }
 %"class.rocksdb::FileSystemPtr" = type { %"class.std::shared_ptr.63", %"class.std::shared_ptr", %"class.std::shared_ptr.66" }
 %"class.std::shared_ptr.63" = type { %"class.std::__shared_ptr.64" }
 %"class.std::__shared_ptr.64" = type { ptr, %"class.std::__shared_count" }
@@ -81,8 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::shared_ptr.214" = type { %"class.std::__shared_ptr.215" }
-%"class.std::__shared_ptr.215" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
 
@@ -618,7 +610,7 @@ _ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit:
 
 43:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %44 = getelementptr inbounds nuw %"class.std::unique_ptr.165", ptr %34, i64 %1
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
   %45 = load ptr, ptr %44, align 8, !tbaa !147
   invoke void @_ZN7rocksdb26TransactionLogIteratorImpl13OpenLogReaderEPKNS_7WalFileE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %45)
           to label %46 unwind label %96
@@ -4306,7 +4298,7 @@ _ZN7rocksdb10WriteBatchC2Emm.exit:                ; preds = %2
   unreachable
 
 31:                                               ; preds = %18
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.165", ptr %25, i64 %22
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %33 = load ptr, ptr %32, align 8, !tbaa !147
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -4749,7 +4741,7 @@ _ZN7rocksdb26TransactionLogIteratorImpl14RestrictedReadEPNS_5SliceE.exit.thread:
   unreachable
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw %"class.std::unique_ptr.165", ptr %86, i64 %94
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %94
   %98 = load ptr, ptr %97, align 8, !tbaa !147
   call void @_ZN7rocksdb26TransactionLogIteratorImpl13OpenLogReaderEPKNS_7WalFileE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %9, ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %98)
   %99 = load i8, ptr %9, align 8, !tbaa !146
@@ -6550,7 +6542,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !323
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !258
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.214", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !259
   ret void
 }

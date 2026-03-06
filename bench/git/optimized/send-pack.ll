@@ -867,10 +867,10 @@ define dso_local i32 @cmd_send_pack(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 switch.lookup:                                    ; preds = %378
   %382 = zext nneg i32 %380 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cmd_send_pack, i64 %382
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmd_send_pack, i64 %382
   %switch.load = load ptr, ptr %switch.gep, align 8
   %383 = zext nneg i32 %380 to i64
-  %switch.gep105 = getelementptr inbounds nuw ptr, ptr @switch.table.cmd_send_pack.4, i64 %383
+  %switch.gep105 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmd_send_pack.4, i64 %383
   %switch.load106 = load ptr, ptr %switch.gep105, align 8
   store i64 0, ptr %376, align 8, !tbaa !43
   %384 = load ptr, ptr %377, align 8, !tbaa !35

@@ -15,43 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.Assimp::MD5::Element" = type { ptr, ptr, i32 }
-%"struct.Assimp::MD5::MeshDesc" = type <{ %"class.std::vector.21", %"class.std::vector.26", %"class.std::vector.31", %struct.aiString, [4 x i8] }>
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<Assimp::MD5::WeightDesc, std::allocator<Assimp::MD5::WeightDesc>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::MD5::WeightDesc, std::allocator<Assimp::MD5::WeightDesc>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::MD5::WeightDesc, std::allocator<Assimp::MD5::WeightDesc>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::MD5::WeightDesc, std::allocator<Assimp::MD5::WeightDesc>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
-%"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<Assimp::MD5::VertexDesc, std::allocator<Assimp::MD5::VertexDesc>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::MD5::VertexDesc, std::allocator<Assimp::MD5::VertexDesc>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::MD5::VertexDesc, std::allocator<Assimp::MD5::VertexDesc>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::MD5::VertexDesc, std::allocator<Assimp::MD5::VertexDesc>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<aiFace, std::allocator<aiFace>>::_Vector_impl" }
-%"struct.std::_Vector_base<aiFace, std::allocator<aiFace>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiFace, std::allocator<aiFace>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<aiFace, std::allocator<aiFace>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
-%"struct.Assimp::MD5::BoneDesc" = type { %"struct.Assimp::MD5::BaseJointDescription", %class.aiVector3t, %class.aiVector3t, %class.aiQuaterniont, %class.aiMatrix4x4t, %class.aiMatrix4x4t, i32 }
-%"struct.Assimp::MD5::BaseJointDescription" = type { %struct.aiString, i32 }
-%class.aiVector3t = type { float, float, float }
-%class.aiQuaterniont = type { float, float, float, float }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%"struct.Assimp::MD5::VertexDesc" = type { %class.aiVector2t, i32, i32 }
-%class.aiVector2t = type { float, float }
-%struct.aiFace = type { i32, ptr }
-%"struct.Assimp::MD5::WeightDesc" = type { i32, float, %class.aiVector3t }
-%"struct.Assimp::MD5::AnimBoneDesc" = type { %"struct.Assimp::MD5::BaseJointDescription", i32, i32 }
-%"struct.Assimp::MD5::BaseFrameDesc" = type { %class.aiVector3t, %class.aiVector3t }
-%"struct.Assimp::MD5::FrameDesc" = type { i32, %"class.std::vector.51" }
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::MD5::CameraAnimFrameDesc" = type { %"struct.Assimp::MD5::BaseFrameDesc", float }
-%"struct.Assimp::MD5::Section" = type { i32, %"class.std::vector.0", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<Assimp::MD5::Element, std::allocator<Assimp::MD5::Element>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::MD5::Element, std::allocator<Assimp::MD5::Element>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::MD5::Element, std::allocator<Assimp::MD5::Element>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::MD5::Element, std::allocator<Assimp::MD5::Element>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN6Assimp6Logger5debugIJRA128_cEEEvDpOT_ = comdat any
 
@@ -1800,7 +1763,7 @@ _ZNSt6vectorIN6Assimp3MD57ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit15.i:
 _ZNSt6vectorIN6Assimp3MD57ElementESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp3MD57ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit15.i, %27
   store ptr %22, ptr %0, align 8
   store ptr %26, ptr %2, align 8
-  %28 = getelementptr inbounds nuw %"struct.Assimp::MD5::Element", ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %20
   store ptr %28, ptr %4, align 8
   br label %29
 
@@ -1935,7 +1898,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD58MeshDescESaIS2_EE13_M_deallocateEPS2_m.exit.i: 
   store ptr %67, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 %66
   store ptr %76, ptr %32, align 8
-  %77 = getelementptr inbounds nuw %"struct.Assimp::MD5::MeshDesc", ptr %67, i64 %55
+  %77 = getelementptr inbounds nuw [1104 x i8], ptr %67, i64 %55
   store ptr %77, ptr %33, align 8
   br label %_ZNSt6vectorIN6Assimp3MD58MeshDescESaIS2_EE7reserveEm.exit
 
@@ -2031,7 +1994,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD58BoneDescESaIS2_EE13_M_deallocateEPS2_m.exit.i: 
   store ptr %107, ptr %25, align 8
   %121 = getelementptr inbounds nuw i8, ptr %107, i64 %105
   store ptr %121, ptr %34, align 8
-  %122 = getelementptr inbounds nuw %"struct.Assimp::MD5::BoneDesc", ptr %107, i64 %95
+  %122 = getelementptr inbounds nuw [1204 x i8], ptr %107, i64 %95
   store ptr %122, ptr %35, align 8
   br label %_ZNSt6vectorIN6Assimp3MD58MeshDescESaIS2_EE7reserveEm.exit
 
@@ -2639,7 +2602,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit183:             ; preds = %.lr.ph.i176
   br i1 %354, label %355, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit
 
 355:                                              ; preds = %350
-  %356 = getelementptr inbounds nuw %"struct.Assimp::MD5::VertexDesc", ptr %352, i64 %.0.lcssa.i182637
+  %356 = getelementptr inbounds nuw [16 x i8], ptr %352, i64 %.0.lcssa.i182637
   %.not.i.i184 = icmp eq ptr %353, %356
   br i1 %.not.i.i184, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit, label %357
 
@@ -2777,7 +2740,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit208:             ; preds = %.lr.ph.i201
   br i1 %410, label %411, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit
 
 411:                                              ; preds = %406
-  %412 = getelementptr inbounds nuw %struct.aiFace, ptr %408, i64 %.0.lcssa.i207639
+  %412 = getelementptr inbounds nuw [16 x i8], ptr %408, i64 %.0.lcssa.i207639
   %.not.i.i209 = icmp eq ptr %409, %412
   br i1 %.not.i.i209, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -2931,7 +2894,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit233:             ; preds = %.lr.ph.i226
   br i1 %470, label %471, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit
 
 471:                                              ; preds = %466
-  %472 = getelementptr inbounds nuw %"struct.Assimp::MD5::WeightDesc", ptr %468, i64 %.0.lcssa.i232641
+  %472 = getelementptr inbounds nuw [20 x i8], ptr %468, i64 %.0.lcssa.i232641
   %.not.i.i234 = icmp eq ptr %469, %472
   br i1 %.not.i.i234, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit, label %473
 
@@ -3119,7 +3082,7 @@ _Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit268:           ; preds = %.noexc267, %.crited
   br i1 %533, label %534, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit271
 
 534:                                              ; preds = %532
-  %535 = getelementptr inbounds nuw %"struct.Assimp::MD5::VertexDesc", ptr %521, i64 %528
+  %535 = getelementptr inbounds nuw [16 x i8], ptr %521, i64 %528
   %.not.i.i269 = icmp eq ptr %520, %535
   br i1 %.not.i.i269, label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit271, label %536
 
@@ -3134,7 +3097,7 @@ _Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit268:           ; preds = %.noexc267, %.crited
 
 _ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit271: ; preds = %._ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit271_crit_edge, %536, %534, %532, %_Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit268
   %539 = phi ptr [ %.pre556, %._ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit271_crit_edge ], [ %521, %536 ], [ %521, %534 ], [ %521, %532 ], [ %521, %_Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit268 ]
-  %540 = getelementptr inbounds nuw %"struct.Assimp::MD5::VertexDesc", ptr %539, i64 %519
+  %540 = getelementptr inbounds nuw [16 x i8], ptr %539, i64 %519
   %541 = load ptr, ptr %24, align 8
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 1
   store ptr %542, ptr %24, align 8
@@ -3664,7 +3627,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit365:             ; preds = %.lr.ph.i357, %_Z18A
   br i1 %710, label %711, label %_ZNSt6vectorI6aiFaceSaIS0_EE6resizeEm.exit373
 
 711:                                              ; preds = %709
-  %712 = getelementptr inbounds nuw %struct.aiFace, ptr %698, i64 %705
+  %712 = getelementptr inbounds nuw [16 x i8], ptr %698, i64 %705
   %.not.i.i366 = icmp eq ptr %697, %712
   br i1 %.not.i.i366, label %_ZNSt6vectorI6aiFaceSaIS0_EE6resizeEm.exit373, label %.lr.ph.i.i.i.i.i367
 
@@ -3695,7 +3658,7 @@ _ZSt8_DestroyIP6aiFaceS0_EvT_S2_RSaIT0_E.exit.i.i371: ; preds = %_ZSt8_DestroyI6
 
 _ZNSt6vectorI6aiFaceSaIS0_EE6resizeEm.exit373:    ; preds = %_ZSt8_DestroyIP6aiFaceS0_EvT_S2_RSaIT0_E.exit.i.i371, %711, %709, %707, %_ZN6Assimp9strtoul10EPKcPS1_.exit365
   %720 = load ptr, ptr %252, align 8
-  %721 = getelementptr inbounds nuw %struct.aiFace, ptr %720, i64 %696
+  %721 = getelementptr inbounds nuw [16 x i8], ptr %720, i64 %696
   store i32 3, ptr %721, align 8
   %722 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #29
           to label %723 unwind label %725
@@ -3790,7 +3753,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit392:             ; preds = %.lr.ph.i384, %_Z18A
   %.0.lcssa.i390 = phi i32 [ 0, %_Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit382 ], [ %748, %.lr.ph.i384 ]
   store ptr %.08.lcssa.i389, ptr %24, align 8
   %752 = load ptr, ptr %724, align 8
-  %753 = getelementptr inbounds nuw i32, ptr %752, i64 %indvars.iv
+  %753 = getelementptr inbounds nuw [4 x i8], ptr %752, i64 %indvars.iv
   store i32 %.0.lcssa.i390, ptr %753, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3981,7 +3944,7 @@ _Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit425:           ; preds = %.noexc424, %.crited
   br i1 %815, label %816, label %_ZNSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE6resizeEm.exit428
 
 816:                                              ; preds = %814
-  %817 = getelementptr inbounds nuw %"struct.Assimp::MD5::WeightDesc", ptr %803, i64 %810
+  %817 = getelementptr inbounds nuw [20 x i8], ptr %803, i64 %810
   %.not.i.i426 = icmp eq ptr %802, %817
   br i1 %.not.i.i426, label %_ZNSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE6resizeEm.exit428, label %818
 
@@ -3996,7 +3959,7 @@ _Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit425:           ; preds = %.noexc424, %.crited
 
 _ZNSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE6resizeEm.exit428: ; preds = %._ZNSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE6resizeEm.exit428_crit_edge, %818, %816, %814, %_Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit425
   %821 = phi ptr [ %.pre576, %._ZNSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE6resizeEm.exit428_crit_edge ], [ %803, %818 ], [ %803, %816 ], [ %803, %814 ], [ %803, %_Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit425 ]
-  %822 = getelementptr inbounds nuw %"struct.Assimp::MD5::WeightDesc", ptr %821, i64 %801
+  %822 = getelementptr inbounds nuw [20 x i8], ptr %821, i64 %801
   %823 = load ptr, ptr %24, align 8
   %824 = load i8, ptr %823, align 1
   %825 = add i8 %824, -58
@@ -4599,7 +4562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %68 = uitofp i64 %67 to double
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, %68
   %74 = fptrunc double %73 to float
@@ -4858,7 +4821,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3MD512AnimBoneDescES3_SaIS2_EE
 .noexc:                                           ; preds = %75, %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3MD512AnimBoneDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit34.i
   store ptr %59, ptr %11, align 8
   store ptr %74, ptr %22, align 8
-  %76 = getelementptr inbounds nuw %"struct.Assimp::MD5::AnimBoneDesc", ptr %59, i64 %57
+  %76 = getelementptr inbounds nuw [1040 x i8], ptr %59, i64 %57
   store ptr %76, ptr %21, align 8
   br label %_ZNSt6vectorIN6Assimp3MD512AnimBoneDescESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -5335,7 +5298,7 @@ _ZNSt6vectorIN6Assimp3MD513BaseFrameDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIN6Assimp3MD513BaseFrameDescESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %233, %_ZNSt6vectorIN6Assimp3MD513BaseFrameDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
   store ptr %228, ptr %12, align 8
   store ptr %232, ptr %25, align 8
-  %234 = getelementptr inbounds nuw %"struct.Assimp::MD5::BaseFrameDesc", ptr %228, i64 %226
+  %234 = getelementptr inbounds nuw [24 x i8], ptr %228, i64 %226
   store ptr %234, ptr %26, align 8
   br label %_ZNSt6vectorIN6Assimp3MD513BaseFrameDescESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -5502,7 +5465,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %300, %_ZNSt6ve
   store ptr %297, ptr %282, align 8
   %301 = getelementptr inbounds nuw i8, ptr %297, i64 %295
   store ptr %301, ptr %292, align 8
-  %302 = getelementptr inbounds nuw float, ptr %297, i64 %283
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %297, i64 %283
   store ptr %302, ptr %284, align 8
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
 
@@ -5638,7 +5601,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %352, %.noe
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %354, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
   store ptr %348, ptr %309, align 8
   store ptr %353, ptr %310, align 8
-  %355 = getelementptr inbounds nuw float, ptr %348, i64 %346
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %348, i64 %346
   store ptr %355, ptr %311, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
@@ -5762,7 +5725,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD59FrameDescESaIS2_EE13_M_deallocateEPS2_m.exit.i:
   store ptr %386, ptr %13, align 8
   %405 = getelementptr inbounds nuw i8, ptr %386, i64 %384
   store ptr %405, ptr %24, align 8
-  %406 = getelementptr inbounds nuw %"struct.Assimp::MD5::FrameDesc", ptr %386, i64 %374
+  %406 = getelementptr inbounds nuw [32 x i8], ptr %386, i64 %374
   store ptr %406, ptr %23, align 8
   br label %_ZNSt6vectorIN6Assimp3MD59FrameDescESaIS2_EE7reserveEm.exit
 
@@ -5855,7 +5818,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD512AnimBoneDescESaIS2_EE13_M_deallocateEPS2_m.exi
   store ptr %434, ptr %11, align 8
   %449 = getelementptr inbounds nuw i8, ptr %434, i64 %432
   store ptr %449, ptr %22, align 8
-  %450 = getelementptr inbounds nuw %"struct.Assimp::MD5::AnimBoneDesc", ptr %434, i64 %422
+  %450 = getelementptr inbounds nuw [1040 x i8], ptr %434, i64 %422
   store ptr %450, ptr %21, align 8
   br label %_ZNSt6vectorIN6Assimp3MD512AnimBoneDescESaIS2_EE7reserveEm.exit
 
@@ -5962,7 +5925,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD512AnimBoneDescESaIS2_EE13_M_deallocateEPS2_m.exi
   store ptr %484, ptr %11, align 8
   %499 = getelementptr inbounds nuw i8, ptr %484, i64 %482
   store ptr %499, ptr %22, align 8
-  %500 = getelementptr inbounds nuw %"struct.Assimp::MD5::AnimBoneDesc", ptr %484, i64 %472
+  %500 = getelementptr inbounds nuw [1040 x i8], ptr %484, i64 %472
   store ptr %500, ptr %21, align 8
   br label %_ZNSt6vectorIN6Assimp3MD59FrameDescESaIS2_EE7reserveEm.exit
 
@@ -6187,7 +6150,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD519CameraAnimFrameDescESaIS2_EE13_M_deallocateEPS
   store ptr %50, ptr %8, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %48
   store ptr %54, ptr %15, align 8
-  %55 = getelementptr inbounds nuw %"struct.Assimp::MD5::CameraAnimFrameDesc", ptr %50, i64 %38
+  %55 = getelementptr inbounds nuw [28 x i8], ptr %50, i64 %38
   store ptr %55, ptr %16, align 8
   br label %_ZNSt6vectorIN6Assimp3MD519CameraAnimFrameDescESaIS2_EE7reserveEm.exit
 
@@ -6281,7 +6244,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %97, %_ZNSt6vec
   store ptr %94, ptr %7, align 8
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 %92
   store ptr %98, ptr %17, align 8
-  %99 = getelementptr inbounds nuw i32, ptr %94, i64 %82
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %82
   store ptr %99, ptr %18, align 8
   br label %_ZNSt6vectorIN6Assimp3MD519CameraAnimFrameDescESaIS2_EE7reserveEm.exit
 
@@ -6388,7 +6351,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %140, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %142, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %137, ptr %7, align 8
   store ptr %141, ptr %17, align 8
-  %143 = getelementptr inbounds nuw i32, ptr %137, i64 %135
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %135
   store ptr %143, ptr %18, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -6493,7 +6456,7 @@ _ZNSt6vectorIN6Assimp3MD519CameraAnimFrameDescESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt6vectorIN6Assimp3MD519CameraAnimFrameDescESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %177, %_ZNSt6vectorIN6Assimp3MD519CameraAnimFrameDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
   store ptr %172, ptr %8, align 8
   store ptr %176, ptr %15, align 8
-  %178 = getelementptr inbounds nuw %"struct.Assimp::MD5::CameraAnimFrameDesc", ptr %172, i64 %170
+  %178 = getelementptr inbounds nuw [28 x i8], ptr %172, i64 %170
   store ptr %178, ptr %16, align 8
   br label %_ZNSt6vectorIN6Assimp3MD519CameraAnimFrameDescESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -7314,7 +7277,7 @@ _ZNSt6vectorIN6Assimp3MD57SectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29: ;
 _ZNSt12_Vector_baseIN6Assimp3MD57SectionESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3MD57SectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29, %111
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i28, ptr %3, align 8
-  %115 = getelementptr inbounds nuw %"struct.Assimp::MD5::Section", ptr %19, i64 %15
+  %115 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %15
   store ptr %115, ptr %110, align 8
   ret void
 }
@@ -9013,7 +8976,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3MD58BoneDescES3_SaIS2_EET0_T_
 _ZNSt12_Vector_baseIN6Assimp3MD58BoneDescESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3MD58BoneDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit34, %62
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %3, align 8
-  %66 = getelementptr inbounds nuw %"struct.Assimp::MD5::BoneDesc", ptr %19, i64 %15
+  %66 = getelementptr inbounds nuw [1204 x i8], ptr %19, i64 %15
   store ptr %66, ptr %61, align 8
   ret void
 }
@@ -9160,7 +9123,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3MD58MeshDescES3_SaIS2_EET0_T_
 _ZNSt12_Vector_baseIN6Assimp3MD58MeshDescESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3MD58MeshDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit37, %49
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %3, align 8
-  %53 = getelementptr inbounds nuw %"struct.Assimp::MD5::MeshDesc", ptr %21, i64 %15
+  %53 = getelementptr inbounds nuw [1104 x i8], ptr %21, i64 %15
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -9358,9 +9321,9 @@ _ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 
 _ZNSt12_Vector_baseIN6Assimp3MD510VertexDescESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %"struct.Assimp::MD5::VertexDesc", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %"struct.Assimp::MD5::VertexDesc", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 
@@ -9513,9 +9476,9 @@ _ZSt8_DestroyIP6aiFaceS0_EvT_S2_RSaIT0_E.exit54:  ; preds = %_ZSt8_DestroyI6aiFa
 
 _ZNSt12_Vector_baseI6aiFaceSaIS0_EE13_M_deallocateEPS0_m.exit56: ; preds = %_ZSt8_DestroyIP6aiFaceS0_EvT_S2_RSaIT0_E.exit54, %52
   store ptr %28, ptr %0, align 8
-  %56 = getelementptr inbounds nuw %struct.aiFace, ptr %29, i64 %1
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %1
   store ptr %56, ptr %4, align 8
-  %57 = getelementptr inbounds nuw %struct.aiFace, ptr %28, i64 %26
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %57, ptr %11, align 8
   br label %58
 
@@ -9701,9 +9664,9 @@ _ZNSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 
 _ZNSt12_Vector_baseIN6Assimp3MD510WeightDescESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %"struct.Assimp::MD5::WeightDesc", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %"struct.Assimp::MD5::WeightDesc", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 
@@ -9816,7 +9779,7 @@ _ZNSt6vectorIN6Assimp3MD59FrameDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21:
 _ZNSt12_Vector_baseIN6Assimp3MD59FrameDescESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3MD59FrameDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, %47
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %51 = getelementptr inbounds nuw %"struct.Assimp::MD5::FrameDesc", ptr %19, i64 %15
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %51, ptr %46, align 8
   ret void
 }

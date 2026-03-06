@@ -101,11 +101,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph80.split.us, %._crit_edge.split.us.us.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %._crit_edge.split.us.us.us ], [ 0, %.lr.ph80.split.us ]
-  %44 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv114
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv114
   %45 = load ptr, ptr %44, align 8, !tbaa !49
-  %46 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv114
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv114
   %47 = load ptr, ptr %46, align 8, !tbaa !49
-  %48 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv114
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv114
   %49 = load ptr, ptr %48, align 8, !tbaa !49
   %50 = load double, ptr %49, align 8, !tbaa !50
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -126,7 +126,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %60 = tail call nsz double @llvm.fmuladd.f64(double %58, double %59, double 0x4017FAC287CF6CBA)
   %61 = fmul nsz double %58, %60
   %62 = tail call nsz double @llvm.minnum.f64(double %61, double 1.000000e+00)
-  %63 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv109
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv109
   %64 = load double, ptr %63, align 8, !tbaa !50
   %65 = fadd nsz double %.06471.us.us.us, %64
   %66 = fneg nsz double %.06273.us.us.us
@@ -136,7 +136,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %70 = fneg nsz double %.06570.us.us.us
   %71 = tail call nsz double @llvm.fmuladd.f64(double %69, double 5.000000e-01, double %70)
   %72 = tail call nsz double @llvm.fmuladd.f64(double %62, double %71, double %.06570.us.us.us)
-  %73 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv109
   store double %72, ptr %73, align 8, !tbaa !50
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
@@ -152,11 +152,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us:                                        ; preds = %.lr.ph80.split.us, %._crit_edge.split.us86
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %._crit_edge.split.us86 ], [ 0, %.lr.ph80.split.us ]
-  %74 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv104
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv104
   %75 = load ptr, ptr %74, align 8, !tbaa !49
-  %76 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv104
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv104
   %77 = load ptr, ptr %76, align 8, !tbaa !49
-  %78 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv104
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv104
   %79 = load ptr, ptr %78, align 8, !tbaa !49
   %80 = load double, ptr %79, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -177,7 +177,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %90 = tail call nsz double @llvm.fmuladd.f64(double %88, double %89, double 0x4017FAC287CF6CBA)
   %91 = fmul nsz double %88, %90
   %92 = tail call nsz double @llvm.minnum.f64(double %91, double 1.000000e+00)
-  %93 = getelementptr inbounds nuw double, ptr %75, i64 %indvars.iv99
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv99
   %94 = load double, ptr %93, align 8, !tbaa !50
   %95 = fadd nsz double %.06471.us84, %94
   %96 = fneg nsz double %.06273.us82
@@ -187,7 +187,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %100 = fneg nsz double %.06570.us85
   %101 = tail call nsz double @llvm.fmuladd.f64(double %99, double 5.000000e-01, double %100)
   %102 = tail call nsz double @llvm.fmuladd.f64(double %92, double %101, double %.06570.us85)
-  %103 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv99
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv99
   store double %94, ptr %103, align 8, !tbaa !50
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count112

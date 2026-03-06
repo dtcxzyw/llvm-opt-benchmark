@@ -282,7 +282,7 @@ lv_obj_get_content_width.exit:                    ; preds = %15
   %.073112.i = phi i32 [ -536870911, %.lr.ph113.i ], [ %.1.i, %130 ]
   %81 = load ptr, ptr %48, align 8, !tbaa !6
   %82 = load ptr, ptr %81, align 8, !tbaa !26
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv119.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv119.i
   %84 = load ptr, ptr %83, align 8, !tbaa !27
   %85 = call zeroext i1 @lv_obj_has_flag_any(ptr noundef %84, i32 noundef 262145) #8
   br i1 %85, label %130, label %86
@@ -383,7 +383,7 @@ lv_obj_is_layout_positioned.exit.thread.i:        ; preds = %lv_obj_is_layout_po
   %.3110.i = phi i32 [ -536870911, %.lr.ph.i ], [ %.4.i, %182 ]
   %133 = load ptr, ptr %48, align 8, !tbaa !6
   %134 = load ptr, ptr %133, align 8, !tbaa !26
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i
   %136 = load ptr, ptr %135, align 8, !tbaa !27
   %137 = call zeroext i1 @lv_obj_has_flag_any(ptr noundef %136, i32 noundef 262145) #8
   br i1 %137, label %182, label %138
@@ -688,7 +688,7 @@ lv_obj_get_content_height.exit:                   ; preds = %251
   %.04462.i = phi i32 [ -536870911, %.lr.ph.i134 ], [ %.1.i138, %356 ]
   %307 = load ptr, ptr %284, align 8, !tbaa !6
   %308 = load ptr, ptr %307, align 8, !tbaa !26
-  %309 = getelementptr inbounds nuw ptr, ptr %308, i64 %indvars.iv.i136
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %indvars.iv.i136
   %310 = load ptr, ptr %309, align 8, !tbaa !27
   %311 = call zeroext i1 @lv_obj_has_flag_any(ptr noundef %310, i32 noundef 262145) #8
   br i1 %311, label %356, label %312
@@ -1796,7 +1796,7 @@ define internal fastcc void @layout_update_core(ptr noundef %0) unnamed_addr #0 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr %3, align 8, !tbaa !6
   %6 = load ptr, ptr %5, align 8, !tbaa !26
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   tail call fastcc void @layout_update_core(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3116,7 +3116,7 @@ define void @lv_obj_move_children_by(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %25 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv21
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv21
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %10, i32 noundef 262144) #8
   br i1 %11, label %25, label %12
@@ -3150,7 +3150,7 @@ define void @lv_obj_move_children_by(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %6, align 8, !tbaa !6
   %27 = load ptr, ptr %26, align 8, !tbaa !26
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load i32, ptr %30, align 8, !tbaa !29

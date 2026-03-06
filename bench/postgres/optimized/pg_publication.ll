@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @InvalidObjectAddress = external local_unnamed_addr constant %struct.ObjectAddress, align 4
 @.str = private unnamed_addr constant [52 x i8] c"relation \22%s\22 is already member of publication \22%s\22\00", align 1
@@ -227,7 +224,7 @@ define dso_local zeroext i1 @check_and_fetch_column_list(ptr noundef readonly ca
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01822.i = phi ptr [ %19, %.lr.ph.preheader.i ], [ %44, %.lr.ph.i ]
-  %41 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %indvars.iv.i
   %42 = load i16, ptr %41, align 2
   %43 = sext i16 %42 to i32
   %44 = call ptr @bms_add_member(ptr noundef %.01822.i, i32 noundef %43) #5
@@ -308,7 +305,7 @@ define dso_local ptr @pub_collist_to_bitmapset(ptr noundef %0, i64 noundef %1, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01822 = phi ptr [ %0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2
   %27 = sext i16 %26 to i32
   %28 = tail call ptr @bms_add_member(ptr noundef %.01822, i32 noundef %27) #5
@@ -358,7 +355,7 @@ define dso_local ptr @GetPubPartitionOptionRelations(ptr noundef %0, i32 noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
   %.12529 = phi ptr [ %.2, %21 ], [ %0, %.lr.ph ]
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 8
   %18 = tail call signext i8 @get_rel_relkind(i32 noundef %17) #5
   %.not23 = icmp eq i8 %18, 112
@@ -414,7 +411,7 @@ define dso_local i32 @GetTopMostAncestorInPublication(i32 noundef %0, ptr nounde
   %.0244155 = phi i32 [ %.1, %56 ], [ 0, %.lr.ph ]
   %indvars.iv54 = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv54
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv54
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = tail call ptr @SearchSysCacheList(i32 noundef 53, i32 noundef 1, i64 noundef %11, i64 noundef 0, i64 noundef 0) #5
@@ -430,7 +427,7 @@ define dso_local i32 @GetTopMostAncestorInPublication(i32 noundef %0, ptr nounde
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.012.i = phi ptr [ null, %.lr.ph.i ], [ %27, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 80
   %.val.i = load ptr, ptr %20, align 8
@@ -478,7 +475,7 @@ GetRelationPublications.exit:                     ; preds = %17, %.lr.ph56
 41:                                               ; preds = %41, %.lr.ph.i33
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i37, %41 ]
   %.012.i35 = phi ptr [ null, %.lr.ph.i33 ], [ %51, %41 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i34
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i34
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 80
   %.val.i36 = load ptr, ptr %44, align 8
@@ -535,7 +532,7 @@ define dso_local ptr @GetRelationPublications(i32 noundef %0) local_unnamed_addr
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.012 = phi ptr [ null, %.lr.ph ], [ %18, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 80
   %.val = load ptr, ptr %11, align 8
@@ -576,7 +573,7 @@ define dso_local ptr @GetSchemaPublications(i32 noundef %0) local_unnamed_addr #
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.012 = phi ptr [ null, %.lr.ph ], [ %18, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 80
   %.val = load ptr, ptr %11, align 8
@@ -764,7 +761,7 @@ check_publication_add_relation.exit:              ; preds = %51
   %97 = trunc i32 %96 to i16
   %98 = add i32 %.09.i, 1
   %99 = sext i32 %.09.i to i64
-  %100 = getelementptr inbounds i16, ptr %94, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %94, i64 %99
   store i16 %97, ptr %100, align 2
   %101 = tail call i32 @bms_next_member(ptr noundef %72, i32 noundef %96) #5
   %102 = icmp sgt i32 %101, -1
@@ -948,7 +945,7 @@ define dso_local ptr @pub_collist_validate(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph ]
   %.03448 = phi ptr [ %49, %48 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -989,7 +986,7 @@ define dso_local ptr @pub_collist_validate(ptr noundef readonly captures(none) %
   %33 = shl nsw i64 %32, 4
   %34 = getelementptr i8, ptr %4, i64 %33
   %35 = zext nneg i16 %16 to i64
-  %36 = getelementptr %struct.FormData_pg_attribute, ptr %34, i64 %35
+  %36 = getelementptr [100 x i8], ptr %34, i64 %35
   %37 = getelementptr i8, ptr %36, i64 14
   %38 = load i8, ptr %37, align 2
   %39 = icmp eq i8 %38, 118
@@ -1070,7 +1067,7 @@ define dso_local ptr @pub_form_cols_map(ptr noundef readonly captures(none) %0, 
   %9 = shl nsw i64 %8, 4
   %10 = getelementptr i8, ptr %4, i64 %9
   %11 = getelementptr i8, ptr %10, i64 24
-  %12 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %11, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [100 x i8], ptr %11, i64 %indvars.iv20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 91
   %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
@@ -1112,7 +1109,7 @@ define dso_local ptr @pub_form_cols_map(ptr noundef readonly captures(none) %0, 
   %30 = shl nsw i64 %29, 4
   %31 = getelementptr i8, ptr %4, i64 %30
   %32 = getelementptr i8, ptr %31, i64 24
-  %33 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [100 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 91
   %35 = load i8, ptr %34, align 1, !range !4, !noundef !5
   %36 = trunc nuw i8 %35 to i1
@@ -1651,7 +1648,7 @@ define dso_local ptr @GetAllSchemaPublicationRelations(i32 noundef %0, i32 nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph21 ], [ 0, %.lr.ph ]
   %.01519 = phi ptr [ %12, %.lr.ph21 ], [ null, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
   %11 = tail call ptr @GetSchemaPublicationRelations(i32 noundef %10, i32 noundef %1)
   %12 = tail call ptr @list_concat(ptr noundef %.01519, ptr noundef %11) #5
@@ -1723,7 +1720,7 @@ define dso_local i64 @pg_get_publication_tables(ptr noundef %0) local_unnamed_ad
   %.090126 = phi ptr [ %.1.lcssa, %.critedge ], [ null, %10 ]
   %.093124 = phi i1 [ %.194, %.critedge ], [ false, %10 ]
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv138
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv138
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
   %25 = call ptr @text_to_cstring(ptr noundef %24) #5
@@ -1775,7 +1772,7 @@ GetPublicationByName.exit:                        ; preds = %.lr.ph127, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph21.i ], [ 0, %.lr.ph.i ]
   %.01519.i = phi ptr [ %56, %.lr.ph21.i ], [ null, %.lr.ph.i ]
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 8
   %55 = call ptr @GetSchemaPublicationRelations(i32 noundef %54, i32 noundef %not.104)
   %56 = call ptr @list_concat(ptr noundef %.01519.i, ptr noundef %55) #5
@@ -1806,7 +1803,7 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph21.i, %38, %.
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph123 ], [ 0, %.lr.ph ]
   %.1117121 = phi ptr [ %72, %.lr.ph123 ], [ %.090126, %.lr.ph ]
   %66 = load ptr, ptr %63, align 8
-  %67 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %68 = call ptr @palloc(i64 noundef 8) #5
   %69 = load i32, ptr %67, align 8
   store i32 %69, ptr %68, align 4
@@ -1851,7 +1848,7 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph21.i, %38, %.
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.010.050.i, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = sext i32 %.sroa.7.051.i to i64
-  %89 = getelementptr inbounds %union.ListCell, ptr %87, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = load i32, ptr %90, align 4
   %92 = call zeroext i1 @get_rel_relispartition(i32 noundef %91) #5
@@ -1890,13 +1887,13 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph21.i, %38, %.
 
 .lr.ph.i.us41.i:                                  ; preds = %is_ancestor_member_tableinfos.exit.loopexit.us48.i, %.lr.ph.i.lr.ph.split.us.i
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ], [ 0, %.lr.ph.i.lr.ph.split.us.i ]
-  %107 = getelementptr inbounds nuw %union.ListCell, ptr %102, i64 %indvars.iv140
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv140
   %108 = load i32, ptr %107, align 8
   br label %109
 
 109:                                              ; preds = %113, %.lr.ph.i.us41.i
   %indvars.iv.i.us43.i = phi i64 [ 0, %.lr.ph.i.us41.i ], [ %indvars.iv.next.i.us45.i, %113 ]
-  %110 = getelementptr inbounds nuw %union.ListCell, ptr %105, i64 %indvars.iv.i.us43.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i.us43.i
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %111, align 4
   %.not16.i.us44.i = icmp eq i32 %112, %108
@@ -2044,7 +2041,7 @@ list_length.exit:                                 ; preds = %121
   %182 = shl nsw i64 %181, 4
   %183 = getelementptr i8, ptr %171, i64 %182
   %184 = getelementptr i8, ptr %183, i64 24
-  %185 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %184, i64 %indvars.iv143
+  %185 = getelementptr inbounds nuw [100 x i8], ptr %184, i64 %indvars.iv143
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 91
   %187 = load i8, ptr %186, align 1, !range !4, !noundef !5
   %188 = trunc nuw i8 %187 to i1
@@ -2068,7 +2065,7 @@ list_length.exit:                                 ; preds = %121
   %196 = load i16, ptr %195, align 2
   %197 = add i32 %.095130, 1
   %198 = sext i32 %.095130 to i64
-  %199 = getelementptr inbounds i16, ptr %175, i64 %198
+  %199 = getelementptr inbounds [2 x i8], ptr %175, i64 %198
   store i16 %196, ptr %199, align 2
   %.pre146 = load i32, ptr %171, align 8
   %.pre147 = sext i32 %.pre146 to i64

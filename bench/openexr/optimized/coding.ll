@@ -3,11 +3,6 @@ source_filename = "bench/openexr/original/coding.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-
 @.str = private unnamed_addr constant [51 x i8] c"Mismatch in channel counts: stored %d, incoming %d\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Part index (%d) out of range\00", align 1
 @.str.2 = private unnamed_addr constant [58 x i8] c"Attempt to allocate 0 byte buffer for transcode buffer %d\00", align 1
@@ -73,8 +68,8 @@ define hidden i32 @internal_coding_fill_channel_info(ptr noundef writeonly captu
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %compute_sampled_height.exit.us.us
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %compute_sampled_height.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %40 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %27, i64 %indvars.iv62
-  %41 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04676, i64 %indvars.iv62
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv62
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %.04676, i64 %indvars.iv62
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !32
   store ptr %43, ptr %41, align 8, !tbaa !34
@@ -125,8 +120,8 @@ compute_sampled_height.exit.us.us:                ; preds = %47, %.lr.ph.split.u
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %compute_sampled_width.exit.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %compute_sampled_width.exit.us ], [ 0, %.lr.ph.split.us ]
-  %70 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %27, i64 %indvars.iv57
-  %71 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04676, i64 %indvars.iv57
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv57
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %.04676, i64 %indvars.iv57
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !32
   store ptr %73, ptr %71, align 8, !tbaa !34
@@ -193,8 +188,8 @@ compute_sampled_width.exit.us:                    ; preds = %85, %compute_sample
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %compute_sampled_width.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %compute_sampled_width.exit ], [ 0, %.lr.ph ]
-  %104 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %27, i64 %indvars.iv
-  %105 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04676, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [48 x i8], ptr %.04676, i64 %indvars.iv
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !32
   store ptr %107, ptr %105, align 8, !tbaa !34
@@ -314,8 +309,8 @@ define hidden i32 @internal_coding_update_channel_info(ptr noundef writeonly cap
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %compute_sampled_height.exit.us.us
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %compute_sampled_height.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %27 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv64
-  %28 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv64
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv64
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv64
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !32
   store ptr %30, ptr %28, align 8, !tbaa !34
@@ -361,8 +356,8 @@ compute_sampled_height.exit.us.us:                ; preds = %34, %.lr.ph.split.u
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %compute_sampled_width.exit.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %compute_sampled_width.exit.us ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv59
-  %55 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv59
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv59
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv59
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   store ptr %57, ptr %55, align 8, !tbaa !34
@@ -420,8 +415,8 @@ compute_sampled_width.exit.us:                    ; preds = %69, %compute_sample
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %compute_sampled_height.exit.us41
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %compute_sampled_height.exit.us41 ], [ 0, %.lr.ph.split ]
-  %84 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv54
-  %85 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv54
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv54
+  %85 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv54
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !32
   store ptr %87, ptr %85, align 8, !tbaa !34
@@ -484,8 +479,8 @@ compute_sampled_height.exit.us41:                 ; preds = %99, %91, %.lr.ph.sp
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %compute_sampled_width.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %compute_sampled_width.exit ], [ 0, %.lr.ph.split ]
-  %123 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv
-  %124 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !32
   store ptr %126, ptr %124, align 8, !tbaa !34

@@ -80,7 +80,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc17
   %.sroa.0.07.i.i = phi i64 [ %12, %.noexc17 ], [ 0, %.noexc ]
   %.val.i.i = load ptr, ptr %4, align 8, !alias.scope !14, !noalias !15, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val.i.i, i64 %.sroa.0.07.i.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.val.i.i, i64 %.sroa.0.07.i.i
   invoke void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd96672bbb0b570f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
           to label %.noexc17 unwind label %.loopexit
 
@@ -124,11 +124,11 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 25:                                               ; preds = %25, %19
   %26 = phi i64 [ %31, %25 ], [ %.sroa.5.0.copyload, %19 ]
   %.sroa.06.0.i = phi i64 [ %32, %25 ], [ 0, %19 ]
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i64 %.sroa.06.0.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.sroa.06.0.i
   %.val21.i = load ptr, ptr %27, align 8, !noalias !16, !nonnull !3, !align !19, !noundef !3
   %28 = getelementptr i8, ptr %27, i64 8
   %.val22.i = load i64, ptr %28, align 8, !noalias !16, !noundef !3
-  %29 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.8.0.copyload, i64 %26
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.8.0.copyload, i64 %26
   store ptr %.val21.i, ptr %29, align 8, !noalias !20
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %.val22.i, ptr %30, align 8, !noalias !29
@@ -345,7 +345,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 
 14:                                               ; preds = %.noexc, %9
   %.sroa.06.0.i = phi i64 [ 0, %9 ], [ %16, %.noexc ]
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %.sroa.06.0.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.sroa.06.0.i
   invoke void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h48646e51a0ee0a6bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
           to label %.noexc unwind label %43
 
@@ -390,11 +390,11 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 31:                                               ; preds = %31, %25
   %32 = phi i64 [ %37, %31 ], [ %.sroa.5.0.copyload, %25 ]
   %.sroa.06.0.i17 = phi i64 [ %38, %31 ], [ 0, %25 ]
-  %33 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i64 %.sroa.06.0.i17
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.sroa.06.0.i17
   %.val21.i = load ptr, ptr %33, align 8, !noalias !43, !nonnull !3, !align !19, !noundef !3
   %34 = getelementptr i8, ptr %33, i64 8
   %.val22.i = load i64, ptr %34, align 8, !noalias !43, !noundef !3
-  %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.8.0.copyload, i64 %32
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.8.0.copyload, i64 %32
   store ptr %.val21.i, ptr %35, align 8, !noalias !46
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %.val22.i, ptr %36, align 8, !noalias !55
@@ -590,7 +590,7 @@ define internal fastcc void @_ZN15ruff_python_ast4name13QualifiedName16from_dott
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h30645195c70acfcbE.exit.i": ; preds = %48, %42
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %50 = load ptr, ptr %49, align 8, !alias.scope !81, !noalias !84, !nonnull !3, !noundef !3
-  %51 = getelementptr inbounds nuw { ptr, i64 }, ptr %50, i64 %45
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %45
   store ptr %1, ptr %51, align 8, !noalias !88
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %28, ptr %52, align 8
@@ -660,7 +660,7 @@ define internal fastcc void @_ZN15ruff_python_ast4name13QualifiedName16from_dott
   unreachable
 
 _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.thread.i: ; preds = %54
-  %80 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i64 %56
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %56
   store ptr %1, ptr %80, align 8, !alias.scope !92, !noalias !93
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 %28, ptr %81, align 8, !alias.scope !92, !noalias !93
@@ -671,7 +671,7 @@ _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.thread.i:
 
 _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.i: ; preds = %77, %73
   %84 = load ptr, ptr %69, align 8, !alias.scope !102, !noalias !105, !nonnull !3, !noundef !3
-  %85 = getelementptr inbounds nuw { ptr, i64 }, ptr %84, i64 %74
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %74
   store ptr %1, ptr %85, align 8, !noalias !108
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %28, ptr %86, align 8, !noalias !109
@@ -1011,7 +1011,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
           to label %.body.thread unwind label %121, !noalias !139
 
 191:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit.i.i21"
-  %192 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i64 %186
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %186
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull %192, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.197829fd7742c65e648072fd6cc75692.16)
           to label %193 unwind label %189, !noalias !139
 
@@ -1027,7 +1027,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
 
 198:                                              ; preds = %197, %193
   %199 = load ptr, ptr %184, align 8, !alias.scope !167, !noalias !170, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw { ptr, i64 }, ptr %199, i64 %194
+  %200 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %194
   store ptr %.sroa.0.1.i.i20.i.i, ptr %200, align 8, !noalias !173
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i64 %.sroa.4.1.i.i19.i.i, ptr %201, align 8, !noalias !139
@@ -1038,7 +1038,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
           to label %_ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.i unwind label %189, !noalias !139
 
 203:                                              ; preds = %165
-  %204 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i64 %166
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %166
   store ptr %.sroa.0.1.i.i.i.i, ptr %204, align 8, !alias.scope !163, !noalias !139
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i64 %.sroa.4.1.i.i.i.i, ptr %205, align 8, !alias.scope !163, !noalias !139
@@ -1278,7 +1278,7 @@ define noundef range(i8 0, 5) i8 @_ZN20ruff_python_semantic7analyze13function_ty
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %30 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %8, i64 %9
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %9
   %31 = icmp eq i64 %9, 0
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %33
@@ -1490,7 +1490,7 @@ common.resume:                                    ; preds = %.body.i.i.i.i24, %1
 
 95:                                               ; preds = %93
   %96 = extractvalue { ptr, i64 } %91, 0
-  %97 = getelementptr { ptr, i64 }, ptr %96, i64 %94
+  %97 = getelementptr [16 x i8], ptr %96, i64 %94
   %98 = getelementptr i8, ptr %97, i64 -16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %96) ]
   %99 = getelementptr i8, ptr %97, i64 -8
@@ -1545,7 +1545,7 @@ common.resume:                                    ; preds = %.body.i.i.i.i24, %1
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %115 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %117 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %6, i64 %7
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %7
   %118 = icmp eq i64 %7, 0
   %119 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %120
@@ -1753,7 +1753,7 @@ common.resume:                                    ; preds = %.body.i.i.i.i24, %1
 
 182:                                              ; preds = %180
   %183 = extractvalue { ptr, i64 } %178, 0
-  %184 = getelementptr { ptr, i64 }, ptr %183, i64 %181
+  %184 = getelementptr [16 x i8], ptr %183, i64 %181
   %185 = getelementptr i8, ptr %184, i64 -16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   %186 = getelementptr i8, ptr %184, i64 -8
@@ -1888,7 +1888,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze13function_type7is_s
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility15is_staticmethod17h7c04643770168e71E(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(448) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %0, i64 %1
+  %4 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %1
   br label %5
 
 5:                                                ; preds = %7, %3
@@ -1907,7 +1907,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility15is_sta
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility14is_classmethod17h5dd32e651c4d3929E(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(448) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %0, i64 %1
+  %4 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %1
   br label %5
 
 5:                                                ; preds = %7, %3
@@ -1926,7 +1926,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility14is_cla
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility11is_overload17h517e29d43af7699eE(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(448) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %0, i64 %1
+  %4 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %1
   br label %5
 
 5:                                                ; preds = %7, %3
@@ -1945,7 +1945,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility11is_ove
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility11is_override17h84a155c22f62df14E(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(448) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %0, i64 %1
+  %4 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %1
   br label %5
 
 5:                                                ; preds = %7, %3
@@ -2166,7 +2166,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility12is_val
 
 31:                                               ; preds = %25
   %32 = extractvalue { ptr, i64 } %26, 0
-  %33 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr inbounds nuw [72 x i8], ptr %32, i64 %29
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i32, ptr %34, align 8, !range !295, !noalias !292, !noundef !3
   %36 = icmp eq i32 %35, 3
@@ -2187,7 +2187,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility12is_val
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility8is_final17h9cd379e8caf59c4aE(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(448) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %0, i64 %1
+  %4 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %1
   br label %5
 
 5:                                                ; preds = %7, %3

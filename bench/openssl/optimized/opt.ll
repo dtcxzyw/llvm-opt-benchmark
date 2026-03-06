@@ -1352,7 +1352,7 @@ define range(i32 0, 2) i32 @opt_long(ptr noundef %0, ptr noundef writeonly captu
 
 21:                                               ; preds = %.preheader, %19
   %.07.i = phi i64 [ %20, %19 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @__const.opt_number_error.b, i64 %.07.i
   %23 = load ptr, ptr %22, align 16, !tbaa !36
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
   %25 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %23, i64 noundef %24) #19
@@ -1456,7 +1456,7 @@ define range(i32 0, 2) i32 @opt_intmax(ptr noundef %0, ptr noundef writeonly cap
 
 21:                                               ; preds = %.preheader, %19
   %.07.i = phi i64 [ %20, %19 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @__const.opt_number_error.b, i64 %.07.i
   %23 = load ptr, ptr %22, align 16, !tbaa !36
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
   %25 = call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %23, i64 noundef %24) #19
@@ -1528,7 +1528,7 @@ define range(i32 0, 2) i32 @opt_uintmax(ptr noundef %0, ptr noundef writeonly ca
 
 18:                                               ; preds = %.preheader, %16
   %.07.i = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @__const.opt_number_error.b, i64 %.07.i
   %20 = load ptr, ptr %19, align 16, !tbaa !36
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
   %22 = call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21) #19
@@ -1600,7 +1600,7 @@ define range(i32 0, 2) i32 @opt_ulong(ptr noundef %0, ptr noundef writeonly capt
 
 18:                                               ; preds = %.preheader, %16
   %.07.i = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @__const.opt_number_error.b, i64 %.07.i
   %20 = load ptr, ptr %19, align 16, !tbaa !36
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
   %22 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21) #19
@@ -1947,7 +1947,7 @@ define i32 @opt_next() local_unnamed_addr #4 {
   %7 = load ptr, ptr @argv, align 8, !tbaa !8
   %8 = load i32, ptr @opt_index, align 4, !tbaa !11
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = icmp eq ptr %11, null
   br i1 %12, label %135, label %13
@@ -2074,7 +2074,7 @@ sub_057:                                          ; preds = %sub_057.lr.ph.split
 
 62:                                               ; preds = %61
   %63 = sext i32 %15 to i64
-  %64 = getelementptr inbounds ptr, ptr %7, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %7, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !13
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %69
@@ -2288,7 +2288,7 @@ define ptr @opt_rest() local_unnamed_addr #12 {
   %1 = load ptr, ptr @argv, align 8, !tbaa !8
   %2 = load i32, ptr @opt_index, align 4, !tbaa !11
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -2297,7 +2297,7 @@ define i32 @opt_num_rest() local_unnamed_addr #14 {
   %1 = load ptr, ptr @argv, align 8, !tbaa !8
   %2 = load i32, ptr @opt_index, align 4, !tbaa !11
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %.not4 = icmp eq ptr %5, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
@@ -2321,7 +2321,7 @@ define range(i32 0, 2) i32 @opt_check_rest_arg(ptr noundef %0) local_unnamed_add
   %2 = load ptr, ptr @argv, align 8, !tbaa !8
   %3 = load i32, ptr @opt_index, align 4, !tbaa !11
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr %2, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8

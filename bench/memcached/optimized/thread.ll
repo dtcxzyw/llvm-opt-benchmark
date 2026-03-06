@@ -13,22 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stats_state = type { i64, i64, i64, i64, float, i32, i32, i32, i32, i8, i8, i8, i8 }
 %struct.stats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.timeval, i64, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.LIBEVENT_THREAD = type { i64, ptr, %struct.thread_notify, %struct.thread_notify, %union.pthread_mutex_t, %struct.iop_head_s, i32, i32, i32, %struct.thread_stats, [3 x %struct.io_queue_s], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.thread_notify = type { %struct.event, i32 }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, ptr, %union.anon.2, i16, i16, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.iop_head_s = type { ptr, ptr }
-%struct.thread_stats = type { %union.pthread_mutex_t, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x %struct.slab_stats], [256 x i64], i64, i64, i64 }
-%struct.slab_stats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.io_queue_s = type { ptr, %struct.iop_head_s, ptr, i32 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
+%struct.iop_head_s = type { ptr, ptr }
 
 @conn_lock = dso_local global %union.pthread_mutex_t zeroinitializer, align 8
 @item_locks = internal unnamed_addr global ptr null, align 8
@@ -96,7 +82,7 @@ define dso_local void @item_lock(i32 noundef %0) local_unnamed_addr #0 {
   %notmask = shl nsw i64 -1, %5
   %6 = xor i64 %notmask, -1
   %7 = and i64 %6, %3
-  %8 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %7
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef %8) #15
   ret void
 }
@@ -113,7 +99,7 @@ define dso_local ptr @item_trylock(i32 noundef %0) local_unnamed_addr #0 {
   %notmask = shl nsw i64 -1, %5
   %6 = xor i64 %notmask, -1
   %7 = and i64 %6, %3
-  %8 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %7
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef %8) #15
   %10 = icmp eq i32 %9, 0
   %. = select i1 %10, ptr %8, ptr null
@@ -141,7 +127,7 @@ define dso_local void @item_unlock(i32 noundef %0) local_unnamed_addr #0 {
   %notmask = shl nsw i64 -1, %5
   %6 = xor i64 %notmask, -1
   %7 = and i64 %6, %3
-  %8 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %7
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef %8) #15
   ret void
 }
@@ -193,7 +179,7 @@ define dso_local void @pause_threads(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %16 = load ptr, ptr @threads, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [6992 x i8], ptr %16, i64 %indvars.iv
   tail call fastcc void @notify_worker_fd(ptr noundef %17, i32 noundef 0, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 84), align 4, !tbaa !17
@@ -329,7 +315,7 @@ define dso_local void @stop_threads() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread ]
   %14 = load ptr, ptr @threads, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [6992 x i8], ptr %14, i64 %indvars.iv
   tail call fastcc void @notify_worker_fd(ptr noundef %15, i32 noundef 0, i32 noundef 4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 84), align 4, !tbaa !17
@@ -452,7 +438,7 @@ wait_for_thread_registration.exit:                ; preds = %.lr.ph.i, %.thread,
 .lr.ph12:                                         ; preds = %79, %.lr.ph12
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %.lr.ph12 ], [ 0, %79 ]
   %82 = load ptr, ptr @threads, align 8, !tbaa !4
-  %83 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %82, i64 %indvars.iv16
+  %83 = getelementptr inbounds nuw [6992 x i8], ptr %82, i64 %indvars.iv16
   %84 = load i64, ptr %83, align 8, !tbaa !65
   %85 = tail call i32 @pthread_join(i64 noundef %84, ptr noundef null) #15
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
@@ -514,7 +500,7 @@ declare i32 @pthread_setname_np(i64 noundef, ptr noundef) local_unnamed_addr #1
 define dso_local ptr @get_worker_thread(i32 noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @threads, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %3
+  %4 = getelementptr inbounds [6992 x i8], ptr %2, i64 %3
   ret ptr %4
 }
 
@@ -535,7 +521,7 @@ define dso_local void @dispatch_conn_new(i32 noundef %0, i32 noundef %1, i32 nou
   store i32 %17, ptr @last_thread, align 4, !tbaa !8
   %18 = load ptr, ptr @threads, align 8, !tbaa !4
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %18, i64 %19
+  %20 = getelementptr inbounds [6992 x i8], ptr %18, i64 %19
   br label %66
 
 21:                                               ; preds = %8
@@ -566,7 +552,7 @@ define dso_local void @dispatch_conn_new(i32 noundef %0, i32 noundef %1, i32 nou
   store i32 %34, ptr @last_thread, align 4, !tbaa !8
   %35 = load ptr, ptr @threads, align 8, !tbaa !4
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %35, i64 %36
+  %37 = getelementptr inbounds [6992 x i8], ptr %35, i64 %36
   br label %select_thread_by_napi_id.exit
 
 .preheader.i:                                     ; preds = %reset_threads_napi_id.exit.i, %.preheader.preheader.i
@@ -598,7 +584,7 @@ define dso_local void @dispatch_conn_new(i32 noundef %0, i32 noundef %1, i32 nou
   br label %.loopexit.i
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %40, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [6992 x i8], ptr %40, i64 %indvars.iv.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 6984
   %52 = load i32, ptr %51, align 8, !tbaa !69
   %53 = icmp eq i32 %52, %42
@@ -626,7 +612,7 @@ define dso_local void @dispatch_conn_new(i32 noundef %0, i32 noundef %1, i32 nou
 
 62:                                               ; preds = %62, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %62 ]
-  %63 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %61, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw [6992 x i8], ptr %61, i64 %indvars.iv.i.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6984
   store i32 0, ptr %64, align 8, !tbaa !69
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -643,7 +629,7 @@ reset_threads_napi_id.exit.i:                     ; preds = %62, %._crit_edge.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %46
   %.pre-phi.i = phi i64 [ %.pre31.i, %.loopexit.loopexit.i ], [ %44, %46 ]
-  %65 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %40, i64 %.pre-phi.i
+  %65 = getelementptr inbounds nuw [6992 x i8], ptr %40, i64 %.pre-phi.i
   br label %select_thread_by_napi_id.exit
 
 select_thread_by_napi_id.exit:                    ; preds = %26, %.loopexit.i
@@ -832,7 +818,7 @@ define dso_local ptr @item_get(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %notmask.i = shl nsw i64 -1, %10
   %11 = xor i64 %notmask.i, -1
   %12 = and i64 %11, %8
-  %13 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %12
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef %13) #15
   %15 = tail call ptr @do_item_get(ptr noundef %0, i64 noundef %1, i32 noundef %6, ptr noundef %2, i1 noundef zeroext %3) #15
   %16 = load ptr, ptr @item_locks, align 8, !tbaa !4
@@ -841,7 +827,7 @@ define dso_local ptr @item_get(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %notmask.i9 = shl nsw i64 -1, %18
   %19 = xor i64 %notmask.i9, -1
   %20 = and i64 %19, %8
-  %21 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %20
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef %21) #15
   ret ptr %15
 }
@@ -860,7 +846,7 @@ define dso_local ptr @item_get_locked(ptr noundef %0, i64 noundef %1, ptr nounde
   %notmask.i = shl nsw i64 -1, %11
   %12 = xor i64 %notmask.i, -1
   %13 = and i64 %12, %9
-  %14 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %13
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef %14) #15
   %16 = load i32, ptr %4, align 4, !tbaa !8
   %17 = tail call ptr @do_item_get(ptr noundef %0, i64 noundef %1, i32 noundef %16, ptr noundef %2, i1 noundef zeroext %3) #15
@@ -878,7 +864,7 @@ define dso_local ptr @item_touch(ptr noundef %0, i64 noundef %1, i32 noundef %2,
   %notmask.i = shl nsw i64 -1, %10
   %11 = xor i64 %notmask.i, -1
   %12 = and i64 %11, %8
-  %13 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %12
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef %13) #15
   %15 = tail call ptr @do_item_touch(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %6, ptr noundef %3) #15
   %16 = load ptr, ptr @item_locks, align 8, !tbaa !4
@@ -887,7 +873,7 @@ define dso_local ptr @item_touch(ptr noundef %0, i64 noundef %1, i32 noundef %2,
   %notmask.i9 = shl nsw i64 -1, %18
   %19 = xor i64 %notmask.i9, -1
   %20 = and i64 %19, %8
-  %21 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %20
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef %21) #15
   ret ptr %15
 }
@@ -915,7 +901,7 @@ define dso_local void @item_remove(ptr noundef %0) local_unnamed_addr #0 {
   %notmask.i = shl nsw i64 -1, %17
   %18 = xor i64 %notmask.i, -1
   %19 = and i64 %18, %15
-  %20 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %19
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef %20) #15
   tail call void @do_item_remove(ptr noundef %0) #15
   %22 = load ptr, ptr @item_locks, align 8, !tbaa !4
@@ -924,7 +910,7 @@ define dso_local void @item_remove(ptr noundef %0) local_unnamed_addr #0 {
   %notmask.i5 = shl nsw i64 -1, %24
   %25 = xor i64 %notmask.i5, -1
   %26 = and i64 %25, %15
-  %27 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %26
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef %27) #15
   ret void
 }
@@ -960,7 +946,7 @@ define dso_local void @item_unlink(ptr noundef %0) local_unnamed_addr #0 {
   %notmask.i = shl nsw i64 -1, %17
   %18 = xor i64 %notmask.i, -1
   %19 = and i64 %18, %15
-  %20 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %19
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef %20) #15
   tail call void @do_item_unlink(ptr noundef %0, i32 noundef %13) #15
   %22 = load ptr, ptr @item_locks, align 8, !tbaa !4
@@ -969,7 +955,7 @@ define dso_local void @item_unlink(ptr noundef %0) local_unnamed_addr #0 {
   %notmask.i6 = shl nsw i64 -1, %24
   %25 = xor i64 %notmask.i6, -1
   %26 = and i64 %25, %15
-  %27 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %26
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef %27) #15
   ret void
 }
@@ -987,7 +973,7 @@ define dso_local i32 @add_delta(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %notmask.i = shl nsw i64 -1, %13
   %14 = xor i64 %notmask.i, -1
   %15 = and i64 %14, %11
-  %16 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %15
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef %16) #15
   %18 = tail call i32 @do_add_delta(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %9, ptr noundef null) #15
   %19 = load ptr, ptr @item_locks, align 8, !tbaa !4
@@ -996,7 +982,7 @@ define dso_local i32 @add_delta(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %notmask.i12 = shl nsw i64 -1, %21
   %22 = xor i64 %notmask.i12, -1
   %23 = and i64 %22, %11
-  %24 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %23
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef %24) #15
   ret i32 %18
 }
@@ -1024,7 +1010,7 @@ define dso_local i32 @store_item(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %notmask.i = shl nsw i64 -1, %23
   %24 = xor i64 %notmask.i, -1
   %25 = and i64 %24, %21
-  %26 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %20, i64 %25
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %25
   %27 = tail call i32 @pthread_mutex_lock(ptr noundef %26) #15
   %28 = tail call i32 @do_store_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %19, ptr noundef %3, ptr noundef %4, i64 noundef %5, i1 noundef zeroext %6) #15
   %29 = load ptr, ptr @item_locks, align 8, !tbaa !4
@@ -1033,7 +1019,7 @@ define dso_local i32 @store_item(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %notmask.i13 = shl nsw i64 -1, %31
   %32 = xor i64 %notmask.i13, -1
   %33 = and i64 %32, %21
-  %34 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %33
   %35 = tail call i32 @pthread_mutex_unlock(ptr noundef %34) #15
   ret i32 %28
 }
@@ -1061,11 +1047,11 @@ define dso_local void @threadlocal_stats_reset() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %3 = load ptr, ptr @threads, align 8, !tbaa !4
-  %4 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [6992 x i8], ptr %3, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #15
   %7 = load ptr, ptr @threads, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [6992 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6384) %9, i8 0, i64 6384, i1 false)
@@ -1131,11 +1117,11 @@ define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6
 39:                                               ; preds = %.lr.ph, %222
   %indvars.iv123 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next124, %222 ]
   %40 = load ptr, ptr @threads, align 8, !tbaa !4
-  %41 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %40, i64 %indvars.iv123
+  %41 = getelementptr inbounds nuw [6992 x i8], ptr %40, i64 %indvars.iv123
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 360
   %43 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %42) #15
   %44 = load ptr, ptr @threads, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %44, i64 %indvars.iv123
+  %45 = getelementptr inbounds nuw [6992 x i8], ptr %44, i64 %indvars.iv123
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 400
   %47 = load i64, ptr %46, align 8, !tbaa !99
   %48 = load i64, ptr %4, align 8, !tbaa !100
@@ -1295,13 +1281,13 @@ define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6
 
 168:                                              ; preds = %39, %168
   %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %168 ]
-  %169 = getelementptr inbounds nuw %struct.slab_stats, ptr %166, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [64 x i8], ptr %166, i64 %indvars.iv
   %170 = load i64, ptr %169, align 8, !tbaa !159
-  %171 = getelementptr inbounds nuw %struct.slab_stats, ptr %34, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %indvars.iv
   %172 = load i64, ptr %171, align 8, !tbaa !159
   %173 = add i64 %172, %170
   store i64 %173, ptr %171, align 8, !tbaa !159
-  %174 = getelementptr inbounds nuw %struct.slab_stats, ptr %45, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %indvars.iv
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 648
   %176 = load i64, ptr %175, align 8, !tbaa !161
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 8
@@ -1350,15 +1336,15 @@ define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6
 
 210:                                              ; preds = %.preheader, %210
   %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %210 ]
-  %211 = getelementptr inbounds nuw i64, ptr %167, i64 %indvars.iv119
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv119
   %212 = load i64, ptr %211, align 8, !tbaa !57
-  %213 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv119
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv119
   %214 = load i64, ptr %213, align 8, !tbaa !57
   %215 = add i64 %214, %212
   store i64 %215, ptr %213, align 8, !tbaa !57
   %216 = load i64, ptr %211, align 8, !tbaa !57
   %217 = and i64 %indvars.iv119, 63
-  %218 = getelementptr inbounds nuw %struct.slab_stats, ptr %0, i64 %217
+  %218 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %217
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 288
   %220 = load i64, ptr %219, align 8, !tbaa !161
   %221 = add i64 %220, %216
@@ -1423,7 +1409,7 @@ define dso_local void @slab_stats_aggregate(ptr noundef readonly captures(none) 
   %17 = phi i64 [ 0, %2 ], [ %37, %11 ]
   %18 = phi i64 [ 0, %2 ], [ %40, %11 ]
   %19 = phi i64 [ 0, %2 ], [ %43, %11 ]
-  %20 = getelementptr inbounds nuw %struct.slab_stats, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !159
   %22 = add i64 %12, %21
   store i64 %22, ptr %1, align 8, !tbaa !159
@@ -1470,7 +1456,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %indvars.iv
   %6 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1534,7 +1520,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph ], [ 0, %29 ]
   %34 = load ptr, ptr @item_locks, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %34, i64 %indvars.iv50
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %indvars.iv50
   %36 = tail call i32 @pthread_mutex_init(ptr noundef %35, ptr noundef null) #15
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %37 = load i32, ptr @item_lock_count, align 4, !tbaa !8
@@ -1569,7 +1555,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %setup_thread.exit
   %indvars.iv53 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next54, %setup_thread.exit ]
   %44 = load ptr, ptr @threads, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %44, i64 %indvars.iv53
+  %45 = getelementptr inbounds nuw [6992 x i8], ptr %44, i64 %indvars.iv53
   %46 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 2048) #15
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 144
   store i32 %46, ptr %47, align 8, !tbaa !184
@@ -1583,7 +1569,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 
 memcached_thread_notify_init.exit:                ; preds = %.lr.ph43
   %50 = load ptr, ptr @threads, align 8, !tbaa !4
-  %51 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %50, i64 %indvars.iv53
+  %51 = getelementptr inbounds nuw [6992 x i8], ptr %50, i64 %indvars.iv53
   %52 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 2048) #15
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 280
   store i32 %52, ptr %53, align 8, !tbaa !184
@@ -1597,7 +1583,7 @@ memcached_thread_notify_init.exit:                ; preds = %.lr.ph43
 
 memcached_thread_notify_init.exit36:              ; preds = %memcached_thread_notify_init.exit
   %56 = load ptr, ptr @threads, align 8, !tbaa !4
-  %57 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %56, i64 %indvars.iv53
+  %57 = getelementptr inbounds nuw [6992 x i8], ptr %56, i64 %indvars.iv53
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 6960
   store ptr %1, ptr %58, align 8, !tbaa !185
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 348
@@ -1760,7 +1746,7 @@ setup_thread.exit:                                ; preds = %131, %133
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %create_worker.exit
   %indvars.iv57 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next58, %create_worker.exit ]
   %136 = load ptr, ptr @threads, align 8, !tbaa !4
-  %137 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %136, i64 %indvars.iv57
+  %137 = getelementptr inbounds nuw [6992 x i8], ptr %136, i64 %indvars.iv57
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %138 = call i32 @pthread_attr_init(ptr noundef nonnull %3) #15
   %139 = call i32 @pthread_create(ptr noundef %137, ptr noundef nonnull %3, ptr noundef nonnull @worker_libevent, ptr noundef %137) #15
@@ -2028,7 +2014,7 @@ cq_pop.exit:                                      ; preds = %15
   %80 = load ptr, ptr @conns, align 8, !tbaa !199
   %81 = load i32, ptr %19, align 8, !tbaa !53
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %80, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !201
   tail call void @conn_close_idle(ptr noundef %84) #15
   br label %94
@@ -2037,7 +2023,7 @@ cq_pop.exit:                                      ; preds = %15
   %86 = load ptr, ptr @conns, align 8, !tbaa !199
   %87 = load i32, ptr %19, align 8, !tbaa !53
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %86, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %86, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !201
   tail call void @conn_worker_readd(ptr noundef %90) #15
   br label %94

@@ -318,7 +318,7 @@ arith_get_number.exit:                            ; preds = %133
 .lr.ph.preheader.i:                               ; preds = %arith_get_number.exit
   %168 = sext i32 %107 to i64
   %169 = sub nsw i64 0, %168
-  %170 = getelementptr inbounds i32, ptr %50, i64 %169
+  %170 = getelementptr inbounds [4 x i8], ptr %50, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -722,7 +722,7 @@ define internal range(i32 0, 256) i32 @arith_get_model_sym(ptr noundef captures(
 
 16:                                               ; preds = %16, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 1, %2 ]
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2, !tbaa !72
   %19 = sext i16 %18 to i32
   %20 = icmp slt i32 %15, %19
@@ -730,7 +730,7 @@ define internal range(i32 0, 256) i32 @arith_get_model_sym(ptr noundef captures(
   br i1 %20, label %16, label %arith_get_prob.exit, !llvm.loop !74
 
 arith_get_prob.exit:                              ; preds = %16
-  %21 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.i
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = getelementptr i8, ptr %21, i64 -2
   %24 = load i16, ptr %23, align 2, !tbaa !72

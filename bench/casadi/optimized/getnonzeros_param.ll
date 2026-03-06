@@ -26,10 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.casadi::Matrix" = type { [8 x i8], %"class.casadi::Sparsity", %"class.std::vector.20" }
 %"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
@@ -50,6 +46,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.casadi::GenericType" }
 %"class.casadi::GenericType" = type { %"class.casadi::SharedObject" }
@@ -2421,7 +2421,7 @@ _ZNK6casadi6MXNode3depEx.exit17:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %or.cond, label %33, label %36
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw double, ptr %6, i64 %30
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %30
   %35 = load double, ptr %34, align 8, !tbaa !43
   br label %36
 
@@ -2520,7 +2520,7 @@ _ZNK6casadi6MXNode3depEx.exit34:                  ; preds = %_ZNK6casadi6MXNode3
   %36 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %37 = load double, ptr %.036, align 8, !tbaa !43
   %38 = fptosi double %37 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %3, i64 %.02935
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.02935
   store i64 %38, ptr %39, align 8, !tbaa !64
   %40 = add nuw nsw i64 %.02935, 1
   %exitcond.not = icmp eq i64 %40, %21
@@ -2550,7 +2550,7 @@ _ZNK6casadi6MXNode3depEx.exit34:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %or.cond, label %48, label %51
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw double, ptr %6, i64 %45
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %45
   %50 = load double, ptr %49, align 8, !tbaa !43
   br label %51
 
@@ -2631,7 +2631,7 @@ _ZNK6casadi6MXNode3depEx.exit22:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %or.cond.us, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr %6, i64 %38
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %38
   %43 = load double, ptr %42, align 8, !tbaa !43
   br label %44
 
@@ -2752,7 +2752,7 @@ _ZNK6casadi6MXNode3depEx.exit40:                  ; preds = %_ZNK6casadi6MXNode3
   %42 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %43 = load double, ptr %.042, align 8, !tbaa !43
   %44 = fptosi double %43 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %.03341
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03341
   store i64 %44, ptr %45, align 8, !tbaa !64
   %46 = add nuw nsw i64 %.03341, 1
   %exitcond.not = icmp eq i64 %46, %23
@@ -2786,7 +2786,7 @@ _ZNK6casadi6MXNode3depEx.exit40:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %or.cond, label %56, label %59
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw double, ptr %6, i64 %53
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %53
   %58 = load double, ptr %57, align 8, !tbaa !43
   br label %59
 
@@ -3871,7 +3871,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
 
 _ZNK6casadi6MXNode3depEx.exit14:                  ; preds = %.lr.ph
   %22 = load ptr, ptr %1, align 8, !tbaa !118
-  %23 = getelementptr inbounds nuw %"class.std::vector", ptr %22, i64 %.01115
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %.01115
   %24 = load ptr, ptr %23, align 8, !tbaa !42
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, i1 noundef zeroext false)
@@ -3888,7 +3888,7 @@ _ZNK6casadi6MXNode3depEx.exit14:                  ; preds = %.lr.ph
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %2, align 8, !tbaa !118
-  %33 = getelementptr inbounds nuw %"class.std::vector", ptr %32, i64 %.01115
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.01115
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %46
@@ -3972,7 +3972,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
   %.01423 = phi i64 [ 0, %.lr.ph ], [ %60, %_ZN6casadi6MatrixIdED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = load ptr, ptr %1, align 8, !tbaa !118
-  %29 = getelementptr inbounds nuw %"class.std::vector", ptr %28, i64 %.01423
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.01423
   %30 = load ptr, ptr %29, align 8, !tbaa !42
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %23, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4018,7 +4018,7 @@ _ZNK6casadi6MXNode3depEx.exit20:                  ; preds = %32
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %2, align 8, !tbaa !118
-  %45 = getelementptr inbounds nuw %"class.std::vector", ptr %44, i64 %.01423
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.01423
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -4220,7 +4220,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
 
 _ZNK6casadi6MXNode3depEx.exit14:                  ; preds = %20
   %24 = load ptr, ptr %1, align 8, !tbaa !118
-  %25 = getelementptr inbounds nuw %"class.std::vector", ptr %24, i64 %.01115
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01115
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
@@ -4237,7 +4237,7 @@ _ZNK6casadi6MXNode3depEx.exit14:                  ; preds = %20
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %2, align 8, !tbaa !118
-  %35 = getelementptr inbounds nuw %"class.std::vector", ptr %34, i64 %.01115
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.01115
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %48
@@ -4322,7 +4322,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
   %.01423 = phi i64 [ 0, %.lr.ph ], [ %61, %_ZN6casadi6MatrixIdED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = load ptr, ptr %1, align 8, !tbaa !118
-  %30 = getelementptr inbounds nuw %"class.std::vector", ptr %29, i64 %.01423
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.01423
   %31 = load ptr, ptr %30, align 8, !tbaa !42
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %23, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4368,7 +4368,7 @@ _ZNK6casadi6MXNode3depEx.exit20:                  ; preds = %33
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %2, align 8, !tbaa !118
-  %46 = getelementptr inbounds nuw %"class.std::vector", ptr %45, i64 %.01423
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %.01423
   %47 = load ptr, ptr %46, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -4536,7 +4536,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
 
 _ZNK6casadi6MXNode3depEx.exit14:                  ; preds = %20
   %24 = load ptr, ptr %1, align 8, !tbaa !118
-  %25 = getelementptr inbounds nuw %"class.std::vector", ptr %24, i64 %.01115
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01115
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
@@ -4553,7 +4553,7 @@ _ZNK6casadi6MXNode3depEx.exit14:                  ; preds = %20
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %2, align 8, !tbaa !118
-  %35 = getelementptr inbounds nuw %"class.std::vector", ptr %34, i64 %.01115
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.01115
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %48
@@ -4638,7 +4638,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
   %.01423 = phi i64 [ 0, %.lr.ph ], [ %61, %_ZN6casadi6MatrixIdED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = load ptr, ptr %1, align 8, !tbaa !118
-  %30 = getelementptr inbounds nuw %"class.std::vector", ptr %29, i64 %.01423
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.01423
   %31 = load ptr, ptr %30, align 8, !tbaa !42
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %23, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4684,7 +4684,7 @@ _ZNK6casadi6MXNode3depEx.exit20:                  ; preds = %33
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %2, align 8, !tbaa !118
-  %46 = getelementptr inbounds nuw %"class.std::vector", ptr %45, i64 %.01423
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %.01423
   %47 = load ptr, ptr %46, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -4857,7 +4857,7 @@ _ZNK6casadi6MXNode3depEx.exit15:                  ; preds = %_ZNK6casadi6MXNode3
 
 _ZNK6casadi6MXNode3depEx.exit17:                  ; preds = %.lr.ph
   %24 = load ptr, ptr %1, align 8, !tbaa !118
-  %25 = getelementptr inbounds nuw %"class.std::vector", ptr %24, i64 %.01218
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01218
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
@@ -4874,7 +4874,7 @@ _ZNK6casadi6MXNode3depEx.exit17:                  ; preds = %.lr.ph
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %2, align 8, !tbaa !118
-  %35 = getelementptr inbounds nuw %"class.std::vector", ptr %34, i64 %.01218
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.01218
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %48
@@ -4967,7 +4967,7 @@ _ZNK6casadi6MXNode3depEx.exit21:                  ; preds = %_ZNK6casadi6MXNode3
   %.01526 = phi i64 [ 0, %.lr.ph ], [ %62, %_ZN6casadi6MatrixIdED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = load ptr, ptr %1, align 8, !tbaa !118
-  %31 = getelementptr inbounds nuw %"class.std::vector", ptr %30, i64 %.01526
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %.01526
   %32 = load ptr, ptr %31, align 8, !tbaa !42
   call void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %25, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5013,7 +5013,7 @@ _ZNK6casadi6MXNode3depEx.exit23:                  ; preds = %34
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %2, align 8, !tbaa !118
-  %47 = getelementptr inbounds nuw %"class.std::vector", ptr %46, i64 %.01526
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %.01526
   %48 = load ptr, ptr %47, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %7)

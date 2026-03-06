@@ -123,7 +123,7 @@ define i32 @cli_bm_addpatt(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %.idx158 = mul nuw nsw i64 %58, 1688
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx158
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   %68 = load ptr, ptr %67, align 8, !tbaa !39
   %.not122 = icmp eq ptr %68, null
   br i1 %.not122, label %69, label %76
@@ -169,7 +169,7 @@ define i32 @cli_bm_addpatt(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   store i8 0, ptr %93, align 1, !tbaa !38
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !37
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %91
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %91
   %97 = load ptr, ptr %96, align 8, !tbaa !39
   %.not124137 = icmp eq ptr %97, null
   br i1 %.not124137, label %._crit_edge.thread, label %.lr.ph140
@@ -267,7 +267,7 @@ define i32 @cli_bm_addpatt(ptr noundef captures(none) %0, ptr noundef %1, ptr no
 139:                                              ; preds = %127
   %140 = load i32, ptr %132, align 8, !tbaa !46
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw ptr, ptr %137, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %141
   store ptr %1, ptr %142, align 8, !tbaa !39
   %143 = load i32, ptr %13, align 8, !tbaa !31
   %.not129 = icmp eq i32 %143, 1
@@ -400,7 +400,7 @@ define i32 @cli_bm_initoff(ptr noundef readonly captures(none) %0, ptr noundef c
   %21 = phi ptr [ %16, %.lr.ph ], [ %91, %90 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
   %22 = load ptr, ptr %17, align 8, !tbaa !47
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !31
@@ -417,11 +417,11 @@ define i32 @cli_bm_initoff(ptr noundef readonly captures(none) %0, ptr noundef c
   %35 = load ptr, ptr %13, align 8, !tbaa !52
   %36 = load i32, ptr %6, align 8, !tbaa !51
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %37
   store i32 %34, ptr %38, align 4, !tbaa !31
   %39 = load i32, ptr %6, align 8, !tbaa !51
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !31
   %43 = zext i32 %42 to i64
   %44 = load i64, ptr %2, align 8, !tbaa !54
@@ -433,7 +433,7 @@ define i32 @cli_bm_initoff(ptr noundef readonly captures(none) %0, ptr noundef c
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %48 = load i32, ptr %47, align 8, !tbaa !48
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %21, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %49
   %51 = tail call i32 @cli_caloff(ptr noundef null, ptr noundef %2, i32 noundef %46, ptr noundef nonnull %25, ptr noundef %50, ptr noundef null) #9
   %.not66 = icmp eq i32 %51, 0
   br i1 %.not66, label %57, label %52
@@ -452,7 +452,7 @@ define i32 @cli_bm_initoff(ptr noundef readonly captures(none) %0, ptr noundef c
   %58 = load ptr, ptr %1, align 8, !tbaa !53
   %59 = load i32, ptr %47, align 8, !tbaa !48
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !31
   %.not67 = icmp eq i32 %62, -2
   br i1 %.not67, label %90, label %63
@@ -486,7 +486,7 @@ define i32 @cli_bm_initoff(ptr noundef readonly captures(none) %0, ptr noundef c
   %75 = load ptr, ptr %13, align 8, !tbaa !52
   %76 = add i32 %71, -1
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !31
   %.not70 = icmp eq i32 %74, %79
   br i1 %.not70, label %90, label %80
@@ -495,11 +495,11 @@ define i32 @cli_bm_initoff(ptr noundef readonly captures(none) %0, ptr noundef c
   %.pre-phi85 = phi i32 [ %.pre84, %._crit_edge79 ], [ %74, %72 ]
   %81 = phi ptr [ %.pre80, %._crit_edge79 ], [ %75, %72 ]
   %82 = zext i32 %71 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 %.pre-phi85, ptr %83, align 4, !tbaa !31
   %84 = load i32, ptr %6, align 8, !tbaa !51
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %81, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !31
   %88 = zext i32 %87 to i64
   %.not71 = icmp samesign ugt i64 %69, %88
@@ -590,7 +590,7 @@ define void @cli_bm_free(ptr noundef readonly captures(none) %0) local_unnamed_a
 17:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %18 = load ptr, ptr %14, align 8, !tbaa !37
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %.not3336 = icmp eq ptr %20, null
   br i1 %.not3336, label %._crit_edge, label %.lr.ph
@@ -691,7 +691,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 .lr.ph:                                           ; preds = %26, %32
   %27 = phi i32 [ %33, %32 ], [ %.pr, %26 ]
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %.pre, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !31
   %31 = icmp ugt i32 %30, %5
   br i1 %31, label %32, label %.critedge
@@ -705,7 +705,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 .critedge:                                        ; preds = %.lr.ph, %32, %26
   %34 = phi i32 [ 0, %26 ], [ 0, %32 ], [ %27, %.lr.ph ]
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %.pre, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !31
   %38 = icmp ult i32 %37, %5
   br i1 %38, label %39, label %41
@@ -722,7 +722,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 
 43:                                               ; preds = %41
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %.pre, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !31
   %47 = sub i32 %46, %5
   br label %48
@@ -778,7 +778,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 
 79:                                               ; preds = %57
   %80 = load ptr, ptr %51, align 8, !tbaa !37
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %75
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %75
   %82 = load ptr, ptr %81, align 8, !tbaa !39
   %.not250 = icmp eq ptr %82, null
   br i1 %.not250, label %.loopexit, label %83
@@ -813,7 +813,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 
 97:                                               ; preds = %.lr.ph330, %100
   %indvars.iv = phi i64 [ %96, %.lr.ph330 ], [ %indvars.iv.next, %100 ]
-  %98 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4, !tbaa !31
   %.not277 = icmp ult i32 %92, %99
   br i1 %.not277, label %.critedge2.loopexit, label %100
@@ -837,7 +837,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 104:                                              ; preds = %.critedge2
   %105 = load ptr, ptr %52, align 8, !tbaa !52
   %106 = zext i32 %.lcssa295 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !31
   %.not278 = icmp ult i32 %92, %108
   br i1 %.not278, label %109, label %.critedge2.thread
@@ -917,7 +917,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
   %142 = getelementptr inbounds nuw i8, ptr %.0200349, i64 40
   %143 = load i32, ptr %142, align 8, !tbaa !48
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %141, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !31
   %147 = icmp ne i32 %146, -2
   %148 = sub i32 %114, %129
@@ -1129,7 +1129,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 
 243:                                              ; preds = %.lr.ph360, %246
   %indvars.iv405 = phi i64 [ %242, %.lr.ph360 ], [ %indvars.iv.next406, %246 ]
-  %244 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv405
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %indvars.iv405
   %245 = load i32, ptr %244, align 4, !tbaa !31
   %.not275 = icmp ult i32 %238, %245
   br i1 %.not275, label %.critedge5.loopexit, label %246
@@ -1153,7 +1153,7 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
 250:                                              ; preds = %.critedge5
   %251 = load ptr, ptr %52, align 8, !tbaa !52
   %252 = zext i32 %.lcssa321 to i64
-  %253 = getelementptr inbounds nuw i32, ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %252
   %254 = load i32, ptr %253, align 4, !tbaa !31
   %.not276 = icmp ult i32 %238, %254
   br i1 %.not276, label %256, label %.critedge5.thread

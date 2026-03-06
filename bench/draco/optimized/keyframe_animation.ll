@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.36" = type { %"struct.std::_Tuple_impl.37" }
 %"struct.std::_Tuple_impl.37" = type { %"struct.std::_Head_base.40" }
 %"struct.std::_Head_base.40" = type { ptr }
-%"class.draco::IndexType.41" = type { i32 }
 
 $_ZN5draco10PointCloudD2Ev = comdat any
 
@@ -155,14 +154,14 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %37, align 8, !tbaa !62
-  %51 = getelementptr inbounds nuw %"class.draco::IndexType.41", ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !63
   br label %53
 
 53:                                               ; preds = %45, %49
   %.sroa.02.0.i = phi i32 [ %52, %49 ], [ %48, %45 ]
   %54 = load ptr, ptr %1, align 8, !tbaa !11
-  %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %56 = zext i32 %.sroa.02.0.i to i64
   %57 = load i64, ptr %38, align 8, !tbaa !64
   %58 = mul nsw i64 %57, %56

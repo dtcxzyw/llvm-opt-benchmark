@@ -1674,7 +1674,7 @@ _ZNKSt8__detail15_Hash_code_baseIPKcSt4pairIKS2_N7glslang15EHlslTokenClassEENS_1
   %.val17.i = load i64, ptr %9, align 8
   %10 = urem i64 %.04.lcssa.i.i.i, %.val17.i
   %.val18.i = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val18.i, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %.val18.i, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not.i.i23.i = icmp eq ptr %12, null
   br i1 %.not.i.i23.i, label %.loopexit.i, label %13
@@ -1776,7 +1776,7 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang15EHlslTokenClassEESaIS6_ENSt8__detail
   %49 = getelementptr i8, ptr %.032.i.i.i.i, i64 24
   %.val.i.i.i.i = load i64, ptr %49, align 8
   %50 = urem i64 %.val.i.i.i.i, %35
-  %51 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i, i64 %50
   %52 = load ptr, ptr %51, align 8
   %.not27.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not27.i.i.i.i, label %53, label %58
@@ -1791,7 +1791,7 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang15EHlslTokenClassEESaIS6_ENSt8__detail
   br i1 %.not28.i.i.i.i, label %61, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
+  %57 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
   store ptr %.032.i.i.i.i, ptr %57, align 8
   br label %61
 
@@ -1830,7 +1830,7 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang15EHlslTokenClassEESaIS6_ENSt8__detail
   %.0.i24.i = phi i64 [ %68, %_ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang15EHlslTokenClassEESaIS6_ENSt8__detail10_Select1stEN12_GLOBAL__N_16str_eqENSA_8str_hashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i ], [ %10, %.loopexit._crit_edge.i ]
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %.04.lcssa.i.i.i, ptr %71, align 8
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %.0.i24.i
+  %72 = getelementptr inbounds [8 x i8], ptr %70, i64 %.0.i24.i
   %73 = load ptr, ptr %72, align 8
   %.not.i.i25.i = icmp eq ptr %73, null
   br i1 %.not.i.i25.i, label %77, label %74
@@ -1855,14 +1855,14 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang15EHlslTokenClassEESaIS6_ENSt8__detail
   %81 = getelementptr i8, ptr %79, i64 24
   %.val12.i.i.i = load i64, ptr %81, align 8
   %82 = urem i64 %.val12.i.i.i, %.val.i.i.i
-  %83 = getelementptr inbounds ptr, ptr %70, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %70, i64 %82
   store ptr %25, ptr %83, align 8
   %.pre34.i = load ptr, ptr %0, align 8
   br label %84
 
 84:                                               ; preds = %80, %77
   %85 = phi ptr [ %.pre34.i, %80 ], [ %70, %77 ]
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %.0.i24.i
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %.0.i24.i
   store ptr %78, ptr %86, align 8
   br label %_ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang15EHlslTokenClassEESaIS6_ENSt8__detail10_Select1stEN12_GLOBAL__N_16str_eqENSA_8str_hashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
 
@@ -1928,7 +1928,7 @@ _ZNKSt8__detail15_Hash_code_baseIPKcS2_NS_9_IdentityEN12_GLOBAL__N_18str_hashENS
 
 20:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIPKcS2_NS_9_IdentityEN12_GLOBAL__N_18str_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS2_EEmRKT_.exit.i.i.i
   %.val20.i.i.i = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val20.i.i.i, i64 %19
+  %21 = getelementptr inbounds [8 x i8], ptr %.val20.i.i.i, i64 %19
   %22 = load ptr, ptr %21, align 8
   %.not.i.i25.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i25.i.i.i, label %_ZNKSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5_8str_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit.thread.i.i.i, label %23
@@ -2026,7 +2026,7 @@ _ZNSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5
   %56 = getelementptr i8, ptr %.032.i.i.i.i.i.i, i64 16
   %.val29.i.i.i.i.i.i = load i64, ptr %56, align 8
   %57 = urem i64 %.val29.i.i.i.i.i.i, %42
-  %58 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not27.i.i.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not27.i.i.i.i.i.i, label %60, label %65
@@ -2041,7 +2041,7 @@ _ZNSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5
   br i1 %.not28.i.i.i.i.i.i, label %68, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
+  %64 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
   store ptr %.032.i.i.i.i.i.i, ptr %64, align 8
   br label %68
 
@@ -2080,7 +2080,7 @@ _ZNSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5
   %.0.i26.i.i.i = phi i64 [ %75, %_ZNSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5_8str_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i ], [ %19, %_ZNKSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5_8str_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit.thread._crit_edge.i.i.i ]
   %78 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %.04.lcssa.i.i.i.i.i, ptr %78, align 8
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %.0.i26.i.i.i
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %.0.i26.i.i.i
   %80 = load ptr, ptr %79, align 8
   %.not.i.i27.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i27.i.i.i, label %84, label %81
@@ -2105,14 +2105,14 @@ _ZNSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5
   %88 = getelementptr i8, ptr %86, i64 16
   %.val12.i.i.i.i.i = load i64, ptr %88, align 8
   %89 = urem i64 %.val12.i.i.i.i.i, %.val.i.i.i.i.i
-  %90 = getelementptr inbounds ptr, ptr %77, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %77, i64 %89
   store ptr %35, ptr %90, align 8
   %.pre20.i.i.i = load ptr, ptr %0, align 8
   br label %91
 
 91:                                               ; preds = %87, %84
   %92 = phi ptr [ %.pre20.i.i.i, %87 ], [ %77, %84 ]
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %.0.i26.i.i.i
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %.0.i26.i.i.i
   store ptr %85, ptr %93, align 8
   br label %_ZNSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5_8str_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i
 
@@ -2150,7 +2150,7 @@ _ZNKSt8__detail15_Hash_code_baseIPKcSt4pairIKS2_N7glslang16TBuiltInVariableEENS_
   %.val17.i = load i64, ptr %9, align 8
   %10 = urem i64 %.04.lcssa.i.i.i, %.val17.i
   %.val18.i = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val18.i, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %.val18.i, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not.i.i23.i = icmp eq ptr %12, null
   br i1 %.not.i.i23.i, label %.loopexit.i, label %13
@@ -2252,7 +2252,7 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang16TBuiltInVariableEESaIS6_ENSt8__detai
   %49 = getelementptr i8, ptr %.032.i.i.i.i, i64 24
   %.val.i.i.i.i = load i64, ptr %49, align 8
   %50 = urem i64 %.val.i.i.i.i, %35
-  %51 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i, i64 %50
   %52 = load ptr, ptr %51, align 8
   %.not27.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not27.i.i.i.i, label %53, label %58
@@ -2267,7 +2267,7 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang16TBuiltInVariableEESaIS6_ENSt8__detai
   br i1 %.not28.i.i.i.i, label %61, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
+  %57 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
   store ptr %.032.i.i.i.i, ptr %57, align 8
   br label %61
 
@@ -2306,7 +2306,7 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang16TBuiltInVariableEESaIS6_ENSt8__detai
   %.0.i24.i = phi i64 [ %68, %_ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang16TBuiltInVariableEESaIS6_ENSt8__detail10_Select1stEN12_GLOBAL__N_16str_eqENSA_8str_hashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i ], [ %10, %.loopexit._crit_edge.i ]
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %.04.lcssa.i.i.i, ptr %71, align 8
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %.0.i24.i
+  %72 = getelementptr inbounds [8 x i8], ptr %70, i64 %.0.i24.i
   %73 = load ptr, ptr %72, align 8
   %.not.i.i25.i = icmp eq ptr %73, null
   br i1 %.not.i.i25.i, label %77, label %74
@@ -2331,14 +2331,14 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang16TBuiltInVariableEESaIS6_ENSt8__detai
   %81 = getelementptr i8, ptr %79, i64 24
   %.val12.i.i.i = load i64, ptr %81, align 8
   %82 = urem i64 %.val12.i.i.i, %.val.i.i.i
-  %83 = getelementptr inbounds ptr, ptr %70, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %70, i64 %82
   store ptr %25, ptr %83, align 8
   %.pre34.i = load ptr, ptr %0, align 8
   br label %84
 
 84:                                               ; preds = %80, %77
   %85 = phi ptr [ %.pre34.i, %80 ], [ %70, %77 ]
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %.0.i24.i
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %.0.i24.i
   store ptr %78, ptr %86, align 8
   br label %_ZNSt10_HashtableIPKcSt4pairIKS1_N7glslang16TBuiltInVariableEESaIS6_ENSt8__detail10_Select1stEN12_GLOBAL__N_16str_eqENSA_8str_hashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
 
@@ -2872,7 +2872,7 @@ _ZNKSt8__detail15_Hash_code_baseIPKcSt4pairIKS2_N7glslang16TBuiltInVariableEENS_
   %.val6.i.i = load i64, ptr %21, align 8
   %22 = urem i64 %.04.lcssa.i.i.i.i, %.val6.i.i
   %.val9.i.i = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val9.i.i, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %.val9.i.i, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not.i.i14.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i14.i.i, label %_ZNSt13unordered_mapIPKcN7glslang16TBuiltInVariableEN12_GLOBAL__N_18str_hashENS4_6str_eqESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread, label %25
@@ -2974,7 +2974,7 @@ _ZNKSt8__detail15_Hash_code_baseIPKcS2_NS_9_IdentityEN12_GLOBAL__N_18str_hashENS
   %.val7.i.i = load i64, ptr %21, align 8
   %22 = urem i64 %.04.lcssa.i.i.i.i, %.val7.i.i
   %.val11.i.i = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val11.i.i, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %.val11.i.i, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not.i.i14.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i14.i.i, label %.loopexit27, label %25
@@ -3081,7 +3081,7 @@ _ZNKSt8__detail15_Hash_code_baseIPKcSt4pairIKS2_N7glslang15EHlslTokenClassEENS_1
   %.val6.i.i = load i64, ptr %73, align 8
   %74 = urem i64 %.04.lcssa.i.i.i.i7, %.val6.i.i
   %.val9.i.i8 = load ptr, ptr %55, align 8
-  %75 = getelementptr inbounds ptr, ptr %.val9.i.i8, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %.val9.i.i8, i64 %74
   %76 = load ptr, ptr %75, align 8
   %.not.i.i14.i.i9 = icmp eq ptr %76, null
   br i1 %.not.i.i14.i.i9, label %.loopexit, label %77

@@ -192,7 +192,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
 
 43:                                               ; preds = %40
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds ptr, ptr %1, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !9
   %47 = call noalias ptr @fopen(ptr noundef %46, ptr noundef nonnull @.str.10)
   %.not.i23.i = icmp eq ptr %47, null
@@ -531,7 +531,7 @@ agxbuse.exit201:                                  ; preds = %agxbclear.exit.thre
   %112 = load ptr, ptr %111, align 8, !tbaa !26
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store i32 %88, ptr %113, align 8, !tbaa !36
-  %114 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr %109, ptr %114, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %0, align 8, !tbaa !22
@@ -601,7 +601,7 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
   %145 = load i32, ptr %139, align 8, !tbaa !23
   %.not182 = icmp eq i32 %145, 1
   %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds i32, ptr %8, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %8, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !11
   %149 = getelementptr i8, ptr %147, i64 4
   %150 = load i32, ptr %149, align 4, !tbaa !11
@@ -620,10 +620,10 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
   %.132 = phi i8 [ %.050, %.lr.ph34.preheader ], [ %.2, %163 ]
   %.114831 = phi double [ %.014749, %.lr.ph34.preheader ], [ %.2149, %163 ]
   %.115430 = phi double [ %.015348, %.lr.ph34.preheader ], [ %164, %163 ]
-  %154 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv75
+  %154 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv75
   %155 = load i32, ptr %154, align 4, !tbaa !11
   %156 = call double @distance(ptr noundef null, i32 noundef 0, i32 noundef %144, i32 noundef %155) #20
-  %157 = getelementptr inbounds double, ptr %137, i64 %indvars.iv75
+  %157 = getelementptr inbounds [8 x i8], ptr %137, i64 %indvars.iv75
   store double %156, ptr %157, align 8, !tbaa !41
   %158 = load i32, ptr %154, align 4, !tbaa !11
   %.not185 = icmp eq i32 %144, %158
@@ -663,16 +663,16 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
   br i1 %.not183, label %174, label %170
 
 170:                                              ; preds = %.lr.ph42
-  %171 = getelementptr inbounds double, ptr %12, i64 %indvars.iv77
+  %171 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv77
   %172 = load double, ptr %171, align 8, !tbaa !41
   %173 = call double @llvm.fabs.f64(double %172)
   br label %174
 
 174:                                              ; preds = %.lr.ph42, %170
   %175 = phi double [ %173, %170 ], [ 1.000000e+00, %.lr.ph42 ]
-  %176 = getelementptr inbounds double, ptr %137, i64 %indvars.iv77
+  %176 = getelementptr inbounds [8 x i8], ptr %137, i64 %indvars.iv77
   store double %175, ptr %176, align 8, !tbaa !41
-  %177 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv77
+  %177 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv77
   %178 = load i32, ptr %177, align 4, !tbaa !11
   %.not184 = icmp eq i32 %144, %178
   br i1 %.not184, label %183, label %179
@@ -720,7 +720,7 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %193 = load i32, ptr %192, align 8, !tbaa !36
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds i32, ptr %8, i64 %194
+  %195 = getelementptr inbounds [4 x i8], ptr %8, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !11
   %197 = getelementptr i8, ptr %195, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !11
@@ -734,7 +734,7 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
   %indvars.iv79 = phi i64 [ %200, %.lr.ph57.preheader ], [ %indvars.iv.next80, %.lr.ph57 ]
-  %201 = getelementptr inbounds double, ptr %137, i64 %indvars.iv79
+  %201 = getelementptr inbounds [8 x i8], ptr %137, i64 %indvars.iv79
   %202 = load double, ptr %201, align 8, !tbaa !41
   %203 = fsub double %202, %.0147.lcssa
   %204 = fdiv double %203, %188
@@ -772,7 +772,7 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load i32, ptr %215, align 8, !tbaa !36
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds i32, ptr %8, i64 %217
+  %218 = getelementptr inbounds [4 x i8], ptr %8, i64 %217
   %219 = load i32, ptr %218, align 4, !tbaa !11
   %220 = getelementptr i8, ptr %218, i64 4
   %221 = load i32, ptr %220, align 4, !tbaa !11
@@ -785,16 +785,16 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %418
   %indvars.iv84 = phi i64 [ %223, %.lr.ph65.preheader ], [ %indvars.iv.next85, %418 ]
-  %224 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv84
+  %224 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv84
   %225 = load i32, ptr %224, align 4, !tbaa !11
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr %27, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %27, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !39
   %229 = call ptr @agedge(ptr noundef %47, ptr noundef nonnull %.216268, ptr noundef %228, ptr noundef null, i32 noundef 1) #20
   br i1 %or.cond5, label %230, label %273
 
 230:                                              ; preds = %.lr.ph65
-  %231 = getelementptr inbounds double, ptr %12, i64 %indvars.iv84
+  %231 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv84
   %232 = load double, ptr %231, align 8, !tbaa !41
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.28, double noundef %232)
   %.val.i207 = load i8, ptr %209, align 1, !tbaa !25
@@ -922,7 +922,7 @@ agxbuse.exit221:                                  ; preds = %agxbclear.exit.thre
   br i1 %.not178, label %418, label %274
 
 274:                                              ; preds = %273
-  %275 = getelementptr inbounds double, ptr %.0157, i64 %indvars.iv84
+  %275 = getelementptr inbounds [8 x i8], ptr %.0157, i64 %indvars.iv84
   %276 = load double, ptr %275, align 8, !tbaa !41
   %277 = fmul double %276, 6.500000e-01
   %278 = fadd double %277, 0x3FD5555555555555

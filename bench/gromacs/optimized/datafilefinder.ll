@@ -55,7 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::DataFileInfo" = type <{ %"class.std::filesystem::__cxx11::path", %"class.std::filesystem::__cxx11::path", i8, [7 x i8] }>
 
 $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 
@@ -1348,7 +1347,7 @@ _ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JRKS2_EE
 _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %52
   store ptr %23, ptr %0, align 8, !tbaa !37
   store ptr %50, ptr %5, align 8, !tbaa !40
-  %56 = getelementptr inbounds nuw %"class.std::filesystem::__cxx11::path", ptr %23, i64 %17
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %56, ptr %51, align 8, !tbaa !43
   ret void
 
@@ -3869,7 +3868,7 @@ _ZNSt6vectorIN3gmx12DataFileInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; pr
 .noexc99:                                         ; preds = %233, %_ZNSt6vectorIN3gmx12DataFileInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %173, ptr %0, align 8, !tbaa !145
   store ptr %232, ptr %106, align 8, !tbaa !141
-  %247 = getelementptr inbounds nuw %"struct.gmx::DataFileInfo", ptr %173, i64 %171
+  %247 = getelementptr inbounds nuw [88 x i8], ptr %173, i64 %171
   store ptr %247, ptr %107, align 8, !tbaa !144
   br label %_ZNSt6vectorIN3gmx12DataFileInfoESaIS1_EE12emplace_backIJRKNSt10filesystem7__cxx114pathES9_bEEERS1_DpOT_.exit
 
@@ -4542,7 +4541,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %42
   store ptr %25, ptr %0, align 8, !tbaa !145
   store ptr %40, ptr %7, align 8, !tbaa !141
-  %46 = getelementptr inbounds nuw %"struct.gmx::DataFileInfo", ptr %25, i64 %19
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %25, i64 %19
   store ptr %46, ptr %41, align 8, !tbaa !144
   ret void
 
@@ -5106,7 +5105,7 @@ _ZNSt16allocator_traitsISaIN3gmx12DataFileInfoEEE9constructIS1_JRKNSt10filesyste
 _ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN3gmx12DataFileInfoEEE9constructIS1_JRKNSt10filesystem7__cxx114pathES9_bEEEvRS2_PT_DpOT0_.exit, %30
   store ptr %22, ptr %0, align 8, !tbaa !145
   store ptr %28, ptr %6, align 8, !tbaa !141
-  %34 = getelementptr inbounds nuw %"struct.gmx::DataFileInfo", ptr %22, i64 %18
+  %34 = getelementptr inbounds nuw [88 x i8], ptr %22, i64 %18
   store ptr %34, ptr %29, align 8, !tbaa !144
   ret void
 

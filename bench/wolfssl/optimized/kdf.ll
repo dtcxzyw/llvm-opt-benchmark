@@ -26,10 +26,10 @@ define i32 @wc_PRF(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_PRF, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_PRF, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep117 = getelementptr inbounds nuw i32, ptr @switch.table.wc_PRF.1, i64 %14
+  %switch.gep117 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_PRF.1, i64 %14
   %switch.load118 = load i32, ptr %switch.gep117, align 4
   %15 = udiv i32 %1, %switch.load
   %16 = urem i32 %1, %switch.load

@@ -1622,7 +1622,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EEC2ERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %
 551:                                              ; preds = %793, %.lr.ph219.i
   %552 = phi i64 [ 0, %.lr.ph219.i ], [ %795, %793 ]
   %.0217.i = phi i32 [ 0, %.lr.ph219.i ], [ %794, %793 ]
-  %553 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %459, i64 %552
+  %553 = getelementptr inbounds nuw [16 x i8], ptr %459, i64 %552
   %.sroa.033.0.copyload.i = load i64, ptr %553, align 4
   %554 = trunc i64 %.sroa.033.0.copyload.i to i32
   %555 = lshr i64 %.sroa.033.0.copyload.i, 32
@@ -1849,7 +1849,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84
   %612 = phi ptr [ %623, %619 ], [ %604, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i399 ]
   %613 = phi i64 [ %621, %619 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i399 ]
   %.060206.i = phi i32 [ %620, %619 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i399 ]
-  %614 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %612, i64 %613
+  %614 = getelementptr inbounds nuw [16 x i8], ptr %612, i64 %613
   %.sroa.023.0.copyload.i = load i32, ptr %614, align 4, !tbaa !56
   %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %614, i64 4
   %.sroa.524.0.copyload.i = load i32, ptr %.sroa.524.0..sroa_idx.i, align 4, !tbaa !56
@@ -2102,7 +2102,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   %685 = phi ptr [ %696, %692 ], [ %675, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i ]
   %686 = phi i64 [ %694, %692 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i ]
   %.063207.i = phi i32 [ %693, %692 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i ]
-  %687 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %685, i64 %686
+  %687 = getelementptr inbounds nuw [16 x i8], ptr %685, i64 %686
   %.sroa.014.0.copyload.i = load i32, ptr %687, align 4, !tbaa !56
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %687, i64 4
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !56
@@ -2350,7 +2350,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   %756 = phi ptr [ %785, %781 ], [ %748, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i ]
   %757 = phi i64 [ %783, %781 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i ]
   %.058213.i = phi i32 [ %782, %781 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i ]
-  %758 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %756, i64 %757
+  %758 = getelementptr inbounds nuw [16 x i8], ptr %756, i64 %757
   %759 = load i64, ptr %758, align 4
   %760 = trunc i64 %759 to i32
   %761 = lshr i64 %759, 32

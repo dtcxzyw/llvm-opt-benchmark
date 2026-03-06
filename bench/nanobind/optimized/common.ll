@@ -396,7 +396,7 @@ define void @_ZN8nanobind6detail12cleanup_list7releaseEv(ptr noundef nonnull ali
 7:                                                ; preds = %.lr.ph, %_ZL10_Py_DECREFP7_object.exit
   %.03 = phi i64 [ 1, %.lr.ph ], [ %14, %_ZL10_Py_DECREFP7_object.exit ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %10, align 8
   %12 = add nsw i64 %11, -1
@@ -882,7 +882,7 @@ define noundef nonnull ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %.02640 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02640
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02640
   %17 = load ptr, ptr %16, align 8
   %.not33 = icmp eq ptr %17, null
   br i1 %.not33, label %.loopexit, label %14
@@ -929,7 +929,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL11_Py_XDECREFP7_
 
 .lr.ph43:                                         ; preds = %.loopexit, %_ZL11_Py_XDECREFP7_object.exit38
   %.041 = phi i64 [ %32, %_ZL11_Py_XDECREFP7_object.exit38 ], [ 0, %.loopexit ]
-  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %.041
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.041
   %27 = load ptr, ptr %26, align 8
   %.not.i36 = icmp eq ptr %27, null
   br i1 %.not.i36, label %_ZL11_Py_XDECREFP7_object.exit38, label %28
@@ -2283,7 +2283,7 @@ define void @_ZN8nanobind6detail11tuple_checkEP7_objectm(ptr noundef readonly ca
 
 6:                                                ; preds = %.lr.ph, %4
   %.04 = phi i64 [ 0, %.lr.ph ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.04
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.04
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %4
@@ -5983,7 +5983,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit:             ; preds = %_ZN8nanobind6detail
 
 .lr.ph.i:                                         ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit, %34
   %.02640.i = phi i64 [ %35, %34 ], [ 0, %_ZNKR8nanobind6handle7inc_refEv.exit ]
-  %36 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02640.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.02640.i
   %37 = load ptr, ptr %36, align 8
   %.not33.i = icmp eq ptr %37, null
   br i1 %.not33.i, label %.loopexit.i, label %34
@@ -6037,7 +6037,7 @@ _ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %53, %._crit_edge44.
 
 .lr.ph43.i:                                       ; preds = %.loopexit.i, %_ZL11_Py_XDECREFP7_object.exit38.i
   %.041.i = phi i64 [ %60, %_ZL11_Py_XDECREFP7_object.exit38.i ], [ 0, %.loopexit.i ]
-  %54 = getelementptr inbounds nuw ptr, ptr %12, i64 %.041.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.041.i
   %55 = load ptr, ptr %54, align 8
   %.not.i36.i = icmp eq ptr %55, null
   br i1 %.not.i36.i, label %_ZL11_Py_XDECREFP7_object.exit38.i, label %56

@@ -715,7 +715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
 
 242:                                              ; preds = %236
   store double %241, ptr %43, align 8
-  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %243 = load double, ptr %gep.i, align 8
   store double %243, ptr %44, align 8
   %244 = fcmp oeq double %241, %243
@@ -1412,7 +1412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit66.i: 
 
 478:                                              ; preds = %472
   store double %477, ptr %24, align 8
-  %gep.i25 = getelementptr inbounds nuw double, ptr %invariant.gep.i18, i64 %indvars.iv.i19
+  %gep.i25 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i18, i64 %indvars.iv.i19
   %479 = load double, ptr %gep.i25, align 8
   store double %479, ptr %25, align 8
   %480 = fcmp oeq double %477, %479

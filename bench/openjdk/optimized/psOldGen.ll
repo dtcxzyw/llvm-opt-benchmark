@@ -201,7 +201,7 @@ define hidden void @_ZN8PSOldGen15initialize_workEPKci(ptr noundef nonnull align
   unreachable
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds nuw ptr, ptr %7, i64 %13
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %28, %35
   %37 = icmp eq i64 %36, 0
@@ -394,7 +394,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %31, %21
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %38, %41, %48, %68
   %.0.i1.i = phi i64 [ %45, %41 ], [ %40, %38 ], [ %67, %48 ], [ %72, %68 ]
-  %73 = getelementptr inbounds ptr, ptr %15, i64 %.0.i1.i
+  %73 = getelementptr inbounds [8 x i8], ptr %15, i64 %.0.i1.i
   br label %74
 
 74:                                               ; preds = %_ZN7oopDesc4sizeEv.exit, %3
@@ -486,7 +486,7 @@ _ZNK7oopDesc5klassEv.exit.i20:                    ; preds = %91, %81
 
 _ZN7oopDesc4sizeEv.exit23:                        ; preds = %98, %101, %108, %128
   %.0.i1.i22 = phi i64 [ %105, %101 ], [ %100, %98 ], [ %127, %108 ], [ %132, %128 ]
-  %133 = getelementptr inbounds ptr, ptr %.024, i64 %.0.i1.i22
+  %133 = getelementptr inbounds [8 x i8], ptr %.024, i64 %.0.i1.i22
   %134 = icmp ult ptr %133, %13
   br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
@@ -532,7 +532,7 @@ _ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit: ; 
   %26 = inttoptr i64 %25 to ptr
   %27 = zext i8 %.lcssa.i to i64
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   br label %30
 
 30:                                               ; preds = %_ZN7oopDesc4sizeEv.exit, %_ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit
@@ -616,7 +616,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %51, %54, %61, %81
   %.0.i1.i = phi i64 [ %58, %54 ], [ %53, %51 ], [ %80, %61 ], [ %85, %81 ]
-  %86 = getelementptr inbounds ptr, ptr %.0, i64 %.0.i1.i
+  %86 = getelementptr inbounds [8 x i8], ptr %.0, i64 %.0.i1.i
   %87 = icmp ugt ptr %86, %1
   br i1 %87, label %88, label %30, !llvm.loop !9
 
@@ -1076,7 +1076,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %28, %31, %38, %58
   %.0.i1.i = phi i64 [ %35, %31 ], [ %30, %28 ], [ %57, %38 ], [ %62, %58 ]
-  %63 = getelementptr inbounds ptr, ptr %.08, i64 %.0.i1.i
+  %63 = getelementptr inbounds [8 x i8], ptr %.08, i64 %.0.i1.i
   %64 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %65 = ptrtoint ptr %.08 to i64
   %66 = add i32 %64, -1

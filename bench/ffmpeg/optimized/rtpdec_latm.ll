@@ -29,7 +29,7 @@ define internal i32 @latm_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = load ptr, ptr %5, align 8, !tbaa !26
   %16 = call i32 @ff_parse_fmtp(ptr noundef %0, ptr noundef %14, ptr noundef %2, ptr noundef %15, ptr noundef nonnull @parse_fmtp) #7

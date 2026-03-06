@@ -536,13 +536,13 @@ define void @_ZN6icu_7712CurrencyUnitC2ENS_14ConstChar16PtrER10UErrorCode(ptr no
 30:                                               ; preds = %.preheader, %35
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %35 ]
   %31 = load ptr, ptr %1, align 8, !tbaa !17
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !20
   %34 = invoke zeroext i16 @u_asciiToUpper_77(i16 noundef zeroext %33)
           to label %35 unwind label %37
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   store i16 %34, ptr %36, align 2, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

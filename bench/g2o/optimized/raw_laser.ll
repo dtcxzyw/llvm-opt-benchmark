@@ -233,7 +233,7 @@ define noundef zeroext i1 @_ZN3g2o8RawLaser4readERSi(ptr noundef nonnull align 1
   br i1 %47, label %48, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw double, ptr %38, i64 %35
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %35
   %.not.i.i = icmp eq ptr %37, %49
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %50
 
@@ -272,7 +272,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   br i1 %68, label %69, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit16
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw double, ptr %59, i64 %56
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %56
   %.not.i.i15 = icmp eq ptr %58, %70
   br i1 %.not.i.i15, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit16, label %71
 
@@ -288,7 +288,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit16:             ; preds = %65, %67, %69, %71
 .lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %74 = load ptr, ptr %33, align 8, !tbaa !6
-  %75 = getelementptr inbounds nuw double, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   %76 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %75)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %10, align 4, !tbaa !12
@@ -316,7 +316,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit16:             ; preds = %65, %67, %69, %71
 .lr.ph19:                                         ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit16, %.lr.ph19
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.lr.ph19 ], [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit16 ]
   %86 = load ptr, ptr %54, align 16, !tbaa !6
-  %87 = getelementptr inbounds nuw double, ptr %86, i64 %indvars.iv22
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv22
   %88 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %87)
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %89 = load i32, ptr %10, align 4, !tbaa !12
@@ -492,7 +492,7 @@ define void @_ZNK3g2o8RawLaser9cartesianEv(ptr dead_on_unwind noalias writable s
   %15 = phi ptr [ %6, %.lr.ph ], [ %60, %_ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit ]
   %.030 = phi i64 [ 0, %.lr.ph ], [ %58, %_ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit ]
   %16 = phi ptr [ null, %.lr.ph ], [ %57, %_ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit ]
-  %17 = getelementptr inbounds nuw double, ptr %15, i64 %.030
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.030
   %18 = load double, ptr %17, align 8, !tbaa !14
   %19 = load double, ptr %7, align 16, !tbaa !23
   %20 = fcmp olt double %18, %19
@@ -579,7 +579,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %51, ptr %11, align 8, !tbaa !49
-  %53 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %45
   store ptr %53, ptr %12, align 8, !tbaa !46
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit
 
@@ -731,9 +731,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !6
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !11
   br label %41
 

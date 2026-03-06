@@ -23,9 +23,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.Eigen::PlainObjectBase.27" = type { %"class.Eigen::DenseStorage.34" }
 %"class.Eigen::DenseStorage.34" = type { ptr, i64 }
 %"struct.igl::copyleft::cgal::RemeshSelfIntersectionsParam" = type { i8, i8, i8, i8, i32 }
-%"class.CGAL::Lazy_exact_nt" = type <{ %"class.CGAL::Lazy", [8 x i8] }>
-%"class.CGAL::Lazy" = type { %"class.CGAL::Handle" }
-%"class.CGAL::Handle" = type { ptr }
 
 $_ZN3igl8copyleft4cgal33piecewise_constant_winding_numberIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNS3_10MatrixBaseIT_EERKNS7_IT0_EE = comdat any
 
@@ -133,7 +130,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal33piecewise_c
 .preheader.i.i.i.i:                               ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i, %.preheader.i.i.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %26, %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i ], [ %25, %.preheader.i.i.preheader.i.i ]
   %26 = add i64 %.0.i.i.i.i, -1
-  %27 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i, label %29
@@ -246,7 +243,7 @@ define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL
 .preheader.i.i.i:                                 ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i, %.preheader.i.i.preheader.i
   %.0.i.i.i = phi i64 [ %8, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ], [ %7, %.preheader.i.i.preheader.i ]
   %8 = add i64 %.0.i.i.i, -1
-  %9 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %11

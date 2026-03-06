@@ -646,7 +646,7 @@ _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %39, %36
 
 .noexc42:                                         ; preds = %52
   %56 = load ptr, ptr %5, align 8, !tbaa !17
-  %57 = getelementptr inbounds nuw %"class.lean::expr", ptr %56, i64 %50
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %50
   %58 = invoke noundef ptr @_ZSt16__do_uninit_copyIPN4lean4exprES2_ET0_T_S4_S3_(ptr noundef %56, ptr noundef %57, ptr noundef nonnull %55)
           to label %.noexc43 unwind label %154
 
@@ -719,7 +719,7 @@ _ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i40: ; preds = %_ZN4l
 80:                                               ; preds = %._crit_edge52, %.noexc
   %81 = phi ptr [ %55, %.noexc ], [ %.pre, %._crit_edge52 ]
   %82 = phi i64 [ %.pre.i, %.noexc ], [ %50, %._crit_edge52 ]
-  %83 = getelementptr inbounds nuw %"class.lean::expr", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   %84 = load ptr, ptr %7, align 8, !tbaa !11
   store ptr %84, ptr %83, align 8, !tbaa !11
   %85 = ptrtoint ptr %84 to i64
@@ -1276,7 +1276,7 @@ _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %55, %52
 
 .noexc160:                                        ; preds = %72
   %76 = load ptr, ptr %6, align 8, !tbaa !17
-  %77 = getelementptr inbounds nuw %"class.lean::expr", ptr %76, i64 %70
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %70
   %78 = invoke noundef ptr @_ZSt16__do_uninit_copyIPN4lean4exprES2_ET0_T_S4_S3_(ptr noundef %76, ptr noundef %77, ptr noundef nonnull %75)
           to label %.noexc161 unwind label %153
 
@@ -1349,7 +1349,7 @@ _ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i158: ; preds = %_ZN4
 100:                                              ; preds = %._crit_edge182, %.noexc
   %101 = phi ptr [ %75, %.noexc ], [ %.pre, %._crit_edge182 ]
   %102 = phi i64 [ %.pre.i, %.noexc ], [ %70, %._crit_edge182 ]
-  %103 = getelementptr inbounds nuw %"class.lean::expr", ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %102
   %104 = load ptr, ptr %9, align 8, !tbaa !11
   store ptr %104, ptr %103, align 8, !tbaa !11
   %105 = ptrtoint ptr %104 to i64
@@ -1813,7 +1813,7 @@ _ZN4lean10object_refD2Ev.exit92:                  ; preds = %270, %260, %267, %2
   %indvars = trunc i64 %indvars.iv.next to i32
   %283 = and i64 %indvars.iv.next, 4294967295
   %284 = load ptr, ptr %6, align 8, !tbaa !17
-  %285 = getelementptr inbounds nuw %"class.lean::expr", ptr %284, i64 %283
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %283
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %286 = load ptr, ptr %285, align 8, !tbaa !11, !noalias !37
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
@@ -7079,7 +7079,7 @@ define linkonce_odr hidden void @_ZN4lean10find_jp_fn11visit_casesERKNS_4exprE(p
 28:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %29 = load ptr, ptr %6, align 8, !tbaa !17
-  %30 = getelementptr inbounds nuw %"class.lean::expr", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %20, align 8
   store i64 %21, ptr %5, align 8, !tbaa !23
@@ -7148,13 +7148,13 @@ _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %41, %38
   %indvars.iv53 = phi i64 [ %23, %.lr.ph48.preheader ], [ %indvars.iv.next54, %_ZN4lean10object_refD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %53 = load ptr, ptr %6, align 8, !tbaa !17
-  %54 = getelementptr inbounds nuw %"class.lean::expr", ptr %53, i64 %indvars.iv53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv53
   invoke void @_ZN4lean10find_jp_fn5visitERKNS_4exprE(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %55 unwind label %69
 
 55:                                               ; preds = %.lr.ph48
   %56 = load ptr, ptr %6, align 8, !tbaa !17
-  %57 = getelementptr inbounds nuw %"class.lean::expr", ptr %56, i64 %indvars.iv53
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv53
   %58 = load ptr, ptr %57, align 8, !tbaa !11
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i1
@@ -7214,7 +7214,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %67, %55, %64, %66
   %77 = phi i64 [ %.sroa.5.0.extract.shift, %.lr.ph50 ], [ %97, %95 ]
   %.049 = phi i32 [ %.sroa.5.0.extract.trunc, %.lr.ph50 ], [ %96, %95 ]
   %78 = load ptr, ptr %6, align 8, !tbaa !17
-  %79 = getelementptr inbounds nuw %"class.lean::expr", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %77
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %51, align 8
   store i64 %52, ptr %4, align 8, !tbaa !23

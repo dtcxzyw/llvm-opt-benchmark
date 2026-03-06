@@ -117,7 +117,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i.i: ; preds = %31, %.
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i: ; preds = %32, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i.i
-  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %26
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i:         ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i, %15
@@ -128,7 +128,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i:         ; preds = %_ZNSt6vectorIjSaIjE
   %34 = add i32 %.039.i, 1
   %35 = zext i32 %.039.i to i64
   %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds nuw %"class.std::set", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -725,7 +725,7 @@ _ZNSt6vectorIP3NFASaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %28
 _ZNSt6vectorIP3NFASaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIP3NFASaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %25, ptr %0, align 8
   store ptr %29, ptr %5, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8
   br label %_ZNSt6vectorIP3NFASaIS1_EE9push_backERKS1_.exit
 
@@ -1353,7 +1353,7 @@ _ZNSt12_Vector_baseISt3setIjSt4lessIjESaIjEESaIS4_EE13_M_deallocateEPS4_m.exit: 
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i38, ptr %5, align 8
-  %83 = getelementptr inbounds nuw %"class.std::set", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %83, ptr %82, align 8
   ret void
 

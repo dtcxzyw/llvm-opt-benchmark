@@ -92,7 +92,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_4textIcEENS2_INS1_5fieldI
   %14 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %15 = xor i32 %14, 31
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !24
   %19 = zext i16 %11 to i64
   %20 = add i64 %18, %19
@@ -380,7 +380,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_5fieldIcmLi0EEENS2_INS1_4
   %9 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE9bsr2log10.const, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !21
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !24
   %14 = icmp ult i64 %5, %13
   %.neg.i.i.i.i = sext i1 %14 to i64

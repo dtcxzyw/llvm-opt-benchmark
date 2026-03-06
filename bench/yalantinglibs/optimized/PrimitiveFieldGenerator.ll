@@ -2373,7 +2373,7 @@ invoke.cont14:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %11 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i, align 4
   %cmp.not = icmp eq i32 %12, 4
   %.str.25..str.24 = select i1 %cmp.not, ptr @.str.25, ptr @.str.24

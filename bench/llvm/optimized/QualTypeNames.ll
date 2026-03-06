@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::QualType" = type { %"class.llvm::PointerIntPair" }
 %"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
 %"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_ = comdat any
 
@@ -591,7 +590,7 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit.thread: ; preds =
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, label %29, !prof !30
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.pre3.i, i64 %26
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %26
   %31 = icmp uge ptr %5, %.pre3.i
   %32 = icmp ult ptr %5, %30
   %spec.select.i.i.i.i.i = and i1 %31, %32
@@ -615,7 +614,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   %.016.i.i.i = phi ptr [ %5, %22 ], [ %37, %33 ], [ %5, %.critedge.i.i.i ]
   %39 = load i32, ptr %14, align 8, !tbaa !27
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %42 = load i32, ptr %14, align 8, !tbaa !27
   %43 = add i32 %42, 1
@@ -695,7 +694,7 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit: ; preds = %53
   %indvars.iv = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit73 ]
   %.04996 = phi i1 [ false, %.lr.ph99 ], [ %78, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %76 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %72, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false), !tbaa.struct !29
   %77 = call fastcc noundef zeroext i1 @_ZN5clang8TypeNameL33getFullyQualifiedTemplateArgumentERKNS_10ASTContextERNS_16TemplateArgumentEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext %2)
   %78 = or i1 %.04996, %77
@@ -708,7 +707,7 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit: ; preds = %53
   br i1 %.not.i.i.not.i67, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit73, label %83, !prof !30
 
 83:                                               ; preds = %75
-  %84 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.pre3.i68, i64 %80
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i68, i64 %80
   %85 = icmp uge ptr %7, %.pre3.i68
   %86 = icmp ult ptr %7, %84
   %spec.select.i.i.i.i.i69 = and i1 %85, %86
@@ -732,7 +731,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   %.016.i.i.i72 = phi ptr [ %7, %75 ], [ %91, %87 ], [ %7, %.critedge.i.i.i70 ]
   %93 = load i32, ptr %69, align 8, !tbaa !27
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i72, i64 24, i1 false)
   %96 = load i32, ptr %69, align 8, !tbaa !27
   %97 = add i32 %96, 1
@@ -870,7 +869,7 @@ _ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit: ; preds = 
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
-  %.sroa.0.0.i.i = getelementptr inbounds nuw ptr, ptr %37, i64 %40
+  %.sroa.0.0.i.i = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %40
   %.not25 = icmp eq ptr %34, %.sroa.0.0.i.i
   br i1 %.not25, label %.thread, label %41
 
@@ -1144,7 +1143,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !24
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1185,7 +1184,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !24
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !27

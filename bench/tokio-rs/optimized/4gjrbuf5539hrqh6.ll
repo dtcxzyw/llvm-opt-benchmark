@@ -893,7 +893,7 @@ common.resume:                                    ; preds = %.body, %29
   %83 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit45" ]
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %85 = load ptr, ptr %84, align 8, !alias.scope !55, !nonnull !5, !noundef !5
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %83
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %83
   store ptr %55, ptr %86, align 8
   %87 = load i64, ptr %44, align 8, !alias.scope !55, !noundef !5
   %88 = add i64 %87, 1
@@ -1475,7 +1475,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
 85:                                               ; preds = %._crit_edge.i, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit"
   %86 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %74, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit" ]
   %87 = load ptr, ptr %19, align 8, !alias.scope !152, !nonnull !5, !noundef !5
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %86
+  %88 = getelementptr inbounds [8 x i8], ptr %87, i64 %86
   store ptr %73, ptr %88, align 8
   %89 = load i64, ptr %10, align 8, !alias.scope !152, !noundef !5
   %90 = add i64 %89, 1
@@ -1598,7 +1598,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !alias.scope !185, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %39
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %39
   %45 = load ptr, ptr %44, align 8, !noalias !185, !nonnull !5, !noundef !5
   store ptr %45, ptr %6, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -1722,7 +1722,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
 
 86:                                               ; preds = %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit27"
   %.val = load ptr, ptr %42, align 8, !nonnull !5, !noundef !5
-  %87 = getelementptr inbounds ptr, ptr %.val, i64 %12
+  %87 = getelementptr inbounds [8 x i8], ptr %.val, i64 %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %88 = load ptr, ptr %87, align 8, !alias.scope !211, !nonnull !5, !noundef !5
@@ -1793,7 +1793,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   tail call void @llvm.assume(i1 %113)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %115 = load ptr, ptr %114, align 8, !alias.scope !188, !nonnull !5, !noundef !5
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %111
+  %116 = getelementptr inbounds [8 x i8], ptr %115, i64 %111
   %117 = load ptr, ptr %116, align 8, !noalias !188, !nonnull !5, !noundef !5
   store ptr %117, ptr %7, align 8
   %118 = atomicrmw sub ptr %117, i64 1 release, align 8, !noalias !224
@@ -2205,7 +2205,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   %54 = icmp ult i64 %52, %53
   call void @llvm.assume(i1 %54)
   %55 = load ptr, ptr %38, align 8, !alias.scope !280, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %52
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %52
   %57 = load ptr, ptr %56, align 8, !noalias !280, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %57, ptr %9, align 8
@@ -2381,7 +2381,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   %118 = icmp ult i64 %116, %117
   call void @llvm.assume(i1 %118)
   %119 = load ptr, ptr %101, align 8, !alias.scope !313, !nonnull !5, !noundef !5
-  %120 = getelementptr inbounds ptr, ptr %119, i64 %116
+  %120 = getelementptr inbounds [8 x i8], ptr %119, i64 %116
   %121 = load ptr, ptr %120, align 8, !noalias !313, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %121, ptr %7, align 8
@@ -2592,7 +2592,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
 196:                                              ; preds = %._crit_edge.i, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit111"
   %197 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %222, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit111" ]
   %198 = load ptr, ptr %38, align 8, !alias.scope !344, !nonnull !5, !noundef !5
-  %199 = getelementptr inbounds ptr, ptr %198, i64 %197
+  %199 = getelementptr inbounds [8 x i8], ptr %198, i64 %197
   store ptr %221, ptr %199, align 8
   %200 = load i64, ptr %35, align 8, !alias.scope !344, !noundef !5
   %201 = add i64 %200, 1

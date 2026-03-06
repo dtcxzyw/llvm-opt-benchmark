@@ -81,13 +81,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
 %"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
 %"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
 %"class.grpc_core::Poll" = type { i8, %union.anon.134 }
 %union.anon.134 = type { %"class.std::unique_ptr.89" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 
 $_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev = comdat any
 
@@ -1695,7 +1693,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !78
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !75
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !79
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2128,7 +2126,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !133
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 
@@ -3729,7 +3727,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -3781,7 +3779,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11

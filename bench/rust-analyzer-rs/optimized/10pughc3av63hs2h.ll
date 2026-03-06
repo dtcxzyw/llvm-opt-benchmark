@@ -306,7 +306,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br i1 %50, label %"_ZN4core3ptr46drop_in_place$LT$$u5b$mbe..parser..Op$u5d$$GT$17hb06694ff4517b764E.llvm.3275366238967248396.exit.i.i", label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds { i64, [15 x i64] }, ptr %46, i64 %.0.i.i.i
+  %52 = getelementptr inbounds [128 x i8], ptr %46, i64 %.0.i.i.i
   %53 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %52)
           to label %49 unwind label %56, !noalias !133
@@ -322,7 +322,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br label %54
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds { i64, [15 x i64] }, ptr %46, i64 %.1.i.i.i
+  %59 = getelementptr inbounds [128 x i8], ptr %46, i64 %.1.i.i.i
   %60 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %59) #32
           to label %54 unwind label %61, !noalias !133
@@ -364,7 +364,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br i1 %74, label %"_ZN4core3ptr46drop_in_place$LT$$u5b$mbe..parser..Op$u5d$$GT$17hb06694ff4517b764E.llvm.3275366238967248396.exit.i.i8", label %75
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds { i64, [15 x i64] }, ptr %70, i64 %.0.i.i.i5
+  %76 = getelementptr inbounds [128 x i8], ptr %70, i64 %.0.i.i.i5
   %77 = add i64 %.0.i.i.i5, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %76)
           to label %73 unwind label %80, !noalias !150
@@ -380,7 +380,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br label %78
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds { i64, [15 x i64] }, ptr %70, i64 %.1.i.i.i6
+  %83 = getelementptr inbounds [128 x i8], ptr %70, i64 %.1.i.i.i6
   %84 = add i64 %.1.i.i.i6, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %83) #32
           to label %78 unwind label %85, !noalias !150
@@ -1552,7 +1552,7 @@ define { ptr, ptr } @_ZN3mbe6parser12MetaTemplate4iter17hfd833ac305405becE(ptr n
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !355, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = getelementptr inbounds { i64, [15 x i64] }, ptr %2, i64 %4
+  %5 = getelementptr inbounds [128 x i8], ptr %2, i64 %4
   %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
   ret { ptr, ptr } %7
@@ -1623,9 +1623,9 @@ default.unreachable35:                            ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !alias.scope !494, !noalias !497, !nonnull !4
   %.sink5.i22 = select i1 %26, ptr %38, ptr %37
-  %39 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %.sink5.i22, i64 %.sink4.i
+  %39 = getelementptr inbounds [28 x i8], ptr %.sink5.i22, i64 %.sink4.i
   %.sink5.i25 = select i1 %30, ptr %36, ptr %35
-  %40 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %.sink5.i25, i64 %.sink4.i
+  %40 = getelementptr inbounds [28 x i8], ptr %.sink5.i25, i64 %.sink4.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sink5.i22, ptr %4, align 8
@@ -1961,7 +1961,7 @@ default.unreachable172:                           ; preds = %27
   %80 = phi i64 [ %.pre.i, %.noexc ], [ %.sink4.i41, %73 ]
   %.05.i = phi ptr [ %10, %.noexc ], [ %.sink2.idx.i.i.sroa.sel, %73 ]
   %.0.i43 = phi ptr [ %78, %.noexc ], [ %.sink3.i.i, %73 ]
-  %81 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %.0.i43, i64 %80
+  %81 = getelementptr inbounds [28 x i8], ptr %.0.i43, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %81, ptr noundef nonnull readonly align 4 dereferenceable(28) %4, i64 28, i1 false)
   %82 = load i64, ptr %.05.i, align 8, !alias.scope !552, !noalias !555, !noundef !4
   %83 = add i64 %82, 1

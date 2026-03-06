@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallPtrSet" = type { %"class.llvm::SmallPtrSetImpl.base", [4 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base" = type { %"class.llvm::SmallPtrSetImplBase.base" }
 %"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
-%"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
-%"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
-%"class.llvm::TrackingMDRef" = type { ptr }
 %"struct.std::pair.0" = type { %"class.llvm::SmallSetIterator", i8, [7 x i8] }
 %"class.llvm::SmallSetIterator" = type <{ %union.anon, i8, [7 x i8] }>
 %union.anon = type { %"struct.std::_Rb_tree_const_iterator" }
@@ -108,7 +105,7 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver21analyzeDebugLocationsEv(p
 
 _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %16
   %.sroa.0.4.i8.i = phi ptr [ %23, %16 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %29, %.critedge2.i7.i.i9.i11.i ]
-  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %.v.i5.i3.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.v.i5.i3.i
   %.not18 = icmp eq ptr %.sroa.0.4.i8.i, %32
   br i1 %.not18, label %.critedge, label %.lr.ph
 
@@ -277,7 +274,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm8SmallSetINS_8DebugLocELj
 
 _ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %21, %24, %14
   %.1.i = phi ptr [ %19, %14 ], [ %.0912.i, %21 ], [ %19, %24 ]
-  %26 = getelementptr inbounds nuw %"class.llvm::DebugLoc", ptr %15, i64 %18
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %.not.not = icmp eq ptr %.1.i, %26
   br i1 %.not.not, label %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5eraseEPKS1_.exit, label %27
 
@@ -331,7 +328,7 @@ _ZSt4moveIPN4llvm8DebugLocES2_ET0_T_S4_S3_.exit.i: ; preds = %_ZSt4moveIPN4llvm8
   %45 = add i32 %44, -1
   store i32 %45, ptr %16, align 8, !tbaa !3
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.llvm::DebugLoc", ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %.not.i.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5eraseEPKS1_.exit, label %49
@@ -531,7 +528,7 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   %21 = add i32 %13, -1
   store i32 %21, ptr %12, align 4, !tbaa !9
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   store ptr %24, ptr %.01217.i.i, align 8, !tbaa !18
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
@@ -608,7 +605,7 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   %21 = add i32 %13, -1
   store i32 %21, ptr %12, align 4, !tbaa !9
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   store ptr %24, ptr %.01217.i.i, align 8, !tbaa !18
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
@@ -1152,7 +1149,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE28reserveForParamAndGetAddre
   %.016.i.i.i = phi ptr [ %2, %.thread ], [ %36, %31 ], [ %2, %.critedge.i.i.i ]
   %38 = load i32, ptr %13, align 8, !tbaa !3
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::DebugLoc", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !21
   store ptr %41, ptr %40, align 8, !tbaa !21
   %.not.i.i.i.i.i = icmp eq ptr %41, null
@@ -1170,7 +1167,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE9push_backERKS1_.exit: ; pre
   %46 = add i32 %45, 1
   store i32 %46, ptr %13, align 8, !tbaa !3
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.llvm::DebugLoc", ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   br label %63
 

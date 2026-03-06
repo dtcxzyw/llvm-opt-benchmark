@@ -95,7 +95,7 @@ init_node.exit:                                   ; preds = %.lr.ph
   %43 = load ptr, ptr %17, align 8, !tbaa !8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 184
   %45 = load ptr, ptr %44, align 8, !tbaa !14
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   store ptr %.02733, ptr %46, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load ptr, ptr %34, align 8, !tbaa !8
@@ -220,7 +220,7 @@ init_node.exit:                                   ; preds = %.lr.ph
   %105 = load ptr, ptr %17, align 8, !tbaa !8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 184
   %107 = load ptr, ptr %106, align 8, !tbaa !14
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.next45.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.next45.i
   %109 = load ptr, ptr %108, align 8, !tbaa !43
   %.not29.us.i = icmp eq ptr %109, null
   br i1 %.not29.us.i, label %initialPositions.exit, label %.lr.ph.split.us.i, !llvm.loop !64
@@ -295,7 +295,7 @@ init_node.exit:                                   ; preds = %.lr.ph
   %146 = load ptr, ptr %17, align 8, !tbaa !8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 184
   %148 = load ptr, ptr %147, align 8, !tbaa !14
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.next39.i
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv.next39.i
   %150 = load ptr, ptr %149, align 8, !tbaa !43
   %.not29.i = icmp eq ptr %150, null
   br i1 %.not29.i, label %initialPositions.exit, label %.lr.ph.split.i, !llvm.loop !64
@@ -414,7 +414,7 @@ define internal fastcc void @cleanup_subgs(ptr noundef readonly captures(none) %
   %6 = phi ptr [ %24, %23 ], [ %3, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %8 = load ptr, ptr %7, align 8, !tbaa !70
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !8

@@ -1608,7 +1608,7 @@ _ZN5boost6spirit7classic16basic_chset_8bitIcE3setEcc.exit.thread.i: ; preds = %1
   %19 = and i64 %18, 63
   %20 = shl nuw i64 1, %19
   %21 = lshr i64 %18, 6
-  %22 = getelementptr inbounds nuw i64, ptr %9, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = or i64 %23, %20
   store i64 %24, ptr %22, align 8, !tbaa !19
@@ -1633,7 +1633,7 @@ _ZN5boost6spirit7classic16basic_chset_8bitIcE3setEcc.exit.thread.i: ; preds = %1
   %32 = and i64 %31, 63
   %33 = shl nuw i64 1, %32
   %34 = lshr i64 %31, 6
-  %35 = getelementptr inbounds nuw i64, ptr %9, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !19
   %37 = or i64 %33, %36
   store i64 %37, ptr %35, align 8, !tbaa !19
@@ -1646,7 +1646,7 @@ _ZN5boost6spirit7classic16basic_chset_8bitIcE3setEcc.exit.thread.i: ; preds = %1
   %41 = and i64 %40, 63
   %42 = shl nuw i64 1, %41
   %43 = lshr i64 %40, 6
-  %44 = getelementptr inbounds nuw i64, ptr %9, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !19
   %46 = or i64 %45, %42
   store i64 %46, ptr %44, align 8, !tbaa !19
@@ -1773,9 +1773,9 @@ _ZN5boost6spirit7classic5chsetIcEC2ERKS3_.exit:   ; preds = %3
 
 24:                                               ; preds = %24, %.noexc
   %.05.i.i.i.i = phi i64 [ 0, %.noexc ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %.05.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.05.i.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !19
-  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %.05.i.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.05.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !19
   %29 = or i64 %28, %26
   store i64 %29, ptr %27, align 8, !tbaa !19
@@ -5879,7 +5879,7 @@ _ZN5boost6spirit7classic5chsetIcEC2Ec.exit:       ; preds = %3
   %22 = and i64 %21, 63
   %23 = shl nuw i64 1, %22
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !19
   %27 = or i64 %26, %23
   store i64 %27, ptr %25, align 8, !tbaa !19
@@ -6557,7 +6557,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl
   %.013.i.i = phi i64 [ %11, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i ]
   %.sroa.011.012.i.i = phi ptr [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i ]
   %14 = lshr i64 %.013.i.i, 1
-  %15 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !62
   %17 = icmp slt i32 %16, %13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -6867,7 +6867,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN5boost6spirit7classic7utility4impl
   %28 = sub i64 %27, %5
   %29 = ashr exact i64 %28, 3
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"struct.boost::spirit::classic::utility::impl::range", ptr %23, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %23, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %31, ptr align 4 %19, i64 %28, i1 false)
   br label %32
 
@@ -6948,7 +6948,7 @@ _ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE11_S_relocateE
 _ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %55
   store ptr %45, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i21.i, ptr %8, align 8, !tbaa !87
-  %59 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %45, i64 %43
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %59, ptr %10, align 8, !tbaa !84
   br label %60
 
@@ -7373,7 +7373,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = zext i8 %10 to i64
   %13 = lshr i64 %12, 6
-  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = and i64 %12, 63
   %17 = shl nuw i64 1, %16
@@ -7394,7 +7394,7 @@ _ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gn
   %22 = load i8, ptr %.sroa.02.0.copyload45.i, align 1, !tbaa !21
   %23 = zext i8 %22 to i64
   %24 = lshr i64 %23, 6
-  %25 = getelementptr inbounds nuw i64, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !19
   %27 = and i64 %23, 63
   %28 = shl nuw i64 1, %27
@@ -7565,7 +7565,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = zext i8 %10 to i64
   %13 = lshr i64 %12, 6
-  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = and i64 %12, 63
   %17 = shl nuw i64 1, %16
@@ -7732,7 +7732,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   %10 = load i8, ptr %.sroa.02.0.copyload26.i, align 1, !tbaa !21
   %11 = zext i8 %10 to i64
   %12 = lshr i64 %11, 6
-  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !19
   %15 = and i64 %11, 63
   %16 = shl nuw i64 1, %15
@@ -9102,7 +9102,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl
   %.013.i.i = phi i64 [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i ]
   %.sroa.011.012.i.i = phi ptr [ %4, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i ]
   %15 = lshr i64 %.013.i.i, 1
-  %16 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !62
   %18 = icmp slt i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -9263,7 +9263,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN5boost6spirit7classic7utility4impl
   %27 = sub i64 %26, %5
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"struct.boost::spirit::classic::utility::impl::range", ptr %22, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %22, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %30, ptr align 4 %19, i64 %27, i1 false)
   br label %_ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE13_M_insert_auxIS6_EEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEOT_.exit
 
@@ -9345,7 +9345,7 @@ _ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE11_S_relocateE
 _ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %54
   store ptr %44, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i21.i, ptr %8, align 8, !tbaa !87
-  %58 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %44, i64 %42
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   store ptr %58, ptr %10, align 8, !tbaa !84
   br label %59
 
@@ -9676,7 +9676,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4imp
   %.013.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %20, %16 ]
   %.sroa.011.012.i.i.i.i.i.i = phi ptr [ %.sroa.011.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %12, %16 ]
   %22 = lshr i64 %.013.i.i.i.i.i.i, 1
-  %23 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i.i.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i.i.i.i, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !62
   %25 = icmp slt i32 %24, %10
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -9744,7 +9744,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4imp
   %.013.i.i.i.i.i.i28 = phi i64 [ %.1.i.i.i.i.i.i33, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27 ], [ %54, %50 ]
   %.sroa.011.012.i.i.i.i.i.i29 = phi ptr [ %.sroa.011.1.i.i.i.i.i.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27 ], [ %47, %50 ]
   %56 = lshr i64 %.013.i.i.i.i.i.i28, 1
-  %57 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i.i.i.i.i29, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i.i.i.i29, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !62
   %59 = icmp slt i32 %58, %46
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -12214,7 +12214,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4imp
   %.013.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %20, %16 ]
   %.sroa.011.012.i.i.i.i.i.i = phi ptr [ %.sroa.011.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %12, %16 ]
   %22 = lshr i64 %.013.i.i.i.i.i.i, 1
-  %23 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i.i.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i.i.i.i, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !62
   %25 = icmp slt i32 %24, %10
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -13301,7 +13301,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4imp
   %.013.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i.i ], [ %20, %16 ]
   %.sroa.011.012.i.i.i.i.i.i.i = phi ptr [ %.sroa.011.1.i.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i.i ], [ %13, %16 ]
   %22 = lshr i64 %.013.i.i.i.i.i.i.i, 1
-  %23 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i.i.i.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i.i.i.i.i, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !62
   %25 = icmp slt i32 %24, %12
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/framequeue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FFFrameBucket = type { ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @ff_framequeue_global_init(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
@@ -43,7 +41,7 @@ define void @ff_framequeue_free(ptr noundef %0) local_unnamed_addr #2 {
   %14 = load i64, ptr %6, align 8, !tbaa !14
   %15 = add i64 %14, -1
   %16 = and i64 %15, %13
-  %17 = getelementptr inbounds nuw %struct.FFFrameBucket, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %16
   %18 = add i64 %11, -1
   store i64 %18, ptr %3, align 8, !tbaa !15
   %19 = add i64 %13, 1
@@ -90,7 +88,7 @@ define ptr @ff_framequeue_take(ptr noundef captures(none) initializes((72, 76)) 
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = add i64 %6, -1
   %8 = and i64 %7, %4
-  %9 = getelementptr inbounds nuw %struct.FFFrameBucket, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = add i64 %11, -1
@@ -164,7 +162,7 @@ define range(i32 -12, 1) i32 @ff_framequeue_add(ptr noundef captures(none) %0, p
 
 22:                                               ; preds = %19
   %23 = load i64, ptr %5, align 8, !tbaa !14
-  %24 = getelementptr inbounds nuw %struct.FFFrameBucket, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %23
   %25 = shl i64 %21, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %18, i64 %25, i1 false)
   br label %26
@@ -183,7 +181,7 @@ define range(i32 -12, 1) i32 @ff_framequeue_add(ptr noundef captures(none) %0, p
   %33 = add i64 %32, %30
   %34 = add i64 %28, -1
   %35 = and i64 %34, %33
-  %36 = getelementptr inbounds nuw %struct.FFFrameBucket, ptr %29, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %35
   store ptr %1, ptr %36, align 8, !tbaa !18
   %37 = add i64 %30, 1
   store i64 %37, ptr %3, align 8, !tbaa !15
@@ -220,7 +218,7 @@ define ptr @ff_framequeue_peek(ptr noundef readonly captures(none) %0, i64 nound
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %9 = add i64 %8, -1
   %10 = and i64 %9, %6
-  %11 = getelementptr inbounds nuw %struct.FFFrameBucket, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   ret ptr %12
 }
@@ -234,7 +232,7 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %9 = add i64 %8, -1
   %10 = and i64 %9, %6
-  %11 = getelementptr inbounds nuw %struct.FFFrameBucket, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 116
   %14 = load i32, ptr %13, align 4, !tbaa !36
@@ -312,7 +310,7 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
 
 54:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.0
   store ptr %57, ptr %55, align 8, !tbaa !42
@@ -322,9 +320,9 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
 
 58:                                               ; preds = %.lr.ph41, %58
   %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv43
   %60 = load ptr, ptr %59, align 8, !tbaa !42
-  %61 = getelementptr inbounds nuw ptr, ptr %.pre48, i64 %indvars.iv43
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.pre48, i64 %indvars.iv43
   store ptr %60, ptr %61, align 8, !tbaa !42
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46

@@ -1370,7 +1370,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %70 = sitofp i32 %69 to double
   %71 = fsub nnan double %.0123, %70
   %72 = zext i32 %.1127.lcssa to i64
-  %73 = getelementptr inbounds nuw double, ptr @_ftoa.pow10, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @_ftoa.pow10, i64 %72
   %74 = load double, ptr %73, align 8, !tbaa !26
   %75 = fmul double %71, %74
   %76 = fptoui double %75 to i64

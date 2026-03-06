@@ -205,7 +205,7 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next, %18 ]
   %19 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #17
-  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %19, ptr %20, align 8, !tbaa !12
   %21 = icmp eq ptr %19, null
   br i1 %21, label %22, label %18
@@ -316,7 +316,7 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
   %20 = phi i32 [ %26, %25 ], [ %18, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
   %21 = load ptr, ptr %15, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %.not25 = icmp eq ptr %23, null
   br i1 %.not25, label %25, label %24
@@ -379,25 +379,25 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph49
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us ], [ 0, %.lr.ph49 ]
-  %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv53
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv53
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv53
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv53
   store double %23, ptr %24, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv53
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv53
   %26 = load double, ptr %25, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv53
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv53
   store double %26, ptr %27, align 8, !tbaa !18
   %28 = mul nuw nsw i64 %indvars.iv53, %21
-  %29 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv53
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv53
   %30 = load ptr, ptr %29, align 8, !tbaa !12
-  %invariant.gep = getelementptr inbounds nuw double, ptr %4, i64 %28
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %28
   br label %31
 
 31:                                               ; preds = %.lr.ph.us, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %31 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %32 = load double, ptr %gep, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
@@ -419,9 +419,9 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %36 ]
-  %37 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv58
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv58
   %38 = load double, ptr %37, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv58
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv58
   store double %38, ptr %39, align 8, !tbaa !18
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
@@ -479,25 +479,25 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly captures(addres
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph50
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %._crit_edge.us ], [ 0, %.lr.ph50 ]
-  %31 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv54
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv54
   %32 = load double, ptr %31, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv54
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv54
   store double %32, ptr %33, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv54
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv54
   %35 = load double, ptr %34, align 8, !tbaa !18
-  %36 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv54
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv54
   store double %35, ptr %36, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv54
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv54
   %38 = load ptr, ptr %37, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv54
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv54
   %40 = load ptr, ptr %39, align 8, !tbaa !12
   br label %41
 
 41:                                               ; preds = %.lr.ph.us, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store double %43, ptr %44, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count57
@@ -520,9 +520,9 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly captures(addres
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv59 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next60, %48 ]
-  %49 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv59
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv59
   %50 = load double, ptr %49, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv59
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv59
   store double %50, ptr %51, align 8, !tbaa !18
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
@@ -589,7 +589,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %11
@@ -622,9 +622,9 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
 .lr.ph55:                                         ; preds = %.lr.ph59, %.lr.ph55
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph55 ], [ 0, %.lr.ph59 ]
   %29 = load ptr, ptr %5, align 8, !tbaa !11
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv77
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv77
   %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv74
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv74
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %33) #18
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -650,7 +650,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
 .lr.ph63:                                         ; preds = %._crit_edge60, %.lr.ph63
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph63 ], [ 0, %._crit_edge60 ]
   %44 = load ptr, ptr %15, align 8, !tbaa !14
-  %45 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv80
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv80
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %46) #18
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -669,7 +669,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
 .lr.ph67:                                         ; preds = %._crit_edge64, %.lr.ph67
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.lr.ph67 ], [ 0, %._crit_edge64 ]
   %54 = load ptr, ptr %19, align 8, !tbaa !13
-  %55 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv83
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv83
   %56 = load double, ptr %55, align 8, !tbaa !18
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %56) #18
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -694,7 +694,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
 .lr.ph71:                                         ; preds = %63, %.lr.ph71
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph71 ], [ 0, %63 ]
   %67 = load ptr, ptr %61, align 8, !tbaa !15
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv86
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv86
   %69 = load double, ptr %68, align 8, !tbaa !18
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %69) #18
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
@@ -727,7 +727,7 @@ define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef rea
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = zext nneg i32 %3 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   br label %14
@@ -739,9 +739,9 @@ define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef rea
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fsub double %16, %18
   %20 = tail call double @llvm.fabs.f64(double %19)
@@ -786,7 +786,7 @@ define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %14
@@ -819,14 +819,14 @@ define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly 
 
 .preheader.us.i:                                  ; preds = %36, %.preheader.us.preheader.i
   %indvars.iv26.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next27.i, %36 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv26.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv26.i
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   br label %32
 
 32:                                               ; preds = %32, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %32 ]
   %.018.us.i = phi double [ 0.000000e+00, %.preheader.us.i ], [ %35, %32 ]
-  %33 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %34 = load double, ptr %33, align 8, !tbaa !18
   %35 = fadd double %.018.us.i, %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -839,7 +839,7 @@ define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly 
   br i1 %exitcond30.not.i, label %.thread, label %.preheader.us.i
 
 ._crit_edge.us.i:                                 ; preds = %32
-  %37 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv26.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv26.i
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = fsub double %35, %38
   %40 = tail call double @llvm.fabs.f64(double %39)
@@ -866,7 +866,7 @@ arkode_butcher_rowsum.exit:                       ; preds = %._crit_edge.us.i
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i948 = phi i64 [ %indvars.iv.next.i949, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.08.i = phi double [ %47, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.i.preheader ]
-  %45 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i948
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i948
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fsub double %.08.i, %46
   %indvars.iv.next.i949 = add nuw nsw i64 %indvars.iv.i948, 1
@@ -901,9 +901,9 @@ thread-pre-split:                                 ; preds = %50, %42
 54:                                               ; preds = %.preheader1230, %54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %54 ], [ 0, %.preheader1230 ]
   %55 = phi double [ %60, %54 ], [ 0.000000e+00, %.preheader1230 ]
-  %56 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i
   %57 = load double, ptr %56, align 8, !tbaa !18
-  %58 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %59 = load double, ptr %58, align 8, !tbaa !18
   %60 = tail call double @llvm.fmuladd.f64(double %57, double %59, double %55)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -940,10 +940,10 @@ arkode_butcher_order2.exit:                       ; preds = %54
 
 .preheader.i.i:                                   ; preds = %69, %.preheader.i.i
   %indvars.iv.i.i954 = phi i64 [ %indvars.iv.next.i.i955, %.preheader.i.i ], [ 0, %69 ]
-  %72 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i954
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i954
   %73 = load double, ptr %72, align 8, !tbaa !18
   %74 = fmul double %73, %73
-  %75 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.i.i954
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.i.i954
   store double %74, ptr %75, align 8, !tbaa !18
   %indvars.iv.next.i.i955 = add nuw nsw i64 %indvars.iv.i.i954, 1
   %exitcond.not.i.i956 = icmp eq i64 %indvars.iv.next.i.i955, %wide.trip.count29.i
@@ -952,9 +952,9 @@ arkode_butcher_order2.exit:                       ; preds = %54
 .preheader1102:                                   ; preds = %.preheader.i.i, %.preheader1102
   %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader1102 ], [ 0, %.preheader.i.i ]
   %76 = phi double [ %81, %.preheader1102 ], [ 0.000000e+00, %.preheader.i.i ]
-  %77 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i14.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i14.i
   %78 = load double, ptr %77, align 8, !tbaa !18
-  %79 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.i14.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.i14.i
   %80 = load double, ptr %79, align 8, !tbaa !18
   %81 = tail call double @llvm.fmuladd.f64(double %78, double %80, double %76)
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
@@ -985,18 +985,18 @@ arkode_butcher_order3a.exit:                      ; preds = %69, %82
 
 .preheader.us.i.i:                                ; preds = %88, %._crit_edge.us.i.i
   %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %._crit_edge.us.i.i ], [ 0, %88 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv40.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv40.i.i
   %92 = load ptr, ptr %91, align 8, !tbaa !12
-  %93 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv40.i.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv40.i.i
   %.promoted.us.i.i = load double, ptr %93, align 8, !tbaa !18
   br label %94
 
 94:                                               ; preds = %94, %.preheader.us.i.i
   %indvars.iv.i.i961 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i962, %94 ]
   %95 = phi double [ %.promoted.us.i.i, %.preheader.us.i.i ], [ %100, %94 ]
-  %96 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv.i.i961
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.i.i961
   %97 = load double, ptr %96, align 8, !tbaa !18
-  %98 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i961
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i961
   %99 = load double, ptr %98, align 8, !tbaa !18
   %100 = tail call double @llvm.fmuladd.f64(double %97, double %99, double %95)
   %indvars.iv.next.i.i962 = add nuw nsw i64 %indvars.iv.i.i961, 1
@@ -1012,9 +1012,9 @@ arkode_butcher_order3a.exit:                      ; preds = %69, %82
 .preheader:                                       ; preds = %._crit_edge.us.i.i, %.preheader
   %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i14.i, %.preheader ], [ 0, %._crit_edge.us.i.i ]
   %101 = phi double [ %106, %.preheader ], [ 0.000000e+00, %._crit_edge.us.i.i ]
-  %102 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i13.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i13.i
   %103 = load double, ptr %102, align 8, !tbaa !18
-  %104 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv.i13.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.i13.i
   %105 = load double, ptr %104, align 8, !tbaa !18
   %106 = tail call double @llvm.fmuladd.f64(double %103, double %105, double %101)
   %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
@@ -1509,14 +1509,14 @@ thread-pre-split1025:                             ; preds = %arkode_butcher_rows
 
 .preheader.us.i968:                               ; preds = %.preheader.us.i968.preheader, %265
   %indvars.iv26.i969 = phi i64 [ %indvars.iv.next27.i975, %265 ], [ 0, %.preheader.us.i968.preheader ]
-  %259 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv26.i969
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv26.i969
   %260 = load ptr, ptr %259, align 8, !tbaa !12
   br label %261
 
 261:                                              ; preds = %261, %.preheader.us.i968
   %indvars.iv.i970 = phi i64 [ 0, %.preheader.us.i968 ], [ %indvars.iv.next.i972, %261 ]
   %.018.us.i971 = phi double [ 0.000000e+00, %.preheader.us.i968 ], [ %264, %261 ]
-  %262 = getelementptr inbounds nuw double, ptr %260, i64 %indvars.iv.i970
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv.i970
   %263 = load double, ptr %262, align 8, !tbaa !18
   %264 = fadd double %.018.us.i971, %263
   %indvars.iv.next.i972 = add nuw nsw i64 %indvars.iv.i970, 1
@@ -1529,7 +1529,7 @@ thread-pre-split1025:                             ; preds = %arkode_butcher_rows
   br i1 %exitcond30.not.i976, label %.thread1049, label %.preheader.us.i968
 
 ._crit_edge.us.i974:                              ; preds = %261
-  %266 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv26.i969
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv26.i969
   %267 = load double, ptr %266, align 8, !tbaa !18
   %268 = fsub double %264, %267
   %269 = tail call double @llvm.fabs.f64(double %268)
@@ -1556,7 +1556,7 @@ arkode_butcher_rowsum.exit977:                    ; preds = %._crit_edge.us.i974
 .lr.ph.i981:                                      ; preds = %.lr.ph.i981.preheader, %.lr.ph.i981
   %indvars.iv.i982 = phi i64 [ %indvars.iv.next.i984, %.lr.ph.i981 ], [ 0, %.lr.ph.i981.preheader ]
   %.08.i983 = phi double [ %276, %.lr.ph.i981 ], [ 1.000000e+00, %.lr.ph.i981.preheader ]
-  %274 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i982
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i982
   %275 = load double, ptr %274, align 8, !tbaa !18
   %276 = fsub double %.08.i983, %275
   %indvars.iv.next.i984 = add nuw nsw i64 %indvars.iv.i982, 1
@@ -1591,9 +1591,9 @@ thread-pre-split1053:                             ; preds = %279, %271
 283:                                              ; preds = %.preheader1224, %283
   %indvars.iv.i.i991 = phi i64 [ %indvars.iv.next.i.i992, %283 ], [ 0, %.preheader1224 ]
   %284 = phi double [ %289, %283 ], [ 0.000000e+00, %.preheader1224 ]
-  %285 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i.i991
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i991
   %286 = load double, ptr %285, align 8, !tbaa !18
-  %287 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i991
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i991
   %288 = load double, ptr %287, align 8, !tbaa !18
   %289 = tail call double @llvm.fmuladd.f64(double %286, double %288, double %284)
   %indvars.iv.next.i.i992 = add nuw nsw i64 %indvars.iv.i.i991, 1
@@ -2167,12 +2167,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3a(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %11 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %12 = load double, ptr %11, align 8, !tbaa !18
-  %13 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8, !tbaa !18
   %15 = fmul double %12, %14
-  %16 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store double %15, ptr %16, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2189,9 +2189,9 @@ arkode_butcher_vv.exit:                           ; preds = %4
 .preheader:                                       ; preds = %17, %.preheader
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %.preheader ], [ 0, %17 ]
   %19 = phi double [ %24, %.preheader ], [ 0.000000e+00, %17 ]
-  %20 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i14
   %21 = load double, ptr %20, align 8, !tbaa !18
-  %22 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i14
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i14
   %23 = load double, ptr %22, align 8, !tbaa !18
   %24 = tail call double @llvm.fmuladd.f64(double %21, double %23, double %19)
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
@@ -2230,18 +2230,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3b(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i
   %13 = load ptr, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv40.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %14, align 8, !tbaa !18
   br label %15
 
 15:                                               ; preds = %15, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %15 ]
   %16 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %21, %15 ]
-  %17 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %20 = load double, ptr %19, align 8, !tbaa !18
   %21 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %16)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2265,9 +2265,9 @@ arkode_butcher_mv.exit:                           ; preds = %4
 .preheader:                                       ; preds = %22, %.preheader
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %.preheader ], [ 0, %22 ]
   %24 = phi double [ %29, %.preheader ], [ 0.000000e+00, %22 ]
-  %25 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i13
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i13
   %26 = load double, ptr %25, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i13
   %28 = load double, ptr %27, align 8, !tbaa !18
   %29 = tail call double @llvm.fmuladd.f64(double %26, double %28, double %24)
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
@@ -2307,12 +2307,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4a(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %13 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8, !tbaa !18
-  %15 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
   %17 = fmul double %14, %16
-  %18 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   store double %17, ptr %18, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2331,12 +2331,12 @@ arkode_butcher_vv.exit:                           ; preds = %5
 
 .preheader.i26:                                   ; preds = %19, %.preheader.i26
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i28, %.preheader.i26 ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i27
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i27
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i27
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i27
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = fmul double %23, %25
-  %27 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i27
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i27
   store double %26, ptr %27, align 8, !tbaa !18
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count.i
@@ -2354,9 +2354,9 @@ arkode_butcher_vv.exit31:                         ; preds = %19
 .preheader:                                       ; preds = %28, %.preheader
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.preheader ], [ 0, %28 ]
   %30 = phi double [ %35, %.preheader ], [ 0.000000e+00, %28 ]
-  %31 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i35
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i35
   %32 = load double, ptr %31, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i35
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i35
   %34 = load double, ptr %33, align 8, !tbaa !18
   %35 = tail call double @llvm.fmuladd.f64(double %32, double %34, double %30)
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
@@ -2397,12 +2397,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4b(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %13 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8, !tbaa !18
-  %15 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
   %17 = fmul double %14, %16
-  %18 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   store double %17, ptr %18, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2423,18 +2423,18 @@ arkode_butcher_vv.exit:                           ; preds = %5
 
 .preheader.us.i:                                  ; preds = %19, %._crit_edge.us.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %19 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i
   %24 = load ptr, ptr %23, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %25, align 8, !tbaa !18
   br label %26
 
 26:                                               ; preds = %26, %.preheader.us.i
   %indvars.iv.i24 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i25, %26 ]
   %27 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %32, %26 ]
-  %28 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i24
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i24
   %29 = load double, ptr %28, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i24
   %31 = load double, ptr %30, align 8, !tbaa !18
   %32 = tail call double @llvm.fmuladd.f64(double %29, double %31, double %27)
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
@@ -2455,9 +2455,9 @@ arkode_butcher_mv.exit:                           ; preds = %19
 .preheader:                                       ; preds = %._crit_edge.us.i, %.preheader
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.preheader ], [ 0, %._crit_edge.us.i ]
   %33 = phi double [ %38, %.preheader ], [ 0.000000e+00, %._crit_edge.us.i ]
-  %34 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i30
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i30
   %35 = load double, ptr %34, align 8, !tbaa !18
-  %36 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i30
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i30
   %37 = load double, ptr %36, align 8, !tbaa !18
   %38 = tail call double @llvm.fmuladd.f64(double %35, double %37, double %33)
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
@@ -2498,12 +2498,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4c(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %13 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8, !tbaa !18
-  %15 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
   %17 = fmul double %14, %16
-  %18 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   store double %17, ptr %18, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2522,18 +2522,18 @@ arkode_butcher_vv.exit:                           ; preds = %5
 
 .preheader.us.i:                                  ; preds = %19, %._crit_edge.us.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i
   %23 = load ptr, ptr %22, align 8, !tbaa !12
-  %24 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %24, align 8, !tbaa !18
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us.i
   %indvars.iv.i24 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i25, %25 ]
   %26 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %31, %25 ]
-  %27 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i24
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i24
   %28 = load double, ptr %27, align 8, !tbaa !18
-  %29 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i24
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i24
   %30 = load double, ptr %29, align 8, !tbaa !18
   %31 = tail call double @llvm.fmuladd.f64(double %28, double %30, double %26)
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
@@ -2558,9 +2558,9 @@ arkode_butcher_mv.exit:                           ; preds = %19
 .preheader:                                       ; preds = %32, %.preheader
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.preheader ], [ 0, %32 ]
   %34 = phi double [ %39, %.preheader ], [ 0.000000e+00, %32 ]
-  %35 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i30
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i30
   %36 = load double, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i30
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i30
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = tail call double @llvm.fmuladd.f64(double %36, double %38, double %34)
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
@@ -2601,18 +2601,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4d(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i
   %15 = load ptr, ptr %14, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv40.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %16, align 8, !tbaa !18
   br label %17
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
   %18 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %23, %17 ]
-  %19 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %20 = load double, ptr %19, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !18
   %23 = tail call double @llvm.fmuladd.f64(double %20, double %22, double %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2638,18 +2638,18 @@ arkode_butcher_mv.exit:                           ; preds = %5
 
 .preheader.us.i25:                                ; preds = %24, %._crit_edge.us.i31
   %indvars.iv40.i26 = phi i64 [ %indvars.iv.next41.i32, %._crit_edge.us.i31 ], [ 0, %24 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i26
   %28 = load ptr, ptr %27, align 8, !tbaa !12
-  %29 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i26
   %.promoted.us.i27 = load double, ptr %29, align 8, !tbaa !18
   br label %30
 
 30:                                               ; preds = %30, %.preheader.us.i25
   %indvars.iv.i28 = phi i64 [ 0, %.preheader.us.i25 ], [ %indvars.iv.next.i29, %30 ]
   %31 = phi double [ %.promoted.us.i27, %.preheader.us.i25 ], [ %36, %30 ]
-  %32 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i28
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i28
   %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i28
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i28
   %35 = load double, ptr %34, align 8, !tbaa !18
   %36 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %31)
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
@@ -2674,9 +2674,9 @@ arkode_butcher_mv.exit35:                         ; preds = %24
 .preheader:                                       ; preds = %37, %.preheader
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader ], [ 0, %37 ]
   %39 = phi double [ %44, %.preheader ], [ 0.000000e+00, %37 ]
-  %40 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i38
   %41 = load double, ptr %40, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i38
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i38
   %43 = load double, ptr %42, align 8, !tbaa !18
   %44 = tail call double @llvm.fmuladd.f64(double %41, double %43, double %39)
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
@@ -2717,12 +2717,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5a(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %14 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %15 = load double, ptr %14, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 8, !tbaa !18
   %18 = fmul double %15, %17
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store double %18, ptr %19, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2741,12 +2741,12 @@ arkode_butcher_vv.exit:                           ; preds = %6
 
 .preheader.i33:                                   ; preds = %20, %.preheader.i33
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %.preheader.i33 ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i34
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i34
   %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i34
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i34
   %26 = load double, ptr %25, align 8, !tbaa !18
   %27 = fmul double %24, %26
-  %28 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i34
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i34
   store double %27, ptr %28, align 8, !tbaa !18
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
@@ -2763,12 +2763,12 @@ arkode_butcher_vv.exit38:                         ; preds = %20
 
 .preheader.i44:                                   ; preds = %29, %.preheader.i44
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i46, %.preheader.i44 ], [ 0, %29 ]
-  %31 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i45
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i45
   %32 = load double, ptr %31, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i45
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i45
   %34 = load double, ptr %33, align 8, !tbaa !18
   %35 = fmul double %32, %34
-  %36 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i45
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i45
   store double %35, ptr %36, align 8, !tbaa !18
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i
@@ -2786,9 +2786,9 @@ arkode_butcher_vv.exit49:                         ; preds = %29
 .preheader:                                       ; preds = %37, %.preheader
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.preheader ], [ 0, %37 ]
   %39 = phi double [ %44, %.preheader ], [ 0.000000e+00, %37 ]
-  %40 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i53
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i53
   %41 = load double, ptr %40, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i53
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i53
   %43 = load double, ptr %42, align 8, !tbaa !18
   %44 = tail call double @llvm.fmuladd.f64(double %41, double %43, double %39)
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
@@ -2829,12 +2829,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5b(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %14 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %15 = load double, ptr %14, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 8, !tbaa !18
   %18 = fmul double %15, %17
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store double %18, ptr %19, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2853,12 +2853,12 @@ arkode_butcher_vv.exit:                           ; preds = %6
 
 .preheader.i33:                                   ; preds = %20, %.preheader.i33
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %.preheader.i33 ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i34
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i34
   %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i34
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i34
   %26 = load double, ptr %25, align 8, !tbaa !18
   %27 = fmul double %24, %26
-  %28 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i34
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i34
   store double %27, ptr %28, align 8, !tbaa !18
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
@@ -2882,18 +2882,18 @@ arkode_butcher_vv.exit38:                         ; preds = %20
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %34 = load ptr, ptr %33, align 8, !tbaa !12
-  %35 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %35, align 8, !tbaa !18
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.i
   %indvars.iv.i42 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i43, %36 ]
   %37 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %42, %36 ]
-  %38 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i42
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i42
   %39 = load double, ptr %38, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i42
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i42
   %41 = load double, ptr %40, align 8, !tbaa !18
   %42 = tail call double @llvm.fmuladd.f64(double %39, double %41, double %37)
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
@@ -2914,9 +2914,9 @@ arkode_butcher_mv.exit:                           ; preds = %29
 .preheader:                                       ; preds = %._crit_edge.us.i, %.preheader
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %.preheader ], [ 0, %._crit_edge.us.i ]
   %43 = phi double [ %48, %.preheader ], [ 0.000000e+00, %._crit_edge.us.i ]
-  %44 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i48
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i48
   %45 = load double, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i48
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i48
   %47 = load double, ptr %46, align 8, !tbaa !18
   %48 = tail call double @llvm.fmuladd.f64(double %45, double %47, double %43)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -2958,18 +2958,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5c(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i
   %17 = load ptr, ptr %16, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
   br label %19
 
 19:                                               ; preds = %19, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
   %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
-  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %24 = load double, ptr %23, align 8, !tbaa !18
   %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2998,18 +2998,18 @@ arkode_butcher_mv.exit:                           ; preds = %6
 
 .preheader.us.i37:                                ; preds = %26, %._crit_edge.us.i43
   %indvars.iv40.i38 = phi i64 [ %indvars.iv.next41.i44, %._crit_edge.us.i43 ], [ 0, %26 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i38
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i38
   %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i38
   %.promoted.us.i39 = load double, ptr %32, align 8, !tbaa !18
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.i37
   %indvars.iv.i40 = phi i64 [ 0, %.preheader.us.i37 ], [ %indvars.iv.next.i41, %33 ]
   %34 = phi double [ %.promoted.us.i39, %.preheader.us.i37 ], [ %39, %33 ]
-  %35 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.i40
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i40
   %36 = load double, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i40
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i40
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = tail call double @llvm.fmuladd.f64(double %36, double %38, double %34)
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
@@ -3034,12 +3034,12 @@ arkode_butcher_mv.exit47:                         ; preds = %26
 
 .preheader.i:                                     ; preds = %40, %.preheader.i
   %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i52, %.preheader.i ], [ 0, %40 ]
-  %42 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i51
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i51
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i51
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i51
   %45 = load double, ptr %44, align 8, !tbaa !18
   %46 = fmul double %43, %45
-  %47 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i51
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i51
   store double %46, ptr %47, align 8, !tbaa !18
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %15
@@ -3057,9 +3057,9 @@ arkode_butcher_vv.exit:                           ; preds = %40
 .preheader:                                       ; preds = %48, %.preheader
   %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i58, %.preheader ], [ 0, %48 ]
   %50 = phi double [ %55, %.preheader ], [ 0.000000e+00, %48 ]
-  %51 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i57
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i57
   %52 = load double, ptr %51, align 8, !tbaa !18
-  %53 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i57
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i57
   %54 = load double, ptr %53, align 8, !tbaa !18
   %55 = tail call double @llvm.fmuladd.f64(double %52, double %54, double %50)
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
@@ -3101,12 +3101,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5d(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %15 = load double, ptr %14, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 8, !tbaa !18
   %18 = fmul double %15, %17
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store double %18, ptr %19, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3125,18 +3125,18 @@ arkode_butcher_vv.exit:                           ; preds = %6
 
 .preheader.us.i:                                  ; preds = %20, %._crit_edge.us.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i
   %24 = load ptr, ptr %23, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %25, align 8, !tbaa !18
   br label %26
 
 26:                                               ; preds = %26, %.preheader.us.i
   %indvars.iv.i31 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i32, %26 ]
   %27 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %32, %26 ]
-  %28 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i31
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i31
   %29 = load double, ptr %28, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i31
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i31
   %31 = load double, ptr %30, align 8, !tbaa !18
   %32 = tail call double @llvm.fmuladd.f64(double %29, double %31, double %27)
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
@@ -3162,12 +3162,12 @@ arkode_butcher_mv.exit:                           ; preds = %20
 
 .preheader.i39:                                   ; preds = %33, %.preheader.i39
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %.preheader.i39 ], [ 0, %33 ]
-  %36 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i40
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i40
   %37 = load double, ptr %36, align 8, !tbaa !18
-  %38 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i40
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i40
   %39 = load double, ptr %38, align 8, !tbaa !18
   %40 = fmul double %37, %39
-  %41 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i40
   store double %40, ptr %41, align 8, !tbaa !18
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i
@@ -3181,9 +3181,9 @@ arkode_butcher_vv.exit44:                         ; preds = %33
 .preheader:                                       ; preds = %.preheader.i39, %.preheader
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %.preheader ], [ 0, %.preheader.i39 ]
   %42 = phi double [ %47, %.preheader ], [ 0.000000e+00, %.preheader.i39 ]
-  %43 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i48
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i48
   %44 = load double, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i48
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i48
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %46, double %42)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -3224,12 +3224,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5e(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %14 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %15 = load double, ptr %14, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 8, !tbaa !18
   %18 = fmul double %15, %17
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store double %18, ptr %19, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3248,12 +3248,12 @@ arkode_butcher_vv.exit:                           ; preds = %6
 
 .preheader.i33:                                   ; preds = %20, %.preheader.i33
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %.preheader.i33 ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i34
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i34
   %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i34
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i34
   %26 = load double, ptr %25, align 8, !tbaa !18
   %27 = fmul double %24, %26
-  %28 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i34
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i34
   store double %27, ptr %28, align 8, !tbaa !18
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
@@ -3275,18 +3275,18 @@ arkode_butcher_vv.exit38:                         ; preds = %20
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i
   %33 = load ptr, ptr %32, align 8, !tbaa !12
-  %34 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %34, align 8, !tbaa !18
   br label %35
 
 35:                                               ; preds = %35, %.preheader.us.i
   %indvars.iv.i42 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i43, %35 ]
   %36 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %41, %35 ]
-  %37 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.i42
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i42
   %38 = load double, ptr %37, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i42
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i42
   %40 = load double, ptr %39, align 8, !tbaa !18
   %41 = tail call double @llvm.fmuladd.f64(double %38, double %40, double %36)
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
@@ -3311,9 +3311,9 @@ arkode_butcher_mv.exit:                           ; preds = %29
 .preheader:                                       ; preds = %42, %.preheader
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %.preheader ], [ 0, %42 ]
   %44 = phi double [ %49, %.preheader ], [ 0.000000e+00, %42 ]
-  %45 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i48
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i48
   %46 = load double, ptr %45, align 8, !tbaa !18
-  %47 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i48
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i48
   %48 = load double, ptr %47, align 8, !tbaa !18
   %49 = tail call double @llvm.fmuladd.f64(double %46, double %48, double %44)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -3354,18 +3354,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5f(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %16 = load ptr, ptr %15, align 8, !tbaa !12
-  %17 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %17, align 8, !tbaa !18
   br label %18
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
   %19 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %24, %18 ]
-  %20 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %21 = load double, ptr %20, align 8, !tbaa !18
-  %22 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
   %24 = tail call double @llvm.fmuladd.f64(double %21, double %23, double %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3391,18 +3391,18 @@ arkode_butcher_mv.exit:                           ; preds = %6
 
 .preheader.us.i32:                                ; preds = %25, %._crit_edge.us.i38
   %indvars.iv40.i33 = phi i64 [ %indvars.iv.next41.i39, %._crit_edge.us.i38 ], [ 0, %25 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i33
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i33
   %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i33
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i33
   %.promoted.us.i34 = load double, ptr %30, align 8, !tbaa !18
   br label %31
 
 31:                                               ; preds = %31, %.preheader.us.i32
   %indvars.iv.i35 = phi i64 [ 0, %.preheader.us.i32 ], [ %indvars.iv.next.i36, %31 ]
   %32 = phi double [ %.promoted.us.i34, %.preheader.us.i32 ], [ %37, %31 ]
-  %33 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv.i35
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i35
   %34 = load double, ptr %33, align 8, !tbaa !18
-  %35 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i35
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i35
   %36 = load double, ptr %35, align 8, !tbaa !18
   %37 = tail call double @llvm.fmuladd.f64(double %34, double %36, double %32)
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
@@ -3428,12 +3428,12 @@ arkode_butcher_mv.exit42:                         ; preds = %25
 
 .preheader.i:                                     ; preds = %38, %.preheader.i
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i47, %.preheader.i ], [ 0, %38 ]
-  %41 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i46
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i46
   %42 = load double, ptr %41, align 8, !tbaa !18
-  %43 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i46
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i46
   %44 = load double, ptr %43, align 8, !tbaa !18
   %45 = fmul double %42, %44
-  %46 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i46
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i46
   store double %45, ptr %46, align 8, !tbaa !18
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %14
@@ -3447,9 +3447,9 @@ arkode_butcher_vv.exit:                           ; preds = %38
 .preheader:                                       ; preds = %.preheader.i, %.preheader
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.preheader ], [ 0, %.preheader.i ]
   %47 = phi double [ %52, %.preheader ], [ 0.000000e+00, %.preheader.i ]
-  %48 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i52
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i52
   %49 = load double, ptr %48, align 8, !tbaa !18
-  %50 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i52
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i52
   %51 = load double, ptr %50, align 8, !tbaa !18
   %52 = tail call double @llvm.fmuladd.f64(double %49, double %51, double %47)
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
@@ -3491,18 +3491,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5g(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %17 = load ptr, ptr %16, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
   br label %19
 
 19:                                               ; preds = %19, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
   %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
-  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %24 = load double, ptr %23, align 8, !tbaa !18
   %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3528,12 +3528,12 @@ arkode_butcher_mv.exit:                           ; preds = %6
 
 .preheader.i:                                     ; preds = %26, %.preheader.i
   %indvars.iv.i31 = phi i64 [ %indvars.iv.next.i32, %.preheader.i ], [ 0, %26 ]
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i31
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i31
   %30 = load double, ptr %29, align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i31
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i31
   %32 = load double, ptr %31, align 8, !tbaa !18
   %33 = fmul double %30, %32
-  %34 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i31
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i31
   store double %33, ptr %34, align 8, !tbaa !18
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %14
@@ -3554,18 +3554,18 @@ arkode_butcher_vv.exit:                           ; preds = %26
 
 .preheader.us.i38:                                ; preds = %._crit_edge.us.i44, %.preheader.us.preheader.i37
   %indvars.iv40.i39 = phi i64 [ 0, %.preheader.us.preheader.i37 ], [ %indvars.iv.next41.i45, %._crit_edge.us.i44 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i39
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i39
   %38 = load ptr, ptr %37, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i39
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i39
   %.promoted.us.i40 = load double, ptr %39, align 8, !tbaa !18
   br label %40
 
 40:                                               ; preds = %40, %.preheader.us.i38
   %indvars.iv.i41 = phi i64 [ 0, %.preheader.us.i38 ], [ %indvars.iv.next.i42, %40 ]
   %41 = phi double [ %.promoted.us.i40, %.preheader.us.i38 ], [ %46, %40 ]
-  %42 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.i41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i41
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i41
   %45 = load double, ptr %44, align 8, !tbaa !18
   %46 = tail call double @llvm.fmuladd.f64(double %43, double %45, double %41)
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
@@ -3590,9 +3590,9 @@ arkode_butcher_mv.exit48:                         ; preds = %35
 .preheader:                                       ; preds = %47, %.preheader
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.preheader ], [ 0, %47 ]
   %49 = phi double [ %54, %.preheader ], [ 0.000000e+00, %47 ]
-  %50 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i52
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i52
   %51 = load double, ptr %50, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i52
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i52
   %53 = load double, ptr %52, align 8, !tbaa !18
   %54 = tail call double @llvm.fmuladd.f64(double %51, double %53, double %49)
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
@@ -3633,12 +3633,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5h(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %15 = load double, ptr %14, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 8, !tbaa !18
   %18 = fmul double %15, %17
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store double %18, ptr %19, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3661,18 +3661,18 @@ arkode_butcher_vv.exit:                           ; preds = %6
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i
   %25 = load ptr, ptr %24, align 8, !tbaa !12
-  %26 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %26, align 8, !tbaa !18
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.i
   %indvars.iv.i31 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i32, %27 ]
   %28 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %33, %27 ]
-  %29 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i31
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i31
   %30 = load double, ptr %29, align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i31
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i31
   %32 = load double, ptr %31, align 8, !tbaa !18
   %33 = tail call double @llvm.fmuladd.f64(double %30, double %32, double %28)
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
@@ -3700,18 +3700,18 @@ arkode_butcher_mv.exit:                           ; preds = %20
 
 .preheader.us.i38:                                ; preds = %._crit_edge.us.i44, %.preheader.us.preheader.i37
   %indvars.iv40.i39 = phi i64 [ 0, %.preheader.us.preheader.i37 ], [ %indvars.iv.next41.i45, %._crit_edge.us.i44 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i39
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i39
   %37 = load ptr, ptr %36, align 8, !tbaa !12
-  %38 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i39
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i39
   %.promoted.us.i40 = load double, ptr %38, align 8, !tbaa !18
   br label %39
 
 39:                                               ; preds = %39, %.preheader.us.i38
   %indvars.iv.i41 = phi i64 [ 0, %.preheader.us.i38 ], [ %indvars.iv.next.i42, %39 ]
   %40 = phi double [ %.promoted.us.i40, %.preheader.us.i38 ], [ %45, %39 ]
-  %41 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv.i41
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i41
   %42 = load double, ptr %41, align 8, !tbaa !18
-  %43 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i41
   %44 = load double, ptr %43, align 8, !tbaa !18
   %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double %40)
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
@@ -3736,9 +3736,9 @@ arkode_butcher_mv.exit48:                         ; preds = %34
 .preheader:                                       ; preds = %46, %.preheader
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.preheader ], [ 0, %46 ]
   %48 = phi double [ %53, %.preheader ], [ 0.000000e+00, %46 ]
-  %49 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i52
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i52
   %50 = load double, ptr %49, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i52
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i52
   %52 = load double, ptr %51, align 8, !tbaa !18
   %53 = tail call double @llvm.fmuladd.f64(double %50, double %52, double %48)
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
@@ -3780,18 +3780,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5i(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %17 = load ptr, ptr %16, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
   br label %19
 
 19:                                               ; preds = %19, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
   %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
-  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %24 = load double, ptr %23, align 8, !tbaa !18
   %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3817,18 +3817,18 @@ arkode_butcher_mv.exit:                           ; preds = %6
 
 .preheader.us.i32:                                ; preds = %26, %._crit_edge.us.i38
   %indvars.iv40.i33 = phi i64 [ %indvars.iv.next41.i39, %._crit_edge.us.i38 ], [ 0, %26 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i33
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i33
   %30 = load ptr, ptr %29, align 8, !tbaa !12
-  %31 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i33
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i33
   %.promoted.us.i34 = load double, ptr %31, align 8, !tbaa !18
   br label %32
 
 32:                                               ; preds = %32, %.preheader.us.i32
   %indvars.iv.i35 = phi i64 [ 0, %.preheader.us.i32 ], [ %indvars.iv.next.i36, %32 ]
   %33 = phi double [ %.promoted.us.i34, %.preheader.us.i32 ], [ %38, %32 ]
-  %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.i35
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i35
   %35 = load double, ptr %34, align 8, !tbaa !18
-  %36 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i35
   %37 = load double, ptr %36, align 8, !tbaa !18
   %38 = tail call double @llvm.fmuladd.f64(double %35, double %37, double %33)
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
@@ -3856,18 +3856,18 @@ arkode_butcher_mv.exit42:                         ; preds = %26
 
 .preheader.us.i47:                                ; preds = %._crit_edge.us.i53, %.preheader.us.preheader.i46
   %indvars.iv40.i48 = phi i64 [ 0, %.preheader.us.preheader.i46 ], [ %indvars.iv.next41.i54, %._crit_edge.us.i53 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i48
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i48
   %42 = load ptr, ptr %41, align 8, !tbaa !12
-  %43 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i48
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv40.i48
   %.promoted.us.i49 = load double, ptr %43, align 8, !tbaa !18
   br label %44
 
 44:                                               ; preds = %44, %.preheader.us.i47
   %indvars.iv.i50 = phi i64 [ 0, %.preheader.us.i47 ], [ %indvars.iv.next.i51, %44 ]
   %45 = phi double [ %.promoted.us.i49, %.preheader.us.i47 ], [ %50, %44 ]
-  %46 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.i50
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i50
   %47 = load double, ptr %46, align 8, !tbaa !18
-  %48 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i50
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i50
   %49 = load double, ptr %48, align 8, !tbaa !18
   %50 = tail call double @llvm.fmuladd.f64(double %47, double %49, double %45)
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
@@ -3892,9 +3892,9 @@ arkode_butcher_mv.exit57:                         ; preds = %39
 .preheader:                                       ; preds = %51, %.preheader
   %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %.preheader ], [ 0, %51 ]
   %53 = phi double [ %58, %.preheader ], [ 0.000000e+00, %51 ]
-  %54 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i60
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i60
   %55 = load double, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i60
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i60
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %53)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
@@ -3935,12 +3935,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6a(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3959,12 +3959,12 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.i40:                                   ; preds = %21, %.preheader.i40
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.preheader.i40 ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i41
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i41
   %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i41
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i41
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = fmul double %25, %27
-  %29 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i41
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i41
   store double %28, ptr %29, align 8, !tbaa !18
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i
@@ -3981,12 +3981,12 @@ arkode_butcher_vv.exit45:                         ; preds = %21
 
 .preheader.i51:                                   ; preds = %30, %.preheader.i51
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.preheader.i51 ], [ 0, %30 ]
-  %32 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i52
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i52
   %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i52
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i52
   %35 = load double, ptr %34, align 8, !tbaa !18
   %36 = fmul double %33, %35
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i52
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i52
   store double %36, ptr %37, align 8, !tbaa !18
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i
@@ -4003,12 +4003,12 @@ arkode_butcher_vv.exit56:                         ; preds = %30
 
 .preheader.i62:                                   ; preds = %38, %.preheader.i62
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i64, %.preheader.i62 ], [ 0, %38 ]
-  %40 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i63
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i63
   %41 = load double, ptr %40, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i63
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i63
   %43 = load double, ptr %42, align 8, !tbaa !18
   %44 = fmul double %41, %43
-  %45 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i63
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i63
   store double %44, ptr %45, align 8, !tbaa !18
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i
@@ -4026,9 +4026,9 @@ arkode_butcher_vv.exit67:                         ; preds = %38
 .preheader:                                       ; preds = %46, %.preheader
   %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i72, %.preheader ], [ 0, %46 ]
   %48 = phi double [ %53, %.preheader ], [ 0.000000e+00, %46 ]
-  %49 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i71
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i71
   %50 = load double, ptr %49, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i71
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i71
   %52 = load double, ptr %51, align 8, !tbaa !18
   %53 = tail call double @llvm.fmuladd.f64(double %50, double %52, double %48)
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
@@ -4069,12 +4069,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6b(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4093,12 +4093,12 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.i40:                                   ; preds = %21, %.preheader.i40
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.preheader.i40 ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i41
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i41
   %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i41
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i41
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = fmul double %25, %27
-  %29 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i41
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i41
   store double %28, ptr %29, align 8, !tbaa !18
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i
@@ -4115,12 +4115,12 @@ arkode_butcher_vv.exit45:                         ; preds = %21
 
 .preheader.i51:                                   ; preds = %30, %.preheader.i51
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.preheader.i51 ], [ 0, %30 ]
-  %32 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i52
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i52
   %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i52
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i52
   %35 = load double, ptr %34, align 8, !tbaa !18
   %36 = fmul double %33, %35
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i52
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i52
   store double %36, ptr %37, align 8, !tbaa !18
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i
@@ -4144,18 +4144,18 @@ arkode_butcher_vv.exit56:                         ; preds = %30
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %43 = load ptr, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %44, align 8, !tbaa !18
   br label %45
 
 45:                                               ; preds = %45, %.preheader.us.i
   %indvars.iv.i60 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i61, %45 ]
   %46 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %51, %45 ]
-  %47 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv.i60
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i60
   %48 = load double, ptr %47, align 8, !tbaa !18
-  %49 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i60
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i60
   %50 = load double, ptr %49, align 8, !tbaa !18
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %50, double %46)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
@@ -4176,9 +4176,9 @@ arkode_butcher_mv.exit:                           ; preds = %38
 .preheader:                                       ; preds = %._crit_edge.us.i, %.preheader
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i67, %.preheader ], [ 0, %._crit_edge.us.i ]
   %52 = phi double [ %57, %.preheader ], [ 0.000000e+00, %._crit_edge.us.i ]
-  %53 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i66
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i66
   %54 = load double, ptr %53, align 8, !tbaa !18
-  %55 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i66
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i66
   %56 = load double, ptr %55, align 8, !tbaa !18
   %57 = tail call double @llvm.fmuladd.f64(double %54, double %56, double %52)
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
@@ -4220,18 +4220,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6c(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
   %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4260,18 +4260,18 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.us.i45:                                ; preds = %27, %._crit_edge.us.i51
   %indvars.iv40.i46 = phi i64 [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ], [ 0, %27 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i46
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i46
   %32 = load ptr, ptr %31, align 8, !tbaa !12
-  %33 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i46
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i46
   %.promoted.us.i47 = load double, ptr %33, align 8, !tbaa !18
   br label %34
 
 34:                                               ; preds = %34, %.preheader.us.i45
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.us.i45 ], [ %indvars.iv.next.i49, %34 ]
   %35 = phi double [ %.promoted.us.i47, %.preheader.us.i45 ], [ %40, %34 ]
-  %36 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv.i48
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i48
   %37 = load double, ptr %36, align 8, !tbaa !18
-  %38 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i48
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i48
   %39 = load double, ptr %38, align 8, !tbaa !18
   %40 = tail call double @llvm.fmuladd.f64(double %37, double %39, double %35)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -4296,12 +4296,12 @@ arkode_butcher_mv.exit55:                         ; preds = %27
 
 .preheader.i:                                     ; preds = %41, %.preheader.i
   %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i60, %.preheader.i ], [ 0, %41 ]
-  %43 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i59
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i59
   %44 = load double, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i59
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i59
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fmul double %44, %46
-  %48 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i59
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i59
   store double %47, ptr %48, align 8, !tbaa !18
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %16
@@ -4318,12 +4318,12 @@ arkode_butcher_vv.exit:                           ; preds = %41
 
 .preheader.i67:                                   ; preds = %49, %.preheader.i67
   %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %.preheader.i67 ], [ 0, %49 ]
-  %51 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i68
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i68
   %52 = load double, ptr %51, align 8, !tbaa !18
-  %53 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i68
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i68
   %54 = load double, ptr %53, align 8, !tbaa !18
   %55 = fmul double %52, %54
-  %56 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i68
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i68
   store double %55, ptr %56, align 8, !tbaa !18
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %16
@@ -4342,9 +4342,9 @@ arkode_butcher_vv.exit72:                         ; preds = %49
 .preheader:                                       ; preds = %57, %.preheader
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i77, %.preheader ], [ 0, %57 ]
   %59 = phi double [ %64, %.preheader ], [ 0.000000e+00, %57 ]
-  %60 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i76
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i76
   %61 = load double, ptr %60, align 8, !tbaa !18
-  %62 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i76
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i76
   %63 = load double, ptr %62, align 8, !tbaa !18
   %64 = tail call double @llvm.fmuladd.f64(double %61, double %63, double %59)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
@@ -4387,12 +4387,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6d(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %16 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %19 = load double, ptr %18, align 8, !tbaa !18
   %20 = fmul double %17, %19
-  %21 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %20, ptr %21, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4412,18 +4412,18 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.us.i:                                  ; preds = %22, %._crit_edge.us.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %27, align 8, !tbaa !18
   br label %28
 
 28:                                               ; preds = %28, %.preheader.us.i
   %indvars.iv.i44 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i45, %28 ]
   %29 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %34, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i44
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i44
   %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i44
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i44
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %29)
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
@@ -4450,12 +4450,12 @@ arkode_butcher_mv.exit:                           ; preds = %22
 
 .preheader.i52:                                   ; preds = %35, %.preheader.i52
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.preheader.i52 ], [ 0, %35 ]
-  %38 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i53
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i53
   %39 = load double, ptr %38, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i53
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i53
   %41 = load double, ptr %40, align 8, !tbaa !18
   %42 = fmul double %39, %41
-  %43 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i53
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i53
   store double %42, ptr %43, align 8, !tbaa !18
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i
@@ -4475,12 +4475,12 @@ arkode_butcher_vv.exit57:                         ; preds = %35
 
 .preheader.i63:                                   ; preds = %44, %.preheader.i63
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i65, %.preheader.i63 ], [ 0, %44 ]
-  %47 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i64
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i64
   %48 = load double, ptr %47, align 8, !tbaa !18
-  %49 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i64
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i64
   %50 = load double, ptr %49, align 8, !tbaa !18
   %51 = fmul double %48, %50
-  %52 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i64
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i64
   store double %51, ptr %52, align 8, !tbaa !18
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i
@@ -4495,9 +4495,9 @@ arkode_butcher_vv.exit68:                         ; preds = %44
 .preheader:                                       ; preds = %.preheader.i63, %.preheader
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.preheader ], [ 0, %.preheader.i63 ]
   %53 = phi double [ %58, %.preheader ], [ 0.000000e+00, %.preheader.i63 ]
-  %54 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i72
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i72
   %55 = load double, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i72
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i72
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %53)
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
@@ -4540,12 +4540,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6e(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %16 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %19 = load double, ptr %18, align 8, !tbaa !18
   %20 = fmul double %17, %19
-  %21 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %20, ptr %21, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4565,12 +4565,12 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.i46:                                   ; preds = %22, %.preheader.i46
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.preheader.i46 ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i47
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i47
   %26 = load double, ptr %25, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i47
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i47
   %28 = load double, ptr %27, align 8, !tbaa !18
   %29 = fmul double %26, %28
-  %30 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i47
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i47
   store double %29, ptr %30, align 8, !tbaa !18
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i
@@ -4595,18 +4595,18 @@ arkode_butcher_vv.exit51:                         ; preds = %22
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %35 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %36 = load ptr, ptr %35, align 8, !tbaa !12
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %37, align 8, !tbaa !18
   br label %38
 
 38:                                               ; preds = %38, %.preheader.us.i
   %indvars.iv.i55 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i56, %38 ]
   %39 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %44, %38 ]
-  %40 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i55
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i55
   %41 = load double, ptr %40, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i55
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i55
   %43 = load double, ptr %42, align 8, !tbaa !18
   %44 = tail call double @llvm.fmuladd.f64(double %41, double %43, double %39)
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
@@ -4633,18 +4633,18 @@ arkode_butcher_mv.exit:                           ; preds = %31
 
 .preheader.us.i62:                                ; preds = %45, %._crit_edge.us.i68
   %indvars.iv40.i63 = phi i64 [ %indvars.iv.next41.i69, %._crit_edge.us.i68 ], [ 0, %45 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i63
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i63
   %49 = load ptr, ptr %48, align 8, !tbaa !12
-  %50 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv40.i63
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv40.i63
   %.promoted.us.i64 = load double, ptr %50, align 8, !tbaa !18
   br label %51
 
 51:                                               ; preds = %51, %.preheader.us.i62
   %indvars.iv.i65 = phi i64 [ 0, %.preheader.us.i62 ], [ %indvars.iv.next.i66, %51 ]
   %52 = phi double [ %.promoted.us.i64, %.preheader.us.i62 ], [ %57, %51 ]
-  %53 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv.i65
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i65
   %54 = load double, ptr %53, align 8, !tbaa !18
-  %55 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i65
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i65
   %56 = load double, ptr %55, align 8, !tbaa !18
   %57 = tail call double @llvm.fmuladd.f64(double %54, double %56, double %52)
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
@@ -4666,9 +4666,9 @@ arkode_butcher_mv.exit72:                         ; preds = %45
 .preheader:                                       ; preds = %._crit_edge.us.i68, %.preheader
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i77, %.preheader ], [ 0, %._crit_edge.us.i68 ]
   %58 = phi double [ %63, %.preheader ], [ 0.000000e+00, %._crit_edge.us.i68 ]
-  %59 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i76
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i76
   %60 = load double, ptr %59, align 8, !tbaa !18
-  %61 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i76
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i76
   %62 = load double, ptr %61, align 8, !tbaa !18
   %63 = tail call double @llvm.fmuladd.f64(double %60, double %62, double %58)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
@@ -4712,18 +4712,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6f(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i
   %19 = load ptr, ptr %18, align 8, !tbaa !12
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %20, align 8, !tbaa !18
   br label %21
 
 21:                                               ; preds = %21, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %21 ]
   %22 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %27, %21 ]
-  %23 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %26 = load double, ptr %25, align 8, !tbaa !18
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %22)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4750,18 +4750,18 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.us.i45:                                ; preds = %28, %._crit_edge.us.i51
   %indvars.iv40.i46 = phi i64 [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ], [ 0, %28 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i46
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i46
   %32 = load ptr, ptr %31, align 8, !tbaa !12
-  %33 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i46
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i46
   %.promoted.us.i47 = load double, ptr %33, align 8, !tbaa !18
   br label %34
 
 34:                                               ; preds = %34, %.preheader.us.i45
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.us.i45 ], [ %indvars.iv.next.i49, %34 ]
   %35 = phi double [ %.promoted.us.i47, %.preheader.us.i45 ], [ %40, %34 ]
-  %36 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv.i48
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i48
   %37 = load double, ptr %36, align 8, !tbaa !18
-  %38 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i48
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i48
   %39 = load double, ptr %38, align 8, !tbaa !18
   %40 = tail call double @llvm.fmuladd.f64(double %37, double %39, double %35)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -4792,18 +4792,18 @@ arkode_butcher_mv.exit55:                         ; preds = %28
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
   %indvars.iv40.i61 = phi i64 [ 0, %.preheader.us.preheader.i59 ], [ %indvars.iv.next41.i67, %._crit_edge.us.i66 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i61
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i61
   %45 = load ptr, ptr %44, align 8, !tbaa !12
-  %46 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i61
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i61
   %.promoted.us.i62 = load double, ptr %46, align 8, !tbaa !18
   br label %47
 
 47:                                               ; preds = %47, %.preheader.us.i60
   %indvars.iv.i63 = phi i64 [ 0, %.preheader.us.i60 ], [ %indvars.iv.next.i64, %47 ]
   %48 = phi double [ %.promoted.us.i62, %.preheader.us.i60 ], [ %53, %47 ]
-  %49 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv.i63
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i63
   %50 = load double, ptr %49, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i63
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i63
   %52 = load double, ptr %51, align 8, !tbaa !18
   %53 = tail call double @llvm.fmuladd.f64(double %50, double %52, double %48)
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -4828,12 +4828,12 @@ arkode_butcher_mv.exit70:                         ; preds = %41
 
 .preheader.i:                                     ; preds = %54, %.preheader.i
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.preheader.i ], [ 0, %54 ]
-  %56 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i74
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i74
   %57 = load double, ptr %56, align 8, !tbaa !18
-  %58 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i74
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i74
   %59 = load double, ptr %58, align 8, !tbaa !18
   %60 = fmul double %57, %59
-  %61 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i74
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i74
   store double %60, ptr %61, align 8, !tbaa !18
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %16
@@ -4851,9 +4851,9 @@ arkode_butcher_vv.exit:                           ; preds = %54
 .preheader:                                       ; preds = %62, %.preheader
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.preheader ], [ 0, %62 ]
   %64 = phi double [ %69, %.preheader ], [ 0.000000e+00, %62 ]
-  %65 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i80
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i80
   %66 = load double, ptr %65, align 8, !tbaa !18
-  %67 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i80
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i80
   %68 = load double, ptr %67, align 8, !tbaa !18
   %69 = tail call double @llvm.fmuladd.f64(double %66, double %68, double %64)
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
@@ -4895,12 +4895,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6g(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4919,12 +4919,12 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.i40:                                   ; preds = %21, %.preheader.i40
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.preheader.i40 ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i41
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i41
   %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i41
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i41
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = fmul double %25, %27
-  %29 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i41
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i41
   store double %28, ptr %29, align 8, !tbaa !18
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i
@@ -4946,18 +4946,18 @@ arkode_butcher_vv.exit45:                         ; preds = %21
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i
   %34 = load ptr, ptr %33, align 8, !tbaa !12
-  %35 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %35, align 8, !tbaa !18
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.i
   %indvars.iv.i49 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i50, %36 ]
   %37 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %42, %36 ]
-  %38 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i49
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i49
   %39 = load double, ptr %38, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i49
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i49
   %41 = load double, ptr %40, align 8, !tbaa !18
   %42 = tail call double @llvm.fmuladd.f64(double %39, double %41, double %37)
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
@@ -4981,12 +4981,12 @@ arkode_butcher_mv.exit:                           ; preds = %30
 
 .preheader.i57:                                   ; preds = %43, %.preheader.i57
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i59, %.preheader.i57 ], [ 0, %43 ]
-  %45 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i58
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i58
   %46 = load double, ptr %45, align 8, !tbaa !18
-  %47 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i58
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i58
   %48 = load double, ptr %47, align 8, !tbaa !18
   %49 = fmul double %46, %48
-  %50 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i58
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i58
   store double %49, ptr %50, align 8, !tbaa !18
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
@@ -5004,9 +5004,9 @@ arkode_butcher_vv.exit62:                         ; preds = %43
 .preheader:                                       ; preds = %51, %.preheader
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i67, %.preheader ], [ 0, %51 ]
   %53 = phi double [ %58, %.preheader ], [ 0.000000e+00, %51 ]
-  %54 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i66
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i66
   %55 = load double, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i66
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i66
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %53)
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
@@ -5048,18 +5048,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6h(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
   %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5085,12 +5085,12 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.i:                                     ; preds = %27, %.preheader.i
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %27 ]
-  %30 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i38
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i38
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = fmul double %31, %33
-  %35 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i38
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i38
   store double %34, ptr %35, align 8, !tbaa !18
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %15
@@ -5111,18 +5111,18 @@ arkode_butcher_vv.exit:                           ; preds = %27
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
   %indvars.iv40.i46 = phi i64 [ 0, %.preheader.us.preheader.i44 ], [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i46
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i46
   %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i46
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i46
   %.promoted.us.i47 = load double, ptr %40, align 8, !tbaa !18
   br label %41
 
 41:                                               ; preds = %41, %.preheader.us.i45
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.us.i45 ], [ %indvars.iv.next.i49, %41 ]
   %42 = phi double [ %.promoted.us.i47, %.preheader.us.i45 ], [ %47, %41 ]
-  %43 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.i48
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i48
   %44 = load double, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i48
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i48
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %46, double %42)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -5146,12 +5146,12 @@ arkode_butcher_mv.exit55:                         ; preds = %36
 
 .preheader.i61:                                   ; preds = %48, %.preheader.i61
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %.preheader.i61 ], [ 0, %48 ]
-  %50 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i62
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i62
   %51 = load double, ptr %50, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i62
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i62
   %53 = load double, ptr %52, align 8, !tbaa !18
   %54 = fmul double %51, %53
-  %55 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i62
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i62
   store double %54, ptr %55, align 8, !tbaa !18
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %15
@@ -5169,9 +5169,9 @@ arkode_butcher_vv.exit66:                         ; preds = %48
 .preheader:                                       ; preds = %56, %.preheader
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.preheader ], [ 0, %56 ]
   %58 = phi double [ %63, %.preheader ], [ 0.000000e+00, %56 ]
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i70
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i70
   %60 = load double, ptr %59, align 8, !tbaa !18
-  %61 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i70
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i70
   %62 = load double, ptr %61, align 8, !tbaa !18
   %63 = tail call double @llvm.fmuladd.f64(double %60, double %62, double %58)
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
@@ -5212,12 +5212,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6i(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5240,18 +5240,18 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %27, align 8, !tbaa !18
   br label %28
 
 28:                                               ; preds = %28, %.preheader.us.i
   %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %28 ]
   %29 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %34, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i38
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i38
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %29)
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
@@ -5279,18 +5279,18 @@ arkode_butcher_mv.exit:                           ; preds = %21
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
   %indvars.iv40.i46 = phi i64 [ 0, %.preheader.us.preheader.i44 ], [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i46
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i46
   %38 = load ptr, ptr %37, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i46
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i46
   %.promoted.us.i47 = load double, ptr %39, align 8, !tbaa !18
   br label %40
 
 40:                                               ; preds = %40, %.preheader.us.i45
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.us.i45 ], [ %indvars.iv.next.i49, %40 ]
   %41 = phi double [ %.promoted.us.i47, %.preheader.us.i45 ], [ %46, %40 ]
-  %42 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.i48
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i48
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i48
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i48
   %45 = load double, ptr %44, align 8, !tbaa !18
   %46 = tail call double @llvm.fmuladd.f64(double %43, double %45, double %41)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -5314,12 +5314,12 @@ arkode_butcher_mv.exit55:                         ; preds = %35
 
 .preheader.i61:                                   ; preds = %47, %.preheader.i61
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %.preheader.i61 ], [ 0, %47 ]
-  %49 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i62
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i62
   %50 = load double, ptr %49, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i62
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i62
   %52 = load double, ptr %51, align 8, !tbaa !18
   %53 = fmul double %50, %52
-  %54 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i62
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i62
   store double %53, ptr %54, align 8, !tbaa !18
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i
@@ -5337,9 +5337,9 @@ arkode_butcher_vv.exit66:                         ; preds = %47
 .preheader:                                       ; preds = %55, %.preheader
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.preheader ], [ 0, %55 ]
   %57 = phi double [ %62, %.preheader ], [ 0.000000e+00, %55 ]
-  %58 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i70
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i70
   %59 = load double, ptr %58, align 8, !tbaa !18
-  %60 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i70
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i70
   %61 = load double, ptr %60, align 8, !tbaa !18
   %62 = tail call double @llvm.fmuladd.f64(double %59, double %61, double %57)
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
@@ -5381,18 +5381,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6j(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
   %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5418,18 +5418,18 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.us.i39:                                ; preds = %27, %._crit_edge.us.i45
   %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %27 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i40
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i40
   %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i40
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i40
   %.promoted.us.i41 = load double, ptr %32, align 8, !tbaa !18
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.i39
   %indvars.iv.i42 = phi i64 [ 0, %.preheader.us.i39 ], [ %indvars.iv.next.i43, %33 ]
   %34 = phi double [ %.promoted.us.i41, %.preheader.us.i39 ], [ %39, %33 ]
-  %35 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.i42
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i42
   %36 = load double, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i42
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i42
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = tail call double @llvm.fmuladd.f64(double %36, double %38, double %34)
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
@@ -5457,18 +5457,18 @@ arkode_butcher_mv.exit49:                         ; preds = %27
 
 .preheader.us.i54:                                ; preds = %._crit_edge.us.i60, %.preheader.us.preheader.i53
   %indvars.iv40.i55 = phi i64 [ 0, %.preheader.us.preheader.i53 ], [ %indvars.iv.next41.i61, %._crit_edge.us.i60 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i55
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i55
   %43 = load ptr, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i55
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i55
   %.promoted.us.i56 = load double, ptr %44, align 8, !tbaa !18
   br label %45
 
 45:                                               ; preds = %45, %.preheader.us.i54
   %indvars.iv.i57 = phi i64 [ 0, %.preheader.us.i54 ], [ %indvars.iv.next.i58, %45 ]
   %46 = phi double [ %.promoted.us.i56, %.preheader.us.i54 ], [ %51, %45 ]
-  %47 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv.i57
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i57
   %48 = load double, ptr %47, align 8, !tbaa !18
-  %49 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i57
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i57
   %50 = load double, ptr %49, align 8, !tbaa !18
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %50, double %46)
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
@@ -5492,12 +5492,12 @@ arkode_butcher_mv.exit64:                         ; preds = %40
 
 .preheader.i:                                     ; preds = %52, %.preheader.i
   %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %.preheader.i ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i68
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i68
   %55 = load double, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i68
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i68
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = fmul double %55, %57
-  %59 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i68
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i68
   store double %58, ptr %59, align 8, !tbaa !18
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %15
@@ -5515,9 +5515,9 @@ arkode_butcher_vv.exit:                           ; preds = %52
 .preheader:                                       ; preds = %60, %.preheader
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.preheader ], [ 0, %60 ]
   %62 = phi double [ %67, %.preheader ], [ 0.000000e+00, %60 ]
-  %63 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i74
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i74
   %64 = load double, ptr %63, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i74
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i74
   %66 = load double, ptr %65, align 8, !tbaa !18
   %67 = tail call double @llvm.fmuladd.f64(double %64, double %66, double %62)
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
@@ -5558,12 +5558,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6k(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5582,12 +5582,12 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.i40:                                   ; preds = %21, %.preheader.i40
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.preheader.i40 ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i41
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i41
   %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i41
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i41
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = fmul double %25, %27
-  %29 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i41
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i41
   store double %28, ptr %29, align 8, !tbaa !18
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i
@@ -5604,12 +5604,12 @@ arkode_butcher_vv.exit45:                         ; preds = %21
 
 .preheader.i51:                                   ; preds = %30, %.preheader.i51
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.preheader.i51 ], [ 0, %30 ]
-  %32 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i52
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i52
   %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i52
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i52
   %35 = load double, ptr %34, align 8, !tbaa !18
   %36 = fmul double %33, %35
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i52
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i52
   store double %36, ptr %37, align 8, !tbaa !18
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i
@@ -5631,18 +5631,18 @@ arkode_butcher_vv.exit56:                         ; preds = %30
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i
   %42 = load ptr, ptr %41, align 8, !tbaa !12
-  %43 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %43, align 8, !tbaa !18
   br label %44
 
 44:                                               ; preds = %44, %.preheader.us.i
   %indvars.iv.i60 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i61, %44 ]
   %45 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %50, %44 ]
-  %46 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.i60
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i60
   %47 = load double, ptr %46, align 8, !tbaa !18
-  %48 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i60
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i60
   %49 = load double, ptr %48, align 8, !tbaa !18
   %50 = tail call double @llvm.fmuladd.f64(double %47, double %49, double %45)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
@@ -5667,9 +5667,9 @@ arkode_butcher_mv.exit:                           ; preds = %38
 .preheader:                                       ; preds = %51, %.preheader
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i67, %.preheader ], [ 0, %51 ]
   %53 = phi double [ %58, %.preheader ], [ 0.000000e+00, %51 ]
-  %54 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i66
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i66
   %55 = load double, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i66
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i66
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %53)
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
@@ -5711,18 +5711,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6l(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
   %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5748,12 +5748,12 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.i:                                     ; preds = %27, %.preheader.i
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %27 ]
-  %30 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i38
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i38
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = fmul double %31, %33
-  %35 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i38
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i38
   store double %34, ptr %35, align 8, !tbaa !18
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %15
@@ -5770,12 +5770,12 @@ arkode_butcher_vv.exit:                           ; preds = %27
 
 .preheader.i46:                                   ; preds = %36, %.preheader.i46
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.preheader.i46 ], [ 0, %36 ]
-  %38 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i47
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i47
   %39 = load double, ptr %38, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i47
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i47
   %41 = load double, ptr %40, align 8, !tbaa !18
   %42 = fmul double %39, %41
-  %43 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i47
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i47
   store double %42, ptr %43, align 8, !tbaa !18
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %15
@@ -5796,18 +5796,18 @@ arkode_butcher_vv.exit51:                         ; preds = %36
 
 .preheader.us.i56:                                ; preds = %._crit_edge.us.i62, %.preheader.us.preheader.i55
   %indvars.iv40.i57 = phi i64 [ 0, %.preheader.us.preheader.i55 ], [ %indvars.iv.next41.i63, %._crit_edge.us.i62 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i57
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i57
   %47 = load ptr, ptr %46, align 8, !tbaa !12
-  %48 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i57
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i57
   %.promoted.us.i58 = load double, ptr %48, align 8, !tbaa !18
   br label %49
 
 49:                                               ; preds = %49, %.preheader.us.i56
   %indvars.iv.i59 = phi i64 [ 0, %.preheader.us.i56 ], [ %indvars.iv.next.i60, %49 ]
   %50 = phi double [ %.promoted.us.i58, %.preheader.us.i56 ], [ %55, %49 ]
-  %51 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv.i59
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i59
   %52 = load double, ptr %51, align 8, !tbaa !18
-  %53 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i59
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i59
   %54 = load double, ptr %53, align 8, !tbaa !18
   %55 = tail call double @llvm.fmuladd.f64(double %52, double %54, double %50)
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
@@ -5832,9 +5832,9 @@ arkode_butcher_mv.exit66:                         ; preds = %44
 .preheader:                                       ; preds = %56, %.preheader
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.preheader ], [ 0, %56 ]
   %58 = phi double [ %63, %.preheader ], [ 0.000000e+00, %56 ]
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i70
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i70
   %60 = load double, ptr %59, align 8, !tbaa !18
-  %61 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i70
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i70
   %62 = load double, ptr %61, align 8, !tbaa !18
   %63 = tail call double @llvm.fmuladd.f64(double %60, double %62, double %58)
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
@@ -5877,18 +5877,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6m(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %19 = load ptr, ptr %18, align 8, !tbaa !12
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %20, align 8, !tbaa !18
   br label %21
 
 21:                                               ; preds = %21, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %21 ]
   %22 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %27, %21 ]
-  %23 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %26 = load double, ptr %25, align 8, !tbaa !18
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %22)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5917,18 +5917,18 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.us.i44:                                ; preds = %28, %._crit_edge.us.i50
   %indvars.iv40.i45 = phi i64 [ %indvars.iv.next41.i51, %._crit_edge.us.i50 ], [ 0, %28 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i45
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i45
   %33 = load ptr, ptr %32, align 8, !tbaa !12
-  %34 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i45
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i45
   %.promoted.us.i46 = load double, ptr %34, align 8, !tbaa !18
   br label %35
 
 35:                                               ; preds = %35, %.preheader.us.i44
   %indvars.iv.i47 = phi i64 [ 0, %.preheader.us.i44 ], [ %indvars.iv.next.i48, %35 ]
   %36 = phi double [ %.promoted.us.i46, %.preheader.us.i44 ], [ %41, %35 ]
-  %37 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.i47
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i47
   %38 = load double, ptr %37, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i47
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i47
   %40 = load double, ptr %39, align 8, !tbaa !18
   %41 = tail call double @llvm.fmuladd.f64(double %38, double %40, double %36)
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
@@ -5953,12 +5953,12 @@ arkode_butcher_mv.exit54:                         ; preds = %28
 
 .preheader.i:                                     ; preds = %42, %.preheader.i
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i59, %.preheader.i ], [ 0, %42 ]
-  %44 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i58
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i58
   %45 = load double, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i58
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i58
   %47 = load double, ptr %46, align 8, !tbaa !18
   %48 = fmul double %45, %47
-  %49 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i58
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i58
   store double %48, ptr %49, align 8, !tbaa !18
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %16
@@ -5979,18 +5979,18 @@ arkode_butcher_vv.exit:                           ; preds = %42
 
 .preheader.us.i65:                                ; preds = %._crit_edge.us.i71, %.preheader.us.preheader.i64
   %indvars.iv40.i66 = phi i64 [ 0, %.preheader.us.preheader.i64 ], [ %indvars.iv.next41.i72, %._crit_edge.us.i71 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i66
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i66
   %53 = load ptr, ptr %52, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i66
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i66
   %.promoted.us.i67 = load double, ptr %54, align 8, !tbaa !18
   br label %55
 
 55:                                               ; preds = %55, %.preheader.us.i65
   %indvars.iv.i68 = phi i64 [ 0, %.preheader.us.i65 ], [ %indvars.iv.next.i69, %55 ]
   %56 = phi double [ %.promoted.us.i67, %.preheader.us.i65 ], [ %61, %55 ]
-  %57 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv.i68
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i68
   %58 = load double, ptr %57, align 8, !tbaa !18
-  %59 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i68
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i68
   %60 = load double, ptr %59, align 8, !tbaa !18
   %61 = tail call double @llvm.fmuladd.f64(double %58, double %60, double %56)
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
@@ -6016,9 +6016,9 @@ arkode_butcher_mv.exit75:                         ; preds = %50
 .preheader:                                       ; preds = %62, %.preheader
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %.preheader ], [ 0, %62 ]
   %64 = phi double [ %69, %.preheader ], [ 0.000000e+00, %62 ]
-  %65 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i79
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i79
   %66 = load double, ptr %65, align 8, !tbaa !18
-  %67 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i79
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i79
   %68 = load double, ptr %67, align 8, !tbaa !18
   %69 = tail call double @llvm.fmuladd.f64(double %66, double %68, double %64)
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
@@ -6060,12 +6060,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6n(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6088,18 +6088,18 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %27, align 8, !tbaa !18
   br label %28
 
 28:                                               ; preds = %28, %.preheader.us.i
   %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %28 ]
   %29 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %34, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i38
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i38
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %29)
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
@@ -6123,12 +6123,12 @@ arkode_butcher_mv.exit:                           ; preds = %21
 
 .preheader.i46:                                   ; preds = %35, %.preheader.i46
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.preheader.i46 ], [ 0, %35 ]
-  %37 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i47
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i47
   %38 = load double, ptr %37, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i47
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i47
   %40 = load double, ptr %39, align 8, !tbaa !18
   %41 = fmul double %38, %40
-  %42 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i47
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i47
   store double %41, ptr %42, align 8, !tbaa !18
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i
@@ -6149,18 +6149,18 @@ arkode_butcher_vv.exit51:                         ; preds = %35
 
 .preheader.us.i56:                                ; preds = %._crit_edge.us.i62, %.preheader.us.preheader.i55
   %indvars.iv40.i57 = phi i64 [ 0, %.preheader.us.preheader.i55 ], [ %indvars.iv.next41.i63, %._crit_edge.us.i62 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i57
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i57
   %46 = load ptr, ptr %45, align 8, !tbaa !12
-  %47 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i57
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i57
   %.promoted.us.i58 = load double, ptr %47, align 8, !tbaa !18
   br label %48
 
 48:                                               ; preds = %48, %.preheader.us.i56
   %indvars.iv.i59 = phi i64 [ 0, %.preheader.us.i56 ], [ %indvars.iv.next.i60, %48 ]
   %49 = phi double [ %.promoted.us.i58, %.preheader.us.i56 ], [ %54, %48 ]
-  %50 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv.i59
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i59
   %51 = load double, ptr %50, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i59
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i59
   %53 = load double, ptr %52, align 8, !tbaa !18
   %54 = tail call double @llvm.fmuladd.f64(double %51, double %53, double %49)
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
@@ -6185,9 +6185,9 @@ arkode_butcher_mv.exit66:                         ; preds = %43
 .preheader:                                       ; preds = %55, %.preheader
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.preheader ], [ 0, %55 ]
   %57 = phi double [ %62, %.preheader ], [ 0.000000e+00, %55 ]
-  %58 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i70
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i70
   %59 = load double, ptr %58, align 8, !tbaa !18
-  %60 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i70
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i70
   %61 = load double, ptr %60, align 8, !tbaa !18
   %62 = tail call double @llvm.fmuladd.f64(double %59, double %61, double %57)
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
@@ -6229,18 +6229,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6o(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
   %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6266,18 +6266,18 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.us.i39:                                ; preds = %27, %._crit_edge.us.i45
   %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %27 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i40
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i40
   %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i40
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i40
   %.promoted.us.i41 = load double, ptr %32, align 8, !tbaa !18
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.i39
   %indvars.iv.i42 = phi i64 [ 0, %.preheader.us.i39 ], [ %indvars.iv.next.i43, %33 ]
   %34 = phi double [ %.promoted.us.i41, %.preheader.us.i39 ], [ %39, %33 ]
-  %35 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.i42
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i42
   %36 = load double, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i42
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i42
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = tail call double @llvm.fmuladd.f64(double %36, double %38, double %34)
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
@@ -6301,12 +6301,12 @@ arkode_butcher_mv.exit49:                         ; preds = %27
 
 .preheader.i:                                     ; preds = %40, %.preheader.i
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.preheader.i ], [ 0, %40 ]
-  %42 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i53
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i53
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i53
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i53
   %45 = load double, ptr %44, align 8, !tbaa !18
   %46 = fmul double %43, %45
-  %47 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i53
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i53
   store double %46, ptr %47, align 8, !tbaa !18
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %15
@@ -6327,18 +6327,18 @@ arkode_butcher_vv.exit:                           ; preds = %40
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
   %indvars.iv40.i61 = phi i64 [ 0, %.preheader.us.preheader.i59 ], [ %indvars.iv.next41.i67, %._crit_edge.us.i66 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i61
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i61
   %51 = load ptr, ptr %50, align 8, !tbaa !12
-  %52 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i61
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i61
   %.promoted.us.i62 = load double, ptr %52, align 8, !tbaa !18
   br label %53
 
 53:                                               ; preds = %53, %.preheader.us.i60
   %indvars.iv.i63 = phi i64 [ 0, %.preheader.us.i60 ], [ %indvars.iv.next.i64, %53 ]
   %54 = phi double [ %.promoted.us.i62, %.preheader.us.i60 ], [ %59, %53 ]
-  %55 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i63
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i63
   %56 = load double, ptr %55, align 8, !tbaa !18
-  %57 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i63
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i63
   %58 = load double, ptr %57, align 8, !tbaa !18
   %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %54)
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -6363,9 +6363,9 @@ arkode_butcher_mv.exit70:                         ; preds = %48
 .preheader:                                       ; preds = %60, %.preheader
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.preheader ], [ 0, %60 ]
   %62 = phi double [ %67, %.preheader ], [ 0.000000e+00, %60 ]
-  %63 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i74
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i74
   %64 = load double, ptr %63, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i74
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i74
   %66 = load double, ptr %65, align 8, !tbaa !18
   %67 = tail call double @llvm.fmuladd.f64(double %64, double %66, double %62)
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
@@ -6406,12 +6406,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6p(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6430,12 +6430,12 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.i40:                                   ; preds = %21, %.preheader.i40
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.preheader.i40 ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i41
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i41
   %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i41
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i41
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = fmul double %25, %27
-  %29 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i41
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i41
   store double %28, ptr %29, align 8, !tbaa !18
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i
@@ -6457,18 +6457,18 @@ arkode_butcher_vv.exit45:                         ; preds = %21
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i
   %34 = load ptr, ptr %33, align 8, !tbaa !12
-  %35 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %35, align 8, !tbaa !18
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.i
   %indvars.iv.i49 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i50, %36 ]
   %37 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %42, %36 ]
-  %38 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i49
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i49
   %39 = load double, ptr %38, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i49
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i49
   %41 = load double, ptr %40, align 8, !tbaa !18
   %42 = tail call double @llvm.fmuladd.f64(double %39, double %41, double %37)
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
@@ -6496,18 +6496,18 @@ arkode_butcher_mv.exit:                           ; preds = %30
 
 .preheader.us.i56:                                ; preds = %._crit_edge.us.i62, %.preheader.us.preheader.i55
   %indvars.iv40.i57 = phi i64 [ 0, %.preheader.us.preheader.i55 ], [ %indvars.iv.next41.i63, %._crit_edge.us.i62 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i57
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i57
   %46 = load ptr, ptr %45, align 8, !tbaa !12
-  %47 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i57
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i57
   %.promoted.us.i58 = load double, ptr %47, align 8, !tbaa !18
   br label %48
 
 48:                                               ; preds = %48, %.preheader.us.i56
   %indvars.iv.i59 = phi i64 [ 0, %.preheader.us.i56 ], [ %indvars.iv.next.i60, %48 ]
   %49 = phi double [ %.promoted.us.i58, %.preheader.us.i56 ], [ %54, %48 ]
-  %50 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv.i59
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i59
   %51 = load double, ptr %50, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i59
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i59
   %53 = load double, ptr %52, align 8, !tbaa !18
   %54 = tail call double @llvm.fmuladd.f64(double %51, double %53, double %49)
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
@@ -6532,9 +6532,9 @@ arkode_butcher_mv.exit66:                         ; preds = %43
 .preheader:                                       ; preds = %55, %.preheader
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.preheader ], [ 0, %55 ]
   %57 = phi double [ %62, %.preheader ], [ 0.000000e+00, %55 ]
-  %58 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i70
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i70
   %59 = load double, ptr %58, align 8, !tbaa !18
-  %60 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i70
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i70
   %61 = load double, ptr %60, align 8, !tbaa !18
   %62 = tail call double @llvm.fmuladd.f64(double %59, double %61, double %57)
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
@@ -6576,18 +6576,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6q(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
   %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6613,12 +6613,12 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.i:                                     ; preds = %27, %.preheader.i
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %27 ]
-  %30 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i38
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i38
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = fmul double %31, %33
-  %35 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i38
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i38
   store double %34, ptr %35, align 8, !tbaa !18
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %15
@@ -6639,18 +6639,18 @@ arkode_butcher_vv.exit:                           ; preds = %27
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
   %indvars.iv40.i46 = phi i64 [ 0, %.preheader.us.preheader.i44 ], [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i46
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i46
   %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i46
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i46
   %.promoted.us.i47 = load double, ptr %40, align 8, !tbaa !18
   br label %41
 
 41:                                               ; preds = %41, %.preheader.us.i45
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.us.i45 ], [ %indvars.iv.next.i49, %41 ]
   %42 = phi double [ %.promoted.us.i47, %.preheader.us.i45 ], [ %47, %41 ]
-  %43 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.i48
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i48
   %44 = load double, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i48
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i48
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %46, double %42)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -6678,18 +6678,18 @@ arkode_butcher_mv.exit55:                         ; preds = %36
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
   %indvars.iv40.i61 = phi i64 [ 0, %.preheader.us.preheader.i59 ], [ %indvars.iv.next41.i67, %._crit_edge.us.i66 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i61
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i61
   %51 = load ptr, ptr %50, align 8, !tbaa !12
-  %52 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i61
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i61
   %.promoted.us.i62 = load double, ptr %52, align 8, !tbaa !18
   br label %53
 
 53:                                               ; preds = %53, %.preheader.us.i60
   %indvars.iv.i63 = phi i64 [ 0, %.preheader.us.i60 ], [ %indvars.iv.next.i64, %53 ]
   %54 = phi double [ %.promoted.us.i62, %.preheader.us.i60 ], [ %59, %53 ]
-  %55 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i63
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i63
   %56 = load double, ptr %55, align 8, !tbaa !18
-  %57 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i63
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i63
   %58 = load double, ptr %57, align 8, !tbaa !18
   %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %54)
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -6714,9 +6714,9 @@ arkode_butcher_mv.exit70:                         ; preds = %48
 .preheader:                                       ; preds = %60, %.preheader
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.preheader ], [ 0, %60 ]
   %62 = phi double [ %67, %.preheader ], [ 0.000000e+00, %60 ]
-  %63 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i74
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i74
   %64 = load double, ptr %63, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i74
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i74
   %66 = load double, ptr %65, align 8, !tbaa !18
   %67 = tail call double @llvm.fmuladd.f64(double %64, double %66, double %62)
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
@@ -6757,12 +6757,12 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6r(ptr noundef r
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6785,18 +6785,18 @@ arkode_butcher_vv.exit:                           ; preds = %7
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i
   %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %27, align 8, !tbaa !18
   br label %28
 
 28:                                               ; preds = %28, %.preheader.us.i
   %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %28 ]
   %29 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %34, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i38
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i38
   %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %29)
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
@@ -6824,18 +6824,18 @@ arkode_butcher_mv.exit:                           ; preds = %21
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
   %indvars.iv40.i46 = phi i64 [ 0, %.preheader.us.preheader.i44 ], [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i46
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i46
   %38 = load ptr, ptr %37, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i46
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i46
   %.promoted.us.i47 = load double, ptr %39, align 8, !tbaa !18
   br label %40
 
 40:                                               ; preds = %40, %.preheader.us.i45
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.us.i45 ], [ %indvars.iv.next.i49, %40 ]
   %41 = phi double [ %.promoted.us.i47, %.preheader.us.i45 ], [ %46, %40 ]
-  %42 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.i48
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i48
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i48
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i48
   %45 = load double, ptr %44, align 8, !tbaa !18
   %46 = tail call double @llvm.fmuladd.f64(double %43, double %45, double %41)
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -6863,18 +6863,18 @@ arkode_butcher_mv.exit55:                         ; preds = %35
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
   %indvars.iv40.i61 = phi i64 [ 0, %.preheader.us.preheader.i59 ], [ %indvars.iv.next41.i67, %._crit_edge.us.i66 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i61
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i61
   %50 = load ptr, ptr %49, align 8, !tbaa !12
-  %51 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i61
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i61
   %.promoted.us.i62 = load double, ptr %51, align 8, !tbaa !18
   br label %52
 
 52:                                               ; preds = %52, %.preheader.us.i60
   %indvars.iv.i63 = phi i64 [ 0, %.preheader.us.i60 ], [ %indvars.iv.next.i64, %52 ]
   %53 = phi double [ %.promoted.us.i62, %.preheader.us.i60 ], [ %58, %52 ]
-  %54 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv.i63
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i63
   %55 = load double, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i63
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i63
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %53)
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -6899,9 +6899,9 @@ arkode_butcher_mv.exit70:                         ; preds = %47
 .preheader:                                       ; preds = %59, %.preheader
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.preheader ], [ 0, %59 ]
   %61 = phi double [ %66, %.preheader ], [ 0.000000e+00, %59 ]
-  %62 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i74
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i74
   %63 = load double, ptr %62, align 8, !tbaa !18
-  %64 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i74
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i74
   %65 = load double, ptr %64, align 8, !tbaa !18
   %66 = tail call double @llvm.fmuladd.f64(double %63, double %65, double %61)
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
@@ -6943,18 +6943,18 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6s(ptr noundef r
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv40.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i
   %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
   %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6980,18 +6980,18 @@ arkode_butcher_mv.exit:                           ; preds = %7
 
 .preheader.us.i39:                                ; preds = %27, %._crit_edge.us.i45
   %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %27 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i40
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40.i40
   %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i40
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i40
   %.promoted.us.i41 = load double, ptr %32, align 8, !tbaa !18
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.i39
   %indvars.iv.i42 = phi i64 [ 0, %.preheader.us.i39 ], [ %indvars.iv.next.i43, %33 ]
   %34 = phi double [ %.promoted.us.i41, %.preheader.us.i39 ], [ %39, %33 ]
-  %35 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.i42
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i42
   %36 = load double, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i42
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i42
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = tail call double @llvm.fmuladd.f64(double %36, double %38, double %34)
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
@@ -7019,18 +7019,18 @@ arkode_butcher_mv.exit49:                         ; preds = %27
 
 .preheader.us.i54:                                ; preds = %._crit_edge.us.i60, %.preheader.us.preheader.i53
   %indvars.iv40.i55 = phi i64 [ 0, %.preheader.us.preheader.i53 ], [ %indvars.iv.next41.i61, %._crit_edge.us.i60 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i55
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40.i55
   %43 = load ptr, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i55
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv40.i55
   %.promoted.us.i56 = load double, ptr %44, align 8, !tbaa !18
   br label %45
 
 45:                                               ; preds = %45, %.preheader.us.i54
   %indvars.iv.i57 = phi i64 [ 0, %.preheader.us.i54 ], [ %indvars.iv.next.i58, %45 ]
   %46 = phi double [ %.promoted.us.i56, %.preheader.us.i54 ], [ %51, %45 ]
-  %47 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv.i57
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i57
   %48 = load double, ptr %47, align 8, !tbaa !18
-  %49 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i57
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i57
   %50 = load double, ptr %49, align 8, !tbaa !18
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %50, double %46)
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
@@ -7058,18 +7058,18 @@ arkode_butcher_mv.exit64:                         ; preds = %40
 
 .preheader.us.i69:                                ; preds = %._crit_edge.us.i75, %.preheader.us.preheader.i68
   %indvars.iv40.i70 = phi i64 [ 0, %.preheader.us.preheader.i68 ], [ %indvars.iv.next41.i76, %._crit_edge.us.i75 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i70
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40.i70
   %55 = load ptr, ptr %54, align 8, !tbaa !12
-  %56 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i70
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv40.i70
   %.promoted.us.i71 = load double, ptr %56, align 8, !tbaa !18
   br label %57
 
 57:                                               ; preds = %57, %.preheader.us.i69
   %indvars.iv.i72 = phi i64 [ 0, %.preheader.us.i69 ], [ %indvars.iv.next.i73, %57 ]
   %58 = phi double [ %.promoted.us.i71, %.preheader.us.i69 ], [ %63, %57 ]
-  %59 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv.i72
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i72
   %60 = load double, ptr %59, align 8, !tbaa !18
-  %61 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i72
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i72
   %62 = load double, ptr %61, align 8, !tbaa !18
   %63 = tail call double @llvm.fmuladd.f64(double %60, double %62, double %58)
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
@@ -7094,9 +7094,9 @@ arkode_butcher_mv.exit79:                         ; preds = %52
 .preheader:                                       ; preds = %64, %.preheader
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %.preheader ], [ 0, %64 ]
   %66 = phi double [ %71, %.preheader ], [ 0.000000e+00, %64 ]
-  %67 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i82
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i82
   %68 = load double, ptr %67, align 8, !tbaa !18
-  %69 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i82
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i82
   %70 = load double, ptr %69, align 8, !tbaa !18
   %71 = tail call double @llvm.fmuladd.f64(double %68, double %70, double %66)
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
@@ -7135,10 +7135,10 @@ define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef readonly
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
-  %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %11 = load double, ptr %10, align 8, !tbaa !18
   %12 = tail call double @SUNRpowerI(double noundef %11, i32 noundef range(i32 -2147483648, 999) %9) #18
-  %13 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store double %12, ptr %13, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -7147,9 +7147,9 @@ define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef readonly
 .preheader164:                                    ; preds = %.preheader.i, %.preheader164
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %.preheader164 ], [ 0, %.preheader.i ]
   %14 = phi double [ %19, %.preheader164 ], [ 0.000000e+00, %.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i94
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i94
   %16 = load double, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i94
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i94
   %18 = load double, ptr %17, align 8, !tbaa !18
   %19 = tail call double @llvm.fmuladd.f64(double %16, double %18, double %14)
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
@@ -7192,17 +7192,17 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
 
 .preheader.i100.us:                               ; preds = %.preheader.i100.us, %.preheader.preheader.i98.us
   %indvars.iv.i101.us = phi i64 [ 0, %.preheader.preheader.i98.us ], [ %indvars.iv.next.i102.us, %.preheader.i100.us ]
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i101.us
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i101.us
   %32 = load double, ptr %31, align 8, !tbaa !18
   %33 = tail call double @SUNRpowerI(double noundef %32, i32 noundef range(i32 -2147483648, 999) %28) #18
-  %34 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i101.us
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i101.us
   store double %33, ptr %34, align 8, !tbaa !18
   %indvars.iv.next.i102.us = add nuw nsw i64 %indvars.iv.i101.us, 1
   %exitcond.not.i103.us = icmp eq i64 %indvars.iv.next.i102.us, %wide.trip.count.i
   br i1 %exitcond.not.i103.us, label %35, label %.preheader.i100.us
 
 35:                                               ; preds = %.preheader.i100.us
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = icmp eq ptr %37, null
   br i1 %38, label %arkode_butcher_vp.exit, label %.preheader
@@ -7210,9 +7210,9 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
 .preheader:                                       ; preds = %35, %.preheader
   %indvars.iv.i108.us = phi i64 [ %indvars.iv.next.i109.us, %.preheader ], [ 0, %35 ]
   %39 = phi double [ %44, %.preheader ], [ 0.000000e+00, %35 ]
-  %40 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv.i108.us
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i108.us
   %41 = load double, ptr %40, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i108.us
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i108.us
   %43 = load double, ptr %42, align 8, !tbaa !18
   %44 = tail call double @llvm.fmuladd.f64(double %41, double %43, double %39)
   %indvars.iv.next.i109.us = add nuw nsw i64 %indvars.iv.i108.us, 1
@@ -7220,7 +7220,7 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   br i1 %exitcond.not.i110.us, label %45, label %.preheader
 
 45:                                               ; preds = %.preheader
-  %46 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %47 = load double, ptr %46, align 8, !tbaa !18
   %48 = tail call double @SUNRpowerI(double noundef %47, i32 noundef %.075145.us) #18
   %49 = fdiv double %48, %29
@@ -7253,14 +7253,14 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
 57:                                               ; preds = %57, %.preheader.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %57 ], [ 0, %.preheader.us.us ]
   %.5148.us.us = phi double [ %68, %57 ], [ 0.000000e+00, %.preheader.us.us ]
-  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv178
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv178
   %59 = load ptr, ptr %58, align 8, !tbaa !12
-  %60 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv183
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv183
   %61 = load double, ptr %60, align 8, !tbaa !18
-  %62 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv178
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv178
   %63 = load double, ptr %62, align 8, !tbaa !18
   %64 = fmul double %61, %63
-  %65 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv178
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv178
   %66 = load double, ptr %65, align 8, !tbaa !18
   %67 = tail call double @SUNRpowerI(double noundef %66, i32 noundef %55) #18
   %68 = tail call double @llvm.fmuladd.f64(double %64, double %67, double %.5148.us.us)
@@ -7274,10 +7274,10 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   br i1 %exitcond187.not, label %..critedge92_crit_edge.split.us.us, label %.preheader.us.us
 
 ._crit_edge.us.us:                                ; preds = %57
-  %70 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv183
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv183
   %71 = load double, ptr %70, align 8, !tbaa !18
   %72 = fdiv double %71, %56
-  %73 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv183
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv183
   %74 = load double, ptr %73, align 8, !tbaa !18
   %75 = tail call double @SUNRpowerI(double noundef %74, i32 noundef %.176154.us) #18
   %76 = fsub double 1.000000e+00, %75
@@ -7361,7 +7361,7 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit, label %15
@@ -7403,7 +7403,7 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
 
 .lr.ph2979:                                       ; preds = %.lr.ph2979.preheader, %35
   %indvars.iv3820 = phi i64 [ 0, %.lr.ph2979.preheader ], [ %indvars.iv.next3821, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv3820
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv3820
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit, label %35
@@ -7446,14 +7446,14 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
 
 .preheader.us.i:                                  ; preds = %58, %.preheader.us.preheader.i
   %indvars.iv26.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next27.i, %58 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv26.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv26.i
   %53 = load ptr, ptr %52, align 8, !tbaa !12
   br label %54
 
 54:                                               ; preds = %54, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %54 ]
   %.018.us.i = phi double [ 0.000000e+00, %.preheader.us.i ], [ %57, %54 ]
-  %55 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i
   %56 = load double, ptr %55, align 8, !tbaa !18
   %57 = fadd double %.018.us.i, %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7466,7 +7466,7 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
   br i1 %exitcond30.not.i, label %.preheader.us.i2253, label %.preheader.us.i
 
 ._crit_edge.us.i:                                 ; preds = %54
-  %59 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv26.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv26.i
   %60 = load double, ptr %59, align 8, !tbaa !18
   %61 = fsub double %57, %60
   %62 = tail call double @llvm.fabs.f64(double %61)
@@ -7475,14 +7475,14 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
 
 .preheader.us.i2253:                              ; preds = %58, %70
   %indvars.iv26.i2254 = phi i64 [ %indvars.iv.next27.i2260, %70 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv26.i2254
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv26.i2254
   %65 = load ptr, ptr %64, align 8, !tbaa !12
   br label %66
 
 66:                                               ; preds = %66, %.preheader.us.i2253
   %indvars.iv.i2255 = phi i64 [ 0, %.preheader.us.i2253 ], [ %indvars.iv.next.i2257, %66 ]
   %.018.us.i2256 = phi double [ 0.000000e+00, %.preheader.us.i2253 ], [ %69, %66 ]
-  %67 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv.i2255
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i2255
   %68 = load double, ptr %67, align 8, !tbaa !18
   %69 = fadd double %.018.us.i2256, %68
   %indvars.iv.next.i2257 = add nuw nsw i64 %indvars.iv.i2255, 1
@@ -7495,7 +7495,7 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
   br i1 %exitcond30.not.i2261, label %.thread2557, label %.preheader.us.i2253
 
 ._crit_edge.us.i2259:                             ; preds = %66
-  %71 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv26.i2254
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv26.i2254
   %72 = load double, ptr %71, align 8, !tbaa !18
   %73 = fsub double %69, %72
   %74 = tail call double @llvm.fabs.f64(double %73)
@@ -7522,7 +7522,7 @@ arkode_butcher_rowsum.exit:                       ; preds = %._crit_edge.us.i, %
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i2263 = phi i64 [ %indvars.iv.next.i2264, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.08.i = phi double [ %81, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.i.preheader ]
-  %79 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i2263
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i2263
   %80 = load double, ptr %79, align 8, !tbaa !18
   %81 = fsub double %.08.i, %80
   %indvars.iv.next.i2264 = add nuw nsw i64 %indvars.iv.i2263, 1
@@ -7537,7 +7537,7 @@ arkode_butcher_order1.exit:                       ; preds = %.lr.ph.i
 .lr.ph.i2269:                                     ; preds = %arkode_butcher_order1.exit, %.lr.ph.i2269
   %indvars.iv.i2270 = phi i64 [ %indvars.iv.next.i2272, %.lr.ph.i2269 ], [ 0, %arkode_butcher_order1.exit ]
   %.08.i2271 = phi double [ %86, %.lr.ph.i2269 ], [ 1.000000e+00, %arkode_butcher_order1.exit ]
-  %84 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i2270
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i2270
   %85 = load double, ptr %84, align 8, !tbaa !18
   %86 = fsub double %.08.i2271, %85
   %indvars.iv.next.i2272 = add nuw nsw i64 %indvars.iv.i2270, 1
@@ -7593,9 +7593,9 @@ thread-pre-split:                                 ; preds = %89, %76
 .preheader3715:                                   ; preds = %96, %.preheader3715
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader3715 ], [ 0, %96 ]
   %101 = phi double [ %106, %.preheader3715 ], [ 0.000000e+00, %96 ]
-  %102 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i.i
   %103 = load double, ptr %102, align 8, !tbaa !18
-  %104 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i.i
   %105 = load double, ptr %104, align 8, !tbaa !18
   %106 = tail call double @llvm.fmuladd.f64(double %103, double %105, double %101)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7673,12 +7673,12 @@ thread-pre-split2563:                             ; preds = %thread-pre-split, %
 
 .preheader.i.i:                                   ; preds = %123, %.preheader.i.i
   %indvars.iv.i.i2279 = phi i64 [ %indvars.iv.next.i.i2280, %.preheader.i.i ], [ 0, %123 ]
-  %131 = getelementptr inbounds nuw double, ptr %125, i64 %indvars.iv.i.i2279
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv.i.i2279
   %132 = load double, ptr %131, align 8, !tbaa !18
-  %133 = getelementptr inbounds nuw double, ptr %126, i64 %indvars.iv.i.i2279
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.i.i2279
   %134 = load double, ptr %133, align 8, !tbaa !18
   %135 = fmul double %132, %134
-  %136 = getelementptr inbounds nuw double, ptr %127, i64 %indvars.iv.i.i2279
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i.i2279
   store double %135, ptr %136, align 8, !tbaa !18
   %indvars.iv.next.i.i2280 = add nuw nsw i64 %indvars.iv.i.i2279, 1
   %exitcond.not.i.i2281 = icmp eq i64 %indvars.iv.next.i.i2280, %wide.trip.count29.i
@@ -7695,9 +7695,9 @@ arkode_butcher_vv.exit.i:                         ; preds = %123
 .preheader2936:                                   ; preds = %137, %.preheader2936
   %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader2936 ], [ 0, %137 ]
   %139 = phi double [ %144, %.preheader2936 ], [ 0.000000e+00, %137 ]
-  %140 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv.i14.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.i14.i
   %141 = load double, ptr %140, align 8, !tbaa !18
-  %142 = getelementptr inbounds nuw double, ptr %127, i64 %indvars.iv.i14.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i14.i
   %143 = load double, ptr %142, align 8, !tbaa !18
   %144 = tail call double @llvm.fmuladd.f64(double %141, double %143, double %139)
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
@@ -7767,18 +7767,18 @@ arkode_butcher_order3a.exit:                      ; preds = %145, %137, %arkode_
 
 .preheader.us.i.i:                                ; preds = %161, %._crit_edge.us.i.i
   %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %._crit_edge.us.i.i ], [ 0, %161 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv40.i.i
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv40.i.i
   %170 = load ptr, ptr %169, align 8, !tbaa !12
-  %171 = getelementptr inbounds nuw double, ptr %165, i64 %indvars.iv40.i.i
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv40.i.i
   %.promoted.us.i.i = load double, ptr %171, align 8, !tbaa !18
   br label %172
 
 172:                                              ; preds = %172, %.preheader.us.i.i
   %indvars.iv.i.i2286 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i2287, %172 ]
   %173 = phi double [ %.promoted.us.i.i, %.preheader.us.i.i ], [ %178, %172 ]
-  %174 = getelementptr inbounds nuw double, ptr %170, i64 %indvars.iv.i.i2286
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %indvars.iv.i.i2286
   %175 = load double, ptr %174, align 8, !tbaa !18
-  %176 = getelementptr inbounds nuw double, ptr %164, i64 %indvars.iv.i.i2286
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %indvars.iv.i.i2286
   %177 = load double, ptr %176, align 8, !tbaa !18
   %178 = tail call double @llvm.fmuladd.f64(double %175, double %177, double %173)
   %indvars.iv.next.i.i2287 = add nuw nsw i64 %indvars.iv.i.i2286, 1
@@ -7802,9 +7802,9 @@ arkode_butcher_mv.exit.i:                         ; preds = %161
 .preheader2933:                                   ; preds = %179, %.preheader2933
   %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i14.i, %.preheader2933 ], [ 0, %179 ]
   %181 = phi double [ %186, %.preheader2933 ], [ 0.000000e+00, %179 ]
-  %182 = getelementptr inbounds nuw double, ptr %162, i64 %indvars.iv.i13.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv.i13.i
   %183 = load double, ptr %182, align 8, !tbaa !18
-  %184 = getelementptr inbounds nuw double, ptr %165, i64 %indvars.iv.i13.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv.i13.i
   %185 = load double, ptr %184, align 8, !tbaa !18
   %186 = tail call double @llvm.fmuladd.f64(double %183, double %185, double %181)
   %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
@@ -7894,12 +7894,12 @@ thread-pre-split2567:                             ; preds = %arkode_butcher_orde
 
 .preheader.i.i2295:                               ; preds = %205, %.preheader.i.i2295
   %indvars.iv.i.i2296 = phi i64 [ %indvars.iv.next.i.i2297, %.preheader.i.i2295 ], [ 0, %205 ]
-  %215 = getelementptr inbounds nuw double, ptr %207, i64 %indvars.iv.i.i2296
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv.i.i2296
   %216 = load double, ptr %215, align 8, !tbaa !18
-  %217 = getelementptr inbounds nuw double, ptr %208, i64 %indvars.iv.i.i2296
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %indvars.iv.i.i2296
   %218 = load double, ptr %217, align 8, !tbaa !18
   %219 = fmul double %216, %218
-  %220 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv.i.i2296
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv.i.i2296
   store double %219, ptr %220, align 8, !tbaa !18
   %indvars.iv.next.i.i2297 = add nuw nsw i64 %indvars.iv.i.i2296, 1
   %exitcond.not.i.i2298 = icmp eq i64 %indvars.iv.next.i.i2297, %wide.trip.count29.i
@@ -7918,12 +7918,12 @@ arkode_butcher_vv.exit.i2300:                     ; preds = %205
 
 .preheader.i26.i:                                 ; preds = %221, %.preheader.i26.i
   %indvars.iv.i27.i = phi i64 [ %indvars.iv.next.i28.i, %.preheader.i26.i ], [ 0, %221 ]
-  %224 = getelementptr inbounds nuw double, ptr %209, i64 %indvars.iv.i27.i
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %indvars.iv.i27.i
   %225 = load double, ptr %224, align 8, !tbaa !18
-  %226 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv.i27.i
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv.i27.i
   %227 = load double, ptr %226, align 8, !tbaa !18
   %228 = fmul double %225, %227
-  %229 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv.i27.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i27.i
   store double %228, ptr %229, align 8, !tbaa !18
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
   %exitcond.not.i29.i = icmp eq i64 %indvars.iv.next.i28.i, %wide.trip.count29.i
@@ -7941,9 +7941,9 @@ arkode_butcher_vv.exit31.i:                       ; preds = %221
 .preheader2928:                                   ; preds = %230, %.preheader2928
   %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader2928 ], [ 0, %230 ]
   %232 = phi double [ %237, %.preheader2928 ], [ 0.000000e+00, %230 ]
-  %233 = getelementptr inbounds nuw double, ptr %206, i64 %indvars.iv.i35.i
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv.i35.i
   %234 = load double, ptr %233, align 8, !tbaa !18
-  %235 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv.i35.i
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i35.i
   %236 = load double, ptr %235, align 8, !tbaa !18
   %237 = tail call double @llvm.fmuladd.f64(double %234, double %236, double %232)
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
@@ -8025,12 +8025,12 @@ arkode_butcher_order4a.exit:                      ; preds = %238, %230, %arkode_
 
 .preheader.i.i2306:                               ; preds = %256, %.preheader.i.i2306
   %indvars.iv.i.i2307 = phi i64 [ %indvars.iv.next.i.i2308, %.preheader.i.i2306 ], [ 0, %256 ]
-  %266 = getelementptr inbounds nuw double, ptr %257, i64 %indvars.iv.i.i2307
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %indvars.iv.i.i2307
   %267 = load double, ptr %266, align 8, !tbaa !18
-  %268 = getelementptr inbounds nuw double, ptr %258, i64 %indvars.iv.i.i2307
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %indvars.iv.i.i2307
   %269 = load double, ptr %268, align 8, !tbaa !18
   %270 = fmul double %267, %269
-  %271 = getelementptr inbounds nuw double, ptr %261, i64 %indvars.iv.i.i2307
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv.i.i2307
   store double %270, ptr %271, align 8, !tbaa !18
   %indvars.iv.next.i.i2308 = add nuw nsw i64 %indvars.iv.i.i2307, 1
   %exitcond.not.i.i2309 = icmp eq i64 %indvars.iv.next.i.i2308, %wide.trip.count29.i
@@ -8051,18 +8051,18 @@ arkode_butcher_vv.exit.i2319:                     ; preds = %256
 
 .preheader.us.i.i2311:                            ; preds = %272, %._crit_edge.us.i.i2314
   %indvars.iv40.i.i2312 = phi i64 [ %indvars.iv.next41.i.i2315, %._crit_edge.us.i.i2314 ], [ 0, %272 ]
-  %276 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv40.i.i2312
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %indvars.iv40.i.i2312
   %277 = load ptr, ptr %276, align 8, !tbaa !12
-  %278 = getelementptr inbounds nuw double, ptr %262, i64 %indvars.iv40.i.i2312
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %indvars.iv40.i.i2312
   %.promoted.us.i.i2313 = load double, ptr %278, align 8, !tbaa !18
   br label %279
 
 279:                                              ; preds = %279, %.preheader.us.i.i2311
   %indvars.iv.i24.i = phi i64 [ 0, %.preheader.us.i.i2311 ], [ %indvars.iv.next.i25.i, %279 ]
   %280 = phi double [ %.promoted.us.i.i2313, %.preheader.us.i.i2311 ], [ %285, %279 ]
-  %281 = getelementptr inbounds nuw double, ptr %277, i64 %indvars.iv.i24.i
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %indvars.iv.i24.i
   %282 = load double, ptr %281, align 8, !tbaa !18
-  %283 = getelementptr inbounds nuw double, ptr %260, i64 %indvars.iv.i24.i
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv.i24.i
   %284 = load double, ptr %283, align 8, !tbaa !18
   %285 = tail call double @llvm.fmuladd.f64(double %282, double %284, double %280)
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
@@ -8083,9 +8083,9 @@ arkode_butcher_mv.exit.i2318:                     ; preds = %272
 .preheader2924:                                   ; preds = %._crit_edge.us.i.i2314, %.preheader2924
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.preheader2924 ], [ 0, %._crit_edge.us.i.i2314 ]
   %286 = phi double [ %291, %.preheader2924 ], [ 0.000000e+00, %._crit_edge.us.i.i2314 ]
-  %287 = getelementptr inbounds nuw double, ptr %261, i64 %indvars.iv.i30.i
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv.i30.i
   %288 = load double, ptr %287, align 8, !tbaa !18
-  %289 = getelementptr inbounds nuw double, ptr %262, i64 %indvars.iv.i30.i
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %indvars.iv.i30.i
   %290 = load double, ptr %289, align 8, !tbaa !18
   %291 = tail call double @llvm.fmuladd.f64(double %288, double %290, double %286)
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i30.i, 1
@@ -8167,12 +8167,12 @@ arkode_butcher_order4b.exit:                      ; preds = %292, %arkode_butche
 
 .preheader.i.i2325:                               ; preds = %310, %.preheader.i.i2325
   %indvars.iv.i.i2326 = phi i64 [ %indvars.iv.next.i.i2327, %.preheader.i.i2325 ], [ 0, %310 ]
-  %320 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv.i.i2326
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv.i.i2326
   %321 = load double, ptr %320, align 8, !tbaa !18
-  %322 = getelementptr inbounds nuw double, ptr %314, i64 %indvars.iv.i.i2326
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %indvars.iv.i.i2326
   %323 = load double, ptr %322, align 8, !tbaa !18
   %324 = fmul double %321, %323
-  %325 = getelementptr inbounds nuw double, ptr %315, i64 %indvars.iv.i.i2326
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %indvars.iv.i.i2326
   store double %324, ptr %325, align 8, !tbaa !18
   %indvars.iv.next.i.i2327 = add nuw nsw i64 %indvars.iv.i.i2326, 1
   %exitcond.not.i.i2328 = icmp eq i64 %indvars.iv.next.i.i2327, %wide.trip.count29.i
@@ -8191,18 +8191,18 @@ arkode_butcher_vv.exit.i2344:                     ; preds = %310
 
 .preheader.us.i.i2330:                            ; preds = %326, %._crit_edge.us.i.i2336
   %indvars.iv40.i.i2331 = phi i64 [ %indvars.iv.next41.i.i2337, %._crit_edge.us.i.i2336 ], [ 0, %326 ]
-  %329 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv40.i.i2331
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv40.i.i2331
   %330 = load ptr, ptr %329, align 8, !tbaa !12
-  %331 = getelementptr inbounds nuw double, ptr %316, i64 %indvars.iv40.i.i2331
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv40.i.i2331
   %.promoted.us.i.i2332 = load double, ptr %331, align 8, !tbaa !18
   br label %332
 
 332:                                              ; preds = %332, %.preheader.us.i.i2330
   %indvars.iv.i24.i2333 = phi i64 [ 0, %.preheader.us.i.i2330 ], [ %indvars.iv.next.i25.i2334, %332 ]
   %333 = phi double [ %.promoted.us.i.i2332, %.preheader.us.i.i2330 ], [ %338, %332 ]
-  %334 = getelementptr inbounds nuw double, ptr %330, i64 %indvars.iv.i24.i2333
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %indvars.iv.i24.i2333
   %335 = load double, ptr %334, align 8, !tbaa !18
-  %336 = getelementptr inbounds nuw double, ptr %315, i64 %indvars.iv.i24.i2333
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %indvars.iv.i24.i2333
   %337 = load double, ptr %336, align 8, !tbaa !18
   %338 = tail call double @llvm.fmuladd.f64(double %335, double %337, double %333)
   %indvars.iv.next.i25.i2334 = add nuw nsw i64 %indvars.iv.i24.i2333, 1
@@ -8227,9 +8227,9 @@ arkode_butcher_mv.exit.i2343:                     ; preds = %326
 .preheader2920:                                   ; preds = %339, %.preheader2920
   %indvars.iv.i30.i2339 = phi i64 [ %indvars.iv.next.i31.i2340, %.preheader2920 ], [ 0, %339 ]
   %341 = phi double [ %346, %.preheader2920 ], [ 0.000000e+00, %339 ]
-  %342 = getelementptr inbounds nuw double, ptr %311, i64 %indvars.iv.i30.i2339
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %indvars.iv.i30.i2339
   %343 = load double, ptr %342, align 8, !tbaa !18
-  %344 = getelementptr inbounds nuw double, ptr %316, i64 %indvars.iv.i30.i2339
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv.i30.i2339
   %345 = load double, ptr %344, align 8, !tbaa !18
   %346 = tail call double @llvm.fmuladd.f64(double %343, double %345, double %341)
   %indvars.iv.next.i31.i2340 = add nuw nsw i64 %indvars.iv.i30.i2339, 1
@@ -8311,18 +8311,18 @@ arkode_butcher_order4c.exit:                      ; preds = %347, %339, %arkode_
 
 .preheader.us.i.i2349:                            ; preds = %365, %._crit_edge.us.i.i2355
   %indvars.iv40.i.i2350 = phi i64 [ %indvars.iv.next41.i.i2356, %._crit_edge.us.i.i2355 ], [ 0, %365 ]
-  %375 = getelementptr inbounds nuw ptr, ptr %368, i64 %indvars.iv40.i.i2350
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %368, i64 %indvars.iv40.i.i2350
   %376 = load ptr, ptr %375, align 8, !tbaa !12
-  %377 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv40.i.i2350
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv40.i.i2350
   %.promoted.us.i.i2351 = load double, ptr %377, align 8, !tbaa !18
   br label %378
 
 378:                                              ; preds = %378, %.preheader.us.i.i2349
   %indvars.iv.i.i2352 = phi i64 [ 0, %.preheader.us.i.i2349 ], [ %indvars.iv.next.i.i2353, %378 ]
   %379 = phi double [ %.promoted.us.i.i2351, %.preheader.us.i.i2349 ], [ %384, %378 ]
-  %380 = getelementptr inbounds nuw double, ptr %376, i64 %indvars.iv.i.i2352
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %indvars.iv.i.i2352
   %381 = load double, ptr %380, align 8, !tbaa !18
-  %382 = getelementptr inbounds nuw double, ptr %369, i64 %indvars.iv.i.i2352
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %indvars.iv.i.i2352
   %383 = load double, ptr %382, align 8, !tbaa !18
   %384 = tail call double @llvm.fmuladd.f64(double %381, double %383, double %379)
   %indvars.iv.next.i.i2353 = add nuw nsw i64 %indvars.iv.i.i2352, 1
@@ -8348,18 +8348,18 @@ arkode_butcher_mv.exit.i2360:                     ; preds = %365
 
 .preheader.us.i25.i:                              ; preds = %385, %._crit_edge.us.i31.i
   %indvars.iv40.i26.i = phi i64 [ %indvars.iv.next41.i32.i, %._crit_edge.us.i31.i ], [ 0, %385 ]
-  %388 = getelementptr inbounds nuw ptr, ptr %367, i64 %indvars.iv40.i26.i
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %indvars.iv40.i26.i
   %389 = load ptr, ptr %388, align 8, !tbaa !12
-  %390 = getelementptr inbounds nuw double, ptr %371, i64 %indvars.iv40.i26.i
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv40.i26.i
   %.promoted.us.i27.i = load double, ptr %390, align 8, !tbaa !18
   br label %391
 
 391:                                              ; preds = %391, %.preheader.us.i25.i
   %indvars.iv.i28.i = phi i64 [ 0, %.preheader.us.i25.i ], [ %indvars.iv.next.i29.i, %391 ]
   %392 = phi double [ %.promoted.us.i27.i, %.preheader.us.i25.i ], [ %397, %391 ]
-  %393 = getelementptr inbounds nuw double, ptr %389, i64 %indvars.iv.i28.i
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %indvars.iv.i28.i
   %394 = load double, ptr %393, align 8, !tbaa !18
-  %395 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv.i28.i
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv.i28.i
   %396 = load double, ptr %395, align 8, !tbaa !18
   %397 = tail call double @llvm.fmuladd.f64(double %394, double %396, double %392)
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 1
@@ -8384,9 +8384,9 @@ arkode_butcher_mv.exit35.i:                       ; preds = %385
 .preheader2916:                                   ; preds = %398, %.preheader2916
   %indvars.iv.i38.i = phi i64 [ %indvars.iv.next.i39.i, %.preheader2916 ], [ 0, %398 ]
   %400 = phi double [ %405, %.preheader2916 ], [ 0.000000e+00, %398 ]
-  %401 = getelementptr inbounds nuw double, ptr %366, i64 %indvars.iv.i38.i
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %indvars.iv.i38.i
   %402 = load double, ptr %401, align 8, !tbaa !18
-  %403 = getelementptr inbounds nuw double, ptr %371, i64 %indvars.iv.i38.i
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv.i38.i
   %404 = load double, ptr %403, align 8, !tbaa !18
   %405 = tail call double @llvm.fmuladd.f64(double %402, double %404, double %400)
   %indvars.iv.next.i39.i = add nuw nsw i64 %indvars.iv.i38.i, 1
@@ -10573,14 +10573,14 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader.us.i2364:                              ; preds = %.preheader.us.i2364.preheader, %1132
   %indvars.iv26.i2365 = phi i64 [ %indvars.iv.next27.i2371, %1132 ], [ 0, %.preheader.us.i2364.preheader ]
-  %1126 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv26.i2365
+  %1126 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv26.i2365
   %1127 = load ptr, ptr %1126, align 8, !tbaa !12
   br label %1128
 
 1128:                                             ; preds = %1128, %.preheader.us.i2364
   %indvars.iv.i2366 = phi i64 [ 0, %.preheader.us.i2364 ], [ %indvars.iv.next.i2368, %1128 ]
   %.018.us.i2367 = phi double [ 0.000000e+00, %.preheader.us.i2364 ], [ %1131, %1128 ]
-  %1129 = getelementptr inbounds nuw double, ptr %1127, i64 %indvars.iv.i2366
+  %1129 = getelementptr inbounds nuw [8 x i8], ptr %1127, i64 %indvars.iv.i2366
   %1130 = load double, ptr %1129, align 8, !tbaa !18
   %1131 = fadd double %.018.us.i2367, %1130
   %indvars.iv.next.i2368 = add nuw nsw i64 %indvars.iv.i2366, 1
@@ -10593,7 +10593,7 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
   br i1 %exitcond30.not.i2372, label %.preheader.us.i2377, label %.preheader.us.i2364
 
 ._crit_edge.us.i2370:                             ; preds = %1128
-  %1133 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv26.i2365
+  %1133 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv26.i2365
   %1134 = load double, ptr %1133, align 8, !tbaa !18
   %1135 = fsub double %1131, %1134
   %1136 = tail call double @llvm.fabs.f64(double %1135)
@@ -10602,14 +10602,14 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader.us.i2377:                              ; preds = %1132, %1144
   %indvars.iv26.i2378 = phi i64 [ %indvars.iv.next27.i2384, %1144 ], [ 0, %1132 ]
-  %1138 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv26.i2378
+  %1138 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv26.i2378
   %1139 = load ptr, ptr %1138, align 8, !tbaa !12
   br label %1140
 
 1140:                                             ; preds = %1140, %.preheader.us.i2377
   %indvars.iv.i2379 = phi i64 [ 0, %.preheader.us.i2377 ], [ %indvars.iv.next.i2381, %1140 ]
   %.018.us.i2380 = phi double [ 0.000000e+00, %.preheader.us.i2377 ], [ %1143, %1140 ]
-  %1141 = getelementptr inbounds nuw double, ptr %1139, i64 %indvars.iv.i2379
+  %1141 = getelementptr inbounds nuw [8 x i8], ptr %1139, i64 %indvars.iv.i2379
   %1142 = load double, ptr %1141, align 8, !tbaa !18
   %1143 = fadd double %.018.us.i2380, %1142
   %indvars.iv.next.i2381 = add nuw nsw i64 %indvars.iv.i2379, 1
@@ -10622,7 +10622,7 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
   br i1 %exitcond30.not.i2385, label %.thread2584, label %.preheader.us.i2377
 
 ._crit_edge.us.i2383:                             ; preds = %1140
-  %1145 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv26.i2378
+  %1145 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv26.i2378
   %1146 = load double, ptr %1145, align 8, !tbaa !18
   %1147 = fsub double %1143, %1146
   %1148 = tail call double @llvm.fabs.f64(double %1147)
@@ -10649,7 +10649,7 @@ arkode_butcher_rowsum.exit2373:                   ; preds = %._crit_edge.us.i237
 .lr.ph.i2390:                                     ; preds = %.lr.ph.i2390.preheader, %.lr.ph.i2390
   %indvars.iv.i2391 = phi i64 [ %indvars.iv.next.i2393, %.lr.ph.i2390 ], [ 0, %.lr.ph.i2390.preheader ]
   %.08.i2392 = phi double [ %1155, %.lr.ph.i2390 ], [ 1.000000e+00, %.lr.ph.i2390.preheader ]
-  %1153 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i2391
+  %1153 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i2391
   %1154 = load double, ptr %1153, align 8, !tbaa !18
   %1155 = fsub double %.08.i2392, %1154
   %indvars.iv.next.i2393 = add nuw nsw i64 %indvars.iv.i2391, 1
@@ -10664,7 +10664,7 @@ arkode_butcher_order1.exit2396:                   ; preds = %.lr.ph.i2390
 .lr.ph.i2400:                                     ; preds = %arkode_butcher_order1.exit2396, %.lr.ph.i2400
   %indvars.iv.i2401 = phi i64 [ %indvars.iv.next.i2403, %.lr.ph.i2400 ], [ 0, %arkode_butcher_order1.exit2396 ]
   %.08.i2402 = phi double [ %1160, %.lr.ph.i2400 ], [ 1.000000e+00, %arkode_butcher_order1.exit2396 ]
-  %1158 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i2401
+  %1158 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i2401
   %1159 = load double, ptr %1158, align 8, !tbaa !18
   %1160 = fsub double %.08.i2402, %1159
   %indvars.iv.next.i2403 = add nuw nsw i64 %indvars.iv.i2401, 1
@@ -10720,9 +10720,9 @@ thread-pre-split2588:                             ; preds = %1163, %1150
 .preheader3713:                                   ; preds = %1170, %.preheader3713
   %indvars.iv.i.i2410 = phi i64 [ %indvars.iv.next.i.i2411, %.preheader3713 ], [ 0, %1170 ]
   %1175 = phi double [ %1180, %.preheader3713 ], [ 0.000000e+00, %1170 ]
-  %1176 = getelementptr inbounds nuw double, ptr %1171, i64 %indvars.iv.i.i2410
+  %1176 = getelementptr inbounds nuw [8 x i8], ptr %1171, i64 %indvars.iv.i.i2410
   %1177 = load double, ptr %1176, align 8, !tbaa !18
-  %1178 = getelementptr inbounds nuw double, ptr %1172, i64 %indvars.iv.i.i2410
+  %1178 = getelementptr inbounds nuw [8 x i8], ptr %1172, i64 %indvars.iv.i.i2410
   %1179 = load double, ptr %1178, align 8, !tbaa !18
   %1180 = tail call double @llvm.fmuladd.f64(double %1177, double %1179, double %1175)
   %indvars.iv.next.i.i2411 = add nuw nsw i64 %indvars.iv.i.i2410, 1
@@ -10800,12 +10800,12 @@ thread-pre-split2591:                             ; preds = %thread-pre-split258
 
 .preheader.i.i2420:                               ; preds = %1197, %.preheader.i.i2420
   %indvars.iv.i.i2421 = phi i64 [ %indvars.iv.next.i.i2422, %.preheader.i.i2420 ], [ 0, %1197 ]
-  %1205 = getelementptr inbounds nuw double, ptr %1199, i64 %indvars.iv.i.i2421
+  %1205 = getelementptr inbounds nuw [8 x i8], ptr %1199, i64 %indvars.iv.i.i2421
   %1206 = load double, ptr %1205, align 8, !tbaa !18
-  %1207 = getelementptr inbounds nuw double, ptr %1200, i64 %indvars.iv.i.i2421
+  %1207 = getelementptr inbounds nuw [8 x i8], ptr %1200, i64 %indvars.iv.i.i2421
   %1208 = load double, ptr %1207, align 8, !tbaa !18
   %1209 = fmul double %1206, %1208
-  %1210 = getelementptr inbounds nuw double, ptr %1201, i64 %indvars.iv.i.i2421
+  %1210 = getelementptr inbounds nuw [8 x i8], ptr %1201, i64 %indvars.iv.i.i2421
   store double %1209, ptr %1210, align 8, !tbaa !18
   %indvars.iv.next.i.i2422 = add nuw nsw i64 %indvars.iv.i.i2421, 1
   %exitcond.not.i.i2423 = icmp eq i64 %indvars.iv.next.i.i2422, %wide.trip.count29.i
@@ -10822,9 +10822,9 @@ arkode_butcher_vv.exit.i2428:                     ; preds = %1197
 .preheader2776:                                   ; preds = %1211, %.preheader2776
   %indvars.iv.i14.i2424 = phi i64 [ %indvars.iv.next.i15.i2425, %.preheader2776 ], [ 0, %1211 ]
   %1213 = phi double [ %1218, %.preheader2776 ], [ 0.000000e+00, %1211 ]
-  %1214 = getelementptr inbounds nuw double, ptr %1198, i64 %indvars.iv.i14.i2424
+  %1214 = getelementptr inbounds nuw [8 x i8], ptr %1198, i64 %indvars.iv.i14.i2424
   %1215 = load double, ptr %1214, align 8, !tbaa !18
-  %1216 = getelementptr inbounds nuw double, ptr %1201, i64 %indvars.iv.i14.i2424
+  %1216 = getelementptr inbounds nuw [8 x i8], ptr %1201, i64 %indvars.iv.i14.i2424
   %1217 = load double, ptr %1216, align 8, !tbaa !18
   %1218 = tail call double @llvm.fmuladd.f64(double %1215, double %1217, double %1213)
   %indvars.iv.next.i15.i2425 = add nuw nsw i64 %indvars.iv.i14.i2424, 1
@@ -10894,18 +10894,18 @@ arkode_butcher_order3a.exit2429:                  ; preds = %1219, %1211, %arkod
 
 .preheader.us.i.i2434:                            ; preds = %1235, %._crit_edge.us.i.i2440
   %indvars.iv40.i.i2435 = phi i64 [ %indvars.iv.next41.i.i2441, %._crit_edge.us.i.i2440 ], [ 0, %1235 ]
-  %1243 = getelementptr inbounds nuw ptr, ptr %1237, i64 %indvars.iv40.i.i2435
+  %1243 = getelementptr inbounds nuw [8 x i8], ptr %1237, i64 %indvars.iv40.i.i2435
   %1244 = load ptr, ptr %1243, align 8, !tbaa !12
-  %1245 = getelementptr inbounds nuw double, ptr %1239, i64 %indvars.iv40.i.i2435
+  %1245 = getelementptr inbounds nuw [8 x i8], ptr %1239, i64 %indvars.iv40.i.i2435
   %.promoted.us.i.i2436 = load double, ptr %1245, align 8, !tbaa !18
   br label %1246
 
 1246:                                             ; preds = %1246, %.preheader.us.i.i2434
   %indvars.iv.i.i2437 = phi i64 [ 0, %.preheader.us.i.i2434 ], [ %indvars.iv.next.i.i2438, %1246 ]
   %1247 = phi double [ %.promoted.us.i.i2436, %.preheader.us.i.i2434 ], [ %1252, %1246 ]
-  %1248 = getelementptr inbounds nuw double, ptr %1244, i64 %indvars.iv.i.i2437
+  %1248 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %indvars.iv.i.i2437
   %1249 = load double, ptr %1248, align 8, !tbaa !18
-  %1250 = getelementptr inbounds nuw double, ptr %1238, i64 %indvars.iv.i.i2437
+  %1250 = getelementptr inbounds nuw [8 x i8], ptr %1238, i64 %indvars.iv.i.i2437
   %1251 = load double, ptr %1250, align 8, !tbaa !18
   %1252 = tail call double @llvm.fmuladd.f64(double %1249, double %1251, double %1247)
   %indvars.iv.next.i.i2438 = add nuw nsw i64 %indvars.iv.i.i2437, 1
@@ -10929,9 +10929,9 @@ arkode_butcher_mv.exit.i2447:                     ; preds = %1235
 .preheader2773:                                   ; preds = %1253, %.preheader2773
   %indvars.iv.i13.i2443 = phi i64 [ %indvars.iv.next.i14.i2444, %.preheader2773 ], [ 0, %1253 ]
   %1255 = phi double [ %1260, %.preheader2773 ], [ 0.000000e+00, %1253 ]
-  %1256 = getelementptr inbounds nuw double, ptr %1236, i64 %indvars.iv.i13.i2443
+  %1256 = getelementptr inbounds nuw [8 x i8], ptr %1236, i64 %indvars.iv.i13.i2443
   %1257 = load double, ptr %1256, align 8, !tbaa !18
-  %1258 = getelementptr inbounds nuw double, ptr %1239, i64 %indvars.iv.i13.i2443
+  %1258 = getelementptr inbounds nuw [8 x i8], ptr %1239, i64 %indvars.iv.i13.i2443
   %1259 = load double, ptr %1258, align 8, !tbaa !18
   %1260 = tail call double @llvm.fmuladd.f64(double %1257, double %1259, double %1255)
   %indvars.iv.next.i14.i2444 = add nuw nsw i64 %indvars.iv.i13.i2443, 1
@@ -11021,12 +11021,12 @@ thread-pre-split2595:                             ; preds = %arkode_butcher_orde
 
 .preheader.i.i2454:                               ; preds = %1279, %.preheader.i.i2454
   %indvars.iv.i.i2455 = phi i64 [ %indvars.iv.next.i.i2456, %.preheader.i.i2454 ], [ 0, %1279 ]
-  %1289 = getelementptr inbounds nuw double, ptr %1281, i64 %indvars.iv.i.i2455
+  %1289 = getelementptr inbounds nuw [8 x i8], ptr %1281, i64 %indvars.iv.i.i2455
   %1290 = load double, ptr %1289, align 8, !tbaa !18
-  %1291 = getelementptr inbounds nuw double, ptr %1282, i64 %indvars.iv.i.i2455
+  %1291 = getelementptr inbounds nuw [8 x i8], ptr %1282, i64 %indvars.iv.i.i2455
   %1292 = load double, ptr %1291, align 8, !tbaa !18
   %1293 = fmul double %1290, %1292
-  %1294 = getelementptr inbounds nuw double, ptr %1284, i64 %indvars.iv.i.i2455
+  %1294 = getelementptr inbounds nuw [8 x i8], ptr %1284, i64 %indvars.iv.i.i2455
   store double %1293, ptr %1294, align 8, !tbaa !18
   %indvars.iv.next.i.i2456 = add nuw nsw i64 %indvars.iv.i.i2455, 1
   %exitcond.not.i.i2457 = icmp eq i64 %indvars.iv.next.i.i2456, %wide.trip.count29.i
@@ -11045,12 +11045,12 @@ arkode_butcher_vv.exit.i2468:                     ; preds = %1279
 
 .preheader.i26.i2459:                             ; preds = %1295, %.preheader.i26.i2459
   %indvars.iv.i27.i2460 = phi i64 [ %indvars.iv.next.i28.i2461, %.preheader.i26.i2459 ], [ 0, %1295 ]
-  %1298 = getelementptr inbounds nuw double, ptr %1283, i64 %indvars.iv.i27.i2460
+  %1298 = getelementptr inbounds nuw [8 x i8], ptr %1283, i64 %indvars.iv.i27.i2460
   %1299 = load double, ptr %1298, align 8, !tbaa !18
-  %1300 = getelementptr inbounds nuw double, ptr %1284, i64 %indvars.iv.i27.i2460
+  %1300 = getelementptr inbounds nuw [8 x i8], ptr %1284, i64 %indvars.iv.i27.i2460
   %1301 = load double, ptr %1300, align 8, !tbaa !18
   %1302 = fmul double %1299, %1301
-  %1303 = getelementptr inbounds nuw double, ptr %1285, i64 %indvars.iv.i27.i2460
+  %1303 = getelementptr inbounds nuw [8 x i8], ptr %1285, i64 %indvars.iv.i27.i2460
   store double %1302, ptr %1303, align 8, !tbaa !18
   %indvars.iv.next.i28.i2461 = add nuw nsw i64 %indvars.iv.i27.i2460, 1
   %exitcond.not.i29.i2462 = icmp eq i64 %indvars.iv.next.i28.i2461, %wide.trip.count29.i
@@ -11068,9 +11068,9 @@ arkode_butcher_vv.exit31.i2467:                   ; preds = %1295
 .preheader2768:                                   ; preds = %1304, %.preheader2768
   %indvars.iv.i35.i2463 = phi i64 [ %indvars.iv.next.i36.i2464, %.preheader2768 ], [ 0, %1304 ]
   %1306 = phi double [ %1311, %.preheader2768 ], [ 0.000000e+00, %1304 ]
-  %1307 = getelementptr inbounds nuw double, ptr %1280, i64 %indvars.iv.i35.i2463
+  %1307 = getelementptr inbounds nuw [8 x i8], ptr %1280, i64 %indvars.iv.i35.i2463
   %1308 = load double, ptr %1307, align 8, !tbaa !18
-  %1309 = getelementptr inbounds nuw double, ptr %1285, i64 %indvars.iv.i35.i2463
+  %1309 = getelementptr inbounds nuw [8 x i8], ptr %1285, i64 %indvars.iv.i35.i2463
   %1310 = load double, ptr %1309, align 8, !tbaa !18
   %1311 = tail call double @llvm.fmuladd.f64(double %1308, double %1310, double %1306)
   %indvars.iv.next.i36.i2464 = add nuw nsw i64 %indvars.iv.i35.i2463, 1
@@ -11152,12 +11152,12 @@ arkode_butcher_order4a.exit2469:                  ; preds = %1312, %1304, %arkod
 
 .preheader.i.i2475:                               ; preds = %1330, %.preheader.i.i2475
   %indvars.iv.i.i2476 = phi i64 [ %indvars.iv.next.i.i2477, %.preheader.i.i2475 ], [ 0, %1330 ]
-  %1340 = getelementptr inbounds nuw double, ptr %1331, i64 %indvars.iv.i.i2476
+  %1340 = getelementptr inbounds nuw [8 x i8], ptr %1331, i64 %indvars.iv.i.i2476
   %1341 = load double, ptr %1340, align 8, !tbaa !18
-  %1342 = getelementptr inbounds nuw double, ptr %1332, i64 %indvars.iv.i.i2476
+  %1342 = getelementptr inbounds nuw [8 x i8], ptr %1332, i64 %indvars.iv.i.i2476
   %1343 = load double, ptr %1342, align 8, !tbaa !18
   %1344 = fmul double %1341, %1343
-  %1345 = getelementptr inbounds nuw double, ptr %1335, i64 %indvars.iv.i.i2476
+  %1345 = getelementptr inbounds nuw [8 x i8], ptr %1335, i64 %indvars.iv.i.i2476
   store double %1344, ptr %1345, align 8, !tbaa !18
   %indvars.iv.next.i.i2477 = add nuw nsw i64 %indvars.iv.i.i2476, 1
   %exitcond.not.i.i2478 = icmp eq i64 %indvars.iv.next.i.i2477, %wide.trip.count29.i
@@ -11178,18 +11178,18 @@ arkode_butcher_vv.exit.i2495:                     ; preds = %1330
 
 .preheader.us.i.i2481:                            ; preds = %1346, %._crit_edge.us.i.i2487
   %indvars.iv40.i.i2482 = phi i64 [ %indvars.iv.next41.i.i2488, %._crit_edge.us.i.i2487 ], [ 0, %1346 ]
-  %1350 = getelementptr inbounds nuw ptr, ptr %1333, i64 %indvars.iv40.i.i2482
+  %1350 = getelementptr inbounds nuw [8 x i8], ptr %1333, i64 %indvars.iv40.i.i2482
   %1351 = load ptr, ptr %1350, align 8, !tbaa !12
-  %1352 = getelementptr inbounds nuw double, ptr %1336, i64 %indvars.iv40.i.i2482
+  %1352 = getelementptr inbounds nuw [8 x i8], ptr %1336, i64 %indvars.iv40.i.i2482
   %.promoted.us.i.i2483 = load double, ptr %1352, align 8, !tbaa !18
   br label %1353
 
 1353:                                             ; preds = %1353, %.preheader.us.i.i2481
   %indvars.iv.i24.i2484 = phi i64 [ 0, %.preheader.us.i.i2481 ], [ %indvars.iv.next.i25.i2485, %1353 ]
   %1354 = phi double [ %.promoted.us.i.i2483, %.preheader.us.i.i2481 ], [ %1359, %1353 ]
-  %1355 = getelementptr inbounds nuw double, ptr %1351, i64 %indvars.iv.i24.i2484
+  %1355 = getelementptr inbounds nuw [8 x i8], ptr %1351, i64 %indvars.iv.i24.i2484
   %1356 = load double, ptr %1355, align 8, !tbaa !18
-  %1357 = getelementptr inbounds nuw double, ptr %1334, i64 %indvars.iv.i24.i2484
+  %1357 = getelementptr inbounds nuw [8 x i8], ptr %1334, i64 %indvars.iv.i24.i2484
   %1358 = load double, ptr %1357, align 8, !tbaa !18
   %1359 = tail call double @llvm.fmuladd.f64(double %1356, double %1358, double %1354)
   %indvars.iv.next.i25.i2485 = add nuw nsw i64 %indvars.iv.i24.i2484, 1
@@ -11210,9 +11210,9 @@ arkode_butcher_mv.exit.i2494:                     ; preds = %1346
 .preheader2764:                                   ; preds = %._crit_edge.us.i.i2487, %.preheader2764
   %indvars.iv.i30.i2490 = phi i64 [ %indvars.iv.next.i31.i2491, %.preheader2764 ], [ 0, %._crit_edge.us.i.i2487 ]
   %1360 = phi double [ %1365, %.preheader2764 ], [ 0.000000e+00, %._crit_edge.us.i.i2487 ]
-  %1361 = getelementptr inbounds nuw double, ptr %1335, i64 %indvars.iv.i30.i2490
+  %1361 = getelementptr inbounds nuw [8 x i8], ptr %1335, i64 %indvars.iv.i30.i2490
   %1362 = load double, ptr %1361, align 8, !tbaa !18
-  %1363 = getelementptr inbounds nuw double, ptr %1336, i64 %indvars.iv.i30.i2490
+  %1363 = getelementptr inbounds nuw [8 x i8], ptr %1336, i64 %indvars.iv.i30.i2490
   %1364 = load double, ptr %1363, align 8, !tbaa !18
   %1365 = tail call double @llvm.fmuladd.f64(double %1362, double %1364, double %1360)
   %indvars.iv.next.i31.i2491 = add nuw nsw i64 %indvars.iv.i30.i2490, 1
@@ -11294,12 +11294,12 @@ arkode_butcher_order4b.exit2496:                  ; preds = %1366, %arkode_butch
 
 .preheader.i.i2502:                               ; preds = %1384, %.preheader.i.i2502
   %indvars.iv.i.i2503 = phi i64 [ %indvars.iv.next.i.i2504, %.preheader.i.i2502 ], [ 0, %1384 ]
-  %1394 = getelementptr inbounds nuw double, ptr %1387, i64 %indvars.iv.i.i2503
+  %1394 = getelementptr inbounds nuw [8 x i8], ptr %1387, i64 %indvars.iv.i.i2503
   %1395 = load double, ptr %1394, align 8, !tbaa !18
-  %1396 = getelementptr inbounds nuw double, ptr %1388, i64 %indvars.iv.i.i2503
+  %1396 = getelementptr inbounds nuw [8 x i8], ptr %1388, i64 %indvars.iv.i.i2503
   %1397 = load double, ptr %1396, align 8, !tbaa !18
   %1398 = fmul double %1395, %1397
-  %1399 = getelementptr inbounds nuw double, ptr %1389, i64 %indvars.iv.i.i2503
+  %1399 = getelementptr inbounds nuw [8 x i8], ptr %1389, i64 %indvars.iv.i.i2503
   store double %1398, ptr %1399, align 8, !tbaa !18
   %indvars.iv.next.i.i2504 = add nuw nsw i64 %indvars.iv.i.i2503, 1
   %exitcond.not.i.i2505 = icmp eq i64 %indvars.iv.next.i.i2504, %wide.trip.count29.i
@@ -11318,18 +11318,18 @@ arkode_butcher_vv.exit.i2521:                     ; preds = %1384
 
 .preheader.us.i.i2507:                            ; preds = %1400, %._crit_edge.us.i.i2513
   %indvars.iv40.i.i2508 = phi i64 [ %indvars.iv.next41.i.i2514, %._crit_edge.us.i.i2513 ], [ 0, %1400 ]
-  %1403 = getelementptr inbounds nuw ptr, ptr %1386, i64 %indvars.iv40.i.i2508
+  %1403 = getelementptr inbounds nuw [8 x i8], ptr %1386, i64 %indvars.iv40.i.i2508
   %1404 = load ptr, ptr %1403, align 8, !tbaa !12
-  %1405 = getelementptr inbounds nuw double, ptr %1390, i64 %indvars.iv40.i.i2508
+  %1405 = getelementptr inbounds nuw [8 x i8], ptr %1390, i64 %indvars.iv40.i.i2508
   %.promoted.us.i.i2509 = load double, ptr %1405, align 8, !tbaa !18
   br label %1406
 
 1406:                                             ; preds = %1406, %.preheader.us.i.i2507
   %indvars.iv.i24.i2510 = phi i64 [ 0, %.preheader.us.i.i2507 ], [ %indvars.iv.next.i25.i2511, %1406 ]
   %1407 = phi double [ %.promoted.us.i.i2509, %.preheader.us.i.i2507 ], [ %1412, %1406 ]
-  %1408 = getelementptr inbounds nuw double, ptr %1404, i64 %indvars.iv.i24.i2510
+  %1408 = getelementptr inbounds nuw [8 x i8], ptr %1404, i64 %indvars.iv.i24.i2510
   %1409 = load double, ptr %1408, align 8, !tbaa !18
-  %1410 = getelementptr inbounds nuw double, ptr %1389, i64 %indvars.iv.i24.i2510
+  %1410 = getelementptr inbounds nuw [8 x i8], ptr %1389, i64 %indvars.iv.i24.i2510
   %1411 = load double, ptr %1410, align 8, !tbaa !18
   %1412 = tail call double @llvm.fmuladd.f64(double %1409, double %1411, double %1407)
   %indvars.iv.next.i25.i2511 = add nuw nsw i64 %indvars.iv.i24.i2510, 1
@@ -11354,9 +11354,9 @@ arkode_butcher_mv.exit.i2520:                     ; preds = %1400
 .preheader2760:                                   ; preds = %1413, %.preheader2760
   %indvars.iv.i30.i2516 = phi i64 [ %indvars.iv.next.i31.i2517, %.preheader2760 ], [ 0, %1413 ]
   %1415 = phi double [ %1420, %.preheader2760 ], [ 0.000000e+00, %1413 ]
-  %1416 = getelementptr inbounds nuw double, ptr %1385, i64 %indvars.iv.i30.i2516
+  %1416 = getelementptr inbounds nuw [8 x i8], ptr %1385, i64 %indvars.iv.i30.i2516
   %1417 = load double, ptr %1416, align 8, !tbaa !18
-  %1418 = getelementptr inbounds nuw double, ptr %1390, i64 %indvars.iv.i30.i2516
+  %1418 = getelementptr inbounds nuw [8 x i8], ptr %1390, i64 %indvars.iv.i30.i2516
   %1419 = load double, ptr %1418, align 8, !tbaa !18
   %1420 = tail call double @llvm.fmuladd.f64(double %1417, double %1419, double %1415)
   %indvars.iv.next.i31.i2517 = add nuw nsw i64 %indvars.iv.i30.i2516, 1
@@ -11438,18 +11438,18 @@ arkode_butcher_order4c.exit2522:                  ; preds = %1421, %1413, %arkod
 
 .preheader.us.i.i2527:                            ; preds = %1439, %._crit_edge.us.i.i2533
   %indvars.iv40.i.i2528 = phi i64 [ %indvars.iv.next41.i.i2534, %._crit_edge.us.i.i2533 ], [ 0, %1439 ]
-  %1449 = getelementptr inbounds nuw ptr, ptr %1442, i64 %indvars.iv40.i.i2528
+  %1449 = getelementptr inbounds nuw [8 x i8], ptr %1442, i64 %indvars.iv40.i.i2528
   %1450 = load ptr, ptr %1449, align 8, !tbaa !12
-  %1451 = getelementptr inbounds nuw double, ptr %1444, i64 %indvars.iv40.i.i2528
+  %1451 = getelementptr inbounds nuw [8 x i8], ptr %1444, i64 %indvars.iv40.i.i2528
   %.promoted.us.i.i2529 = load double, ptr %1451, align 8, !tbaa !18
   br label %1452
 
 1452:                                             ; preds = %1452, %.preheader.us.i.i2527
   %indvars.iv.i.i2530 = phi i64 [ 0, %.preheader.us.i.i2527 ], [ %indvars.iv.next.i.i2531, %1452 ]
   %1453 = phi double [ %.promoted.us.i.i2529, %.preheader.us.i.i2527 ], [ %1458, %1452 ]
-  %1454 = getelementptr inbounds nuw double, ptr %1450, i64 %indvars.iv.i.i2530
+  %1454 = getelementptr inbounds nuw [8 x i8], ptr %1450, i64 %indvars.iv.i.i2530
   %1455 = load double, ptr %1454, align 8, !tbaa !18
-  %1456 = getelementptr inbounds nuw double, ptr %1443, i64 %indvars.iv.i.i2530
+  %1456 = getelementptr inbounds nuw [8 x i8], ptr %1443, i64 %indvars.iv.i.i2530
   %1457 = load double, ptr %1456, align 8, !tbaa !18
   %1458 = tail call double @llvm.fmuladd.f64(double %1455, double %1457, double %1453)
   %indvars.iv.next.i.i2531 = add nuw nsw i64 %indvars.iv.i.i2530, 1
@@ -11475,18 +11475,18 @@ arkode_butcher_mv.exit.i2551:                     ; preds = %1439
 
 .preheader.us.i25.i2537:                          ; preds = %1459, %._crit_edge.us.i31.i2543
   %indvars.iv40.i26.i2538 = phi i64 [ %indvars.iv.next41.i32.i2544, %._crit_edge.us.i31.i2543 ], [ 0, %1459 ]
-  %1462 = getelementptr inbounds nuw ptr, ptr %1441, i64 %indvars.iv40.i26.i2538
+  %1462 = getelementptr inbounds nuw [8 x i8], ptr %1441, i64 %indvars.iv40.i26.i2538
   %1463 = load ptr, ptr %1462, align 8, !tbaa !12
-  %1464 = getelementptr inbounds nuw double, ptr %1445, i64 %indvars.iv40.i26.i2538
+  %1464 = getelementptr inbounds nuw [8 x i8], ptr %1445, i64 %indvars.iv40.i26.i2538
   %.promoted.us.i27.i2539 = load double, ptr %1464, align 8, !tbaa !18
   br label %1465
 
 1465:                                             ; preds = %1465, %.preheader.us.i25.i2537
   %indvars.iv.i28.i2540 = phi i64 [ 0, %.preheader.us.i25.i2537 ], [ %indvars.iv.next.i29.i2541, %1465 ]
   %1466 = phi double [ %.promoted.us.i27.i2539, %.preheader.us.i25.i2537 ], [ %1471, %1465 ]
-  %1467 = getelementptr inbounds nuw double, ptr %1463, i64 %indvars.iv.i28.i2540
+  %1467 = getelementptr inbounds nuw [8 x i8], ptr %1463, i64 %indvars.iv.i28.i2540
   %1468 = load double, ptr %1467, align 8, !tbaa !18
-  %1469 = getelementptr inbounds nuw double, ptr %1444, i64 %indvars.iv.i28.i2540
+  %1469 = getelementptr inbounds nuw [8 x i8], ptr %1444, i64 %indvars.iv.i28.i2540
   %1470 = load double, ptr %1469, align 8, !tbaa !18
   %1471 = tail call double @llvm.fmuladd.f64(double %1468, double %1470, double %1466)
   %indvars.iv.next.i29.i2541 = add nuw nsw i64 %indvars.iv.i28.i2540, 1
@@ -11511,9 +11511,9 @@ arkode_butcher_mv.exit35.i2550:                   ; preds = %1459
 .preheader2756:                                   ; preds = %1472, %.preheader2756
   %indvars.iv.i38.i2546 = phi i64 [ %indvars.iv.next.i39.i2547, %.preheader2756 ], [ 0, %1472 ]
   %1474 = phi double [ %1479, %.preheader2756 ], [ 0.000000e+00, %1472 ]
-  %1475 = getelementptr inbounds nuw double, ptr %1440, i64 %indvars.iv.i38.i2546
+  %1475 = getelementptr inbounds nuw [8 x i8], ptr %1440, i64 %indvars.iv.i38.i2546
   %1476 = load double, ptr %1475, align 8, !tbaa !18
-  %1477 = getelementptr inbounds nuw double, ptr %1445, i64 %indvars.iv.i38.i2546
+  %1477 = getelementptr inbounds nuw [8 x i8], ptr %1445, i64 %indvars.iv.i38.i2546
   %1478 = load double, ptr %1477, align 8, !tbaa !18
   %1479 = tail call double @llvm.fmuladd.f64(double %1476, double %1478, double %1474)
   %indvars.iv.next.i39.i2547 = add nuw nsw i64 %indvars.iv.i38.i2546, 1

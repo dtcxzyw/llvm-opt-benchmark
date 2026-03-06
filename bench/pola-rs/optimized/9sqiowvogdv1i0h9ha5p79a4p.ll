@@ -14146,7 +14146,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h6938e6bbd9664
 19:                                               ; preds = %16
   %20 = add nuw i64 %.sroa.58.0, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.09.0.copyload) ]
-  %21 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr, i64, ptr }, ptr %.sroa.09.0.copyload, i64 %.sroa.58.0
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.09.0.copyload, i64 %.sroa.58.0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)

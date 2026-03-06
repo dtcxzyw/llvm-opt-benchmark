@@ -3,15 +3,6 @@ source_filename = "bench/llvm/original/ExprObjC.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.clang::ObjCDictionaryLiteral_KeyValuePair" = type { ptr, ptr }
-%"struct.clang::ObjCDictionaryElement" = type <{ ptr, ptr, %"class.clang::SourceLocation", %"class.std::optional", [4 x i8] }>
-%"class.clang::SourceLocation" = type { i32 }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
-%"struct.clang::ObjCDictionaryLiteral_ExpansionData" = type { %"class.clang::SourceLocation", i32 }
 %"class.llvm::ArrayRef.362" = type { ptr, i64 }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.clang::Selector" = type { %"class.llvm::PointerIntPair.360" }
@@ -26,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::iterator_range.383" = type { %"struct.clang::ConstStmtIterator", %"struct.clang::ConstStmtIterator" }
 %"struct.clang::ConstStmtIterator" = type { %"class.clang::StmtIteratorImpl.384" }
 %"class.clang::StmtIteratorImpl.384" = type { %"class.clang::StmtIteratorBase" }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -93,9 +83,9 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %30, ptr %31, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %21
@@ -243,7 +233,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   store ptr %5, ptr %23, align 8, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = and i64 %2, 2147483647
-  %26 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryLiteral_KeyValuePair", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = select i1 %3, ptr %26, ptr null
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -253,16 +243,16 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %44 ], [ 0, %.lr.ph ]
-  %28 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryElement", ptr %1, i64 %indvars.iv31
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv31
   %29 = load ptr, ptr %28, align 8, !tbaa !48
-  %30 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryLiteral_KeyValuePair", ptr %24, i64 %indvars.iv31
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv31
   store ptr %29, ptr %30, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !56
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !57
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %35 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryLiteral_ExpansionData", ptr %27, i64 %indvars.iv31
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv31
   %36 = load i32, ptr %34, align 8, !tbaa !58
   store i32 %36, ptr %35, align 8, !tbaa !58
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -304,9 +294,9 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 
 57:                                               ; preds = %.lr.ph.split, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryElement", ptr %1, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !48
-  %60 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryLiteral_KeyValuePair", ptr %24, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv
   store ptr %59, ptr %60, align 8, !tbaa !54
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !56
@@ -543,9 +533,9 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 .lr.ph.i:                                         ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit, %.lr.ph.i
   %51 = phi i64 [ %56, %.lr.ph.i ], [ 0, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit ]
   %.016.i = phi i32 [ %55, %.lr.ph.i ], [ 0, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit ]
-  %52 = getelementptr inbounds nuw ptr, ptr %.sroa.01.0.copyload, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.01.0.copyload, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw ptr, ptr %45, i64 %51
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %51
   store ptr %53, ptr %54, align 8, !tbaa !24
   %55 = add i32 %.016.i, 1
   %56 = zext i32 %55 to i64
@@ -555,7 +545,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 57:                                               ; preds = %._crit_edge.i
   %.idx.i = shl nuw nsw i64 %.sroa.2.0.copyload, 2
   %58 = and i64 %.sroa.22.0.copyload, 65535
-  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %60, ptr readonly align 4 %.sroa.0.0.copyload, i64 %.idx.i, i1 false)
   br label %_ZN5clang15ObjCMessageExpr18initArgsAndSelLocsEN4llvm8ArrayRefIPNS_4ExprEEENS2_INS_14SourceLocationEEENS_21SelectorLocationsKindE.exit
@@ -604,9 +594,9 @@ define dso_local void @_ZN5clang15ObjCMessageExpr18initArgsAndSelLocsEN4llvm8Arr
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %20 = phi i64 [ %25, %.lr.ph ], [ 0, %6 ]
   %.016 = phi i32 [ %24, %.lr.ph ], [ 0, %6 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !24
-  %23 = getelementptr inbounds nuw ptr, ptr %13, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %20
   store ptr %22, ptr %23, align 8, !tbaa !24
   %24 = add i32 %.016, 1
   %25 = zext i32 %24 to i64
@@ -616,7 +606,7 @@ define dso_local void @_ZN5clang15ObjCMessageExpr18initArgsAndSelLocsEN4llvm8Arr
 26:                                               ; preds = %._crit_edge
   %.idx = shl nuw nsw i64 %4, 2
   %27 = and i64 %2, 65535
-  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 4 %3, i64 %.idx, i1 false)
   br label %_ZSt4copyIPKN5clang14SourceLocationEPS1_ET0_T_S6_S5_.exit
@@ -699,9 +689,9 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 .lr.ph.i:                                         ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit, %.lr.ph.i
   %47 = phi i64 [ %52, %.lr.ph.i ], [ 0, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit ]
   %.016.i = phi i32 [ %51, %.lr.ph.i ], [ 0, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit ]
-  %48 = getelementptr inbounds nuw ptr, ptr %.sroa.01.0.copyload, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.01.0.copyload, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw ptr, ptr %41, i64 %47
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %47
   store ptr %49, ptr %50, align 8, !tbaa !24
   %51 = add i32 %.016.i, 1
   %52 = zext i32 %51 to i64
@@ -711,7 +701,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 53:                                               ; preds = %._crit_edge.i
   %.idx.i = shl nuw nsw i64 %.sroa.2.0.copyload, 2
   %54 = and i64 %.sroa.22.0.copyload, 65535
-  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr readonly align 4 %.sroa.0.0.copyload, i64 %.idx.i, i1 false)
   br label %_ZN5clang15ObjCMessageExpr18initArgsAndSelLocsEN4llvm8ArrayRefIPNS_4ExprEEENS2_INS_14SourceLocationEEENS_21SelectorLocationsKindE.exit
@@ -802,9 +792,9 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 .lr.ph.i:                                         ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit, %.lr.ph.i
   %48 = phi i64 [ %53, %.lr.ph.i ], [ 0, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit ]
   %.016.i = phi i32 [ %52, %.lr.ph.i ], [ 0, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.sroa.01.0.copyload, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.01.0.copyload, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !24
-  %51 = getelementptr inbounds nuw ptr, ptr %42, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   store ptr %50, ptr %51, align 8, !tbaa !24
   %52 = add i32 %.016.i, 1
   %53 = zext i32 %52 to i64
@@ -814,7 +804,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 54:                                               ; preds = %._crit_edge.i
   %.idx.i = shl nuw nsw i64 %.sroa.2.0.copyload, 2
   %55 = and i64 %.sroa.22.0.copyload, 65535
-  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr readonly align 4 %.sroa.0.0.copyload, i64 %.idx.i, i1 false)
   br label %_ZN5clang15ObjCMessageExpr18initArgsAndSelLocsEN4llvm8ArrayRefIPNS_4ExprEEENS2_INS_14SourceLocationEEENS_21SelectorLocationsKindE.exit
@@ -1371,9 +1361,9 @@ _ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit: ; preds = %7
 36:                                               ; preds = %23
   %37 = and i32 %24, 65535
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %.sroa.03.0.copyload.i = load i32, ptr %41, align 4, !tbaa !58
   br label %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit
 
@@ -1395,7 +1385,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.ex
   %47 = phi i32 [ %42, %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit ], [ %.pre.i, %44 ]
   %48 = load ptr, ptr %1, align 8, !tbaa !78
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   store i32 %.sroa.03.0.i, ptr %50, align 1
   %51 = load i32, ptr %19, align 8, !tbaa !76
   %52 = add i32 %51, 1
@@ -1839,7 +1829,7 @@ define dso_local void @_ZN5clang15ObjCMessageExpr8childrenEv(ptr dead_on_unwind 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = and i32 %4, 65535
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   store ptr %.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1861,7 +1851,7 @@ define dso_local void @_ZNK5clang15ObjCMessageExpr8childrenEv(ptr dead_on_unwind
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = and i32 %4, 65535
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   store ptr %.0.i, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.46.0..sroa_idx, align 8
@@ -1879,10 +1869,10 @@ switch.lookup:
   %2 = load i8, ptr %1, align 8
   %3 = and i8 %2, 3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv.1, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv.1, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1922,7 +1912,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !78
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1963,7 +1953,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !78
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !76

@@ -1569,7 +1569,7 @@ define range(i32 48, 71) i32 @uriHexToLetterW(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uriHexToLetterW, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uriHexToLetterW, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %uriHexToLetterExW.exit
 

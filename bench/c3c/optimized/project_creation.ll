@@ -147,7 +147,7 @@ mkdir_or_fail.exit:                               ; preds = %create_file_or_fail
 
 mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit, %30
   %indvars.iv = phi i64 [ 0, %mkdir_or_fail.exit ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw ptr, ptr @DEFAULT_TARGETS, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @DEFAULT_TARGETS, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @MANIFEST_TARGET, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef %33, ptr noundef %32) #9

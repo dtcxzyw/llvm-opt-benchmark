@@ -45,8 +45,8 @@ define noalias noundef ptr @Extra_BitMatrixStart(i32 noundef %0) local_unnamed_a
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = getelementptr ptr, ptr %14, i64 %indvars.iv
-  %24 = getelementptr inbounds nuw i32, ptr %store_forwarded, i64 %20
+  %23 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %store_forwarded, i64 %20
   store ptr %24, ptr %23, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -143,11 +143,11 @@ define void @Extra_BitMatrixPrint(ptr noundef captures(none) %0) local_unnamed_a
   %..i = tail call i32 @llvm.smin.i32(i32 %.022, i32 %.121)
   %.29.i = tail call i32 @llvm.smax.i32(i32 %.022, i32 %.121)
   %18 = zext nneg i32 %..i to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %21 = lshr i32 %.29.i, %16
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !20
   %25 = and i32 %17, %.29.i
   %26 = shl nuw i32 1, %25
@@ -190,11 +190,11 @@ define range(i32 0, 2) i32 @Extra_BitMatrixLookup1(ptr noundef captures(none) %0
   %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %.29 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %12 = sext i32 %. to i64
-  %13 = getelementptr inbounds ptr, ptr %7, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = ashr i32 %.29, %9
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = and i32 %11, %.29
   %20 = lshr i32 %18, %19
@@ -218,11 +218,11 @@ define void @Extra_BitMatrixInsert1(ptr noundef captures(none) %0, i32 noundef %
   %12 = and i32 %8, %.
   %13 = shl nuw i32 1, %12
   %14 = sext i32 %.27 to i64
-  %15 = getelementptr inbounds ptr, ptr %9, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %9, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = ashr i32 %., %11
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = or i32 %20, %13
   store i32 %21, ptr %19, align 4, !tbaa !20
@@ -246,11 +246,11 @@ define void @Extra_BitMatrixDelete1(ptr noundef captures(none) %0, i32 noundef %
   %13 = shl nuw i32 1, %12
   %14 = xor i32 %13, -1
   %15 = sext i32 %.28 to i64
-  %16 = getelementptr inbounds ptr, ptr %9, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %9, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = ashr i32 %., %11
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = and i32 %21, %14
   store i32 %22, ptr %20, align 4, !tbaa !20
@@ -273,11 +273,11 @@ define void @Extra_BitMatrixInsert2(ptr noundef captures(none) %0, i32 noundef %
   %12 = and i32 %8, %.
   %13 = shl nuw i32 1, %12
   %14 = sext i32 %.27 to i64
-  %15 = getelementptr inbounds ptr, ptr %9, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %9, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = ashr i32 %., %11
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = or i32 %20, %13
   store i32 %21, ptr %19, align 4, !tbaa !20
@@ -298,11 +298,11 @@ define range(i32 0, 2) i32 @Extra_BitMatrixLookup2(ptr noundef captures(none) %0
   %. = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %.29 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %12 = sext i32 %. to i64
-  %13 = getelementptr inbounds ptr, ptr %7, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = ashr i32 %.29, %9
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = and i32 %11, %.29
   %20 = lshr i32 %18, %19
@@ -327,11 +327,11 @@ define void @Extra_BitMatrixDelete2(ptr noundef captures(none) %0, i32 noundef %
   %13 = shl nuw i32 1, %12
   %14 = xor i32 %13, -1
   %15 = sext i32 %.28 to i64
-  %16 = getelementptr inbounds ptr, ptr %9, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %9, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = ashr i32 %., %11
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = and i32 %21, %14
   store i32 %22, ptr %20, align 4, !tbaa !20
@@ -348,15 +348,15 @@ define void @Extra_BitMatrixOr(ptr noundef readonly captures(none) %0, i32 nound
 .lr.ph:                                           ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !13
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !20
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = or i32 %15, %13
   store i32 %16, ptr %14, align 4, !tbaa !20
@@ -380,18 +380,18 @@ define void @Extra_BitMatrixOrTwo(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph:                                           ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !13
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !20
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = or i32 %18, %16
   store i32 %19, ptr %17, align 4, !tbaa !20
@@ -432,7 +432,7 @@ define i32 @Extra_BitMatrixCountOnesUpper(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %.lr.ph18
   %7 = load ptr, ptr %0, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %11
@@ -442,7 +442,7 @@ define i32 @Extra_BitMatrixCountOnesUpper(ptr noundef readonly captures(none) %0
   %.01214 = phi i32 [ %10, %.lr.ph ], [ %20, %11 ]
   %12 = lshr i32 %.01214, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = and i32 %.01214, 31
   %17 = lshr i32 %15, %16
@@ -479,9 +479,9 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsDisjoint(ptr noundef readonly captu
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv20
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv20
   %12 = load ptr, ptr %11, align 8, !tbaa !14
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv20
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv20
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   br label %16
 
@@ -492,9 +492,9 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsDisjoint(ptr noundef readonly captu
 
 16:                                               ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !20
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = and i32 %20, %18
   %.not.us = icmp eq i32 %21, 0
@@ -548,11 +548,11 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %..i.us.us = tail call i32 @llvm.smin.i32(i32 %.02440.us, i32 %.02337.us.us)
   %.29.i.us.us = tail call i32 @llvm.smax.i32(i32 %.02440.us, i32 %.02337.us.us)
   %16 = zext nneg i32 %..i.us.us to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = lshr i32 %.29.i.us.us, %11
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %23 = and i32 %12, %.29.i.us.us
   %24 = shl nuw i32 1, %23
@@ -574,11 +574,11 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %..i27.us.us = tail call i32 @llvm.smin.i32(i32 %.036.us.us, i32 %.02440.us)
   %.29.i28.us.us = tail call i32 @llvm.smax.i32(i32 %.036.us.us, i32 %.02440.us)
   %31 = zext nneg i32 %..i27.us.us to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %10, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !14
   %34 = lshr i32 %.29.i28.us.us, %11
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !20
   %38 = and i32 %.29.i28.us.us, %12
   %39 = lshr i32 %37, %38
@@ -587,11 +587,11 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %..i30.us.us = tail call i32 @llvm.smin.i32(i32 %.036.us.us, i32 %.02337.us.us)
   %.29.i31.us.us = tail call i32 @llvm.smax.i32(i32 %.036.us.us, i32 %.02337.us.us)
   %41 = zext nneg i32 %..i30.us.us to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %10, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !14
   %44 = lshr i32 %.29.i31.us.us, %11
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !20
   %48 = and i32 %.29.i31.us.us, %12
   %49 = lshr i32 %47, %48

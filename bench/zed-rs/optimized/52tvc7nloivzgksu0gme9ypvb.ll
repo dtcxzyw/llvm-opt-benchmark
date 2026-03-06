@@ -142824,7 +142824,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$10try_remove17h4f78c042ba1300a7E.llv
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %2
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8, !noundef !11
   %.sroa.01.0.copyload = load i64, ptr %10, align 8
@@ -142870,7 +142870,7 @@ define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$6remove17h9f6a3f5eb9a6052bE"
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !34999, !noalias !35002, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !alias.scope !34999, !noalias !35002, !noundef !11
   %.sroa.01.0.copyload.i = load i64, ptr %10, align 8, !noalias !35004
@@ -142947,7 +142947,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17hdb0d25b6f27c73beE"(ptr 
 24:                                               ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !11, !noundef !11
-  %27 = getelementptr inbounds { i64, [2 x i64] }, ptr %26, i64 %1
+  %27 = getelementptr inbounds [24 x i8], ptr %26, i64 %1
   %28 = load i64, ptr %27, align 8, !range !6041, !noundef !11
   %trunc = trunc nuw i64 %28 to i1
   br i1 %trunc, label %29, label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hf678b736a6e5786eE.llvm.17526713770603930207.exit"
@@ -142982,7 +142982,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17hdb0d25b6f27c73beE"(ptr 
 37:                                               ; preds = %15, %12
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !35005, !noalias !35008, !nonnull !11, !noundef !11
-  %40 = getelementptr inbounds { i64, [2 x i64] }, ptr %39, i64 %1
+  %40 = getelementptr inbounds [24 x i8], ptr %39, i64 %1
   store i64 1, ptr %40, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8
@@ -143037,7 +143037,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.09, i64 56
   %14 = icmp ult i16 %11, 12
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %16 = load ptr, ptr %15, align 8, !noalias !35026, !nonnull !11, !noundef !11
   %17 = add i64 %.sroa.06.08, -1
   %18 = icmp eq i64 %17, 0
@@ -145263,7 +145263,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.07.09.i, i64 56
   %20 = icmp ult i16 %17, 12
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %22 = load ptr, ptr %21, align 8, !noalias !35032, !nonnull !11, !noundef !11
   %23 = add i64 %.sroa.06.08.i, -1
   %24 = icmp eq i64 %23, 0
@@ -147826,7 +147826,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN79_$LT$slab..
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %1
   %11 = load i64, ptr %10, align 8, !range !6041, !noundef !11
   %trunc = trunc nuw i64 %11 to i1
   br i1 %trunc, label %13, label %12

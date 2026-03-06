@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.3 = type { i64, [8 x i8] }
 %"class.std::allocator.0" = type { i8 }
-%"struct.pkpy::FuncDecl::KwArg" = type { i32, %"struct.pkpy::StrName", ptr }
-%"struct.pkpy::StrName" = type { i16 }
 %struct._Guard = type { ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
@@ -129,7 +127,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
 .loopexit:                                        ; preds = %42, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -702,7 +700,7 @@ define void @_ZNK4pkpy8FuncDecl8_gc_markEv(ptr noundef nonnull readonly align 8 
 .lr.ph:                                           ; preds = %1, %37
   %13 = phi ptr [ %38, %37 ], [ %6, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %1 ]
-  %14 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
@@ -719,14 +717,14 @@ define void @_ZNK4pkpy8FuncDecl8_gc_markEv(ptr noundef nonnull readonly align 8 
 23:                                               ; preds = %19
   store i8 1, ptr %20, align 1
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(24) %27)
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16

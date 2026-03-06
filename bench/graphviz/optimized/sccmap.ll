@@ -156,7 +156,7 @@ openFile.exit.i:                                  ; preds = %16
 
 48:                                               ; preds = %45
   %49 = sext i32 %46 to i64
-  %50 = getelementptr inbounds ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %1, i64 %49
   store ptr %50, ptr @Files, align 8, !tbaa !15
   br label %51
 
@@ -456,7 +456,7 @@ define internal fastcc i32 @visit(ptr noundef %0, ptr noundef %1, ptr noundef no
 
 24:                                               ; preds = %19
   %25 = load i64, ptr %13, align 8, !tbaa !43
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %27 = sub i64 %spec.select.i.i.i, %25
   %28 = shl i64 %27, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %28, i1 false)
@@ -470,8 +470,8 @@ define internal fastcc i32 @visit(ptr noundef %0, ptr noundef %1, ptr noundef no
 34:                                               ; preds = %24
   %35 = sub i64 %25, %30
   %36 = sub i64 %spec.select.i.i.i, %35
-  %37 = getelementptr inbounds nuw ptr, ptr %22, i64 %36
-  %38 = getelementptr inbounds nuw ptr, ptr %22, i64 %30
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %30
   %39 = shl i64 %35, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %38, i64 %39, i1 false)
   store i64 %36, ptr %29, align 8, !tbaa !44
@@ -498,7 +498,7 @@ node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %49 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]
   %50 = add i64 %49, %48
   %51 = urem i64 %50, %47
-  %52 = getelementptr inbounds nuw ptr, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %51
   store ptr %0, ptr %52, align 8, !tbaa !45
   %53 = add i64 %48, 1
   store i64 %53, ptr %11, align 8, !tbaa !42
@@ -557,7 +557,7 @@ node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %79 = add i64 %78, %75
   %80 = load i64, ptr %13, align 8, !tbaa !43
   %81 = urem i64 %79, %80
-  %82 = getelementptr inbounds nuw ptr, ptr %76, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !45
   %84 = icmp eq ptr %83, %0
   br i1 %84, label %85, label %86
@@ -593,7 +593,7 @@ node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %103 = add i64 %102, %100
   %104 = load i64, ptr %13, align 8, !tbaa !43
   %105 = urem i64 %103, %104
-  %106 = getelementptr inbounds nuw ptr, ptr %101, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !45
   store i64 %100, ptr %11, align 8, !tbaa !42
   %108 = call ptr @agsubnode(ptr noundef nonnull %91, ptr noundef %107, i32 noundef 1) #14

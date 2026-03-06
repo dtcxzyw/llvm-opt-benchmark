@@ -96,7 +96,7 @@ _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %28
 
 _ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %28
   %39 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %32, %28 ]
-  %40 = getelementptr ptr, ptr %39, i64 %2
+  %40 = getelementptr [8 x i8], ptr %39, i64 %2
   %41 = getelementptr i8, ptr %40, i64 -8
   store ptr %27, ptr %41, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
@@ -230,7 +230,7 @@ _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i:          ; preds = %4
 
 _ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit:      ; preds = %4, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i
   %15 = phi ptr [ %.pre.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i ], [ %8, %4 ]
-  %16 = getelementptr ptr, ptr %15, i64 %1
+  %16 = getelementptr [8 x i8], ptr %15, i64 %1
   %17 = getelementptr i8, ptr %16, i64 -8
   store ptr %2, ptr %17, align 8, !tbaa !38
   br label %18
@@ -318,7 +318,7 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3to
 define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !37
-  %6 = getelementptr ptr, ptr %5, i64 %2
+  %6 = getelementptr [8 x i8], ptr %5, i64 %2
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -458,7 +458,7 @@ _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %30
 
 _ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %30
   %41 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %34, %30 ]
-  %42 = getelementptr ptr, ptr %41, i64 %3
+  %42 = getelementptr [8 x i8], ptr %41, i64 %3
   %43 = getelementptr i8, ptr %42, i64 -8
   store ptr %29, ptr %43, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
@@ -619,7 +619,7 @@ _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %41
 
 _ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %41
   %52 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %45, %41 ]
-  %53 = getelementptr ptr, ptr %52, i64 %3
+  %53 = getelementptr [8 x i8], ptr %52, i64 %3
   %54 = getelementptr i8, ptr %53, i64 -8
   store ptr %30, ptr %54, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
@@ -826,7 +826,7 @@ _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %43
 
 _ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %43
   %54 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %47, %43 ]
-  %55 = getelementptr ptr, ptr %54, i64 %3
+  %55 = getelementptr [8 x i8], ptr %54, i64 %3
   %56 = getelementptr i8, ptr %55, i64 -8
   store ptr %30, ptr %56, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
@@ -1172,9 +1172,9 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
   %19 = load ptr, ptr %0, align 8, !tbaa !83
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -1193,12 +1193,12 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit
 
@@ -1226,9 +1226,9 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allo
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #14
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26, label %53
@@ -1255,7 +1255,7 @@ _ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit: ; 
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !70
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !15
   %63 = load ptr, ptr %62, align 8, !tbaa !16
@@ -1367,9 +1367,9 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uni
 
 _ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !37
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !36
-  %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !89
   br label %40
 

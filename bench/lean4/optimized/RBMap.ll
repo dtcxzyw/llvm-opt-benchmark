@@ -7570,7 +7570,7 @@ lean_alloc_ctor.exit1064:                         ; preds = %1130
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -87739,7 +87739,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_RBMap_fromArray___spec__1___rarg
 9:                                                ; preds = %.lr.ph, %l_Lean_RBNode_insert___rarg.exit
   %.02348 = phi i64 [ %2, %.lr.ph ], [ %47, %l_Lean_RBNode_insert___rarg.exit ]
   %.02547 = phi ptr [ %4, %.lr.ph ], [ %.126, %l_Lean_RBNode_insert___rarg.exit ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02348
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02348
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1

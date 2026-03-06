@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%struct.dt_introspection_type_enum_tuple_t = type { ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"%[^[][%zu]\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"%s[0]\00", align 1
@@ -414,7 +413,7 @@ _store_intro_section.exit:                        ; preds = %22, %36
   %62 = load i32, ptr %61, align 8, !tbaa !49
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %64 = load i64, ptr %63, align 8, !tbaa !39
-  %65 = getelementptr %struct.dt_introspection_type_enum_tuple_t, ptr %60, i64 %64
+  %65 = getelementptr [24 x i8], ptr %60, i64 %64
   %66 = getelementptr i8, ptr %65, i64 -16
   %67 = load i32, ptr %66, align 8, !tbaa !49
   %68 = tail call i32 @dt_bauhaus_combobox_add_introspection(ptr noundef %19, ptr noundef %50, ptr noundef %60, i32 noundef %62, i32 noundef %67) #13

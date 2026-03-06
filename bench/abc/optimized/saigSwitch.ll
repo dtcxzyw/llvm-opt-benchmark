@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/saigSwitch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Saig_SimObj_t_ = type { i32, i32, i32, [1 x i32] }
 %struct.timespec = type { i64, i64 }
 
 @.str = private unnamed_addr constant [13 x i8] c"seqsimframes\00", align 1
@@ -38,13 +37,13 @@ define noalias noundef ptr @Saig_ManCreateMan(ptr noundef readonly captures(none
 
 12:                                               ; preds = %.lr.ph, %Saig_ObjIsLo.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_ObjIsLo.exit.thread ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = icmp eq ptr %14, null
   br i1 %15, label %Saig_ObjIsLo.exit.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw %struct.Saig_SimObj_t_, ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
@@ -77,7 +76,7 @@ Saig_ObjIsLo.exit:                                ; preds = %29
   %34 = getelementptr i8, ptr %31, i64 8
   %.val.i42 = load ptr, ptr %34, align 8, !tbaa !23
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds ptr, ptr %.val.i42, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.val.i42, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !29
@@ -140,7 +139,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Saig_ObjIsLo.exit.t
 
 .critedge.loopexit:                               ; preds = %Saig_ObjIsLo.exit.thread
   %.phi.trans.insert = zext nneg i32 %.val32.val to i64
-  %.phi.trans.insert49 = getelementptr inbounds nuw %struct.Saig_SimObj_t_, ptr %6, i64 %.phi.trans.insert
+  %.phi.trans.insert49 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.phi.trans.insert
   %.phi.trans.insert50 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert49, i64 8
   %.pre = load i32, ptr %.phi.trans.insert50, align 4
   %67 = and i32 %.pre, -256
@@ -150,7 +149,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Saig_ObjIsLo.exit.t
 .critedge:                                        ; preds = %..critedge_crit_edge, %.critedge.loopexit
   %.pre-phi = phi i64 [ %.pre51, %..critedge_crit_edge ], [ %.phi.trans.insert, %.critedge.loopexit ]
   %69 = phi i32 [ 7, %..critedge_crit_edge ], [ %68, %.critedge.loopexit ]
-  %70 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %6, i64 %.pre-phi
+  %70 = getelementptr inbounds [16 x i8], ptr %6, i64 %.pre-phi
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 %69, ptr %71, align 4
   ret ptr %6
@@ -187,12 +186,12 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   %.val.i = load i32, ptr %.024, align 4, !tbaa !30
   %9 = ashr i32 %.val.i, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
   %12 = getelementptr i8, ptr %.024, i64 4
   %.val12.i = load i32, ptr %12, align 4, !tbaa !34
   %13 = ashr i32 %.val12.i, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !37
   %18 = and i32 %.val.i, 1
@@ -210,7 +209,7 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   %.val.i28 = load i32, ptr %.024, align 4, !tbaa !30
   %26 = ashr i32 %.val.i28, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %0, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !37
   %31 = and i32 %.val.i28, 1
@@ -233,7 +232,7 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
 38:                                               ; preds = %37
   %39 = ashr i32 %33, 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %43 = load i32, ptr %42, align 4, !tbaa !37
   %44 = and i32 %33, 1
@@ -959,7 +958,7 @@ define noundef ptr @Aig_CManCreate(ptr noundef readonly captures(none) %0) local
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %1 ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val35 = load ptr, ptr %31, align 8, !tbaa !23
-  %32 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val35, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = icmp eq ptr %33, null
   br i1 %34, label %86, label %35
@@ -1079,7 +1078,7 @@ Aig_CManAddNode.exit:                             ; preds = %.lr.ph.i6.i, %Aig_C
   %91 = phi ptr [ %140, %Aig_CManAddPo.exit ], [ %27, %.critedge.preheader ]
   %92 = getelementptr i8, ptr %91, i64 8
   %.val34 = load ptr, ptr %92, align 8, !tbaa !23
-  %93 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv74
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv74
   %94 = load ptr, ptr %93, align 8, !tbaa !24
   %95 = getelementptr i8, ptr %94, i64 8
   %.val36 = load ptr, ptr %95, align 8, !tbaa !32

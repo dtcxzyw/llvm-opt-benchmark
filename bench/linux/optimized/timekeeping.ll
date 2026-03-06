@@ -129,7 +129,7 @@ define dso_local i64 @ktime_get_mono_fast_ns() #0 align 16 {
   %2 = load volatile i32, ptr @tk_fast_mono, align 64
   %3 = and i32 %2, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.tk_read_base, ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
+  %5 = getelementptr [56 x i8], ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8
   %8 = load volatile ptr, ptr %5, align 8
@@ -175,7 +175,7 @@ define dso_local i64 @ktime_get_raw_fast_ns() #0 align 16 {
   %2 = load volatile i32, ptr @tk_fast_raw, align 64
   %3 = and i32 %2, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.tk_read_base, ptr getelementptr inbounds nuw (i8, ptr @tk_fast_raw, i64 8), i64 %4
+  %5 = getelementptr [56 x i8], ptr getelementptr inbounds nuw (i8, ptr @tk_fast_raw, i64 8), i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8
   %8 = load volatile ptr, ptr %5, align 8
@@ -221,7 +221,7 @@ define dso_local i64 @ktime_get_boot_fast_ns() #0 align 16 {
   %2 = load volatile i32, ptr @tk_fast_mono, align 64
   %3 = and i32 %2, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.tk_read_base, ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
+  %5 = getelementptr [56 x i8], ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8
   %8 = load volatile ptr, ptr %5, align 8
@@ -269,7 +269,7 @@ define dso_local i64 @ktime_get_tai_fast_ns() #0 align 16 {
   %2 = load volatile i32, ptr @tk_fast_mono, align 64
   %3 = and i32 %2, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.tk_read_base, ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
+  %5 = getelementptr [56 x i8], ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8
   %8 = load volatile ptr, ptr %5, align 8
@@ -317,7 +317,7 @@ define dso_local i64 @ktime_get_real_fast_ns() #0 align 16 {
   %2 = load volatile i32, ptr @tk_fast_mono, align 64
   %3 = and i32 %2, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.tk_read_base, ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
+  %5 = getelementptr [56 x i8], ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = load volatile ptr, ptr %5, align 8
@@ -363,7 +363,7 @@ define dso_local void @ktime_get_fast_timestamps(ptr noundef writeonly captures(
   %3 = load volatile i32, ptr @tk_fast_mono, align 64
   %4 = and i32 %3, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.tk_read_base, ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %5
+  %6 = getelementptr [56 x i8], ptr getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -653,7 +653,7 @@ define dso_local i32 @ktime_get_resolution_ns() #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_get_with_offset(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @offsets, i64 %2
+  %3 = getelementptr [8 x i8], ptr @offsets, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @timekeeping_suspended, align 4
   %6 = icmp eq i32 %5, 0
@@ -720,7 +720,7 @@ define dso_local i64 @ktime_get_with_offset(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_get_coarse_with_offset(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @offsets, i64 %2
+  %3 = getelementptr [8 x i8], ptr @offsets, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @timekeeping_suspended, align 4
   %6 = icmp eq i32 %5, 0
@@ -771,7 +771,7 @@ define dso_local i64 @ktime_get_coarse_with_offset(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_mono_to_any(i64 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr ptr, ptr @offsets, i64 %3
+  %4 = getelementptr [8 x i8], ptr @offsets, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 

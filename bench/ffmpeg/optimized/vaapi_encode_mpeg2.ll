@@ -333,10 +333,10 @@ define internal noundef i32 @vaapi_encode_mpeg2_init_sequence_params(ptr noundef
 
 switch.lookup:                                    ; preds = %22
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.vaapi_encode_mpeg2_init_sequence_params, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.vaapi_encode_mpeg2_init_sequence_params, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep263 = getelementptr inbounds nuw i32, ptr @switch.table.vaapi_encode_mpeg2_init_sequence_params.1, i64 %34
+  %switch.gep263 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.vaapi_encode_mpeg2_init_sequence_params.1, i64 %34
   %switch.load264 = load i32, ptr %switch.gep263, align 4
   br label %35
 
@@ -924,7 +924,7 @@ define internal noundef i32 @vaapi_encode_mpeg2_init_slice_params(ptr noundef re
 
 switch.lookup:                                    ; preds = %3
   %17 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.vaapi_encode_mpeg2_init_slice_params, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.vaapi_encode_mpeg2_init_slice_params, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   %.0 = load i32, ptr %18, align 4, !tbaa !94

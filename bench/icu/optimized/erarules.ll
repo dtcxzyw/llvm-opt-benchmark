@@ -129,7 +129,7 @@ define void @_ZN6icu_778EraRules14initCurrentEraEv(ptr noundef nonnull align 8 c
 45:                                               ; preds = %42
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %46 = and i64 %indvars.iv.next, 4294967295
-  %47 = getelementptr inbounds nuw i32, ptr %39, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !17
   %.not14 = icmp slt i32 %36, %48
   br i1 %.not14, label %42, label %.split.loop.exit, !llvm.loop !19
@@ -321,7 +321,7 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
 
 63:                                               ; preds = %61
   %64 = and i64 %52, 2147483647
-  %65 = getelementptr inbounds nuw i32, ptr %29, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !17
   %.not160 = icmp eq i32 %66, 0
   br i1 %.not160, label %67, label %.critedge148
@@ -764,7 +764,7 @@ define void @_ZNK6icu_778EraRules12getStartDateEiRA3_iR10UErrorCode(ptr noundef 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %1 to i64
   %14 = load ptr, ptr %0, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = icmp eq i32 %16, -2147483391
   %18 = ashr i32 %16, 16
@@ -804,7 +804,7 @@ define noundef range(i32 -32768, -2147483648) i32 @_ZNK6icu_778EraRules12getStar
 11:                                               ; preds = %6
   %12 = zext nneg i32 %1 to i64
   %13 = load ptr, ptr %0, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !17
   %16 = icmp eq i32 %15, -2147483391
   %17 = ashr i32 %15, 16
@@ -841,7 +841,7 @@ define noundef i32 @_ZNK6icu_778EraRules11getEraIndexEiiiR10UErrorCode(ptr nound
   %17 = load i32, ptr %16, align 4, !tbaa !21
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %0, align 8, !tbaa !3
-  %20 = getelementptr inbounds i32, ptr %19, i64 %18
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %18
   %21 = load i32, ptr %20, align 4, !tbaa !17
   %22 = icmp slt i32 %1, -32768
   br i1 %22, label %23, label %25
@@ -896,7 +896,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us: ; preds = %_ZN6icu_77L25c
   %40 = add nsw i32 %.140.us, %.02739.us
   %41 = sdiv i32 %40, 2
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %19, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %19, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !17
   %45 = icmp eq i32 %44, -2147483391
   %.027..us = select i1 %45, i32 %.02739.us, i32 %41
@@ -931,7 +931,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25comp
   %56 = add nsw i32 %.140, %.02739
   %57 = sdiv i32 %56, 2
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %19, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %19, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !17
   %.not49 = icmp sgt i32 %60, %52
   %.027. = select i1 %.not49, i32 %57, i32 %.02739

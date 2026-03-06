@@ -3762,7 +3762,7 @@ define void @_ZN10uu_hashsum13uu_app_common17h204b3c010b9d8a84E(ptr noalias noun
   %174 = phi i64 [ %.pre.i.i, %.noexc.i58 ], [ %165, %162 ]
   %175 = getelementptr inbounds nuw i8, ptr %60, i64 112
   %176 = load ptr, ptr %175, align 8, !alias.scope !565, !noalias !570, !nonnull !5, !noundef !5
-  %177 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %176, i64 %174
+  %177 = getelementptr inbounds [16 x i8], ptr %176, i64 %174
   store ptr @anon.30a06547abaf6ed0f9caf43711ac6463.97, ptr %177, align 8, !noalias !570
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i64 3, ptr %178, align 8, !noalias !575
@@ -3932,7 +3932,7 @@ define void @_ZN10uu_hashsum13uu_app_common17h204b3c010b9d8a84E(ptr noalias noun
   %225 = phi i64 [ %.pre.i.i80, %.noexc.i79 ], [ %216, %213 ]
   %226 = getelementptr inbounds nuw i8, ptr %57, i64 112
   %227 = load ptr, ptr %226, align 8, !alias.scope !627, !noalias !632, !nonnull !5, !noundef !5
-  %228 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %227, i64 %225
+  %228 = getelementptr inbounds [16 x i8], ptr %227, i64 %225
   store ptr @anon.30a06547abaf6ed0f9caf43711ac6463.99, ptr %228, align 8, !noalias !632
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i64 4, ptr %229, align 8, !noalias !637
@@ -4099,7 +4099,7 @@ define void @_ZN10uu_hashsum13uu_app_common17h204b3c010b9d8a84E(ptr noalias noun
   %275 = phi i64 [ %.pre.i.i103, %.noexc.i102 ], [ %266, %263 ]
   %276 = getelementptr inbounds nuw i8, ptr %54, i64 112
   %277 = load ptr, ptr %276, align 8, !alias.scope !687, !noalias !692, !nonnull !5, !noundef !5
-  %278 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %277, i64 %275
+  %278 = getelementptr inbounds [16 x i8], ptr %277, i64 %275
   store ptr @anon.30a06547abaf6ed0f9caf43711ac6463.93, ptr %278, align 8, !noalias !692
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i64 6, ptr %279, align 8, !noalias !697

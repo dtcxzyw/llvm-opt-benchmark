@@ -27,8 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.rtree_leaf_elm_s = type { %struct.atomic_p_t }
-%struct.atomic_p_t = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -58,7 +56,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !6
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 896
   %14 = load i64, ptr %13, align 8, !tbaa !9
@@ -75,7 +73,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %1
 20:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 936
   %22 = zext i8 %9 to i64
-  %23 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = ptrtoint ptr %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -140,7 +138,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !6
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 896
   %14 = load i64, ptr %13, align 8, !tbaa !9
@@ -157,7 +155,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %1
 20:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 936
   %22 = zext i8 %9 to i64
-  %23 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = ptrtoint ptr %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -222,7 +220,7 @@ define dso_local noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %0, ptr no
   %9 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !6
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 896
   %15 = load i64, ptr %14, align 8, !tbaa !9
@@ -239,7 +237,7 @@ define dso_local noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %0, ptr no
 21:                                               ; preds = %.noexc3
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 936
   %23 = zext i8 %10 to i64
-  %24 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = ptrtoint ptr %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -304,7 +302,7 @@ define dso_local noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr no
   %9 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !6
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 896
   %15 = load i64, ptr %14, align 8, !tbaa !9
@@ -321,7 +319,7 @@ define dso_local noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr no
 21:                                               ; preds = %.noexc3
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 936
   %23 = zext i8 %10 to i64
-  %24 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = ptrtoint ptr %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -456,7 +454,7 @@ define dso_local void @_ZdlPv(ptr noundef %0) local_unnamed_addr #2 personality 
   %5 = lshr i64 %4, 30
   %6 = and i64 %5, 15
   %7 = and i64 %4, -1073741824
-  %8 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %3, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %9, %7
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -466,14 +464,14 @@ define dso_local void @_ZdlPv(ptr noundef %0) local_unnamed_addr #2 personality 
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = lshr i64 %4, 12
   %13 = and i64 %12, 262143
-  %14 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load atomic i64, ptr %14 monotonic, align 8, !noalias !26
   %16 = trunc i64 %15 to i1
   br i1 %16, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %17 = lshr i64 %15, 48
-  %18 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 912
   %21 = load i64, ptr %20, align 8, !tbaa !9
@@ -485,7 +483,7 @@ define dso_local void @_ZdlPv(ptr noundef %0) local_unnamed_addr #2 personality 
 
 .noexc3:                                          ; preds = %.noexc2
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 936
-  %26 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %25, i64 %17
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %17
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = ptrtoint ptr %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 18
@@ -524,7 +522,7 @@ define dso_local void @_ZdaPv(ptr noundef %0) local_unnamed_addr #2 personality 
   %5 = lshr i64 %4, 30
   %6 = and i64 %5, 15
   %7 = and i64 %4, -1073741824
-  %8 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %3, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %9, %7
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -534,14 +532,14 @@ define dso_local void @_ZdaPv(ptr noundef %0) local_unnamed_addr #2 personality 
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = lshr i64 %4, 12
   %13 = and i64 %12, 262143
-  %14 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load atomic i64, ptr %14 monotonic, align 8, !noalias !31
   %16 = trunc i64 %15 to i1
   br i1 %16, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %17 = lshr i64 %15, 48
-  %18 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 912
   %21 = load i64, ptr %20, align 8, !tbaa !9
@@ -553,7 +551,7 @@ define dso_local void @_ZdaPv(ptr noundef %0) local_unnamed_addr #2 personality 
 
 .noexc3:                                          ; preds = %.noexc2
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 936
-  %26 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %25, i64 %17
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %17
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = ptrtoint ptr %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 18
@@ -592,7 +590,7 @@ define dso_local void @_ZdlPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
   %6 = lshr i64 %5, 30
   %7 = and i64 %6, 15
   %8 = and i64 %5, -1073741824
-  %9 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -602,14 +600,14 @@ define dso_local void @_ZdlPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = lshr i64 %5, 12
   %14 = and i64 %13, 262143
-  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !34
   %17 = trunc i64 %16 to i1
   br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %18 = lshr i64 %16, 48
-  %19 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %22 = load i64, ptr %21, align 8, !tbaa !9
@@ -621,7 +619,7 @@ define dso_local void @_ZdlPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
 
 .noexc3:                                          ; preds = %.noexc2
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %27 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %18
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = ptrtoint ptr %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
@@ -660,7 +658,7 @@ define dso_local void @_ZdaPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
   %6 = lshr i64 %5, 30
   %7 = and i64 %6, 15
   %8 = and i64 %5, -1073741824
-  %9 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -670,14 +668,14 @@ define dso_local void @_ZdaPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = lshr i64 %5, 12
   %14 = and i64 %13, 262143
-  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !37
   %17 = trunc i64 %16 to i1
   br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %18 = lshr i64 %16, 48
-  %19 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %22 = load i64, ptr %21, align 8, !tbaa !9
@@ -689,7 +687,7 @@ define dso_local void @_ZdaPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
 
 .noexc3:                                          ; preds = %.noexc2
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %27 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %18
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = ptrtoint ptr %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
@@ -736,7 +734,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !6
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 912
   %15 = load i64, ptr %14, align 8, !tbaa !9
@@ -749,7 +747,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
 19:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 936
   %21 = zext i8 %10 to i64
-  %22 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = ptrtoint ptr %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 18
@@ -796,7 +794,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !6
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 912
   %15 = load i64, ptr %14, align 8, !tbaa !9
@@ -809,7 +807,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
 19:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 936
   %21 = zext i8 %10 to i64
-  %22 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = ptrtoint ptr %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 18
@@ -848,7 +846,7 @@ define dso_local void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
   %6 = lshr i64 %5, 30
   %7 = and i64 %6, 15
   %8 = and i64 %5, -1073741824
-  %9 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -858,14 +856,14 @@ define dso_local void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = lshr i64 %5, 12
   %14 = and i64 %13, 262143
-  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !40
   %17 = trunc i64 %16 to i1
   br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %18 = lshr i64 %16, 48
-  %19 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %22 = load i64, ptr %21, align 8, !tbaa !9
@@ -877,7 +875,7 @@ define dso_local void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
 
 .noexc3:                                          ; preds = %.noexc2
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %27 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %18
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = ptrtoint ptr %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
@@ -916,7 +914,7 @@ define dso_local void @_ZdaPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
   %6 = lshr i64 %5, 30
   %7 = and i64 %6, 15
   %8 = and i64 %5, -1073741824
-  %9 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -926,14 +924,14 @@ define dso_local void @_ZdaPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = lshr i64 %5, 12
   %14 = and i64 %13, 262143
-  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !43
   %17 = trunc i64 %16 to i1
   br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %18 = lshr i64 %16, 48
-  %19 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %22 = load i64, ptr %21, align 8, !tbaa !9
@@ -945,7 +943,7 @@ define dso_local void @_ZdaPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
 
 .noexc3:                                          ; preds = %.noexc2
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %27 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %18
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = ptrtoint ptr %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
@@ -984,7 +982,7 @@ define dso_local void @_ZdlPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
   %7 = lshr i64 %6, 30
   %8 = and i64 %7, 15
   %9 = and i64 %6, -1073741824
-  %10 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %11, %9
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -994,14 +992,14 @@ define dso_local void @_ZdlPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = lshr i64 %6, 12
   %15 = and i64 %14, 262143
-  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !46
   %18 = trunc i64 %17 to i1
   br i1 %18, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %19 = lshr i64 %17, 48
-  %20 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 912
   %23 = load i64, ptr %22, align 8, !tbaa !9
@@ -1013,7 +1011,7 @@ define dso_local void @_ZdlPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
 
 .noexc3:                                          ; preds = %.noexc2
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 936
-  %28 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %27, i64 %19
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %19
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %30 = ptrtoint ptr %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
@@ -1052,7 +1050,7 @@ define dso_local void @_ZdaPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
   %7 = lshr i64 %6, 30
   %8 = and i64 %7, 15
   %9 = and i64 %6, -1073741824
-  %10 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %11, %9
   br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
@@ -1062,14 +1060,14 @@ define dso_local void @_ZdaPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = lshr i64 %6, 12
   %15 = and i64 %14, 262143
-  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !49
   %18 = trunc i64 %17 to i1
   br i1 %18, label %.noexc2, label %.noexc.thread, !prof !29
 
 .noexc2:                                          ; preds = %.noexc
   %19 = lshr i64 %17, 48
-  %20 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 912
   %23 = load i64, ptr %22, align 8, !tbaa !9
@@ -1081,7 +1079,7 @@ define dso_local void @_ZdaPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
 
 .noexc3:                                          ; preds = %.noexc2
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 936
-  %28 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %27, i64 %19
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %19
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %30 = ptrtoint ptr %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
@@ -1151,7 +1149,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !6
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 912
   %26 = load i64, ptr %25, align 8, !tbaa !9
@@ -1164,7 +1162,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
 30:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 936
   %32 = zext i8 %21 to i64
-  %33 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %35 = ptrtoint ptr %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 18
@@ -1235,7 +1233,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !6
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 912
   %26 = load i64, ptr %25, align 8, !tbaa !9
@@ -1248,7 +1246,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
 30:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 936
   %32 = zext i8 %21 to i64
-  %33 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %35 = ptrtoint ptr %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 18

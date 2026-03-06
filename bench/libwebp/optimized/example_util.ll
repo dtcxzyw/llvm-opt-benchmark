@@ -125,7 +125,7 @@ ExUtilGetInt.exit:                                ; preds = %.lr.ph
 14:                                               ; preds = %.lr.ph
   %15 = trunc i64 %10 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !9
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01628, i32 noundef 44) #10
   %.not21 = icmp ne ptr %17, null
@@ -310,7 +310,7 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
 35:                                               ; preds = %.lr.ph
   %36 = load ptr, ptr %9, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %.02438, ptr %37, align 8, !tbaa !4
   %38 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
   %.not30 = icmp eq ptr %38, null

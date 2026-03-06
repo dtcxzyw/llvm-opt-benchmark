@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/intel_vrr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-
 @constinit = private unnamed_addr constant [5 x i32] [i32 270528, i32 270532, i32 270536, i32 270552, i32 270540], align 4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
@@ -162,7 +160,7 @@ define dso_local void @intel_vrr_check_modeset(ptr noundef readonly captures(non
   %10 = phi ptr [ %3, %7 ], [ %31, %30 ]
   %11 = phi i64 [ 0, %7 ], [ %32, %30 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr %struct.__drm_crtcs_state, ptr %12, i64 %11
+  %13 = getelementptr [56 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -468,7 +466,7 @@ define dso_local void @intel_vrr_set_transcoder_timings(ptr noundef readonly cap
   br i1 %9, label %11, label %._crit_edge
 
 11:                                               ; preds = %1
-  %12 = getelementptr i32, ptr @constinit, i64 %10
+  %12 = getelementptr [4 x i8], ptr @constinit, i64 %10
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 7512
@@ -486,7 +484,7 @@ define dso_local void @intel_vrr_set_transcoder_timings(ptr noundef readonly cap
   %23 = icmp eq i16 %22, 0
   %24 = load ptr, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %26 = getelementptr i32, ptr %25, i64 %10
+  %26 = getelementptr [4 x i8], ptr %25, i64 %10
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -517,7 +515,7 @@ define dso_local void @intel_vrr_set_transcoder_timings(ptr noundef readonly cap
   tail call void %48(ptr noundef nonnull %46, i32 %41, i32 noundef %45, i1 noundef zeroext true) #6
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = getelementptr i32, ptr %50, i64 %10
+  %51 = getelementptr [4 x i8], ptr %50, i64 %10
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %50, align 4
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -533,7 +531,7 @@ define dso_local void @intel_vrr_set_transcoder_timings(ptr noundef readonly cap
   tail call void %63(ptr noundef nonnull %46, i32 %58, i32 noundef %62, i1 noundef zeroext true) #6
   %64 = load ptr, ptr %6, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  %66 = getelementptr i32, ptr %65, i64 %10
+  %66 = getelementptr [4 x i8], ptr %65, i64 %10
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %65, align 4
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 32
@@ -569,7 +567,7 @@ define dso_local void @intel_vrr_set_transcoder_timings(ptr noundef readonly cap
   tail call void %92(ptr noundef nonnull %46, i32 %73, i32 noundef %91, i1 noundef zeroext true) #6
   %93 = load ptr, ptr %6, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 64
-  %95 = getelementptr i32, ptr %94, i64 %10
+  %95 = getelementptr [4 x i8], ptr %94, i64 %10
   %96 = load i32, ptr %95, align 4
   %97 = load i32, ptr %94, align 4
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 32
@@ -604,7 +602,7 @@ define dso_local void @intel_vrr_send_push(ptr noundef readonly captures(none) %
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = sext i32 %9 to i64
-  %14 = getelementptr i32, ptr %12, i64 %13
+  %14 = getelementptr [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %12, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -638,7 +636,7 @@ define dso_local zeroext i1 @intel_vrr_is_push_sent(ptr noundef readonly capture
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = sext i32 %9 to i64
-  %14 = getelementptr i32, ptr %12, i64 %13
+  %14 = getelementptr [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %12, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -675,7 +673,7 @@ define dso_local void @intel_vrr_enable(ptr noundef readonly captures(none) %0) 
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = sext i32 %9 to i64
-  %14 = getelementptr i32, ptr %12, i64 %13
+  %14 = getelementptr [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %12, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -689,7 +687,7 @@ define dso_local void @intel_vrr_enable(ptr noundef readonly captures(none) %0) 
   tail call void %24(ptr noundef nonnull %22, i32 %21, i32 noundef -2147483648, i1 noundef zeroext true) #6
   %25 = load ptr, ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %27 = getelementptr i32, ptr %26, i64 %13
+  %27 = getelementptr [4 x i8], ptr %26, i64 %13
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %26, align 4
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -746,7 +744,7 @@ define dso_local void @intel_vrr_disable(ptr noundef readonly captures(none) %0)
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = sext i32 %9 to i64
-  %14 = getelementptr i32, ptr %12, i64 %13
+  %14 = getelementptr [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %12, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -782,7 +780,7 @@ define dso_local void @intel_vrr_disable(ptr noundef readonly captures(none) %0)
   tail call void %40(ptr noundef nonnull %38, i32 %21, i32 noundef %37, i1 noundef zeroext true) #6
   %41 = load ptr, ptr %10, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %43 = getelementptr i32, ptr %42, i64 %13
+  %43 = getelementptr [4 x i8], ptr %42, i64 %13
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %42, align 4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -793,7 +791,7 @@ define dso_local void @intel_vrr_disable(ptr noundef readonly captures(none) %0)
   %51 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %38, i32 %50, i32 noundef 134217728, i32 noundef 0, i32 noundef 2, i32 noundef 1000, ptr noundef null) #6
   %52 = load ptr, ptr %10, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %54 = getelementptr i32, ptr %53, i64 %13
+  %54 = getelementptr [4 x i8], ptr %53, i64 %13
   %55 = load i32, ptr %54, align 4
   %56 = load i32, ptr %53, align 4
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -819,7 +817,7 @@ define dso_local void @intel_vrr_get_config(ptr noundef captures(none) initializ
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = sext i32 %5 to i64
-  %10 = getelementptr i32, ptr %8, i64 %9
+  %10 = getelementptr [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %8, align 4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -866,7 +864,7 @@ define dso_local void @intel_vrr_get_config(ptr noundef captures(none) initializ
 41:                                               ; preds = %38
   %42 = load ptr, ptr %6, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %44 = getelementptr i32, ptr %43, i64 %9
+  %44 = getelementptr [4 x i8], ptr %43, i64 %9
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %43, align 4
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -882,7 +880,7 @@ define dso_local void @intel_vrr_get_config(ptr noundef captures(none) initializ
   store i16 %55, ptr %56, align 4
   %57 = load ptr, ptr %6, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = getelementptr i32, ptr %58, i64 %9
+  %59 = getelementptr [4 x i8], ptr %58, i64 %9
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %58, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -898,7 +896,7 @@ define dso_local void @intel_vrr_get_config(ptr noundef captures(none) initializ
   store i16 %70, ptr %71, align 4
   %72 = load ptr, ptr %6, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  %74 = getelementptr i32, ptr %73, i64 %9
+  %74 = getelementptr [4 x i8], ptr %73, i64 %9
   %75 = load i32, ptr %74, align 4
   %76 = load i32, ptr %73, align 4
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 32

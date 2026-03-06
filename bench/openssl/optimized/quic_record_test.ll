@@ -315,7 +315,7 @@ define internal range(i32 0, 2) i32 @test_rx_script(i32 noundef %0) #0 {
   %2 = alloca %struct.rx_state, align 8
   %3 = alloca ptr, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds ptr, ptr @rx_scripts, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @rx_scripts, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
@@ -447,7 +447,7 @@ rx_state_teardown.exit60.i:                       ; preds = %43, %41
 
 46:                                               ; preds = %46, %rx_state_teardown.exit60.i
   %.02971.i = phi i64 [ 0, %rx_state_teardown.exit60.i ], [ %48, %46 ]
-  %47 = getelementptr inbounds nuw i64, ptr %13, i64 %.02971.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.02971.i
   store i64 %45, ptr %47, align 8, !tbaa !33
   %48 = add nuw nsw i64 %.02971.i, 1
   %exitcond.not.i = icmp eq i64 %48, 3
@@ -782,8 +782,8 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr(i32 noundef %0) #0 {
 
 .preheader.i:                                     ; preds = %1, %15
   %.014.i = phi i64 [ %16, %15 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [37 x i32], ptr @counts_u, i64 %.014.i
-  %4 = getelementptr inbounds nuw [37 x i32], ptr @counts_c, i64 %.014.i
+  %3 = getelementptr inbounds nuw [148 x i8], ptr @counts_u, i64 %.014.i
+  %4 = getelementptr inbounds nuw [148 x i8], ptr @counts_c, i64 %.014.i
   br label %7
 
 5:                                                ; preds = %11
@@ -793,14 +793,14 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr(i32 noundef %0) #0 {
 
 7:                                                ; preds = %5, %.preheader.i
   %.0913.i = phi i64 [ 0, %.preheader.i ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %.0913.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0913.i
   %9 = load i32, ptr %8, align 4, !tbaa !55
   %10 = tail call i32 @test_uint_gt(ptr noundef nonnull @.str.3, i32 noundef 2964, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef %9, i32 noundef 0) #10
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %test_hdr_prot_stats.exit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %.0913.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0913.i
   %13 = load i32, ptr %12, align 4, !tbaa !55
   %14 = tail call i32 @test_uint_gt(ptr noundef nonnull @.str.3, i32 noundef 2966, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.86, i32 noundef %13, i32 noundef 0) #10
   %.not11.i = icmp eq i32 %14, 0
@@ -817,7 +817,7 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr(i32 noundef %0) #0 {
   %20 = srem i32 %19, 4
   %21 = sdiv i32 %0, 12
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @pkt_hdr_tests, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @pkt_hdr_tests, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i64, ptr %25, align 8, !tbaa !59
@@ -854,7 +854,7 @@ define internal range(i32 0, 2) i32 @test_tx_script(i32 noundef %0) #0 {
   %2 = alloca %struct.bio_msg_st, align 8
   %3 = alloca %struct.ossl_qtx_args_st, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds ptr, ptr @tx_scripts, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @tx_scripts, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -938,7 +938,7 @@ define internal range(i32 0, 2) i32 @test_tx_script(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %42
   %48 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.test_tx_script, i64 %48
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.test_tx_script, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = call i64 @ossl_qtx_get_max_epoch_pkt_count(ptr noundef %8, i32 noundef %switch.load) #10
   %50 = call i32 @test_uint64_t_lt(ptr noundef nonnull @.str.3, i32 noundef 3651, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %49, i64 noundef -1) #10
@@ -1453,7 +1453,7 @@ define internal fastcc range(i32 0, 2) i32 @test_wire_pkt_hdr_actual(i32 noundef
   %11 = alloca %struct.quic_hdr_protector_st, align 8
   %12 = alloca [32 x i8], align 16
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds ptr, ptr @pkt_hdr_tests, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @pkt_hdr_tests, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
@@ -1507,7 +1507,7 @@ define internal fastcc range(i32 0, 2) i32 @test_wire_pkt_hdr_actual(i32 noundef
 switch.lookup:                                    ; preds = %34
   %switch.offset = add nuw nsw i32 %2, 1
   %36 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.test_wire_pkt_hdr_actual, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_wire_pkt_hdr_actual, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 20000, ptr noundef nonnull @.str.3, i32 noundef 2801) #10
   %38 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 2801, ptr noundef nonnull @.str.110, ptr noundef %37) #10
@@ -1777,8 +1777,8 @@ PACKET_buf_init.exit:                             ; preds = %44, %47
   %193 = and i32 %187, %184
   %.not138 = icmp eq i32 %193, 0
   %..v = select i1 %.not138, ptr @counts_u, ptr @counts_c
-  %. = getelementptr inbounds nuw [37 x i32], ptr %..v, i64 %152
-  %194 = getelementptr inbounds nuw i32, ptr %., i64 %190
+  %. = getelementptr inbounds nuw [148 x i8], ptr %..v, i64 %152
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %., i64 %190
   %195 = load i32, ptr %194, align 4, !tbaa !55
   %196 = add i32 %195, 1
   store i32 %196, ptr %194, align 4, !tbaa !55

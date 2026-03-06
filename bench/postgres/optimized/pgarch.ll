@@ -6,18 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__sigset_t = type { [16 x i64] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -433,7 +421,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   store i32 %38, ptr %36, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef %42, ptr noundef nonnull @.str.10) #18
   %44 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #18
@@ -595,7 +583,7 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge46.i.i
   store i32 %119, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %.lcssa47.i.i, i64 16
   %121 = sext i32 %119 to i64
-  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %120, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %123) #18
   br label %pgarch_readyXlog.exit.i
@@ -608,7 +596,7 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge46.i.i
   %128 = inttoptr i64 %127 to ptr
   %129 = load ptr, ptr @arch_files, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i.i
   store ptr %128, ptr %131, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -823,7 +811,7 @@ define dso_local void @PgArchWakeup() local_unnamed_addr #0 {
   %4 = load ptr, ptr @ProcGlobal, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds %struct.PGPROC, ptr %5, i64 %6
+  %7 = getelementptr inbounds [832 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   tail call void @SetLatch(ptr noundef nonnull %8) #18
   br label %9

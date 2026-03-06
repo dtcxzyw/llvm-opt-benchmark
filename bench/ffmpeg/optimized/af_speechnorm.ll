@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.ChannelContext = type { i32, i32, [882000 x %struct.PeriodItem], double, double, double, i32, i32, i32 }
-%struct.PeriodItem = type { i32, i32, double, double }
 
 @.str = private unnamed_addr constant [11 x i8] c"speechnorm\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"Speech Normalizer.\00", align 1
@@ -75,7 +73,7 @@ ff_bufqueue_get.exit.i:                           ; preds = %ff_bufqueue_get.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load i16, ptr %8, align 8, !tbaa !23
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = add i16 %9, -1
   store i16 %14, ptr %6, align 2, !tbaa !20
@@ -183,7 +181,7 @@ ff_bufqueue_peek.exit.i:                          ; preds = %.critedge
   %36 = load i16, ptr %35, align 8, !tbaa !23
   %37 = and i16 %36, 1023
   %38 = zext nneg i16 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   %.not54.i = icmp eq ptr %40, null
   br i1 %.not54.i, label %.thread.i, label %41
@@ -205,7 +203,7 @@ ff_bufqueue_peek.exit.i:                          ; preds = %.critedge
 
 ff_bufqueue_get.exit.i:                           ; preds = %47, %41
   %50 = zext i16 %36 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %32, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !24
   %53 = add i16 %34, -1
   store i16 %53, ptr %33, align 2, !tbaa !20
@@ -240,7 +238,7 @@ filter_frame.exit.thread57:                       ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %27, i64 100
   %66 = load i32, ptr %65, align 4, !tbaa !28
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %64, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !50
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %71 = load i32, ptr %70, align 8, !tbaa !42
@@ -314,7 +312,7 @@ filter_frame.exit.thread57:                       ; preds = %57
   %102 = zext i16 %101 to i64
   %103 = add nuw nsw i64 %102, %99
   %104 = and i64 %103, 1023
-  %105 = getelementptr inbounds nuw ptr, ptr %32, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %104
   call void @av_frame_free(ptr noundef nonnull %105) #11
   %.pre.i.i = load i16, ptr %33, align 2, !tbaa !20
   br label %ff_bufqueue_add.exit.i
@@ -328,7 +326,7 @@ ff_bufqueue_add.exit.i:                           ; preds = %97, %95
   %110 = zext i16 %106 to i64
   %111 = add nuw nsw i64 %108, %110
   %112 = and i64 %111, 1023
-  %113 = getelementptr inbounds nuw ptr, ptr %32, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %112
   store ptr %96, ptr %113, align 8, !tbaa !24
   %114 = load i32, ptr %87, align 4, !tbaa !59
   %115 = icmp sgt i32 %114, 0
@@ -337,12 +335,12 @@ ff_bufqueue_add.exit.i:                           ; preds = %97, %95
 .lr.ph.i:                                         ; preds = %ff_bufqueue_add.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %ff_bufqueue_add.exit.i ]
   %116 = load ptr, ptr %88, align 8, !tbaa !41
-  %117 = getelementptr inbounds nuw %struct.ChannelContext, ptr %116, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [21168048 x i8], ptr %116, i64 %indvars.iv.i
   %118 = load ptr, ptr %89, align 8, !tbaa !60
   %119 = load ptr, ptr %3, align 8, !tbaa !24
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 96
   %121 = load ptr, ptr %120, align 8, !tbaa !61
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i
   %123 = load ptr, ptr %122, align 8, !tbaa !62
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 112
   %125 = load i32, ptr %124, align 8, !tbaa !42
@@ -422,7 +420,7 @@ ff_bufqueue_peek.exit:                            ; preds = %151
   %156 = load i16, ptr %155, align 8, !tbaa !23
   %157 = and i16 %156, 1023
   %158 = zext nneg i16 %157 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr %154, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !24
   %.val = load ptr, ptr %6, align 8, !tbaa !35
   %.val52 = load ptr, ptr %12, align 8, !tbaa !4
@@ -503,7 +501,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw %struct.ChannelContext, ptr %14, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [21168048 x i8], ptr %14, i64 %indvars.iv
   store i32 -1, ptr %23, align 8, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 21168008
   store double %19, ptr %24, align 8, !tbaa !71
@@ -568,7 +566,7 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
   %.099129 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.lcssa.sink, %.loopexit ]
   %sext = shl i64 %.099129, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds float, ptr %2, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %2, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !74
   %26 = fcmp nsz oge float %25, 0.000000e+00
   %27 = zext i1 %26 to i32
@@ -577,13 +575,13 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
   br i1 %.not, label %29, label %._crit_edge143
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %28
+  %30 = getelementptr inbounds [24 x i8], ptr %9, i64 %28
   %31 = load i32, ptr %30, align 8, !tbaa !76
   %32 = icmp sgt i32 %31, %8
   br i1 %32, label %._crit_edge143, label %63
 
 ._crit_edge143:                                   ; preds = %21, %29
-  %33 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %28
+  %33 = getelementptr inbounds [24 x i8], ptr %9, i64 %28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load double, ptr %34, align 8, !tbaa !78
   %36 = fptrunc nsz double %35 to float
@@ -609,7 +607,7 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
 
 48:                                               ; preds = %44
   %49 = sext i32 %spec.store.select to i64
-  %50 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %49
+  %50 = getelementptr inbounds [24 x i8], ptr %9, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store double 0x10000000000000, ptr %51, align 8, !tbaa !78
   br label %58
@@ -617,7 +615,7 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
 52:                                               ; preds = %44
   %53 = fpext nsz float %36 to double
   %54 = sext i32 %spec.store.select to i64
-  %55 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %9, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store double %53, ptr %56, align 8, !tbaa !78
   %57 = fpext nsz float %39 to double
@@ -626,10 +624,10 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
 58:                                               ; preds = %52, %48
   %.sink = phi double [ %57, %52 ], [ 0.000000e+00, %48 ]
   %.pre-phi142 = phi i64 [ %54, %52 ], [ %49, %48 ]
-  %59 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %.pre-phi142
+  %59 = getelementptr inbounds [24 x i8], ptr %9, i64 %.pre-phi142
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store double %.sink, ptr %60, align 8, !tbaa !79
-  %61 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %.pre-phi142
+  %61 = getelementptr inbounds [24 x i8], ptr %9, i64 %.pre-phi142
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 0, ptr %62, align 4, !tbaa !80
   store i32 0, ptr %61, align 8, !tbaa !76
@@ -640,7 +638,7 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
   %.pre-phi = phi i64 [ %28, %41 ], [ %.pre-phi142, %58 ], [ %28, %29 ]
   %65 = phi i32 [ %27, %41 ], [ %27, %58 ], [ %22, %29 ]
   %.1 = phi i32 [ %.0130, %41 ], [ %spec.store.select, %58 ], [ %.0130, %29 ]
-  %66 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %.pre-phi
+  %66 = getelementptr inbounds [24 x i8], ptr %9, i64 %.pre-phi
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load double, ptr %67, align 8, !tbaa !78
   %69 = fptrunc nsz double %68 to float
@@ -655,7 +653,7 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
   %.0108 = phi nsz float [ %78, %76 ], [ %72, %63 ]
   %.0105 = phi i32 [ %79, %76 ], [ %64, %63 ]
   %.0102 = phi nsz float [ %.0102., %76 ], [ %69, %63 ]
-  %73 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %73 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv
   %74 = load float, ptr %73, align 4, !tbaa !74
   %75 = fcmp nsz ult float %74, 0.000000e+00
   br i1 %75, label %.loopexit, label %76
@@ -674,7 +672,7 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
   %.2110 = phi nsz float [ %86, %83 ], [ %72, %63 ]
   %.2107 = phi i32 [ %87, %83 ], [ %64, %63 ]
   %.2104 = phi nsz float [ %.2104., %83 ], [ %69, %63 ]
-  %80 = getelementptr inbounds float, ptr %2, i64 %indvars.iv137
+  %80 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv137
   %81 = load float, ptr %80, align 4, !tbaa !74
   %82 = fcmp nsz olt float %81, 0.000000e+00
   br i1 %82, label %83, label %.loopexit
@@ -745,12 +743,12 @@ define internal void @filter_channels_flt(ptr noundef readonly captures(none) %0
 .lr.ph51.us:                                      ; preds = %.lr.ph53, %.critedge._crit_edge.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.critedge._crit_edge.us ], [ 0, %.lr.ph53 ]
   %20 = load ptr, ptr %14, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw %struct.ChannelContext, ptr %20, i64 %indvars.iv57
+  %21 = getelementptr inbounds nuw [21168048 x i8], ptr %20, i64 %indvars.iv57
   %22 = load ptr, ptr %15, align 8, !tbaa !61
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv57
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv57
   %24 = load ptr, ptr %23, align 8, !tbaa !62
   %25 = load ptr, ptr %16, align 8, !tbaa !61
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv57
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv57
   %27 = load ptr, ptr %26, align 8, !tbaa !62
   %28 = trunc nuw nsw i64 %indvars.iv57 to i32
   %29 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %13, i32 noundef %28) #11
@@ -778,7 +776,7 @@ define internal void @filter_channels_flt(ptr noundef readonly captures(none) %0
 40:                                               ; preds = %37
   %41 = load i32, ptr %32, align 8, !tbaa !85
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.PeriodItem, ptr %33, i64 %42
+  %43 = getelementptr inbounds [24 x i8], ptr %33, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !80
   %46 = icmp sgt i32 %45, 0
@@ -886,10 +884,10 @@ consume_pi.exit.us:                               ; preds = %.consume_pi.exit.us
 
 .lr.ph.split.us54:                                ; preds = %.lr.ph.split.us54.preheader, %.lr.ph.split.us54
   %indvars.iv = phi i64 [ %110, %.lr.ph.split.us54.preheader ], [ %indvars.iv.next, %.lr.ph.split.us54 ]
-  %104 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  %104 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv
   %105 = load float, ptr %104, align 4, !tbaa !74
   %106 = fmul nsz float %105, %99
-  %107 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
+  %107 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv
   store float %106, ptr %107, align 4, !tbaa !74
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %108 = icmp slt i64 %indvars.iv.next, %111
@@ -974,7 +972,7 @@ define internal void @filter_link_channels_flt(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ %indvars.iv.next, %next_pi.exit ], [ 0, %20 ]
   %.070121 = phi i32 [ %..070, %next_pi.exit ], [ %22, %20 ]
   %28 = load ptr, ptr %14, align 8, !tbaa !41
-  %29 = getelementptr inbounds nuw %struct.ChannelContext, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [21168048 x i8], ptr %28, i64 %indvars.iv
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %13, i32 noundef %30) #11
   %32 = tail call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %15, i32 noundef %31) #11
@@ -991,7 +989,7 @@ define internal void @filter_link_channels_flt(ptr noundef readonly captures(non
   %39 = load i32, ptr %38, align 8, !tbaa !85
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds %struct.PeriodItem, ptr %40, i64 %41
+  %42 = getelementptr inbounds [24 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !80
   %45 = icmp sgt i32 %44, 0
@@ -1121,7 +1119,7 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
 112:                                              ; preds = %.lr.ph125, %226
   %indvars.iv138 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next139, %226 ]
   %.071124 = phi float [ %24, %.lr.ph125 ], [ %.1, %226 ]
-  %113 = getelementptr inbounds nuw %struct.ChannelContext, ptr %27, i64 %indvars.iv138
+  %113 = getelementptr inbounds nuw [21168048 x i8], ptr %27, i64 %indvars.iv138
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = load i32, ptr %114, align 4, !tbaa !99
   %.not79 = icmp eq i32 %115, 0
@@ -1166,7 +1164,7 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
 
 140:                                              ; preds = %138
   %141 = sext i32 %.05.i to i64
-  %142 = getelementptr inbounds %struct.PeriodItem, ptr %130, i64 %141
+  %142 = getelementptr inbounds [24 x i8], ptr %130, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load double, ptr %143, align 8, !tbaa !78
   %145 = load i32, ptr %142, align 8, !tbaa !76
@@ -1249,7 +1247,7 @@ min_gain.exit.thread:                             ; preds = %116
 
 184:                                              ; preds = %.lr.ph.i95
   %185 = sext i32 %.05.i96 to i64
-  %186 = getelementptr inbounds %struct.PeriodItem, ptr %130, i64 %185
+  %186 = getelementptr inbounds [24 x i8], ptr %130, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load double, ptr %187, align 8, !tbaa !78
   %189 = load i32, ptr %186, align 8, !tbaa !76
@@ -1335,10 +1333,10 @@ min_gain.exit113:                                 ; preds = %.lr.ph.i95, %next_g
 
 230:                                              ; preds = %.lr.ph131, %.critedge
   %indvars.iv144 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next145, %.critedge ]
-  %231 = getelementptr inbounds nuw %struct.ChannelContext, ptr %104, i64 %indvars.iv144
-  %232 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv144
+  %231 = getelementptr inbounds nuw [21168048 x i8], ptr %104, i64 %indvars.iv144
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv144
   %233 = load ptr, ptr %232, align 8, !tbaa !62
-  %234 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv144
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv144
   %235 = load ptr, ptr %234, align 8, !tbaa !62
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 21168040
   %237 = load i32, ptr %236, align 8, !tbaa !84
@@ -1376,10 +1374,10 @@ consume_pi.exit:                                  ; preds = %230, %238
   %248 = sitofp i32 %247 to float
   %249 = fdiv nsz float %248, %109
   %250 = tail call nsz noundef float @llvm.fmuladd.f32(float %245, float %249, float %244)
-  %251 = getelementptr inbounds float, ptr %233, i64 %indvars.iv141
+  %251 = getelementptr inbounds [4 x i8], ptr %233, i64 %indvars.iv141
   %252 = load float, ptr %251, align 4, !tbaa !74
   %253 = fmul nsz float %252, %250
-  %254 = getelementptr inbounds float, ptr %235, i64 %indvars.iv141
+  %254 = getelementptr inbounds [4 x i8], ptr %235, i64 %indvars.iv141
   store float %253, ptr %254, align 4, !tbaa !74
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, 1
   %255 = icmp slt i64 %indvars.iv.next142, %111
@@ -1429,7 +1427,7 @@ define internal void @analyze_channel_dbl(ptr noundef readonly captures(none) %0
   %.099129 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.lcssa.sink, %.loopexit ]
   %sext = shl i64 %.099129, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds double, ptr %2, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %2, i64 %23
   %25 = load double, ptr %24, align 8, !tbaa !106
   %26 = fcmp nsz oge double %25, 0.000000e+00
   %27 = zext i1 %26 to i32
@@ -1438,13 +1436,13 @@ define internal void @analyze_channel_dbl(ptr noundef readonly captures(none) %0
   br i1 %.not, label %29, label %._crit_edge143
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %28
+  %30 = getelementptr inbounds [24 x i8], ptr %9, i64 %28
   %31 = load i32, ptr %30, align 8, !tbaa !76
   %32 = icmp sgt i32 %31, %8
   br i1 %32, label %._crit_edge143, label %52
 
 ._crit_edge143:                                   ; preds = %21, %29
-  %33 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %28
+  %33 = getelementptr inbounds [24 x i8], ptr %9, i64 %28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load double, ptr %34, align 8, !tbaa !78
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -1465,14 +1463,14 @@ define internal void @analyze_channel_dbl(ptr noundef readonly captures(none) %0
   %45 = icmp sgt i32 %.0130, 881998
   %spec.store.select = select i1 %45, i32 0, i32 %44
   %46 = sext i32 %spec.store.select to i64
-  %47 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %46
+  %47 = getelementptr inbounds [24 x i8], ptr %9, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %. = select i1 %.not, double %35, double 0x10000000000000
   %.183 = select i1 %.not, double %37, double 0.000000e+00
   store double %., ptr %48, align 8, !tbaa !78
   store double %.183, ptr %49, align 8, !tbaa !79
-  %50 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %46
+  %50 = getelementptr inbounds [24 x i8], ptr %9, i64 %46
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %51, align 4, !tbaa !80
   store i32 0, ptr %50, align 8, !tbaa !76
@@ -1483,7 +1481,7 @@ define internal void @analyze_channel_dbl(ptr noundef readonly captures(none) %0
   %.pre-phi = phi i64 [ %28, %39 ], [ %46, %42 ], [ %28, %29 ]
   %54 = phi i32 [ %27, %39 ], [ %27, %42 ], [ %22, %29 ]
   %.1 = phi i32 [ %.0130, %39 ], [ %spec.store.select, %42 ], [ %.0130, %29 ]
-  %55 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %.pre-phi
+  %55 = getelementptr inbounds [24 x i8], ptr %9, i64 %.pre-phi
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load double, ptr %56, align 8, !tbaa !78
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -1496,7 +1494,7 @@ define internal void @analyze_channel_dbl(ptr noundef readonly captures(none) %0
   %.0108 = phi nsz double [ %65, %63 ], [ %59, %52 ]
   %.0105 = phi i32 [ %66, %63 ], [ %53, %52 ]
   %.0102 = phi nsz double [ %.0102., %63 ], [ %57, %52 ]
-  %60 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %60 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %61 = load double, ptr %60, align 8, !tbaa !106
   %62 = fcmp nsz ult double %61, 0.000000e+00
   br i1 %62, label %.loopexit, label %63
@@ -1515,7 +1513,7 @@ define internal void @analyze_channel_dbl(ptr noundef readonly captures(none) %0
   %.2110 = phi nsz double [ %73, %70 ], [ %59, %52 ]
   %.2107 = phi i32 [ %74, %70 ], [ %53, %52 ]
   %.2104 = phi nsz double [ %.2104., %70 ], [ %57, %52 ]
-  %67 = getelementptr inbounds double, ptr %2, i64 %indvars.iv137
+  %67 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv137
   %68 = load double, ptr %67, align 8, !tbaa !106
   %69 = fcmp nsz olt double %68, 0.000000e+00
   br i1 %69, label %70, label %.loopexit
@@ -1582,12 +1580,12 @@ define internal void @filter_channels_dbl(ptr noundef readonly captures(none) %0
 .lr.ph51.us:                                      ; preds = %.lr.ph53, %.critedge._crit_edge.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.critedge._crit_edge.us ], [ 0, %.lr.ph53 ]
   %20 = load ptr, ptr %14, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw %struct.ChannelContext, ptr %20, i64 %indvars.iv57
+  %21 = getelementptr inbounds nuw [21168048 x i8], ptr %20, i64 %indvars.iv57
   %22 = load ptr, ptr %15, align 8, !tbaa !61
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv57
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv57
   %24 = load ptr, ptr %23, align 8, !tbaa !62
   %25 = load ptr, ptr %16, align 8, !tbaa !61
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv57
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv57
   %27 = load ptr, ptr %26, align 8, !tbaa !62
   %28 = trunc nuw nsw i64 %indvars.iv57 to i32
   %29 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %13, i32 noundef %28) #11
@@ -1615,7 +1613,7 @@ define internal void @filter_channels_dbl(ptr noundef readonly captures(none) %0
 40:                                               ; preds = %37
   %41 = load i32, ptr %32, align 8, !tbaa !85
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.PeriodItem, ptr %33, i64 %42
+  %43 = getelementptr inbounds [24 x i8], ptr %33, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !80
   %46 = icmp sgt i32 %45, 0
@@ -1722,10 +1720,10 @@ consume_pi.exit.us:                               ; preds = %.consume_pi.exit.us
 
 .lr.ph.split.us54:                                ; preds = %.lr.ph.split.us54.preheader, %.lr.ph.split.us54
   %indvars.iv = phi i64 [ %109, %.lr.ph.split.us54.preheader ], [ %indvars.iv.next, %.lr.ph.split.us54 ]
-  %103 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %103 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv
   %104 = load double, ptr %103, align 8, !tbaa !106
   %105 = fmul nsz double %96, %104
-  %106 = getelementptr inbounds double, ptr %27, i64 %indvars.iv
+  %106 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv
   store double %105, ptr %106, align 8, !tbaa !106
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %107 = icmp slt i64 %indvars.iv.next, %110
@@ -1809,7 +1807,7 @@ define internal void @filter_link_channels_dbl(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ %indvars.iv.next, %next_pi.exit ], [ 0, %20 ]
   %.070121 = phi i32 [ %..070, %next_pi.exit ], [ %22, %20 ]
   %27 = load ptr, ptr %14, align 8, !tbaa !41
-  %28 = getelementptr inbounds nuw %struct.ChannelContext, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [21168048 x i8], ptr %27, i64 %indvars.iv
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %13, i32 noundef %29) #11
   %31 = tail call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %15, i32 noundef %30) #11
@@ -1826,7 +1824,7 @@ define internal void @filter_link_channels_dbl(ptr noundef readonly captures(non
   %38 = load i32, ptr %37, align 8, !tbaa !85
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %struct.PeriodItem, ptr %39, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !80
   %44 = icmp sgt i32 %43, 0
@@ -1956,7 +1954,7 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
 111:                                              ; preds = %.lr.ph125, %min_gain.exit112
   %indvars.iv138 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next139, %min_gain.exit112 ]
   %.071124 = phi double [ %23, %.lr.ph125 ], [ %.1, %min_gain.exit112 ]
-  %112 = getelementptr inbounds nuw %struct.ChannelContext, ptr %26, i64 %indvars.iv138
+  %112 = getelementptr inbounds nuw [21168048 x i8], ptr %26, i64 %indvars.iv138
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4, !tbaa !99
   %.not78 = icmp eq i32 %114, 0
@@ -2000,7 +1998,7 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
 
 138:                                              ; preds = %136
   %139 = sext i32 %.05.i to i64
-  %140 = getelementptr inbounds %struct.PeriodItem, ptr %128, i64 %139
+  %140 = getelementptr inbounds [24 x i8], ptr %128, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load double, ptr %141, align 8, !tbaa !78
   %143 = load i32, ptr %140, align 8, !tbaa !76
@@ -2086,7 +2084,7 @@ min_gain.exit.thread:                             ; preds = %115
 
 182:                                              ; preds = %.lr.ph.i94
   %183 = sext i32 %.05.i95 to i64
-  %184 = getelementptr inbounds %struct.PeriodItem, ptr %128, i64 %183
+  %184 = getelementptr inbounds [24 x i8], ptr %128, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load double, ptr %185, align 8, !tbaa !78
   %187 = load i32, ptr %184, align 8, !tbaa !76
@@ -2166,10 +2164,10 @@ min_gain.exit112:                                 ; preds = %next_gain.exit.i104
 
 225:                                              ; preds = %.lr.ph131, %.critedge
   %indvars.iv144 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next145, %.critedge ]
-  %226 = getelementptr inbounds nuw %struct.ChannelContext, ptr %103, i64 %indvars.iv144
-  %227 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv144
+  %226 = getelementptr inbounds nuw [21168048 x i8], ptr %103, i64 %indvars.iv144
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv144
   %228 = load ptr, ptr %227, align 8, !tbaa !62
-  %229 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv144
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv144
   %230 = load ptr, ptr %229, align 8, !tbaa !62
   %231 = getelementptr inbounds nuw i8, ptr %226, i64 21168040
   %232 = load i32, ptr %231, align 8, !tbaa !84
@@ -2203,10 +2201,10 @@ consume_pi.exit:                                  ; preds = %225, %233
   %242 = fdiv nsz double %241, %108
   %243 = fsub nsz double %.1, %238
   %244 = tail call nsz noundef double @llvm.fmuladd.f64(double %243, double %242, double %238)
-  %245 = getelementptr inbounds double, ptr %228, i64 %indvars.iv141
+  %245 = getelementptr inbounds [8 x i8], ptr %228, i64 %indvars.iv141
   %246 = load double, ptr %245, align 8, !tbaa !106
   %247 = fmul nsz double %246, %244
-  %248 = getelementptr inbounds double, ptr %230, i64 %indvars.iv141
+  %248 = getelementptr inbounds [8 x i8], ptr %230, i64 %indvars.iv141
   store double %247, ptr %248, align 8, !tbaa !106
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, 1
   %249 = icmp slt i64 %indvars.iv.next142, %110
@@ -2274,7 +2272,7 @@ define internal fastcc i32 @available_samples(ptr readonly captures(none) %.32.v
   %6 = getelementptr inbounds nuw i8, ptr %.72.val.104.val, i64 21168040
   %7 = load i32, ptr %6, align 8, !tbaa !84
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds %struct.PeriodItem, ptr %1, i64 %8
+  %9 = getelementptr inbounds [24 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !80
   %12 = icmp eq i32 %11, 0
@@ -2289,7 +2287,7 @@ define internal fastcc i32 @available_samples(ptr readonly captures(none) %.32.v
   %14 = icmp sgt i32 %.01517.i, 881998
   %spec.store.select.i = select i1 %14, i32 0, i32 %13
   %15 = sext i32 %spec.store.select.i to i64
-  %16 = getelementptr inbounds %struct.PeriodItem, ptr %1, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %1, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !80
   %19 = icmp eq i32 %18, 0
@@ -2321,7 +2319,7 @@ get_pi_samples.exit:                              ; preds = %.lr.ph.i, %20, %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %get_pi_samples.exit40
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %get_pi_samples.exit40 ]
   %.03 = phi i32 [ %.014.i, %.lr.ph.preheader ], [ %62, %get_pi_samples.exit40 ]
-  %29 = getelementptr inbounds nuw %struct.ChannelContext, ptr %.72.val.104.val, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [21168048 x i8], ptr %.72.val.104.val, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 21168032
   %32 = load i32, ptr %31, align 8, !tbaa !85
@@ -2330,7 +2328,7 @@ get_pi_samples.exit:                              ; preds = %.lr.ph.i, %20, %0
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 21168040
   %36 = load i32, ptr %35, align 8, !tbaa !84
   %37 = sext i32 %32 to i64
-  %38 = getelementptr inbounds %struct.PeriodItem, ptr %30, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %30, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !80
   %41 = icmp eq i32 %40, 0
@@ -2345,7 +2343,7 @@ get_pi_samples.exit:                              ; preds = %.lr.ph.i, %20, %0
   %43 = icmp sgt i32 %.01517.i27, 881998
   %spec.store.select.i28 = select i1 %43, i32 0, i32 %42
   %44 = sext i32 %spec.store.select.i28 to i64
-  %45 = getelementptr inbounds %struct.PeriodItem, ptr %30, i64 %44
+  %45 = getelementptr inbounds [24 x i8], ptr %30, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !80
   %48 = icmp eq i32 %47, 0
@@ -2373,7 +2371,7 @@ get_pi_samples.exit31.thread:                     ; preds = %.lr.ph
   %53 = icmp sgt i32 %.01517.i36, 881998
   %spec.store.select.i37 = select i1 %53, i32 0, i32 %52
   %54 = sext i32 %spec.store.select.i37 to i64
-  %55 = getelementptr inbounds %struct.PeriodItem, ptr %30, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %30, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !80
   %58 = icmp eq i32 %57, 0

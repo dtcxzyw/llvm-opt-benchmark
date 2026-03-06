@@ -98,12 +98,10 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.147 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.148 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.id_adapter = type <{ ptr, i32, [4 x i8] }>
-%"class.fmt::v8::basic_format_arg" = type <{ %"class.fmt::v8::detail::value", i32, [12 x i8] }>
 %"struct.fmt::v8::detail::write_int_arg.170" = type { i128, i32 }
 %"class.fmt::v8::detail::specs_checker" = type <{ %"class.fmt::v8::detail::specs_handler", i32, [4 x i8] }>
 %"class.fmt::v8::detail::specs_handler" = type { %"class.fmt::v8::detail::specs_setter", ptr, ptr }
 %"class.fmt::v8::detail::specs_setter" = type { ptr }
-%"struct.fmt::v8::detail::named_arg_info" = type { ptr, i32 }
 %struct.width_adapter = type { ptr }
 %struct.precision_adapter = type { ptr }
 %class.anon.169 = type { i32, %"struct.fmt::v8::detail::write_int_data", %class.anon.160 }
@@ -710,7 +708,7 @@ define void @_ZN8WasmEdge4LLVM10JITLibrary8getTypesEm(ptr dead_on_unwind noalias
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #17
   store ptr %16, ptr %0, align 8
   store ptr %16, ptr %14, align 8
-  %17 = getelementptr inbounds nuw %"class.WasmEdge::Symbol.20", ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %2
   store ptr %17, ptr %13, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -941,7 +939,7 @@ define void @_ZN8WasmEdge4LLVM10JITLibrary8getCodesEmm(ptr dead_on_unwind noalia
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #17
   store ptr %17, ptr %0, align 8
   store ptr %17, ptr %15, align 8
-  %18 = getelementptr inbounds nuw %"class.WasmEdge::Symbol.40", ptr %17, i64 %3
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %3
   store ptr %18, ptr %14, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2301,7 +2299,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEiTnNSt9en
   %6 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %7 = xor i32 %6, 31
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = zext i32 %spec.select to i64
   %12 = add i64 %10, %11
@@ -2513,7 +2511,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEjTnNSt9en
   %5 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %6 = xor i32 %5, 31
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = add i64 %9, %10
@@ -2688,7 +2686,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderExTnNSt9en
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = zext i8 %9 to i64
-  %12 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %spec.select, %13
   %.neg.i.i = sext i1 %14 to i32
@@ -2899,7 +2897,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEyTnNSt9en
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = zext i8 %8 to i64
-  %11 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %1, %12
   %.neg.i.i = sext i1 %13 to i32
@@ -3588,7 +3586,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appe
   %34 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %33, i1 true)
   %35 = xor i32 %34, 31
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %1, 4294967295
   %40 = add i64 %38, %39
@@ -4493,7 +4491,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail19write_int_localizedINS0_8appenderEmc
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %1, %18
   %.neg.i.i = sext i1 %19 to i32
@@ -4972,7 +4970,7 @@ _ZN3fmt2v86detail6bufferIiE9push_backERKi.exit16: ; preds = %25, %30
   %33 = phi i64 [ %26, %25 ], [ %.pre.i14, %30 ]
   %34 = load ptr, ptr %6, align 8
   store i64 %.pre-phi.i13, ptr %8, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %33
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %33
   store i32 %24, ptr %35, align 4
   %36 = load i8, ptr %11, align 8
   %.not.i = icmp eq i8 %36, 0
@@ -4998,7 +4996,7 @@ _ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.thread: ; pre
   %45 = sub i64 %3, %indvars.iv
   %46 = load ptr, ptr %6, align 8
   %47 = sext i32 %.040 to i64
-  %48 = getelementptr inbounds i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = trunc i64 %45 to i32
   %51 = icmp eq i32 %49, %50
@@ -7750,7 +7748,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = zext i32 %27 to i64
   %35 = add i64 %33, %34
@@ -10585,7 +10583,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = zext i8 %32 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %27, %36
   %.neg.i.i.i = sext i1 %37 to i32
@@ -16644,7 +16642,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i: ; preds
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %43 = load ptr, ptr %42, align 8, !noalias !123
   %44 = zext nneg i32 %.0.i.i247249 to i64
-  %45 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %44
   %.sroa.0221.0.copyload235 = load i128, ptr %45, align 16
   %46 = trunc i128 %.sroa.0221.0.copyload235 to i64
   %47 = lshr i128 %.sroa.0221.0.copyload235, 64
@@ -16661,7 +16659,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %29
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %53 = load ptr, ptr %52, align 8, !noalias !123
   %54 = zext nneg i32 %.0.i.i246 to i64
-  %55 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %.sroa.0221.0.copyload = load i128, ptr %55, align 16
   %.sroa.19237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 16
   %.sroa.19237.0.copyload = load i32, ptr %.sroa.19237.0..sroa_idx, align 16
@@ -16953,7 +16951,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i171: ; pr
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %166 = load ptr, ptr %165, align 8, !noalias !135
   %167 = sext i32 %148 to i64
-  %168 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %166, i64 %167
+  %168 = getelementptr inbounds [16 x i8], ptr %166, i64 %167
   %.sroa.0.0.copyload213 = load i128, ptr %168, align 16
   %169 = trunc i128 %.sroa.0.0.copyload213 to i64
   %170 = lshr i128 %.sroa.0.0.copyload213, 64
@@ -16970,7 +16968,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i169: ; preds = %1
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %176 = load ptr, ptr %175, align 8, !noalias !135
   %177 = sext i32 %148 to i64
-  %178 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %176, i64 %177
+  %178 = getelementptr inbounds [32 x i8], ptr %176, i64 %177
   %.sroa.0.0.copyload = load i128, ptr %178, align 16
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 16
   %.sroa.19.0.copyload = load i32, ptr %.sroa.19.0..sroa_idx, align 16
@@ -17379,7 +17377,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i: ; preds
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8, !noalias !144
   %44 = sext i32 %1 to i64
-  %45 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %43, i64 %44
+  %45 = getelementptr inbounds [16 x i8], ptr %43, i64 %44
   %.sroa.0401.0.copyload429534 = load i80, ptr %45, align 16
   %.sroa_idx535 = getelementptr inbounds nuw i8, ptr %45, i64 10
   %.sroa.0401.0.copyload429536 = load i48, ptr %.sroa_idx535, align 2
@@ -17396,7 +17394,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %30
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load ptr, ptr %49, align 8, !noalias !144
   %51 = sext i32 %1 to i64
-  %52 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %50, i64 %51
+  %52 = getelementptr inbounds [32 x i8], ptr %50, i64 %51
   %.sroa.0401.0.copyload530 = load i80, ptr %52, align 16
   %.sroa_idx531 = getelementptr inbounds nuw i8, ptr %52, i64 10
   %.sroa.0401.0.copyload532 = load i48, ptr %.sroa_idx531, align 2
@@ -17916,7 +17914,7 @@ thread-pre-split452:                              ; preds = %205
   %241 = lshr i16 %240, 4
   %242 = and i16 %241, 7
   %243 = zext nneg i16 %242 to i64
-  %244 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %243
+  %244 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %243
   %245 = load i32, ptr %244, align 4
   %246 = zext i32 %245 to i64
   %247 = shl nuw i64 %246, 32
@@ -17936,7 +17934,7 @@ _ZN3fmt2v86detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXa
   %251 = lshr i16 %250, 4
   %252 = and i16 %251, 7
   %253 = zext nneg i16 %252 to i64
-  %254 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %253
+  %254 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %253
   %255 = load i32, ptr %254, align 4
   %256 = zext i32 %255 to i64
   %257 = shl nuw i64 %256, 32
@@ -17959,7 +17957,7 @@ _ZN3fmt2v86detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXa
   %265 = lshr i16 %264, 4
   %266 = and i16 %265, 7
   %267 = zext nneg i16 %266 to i64
-  %268 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %267
+  %268 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %267
   %269 = load i32, ptr %268, align 4
   br label %_ZN3fmt2v86detail18make_write_int_argIxEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.exit
 
@@ -17975,7 +17973,7 @@ _ZN3fmt2v86detail18make_write_int_argIxEENS1_13write_int_argINSt11conditionalIXa
   %273 = lshr i16 %272, 4
   %274 = and i16 %273, 7
   %275 = zext nneg i16 %274 to i64
-  %276 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %275
+  %276 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %275
   %277 = load i32, ptr %276, align 4
   %278 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.0401.0..sroa.0401.0..sroa.0401.0..sroa.0401.0.415, i32 %277, ptr noundef nonnull align 4 dereferenceable(16) %24, ptr %.sroa.0.0.copyload.i364)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEbTnNSt9enable_ifIXsr3std7is_sameIT1_bEE5valueEiE4typeELi0EEET0_S8_S5_RKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
@@ -17995,7 +17993,7 @@ _ZN3fmt2v86detail18make_write_int_argIxEENS1_13write_int_argINSt11conditionalIXa
   %285 = lshr i16 %280, 4
   %286 = and i16 %285, 7
   %287 = zext nneg i16 %286 to i64
-  %288 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %287
+  %288 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %287
   %289 = load i32, ptr %288, align 4, !noalias !153
   br label %_ZN3fmt2v86detail18make_write_int_argInEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.exit
 
@@ -18017,7 +18015,7 @@ _ZN3fmt2v86detail18make_write_int_argInEENS1_13write_int_argINSt11conditionalIXa
   %295 = and i16 %294, 7
   call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %296 = zext nneg i16 %295 to i64
-  %297 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %296
+  %297 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %296
   %298 = load i32, ptr %297, align 4, !noalias !156
   store i80 %.sroa.0401.0..sroa.0401.0..sroa.0401.0..sroa.0401.0.528, ptr %22, align 16, !alias.scope !156
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 10
@@ -18040,7 +18038,7 @@ _ZN3fmt2v86detail18make_write_int_argInEENS1_13write_int_argINSt11conditionalIXa
   %305 = lshr i16 %304, 4
   %306 = and i16 %305, 7
   %307 = zext nneg i16 %306 to i64
-  %308 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %307
   %309 = load i32, ptr %308, align 4
   %310 = zext i32 %309 to i64
   %311 = shl nuw i64 %310, 32
@@ -18328,7 +18326,7 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
 
 81:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i, %.lr.ph.i.i.i.i
   %.01315.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %88, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i ]
-  %82 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %80, i64 %.01315.i.i.i.i
+  %82 = getelementptr inbounds [16 x i8], ptr %80, i64 %.01315.i.i.i.i
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #18
   %85 = icmp eq i64 %84, 0
@@ -18923,14 +18921,14 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i: ; pre
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %30 = load ptr, ptr %29, align 8, !noalias !166
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %30, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %30, i64 %31
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argEi.exit
 
 _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i: ; preds = %17
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %34 = load ptr, ptr %33, align 8, !noalias !166
   %35 = sext i32 %1 to i64
-  %36 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %34, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %34, i64 %35
   %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.sroa.3.0.copyload4 = load i32, ptr %.sroa.3.0..sroa_idx3, align 16
   %37 = icmp eq i32 %.sroa.3.0.copyload4, 0
@@ -19050,7 +19048,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE16on_dynamic
 
 19:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01315.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %20 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %18, i64 %.01315.i.i
+  %20 = getelementptr inbounds [16 x i8], ptr %18, i64 %.01315.i.i
   %21 = load ptr, ptr %20, align 8, !noalias !177
   %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #18, !noalias !177
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
@@ -19103,12 +19101,12 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread24: ; preds = %37
   %44 = zext nneg i32 %28 to i64
-  %45 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %13, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %44
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS0_17basic_string_viewIcEE.exit
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit: ; preds = %32
   %46 = zext nneg i32 %28 to i64
-  %47 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %13, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %46
   %.sroa.3.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %.sroa.3.0.copyload7 = load i32, ptr %.sroa.3.0..sroa_idx6, align 16
   %.not.i.i = icmp eq i32 %.sroa.3.0.copyload7, 0
@@ -19253,14 +19251,14 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i: ; pre
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8, !noalias !186
   %33 = zext nneg i32 %.0.i35.i to i64
-  %34 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS1_7auto_idE.exit
 
 _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i: ; preds = %18
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %36 = load ptr, ptr %35, align 8, !noalias !186
   %37 = zext nneg i32 %.0.i2.i to i64
-  %38 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %.sroa.3.0.copyload4 = load i32, ptr %.sroa.3.0..sroa_idx3, align 16
   %39 = icmp eq i32 %.sroa.3.0.copyload4, 0
@@ -19541,14 +19539,14 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i: ; pre
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %30 = load ptr, ptr %29, align 8, !noalias !202
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %30, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %30, i64 %31
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argEi.exit
 
 _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i: ; preds = %17
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %34 = load ptr, ptr %33, align 8, !noalias !202
   %35 = sext i32 %1 to i64
-  %36 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %34, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %34, i64 %35
   %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.sroa.3.0.copyload4 = load i32, ptr %.sroa.3.0..sroa_idx3, align 16
   %37 = icmp eq i32 %.sroa.3.0.copyload4, 0
@@ -19669,7 +19667,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE20on_dynamic
 
 19:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01315.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %20 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %18, i64 %.01315.i.i
+  %20 = getelementptr inbounds [16 x i8], ptr %18, i64 %.01315.i.i
   %21 = load ptr, ptr %20, align 8, !noalias !213
   %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #18, !noalias !213
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
@@ -19722,12 +19720,12 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread24: ; preds = %37
   %44 = zext nneg i32 %28 to i64
-  %45 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %13, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %44
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS0_17basic_string_viewIcEE.exit
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit: ; preds = %32
   %46 = zext nneg i32 %28 to i64
-  %47 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %13, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %46
   %.sroa.3.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %.sroa.3.0.copyload7 = load i32, ptr %.sroa.3.0..sroa_idx6, align 16
   %.not.i.i = icmp eq i32 %.sroa.3.0.copyload7, 0
@@ -19873,14 +19871,14 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i: ; pre
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8, !noalias !222
   %33 = zext nneg i32 %.0.i35.i to i64
-  %34 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS1_7auto_idE.exit
 
 _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i: ; preds = %18
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %36 = load ptr, ptr %35, align 8, !noalias !222
   %37 = zext nneg i32 %.0.i2.i to i64
-  %38 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %.sroa.3.0.copyload4 = load i32, ptr %.sroa.3.0..sroa_idx3, align 16
   %39 = icmp eq i32 %.sroa.3.0.copyload4, 0
@@ -20039,7 +20037,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appe
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = zext i8 %37 to i64
-  %40 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = icmp ult i64 %1, %41
   %.neg.i.i = sext i1 %42 to i32
@@ -25877,7 +25875,7 @@ _ZN3fmt2v86detail16check_char_specsIcNS1_13error_handlerEEEbRKNS0_18basic_format
   %24 = lshr i16 %23, 4
   %25 = and i16 %24, 7
   %26 = zext nneg i16 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = shl nuw i64 %29, 32
@@ -26884,7 +26882,7 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZ
   %11 = and i64 %10, 1
   %12 = add nsw i64 %11, %9
   %13 = sext i8 %4 to i32
-  %14 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.masks, i64 %12
+  %14 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.masks, i64 %12
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %13
   %17 = shl i32 %16, 18
@@ -26905,10 +26903,10 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZ
   %32 = and i8 %31, 63
   %33 = zext nneg i8 %32 to i32
   %34 = or disjoint i32 %29, %33
-  %35 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shiftc, i64 %12
+  %35 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shiftc, i64 %12
   %36 = load i32, ptr %35, align 4
   %37 = lshr i32 %34, %36
-  %38 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.mins, i64 %12
+  %38 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.mins, i64 %12
   %39 = load i32, ptr %38, align 4
   %40 = icmp ult i32 %37, %39
   %41 = select i1 %40, i32 64, i32 0
@@ -26929,7 +26927,7 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZ
   %55 = or disjoint i32 %54, %45
   %56 = or disjoint i32 %55, %43
   %57 = xor i32 %56, 42
-  %58 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shifte, i64 %12
+  %58 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shifte, i64 %12
   %59 = load i32, ptr %58, align 4
   %60 = lshr i32 %57, %59
   %.not = icmp eq i32 %60, 0
@@ -27116,7 +27114,7 @@ _ZNSt6vectorIN8WasmEdge6SymbolIFvPvS2_PKNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4
 _ZNSt12_Vector_baseIN8WasmEdge6SymbolIFvPvS2_PKNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEEPSG_EEESaISL_EE13_M_deallocateEPSL_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge6SymbolIFvPvS2_PKNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEEPSG_EEESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit22, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.WasmEdge::Symbol.20", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 }
@@ -27220,7 +27218,7 @@ _ZNSt6vectorIN8WasmEdge6SymbolIFvPvS2_PKNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4
 _ZNSt12_Vector_baseIN8WasmEdge6SymbolIFvPvS2_PKNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEEPSG_EEESaISL_EE13_M_deallocateEPSL_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge6SymbolIFvPvS2_PKNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEEPSG_EEESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit21, %41
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %45 = getelementptr inbounds nuw %"class.WasmEdge::Symbol.20", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8
   ret void
 }
@@ -27335,7 +27333,7 @@ _ZNSt6vectorIN8WasmEdge6SymbolIvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ;
 _ZNSt12_Vector_baseIN8WasmEdge6SymbolIvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge6SymbolIvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.WasmEdge::Symbol.40", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 }
@@ -27439,7 +27437,7 @@ _ZNSt6vectorIN8WasmEdge6SymbolIvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21: ;
 _ZNSt12_Vector_baseIN8WasmEdge6SymbolIvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge6SymbolIvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, %41
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %45 = getelementptr inbounds nuw %"class.WasmEdge::Symbol.40", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8
   ret void
 }

@@ -53,9 +53,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dmar_platfor
 %union.anon.18 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
 %struct.guid_t = type { [16 x i8] }
-%struct.dmar_dev_scope = type { ptr, i8, i8 }
-%struct.acpi_dmar_pci_path = type { i8, i8 }
-%struct.dmar_pci_path = type { i8, i8, i8 }
 %struct.dmar_res_callback = type { [6 x ptr], [6 x ptr], i8, i8 }
 %struct.qi_desc = type { i64, i64, i64, i64 }
 
@@ -320,7 +317,7 @@ define dso_local void @dmar_free_dev_scope(ptr noundef captures(none) %0, ptr no
   %9 = phi i32 [ %17, %16 ], [ %6, %.preheader ]
   %10 = phi i64 [ %18, %16 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr %struct.dmar_dev_scope, ptr %11, i64 %10
+  %12 = getelementptr [16 x i8], ptr %11, i64 %10
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -424,9 +421,9 @@ define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr nounde
 
 46:                                               ; preds = %43, %41
   %47 = phi i64 [ 0, %41 ], [ %44, %43 ]
-  %48 = getelementptr %struct.acpi_dmar_pci_path, ptr %24, i64 %47
+  %48 = getelementptr [2 x i8], ptr %24, i64 %47
   %49 = load i8, ptr %48, align 1
-  %50 = getelementptr %struct.dmar_pci_path, ptr %17, i64 %47
+  %50 = getelementptr [3 x i8], ptr %17, i64 %47
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %49, %52
@@ -447,7 +444,7 @@ define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr nounde
 61:                                               ; preds = %.loopexit11
   %62 = load i16, ptr %16, align 1
   %63 = zext i16 %62 to i64
-  %64 = getelementptr %struct.dmar_pci_path, ptr %17, i64 %63
+  %64 = getelementptr [3 x i8], ptr %17, i64 %63
   %65 = getelementptr i8, ptr %64, i64 -3
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, %32
@@ -529,7 +526,7 @@ define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr nounde
 
 .lr.ph:                                           ; preds = %110, %138
   %115 = phi i64 [ %139, %138 ], [ 0, %110 ]
-  %116 = getelementptr %struct.dmar_dev_scope, ptr %4, i64 %115
+  %116 = getelementptr [16 x i8], ptr %4, i64 %115
   %117 = load volatile ptr, ptr %116, align 8
   %118 = icmp eq i64 %115, %113
   br i1 %118, label %.loopexit, label %120
@@ -610,7 +607,7 @@ define dso_local noundef range(i32 0, 2) i32 @dmar_remove_dev_scope(ptr noundef 
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr %struct.dmar_dev_scope, ptr %2, i64 %13
+  %16 = getelementptr [16 x i8], ptr %2, i64 %13
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq i64 %13, %11
   br i1 %18, label %.loopexit, label %20
@@ -734,7 +731,7 @@ define dso_local ptr @dmar_find_matched_drhd_unit(ptr noundef readonly captures(
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %54
-  %58 = getelementptr %struct.dmar_dev_scope, ptr %46, i64 %55
+  %58 = getelementptr [16 x i8], ptr %46, i64 %55
   %59 = load volatile ptr, ptr %58, align 8
   %60 = icmp eq i64 %55, %51
   br i1 %60, label %72, label %62
@@ -1055,7 +1052,7 @@ define internal fastcc noundef ptr @dmar_alloc_pci_notify_info(ptr noundef %0, i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 216
   %57 = load i8, ptr %56, align 8
   %58 = sext i32 %53 to i64
-  %59 = getelementptr %struct.dmar_pci_path, ptr %48, i64 %58
+  %59 = getelementptr [3 x i8], ptr %48, i64 %58
   store i8 %57, ptr %59, align 1
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %61 = load i32, ptr %60, align 8
@@ -1485,11 +1482,11 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   %45 = sext i32 %43 to i64
   %46 = getelementptr i8, ptr %44, i64 %45
   %47 = sext i32 %40 to i64
-  %48 = getelementptr %struct.qi_desc, ptr %1, i64 %47
+  %48 = getelementptr [32 x i8], ptr %1, i64 %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %46, ptr noundef align 8 %48, i64 %.pre33, i1 false)
   %49 = load ptr, ptr %16, align 8
   %50 = sext i32 %42 to i64
-  %51 = getelementptr i32, ptr %49, i64 %50
+  %51 = getelementptr [4 x i8], ptr %49, i64 %50
   store i32 1, ptr %51, align 4
   %52 = load i64, ptr %48, align 8
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -1545,11 +1542,11 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
 .loopexit12:                                      ; preds = %79, %.loopexit14
   %82 = load ptr, ptr %16, align 8
   %83 = zext nneg i32 %34 to i64
-  %84 = getelementptr i32, ptr %82, i64 %83
+  %84 = getelementptr [4 x i8], ptr %82, i64 %83
   store i32 1, ptr %84, align 4
   store i64 %19, ptr %5, align 8
   %85 = load ptr, ptr %16, align 8
-  %86 = getelementptr i32, ptr %85, i64 %83
+  %86 = getelementptr [4 x i8], ptr %85, i64 %83
   %87 = ptrtoint ptr %86 to i64
   %88 = add i64 %87, 2147483648
   %89 = icmp ugt ptr %86, inttoptr (i64 -2147483649 to ptr)
@@ -1577,7 +1574,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   %106 = getelementptr i8, ptr %105, i64 136
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %104, ptr elementtype(i32) %106) #20, !srcloc !43
   %107 = load ptr, ptr %16, align 8
-  %108 = getelementptr i32, ptr %107, i64 %83
+  %108 = getelementptr [4 x i8], ptr %107, i64 %83
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, 2
   br i1 %110, label %.thread, label %.preheader10
@@ -1591,7 +1588,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   %116 = or disjoint i32 %115, 4
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr i32, ptr %118, i64 %83
+  %119 = getelementptr [4 x i8], ptr %118, i64 %83
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 3
   br i1 %121, label %.thread, label %122
@@ -1795,7 +1792,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   %233 = phi i32 [ %222, %215 ], [ %242, %240 ]
   %234 = load ptr, ptr %117, align 8
   %235 = sext i32 %233 to i64
-  %236 = getelementptr i32, ptr %234, i64 %235
+  %236 = getelementptr [4 x i8], ptr %234, i64 %235
   %237 = load i32, ptr %236, align 4
   %238 = icmp eq i32 %237, 1
   br i1 %238, label %239, label %240
@@ -1812,7 +1809,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
 
 244:                                              ; preds = %240
   %245 = load ptr, ptr %117, align 8
-  %246 = getelementptr i32, ptr %245, i64 %83
+  %246 = getelementptr [4 x i8], ptr %245, i64 %83
   %247 = load i32, ptr %246, align 4
   %248 = icmp eq i32 %247, 3
   br i1 %248, label %.thread, label %249
@@ -1851,7 +1848,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !32
   tail call void @_raw_spin_lock(ptr noundef nonnull %7) #20
   %268 = load ptr, ptr %16, align 8
-  %269 = getelementptr i32, ptr %268, i64 %83
+  %269 = getelementptr [4 x i8], ptr %268, i64 %83
   %270 = load i32, ptr %269, align 4
   %271 = icmp eq i32 %270, 2
   br i1 %271, label %.thread, label %.preheader10, !llvm.loop !46
@@ -1867,7 +1864,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   %276 = add i32 %274, %32
   %277 = srem i32 %276, 256
   %278 = sext i32 %277 to i64
-  %279 = getelementptr i32, ptr %275, i64 %278
+  %279 = getelementptr [4 x i8], ptr %275, i64 %278
   store i32 2, ptr %279, align 4
   %280 = add nuw i32 %274, 1
   %281 = icmp eq i32 %280, %2
@@ -1877,7 +1874,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   %282 = load ptr, ptr %16, align 8
   %283 = load i32, ptr %22, align 4
   %284 = sext i32 %283 to i64
-  %285 = getelementptr i32, ptr %282, i64 %284
+  %285 = getelementptr [4 x i8], ptr %282, i64 %284
   %286 = load i32, ptr %285, align 4
   %287 = and i32 %286, -2
   %288 = icmp eq i32 %287, 2
@@ -1895,7 +1892,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   store i32 %294, ptr %10, align 8
   %295 = load ptr, ptr %16, align 8
   %296 = sext i32 %292 to i64
-  %297 = getelementptr i32, ptr %295, i64 %296
+  %297 = getelementptr [4 x i8], ptr %295, i64 %296
   %298 = load i32, ptr %297, align 4
   %299 = and i32 %298, -2
   %300 = icmp eq i32 %299, 2
@@ -2823,13 +2820,13 @@ define dso_local noundef i32 @dmar_fault(i32 %0, ptr noundef %1) #0 align 16 {
   %.mask.sink = phi i32 [ %.mask, %69 ], [ %65, %63 ]
   %dma_remap_fault_reasons.sink = phi ptr [ @dma_remap_fault_reasons, %69 ], [ @dma_remap_sm_fault_reasons, %63 ]
   %70 = zext nneg i32 %.mask.sink to i64
-  %71 = getelementptr ptr, ptr %dma_remap_fault_reasons.sink, i64 %70
+  %71 = getelementptr [8 x i8], ptr %dma_remap_fault_reasons.sink, i64 %70
   %72 = load ptr, ptr %71, align 8
   br label %.thread8
 
 73:                                               ; preds = %60
   %74 = zext nneg i32 %61 to i64
-  %75 = getelementptr ptr, ptr @irq_remap_fault_reasons, i64 %74
+  %75 = getelementptr [8 x i8], ptr @irq_remap_fault_reasons, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = lshr i32 %47, 8
   %78 = and i32 %77, 255
@@ -3658,7 +3655,7 @@ define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, p
 
 54:                                               ; preds = %.lr.ph, %78
   %55 = phi i64 [ 0, %.lr.ph ], [ %79, %78 ]
-  %56 = getelementptr %struct.dmar_dev_scope, ptr %53, i64 %55
+  %56 = getelementptr [16 x i8], ptr %53, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   %58 = icmp eq i64 %55, %51
   br i1 %58, label %.loopexit, label %60
@@ -3682,7 +3679,7 @@ define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, p
   %64 = load i8, ptr %37, align 1
   %65 = shl i64 %63, 32
   %66 = ashr exact i64 %65, 32
-  %.split = getelementptr %struct.dmar_dev_scope, ptr %62, i64 %66
+  %.split = getelementptr [16 x i8], ptr %62, i64 %66
   %67 = getelementptr i8, ptr %.split, i64 8
   store i8 %64, ptr %67, align 8
   %68 = load i8, ptr %26, align 1
@@ -3691,13 +3688,13 @@ define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, p
   %71 = and i8 %70, 7
   %72 = or disjoint i8 %71, %69
   %73 = load ptr, ptr %48, align 8
-  %.split5 = getelementptr %struct.dmar_dev_scope, ptr %73, i64 %66
+  %.split5 = getelementptr [16 x i8], ptr %73, i64 %66
   %74 = getelementptr i8, ptr %.split5, i64 9
   store i8 %72, ptr %74, align 1
   %75 = tail call ptr @get_device(ptr noundef nonnull %27) #20
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !76
   %76 = load ptr, ptr %48, align 8
-  %77 = getelementptr %struct.dmar_dev_scope, ptr %76, i64 %66
+  %77 = getelementptr [16 x i8], ptr %76, i64 %66
   store volatile ptr %75, ptr %77, align 8
   br label %97
 
@@ -3857,7 +3854,7 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   br i1 %74, label %75, label %.thread10
 
 75:                                               ; preds = %72
-  %76 = getelementptr %struct.dmar_dev_scope, ptr %64, i64 %73
+  %76 = getelementptr [16 x i8], ptr %64, i64 %73
   %77 = load volatile ptr, ptr %76, align 8
   %78 = icmp eq i64 %73, %71
   br i1 %78, label %.loopexit, label %80
@@ -4321,7 +4318,7 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
   %239 = phi i32 [ %247, %246 ], [ %236, %.preheader ]
   %240 = phi i64 [ %248, %246 ], [ 0, %.preheader ]
   %241 = load ptr, ptr %86, align 8
-  %242 = getelementptr %struct.dmar_dev_scope, ptr %241, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %240
   %243 = load volatile ptr, ptr %242, align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %246, label %245
@@ -4632,7 +4629,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @map_iommu(ptr noundef nonn
   %86 = shl nuw nsw i64 %83, 3
   %87 = getelementptr i8, ptr %85, i64 %86
   %88 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %87) #20, !srcloc !31
-  %89 = getelementptr i64, ptr %81, i64 %83
+  %89 = getelementptr [8 x i8], ptr %81, i64 %83
   store i64 %88, ptr %89, align 8
   %90 = add nuw nsw i64 %83, 1
   %91 = icmp eq i64 %90, 4
@@ -4816,13 +4813,13 @@ thread-pre-split:                                 ; preds = %21, %26, %33, %39, 
 
 58:                                               ; preds = %55
   %59 = zext nneg i16 %56 to i64
-  %60 = getelementptr ptr, ptr %2, i64 %59
+  %60 = getelementptr [8 x i8], ptr %2, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %68, label %63
 
 63:                                               ; preds = %58
-  %64 = getelementptr ptr, ptr %8, i64 %59
+  %64 = getelementptr [8 x i8], ptr %8, i64 %59
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i32 %61(ptr noundef %11, ptr noundef %65) #20
   %67 = icmp eq i32 %66, 0
@@ -4892,7 +4889,7 @@ define internal fastcc void @dmar_free_drhd(ptr noundef %0) unnamed_addr #0 alig
   %10 = phi i32 [ %18, %17 ], [ %7, %.preheader ]
   %11 = phi i64 [ %19, %17 ], [ 0, %.preheader ]
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr %struct.dmar_dev_scope, ptr %12, i64 %11
+  %13 = getelementptr [16 x i8], ptr %12, i64 %11
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -5075,13 +5072,13 @@ define internal fastcc i32 @dmar_walk_dsm_resource(ptr noundef %0, i32 noundef r
 
 16:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
-  %17 = getelementptr i32, ptr @dmar_walk_dsm_resource.res_type, i64 %10
+  %17 = getelementptr [4 x i8], ptr @dmar_walk_dsm_resource.res_type, i64 %10
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %5, i64 %19
+  %20 = getelementptr [8 x i8], ptr %5, i64 %19
   store ptr %2, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %22 = getelementptr ptr, ptr %21, i64 %19
+  %22 = getelementptr [8 x i8], ptr %21, i64 %19
   store ptr %3, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -5212,7 +5209,7 @@ define internal i32 @dmar_hp_remove_drhd(ptr noundef readonly captures(none) %0,
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %41
-  %45 = getelementptr %struct.dmar_dev_scope, ptr %31, i64 %42
+  %45 = getelementptr [16 x i8], ptr %31, i64 %42
   %46 = load volatile ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br label %48

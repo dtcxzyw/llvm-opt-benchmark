@@ -3,7 +3,6 @@ source_filename = "bench/hwloc/original/common-ps.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.hwloc_ps_thread = type { i64, ptr, i32, [16 x i8] }
 %struct.hwloc_ps_process = type { i64, [64 x i8], [1024 x i8], ptr, i64, i32, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"/proc/%ld/cmdline\00", align 1
@@ -260,7 +259,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 120:                                              ; preds = %114
   %121 = load ptr, ptr %108, align 8, !tbaa !18
   %122 = zext i32 %.0145202 to i64
-  %123 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [40 x i8], ptr %121, i64 %122
   store i64 %117, ptr %123, align 8, !tbaa !20
   %124 = call noalias dereferenceable_or_null(61) ptr @malloc(i64 noundef 61) #16
   %.not182 = icmp eq ptr %124, null
@@ -274,7 +273,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %108, align 8, !tbaa !18
-  %131 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %130, i64 %122
+  %131 = getelementptr inbounds nuw [40 x i8], ptr %130, i64 %122
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 20
   %133 = call i64 @read(i32 noundef %127, ptr noundef nonnull %132, i64 noundef 16) #15
   %134 = call i32 @close(i32 noundef %127) #15
@@ -283,7 +282,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 136:                                              ; preds = %129
   %137 = load ptr, ptr %108, align 8, !tbaa !18
-  %138 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %137, i64 %122
+  %138 = getelementptr inbounds nuw [40 x i8], ptr %137, i64 %122
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 20
   store i8 0, ptr %139, align 4, !tbaa !12
   br label %147
@@ -294,7 +293,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 142:                                              ; preds = %140
   %143 = load ptr, ptr %108, align 8, !tbaa !18
-  %144 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %143, i64 %122
+  %144 = getelementptr inbounds nuw [40 x i8], ptr %143, i64 %122
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 20
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 %133
   store i8 0, ptr %146, align 1, !tbaa !12
@@ -302,11 +301,11 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 147:                                              ; preds = %140, %142, %136
   %148 = load ptr, ptr %108, align 8, !tbaa !18
-  %149 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %148, i64 %122
+  %149 = getelementptr inbounds nuw [40 x i8], ptr %148, i64 %122
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 35
   store i8 0, ptr %150, align 1, !tbaa !12
   %151 = load ptr, ptr %108, align 8, !tbaa !18
-  %152 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %151, i64 %122
+  %152 = getelementptr inbounds nuw [40 x i8], ptr %151, i64 %122
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 20
   %154 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %153, i32 noundef 10) #17
   store ptr %154, ptr %8, align 8, !tbaa !14
@@ -344,7 +343,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 166:                                              ; preds = %163
   %167 = call noalias ptr @hwloc_bitmap_dup(ptr noundef nonnull %11) #15
   %168 = load ptr, ptr %108, align 8, !tbaa !18
-  %169 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %168, i64 %122
+  %169 = getelementptr inbounds nuw [40 x i8], ptr %168, i64 %122
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %167, ptr %170, align 8, !tbaa !22
   %171 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
@@ -592,7 +591,7 @@ define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 nounde
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #17
   br label %.lr.ph.i
@@ -662,7 +661,7 @@ define hidden void @hwloc_ps_free_process(ptr noundef readonly captures(none) %0
   %6 = phi i32 [ %3, %.lr.ph ], [ %13, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %7 = load ptr, ptr %4, align 8, !tbaa !18
-  %8 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %.not10 = icmp eq ptr %10, null
@@ -764,7 +763,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   %38 = phi i32 [ %45, %44 ], [ %37, %36 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %36 ]
   %39 = load ptr, ptr %15, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %indvars.iv.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %.not10.i = icmp eq ptr %42, null
@@ -859,7 +858,7 @@ define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1
   %32 = phi i32 [ %39, %38 ], [ %31, %30 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %30 ]
   %33 = load ptr, ptr %16, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !22
   %.not10.i = icmp eq ptr %36, null

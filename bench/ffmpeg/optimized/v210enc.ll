@@ -130,9 +130,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.0115171.i = phi ptr [ %38, %.lr.ph178.i ], [ %206, %199 ]
   %58 = load ptr, ptr %48, align 8, !tbaa !30
   tail call void %58(ptr noundef %.0115171.i, ptr noundef %.0111172.i, ptr noundef %.0107173.i, ptr noundef %.0102175.i, i64 noundef %49) #7
-  %59 = getelementptr inbounds i16, ptr %.0115171.i, i64 %49
-  %60 = getelementptr inbounds i16, ptr %.0111172.i, i64 %51
-  %61 = getelementptr inbounds i16, ptr %.0107173.i, i64 %51
+  %59 = getelementptr inbounds [2 x i8], ptr %.0115171.i, i64 %49
+  %60 = getelementptr inbounds [2 x i8], ptr %.0111172.i, i64 %51
+  %61 = getelementptr inbounds [2 x i8], ptr %.0107173.i, i64 %51
   %62 = load i32, ptr %27, align 4, !tbaa !32
   %63 = mul nsw i32 %52, %62
   %64 = sext i32 %63 to i64
@@ -345,18 +345,18 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %203 = load i32, ptr %5, align 8, !tbaa !4
   %204 = sub nsw i32 %202, %203
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds i16, ptr %.3118.i, i64 %205
+  %206 = getelementptr inbounds [2 x i8], ptr %.3118.i, i64 %205
   %207 = load i32, ptr %55, align 4, !tbaa !49
   %208 = sdiv i32 %207, 2
   %209 = sdiv i32 %203, 2
   %210 = sub nsw i32 %208, %209
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i16, ptr %.3114.i, i64 %211
+  %212 = getelementptr inbounds [2 x i8], ptr %.3114.i, i64 %211
   %213 = load i32, ptr %56, align 8, !tbaa !49
   %214 = sdiv i32 %213, 2
   %215 = sub nsw i32 %214, %209
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds i16, ptr %.3110.i, i64 %216
+  %217 = getelementptr inbounds [2 x i8], ptr %.3110.i, i64 %216
   %218 = add nuw nsw i32 %.0106174.i, 1
   %219 = load i32, ptr %12, align 4, !tbaa !35
   %220 = icmp slt i32 %218, %219

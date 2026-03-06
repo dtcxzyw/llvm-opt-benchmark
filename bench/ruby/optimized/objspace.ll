@@ -251,7 +251,7 @@ define internal i64 @count_objects_size(i32 noundef %0, ptr noundef readonly cap
 8:                                                ; preds = %3, %23
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %23 ]
   %.024 = phi i64 [ 0, %3 ], [ %.1, %23 ]
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %23, label %11
@@ -1015,7 +1015,7 @@ define internal void @cos_i(i64 noundef %0, ptr noundef captures(none) %1) #0 {
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = and i64 %5, 31
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = add i64 %8, %3
   store i64 %9, ptr %7, align 8, !tbaa !6
@@ -1481,7 +1481,7 @@ define internal void @count_imemo_objects_i(i64 noundef %0, ptr noundef %1) #0 {
 8:                                                ; preds = %2
   %9 = lshr i64 %5, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw i64, ptr @imemo_type_ids, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @imemo_type_ids, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = tail call i64 @rb_id2sym(i64 noundef %12) #7
   %14 = tail call i64 @rb_hash_aref(i64 noundef %3, i64 noundef %13) #7

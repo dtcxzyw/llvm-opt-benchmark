@@ -263,7 +263,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmv_v_xP11
   %111 = icmp eq i64 %110, 1
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -670,7 +670,7 @@ define noundef i64 @_Z18fast_rv64i_vmv_v_xP11processor_t6insn_tm(ptr noundef %0,
   %111 = icmp eq i64 %110, 1
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -957,7 +957,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmv_v_xP
   %111 = icmp eq i64 %110, 1
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1246,7 +1246,7 @@ define noundef i64 @_Z20logged_rv64i_vmv_v_xP11processor_t6insn_tm(ptr noundef %
   %111 = icmp eq i64 %110, 1
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1535,7 +1535,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_v_xP11
   %112 = and i64 %109, 31
   %113 = icmp samesign ugt i64 %112, 15
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %112
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %112
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1902,7 +1902,7 @@ define noundef i64 @_Z18fast_rv64e_vmv_v_xP11processor_t6insn_tm(ptr noundef %0,
   %112 = and i64 %109, 31
   %113 = icmp samesign ugt i64 %112, 15
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %112
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %112
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -2267,7 +2267,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_v_xP
   %112 = and i64 %109, 31
   %113 = icmp samesign ugt i64 %112, 15
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %112
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %112
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -2634,7 +2634,7 @@ define noundef i64 @_Z20logged_rv64e_vmv_v_xP11processor_t6insn_tm(ptr noundef %
   %112 = and i64 %109, 31
   %113 = icmp samesign ugt i64 %112, 15
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %112
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %112
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph

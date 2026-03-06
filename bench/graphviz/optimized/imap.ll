@@ -24,7 +24,7 @@ define noundef zeroext i1 @aginternalmaplookup(ptr noundef %0, i32 noundef %1, p
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = sext i32 %spec.store.select to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %22, label %13
@@ -80,7 +80,7 @@ gv_alloc.exit:                                    ; preds = %4
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = sext i32 %spec.store.select to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %27
@@ -90,7 +90,7 @@ gv_alloc.exit:                                    ; preds = %4
   %23 = tail call ptr @agdtopen(ptr noundef nonnull @LookupByName, ptr noundef %22) #10
   %24 = load ptr, ptr %14, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %17
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %17
   store ptr %23, ptr %26, align 8, !tbaa !20
   br label %27
 
@@ -98,7 +98,7 @@ gv_alloc.exit:                                    ; preds = %4
   %28 = phi ptr [ %24, %21 ], [ %15, %gv_alloc.exit ]
   %.019 = phi ptr [ %23, %21 ], [ %19, %gv_alloc.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %17
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %17
   %31 = load ptr, ptr %30, align 8, !tbaa !20
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %39
@@ -108,7 +108,7 @@ gv_alloc.exit:                                    ; preds = %4
   %35 = tail call ptr @agdtopen(ptr noundef nonnull @LookupById, ptr noundef %34) #10
   %36 = load ptr, ptr %14, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %17
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %17
   store ptr %35, ptr %38, align 8, !tbaa !20
   br label %39
 
@@ -135,7 +135,7 @@ define ptr @aginternalmapprint(ptr noundef readonly captures(none) %0, i32 nound
   %spec.store.select.i = select i1 %6, i32 2, i32 %1
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %8 = sext i32 %spec.store.select.i to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %find_isym.exit.thread, label %find_isym.exit
@@ -173,7 +173,7 @@ define range(i32 0, 2) i32 @aginternalmapdelete(ptr noundef %0, i32 noundef %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %8 = sext i32 %spec.store.select to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %find_isym.exit.thread, label %find_isym.exit
@@ -194,13 +194,13 @@ find_isym.exit:                                   ; preds = %3
 14:                                               ; preds = %find_isym.exit
   %15 = load ptr, ptr %6, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %8
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %8
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = call ptr %19(ptr noundef nonnull %18, ptr noundef nonnull %13, i32 noundef 2) #10
   %21 = load ptr, ptr %6, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %8
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %8
   %24 = load ptr, ptr %23, align 8, !tbaa !20
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = call ptr %25(ptr noundef nonnull %24, ptr noundef nonnull %13, i32 noundef 2) #10
@@ -232,7 +232,7 @@ define void @aginternalmapclearlocalnames(ptr noundef %0) local_unnamed_addr #0 
 
 7:                                                ; preds = %1, %.loopexit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.loopexit ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.loopexit, label %10
@@ -260,7 +260,7 @@ define void @aginternalmapclearlocalnames(ptr noundef %0) local_unnamed_addr #0 
   %.val.i = load ptr, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = getelementptr inbounds nuw i8, ptr %.val.i, i64 88
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %find_isym.exit.thread.i, label %find_isym.exit.i
@@ -280,13 +280,13 @@ find_isym.exit.i:                                 ; preds = %20
 28:                                               ; preds = %find_isym.exit.i
   %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !20
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull %27, i32 noundef 2) #10
   %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 88
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !20
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   %40 = call ptr %39(ptr noundef nonnull %38, ptr noundef nonnull %27, i32 noundef 2) #10
@@ -319,7 +319,7 @@ define void @aginternalmapclose(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %10, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %10, label %8
@@ -341,7 +341,7 @@ closeit.exit:                                     ; preds = %10
 
 13:                                               ; preds = %18, %closeit.exit
   %indvars.iv.i3 = phi i64 [ 0, %closeit.exit ], [ %indvars.iv.next.i5, %18 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i3
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i3
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %.not.i4 = icmp eq ptr %15, null
   br i1 %.not.i4, label %18, label %16

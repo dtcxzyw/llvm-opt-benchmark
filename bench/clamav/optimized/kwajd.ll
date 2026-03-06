@@ -806,7 +806,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %.1346.lcssa = phi i32 [ %.0345573, %.preheader499 ], [ %35, %._crit_edge.loopexit ]
   %.1336.lcssa = phi i32 [ %.0335574, %.preheader499 ], [ %36, %._crit_edge.loopexit ]
   %39 = lshr i32 %.1346.lcssa, 28
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %39, ptr %40, align 4, !tbaa !49
   %41 = add nsw i32 %.1336.lcssa, -4
   %.not458 = icmp ne i32 %38, 0
@@ -993,7 +993,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %.3338.lcssa = phi i32 [ %.2337648, %.preheader495 ], [ %120, %113 ]
   %122 = lshr i32 %.3348.lcssa, 23
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i16, ptr %66, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !50
   %126 = icmp ugt i16 %125, 15
   br i1 %126, label %.preheader492, label %.loopexit494
@@ -1012,7 +1012,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %132 = zext i1 %.not430 to i64
   %.idx431 = shl nuw nsw i64 %130, 2
   %133 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx431
-  %134 = getelementptr inbounds nuw i16, ptr %133, i64 %132
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %133, i64 %132
   %135 = load i16, ptr %134, align 2, !tbaa !50
   %136 = icmp ugt i16 %135, 15
   br i1 %136, label %.preheader492, label %.loopexit494
@@ -1069,7 +1069,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %.5340.lcssa = phi i32 [ %.2337648, %.preheader490 ], [ %157, %150 ]
   %159 = lshr i32 %.5350.lcssa, 23
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw i16, ptr %54, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %160
   %162 = load i16, ptr %161, align 2, !tbaa !50
   %163 = icmp ugt i16 %162, 15
   br i1 %163, label %.preheader487, label %.loopexit489
@@ -1088,7 +1088,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %169 = zext i1 %.not426 to i64
   %.idx = shl nuw nsw i64 %167, 2
   %170 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
-  %171 = getelementptr inbounds nuw i16, ptr %170, i64 %169
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %170, i64 %169
   %172 = load i16, ptr %171, align 2, !tbaa !50
   %173 = icmp ugt i16 %172, 15
   br i1 %173, label %.preheader487, label %.loopexit489
@@ -1163,7 +1163,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %.6341.lcssa = phi i32 [ %.4339, %184 ], [ %198, %191 ]
   %200 = lshr i32 %.6351.lcssa, 23
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i16, ptr %90, i64 %201
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %201
   %203 = load i16, ptr %202, align 2, !tbaa !50
   %204 = icmp ugt i16 %203, 63
   br i1 %204, label %.preheader483, label %.loopexit485
@@ -1182,7 +1182,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %210 = zext i1 %.not446 to i64
   %.idx447 = shl nuw nsw i64 %208, 2
   %211 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx447
-  %212 = getelementptr inbounds nuw i16, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [2 x i8], ptr %211, i64 %210
   %213 = load i16, ptr %212, align 2, !tbaa !50
   %214 = icmp ugt i16 %213, 63
   br i1 %214, label %.preheader483, label %.loopexit485
@@ -1325,7 +1325,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %.9344.lcssa = phi i32 [ %.4339, %.preheader478 ], [ %278, %271 ]
   %280 = lshr i32 %.9354.lcssa, 23
   %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds nuw i16, ptr %78, i64 %281
+  %282 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %281
   %283 = load i16, ptr %282, align 2, !tbaa !50
   %284 = icmp ugt i16 %283, 31
   br i1 %284, label %.preheader475, label %.loopexit477
@@ -1344,7 +1344,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %290 = zext i1 %.not434 to i64
   %.idx435 = shl nuw nsw i64 %288, 2
   %291 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx435
-  %292 = getelementptr inbounds nuw i16, ptr %291, i64 %290
+  %292 = getelementptr inbounds nuw [2 x i8], ptr %291, i64 %290
   %293 = load i16, ptr %292, align 2, !tbaa !50
   %294 = icmp ugt i16 %293, 31
   br i1 %294, label %.preheader475, label %.loopexit477
@@ -1417,7 +1417,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %.11.lcssa = phi i32 [ %.10642, %.preheader471 ], [ %321, %314 ]
   %323 = lshr i32 %.11356.lcssa, 23
   %324 = zext nneg i32 %323 to i64
-  %325 = getelementptr inbounds nuw i16, ptr %102, i64 %324
+  %325 = getelementptr inbounds nuw [2 x i8], ptr %102, i64 %324
   %326 = load i16, ptr %325, align 2, !tbaa !50
   %327 = icmp ugt i16 %326, 255
   br i1 %327, label %.preheader, label %.loopexit
@@ -1436,7 +1436,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %333 = zext i1 %.not438 to i64
   %.idx439 = shl nuw nsw i64 %331, 2
   %334 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx439
-  %335 = getelementptr inbounds nuw i16, ptr %334, i64 %333
+  %335 = getelementptr inbounds nuw [2 x i8], ptr %334, i64 %333
   %336 = load i16, ptr %335, align 2, !tbaa !50
   %337 = icmp ugt i16 %336, 255
   br i1 %337, label %.preheader, label %.loopexit
@@ -2340,7 +2340,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %11 = add nsw i32 %.077110, -1
   %12 = add i32 %.079109, 1
   %13 = zext i32 %.079109 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %13
   store i16 %.087111, ptr %14, align 2, !tbaa !50
   %.not98 = icmp eq i32 %11, 0
   br i1 %.not98, label %..loopexit100_crit_edge, label %.preheader99
@@ -2421,7 +2421,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.180119.us = phi i32 [ %36, %.lr.ph122.us ], [ %spec.select.us, %50 ]
   %.385118.us = phi i16 [ %.183126.us, %.lr.ph122.us ], [ %.486.us, %50 ]
   %41 = zext nneg i32 %.180119.us to i64
-  %42 = getelementptr inbounds nuw i16, ptr %2, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !50
   %44 = icmp eq i16 %43, -1
   br i1 %44, label %45, label %50
@@ -2452,7 +2452,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 ._crit_edge123.us:                                ; preds = %50
   %58 = zext nneg i32 %spec.select.us to i64
-  %59 = getelementptr inbounds nuw i16, ptr %2, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %58
   store i16 %.289125.us, ptr %59, align 2, !tbaa !50
   %60 = add nuw nsw i32 %.4127.us, %.1135
   br label %37

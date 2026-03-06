@@ -4301,7 +4301,7 @@ define internal noundef zeroext i1 @dissect_f5fileinfo(ptr noundef %0, ptr nound
 
 57:                                               ; preds = %53
   %58 = zext nneg i32 %.08099 to i64
-  %59 = getelementptr i32, ptr %22, i64 %58
+  %59 = getelementptr [4 x i8], ptr %22, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = mul i32 %60, 10
   %62 = add nsw i32 %52, -48
@@ -5174,7 +5174,7 @@ switch.lookup:
   store i8 0, ptr %20, align 1
   %21 = tail call ptr @wmem_file_scope()
   %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.f5eth_add_tls_keylog, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.f5eth_add_tls_keylog, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %21, ptr noundef nonnull %switch.load, ptr noundef %8, ptr noundef %18)
   ret ptr %23

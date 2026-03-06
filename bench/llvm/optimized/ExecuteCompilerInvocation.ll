@@ -998,7 +998,7 @@ define dso_local noundef zeroext i1 @_ZN5clang25ExecuteCompilerInvocationEPNS_16
 _ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit: ; preds = %39, %24
   %35 = add i32 %29, 1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   store ptr null, ptr %37, align 8, !tbaa !164
   %38 = tail call noundef zeroext i1 @_ZN4llvm2cl23ParseCommandLineOptionsEiPKPKcNS_9StringRefEPNS_11raw_ostreamES2_b(i32 noundef %35, ptr noundef nonnull %33, ptr nonnull @.str.4, i64 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #18
   tail call void @_ZdaPv(ptr noundef nonnull %33) #19
@@ -1007,10 +1007,10 @@ _ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit: ; preds = %39, %24
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.next
   store ptr %41, ptr %42, align 8, !tbaa !164
   %.not34 = icmp eq i64 %indvars.iv.next, %34
   br i1 %.not34, label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit, label %39, !llvm.loop !286
@@ -1790,7 +1790,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !345
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !358
   store i8 0, ptr %32, align 8, !tbaa !346
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -1898,7 +1898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !346
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !67
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -2010,7 +2010,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !345
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !358
   br label %43
 

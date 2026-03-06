@@ -181,7 +181,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %69 = and i64 %.084.in, 63
   %70 = shl nuw i64 1, %69
   %71 = lshr i64 %66, 6
-  %72 = getelementptr inbounds nuw i64, ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = or i64 %73, %70
   store i64 %74, ptr %72, align 8
@@ -363,7 +363,7 @@ define internal fastcc void @_bind_ldom(i32 noundef %0, ptr noundef captures(non
   %31 = and i64 %indvars.iv, 63
   %32 = shl nuw i64 1, %31
   %33 = lshr i64 %indvars.iv, 6
-  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = or i64 %35, %32
   store i64 %36, ptr %34, align 8

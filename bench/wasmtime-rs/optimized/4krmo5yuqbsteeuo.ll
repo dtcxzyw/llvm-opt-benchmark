@@ -531,7 +531,7 @@ define internal { ptr, i64 } @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core.
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN3std2io21default_read_vectored17h1e7f3f9e60530f72E(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %3
+  %5 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   br label %6
 
 6:                                                ; preds = %9, %4
@@ -5594,7 +5594,7 @@ default.unreachable59:                            ; preds = %3
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !align !15, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !4
-  %40 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %37, i64 %39
   %41 = invoke noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h52f05a3655c4ef1eE.llvm.17191764028380965858"(ptr noundef nonnull %37, ptr noundef nonnull %40, i64 noundef 0)
           to label %_ZN4core4iter6traits8iterator8Iterator3sum17h1340ad36c026abd9E.exit unwind label %42
 
@@ -6921,7 +6921,7 @@ default.unreachable58:                            ; preds = %3
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !align !15, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !4
-  %40 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %37, i64 %39
   %41 = invoke noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9b5f8790ffcde00bE.llvm.17191764028380965858"(ptr noundef nonnull %37, ptr noundef nonnull %40, i64 noundef 0)
           to label %_ZN4core4iter6traits8iterator8Iterator3sum17h02840b3a954c4747E.exit unwind label %42
 

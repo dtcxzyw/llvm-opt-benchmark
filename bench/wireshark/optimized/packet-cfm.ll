@@ -2609,7 +2609,7 @@ sender_id_tlv_chassis_id.exit:                    ; preds = %1068, %1072, %1076,
 
 1144:                                             ; preds = %1165, %1142
   %.023.i = phi i64 [ 0, %1142 ], [ %1166, %1165 ]
-  %1145 = getelementptr %struct.anon.0, ptr %5, i64 %.023.i
+  %1145 = getelementptr [32 x i8], ptr %5, i64 %.023.i
   %1146 = load ptr, ptr %1145, align 16
   %1147 = icmp eq ptr %1146, null
   br i1 %1147, label %1148, label %1152

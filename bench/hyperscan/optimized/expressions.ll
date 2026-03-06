@@ -1453,7 +1453,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %94, %.noex
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %96, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %90, ptr %1, align 8
   store ptr %95, ptr %31, align 8
-  %97 = getelementptr inbounds nuw i32, ptr %90, i64 %88
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %88
   store ptr %97, ptr %32, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -1851,7 +1851,7 @@ define linkonce_odr hidden void @_ZN5boost9algorithm7trim_ifINSt7__cxx1112basic_
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = zext i8 %18 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, %20
   %.not5.i.i = icmp eq i16 %26, 0
@@ -1954,7 +1954,7 @@ define linkonce_odr hidden void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx111
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = zext i8 %17 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, %19
   %.not9.i.i = icmp eq i16 %25, 0

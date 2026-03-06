@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.open_spiel::twenty_forty_eight::Tile" = type <{ i32, i8, [3 x i8] }>
 %"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
 %"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
@@ -40,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.31" = type { i64, double }
 %"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
 %"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
@@ -1066,10 +1064,10 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState14SetCust
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
   %7 = or disjoint i64 %indvars.iv, %5
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %7
   %10 = load i32, ptr %9, align 4
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %7
   %.sroa.0.0.extract.trunc.i = zext i32 %10 to i40
   store i40 %.sroa.0.0.extract.trunc.i, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1269,7 +1267,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
   %6 = add nsw i32 %5, %2
   %7 = sext i32 %6 to i64
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %8, i64 %7
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %7
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 4
   %10 = and i64 %.sroa.0.0.copyload.i, 4294967295
   %11 = icmp eq i64 %10, 0
@@ -1315,7 +1313,7 @@ define { i64, i64 } @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState
 
 switch.lookup:                                    ; preds = %4
   %16 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1342,7 +1340,7 @@ switch.lookup:                                    ; preds = %4
   %25 = shl nuw nsw i32 %20, 2
   %26 = or disjoint i32 %25, %21
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %27
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 4
   %29 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
   %30 = icmp eq i64 %29, 0
@@ -1371,7 +1369,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
   %8 = add nsw i32 %7, %2
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %10, i64 %9
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %9
   %.sroa.0.0.copyload.i = load i64, ptr %11, align 4
   %.sroa.06.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %12 = icmp sgt i32 %.sroa.06.0.extract.trunc, 0
@@ -1417,7 +1415,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
 
 switch.lookup:                                    ; preds = %.preheader
   %24 = and i64 %13, 3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1437,7 +1435,7 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
   %29 = shl nuw nsw i32 %25, 2
   %30 = or disjoint i32 %29, %26
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %10, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %31
   %.sroa.0.0.copyload.i.i = load i64, ptr %32, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %33 = icmp eq i32 %.sroa.0.0.extract.trunc.i, %.sroa.06.0.extract.trunc
@@ -1468,7 +1466,7 @@ define noundef i32 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState1
   %9 = or disjoint i32 %8, %2
   %10 = zext nneg i32 %9 to i64
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   br label %13
@@ -1518,7 +1516,7 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12Prepare
 3:                                                ; preds = %.preheader, %3
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 0, ptr %7, align 4
@@ -1574,7 +1572,7 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState13DoApply
   %22 = add nsw i32 %21, %.sroa.239.0.extract.trunc
   %23 = sext i32 %22 to i64
   %24 = load ptr, ptr %20, align 8
-  %25 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %24, i64 %23
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %23
   %.sroa.0.0.extract.trunc.i = select i1 %19, i40 4, i40 2
   store i40 %.sroa.0.0.extract.trunc.i, ptr %25, align 4
   br label %96
@@ -1593,7 +1591,7 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState13DoApply
 29:                                               ; preds = %29, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i8 0, ptr %33, align 4
@@ -1607,12 +1605,12 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState13DoApply
   br i1 %exitcond13.not.i, label %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader, label %.preheader.i, !llvm.loop !12
 
 _ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader: ; preds = %34
-  %35 = getelementptr inbounds %"struct.std::array.23", ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 %1
+  %35 = getelementptr inbounds [32 x i8], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 %1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = and i64 %1, 4294967292
   %38 = icmp eq i64 %37, 0
   %39 = and i64 %1, 3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %39
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %39
   br label %40
 
 40:                                               ; preds = %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader, %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit
@@ -1635,7 +1633,7 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
   %44 = or disjoint i32 %43, %42
   %45 = zext nneg i32 %44 to i64
   %46 = load ptr, ptr %28, align 8
-  %47 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %.sroa.0.0.copyload.i.i = load i64, ptr %47, align 4
   %.sroa.0.0.extract.trunc.i59 = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %48 = icmp sgt i32 %.sroa.0.0.extract.trunc.i59, 0
@@ -1699,7 +1697,7 @@ switch.lookup:                                    ; preds = %49
   %64 = shl nuw nsw i32 %59, 2
   %65 = or disjoint i32 %64, %60
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %66
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %67, align 4
   %68 = and i64 %.sroa.0.0.copyload.i.i.i, 4294967295
   %69 = icmp eq i64 %68, 0
@@ -1716,7 +1714,7 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
   %70 = shl nuw nsw i32 %59, 2
   %71 = or disjoint i32 %70, %60
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %72
   %.sroa.0.0.copyload.i.i69 = load i64, ptr %73, align 4
   %.sroa.0.0.extract.trunc.i70 = trunc i64 %.sroa.0.0.copyload.i.i69 to i32
   %74 = icmp eq i32 %.sroa.0.0.extract.trunc.i70, %.sroa.0.0.extract.trunc.i59
@@ -1746,7 +1744,7 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
   %81 = shl nuw nsw i32 %.0.i61, 2
   %82 = or disjoint i32 %81, %.013.i
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %83
   %85 = trunc i64 %.sroa.0.0.copyload.i.i to i40
   %.sroa.0.0.extract.trunc.i76 = and i40 %85, 2147483647
   store i40 %.sroa.0.0.extract.trunc.i76, ptr %84, align 4
@@ -1754,7 +1752,7 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
 
 .critedge58:                                      ; preds = %80, %76
   %86 = load ptr, ptr %28, align 8
-  %87 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %86, i64 %45
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %45
   store i40 0, ptr %87, align 4
   store i32 -1, ptr %36, align 8
   br label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
@@ -1787,7 +1785,7 @@ _ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds %"struct.std::array.23", ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 %1
+  %3 = getelementptr inbounds [32 x i8], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = trunc i64 %1 to i32
   br label %6
@@ -1812,7 +1810,7 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
   %10 = or disjoint i32 %9, %8
   %11 = zext nneg i32 %10 to i64
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %14 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
@@ -1834,8 +1832,8 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
   %20 = shl nuw nsw i64 %18, 2
   %.masked = and i64 %20, 12
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %21, i64 %.masked
-  %23 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %22, i64 %.sroa.5.8.extract.shift
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.masked
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.sroa.5.8.extract.shift
   %.sroa.0.0.copyload.i.i44 = load i64, ptr %23, align 4
   %.sroa.0.0.extract.trunc.i45 = trunc i64 %.sroa.0.0.copyload.i.i44 to i32
   %24 = icmp eq i32 %.sroa.0.0.extract.trunc.i45, %.sroa.0.0.extract.trunc.i
@@ -2173,7 +2171,7 @@ define noundef i32 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState1
 4:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
   %.111 = phi i32 [ %.013, %.preheader ], [ %spec.select, %4 ]
-  %gep = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %gep, align 4
   %5 = and i64 %.sroa.0.0.copyload.i, 4294967295
   %6 = icmp eq i64 %5, 0
@@ -2212,7 +2210,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14Chance
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %.111.i = phi i32 [ %.013.i, %.preheader.i ], [ %spec.select.i, %9 ]
-  %gep.i = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %gep.i, align 4
   %10 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
   %11 = icmp eq i64 %10, 0
@@ -2268,7 +2266,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %0, align 8
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw %"struct.std::pair.31", ptr %27, i64 %22
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %22
   store ptr %29, ptr %25, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2298,7 +2296,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   %45 = phi ptr [ %.promoted, %.preheader ], [ %184, %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJldEEERS1_DpOT_.exit66 ]
   %46 = phi ptr [ %.promoted106, %.preheader ], [ %183, %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJldEEERS1_DpOT_.exit66 ]
   %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %.sroa.0.0.copyload.i = load i64, ptr %49, align 4
   %50 = and i64 %.sroa.0.0.copyload.i, 4294967295
@@ -2467,7 +2465,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJldEEEvN9__gnu_cxx17__normal
   %109 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %95) #32
   store ptr %109, ptr %36, align 8
-  %110 = getelementptr inbounds nuw %"struct.std::pair.31", ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %102
   br label %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJldEEERS1_DpOT_.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJldEEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJldEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %89
@@ -2633,7 +2631,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJldEEEvN9__gnu_cxx17__normal
   %170 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i61, i64 16
   call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %156) #32
   store ptr %170, ptr %36, align 8
-  %171 = getelementptr inbounds nuw %"struct.std::pair.31", ptr %165, i64 %163
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %163
   br label %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJldEEERS1_DpOT_.exit66
 
 .loopexit:                                        ; preds = %52, %_ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJldEEERS1_DpOT_.exit, %_ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i.i52
@@ -2730,12 +2728,12 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalA
   %.sroa.025.0.idx36 = phi i64 [ 0, %19 ], [ %.sroa.025.0.add, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit ]
   %.sroa.025.0.ptr = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.025.0.idx36
   %26 = load i64, ptr %.sroa.025.0.ptr, align 8
-  %27 = getelementptr inbounds %"struct.std::array.23", ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 %26
   %28 = load ptr, ptr %21, align 8
   %29 = and i64 %26, 4294967292
   %30 = icmp eq i64 %29, 0
   %31 = and i64 %26, 3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 %31
   br label %32
 
 32:                                               ; preds = %.split58.us.i, %24
@@ -2757,7 +2755,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalA
 _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i: ; preds = %.split.i
   %36 = or disjoint i32 %35, %34
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %37
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %38, align 4
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i.i.i to i32
   %39 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, 0
@@ -2822,7 +2820,7 @@ switch.lookup:                                    ; preds = %40
   %55 = shl nuw nsw i32 %50, 2
   %56 = or disjoint i32 %55, %51
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %57
   %.sroa.0.0.copyload.i.i.i21 = load i64, ptr %58, align 4
   %59 = and i64 %.sroa.0.0.copyload.i.i.i21, 4294967295
   %60 = icmp eq i64 %59, 0
@@ -2840,8 +2838,8 @@ switch.lookup:                                    ; preds = %40
 _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46.i: ; preds = %.noexc
   %62 = shl nuw nsw i64 %.sroa.216.8.insert.insert.i, 2
   %.masked.i = and i64 %62, 12
-  %63 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %.masked.i
-  %64 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %63, i64 %.sroa.4.8.insert.ext.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.masked.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.sroa.4.8.insert.ext.i
   %.sroa.0.0.copyload.i.i44.i = load i64, ptr %64, align 4
   %.sroa.0.0.extract.trunc.i45.i = trunc i64 %.sroa.0.0.copyload.i.i44.i to i32
   %65 = icmp eq i32 %.sroa.0.0.extract.trunc.i45.i, %.sroa.0.0.extract.trunc.i.i
@@ -2928,7 +2926,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %88, %.noex
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %90, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %85, ptr %0, align 8
   store ptr %89, ptr %22, align 8
-  %91 = getelementptr inbounds nuw i64, ptr %85, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %83
   store ptr %91, ptr %23, align 8
   br label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit
 
@@ -3001,7 +2999,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState8ToStrin
 14:                                               ; preds = %.preheader, %89
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %89 ]
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
@@ -3304,7 +3302,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
   %.132 = phi i32 [ %.01835, %.preheader ], [ %spec.select, %20 ]
   %.12031 = phi i32 [ %.01934, %.preheader ], [ %.221, %20 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 4
   %.sroa.02.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
@@ -3851,7 +3849,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
 44:                                               ; preds = %.preheader, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ]
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %.sroa.0.0.copyload.i = load i64, ptr %47, align 4
   br label %48
@@ -3862,7 +3860,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %indvars.iv.i.i = phi i64 [ 0, %44 ], [ 1, %48 ]
   %.078.i.i = phi i32 [ 0, %44 ], [ %53, %48 ]
   %indvars.iv.i.i.sroa.phi.sroa.speculated = trunc i64 %indvars.iv.i.i.sroa.phi.sroa.speculated.in to i32
-  %50 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i.i
   %51 = load i32, ptr %50, align 4
   %52 = mul nsw i32 %51, %.078.i.i
   %53 = add nsw i32 %52, %indvars.iv.i.i.sroa.phi.sroa.speculated
@@ -3880,7 +3878,7 @@ _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %48
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %57 = sitofp i32 %.sroa.0.0.extract.trunc to float
-  %58 = getelementptr inbounds float, ptr %2, i64 %54
+  %58 = getelementptr inbounds [4 x i8], ptr %2, i64 %54
   store float %57, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -5120,7 +5118,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerRewardEi(ptr n
   br label %33
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
-  %27 = getelementptr inbounds double, ptr %13, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -5224,7 +5222,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerReturnEi(ptr n
   br label %44
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %23
-  %38 = getelementptr inbounds nuw double, ptr %26, i64 %31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %31
   %39 = load double, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -5507,7 +5505,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %0, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %13
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -5587,7 +5585,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %47, ptr %22, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %27
@@ -6865,7 +6863,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %18, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -6946,7 +6944,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %19, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %25

@@ -62,7 +62,7 @@ define void @freeReplyObject(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.012 = phi i64 [ %13, %.lr.ph ], [ 0, %.preheader ]
   %10 = load ptr, ptr %6, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.012
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.012
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   tail call void @freeReplyObject(ptr noundef %12)
   %13 = add nuw i64 %.012, 1
@@ -151,7 +151,7 @@ define i32 @redisvFormatCommand(ptr noundef writeonly captures(address_is_null) 
 
 26:                                               ; preds = %19
   %27 = sext i32 %.0157 to i64
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   store ptr %.0174, ptr %28, align 8, !tbaa !24
   %29 = getelementptr inbounds i8, ptr %.0174, i64 -1
   %30 = load i8, ptr %29, align 1, !tbaa !22
@@ -366,7 +366,7 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
   %133 = phi i8 [ %123, %.lr.ph336 ], [ %140, %138 ]
   %.1335 = phi ptr [ %.0331, %.lr.ph336 ], [ %139, %138 ]
   %134 = sext i8 %133 to i64
-  %135 = getelementptr inbounds i16, ptr %131, i64 %134
+  %135 = getelementptr inbounds [2 x i8], ptr %131, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !25
   %137 = and i16 %136, 2048
   %.not229 = icmp eq i16 %137, 0
@@ -391,7 +391,7 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
 
 143:                                              ; preds = %.preheader295
   %144 = sext i8 %142 to i64
-  %145 = getelementptr inbounds i16, ptr %131, i64 %144
+  %145 = getelementptr inbounds [2 x i8], ptr %131, i64 %144
   %146 = load i16, ptr %145, align 2, !tbaa !25
   %147 = and i16 %146, 2048
   %.not231 = icmp eq i16 %147, 0
@@ -638,7 +638,7 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
 
 246:                                              ; preds = %.thread288
   %247 = sext i32 %.0157 to i64
-  %248 = getelementptr inbounds ptr, ptr %244, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %244, i64 %247
   store ptr %.1175292, ptr %248, align 8, !tbaa !24
   %249 = getelementptr inbounds i8, ptr %.1175292, i64 -1
   %250 = load i8, ptr %249, align 1, !tbaa !22
@@ -796,7 +796,7 @@ countDigits.exit:                                 ; preds = %305, %292, %295, %2
   %.0180338 = phi i32 [ %317, %.lr.ph340.preheader ], [ %399, %hi_sdslen.exit263 ]
   %319 = sext i32 %.0180338 to i64
   %320 = getelementptr inbounds i8, ptr %314, i64 %319
-  %321 = getelementptr inbounds nuw ptr, ptr %.3165, i64 %indvars.iv
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %.3165, i64 %indvars.iv
   %322 = load ptr, ptr %321, align 8, !tbaa !24
   %323 = getelementptr inbounds i8, ptr %322, i64 -1
   %324 = load i8, ptr %323, align 1, !tbaa !22
@@ -973,7 +973,7 @@ hi_sdslen.exit263:                                ; preds = %hi_sdslen.exit261, 
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %.lr.ph344
   %indvars.iv382 = phi i64 [ %404, %.lr.ph344.preheader ], [ %indvars.iv.next383, %.lr.ph344 ]
   %indvars.iv.next383 = add nsw i64 %indvars.iv382, -1
-  %405 = getelementptr inbounds ptr, ptr %.4166, i64 %indvars.iv.next383
+  %405 = getelementptr inbounds [8 x i8], ptr %.4166, i64 %indvars.iv.next383
   %406 = load ptr, ptr %405, align 8, !tbaa !24
   call void @hi_sdsfree(ptr noundef %406) #13
   %.not250 = icmp eq i64 %indvars.iv.next383, 0
@@ -1098,7 +1098,7 @@ countDigits.exit:                                 ; preds = %20, %6, %10, %14, %
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %bulklen.exit.us
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %bulklen.exit.us ], [ 0, %.lr.ph ]
   %.03855.us = phi i64 [ %50, %bulklen.exit.us ], [ %25, %.lr.ph ]
-  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv82
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv82
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #14
   %30 = icmp ult i64 %29, 10
@@ -1150,7 +1150,7 @@ bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %bulklen.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %bulklen.exit ], [ 0, %.lr.ph ]
   %.03855 = phi i64 [ %73, %bulklen.exit ], [ %25, %.lr.ph ]
-  %51 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8, !tbaa !28
   %53 = icmp ult i64 %52, 10
   br i1 %53, label %bulklen.exit, label %.lr.ph.i.i
@@ -1225,7 +1225,7 @@ bulklen.exit:                                     ; preds = %65, %.lr.ph.split, 
 .lr.ph60.split.us:                                ; preds = %.lr.ph60, %.lr.ph60.split.us
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph60.split.us ], [ 0, %.lr.ph60 ]
   %.04057.us = phi ptr [ %88, %.lr.ph60.split.us ], [ %81, %.lr.ph60 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv92
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv92
   %83 = load ptr, ptr %82, align 8, !tbaa !24
   %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #14
   %85 = tail call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.04057.us, ptr noundef nonnull @.str.5, i64 noundef %84) #13
@@ -1239,10 +1239,10 @@ bulklen.exit:                                     ; preds = %65, %.lr.ph.split, 
 .lr.ph60.split:                                   ; preds = %.lr.ph60, %.lr.ph60.split
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.lr.ph60.split ], [ 0, %.lr.ph60 ]
   %.04057 = phi ptr [ %95, %.lr.ph60.split ], [ %81, %.lr.ph60 ]
-  %89 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv87
   %90 = load i64, ptr %89, align 8, !tbaa !28
   %91 = tail call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.04057, ptr noundef nonnull @.str.5, i64 noundef %90) #13
-  %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv87
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv87
   %93 = load ptr, ptr %92, align 8, !tbaa !24
   %94 = tail call ptr @hi_sdscatlen(ptr noundef %91, ptr noundef %93, i64 noundef %90) #13
   %95 = tail call ptr @hi_sdscatlen(ptr noundef %94, ptr noundef nonnull @.str.6, i64 noundef 2) #13
@@ -1330,7 +1330,7 @@ countDigits.exit:                                 ; preds = %20, %6, %10, %14, %
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %bulklen.exit.us
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %bulklen.exit.us ], [ 0, %.lr.ph ]
   %.04460.us = phi i64 [ %50, %bulklen.exit.us ], [ %25, %.lr.ph ]
-  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv87
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv87
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #14
   %30 = icmp ult i64 %29, 10
@@ -1382,7 +1382,7 @@ bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %bulklen.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %bulklen.exit ], [ 0, %.lr.ph ]
   %.04460 = phi i64 [ %73, %bulklen.exit ], [ %25, %.lr.ph ]
-  %51 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8, !tbaa !28
   %53 = icmp ult i64 %52, 10
   br i1 %53, label %bulklen.exit, label %.lr.ph.i.i
@@ -1451,7 +1451,7 @@ bulklen.exit:                                     ; preds = %65, %.lr.ph.split, 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65, %.lr.ph65.split.us
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.lr.ph65.split.us ], [ 0, %.lr.ph65 ]
   %.04562.us = phi i64 [ %92, %.lr.ph65.split.us ], [ %80, %.lr.ph65 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv97
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv97
   %82 = load ptr, ptr %81, align 8, !tbaa !24
   %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #14
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 %.04562.us
@@ -1474,14 +1474,14 @@ bulklen.exit:                                     ; preds = %65, %.lr.ph.split, 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %.lr.ph65.split
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph65.split ], [ 0, %.lr.ph65 ]
   %.04562 = phi i64 [ %105, %.lr.ph65.split ], [ %80, %.lr.ph65 ]
-  %94 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv92
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv92
   %95 = load i64, ptr %94, align 8, !tbaa !28
   %96 = getelementptr inbounds nuw i8, ptr %76, i64 %.04562
   %97 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %95) #13
   %98 = sext i32 %97 to i64
   %99 = add i64 %.04562, %98
   %100 = getelementptr inbounds nuw i8, ptr %76, i64 %99
-  %101 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv92
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv92
   %102 = load ptr, ptr %101, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr align 1 %102, i64 %95, i1 false)
   %103 = add i64 %99, %95
@@ -3133,7 +3133,7 @@ define internal ptr @createStringObject(ptr noundef readonly captures(none) %0, 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load i32, ptr %38, align 8, !tbaa !82
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %37, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %37, i64 %40
   store ptr %6, ptr %41, align 8, !tbaa !17
   br label %createReplyObject.exit.thread
 
@@ -3196,7 +3196,7 @@ hi_calloc.exit:                                   ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !82
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   store ptr %5, ptr %27, align 8, !tbaa !17
   br label %createReplyObject.exit.thread
 
@@ -3229,7 +3229,7 @@ define internal ptr @createIntegerObject(ptr noundef readonly captures(none) %0,
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !82
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   store ptr %4, ptr %18, align 8, !tbaa !17
   br label %createReplyObject.exit.thread
 
@@ -3284,7 +3284,7 @@ define internal ptr @createDoubleObject(ptr noundef readonly captures(none) %0, 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !82
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %8, ptr %32, align 8, !tbaa !17
   br label %createReplyObject.exit.thread
 
@@ -3315,7 +3315,7 @@ define internal ptr @createNilObject(ptr noundef readonly captures(none) %0) #0 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !82
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   store ptr %3, ptr %16, align 8, !tbaa !17
   br label %createReplyObject.exit.thread
 
@@ -3349,7 +3349,7 @@ define internal ptr @createBoolObject(ptr noundef readonly captures(none) %0, i3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !82
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %19
   store ptr %4, ptr %20, align 8, !tbaa !17
   br label %createReplyObject.exit.thread
 

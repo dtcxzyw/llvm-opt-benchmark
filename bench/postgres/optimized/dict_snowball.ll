@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Pg_magic_struct = type { i32, i32, i32, i32, i32, i32, [32 x i8] }
 %struct.Pg_finfo_record = type { i32 }
-%union.ListCell = type { ptr }
 
 @Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pg_finfo_dsnowball_init.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
@@ -90,7 +89,7 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   %.03260 = phi i1 [ %.1, %80 ], [ false, %.lr.ph ]
   %indvars.iv59 = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv59
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv59
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8

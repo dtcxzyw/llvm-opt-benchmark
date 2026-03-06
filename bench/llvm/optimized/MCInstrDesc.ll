@@ -3,11 +3,6 @@ source_filename = "bench/llvm/original/MCInstrDesc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::MCOperand" = type { i8, %union.anon }
-%union.anon = type { i64 }
-%"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
@@ -53,7 +48,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrDesc15hasDefOfPhysRegERKN
 
 14:                                               ; preds = %.lr.ph, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit ]
-  %15 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %16 = load i8, ptr %15, align 8, !tbaa !15
   %17 = icmp eq i8 %16, 1
   br i1 %17, label %18, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit
@@ -70,11 +65,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrDesc15hasDefOfPhysRegERKN
 
 23:                                               ; preds = %21
   %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !19, !noalias !22
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %10, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !25, !noalias !22
   %.not.i.i.i.i.i.i.i = icmp eq i16 %30, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit, label %.lr.ph.i.i.i.i.preheader.i.i.i
@@ -133,7 +128,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit: ; preds = %
 56:                                               ; preds = %.lr.ph64, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit43
   %.03362 = phi i32 [ %47, %.lr.ph64 ], [ %82, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit43 ]
   %57 = zext i32 %.03362 to i64
-  %58 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %51, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %57
   %59 = load i8, ptr %58, align 8, !tbaa !15
   %60 = icmp eq i8 %59, 1
   br i1 %60, label %61, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit43
@@ -146,11 +141,11 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit: ; preds = %
 
 65:                                               ; preds = %61
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %55, i64 %66
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !19, !noalias !38
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %53, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !25, !noalias !38
   %.not.i.i.i.i.i.i.i37 = icmp eq i16 %72, 0
   br i1 %.not.i.i.i.i.i.i.i37, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit43, label %.lr.ph.i.i.i.i.preheader.i.i.i38
@@ -183,16 +178,16 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit43: ; preds =
 .thread51:                                        ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit43, %43, %._crit_edge
   %83 = load i16, ptr %0, align 8, !tbaa !49
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %0, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %88 = load i16, ptr %87, align 2, !tbaa !50
   %89 = zext i16 %88 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %86, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load i8, ptr %91, align 8, !tbaa !51
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %90, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %96 = load i8, ptr %95, align 1, !tbaa !52
   %97 = zext i8 %96 to i64
@@ -217,11 +212,11 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit43: ; preds =
 
 106:                                              ; preds = %.lr.ph.split.i
   %107 = zext i16 %103 to i64
-  %108 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %102, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %102, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i32, ptr %109, align 4, !tbaa !19, !noalias !53
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw i16, ptr %101, i64 %111
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !25, !noalias !53
   %.not.i.i.i.i.i.i.i44 = icmp eq i16 %113, 0
   br i1 %.not.i.i.i.i.i.i.i44, label %.critedge.i, label %.lr.ph.i.i.i.i.preheader.i.i.i45
@@ -260,16 +255,16 @@ _ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhysRegENS_10MCRegisterEPKNS_14MCRegiste
 define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhysRegENS_10MCRegisterEPKNS_14MCRegisterInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, i32 %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = load i16, ptr %0, align 8, !tbaa !49
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %9 = load i16, ptr %8, align 2, !tbaa !50
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !51
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %17 = load i8, ptr %16, align 1, !tbaa !52
   %18 = zext i8 %17 to i64
@@ -313,11 +308,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhy
   %34 = load ptr, ptr %20, align 8, !tbaa !63, !noalias !79
   %35 = load ptr, ptr %21, align 8, !tbaa !82, !noalias !79
   %36 = zext i16 %30 to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4, !tbaa !19, !noalias !79
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %34, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !25, !noalias !79
   %.not.i.i.i.i.i.i = icmp eq i16 %42, 0
   br i1 %.not.i.i.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i.preheader.i.i

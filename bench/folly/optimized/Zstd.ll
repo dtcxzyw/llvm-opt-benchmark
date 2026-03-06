@@ -76,9 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.70" = type { %"struct.std::_Head_base.71" }
 %"struct.std::_Head_base.71" = type { %"class.folly::compression::CompressionContextPool<ZSTD_CCtx_s, folly::compression::contexts::ZSTD_CCtx_Creator, folly::compression::contexts::ZSTD_CCtx_Deleter, folly::compression::contexts::ZSTD_CCtx_Resetter>::ReturnToPoolDeleter" }
 %"class.folly::compression::CompressionContextPool<ZSTD_CCtx_s, folly::compression::contexts::ZSTD_CCtx_Creator, folly::compression::contexts::ZSTD_CCtx_Deleter, folly::compression::contexts::ZSTD_CCtx_Resetter>::ReturnToPoolDeleter" = type { ptr }
-%"class.folly::compression::CompressionCoreLocalContextPool<ZSTD_CCtx_s, folly::compression::contexts::ZSTD_CCtx_Creator, folly::compression::contexts::ZSTD_CCtx_Deleter, folly::compression::contexts::ZSTD_CCtx_Resetter, 4>::Storage" = type { %"struct.std::atomic.59", [56 x i8] }
-%"struct.std::atomic.59" = type { %"struct.std::__atomic_base.60" }
-%"struct.std::__atomic_base.60" = type { ptr }
 %"class.std::unique_ptr.72" = type { %"struct.std::__uniq_ptr_data.73" }
 %"struct.std::__uniq_ptr_data.73" = type { %"class.std::__uniq_ptr_impl.74" }
 %"class.std::__uniq_ptr_impl.74" = type { %"class.std::tuple.75" }
@@ -95,9 +92,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.98" = type { %"struct.std::_Head_base.99" }
 %"struct.std::_Head_base.99" = type { %"class.folly::compression::CompressionContextPool<ZSTD_DCtx_s, folly::compression::contexts::ZSTD_DCtx_Creator, folly::compression::contexts::ZSTD_DCtx_Deleter, folly::compression::contexts::ZSTD_DCtx_Resetter>::ReturnToPoolDeleter" }
 %"class.folly::compression::CompressionContextPool<ZSTD_DCtx_s, folly::compression::contexts::ZSTD_DCtx_Creator, folly::compression::contexts::ZSTD_DCtx_Deleter, folly::compression::contexts::ZSTD_DCtx_Resetter>::ReturnToPoolDeleter" = type { ptr }
-%"class.folly::compression::CompressionCoreLocalContextPool<ZSTD_DCtx_s, folly::compression::contexts::ZSTD_DCtx_Creator, folly::compression::contexts::ZSTD_DCtx_Deleter, folly::compression::contexts::ZSTD_DCtx_Resetter, 16>::Storage" = type { %"struct.std::atomic.91", [56 x i8] }
-%"struct.std::atomic.91" = type { %"struct.std::__atomic_base.92" }
-%"struct.std::__atomic_base.92" = type { ptr }
 %"class.std::unique_ptr.100" = type { %"struct.std::__uniq_ptr_data.101" }
 %"struct.std::__uniq_ptr_data.101" = type { %"class.std::__uniq_ptr_impl.102" }
 %"class.std::__uniq_ptr_impl.102" = type { %"class.std::tuple.103" }
@@ -1575,7 +1569,7 @@ _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contex
   %22 = load atomic i8, ptr %21 monotonic, align 1
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = getelementptr inbounds nuw %"class.folly::compression::CompressionCoreLocalContextPool<ZSTD_CCtx_s, folly::compression::contexts::ZSTD_CCtx_Creator, folly::compression::contexts::ZSTD_CCtx_Deleter, folly::compression::contexts::ZSTD_CCtx_Resetter, 4>::Storage", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %23
   %26 = ptrtoint ptr %1 to i64
   %27 = atomicrmw xchg ptr %25, i64 %26 seq_cst, align 8
   %.not = icmp eq i64 %27, 0
@@ -1954,7 +1948,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
   %.1.ph = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %18, %17 ]
   %10 = shl i32 %.1.ph, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::atomic.57", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
   br label %13
 
 13:                                               ; preds = %.outer, %24
@@ -2151,7 +2145,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.4 = phi i32 [ %.250, %16 ], [ %25, %24 ]
   %18 = shl i32 %.4, 2
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"struct.std::atomic.57", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 32
   %22 = and i64 %21, -2
   %23 = icmp eq i64 %22, %9
@@ -2189,7 +2183,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.02651 = phi i32 [ 0, %.lr.ph ], [ %.127, %46 ]
   %36 = shl i64 %indvars.iv, 2
   %37 = and i64 %36, 4294967292
-  %38 = getelementptr inbounds nuw %"struct.std::atomic.57", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 32
   %40 = and i64 %39, -2
   %41 = icmp eq i64 %40, %9
@@ -2312,7 +2306,7 @@ _ZNSt6vectorISt10unique_ptrI11ZSTD_CCtx_sN5folly11compression8contexts17ZSTD_CCt
 _ZNSt12_Vector_baseISt10unique_ptrI11ZSTD_CCtx_sN5folly11compression8contexts17ZSTD_CCtx_DeleterEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI11ZSTD_CCtx_sN5folly11compression8contexts17ZSTD_CCtx_DeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !139
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !124
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.72", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !127
   ret void
 }
@@ -2366,7 +2360,7 @@ _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contex
   %22 = load atomic i8, ptr %21 monotonic, align 1
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = getelementptr inbounds nuw %"class.folly::compression::CompressionCoreLocalContextPool<ZSTD_DCtx_s, folly::compression::contexts::ZSTD_DCtx_Creator, folly::compression::contexts::ZSTD_DCtx_Deleter, folly::compression::contexts::ZSTD_DCtx_Resetter, 16>::Storage", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %23
   %26 = ptrtoint ptr %1 to i64
   %27 = atomicrmw xchg ptr %25, i64 %26 seq_cst, align 8
   %.not = icmp eq i64 %27, 0
@@ -2678,7 +2672,7 @@ _ZNSt6vectorISt10unique_ptrI11ZSTD_DCtx_sN5folly11compression8contexts17ZSTD_DCt
 _ZNSt12_Vector_baseISt10unique_ptrI11ZSTD_DCtx_sN5folly11compression8contexts17ZSTD_DCtx_DeleterEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI11ZSTD_DCtx_sN5folly11compression8contexts17ZSTD_DCtx_DeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !164
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !160
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.100", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !163
   ret void
 }

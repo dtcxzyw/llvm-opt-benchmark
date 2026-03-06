@@ -1575,7 +1575,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %227, %.n
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %229, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %224, ptr %98, align 8, !tbaa !77
   store ptr %228, ptr %99, align 8, !tbaa !107
-  %230 = getelementptr inbounds nuw float, ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %222
   store ptr %230, ptr %100, align 8, !tbaa !108
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
@@ -2118,7 +2118,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !80
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !82
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !104
   ret void
 

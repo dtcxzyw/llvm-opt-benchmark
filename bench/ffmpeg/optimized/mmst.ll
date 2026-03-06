@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.URLProtocol = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.FFIOContext = type { %struct.AVIOContext, ptr, i32, i32, i64, i64, i64, i64, i32, i32, i32, i64 }
 %struct.AVIOContext = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i64, i64 }
-%struct.MMSStream = type { i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"mmst\00", align 1
 @ff_mmst_protocol = local_unnamed_addr constant %struct.URLProtocol { ptr @.str, ptr @mms_open, ptr null, ptr null, ptr null, ptr @mms_read, ptr null, ptr null, ptr @mms_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 66528, i32 2, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -1146,7 +1145,7 @@ define internal range(i32 -5, 1) i32 @send_stream_selection_request(ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   store ptr %25, ptr %3, align 8, !tbaa !38
   %26 = load ptr, ptr %21, align 8, !tbaa !42
-  %27 = getelementptr inbounds nuw %struct.MMSStream, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !43
   %29 = trunc i32 %28 to i16
   store i16 %29, ptr %25, align 1, !tbaa !36

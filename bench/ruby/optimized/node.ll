@@ -502,7 +502,7 @@ pm_node_list_grow.exit:                           ; preds = %.pm_node_list_grow.
   %24 = phi i64 [ %3, %.pm_node_list_grow.exit_crit_edge ], [ %.pre7, %23 ]
   %25 = phi ptr [ %.pre, %.pm_node_list_grow.exit_crit_edge ], [ %22, %23 ]
   store i64 %.pre-phi, ptr %0, align 8, !tbaa !7
-  %26 = getelementptr ptr, ptr %25, i64 %24
+  %26 = getelementptr [8 x i8], ptr %25, i64 %24
   store ptr %1, ptr %26, align 8, !tbaa !18
   br label %pm_node_list_grow.exit.thread
 
@@ -636,7 +636,7 @@ pm_node_list_grow.exit:                           ; preds = %.pm_node_list_grow.
   %26 = phi i64 [ %3, %.pm_node_list_grow.exit_crit_edge ], [ %.pre13, %25 ]
   %27 = phi i64 [ %5, %.pm_node_list_grow.exit_crit_edge ], [ %.pre12, %25 ]
   %28 = phi ptr [ %.pre, %.pm_node_list_grow.exit_crit_edge ], [ %24, %25 ]
-  %29 = getelementptr ptr, ptr %28, i64 %27
+  %29 = getelementptr [8 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   %32 = shl i64 %26, 3
@@ -2183,7 +2183,7 @@ define internal fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef ca
 .lr.ph:                                           ; preds = %2, %12
   %.08 = phi i64 [ %13, %12 ], [ 0, %2 ]
   %5 = load ptr, ptr %3, align 8, !tbaa !15
-  %6 = getelementptr ptr, ptr %5, i64 %.08
+  %6 = getelementptr [8 x i8], ptr %5, i64 %.08
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.critedge, label %12
@@ -2225,7 +2225,7 @@ define hidden noundef nonnull ptr @pm_node_type_to_str(i16 noundef zeroext %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pm_node_type_to_str, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.pm_node_type_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2446,7 +2446,7 @@ pm_visit_node.exit1098:                           ; preds = %29, %33
 41:                                               ; preds = %.lr.ph1400, %pm_visit_node.exit1100
   %.01398 = phi i64 [ 0, %.lr.ph1400 ], [ %47, %pm_visit_node.exit1100 ]
   %42 = load ptr, ptr %40, align 8, !tbaa !15
-  %43 = getelementptr ptr, ptr %42, i64 %.01398
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.01398
   %44 = load ptr, ptr %43, align 8, !tbaa !18
   %45 = tail call zeroext i1 %1(ptr noundef %44, ptr noundef %2) #10
   br i1 %45, label %46, label %pm_visit_node.exit1100
@@ -2474,7 +2474,7 @@ pm_visit_node.exit1100:                           ; preds = %41, %46
 54:                                               ; preds = %.lr.ph1397, %pm_visit_node.exit1101
   %.09041395 = phi i64 [ 0, %.lr.ph1397 ], [ %60, %pm_visit_node.exit1101 ]
   %55 = load ptr, ptr %53, align 8, !tbaa !15
-  %56 = getelementptr ptr, ptr %55, i64 %.09041395
+  %56 = getelementptr [8 x i8], ptr %55, i64 %.09041395
   %57 = load ptr, ptr %56, align 8, !tbaa !18
   %58 = tail call zeroext i1 %1(ptr noundef %57, ptr noundef %2) #10
   br i1 %58, label %59, label %pm_visit_node.exit1101
@@ -2522,7 +2522,7 @@ pm_visit_node.exit1102:                           ; preds = %68, %66, %63
 74:                                               ; preds = %.lr.ph1391, %pm_visit_node.exit1103
   %.09061390 = phi i64 [ 0, %.lr.ph1391 ], [ %80, %pm_visit_node.exit1103 ]
   %75 = load ptr, ptr %71, align 8, !tbaa !15
-  %76 = getelementptr ptr, ptr %75, i64 %.09061390
+  %76 = getelementptr [8 x i8], ptr %75, i64 %.09061390
   %77 = load ptr, ptr %76, align 8, !tbaa !18
   %78 = tail call zeroext i1 %1(ptr noundef %77, ptr noundef %2) #10
   br i1 %78, label %79, label %pm_visit_node.exit1103
@@ -2558,7 +2558,7 @@ pm_visit_node.exit1104:                           ; preds = %85, %83, %._crit_ed
 89:                                               ; preds = %.lr.ph1394, %pm_visit_node.exit1105
   %.09071393 = phi i64 [ 0, %.lr.ph1394 ], [ %95, %pm_visit_node.exit1105 ]
   %90 = load ptr, ptr %88, align 8, !tbaa !15
-  %91 = getelementptr ptr, ptr %90, i64 %.09071393
+  %91 = getelementptr [8 x i8], ptr %90, i64 %.09071393
   %92 = load ptr, ptr %91, align 8, !tbaa !18
   %93 = tail call zeroext i1 %1(ptr noundef %92, ptr noundef %2) #10
   br i1 %93, label %94, label %pm_visit_node.exit1105
@@ -2712,7 +2712,7 @@ pm_visit_node.exit1116:                           ; preds = %151, %149, %146
 155:                                              ; preds = %.lr.ph1389, %pm_visit_node.exit1117
   %.09081388 = phi i64 [ 0, %.lr.ph1389 ], [ %161, %pm_visit_node.exit1117 ]
   %156 = load ptr, ptr %154, align 8, !tbaa !15
-  %157 = getelementptr ptr, ptr %156, i64 %.09081388
+  %157 = getelementptr [8 x i8], ptr %156, i64 %.09081388
   %158 = load ptr, ptr %157, align 8, !tbaa !18
   %159 = tail call zeroext i1 %1(ptr noundef %158, ptr noundef %2) #10
   br i1 %159, label %160, label %pm_visit_node.exit1117
@@ -2890,7 +2890,7 @@ pm_visit_node.exit1131:                           ; preds = %228, %226, %223
 234:                                              ; preds = %.lr.ph1347, %pm_visit_node.exit1132
   %.09091346 = phi i64 [ 0, %.lr.ph1347 ], [ %240, %pm_visit_node.exit1132 ]
   %235 = load ptr, ptr %231, align 8, !tbaa !15
-  %236 = getelementptr ptr, ptr %235, i64 %.09091346
+  %236 = getelementptr [8 x i8], ptr %235, i64 %.09091346
   %237 = load ptr, ptr %236, align 8, !tbaa !18
   %238 = tail call zeroext i1 %1(ptr noundef %237, ptr noundef %2) #10
   br i1 %238, label %239, label %pm_visit_node.exit1132
@@ -2942,7 +2942,7 @@ pm_visit_node.exit1134:                           ; preds = %250, %248, %245
 256:                                              ; preds = %.lr.ph1344, %pm_visit_node.exit1135
   %.09111343 = phi i64 [ 0, %.lr.ph1344 ], [ %262, %pm_visit_node.exit1135 ]
   %257 = load ptr, ptr %253, align 8, !tbaa !15
-  %258 = getelementptr ptr, ptr %257, i64 %.09111343
+  %258 = getelementptr [8 x i8], ptr %257, i64 %.09111343
   %259 = load ptr, ptr %258, align 8, !tbaa !18
   %260 = tail call zeroext i1 %1(ptr noundef %259, ptr noundef %2) #10
   br i1 %260, label %261, label %pm_visit_node.exit1135
@@ -3250,7 +3250,7 @@ pm_visit_node.exit1167:                           ; preds = %pm_visit_node.exit1
 409:                                              ; preds = %.lr.ph1341, %pm_visit_node.exit1169
   %.09121340 = phi i64 [ 0, %.lr.ph1341 ], [ %415, %pm_visit_node.exit1169 ]
   %410 = load ptr, ptr %405, align 8, !tbaa !15
-  %411 = getelementptr ptr, ptr %410, i64 %.09121340
+  %411 = getelementptr [8 x i8], ptr %410, i64 %.09121340
   %412 = load ptr, ptr %411, align 8, !tbaa !18
   %413 = tail call zeroext i1 %1(ptr noundef %412, ptr noundef %2) #10
   br i1 %413, label %414, label %pm_visit_node.exit1169
@@ -3366,7 +3366,7 @@ pm_visit_node.exit1173:                           ; preds = %pm_visit_node.exit1
 466:                                              ; preds = %.lr.ph1381, %pm_visit_node.exit1180
   %.09131379 = phi i64 [ 0, %.lr.ph1381 ], [ %472, %pm_visit_node.exit1180 ]
   %467 = load ptr, ptr %465, align 8, !tbaa !15
-  %468 = getelementptr ptr, ptr %467, i64 %.09131379
+  %468 = getelementptr [8 x i8], ptr %467, i64 %.09131379
   %469 = load ptr, ptr %468, align 8, !tbaa !18
   %470 = tail call zeroext i1 %1(ptr noundef %469, ptr noundef %2) #10
   br i1 %470, label %471, label %pm_visit_node.exit1180
@@ -3414,7 +3414,7 @@ pm_visit_node.exit1181:                           ; preds = %480, %478, %475
 486:                                              ; preds = %.lr.ph1334, %pm_visit_node.exit1182
   %.09151333 = phi i64 [ 0, %.lr.ph1334 ], [ %492, %pm_visit_node.exit1182 ]
   %487 = load ptr, ptr %483, align 8, !tbaa !15
-  %488 = getelementptr ptr, ptr %487, i64 %.09151333
+  %488 = getelementptr [8 x i8], ptr %487, i64 %.09151333
   %489 = load ptr, ptr %488, align 8, !tbaa !18
   %490 = tail call zeroext i1 %1(ptr noundef %489, ptr noundef %2) #10
   br i1 %490, label %491, label %pm_visit_node.exit1182
@@ -3714,7 +3714,7 @@ pm_visit_node.exit1204:                           ; preds = %594, %592, %pm_visi
 619:                                              ; preds = %.lr.ph1378, %pm_visit_node.exit1210
   %.09161376 = phi i64 [ 0, %.lr.ph1378 ], [ %625, %pm_visit_node.exit1210 ]
   %620 = load ptr, ptr %618, align 8, !tbaa !15
-  %621 = getelementptr ptr, ptr %620, i64 %.09161376
+  %621 = getelementptr [8 x i8], ptr %620, i64 %.09161376
   %622 = load ptr, ptr %621, align 8, !tbaa !18
   %623 = tail call zeroext i1 %1(ptr noundef %622, ptr noundef %2) #10
   br i1 %623, label %624, label %pm_visit_node.exit1210
@@ -3742,7 +3742,7 @@ pm_visit_node.exit1210:                           ; preds = %619, %624
 632:                                              ; preds = %.lr.ph1375, %pm_visit_node.exit1211
   %.09171373 = phi i64 [ 0, %.lr.ph1375 ], [ %638, %pm_visit_node.exit1211 ]
   %633 = load ptr, ptr %631, align 8, !tbaa !15
-  %634 = getelementptr ptr, ptr %633, i64 %.09171373
+  %634 = getelementptr [8 x i8], ptr %633, i64 %.09171373
   %635 = load ptr, ptr %634, align 8, !tbaa !18
   %636 = tail call zeroext i1 %1(ptr noundef %635, ptr noundef %2) #10
   br i1 %636, label %637, label %pm_visit_node.exit1211
@@ -3770,7 +3770,7 @@ pm_visit_node.exit1211:                           ; preds = %632, %637
 645:                                              ; preds = %.lr.ph1372, %pm_visit_node.exit1212
   %.09181370 = phi i64 [ 0, %.lr.ph1372 ], [ %651, %pm_visit_node.exit1212 ]
   %646 = load ptr, ptr %644, align 8, !tbaa !15
-  %647 = getelementptr ptr, ptr %646, i64 %.09181370
+  %647 = getelementptr [8 x i8], ptr %646, i64 %.09181370
   %648 = load ptr, ptr %647, align 8, !tbaa !18
   %649 = tail call zeroext i1 %1(ptr noundef %648, ptr noundef %2) #10
   br i1 %649, label %650, label %pm_visit_node.exit1212
@@ -3798,7 +3798,7 @@ pm_visit_node.exit1212:                           ; preds = %645, %650
 658:                                              ; preds = %.lr.ph1369, %pm_visit_node.exit1213
   %.09191367 = phi i64 [ 0, %.lr.ph1369 ], [ %664, %pm_visit_node.exit1213 ]
   %659 = load ptr, ptr %657, align 8, !tbaa !15
-  %660 = getelementptr ptr, ptr %659, i64 %.09191367
+  %660 = getelementptr [8 x i8], ptr %659, i64 %.09191367
   %661 = load ptr, ptr %660, align 8, !tbaa !18
   %662 = tail call zeroext i1 %1(ptr noundef %661, ptr noundef %2) #10
   br i1 %662, label %663, label %pm_visit_node.exit1213
@@ -3826,7 +3826,7 @@ pm_visit_node.exit1213:                           ; preds = %658, %663
 671:                                              ; preds = %.lr.ph1366, %pm_visit_node.exit1214
   %.09201364 = phi i64 [ 0, %.lr.ph1366 ], [ %677, %pm_visit_node.exit1214 ]
   %672 = load ptr, ptr %670, align 8, !tbaa !15
-  %673 = getelementptr ptr, ptr %672, i64 %.09201364
+  %673 = getelementptr [8 x i8], ptr %672, i64 %.09201364
   %674 = load ptr, ptr %673, align 8, !tbaa !18
   %675 = tail call zeroext i1 %1(ptr noundef %674, ptr noundef %2) #10
   br i1 %675, label %676, label %pm_visit_node.exit1214
@@ -3854,7 +3854,7 @@ pm_visit_node.exit1214:                           ; preds = %671, %676
 684:                                              ; preds = %.lr.ph1363, %pm_visit_node.exit1215
   %.09221361 = phi i64 [ 0, %.lr.ph1363 ], [ %690, %pm_visit_node.exit1215 ]
   %685 = load ptr, ptr %683, align 8, !tbaa !15
-  %686 = getelementptr ptr, ptr %685, i64 %.09221361
+  %686 = getelementptr [8 x i8], ptr %685, i64 %.09221361
   %687 = load ptr, ptr %686, align 8, !tbaa !18
   %688 = tail call zeroext i1 %1(ptr noundef %687, ptr noundef %2) #10
   br i1 %688, label %689, label %pm_visit_node.exit1215
@@ -3972,7 +3972,7 @@ pm_visit_node.exit1226:                           ; preds = %735, %739
 743:                                              ; preds = %.lr.ph1360, %pm_visit_node.exit1227
   %.09231359 = phi i64 [ 0, %.lr.ph1360 ], [ %749, %pm_visit_node.exit1227 ]
   %744 = load ptr, ptr %742, align 8, !tbaa !15
-  %745 = getelementptr ptr, ptr %744, i64 %.09231359
+  %745 = getelementptr [8 x i8], ptr %744, i64 %.09231359
   %746 = load ptr, ptr %745, align 8, !tbaa !18
   %747 = tail call zeroext i1 %1(ptr noundef %746, ptr noundef %2) #10
   br i1 %747, label %748, label %pm_visit_node.exit1227
@@ -4026,7 +4026,7 @@ pm_visit_node.exit1228:                           ; preds = %752, %756
 767:                                              ; preds = %.lr.ph1355, %pm_visit_node.exit1230
   %.09241353 = phi i64 [ 0, %.lr.ph1355 ], [ %773, %pm_visit_node.exit1230 ]
   %768 = load ptr, ptr %764, align 8, !tbaa !15
-  %769 = getelementptr ptr, ptr %768, i64 %.09241353
+  %769 = getelementptr [8 x i8], ptr %768, i64 %.09241353
   %770 = load ptr, ptr %769, align 8, !tbaa !18
   %771 = tail call zeroext i1 %1(ptr noundef %770, ptr noundef %2) #10
   br i1 %771, label %772, label %pm_visit_node.exit1230
@@ -4062,7 +4062,7 @@ pm_visit_node.exit1231:                           ; preds = %778, %776, %._crit_
 782:                                              ; preds = %.lr.ph1358, %pm_visit_node.exit1232
   %.09251357 = phi i64 [ 0, %.lr.ph1358 ], [ %788, %pm_visit_node.exit1232 ]
   %783 = load ptr, ptr %781, align 8, !tbaa !15
-  %784 = getelementptr ptr, ptr %783, i64 %.09251357
+  %784 = getelementptr [8 x i8], ptr %783, i64 %.09251357
   %785 = load ptr, ptr %784, align 8, !tbaa !18
   %786 = tail call zeroext i1 %1(ptr noundef %785, ptr noundef %2) #10
   br i1 %786, label %787, label %pm_visit_node.exit1232
@@ -4096,7 +4096,7 @@ pm_visit_node.exit1232:                           ; preds = %782, %787
 797:                                              ; preds = %.lr.ph, %pm_visit_node.exit1233
   %.09261314 = phi i64 [ 0, %.lr.ph ], [ %803, %pm_visit_node.exit1233 ]
   %798 = load ptr, ptr %794, align 8, !tbaa !15
-  %799 = getelementptr ptr, ptr %798, i64 %.09261314
+  %799 = getelementptr [8 x i8], ptr %798, i64 %.09261314
   %800 = load ptr, ptr %799, align 8, !tbaa !18
   %801 = tail call zeroext i1 %1(ptr noundef %800, ptr noundef %2) #10
   br i1 %801, label %802, label %pm_visit_node.exit1233
@@ -4138,7 +4138,7 @@ pm_visit_node.exit1234:                           ; preds = %808, %806, %._crit_
 815:                                              ; preds = %.lr.ph1316, %pm_visit_node.exit1236
   %.09271315 = phi i64 [ 0, %.lr.ph1316 ], [ %821, %pm_visit_node.exit1236 ]
   %816 = load ptr, ptr %811, align 8, !tbaa !15
-  %817 = getelementptr ptr, ptr %816, i64 %.09271315
+  %817 = getelementptr [8 x i8], ptr %816, i64 %.09271315
   %818 = load ptr, ptr %817, align 8, !tbaa !18
   %819 = tail call zeroext i1 %1(ptr noundef %818, ptr noundef %2) #10
   br i1 %819, label %820, label %pm_visit_node.exit1236
@@ -4214,7 +4214,7 @@ pm_visit_node.exit1240:                           ; preds = %837, %841
 852:                                              ; preds = %.lr.ph1320, %pm_visit_node.exit1242
   %.09281318 = phi i64 [ 0, %.lr.ph1320 ], [ %858, %pm_visit_node.exit1242 ]
   %853 = load ptr, ptr %848, align 8, !tbaa !15
-  %854 = getelementptr ptr, ptr %853, i64 %.09281318
+  %854 = getelementptr [8 x i8], ptr %853, i64 %.09281318
   %855 = load ptr, ptr %854, align 8, !tbaa !18
   %856 = tail call zeroext i1 %1(ptr noundef %855, ptr noundef %2) #10
   br i1 %856, label %857, label %pm_visit_node.exit1242
@@ -4238,7 +4238,7 @@ pm_visit_node.exit1242:                           ; preds = %852, %857
 863:                                              ; preds = %.lr.ph1324, %pm_visit_node.exit1243
   %.09291322 = phi i64 [ 0, %.lr.ph1324 ], [ %869, %pm_visit_node.exit1243 ]
   %864 = load ptr, ptr %851, align 8, !tbaa !15
-  %865 = getelementptr ptr, ptr %864, i64 %.09291322
+  %865 = getelementptr [8 x i8], ptr %864, i64 %.09291322
   %866 = load ptr, ptr %865, align 8, !tbaa !18
   %867 = tail call zeroext i1 %1(ptr noundef %866, ptr noundef %2) #10
   br i1 %867, label %868, label %pm_visit_node.exit1243
@@ -4284,7 +4284,7 @@ pm_visit_node.exit1244:                           ; preds = %874, %872, %._crit_
 881:                                              ; preds = %.lr.ph1327, %pm_visit_node.exit1245
   %.09301326 = phi i64 [ 0, %.lr.ph1327 ], [ %887, %pm_visit_node.exit1245 ]
   %882 = load ptr, ptr %877, align 8, !tbaa !15
-  %883 = getelementptr ptr, ptr %882, i64 %.09301326
+  %883 = getelementptr [8 x i8], ptr %882, i64 %.09301326
   %884 = load ptr, ptr %883, align 8, !tbaa !18
   %885 = tail call zeroext i1 %1(ptr noundef %884, ptr noundef %2) #10
   br i1 %885, label %886, label %pm_visit_node.exit1245
@@ -4308,7 +4308,7 @@ pm_visit_node.exit1245:                           ; preds = %881, %886
 892:                                              ; preds = %.lr.ph1331, %pm_visit_node.exit1246
   %.09311329 = phi i64 [ 0, %.lr.ph1331 ], [ %898, %pm_visit_node.exit1246 ]
   %893 = load ptr, ptr %880, align 8, !tbaa !15
-  %894 = getelementptr ptr, ptr %893, i64 %.09311329
+  %894 = getelementptr [8 x i8], ptr %893, i64 %.09311329
   %895 = load ptr, ptr %894, align 8, !tbaa !18
   %896 = tail call zeroext i1 %1(ptr noundef %895, ptr noundef %2) #10
   br i1 %896, label %897, label %pm_visit_node.exit1246
@@ -4448,7 +4448,7 @@ pm_visit_node.exit1257:                           ; preds = %945, %949
 959:                                              ; preds = %.lr.ph1338, %pm_visit_node.exit1259
   %.09211336 = phi i64 [ 0, %.lr.ph1338 ], [ %965, %pm_visit_node.exit1259 ]
   %960 = load ptr, ptr %956, align 8, !tbaa !15
-  %961 = getelementptr ptr, ptr %960, i64 %.09211336
+  %961 = getelementptr [8 x i8], ptr %960, i64 %.09211336
   %962 = load ptr, ptr %961, align 8, !tbaa !18
   %963 = tail call zeroext i1 %1(ptr noundef %962, ptr noundef %2) #10
   br i1 %963, label %964, label %pm_visit_node.exit1259
@@ -4554,7 +4554,7 @@ pm_visit_node.exit1265:                           ; preds = %989, %993
 1007:                                             ; preds = %.lr.ph1384, %pm_visit_node.exit1268
   %.09141382 = phi i64 [ 0, %.lr.ph1384 ], [ %1013, %pm_visit_node.exit1268 ]
   %1008 = load ptr, ptr %1006, align 8, !tbaa !15
-  %1009 = getelementptr ptr, ptr %1008, i64 %.09141382
+  %1009 = getelementptr [8 x i8], ptr %1008, i64 %.09141382
   %1010 = load ptr, ptr %1009, align 8, !tbaa !18
   %1011 = tail call zeroext i1 %1(ptr noundef %1010, ptr noundef %2) #10
   br i1 %1011, label %1012, label %pm_visit_node.exit1268
@@ -4606,7 +4606,7 @@ pm_visit_node.exit1269:                           ; preds = %1021, %1019, %1016
 1030:                                             ; preds = %.lr.ph1387, %pm_visit_node.exit1271
   %.09101385 = phi i64 [ 0, %.lr.ph1387 ], [ %1036, %pm_visit_node.exit1271 ]
   %1031 = load ptr, ptr %1029, align 8, !tbaa !15
-  %1032 = getelementptr ptr, ptr %1031, i64 %.09101385
+  %1032 = getelementptr [8 x i8], ptr %1031, i64 %.09101385
   %1033 = load ptr, ptr %1032, align 8, !tbaa !18
   %1034 = tail call zeroext i1 %1(ptr noundef %1033, ptr noundef %2) #10
   br i1 %1034, label %1035, label %pm_visit_node.exit1271
@@ -4694,7 +4694,7 @@ pm_visit_node.exit1275:                           ; preds = %1053, %1057
 1068:                                             ; preds = %.lr.ph1351, %pm_visit_node.exit1277
   %.09051349 = phi i64 [ 0, %.lr.ph1351 ], [ %1074, %pm_visit_node.exit1277 ]
   %1069 = load ptr, ptr %1065, align 8, !tbaa !15
-  %1070 = getelementptr ptr, ptr %1069, i64 %.09051349
+  %1070 = getelementptr [8 x i8], ptr %1069, i64 %.09051349
   %1071 = load ptr, ptr %1070, align 8, !tbaa !18
   %1072 = tail call zeroext i1 %1(ptr noundef %1071, ptr noundef %2) #10
   br i1 %1072, label %1073, label %pm_visit_node.exit1277
@@ -5223,7 +5223,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 140:                                              ; preds = %139, %138
   %141 = load ptr, ptr %137, align 8, !tbaa !15
-  %142 = getelementptr ptr, ptr %141, i64 %.048187247
+  %142 = getelementptr [8 x i8], ptr %141, i64 %.048187247
   %143 = load ptr, ptr %142, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %143)
   %144 = add nuw i64 %.048187247, 1
@@ -5294,7 +5294,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 170:                                              ; preds = %169, %168
   %171 = load ptr, ptr %165, align 8, !tbaa !15
-  %172 = getelementptr ptr, ptr %171, i64 %.048207243
+  %172 = getelementptr [8 x i8], ptr %171, i64 %.048207243
   %173 = load ptr, ptr %172, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %173)
   %174 = add nuw i64 %.048207243, 1
@@ -5410,7 +5410,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 223:                                              ; preds = %222, %221
   %224 = load ptr, ptr %218, align 8, !tbaa !15
-  %225 = getelementptr ptr, ptr %224, i64 %.048227235
+  %225 = getelementptr [8 x i8], ptr %224, i64 %.048227235
   %226 = load ptr, ptr %225, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %226)
   %227 = add nuw i64 %.048227235, 1
@@ -5459,7 +5459,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 240:                                              ; preds = %239, %238
   %241 = load ptr, ptr %235, align 8, !tbaa !15
-  %242 = getelementptr ptr, ptr %241, i64 %.048237239
+  %242 = getelementptr [8 x i8], ptr %241, i64 %.048237239
   %243 = load ptr, ptr %242, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %243)
   %244 = add nuw i64 %.048237239, 1
@@ -5901,7 +5901,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 453:                                              ; preds = %452, %451
   %454 = load ptr, ptr %447, align 8, !tbaa !364
-  %455 = getelementptr i32, ptr %454, i64 %.048247231
+  %455 = getelementptr [4 x i8], ptr %454, i64 %.048247231
   %456 = load i32, ptr %455, align 4, !tbaa !365
   %457 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %448, i32 noundef %456) #10
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #10
@@ -6126,7 +6126,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 556:                                              ; preds = %555, %554
   %557 = load ptr, ptr %551, align 8, !tbaa !15
-  %558 = getelementptr ptr, ptr %557, i64 %.048267227
+  %558 = getelementptr [8 x i8], ptr %557, i64 %.048267227
   %559 = load ptr, ptr %558, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %559)
   %560 = add nuw i64 %.048267227, 1
@@ -7277,7 +7277,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 1033:                                             ; preds = %1032, %1031
   %1034 = load ptr, ptr %1028, align 8, !tbaa !15
-  %1035 = getelementptr ptr, ptr %1034, i64 %.048477223
+  %1035 = getelementptr [8 x i8], ptr %1034, i64 %.048477223
   %1036 = load ptr, ptr %1035, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1036)
   %1037 = add nuw i64 %.048477223, 1
@@ -7390,7 +7390,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 1084:                                             ; preds = %1083, %1082
   %1085 = load ptr, ptr %1079, align 8, !tbaa !15
-  %1086 = getelementptr ptr, ptr %1085, i64 %.048497219
+  %1086 = getelementptr [8 x i8], ptr %1085, i64 %.048497219
   %1087 = load ptr, ptr %1086, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1087)
   %1088 = add nuw i64 %.048497219, 1
@@ -7508,7 +7508,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 1142:                                             ; preds = %1141, %1140
   %1143 = load ptr, ptr %1125, align 8, !tbaa !364
-  %1144 = getelementptr i32, ptr %1143, i64 %.048507215
+  %1144 = getelementptr [4 x i8], ptr %1143, i64 %.048507215
   %1145 = load i32, ptr %1144, align 4, !tbaa !365
   %1146 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %1126, i32 noundef %1145) #10
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #10
@@ -8630,7 +8630,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 1735:                                             ; preds = %1734, %1733
   %1736 = load ptr, ptr %1720, align 8, !tbaa !364
-  %1737 = getelementptr i32, ptr %1736, i64 %.048517211
+  %1737 = getelementptr [4 x i8], ptr %1736, i64 %.048517211
   %1738 = load i32, ptr %1737, align 4, !tbaa !365
   %1739 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %1721, i32 noundef %1738) #10
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #10
@@ -9186,7 +9186,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 2021:                                             ; preds = %2020, %2019
   %2022 = load ptr, ptr %2014, align 8, !tbaa !15
-  %2023 = getelementptr ptr, ptr %2022, i64 %.048527207
+  %2023 = getelementptr [8 x i8], ptr %2022, i64 %.048527207
   %2024 = load ptr, ptr %2023, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2024)
   %2025 = add nuw i64 %.048527207, 1
@@ -9879,7 +9879,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 2390:                                             ; preds = %2389, %2388
   %2391 = load ptr, ptr %2378, align 8, !tbaa !15
-  %2392 = getelementptr ptr, ptr %2391, i64 %.048567203
+  %2392 = getelementptr [8 x i8], ptr %2391, i64 %.048567203
   %2393 = load ptr, ptr %2392, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2393)
   %2394 = add nuw i64 %.048567203, 1
@@ -9951,7 +9951,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 2420:                                             ; preds = %2419, %2418
   %2421 = load ptr, ptr %2415, align 8, !tbaa !15
-  %2422 = getelementptr ptr, ptr %2421, i64 %.048577199
+  %2422 = getelementptr [8 x i8], ptr %2421, i64 %.048577199
   %2423 = load ptr, ptr %2422, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2423)
   %2424 = add nuw i64 %.048577199, 1
@@ -11838,7 +11838,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3199:                                             ; preds = %3198, %3197
   %3200 = load ptr, ptr %3187, align 8, !tbaa !15
-  %3201 = getelementptr ptr, ptr %3200, i64 %.048807195
+  %3201 = getelementptr [8 x i8], ptr %3200, i64 %.048807195
   %3202 = load ptr, ptr %3201, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3202)
   %3203 = add nuw i64 %.048807195, 1
@@ -12216,7 +12216,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3305:                                             ; preds = %3304, %3303
   %3306 = load ptr, ptr %3293, align 8, !tbaa !15
-  %3307 = getelementptr ptr, ptr %3306, i64 %.048927191
+  %3307 = getelementptr [8 x i8], ptr %3306, i64 %.048927191
   %3308 = load ptr, ptr %3307, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3308)
   %3309 = add nuw i64 %.048927191, 1
@@ -12329,7 +12329,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3353:                                             ; preds = %3352, %3351
   %3354 = load ptr, ptr %3348, align 8, !tbaa !15
-  %3355 = getelementptr ptr, ptr %3354, i64 %.048947187
+  %3355 = getelementptr [8 x i8], ptr %3354, i64 %.048947187
   %3356 = load ptr, ptr %3355, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3356)
   %3357 = add nuw i64 %.048947187, 1
@@ -12429,7 +12429,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3401:                                             ; preds = %3400, %3399
   %3402 = load ptr, ptr %3396, align 8, !tbaa !15
-  %3403 = getelementptr ptr, ptr %3402, i64 %.048957183
+  %3403 = getelementptr [8 x i8], ptr %3402, i64 %.048957183
   %3404 = load ptr, ptr %3403, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3404)
   %3405 = add nuw i64 %.048957183, 1
@@ -12528,7 +12528,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3452:                                             ; preds = %3451, %3450
   %3453 = load ptr, ptr %3440, align 8, !tbaa !15
-  %3454 = getelementptr ptr, ptr %3453, i64 %.048967179
+  %3454 = getelementptr [8 x i8], ptr %3453, i64 %.048967179
   %3455 = load ptr, ptr %3454, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3455)
   %3456 = add nuw i64 %.048967179, 1
@@ -12630,7 +12630,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3502:                                             ; preds = %3501, %3500
   %3503 = load ptr, ptr %3499, align 8, !tbaa !15
-  %3504 = getelementptr ptr, ptr %3503, i64 %.049077175
+  %3504 = getelementptr [8 x i8], ptr %3503, i64 %.049077175
   %3505 = load ptr, ptr %3504, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3505)
   %3506 = add nuw i64 %.049077175, 1
@@ -12822,7 +12822,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3598:                                             ; preds = %3597, %3596
   %3599 = load ptr, ptr %3565, align 8, !tbaa !364
-  %3600 = getelementptr i32, ptr %3599, i64 %.049117171
+  %3600 = getelementptr [4 x i8], ptr %3599, i64 %.049117171
   %3601 = load i32, ptr %3600, align 4, !tbaa !365
   %3602 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3566, i32 noundef %3601) #10
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #10
@@ -13675,7 +13675,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3960:                                             ; preds = %3959, %3958
   %3961 = load ptr, ptr %3957, align 8, !tbaa !15
-  %3962 = getelementptr ptr, ptr %3961, i64 %.049237167
+  %3962 = getelementptr [8 x i8], ptr %3961, i64 %.049237167
   %3963 = load ptr, ptr %3962, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3963)
   %3964 = add nuw i64 %.049237167, 1
@@ -13770,7 +13770,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4008:                                             ; preds = %4007, %4006
   %4009 = load ptr, ptr %3991, align 8, !tbaa !364
-  %4010 = getelementptr i32, ptr %4009, i64 %.049247163
+  %4010 = getelementptr [4 x i8], ptr %4009, i64 %.049247163
   %4011 = load i32, ptr %4010, align 4, !tbaa !365
   %4012 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3992, i32 noundef %4011) #10
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #10
@@ -13863,7 +13863,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4051:                                             ; preds = %4050, %4049
   %4052 = load ptr, ptr %4046, align 8, !tbaa !15
-  %4053 = getelementptr ptr, ptr %4052, i64 %.049257155
+  %4053 = getelementptr [8 x i8], ptr %4052, i64 %.049257155
   %4054 = load ptr, ptr %4053, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4054)
   %4055 = add nuw i64 %.049257155, 1
@@ -13912,7 +13912,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4068:                                             ; preds = %4067, %4066
   %4069 = load ptr, ptr %4063, align 8, !tbaa !15
-  %4070 = getelementptr ptr, ptr %4069, i64 %.049267159
+  %4070 = getelementptr [8 x i8], ptr %4069, i64 %.049267159
   %4071 = load ptr, ptr %4070, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4071)
   %4072 = add nuw i64 %.049267159, 1
@@ -14012,7 +14012,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4116:                                             ; preds = %4115, %4114
   %4117 = load ptr, ptr %4111, align 8, !tbaa !15
-  %4118 = getelementptr ptr, ptr %4117, i64 %.049277147
+  %4118 = getelementptr [8 x i8], ptr %4117, i64 %.049277147
   %4119 = load ptr, ptr %4118, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4119)
   %4120 = add nuw i64 %.049277147, 1
@@ -14061,7 +14061,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4133:                                             ; preds = %4132, %4131
   %4134 = load ptr, ptr %4128, align 8, !tbaa !15
-  %4135 = getelementptr ptr, ptr %4134, i64 %.049287151
+  %4135 = getelementptr [8 x i8], ptr %4134, i64 %.049287151
   %4136 = load ptr, ptr %4135, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4136)
   %4137 = add nuw i64 %.049287151, 1
@@ -14525,7 +14525,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4377:                                             ; preds = %4376, %4375
   %4378 = load ptr, ptr %4371, align 8, !tbaa !15
-  %4379 = getelementptr ptr, ptr %4378, i64 %.049327131
+  %4379 = getelementptr [8 x i8], ptr %4378, i64 %.049327131
   %4380 = load ptr, ptr %4379, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4380)
   %4381 = add nuw i64 %.049327131, 1
@@ -14553,7 +14553,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4388:                                             ; preds = %4387, %4386
   %4389 = load ptr, ptr %4374, align 8, !tbaa !15
-  %4390 = getelementptr ptr, ptr %4389, i64 %.049317135
+  %4390 = getelementptr [8 x i8], ptr %4389, i64 %.049317135
   %4391 = load ptr, ptr %4390, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4391)
   %4392 = add nuw i64 %.049317135, 1
@@ -14607,7 +14607,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4406:                                             ; preds = %4405, %4404
   %4407 = load ptr, ptr %4400, align 8, !tbaa !15
-  %4408 = getelementptr ptr, ptr %4407, i64 %.049307139
+  %4408 = getelementptr [8 x i8], ptr %4407, i64 %.049307139
   %4409 = load ptr, ptr %4408, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4409)
   %4410 = add nuw i64 %.049307139, 1
@@ -14635,7 +14635,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4417:                                             ; preds = %4416, %4415
   %4418 = load ptr, ptr %4403, align 8, !tbaa !15
-  %4419 = getelementptr ptr, ptr %4418, i64 %.049297143
+  %4419 = getelementptr [8 x i8], ptr %4418, i64 %.049297143
   %4420 = load ptr, ptr %4419, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4420)
   %4421 = add nuw i64 %.049297143, 1
@@ -15044,7 +15044,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4632:                                             ; preds = %4631, %4630
   %4633 = load ptr, ptr %4626, align 8, !tbaa !364
-  %4634 = getelementptr i32, ptr %4633, i64 %.049127127
+  %4634 = getelementptr [4 x i8], ptr %4633, i64 %.049127127
   %4635 = load i32, ptr %4634, align 4, !tbaa !365
   %4636 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %4627, i32 noundef %4635) #10
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #10
@@ -15819,7 +15819,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4922:                                             ; preds = %4921, %4920
   %4923 = load ptr, ptr %4917, align 8, !tbaa !15
-  %4924 = getelementptr ptr, ptr %4923, i64 %.048817123
+  %4924 = getelementptr [8 x i8], ptr %4923, i64 %.048817123
   %4925 = load ptr, ptr %4924, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4925)
   %4926 = add nuw i64 %.048817123, 1
@@ -16223,7 +16223,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5110:                                             ; preds = %5109, %5108
   %5111 = load ptr, ptr %5084, align 8, !tbaa !364
-  %5112 = getelementptr i32, ptr %5111, i64 %.048587119
+  %5112 = getelementptr [4 x i8], ptr %5111, i64 %.048587119
   %5113 = load i32, ptr %5112, align 4, !tbaa !365
   %5114 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %5085, i32 noundef %5113) #10
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #10
@@ -16486,7 +16486,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5227:                                             ; preds = %5226, %5225
   %5228 = load ptr, ptr %5224, align 8, !tbaa !15
-  %5229 = getelementptr ptr, ptr %5228, i64 %.048487115
+  %5229 = getelementptr [8 x i8], ptr %5228, i64 %.048487115
   %5230 = load ptr, ptr %5229, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %5230)
   %5231 = add nuw i64 %.048487115, 1
@@ -17004,7 +17004,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5460:                                             ; preds = %5459, %5458
   %5461 = load ptr, ptr %5448, align 8, !tbaa !15
-  %5462 = getelementptr ptr, ptr %5461, i64 %.048257111
+  %5462 = getelementptr [8 x i8], ptr %5461, i64 %.048257111
   %5463 = load ptr, ptr %5462, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %5463)
   %5464 = add nuw i64 %.048257111, 1
@@ -17312,7 +17312,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5608:                                             ; preds = %5607, %5606
   %5609 = load ptr, ptr %5603, align 8, !tbaa !15
-  %5610 = getelementptr ptr, ptr %5609, i64 %.048217110
+  %5610 = getelementptr [8 x i8], ptr %5609, i64 %.048217110
   %5611 = load ptr, ptr %5610, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %5611)
   %5612 = add nuw i64 %.048217110, 1

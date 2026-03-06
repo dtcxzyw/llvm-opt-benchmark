@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, [5 x i8] }>
 %"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.google::protobuf::internal::LogFinisher" = type { i8 }
-%"struct.google::protobuf::internal::FieldMetadata" = type { i32, i32, i32, i32, ptr }
 %"struct.google::protobuf::internal::ArrayOutput" = type { ptr, i8 }
 
 $_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_ = comdat any
@@ -299,7 +298,7 @@ define void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMet
 
 9:                                                ; preds = %.lr.ph1156, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
   %indvars.iv1320 = phi i64 [ 0, %.lr.ph1156 ], [ %indvars.iv.next1321, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit ]
-  %10 = getelementptr inbounds nuw %"struct.google::protobuf::internal::FieldMetadata", ptr %1, i64 %indvars.iv1320
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv1320
   %11 = load i32, ptr %10, align 8, !tbaa !29
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
@@ -429,7 +428,7 @@ define void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMet
   %30 = load i32, ptr %29, align 8, !tbaa !37
   %31 = lshr i32 %30, 5
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = and i32 %30, 31
   %36 = shl nuw i32 1, %35
@@ -669,7 +668,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i.i409 = phi ptr [ %125, %124 ], [ %133, %130 ], [ %144, %142 ]
   store ptr %.021.i.i.i.i.i.i.i.i409, ptr %8, align 8, !tbaa !17
   %145 = load ptr, ptr %115, align 8, !tbaa !50
-  %146 = getelementptr inbounds nuw double, ptr %145, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv.i
   %147 = load i64, ptr %146, align 8, !tbaa !45
   %148 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i.i.i.i.i.i410 = icmp ult ptr %.021.i.i.i.i.i.i.i.i409, %148
@@ -786,7 +785,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOut
   %201 = load i32, ptr %200, align 8, !tbaa !37
   %202 = lshr i32 %201, 5
   %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %0, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !38
   %206 = and i32 %201, 31
   %207 = shl nuw i32 1, %206
@@ -1026,7 +1025,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i.i443 = phi ptr [ %296, %295 ], [ %304, %301 ], [ %315, %313 ]
   store ptr %.021.i.i.i.i.i.i.i.i443, ptr %8, align 8, !tbaa !17
   %316 = load ptr, ptr %286, align 8, !tbaa !56
-  %317 = getelementptr inbounds nuw float, ptr %316, i64 %indvars.iv.i436
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %316, i64 %indvars.iv.i436
   %318 = load i32, ptr %317, align 4, !tbaa !38
   %319 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i.i.i.i.i.i444 = icmp ult ptr %.021.i.i.i.i.i.i.i.i443, %319
@@ -1143,7 +1142,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOut
   %372 = load i32, ptr %371, align 8, !tbaa !37
   %373 = lshr i32 %372, 5
   %374 = zext nneg i32 %373 to i64
-  %375 = getelementptr inbounds nuw i32, ptr %0, i64 %374
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %374
   %376 = load i32, ptr %375, align 4, !tbaa !38
   %377 = and i32 %372, 31
   %378 = shl nuw i32 1, %377
@@ -1542,7 +1541,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOut
   %566 = load i32, ptr %565, align 8, !tbaa !37
   %567 = lshr i32 %566, 5
   %568 = zext nneg i32 %567 to i64
-  %569 = getelementptr inbounds nuw i32, ptr %0, i64 %568
+  %569 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %568
   %570 = load i32, ptr %569, align 4, !tbaa !38
   %571 = and i32 %566, 31
   %572 = shl nuw i32 1, %571
@@ -1941,7 +1940,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOut
   %760 = load i32, ptr %759, align 8, !tbaa !37
   %761 = lshr i32 %760, 5
   %762 = zext nneg i32 %761 to i64
-  %763 = getelementptr inbounds nuw i32, ptr %0, i64 %762
+  %763 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %762
   %764 = load i32, ptr %763, align 4, !tbaa !38
   %765 = and i32 %760, 31
   %766 = shl nuw i32 1, %765
@@ -2343,7 +2342,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOut
   %957 = load i32, ptr %956, align 8, !tbaa !37
   %958 = lshr i32 %957, 5
   %959 = zext nneg i32 %958 to i64
-  %960 = getelementptr inbounds nuw i32, ptr %0, i64 %959
+  %960 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %959
   %961 = load i32, ptr %960, align 4, !tbaa !38
   %962 = and i32 %957, 31
   %963 = shl nuw i32 1, %962
@@ -2583,7 +2582,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i.i587 = phi ptr [ %1052, %1051 ], [ %1060, %1057 ], [ %1071, %1069 ]
   store ptr %.021.i.i.i.i.i.i.i.i587, ptr %8, align 8, !tbaa !17
   %1072 = load ptr, ptr %1042, align 8, !tbaa !61
-  %1073 = getelementptr inbounds nuw i64, ptr %1072, i64 %indvars.iv.i580
+  %1073 = getelementptr inbounds nuw [8 x i8], ptr %1072, i64 %indvars.iv.i580
   %1074 = load i64, ptr %1073, align 8, !tbaa !45
   %1075 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i.i.i.i.i.i588 = icmp ult ptr %.021.i.i.i.i.i.i.i.i587, %1075
@@ -2700,7 +2699,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOut
   %1128 = load i32, ptr %1127, align 8, !tbaa !37
   %1129 = lshr i32 %1128, 5
   %1130 = zext nneg i32 %1129 to i64
-  %1131 = getelementptr inbounds nuw i32, ptr %0, i64 %1130
+  %1131 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1130
   %1132 = load i32, ptr %1131, align 4, !tbaa !38
   %1133 = and i32 %1128, 31
   %1134 = shl nuw i32 1, %1133
@@ -2940,7 +2939,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i.i628 = phi ptr [ %1223, %1222 ], [ %1231, %1228 ], [ %1242, %1240 ]
   store ptr %.021.i.i.i.i.i.i.i.i628, ptr %8, align 8, !tbaa !17
   %1243 = load ptr, ptr %1213, align 8, !tbaa !65
-  %1244 = getelementptr inbounds nuw i32, ptr %1243, i64 %indvars.iv.i621
+  %1244 = getelementptr inbounds nuw [4 x i8], ptr %1243, i64 %indvars.iv.i621
   %1245 = load i32, ptr %1244, align 4, !tbaa !38
   %1246 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i.i.i.i.i.i629 = icmp ult ptr %.021.i.i.i.i.i.i.i.i628, %1246
@@ -3057,7 +3056,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOut
   %1299 = load i32, ptr %1298, align 8, !tbaa !37
   %1300 = lshr i32 %1299, 5
   %1301 = zext nneg i32 %1300 to i64
-  %1302 = getelementptr inbounds nuw i32, ptr %0, i64 %1301
+  %1302 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1301
   %1303 = load i32, ptr %1302, align 4, !tbaa !38
   %1304 = and i32 %1299, 31
   %1305 = shl nuw i32 1, %1304
@@ -3414,7 +3413,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOut
   %1470 = load i32, ptr %1469, align 8, !tbaa !37
   %1471 = lshr i32 %1470, 5
   %1472 = zext nneg i32 %1471 to i64
-  %1473 = getelementptr inbounds nuw i32, ptr %0, i64 %1472
+  %1473 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1472
   %1474 = load i32, ptr %1473, align 4, !tbaa !38
   %1475 = and i32 %1470, 31
   %1476 = shl nuw i32 1, %1475
@@ -3642,7 +3641,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.021.i.i.i.i.i.i.i.i705, ptr %8, align 8, !tbaa !17
   %1589 = load ptr, ptr %1559, align 8, !tbaa !74
   %1590 = getelementptr inbounds nuw i8, ptr %1589, i64 8
-  %1591 = getelementptr inbounds nuw ptr, ptr %1590, i64 %indvars.iv.i698
+  %1591 = getelementptr inbounds nuw [8 x i8], ptr %1590, i64 %indvars.iv.i698
   %1592 = load ptr, ptr %1591, align 8, !tbaa !75
   call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1592, ptr noundef nonnull %3)
   %indvars.iv.next.i706 = add nuw nsw i64 %indvars.iv.i698, 1
@@ -3738,7 +3737,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOut
   %1641 = load i32, ptr %1640, align 8, !tbaa !37
   %1642 = lshr i32 %1641, 5
   %1643 = zext nneg i32 %1642 to i64
-  %1644 = getelementptr inbounds nuw i32, ptr %0, i64 %1643
+  %1644 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1643
   %1645 = load i32, ptr %1644, align 4, !tbaa !38
   %1646 = and i32 %1641, 31
   %1647 = shl nuw i32 1, %1646
@@ -4110,7 +4109,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.021.i.i.i.i.i.i.i952, ptr %8, align 8, !tbaa !17
   %1827 = load ptr, ptr %26, align 8, !tbaa !74
   %1828 = getelementptr inbounds nuw i8, ptr %1827, i64 8
-  %1829 = getelementptr inbounds nuw ptr, ptr %1828, i64 %indvars.iv1317
+  %1829 = getelementptr inbounds nuw [8 x i8], ptr %1828, i64 %indvars.iv1317
   %1830 = load ptr, ptr %1829, align 8, !tbaa !75
   %1831 = load ptr, ptr %27, align 8, !tbaa !79
   %.not.i945 = icmp eq ptr %1831, null
@@ -4226,7 +4225,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1889 = load i32, ptr %1888, align 8, !tbaa !37
   %1890 = lshr i32 %1889, 5
   %1891 = zext nneg i32 %1890 to i64
-  %1892 = getelementptr inbounds nuw i32, ptr %0, i64 %1891
+  %1892 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1891
   %1893 = load i32, ptr %1892, align 4, !tbaa !38
   %1894 = and i32 %1889, 31
   %1895 = shl nuw i32 1, %1894
@@ -4436,7 +4435,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.021.i.i.i.i.i.i.i973, ptr %8, align 8, !tbaa !17
   %1995 = load ptr, ptr %20, align 8, !tbaa !74
   %1996 = getelementptr inbounds nuw i8, ptr %1995, i64 8
-  %1997 = getelementptr inbounds nuw ptr, ptr %1996, i64 %indvars.iv
+  %1997 = getelementptr inbounds nuw [8 x i8], ptr %1996, i64 %indvars.iv
   %1998 = load ptr, ptr %1997, align 8, !tbaa !75
   %1999 = load ptr, ptr %21, align 8, !tbaa !79
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %1998, ptr noundef %1999, ptr noundef nonnull %3)
@@ -4471,7 +4470,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %2017 = load i32, ptr %2016, align 8, !tbaa !37
   %2018 = lshr i32 %2017, 5
   %2019 = zext nneg i32 %2018 to i64
-  %2020 = getelementptr inbounds nuw i32, ptr %0, i64 %2019
+  %2020 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2019
   %2021 = load i32, ptr %2020, align 4, !tbaa !38
   %2022 = and i32 %2017, 31
   %2023 = shl nuw i32 1, %2022
@@ -4699,7 +4698,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.021.i.i.i.i.i.i.i.i738, ptr %8, align 8, !tbaa !17
   %2136 = load ptr, ptr %2106, align 8, !tbaa !74
   %2137 = getelementptr inbounds nuw i8, ptr %2136, i64 8
-  %2138 = getelementptr inbounds nuw ptr, ptr %2137, i64 %indvars.iv.i731
+  %2138 = getelementptr inbounds nuw [8 x i8], ptr %2137, i64 %indvars.iv.i731
   %2139 = load ptr, ptr %2138, align 8, !tbaa !75
   call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %2139, ptr noundef nonnull %3)
   %indvars.iv.next.i739 = add nuw nsw i64 %indvars.iv.i731, 1
@@ -4795,7 +4794,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOu
   %2188 = load i32, ptr %2187, align 8, !tbaa !37
   %2189 = lshr i32 %2188, 5
   %2190 = zext nneg i32 %2189 to i64
-  %2191 = getelementptr inbounds nuw i32, ptr %0, i64 %2190
+  %2191 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2190
   %2192 = load i32, ptr %2191, align 4, !tbaa !38
   %2193 = and i32 %2188, 31
   %2194 = shl nuw i32 1, %2193
@@ -5194,7 +5193,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOu
   %2382 = load i32, ptr %2381, align 8, !tbaa !37
   %2383 = lshr i32 %2382, 5
   %2384 = zext nneg i32 %2383 to i64
-  %2385 = getelementptr inbounds nuw i32, ptr %0, i64 %2384
+  %2385 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2384
   %2386 = load i32, ptr %2385, align 4, !tbaa !38
   %2387 = and i32 %2382, 31
   %2388 = shl nuw i32 1, %2387
@@ -5596,7 +5595,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOu
   %2579 = load i32, ptr %2578, align 8, !tbaa !37
   %2580 = lshr i32 %2579, 5
   %2581 = zext nneg i32 %2580 to i64
-  %2582 = getelementptr inbounds nuw i32, ptr %0, i64 %2581
+  %2582 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2581
   %2583 = load i32, ptr %2582, align 4, !tbaa !38
   %2584 = and i32 %2579, 31
   %2585 = shl nuw i32 1, %2584
@@ -5836,7 +5835,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i.i855 = phi ptr [ %2674, %2673 ], [ %2682, %2679 ], [ %2693, %2691 ]
   store ptr %.021.i.i.i.i.i.i.i.i855, ptr %8, align 8, !tbaa !17
   %2694 = load ptr, ptr %2664, align 8, !tbaa !88
-  %2695 = getelementptr inbounds nuw i32, ptr %2694, i64 %indvars.iv.i848
+  %2695 = getelementptr inbounds nuw [4 x i8], ptr %2694, i64 %indvars.iv.i848
   %2696 = load i32, ptr %2695, align 4, !tbaa !38
   %2697 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i.i.i.i.i.i856 = icmp ult ptr %.021.i.i.i.i.i.i.i.i855, %2697
@@ -5953,7 +5952,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOu
   %2750 = load i32, ptr %2749, align 8, !tbaa !37
   %2751 = lshr i32 %2750, 5
   %2752 = zext nneg i32 %2751 to i64
-  %2753 = getelementptr inbounds nuw i32, ptr %0, i64 %2752
+  %2753 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2752
   %2754 = load i32, ptr %2753, align 4, !tbaa !38
   %2755 = and i32 %2750, 31
   %2756 = shl nuw i32 1, %2755
@@ -6193,7 +6192,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i.i896 = phi ptr [ %2845, %2844 ], [ %2853, %2850 ], [ %2864, %2862 ]
   store ptr %.021.i.i.i.i.i.i.i.i896, ptr %8, align 8, !tbaa !17
   %2865 = load ptr, ptr %2835, align 8, !tbaa !92
-  %2866 = getelementptr inbounds nuw i64, ptr %2865, i64 %indvars.iv.i889
+  %2866 = getelementptr inbounds nuw [8 x i8], ptr %2865, i64 %indvars.iv.i889
   %2867 = load i64, ptr %2866, align 8, !tbaa !45
   %2868 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i.i.i.i.i.i897 = icmp ult ptr %.021.i.i.i.i.i.i.i.i896, %2868
@@ -6310,7 +6309,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOu
   %2921 = load i32, ptr %2920, align 8, !tbaa !37
   %2922 = lshr i32 %2921, 5
   %2923 = zext nneg i32 %2922 to i64
-  %2924 = getelementptr inbounds nuw i32, ptr %0, i64 %2923
+  %2924 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2923
   %2925 = load i32, ptr %2924, align 4, !tbaa !38
   %2926 = and i32 %2921, 31
   %2927 = shl nuw i32 1, %2926
@@ -6360,7 +6359,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOu
   %2949 = load i32, ptr %2948, align 8, !tbaa !37
   %2950 = lshr i32 %2949, 5
   %2951 = zext nneg i32 %2950 to i64
-  %2952 = getelementptr inbounds nuw i32, ptr %0, i64 %2951
+  %2952 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2951
   %2953 = load i32, ptr %2952, align 4, !tbaa !38
   %2954 = and i32 %2949, 31
   %2955 = shl nuw i32 1, %2954
@@ -6499,7 +6498,7 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
 
 18:                                               ; preds = %.lr.ph1184, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
   %indvars.iv1442 = phi i64 [ 0, %.lr.ph1184 ], [ %indvars.iv.next1443, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit ]
-  %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::FieldMetadata", ptr %1, i64 %indvars.iv1442
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv1442
   %20 = load i32, ptr %19, align 8, !tbaa !29
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
@@ -6629,7 +6628,7 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
   %39 = load i32, ptr %38, align 8, !tbaa !37
   %40 = lshr i32 %39, 5
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %0, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !38
   %44 = and i32 %39, 31
   %45 = shl nuw i32 1, %44
@@ -6816,7 +6815,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i: ; preds = %136, %124, %118
   %.021.i.i.i.i.i.i.i406 = phi ptr [ %119, %118 ], [ %127, %124 ], [ %138, %136 ]
   %139 = load ptr, ptr %112, align 8, !tbaa !50
-  %140 = getelementptr inbounds nuw double, ptr %139, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv.i
   %141 = load i64, ptr %140, align 8, !tbaa !45
   store i64 %141, ptr %.021.i.i.i.i.i.i.i406, align 1
   %142 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i.i.i406, i64 8
@@ -6943,7 +6942,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i: ; 
   %205 = phi ptr [ %.021.i.i.i.i.i.i14.i, %.lr.ph.i411 ], [ %209, %204 ]
   %indvars.iv.i412 = phi i64 [ 0, %.lr.ph.i411 ], [ %indvars.iv.next.i413, %204 ]
   %206 = load ptr, ptr %203, align 8, !tbaa !50
-  %207 = getelementptr inbounds nuw double, ptr %206, i64 %indvars.iv.i412
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv.i412
   %208 = load i64, ptr %207, align 8, !tbaa !45
   store i64 %208, ptr %205, align 1
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
@@ -7025,7 +7024,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutput
   %252 = load i32, ptr %251, align 8, !tbaa !37
   %253 = lshr i32 %252, 5
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw i32, ptr %0, i64 %254
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !38
   %257 = and i32 %252, 31
   %258 = shl nuw i32 1, %257
@@ -7212,7 +7211,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i428: ; preds = %349, %337, %331
   %.021.i.i.i.i.i.i.i429 = phi ptr [ %332, %331 ], [ %340, %337 ], [ %351, %349 ]
   %352 = load ptr, ptr %325, align 8, !tbaa !56
-  %353 = getelementptr inbounds nuw float, ptr %352, i64 %indvars.iv.i425
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %352, i64 %indvars.iv.i425
   %354 = load i32, ptr %353, align 4, !tbaa !38
   store i32 %354, ptr %.021.i.i.i.i.i.i.i429, align 1
   %355 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i.i.i429, i64 4
@@ -7339,7 +7338,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i437:
   %418 = phi ptr [ %.021.i.i.i.i.i.i14.i438, %.lr.ph.i439 ], [ %422, %417 ]
   %indvars.iv.i440 = phi i64 [ 0, %.lr.ph.i439 ], [ %indvars.iv.next.i441, %417 ]
   %419 = load ptr, ptr %416, align 8, !tbaa !56
-  %420 = getelementptr inbounds nuw float, ptr %419, i64 %indvars.iv.i440
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %419, i64 %indvars.iv.i440
   %421 = load i32, ptr %420, align 4, !tbaa !38
   store i32 %421, ptr %418, align 1
   %422 = getelementptr inbounds nuw i8, ptr %418, i64 4
@@ -7421,7 +7420,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutput
   %465 = load i32, ptr %464, align 8, !tbaa !37
   %466 = lshr i32 %465, 5
   %467 = zext nneg i32 %466 to i64
-  %468 = getelementptr inbounds nuw i32, ptr %0, i64 %467
+  %468 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %467
   %469 = load i32, ptr %468, align 4, !tbaa !38
   %470 = and i32 %465, 31
   %471 = shl nuw i32 1, %470
@@ -7696,7 +7695,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i462: ; preds = %606, %594, %588
   %.021.i.i.i.i.i.i.i463 = phi ptr [ %589, %588 ], [ %597, %594 ], [ %608, %606 ]
   %609 = load ptr, ptr %582, align 8, !tbaa !92
-  %610 = getelementptr inbounds nuw i64, ptr %609, i64 %indvars.iv.i459
+  %610 = getelementptr inbounds nuw [8 x i8], ptr %609, i64 %indvars.iv.i459
   %611 = load i64, ptr %610, align 8, !tbaa !45
   %612 = icmp ult i64 %611, 128
   %613 = trunc i64 %611 to i8
@@ -7870,7 +7869,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutput
   %700 = load i32, ptr %699, align 8, !tbaa !37
   %701 = lshr i32 %700, 5
   %702 = zext nneg i32 %701 to i64
-  %703 = getelementptr inbounds nuw i32, ptr %0, i64 %702
+  %703 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %702
   %704 = load i32, ptr %703, align 4, !tbaa !38
   %705 = and i32 %700, 31
   %706 = shl nuw i32 1, %705
@@ -8145,7 +8144,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494: ; preds = %841, %829, %823
   %.021.i.i.i.i.i.i.i495 = phi ptr [ %824, %823 ], [ %832, %829 ], [ %843, %841 ]
   %844 = load ptr, ptr %817, align 8, !tbaa !61
-  %845 = getelementptr inbounds nuw i64, ptr %844, i64 %indvars.iv.i491
+  %845 = getelementptr inbounds nuw [8 x i8], ptr %844, i64 %indvars.iv.i491
   %846 = load i64, ptr %845, align 8, !tbaa !45
   %847 = icmp ult i64 %846, 128
   %848 = trunc i64 %846 to i8
@@ -8319,7 +8318,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutput
   %935 = load i32, ptr %934, align 8, !tbaa !37
   %936 = lshr i32 %935, 5
   %937 = zext nneg i32 %936 to i64
-  %938 = getelementptr inbounds nuw i32, ptr %0, i64 %937
+  %938 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %937
   %939 = load i32, ptr %938, align 4, !tbaa !38
   %940 = and i32 %935, 31
   %941 = shl nuw i32 1, %940
@@ -8596,7 +8595,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i524: ; preds = %1078, %1066, %1060
   %.021.i.i.i.i.i.i.i525 = phi ptr [ %1061, %1060 ], [ %1069, %1066 ], [ %1080, %1078 ]
   %1081 = load ptr, ptr %1054, align 8, !tbaa !88
-  %1082 = getelementptr inbounds nuw i32, ptr %1081, i64 %indvars.iv.i521
+  %1082 = getelementptr inbounds nuw [4 x i8], ptr %1081, i64 %indvars.iv.i521
   %1083 = load i32, ptr %1082, align 4, !tbaa !38
   %1084 = icmp ult i32 %1083, 128
   %1085 = trunc i32 %1083 to i8
@@ -8772,7 +8771,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutput
   %1174 = load i32, ptr %1173, align 8, !tbaa !37
   %1175 = lshr i32 %1174, 5
   %1176 = zext nneg i32 %1175 to i64
-  %1177 = getelementptr inbounds nuw i32, ptr %0, i64 %1176
+  %1177 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1176
   %1178 = load i32, ptr %1177, align 4, !tbaa !38
   %1179 = and i32 %1174, 31
   %1180 = shl nuw i32 1, %1179
@@ -8959,7 +8958,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i545: ; preds = %1271, %1259, %1253
   %.021.i.i.i.i.i.i.i546 = phi ptr [ %1254, %1253 ], [ %1262, %1259 ], [ %1273, %1271 ]
   %1274 = load ptr, ptr %1247, align 8, !tbaa !61
-  %1275 = getelementptr inbounds nuw i64, ptr %1274, i64 %indvars.iv.i542
+  %1275 = getelementptr inbounds nuw [8 x i8], ptr %1274, i64 %indvars.iv.i542
   %1276 = load i64, ptr %1275, align 8, !tbaa !45
   store i64 %1276, ptr %.021.i.i.i.i.i.i.i546, align 1
   %1277 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i.i.i546, i64 8
@@ -9086,7 +9085,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i554:
   %1340 = phi ptr [ %.021.i.i.i.i.i.i14.i555, %.lr.ph.i556 ], [ %1344, %1339 ]
   %indvars.iv.i557 = phi i64 [ 0, %.lr.ph.i556 ], [ %indvars.iv.next.i558, %1339 ]
   %1341 = load ptr, ptr %1338, align 8, !tbaa !61
-  %1342 = getelementptr inbounds nuw i64, ptr %1341, i64 %indvars.iv.i557
+  %1342 = getelementptr inbounds nuw [8 x i8], ptr %1341, i64 %indvars.iv.i557
   %1343 = load i64, ptr %1342, align 8, !tbaa !45
   store i64 %1343, ptr %1340, align 1
   %1344 = getelementptr inbounds nuw i8, ptr %1340, i64 8
@@ -9168,7 +9167,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutput
   %1387 = load i32, ptr %1386, align 8, !tbaa !37
   %1388 = lshr i32 %1387, 5
   %1389 = zext nneg i32 %1388 to i64
-  %1390 = getelementptr inbounds nuw i32, ptr %0, i64 %1389
+  %1390 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1389
   %1391 = load i32, ptr %1390, align 4, !tbaa !38
   %1392 = and i32 %1387, 31
   %1393 = shl nuw i32 1, %1392
@@ -9355,7 +9354,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i576: ; preds = %1484, %1472, %1466
   %.021.i.i.i.i.i.i.i577 = phi ptr [ %1467, %1466 ], [ %1475, %1472 ], [ %1486, %1484 ]
   %1487 = load ptr, ptr %1460, align 8, !tbaa !65
-  %1488 = getelementptr inbounds nuw i32, ptr %1487, i64 %indvars.iv.i573
+  %1488 = getelementptr inbounds nuw [4 x i8], ptr %1487, i64 %indvars.iv.i573
   %1489 = load i32, ptr %1488, align 4, !tbaa !38
   store i32 %1489, ptr %.021.i.i.i.i.i.i.i577, align 1
   %1490 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i.i.i577, i64 4
@@ -9482,7 +9481,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i585:
   %1553 = phi ptr [ %.021.i.i.i.i.i.i14.i586, %.lr.ph.i587 ], [ %1557, %1552 ]
   %indvars.iv.i588 = phi i64 [ 0, %.lr.ph.i587 ], [ %indvars.iv.next.i589, %1552 ]
   %1554 = load ptr, ptr %1551, align 8, !tbaa !65
-  %1555 = getelementptr inbounds nuw i32, ptr %1554, i64 %indvars.iv.i588
+  %1555 = getelementptr inbounds nuw [4 x i8], ptr %1554, i64 %indvars.iv.i588
   %1556 = load i32, ptr %1555, align 4, !tbaa !38
   store i32 %1556, ptr %1553, align 1
   %1557 = getelementptr inbounds nuw i8, ptr %1553, i64 4
@@ -9564,7 +9563,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutput
   %1600 = load i32, ptr %1599, align 8, !tbaa !37
   %1601 = lshr i32 %1600, 5
   %1602 = zext nneg i32 %1601 to i64
-  %1603 = getelementptr inbounds nuw i32, ptr %0, i64 %1602
+  %1603 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1602
   %1604 = load i32, ptr %1603, align 4, !tbaa !38
   %1605 = and i32 %1600, 31
   %1606 = shl nuw i32 1, %1605
@@ -9960,7 +9959,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutput
   %1813 = load i32, ptr %1812, align 8, !tbaa !37
   %1814 = lshr i32 %1813, 5
   %1815 = zext nneg i32 %1814 to i64
-  %1816 = getelementptr inbounds nuw i32, ptr %0, i64 %1815
+  %1816 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1815
   %1817 = load i32, ptr %1816, align 4, !tbaa !38
   %1818 = and i32 %1813, 31
   %1819 = shl nuw i32 1, %1818
@@ -10161,7 +10160,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i638: ; 
   store ptr %.021.i.i.i.i.i.i.i639, ptr %8, align 8, !tbaa !22
   %1925 = load ptr, ptr %1898, align 8, !tbaa !74
   %1926 = getelementptr inbounds nuw i8, ptr %1925, i64 8
-  %1927 = getelementptr inbounds nuw ptr, ptr %1926, i64 %indvars.iv.i635
+  %1927 = getelementptr inbounds nuw [8 x i8], ptr %1926, i64 %indvars.iv.i635
   %1928 = load ptr, ptr %1927, align 8, !tbaa !75
   %1929 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %1928, ptr noundef nonnull %.021.i.i.i.i.i.i.i639)
   store ptr %1929, ptr %8, align 8, !tbaa !22
@@ -10249,7 +10248,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutput
   %1976 = load i32, ptr %1975, align 8, !tbaa !37
   %1977 = lshr i32 %1976, 5
   %1978 = zext nneg i32 %1977 to i64
-  %1979 = getelementptr inbounds nuw i32, ptr %0, i64 %1978
+  %1979 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1978
   %1980 = load i32, ptr %1979, align 4, !tbaa !38
   %1981 = and i32 %1976, 31
   %1982 = shl nuw i32 1, %1981
@@ -10567,7 +10566,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit893: ; pr
   store ptr %.021.i.i.i.i.i.i892, ptr %8, align 8, !tbaa !22
   %2145 = load ptr, ptr %35, align 8, !tbaa !74
   %2146 = getelementptr inbounds nuw i8, ptr %2145, i64 8
-  %2147 = getelementptr inbounds nuw ptr, ptr %2146, i64 %indvars.iv1439
+  %2147 = getelementptr inbounds nuw [8 x i8], ptr %2146, i64 %indvars.iv1439
   %2148 = load ptr, ptr %2147, align 8, !tbaa !75
   %2149 = load ptr, ptr %36, align 8, !tbaa !79
   %.not.i887 = icmp eq ptr %2149, null
@@ -10671,7 +10670,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit886: ; pr
   %2203 = load i32, ptr %2202, align 8, !tbaa !37
   %2204 = lshr i32 %2203, 5
   %2205 = zext nneg i32 %2204 to i64
-  %2206 = getelementptr inbounds nuw i32, ptr %0, i64 %2205
+  %2206 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2205
   %2207 = load i32, ptr %2206, align 4, !tbaa !38
   %2208 = and i32 %2203, 31
   %2209 = shl nuw i32 1, %2208
@@ -10851,7 +10850,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit908: ; pr
   store ptr %.021.i.i.i.i.i.i907, ptr %8, align 8, !tbaa !22
   %2300 = load ptr, ptr %29, align 8, !tbaa !74
   %2301 = getelementptr inbounds nuw i8, ptr %2300, i64 8
-  %2302 = getelementptr inbounds nuw ptr, ptr %2301, i64 %indvars.iv
+  %2302 = getelementptr inbounds nuw [8 x i8], ptr %2301, i64 %indvars.iv
   %2303 = load ptr, ptr %2302, align 8, !tbaa !75
   %2304 = load ptr, ptr %30, align 8, !tbaa !79
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %2303, ptr noundef %2304, ptr noundef nonnull %8)
@@ -10886,7 +10885,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit908: ; pr
   %2322 = load i32, ptr %2321, align 8, !tbaa !37
   %2323 = lshr i32 %2322, 5
   %2324 = zext nneg i32 %2323 to i64
-  %2325 = getelementptr inbounds nuw i32, ptr %0, i64 %2324
+  %2325 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2324
   %2326 = load i32, ptr %2325, align 4, !tbaa !38
   %2327 = and i32 %2322, 31
   %2328 = shl nuw i32 1, %2327
@@ -11087,7 +11086,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i660: ; 
   store ptr %.021.i.i.i.i.i.i.i661, ptr %8, align 8, !tbaa !22
   %2434 = load ptr, ptr %2407, align 8, !tbaa !74
   %2435 = getelementptr inbounds nuw i8, ptr %2434, i64 8
-  %2436 = getelementptr inbounds nuw ptr, ptr %2435, i64 %indvars.iv.i657
+  %2436 = getelementptr inbounds nuw [8 x i8], ptr %2435, i64 %indvars.iv.i657
   %2437 = load ptr, ptr %2436, align 8, !tbaa !75
   %2438 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %2437, ptr noundef nonnull %.021.i.i.i.i.i.i.i661)
   store ptr %2438, ptr %8, align 8, !tbaa !22
@@ -11175,7 +11174,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutpu
   %2485 = load i32, ptr %2484, align 8, !tbaa !37
   %2486 = lshr i32 %2485, 5
   %2487 = zext nneg i32 %2486 to i64
-  %2488 = getelementptr inbounds nuw i32, ptr %0, i64 %2487
+  %2488 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2487
   %2489 = load i32, ptr %2488, align 4, !tbaa !38
   %2490 = and i32 %2485, 31
   %2491 = shl nuw i32 1, %2490
@@ -11450,7 +11449,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i687: ; preds = %2626, %2614, %2608
   %.021.i.i.i.i.i.i.i688 = phi ptr [ %2609, %2608 ], [ %2617, %2614 ], [ %2628, %2626 ]
   %2629 = load ptr, ptr %2602, align 8, !tbaa !65
-  %2630 = getelementptr inbounds nuw i32, ptr %2629, i64 %indvars.iv.i684
+  %2630 = getelementptr inbounds nuw [4 x i8], ptr %2629, i64 %indvars.iv.i684
   %2631 = load i32, ptr %2630, align 4, !tbaa !38
   %2632 = icmp ult i32 %2631, 128
   %2633 = trunc i32 %2631 to i8
@@ -11624,7 +11623,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutpu
   %2720 = load i32, ptr %2719, align 8, !tbaa !37
   %2721 = lshr i32 %2720, 5
   %2722 = zext nneg i32 %2721 to i64
-  %2723 = getelementptr inbounds nuw i32, ptr %0, i64 %2722
+  %2723 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2722
   %2724 = load i32, ptr %2723, align 4, !tbaa !38
   %2725 = and i32 %2720, 31
   %2726 = shl nuw i32 1, %2725
@@ -11901,7 +11900,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i720: ; preds = %2863, %2851, %2845
   %.021.i.i.i.i.i.i.i721 = phi ptr [ %2846, %2845 ], [ %2854, %2851 ], [ %2865, %2863 ]
   %2866 = load ptr, ptr %2839, align 8, !tbaa !88
-  %2867 = getelementptr inbounds nuw i32, ptr %2866, i64 %indvars.iv.i717
+  %2867 = getelementptr inbounds nuw [4 x i8], ptr %2866, i64 %indvars.iv.i717
   %2868 = load i32, ptr %2867, align 4, !tbaa !38
   %2869 = icmp ult i32 %2868, 128
   %2870 = trunc i32 %2868 to i8
@@ -12077,7 +12076,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutpu
   %2959 = load i32, ptr %2958, align 8, !tbaa !37
   %2960 = lshr i32 %2959, 5
   %2961 = zext nneg i32 %2960 to i64
-  %2962 = getelementptr inbounds nuw i32, ptr %0, i64 %2961
+  %2962 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2961
   %2963 = load i32, ptr %2962, align 4, !tbaa !38
   %2964 = and i32 %2959, 31
   %2965 = shl nuw i32 1, %2964
@@ -12264,7 +12263,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i747: ; preds = %3056, %3044, %3038
   %.021.i.i.i.i.i.i.i748 = phi ptr [ %3039, %3038 ], [ %3047, %3044 ], [ %3058, %3056 ]
   %3059 = load ptr, ptr %3032, align 8, !tbaa !88
-  %3060 = getelementptr inbounds nuw i32, ptr %3059, i64 %indvars.iv.i744
+  %3060 = getelementptr inbounds nuw [4 x i8], ptr %3059, i64 %indvars.iv.i744
   %3061 = load i32, ptr %3060, align 4, !tbaa !38
   store i32 %3061, ptr %.021.i.i.i.i.i.i.i748, align 1
   %3062 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i.i.i748, i64 4
@@ -12391,7 +12390,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i756:
   %3125 = phi ptr [ %.021.i.i.i.i.i.i14.i757, %.lr.ph.i758 ], [ %3129, %3124 ]
   %indvars.iv.i759 = phi i64 [ 0, %.lr.ph.i758 ], [ %indvars.iv.next.i760, %3124 ]
   %3126 = load ptr, ptr %3123, align 8, !tbaa !88
-  %3127 = getelementptr inbounds nuw i32, ptr %3126, i64 %indvars.iv.i759
+  %3127 = getelementptr inbounds nuw [4 x i8], ptr %3126, i64 %indvars.iv.i759
   %3128 = load i32, ptr %3127, align 4, !tbaa !38
   store i32 %3128, ptr %3125, align 1
   %3129 = getelementptr inbounds nuw i8, ptr %3125, i64 4
@@ -12473,7 +12472,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutpu
   %3172 = load i32, ptr %3171, align 8, !tbaa !37
   %3173 = lshr i32 %3172, 5
   %3174 = zext nneg i32 %3173 to i64
-  %3175 = getelementptr inbounds nuw i32, ptr %0, i64 %3174
+  %3175 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %3174
   %3176 = load i32, ptr %3175, align 4, !tbaa !38
   %3177 = and i32 %3172, 31
   %3178 = shl nuw i32 1, %3177
@@ -12660,7 +12659,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i778: ; preds = %3269, %3257, %3251
   %.021.i.i.i.i.i.i.i779 = phi ptr [ %3252, %3251 ], [ %3260, %3257 ], [ %3271, %3269 ]
   %3272 = load ptr, ptr %3245, align 8, !tbaa !92
-  %3273 = getelementptr inbounds nuw i64, ptr %3272, i64 %indvars.iv.i775
+  %3273 = getelementptr inbounds nuw [8 x i8], ptr %3272, i64 %indvars.iv.i775
   %3274 = load i64, ptr %3273, align 8, !tbaa !45
   store i64 %3274, ptr %.021.i.i.i.i.i.i.i779, align 1
   %3275 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i.i.i779, i64 8
@@ -12787,7 +12786,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i787:
   %3338 = phi ptr [ %.021.i.i.i.i.i.i14.i788, %.lr.ph.i789 ], [ %3342, %3337 ]
   %indvars.iv.i790 = phi i64 [ 0, %.lr.ph.i789 ], [ %indvars.iv.next.i791, %3337 ]
   %3339 = load ptr, ptr %3336, align 8, !tbaa !92
-  %3340 = getelementptr inbounds nuw i64, ptr %3339, i64 %indvars.iv.i790
+  %3340 = getelementptr inbounds nuw [8 x i8], ptr %3339, i64 %indvars.iv.i790
   %3341 = load i64, ptr %3340, align 8, !tbaa !45
   store i64 %3341, ptr %3338, align 1
   %3342 = getelementptr inbounds nuw i8, ptr %3338, i64 8
@@ -12869,7 +12868,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutpu
   %3385 = load i32, ptr %3384, align 8, !tbaa !37
   %3386 = lshr i32 %3385, 5
   %3387 = zext nneg i32 %3386 to i64
-  %3388 = getelementptr inbounds nuw i32, ptr %0, i64 %3387
+  %3388 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %3387
   %3389 = load i32, ptr %3388, align 4, !tbaa !38
   %3390 = and i32 %3385, 31
   %3391 = shl nuw i32 1, %3390
@@ -13150,7 +13149,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i815: ; preds = %3532, %3520, %3514
   %.021.i.i.i.i.i.i.i816 = phi ptr [ %3515, %3514 ], [ %3523, %3520 ], [ %3534, %3532 ]
   %3535 = load ptr, ptr %3508, align 8, !tbaa !88
-  %3536 = getelementptr inbounds nuw i32, ptr %3535, i64 %indvars.iv.i812
+  %3536 = getelementptr inbounds nuw [4 x i8], ptr %3535, i64 %indvars.iv.i812
   %3537 = load i32, ptr %3536, align 4, !tbaa !38
   %3538 = shl i32 %3537, 1
   %3539 = ashr i32 %3537, 31
@@ -13330,7 +13329,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutpu
   %3632 = load i32, ptr %3631, align 8, !tbaa !37
   %3633 = lshr i32 %3632, 5
   %3634 = zext nneg i32 %3633 to i64
-  %3635 = getelementptr inbounds nuw i32, ptr %0, i64 %3634
+  %3635 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %3634
   %3636 = load i32, ptr %3635, align 4, !tbaa !38
   %3637 = and i32 %3632, 31
   %3638 = shl nuw i32 1, %3637
@@ -13611,7 +13610,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i848: ; preds = %3779, %3767, %3761
   %.021.i.i.i.i.i.i.i849 = phi ptr [ %3762, %3761 ], [ %3770, %3767 ], [ %3781, %3779 ]
   %3782 = load ptr, ptr %3755, align 8, !tbaa !92
-  %3783 = getelementptr inbounds nuw i64, ptr %3782, i64 %indvars.iv.i845
+  %3783 = getelementptr inbounds nuw [8 x i8], ptr %3782, i64 %indvars.iv.i845
   %3784 = load i64, ptr %3783, align 8, !tbaa !45
   %3785 = shl i64 %3784, 1
   %3786 = ashr i64 %3784, 63
@@ -14128,7 +14127,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %76, %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !50
-  %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8, !tbaa !45
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -14292,7 +14291,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %76, %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !56
-  %71 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !38
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -14395,7 +14394,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %26, %23 ], [ %37, %35 ]
   store ptr %.021.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %8, align 8, !tbaa !92
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !45
   %41 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %.021.i.i.i.i.i.i.i, %41
@@ -14600,7 +14599,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %.021.i.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !92
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8, !tbaa !45
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -14747,7 +14746,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %26, %23 ], [ %37, %35 ]
   store ptr %.021.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %8, align 8, !tbaa !61
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !45
   %41 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %.021.i.i.i.i.i.i.i, %41
@@ -14952,7 +14951,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %.021.i.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !61
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8, !tbaa !45
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -15099,7 +15098,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %26, %23 ], [ %37, %35 ]
   store ptr %.021.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %8, align 8, !tbaa !88
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !38
   %41 = sext i32 %40 to i64
   %42 = load ptr, ptr %2, align 8, !tbaa !40
@@ -15305,7 +15304,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %.021.i.i.i.i.i.i.i23, %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !88
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !38
   %73 = sext i32 %72 to i64
   %74 = load ptr, ptr %2, align 8, !tbaa !40
@@ -15514,7 +15513,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %76, %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !61
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8, !tbaa !45
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -15678,7 +15677,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %76, %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !38
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -16363,7 +16362,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %26, %23 ], [ %37, %35 ]
   store ptr %.021.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %8, align 8, !tbaa !65
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !38
   %41 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %.021.i.i.i.i.i.i.i, %41
@@ -16568,7 +16567,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %.021.i.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !38
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -16715,7 +16714,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %26, %23 ], [ %37, %35 ]
   store ptr %.021.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %8, align 8, !tbaa !88
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !38
   %41 = sext i32 %40 to i64
   %42 = load ptr, ptr %2, align 8, !tbaa !40
@@ -16921,7 +16920,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %.021.i.i.i.i.i.i.i23, %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !88
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !38
   %73 = sext i32 %72 to i64
   %74 = load ptr, ptr %2, align 8, !tbaa !40
@@ -17130,7 +17129,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %76, %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !88
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !38
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -17294,7 +17293,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %76, %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !92
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8, !tbaa !45
   %73 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i.i.i.i = icmp ult ptr %69, %73
@@ -17524,7 +17523,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %26, %23 ], [ %37, %35 ]
   store ptr %.021.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %8, align 8, !tbaa !88
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !38
   %41 = shl i32 %40, 1
   %42 = ashr i32 %40, 31
@@ -17732,7 +17731,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %.021.i.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !88
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !38
   %73 = shl i32 %72, 1
   %74 = ashr i32 %72, 31
@@ -18009,7 +18008,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.021.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %26, %23 ], [ %37, %35 ]
   store ptr %.021.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %8, align 8, !tbaa !92
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !45
   %41 = shl i64 %40, 1
   %42 = ashr i64 %40, 63
@@ -18217,7 +18216,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %69 = phi ptr [ %.021.i.i.i.i.i.i.i17, %.lr.ph ], [ %.021.i.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !92
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8, !tbaa !45
   %73 = shl i64 %72, 1
   %74 = ashr i64 %72, 63
@@ -18406,7 +18405,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %62 = phi ptr [ %.021.i.i.i.i.i.i14, %.lr.ph ], [ %.021.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %63 = load ptr, ptr %60, align 8, !tbaa !92
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8, !tbaa !45
   %66 = icmp ult i64 %65, 128
   %67 = trunc i64 %65 to i8
@@ -18582,7 +18581,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %62 = phi ptr [ %.021.i.i.i.i.i.i14, %.lr.ph ], [ %.021.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %63 = load ptr, ptr %60, align 8, !tbaa !61
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8, !tbaa !45
   %66 = icmp ult i64 %65, 128
   %67 = trunc i64 %65 to i8
@@ -18758,7 +18757,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %62 = phi ptr [ %.021.i.i.i.i.i.i14, %.lr.ph ], [ %.021.i.i.i.i.i.i17, %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %63 = load ptr, ptr %60, align 8, !tbaa !88
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = icmp ult i32 %65, 128
   %67 = trunc i32 %65 to i8
@@ -19300,7 +19299,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %62 = phi ptr [ %.021.i.i.i.i.i.i14, %.lr.ph ], [ %.021.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %63 = load ptr, ptr %60, align 8, !tbaa !65
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = icmp ult i32 %65, 128
   %67 = trunc i32 %65 to i8
@@ -19476,7 +19475,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %62 = phi ptr [ %.021.i.i.i.i.i.i14, %.lr.ph ], [ %.021.i.i.i.i.i.i17, %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %63 = load ptr, ptr %60, align 8, !tbaa !88
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = icmp ult i32 %65, 128
   %67 = trunc i32 %65 to i8
@@ -19653,7 +19652,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %62 = phi ptr [ %.021.i.i.i.i.i.i14, %.lr.ph ], [ %.021.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %63 = load ptr, ptr %60, align 8, !tbaa !88
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = shl i32 %65, 1
   %67 = ashr i32 %65, 31
@@ -19832,7 +19831,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %62 = phi ptr [ %.021.i.i.i.i.i.i14, %.lr.ph ], [ %.021.i.i.i.i.i, %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit ]
   %63 = load ptr, ptr %60, align 8, !tbaa !92
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8, !tbaa !45
   %66 = shl i64 %65, 1
   %67 = ashr i64 %65, 63
@@ -20199,7 +20198,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
 
 ._crit_edge:                                      ; preds = %16, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre38, %.._crit_edge_crit_edge ], [ %18, %16 ]
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %.pre-phi
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %.pre-phi
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !156
   %11 = icmp sgt i32 %10, 0
@@ -20208,7 +20207,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
 .lr.ph:                                           ; preds = %3, %16
   %12 = phi i32 [ %17, %16 ], [ %6, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %3 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !157
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %16, label %15
@@ -20235,7 +20234,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
 .lr.ph30:                                         ; preds = %._crit_edge, %27
   %22 = phi i32 [ %28, %27 ], [ %10, %._crit_edge ]
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %27 ], [ 0, %._crit_edge ]
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv34
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv34
   %24 = load ptr, ptr %23, align 8, !tbaa !161
   %25 = load ptr, ptr %24, align 8, !tbaa !157
   %.not25 = icmp eq ptr %25, null

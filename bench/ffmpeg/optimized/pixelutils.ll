@@ -18,7 +18,7 @@ define ptr @av_pixelutils_get_sad_fn(i32 noundef %0, i32 noundef %1, i32 noundef
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr ptr, ptr @sad_c, i64 %9
+  %10 = getelementptr [8 x i8], ptr @sad_c, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   br label %13

@@ -15,12 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::AlignedCharArrayUnion.288" = type { [8 x i8] }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.318 }
-%union.anon.318 = type { %"class.clang::SrcMgr::FileInfo" }
-%"class.clang::SrcMgr::FileInfo" = type { %"class.clang::SourceLocation", i32, %"class.llvm::PointerIntPair.319" }
-%"class.clang::SourceLocation" = type { i32 }
-%"class.llvm::PointerIntPair.319" = type { %"struct.llvm::detail::PunnedPointer.320" }
-%"struct.llvm::detail::PunnedPointer.320" = type { [8 x i8] }
 %"class.clang::tooling::Replacement" = type { %"class.std::__cxx11::basic_string", %"class.clang::tooling::Range", %"class.std::__cxx11::basic_string" }
 %"class.clang::tooling::Range" = type { i32, i32 }
 %"class.clang::tooling::Replacements" = type { %"class.std::set" }
@@ -124,6 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.195" = type { %"class.std::_Rb_tree.196" }
 %"class.std::_Rb_tree.196" = type { %"struct.std::_Rb_tree<clang::FileID, std::pair<const clang::FileID, clang::DiagnosticsEngine::DiagStateMap::File>, std::_Select1st<std::pair<const clang::FileID, clang::DiagnosticsEngine::DiagStateMap::File>>, std::less<clang::FileID>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<clang::FileID, std::pair<const clang::FileID, clang::DiagnosticsEngine::DiagStateMap::File>, std::_Select1st<std::pair<const clang::FileID, clang::DiagnosticsEngine::DiagStateMap::File>>, std::less<clang::FileID>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.clang::SourceLocation" = type { i32 }
 %"class.std::vector.200" = type { %"struct.std::_Vector_base.201" }
 %"struct.std::_Vector_base.201" = type { %"struct.std::_Vector_base<clang::DiagnosticsEngine::DiagState *, std::allocator<clang::DiagnosticsEngine::DiagState *>>::_Vector_impl" }
 %"struct.std::_Vector_base<clang::DiagnosticsEngine::DiagState *, std::allocator<clang::DiagnosticsEngine::DiagState *>>::_Vector_impl" = type { %"struct.std::_Vector_base<clang::DiagnosticsEngine::DiagState *, std::allocator<clang::DiagnosticsEngine::DiagState *>>::_Vector_impl_data" }
@@ -252,13 +247,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.384" = type { %"struct.std::_Head_base.385" }
 %"struct.std::_Head_base.385" = type { ptr }
 %"class.std::tuple.386" = type { i8 }
-%"class.std::unique_ptr.292" = type { %"struct.std::__uniq_ptr_data.293" }
-%"struct.std::__uniq_ptr_data.293" = type { %"class.std::__uniq_ptr_impl.294" }
-%"class.std::__uniq_ptr_impl.294" = type { %"class.std::tuple.295" }
-%"class.std::tuple.295" = type { %"struct.std::_Tuple_impl.296" }
-%"struct.std::_Tuple_impl.296" = type { %"struct.std::_Head_base.299" }
-%"struct.std::_Head_base.299" = type { ptr }
-%"struct.std::pair.321" = type { ptr, i64 }
 
 $_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE = comdat any
 
@@ -1452,7 +1440,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %16 = lshr i32 %14, 6
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %15, align 8, !tbaa !162
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = and i32 %14, 63
   %21 = load i64, ptr %19, align 8, !tbaa !17
   %22 = zext nneg i32 %20 to i64
@@ -1466,7 +1454,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %28 = lshr i64 %26, 5
   %29 = load ptr, ptr %27, align 8, !tbaa !162
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i, label %32, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, !prof !24
@@ -1498,7 +1486,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i, %25
   %40 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i ], [ %31, %25 ]
   %41 = and i64 %26, 31
-  %42 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 43:                                               ; preds = %13
@@ -1515,7 +1503,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = zext nneg i32 %.sroa.02.0.i.i to i64
   %49 = load ptr, ptr %47, align 8, !tbaa !162
-  %50 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %48
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
@@ -4610,7 +4598,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vec
   %45 = sub i64 %44, %6
   %46 = ashr exact i64 %45, 3
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.clang::tooling::Range", ptr %43, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %43, i64 %47
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %48, ptr noundef nonnull align 4 dereferenceable(1) %.val, i64 %45, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_T0_.exit.i49.i.i.i.i.i"
 
@@ -4745,7 +4733,7 @@ _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
 _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %97, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %90, ptr %0, align 8, !tbaa !269
   store ptr %96, ptr %59, align 8, !tbaa !266
-  %98 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %90, i64 %88
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %88
   store ptr %98, ptr %60, align 8, !tbaa !270
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE9push_backERKS2_.exit
 
@@ -4932,7 +4920,7 @@ _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %56, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
-  %57 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE9push_backEOS2_.exit: ; preds = %38, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
@@ -7003,7 +6991,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !385
   store ptr %67, ptr %41, align 8, !tbaa !382
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.292", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !384
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -7153,7 +7141,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !385
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !382
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.292", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !384
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -7273,7 +7261,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !385
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !382
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.292", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !384
   ret void
 }
@@ -7306,7 +7294,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %10 = lshr i32 %8, 6
   %11 = zext nneg i32 %10 to i64
   %12 = load ptr, ptr %9, align 8, !tbaa !162
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = and i32 %8, 63
   %15 = load i64, ptr %13, align 8, !tbaa !17
   %16 = zext nneg i32 %14 to i64
@@ -7320,7 +7308,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = lshr i64 %20, 5
   %23 = load ptr, ptr %21, align 8, !tbaa !162
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !163
   %.not.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i, label %26, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !24
@@ -7352,7 +7340,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %19
   %34 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %25, %19 ]
   %35 = and i64 %20, 31
-  %36 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 37:                                               ; preds = %7
@@ -7369,7 +7357,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread9: ; preds =
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %42 = zext nneg i32 %1 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !162
-  %44 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %42
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %2, %37
@@ -7462,7 +7450,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !162
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.321", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -7503,7 +7491,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !162
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !426
@@ -7562,7 +7550,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %13 = lshr i32 %11, 6
   %14 = zext nneg i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !162
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = and i32 %11, 63
   %18 = load i64, ptr %16, align 8, !tbaa !17
   %19 = zext nneg i32 %17 to i64
@@ -7576,7 +7564,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = lshr i64 %23, 5
   %26 = load ptr, ptr %24, align 8, !tbaa !162
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !163
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %29, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !24
@@ -7608,7 +7596,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %22
   %37 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %28, %22 ]
   %38 = and i64 %23, 31
-  %39 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 40:                                               ; preds = %10
@@ -7619,7 +7607,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; pre
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = zext nneg i32 %1 to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !162
-  %46 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %44
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40, %42
@@ -7656,7 +7644,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %66 = lshr i32 %64, 6
   %67 = zext nneg i32 %66 to i64
   %68 = load ptr, ptr %65, align 8, !tbaa !162
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = and i32 %64, 63
   %71 = load i64, ptr %69, align 8, !tbaa !17
   %72 = zext nneg i32 %70 to i64
@@ -7670,7 +7658,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %78 = lshr i64 %76, 5
   %79 = load ptr, ptr %77, align 8, !tbaa !162
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !163
   %.not.i.i.i.i.i13 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i13, label %82, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, !prof !24
@@ -7702,7 +7690,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i, %75
   %90 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i ], [ %81, %75 ]
   %91 = and i64 %76, 31
-  %92 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %91
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 93:                                               ; preds = %63
@@ -7712,7 +7700,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
 95:                                               ; preds = %61
   %96 = zext nneg i32 %4 to i64
   %97 = load ptr, ptr %53, align 8, !tbaa !162
-  %98 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %96
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, %93, %95
@@ -8302,13 +8290,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %20 = and i64 %.fr.i.i25.lcssa, 8
   %21 = icmp eq i64 %20, 0
   %22 = or disjoint i64 %16, 1
-  %23 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %22
-  %24 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %17
   br label %25
 
 25:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %._crit_edge
   %.010.i.i.i = phi i64 [ %17, %._crit_edge ], [ %55, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
-  %26 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %.010.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.010.i.i.i
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %26, align 4
   %27 = icmp slt i64 %.010.i.i.i, %19
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -8317,9 +8305,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.010.i.i.i, %25 ]
   %28 = shl i64 %.036.i.i.i.i, 1
   %29 = add i64 %28, 2
-  %30 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %29
   %31 = or disjoint i64 %28, 1
-  %32 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %31
   %.val.i.i.i.i.i = load i32, ptr %30, align 4, !tbaa !13
   %33 = getelementptr i8, ptr %30, i64 4
   %.val1.i.i.i.i.i = load i32, ptr %33, align 4
@@ -8331,8 +8319,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %36 = icmp ult i32 %.val1.i.i.i.i.i, %.val3.i.i.i.i.i
   %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %36, i1 %35
   %spec.select.i.i.i.i = select i1 %.0.i.i.i.i.i.i, i64 %31, i64 %29
-  %37 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %spec.select.i.i.i.i
-  %38 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %.036.i.i.i.i
+  %37 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %spec.select.i.i.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.036.i.i.i.i
   %39 = load i64, ptr %37, align 4
   store i64 %39, ptr %38, align 4
   %40 = icmp slt i64 %spec.select.i.i.i.i, %19
@@ -8361,7 +8349,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %50 ], [ %.1.i.i.i.i, %44 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %.0911.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.0911.i.i.i.i.i
   %.val.i.i.i.i.i.i = load i32, ptr %46, align 4, !tbaa !13
   %47 = getelementptr i8, ptr %46, i64 4
   %.val2.i.i.i.i.i.i = load i32, ptr %47, align 4
@@ -8372,7 +8360,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %.0.i.i.i.i.i.i.i, label %50, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %51 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %.010.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.010.i.i.i.i.i
   %52 = load i64, ptr %46, align 4
   store i64 %52, ptr %51, align 4
   %53 = icmp sgt i64 %.0911.i.i.i.i.i, %.010.i.i.i
@@ -8380,7 +8368,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %50, %.lr.ph.i.i.i.i.i, %44
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %50 ]
-  %54 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %54, align 4
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %55 = add nsw i64 %.010.i.i.i, -1
@@ -8408,9 +8396,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.036.i.i.i23.i = phi i64 [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i22.i ], [ 0, %.lr.ph.i9.i ]
   %65 = shl i64 %.036.i.i.i23.i, 1
   %66 = add i64 %65, 2
-  %67 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %66
   %68 = or disjoint i64 %65, 1
-  %69 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %68
   %.val.i.i.i.i24.i = load i32, ptr %67, align 4, !tbaa !13
   %70 = getelementptr i8, ptr %67, i64 4
   %.val1.i.i.i.i25.i = load i32, ptr %70, align 4
@@ -8422,8 +8410,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %73 = icmp ult i32 %.val1.i.i.i.i25.i, %.val3.i.i.i.i27.i
   %.0.i.i.i.i.i29.i = select i1 %.not.i.i.i.i.i28.i, i1 %73, i1 %72
   %spec.select.i.i.i30.i = select i1 %.0.i.i.i.i.i29.i, i64 %68, i64 %66
-  %74 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %spec.select.i.i.i30.i
-  %75 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %.036.i.i.i23.i
+  %74 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %spec.select.i.i.i30.i
+  %75 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.036.i.i.i23.i
   %76 = load i64, ptr %74, align 4
   store i64 %76, ptr %75, align 4
   %77 = icmp slt i64 %spec.select.i.i.i30.i, %63
@@ -8444,8 +8432,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .thread.i.i.i:                                    ; preds = %80
   %84 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
   %85 = or disjoint i64 %84, 1
-  %86 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %85
-  %87 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %.0.lcssa.i.i.i12.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %85
+  %87 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i12.i
   %88 = load i64, ptr %86, align 4
   store i64 %88, ptr %87, align 4
   br label %.lr.ph.i.i.preheader.i.i.i
@@ -8465,7 +8453,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i15.i = phi i64 [ %.0911.i.i56.i.i.i, %94 ], [ %.1.i13.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.0911.in.i.i.i.i16.i = add nsw i64 %.010.i.i.i.i15.i, -1
   %.0911.i.i56.i.i.i = lshr i64 %.0911.in.i.i.i.i16.i, 1
-  %90 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %.0911.i.i56.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.0911.i.i56.i.i.i
   %.val.i.i.i.i.i17.i = load i32, ptr %90, align 4, !tbaa !13
   %91 = getelementptr i8, ptr %90, i64 4
   %.val2.i.i.i.i.i18.i = load i32, ptr %91, align 4
@@ -8476,7 +8464,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %.0.i.i.i.i.i.i20.i, label %94, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_SE_SE_RT0_.exit.i.i"
 
 94:                                               ; preds = %.lr.ph.i.i.i.i14.i
-  %95 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %.010.i.i.i.i15.i
+  %95 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.010.i.i.i.i15.i
   %96 = load i64, ptr %90, align 4
   store i64 %96, ptr %95, align 4
   %.not7.i.i.i = icmp eq i64 %.0911.i.i56.i.i.i, 0
@@ -8484,7 +8472,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %94, %.lr.ph.i.i.i.i14.i, %89
   %.0.lcssa.i.i.i.i21.i = phi i64 [ 0, %89 ], [ %.010.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %94 ]
-  %97 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr26, i64 %.0.lcssa.i.i.i.i21.i
+  %97 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i21.i
   store i64 %.sroa.03.0.copyload.i.i10.i, ptr %97, align 4
   %98 = icmp sgt i64 %60, 8
   br i1 %98, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !440
@@ -8495,7 +8483,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %99 = phi i64 [ %151, %13 ], [ %7, %.lr.ph ]
   %100 = add nsw i64 %.02440, -1
   %101 = lshr i64 %99, 1
-  %102 = getelementptr inbounds nuw %"class.clang::tooling::Range", ptr %.fr26, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %101
   %103 = getelementptr inbounds i8, ptr %storemerge2341, i64 -8
   %.val.i.i.i = load i32, ptr %9, align 4, !tbaa !13
   %.val1.i.i.i = load i32, ptr %10, align 4
@@ -9204,7 +9192,7 @@ _ZNSt6vectorIN5clang7tooling11ReplacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt12_Vector_baseIN5clang7tooling11ReplacementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5clang7tooling11ReplacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %92
   store ptr %22, ptr %0, align 8, !tbaa !192
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !194
-  %96 = getelementptr inbounds nuw %"class.clang::tooling::Replacement", ptr %22, i64 %16
+  %96 = getelementptr inbounds nuw [72 x i8], ptr %22, i64 %16
   store ptr %96, ptr %91, align 8, !tbaa !196
   ret void
 }

@@ -451,7 +451,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %139, ptr %142, align 8, !tbaa !33
   %143 = zext nneg i32 %128 to i64
-  %144 = getelementptr inbounds nuw i16, ptr @sample_rate_tab, i64 %143
+  %144 = getelementptr inbounds nuw [2 x i8], ptr @sample_rate_tab, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !34
   %146 = zext i16 %145 to i32
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -540,7 +540,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %198 = add i32 %189, 10
   %199 = tail call i32 @llvm.umin.i32(i32 %93, i32 %198)
   store i32 %199, ptr %68, align 8, !tbaa !26
-  %200 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %indvars.iv
   store i32 %197, ptr %200, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -565,7 +565,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %212 = lshr i32 %211, 28
   %213 = add i32 %204, 4
   %214 = tail call i32 @llvm.umin.i32(i32 %93, i32 %213)
-  %215 = getelementptr inbounds nuw i32, ptr %185, i64 %indvars.iv124
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv124
   store i32 %212, ptr %215, align 4, !tbaa !39
   %216 = add i32 %214, 1
   %217 = tail call i32 @llvm.umin.i32(i32 %93, i32 %216)
@@ -581,7 +581,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %226 = add i32 %217, 10
   %227 = tail call i32 @llvm.umin.i32(i32 %93, i32 %226)
   store i32 %227, ptr %68, align 8, !tbaa !26
-  %228 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv124
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %indvars.iv124
   store i32 %225, ptr %228, align 4, !tbaa !39
   %229 = lshr i32 %227, 3
   %230 = zext nneg i32 %229 to i64
@@ -594,7 +594,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %237 = add i32 %227, 10
   %238 = tail call i32 @llvm.umin.i32(i32 %93, i32 %237)
   store i32 %238, ptr %68, align 8, !tbaa !26
-  %239 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv124
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %indvars.iv124
   store i32 %236, ptr %239, align 4, !tbaa !39
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count128

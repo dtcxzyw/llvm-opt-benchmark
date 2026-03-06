@@ -3,9 +3,6 @@ source_filename = "bench/libwebp/original/iterator_enc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VP8BitWriter = type { i32, i32, i32, i32, ptr, i64, i64, i32 }
-%struct.VP8MBInfo = type { i8, i8, [2 x i8] }
-
 @VP8TopLeftI4 = internal unnamed_addr constant [16 x i8] c"\11\15\19\1D\0D\11\15\19\09\0D\11\15\05\09\0D\11", align 16
 @VP8Scan = external local_unnamed_addr constant [16 x i16], align 16
 
@@ -22,7 +19,7 @@ define hidden void @VP8IteratorSetRow(ptr noundef captures(none) initializes((0,
   %9 = add nsw i32 %8, -1
   %10 = and i32 %9, %1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.VP8BitWriter, ptr %6, i64 %11
+  %12 = getelementptr inbounds [48 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %13, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 23656
@@ -45,7 +42,7 @@ define hidden void @VP8IteratorSetRow(ptr noundef captures(none) initializes((0,
   %29 = load i32, ptr %28, align 8, !tbaa !37
   %30 = mul nsw i32 %29, %1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.VP8MBInfo, ptr %27, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %27, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %32, ptr %33, align 8, !tbaa !38
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 23672
@@ -1286,7 +1283,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorNext(ptr noundef captures(none) %0
   %16 = add nsw i32 %15, -1
   %17 = and i32 %16, %12
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.VP8BitWriter, ptr %13, i64 %18
+  %19 = getelementptr inbounds [48 x i8], ptr %13, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %19, ptr %20, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 23656
@@ -1307,7 +1304,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorNext(ptr noundef captures(none) %0
   %34 = load ptr, ptr %33, align 8, !tbaa !36
   %35 = mul nsw i32 %12, %3
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.VP8MBInfo, ptr %34, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %34, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %37, ptr %38, align 8, !tbaa !38
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 23672
@@ -1645,7 +1642,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8, !tbaa !87
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr @VP8Scan, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr @VP8Scan, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !93
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8

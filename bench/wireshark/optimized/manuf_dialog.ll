@@ -1804,7 +1804,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i33._crit_
   %33 = phi ptr [ %.pre89, %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i33._crit_edge ], [ %23, %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i32 ]
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr %class.QModelIndex, ptr %33, i64 %35
+  %36 = getelementptr [24 x i8], ptr %33, i64 %35
   %.not.i.i = icmp eq ptr %31, %36
   br i1 %.not.i.i, label %"_ZSt4sortIN5QListI11QModelIndexE8iteratorEZN11ManufDialog15copyToClipboardEvE3$_0EvT_S6_T0_.exit", label %37
 
@@ -2094,7 +2094,7 @@ _ZN5QListI11QModelIndexE3endEv.exit45:            ; preds = %_ZNK17QArrayDataPoi
   %109 = phi ptr [ %108, %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i43._ZN5QListI11QModelIndexE3endEv.exit45_crit_edge ], [ %104, %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i42 ]
   %110 = phi ptr [ %.pre91, %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i43._ZN5QListI11QModelIndexE3endEv.exit45_crit_edge ], [ %104, %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i42 ]
   %111 = load i64, ptr %34, align 8
-  %112 = getelementptr %class.QModelIndex, ptr %110, i64 %111
+  %112 = getelementptr [24 x i8], ptr %110, i64 %111
   %.not8284 = icmp eq ptr %109, %112
   br i1 %.not8284, label %._crit_edge, label %.lr.ph
 
@@ -4791,7 +4791,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread: ; preds = %
 53:                                               ; preds = %53, %.lr.ph.i
   %54 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %58, %53 ]
   %.010.i = phi ptr [ %48, %.lr.ph.i ], [ %56, %53 ]
-  %55 = getelementptr %class.QModelIndex, ptr %30, i64 %54
+  %55 = getelementptr [24 x i8], ptr %30, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %55, ptr noundef align 8 dereferenceable(24) %.010.i, i64 24, i1 false)
   %56 = getelementptr i8, ptr %.010.i, i64 24
   %57 = load i64, ptr %52, align 8
@@ -4818,7 +4818,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread: ; preds = %
 67:                                               ; preds = %67, %.lr.ph.i32
   %68 = phi i64 [ %.pre.i33, %.lr.ph.i32 ], [ %72, %67 ]
   %.010.i34 = phi ptr [ %62, %.lr.ph.i32 ], [ %70, %67 ]
-  %69 = getelementptr %class.QModelIndex, ptr %30, i64 %68
+  %69 = getelementptr [24 x i8], ptr %30, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %69, ptr noundef align 8 dereferenceable(24) %.010.i34, i64 24, i1 false)
   %70 = getelementptr i8, ptr %.010.i34, i64 24
   %71 = load i64, ptr %66, align 8
@@ -4978,8 +4978,8 @@ _ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33: ; preds = %36
   %54 = sdiv i64 %53, 2
   %55 = call noundef i64 @llvm.smax.i64(i64 %54, i64 0)
   %.pr.pre = load ptr, ptr %1, align 8
-  %56 = getelementptr %class.QModelIndex, ptr %32, i64 %55
-  %57 = getelementptr %class.QModelIndex, ptr %56, i64 %2
+  %56 = getelementptr [24 x i8], ptr %32, i64 %55
+  %57 = getelementptr [24 x i8], ptr %56, i64 %2
   %.not.i34 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i34, label %_ZNK17QArrayDataPointerI11QModelIndexE5flagsEv.exit, label %58
 
@@ -5058,13 +5058,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr %class.QModelIndex, ptr %0, i64 %29
-  %31 = getelementptr %class.QModelIndex, ptr %0, i64 %24
+  %30 = getelementptr [24 x i8], ptr %0, i64 %29
+  %31 = getelementptr [24 x i8], ptr %0, i64 %24
   br label %32
 
 32:                                               ; preds = %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", %21
   %.010.i.i.i = phi i64 [ %24, %21 ], [ %62, %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i" ]
-  %33 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i
+  %33 = getelementptr [24 x i8], ptr %0, i64 %.010.i.i.i
   %.sroa.06.0.copyload.i.i.i = load i32, ptr %33, align 8
   %.sroa.47.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.47.0.copyload.i.i.i = load i32, ptr %.sroa.47.0..sroa.0.0..sroa_idx.i.i.i, align 4
@@ -5078,9 +5078,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %.042.i.i.i.i = phi i64 [ %46, %45 ], [ %.010.i.i.i, %32 ]
   %35 = shl i64 %.042.i.i.i.i, 1
   %36 = add i64 %35, 2
-  %37 = getelementptr %class.QModelIndex, ptr %0, i64 %36
+  %37 = getelementptr [24 x i8], ptr %0, i64 %36
   %38 = or disjoint i64 %35, 1
-  %39 = getelementptr %class.QModelIndex, ptr %0, i64 %38
+  %39 = getelementptr [24 x i8], ptr %0, i64 %38
   %.val.i.i.i.i.i = load i32, ptr %37, align 8
   %.val2.i.i.i.i.i = load i32, ptr %39, align 8
   %40 = icmp slt i32 %.val.i.i.i.i.i, %.val2.i.i.i.i.i
@@ -5102,8 +5102,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
 
 45:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i.i"
   %46 = phi i64 [ %38, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i" ], [ %36, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i.i" ]
-  %47 = getelementptr %class.QModelIndex, ptr %0, i64 %46
-  %48 = getelementptr %class.QModelIndex, ptr %0, i64 %.042.i.i.i.i
+  %47 = getelementptr [24 x i8], ptr %0, i64 %46
+  %48 = getelementptr [24 x i8], ptr %0, i64 %.042.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %48, ptr noundef align 8 dereferenceable(24) %47, i64 24, i1 false)
   %49 = icmp slt i64 %46, %26
   br i1 %49, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !48
@@ -5127,7 +5127,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i" ], [ %.1.i.i.i.i, %52 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %54 = getelementptr %class.QModelIndex, ptr %0, i64 %.0911.i.i.i.i.i
+  %54 = getelementptr [24 x i8], ptr %0, i64 %.0911.i.i.i.i.i
   %.val.i.i.i.i.i.i = load i32, ptr %54, align 8
   %55 = icmp slt i32 %.val.i.i.i.i.i.i, %.sroa.06.0.copyload.i.i.i
   br i1 %55, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i"
@@ -5141,14 +5141,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   br i1 %spec.select.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %59 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i.i.i
+  %59 = getelementptr [24 x i8], ptr %0, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %59, ptr noundef align 8 dereferenceable(24) %54, i64 24, i1 false)
   %60 = icmp sgt i64 %.0911.i.i.i.i.i, %.010.i.i.i
   br i1 %60, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", !llvm.loop !49
 
 "_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i", %52
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %52 ], [ %.010.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i" ]
-  %61 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %61 = getelementptr [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i32 %.sroa.06.0.copyload.i.i.i, ptr %61, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 %.sroa.47.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 4
@@ -5181,9 +5181,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %.042.i.i.i33.i = phi i64 [ %81, %80 ], [ 0, %.lr.ph.i10.i ]
   %70 = shl i64 %.042.i.i.i33.i, 1
   %71 = add i64 %70, 2
-  %72 = getelementptr %class.QModelIndex, ptr %0, i64 %71
+  %72 = getelementptr [24 x i8], ptr %0, i64 %71
   %73 = or disjoint i64 %70, 1
-  %74 = getelementptr %class.QModelIndex, ptr %0, i64 %73
+  %74 = getelementptr [24 x i8], ptr %0, i64 %73
   %.val.i.i.i.i34.i = load i32, ptr %72, align 8
   %.val2.i.i.i.i35.i = load i32, ptr %74, align 8
   %75 = icmp slt i32 %.val.i.i.i.i34.i, %.val2.i.i.i.i35.i
@@ -5205,8 +5205,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
 
 80:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i41.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i36.i"
   %81 = phi i64 [ %73, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i41.i" ], [ %71, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i36.i" ]
-  %82 = getelementptr %class.QModelIndex, ptr %0, i64 %81
-  %83 = getelementptr %class.QModelIndex, ptr %0, i64 %.042.i.i.i33.i
+  %82 = getelementptr [24 x i8], ptr %0, i64 %81
+  %83 = getelementptr [24 x i8], ptr %0, i64 %.042.i.i.i33.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %83, ptr noundef align 8 dereferenceable(24) %82, i64 24, i1 false)
   %84 = icmp slt i64 %81, %68
   br i1 %84, label %.lr.ph.i.i.i32.i, label %._crit_edge.i.i.i15.i, !llvm.loop !48
@@ -5226,8 +5226,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
 91:                                               ; preds = %87
   %92 = shl nsw i64 %.0.lcssa.i.i.i16.i, 1
   %93 = or disjoint i64 %92, 1
-  %94 = getelementptr %class.QModelIndex, ptr %0, i64 %93
-  %95 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i.i16.i
+  %94 = getelementptr [24 x i8], ptr %0, i64 %93
+  %95 = getelementptr [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i16.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %95, ptr noundef align 8 dereferenceable(24) %94, i64 24, i1 false)
   br label %96
 
@@ -5240,7 +5240,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %.010.i.i.i.i23.i = phi i64 [ %.0911.i.i910.i.i25.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i30.i" ], [ %.1.i.i.i17.i, %96 ]
   %.0911.in.i.i.i.i24.i = add nsw i64 %.010.i.i.i.i23.i, -1
   %.0911.i.i910.i.i25.i = lshr i64 %.0911.in.i.i.i.i24.i, 1
-  %98 = getelementptr %class.QModelIndex, ptr %0, i64 %.0911.i.i910.i.i25.i
+  %98 = getelementptr [24 x i8], ptr %0, i64 %.0911.i.i910.i.i25.i
   %.val.i.i.i.i.i26.i = load i32, ptr %98, align 8
   %99 = icmp slt i32 %.val.i.i.i.i.i26.i, %.sroa.06.0.copyload.i.i11.i
   br i1 %99, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i30.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i27.i"
@@ -5254,14 +5254,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   br i1 %spec.select.i.i.i.i.i.i29.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i30.i", label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit.i18.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i30.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i27.i", %.lr.ph.i.i.i.i22.i
-  %103 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i.i23.i
+  %103 = getelementptr [24 x i8], ptr %0, i64 %.010.i.i.i.i23.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %103, ptr noundef align 8 dereferenceable(24) %98, i64 24, i1 false)
   %.not.i.i31.i = icmp eq i64 %.0911.i.i910.i.i25.i, 0
   br i1 %.not.i.i31.i, label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit.i18.i", label %.lr.ph.i.i.i.i22.i, !llvm.loop !49
 
 "_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit.i18.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i30.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i27.i", %96
   %.0.lcssa.i.i.i.i19.i = phi i64 [ %.1.i.i.i17.i, %96 ], [ %.010.i.i.i.i23.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i27.i" ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i30.i" ]
-  %104 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i.i.i19.i
+  %104 = getelementptr [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i19.i
   store i32 %.sroa.06.0.copyload.i.i11.i, ptr %104, align 8
   %.sroa.5.0..sroa_idx.i.i.i20.i = getelementptr inbounds nuw i8, ptr %104, i64 4
   store i32 %.sroa.47.0.copyload.i.i13.i, ptr %.sroa.5.0..sroa_idx.i.i.i20.i, align 4
@@ -5274,7 +5274,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
 106:                                              ; preds = %18
   %107 = add i64 %.026, -1
   %108 = udiv i64 %19, 48
-  %109 = getelementptr %class.QModelIndex, ptr %0, i64 %108
+  %109 = getelementptr [24 x i8], ptr %0, i64 %108
   %110 = getelementptr i8, ptr %storemerge25, i64 -24
   %.val.i.i.i = load i32, ptr %15, align 8
   %.val2.i.i.i = load i32, ptr %109, align 8

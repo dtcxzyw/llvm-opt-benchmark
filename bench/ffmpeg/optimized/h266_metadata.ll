@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"vvc_metadata\00", align 1
 @h266_metadata_codec_ids = internal constant [2 x i32] [i32 196, i32 0], align 4
@@ -92,7 +91,7 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   %.066131 = phi i32 [ 0, %.lr.ph ], [ %.268.ph, %54 ]
   %.070130 = phi i32 [ 8, %.lr.ph ], [ %.272.ph, %54 ]
   %.077129 = phi i8 [ 0, %.lr.ph ], [ %.279.ph, %54 ]
-  %29 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !30
   %.not86 = icmp eq ptr %31, null

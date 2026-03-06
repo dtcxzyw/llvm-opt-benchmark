@@ -38,17 +38,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.69" = type { %"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl" }
 %"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.dap::SourceBreakpoint" = type { %"class.dap::optional.65", %"class.dap::optional.63", %"class.dap::optional.63", %"class.dap::integer", %"class.dap::optional.63", %"class.dap::optional.63" }
-%"struct.dap::Breakpoint" = type { %"class.dap::optional.65", %"class.dap::optional.65", %"class.dap::optional.65", %"class.dap::optional.65", %"class.dap::optional.63", %"class.dap::optional.65", %"class.dap::optional.63", %"class.dap::optional.65", %"class.dap::optional.63", %"class.dap::optional.82", %"class.dap::boolean", [7 x i8] }
-%"class.dap::optional.82" = type { %"struct.dap::Source", i8, [7 x i8] }
-%"class.dap::boolean" = type { i8 }
 %"class.std::vector.116" = type { %"struct.std::_Vector_base.117" }
 %"struct.std::_Vector_base.117" = type { %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl" }
 %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.dap::BreakpointEvent" = type { %"struct.dap::Breakpoint", %"class.std::__cxx11::basic_string" }
-%"struct.cmDebugger::cmDebuggerFunctionLocation" = type { i64, i64 }
-%"class.cmDebugger::cmDebuggerSourceBreakpoint" = type <{ i64, i64, i8, [7 x i8] }>
+%"struct.dap::Breakpoint" = type { %"class.dap::optional.65", %"class.dap::optional.65", %"class.dap::optional.65", %"class.dap::optional.65", %"class.dap::optional.63", %"class.dap::optional.65", %"class.dap::optional.63", %"class.dap::optional.65", %"class.dap::optional.63", %"class.dap::optional.82", %"class.dap::boolean", [7 x i8] }
+%"class.dap::optional.82" = type { %"struct.dap::Source", i8, [7 x i8] }
+%"class.dap::boolean" = type { i8 }
 %"class.std::vector.92" = type { %"struct.std::_Vector_base.93" }
 %"struct.std::_Vector_base.93" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
@@ -846,7 +843,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
   %50 = phi ptr [ %43, %.lr.ph ], [ %120, %116 ]
   %.02990 = phi i64 [ 0, %.lr.ph ], [ %118, %116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %51 = getelementptr inbounds nuw %"struct.dap::SourceBreakpoint", ptr %50, i64 %.02990
+  %51 = getelementptr inbounds nuw [184 x i8], ptr %50, i64 %.02990
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load i64, ptr %52, align 8, !tbaa !71
   %54 = invoke noundef i64 @_ZN10cmDebugger27cmDebuggerBreakpointManager23CalibrateBreakpointLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEl(ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %53)
@@ -900,7 +897,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
   %74 = getelementptr inbounds i8, ptr %73, i64 -24
   %75 = load i64, ptr %74, align 8, !tbaa !77
   %76 = load ptr, ptr %0, align 8, !tbaa !79
-  %77 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %76, i64 %.02990
+  %77 = getelementptr inbounds nuw [536 x i8], ptr %76, i64 %.02990
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   store i64 %75, ptr %78, align 8, !tbaa !71
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 56
@@ -914,7 +911,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
   %84 = getelementptr inbounds i8, ptr %83, i64 -16
   %85 = load i64, ptr %84, align 8, !tbaa !84
   %86 = load ptr, ptr %0, align 8, !tbaa !79
-  %87 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %86, i64 %.02990
+  %87 = getelementptr inbounds nuw [536 x i8], ptr %86, i64 %.02990
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 104
   store i64 %85, ptr %88, align 8, !tbaa !71
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 112
@@ -946,11 +943,11 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
 
 99:                                               ; preds = %55
   %100 = load ptr, ptr %0, align 8, !tbaa !79
-  %101 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %100, i64 %.02990
+  %101 = getelementptr inbounds nuw [536 x i8], ptr %100, i64 %.02990
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 528
   store i8 0, ptr %102, align 1, !tbaa !85
   %103 = load ptr, ptr %..i, align 8, !tbaa !70
-  %104 = getelementptr inbounds nuw %"struct.dap::SourceBreakpoint", ptr %103, i64 %.02990
+  %104 = getelementptr inbounds nuw [184 x i8], ptr %103, i64 %.02990
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 96
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 104
   %107 = load i64, ptr %105, align 8, !tbaa !73
@@ -971,7 +968,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
 111:                                              ; preds = %110
   store i8 1, ptr %46, align 8, !tbaa !87
   %112 = load ptr, ptr %0, align 8, !tbaa !79
-  %113 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %112, i64 %.02990
+  %113 = getelementptr inbounds nuw [536 x i8], ptr %112, i64 %.02990
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 216
   %115 = invoke noundef nonnull align 8 dereferenceable(304) ptr @_ZN3dap6SourceaSERKS0_(ptr noundef nonnull align 8 dereferenceable(305) %114, ptr noundef nonnull align 8 dereferenceable(304) %8)
           to label %116 unwind label %128
@@ -1042,7 +1039,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
   store i64 %143, ptr %137, align 8, !tbaa !74
   store i64 %142, ptr %9, align 8, !tbaa !73
   %144 = load ptr, ptr %..i, align 8, !tbaa !70
-  %145 = getelementptr inbounds nuw %"struct.dap::SourceBreakpoint", ptr %144, i64 %.091
+  %145 = getelementptr inbounds nuw [184 x i8], ptr %144, i64 %.091
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 96
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !68
@@ -1077,7 +1074,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
   %160 = getelementptr inbounds i8, ptr %159, i64 -24
   %161 = load i64, ptr %160, align 8, !tbaa !77
   %162 = load ptr, ptr %0, align 8, !tbaa !79
-  %163 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %162, i64 %.091
+  %163 = getelementptr inbounds nuw [536 x i8], ptr %162, i64 %.091
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 48
   store i64 %161, ptr %164, align 8, !tbaa !71
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 56
@@ -1091,7 +1088,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
   %170 = getelementptr inbounds i8, ptr %169, i64 -16
   %171 = load i64, ptr %170, align 8, !tbaa !84
   %172 = load ptr, ptr %0, align 8, !tbaa !79
-  %173 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %172, i64 %.091
+  %173 = getelementptr inbounds nuw [536 x i8], ptr %172, i64 %.091
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 104
   store i64 %171, ptr %174, align 8, !tbaa !71
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 112
@@ -1109,7 +1106,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
 178:                                              ; preds = %177
   store i8 1, ptr %139, align 8, !tbaa !87
   %179 = load ptr, ptr %0, align 8, !tbaa !79
-  %180 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %179, i64 %.091
+  %180 = getelementptr inbounds nuw [536 x i8], ptr %179, i64 %.091
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 216
   %182 = invoke noundef nonnull align 8 dereferenceable(304) ptr @_ZN3dap6SourceaSERKS0_(ptr noundef nonnull align 8 dereferenceable(305) %181, ptr noundef nonnull align 8 dereferenceable(304) %10)
           to label %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE7emplaceIJRS5_EEESt4pairINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEbEDpOT_.exit unwind label %202
@@ -1235,7 +1232,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap10BreakpointESaIS1_EE6resi
   br i1 %14, label %15, label %_ZNSt6vectorIN3dap10BreakpointESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [536 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN3dap10BreakpointESaIS1_EE15_M_erase_at_endEPS1_.exit, label %.lr.ph.i.i.i.i
 
@@ -1806,7 +1803,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerFunctionLocationESaIS1_EE11_S_relocateEPS1
 _ZNSt6vectorIN10cmDebugger26cmDebuggerFunctionLocationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %49, %_ZNSt6vectorIN10cmDebugger26cmDebuggerFunctionLocationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %44, ptr %19, align 8, !tbaa !152
   store ptr %48, ptr %25, align 8, !tbaa !149
-  %50 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerFunctionLocation", ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %42
   store ptr %50, ptr %27, align 8, !tbaa !151
   br label %_ZNSt6vectorIN10cmDebugger26cmDebuggerFunctionLocationESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
@@ -1905,7 +1902,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
 
 94:                                               ; preds = %92
   %95 = load ptr, ptr %93, align 8, !tbaa !65
-  %96 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %95, i64 %.0
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.0
   %97 = load i64, ptr %96, align 8, !tbaa !77
   store i64 %97, ptr %63, align 8, !tbaa !71
   store i8 1, ptr %64, align 8, !tbaa !82
@@ -1914,7 +1911,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
 
 99:                                               ; preds = %94
   %100 = load ptr, ptr %98, align 8, !tbaa !65
-  %101 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %100, i64 %.0
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %.0
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i64, ptr %102, align 8, !tbaa !84
   store i64 %103, ptr %65, align 8, !tbaa !71
@@ -1940,7 +1937,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS8_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit56: ; preds = %107
   %109 = load ptr, ptr %108, align 8, !tbaa !65
-  %110 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %109, i64 %.0
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %.0
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i64, ptr %111, align 8, !tbaa !84
   %113 = invoke noundef i64 @_ZN10cmDebugger27cmDebuggerBreakpointManager23CalibrateBreakpointLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEl(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %112)
@@ -1952,7 +1949,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS8_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit58: ; preds = %114
   %116 = load ptr, ptr %115, align 8, !tbaa !65
-  %117 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %116, i64 %.0
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %.0
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !tbaa !84
   %.not = icmp eq i64 %113, %119
@@ -1964,7 +1961,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS8_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit60: ; preds = %120
   %122 = load ptr, ptr %121, align 8, !tbaa !65
-  %123 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %122, i64 %.0
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %122, i64 %.0
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i64 %113, ptr %124, align 8, !tbaa !84
   br label %137
@@ -2021,7 +2018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %137
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS8_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit63: ; preds = %143
   %145 = load ptr, ptr %144, align 8, !tbaa !65
-  %146 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %145, i64 %.0
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %.0
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store i8 0, ptr %147, align 8, !tbaa !153
   br label %148
@@ -2426,7 +2423,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %88, %.noex
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %90, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %85, ptr %0, align 8, !tbaa !159
   store ptr %89, ptr %14, align 8, !tbaa !156
-  %91 = getelementptr inbounds nuw i64, ptr %85, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %83
   store ptr %91, ptr %15, align 8, !tbaa !160
   %.pre.pre = load ptr, ptr %11, align 8, !tbaa !76
   br label %_ZNSt6vectorIlSaIlEE12emplace_backIJlEEERlDpOT_.exit
@@ -3955,7 +3952,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.dap::any", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4221,9 +4218,9 @@ _ZNSt6vectorIN3dap3anyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZS
 
 _ZNSt12_Vector_baseIN3dap3anyESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3dap3anyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %80
   store ptr %26, ptr %0, align 8, !tbaa !112
-  %84 = getelementptr inbounds nuw %"class.dap::any", ptr %27, i64 %1
+  %84 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %1
   store ptr %84, ptr %4, align 8, !tbaa !115
-  %85 = getelementptr inbounds nuw %"class.dap::any", ptr %26, i64 %24
+  %85 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %24
   store ptr %85, ptr %11, align 8, !tbaa !120
   br label %86
 
@@ -4245,7 +4242,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !73
   %10 = load ptr, ptr %5, align 8, !tbaa !112
-  %11 = getelementptr inbounds nuw %"class.dap::any", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %3, align 8, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
@@ -5298,7 +5295,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = urem i64 %9, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !27
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !217
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.loopexit26, label %19
@@ -5456,7 +5453,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %2, ptr %32, align 8, !tbaa !218
   %33 = load ptr, ptr %0, align 8, !tbaa !27
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !217
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -5482,7 +5479,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %46 = load i64, ptr %45, align 8, !tbaa !218
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !217
   br label %49
 
@@ -5676,7 +5673,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 64
   %16 = load i64, ptr %15, align 8, !tbaa !218
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !217
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -5691,7 +5688,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !217
   br label %28
 
@@ -5807,7 +5804,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !25
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !217
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaISA_EEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -5905,7 +5902,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %14 = load i64, ptr %13, align 8, !tbaa !25
   %15 = urem i64 %9, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !24
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !217
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.loopexit26, label %19
@@ -6063,7 +6060,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %2, ptr %32, align 8, !tbaa !218
   %33 = load ptr, ptr %0, align 8, !tbaa !24
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !217
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -6089,7 +6086,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %46 = load i64, ptr %45, align 8, !tbaa !218
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !217
   br label %49
 
@@ -6279,7 +6276,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 64
   %16 = load i64, ptr %15, align 8, !tbaa !218
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !217
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -6294,7 +6291,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !217
   br label %28
 
@@ -6515,7 +6512,7 @@ _ZSt10_ConstructIN3dap10BreakpointEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #24
-  %70 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %39, i64 %1
+  %70 = getelementptr inbounds nuw [536 x i8], ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %70, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN3dap10BreakpointESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %71
 
@@ -6590,9 +6587,9 @@ _ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Destr
 
 _ZNSt12_Vector_baseIN3dap10BreakpointESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit, %93
   store ptr %38, ptr %0, align 8, !tbaa !79
-  %97 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %39, i64 %1
+  %97 = getelementptr inbounds nuw [536 x i8], ptr %39, i64 %1
   store ptr %97, ptr %4, align 8, !tbaa !110
-  %98 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %38, i64 %36
+  %98 = getelementptr inbounds nuw [536 x i8], ptr %38, i64 %36
   store ptr %98, ptr %11, align 8, !tbaa !209
   br label %99
 
@@ -7663,7 +7660,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !28
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !27
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !217
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN10cmDebugger26cmDebuggerFunctionLocationESaISA_EEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -7816,7 +7813,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1
 _ZNSt12_Vector_baseIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %31
   store ptr %21, ptr %0, align 8, !tbaa !65
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !68
-  %35 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %21, i64 %17
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %35, ptr %30, align 8, !tbaa !75
   ret void
 
@@ -8757,7 +8754,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8, !tbaa !29
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %34
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %34
   %40 = load ptr, ptr %39, align 8, !tbaa !217
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %.critedge27, label %41
@@ -8926,7 +8923,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8, !tbaa !218
   %33 = load ptr, ptr %0, align 8, !tbaa !29
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !217
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -8952,7 +8949,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !218
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !217
   br label %49
 
@@ -9123,7 +9120,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !218
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !217
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -9138,7 +9135,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !217
   br label %28
 
@@ -9252,7 +9249,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1
 _ZNSt12_Vector_baseIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %31
   store ptr %21, ptr %0, align 8, !tbaa !65
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !68
-  %35 = getelementptr inbounds nuw %"class.cmDebugger::cmDebuggerSourceBreakpoint", ptr %21, i64 %17
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %35, ptr %30, align 8, !tbaa !75
   ret void
 
@@ -9359,7 +9356,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !30
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !29
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !217
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS5_m.exit, label %34
@@ -9502,7 +9499,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %31 = load i64, ptr %30, align 8, !tbaa !218
   %32 = urem i64 %31, %29
   %.pre = load ptr, ptr %0, align 8, !tbaa !29
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %32
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %32
   %.pre49 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !217
   br label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeEmRKS5_m.exit
 
@@ -9525,7 +9522,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %42 = load i64, ptr %41, align 8, !tbaa !30
   %43 = urem i64 %37, %42
   %44 = load ptr, ptr %0, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !217
   %.not.i25 = icmp eq ptr %46, null
   br i1 %.not.i25, label %.critedge, label %47
@@ -9604,7 +9601,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_
   %.019 = phi ptr [ %27, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeERKS5_.exit ], [ %.0.us.i, %54 ], [ %.0.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS6_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i ]
   %.018 = phi i64 [ %32, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeERKS5_.exit ], [ %43, %54 ], [ %43, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS6_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i ]
   %.016 = phi ptr [ %.012.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeERKS5_.exit ], [ %.015.us.i, %54 ], [ %.015.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS6_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i ]
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %.018
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.018
   %81 = icmp eq ptr %.016, %78
   %82 = load ptr, ptr %.019, align 8, !tbaa !40
   %.not18.i26 = icmp eq ptr %82, null
@@ -9621,7 +9618,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_
   br i1 %.not9.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_remove_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEEm.exit.i, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw ptr, ptr %79, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %87
   store ptr %78, ptr %89, align 8, !tbaa !217
   br label %._crit_edge.i.i
 
@@ -9649,7 +9646,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_
   br i1 %.not17.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_remove_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEEm.exit.i, label %99
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds nuw ptr, ptr %79, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %98
   store ptr %.016, ptr %100, align 8, !tbaa !217
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_remove_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEEm.exit.i
 

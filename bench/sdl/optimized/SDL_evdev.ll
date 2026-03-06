@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.input_absinfo = type { i32, i32, i32, i32, i32, i32 }
 %struct.input_event = type { %struct.timeval, i16, i16, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.anon.0 = type { i32, i32, i32, i32, i32 }
 
 @_this = internal unnamed_addr global ptr null, align 8
 @EVDEV_MouseButtons = internal unnamed_addr constant [8 x i8] c"\01\03\02\04\05\06\07\08", align 1
@@ -885,7 +884,7 @@ define hidden void @SDL_EVDEV_Poll() local_unnamed_addr #0 {
 
 .lr.ph275:                                        ; preds = %.lr.ph275.preheader, %574
   %indvars.iv285 = phi i64 [ 0, %.lr.ph275.preheader ], [ %indvars.iv.next286, %574 ]
-  %34 = getelementptr inbounds nuw %struct.input_event, ptr %1, i64 %indvars.iv285
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv285
   %35 = load i8, ptr %16, align 8, !range !8, !noundef !9
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %47
@@ -1079,7 +1078,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %144 = load i32, ptr %143, align 8
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds %struct.anon.0, ptr %142, i64 %145
+  %146 = getelementptr inbounds [20 x i8], ptr %142, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %139, ptr %147, align 4
   %148 = load ptr, ptr %28, align 8
@@ -1088,7 +1087,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %152 = load i32, ptr %151, align 8
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds %struct.anon.0, ptr %150, i64 %153
+  %154 = getelementptr inbounds [20 x i8], ptr %150, i64 %153
   store i32 1, ptr %154, align 4
   br label %574
 
@@ -1099,7 +1098,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %160 = load i32, ptr %159, align 8
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds %struct.anon.0, ptr %158, i64 %161
+  %162 = getelementptr inbounds [20 x i8], ptr %158, i64 %161
   store i32 2, ptr %162, align 4
   br label %574
 
@@ -1117,7 +1116,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %173 = load i32, ptr %172, align 8
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds %struct.anon.0, ptr %171, i64 %174
+  %175 = getelementptr inbounds [20 x i8], ptr %171, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store i32 %168, ptr %176, align 4
   %177 = load ptr, ptr %28, align 8
@@ -1126,7 +1125,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 48
   %181 = load i32, ptr %180, align 8
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds %struct.anon.0, ptr %179, i64 %182
+  %183 = getelementptr inbounds [20 x i8], ptr %179, i64 %182
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %574
@@ -1149,7 +1148,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 48
   %197 = load i32, ptr %196, align 8
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds %struct.anon.0, ptr %195, i64 %198
+  %199 = getelementptr inbounds [20 x i8], ptr %195, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 12
   store i32 %192, ptr %200, align 4
   %201 = load ptr, ptr %28, align 8
@@ -1158,7 +1157,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 48
   %205 = load i32, ptr %204, align 8
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds %struct.anon.0, ptr %203, i64 %206
+  %207 = getelementptr inbounds [20 x i8], ptr %203, i64 %206
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %210, label %574
@@ -1181,7 +1180,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 48
   %221 = load i32, ptr %220, align 8
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds %struct.anon.0, ptr %219, i64 %222
+  %223 = getelementptr inbounds [20 x i8], ptr %219, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store i32 %216, ptr %224, align 4
   %225 = load ptr, ptr %28, align 8
@@ -1190,7 +1189,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 48
   %229 = load i32, ptr %228, align 8
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds %struct.anon.0, ptr %227, i64 %230
+  %231 = getelementptr inbounds [20 x i8], ptr %227, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %234, label %574
@@ -1560,7 +1559,7 @@ SDL_EVDEV_GetEventTimestamp.exit249:              ; preds = %409, %423
   %444 = phi ptr [ %438, %.lr.ph ], [ %561, %560 ]
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 56
   %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds nuw %struct.anon.0, ptr %446, i64 %indvars.iv
+  %447 = getelementptr inbounds nuw [20 x i8], ptr %446, i64 %indvars.iv
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %449 = load i32, ptr %448, align 4
   %450 = getelementptr inbounds nuw i8, ptr %444, i64 8
@@ -1634,7 +1633,7 @@ SDL_EVDEV_GetEventTimestamp.exit253:              ; preds = %482, %495
   %498 = load ptr, ptr %28, align 8
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 56
   %500 = load ptr, ptr %499, align 8
-  %501 = getelementptr inbounds nuw %struct.anon.0, ptr %500, i64 %indvars.iv
+  %501 = getelementptr inbounds nuw [20 x i8], ptr %500, i64 %indvars.iv
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 4
   %503 = load i32, ptr %502, align 4
   %504 = sext i32 %503 to i64
@@ -1669,7 +1668,7 @@ SDL_EVDEV_GetEventTimestamp.exit257:              ; preds = %505, %518
   %521 = load ptr, ptr %28, align 8
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 56
   %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds nuw %struct.anon.0, ptr %523, i64 %indvars.iv
+  %524 = getelementptr inbounds nuw [20 x i8], ptr %523, i64 %indvars.iv
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 4
   %526 = load i32, ptr %525, align 4
   %527 = sext i32 %526 to i64
@@ -1677,7 +1676,7 @@ SDL_EVDEV_GetEventTimestamp.exit257:              ; preds = %505, %518
   %528 = load ptr, ptr %28, align 8
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 56
   %530 = load ptr, ptr %529, align 8
-  %531 = getelementptr inbounds nuw %struct.anon.0, ptr %530, i64 %indvars.iv
+  %531 = getelementptr inbounds nuw [20 x i8], ptr %530, i64 %indvars.iv
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 4
   store i32 0, ptr %532, align 4
   br label %.sink.split293
@@ -1710,7 +1709,7 @@ SDL_EVDEV_GetEventTimestamp.exit261:              ; preds = %533, %546
   %549 = load ptr, ptr %28, align 8
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 56
   %551 = load ptr, ptr %550, align 8
-  %552 = getelementptr inbounds nuw %struct.anon.0, ptr %551, i64 %indvars.iv
+  %552 = getelementptr inbounds nuw [20 x i8], ptr %551, i64 %indvars.iv
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 4
   %554 = load i32, ptr %553, align 4
   %555 = sext i32 %554 to i64
@@ -1721,7 +1720,7 @@ SDL_EVDEV_GetEventTimestamp.exit261:              ; preds = %533, %546
   %556 = load ptr, ptr %28, align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 56
   %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds nuw %struct.anon.0, ptr %558, i64 %indvars.iv
+  %559 = getelementptr inbounds nuw [20 x i8], ptr %558, i64 %indvars.iv
   store i32 0, ptr %559, align 4
   br label %560
 
@@ -1883,11 +1882,11 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %28 = phi ptr [ %47, %.thread ], [ %23, %.preheader119 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw %struct.anon.0, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [20 x i8], ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
-  %35 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   br i1 %34, label %37, label %41
 
@@ -1910,7 +1909,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %43 = load ptr, ptr %7, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw %struct.anon.0, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [20 x i8], ptr %45, i64 %indvars.iv
   store i32 %.sink, ptr %46, align 4
   br label %.thread
 
@@ -1946,7 +1945,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %79 ], [ 0, %.preheader118 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw %struct.anon.0, ptr %62, i64 %indvars.iv131
+  %63 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %indvars.iv131
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %.not114 = icmp eq i32 %65, 0
@@ -1955,7 +1954,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
 66:                                               ; preds = %.lr.ph122
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv131
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv131
   %70 = load i32, ptr %69, align 4
   %.not115 = icmp eq i32 %68, %70
   br i1 %.not115, label %79, label %71
@@ -1965,7 +1964,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %72 = load ptr, ptr %7, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw %struct.anon.0, ptr %74, i64 %indvars.iv131
+  %75 = getelementptr inbounds nuw [20 x i8], ptr %74, i64 %indvars.iv131
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %79
@@ -2007,7 +2006,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %112 ], [ 0, %.preheader117 ]
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw %struct.anon.0, ptr %95, i64 %indvars.iv134
+  %96 = getelementptr inbounds nuw [20 x i8], ptr %95, i64 %indvars.iv134
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
   %.not112 = icmp eq i32 %98, 0
@@ -2016,7 +2015,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
 99:                                               ; preds = %.lr.ph125
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv134
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv134
   %103 = load i32, ptr %102, align 4
   %.not113 = icmp eq i32 %101, %103
   br i1 %.not113, label %112, label %104
@@ -2026,7 +2025,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %105 = load ptr, ptr %7, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw %struct.anon.0, ptr %107, i64 %indvars.iv134
+  %108 = getelementptr inbounds nuw [20 x i8], ptr %107, i64 %indvars.iv134
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %112
@@ -2068,7 +2067,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %145 ], [ 0, %.preheader ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 56
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw %struct.anon.0, ptr %128, i64 %indvars.iv137
+  %129 = getelementptr inbounds nuw [20 x i8], ptr %128, i64 %indvars.iv137
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4
   %.not110 = icmp eq i32 %131, 0
@@ -2077,7 +2076,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
 132:                                              ; preds = %.lr.ph128
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv137
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv137
   %136 = load i32, ptr %135, align 4
   %.not111 = icmp eq i32 %134, %136
   br i1 %.not111, label %145, label %137
@@ -2087,7 +2086,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %138 = load ptr, ptr %7, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw %struct.anon.0, ptr %140, i64 %indvars.iv137
+  %141 = getelementptr inbounds nuw [20 x i8], ptr %140, i64 %indvars.iv137
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %145

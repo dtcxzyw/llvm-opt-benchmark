@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.3 = type { i32 }
 %union.anon.6 = type { i32 }
 %struct.glob_t = type { i64, ptr, i64, i32, ptr, ptr, ptr, ptr, ptr }
-%struct._zend_blacklist_entry = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [37 x i8] c"Blacklist initialization: no memory\0A\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"No blacklist file found matching: %s\0A\00", align 1
@@ -168,7 +167,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %19 = phi i64 [ 0, %.lr.ph ], [ %113, %zend_accel_blacklist_loadone.exit ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %112, %zend_accel_blacklist_loadone.exit ]
   %20 = load ptr, ptr %14, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -336,7 +335,7 @@ zend_accel_blacklist_allocate.exit.i:             ; preds = %91, %85
   %96 = phi i32 [ %88, %85 ], [ %.pre82.i, %91 ]
   %97 = phi ptr [ %.pre81.i, %85 ], [ %95, %91 ]
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %97, i64 %98
+  %99 = getelementptr inbounds [16 x i8], ptr %97, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i32 %87, ptr %100, align 8, !tbaa !28
   %101 = shl i64 %86, 32
@@ -417,7 +416,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   %.062.idx89.i = phi i64 [ 2, %.lr.ph93.i ], [ %.6.idx.i, %202 ]
   %128 = load ptr, ptr %0, align 8, !tbaa !13
   %129 = sext i32 %.092.i to i64
-  %130 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %128, i64 %129
+  %130 = getelementptr inbounds [16 x i8], ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !19
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %133 = load i32, ptr %132, align 8, !tbaa !28
@@ -685,7 +684,7 @@ define hidden void @zend_accel_blacklist_apply(ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw %struct._zend_blacklist_entry, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %9 = tail call i32 %1(ptr noundef %8, ptr noundef %2) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 4, !tbaa !4

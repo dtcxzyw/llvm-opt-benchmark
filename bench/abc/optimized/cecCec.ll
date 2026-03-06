@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
 %struct.Cec_ParFra_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }
 %struct.Cec_ParCec_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.Cec_ParCor_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
@@ -57,7 +56,7 @@ define void @Cec_ManTransformPattern(ptr noundef captures(none) initializes((368
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %.val13.val18 = phi i32 [ %.val13.val, %22 ], [ %.val13.val14, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %22, label %13
@@ -68,7 +67,7 @@ define void @Cec_ManTransformPattern(ptr noundef captures(none) initializes((368
   %16 = shl nuw i32 1, %15
   %17 = lshr i64 %indvars.iv, 5
   %18 = and i64 %17, 134217727
-  %19 = getelementptr inbounds nuw i32, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !32
   %21 = or i32 %20, %16
   store i32 %21, ptr %19, align 4, !tbaa !32
@@ -245,7 +244,7 @@ Abc_Clock.exit30:                                 ; preds = %31, %34
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %85
   %.val13.val18.i = phi i32 [ %.val13.val.i, %85 ], [ %.val13.val14.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %85 ], [ 0, %.lr.ph.i ]
-  %74 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i
   %75 = load i32, ptr %74, align 4, !tbaa !32
   %.not12.i = icmp eq i32 %75, 0
   br i1 %.not12.i, label %85, label %76
@@ -256,7 +255,7 @@ Abc_Clock.exit30:                                 ; preds = %31, %34
   %79 = shl nuw i32 1, %78
   %80 = lshr i64 %indvars.iv.i, 5
   %81 = and i64 %80, 134217727
-  %82 = getelementptr inbounds nuw i32, ptr %73, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !32
   %84 = or i32 %83, %79
   store i32 %84, ptr %82, align 4, !tbaa !32
@@ -417,7 +416,7 @@ Abc_Clock.exit:                                   ; preds = %2, %10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Gia_ObjIsPi.exit113.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ObjIsPi.exit113.thread ], [ 0, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i32, ptr %.val74.val, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.val74.val, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !32
   %27 = sext i32 %26 to i64
   %.idx = mul nsw i64 %27, 12
@@ -577,7 +576,7 @@ Cec_ManTransformPattern.exit103:                  ; preds = %74, %Abc_Clock.exit
   %100 = shl nuw i32 1, %99
   %101 = lshr i64 %.val79, 37
   %102 = and i64 %101, 16777215
-  %103 = getelementptr inbounds nuw i32, ptr %96, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !32
   %105 = or i32 %100, %104
   store i32 %105, ptr %103, align 4, !tbaa !32
@@ -678,7 +677,7 @@ Gia_ObjIsPi.exit127:                              ; preds = %Cec_ManTransformPat
   %147 = shl nuw i32 1, %146
   %148 = lshr i64 %.val86, 37
   %149 = and i64 %148, 16777215
-  %150 = getelementptr inbounds nuw i32, ptr %145, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !32
   %152 = or i32 %151, %147
   store i32 %152, ptr %150, align 4, !tbaa !32
@@ -693,7 +692,7 @@ Gia_ObjIsPi.exit127.thread:                       ; preds = %Cec_ManTransformPat
   %157 = shl nuw i32 1, %156
   %158 = lshr i64 %.val81, 37
   %159 = and i64 %158, 16777215
-  %160 = getelementptr inbounds nuw i32, ptr %153, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !32
   %162 = or i32 %157, %161
   store i32 %162, ptr %160, align 4, !tbaa !32
@@ -839,15 +838,15 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %41, %37, %32
   %43 = getelementptr inbounds nuw i8, ptr %.val78.val, i64 %.idx
   %44 = load i32, ptr %43, align 4, !tbaa !32
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val77, i64 %45
+  %46 = getelementptr inbounds [12 x i8], ptr %.val77, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !32
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val77, i64 %49
+  %50 = getelementptr inbounds [12 x i8], ptr %.val77, i64 %49
   %51 = load i64, ptr %46, align 4
   %52 = and i64 %51, 536870911
   %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %46, i64 %53
+  %54 = getelementptr inbounds [12 x i8], ptr %46, i64 %53
   %55 = lshr i64 %51, 29
   %56 = and i64 %55, 1
   %57 = ptrtoint ptr %54 to i64
@@ -855,7 +854,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %41, %37, %32
   %59 = load i64, ptr %50, align 4
   %60 = and i64 %59, 536870911
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %50, i64 %61
+  %62 = getelementptr inbounds [12 x i8], ptr %50, i64 %61
   %63 = lshr i64 %59, 29
   %64 = and i64 %63, 1
   %65 = ptrtoint ptr %62 to i64

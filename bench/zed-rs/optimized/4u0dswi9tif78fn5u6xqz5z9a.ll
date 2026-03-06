@@ -3732,7 +3732,7 @@ define void @"_ZN93_$LT$ui..components..button..button_icon..ButtonIcon$u20$as$u
 
 switch.lookup:                                    ; preds = %20
   %30 = zext nneg i8 %17 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN93_$LT$ui..components..button..button_icon..ButtonIcon$u20$as$u20$gpui..element..RenderOnce$GT$6render17he6dc0bb9f0bb9e98E", i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZN93_$LT$ui..components..button..button_icon..ButtonIcon$u20$as$u20$gpui..element..RenderOnce$GT$6render17he6dc0bb9f0bb9e98E", i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE.exit"
 
@@ -3751,7 +3751,7 @@ switch.lookup:                                    ; preds = %20
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %35 = load i8, ptr %34, align 2, !range !390, !noundef !4
   %36 = zext nneg i8 %35 to i64
-  %switch.gep26 = getelementptr inbounds nuw float, ptr @"switch.table._ZN93_$LT$ui..components..button..button_icon..ButtonIcon$u20$as$u20$gpui..element..RenderOnce$GT$6render17he6dc0bb9f0bb9e98E.22", i64 %36
+  %switch.gep26 = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZN93_$LT$ui..components..button..button_icon..ButtonIcon$u20$as$u20$gpui..element..RenderOnce$GT$6render17he6dc0bb9f0bb9e98E.22", i64 %36
   %switch.load27 = load float, ptr %switch.gep26, align 4
   %37 = extractvalue { ptr, i64 } %32, 1
   %38 = extractvalue { ptr, i64 } %32, 0

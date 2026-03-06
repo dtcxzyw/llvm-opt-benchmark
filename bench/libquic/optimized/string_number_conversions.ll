@@ -178,7 +178,7 @@ _ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_ch
   %37 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %28, %30 ]
   %38 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %27, %30 ]
   store i64 %38, ptr %19, align 8, !tbaa !29, !alias.scope !20
-  %39 = getelementptr inbounds nuw i16, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %38
   store i16 0, ptr %39, align 2, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
@@ -326,7 +326,7 @@ _ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_ch
   %32 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %23, %25 ]
   %33 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %22, %25 ]
   store i64 %33, ptr %14, align 8, !tbaa !29, !alias.scope !36
-  %34 = getelementptr inbounds nuw i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %33
   store i16 0, ptr %34, align 2, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !36
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !36
@@ -496,7 +496,7 @@ _ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_ch
   %37 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %28, %30 ]
   %38 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %27, %30 ]
   store i64 %38, ptr %19, align 8, !tbaa !29, !alias.scope !44
-  %39 = getelementptr inbounds nuw i16, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %38
   store i16 0, ptr %39, align 2, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !44
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !44
@@ -644,7 +644,7 @@ _ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_ch
   %32 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %23, %25 ]
   %33 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %22, %25 ]
   store i64 %33, ptr %14, align 8, !tbaa !29, !alias.scope !52
-  %34 = getelementptr inbounds nuw i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %33
   store i16 0, ptr %34, align 2, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !52
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !52
@@ -792,7 +792,7 @@ _ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_ch
   %32 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %23, %25 ]
   %33 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %22, %25 ]
   store i64 %33, ptr %14, align 8, !tbaa !29, !alias.scope !59
-  %34 = getelementptr inbounds nuw i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %33
   store i16 0, ptr %34, align 2, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !59
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !59

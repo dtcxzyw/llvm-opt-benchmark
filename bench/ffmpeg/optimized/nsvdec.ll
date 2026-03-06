@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVCodecTag = type { i32, i32 }
-%struct.AVPacket = type { ptr, i64, i64, ptr, i32, i32, i32, ptr, i32, i64, i64, ptr, ptr, %struct.AVRational }
-%struct.AVRational = type { i32, i32 }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"nsv\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Nullsoft Streaming Video\00", align 1
@@ -303,7 +300,7 @@ define internal range(i32 -2147483648, 1) i32 @nsv_read_header(ptr noundef %0) #
   %77 = tail call i32 @avio_rl32(ptr noundef %19) #8
   %78 = add i32 %77, %25
   %79 = load ptr, ptr %74, align 8, !tbaa !47
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv.i
   store i32 %78, ptr %80, align 4, !tbaa !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %70
@@ -329,7 +326,7 @@ define internal range(i32 -2147483648, 1) i32 @nsv_read_header(ptr noundef %0) #
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %.lr.ph142.i ], [ 0, %85 ]
   %88 = tail call i32 @avio_rl32(ptr noundef %19) #8
   %89 = load ptr, ptr %87, align 8, !tbaa !50
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv144.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv144.i
   store i32 %88, ptr %90, align 4, !tbaa !48
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next145.i, %70
@@ -410,7 +407,7 @@ define internal range(i32 -2147483648, 1) i32 @nsv_read_packet(ptr noundef %0, p
 .preheader:                                       ; preds = %.preheader.preheader, %14
   %15 = phi i1 [ false, %14 ], [ true, %.preheader.preheader ]
   %indvars.iv = phi i64 [ 1, %14 ], [ 0, %.preheader.preheader ]
-  %16 = getelementptr inbounds nuw %struct.AVPacket, ptr %5, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !36
   %.not16 = icmp eq ptr %18, null
@@ -465,7 +462,7 @@ define internal range(i32 -1, 1) i32 @nsv_read_seek(ptr noundef readonly capture
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !55
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !58
@@ -479,7 +476,7 @@ define internal range(i32 -1, 1) i32 @nsv_read_seek(ptr noundef readonly capture
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = zext nneg i32 %14 to i64
-  %22 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !73
   %24 = tail call i64 @avio_seek(ptr noundef %18, i64 noundef %23, i32 noundef 0) #8
   %25 = icmp slt i64 %24, 0
@@ -487,7 +484,7 @@ define internal range(i32 -1, 1) i32 @nsv_read_seek(ptr noundef readonly capture
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr %19, align 8, !tbaa !61
-  %28 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %21
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !75
   %31 = trunc i64 %30 to i32
@@ -719,10 +716,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_parse_NSVs_header(ptr 
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %72, align 8, !tbaa !47
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !48
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !48
   %83 = zext i32 %82 to i64
   %84 = tail call i32 @av_add_index_entry(ptr noundef nonnull %45, i64 noundef %80, i64 noundef %83, i32 noundef 0, i32 noundef 0, i32 noundef 1) #8
@@ -735,7 +732,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_parse_NSVs_header(ptr 
   %89 = sdiv i64 %87, %88
   %90 = tail call i64 @av_rescale(i64 noundef %89, i64 noundef %63, i64 noundef %65) #10
   %91 = load ptr, ptr %72, align 8, !tbaa !47
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4, !tbaa !48
   %94 = zext i32 %93 to i64
   %95 = tail call i32 @av_add_index_entry(ptr noundef nonnull %45, i64 noundef %94, i64 noundef %90, i32 noundef 0, i32 noundef 0, i32 noundef 1) #8
@@ -982,7 +979,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !84
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %3, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %3, i64 %63
   store ptr %60, ptr %64, align 8, !tbaa !56
   %.not159 = icmp eq i32 %56, 1
   br i1 %.not159, label %.thread156, label %65
@@ -993,7 +990,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %69 = load i32, ptr %68, align 4, !tbaa !84
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %3, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %3, i64 %70
   store ptr %67, ptr %71, align 8, !tbaa !56
   br label %.thread156
 

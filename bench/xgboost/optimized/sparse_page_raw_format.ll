@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.78" = type { %"struct.std::_Head_base.81" }
 %"struct.std::_Head_base.81" = type { ptr }
 %"class.dmlc::LogMessageFatal" = type { i8 }
-%"struct.xgboost::Entry" = type { i32, float }
 %"struct.dmlc::Error" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -471,7 +470,7 @@ _ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS6_EE11
 _ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !29
   store ptr %73, ptr %51, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !28
   br label %_ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS6_EE9push_backERKS6_.exit
 
@@ -539,7 +538,7 @@ _ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS5_EE11_
 _ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !33
   store ptr %98, ptr %76, align 8, !tbaa !30
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_10SparsePageEEESaIS5_EE9push_backERKS5_.exit
 
@@ -751,7 +750,7 @@ _ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS6_EE11_S_r
 _ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !41
   store ptr %73, ptr %51, align 8, !tbaa !37
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !40
   br label %_ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS6_EE9push_backERKS6_.exit
 
@@ -819,7 +818,7 @@ _ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS5_EE11_S_re
 _ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !45
   store ptr %98, ptr %76, align 8, !tbaa !42
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !44
   br label %_ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_7CSCPageEEESaIS5_EE9push_backERKS5_.exit
 
@@ -1029,7 +1028,7 @@ _ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS6_E
 _ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !53
   store ptr %73, ptr %51, align 8, !tbaa !49
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !52
   br label %_ZNSt6vectorIPKN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS6_EE9push_backERKS6_.exit
 
@@ -1097,7 +1096,7 @@ _ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS5_EE
 _ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !57
   store ptr %98, ptr %76, align 8, !tbaa !54
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !56
   br label %_ZNSt6vectorIPN7xgboost4data19SparsePageFormatRegINS0_13SortedCSCPageEEESaIS5_EE9push_backERKS5_.exit
 
@@ -1962,7 +1961,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %54, label %55, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %45, i64 %42
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %42
   %.not.i.i = icmp eq ptr %44, %56
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit, label %57
 
@@ -2343,7 +2342,7 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %16
   br i1 %47, label %48, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i64, ptr %38, i64 %35
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %35
   %.not.i.i = icmp eq ptr %37, %49
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %50
 
@@ -2563,7 +2562,7 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %16
   br i1 %47, label %48, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %38, i64 %35
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %35
   %.not.i.i = icmp eq ptr %37, %49
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit, label %50
 
@@ -2976,9 +2975,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !93
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !99
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !112
   br label %41
 
@@ -3325,7 +3324,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !75
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -3381,7 +3380,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !135
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -4479,9 +4478,9 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds 
 
 _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %44
   store ptr %33, ptr %0, align 8, !tbaa !83
-  %46 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !80
-  %47 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %47, ptr %11, align 8, !tbaa !158
   br label %48
 
@@ -5633,7 +5632,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %54, label %55, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %45, i64 %42
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %42
   %.not.i.i = icmp eq ptr %44, %56
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit, label %57
 
@@ -6715,7 +6714,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %54, label %55, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %45, i64 %42
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %42
   %.not.i.i = icmp eq ptr %44, %56
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit, label %57
 

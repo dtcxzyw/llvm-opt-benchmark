@@ -231,12 +231,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   %152 = ashr i32 %151, 12
   %153 = add nsw i32 %152, 1
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = icmp ugt i32 %156, %147
   %spec.select.i.i.i = select i1 %157, i32 %152, i32 %153
   %158 = sext i32 %spec.select.i.i.i to i64
-  %159 = getelementptr inbounds i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %158
   %160 = load i32, ptr %159, align 4
   store i32 0, ptr %5, align 4
   %161 = icmp sgt i32 %spec.select.i.i.i, 0
@@ -509,12 +509,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %312 = ashr i32 %311, 12
   %313 = add nsw i32 %312, 1
   %314 = sext i32 %313 to i64
-  %315 = getelementptr inbounds i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %314
+  %315 = getelementptr inbounds [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %314
   %316 = load i32, ptr %315, align 4
   %317 = icmp ugt i32 %316, %307
   %spec.select.i.i.i17 = select i1 %317, i32 %312, i32 %313
   %318 = sext i32 %spec.select.i.i.i17 to i64
-  %319 = getelementptr inbounds i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %318
+  %319 = getelementptr inbounds [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 %318
   %320 = load i32, ptr %319, align 4
   store i32 0, ptr %5, align 4
   %321 = icmp sgt i32 %spec.select.i.i.i17, 0

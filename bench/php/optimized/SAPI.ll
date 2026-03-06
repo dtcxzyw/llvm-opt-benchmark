@@ -228,7 +228,7 @@ define dso_local void @sapi_read_post_data() local_unnamed_addr #0 {
   %14 = tail call ptr @__ctype_tolower_loc() #21
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = sext i8 %8 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !15
   %19 = trunc i32 %18 to i8
   br label %20
@@ -1176,7 +1176,7 @@ define dso_local range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr nounde
   %45 = getelementptr i8, ptr %44, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !20
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %43, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %43, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !108
   %50 = and i16 %49, 8192
   %.not159 = icmp eq i16 %50, 0
@@ -1193,7 +1193,7 @@ define dso_local range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr nounde
   %54 = getelementptr i8, ptr %53, i64 -2
   %55 = load i8, ptr %54, align 1, !tbaa !20
   %56 = sext i8 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %43, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %43, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !108
   %59 = and i16 %58, 8192
   %.not161 = icmp eq i16 %59, 0

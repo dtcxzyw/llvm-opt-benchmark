@@ -284,7 +284,7 @@ define internal i32 @dissect_nano(ptr noundef %0, ptr noundef readonly captures(
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %46 ]
   %.030.i = phi i32 [ 0, %22 ], [ %.1.i, %46 ]
   %.02528.i = phi i32 [ 8, %22 ], [ %35, %46 ]
-  %27 = getelementptr i32, ptr @ett_nano_peer_details, i64 %indvars.iv.i
+  %27 = getelementptr [4 x i8], ptr @ett_nano_peer_details, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %0, i32 noundef %.02528.i, i32 noundef 18, i32 noundef %28, ptr noundef nonnull %5, ptr noundef nonnull @.str.110)
   call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %.02528.i, ptr noundef nonnull %6)
@@ -839,13 +839,13 @@ define internal i32 @get_nano_tcp_client_message_len(ptr readnone captures(none)
 
 switch.lookup:                                    ; preds = %7
   %24 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_nano_tcp_server_message_len, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_nano_tcp_server_message_len, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %26
 
 switch.lookup15:                                  ; preds = %17
   %25 = zext nneg i8 %switch.tableidx14 to i64
-  %switch.gep16 = getelementptr inbounds nuw i32, ptr @switch.table.get_nano_tcp_client_message_len.2, i64 %25
+  %switch.gep16 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_nano_tcp_client_message_len.2, i64 %25
   %switch.load17 = load i32, ptr %switch.gep16, align 4
   br label %26
 
@@ -1040,7 +1040,7 @@ define internal i32 @get_nano_tcp_server_message_len(ptr readnone captures(none)
 
 switch.lookup:                                    ; preds = %6
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_nano_tcp_server_message_len, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_nano_tcp_server_message_len, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %16
 

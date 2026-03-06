@@ -1083,7 +1083,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   %.376.i = phi ptr [ %46, %45 ], [ %.07393.i, %44 ]
   %.372.i = phi i32 [ %.06994.i, %45 ], [ 1, %44 ]
   %48 = sext i32 %26 to i64
-  %49 = getelementptr inbounds i32, ptr %18, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %18, i64 %48
   %50 = tail call ptr @uriEscapeExW(ptr noundef %18, ptr noundef %49, ptr noundef %.376.i, i32 noundef %4, i32 noundef %5) #7
   br i1 %27, label %64, label %51
 
@@ -1101,7 +1101,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   store i32 61, ptr %50, align 4, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %61 = sext i32 %32 to i64
-  %62 = getelementptr inbounds i32, ptr %20, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %20, i64 %61
   %63 = tail call ptr @uriEscapeExW(ptr noundef nonnull %20, ptr noundef nonnull %62, ptr noundef nonnull %60, i32 noundef %4, i32 noundef %5) #7
   br label %64
 
@@ -1419,7 +1419,7 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(add
 
 51:                                               ; preds = %39
   %52 = ashr i64 %42, 32
-  %53 = getelementptr inbounds i32, ptr %45, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %45, i64 %52
   store i32 0, ptr %53, align 4, !tbaa !3
   %54 = icmp sgt i32 %28, 0
   br i1 %54, label %55, label %58
@@ -1557,7 +1557,7 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
 
 116:                                              ; preds = %104
   %117 = ashr i64 %107, 32
-  %118 = getelementptr inbounds i32, ptr %110, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %110, i64 %117
   store i32 0, ptr %118, align 4, !tbaa !3
   %119 = icmp sgt i32 %95, 0
   br i1 %119, label %120, label %123
@@ -1677,7 +1677,7 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
 
 46:                                               ; preds = %34
   %47 = ashr i64 %37, 32
-  %48 = getelementptr inbounds i32, ptr %40, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %40, i64 %47
   store i32 0, ptr %48, align 4, !tbaa !3
   %49 = icmp sgt i32 %14, 0
   br i1 %49, label %50, label %53
@@ -1715,7 +1715,7 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
 
 67:                                               ; preds = %55
   %68 = ashr i64 %57, 32
-  %69 = getelementptr inbounds i32, ptr %60, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %60, i64 %68
   store i32 0, ptr %69, align 4, !tbaa !3
   %70 = icmp sgt i32 %19, 0
   br i1 %70, label %71, label %74

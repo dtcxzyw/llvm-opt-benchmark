@@ -85,7 +85,7 @@ define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$
 
 6:                                                ; preds = %4
   %7 = sub nuw i64 %2, %0
-  %8 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %1, i64 %0
+  %8 = getelementptr inbounds [48 x i8], ptr %1, i64 %0
   %9 = insertvalue { ptr, i64 } poison, ptr %8, 0
   %10 = insertvalue { ptr, i64 } %9, i64 %7, 1
   ret { ptr, i64 } %10
@@ -101,10 +101,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !6, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h68eed8c1e224cd84E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h68eed8c1e224cd84E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h68eed8c1e224cd84E.17", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h68eed8c1e224cd84E.17", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -230,7 +230,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !32
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %1, i64 %0
+  %7 = getelementptr inbounds [48 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -253,7 +253,7 @@ define hidden { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$c
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = sub nuw i64 %5, %1
-  %11 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %9, i64 %1
+  %11 = getelementptr inbounds [48 x i8], ptr %9, i64 %1
   %12 = insertvalue { ptr, i64 } poison, ptr %11, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %10, 1
   ret { ptr, i64 } %13
@@ -273,7 +273,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN81_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd9282c47a9ea0832E.llvm.746658106587683372.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [48 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -664,7 +664,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf314b17b8c70f6c3E.exit.i.i": ; preds = %70, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i
   %71 = phi i64 [ %.pre.i.i.i, %70 ], [ %67, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i ]
   %72 = load ptr, ptr %24, align 8, !alias.scope !93, !noalias !96, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %72, i64 %71
+  %73 = getelementptr inbounds [48 x i8], ptr %72, i64 %71
   store i64 %.sroa.0.0131.i.i, ptr %73, align 8, !noalias !99
   %.sroa.495.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %.sroa.9.0.i.i, ptr %.sroa.495.0..sroa_idx.i.i, align 8, !noalias !99
@@ -717,7 +717,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i: ; 
   %86 = icmp ult i64 %84, %85
   tail call void @llvm.assume(i1 %86)
   %87 = load ptr, ptr %24, align 8, !alias.scope !112, !noalias !108, !nonnull !4, !noundef !4
-  %88 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %87, i64 %84
+  %88 = getelementptr inbounds [48 x i8], ptr %87, i64 %84
   %.sroa.0106.0.copyload.i.i = load i64, ptr %88, align 8, !noalias !113
   %.sroa.6107.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.6107.0.copyload.i.i = load ptr, ptr %.sroa.6107.0..sroa_idx.i.i, align 8, !noalias !113
@@ -849,7 +849,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit81.i.i: 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf314b17b8c70f6c3E.exit83.i.i": ; preds = %119, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit81.i.i
   %120 = phi i64 [ %.pre.i82.i.i, %119 ], [ %117, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit81.i.i ]
   %121 = load ptr, ptr %24, align 8, !alias.scope !126, !noalias !129, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %121, i64 %120
+  %122 = getelementptr inbounds [48 x i8], ptr %121, i64 %120
   store i64 %.sroa.0106.0.copyload.i.i, ptr %122, align 8, !noalias !99
   %.sroa.4123.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %.sroa.6107.0.copyload.i.i, ptr %.sroa.4123.0..sroa_idx.i.i, align 8, !noalias !99
@@ -970,7 +970,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h88ca8eb2e42bf688E.exit": ; preds = %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit, %147
   %148 = phi i64 [ %.pre.i, %147 ], [ %144, %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit ]
   %149 = load ptr, ptr %22, align 8, !alias.scope !134, !noalias !137, !nonnull !4, !noundef !4
-  %150 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %149, i64 %148
+  %150 = getelementptr inbounds [40 x i8], ptr %149, i64 %148
   store ptr %.0303, ptr %150, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i64 %.sroa.5108.0.ph210, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1024,7 +1024,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
   %164 = icmp ult i64 %162, %163
   tail call void @llvm.assume(i1 %164)
   %165 = load ptr, ptr %22, align 8, !alias.scope !144, !noalias !142, !nonnull !4, !noundef !4
-  %166 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %165, i64 %162
+  %166 = getelementptr inbounds [40 x i8], ptr %165, i64 %162
   %.sroa.0126.0.copyload = load ptr, ptr %166, align 8, !noalias !144
   %.sroa.5127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 8
   %.sroa.5127.0.copyload = load i64, ptr %.sroa.5127.0..sroa_idx, align 8, !noalias !144
@@ -1096,7 +1096,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit105: ; preds =
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h88ca8eb2e42bf688E.exit107": ; preds = %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit105, %185
   %186 = phi i64 [ %.pre.i106, %185 ], [ %182, %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit105 ]
   %187 = load ptr, ptr %22, align 8, !alias.scope !147, !noalias !150, !nonnull !4, !noundef !4
-  %188 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %187, i64 %186
+  %188 = getelementptr inbounds [40 x i8], ptr %187, i64 %186
   store ptr %.sroa.0126.0.copyload, ptr %188, align 8
   %.sroa.4144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i64 %169, ptr %.sroa.4144.0..sroa_idx, align 8
@@ -1399,7 +1399,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf314b17b8c70f6c3E.exit.i.i": ; preds = %91, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i
   %92 = phi i64 [ %.pre.i.i.i, %91 ], [ %88, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i ]
   %93 = load ptr, ptr %17, align 8, !alias.scope !212, !noalias !215, !nonnull !4, !noundef !4
-  %94 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %93, i64 %92
+  %94 = getelementptr inbounds [48 x i8], ptr %93, i64 %92
   store i64 %.sroa.0.0125.i.i, ptr %94, align 8, !noalias !218
   %.sroa.487.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %.sroa.9.0.i.i, ptr %.sroa.487.0..sroa_idx.i.i, align 8, !noalias !218
@@ -1452,7 +1452,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i: ; 
   store i64 %106, ptr %14, align 8, !alias.scope !234, !noalias !237
   %107 = icmp ult i64 %106, %102
   call void @llvm.assume(i1 %107)
-  %108 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %103, i64 %106
+  %108 = getelementptr inbounds [48 x i8], ptr %103, i64 %106
   %.sroa.098.0.copyload.i.i = load i64, ptr %108, align 8, !noalias !242
   %.sroa.699.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %108, i64 8
   %.sroa.699.0.copyload.i.i = load ptr, ptr %.sroa.699.0..sroa_idx.i.i, align 8, !noalias !242
@@ -1641,7 +1641,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h88ca8eb2e42bf688E.exit": ; preds = %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit, %155
   %156 = phi i64 [ %.pre.i, %155 ], [ %152, %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit ]
   %157 = load ptr, ptr %15, align 8, !alias.scope !275, !noalias !278, !nonnull !4, !noundef !4
-  %158 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %157, i64 %156
+  %158 = getelementptr inbounds [40 x i8], ptr %157, i64 %156
   store ptr %.0, ptr %158, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %.sroa.5114.0.ph205, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1696,7 +1696,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
   %172 = icmp ult i64 %170, %171
   call void @llvm.assume(i1 %172)
   %173 = load ptr, ptr %15, align 8, !alias.scope !298, !noalias !296, !nonnull !4, !noundef !4
-  %174 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %173, i64 %170
+  %174 = getelementptr inbounds [40 x i8], ptr %173, i64 %170
   %.sroa.0133.0.copyload = load ptr, ptr %174, align 8, !noalias !298
   %.sroa.5134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %174, i64 8
   %.sroa.5134.0.copyload = load i64, ptr %.sroa.5134.0..sroa_idx, align 8, !noalias !298
@@ -1768,7 +1768,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit111: ; preds =
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h88ca8eb2e42bf688E.exit113": ; preds = %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit111, %192
   %193 = phi i64 [ %.pre.i112, %192 ], [ %189, %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit111 ]
   %194 = load ptr, ptr %15, align 8, !alias.scope !316, !noalias !319, !nonnull !4, !noundef !4
-  %195 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %194, i64 %193
+  %195 = getelementptr inbounds [40 x i8], ptr %194, i64 %193
   store ptr %.sroa.0133.0.copyload, ptr %195, align 8
   %.sroa.4152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %195, i64 8
   store i64 %177, ptr %.sroa.4152.0..sroa_idx, align 8
@@ -1981,7 +1981,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf314b17b8c70f6c3E.exit.i.i": ; preds = %76, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i
   %77 = phi i64 [ %.pre.i.i.i, %76 ], [ %73, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit.i.i ]
   %78 = load ptr, ptr %11, align 8, !alias.scope !402, !noalias !405, !nonnull !4, !noundef !4
-  %79 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %78, i64 %77
+  %79 = getelementptr inbounds [48 x i8], ptr %78, i64 %77
   store i64 %.sroa.0.0.i.i, ptr %79, align 8, !noalias !373
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %.sroa.9.0.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !373
@@ -2016,7 +2016,7 @@ _ZN12regex_syntax3ast7visitor11HeapVisitor16visit_class_post17hc58eb5e078165d73E
   %89 = icmp ult i64 %87, %88
   call void @llvm.assume(i1 %89)
   %90 = load ptr, ptr %11, align 8, !alias.scope !415, !noalias !411, !nonnull !4, !noundef !4
-  %91 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %90, i64 %87
+  %91 = getelementptr inbounds [48 x i8], ptr %90, i64 %87
   %.sroa.062.0.copyload.i.i = load i64, ptr %91, align 8, !noalias !416
   %.sroa.663.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.663.0.copyload.i.i = load ptr, ptr %.sroa.663.0..sroa_idx.i.i, align 8, !noalias !416
@@ -2068,7 +2068,7 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
   %100 = load i8, ptr %99, align 1, !range !429, !alias.scope !430, !noalias !431, !noundef !4
   %101 = zext nneg i8 %100 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12regex_syntax3ast7visitor11HeapVisitor5visit17hd347275041425ac2E.llvm.746658106587683372, i64 %101
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12regex_syntax3ast7visitor11HeapVisitor5visit17hd347275041425ac2E.llvm.746658106587683372, i64 %101
   %switch.load = load ptr, ptr %switch.gep, align 8
   %102 = load ptr, ptr %6, align 8, !alias.scope !432, !noalias !433, !nonnull !4, !align !81, !noundef !4
   %103 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %102, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 2), !noalias !434
@@ -2112,7 +2112,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit43.i.i: 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf314b17b8c70f6c3E.exit45.i.i": ; preds = %116, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit43.i.i
   %117 = phi i64 [ %.pre.i44.i.i, %116 ], [ %114, %_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E.exit43.i.i ]
   %118 = load ptr, ptr %11, align 8, !alias.scope !441, !noalias !444, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds { { i64, ptr }, { i64, [3 x i64] } }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [48 x i8], ptr %118, i64 %117
   store i64 %.sroa.062.0.copyload.i.i, ptr %119, align 8, !noalias !373
   %.sroa.478.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %.sroa.663.0.copyload.i.i, ptr %.sroa.478.0..sroa_idx.i.i, align 8, !noalias !373
@@ -2189,7 +2189,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h88ca8eb2e42bf688E.exit": ; preds = %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit, %140
   %141 = phi i64 [ %.pre.i, %140 ], [ %137, %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit ]
   %142 = load ptr, ptr %9, align 8, !alias.scope !448, !noalias !451, !nonnull !4, !noundef !4
-  %143 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %142, i64 %141
+  %143 = getelementptr inbounds [40 x i8], ptr %142, i64 %141
   store ptr %.0, ptr %143, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i64 %.sroa.0.081.ph116, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2225,7 +2225,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
   %151 = icmp ult i64 %149, %150
   call void @llvm.assume(i1 %151)
   %152 = load ptr, ptr %9, align 8, !alias.scope !453, !noalias !456, !nonnull !4, !noundef !4
-  %153 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %152, i64 %149
+  %153 = getelementptr inbounds [40 x i8], ptr %152, i64 %149
   %.sroa.059.0.copyload = load ptr, ptr %153, align 8, !noalias !453
   %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 8
   %.sroa.560.0.copyload = load i64, ptr %.sroa.560.0..sroa_idx, align 8, !noalias !453
@@ -2287,7 +2287,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit44: ; preds = 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h88ca8eb2e42bf688E.exit46": ; preds = %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit44, %171
   %172 = phi i64 [ %.pre.i45, %171 ], [ %168, %_ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit44 ]
   %173 = load ptr, ptr %9, align 8, !alias.scope !458, !noalias !461, !nonnull !4, !noundef !4
-  %174 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %173, i64 %172
+  %174 = getelementptr inbounds [40 x i8], ptr %173, i64 %172
   store ptr %.sroa.059.0.copyload, ptr %174, align 8
   %.sroa.4.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i64 %156, ptr %.sroa.4.0..sroa_idx74, align 8

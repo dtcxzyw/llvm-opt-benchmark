@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.anon = type { ptr, i32 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @advice_enabled.globally_enabled = internal unnamed_addr global i32 -1, align 4
@@ -184,7 +182,7 @@ declare void @llvm.va_end.p0(ptr) #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @advice_enabled(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %2
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @advice_setting, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = icmp ne i32 %5, 1
@@ -235,7 +233,7 @@ define dso_local void @advise_if_enabled(i32 noundef %0, ptr noundef %1, ...) lo
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @advice_setting, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = icmp ne i32 %7, 1
@@ -372,7 +370,7 @@ skip_prefix.exit28:                               ; preds = %skip_prefix.exit28.
 
 skip_prefix.exit28.preheader:                     ; preds = %skip_prefix.exit, %skip_prefix.exit28
   %.040 = phi i64 [ %25, %skip_prefix.exit28 ], [ 0, %skip_prefix.exit ]
-  %26 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %.040
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @advice_setting, i64 %.040
   %27 = load ptr, ptr %26, align 16, !tbaa !20
   %28 = tail call i32 @strcasecmp(ptr noundef nonnull %scevgep45, ptr noundef %27) #14
   %.not21 = icmp eq i32 %28, 0
@@ -414,7 +412,7 @@ define dso_local void @list_config_advices(ptr noundef %0, ptr noundef %1) local
 
 4:                                                ; preds = %2, %4
   %.04 = phi i64 [ 0, %2 ], [ %9, %4 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %.04
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @advice_setting, i64 %.04
   %6 = load ptr, ptr %5, align 16, !tbaa !20
   %7 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.83, ptr noundef %1, ptr noundef %6) #13
   %8 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %7) #13
@@ -653,7 +651,7 @@ _.exit:                                           ; preds = %4, %7
 .lr.ph.preheader:                                 ; preds = %_.exit
   %11 = load ptr, ptr %0, align 8, !tbaa !27
   %12 = load i64, ptr %2, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw %struct.string_list_item, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = icmp ult ptr %10, %13
   br i1 %14, label %.lr.ph, label %.critedge
 
@@ -665,7 +663,7 @@ _.exit:                                           ; preds = %4, %7
   %18 = getelementptr inbounds nuw i8, ptr %.01315, i64 16
   %19 = load ptr, ptr %0, align 8, !tbaa !27
   %20 = load i64, ptr %2, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = icmp ult ptr %18, %21
   br i1 %22, label %.lr.ph, label %.critedge
 
@@ -734,7 +732,7 @@ _.exit:                                           ; preds = %4, %7
 .lr.ph.preheader:                                 ; preds = %_.exit
   %11 = load ptr, ptr %0, align 8, !tbaa !27
   %12 = load i64, ptr %2, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw %struct.string_list_item, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = icmp ult ptr %10, %13
   br i1 %14, label %.lr.ph, label %.critedge
 
@@ -746,7 +744,7 @@ _.exit:                                           ; preds = %4, %7
   %18 = getelementptr inbounds nuw i8, ptr %.01315, i64 16
   %19 = load ptr, ptr %0, align 8, !tbaa !27
   %20 = load i64, ptr %2, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = icmp ult ptr %18, %21
   br i1 %22, label %.lr.ph, label %.critedge
 

@@ -662,7 +662,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   %58 = tail call ptr @__ctype_b_loc() #9
   %59 = load ptr, ptr %58, align 8, !tbaa !46
   %60 = zext nneg i8 %56 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !48
   %63 = and i16 %62, 8192
   %.not61.i = icmp eq i16 %63, 0
@@ -694,7 +694,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   %72 = tail call ptr @__ctype_b_loc() #9
   %73 = load ptr, ptr %72, align 8, !tbaa !46
   %74 = zext nneg i8 %70 to i64
-  %75 = getelementptr inbounds nuw i16, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !48
   %77 = and i16 %76, 8192
   %.not63.i = icmp eq i16 %77, 0
@@ -723,7 +723,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   %86 = tail call ptr @__ctype_b_loc() #9
   %87 = load ptr, ptr %86, align 8, !tbaa !46
   %88 = zext nneg i8 %81 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !48
   %91 = and i16 %90, 8192
   %.not65.i = icmp eq i16 %91, 0
@@ -745,7 +745,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
 97:                                               ; preds = %93
   %98 = load ptr, ptr %86, align 8, !tbaa !46
   %99 = zext nneg i8 %96 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !48
   %102 = and i16 %101, 8192
   %.not67.i = icmp eq i16 %102, 0
@@ -754,7 +754,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
 103:                                              ; preds = %85
   %104 = tail call ptr @__ctype_tolower_loc() #9
   %105 = load ptr, ptr %104, align 8, !tbaa !53
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %88
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %88
   %107 = load i32, ptr %106, align 4, !tbaa !55
   %108 = trunc i32 %107 to i8
   store i8 %108, ptr %.189.i, align 1, !tbaa !24

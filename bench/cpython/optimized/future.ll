@@ -54,7 +54,7 @@ define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr noundef readonly captur
   %.13149.i = phi i64 [ %103, %.loopexit.i ], [ %spec.select.i, %13 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = getelementptr ptr, ptr %17, i64 %.13149.i
+  %18 = getelementptr [8 x i8], ptr %17, i64 %.13149.i
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = load i32, ptr %19, align 8, !tbaa !19
   %21 = icmp eq i32 %20, 22
@@ -91,7 +91,7 @@ define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr noundef readonly captur
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %85
   %.0353.i48.i = phi i64 [ %86, %85 ], [ 0, %.lr.ph.i.i ]
-  %37 = getelementptr ptr, ptr %34, i64 %.0353.i48.i
+  %37 = getelementptr [8 x i8], ptr %34, i64 %.0353.i48.i
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %39) #4

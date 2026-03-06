@@ -635,7 +635,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
 218:                                              ; preds = %143, %218
   %indvars.iv = phi i64 [ 0, %143 ], [ %indvars.iv.next, %218 ]
-  %219 = getelementptr inbounds nuw double, ptr %179, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv
   %220 = load double, ptr %219, align 8, !tbaa !63
   %221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %220)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -281,7 +281,7 @@ define noalias noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = tail call ptr %13(ptr noundef %1) #3
-  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %14, ptr %15, align 8, !tbaa !35
   %16 = icmp eq ptr %14, null
   br i1 %16, label %.preheader.i, label %27
@@ -297,7 +297,7 @@ define noalias noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef
 
 .lr.ph.i:                                         ; preds = %N_VDestroy.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %N_VDestroy.exit.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !35
   %21 = icmp eq ptr %20, null
   br i1 %21, label %N_VDestroy.exit.i, label %22
@@ -347,7 +347,7 @@ define void @N_VDestroyVectorArray(ptr noundef captures(address_is_null) %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %N_VDestroy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %N_VDestroy.exit ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = icmp eq ptr %6, null
   br i1 %7, label %N_VDestroy.exit, label %8
@@ -394,7 +394,7 @@ define noalias noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) 
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call ptr %12(ptr noundef %1) #3
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %13, ptr %14, align 8, !tbaa !35
   %15 = icmp eq ptr %13, null
   br i1 %15, label %.preheader.i, label %26
@@ -410,7 +410,7 @@ define noalias noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) 
 
 .lr.ph.i:                                         ; preds = %N_VDestroy.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %N_VDestroy.exit.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !35
   %20 = icmp eq ptr %19, null
   br i1 %20, label %N_VDestroy.exit.i, label %21

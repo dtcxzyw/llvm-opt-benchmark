@@ -39,12 +39,10 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.111 = type { %"class.std::function.19" }
 %"class.std::function.19" = type { %"class.std::_Function_base", ptr }
 %class.anon.113 = type { %"class.std::function.10", i64 }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::ConfigurePreset>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function", i8, [7 x i8] }>
 %"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
 %"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::CacheVariable>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.84", i8, [7 x i8] }>
 %class.anon.100 = type <{ %"class.std::function.2", ptr, [8 x i8] }>
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::optional<cmCMakePresetsGraph::CacheVariable>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::optional<cmCMakePresetsGraph::CacheVariable>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"class.std::optional.86" = type { %"struct.std::_Optional_base.87" }
@@ -4894,7 +4892,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph15ConfigurePres
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph15ConfigurePresetEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph15ConfigurePresetEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !27
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !28
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::ConfigurePreset>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !31
   ret void
 }
@@ -9091,7 +9089,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph13CacheVariable
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph13CacheVariableEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph13CacheVariableEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !70
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !52
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::CacheVariable>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !55
   ret void
 }
@@ -12814,7 +12812,7 @@ _ZNSt6vectorIN19cmCMakePresetsGraph15ConfigurePresetESaIS1_EE11_S_relocateEPS1_S
 _ZNSt12_Vector_baseIN19cmCMakePresetsGraph15ConfigurePresetESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19cmCMakePresetsGraph15ConfigurePresetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %32
   store ptr %20, ptr %0, align 8, !tbaa !240
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !243
-  %36 = getelementptr inbounds nuw %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %20, i64 %16
+  %36 = getelementptr inbounds nuw [600 x i8], ptr %20, i64 %16
   store ptr %36, ptr %31, align 8, !tbaa !280
   ret void
 }

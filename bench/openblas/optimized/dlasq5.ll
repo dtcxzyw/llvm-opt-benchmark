@@ -35,7 +35,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %32 = load i32, ptr %3, align 4, !tbaa !3
   %33 = add nsw i32 %32, %31
   %34 = sext i32 %33 to i64
-  %35 = getelementptr double, ptr %15, i64 %34
+  %35 = getelementptr [8 x i8], ptr %15, i64 %34
   %36 = getelementptr i8, ptr %35, i64 8
   %37 = load double, ptr %36, align 8, !tbaa !7
   %38 = getelementptr i8, ptr %35, i64 -24
@@ -68,7 +68,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv772 = phi i64 [ %49, %.lr.ph708.preheader ], [ %indvars.iv.next773, %.lr.ph708 ]
   %.0590706 = phi double [ %40, %.lr.ph708.preheader ], [ %61, %.lr.ph708 ]
   %.0599705 = phi double [ %37, %.lr.ph708.preheader ], [ %66, %.lr.ph708 ]
-  %51 = getelementptr double, ptr %15, i64 %indvars.iv772
+  %51 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv772
   %52 = getelementptr i8, ptr %51, i64 -8
   %53 = load double, ptr %52, align 8, !tbaa !7
   %54 = fadd double %.0590706, %53
@@ -105,7 +105,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv = phi i64 [ %68, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.2592701 = phi double [ %40, %.lr.ph.preheader ], [ %79, %.lr.ph ]
   %.2601700 = phi double [ %37, %.lr.ph.preheader ], [ %85, %.lr.ph ]
-  %70 = getelementptr inbounds double, ptr %15, i64 %indvars.iv
+  %70 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv
   %71 = load double, ptr %70, align 8, !tbaa !7
   %72 = fadd double %.2592701, %71
   %73 = getelementptr i8, ptr %70, i64 -24
@@ -142,12 +142,12 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %90 = add nsw i32 %88, %89
   %91 = load double, ptr %11, align 8, !tbaa !7
   %92 = sext i32 %90 to i64
-  %93 = getelementptr double, ptr %15, i64 %92
+  %93 = getelementptr [8 x i8], ptr %15, i64 %92
   %94 = getelementptr i8, ptr %93, i64 -8
   %95 = load double, ptr %94, align 8, !tbaa !7
   %96 = fadd double %91, %95
   %97 = sext i32 %88 to i64
-  %98 = getelementptr double, ptr %15, i64 %97
+  %98 = getelementptr [8 x i8], ptr %15, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -16
   store double %96, ptr %99, align 8, !tbaa !7
   %100 = getelementptr i8, ptr %93, i64 8
@@ -172,7 +172,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %113 = add nsw i32 %112, %89
   %114 = load double, ptr %10, align 8, !tbaa !7
   %115 = sext i32 %113 to i64
-  %116 = getelementptr double, ptr %15, i64 %115
+  %116 = getelementptr [8 x i8], ptr %15, i64 %115
   %117 = getelementptr i8, ptr %116, i64 -8
   %118 = load double, ptr %117, align 8, !tbaa !7
   %119 = fadd double %114, %118
@@ -200,7 +200,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv778 = phi i64 [ %128, %.lr.ph722.preheader ], [ %indvars.iv.next779, %136 ]
   %.3593720 = phi double [ %40, %.lr.ph722.preheader ], [ %144, %136 ]
   %.3602719 = phi double [ %37, %.lr.ph722.preheader ], [ %148, %136 ]
-  %130 = getelementptr double, ptr %15, i64 %indvars.iv778
+  %130 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv778
   %131 = getelementptr i8, ptr %130, i64 -8
   %132 = load double, ptr %131, align 8, !tbaa !7
   %133 = fadd double %.3593720, %132
@@ -242,7 +242,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv775 = phi i64 [ %150, %.lr.ph715.preheader ], [ %indvars.iv.next776, %157 ]
   %.5595713 = phi double [ %40, %.lr.ph715.preheader ], [ %166, %157 ]
   %.5604712 = phi double [ %37, %.lr.ph715.preheader ], [ %170, %157 ]
-  %152 = getelementptr inbounds double, ptr %15, i64 %indvars.iv775
+  %152 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv775
   %153 = load double, ptr %152, align 8, !tbaa !7
   %154 = fadd double %.5595713, %153
   %155 = getelementptr i8, ptr %152, i64 -24
@@ -284,12 +284,12 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %175 = add nsw i32 %173, %174
   %176 = load double, ptr %11, align 8, !tbaa !7
   %177 = sext i32 %175 to i64
-  %178 = getelementptr double, ptr %15, i64 %177
+  %178 = getelementptr [8 x i8], ptr %15, i64 %177
   %179 = getelementptr i8, ptr %178, i64 -8
   %180 = load double, ptr %179, align 8, !tbaa !7
   %181 = fadd double %176, %180
   %182 = sext i32 %173 to i64
-  %183 = getelementptr double, ptr %15, i64 %182
+  %183 = getelementptr [8 x i8], ptr %15, i64 %182
   %184 = getelementptr i8, ptr %183, i64 -16
   store double %181, ptr %184, align 8, !tbaa !7
   %185 = load double, ptr %11, align 8, !tbaa !7
@@ -319,7 +319,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %201 = add nsw i32 %200, %174
   %202 = load double, ptr %10, align 8, !tbaa !7
   %203 = sext i32 %201 to i64
-  %204 = getelementptr double, ptr %15, i64 %203
+  %204 = getelementptr [8 x i8], ptr %15, i64 %203
   %205 = getelementptr i8, ptr %204, i64 -8
   %206 = load double, ptr %205, align 8, !tbaa !7
   %207 = fadd double %202, %206
@@ -343,7 +343,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %220 = load i32, ptr %3, align 4, !tbaa !3
   %221 = add nsw i32 %220, %219
   %222 = sext i32 %221 to i64
-  %223 = getelementptr double, ptr %15, i64 %222
+  %223 = getelementptr [8 x i8], ptr %15, i64 %222
   %224 = getelementptr i8, ptr %223, i64 8
   %225 = load double, ptr %224, align 8, !tbaa !7
   %226 = getelementptr i8, ptr %223, i64 -24
@@ -376,7 +376,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv784 = phi i64 [ %237, %.lr.ph736.preheader ], [ %indvars.iv.next785, %.lr.ph736 ]
   %.6596734 = phi double [ %228, %.lr.ph736.preheader ], [ %.7597, %.lr.ph736 ]
   %.7606733 = phi double [ %225, %.lr.ph736.preheader ], [ %256, %.lr.ph736 ]
-  %239 = getelementptr double, ptr %15, i64 %indvars.iv784
+  %239 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv784
   %240 = getelementptr i8, ptr %239, i64 -8
   %241 = load double, ptr %240, align 8, !tbaa !7
   %242 = fadd double %.6596734, %241
@@ -415,7 +415,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv781 = phi i64 [ %258, %.lr.ph729.preheader ], [ %indvars.iv.next782, %.lr.ph729 ]
   %.9727 = phi double [ %228, %.lr.ph729.preheader ], [ %.10, %.lr.ph729 ]
   %.9608726 = phi double [ %225, %.lr.ph729.preheader ], [ %277, %.lr.ph729 ]
-  %260 = getelementptr inbounds double, ptr %15, i64 %indvars.iv781
+  %260 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv781
   %261 = load double, ptr %260, align 8, !tbaa !7
   %262 = fadd double %.9727, %261
   %263 = getelementptr i8, ptr %260, i64 -24
@@ -454,12 +454,12 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %282 = add nsw i32 %280, %281
   %283 = load double, ptr %11, align 8, !tbaa !7
   %284 = sext i32 %282 to i64
-  %285 = getelementptr double, ptr %15, i64 %284
+  %285 = getelementptr [8 x i8], ptr %15, i64 %284
   %286 = getelementptr i8, ptr %285, i64 -8
   %287 = load double, ptr %286, align 8, !tbaa !7
   %288 = fadd double %283, %287
   %289 = sext i32 %280 to i64
-  %290 = getelementptr double, ptr %15, i64 %289
+  %290 = getelementptr [8 x i8], ptr %15, i64 %289
   %291 = getelementptr i8, ptr %290, i64 -16
   store double %288, ptr %291, align 8, !tbaa !7
   %292 = getelementptr i8, ptr %285, i64 8
@@ -484,7 +484,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %305 = add nsw i32 %304, %281
   %306 = load double, ptr %10, align 8, !tbaa !7
   %307 = sext i32 %305 to i64
-  %308 = getelementptr double, ptr %15, i64 %307
+  %308 = getelementptr [8 x i8], ptr %15, i64 %307
   %309 = getelementptr i8, ptr %308, i64 -8
   %310 = load double, ptr %309, align 8, !tbaa !7
   %311 = fadd double %306, %310
@@ -512,7 +512,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv790 = phi i64 [ %320, %.lr.ph750.preheader ], [ %indvars.iv.next791, %328 ]
   %.11748 = phi double [ %228, %.lr.ph750.preheader ], [ %.12, %328 ]
   %.10609747 = phi double [ %225, %.lr.ph750.preheader ], [ %342, %328 ]
-  %322 = getelementptr double, ptr %15, i64 %indvars.iv790
+  %322 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv790
   %323 = getelementptr i8, ptr %322, i64 -8
   %324 = load double, ptr %323, align 8, !tbaa !7
   %325 = fadd double %.11748, %324
@@ -556,7 +556,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv787 = phi i64 [ %344, %.lr.ph743.preheader ], [ %indvars.iv.next788, %351 ]
   %.14741 = phi double [ %228, %.lr.ph743.preheader ], [ %.15, %351 ]
   %.12611740 = phi double [ %225, %.lr.ph743.preheader ], [ %366, %351 ]
-  %346 = getelementptr inbounds double, ptr %15, i64 %indvars.iv787
+  %346 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv787
   %347 = load double, ptr %346, align 8, !tbaa !7
   %348 = fadd double %.14741, %347
   %349 = getelementptr i8, ptr %346, i64 -24
@@ -600,12 +600,12 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %371 = add nsw i32 %369, %370
   %372 = load double, ptr %11, align 8, !tbaa !7
   %373 = sext i32 %371 to i64
-  %374 = getelementptr double, ptr %15, i64 %373
+  %374 = getelementptr [8 x i8], ptr %15, i64 %373
   %375 = getelementptr i8, ptr %374, i64 -8
   %376 = load double, ptr %375, align 8, !tbaa !7
   %377 = fadd double %372, %376
   %378 = sext i32 %369 to i64
-  %379 = getelementptr double, ptr %15, i64 %378
+  %379 = getelementptr [8 x i8], ptr %15, i64 %378
   %380 = getelementptr i8, ptr %379, i64 -16
   store double %377, ptr %380, align 8, !tbaa !7
   %381 = load double, ptr %11, align 8, !tbaa !7
@@ -635,7 +635,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %397 = add nsw i32 %396, %370
   %398 = load double, ptr %10, align 8, !tbaa !7
   %399 = sext i32 %397 to i64
-  %400 = getelementptr double, ptr %15, i64 %399
+  %400 = getelementptr [8 x i8], ptr %15, i64 %399
   %401 = getelementptr i8, ptr %400, i64 -8
   %402 = load double, ptr %401, align 8, !tbaa !7
   %403 = fadd double %398, %402
@@ -662,7 +662,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %414 = phi i32 [ %220, %.loopexit683 ], [ %220, %407 ], [ %32, %.loopexit689 ], [ %32, %211 ]
   %.6605 = phi double [ %.8607, %.loopexit683 ], [ %.11610, %407 ], [ %.1600, %.loopexit689 ], [ %.4603, %211 ]
   %415 = sext i32 %.sink856 to i64
-  %416 = getelementptr inbounds double, ptr %15, i64 %415
+  %416 = getelementptr inbounds [8 x i8], ptr %15, i64 %415
   store double %.sink, ptr %416, align 8, !tbaa !7
   %.sink832 = load double, ptr %.sink832.in, align 8, !tbaa !7
   %417 = load double, ptr %10, align 8, !tbaa !7
@@ -676,12 +676,12 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %423 = select i1 %.inv674, double %422, double %421
   store double %423, ptr %6, align 8, !tbaa !7
   %424 = load double, ptr %9, align 8, !tbaa !7
-  %425 = getelementptr double, ptr %15, i64 %415
+  %425 = getelementptr [8 x i8], ptr %15, i64 %415
   %426 = getelementptr i8, ptr %425, i64 16
   store double %424, ptr %426, align 8, !tbaa !7
   %427 = sub nsw i32 %.pre-phi794, %414
   %428 = sext i32 %427 to i64
-  %429 = getelementptr inbounds double, ptr %15, i64 %428
+  %429 = getelementptr inbounds [8 x i8], ptr %15, i64 %428
   store double %.6605, ptr %429, align 8, !tbaa !7
   br label %.loopexit680
 

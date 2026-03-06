@@ -378,7 +378,7 @@ define internal i32 @ml_dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef r
   %.144 = phi i32 [ 1, %.thread41 ], [ 0, %17 ]
   %21 = add nuw nsw i32 %.144, 1
   %22 = zext nneg i32 %.144 to i64
-  %23 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = call i64 @ossl_ml_dsa_key_get_priv_len(ptr noundef nonnull %0) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %20, i64 noundef %24) #6
@@ -399,7 +399,7 @@ define internal i32 @ml_dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 .thread45:                                        ; preds = %.thread41, %27, %.thread33
   %.2.ph = phi i64 [ %25, %.thread33 ], [ 1, %27 ], [ 1, %.thread41 ]
-  %29 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %5, i64 %.2.ph
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %.2.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !15

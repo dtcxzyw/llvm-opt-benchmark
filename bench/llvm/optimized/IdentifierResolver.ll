@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.clang::DeclarationName" = type { i64 }
-%"class.clang::IdentifierResolver::IdDeclInfo" = type { %"class.llvm::SmallVector" }
-%"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
-%"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
-%"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
-%"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage" = type { [16 x i8] }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -24,7 +17,7 @@ define dso_local void @_ZN5clang18IdentifierResolver10IdDeclInfo10RemoveDeclEPNS
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !9
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   br label %8
 
 8:                                                ; preds = %9, %2
@@ -562,7 +555,7 @@ _ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i: ; pr
   %80 = phi ptr [ %.pre.i20, %._crit_edge.i ], [ %71, %_ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw %"class.clang::IdentifierResolver::IdDeclInfo", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %82
   %84 = ptrtoint ptr %83 to i64
   %85 = or i64 %84, 1
   %86 = inttoptr i64 %85 to ptr
@@ -610,7 +603,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit: ; preds 
   %104 = phi i32 [ %97, %_ZN5clang18IdentifierResolver13IdDeclInfoMapixENS_15DeclarationNameE.exit ], [ %.pre.i.i, %100 ]
   %105 = load ptr, ptr %.0.i19, align 8, !tbaa !3
   %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   store i64 %41, ptr %107, align 1
   %108 = load i32, ptr %96, align 8, !tbaa !9
   %109 = add i32 %108, 1
@@ -645,7 +638,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit23: ; pred
   %122 = phi i32 [ %114, %113 ], [ %.pre.i.i22, %118 ]
   %123 = load ptr, ptr %.0, align 8, !tbaa !3
   %124 = zext i32 %122 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   %126 = ptrtoint ptr %1 to i64
   store i64 %126, ptr %125, align 1
   %127 = load i32, ptr %115, align 8, !tbaa !9
@@ -760,7 +753,7 @@ _ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit: ; pred
   %30 = phi ptr [ %.pre, %._crit_edge ], [ %21, %_ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = zext i32 %29 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::IdentifierResolver::IdDeclInfo", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %32
   %34 = ptrtoint ptr %33 to i64
   %35 = or i64 %34, 1
   %36 = inttoptr i64 %35 to ptr
@@ -892,7 +885,7 @@ _ZNK5clang15DeclarationName14getFETokenInfoEv.exit: ; preds = %_ZN5clang18Identi
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !9
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %52
   %54 = icmp eq ptr %48, %53
   br i1 %54, label %55, label %66
 
@@ -914,7 +907,7 @@ _ZNK5clang15DeclarationName14getFETokenInfoEv.exit: ; preds = %_ZN5clang18Identi
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i.i: ; preds = %58, %55
   %.pre-phi.i.i.i = phi i64 [ %52, %55 ], [ %.pre14.i.i.i, %58 ]
   %61 = phi ptr [ %49, %55 ], [ %.pre13.i.i.i, %58 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %.pre-phi.i.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.pre-phi.i.i.i
   %63 = ptrtoint ptr %2 to i64
   store i64 %63, ptr %62, align 1
   %64 = load i32, ptr %50, align 8, !tbaa !9
@@ -959,7 +952,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE28reserveForParamAndGe
   %gepdiff.i.i.i = add i64 %reass.sub.i.i.i, -8
   %83 = ashr exact i64 %gepdiff.i.i.i, 3
   %84 = sub nsw i64 0, %83
-  %85 = getelementptr inbounds ptr, ptr %78, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %78, i64 %84
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %85, ptr nonnull align 8 %77, i64 %gepdiff.i.i.i, i1 false)
   %.pre12.i.i.i = load i32, ptr %50, align 8, !tbaa !9
   br label %_ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i
@@ -996,7 +989,7 @@ _ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i: ; preds = %8
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i.i37: ; preds = %97, %96
   %.pre-phi.i.i.i38 = phi i64 [ 0, %96 ], [ %.pre14.i.i.i36, %97 ]
   %99 = phi ptr [ %89, %96 ], [ %.pre13.i.i.i35, %97 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.pre-phi.i.i.i38
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.pre-phi.i.i.i38
   %101 = ptrtoint ptr %2 to i64
   store i64 %101, ptr %100, align 1
   %102 = load i32, ptr %90, align 8, !tbaa !9
@@ -1033,7 +1026,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE28reserveForParamAndGe
 114:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i25
   %115 = ashr exact i64 %113, 3
   %116 = sub nsw i64 0, %115
-  %117 = getelementptr inbounds ptr, ptr %110, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %110, i64 %116
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %117, ptr nonnull align 8 %109, i64 %113, i1 false)
   %.pre12.i.i.i31 = load i32, ptr %90, align 8, !tbaa !9
   br label %_ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i32
@@ -1138,7 +1131,7 @@ _ZNK5clang15DeclarationName14getFETokenInfoEv.exit: ; preds = %_ZN5clang18Identi
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !9
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %48
   br label %50
 
 50:                                               ; preds = %51, %42
@@ -1602,7 +1595,7 @@ _ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i: ; pr
   %125 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %116, %_ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = zext i32 %124 to i64
-  %128 = getelementptr inbounds nuw %"class.clang::IdentifierResolver::IdDeclInfo", ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %127
   %129 = ptrtoint ptr %128 to i64
   %130 = or i64 %129, 1
   %131 = inttoptr i64 %130 to ptr
@@ -1672,7 +1665,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit: ; preds 
   %162 = phi i32 [ %154, %157 ], [ %.pre.i.i, %158 ]
   %163 = load ptr, ptr %.0.i48, align 8, !tbaa !3
   %164 = zext i32 %162 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %164
   %166 = ptrtoint ptr %1 to i64
   store i64 %166, ptr %165, align 1
   %167 = load i32, ptr %153, align 8, !tbaa !9
@@ -1694,7 +1687,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit52: ; pred
   %174 = phi i32 [ %168, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit ], [ %.pre.i.i51, %170 ]
   %175 = load ptr, ptr %.0.i48, align 8, !tbaa !3
   %176 = zext i32 %174 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %176
   store i64 %36, ptr %177, align 1
   %178 = load i32, ptr %153, align 8, !tbaa !9
   %179 = add i32 %178, 1
@@ -1716,7 +1709,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit55: ; pred
   %185 = phi i32 [ %154, %180 ], [ %.pre.i.i54, %181 ]
   %186 = load ptr, ptr %.0.i48, align 8, !tbaa !3
   %187 = zext i32 %185 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %187
   store i64 %36, ptr %188, align 1
   %189 = load i32, ptr %153, align 8, !tbaa !9
   %190 = add i32 %189, 1
@@ -1737,7 +1730,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit58: ; pred
   %196 = phi i32 [ %190, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit55 ], [ %.pre.i.i57, %192 ]
   %197 = load ptr, ptr %.0.i48, align 8, !tbaa !3
   %198 = zext i32 %196 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %198
   %200 = ptrtoint ptr %1 to i64
   store i64 %200, ptr %199, align 1
   %201 = load i32, ptr %153, align 8, !tbaa !9
@@ -1866,7 +1859,7 @@ _ZN5clang4Decl14getDeclContextEv.exit73:          ; preds = %255, %262
   %270 = load ptr, ptr %205, align 8, !tbaa !3
   %271 = load i32, ptr %207, align 8, !tbaa !9
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr %270, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %272
   %274 = icmp eq ptr %.036100, %273
   br i1 %274, label %275, label %286
 
@@ -1888,7 +1881,7 @@ _ZN5clang4Decl14getDeclContextEv.exit73:          ; preds = %255, %262
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i.i: ; preds = %278, %275
   %.pre-phi.i.i.i = phi i64 [ %272, %275 ], [ %.pre14.i.i.i, %278 ]
   %281 = phi ptr [ %270, %275 ], [ %.pre13.i.i.i, %278 ]
-  %282 = getelementptr inbounds nuw ptr, ptr %281, i64 %.pre-phi.i.i.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %.pre-phi.i.i.i
   %283 = ptrtoint ptr %1 to i64
   store i64 %283, ptr %282, align 1
   %284 = load i32, ptr %207, align 8, !tbaa !9
@@ -1933,7 +1926,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE28reserveForParamAndGe
   %gepdiff.i.i.i = add i64 %reass.sub.i.i.i, -8
   %303 = ashr exact i64 %gepdiff.i.i.i, 3
   %304 = sub nsw i64 0, %303
-  %305 = getelementptr inbounds ptr, ptr %298, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %298, i64 %304
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %305, ptr nonnull align 8 %297, i64 %gepdiff.i.i.i, i1 false)
   %.pre12.i.i.i = load i32, ptr %207, align 8, !tbaa !9
   br label %_ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i
@@ -1973,7 +1966,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit76: ; pred
   %317 = phi i32 [ %310, %_ZN5clang18IdentifierResolver10IdDeclInfo10InsertDeclEPPNS_9NamedDeclES3_.exit.thread86 ], [ %.pre.i.i75, %313 ]
   %318 = load ptr, ptr %205, align 8, !tbaa !3
   %319 = zext i32 %317 to i64
-  %320 = getelementptr inbounds nuw ptr, ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %319
   %321 = ptrtoint ptr %1 to i64
   store i64 %321, ptr %320, align 1
   %322 = load i32, ptr %207, align 8, !tbaa !9

@@ -190,7 +190,7 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %.thread117, %.thread143
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread143 ], [ 0, %.thread117 ]
-  %46 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 %indvars.iv
   %47 = call i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef %1, ptr noundef %46) #4
   %.not98 = icmp eq i32 %47, 0
   %.mask100 = and i32 %47, -268435456

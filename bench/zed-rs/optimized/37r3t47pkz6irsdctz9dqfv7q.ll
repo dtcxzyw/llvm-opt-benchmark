@@ -41376,7 +41376,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$10try_remove17h8d6e4a27b7c25c94E.llv
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %2
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8, !noundef !11
   %.sroa.01.0.copyload = load i64, ptr %10, align 8
@@ -41422,7 +41422,7 @@ define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$6remove17hb02e64e71050b2fdE"
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !10276, !noalias !10279, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !alias.scope !10276, !noalias !10279, !noundef !11
   %.sroa.01.0.copyload.i = load i64, ptr %10, align 8, !noalias !10281
@@ -41499,7 +41499,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h3af73b68ee47d2f8E"(ptr 
 24:                                               ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !11, !noundef !11
-  %27 = getelementptr inbounds { i64, [2 x i64] }, ptr %26, i64 %1
+  %27 = getelementptr inbounds [24 x i8], ptr %26, i64 %1
   %28 = load i64, ptr %27, align 8, !range !1826, !noundef !11
   %trunc = trunc nuw i64 %28 to i1
   br i1 %trunc, label %29, label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hb53559f9b3d30e74E.llvm.16967803798462174085.exit"
@@ -41534,7 +41534,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h3af73b68ee47d2f8E"(ptr 
 37:                                               ; preds = %15, %12
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !10282, !noalias !10285, !nonnull !11, !noundef !11
-  %40 = getelementptr inbounds { i64, [2 x i64] }, ptr %39, i64 %1
+  %40 = getelementptr inbounds [24 x i8], ptr %39, i64 %1
   store i64 1, ptr %40, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8
@@ -43792,7 +43792,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN79_$LT$slab..
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %1
   %11 = load i64, ptr %10, align 8, !range !1826, !noundef !11
   %trunc = trunc nuw i64 %11 to i1
   br i1 %trunc, label %13, label %12

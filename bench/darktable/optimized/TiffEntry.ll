@@ -200,7 +200,7 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %38
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %spec.select.i.i.i.i.i.i29, ptr %48, align 4, !tbaa !28
   %49 = zext nneg i16 %spec.select.i.i.i.i.i.i25.fr to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !29
   %52 = lshr i32 -1, %51
   %53 = icmp ugt i32 %spec.select.i.i.i.i.i.i29, %52
@@ -400,7 +400,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffD
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %4, ptr %11, align 4, !tbaa !28
   %12 = zext i8 %3 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !29
   %15 = lshr i32 -1, %14
   %16 = icmp ugt i32 %4, %15

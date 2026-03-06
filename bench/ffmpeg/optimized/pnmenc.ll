@@ -288,13 +288,13 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   %.2.lcssa = phi ptr [ %.1312, %.preheader ], [ %160, %._crit_edge310.loopexit ]
   %.neg255 = sdiv i32 %142, -4
   %144 = sext i32 %.neg255 to i64
-  %145 = getelementptr inbounds float, ptr %.0231313, i64 %144
+  %145 = getelementptr inbounds [4 x i8], ptr %.0231313, i64 %144
   %.neg256 = sdiv i32 %141, -4
   %146 = sext i32 %.neg256 to i64
-  %147 = getelementptr inbounds float, ptr %.0230314, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %.0230314, i64 %146
   %.neg257 = sdiv i32 %140, -4
   %148 = sext i32 %.neg257 to i64
-  %149 = getelementptr inbounds float, ptr %.0229315, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %.0229315, i64 %148
   %150 = add nuw nsw i32 %.0228316, 1
   %151 = icmp slt i32 %150, %139
   br i1 %151, label %.preheader, label %.loopexit267, !llvm.loop !38
@@ -302,14 +302,14 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
 .lr.ph309:                                        ; preds = %.preheader, %.lr.ph309
   %indvars.iv343 = phi i64 [ %indvars.iv.next344, %.lr.ph309 ], [ 0, %.preheader ]
   %.2307 = phi ptr [ %160, %.lr.ph309 ], [ %.1312, %.preheader ]
-  %152 = getelementptr inbounds nuw float, ptr %.0231313, i64 %indvars.iv343
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.0231313, i64 %indvars.iv343
   %153 = load i32, ptr %152, align 4, !tbaa !40
   store i32 %153, ptr %.2307, align 1, !tbaa !41
-  %154 = getelementptr inbounds nuw float, ptr %.0230314, i64 %indvars.iv343
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %.0230314, i64 %indvars.iv343
   %155 = load i32, ptr %154, align 4, !tbaa !40
   %156 = getelementptr inbounds nuw i8, ptr %.2307, i64 4
   store i32 %155, ptr %156, align 1, !tbaa !41
-  %157 = getelementptr inbounds nuw float, ptr %.0229315, i64 %indvars.iv343
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %.0229315, i64 %indvars.iv343
   %158 = load i32, ptr %157, align 4, !tbaa !40
   %159 = getelementptr inbounds nuw i8, ptr %.2307, i64 8
   store i32 %158, ptr %159, align 1, !tbaa !41
@@ -374,7 +374,7 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   %.5.lcssa = phi ptr [ %.4302, %.preheader268 ], [ %194, %._crit_edge300.loopexit ]
   %.neg = sdiv i32 %186, -4
   %188 = sext i32 %.neg to i64
-  %189 = getelementptr inbounds float, ptr %.0226303, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %.0226303, i64 %188
   %190 = add nuw nsw i32 %.0225304, 1
   %191 = icmp slt i32 %190, %185
   br i1 %191, label %.preheader268, label %.loopexit267, !llvm.loop !43
@@ -382,7 +382,7 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
 .lr.ph299:                                        ; preds = %.preheader268, %.lr.ph299
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %.lr.ph299 ], [ 0, %.preheader268 ]
   %.5297 = phi ptr [ %194, %.lr.ph299 ], [ %.4302, %.preheader268 ]
-  %192 = getelementptr inbounds nuw float, ptr %.0226303, i64 %indvars.iv340
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %.0226303, i64 %indvars.iv340
   %193 = load i32, ptr %192, align 4, !tbaa !40
   store i32 %193, ptr %.5297, align 1, !tbaa !41
   %194 = getelementptr inbounds nuw i8, ptr %.5297, i64 4
@@ -435,15 +435,15 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   %216 = load i32, ptr %209, align 8, !tbaa !37
   %217 = sdiv i32 %216, 4
   %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds float, ptr %.0223278, i64 %218
+  %219 = getelementptr inbounds [4 x i8], ptr %.0223278, i64 %218
   %220 = load i32, ptr %208, align 8, !tbaa !37
   %221 = sdiv i32 %220, 4
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds float, ptr %.0222279, i64 %222
+  %223 = getelementptr inbounds [4 x i8], ptr %.0222279, i64 %222
   %224 = load i32, ptr %210, align 4, !tbaa !37
   %225 = sdiv i32 %224, 4
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds float, ptr %.0221280, i64 %226
+  %227 = getelementptr inbounds [4 x i8], ptr %.0221280, i64 %226
   %228 = add nuw nsw i32 %.0220281, 1
   %229 = icmp slt i32 %228, %214
   br i1 %229, label %.preheader273, label %.loopexit267, !llvm.loop !46
@@ -451,11 +451,11 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.preheader273, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader273 ]
   %.7275 = phi ptr [ %271, %.lr.ph ], [ %.6277, %.preheader273 ]
-  %230 = getelementptr inbounds nuw float, ptr %.0223278, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %.0223278, i64 %indvars.iv
   %231 = load i32, ptr %230, align 4, !tbaa !40
   %232 = lshr i32 %231, 23
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw i16, ptr %6, i64 %233
+  %234 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %233
   %235 = load i16, ptr %234, align 2, !tbaa !47
   %236 = and i32 %231, 8388607
   %237 = getelementptr inbounds nuw i8, ptr %207, i64 %233
@@ -465,11 +465,11 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   %241 = trunc i32 %240 to i16
   %242 = add i16 %235, %241
   store i16 %242, ptr %.7275, align 1, !tbaa !41
-  %243 = getelementptr inbounds nuw float, ptr %.0222279, i64 %indvars.iv
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %.0222279, i64 %indvars.iv
   %244 = load i32, ptr %243, align 4, !tbaa !40
   %245 = lshr i32 %244, 23
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw i16, ptr %6, i64 %246
+  %247 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %246
   %248 = load i16, ptr %247, align 2, !tbaa !47
   %249 = and i32 %244, 8388607
   %250 = getelementptr inbounds nuw i8, ptr %207, i64 %246
@@ -480,11 +480,11 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   %255 = add i16 %248, %254
   %256 = getelementptr inbounds nuw i8, ptr %.7275, i64 2
   store i16 %255, ptr %256, align 1, !tbaa !41
-  %257 = getelementptr inbounds nuw float, ptr %.0221280, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %.0221280, i64 %indvars.iv
   %258 = load i32, ptr %257, align 4, !tbaa !40
   %259 = lshr i32 %258, 23
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw i16, ptr %6, i64 %260
+  %261 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !47
   %263 = and i32 %258, 8388607
   %264 = getelementptr inbounds nuw i8, ptr %207, i64 %260
@@ -541,7 +541,7 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   %288 = load i32, ptr %279, align 8, !tbaa !37
   %289 = sdiv i32 %288, 4
   %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds float, ptr %.0218294, i64 %290
+  %291 = getelementptr inbounds [4 x i8], ptr %.0218294, i64 %290
   %292 = add nuw nsw i32 %.0217295, 1
   %293 = icmp slt i32 %292, %286
   br i1 %293, label %.preheader270, label %.loopexit267, !llvm.loop !50
@@ -549,11 +549,11 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
 .lr.ph290:                                        ; preds = %.preheader270, %.lr.ph290
   %indvars.iv337 = phi i64 [ %indvars.iv.next338, %.lr.ph290 ], [ 0, %.preheader270 ]
   %.9288 = phi ptr [ %307, %.lr.ph290 ], [ %.8293, %.preheader270 ]
-  %294 = getelementptr inbounds nuw float, ptr %.0218294, i64 %indvars.iv337
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %.0218294, i64 %indvars.iv337
   %295 = load i32, ptr %294, align 4, !tbaa !40
   %296 = lshr i32 %295, 23
   %297 = zext nneg i32 %296 to i64
-  %298 = getelementptr inbounds nuw i16, ptr %6, i64 %297
+  %298 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %297
   %299 = load i16, ptr %298, align 2, !tbaa !47
   %300 = and i32 %295, 8388607
   %301 = getelementptr inbounds nuw i8, ptr %278, i64 %297

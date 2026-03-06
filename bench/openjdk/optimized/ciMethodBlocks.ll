@@ -24,7 +24,7 @@ define hidden noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   ret ptr %7
 }
@@ -34,7 +34,7 @@ define hidden noundef zeroext i1 @_ZN14ciMethodBlocks14is_block_startEi(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
@@ -47,7 +47,7 @@ define hidden noundef ptr @_ZN14ciMethodBlocks14split_block_atEi(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -107,7 +107,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE6appendERKS1_.exit
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   store ptr %10, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %1, ptr %45, align 4
@@ -121,7 +121,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE6appendERKS1_.exit
   %.026 = add nsw i32 %.026.in, -1
   %48 = load ptr, ptr %3, align 8
   %49 = zext nneg i32 %.026 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %7
   %.old = icmp samesign ugt i32 %.026.in, 1
@@ -191,7 +191,7 @@ define hidden noundef ptr @_ZN14ciMethodBlocks13make_block_atEi(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %47
@@ -253,10 +253,10 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE6appendERKS1_.exit
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   store ptr %12, ptr %44, align 8
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %5
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %5
   store ptr %12, ptr %46, align 8
   br label %53
 
@@ -380,7 +380,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %12, %19
   %44 = zext i8 %43 to i32
   store i32 %44, ptr %37, align 4
   %45 = zext i8 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %45
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %38, align 8
   %48 = icmp ult i32 %47, 239
@@ -1003,7 +1003,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE6appendERKS1_.exit
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = sext i32 %65 to i64
-  %70 = getelementptr inbounds ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %68, i64 %69
   store ptr %40, ptr %70, align 8
   %71 = load ptr, ptr %39, align 8
   store ptr %40, ptr %71, align 8
@@ -1059,7 +1059,7 @@ _ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit:  ; preds = %75
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 128
   %94 = load ptr, ptr %93, align 8
   %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i32, ptr %98, align 8
@@ -1163,7 +1163,7 @@ _ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit50: ; preds = %129
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 128
   %148 = load ptr, ptr %147, align 8
   %149 = sext i32 %145 to i64
-  %150 = getelementptr inbounds ptr, ptr %148, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %148, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 12
   %153 = load i32, ptr %152, align 4
@@ -1176,7 +1176,7 @@ _ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit50: ; preds = %129
   %.03958 = phi i32 [ %.039, %.lr.ph59 ], [ %.03957, %.lr.ph61 ]
   %155 = load ptr, ptr %39, align 8
   %156 = sext i32 %.03958 to i64
-  %157 = getelementptr inbounds ptr, ptr %155, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %155, i64 %156
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load i32, ptr %159, align 4
@@ -1228,7 +1228,7 @@ define linkonce_odr hidden void @_ZN24ciExceptionHandlerStream4nextEv(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1317,7 +1317,7 @@ define hidden void @_ZN14ciMethodBlocks15clear_processedEv(ptr noundef nonnull r
   %6 = phi ptr [ %14, %.lr.ph ], [ %3, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 4
@@ -1424,9 +1424,9 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1443,7 +1443,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

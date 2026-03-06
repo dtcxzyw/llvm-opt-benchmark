@@ -38,9 +38,9 @@ define internal fastcc void @_ZN17crossbeam_channel5waker5Waker6notify17hd3e96ea
   store i64 %8, ptr %5, align 8, !alias.scope !4, !noalias !7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !alias.scope !4, !noalias !7, !nonnull !9, !noundef !9
-  %12 = getelementptr inbounds { ptr, i64, ptr }, ptr %11, i64 %8
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %8
   %13 = sub i64 %6, %9
-  %14 = getelementptr inbounds { ptr, i64, ptr }, ptr %11, i64 %9
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -463,7 +463,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   %37 = load i64, ptr %25, align 32, !noalias !48, !noundef !9
   %38 = icmp ult i64 %32, %37
   call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds { { i64 }, { { [3 x i64] } } }, ptr %36, i64 %32
+  %39 = getelementptr inbounds [32 x i8], ptr %36, i64 %32
   %40 = load atomic i64, ptr %39 acquire, align 8, !noalias !48
   %41 = add i64 %.013.i, 1
   %42 = icmp eq i64 %41, %40
@@ -812,7 +812,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17hbbe90e382767dd1bE.exit.i.
 
 _ZN17crossbeam_channel5waker5Waker10try_select17hb3b14812dad24739E.exit.i.i: ; preds = %.noexc7.i.i
   %179 = load ptr, ptr %147, align 8, !alias.scope !92, !noalias !93, !nonnull !9, !noundef !9
-  %180 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %179, i64 %.015.i.i.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.015.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %180, i64 24, i1 false), !noalias !96
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %182 = xor i64 %.015.i.i.i.i, -1
@@ -1221,7 +1221,7 @@ common.resume:                                    ; preds = %135, %161, %26, %.b
   %48 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %39, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfe17e0e3412b000fE.exit.i" ]
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %50 = load ptr, ptr %49, align 16, !alias.scope !158, !noalias !161, !nonnull !9, !noundef !9
-  %51 = getelementptr inbounds { ptr, i64, ptr }, ptr %50, i64 %48
+  %51 = getelementptr inbounds [24 x i8], ptr %50, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %52 = load i64, ptr %38, align 8, !alias.scope !158, !noalias !161, !noundef !9
   %53 = add i64 %52, 1
@@ -1454,7 +1454,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i7: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %141 = load ptr, ptr %49, align 16, !alias.scope !174, !noalias !177, !nonnull !9, !noundef !9
   %142 = load i64, ptr %38, align 8, !alias.scope !174, !noalias !177, !noundef !9
-  %143 = getelementptr inbounds { ptr, i64, ptr }, ptr %141, i64 %142
+  %143 = getelementptr inbounds [24 x i8], ptr %141, i64 %142
   br label %144
 
 144:                                              ; preds = %148, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e84317fa960bf79E.exit.i13"
@@ -1484,7 +1484,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i7: 
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h511fe592da3ac4d3E.exit.i.i": ; preds = %153
-  %155 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %141, i64 %145
+  %155 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %145
   %.sroa.013.0.copyload.i = load ptr, ptr %155, align 8, !noalias !192
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %155, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i64 16, i1 false)

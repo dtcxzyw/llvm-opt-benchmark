@@ -243,7 +243,7 @@ define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr no
   %38 = zext i8 %37 to i32
   %39 = mul nsw i32 %24, %38
   %40 = add nsw i32 %35, %39
-  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %40, ptr %41, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -266,7 +266,7 @@ define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr no
   %54 = zext i8 %53 to i32
   %55 = mul nsw i32 %24, %54
   %56 = add nsw i32 %51, %55
-  %57 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv51
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv51
   store i32 %56, ptr %57, align 4, !tbaa !6
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 4
@@ -288,7 +288,7 @@ define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr no
 69:                                               ; preds = %58, %69
   %indvars.iv55 = phi i64 [ 15, %58 ], [ %indvars.iv.next56, %69 ]
   %.049 = phi i32 [ 0, %58 ], [ %.1, %69 ]
-  %70 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv55
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv55
   %71 = load i32, ptr %70, align 4, !tbaa !6
   %72 = shl nsw i32 %71, 1
   %73 = shl i32 %.049, 2
@@ -350,11 +350,11 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
 20:                                               ; preds = %13
   %21 = add nuw nsw i32 %17, 8
   %22 = lshr i32 %21, 4
-  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv188
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv188
   store i32 %22, ptr %23, align 4, !tbaa !6
-  %24 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv188
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv188
   store i32 %.1130, ptr %24, align 4, !tbaa !6
-  %25 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv188
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv188
   store i32 %.1128, ptr %25, align 4, !tbaa !6
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next189, 3
@@ -421,11 +421,11 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
 
 68:                                               ; preds = %.preheader, %68
   %indvars.iv198 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next199, %68 ]
-  %69 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv198
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv198
   %70 = load i32, ptr %69, align 4, !tbaa !6
   %71 = sitofp i32 %70 to float
   %72 = fdiv float %71, 2.550000e+02
-  %73 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv198
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv198
   store float %72, ptr %73, align 4, !tbaa !15
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next199, 6
@@ -633,7 +633,7 @@ define zeroext i16 @stb__Quantize5(float noundef %0) local_unnamed_addr #0 {
   %6 = fmul float %5, 3.100000e+01
   %7 = fptoui float %6 to i16
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw float, ptr @stb__midpoints5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints5, i64 %8
   %10 = load float, ptr %9, align 4, !tbaa !15
   %11 = fcmp ogt float %5, %10
   %12 = zext i1 %11 to i16
@@ -650,7 +650,7 @@ define zeroext i16 @stb__Quantize6(float noundef %0) local_unnamed_addr #0 {
   %6 = fmul float %5, 6.300000e+01
   %7 = fptoui float %6 to i16
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw float, ptr @stb__midpoints6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints6, i64 %8
   %10 = load float, ptr %9, align 4, !tbaa !15
   %11 = fcmp ogt float %5, %10
   %12 = zext i1 %11 to i16
@@ -736,7 +736,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %.0119121 = phi i32 [ %76, %.preheader120 ], [ 0, %4 ]
   %56 = and i32 %.0114126, 3
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr @__const.stb__RefineBlock.w1Tab, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @__const.stb__RefineBlock.w1Tab, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !6
   %60 = shl nuw nsw i64 %indvars.iv, 2
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
@@ -748,7 +748,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %68 = load i8, ptr %67, align 1, !tbaa !3
   %69 = zext i8 %68 to i32
-  %70 = getelementptr inbounds nuw i32, ptr @__const.stb__RefineBlock.prods, i64 %57
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @__const.stb__RefineBlock.prods, i64 %57
   %71 = load i32, ptr %70, align 4, !tbaa !6
   %72 = add nsw i32 %71, %.0109128
   %73 = mul nsw i32 %59, %63
@@ -793,7 +793,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %108 = fmul float %107, 3.100000e+01
   %109 = fptoui float %108 to i16
   %110 = zext i16 %109 to i64
-  %111 = getelementptr inbounds nuw float, ptr @stb__midpoints5, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints5, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !15
   %113 = fcmp ogt float %107, %112
   %114 = zext i1 %113 to i16
@@ -811,7 +811,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %126 = fmul float %125, 6.300000e+01
   %127 = fptoui float %126 to i16
   %128 = zext i16 %127 to i64
-  %129 = getelementptr inbounds nuw float, ptr @stb__midpoints6, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints6, i64 %128
   %130 = load float, ptr %129, align 4, !tbaa !15
   %131 = fcmp ogt float %125, %130
   %132 = zext i1 %131 to i16
@@ -830,7 +830,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %145 = fmul float %144, 3.100000e+01
   %146 = fptoui float %145 to i16
   %147 = zext i16 %146 to i64
-  %148 = getelementptr inbounds nuw float, ptr @stb__midpoints5, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints5, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !15
   %150 = fcmp ogt float %144, %149
   %151 = zext i1 %150 to i16
@@ -848,7 +848,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %163 = fmul float %162, 3.100000e+01
   %164 = fptoui float %163 to i16
   %165 = zext i16 %164 to i64
-  %166 = getelementptr inbounds nuw float, ptr @stb__midpoints5, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints5, i64 %165
   %167 = load float, ptr %166, align 4, !tbaa !15
   %168 = fcmp ogt float %162, %167
   %169 = zext i1 %168 to i16
@@ -866,7 +866,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %181 = fmul float %180, 6.300000e+01
   %182 = fptoui float %181 to i16
   %183 = zext i16 %182 to i64
-  %184 = getelementptr inbounds nuw float, ptr @stb__midpoints6, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints6, i64 %183
   %185 = load float, ptr %184, align 4, !tbaa !15
   %186 = fcmp ogt float %180, %185
   %187 = zext i1 %186 to i16
@@ -885,7 +885,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %200 = fmul float %199, 3.100000e+01
   %201 = fptoui float %200 to i16
   %202 = zext i16 %201 to i64
-  %203 = getelementptr inbounds nuw float, ptr @stb__midpoints5, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr @stb__midpoints5, i64 %202
   %204 = load float, ptr %203, align 4, !tbaa !15
   %205 = fcmp ogt float %199, %204
   %206 = zext i1 %205 to i16
@@ -929,7 +929,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
 
 15:                                               ; preds = %3, %18
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %18 ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !6
   %.not44 = icmp eq i32 %17, %12
   br i1 %.not44, label %18, label %.thread
@@ -1085,7 +1085,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   %130 = zext i8 %129 to i32
   %131 = mul nsw i32 %116, %130
   %132 = add nsw i32 %127, %131
-  %133 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store i32 %132, ptr %133, align 4, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1108,7 +1108,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   %146 = zext i8 %145 to i32
   %147 = mul nsw i32 %116, %146
   %148 = add nsw i32 %143, %147
-  %149 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv51.i
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv51.i
   store i32 %148, ptr %149, align 4, !tbaa !6
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next52.i, 4
@@ -1130,7 +1130,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
 161:                                              ; preds = %161, %150
   %indvars.iv55.i = phi i64 [ 15, %150 ], [ %indvars.iv.next56.i, %161 ]
   %.049.i = phi i32 [ 0, %150 ], [ %.1.i, %161 ]
-  %162 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv55.i
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv55.i
   %163 = load i32, ptr %162, align 4, !tbaa !6
   %164 = shl nsw i32 %163, 1
   %165 = shl i32 %.049.i, 2
@@ -1274,7 +1274,7 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   %254 = zext i8 %253 to i32
   %255 = mul nsw i32 %240, %254
   %256 = add nsw i32 %251, %255
-  %257 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i56
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i56
   store i32 %256, ptr %257, align 4, !tbaa !6
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 16
@@ -1297,7 +1297,7 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   %270 = zext i8 %269 to i32
   %271 = mul nsw i32 %240, %270
   %272 = add nsw i32 %267, %271
-  %273 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv51.i60
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv51.i60
   store i32 %272, ptr %273, align 4, !tbaa !6
   %indvars.iv.next52.i61 = add nuw nsw i64 %indvars.iv51.i60, 1
   %exitcond54.not.i62 = icmp eq i64 %indvars.iv.next52.i61, 4
@@ -1316,7 +1316,7 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
 282:                                              ; preds = %282, %274
   %indvars.iv55.i63 = phi i64 [ 15, %274 ], [ %indvars.iv.next56.i67, %282 ]
   %.049.i64 = phi i32 [ 0, %274 ], [ %.1.i66, %282 ]
-  %283 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv55.i63
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv55.i63
   %284 = load i32, ptr %283, align 4, !tbaa !6
   %285 = shl nsw i32 %284, 1
   %286 = shl i32 %.049.i64, 2

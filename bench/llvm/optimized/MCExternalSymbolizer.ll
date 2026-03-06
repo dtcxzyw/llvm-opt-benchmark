@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::MCOperand" = type { i8, %union.anon.124 }
-%union.anon.124 = type { i64 }
 
 $_ZN4llvm20MCExternalSymbolizerD0Ev = comdat any
 
@@ -431,7 +429,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %198, %204
   %208 = phi i32 [ %201, %198 ], [ %.pre.i.i, %204 ]
   %209 = load ptr, ptr %199, align 8, !tbaa !53
   %210 = zext i32 %208 to i64
-  %211 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %209, i64 %210
+  %211 = getelementptr inbounds nuw [16 x i8], ptr %209, i64 %210
   store i8 5, ptr %211, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %211, i64 8
   store i64 %.fca.1.load.cast.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1

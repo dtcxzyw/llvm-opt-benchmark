@@ -227,7 +227,7 @@ openFile.exit.i:                                  ; preds = %43
 
 76:                                               ; preds = %74
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds ptr, ptr %1, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %1, i64 %77
   store ptr %78, ptr @Files, align 8, !tbaa !15
   br label %79
 

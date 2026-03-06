@@ -3,11 +3,6 @@ source_filename = "bench/clamav/original/hashtab.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_element = type { ptr, i64, i64 }
-%struct.cli_htu32_element = type { i32, %union.anon }
-%union.anon = type { i64 }
-%struct.cli_map_value = type { ptr, i32 }
-
 @DELETED_KEY = internal constant [1 x i8] zeroinitializer, align 1
 @.str = private unnamed_addr constant [80 x i8] c"hashtab.c:Growing hashtable %p, because it has exceeded maxfill, old size: %zu\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"hashtab.c: Unable to allocate memory for thekey\0A\00", align 1
@@ -166,7 +161,7 @@ hash.exit:                                        ; preds = %4, %._crit_edge.loo
   %.023 = phi i64 [ 1, %hash.exit ], [ %39, %38 ]
   %.08.lcssa.i.pn = phi i64 [ %.08.lcssa.i, %hash.exit ], [ %40, %38 ]
   %.0 = and i64 %.08.lcssa.i.pn, %24
-  %.024 = getelementptr inbounds nuw %struct.cli_element, ptr %25, i64 %.0
+  %.024 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.0
   %27 = load ptr, ptr %.024, align 8, !tbaa !20
   %.not31 = icmp eq ptr %27, null
   br i1 %.not31, label %.loopexit, label %28
@@ -233,7 +228,7 @@ define noundef ptr @cli_htu32_find(ptr noundef readonly captures(address_is_null
 22:                                               ; preds = %26, %3
   %.016 = phi i64 [ 1, %3 ], [ %27, %26 ]
   %.0 = phi i64 [ %19, %3 ], [ %29, %26 ]
-  %.017 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %20, i64 %.0
+  %.017 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.0
   %23 = load i32, ptr %.017, align 8, !tbaa !24
   %.not22 = icmp eq i32 %23, 0
   br i1 %.not22, label %.loopexit, label %24
@@ -300,7 +295,7 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly captures(address_is_null
 21:                                               ; preds = %.lr.ph, %19
   %.12033 = phi i64 [ %.019, %.lr.ph ], [ %20, %19 ]
   %22 = and i64 %.12033, %18
-  %23 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !24
   %25 = add i32 %24, 1
   %switch = icmp ult i32 %25, 2
@@ -343,7 +338,7 @@ hash.exit.us:                                     ; preds = %14, %36
   %17 = and i64 %16, 1
   %18 = xor i64 %17, 1
   %19 = load ptr, ptr %0, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw %struct.cli_element, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %18
   br label %21
 
 21:                                               ; preds = %35, %hash.exit.us
@@ -369,7 +364,7 @@ hash.exit.us:                                     ; preds = %14, %36
   %30 = add i64 %.153.us, 1
   %31 = add i64 %.050.us, %.153.us
   %32 = urem i64 %31, %16
-  %33 = getelementptr inbounds nuw %struct.cli_element, ptr %19, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %32
   br label %35
 
 34:                                               ; preds = %23
@@ -422,7 +417,7 @@ hash.exit.us:                                     ; preds = %14, %36
   %55 = add i64 %37, 4294967295
   %56 = and i64 %55, %54
   %57 = load ptr, ptr %0, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw %struct.cli_element, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %56
   br label %59
 
 59:                                               ; preds = %87, %._crit_edge.loopexit.i
@@ -491,7 +486,7 @@ hash.exit.us:                                     ; preds = %14, %36
   %83 = add i64 %.153, 1
   %84 = add i64 %.050, %.153
   %85 = urem i64 %84, %37
-  %86 = getelementptr inbounds nuw %struct.cli_element, ptr %57, i64 %85
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %85
   br label %87
 
 87:                                               ; preds = %82, %73
@@ -562,7 +557,7 @@ nearest_power.exit:                               ; preds = %5, %7
   %.04970 = phi i64 [ 0, %.lr.ph72 ], [ %.2, %51 ]
   %.05169 = phi i64 [ 0, %.lr.ph72 ], [ %53, %51 ]
   %20 = load ptr, ptr %0, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw %struct.cli_element, ptr %20, i64 %.05169
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.05169
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %.not59 = icmp eq ptr %22, null
   %.not60 = icmp eq ptr %22, @DELETED_KEY
@@ -604,7 +599,7 @@ nearest_power.exit:                               ; preds = %5, %7
 hash.exit:                                        ; preds = %23, %._crit_edge.loopexit.i
   %.08.lcssa.i = phi i64 [ 1, %23 ], [ %42, %._crit_edge.loopexit.i ]
   %.05064 = and i64 %.08.lcssa.i, %17
-  %.04765 = getelementptr inbounds nuw %struct.cli_element, ptr %14, i64 %.05064
+  %.04765 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.05064
   %43 = load ptr, ptr %.04765, align 8, !tbaa !20
   %.not76 = icmp eq ptr %43, null
   br i1 %.not76, label %._crit_edge.thread, label %.lr.ph
@@ -615,7 +610,7 @@ hash.exit:                                        ; preds = %23, %._crit_edge.lo
   %44 = add i64 %.066, 1
   %45 = add i64 %.05067, %.066
   %.050 = and i64 %45, %17
-  %.047 = getelementptr inbounds nuw %struct.cli_element, ptr %14, i64 %.050
+  %.047 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.050
   %46 = load ptr, ptr %.047, align 8, !tbaa !20
   %47 = icmp ne ptr %46, null
   %48 = icmp ule i64 %44, %.07.i
@@ -714,7 +709,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr noundef readonl
   %30 = add i64 %17, 4294967295
   %31 = and i64 %30, %29
   %32 = load ptr, ptr %0, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %31
   br label %34
 
 34:                                               ; preds = %52, %15
@@ -757,7 +752,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr noundef readonl
   %48 = add i64 %.137, 1
   %49 = add i64 %.0, %.137
   %50 = urem i64 %49, %17
-  %51 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %32, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %50
   br label %52
 
 52:                                               ; preds = %47, %39
@@ -819,7 +814,7 @@ nearest_power.exit:                               ; preds = %6, %8
   %.04865 = phi i64 [ 0, %.lr.ph66 ], [ %.2, %45 ]
   %.05064 = phi i64 [ 0, %.lr.ph66 ], [ %47, %45 ]
   %19 = load ptr, ptr %0, align 8, !tbaa !13
-  %20 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %19, i64 %.05064
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.05064
   %21 = load i32, ptr %20, align 8, !tbaa !24
   %.off = add i32 %21, -1
   %switch = icmp ult i32 %.off, -2
@@ -839,7 +834,7 @@ nearest_power.exit:                               ; preds = %6, %8
   %33 = xor i32 %32, %31
   %34 = zext i32 %33 to i64
   %35 = and i64 %15, %34
-  %.04660 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %11, i64 %35
+  %.04660 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %35
   %36 = load i32, ptr %.04660, align 8, !tbaa !24
   %.not69 = icmp eq i32 %36, 0
   br i1 %.not69, label %._crit_edge.thread, label %.lr.ph
@@ -850,7 +845,7 @@ nearest_power.exit:                               ; preds = %6, %8
   %37 = add i64 %.062, 1
   %38 = add i64 %.062, %.04961
   %39 = and i64 %38, %16
-  %.046 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %11, i64 %39
+  %.046 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %39
   %40 = load i32, ptr %.046, align 8, !tbaa !24
   %41 = icmp ne i32 %40, 0
   %42 = icmp ule i64 %37, %.07.i
@@ -947,7 +942,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   %.023.i = phi i64 [ 1, %hash.exit.i ], [ %39, %38 ]
   %.08.lcssa.i.pn.i = phi i64 [ %.08.lcssa.i.i, %hash.exit.i ], [ %40, %38 ]
   %.0.i = and i64 %.08.lcssa.i.pn.i, %24
-  %.024.i = getelementptr inbounds nuw %struct.cli_element, ptr %25, i64 %.0.i
+  %.024.i = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.0.i
   %27 = load ptr, ptr %.024.i, align 8, !tbaa !20
   %.not31.i = icmp eq ptr %27, null
   br i1 %.not31.i, label %cli_hashtab_find.exit.thread, label %28
@@ -1018,7 +1013,7 @@ define void @cli_htu32_delete(ptr noundef readonly captures(address_is_null) %0,
 22:                                               ; preds = %26, %3
   %.016.i = phi i64 [ 1, %3 ], [ %27, %26 ]
   %.0.i = phi i64 [ %19, %3 ], [ %29, %26 ]
-  %.017.i = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %20, i64 %.0.i
+  %.017.i = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.0.i
   %23 = load i32, ptr %.017.i, align 8, !tbaa !24
   %.not22.i = icmp eq i32 %23, 0
   br i1 %.not22.i, label %cli_htu32_find.exit.thread, label %24
@@ -1053,7 +1048,7 @@ define void @cli_hashtab_clear(ptr noundef captures(none) %0) local_unnamed_addr
   %4 = phi i64 [ %10, %9 ], [ %3, %1 ]
   %.017 = phi i64 [ %11, %9 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw %struct.cli_element, ptr %5, i64 %.017
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.017
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %.not15 = icmp eq ptr %7, null
   %.not16 = icmp eq ptr %7, @DELETED_KEY
@@ -1124,7 +1119,7 @@ define void @cli_hashtab_free(ptr noundef captures(none) %0) local_unnamed_addr 
   %4 = phi i64 [ %10, %9 ], [ %3, %1 ]
   %.017.i = phi i64 [ %11, %9 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw %struct.cli_element, ptr %5, i64 %.017.i
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.017.i
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %.not15.i = icmp eq ptr %7, null
   %.not16.i = icmp eq ptr %7, @DELETED_KEY
@@ -1202,7 +1197,7 @@ define noundef i32 @cli_hashtab_store(ptr noundef readonly captures(none) %0, pt
   %5 = phi i64 [ %14, %13 ], [ %4, %2 ]
   %.011 = phi i64 [ %15, %13 ], [ 0, %2 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw %struct.cli_element, ptr %6, i64 %.011
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.011
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %.not = icmp eq ptr %8, null
   %.not10 = icmp eq ptr %8, @DELETED_KEY
@@ -1242,7 +1237,7 @@ define noundef i32 @cli_hashtab_generate_c(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %2, %19
   %.021 = phi i64 [ %20, %19 ], [ 0, %2 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw %struct.cli_element, ptr %6, i64 %.021
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.021
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10
@@ -1647,7 +1642,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
   %.02453.i = phi i64 [ 0, %.lr.ph.i ], [ %111, %cli_hashset_addkey_internal.exit.i ]
   %.sroa.19.152.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.19.2.i, %cli_hashset_addkey_internal.exit.i ]
   %58 = lshr i64 %.02453.i, 5
-  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !32
   %61 = zext i32 %60 to i64
   %62 = and i64 %.02453.i, 31
@@ -1658,7 +1653,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
 
 65:                                               ; preds = %56
   %66 = load ptr, ptr %0, align 8, !tbaa !40
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %.02453.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.02453.i
   %68 = load i32, ptr %67, align 4, !tbaa !32
   %69 = xor i32 %68, -1
   %70 = shl i32 %68, 15
@@ -1674,7 +1669,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
   %80 = and i32 %79, %.sroa.16.0.i
   %81 = zext i32 %80 to i64
   %82 = lshr i64 %81, 5
-  %83 = getelementptr inbounds nuw i32, ptr %.sroa.9.0.i, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.9.0.i, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !32
   %85 = zext i32 %84 to i64
   %86 = and i64 %81, 31
@@ -1686,7 +1681,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
 .lr.ph.i.i.i:                                     ; preds = %65, %91
   %.015.i.i.i = phi i64 [ %92, %91 ], [ 1, %65 ]
   %.01114.i.i.i = phi i64 [ %94, %91 ], [ %81, %65 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.01114.i.i.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %.01114.i.i.i
   %90 = load i32, ptr %89, align 4, !tbaa !32
   %.not12.i.i.i = icmp eq i32 %90, %68
   br i1 %.not12.i.i.i, label %.cli_hashset_search.exit.loopexit_crit_edge.i.i, label %91
@@ -1695,7 +1690,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
   %.pre18.i.i = lshr i64 %.01114.i.i.i, 5
   %.pre.i.i = and i64 %.01114.i.i.i, 31
   %.pre19.i.i = shl nuw nsw i64 1, %.pre.i.i
-  %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %.sroa.9.0.i, i64 %.pre18.i.i
+  %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %.sroa.9.0.i, i64 %.pre18.i.i
   %.pre11.i.pre.i = load i32, ptr %.phi.trans.insert.i.phi.trans.insert.i, align 4, !tbaa !32
   %.pre61.i = zext i32 %.pre11.i.pre.i to i64
   br label %cli_hashset_search.exit.i.i
@@ -1705,7 +1700,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
   %93 = add i64 %.01114.i.i.i, %.015.i.i.i
   %94 = and i64 %93, %55
   %95 = lshr i64 %94, 5
-  %96 = getelementptr inbounds nuw i32, ptr %.sroa.9.0.i, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.9.0.i, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !32
   %98 = zext i32 %97 to i64
   %99 = and i64 %94, 31
@@ -1725,11 +1720,11 @@ cli_hashset_search.exit.i.i:                      ; preds = %91, %.cli_hashset_s
   br i1 %.not.i35.i, label %104, label %cli_hashset_addkey_internal.exit.i
 
 104:                                              ; preds = %cli_hashset_search.exit.i.i
-  %105 = getelementptr inbounds nuw i32, ptr %.sroa.9.0.i, i64 %.pre-phi.i.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.9.0.i, i64 %.pre-phi.i.i
   %106 = trunc nuw i64 %.pre-phi17.i.i to i32
   %107 = or i32 %102, %106
   store i32 %107, ptr %105, align 4, !tbaa !32
-  %108 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.011.lcssa.i.i.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %.011.lcssa.i.i.i
   store i32 %68, ptr %108, align 4, !tbaa !32
   %109 = add i32 %.sroa.19.152.i, 1
   %.pre.i = load i32, ptr %10, align 8, !tbaa !37
@@ -1797,7 +1792,7 @@ cli_hashset_grow.exit:                            ; preds = %117, %121
   %138 = and i32 %126, %137
   %139 = zext i32 %138 to i64
   %140 = lshr i64 %139, 5
-  %141 = getelementptr inbounds nuw i32, ptr %125, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !32
   %143 = zext i32 %142 to i64
   %144 = and i64 %139, 31
@@ -1814,7 +1809,7 @@ cli_hashset_grow.exit:                            ; preds = %117, %121
 149:                                              ; preds = %152, %.lr.ph.i.i
   %.015.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %153, %152 ]
   %.01114.i.i = phi i64 [ %139, %.lr.ph.i.i ], [ %155, %152 ]
-  %150 = getelementptr inbounds nuw i32, ptr %147, i64 %.01114.i.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %.01114.i.i
   %151 = load i32, ptr %150, align 4, !tbaa !32
   %.not12.i.i = icmp eq i32 %151, %1
   br i1 %.not12.i.i, label %.cli_hashset_search.exit.loopexit_crit_edge.i, label %152
@@ -1823,7 +1818,7 @@ cli_hashset_grow.exit:                            ; preds = %117, %121
   %.pre18.i = lshr i64 %.01114.i.i, 5
   %.pre.i11 = and i64 %.01114.i.i, 31
   %.pre19.i = shl nuw nsw i64 1, %.pre.i11
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i32, ptr %125, i64 %.pre18.i
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %.pre18.i
   %.pre11.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 4, !tbaa !32
   %.pre37 = zext i32 %.pre11.i.pre to i64
   br label %cli_hashset_search.exit.i
@@ -1833,7 +1828,7 @@ cli_hashset_grow.exit:                            ; preds = %117, %121
   %154 = add i64 %.01114.i.i, %.015.i.i
   %155 = and i64 %154, %148
   %156 = lshr i64 %155, 5
-  %157 = getelementptr inbounds nuw i32, ptr %125, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !32
   %159 = zext i32 %158 to i64
   %160 = and i64 %155, 31
@@ -1853,12 +1848,12 @@ cli_hashset_search.exit.i:                        ; preds = %152, %.cli_hashset_
   br i1 %.not.i10, label %165, label %cli_hashset_addkey_internal.exit
 
 165:                                              ; preds = %cli_hashset_search.exit.i
-  %166 = getelementptr inbounds nuw i32, ptr %125, i64 %.pre-phi.i
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %.pre-phi.i
   %167 = trunc nuw i64 %.pre-phi17.i to i32
   %168 = or i32 %163, %167
   store i32 %168, ptr %166, align 4, !tbaa !32
   %169 = load ptr, ptr %0, align 8, !tbaa !40
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %.011.lcssa.i.i
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.011.lcssa.i.i
   store i32 %1, ptr %170, align 4, !tbaa !32
   %171 = load i32, ptr %3, align 8, !tbaa !39
   %172 = add i32 %171, 1
@@ -1890,7 +1885,7 @@ define range(i32 0, 35) i32 @cli_hashset_removekey(ptr noundef captures(none) %0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = lshr i64 %17, 5
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !32
   %23 = zext i32 %22 to i64
   %24 = and i64 %17, 31
@@ -1907,7 +1902,7 @@ define range(i32 0, 35) i32 @cli_hashset_removekey(ptr noundef captures(none) %0
 29:                                               ; preds = %32, %.lr.ph.i
   %.015.i = phi i64 [ 1, %.lr.ph.i ], [ %33, %32 ]
   %.01114.i = phi i64 [ %17, %.lr.ph.i ], [ %35, %32 ]
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %.01114.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.01114.i
   %31 = load i32, ptr %30, align 4, !tbaa !32
   %.not12.i = icmp eq i32 %31, %1
   br i1 %.not12.i, label %.cli_hashset_search.exit.loopexit_crit_edge, label %32
@@ -1923,7 +1918,7 @@ define range(i32 0, 35) i32 @cli_hashset_removekey(ptr noundef captures(none) %0
   %34 = add i64 %.01114.i, %.015.i
   %35 = and i64 %34, %28
   %36 = lshr i64 %35, 5
-  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !32
   %39 = zext i32 %38 to i64
   %40 = and i64 %35, 31
@@ -1936,7 +1931,7 @@ cli_hashset_search.exit:                          ; preds = %32, %.cli_hashset_s
   %.pre16.pre-phi = phi i64 [ %.pre21, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %41, %32 ]
   %.pre.pre-phi = phi i64 [ %.pre20, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %36, %32 ]
   %.011.lcssa.i.ph = phi i64 [ %.01114.i, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %35, %32 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %19, i64 %.pre.pre-phi
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.pre.pre-phi
   %.pre11 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !32
   %.pre12 = zext i32 %.pre11 to i64
   %.pre18 = and i64 %.pre16.pre-phi, %.pre12
@@ -1944,13 +1939,13 @@ cli_hashset_search.exit:                          ; preds = %32, %.cli_hashset_s
   br i1 %43, label %cli_hashset_search.exit.thread, label %44
 
 44:                                               ; preds = %cli_hashset_search.exit
-  %45 = getelementptr inbounds nuw i32, ptr %19, i64 %.pre.pre-phi
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.pre.pre-phi
   %46 = trunc nuw i64 %.pre16.pre-phi to i32
   %47 = xor i32 %46, -1
   %48 = and i32 %.pre11, %47
   store i32 %48, ptr %45, align 4, !tbaa !32
   %49 = load ptr, ptr %0, align 8, !tbaa !40
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.011.lcssa.i.ph
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.011.lcssa.i.ph
   store i32 0, ptr %50, align 4, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i32, ptr %51, align 8, !tbaa !39
@@ -1983,7 +1978,7 @@ define zeroext i1 @cli_hashset_contains(ptr noundef readonly captures(none) %0, 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = lshr i64 %17, 5
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !32
   %23 = zext i32 %22 to i64
   %24 = and i64 %17, 31
@@ -2000,7 +1995,7 @@ define zeroext i1 @cli_hashset_contains(ptr noundef readonly captures(none) %0, 
 29:                                               ; preds = %32, %.lr.ph.i
   %.015.i = phi i64 [ 1, %.lr.ph.i ], [ %33, %32 ]
   %.01114.i = phi i64 [ %17, %.lr.ph.i ], [ %35, %32 ]
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %.01114.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.01114.i
   %31 = load i32, ptr %30, align 4, !tbaa !32
   %.not12.i = icmp eq i32 %31, %1
   br i1 %.not12.i, label %.cli_hashset_search.exit.loopexit_crit_edge, label %32
@@ -2016,7 +2011,7 @@ define zeroext i1 @cli_hashset_contains(ptr noundef readonly captures(none) %0, 
   %34 = add i64 %.01114.i, %.015.i
   %35 = and i64 %34, %28
   %36 = lshr i64 %35, 5
-  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !32
   %39 = zext i32 %38 to i64
   %40 = and i64 %35, 31
@@ -2028,7 +2023,7 @@ define zeroext i1 @cli_hashset_contains(ptr noundef readonly captures(none) %0, 
 cli_hashset_search.exit.loopexit:                 ; preds = %32, %.cli_hashset_search.exit.loopexit_crit_edge
   %.pre9.pre-phi = phi i64 [ %.pre14, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %41, %32 ]
   %.pre.pre-phi = phi i64 [ %.pre13, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %36, %32 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %19, i64 %.pre.pre-phi
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.pre.pre-phi
   %.pre4 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !32
   %.pre5 = zext i32 %.pre4 to i64
   %.pre11 = and i64 %.pre9.pre-phi, %.pre5
@@ -2081,7 +2076,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr noundef readonly c
 18:                                               ; preds = %13
   %19 = load ptr, ptr %11, align 8, !tbaa !42
   %20 = lshr i64 %.01823, 5
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !32
   %23 = zext i32 %22 to i64
   %24 = and i64 %.01823, 31
@@ -2092,10 +2087,10 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr noundef readonly c
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %0, align 8, !tbaa !40
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %.01823
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.01823
   %30 = load i32, ptr %29, align 4, !tbaa !32
   %31 = add nuw nsw i64 %.01724, 1
-  %32 = getelementptr inbounds nuw i32, ptr %8, i64 %.01724
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.01724
   store i32 %30, ptr %32, align 4, !tbaa !32
   %.pre = load i32, ptr %9, align 8, !tbaa !37
   br label %33
@@ -2144,7 +2139,7 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr noundef readonly captu
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !42
   %22 = lshr i64 %19, 5
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !32
   %25 = zext i32 %24 to i64
   %26 = and i64 %19, 31
@@ -2160,7 +2155,7 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr noundef readonly captu
 30:                                               ; preds = %34, %.lr.ph.i.i
   %.015.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %35, %34 ]
   %.01114.i.i = phi i64 [ %19, %.lr.ph.i.i ], [ %37, %34 ]
-  %31 = getelementptr inbounds nuw i32, ptr %3, i64 %.01114.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.01114.i.i
   %32 = load i32, ptr %31, align 4, !tbaa !32
   %.not12.i.i = icmp eq i32 %32, %1
   br i1 %.not12.i.i, label %.cli_hashset_search.exit.loopexit_crit_edge.i, label %34
@@ -2169,7 +2164,7 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr noundef readonly captu
   %.pre13.i = lshr i64 %.01114.i.i, 5
   %.pre.i = and i64 %.01114.i.i, 31
   %.pre14.i = shl nuw nsw i64 1, %.pre.i
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i32, ptr %21, i64 %.pre13.i
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.pre13.i
   %.pre4.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 4, !tbaa !32
   %.pre = zext i32 %.pre4.i.pre to i64
   %.pre8 = and i64 %.pre14.i, %.pre
@@ -2181,7 +2176,7 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr noundef readonly captu
   %36 = add i64 %.01114.i.i, %.015.i.i
   %37 = and i64 %36, %29
   %38 = lshr i64 %37, 5
-  %39 = getelementptr inbounds nuw i32, ptr %21, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !32
   %41 = zext i32 %40 to i64
   %42 = and i64 %37, 31
@@ -2283,7 +2278,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   %.023.i = phi i64 [ 1, %hash.exit.i ], [ %42, %41 ]
   %.08.lcssa.i.pn.i = phi i64 [ %.08.lcssa.i.i, %hash.exit.i ], [ %43, %41 ]
   %.0.i = and i64 %.08.lcssa.i.pn.i, %27
-  %.024.i = getelementptr inbounds nuw %struct.cli_element, ptr %28, i64 %.0.i
+  %.024.i = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.0.i
   %30 = load ptr, ptr %.024.i, align 8, !tbaa !20
   %.not31.i = icmp eq ptr %30, null
   br i1 %.not31.i, label %47, label %31
@@ -2358,7 +2353,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
 69:                                               ; preds = %66
   store ptr %68, ptr %53, align 8, !tbaa !19
   %70 = zext i32 %49 to i64
-  %71 = getelementptr inbounds nuw %struct.cli_map_value, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   br label %72
 
@@ -2433,7 +2428,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   %.023.i = phi i64 [ 1, %hash.exit.i ], [ %42, %41 ]
   %.08.lcssa.i.pn.i = phi i64 [ %.08.lcssa.i.i, %hash.exit.i ], [ %43, %41 ]
   %.0.i = and i64 %.08.lcssa.i.pn.i, %27
-  %.024.i = getelementptr inbounds nuw %struct.cli_element, ptr %28, i64 %.0.i
+  %.024.i = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.0.i
   %30 = load ptr, ptr %.024.i, align 8, !tbaa !20
   %.not31.i = icmp eq ptr %30, null
   br i1 %.not31.i, label %cli_hashtab_delete.exit, label %31
@@ -2484,7 +2479,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
 
 55:                                               ; preds = %50
   %56 = and i64 %45, 2147483647
-  %57 = getelementptr inbounds nuw %struct.cli_map_value, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !51
   tail call void @free(ptr noundef %58) #20
   store ptr null, ptr %57, align 8, !tbaa !51
@@ -2540,7 +2535,7 @@ hash.exit.i.i:                                    ; preds = %._crit_edge.loopexi
   %.023.i.i = phi i64 [ 1, %hash.exit.i.i ], [ %99, %98 ]
   %.08.lcssa.i.pn.i.i = phi i64 [ %.08.lcssa.i.i.i, %hash.exit.i.i ], [ %100, %98 ]
   %.0.i.i = and i64 %.08.lcssa.i.pn.i.i, %84
-  %.024.i.i = getelementptr inbounds nuw %struct.cli_element, ptr %85, i64 %.0.i.i
+  %.024.i.i = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %.0.i.i
   %87 = load ptr, ptr %.024.i.i, align 8, !tbaa !20
   %.not31.i.i = icmp eq ptr %87, null
   br i1 %.not31.i.i, label %cli_hashtab_delete.exit, label %88
@@ -2614,7 +2609,7 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr noundef readonly captures(none
 
 20:                                               ; preds = %12
   %21 = zext nneg i32 %8 to i64
-  %22 = getelementptr inbounds nuw %struct.cli_map_value, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !51
   %.not34 = icmp eq ptr %23, null
   br i1 %.not34, label %25, label %24
@@ -2695,7 +2690,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   %.023.i = phi i64 [ 1, %hash.exit.i ], [ %42, %41 ]
   %.08.lcssa.i.pn.i = phi i64 [ %.08.lcssa.i.i, %hash.exit.i ], [ %43, %41 ]
   %.0.i = and i64 %.08.lcssa.i.pn.i, %27
-  %.024.i = getelementptr inbounds nuw %struct.cli_element, ptr %28, i64 %.0.i
+  %.024.i = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.0.i
   %30 = load ptr, ptr %.024.i, align 8, !tbaa !20
   %.not31.i = icmp eq ptr %30, null
   br i1 %.not31.i, label %cli_hashtab_find.exit.thread, label %31
@@ -2761,7 +2756,7 @@ define i32 @cli_map_getvalue_size(ptr noundef readonly captures(none) %0) local_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = zext nneg i32 %6 to i64
-  %15 = getelementptr inbounds nuw %struct.cli_map_value, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !53
   br label %18
@@ -2800,7 +2795,7 @@ define ptr @cli_map_getvalue(ptr noundef readonly captures(none) %0) local_unnam
 
 17:                                               ; preds = %8
   %18 = zext nneg i32 %3 to i64
-  %19 = getelementptr inbounds nuw %struct.cli_map_value, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !51
   br label %21
 
@@ -2820,7 +2815,7 @@ define void @cli_map_delete(ptr noundef captures(none) %0) local_unnamed_addr #7
   %4 = phi i64 [ %10, %9 ], [ %3, %1 ]
   %.017.i.i = phi i64 [ %11, %9 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw %struct.cli_element, ptr %5, i64 %.017.i.i
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.017.i.i
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %.not15.i.i = icmp eq ptr %7, null
   %.not16.i.i = icmp eq ptr %7, @DELETED_KEY
@@ -2877,7 +2872,7 @@ cli_hashtab_free.exit:                            ; preds = %._crit_edge.i.i, %1
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %24 = load ptr, ptr %22, align 8, !tbaa !19
-  %25 = getelementptr inbounds nuw %struct.cli_map_value, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !51
   tail call void @free(ptr noundef %26) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

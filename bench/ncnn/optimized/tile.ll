@@ -1150,7 +1150,7 @@ define internal void @_ZNK4ncnn4Tile7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.069324, ptr align 4 %67, i64 %91, i1 false)
   %92 = load i32, ptr %8, align 4, !tbaa !42
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds float, ptr %.069324, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %.069324, i64 %93
   %95 = add nuw nsw i32 %.068325, 1
   %96 = load i32, ptr %7, align 4, !tbaa !42
   %97 = icmp slt i32 %95, %96
@@ -1244,7 +1244,7 @@ define internal void @_ZNK4ncnn4Tile7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   %.064330 = phi i32 [ 1, %.lr.ph331 ], [ %163, %161 ]
   %.065329 = phi ptr [ %154, %.lr.ph331 ], [ %162, %161 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.065329, ptr align 4 %141, i64 %156, i1 false)
-  %162 = getelementptr inbounds float, ptr %.065329, i64 %155
+  %162 = getelementptr inbounds [4 x i8], ptr %.065329, i64 %155
   %163 = add nuw nsw i32 %.064330, 1
   %164 = load i32, ptr %9, align 4, !tbaa !42
   %165 = icmp slt i32 %163, %164
@@ -1261,7 +1261,7 @@ define internal void @_ZNK4ncnn4Tile7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   %.0335 = phi i32 [ 1, %.lr.ph336 ], [ %170, %168 ]
   %.062334 = phi ptr [ %123, %.lr.ph336 ], [ %169, %168 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.062334, ptr align 4 %104, i64 %125, i1 false)
-  %169 = getelementptr inbounds float, ptr %.062334, i64 %124
+  %169 = getelementptr inbounds [4 x i8], ptr %.062334, i64 %124
   %170 = add nuw nsw i32 %.0335, 1
   %171 = load i32, ptr %10, align 4, !tbaa !42
   %172 = icmp slt i32 %170, %171

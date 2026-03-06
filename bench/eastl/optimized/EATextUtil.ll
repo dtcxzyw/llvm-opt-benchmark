@@ -2908,7 +2908,7 @@ define dso_local noundef i32 @_ZN2EA4StdC16BoyerMooreSearchEPKciS2_iPiS3_S3_i(pt
 entry:
   %sub.i = add nsw i32 %nPatternLength, -1
   %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %pPatternBuffer2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %pPatternBuffer2, i64 %idxprom.i
   store i32 %nPatternLength, ptr %arrayidx.i, align 4
   %cmp66.i = icmp sgt i32 %nPatternLength, 1
   br i1 %cmp66.i, label %for.body.preheader.i, label %for.cond34.preheader.i
@@ -2944,7 +2944,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %4 = add i32 %nPatternLength, %3
   %sub5.i = add i32 %4, %2
   %idxprom6.i = sext i32 %sub5.i to i64
-  %arrayidx7.i = getelementptr inbounds i32, ptr %pPatternBuffer2, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [4 x i8], ptr %pPatternBuffer2, i64 %idxprom6.i
   %5 = load i32, ptr %arrayidx7.i, align 4
   %sub8.i = sub nsw i32 %3, %g.070.i
   %cmp9.i = icmp slt i32 %5, %sub8.i
@@ -2988,7 +2988,7 @@ for.inc.i:                                        ; preds = %while.end.i, %land.
   %.sink.i = phi i32 [ %sub29.i, %while.end.i ], [ %5, %land.lhs.true.i ]
   %f.1.i = phi i32 [ %.pre-phi.i, %while.end.i ], [ %f.069.i, %land.lhs.true.i ]
   %g.3.i = phi i32 [ %g.2.lcssa.i, %while.end.i ], [ %g.070.i, %land.lhs.true.i ]
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %pPatternBuffer2, i64 %indvars.iv83.i
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %pPatternBuffer2, i64 %indvars.iv83.i
   store i32 %.sink.i, ptr %arrayidx16.i, align 4
   %indvars.iv.next84.i = add nsw i64 %indvars.iv83.i, -1
   %cmp.i = icmp sgt i64 %indvars.iv83.i, 0
@@ -3003,7 +3003,7 @@ for.body44.i.preheader:                           ; preds = %for.body36.i, %for.
 
 for.body36.i:                                     ; preds = %for.body36.i, %for.body36.preheader.i
   %indvars.iv87.i = phi i64 [ 0, %for.body36.preheader.i ], [ %indvars.iv.next88.i, %for.body36.i ]
-  %arrayidx38.i = getelementptr inbounds nuw i32, ptr %pPatternBuffer1, i64 %indvars.iv87.i
+  %arrayidx38.i = getelementptr inbounds nuw [4 x i8], ptr %pPatternBuffer1, i64 %indvars.iv87.i
   store i32 %nPatternLength, ptr %arrayidx38.i, align 4
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count.i
@@ -3026,7 +3026,7 @@ for.body44.i:                                     ; preds = %for.body44.i.prehea
 
 lor.lhs.false.i:                                  ; preds = %for.body44.i
   %idxprom46.i = zext nneg i32 %i.277.i to i64
-  %arrayidx47.i = getelementptr inbounds nuw i32, ptr %pPatternBuffer2, i64 %idxprom46.i
+  %arrayidx47.i = getelementptr inbounds nuw [4 x i8], ptr %pPatternBuffer2, i64 %idxprom46.i
   %10 = load i32, ptr %arrayidx47.i, align 4
   %add48.i = add nuw nsw i32 %i.277.i, 1
   %cmp49.i = icmp eq i32 %10, %add48.i
@@ -3044,7 +3044,7 @@ for.body55.preheader.i:                           ; preds = %if.then50.i
 
 for.body55.i:                                     ; preds = %for.inc65.i, %for.body55.preheader.i
   %indvars.iv90.i = phi i64 [ %11, %for.body55.preheader.i ], [ %indvars.iv.next91.i, %for.inc65.i ]
-  %arrayidx57.i = getelementptr inbounds i32, ptr %pPatternBuffer1, i64 %indvars.iv90.i
+  %arrayidx57.i = getelementptr inbounds [4 x i8], ptr %pPatternBuffer1, i64 %indvars.iv90.i
   %12 = load i32, ptr %arrayidx57.i, align 4
   %cmp58.i = icmp eq i32 %12, %nPatternLength
   br i1 %cmp58.i, label %if.then59.i, label %for.inc65.i
@@ -3067,11 +3067,11 @@ for.inc69.i:                                      ; preds = %for.inc65.i, %if.th
 
 for.body75.i:                                     ; preds = %for.body75.i, %for.body75.preheader.i
   %indvars.iv98.i = phi i64 [ 0, %for.body75.preheader.i ], [ %indvars.iv.next99.i, %for.body75.i ]
-  %arrayidx80.i = getelementptr inbounds nuw i32, ptr %pPatternBuffer2, i64 %indvars.iv98.i
+  %arrayidx80.i = getelementptr inbounds nuw [4 x i8], ptr %pPatternBuffer2, i64 %indvars.iv98.i
   %13 = load i32, ptr %arrayidx80.i, align 4
   %sub81.i = sub nsw i32 %sub.i, %13
   %idxprom82.i = sext i32 %sub81.i to i64
-  %arrayidx83.i = getelementptr inbounds i32, ptr %pPatternBuffer1, i64 %idxprom82.i
+  %arrayidx83.i = getelementptr inbounds [4 x i8], ptr %pPatternBuffer1, i64 %idxprom82.i
   %14 = trunc i64 %indvars.iv98.i to i32
   %15 = sub i32 %sub.i, %14
   store i32 %15, ptr %arrayidx83.i, align 4
@@ -3096,7 +3096,7 @@ for.body3.preheader.i:                            ; preds = %for.cond1.preheader
 
 for.body.i57:                                     ; preds = %for.body.i57, %for.body.preheader.i55
   %indvars.iv.i58 = phi i64 [ 0, %for.body.preheader.i55 ], [ %indvars.iv.next.i60, %for.body.i57 ]
-  %arrayidx.i59 = getelementptr inbounds nuw i32, ptr %pAlphabetBuffer, i64 %indvars.iv.i58
+  %arrayidx.i59 = getelementptr inbounds nuw [4 x i8], ptr %pAlphabetBuffer, i64 %indvars.iv.i58
   store i32 %nPatternLength, ptr %arrayidx.i59, align 4
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i56
@@ -3110,7 +3110,7 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   %arrayidx7.i54 = getelementptr inbounds nuw i8, ptr %pPattern, i64 %indvars.iv15.i
   %18 = load i8, ptr %arrayidx7.i54, align 1
   %idxprom8.i = sext i8 %18 to i64
-  %arrayidx9.i = getelementptr inbounds i32, ptr %pAlphabetBuffer, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds [4 x i8], ptr %pAlphabetBuffer, i64 %idxprom8.i
   store i32 %sub5.i53, ptr %arrayidx9.i, align 4
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, %wide.trip.count18.i
@@ -3196,13 +3196,13 @@ if.else.us:                                       ; preds = %land.rhs.us74, %if.
   %arrayidx19.us = getelementptr inbounds i8, ptr %pSearchString, i64 %idxprom18.us.pre-phi
   %24 = load i8, ptr %arrayidx19.us, align 1
   %idxprom21.us = sext i8 %24 to i64
-  %arrayidx22.us = getelementptr inbounds i32, ptr %pAlphabetBuffer, i64 %idxprom21.us
+  %arrayidx22.us = getelementptr inbounds [4 x i8], ptr %pAlphabetBuffer, i64 %idxprom21.us
   %25 = load i32, ptr %arrayidx22.us, align 4
   %reass.sub = sub i32 %.us-phi.us, %nPatternLength
   %add24.us = add i32 %reass.sub, 1
   %add25.us = add i32 %add24.us, %25
   %cond.us = tail call i32 @llvm.smax.i32(i32 %sub16.us, i32 %add25.us)
-  %arrayidx28.us = getelementptr inbounds nuw i32, ptr %pPatternBuffer1, i64 %idxprom27.us.pre-phi
+  %arrayidx28.us = getelementptr inbounds nuw [4 x i8], ptr %pPatternBuffer1, i64 %idxprom27.us.pre-phi
   %26 = load i32, ptr %arrayidx28.us, align 4
   %cond..us = tail call i32 @llvm.smax.i32(i32 %cond.us, i32 %26)
   %cmp38.not.us = icmp slt i32 %26, %cond.us

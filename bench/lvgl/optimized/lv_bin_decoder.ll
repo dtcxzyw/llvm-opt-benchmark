@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_image_header_t = type <{ i64, i32 }>
 %struct._lv_image_cache_data_t = type { %struct._lv_cache_slot_size_t, ptr, i32, ptr, ptr, ptr }
 %struct._lv_cache_slot_size_t = type { i64 }
-%struct.lv_color32_t = type { i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [4 x i8] c"BIN\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"bin\00", align 1
@@ -759,8 +758,8 @@ default.unreachable38.i:                          ; preds = %97
   %129 = lshr i32 %127, %128
   %130 = and i32 %129, %121
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %57, i64 %indvars.iv.i
-  %133 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %99, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %131
   %134 = load i32, ptr %133, align 1
   store i32 %134, ptr %132, align 1
   %135 = sub i8 %.136.i, %123

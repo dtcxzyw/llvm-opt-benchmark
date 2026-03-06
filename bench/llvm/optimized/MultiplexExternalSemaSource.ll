@@ -156,7 +156,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang18ExternalSemaSourceELb1EE9push_backES
   %15 = phi i32 [ %8, %2 ], [ %.pre.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !12
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = ptrtoint ptr %1 to i64
   store i64 %19, ptr %18, align 1
   %20 = load i32, ptr %7, align 8, !tbaa !16
@@ -183,7 +183,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource15GetExterna
 .lr.ph:                                           ; preds = %2, %6
   %.0915 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %11 = load ptr, ptr %3, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0915
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0915
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -214,7 +214,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19CompleteRedeclCha
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
@@ -245,7 +245,7 @@ define dso_local i64 @_ZN5clang27MultiplexExternalSemaSource19GetExternalSelecto
 .lr.ph:                                           ; preds = %2, %6
   %.05 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %11 = load ptr, ptr %3, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.05
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.05
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -278,7 +278,7 @@ define dso_local noundef i32 @_ZN5clang27MultiplexExternalSemaSource23GetNumExte
   %.07 = phi i64 [ 0, %.lr.ph ], [ %14, %5 ]
   %.056 = phi i32 [ 0, %.lr.ph ], [ %13, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.07
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.07
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -310,7 +310,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource19GetExterna
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %11 = load ptr, ptr %3, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01115
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.01115
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -342,7 +342,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource28GetExterna
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %11 = load ptr, ptr %3, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01115
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.01115
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -440,7 +440,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource30Fin
   %.010 = phi i1 [ false, %.lr.ph ], [ %16, %8 ]
   %.089 = phi i64 [ 0, %.lr.ph ], [ %17, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.089
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.089
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
@@ -473,7 +473,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource27Loa
   %.09 = phi i64 [ 0, %.lr.ph ], [ %16, %7 ]
   %.078 = phi i1 [ false, %.lr.ph ], [ %15, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !12
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.09
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
@@ -506,7 +506,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource27Loa
   %.010 = phi i1 [ false, %.lr.ph ], [ %16, %8 ]
   %.089 = phi i64 [ 0, %.lr.ph ], [ %17, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.089
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.089
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
@@ -537,7 +537,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23completeVisibleDe
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
@@ -567,7 +567,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource24FindExternalLexic
 9:                                                ; preds = %.lr.ph, %9
   %.07 = phi i64 [ 0, %.lr.ph ], [ %16, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.07
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.07
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
@@ -597,7 +597,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19FindFileRegionDec
 9:                                                ; preds = %.lr.ph, %9
   %.07 = phi i64 [ 0, %.lr.ph ], [ %16, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.07
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.07
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
@@ -627,7 +627,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12CompleteTypeEPNS_
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
@@ -657,7 +657,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12CompleteTypeEPNS_
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
@@ -687,7 +687,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12ReadCommentsEv(pt
 5:                                                ; preds = %.lr.ph, %5
   %.03 = phi i64 [ 0, %.lr.ph ], [ %12, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.03
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
@@ -717,7 +717,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20StartedDeserializ
 5:                                                ; preds = %.lr.ph, %5
   %.03 = phi i64 [ 0, %.lr.ph ], [ %12, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.03
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 176
@@ -747,7 +747,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource21FinishedDeseriali
 5:                                                ; preds = %.lr.ph, %5
   %.03 = phi i64 [ 0, %.lr.ph ], [ %12, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.03
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
@@ -777,7 +777,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20StartTranslationU
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
@@ -807,7 +807,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource10PrintStatsEv(ptr 
 5:                                                ; preds = %.lr.ph, %5
   %.03 = phi i64 [ 0, %.lr.ph ], [ %12, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.03
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
@@ -838,7 +838,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource9getModuleEj
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %11 = load ptr, ptr %3, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01115
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.01115
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
@@ -873,7 +873,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource16lay
 16:                                               ; preds = %.lr.ph, %11
   %.01114 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %17 = load ptr, ptr %10, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.01114
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01114
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 208
@@ -903,7 +903,7 @@ define dso_local void @_ZNK5clang27MultiplexExternalSemaSource20getMemoryBufferS
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 216
@@ -933,7 +933,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource14InitializeSemaERN
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 232
@@ -963,7 +963,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource10ForgetSemaEv(ptr 
 5:                                                ; preds = %.lr.ph, %5
   %.03 = phi i64 [ 0, %.lr.ph ], [ %12, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.03
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 240
@@ -993,7 +993,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource14ReadMethodPoolENS
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
@@ -1023,7 +1023,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23updateOutOfDateSe
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 256
@@ -1053,7 +1053,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19ReadKnownNamespac
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
@@ -1083,7 +1083,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20ReadUndefinedButU
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 272
@@ -1143,7 +1143,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource17Loo
 9:                                                ; preds = %.lr.ph, %9
   %.06 = phi i64 [ 0, %.lr.ph ], [ %17, %9 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.06
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.06
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 288
@@ -1173,7 +1173,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource24ReadTentativeDefi
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 296
@@ -1203,7 +1203,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource25ReadUnusedFileSco
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 304
@@ -1233,7 +1233,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource26ReadDelegatingCon
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
@@ -1263,7 +1263,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource18ReadExtVectorDecl
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 320
@@ -1293,7 +1293,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource32ReadDeclsToCheckF
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 376
@@ -1323,7 +1323,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource36ReadUnusedLocalTy
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 328
@@ -1353,7 +1353,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23ReadReferencedSel
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 336
@@ -1383,7 +1383,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource29ReadWeakUndeclare
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 344
@@ -1413,7 +1413,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource15ReadUsedVTablesER
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 352
@@ -1443,7 +1443,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource25ReadPendingInstan
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 360
@@ -1473,7 +1473,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23ReadLateParsedTem
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 368
@@ -1506,7 +1506,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
 20:                                               ; preds = %.lr.ph, %_ZN5clang14TypoCorrectionD2Ev.exit
   %.01619 = phi i64 [ 0, %.lr.ph ], [ %84, %_ZN5clang14TypoCorrectionD2Ev.exit ]
   %21 = load ptr, ptr %11, align 8, !tbaa !12
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.01619
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.01619
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 384
@@ -1547,7 +1547,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 8, !tbaa !73
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %37, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %43
   store ptr %31, ptr %44, align 8, !tbaa !75
   br label %_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit
 
@@ -1707,7 +1707,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource32May
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0912 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !12
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0912
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0912
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 392

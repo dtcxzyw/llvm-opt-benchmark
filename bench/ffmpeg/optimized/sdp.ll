@@ -116,7 +116,7 @@ define range(i32 -2147483648, 1) i32 @ff_sdp_write_media(ptr noundef %0, i32 nou
 
 switch.lookup:                                    ; preds = %9
   %23 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_sdp_write_media, i64 %23
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_sdp_write_media, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %24
 
@@ -674,7 +674,7 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
 
 248:                                              ; preds = %._crit_edge163.i.i, %247
   %indvars.iv.i.i = phi i64 [ 0, %247 ], [ %indvars.iv.next.i.i, %._crit_edge163.i.i ]
-  %249 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i
   %250 = load i32, ptr %249, align 4, !tbaa !47
   %.not101.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not101.i.i, label %253, label %251
@@ -684,7 +684,7 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   br label %253
 
 253:                                              ; preds = %251, %248
-  %254 = getelementptr inbounds nuw ptr, ptr @extradata2psets_hevc.ps_names, i64 %indvars.iv.i.i
+  %254 = getelementptr inbounds nuw [8 x i8], ptr @extradata2psets_hevc.ps_names, i64 %indvars.iv.i.i
   %255 = load ptr, ptr %254, align 8, !tbaa !23
   %256 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %246, i64 noundef 1024, ptr noundef nonnull @.str.74, ptr noundef %255) #10
   %257 = load ptr, ptr %10, align 8, !tbaa !23
@@ -1275,7 +1275,7 @@ sdp_write_header.exit:                            ; preds = %18, %28
   br i1 %20, label %51, label %43
 
 43:                                               ; preds = %.lr.ph103
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv110
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv110
   %45 = load ptr, ptr %44, align 8, !tbaa !65
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
   %47 = load ptr, ptr %46, align 8, !tbaa !70
@@ -1292,7 +1292,7 @@ sdp_write_header.exit:                            ; preds = %18, %28
 
 51:                                               ; preds = %43, %50, %.lr.ph103
   %.258 = phi i32 [ %48, %43 ], [ %48, %50 ], [ %.157101, %.lr.ph103 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv110
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv110
   %53 = load ptr, ptr %52, align 8, !tbaa !65
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 44
   %55 = load i32, ptr %54, align 4, !tbaa !71
@@ -1311,7 +1311,7 @@ sdp_write_header.exit:                            ; preds = %18, %28
   %.15599 = phi i32 [ %.054102, %.lr.ph ], [ %65, %99 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !72
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !73
   %65 = add nsw i32 %.15599, 1
   %66 = load i8, ptr %6, align 16, !tbaa !48
@@ -1570,7 +1570,7 @@ define internal fastcc range(i32 -38, 1) i32 @latm_context2config(ptr noundef no
 
 7:                                                ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw i32, ptr @ff_mpeg4audio_sample_rates, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg4audio_sample_rates, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !47
   %10 = icmp eq i32 %9, %6
   br i1 %10, label %.thread, label %11

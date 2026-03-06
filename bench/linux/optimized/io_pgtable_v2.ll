@@ -190,7 +190,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0
   %54 = zext nneg i32 %53 to i64
   %55 = lshr i64 %44, %54
   %56 = and i64 %55, 511
-  %57 = getelementptr i64, ptr %49, i64 %56
+  %57 = getelementptr [8 x i8], ptr %49, i64 %56
   %58 = and i64 %44, -4096
   %59 = icmp slt i32 %51, %34
   br i1 %59, label %.loopexit, label %60
@@ -286,7 +286,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0
   %116 = zext nneg i32 %115 to i64
   %117 = lshr i64 %58, %116
   %118 = and i64 %117, 511
-  %119 = getelementptr i64, ptr %113, i64 %118
+  %119 = getelementptr [8 x i8], ptr %113, i64 %118
   br label %120
 
 120:                                              ; preds = %97, %107, %108, %72
@@ -409,7 +409,7 @@ define internal i64 @iommu_v2_unmap_pages(ptr noundef readonly captures(none) %0
   %29 = zext nneg i32 %28 to i64
   %30 = lshr i64 %22, %29
   %31 = and i64 %30, 511
-  %32 = getelementptr i64, ptr %26, i64 %31
+  %32 = getelementptr [8 x i8], ptr %26, i64 %31
   %33 = load i64, ptr @page_offset_base, align 8
   %34 = zext i32 %25 to i64
   br label %35
@@ -436,7 +436,7 @@ define internal i64 @iommu_v2_unmap_pages(ptr noundef readonly captures(none) %0
   %50 = and i64 %49, 4294967295
   %51 = lshr i64 %22, %50
   %52 = and i64 %51, 511
-  %53 = getelementptr i64, ptr %46, i64 %52
+  %53 = getelementptr [8 x i8], ptr %46, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, 128
   %56 = icmp eq i64 %55, 0
@@ -483,7 +483,7 @@ define internal range(i64 0, 4503599627370496) i64 @iommu_v2_iova_to_phys(ptr no
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %1, %9
   %11 = and i64 %10, 511
-  %12 = getelementptr i64, ptr %6, i64 %11
+  %12 = getelementptr [8 x i8], ptr %6, i64 %11
   %13 = load i64, ptr @page_offset_base, align 8
   %14 = zext i32 %4 to i64
   br label %15
@@ -510,7 +510,7 @@ define internal range(i64 0, 4503599627370496) i64 @iommu_v2_iova_to_phys(ptr no
   %30 = and i64 %29, 4294967295
   %31 = lshr i64 %1, %30
   %32 = and i64 %31, 511
-  %33 = getelementptr i64, ptr %26, i64 %32
+  %33 = getelementptr [8 x i8], ptr %26, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 128
   %36 = icmp eq i64 %35, 0
@@ -575,7 +575,7 @@ define internal fastcc void @free_pgtable(ptr noundef %0, i32 noundef %1) unname
 
 .split.us:                                        ; preds = %2, %15
   %5 = phi i64 [ %16, %15 ], [ 0, %2 ]
-  %6 = getelementptr i64, ptr %0, i64 %5
+  %6 = getelementptr [8 x i8], ptr %0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 129
   %9 = icmp eq i64 %8, 1
@@ -596,7 +596,7 @@ define internal fastcc void @free_pgtable(ptr noundef %0, i32 noundef %1) unname
 
 .split:                                           ; preds = %2, %27
   %18 = phi i64 [ %28, %27 ], [ 0, %2 ]
-  %19 = getelementptr i64, ptr %0, i64 %18
+  %19 = getelementptr [8 x i8], ptr %0, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 129
   %22 = icmp eq i64 %21, 1

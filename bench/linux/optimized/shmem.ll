@@ -64,21 +64,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_shmem_read_m
 %struct.pipe_buf_operations = type { ptr, ptr, ptr, ptr }
 %struct.xa_state = type { ptr, i64, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
 %struct.folio_batch = type { i8, i8, [15 x ptr] }
-%struct.page = type { i64, %union.anon.35, %union.anon.43, %struct.atomic_t, [8 x i8] }
-%union.anon.35 = type { %struct.anon.36 }
-%struct.anon.36 = type { %union.anon.37, ptr, %union.anon.39, i64 }
-%union.anon.37 = type { %struct.list_head }
-%union.anon.39 = type { i64 }
-%union.anon.43 = type { %struct.atomic_t }
-%struct.address_space = type { ptr, %struct.xarray, %struct.rw_semaphore, i32, %struct.atomic_t, %struct.rb_root_cached, i64, i64, ptr, i64, %struct.rw_semaphore, i32, %struct.spinlock, %struct.list_head, ptr }
-%struct.xarray = type { %struct.spinlock, i32, ptr }
-%struct.rb_root_cached = type { %struct.rb_root, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.fs_parse_result = type { i8, %union.anon.58 }
 %union.anon.58 = type { i64 }
 %struct.wait_bit_queue_entry = type { %struct.wait_bit_key, %struct.wait_queue_entry }
 %struct.wait_bit_key = type { ptr, i32, i64 }
-%struct.pipe_buffer = type { ptr, i32, i32, ptr, i32, i64 }
 %struct.shmem_falloc = type { ptr, i64, i64, i64, i64 }
 %struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
 
@@ -484,7 +474,7 @@ define dso_local range(i64 0, -4095) i64 @shmem_partial_swap_usage(ptr noundef %
 
 54:                                               ; preds = %48
   %55 = zext i8 %49 to i64
-  %56 = getelementptr ptr, ptr %47, i64 %55
+  %56 = getelementptr [8 x i8], ptr %47, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 3
@@ -736,7 +726,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 .preheader12.us:                                  ; preds = %32, %57
   %42 = phi i8 [ %58, %57 ], [ %33, %32 ]
   %43 = phi i64 [ %59, %57 ], [ 0, %32 ]
-  %44 = getelementptr ptr, ptr %28, i64 %43
+  %44 = getelementptr [8 x i8], ptr %28, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1
@@ -783,7 +773,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 .preheader12:                                     ; preds = %65, %88
   %68 = phi i64 [ %90, %88 ], [ 0, %65 ]
   %69 = phi i64 [ %89, %88 ], [ %62, %65 ]
-  %70 = getelementptr ptr, ptr %28, i64 %68
+  %70 = getelementptr [8 x i8], ptr %28, i64 %68
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, 1
@@ -791,7 +781,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   br i1 %74, label %86, label %75
 
 75:                                               ; preds = %.preheader12
-  %76 = getelementptr i64, ptr %6, i64 %68
+  %76 = getelementptr [8 x i8], ptr %6, i64 %68
   %77 = load i64, ptr %76, align 8
   call void @_raw_spin_lock_irq(ptr noundef nonnull %29) #18
   %78 = call ptr @__xa_cmpxchg(ptr noundef nonnull %29, i64 noundef %77, ptr noundef %71, ptr noundef null, i32 noundef 0) #18
@@ -994,7 +984,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 .preheader:                                       ; preds = %._crit_edge, %242
   %190 = phi i64 [ %244, %242 ], [ 0, %._crit_edge ]
   %191 = phi i64 [ %243, %242 ], [ %179, %._crit_edge ]
-  %192 = getelementptr ptr, ptr %176, i64 %190
+  %192 = getelementptr [8 x i8], ptr %176, i64 %190
   %193 = load ptr, ptr %192, align 8
   %194 = ptrtoint ptr %193 to i64
   %195 = and i64 %194, 1
@@ -1005,7 +995,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   br i1 %3, label %242, label %198
 
 198:                                              ; preds = %197
-  %199 = getelementptr i64, ptr %6, i64 %190
+  %199 = getelementptr [8 x i8], ptr %6, i64 %190
   %200 = load i64, ptr %199, align 8
   call void @_raw_spin_lock_irq(ptr noundef nonnull %177) #18
   %201 = call ptr @__xa_cmpxchg(ptr noundef nonnull %177, i64 noundef %200, ptr noundef %193, ptr noundef null, i32 noundef 0) #18
@@ -1020,7 +1010,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   br label %242
 
 207:                                              ; preds = %198
-  %208 = getelementptr i64, ptr %6, i64 %190
+  %208 = getelementptr [8 x i8], ptr %6, i64 %190
   %209 = load i64, ptr %208, align 8
   br label %.loopexit.sink.split
 
@@ -1056,7 +1046,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 
 225:                                              ; preds = %222
   call void @folio_unlock(ptr noundef %193) #18
-  %226 = getelementptr i64, ptr %6, i64 %190
+  %226 = getelementptr [8 x i8], ptr %6, i64 %190
   %227 = load i64, ptr %226, align 8
   br label %.loopexit.sink.split
 
@@ -1227,10 +1217,10 @@ thread-pre-split.thread:                          ; preds = %135, %29
 47:                                               ; preds = %41
   %48 = load i64, ptr %13, align 8
   %49 = zext i8 %37 to i64
-  %50 = getelementptr i64, ptr %5, i64 %49
+  %50 = getelementptr [8 x i8], ptr %5, i64 %49
   store i64 %48, ptr %50, align 8
   %51 = add i8 %37, 1
-  %52 = getelementptr ptr, ptr %17, i64 %49
+  %52 = getelementptr [8 x i8], ptr %17, i64 %49
   store ptr %38, ptr %52, align 8
   %53 = icmp eq i8 %51, 15
   br i1 %53, label %thread-pre-split.thread28, label %54
@@ -1290,7 +1280,7 @@ thread-pre-split.thread28:                        ; preds = %47
 
 85:                                               ; preds = %79
   %86 = zext i8 %80 to i64
-  %87 = getelementptr ptr, ptr %78, i64 %86
+  %87 = getelementptr [8 x i8], ptr %78, i64 %86
   %88 = load volatile ptr, ptr %87, align 8
   %89 = ptrtoint ptr %88 to i64
   %90 = and i64 %89, 3
@@ -1348,7 +1338,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %110 = phi i64 [ 0, %100 ], [ %105, %103 ]
   %111 = phi i32 [ 0, %100 ], [ %104, %103 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %112 = getelementptr ptr, ptr %17, i64 %110
+  %112 = getelementptr [8 x i8], ptr %17, i64 %110
   %113 = load ptr, ptr %112, align 8
   store ptr %113, ptr %2, align 8
   %114 = ptrtoint ptr %113 to i64
@@ -1357,7 +1347,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   br i1 %116, label %.sink.split, label %117
 
 117:                                              ; preds = %109
-  %118 = getelementptr i64, ptr %5, i64 %110
+  %118 = getelementptr [8 x i8], ptr %5, i64 %110
   %119 = load i64, ptr %118, align 8
   %120 = load i32, ptr %102, align 8
   %121 = call fastcc i32 @shmem_swapin_folio(ptr noundef %31, i64 noundef %119, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %120, ptr noundef null)
@@ -1396,7 +1386,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %137 = zext i8 %136 to i64
   %138 = add nuw nsw i64 %137, 4294967295
   %139 = and i64 %138, 4294967295
-  %140 = getelementptr i64, ptr %5, i64 %139
+  %140 = getelementptr [8 x i8], ptr %5, i64 %139
   %141 = load i64, ptr %140, align 8
   store i8 0, ptr %12, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1811,7 +1801,7 @@ define internal fastcc range(i32 -16, -17) i32 @shmem_get_folio_gfp(ptr noundef 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %174 = phi i64 [ %186, %.preheader ], [ 0, %.preheader.preheader ]
-  %175 = getelementptr %struct.page, ptr %159, i64 %174
+  %175 = getelementptr [64 x i8], ptr %159, i64 %174
   %176 = load i64, ptr @vmemmap_base, align 8
   %177 = ptrtoint ptr %175 to i64
   %178 = sub i64 %177, %176
@@ -2346,14 +2336,14 @@ define internal i32 @shmem_writepage(ptr noundef %0, ptr noundef %1) #1 align 16
   store i64 %211, ptr %209, align 8
   %212 = load i64, ptr %85, align 16
   %213 = lshr i64 %212, 58
-  %214 = getelementptr ptr, ptr @node_data, i64 %213
+  %214 = getelementptr [8 x i8], ptr @node_data, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = mul i64 %197, -4294967296
   %217 = ashr exact i64 %216, 32
   call void @__mod_node_page_state(ptr noundef %215, i32 noundef 19, i64 noundef %217) #18
   %218 = load i64, ptr %85, align 16
   %219 = lshr i64 %218, 58
-  %220 = getelementptr ptr, ptr @node_data, i64 %219
+  %220 = getelementptr [8 x i8], ptr @node_data, i64 %219
   %221 = load ptr, ptr %220, align 8
   call void @__mod_node_page_state(ptr noundef %221, i32 noundef 23, i64 noundef %217) #18
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %198) #18
@@ -2487,7 +2477,7 @@ define internal range(i32 -16, -17) i32 @shmem_write_begin(ptr readnone captures
 
 44:                                               ; preds = %38, %33
   %45 = phi i64 [ %43, %38 ], [ 0, %33 ]
-  %46 = getelementptr %struct.page, ptr %34, i64 %45
+  %46 = getelementptr [64 x i8], ptr %34, i64 %45
   store ptr %46, ptr %4, align 8
   br label %47
 
@@ -3051,7 +3041,7 @@ define dso_local ptr @shmem_read_mapping_page_gfp(ptr noundef readonly captures(
 
 31:                                               ; preds = %25, %21
   %32 = phi i64 [ %30, %25 ], [ 0, %21 ]
-  %33 = getelementptr %struct.page, ptr %19, i64 %32
+  %33 = getelementptr [64 x i8], ptr %19, i64 %32
   br label %34
 
 34:                                               ; preds = %31, %18
@@ -3486,7 +3476,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @shmem_replace_folio(ptr no
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 288230376151711743
   %10 = lshr i64 %8, 58
-  %11 = getelementptr ptr, ptr @swapper_spaces, i64 %10
+  %11 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = and i32 %1, -3145729
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 192
@@ -3538,7 +3528,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @shmem_replace_folio(ptr no
   store i64 %8, ptr %40, align 8
   %41 = getelementptr i8, ptr %27, i64 1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %41, i32 16, ptr elementtype(i8) %41) #18, !srcloc !30
-  %.split = getelementptr %struct.address_space, ptr %12, i64 %38
+  %.split = getelementptr [192 x i8], ptr %12, i64 %38
   %42 = getelementptr i8, ptr %.split, i64 8
   tail call void @_raw_spin_lock_irq(ptr noundef %42) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3560,22 +3550,22 @@ define internal fastcc noundef range(i32 -12, 1) i32 @shmem_replace_folio(ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load i64, ptr %27, align 16
   %52 = lshr i64 %51, 58
-  %53 = getelementptr ptr, ptr @node_data, i64 %52
+  %53 = getelementptr [8 x i8], ptr @node_data, i64 %52
   %54 = load ptr, ptr %53, align 8
   call void @__mod_node_page_state(ptr noundef %54, i32 noundef 19, i64 noundef 1) #18
   %55 = load i64, ptr %27, align 16
   %56 = lshr i64 %55, 58
-  %57 = getelementptr ptr, ptr @node_data, i64 %56
+  %57 = getelementptr [8 x i8], ptr @node_data, i64 %56
   %58 = load ptr, ptr %57, align 8
   call void @__mod_node_page_state(ptr noundef %58, i32 noundef 23, i64 noundef 1) #18
   %59 = load i64, ptr %6, align 16
   %60 = lshr i64 %59, 58
-  %61 = getelementptr ptr, ptr @node_data, i64 %60
+  %61 = getelementptr [8 x i8], ptr @node_data, i64 %60
   %62 = load ptr, ptr %61, align 8
   call void @__mod_node_page_state(ptr noundef %62, i32 noundef 19, i64 noundef -1) #18
   %63 = load i64, ptr %6, align 16
   %64 = lshr i64 %63, 58
-  %65 = getelementptr ptr, ptr @node_data, i64 %64
+  %65 = getelementptr [8 x i8], ptr @node_data, i64 %64
   %66 = load ptr, ptr %65, align 8
   call void @__mod_node_page_state(ptr noundef %66, i32 noundef 23, i64 noundef -1) #18
   call void @_raw_spin_unlock_irq(ptr noundef %42) #18
@@ -3760,12 +3750,12 @@ define internal fastcc i32 @shmem_add_to_page_cache(ptr noundef %0, ptr noundef 
 101:                                              ; preds = %90
   %102 = load i64, ptr %0, align 16
   %103 = lshr i64 %102, 58
-  %104 = getelementptr ptr, ptr @node_data, i64 %103
+  %104 = getelementptr [8 x i8], ptr @node_data, i64 %103
   %105 = load ptr, ptr %104, align 8
   call void @__mod_node_page_state(ptr noundef %105, i32 noundef 19, i64 noundef %84) #18
   %106 = load i64, ptr %0, align 16
   %107 = lshr i64 %106, 58
-  %108 = getelementptr ptr, ptr @node_data, i64 %107
+  %108 = getelementptr [8 x i8], ptr @node_data, i64 %107
   %109 = load ptr, ptr %108, align 8
   call void @__mod_node_page_state(ptr noundef %109, i32 noundef 23, i64 noundef %84) #18
   %110 = load i64, ptr %85, align 8
@@ -3815,12 +3805,12 @@ define internal fastcc i32 @shmem_add_to_page_cache(ptr noundef %0, ptr noundef 
 134:                                              ; preds = %123
   %135 = load i64, ptr %0, align 16
   %136 = lshr i64 %135, 58
-  %137 = getelementptr ptr, ptr @node_data, i64 %136
+  %137 = getelementptr [8 x i8], ptr @node_data, i64 %136
   %138 = load ptr, ptr %137, align 8
   call void @__mod_node_page_state(ptr noundef %138, i32 noundef 19, i64 noundef %84) #18
   %139 = load i64, ptr %0, align 16
   %140 = lshr i64 %139, 58
-  %141 = getelementptr ptr, ptr @node_data, i64 %140
+  %141 = getelementptr [8 x i8], ptr @node_data, i64 %140
   %142 = load ptr, ptr %141, align 8
   call void @__mod_node_page_state(ptr noundef %142, i32 noundef 23, i64 noundef %84) #18
   %143 = load i64, ptr %85, align 8
@@ -4064,7 +4054,7 @@ define internal i32 @shmem_fault(ptr noundef captures(none) %0) #1 align 16 {
 
 48:                                               ; preds = %42, %37
   %49 = phi i64 [ %47, %42 ], [ 0, %37 ]
-  %50 = getelementptr %struct.page, ptr %35, i64 %49
+  %50 = getelementptr [64 x i8], ptr %35, i64 %49
   store ptr %50, ptr %20, align 8
   %51 = load i32, ptr %3, align 4
   %52 = or i32 %51, 512
@@ -5328,7 +5318,7 @@ define internal fastcc ptr @shmem_get_inode(ptr noundef %0, ptr noundef %1, ptr 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !76
   %51 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !77
   %52 = sext i32 %51 to i64
-  %53 = getelementptr i64, ptr @__per_cpu_offset, i64 %52
+  %53 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %50
   %56 = inttoptr i64 %55 to ptr
@@ -6947,7 +6937,7 @@ define internal i64 @shmem_file_read_iter(ptr noundef captures(none) %0, ptr nou
 
 53:                                               ; preds = %47, %43
   %54 = phi i64 [ %52, %47 ], [ 0, %43 ]
-  %55 = getelementptr %struct.page, ptr %41, i64 %54
+  %55 = getelementptr [64 x i8], ptr %41, i64 %54
   br label %56
 
 56:                                               ; preds = %53, %40
@@ -7018,7 +7008,7 @@ define internal i64 @shmem_file_read_iter(ptr noundef captures(none) %0, ptr nou
   %94 = select i1 %19, i64 %91, i64 %93
   %95 = add i64 %94, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   %96 = lshr i64 %95, 12
-  %97 = getelementptr %struct.page, ptr %90, i64 %96
+  %97 = getelementptr [64 x i8], ptr %90, i64 %96
   %98 = tail call i64 @copy_page_to_iter(ptr noundef %97, i64 noundef %24, i64 noundef %73, ptr noundef %1) #18
   br label %101
 
@@ -7328,7 +7318,7 @@ define internal i64 @shmem_file_splice_read(ptr noundef %0, ptr noundef captures
   %80 = add i32 %79, -1
   %81 = and i32 %80, %72
   %82 = zext i32 %81 to i64
-  %83 = getelementptr %struct.pipe_buffer, ptr %78, i64 %82
+  %83 = getelementptr [40 x i8], ptr %78, i64 %82
   %84 = load i64, ptr @vmemmap_base, align 8
   %85 = inttoptr i64 %84 to ptr
   %86 = load i64, ptr @phys_base, align 8
@@ -7337,7 +7327,7 @@ define internal i64 @shmem_file_splice_read(ptr noundef %0, ptr noundef captures
   %89 = select i1 %29, i64 %86, i64 %88
   %90 = add i64 %89, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   %91 = lshr i64 %90, 12
-  %92 = getelementptr %struct.page, ptr %85, i64 %91
+  %92 = getelementptr [64 x i8], ptr %85, i64 %91
   %93 = trunc nuw nsw i64 %69 to i32
   %94 = trunc nuw nsw i64 %71 to i32
   store ptr %92, ptr %83, align 8

@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type <{ %"class.std::basic_string_view", i32, [4 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<std::pair<std::vector<std::pair<std::basic_string_view<char>, int>>, float>, std::allocator<std::pair<std::vector<std::pair<std::basic_string_view<char>, int>>, float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<std::vector<std::pair<std::basic_string_view<char>, int>>, float>, std::allocator<std::pair<std::vector<std::pair<std::basic_string_view<char>, int>>, float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::vector<std::pair<std::basic_string_view<char>, int>>, float>, std::allocator<std::pair<std::vector<std::pair<std::basic_string_view<char>, int>>, float>>>::_Vector_impl_data" }
@@ -351,7 +349,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE11_S_re
 
 _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE17_M_realloc_insertIJRKS4_iEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i
   store ptr %55, ptr %18, align 8, !tbaa !55
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %48
   store ptr %57, ptr %19, align 8, !tbaa !48
   br label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12emplace_backIJRKS4_iEEERS5_DpOT_.exit
 
@@ -769,7 +767,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sente
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !77
@@ -804,7 +802,7 @@ define linkonce_odr noundef float @_ZNK13sentencepiece14ModelInterface8GetScoreE
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load float, ptr %11, align 8, !tbaa !80
@@ -819,7 +817,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface9IsUn
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !91
@@ -835,7 +833,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface9IsCo
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !91
@@ -851,7 +849,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface8IsUn
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !91
@@ -867,7 +865,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface13IsU
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !91
@@ -883,7 +881,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface6IsBy
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !91

@@ -309,7 +309,7 @@ define internal noundef i32 @_listening_socket_read(ptr noundef readonly capture
   %75 = load ptr, ptr %24, align 8
   %76 = load i32, ptr %20, align 8
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %77
   %79 = load ptr, ptr %78, align 8
   %.not32.i.i = icmp eq ptr %79, null
   br i1 %.not32.i.i, label %82, label %80
@@ -363,7 +363,7 @@ define internal noundef i32 @_listening_socket_read(ptr noundef readonly capture
   %106 = load ptr, ptr %24, align 8
   %107 = load i32, ptr %20, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %108
   store ptr %105, ptr %109, align 8
   %110 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #10
   %.not34.i.i = icmp eq i32 %110, 0
@@ -387,7 +387,7 @@ define internal noundef i32 @_listening_socket_read(ptr noundef readonly capture
   %120 = load ptr, ptr %24, align 8
   %121 = load i32, ptr %20, align 8
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw ptr, ptr %120, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %122
   %124 = load ptr, ptr %123, align 8
   call void @eio_new_initial_obj(ptr noundef %119, ptr noundef %124) #10
   %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #10
@@ -1861,7 +1861,7 @@ _incoming_buf_free.exit:                          ; preds = %21
   %121 = load ptr, ptr %5, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 216
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %132
@@ -1930,7 +1930,7 @@ _incoming_buf_free.exit:                          ; preds = %21
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 216
   %163 = load ptr, ptr %162, align 8
   %164 = zext i32 %149 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
@@ -2166,9 +2166,9 @@ _init_stdio_eio_objs.exit:                        ; preds = %82, %86, %88
 103:                                              ; preds = %.lr.ph, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
   %104 = load ptr, ptr %31, align 8
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv
   %106 = load ptr, ptr %35, align 8
-  %107 = getelementptr inbounds nuw i16, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %106, i64 %indvars.iv
   br i1 %.not67, label %110, label %108
 
 108:                                              ; preds = %103
@@ -2195,7 +2195,7 @@ _init_stdio_eio_objs.exit:                        ; preds = %82, %86, %88
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr %35, align 8
-  %120 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %119, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, i32 noundef %122) #10
@@ -2203,7 +2203,7 @@ _init_stdio_eio_objs.exit:                        ; preds = %82, %86, %88
 
 123:                                              ; preds = %118, %115
   %124 = load ptr, ptr %31, align 8
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4
   %127 = tail call ptr @eio_obj_create(i32 noundef %126, ptr noundef nonnull @listening_socket_ops, ptr noundef nonnull %9) #10
   %128 = load ptr, ptr %23, align 8
@@ -2485,7 +2485,7 @@ define internal noalias noundef ptr @_io_thr_internal(ptr noundef %0) #0 {
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4
   call void @fd_set_nonblocking(i32 noundef %19) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2743,7 +2743,7 @@ define dso_local void @client_io_handler_downnodes(ptr noundef %0, ptr noundef r
 
 15:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %9, align 4
   %19 = icmp sge i32 %17, %18
@@ -2760,7 +2760,7 @@ define dso_local void @client_io_handler_downnodes(ptr noundef %0, ptr noundef r
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %23
   %28 = load ptr, ptr %27, align 8
   %.not39 = icmp eq ptr %28, null
   br i1 %.not39, label %39, label %29
@@ -2775,7 +2775,7 @@ define dso_local void @client_io_handler_downnodes(ptr noundef %0, ptr noundef r
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i8 0, ptr %34, align 4
   %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %23
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %23
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i8 1, ptr %38, align 8
@@ -2869,7 +2869,7 @@ define dso_local void @client_io_handler_abort(ptr noundef %0) local_unnamed_add
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %.not30 = icmp eq ptr %24, null
   br i1 %.not30, label %35, label %25
@@ -2884,7 +2884,7 @@ define dso_local void @client_io_handler_abort(ptr noundef %0) local_unnamed_add
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i8 0, ptr %30, align 4
   %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i8 1, ptr %34, align 8
@@ -2939,7 +2939,7 @@ define dso_local range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr n
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_incoming_buf_free.exit, label %18

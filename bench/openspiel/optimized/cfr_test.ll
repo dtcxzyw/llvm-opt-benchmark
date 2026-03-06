@@ -3776,7 +3776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit184.i:
 1244:                                             ; preds = %1236, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %1236 ]
   %1245 = phi ptr [ %1229, %.lr.ph.i ], [ %1238, %1236 ]
-  %1246 = getelementptr inbounds nuw i64, ptr %1245, i64 %indvars.iv.i
+  %1246 = getelementptr inbounds nuw [8 x i8], ptr %1245, i64 %indvars.iv.i
   %1247 = load i64, ptr %1246, align 8
   store i64 %1247, ptr %79, align 8
   %1248 = load i64, ptr %1223, align 8
@@ -3830,7 +3830,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %1267 = load i64, ptr %1136, align 8
   %1268 = urem i64 %1263, %1267
   %1269 = load ptr, ptr %76, align 8
-  %1270 = getelementptr inbounds ptr, ptr %1269, i64 %1268
+  %1270 = getelementptr inbounds [8 x i8], ptr %1269, i64 %1268
   %1271 = load ptr, ptr %1270, align 8
   %.not.i291.i = icmp eq ptr %1271, null
   br i1 %.not.i291.i, label %.noexc225.thread.invoke.i, label %1272
@@ -3899,7 +3899,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not.i.i201.i, label %1303, label %.invoke.i
 
 1303:                                             ; preds = %.noexc199.thread344.i
-  %1304 = getelementptr inbounds nuw i64, ptr %1298, i64 %indvars.iv.i
+  %1304 = getelementptr inbounds nuw [8 x i8], ptr %1298, i64 %indvars.iv.i
   %1305 = load i64, ptr %1304, align 8
   store i64 %1305, ptr %80, align 8
   %1306 = load i64, ptr %79, align 8
@@ -3935,7 +3935,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not.i.i203.i, label %1320, label %.invoke.i
 
 1320:                                             ; preds = %1313
-  %1321 = getelementptr inbounds nuw double, ptr %1315, i64 %indvars.iv.i
+  %1321 = getelementptr inbounds nuw [8 x i8], ptr %1315, i64 %indvars.iv.i
   %1322 = load double, ptr %1321, align 8
   %1323 = fptrunc double %1322 to float
   store float %1323, ptr %83, align 4
@@ -3990,7 +3990,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %1343 = load i64, ptr %1136, align 8
   %1344 = urem i64 %1339, %1343
   %1345 = load ptr, ptr %76, align 8
-  %1346 = getelementptr inbounds ptr, ptr %1345, i64 %1344
+  %1346 = getelementptr inbounds [8 x i8], ptr %1345, i64 %1344
   %1347 = load ptr, ptr %1346, align 8
   %.not.i292.i = icmp eq ptr %1347, null
   br i1 %.not.i292.i, label %.noexc225.thread.invoke.i, label %1348
@@ -4059,7 +4059,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not.i.i209.i, label %1379, label %.invoke.i
 
 1379:                                             ; preds = %.noexc206.thread353.i
-  %1380 = getelementptr inbounds nuw double, ptr %1374, i64 %indvars.iv.i
+  %1380 = getelementptr inbounds nuw [8 x i8], ptr %1374, i64 %indvars.iv.i
   %1381 = load double, ptr %1380, align 8
   %1382 = fptrunc double %1381 to float
   store float %1382, ptr %84, align 4
@@ -4099,7 +4099,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not.i.i211.i, label %1399, label %.invoke.i
 
 1399:                                             ; preds = %1392
-  %1400 = getelementptr inbounds nuw double, ptr %1394, i64 %indvars.iv.i
+  %1400 = getelementptr inbounds nuw [8 x i8], ptr %1394, i64 %indvars.iv.i
   %1401 = load double, ptr %1400, align 8
   %1402 = fptrunc double %1401 to float
   store float %1402, ptr %88, align 4
@@ -4154,7 +4154,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %1422 = load i64, ptr %1136, align 8
   %1423 = urem i64 %1418, %1422
   %1424 = load ptr, ptr %76, align 8
-  %1425 = getelementptr inbounds ptr, ptr %1424, i64 %1423
+  %1425 = getelementptr inbounds [8 x i8], ptr %1424, i64 %1423
   %1426 = load ptr, ptr %1425, align 8
   %.not.i304.i = icmp eq ptr %1426, null
   br i1 %.not.i304.i, label %.noexc225.thread.invoke.i, label %1427
@@ -4223,7 +4223,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not.i.i218.i, label %1458, label %.invoke.i
 
 1458:                                             ; preds = %.noexc215.thread362.i
-  %1459 = getelementptr inbounds nuw double, ptr %1453, i64 %indvars.iv.i
+  %1459 = getelementptr inbounds nuw [8 x i8], ptr %1453, i64 %indvars.iv.i
   %1460 = load double, ptr %1459, align 8
   %1461 = fptrunc double %1460 to float
   store float %1461, ptr %89, align 4
@@ -4263,7 +4263,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not.i.i221.i, label %1478, label %.invoke.i
 
 1478:                                             ; preds = %1471
-  %1479 = getelementptr inbounds nuw double, ptr %1473, i64 %indvars.iv.i
+  %1479 = getelementptr inbounds nuw [8 x i8], ptr %1473, i64 %indvars.iv.i
   %1480 = load double, ptr %1479, align 8
   %1481 = fptrunc double %1480 to float
   store float %1481, ptr %93, align 4
@@ -4318,7 +4318,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %1501 = load i64, ptr %1136, align 8
   %1502 = urem i64 %1497, %1501
   %1503 = load ptr, ptr %76, align 8
-  %1504 = getelementptr inbounds ptr, ptr %1503, i64 %1502
+  %1504 = getelementptr inbounds [8 x i8], ptr %1503, i64 %1502
   %1505 = load ptr, ptr %1504, align 8
   %.not.i316.i = icmp eq ptr %1505, null
   br i1 %.not.i316.i, label %.noexc225.thread.invoke.i, label %1506
@@ -4402,7 +4402,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   unreachable
 
 1538:                                             ; preds = %.noexc225.thread371.i
-  %1539 = getelementptr inbounds nuw double, ptr %1532, i64 %indvars.iv.i
+  %1539 = getelementptr inbounds nuw [8 x i8], ptr %1532, i64 %indvars.iv.i
   %1540 = load double, ptr %1539, align 8
   %1541 = fptrunc double %1540 to float
   store float %1541, ptr %94, align 4
@@ -10703,7 +10703,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 136
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -10718,7 +10718,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -10902,7 +10902,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -10911,7 +10911,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSD_10_Hash_nodeISB_Lb1EEE.exit
@@ -10931,13 +10931,13 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 136
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSD_10_Hash_nodeISB_Lb1EEE.exit
 
@@ -10973,7 +10973,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_find_before_node_trIS5_EEPNSD_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread18, label %8

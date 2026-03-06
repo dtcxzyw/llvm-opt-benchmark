@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.CP_ENTRY = type { ptr, ptr, i32, i64, i8, i8, i8 }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
@@ -106,7 +105,7 @@ define dso_local void @cpool_init(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %25, %29
   %38 = load i32, ptr %26, align 8, !tbaa !20
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.CP_ENTRY, ptr %24, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %24, ptr %41, align 8, !tbaa !17
@@ -198,7 +197,7 @@ cpool_addunix.exit.thread40:                      ; preds = %53, %66
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw %struct.CP_ENTRY, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [40 x i8], ptr %79, i64 %80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   store i32 1, ptr %12, align 8, !tbaa !36
   %.not.i34 = icmp eq ptr %.0, null
@@ -368,7 +367,7 @@ define dso_local void @cpool_free() local_unnamed_addr #0 {
   %12 = phi ptr [ %23, %22 ], [ %7, %.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !17
-  %15 = getelementptr inbounds nuw %struct.CP_ENTRY, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !35
   %.not10 = icmp eq ptr %17, null
@@ -574,7 +573,7 @@ define dso_local noundef ptr @cpool_get_rand(ptr noundef writeonly captures(none
   %13 = add i32 %.01019, %8
   %14 = urem i32 %13, %9
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.CP_ENTRY, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 33
   %18 = load i8, ptr %17, align 1, !tbaa !30
   %.not14 = icmp eq i8 %18, 0

@@ -31,12 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::unique_ptr.137" = type { %"struct.std::__uniq_ptr_data.138" }
-%"struct.std::__uniq_ptr_data.138" = type { %"class.std::__uniq_ptr_impl.139" }
-%"class.std::__uniq_ptr_impl.139" = type { %"class.std::tuple.140" }
-%"class.std::tuple.140" = type { %"struct.std::_Tuple_impl.141" }
-%"struct.std::_Tuple_impl.141" = type { %"struct.std::_Head_base.144" }
-%"struct.std::_Head_base.144" = type { ptr }
 %struct.Initializer = type { i8 }
 %class.anon.204 = type { i8 }
 %"class.folly::small_vector" = type { %"struct.boost::operators_impl::totally_ordered1", %"union.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::Data" }
@@ -47,10 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.folly::detail::IntegralSizePolicyBase" = type { i64 }
 %"union.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::Data" = type { %"struct.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::HeapPtrWithCapacity", [120 x i8] }
 %"struct.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::HeapPtrWithCapacity" = type { ptr, i64 }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"struct.folly::AsyncUDPSocket::full_sockaddr_storage" = type { %struct.sockaddr_storage, i32 }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
 %"class.folly::Optional.128" = type { %"struct.folly::Optional<std::map<folly::SocketOptionKey, int>>::StorageNonTriviallyDestructible" }
 %"struct.folly::Optional<std::map<folly::SocketOptionKey, int>>::StorageNonTriviallyDestructible" = type <{ %union.anon.129, i8, [7 x i8] }>
@@ -65,8 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>, std::allocator<std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"class.folly::OptionalEmptyException" = type { %"class.std::runtime_error" }
-%"struct.folly::AsyncUDPSocket::WriteOptions" = type { i32, i8, %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
 %"class.std::length_error" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %struct.Initializer.209 = type { i8 }
@@ -3598,7 +3586,7 @@ define noundef i32 @_ZN5folly14AsyncUDPSocket15writeImplIOBufsENS_5RangeIPKNS_13
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.03261 = phi i64 [ %16, %.lr.ph ], [ 0, %8 ]
   %.03560 = phi i64 [ %17, %.lr.ph ], [ 0, %8 ]
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr.137", ptr %3, i64 %.03560
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03560
   %14 = load ptr, ptr %13, align 8, !tbaa !126
   %15 = tail call noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull align 8 dereferenceable(56) %14) #36
   %16 = add i64 %15, %.03261
@@ -3616,13 +3604,13 @@ define noundef i32 @_ZN5folly14AsyncUDPSocket15writeImplIOBufsENS_5RangeIPKNS_13
   %.020.i = phi i64 [ %29, %.lr.ph.i ], [ %16, %.lr.ph.i.preheader ]
   %.01619.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.01718.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.137", ptr %3, i64 %.01718.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01718.i
   %22 = load ptr, ptr %21, align 8, !tbaa !126
   %23 = call noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #36
-  %24 = getelementptr inbounds nuw i64, ptr %20, i64 %.01718.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01718.i
   store i64 %23, ptr %24, align 8, !tbaa !32
   %25 = load ptr, ptr %21, align 8, !tbaa !126
-  %26 = getelementptr inbounds nuw %struct.iovec, ptr %19, i64 %.01619.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.01619.i
   %27 = call { i64, i64 } @_ZNK5folly5IOBuf7fillIovEP5iovecm(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull %26, i64 noundef %.020.i)
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = sub i64 %.020.i, %28
@@ -3657,13 +3645,13 @@ _ZN5folly14AsyncUDPSocket9fillIoVecEPKSt10unique_ptrINS_5IOBufESt14default_delet
   %.020.i40 = phi i64 [ %56, %.noexc ], [ %16, %39 ]
   %.01619.i41 = phi i64 [ %57, %.noexc ], [ 0, %39 ]
   %.01718.i42 = phi i64 [ %58, %.noexc ], [ 0, %39 ]
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.137", ptr %3, i64 %.01718.i42
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01718.i42
   %49 = load ptr, ptr %48, align 8, !tbaa !126
   %50 = tail call noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull align 8 dereferenceable(56) %49) #36
-  %51 = getelementptr inbounds nuw i64, ptr %47, i64 %.01718.i42
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.01718.i42
   store i64 %50, ptr %51, align 8, !tbaa !32
   %52 = load ptr, ptr %48, align 8, !tbaa !126
-  %53 = getelementptr inbounds nuw %struct.iovec, ptr %43, i64 %.01619.i41
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %.01619.i41
   %54 = invoke { i64, i64 } @_ZNK5folly5IOBuf7fillIovEP5iovecm(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull %53, i64 noundef %.020.i40)
           to label %.noexc unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit49.loopexit
 
@@ -3764,11 +3752,11 @@ _ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.ex
 .lr.ph:                                           ; preds = %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit, %53
   %22 = phi i64 [ %54, %53 ], [ %.pre44, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ]
   %.037 = phi i64 [ %59, %53 ], [ 0, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ]
-  %23 = getelementptr inbounds nuw %"class.folly::SocketAddress", ptr %1, i64 %.037
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.037
   %24 = load ptr, ptr %17, align 8
   %.not1.i.i.i24 = icmp slt i64 %22, 0
   %25 = select i1 %.not1.i.i.i24, ptr %24, ptr %17
-  %26 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %25, i64 %.037
+  %26 = getelementptr inbounds nuw [136 x i8], ptr %25, i64 %.037
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 26
   %28 = load i8, ptr %27, align 2, !tbaa !17, !range !21, !noundef !22
   %29 = trunc nuw i8 %28 to i1
@@ -3856,7 +3844,7 @@ _ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit: ; preds = %50, %
   %55 = load ptr, ptr %17, align 8
   %.not1.i.i.i27 = icmp slt i64 %54, 0
   %56 = select i1 %.not1.i.i.i27, ptr %55, ptr %17
-  %57 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %56, i64 %.037
+  %57 = getelementptr inbounds nuw [136 x i8], ptr %56, i64 %.037
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
   store i32 %52, ptr %58, align 8, !tbaa !187
   %59 = add nuw i64 %.037, 1
@@ -3879,7 +3867,7 @@ _ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit: ; preds = %50, %
   %.not1.i.i = icmp slt i64 %64, 0
   %66 = select i1 %.not1.i.i, ptr %65, ptr %17
   %67 = and i64 %64, 4611686018427387903
-  %68 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [136 x i8], ptr %66, i64 %67
   call void @_ZN5folly14AsyncUDPSocket10fillMsgVecENS_5RangeIPNS0_21full_sockaddr_storageEEEPmmP7mmsghdrP5iovecPKNS0_12WriteOptionsEPc(ptr noundef nonnull align 16 dereferenceable(768) %0, ptr %66, ptr %68, ptr noundef %3, i64 noundef %5, ptr noundef %6, ptr noundef %4, ptr noundef %7, ptr noundef %8)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.sroa.0.0.copyload = load i32, ptr %69, align 16, !tbaa !34
@@ -6622,7 +6610,7 @@ define void @_ZN5folly14AsyncUDPSocket14addZeroCopyBufEOSt10unique_ptrINS_5IOBuf
   %10 = load i64, ptr %9, align 16, !tbaa !210
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %7, align 8, !tbaa !209
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !237
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %15
@@ -6754,7 +6742,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
 31:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !209
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !237
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -6781,7 +6769,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
   %45 = load i32, ptr %43, align 4, !tbaa !34
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !237
   br label %49
 
@@ -6880,7 +6868,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
   %16 = load i32, ptr %15, align 8, !tbaa !34
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !237
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -6895,7 +6883,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !237
   br label %29
 
@@ -7156,13 +7144,13 @@ define void @_ZN5folly14AsyncUDPSocket9fillIoVecEPKSt10unique_ptrINS_5IOBufESt14
   %.020 = phi i64 [ %15, %.lr.ph ], [ %5, %6 ]
   %.01619 = phi i64 [ %16, %.lr.ph ], [ 0, %6 ]
   %.01718 = phi i64 [ %17, %.lr.ph ], [ 0, %6 ]
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr.137", ptr %1, i64 %.01718
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01718
   %8 = load ptr, ptr %7, align 8, !tbaa !126
   %9 = tail call noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #36
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.01718
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01718
   store i64 %9, ptr %10, align 8, !tbaa !32
   %11 = load ptr, ptr %7, align 8, !tbaa !126
-  %12 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %.01619
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.01619
   %13 = tail call { i64, i64 } @_ZNK5folly5IOBuf7fillIovEP5iovecm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %12, i64 noundef %.020)
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = sub i64 %.020, %14
@@ -7200,9 +7188,9 @@ define void @_ZN5folly14AsyncUDPSocket10fillMsgVecENS_5RangeIPNS0_21full_sockadd
 20:                                               ; preds = %.lr.ph158, %148
   %.0156 = phi i64 [ 0, %.lr.ph158 ], [ %152, %148 ]
   %.084153 = phi i64 [ 0, %.lr.ph158 ], [ %153, %148 ]
-  %21 = getelementptr inbounds nuw %struct.mmsghdr, ptr %5, i64 %.084153
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.084153
   %22 = icmp ult i64 %.084153, %13
-  %23 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %1, i64 %.084153
+  %23 = getelementptr inbounds nuw [136 x i8], ptr %1, i64 %.084153
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %.sink161 = select i1 %22, ptr %23, ptr %15
   %.sink.in = select i1 %22, ptr %24, ptr %16
@@ -7210,10 +7198,10 @@ define void @_ZN5folly14AsyncUDPSocket10fillMsgVecENS_5RangeIPNS0_21full_sockadd
   store ptr %.sink161, ptr %21, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %.sink, ptr %25, align 8, !tbaa !140
-  %26 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %.0156
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.0156
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !141
-  %28 = getelementptr inbounds nuw i64, ptr %3, i64 %.084153
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.084153
   %29 = load i64, ptr %28, align 8, !tbaa !32
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %29, ptr %30, align 8, !tbaa !142
@@ -7384,7 +7372,7 @@ __cmsg_nxthdr.exit97.thread:                      ; preds = %96, %85, %88, %102,
   br i1 %.not142, label %._crit_edge151, label %.lr.ph150
 
 115:                                              ; preds = %._crit_edge151
-  %116 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::WriteOptions", ptr %7, i64 %.084153
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.084153
   %117 = load i32, ptr %116, align 8, !tbaa !266
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %119, label %147
@@ -8963,7 +8951,7 @@ define void @_ZN5folly14AsyncUDPSocket18releaseZeroCopyBufEj(ptr noundef nonnull
   %17 = load i64, ptr %16, align 16, !tbaa !210
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %4, align 8, !tbaa !209
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !237
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %22
@@ -9045,7 +9033,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOB
   %7 = zext i32 %6 to i64
   %8 = urem i64 %7, %5
   %9 = load ptr, ptr %0, align 8, !tbaa !209
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !237
   br label %12
 
@@ -9073,7 +9061,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
   br i1 %.not9.i.i, label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEEm.exit.i, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw ptr, ptr %9, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %21
   store ptr %11, ptr %23, align 8, !tbaa !237
   br label %._crit_edge.i.i
 
@@ -9102,7 +9090,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
   br i1 %.not17.i, label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEEm.exit.i, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw ptr, ptr %9, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %33
   store ptr %.0.i, ptr %35, align 8, !tbaa !237
   br label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEEm.exit.i
 

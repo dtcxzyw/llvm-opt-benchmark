@@ -9,9 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timeval = type { i64, i64 }
 %struct.cl_scan_options = type { i32, i32, i32, i32, i32 }
 %struct.image_fuzzy_hash = type { [8 x i8] }
-%struct.recursion_level_tag = type { i32, i64, ptr, i32, i32, i32, %struct.image_fuzzy_hash, i8 }
 %struct.text_norm_state = type { ptr, i64, i64, i32 }
-%struct.dblist_s = type { ptr, i32 }
 %struct.regex_t = type { i32, i64, ptr, ptr }
 %struct.rlimit = type { i64, i64 }
 %struct.cli_lsig_tdb = type { ptr, ptr, ptr, [3 x i32], i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -1240,7 +1238,7 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr noundef nonnull readonl
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %8, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %24
   %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = tail call ptr @cli_hashfile(ptr noundef %34, i32 noundef %2) #24
   %.not36.us = icmp eq ptr %35, null
@@ -1250,7 +1248,7 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr noundef nonnull readonl
   %37 = load i64, ptr %22, align 8, !tbaa !24
   %38 = trunc i64 %37 to i32
   %39 = load ptr, ptr %8, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %24
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %24
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = tail call ptr @__xpg_basename(ptr noundef %41) #24
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.105, ptr noundef nonnull %35, i32 noundef %38, ptr noundef %42) #24
@@ -1261,7 +1259,7 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr noundef nonnull readonl
   %44 = add i32 %.041.us, 1
   %45 = load ptr, ptr %8, align 8, !tbaa !18
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !19
   %.not35.us = icmp eq ptr %48, null
   br i1 %.not35.us, label %.loopexit, label %.lr.ph.split.us
@@ -1278,7 +1276,7 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr noundef nonnull readonl
   %.us-phi = phi i64 [ %24, %.lr.ph.split.us ], [ %50, %.lr.ph.split ]
   call void @perror(ptr noundef nonnull @.str.103) #26
   %53 = load ptr, ptr %8, align 8, !tbaa !18
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.us-phi
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.us-phi
   %55 = load ptr, ptr %54, align 8, !tbaa !19
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.104, ptr noundef %55) #24
   br label %.loopexit
@@ -1291,7 +1289,7 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr noundef nonnull readonl
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %8, align 8, !tbaa !18
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %50
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %50
   %63 = load ptr, ptr %62, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1470,7 +1468,7 @@ hashpe.exit:                                      ; preds = %122, %123
 .split43.us:                                      ; preds = %hashpe.exit, %31
   %.us-phi44 = phi i64 [ %24, %31 ], [ %50, %hashpe.exit ]
   %126 = load ptr, ptr %8, align 8, !tbaa !18
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %.us-phi44
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %.us-phi44
   %128 = load ptr, ptr %127, align 8, !tbaa !19
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.106, ptr noundef %128) #24
   br label %.loopexit
@@ -1479,7 +1477,7 @@ hashpe.exit:                                      ; preds = %122, %123
   %130 = add i32 %.041, 1
   %131 = load ptr, ptr %8, align 8, !tbaa !18
   %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !19
   %.not35 = icmp eq ptr %134, null
   br i1 %.not35, label %.loopexit, label %.lr.ph.split
@@ -1681,7 +1679,7 @@ fuzzy_img_file.exit:                              ; preds = %75, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %85 = add i64 %.018, 1
   %86 = load ptr, ptr %9, align 8, !tbaa !18
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !19
   %.not9 = icmp eq ptr %88, null
   br i1 %.not9, label %.loopexit, label %21
@@ -1855,7 +1853,7 @@ define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef nonnull %0) un
   %77 = phi ptr [ %93, %91 ], [ %74, %.preheader.i ]
   %78 = phi i32 [ %94, %91 ], [ %76, %.preheader.i ]
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %77, i64 %79
+  %80 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !68
   %.not36.i = icmp eq ptr %82, null
@@ -1868,7 +1866,7 @@ define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef nonnull %0) un
   %86 = load ptr, ptr %46, align 8, !tbaa !67
   %87 = load i32, ptr %75, align 4, !tbaa !84
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [48 x i8], ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr null, ptr %90, align 8, !tbaa !68
   br label %91
@@ -2337,7 +2335,7 @@ getdbname.exit:                                   ; preds = %49, %51
 90:                                               ; preds = %83
   %91 = call noalias ptr @strdup(ptr noundef nonnull %81) #24
   %92 = zext i32 %.2412 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %87, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %92
   store ptr %91, ptr %93, align 8, !tbaa !19
   %.not390 = icmp eq ptr %91, null
   br i1 %.not390, label %.preheader400, label %96
@@ -2348,7 +2346,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph415:                                        ; preds = %.preheader400, %.lr.ph415
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph415 ], [ 0, %.preheader400 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8, !tbaa !19
   call void @free(ptr noundef %95) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2411,14 +2409,14 @@ getdbname.exit:                                   ; preds = %49, %51
 112:                                              ; preds = %106
   %113 = call noalias dereferenceable_or_null(9) ptr @strdup(ptr noundef nonnull @.str.170) #24
   %114 = zext i32 %.3 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %110, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %114
   store ptr %113, ptr %115, align 8, !tbaa !19
   %.not348 = icmp eq ptr %113, null
   br i1 %.not348, label %.preheader397, label %119
 
 .preheader397:                                    ; preds = %112, %.preheader397
   %indvars.iv497 = phi i64 [ %indvars.iv.next498, %.preheader397 ], [ 0, %112 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv497
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv497
   %117 = load ptr, ptr %116, align 8, !tbaa !19
   call void @free(ptr noundef %117) #24
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
@@ -2445,7 +2443,7 @@ getdbname.exit:                                   ; preds = %49, %51
 .preheader398:                                    ; preds = %122, %133
   %indvars.iv489 = phi i64 [ %indvars.iv.next490, %133 ], [ 0, %122 ]
   %.2309417 = phi i32 [ %.3310, %133 ], [ %.0307, %122 ]
-  %123 = getelementptr inbounds nuw %struct.dblist_s, ptr @dblist, i64 %indvars.iv489
+  %123 = getelementptr inbounds nuw [16 x i8], ptr @dblist, i64 %indvars.iv489
   %124 = load ptr, ptr %123, align 16, !tbaa !89
   %125 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4096, ptr noundef nonnull @.str.172, ptr noundef nonnull %17, ptr noundef %124) #24
   %126 = shl nuw i64 1, %indvars.iv489
@@ -2510,7 +2508,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph421:                                        ; preds = %.lr.ph421.preheader, %.lr.ph421
   %indvars.iv492 = phi i64 [ 0, %.lr.ph421.preheader ], [ %indvars.iv.next493, %.lr.ph421 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %.1297, i64 %indvars.iv492
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.1297, i64 %indvars.iv492
   %148 = load ptr, ptr %147, align 8, !tbaa !19
   call void @free(ptr noundef %148) #24
   %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
@@ -2568,7 +2566,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph426:                                        ; preds = %.lr.ph426.preheader, %.lr.ph426
   %indvars.iv502 = phi i64 [ 0, %.lr.ph426.preheader ], [ %indvars.iv.next503, %.lr.ph426 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv502
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv502
   %170 = load ptr, ptr %169, align 8, !tbaa !19
   call void @free(ptr noundef %170) #24
   %indvars.iv.next503 = add nuw nsw i64 %indvars.iv502, 1
@@ -2664,7 +2662,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph466:                                        ; preds = %.lr.ph466.preheader, %.lr.ph466
   %indvars.iv555 = phi i64 [ 0, %.lr.ph466.preheader ], [ %indvars.iv.next556, %.lr.ph466 ]
-  %209 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv555
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv555
   %210 = load ptr, ptr %209, align 8, !tbaa !19
   call void @free(ptr noundef %210) #24
   %indvars.iv.next556 = add nuw nsw i64 %indvars.iv555, 1
@@ -2788,7 +2786,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .preheader65.i:                                   ; preds = %280, %.preheader65.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader65.preheader.i ], [ %indvars.iv.next.i, %280 ]
-  %268 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv.i
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv.i
   %269 = load ptr, ptr %268, align 8, !tbaa !19
   %270 = call fastcc ptr @sha256file(ptr noundef %269, ptr noundef nonnull %2)
   %.not64.i = icmp eq ptr %270, null
@@ -2830,7 +2828,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %302
   %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %302 ], [ 0, %.critedge.i.preheader ]
-  %285 = getelementptr inbounds nuw %struct.dblist_s, ptr @dblist, i64 %indvars.iv78.i
+  %285 = getelementptr inbounds nuw [16 x i8], ptr @dblist, i64 %indvars.iv78.i
   %286 = load ptr, ptr %285, align 16, !tbaa !89
   %287 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.172, ptr noundef nonnull %17, ptr noundef %286) #24
   %288 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(5) @.str.27) #30
@@ -2940,7 +2938,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph462:                                        ; preds = %.lr.ph462.preheader, %.lr.ph462
   %indvars.iv550 = phi i64 [ 0, %.lr.ph462.preheader ], [ %indvars.iv.next551, %.lr.ph462 ]
-  %327 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv550
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv550
   %328 = load ptr, ptr %327, align 8, !tbaa !19
   call void @free(ptr noundef %328) #24
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
@@ -2975,7 +2973,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph458:                                        ; preds = %.lr.ph458.preheader, %.lr.ph458
   %indvars.iv545 = phi i64 [ 0, %.lr.ph458.preheader ], [ %indvars.iv.next546, %.lr.ph458 ]
-  %335 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv545
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv545
   %336 = load ptr, ptr %335, align 8, !tbaa !19
   call void @free(ptr noundef %336) #24
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
@@ -3002,7 +3000,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph454:                                        ; preds = %.lr.ph454.preheader, %.lr.ph454
   %indvars.iv540 = phi i64 [ 0, %.lr.ph454.preheader ], [ %indvars.iv.next541, %.lr.ph454 ]
-  %341 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv540
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv540
   %342 = load ptr, ptr %341, align 8, !tbaa !19
   call void @free(ptr noundef %342) #24
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
@@ -3031,7 +3029,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph450:                                        ; preds = %.lr.ph450.preheader, %.lr.ph450
   %indvars.iv535 = phi i64 [ 0, %.lr.ph450.preheader ], [ %indvars.iv.next536, %.lr.ph450 ]
-  %349 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv535
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv535
   %350 = load ptr, ptr %349, align 8, !tbaa !19
   call void @free(ptr noundef %350) #24
   %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 1
@@ -3066,7 +3064,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph430:                                        ; preds = %.lr.ph430.preheader, %.lr.ph430
   %indvars.iv507 = phi i64 [ 0, %.lr.ph430.preheader ], [ %indvars.iv.next508, %.lr.ph430 ]
-  %359 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv507
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv507
   %360 = load ptr, ptr %359, align 8, !tbaa !19
   call void @free(ptr noundef %360) #24
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
@@ -3091,7 +3089,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %362
   %indvars.iv512 = phi i64 [ 0, %.lr.ph434.preheader ], [ %indvars.iv.next513, %362 ]
-  %363 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv512
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv512
   %364 = load ptr, ptr %363, align 8, !tbaa !19
   %365 = call i32 @tar_addfile(i32 noundef -1, ptr noundef nonnull %338, ptr noundef %364) #24
   %366 = icmp eq i32 %365, -1
@@ -3105,7 +3103,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 370:                                              ; preds = %367, %370
   %indvars.iv517 = phi i64 [ 0, %367 ], [ %indvars.iv.next518, %370 ]
-  %371 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv517
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv517
   %372 = load ptr, ptr %371, align 8, !tbaa !19
   call void @free(ptr noundef %372) #24
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
@@ -3122,7 +3120,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .preheader395:                                    ; preds = %.loopexit396, %386
   %indvars.iv522 = phi i64 [ %indvars.iv.next523, %386 ], [ 0, %.loopexit396 ]
-  %374 = getelementptr inbounds nuw %struct.dblist_s, ptr @dblist, i64 %indvars.iv522
+  %374 = getelementptr inbounds nuw [16 x i8], ptr @dblist, i64 %indvars.iv522
   %375 = load ptr, ptr %374, align 16, !tbaa !89
   %376 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4096, ptr noundef nonnull @.str.172, ptr noundef nonnull %17, ptr noundef %375) #24
   %377 = call i32 @access(ptr noundef nonnull %18, i32 noundef 4) #24
@@ -3146,7 +3144,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph438:                                        ; preds = %.lr.ph438.preheader, %.lr.ph438
   %indvars.iv530 = phi i64 [ 0, %.lr.ph438.preheader ], [ %indvars.iv.next531, %.lr.ph438 ]
-  %384 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv530
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv530
   %385 = load ptr, ptr %384, align 8, !tbaa !19
   call void @free(ptr noundef %385) #24
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
@@ -3172,7 +3170,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .lr.ph442:                                        ; preds = %.lr.ph442.preheader, %.lr.ph442
   %indvars.iv525 = phi i64 [ 0, %.lr.ph442.preheader ], [ %indvars.iv.next526, %.lr.ph442 ]
-  %388 = getelementptr inbounds nuw ptr, ptr %.0296, i64 %indvars.iv525
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %.0296, i64 %indvars.iv525
   %389 = load ptr, ptr %388, align 8, !tbaa !19
   call void @free(ptr noundef %389) #24
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
@@ -6532,7 +6530,7 @@ define internal fastcc range(i32 -1, 1) i32 @decodesig(ptr noundef nonnull %0, i
   br label %59
 
 59:                                               ; preds = %57, %56
-  %60 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !19
   %63 = call i64 @cli_ldbtokenize(ptr noundef %62, i8 noundef signext 58, i64 noundef 4, ptr noundef nonnull %5, i64 noundef 0) #24
@@ -7077,7 +7075,7 @@ decodecdb.exit:                                   ; preds = %120, %124, %149, %1
 
 switch.lookup:                                    ; preds = %271
   %277 = and i64 %273, 15
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.decodesig, i64 %277
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.decodesig, i64 %277
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull %switch.load) #24
   %278 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8442,7 +8440,7 @@ define internal fastcc noalias noundef ptr @decodehexstr(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04865 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !15
   %9 = and i16 %8, 3840
   %.not60 = icmp ne i16 %9, 0
@@ -8480,7 +8478,7 @@ define internal fastcc noalias noundef ptr @decodehexstr(ptr noundef %0, ptr nou
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %45
   %indvars.iv76 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next77, %45 ]
   %.04967 = phi i32 [ 0, %.lr.ph68.preheader ], [ %.150, %45 ]
-  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv76
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv76
   %18 = load i16, ptr %17, align 2, !tbaa !15
   %19 = zext i16 %18 to i32
   %20 = and i32 %19, 3840
@@ -8643,7 +8641,7 @@ define internal fastcc range(i32 -1, 1) i32 @comparesha(ptr noundef readonly cap
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !82
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %11, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !15
   %17 = and i16 %16, 2048
   %.not28 = icmp eq i16 %17, 0

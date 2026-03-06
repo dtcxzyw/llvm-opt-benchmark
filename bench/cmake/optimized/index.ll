@@ -3,7 +3,6 @@ source_filename = "bench/cmake/original/index.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.index_record = type { i64, i64 }
 %struct.index_cat_info = type { i64, i64, i64, i32, ptr }
 
 ; Function Attrs: nounwind uwtable
@@ -286,7 +285,7 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @lzma_index_file_size(p
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i64, ptr %10, align 8, !tbaa !36
-  %12 = getelementptr inbounds nuw %struct.index_record, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i64, ptr %13, align 8, !tbaa !37
   %15 = add i64 %14, 3
@@ -421,7 +420,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_stream_padding(ptr noundef rea
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %18 = load i64, ptr %17, align 8, !tbaa !36
-  %19 = getelementptr inbounds nuw %struct.index_record, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load i64, ptr %20, align 8, !tbaa !37
   %22 = add i64 %21, 3
@@ -486,13 +485,13 @@ define dso_local range(i32 0, 12) i32 @lzma_index_append(ptr noundef captures(ad
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %18 = load i64, ptr %17, align 8, !tbaa !36
-  %19 = getelementptr inbounds nuw %struct.index_record, ptr %14, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load i64, ptr %20, align 8, !tbaa !37
   %22 = add i64 %21, 3
   %23 = and i64 %22, -4
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %25 = getelementptr inbounds nuw %struct.index_record, ptr %24, i64 %18
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %18
   %26 = load i64, ptr %25, align 8, !tbaa !46
   br label %.thread
 
@@ -681,7 +680,7 @@ index_tree_append.exit:                           ; preds = %137, %110, %108, %8
   %138 = getelementptr inbounds nuw i8, ptr %.070, i64 64
   %139 = getelementptr inbounds nuw i8, ptr %.070, i64 56
   %140 = load i64, ptr %139, align 8, !tbaa !36
-  %141 = getelementptr inbounds nuw %struct.index_record, ptr %138, i64 %140
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %140
   store i64 %32, ptr %141, align 8, !tbaa !46
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i64 %35, ptr %142, align 8, !tbaa !37
@@ -740,7 +739,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_cat(ptr noalias noundef %0, pt
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %17 = load i64, ptr %16, align 8, !tbaa !36
-  %18 = getelementptr inbounds nuw %struct.index_record, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load i64, ptr %19, align 8, !tbaa !37
   %21 = add i64 %20, 3
@@ -786,7 +785,7 @@ lzma_index_file_size.exit:                        ; preds = %23, %31
 50:                                               ; preds = %lzma_index_file_size.exit
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %52 = load i64, ptr %51, align 8, !tbaa !36
-  %53 = getelementptr inbounds nuw %struct.index_record, ptr %46, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load i64, ptr %54, align 8, !tbaa !37
   %56 = add i64 %55, 3
@@ -1243,7 +1242,7 @@ index_stream_end.exit.i:                          ; preds = %64, %63
 73:                                               ; preds = %index_tree_next.exit.i, %65
   %.041.i = phi ptr [ %71, %65 ], [ %.011.i.i, %index_tree_next.exit.i ]
   %.0.i = phi i64 [ 0, %65 ], [ %82, %index_tree_next.exit.i ]
-  %74 = getelementptr inbounds nuw %struct.index_record, ptr %72, i64 %.0.i
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %.0.i
   %75 = getelementptr inbounds nuw i8, ptr %.041.i, i64 64
   %76 = getelementptr inbounds nuw i8, ptr %.041.i, i64 56
   %77 = load i64, ptr %76, align 8, !tbaa !36
@@ -1760,7 +1759,7 @@ index_tree_next.exit65:                           ; preds = %.preheader17.i58, %
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  %107 = getelementptr %struct.index_record, ptr %106, i64 %.1
+  %107 = getelementptr [16 x i8], ptr %106, i64 %.1
   %108 = getelementptr i8, ptr %107, i64 -16
   %109 = load i64, ptr %108, align 8, !tbaa !46
   %110 = load i64, ptr %107, align 8, !tbaa !46
@@ -1892,7 +1891,7 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %71 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %72 = load i64, ptr %71, align 8, !tbaa !36
-  %73 = getelementptr inbounds nuw %struct.index_record, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !37
   %76 = add i64 %75, 3
@@ -1901,7 +1900,7 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %78, ptr %79, align 8, !tbaa !79
   %80 = load i64, ptr %71, align 8, !tbaa !36
-  %81 = getelementptr inbounds nuw %struct.index_record, ptr %70, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !46
   br label %83
 
@@ -1931,7 +1930,7 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
   br label %104
 
 98:                                               ; preds = %85
-  %99 = getelementptr %struct.index_record, ptr %5, i64 %7
+  %99 = getelementptr [16 x i8], ptr %5, i64 %7
   %100 = getelementptr i8, ptr %99, i64 56
   %101 = load i64, ptr %100, align 8, !tbaa !37
   %102 = add i64 %101, 3
@@ -1943,13 +1942,13 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %105, ptr %106, align 8, !tbaa !83
   %107 = getelementptr i8, ptr %5, i64 48
-  %108 = getelementptr %struct.index_record, ptr %107, i64 %7
+  %108 = getelementptr [16 x i8], ptr %107, i64 %7
   %.in = select i1 %94, ptr %5, ptr %108
   %109 = load i64, ptr %.in, align 8, !tbaa !36
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %109, ptr %110, align 8, !tbaa !84
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %112 = getelementptr inbounds nuw %struct.index_record, ptr %111, i64 %7
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %7
   %113 = load i64, ptr %112, align 8, !tbaa !46
   %114 = sub i64 %113, %109
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -2041,7 +2040,7 @@ index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_
   %19 = sub nuw i64 %.02745, %.02844
   %20 = lshr i64 %19, 1
   %21 = add i64 %20, %.02844
-  %22 = getelementptr inbounds nuw %struct.index_record, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !46
   %.not31 = icmp ugt i64 %23, %11
   %24 = add i64 %21, 1

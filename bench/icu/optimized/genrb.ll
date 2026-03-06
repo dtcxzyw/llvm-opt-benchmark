@@ -710,7 +710,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %17 = load ptr, ptr %1, align 8, !tbaa !27
   %18 = sub nsw i32 0, %13
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.28, ptr noundef %17, ptr noundef %21) #27
   br label %25
@@ -1274,7 +1274,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
   %298 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %299 = load i32, ptr %298, align 4, !tbaa !13
   %300 = zext nneg i32 %297 to i64
-  %301 = getelementptr inbounds nuw i32, ptr %287, i64 %300
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %300
   store ptr %301, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 16), align 8, !tbaa !49
   %302 = sub nsw i32 %299, %297
   %303 = shl i32 %302, 2
@@ -1342,7 +1342,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV18PseudoListResource, i64 16), ptr %325, align 8, !tbaa !21
   store ptr %325, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8, !tbaa !20
   %330 = sext i32 %299 to i64
-  %331 = getelementptr inbounds i32, ptr %287, i64 %330
+  %331 = getelementptr inbounds [4 x i8], ptr %287, i64 %330
   br label %336
 
 332:                                              ; preds = %417, %416, %415, %324, %320
@@ -1375,7 +1375,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 
 .lr.ph315:                                        ; preds = %.lr.ph315.preheader, %345
   %indvars.iv330 = phi i64 [ 0, %.lr.ph315.preheader ], [ %indvars.iv.next331, %345 ]
-  %343 = getelementptr inbounds nuw i16, ptr %.0179, i64 %indvars.iv330
+  %343 = getelementptr inbounds nuw [2 x i8], ptr %.0179, i64 %indvars.iv330
   %344 = load i16, ptr %343, align 2, !tbaa !61
   %.not264 = icmp eq i16 %344, 0
   br i1 %.not264, label %.critedge.loopexit.split.loop.exit, label %345
@@ -1439,7 +1439,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 
 375:                                              ; preds = %.critedge
   %376 = sext i32 %374 to i64
-  %377 = getelementptr inbounds i16, ptr %.0179, i64 %376
+  %377 = getelementptr inbounds [2 x i8], ptr %.0179, i64 %376
   %378 = load i16, ptr %377, align 2, !tbaa !61
   %.not266 = icmp eq i16 %378, 0
   br i1 %.not266, label %379, label %.thread299
@@ -1452,7 +1452,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 
 383:                                              ; preds = %379
   %384 = zext nneg i8 %.0174 to i64
-  %385 = getelementptr inbounds nuw i16, ptr %.0179, i64 %384
+  %385 = getelementptr inbounds nuw [2 x i8], ptr %.0179, i64 %384
   %.not267 = icmp eq i32 %.1173, 0
   br i1 %.not267, label %401, label %386
 
@@ -1496,7 +1496,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 
 401:                                              ; preds = %383, %400
   %402 = sext i32 %.1173 to i64
-  %403 = getelementptr i16, ptr %385, i64 %402
+  %403 = getelementptr [2 x i8], ptr %385, i64 %402
   %404 = getelementptr i8, ptr %403, i64 2
   %.neg310 = xor i32 %.1173, -1
   %.neg311 = sub i32 %.0176, %373
@@ -1622,7 +1622,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 .lr.ph320.split.us:                               ; preds = %.lr.ph320, %479
   %indvars.iv339 = phi i64 [ %indvars.iv.next340, %479 ], [ 1, %.lr.ph320 ]
   store i32 0, ptr %3, align 4, !tbaa !14
-  %457 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv339
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv339
   %458 = load ptr, ptr %457, align 8, !tbaa !27
   %459 = invoke ptr @getLongPathname(ptr noundef %458)
           to label %460 unwind label %.loopexit312.split.us
@@ -1696,7 +1696,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit297.us: ; preds
 .lr.ph320.split:                                  ; preds = %.lr.ph320, %512
   %indvars.iv334 = phi i64 [ %indvars.iv.next335, %512 ], [ 1, %.lr.ph320 ]
   store i32 0, ptr %3, align 4, !tbaa !14
-  %482 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv334
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv334
   %483 = load ptr, ptr %482, align 8, !tbaa !27
   %484 = invoke ptr @getLongPathname(ptr noundef %483)
           to label %485 unwind label %.loopexit312.split

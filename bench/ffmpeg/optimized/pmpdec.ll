@@ -289,7 +289,7 @@ define internal range(i32 -2147483648, 1) i32 @pmp_packet(ptr noundef %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %29 = tail call i32 @avio_rl32(ptr noundef %6) #4
   %30 = load ptr, ptr %23, align 8, !tbaa !55
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   store i32 %29, ptr %31, align 4, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -301,7 +301,7 @@ define internal range(i32 -2147483648, 1) i32 @pmp_packet(ptr noundef %0, ptr no
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !53
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %33, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %33, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !56
   %39 = tail call i32 @av_get_packet(ptr noundef %6, ptr noundef %1, i32 noundef %38) #4
   %40 = icmp sgt i32 %39, -1

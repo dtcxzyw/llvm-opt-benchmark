@@ -17,7 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>, std::allocator<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>, std::allocator<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>, std::allocator<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>, std::allocator<std::pair<folly::Range<const char *>, std::vector<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.11" = type { %"class.folly::Range", double }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.20 }
@@ -32,7 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, folly::Range<const char *>>, std::allocator<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, folly::Range<const char *>>, std::allocator<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, folly::Range<const char *>>, std::allocator<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<folly::Range<const char *>, folly::Range<const char *>>, std::allocator<std::pair<folly::Range<const char *>, folly::Range<const char *>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.folly::Range", %"class.folly::Range" }
 %"class.folly::BadExpectedAccess" = type { %"class.std::exception" }
 %"class.folly::ConversionError" = type <{ %"struct.folly::ConversionErrorBase", i8, [7 x i8] }>
 %"struct.folly::ConversionErrorBase" = type { %"class.std::range_error" }
@@ -46,7 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Initializer.33 = type { i8 }
 %struct.Initializer.32 = type { i8 }
 %"class.std::bad_alloc" = type { %"class.std::exception" }
-%"struct.std::pair.9" = type { %"class.folly::Range", %"class.std::vector" }
 
 $_ZN5folly2toIdEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_ = comdat any
 
@@ -596,7 +593,7 @@ try.cont:                                         ; preds = %catch, %invoke.cont
 
 if.then.i8:                                       ; preds = %try.cont
   %conv.i.i = zext nneg i16 %20 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %u12.i, i64 %conv.i.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %u12.i, i64 %conv.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.029, i64 16, i1 false)
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %21 = load double, ptr %qvalue, align 8
@@ -621,7 +618,7 @@ if.then11.i:                                      ; preds = %if.end.i
 
 if.else.i:                                        ; preds = %if.end.i
   %24 = load ptr, ptr %u12.i, align 8
-  %add.ptr14.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %24, i64 %conv2.i.i.i
+  %add.ptr14.i = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %conv2.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr14.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.029, i64 16, i1 false)
   %second.i11.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i, i64 16
   %25 = load double, ptr %qvalue, align 8
@@ -871,7 +868,7 @@ _ZNSt12_Vector_baseISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE11_M_allocateEm.exit.
 _ZNSt12_Vector_baseISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE11_M_allocateEm.exit.i
   store ptr %call5.i.i.i.i28, ptr %params, align 8
   store ptr %call5.i.i.i.i28, ptr %_M_finish.i.i25, align 8
-  %add.ptr21.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i28, i64 %sub
+  %add.ptr21.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i28, i64 %sub
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont27
 
@@ -1061,7 +1058,7 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE17_M_realloc_insertIJRS5_SA_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit26.i.i
   store ptr %call5.i.i.i.i.i62, ptr %params, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i25, align 8
-  %add.ptr28.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i.i62, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i62, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE12emplace_backIJRS5_SA_EEERS6_DpOT_.exit
 
@@ -2214,9 +2211,9 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 invoke.cont20:                                    ; preds = %_ZN5folly13checkedMallocEm.exit
   %12 = and i16 %10, 16383
   %conv2.i.i.i = zext nneg i16 %12 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %cond.i.i, i64 %conv2.i.i.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i, i64 %conv2.i.i.i
   %idx.ext.i = and i64 %pos, 65535
-  %add.ptr.i18 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %call.i, i64 %idx.ext.i
+  %add.ptr.i18 = getelementptr inbounds nuw [24 x i8], ptr %call.i, i64 %idx.ext.i
   %13 = load ptr, ptr %emplaceFunc, align 8
   %14 = getelementptr inbounds nuw i8, ptr %emplaceFunc, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -2236,7 +2233,7 @@ if.then.i20:                                      ; preds = %invoke.cont20
 for.body.i.i:                                     ; preds = %if.then.i20, %for.body.i.i
   %first.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %cond.i.i, %if.then.i20 ]
   %idx.04.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then.i20 ]
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %call.i, i64 %idx.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i, i64 %idx.04.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.addr.05.i.i, i64 24, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %first.addr.05.i.i, i64 24
   %inc.i.i = add nuw nsw i64 %idx.04.i.i, 1
@@ -2248,14 +2245,14 @@ if.end.i21:                                       ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i22, label %if.then10.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt4pairINS_5RangeIPKcEEdELm8ENS_19small_vector_policy16policy_size_typeItEEE16makeSizeInternalIZNSC_12emplace_backIJRKS7_RdEEERS8_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
 if.then10.i:                                      ; preds = %if.end.i21
-  %add.ptr9.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %cond.i.i, i64 %idx.ext.i
+  %add.ptr9.i = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i, i64 %idx.ext.i
   %add.ptr17.i = getelementptr inbounds nuw i8, ptr %add.ptr.i18, i64 24
   br label %for.body.i8.i
 
 for.body.i8.i:                                    ; preds = %for.body.i8.i, %if.then10.i
   %first.addr.05.i9.i = phi ptr [ %incdec.ptr.i12.i, %for.body.i8.i ], [ %add.ptr9.i, %if.then10.i ]
   %idx.04.i10.i = phi i64 [ %inc.i13.i, %for.body.i8.i ], [ 0, %if.then10.i ]
-  %arrayidx.i11.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %add.ptr17.i, i64 %idx.04.i10.i
+  %arrayidx.i11.i = getelementptr inbounds nuw [24 x i8], ptr %add.ptr17.i, i64 %idx.04.i10.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i11.i, ptr noundef nonnull align 8 dereferenceable(24) %first.addr.05.i9.i, i64 24, i1 false)
   %incdec.ptr.i12.i = getelementptr inbounds nuw i8, ptr %first.addr.05.i9.i, i64 24
   %inc.i13.i = add nuw nsw i64 %idx.04.i10.i, 1
@@ -2277,7 +2274,7 @@ invoke.cont28:                                    ; preds = %if.else
 for.body.i:                                       ; preds = %invoke.cont28, %for.body.i
   %first.addr.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %cond.i.i, %invoke.cont28 ]
   %idx.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %invoke.cont28 ]
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %call.i, i64 %idx.04.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %call.i, i64 %idx.04.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(24) %first.addr.05.i, i64 24, i1 false)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.addr.05.i, i64 24
   %inc.i = add nuw nsw i64 %idx.04.i, 1
@@ -2793,7 +2790,7 @@ _ZNSt12_Vector_baseISt4pairIN5folly5RangeIPKcEESt6vectorIS0_IS5_S5_ESaIS7_EEESaI
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i31, ptr %_M_finish.i.i, align 8
-  %add.ptr28 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [40 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8
   ret void
 }

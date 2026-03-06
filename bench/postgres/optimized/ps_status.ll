@@ -44,7 +44,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.05673, i64 1
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %10, label %14
@@ -93,7 +93,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
   %.3 = phi ptr [ %23, %21 ], [ %.25876, %.lr.ph78 ]
   %25 = add i32 %.15577, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %16, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %16, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge79.loopexit, label %.lr.ph78, !llvm.loop !6
@@ -129,7 +129,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
 38:                                               ; preds = %.lr.ph85
   %39 = add i32 %.284, 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %16, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %16, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not65 = icmp eq ptr %42, null
   br i1 %.not65, label %._crit_edge86, label %.lr.ph85, !llvm.loop !7
@@ -139,7 +139,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
   %44 = phi i64 [ %40, %38 ], [ 0, %.preheader69 ]
   %.284 = phi i32 [ %39, %38 ], [ 0, %.preheader69 ]
   %45 = tail call noalias ptr @strdup(ptr noundef nonnull %43) #15
-  %46 = getelementptr inbounds ptr, ptr %36, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %36, i64 %44
   store ptr %45, ptr %46, align 8
   %.not66 = icmp eq ptr %45, null
   br i1 %.not66, label %47, label %38
@@ -151,7 +151,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
 
 ._crit_edge86:                                    ; preds = %38, %.preheader69
   %.lcssa = phi i64 [ 0, %.preheader69 ], [ %40, %38 ]
-  %48 = getelementptr inbounds ptr, ptr %36, i64 %.lcssa
+  %48 = getelementptr inbounds [8 x i8], ptr %36, i64 %.lcssa
   store ptr null, ptr %48, align 8
   store ptr %36, ptr @environ, align 8
   %49 = add nuw i32 %0, 1
@@ -177,10 +177,10 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %54
   %indvars.iv94 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next95, %54 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv94
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv94
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noalias ptr @strdup(ptr noundef %56) #15
-  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv94
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv94
   store ptr %57, ptr %58, align 8
   %.not68 = icmp eq ptr %57, null
   br i1 %.not68, label %59, label %54
@@ -192,7 +192,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
 
 ._crit_edge90:                                    ; preds = %54
   %60 = zext nneg i32 %0 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %52, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %60
   store ptr null, ptr %61, align 8
   br label %62
 
@@ -258,7 +258,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %13, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

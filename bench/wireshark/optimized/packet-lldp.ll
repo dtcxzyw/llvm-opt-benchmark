@@ -3464,10 +3464,10 @@ define internal fastcc void @dissect_dcbx_tlv(ptr noundef %0, ptr noundef %1) un
 
 switch.lookup:                                    ; preds = %.lr.ph8
   %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dcbx_tlv, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_dcbx_tlv, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_dcbx_tlv.13, i64 %14
+  %switch.gep21 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_dcbx_tlv.13, i64 %14
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   %narrow = add nuw nsw i16 %11, 2
   %15 = zext nneg i16 %narrow to i32
@@ -4076,7 +4076,7 @@ switch.lookup:                                    ; preds = %89
   %115 = and i8 %114, 3
   %116 = zext nneg i8 %115 to i32
   %117 = zext nneg i8 %109 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ieee_802_3_tlv, i64 %117
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ieee_802_3_tlv, i64 %117
   %switch.load = load ptr, ptr %switch.gep, align 8
   %118 = tail call ptr @val_to_str_const(i32 noundef %116, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.109)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %113, ptr noundef nonnull @.str.1222, ptr noundef %118)

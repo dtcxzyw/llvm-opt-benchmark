@@ -569,7 +569,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   %46 = load ptr, ptr %29, align 8
   %47 = load i32, ptr %3, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i64, ptr %46, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %46, i64 %48
   br label %50
 
 50:                                               ; preds = %.thread51, %45
@@ -577,7 +577,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   %.4 = load i64, ptr %.4.in, align 8
   %51 = mul i64 %.4, %.03550
   %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds i64, ptr %52, i64 %indvars.iv.next
+  %53 = getelementptr inbounds [8 x i8], ptr %52, i64 %indvars.iv.next
   br i1 %.033.ph64, label %.sink.split, label %54
 
 54:                                               ; preds = %50

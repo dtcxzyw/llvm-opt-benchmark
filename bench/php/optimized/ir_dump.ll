@@ -3,17 +3,6 @@ source_filename = "bench/php/original/ir_dump.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._ir_insn = type { %struct.anon, %union.anon.5 }
-%struct.anon = type { %union.anon, %union.anon.4 }
-%union.anon = type { i32 }
-%union.anon.4 = type { i32 }
-%union.anon.5 = type { %union._ir_val }
-%union._ir_val = type { double }
-%struct._ir_block = type { i32, i32, i32, i32, i32, i32, i32, %union.anon.14, %union.anon.15, i32, i32, i32, i32 }
-%union.anon.14 = type { i32 }
-%union.anon.15 = type { i32 }
-%struct._ir_use_list = type { i32, i32 }
-
 @.str = private unnamed_addr constant [12 x i8] c"%05d %s %s(\00", align 1
 @ir_op_name = external local_unnamed_addr global [108 x ptr], align 16
 @ir_type_name = external local_unnamed_addr global [14 x ptr], align 16
@@ -148,7 +137,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph.preheader:                                 ; preds = %2
   %7 = sub nsw i32 1, %4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct._ir_insn, ptr %5, i64 %8
+  %9 = getelementptr inbounds [16 x i8], ptr %5, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -156,12 +145,12 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.05473 = phi ptr [ %22, %.lr.ph ], [ %9, %.lr.ph.preheader ]
   %10 = load i8, ptr %.05473, align 8, !tbaa !27
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %.05473, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !27
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @ir_type_name, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_name, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %.074, ptr noundef %13, ptr noundef %18) #7
   tail call void @ir_print_const(ptr noundef nonnull %0, ptr noundef nonnull %.05473, ptr noundef %1, i1 noundef zeroext true) #7
@@ -188,9 +177,9 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.15582 = getelementptr inbounds nuw i8, ptr %.pn80, i64 16
   %27 = load i8, ptr %.15582, align 8, !tbaa !27
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !30
-  %31 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %28
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %28
   %32 = load ptr, ptr %31, align 8, !tbaa !28
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %.181, ptr noundef %32) #7
   %34 = and i32 %30, 256
@@ -216,7 +205,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 40:                                               ; preds = %.lr.ph84._crit_edge, %37
   %41 = phi i8 [ %.pre92, %.lr.ph84._crit_edge ], [ %39, %37 ]
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @ir_type_name, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_name, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !28
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %44) #7
   br label %46
@@ -224,7 +213,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 46:                                               ; preds = %40, %37, %35
   %47 = load i8, ptr %.15582, align 8, !tbaa !27
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !30
   %51 = lshr i32 %50, 3
   %52 = and i32 %51, 3
@@ -332,7 +321,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 .lr.ph.preheader:                                 ; preds = %3
   %10 = sub nsw i32 1, %7
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct._ir_insn, ptr %8, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %8, i64 %11
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -342,7 +331,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %14 = getelementptr inbounds nuw i8, ptr %.0130143, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !27
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @ir_type_name, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_name, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %13, i32 noundef %13, ptr noundef %18) #7
   tail call void @ir_print_const(ptr noundef nonnull %0, ptr noundef %.0130143, ptr noundef %2, i1 noundef zeroext false) #7
@@ -372,7 +361,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.1131151 = phi ptr [ %154, %._crit_edge150 ], [ %27, %.lr.ph154.preheader ]
   %28 = load i8, ptr %.1131151, align 8, !tbaa !27
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !30
   %32 = and i32 %31, 512
   %.not = icmp eq i32 %32, 0
@@ -385,13 +374,13 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ]
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %29
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %.1152, i32 noundef %.1152, ptr noundef %36) #7
   br label %84
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %29
   %40 = load ptr, ptr %39, align 8, !tbaa !28
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %.1152, i32 noundef %.1152, ptr noundef %40) #7
   br label %84
@@ -402,7 +391,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not139, label %48, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %29
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %29
   %46 = load ptr, ptr %45, align 8, !tbaa !28
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, i32 noundef %.1152, i32 noundef %.1152, ptr noundef %46) #7
   br label %84
@@ -410,7 +399,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 48:                                               ; preds = %42
   %49 = and i32 %31, 1024
   %.not140 = icmp eq i32 %49, 0
-  %50 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %29
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %29
   %51 = load ptr, ptr %50, align 8, !tbaa !28
   br i1 %.not140, label %54, label %52
 
@@ -430,7 +419,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 58:                                               ; preds = %56
   %59 = and i32 %31, 15728640
   %60 = icmp eq i32 %59, 1048576
-  %61 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %29
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %29
   %62 = load ptr, ptr %61, align 8, !tbaa !28
   br i1 %60, label %63, label %66
 
@@ -443,7 +432,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %67 = getelementptr inbounds nuw i8, ptr %.1131151, i64 1
   %68 = load i8, ptr %67, align 1, !tbaa !27
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr @ir_type_name, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_name, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   switch i8 %28, label %82 [
     i8 63, label %72
@@ -471,7 +460,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 84:                                               ; preds = %56, %72, %82, %77, %63, %34, %44, %54, %52, %38
   %85 = load i8, ptr %.1131151, align 8, !tbaa !27
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !30
   %89 = lshr i32 %88, 3
   %90 = and i32 %89, 3
@@ -535,17 +524,17 @@ ir_operands_count.exit:                           ; preds = %84, %92
   %115 = load ptr, ptr %0, align 8, !tbaa !26
   %116 = load i32, ptr %96, align 4, !tbaa !27
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct._ir_insn, ptr %115, i64 %117
+  %118 = getelementptr inbounds [16 x i8], ptr %115, i64 %117
   %119 = load i8, ptr %118, align 8, !tbaa !27
   %120 = icmp eq i8 %119, 99
   br i1 %120, label %121, label %131
 
 121:                                              ; preds = %114
-  %122 = getelementptr i32, ptr %118, i64 %indvars.iv
+  %122 = getelementptr [4 x i8], ptr %118, i64 %indvars.iv
   %123 = getelementptr i8, ptr %122, i64 -4
   %124 = load i32, ptr %123, align 4, !tbaa !30
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct._ir_insn, ptr %115, i64 %125
+  %126 = getelementptr inbounds [16 x i8], ptr %115, i64 %125
   %127 = load i8, ptr %126, align 8, !tbaa !27
   %128 = icmp eq i8 %127, 101
   br i1 %128, label %129, label %131
@@ -568,7 +557,7 @@ ir_operands_count.exit:                           ; preds = %84, %92
 135:                                              ; preds = %133
   %136 = load ptr, ptr %0, align 8, !tbaa !26
   %137 = sext i32 %98 to i64
-  %138 = getelementptr inbounds %struct._ir_insn, ptr %136, i64 %137
+  %138 = getelementptr inbounds [16 x i8], ptr %136, i64 %137
   %139 = load i8, ptr %138, align 8, !tbaa !27
   %140 = icmp eq i8 %139, 101
   br i1 %140, label %141, label %.thread
@@ -600,7 +589,7 @@ ir_operands_count.exit:                           ; preds = %84, %92
   %151 = add nuw nsw i32 %150, 1
   %152 = add nuw nsw i32 %151, %.1152
   %153 = zext nneg i32 %151 to i64
-  %154 = getelementptr inbounds nuw %struct._ir_insn, ptr %.1131151, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %.1131151, i64 %153
   %155 = load i32, ptr %24, align 8, !tbaa !29
   %156 = icmp slt i32 %152, %155
   br i1 %156, label %.lr.ph154, label %._crit_edge155
@@ -645,7 +634,7 @@ define hidden void @ir_dump_use_lists(ptr noundef readonly captures(none) %0, pt
   %18 = load ptr, ptr %11, align 8, !tbaa !35
   %19 = load i32, ptr %.033, align 4, !tbaa !36
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %18, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !30
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %.02431, i32 noundef %15, i32 noundef %22) #7
   %.not37 = icmp eq i32 %15, 1
@@ -707,11 +696,11 @@ define hidden void @ir_dump_cfg(ptr noundef readonly captures(none) %0, ptr noun
   %.02533 = phi i32 [ %18, %.lr.ph ], [ 1, %.preheader30 ]
   %11 = load ptr, ptr %9, align 8, !tbaa !39
   %12 = zext i32 %.02533 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !30
   %15 = load ptr, ptr %3, align 8, !tbaa !37
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct._ir_block, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [52 x i8], ptr %15, i64 %16
   tail call fastcc void @ir_dump_cfg_block(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %14, ptr noundef %17)
   %18 = add i32 %.02533, 1
   %.not29 = icmp ugt i32 %18, %7
@@ -754,7 +743,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !45
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !30
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.108, i32 noundef %13, i32 noundef %21) #7
   %23 = load i32, ptr %12, align 4, !tbaa !43
@@ -767,7 +756,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %26 = load i32, ptr %17, align 4, !tbaa !45
   %27 = add i32 %26, %.0113
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !30
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %30) #7
   %32 = add nuw i32 %.0113, 1
@@ -791,7 +780,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !30
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.109, i32 noundef %38, i32 noundef %46) #7
   %48 = load i32, ptr %37, align 4, !tbaa !46
@@ -804,7 +793,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %51 = load i32, ptr %42, align 4, !tbaa !47
   %52 = add i32 %51, %.093114
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !30
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %55) #7
   %57 = add nuw i32 %.093114, 1
@@ -840,7 +829,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %75 = load ptr, ptr %74, align 8, !tbaa !37
   %76 = sext i32 %71 to i64
-  %77 = getelementptr inbounds %struct._ir_block, ptr %75, i64 %76
+  %77 = getelementptr inbounds [52 x i8], ptr %75, i64 %76
   %.094.in118 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %.094119 = load i32, ptr %.094.in118, align 4, !tbaa !49
   %78 = icmp sgt i32 %.094119, 0
@@ -851,7 +840,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %.094120) #7
   %80 = load ptr, ptr %74, align 8, !tbaa !37
   %81 = zext nneg i32 %.094120 to i64
-  %82 = getelementptr inbounds nuw %struct._ir_block, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [52 x i8], ptr %80, i64 %81
   %.094.in = getelementptr inbounds nuw i8, ptr %82, i64 40
   %.094 = load i32, ptr %.094.in, align 4, !tbaa !49
   %83 = icmp sgt i32 %.094, 0
@@ -951,12 +940,12 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %.092124 = phi i32 [ %134, %.lr.ph126 ], [ 0, %123 ]
   %129 = add i32 %.092124, 1
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw i32, ptr %126, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !30
   %133 = add i32 %.092124, 2
   %134 = add i32 %133, %132
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %126, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !30
   %138 = icmp eq i32 %2, %137
   br i1 %138, label %._crit_edge127, label %.lr.ph126
@@ -965,7 +954,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %.092.lcssa = phi i32 [ 0, %123 ], [ %134, %.lr.ph126 ]
   %139 = add i32 %.092.lcssa, 1
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %126, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !30
   %.not133 = icmp eq i32 %142, 0
   br i1 %.not133, label %.loopexit, label %.lr.ph132.preheader
@@ -979,7 +968,7 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   %.1129 = phi i32 [ %150, %.lr.ph132 ], [ %143, %.lr.ph132.preheader ]
   %144 = load ptr, ptr %125, align 8, !tbaa !56
   %145 = zext i32 %.1129 to i64
-  %146 = getelementptr inbounds nuw i32, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !30
   %148 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.120, i32 noundef %147) #7
   %149 = add nuw i32 %.091130, 1
@@ -1023,7 +1012,7 @@ define hidden void @ir_dump_cfg_map(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %12, i32 noundef %11) #7
@@ -1066,7 +1055,7 @@ define hidden void @ir_dump_live_ranges(ptr noundef readonly captures(none) %0, 
   %14 = phi i32 [ %9, %.lr.ph205 ], [ %191, %190 ]
   %indvars.iv224 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next225, %190 ]
   %15 = load ptr, ptr %3, align 8, !tbaa !59
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv224
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv224
   %17 = load ptr, ptr %16, align 8, !tbaa !61
   %.not156 = icmp eq ptr %17, null
   br i1 %.not156, label %190, label %18
@@ -1091,7 +1080,7 @@ define hidden void @ir_dump_live_ranges(ptr noundef readonly captures(none) %0, 
 
 25:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !30
   %28 = zext i32 %27 to i64
   %29 = icmp eq i64 %indvars.iv224, %28
@@ -1123,7 +1112,7 @@ define hidden void @ir_dump_live_ranges(ptr noundef readonly captures(none) %0, 
   %37 = phi i32 [ %34, %.lr.ph187.preheader ], [ %47, %46 ]
   %indvars.iv221 = phi i64 [ %36, %.lr.ph187.preheader ], [ %indvars.iv.next222, %46 ]
   %38 = load ptr, ptr %10, align 8, !tbaa !63
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv221
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv221
   %40 = load i32, ptr %39, align 4, !tbaa !30
   %41 = zext i32 %40 to i64
   %42 = icmp eq i64 %indvars.iv224, %41
@@ -1359,7 +1348,7 @@ define hidden void @ir_dump_live_ranges(ptr noundef readonly captures(none) %0, 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %10, align 8, !tbaa !63
   %176 = sext i32 %173 to i64
-  %177 = getelementptr inbounds i32, ptr %175, i64 %176
+  %177 = getelementptr inbounds [4 x i8], ptr %175, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !30
   %179 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.56, i32 noundef %178) #7
   br label %180
@@ -1423,7 +1412,7 @@ define hidden void @ir_dump_live_ranges(ptr noundef readonly captures(none) %0, 
   %indvars.iv227 = phi i64 [ %197, %.lr.ph218.preheader ], [ %indvars.iv.next228, %226 ]
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, 1
   %198 = load ptr, ptr %3, align 8, !tbaa !59
-  %199 = getelementptr inbounds ptr, ptr %198, i64 %indvars.iv.next228
+  %199 = getelementptr inbounds [8 x i8], ptr %198, i64 %indvars.iv.next228
   %200 = load ptr, ptr %199, align 8, !tbaa !61
   %.not154 = icmp eq ptr %200, null
   br i1 %.not154, label %226, label %201
@@ -1520,7 +1509,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %19 = getelementptr inbounds i8, ptr %.pn417, i64 -15
   %20 = load i8, ptr %19, align 1, !tbaa !27
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.59, ptr noundef %23, i32 noundef %.0318418) #7
   %25 = load i8, ptr %.0321419, align 8, !tbaa !27
@@ -1576,7 +1565,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 52:                                               ; preds = %50
   %53 = zext i32 %.0323441 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !30
   br label %56
 
@@ -1584,7 +1573,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %.0324 = phi i32 [ %55, %52 ], [ %.0323441, %50 ]
   %57 = load ptr, ptr %13, align 8, !tbaa !37
   %58 = zext i32 %.0324 to i64
-  %59 = getelementptr inbounds nuw %struct._ir_block, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [52 x i8], ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !50
   %61 = and i32 %60, 70
   %62 = icmp eq i32 %61, 64
@@ -1656,7 +1645,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %98 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %99 = load i32, ptr %98, align 4, !tbaa !47
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %97, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !30
   %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.70, i32 noundef %95, i32 noundef %102) #7
   %104 = load i32, ptr %94, align 4, !tbaa !46
@@ -1669,7 +1658,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %107 = load i32, ptr %98, align 4, !tbaa !47
   %108 = add i32 %107, %.0328420
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %106, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !30
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %111) #7
   %113 = add nuw i32 %.0328420, 1
@@ -1692,7 +1681,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %121 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %122 = load i32, ptr %121, align 4, !tbaa !45
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %120, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !30
   %126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.73, i32 noundef %118, i32 noundef %125) #7
   %127 = load i32, ptr %117, align 4, !tbaa !43
@@ -1705,7 +1694,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %130 = load i32, ptr %121, align 4, !tbaa !45
   %131 = add i32 %130, %.0327422
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %129, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !30
   %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %134) #7
   %136 = add nuw i32 %.0327422, 1
@@ -1728,7 +1717,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 .lr.ph438.preheader:                              ; preds = %139
   %143 = load ptr, ptr %0, align 8, !tbaa !26
   %144 = sext i32 %141 to i64
-  %145 = getelementptr inbounds %struct._ir_insn, ptr %143, i64 %144
+  %145 = getelementptr inbounds [16 x i8], ptr %143, i64 %144
   br label %.lr.ph438
 
 .lr.ph438:                                        ; preds = %.lr.ph438.preheader, %375
@@ -1736,7 +1725,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %.1322435 = phi ptr [ %380, %375 ], [ %145, %.lr.ph438.preheader ]
   %146 = load i8, ptr %.1322435, align 8, !tbaa !27
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !30
   %150 = and i32 %149, 512
   %.not375 = icmp eq i32 %150, 0
@@ -1759,7 +1748,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 159:                                              ; preds = %153
   %160 = zext i8 %155 to i64
-  %161 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !28
   %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.75, ptr noundef %162, i32 noundef %.1436) #7
   %164 = load ptr, ptr %15, align 8, !tbaa !63
@@ -1768,7 +1757,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 165:                                              ; preds = %159
   %166 = sext i32 %.1436 to i64
-  %167 = getelementptr inbounds i32, ptr %164, i64 %166
+  %167 = getelementptr inbounds [4 x i8], ptr %164, i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !30
   %.not385 = icmp eq i32 %168, 0
   br i1 %.not385, label %171, label %169
@@ -1813,7 +1802,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %189 = getelementptr inbounds nuw i8, ptr %.1322435, i64 1
   %190 = load i8, ptr %189, align 1, !tbaa !27
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !28
   %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.82, ptr noundef %193, i32 noundef %.1436) #7
   %195 = load ptr, ptr %15, align 8, !tbaa !63
@@ -1822,7 +1811,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 196:                                              ; preds = %188
   %197 = sext i32 %.1436 to i64
-  %198 = getelementptr inbounds i32, ptr %195, i64 %197
+  %198 = getelementptr inbounds [4 x i8], ptr %195, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !30
   %.not379 = icmp eq i32 %199, 0
   br i1 %.not379, label %202, label %200
@@ -1860,12 +1849,12 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 217:                                              ; preds = %186, %215, %157, %184
   %218 = load i8, ptr %.1322435, align 8, !tbaa !27
   %219 = zext i8 %218 to i64
-  %220 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !28
   %fputs = call i32 @fputs(ptr %221, ptr %1)
   %222 = load i8, ptr %.1322435, align 8, !tbaa !27
   %223 = zext i8 %222 to i64
-  %224 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !30
   %226 = lshr i32 %225, 3
   %227 = and i32 %226, 3
@@ -1993,7 +1982,7 @@ ir_operands_count.exit:                           ; preds = %217, %229
 
 276:                                              ; preds = %273
   %277 = zext nneg i32 %265 to i64
-  %278 = getelementptr inbounds nuw i32, ptr %275, i64 %277
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %277
   %279 = load i32, ptr %278, align 4, !tbaa !30
   %.not405 = icmp eq i32 %279, 0
   br i1 %.not405, label %282, label %280
@@ -2018,7 +2007,7 @@ ir_operands_count.exit:                           ; preds = %217, %229
   %289 = and i8 %287, 63
   %290 = load ptr, ptr %0, align 8, !tbaa !26
   %291 = sext i32 %265 to i64
-  %292 = getelementptr inbounds %struct._ir_insn, ptr %290, i64 %291
+  %292 = getelementptr inbounds [16 x i8], ptr %290, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 1
   %294 = load i8, ptr %293, align 1, !tbaa !27
   %295 = zext i8 %294 to i32
@@ -2144,14 +2133,14 @@ ir_operands_count.exit:                           ; preds = %217, %229
 
 353:                                              ; preds = %351
   %354 = sext i32 %.1436 to i64
-  %355 = getelementptr inbounds i32, ptr %352, i64 %354
+  %355 = getelementptr inbounds [4 x i8], ptr %352, i64 %354
   %356 = load i32, ptr %355, align 4, !tbaa !30
   %357 = and i32 %356, 255
   %358 = icmp samesign ult i32 %357, 108
   %359 = zext nneg i32 %357 to i64
-  %360 = getelementptr ptr, ptr @ir_rule_name, i64 %359
+  %360 = getelementptr [8 x i8], ptr @ir_rule_name, i64 %359
   %361 = getelementptr i8, ptr %360, i64 -864
-  %362 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %359
+  %362 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %359
   %.sink480.in = select i1 %358, ptr %362, ptr %361
   %.sink480 = load ptr, ptr %.sink480.in, align 8, !tbaa !28
   %363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.98, ptr noundef %.sink480) #7
@@ -2190,7 +2179,7 @@ ir_operands_count.exit:                           ; preds = %217, %229
   %377 = add nuw nsw i32 %376, 1
   %378 = add nsw i32 %377, %.1436
   %379 = zext nneg i32 %377 to i64
-  %380 = getelementptr inbounds nuw %struct._ir_insn, ptr %.1322435, i64 %379
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %.1322435, i64 %379
   %381 = load i32, ptr %64, align 4, !tbaa !42
   %.not370 = icmp sgt i32 %378, %381
   br i1 %.not370, label %._crit_edge439, label %.lr.ph438
@@ -2213,7 +2202,7 @@ ir_operands_count.exit:                           ; preds = %217, %229
   %388 = phi i32 [ %.pre, %385 ], [ %382, %._crit_edge439 ]
   %389 = load ptr, ptr %0, align 8, !tbaa !26
   %390 = sext i32 %388 to i64
-  %391 = getelementptr inbounds %struct._ir_insn, ptr %389, i64 %390
+  %391 = getelementptr inbounds [16 x i8], ptr %389, i64 %390
   %392 = load i8, ptr %391, align 8, !tbaa !27
   switch i8 %392, label %440 [
     i8 100, label %393
@@ -2229,18 +2218,18 @@ ir_operands_count.exit:                           ; preds = %217, %229
   %397 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %398 = load i32, ptr %397, align 4, !tbaa !45
   %399 = zext i32 %398 to i64
-  %400 = getelementptr inbounds nuw i32, ptr %396, i64 %399
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %396, i64 %399
   %401 = load i32, ptr %400, align 4, !tbaa !30
   br i1 %395, label %417, label %402
 
 402:                                              ; preds = %393
   %403 = load ptr, ptr %13, align 8, !tbaa !37
   %404 = zext i32 %401 to i64
-  %405 = getelementptr inbounds nuw %struct._ir_block, ptr %403, i64 %404
+  %405 = getelementptr inbounds nuw [52 x i8], ptr %403, i64 %404
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 4
   %407 = load i32, ptr %406, align 4, !tbaa !40
   %408 = sext i32 %407 to i64
-  %409 = getelementptr inbounds %struct._ir_insn, ptr %389, i64 %408
+  %409 = getelementptr inbounds [16 x i8], ptr %389, i64 %408
   %410 = load i8, ptr %409, align 8, !tbaa !27
   %411 = icmp eq i8 %410, 92
   br i1 %411, label %412, label %417
@@ -2248,7 +2237,7 @@ ir_operands_count.exit:                           ; preds = %217, %229
 412:                                              ; preds = %402
   %413 = add i32 %398, 1
   %414 = zext i32 %413 to i64
-  %415 = getelementptr inbounds nuw i32, ptr %396, i64 %414
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %396, i64 %414
   %416 = load i32, ptr %415, align 4, !tbaa !30
   br label %417
 
@@ -2267,7 +2256,7 @@ ir_operands_count.exit:                           ; preds = %217, %229
 423:                                              ; preds = %420
   %424 = add i32 %.0323441, 1
   %425 = zext i32 %424 to i64
-  %426 = getelementptr inbounds nuw i32, ptr %419, i64 %425
+  %426 = getelementptr inbounds nuw [4 x i8], ptr %419, i64 %425
   %427 = load i32, ptr %426, align 4, !tbaa !30
   %.not374 = icmp eq i32 %418, %427
   br i1 %.not374, label %440, label %428
@@ -2320,18 +2309,18 @@ define internal fastcc void @ir_dump_dessa_moves(ptr noundef readonly captures(n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !44
   %6 = zext i32 %.12.val to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %struct._ir_block, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [52 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !40
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct._ir_use_list, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %20 = load i32, ptr %19, align 4, !tbaa !46
   %.not7 = icmp eq i32 %20, 0
@@ -2341,7 +2330,7 @@ define internal fastcc void @ir_dump_dessa_moves(ptr noundef readonly captures(n
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !47
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %5, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %23
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
@@ -2374,7 +2363,7 @@ ir_phi_input_number.exit:                         ; preds = %30, %3, %27
   %37 = load ptr, ptr %36, align 8, !tbaa !35
   %38 = load i32, ptr %18, align 4, !tbaa !36
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %37, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %43
@@ -2386,13 +2375,13 @@ ir_phi_input_number.exit:                         ; preds = %30, %3, %27
   %45 = load i32, ptr %.0584, align 4, !tbaa !30
   %46 = load ptr, ptr %0, align 8, !tbaa !26
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds %struct._ir_insn, ptr %46, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %46, i64 %47
   %49 = load i8, ptr %48, align 8, !tbaa !27
   %50 = icmp eq i8 %49, 59
   br i1 %50, label %51, label %104
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i32, ptr %48, i64 %.010.i
+  %52 = getelementptr inbounds [4 x i8], ptr %48, i64 %.010.i
   %53 = load i32, ptr %52, align 4, !tbaa !30
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %58
@@ -2405,9 +2394,9 @@ ir_phi_input_number.exit:                         ; preds = %30, %3, %27
 58:                                               ; preds = %51
   %59 = load ptr, ptr %41, align 8, !tbaa !63
   %60 = zext nneg i32 %53 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !30
-  %63 = getelementptr inbounds i32, ptr %59, i64 %47
+  %63 = getelementptr inbounds [4 x i8], ptr %59, i64 %47
   %64 = load i32, ptr %63, align 4, !tbaa !30
   %.not = icmp eq i32 %62, %64
   br i1 %.not, label %104, label %65
@@ -2432,7 +2421,7 @@ ir_phi_input_number.exit:                         ; preds = %30, %3, %27
   %74 = and i8 %72, 63
   %75 = load ptr, ptr %0, align 8, !tbaa !26
   %76 = sext i32 %53 to i64
-  %77 = getelementptr inbounds %struct._ir_insn, ptr %75, i64 %76
+  %77 = getelementptr inbounds [16 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %79 = load i8, ptr %78, align 1, !tbaa !27
   %80 = zext i8 %79 to i32
@@ -2444,7 +2433,7 @@ ir_phi_input_number.exit:                         ; preds = %30, %3, %27
 
 84:                                               ; preds = %69, %73, %67
   %85 = load ptr, ptr %41, align 8, !tbaa !63
-  %86 = getelementptr inbounds i32, ptr %85, i64 %47
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %47
   %87 = load i32, ptr %86, align 4, !tbaa !30
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.123, i32 noundef %45, i32 noundef %87) #7
   %89 = load ptr, ptr %42, align 8, !tbaa !83
@@ -2460,7 +2449,7 @@ ir_phi_input_number.exit:                         ; preds = %30, %3, %27
 93:                                               ; preds = %90
   %94 = and i8 %92, 63
   %95 = load ptr, ptr %0, align 8, !tbaa !26
-  %96 = getelementptr inbounds %struct._ir_insn, ptr %95, i64 %47
+  %96 = getelementptr inbounds [16 x i8], ptr %95, i64 %47
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %98 = load i8, ptr %97, align 1, !tbaa !27
   %99 = zext i8 %98 to i32

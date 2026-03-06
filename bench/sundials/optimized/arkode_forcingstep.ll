@@ -700,7 +700,7 @@ forcingStep_AccessARKODEStepMem.exit:             ; preds = %6
 
 21:                                               ; preds = %13
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %15, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !53
   br label %25
 

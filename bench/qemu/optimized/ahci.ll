@@ -8,31 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { i32, i32, i8, ptr }
 %struct.anon.2 = type { i32, i32, i8 }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.AHCIDevice = type { %struct.IDEDMA, %struct.IDEBus, i32, i32, i32, %struct.AHCIPortRegs, ptr, ptr, ptr, ptr, i8, i32, i8, ptr, [32 x %struct.NCQTransferState], %struct.MemReentrancyGuard }
-%struct.IDEDMA = type { ptr, %struct.QEMUIOVector, ptr }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.3 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%struct.IDEBus = type { %struct.BusState, ptr, ptr, [2 x %struct.IDEState], ptr, i32, i32, ptr, i8, i8, ptr, i32, i8, i64, i32, %struct.PortioList, %struct.PortioList, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.IDEState = type { ptr, i8, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, [512 x i8], i32, [21 x i8], [41 x i8], i8, i64, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, [9 x i8], %struct.unreported_events, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, %struct.BlockAcctCookie, ptr, %struct.QEMUIOVector, %struct.anon.6, i64, i32, %struct.QEMUSGList, i32, ptr, ptr, ptr, ptr, i32, i32, i32, i8, ptr, i32, i8, i32, ptr, i32, i32, i8, i8, i32, i8, ptr, i32 }
-%struct.unreported_events = type { i8, i8 }
-%struct.BlockAcctCookie = type { i64, i64, i32 }
-%struct.anon.6 = type { ptr }
-%struct.QEMUSGList = type { ptr, i32, i32, i64, ptr, ptr }
-%struct.PortioList = type { ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i8 }
-%struct.AHCIPortRegs = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.NCQTransferState = type { ptr, ptr, ptr, %struct.QEMUSGList, %struct.BlockAcctCookie, i32, i64, i8, i8, i8, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
 %struct.timeval = type { i64, i64 }
-%struct.AHCICmdHdr = type { i16, i16, i32, i64, [4 x i32] }
-%struct.AHCI_SG = type { i64, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"ahci\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"ahci-idp\00", align 1
@@ -388,7 +364,7 @@ define dso_local void @ahci_realize(ptr noundef initializes((600, 608)) %0, ptr 
   %.09.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %8 ]
   %18 = load ptr, ptr %0, align 16
   %19 = sext i32 %.09.i to i64
-  %20 = getelementptr inbounds %struct.AHCIDevice, ptr %18, i64 %19
+  %20 = getelementptr inbounds [6088 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2364
   store i32 0, ptr %21, align 4
   %22 = add nuw i32 %.09.i, 1
@@ -407,10 +383,10 @@ ahci_reg_init.exit:                               ; preds = %.lr.ph.i, %8
   %.041 = phi i32 [ %37, %.lr.ph ], [ 0, %ahci_reg_init.exit ]
   %28 = load ptr, ptr %0, align 16
   %29 = sext i32 %.041 to i64
-  %30 = getelementptr inbounds %struct.AHCIDevice, ptr %28, i64 %29
+  %30 = getelementptr inbounds [6088 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   tail call void @ide_bus_init(ptr noundef nonnull %31, i64 noundef 2304, ptr noundef %1, i32 noundef %.041, i32 noundef 1) #14
-  %32 = getelementptr inbounds ptr, ptr %26, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   %33 = load ptr, ptr %32, align 8
   tail call void @ide_bus_init_output_irq(ptr noundef nonnull %31, ptr noundef %33) #14
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 2440
@@ -473,7 +449,7 @@ define dso_local void @ahci_uninit(ptr noundef readonly captures(none) %0) local
   %.012 = phi i32 [ %10, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr %0, align 16
   %5 = sext i32 %.012 to i64
-  %6 = getelementptr inbounds %struct.AHCIDevice, ptr %4, i64 %5
+  %6 = getelementptr inbounds [6088 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
   tail call void @ide_exit(ptr noundef nonnull %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1176
@@ -548,7 +524,7 @@ trace_ahci_reset.exit:                            ; preds = %1, %4, %6, %12, %18
   %.013 = phi i32 [ %30, %.lr.ph ], [ 0, %trace_ahci_reset.exit ]
   %23 = load ptr, ptr %0, align 16
   %24 = sext i32 %.013 to i64
-  %25 = getelementptr inbounds %struct.AHCIDevice, ptr %23, i64 %24
+  %25 = getelementptr inbounds [6088 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 2388
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 2392
@@ -572,7 +548,7 @@ define internal fastcc void @ahci_reset_port(ptr noundef %0, i32 noundef %1) unn
   %3 = alloca %struct.timeval, align 8
   %4 = load ptr, ptr %0, align 16
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.AHCIDevice, ptr %4, i64 %5
+  %6 = getelementptr inbounds [6088 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %8, 0
@@ -631,7 +607,7 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 2480
   store i8 0, ptr %32, align 8
   %33 = load ptr, ptr %0, align 16
-  %34 = getelementptr inbounds %struct.AHCIDevice, ptr %33, i64 %5
+  %34 = getelementptr inbounds [6088 x i8], ptr %33, i64 %5
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 864
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
@@ -640,9 +616,9 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
 .preheader:                                       ; preds = %trace_ahci_reset_port.exit, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %trace_ahci_reset_port.exit ]
   %37 = load ptr, ptr %0, align 16
-  %38 = getelementptr inbounds %struct.AHCIDevice, ptr %37, i64 %5
+  %38 = getelementptr inbounds [6088 x i8], ptr %37, i64 %5
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2496
-  %40 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [112 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 108
   store i8 0, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 107
@@ -676,7 +652,7 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %0, align 16
-  %54 = getelementptr inbounds %struct.AHCIDevice, ptr %53, i64 %5
+  %54 = getelementptr inbounds [6088 x i8], ptr %53, i64 %5
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2364
   store i32 0, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 204
@@ -707,7 +683,7 @@ define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %0, i32 %
   %.04672 = phi i32 [ %79, %78 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 16
   %6 = sext i32 %.04672 to i64
-  %7 = getelementptr inbounds %struct.AHCIDevice, ptr %5, i64 %6
+  %7 = getelementptr inbounds [6088 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2396
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 32769
@@ -742,7 +718,7 @@ define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %0, i32 %
 
 21:                                               ; preds = %.preheader, %60
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
-  %22 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %18, i64 %indvars.iv
   store ptr %7, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 107
   %24 = load i8, ptr %23, align 1, !range !9, !noundef !10
@@ -783,7 +759,7 @@ is_ncq.exit:                                      ; preds = %29, %29, %29, %29, 
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %0, align 16
-  %42 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %41, i64 %20
+  %42 = getelementptr inbounds nuw [6088 x i8], ptr %41, i64 %20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2456
   %44 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %44, null
@@ -796,7 +772,7 @@ get_cmd_header.exit.thread:                       ; preds = %36, %40
 
 get_cmd_header.exit:                              ; preds = %40
   %46 = zext nneg i8 %33 to i64
-  %47 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -840,11 +816,11 @@ get_cmd_header.exit:                              ; preds = %40
 69:                                               ; preds = %67
   %70 = zext nneg i32 %63 to i64
   %71 = load ptr, ptr %0, align 16
-  %72 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %71, i64 %20
+  %72 = getelementptr inbounds nuw [6088 x i8], ptr %71, i64 %20
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 2456
   %74 = load ptr, ptr %73, align 8
   %.not.i62 = icmp eq ptr %74, null
-  %75 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %74, i64 %70
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %70
   %76 = select i1 %.not.i62, ptr null, ptr %75
   br label %get_cmd_header.exit64
 
@@ -876,14 +852,14 @@ define dso_local void @ahci_ide_create_devs(ptr noundef readonly captures(none) 
   %5 = phi i32 [ %16, %15 ], [ %4, %2 ]
   %.09 = phi i32 [ %17, %15 ], [ 0, %2 ]
   %6 = sext i32 %.09 to i64
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load ptr, ptr %0, align 16
-  %12 = getelementptr inbounds %struct.AHCIDevice, ptr %11, i64 %6
+  %12 = getelementptr inbounds [6088 x i8], ptr %11, i64 %6
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = tail call ptr @ide_bus_create_drive(ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %8) #14
   %.pre = load i32, ptr %3, align 8
@@ -1078,7 +1054,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
   %52 = load i32, ptr @qemu_loglevel, align 4
   %53 = and i32 %52, 1024
   %.not57 = icmp eq i32 %53, 0
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr @AHCIHostReg_lookup, i64 %35
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr @AHCIHostReg_lookup, i64 %35
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not57, label %._crit_edge, label %54, !prof !7
 
@@ -1129,7 +1105,7 @@ trace_ahci_mem_write_host_unimpl.exit:            ; preds = %70, %64, %58, %39, 
   br i1 %.not.i.i48, label %trace_ahci_mem_write_host.exit, label %trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge, !prof !18
 
 trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge: ; preds = %trace_ahci_mem_write_host_unimpl.exit
-  %.in.phi.trans.insert = getelementptr inbounds nuw ptr, ptr @AHCIHostReg_lookup, i64 %35
+  %.in.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr @AHCIHostReg_lookup, i64 %35
   %.pre58 = load ptr, ptr %.in.phi.trans.insert, align 8
   br label %trace_ahci_mem_write_host_unimpl.exit.thread53
 
@@ -1188,11 +1164,11 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   %101 = trunc i64 %2 to i32
   %102 = load ptr, ptr %0, align 16
   %103 = and i64 %97, 4294967295
-  %104 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [6088 x i8], ptr %102, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 2372
   %106 = lshr exact i32 %100, 2
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr @AHCIPortReg_lookup, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr @AHCIPortReg_lookup, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i = icmp eq i32 %110, 0
@@ -1305,7 +1281,7 @@ trace_ahci_port_write.exit.i:                     ; preds = %125, %119, %113, %1
   %151 = or disjoint i32 %149, %150
   store i32 %151, ptr %142, align 4
   %152 = load ptr, ptr %0, align 16
-  %153 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %152, i64 %103
+  %153 = getelementptr inbounds nuw [6088 x i8], ptr %152, i64 %103
   %154 = tail call fastcc i32 @ahci_cond_start_engines(ptr noundef %153)
   %155 = load i32, ptr %142, align 4
   %156 = and i32 %155, 16384
@@ -1314,7 +1290,7 @@ trace_ahci_port_write.exit.i:                     ; preds = %125, %119, %113, %1
 
 157:                                              ; preds = %148
   %158 = load ptr, ptr %0, align 16
-  %159 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %158, i64 %103
+  %159 = getelementptr inbounds nuw [6088 x i8], ptr %158, i64 %103
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 2480
   %161 = load i8, ptr %160, align 8, !range !9, !noundef !10
   %162 = trunc nuw i8 %161 to i1
@@ -1515,7 +1491,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr nounde
   br label %trace_ahci_mem_read_32_host_default.exit
 
 28:                                               ; preds = %10
-  %29 = getelementptr inbounds nuw ptr, ptr @AHCIHostReg_lookup, i64 %11
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @AHCIHostReg_lookup, i64 %11
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %31, 0
@@ -1560,7 +1536,7 @@ trace_ahci_mem_read_32_host_default.exit:         ; preds = %46, %40, %34, %25, 
   br i1 %.not.i.i32, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge, !prof !19
 
 trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge: ; preds = %trace_ahci_mem_read_32_host_default.exit
-  %.in.phi.trans.insert = getelementptr inbounds nuw ptr, ptr @AHCIHostReg_lookup, i64 %11
+  %.in.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr @AHCIHostReg_lookup, i64 %11
   %.pre = load ptr, ptr %.in.phi.trans.insert, align 8
   br label %trace_ahci_mem_read_32_host_default.exit.thread42
 
@@ -1619,7 +1595,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   %76 = and i32 %75, 127
   %77 = load ptr, ptr %0, align 16
   %78 = and i64 %73, 4294967295
-  %79 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [6088 x i8], ptr %77, i64 %78
   %80 = lshr i32 %76, 2
   %81 = zext nneg i32 %80 to i64
   switch i32 %80, label %124 [
@@ -1712,7 +1688,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   br label %trace_ahci_port_read_default.exit.i
 
 124:                                              ; preds = %71
-  %125 = getelementptr inbounds nuw ptr, ptr @AHCIPortReg_lookup, i64 %81
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @AHCIPortReg_lookup, i64 %81
   %126 = load ptr, ptr %125, align 8
   %127 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i = icmp eq i32 %127, 0
@@ -1757,7 +1733,7 @@ trace_ahci_port_read_default.exit.i:              ; preds = %142, %136, %130, %1
   br i1 %.not.i.i30.i, label %trace_ahci_mem_read_32.exit, label %trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i, !prof !20
 
 trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i: ; preds = %trace_ahci_port_read_default.exit.i
-  %.in.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr @AHCIPortReg_lookup, i64 %81
+  %.in.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr @AHCIPortReg_lookup, i64 %81
   %.pre.i = load ptr, ptr %.in.phi.trans.insert.i, align 8
   br label %trace_ahci_port_read_default.exit.thread34.i
 
@@ -1911,7 +1887,7 @@ define internal fastcc void @ahci_check_irq(ptr noundef %0) unnamed_addr #0 {
   %11 = phi i32 [ 0, %.lr.ph ], [ %23, %22 ]
   %.025 = phi i32 [ 0, %.lr.ph ], [ %24, %22 ]
   %12 = sext i32 %.025 to i64
-  %13 = getelementptr inbounds %struct.AHCIDevice, ptr %9, i64 %12
+  %13 = getelementptr inbounds [6088 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2388
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 2392
@@ -2446,7 +2422,7 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
   %18 = alloca %struct.timeval, align 8
   %19 = load ptr, ptr %0, align 16
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds %struct.AHCIDevice, ptr %19, i64 %20
+  %21 = getelementptr inbounds [6088 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2396
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
@@ -2496,7 +2472,7 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr %0, align 16
-  %55 = getelementptr inbounds %struct.AHCIDevice, ptr %54, i64 %20
+  %55 = getelementptr inbounds [6088 x i8], ptr %54, i64 %20
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 857
   %57 = load i8, ptr %56, align 1
   %58 = and i8 %57, -120
@@ -2587,11 +2563,11 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %.not16, label %96, label %get_cmd_header.exit.i
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %54, i64 %31
+  %97 = getelementptr inbounds nuw [6088 x i8], ptr %54, i64 %31
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2456
   %99 = load ptr, ptr %98, align 8
   %.not.i.i = icmp eq ptr %99, null
-  %100 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %indvars.iv
   %101 = select i1 %.not.i.i, ptr null, ptr %100
   br label %get_cmd_header.exit.i
 
@@ -2600,7 +2576,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   %102 = getelementptr inbounds nuw i8, ptr %55, i64 2488
   store ptr %.0.i.i, ptr %102, align 8
   %103 = load ptr, ptr %0, align 16
-  %104 = getelementptr inbounds %struct.AHCIDevice, ptr %103, i64 %20
+  %104 = getelementptr inbounds [6088 x i8], ptr %103, i64 %20
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 864
   %106 = load ptr, ptr %105, align 8
   %.not53.i = icmp eq ptr %106, null
@@ -2696,7 +2672,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
 
 146:                                              ; preds = %145
   %147 = load ptr, ptr %0, align 16
-  %148 = getelementptr inbounds %struct.AHCIDevice, ptr %147, i64 %20
+  %148 = getelementptr inbounds [6088 x i8], ptr %147, i64 %20
   call fastcc void @ahci_trigger_irq(ptr noundef nonnull %0, ptr noundef %148, i32 noundef 29)
   %149 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i67.i = icmp eq i32 %149, 0
@@ -2756,14 +2732,14 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
 
 172:                                              ; preds = %170
   %173 = load ptr, ptr %0, align 16
-  %174 = getelementptr inbounds %struct.AHCIDevice, ptr %173, i64 %20
+  %174 = getelementptr inbounds [6088 x i8], ptr %173, i64 %20
   %175 = load i32, ptr %30, align 8
   %176 = icmp ugt i32 %175, %29
   call void @llvm.assume(i1 %176)
-  %177 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %173, i64 %31
+  %177 = getelementptr inbounds nuw [6088 x i8], ptr %173, i64 %31
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 2456
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %179, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw [32 x i8], ptr %179, i64 %indvars.iv
   %181 = load i16, ptr %180, align 1
   %182 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %183 = load i8, ptr %182, align 1
@@ -2937,7 +2913,7 @@ is_ncq.exit.i.i:                                  ; preds = %264, %264, %264, %2
   %269 = lshr i8 %268, 3
   %270 = getelementptr inbounds nuw i8, ptr %174, i64 2496
   %271 = zext nneg i8 %269 to i64
-  %272 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [112 x i8], ptr %270, i64 %271
   switch i8 %266, label %273 [
     i8 96, label %is_ncq.exit.i.i.i
     i8 97, label %is_ncq.exit.i.i.i
@@ -3075,7 +3051,7 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   store i8 %346, ptr %345, align 2
   %347 = getelementptr inbounds nuw i8, ptr %174, i64 2456
   %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %348, i64 %indvars.iv
+  %349 = getelementptr inbounds nuw [32 x i8], ptr %348, i64 %indvars.iv
   %350 = getelementptr inbounds nuw i8, ptr %272, i64 16
   store ptr %349, ptr %350, align 8
   %351 = load i8, ptr %265, align 1
@@ -3558,7 +3534,7 @@ trace_process_ncq_command.exit.i.i.i:             ; preds = %553, %546, %540, %5
   %600 = getelementptr inbounds nuw i8, ptr %174, i64 841
   store i8 0, ptr %600, align 1
   %601 = load ptr, ptr %0, align 16
-  %602 = getelementptr inbounds %struct.AHCIDevice, ptr %601, i64 %20
+  %602 = getelementptr inbounds [6088 x i8], ptr %601, i64 %20
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 2472
   store i8 0, ptr %603, align 8
   %604 = getelementptr inbounds nuw i8, ptr %180, i64 4
@@ -3566,7 +3542,7 @@ trace_process_ncq_command.exit.i.i.i:             ; preds = %553, %546, %540, %5
   %605 = getelementptr inbounds nuw i8, ptr %174, i64 2476
   store i32 %48, ptr %605, align 4
   %606 = load ptr, ptr %0, align 16
-  %607 = getelementptr inbounds %struct.AHCIDevice, ptr %606, i64 %20
+  %607 = getelementptr inbounds [6088 x i8], ptr %606, i64 %20
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 56
   %609 = load i8, ptr %265, align 1
   %610 = zext i8 %609 to i32
@@ -3650,7 +3626,7 @@ define internal fastcc void @ahci_trigger_irq(ptr noundef %0, ptr noundef captur
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2360
   %10 = load i32, ptr %9, align 8
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @AHCIPortIRQ_lookup, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @AHCIPortIRQ_lookup, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2392
   %15 = load i32, ptr %14, align 8
@@ -4054,7 +4030,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %indvars.iv137 = phi i64 [ 1, %109 ], [ %indvars.iv.next138, %119 ]
   %indvars.iv = phi i64 [ 0, %109 ], [ %indvars.iv.next, %119 ]
   %.093128 = phi i64 [ 0, %109 ], [ %117, %119 ]
-  %112 = getelementptr inbounds nuw %struct.AHCI_SG, ptr %67, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv
   %113 = getelementptr i8, ptr %112, i64 12
   %.val = load i32, ptr %113, align 1
   %114 = and i32 %.val, 4194303
@@ -4126,7 +4102,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %147 = load ptr, ptr %146, align 8
   call void @qemu_sglist_init(ptr noundef %1, ptr noundef %143, i32 noundef %144, ptr noundef %147) #14
   %148 = and i64 %indvars.iv, 4294967295
-  %149 = getelementptr inbounds nuw %struct.AHCI_SG, ptr %67, i64 %148
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %148
   %150 = load i64, ptr %149, align 1
   %151 = add i64 %150, %122
   %152 = getelementptr i8, ptr %149, i64 12
@@ -4149,7 +4125,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %161, label %162, label %.critedge
 
 162:                                              ; preds = %.lr.ph
-  %163 = getelementptr inbounds nuw %struct.AHCI_SG, ptr %67, i64 %indvars.iv140
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv140
   %164 = load i64, ptr %163, align 1
   %165 = getelementptr i8, ptr %163, i64 12
   %.val108 = load i32, ptr %165, align 1
@@ -5153,7 +5129,7 @@ define internal void @ahci_restart(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %4 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [112 x i8], ptr %2, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 108
   %6 = load i8, ptr %5, align 4, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1

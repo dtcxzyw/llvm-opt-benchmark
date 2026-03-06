@@ -226,7 +226,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %15 = zext nneg i16 %14 to i64
   %16 = and i16 %13, %.lcssa.i.i.i
   %17 = sub nsw i64 0, %15
-  %18 = getelementptr inbounds { { { i64, [1 x i64] }, ptr }, {} }, ptr %.sroa.0.1, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %.sroa.0.1, i64 %17
   %19 = add i64 %.sroa.105.016, -1
   %20 = getelementptr inbounds i8, ptr %18, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -739,7 +739,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN88_$LT$hashbr
   %22 = and i16 %19, %.lcssa.i.i
   store i16 %22, ptr %6, align 8, !alias.scope !39
   %23 = sub nsw i64 0, %21
-  %24 = getelementptr inbounds { { { i64, [1 x i64] }, ptr }, {} }, ptr %18, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %18, i64 %23
   %25 = add i64 %3, -1
   store i64 %25, ptr %2, align 8, !alias.scope !33
   %26 = getelementptr inbounds i8, ptr %24, i64 -24
@@ -1047,7 +1047,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN92_$LT$hashbr
   %22 = and i16 %19, %.lcssa.i
   store i16 %22, ptr %6, align 8, !alias.scope !43
   %23 = sub nsw i64 0, %21
-  %24 = getelementptr inbounds { { { i64, [1 x i64] }, ptr }, {} }, ptr %18, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %18, i64 %23
   %25 = add i64 %3, -1
   store i64 %25, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 -24

@@ -3,7 +3,6 @@ source_filename = "bench/sdl/original/SDL_x11xfixes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
 
 @SDL_X11_HAVE_XFIXES = external local_unnamed_addr global i32, align 4
@@ -51,7 +50,7 @@ define hidden void @X11_InitXfixes(ptr noundef readonly captures(none) %0) local
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.Screen, ptr %21, i64 %24
+  %25 = getelementptr inbounds [128 x i8], ptr %21, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = call i32 %18(ptr noundef %19, i64 noundef %27, i64 noundef %10, i64 noundef 1) #7
@@ -62,7 +61,7 @@ define hidden void @X11_InitXfixes(ptr noundef readonly captures(none) %0) local
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 224
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.Screen, ptr %32, i64 %35
+  %36 = getelementptr inbounds [128 x i8], ptr %32, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = call i32 %29(ptr noundef %30, i64 noundef %38, i64 noundef 1, i64 noundef 1) #7
@@ -125,7 +124,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %2, %SDL_RectEmpty.e
 
 18:                                               ; preds = %24, %14
   %indvars.iv.i.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i.i, %24 ]
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i.i
   %20 = load i64, ptr %19, align 8
   %.not15.i.i = icmp eq i64 %20, 0
   br i1 %.not15.i.i, label %24, label %21
@@ -159,7 +158,7 @@ X11_DestroyPointerBarrier.exit.i:                 ; preds = %24
 
 33:                                               ; preds = %39, %28
   %indvars.iv.i74.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i76.i, %39 ]
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i74.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i74.i
   %35 = load i64, ptr %34, align 8
   %.not15.i75.i = icmp eq i64 %35, 0
   br i1 %.not15.i75.i, label %39, label %36
@@ -228,7 +227,7 @@ define hidden noundef zeroext i1 @X11_ConfineCursorWithFlags(ptr noundef readonl
 
 14:                                               ; preds = %20, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %20 ]
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %16 = load i64, ptr %15, align 8
   %.not15.i = icmp eq i64 %16, 0
   br i1 %.not15.i, label %20, label %17
@@ -371,7 +370,7 @@ X11_DestroyPointerBarrier.exit:                   ; preds = %20
 
 110:                                              ; preds = %116, %107
   %indvars.iv.i74 = phi i64 [ 0, %107 ], [ %indvars.iv.next.i76, %116 ]
-  %111 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv.i74
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i74
   %112 = load i64, ptr %111, align 8
   %.not15.i75 = icmp eq i64 %112, 0
   br i1 %.not15.i75, label %116, label %113
@@ -424,7 +423,7 @@ define hidden void @X11_DestroyPointerBarrier(ptr noundef readonly captures(none
 
 9:                                                ; preds = %5, %15
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %.not15 = icmp eq i64 %11, 0
   br i1 %.not15, label %15, label %12

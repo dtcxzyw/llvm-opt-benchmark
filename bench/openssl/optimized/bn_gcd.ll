@@ -789,10 +789,10 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr %0, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !16
   %36 = load ptr, ptr %20, align 8, !tbaa !15
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !16
   %39 = or i64 %38, %35
   %sext = add nsw i64 %.0110131, -1

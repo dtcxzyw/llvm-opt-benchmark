@@ -1677,7 +1677,7 @@ lean_dec.exit128:                                 ; preds = %138, %137, %135, %l
   br label %lean_dec.exit127
 
 lean_dec.exit127:                                 ; preds = %151, %150, %148, %142
-  %152 = getelementptr inbounds nuw ptr, ptr %19, i64 %.088262
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.088262
   %153 = load ptr, ptr %152, align 8, !tbaa !9
   %154 = ptrtoint ptr %153 to i64
   %155 = trunc i64 %154 to i1
@@ -8359,7 +8359,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_evalExact___spec
   %.01736 = phi i64 [ %30, %46 ], [ %1, %3 ]
   %.01935 = phi ptr [ %.0.i.i26, %46 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.01935, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01736
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01736
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -8395,7 +8395,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.01935, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01736
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01736
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -8429,7 +8429,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 32:                                               ; preds = %lean_array_uset.exit
   %33 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %.phi.trans.insert37 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01736
+  %.phi.trans.insert37 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %.01736
   %.pre = load ptr, ptr %.phi.trans.insert37, align 8, !tbaa !9
   br label %lean_ensure_exclusive_array.exit.i25
 
@@ -8437,7 +8437,7 @@ lean_ensure_exclusive_array.exit.i25:             ; preds = %32, %lean_array_use
   %34 = phi ptr [ %.pre, %32 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i26 = phi ptr [ %33, %32 ], [ %.0.i.i, %lean_array_uset.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 24
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01736
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01736
   %37 = ptrtoint ptr %34 to i64
   %38 = trunc i64 %37 to i1
   br i1 %38, label %46, label %39
@@ -8490,7 +8490,7 @@ define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_
   %.01938 = phi i64 [ %33, %49 ], [ %1, %3 ]
   %.02137 = phi ptr [ %.0.i.i28, %49 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.02137, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01938
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01938
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -8526,7 +8526,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %14, %16, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %19, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %20, %19 ], [ %.02137, %lean_array_uget.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.01938
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.01938
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1
@@ -8560,7 +8560,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 35:                                               ; preds = %lean_array_uset.exit
   %36 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %.phi.trans.insert39 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01938
+  %.phi.trans.insert39 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %.01938
   %.pre = load ptr, ptr %.phi.trans.insert39, align 8, !tbaa !9
   br label %lean_ensure_exclusive_array.exit.i27
 
@@ -8568,7 +8568,7 @@ lean_ensure_exclusive_array.exit.i27:             ; preds = %35, %lean_array_use
   %37 = phi ptr [ %.pre, %35 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i28 = phi ptr [ %36, %35 ], [ %.0.i.i, %lean_array_uset.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i28, i64 24
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.01938
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.01938
   %40 = ptrtoint ptr %37 to i64
   %41 = trunc i64 %40 to i1
   br i1 %41, label %49, label %42

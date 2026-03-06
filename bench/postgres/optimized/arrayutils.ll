@@ -27,14 +27,14 @@ define dso_local i32 @ArrayGetOffset(i32 noundef %0, ptr noundef readonly captur
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.016 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %.01215 = phi i32 [ 1, %.lr.ph.preheader ], [ %16, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = sub i32 %8, %10
   %12 = mul i32 %11, %.01215
   %13 = add i32 %12, %.016
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = mul i32 %15, %.01215
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -69,7 +69,7 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
 .preheader:                                       ; preds = %.preheader.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %5 ]
   %.02433 = phi i64 [ 1, %.preheader.preheader ], [ %14, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %11
@@ -136,9 +136,9 @@ define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr noundef readonly cap
 
 .critedge.i:                                      ; preds = %5, %.critedge.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.preheader.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
   %10 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %7, i32 %9)
   %11 = extractvalue { i32, i1 } %10, 1
@@ -149,7 +149,7 @@ define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr noundef readonly cap
   br i1 %13, label %14, label %ArrayCheckBoundsSafe.exit
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %16 = tail call i32 @errcode(i32 noundef 261) #7
   %17 = load i32, ptr %15, align 4
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %17) #7
@@ -176,9 +176,9 @@ define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr no
 
 .critedge:                                        ; preds = %.critedge.preheader, %6
   %indvars.iv = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %8, i32 %10)
   %12 = extractvalue { i32, i1 } %11, 1
@@ -189,7 +189,7 @@ define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr no
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %17 = tail call i32 @errcode(i32 noundef 261) #7
   %18 = load i32, ptr %16, align 4
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %18) #7
@@ -212,13 +212,13 @@ define dso_local void @mda_get_range(i32 noundef %0, ptr noundef writeonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %7, 1
   %11 = sub i32 %10, %9
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -232,7 +232,7 @@ define dso_local void @mda_get_range(i32 noundef %0, ptr noundef writeonly captu
 define dso_local void @mda_get_prod(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = add i32 %0, -1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i32, ptr %2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %2, i64 %5
   store i32 1, ptr %6, align 4
   %7 = add i32 %0, -2
   %8 = icmp sgt i32 %7, -1
@@ -247,12 +247,12 @@ define dso_local void @mda_get_prod(i32 noundef %0, ptr noundef readonly capture
   %10 = shl i64 %indvars.iv, 32
   %sext = add i64 %10, 4294967296
   %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds i32, ptr %2, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i32, ptr %1, i64 %11
+  %14 = getelementptr inbounds [4 x i8], ptr %1, i64 %11
   %15 = load i32, ptr %14, align 4
   %16 = mul i32 %15, %13
-  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %16, ptr %17, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -266,7 +266,7 @@ define dso_local void @mda_get_prod(i32 noundef %0, ptr noundef readonly capture
 define dso_local void @mda_get_offset_values(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = add i32 %0, -1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr %1, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %1, i64 %6
   store i32 0, ptr %7, align 4
   %8 = add i32 %0, -2
   %9 = icmp sgt i32 %8, -1
@@ -279,10 +279,10 @@ define dso_local void @mda_get_offset_values(i32 noundef %0, ptr noundef writeon
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %._crit_edge
   %indvars.iv29 = phi i64 [ %10, %.lr.ph24.preheader ], [ %indvars.iv.next30, %._crit_edge ]
   %indvars.iv = phi i32 [ %5, %.lr.ph24.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv29
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv29
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, -1
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv29
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv29
   store i32 %13, ptr %14, align 4
   %15 = trunc i64 %indvars.iv29 to i32
   %16 = add i32 %15, 1
@@ -296,10 +296,10 @@ define dso_local void @mda_get_offset_values(i32 noundef %0, ptr noundef writeon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv26 = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next27, %.lr.ph ]
   %storemerge20 = phi i32 [ %13, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv26
+  %19 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv26
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, -1
-  %22 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv26
+  %22 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv26
   %23 = load i32, ptr %22, align 4
   %24 = mul i32 %21, %23
   %25 = sub i32 %storemerge20, %24
@@ -327,10 +327,10 @@ define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, p
 5:                                                ; preds = %3
   %6 = add nsw i32 %0, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %7
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %7
   %12 = load i32, ptr %11, align 4
   %13 = srem i32 %10, %12
   store i32 %13, ptr %8, align 4
@@ -346,10 +346,10 @@ define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, p
 16:                                               ; preds = %.lr.ph
   %17 = add nsw i32 %.027, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %18
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %18
   %23 = load i32, ptr %22, align 4
   %24 = srem i32 %21, %23
   store i32 %24, ptr %19, align 4
@@ -420,11 +420,11 @@ define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) loc
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %23 ]
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
   %33 = inttoptr i64 %32 to ptr
   %34 = call i32 @pg_strtoint32(ptr noundef %33) #7
-  %35 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store i32 %34, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %1, align 4

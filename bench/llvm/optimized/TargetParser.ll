@@ -3,10 +3,8 @@ source_filename = "bench/llvm/original/TargetParser.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.(anonymous namespace)::GPUInfo" = type { %"class.llvm::StringLiteral", %"class.llvm::StringLiteral", i32, i32 }
-%"class.llvm::StringLiteral" = type { %"class.llvm::StringRef" }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"struct.std::pair" = type { i32, %"class.llvm::StringRef" }
+%"class.llvm::StringRef" = type { ptr, i64 }
 %"struct.std::pair.2" = type <{ %"class.llvm::StringRef", i8, [7 x i8] }>
 
 $_ZN4llvm9StringMapIbNS_15MallocAllocatorEEixENS_9StringRefE = comdat any
@@ -190,7 +188,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPU
   %.04.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %1 ]
   %.0113.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 71, %1 ]
   %3 = lshr i64 %.0113.i.i.i.i.i, 1
-  %4 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i, i64 %3
+  %4 = getelementptr inbounds nuw [40 x i8], ptr %.04.i.i.i.i.i, i64 %3
   %5 = getelementptr i8, ptr %4, i64 32
   %.val.i.i.i.i.i = load i32, ptr %5, align 8, !tbaa !3
   %6 = icmp ult i32 %.val.i.i.i.i.i, %0
@@ -229,10 +227,10 @@ _ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit: ; preds = %12
 
 switch.lookup:                                    ; preds = %1
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE.19, i64 %20
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE.19, i64 %20
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   br label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread
 
@@ -252,7 +250,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE(
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 71, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8, !tbaa !3
   %5 = icmp ult i32 %.val.i.i.i.i, %0
@@ -302,7 +300,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU15getArchNameR600ENS0_7GPUKindE(i3
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 26, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8, !tbaa !3
   %5 = icmp ult i32 %.val.i.i.i.i, %0
@@ -449,7 +447,7 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU17getArchAttrAMDGCNENS0_7GPUKindE(i
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 71, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8, !tbaa !3
   %5 = icmp ult i32 %.val.i.i.i.i, %0
@@ -491,7 +489,7 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU15getArchAttrR600ENS0_7GPUKindE(i32
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 26, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8, !tbaa !3
   %5 = icmp ult i32 %.val.i.i.i.i, %0
@@ -558,7 +556,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %12 = phi i32 [ %7, %6 ], [ %.pre.i, %9 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !23
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   store ptr %.sroa.0.0.copyload, ptr %15, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -603,7 +601,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %12 = phi i32 [ %7, %6 ], [ %.pre.i, %9 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !23
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   store ptr %.sroa.0.0.copyload, ptr %15, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -986,7 +984,7 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %.04.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %18 ]
   %.0113.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 71, %18 ]
   %19 = lshr i64 %.0113.i.i.i.i.i, 1
-  %20 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %.04.i.i.i.i.i, i64 %19
   %21 = getelementptr i8, ptr %20, i64 32
   %.val.i.i.i.i.i = load i32, ptr %21, align 8, !tbaa !3
   %22 = icmp ult i32 %.val.i.i.i.i.i, %16
@@ -1014,7 +1012,7 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %.04.i.i.i.i.i34 = phi ptr [ %.1.i.i.i.i.i40, %.lr.ph.i.i.i.i.i33 ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %18 ]
   %.0113.i.i.i.i.i35 = phi i64 [ %.112.i.i.i.i.i39, %.lr.ph.i.i.i.i.i33 ], [ 26, %18 ]
   %31 = lshr i64 %.0113.i.i.i.i.i35, 1
-  %32 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i34, i64 %31
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %.04.i.i.i.i.i34, i64 %31
   %33 = getelementptr i8, ptr %32, i64 32
   %.val.i.i.i.i.i38 = load i32, ptr %33, align 8, !tbaa !3
   %34 = icmp ult i32 %.val.i.i.i.i.i38, %16
@@ -2428,7 +2426,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #9
   %6 = load ptr, ptr %0, align 8, !tbaa !44
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2482,7 +2480,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #9
   %27 = load ptr, ptr %0, align 8, !tbaa !44
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -2521,7 +2519,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #9
   %7 = load ptr, ptr %0, align 8, !tbaa !44
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2576,7 +2574,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJbEEEPS1_NS_9StringRefER
   %28 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #9
   %29 = load ptr, ptr %0, align 8, !tbaa !44
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJbEEEPS1_NS_9StringRefERT_DpOT0_.exit

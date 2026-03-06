@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVCodecTag = type { i32, i32 }
 %union.anon = type { i64 }
 %struct.AVMetadataConv = type { ptr, ptr }
-%struct.ASFStream = type { i32, i8, i16 }
-%struct.ASFIndex = type { i32, i16, i64, i64 }
 
 @.str = private unnamed_addr constant [4 x i8] c"asf\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"ASF (Advanced / Active Streaming Format)\00", align 1
@@ -144,12 +142,12 @@ define internal range(i32 -2147483648, 1) i32 @asf_write_packet(ptr noundef %0, 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !46
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !47
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %20 = getelementptr inbounds %struct.ASFStream, ptr %19, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %14
   %21 = load i32, ptr %18, align 8, !tbaa !52
   %22 = icmp eq i32 %21, 1
   %spec.select = select i1 %22, i32 0, i32 %8
@@ -422,7 +420,7 @@ put_frame.exit:                                   ; preds = %.outer.i, %32
 
 158:                                              ; preds = %158, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %154, %.lr.ph.i ], [ %indvars.iv.next.i, %158 ]
-  %159 = getelementptr inbounds %struct.ASFIndex, ptr %151, i64 %indvars.iv.i
+  %159 = getelementptr inbounds [24 x i8], ptr %151, i64 %indvars.iv.i
   store i32 %149, ptr %159, align 8, !tbaa !75
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store i16 %153, ptr %160, align 4, !tbaa !77
@@ -564,7 +562,7 @@ update_index.exit.thread:                         ; preds = %34
 
 52:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %48, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = getelementptr inbounds %struct.ASFIndex, ptr %45, i64 %indvars.iv.i
+  %53 = getelementptr inbounds [24 x i8], ptr %45, i64 %indvars.iv.i
   store i32 %43, ptr %53, align 8, !tbaa !75
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i16 %47, ptr %54, align 4, !tbaa !77
@@ -609,7 +607,7 @@ update_index.exit.thread:                         ; preds = %34
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
-  %69 = getelementptr inbounds nuw %struct.ASFIndex, ptr %61, i64 %indvars.iv.i33
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %indvars.iv.i33
   %70 = load i32, ptr %69, align 8, !tbaa !75
   tail call void @avio_wl32(ptr noundef %.val29, i32 noundef %70) #8
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -831,7 +829,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
   %.0394496 = phi i32 [ 0, %.lr.ph498 ], [ %.1, %113 ]
   %.0398495 = phi i32 [ 0, %.lr.ph498 ], [ %63, %113 ]
   %55 = load ptr, ptr %49, align 8, !tbaa !45
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv552
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv552
   %57 = load ptr, ptr %56, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !49
@@ -861,7 +859,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 75:                                               ; preds = %70, %66, %54
   %.1 = phi i32 [ %.0394496, %54 ], [ %spec.select456, %70 ], [ %.0394496, %66 ]
   %76 = load ptr, ptr %49, align 8, !tbaa !45
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv552
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv552
   %78 = load ptr, ptr %77, align 8, !tbaa !47
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 80
   %80 = load ptr, ptr %79, align 8, !tbaa !94
@@ -887,7 +885,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %94
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %94 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !98
   %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %85) #10
   %.not454 = icmp eq i32 %90, 0
@@ -895,7 +893,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 .thread:                                          ; preds = %.lr.ph
   %91 = trunc i64 %indvars.iv to i16
-  %92 = getelementptr inbounds nuw %struct.ASFStream, ptr %13, i64 %indvars.iv552
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv552
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 22
   store i16 %91, ptr %93, align 2, !tbaa !99
   br label %101
@@ -907,10 +905,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 ._crit_edge:                                      ; preds = %94, %.preheader
   %95 = sext i32 %86 to i64
-  %96 = getelementptr inbounds ptr, ptr %51, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %51, i64 %95
   store ptr %85, ptr %96, align 8, !tbaa !98
   %97 = trunc i32 %86 to i16
-  %98 = getelementptr inbounds nuw %struct.ASFStream, ptr %13, i64 %indvars.iv552
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv552
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 22
   store i16 %97, ptr %99, align 2, !tbaa !99
   %100 = add nsw i32 %86, 1
@@ -925,14 +923,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 105:                                              ; preds = %101
   %106 = zext i16 %102 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %9, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !101
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %107, align 4, !tbaa !101
   br label %113
 
 110:                                              ; preds = %75
-  %111 = getelementptr inbounds nuw %struct.ASFStream, ptr %13, i64 %indvars.iv552
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv552
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 22
   store i16 128, ptr %112, align 2, !tbaa !99
   br label %113
@@ -1060,7 +1058,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 171:                                              ; preds = %.lr.ph503, %171
   %indvars.iv555 = phi i64 [ 0, %.lr.ph503 ], [ %indvars.iv.next556, %171 ]
   tail call void @avio_w8(ptr noundef %15, i32 noundef 6) #8
-  %172 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv555
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv555
   %173 = load ptr, ptr %172, align 8, !tbaa !98
   %174 = tail call i32 @avio_put_str16le(ptr noundef %15, ptr noundef %173) #8
   %indvars.iv.next556 = add nuw nsw i64 %indvars.iv555, 1
@@ -1076,7 +1074,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 .lr.ph508:                                        ; preds = %.lr.ph508.preheader, %.lr.ph508
   %indvars.iv558 = phi i64 [ 0, %.lr.ph508.preheader ], [ %indvars.iv.next559, %.lr.ph508 ]
   %.0414505 = phi i32 [ 0, %.lr.ph508.preheader ], [ %spec.select457, %.lr.ph508 ]
-  %179 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv558
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv558
   %180 = load i32, ptr %179, align 4, !tbaa !101
   %.not451 = icmp ne i32 %180, 0
   %181 = zext i1 %.not451 to i32
@@ -1110,7 +1108,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 192:                                              ; preds = %.lr.ph517, %.loopexit482
   %indvars.iv566 = phi i64 [ 0, %.lr.ph517 ], [ %indvars.iv.next567, %.loopexit482 ]
-  %193 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv566
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv566
   %194 = load i32, ptr %193, align 4, !tbaa !101
   %.not450 = icmp eq i32 %194, 0
   br i1 %.not450, label %.loopexit482, label %195
@@ -1124,7 +1122,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 .lr.ph513:                                        ; preds = %195, %214
   %197 = phi i32 [ %215, %214 ], [ %196, %195 ]
   %indvars.iv563 = phi i64 [ %indvars.iv.next564, %214 ], [ 0, %195 ]
-  %198 = getelementptr inbounds nuw %struct.ASFStream, ptr %13, i64 %indvars.iv563
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv563
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 22
   %200 = load i16, ptr %199, align 2, !tbaa !99
   %201 = zext i16 %200 to i64
@@ -1133,7 +1131,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 203:                                              ; preds = %.lr.ph513
   %204 = load ptr, ptr %186, align 8, !tbaa !45
-  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv563
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv563
   %206 = load ptr, ptr %205, align 8, !tbaa !47
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !49
@@ -1175,7 +1173,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 224:                                              ; preds = %.lr.ph521, %264
   %225 = phi i32 [ %221, %.lr.ph521 ], [ %265, %264 ]
   %indvars.iv569 = phi i64 [ 0, %.lr.ph521 ], [ %indvars.iv.next570.pre-phi, %264 ]
-  %226 = getelementptr inbounds nuw %struct.ASFStream, ptr %13, i64 %indvars.iv569
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv569
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 22
   %228 = load i16, ptr %227, align 2, !tbaa !99
   %229 = icmp ugt i16 %228, 127
@@ -1192,7 +1190,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
   tail call void @avio_wl64(ptr noundef %15, i64 noundef 0) #8
   tail call void @avio_wl64(ptr noundef %15, i64 noundef 0) #8
   %232 = load ptr, ptr %222, align 8, !tbaa !45
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv569
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %indvars.iv569
   %234 = load ptr, ptr %233, align 8, !tbaa !47
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !49
@@ -1203,7 +1201,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
   tail call void @avio_wl32(ptr noundef %15, i32 noundef 5000) #8
   tail call void @avio_wl32(ptr noundef %15, i32 noundef 0) #8
   %240 = load ptr, ptr %222, align 8, !tbaa !45
-  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv569
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv569
   %242 = load ptr, ptr %241, align 8, !tbaa !47
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %244 = load ptr, ptr %243, align 8, !tbaa !49
@@ -1283,7 +1281,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
   %279 = phi i32 [ %271, %.lr.ph524 ], [ %301, %300 ]
   %indvars.iv572 = phi i64 [ 0, %.lr.ph524 ], [ %indvars.iv.next573, %300 ]
   %280 = load ptr, ptr %272, align 8, !tbaa !45
-  %281 = getelementptr inbounds nuw ptr, ptr %280, i64 %indvars.iv572
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %indvars.iv572
   %282 = load ptr, ptr %281, align 8, !tbaa !47
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
   %284 = load ptr, ptr %283, align 8, !tbaa !49
@@ -1377,7 +1375,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 332:                                              ; preds = %320, %340
   %.0397526 = phi i64 [ 0, %320 ], [ %342, %340 ]
-  %333 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0397526
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0397526
   %334 = load ptr, ptr %333, align 8, !tbaa !89
   %.not448 = icmp eq ptr %334, null
   br i1 %.not448, label %340, label %335
@@ -1484,7 +1482,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 383:                                              ; preds = %423, %.lr.ph47.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph47.i ], [ %indvars.iv.next.i, %423 ]
   %384 = load ptr, ptr %379, align 8, !tbaa !115
-  %385 = getelementptr inbounds nuw ptr, ptr %384, i64 %indvars.iv.i
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %indvars.iv.i
   %386 = load ptr, ptr %385, align 8, !tbaa !116
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 32
   %388 = load ptr, ptr %387, align 8, !tbaa !118
@@ -1513,7 +1511,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
   br label %.lr.ph.i
 
 403:                                              ; preds = %.lr.ph.i
-  %404 = getelementptr inbounds nuw %struct.ASFIndex, ptr %399, i64 %indvars.iv.next.i.i
+  %404 = getelementptr inbounds nuw [24 x i8], ptr %399, i64 %indvars.iv.next.i.i
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = load i64, ptr %405, align 8, !tbaa !78
   %.not.i.i = icmp ugt i64 %394, %406
@@ -1531,7 +1529,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
 
 ._crit_edge.loopexit.i.sink.split.i:              ; preds = %403, %.._crit_edge.loopexit.i_crit_edge.i
   %indvars.iv.i41.i546 = phi i64 [ %402, %.._crit_edge.loopexit.i_crit_edge.i ], [ %indvars.iv.i41.i, %403 ]
-  %408 = getelementptr inbounds nuw %struct.ASFIndex, ptr %399, i64 %indvars.iv.i41.i546
+  %408 = getelementptr inbounds nuw [24 x i8], ptr %399, i64 %indvars.iv.i41.i546
   %409 = trunc i64 %407 to i32
   %410 = getelementptr inbounds nuw i8, ptr %408, i64 16
   %411 = load i64, ptr %410, align 8, !tbaa !79
@@ -1604,12 +1602,12 @@ asf_write_markers.exit:                           ; preds = %423, %372
 436:                                              ; preds = %.lr.ph533, %483
   %indvars.iv576 = phi i64 [ 0, %.lr.ph533 ], [ %indvars.iv.next577, %483 ]
   %437 = load ptr, ptr %434, align 8, !tbaa !45
-  %438 = getelementptr inbounds nuw ptr, ptr %437, i64 %indvars.iv576
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %437, i64 %indvars.iv576
   %439 = load ptr, ptr %438, align 8, !tbaa !47
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
   %441 = load ptr, ptr %440, align 8, !tbaa !49
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
-  %442 = getelementptr inbounds nuw %struct.ASFStream, ptr %435, i64 %indvars.iv576
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %435, i64 %indvars.iv576
   %443 = trunc nuw i64 %indvars.iv.next577 to i32
   store i32 %443, ptr %442, align 8, !tbaa !64
   %444 = getelementptr inbounds nuw i8, ptr %442, i64 4
@@ -1743,7 +1741,7 @@ asf_write_markers.exit:                           ; preds = %423, %372
 500:                                              ; preds = %.lr.ph537, %496
   %indvars.iv579 = phi i64 [ 0, %.lr.ph537 ], [ %indvars.iv.next580, %496 ]
   %501 = load ptr, ptr %495, align 8, !tbaa !45
-  %502 = getelementptr inbounds nuw ptr, ptr %501, i64 %indvars.iv579
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %indvars.iv579
   %503 = load ptr, ptr %502, align 8, !tbaa !47
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
   %505 = load ptr, ptr %504, align 8, !tbaa !49

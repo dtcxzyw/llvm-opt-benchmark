@@ -9,9 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.ieee802154_map_tab_t = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.key_record_t = type { i32, ptr, [16 x i8] }
-%struct._uat_key_record_t = type { ptr, i8, ptr }
 %struct.zbee_security_packet = type { i8, i32, i64, i8, i8, i8, i8 }
 %struct.ieee802154_short_addr = type { i16, i16 }
 
@@ -205,7 +203,7 @@ define internal void @uat_key_records_byte_order_set_cb(ptr noundef writeonly ca
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -247,7 +245,7 @@ define internal void @uat_key_records_byte_order_tostr_cb(ptr noundef readonly c
   %.01520 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
   %13 = add i32 %.01520, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct._value_string, ptr %3, i64 %14
+  %15 = getelementptr [16 x i8], ptr %3, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -430,7 +428,7 @@ define internal void @uat_key_record_post_update() #0 {
   %14 = phi i32 [ %8, %.lr.ph ], [ %30, %29 ]
   %15 = phi ptr [ %6, %.lr.ph ], [ %31, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %16 = getelementptr %struct._uat_key_record_t, ptr %15, i64 %indvars.iv
+  %16 = getelementptr [24 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr %18, align 8
@@ -1606,7 +1604,7 @@ define internal fastcc noundef zeroext i1 @zbee_security_parse_key(ptr noundef r
   %.14147.us = phi ptr [ %12, %.split.us.preheader ], [ %22, %20 ]
   %.150.us = load i8, ptr %.150.us.in, align 1
   %16 = zext i8 %.150.us to i64
-  %17 = getelementptr i16, ptr %13, i64 %16
+  %17 = getelementptr [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 64
   %.not46.us.not.not = icmp ne i16 %19, 0
@@ -1641,7 +1639,7 @@ define internal fastcc noundef zeroext i1 @zbee_security_parse_key(ptr noundef r
   %.343 = phi ptr [ %25, %24 ], [ %.14147, %.split ]
   %.3 = phi i8 [ %26, %24 ], [ %.150, %.split ]
   %28 = zext i8 %.3 to i64
-  %29 = getelementptr i16, ptr %9, i64 %28
+  %29 = getelementptr [2 x i8], ptr %9, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 1024
   %.not = icmp eq i16 %31, 0
@@ -1655,7 +1653,7 @@ define internal fastcc noundef zeroext i1 @zbee_security_parse_key(ptr noundef r
   store i8 %34, ptr %35, align 1
   %36 = load i8, ptr %.343, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr i16, ptr %9, i64 %37
+  %38 = getelementptr [2 x i8], ptr %9, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 1024
   %.not45 = icmp eq i16 %40, 0

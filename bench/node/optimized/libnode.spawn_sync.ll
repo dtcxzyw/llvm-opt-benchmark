@@ -24,14 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.v8::Local.2" = type { %"class.v8::LocalBase.3" }
 %"class.v8::LocalBase.3" = type { %"class.v8::IndirectHandleBase" }
 %"class.v8::IndirectHandleBase" = type { ptr }
-%"class.std::unique_ptr.274" = type { %"struct.std::__uniq_ptr_data.275" }
-%"struct.std::__uniq_ptr_data.275" = type { %"class.std::__uniq_ptr_impl.276" }
-%"class.std::__uniq_ptr_impl.276" = type { %"class.std::tuple.277" }
-%"class.std::tuple.277" = type { %"struct.std::_Tuple_impl.278" }
-%"struct.std::_Tuple_impl.278" = type { %"struct.std::_Head_base.281" }
-%"struct.std::_Head_base.281" = type { ptr }
-%struct.uv_stdio_container_s = type { i32, %union.anon.269 }
-%union.anon.269 = type { ptr }
 
 $_ZN4node20SyncProcessStdioPipe6OnReadEPK8uv_buf_tl = comdat any
 
@@ -890,7 +882,7 @@ if.then.i18.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit
 
@@ -2745,7 +2737,7 @@ for.body:                                         ; preds = %_ZN4node16MaybeStac
   %10 = phi ptr [ %25, %for.inc ], [ %9, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit ]
   %conv33 = phi i64 [ %conv, %for.inc ], [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit ]
   %i.032 = phi i32 [ %inc, %for.inc ], [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %10, i64 %conv33
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv33
   %11 = load ptr, ptr %add.ptr.i, align 8
   %cmp27.not = icmp eq ptr %11, null
   br i1 %cmp27.not, label %if.else, label %land.lhs.true
@@ -2839,7 +2831,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21: ; preds = %
 for.inc:                                          ; preds = %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21
   %call2.i.sink = phi ptr [ %22, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21 ], [ %call2.i, %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit ]
   %23 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.v8::Local.2", ptr %23, i64 %conv33
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %conv33
   store ptr %call2.i.sink, ptr %arrayidx.i, align 8
   %inc = add i32 %i.032, 1
   %conv = zext i32 %inc to i64
@@ -3037,7 +3029,7 @@ for.body103:                                      ; preds = %for.body103.prehead
   %indvars.iv = phi i64 [ 0, %for.body103.preheader ], [ %indvars.iv.next, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   %data_offset.045 = phi i64 [ %mul, %for.body103.preheader ], [ %cond.i36, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   %add.ptr = getelementptr inbounds i8, ptr %call99, i64 %data_offset.045
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %call99, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %call99, i64 %indvars.iv
   store ptr %add.ptr, ptr %arrayidx, align 8
   %14 = trunc nuw i64 %indvars.iv to i32
   %call111 = tail call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call21, ptr %call2.i, i32 noundef %14) #25
@@ -3066,7 +3058,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i151, 
 for.end132:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %for.end.for.end132_crit_edge
   %call9952 = phi ptr [ %call9951, %for.end.for.end132_crit_edge ], [ %call99, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   %idxprom133.pre-phi = phi i64 [ 0, %for.end.for.end132_crit_edge ], [ %wide.trip.count, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
-  %arrayidx134 = getelementptr inbounds nuw ptr, ptr %call9952, i64 %idxprom133.pre-phi
+  %arrayidx134 = getelementptr inbounds nuw [8 x i8], ptr %call9952, i64 %idxprom133.pre-phi
   store ptr null, ptr %arrayidx134, align 8
   store ptr %call9952, ptr %target, align 8
   br label %return
@@ -3347,9 +3339,9 @@ if.then.i24.i:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr34.i = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
-  %add.ptr37.i = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %call5.i.i.i.i, i64 %4
+  %add.ptr37.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
@@ -3358,7 +3350,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %add.ptr = getelementptr inbounds %"class.std::unique_ptr.274", ptr %1, i64 %__new_size
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
   br i1 %tobool.not.i, label %if.end6, label %for.body.i.i.i.i18
 
@@ -3462,7 +3454,7 @@ do.body6.i:                                       ; preds = %if.then
   %stdio_pipes_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %conv.i = zext i32 %child_fd to i64
   %10 = load ptr, ptr %stdio_pipes_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %10, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i
   %11 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %11, null
   br i1 %cmp.i.not.i, label %_ZN4node17SyncProcessRunner14AddStdioIgnoreEj.exit, label %do.body14.i
@@ -3475,7 +3467,7 @@ do.body14.i:                                      ; preds = %do.body6.i
 _ZN4node17SyncProcessRunner14AddStdioIgnoreEj.exit: ; preds = %do.body6.i
   %uv_stdio_containers_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %12 = load ptr, ptr %uv_stdio_containers_.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %12, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %conv.i
   store i32 0, ptr %arrayidx.i, align 8
   br label %return
 
@@ -3642,7 +3634,7 @@ do.body6.i41:                                     ; preds = %_ZNO2v85MaybeIiE8Fr
   %stdio_pipes_.i42 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %conv.i43 = zext i32 %child_fd to i64
   %42 = load ptr, ptr %stdio_pipes_.i42, align 8
-  %add.ptr.i.i44 = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %42, i64 %conv.i43
+  %add.ptr.i.i44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %conv.i43
   %43 = load ptr, ptr %add.ptr.i.i44, align 8
   %cmp.i.not.i45 = icmp eq ptr %43, null
   br i1 %cmp.i.not.i45, label %_ZN4node17SyncProcessRunner17AddStdioInheritFDEji.exit, label %do.body14.i46
@@ -3655,10 +3647,10 @@ do.body14.i46:                                    ; preds = %do.body6.i41
 _ZN4node17SyncProcessRunner17AddStdioInheritFDEji.exit: ; preds = %do.body6.i41
   %uv_stdio_containers_.i47 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %44 = load ptr, ptr %uv_stdio_containers_.i47, align 8
-  %arrayidx.i48 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %44, i64 %conv.i43
+  %arrayidx.i48 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %conv.i43
   store i32 2, ptr %arrayidx.i48, align 8
   %45 = load ptr, ptr %uv_stdio_containers_.i47, align 8
-  %arrayidx20.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %45, i64 %conv.i43
+  %arrayidx20.i = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %conv.i43
   %data.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 8
   store i32 %ref.tmp223.sroa.29.0.extract.trunc, ptr %data.i, align 8
   br label %return
@@ -3700,7 +3692,7 @@ do.body7:                                         ; preds = %entry
   %stdio_pipes_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %conv = zext i32 %child_fd to i64
   %1 = load ptr, ptr %stdio_pipes_, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv
   %2 = load ptr, ptr %add.ptr.i, align 8
   %cmp.i.not = icmp eq ptr %2, null
   br i1 %cmp.i.not, label %do.end18, label %do.body15
@@ -3787,7 +3779,7 @@ if.end25:                                         ; preds = %if.end9.i
   %flags.1.i = select i1 %tobool.i3.i, i32 %or4.i, i32 %spec.select.i
   %uv_stdio_containers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load ptr, ptr %uv_stdio_containers_, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %11, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %conv
   store i32 %flags.1.i, ptr %arrayidx, align 8
   %12 = load i32, ptr %lifecycle_.i, align 8
   %cmp.i.i = icmp sgt i32 %12, 2
@@ -3800,11 +3792,11 @@ do.body4.i.i:                                     ; preds = %if.end25
 
 _ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit: ; preds = %if.end25
   %13 = load ptr, ptr %uv_stdio_containers_, align 8
-  %arrayidx32 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %13, i64 %conv
+  %arrayidx32 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %conv
   %data = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 8
   store ptr %uv_pipe_.i.i, ptr %data, align 8
   %14 = load ptr, ptr %stdio_pipes_, align 8
-  %add.ptr.i8 = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %14, i64 %conv
+  %add.ptr.i8 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %conv
   %15 = load ptr, ptr %add.ptr.i8, align 8
   store ptr %call19, ptr %add.ptr.i8, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %15, null
@@ -3932,7 +3924,7 @@ if.then.i18.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %external_references_.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4node17SyncProcessRunner26RegisterExternalReferencesEPNS_25ExternalReferenceRegistryE.exit
 
@@ -3980,7 +3972,7 @@ if.end15.i.i:                                     ; preds = %entry
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i, %2
   %3 = load ptr, ptr %this, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.end.i.i.i.i

@@ -606,7 +606,7 @@ define void @Init_ossl_asn1() local_unnamed_addr #0 {
 
 28:                                               ; preds = %0, %38
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %38 ]
-  %29 = getelementptr inbounds nuw %struct.ossl_asn1_info_t, ptr @ossl_asn1_info, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr @ossl_asn1_info, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 16, !tbaa !27
   %31 = load i8, ptr %30, align 1, !tbaa !30
   %32 = icmp eq i8 %31, 91
@@ -1822,7 +1822,7 @@ rb_array_len.exit.us.thread:                      ; preds = %.split.us
 
 rb_array_const_ptr.exit.us:                       ; preds = %.thread, %21
   %.0.i18.us = phi ptr [ %22, %21 ], [ %12, %.thread ]
-  %23 = getelementptr inbounds nuw i64, ptr %.0.i18.us, i64 %.015.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.0.i18.us, i64 %.015.us
   %24 = load i64, ptr %23, align 8, !tbaa !17
   store i64 %24, ptr %2, align 8, !tbaa !17
   %25 = load i64, ptr @cASN1EndOfContent, align 8, !tbaa !17
@@ -1870,7 +1870,7 @@ rb_array_len.exit.thread:                         ; preds = %.split
 
 rb_array_const_ptr.exit:                          ; preds = %.thread33, %41
   %.0.i18 = phi ptr [ %42, %41 ], [ %12, %.thread33 ]
-  %43 = getelementptr inbounds nuw i64, ptr %.0.i18, i64 %.015
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.0.i18, i64 %.015
   %44 = load i64, ptr %43, align 8, !tbaa !17
   store i64 %44, ptr %2, align 8, !tbaa !17
   %45 = call i64 @ossl_to_der_if_possible(i64 noundef %44) #9
@@ -3308,7 +3308,7 @@ decode_time.exit.i:                               ; preds = %281
   br label %int_ossl_asn1_decode0_prim.exit
 
 308:                                              ; preds = %302
-  %309 = getelementptr inbounds %struct.ossl_asn1_info_t, ptr @ossl_asn1_info, i64 %298
+  %309 = getelementptr inbounds [16 x i8], ptr @ossl_asn1_info, i64 %298
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load ptr, ptr %310, align 8, !tbaa !90
   %312 = load i64, ptr %311, align 8, !tbaa !17

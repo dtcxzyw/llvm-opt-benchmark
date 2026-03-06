@@ -19,8 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._stat_tap_table_item_type = type { i32, %union.anon, %union.anon.2 }
 %union.anon = type { ptr }
 %union.anon.2 = type { ptr }
-%struct._value_string = type { i32, ptr }
-%struct._header_field_t = type { ptr, ptr }
 %struct.sip_hash_key = type { [128 x i8], %struct._address, i32, %struct._address, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct._uri_offset_info = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
@@ -28,10 +26,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sip_authorization_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._sdp_setup_info = type { i32, i32, i8, i8, %union.anon.3 }
 %union.anon.3 = type { ptr }
-%struct._authorization_user_t = type { ptr, ptr, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct._sip_reason_code_info_t = type { i32, i32 }
-%struct.mech_parameter_t = type { ptr, i32, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 
 @hf_sip_from_addr = internal global i32 0, align 4
@@ -1664,7 +1660,7 @@ define internal void @sip_stat_init(ptr noundef %0) #0 {
 
 23:                                               ; preds = %20, %23
   %indvars.iv = phi i64 [ 1, %20 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr ptr, ptr @sip_methods, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr @sip_methods, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = call noalias ptr @g_strdup(ptr noundef %25)
   store ptr %26, ptr %22, align 8
@@ -1699,7 +1695,7 @@ define internal void @sip_stat_init(ptr noundef %0) #0 {
 
 38:                                               ; preds = %34, %38
   %indvars.iv44 = phi i64 [ 1, %34 ], [ %indvars.iv.next45, %38 ]
-  %39 = getelementptr %struct._value_string, ptr @sip_response_code_vals, i64 %indvars.iv44
+  %39 = getelementptr [16 x i8], ptr @sip_response_code_vals, i64 %indvars.iv44
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %39, align 16
@@ -2188,7 +2184,7 @@ define internal i32 @dissect_sip_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 14:                                               ; preds = %11
   %15 = load ptr, ptr @g_ascii_table, align 8
   %16 = zext i8 %5 to i64
-  %17 = getelementptr i16, ptr %15, i64 %16
+  %17 = getelementptr [2 x i8], ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 64
   %.not = icmp eq i16 %19, 0
@@ -2432,12 +2428,12 @@ define internal void @header_fields_post_update_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_sip, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2489,18 +2485,18 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %27 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #20
   store i32 -1, ptr %27, align 4
   %28 = load ptr, ptr @sip_custom_header_fields, align 8
-  %29 = getelementptr %struct._header_field_t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [16 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @g_strdup(ptr noundef %30)
   %32 = tail call noalias ptr @g_ascii_strdown(ptr noundef %31, i64 noundef -1)
   %33 = load ptr, ptr @dynamic_hf, align 8
-  %34 = getelementptr %struct.hf_register_info, ptr %33, i64 %indvars.iv
+  %34 = getelementptr [80 x i8], ptr %33, i64 %indvars.iv
   store ptr %27, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %31, ptr %35, align 8
   %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1091, ptr noundef %31)
   %37 = load ptr, ptr @dynamic_hf, align 8
-  %38 = getelementptr %struct.hf_register_info, ptr %37, i64 %indvars.iv
+  %38 = getelementptr [80 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %36, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -2508,12 +2504,12 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %42 = load ptr, ptr @sip_custom_header_fields, align 8
-  %43 = getelementptr %struct._header_field_t, ptr %42, i64 %indvars.iv
+  %43 = getelementptr [16 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias ptr @g_strdup(ptr noundef %45)
   %47 = load ptr, ptr @dynamic_hf, align 8
-  %48 = getelementptr %struct.hf_register_info, ptr %47, i64 %indvars.iv
+  %48 = getelementptr [80 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store ptr %46, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 56
@@ -2564,12 +2560,12 @@ define internal void @header_fields_reset_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_sip, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2679,7 +2675,7 @@ define internal void @sip_init_protocol() #0 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %3 ]
   %4 = tail call ptr @wmem_file_scope()
-  %5 = getelementptr %struct.sip_header_t, ptr @sip_headers, i64 %indvars.iv
+  %5 = getelementptr [16 x i8], ptr @sip_headers, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16
   %7 = tail call noalias ptr @wmem_strdup(ptr noundef %4, ptr noundef %6)
   %8 = tail call ptr @ascii_strdown_inplace(ptr noundef %7)
@@ -2936,7 +2932,7 @@ define internal fastcc i32 @dissect_sip_common(ptr noundef %0, i32 noundef %1, i
   %30 = load ptr, ptr @g_ascii_table, align 8
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %32 = zext i8 %31 to i64
-  %33 = getelementptr i16, ptr %30, i64 %32
+  %33 = getelementptr [2 x i8], ptr %30, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 64
   %.not = icmp eq i16 %35, 0
@@ -3002,7 +2998,7 @@ define internal fastcc i32 @dissect_sip_common(ptr noundef %0, i32 noundef %1, i
   %68 = load ptr, ptr @g_ascii_table, align 8
   %69 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %47)
   %70 = zext i8 %69 to i64
-  %71 = getelementptr i16, ptr %68, i64 %70
+  %71 = getelementptr [2 x i8], ptr %68, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, 8
   %.not51.i = icmp eq i16 %73, 0
@@ -3012,7 +3008,7 @@ define internal fastcc i32 @dissect_sip_common(ptr noundef %0, i32 noundef %1, i
   %75 = add i32 %43, 2
   %76 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %75)
   %77 = zext i8 %76 to i64
-  %78 = getelementptr i16, ptr %68, i64 %77
+  %78 = getelementptr [2 x i8], ptr %68, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 8
   %.not52.i = icmp eq i16 %80, 0
@@ -3022,7 +3018,7 @@ define internal fastcc i32 @dissect_sip_common(ptr noundef %0, i32 noundef %1, i
   %82 = add i32 %43, 3
   %83 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %82)
   %84 = zext i8 %83 to i64
-  %85 = getelementptr i16, ptr %68, i64 %84
+  %85 = getelementptr [2 x i8], ptr %68, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = and i16 %86, 8
   %.not53.i = icmp eq i16 %87, 0
@@ -3146,7 +3142,7 @@ sip_parse_line.exit:                              ; preds = %103, %.thread.i, %8
 
 150:                                              ; preds = %158, %146
   %indvars.iv.i = phi i64 [ 1, %146 ], [ %indvars.iv.next.i, %158 ]
-  %151 = getelementptr ptr, ptr @sip_methods, i64 %indvars.iv.i
+  %151 = getelementptr [8 x i8], ptr @sip_methods, i64 %indvars.iv.i
   %152 = load ptr, ptr %151, align 8
   %153 = call i64 @strlen(ptr noundef %152) #18
   %154 = icmp eq i64 %153, %149
@@ -3496,7 +3492,7 @@ dfilter_sip_status_line.exit:                     ; preds = %222, %229
 
 340:                                              ; preds = %350, %338
   %indvars.iv.i1582 = phi i64 [ 1, %338 ], [ %indvars.iv.next.i1583, %350 ]
-  %341 = getelementptr %struct.sip_header_t, ptr @sip_headers, i64 %indvars.iv.i1582
+  %341 = getelementptr [16 x i8], ptr @sip_headers, i64 %indvars.iv.i1582
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %343 = load ptr, ptr %342, align 8
   %.not18.i = icmp eq ptr %343, null
@@ -4035,7 +4031,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge8, %424, %
   %607 = getelementptr i8, ptr %592, i64 %indvars.iv2194
   %608 = load i8, ptr %607, align 1
   %609 = zext i8 %608 to i64
-  %610 = getelementptr i16, ptr %296, i64 %609
+  %610 = getelementptr [2 x i8], ptr %296, i64 %609
   %611 = load i16, ptr %610, align 2
   %612 = and i16 %611, 8
   %.not1513 = icmp eq i16 %612, 0
@@ -4066,7 +4062,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge8, %424, %
   %620 = getelementptr i8, ptr %592, i64 %indvars.iv2199
   %621 = load i8, ptr %620, align 1
   %622 = zext i8 %621 to i64
-  %623 = getelementptr i16, ptr %296, i64 %622
+  %623 = getelementptr [2 x i8], ptr %296, i64 %622
   %624 = load i16, ptr %623, align 2
   %625 = and i16 %624, 2
   %.not1514 = icmp eq i16 %625, 0
@@ -4138,7 +4134,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge8, %424, %
   %659 = getelementptr i8, ptr %648, i64 %indvars.iv
   %660 = load i8, ptr %659, align 1
   %661 = zext i8 %660 to i64
-  %662 = getelementptr i16, ptr %296, i64 %661
+  %662 = getelementptr [2 x i8], ptr %296, i64 %661
   %663 = load i16, ptr %662, align 2
   %664 = and i16 %663, 8
   %.not1505 = icmp eq i16 %664, 0
@@ -4199,7 +4195,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge8, %424, %
   %682 = getelementptr i8, ptr %648, i64 %indvars.iv2188
   %683 = load i8, ptr %682, align 1
   %684 = zext i8 %683 to i64
-  %685 = getelementptr i16, ptr %296, i64 %684
+  %685 = getelementptr [2 x i8], ptr %296, i64 %684
   %686 = load i16, ptr %685, align 2
   %687 = and i16 %686, 8
   %.not1508 = icmp eq i16 %687, 0
@@ -4236,7 +4232,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge8, %424, %
   %702 = getelementptr i8, ptr %648, i64 %indvars.iv2191
   %703 = load i8, ptr %702, align 1
   %704 = zext i8 %703 to i64
-  %705 = getelementptr i16, ptr %296, i64 %704
+  %705 = getelementptr [2 x i8], ptr %296, i64 %704
   %706 = load i16, ptr %705, align 2
   %707 = and i16 %706, 2
   %.not1509 = icmp eq i16 %707, 0
@@ -4378,7 +4374,7 @@ proto_item_set_hidden.exit1594:                   ; preds = %proto_item_set_gene
 
 784:                                              ; preds = %sip_is_known_sip_header.exit, %sip_is_known_sip_header.exit, %sip_is_known_sip_header.exit
   %785 = zext nneg i32 %.013.i to i64
-  %786 = getelementptr i32, ptr @hf_header_array, i64 %785
+  %786 = getelementptr [4 x i8], ptr @hf_header_array, i64 %785
   %787 = load i32, ptr %786, align 4
   %788 = load i32, ptr %16, align 4
   %789 = call zeroext i1 @proto_field_is_referenced(ptr noundef %277, i32 noundef %787)
@@ -4609,7 +4605,7 @@ dissect_sip_contact_item.exit:                    ; preds = %873, %830, %868
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, i8 0, i64 80, i1 false)
   %883 = zext nneg i32 %.013.i to i64
-  %884 = getelementptr i32, ptr @hf_header_array, i64 %883
+  %884 = getelementptr [4 x i8], ptr @hf_header_array, i64 %883
   %885 = load i32, ptr %884, align 4
   %886 = load i32, ptr %16, align 4
   %887 = call zeroext i1 @proto_field_is_referenced(ptr noundef nonnull %277, i32 noundef %885)
@@ -5240,7 +5236,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %.dissect_sip_author
 
 1217:                                             ; preds = %sip_is_known_sip_header.exit
   %1218 = sext i32 %.013.i to i64
-  %1219 = getelementptr i32, ptr @hf_header_array, i64 %1218
+  %1219 = getelementptr [4 x i8], ptr @hf_header_array, i64 %1218
   %1220 = load i32, ptr %1219, align 4
   %1221 = load i32, ptr %16, align 4
   %1222 = sub i32 %1221, %.012862026
@@ -6965,7 +6961,7 @@ define internal fastcc noundef ptr @sip_get_authorization(ptr readonly captures(
 
 3:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr %struct._authorization_user_t, ptr %2, i64 %indvars.iv
+  %4 = getelementptr [24 x i8], ptr %2, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef %5, ptr noundef %.0.val) #18
   %.not = icmp eq i32 %6, 0
@@ -7511,7 +7507,7 @@ select.unfold:                                    ; preds = %28, %34
   %71 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.9341)
   store i8 %71, ptr %6, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr i16, ptr %11, i64 %72
+  %73 = getelementptr [2 x i8], ptr %11, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = and i16 %74, 8
   %.not271 = icmp eq i16 %75, 0
@@ -7592,7 +7588,7 @@ select.unfold:                                    ; preds = %28, %34
   %104 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.15346)
   store i8 %104, ptr %6, align 1
   %105 = zext i8 %104 to i64
-  %106 = getelementptr i16, ptr %11, i64 %105
+  %106 = getelementptr [2 x i8], ptr %11, i64 %105
   %107 = load i16, ptr %106, align 2
   %108 = and i16 %107, 2
   %109 = icmp eq i16 %108, 0
@@ -7937,7 +7933,7 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
 
 36:                                               ; preds = %26, %35
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %35 ]
-  %37 = getelementptr %struct.mech_parameter_t, ptr @sec_mechanism_parameters_hf_array, i64 %indvars.iv
+  %37 = getelementptr [24 x i8], ptr @sec_mechanism_parameters_hf_array, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef %38)
   %40 = icmp eq i32 %39, 0

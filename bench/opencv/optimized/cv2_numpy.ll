@@ -63,7 +63,7 @@ define hidden noundef nonnull ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiP
   %22 = mul nuw nsw i32 %21, %17
   %23 = zext nneg i32 %22 to i64
   %24 = sext i32 %13 to i64
-  %25 = getelementptr inbounds i64, ptr %5, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %5, i64 %24
   store i64 %23, ptr %25, align 8, !tbaa !27
   %26 = load i32, ptr %3, align 4, !tbaa !28
   %27 = sext i32 %26 to i64
@@ -83,9 +83,9 @@ define hidden noundef nonnull ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiP
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i64, ptr %.val24, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val24, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %35, ptr %36, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -136,7 +136,7 @@ define hidden noundef ptr @_ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFl
 
 switch.lookup:                                    ; preds = %18
   %30 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFlagENS4_14UMatUsageFlagsE, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFlagENS4_14UMatUsageFlagsE, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %31
 
@@ -174,10 +174,10 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !28
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   store i64 %47, ptr %48, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -195,7 +195,7 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 51:                                               ; preds = %._crit_edge
   %52 = zext nneg i32 %23 to i64
   %53 = sext i32 %1 to i64
-  %54 = getelementptr inbounds i64, ptr %42, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %42, i64 %53
   store i64 %52, ptr %54, align 8, !tbaa !27
   br label %55
 
@@ -285,9 +285,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %86 = getelementptr inbounds nuw i64, ptr %.val24.i, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.val24.i, i64 %indvars.iv.i
   %87 = load i64, ptr %86, align 8, !tbaa !27
-  %88 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   store i64 %87, ptr %88, align 8, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -301,7 +301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %
   %93 = mul nuw nsw i32 %92, %23
   %94 = zext nneg i32 %93 to i64
   %95 = sext i32 %82 to i64
-  %96 = getelementptr inbounds i64, ptr %5, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %5, i64 %95
   store i64 %94, ptr %96, align 8, !tbaa !27
   %97 = load i32, ptr %2, align 4, !tbaa !28
   %98 = sext i32 %97 to i64

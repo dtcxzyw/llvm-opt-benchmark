@@ -785,7 +785,7 @@ define hidden void @"_ZN148_$LT$$LT$uv_workspace..pyproject..ToolUvSources$u20$a
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = icmp ult i64 %56, 11
   call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   store ptr %59, ptr %15, align 8
   store ptr %15, ptr %16, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1206,7 +1206,7 @@ define hidden void @"_ZN148_$LT$$LT$uv_workspace..pyproject..ToolUvSources$u20$a
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = icmp ult i64 %56, 11
   call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   store ptr %59, ptr %15, align 8
   store ptr %15, ptr %16, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -3658,10 +3658,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !766, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !767, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h118ddc17d4ef8e5bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h118ddc17d4ef8e5bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h118ddc17d4ef8e5bE.38", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h118ddc17d4ef8e5bE.38", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -6936,7 +6936,7 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit: ; preds = %9, %1
   %55 = call { ptr, i64 } @"_ZN71_$LT$uv_pep440..version..Release$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd084f99d64626cdbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
   %56 = extractvalue { ptr, i64 } %55, 0
   %57 = extractvalue { ptr, i64 } %55, 1
-  %58 = getelementptr inbounds i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %56) ]
   br label %59
 

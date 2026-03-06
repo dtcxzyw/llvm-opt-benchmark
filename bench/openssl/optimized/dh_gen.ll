@@ -57,7 +57,7 @@ define range(i32 0, 1131) i32 @ossl_dh_get_named_group_uid_from_size(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_dh_get_named_group_uid_from_size, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_dh_get_named_group_uid_from_size, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 

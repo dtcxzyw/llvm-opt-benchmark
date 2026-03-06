@@ -3749,10 +3749,10 @@ define internal nonnull ptr @ip_conv_get_filter_type(ptr noundef readonly captur
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ip_conv_get_filter_type, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ip_conv_get_filter_type, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %1 to i64
-  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table.ip_conv_get_filter_type.1, i64 %5
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ip_conv_get_filter_type.1, i64 %5
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %7 = load i32, ptr %6, align 8

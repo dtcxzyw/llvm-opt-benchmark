@@ -3,11 +3,6 @@ source_filename = "bench/brotli/original/metablock.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Command = type { i32, i32, i32, i16, i16 }
-%struct.HistogramLiteral = type { [256 x i32], i64, double }
-%struct.HistogramDistance = type { [544 x i32], i64, double }
-%struct.HistogramCommand = type { [704 x i32], i64, double }
-
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -225,7 +220,7 @@ BrotliInitDistanceParams.exit:                    ; preds = %30, %BrotliCalculat
   %73 = phi i64 [ %137, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
   %.03144.us.i = phi i64 [ %138, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
   %.03243.us.i = phi double [ %.234.us.i, %.critedge.us.i ], [ 0.000000e+00, %.lr.ph.split.us.preheader.i ]
-  %74 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.us.i
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.03144.us.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !35
   %77 = and i32 %76, 33554431
@@ -303,7 +298,7 @@ PrefixEncodeCopyDistance.exit.us.i:               ; preds = %126, %107
   %.0.us.i = phi i16 [ %125, %107 ], [ %127, %126 ]
   %128 = and i16 %.0.us.i, 1023
   %129 = zext nneg i16 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %14, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !13
   %132 = add i32 %131, 1
   store i32 %132, ptr %130, align 4, !tbaa !13
@@ -325,7 +320,7 @@ PrefixEncodeCopyDistance.exit.us.i:               ; preds = %126, %107
   %139 = phi i64 [ %159, %.critedge.i ], [ 0, %.lr.ph.i ]
   %.03144.i = phi i64 [ %160, %.critedge.i ], [ 0, %.lr.ph.i ]
   %.03243.i = phi double [ %.234.i, %.critedge.i ], [ 0.000000e+00, %.lr.ph.i ]
-  %140 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.i
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.03144.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4, !tbaa !35
   %143 = and i32 %142, 33554431
@@ -343,7 +338,7 @@ PrefixEncodeCopyDistance.exit.i:                  ; preds = %144
   %149 = load i16, ptr %148, align 2, !tbaa !39
   %150 = and i16 %149, 1023
   %151 = zext nneg i16 %150 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %14, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !13
   %154 = add i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !13
@@ -414,7 +409,7 @@ PrefixEncodeCopyDistance.exit.i:                  ; preds = %144
   %174 = phi i64 [ %194, %.critedge.i212 ], [ 0, %173 ]
   %.03144.i209 = phi i64 [ %195, %.critedge.i212 ], [ 0, %173 ]
   %.03243.i210 = phi double [ %.234.i213, %.critedge.i212 ], [ 0.000000e+00, %173 ]
-  %175 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.i209
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.03144.i209
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %177 = load i32, ptr %176, align 4, !tbaa !35
   %178 = and i32 %177, 33554431
@@ -432,7 +427,7 @@ PrefixEncodeCopyDistance.exit.i215:               ; preds = %179
   %184 = load i16, ptr %183, align 2, !tbaa !39
   %185 = and i16 %184, 1023
   %186 = zext nneg i16 %185 to i64
-  %187 = getelementptr inbounds nuw i32, ptr %14, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !13
   %189 = add i32 %188, 1
   store i32 %189, ptr %187, align 4, !tbaa !13
@@ -485,7 +480,7 @@ ComputeDistanceCost.exit216.thread:               ; preds = %ComputeDistanceCost
 
 .lr.ph.i217:                                      ; preds = %.lr.ph.i217.preheader, %276
   %.01.i = phi i64 [ %277, %276 ], [ 0, %.lr.ph.i217.preheader ]
-  %207 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.01.i
+  %207 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.01.i
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %209 = load i32, ptr %208, align 4, !tbaa !35
   %210 = and i32 %209, 33554431
@@ -607,7 +602,7 @@ RecomputeDistancePrefixes.exit:                   ; preds = %276, %202, %206
 
 .lr.ph298:                                        ; preds = %283, %.lr.ph298
   %.0153297 = phi i64 [ %287, %.lr.ph298 ], [ 0, %283 ]
-  %286 = getelementptr inbounds nuw i32, ptr %285, i64 %.0153297
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %.0153297
   store i32 %9, ptr %286, align 4, !tbaa !13
   %287 = add nuw i64 %.0153297, 1
   %exitcond320.not = icmp eq i64 %287, %.pre
@@ -630,7 +625,7 @@ RecomputeDistancePrefixes.exit:                   ; preds = %276, %202, %206
 
 .lr.ph300:                                        ; preds = %.lr.ph300.preheader, %.lr.ph300
   %.0.i299 = phi i64 [ %294, %.lr.ph300 ], [ 0, %.lr.ph300.preheader ]
-  %292 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %291, i64 %.0.i299
+  %292 = getelementptr inbounds nuw [1040 x i8], ptr %291, i64 %.0.i299
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %292, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %293, align 8, !tbaa !57
@@ -654,7 +649,7 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph300, %282, %2
 
 .lr.ph302:                                        ; preds = %.lr.ph302.preheader, %.lr.ph302
   %.0.i180301 = phi i64 [ %303, %.lr.ph302 ], [ 0, %.lr.ph302.preheader ]
-  %301 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %300, i64 %.0.i180301
+  %301 = getelementptr inbounds nuw [2192 x i8], ptr %300, i64 %.0.i180301
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %301, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %302, align 8, !tbaa !32
@@ -686,7 +681,7 @@ ClearHistogramsDistance.exit:                     ; preds = %.lr.ph302, %ClearHi
 
 .lr.ph304:                                        ; preds = %308, %.lr.ph304
   %.0.i181303 = phi i64 [ %314, %.lr.ph304 ], [ 0, %308 ]
-  %312 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %310, i64 %.0.i181303
+  %312 = getelementptr inbounds nuw [2832 x i8], ptr %310, i64 %.0.i181303
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %312, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %313, align 8, !tbaa !65
@@ -762,7 +757,7 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread374, %ClearH
 339:                                              ; preds = %.lr.ph308, %.loopexit
   %.1154307 = phi i64 [ %337, %.lr.ph308 ], [ %340, %.loopexit ]
   %340 = add i64 %.1154307, -1
-  %341 = getelementptr inbounds nuw i32, ptr %338, i64 %340
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %340
   %.idx = shl i64 %340, 8
   %342 = getelementptr inbounds nuw i8, ptr %338, i64 %.idx
   %.pre329 = load i32, ptr %341, align 4, !tbaa !13
@@ -770,7 +765,7 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread374, %ClearH
 
 343:                                              ; preds = %339, %343
   %.0305 = phi i64 [ 0, %339 ], [ %345, %343 ]
-  %344 = getelementptr inbounds nuw i32, ptr %342, i64 %.0305
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %.0305
   store i32 %.pre329, ptr %344, align 4, !tbaa !13
   %345 = add nuw nsw i64 %.0305, 1
   %exitcond324.not = icmp eq i64 %345, 64
@@ -852,7 +847,7 @@ define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %0, ptr noundef reado
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
   %.079.i81 = phi i64 [ %19, %.lr.ph82 ], [ 0, %.preheader ]
   %.081.i80 = phi i64 [ %18, %.lr.ph82 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw %struct.Command, ptr %9, i64 %.079.i81
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.079.i81
   %16 = load i32, ptr %15, align 4, !tbaa !78
   %17 = zext i32 %16 to i64
   %18 = add i64 %.081.i80, %17
@@ -895,7 +890,7 @@ define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %0, ptr noundef reado
 42:                                               ; preds = %.lr.ph94, %BlockSplitterAddSymbolDistance.exit
   %.0.i92 = phi i64 [ %2, %.lr.ph94 ], [ %82, %BlockSplitterAddSymbolDistance.exit ]
   %.180.i91 = phi i64 [ 0, %.lr.ph94 ], [ %101, %BlockSplitterAddSymbolDistance.exit ]
-  %43 = getelementptr inbounds nuw %struct.Command, ptr %9, i64 %.180.i91
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.180.i91
   %.sroa.0.0.copyload = load i32, ptr %43, align 4, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !13
@@ -906,8 +901,8 @@ define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %0, ptr noundef reado
   %44 = zext i16 %.sroa.651.0.copyload to i64
   %45 = load ptr, ptr %30, align 8, !tbaa !80
   %46 = load i64, ptr %31, align 8, !tbaa !84
-  %47 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %45, i64 %46
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %44
+  %47 = getelementptr inbounds nuw [2832 x i8], ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %44
   %49 = load i32, ptr %48, align 4, !tbaa !13
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4, !tbaa !13
@@ -943,8 +938,8 @@ BlockSplitterAddSymbolCommand.exit:               ; preds = %42, %58
   %63 = zext i8 %62 to i64
   %64 = load ptr, ptr %34, align 8, !tbaa !89
   %65 = load i64, ptr %35, align 8, !tbaa !91
-  %66 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %64, i64 %65
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %63
+  %66 = getelementptr inbounds nuw [1040 x i8], ptr %64, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %63
   %68 = load i32, ptr %67, align 4, !tbaa !13
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4, !tbaa !13
@@ -984,8 +979,8 @@ BlockSplitterAddSymbolLiteral.exit:               ; preds = %.lr.ph88, %77
   %86 = zext nneg i16 %85 to i64
   %87 = load ptr, ptr %38, align 8, !tbaa !96
   %88 = load i64, ptr %39, align 8, !tbaa !98
-  %89 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %87, i64 %88
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %86
+  %89 = getelementptr inbounds nuw [2192 x i8], ptr %87, i64 %88
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %86
   %91 = load i32, ptr %90, align 4, !tbaa !13
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !13
@@ -1018,7 +1013,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
 .lr.ph:                                           ; preds = %.preheader60, %.lr.ph
   %.079.i2862 = phi i64 [ %106, %.lr.ph ], [ 0, %.preheader60 ]
   %.081.i2761 = phi i64 [ %105, %.lr.ph ], [ 0, %.preheader60 ]
-  %102 = getelementptr inbounds nuw %struct.Command, ptr %9, i64 %.079.i2862
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.079.i2862
   %103 = load i32, ptr %102, align 4, !tbaa !78
   %104 = zext i32 %103 to i64
   %105 = add i64 %.081.i2761, %104
@@ -1156,7 +1151,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
 
 166:                                              ; preds = %166, %163
   %.0.i96.i = phi i64 [ 0, %163 ], [ %169, %166 ]
-  %167 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %164, i64 %.0.i96.i
+  %167 = getelementptr inbounds nuw [1040 x i8], ptr %164, i64 %.0.i96.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %167, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %168, align 8, !tbaa !57
@@ -1197,7 +1192,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
   %.076.i3175 = phi i8 [ %4, %.lr.ph78 ], [ %.2.i40, %BlockSplitterAddSymbolDistance.exit47 ]
   %.180.i3074 = phi i64 [ 0, %.lr.ph78 ], [ %270, %BlockSplitterAddSymbolDistance.exit47 ]
   %.082.i2973 = phi i8 [ %5, %.lr.ph78 ], [ %.284.i39, %BlockSplitterAddSymbolDistance.exit47 ]
-  %191 = getelementptr inbounds nuw %struct.Command, ptr %9, i64 %.180.i3074
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.180.i3074
   %.sroa.053.0.copyload = load i32, ptr %191, align 4, !tbaa !13
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 4
   %.sroa.454.0.copyload = load i32, ptr %.sroa.454.0..sroa_idx, align 4, !tbaa !13
@@ -1208,8 +1203,8 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
   %192 = zext i16 %.sroa.657.0.copyload to i64
   %193 = load ptr, ptr %180, align 8, !tbaa !80
   %194 = load i64, ptr %181, align 8, !tbaa !84
-  %195 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %193, i64 %194
-  %196 = getelementptr inbounds nuw i32, ptr %195, i64 %192
+  %195 = getelementptr inbounds nuw [2832 x i8], ptr %193, i64 %194
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %192
   %197 = load i32, ptr %196, align 4, !tbaa !13
   %198 = add i32 %197, 1
   store i32 %198, ptr %196, align 4, !tbaa !13
@@ -1253,14 +1248,14 @@ BlockSplitterAddSymbolCommand.exit45:             ; preds = %190, %206
   %217 = or i8 %216, %213
   %218 = zext i8 %217 to i64
   %219 = zext i8 %210 to i64
-  %220 = getelementptr inbounds nuw i32, ptr %8, i64 %218
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %218
   %221 = load i32, ptr %220, align 4, !tbaa !13
   %222 = zext i32 %221 to i64
   %223 = load ptr, ptr %165, align 8, !tbaa !121
   %224 = load i64, ptr %185, align 8, !tbaa !122
-  %225 = getelementptr %struct.HistogramLiteral, ptr %223, i64 %224
-  %226 = getelementptr %struct.HistogramLiteral, ptr %225, i64 %222
-  %227 = getelementptr inbounds nuw i32, ptr %226, i64 %219
+  %225 = getelementptr [1040 x i8], ptr %223, i64 %224
+  %226 = getelementptr [1040 x i8], ptr %225, i64 %222
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %219
   %228 = load i32, ptr %227, align 4, !tbaa !13
   %229 = add i32 %228, 1
   store i32 %229, ptr %227, align 4, !tbaa !13
@@ -1312,8 +1307,8 @@ ContextBlockSplitterAddSymbol.exit:               ; preds = %237, %.lr.ph68
   %255 = zext nneg i16 %254 to i64
   %256 = load ptr, ptr %186, align 8, !tbaa !96
   %257 = load i64, ptr %187, align 8, !tbaa !98
-  %258 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %256, i64 %257
-  %259 = getelementptr inbounds nuw i32, ptr %258, i64 %255
+  %258 = getelementptr inbounds nuw [2192 x i8], ptr %256, i64 %257
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %258, i64 %255
   %260 = load i32, ptr %259, align 4, !tbaa !13
   %261 = add i32 %260, 1
   store i32 %261, ptr %259, align 4, !tbaa !13
@@ -1374,10 +1369,10 @@ BlockSplitterAddSymbolDistance.exit47:            ; preds = %269, %253, %243, %.
 
 284:                                              ; preds = %284, %.lr.ph.i
   %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %289, %284 ]
-  %285 = getelementptr inbounds nuw i32, ptr %8, i64 %.020.i
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.020.i
   %286 = load i32, ptr %285, align 4, !tbaa !13
   %287 = add i32 %286, %282
-  %288 = getelementptr inbounds nuw i32, ptr %283, i64 %.020.i
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %.020.i
   store i32 %287, ptr %288, align 4, !tbaa !13
   %289 = add nuw nsw i64 %.020.i, 1
   %exitcond.not.i49 = icmp eq i64 %289, 64
@@ -1419,7 +1414,7 @@ define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonl
 10:                                               ; preds = %.lr.ph, %10
   %.016 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   %11 = load ptr, ptr %6, align 8, !tbaa !71
-  %12 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %11, i64 %.016
+  %12 = getelementptr inbounds nuw [1040 x i8], ptr %11, i64 %.016
   call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef 256, ptr noundef %12, ptr noundef nonnull %3) #11
   %13 = add nuw i64 %.016, 1
   %14 = load i64, ptr %4, align 8, !tbaa !70
@@ -1440,7 +1435,7 @@ define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonl
 20:                                               ; preds = %.lr.ph18, %20
   %.117 = phi i64 [ 0, %.lr.ph18 ], [ %23, %20 ]
   %21 = load ptr, ptr %9, align 8, !tbaa !64
-  %22 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %21, i64 %.117
+  %22 = getelementptr inbounds nuw [2832 x i8], ptr %21, i64 %.117
   call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef 704, ptr noundef %22, ptr noundef nonnull %3) #11
   %23 = add nuw i64 %.117, 1
   %24 = load i64, ptr %7, align 8, !tbaa !63
@@ -1450,7 +1445,7 @@ define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonl
 26:                                               ; preds = %.lr.ph20, %26
   %.219 = phi i64 [ 0, %.lr.ph20 ], [ %29, %26 ]
   %27 = load ptr, ptr %19, align 8, !tbaa !77
-  %28 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %27, i64 %.219
+  %28 = getelementptr inbounds nuw [2192 x i8], ptr %27, i64 %.219
   call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %18, ptr noundef %28, ptr noundef nonnull %3) #11
   %29 = add nuw i64 %.219, 1
   %30 = load i64, ptr %16, align 8, !tbaa !76
@@ -1848,7 +1843,7 @@ define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %0, i32
   %21 = load ptr, ptr %20, align 8, !tbaa !115
   store i8 0, ptr %21, align 1, !tbaa !88
   %22 = load i64, ptr %0, align 8, !tbaa !129
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %22
   %24 = and i64 %22, 1
   %.not.i141 = icmp eq i64 %24, 0
   br i1 %.not.i141, label %25, label %41
@@ -1870,7 +1865,7 @@ define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %0, i32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %30
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %30
   %36 = load double, ptr %35, align 8, !tbaa !158
   br label %FastLog2.exit
 
@@ -1897,7 +1892,7 @@ FastLog2.exit:                                    ; preds = %34, %37
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %44
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %44
   %50 = load double, ptr %49, align 8, !tbaa !158
   br label %FastLog2.exit155
 
@@ -1921,7 +1916,7 @@ FastLog2.exit155:                                 ; preds = %48, %51
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i145
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i145
   %61 = load double, ptr %60, align 8, !tbaa !158
   br label %FastLog2.exit153
 
@@ -1959,7 +1954,7 @@ ShannonEntropy.exit150:                           ; preds = %55, %FastLog2.exit1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %ShannonEntropy.exit150
-  %79 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %73
+  %79 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %73
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %79, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %80, align 8, !tbaa !57
@@ -1976,9 +1971,9 @@ ShannonEntropy.exit150:                           ; preds = %55, %FastLog2.exit1
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %85 = load i64, ptr %84, align 8, !tbaa !91
-  %86 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %85
+  %86 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %85
   %87 = load i64, ptr %0, align 8, !tbaa !129
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %87
   %89 = and i64 %87, 1
   %.not.i131 = icmp eq i64 %89, 0
   br i1 %.not.i131, label %90, label %106
@@ -2000,7 +1995,7 @@ ShannonEntropy.exit150:                           ; preds = %55, %FastLog2.exit1
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %92
-  %100 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %95
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %95
   %101 = load double, ptr %100, align 8, !tbaa !158
   br label %FastLog2.exit157
 
@@ -2027,7 +2022,7 @@ FastLog2.exit157:                                 ; preds = %99, %102
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %109
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %109
   %115 = load double, ptr %114, align 8, !tbaa !158
   br label %FastLog2.exit161
 
@@ -2051,7 +2046,7 @@ FastLog2.exit161:                                 ; preds = %113, %116
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i135
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i135
   %126 = load double, ptr %125, align 8, !tbaa !158
   br label %FastLog2.exit159
 
@@ -2076,7 +2071,7 @@ ShannonEntropy.exit140:                           ; preds = %120, %FastLog2.exit
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %133 = load i64, ptr %84, align 8, !tbaa !91
-  %134 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %133
+  %134 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %133
   br label %135
 
 135:                                              ; preds = %ShannonEntropy.exit140, %ShannonEntropy.exit
@@ -2084,11 +2079,11 @@ ShannonEntropy.exit140:                           ; preds = %120, %FastLog2.exit
   %.0171.sroa.phi = phi ptr [ %.sroa.0, %ShannonEntropy.exit140 ], [ %.sroa.5, %ShannonEntropy.exit ]
   %.0171.sroa.phi182 = phi ptr [ %.sroa.0184, %ShannonEntropy.exit140 ], [ %.sroa.4, %ShannonEntropy.exit ]
   %.0171 = phi i64 [ 0, %ShannonEntropy.exit140 ], [ 1, %ShannonEntropy.exit ]
-  %137 = getelementptr inbounds nuw i64, ptr %131, i64 %.0171
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.0171
   %138 = load i64, ptr %137, align 8, !tbaa !14
-  %139 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %132, i64 %.0171
+  %139 = getelementptr inbounds nuw [1040 x i8], ptr %132, i64 %.0171
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %139, ptr noundef nonnull align 8 dereferenceable(1040) %134, i64 1040, i1 false), !tbaa.struct !161
-  %140 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %138
+  %140 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %138
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 1024
   %142 = load i64, ptr %141, align 8, !tbaa !92
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 1024
@@ -2099,9 +2094,9 @@ ShannonEntropy.exit140:                           ; preds = %120, %FastLog2.exit
 
 146:                                              ; preds = %135, %146
   %.0.i129170 = phi i64 [ 0, %135 ], [ %152, %146 ]
-  %147 = getelementptr inbounds nuw i32, ptr %140, i64 %.0.i129170
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.0.i129170
   %148 = load i32, ptr %147, align 4, !tbaa !13
-  %149 = getelementptr inbounds nuw i32, ptr %139, i64 %.0.i129170
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %.0.i129170
   %150 = load i32, ptr %149, align 4, !tbaa !13
   %151 = add i32 %150, %148
   store i32 %151, ptr %149, align 4, !tbaa !13
@@ -2110,7 +2105,7 @@ ShannonEntropy.exit140:                           ; preds = %120, %FastLog2.exit
   br i1 %exitcond.not, label %HistogramAddHistogramLiteral.exit, label %146, !llvm.loop !162
 
 HistogramAddHistogramLiteral.exit:                ; preds = %146
-  %153 = getelementptr inbounds nuw i32, ptr %139, i64 %87
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %87
   br i1 %.not.i131, label %154, label %170
 
 154:                                              ; preds = %FastLog2.exit167, %HistogramAddHistogramLiteral.exit
@@ -2130,7 +2125,7 @@ HistogramAddHistogramLiteral.exit:                ; preds = %146
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %156
-  %164 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %159
+  %164 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %159
   %165 = load double, ptr %164, align 8, !tbaa !158
   br label %FastLog2.exit163
 
@@ -2157,7 +2152,7 @@ FastLog2.exit163:                                 ; preds = %163, %166
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %170
-  %178 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %173
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %173
   %179 = load double, ptr %178, align 8, !tbaa !158
   br label %FastLog2.exit167
 
@@ -2181,7 +2176,7 @@ FastLog2.exit167:                                 ; preds = %177, %180
   br i1 %187, label %188, label %191
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i
   %190 = load double, ptr %189, align 8, !tbaa !158
   br label %FastLog2.exit165
 
@@ -2201,7 +2196,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %.0.i128 = select i1 %194, double %.pre-phi177, double %.2.i
   store double %.0.i128, ptr %.0171.sroa.phi182, align 8, !tbaa !158
   %195 = fsub double %.0.i128, %.0.i127
-  %196 = getelementptr inbounds nuw double, ptr %5, i64 %.0171
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0171
   %197 = load double, ptr %196, align 8, !tbaa !158
   %198 = fsub double %195, %197
   store double %198, ptr %.0171.sroa.phi, align 8, !tbaa !158
@@ -2232,7 +2227,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %209 = trunc i64 %208 to i32
   %210 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !118
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %14
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %14
   store i32 %209, ptr %212, align 4, !tbaa !13
   %213 = trunc nuw i64 %200 to i8
   %214 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2265,7 +2260,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %207
-  %234 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %228
+  %234 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %228
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %234, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %235, align 8, !tbaa !57
@@ -2289,7 +2284,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %246 = trunc i64 %245 to i32
   %247 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %248 = load ptr, ptr %247, align 8, !tbaa !118
-  %249 = getelementptr i32, ptr %248, i64 %14
+  %249 = getelementptr [4 x i8], ptr %248, i64 %14
   br i1 %244, label %250, label %271
 
 250:                                              ; preds = %240
@@ -2305,7 +2300,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %258 = load i64, ptr %257, align 8, !tbaa !14
   store i64 %258, ptr %131, align 8, !tbaa !14
   store i64 %256, ptr %257, align 8, !tbaa !14
-  %259 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %258
+  %259 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %259, ptr noundef nonnull align 8 dereferenceable(1040) %260, i64 1040, i1 false), !tbaa.struct !161
   %261 = load double, ptr %5, align 8, !tbaa !158
@@ -2318,7 +2313,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   store i64 %264, ptr %13, align 8, !tbaa !132
   store i64 0, ptr %8, align 8, !tbaa !93
   %265 = load i64, ptr %84, align 8, !tbaa !91
-  %266 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %265
+  %266 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %266, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %267, align 8, !tbaa !57
@@ -2335,7 +2330,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %274 = add i32 %273, %246
   store i32 %274, ptr %272, align 4, !tbaa !13
   %275 = load i64, ptr %131, align 8, !tbaa !14
-  %276 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %275
+  %276 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %275
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %276, ptr noundef nonnull align 8 dereferenceable(1040) %132, i64 1040, i1 false), !tbaa.struct !161
   %.sroa.0184.0..sroa.0184.0. = load double, ptr %.sroa.0184, align 16, !tbaa !158
   store double %.sroa.0184.0..sroa.0184.0., ptr %5, align 8, !tbaa !158
@@ -2351,7 +2346,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
 281:                                              ; preds = %279, %271
   store i64 0, ptr %8, align 8, !tbaa !93
   %282 = load i64, ptr %84, align 8, !tbaa !91
-  %283 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %7, i64 %282
+  %283 = getelementptr inbounds nuw [1040 x i8], ptr %7, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %283, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %284, align 8, !tbaa !57
@@ -2441,13 +2436,13 @@ define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %0, ptr
   %30 = load i64, ptr %0, align 8, !tbaa !102
   %31 = and i64 %30, 1
   %.not.i216 = icmp eq i64 %31, 0
-  %32 = getelementptr double, ptr %10, i64 %9
+  %32 = getelementptr [8 x i8], ptr %10, i64 %9
   br label %33
 
 33:                                               ; preds = %.lr.ph265, %ShannonEntropy.exit225
   %.0263 = phi i64 [ 0, %.lr.ph265 ], [ %79, %ShannonEntropy.exit225 ]
-  %34 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %12, i64 %.0263
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %30
+  %34 = getelementptr inbounds nuw [1040 x i8], ptr %12, i64 %.0263
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %30
   br i1 %.not.i216, label %36, label %52
 
 36:                                               ; preds = %FastLog2.exit230, %33
@@ -2467,7 +2462,7 @@ define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %0, ptr
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %41
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %41
   %47 = load double, ptr %46, align 8, !tbaa !158
   br label %FastLog2.exit
 
@@ -2494,7 +2489,7 @@ FastLog2.exit:                                    ; preds = %45, %48
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %55
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %55
   %61 = load double, ptr %60, align 8, !tbaa !158
   br label %FastLog2.exit230
 
@@ -2518,7 +2513,7 @@ FastLog2.exit230:                                 ; preds = %59, %62
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i220
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i220
   %72 = load double, ptr %71, align 8, !tbaa !158
   br label %FastLog2.exit228
 
@@ -2536,9 +2531,9 @@ ShannonEntropy.exit225:                           ; preds = %66, %FastLog2.exit2
   %.2.i224 = phi double [ %75, %FastLog2.exit228 ], [ %.124.i221, %66 ]
   %76 = fcmp olt double %.2.i224, %.pre-phi
   %.0.i201 = select i1 %76, double %.pre-phi, double %.2.i224
-  %77 = getelementptr inbounds nuw double, ptr %10, i64 %.0263
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0263
   store double %.0.i201, ptr %77, align 8, !tbaa !158
-  %78 = getelementptr double, ptr %32, i64 %.0263
+  %78 = getelementptr [8 x i8], ptr %32, i64 %.0263
   store double %.0.i201, ptr %78, align 8, !tbaa !158
   %79 = add nuw i64 %.0263, 1
   %exitcond282.not = icmp eq i64 %79, %9
@@ -2563,14 +2558,14 @@ ShannonEntropy.exit225:                           ; preds = %66, %FastLog2.exit2
 
 91:                                               ; preds = %._crit_edge266
   %92 = load ptr, ptr %11, align 8, !tbaa !121
-  %93 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %92, i64 %86
+  %93 = getelementptr inbounds nuw [1040 x i8], ptr %92, i64 %86
   %94 = load i64, ptr %8, align 8, !tbaa !104
   %.not276 = icmp eq i64 %94, 0
   br i1 %.not276, label %ClearHistogramsLiteral.exit200, label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %91, %.lr.ph269
   %.0.i199267 = phi i64 [ %97, %.lr.ph269 ], [ 0, %91 ]
-  %95 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %93, i64 %.0.i199267
+  %95 = getelementptr inbounds nuw [1040 x i8], ptr %93, i64 %.0.i199267
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %95, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %96, align 8, !tbaa !57
@@ -2622,9 +2617,9 @@ ClearHistogramsLiteral.exit200:                   ; preds = %.lr.ph269, %91, %._
   %107 = phi i64 [ %.pre, %.lr.ph ], [ %174, %225 ]
   %.0184247 = phi i64 [ 0, %.lr.ph ], [ %226, %225 ]
   %108 = load i64, ptr %104, align 8, !tbaa !122
-  %109 = getelementptr %struct.HistogramLiteral, ptr %12, i64 %108
-  %110 = getelementptr %struct.HistogramLiteral, ptr %109, i64 %.0184247
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %107
+  %109 = getelementptr [1040 x i8], ptr %12, i64 %108
+  %110 = getelementptr [1040 x i8], ptr %109, i64 %.0184247
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %107
   %112 = and i64 %107, 1
   %.not.i206 = icmp eq i64 %112, 0
   br i1 %.not.i206, label %113, label %129
@@ -2646,7 +2641,7 @@ ClearHistogramsLiteral.exit200:                   ; preds = %.lr.ph269, %91, %._
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %115
-  %123 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %118
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %118
   %124 = load double, ptr %123, align 8, !tbaa !158
   br label %FastLog2.exit232
 
@@ -2673,7 +2668,7 @@ FastLog2.exit232:                                 ; preds = %122, %125
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %129
-  %137 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %132
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %132
   %138 = load double, ptr %137, align 8, !tbaa !158
   br label %FastLog2.exit236
 
@@ -2697,7 +2692,7 @@ FastLog2.exit236:                                 ; preds = %136, %139
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i210
+  %148 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i210
   %149 = load double, ptr %148, align 8, !tbaa !158
   br label %FastLog2.exit234
 
@@ -2715,9 +2710,9 @@ ShannonEntropy.exit215:                           ; preds = %143, %FastLog2.exit
   %.2.i214 = phi double [ %152, %FastLog2.exit234 ], [ %.124.i211, %143 ]
   %153 = fcmp olt double %.2.i214, %.pre-phi288
   %.0.i202 = select i1 %153, double %.pre-phi288, double %.2.i214
-  %154 = getelementptr inbounds nuw double, ptr %4, i64 %.0184247
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0184247
   store double %.0.i202, ptr %154, align 8, !tbaa !158
-  %invariant.gep = getelementptr %struct.HistogramLiteral, ptr %12, i64 %.0184247
+  %invariant.gep = getelementptr [1040 x i8], ptr %12, i64 %.0184247
   br label %155
 
 155:                                              ; preds = %ShannonEntropy.exit215, %ShannonEntropy.exit
@@ -2726,11 +2721,11 @@ ShannonEntropy.exit215:                           ; preds = %143, %FastLog2.exit
   %.0185246 = phi i64 [ 0, %ShannonEntropy.exit215 ], [ 1, %ShannonEntropy.exit ]
   %157 = mul nuw nsw i64 %.0185246, %9
   %158 = add i64 %157, %.0184247
-  %159 = getelementptr inbounds nuw i64, ptr %105, i64 %.0185246
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.0185246
   %160 = load i64, ptr %159, align 8, !tbaa !14
-  %161 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %103, i64 %158
+  %161 = getelementptr inbounds nuw [1040 x i8], ptr %103, i64 %158
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %161, ptr noundef nonnull align 8 dereferenceable(1040) %110, i64 1040, i1 false), !tbaa.struct !161
-  %gep = getelementptr %struct.HistogramLiteral, ptr %invariant.gep, i64 %160
+  %gep = getelementptr [1040 x i8], ptr %invariant.gep, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %gep, i64 1024
   %163 = load i64, ptr %162, align 8, !tbaa !92
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 1024
@@ -2741,9 +2736,9 @@ ShannonEntropy.exit215:                           ; preds = %143, %FastLog2.exit
 
 167:                                              ; preds = %155, %167
   %.0.i204245 = phi i64 [ 0, %155 ], [ %173, %167 ]
-  %168 = getelementptr inbounds nuw i32, ptr %gep, i64 %.0.i204245
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %gep, i64 %.0.i204245
   %169 = load i32, ptr %168, align 4, !tbaa !13
-  %170 = getelementptr inbounds nuw i32, ptr %161, i64 %.0.i204245
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %.0.i204245
   %171 = load i32, ptr %170, align 4, !tbaa !13
   %172 = add i32 %171, %169
   store i32 %172, ptr %170, align 4, !tbaa !13
@@ -2753,7 +2748,7 @@ ShannonEntropy.exit215:                           ; preds = %143, %FastLog2.exit
 
 HistogramAddHistogramLiteral.exit:                ; preds = %167
   %174 = load i64, ptr %0, align 8, !tbaa !102
-  %175 = getelementptr inbounds nuw i32, ptr %161, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %174
   %176 = and i64 %174, 1
   %.not.i = icmp eq i64 %176, 0
   br i1 %.not.i, label %177, label %193
@@ -2775,7 +2770,7 @@ HistogramAddHistogramLiteral.exit:                ; preds = %167
   br i1 %185, label %186, label %189
 
 186:                                              ; preds = %179
-  %187 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %182
+  %187 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %182
   %188 = load double, ptr %187, align 8, !tbaa !158
   br label %FastLog2.exit238
 
@@ -2802,7 +2797,7 @@ FastLog2.exit238:                                 ; preds = %186, %189
   br i1 %199, label %200, label %203
 
 200:                                              ; preds = %193
-  %201 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %196
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %196
   %202 = load double, ptr %201, align 8, !tbaa !158
   br label %FastLog2.exit242
 
@@ -2826,7 +2821,7 @@ FastLog2.exit242:                                 ; preds = %200, %203
   br i1 %210, label %211, label %214
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i
   %213 = load double, ptr %212, align 8, !tbaa !158
   br label %FastLog2.exit240
 
@@ -2844,10 +2839,10 @@ ShannonEntropy.exit:                              ; preds = %207, %FastLog2.exit
   %.2.i = phi double [ %216, %FastLog2.exit240 ], [ %.124.i, %207 ]
   %217 = fcmp olt double %.2.i, %.pre-phi290
   %.0.i203 = select i1 %217, double %.pre-phi290, double %.2.i
-  %218 = getelementptr inbounds nuw double, ptr %5, i64 %158
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %158
   store double %.0.i203, ptr %218, align 8, !tbaa !158
   %219 = fsub double %.0.i203, %.0.i202
-  %220 = getelementptr inbounds nuw double, ptr %10, i64 %158
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %158
   %221 = load double, ptr %220, align 8, !tbaa !158
   %222 = fsub double %219, %221
   %223 = load double, ptr %.0185246.sroa.phi, align 8, !tbaa !158
@@ -2890,7 +2885,7 @@ ShannonEntropy.exit:                              ; preds = %207, %FastLog2.exit
   %240 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %241 = load ptr, ptr %240, align 8, !tbaa !118
   %242 = load i64, ptr %21, align 8, !tbaa !108
-  %243 = getelementptr inbounds nuw i32, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %242
   store i32 %239, ptr %243, align 4, !tbaa !13
   %244 = trunc i64 %228 to i8
   %245 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2907,16 +2902,16 @@ ShannonEntropy.exit:                              ; preds = %207, %FastLog2.exit
   br i1 %.not270303, label %._crit_edge259, label %.lr.ph258
 
 .lr.ph258:                                        ; preds = %237
-  %253 = getelementptr double, ptr %10, i64 %9
+  %253 = getelementptr [8 x i8], ptr %10, i64 %9
   br label %254
 
 254:                                              ; preds = %.lr.ph258, %254
   %.1256 = phi i64 [ 0, %.lr.ph258 ], [ %260, %254 ]
-  %255 = getelementptr inbounds nuw double, ptr %10, i64 %.1256
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.1256
   %256 = load double, ptr %255, align 8, !tbaa !158
-  %257 = getelementptr double, ptr %253, i64 %.1256
+  %257 = getelementptr [8 x i8], ptr %253, i64 %.1256
   store double %256, ptr %257, align 8, !tbaa !158
-  %258 = getelementptr inbounds nuw double, ptr %4, i64 %.1256
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.1256
   %259 = load double, ptr %258, align 8, !tbaa !158
   store double %259, ptr %255, align 8, !tbaa !158
   %260 = add nuw i64 %.1256, 1
@@ -2942,14 +2937,14 @@ ShannonEntropy.exit:                              ; preds = %207, %FastLog2.exit
 
 272:                                              ; preds = %._crit_edge259
   %273 = load ptr, ptr %11, align 8, !tbaa !121
-  %274 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %273, i64 %267
+  %274 = getelementptr inbounds nuw [1040 x i8], ptr %273, i64 %267
   %275 = load i64, ptr %8, align 8, !tbaa !104
   %.not274 = icmp eq i64 %275, 0
   br i1 %.not274, label %ClearHistogramsLiteral.exit, label %.lr.ph262
 
 .lr.ph262:                                        ; preds = %272, %.lr.ph262
   %.0.i260 = phi i64 [ %278, %.lr.ph262 ], [ 0, %272 ]
-  %276 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %274, i64 %.0.i260
+  %276 = getelementptr inbounds nuw [1040 x i8], ptr %274, i64 %.0.i260
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %276, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %277, align 8, !tbaa !57
@@ -2976,7 +2971,7 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph262, %272, %.
   %289 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %290 = load ptr, ptr %289, align 8, !tbaa !118
   %291 = load i64, ptr %21, align 8, !tbaa !108
-  %292 = getelementptr i32, ptr %290, i64 %291
+  %292 = getelementptr [4 x i8], ptr %290, i64 %291
   br i1 %286, label %293, label %325
 
 293:                                              ; preds = %282
@@ -3002,21 +2997,21 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph262, %272, %.
 304:                                              ; preds = %.lr.ph254, %304
   %.2252 = phi i64 [ 0, %.lr.ph254 ], [ %319, %304 ]
   %305 = load i64, ptr %299, align 8, !tbaa !14
-  %306 = getelementptr %struct.HistogramLiteral, ptr %12, i64 %305
-  %307 = getelementptr %struct.HistogramLiteral, ptr %306, i64 %.2252
+  %306 = getelementptr [1040 x i8], ptr %12, i64 %305
+  %307 = getelementptr [1040 x i8], ptr %306, i64 %.2252
   %308 = add i64 %.2252, %9
-  %309 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %227, i64 %308
+  %309 = getelementptr inbounds nuw [1040 x i8], ptr %227, i64 %308
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %307, ptr noundef nonnull align 8 dereferenceable(1040) %309, i64 1040, i1 false), !tbaa.struct !161
-  %310 = getelementptr inbounds nuw double, ptr %10, i64 %.2252
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.2252
   %311 = load double, ptr %310, align 8, !tbaa !158
-  %312 = getelementptr inbounds nuw double, ptr %10, i64 %308
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %308
   store double %311, ptr %312, align 8, !tbaa !158
-  %313 = getelementptr inbounds nuw double, ptr %5, i64 %308
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %308
   %314 = load double, ptr %313, align 8, !tbaa !158
   store double %314, ptr %310, align 8, !tbaa !158
   %315 = load i64, ptr %303, align 8, !tbaa !122
-  %316 = getelementptr %struct.HistogramLiteral, ptr %12, i64 %315
-  %317 = getelementptr %struct.HistogramLiteral, ptr %316, i64 %.2252
+  %316 = getelementptr [1040 x i8], ptr %12, i64 %315
+  %317 = getelementptr [1040 x i8], ptr %316, i64 %.2252
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %317, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %318, align 8, !tbaa !57
@@ -3045,34 +3040,34 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph262, %272, %.
 
 .lr.ph250:                                        ; preds = %325
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %330 = getelementptr double, ptr %10, i64 %9
+  %330 = getelementptr [8 x i8], ptr %10, i64 %9
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %332
 
 332:                                              ; preds = %.lr.ph250, %344
   %.3248 = phi i64 [ 0, %.lr.ph250 ], [ %349, %344 ]
   %333 = load i64, ptr %329, align 8, !tbaa !14
-  %334 = getelementptr %struct.HistogramLiteral, ptr %12, i64 %333
-  %335 = getelementptr %struct.HistogramLiteral, ptr %334, i64 %.3248
-  %336 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %227, i64 %.3248
+  %334 = getelementptr [1040 x i8], ptr %12, i64 %333
+  %335 = getelementptr [1040 x i8], ptr %334, i64 %.3248
+  %336 = getelementptr inbounds nuw [1040 x i8], ptr %227, i64 %.3248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %335, ptr noundef nonnull align 8 dereferenceable(1040) %336, i64 1040, i1 false), !tbaa.struct !161
-  %337 = getelementptr inbounds nuw double, ptr %5, i64 %.3248
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.3248
   %338 = load double, ptr %337, align 8, !tbaa !158
-  %339 = getelementptr inbounds nuw double, ptr %10, i64 %.3248
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.3248
   store double %338, ptr %339, align 8, !tbaa !158
   %340 = load i64, ptr %7, align 8, !tbaa !160
   %341 = icmp eq i64 %340, 1
   br i1 %341, label %342, label %344
 
 342:                                              ; preds = %332
-  %343 = getelementptr double, ptr %330, i64 %.3248
+  %343 = getelementptr [8 x i8], ptr %330, i64 %.3248
   store double %338, ptr %343, align 8, !tbaa !158
   br label %344
 
 344:                                              ; preds = %342, %332
   %345 = load i64, ptr %331, align 8, !tbaa !122
-  %346 = getelementptr %struct.HistogramLiteral, ptr %12, i64 %345
-  %347 = getelementptr %struct.HistogramLiteral, ptr %346, i64 %.3248
+  %346 = getelementptr [1040 x i8], ptr %12, i64 %345
+  %347 = getelementptr [1040 x i8], ptr %346, i64 %.3248
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %347, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %348, align 8, !tbaa !57
@@ -3155,7 +3150,7 @@ define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %0, i32
   %21 = load ptr, ptr %20, align 8, !tbaa !115
   store i8 0, ptr %21, align 1, !tbaa !88
   %22 = load i64, ptr %0, align 8, !tbaa !138
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %22
   %24 = and i64 %22, 1
   %.not.i140 = icmp eq i64 %24, 0
   br i1 %.not.i140, label %25, label %41
@@ -3177,7 +3172,7 @@ define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %0, i32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %30
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %30
   %36 = load double, ptr %35, align 8, !tbaa !158
   br label %FastLog2.exit
 
@@ -3204,7 +3199,7 @@ FastLog2.exit:                                    ; preds = %34, %37
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %44
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %44
   %50 = load double, ptr %49, align 8, !tbaa !158
   br label %FastLog2.exit154
 
@@ -3228,7 +3223,7 @@ FastLog2.exit154:                                 ; preds = %48, %51
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i144
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i144
   %61 = load double, ptr %60, align 8, !tbaa !158
   br label %FastLog2.exit152
 
@@ -3266,7 +3261,7 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %ShannonEntropy.exit149
-  %79 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %73
+  %79 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %73
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %79, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %80, align 8, !tbaa !65
@@ -3283,9 +3278,9 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 5736
   %85 = load i64, ptr %84, align 8, !tbaa !84
-  %86 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %85
+  %86 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %85
   %87 = load i64, ptr %0, align 8, !tbaa !138
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %87
   %89 = and i64 %87, 1
   %.not.i130 = icmp eq i64 %89, 0
   br i1 %.not.i130, label %90, label %106
@@ -3307,7 +3302,7 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %92
-  %100 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %95
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %95
   %101 = load double, ptr %100, align 8, !tbaa !158
   br label %FastLog2.exit156
 
@@ -3334,7 +3329,7 @@ FastLog2.exit156:                                 ; preds = %99, %102
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %109
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %109
   %115 = load double, ptr %114, align 8, !tbaa !158
   br label %FastLog2.exit160
 
@@ -3358,7 +3353,7 @@ FastLog2.exit160:                                 ; preds = %113, %116
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i134
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i134
   %126 = load double, ptr %125, align 8, !tbaa !158
   br label %FastLog2.exit158
 
@@ -3383,7 +3378,7 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 5744
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %133 = load i64, ptr %84, align 8, !tbaa !84
-  %134 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %133
+  %134 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %133
   br label %135
 
 135:                                              ; preds = %ShannonEntropy.exit139, %ShannonEntropy.exit
@@ -3391,11 +3386,11 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
   %.0171.sroa.phi = phi ptr [ %.sroa.0, %ShannonEntropy.exit139 ], [ %.sroa.5, %ShannonEntropy.exit ]
   %.0171.sroa.phi182 = phi ptr [ %.sroa.0184, %ShannonEntropy.exit139 ], [ %.sroa.4, %ShannonEntropy.exit ]
   %.0171 = phi i64 [ 0, %ShannonEntropy.exit139 ], [ 1, %ShannonEntropy.exit ]
-  %137 = getelementptr inbounds nuw i64, ptr %131, i64 %.0171
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.0171
   %138 = load i64, ptr %137, align 8, !tbaa !14
-  %139 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %132, i64 %.0171
+  %139 = getelementptr inbounds nuw [2832 x i8], ptr %132, i64 %.0171
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %139, ptr noundef nonnull align 8 dereferenceable(2832) %134, i64 2832, i1 false), !tbaa.struct !170
-  %140 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %138
+  %140 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %138
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 2816
   %142 = load i64, ptr %141, align 8, !tbaa !85
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 2816
@@ -3406,9 +3401,9 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
 
 146:                                              ; preds = %135, %146
   %.0.i167170 = phi i64 [ 0, %135 ], [ %152, %146 ]
-  %147 = getelementptr inbounds nuw i32, ptr %140, i64 %.0.i167170
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.0.i167170
   %148 = load i32, ptr %147, align 4, !tbaa !13
-  %149 = getelementptr inbounds nuw i32, ptr %139, i64 %.0.i167170
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %.0.i167170
   %150 = load i32, ptr %149, align 4, !tbaa !13
   %151 = add i32 %150, %148
   store i32 %151, ptr %149, align 4, !tbaa !13
@@ -3417,7 +3412,7 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
   br i1 %exitcond.not, label %HistogramAddHistogramCommand.exit, label %146, !llvm.loop !171
 
 HistogramAddHistogramCommand.exit:                ; preds = %146
-  %153 = getelementptr inbounds nuw i32, ptr %139, i64 %87
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %87
   br i1 %.not.i130, label %154, label %170
 
 154:                                              ; preds = %FastLog2.exit166, %HistogramAddHistogramCommand.exit
@@ -3437,7 +3432,7 @@ HistogramAddHistogramCommand.exit:                ; preds = %146
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %156
-  %164 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %159
+  %164 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %159
   %165 = load double, ptr %164, align 8, !tbaa !158
   br label %FastLog2.exit162
 
@@ -3464,7 +3459,7 @@ FastLog2.exit162:                                 ; preds = %163, %166
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %170
-  %178 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %173
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %173
   %179 = load double, ptr %178, align 8, !tbaa !158
   br label %FastLog2.exit166
 
@@ -3488,7 +3483,7 @@ FastLog2.exit166:                                 ; preds = %177, %180
   br i1 %187, label %188, label %191
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i
   %190 = load double, ptr %189, align 8, !tbaa !158
   br label %FastLog2.exit164
 
@@ -3508,7 +3503,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %.0.i128 = select i1 %194, double %.pre-phi177, double %.2.i
   store double %.0.i128, ptr %.0171.sroa.phi182, align 8, !tbaa !158
   %195 = fsub double %.0.i128, %.0.i127
-  %196 = getelementptr inbounds nuw double, ptr %5, i64 %.0171
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0171
   %197 = load double, ptr %196, align 8, !tbaa !158
   %198 = fsub double %195, %197
   store double %198, ptr %.0171.sroa.phi, align 8, !tbaa !158
@@ -3539,7 +3534,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %209 = trunc i64 %208 to i32
   %210 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !118
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %14
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %14
   store i32 %209, ptr %212, align 4, !tbaa !13
   %213 = trunc nuw i64 %200 to i8
   %214 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3572,7 +3567,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %207
-  %234 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %228
+  %234 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %228
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %234, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %235, align 8, !tbaa !65
@@ -3596,7 +3591,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %246 = trunc i64 %245 to i32
   %247 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %248 = load ptr, ptr %247, align 8, !tbaa !118
-  %249 = getelementptr i32, ptr %248, i64 %14
+  %249 = getelementptr [4 x i8], ptr %248, i64 %14
   br i1 %244, label %250, label %271
 
 250:                                              ; preds = %240
@@ -3612,7 +3607,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %258 = load i64, ptr %257, align 8, !tbaa !14
   store i64 %258, ptr %131, align 8, !tbaa !14
   store i64 %256, ptr %257, align 8, !tbaa !14
-  %259 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %258
+  %259 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %259, ptr noundef nonnull align 8 dereferenceable(2832) %260, i64 2832, i1 false), !tbaa.struct !170
   %261 = load double, ptr %5, align 8, !tbaa !158
@@ -3625,7 +3620,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   store i64 %264, ptr %13, align 8, !tbaa !141
   store i64 0, ptr %8, align 8, !tbaa !86
   %265 = load i64, ptr %84, align 8, !tbaa !84
-  %266 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %265
+  %266 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %266, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %267, align 8, !tbaa !65
@@ -3642,7 +3637,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %274 = add i32 %273, %246
   store i32 %274, ptr %272, align 4, !tbaa !13
   %275 = load i64, ptr %131, align 8, !tbaa !14
-  %276 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %275
+  %276 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %275
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %276, ptr noundef nonnull align 8 dereferenceable(2832) %132, i64 2832, i1 false), !tbaa.struct !170
   %.sroa.0184.0..sroa.0184.0. = load double, ptr %.sroa.0184, align 16, !tbaa !158
   store double %.sroa.0184.0..sroa.0184.0., ptr %5, align 8, !tbaa !158
@@ -3658,7 +3653,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
 281:                                              ; preds = %279, %271
   store i64 0, ptr %8, align 8, !tbaa !86
   %282 = load i64, ptr %84, align 8, !tbaa !84
-  %283 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %7, i64 %282
+  %283 = getelementptr inbounds nuw [2832 x i8], ptr %7, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %283, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %284, align 8, !tbaa !65
@@ -3733,7 +3728,7 @@ define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %0, i3
   %21 = load ptr, ptr %20, align 8, !tbaa !115
   store i8 0, ptr %21, align 1, !tbaa !88
   %22 = load i64, ptr %0, align 8, !tbaa !148
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %22
   %24 = and i64 %22, 1
   %.not.i140 = icmp eq i64 %24, 0
   br i1 %.not.i140, label %25, label %41
@@ -3755,7 +3750,7 @@ define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %0, i3
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %30
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %30
   %36 = load double, ptr %35, align 8, !tbaa !158
   br label %FastLog2.exit
 
@@ -3782,7 +3777,7 @@ FastLog2.exit:                                    ; preds = %34, %37
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %44
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %44
   %50 = load double, ptr %49, align 8, !tbaa !158
   br label %FastLog2.exit154
 
@@ -3806,7 +3801,7 @@ FastLog2.exit154:                                 ; preds = %48, %51
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i144
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i144
   %61 = load double, ptr %60, align 8, !tbaa !158
   br label %FastLog2.exit152
 
@@ -3844,7 +3839,7 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %ShannonEntropy.exit149
-  %79 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %73
+  %79 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %73
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %79, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %80, align 8, !tbaa !32
@@ -3861,9 +3856,9 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 4456
   %85 = load i64, ptr %84, align 8, !tbaa !98
-  %86 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %85
+  %86 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %85
   %87 = load i64, ptr %0, align 8, !tbaa !148
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %87
   %89 = and i64 %87, 1
   %.not.i130 = icmp eq i64 %89, 0
   br i1 %.not.i130, label %90, label %106
@@ -3885,7 +3880,7 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %92
-  %100 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %95
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %95
   %101 = load double, ptr %100, align 8, !tbaa !158
   br label %FastLog2.exit156
 
@@ -3912,7 +3907,7 @@ FastLog2.exit156:                                 ; preds = %99, %102
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %109
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %109
   %115 = load double, ptr %114, align 8, !tbaa !158
   br label %FastLog2.exit160
 
@@ -3936,7 +3931,7 @@ FastLog2.exit160:                                 ; preds = %113, %116
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i134
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i134
   %126 = load double, ptr %125, align 8, !tbaa !158
   br label %FastLog2.exit158
 
@@ -3961,7 +3956,7 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 4464
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %133 = load i64, ptr %84, align 8, !tbaa !98
-  %134 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %133
+  %134 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %133
   br label %135
 
 135:                                              ; preds = %ShannonEntropy.exit139, %ShannonEntropy.exit
@@ -3969,11 +3964,11 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
   %.0171.sroa.phi = phi ptr [ %.sroa.0, %ShannonEntropy.exit139 ], [ %.sroa.5, %ShannonEntropy.exit ]
   %.0171.sroa.phi182 = phi ptr [ %.sroa.0184, %ShannonEntropy.exit139 ], [ %.sroa.4, %ShannonEntropy.exit ]
   %.0171 = phi i64 [ 0, %ShannonEntropy.exit139 ], [ 1, %ShannonEntropy.exit ]
-  %137 = getelementptr inbounds nuw i64, ptr %131, i64 %.0171
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.0171
   %138 = load i64, ptr %137, align 8, !tbaa !14
-  %139 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %132, i64 %.0171
+  %139 = getelementptr inbounds nuw [2192 x i8], ptr %132, i64 %.0171
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %139, ptr noundef nonnull align 8 dereferenceable(2192) %134, i64 2192, i1 false), !tbaa.struct !173
-  %140 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %138
+  %140 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %138
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 2176
   %142 = load i64, ptr %141, align 8, !tbaa !41
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 2176
@@ -3984,9 +3979,9 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
 
 146:                                              ; preds = %135, %146
   %.0.i167170 = phi i64 [ 0, %135 ], [ %152, %146 ]
-  %147 = getelementptr inbounds nuw i32, ptr %140, i64 %.0.i167170
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.0.i167170
   %148 = load i32, ptr %147, align 4, !tbaa !13
-  %149 = getelementptr inbounds nuw i32, ptr %139, i64 %.0.i167170
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %.0.i167170
   %150 = load i32, ptr %149, align 4, !tbaa !13
   %151 = add i32 %150, %148
   store i32 %151, ptr %149, align 4, !tbaa !13
@@ -3995,7 +3990,7 @@ ShannonEntropy.exit139:                           ; preds = %120, %FastLog2.exit
   br i1 %exitcond.not, label %HistogramAddHistogramDistance.exit, label %146, !llvm.loop !174
 
 HistogramAddHistogramDistance.exit:               ; preds = %146
-  %153 = getelementptr inbounds nuw i32, ptr %139, i64 %87
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %87
   br i1 %.not.i130, label %154, label %170
 
 154:                                              ; preds = %FastLog2.exit166, %HistogramAddHistogramDistance.exit
@@ -4015,7 +4010,7 @@ HistogramAddHistogramDistance.exit:               ; preds = %146
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %156
-  %164 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %159
+  %164 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %159
   %165 = load double, ptr %164, align 8, !tbaa !158
   br label %FastLog2.exit162
 
@@ -4042,7 +4037,7 @@ FastLog2.exit162:                                 ; preds = %163, %166
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %170
-  %178 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %173
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %173
   %179 = load double, ptr %178, align 8, !tbaa !158
   br label %FastLog2.exit166
 
@@ -4066,7 +4061,7 @@ FastLog2.exit166:                                 ; preds = %177, %180
   br i1 %187, label %188, label %191
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.126.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.126.i
   %190 = load double, ptr %189, align 8, !tbaa !158
   br label %FastLog2.exit164
 
@@ -4086,7 +4081,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %.0.i128 = select i1 %194, double %.pre-phi177, double %.2.i
   store double %.0.i128, ptr %.0171.sroa.phi182, align 8, !tbaa !158
   %195 = fsub double %.0.i128, %.0.i127
-  %196 = getelementptr inbounds nuw double, ptr %5, i64 %.0171
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0171
   %197 = load double, ptr %196, align 8, !tbaa !158
   %198 = fsub double %195, %197
   store double %198, ptr %.0171.sroa.phi, align 8, !tbaa !158
@@ -4117,7 +4112,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %209 = trunc i64 %208 to i32
   %210 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !118
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %14
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %14
   store i32 %209, ptr %212, align 4, !tbaa !13
   %213 = trunc nuw i64 %200 to i8
   %214 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4150,7 +4145,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %207
-  %234 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %228
+  %234 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %228
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %234, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %235, align 8, !tbaa !32
@@ -4174,7 +4169,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %246 = trunc i64 %245 to i32
   %247 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %248 = load ptr, ptr %247, align 8, !tbaa !118
-  %249 = getelementptr i32, ptr %248, i64 %14
+  %249 = getelementptr [4 x i8], ptr %248, i64 %14
   br i1 %244, label %250, label %271
 
 250:                                              ; preds = %240
@@ -4190,7 +4185,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %258 = load i64, ptr %257, align 8, !tbaa !14
   store i64 %258, ptr %131, align 8, !tbaa !14
   store i64 %256, ptr %257, align 8, !tbaa !14
-  %259 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %258
+  %259 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %259, ptr noundef nonnull align 8 dereferenceable(2192) %260, i64 2192, i1 false), !tbaa.struct !173
   %261 = load double, ptr %5, align 8, !tbaa !158
@@ -4203,7 +4198,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   store i64 %264, ptr %13, align 8, !tbaa !151
   store i64 0, ptr %8, align 8, !tbaa !99
   %265 = load i64, ptr %84, align 8, !tbaa !98
-  %266 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %265
+  %266 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %266, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %267, align 8, !tbaa !32
@@ -4220,7 +4215,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   %274 = add i32 %273, %246
   store i32 %274, ptr %272, align 4, !tbaa !13
   %275 = load i64, ptr %131, align 8, !tbaa !14
-  %276 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %275
+  %276 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %275
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %276, ptr noundef nonnull align 8 dereferenceable(2192) %132, i64 2192, i1 false), !tbaa.struct !173
   %.sroa.0184.0..sroa.0184.0. = load double, ptr %.sroa.0184, align 16, !tbaa !158
   store double %.sroa.0184.0..sroa.0184.0., ptr %5, align 8, !tbaa !158
@@ -4236,7 +4231,7 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
 281:                                              ; preds = %279, %271
   store i64 0, ptr %8, align 8, !tbaa !99
   %282 = load i64, ptr %84, align 8, !tbaa !98
-  %283 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %7, i64 %282
+  %283 = getelementptr inbounds nuw [2192 x i8], ptr %7, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %283, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %284, align 8, !tbaa !32

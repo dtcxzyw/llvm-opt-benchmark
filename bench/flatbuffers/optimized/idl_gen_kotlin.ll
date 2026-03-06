@@ -11807,7 +11807,7 @@ _ZNSt6vectorIPN11flatbuffers7EnumValESaIS2_EEC2ERKS4_.exit.thread: ; preds = %1
   call void @llvm.experimental.noalias.scope.decl(metadata !412)
   %72 = load i32, ptr %71, align 4, !tbaa !415, !noalias !412
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !417, !noalias !412
   store ptr %40, ptr %5, align 8, !tbaa !15, !alias.scope !412
   %76 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #27
@@ -15382,7 +15382,7 @@ _ZNK11flatbuffers8IdlNamer5FieldB5cxx11ERKNS_8FieldDefE.exit: ; preds = %340
 348:                                              ; preds = %_ZNK11flatbuffers8IdlNamer5FieldB5cxx11ERKNS_8FieldDefE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !501)
   %349 = zext nneg i32 %345 to i64
-  %350 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %349
   %351 = load ptr, ptr %350, align 8, !tbaa !417, !noalias !504
   store ptr %124, ptr %19, align 8, !tbaa !15, !alias.scope !504
   %352 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %351) #27
@@ -17181,7 +17181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit612: ; preds = %_Z
 880:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit612
   call void @llvm.experimental.noalias.scope.decl(metadata !541)
   %881 = zext nneg i32 %877 to i64
-  %882 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %881
+  %882 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %881
   %883 = load ptr, ptr %882, align 8, !tbaa !417, !noalias !544
   store ptr %185, ptr %61, align 8, !tbaa !15, !alias.scope !544
   %884 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %883) #27
@@ -17457,7 +17457,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
 964:                                              ; preds = %958
   call void @llvm.experimental.noalias.scope.decl(metadata !557)
   %965 = zext nneg i32 %961 to i64
-  %966 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %965
+  %966 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %965
   %967 = load ptr, ptr %966, align 8, !tbaa !417, !noalias !560
   store ptr %197, ptr %67, align 8, !tbaa !15, !alias.scope !560
   %968 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %967) #27
@@ -19305,7 +19305,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
 1525:                                             ; preds = %1519
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %1526 = zext nneg i32 %1522 to i64
-  %1527 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %1526
+  %1527 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %1526
   %1528 = load ptr, ptr %1527, align 8, !tbaa !417, !noalias !606
   store ptr %263, ptr %95, align 8, !tbaa !15, !alias.scope !606
   %1529 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1528) #27
@@ -21049,7 +21049,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6kotlin15KotlinGenerator16G
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !417, !noalias !633
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !15, !alias.scope !633
@@ -21938,7 +21938,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @llvm.experimental.noalias.scope.decl(metadata !664)
   %295 = load i32, ptr %2, align 8, !tbaa !415, !noalias !664
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %296
+  %297 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %296
   %298 = load ptr, ptr %297, align 8, !tbaa !417, !noalias !664
   %299 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %299, ptr %20, align 8, !tbaa !15, !alias.scope !664
@@ -22982,7 +22982,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6kotlin15KotlinGenerator14G
 26:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !690)
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !417, !noalias !693
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %0, align 8, !tbaa !15, !alias.scope !693
@@ -31979,7 +31979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !894)
   %159 = zext i32 %151 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !417, !noalias !894
   store ptr %79, ptr %12, align 8, !tbaa !15, !alias.scope !894
   %162 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %161) #27
@@ -32582,7 +32582,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6kotlin15KotlinGenerator16G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !900)
   %20 = load i32, ptr %19, align 8, !tbaa !415, !noalias !900
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !417, !noalias !900
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %24, ptr %7, align 8, !tbaa !15, !alias.scope !900
@@ -33416,7 +33416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !925)
   %54 = load i32, ptr %6, align 8, !tbaa !415, !noalias !925
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !417, !noalias !925
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %58, ptr %12, align 8, !tbaa !15, !alias.scope !925
@@ -36083,7 +36083,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 40:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
   call void @llvm.experimental.noalias.scope.decl(metadata !965)
   %41 = zext nneg i32 %37 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !417, !noalias !968
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %44, ptr %10, align 8, !tbaa !15, !alias.scope !968
@@ -37461,7 +37461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.split: ; preds 
 
 switch.lookup:                                    ; preds = %.lr.ph
   %128 = zext nneg i32 %126 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZZNK11flatbuffers6kotlin15KotlinGenerator20GenerateTableCreatorERNS_9StructDefERNS_10CodeWriterENS_10IDLOptionsEENKUlvE_clEv, i64 %128
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZZNK11flatbuffers6kotlin15KotlinGenerator20GenerateTableCreatorERNS_9StructDefERNS_10CodeWriterENS_10IDLOptionsEENKUlvE_clEv, i64 %128
   %switch.load = load i64, ptr %switch.gep, align 8
   %129 = icmp ne i64 %.032262, %switch.load
   %130 = and i1 %129, %62
@@ -39313,7 +39313,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers6kotlin15KotlinGenerator12To
 31:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1058)
   %32 = zext i32 %5 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !417, !noalias !1058
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %35, ptr %0, align 8, !tbaa !15, !alias.scope !1058
@@ -42516,7 +42516,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit73: ; preds = %_ZStl
   call void @llvm.experimental.noalias.scope.decl(metadata !1125)
   %174 = load i32, ptr %76, align 4, !tbaa !415, !noalias !1125
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers6kotlin15KotlinGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeEE15kotlin_typename, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !417, !noalias !1125
   store ptr %41, ptr %12, align 8, !tbaa !15, !alias.scope !1125
   %178 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %177) #27

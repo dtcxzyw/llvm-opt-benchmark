@@ -90,7 +90,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %13 = phi i64 [ %80, %74 ], [ 30, %2 ]
   %14 = phi double [ %81, %74 ], [ 0x3EB9000000000000, %2 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %74 ], [ 1, %2 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.45) #9
   %18 = icmp eq i32 %17, 0

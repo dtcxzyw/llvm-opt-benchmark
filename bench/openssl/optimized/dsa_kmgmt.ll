@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.dh_name2id_st = type { ptr, i32 }
 
 @ossl_dsa_keymgmt_functions = local_unnamed_addr constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @dsa_newdata }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @dsa_gen_init }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @dsa_gen_set_template }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @dsa_gen_set_params }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @dsa_gen_settable_params }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @dsa_gen_get_params }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @dsa_gen_gettable_params }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @dsa_gen }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @dsa_gen_cleanup }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @dsa_load }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @dsa_freedata }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @dsa_get_params }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @dsa_gettable_params }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @dsa_has }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @dsa_match }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @dsa_validate }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @dsa_import }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @dsa_import_types }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @dsa_export }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @dsa_export_types }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @dsa_dup }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str = private unnamed_addr constant [57 x i8] c"../openssl/providers/implementations/keymgmt/dsa_kmgmt.c\00", align 1
@@ -174,7 +173,7 @@ ossl_param_is_empty.exit:                         ; preds = %4
 
 17:                                               ; preds = %15, %12
   %.06.i = phi i64 [ 0, %12 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw %struct.dh_name2id_st, ptr @dsatype2id, i64 %.06.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @dsatype2id, i64 %.06.i
   %19 = load ptr, ptr %18, align 16, !tbaa !31
   %20 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %19, ptr noundef %14) #7
   %21 = icmp eq i32 %20, 0
@@ -975,7 +974,7 @@ define internal ptr @dsa_import_types(i32 noundef %0) #1 {
   %4 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @dsa_types, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @dsa_types, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !47
   ret ptr %7
 }
@@ -1089,7 +1088,7 @@ define internal ptr @dsa_export_types(i32 noundef %0) #1 {
   %4 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @dsa_types, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @dsa_types, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !47
   ret ptr %7
 }

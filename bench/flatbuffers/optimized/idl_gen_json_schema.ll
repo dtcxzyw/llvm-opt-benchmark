@@ -10878,7 +10878,7 @@ _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
   br label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %3649, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
-  %3650 = getelementptr inbounds nuw ptr, ptr %3644, i64 %3642
+  %3650 = getelementptr inbounds nuw [8 x i8], ptr %3644, i64 %3642
   br label %_ZNSt20back_insert_iteratorISt6vectorIPN11flatbuffers8FieldDefESaIS3_EEEaSERKS3_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPN11flatbuffers8FieldDefESaIS3_EEEaSERKS3_.exit.i: ; preds = %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %3630, %.lr.ph.i1680

@@ -49,9 +49,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::AlignedCharArray.55" = type { [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.llvh::ArrayRef.56" = type { ptr, i64 }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"struct.std::pair.39" = type { i32, i32 }
 %"class.llvh::SMFixIt" = type { %"class.llvh::SMRange", %"class.std::__cxx11::basic_string" }
+%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 
 $_ZN4llvh9SourceMgr18AddNewSourceBufferESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EENS_5SMLocE = comdat any
@@ -162,7 +161,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
 
 for.body:                                         ; preds = %land.rhs
   %5 = load ptr, ptr %IncludeDirectories, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %call10 = call { ptr, i64 } @_ZN4llvh3sys4path13get_separatorENS1_5StyleE(i32 noundef 2) #19
   %6 = extractvalue { ptr, i64 } %call10, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #19
@@ -395,7 +394,7 @@ land.lhs.true:                                    ; preds = %entry
   %sub = add i32 %0, -1
   %conv = zext i32 %sub to i64
   %1 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %conv
   %2 = load ptr, ptr %add.ptr.i, align 8
   %BufferStart.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %BufferStart.i, align 8
@@ -438,7 +437,7 @@ land.rhs26:                                       ; preds = %_ZNKSt3mapIPKcjSt4l
   %sub30 = add i32 %7, -1
   %conv31 = zext i32 %sub30 to i64
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i2 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %8, i64 %conv31
+  %add.ptr.i2 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %conv31
   %9 = load ptr, ptr %add.ptr.i2, align 8
   %BufferStart.i3 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %BufferStart.i3, align 8
@@ -532,7 +531,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   %sub.i = add i32 %0, -1
   %conv.i = zext i32 %sub.i to i64
   %1 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %1, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %conv.i
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   %BufferStart.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %BufferStart.i.i, align 8
@@ -575,7 +574,7 @@ land.rhs26.i:                                     ; preds = %_ZNKSt3mapIPKcjSt4l
   %sub30.i = add i32 %7, -1
   %conv31.i = zext i32 %sub30.i to i64
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i2.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %8, i64 %conv31.i
+  %add.ptr.i2.i = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %conv31.i
   %9 = load ptr, ptr %add.ptr.i2.i, align 8
   %BufferStart.i3.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %BufferStart.i3.i, align 8
@@ -591,7 +590,7 @@ if.end:                                           ; preds = %if.then38.i, %land.
   %sub.i11 = add i32 %BufferID.addr.0, -1
   %conv.i12 = zext i32 %sub.i11 to i64
   %11 = load ptr, ptr %this, align 8
-  %add.ptr.i.i13 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %11, i64 %conv.i12
+  %add.ptr.i.i13 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %conv.i12
   %12 = load ptr, ptr %add.ptr.i.i13, align 8
   %BufferEnd.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %BufferEnd.i, align 8
@@ -702,7 +701,7 @@ while.body.i.i.i51:                               ; preds = %if.then12, %while.b
   %__len.08.i.i.i52 = phi i64 [ %__len.1.i.i.i61, %while.body.i.i.i51 ], [ %sub.ptr.div.i.i.i.i.i.i, %if.then12 ]
   %__first.sroa.0.07.i.i.i53 = phi ptr [ %__first.sroa.0.1.i.i.i60, %while.body.i.i.i51 ], [ %26, %if.then12 ]
   %shr.i.i.i54 = lshr i64 %__len.08.i.i.i52, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %__first.sroa.0.07.i.i.i53, i64 %shr.i.i.i54
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %__first.sroa.0.07.i.i.i53, i64 %shr.i.i.i54
   %28 = load i16, ptr %add.ptr.i.i.i.i.i.i, align 2, !noalias !14
   %cmp.i.i.i.i57 = icmp ult i16 %28, %conv.i26
   %incdec.ptr.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 2
@@ -780,7 +779,7 @@ while.body.i.i.i90:                               ; preds = %if.then17, %while.b
   %__len.08.i.i.i91 = phi i64 [ %__len.1.i.i.i103, %while.body.i.i.i90 ], [ %sub.ptr.div.i.i.i.i.i.i79, %if.then17 ]
   %__first.sroa.0.07.i.i.i92 = phi ptr [ %__first.sroa.0.1.i.i.i102, %while.body.i.i.i90 ], [ %35, %if.then17 ]
   %shr.i.i.i93 = lshr i64 %__len.08.i.i.i91, 1
-  %add.ptr.i.i.i.i.i.i97 = getelementptr inbounds nuw i32, ptr %__first.sroa.0.07.i.i.i92, i64 %shr.i.i.i93
+  %add.ptr.i.i.i.i.i.i97 = getelementptr inbounds nuw [4 x i8], ptr %__first.sroa.0.07.i.i.i92, i64 %shr.i.i.i93
   %37 = load i32, ptr %add.ptr.i.i.i.i.i.i97, align 4, !noalias !18
   %cmp.i.i.i.i99 = icmp ult i32 %37, %conv.i74
   %incdec.ptr.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i97, i64 4
@@ -852,7 +851,7 @@ while.body.i.i.i133:                              ; preds = %if.else18, %while.b
   %__len.08.i.i.i134 = phi i64 [ %__len.1.i.i.i146, %while.body.i.i.i133 ], [ %sub.ptr.div.i.i.i.i.i.i119, %if.else18 ]
   %__first.sroa.0.07.i.i.i135 = phi ptr [ %__first.sroa.0.1.i.i.i145, %while.body.i.i.i133 ], [ %44, %if.else18 ]
   %shr.i.i.i136 = lshr i64 %__len.08.i.i.i134, 1
-  %add.ptr.i.i.i.i.i.i140 = getelementptr inbounds nuw i64, ptr %__first.sroa.0.07.i.i.i135, i64 %shr.i.i.i136
+  %add.ptr.i.i.i.i.i.i140 = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.07.i.i.i135, i64 %shr.i.i.i136
   %46 = load i64, ptr %add.ptr.i.i.i.i.i.i140, align 8, !noalias !22
   %cmp.i.i.i.i142 = icmp ult i64 %46, %sub.ptr.sub.i114
   %incdec.ptr.i.i.i.i143 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i140, i64 8
@@ -921,7 +920,7 @@ entry:
   %sub.i = add i32 %BufferID, -1
   %conv.i = zext i32 %sub.i to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %conv.i
   %1 = load ptr, ptr %add.ptr.i.i, align 8
   %BufferEnd.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %BufferEnd.i, align 8
@@ -1269,7 +1268,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %sub.i = add i32 %0, -1
   %conv.i = zext i32 %sub.i to i64
   %1 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %1, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %conv.i
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   %BufferStart.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %BufferStart.i.i, align 8
@@ -1316,7 +1315,7 @@ land.rhs26.i:                                     ; preds = %_ZNKSt3mapIPKcjSt4l
   %7 = load i32, ptr %second.i, align 8
   %sub30.i = add i32 %7, -1
   %conv31.i = zext i32 %sub30.i to i64
-  %add.ptr.i2.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %.pre46, i64 %conv31.i
+  %add.ptr.i2.i = getelementptr inbounds nuw [24 x i8], ptr %.pre46, i64 %conv31.i
   %8 = load ptr, ptr %add.ptr.i2.i, align 8
   %BufferStart.i3.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %BufferStart.i3.i, align 8
@@ -1332,7 +1331,7 @@ _ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %if.end.
   %retval.0.i = phi i32 [ 0, %land.rhs26.i ], [ %7, %if.then38.i ], [ 0, %_ZNKSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit.i ], [ %0, %land.rhs.i ], [ 0, %if.end.i._ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit_crit_edge ]
   %sub.i4 = add i32 %retval.0.i, -1
   %conv.i5 = zext i32 %sub.i4 to i64
-  %add.ptr.i.i6 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %10, i64 %conv.i5
+  %add.ptr.i.i6 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %conv.i5
   %IncludeLoc6 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i6, i64 16
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %IncludeLoc6, align 8
   tail call void @_ZNK4llvh9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp4.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %OS)
@@ -1360,7 +1359,7 @@ if.then4.i.i:                                     ; preds = %_ZNK4llvh9SourceMgr
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %phi.call.i = phi ptr [ %OS, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
   %14 = load ptr, ptr %this, align 8
-  %add.ptr.i.i10 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %14, i64 %conv.i5
+  %add.ptr.i.i10 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %conv.i5
   %15 = load ptr, ptr %add.ptr.i.i10, align 8
   %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -1485,7 +1484,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   %sub.i = add i32 %0, -1
   %conv.i = zext i32 %sub.i to i64
   %1 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %1, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %conv.i
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   %BufferStart.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %BufferStart.i.i, align 8
@@ -1532,7 +1531,7 @@ land.rhs26.i:                                     ; preds = %_ZNKSt3mapIPKcjSt4l
   %7 = load i32, ptr %second.i26, align 8
   %sub30.i = add i32 %7, -1
   %conv31.i = zext i32 %sub30.i to i64
-  %add.ptr.i2.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %.pre58, i64 %conv31.i
+  %add.ptr.i2.i = getelementptr inbounds nuw [24 x i8], ptr %.pre58, i64 %conv31.i
   %8 = load ptr, ptr %add.ptr.i2.i, align 8
   %BufferStart.i3.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %BufferStart.i3.i, align 8
@@ -1548,7 +1547,7 @@ _ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %if.end.
   %retval.0.i = phi i32 [ 0, %land.rhs26.i ], [ %7, %if.then38.i ], [ 0, %_ZNKSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit.i ], [ %0, %land.rhs.i ], [ 0, %if.end.i._ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit_crit_edge ]
   %sub.i27 = add i32 %retval.0.i, -1
   %conv.i28 = zext i32 %sub.i27 to i64
-  %add.ptr.i.i29 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %10, i64 %conv.i28
+  %add.ptr.i.i29 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %conv.i28
   %11 = load ptr, ptr %add.ptr.i.i29, align 8
   %vtable = load ptr, ptr %11, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -1627,7 +1626,7 @@ for.body.lr.ph:                                   ; preds = %while.end27
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::SMRange", ptr %25, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %R.sroa.0.0.copyload = load ptr, ptr %arrayidx.i, align 8
   %R.sroa.6.0.arrayidx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %R.sroa.6.0.copyload = load ptr, ptr %R.sroa.6.0.arrayidx.i.sroa_idx, align 8
@@ -1664,7 +1663,7 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backERKS2_.exit: ; preds
   %29 = phi i32 [ %.pre.i, %if.then.i ], [ %27, %if.end43 ]
   %30 = load ptr, ptr %ColRanges, align 8
   %conv.i3.i = zext i32 %29 to i64
-  %add.ptr.i.i33 = getelementptr inbounds nuw %"struct.std::pair.39", ptr %30, i64 %conv.i3.i
+  %add.ptr.i.i33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %conv.i3.i
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %add.ptr.i.i33, align 1
   %31 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %31, 1
@@ -1766,7 +1765,7 @@ land.lhs.true.i:                                  ; preds = %if.then4
   %sub.i = add i32 %2, -1
   %conv.i = zext i32 %sub.i to i64
   %3 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %3, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %conv.i
   %4 = load ptr, ptr %add.ptr.i.i, align 8
   %BufferStart.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %BufferStart.i.i, align 8
@@ -1813,7 +1812,7 @@ land.rhs26.i:                                     ; preds = %_ZNKSt3mapIPKcjSt4l
   %9 = load i32, ptr %second.i, align 8
   %sub30.i = add i32 %9, -1
   %conv31.i = zext i32 %sub30.i to i64
-  %add.ptr.i2.i = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %.pre10, i64 %conv31.i
+  %add.ptr.i2.i = getelementptr inbounds nuw [24 x i8], ptr %.pre10, i64 %conv31.i
   %10 = load ptr, ptr %add.ptr.i2.i, align 8
   %BufferStart.i3.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %BufferStart.i3.i, align 8
@@ -1829,7 +1828,7 @@ _ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %if.end.
   %retval.0.i = phi i32 [ 0, %land.rhs26.i ], [ %9, %if.then38.i ], [ 0, %_ZNKSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit.i ], [ %2, %land.rhs.i ], [ 0, %if.end.i._ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit_crit_edge ]
   %sub.i7 = add i32 %retval.0.i, -1
   %conv.i8 = zext i32 %sub.i7 to i64
-  %add.ptr.i.i9 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %12, i64 %conv.i8
+  %add.ptr.i.i9 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %conv.i8
   %IncludeLoc = getelementptr inbounds nuw i8, ptr %add.ptr.i.i9, i64 16
   %agg.tmp9.sroa.0.0.copyload = load ptr, ptr %IncludeLoc, align 8
   tail call void @_ZNK4llvh9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp9.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %OS)
@@ -2402,7 +2401,7 @@ for.body.preheader:                               ; preds = %if.end103
 for.body:                                         ; preds = %for.body.preheader, %_ZSt4fillIPccEvT_S1_RKT0_.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %_ZSt4fillIPccEvT_S1_RKT0_.exit ]
   %61 = load ptr, ptr %Ranges, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.39", ptr %61, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %R.sroa.0.0.copyload = load i32, ptr %add.ptr.i, align 4
   %R.sroa.2.0.call113.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %R.sroa.2.0.copyload = load i32, ptr %R.sroa.2.0.call113.sroa_idx, align 4
@@ -2992,7 +2991,7 @@ if.end.i.i14:                                     ; preds = %_ZNK4llvh8ArrayRefI
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %if.end.i.i14.thread, %if.end.i.i14
   %conv.i9.pre-phi.i.i32 = phi i64 [ %.pre14.i.i, %if.end.i.i14.thread ], [ 0, %if.end.i.i14 ]
   %.pre2431 = phi ptr [ %.pre24.pre, %if.end.i.i14.thread ], [ %add.ptr.i.i.i.i.i, %if.end.i.i14 ]
-  %add.ptr.i.i.i15 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %.pre2431, i64 %conv.i9.pre-phi.i.i32
+  %add.ptr.i.i.i15 = getelementptr inbounds nuw [48 x i8], ptr %.pre2431, i64 %conv.i9.pre-phi.i.i32
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.preheader.i.i
@@ -3452,7 +3451,7 @@ _ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exi
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr20 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -3953,7 +3952,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorItSaItE
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %call4, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -4068,7 +4067,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %call4, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -4182,7 +4181,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorImSaImE
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %call4, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -4387,7 +4386,7 @@ if.end.i.i:                                       ; preds = %while.body
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.end.i.i
   %__parent.0.i.i = phi i64 [ %div9.i.i, %if.end.i.i ], [ %dec.i.i, %while.body.i.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %__first, i64 %__parent.0.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [48 x i8], ptr %__first, i64 %__parent.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__value.i.i, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i, i64 16, i1 false)
   %Text3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i) #19
@@ -4410,7 +4409,7 @@ _ZSt13__heap_selectIPN4llvh7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.017, -1
   %div.i11 = udiv i64 %sub.ptr.sub19, 96
-  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %__first, i64 %div.i11
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %__first, i64 %div.i11
   %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.018, i64 -48
   tail call void @_ZSt22__move_median_to_firstIPN4llvh7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_S6_T0_(ptr noundef %__first, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
   %call.i = tail call noundef ptr @_ZSt21__unguarded_partitionIPN4llvh7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEET_S6_S6_S6_T0_(ptr noundef nonnull %add.ptr1.i, ptr noundef %__last.addr.018, ptr noundef %__first)
@@ -4481,8 +4480,8 @@ while.body:                                       ; preds = %entry, %_ZNK9__gnu_
   %__secondChild.031 = phi i64 [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__secondChild.031, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %mul
-  %0 = getelementptr %"class.llvh::SMFixIt", ptr %__first, i64 %add
+  %add.ptr = getelementptr inbounds [48 x i8], ptr %__first, i64 %mul
+  %0 = getelementptr [48 x i8], ptr %__first, i64 %add
   %add.ptr2 = getelementptr i8, ptr %0, i64 48
   %1 = load ptr, ptr %add.ptr, align 8
   %2 = load ptr, ptr %add.ptr2, align 8
@@ -4516,8 +4515,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit: ; pred
   %retval.0.i.i = phi i1 [ %cmp11.i.i, %if.then.i.i ], [ %cmp25.i.i, %if.then18.i.i ], [ %cmp.i.i.i, %if.end26.i.i ]
   %dec = or disjoint i64 %add, 1
   %spec.select = select i1 %retval.0.i.i, i64 %dec, i64 %mul
-  %add.ptr3 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__secondChild.031
+  %add.ptr3 = getelementptr inbounds [48 x i8], ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds [48 x i8], ptr %__first, i64 %__secondChild.031
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr3, i64 16, i1 false)
   %Text.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 16
   %Text3.i = getelementptr inbounds nuw i8, ptr %add.ptr3, i64 16
@@ -4540,8 +4539,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr14 = getelementptr inbounds [48 x i8], ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds [48 x i8], ptr %__first, i64 %__secondChild.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr14, i64 16, i1 false)
   %Text.i23 = getelementptr inbounds nuw i8, ptr %add.ptr15, i64 16
   %Text3.i24 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 16
@@ -4565,7 +4564,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %__holeIndex.addr.016.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.017.i, %while.body.i ]
   %__parent.017.in.i = add nsw i64 %__holeIndex.addr.016.i, -1
   %__parent.017.i = sdiv i64 %__parent.017.in.i, 2
-  %add.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__parent.017.i
+  %add.ptr.i = getelementptr inbounds [48 x i8], ptr %__first, i64 %__parent.017.i
   %5 = load ptr, ptr %add.ptr.i, align 8
   %6 = load ptr, ptr %agg.tmp19, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, %6
@@ -4593,7 +4592,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i: ; pr
   br i1 %cmp25.i.i.i, label %while.body.i, label %_ZSt11__push_heapIPN4llvh7SMFixItElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i, %if.end26.i.i.i, %if.then.i.i.i
-  %add.ptr2.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__holeIndex.addr.016.i
+  %add.ptr2.i = getelementptr inbounds [48 x i8], ptr %__first, i64 %__holeIndex.addr.016.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i, i64 16, i1 false)
   %Text.i.i28 = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 16
   %Text3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
@@ -4603,7 +4602,7 @@ while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__op
 
 _ZSt11__push_heapIPN4llvh7SMFixItElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit: ; preds = %if.then.i.i.i, %if.end26.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i, %while.body.i, %if.end18
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.016.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i ], [ %__parent.017.i, %while.body.i ], [ %__holeIndex.addr.016.i, %if.then.i.i.i ], [ %__holeIndex.addr.016.i, %if.end26.i.i.i ]
-  %add.ptr6.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr6.i = getelementptr inbounds [48 x i8], ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr6.i, ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp19, i64 16, i1 false)
   %Text.i10.i = getelementptr inbounds nuw i8, ptr %add.ptr6.i, i64 16
   %call.i12.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %Text.i26) #19

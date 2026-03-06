@@ -345,7 +345,7 @@ _ZN4llvm5ErrorD2Ev.exit5:                         ; preds = %_ZN4llvm25Appending
   %20 = phi i64 [ 0, %_ZN4llvm25AppendingBinaryByteStream5clearEv.exit ], [ %19, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %0, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %20
   store i32 0, ptr %23, align 1
   %24 = load i32, ptr %14, align 8, !tbaa !9
   %25 = add i32 %24, 1
@@ -389,7 +389,7 @@ define dso_local noundef i32 @_ZNK4llvm8codeview25ContinuationRecordBuilder23get
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !9
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4, !tbaa !47
   %11 = trunc i64 %3 to i32
@@ -429,7 +429,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %2, %14
   %18 = phi i32 [ %11, %2 ], [ %.pre.i, %14 ]
   %19 = load ptr, ptr %0, align 8, !tbaa !3
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 %10, ptr %21, align 1
   %22 = load i32, ptr %3, align 8, !tbaa !9
   %23 = add i32 %22, 1
@@ -530,7 +530,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %0, align 8, !tbaa !76
   store ptr %18, ptr %19, align 8, !tbaa !79
-  %20 = getelementptr inbounds nuw %"class.llvm::codeview::CVRecord", ptr %18, i64 %16
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %16
   store ptr %20, ptr %15, align 8, !tbaa !80
   %21 = load ptr, ptr %1, align 8, !tbaa !3
   %.idx = shl nuw nsw i64 %16, 2
@@ -653,7 +653,7 @@ _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE11_S_relocate
 
 _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %65, ptr %27, align 8, !tbaa !79
-  %67 = getelementptr inbounds nuw %"class.llvm::codeview::CVRecord", ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %59
   br label %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit: ; preds = %47, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
@@ -743,7 +743,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -781,7 +781,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -903,7 +903,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -941,7 +941,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -1059,7 +1059,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -1097,7 +1097,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -1215,7 +1215,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -1253,7 +1253,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -1371,7 +1371,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -1409,7 +1409,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -1527,7 +1527,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -1565,7 +1565,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -1683,7 +1683,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -1721,7 +1721,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -1839,7 +1839,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -1877,7 +1877,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -1995,7 +1995,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -2033,7 +2033,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1
@@ -2151,7 +2151,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = sub i32 %.pre-phi, %43
@@ -2189,7 +2189,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %58, %46
   %62 = phi i32 [ %55, %46 ], [ %.pre.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !3
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %54, ptr %65, align 1
   %66 = load i32, ptr %38, align 8, !tbaa !9
   %67 = add i32 %66, 1

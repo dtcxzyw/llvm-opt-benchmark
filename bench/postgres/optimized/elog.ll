@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %union.PipeProtoChunk = type { %struct.PipeProtoHeader, [4084 x i8] }
 %struct.PipeProtoHeader = type { [2 x i8], i16, i32, i8, [0 x i8] }
-%union.ListCell = type { ptr }
 
 @error_context_stack = dso_local local_unnamed_addr global ptr null, align 8
 @PG_exception_stack = dso_local local_unnamed_addr global ptr null, align 8
@@ -295,7 +294,7 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.345 = phi i32 [ %.2, %.lr.ph.preheader ], [ %.3., %.lr.ph ]
-  %17 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8
   %.3. = tail call i32 @llvm.smax.i32(i32 %.345, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -411,7 +410,7 @@ should_output_to_client.exit:                     ; preds = %should_output_to_se
 
 get_error_stack_entry.exit:                       ; preds = %59
   %67 = sext i32 %62 to i64
-  %68 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %67
+  %68 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %68, i8 0, i64 184, i1 false)
   %69 = tail call ptr @__errno_location() #34
   %70 = load i32, ptr %69, align 4
@@ -483,7 +482,7 @@ declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #5
 define dso_local void @errfinish(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -666,7 +665,7 @@ define dso_local noundef i32 @errmsg_internal(ptr noundef %0, ...) local_unnamed
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -761,7 +760,7 @@ define internal fastcc void @set_backtrace(ptr noundef writeonly captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, ptr noundef %10) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -798,7 +797,7 @@ define dso_local void @pg_re_throw() local_unnamed_addr #7 {
 should_output_to_server.exit:                     ; preds = %0
   %3 = load i32, ptr @errordata_stack_depth, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %4
+  %5 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %4
   store i32 22, ptr %5, align 8
   %6 = load i32, ptr @log_min_messages, align 4
   %.not.i.i = icmp slt i32 %6, 23
@@ -831,7 +830,7 @@ define dso_local void @EmitErrorReport() local_unnamed_addr #3 {
   %6 = alloca %struct.StringInfoData, align 8
   %7 = load i32, ptr @errordata_stack_depth, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %8
   %10 = load i32, ptr @recursion_depth, align 4
   %11 = add i32 %10, 1
   store i32 %11, ptr @recursion_depth, align 4
@@ -882,7 +881,7 @@ define dso_local void @EmitErrorReport() local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %29
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.error_severity, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.error_severity, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %error_severity.exit.i
 
@@ -1772,7 +1771,7 @@ check_log_of_query.exit.thread.i:                 ; preds = %append_with_tabs.ex
 
 switch.lookup67:                                  ; preds = %474
   %477 = zext nneg i32 %switch.tableidx66 to i64
-  %switch.gep68 = getelementptr inbounds nuw i32, ptr @switch.table.EmitErrorReport.1, i64 %477
+  %switch.gep68 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.EmitErrorReport.1, i64 %477
   %switch.load69 = load i32, ptr %switch.gep68, align 4
   br label %478
 
@@ -1861,7 +1860,7 @@ switch.lookup67:                                  ; preds = %474
   %518 = tail call ptr @__ctype_b_loc() #34
   %519 = load ptr, ptr %518, align 8
   %520 = zext i8 %516 to i64
-  %521 = getelementptr inbounds nuw i16, ptr %519, i64 %520
+  %521 = getelementptr inbounds nuw [2 x i8], ptr %519, i64 %520
   %522 = load i16, ptr %521, align 2
   %523 = and i16 %522, 8192
   %.not62.i.i = icmp eq i16 %523, 0
@@ -1877,7 +1876,7 @@ switch.lookup67:                                  ; preds = %474
   %526 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.next.i126.i
   %527 = load i8, ptr %526, align 1
   %528 = zext i8 %527 to i64
-  %529 = getelementptr inbounds nuw i16, ptr %519, i64 %528
+  %529 = getelementptr inbounds nuw [2 x i8], ptr %519, i64 %528
   %530 = load i16, ptr %529, align 2
   %531 = and i16 %530, 8192
   %.not63.i.i = icmp eq i16 %531, 0
@@ -2097,7 +2096,7 @@ send_message_to_server_log.exit:                  ; preds = %606, %609
 
 switch.lookup71:                                  ; preds = %620
   %625 = zext nneg i32 %switch.tableidx70 to i64
-  %switch.gep72 = getelementptr inbounds nuw ptr, ptr @switch.table.error_severity, i64 %625
+  %switch.gep72 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.error_severity, i64 %625
   %switch.load73 = load ptr, ptr %switch.gep72, align 8
   br label %error_severity.exit.i11
 
@@ -2657,7 +2656,7 @@ err_sendstring.exit73.i:                          ; preds = %861, %860, %err_sen
 
 switch.lookup75:                                  ; preds = %867
   %870 = zext nneg i32 %switch.tableidx74 to i64
-  %switch.gep76 = getelementptr inbounds nuw ptr, ptr @switch.table.error_severity, i64 %870
+  %switch.gep76 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.error_severity, i64 %870
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   br label %error_severity.exit75.i
 
@@ -2877,7 +2876,7 @@ define dso_local noundef zeroext i1 @errsave_start(ptr noundef captures(address_
 
 get_error_stack_entry.exit:                       ; preds = %14
   %23 = sext i32 %18 to i64
-  %24 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %23
+  %24 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %24, i8 0, i64 184, i1 false)
   %25 = tail call ptr @__errno_location() #34
   %26 = load i32, ptr %25, align 4
@@ -2907,7 +2906,7 @@ get_error_stack_entry.exit:                       ; preds = %14
 define dso_local void @errsave_finish(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr @errordata_stack_depth, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %6
+  %7 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %6
   %8 = icmp slt i32 %5, 0
   br i1 %8, label %9, label %12
 
@@ -2987,7 +2986,7 @@ define dso_local noundef i32 @errcode(i32 noundef %0) local_unnamed_addr #3 {
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %0, ptr %10, align 8
   ret i32 0
@@ -3008,7 +3007,7 @@ define dso_local noundef i32 @errcode_for_file_access() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %19 [
@@ -3077,7 +3076,7 @@ define dso_local noundef i32 @errcode_for_socket_access() local_unnamed_addr #3 
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %11 [
@@ -3108,7 +3107,7 @@ define dso_local noundef i32 @errmsg(ptr noundef %0, ...) local_unnamed_addr #3 
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -3217,7 +3216,7 @@ define dso_local noundef i32 @errbacktrace() local_unnamed_addr #3 {
 
 8:                                                ; preds = %0
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %9
+  %10 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -3236,7 +3235,7 @@ define dso_local noundef i32 @errmsg_plural(ptr noundef %0, ptr noundef %1, i64 
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = load i32, ptr @errordata_stack_depth, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %7
   %9 = load i32, ptr @recursion_depth, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr @recursion_depth, align 4
@@ -3316,7 +3315,7 @@ define dso_local noundef i32 @errdetail(ptr noundef %0, ...) local_unnamed_addr 
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -3392,7 +3391,7 @@ define dso_local noundef i32 @errdetail_internal(ptr noundef %0, ...) local_unna
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -3468,7 +3467,7 @@ define dso_local noundef i32 @errdetail_log(ptr noundef %0, ...) local_unnamed_a
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -3544,7 +3543,7 @@ define dso_local noundef i32 @errdetail_log_plural(ptr noundef %0, ptr noundef %
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = load i32, ptr @errordata_stack_depth, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %7
   %9 = load i32, ptr @recursion_depth, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr @recursion_depth, align 4
@@ -3622,7 +3621,7 @@ define dso_local noundef i32 @errdetail_plural(ptr noundef %0, ptr noundef %1, i
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = load i32, ptr @errordata_stack_depth, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %7
   %9 = load i32, ptr @recursion_depth, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr @recursion_depth, align 4
@@ -3700,7 +3699,7 @@ define dso_local noundef i32 @errhint(ptr noundef %0, ...) local_unnamed_addr #3
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -3776,7 +3775,7 @@ define dso_local noundef i32 @errhint_plural(ptr noundef %0, ptr noundef %1, i64
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = load i32, ptr @errordata_stack_depth, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %7
   %9 = load i32, ptr @recursion_depth, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr @recursion_depth, align 4
@@ -3854,7 +3853,7 @@ define dso_local noundef i32 @errcontext_msg(ptr noundef %0, ...) local_unnamed_
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @errordata_stack_depth, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %5
+  %6 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %5
   %7 = load i32, ptr @recursion_depth, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @recursion_depth, align 4
@@ -3953,7 +3952,7 @@ define dso_local noundef i32 @set_errcontext_domain(ptr noundef %0) local_unname
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %8
   %.not = icmp eq ptr %0, null
   %10 = select i1 %.not, ptr @.str.3, ptr %0
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -3976,7 +3975,7 @@ define dso_local noundef i32 @errhidestmt(i1 noundef zeroext %0) local_unnamed_a
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %8
   %10 = zext i1 %0 to i8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i8 %10, ptr %11, align 2
@@ -3998,7 +3997,7 @@ define dso_local noundef i32 @errhidecontext(i1 noundef zeroext %0) local_unname
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %8
   %10 = zext i1 %0 to i8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 7
   store i8 %10, ptr %11, align 1
@@ -4020,7 +4019,7 @@ define dso_local noundef i32 @errposition(i32 noundef %0) local_unnamed_addr #3 
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store i32 %0, ptr %10, align 8
   ret i32 0
@@ -4041,7 +4040,7 @@ define dso_local noundef i32 @internalerrposition(i32 noundef %0) local_unnamed_
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 156
   store i32 %0, ptr %10, align 4
   ret i32 0
@@ -4051,7 +4050,7 @@ define dso_local noundef i32 @internalerrposition(i32 noundef %0) local_unnamed_
 define dso_local noundef i32 @internalerrquery(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load i32, ptr @errordata_stack_depth, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %3
+  %4 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %3
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %9
 
@@ -4133,7 +4132,7 @@ define dso_local noundef i32 @err_generic_string(i32 noundef %0, ptr noundef %1)
 16:                                               ; preds = %8, %12, %11, %10, %9
   %.sink = phi i64 [ 144, %12 ], [ 136, %11 ], [ 128, %10 ], [ 120, %9 ], [ 112, %8 ]
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %17
+  %18 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink
@@ -4157,7 +4156,7 @@ define dso_local i32 @geterrcode() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i32, ptr %9, align 8
   ret i32 %10
@@ -4178,7 +4177,7 @@ define dso_local i32 @geterrlevel() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %7
   %9 = load i32, ptr %8, align 8
   ret i32 %9
 }
@@ -4198,7 +4197,7 @@ define dso_local i32 @geterrposition() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load i32, ptr %9, align 8
   ret i32 %10
@@ -4219,7 +4218,7 @@ define dso_local i32 @getinternalerrposition() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %10 = load i32, ptr %9, align 4
   ret i32 %10
@@ -4291,7 +4290,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %8 = getelementptr inbounds nuw [184 x i8], ptr @errordata, i64 %7
   %9 = tail call ptr @palloc(i64 noundef 184) #32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef nonnull align 8 dereferenceable(184) %8, i64 184, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4514,7 +4513,7 @@ define dso_local void @ThrowErrorData(ptr noundef readonly captures(none) %0) lo
 6:                                                ; preds = %1
   %7 = load i32, ptr @errordata_stack_depth, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %8
+  %9 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %8
   %10 = load i32, ptr @recursion_depth, align 4
   %11 = add i32 %10, 1
   store i32 %11, ptr @recursion_depth, align 4
@@ -4724,7 +4723,7 @@ define dso_local void @ReThrowError(ptr noundef readonly captures(none) %0) loca
 
 get_error_stack_entry.exit:                       ; preds = %1
   %11 = sext i32 %6 to i64
-  %12 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %11
+  %12 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %12, i8 0, i64 184, i1 false)
   %13 = tail call ptr @__errno_location() #34
   %14 = load i32, ptr %13, align 4
@@ -4899,7 +4898,7 @@ define dso_local ptr @GetErrorContextStack() local_unnamed_addr #3 {
 
 get_error_stack_entry.exit:                       ; preds = %0
   %9 = sext i32 %4 to i64
-  %10 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %9
+  %10 = getelementptr inbounds [184 x i8], ptr @errordata, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %10, i8 0, i64 184, i1 false)
   %11 = tail call ptr @__errno_location() #34
   %12 = load i32, ptr %11, align 4
@@ -5143,7 +5142,7 @@ define dso_local noundef zeroext i1 @check_log_destination(ptr noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph ]
   %.0274855 = phi i32 [ %34, %33 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.13) #32
   %23 = icmp eq i32 %22, 0
@@ -6294,7 +6293,7 @@ define dso_local noundef nonnull ptr @error_severity(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.error_severity, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.error_severity, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

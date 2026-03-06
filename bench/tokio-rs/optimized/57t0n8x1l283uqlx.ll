@@ -360,7 +360,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Tx$LT$T$C$S$GT$4send17h9c00040c67
 
 "_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17haf3af6da6da89c41E.llvm.7688985788547768091.exit": ; preds = %7
   %15 = and i64 %9, 31
-  %16 = getelementptr inbounds nuw { { { [4 x i64] } } }, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !41
   %17 = shl nuw nsw i64 1, %15
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 1040
@@ -411,7 +411,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17haf3af6da
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17he6b629a43108f28fE.exit": ; preds = %6
   %13 = and i64 %7, 31
-  %14 = getelementptr inbounds nuw { { { [4 x i64] } } }, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %15 = shl nuw nsw i64 1, %13
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 1040

@@ -2499,7 +2499,7 @@ define linkonce_odr void @_ZN14MeshModelStateD2Ev(ptr noundef nonnull align 8 de
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #18
   store ptr null, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -2525,7 +2525,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %1, %4
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i64, ptr %17, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %17, i64 %22
   tail call void @_ZdlPv(ptr noundef %23) #18
   store ptr null, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %0, i64 168

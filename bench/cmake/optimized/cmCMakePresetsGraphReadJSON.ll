@@ -102,8 +102,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.490 = type <{ %"class.std::function.0", i32, [4 x i8] }>
 %"class.std::function.493" = type { %"class.std::_Function_base", ptr }
 %class.anon.659 = type { %"class.std::function.58", i64 }
-%"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::CMakeVersion>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.493", i8, [7 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::function.496" = type { %"class.std::_Function_base", ptr }
 %class.anon.670 = type { %"class.std::function.74" }
 %"class.std::function.74" = type { %"class.std::_Function_base", ptr }
@@ -348,6 +346,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.454" = type { %"struct.std::_Head_base.457" }
 %"struct.std::_Head_base.457" = type { ptr }
 %"struct.std::pair.629" = type { %"class.std::basic_string_view", ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::optional<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::optional<std::__cxx11::basic_string<char>>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::optional<cmCMakePresetsGraph::CacheVariable>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::optional<cmCMakePresetsGraph::CacheVariable>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
@@ -356,15 +355,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Json::ValueConstIterator" = type { %"class.Json::ValueIteratorBase.base", [7 x i8] }
 %"class.Json::ValueIteratorBase.base" = type <{ %"struct.std::_Rb_tree_iterator.625", i8 }>
 %"struct.std::_Rb_tree_iterator.625" = type { ptr }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::ConstCondition>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.470", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::EqualsCondition>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.473", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::InListCondition>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.476", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::MatchesCondition>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.479", i8, [7 x i8] }>
 %class.anon.646 = type <{ %"class.std::function.0", ptr, [8 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::AnyAllOfCondition>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.482", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::NotCondition>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.485", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<int>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.49", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::RootPresets>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.496", i8, [7 x i8] }>
 %class.anon.673 = type <{ %"class.std::function.0", ptr, [8 x i8] }>
 %class.anon.679 = type <{ %"class.std::function.0", ptr, [8 x i8] }>
 %class.anon.686 = type <{ %"class.std::function.0", ptr, [8 x i8] }>
@@ -6533,7 +6524,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_112CMakeVersionEE6Membe
 _ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_112CMakeVersionEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb.exit.thread13: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_112CMakeVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit46.i.i.i
   store ptr %62, ptr %0, align 8, !tbaa !196
   store ptr %79, ptr %35, align 8, !tbaa !190
-  %80 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::CMakeVersion>::Member", ptr %62, i64 %57
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %62, i64 %57
   store ptr %80, ptr %37, align 8, !tbaa !193
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -6545,7 +6536,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_112CMakeVersionEE11BindPrivateERKS
   %.pre.pre = load ptr, ptr %33, align 8, !tbaa !4
   store ptr %62, ptr %0, align 8, !tbaa !196
   store ptr %79, ptr %35, align 8, !tbaa !190
-  %84 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::CMakeVersion>::Member", ptr %62, i64 %57
+  %84 = getelementptr inbounds nuw [56 x i8], ptr %62, i64 %57
   store ptr %84, ptr %37, align 8, !tbaa !193
   %.not.i = icmp eq ptr %.pre.pre, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %85
@@ -11827,7 +11818,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderESt14default_deleteIS
   %1107 = phi i64 [ 0, %.lr.ph583 ], [ %1090, %1088 ]
   %.0582 = phi i32 [ 0, %.lr.ph583 ], [ %1089, %1088 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %1108 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1106, i64 %1107
+  %1108 = getelementptr inbounds nuw [32 x i8], ptr %1106, i64 %1107
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %1108)
           to label %1109 unwind label %1120
 
@@ -13338,7 +13329,7 @@ _ZNSt6vectorIPN19cmCMakePresetsGraph4FileESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIPN19cmCMakePresetsGraph4FileESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIPN19cmCMakePresetsGraph4FileESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !498
   store ptr %28, ptr %3, align 8, !tbaa !481
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !497
   br label %31
 
@@ -29126,7 +29117,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPN19cmCMakePresetsG
   %10 = load i64, ptr %9, align 8, !tbaa !404
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !397
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !710
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -29263,7 +29254,7 @@ _ZNSt10_HashtableIPN19cmCMakePresetsGraph4FileES2_SaIS2_ENSt8__detail9_IdentityE
 31:                                               ; preds = %_ZNSt10_HashtableIPN19cmCMakePresetsGraph4FileES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN19cmCMakePresetsGraph4FileES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !397
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !710
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -29290,7 +29281,7 @@ _ZNSt10_HashtableIPN19cmCMakePresetsGraph4FileES2_SaIS2_ENSt8__detail9_IdentityE
   %45 = load ptr, ptr %43, align 8, !tbaa !312
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !710
   br label %49
 
@@ -29355,7 +29346,7 @@ _ZNSt10_HashtableIPN19cmCMakePresetsGraph4FileES2_SaIS2_ENSt8__detail9_IdentityE
   %16 = load ptr, ptr %15, align 8, !tbaa !312
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !710
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -29370,7 +29361,7 @@ _ZNSt10_HashtableIPN19cmCMakePresetsGraph4FileES2_SaIS2_ENSt8__detail9_IdentityE
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !710
   br label %29
 
@@ -30484,7 +30475,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal14Const
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal14ConstConditionEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal14ConstConditionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !30
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::ConstCondition>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !33
   ret void
 }
@@ -31005,7 +30996,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal15Equal
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal15EqualsConditionEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal15EqualsConditionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !59
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::EqualsCondition>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !62
   ret void
 }
@@ -31523,7 +31514,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal15InLis
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal15InListConditionEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal15InListConditionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !95
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !78
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::InListCondition>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !81
   ret void
 }
@@ -32198,7 +32189,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal16Match
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal16MatchesConditionEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal16MatchesConditionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !101
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::MatchesCondition>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !104
   ret void
 }
@@ -33016,7 +33007,7 @@ _ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteI
 .noexc:                                           ; preds = %85, %_ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %78, ptr %1, align 8, !tbaa !786
   store ptr %84, ptr %32, align 8, !tbaa !787
-  %86 = getelementptr inbounds nuw %"class.std::unique_ptr.101", ptr %78, i64 %76
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %86, ptr %47, align 8, !tbaa !799
   br label %_ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
@@ -33362,7 +33353,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal17AnyAl
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !141
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !126
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::AnyAllOfCondition>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !129
   ret void
 }
@@ -33880,7 +33871,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal12NotCo
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal12NotConditionEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal12NotConditionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !158
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !147
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraphInternal::NotCondition>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !150
   ret void
 }
@@ -34955,7 +34946,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIiE6MemberESaIS3_EE11_S_relocateEPS3_S
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIiE6MemberESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIiE6MemberESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !178
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !167
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<int>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !170
   ret void
 }
@@ -35253,7 +35244,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6Member
 _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberESaIS5_EE17_M_realloc_insertIJRKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbRS3_PKN4Json5ValueEP11cmJSONStateEERbEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %59, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit46.i.i
   store ptr %36, ptr %0, align 8, !tbaa !218
   store ptr %58, ptr %5, align 8, !tbaa !221
-  %63 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::RootPresets>::Member", ptr %36, i64 %32
+  %63 = getelementptr inbounds nuw [56 x i8], ptr %36, i64 %32
   store ptr %63, ptr %7, align 8, !tbaa !223
   br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberESaIS5_EE12emplace_backIJRKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbRS3_PKN4Json5ValueEP11cmJSONStateEERbEEERS5_DpOT_.exit
 
@@ -38046,7 +38037,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %73, %_ZN
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %75, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %69, ptr %1, align 8, !tbaa !683
   store ptr %74, ptr %28, align 8, !tbaa !687
-  %76 = getelementptr inbounds nuw i32, ptr %69, i64 %67
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %67
   store ptr %76, ptr %39, align 8, !tbaa !686
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -38753,7 +38744,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !300
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !303
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !305
   ret void
 }
@@ -40043,7 +40034,7 @@ _ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph4FileESt14default_deleteIS2_EE
 _ZNSt12_Vector_baseISt10unique_ptrIN19cmCMakePresetsGraph4FileESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph4FileESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !943
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !495
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.156", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !496
   ret void
 }
@@ -42152,7 +42143,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !300
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !303
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !305
   ret void
 
@@ -46035,7 +46026,7 @@ _ZNSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14de
 _ZNSt12_Vector_baseISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !533
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !511
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.442", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !514
   ret void
 }

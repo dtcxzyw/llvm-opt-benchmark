@@ -610,7 +610,7 @@ add_include_path.exit163:                         ; preds = %184, %187
 
 sub_0176:                                         ; preds = %.preheader, %388
   %indvars.iv = phi i64 [ %207, %.preheader ], [ %indvars.iv.next, %388 ]
-  %215 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %215 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   %216 = load ptr, ptr %215, align 8
   %217 = load i8, ptr %216, align 1
   %.not242 = icmp eq i8 %217, 45

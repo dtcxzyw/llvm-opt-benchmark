@@ -434,7 +434,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %26, %
 38:                                               ; preds = %.preheader.us, %52
   %.02933.us = phi i64 [ 0, %.preheader.us ], [ %53, %52 ]
   %39 = add nuw nsw i64 %.02933.us, %37
-  %40 = getelementptr inbounds nuw i64, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !10
   %42 = load i32, ptr %36, align 4, !tbaa !16
   %43 = sext i32 %42 to i64
@@ -781,7 +781,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
 .noexc10:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #22
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   store i32 0, ptr %9, align 4, !tbaa !32
   %11 = add nsw i64 %6, -1
   %12 = icmp eq i64 %11, 0

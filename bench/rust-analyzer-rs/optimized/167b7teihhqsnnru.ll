@@ -411,7 +411,7 @@ define hidden void @"_ZN10vfs_notify11NotifyActor3run28_$u7b$$u7b$closure$u7d$$u
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds { i64, [8 x i64] }, ptr %28, i64 %30
+  %31 = getelementptr inbounds [72 x i8], ptr %28, i64 %30
   br label %32
 
 32:                                               ; preds = %.noexc42, %25
@@ -447,7 +447,7 @@ define hidden void @"_ZN10vfs_notify11NotifyActor3run28_$u7b$$u7b$closure$u7d$$u
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %46 = load i64, ptr %45, align 8, !noundef !4
-  %47 = getelementptr inbounds { i64, [8 x i64] }, ptr %44, i64 %46
+  %47 = getelementptr inbounds [72 x i8], ptr %44, i64 %46
   br label %48
 
 48:                                               ; preds = %.noexc46, %41
@@ -608,7 +608,7 @@ define hidden void @_ZN10vfs_notify11NotifyActor10load_entry17h7a8863b3274e3307E
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %20 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %20 = getelementptr inbounds [24 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   store ptr %.sroa.2.0.copyload, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8

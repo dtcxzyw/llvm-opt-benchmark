@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %class.string_buffer = type { [128 x i8], ptr, i64, i64 }
-%class.ptr_hash_entry = type { i32, ptr }
 
 $_ZN22internal_symbol_tablesC2Ej = comdat any
 
@@ -143,7 +142,7 @@ _ZN12_GLOBAL__N_121internal_symbol_tableC2Ev.exit: ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   store ptr %18, ptr %17, align 8, !tbaa !25
   %24 = load ptr, ptr %3, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %7, ptr %25, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
@@ -195,7 +194,7 @@ define linkonce_odr hidden noundef ptr @_ZN22internal_symbol_tables7get_strEPKc(
   %10 = load i32, ptr %0, align 8, !tbaa !8
   %11 = urem i32 %9, %10
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !25
@@ -738,7 +737,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableI14ptr_hash_en
   %.idx = shl nuw nsw i64 %24, 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %26 = zext i32 %20 to i64
-  %27 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %26
   %.not67 = icmp eq i32 %22, %20
   br i1 %.not67, label %.preheader, label %.lr.ph
 
@@ -899,7 +898,7 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %14 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %14, 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, label %.lr.ph41.i
 
@@ -1032,7 +1031,7 @@ define linkonce_odr hidden void @_ZN22internal_symbol_tablesD2Ev(ptr noundef non
   %9 = phi i32 [ %2, %.lr.ph ], [ %29, %_Z7deallocIN12_GLOBAL__N_121internal_symbol_tableEEvPT_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z7deallocIN12_GLOBAL__N_121internal_symbol_tableEEvPT_.exit ]
   %10 = load ptr, ptr %3, align 8, !tbaa !13
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_Z7deallocIN12_GLOBAL__N_121internal_symbol_tableEEvPT_.exit, label %14

@@ -469,7 +469,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   %14 = select i1 %cond.fr.i, i64 5, i64 8
   %15 = shl nuw nsw i64 %14, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(1) %spec.select.i, i64 %15, i1 false)
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %14
   br label %.thread87.split.split.us.i
 
 .thread87.split.us.split.us.i:                    ; preds = %.thread87.split.us.split.us.i.preheader, %27
@@ -544,7 +544,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   %40 = ashr i64 %sext.us.i, 32
   %41 = shl nsw i64 %40, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.164.us96.i, ptr nonnull align 4 %31, i64 %41, i1 false)
-  %42 = getelementptr inbounds i32, ptr %.164.us96.i, i64 %40
+  %42 = getelementptr inbounds [4 x i8], ptr %.164.us96.i, i64 %40
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %36, %34, %30
@@ -607,7 +607,7 @@ define range(i32 0, 3) i32 @uriUriStringToUnixFilenameW(ptr noundef readonly %0,
 
 .thread58.i:                                      ; preds = %11, %5, %8
   %14 = phi i64 [ 0, %5 ], [ %spec.select, %11 ], [ 0, %8 ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %14
   %16 = tail call i64 @wcslen(ptr noundef nonnull %15) #6
   %17 = shl i64 %16, 2
   %18 = add i64 %17, 4
@@ -647,7 +647,7 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameW(ptr noundef readonly 
   %or.cond5.i = icmp ne i32 %6, 0
   %.not.i = or i1 %or.cond5.i, %.ph5663.i
   %14 = select i1 %.not.i, i64 0, i64 5
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %14
   %16 = tail call i64 @wcslen(ptr noundef nonnull %15) #6
   br label %25
 
@@ -655,7 +655,7 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameW(ptr noundef readonly 
   %18 = tail call i32 @wcsncmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 8) #6
   %.not = icmp eq i32 %18, 0
   %19 = select i1 %.not, i64 8, i64 7
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %19
   %21 = tail call i64 @wcslen(ptr noundef nonnull %20) #6
   %.idx.i = select i1 %.not, i64 0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i

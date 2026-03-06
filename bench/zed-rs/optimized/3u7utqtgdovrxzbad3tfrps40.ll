@@ -294,7 +294,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %.sroa.0.0.copyload.i.i = load ptr, ptr %36, align 8, !noalias !28, !nonnull !4
   %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !noalias !28
-  %37 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.23.0.copyload.i.i
+  %37 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.23.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !28
   br i1 %trunc.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h914c6f213cb86f10E.exit.thread.i", label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h914c6f213cb86f10E.exit.i"
 
@@ -1771,7 +1771,7 @@ define hidden void @"_ZN4gpui12subscription42SubscriberSet$LT$EmitterKey$C$Callb
   %.sroa.0.0.copyload.i = load ptr, ptr %44, align 8, !alias.scope !435, !nonnull !4, !noundef !4
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.23.0.copyload.i = load i64, ptr %.sroa.23.0..sroa_idx.i, align 8, !alias.scope !435
-  %45 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.23.0.copyload.i
+  %45 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.23.0.copyload.i
   br label %"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$10or_default17h0c49dc998982ea04E.exit"
 
 "_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$10or_default17h0c49dc998982ea04E.exit": ; preds = %43, %.noexc15
@@ -2586,7 +2586,7 @@ default.unreachable:                              ; preds = %.noexc46
 
 105:                                              ; preds = %93, %103
   %106 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !535, !nonnull !4, !noundef !4
-  %107 = getelementptr inbounds ptr, ptr %106, i64 %100
+  %107 = getelementptr inbounds [8 x i8], ptr %106, i64 %100
   store ptr %99, ptr %107, align 8
   %108 = add i64 %100, 1
   store i64 %108, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !535
@@ -3142,7 +3142,7 @@ default.unreachable:                              ; preds = %.noexc46
 
 110:                                              ; preds = %89, %99
   %111 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !611, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds ptr, ptr %111, i64 %96
+  %112 = getelementptr inbounds [8 x i8], ptr %111, i64 %96
   store ptr %95, ptr %112, align 8
   %113 = add i64 %96, 1
   store i64 %113, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !611
@@ -3805,7 +3805,7 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %73 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 115)
   %74 = icmp eq <16 x i8> %.val.i.i.i, splat (i8 103)
   %narrow.i.i.i = select <16 x i1> %73, <16 x i1> %74, <16 x i1> zeroinitializer
-  %75 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.023.046.i.i
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.023.046.i.i
   store <16 x i1> %narrow.i.i.i, ptr %75, align 2, !noalias !692
   %exitcond.not.i.i = icmp eq i64 %69, 4
   br i1 %exitcond.not.i.i, label %.preheader43.i.i, label %68
@@ -3823,7 +3823,7 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %.sroa.028.048.i.i = phi i64 [ %81, %85 ], [ 0, %68 ]
   %.sroa.014.247.i.i = phi i8 [ %.sroa.014.3.i.i, %85 ], [ 0, %68 ]
   %81 = add nuw nsw i64 %.sroa.028.048.i.i, 1
-  %82 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.028.048.i.i
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.028.048.i.i
   %83 = load i16, ptr %82, align 2, !noalias !692, !noundef !4
   %84 = icmp eq i16 %83, 0
   br i1 %84, label %85, label %86
@@ -5900,7 +5900,7 @@ _ZN4gpui3app10AppContext14default_global17h42da161c2e28eb63E.exit: ; preds = %14
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36cfe2801cbd4ec0E.exit": ; preds = %_ZN4gpui3app10AppContext14default_global17h42da161c2e28eb63E.exit, %31
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !983, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %28
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %28
   store ptr @_ZN4core3ops8function6FnOnce9call_once17hc7a2dce1c092bb02E, ptr %34, align 8
   %35 = add i64 %28, 1
   store i64 %35, ptr %27, align 8, !alias.scope !983

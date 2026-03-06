@@ -6,41 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.NoiseParams = type { float, float, %"class.irr::core::vector3d", i32, i16, float, float, i32 }
 %"class.irr::core::vector3d" = type { float, float, float }
-%struct.MapNode = type { i16, i8, i8 }
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.73", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.7", %"class.std::vector.17", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.73" = type { %"class.std::_Hashtable.74" }
-%"class.std::_Hashtable.74" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.87 }
-%union.anon.87 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::video::SColor" = type { i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.NodeBox = type { i8, %"class.std::vector.89", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.std::shared_ptr" }
-%"class.std::vector.89" = type { %"struct.std::_Vector_base.90" }
-%"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::core::aabbox3d" = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
 %"class.std::allocator.1" = type { i8 }
+%struct.MapNode = type { i16, i8, i8 }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -287,7 +257,7 @@ for.body28.us.us:                                 ; preds = %for.body28.us.us, %
   %x.0302.us.us = phi i16 [ %nmin.sroa.0.0.extract.trunc, %for.cond22.preheader.us310 ], [ %inc195.us.us, %for.body28.us.us ]
   %5 = load ptr, ptr %m_bmgr, align 8, !tbaa !12
   %idxprom.us.us = zext i32 %index2d.1303.us.us to i64
-  %arrayidx.us.us = getelementptr inbounds nuw i16, ptr %biomemap, i64 %idxprom.us.us
+  %arrayidx.us.us = getelementptr inbounds nuw [2 x i8], ptr %biomemap, i64 %idxprom.us.us
   %6 = load i16, ptr %arrayidx.us.us, align 2, !tbaa !15
   %conv46.us.us = zext i16 %6 to i32
   %vtable47.us.us = load ptr, ptr %5, align 8, !tbaa !24
@@ -360,7 +330,7 @@ for.body28:                                       ; preds = %for.cond59.for.cond
   %add45 = add i32 %sub44, %mul40
   %16 = load ptr, ptr %m_bmgr, align 8, !tbaa !12
   %idxprom = zext i32 %index2d.1303 to i64
-  %arrayidx = getelementptr inbounds nuw i16, ptr %biomemap, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr %biomemap, i64 %idxprom
   %17 = load i16, ptr %arrayidx, align 2, !tbaa !15
   %conv46 = zext i16 %17 to i32
   %vtable47 = load ptr, ptr %16, align 8, !tbaa !24
@@ -416,7 +386,7 @@ if.then:                                          ; preds = %for.body66
 while.body:                                       ; preds = %while.body, %if.then
   %indvars.iv = phi i64 [ %25, %if.then ], [ %indvars.iv.next, %while.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %arrayidx79 = getelementptr inbounds i16, ptr %call16, i64 %indvars.iv.next
+  %arrayidx79 = getelementptr inbounds [2 x i8], ptr %call16, i64 %indvars.iv.next
   %26 = load i16, ptr %arrayidx79, align 2, !tbaa !15
   %cmp77 = icmp slt i16 %y.0299, %26
   br i1 %cmp77, label %while.body, label %if.end.loopexit, !llvm.loop !58
@@ -431,7 +401,7 @@ if.end:                                           ; preds = %if.end.loopexit, %f
   %biome_y_min.2 = phi i16 [ %biome_y_min.0298, %for.body66 ], [ %26, %if.end.loopexit ]
   %28 = load ptr, ptr %m_data, align 8, !tbaa !59
   %idxprom80 = zext i32 %vi.0289 to i64
-  %arrayidx81 = getelementptr inbounds nuw %struct.MapNode, ptr %28, i64 %idxprom80
+  %arrayidx81 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %idxprom80
   %29 = load i16, ptr %arrayidx81, align 4, !tbaa !61
   %cmp84 = icmp eq i16 %29, 126
   br i1 %cmp84, label %cleanup, label %lor.lhs.false
@@ -459,13 +429,13 @@ if.end98:                                         ; preds = %if.end93
   %result = getelementptr inbounds nuw i8, ptr %33, i64 80
   %34 = load ptr, ptr %result, align 8, !tbaa !66
   %idxprom100 = zext i32 %index3d.0291 to i64
-  %arrayidx101 = getelementptr inbounds nuw float, ptr %34, i64 %idxprom100
+  %arrayidx101 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %idxprom100
   %35 = load float, ptr %arrayidx101, align 4, !tbaa !70
   %call102 = tail call nsz noundef float @_Z7contourf(float noundef %35)
   %36 = load ptr, ptr %noise_cave2, align 8, !tbaa !23
   %result104 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %37 = load ptr, ptr %result104, align 8, !tbaa !66
-  %arrayidx106 = getelementptr inbounds nuw float, ptr %37, i64 %idxprom100
+  %arrayidx106 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %idxprom100
   %38 = load float, ptr %arrayidx106, align 4, !tbaa !70
   %call107 = tail call nsz noundef float @_Z7contourf(float noundef %38)
   %mul108 = fmul nsz float %call102, %call107
@@ -487,7 +457,7 @@ land.lhs.true:                                    ; preds = %if.end98
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %42, i64 %conv.i269
+  %add.ptr.i.i = getelementptr inbounds nuw [3712 x i8], ptr %42, i64 %conv.i269
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
   %43 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !74
   %cmp.i.i = icmp eq i64 %43, 0
@@ -506,7 +476,7 @@ _ZNK14NodeDefManager3getEt.exit:                  ; preds = %cond.false.i, %land
 
 if.then111:                                       ; preds = %_ZNK14NodeDefManager3getEt.exit
   %45 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %arrayidx114 = getelementptr inbounds nuw %struct.MapNode, ptr %45, i64 %idxprom80
+  %arrayidx114 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %idxprom80
   store i32 126, ptr %arrayidx114, align 4, !tbaa.struct !101
   %tobool115.not = icmp eq i8 %is_top_filler_above.0290, 0
   br i1 %tobool115.not, label %cleanup, label %if.then116
@@ -519,7 +489,7 @@ if.then116:                                       ; preds = %if.then111
   %conv120 = sext i16 %48 to i32
   %add121 = add i32 %vi.0289, %conv120
   %idxprom122 = zext i32 %add121 to i64
-  %arrayidx123 = getelementptr inbounds nuw %struct.MapNode, ptr %47, i64 %idxprom122
+  %arrayidx123 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %idxprom122
   %ref.tmp117.sroa.0.0.insert.ext = zext i16 %46 to i32
   store i32 %ref.tmp117.sroa.0.0.insert.ext, ptr %arrayidx123, align 4, !tbaa.struct !101
   br label %cleanup
@@ -554,7 +524,7 @@ if.then143:                                       ; preds = %if.then139
   %c_riverbed = getelementptr inbounds nuw i8, ptr %biome.1, i64 148
   %51 = load i16, ptr %c_riverbed, align 4, !tbaa !106
   %52 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %arrayidx147 = getelementptr inbounds nuw %struct.MapNode, ptr %52, i64 %idxprom80
+  %arrayidx147 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %idxprom80
   %ref.tmp144.sroa.0.0.insert.ext = zext i16 %51 to i32
   store i32 %ref.tmp144.sroa.0.0.insert.ext, ptr %arrayidx147, align 4, !tbaa.struct !101
   %inc148 = add nuw i16 %nplaced.0296, 1
@@ -568,7 +538,7 @@ if.then155:                                       ; preds = %if.else151
   %c_top = getelementptr inbounds nuw i8, ptr %biome.1, i64 136
   %53 = load i16, ptr %c_top, align 8, !tbaa !107
   %54 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %arrayidx159 = getelementptr inbounds nuw %struct.MapNode, ptr %54, i64 %idxprom80
+  %arrayidx159 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %idxprom80
   %ref.tmp156.sroa.0.0.insert.ext = zext i16 %53 to i32
   store i32 %ref.tmp156.sroa.0.0.insert.ext, ptr %arrayidx159, align 4, !tbaa.struct !101
   %inc160 = add nuw i16 %nplaced.0296, 1
@@ -582,7 +552,7 @@ if.then165:                                       ; preds = %if.else161
   %c_filler167 = getelementptr inbounds nuw i8, ptr %biome.1, i64 138
   %55 = load i16, ptr %c_filler167, align 2, !tbaa !105
   %56 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %arrayidx170 = getelementptr inbounds nuw %struct.MapNode, ptr %56, i64 %idxprom80
+  %arrayidx170 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %idxprom80
   %ref.tmp166.sroa.0.0.insert.ext = zext i16 %55 to i32
   store i32 %ref.tmp166.sroa.0.0.insert.ext, ptr %arrayidx170, align 4, !tbaa.struct !101
   %inc171 = add nuw i16 %nplaced.0296, 1
@@ -961,7 +931,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %23 = select <4 x i1> %22, <4 x float> %21, <4 x float> splat (float 1.000000e+00)
   %24 = and i32 %index, 252
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw float, ptr %call9, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %call9, i64 %25
   store <4 x float> %23, ptr %26, align 4, !tbaa !70
   %index.next = add nuw i32 %index, 4
   %vec.ind.next = add <4 x i16> %vec.ind, splat (i16 -4)
@@ -1013,7 +983,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp18 = fcmp nsz olt float %div, 1.000000e+00
   %cond = select nsz i1 %cmp18, float %div, float 1.000000e+00
   %idxprom = zext i8 %cavern_amp_index.0143 to i64
-  %arrayidx = getelementptr inbounds nuw float, ptr %call9, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %call9, i64 %idxprom
   store float %cond, ptr %arrayidx, align 4, !tbaa !70
   %dec = add i16 %y.0142, -1
   %inc = add i8 %cavern_amp_index.0143, 1
@@ -1090,17 +1060,17 @@ for.body70:                                       ; preds = %if.end90, %for.body
   %vi.0146 = phi i32 [ %add21.i, %for.body41 ], [ %add.i137, %if.end90 ]
   %38 = load ptr, ptr %m_data, align 8, !tbaa !59
   %idxprom71 = zext i32 %vi.0146 to i64
-  %arrayidx72 = getelementptr inbounds nuw %struct.MapNode, ptr %38, i64 %idxprom71
+  %arrayidx72 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %idxprom71
   %39 = load i16, ptr %arrayidx72, align 4, !tbaa !61
   %40 = load ptr, ptr %noise_cavern, align 8, !tbaa !116
   %result = getelementptr inbounds nuw i8, ptr %40, i64 80
   %41 = load ptr, ptr %result, align 8, !tbaa !66
   %idxprom75 = zext i32 %index3d.0148 to i64
-  %arrayidx76 = getelementptr inbounds nuw float, ptr %41, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %idxprom75
   %42 = load float, ptr %arrayidx76, align 4, !tbaa !70
   %43 = tail call nsz noundef float @llvm.fabs.f32(float %42)
   %idxprom78 = zext i8 %cavern_amp_index.1150 to i64
-  %arrayidx79 = getelementptr inbounds nuw float, ptr %call9, i64 %idxprom78
+  %arrayidx79 = getelementptr inbounds nuw [4 x i8], ptr %call9, i64 %idxprom78
   %44 = load float, ptr %arrayidx79, align 4, !tbaa !70
   %mul80 = fmul nsz float %43, %44
   %45 = load float, ptr %m_cavern_threshold, align 8, !tbaa !113
@@ -1126,7 +1096,7 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %48, i64 %conv.i135
+  %add.ptr.i.i = getelementptr inbounds nuw [3712 x i8], ptr %48, i64 %conv.i135
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
   %49 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !74
   %cmp.i.i = icmp eq i64 %49, 0
@@ -1458,7 +1428,7 @@ if.then31:                                        ; preds = %if.then
   %call38 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %ps, i32 noundef 0, i32 noundef %conv37)
   %conv39 = sext i32 %call38 to i64
   %15 = load ptr, ptr %c_cave_liquid, align 8, !tbaa !151
-  %add.ptr.i = getelementptr inbounds i16, ptr %15, i64 %conv39
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %15, i64 %conv39
   %16 = load i16, ptr %add.ptr.i, align 2, !tbaa !15
   %c_biome_liquid = getelementptr inbounds nuw i8, ptr %this, i64 148
   store i16 %16, ptr %c_biome_liquid, align 4, !tbaa !153
@@ -2154,7 +2124,7 @@ if.then.i:                                        ; preds = %land.lhs.true11.i
   %sub35.i = sub nsw i64 %conv12.i, %conv15.i
   %add.i331 = add nsw i64 %sub35.i, %mul.i330
   %idxprom.i = and i64 %add.i331, 4294967295
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %36, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %idxprom.i
   %42 = load i16, ptr %arrayidx.i, align 2, !tbaa !15
   %cmp39.not.i = icmp slt i16 %42, %add6.i
   br i1 %cmp39.not.i, label %cleanup, label %land.lhs.true.i337
@@ -2201,7 +2171,7 @@ if.then.i357:                                     ; preds = %land.lhs.true11.i34
   %sub35.i362 = sub nsw i64 %conv12.i351, %conv15.i352
   %add.i363 = add nsw i64 %sub35.i362, %mul.i361
   %idxprom.i364 = and i64 %add.i363, 4294967295
-  %arrayidx.i365 = getelementptr inbounds nuw i16, ptr %36, i64 %idxprom.i364
+  %arrayidx.i365 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %idxprom.i364
   %48 = load i16, ptr %arrayidx.i365, align 2, !tbaa !15
   %cmp39.not.i366 = icmp slt i16 %48, %add8.i319
   br i1 %cmp39.not.i366, label %cleanup, label %if.end152
@@ -2715,7 +2685,7 @@ if.end190:                                        ; preds = %_ZNK9VoxelArea8cont
   %m_data = getelementptr inbounds nuw i8, ptr %62, i64 32
   %71 = load ptr, ptr %m_data, align 8, !tbaa !59
   %idxprom = and i64 %add21.i.i, 4294967295
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %71, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %idxprom
   %72 = load i16, ptr %arrayidx, align 4, !tbaa !61
   %73 = load ptr, ptr %ndef, align 8, !tbaa !131
   %conv.i394 = zext i16 %72 to i64
@@ -2730,7 +2700,7 @@ if.end190:                                        ; preds = %_ZNK9VoxelArea8cont
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %if.end190
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %75, i64 %conv.i394
+  %add.ptr.i.i = getelementptr inbounds nuw [3712 x i8], ptr %75, i64 %conv.i394
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
   %76 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !74
   %cmp.i.i = icmp eq i64 %76, 0
@@ -3609,7 +3579,7 @@ _ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread: ; pred
   %sub35.i = sub nsw i64 %conv12.i, %conv15.i
   %add.i327 = add nsw i64 %sub35.i, %mul.i326
   %idxprom.i = and i64 %add.i327, 4294967295
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %42, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %idxprom.i
   %51 = load i16, ptr %arrayidx.i, align 2, !tbaa !15
   %cmp146441 = icmp sgt i16 %add6.i, %51
   br i1 %cmp146441, label %land.lhs.true.i331, label %land.end
@@ -3647,7 +3617,7 @@ if.then.i352:                                     ; preds = %land.lhs.true11.i34
   %sub35.i357 = sub nsw i32 %conv12.i346, %conv15.i347
   %add.i358 = add nsw i32 %sub35.i357, %mul.i356
   %idxprom.i359 = zext i32 %add.i358 to i64
-  %arrayidx.i360 = getelementptr inbounds nuw i16, ptr %42, i64 %idxprom.i359
+  %arrayidx.i360 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %idxprom.i359
   %56 = load i16, ptr %arrayidx.i360, align 2, !tbaa !15
   br label %_ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit365
 
@@ -4065,7 +4035,7 @@ if.end152:                                        ; preds = %_ZNK9VoxelArea8cont
   %m_data = getelementptr inbounds nuw i8, ptr %44, i64 32
   %53 = load ptr, ptr %m_data, align 8, !tbaa !59
   %idxprom = and i64 %add21.i.i, 4294967295
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %53, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %idxprom
   %54 = load i16, ptr %arrayidx, align 4, !tbaa !61
   %55 = load ptr, ptr %ndef, align 8, !tbaa !186
   %conv.i337 = zext i16 %54 to i64
@@ -4080,7 +4050,7 @@ if.end152:                                        ; preds = %_ZNK9VoxelArea8cont
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %if.end152
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %57, i64 %conv.i337
+  %add.ptr.i.i = getelementptr inbounds nuw [3712 x i8], ptr %57, i64 %conv.i337
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
   %58 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !74
   %cmp.i.i = icmp eq i64 %58, 0

@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/pathnode.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.Path = type { i32, i32, ptr, ptr, ptr, i8, i8, i32, double, i32, double, double, ptr }
 %struct.QualCost = type { double, double }
 
@@ -201,7 +200,7 @@ define dso_local void @set_cheapest(ptr noundef captures(none) %0) local_unnamed
   %.05293 = phi ptr [ null, %.lr.ph ], [ %.153, %compare_path_costs.exit ]
   %.05692 = phi ptr [ null, %.lr.ph ], [ %.157, %compare_path_costs.exit ]
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -492,7 +491,7 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0172, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %.sroa.7.0173 to i64
-  %30 = getelementptr inbounds %union.ListCell, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %15, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -1028,7 +1027,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr noundef readonly capt
 .lr.ph92:                                         ; preds = %.lr.ph.split.us.split, %.critedge51.us
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.critedge51.us ], [ 0, %.lr.ph.split.us.split ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv98
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv98
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8
@@ -1092,7 +1091,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr noundef readonly capt
 .lr.ph84:                                         ; preds = %.lr.ph.split.split, %.critedge51
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge51 ], [ 0, %.lr.ph.split.split ]
   %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds nuw %union.ListCell, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load i32, ptr %50, align 8
@@ -1207,7 +1206,7 @@ define dso_local void @add_partial_path(ptr noundef captures(none) %0, ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %.sroa.7.071 to i64
-  %21 = getelementptr inbounds %union.ListCell, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -1320,7 +1319,7 @@ define dso_local noundef zeroext i1 @add_partial_path_precheck(ptr noundef reado
 .lr.ph46:                                         ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
@@ -1530,7 +1529,7 @@ define dso_local noundef ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %.03438 = phi ptr [ %33, %31 ], [ null, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -1602,7 +1601,7 @@ define dso_local noundef ptr @create_bitmap_or_path(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %.03438 = phi ptr [ %33, %31 ], [ null, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -1825,7 +1824,7 @@ list_length.exit71:                               ; preds = %69
 
 63:                                               ; preds = %.lr.ph75
   %64 = load ptr, ptr %57, align 8
-  %65 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 33
   %68 = load i8, ptr %67, align 1, !range !8, !noundef !9
@@ -2077,7 +2076,7 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %.08694 = phi i32 [ %.1, %79 ], [ 0, %.lr.ph ]
   %indvars.iv93 = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv93
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv93
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load double, ptr %42, align 8
@@ -2538,7 +2537,7 @@ thread-pre-split:                                 ; preds = %58
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %83, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %87
   br label %100
 
 89:                                               ; preds = %81
@@ -2552,7 +2551,7 @@ thread-pre-split:                                 ; preds = %58
   %97 = getelementptr i8, ptr %93, i64 16
   %.val = load ptr, ptr %97, align 8
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.val, i64 %98
   br label %100
 
 100:                                              ; preds = %89, %84
@@ -2581,7 +2580,7 @@ thread-pre-split:                                 ; preds = %58
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %122 ], [ 0, %.lr.ph.split.i ]
   %.0183750.i = phi ptr [ %126, %122 ], [ null, %.lr.ph.split.i ]
   %113 = load ptr, ptr %110, align 8
-  %114 = getelementptr inbounds nuw %union.ListCell, ptr %113, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv.i
   %115 = load ptr, ptr %114, align 8
   %.not25.i = icmp eq ptr %115, null
   br i1 %.not25.i, label %.thread, label %116
@@ -3448,7 +3447,7 @@ define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.lr.ph ]
   %.0526165 = phi ptr [ %.1, %43 ], [ null, %.lr.ph ]
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3976,7 +3975,7 @@ define dso_local noundef ptr @create_set_projection_path(ptr noundef %0, ptr nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph56 ], [ 0, %.lr.ph ]
   %.05054 = phi double [ %.1, %.lr.ph56 ], [ 1.000000e+00, %.lr.ph ]
   %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = tail call double @expression_returns_set_rows(ptr noundef %0, ptr noundef %41) #9
   %43 = fcmp olt double %.05054, %42
@@ -4549,7 +4548,7 @@ list_length.exit105.thread:                       ; preds = %37, %33, %43, %26, 
   %.088124132 = phi i1 [ false, %159 ], [ true, %.lr.ph ]
   %indvars.iv131 = phi i64 [ %indvars.iv.next, %159 ], [ 0, %.lr.ph ]
   %79 = load ptr, ptr %61, align 8
-  %80 = getelementptr inbounds nuw %union.ListCell, ptr %79, i64 %indvars.iv131
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv131
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
@@ -4720,7 +4719,7 @@ define dso_local noundef ptr @create_minmaxagg_path(ptr noundef %0, ptr noundef 
   %.0475464 = phi i32 [ %32, %54 ], [ 0, %.lr.ph ]
   %.05563 = phi double [ %35, %54 ], [ 0.000000e+00, %.lr.ph ]
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
@@ -5742,7 +5741,7 @@ create_subqueryscan_path.exit:                    ; preds = %70, %92
   %.0102129141 = phi ptr [ %.3105, %139 ], [ null, %.lr.ph ]
   %.098131139 = phi ptr [ %.3101, %139 ], [ null, %.lr.ph ]
   %128 = load ptr, ptr %124, align 8
-  %129 = getelementptr inbounds nuw %union.ListCell, ptr %128, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %130, ptr noundef %2, double noundef %3)
   %.not116 = icmp eq ptr %131, null
@@ -6007,7 +6006,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
 
 33:                                               ; preds = %27
   %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %34
   br label %45
 
 36:                                               ; preds = %27
@@ -6019,7 +6018,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %42 = getelementptr i8, ptr %40, i64 16
   %.val = load ptr, ptr %42, align 8
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %.val, i64 %43
   br label %45
 
 45:                                               ; preds = %36, %33
@@ -6418,7 +6417,7 @@ define internal fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.01928 = phi ptr [ null, %.lr.ph ], [ %13, %12 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @reparameterize_path_by_child(ptr noundef %0, ptr noundef %10, ptr noundef %2)
   %.not24 = icmp eq ptr %11, null
@@ -6512,7 +6511,7 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
 .lr.ph139:                                        ; preds = %.lr.ph136, %24
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %24 ], [ 0, %.lr.ph136 ]
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv153
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv153
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %30, ptr noundef %1)
   br i1 %31, label %24, label %.thread106
@@ -6540,7 +6539,7 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
 .lr.ph134:                                        ; preds = %.lr.ph131, %39
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %39 ], [ 0, %.lr.ph131 ]
   %43 = load ptr, ptr %36, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv150
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv150
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %45, ptr noundef %1)
   br i1 %46, label %39, label %.thread106
@@ -6578,7 +6577,7 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
 .lr.ph129:                                        ; preds = %.lr.ph126, %59
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %59 ], [ 0, %.lr.ph126 ]
   %63 = load ptr, ptr %56, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv147
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv147
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %65, ptr noundef %1)
   br i1 %66, label %59, label %.thread106
@@ -6618,7 +6617,7 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
 .lr.ph124:                                        ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph ]
   %86 = load ptr, ptr %79, align 8
-  %87 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %88, ptr noundef %1)
   br i1 %89, label %82, label %.thread106

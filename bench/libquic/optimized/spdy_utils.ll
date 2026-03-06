@@ -585,7 +585,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %22 = load i64, ptr %21, align 8, !tbaa !57
   %23 = urem i64 %.06.lcssa.i.i.i.i.i.i, %22
   %24 = load ptr, ptr %0, align 8, !tbaa !58
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !59
   %.not.i.i6.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i6.i.i.i.i, label %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread.i.i, label %27
@@ -788,7 +788,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %40 = load i64, ptr %39, align 8, !tbaa !57
   %41 = urem i64 %.06.lcssa.i.i.i.i.i.i, %40
   %42 = load ptr, ptr %3, align 8, !tbaa !58
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !59
   %.not.i.i6.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i6.i.i.i.i, label %.thread46, label %45
@@ -1117,7 +1117,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %99 = load i64, ptr %23, align 8, !tbaa !57
   %100 = urem i64 %97, %99
   %101 = load ptr, ptr %2, align 8, !tbaa !58
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %100
   %103 = load ptr, ptr %102, align 8, !tbaa !59
   %.not.i.i6.i.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i6.i.i.i.i, label %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, label %104
@@ -1733,7 +1733,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %102 = load i64, ptr %20, align 8, !tbaa !57
   %103 = urem i64 %100, %102
   %104 = load ptr, ptr %2, align 8, !tbaa !58
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %103
   %106 = load ptr, ptr %105, align 8, !tbaa !59
   %.not.i.i6.i.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i6.i.i.i.i, label %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, label %107
@@ -1875,7 +1875,7 @@ define void @_ZN3net9SpdyUtils21GetUrlFromHeaderBlockB5cxx11ERKNS_15SpdyHeaderBl
   %16 = load i64, ptr %15, align 8, !tbaa !57
   %17 = urem i64 297592994719447, %16
   %18 = load ptr, ptr %1, align 8, !tbaa !58
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !59
   %.not.i.i6.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i6.i.i.i.i, label %_ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, label %27
@@ -2050,7 +2050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   %81 = load i64, ptr %80, align 8, !tbaa !57
   %82 = urem i64 3384180666360812333, %81
   %83 = load ptr, ptr %1, align 8, !tbaa !58
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !59
   %.not.i.i6.i.i.i.i30 = icmp eq ptr %85, null
   br i1 %.not.i.i6.i.i.i.i30, label %.thread, label %92
@@ -2262,7 +2262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %150 = load i64, ptr %149, align 8, !tbaa !57
   %151 = urem i64 17334461527, %150
   %152 = load ptr, ptr %1, align 8, !tbaa !58
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %151
   %154 = load ptr, ptr %153, align 8, !tbaa !59
   %.not.i.i6.i.i.i.i72 = icmp eq ptr %154, null
   br i1 %.not.i.i6.i.i.i.i72, label %.thread142, label %161
@@ -2835,7 +2835,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %22 = load i64, ptr %21, align 8, !tbaa !57
   %23 = urem i64 %.06.lcssa.i.i.i.i, %22
   %24 = load ptr, ptr %0, align 8, !tbaa !58
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !59
   %.not.i.i6.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i6.i.i, label %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread, label %27
@@ -2892,7 +2892,7 @@ _ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
   %50 = load i64, ptr %49, align 8, !tbaa !60
   %51 = urem i64 %50, %48
   %52 = load ptr, ptr %0, align 8, !tbaa !58
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !59
   br label %55
 
@@ -2919,7 +2919,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE5eraseENSt8__detail14_Node_iteratorISH_Lb0ELb1EEE.exit, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw ptr, ptr %52, i64 %63
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %63
   store ptr %54, ptr %65, align 8, !tbaa !59
   br label %._crit_edge.i.i.i.i.i
 
@@ -2947,7 +2947,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE5eraseENSt8__detail14_Node_iteratorISH_Lb0ELb1EEE.exit, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw ptr, ptr %52, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %74
   store ptr %.0.i.i.i.i4, ptr %76, align 8, !tbaa !59
   br label %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE5eraseENSt8__detail14_Node_iteratorISH_Lb0ELb1EEE.exit
 

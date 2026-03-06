@@ -16,17 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.(anonymous namespace)::OptimizePHIs" = type { ptr, ptr }
 %"class.llvm::SmallPtrSet.212" = type { %"class.llvm::SmallPtrSetImpl.base.214", [16 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.214" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"struct.std::pair.108" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.110" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.110" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.111" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.111" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.215, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.215 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.216" }
-%"class.llvm::ArrayRef.216" = type { ptr, i64 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -330,7 +319,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i: ; preds
   %49 = and i32 %46, 2147483647
   %50 = zext nneg i32 %49 to i64
   %51 = load ptr, ptr %48, align 8, !tbaa !189
-  %52 = getelementptr inbounds nuw %"struct.std::pair.108", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %50
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %52, align 8
   %53 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %54 = inttoptr i64 %53 to ptr
@@ -409,7 +398,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %76, %71
 
 _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.i: ; preds = %.critedge2.i7.i.i9.i11.i.i, %.lr.ph.i5.i.i7.i5.i.i, %78
   %.sroa.0.4.i8.i.i = phi ptr [ %79, %78 ], [ %84, %.critedge2.i7.i.i9.i11.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i5.i.i7.i5.i.i ]
-  %87 = getelementptr inbounds nuw ptr, ptr %79, i64 %.v.i5.i3.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.v.i5.i3.i.i
   %.not3436.i = icmp eq ptr %.sroa.0.4.i8.i.i, %87
   br i1 %.not3436.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -749,7 +738,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4l
   %.03161 = phi i32 [ %71, %70 ], [ 1, %.preheader ]
   %37 = load ptr, ptr %5, align 8, !tbaa !187
   %38 = zext i32 %.03161 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !188
   %42 = icmp eq i32 %41, %8
@@ -915,12 +904,12 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4l
   %38 = and i32 %7, 2147483647
   %39 = zext nneg i32 %38 to i64
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds nuw %"struct.std::pair.108", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 296
   %44 = zext nneg i32 %7 to i64
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %.0.in.i.i.i = select i1 %36, ptr %42, ptr %46
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !206
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null

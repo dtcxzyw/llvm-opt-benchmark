@@ -613,11 +613,11 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 71:                                               ; preds = %111, %.lr.ph.i
   %.0182218.i = phi i64 [ %69, %.lr.ph.i ], [ %118, %111 ]
-  %72 = getelementptr inbounds double, ptr %21, i64 %.0182218.i
+  %72 = getelementptr inbounds [8 x i8], ptr %21, i64 %.0182218.i
   %73 = load double, ptr %72, align 8, !tbaa !69
-  %74 = getelementptr inbounds double, ptr %22, i64 %.0182218.i
+  %74 = getelementptr inbounds [8 x i8], ptr %22, i64 %.0182218.i
   %75 = load double, ptr %74, align 8, !tbaa !69
-  %76 = getelementptr inbounds double, ptr %26, i64 %.0182218.i
+  %76 = getelementptr inbounds [8 x i8], ptr %26, i64 %.0182218.i
   %77 = load double, ptr %76, align 8, !tbaa !69
   %78 = load double, ptr %63, align 8, !tbaa !45
   %79 = tail call double @llvm.fabs.f64(double %73)
@@ -638,7 +638,7 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   br i1 %.not213.i, label %111, label %92
 
 92:                                               ; preds = %71
-  %93 = getelementptr inbounds double, ptr %.0179.i, i64 %.0182218.i
+  %93 = getelementptr inbounds [8 x i8], ptr %.0179.i, i64 %.0182218.i
   %94 = load double, ptr %93, align 8, !tbaa !69
   %95 = tail call double @llvm.fabs.f64(double %94)
   %96 = fcmp oeq double %95, 1.000000e+00
@@ -670,11 +670,11 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 111:                                              ; preds = %109, %105, %103, %101, %97, %71
   %.1.i = phi double [ %102, %101 ], [ %91, %97 ], [ %110, %109 ], [ %91, %105 ], [ %91, %103 ], [ %91, %71 ]
-  %112 = getelementptr inbounds double, ptr %34, i64 %.0182218.i
+  %112 = getelementptr inbounds [8 x i8], ptr %34, i64 %.0182218.i
   %113 = load double, ptr %112, align 8, !tbaa !69
   %114 = fadd double %.1.i, %113
   store double %114, ptr %112, align 8, !tbaa !69
-  %115 = getelementptr inbounds double, ptr %35, i64 %.0182218.i
+  %115 = getelementptr inbounds [8 x i8], ptr %35, i64 %.0182218.i
   %116 = load double, ptr %115, align 8, !tbaa !69
   %117 = tail call double @llvm.fmuladd.f64(double %4, double %.1.i, double %116)
   store double %117, ptr %115, align 8, !tbaa !69
@@ -699,15 +699,15 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph225.i:                                      ; preds = %.preheader.i, %._crit_edge223.i
   %.1183224.i = phi i64 [ %188, %._crit_edge223.i ], [ %69, %.preheader.i ]
-  %126 = getelementptr inbounds double, ptr %21, i64 %.1183224.i
+  %126 = getelementptr inbounds [8 x i8], ptr %21, i64 %.1183224.i
   %127 = load double, ptr %126, align 8, !tbaa !69
-  %128 = getelementptr inbounds double, ptr %34, i64 %.1183224.i
+  %128 = getelementptr inbounds [8 x i8], ptr %34, i64 %.1183224.i
   store double %127, ptr %128, align 8, !tbaa !69
-  %129 = getelementptr inbounds double, ptr %22, i64 %.1183224.i
+  %129 = getelementptr inbounds [8 x i8], ptr %22, i64 %.1183224.i
   %130 = load double, ptr %129, align 8, !tbaa !69
-  %131 = getelementptr inbounds double, ptr %35, i64 %.1183224.i
+  %131 = getelementptr inbounds [8 x i8], ptr %35, i64 %.1183224.i
   store double %130, ptr %131, align 8, !tbaa !69
-  %132 = getelementptr inbounds double, ptr %26, i64 %.1183224.i
+  %132 = getelementptr inbounds [8 x i8], ptr %26, i64 %.1183224.i
   %133 = load double, ptr %132, align 8, !tbaa !69
   %134 = load double, ptr %63, align 8, !tbaa !45
   %135 = tail call double @llvm.fabs.f64(double %127)
@@ -730,7 +730,7 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   br i1 %.not211.i, label %168, label %149
 
 149:                                              ; preds = %.lr.ph225.i
-  %150 = getelementptr inbounds double, ptr %.0179.i, i64 %.1183224.i
+  %150 = getelementptr inbounds [8 x i8], ptr %.0179.i, i64 %.1183224.i
   %151 = load double, ptr %150, align 8, !tbaa !69
   %152 = tail call double @llvm.fabs.f64(double %151)
   %153 = fcmp oeq double %152, 1.000000e+00
@@ -778,14 +778,14 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph222.i:                                      ; preds = %168, %.lr.ph222.i
   %.0181220.i = phi i64 [ %187, %.lr.ph222.i ], [ %spec.select.i, %168 ]
-  %179 = getelementptr inbounds nuw double, ptr %23, i64 %.0181220.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0181220.i
   %180 = load double, ptr %179, align 8, !tbaa !69
-  %181 = getelementptr inbounds nuw double, ptr %36, i64 %.0181220.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0181220.i
   %182 = load double, ptr %181, align 8, !tbaa !69
   %183 = fsub double %180, %182
   %184 = fmul double %169, %183
   %185 = sub nsw i64 %.0181220.i, %.1183224.i
-  %186 = getelementptr inbounds double, ptr %171, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %171, i64 %185
   store double %184, ptr %186, align 8, !tbaa !69
   %187 = add nuw nsw i64 %.0181220.i, 1
   %.not212.not.i = icmp slt i64 %.0181220.i, %178

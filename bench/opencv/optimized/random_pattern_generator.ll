@@ -60,7 +60,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
   %.02476 = phi i32 [ %54, %53 ], [ 1, %2 ]
   %.03975 = phi ptr [ %.241.ph, %53 ], [ null, %2 ]
   %16 = sext i32 %.02476 to i64
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !8
   %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(4) @.str.1) #12
   %20 = icmp eq i32 %19, 0
@@ -69,7 +69,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 21:                                               ; preds = %.preheader
   %22 = add nsw i32 %.02476, 1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %1, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   %26 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   %27 = icmp ne i32 %26, 1
@@ -91,7 +91,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 36:                                               ; preds = %33
   %37 = add nsw i32 %.02476, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %1, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %1, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !8
   %41 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %40, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #11
   %42 = icmp ne i32 %41, 1

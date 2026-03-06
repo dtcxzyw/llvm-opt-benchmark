@@ -275,7 +275,7 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
   %.sroa.512.0.copyload = load i64, ptr %10, align 8
   %25 = icmp ult i64 %.sroa.512.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.512.0.copyload
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.512.0.copyload
   %27 = icmp sgt i64 %.sroa.011.0.copyload, -1
   call void @llvm.assume(i1 %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -1252,7 +1252,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h2
   %24 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %25 = zext nneg i16 %24 to i64
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, { { { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { i64, i32, [1 x i32] } } } } }, ptr %.sroa.05.1.i, i64 %26
+  %27 = getelementptr inbounds [72 x i8], ptr %.sroa.05.1.i, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -72
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h9ca0984b95b1da15E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %28)
           to label %"_ZN4core3ptr138drop_in_place$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$17h154a02c053f8af82E.exit.i" unwind label %29, !noalias !188
@@ -1355,7 +1355,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h3
   %26 = zext nneg i16 %25 to i64
   %27 = and i16 %24, %.lcssa.i.i
   %28 = sub nsw i64 0, %26
-  %29 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %.sroa.05.1.i, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %.sroa.05.1.i, i64 %28
   %30 = add i64 %.sroa.107.014.i, -1
   %31 = getelementptr inbounds i8, ptr %29, i64 -32
   tail call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h9ca0984b95b1da15E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31), !noalias !197
@@ -1435,7 +1435,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h5
   %26 = zext nneg i16 %25 to i64
   %27 = and i16 %24, %.lcssa.i.i
   %28 = sub nsw i64 0, %26
-  %29 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } } }, i32, [1 x i32] }, ptr %.sroa.05.1.i, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %.sroa.05.1.i, i64 %28
   %30 = add i64 %.sroa.107.014.i, -1
   %31 = getelementptr inbounds i8, ptr %29, i64 -32
   tail call void @"_ZN4core3ptr64drop_in_place$LT$ruff_db..system..path..SystemVirtualPathBuf$GT$17h58b96dd8eaae3003E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31), !noalias !206
@@ -1515,7 +1515,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hc
   %26 = zext nneg i16 %25 to i64
   %27 = and i16 %24, %.lcssa.i.i
   %28 = sub nsw i64 0, %26
-  %29 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %.sroa.05.1.i, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %.sroa.05.1.i, i64 %28
   %30 = add i64 %.sroa.107.014.i, -1
   %31 = getelementptr inbounds i8, ptr %29, i64 -32
   tail call void @"_ZN4core3ptr61drop_in_place$LT$ruff_db..vendored..path..VendoredPathBuf$GT$17h9198e9ea60ff2a97E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31), !noalias !215
@@ -1588,7 +1588,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$G
   %9 = and i16 %6, %.lcssa
   store i16 %9, ptr %2, align 8
   %10 = sub nsw i64 0, %8
-  %11 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, { { { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { i64, i32, [1 x i32] } } } } }, ptr %5, i64 %10
+  %11 = getelementptr inbounds [72 x i8], ptr %5, i64 %10
   ret ptr %11
 
 12:                                               ; preds = %.lr.ph, %12

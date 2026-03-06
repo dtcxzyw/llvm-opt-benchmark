@@ -334,7 +334,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit14:               ; preds = %58, %_ZNKSt7__cxx11
 
 switch.lookup:                                    ; preds = %2
   %67 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5zxing6qrcode4Mode7forBitsEiRNS_12ErrorHandlerE, i64 %67
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5zxing6qrcode4Mode7forBitsEiRNS_12ErrorHandlerE, i64 %67
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %68
 

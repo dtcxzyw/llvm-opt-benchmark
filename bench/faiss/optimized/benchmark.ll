@@ -79,27 +79,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<benchmark::internal::BenchmarkInstance, std::allocator<benchmark::internal::BenchmarkInstance>>::_Vector_impl" }
 %"struct.std::_Vector_base<benchmark::internal::BenchmarkInstance, std::allocator<benchmark::internal::BenchmarkInstance>>::_Vector_impl" = type { %"struct.std::_Vector_base<benchmark::internal::BenchmarkInstance, std::allocator<benchmark::internal::BenchmarkInstance>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<benchmark::internal::BenchmarkInstance, std::allocator<benchmark::internal::BenchmarkInstance>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.benchmark::internal::BenchmarkRunner" = type { %"struct.benchmark::internal::RunResults", ptr, ptr, %"struct.benchmark::internal::BenchTimeType", double, double, i8, i32, i8, i32, %"class.std::vector.75", %"class.std::vector.80", i64, ptr }
-%"struct.benchmark::internal::BenchTimeType" = type { i32, %union.anon.74 }
-%union.anon.74 = type { i64 }
-%"class.std::vector.75" = type { %"struct.std::_Vector_base.76" }
-%"struct.std::_Vector_base.76" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.80" = type { %"struct.std::_Vector_base.81" }
-%"struct.std::_Vector_base.81" = type { %"struct.std::_Vector_base<benchmark::MemoryManager::Result, std::allocator<benchmark::MemoryManager::Result>>::_Vector_impl" }
-%"struct.std::_Vector_base<benchmark::MemoryManager::Result, std::allocator<benchmark::MemoryManager::Result>>::_Vector_impl" = type { %"struct.std::_Vector_base<benchmark::MemoryManager::Result, std::allocator<benchmark::MemoryManager::Result>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<benchmark::MemoryManager::Result, std::allocator<benchmark::MemoryManager::Result>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.benchmark::MutexLock" = type { %"class.std::unique_lock" }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::uniform_int_distribution" = type { %"struct.std::uniform_int_distribution<unsigned long>::param_type" }
 %"struct.std::uniform_int_distribution<unsigned long>::param_type" = type { i64, i64 }
 %"struct.std::_Rb_tree<int, std::pair<const int, benchmark::BenchmarkReporter::PerFamilyRunReports>, std::_Select1st<std::pair<const int, benchmark::BenchmarkReporter::PerFamilyRunReports>>, std::less<int>>::_Auto_node" = type { ptr, ptr }
-%"struct.benchmark::BenchmarkReporter::Run" = type { %"struct.benchmark::BenchmarkName", i64, i64, i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", i64, i64, i64, i64, i32, double, double, double, i8, i32, ptr, i64, ptr, i8, i8, %"class.std::map.6", ptr, double }
-%"struct.benchmark::BenchmarkName" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::map.6" = type { %"class.std::_Rb_tree.7" }
-%"class.std::_Rb_tree.7" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, benchmark::Counter>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
@@ -1026,15 +1010,15 @@ _ZN9benchmark8internal11ThreadTimer9StopTimerEv.exit: ; preds = %29, %31
 72:                                               ; preds = %.lr.ph, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdED2Ev.exit
   %73 = phi ptr [ %65, %.lr.ph ], [ %117, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdED2Ev.exit ]
   %.09.i30 = phi i64 [ 0, %.lr.ph ], [ %115, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdED2Ev.exit ]
-  %74 = getelementptr inbounds nuw i64, ptr %48, i64 %.09.i30
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.09.i30
   %75 = load i64, ptr %74, align 8, !tbaa !105
   %76 = uitofp i64 %75 to double
-  %77 = getelementptr inbounds nuw i64, ptr %66, i64 %.09.i30
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.09.i30
   %78 = load i64, ptr %77, align 8, !tbaa !105
   %79 = uitofp i64 %78 to double
   %80 = fsub double %76, %79
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %73, i64 %.09.i30
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %.09.i30
   store ptr %67, ptr %3, align 8, !tbaa !49
   %82 = load ptr, ptr %81, align 8, !tbaa !50
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -2881,7 +2865,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %323
           to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i unwind label %.thread237.i
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
-  %326 = getelementptr inbounds nuw i64, ptr %325, i64 %279
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %279
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit.i
 
 _ZNSt6vectorImSaImEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i, %323, %229
@@ -2916,7 +2900,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_base
   %.sroa.12.0309.i = phi ptr [ %.sroa.12.3.i, %_ZSt6fill_nISt20back_insert_iteratorISt6vectorImSaImEEEimET_S5_T0_RKT1_.exit.i ], [ %.sroa.0187.2.i, %_ZNSt6vectorImSaImEE7reserveEm.exit.i ]
   %.sroa.0187.0308.i = phi ptr [ %.sroa.0187.5.i, %_ZSt6fill_nISt20back_insert_iteratorISt6vectorImSaImEEEimET_S5_T0_RKT1_.exit.i ], [ %.sroa.0187.2.i, %_ZNSt6vectorImSaImEE7reserveEm.exit.i ]
   %337 = load ptr, ptr %12, align 8, !tbaa !221
-  %338 = getelementptr inbounds nuw %"class.benchmark::internal::BenchmarkRunner", ptr %337, i64 %.0228311.i
+  %338 = getelementptr inbounds nuw [184 x i8], ptr %337, i64 %.0228311.i
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 108
   %340 = load i32, ptr %339, align 4, !tbaa !199
   %341 = icmp sgt i32 %340, 0
@@ -2981,7 +2965,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %361, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
-  %362 = getelementptr inbounds nuw i64, ptr %357, i64 %355
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %355
   br label %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSERKm.exit.i.i.i.i
 
 _ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSERKm.exit.i.i.i.i: ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i, %344
@@ -3067,7 +3051,7 @@ _ZNSt13random_deviceclEv.exit.i:                  ; preds = %_ZNKSt7__cxx1112bas
 384:                                              ; preds = %384, %_ZNSt13random_deviceclEv.exit.i
   %store_forwarded = phi i64 [ %383, %_ZNSt13random_deviceclEv.exit.i ], [ %390, %384 ]
   %.011.i.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit.i ], [ %391, %384 ]
-  %385 = getelementptr i64, ptr %17, i64 %.011.i.i.i
+  %385 = getelementptr [8 x i8], ptr %17, i64 %.011.i.i.i
   %386 = lshr i64 %store_forwarded, 30
   %387 = xor i64 %386, %store_forwarded
   %388 = mul nuw nsw i64 %387, 1812433253
@@ -3187,7 +3171,7 @@ _ZNSt6vectorIN9benchmark8internal15BenchmarkRunnerESaIS2_EED2Ev.exit.i: ; preds 
   %.sroa.0181.0318.i = phi ptr [ %.sroa.0187.0.lcssa.i, %.lr.ph320.i ], [ %600, %599 ]
   %428 = load i64, ptr %.sroa.0181.0318.i, align 8, !tbaa !105
   %429 = load ptr, ptr %12, align 8, !tbaa !221
-  %430 = getelementptr inbounds nuw %"class.benchmark::internal::BenchmarkRunner", ptr %429, i64 %428
+  %430 = getelementptr inbounds nuw [184 x i8], ptr %429, i64 %428
   invoke void @_ZN9benchmark8internal15BenchmarkRunner15DoOneRepetitionEv(ptr noundef nonnull align 8 dereferenceable(184) %430)
           to label %431 unwind label %436
 
@@ -4582,7 +4566,7 @@ define hidden void @_ZN9benchmark8internal21ParseCommandLineFlagsEPiPPc(ptr noun
 .lr.ph130:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
   %.0106129 = phi i32 [ %81, %.lr.ph108 ], [ 1, %.lr.ph108.preheader ]
   %15 = sext i32 %.0106129 to i64
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !257
   %18 = tail call noundef zeroext i1 @_ZN9benchmark13ParseBoolFlagEPKcS1_Pb(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @_ZN9benchmark26FLAGS_benchmark_list_testsE)
   br i1 %18, label %70, label %19
@@ -4686,9 +4670,9 @@ define hidden void @_ZN9benchmark8internal21ParseCommandLineFlagsEPiPPc(ptr noun
 .lr.ph:                                           ; preds = %70, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %15, %70 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %74 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %74 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %75 = load ptr, ptr %74, align 8, !tbaa !257
-  %76 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %76 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %75, ptr %76, align 8, !tbaa !257
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %72, %lftr.wideiv
@@ -4954,7 +4938,7 @@ define noundef zeroext i1 @_ZN9benchmark27ReportUnrecognizedArgumentsEiPPc(i32 n
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %4 = load ptr, ptr @stderr, align 8, !tbaa !259
   %5 = load ptr, ptr %1, align 8, !tbaa !257
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !257
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.66, ptr noundef %5, ptr noundef %7) #39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5378,7 +5362,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS7
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !108
-  %82 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !111
   ret void
 }
@@ -5660,7 +5644,7 @@ _ZNSt12_Vector_baseIN9benchmark8internal15BenchmarkRunnerESaIS2_EE13_M_deallocat
   store ptr %19, ptr %0, align 8, !tbaa !221
   %69 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %69, ptr %14, align 8, !tbaa !194
-  %70 = getelementptr inbounds nuw %"class.benchmark::internal::BenchmarkRunner", ptr %19, i64 %1
+  %70 = getelementptr inbounds nuw [184 x i8], ptr %19, i64 %1
   store ptr %70, ptr %6, align 8, !tbaa !197
   br label %71
 
@@ -5699,7 +5683,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vecto
   store i64 1, ptr %20, align 8, !tbaa !301
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %23 = getelementptr inbounds i64, ptr %0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %22
   %24 = load i64, ptr %16, align 8, !tbaa !105
   %25 = load i64, ptr %23, align 8, !tbaa !105
   store i64 %25, ptr %16, align 8, !tbaa !105
@@ -5733,13 +5717,13 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vecto
   %37 = udiv i64 %36, %33
   %38 = urem i64 %36, %33
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.018.140, i64 8
-  %40 = getelementptr inbounds i64, ptr %0, i64 %37
+  %40 = getelementptr inbounds [8 x i8], ptr %0, i64 %37
   %41 = load i64, ptr %.sroa.018.140, align 8, !tbaa !105
   %42 = load i64, ptr %40, align 8, !tbaa !105
   store i64 %42, ptr %.sroa.018.140, align 8, !tbaa !105
   store i64 %41, ptr %40, align 8, !tbaa !105
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.018.140, i64 16
-  %44 = getelementptr inbounds i64, ptr %0, i64 %38
+  %44 = getelementptr inbounds [8 x i8], ptr %0, i64 %38
   %45 = load i64, ptr %39, align 8, !tbaa !105
   %46 = load i64, ptr %44, align 8, !tbaa !105
   store i64 %46, ptr %39, align 8, !tbaa !105
@@ -5773,7 +5757,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vecto
   store i64 0, ptr %7, align 8, !tbaa !299
   store i64 %53, ptr %49, align 8, !tbaa !301
   %54 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %55 = getelementptr inbounds i64, ptr %0, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %0, i64 %54
   %56 = load i64, ptr %.sroa.0.043, align 8, !tbaa !105
   %57 = load i64, ptr %55, align 8, !tbaa !105
   store i64 %57, ptr %.sroa.0.043, align 8, !tbaa !105
@@ -6616,7 +6600,7 @@ _ZNSt6vectorIN9benchmark8internal15BenchmarkRunnerESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt12_Vector_baseIN9benchmark8internal15BenchmarkRunnerESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9benchmark8internal15BenchmarkRunnerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, %114
   store ptr %22, ptr %0, align 8, !tbaa !221
   store ptr %.0.lcssa.i.i.i33, ptr %6, align 8, !tbaa !194
-  %118 = getelementptr inbounds nuw %"class.benchmark::internal::BenchmarkRunner", ptr %22, i64 %18
+  %118 = getelementptr inbounds nuw [184 x i8], ptr %22, i64 %18
   store ptr %118, ptr %113, align 8, !tbaa !197
   ret void
 
@@ -6748,10 +6732,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !105
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -6775,10 +6759,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !105
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -6816,7 +6800,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !225
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !105
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295
@@ -6959,7 +6943,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN9benchmark17Benchm
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN9benchmark17BenchmarkReporter3RunESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN9benchmark17BenchmarkReporter3RunESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9benchmark17BenchmarkReporter3RunESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %51 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN9benchmark17BenchmarkReporter3RunESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9benchmark17BenchmarkReporter3RunESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %52 = sub nuw nsw i64 %9, %20
-  %53 = getelementptr inbounds nuw %"struct.benchmark::BenchmarkReporter::Run", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [560 x i8], ptr %51, i64 %52
   store ptr %53, ptr %12, align 8, !tbaa !233
   %.not11.i.i.i.i.i52 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPN9benchmark17BenchmarkReporter3RunES3_SaIS2_EET0_T_S6_S5_RT1_.exit58, label %.lr.ph.i.i.i.i.i53
@@ -7098,7 +7082,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN9benchmark17BenchmarkReporter3RunES3_
 _ZNSt12_Vector_baseIN9benchmark17BenchmarkReporter3RunESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN9benchmark17BenchmarkReporter3RunES3_SaIS2_EET0_T_S6_S5_RT1_.exit80, %91
   store ptr %74, ptr %0, align 8, !tbaa !232
   store ptr %.0.lcssa.i.i.i.i.i79, ptr %12, align 8, !tbaa !233
-  %95 = getelementptr inbounds nuw %"struct.benchmark::BenchmarkReporter::Run", ptr %74, i64 %70
+  %95 = getelementptr inbounds nuw [560 x i8], ptr %74, i64 %70
   store ptr %95, ptr %10, align 8, !tbaa !234
   br label %102
 

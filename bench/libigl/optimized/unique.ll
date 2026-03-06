@@ -24,7 +24,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<CGAL::Point_2<CGAL::Epeck>, std::allocator<CGAL::Point_2<CGAL::Epeck>>>::_Vector_impl" }
 %"struct.std::_Vector_base<CGAL::Point_2<CGAL::Epeck>, std::allocator<CGAL::Point_2<CGAL::Epeck>>>::_Vector_impl" = type { %"struct.std::_Vector_base<CGAL::Point_2<CGAL::Epeck>, std::allocator<CGAL::Point_2<CGAL::Epeck>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<CGAL::Point_2<CGAL::Epeck>, std::allocator<CGAL::Point_2<CGAL::Epeck>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.CGAL::Point_2" = type { %"class.CGAL::Lazy" }
 %"class.std::domain_error" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -412,7 +411,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %._ZNSt6vectorImSaIm
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw i64, ptr %.pre86, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.pre86, i64 %indvars.iv
   store i64 %indvars.iv, ptr %38, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -595,10 +594,10 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE6resizeEm.exit: ; preds = %88, 
   %.04071 = phi i32 [ %spec.select, %174 ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit54 ]
   %130 = zext nneg i32 %.04071 to i64
   %131 = load ptr, ptr %2, align 8, !tbaa !20
-  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %130
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %130
   %133 = load i64, ptr %132, align 8, !tbaa !22
-  %134 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %129, i64 %133
-  %135 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %129, i64 %indvars.iv79
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %133
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv79
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %136 = load ptr, ptr %134, align 8, !tbaa !25
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -659,10 +658,10 @@ _ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKN
   %spec.select = add nuw nsw i32 %.04071, %176
   %177 = zext nneg i32 %spec.select to i64
   %178 = load ptr, ptr %6, align 8, !tbaa !20
-  %179 = getelementptr inbounds nuw i64, ptr %178, i64 %indvars.iv79
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv79
   %180 = load i64, ptr %179, align 8, !tbaa !22
   %181 = load ptr, ptr %3, align 8, !tbaa !20
-  %182 = getelementptr inbounds nuw i64, ptr %181, i64 %180
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %180
   store i64 %177, ptr %182, align 8, !tbaa !22
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %183 = load ptr, ptr %9, align 8, !tbaa !12
@@ -785,16 +784,16 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN4CGAL
 .lr.ph76:                                         ; preds = %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE6resizeEm.exit, %_ZN4CGAL7Point_2INS_5EpeckEEaSERKS2_.exit
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %_ZN4CGAL7Point_2INS_5EpeckEEaSERKS2_.exit ], [ 0, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE6resizeEm.exit ]
   %233 = phi ptr [ %276, %_ZN4CGAL7Point_2INS_5EpeckEEaSERKS2_.exit ], [ %120, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE6resizeEm.exit ]
-  %234 = getelementptr inbounds nuw i64, ptr %233, i64 %indvars.iv82
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv82
   %235 = load i64, ptr %234, align 8, !tbaa !22
   %236 = load ptr, ptr %6, align 8, !tbaa !20
-  %237 = getelementptr inbounds nuw i64, ptr %236, i64 %235
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %235
   %238 = load i64, ptr %237, align 8, !tbaa !22
   store i64 %238, ptr %234, align 8, !tbaa !22
   %239 = load ptr, ptr %0, align 8, !tbaa !16
-  %240 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %239, i64 %238
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %238
   %241 = load ptr, ptr %1, align 8, !tbaa !16
-  %242 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %241, i64 %indvars.iv82
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %indvars.iv82
   %243 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
   %.not.i.i.i.i62 = icmp eq i8 %243, 0
   %244 = load ptr, ptr %240, align 8, !tbaa !25
@@ -956,7 +955,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %20, %22, %24, %_ZSt
 
 29:                                               ; preds = %.lr.ph, %29
   %.022 = phi i64 [ 0, %.lr.ph ], [ %31, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %.pre24, i64 %.022
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.pre24, i64 %.022
   store i64 %.022, ptr %30, align 8, !tbaa !22
   %31 = add nuw i64 %.022, 1
   %exitcond.not = icmp eq i64 %31, %umax
@@ -1298,7 +1297,7 @@ _ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typ
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = select i1 %38, ptr %0, ptr %40
-  %42 = getelementptr i64, ptr %41, i64 %7
+  %42 = getelementptr [8 x i8], ptr %41, i64 %7
   %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load i64, ptr %43, align 8, !tbaa !50
   %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %44, i1 true)
@@ -2085,9 +2084,9 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 85:                                               ; preds = %83
   %.015.i = add nsw i64 %.015.in.i, -1
-  %86 = getelementptr inbounds nuw i64, ptr %76, i64 %.015.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.015.i
   %87 = load i64, ptr %86, align 8, !tbaa !50
-  %88 = getelementptr inbounds nuw i64, ptr %82, i64 %.015.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.015.i
   %89 = load i64, ptr %88, align 8, !tbaa !50
   %.not19.i = icmp eq i64 %87, %89
   br i1 %.not19.i, label %83, label %90, !llvm.loop !67
@@ -2248,19 +2247,19 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %157 = phi i64 [ %193, %.lr.ph ], [ 4, %155 ]
   %.0139 = phi i8 [ %192, %.lr.ph ], [ 0, %155 ]
   %.063138 = phi i64 [ %157, %.lr.ph ], [ 0, %155 ]
-  %158 = getelementptr inbounds nuw i64, ptr %.0124, i64 %.063138
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %.063138
   %159 = load i64, ptr %158, align 8, !tbaa !50
-  %160 = getelementptr inbounds nuw i64, ptr %.0123, i64 %.063138
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %.0123, i64 %.063138
   %161 = load i64, ptr %160, align 8, !tbaa !50
-  %162 = getelementptr inbounds nuw i64, ptr %133, i64 %.063138
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.063138
   %163 = tail call { i8, i64 } @llvm.x86.subborrow.64(i8 %.0139, i64 %159, i64 %161)
   %164 = extractvalue { i8, i64 } %163, 1
   store i64 %164, ptr %162, align 8
   %165 = extractvalue { i8, i64 } %163, 0
   %166 = or disjoint i64 %.063138, 1
-  %167 = getelementptr inbounds nuw i64, ptr %.0124, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %166
   %168 = load i64, ptr %167, align 8, !tbaa !50
-  %169 = getelementptr inbounds nuw i64, ptr %.0123, i64 %166
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.0123, i64 %166
   %170 = load i64, ptr %169, align 8, !tbaa !50
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %172 = tail call { i8, i64 } @llvm.x86.subborrow.64(i8 %165, i64 %168, i64 %170)
@@ -2268,9 +2267,9 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %173, ptr %171, align 8
   %174 = extractvalue { i8, i64 } %172, 0
   %175 = or disjoint i64 %.063138, 2
-  %176 = getelementptr inbounds nuw i64, ptr %.0124, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %175
   %177 = load i64, ptr %176, align 8, !tbaa !50
-  %178 = getelementptr inbounds nuw i64, ptr %.0123, i64 %175
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %.0123, i64 %175
   %179 = load i64, ptr %178, align 8, !tbaa !50
   %180 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %181 = tail call { i8, i64 } @llvm.x86.subborrow.64(i8 %174, i64 %177, i64 %179)
@@ -2278,9 +2277,9 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %182, ptr %180, align 8
   %183 = extractvalue { i8, i64 } %181, 0
   %184 = or disjoint i64 %.063138, 3
-  %185 = getelementptr inbounds nuw i64, ptr %.0124, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !50
-  %187 = getelementptr inbounds nuw i64, ptr %.0123, i64 %184
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %.0123, i64 %184
   %188 = load i64, ptr %187, align 8, !tbaa !50
   %189 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %190 = tail call { i8, i64 } @llvm.x86.subborrow.64(i8 %183, i64 %186, i64 %188)
@@ -2302,11 +2301,11 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 .lr.ph143:                                        ; preds = %.preheader133, %.lr.ph143
   %.1142 = phi i8 [ %204, %.lr.ph143 ], [ %.0.lcssa, %.preheader133 ]
   %.164141 = phi i64 [ %205, %.lr.ph143 ], [ %.063.lcssa, %.preheader133 ]
-  %197 = getelementptr inbounds nuw i64, ptr %.0124, i64 %.164141
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %.164141
   %198 = load i64, ptr %197, align 8, !tbaa !50
-  %199 = getelementptr inbounds nuw i64, ptr %.0123, i64 %.164141
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %.0123, i64 %.164141
   %200 = load i64, ptr %199, align 8, !tbaa !50
-  %201 = getelementptr inbounds nuw i64, ptr %133, i64 %.164141
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.164141
   %202 = tail call { i8, i64 } @llvm.x86.subborrow.64(i8 %.1142, i64 %198, i64 %200)
   %203 = extractvalue { i8, i64 } %202, 1
   store i64 %203, ptr %201, align 8
@@ -2318,9 +2317,9 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 .lr.ph148:                                        ; preds = %.preheader, %.lr.ph148
   %.2147 = phi i8 [ %211, %.lr.ph148 ], [ %.1.lcssa, %.preheader ]
   %.265146 = phi i64 [ %212, %.lr.ph148 ], [ %.164.lcssa, %.preheader ]
-  %206 = getelementptr inbounds nuw i64, ptr %.0124, i64 %.265146
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %.265146
   %207 = load i64, ptr %206, align 8, !tbaa !50
-  %208 = getelementptr inbounds nuw i64, ptr %133, i64 %.265146
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.265146
   %209 = tail call { i8, i64 } @llvm.x86.subborrow.64(i8 %.2147, i64 %207, i64 0)
   %210 = extractvalue { i8, i64 } %209, 1
   store i64 %210, ptr %208, align 8
@@ -2341,7 +2340,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 216:                                              ; preds = %._crit_edge
   %.idx130 = shl nuw nsw i64 %.265.lcssa, 3
   %217 = getelementptr inbounds nuw i8, ptr %.0124, i64 %.idx130
-  %218 = getelementptr inbounds nuw i64, ptr %133, i64 %.265.lcssa
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.265.lcssa
   %219 = sub nsw i64 %storemerge.i, %.265.lcssa
   %gepdiff = shl nsw i64 %219, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %218, ptr align 8 %217, i64 %gepdiff, i1 false)
@@ -2360,7 +2359,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 .lr.ph153:                                        ; preds = %220, %233
   %227 = phi i64 [ %234, %233 ], [ %226, %220 ]
-  %228 = getelementptr inbounds nuw i64, ptr %224, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %227
   %229 = load i64, ptr %228, align 8, !tbaa !50
   %.not2.i = icmp eq i64 %229, 0
   br i1 %.not2.i, label %233, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.thread
@@ -2622,19 +2621,19 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %108 = phi i64 [ %144, %.lr.ph ], [ 4, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit79 ]
   %.0122 = phi i8 [ %143, %.lr.ph ], [ 0, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit79 ]
   %.060121 = phi i64 [ %108, %.lr.ph ], [ 0, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit79 ]
-  %109 = getelementptr inbounds nuw i64, ptr %spec.select, i64 %.060121
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %spec.select, i64 %.060121
   %110 = load i64, ptr %109, align 8, !tbaa !50
-  %111 = getelementptr inbounds nuw i64, ptr %spec.select116, i64 %.060121
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %spec.select116, i64 %.060121
   %112 = load i64, ptr %111, align 8, !tbaa !50
-  %113 = getelementptr inbounds nuw i64, ptr %106, i64 %.060121
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.060121
   %114 = tail call { i8, i64 } @llvm.x86.addcarry.64(i8 %.0122, i64 %110, i64 %112)
   %115 = extractvalue { i8, i64 } %114, 1
   store i64 %115, ptr %113, align 8
   %116 = extractvalue { i8, i64 } %114, 0
   %117 = or disjoint i64 %.060121, 1
-  %118 = getelementptr inbounds nuw i64, ptr %spec.select, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %spec.select, i64 %117
   %119 = load i64, ptr %118, align 8, !tbaa !50
-  %120 = getelementptr inbounds nuw i64, ptr %spec.select116, i64 %117
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %spec.select116, i64 %117
   %121 = load i64, ptr %120, align 8, !tbaa !50
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %123 = tail call { i8, i64 } @llvm.x86.addcarry.64(i8 %116, i64 %119, i64 %121)
@@ -2642,9 +2641,9 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i64 %124, ptr %122, align 8
   %125 = extractvalue { i8, i64 } %123, 0
   %126 = or disjoint i64 %.060121, 2
-  %127 = getelementptr inbounds nuw i64, ptr %spec.select, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %spec.select, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !50
-  %129 = getelementptr inbounds nuw i64, ptr %spec.select116, i64 %126
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %spec.select116, i64 %126
   %130 = load i64, ptr %129, align 8, !tbaa !50
   %131 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %132 = tail call { i8, i64 } @llvm.x86.addcarry.64(i8 %125, i64 %128, i64 %130)
@@ -2652,9 +2651,9 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i64 %133, ptr %131, align 8
   %134 = extractvalue { i8, i64 } %132, 0
   %135 = or disjoint i64 %.060121, 3
-  %136 = getelementptr inbounds nuw i64, ptr %spec.select, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %spec.select, i64 %135
   %137 = load i64, ptr %136, align 8, !tbaa !50
-  %138 = getelementptr inbounds nuw i64, ptr %spec.select116, i64 %135
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %spec.select116, i64 %135
   %139 = load i64, ptr %138, align 8, !tbaa !50
   %140 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %141 = tail call { i8, i64 } @llvm.x86.addcarry.64(i8 %134, i64 %137, i64 %139)
@@ -2676,11 +2675,11 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 .lr.ph126:                                        ; preds = %.preheader119, %.lr.ph126
   %.1125 = phi i8 [ %155, %.lr.ph126 ], [ %.0.lcssa, %.preheader119 ]
   %.161124 = phi i64 [ %156, %.lr.ph126 ], [ %.060.lcssa, %.preheader119 ]
-  %148 = getelementptr inbounds nuw i64, ptr %spec.select, i64 %.161124
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %spec.select, i64 %.161124
   %149 = load i64, ptr %148, align 8, !tbaa !50
-  %150 = getelementptr inbounds nuw i64, ptr %spec.select116, i64 %.161124
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %spec.select116, i64 %.161124
   %151 = load i64, ptr %150, align 8, !tbaa !50
-  %152 = getelementptr inbounds nuw i64, ptr %106, i64 %.161124
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.161124
   %153 = tail call { i8, i64 } @llvm.x86.addcarry.64(i8 %.1125, i64 %149, i64 %151)
   %154 = extractvalue { i8, i64 } %153, 1
   store i64 %154, ptr %152, align 8
@@ -2691,9 +2690,9 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph130:                                        ; preds = %.preheader, %.lr.ph130
   %.262129 = phi i64 [ %163, %.lr.ph130 ], [ %.161.lcssa, %.preheader ]
-  %157 = getelementptr inbounds nuw i64, ptr %spec.select, i64 %.262129
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %spec.select, i64 %.262129
   %158 = load i64, ptr %157, align 8, !tbaa !50
-  %159 = getelementptr inbounds nuw i64, ptr %106, i64 %.262129
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.262129
   %160 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %158, i64 1)
   %161 = extractvalue { i64, i1 } %160, 0
   %162 = extractvalue { i64, i1 } %160, 1
@@ -2767,7 +2766,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %193 = trunc nuw i8 %192 to i1
   %194 = load ptr, ptr %105, align 8
   %195 = select i1 %193, ptr %0, ptr %194
-  %196 = getelementptr inbounds nuw i64, ptr %195, i64 %storemerge.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %storemerge.i
   store i64 1, ptr %196, align 8, !tbaa !50
   br label %202
 
@@ -2779,7 +2778,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 198:                                              ; preds = %197
   %.idx118 = shl nuw nsw i64 %.262.lcssa, 3
   %199 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %.idx118
-  %200 = getelementptr inbounds nuw i64, ptr %106, i64 %.262.lcssa
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.262.lcssa
   %201 = sub nsw i64 %storemerge.i, %.262.lcssa
   %gepdiff = shl nsw i64 %201, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %200, ptr align 8 %199, i64 %gepdiff, i1 false)
@@ -2798,7 +2797,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph135:                                        ; preds = %202, %215
   %209 = phi i64 [ %216, %215 ], [ %208, %202 ]
-  %210 = getelementptr inbounds nuw i64, ptr %206, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %209
   %211 = load i64, ptr %210, align 8, !tbaa !50
   %.not2.i = icmp eq i64 %211, 0
   br i1 %.not2.i, label %215, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.thread
@@ -3284,7 +3283,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %118 = trunc nuw i8 %117 to i1
   %119 = load ptr, ptr %77, align 8
   %120 = select i1 %118, ptr %0, ptr %119
-  %121 = getelementptr inbounds nuw i64, ptr %120, i64 %80
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %80
   store i64 %116, ptr %121, align 8, !tbaa !50
   br label %._crit_edge.thread
 
@@ -3869,8 +3868,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .preheader.us:                                    ; preds = %241, %257
   %.088150.us = phi i64 [ %258, %257 ], [ 0, %241 ]
-  %249 = getelementptr inbounds nuw i64, ptr %17, i64 %.088150.us
-  %250 = getelementptr i64, ptr %246, i64 %.088150.us
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.088150.us
+  %250 = getelementptr [8 x i8], ptr %246, i64 %.088150.us
   br label %259
 
 251:                                              ; preds = %._crit_edge.us
@@ -3880,7 +3879,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 254:                                              ; preds = %251
   %255 = trunc nuw i128 %272 to i64
-  %256 = getelementptr inbounds nuw i64, ptr %246, i64 %252
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %252
   store i64 %255, ptr %256, align 8, !tbaa !50
   br label %257
 
@@ -3894,12 +3893,12 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %.1147.us = phi i128 [ 0, %.preheader.us ], [ %272, %259 ]
   %260 = load i64, ptr %249, align 8, !tbaa !50
   %261 = zext i64 %260 to i128
-  %262 = getelementptr inbounds nuw i64, ptr %23, i64 %.0148.us
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0148.us
   %263 = load i64, ptr %262, align 8, !tbaa !50
   %264 = zext i64 %263 to i128
   %265 = mul nuw i128 %264, %261
   %266 = add nuw i128 %265, %.1147.us
-  %267 = getelementptr i64, ptr %250, i64 %.0148.us
+  %267 = getelementptr [8 x i8], ptr %250, i64 %.0148.us
   %268 = load i64, ptr %267, align 8, !tbaa !50
   %269 = zext i64 %268 to i128
   %270 = add nuw i128 %266, %269
@@ -3924,13 +3923,13 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br i1 %.not.i152, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge151
-  %279 = getelementptr inbounds nuw i64, ptr %277, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %278
   %280 = load i64, ptr %279, align 8, !tbaa !50
   %.not2.i178 = icmp eq i64 %280, 0
   br i1 %.not2.i178, label %.lr.ph179, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph179
-  %281 = getelementptr inbounds nuw i64, ptr %277, i64 %284
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %284
   %282 = load i64, ptr %281, align 8, !tbaa !50
   %.not2.i = icmp eq i64 %282, 0
   br i1 %.not2.i, label %.lr.ph179, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit.loopexit, !llvm.loop !71
@@ -4170,7 +4169,7 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends18multiply
 
 .lr.ph.i:                                         ; preds = %23, %43
   %40 = phi i64 [ %44, %43 ], [ %39, %23 ]
-  %41 = getelementptr inbounds nuw i64, ptr %33, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !50
   %.not2.i.i = icmp eq i64 %42, 0
   br i1 %.not2.i.i, label %43, label %.lr.ph.i101.preheader
@@ -4207,7 +4206,7 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends18multiply
 
 .lr.ph.i101:                                      ; preds = %.lr.ph.i101.preheader, %61
   %58 = phi i64 [ %62, %61 ], [ %57, %.lr.ph.i101.preheader ]
-  %59 = getelementptr inbounds nuw i64, ptr %51, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !50
   %.not2.i.i102 = icmp eq i64 %60, 0
   br i1 %.not2.i.i102, label %61, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit104
@@ -4222,7 +4221,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %63 = getelementptr inbounds nuw i64, ptr %33, i64 %26
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %26
   %spec.select = select i1 %27, ptr %63, ptr %7
   %64 = sub i64 %17, %26
   %65 = select i1 %27, i64 %64, i64 1
@@ -4243,7 +4242,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 .lr.ph.i106:                                      ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit104, %75
   %72 = phi i64 [ %76, %75 ], [ %71, %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit104 ]
-  %73 = getelementptr inbounds nuw i64, ptr %spec.select, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %spec.select, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !50
   %.not2.i.i107 = icmp eq i64 %74, 0
   br i1 %.not2.i.i107, label %75, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit109
@@ -4256,7 +4255,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit109: ; preds = %.lr.ph.i106, %75, %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit104
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %77 = getelementptr inbounds nuw i64, ptr %51, i64 %26
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %26
   %spec.select165 = select i1 %45, ptr %77, ptr %7
   %78 = sub i64 %19, %26
   %79 = select i1 %45, i64 %78, i64 1
@@ -4277,7 +4276,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 .lr.ph.i111:                                      ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit109, %89
   %86 = phi i64 [ %90, %89 ], [ %85, %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit109 ]
-  %87 = getelementptr inbounds nuw i64, ptr %spec.select165, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %spec.select165, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !50
   %.not2.i.i112 = icmp eq i64 %88, 0
   br i1 %.not2.i.i112, label %89, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit114
@@ -4295,7 +4294,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %93 = load ptr, ptr %3, align 8, !tbaa !93
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %95 = load i64, ptr %94, align 8, !tbaa !96
-  %96 = getelementptr inbounds nuw i64, ptr %93, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %95
   %97 = add i64 %95, %92
   store i64 %92, ptr %10, align 16, !tbaa !99
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -4310,7 +4309,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i8 1, ptr %102, align 2, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %103 = add nuw i64 %25, 2
-  %104 = getelementptr inbounds nuw i64, ptr %93, i64 %97
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %97
   %105 = add i64 %97, %103
   store i64 %103, ptr %11, align 16, !tbaa !99
   %106 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4324,7 +4323,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 26
   store i8 1, ptr %110, align 2, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %111 = getelementptr inbounds nuw i64, ptr %93, i64 %105
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %105
   %112 = add i64 %105, %103
   store i64 %112, ptr %94, align 8, !tbaa !96
   store i64 %103, ptr %12, align 16, !tbaa !99
@@ -4360,7 +4359,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %130 = load i64, ptr %129, align 16, !tbaa !49
   %131 = sub i64 %130, %91
-  %132 = getelementptr inbounds nuw i64, ptr %123, i64 %91
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %91
   store i64 %131, ptr %14, align 16, !tbaa !99
   %133 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %132, ptr %133, align 8, !tbaa !101
@@ -4407,7 +4406,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.035167 = phi i64 [ %152, %.lr.ph.split ], [ %139, %.lr.ph ]
   %150 = load ptr, ptr %121, align 8
-  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %.035167
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %.035167
   store i64 0, ptr %151, align 8, !tbaa !50
   %152 = add nuw i64 %.035167, 1
   %153 = icmp ult i64 %152, %91
@@ -4446,7 +4445,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 .lr.ph170.split:                                  ; preds = %.lr.ph170, %.lr.ph170.split
   %.0168 = phi i64 [ %172, %.lr.ph170.split ], [ %156, %.lr.ph170 ]
   %170 = load ptr, ptr %121, align 8
-  %171 = getelementptr inbounds nuw i64, ptr %170, i64 %.0168
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %.0168
   store i64 0, ptr %171, align 8, !tbaa !50
   %172 = add nuw i64 %.0168, 1
   %173 = icmp ult i64 %172, %157
@@ -4476,7 +4475,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %182 = select i1 %180, ptr %0, ptr %181
   %183 = load i64, ptr %129, align 16, !tbaa !49
   %184 = sub i64 %183, %26
-  %185 = getelementptr inbounds nuw i64, ptr %182, i64 %26
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %26
   store i64 %184, ptr %15, align 16, !tbaa !99
   %186 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %185, ptr %186, align 8, !tbaa !101
@@ -4520,7 +4519,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 .lr.ph175:                                        ; preds = %191, %213
   %210 = phi i64 [ %214, %213 ], [ %209, %191 ]
-  %211 = getelementptr inbounds nuw i64, ptr %208, i64 %210
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %210
   %212 = load i64, ptr %211, align 8, !tbaa !50
   %.not2.i = icmp eq i64 %212, 0
   br i1 %.not2.i, label %213, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit
@@ -4958,9 +4957,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !20
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !17
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !40
   br label %41
 
@@ -5314,12 +5313,12 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_Des
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE6resizeEm.exit, %_ZN4CGAL7Point_2INS_5EpeckEEaSERKS2_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4CGAL7Point_2INS_5EpeckEEaSERKS2_.exit ], [ 0, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE6resizeEm.exit ]
   %124 = phi ptr [ %164, %_ZN4CGAL7Point_2INS_5EpeckEEaSERKS2_.exit ], [ %82, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE6resizeEm.exit ]
-  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv
   %126 = load i64, ptr %125, align 8, !tbaa !22
   %127 = load ptr, ptr %4, align 8, !tbaa !16
-  %128 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %127, i64 %126
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %126
   %129 = load ptr, ptr %2, align 8, !tbaa !16
-  %130 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %129, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv
   %131 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
   %.not.i.i.i.i13 = icmp eq i8 %131, 0
   %132 = load ptr, ptr %128, align 8, !tbaa !25
@@ -5431,8 +5430,8 @@ define linkonce_odr dso_local void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIP
   %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i, i64 -8
   %18 = load i64, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !22
   %19 = load ptr, ptr %2, align 8, !tbaa !16
-  %20 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %19, i64 %16
-  %21 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load ptr, ptr %20, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -5540,7 +5539,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 
 17:                                               ; preds = %17, %14
   %.09.i.i = phi i64 [ %16, %14 ], [ %20, %17 ]
-  %18 = getelementptr inbounds i64, ptr %0, i64 %.09.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !22
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IN4CGAL7Point_2INSB_5EpeckEEESaISE_EEEEEEEvT_T0_SM_T1_T2_(ptr %0, i64 noundef %.09.i.i, i64 noundef %12, i64 noundef %19, ptr %3)
   %.not.i.i = icmp eq i64 %.09.i.i, 0
@@ -5563,7 +5562,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 28:                                               ; preds = %11
   %29 = add nsw i64 %.021, -1
   %30 = lshr i64 %12, 1
-  %31 = getelementptr inbounds nuw i64, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %30
   %32 = getelementptr inbounds i8, ptr %storemerge20, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IN4CGAL7Point_2INSB_5EpeckEEESaISE_EEEEEEEvT_SL_SL_SL_T0_(ptr %0, ptr nonnull %10, ptr %31, ptr nonnull %32, ptr %3)
   %33 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IN4CGAL7Point_2INSB_5EpeckEEESaISE_EEEEEEET_SL_SL_SL_T0_(ptr nonnull %10, ptr %storemerge20, ptr %0, ptr %3)
@@ -5591,14 +5590,14 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.036 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Point_2INS5_5EpeckEEESaIS8_EEEEEclINS_17__normal_iteratorIPmS4_ImSaImEEEESK_EEbT_T0_.exit ], [ %1, %5 ]
   %11 = shl i64 %.036, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds i64, ptr %0, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %13, align 8, !tbaa !22
   %17 = load i64, ptr %15, align 8, !tbaa !22
   %18 = load ptr, ptr %4, align 8, !tbaa !16
-  %19 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %18, i64 %16
-  %20 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = load ptr, ptr %19, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -5661,9 +5660,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
   %.0.i.i.i.i = phi i1 [ %37, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_2IS4_EE.exit.i.i.i.i ], [ %55, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_2IS4_EE.exit10.i.i.i.i ], [ %spec.select.i.i.i.i, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %spec.select = select i1 %.0.i.i.i.i, i64 %14, i64 %12
-  %60 = getelementptr inbounds i64, ptr %0, i64 %spec.select
+  %60 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %61 = load i64, ptr %60, align 8, !tbaa !22
-  %62 = getelementptr inbounds i64, ptr %0, i64 %.036
+  %62 = getelementptr inbounds [8 x i8], ptr %0, i64 %.036
   store i64 %61, ptr %62, align 8, !tbaa !22
   %63 = icmp slt i64 %spec.select, %9
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !125
@@ -5683,9 +5682,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
 70:                                               ; preds = %66
   %71 = shl nsw i64 %.0.lcssa, 1
   %72 = or disjoint i64 %71, 1
-  %73 = getelementptr inbounds i64, ptr %0, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %0, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !22
-  %75 = getelementptr inbounds i64, ptr %0, i64 %.0.lcssa
+  %75 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store i64 %74, ptr %75, align 8, !tbaa !22
   br label %76
 
@@ -5698,11 +5697,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
   %.019.i = phi i64 [ %.0920.i, %122 ], [ %.1, %76 ]
   %.0920.in.i = add nsw i64 %.019.i, -1
   %.0920.i = sdiv i64 %.0920.in.i, 2
-  %78 = getelementptr inbounds i64, ptr %0, i64 %.0920.i
+  %78 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0920.i
   %79 = load i64, ptr %78, align 8, !tbaa !22
   %80 = load ptr, ptr %4, align 8, !tbaa !16
-  %81 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %80, i64 %79
-  %82 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %80, i64 %3
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %79
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = load ptr, ptr %81, align 8, !tbaa !25
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -5766,14 +5765,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poin
 
 122:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Point_2INS5_5EpeckEEESaIS8_EEEEEclINS_17__normal_iteratorIPmS4_ImSaImEEEEmEEbT_RT0_.exit.i, %117, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_2IS4_EE.exit.i.i.i.i.i
   %123 = load i64, ptr %78, align 8, !tbaa !22
-  %124 = getelementptr inbounds i64, ptr %0, i64 %.019.i
+  %124 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i
   store i64 %123, ptr %124, align 8, !tbaa !22
   %125 = icmp sgt i64 %.0920.i, %1
   br i1 %125, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIN3igl13IndexLessThanIRKS3_IN4CGAL7Point_2INSB_5EpeckEEESaISE_EEEEEEEvT_T0_SM_T1_RT2_.exit, !llvm.loop !132
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIN3igl13IndexLessThanIRKS3_IN4CGAL7Point_2INSB_5EpeckEEESaISE_EEEEEEEvT_T0_SM_T1_RT2_.exit: ; preds = %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_2IS4_EE.exit.i.i.i.i.i, %117, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Point_2INS5_5EpeckEEESaIS8_EEEEEclINS_17__normal_iteratorIPmS4_ImSaImEEEEmEEbT_RT0_.exit.i, %122, %76
   %.0.lcssa.i = phi i64 [ %.1, %76 ], [ %.019.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Point_2INS5_5EpeckEEESaIS8_EEEEEclINS_17__normal_iteratorIPmS4_ImSaImEEEEmEEbT_RT0_.exit.i ], [ %.0920.i, %122 ], [ %.019.i, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_2IS4_EE.exit.i.i.i.i.i ], [ %.019.i, %117 ]
-  %126 = getelementptr inbounds i64, ptr %0, i64 %.0.lcssa.i
+  %126 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store i64 %3, ptr %126, align 8, !tbaa !22
   ret void
 }
@@ -6566,9 +6565,9 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 216:                                              ; preds = %214
   %.015.i.i.i = add nsw i64 %.015.in.i.i.i, -1
-  %217 = getelementptr inbounds nuw i64, ptr %208, i64 %.015.i.i.i
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.015.i.i.i
   %218 = load i64, ptr %217, align 8, !tbaa !50
-  %219 = getelementptr inbounds nuw i64, ptr %213, i64 %.015.i.i.i
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %.015.i.i.i
   %220 = load i64, ptr %219, align 8, !tbaa !50
   %.not19.i.i.i = icmp eq i64 %218, %220
   br i1 %.not19.i.i.i, label %214, label %221, !llvm.loop !67
@@ -6696,8 +6695,8 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__
   %11 = load i64, ptr %1, align 8, !tbaa !22
   %12 = load i64, ptr %2, align 8, !tbaa !22
   %13 = load ptr, ptr %4, align 8, !tbaa !16
-  %14 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %13, i64 %11
-  %15 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %11
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %16 = load ptr, ptr %14, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -6763,8 +6762,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
   %56 = load i64, ptr %2, align 8, !tbaa !22
   %57 = load i64, ptr %3, align 8, !tbaa !22
   %58 = load ptr, ptr %4, align 8, !tbaa !16
-  %59 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %58, i64 %56
-  %60 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %61 = load ptr, ptr %59, align 8, !tbaa !25
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -6830,8 +6829,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
   %101 = load i64, ptr %1, align 8, !tbaa !22
   %102 = load i64, ptr %3, align 8, !tbaa !22
   %103 = load ptr, ptr %4, align 8, !tbaa !16
-  %104 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %103, i64 %101
-  %105 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %103, i64 %102
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %101
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %102
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %106 = load ptr, ptr %104, align 8, !tbaa !25
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -6900,8 +6899,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
   %147 = load i64, ptr %1, align 8, !tbaa !22
   %148 = load i64, ptr %3, align 8, !tbaa !22
   %149 = load ptr, ptr %4, align 8, !tbaa !16
-  %150 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %149, i64 %147
-  %151 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %149, i64 %148
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %147
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %148
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %152 = load ptr, ptr %150, align 8, !tbaa !25
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
@@ -6967,8 +6966,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
   %192 = load i64, ptr %2, align 8, !tbaa !22
   %193 = load i64, ptr %3, align 8, !tbaa !22
   %194 = load ptr, ptr %4, align 8, !tbaa !16
-  %195 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %194, i64 %192
-  %196 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %194, i64 %193
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %192
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %193
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %197 = load ptr, ptr %195, align 8, !tbaa !25
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
@@ -7058,8 +7057,8 @@ define linkonce_odr dso_local ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__no
   %9 = load i64, ptr %.sroa.018.1, align 8, !tbaa !22
   %10 = load i64, ptr %2, align 8, !tbaa !22
   %11 = load ptr, ptr %3, align 8, !tbaa !16
-  %12 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %11, i64 %9
-  %13 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = load ptr, ptr %12, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7134,8 +7133,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
   %56 = load i64, ptr %2, align 8, !tbaa !22
   %57 = load i64, ptr %.sroa.015.1, align 8, !tbaa !22
   %58 = load ptr, ptr %3, align 8, !tbaa !16
-  %59 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %58, i64 %56
-  %60 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %61 = load ptr, ptr %59, align 8, !tbaa !25
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -7238,8 +7237,8 @@ define linkonce_odr dso_local void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal
   %9 = load i64, ptr %.sroa.0.021, align 8, !tbaa !22
   %10 = load i64, ptr %0, align 8, !tbaa !22
   %11 = load ptr, ptr %2, align 8, !tbaa !16
-  %12 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %11, i64 %9
-  %13 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load ptr, ptr %12, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7312,7 +7311,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKSt6vectorIN4CGAL7Poi
 59:                                               ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %.pn20, i64 16
   %61 = sub nsw i64 0, %57
-  %62 = getelementptr inbounds i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %60, i64 %61
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %62, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %56, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit
 
@@ -7339,8 +7338,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 -8
   %71 = load i64, ptr %.sroa.0.0.i, align 8, !tbaa !22
   %72 = load ptr, ptr %2, align 8, !tbaa !16
-  %73 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %72, i64 %69
-  %74 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %69
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %71
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = load ptr, ptr %73, align 8, !tbaa !25
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -7436,8 +7435,8 @@ define linkonce_odr dso_local ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorI
   %9 = load i64, ptr %.sroa.09.011.i, align 8, !tbaa !22
   %10 = load i64, ptr %8, align 8, !tbaa !22
   %11 = load ptr, ptr %2, align 8, !tbaa !16
-  %12 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %11, i64 %9
-  %13 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load ptr, ptr %12, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7517,8 +7516,8 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5_
   %58 = load i64, ptr %.sroa.0.021, align 8, !tbaa !22
   %59 = load i64, ptr %57, align 8, !tbaa !22
   %60 = load ptr, ptr %2, align 8, !tbaa !16
-  %61 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %60, i64 %58
-  %62 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %58
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %59
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = load ptr, ptr %61, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -8168,9 +8167,9 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.ex
 
 _ZNSt12_Vector_baseIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE13_M_deallocateEPS3_m.exit31: ; preds = %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpeckEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %39
   store ptr %27, ptr %0, align 8, !tbaa !16
-  %43 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %28, i64 %1
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %1
   store ptr %43, ptr %4, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %27, i64 %25
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %44, ptr %11, align 8, !tbaa !39
   br label %45
 

@@ -519,7 +519,7 @@ define internal fastcc range(i32 0, 2) i32 @load_providers(ptr noundef nonnull w
   %.01825 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %19 = tail call ptr @test_get_argument(i64 noundef %.01825) #7
   %20 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %3, ptr noundef %19) #7
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01825
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01825
   store ptr %20, ptr %21, align 8, !tbaa !13
   %22 = tail call i32 @test_ptr(ptr noundef nonnull @.str.33, i32 noundef 97, ptr noundef nonnull @.str.39, ptr noundef %20) #7
   %.not21 = icmp eq i32 %22, 0

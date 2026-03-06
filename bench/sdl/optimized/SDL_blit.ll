@@ -238,7 +238,7 @@ switch.edge.thread202:                            ; preds = %55, %65, %switch.ed
 106:                                              ; preds = %121, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %121 ]
   %107 = phi ptr [ %104, %.lr.ph.i ], [ %124, %121 ]
-  %108 = getelementptr inbounds nuw %struct.SDL_BlitFuncEntry, ptr @SDL_GeneratedBlitFuncTable, i64 %indvars.iv.i
+  %108 = getelementptr inbounds nuw [24 x i8], ptr @SDL_GeneratedBlitFuncTable, i64 %indvars.iv.i
   %109 = load i32, ptr %108, align 8
   %.not22.i = icmp eq i32 %77, %109
   br i1 %.not22.i, label %110, label %121
@@ -265,7 +265,7 @@ switch.edge.thread202:                            ; preds = %55, %65, %switch.ed
 
 121:                                              ; preds = %117, %113, %110, %106
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %122 = getelementptr inbounds nuw %struct.SDL_BlitFuncEntry, ptr @SDL_GeneratedBlitFuncTable, i64 %indvars.iv.next.i
+  %122 = getelementptr inbounds nuw [24 x i8], ptr @SDL_GeneratedBlitFuncTable, i64 %indvars.iv.next.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   %.not.i = icmp eq ptr %124, null

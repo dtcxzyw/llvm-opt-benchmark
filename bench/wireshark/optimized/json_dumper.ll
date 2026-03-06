@@ -401,7 +401,7 @@ define internal fastcc void @json_dumper_bad(ptr noundef captures(none) %0, ptr 
 
 23:                                               ; preds = %14
   %24 = zext nneg i8 %21 to i64
-  %25 = getelementptr ptr, ptr @json_dumper_element_type_names, i64 %24
+  %25 = getelementptr [8 x i8], ptr @json_dumper_element_type_names, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %30
 
@@ -428,7 +428,7 @@ json_dumper_get_prev_state.exit:                  ; preds = %30
 
 38:                                               ; preds = %json_dumper_get_prev_state.exit
   %39 = zext nneg i8 %36 to i64
-  %40 = getelementptr ptr, ptr @json_dumper_element_type_names, i64 %39
+  %40 = getelementptr [8 x i8], ptr @json_dumper_element_type_names, i64 %39
   %41 = load ptr, ptr %40, align 8
   br label %45
 

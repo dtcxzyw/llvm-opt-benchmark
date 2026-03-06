@@ -3,10 +3,6 @@ source_filename = "bench/sdl/original/SDL_rect.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Rect = type { i32, i32, i32, i32 }
-%struct.SDL_Point = type { i32, i32 }
-%struct.SDL_FPoint = type { float, float }
-
 @.str = private unnamed_addr constant [26 x i8] c"Parameter '%s' is invalid\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"width\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"height\00", align 1
@@ -74,7 +70,7 @@ define hidden noundef zeroext i1 @SDL_GetSpanEnclosingRect(i32 noundef %0, i32 n
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.03548 = phi i32 [ 0, %.preheader.preheader ], [ %.1, %.preheader ]
   %.03647 = phi i32 [ %1, %.preheader.preheader ], [ %.137, %.preheader ]
-  %23 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 12
@@ -526,7 +522,7 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %24 = getelementptr inbounds nuw %struct.SDL_Point, ptr %0, i64 %indvars.iv169
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv169
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4
@@ -549,7 +545,7 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
   %.185145 = phi i32 [ %.286, %42 ], [ 0, %.lr.ph ]
   %.091144 = phi i8 [ %.192, %42 ], [ 0, %.lr.ph ]
   %.197142 = phi i32 [ %.298, %42 ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds nuw %struct.SDL_Point, ptr %0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i32, ptr %32, align 4
@@ -613,7 +609,7 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
   %.482159 = phi i32 [ %48, %.lr.ph162.preheader ], [ %.583, %.lr.ph162 ]
   %.589158 = phi i32 [ %46, %.lr.ph162.preheader ], [ %.690, %.lr.ph162 ]
   %.4100156 = phi i32 [ %48, %.lr.ph162.preheader ], [ %.5101, %.lr.ph162 ]
-  %49 = getelementptr inbounds nuw %struct.SDL_Point, ptr %0, i64 %indvars.iv173
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv173
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %52 = load i32, ptr %51, align 4
@@ -1511,7 +1507,7 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %24 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %0, i64 %indvars.iv158
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv158
   %25 = load float, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load float, ptr %26, align 4
@@ -1534,7 +1530,7 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   %.185134 = phi float [ %.286, %52 ], [ 0.000000e+00, %.lr.ph ]
   %.091133 = phi i8 [ %.192, %52 ], [ 0, %.lr.ph ]
   %.197131 = phi float [ %.298, %52 ], [ 0.000000e+00, %.lr.ph ]
-  %32 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %33 = load float, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load float, ptr %34, align 4
@@ -1610,7 +1606,7 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   %.482148 = phi float [ %58, %.lr.ph151.preheader ], [ %.583, %72 ]
   %.589147 = phi float [ %56, %.lr.ph151.preheader ], [ %.690, %72 ]
   %.4100145 = phi float [ %58, %.lr.ph151.preheader ], [ %.5101, %72 ]
-  %59 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %0, i64 %indvars.iv162
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv162
   %60 = load float, ptr %59, align 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load float, ptr %61, align 4

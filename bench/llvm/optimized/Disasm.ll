@@ -43,14 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.clang::interp::BlockPointer" = type { ptr, i32 }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, %"class.std::unique_ptr.463" }
-%"class.std::unique_ptr.463" = type { %"struct.std::__uniq_ptr_data.464" }
-%"struct.std::__uniq_ptr_data.464" = type { %"class.std::__uniq_ptr_impl.465" }
-%"class.std::__uniq_ptr_impl.465" = type { %"class.std::tuple.466" }
-%"class.std::tuple.466" = type { %"struct.std::_Tuple_impl.467" }
-%"struct.std::_Tuple_impl.467" = type { %"struct.std::_Head_base.470" }
-%"struct.std::_Head_base.470" = type { ptr }
 %"class.clang::APValue" = type { i32, i8, [3 x i8], %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [48 x i8] }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.542" }
@@ -19668,10 +19660,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE.17, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE.17, i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %_ZN4llvm5spellENS_12RoundingModeE.exit
 
@@ -20289,7 +20281,7 @@ _ZN5clang10ColorScopeD2Ev.exit116:                ; preds = %159, %161
   br i1 %169, label %174, label %176
 
 174:                                              ; preds = %_ZN5clang10ColorScopeD2Ev.exit116
-  %175 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %170, i64 %173
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %173
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit
 
 176:                                              ; preds = %_ZN5clang10ColorScopeD2Ev.exit116
@@ -20315,7 +20307,7 @@ _ZN5clang10ColorScopeD2Ev.exit116:                ; preds = %159, %161
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %174, %176
   %.pn14.i = phi ptr [ %175, %174 ], [ %170, %176 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %177, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %175, %174 ], [ %177, %176 ], [ %177, %.critedge2.i8.i14.i6.i ], [ %177, %.lr.ph.i6.i12.i3.i ]
-  %180 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %170, i64 %173
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %173
   %.not385399 = icmp eq ptr %.pn14.i, %180
   br i1 %.not385399, label %._crit_edge402, label %.lr.ph401
 
@@ -20622,7 +20614,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit144:              ; preds = %328, %330
   %337 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %338 = load i32, ptr %337, align 4, !tbaa !205
   %339 = zext nneg i32 %338 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang6interp7Program4dumpERN4llvm11raw_ostreamE, i64 %339
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang6interp7Program4dumpERN4llvm11raw_ostreamE, i64 %339
   %switch.load = load ptr, ptr %switch.gep, align 8
   %340 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %341 = load ptr, ptr %12, align 8, !tbaa !19

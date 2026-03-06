@@ -109,7 +109,7 @@ _kill_proclist.exit:                              ; preds = %36, %9
 39:                                               ; preds = %._crit_edge.i, %_kill_proclist.exit
   %indvars.iv.i = phi i64 [ 0, %_kill_proclist.exit ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %6, align 8
   %.not4.i = icmp eq ptr %42, null
@@ -354,7 +354,7 @@ _get_myname.exit.thread:                          ; preds = %21, %27, %33
   %86 = call i32 @xstrcmp(ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %87 = srem i32 %83, 64
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %40, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %40, i64 %88
   %.022.i = load ptr, ptr %89, align 8
   %.not23.i = icmp eq ptr %.022.i, null
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
@@ -427,7 +427,7 @@ _get_myname.exit.thread:                          ; preds = %21, %27, %33
 define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = srem i32 %0, 64
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %2, i64 %5
   %.01926 = load ptr, ptr %6, align 8
   %.not27 = icmp eq ptr %.01926, null
   br i1 %.not27, label %.loopexit, label %.lr.ph
@@ -659,7 +659,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_linuxproc_get_pids(i32 noundef 
 18:                                               ; preds = %._crit_edge.i, %17
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %10, align 8
   %.not4.i = icmp eq ptr %21, null
@@ -741,7 +741,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   %43 = load i32, ptr %.03056, align 8
   %44 = load ptr, ptr %11, align 8
   %45 = sext i32 %.02857 to i64
-  %46 = getelementptr inbounds i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %44, i64 %45
   store i32 %43, ptr %46, align 4
   %47 = add nsw i32 %.02857, 1
   br label %48
@@ -779,7 +779,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
 57:                                               ; preds = %._crit_edge.i49, %56
   %indvars.iv.i37 = phi i64 [ 0, %56 ], [ %indvars.iv.next.i50, %._crit_edge.i49 ]
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i37
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i37
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %7, align 8
   %.not4.i38 = icmp eq ptr %60, null

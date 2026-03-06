@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/inftrees.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.code = type { i8, i8, i16 }
-
 @MOZ_Z_inflate_copyright = local_unnamed_addr constant [47 x i8] c" inflate 1.2.8 Copyright 1995-2013 Mark Adler \00", align 16
 @MOZ_Z_inflate_table.lbase = internal unnamed_addr constant [31 x i16] [i16 3, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 13, i16 15, i16 17, i16 19, i16 23, i16 27, i16 31, i16 35, i16 43, i16 51, i16 59, i16 67, i16 83, i16 99, i16 115, i16 131, i16 163, i16 195, i16 227, i16 258, i16 0, i16 0], align 16
 @MOZ_Z_inflate_table.lext = internal unnamed_addr constant [31 x i16] [i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 17, i16 17, i16 18, i16 18, i16 18, i16 18, i16 19, i16 19, i16 19, i16 19, i16 20, i16 20, i16 20, i16 20, i16 21, i16 21, i16 21, i16 21, i16 16, i16 72, i16 78], align 16
@@ -28,10 +26,10 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !3
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !3
   %13 = add i16 %12, 1
   store i16 %13, ptr %11, align 2, !tbaa !3
@@ -46,7 +44,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 15:                                               ; preds = %._crit_edge, %19
   %.0198245 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
   %16 = zext i32 %.0198245 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !3
   %.not213 = icmp eq i16 %18, 0
   br i1 %.not213, label %19, label %21
@@ -82,7 +80,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 
 .lr.ph248:                                        ; preds = %21, %30
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %30 ], [ 1, %21 ]
-  %28 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv279
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv279
   %29 = load i16, ptr %28, align 2, !tbaa !3
   %.not214 = icmp eq i16 %29, 0
   br i1 %.not214, label %30, label %._crit_edge249.loopexit.split.loop.exit
@@ -110,7 +108,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %indvars.iv286 = phi i64 [ 1, %._crit_edge249 ], [ %indvars.iv.next287, %32 ]
   %.0189253 = phi i32 [ 1, %._crit_edge249 ], [ %38, %32 ]
   %34 = shl i32 %.0189253, 1
-  %35 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv286
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv286
   %36 = load i16, ptr %35, align 2, !tbaa !3
   %37 = zext i16 %36 to i32
   %38 = sub nsw i32 %34, %37
@@ -142,18 +140,18 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 46:                                               ; preds = %44, %46
   %47 = phi i16 [ 0, %44 ], [ %50, %46 ]
   %indvars.iv290 = phi i64 [ 1, %44 ], [ %indvars.iv.next291, %46 ]
-  %48 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv290
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv290
   %49 = load i16, ptr %48, align 2, !tbaa !3
   %50 = add i16 %49, %47
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
-  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.next291
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.next291
   store i16 %50, ptr %51, align 2, !tbaa !3
   %exitcond293.not = icmp eq i64 %indvars.iv.next291, 15
   br i1 %exitcond293.not, label %.preheader234, label %46, !llvm.loop !17
 
 .lr.ph256:                                        ; preds = %.lr.ph256.preheader, %62
   %indvars.iv294 = phi i64 [ 0, %.lr.ph256.preheader ], [ %indvars.iv.next295, %62 ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv294
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv294
   %53 = load i16, ptr %52, align 2, !tbaa !3
   %.not220 = icmp eq i16 %53, 0
   br i1 %.not220, label %62, label %54
@@ -161,12 +159,12 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 54:                                               ; preds = %.lr.ph256
   %55 = trunc i64 %indvars.iv294 to i16
   %56 = zext i16 %53 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %7, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !3
   %59 = add i16 %58, 1
   store i16 %59, ptr %57, align 2, !tbaa !3
   %60 = zext i16 %58 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %5, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %60
   store i16 %55, ptr %61, align 2, !tbaa !3
   br label %62
 
@@ -222,7 +220,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %76 = sub i32 %.3, %.0191.ph
   %77 = trunc i32 %76 to i8
   %78 = zext i32 %.2202 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %5, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !3
   %81 = zext i16 %80 to i32
   %82 = icmp sgt i32 %.0232313, %81
@@ -234,10 +232,10 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 
 85:                                               ; preds = %83
   %86 = zext i16 %80 to i64
-  %87 = getelementptr inbounds nuw i16, ptr %.0177231314, i64 %86
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %.0177231314, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !3
   %89 = trunc i16 %88 to i8
-  %90 = getelementptr inbounds nuw i16, ptr %.0178230315, i64 %86
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %.0178230315, i64 %86
   %91 = load i16, ptr %90, align 2, !tbaa !3
   br label %92
 
@@ -253,7 +251,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %95 = add i32 %.0183, %.neg
   %96 = add i32 %95, %93
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.0179.ph, i64 %97
   store i8 %.sroa.0.0, ptr %98, align 2, !tbaa !14
   %.sroa.11.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store i8 %77, ptr %.sroa.11.0..sroa_idx23, align 1, !tbaa !14
@@ -282,7 +280,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %.1186 = select i1 %.not217, i32 0, i32 %108
   %109 = add i32 %.2202, 1
   %110 = zext i32 %.3 to i64
-  %111 = getelementptr inbounds nuw i16, ptr %6, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !3
   %113 = add i16 %112, -1
   store i16 %113, ptr %111, align 2, !tbaa !3
@@ -295,10 +293,10 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 
 117:                                              ; preds = %115
   %118 = zext i32 %109 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %5, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !3
   %121 = zext i16 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %1, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !3
   %124 = zext i16 %123 to i32
   br label %125
@@ -320,7 +318,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %130 = icmp eq i32 %.0191.ph, 0
   %spec.select222 = select i1 %130, i32 %spec.select221, i32 %.0191.ph
   %131 = zext i32 %74 to i64
-  %132 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.0179.ph, i64 %131
   %133 = sub i32 %.4, %spec.select222
   %134 = shl nuw i32 1, %133
   %135 = icmp ult i32 %.4, %.0198245
@@ -335,7 +333,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %.1190259 = phi i32 [ %146, %144 ], [ %134, %.lr.ph261.preheader ]
   %.2195258 = phi i32 [ %145, %144 ], [ %133, %.lr.ph261.preheader ]
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i16, ptr %6, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !3
   %141 = zext i16 %140 to i32
   %142 = sub nsw i32 %.1190259, %141
@@ -369,7 +367,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %153 = trunc i32 %.2195.lcssa to i8
   %154 = load ptr, ptr %3, align 8, !tbaa !12
   %155 = zext nneg i32 %128 to i64
-  %156 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %155
   store i8 %153, ptr %156, align 2, !tbaa !22
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 1
   store i8 %73, ptr %157, align 1, !tbaa !24
@@ -388,7 +386,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 
 165:                                              ; preds = %164
   %166 = zext i32 %.1186 to i64
-  %167 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %166
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.0179.ph, i64 %166
   store i8 64, ptr %167, align 2, !tbaa !14
   %.sroa.11.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %167, i64 1
   store i8 %77, ptr %.sroa.11.0..sroa_idx25, align 1, !tbaa !14
@@ -399,7 +397,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 168:                                              ; preds = %165, %164
   %169 = load ptr, ptr %3, align 8, !tbaa !12
   %170 = zext i32 %.0187.ph to i64
-  %171 = getelementptr inbounds nuw %struct.code, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %170
   store ptr %171, ptr %3, align 8, !tbaa !12
   br label %.loopexit.sink.split
 

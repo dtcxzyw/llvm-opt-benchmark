@@ -31,11 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::CodeGen::RawAddress" = type { %"class.llvm::PointerIntPair.405", ptr, %"class.clang::CharUnits" }
 %"class.llvm::InsertPosition" = type { %"class.llvm::ilist_iterator_w_bits" }
 %"class.llvm::ilist_iterator_w_bits" = type <{ ptr, i8, i8, [6 x i8] }>
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-%"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.clang::SourceLocation" = type { i32 }
-%"struct.std::pair.1102" = type { ptr, i64 }
 
 $_ZN4llvm13IRBuilderBase26CreateConstInBoundsGEP1_32EPNS_4TypeEPNS_5ValueEjRKNS_5TwineE = comdat any
 
@@ -1745,7 +1740,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
   %39 = getelementptr inbounds i8, ptr %19, i64 -8
   %40 = load ptr, ptr %39, align 8, !tbaa !1093
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %"class.llvm::Use", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !1094
   %.not.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, label %44
@@ -1795,9 +1790,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %61 = load ptr, ptr %39, align 8, !tbaa !1093
   %62 = load i32, ptr %28, align 8, !tbaa !1077
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::Use", ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %63
   %65 = zext i32 %60 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   store ptr %3, ptr %66, align 8, !tbaa !1100
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %68 = load i8, ptr %67, align 8
@@ -1839,7 +1834,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit13: ; pre
   %86 = add nsw i32 %83, -1
   %87 = load ptr, ptr %39, align 8, !tbaa !1093
   %88 = zext i32 %86 to i64
-  %89 = getelementptr inbounds nuw %"class.llvm::Use", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !1094
   %.not.i.i.i.i.i14 = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i.i14, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i16, label %91
@@ -1889,9 +1884,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit21: ; preds = %_Z
   %108 = load ptr, ptr %39, align 8, !tbaa !1093
   %109 = load i32, ptr %28, align 8, !tbaa !1077
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %"class.llvm::Use", ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %108, i64 %110
   %112 = zext i32 %107 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %112
   store ptr %5, ptr %113, align 8, !tbaa !1100
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %114, align 8, !tbaa !974
@@ -2212,7 +2207,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !1133
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %53
   %.not4058 = icmp eq ptr %.0.i.i.i, %54
   br i1 %.not4058, label %.critedge42, label %.lr.ph
 
@@ -2416,7 +2411,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8, !tbaa !1133
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %60
   %.not3761 = icmp eq ptr %.0.i.i.i, %61
   br i1 %.not3761, label %.critedge, label %.lr.ph
 
@@ -2593,7 +2588,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !1133
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %51
   %.not76164 = icmp eq ptr %.0.i.i.i, %52
   br i1 %.not76164, label %.loopexit, label %.lr.ph
 
@@ -3058,7 +3053,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !1133
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %47
   %.not4363 = icmp eq ptr %.0.i.i.i, %48
   br i1 %.not4363, label %.critedge45, label %.lr.ph
 
@@ -3785,7 +3780,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !12
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.1102", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -3826,7 +3821,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !12
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !15

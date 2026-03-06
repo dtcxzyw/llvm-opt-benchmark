@@ -60,14 +60,14 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %.noexc.i unwind label %24, !noalias !12
 
 .noexc.i:                                         ; preds = %14
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %.0.i
+  %16 = getelementptr inbounds [16 x i8], ptr %3, i64 %.0.i
   %17 = extractvalue { ptr, i64 } %15, 0
   %18 = extractvalue { ptr, i64 } %15, 1
   invoke void @_ZN5paths7AbsPath4join17h5848497ad340fb88E(ptr noalias noundef nonnull sret({ { { { { { { i64, ptr, {} }, i64 } } } } } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
           to label %19 unwind label %24, !noalias !12
 
 19:                                               ; preds = %.noexc.i
-  %20 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %.sroa.9.0.copyload, i64 %.val18.i
+  %20 = getelementptr inbounds [24 x i8], ptr %.sroa.9.0.copyload, i64 %.val18.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false), !noalias !13
   %21 = add i64 %.val18.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i), !noalias !6
@@ -224,7 +224,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.539.0.copyload = load i64, ptr %.sroa.539.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !53
-  %30 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
+  %30 = getelementptr inbounds [32 x i8], ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
   store ptr %.sroa.438.0.copyload, ptr %4, align 8, !alias.scope !58, !noalias !53
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.438.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !53
@@ -1315,7 +1315,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %16
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.0
+  %18 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   %19 = extractvalue { ptr, i64 } %17, 0
   %20 = extractvalue { ptr, i64 } %17, 1
   invoke void @_ZN5paths7AbsPath4join17h5848497ad340fb88E(ptr noalias noundef nonnull sret({ { { { { { { i64, ptr, {} }, i64 } } } } } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
@@ -1324,7 +1324,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 21:                                               ; preds = %.noexc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
-  %22 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %12, i64 %.val18
+  %22 = getelementptr inbounds [24 x i8], ptr %12, i64 %.val18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !238
   %23 = add i64 %.val18, 1
   store i64 %23, ptr %13, align 8, !alias.scope !238, !noalias !239
@@ -1471,7 +1471,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3vfs13path_interner12
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !275, !nonnull !4
-  %10 = getelementptr inbounds nuw { { { i64, [3 x i64] } }, i64, {} }, ptr %9, i64 %3
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %3
   ret ptr %10
 }
 

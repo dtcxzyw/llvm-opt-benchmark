@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.hermes::vm::NamedPropertyDescriptor" = type { %"struct.hermes::vm::PropertyDescriptor" }
 %"struct.hermes::vm::PropertyDescriptor" = type { %union.anon.171, i32 }
 %union.anon.171 = type { i32 }
-%"class.hermes::vm::GCHermesValueBase" = type { %"class.hermes::vm::HermesValue32" }
-%"class.hermes::vm::HermesValue32" = type { i32 }
 
 @_ZN6hermes2vm8JSString2vtE = hidden constant { i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i64 -47381121442796770, i32 55, i32 40, ptr null, ptr null, ptr null, ptr null, ptr @_ZN6hermes2vm8JSString23_getOwnIndexedRangeImplEPNS0_8JSObjectERNS0_7RuntimeE, ptr @_ZN6hermes2vm8JSString19_haveOwnIndexedImplEPNS0_8JSObjectERNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSString31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSString18_getOwnIndexedImplENS0_12PseudoHandleINS0_8JSObjectEEERNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSString18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE, ptr @_ZN6hermes2vm8JSString21_deleteOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSObject23_checkAllOwnIndexedImplEPS1_RNS0_7RuntimeENS0_12ObjectVTable22CheckAllOwnIndexedModeE }, align 8
 @_ZN6hermes2vm16JSStringIterator2vtE = hidden constant { i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i64 -47381121442796770, i32 58, i32 40, ptr null, ptr null, ptr null, ptr null, ptr @_ZN6hermes2vm8JSObject23_getOwnIndexedRangeImplEPS1_RNS0_7RuntimeE, ptr @_ZN6hermes2vm8JSObject19_haveOwnIndexedImplEPS1_RNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSObject31_getOwnIndexedPropertyFlagsImplEPS1_RNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSObject18_getOwnIndexedImplENS0_12PseudoHandleIS1_EERNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSObject18_setOwnIndexedImplENS0_6HandleIS1_EERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE, ptr @_ZN6hermes2vm8JSObject21_deleteOwnIndexedImplENS0_6HandleIS1_EERNS0_7RuntimeEj, ptr @_ZN6hermes2vm8JSObject23_checkAllOwnIndexedImplEPS1_RNS0_7RuntimeENS0_12ObjectVTable22CheckAllOwnIndexedModeE }, align 8
@@ -169,7 +167,7 @@ if.else13.i11.i:                                  ; preds = %if.else.i4.i
 _ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i: ; preds = %if.else13.i11.i, %if.then10.i6.i, %if.then5.i9.i, %if.then.i16.i
   %retval.0.i8.i = phi ptr [ %6, %if.then.i16.i ], [ %add.ptr.i.i.i.i10.i, %if.then5.i9.i ], [ %add.ptr.i.i.i4.i7.i, %if.then10.i6.i ], [ %8, %if.else13.i11.i ]
   %idx.ext4.i = zext nneg i32 %index to i64
-  %add.ptr5.i = getelementptr inbounds nuw i16, ptr %retval.0.i8.i, i64 %idx.ext4.i
+  %add.ptr5.i = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i8.i, i64 %idx.ext4.i
   %9 = load i16, ptr %add.ptr5.i, align 2
   br label %_ZNK6hermes2vm15StringPrimitive2atEj.exit
 
@@ -504,7 +502,7 @@ _ZN6hermes2vm13HermesValue3217encodeNumberValueEdRNS0_7RuntimeE.exit: ; preds = 
 
 if.then.i.i:                                      ; preds = %_ZN6hermes2vm13HermesValue3217encodeNumberValueEdRNS0_7RuntimeE.exit
   %directProps_.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %directProps_.i.i.i, i64 %desc.sroa.1.0.extract.shift.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %directProps_.i.i.i, i64 %desc.sroa.1.0.extract.shift.i
   %youngGen_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %11 = load ptr, ptr %youngGen_.i.i.i.i.i, align 8
   %12 = ptrtoint ptr %arrayidx.i.i to i64
@@ -531,7 +529,7 @@ if.end.i.i:                                       ; preds = %_ZN6hermes2vm13Herm
   %sub.i.i = add nuw nsw i64 %desc.sroa.1.0.extract.shift.i, 4294967291
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %idxprom.i.i.i = and i64 %sub.i.i, 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
   %youngGen_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %15 = load ptr, ptr %youngGen_.i.i.i.i.i.i, align 8
   %16 = ptrtoint ptr %arrayidx.i.i.i to i64
@@ -902,7 +900,7 @@ if.else13.i11.i:                                  ; preds = %if.else.i4.i
 _ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i: ; preds = %if.else13.i11.i, %if.then10.i6.i, %if.then5.i9.i, %if.then.i16.i
   %retval.0.i8.i = phi ptr [ %24, %if.then.i16.i ], [ %add.ptr.i.i.i.i10.i, %if.then5.i9.i ], [ %add.ptr.i.i.i4.i7.i, %if.then10.i6.i ], [ %26, %if.else13.i11.i ]
   %idx.ext4.i = zext nneg i32 %9 to i64
-  %add.ptr5.i = getelementptr inbounds nuw i16, ptr %retval.0.i8.i, i64 %idx.ext4.i
+  %add.ptr5.i = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i8.i, i64 %idx.ext4.i
   %27 = load i16, ptr %add.ptr5.i, align 2
   br label %_ZNK6hermes2vm15StringPrimitive2atEj.exit
 
@@ -1007,7 +1005,7 @@ if.else13.i11.i62:                                ; preds = %if.else.i4.i51
 _ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i55: ; preds = %if.else13.i11.i62, %if.then10.i6.i53, %if.then5.i9.i60, %if.then.i16.i67
   %retval.0.i8.i56 = phi ptr [ %33, %if.then.i16.i67 ], [ %add.ptr.i.i.i.i10.i61, %if.then5.i9.i60 ], [ %add.ptr.i.i.i4.i7.i54, %if.then10.i6.i53 ], [ %35, %if.else13.i11.i62 ]
   %idx.ext4.i57 = zext nneg i32 %add to i64
-  %add.ptr5.i58 = getelementptr inbounds nuw i16, ptr %retval.0.i8.i56, i64 %idx.ext4.i57
+  %add.ptr5.i58 = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i8.i56, i64 %idx.ext4.i57
   %36 = load i16, ptr %add.ptr5.i58, align 2
   br label %_ZNK6hermes2vm15StringPrimitive2atEj.exit90
 

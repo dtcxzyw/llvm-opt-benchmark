@@ -215,7 +215,7 @@ define dso_local range(i64 -128849018880, 135291469762) i64 @tm_to_time_t(ptr no
   %27 = lshr i32 %26, 2
   %28 = add nuw nsw i32 %25, %27
   %29 = zext nneg i32 %5 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @tm_to_time_t.mdays, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @tm_to_time_t.mdays, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !17
   %32 = add nsw i32 %28, %12
   %.0 = add i32 %32, %9
@@ -853,14 +853,14 @@ strbuf_addch.exit:                                ; preds = %108, %112
   %124 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %125 = load i32, ptr %124, align 8, !tbaa !26
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr @weekday_names, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr @weekday_names, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !27
   %129 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   %130 = load i32, ptr %129, align 4, !tbaa !13
   %131 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %132 = load i32, ptr %131, align 8, !tbaa !12
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds ptr, ptr @month_names, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr @month_names, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !27
   %136 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %137 = load i32, ptr %136, align 4, !tbaa !4
@@ -962,7 +962,7 @@ strbuf_addch.exit:                                ; preds = %108, %112
   %197 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %198 = load i32, ptr %197, align 8, !tbaa !26
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds ptr, ptr @weekday_names, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr @weekday_names, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !27
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.66, ptr noundef %201) #21
   br label %202
@@ -976,7 +976,7 @@ strbuf_addch.exit:                                ; preds = %108, %112
   %205 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %206 = load i32, ptr %205, align 8, !tbaa !12
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds ptr, ptr @month_names, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr @month_names, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !27
   %210 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   %211 = load i32, ptr %210, align 4, !tbaa !13
@@ -1079,7 +1079,7 @@ tm_to_time_t.exit:                                ; preds = %23
   %29 = lshr i32 %28, 2
   %30 = add nuw nsw i32 %27, %29
   %31 = zext nneg i32 %8 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @tm_to_time_t.mdays, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @tm_to_time_t.mdays, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = add nsw i32 %30, %15
   %.0.i = add i32 %34, %12
@@ -1281,7 +1281,7 @@ match_object_header_date.exit:                    ; preds = %.else91, %.cont119
 
 .lr.ph.i.preheader.i:                             ; preds = %52, %match_string.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %match_string.exit.thread.i ], [ 0, %52 ]
-  %58 = getelementptr inbounds nuw ptr, ptr @month_names, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @month_names, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8, !tbaa !27
   br label %.lr.ph.i.i
 
@@ -1344,7 +1344,7 @@ match_string.exit.thread.i:                       ; preds = %match_string.exit.i
 
 .lr.ph.i58.preheader.i:                           ; preds = %match_string.exit.thread.i, %match_string.exit70.thread.i
   %indvars.iv188.i = phi i64 [ %indvars.iv.next189.i, %match_string.exit70.thread.i ], [ 0, %match_string.exit.thread.i ]
-  %87 = getelementptr inbounds nuw ptr, ptr @weekday_names, i64 %indvars.iv188.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @weekday_names, i64 %indvars.iv188.i
   %88 = load ptr, ptr %87, align 8, !tbaa !27
   br label %.lr.ph.i58.i
 
@@ -1412,7 +1412,7 @@ match_string.exit70.thread.i:                     ; preds = %match_string.exit70
 
 .lr.ph.i72.preheader.i:                           ; preds = %match_string.exit70.thread.i, %116
   %indvars.iv192.i = phi i64 [ %indvars.iv.next193.i, %116 ], [ 0, %match_string.exit70.thread.i ]
-  %117 = getelementptr inbounds nuw %struct.anon.0, ptr @timezone_names, i64 %indvars.iv192.i
+  %117 = getelementptr inbounds nuw [16 x i8], ptr @timezone_names, i64 %indvars.iv192.i
   %118 = load ptr, ptr %117, align 16, !tbaa !34
   br label %.lr.ph.i72.i
 
@@ -2137,7 +2137,7 @@ match_tz.exit:                                    ; preds = %.else, %423, %398, 
   %458 = lshr i32 %457, 2
   %459 = add nuw nsw i32 %456, %458
   %460 = zext nneg i32 %439 to i64
-  %461 = getelementptr inbounds nuw i32, ptr @tm_to_time_t.mdays, i64 %460
+  %461 = getelementptr inbounds nuw [4 x i8], ptr @tm_to_time_t.mdays, i64 %460
   %462 = load i32, ptr %461, align 4, !tbaa !17
   %463 = add nsw i32 %459, %445
   %.0.i = add i32 %463, %442
@@ -2580,7 +2580,7 @@ approxidate_digit.exit.i:                         ; preds = %91, %85, %81
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.preheader.i, %match_string.exit.thread.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %match_string.exit.thread.i.i ], [ 0, %.preheader.i ]
-  %102 = getelementptr inbounds nuw ptr, ptr @month_names, i64 %indvars.iv.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @month_names, i64 %indvars.iv.i.i
   %103 = load ptr, ptr %102, align 8, !tbaa !27
   br label %.lr.ph.i.i.i
 
@@ -2715,7 +2715,7 @@ match_string.exit135.i.i:                         ; preds = %152, %150
 
 .preheader.i.i:                                   ; preds = %.split.us.i.i, %193
   %indvars.iv328.i.i = phi i64 [ %indvars.iv.next329.i.i, %193 ], [ 1, %.split.us.i.i ]
-  %164 = getelementptr inbounds nuw ptr, ptr @number_name, i64 %indvars.iv328.i.i
+  %164 = getelementptr inbounds nuw [8 x i8], ptr @number_name, i64 %indvars.iv328.i.i
   %165 = load ptr, ptr %164, align 8, !tbaa !27
   %166 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %165) #22
   br label %.lr.ph.i137.i.i
@@ -2946,7 +2946,7 @@ match_string.exit177.i.i:                         ; preds = %241, %239
 
 .lr.ph.i179.preheader.i.i:                        ; preds = %275, %match_string.exit191.thread.i.i
   %indvars.iv324.i.i = phi i64 [ %indvars.iv.next325.i.i, %match_string.exit191.thread.i.i ], [ 0, %275 ]
-  %278 = getelementptr inbounds nuw ptr, ptr @weekday_names, i64 %indvars.iv324.i.i
+  %278 = getelementptr inbounds nuw [8 x i8], ptr @weekday_names, i64 %indvars.iv324.i.i
   %279 = load ptr, ptr %278, align 8, !tbaa !27
   br label %.lr.ph.i179.i.i
 
@@ -3883,7 +3883,7 @@ define dso_local void @datestamp(ptr noundef %0) local_unnamed_addr #1 {
   %32 = lshr i32 %31, 2
   %33 = add nuw nsw i32 %30, %32
   %34 = zext nneg i32 %10 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @tm_to_time_t.mdays, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @tm_to_time_t.mdays, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !17
   %37 = add nsw i32 %33, %17
   %.0.i = add i32 %37, %14
@@ -4316,7 +4316,7 @@ tm_to_time_t.exit:                                ; preds = %.cont114.cont
   %36 = add nsw i32 %.sroa.10.0.ph, -69
   %37 = lshr i32 %36, 2
   %38 = zext nneg i32 %7 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @tm_to_time_t.mdays, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @tm_to_time_t.mdays, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !17
   %41 = add nuw nsw i32 %2, -25550
   %42 = add nsw i32 %41, %35

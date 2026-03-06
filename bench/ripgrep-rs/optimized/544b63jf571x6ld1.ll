@@ -431,7 +431,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %11
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %11
   %19 = load i32, ptr %18, align 4, !noundef !5
   ret i32 %19
 
@@ -451,7 +451,7 @@ define internal noundef range(i64 0, 4294967296) i64 @"_ZN77_$LT$aho_corasick..d
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %3
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %3
   %11 = load i32, ptr %10, align 4, !noundef !5
   %12 = zext i32 %11 to i64
   ret i64 %12
@@ -554,7 +554,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
-  %16 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %15, i64 %9
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !5
   %19 = icmp ult i64 %2, %18
@@ -567,7 +567,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds i32, ptr %23, i64 %2
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %2
   %25 = load i32, ptr %24, align 4, !noundef !5
   ret i32 %25
 
@@ -634,7 +634,7 @@ define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %14, i64 %8
+  %15 = getelementptr inbounds [24 x i8], ptr %14, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !5
   ret i64 %17
@@ -688,7 +688,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %13
   %18 = load i32, ptr %17, align 4, !noundef !5
   %trunc.us = trunc i32 %18 to i8
   switch i8 %trunc.us, label %29 [
@@ -708,7 +708,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %25, label %.loopexit.split.loop.exit153.split.us, label %.split167.us, !prof !18
 
 .loopexit.split.loop.exit153.split.us:            ; preds = %23
-  %26 = getelementptr inbounds nuw i32, ptr %10, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %24
   %27 = load i32, ptr %26, align 4, !noundef !5
   %.not.us.not = icmp eq i32 %27, 1
   %28 = select i1 %.not.us.not, i32 0, i32 %27
@@ -729,8 +729,8 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %36, label %.split177.us, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit.us"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit.us": ; preds = %34
-  %37 = getelementptr inbounds nuw i32, ptr %10, i64 %32
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %.0.us
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %32
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.0.us
   br label %39
 
 39:                                               ; preds = %49, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit.us"
@@ -767,7 +767,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %119
   %51 = phi i64 [ %122, %119 ], [ %13, %.lr.ph ]
-  %52 = getelementptr inbounds nuw i32, ptr %10, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %51
   %53 = load i32, ptr %52, align 4, !noundef !5
   %trunc = trunc i32 %53 to i8
   switch i8 %trunc, label %57 [
@@ -806,8 +806,8 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit": ; preds = %62
-  %65 = getelementptr inbounds nuw i32, ptr %10, i64 %60
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %.0
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %60
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %.0
   br label %67
 
 .split173.us:                                     ; preds = %57, %29
@@ -896,7 +896,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 
 99:                                               ; preds = %.split202.us, %.split181.us, %.split188.us, %.split195.us
   %.sink = phi i64 [ %84, %.split188.us ], [ %91, %.split195.us ], [ %77, %.split181.us ], [ %96, %.split202.us ]
-  %100 = getelementptr inbounds i32, ptr %10, i64 %.sink
+  %100 = getelementptr inbounds [4 x i8], ptr %10, i64 %.sink
   %.068 = load i32, ptr %100, align 4, !noundef !5
   br label %.loopexit
 
@@ -925,7 +925,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %109, label %110, label %113, !prof !18
 
 110:                                              ; preds = %.split.us
-  %111 = getelementptr inbounds nuw i32, ptr %10, i64 %108
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %108
   %112 = load i32, ptr %111, align 4, !noundef !5
   br label %.loopexit
 
@@ -934,7 +934,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   unreachable
 
 114:                                              ; preds = %54
-  %115 = getelementptr inbounds nuw i32, ptr %10, i64 %55
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %55
   %116 = load i32, ptr %115, align 4, !noundef !5
   %.not.not = icmp eq i32 %116, 1
   br i1 %.not.not, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.thread", label %.loopexit
@@ -954,7 +954,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   ret i32 %.1
 
 119:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.thread"
-  %120 = getelementptr inbounds nuw i32, ptr %10, i64 %117
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %117
   %121 = load i32, ptr %120, align 4, !noundef !5
   %122 = zext i32 %121 to i64
   %123 = icmp ugt i64 %12, %122
@@ -976,7 +976,7 @@ define internal noundef range(i64 0, 4294967296) i64 @"_ZN89_$LT$aho_corasick..n
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %3
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %3
   %11 = load i32, ptr %10, align 4, !noundef !5
   %12 = zext i32 %11 to i64
   ret i64 %12
@@ -1039,7 +1039,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = sub nuw i64 %8, %6
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %6
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8, !noalias !24
@@ -1074,7 +1074,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %30, label %31, label %35, !prof !18
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i32, ptr %16, i64 %.09.i
+  %32 = getelementptr inbounds [4 x i8], ptr %16, i64 %.09.i
   %33 = load i32, ptr %32, align 4, !alias.scope !24, !noundef !5
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %36, label %40
@@ -1094,7 +1094,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %41, label %46, label %48
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i32, ptr %16, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %16, i64 %38
   %44 = load i32, ptr %43, align 4, !alias.scope !24, !noundef !5
   br label %_ZN12aho_corasick3nfa10contiguous5State13match_pattern17h3a2375ee6765aef4E.exit
 
@@ -1178,7 +1178,7 @@ define internal noundef range(i64 0, 2147483648) i64 @"_ZN89_$LT$aho_corasick..n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = sub nuw i64 %5, %3
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %3
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %.not.i = icmp eq i64 %5, %3
   br i1 %.not.i, label %18, label %14, !prof !27
@@ -1217,7 +1217,7 @@ define internal noundef range(i64 0, 2147483648) i64 @"_ZN89_$LT$aho_corasick..n
 
 _ZN12aho_corasick3nfa10contiguous5State9match_len17hd21b541d2068b2cbE.exit: ; preds = %19, %22
   %.pn.i = phi i64 [ %26, %22 ], [ %20, %19 ]
-  %.0.in.in.i = getelementptr inbounds i32, ptr %13, i64 %.pn.i
+  %.0.in.in.i = getelementptr inbounds [4 x i8], ptr %13, i64 %.pn.i
   %.0.in.i = load i32, ptr %.0.in.in.i, align 4, !alias.scope !28, !noundef !5
   %30 = icmp sgt i32 %.0.in.i, -1
   %narrow.i = select i1 %30, i32 %.0.in.i, i32 1
@@ -1275,7 +1275,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %18 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %10, i64 %7
+  %18 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 %7
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !noalias !31, !noundef !5
   %21 = icmp eq i32 %20, 0
@@ -1290,7 +1290,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   br i1 %27, label %28, label %.split.us, !prof !18
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i32, ptr %17, i64 %26
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %26
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us
 
 30:                                               ; preds = %.lr.ph.split.us
@@ -1315,7 +1315,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %35, align 8, !noalias !34, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %43, i64 %39
+  %44 = getelementptr inbounds nuw [9 x i8], ptr %43, i64 %39
   %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %44, i64 5
   %.sroa.2.0.copyload.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.us, align 1, !noalias !34
   %.sroa.6.1.copyload.us = load i8, ptr %44, align 1, !noalias !38
@@ -1341,7 +1341,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   %47 = phi i64 [ %79, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread ], [ %7, %.lr.ph ]
   %.0938 = phi i32 [ %78, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread ], [ %2, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %48 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %10, i64 %47
+  %48 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !noalias !31, !noundef !5
   %51 = icmp eq i32 %50, 0
@@ -1380,7 +1380,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %57, align 8, !noalias !34, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %65, i64 %61
+  %66 = getelementptr inbounds nuw [9 x i8], ptr %65, i64 %61
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 5
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !34
   %.sroa.6.1.copyload = load i8, ptr %66, align 1, !noalias !38
@@ -1401,7 +1401,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   br i1 %74, label %75, label %.split.us, !prof !18
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw i32, ptr %17, i64 %73
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %73
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit
 
 .split.us:                                        ; preds = %69, %22
@@ -1438,7 +1438,7 @@ define internal noundef range(i64 0, 4294967296) i64 @"_ZN92_$LT$aho_corasick..n
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %3
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %3
   %11 = load i32, ptr %10, align 4, !noundef !5
   %12 = zext i32 %11 to i64
   ret i64 %12
@@ -1529,7 +1529,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 "_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i": ; preds = %13
   %18 = load ptr, ptr %8, align 8, !noalias !39, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds nuw { i32, i32 }, ptr %18, i64 %14
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !noalias !39, !noundef !5
   %exitcond.not.i.i = icmp eq i64 %11, %2
@@ -1559,7 +1559,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i: ;
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %32 = load ptr, ptr %31, align 8, !noalias !48, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds nuw { i32, i32 }, ptr %32, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %25
   %34 = load i32, ptr %33, align 4, !noalias !48, !noundef !5
   ret i32 %34
 }
@@ -1634,7 +1634,7 @@ define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   unreachable
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %12
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !noalias !61, !noundef !5
   %19 = add i64 %.015.i, 1

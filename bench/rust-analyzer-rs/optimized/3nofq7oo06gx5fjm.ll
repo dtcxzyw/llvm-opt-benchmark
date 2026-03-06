@@ -1807,7 +1807,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
   %93 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %76
   %94 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %77
   %95 = and <16 x i1> %93, %94
-  %96 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.022.0137.i.i.i
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %.sroa.022.0137.i.i.i
   store <16 x i1> %95, ptr %96, align 2, !noalias !273
   %exitcond.not.i38.i.i = icmp eq i64 %89, 4
   br i1 %exitcond.not.i38.i.i, label %.preheader133.i.i.i, label %88
@@ -1825,7 +1825,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
   %.sroa.028.0139.i.i.i = phi i64 [ %102, %106 ], [ 0, %88 ]
   %.2138.i.i.i = phi i8 [ %.3.i.i.i, %106 ], [ 0, %88 ]
   %102 = add nuw nsw i64 %.sroa.028.0139.i.i.i, 1
-  %103 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.028.0139.i.i.i
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %.sroa.028.0139.i.i.i
   %104 = load i16, ptr %103, align 2, !noalias !273, !noundef !14
   %105 = icmp eq i16 %104, 0
   br i1 %105, label %106, label %107

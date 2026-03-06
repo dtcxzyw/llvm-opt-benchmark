@@ -457,11 +457,11 @@ define dso_local void @drm_object_attach_property(ptr noundef readonly captures(
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = sext i32 %6 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   store ptr %1, ptr %36, align 8
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 520
-  %39 = getelementptr i64, ptr %38, i64 %35
+  %39 = getelementptr [8 x i8], ptr %38, i64 %35
   store i64 %2, ptr %39, align 8
   %40 = load ptr, ptr %4, align 8
   %41 = load i32, ptr %40, align 8
@@ -535,14 +535,14 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_object_property_set_value(pt
 
 39:                                               ; preds = %37, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %34 ]
-  %40 = getelementptr ptr, ptr %35, i64 %indvars.iv
+  %40 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %1
   br i1 %42, label %43, label %37
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 520
-  %45 = getelementptr i64, ptr %44, i64 %indvars.iv
+  %45 = getelementptr [8 x i8], ptr %44, i64 %indvars.iv
   store i64 %2, ptr %45, align 8
   br label %.loopexit
 
@@ -642,14 +642,14 @@ define dso_local i32 @drm_object_property_get_value(ptr noundef %0, ptr noundef 
 
 55:                                               ; preds = %52, %49
   %56 = phi i64 [ %53, %52 ], [ 0, %49 ]
-  %57 = getelementptr ptr, ptr %50, i64 %56
+  %57 = getelementptr [8 x i8], ptr %50, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %1
   br i1 %59, label %60, label %52
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 520
-  %62 = getelementptr i64, ptr %61, i64 %56
+  %62 = getelementptr [8 x i8], ptr %61, i64 %56
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %2, align 8
   br label %.loopexit
@@ -711,14 +711,14 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_object_property_get_default_
 
 35:                                               ; preds = %32, %29
   %36 = phi i64 [ %33, %32 ], [ 0, %29 ]
-  %37 = getelementptr ptr, ptr %30, i64 %36
+  %37 = getelementptr [8 x i8], ptr %30, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %1
   br i1 %39, label %40, label %32
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 520
-  %42 = getelementptr i64, ptr %41, i64 %36
+  %42 = getelementptr [8 x i8], ptr %41, i64 %36
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %2, align 8
   br label %.loopexit
@@ -743,7 +743,7 @@ define dso_local i32 @drm_mode_object_get_properties(ptr noundef %0, i1 noundef 
   %12 = phi i64 [ %96, %93 ], [ 0, %5 ]
   %13 = phi i32 [ %95, %93 ], [ 0, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = getelementptr ptr, ptr %14, i64 %12
+  %15 = getelementptr [8 x i8], ptr %14, i64 %12
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !annotation !45
@@ -808,14 +808,14 @@ define dso_local i32 @drm_mode_object_get_properties(ptr noundef %0, i1 noundef 
 
 58:                                               ; preds = %55, %53
   %59 = phi i64 [ %56, %55 ], [ 0, %53 ]
-  %60 = getelementptr ptr, ptr %14, i64 %59
+  %60 = getelementptr [8 x i8], ptr %14, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %16
   br i1 %62, label %.thread6, label %55
 
 .thread6:                                         ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 520
-  %64 = getelementptr i64, ptr %63, i64 %59
+  %64 = getelementptr [8 x i8], ptr %63, i64 %59
   %65 = load i64, ptr %64, align 8
   store i64 %65, ptr %6, align 8
   br label %69
@@ -829,7 +829,7 @@ define dso_local i32 @drm_mode_object_get_properties(ptr noundef %0, i1 noundef 
   %70 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %13 to i64
-  %73 = getelementptr i32, ptr %2, i64 %72
+  %73 = getelementptr [4 x i8], ptr %2, i64 %72
   %74 = call i64 @llvm.read_register.i64(metadata !0)
   %75 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %73, i32 %71, i64 4, i64 %74) #10, !srcloc !46
   %76 = extractvalue { ptr, i64 } %75, 0
@@ -842,7 +842,7 @@ define dso_local i32 @drm_mode_object_get_properties(ptr noundef %0, i1 noundef 
 
 81:                                               ; preds = %69
   %82 = load i64, ptr %6, align 8
-  %83 = getelementptr i64, ptr %3, i64 %72
+  %83 = getelementptr [8 x i8], ptr %3, i64 %72
   %84 = call i64 @llvm.read_register.i64(metadata !0)
   %85 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %83, i64 %82, i64 8, i64 %84) #10, !srcloc !47
   %86 = extractvalue { ptr, i64 } %85, 0
@@ -1083,7 +1083,7 @@ define dso_local ptr @drm_mode_obj_find_prop_id(ptr noundef readonly captures(no
 
 12:                                               ; preds = %10, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %7 ]
-  %13 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
@@ -1145,7 +1145,7 @@ define dso_local i32 @drm_mode_obj_set_property_ioctl(ptr noundef %0, ptr nounde
 
 38:                                               ; preds = %35, %32
   %39 = phi i64 [ %36, %35 ], [ 0, %32 ]
-  %40 = getelementptr ptr, ptr %33, i64 %39
+  %40 = getelementptr [8 x i8], ptr %33, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8

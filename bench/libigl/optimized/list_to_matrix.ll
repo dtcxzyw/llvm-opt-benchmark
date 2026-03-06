@@ -15,11 +15,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"union.boost::multiprecision::backends::cpp_int_base<0, 18446744073709551615, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, std::allocator<unsigned long long>>::data_type" = type { i128 }
 %"class.CGAL::Lazy" = type { %"class.CGAL::Handle" }
 %"class.CGAL::Handle" = type { ptr }
-%"class.CGAL::Lazy_exact_nt" = type <{ %"class.CGAL::Lazy", [8 x i8] }>
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>, std::allocator<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>, std::allocator<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>, std::allocator<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>, std::allocator<CGAL::Lazy_exact_nt<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN3igl14list_to_matrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEN5Eigen6MatrixISG_Lin1ELi3ELi0ELin1ELi3EEEEEbRKSt6vectorISK_IT_SaISL_EESaISN_EERNSH_15PlainObjectBaseIT0_EE = comdat any
 
@@ -173,7 +168,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl14list_to_matrixIN4CGAL13La
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.preheader, %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i
   %.0.i.i.i.i = phi i64 [ %18, %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i ], [ %17, %.preheader.i.i.i.i.preheader ]
   %18 = add i64 %.0.i.i.i.i, -1
-  %19 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %.not.i.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i, label %21
@@ -307,14 +302,14 @@ _ZN3igl8max_sizeISt6vectorIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberI
 71:                                               ; preds = %.preheader.us, %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit.us ]
   %72 = load ptr, ptr %0, align 8, !tbaa !10
-  %73 = getelementptr inbounds nuw %"class.std::vector.11", ptr %72, i64 %indvars.iv39
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %indvars.iv39
   %74 = load ptr, ptr %73, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %1, align 8, !tbaa !15
   %77 = load i64, ptr %70, align 8, !tbaa !11
   %78 = mul nsw i64 %77, %indvars.iv
-  %79 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %76, i64 %indvars.iv39
-  %80 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %79, i64 %78
+  %79 = getelementptr [16 x i8], ptr %76, i64 %indvars.iv39
+  %80 = getelementptr [16 x i8], ptr %79, i64 %78
   %81 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !19
   %.not.i.i.i.i.us = icmp eq i8 %81, 0
   %82 = load ptr, ptr %75, align 8, !tbaa !16
@@ -430,7 +425,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit: ; pr
 .preheader.i.i.i:                                 ; preds = %15, %_ZN4CGAL6HandleD2Ev.exit.i.i.i
   %.0.i.i.i = phi i64 [ %19, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ], [ %14, %15 ]
   %19 = add i64 %.0.i.i.i, -1
-  %20 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %22
@@ -851,7 +846,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26destruct_elements_of_arr
 .preheader:                                       ; preds = %2, %_ZN4CGAL6HandleD2Ev.exit
   %.0 = phi i64 [ %5, %_ZN4CGAL6HandleD2Ev.exit ], [ %1, %2 ]
   %5 = add i64 %.0, -1
-  %6 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZN4CGAL6HandleD2Ev.exit, label %8
@@ -926,7 +921,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5Eigen8internal27construct_element
 
 4:                                                ; preds = %.lr.ph, %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEC2Ev.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %22, %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEC2Ev.exit ]
-  %5 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %0, i64 %.012
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.012
   %6 = load i8, ptr @_ZGVZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %_ZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEv.exit.i.i, !prof !55

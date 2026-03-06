@@ -14,18 +14,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.94 }
 %union.anon.94 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.intel_remapped_plane_info = type { i32, %union.anon.75 }
-%union.anon.75 = type { i32, [4 x i8] }
-%struct.i915_color_plane_view = type { i32, i32, i32, i32, i32 }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
 %struct.intel_power_domain_mask = type { [2 x i64] }
 %struct.drm_rect = type { i32, i32, i32, i32 }
 %struct.va_format = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.drm_connector_list_iter = type { ptr, ptr }
 %struct.intel_link_bw_limits = type { i8, i8, [4 x i32] }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
 %struct.drm_modeset_acquire_ctx = type { %struct.ww_acquire_ctx, ptr, i32, %struct.list_head, i8, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
 %struct.list_head = type { ptr, ptr }
@@ -407,7 +401,7 @@ define dso_local i32 @vlv_get_hpll_vco(ptr noundef %0) local_unnamed_addr #0 ali
   %6 = tail call i32 @vlv_cck_read(ptr noundef %0, i32 noundef 8) #26
   %7 = and i32 %6, 3
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr i32, ptr %2, i64 %8
+  %9 = getelementptr [4 x i8], ptr %2, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = mul i32 %10, 1000
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -489,7 +483,7 @@ define dso_local i32 @vlv_get_cck_clock_hpll(ptr noundef %0, ptr noundef %1, i32
   %12 = tail call i32 @vlv_cck_read(ptr noundef %0, i32 noundef 8) #26
   %13 = and i32 %12, 3
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr i32, ptr %4, i64 %14
+  %15 = getelementptr [4 x i8], ptr %4, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = mul i32 %16, 1000
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -570,7 +564,7 @@ define dso_local void @intel_update_czclk(ptr noundef %0) local_unnamed_addr #0 
   %15 = tail call i32 @vlv_cck_read(ptr noundef %0, i32 noundef 8) #26
   %16 = and i32 %15, 3
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr i32, ptr %2, i64 %17
+  %18 = getelementptr [4 x i8], ptr %2, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = mul i32 %19, 1000
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -781,7 +775,7 @@ define dso_local void @assert_transcoder(ptr noundef %0, i32 noundef %1, i1 noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %16 = sext i32 %1 to i64
-  %17 = getelementptr i32, ptr %15, i64 %16
+  %17 = getelementptr [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %15, align 4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -1076,7 +1070,7 @@ define dso_local void @intel_enable_transcoder(ptr noundef %0) local_unnamed_add
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %.pre8, i64 36
   %54 = sext i32 %7 to i64
-  %55 = getelementptr i32, ptr %53, i64 %54
+  %55 = getelementptr [4 x i8], ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %53, align 4
   %58 = getelementptr inbounds nuw i8, ptr %.pre8, i64 32
@@ -1099,7 +1093,7 @@ define dso_local void @intel_enable_transcoder(ptr noundef %0) local_unnamed_add
   %71 = phi ptr [ %.pre, %52 ], [ %.pre8, %48 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %73 = sext i32 %5 to i64
-  %74 = getelementptr i32, ptr %72, i64 %73
+  %74 = getelementptr [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = load i32, ptr %72, align 4
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 32
@@ -1148,7 +1142,7 @@ define dso_local void @intel_enable_transcoder(ptr noundef %0) local_unnamed_add
 104:                                              ; preds = %70
   %105 = load ptr, ptr %29, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 36
-  %107 = getelementptr i32, ptr %106, i64 %73
+  %107 = getelementptr [4 x i8], ptr %106, i64 %73
   %108 = load i32, ptr %107, align 4
   %109 = load i32, ptr %106, align 4
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 32
@@ -1162,7 +1156,7 @@ define dso_local void @intel_enable_transcoder(ptr noundef %0) local_unnamed_add
   tail call void %117(ptr noundef nonnull %82, i32 %114, i32 noundef %115, i1 noundef zeroext true) #26
   %118 = load ptr, ptr %29, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 36
-  %120 = getelementptr i32, ptr %119, i64 %73
+  %120 = getelementptr [4 x i8], ptr %119, i64 %73
   %121 = load i32, ptr %120, align 4
   %122 = load i32, ptr %119, align 4
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 32
@@ -1254,7 +1248,7 @@ define dso_local void @intel_disable_transcoder(ptr noundef readonly captures(no
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %32 = sext i32 %5 to i64
-  %33 = getelementptr i32, ptr %31, i64 %32
+  %33 = getelementptr [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %31, align 4
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -1283,7 +1277,7 @@ define dso_local void @intel_disable_transcoder(ptr noundef readonly captures(no
   %57 = select i1 %55, i32 %56, i32 %51
   %58 = load ptr, ptr %29, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  %60 = getelementptr i32, ptr %59, i64 %32
+  %60 = getelementptr [4 x i8], ptr %59, i64 %32
   %61 = load i32, ptr %60, align 4
   %62 = load i32, ptr %59, align 4
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -1325,7 +1319,7 @@ define dso_local void @intel_disable_transcoder(ptr noundef readonly captures(no
   %89 = load ptr, ptr %87, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 36
   %91 = sext i32 %88 to i64
-  %92 = getelementptr i32, ptr %90, i64 %91
+  %92 = getelementptr [4 x i8], ptr %90, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = load i32, ptr %90, align 4
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 32
@@ -1381,7 +1375,7 @@ define dso_local i32 @intel_rotation_info_size(ptr noundef readonly captures(non
   %3 = phi i1 [ true, %1 ], [ false, %2 ]
   %4 = phi i64 [ 0, %1 ], [ 1, %2 ]
   %5 = phi i32 [ 0, %1 ], [ %13, %2 ]
-  %.split = getelementptr %struct.intel_remapped_plane_info, ptr %0, i64 %4
+  %.split = getelementptr [12 x i8], ptr %0, i64 %4
   %6 = getelementptr i8, ptr %.split, i64 4
   %7 = getelementptr i8, ptr %.split, i64 10
   %8 = load i16, ptr %7, align 1
@@ -1404,7 +1398,7 @@ define dso_local i32 @intel_remapped_info_size(ptr noundef readonly captures(non
 3:                                                ; preds = %32, %1
   %4 = phi i64 [ 0, %1 ], [ %34, %32 ]
   %5 = phi i32 [ 0, %1 ], [ %33, %32 ]
-  %6 = getelementptr %struct.intel_remapped_plane_info, ptr %0, i64 %4
+  %6 = getelementptr [12 x i8], ptr %0, i64 %4
   %7 = load i32, ptr %6, align 1
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %12, label %9
@@ -1501,7 +1495,7 @@ define dso_local i32 @intel_fb_xy_to_linear(i32 noundef %0, i32 noundef %1, ptr 
 define dso_local void @intel_add_fb_offsets(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #10 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %6 = sext i32 %3 to i64
-  %7 = getelementptr %struct.i915_color_plane_view, ptr %5, i64 %6
+  %7 = getelementptr [20 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %0, align 4
@@ -1716,27 +1710,27 @@ define dso_local void @intel_plane_disable_noatomic(ptr noundef %0, ptr noundef 
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 1324
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr i32, ptr %63, i64 %66
+  %67 = getelementptr [4 x i8], ptr %63, i64 %66
   store i32 0, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 4160
   %69 = load i32, ptr %64, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr i32, ptr %68, i64 %70
+  %71 = getelementptr [4 x i8], ptr %68, i64 %70
   store i32 0, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 4192
   %73 = load i32, ptr %64, align 4
   %74 = zext i32 %73 to i64
-  %75 = getelementptr i64, ptr %72, i64 %74
+  %75 = getelementptr [8 x i8], ptr %72, i64 %74
   store i64 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 4256
   %77 = load i32, ptr %64, align 4
   %78 = zext i32 %77 to i64
-  %79 = getelementptr i64, ptr %76, i64 %78
+  %79 = getelementptr [8 x i8], ptr %76, i64 %78
   store i64 0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 4096
   %81 = load i32, ptr %64, align 4
   %82 = zext i32 %81 to i64
-  %83 = getelementptr i32, ptr %80, i64 %82
+  %83 = getelementptr [4 x i8], ptr %80, i64 %82
   store i32 0, ptr %83, align 4
   %84 = load i8, ptr %34, align 1
   %85 = and i8 %84, 127
@@ -1913,7 +1907,7 @@ define dso_local ptr @intel_get_crtc_new_encoder(ptr noundef readonly captures(n
   %26 = phi i64 [ 0, %21 ], [ %45, %42 ]
   %27 = phi ptr [ null, %21 ], [ %44, %42 ]
   %28 = phi i32 [ 0, %21 ], [ %43, %42 ]
-  %29 = getelementptr %struct.__drm_connnectors_state, ptr %23, i64 %26
+  %29 = getelementptr [40 x i8], ptr %23, i64 %26
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %42, label %32
@@ -3194,7 +3188,7 @@ define dso_local void @intel_cpu_transcoder_set_m1_n1(ptr noundef readonly captu
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = sext i32 %1 to i64
-  %13 = getelementptr i32, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %11, align 4
   %16 = sub i32 %14, %15
@@ -3277,7 +3271,7 @@ define dso_local void @intel_cpu_transcoder_set_m2_n2(ptr noundef readonly captu
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = sext i32 %1 to i64
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %22, align 4
   %27 = sub i32 %25, %26
@@ -3454,7 +3448,7 @@ define dso_local void @i9xx_set_pipeconf(ptr noundef readonly captures(none) %0)
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 36
   %93 = sext i32 %5 to i64
-  %94 = getelementptr i32, ptr %92, i64 %93
+  %94 = getelementptr [4 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = load i32, ptr %92, align 4
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -3468,7 +3462,7 @@ define dso_local void @i9xx_set_pipeconf(ptr noundef readonly captures(none) %0)
   tail call void %104(ptr noundef nonnull %102, i32 %101, i32 noundef %89, i1 noundef zeroext true) #26
   %105 = load ptr, ptr %90, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 36
-  %107 = getelementptr i32, ptr %106, i64 %93
+  %107 = getelementptr [4 x i8], ptr %106, i64 %93
   %108 = load i32, ptr %107, align 4
   %109 = load i32, ptr %106, align 4
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 32
@@ -3615,7 +3609,7 @@ define dso_local void @ilk_set_pipeconf(ptr noundef readonly captures(none) %0) 
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 36
   %90 = sext i32 %5 to i64
-  %91 = getelementptr i32, ptr %89, i64 %90
+  %91 = getelementptr [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = load i32, ptr %89, align 4
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 32
@@ -3629,7 +3623,7 @@ define dso_local void @ilk_set_pipeconf(ptr noundef readonly captures(none) %0) 
   tail call void %101(ptr noundef nonnull %99, i32 %98, i32 noundef %86, i1 noundef zeroext true) #26
   %102 = load ptr, ptr %87, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 36
-  %104 = getelementptr i32, ptr %103, i64 %90
+  %104 = getelementptr [4 x i8], ptr %103, i64 %90
   %105 = load i32, ptr %104, align 4
   %106 = load i32, ptr %103, align 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 32
@@ -3748,7 +3742,7 @@ define dso_local void @intel_cpu_transcoder_get_m1_n1(ptr noundef readonly captu
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = sext i32 %1 to i64
-  %13 = getelementptr i32, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %11, align 4
   %16 = sub i32 %14, %15
@@ -3836,7 +3830,7 @@ define dso_local void @intel_cpu_transcoder_get_m2_n2(ptr noundef readonly captu
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = sext i32 %1 to i64
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %22, align 4
   %27 = sub i32 %25, %26
@@ -7930,7 +7924,7 @@ define internal fastcc i32 @intel_modeset_pipe(ptr noundef %0, ptr noundef captu
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %29, i64 %32
+  %.split = getelementptr [56 x i8], ptr %29, i64 %32
   %33 = getelementptr i8, ptr %.split, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4328
@@ -8079,7 +8073,7 @@ define dso_local zeroext i8 @intel_calc_active_pipes(ptr noundef readonly captur
 12:                                               ; preds = %34, %8
   %13 = phi i64 [ 0, %8 ], [ %36, %34 ]
   %14 = phi i8 [ %1, %8 ], [ %35, %34 ]
-  %15 = getelementptr %struct.__drm_crtcs_state, ptr %10, i64 %13
+  %15 = getelementptr [56 x i8], ptr %10, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %34, label %18
@@ -8132,7 +8126,7 @@ define dso_local i32 @intel_atomic_add_affected_planes(ptr noundef %0, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %10, i64 %13
+  %.split = getelementptr [56 x i8], ptr %10, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4328
@@ -8210,7 +8204,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
 18:                                               ; preds = %52, %15
   %19 = phi i64 [ 0, %15 ], [ %53, %52 ]
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr %struct.__drm_crtcs_state, ptr %20, i64 %19
+  %21 = getelementptr [56 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -8294,7 +8288,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
 
 72:                                               ; preds = %.loopexit319, %66
   %73 = phi i64 [ 0, %66 ], [ %190, %.loopexit319 ]
-  %74 = getelementptr %struct.__drm_crtcs_state, ptr %69, i64 %73
+  %74 = getelementptr [56 x i8], ptr %69, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.loopexit319, label %77
@@ -8303,7 +8297,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 144
   %79 = load i32, ptr %78, align 8
   %80 = zext i32 %79 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %69, i64 %80
+  %.split = getelementptr [56 x i8], ptr %69, i64 %80
   %81 = getelementptr i8, ptr %.split, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 300
@@ -8397,7 +8391,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
 
 139:                                              ; preds = %187, %124
   %140 = phi i64 [ 0, %124 ], [ %188, %187 ]
-  %141 = getelementptr %struct.__drm_planes_state, ptr %125, i64 %140
+  %141 = getelementptr [32 x i8], ptr %125, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %144 = load ptr, ptr %143, align 8
@@ -8509,7 +8503,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %207 = phi i64 [ 0, %203 ], [ %228, %225 ]
   %208 = phi i8 [ 0, %203 ], [ %227, %225 ]
   %209 = phi i8 [ 0, %203 ], [ %226, %225 ]
-  %210 = getelementptr %struct.__drm_crtcs_state, ptr %204, i64 %207
+  %210 = getelementptr [56 x i8], ptr %204, i64 %207
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %211, null
   br i1 %212, label %225, label %213
@@ -8601,7 +8595,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %269 = getelementptr i8, ptr %259, i64 128
   %270 = load i32, ptr %269, align 8
   %271 = zext i32 %270 to i64
-  %.split168 = getelementptr %struct.__drm_crtcs_state, ptr %268, i64 %271
+  %.split168 = getelementptr [56 x i8], ptr %268, i64 %271
   %272 = getelementptr i8, ptr %.split168, i64 24
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 10
@@ -8623,7 +8617,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %285 = load ptr, ptr %192, align 8
   %286 = load i32, ptr %269, align 8
   %287 = zext i32 %286 to i64
-  %.split169 = getelementptr %struct.__drm_crtcs_state, ptr %285, i64 %287
+  %.split169 = getelementptr [56 x i8], ptr %285, i64 %287
   %288 = getelementptr i8, ptr %.split169, i64 16
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 4328
@@ -8679,7 +8673,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %323 = phi ptr [ %450, %449 ], [ %255, %.loopexit316 ]
   %324 = phi i64 [ %451, %449 ], [ 0, %.loopexit316 ]
   %325 = load ptr, ptr %192, align 8
-  %326 = getelementptr %struct.__drm_crtcs_state, ptr %325, i64 %324
+  %326 = getelementptr [56 x i8], ptr %325, i64 %324
   %327 = load ptr, ptr %326, align 8
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 24
   %329 = load ptr, ptr %328, align 8
@@ -8712,7 +8706,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %348 = getelementptr inbounds nuw i8, ptr %327, i64 144
   %349 = load i32, ptr %348, align 8
   %350 = zext i32 %349 to i64
-  %.split171 = getelementptr %struct.__drm_crtcs_state, ptr %325, i64 %350
+  %.split171 = getelementptr [56 x i8], ptr %325, i64 %350
   %351 = getelementptr i8, ptr %.split171, i64 24
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds nuw i8, ptr %323, i64 736
@@ -8756,7 +8750,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %381 = getelementptr i8, ptr %359, i64 128
   %382 = load i32, ptr %381, align 8
   %383 = zext i32 %382 to i64
-  %.split172 = getelementptr %struct.__drm_crtcs_state, ptr %380, i64 %383
+  %.split172 = getelementptr [56 x i8], ptr %380, i64 %383
   %384 = getelementptr i8, ptr %.split172, i64 24
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 4755
@@ -8764,7 +8758,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %387 = load ptr, ptr %192, align 8
   %388 = load i32, ptr %381, align 8
   %389 = zext i32 %388 to i64
-  %.split.i = getelementptr %struct.__drm_crtcs_state, ptr %387, i64 %389
+  %.split.i = getelementptr [56 x i8], ptr %387, i64 %389
   %390 = getelementptr i8, ptr %.split.i, i64 24
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 4755
@@ -8809,7 +8803,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
   %417 = load ptr, ptr %192, align 8
   %418 = load i32, ptr %381, align 8
   %419 = zext i32 %418 to i64
-  %.split2.i = getelementptr %struct.__drm_crtcs_state, ptr %417, i64 %419
+  %.split2.i = getelementptr [56 x i8], ptr %417, i64 %419
   %420 = getelementptr i8, ptr %.split2.i, i64 24
   %421 = load ptr, ptr %420, align 8
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 4755
@@ -8892,7 +8886,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 468:                                              ; preds = %.thread228, %466
   %469 = phi i64 [ 0, %466 ], [ %1421, %.thread228 ]
   %470 = load ptr, ptr %192, align 8
-  %471 = getelementptr %struct.__drm_crtcs_state, ptr %470, i64 %469
+  %471 = getelementptr [56 x i8], ptr %470, i64 %469
   %472 = load ptr, ptr %471, align 8
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 24
   %474 = load ptr, ptr %473, align 8
@@ -8931,7 +8925,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %495 = getelementptr inbounds nuw i8, ptr %472, i64 144
   %496 = load i32, ptr %495, align 8
   %497 = zext i32 %496 to i64
-  %.split180 = getelementptr %struct.__drm_crtcs_state, ptr %470, i64 %497
+  %.split180 = getelementptr [56 x i8], ptr %470, i64 %497
   %498 = getelementptr i8, ptr %.split180, i64 24
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 4755
@@ -9014,7 +9008,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %548 = getelementptr inbounds nuw i8, ptr %472, i64 144
   %549 = load i32, ptr %548, align 8
   %550 = zext i32 %549 to i64
-  %.split173 = getelementptr %struct.__drm_crtcs_state, ptr %470, i64 %550
+  %.split173 = getelementptr [56 x i8], ptr %470, i64 %550
   %551 = getelementptr i8, ptr %.split173, i64 24
   %552 = load ptr, ptr %551, align 8
   %553 = load ptr, ptr %472, align 8
@@ -9064,7 +9058,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %580 = load ptr, ptr %192, align 8
   %581 = load i32, ptr %548, align 8
   %582 = zext i32 %581 to i64
-  %.split.i192 = getelementptr %struct.__drm_crtcs_state, ptr %580, i64 %582
+  %.split.i192 = getelementptr [56 x i8], ptr %580, i64 %582
   %583 = getelementptr i8, ptr %.split.i192, i64 24
   %584 = load ptr, ptr %583, align 8
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 4755
@@ -9109,7 +9103,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %610 = load ptr, ptr %192, align 8
   %611 = load i32, ptr %548, align 8
   %612 = zext i32 %611 to i64
-  %.split2.i193 = getelementptr %struct.__drm_crtcs_state, ptr %610, i64 %612
+  %.split2.i193 = getelementptr [56 x i8], ptr %610, i64 %612
   %613 = getelementptr i8, ptr %.split2.i193, i64 24
   %614 = load ptr, ptr %613, align 8
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 4755
@@ -9155,7 +9149,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %644 = load ptr, ptr %192, align 8
   %645 = load i32, ptr %548, align 8
   %646 = zext i32 %645 to i64
-  %.split174 = getelementptr %struct.__drm_crtcs_state, ptr %644, i64 %646
+  %.split174 = getelementptr [56 x i8], ptr %644, i64 %646
   %647 = getelementptr i8, ptr %.split174, i64 24
   %648 = load ptr, ptr %647, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9191,7 +9185,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %667 = load ptr, ptr %192, align 8
   %668 = load i32, ptr %548, align 8
   %669 = zext i32 %668 to i64
-  %.split175 = getelementptr %struct.__drm_crtcs_state, ptr %667, i64 %669
+  %.split175 = getelementptr [56 x i8], ptr %667, i64 %669
   %670 = getelementptr i8, ptr %.split175, i64 24
   %671 = load ptr, ptr %670, align 8
   %672 = getelementptr inbounds nuw i8, ptr %666, i64 7184
@@ -9220,7 +9214,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %687 = phi i32 [ %730, %.thread206 ], [ %682, %681 ]
   %688 = phi i64 [ %731, %.thread206 ], [ 0, %681 ]
   %689 = load ptr, ptr %194, align 8
-  %690 = getelementptr %struct.__drm_connnectors_state, ptr %689, i64 %688
+  %690 = getelementptr [40 x i8], ptr %689, i64 %688
   %691 = load ptr, ptr %690, align 8
   %692 = icmp eq ptr %691, null
   br i1 %692, label %.thread206, label %693
@@ -9326,7 +9320,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   store i8 %745, ptr %742, align 1
   %746 = load i32, ptr %649, align 8
   %747 = sext i32 %746 to i64
-  %748 = getelementptr i32, ptr %195, i64 %747
+  %748 = getelementptr [4 x i8], ptr %195, i64 %747
   %749 = load i32, ptr %748, align 4
   %750 = getelementptr inbounds nuw i8, ptr %648, i64 1360
   store i32 %749, ptr %750, align 8
@@ -9385,7 +9379,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %783 = phi i64 [ 0, %780 ], [ %867, %.thread212 ]
   %784 = phi i32 [ %778, %780 ], [ %868, %.thread212 ]
   %785 = load ptr, ptr %194, align 8
-  %786 = getelementptr %struct.__drm_connnectors_state, ptr %785, i64 %783
+  %786 = getelementptr [40 x i8], ptr %785, i64 %783
   %787 = load ptr, ptr %786, align 8
   %788 = icmp eq ptr %787, null
   br i1 %788, label %.thread212, label %789
@@ -9413,7 +9407,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 803:                                              ; preds = %837, %800
   %804 = phi i64 [ 0, %800 ], [ %838, %837 ]
   %805 = phi i1 [ false, %800 ], [ %839, %837 ]
-  %806 = getelementptr %struct.__drm_connnectors_state, ptr %785, i64 %804
+  %806 = getelementptr [40 x i8], ptr %785, i64 %804
   %807 = load ptr, ptr %806, align 8
   %808 = icmp eq ptr %807, null
   br i1 %808, label %837, label %809
@@ -9528,7 +9522,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %875 = phi i32 [ %908, %907 ], [ %873, %.loopexit307 ]
   %876 = phi i64 [ %909, %907 ], [ 0, %.loopexit307 ]
   %877 = load ptr, ptr %194, align 8
-  %878 = getelementptr %struct.__drm_connnectors_state, ptr %877, i64 %876
+  %878 = getelementptr [40 x i8], ptr %877, i64 %876
   %879 = load ptr, ptr %878, align 8
   %880 = icmp eq ptr %879, null
   br i1 %880, label %907, label %881
@@ -9600,7 +9594,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %920 = load ptr, ptr %192, align 8
   %921 = load i32, ptr %548, align 8
   %922 = zext i32 %921 to i64
-  %.split176 = getelementptr %struct.__drm_crtcs_state, ptr %920, i64 %922
+  %.split176 = getelementptr [56 x i8], ptr %920, i64 %922
   %923 = getelementptr i8, ptr %.split176, i64 24
   %924 = load ptr, ptr %923, align 8
   %925 = call i32 @intel_dpll_crtc_compute_clock(ptr noundef %1, ptr noundef nonnull %472) #26
@@ -10069,7 +10063,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1224 = load ptr, ptr %192, align 8
   %1225 = load i32, ptr %548, align 8
   %1226 = zext i32 %1225 to i64
-  %.split177 = getelementptr %struct.__drm_crtcs_state, ptr %1224, i64 %1226
+  %.split177 = getelementptr [56 x i8], ptr %1224, i64 %1226
   %1227 = getelementptr i8, ptr %.split177, i64 24
   %1228 = load ptr, ptr %1227, align 8
   %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 4755
@@ -10243,7 +10237,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1338 = load ptr, ptr %192, align 8
   %1339 = load i32, ptr %1321, align 8
   %1340 = zext i32 %1339 to i64
-  %.split178 = getelementptr %struct.__drm_crtcs_state, ptr %1338, i64 %1340
+  %.split178 = getelementptr [56 x i8], ptr %1338, i64 %1340
   %1341 = getelementptr i8, ptr %.split178, i64 24
   %1342 = load ptr, ptr %1341, align 8
   %1343 = load ptr, ptr %1342, align 8
@@ -10274,7 +10268,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 144
   %1361 = load i32, ptr %1360, align 8
   %1362 = zext i32 %1361 to i64
-  %.split179 = getelementptr %struct.__drm_crtcs_state, ptr %1358, i64 %1362
+  %.split179 = getelementptr [56 x i8], ptr %1358, i64 %1362
   %1363 = getelementptr i8, ptr %.split179, i64 24
   %1364 = load ptr, ptr %1363, align 8
   %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 4755
@@ -10432,7 +10426,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 .preheader303:                                    ; preds = %1436, %1594
   %1442 = phi i64 [ %1595, %1594 ], [ 0, %1436 ]
   %1443 = load ptr, ptr %192, align 8
-  %1444 = getelementptr %struct.__drm_crtcs_state, ptr %1443, i64 %1442
+  %1444 = getelementptr [56 x i8], ptr %1443, i64 %1442
   %1445 = load ptr, ptr %1444, align 8
   %1446 = getelementptr inbounds nuw i8, ptr %1444, i64 16
   %1447 = load ptr, ptr %1446, align 8
@@ -10458,7 +10452,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1461 = getelementptr inbounds nuw i8, ptr %1445, i64 144
   %1462 = load i32, ptr %1461, align 8
   %1463 = zext i32 %1462 to i64
-  %.split181 = getelementptr %struct.__drm_crtcs_state, ptr %1443, i64 %1463
+  %.split181 = getelementptr [56 x i8], ptr %1443, i64 %1463
   %1464 = getelementptr i8, ptr %.split181, i64 24
   %1465 = load ptr, ptr %1464, align 8
   %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 4755
@@ -10501,7 +10495,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1492 = phi i32 [ %1512, %.thread242 ], [ %1490, %1489 ]
   %1493 = phi i64 [ %1513, %.thread242 ], [ 0, %1489 ]
   %1494 = load ptr, ptr %194, align 8
-  %1495 = getelementptr %struct.__drm_connnectors_state, ptr %1494, i64 %1493
+  %1495 = getelementptr [40 x i8], ptr %1494, i64 %1493
   %1496 = load ptr, ptr %1495, align 8
   %1497 = icmp eq ptr %1496, null
   br i1 %1497, label %.thread242, label %1498
@@ -10682,7 +10676,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1602 = phi ptr [ %1785, %.critedge188 ], [ %1596, %.loopexit305 ]
   %1603 = phi i64 [ %1786, %.critedge188 ], [ 0, %.loopexit305 ]
   %1604 = load ptr, ptr %192, align 8
-  %1605 = getelementptr %struct.__drm_crtcs_state, ptr %1604, i64 %1603
+  %1605 = getelementptr [56 x i8], ptr %1604, i64 %1603
   %1606 = load ptr, ptr %1605, align 8
   %1607 = getelementptr inbounds nuw i8, ptr %1605, i64 24
   %1608 = load ptr, ptr %1607, align 8
@@ -10742,7 +10736,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 1642:                                             ; preds = %1666, %1634
   %1643 = phi i64 [ 0, %1634 ], [ %1667, %1666 ]
   %1644 = phi i1 [ true, %1634 ], [ %1668, %1666 ]
-  %1645 = getelementptr %struct.__drm_crtcs_state, ptr %1639, i64 %1643
+  %1645 = getelementptr [56 x i8], ptr %1639, i64 %1643
   %1646 = load ptr, ptr %1645, align 8
   %1647 = getelementptr inbounds nuw i8, ptr %1645, i64 24
   %1648 = load ptr, ptr %1647, align 8
@@ -10829,7 +10823,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 1702:                                             ; preds = %1726, %1690
   %1703 = phi i64 [ 0, %1690 ], [ %1727, %1726 ]
   %1704 = phi i1 [ true, %1690 ], [ %1728, %1726 ]
-  %1705 = getelementptr %struct.__drm_crtcs_state, ptr %1699, i64 %1703
+  %1705 = getelementptr [56 x i8], ptr %1699, i64 %1703
   %1706 = load ptr, ptr %1705, align 8
   %1707 = getelementptr inbounds nuw i8, ptr %1705, i64 24
   %1708 = load ptr, ptr %1707, align 8
@@ -10902,7 +10896,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 1749:                                             ; preds = %1773, %1745
   %1750 = phi i64 [ 0, %1745 ], [ %1774, %1773 ]
   %1751 = phi i1 [ true, %1745 ], [ %1775, %1773 ]
-  %1752 = getelementptr %struct.__drm_crtcs_state, ptr %1746, i64 %1750
+  %1752 = getelementptr [56 x i8], ptr %1746, i64 %1750
   %1753 = load ptr, ptr %1752, align 8
   %1754 = getelementptr inbounds nuw i8, ptr %1752, i64 24
   %1755 = load ptr, ptr %1754, align 8
@@ -10967,7 +10961,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1791 = phi ptr [ %1806, %1805 ], [ %1785, %.loopexit301 ]
   %1792 = phi i64 [ %1807, %1805 ], [ 0, %.loopexit301 ]
   %1793 = load ptr, ptr %192, align 8
-  %1794 = getelementptr %struct.__drm_crtcs_state, ptr %1793, i64 %1792
+  %1794 = getelementptr [56 x i8], ptr %1793, i64 %1792
   %1795 = load ptr, ptr %1794, align 8
   %1796 = icmp eq ptr %1795, null
   br i1 %1796, label %1805, label %1797
@@ -11029,7 +11023,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 1830:                                             ; preds = %1821
   %1831 = load ptr, ptr %194, align 8
   %1832 = sext i32 %1827 to i64
-  %.split182 = getelementptr %struct.__drm_connnectors_state, ptr %1831, i64 %1832
+  %.split182 = getelementptr [40 x i8], ptr %1831, i64 %1832
   %1833 = getelementptr i8, ptr %.split182, i64 24
   %1834 = load ptr, ptr %1833, align 8
   %1835 = icmp eq ptr %1834, null
@@ -11188,7 +11182,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 1919:                                             ; preds = %1974, %1917
   %1920 = phi i64 [ 0, %1917 ], [ %1975, %1974 ]
   %1921 = load ptr, ptr %1918, align 8
-  %1922 = getelementptr %struct.__drm_planes_state, ptr %1921, i64 %1920
+  %1922 = getelementptr [32 x i8], ptr %1921, i64 %1920
   %1923 = load ptr, ptr %1922, align 8
   %1924 = getelementptr inbounds nuw i8, ptr %1922, i64 24
   %1925 = load ptr, ptr %1924, align 8
@@ -11309,7 +11303,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1993 = phi ptr [ %1985, %1989 ], [ %2079, %.thread256 ]
   %1994 = phi i64 [ 0, %1989 ], [ %2080, %.thread256 ]
   %1995 = load ptr, ptr %192, align 8
-  %1996 = getelementptr %struct.__drm_crtcs_state, ptr %1995, i64 %1994
+  %1996 = getelementptr [56 x i8], ptr %1995, i64 %1994
   %1997 = load ptr, ptr %1996, align 8
   %1998 = getelementptr inbounds nuw i8, ptr %1996, i64 24
   %1999 = load ptr, ptr %1998, align 8
@@ -11356,7 +11350,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 2027:                                             ; preds = %2045, %2024
   %2028 = phi i64 [ 0, %2024 ], [ %2047, %2045 ]
   %2029 = phi i8 [ 0, %2024 ], [ %2046, %2045 ]
-  %2030 = getelementptr %struct.__drm_planes_state, ptr %2025, i64 %2028
+  %2030 = getelementptr [32 x i8], ptr %2025, i64 %2028
   %2031 = load ptr, ptr %2030, align 8
   %2032 = icmp eq ptr %2031, null
   br i1 %2032, label %2045, label %2033
@@ -11472,7 +11466,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %2098 = phi ptr [ %2085, %2089 ], [ %2119, %2118 ]
   %2099 = phi i64 [ 0, %2089 ], [ %2120, %2118 ]
   %2100 = load ptr, ptr %2090, align 8
-  %2101 = getelementptr %struct.__drm_planes_state, ptr %2100, i64 %2099
+  %2101 = getelementptr [32 x i8], ptr %2100, i64 %2099
   %2102 = load ptr, ptr %2101, align 8
   %2103 = icmp eq ptr %2102, null
   br i1 %2103, label %2118, label %2104
@@ -11516,7 +11510,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 2125:                                             ; preds = %.thread273, %2095
   %2126 = phi i64 [ 0, %2095 ], [ %2423, %.thread273 ]
   %2127 = load ptr, ptr %192, align 8
-  %2128 = getelementptr %struct.__drm_crtcs_state, ptr %2127, i64 %2126
+  %2128 = getelementptr [56 x i8], ptr %2127, i64 %2126
   %2129 = load ptr, ptr %2128, align 8
   %2130 = getelementptr inbounds nuw i8, ptr %2128, i64 16
   %2131 = load ptr, ptr %2130, align 8
@@ -11557,7 +11551,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %2158 = phi ptr [ %2145, %2149 ], [ %2213, %2212 ]
   %2159 = phi i64 [ 0, %2149 ], [ %2214, %2212 ]
   %2160 = load ptr, ptr %2150, align 8
-  %2161 = getelementptr %struct.__drm_planes_state, ptr %2160, i64 %2159
+  %2161 = getelementptr [32 x i8], ptr %2160, i64 %2159
   %2162 = load ptr, ptr %2161, align 8
   %2163 = getelementptr inbounds nuw i8, ptr %2161, i64 24
   %2164 = load ptr, ptr %2163, align 8
@@ -11617,11 +11611,11 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   store i8 %2204, ptr %2154, align 1
   %2205 = load i32, ptr %2184, align 4
   %2206 = zext i32 %2205 to i64
-  %2207 = getelementptr i32, ptr %2155, i64 %2206
+  %2207 = getelementptr [4 x i8], ptr %2155, i64 %2206
   store i32 0, ptr %2207, align 4
   %2208 = load i32, ptr %2184, align 4
   %2209 = zext i32 %2208 to i64
-  %2210 = getelementptr i64, ptr %2156, i64 %2209
+  %2210 = getelementptr [8 x i8], ptr %2156, i64 %2209
   store i64 0, ptr %2210, align 8
   br label %2211
 
@@ -11665,7 +11659,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 2236:                                             ; preds = %.thread262, %2223
   %2237 = phi i64 [ 0, %2223 ], [ %2368, %.thread262 ]
   %2238 = load ptr, ptr %2224, align 8
-  %2239 = getelementptr %struct.__drm_planes_state, ptr %2238, i64 %2237
+  %2239 = getelementptr [32 x i8], ptr %2238, i64 %2237
   %2240 = load ptr, ptr %2239, align 8
   %2241 = getelementptr inbounds nuw i8, ptr %2239, i64 24
   %2242 = load ptr, ptr %2241, align 8
@@ -11779,19 +11773,19 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   store i8 %2314, ptr %2229, align 1
   %2315 = load i32, ptr %2252, align 4
   %2316 = zext i32 %2315 to i64
-  %2317 = getelementptr i32, ptr %2230, i64 %2316
+  %2317 = getelementptr [4 x i8], ptr %2230, i64 %2316
   %2318 = load i32, ptr %2317, align 4
   %2319 = load i32, ptr %2267, align 4
   %2320 = zext i32 %2319 to i64
-  %2321 = getelementptr i32, ptr %2231, i64 %2320
+  %2321 = getelementptr [4 x i8], ptr %2231, i64 %2320
   store i32 %2318, ptr %2321, align 4
   %2322 = load i32, ptr %2252, align 4
   %2323 = zext i32 %2322 to i64
-  %2324 = getelementptr i64, ptr %2232, i64 %2323
+  %2324 = getelementptr [8 x i8], ptr %2232, i64 %2323
   %2325 = load i64, ptr %2324, align 8
   %2326 = load i32, ptr %2267, align 4
   %2327 = zext i32 %2326 to i64
-  %2328 = getelementptr i64, ptr %2233, i64 %2327
+  %2328 = getelementptr [8 x i8], ptr %2233, i64 %2327
   store i64 %2325, ptr %2328, align 8
   br i1 %2234, label %2331, label %2329
 
@@ -12024,7 +12018,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 2463:                                             ; preds = %2504, %2461
   %2464 = phi i64 [ 0, %2461 ], [ %2505, %2504 ]
   %2465 = load ptr, ptr %192, align 8
-  %2466 = getelementptr %struct.__drm_crtcs_state, ptr %2465, i64 %2464
+  %2466 = getelementptr [56 x i8], ptr %2465, i64 %2464
   %2467 = load ptr, ptr %2466, align 8
   %2468 = getelementptr inbounds nuw i8, ptr %2466, i64 24
   %2469 = load ptr, ptr %2468, align 8
@@ -12121,7 +12115,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %2521 = phi ptr [ %2514, %2518 ], [ %2531, %2530 ]
   %2522 = phi i64 [ 0, %2518 ], [ %2532, %2530 ]
   %2523 = load ptr, ptr %2519, align 8
-  %2524 = getelementptr %struct.__drm_crtcs_state, ptr %2523, i64 %2522
+  %2524 = getelementptr [56 x i8], ptr %2523, i64 %2522
   %2525 = load ptr, ptr %2524, align 8
   %2526 = icmp eq ptr %2525, null
   br i1 %2526, label %2530, label %2527
@@ -12203,7 +12197,7 @@ define internal fastcc i32 @intel_modeset_checks(ptr noundef initializes((142, 1
   %18 = phi i64 [ 0, %13 ], [ %43, %40 ]
   %19 = phi ptr [ null, %13 ], [ %42, %40 ]
   %20 = phi i32 [ -1, %13 ], [ %41, %40 ]
-  %21 = getelementptr %struct.__drm_crtcs_state, ptr %15, i64 %18
+  %21 = getelementptr [56 x i8], ptr %15, i64 %18
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -12343,7 +12337,7 @@ define internal fastcc i32 @intel_atomic_check_crtcs(ptr noundef %0) unnamed_add
   %10 = phi ptr [ %3, %7 ], [ %245, %.thread18 ]
   %11 = phi i64 [ 0, %7 ], [ %246, %.thread18 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr %struct.__drm_crtcs_state, ptr %12, i64 %11
+  %13 = getelementptr [56 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread18, label %16
@@ -12353,7 +12347,7 @@ define internal fastcc i32 @intel_atomic_check_crtcs(ptr noundef %0) unnamed_add
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %12, i64 %20
+  %.split = getelementptr [56 x i8], ptr %12, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 2632
@@ -12412,7 +12406,7 @@ define internal fastcc i32 @intel_atomic_check_crtcs(ptr noundef %0) unnamed_add
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 144
   %57 = load i32, ptr %56, align 8
   %58 = zext i32 %57 to i64
-  %.split14 = getelementptr %struct.__drm_crtcs_state, ptr %55, i64 %58
+  %.split14 = getelementptr [56 x i8], ptr %55, i64 %58
   %59 = getelementptr i8, ptr %.split14, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4332
@@ -12545,7 +12539,7 @@ define internal fastcc i32 @intel_atomic_check_crtcs(ptr noundef %0) unnamed_add
   %141 = load ptr, ptr %8, align 8
   %142 = load i32, ptr %18, align 8
   %143 = zext i32 %142 to i64
-  %.split15 = getelementptr %struct.__drm_crtcs_state, ptr %141, i64 %143
+  %.split15 = getelementptr [56 x i8], ptr %141, i64 %143
   %144 = getelementptr i8, ptr %.split15, i64 24
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 2632
@@ -12727,7 +12721,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @intel_async_flip_check_hw(
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %.split, i64 24
@@ -12829,7 +12823,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @intel_async_flip_check_hw(
 
 76:                                               ; preds = %365, %58
   %77 = phi i64 [ 0, %58 ], [ %366, %365 ]
-  %78 = getelementptr %struct.__drm_planes_state, ptr %60, i64 %77
+  %78 = getelementptr [32 x i8], ptr %60, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = load ptr, ptr %80, align 8
@@ -13364,7 +13358,7 @@ define dso_local i32 @intel_atomic_commit(ptr noundef %0, ptr noundef initialize
   %25 = phi i32 [ %19, %21 ], [ %44, %43 ]
   %26 = phi i8 [ %12, %21 ], [ %45, %43 ]
   %27 = phi i64 [ 0, %21 ], [ %46, %43 ]
-  %28 = getelementptr %struct.__drm_crtcs_state, ptr %23, i64 %27
+  %28 = getelementptr [56 x i8], ptr %23, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %31 = load ptr, ptr %30, align 8
@@ -13419,7 +13413,7 @@ define dso_local i32 @intel_atomic_commit(ptr noundef %0, ptr noundef initialize
   %61 = phi ptr [ %54, %58 ], [ %82, %81 ]
   %62 = phi i64 [ 0, %58 ], [ %83, %81 ]
   %63 = load ptr, ptr %59, align 8
-  %64 = getelementptr %struct.__drm_crtcs_state, ptr %63, i64 %62
+  %64 = getelementptr [56 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %67 = load ptr, ptr %66, align 8
@@ -13509,7 +13503,7 @@ define dso_local i32 @intel_atomic_commit(ptr noundef %0, ptr noundef initialize
   %115 = phi ptr [ %108, %112 ], [ %145, %144 ]
   %116 = phi i64 [ 0, %112 ], [ %146, %144 ]
   %117 = load ptr, ptr %113, align 8
-  %118 = getelementptr %struct.__drm_planes_state, ptr %117, i64 %116
+  %118 = getelementptr [32 x i8], ptr %117, i64 %116
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %144, label %121
@@ -13592,7 +13586,7 @@ define dso_local i32 @intel_atomic_commit(ptr noundef %0, ptr noundef initialize
   %168 = phi ptr [ %101, %105 ], [ %178, %177 ]
   %169 = phi i64 [ 0, %105 ], [ %179, %177 ]
   %170 = load ptr, ptr %106, align 8
-  %171 = getelementptr %struct.__drm_crtcs_state, ptr %170, i64 %169
+  %171 = getelementptr [56 x i8], ptr %170, i64 %169
   %172 = load ptr, ptr %171, align 8
   %173 = icmp eq ptr %172, null
   br i1 %173, label %177, label %174
@@ -13702,7 +13696,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %11 = phi ptr [ %4, %8 ], [ %40, %39 ]
   %12 = phi i64 [ 0, %8 ], [ %41, %39 ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr %struct.__drm_planes_state, ptr %13, i64 %12
+  %14 = getelementptr [32 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %39, label %17
@@ -13778,7 +13772,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
 54:                                               ; preds = %92, %51
   %55 = phi i64 [ 0, %51 ], [ %93, %92 ]
   %56 = load ptr, ptr %52, align 8
-  %57 = getelementptr %struct.__drm_planes_state, ptr %56, i64 %55
+  %57 = getelementptr [32 x i8], ptr %56, i64 %55
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %60 = load ptr, ptr %59, align 8
@@ -13801,7 +13795,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 104
   %73 = zext nneg i32 %67 to i64
-  %74 = getelementptr i32, ptr %72, i64 %73
+  %74 = getelementptr [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, 16
   %77 = zext i32 %76 to i64
@@ -13857,7 +13851,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %106 = phi ptr [ %99, %103 ], [ %129, %128 ]
   %107 = phi i64 [ 0, %103 ], [ %130, %128 ]
   %108 = load ptr, ptr %104, align 8
-  %109 = getelementptr %struct.__drm_crtcs_state, ptr %108, i64 %107
+  %109 = getelementptr [56 x i8], ptr %108, i64 %107
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %112 = load ptr, ptr %111, align 8
@@ -13881,7 +13875,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %124 = getelementptr inbounds nuw i8, ptr %110, i64 1648
   %125 = load i32, ptr %124, align 8
   %126 = sext i32 %125 to i64
-  %127 = getelementptr %struct.intel_power_domain_mask, ptr %2, i64 %126
+  %127 = getelementptr [16 x i8], ptr %2, i64 %126
   call void @intel_modeset_get_crtc_power_domains(ptr noundef %112, ptr noundef %127)
   %.pre69 = load ptr, ptr %3, align 8
   br label %128
@@ -13914,7 +13908,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
 142:                                              ; preds = %222, %137
   %143 = phi i64 [ 0, %137 ], [ %223, %222 ]
   %144 = load ptr, ptr %104, align 8
-  %145 = getelementptr %struct.__drm_crtcs_state, ptr %144, i64 %143
+  %145 = getelementptr [56 x i8], ptr %144, i64 %143
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %148 = load ptr, ptr %147, align 8
@@ -13943,7 +13937,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %164 = getelementptr inbounds nuw i8, ptr %146, i64 144
   %165 = load i32, ptr %164, align 8
   %166 = zext i32 %165 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %163, i64 %166
+  %.split = getelementptr [56 x i8], ptr %163, i64 %166
   %167 = getelementptr i8, ptr %.split, i64 24
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4333
@@ -13973,7 +13967,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %185 = phi i64 [ 0, %181 ], [ %215, %213 ]
   %186 = phi i32 [ 0, %181 ], [ %214, %213 ]
   %187 = load ptr, ptr %138, align 8
-  %188 = getelementptr %struct.__drm_planes_state, ptr %187, i64 %185
+  %188 = getelementptr [32 x i8], ptr %187, i64 %185
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %191 = load ptr, ptr %190, align 8
@@ -14046,7 +14040,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %235 = phi i64 [ 0, %140 ], [ %292, %290 ]
   %236 = phi i32 [ 0, %140 ], [ %291, %290 ]
   %237 = load ptr, ptr %141, align 8
-  %238 = getelementptr %struct.__drm_crtcs_state, ptr %237, i64 %235
+  %238 = getelementptr [56 x i8], ptr %237, i64 %235
   %239 = load ptr, ptr %238, align 8
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %241 = load ptr, ptr %240, align 8
@@ -14136,7 +14130,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %299 = phi i64 [ 0, %232 ], [ %337, %336 ]
   %300 = phi ptr [ %293, %232 ], [ %338, %336 ]
   %301 = load ptr, ptr %233, align 8
-  %302 = getelementptr %struct.__drm_crtcs_state, ptr %301, i64 %299
+  %302 = getelementptr [56 x i8], ptr %301, i64 %299
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %305 = load ptr, ptr %304, align 8
@@ -14207,7 +14201,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %347 = phi ptr [ %338, %344 ], [ %358, %357 ]
   %348 = phi i64 [ 0, %344 ], [ %359, %357 ]
   %349 = load ptr, ptr %345, align 8
-  %350 = getelementptr %struct.__drm_crtcs_state, ptr %349, i64 %348
+  %350 = getelementptr [56 x i8], ptr %349, i64 %348
   %351 = load ptr, ptr %350, align 8
   %352 = icmp eq ptr %351, null
   br i1 %352, label %357, label %353
@@ -14259,7 +14253,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %377 = phi ptr [ %369, %373 ], [ %401, %400 ]
   %378 = phi i64 [ 0, %373 ], [ %402, %400 ]
   %379 = load ptr, ptr %374, align 8
-  %380 = getelementptr %struct.__drm_crtcs_state, ptr %379, i64 %378
+  %380 = getelementptr [56 x i8], ptr %379, i64 %378
   %381 = load ptr, ptr %380, align 8
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 24
   %383 = load ptr, ptr %382, align 8
@@ -14315,7 +14309,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %413 = phi ptr [ %435, %434 ], [ %401, %407 ]
   %414 = phi i64 [ %436, %434 ], [ 0, %407 ]
   %415 = load ptr, ptr %374, align 8
-  %416 = getelementptr %struct.__drm_crtcs_state, ptr %415, i64 %414
+  %416 = getelementptr [56 x i8], ptr %415, i64 %414
   %417 = load ptr, ptr %416, align 8
   %418 = getelementptr inbounds nuw i8, ptr %416, i64 16
   %419 = load ptr, ptr %418, align 8
@@ -14369,7 +14363,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %449 = phi ptr [ %441, %445 ], [ %506, %.loopexit54 ]
   %450 = phi i64 [ 0, %445 ], [ %507, %.loopexit54 ]
   %451 = load ptr, ptr %446, align 8
-  %452 = getelementptr %struct.__drm_crtcs_state, ptr %451, i64 %450
+  %452 = getelementptr [56 x i8], ptr %451, i64 %450
   %453 = load ptr, ptr %452, align 8
   %454 = icmp eq ptr %453, null
   br i1 %454, label %.loopexit54, label %455
@@ -14392,7 +14386,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %466 = getelementptr inbounds nuw i8, ptr %453, i64 144
   %467 = load i32, ptr %466, align 8
   %468 = zext i32 %467 to i64
-  %.split42 = getelementptr %struct.__drm_crtcs_state, ptr %451, i64 %468
+  %.split42 = getelementptr [56 x i8], ptr %451, i64 %468
   %469 = getelementptr i8, ptr %.split42, i64 24
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 4333
@@ -14406,7 +14400,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %477 = phi ptr [ %449, %465 ], [ %500, %498 ]
   %478 = phi i64 [ 0, %465 ], [ %501, %498 ]
   %479 = load ptr, ptr %447, align 8
-  %480 = getelementptr %struct.__drm_planes_state, ptr %479, i64 %478
+  %480 = getelementptr [32 x i8], ptr %479, i64 %478
   %481 = load ptr, ptr %480, align 8
   %482 = icmp eq ptr %481, null
   br i1 %482, label %498, label %483
@@ -14494,7 +14488,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %532 = phi ptr [ %520, %524 ], [ %588, %587 ]
   %533 = phi i64 [ 0, %524 ], [ %589, %587 ]
   %534 = load ptr, ptr %525, align 8
-  %535 = getelementptr %struct.__drm_crtcs_state, ptr %534, i64 %533
+  %535 = getelementptr [56 x i8], ptr %534, i64 %533
   %536 = load ptr, ptr %535, align 8
   %537 = getelementptr inbounds nuw i8, ptr %535, i64 24
   %538 = load ptr, ptr %537, align 8
@@ -14517,7 +14511,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %549 = getelementptr inbounds nuw i8, ptr %536, i64 144
   %550 = load i32, ptr %549, align 8
   %551 = zext i32 %550 to i64
-  %.split43 = getelementptr %struct.__drm_crtcs_state, ptr %534, i64 %551
+  %.split43 = getelementptr [56 x i8], ptr %534, i64 %551
   %552 = getelementptr i8, ptr %.split43, i64 24
   %553 = load ptr, ptr %552, align 8
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 4333
@@ -14530,7 +14524,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %559 = phi ptr [ %532, %548 ], [ %581, %580 ]
   %560 = phi i64 [ 0, %548 ], [ %582, %580 ]
   %561 = load ptr, ptr %526, align 8
-  %562 = getelementptr %struct.__drm_planes_state, ptr %561, i64 %560
+  %562 = getelementptr [32 x i8], ptr %561, i64 %560
   %563 = load ptr, ptr %562, align 8
   %564 = icmp eq ptr %563, null
   br i1 %564, label %580, label %565
@@ -14585,7 +14579,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %595 = phi ptr [ %588, %528 ], [ %631, %630 ]
   %596 = phi i64 [ 0, %528 ], [ %632, %630 ]
   %597 = load ptr, ptr %529, align 8
-  %598 = getelementptr %struct.__drm_crtcs_state, ptr %597, i64 %596
+  %598 = getelementptr [56 x i8], ptr %597, i64 %596
   %599 = load ptr, ptr %598, align 8
   %600 = getelementptr inbounds nuw i8, ptr %598, i64 16
   %601 = load ptr, ptr %600, align 8
@@ -14662,7 +14656,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %646 = phi ptr [ %637, %641 ], [ %906, %905 ]
   %647 = phi i64 [ 0, %641 ], [ %907, %905 ]
   %648 = load ptr, ptr %642, align 8
-  %649 = getelementptr %struct.__drm_crtcs_state, ptr %648, i64 %647
+  %649 = getelementptr [56 x i8], ptr %648, i64 %647
   %650 = load ptr, ptr %649, align 8
   %651 = icmp eq ptr %650, null
   br i1 %651, label %905, label %652
@@ -14675,7 +14669,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %657 = getelementptr inbounds nuw i8, ptr %650, i64 144
   %658 = load i32, ptr %657, align 8
   %659 = zext i32 %658 to i64
-  %.split44 = getelementptr %struct.__drm_crtcs_state, ptr %648, i64 %659
+  %.split44 = getelementptr [56 x i8], ptr %648, i64 %659
   %660 = getelementptr i8, ptr %.split44, i64 16
   %661 = load ptr, ptr %660, align 8
   %662 = getelementptr i8, ptr %.split44, i64 24
@@ -14976,7 +14970,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %866 = load ptr, ptr %642, align 8
   %867 = load i32, ptr %657, align 8
   %868 = zext i32 %867 to i64
-  %.split46 = getelementptr %struct.__drm_crtcs_state, ptr %866, i64 %868
+  %.split46 = getelementptr [56 x i8], ptr %866, i64 %868
   %869 = getelementptr i8, ptr %.split46, i64 24
   %870 = load ptr, ptr %869, align 8
   %871 = load i32, ptr %643, align 8
@@ -14987,7 +14981,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %873 = phi i32 [ %893, %892 ], [ %871, %865 ]
   %874 = phi i64 [ %894, %892 ], [ 0, %865 ]
   %875 = load ptr, ptr %644, align 8
-  %876 = getelementptr %struct.__drm_connnectors_state, ptr %875, i64 %874
+  %876 = getelementptr [40 x i8], ptr %875, i64 %874
   %877 = load ptr, ptr %876, align 8
   %878 = icmp eq ptr %877, null
   br i1 %878, label %892, label %879
@@ -15023,7 +15017,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
 .loopexit49:                                      ; preds = %892, %854, %865, %860, %858, %842
   %897 = load i32, ptr %664, align 8
   %898 = sext i32 %897 to i64
-  %899 = getelementptr %struct.intel_power_domain_mask, ptr %2, i64 %898
+  %899 = getelementptr [16 x i8], ptr %2, i64 %898
   %900 = load ptr, ptr %650, align 8
   %901 = getelementptr inbounds nuw i8, ptr %650, i64 1664
   call void @intel_display_power_put_mask_in_set(ptr noundef %900, ptr noundef nonnull %901, ptr noundef %899) #26
@@ -15069,7 +15063,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %922 = phi ptr [ %915, %919 ], [ %941, %940 ]
   %923 = phi i64 [ 0, %919 ], [ %942, %940 ]
   %924 = load ptr, ptr %920, align 8
-  %925 = getelementptr %struct.__drm_planes_state, ptr %924, i64 %923
+  %925 = getelementptr [32 x i8], ptr %924, i64 %923
   %926 = load ptr, ptr %925, align 8
   %927 = getelementptr inbounds nuw i8, ptr %925, i64 24
   %928 = load ptr, ptr %927, align 8
@@ -16384,7 +16378,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = sext i32 %1 to i64
-  %45 = getelementptr i32, ptr %43, i64 %44
+  %45 = getelementptr [4 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = load i32, ptr %43, align 4
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -16398,7 +16392,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   call void %55(ptr noundef nonnull %53, i32 %52, i32 noundef 52363903, i1 noundef zeroext true) #26
   %56 = load ptr, ptr %41, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %58 = getelementptr i32, ptr %57, i64 %44
+  %58 = getelementptr [4 x i8], ptr %57, i64 %44
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %57, align 4
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -16410,7 +16404,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   call void %66(ptr noundef nonnull %53, i32 %65, i32 noundef 52363903, i1 noundef zeroext true) #26
   %67 = load ptr, ptr %41, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %69 = getelementptr i32, ptr %68, i64 %44
+  %69 = getelementptr [4 x i8], ptr %68, i64 %44
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %68, align 4
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -16422,7 +16416,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   call void %77(ptr noundef nonnull %53, i32 %76, i32 noundef 49218191, i1 noundef zeroext true) #26
   %78 = load ptr, ptr %41, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  %80 = getelementptr i32, ptr %79, i64 %44
+  %80 = getelementptr [4 x i8], ptr %79, i64 %44
   %81 = load i32, ptr %80, align 4
   %82 = load i32, ptr %79, align 4
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 32
@@ -16434,7 +16428,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   call void %88(ptr noundef nonnull %53, i32 %87, i32 noundef 34341343, i1 noundef zeroext true) #26
   %89 = load ptr, ptr %41, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  %91 = getelementptr i32, ptr %90, i64 %44
+  %91 = getelementptr [4 x i8], ptr %90, i64 %44
   %92 = load i32, ptr %91, align 4
   %93 = load i32, ptr %90, align 4
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 32
@@ -16446,7 +16440,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   call void %99(ptr noundef nonnull %53, i32 %98, i32 noundef 34341343, i1 noundef zeroext true) #26
   %100 = load ptr, ptr %41, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  %102 = getelementptr i32, ptr %101, i64 %44
+  %102 = getelementptr [4 x i8], ptr %101, i64 %44
   %103 = load i32, ptr %102, align 4
   %104 = load i32, ptr %101, align 4
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 32
@@ -16458,7 +16452,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   call void %110(ptr noundef nonnull %53, i32 %109, i32 noundef 32178665, i1 noundef zeroext true) #26
   %111 = load ptr, ptr %41, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
-  %113 = getelementptr i32, ptr %112, i64 %44
+  %113 = getelementptr [4 x i8], ptr %112, i64 %44
   %114 = load i32, ptr %113, align 4
   %115 = load i32, ptr %112, align 4
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 32
@@ -16549,7 +16543,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
 .split11.us:                                      ; preds = %.split, %.split.us
   %182 = load ptr, ptr %41, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 36
-  %184 = getelementptr i32, ptr %183, i64 %44
+  %184 = getelementptr [4 x i8], ptr %183, i64 %44
   %185 = load i32, ptr %184, align 4
   %186 = load i32, ptr %183, align 4
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 32
@@ -16561,7 +16555,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   call void %192(ptr noundef nonnull %53, i32 %191, i32 noundef -2147483648, i1 noundef zeroext true) #26
   %193 = load ptr, ptr %41, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 36
-  %195 = getelementptr i32, ptr %194, i64 %44
+  %195 = getelementptr [4 x i8], ptr %194, i64 %44
   %196 = load i32, ptr %195, align 4
   %197 = load i32, ptr %194, align 4
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 32
@@ -16796,7 +16790,7 @@ define dso_local void @i830_disable_pipe(ptr noundef %0, i32 noundef %1) local_u
   %134 = load ptr, ptr %11, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 36
   %136 = sext i32 %1 to i64
-  %137 = getelementptr i32, ptr %135, i64 %136
+  %137 = getelementptr [4 x i8], ptr %135, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = load i32, ptr %135, align 4
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 32
@@ -16809,7 +16803,7 @@ define dso_local void @i830_disable_pipe(ptr noundef %0, i32 noundef %1) local_u
   tail call void %146(ptr noundef nonnull %16, i32 %144, i32 noundef 0, i1 noundef zeroext true) #26
   %147 = load ptr, ptr %11, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 36
-  %149 = getelementptr i32, ptr %148, i64 %136
+  %149 = getelementptr [4 x i8], ptr %148, i64 %136
   %150 = load i32, ptr %149, align 4
   %151 = load i32, ptr %148, align 4
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 32
@@ -17071,7 +17065,7 @@ define internal fastcc void @copy_bigjoiner_crtc_state_nomodeset(ptr noundef rea
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.144.val to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %3, i64 %4
+  %.split = getelementptr [56 x i8], ptr %3, i64 %4
   %5 = getelementptr i8, ptr %.split, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -17100,7 +17094,7 @@ define internal fastcc void @copy_bigjoiner_crtc_state_nomodeset(ptr noundef rea
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %.split2 = getelementptr %struct.__drm_crtcs_state, ptr %21, i64 %25
+  %.split2 = getelementptr [56 x i8], ptr %21, i64 %25
   %26 = getelementptr i8, ptr %.split2, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 344
@@ -17308,7 +17302,7 @@ define internal void @intel_atomic_cleanup_work(ptr noundef %0) #0 align 16 {
   %10 = phi ptr [ %3, %7 ], [ %20, %19 ]
   %11 = phi i64 [ 0, %7 ], [ %21, %19 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr %struct.__drm_crtcs_state, ptr %12, i64 %11
+  %13 = getelementptr [56 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %19, label %16
@@ -17378,7 +17372,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %.split, i64 24
@@ -17498,7 +17492,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %85 = load ptr, ptr %5, align 8
   %86 = load i32, ptr %7, align 8
   %87 = zext i32 %86 to i64
-  %.split8 = getelementptr %struct.__drm_crtcs_state, ptr %85, i64 %87
+  %.split8 = getelementptr [56 x i8], ptr %85, i64 %87
   %88 = getelementptr i8, ptr %.split8, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -17514,7 +17508,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %96 = phi i32 [ %91, %93 ], [ %116, %115 ]
   %97 = phi i64 [ 0, %93 ], [ %117, %115 ]
   %98 = load ptr, ptr %94, align 8
-  %99 = getelementptr %struct.__drm_connnectors_state, ptr %98, i64 %97
+  %99 = getelementptr [40 x i8], ptr %98, i64 %97
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %115, label %102
@@ -17893,7 +17887,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %349 = load ptr, ptr %5, align 8
   %350 = load i32, ptr %7, align 8
   %351 = zext i32 %350 to i64
-  %.split9 = getelementptr %struct.__drm_crtcs_state, ptr %349, i64 %351
+  %.split9 = getelementptr [56 x i8], ptr %349, i64 %351
   %352 = getelementptr i8, ptr %.split9, i64 16
   %353 = load ptr, ptr %352, align 8
   %354 = load ptr, ptr %3, align 8
@@ -17925,7 +17919,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
 
 373:                                              ; preds = %.outer, %394
   %374 = phi i64 [ %395, %394 ], [ %.ph, %.outer ]
-  %375 = getelementptr %struct.__drm_planes_state, ptr %371, i64 %374
+  %375 = getelementptr [32 x i8], ptr %371, i64 %374
   %376 = load ptr, ptr %375, align 8
   %377 = icmp eq ptr %376, null
   br i1 %377, label %394, label %378
@@ -18105,7 +18099,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
 41:                                               ; preds = %36
   %42 = load ptr, ptr %19, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %44 = getelementptr i32, ptr %43, i64 %26
+  %44 = getelementptr [4 x i8], ptr %43, i64 %26
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %43, align 4
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -18221,7 +18215,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %97 = sext i32 %92 to i64
   %98 = load ptr, ptr %19, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
-  %100 = getelementptr i32, ptr %99, i64 %97
+  %100 = getelementptr [4 x i8], ptr %99, i64 %97
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %99, align 4
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 32
@@ -18269,7 +18263,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %134 = sext i32 %129 to i64
   %135 = load ptr, ptr %19, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 64
-  %137 = getelementptr i32, ptr %136, i64 %134
+  %137 = getelementptr [4 x i8], ptr %136, i64 %134
   %138 = load i32, ptr %137, align 4
   %139 = load i32, ptr %136, align 4
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 32
@@ -18388,7 +18382,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %211 = load ptr, ptr %19, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 64
   %213 = sext i32 %205 to i64
-  %214 = getelementptr i32, ptr %212, i64 %213
+  %214 = getelementptr [4 x i8], ptr %212, i64 %213
   %215 = load i32, ptr %214, align 4
   %216 = load i32, ptr %212, align 4
   %217 = getelementptr inbounds nuw i8, ptr %211, i64 32
@@ -18412,7 +18406,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 36
   %231 = load i32, ptr %198, align 8
   %232 = sext i32 %231 to i64
-  %233 = getelementptr i32, ptr %230, i64 %232
+  %233 = getelementptr [4 x i8], ptr %230, i64 %232
   %234 = load i32, ptr %233, align 4
   %235 = load i32, ptr %230, align 4
   %236 = getelementptr inbounds nuw i8, ptr %229, i64 32
@@ -18640,7 +18634,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 64
   %375 = load i32, ptr %9, align 8
   %376 = sext i32 %375 to i64
-  %377 = getelementptr i32, ptr %374, i64 %376
+  %377 = getelementptr [4 x i8], ptr %374, i64 %376
   %378 = load i32, ptr %377, align 4
   %379 = load i32, ptr %374, align 4
   %380 = getelementptr inbounds nuw i8, ptr %373, i64 32
@@ -18696,7 +18690,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 36
   %417 = load i32, ptr %354, align 8
   %418 = sext i32 %417 to i64
-  %419 = getelementptr i32, ptr %416, i64 %418
+  %419 = getelementptr [4 x i8], ptr %416, i64 %418
   %420 = load i32, ptr %419, align 4
   %421 = load i32, ptr %416, align 4
   %422 = getelementptr inbounds nuw i8, ptr %415, i64 32
@@ -18833,7 +18827,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %503 = load ptr, ptr %369, align 8
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 64
   %505 = sext i32 %499 to i64
-  %506 = getelementptr i32, ptr %504, i64 %505
+  %506 = getelementptr [4 x i8], ptr %504, i64 %505
   %507 = load i32, ptr %506, align 4
   %508 = load i32, ptr %504, align 4
   %509 = getelementptr inbounds nuw i8, ptr %503, i64 32
@@ -18892,7 +18886,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -18940,7 +18934,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %35 = load ptr, ptr %3, align 8
   %36 = load i32, ptr %5, align 8
   %37 = zext i32 %36 to i64
-  %.split21 = getelementptr %struct.__drm_crtcs_state, ptr %35, i64 %37
+  %.split21 = getelementptr [56 x i8], ptr %35, i64 %37
   %38 = getelementptr i8, ptr %.split21, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -18956,7 +18950,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %46 = phi i32 [ %41, %43 ], [ %66, %65 ]
   %47 = phi i64 [ 0, %43 ], [ %67, %65 ]
   %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr %struct.__drm_connnectors_state, ptr %48, i64 %47
+  %49 = getelementptr [40 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %65, label %52
@@ -19006,7 +19000,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %77 = load ptr, ptr %3, align 8
   %78 = load i32, ptr %5, align 8
   %79 = zext i32 %78 to i64
-  %.split22 = getelementptr %struct.__drm_crtcs_state, ptr %77, i64 %79
+  %.split22 = getelementptr [56 x i8], ptr %77, i64 %79
   %80 = getelementptr i8, ptr %.split22, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = icmp sgt i32 %76, 0
@@ -19020,7 +19014,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %86 = phi i32 [ %76, %83 ], [ %106, %105 ]
   %87 = phi i64 [ 0, %83 ], [ %107, %105 ]
   %88 = load ptr, ptr %84, align 8
-  %89 = getelementptr %struct.__drm_connnectors_state, ptr %88, i64 %87
+  %89 = getelementptr [40 x i8], ptr %88, i64 %87
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %105, label %92
@@ -19085,7 +19079,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %131 = getelementptr inbounds nuw i8, ptr %121, i64 144
   %132 = load i32, ptr %131, align 8
   %133 = zext i32 %132 to i64
-  %.split19 = getelementptr %struct.__drm_crtcs_state, ptr %130, i64 %133
+  %.split19 = getelementptr [56 x i8], ptr %130, i64 %133
   %134 = getelementptr i8, ptr %.split19, i64 24
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -19101,7 +19095,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %142 = phi i32 [ %137, %139 ], [ %162, %161 ]
   %143 = phi i64 [ 0, %139 ], [ %163, %161 ]
   %144 = load ptr, ptr %140, align 8
-  %145 = getelementptr %struct.__drm_connnectors_state, ptr %144, i64 %143
+  %145 = getelementptr [40 x i8], ptr %144, i64 %143
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %161, label %148
@@ -19164,7 +19158,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %183 = getelementptr inbounds nuw i8, ptr %166, i64 144
   %184 = load i32, ptr %183, align 8
   %185 = zext i32 %184 to i64
-  %.split20 = getelementptr %struct.__drm_crtcs_state, ptr %182, i64 %185
+  %.split20 = getelementptr [56 x i8], ptr %182, i64 %185
   %186 = getelementptr i8, ptr %.split20, i64 24
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -19180,7 +19174,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %194 = phi i32 [ %189, %191 ], [ %214, %213 ]
   %195 = phi i64 [ 0, %191 ], [ %215, %213 ]
   %196 = load ptr, ptr %192, align 8
-  %197 = getelementptr %struct.__drm_connnectors_state, ptr %196, i64 %195
+  %197 = getelementptr [40 x i8], ptr %196, i64 %195
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
   br i1 %199, label %213, label %200
@@ -19242,7 +19236,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 64
   %239 = sext i32 %235 to i64
-  %240 = getelementptr i32, ptr %238, i64 %239
+  %240 = getelementptr [4 x i8], ptr %238, i64 %239
   %241 = load i32, ptr %240, align 4
   %242 = load i32, ptr %238, align 4
   %243 = getelementptr inbounds nuw i8, ptr %237, i64 32
@@ -19322,7 +19316,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 64
   %297 = sext i32 %284 to i64
-  %298 = getelementptr i32, ptr %296, i64 %297
+  %298 = getelementptr [4 x i8], ptr %296, i64 %297
   %299 = load i32, ptr %298, align 4
   %300 = load i32, ptr %296, align 4
   %301 = sub i32 %299, %300
@@ -19364,7 +19358,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 64
   %331 = sext i32 %284 to i64
-  %332 = getelementptr i32, ptr %330, i64 %331
+  %332 = getelementptr [4 x i8], ptr %330, i64 %331
   %333 = load i32, ptr %332, align 4
   %334 = load i32, ptr %330, align 4
   %335 = sub i32 %333, %334
@@ -19443,7 +19437,7 @@ intel_cpu_transcoder_set_m1_n1.exit28:            ; preds = %327, %343
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 64
   %390 = sext i32 %284 to i64
-  %391 = getelementptr i32, ptr %389, i64 %390
+  %391 = getelementptr [4 x i8], ptr %389, i64 %390
   %392 = load i32, ptr %391, align 4
   %393 = load i32, ptr %389, align 4
   %394 = sub i32 %392, %393
@@ -19512,7 +19506,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %428 = load ptr, ptr %420, align 8
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 64
   %430 = sext i32 %284 to i64
-  %431 = getelementptr i32, ptr %429, i64 %430
+  %431 = getelementptr [4 x i8], ptr %429, i64 %430
   %432 = load i32, ptr %431, align 4
   %433 = load i32, ptr %429, align 4
   %434 = getelementptr inbounds nuw i8, ptr %428, i64 32
@@ -19597,7 +19591,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %502 = load ptr, ptr %501, align 8
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 36
   %504 = sext i32 %466 to i64
-  %505 = getelementptr i32, ptr %503, i64 %504
+  %505 = getelementptr [4 x i8], ptr %503, i64 %504
   %506 = load i32, ptr %505, align 4
   %507 = load i32, ptr %503, align 4
   %508 = getelementptr inbounds nuw i8, ptr %502, i64 32
@@ -19611,7 +19605,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   tail call void %515(ptr noundef nonnull %513, i32 %512, i32 noundef %500, i1 noundef zeroext true) #26
   %516 = load ptr, ptr %501, align 8
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 36
-  %518 = getelementptr i32, ptr %517, i64 %504
+  %518 = getelementptr [4 x i8], ptr %517, i64 %504
   %519 = load i32, ptr %518, align 4
   %520 = load i32, ptr %517, align 4
   %521 = getelementptr inbounds nuw i8, ptr %516, i64 32
@@ -19769,7 +19763,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %624 = load ptr, ptr %3, align 8
   %625 = load i32, ptr %5, align 8
   %626 = zext i32 %625 to i64
-  %.split23 = getelementptr %struct.__drm_crtcs_state, ptr %624, i64 %626
+  %.split23 = getelementptr [56 x i8], ptr %624, i64 %626
   %627 = getelementptr i8, ptr %.split23, i64 24
   %628 = load ptr, ptr %627, align 8
   %629 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -19785,7 +19779,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %635 = phi i32 [ %630, %632 ], [ %657, %656 ]
   %636 = phi i64 [ 0, %632 ], [ %658, %656 ]
   %637 = load ptr, ptr %633, align 8
-  %638 = getelementptr %struct.__drm_connnectors_state, ptr %637, i64 %636
+  %638 = getelementptr [40 x i8], ptr %637, i64 %636
   %639 = load ptr, ptr %638, align 8
   %640 = icmp eq ptr %639, null
   br i1 %640, label %656, label %641
@@ -19867,7 +19861,7 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -19898,7 +19892,7 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
 27:                                               ; preds = %47, %25
   %28 = phi i64 [ 0, %25 ], [ %48, %47 ]
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr %struct.__drm_connnectors_state, ptr %29, i64 %28
+  %30 = getelementptr [40 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %47, label %33
@@ -19935,7 +19929,7 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %53 = load ptr, ptr %3, align 8
   %54 = load i32, ptr %5, align 8
   %55 = zext i32 %54 to i64
-  %.split11 = getelementptr %struct.__drm_crtcs_state, ptr %53, i64 %55
+  %.split11 = getelementptr [56 x i8], ptr %53, i64 %55
   %56 = getelementptr i8, ptr %.split11, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp sgt i32 %49, 0
@@ -19945,7 +19939,7 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %59 = phi i32 [ %79, %78 ], [ %49, %52 ]
   %60 = phi i64 [ %80, %78 ], [ 0, %52 ]
   %61 = load ptr, ptr %26, align 8
-  %62 = getelementptr %struct.__drm_connnectors_state, ptr %61, i64 %60
+  %62 = getelementptr [40 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %78, label %65
@@ -19997,7 +19991,7 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %93 = load ptr, ptr %3, align 8
   %94 = load i32, ptr %5, align 8
   %95 = zext i32 %94 to i64
-  %.split12 = getelementptr %struct.__drm_crtcs_state, ptr %93, i64 %95
+  %.split12 = getelementptr [56 x i8], ptr %93, i64 %95
   %96 = getelementptr i8, ptr %.split12, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -20013,7 +20007,7 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %104 = phi i32 [ %99, %101 ], [ %124, %123 ]
   %105 = phi i64 [ 0, %101 ], [ %125, %123 ]
   %106 = load ptr, ptr %102, align 8
-  %107 = getelementptr %struct.__drm_connnectors_state, ptr %106, i64 %105
+  %107 = getelementptr [40 x i8], ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %123, label %110
@@ -20121,7 +20115,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %15 = phi i64 [ 0, %8 ], [ %53, %50 ]
   %16 = phi i8 [ 0, %8 ], [ %52, %50 ]
   %17 = phi i8 [ 0, %8 ], [ %51, %50 ]
-  %18 = getelementptr %struct.__drm_crtcs_state, ptr %10, i64 %15
+  %18 = getelementptr [56 x i8], ptr %10, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -20147,7 +20141,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
 
 36:                                               ; preds = %31
   %37 = sext i32 %27 to i64
-  %38 = getelementptr %struct.skl_ddb_entry, ptr %2, i64 %37
+  %38 = getelementptr [4 x i8], ptr %2, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 4024
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %38, align 4
@@ -20186,7 +20180,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %59 = phi ptr [ %4, %12 ], [ %74, %73 ]
   %60 = phi i64 [ 0, %12 ], [ %75, %73 ]
   %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr %struct.__drm_crtcs_state, ptr %61, i64 %60
+  %62 = getelementptr [56 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %73, label %65
@@ -20244,7 +20238,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %95 = phi i64 [ %138, %.thread24 ], [ 0, %.split37 ]
   %96 = phi i8 [ %137, %.thread24 ], [ %84, %.split37 ]
   %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr %struct.__drm_crtcs_state, ptr %97, i64 %95
+  %98 = getelementptr [56 x i8], ptr %97, i64 %95
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %101 = load ptr, ptr %100, align 8
@@ -20270,7 +20264,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
 
 116:                                              ; preds = %113
   %117 = sext i32 %107 to i64
-  %118 = getelementptr %struct.skl_ddb_entry, ptr %2, i64 %117
+  %118 = getelementptr [4 x i8], ptr %2, i64 %117
   %119 = load i32, ptr %114, align 4
   store i32 %119, ptr %118, align 4
   %120 = trunc i64 %110 to i8
@@ -20325,7 +20319,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %148 = phi i64 [ 0, %93 ], [ %214, %212 ]
   %149 = phi i8 [ %89, %93 ], [ %213, %212 ]
   %150 = load ptr, ptr %94, align 8
-  %151 = getelementptr %struct.__drm_crtcs_state, ptr %150, i64 %148
+  %151 = getelementptr [56 x i8], ptr %150, i64 %148
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %154 = load ptr, ptr %153, align 8
@@ -20375,7 +20369,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %186 = getelementptr inbounds nuw i8, ptr %152, i64 144
   %187 = load i32, ptr %186, align 8
   %188 = zext i32 %187 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %185, i64 %188
+  %.split = getelementptr [56 x i8], ptr %185, i64 %188
   %189 = getelementptr i8, ptr %.split, i64 24
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 10
@@ -20434,7 +20428,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %226 = phi ptr [ %215, %145 ], [ %272, %269 ]
   %227 = phi i8 [ %213, %145 ], [ %270, %269 ]
   %228 = load ptr, ptr %146, align 8
-  %229 = getelementptr %struct.__drm_crtcs_state, ptr %228, i64 %225
+  %229 = getelementptr [56 x i8], ptr %228, i64 %225
   %230 = load ptr, ptr %229, align 8
   %231 = icmp eq ptr %230, null
   br i1 %231, label %269, label %232
@@ -20456,7 +20450,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %244 = getelementptr inbounds nuw i8, ptr %230, i64 144
   %245 = load i32, ptr %244, align 8
   %246 = zext i32 %245 to i64
-  %.split22 = getelementptr %struct.__drm_crtcs_state, ptr %228, i64 %246
+  %.split22 = getelementptr [56 x i8], ptr %228, i64 %246
   %247 = getelementptr i8, ptr %.split22, i64 24
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 10
@@ -20513,7 +20507,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %282 = phi ptr [ %272, %221 ], [ %297, %296 ]
   %283 = phi i64 [ 0, %221 ], [ %298, %296 ]
   %284 = load ptr, ptr %222, align 8
-  %285 = getelementptr %struct.__drm_crtcs_state, ptr %284, i64 %283
+  %285 = getelementptr [56 x i8], ptr %284, i64 %283
   %286 = load ptr, ptr %285, align 8
   %287 = icmp eq ptr %286, null
   br i1 %287, label %296, label %288
@@ -20546,7 +20540,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %305 = phi i64 [ 0, %278 ], [ %345, %342 ]
   %306 = phi i8 [ %89, %278 ], [ %344, %342 ]
   %307 = load ptr, ptr %279, align 8
-  %308 = getelementptr %struct.__drm_crtcs_state, ptr %307, i64 %305
+  %308 = getelementptr [56 x i8], ptr %307, i64 %305
   %309 = load ptr, ptr %308, align 8
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %311 = load ptr, ptr %310, align 8
@@ -20593,7 +20587,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
 
 335:                                              ; preds = %333, %321
   %336 = sext i32 %315 to i64
-  %337 = getelementptr %struct.skl_ddb_entry, ptr %2, i64 %336
+  %337 = getelementptr [4 x i8], ptr %2, i64 %336
   %338 = load i32, ptr %322, align 4
   store i32 %338, ptr %337, align 4
   %339 = trunc i64 %318 to i8
@@ -20690,7 +20684,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = sext i32 %3 to i64
-  %8 = getelementptr i32, ptr %6, i64 %7
+  %8 = getelementptr [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %6, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -20718,7 +20712,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
 29:                                               ; preds = %1
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %32 = getelementptr i32, ptr %31, i64 %7
+  %32 = getelementptr [4 x i8], ptr %31, i64 %7
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -20742,7 +20736,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
 49:                                               ; preds = %29, %1
   %50 = load ptr, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %52 = getelementptr i32, ptr %51, i64 %7
+  %52 = getelementptr [4 x i8], ptr %51, i64 %7
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %51, align 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -20763,7 +20757,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
   store i16 %67, ptr %68, align 8
   %69 = load ptr, ptr %4, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
-  %71 = getelementptr i32, ptr %70, i64 %7
+  %71 = getelementptr [4 x i8], ptr %70, i64 %7
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %70, align 4
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -20787,7 +20781,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
 88:                                               ; preds = %49
   %89 = load ptr, ptr %4, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  %91 = getelementptr i32, ptr %90, i64 %7
+  %91 = getelementptr [4 x i8], ptr %90, i64 %7
   %92 = load i32, ptr %91, align 4
   %93 = load i32, ptr %90, align 4
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 32
@@ -20811,7 +20805,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
 108:                                              ; preds = %88, %49
   %109 = load ptr, ptr %4, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
-  %111 = getelementptr i32, ptr %110, i64 %7
+  %111 = getelementptr [4 x i8], ptr %110, i64 %7
   %112 = load i32, ptr %111, align 4
   %113 = load i32, ptr %110, align 4
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 32
@@ -20856,7 +20850,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
   %145 = load ptr, ptr %131, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 36
   %147 = sext i32 %130 to i64
-  %148 = getelementptr i32, ptr %146, i64 %147
+  %148 = getelementptr [4 x i8], ptr %146, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = load i32, ptr %146, align 4
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 32
@@ -20897,7 +20891,7 @@ define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nound
   %177 = load i16, ptr %83, align 2
   %178 = load ptr, ptr %4, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 64
-  %180 = getelementptr i32, ptr %179, i64 %7
+  %180 = getelementptr [4 x i8], ptr %179, i64 %7
   %181 = load i32, ptr %180, align 4
   %182 = load i32, ptr %179, align 4
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 32
@@ -21656,7 +21650,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   %58 = load ptr, ptr %53, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = sext i32 %7 to i64
-  %61 = getelementptr i32, ptr %59, i64 %60
+  %61 = getelementptr [4 x i8], ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = load i32, ptr %59, align 4
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -21686,7 +21680,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   %78 = load ptr, ptr %53, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %80 = sext i32 %7 to i64
-  %81 = getelementptr i32, ptr %79, i64 %80
+  %81 = getelementptr [4 x i8], ptr %79, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %79, align 4
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 32
@@ -21704,7 +21698,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %80, %77 ]
   %93 = load ptr, ptr %53, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 64
-  %95 = getelementptr i32, ptr %94, i64 %.pre-phi
+  %95 = getelementptr [4 x i8], ptr %94, i64 %.pre-phi
   %96 = load i32, ptr %95, align 4
   %97 = load i32, ptr %94, align 4
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 32
@@ -21728,7 +21722,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   tail call void %115(ptr noundef nonnull %113, i32 %102, i32 noundef %112, i1 noundef zeroext true) #26
   %116 = load ptr, ptr %53, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 64
-  %118 = getelementptr i32, ptr %117, i64 %.pre-phi
+  %118 = getelementptr [4 x i8], ptr %117, i64 %.pre-phi
   %119 = load i32, ptr %118, align 4
   %120 = load i32, ptr %117, align 4
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 32
@@ -21750,7 +21744,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   tail call void %136(ptr noundef nonnull %113, i32 %125, i32 noundef %135, i1 noundef zeroext true) #26
   %137 = load ptr, ptr %53, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
-  %139 = getelementptr i32, ptr %138, i64 %.pre-phi
+  %139 = getelementptr [4 x i8], ptr %138, i64 %.pre-phi
   %140 = load i32, ptr %139, align 4
   %141 = load i32, ptr %138, align 4
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -21772,7 +21766,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   tail call void %157(ptr noundef nonnull %113, i32 %146, i32 noundef %156, i1 noundef zeroext true) #26
   %158 = load ptr, ptr %53, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 64
-  %160 = getelementptr i32, ptr %159, i64 %.pre-phi
+  %160 = getelementptr [4 x i8], ptr %159, i64 %.pre-phi
   %161 = load i32, ptr %160, align 4
   %162 = load i32, ptr %159, align 4
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 32
@@ -21789,7 +21783,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   tail call void %173(ptr noundef nonnull %113, i32 %167, i32 noundef %172, i1 noundef zeroext true) #26
   %174 = load ptr, ptr %53, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 64
-  %176 = getelementptr i32, ptr %175, i64 %.pre-phi
+  %176 = getelementptr [4 x i8], ptr %175, i64 %.pre-phi
   %177 = load i32, ptr %176, align 4
   %178 = load i32, ptr %175, align 4
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 32
@@ -21806,7 +21800,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   tail call void %189(ptr noundef nonnull %113, i32 %183, i32 noundef %188, i1 noundef zeroext true) #26
   %190 = load ptr, ptr %53, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 64
-  %192 = getelementptr i32, ptr %191, i64 %.pre-phi
+  %192 = getelementptr [4 x i8], ptr %191, i64 %.pre-phi
   %193 = load i32, ptr %192, align 4
   %194 = load i32, ptr %191, align 4
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -21841,7 +21835,7 @@ define internal fastcc void @intel_set_transcoder_timings(ptr noundef readonly c
   %221 = load ptr, ptr %53, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 64
   %223 = zext nneg i32 %5 to i64
-  %224 = getelementptr i32, ptr %222, i64 %223
+  %224 = getelementptr [4 x i8], ptr %222, i64 %223
   %225 = load i32, ptr %224, align 4
   %226 = load i32, ptr %222, align 4
   %227 = getelementptr inbounds nuw i8, ptr %221, i64 32
@@ -21878,7 +21872,7 @@ define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef n
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %.split, i64 24
@@ -21941,7 +21935,7 @@ define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef n
   %47 = load ptr, ptr %5, align 8
   %48 = load i32, ptr %7, align 8
   %49 = zext i32 %48 to i64
-  %.split4 = getelementptr %struct.__drm_crtcs_state, ptr %47, i64 %49
+  %.split4 = getelementptr [56 x i8], ptr %47, i64 %49
   %50 = getelementptr i8, ptr %.split4, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -21957,7 +21951,7 @@ define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef n
   %58 = phi i32 [ %53, %55 ], [ %78, %77 ]
   %59 = phi i64 [ 0, %55 ], [ %79, %77 ]
   %60 = load ptr, ptr %56, align 8
-  %61 = getelementptr %struct.__drm_connnectors_state, ptr %60, i64 %59
+  %61 = getelementptr [40 x i8], ptr %60, i64 %59
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %77, label %64
@@ -22149,7 +22143,7 @@ define internal fastcc void @intel_update_crtc(ptr noundef %0, ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %.split, i64 24
@@ -22160,7 +22154,7 @@ define internal fastcc void @intel_update_crtc(ptr noundef %0, ptr noundef nonnu
   %14 = load ptr, ptr %3, align 8
   %15 = load i32, ptr %5, align 8
   %16 = zext i32 %15 to i64
-  %.split2 = getelementptr %struct.__drm_crtcs_state, ptr %14, i64 %16
+  %.split2 = getelementptr [56 x i8], ptr %14, i64 %16
   %17 = getelementptr i8, ptr %.split2, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %.split2, i64 24
@@ -22227,7 +22221,7 @@ define internal fastcc void @intel_update_crtc(ptr noundef %0, ptr noundef nonnu
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %64 = sext i32 %60 to i64
-  %65 = getelementptr i32, ptr %63, i64 %64
+  %65 = getelementptr [4 x i8], ptr %63, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %63, align 4
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -22342,7 +22336,7 @@ define internal fastcc void @intel_update_crtc(ptr noundef %0, ptr noundef nonnu
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
   %148 = sext i32 %144 to i64
-  %149 = getelementptr i32, ptr %147, i64 %148
+  %149 = getelementptr [4 x i8], ptr %147, i64 %148
   %150 = load i32, ptr %149, align 4
   %151 = load i32, ptr %147, align 4
   %152 = sub i32 %150, %151
@@ -22450,7 +22444,7 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %142, %160
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 64
   %225 = sext i32 %194 to i64
-  %226 = getelementptr i32, ptr %224, i64 %225
+  %226 = getelementptr [4 x i8], ptr %224, i64 %225
   %227 = load i32, ptr %226, align 4
   %228 = load i32, ptr %224, align 4
   %229 = getelementptr inbounds nuw i8, ptr %223, i64 32
@@ -22469,7 +22463,7 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %142, %160
   tail call void %241(ptr noundef nonnull %239, i32 %233, i32 noundef %238, i1 noundef zeroext true) #26
   %242 = load ptr, ptr %222, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 64
-  %244 = getelementptr i32, ptr %243, i64 %225
+  %244 = getelementptr [4 x i8], ptr %243, i64 %225
   %245 = load i32, ptr %244, align 4
   %246 = load i32, ptr %243, align 4
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 32
@@ -22494,7 +22488,7 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %142, %160
   %260 = load ptr, ptr %3, align 8
   %261 = load i32, ptr %5, align 8
   %262 = zext i32 %261 to i64
-  %.split4 = getelementptr %struct.__drm_crtcs_state, ptr %260, i64 %262
+  %.split4 = getelementptr [56 x i8], ptr %260, i64 %262
   %263 = getelementptr i8, ptr %.split4, i64 16
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr i8, ptr %.split4, i64 24
@@ -22815,7 +22809,7 @@ define internal void @intel_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %13 = phi ptr [ %3, %7 ], [ %53, %52 ]
   %14 = phi i64 [ 0, %7 ], [ %54, %52 ]
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr %struct.__drm_crtcs_state, ptr %15, i64 %14
+  %16 = getelementptr [56 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %52, label %19
@@ -22832,7 +22826,7 @@ define internal void @intel_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %15, i64 %28
+  %.split = getelementptr [56 x i8], ptr %15, i64 %28
   %29 = getelementptr i8, ptr %.split, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 10
@@ -22884,7 +22878,7 @@ define internal void @intel_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %60 = phi ptr [ %53, %10 ], [ %74, %73 ]
   %61 = phi i64 [ 0, %10 ], [ %75, %73 ]
   %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr %struct.__drm_crtcs_state, ptr %62, i64 %61
+  %63 = getelementptr [56 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %73, label %66
@@ -22935,7 +22929,7 @@ define internal noundef zeroext i1 @ilk_get_pipe_config(ptr noundef readonly cap
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %16 = sext i32 %10 to i64
-  %17 = getelementptr i32, ptr %15, i64 %16
+  %17 = getelementptr [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %15, align 4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -23021,7 +23015,7 @@ define internal noundef zeroext i1 @ilk_get_pipe_config(ptr noundef readonly cap
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load i32, ptr %4, align 8
   %69 = sext i32 %68 to i64
-  %70 = getelementptr i32, ptr %67, i64 %69
+  %70 = getelementptr [4 x i8], ptr %67, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %67, align 4
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -23086,7 +23080,7 @@ define internal void @ilk_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -23145,7 +23139,7 @@ define internal void @ilk_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %47 = sext i32 %33 to i64
-  %48 = getelementptr i32, ptr %46, i64 %47
+  %48 = getelementptr [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %46, align 4
   %51 = sub i32 %49, %50
@@ -23188,7 +23182,7 @@ define internal void @ilk_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
   %82 = sext i32 %33 to i64
-  %83 = getelementptr i32, ptr %81, i64 %82
+  %83 = getelementptr [4 x i8], ptr %81, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = load i32, ptr %81, align 4
   %86 = sub i32 %84, %85
@@ -23267,7 +23261,7 @@ intel_cpu_transcoder_set_m1_n1.exit11:            ; preds = %78, %94
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 64
   %141 = sext i32 %33 to i64
-  %142 = getelementptr i32, ptr %140, i64 %141
+  %142 = getelementptr [4 x i8], ptr %140, i64 %141
   %143 = load i32, ptr %142, align 4
   %144 = load i32, ptr %140, align 4
   %145 = sub i32 %143, %144
@@ -23336,7 +23330,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %187 = sext i32 %183 to i64
-  %188 = getelementptr i32, ptr %186, i64 %187
+  %188 = getelementptr [4 x i8], ptr %186, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = load i32, ptr %186, align 4
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 32
@@ -23358,7 +23352,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %205 = load ptr, ptr %3, align 8
   %206 = load i32, ptr %5, align 8
   %207 = zext i32 %206 to i64
-  %.split5 = getelementptr %struct.__drm_crtcs_state, ptr %205, i64 %207
+  %.split5 = getelementptr [56 x i8], ptr %205, i64 %207
   %208 = getelementptr i8, ptr %.split5, i64 24
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -23374,7 +23368,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %216 = phi i32 [ %211, %213 ], [ %236, %235 ]
   %217 = phi i64 [ 0, %213 ], [ %237, %235 ]
   %218 = load ptr, ptr %214, align 8
-  %219 = getelementptr %struct.__drm_connnectors_state, ptr %218, i64 %217
+  %219 = getelementptr [40 x i8], ptr %218, i64 %217
   %220 = load ptr, ptr %219, align 8
   %221 = icmp eq ptr %220, null
   br i1 %221, label %235, label %222
@@ -23447,7 +23441,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %255 = load ptr, ptr %3, align 8
   %256 = load i32, ptr %5, align 8
   %257 = zext i32 %256 to i64
-  %.split6 = getelementptr %struct.__drm_crtcs_state, ptr %255, i64 %257
+  %.split6 = getelementptr [56 x i8], ptr %255, i64 %257
   %258 = getelementptr i8, ptr %.split6, i64 24
   %259 = load ptr, ptr %258, align 8
   %260 = load i32, ptr %210, align 8
@@ -23462,7 +23456,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   %265 = phi i32 [ %260, %262 ], [ %287, %286 ]
   %266 = phi i64 [ 0, %262 ], [ %288, %286 ]
   %267 = load ptr, ptr %263, align 8
-  %268 = getelementptr %struct.__drm_connnectors_state, ptr %267, i64 %266
+  %268 = getelementptr [40 x i8], ptr %267, i64 %266
   %269 = load ptr, ptr %268, align 8
   %270 = icmp eq ptr %269, null
   br i1 %270, label %286, label %271
@@ -23535,7 +23529,7 @@ define internal void @ilk_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -23546,7 +23540,7 @@ define internal void @ilk_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align 
   %15 = load ptr, ptr %3, align 8
   %16 = load i32, ptr %5, align 8
   %17 = zext i32 %16 to i64
-  %.split4 = getelementptr %struct.__drm_crtcs_state, ptr %15, i64 %17
+  %.split4 = getelementptr [56 x i8], ptr %15, i64 %17
   %18 = getelementptr i8, ptr %.split4, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -23561,7 +23555,7 @@ define internal void @ilk_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align 
 25:                                               ; preds = %45, %23
   %26 = phi i64 [ 0, %23 ], [ %46, %45 ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr %struct.__drm_connnectors_state, ptr %27, i64 %26
+  %28 = getelementptr [40 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %45, label %31
@@ -23611,7 +23605,7 @@ define internal void @ilk_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align 
   %55 = load ptr, ptr %3, align 8
   %56 = load i32, ptr %5, align 8
   %57 = zext i32 %56 to i64
-  %.split5 = getelementptr %struct.__drm_crtcs_state, ptr %55, i64 %57
+  %.split5 = getelementptr [56 x i8], ptr %55, i64 %57
   %58 = getelementptr i8, ptr %.split5, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %20, align 8
@@ -23626,7 +23620,7 @@ define internal void @ilk_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align 
   %65 = phi i32 [ %60, %62 ], [ %85, %84 ]
   %66 = phi i64 [ 0, %62 ], [ %86, %84 ]
   %67 = load ptr, ptr %63, align 8
-  %68 = getelementptr %struct.__drm_connnectors_state, ptr %67, i64 %66
+  %68 = getelementptr [40 x i8], ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %84, label %71
@@ -23723,7 +23717,7 @@ define internal noundef zeroext i1 @i9xx_get_pipe_config(ptr noundef %0, ptr nou
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = sext i32 %12 to i64
-  %19 = getelementptr i32, ptr %17, i64 %18
+  %19 = getelementptr [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %17, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -23863,7 +23857,7 @@ define internal noundef zeroext i1 @i9xx_get_pipe_config(ptr noundef %0, ptr nou
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %102 = load i32, ptr %4, align 8
   %103 = sext i32 %102 to i64
-  %104 = getelementptr i32, ptr %101, i64 %103
+  %104 = getelementptr [4 x i8], ptr %101, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = load i32, ptr %101, align 4
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 32
@@ -23989,7 +23983,7 @@ define internal noundef zeroext i1 @i9xx_get_pipe_config(ptr noundef %0, ptr nou
 195:                                              ; preds = %191
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 3428
   %197 = sext i32 %.pre to i64
-  %198 = getelementptr i32, ptr %196, i64 %197
+  %198 = getelementptr [4 x i8], ptr %196, i64 %197
   %199 = load i32, ptr %198, align 4
   br label %211
 
@@ -24132,7 +24126,7 @@ define internal void @valleyview_crtc_enable(ptr noundef %0, ptr noundef %1) #0 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -24190,7 +24184,7 @@ define internal void @valleyview_crtc_enable(ptr noundef %0, ptr noundef %1) #0 
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = sext i32 %35 to i64
-  %47 = getelementptr i32, ptr %45, i64 %46
+  %47 = getelementptr [4 x i8], ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = load i32, ptr %45, align 4
   %50 = sub i32 %48, %49
@@ -24269,7 +24263,7 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %42, %58
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %105 = sext i32 %35 to i64
-  %106 = getelementptr i32, ptr %104, i64 %105
+  %106 = getelementptr [4 x i8], ptr %104, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = load i32, ptr %104, align 4
   %109 = sub i32 %107, %108
@@ -24325,7 +24319,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
   %152 = sext i32 %148 to i64
-  %153 = getelementptr i32, ptr %151, i64 %152
+  %153 = getelementptr [4 x i8], ptr %151, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = load i32, ptr %151, align 4
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 32
@@ -24347,7 +24341,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 36
   %173 = sext i32 %12 to i64
-  %174 = getelementptr i32, ptr %172, i64 %173
+  %174 = getelementptr [4 x i8], ptr %172, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = load i32, ptr %172, align 4
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 32
@@ -24370,7 +24364,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
 191:                                              ; preds = %intel_cpu_transcoder_set_m2_n2.exit
   %192 = load ptr, ptr %170, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 64
-  %194 = getelementptr i32, ptr %193, i64 %173
+  %194 = getelementptr [4 x i8], ptr %193, i64 %173
   %195 = load i32, ptr %194, align 4
   %196 = load i32, ptr %193, align 4
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 32
@@ -24382,7 +24376,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   tail call void %202(ptr noundef nonnull %182, i32 %201, i32 noundef 0, i1 noundef zeroext true) #26
   %203 = load ptr, ptr %170, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 64
-  %205 = getelementptr i32, ptr %204, i64 %173
+  %205 = getelementptr [4 x i8], ptr %204, i64 %173
   %206 = load i32, ptr %205, align 4
   %207 = load i32, ptr %204, align 4
   %208 = getelementptr inbounds nuw i8, ptr %203, i64 32
@@ -24400,7 +24394,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %216 = load ptr, ptr %3, align 8
   %217 = load i32, ptr %5, align 8
   %218 = zext i32 %217 to i64
-  %.split7 = getelementptr %struct.__drm_crtcs_state, ptr %216, i64 %218
+  %.split7 = getelementptr [56 x i8], ptr %216, i64 %218
   %219 = getelementptr i8, ptr %.split7, i64 24
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -24416,7 +24410,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %227 = phi i32 [ %222, %224 ], [ %247, %246 ]
   %228 = phi i64 [ 0, %224 ], [ %248, %246 ]
   %229 = load ptr, ptr %225, align 8
-  %230 = getelementptr %struct.__drm_connnectors_state, ptr %229, i64 %228
+  %230 = getelementptr [40 x i8], ptr %229, i64 %228
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %231, null
   br i1 %232, label %246, label %233
@@ -24467,7 +24461,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %257 = load ptr, ptr %3, align 8
   %258 = load i32, ptr %5, align 8
   %259 = zext i32 %258 to i64
-  %.split8 = getelementptr %struct.__drm_crtcs_state, ptr %257, i64 %259
+  %.split8 = getelementptr [56 x i8], ptr %257, i64 %259
   %260 = getelementptr i8, ptr %.split8, i64 24
   %261 = load ptr, ptr %260, align 8
   %262 = load i32, ptr %221, align 8
@@ -24482,7 +24476,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %267 = phi i32 [ %262, %264 ], [ %287, %286 ]
   %268 = phi i64 [ 0, %264 ], [ %288, %286 ]
   %269 = load ptr, ptr %265, align 8
-  %270 = getelementptr %struct.__drm_connnectors_state, ptr %269, i64 %268
+  %270 = getelementptr [40 x i8], ptr %269, i64 %268
   %271 = load ptr, ptr %270, align 8
   %272 = icmp eq ptr %271, null
   br i1 %272, label %286, label %273
@@ -24532,7 +24526,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %297 = load ptr, ptr %3, align 8
   %298 = load i32, ptr %5, align 8
   %299 = zext i32 %298 to i64
-  %.split9 = getelementptr %struct.__drm_crtcs_state, ptr %297, i64 %299
+  %.split9 = getelementptr [56 x i8], ptr %297, i64 %299
   %300 = getelementptr i8, ptr %.split9, i64 24
   %301 = load ptr, ptr %300, align 8
   %302 = load i32, ptr %221, align 8
@@ -24547,7 +24541,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %307 = phi i32 [ %302, %304 ], [ %329, %328 ]
   %308 = phi i64 [ 0, %304 ], [ %330, %328 ]
   %309 = load ptr, ptr %305, align 8
-  %310 = getelementptr %struct.__drm_connnectors_state, ptr %309, i64 %308
+  %310 = getelementptr [40 x i8], ptr %309, i64 %308
   %311 = load ptr, ptr %310, align 8
   %312 = icmp eq ptr %311, null
   br i1 %312, label %328, label %313
@@ -24595,7 +24589,7 @@ define internal void @i9xx_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -24611,7 +24605,7 @@ define internal void @i9xx_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align
   %.pre = load ptr, ptr %3, align 8
   %.pre12 = load i32, ptr %5, align 8
   %.phi.trans.insert = zext i32 %.pre12 to i64
-  %.split7.phi.trans.insert = getelementptr %struct.__drm_crtcs_state, ptr %.pre, i64 %.phi.trans.insert
+  %.split7.phi.trans.insert = getelementptr [56 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert13 = getelementptr i8, ptr %.split7.phi.trans.insert, i64 16
   %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
   br label %17
@@ -24630,7 +24624,7 @@ define internal void @i9xx_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align
 24:                                               ; preds = %44, %22
   %25 = phi i64 [ 0, %22 ], [ %45, %44 ]
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr %struct.__drm_connnectors_state, ptr %26, i64 %25
+  %27 = getelementptr [40 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %44, label %30
@@ -24710,7 +24704,7 @@ define internal void @i9xx_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align
   %79 = load ptr, ptr %3, align 8
   %80 = load i32, ptr %5, align 8
   %81 = zext i32 %80 to i64
-  %.split8 = getelementptr %struct.__drm_crtcs_state, ptr %79, i64 %81
+  %.split8 = getelementptr [56 x i8], ptr %79, i64 %81
   %82 = getelementptr i8, ptr %.split8, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %19, align 8
@@ -24725,7 +24719,7 @@ define internal void @i9xx_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align
   %89 = phi i32 [ %84, %86 ], [ %109, %108 ]
   %90 = phi i64 [ 0, %86 ], [ %110, %108 ]
   %91 = load ptr, ptr %87, align 8
-  %92 = getelementptr %struct.__drm_connnectors_state, ptr %91, i64 %90
+  %92 = getelementptr [40 x i8], ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %108, label %95
@@ -24794,7 +24788,7 @@ define internal void @i9xx_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align
   %130 = load ptr, ptr %3, align 8
   %131 = load i32, ptr %5, align 8
   %132 = zext i32 %131 to i64
-  %.split9 = getelementptr %struct.__drm_crtcs_state, ptr %130, i64 %132
+  %.split9 = getelementptr [56 x i8], ptr %130, i64 %132
   %133 = getelementptr i8, ptr %.split9, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = load i32, ptr %19, align 8
@@ -24809,7 +24803,7 @@ define internal void @i9xx_crtc_disable(ptr noundef %0, ptr noundef %1) #0 align
   %140 = phi i32 [ %135, %137 ], [ %160, %159 ]
   %141 = phi i64 [ 0, %137 ], [ %161, %159 ]
   %142 = load ptr, ptr %138, align 8
-  %143 = getelementptr %struct.__drm_connnectors_state, ptr %142, i64 %141
+  %143 = getelementptr [40 x i8], ptr %142, i64 %141
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %159, label %146
@@ -24964,7 +24958,7 @@ define internal fastcc void @i9xx_pfit_enable(ptr noundef readonly captures(none
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 1648
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr %48, i64 %51
+  %52 = getelementptr [4 x i8], ptr %48, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %48, align 4
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -24996,7 +24990,7 @@ define internal void @i9xx_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -25054,7 +25048,7 @@ define internal void @i9xx_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = sext i32 %35 to i64
-  %47 = getelementptr i32, ptr %45, i64 %46
+  %47 = getelementptr [4 x i8], ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = load i32, ptr %45, align 4
   %50 = sub i32 %48, %49
@@ -25133,7 +25127,7 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %42, %58
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %105 = sext i32 %35 to i64
-  %106 = getelementptr i32, ptr %104, i64 %105
+  %106 = getelementptr [4 x i8], ptr %104, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = load i32, ptr %104, align 4
   %109 = sub i32 %107, %108
@@ -25189,7 +25183,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
   %152 = sext i32 %148 to i64
-  %153 = getelementptr i32, ptr %151, i64 %152
+  %153 = getelementptr [4 x i8], ptr %151, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = load i32, ptr %151, align 4
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 32
@@ -25221,7 +25215,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %176 = load ptr, ptr %3, align 8
   %177 = load i32, ptr %5, align 8
   %178 = zext i32 %177 to i64
-  %.split5 = getelementptr %struct.__drm_crtcs_state, ptr %176, i64 %178
+  %.split5 = getelementptr [56 x i8], ptr %176, i64 %178
   %179 = getelementptr i8, ptr %.split5, i64 24
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25237,7 +25231,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %187 = phi i32 [ %182, %184 ], [ %207, %206 ]
   %188 = phi i64 [ 0, %184 ], [ %208, %206 ]
   %189 = load ptr, ptr %185, align 8
-  %190 = getelementptr %struct.__drm_connnectors_state, ptr %189, i64 %188
+  %190 = getelementptr [40 x i8], ptr %189, i64 %188
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq ptr %191, null
   br i1 %192, label %206, label %193
@@ -25295,7 +25289,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %219 = load ptr, ptr %3, align 8
   %220 = load i32, ptr %5, align 8
   %221 = zext i32 %220 to i64
-  %.split6 = getelementptr %struct.__drm_crtcs_state, ptr %219, i64 %221
+  %.split6 = getelementptr [56 x i8], ptr %219, i64 %221
   %222 = getelementptr i8, ptr %.split6, i64 24
   %223 = load ptr, ptr %222, align 8
   %224 = load i32, ptr %181, align 8
@@ -25310,7 +25304,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %101, %94, %92, %28
   %229 = phi i32 [ %224, %226 ], [ %251, %250 ]
   %230 = phi i64 [ 0, %226 ], [ %252, %250 ]
   %231 = load ptr, ptr %227, align 8
-  %232 = getelementptr %struct.__drm_connnectors_state, ptr %231, i64 %230
+  %232 = getelementptr [40 x i8], ptr %231, i64 %230
   %233 = load ptr, ptr %232, align 8
   %234 = icmp eq ptr %233, null
   br i1 %234, label %250, label %235

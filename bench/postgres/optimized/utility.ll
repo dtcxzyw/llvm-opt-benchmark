@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.AlterTableUtilityContext = type { ptr, ptr, i32, ptr, ptr }
@@ -536,7 +535,7 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
 .lr.ph312:                                        ; preds = %.lr.ph, %101
   %indvars.iv311 = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph ]
   %85 = load ptr, ptr %82, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv311
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv311
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
@@ -1696,31 +1695,31 @@ switch.lookup.loopexit:                           ; preds = %tailrecurse, %186, 
 
 switch.lookup526:                                 ; preds = %4
   %227 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag, i64 %227
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag, i64 %227
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup
 
 switch.lookup527:                                 ; preds = %34
   %228 = zext nneg i32 %36 to i64
-  %switch.gep528 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.3, i64 %228
+  %switch.gep528 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.3, i64 %228
   %switch.load529 = load i32, ptr %switch.gep528, align 4
   br label %switch.lookup
 
 switch.lookup530:                                 ; preds = %138
   %229 = zext nneg i32 %140 to i64
-  %switch.gep531 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.4, i64 %229
+  %switch.gep531 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.4, i64 %229
   %switch.load532 = load i32, ptr %switch.gep531, align 4
   br label %switch.lookup
 
 switch.lookup533:                                 ; preds = %192
   %230 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep534 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.6, i64 %230
+  %switch.gep534 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.6, i64 %230
   %switch.load535 = load i32, ptr %switch.gep534, align 4
   br label %switch.lookup
 
 switch.lookup537:                                 ; preds = %210
   %231 = zext nneg i32 %switch.tableidx536 to i64
-  %switch.gep538 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.6, i64 %231
+  %switch.gep538 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.6, i64 %231
   %switch.load539 = load i32, ptr %switch.gep538, align 4
   br label %switch.lookup
 
@@ -2114,7 +2113,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %78 = phi i32 [ %96, %95 ], [ %76, %.lr.ph14 ]
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %95 ], [ 0, %.lr.ph14 ]
   %79 = load ptr, ptr %75, align 8
-  %80 = getelementptr inbounds nuw %union.ListCell, ptr %79, i64 %indvars.iv25
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv25
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
@@ -2394,7 +2393,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
 .lr.ph12:                                         ; preds = %.lr.ph, %279
   %indvars.iv = phi i64 [ %indvars.iv.next, %279 ], [ 0, %.lr.ph ]
   %250 = load ptr, ptr %245, align 8
-  %251 = getelementptr inbounds nuw %union.ListCell, ptr %250, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %indvars.iv
   %252 = load i32, ptr %251, align 8
   %253 = call signext i8 @get_rel_relkind(i32 noundef %252) #10
   switch i8 %253, label %.split [
@@ -3117,7 +3116,7 @@ define internal fastcc range(i32 0, 45) i32 @AlterObjectTypeCommandTag(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.AlterObjectTypeCommandTag, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.AlterObjectTypeCommandTag, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -3320,7 +3319,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
   %.0366367 = phi i1 [ %.137, %42 ], [ false, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8

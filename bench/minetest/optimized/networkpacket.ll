@@ -1084,10 +1084,10 @@ if.then.i:                                        ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit: ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i
   %14 = phi i32 [ %.pre64, %if.then.i ], [ %10, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i ]
   %15 = phi ptr [ %.pre.i, %if.then.i ], [ %12, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %15, i64 %11
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %15, i64 %11
   store i32 %c.0, ptr %arrayidx.i, align 4, !tbaa !35
   store i64 %add.i, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %15, i64 %add.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %15, i64 %add.i
   store i32 0, ptr %arrayidx.i.i, align 4, !tbaa !35
   %add41 = add i32 %14, 2
   store i32 %add41, ptr %m_read_offset, align 4, !tbaa !30
@@ -1209,7 +1209,7 @@ for.body28:                                       ; preds = %if.end41, %_ZN13Net
   %conv24164 = phi i64 [ 0, %_ZN13NetworkPacketlsEt.exit107 ], [ %conv24, %if.end41 ]
   %i22.0163 = phi i16 [ 0, %_ZN13NetworkPacketlsEt.exit107 ], [ %inc43, %if.end41 ]
   %written.0162 = phi i32 [ 0, %_ZN13NetworkPacketlsEt.exit107 ], [ %inc40, %if.end41 ]
-  %add.ptr.i109 = getelementptr inbounds nuw i32, ptr %src.coerce1, i64 %conv24164
+  %add.ptr.i109 = getelementptr inbounds nuw [4 x i8], ptr %src.coerce1, i64 %conv24164
   %13 = load i32, ptr %add.ptr.i109, align 4, !tbaa !35
   %cmp31 = icmp sgt i32 %13, 65535
   br i1 %cmp31, label %if.then32, label %if.else

@@ -34,7 +34,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16exte
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %7 = add nuw nsw i64 %30, 1
   store i64 %7, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !7, !noalias !10
-  %8 = getelementptr inbounds nuw { [5 x i64] }, ptr %3, i64 %30
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %30
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.53.0.copyload = load i8, ptr %.sroa.53.0..sroa_idx, align 8, !alias.scope !12
   %9 = icmp eq i8 %.sroa.53.0.copyload, 7
@@ -43,7 +43,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16exte
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d978f07502ca796E.exit.thread": ; preds = %28, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d978f07502ca796E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d978f07502ca796E.exit.lr.ph"
   %10 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d978f07502ca796E.exit.lr.ph" ], [ %29, %28 ], [ %7, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d978f07502ca796E.exit" ]
   %.lcssa6.ph = phi i64 [ 2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d978f07502ca796E.exit.lr.ph" ], [ %29, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d978f07502ca796E.exit" ], [ %29, %28 ]
-  %11 = getelementptr inbounds { [5 x i64] }, ptr %3, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %3, i64 %10
   %12 = sub nuw i64 %.lcssa6.ph, %10
   br label %"_ZN4core3ptr115drop_in_place$LT$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$GT$17h2baedeaa9b2755f6E.llvm.8367403837193465475.exit.i.i.i"
 
@@ -53,7 +53,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16exte
   br i1 %13, label %"_ZN4core3ptr160drop_in_place$LT$core..array..iter..IntoIter$LT$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$C$2_usize$GT$$GT$17he315b304324df136E.exit", label %14
 
 14:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$GT$17h2baedeaa9b2755f6E.llvm.8367403837193465475.exit.i.i.i"
-  %15 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %11, i64 %.0.i.i.i
+  %15 = getelementptr inbounds [40 x i8], ptr %11, i64 %.0.i.i.i
   %16 = add i64 %.0.i.i.i, 1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h97bbf16f8516497cE.llvm.8367403837193465475"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
@@ -70,7 +70,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16exte
   br label %"_ZN4core3ptr115drop_in_place$LT$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$GT$17h2baedeaa9b2755f6E.llvm.8367403837193465475.exit7.i.i.i"
 
 21:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$GT$17h2baedeaa9b2755f6E.llvm.8367403837193465475.exit7.i.i.i"
-  %22 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %11, i64 %.1.i.i.i
+  %22 = getelementptr inbounds [40 x i8], ptr %11, i64 %.1.i.i.i
   %23 = add i64 %.1.i.i.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   invoke void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h97bbf16f8516497cE.llvm.8367403837193465475"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
@@ -172,7 +172,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16inse
   %28 = phi i64 [ %.pre.i1, %._crit_edge.i ], [ %19, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8, !alias.scope !21, !noalias !24, !nonnull !17, !noundef !17
-  %31 = getelementptr inbounds { i8, [31 x i8] }, ptr %30, i64 %28
+  %31 = getelementptr inbounds [32 x i8], ptr %30, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %32 = load i64, ptr %18, align 8, !alias.scope !21, !noalias !24, !noundef !17
   %33 = add i64 %32, 1
@@ -203,7 +203,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builde
   %4 = load ptr, ptr %3, align 8, !nonnull !17, !noundef !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !17
-  %7 = getelementptr inbounds i128, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   %.val18 = load i128, ptr %1, align 16
   br label %8
 
@@ -233,7 +233,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builde
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !nonnull !17, !noundef !17
-  %21 = getelementptr inbounds nuw { { { { { ptr, ptr } }, {} }, {} } }, ptr %20, i64 %.sroa.8.0
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.sroa.8.0
   br label %.loopexit
 
 22:                                               ; preds = %14
@@ -370,7 +370,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8bc9ae7e7cfd251bE.ll
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !17, !noundef !17
-  %12 = getelementptr inbounds { i8, [31 x i8] }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [32 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !17
   %14 = add i64 %13, 1

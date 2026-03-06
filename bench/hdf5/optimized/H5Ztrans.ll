@@ -686,7 +686,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %330 = load ptr, ptr %320, align 8, !tbaa !32
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   %332 = load ptr, ptr %331, align 8, !tbaa !35
-  %333 = getelementptr inbounds nuw ptr, ptr %332, i64 %.0123134
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %.0123134
   store ptr %329, ptr %333, align 8, !tbaa !36
   %334 = icmp eq ptr %329, null
   br i1 %334, label %335, label %339
@@ -701,7 +701,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %340 = load ptr, ptr %320, align 8, !tbaa !32
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %342 = load ptr, ptr %341, align 8, !tbaa !35
-  %343 = getelementptr inbounds nuw ptr, ptr %342, i64 %.0123134
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %342, i64 %.0123134
   %344 = load ptr, ptr %343, align 8, !tbaa !36
   %345 = tail call ptr @H5I_object(i64 noundef %.0.i) #12
   %346 = tail call i64 @H5T_get_size(ptr noundef %345) #12
@@ -748,7 +748,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %.1124135 = phi i64 [ %376, %.lr.ph136 ], [ 0, %363 ]
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %372 = load ptr, ptr %371, align 8, !tbaa !35
-  %373 = getelementptr inbounds nuw ptr, ptr %372, i64 %.1124135
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %.1124135
   %374 = load ptr, ptr %373, align 8, !tbaa !36
   %375 = tail call ptr @H5MM_xfree(ptr noundef %374) #12
   %376 = add nuw nsw i64 %.1124135, 1
@@ -771,7 +771,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %.2137 = phi i64 [ %396, %393 ], [ 0, %.critedge ]
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8, !tbaa !35
-  %389 = getelementptr inbounds nuw ptr, ptr %388, i64 %.2137
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %.2137
   %390 = load ptr, ptr %389, align 8, !tbaa !36
   %.not = icmp eq ptr %390, null
   br i1 %.not, label %393, label %391
@@ -7157,7 +7157,7 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !20
   %43 = sext i8 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %37, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %37, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !21
   %46 = and i16 %45, 1024
   %.not71 = icmp eq i16 %46, 0
@@ -7181,7 +7181,7 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !20
   %55 = sext i8 %54 to i64
-  %56 = getelementptr inbounds i16, ptr %37, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %37, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !21
   %58 = and i16 %57, 2048
   %.not73 = icmp ne i16 %58, 0
@@ -7195,7 +7195,7 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !20
   %65 = sext i8 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %37, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %37, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !21
   %.fr90 = freeze i16 %67
   %68 = and i16 %.fr90, 2048
@@ -7493,7 +7493,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr noundef captures(none) %0) local
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !20
   %49 = sext i8 %48 to i64
-  %50 = getelementptr inbounds i16, ptr %40, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %40, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !21
   %52 = lshr i16 %51, 10
   %53 = and i16 %52, 1
@@ -7668,7 +7668,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %46 = load ptr, ptr %45, align 8, !tbaa !35
   %47 = load i32, ptr %1, align 8, !tbaa !33
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %49, ptr %50, align 8, !tbaa !20
   %51 = add i32 %47, 1
@@ -8492,7 +8492,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   %22 = phi i8 [ %18, %.lr.ph ], [ %108, %106 ]
   %.promoted = phi ptr [ %16, %.lr.ph ], [ %107, %106 ]
   %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds i16, ptr %20, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %20, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !21
   %26 = zext i16 %25 to i32
   %27 = and i32 %26, 8192
@@ -8516,7 +8516,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   store i32 1, ptr %9, align 8, !tbaa !213
   %34 = load i8, ptr %.promoted, align 1, !tbaa !20
   %35 = sext i8 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %20, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %20, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !21
   %38 = and i16 %37, 2048
   %.not7490 = icmp eq i16 %38, 0
@@ -8528,7 +8528,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   store ptr %40, ptr %15, align 8, !tbaa !205
   %41 = load i8, ptr %40, align 1, !tbaa !20
   %42 = sext i8 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %20, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %20, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !21
   %45 = and i16 %44, 2048
   %.not74 = icmp eq i16 %45, 0
@@ -8556,7 +8556,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   store ptr %50, ptr %15, align 8, !tbaa !205
   %51 = load i8, ptr %50, align 1, !tbaa !20
   %52 = sext i8 %51 to i64
-  %53 = getelementptr inbounds i16, ptr %20, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %20, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !21
   %55 = and i16 %54, 2048
   %.not75 = icmp eq i16 %55, 0
@@ -8572,7 +8572,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
 
 .loopexit81..loopexit_crit_edge:                  ; preds = %.loopexit81
   %.phi.trans.insert = sext i8 %56 to i64
-  %.phi.trans.insert100 = getelementptr inbounds i16, ptr %20, i64 %.phi.trans.insert
+  %.phi.trans.insert100 = getelementptr inbounds [2 x i8], ptr %20, i64 %.phi.trans.insert
   %.pre101 = load i16, ptr %.phi.trans.insert100, align 2, !tbaa !21
   br label %.loopexit
 
@@ -8595,7 +8595,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   %64 = phi i8 [ %60, %58 ], [ %.pre, %61 ]
   %.promoted93 = phi ptr [ %59, %58 ], [ %62, %61 ]
   %65 = sext i8 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %20, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %20, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !21
   %68 = and i16 %67, 2048
   %.not76 = icmp eq i16 %68, 0
@@ -8614,7 +8614,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   store ptr %74, ptr %15, align 8, !tbaa !205
   %75 = load i8, ptr %74, align 1, !tbaa !20
   %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds i16, ptr %20, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %20, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !21
   %79 = and i16 %78, 2048
   %.not77 = icmp eq i16 %79, 0
@@ -8650,7 +8650,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   store ptr %storemerge71, ptr %15, align 8, !tbaa !205
   %92 = load i8, ptr %storemerge71, align 1, !tbaa !20
   %93 = sext i8 %92 to i64
-  %94 = getelementptr inbounds i16, ptr %20, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %20, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !21
   %96 = and i16 %95, 8
   %.not72 = icmp eq i16 %96, 0
@@ -8674,7 +8674,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
 
 switch.lookup:                                    ; preds = %98
   %104 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5Z__get_token, i64 %104
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.H5Z__get_token, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %9, align 8, !tbaa !213
   %105 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
@@ -8829,7 +8829,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull captures(none)
   %82 = load ptr, ptr %81, align 8, !tbaa !35
   %83 = load i32, ptr %1, align 8, !tbaa !33
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %85, ptr %86, align 8, !tbaa !20
   %87 = add i32 %83, 1

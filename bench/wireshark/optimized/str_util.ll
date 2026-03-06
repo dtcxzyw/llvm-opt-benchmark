@@ -323,7 +323,7 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr noundef re
   %15 = add i64 %13, %14
   %16 = add i32 %.02633, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %2, i64 %17
+  %18 = getelementptr [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not30 = icmp eq ptr %19, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -346,7 +346,7 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr noundef re
   %27 = tail call ptr @g_stpcpy(ptr noundef %25, ptr noundef %26)
   %28 = add i32 %.136, 1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr ptr, ptr %2, i64 %29
+  %30 = getelementptr [8 x i8], ptr %2, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not31 = icmp eq ptr %31, null
   br i1 %.not31, label %.loopexit, label %.lr.ph39, !llvm.loop !12
@@ -446,7 +446,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 .preheader.us.preheader:                          ; preds = %.lr.ph67.split.us
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 0, i64 %31, i1 false)
   %33 = getelementptr i8, ptr %32, i64 %30
-  %34 = getelementptr ptr, ptr %28, i64 %indvars.iv
+  %34 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv
   store ptr %33, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -461,7 +461,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .preheader:                                       ; preds = %.lr.ph67.split
   %36 = getelementptr i8, ptr %35, i64 %30
-  %37 = getelementptr ptr, ptr %28, i64 %indvars.iv79
+  %37 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv79
   store ptr %36, ptr %37, align 8
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
@@ -479,7 +479,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   %40 = phi ptr [ %28, %.critedge3.loopexit91.split.loop.exit93 ], [ %18, %.critedge.thread ], [ %28, %.critedge3.loopexit.split.loop.exit95 ], [ %28, %.preheader ], [ %28, %.preheader.us.preheader ]
   %.1.lcssa = phi i32 [ %39, %.critedge3.loopexit91.split.loop.exit93 ], [ 1, %.critedge.thread ], [ %38, %.critedge3.loopexit.split.loop.exit95 ], [ %spec.store.select, %.preheader ], [ %spec.store.select, %.preheader.us.preheader ]
   %41 = zext i32 %.1.lcssa to i64
-  %42 = getelementptr ptr, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   store ptr null, ptr %42, align 8
   br label %43
 
@@ -550,7 +550,7 @@ define range(i32 -1, 16) i32 @ws_xton(i8 noundef signext %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ws_xton, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ws_xton, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -573,7 +573,7 @@ define noundef ptr @ascii_strdown_inplace(ptr noundef returned captures(ret: add
   %5 = phi i8 [ %2, %.lr.ph ], [ %14, %4 ]
   %.011 = phi ptr [ %0, %.lr.ph ], [ %13, %4 ]
   %6 = zext i8 %5 to i64
-  %7 = getelementptr i16, ptr %3, i64 %6
+  %7 = getelementptr [2 x i8], ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = lshr i16 %8, 4
   %10 = trunc i16 %9 to i8
@@ -603,7 +603,7 @@ define noundef ptr @ascii_strup_inplace(ptr noundef returned captures(ret: addre
   %5 = phi i8 [ %2, %.lr.ph ], [ %13, %4 ]
   %.011 = phi ptr [ %0, %.lr.ph ], [ %12, %4 ]
   %6 = zext i8 %5 to i64
-  %7 = getelementptr i16, ptr %3, i64 %6
+  %7 = getelementptr [2 x i8], ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 32
   %.not9 = icmp eq i16 %9, 0
@@ -641,7 +641,7 @@ define noundef zeroext i1 @isprint_string(ptr noundef readonly captures(none) %0
   %10 = phi i8 [ %2, %.lr.ph ], [ %8, %4 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %5, %4 ]
   %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %3, i64 %11
+  %12 = getelementptr [2 x i8], ptr %3, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 64
   %.not6.not.not = icmp ne i16 %14, 0
@@ -721,7 +721,7 @@ define noundef zeroext i1 @isdigit_string(ptr noundef readonly captures(none) %0
   %10 = phi i8 [ %2, %.lr.ph ], [ %8, %4 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %5, %4 ]
   %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %3, i64 %11
+  %12 = getelementptr [2 x i8], ptr %3, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not6.not.not = icmp ne i16 %14, 0
@@ -917,7 +917,7 @@ define ptr @format_units(ptr noundef %0, double noundef %1, i32 noundef %2, i16 
 67:                                               ; preds = %.thread, %63
   %.484 = phi i64 [ 6, %.thread ], [ %65, %63 ]
   %.07583 = phi i1 [ false, %.thread ], [ %35, %63 ]
-  %68 = getelementptr ptr, ptr %.067, i64 %.484
+  %68 = getelementptr [8 x i8], ptr %.067, i64 %.484
   %69 = load ptr, ptr %68, align 8
   tail call void @wmem_strbuf_append(ptr noundef %6, ptr noundef %69)
   br label %70
@@ -1060,7 +1060,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 20:                                               ; preds = %13
   %21 = load ptr, ptr @thousands_grouping_fmt, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %21, i64 noundef %18)
-  %22 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %22 = getelementptr [8 x i8], ptr @format_size_wmem.prefix, i64 %spec.select
   %23 = load ptr, ptr %22, align 16
   tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %23)
   br label %46
@@ -1072,7 +1072,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 26:                                               ; preds = %24
   %27 = load ptr, ptr @thousands_grouping_fmt, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %27, i64 noundef %17)
-  %28 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %28 = getelementptr [8 x i8], ptr @format_size_wmem.prefix, i64 %spec.select
   %29 = getelementptr i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %30)
@@ -1085,7 +1085,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 33:                                               ; preds = %31
   %34 = load ptr, ptr @thousands_grouping_fmt, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %34, i64 noundef %16)
-  %35 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %35 = getelementptr [8 x i8], ptr @format_size_wmem.prefix, i64 %spec.select
   %36 = getelementptr i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 16
   tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %37)
@@ -1098,7 +1098,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 
 41:                                               ; preds = %38
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %40, i64 noundef %15)
-  %42 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %42 = getelementptr [8 x i8], ptr @format_size_wmem.prefix, i64 %spec.select
   %43 = getelementptr i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %44)
@@ -1178,7 +1178,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 define signext i8 @printable_char_or_period(i8 noundef signext %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr @g_ascii_table, align 8
   %3 = zext i8 %0 to i64
-  %4 = getelementptr i16, ptr %2, i64 %3
+  %4 = getelementptr [2 x i8], ptr %2, i64 %3
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 64
   %.not = icmp eq i16 %6, 0
@@ -1834,7 +1834,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %10 = getelementptr i8, ptr %.0271370, i64 1
   %11 = load i8, ptr %.0271370, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %8, i64 %12
+  %13 = getelementptr [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 64
@@ -2470,7 +2470,7 @@ define ptr @format_text_chr(ptr noundef %0, ptr noundef readonly captures(addres
   %.015 = phi ptr [ %1, %.lr.ph ], [ %19, %11 ]
   %12 = load i8, ptr %.015, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr i16, ptr %9, i64 %13
+  %14 = getelementptr [2 x i8], ptr %9, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 64
@@ -2489,7 +2489,7 @@ define ptr @format_text_chr(ptr noundef %0, ptr noundef readonly captures(addres
 define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @g_ascii_table, align 8
   %4 = zext i8 %1 to i64
-  %5 = getelementptr i16, ptr %3, i64 %4
+  %5 = getelementptr [2 x i8], ptr %3, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 64
   %.not = icmp eq i16 %7, 0

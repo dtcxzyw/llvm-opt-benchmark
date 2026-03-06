@@ -27,7 +27,7 @@ define void @ff_mss34_gen_quant_mat(ptr noundef writeonly captures(none) %0, i32
   %14 = add nsw i32 %13, 50
   %15 = sdiv i32 %14, 100
   %16 = trunc i32 %15 to i16
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv23
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv23
   store i16 %16, ptr %17, align 2, !tbaa !7
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 64
@@ -43,7 +43,7 @@ define void @ff_mss34_gen_quant_mat(ptr noundef writeonly captures(none) %0, i32
   %23 = add nsw i32 %22, 50
   %24 = sdiv i32 %23, 100
   %25 = trunc nsw i32 %24 to i16
-  %26 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %25, ptr %26, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -247,7 +247,7 @@ define void @ff_mss34_dct_put(ptr noundef writeonly captures(none) %0, i64 nound
 
 147:                                              ; preds = %.preheader, %147
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %147 ]
-  %148 = getelementptr inbounds nuw i32, ptr %.2151186, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %.2151186, i64 %indvars.iv
   %149 = load i32, ptr %148, align 4, !tbaa !12
   %150 = add nsw i32 %149, 128
   %151 = icmp ugt i32 %150, 255

@@ -18,7 +18,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %14 = select i1 %.not.i, i32 1, i32 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds [4 x [2 x i32]], ptr %15, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !36
   %19 = ashr i32 %18, %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 3348
@@ -89,7 +89,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 .preheader29:                                     ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4212
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 3040
-  %76 = getelementptr inbounds [2 x i32], ptr %75, i64 %16
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %16
   %77 = and i32 %70, -2
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4280
@@ -108,7 +108,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %87 = load i32, ptr %86, align 4, !tbaa !45
   %88 = icmp eq i32 %87, 3
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 3040
-  %90 = getelementptr inbounds [2 x i32], ptr %89, i64 %16
+  %90 = getelementptr inbounds [8 x i8], ptr %89, i64 %16
   %91 = load i32, ptr %90, align 8, !tbaa !36
   br i1 %88, label %92, label %101
 
@@ -163,7 +163,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %.0215.i41 = phi ptr [ %2, %.preheader29 ], [ %147, %132 ]
   %.0216.i40 = phi ptr [ %3, %.preheader29 ], [ %148, %132 ]
   %119 = load i32, ptr %74, align 4, !tbaa !45
-  %120 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv60
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv60
   %121 = load i32, ptr %120, align 4, !tbaa !36
   %122 = add nsw i32 %121, 1
   %123 = icmp eq i32 %119, %122
@@ -186,7 +186,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 132:                                              ; preds = %129, %127, %124, %117
   %.0212.i = phi ptr [ %131, %129 ], [ %5, %127 ], [ %5, %124 ], [ %5, %117 ]
-  %133 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 %indvars.iv60
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv60
   %134 = load i32, ptr %133, align 8, !tbaa !36
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %136 = load i32, ptr %135, align 4, !tbaa !36
@@ -299,7 +299,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %202 = load ptr, ptr %201, align 8, !tbaa !60
   %203 = sext i32 %200 to i64
-  %204 = getelementptr inbounds [2 x i16], ptr %202, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %202, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !61
   %206 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %207 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -310,7 +310,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store i32 %209, ptr %210, align 8, !tbaa !61
   %211 = add nsw i32 %200, %196
   %212 = sext i32 %211 to i64
-  %213 = getelementptr [2 x i16], ptr %202, i64 %212
+  %213 = getelementptr [4 x i8], ptr %202, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !61
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %216 = getelementptr inbounds nuw i8, ptr %10, i64 36
@@ -331,7 +331,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %225 = load ptr, ptr %224, align 8, !tbaa !62
   %226 = sub nsw i32 %194, %192
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds i32, ptr %225, i64 %227
+  %228 = getelementptr inbounds [4 x i8], ptr %225, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !36
   %230 = and i32 %229, 7
   %.not.i20 = icmp eq i32 %230, 0
@@ -345,7 +345,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 233:                                              ; preds = %223
   %234 = sub nsw i32 %200, %196
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds [2 x i16], ptr %202, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %202, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !61
   %238 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %237, ptr %238, align 4, !tbaa !61
@@ -364,7 +364,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %246 = load ptr, ptr %245, align 8, !tbaa !62
   %247 = sext i32 %194 to i64
-  %248 = getelementptr i32, ptr %246, i64 %247
+  %248 = getelementptr [4 x i8], ptr %246, i64 %247
   %249 = getelementptr i8, ptr %248, i64 -4
   %250 = load i32, ptr %249, align 4, !tbaa !36
   %251 = and i32 %250, 7
@@ -378,12 +378,12 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 253:                                              ; preds = %244
   %254 = add nsw i32 %200, -1
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds [2 x i16], ptr %202, i64 %255
+  %256 = getelementptr inbounds [4 x i8], ptr %202, i64 %255
   %257 = load i32, ptr %256, align 4, !tbaa !61
   store i32 %257, ptr %206, align 8, !tbaa !61
   %258 = add nsw i32 %254, %196
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds [2 x i16], ptr %202, i64 %259
+  %260 = getelementptr inbounds [4 x i8], ptr %202, i64 %259
   %261 = load i32, ptr %260, align 4, !tbaa !61
   br label %262
 
@@ -400,7 +400,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %268 = load ptr, ptr %267, align 8, !tbaa !62
   %269 = sext i32 %194 to i64
-  %270 = getelementptr i32, ptr %268, i64 %269
+  %270 = getelementptr [4 x i8], ptr %268, i64 %269
   %271 = getelementptr i8, ptr %270, i64 4
   %272 = load i32, ptr %271, align 4, !tbaa !36
   %273 = and i32 %272, 7
@@ -415,13 +415,13 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 276:                                              ; preds = %266
   %277 = add nsw i32 %200, 2
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds [2 x i16], ptr %202, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %202, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !61
   %281 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %280, ptr %281, align 4, !tbaa !61
   %282 = add nsw i32 %277, %196
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds [2 x i16], ptr %202, i64 %283
+  %284 = getelementptr inbounds [4 x i8], ptr %202, i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !61
   br label %286
 
@@ -463,23 +463,23 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %314 = lshr i32 %.0131135.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %315 = zext nneg i32 %314 to i64
-  %316 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %10, i64 %315
+  %316 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %315
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %318 = zext nneg i32 %313 to i64
-  %319 = getelementptr inbounds nuw [2 x i16], ptr %317, i64 %318
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %318
   %320 = load i16, ptr %319, align 4, !tbaa !64
   store i16 %320, ptr %11, align 16, !tbaa !64
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 2
   %322 = load i16, ptr %321, align 2, !tbaa !64
   store i16 %322, ptr %288, align 2, !tbaa !64
-  %323 = getelementptr inbounds nuw [2 x i16], ptr %316, i64 %318
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %316, i64 %318
   %324 = load i16, ptr %323, align 4, !tbaa !64
   store i16 %324, ptr %289, align 4, !tbaa !64
   %325 = getelementptr inbounds nuw i8, ptr %323, i64 2
   %326 = load i16, ptr %325, align 2, !tbaa !64
   store i16 %326, ptr %290, align 2, !tbaa !64
   %327 = zext nneg i32 %312 to i64
-  %328 = getelementptr inbounds nuw [2 x i16], ptr %317, i64 %327
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %327
   %329 = load i16, ptr %328, align 4, !tbaa !64
   store i16 %329, ptr %291, align 8, !tbaa !64
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 2
@@ -487,14 +487,14 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store i16 %331, ptr %292, align 2, !tbaa !64
   %332 = or i32 %.0131135.i, 2
   %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw [2 x i16], ptr %317, i64 %333
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %333
   %335 = load i16, ptr %334, align 4, !tbaa !64
   store i16 %335, ptr %293, align 4, !tbaa !64
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 2
   %337 = load i16, ptr %336, align 2, !tbaa !64
   store i16 %337, ptr %294, align 2, !tbaa !64
   %338 = getelementptr inbounds nuw i8, ptr %316, i64 32
-  %339 = getelementptr inbounds nuw [2 x i16], ptr %338, i64 %318
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %318
   %340 = load i16, ptr %339, align 4, !tbaa !64
   store i16 %340, ptr %295, align 16, !tbaa !64
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 2
@@ -515,7 +515,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %.not.i.i, label %._crit_edge.i.i, label %350
 
 350:                                              ; preds = %349
-  %351 = getelementptr inbounds nuw [2 x i16], ptr %11, i64 %indvars.iv.i.i
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.i
   %352 = load i16, ptr %351, align 4, !tbaa !64
   %353 = icmp eq i16 %352, %320
   br i1 %353, label %354, label %._crit_edge.i.i
@@ -528,7 +528,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 358:                                              ; preds = %354
   %359 = load ptr, ptr %9, align 16, !tbaa !41
-  %360 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   store ptr %359, ptr %360, align 8, !tbaa !41
   br label %413
 
@@ -543,9 +543,9 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %368 = and i64 %367, 17179869176
   %369 = mul i64 %366, %368
   %370 = getelementptr inbounds i8, ptr %365, i64 %369
-  %371 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   store ptr %370, ptr %371, align 8, !tbaa !41
-  %372 = getelementptr inbounds nuw [2 x i16], ptr %11, i64 %indvars.iv.i.i
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.i
   %373 = sext i16 %361 to i32
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 2
   %375 = load i16, ptr %374, align 2, !tbaa !64
@@ -605,7 +605,7 @@ hpel_motion.exit.i.i:                             ; preds = %._crit_edge.i.i.i, 
   %409 = select i1 %.not49.i.i.i, i32 0, i32 %408
   %.1.i.i.i = or disjoint i32 %409, %spec.select.i.i.i
   %410 = zext nneg i32 %.1.i.i.i to i64
-  %411 = getelementptr inbounds nuw ptr, ptr %299, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %410
   %412 = load ptr, ptr %411, align 8, !tbaa !72
   tail call void %412(ptr noundef %370, ptr noundef %.046.i.i.i, i64 noundef %406, i32 noundef 8) #5
   br label %413
@@ -1973,7 +1973,7 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %indvars.iv.i = phi i64 [ 0, %.preheader118.i ], [ %indvars.iv.next.i, %1690 ]
   %.0103122.i = phi i32 [ 0, %.preheader118.i ], [ %1702, %1690 ]
   %.0106121.i = phi i32 [ 0, %.preheader118.i ], [ %1705, %1690 ]
-  %1645 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 %indvars.iv.i
+  %1645 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %1646 = load i32, ptr %1645, align 8, !tbaa !36
   %1647 = getelementptr inbounds nuw i8, ptr %1645, i64 4
   %1648 = load i32, ptr %1647, align 4, !tbaa !36
@@ -2045,7 +2045,7 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1695 = mul nsw i64 %1691, %1694
   %1696 = getelementptr inbounds i8, ptr %1693, i64 %1695
   %1697 = zext nneg i32 %.1.i22 to i64
-  %1698 = getelementptr inbounds nuw ptr, ptr %1636, i64 %1697
+  %1698 = getelementptr inbounds nuw [8 x i8], ptr %1636, i64 %1697
   %1699 = load ptr, ptr %1698, align 8, !tbaa !72
   tail call void %1699(ptr noundef %1696, ptr noundef %.0105.i, i64 noundef %1691) #5
   %1700 = load i32, ptr %1645, align 8, !tbaa !36
@@ -2076,7 +2076,7 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1717 = load ptr, ptr %5, align 8, !tbaa !41
   %1718 = or disjoint i32 %1708, %1628
   %1719 = or disjoint i32 %1712, %1629
-  %1720 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 %indvars.iv131.i
+  %1720 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv131.i
   %1721 = load i32, ptr %1720, align 8, !tbaa !36
   %1722 = getelementptr inbounds nuw i8, ptr %1720, i64 4
   %1723 = load i32, ptr %1722, align 4, !tbaa !36
@@ -2135,7 +2135,7 @@ hpel_motion.exit.i:                               ; preds = %._crit_edge.i.i24, 
   %1756 = select i1 %.not49.i.i, i32 0, i32 %1755
   %.1.i.i = or disjoint i32 %1756, %spec.select.i.i
   %1757 = zext nneg i32 %.1.i.i to i64
-  %1758 = getelementptr inbounds nuw ptr, ptr %1637, i64 %1757
+  %1758 = getelementptr inbounds nuw [8 x i8], ptr %1637, i64 %1757
   %1759 = load ptr, ptr %1758, align 8, !tbaa !72
   tail call void %1759(ptr noundef %1716, ptr noundef %.046.i.i, i64 noundef %1753, i32 noundef 8) #5
   %1760 = load i32, ptr %1720, align 8, !tbaa !36
@@ -2157,7 +2157,7 @@ apply_8x8.exit:                                   ; preds = %1690, %hpel_motion.
   %1766 = load i32, ptr %12, align 4, !tbaa !4
   %.not230.i = icmp eq i32 %1766, 0
   %1767 = getelementptr inbounds nuw i8, ptr %0, i64 3040
-  %1768 = getelementptr inbounds [2 x i32], ptr %1767, i64 %16
+  %1768 = getelementptr inbounds [8 x i8], ptr %1767, i64 %16
   br i1 %.not230.i, label %1779, label %.preheader32
 
 .preheader32:                                     ; preds = %1765
@@ -2241,13 +2241,13 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %47 = ashr i32 %10, 1
   %48 = and i32 %10, 7
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @qpel_motion.rtab, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @qpel_motion.rtab, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !36
   %52 = add nsw i32 %51, %47
   %53 = ashr i32 %11, 1
   %54 = and i32 %11, 7
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @qpel_motion.rtab, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @qpel_motion.rtab, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !36
   %58 = add nsw i32 %57, %53
   br label %71
@@ -2362,7 +2362,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
 
 139:                                              ; preds = %138
   %140 = zext nneg i32 %17 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %9, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !72
   tail call void %142(ptr noundef %1, ptr noundef %.0153, i64 noundef %35) #5
   br label %165
@@ -2400,7 +2400,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %.1154 = phi ptr [ %153, %151 ], [ %.0153, %150 ]
   %158 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %159 = zext nneg i32 %17 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !72
   tail call void %161(ptr noundef %.0149, ptr noundef %.1154, i64 noundef %35) #5
   %162 = load ptr, ptr %160, align 8, !tbaa !72
@@ -2423,7 +2423,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %172 = or disjoint i32 %171, %168
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %174 = zext nneg i32 %172 to i64
-  %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !72
   %177 = lshr i32 %12, 1
   tail call void %176(ptr noundef %.0151, ptr noundef %.1158, i64 noundef %38, i32 noundef %177) #5
@@ -2562,23 +2562,23 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %.1177.i = phi ptr [ %100, %94 ], [ %74, %93 ]
   %.1.i = phi ptr [ %97, %94 ], [ %67, %93 ]
   %103 = zext nneg i32 %24 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %6, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !72
   tail call void %105(ptr noundef %1, ptr noundef %.1.i, i64 noundef %18, i32 noundef range(i32 8, 17) %9) #5
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 4256
   %107 = load i32, ptr %106, align 8, !tbaa !82
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [4 x ptr], ptr %6, i64 %108
+  %109 = getelementptr inbounds [32 x i8], ptr %6, i64 %108
   %110 = zext nneg i32 %.0182.i to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !72
   %113 = load i32, ptr %35, align 4, !tbaa !52
   %114 = lshr i32 %9, %113
   tail call void %112(ptr noundef %2, ptr noundef %.1177.i, i64 noundef %20, i32 noundef %114) #5
   %115 = load i32, ptr %106, align 8, !tbaa !82
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [4 x ptr], ptr %6, i64 %116
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %110
+  %117 = getelementptr inbounds [32 x i8], ptr %6, i64 %116
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %110
   %119 = load ptr, ptr %118, align 8, !tbaa !72
   %120 = load i32, ptr %35, align 4, !tbaa !52
   %121 = lshr i32 %9, %120
@@ -2703,14 +2703,14 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %.1177.i30 = phi ptr [ %204, %198 ], [ %.0176.i, %197 ]
   %.1.i31 = phi ptr [ %201, %198 ], [ %.0175.i, %197 ]
   %207 = zext nneg i32 %24 to i64
-  %208 = getelementptr inbounds nuw ptr, ptr %6, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !72
   tail call void %209(ptr noundef %1, ptr noundef %.1.i31, i64 noundef %18, i32 noundef range(i32 8, 17) %9) #5
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 4256
   %211 = load i32, ptr %210, align 8, !tbaa !82
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds [4 x ptr], ptr %6, i64 %212
-  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %.0182.i24
+  %213 = getelementptr inbounds [32 x i8], ptr %6, i64 %212
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %.0182.i24
   %215 = load ptr, ptr %214, align 8, !tbaa !72
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 4260
   %217 = load i32, ptr %216, align 4, !tbaa !52
@@ -2718,8 +2718,8 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void %215(ptr noundef %2, ptr noundef %.1177.i30, i64 noundef %20, i32 noundef %218) #5
   %219 = load i32, ptr %210, align 8, !tbaa !82
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds [4 x ptr], ptr %6, i64 %220
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %.0182.i24
+  %221 = getelementptr inbounds [32 x i8], ptr %6, i64 %220
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.0182.i24
   %223 = load ptr, ptr %222, align 8, !tbaa !72
   %224 = load i32, ptr %216, align 4, !tbaa !52
   %225 = lshr i32 %9, %224
@@ -2882,23 +2882,23 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %.1177.i = phi ptr [ %109, %103 ], [ %74, %102 ]
   %.1.i = phi ptr [ %106, %103 ], [ %67, %102 ]
   %112 = zext nneg i32 %26 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %7, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !72
   tail call void %114(ptr noundef %.0172.i, ptr noundef %.1.i, i64 noundef %19, i32 noundef 8) #5
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 4256
   %116 = load i32, ptr %115, align 8, !tbaa !82
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds [4 x ptr], ptr %7, i64 %117
+  %118 = getelementptr inbounds [32 x i8], ptr %7, i64 %117
   %119 = zext nneg i32 %.0182.i to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !72
   %122 = load i32, ptr %36, align 4, !tbaa !52
   %123 = lshr i32 8, %122
   tail call void %121(ptr noundef %.0173.i, ptr noundef %.1177.i, i64 noundef %22, i32 noundef %123) #5
   %124 = load i32, ptr %115, align 8, !tbaa !82
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds [4 x ptr], ptr %7, i64 %125
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %119
+  %126 = getelementptr inbounds [32 x i8], ptr %7, i64 %125
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %119
   %128 = load ptr, ptr %127, align 8, !tbaa !72
   %129 = load i32, ptr %36, align 4, !tbaa !52
   %130 = lshr i32 8, %129
@@ -3060,15 +3060,15 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %.1177.i32 = phi ptr [ %237, %231 ], [ %.0176.i, %230 ]
   %.1.i33 = phi ptr [ %234, %231 ], [ %.0175.i, %230 ]
   %240 = zext nneg i32 %26 to i64
-  %241 = getelementptr inbounds nuw ptr, ptr %7, i64 %240
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !72
   tail call void %242(ptr noundef %.0172.i29, ptr noundef %.1.i33, i64 noundef %19, i32 noundef 8) #5
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 4256
   %244 = load i32, ptr %243, align 8, !tbaa !82
   %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds [4 x ptr], ptr %7, i64 %245
+  %246 = getelementptr inbounds [32 x i8], ptr %7, i64 %245
   %247 = zext nneg i32 %.0182.i22 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %247
   %249 = load ptr, ptr %248, align 8, !tbaa !72
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 4260
   %251 = load i32, ptr %250, align 4, !tbaa !52
@@ -3076,8 +3076,8 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   tail call void %249(ptr noundef %.0173.i28, ptr noundef %.1177.i32, i64 noundef %22, i32 noundef %252) #5
   %253 = load i32, ptr %243, align 8, !tbaa !82
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds [4 x ptr], ptr %7, i64 %254
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %247
+  %255 = getelementptr inbounds [32 x i8], ptr %7, i64 %254
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %247
   %257 = load ptr, ptr %256, align 8, !tbaa !72
   %258 = load i32, ptr %250, align 4, !tbaa !52
   %259 = lshr i32 8, %258
@@ -3173,7 +3173,7 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
 
 .thread:                                          ; preds = %65
   %71 = zext nneg i32 %.169 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %4, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !72
   tail call void %73(ptr noundef %1, ptr noundef %54, i64 noundef %48, i32 noundef 8) #5
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3190,7 +3190,7 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
   %81 = load ptr, ptr %79, align 8, !tbaa !71
   %.pre76 = load i64, ptr %47, align 8, !tbaa !42
   %82 = zext nneg i32 %.169 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %4, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !72
   tail call void %84(ptr noundef %1, ptr noundef %81, i64 noundef %.pre76, i32 noundef 8) #5
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16

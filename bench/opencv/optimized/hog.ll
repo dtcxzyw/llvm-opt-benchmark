@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -1278,7 +1277,7 @@ _ZN3App10hogWorkEndEv.exit:                       ; preds = %.noexc137
   store i64 0, ptr %118, align 8
   store i32 50987008, ptr %29, align 8, !tbaa !55
   store ptr %20, ptr %117, align 8, !tbaa !57
-  %379 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %378, i64 %.053595
+  %379 = getelementptr inbounds nuw [16 x i8], ptr %378, i64 %.053595
   %.sroa.01.0.copyload = load i64, ptr %379, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %379, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4

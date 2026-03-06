@@ -168,7 +168,7 @@ define hidden { ptr, i64 } @_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i32, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -666,7 +666,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6appe
 11:                                               ; preds = %7, %9
   %.pre-phi = phi i8 [ 1, %9 ], [ %5, %7 ]
   %12 = zext nneg i8 %.pre-phi to i64
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %12
   store i32 %1, ptr %13, align 4
   %14 = load i8, ptr %3, align 2, !noundef !4
   %15 = add i8 %14, 1

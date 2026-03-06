@@ -177,7 +177,7 @@ define hidden void @_ZN6quiche2h35qpack7huffman20encode_output_length17h219f5b3c
   %11 = load i8, ptr %.sroa.08.010, align 1, !noundef !3
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.010, i64 1
-  %14 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %12
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = add i64 %15, %.sroa.02.09
   %17 = icmp eq ptr %13, %4
@@ -215,7 +215,7 @@ define hidden void @_ZN6quiche2h35qpack7huffman20encode_output_length17h7d725f77
   %10 = select i1 %9, i8 32, i8 0
   %.sroa.08.0 = or i8 %10, %7
   %11 = zext i8 %.sroa.08.0 to i64
-  %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = add i64 %13, %.sroa.02.010
   %15 = icmp eq ptr %6, %4
@@ -264,7 +264,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7huffman6encode17h28
   %10 = select i1 %9, i8 32, i8 0
   %.sroa.039.0 = or i8 %10, %7
   %11 = zext i8 %.sroa.039.0 to i64
-  %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
@@ -370,7 +370,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7huffman6encode17he2
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.039.047, i64 1
   %7 = load i8, ptr %.sroa.039.047, align 1, !noundef !3
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %8
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !3
@@ -501,7 +501,7 @@ define hidden { i64, i64 } @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5reset1
   %.not.i.i = icmp ult i64 %22, %16
   %23 = select i1 %.not.i.i, i64 0, i64 %16
   %.sroa.01.0.i.i = sub nuw i64 %22, %23
-  %24 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %18, i64 %.sroa.01.0.i.i
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %.sroa.01.0.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8, !noalias !8, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -981,7 +981,7 @@ define hidden noundef i64 @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_fro
   %.not.i = icmp ult i64 %16, %10
   %17 = select i1 %.not.i, i64 0, i64 %10
   %.sroa.01.0.i = sub nuw i64 %16, %17
-  %18 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %12, i64 %.sroa.01.0.i
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %.sroa.01.0.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16

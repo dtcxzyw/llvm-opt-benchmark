@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @Mode = external local_unnamed_addr global i32, align 4
 @TTSOpsHeapTuple = external constant %struct.TupleTableSlotOps, align 8
@@ -79,7 +78,7 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
 
 ._crit_edge90:                                    ; preds = %22
   %.phi.trans.insert = sext i32 %.085 to i64
-  %.phi.trans.insert91 = getelementptr inbounds ptr, ptr %13, i64 %.phi.trans.insert
+  %.phi.trans.insert91 = getelementptr inbounds [8 x i8], ptr %13, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert91, align 8
   br label %30
 
@@ -87,7 +86,7 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
   %25 = load ptr, ptr %14, align 8
   %26 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %25, ptr noundef nonnull @TTSOpsHeapTuple) #6
   %27 = sext i32 %.085 to i64
-  %28 = getelementptr inbounds ptr, ptr %13, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %13, i64 %27
   store ptr %26, ptr %28, align 8
   %29 = add nsw i32 %.06884, 1
   br label %30
@@ -96,7 +95,7 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
   %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge90 ], [ %27, %24 ]
   %31 = phi ptr [ %.pre, %._crit_edge90 ], [ %26, %24 ]
   %.2 = phi i32 [ %.06884, %._crit_edge90 ], [ %29, %24 ]
-  %32 = getelementptr inbounds ptr, ptr %13, i64 %.pre-phi
+  %32 = getelementptr inbounds [8 x i8], ptr %13, i64 %.pre-phi
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -225,7 +224,7 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %107 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %108) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1152,7 +1151,7 @@ define dso_local i32 @getIdentitySequence(ptr noundef readonly captures(none) %0
   %.val21 = load ptr, ptr %15, align 8
   %16 = add i32 %.val, -1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %union.ListCell, ptr %.val21, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val21, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = tail call signext i16 @get_attnum(i32 noundef %19, ptr noundef %13) #6
   %21 = icmp eq i16 %20, 0

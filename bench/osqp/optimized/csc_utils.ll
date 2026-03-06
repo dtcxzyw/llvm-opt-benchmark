@@ -42,15 +42,15 @@ define range(i64 0, 2) i64 @csc_is_eq(ptr noundef readonly captures(none) %0, pt
 17:                                               ; preds = %.lr.ph41, %.loopexit
   %.03240 = phi i64 [ 0, %.lr.ph41 ], [ %18, %.loopexit ]
   %18 = add nuw nsw i64 %.03240, 1
-  %19 = getelementptr inbounds nuw i64, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw i64, ptr %12, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %18
   %22 = load i64, ptr %21, align 8, !tbaa !14
   %.not35 = icmp eq i64 %20, %22
   br i1 %.not35, label %23, label %.loopexit37
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw i64, ptr %10, i64 %.03240
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.03240
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = icmp slt i64 %25, %20
   br i1 %26, label %.lr.ph, label %.loopexit
@@ -67,19 +67,19 @@ define range(i64 0, 2) i64 @csc_is_eq(ptr noundef readonly captures(none) %0, pt
 
 31:                                               ; preds = %.lr.ph, %29
   %.039 = phi i64 [ %25, %.lr.ph ], [ %30, %29 ]
-  %32 = getelementptr inbounds i64, ptr %27, i64 %.039
+  %32 = getelementptr inbounds [8 x i8], ptr %27, i64 %.039
   %33 = load i64, ptr %32, align 8, !tbaa !14
-  %34 = getelementptr inbounds i64, ptr %28, i64 %.039
+  %34 = getelementptr inbounds [8 x i8], ptr %28, i64 %.039
   %35 = load i64, ptr %34, align 8, !tbaa !14
   %.not36 = icmp eq i64 %33, %35
   br i1 %.not36, label %36, label %.loopexit37
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %15, align 8, !tbaa !17
-  %38 = getelementptr inbounds double, ptr %37, i64 %.039
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.039
   %39 = load double, ptr %38, align 8, !tbaa !18
   %40 = load ptr, ptr %16, align 8, !tbaa !17
-  %41 = getelementptr inbounds double, ptr %40, i64 %.039
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %.039
   %42 = load double, ptr %41, align 8, !tbaa !18
   %43 = fsub double %39, %42
   %44 = tail call double @llvm.fabs.f64(double %43)
@@ -105,9 +105,9 @@ define i64 @csc_cumsum(ptr noundef writeonly captures(address_is_null) %0, ptr n
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.026 = phi i64 [ %10, %.lr.ph ], [ 0, %.preheader ]
   %.02025 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.02025
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02025
   store i64 %.026, ptr %7, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %.02025
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02025
   %9 = load i64, ptr %8, align 8, !tbaa !14
   %10 = add nsw i64 %9, %.026
   store i64 %.026, ptr %8, align 8, !tbaa !14
@@ -117,7 +117,7 @@ define i64 @csc_cumsum(ptr noundef writeonly captures(address_is_null) %0, ptr n
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %10, %.lr.ph ]
-  %12 = getelementptr inbounds i64, ptr %0, i64 %2
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
   store i64 %.0.lcssa, ptr %12, align 8, !tbaa !14
   br label %13
 
@@ -273,7 +273,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 
 .preheader:                                       ; preds = %23, %.preheader78
   %.065.lcssa = phi i64 [ 0, %.preheader78 ], [ %.1, %23 ]
-  %15 = getelementptr inbounds i64, ptr %7, i64 %4
+  %15 = getelementptr inbounds [8 x i8], ptr %7, i64 %4
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = icmp sgt i64 %16, 0
   br i1 %17, label %.lr.ph83, label %._crit_edge
@@ -281,14 +281,14 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.preheader78, %23
   %.06580 = phi i64 [ %.1, %23 ], [ 0, %.preheader78 ]
   %.06679 = phi i64 [ %24, %23 ], [ 0, %.preheader78 ]
-  %18 = getelementptr inbounds nuw i64, ptr %1, i64 %.06679
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.06679
   %19 = load i64, ptr %18, align 8, !tbaa !14
   %.not77 = icmp eq i64 %19, 0
   br i1 %.not77, label %23, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = add nsw i64 %.06580, 1
-  %22 = getelementptr inbounds nuw i64, ptr %13, i64 %.06679
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.06679
   store i64 %.06580, ptr %22, align 8, !tbaa !14
   br label %23
 
@@ -301,9 +301,9 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 .lr.ph83:                                         ; preds = %.preheader, %.lr.ph83
   %.16782 = phi i64 [ %30, %.lr.ph83 ], [ 0, %.preheader ]
   %.06881 = phi i64 [ %spec.select, %.lr.ph83 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds nuw i64, ptr %9, i64 %.16782
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.16782
   %26 = load i64, ptr %25, align 8, !tbaa !14
-  %27 = getelementptr inbounds i64, ptr %1, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !14
   %.not76 = icmp ne i64 %28, 0
   %29 = zext i1 %.not76 to i64
@@ -352,12 +352,12 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 .lr.ph94:                                         ; preds = %40, %.loopexit
   %.292 = phi i64 [ %51, %.loopexit ], [ 0, %40 ]
   %.27091 = phi i64 [ %.3.lcssa, %.loopexit ], [ 0, %40 ]
-  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %.292
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.292
   store i64 %.27091, ptr %48, align 8, !tbaa !14
-  %49 = getelementptr inbounds nuw i64, ptr %7, i64 %.292
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.292
   %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = add nuw nsw i64 %.292, 1
-  %52 = getelementptr inbounds nuw i64, ptr %7, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !14
   %54 = icmp slt i64 %50, %53
   br i1 %54, label %.lr.ph88, label %.loopexit
@@ -370,23 +370,23 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
   %57 = phi i64 [ %53, %.lr.ph88 ], [ %73, %72 ]
   %.06486 = phi i64 [ %50, %.lr.ph88 ], [ %74, %72 ]
   %.385 = phi i64 [ %.27091, %.lr.ph88 ], [ %.4, %72 ]
-  %58 = getelementptr inbounds i64, ptr %55, i64 %.06486
+  %58 = getelementptr inbounds [8 x i8], ptr %55, i64 %.06486
   %59 = load i64, ptr %58, align 8, !tbaa !14
-  %60 = getelementptr inbounds i64, ptr %1, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %1, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !14
   %.not75 = icmp eq i64 %61, 0
   br i1 %.not75, label %72, label %62
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i64, ptr %9, i64 %.06486
+  %63 = getelementptr inbounds [8 x i8], ptr %9, i64 %.06486
   %64 = load i64, ptr %63, align 8, !tbaa !14
-  %65 = getelementptr inbounds i64, ptr %13, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %13, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !14
-  %67 = getelementptr inbounds i64, ptr %44, i64 %.385
+  %67 = getelementptr inbounds [8 x i8], ptr %44, i64 %.385
   store i64 %66, ptr %67, align 8, !tbaa !14
-  %68 = getelementptr inbounds double, ptr %11, i64 %.06486
+  %68 = getelementptr inbounds [8 x i8], ptr %11, i64 %.06486
   %69 = load double, ptr %68, align 8, !tbaa !18
-  %70 = getelementptr inbounds double, ptr %46, i64 %.385
+  %70 = getelementptr inbounds [8 x i8], ptr %46, i64 %.385
   store double %69, ptr %70, align 8, !tbaa !18
   %71 = add nsw i64 %.385, 1
   %.pre = load i64, ptr %52, align 8, !tbaa !14
@@ -401,7 +401,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 
 ._crit_edge95:                                    ; preds = %.loopexit, %40
   %.270.lcssa = phi i64 [ 0, %40 ], [ %.3.lcssa, %.loopexit ]
-  %76 = getelementptr inbounds i64, ptr %42, i64 %4
+  %76 = getelementptr inbounds [8 x i8], ptr %42, i64 %4
   store i64 %.270.lcssa, ptr %76, align 8, !tbaa !14
   br label %.sink.split
 
@@ -487,9 +487,9 @@ define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %.04856 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
-  %41 = getelementptr inbounds nuw i64, ptr %9, i64 %.04856
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.04856
   %42 = load i64, ptr %41, align 8, !tbaa !14
-  %43 = getelementptr inbounds i64, ptr %17, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %17, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !14
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !14
@@ -508,9 +508,9 @@ define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.026.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.preheader.i ]
   %.02025.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %48 = getelementptr inbounds nuw i64, ptr %35, i64 %.02025.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02025.i
   store i64 %.026.i, ptr %48, align 8, !tbaa !14
-  %49 = getelementptr inbounds nuw i64, ptr %17, i64 %.02025.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.02025.i
   %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = add nsw i64 %50, %.026.i
   store i64 %.026.i, ptr %49, align 8, !tbaa !14
@@ -520,7 +520,7 @@ define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %51, %.lr.ph.i ]
-  %53 = getelementptr inbounds i64, ptr %35, i64 %5
+  %53 = getelementptr inbounds [8 x i8], ptr %35, i64 %5
   store i64 %.0.lcssa.i, ptr %53, align 8, !tbaa !14
   br label %csc_cumsum.exit
 
@@ -533,15 +533,15 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.us:                                ; preds = %.lr.ph58, %.lr.ph58.split.us
   %.157.us = phi i64 [ %62, %.lr.ph58.split.us ], [ 0, %.lr.ph58 ]
-  %54 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.157.us
   %55 = load i64, ptr %54, align 8, !tbaa !14
-  %56 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.157.us
   %57 = load i64, ptr %56, align 8, !tbaa !14
-  %58 = getelementptr inbounds i64, ptr %17, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %17, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !14
   %60 = add nsw i64 %59, 1
   store i64 %60, ptr %58, align 8, !tbaa !14
-  %61 = getelementptr inbounds i64, ptr %37, i64 %59
+  %61 = getelementptr inbounds [8 x i8], ptr %37, i64 %59
   store i64 %55, ptr %61, align 8, !tbaa !14
   %62 = add nuw nsw i64 %.157.us, 1
   %exitcond65.not = icmp eq i64 %62, %13
@@ -553,19 +553,19 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split.us:                          ; preds = %.lr.ph58.split, %.lr.ph58.split.split.us
   %.157.us60 = phi i64 [ %74, %.lr.ph58.split.split.us ], [ 0, %.lr.ph58.split ]
-  %63 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us60
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.157.us60
   %64 = load i64, ptr %63, align 8, !tbaa !14
-  %65 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us60
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.157.us60
   %66 = load i64, ptr %65, align 8, !tbaa !14
-  %67 = getelementptr inbounds i64, ptr %17, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %17, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !14
   %69 = add nsw i64 %68, 1
   store i64 %69, ptr %67, align 8, !tbaa !14
-  %70 = getelementptr inbounds i64, ptr %37, i64 %68
+  %70 = getelementptr inbounds [8 x i8], ptr %37, i64 %68
   store i64 %64, ptr %70, align 8, !tbaa !14
-  %71 = getelementptr inbounds nuw double, ptr %11, i64 %.157.us60
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.157.us60
   %72 = load double, ptr %71, align 8, !tbaa !18
-  %73 = getelementptr inbounds double, ptr %39, i64 %68
+  %73 = getelementptr inbounds [8 x i8], ptr %39, i64 %68
   store double %72, ptr %73, align 8, !tbaa !18
   %74 = add nuw nsw i64 %.157.us60, 1
   %exitcond64.not = icmp eq i64 %74, %13
@@ -573,21 +573,21 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split:                             ; preds = %.lr.ph58.split, %.lr.ph58.split.split
   %.157 = phi i64 [ %87, %.lr.ph58.split.split ], [ 0, %.lr.ph58.split ]
-  %75 = getelementptr inbounds nuw i64, ptr %7, i64 %.157
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.157
   %76 = load i64, ptr %75, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw i64, ptr %9, i64 %.157
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.157
   %78 = load i64, ptr %77, align 8, !tbaa !14
-  %79 = getelementptr inbounds i64, ptr %17, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %17, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !14
   %81 = add nsw i64 %80, 1
   store i64 %81, ptr %79, align 8, !tbaa !14
-  %82 = getelementptr inbounds i64, ptr %37, i64 %80
+  %82 = getelementptr inbounds [8 x i8], ptr %37, i64 %80
   store i64 %76, ptr %82, align 8, !tbaa !14
-  %83 = getelementptr inbounds nuw double, ptr %11, i64 %.157
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.157
   %84 = load double, ptr %83, align 8, !tbaa !18
-  %85 = getelementptr inbounds double, ptr %39, i64 %80
+  %85 = getelementptr inbounds [8 x i8], ptr %39, i64 %80
   store double %84, ptr %85, align 8, !tbaa !18
-  %86 = getelementptr inbounds nuw i64, ptr %1, i64 %.157
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.157
   store i64 %80, ptr %86, align 8, !tbaa !14
   %87 = add nuw nsw i64 %.157, 1
   %exitcond63.not = icmp eq i64 %87, %13
@@ -723,9 +723,9 @@ define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %.04856 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
-  %41 = getelementptr inbounds nuw i64, ptr %7, i64 %.04856
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04856
   %42 = load i64, ptr %41, align 8, !tbaa !14
-  %43 = getelementptr inbounds i64, ptr %17, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %17, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !14
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !14
@@ -744,9 +744,9 @@ define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.026.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.preheader.i ]
   %.02025.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %48 = getelementptr inbounds nuw i64, ptr %35, i64 %.02025.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02025.i
   store i64 %.026.i, ptr %48, align 8, !tbaa !14
-  %49 = getelementptr inbounds nuw i64, ptr %17, i64 %.02025.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.02025.i
   %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = add nsw i64 %50, %.026.i
   store i64 %.026.i, ptr %49, align 8, !tbaa !14
@@ -756,7 +756,7 @@ define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %51, %.lr.ph.i ]
-  %53 = getelementptr inbounds i64, ptr %35, i64 %3
+  %53 = getelementptr inbounds [8 x i8], ptr %35, i64 %3
   store i64 %.0.lcssa.i, ptr %53, align 8, !tbaa !14
   br label %csc_cumsum.exit
 
@@ -769,15 +769,15 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.us:                                ; preds = %.lr.ph58, %.lr.ph58.split.us
   %.157.us = phi i64 [ %62, %.lr.ph58.split.us ], [ 0, %.lr.ph58 ]
-  %54 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.157.us
   %55 = load i64, ptr %54, align 8, !tbaa !14
-  %56 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.157.us
   %57 = load i64, ptr %56, align 8, !tbaa !14
-  %58 = getelementptr inbounds i64, ptr %17, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %17, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !14
   %60 = add nsw i64 %59, 1
   store i64 %60, ptr %58, align 8, !tbaa !14
-  %61 = getelementptr inbounds i64, ptr %37, i64 %59
+  %61 = getelementptr inbounds [8 x i8], ptr %37, i64 %59
   store i64 %55, ptr %61, align 8, !tbaa !14
   %62 = add nuw nsw i64 %.157.us, 1
   %exitcond65.not = icmp eq i64 %62, %13
@@ -789,19 +789,19 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split.us:                          ; preds = %.lr.ph58.split, %.lr.ph58.split.split.us
   %.157.us60 = phi i64 [ %74, %.lr.ph58.split.split.us ], [ 0, %.lr.ph58.split ]
-  %63 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us60
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.157.us60
   %64 = load i64, ptr %63, align 8, !tbaa !14
-  %65 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us60
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.157.us60
   %66 = load i64, ptr %65, align 8, !tbaa !14
-  %67 = getelementptr inbounds i64, ptr %17, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %17, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !14
   %69 = add nsw i64 %68, 1
   store i64 %69, ptr %67, align 8, !tbaa !14
-  %70 = getelementptr inbounds i64, ptr %37, i64 %68
+  %70 = getelementptr inbounds [8 x i8], ptr %37, i64 %68
   store i64 %64, ptr %70, align 8, !tbaa !14
-  %71 = getelementptr inbounds nuw double, ptr %11, i64 %.157.us60
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.157.us60
   %72 = load double, ptr %71, align 8, !tbaa !18
-  %73 = getelementptr inbounds double, ptr %39, i64 %68
+  %73 = getelementptr inbounds [8 x i8], ptr %39, i64 %68
   store double %72, ptr %73, align 8, !tbaa !18
   %74 = add nuw nsw i64 %.157.us60, 1
   %exitcond64.not = icmp eq i64 %74, %13
@@ -809,21 +809,21 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split:                             ; preds = %.lr.ph58.split, %.lr.ph58.split.split
   %.157 = phi i64 [ %87, %.lr.ph58.split.split ], [ 0, %.lr.ph58.split ]
-  %75 = getelementptr inbounds nuw i64, ptr %9, i64 %.157
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.157
   %76 = load i64, ptr %75, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw i64, ptr %7, i64 %.157
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.157
   %78 = load i64, ptr %77, align 8, !tbaa !14
-  %79 = getelementptr inbounds i64, ptr %17, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %17, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !14
   %81 = add nsw i64 %80, 1
   store i64 %81, ptr %79, align 8, !tbaa !14
-  %82 = getelementptr inbounds i64, ptr %37, i64 %80
+  %82 = getelementptr inbounds [8 x i8], ptr %37, i64 %80
   store i64 %76, ptr %82, align 8, !tbaa !14
-  %83 = getelementptr inbounds nuw double, ptr %11, i64 %.157
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.157
   %84 = load double, ptr %83, align 8, !tbaa !18
-  %85 = getelementptr inbounds double, ptr %39, i64 %80
+  %85 = getelementptr inbounds [8 x i8], ptr %39, i64 %80
   store double %84, ptr %85, align 8, !tbaa !18
-  %86 = getelementptr inbounds nuw i64, ptr %1, i64 %.157
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.157
   store i64 %80, ptr %86, align 8, !tbaa !14
   %87 = add nuw nsw i64 %.157, 1
   %exitcond63.not = icmp eq i64 %87, %13
@@ -867,24 +867,24 @@ define void @csc_extract_diag(ptr noundef readonly captures(none) %0, ptr nounde
   %13 = phi i64 [ %16, %.loopexit ], [ %.pre, %.lr.ph24.preheader ]
   %.023 = phi i64 [ %14, %.loopexit ], [ 0, %.lr.ph24.preheader ]
   %14 = add nuw nsw i64 %.023, 1
-  %15 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = icmp slt i64 %13, %16
   br i1 %17, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph24
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %.023
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.023
   br label %19
 
 19:                                               ; preds = %.lr.ph, %26
   %.02122 = phi i64 [ %13, %.lr.ph ], [ %27, %26 ]
-  %20 = getelementptr inbounds i64, ptr %8, i64 %.02122
+  %20 = getelementptr inbounds [8 x i8], ptr %8, i64 %.02122
   %21 = load i64, ptr %20, align 8, !tbaa !14
   %22 = icmp eq i64 %21, %.023
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds double, ptr %10, i64 %.02122
+  %24 = getelementptr inbounds [8 x i8], ptr %10, i64 %.02122
   %25 = load double, ptr %24, align 8, !tbaa !18
   store double %25, ptr %18, align 8, !tbaa !18
   br label %26
@@ -915,9 +915,9 @@ define noalias noundef ptr @csc_pinv(ptr noundef readonly captures(address_is_nu
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01115 = phi i64 [ %10, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.01115
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01115
   %8 = load i64, ptr %7, align 8, !tbaa !14
-  %9 = getelementptr inbounds i64, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   store i64 %.01115, ptr %9, align 8, !tbaa !14
   %10 = add nuw nsw i64 %.01115, 1
   %exitcond.not = icmp eq i64 %10, %1
@@ -938,7 +938,7 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = getelementptr inbounds i64, ptr %8, i64 %6
+  %13 = getelementptr inbounds [8 x i8], ptr %8, i64 %6
   %14 = load i64, ptr %13, align 8, !tbaa !14
   %15 = icmp ne i64 %3, 0
   %16 = icmp ne ptr %12, null
@@ -1006,13 +1006,13 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
   %44 = phi i64 [ %47, %.loopexit106.us ], [ %.pre138, %.lr.ph111 ]
   %.090110.us = phi i64 [ %45, %.loopexit106.us ], [ 0, %.lr.ph111 ]
   %45 = add nuw nsw i64 %.090110.us, 1
-  %46 = getelementptr inbounds nuw i64, ptr %8, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !14
   %48 = icmp slt i64 %44, %47
   br i1 %48, label %.lr.ph.us.preheader, label %.loopexit106.us
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph111.split.us
-  %49 = getelementptr inbounds nuw i64, ptr %20, i64 %.090110.us
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.090110.us
   br label %.lr.ph.us
 
 .loopexit106.us:                                  ; preds = %56, %.lr.ph111.split.us
@@ -1021,7 +1021,7 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %56
   %.091109.us.us = phi i64 [ %57, %56 ], [ %44, %.lr.ph.us.preheader ]
-  %50 = getelementptr inbounds i64, ptr %10, i64 %.091109.us.us
+  %50 = getelementptr inbounds [8 x i8], ptr %10, i64 %.091109.us.us
   %51 = load i64, ptr %50, align 8, !tbaa !14
   %52 = icmp sgt i64 %51, %.090110.us
   br i1 %52, label %56, label %53
@@ -1044,26 +1044,26 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
 .lr.ph111.split:                                  ; preds = %.lr.ph111, %.loopexit106
   %58 = phi i64 [ %63, %.loopexit106 ], [ %.pre138, %.lr.ph111 ]
   %.090110 = phi i64 [ %61, %.loopexit106 ], [ 0, %.lr.ph111 ]
-  %59 = getelementptr inbounds nuw i64, ptr %1, i64 %.090110
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.090110
   %60 = load i64, ptr %59, align 8, !tbaa !14
   %61 = add nuw nsw i64 %.090110, 1
-  %62 = getelementptr inbounds nuw i64, ptr %8, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !14
   %64 = icmp slt i64 %58, %63
   br i1 %64, label %.lr.ph, label %.loopexit106
 
 .lr.ph:                                           ; preds = %.lr.ph111.split, %75
   %.091109 = phi i64 [ %76, %75 ], [ %58, %.lr.ph111.split ]
-  %65 = getelementptr inbounds i64, ptr %10, i64 %.091109
+  %65 = getelementptr inbounds [8 x i8], ptr %10, i64 %.091109
   %66 = load i64, ptr %65, align 8, !tbaa !14
   %67 = icmp sgt i64 %66, %.090110
   br i1 %67, label %75, label %68
 
 68:                                               ; preds = %.lr.ph
-  %69 = getelementptr inbounds i64, ptr %1, i64 %66
+  %69 = getelementptr inbounds [8 x i8], ptr %1, i64 %66
   %70 = load i64, ptr %69, align 8, !tbaa !14
   %71 = tail call i64 @llvm.smax.i64(i64 %70, i64 %60)
-  %72 = getelementptr inbounds i64, ptr %20, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %20, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !14
   %74 = add nsw i64 %73, 1
   store i64 %74, ptr %72, align 8, !tbaa !14
@@ -1085,9 +1085,9 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.026.i = phi i64 [ %80, %.lr.ph.i ], [ 0, %._crit_edge ]
   %.02025.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %77 = getelementptr inbounds nuw i64, ptr %38, i64 %.02025.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.02025.i
   store i64 %.026.i, ptr %77, align 8, !tbaa !14
-  %78 = getelementptr inbounds nuw i64, ptr %20, i64 %.02025.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02025.i
   %79 = load i64, ptr %78, align 8, !tbaa !14
   %80 = add nsw i64 %79, %.026.i
   store i64 %.026.i, ptr %78, align 8, !tbaa !14
@@ -1097,7 +1097,7 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread
   %.0.lcssa.i = phi i64 [ 0, %._crit_edge.thread ], [ %80, %.lr.ph.i ]
-  %82 = getelementptr inbounds i64, ptr %38, i64 %6
+  %82 = getelementptr inbounds [8 x i8], ptr %38, i64 %6
   store i64 %.0.lcssa.i, ptr %82, align 8, !tbaa !14
   br label %csc_cumsum.exit
 
@@ -1121,13 +1121,13 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   %83 = phi i64 [ %89, %.loopexit.us.us.us ], [ %.pre145, %.lr.ph117.split.us.split.us ]
   %.1116.us.us.us = phi i64 [ %84, %.loopexit.us.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
   %84 = add nuw nsw i64 %.1116.us.us.us, 1
-  %85 = getelementptr inbounds nuw i64, ptr %8, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !14
   %87 = icmp slt i64 %83, %86
   br i1 %87, label %.lr.ph114.us.us.us.preheader, label %.loopexit.us.us.us
 
 .lr.ph114.us.us.us.preheader:                     ; preds = %.lr.ph117.split.us.split.us.split.us
-  %88 = getelementptr inbounds nuw i64, ptr %20, i64 %.1116.us.us.us
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.1116.us.us.us
   br label %.lr.ph114.us.us.us
 
 .loopexit.us.us.us:                               ; preds = %98, %.lr.ph117.split.us.split.us.split.us
@@ -1138,7 +1138,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph114.us.us.us:                               ; preds = %.lr.ph114.us.us.us.preheader, %98
   %90 = phi i64 [ %99, %98 ], [ %86, %.lr.ph114.us.us.us.preheader ]
   %.192112.us.us.us.us.us.us = phi i64 [ %100, %98 ], [ %83, %.lr.ph114.us.us.us.preheader ]
-  %91 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us.us.us.us.us
+  %91 = getelementptr inbounds [8 x i8], ptr %10, i64 %.192112.us.us.us.us.us.us
   %92 = load i64, ptr %91, align 8, !tbaa !14
   %93 = icmp sgt i64 %92, %.1116.us.us.us
   br i1 %93, label %98, label %94
@@ -1147,7 +1147,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   %95 = load i64, ptr %88, align 8, !tbaa !14
   %96 = add nsw i64 %95, 1
   store i64 %96, ptr %88, align 8, !tbaa !14
-  %97 = getelementptr inbounds i64, ptr %40, i64 %95
+  %97 = getelementptr inbounds [8 x i8], ptr %40, i64 %95
   store i64 %92, ptr %97, align 8, !tbaa !14
   %.pre146 = load i64, ptr %85, align 8, !tbaa !14
   br label %98
@@ -1161,10 +1161,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph117.split.us.split.us.split:                ; preds = %.lr.ph117.split.us.split.us, %.loopexit.us.us
   %102 = phi i64 [ %109, %.loopexit.us.us ], [ %.pre145, %.lr.ph117.split.us.split.us ]
   %.1116.us.us = phi i64 [ %105, %.loopexit.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
-  %103 = getelementptr inbounds nuw i64, ptr %1, i64 %.1116.us.us
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1116.us.us
   %104 = load i64, ptr %103, align 8, !tbaa !14
   %105 = add nuw nsw i64 %.1116.us.us, 1
-  %106 = getelementptr inbounds nuw i64, ptr %8, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !14
   %108 = icmp slt i64 %102, %107
   br i1 %108, label %.lr.ph114.us.us, label %.loopexit.us.us
@@ -1177,21 +1177,21 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph114.us.us:                                  ; preds = %.lr.ph117.split.us.split.us.split, %123
   %110 = phi i64 [ %124, %123 ], [ %107, %.lr.ph117.split.us.split.us.split ]
   %.192112.us.us.us.us = phi i64 [ %125, %123 ], [ %102, %.lr.ph117.split.us.split.us.split ]
-  %111 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us.us.us
+  %111 = getelementptr inbounds [8 x i8], ptr %10, i64 %.192112.us.us.us.us
   %112 = load i64, ptr %111, align 8, !tbaa !14
   %113 = icmp sgt i64 %112, %.1116.us.us
   br i1 %113, label %123, label %114
 
 114:                                              ; preds = %.lr.ph114.us.us
-  %115 = getelementptr inbounds i64, ptr %1, i64 %112
+  %115 = getelementptr inbounds [8 x i8], ptr %1, i64 %112
   %116 = load i64, ptr %115, align 8, !tbaa !14
   %117 = tail call i64 @llvm.smin.i64(i64 %116, i64 %104)
   %118 = tail call i64 @llvm.smax.i64(i64 %116, i64 %104)
-  %119 = getelementptr inbounds i64, ptr %20, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %20, i64 %118
   %120 = load i64, ptr %119, align 8, !tbaa !14
   %121 = add nsw i64 %120, 1
   store i64 %121, ptr %119, align 8, !tbaa !14
-  %122 = getelementptr inbounds i64, ptr %40, i64 %120
+  %122 = getelementptr inbounds [8 x i8], ptr %40, i64 %120
   store i64 %117, ptr %122, align 8, !tbaa !14
   %.pre144 = load i64, ptr %106, align 8, !tbaa !14
   br label %123
@@ -1209,13 +1209,13 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   %127 = phi i64 [ %133, %.loopexit.us.us123 ], [ %.pre145, %.lr.ph117.split.us.split ]
   %.1116.us.us122 = phi i64 [ %128, %.loopexit.us.us123 ], [ 0, %.lr.ph117.split.us.split ]
   %128 = add nuw nsw i64 %.1116.us.us122, 1
-  %129 = getelementptr inbounds nuw i64, ptr %8, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %128
   %130 = load i64, ptr %129, align 8, !tbaa !14
   %131 = icmp slt i64 %127, %130
   br i1 %131, label %.lr.ph114.us.us124.preheader, label %.loopexit.us.us123
 
 .lr.ph114.us.us124.preheader:                     ; preds = %.lr.ph117.split.us.split.split.us
-  %132 = getelementptr inbounds nuw i64, ptr %20, i64 %.1116.us.us122
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.1116.us.us122
   br label %.lr.ph114.us.us124
 
 .loopexit.us.us123:                               ; preds = %143, %.lr.ph117.split.us.split.split.us
@@ -1226,7 +1226,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph114.us.us124:                               ; preds = %.lr.ph114.us.us124.preheader, %143
   %134 = phi i64 [ %144, %143 ], [ %130, %.lr.ph114.us.us124.preheader ]
   %.192112.us.us119.us.us = phi i64 [ %145, %143 ], [ %127, %.lr.ph114.us.us124.preheader ]
-  %135 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us119.us.us
+  %135 = getelementptr inbounds [8 x i8], ptr %10, i64 %.192112.us.us119.us.us
   %136 = load i64, ptr %135, align 8, !tbaa !14
   %137 = icmp sgt i64 %136, %.1116.us.us122
   br i1 %137, label %143, label %138
@@ -1235,9 +1235,9 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   %139 = load i64, ptr %132, align 8, !tbaa !14
   %140 = add nsw i64 %139, 1
   store i64 %140, ptr %132, align 8, !tbaa !14
-  %141 = getelementptr inbounds i64, ptr %40, i64 %139
+  %141 = getelementptr inbounds [8 x i8], ptr %40, i64 %139
   store i64 %136, ptr %141, align 8, !tbaa !14
-  %142 = getelementptr inbounds i64, ptr %2, i64 %.192112.us.us119.us.us
+  %142 = getelementptr inbounds [8 x i8], ptr %2, i64 %.192112.us.us119.us.us
   store i64 %139, ptr %142, align 8, !tbaa !14
   %.pre142 = load i64, ptr %129, align 8, !tbaa !14
   br label %143
@@ -1251,10 +1251,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph117.split.us.split.split:                   ; preds = %.lr.ph117.split.us.split, %.loopexit.us
   %147 = phi i64 [ %154, %.loopexit.us ], [ %.pre145, %.lr.ph117.split.us.split ]
   %.1116.us = phi i64 [ %150, %.loopexit.us ], [ 0, %.lr.ph117.split.us.split ]
-  %148 = getelementptr inbounds nuw i64, ptr %1, i64 %.1116.us
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1116.us
   %149 = load i64, ptr %148, align 8, !tbaa !14
   %150 = add nuw nsw i64 %.1116.us, 1
-  %151 = getelementptr inbounds nuw i64, ptr %8, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %150
   %152 = load i64, ptr %151, align 8, !tbaa !14
   %153 = icmp slt i64 %147, %152
   br i1 %153, label %.lr.ph114.us, label %.loopexit.us
@@ -1267,23 +1267,23 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph114.us:                                     ; preds = %.lr.ph117.split.us.split.split, %169
   %155 = phi i64 [ %170, %169 ], [ %152, %.lr.ph117.split.us.split.split ]
   %.192112.us.us119 = phi i64 [ %171, %169 ], [ %147, %.lr.ph117.split.us.split.split ]
-  %156 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us119
+  %156 = getelementptr inbounds [8 x i8], ptr %10, i64 %.192112.us.us119
   %157 = load i64, ptr %156, align 8, !tbaa !14
   %158 = icmp sgt i64 %157, %.1116.us
   br i1 %158, label %169, label %159
 
 159:                                              ; preds = %.lr.ph114.us
-  %160 = getelementptr inbounds i64, ptr %1, i64 %157
+  %160 = getelementptr inbounds [8 x i8], ptr %1, i64 %157
   %161 = load i64, ptr %160, align 8, !tbaa !14
   %162 = tail call i64 @llvm.smin.i64(i64 %161, i64 %149)
   %163 = tail call i64 @llvm.smax.i64(i64 %161, i64 %149)
-  %164 = getelementptr inbounds i64, ptr %20, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %20, i64 %163
   %165 = load i64, ptr %164, align 8, !tbaa !14
   %166 = add nsw i64 %165, 1
   store i64 %166, ptr %164, align 8, !tbaa !14
-  %167 = getelementptr inbounds i64, ptr %40, i64 %165
+  %167 = getelementptr inbounds [8 x i8], ptr %40, i64 %165
   store i64 %162, ptr %167, align 8, !tbaa !14
-  %168 = getelementptr inbounds i64, ptr %2, i64 %.192112.us.us119
+  %168 = getelementptr inbounds [8 x i8], ptr %2, i64 %.192112.us.us119
   store i64 %165, ptr %168, align 8, !tbaa !14
   %.pre140 = load i64, ptr %151, align 8, !tbaa !14
   br label %169
@@ -1303,23 +1303,23 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %.not, label %176, label %173
 
 173:                                              ; preds = %.lr.ph117.split
-  %174 = getelementptr inbounds nuw i64, ptr %1, i64 %.1116
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1116
   %175 = load i64, ptr %174, align 8, !tbaa !14
   br label %176
 
 176:                                              ; preds = %.lr.ph117.split, %173
   %177 = phi i64 [ %175, %173 ], [ %.1116, %.lr.ph117.split ]
-  %178 = getelementptr inbounds nuw i64, ptr %8, i64 %.1116
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.1116
   %179 = load i64, ptr %178, align 8, !tbaa !14
   %180 = add nuw nsw i64 %.1116, 1
-  %181 = getelementptr inbounds nuw i64, ptr %8, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !14
   %183 = icmp slt i64 %179, %182
   br i1 %183, label %.lr.ph114, label %.loopexit
 
 .lr.ph114:                                        ; preds = %176, %204
   %.192112 = phi i64 [ %205, %204 ], [ %179, %176 ]
-  %184 = getelementptr inbounds i64, ptr %10, i64 %.192112
+  %184 = getelementptr inbounds [8 x i8], ptr %10, i64 %.192112
   %185 = load i64, ptr %184, align 8, !tbaa !14
   %186 = icmp sgt i64 %185, %.1116
   br i1 %186, label %204, label %187
@@ -1328,7 +1328,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %.not, label %191, label %188
 
 188:                                              ; preds = %187
-  %189 = getelementptr inbounds i64, ptr %1, i64 %185
+  %189 = getelementptr inbounds [8 x i8], ptr %1, i64 %185
   %190 = load i64, ptr %189, align 8, !tbaa !14
   br label %191
 
@@ -1336,20 +1336,20 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   %192 = phi i64 [ %190, %188 ], [ %185, %187 ]
   %193 = tail call i64 @llvm.smin.i64(i64 %192, i64 %177)
   %194 = tail call i64 @llvm.smax.i64(i64 %192, i64 %177)
-  %195 = getelementptr inbounds i64, ptr %20, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %20, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !14
   %197 = add nsw i64 %196, 1
   store i64 %197, ptr %195, align 8, !tbaa !14
-  %198 = getelementptr inbounds i64, ptr %40, i64 %196
+  %198 = getelementptr inbounds [8 x i8], ptr %40, i64 %196
   store i64 %193, ptr %198, align 8, !tbaa !14
-  %199 = getelementptr inbounds double, ptr %12, i64 %.192112
+  %199 = getelementptr inbounds [8 x i8], ptr %12, i64 %.192112
   %200 = load double, ptr %199, align 8, !tbaa !18
-  %201 = getelementptr inbounds double, ptr %.fr, i64 %196
+  %201 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %196
   store double %200, ptr %201, align 8, !tbaa !18
   br i1 %.not103, label %204, label %202
 
 202:                                              ; preds = %191
-  %203 = getelementptr inbounds i64, ptr %2, i64 %.192112
+  %203 = getelementptr inbounds [8 x i8], ptr %2, i64 %.192112
   store i64 %196, ptr %203, align 8, !tbaa !14
   br label %204
 
@@ -1377,7 +1377,7 @@ define noalias noundef ptr @csc_copy(ptr noundef readonly captures(none) %0) loc
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !11
-  %7 = getelementptr inbounds i64, ptr %6, i64 %4
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %4
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !17
@@ -1397,9 +1397,9 @@ define noalias noundef ptr @csc_copy(ptr noundef readonly captures(none) %0) loc
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %.06.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %14 ]
-  %20 = getelementptr inbounds nuw i64, ptr %15, i64 %.06.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.06.i
   %21 = load i64, ptr %20, align 8, !tbaa !14
-  %22 = getelementptr inbounds nuw i64, ptr %17, i64 %.06.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06.i
   store i64 %21, ptr %22, align 8, !tbaa !14
   %23 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %.06.i, %18
@@ -1415,16 +1415,16 @@ prea_int_vec_copy.exit:                           ; preds = %prea_int_vec_copy.e
   %26 = load ptr, ptr %25, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !15
-  %29 = getelementptr inbounds i64, ptr %15, i64 %24
+  %29 = getelementptr inbounds [8 x i8], ptr %15, i64 %24
   %30 = load i64, ptr %29, align 8, !tbaa !14
   %31 = icmp sgt i64 %30, 0
   br i1 %31, label %.lr.ph.i20, label %prea_vec_copy.exit
 
 .lr.ph.i20:                                       ; preds = %prea_int_vec_copy.exit, %.lr.ph.i20
   %.06.i21 = phi i64 [ %35, %.lr.ph.i20 ], [ 0, %prea_int_vec_copy.exit ]
-  %32 = getelementptr inbounds nuw i64, ptr %26, i64 %.06.i21
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.06.i21
   %33 = load i64, ptr %32, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw i64, ptr %28, i64 %.06.i21
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.06.i21
   store i64 %33, ptr %34, align 8, !tbaa !14
   %35 = add nuw nsw i64 %.06.i21, 1
   %exitcond.not.i22 = icmp eq i64 %35, %30
@@ -1432,7 +1432,7 @@ prea_int_vec_copy.exit:                           ; preds = %prea_int_vec_copy.e
 
 prea_int_vec_copy.exit23:                         ; preds = %.lr.ph.i20
   %.pre27 = load i64, ptr %3, align 8, !tbaa !3
-  %.phi.trans.insert = getelementptr inbounds i64, ptr %15, i64 %.pre27
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %15, i64 %.pre27
   %.pre28 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !14
   %36 = load ptr, ptr %9, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -1442,9 +1442,9 @@ prea_int_vec_copy.exit23:                         ; preds = %.lr.ph.i20
 
 .lr.ph.i24:                                       ; preds = %prea_int_vec_copy.exit23, %.lr.ph.i24
   %.06.i25 = phi i64 [ %43, %.lr.ph.i24 ], [ 0, %prea_int_vec_copy.exit23 ]
-  %40 = getelementptr inbounds nuw double, ptr %36, i64 %.06.i25
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.06.i25
   %41 = load double, ptr %40, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw double, ptr %38, i64 %.06.i25
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.06.i25
   store double %41, ptr %42, align 8, !tbaa !18
   %43 = add nuw nsw i64 %.06.i25, 1
   %exitcond.not.i26 = icmp eq i64 %43, %.pre28
@@ -1467,7 +1467,7 @@ define noalias noundef ptr @csc_to_dns(ptr noundef readonly captures(none) %0) l
 .preheader:                                       ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !11
-  %9 = getelementptr inbounds i64, ptr %8, i64 %4
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %4
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = icmp sgt i64 %10, 0
   br i1 %11, label %.lr.ph, label %.loopexit
@@ -1482,24 +1482,24 @@ define noalias noundef ptr @csc_to_dns(ptr noundef readonly captures(none) %0) l
 16:                                               ; preds = %.lr.ph, %23
   %.02025 = phi i64 [ 0, %.lr.ph ], [ %29, %23 ]
   %.02124 = phi i64 [ 0, %.lr.ph ], [ %.1, %23 ]
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %.02025
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.02025
   %18 = load i64, ptr %17, align 8, !tbaa !14
   br label %19
 
 19:                                               ; preds = %19, %16
   %.1 = phi i64 [ %.02124, %16 ], [ %20, %19 ]
   %20 = add nsw i64 %.1, 1
-  %21 = getelementptr inbounds i64, ptr %8, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %8, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !14
   %.not23 = icmp sgt i64 %22, %.02025
   br i1 %.not23, label %23, label %19, !llvm.loop !41
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw double, ptr %15, i64 %.02025
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.02025
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = mul nsw i64 %.1, %2
-  %27 = getelementptr double, ptr %6, i64 %26
-  %28 = getelementptr double, ptr %27, i64 %18
+  %27 = getelementptr [8 x i8], ptr %6, i64 %26
+  %28 = getelementptr [8 x i8], ptr %27, i64 %18
   store double %25, ptr %28, align 8, !tbaa !18
   %29 = add nuw nsw i64 %.02025, 1
   %exitcond.not = icmp eq i64 %29, %10
@@ -1526,7 +1526,7 @@ define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = getelementptr inbounds i64, ptr %10, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %2
   %12 = load i64, ptr %11, align 8, !tbaa !14
   %13 = shl nsw i64 %12, 1
   %14 = tail call ptr @csc_spalloc(i64 noundef %2, i64 noundef %2, i64 noundef %13, i64 noundef 1, i64 noundef 1)
@@ -1564,7 +1564,7 @@ define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) 
   %.062 = phi i64 [ 0, %.lr.ph63 ], [ %.1.lcssa, %.loopexit ]
   %.05061 = phi i64 [ 0, %.lr.ph63 ], [ %28, %.loopexit ]
   %28 = add nuw nsw i64 %.05061, 1
-  %29 = getelementptr inbounds nuw i64, ptr %16, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !14
   %31 = icmp slt i64 %27, %30
   br i1 %31, label %.lr.ph, label %.loopexit
@@ -1580,26 +1580,26 @@ define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) 
 37:                                               ; preds = %.lr.ph, %52
   %.159 = phi i64 [ %.062, %.lr.ph ], [ %.2, %52 ]
   %.05258 = phi i64 [ %27, %.lr.ph ], [ %53, %52 ]
-  %38 = getelementptr inbounds i64, ptr %32, i64 %.05258
+  %38 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05258
   %39 = load i64, ptr %38, align 8, !tbaa !14
-  %40 = getelementptr inbounds i64, ptr %33, i64 %.159
+  %40 = getelementptr inbounds [8 x i8], ptr %33, i64 %.159
   store i64 %39, ptr %40, align 8, !tbaa !14
-  %41 = getelementptr inbounds i64, ptr %34, i64 %.159
+  %41 = getelementptr inbounds [8 x i8], ptr %34, i64 %.159
   store i64 %.05061, ptr %41, align 8, !tbaa !14
-  %42 = getelementptr inbounds double, ptr %35, i64 %.05258
+  %42 = getelementptr inbounds [8 x i8], ptr %35, i64 %.05258
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds double, ptr %36, i64 %.159
+  %44 = getelementptr inbounds [8 x i8], ptr %36, i64 %.159
   store double %43, ptr %44, align 8, !tbaa !18
   %45 = add nsw i64 %.159, 1
   %46 = icmp slt i64 %39, %.05061
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i64, ptr %33, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %33, i64 %45
   store i64 %.05061, ptr %48, align 8, !tbaa !14
-  %49 = getelementptr inbounds i64, ptr %34, i64 %45
+  %49 = getelementptr inbounds [8 x i8], ptr %34, i64 %45
   store i64 %39, ptr %49, align 8, !tbaa !14
-  %50 = getelementptr inbounds double, ptr %36, i64 %45
+  %50 = getelementptr inbounds [8 x i8], ptr %36, i64 %45
   store double %43, ptr %50, align 8, !tbaa !18
   %51 = add nsw i64 %.159, 2
   br label %52
@@ -1730,7 +1730,7 @@ define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr n
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %.1.lcssa, %.loopexit72 ]
   %.06378 = phi i64 [ 0, %.lr.ph80 ], [ %41, %.loopexit72 ]
   %41 = add nuw nsw i64 %.06378, 1
-  %42 = getelementptr inbounds nuw i64, ptr %22, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = icmp slt i64 %40, %43
   br i1 %44, label %.lr.ph, label %.loopexit72
@@ -1746,15 +1746,15 @@ define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr n
 50:                                               ; preds = %.lr.ph, %50
   %.176 = phi i64 [ %.079, %.lr.ph ], [ %58, %50 ]
   %.06575 = phi i64 [ %40, %.lr.ph ], [ %59, %50 ]
-  %51 = getelementptr inbounds i64, ptr %45, i64 %.06575
+  %51 = getelementptr inbounds [8 x i8], ptr %45, i64 %.06575
   %52 = load i64, ptr %51, align 8, !tbaa !14
-  %53 = getelementptr inbounds i64, ptr %46, i64 %.176
+  %53 = getelementptr inbounds [8 x i8], ptr %46, i64 %.176
   store i64 %52, ptr %53, align 8, !tbaa !14
-  %54 = getelementptr inbounds i64, ptr %47, i64 %.176
+  %54 = getelementptr inbounds [8 x i8], ptr %47, i64 %.176
   store i64 %.06378, ptr %54, align 8, !tbaa !14
-  %55 = getelementptr inbounds double, ptr %48, i64 %.06575
+  %55 = getelementptr inbounds [8 x i8], ptr %48, i64 %.06575
   %56 = load double, ptr %55, align 8, !tbaa !18
-  %57 = getelementptr inbounds double, ptr %49, i64 %.176
+  %57 = getelementptr inbounds [8 x i8], ptr %49, i64 %.176
   store double %56, ptr %57, align 8, !tbaa !18
   %58 = add nsw i64 %.176, 1
   %59 = add nsw i64 %.06575, 1
@@ -1773,7 +1773,7 @@ define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr n
   %.288 = phi i64 [ %.1.lcssa, %.lr.ph89 ], [ %.3.lcssa, %.loopexit ]
   %.16487 = phi i64 [ 0, %.lr.ph89 ], [ %65, %.loopexit ]
   %65 = add nuw nsw i64 %.16487, 1
-  %66 = getelementptr inbounds nuw i64, ptr %33, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !14
   %68 = icmp slt i64 %64, %67
   br i1 %68, label %.lr.ph84, label %.loopexit
@@ -1789,16 +1789,16 @@ define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr n
 74:                                               ; preds = %.lr.ph84, %74
   %.383 = phi i64 [ %.288, %.lr.ph84 ], [ %83, %74 ]
   %.16682 = phi i64 [ %64, %.lr.ph84 ], [ %84, %74 ]
-  %75 = getelementptr inbounds i64, ptr %69, i64 %.16682
+  %75 = getelementptr inbounds [8 x i8], ptr %69, i64 %.16682
   %76 = load i64, ptr %75, align 8, !tbaa !14
   %77 = add nsw i64 %76, %11
-  %78 = getelementptr inbounds i64, ptr %70, i64 %.383
+  %78 = getelementptr inbounds [8 x i8], ptr %70, i64 %.383
   store i64 %77, ptr %78, align 8, !tbaa !14
-  %79 = getelementptr inbounds i64, ptr %71, i64 %.383
+  %79 = getelementptr inbounds [8 x i8], ptr %71, i64 %.383
   store i64 %.16487, ptr %79, align 8, !tbaa !14
-  %80 = getelementptr inbounds double, ptr %72, i64 %.16682
+  %80 = getelementptr inbounds [8 x i8], ptr %72, i64 %.16682
   %81 = load double, ptr %80, align 8, !tbaa !18
-  %82 = getelementptr inbounds double, ptr %73, i64 %.383
+  %82 = getelementptr inbounds [8 x i8], ptr %73, i64 %.383
   store double %81, ptr %82, align 8, !tbaa !18
   %83 = add nsw i64 %.383, 1
   %84 = add nsw i64 %.16682, 1

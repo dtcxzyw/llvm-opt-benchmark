@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._timelib_lookup_table = type { ptr, i32, i32 }
 %struct._timelib_relunit = type { ptr, i32, i32 }
 %struct._Scanner = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr }
-%struct._timelib_error_message = type { i32, i32, i8, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"UTC\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"Empty string\00", align 1
@@ -946,7 +945,7 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr noundef captures(none) %0, 
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = load i8, ptr %3, align 1, !tbaa !11
   %7 = sext i8 %6 to i64
-  %8 = getelementptr inbounds i16, ptr %5, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %5, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !28
   %10 = and i16 %9, 2048
   %.not51 = icmp ne i16 %10, 0
@@ -960,7 +959,7 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr noundef captures(none) %0, 
   store ptr %13, ptr %0, align 8, !tbaa !8
   %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = sext i8 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %5, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %5, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !28
   %18 = and i16 %17, 2048
   %.not = icmp ne i16 %18, 0
@@ -1132,7 +1131,7 @@ define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef
   %.1100 = phi ptr [ %23, %14 ], [ %0, %.preheader124 ]
   %15 = load i8, ptr %.1100, align 1, !tbaa !11
   %16 = sext i8 %15 to i64
-  %17 = getelementptr inbounds i16, ptr %13, i64 %16
+  %17 = getelementptr inbounds [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !28
   %19 = and i16 %18, 8192
   %20 = icmp ne i16 %19, 0
@@ -1145,7 +1144,7 @@ define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef
   %.1 = phi ptr [ %32, %.preheader ], [ %8, %14 ]
   %24 = load i8, ptr %.1, align 1, !tbaa !11
   %25 = sext i8 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %13, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %13, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !28
   %28 = and i16 %27, 8192
   %29 = icmp ne i16 %28, 0
@@ -1188,7 +1187,7 @@ add_error.exit:                                   ; preds = %42, %37
   %50 = add i32 %48, 1
   store i32 %50, ptr %11, align 4, !tbaa !4
   %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds %struct._timelib_error_message, ptr %49, i64 %51
+  %52 = getelementptr inbounds [24 x i8], ptr %49, i64 %51
   store i32 518, ptr %52, align 8, !tbaa !37
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %53, align 4, !tbaa !39
@@ -1328,7 +1327,7 @@ alloc_error_message.exit.i112:                    ; preds = %116, %109
   %124 = add i32 %122, 1
   store i32 %124, ptr %112, align 4, !tbaa !4
   %125 = sext i32 %122 to i64
-  %126 = getelementptr inbounds %struct._timelib_error_message, ptr %123, i64 %125
+  %126 = getelementptr inbounds [24 x i8], ptr %123, i64 %125
   store i32 258, ptr %126, align 8, !tbaa !37
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %128 = load ptr, ptr %127, align 8, !tbaa !58
@@ -1404,7 +1403,7 @@ alloc_error_message.exit.i118:                    ; preds = %160, %153
   %168 = add i32 %166, 1
   store i32 %168, ptr %156, align 4, !tbaa !4
   %169 = sext i32 %166 to i64
-  %170 = getelementptr inbounds %struct._timelib_error_message, ptr %167, i64 %169
+  %170 = getelementptr inbounds [24 x i8], ptr %167, i64 %169
   store i32 259, ptr %170, align 8, !tbaa !37
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %172 = load ptr, ptr %171, align 8, !tbaa !58
@@ -1499,7 +1498,7 @@ alloc_error_message.exit:                         ; preds = %3, %10
   %18 = add i32 %16, 1
   store i32 %18, ptr %6, align 4, !tbaa !4
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds %struct._timelib_error_message, ptr %17, i64 %19
+  %20 = getelementptr inbounds [24 x i8], ptr %17, i64 %19
   store i32 %1, ptr %20, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !58
@@ -1918,7 +1917,7 @@ alloc_error_message.exit.i:                       ; preds = %187, %181
   %195 = add i32 %193, 1
   store i32 %195, ptr %183, align 4, !tbaa !4
   %196 = sext i32 %193 to i64
-  %197 = getelementptr inbounds %struct._timelib_error_message, ptr %194, i64 %196
+  %197 = getelementptr inbounds [24 x i8], ptr %194, i64 %196
   store i32 517, ptr %197, align 8, !tbaa !37
   %198 = load ptr, ptr %25, align 8, !tbaa !58
   %.not.i = icmp eq ptr %198, null
@@ -3497,7 +3496,7 @@ alloc_error_message.exit.i17502:                  ; preds = %774, %768
   %783 = add i32 %781, 1
   store i32 %783, ptr %770, align 4, !tbaa !4
   %784 = sext i32 %781 to i64
-  %785 = getelementptr inbounds %struct._timelib_error_message, ptr %782, i64 %784
+  %785 = getelementptr inbounds [24 x i8], ptr %782, i64 %784
   store i32 513, ptr %785, align 8, !tbaa !37
   %.not.i17503 = icmp eq ptr %780, null
   br i1 %.not.i17503, label %.thread.i17504, label %787
@@ -3547,7 +3546,7 @@ alloc_error_message.exit.i17509:                  ; preds = %802, %795
   %811 = add i32 %809, 1
   store i32 %811, ptr %798, align 4, !tbaa !4
   %812 = sext i32 %809 to i64
-  %813 = getelementptr inbounds %struct._timelib_error_message, ptr %810, i64 %812
+  %813 = getelementptr inbounds [24 x i8], ptr %810, i64 %812
   store i32 257, ptr %813, align 8, !tbaa !37
   %.not.i17510 = icmp eq ptr %808, null
   br i1 %.not.i17510, label %.thread.i17511, label %815
@@ -3661,7 +3660,7 @@ alloc_error_message.exit.i17516:                  ; preds = %862, %856
   %870 = add i32 %868, 1
   store i32 %870, ptr %858, align 4, !tbaa !4
   %871 = sext i32 %868 to i64
-  %872 = getelementptr inbounds %struct._timelib_error_message, ptr %869, i64 %871
+  %872 = getelementptr inbounds [24 x i8], ptr %869, i64 %871
   store i32 514, ptr %872, align 8, !tbaa !37
   %873 = load ptr, ptr %25, align 8, !tbaa !58
   %.not.i17517 = icmp eq ptr %873, null
@@ -6692,7 +6691,7 @@ alloc_error_message.exit.i17523:                  ; preds = %2168, %2162
   %2177 = add i32 %2175, 1
   store i32 %2177, ptr %2164, align 4, !tbaa !4
   %2178 = sext i32 %2175 to i64
-  %2179 = getelementptr inbounds %struct._timelib_error_message, ptr %2176, i64 %2178
+  %2179 = getelementptr inbounds [24 x i8], ptr %2176, i64 %2178
   store i32 516, ptr %2179, align 8, !tbaa !37
   %.not.i17524 = icmp eq ptr %2174, null
   br i1 %.not.i17524, label %.thread.i17525, label %2181
@@ -11143,7 +11142,7 @@ alloc_error_message.exit.i17530:                  ; preds = %4148, %4142
   %4157 = add i32 %4155, 1
   store i32 %4157, ptr %4144, align 4, !tbaa !4
   %4158 = sext i32 %4155 to i64
-  %4159 = getelementptr inbounds %struct._timelib_error_message, ptr %4156, i64 %4158
+  %4159 = getelementptr inbounds [24 x i8], ptr %4156, i64 %4158
   store i32 515, ptr %4159, align 8, !tbaa !37
   %.not.i17531 = icmp eq ptr %4154, null
   br i1 %.not.i17531, label %.thread.i17532, label %4161
@@ -13071,7 +13070,7 @@ alloc_error_message.exit.i17538:                  ; preds = %5037, %5031
   %5046 = add i32 %5044, 1
   store i32 %5046, ptr %5033, align 4, !tbaa !4
   %5047 = sext i32 %5044 to i64
-  %5048 = getelementptr inbounds %struct._timelib_error_message, ptr %5045, i64 %5047
+  %5048 = getelementptr inbounds [24 x i8], ptr %5045, i64 %5047
   store i32 516, ptr %5048, align 8, !tbaa !37
   %.not.i17539 = icmp eq ptr %5043, null
   br i1 %.not.i17539, label %.thread.i17540, label %5050
@@ -15030,7 +15029,7 @@ alloc_error_message.exit.i17549:                  ; preds = %5897, %5891
   %5906 = add i32 %5904, 1
   store i32 %5906, ptr %5893, align 4, !tbaa !4
   %5907 = sext i32 %5904 to i64
-  %5908 = getelementptr inbounds %struct._timelib_error_message, ptr %5905, i64 %5907
+  %5908 = getelementptr inbounds [24 x i8], ptr %5905, i64 %5907
   store i32 516, ptr %5908, align 8, !tbaa !37
   %.not.i17550 = icmp eq ptr %5903, null
   br i1 %.not.i17550, label %.thread.i17551, label %5910
@@ -16743,7 +16742,7 @@ alloc_error_message.exit.i17558:                  ; preds = %6711, %6705
   %6720 = add i32 %6718, 1
   store i32 %6720, ptr %6707, align 4, !tbaa !4
   %6721 = sext i32 %6718 to i64
-  %6722 = getelementptr inbounds %struct._timelib_error_message, ptr %6719, i64 %6721
+  %6722 = getelementptr inbounds [24 x i8], ptr %6719, i64 %6721
   store i32 516, ptr %6722, align 8, !tbaa !37
   %.not.i17559 = icmp eq ptr %6717, null
   br i1 %.not.i17559, label %.thread.i17560, label %6724
@@ -26179,7 +26178,7 @@ alloc_error_message.exit.i17588:                  ; preds = %11104, %11098
   %11113 = add i32 %11111, 1
   store i32 %11113, ptr %11100, align 4, !tbaa !4
   %11114 = sext i32 %11111 to i64
-  %11115 = getelementptr inbounds %struct._timelib_error_message, ptr %11112, i64 %11114
+  %11115 = getelementptr inbounds [24 x i8], ptr %11112, i64 %11114
   store i32 516, ptr %11115, align 8, !tbaa !37
   %.not.i17589 = icmp eq ptr %11110, null
   br i1 %.not.i17589, label %.thread.i17590, label %11117
@@ -27063,7 +27062,7 @@ alloc_error_message.exit.i17595:                  ; preds = %11475, %11469
   %11484 = add i32 %11482, 1
   store i32 %11484, ptr %11471, align 4, !tbaa !4
   %11485 = sext i32 %11482 to i64
-  %11486 = getelementptr inbounds %struct._timelib_error_message, ptr %11483, i64 %11485
+  %11486 = getelementptr inbounds [24 x i8], ptr %11483, i64 %11485
   store i32 516, ptr %11486, align 8, !tbaa !37
   %.not.i17596 = icmp eq ptr %11481, null
   br i1 %.not.i17596, label %.thread.i17597, label %11488
@@ -33916,7 +33915,7 @@ alloc_error_message.exit.i17602:                  ; preds = %14663, %14657
   %14672 = add i32 %14670, 1
   store i32 %14672, ptr %14659, align 4, !tbaa !4
   %14673 = sext i32 %14670 to i64
-  %14674 = getelementptr inbounds %struct._timelib_error_message, ptr %14671, i64 %14673
+  %14674 = getelementptr inbounds [24 x i8], ptr %14671, i64 %14673
   store i32 516, ptr %14674, align 8, !tbaa !37
   %.not.i17603 = icmp eq ptr %14669, null
   br i1 %.not.i17603, label %.thread.i17604, label %14676
@@ -35721,7 +35720,7 @@ alloc_error_message.exit.i17609:                  ; preds = %15526, %15520
   %15535 = add i32 %15533, 1
   store i32 %15535, ptr %15522, align 4, !tbaa !4
   %15536 = sext i32 %15533 to i64
-  %15537 = getelementptr inbounds %struct._timelib_error_message, ptr %15534, i64 %15536
+  %15537 = getelementptr inbounds [24 x i8], ptr %15534, i64 %15536
   store i32 516, ptr %15537, align 8, !tbaa !37
   %.not.i17610 = icmp eq ptr %15532, null
   br i1 %.not.i17610, label %.thread.i17611, label %15539
@@ -36216,7 +36215,7 @@ alloc_error_message.exit.i17616:                  ; preds = %15762, %15756
   %15771 = add i32 %15769, 1
   store i32 %15771, ptr %15758, align 4, !tbaa !4
   %15772 = sext i32 %15769 to i64
-  %15773 = getelementptr inbounds %struct._timelib_error_message, ptr %15770, i64 %15772
+  %15773 = getelementptr inbounds [24 x i8], ptr %15770, i64 %15772
   store i32 516, ptr %15773, align 8, !tbaa !37
   %.not.i17617 = icmp eq ptr %15768, null
   br i1 %.not.i17617, label %.thread.i17618, label %15775
@@ -37834,7 +37833,7 @@ alloc_error_message.exit.i17632:                  ; preds = %16515, %16509
   %16524 = add i32 %16522, 1
   store i32 %16524, ptr %16511, align 4, !tbaa !4
   %16525 = sext i32 %16522 to i64
-  %16526 = getelementptr inbounds %struct._timelib_error_message, ptr %16523, i64 %16525
+  %16526 = getelementptr inbounds [24 x i8], ptr %16523, i64 %16525
   store i32 516, ptr %16526, align 8, !tbaa !37
   %.not.i17633 = icmp eq ptr %16521, null
   br i1 %.not.i17633, label %.thread.i17634, label %16528
@@ -38285,7 +38284,7 @@ alloc_error_message.exit.i17639:                  ; preds = %16742, %16736
   %16751 = add i32 %16749, 1
   store i32 %16751, ptr %16738, align 4, !tbaa !4
   %16752 = sext i32 %16749 to i64
-  %16753 = getelementptr inbounds %struct._timelib_error_message, ptr %16750, i64 %16752
+  %16753 = getelementptr inbounds [24 x i8], ptr %16750, i64 %16752
   store i32 516, ptr %16753, align 8, !tbaa !37
   %.not.i17640 = icmp eq ptr %16748, null
   br i1 %.not.i17640, label %.thread.i17641, label %16755
@@ -38598,7 +38597,7 @@ alloc_error_message.exit.i17646:                  ; preds = %16894, %16888
   %16903 = add i32 %16901, 1
   store i32 %16903, ptr %16890, align 4, !tbaa !4
   %16904 = sext i32 %16901 to i64
-  %16905 = getelementptr inbounds %struct._timelib_error_message, ptr %16902, i64 %16904
+  %16905 = getelementptr inbounds [24 x i8], ptr %16902, i64 %16904
   store i32 516, ptr %16905, align 8, !tbaa !37
   %.not.i17647 = icmp eq ptr %16900, null
   br i1 %.not.i17647, label %.thread.i17648, label %16907
@@ -44027,7 +44026,7 @@ alloc_error_message.exit.i17676:                  ; preds = %19456, %19450
   %19465 = add i32 %19463, 1
   store i32 %19465, ptr %19452, align 4, !tbaa !4
   %19466 = sext i32 %19463 to i64
-  %19467 = getelementptr inbounds %struct._timelib_error_message, ptr %19464, i64 %19466
+  %19467 = getelementptr inbounds [24 x i8], ptr %19464, i64 %19466
   store i32 515, ptr %19467, align 8, !tbaa !37
   %.not.i17677 = icmp eq ptr %19462, null
   br i1 %.not.i17677, label %.thread.i17678, label %19469
@@ -44795,7 +44794,7 @@ alloc_error_message.exit.i17683:                  ; preds = %19853, %19847
   %19862 = add i32 %19860, 1
   store i32 %19862, ptr %19849, align 4, !tbaa !4
   %19863 = sext i32 %19860 to i64
-  %19864 = getelementptr inbounds %struct._timelib_error_message, ptr %19861, i64 %19863
+  %19864 = getelementptr inbounds [24 x i8], ptr %19861, i64 %19863
   store i32 515, ptr %19864, align 8, !tbaa !37
   %.not.i17684 = icmp eq ptr %19859, null
   br i1 %.not.i17684, label %.thread.i17685, label %19866
@@ -45330,7 +45329,7 @@ alloc_error_message.exit:                         ; preds = %3, %11
   %19 = add i32 %17, 1
   store i32 %19, ptr %7, align 4, !tbaa !4
   %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds %struct._timelib_error_message, ptr %18, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %18, i64 %20
   store i32 %1, ptr %21, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !58
@@ -45592,7 +45591,7 @@ add_pbf_error.exit:                               ; preds = %144, %148
   %156 = add i32 %154, 1
   store i32 %156, ptr %31, align 4, !tbaa !4
   %157 = sext i32 %154 to i64
-  %158 = getelementptr inbounds %struct._timelib_error_message, ptr %155, i64 %157
+  %158 = getelementptr inbounds [24 x i8], ptr %155, i64 %157
   store i32 548, ptr %158, align 8, !tbaa !37
   %159 = ptrtoint ptr %138 to i64
   %160 = sub i64 %159, %30
@@ -45763,7 +45762,7 @@ add_pbf_error.exit498:                            ; preds = %197, %201
   %209 = add i32 %207, 1
   store i32 %209, ptr %129, align 4, !tbaa !4
   %210 = sext i32 %207 to i64
-  %211 = getelementptr inbounds %struct._timelib_error_message, ptr %208, i64 %210
+  %211 = getelementptr inbounds [24 x i8], ptr %208, i64 %210
   store i32 520, ptr %211, align 8, !tbaa !37
   %212 = sub i64 %186, %30
   %213 = trunc i64 %212 to i32
@@ -45820,7 +45819,7 @@ add_pbf_error.exit502:                            ; preds = %226, %230
   %238 = add i32 %236, 1
   store i32 %238, ptr %124, align 4, !tbaa !4
   %239 = sext i32 %236 to i64
-  %240 = getelementptr inbounds %struct._timelib_error_message, ptr %237, i64 %239
+  %240 = getelementptr inbounds [24 x i8], ptr %237, i64 %239
   store i32 519, ptr %240, align 8, !tbaa !37
   %241 = ptrtoint ptr %172 to i64
   %242 = sub i64 %241, %30
@@ -45916,7 +45915,7 @@ add_pbf_error.exit507:                            ; preds = %267, %271
   %279 = add i32 %277, 1
   store i32 %279, ptr %128, align 4, !tbaa !4
   %280 = sext i32 %277 to i64
-  %281 = getelementptr inbounds %struct._timelib_error_message, ptr %278, i64 %280
+  %281 = getelementptr inbounds [24 x i8], ptr %278, i64 %280
   store i32 521, ptr %281, align 8, !tbaa !37
   %282 = ptrtoint ptr %172 to i64
   %283 = sub i64 %282, %30
@@ -45939,7 +45938,7 @@ add_pbf_error.exit507:                            ; preds = %267, %271
   %292 = tail call ptr @__ctype_b_loc() #22
   %293 = load ptr, ptr %292, align 8, !tbaa !26
   %294 = sext i8 %.us-phi1034 to i64
-  %295 = getelementptr inbounds i16, ptr %293, i64 %294
+  %295 = getelementptr inbounds [2 x i8], ptr %293, i64 %294
   %296 = load i16, ptr %295, align 2, !tbaa !28
   %297 = and i16 %296, 8192
   %.not.i = icmp eq i16 %297, 0
@@ -46004,7 +46003,7 @@ add_pbf_error.exit512:                            ; preds = %312, %316
   %324 = add i32 %322, 1
   store i32 %324, ptr %118, align 4, !tbaa !4
   %325 = sext i32 %322 to i64
-  %326 = getelementptr inbounds %struct._timelib_error_message, ptr %323, i64 %325
+  %326 = getelementptr inbounds [24 x i8], ptr %323, i64 %325
   store i32 519, ptr %326, align 8, !tbaa !37
   %327 = ptrtoint ptr %172 to i64
   %328 = sub i64 %327, %30
@@ -46048,7 +46047,7 @@ add_pbf_error.exit516:                            ; preds = %338, %342
   %350 = add i32 %348, 1
   store i32 %350, ptr %119, align 4, !tbaa !4
   %351 = sext i32 %348 to i64
-  %352 = getelementptr inbounds %struct._timelib_error_message, ptr %349, i64 %351
+  %352 = getelementptr inbounds [24 x i8], ptr %349, i64 %351
   store i32 529, ptr %352, align 8, !tbaa !37
   %353 = ptrtoint ptr %172 to i64
   %354 = sub i64 %353, %30
@@ -46144,7 +46143,7 @@ add_pbf_error.exit536:                            ; preds = %timelib_get_nr.exit
   %391 = add i32 %389, 1
   store i32 %391, ptr %123, align 4, !tbaa !4
   %392 = sext i32 %389 to i64
-  %393 = getelementptr inbounds %struct._timelib_error_message, ptr %390, i64 %392
+  %393 = getelementptr inbounds [24 x i8], ptr %390, i64 %392
   store i32 522, ptr %393, align 8, !tbaa !37
   %394 = ptrtoint ptr %172 to i64
   %395 = sub i64 %394, %30
@@ -46205,7 +46204,7 @@ add_pbf_error.exit540:                            ; preds = %410, %414
   %422 = add i32 %420, 1
   store i32 %422, ptr %113, align 4, !tbaa !4
   %423 = sext i32 %420 to i64
-  %424 = getelementptr inbounds %struct._timelib_error_message, ptr %421, i64 %423
+  %424 = getelementptr inbounds [24 x i8], ptr %421, i64 %423
   store i32 519, ptr %424, align 8, !tbaa !37
   %425 = ptrtoint ptr %172 to i64
   %426 = sub i64 %425, %30
@@ -46301,7 +46300,7 @@ add_pbf_error.exit560:                            ; preds = %451, %455
   %463 = add i32 %461, 1
   store i32 %463, ptr %117, align 4, !tbaa !4
   %464 = sext i32 %461 to i64
-  %465 = getelementptr inbounds %struct._timelib_error_message, ptr %462, i64 %464
+  %465 = getelementptr inbounds [24 x i8], ptr %462, i64 %464
   store i32 523, ptr %465, align 8, !tbaa !37
   %466 = ptrtoint ptr %172 to i64
   %467 = sub i64 %466, %30
@@ -46396,7 +46395,7 @@ add_pbf_error.exit566:                            ; preds = %499, %503
   %511 = add i32 %509, 1
   store i32 %511, ptr %112, align 4, !tbaa !4
   %512 = sext i32 %509 to i64
-  %513 = getelementptr inbounds %struct._timelib_error_message, ptr %510, i64 %512
+  %513 = getelementptr inbounds [24 x i8], ptr %510, i64 %512
   store i32 524, ptr %513, align 8, !tbaa !37
   %514 = sub i64 %484, %30
   %515 = trunc i64 %514 to i32
@@ -46448,7 +46447,7 @@ add_pbf_error.exit570:                            ; preds = %526, %530
   %538 = add i32 %536, 1
   store i32 %538, ptr %107, align 4, !tbaa !4
   %539 = sext i32 %536 to i64
-  %540 = getelementptr inbounds %struct._timelib_error_message, ptr %537, i64 %539
+  %540 = getelementptr inbounds [24 x i8], ptr %537, i64 %539
   store i32 519, ptr %540, align 8, !tbaa !37
   %541 = ptrtoint ptr %172 to i64
   %542 = sub i64 %541, %30
@@ -46544,7 +46543,7 @@ add_pbf_error.exit578:                            ; preds = %567, %571
   %579 = add i32 %577, 1
   store i32 %579, ptr %109, align 4, !tbaa !4
   %580 = sext i32 %577 to i64
-  %581 = getelementptr inbounds %struct._timelib_error_message, ptr %578, i64 %580
+  %581 = getelementptr inbounds [24 x i8], ptr %578, i64 %580
   store i32 525, ptr %581, align 8, !tbaa !37
   %582 = ptrtoint ptr %172 to i64
   %583 = sub i64 %582, %30
@@ -46614,7 +46613,7 @@ add_pbf_error.exit582:                            ; preds = %604, %608
   %616 = add i32 %614, 1
   store i32 %616, ptr %104, align 4, !tbaa !4
   %617 = sext i32 %614 to i64
-  %618 = getelementptr inbounds %struct._timelib_error_message, ptr %615, i64 %617
+  %618 = getelementptr inbounds [24 x i8], ptr %615, i64 %617
   store i32 519, ptr %618, align 8, !tbaa !37
   %619 = ptrtoint ptr %172 to i64
   %620 = sub i64 %619, %30
@@ -46712,7 +46711,7 @@ add_pbf_error.exit602:                            ; preds = %646, %650
   %658 = add i32 %656, 1
   store i32 %658, ptr %106, align 4, !tbaa !4
   %659 = sext i32 %656 to i64
-  %660 = getelementptr inbounds %struct._timelib_error_message, ptr %657, i64 %659
+  %660 = getelementptr inbounds [24 x i8], ptr %657, i64 %659
   store i32 526, ptr %660, align 8, !tbaa !37
   %661 = ptrtoint ptr %172 to i64
   %662 = sub i64 %661, %30
@@ -46764,7 +46763,7 @@ add_pbf_error.exit606:                            ; preds = %674, %678
   %686 = add i32 %684, 1
   store i32 %686, ptr %101, align 4, !tbaa !4
   %687 = sext i32 %684 to i64
-  %688 = getelementptr inbounds %struct._timelib_error_message, ptr %685, i64 %687
+  %688 = getelementptr inbounds [24 x i8], ptr %685, i64 %687
   store i32 519, ptr %688, align 8, !tbaa !37
   %689 = ptrtoint ptr %172 to i64
   %690 = sub i64 %689, %30
@@ -46809,7 +46808,7 @@ add_pbf_error.exit610:                            ; preds = %700, %704
   %712 = add i32 %710, 1
   store i32 %712, ptr %103, align 4, !tbaa !4
   %713 = sext i32 %710 to i64
-  %714 = getelementptr inbounds %struct._timelib_error_message, ptr %711, i64 %713
+  %714 = getelementptr inbounds [24 x i8], ptr %711, i64 %713
   store i32 526, ptr %714, align 8, !tbaa !37
   %715 = ptrtoint ptr %172 to i64
   %716 = sub i64 %715, %30
@@ -46861,7 +46860,7 @@ add_pbf_error.exit614:                            ; preds = %728, %732
   %740 = add i32 %738, 1
   store i32 %740, ptr %95, align 4, !tbaa !4
   %741 = sext i32 %738 to i64
-  %742 = getelementptr inbounds %struct._timelib_error_message, ptr %739, i64 %741
+  %742 = getelementptr inbounds [24 x i8], ptr %739, i64 %741
   store i32 519, ptr %742, align 8, !tbaa !37
   %743 = ptrtoint ptr %172 to i64
   %744 = sub i64 %743, %30
@@ -46953,7 +46952,7 @@ add_pbf_error.exit634:                            ; preds = %770, %774
   %782 = add i32 %780, 1
   store i32 %782, ptr %100, align 4, !tbaa !4
   %783 = sext i32 %780 to i64
-  %784 = getelementptr inbounds %struct._timelib_error_message, ptr %781, i64 %783
+  %784 = getelementptr inbounds [24 x i8], ptr %781, i64 %783
   store i32 527, ptr %784, align 8, !tbaa !37
   %785 = ptrtoint ptr %172 to i64
   %786 = sub i64 %785, %30
@@ -46996,7 +46995,7 @@ add_pbf_error.exit638:                            ; preds = %795, %799
   %807 = add i32 %805, 1
   store i32 %807, ptr %98, align 4, !tbaa !4
   %808 = sext i32 %805 to i64
-  %809 = getelementptr inbounds %struct._timelib_error_message, ptr %806, i64 %808
+  %809 = getelementptr inbounds [24 x i8], ptr %806, i64 %808
   store i32 528, ptr %809, align 8, !tbaa !37
   %810 = ptrtoint ptr %172 to i64
   %811 = sub i64 %810, %30
@@ -47048,7 +47047,7 @@ add_pbf_error.exit642:                            ; preds = %823, %827
   %835 = add i32 %833, 1
   store i32 %835, ptr %90, align 4, !tbaa !4
   %836 = sext i32 %833 to i64
-  %837 = getelementptr inbounds %struct._timelib_error_message, ptr %834, i64 %836
+  %837 = getelementptr inbounds [24 x i8], ptr %834, i64 %836
   store i32 519, ptr %837, align 8, !tbaa !37
   %838 = ptrtoint ptr %172 to i64
   %839 = sub i64 %838, %30
@@ -47140,7 +47139,7 @@ add_pbf_error.exit662:                            ; preds = %865, %869
   %877 = add i32 %875, 1
   store i32 %877, ptr %94, align 4, !tbaa !4
   %878 = sext i32 %875 to i64
-  %879 = getelementptr inbounds %struct._timelib_error_message, ptr %876, i64 %878
+  %879 = getelementptr inbounds [24 x i8], ptr %876, i64 %878
   store i32 527, ptr %879, align 8, !tbaa !37
   %880 = ptrtoint ptr %172 to i64
   %881 = sub i64 %880, %30
@@ -47188,7 +47187,7 @@ add_pbf_error.exit666:                            ; preds = %892, %896
   %904 = add i32 %902, 1
   store i32 %904, ptr %87, align 4, !tbaa !4
   %905 = sext i32 %902 to i64
-  %906 = getelementptr inbounds %struct._timelib_error_message, ptr %903, i64 %905
+  %906 = getelementptr inbounds [24 x i8], ptr %903, i64 %905
   store i32 529, ptr %906, align 8, !tbaa !37
   %907 = ptrtoint ptr %172 to i64
   %908 = sub i64 %907, %30
@@ -47292,7 +47291,7 @@ add_pbf_error.exit675:                            ; preds = %.loopexit967, %938
   %946 = add i32 %944, 1
   store i32 %946, ptr %89, align 4, !tbaa !4
   %947 = sext i32 %944 to i64
-  %948 = getelementptr inbounds %struct._timelib_error_message, ptr %945, i64 %947
+  %948 = getelementptr inbounds [24 x i8], ptr %945, i64 %947
   store i32 530, ptr %948, align 8, !tbaa !37
   %949 = ptrtoint ptr %172 to i64
   %950 = sub i64 %949, %30
@@ -47353,7 +47352,7 @@ add_pbf_error.exit679:                            ; preds = %965, %969
   %977 = add i32 %975, 1
   store i32 %977, ptr %82, align 4, !tbaa !4
   %978 = sext i32 %975 to i64
-  %979 = getelementptr inbounds %struct._timelib_error_message, ptr %976, i64 %978
+  %979 = getelementptr inbounds [24 x i8], ptr %976, i64 %978
   store i32 519, ptr %979, align 8, !tbaa !37
   %980 = ptrtoint ptr %172 to i64
   %981 = sub i64 %980, %30
@@ -47443,7 +47442,7 @@ add_pbf_error.exit700:                            ; preds = %timelib_get_nr_ex.e
   %1020 = add i32 %1018, 1
   store i32 %1020, ptr %85, align 4, !tbaa !4
   %1021 = sext i32 %1018 to i64
-  %1022 = getelementptr inbounds %struct._timelib_error_message, ptr %1019, i64 %1021
+  %1022 = getelementptr inbounds [24 x i8], ptr %1019, i64 %1021
   store i32 531, ptr %1022, align 8, !tbaa !37
   %1023 = ptrtoint ptr %172 to i64
   %1024 = sub i64 %1023, %30
@@ -47496,7 +47495,7 @@ add_pbf_error.exit704:                            ; preds = %1036, %1040
   %1048 = add i32 %1046, 1
   store i32 %1048, ptr %78, align 4, !tbaa !4
   %1049 = sext i32 %1046 to i64
-  %1050 = getelementptr inbounds %struct._timelib_error_message, ptr %1047, i64 %1049
+  %1050 = getelementptr inbounds [24 x i8], ptr %1047, i64 %1049
   store i32 519, ptr %1050, align 8, !tbaa !37
   %1051 = ptrtoint ptr %172 to i64
   %1052 = sub i64 %1051, %30
@@ -47586,7 +47585,7 @@ add_pbf_error.exit725:                            ; preds = %timelib_get_nr_ex.e
   %1091 = add i32 %1089, 1
   store i32 %1091, ptr %81, align 4, !tbaa !4
   %1092 = sext i32 %1089 to i64
-  %1093 = getelementptr inbounds %struct._timelib_error_message, ptr %1090, i64 %1092
+  %1093 = getelementptr inbounds [24 x i8], ptr %1090, i64 %1092
   store i32 532, ptr %1093, align 8, !tbaa !37
   %1094 = ptrtoint ptr %172 to i64
   %1095 = sub i64 %1094, %30
@@ -47639,7 +47638,7 @@ add_pbf_error.exit729:                            ; preds = %1107, %1111
   %1119 = add i32 %1117, 1
   store i32 %1119, ptr %75, align 4, !tbaa !4
   %1120 = sext i32 %1117 to i64
-  %1121 = getelementptr inbounds %struct._timelib_error_message, ptr %1118, i64 %1120
+  %1121 = getelementptr inbounds [24 x i8], ptr %1118, i64 %1120
   store i32 519, ptr %1121, align 8, !tbaa !37
   %1122 = ptrtoint ptr %172 to i64
   %1123 = sub i64 %1122, %30
@@ -47735,7 +47734,7 @@ add_pbf_error.exit749:                            ; preds = %timelib_get_nr.exit
   %1166 = add i32 %1164, 1
   store i32 %1166, ptr %77, align 4, !tbaa !4
   %1167 = sext i32 %1164 to i64
-  %1168 = getelementptr inbounds %struct._timelib_error_message, ptr %1165, i64 %1167
+  %1168 = getelementptr inbounds [24 x i8], ptr %1165, i64 %1167
   store i32 533, ptr %1168, align 8, !tbaa !37
   %1169 = ptrtoint ptr %172 to i64
   %1170 = sub i64 %1169, %30
@@ -47792,7 +47791,7 @@ add_pbf_error.exit753:                            ; preds = %1187, %1191
   %1199 = add i32 %1197, 1
   store i32 %1199, ptr %72, align 4, !tbaa !4
   %1200 = sext i32 %1197 to i64
-  %1201 = getelementptr inbounds %struct._timelib_error_message, ptr %1198, i64 %1200
+  %1201 = getelementptr inbounds [24 x i8], ptr %1198, i64 %1200
   store i32 519, ptr %1201, align 8, !tbaa !37
   %1202 = ptrtoint ptr %172 to i64
   %1203 = sub i64 %1202, %30
@@ -47888,7 +47887,7 @@ add_pbf_error.exit773:                            ; preds = %timelib_get_nr.exit
   %1246 = add i32 %1244, 1
   store i32 %1246, ptr %74, align 4, !tbaa !4
   %1247 = sext i32 %1244 to i64
-  %1248 = getelementptr inbounds %struct._timelib_error_message, ptr %1245, i64 %1247
+  %1248 = getelementptr inbounds [24 x i8], ptr %1245, i64 %1247
   store i32 540, ptr %1248, align 8, !tbaa !37
   %1249 = ptrtoint ptr %172 to i64
   %1250 = sub i64 %1249, %30
@@ -47981,7 +47980,7 @@ add_pbf_error.exit778:                            ; preds = %1284, %1288
   %1296 = add i32 %1294, 1
   store i32 %1296, ptr %65, align 4, !tbaa !4
   %1297 = sext i32 %1294 to i64
-  %1298 = getelementptr inbounds %struct._timelib_error_message, ptr %1295, i64 %1297
+  %1298 = getelementptr inbounds [24 x i8], ptr %1295, i64 %1297
   store i32 519, ptr %1298, align 8, !tbaa !37
   %1299 = ptrtoint ptr %172 to i64
   %1300 = sub i64 %1299, %30
@@ -48049,7 +48048,7 @@ add_pbf_error.exit789:                            ; preds = %timelib_lookup_form
   %1326 = add i32 %1324, 1
   store i32 %1326, ptr %64, align 4, !tbaa !4
   %1327 = sext i32 %1324 to i64
-  %1328 = getelementptr inbounds %struct._timelib_error_message, ptr %1325, i64 %1327
+  %1328 = getelementptr inbounds [24 x i8], ptr %1325, i64 %1327
   store i32 534, ptr %1328, align 8, !tbaa !37
   %1329 = ptrtoint ptr %172 to i64
   %1330 = sub i64 %1329, %30
@@ -48097,7 +48096,7 @@ add_pbf_error.exit793:                            ; preds = %1340, %1344
   %1352 = add i32 %1350, 1
   store i32 %1352, ptr %63, align 4, !tbaa !4
   %1353 = sext i32 %1350 to i64
-  %1354 = getelementptr inbounds %struct._timelib_error_message, ptr %1351, i64 %1353
+  %1354 = getelementptr inbounds [24 x i8], ptr %1351, i64 %1353
   store i32 534, ptr %1354, align 8, !tbaa !37
   %1355 = ptrtoint ptr %172 to i64
   %1356 = sub i64 %1355, %30
@@ -48223,7 +48222,7 @@ add_pbf_error.exit797:                            ; preds = %1399, %1403
   %1411 = add i32 %1409, 1
   store i32 %1411, ptr %52, align 4, !tbaa !4
   %1412 = sext i32 %1409 to i64
-  %1413 = getelementptr inbounds %struct._timelib_error_message, ptr %1410, i64 %1412
+  %1413 = getelementptr inbounds [24 x i8], ptr %1410, i64 %1412
   store i32 535, ptr %1413, align 8, !tbaa !37
   %1414 = ptrtoint ptr %172 to i64
   %1415 = sub i64 %1414, %30
@@ -48266,7 +48265,7 @@ add_pbf_error.exit801:                            ; preds = %1423, %1427
   %1435 = add i32 %1433, 1
   store i32 %1435, ptr %51, align 4, !tbaa !4
   %1436 = sext i32 %1433 to i64
-  %1437 = getelementptr inbounds %struct._timelib_error_message, ptr %1434, i64 %1436
+  %1437 = getelementptr inbounds [24 x i8], ptr %1434, i64 %1436
   store i32 536, ptr %1437, align 8, !tbaa !37
   %1438 = ptrtoint ptr %172 to i64
   %1439 = sub i64 %1438, %30
@@ -48372,7 +48371,7 @@ add_pbf_error.exit821:                            ; preds = %timelib_get_nr.exit
   %1483 = add i32 %1481, 1
   store i32 %1483, ptr %50, align 4, !tbaa !4
   %1484 = sext i32 %1481 to i64
-  %1485 = getelementptr inbounds %struct._timelib_error_message, ptr %1482, i64 %1484
+  %1485 = getelementptr inbounds [24 x i8], ptr %1482, i64 %1484
   store i32 541, ptr %1485, align 8, !tbaa !37
   %1486 = ptrtoint ptr %172 to i64
   %1487 = sub i64 %1486, %30
@@ -48462,7 +48461,7 @@ add_pbf_error.exit841:                            ; preds = %timelib_get_nr.exit
   %1525 = add i32 %1523, 1
   store i32 %1525, ptr %48, align 4, !tbaa !4
   %1526 = sext i32 %1523 to i64
-  %1527 = getelementptr inbounds %struct._timelib_error_message, ptr %1524, i64 %1526
+  %1527 = getelementptr inbounds [24 x i8], ptr %1524, i64 %1526
   store i32 542, ptr %1527, align 8, !tbaa !37
   %1528 = ptrtoint ptr %172 to i64
   %1529 = sub i64 %1528, %30
@@ -48506,7 +48505,7 @@ add_pbf_error.exit845:                            ; preds = %1538, %1542
   %1550 = add i32 %1548, 1
   store i32 %1550, ptr %47, align 4, !tbaa !4
   %1551 = sext i32 %1548 to i64
-  %1552 = getelementptr inbounds %struct._timelib_error_message, ptr %1549, i64 %1551
+  %1552 = getelementptr inbounds [24 x i8], ptr %1549, i64 %1551
   store i32 543, ptr %1552, align 8, !tbaa !37
   %1553 = ptrtoint ptr %172 to i64
   %1554 = sub i64 %1553, %30
@@ -48581,7 +48580,7 @@ add_pbf_error.exit865:                            ; preds = %timelib_get_nr.exit
   %1588 = add i32 %1586, 1
   store i32 %1588, ptr %45, align 4, !tbaa !4
   %1589 = sext i32 %1586 to i64
-  %1590 = getelementptr inbounds %struct._timelib_error_message, ptr %1587, i64 %1589
+  %1590 = getelementptr inbounds [24 x i8], ptr %1587, i64 %1589
   store i32 544, ptr %1590, align 8, !tbaa !37
   %1591 = ptrtoint ptr %172 to i64
   %1592 = sub i64 %1591, %30
@@ -48625,7 +48624,7 @@ add_pbf_error.exit869:                            ; preds = %1601, %1605
   %1613 = add i32 %1611, 1
   store i32 %1613, ptr %44, align 4, !tbaa !4
   %1614 = sext i32 %1611 to i64
-  %1615 = getelementptr inbounds %struct._timelib_error_message, ptr %1612, i64 %1614
+  %1615 = getelementptr inbounds [24 x i8], ptr %1612, i64 %1614
   store i32 545, ptr %1615, align 8, !tbaa !37
   %1616 = ptrtoint ptr %172 to i64
   %1617 = sub i64 %1616, %30
@@ -48677,7 +48676,7 @@ add_pbf_error.exit873:                            ; preds = %1629, %1633
   %1641 = add i32 %1639, 1
   store i32 %1641, ptr %41, align 4, !tbaa !4
   %1642 = sext i32 %1639 to i64
-  %1643 = getelementptr inbounds %struct._timelib_error_message, ptr %1640, i64 %1642
+  %1643 = getelementptr inbounds [24 x i8], ptr %1640, i64 %1642
   store i32 514, ptr %1643, align 8, !tbaa !37
   %1644 = ptrtoint ptr %172 to i64
   %1645 = sub i64 %1644, %30
@@ -48717,7 +48716,7 @@ add_pbf_error.exit873:                            ; preds = %1629, %1633
   store ptr %storemerge.i875, ptr %8, align 8, !tbaa !8
   %1659 = load i8, ptr %storemerge.i875, align 1, !tbaa !11
   %1660 = sext i8 %1659 to i64
-  %1661 = getelementptr inbounds i16, ptr %1657, i64 %1660
+  %1661 = getelementptr inbounds [2 x i8], ptr %1657, i64 %1660
   %1662 = load i16, ptr %1661, align 2, !tbaa !28
   %1663 = and i16 %1662, 2048
   %.not22.i = icmp eq i16 %1663, 0
@@ -48771,7 +48770,7 @@ add_pbf_error.exit880:                            ; preds = %timelib_parse_tz_mi
   %1681 = add i32 %1679, 1
   store i32 %1681, ptr %38, align 4, !tbaa !4
   %1682 = sext i32 %1679 to i64
-  %1683 = getelementptr inbounds %struct._timelib_error_message, ptr %1680, i64 %1682
+  %1683 = getelementptr inbounds [24 x i8], ptr %1680, i64 %1682
   store i32 547, ptr %1683, align 8, !tbaa !37
   %1684 = ptrtoint ptr %172 to i64
   %1685 = sub i64 %1684, %30
@@ -48814,7 +48813,7 @@ add_pbf_error.exit884:                            ; preds = %1692, %1696
   %1704 = add i32 %1702, 1
   store i32 %1704, ptr %134, align 4, !tbaa !4
   %1705 = sext i32 %1702 to i64
-  %1706 = getelementptr inbounds %struct._timelib_error_message, ptr %1703, i64 %1705
+  %1706 = getelementptr inbounds [24 x i8], ptr %1703, i64 %1705
   store i32 537, ptr %1706, align 8, !tbaa !37
   %1707 = ptrtoint ptr %172 to i64
   %1708 = sub i64 %1707, %30
@@ -48936,7 +48935,7 @@ add_pbf_error.exit891:                            ; preds = %.thread1232, %1739
   %.0336.ph.lcssa1214.ph.ph = phi i32 [ %.0336.ph.lcssa.ph, %add_pbf_warning.exit ], [ %.0336.ph.lcssa.ph12281241, %add_pbf_error.exit891 ]
   %.0338.ph.lcssa1213.ph.ph = phi i32 [ %.0338.ph.lcssa.ph, %add_pbf_warning.exit ], [ %.0338.ph.lcssa.ph12271242, %add_pbf_error.exit891 ]
   %1748 = sext i32 %.sink1342 to i64
-  %1749 = getelementptr inbounds %struct._timelib_error_message, ptr %.sink1340, i64 %1748
+  %1749 = getelementptr inbounds [24 x i8], ptr %.sink1340, i64 %1748
   store i32 %.sink, ptr %1749, align 8, !tbaa !37
   %1750 = ptrtoint ptr %.ph.sink1338 to i64
   %1751 = ptrtoint ptr %1 to i64
@@ -49104,7 +49103,7 @@ timelib_time_reset_unset_fields.exit899.thread:   ; preds = %1812, %timelib_look
   %1820 = add i32 %1818, 1
   store i32 %1820, ptr %1766, align 4, !tbaa !4
   %1821 = sext i32 %1818 to i64
-  %1822 = getelementptr inbounds %struct._timelib_error_message, ptr %1819, i64 %1821
+  %1822 = getelementptr inbounds [24 x i8], ptr %1819, i64 %1821
   store i32 539, ptr %1822, align 8, !tbaa !37
   %1823 = getelementptr inbounds nuw i8, ptr %1822, i64 4
   store i32 %1770, ptr %1823, align 4, !tbaa !39
@@ -49221,7 +49220,7 @@ add_pbf_error.exit907:                            ; preds = %1862, %1867
   %1875 = add i32 %1873, 1
   store i32 %1875, ptr %1863, align 4, !tbaa !4
   %1876 = sext i32 %1873 to i64
-  %1877 = getelementptr inbounds %struct._timelib_error_message, ptr %1874, i64 %1876
+  %1877 = getelementptr inbounds [24 x i8], ptr %1874, i64 %1876
   store i32 549, ptr %1877, align 8, !tbaa !37
   %1878 = ptrtoint ptr %1830 to i64
   %1879 = ptrtoint ptr %1 to i64
@@ -49283,7 +49282,7 @@ add_pbf_error.exit911:                            ; preds = %1896, %1901
   %1909 = add i32 %1907, 1
   store i32 %1909, ptr %1897, align 4, !tbaa !4
   %1910 = sext i32 %1907 to i64
-  %1911 = getelementptr inbounds %struct._timelib_error_message, ptr %1908, i64 %1910
+  %1911 = getelementptr inbounds [24 x i8], ptr %1908, i64 %1910
   store i32 549, ptr %1911, align 8, !tbaa !37
   %1912 = ptrtoint ptr %1830 to i64
   %1913 = ptrtoint ptr %1 to i64
@@ -49344,7 +49343,7 @@ add_pbf_warning.exit915:                          ; preds = %1931, %1937
   %1945 = add i32 %1943, 1
   store i32 %1945, ptr %1933, align 4, !tbaa !4
   %1946 = sext i32 %1943 to i64
-  %1947 = getelementptr inbounds %struct._timelib_error_message, ptr %1944, i64 %1946
+  %1947 = getelementptr inbounds [24 x i8], ptr %1944, i64 %1946
   store i32 259, ptr %1947, align 8, !tbaa !37
   %1948 = ptrtoint ptr %1830 to i64
   %1949 = ptrtoint ptr %1 to i64
@@ -49409,7 +49408,7 @@ add_pbf_warning.exit919:                          ; preds = %1968, %1974
   %1982 = add i32 %1980, 1
   store i32 %1982, ptr %1970, align 4, !tbaa !4
   %1983 = sext i32 %1980 to i64
-  %1984 = getelementptr inbounds %struct._timelib_error_message, ptr %1981, i64 %1983
+  %1984 = getelementptr inbounds [24 x i8], ptr %1981, i64 %1983
   store i32 258, ptr %1984, align 8, !tbaa !37
   %1985 = ptrtoint ptr %1830 to i64
   %1986 = ptrtoint ptr %1 to i64
@@ -49473,7 +49472,7 @@ add_pbf_warning.exit923:                          ; preds = %2004, %2010
   %2018 = add i32 %2016, 1
   store i32 %2018, ptr %2006, align 4, !tbaa !4
   %2019 = sext i32 %2016 to i64
-  %2020 = getelementptr inbounds %struct._timelib_error_message, ptr %2017, i64 %2019
+  %2020 = getelementptr inbounds [24 x i8], ptr %2017, i64 %2019
   store i32 259, ptr %2020, align 8, !tbaa !37
   %2021 = ptrtoint ptr %1830 to i64
   %2022 = ptrtoint ptr %1 to i64
@@ -49569,7 +49568,7 @@ define internal fastcc void @timelib_skip_day_suffix(ptr noundef nonnull capture
   %4 = load ptr, ptr %0, align 8, !tbaa !8
   %5 = load i8, ptr %4, align 1, !tbaa !11
   %6 = sext i8 %5 to i64
-  %7 = getelementptr inbounds i16, ptr %3, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !28
   %9 = and i16 %8, 8192
   %.not = icmp eq i16 %9, 0
@@ -49718,7 +49717,7 @@ alloc_error_message.exit.i:                       ; preds = %15, %8
   %23 = add i32 %21, 1
   store i32 %23, ptr %11, align 4, !tbaa !4
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds %struct._timelib_error_message, ptr %22, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %22, i64 %24
   store i32 519, ptr %25, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !58
@@ -49818,7 +49817,7 @@ alloc_error_message.exit.i54:                     ; preds = %65, %58
   %73 = add i32 %71, 1
   store i32 %73, ptr %61, align 4, !tbaa !4
   %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds %struct._timelib_error_message, ptr %72, i64 %74
+  %75 = getelementptr inbounds [24 x i8], ptr %72, i64 %74
   store i32 519, ptr %75, align 8, !tbaa !37
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !58
@@ -49908,7 +49907,7 @@ alloc_error_message.exit.i61:                     ; preds = %110, %103
   %118 = add i32 %116, 1
   store i32 %118, ptr %106, align 4, !tbaa !4
   %119 = sext i32 %116 to i64
-  %120 = getelementptr inbounds %struct._timelib_error_message, ptr %117, i64 %119
+  %120 = getelementptr inbounds [24 x i8], ptr %117, i64 %119
   store i32 550, ptr %120, align 8, !tbaa !37
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %122 = load ptr, ptr %121, align 8, !tbaa !58
@@ -50650,7 +50649,7 @@ alloc_error_message.exit.i.i:                     ; preds = %46, %39
   %54 = add i32 %52, 1
   store i32 %54, ptr %42, align 4, !tbaa !4
   %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds %struct._timelib_error_message, ptr %53, i64 %55
+  %56 = getelementptr inbounds [24 x i8], ptr %53, i64 %55
   store i32 550, ptr %56, align 8, !tbaa !37
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !58
@@ -50725,7 +50724,7 @@ alloc_error_message.exit.i.i60:                   ; preds = %92, %85
   %100 = add i32 %98, 1
   store i32 %100, ptr %88, align 4, !tbaa !4
   %101 = sext i32 %98 to i64
-  %102 = getelementptr inbounds %struct._timelib_error_message, ptr %99, i64 %101
+  %102 = getelementptr inbounds [24 x i8], ptr %99, i64 %101
   store i32 550, ptr %102, align 8, !tbaa !37
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %104 = load ptr, ptr %103, align 8, !tbaa !58
@@ -50800,7 +50799,7 @@ alloc_error_message.exit.i.i68:                   ; preds = %138, %131
   %146 = add i32 %144, 1
   store i32 %146, ptr %134, align 4, !tbaa !4
   %147 = sext i32 %144 to i64
-  %148 = getelementptr inbounds %struct._timelib_error_message, ptr %145, i64 %147
+  %148 = getelementptr inbounds [24 x i8], ptr %145, i64 %147
   store i32 550, ptr %148, align 8, !tbaa !37
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %150 = load ptr, ptr %149, align 8, !tbaa !58
@@ -50875,7 +50874,7 @@ alloc_error_message.exit.i.i76:                   ; preds = %184, %177
   %192 = add i32 %190, 1
   store i32 %192, ptr %180, align 4, !tbaa !4
   %193 = sext i32 %190 to i64
-  %194 = getelementptr inbounds %struct._timelib_error_message, ptr %191, i64 %193
+  %194 = getelementptr inbounds [24 x i8], ptr %191, i64 %193
   store i32 550, ptr %194, align 8, !tbaa !37
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %196 = load ptr, ptr %195, align 8, !tbaa !58
@@ -50950,7 +50949,7 @@ alloc_error_message.exit.i.i84:                   ; preds = %230, %223
   %238 = add i32 %236, 1
   store i32 %238, ptr %226, align 4, !tbaa !4
   %239 = sext i32 %236 to i64
-  %240 = getelementptr inbounds %struct._timelib_error_message, ptr %237, i64 %239
+  %240 = getelementptr inbounds [24 x i8], ptr %237, i64 %239
   store i32 550, ptr %240, align 8, !tbaa !37
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %242 = load ptr, ptr %241, align 8, !tbaa !58
@@ -51025,7 +51024,7 @@ alloc_error_message.exit.i.i92:                   ; preds = %276, %269
   %284 = add i32 %282, 1
   store i32 %284, ptr %272, align 4, !tbaa !4
   %285 = sext i32 %282 to i64
-  %286 = getelementptr inbounds %struct._timelib_error_message, ptr %283, i64 %285
+  %286 = getelementptr inbounds [24 x i8], ptr %283, i64 %285
   store i32 550, ptr %286, align 8, !tbaa !37
   %287 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %288 = load ptr, ptr %287, align 8, !tbaa !58
@@ -51100,7 +51099,7 @@ alloc_error_message.exit.i.i100:                  ; preds = %322, %315
   %330 = add i32 %328, 1
   store i32 %330, ptr %318, align 4, !tbaa !4
   %331 = sext i32 %328 to i64
-  %332 = getelementptr inbounds %struct._timelib_error_message, ptr %329, i64 %331
+  %332 = getelementptr inbounds [24 x i8], ptr %329, i64 %331
   store i32 550, ptr %332, align 8, !tbaa !37
   %333 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %334 = load ptr, ptr %333, align 8, !tbaa !58

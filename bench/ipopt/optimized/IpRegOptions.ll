@@ -412,10 +412,10 @@ define void @_ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE(
 
 switch.lookup:                                    ; preds = %._crit_edge.i.i
   %11 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = zext nneg i32 %7 to i64
-  %switch.gep54 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE.1, i64 %12
+  %switch.gep54 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE.1, i64 %12
   %switch.load55 = load i64, ptr %switch.gep54, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 7, ptr noundef nonnull %switch.load, i64 noundef %switch.load55)
           to label %14 unwind label %9
@@ -6156,9 +6156,9 @@ define void @_ZN5Ipopt17RegisteredOptions15AddStringOptionERKNSt7__cxx1112basic_
 .lr.ph:                                           ; preds = %.preheader, %43
   %36 = phi ptr [ %46, %43 ], [ %29, %.preheader ]
   %.021 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %36, i64 %.021
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.021
   %38 = load ptr, ptr %5, align 8, !tbaa !102
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %38, i64 %.021
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %.021
   %40 = load ptr, ptr %11, align 8, !tbaa !32
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 208
   %42 = load ptr, ptr %41, align 8
@@ -11858,7 +11858,7 @@ _ZNSt6vectorIN5Ipopt16RegisteredOption12string_entryESaIS2_EE11_S_relocateEPS2_S
 _ZNSt12_Vector_baseIN5Ipopt16RegisteredOption12string_entryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5Ipopt16RegisteredOption12string_entryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !141
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !142
-  %118 = getelementptr inbounds nuw %"class.Ipopt::RegisteredOption::string_entry", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !144
   ret void
 }

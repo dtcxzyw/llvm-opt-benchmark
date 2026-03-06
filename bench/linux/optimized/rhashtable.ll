@@ -25,7 +25,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_rht_bucket_n
 %union.anon.3 = type { %struct.anon.4, [16 x i8] }
 %struct.anon.4 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.rhashtable_compare_arg = type { ptr, ptr }
-%union.nested_table = type { ptr }
 
 @__UNIQUE_ID___addressable_rhashtable_insert_slow404 = internal global ptr @rhashtable_insert_slow, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_rhashtable_walk_enter405 = internal global ptr @rhashtable_walk_enter, section ".discard.addressable", align 8
@@ -141,7 +140,7 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
   %68 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %69 = load ptr, ptr %68, align 64
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr %union.nested_table, ptr %69, i64 %70
+  %71 = getelementptr [8 x i8], ptr %69, i64 %70
   %72 = lshr i32 %55, %60
   %73 = load volatile ptr, ptr %71, align 8
   %74 = icmp ne ptr %73, null
@@ -155,7 +154,7 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
   %79 = phi i32 [ %84, %.preheader31 ], [ %72, %63 ]
   %80 = and i32 %79, 511
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr %union.nested_table, ptr %77, i64 %81
+  %82 = getelementptr [8 x i8], ptr %77, i64 %81
   %83 = lshr i32 %78, 9
   %84 = lshr i32 %79, 9
   %85 = load volatile ptr, ptr %82, align 8
@@ -169,13 +168,13 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
   %90 = phi ptr [ %73, %63 ], [ %85, %.preheader31 ]
   %91 = phi i1 [ %74, %63 ], [ %86, %.preheader31 ]
   %92 = zext nneg i32 %89 to i64
-  %93 = getelementptr %union.nested_table, ptr %90, i64 %92
+  %93 = getelementptr [8 x i8], ptr %90, i64 %92
   br i1 %91, label %select.unfold, label %.thread21
 
 94:                                               ; preds = %62
   %95 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %96 = zext i32 %55 to i64
-  %97 = getelementptr ptr, ptr %95, i64 %96
+  %97 = getelementptr [8 x i8], ptr %95, i64 %96
   br label %select.unfold
 
 98:                                               ; preds = %51
@@ -188,7 +187,7 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %103 = zext i32 %55 to i64
-  %104 = getelementptr ptr, ptr %102, i64 %103
+  %104 = getelementptr [8 x i8], ptr %102, i64 %103
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.loopexit32, %101, %99, %94
@@ -529,7 +528,7 @@ select.unfold:                                    ; preds = %.loopexit32, %101, 
 290:                                              ; preds = %290, %285
   %291 = phi i32 [ 0, %285 ], [ %294, %290 ]
   %292 = zext i32 %291 to i64
-  %293 = getelementptr %union.nested_table, ptr %289, i64 %292
+  %293 = getelementptr [8 x i8], ptr %289, i64 %292
   call fastcc void @nested_table_free(ptr noundef %293, i32 noundef %287)
   %294 = add i32 %291, 1
   %295 = lshr i32 %294, %283
@@ -705,7 +704,7 @@ define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr 
 42:                                               ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %44 = zext i32 %36 to i64
-  %45 = getelementptr ptr, ptr %43, i64 %44
+  %45 = getelementptr [8 x i8], ptr %43, i64 %44
   br label %46
 
 46:                                               ; preds = %42, %40
@@ -770,7 +769,7 @@ define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr 
 83:                                               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %85 = zext i32 %77 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   br label %87
 
 87:                                               ; preds = %83, %81
@@ -946,7 +945,7 @@ define internal fastcc ptr @__rhashtable_walk_find_next(ptr noundef captures(non
 
 28:                                               ; preds = %.split.us
   %29 = zext i32 %23 to i64
-  %30 = getelementptr ptr, ptr %20, i64 %29
+  %30 = getelementptr [8 x i8], ptr %20, i64 %29
   br label %31
 
 31:                                               ; preds = %28, %26
@@ -1003,7 +1002,7 @@ define internal fastcc ptr @__rhashtable_walk_find_next(ptr noundef captures(non
 
 62:                                               ; preds = %.split
   %63 = zext i32 %57 to i64
-  %64 = getelementptr ptr, ptr %20, i64 %63
+  %64 = getelementptr [8 x i8], ptr %20, i64 %63
   br label %65
 
 65:                                               ; preds = %62, %60
@@ -1209,7 +1208,7 @@ define internal void @bucket_table_free_rcu(ptr noundef %0) #0 align 16 {
 11:                                               ; preds = %11, %6
   %12 = phi i32 [ 0, %6 ], [ %15, %11 ]
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %union.nested_table, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   tail call fastcc void @nested_table_free(ptr noundef %14, i32 noundef %8)
   %15 = add i32 %12, 1
   %16 = lshr i32 %15, %4
@@ -1376,7 +1375,7 @@ define dso_local noundef range(i32 -22, 1) i32 @rhashtable_init(ptr noundef %0, 
 96:                                               ; preds = %96, %88
   %97 = phi i64 [ 0, %88 ], [ %101, %96 ]
   %98 = phi i32 [ 0, %88 ], [ %100, %96 ]
-  %99 = getelementptr ptr, ptr %95, i64 %97
+  %99 = getelementptr [8 x i8], ptr %95, i64 %97
   store ptr null, ptr %99, align 8
   %100 = add i32 %98, 1
   %101 = sext i32 %100 to i64
@@ -1771,7 +1770,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
 
 19:                                               ; preds = %15, %12
   %20 = phi i64 [ 0, %12 ], [ %18, %15 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %22, i32 noundef %5, i64 noundef 72) #18
@@ -1838,7 +1837,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
 57:                                               ; preds = %57, %55
   %58 = phi i64 [ 0, %55 ], [ %62, %57 ]
   %59 = phi i32 [ 0, %55 ], [ %61, %57 ]
-  %60 = getelementptr ptr, ptr %56, i64 %58
+  %60 = getelementptr [8 x i8], ptr %56, i64 %58
   store ptr null, ptr %60, align 8
   %61 = add i32 %59, 1
   %62 = sext i32 %61 to i64
@@ -1996,7 +1995,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 64
-  %99 = getelementptr ptr, ptr %98, i64 %89
+  %99 = getelementptr [8 x i8], ptr %98, i64 %89
   br label %100
 
 100:                                              ; preds = %97, %94
@@ -2132,7 +2131,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %176 = and i32 %175, %173
   %177 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %178 = zext i32 %176 to i64
-  %179 = getelementptr ptr, ptr %177, i64 %178
+  %179 = getelementptr [8 x i8], ptr %177, i64 %178
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !11
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #15, !srcloc !12
@@ -2356,7 +2355,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
 22:                                               ; preds = %22, %17
   %23 = phi i32 [ 0, %17 ], [ %26, %22 ]
   %24 = zext i32 %23 to i64
-  %25 = getelementptr %union.nested_table, ptr %21, i64 %24
+  %25 = getelementptr [8 x i8], ptr %21, i64 %24
   tail call fastcc void @nested_table_free(ptr noundef %25, i32 noundef %19)
   %26 = add i32 %23, 1
   %27 = lshr i32 %26, %15
@@ -2409,7 +2408,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %54 = lshr i32 %53, %48
   %55 = load ptr, ptr %37, align 64
   %56 = zext nneg i32 %52 to i64
-  %57 = getelementptr %union.nested_table, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   %58 = lshr i32 %51, %48
   %59 = load volatile ptr, ptr %57, align 8
   %60 = icmp ne ptr %59, null
@@ -2423,7 +2422,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %65 = phi i32 [ %70, %.preheader6 ], [ %58, %47 ]
   %66 = and i32 %65, 511
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr %union.nested_table, ptr %63, i64 %67
+  %68 = getelementptr [8 x i8], ptr %63, i64 %67
   %69 = lshr i32 %64, 9
   %70 = lshr i32 %65, 9
   %71 = load volatile ptr, ptr %68, align 8
@@ -2437,14 +2436,14 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %76 = phi ptr [ %59, %47 ], [ %71, %.preheader6 ]
   %77 = phi i1 [ %60, %47 ], [ %72, %.preheader6 ]
   %78 = zext i32 %75 to i64
-  %79 = getelementptr %union.nested_table, ptr %76, i64 %78
+  %79 = getelementptr [8 x i8], ptr %76, i64 %78
   %80 = select i1 %77, ptr %79, ptr null
   %81 = icmp eq ptr %80, null
   %82 = select i1 %81, ptr @rht_bucket_nested.rhnull, ptr %80
   br label %85
 
 83:                                               ; preds = %38
-  %84 = getelementptr ptr, ptr %37, i64 %39
+  %84 = getelementptr [8 x i8], ptr %37, i64 %39
   br label %85
 
 85:                                               ; preds = %83, %.loopexit7
@@ -2522,7 +2521,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
 133:                                              ; preds = %133, %129
   %134 = phi i32 [ 0, %129 ], [ %137, %133 ]
   %135 = zext i32 %134 to i64
-  %136 = getelementptr %union.nested_table, ptr %132, i64 %135
+  %136 = getelementptr [8 x i8], ptr %132, i64 %135
   tail call fastcc void @nested_table_free(ptr noundef %136, i32 noundef %130)
   %137 = add i32 %134, 1
   %138 = lshr i32 %137, %127
@@ -2580,7 +2579,7 @@ define dso_local void @rhashtable_destroy(ptr noundef %0) #0 align 16 {
 17:                                               ; preds = %17, %12
   %18 = phi i32 [ 0, %12 ], [ %21, %17 ]
   %19 = zext i32 %18 to i64
-  %20 = getelementptr %union.nested_table, ptr %16, i64 %19
+  %20 = getelementptr [8 x i8], ptr %16, i64 %19
   tail call fastcc void @nested_table_free(ptr noundef %20, i32 noundef %14)
   %21 = add i32 %18, 1
   %22 = lshr i32 %21, %10
@@ -2613,7 +2612,7 @@ define dso_local ptr @__rht_bucket_nested(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 64
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr %union.nested_table, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = lshr i32 %1, %4
   %15 = load volatile ptr, ptr %13, align 8
   %16 = icmp ne ptr %15, null
@@ -2627,7 +2626,7 @@ define dso_local ptr @__rht_bucket_nested(ptr noundef readonly captures(none) %0
   %21 = phi i32 [ %26, %.preheader ], [ %14, %2 ]
   %22 = and i32 %21, 511
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr %union.nested_table, ptr %19, i64 %23
+  %24 = getelementptr [8 x i8], ptr %19, i64 %23
   %25 = lshr i32 %20, 9
   %26 = lshr i32 %21, 9
   %27 = load volatile ptr, ptr %24, align 8
@@ -2641,7 +2640,7 @@ define dso_local ptr @__rht_bucket_nested(ptr noundef readonly captures(none) %0
   %32 = phi ptr [ %15, %2 ], [ %27, %.preheader ]
   %33 = phi i1 [ %16, %2 ], [ %28, %.preheader ]
   %34 = zext i32 %31 to i64
-  %35 = getelementptr %union.nested_table, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   %36 = select i1 %33, ptr %35, ptr null
   ret ptr %36
 }
@@ -2658,7 +2657,7 @@ define dso_local nonnull ptr @rht_bucket_nested(ptr noundef readonly captures(no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 64
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr %union.nested_table, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = lshr i32 %1, %4
   %15 = load volatile ptr, ptr %13, align 8
   %16 = icmp ne ptr %15, null
@@ -2672,7 +2671,7 @@ define dso_local nonnull ptr @rht_bucket_nested(ptr noundef readonly captures(no
   %21 = phi i32 [ %26, %.preheader ], [ %14, %2 ]
   %22 = and i32 %21, 511
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr %union.nested_table, ptr %19, i64 %23
+  %24 = getelementptr [8 x i8], ptr %19, i64 %23
   %25 = lshr i32 %20, 9
   %26 = lshr i32 %21, 9
   %27 = load volatile ptr, ptr %24, align 8
@@ -2686,7 +2685,7 @@ define dso_local nonnull ptr @rht_bucket_nested(ptr noundef readonly captures(no
   %32 = phi ptr [ %15, %2 ], [ %27, %.preheader ]
   %33 = phi i1 [ %16, %2 ], [ %28, %.preheader ]
   %34 = zext i32 %31 to i64
-  %35 = getelementptr %union.nested_table, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   %36 = select i1 %33, ptr %35, ptr null
   %37 = icmp eq ptr %36, null
   %38 = select i1 %37, ptr @rht_bucket_nested.rhnull, ptr %36
@@ -2706,7 +2705,7 @@ define dso_local ptr @rht_bucket_nested_insert(ptr readnone captures(none) %0, p
   %12 = load ptr, ptr %11, align 64
   %13 = lshr i32 %2, %5
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr %union.nested_table, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %30
@@ -2748,7 +2747,7 @@ define dso_local ptr @rht_bucket_nested_insert(ptr readnone captures(none) %0, p
   %39 = lshr i32 %36, 9
   %40 = lshr i32 %37, 9
   %41 = zext nneg i32 %38 to i64
-  %42 = getelementptr %union.nested_table, ptr %35, i64 %41
+  %42 = getelementptr [8 x i8], ptr %35, i64 %41
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %57
@@ -2787,7 +2786,7 @@ define dso_local ptr @rht_bucket_nested_insert(ptr readnone captures(none) %0, p
   %63 = phi ptr [ %31, %30 ], [ %58, %57 ]
   %64 = phi i1 [ %32, %30 ], [ %59, %57 ]
   %65 = zext i32 %62 to i64
-  %66 = getelementptr %union.nested_table, ptr %63, i64 %65
+  %66 = getelementptr [8 x i8], ptr %63, i64 %65
   %67 = select i1 %64, ptr %66, ptr null
   ret ptr %67
 }
@@ -2858,7 +2857,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @rhashtable_rehash_alloc(pt
 17:                                               ; preds = %17, %15
   %18 = phi i64 [ 0, %15 ], [ %22, %17 ]
   %19 = phi i32 [ 0, %15 ], [ %21, %17 ]
-  %20 = getelementptr ptr, ptr %16, i64 %18
+  %20 = getelementptr [8 x i8], ptr %16, i64 %18
   store ptr null, ptr %20, align 8
   %21 = add i32 %19, 1
   %22 = sext i32 %21 to i64
@@ -2887,7 +2886,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @rhashtable_rehash_alloc(pt
 36:                                               ; preds = %36, %31
   %37 = phi i32 [ 0, %31 ], [ %40, %36 ]
   %38 = zext i32 %37 to i64
-  %39 = getelementptr %union.nested_table, ptr %35, i64 %38
+  %39 = getelementptr [8 x i8], ptr %35, i64 %38
   tail call fastcc void @nested_table_free(ptr noundef %39, i32 noundef %33)
   %40 = add i32 %37, 1
   %41 = lshr i32 %40, %29
@@ -2932,7 +2931,7 @@ define internal fastcc void @nested_table_free(ptr noundef readonly captures(non
 
 9:                                                ; preds = %9, %7
   %10 = phi i64 [ 0, %7 ], [ %12, %9 ]
-  %11 = getelementptr %union.nested_table, ptr %3, i64 %10
+  %11 = getelementptr [8 x i8], ptr %3, i64 %10
   tail call fastcc void @nested_table_free(ptr noundef %11, i32 noundef %8)
   %12 = add nuw nsw i64 %10, 1
   %13 = icmp eq i64 %12, 512

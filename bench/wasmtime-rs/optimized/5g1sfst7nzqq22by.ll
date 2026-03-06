@@ -2127,7 +2127,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
 73:                                               ; preds = %66
   %74 = icmp samesign ult i64 %.sroa.5.0124, 11
   call void @llvm.assume(i1 %74)
-  %75 = getelementptr inbounds nuw ptr, ptr %21, i64 %68
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %68
   %76 = load ptr, ptr %75, align 8, !nonnull !3, !noundef !3
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr nonnull align 1 %4)
           to label %79 unwind label %77

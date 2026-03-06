@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.deprecated_columns = type { ptr, ptr }
 %struct._e_prefs = type { ptr, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, i8, i32, ptr, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, ptr, ptr, i8, i8, i8, i32, i32, i32, ptr, i32, ptr, i8, i8, i8, ptr, ptr, ptr, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i8, i8, i8, ptr, i32, i8, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i8, i32, i8, i8, i32, i32, i8, i8, i8, i32, i8, i8, i8 }
 %struct.color_t = type { i16, i16, i16 }
-%struct._value_string = type { i32, ptr }
-%struct.col_item_t = type { i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i8, i32 }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 
@@ -330,7 +328,7 @@ define ptr @col_format_to_string(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %3
+  %4 = getelementptr [8 x i8], ptr @col_format_to_string.slist, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -362,7 +360,7 @@ define ptr @try_convert_to_column_field(ptr noundef %0) local_unnamed_addr #1 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr %struct._value_string, ptr @try_convert_to_column_field.migrated_fields, i64 %5
+  %6 = getelementptr [16 x i8], ptr @try_convert_to_column_field.migrated_fields, i64 %5
   %7 = load i32, ptr %6, align 16
   %8 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @col_format_abbrev.alist_vals)
   br label %9
@@ -479,7 +477,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
 
 col_format_to_string.exit.i:                      ; preds = %col_format_to_string.exit.i.preheader, %55
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %col_format_to_string.exit.i.preheader ]
-  %51 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %indvars.iv.i
+  %51 = getelementptr [8 x i8], ptr @col_format_to_string.slist, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @strcmp(ptr noundef readonly %1, ptr noundef %52) #11
   %54 = icmp eq i32 %53, 0
@@ -548,7 +546,7 @@ define range(i32 -1, 47) i32 @get_column_format_from_str(ptr noundef readonly ca
 
 col_format_to_string.exit:                        ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %2 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %indvars.iv
+  %2 = getelementptr [8 x i8], ptr @col_format_to_string.slist, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %3) #11
   %5 = icmp eq i32 %4, 0
@@ -600,7 +598,7 @@ define hidden noalias ptr @column_fmt_data_to_str(ptr noundef readonly captures(
 
 .thread:                                          ; preds = %6, %16
   %17 = zext nneg i32 %4 to i64
-  %18 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %17
+  %18 = getelementptr [8 x i8], ptr @col_format_to_string.slist, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %col_format_to_string.exit
 
@@ -628,7 +626,7 @@ define void @try_convert_to_custom_column(ptr noundef captures(none) %0) local_u
 2:                                                ; preds = %1, %13
   %3 = phi ptr [ %.pre, %1 ], [ %14, %13 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %4 = getelementptr %struct.deprecated_columns, ptr @migrated_columns, i64 %indvars.iv
+  %4 = getelementptr [16 x i8], ptr @migrated_columns, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef %5, ptr noundef %3) #11
   %7 = icmp eq i32 %6, 0
@@ -662,7 +660,7 @@ define void @column_dump_column_formats() local_unnamed_addr #1 {
 
 col_format_to_string.exit:                        ; preds = %0, %8
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
-  %1 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %indvars.iv
+  %1 = getelementptr [8 x i8], ptr @col_format_to_string.slist, i64 %indvars.iv
   %2 = load ptr, ptr %1, align 8
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = tail call ptr @try_val_to_str(i32 noundef %3, ptr noundef nonnull @col_format_desc.dlist_vals)
@@ -739,7 +737,7 @@ col_format_to_string.exit:                        ; preds = %0, %8
 
 .thread.i:                                        ; preds = %40, %30
   %41 = zext nneg i32 %28 to i64
-  %42 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %41
+  %42 = getelementptr [8 x i8], ptr @col_format_to_string.slist, i64 %41
   %43 = load ptr, ptr %42, align 8
   br label %col_format_to_string.exit.i
 
@@ -957,7 +955,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i:                                    ; preds = %9
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr ptr, ptr @ts_ymd, i64 %11
+  %12 = getelementptr [8 x i8], ptr @ts_ymd, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -976,7 +974,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i1:                                   ; preds = %17
   %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr ptr, ptr @ts_ydoy, i64 %19
+  %20 = getelementptr [8 x i8], ptr @ts_ydoy, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -995,7 +993,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i4:                                   ; preds = %25
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr ptr, ptr @ts_ymd_utc, i64 %27
+  %28 = getelementptr [8 x i8], ptr @ts_ymd_utc, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1014,7 +1012,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i7:                                   ; preds = %33
   %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr ptr, ptr @ts_ydoy_utc, i64 %35
+  %36 = getelementptr [8 x i8], ptr @ts_ydoy_utc, i64 %35
   %37 = load ptr, ptr %36, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1033,7 +1031,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i10:                                  ; preds = %41
   %43 = zext nneg i32 %39 to i64
-  %44 = getelementptr ptr, ptr @ts_abstime, i64 %43
+  %44 = getelementptr [8 x i8], ptr @ts_abstime, i64 %43
   %45 = load ptr, ptr %44, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1052,7 +1050,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i13:                                  ; preds = %49
   %51 = zext nneg i32 %47 to i64
-  %52 = getelementptr ptr, ptr @ts_abstime_utc, i64 %51
+  %52 = getelementptr [8 x i8], ptr @ts_abstime_utc, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1071,7 +1069,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i16:                                  ; preds = %57
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr ptr, ptr @ts_rel_delta_time, i64 %59
+  %60 = getelementptr [8 x i8], ptr @ts_rel_delta_time, i64 %59
   %61 = load ptr, ptr %60, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1090,7 +1088,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i20:                                  ; preds = %65
   %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr ptr, ptr @ts_rel_delta_time, i64 %67
+  %68 = getelementptr [8 x i8], ptr @ts_rel_delta_time, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1109,7 +1107,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i24:                                  ; preds = %73
   %75 = zext nneg i32 %71 to i64
-  %76 = getelementptr ptr, ptr @ts_rel_delta_time, i64 %75
+  %76 = getelementptr [8 x i8], ptr @ts_rel_delta_time, i64 %75
   %77 = load ptr, ptr %76, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1276,7 +1274,7 @@ define internal fastcc ptr @get_timestamp_column_longest_string(i32 noundef %0, 
 .sink.split:                                      ; preds = %33, %29, %25, %21, %17, %13, %9, %5
   %ts_epoch_time.sink = phi ptr [ @ts_rel_delta_time, %29 ], [ @ts_abstime_utc, %25 ], [ @ts_abstime, %21 ], [ @ts_ydoy_utc, %17 ], [ @ts_ydoy, %13 ], [ @ts_ymd_utc, %9 ], [ @ts_ymd, %5 ], [ @ts_epoch_time, %33 ]
   %36 = zext nneg i32 %1 to i64
-  %37 = getelementptr ptr, ptr %ts_epoch_time.sink, i64 %36
+  %37 = getelementptr [8 x i8], ptr %ts_epoch_time.sink, i64 %36
   %38 = load ptr, ptr %37, align 8
   br label %39
 
@@ -1594,7 +1592,7 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
 19:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.02431 = phi i1 [ true, %.lr.ph ], [ %.1, %57 ]
-  %20 = getelementptr ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not29 = icmp eq ptr %21, null
   br i1 %.not29, label %57, label %22
@@ -1716,7 +1714,7 @@ get_column_display_format.exit:                   ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %get_column_display_format.exit.thread, label %21
@@ -1725,7 +1723,7 @@ get_column_display_format.exit.thread:            ; preds = %2, %9, %get_column_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr %struct.col_item_t, ptr %16, i64 %17
+  %18 = getelementptr [88 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   br label %21
@@ -1754,7 +1752,7 @@ define void @col_finalize(ptr noundef readonly captures(none) %0) local_unnamed_
 10:                                               ; preds = %.lr.ph162, %get_column_format_matches.exit
   %indvars.iv169 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next170, %get_column_format_matches.exit ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr %struct.col_item_t, ptr %11, i64 %indvars.iv169
+  %12 = getelementptr [88 x i8], ptr %11, i64 %indvars.iv169
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -1792,7 +1790,7 @@ define void @col_finalize(ptr noundef readonly captures(none) %0) local_unnamed_
 
 27:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %28 = getelementptr ptr, ptr %24, i64 %indvars.iv
+  %28 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %.not155 = icmp eq ptr %29, null
   br i1 %.not155, label %49, label %30
@@ -1943,10 +1941,10 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
   store ptr %86, ptr %85, align 8
   %87 = call noalias dereferenceable_or_null(2048) ptr @g_malloc(i64 noundef %.) #14
   %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr ptr, ptr %88, i64 %indvars.iv169
+  %89 = getelementptr [8 x i8], ptr %88, i64 %indvars.iv169
   store ptr %87, ptr %89, align 8
   %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr ptr, ptr %90, i64 %indvars.iv169
+  %91 = getelementptr [8 x i8], ptr %90, i64 %indvars.iv169
   store ptr @.str.147, ptr %91, align 8
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %92 = load i32, ptr %3, align 8
@@ -1963,11 +1961,11 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
   %.0144.lcssa = phi i64 [ 0, %1 ], [ %95, %._crit_edge163.loopexit ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr ptr, ptr %97, i64 %.0144.lcssa
+  %98 = getelementptr [8 x i8], ptr %97, i64 %.0144.lcssa
   store ptr null, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr ptr, ptr %100, i64 %.0144.lcssa
+  %101 = getelementptr [8 x i8], ptr %100, i64 %.0144.lcssa
   store ptr null, ptr %101, align 8
   %102 = load i32, ptr %3, align 8
   %103 = icmp sgt i32 %102, 0
@@ -1988,7 +1986,7 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
 108:                                              ; preds = %.preheader, %124
   %indvars.iv172 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next173, %124 ]
   %109 = load ptr, ptr %104, align 8
-  %110 = getelementptr %struct.col_item_t, ptr %109, i64 %indvars.iv175
+  %110 = getelementptr [88 x i8], ptr %109, i64 %indvars.iv175
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr i8, ptr %112, i64 %indvars.iv172
@@ -1998,7 +1996,7 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
 
 116:                                              ; preds = %108
   %117 = load ptr, ptr %105, align 8
-  %118 = getelementptr i32, ptr %117, i64 %indvars.iv172
+  %118 = getelementptr [4 x i8], ptr %117, i64 %indvars.iv172
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %119, -1
   br i1 %120, label %121, label %._crit_edge178
@@ -2010,7 +2008,7 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
 ._crit_edge178:                                   ; preds = %116, %121
   %.pre-phi = phi i32 [ %107, %121 ], [ %.pre, %116 ]
   %122 = load ptr, ptr %106, align 8
-  %123 = getelementptr i32, ptr %122, i64 %indvars.iv172
+  %123 = getelementptr [4 x i8], ptr %122, i64 %indvars.iv172
   store i32 %.pre-phi, ptr %123, align 4
   br label %124
 
@@ -2064,7 +2062,7 @@ define void @build_column_format_array(ptr noundef %0, i32 noundef %1, i1 nounde
 8:                                                ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr %struct.col_item_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr [88 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr @prefs, align 8
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call ptr @g_list_nth(ptr noundef %11, i32 noundef %12)
@@ -2209,12 +2207,12 @@ define void @column_register_fields() local_unnamed_addr #1 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %12 = load i32, ptr @proto_cols, align 4
   %13 = load ptr, ptr @hf_cols, align 8
-  %14 = getelementptr %struct.hf_register_info, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr [80 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   tail call void @proto_deregister_field(i32 noundef %12, i32 noundef %16)
   %17 = load ptr, ptr @hf_cols, align 8
-  %18 = getelementptr %struct.hf_register_info, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr [80 x i8], ptr %17, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   tail call void @g_free(ptr noundef %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

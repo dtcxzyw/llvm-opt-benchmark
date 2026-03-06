@@ -4160,7 +4160,7 @@ declare ptr @l_Lake_loadPackageCore(ptr noundef, ptr noundef, ptr noundef, ptr n
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -11123,7 +11123,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_Load_Resolve_0__Lake_W
 
 lean_dec.exit56:                                  ; preds = %19, %18, %16, %10
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %4
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %4
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1
@@ -13060,7 +13060,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at___private_Lake_Load_Resolve_0__Lake_W
 lean_dec.exit121:                                 ; preds = %25, %24, %22, %16
   %26 = add i64 %10, -1
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -14251,7 +14251,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit137
 lean_dec.exit121:                                 ; preds = %40, %39, %37, %31
   %41 = add i64 %9, -1
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !4
   %45 = ptrtoint ptr %44 to i64
   %46 = trunc i64 %45 to i1
@@ -15355,7 +15355,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at___private_Lake_Load_Resolve_0__Lake_W
 lean_dec.exit121:                                 ; preds = %25, %24, %22, %16
   %26 = add i64 %10, -1
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -16546,7 +16546,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit137
 lean_dec.exit121:                                 ; preds = %40, %39, %37, %31
   %41 = add i64 %9, -1
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !4
   %45 = ptrtoint ptr %44 to i64
   %46 = trunc i64 %45 to i1
@@ -18519,7 +18519,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_Load_Resolve_0__Lake_W
 
 lean_dec.exit80:                                  ; preds = %23, %22, %20, %14
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %8
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %8
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = ptrtoint ptr %26 to i64
   %28 = trunc i64 %27 to i1
@@ -23523,7 +23523,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_Load_R
   br label %lean_dec.exit57
 
 lean_dec.exit57:                                  ; preds = %19, %18, %16, %10
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %.04278
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.04278
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i1
@@ -29184,7 +29184,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_Load_R
   br label %lean_dec.exit210
 
 lean_dec.exit210:                                 ; preds = %20, %19, %17, %11
-  %21 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0174333
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0174333
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1
@@ -39131,7 +39131,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateToolchain___spec
 6:                                                ; preds = %.lr.ph, %83
   %.03661 = phi i64 [ %1, %.lr.ph ], [ %17, %83 ]
   %.03860 = phi ptr [ %3, %.lr.ph ], [ %84, %83 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03661
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.03661
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -39334,7 +39334,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateToolchain___spec
   %.06181521 = phi i64 [ %2, %.lr.ph ], [ %.20, %lean_dec.exit778 ]
   %.06221520 = phi ptr [ %4, %.lr.ph ], [ %.19641, %lean_dec.exit778 ]
   %.06421519 = phi ptr [ %6, %.lr.ph ], [ %.20662, %lean_dec.exit778 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %.06181521
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.06181521
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i1
@@ -60162,7 +60162,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -63871,7 +63871,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -64687,7 +64687,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -65350,7 +65350,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -66014,7 +66014,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -66830,7 +66830,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -71218,7 +71218,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit133
   %.0114246 = phi ptr [ %5, %.lr.ph ], [ %246, %341 ]
   %.0117245 = phi ptr [ %7, %.lr.ph ], [ %219, %341 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0111247, i64 24
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.0108248
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.0108248
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %54 = ptrtoint ptr %53 to i64
   %55 = trunc i64 %54 to i1
@@ -71254,7 +71254,7 @@ lean_array_uget.exit:                             ; preds = %50, %58, %60, %61
 lean_ensure_exclusive_array.exit.i:               ; preds = %63, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %64, %63 ], [ %.0111247, %lean_array_uget.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.0108248
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.0108248
   %67 = load ptr, ptr %66, align 8, !tbaa !4
   %68 = ptrtoint ptr %67 to i64
   %69 = trunc i64 %68 to i1
@@ -71763,7 +71763,7 @@ lean_dec.exit127:                                 ; preds = %261, %260, %258, %l
 lean_ensure_exclusive_array.exit.i215:            ; preds = %264, %lean_dec.exit127
   %.0.i.i216 = phi ptr [ %265, %264 ], [ %.0.i.i, %lean_dec.exit127 ]
   %266 = getelementptr inbounds nuw i8, ptr %.0.i.i216, i64 24
-  %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %.0108248
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %.0108248
   %268 = load ptr, ptr %267, align 8, !tbaa !4
   %269 = ptrtoint ptr %268 to i64
   %270 = trunc i64 %269 to i1
@@ -72036,7 +72036,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -72700,7 +72700,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -73516,7 +73516,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -74179,7 +74179,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -74843,7 +74843,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -75659,7 +75659,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -79944,7 +79944,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   %.070163 = phi ptr [ %4, %.lr.ph ], [ %109, %207 ]
   %.073162 = phi ptr [ %5, %.lr.ph ], [ %119, %207 ]
   %.076161 = phi ptr [ %7, %.lr.ph ], [ %92, %207 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %.067164
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.067164
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -80540,7 +80540,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -81204,7 +81204,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -82020,7 +82020,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -82683,7 +82683,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -83347,7 +83347,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -84163,7 +84163,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -88448,7 +88448,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   %.070163 = phi ptr [ %4, %.lr.ph ], [ %109, %207 ]
   %.073162 = phi ptr [ %5, %.lr.ph ], [ %119, %207 ]
   %.076161 = phi ptr [ %7, %.lr.ph ], [ %92, %207 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %.067164
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.067164
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -89018,7 +89018,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   %.0251631 = phi ptr [ %5, %.lr.ph ], [ %677, %676 ]
   %.0255630 = phi ptr [ %6, %.lr.ph ], [ %559, %676 ]
   %.0259629 = phi ptr [ %8, %.lr.ph ], [ %540, %676 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0247632
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0247632
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i1
@@ -90875,7 +90875,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -91539,7 +91539,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -92355,7 +92355,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -93018,7 +93018,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -93682,7 +93682,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
 
 lean_dec.exit124:                                 ; preds = %28, %27, %25, %19
   %29 = add i64 %.087231, -1
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i1
@@ -94498,7 +94498,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %27, %26, %24, %18
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %.072186
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.072186
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -98783,7 +98783,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterializeCo
   %.070163 = phi ptr [ %4, %.lr.ph ], [ %109, %207 ]
   %.073162 = phi ptr [ %5, %.lr.ph ], [ %119, %207 ]
   %.076161 = phi ptr [ %7, %.lr.ph ], [ %92, %207 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %.067164
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.067164
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -106238,7 +106238,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_writeManifest___spec__
 7:                                                ; preds = %.lr.ph, %lean_dec.exit126
   %.0110216 = phi i64 [ %2, %.lr.ph ], [ %38, %lean_dec.exit126 ]
   %.0112215 = phi ptr [ %4, %.lr.ph ], [ %.4116, %lean_dec.exit126 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.0110216
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0110216
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -107633,7 +107633,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Package_runPostUpdateHooks___spe
 
 lean_dec.exit241:                                 ; preds = %26, %25, %23, %17
   %27 = load ptr, ptr @l_Lake_loadDepPackage___closed__4, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0179433
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0179433
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -109544,7 +109544,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateAndMaterialize__
   br label %lean_dec.exit63
 
 lean_dec.exit63:                                  ; preds = %22, %21, %19, %13
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %.046113
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.046113
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = ptrtoint ptr %24 to i64
   %26 = trunc i64 %25 to i1
@@ -111660,7 +111660,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_validateManifest
   br label %lean_dec.exit240
 
 lean_dec.exit240:                                 ; preds = %20, %19, %17, %11
-  %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0190453
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0190453
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1
@@ -113630,7 +113630,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_materializeDeps___spec
   br label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %26, %25, %23, %17
-  %27 = getelementptr inbounds nuw ptr, ptr %10, i64 %.061157
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.061157
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i1
@@ -117743,7 +117743,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_materializeDeps___spec
 
 lean_dec.exit116:                                 ; preds = %32, %31, %29, %23
   %33 = add i64 %.082218, -1
-  %34 = getelementptr inbounds nuw ptr, ptr %14, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = ptrtoint ptr %35 to i64
   %37 = trunc i64 %36 to i1
@@ -118532,7 +118532,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_materializeDeps___spec
   br label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %26, %25, %23, %17
-  %27 = getelementptr inbounds nuw ptr, ptr %10, i64 %.061157
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.061157
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i1
@@ -119104,7 +119104,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_materializeDeps___spec
   br label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %26, %25, %23, %17
-  %27 = getelementptr inbounds nuw ptr, ptr %10, i64 %.061157
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.061157
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i1
@@ -119679,7 +119679,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lake_Workspace_materializeDeps___spec
 
 lean_dec.exit116:                                 ; preds = %32, %31, %29, %23
   %33 = add i64 %.082218, -1
-  %34 = getelementptr inbounds nuw ptr, ptr %14, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = ptrtoint ptr %35 to i64
   %37 = trunc i64 %36 to i1
@@ -120468,7 +120468,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_materializeDeps___spec
   br label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %26, %25, %23, %17
-  %27 = getelementptr inbounds nuw ptr, ptr %10, i64 %.061157
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.061157
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i1
@@ -123970,7 +123970,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_materializeDeps___spec
 6:                                                ; preds = %.lr.ph, %27
   %.01728 = phi i64 [ %1, %.lr.ph ], [ %29, %27 ]
   %.01927 = phi ptr [ %3, %.lr.ph ], [ %28, %27 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01728
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01728
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -124450,7 +124450,7 @@ lean_dec.exit277:                                 ; preds = %lean_dec.exit278
 121:                                              ; preds = %142, %.lr.ph.i
   %.01728.i = phi i64 [ 0, %.lr.ph.i ], [ %144, %142 ]
   %.01927.i = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i ], [ %143, %142 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %.01728.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.01728.i
   %123 = load ptr, ptr %122, align 8, !tbaa !4
   %124 = ptrtoint ptr %123 to i64
   %125 = trunc i64 %124 to i1
@@ -124844,7 +124844,7 @@ lean_dec.exit267:                                 ; preds = %262, %261, %259, %l
 264:                                              ; preds = %285, %.lr.ph.i451
   %.01728.i452 = phi i64 [ 0, %.lr.ph.i451 ], [ %287, %285 ]
   %.01927.i453 = phi ptr [ %.0230, %.lr.ph.i451 ], [ %286, %285 ]
-  %265 = getelementptr inbounds nuw ptr, ptr %263, i64 %.01728.i452
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %.01728.i452
   %266 = load ptr, ptr %265, align 8, !tbaa !4
   %267 = ptrtoint ptr %266 to i64
   %268 = trunc i64 %267 to i1
@@ -124906,7 +124906,7 @@ lean_array_uget.exit.i456:                        ; preds = %274, %273, %271, %2
 289:                                              ; preds = %310, %.lr.ph.i477
   %.01728.i478 = phi i64 [ 0, %.lr.ph.i477 ], [ %312, %310 ]
   %.01927.i479 = phi ptr [ %.0230, %.lr.ph.i477 ], [ %311, %310 ]
-  %290 = getelementptr inbounds nuw ptr, ptr %288, i64 %.01728.i478
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %.01728.i478
   %291 = load ptr, ptr %290, align 8, !tbaa !4
   %292 = ptrtoint ptr %291 to i64
   %293 = trunc i64 %292 to i1
@@ -124992,7 +124992,7 @@ lean_dec.exit257:                                 ; preds = %319, %318, %316, %l
 321:                                              ; preds = %342, %.lr.ph.i490
   %.01728.i491 = phi i64 [ 0, %.lr.ph.i490 ], [ %344, %342 ]
   %.01927.i492 = phi ptr [ %311, %.lr.ph.i490 ], [ %343, %342 ]
-  %322 = getelementptr inbounds nuw ptr, ptr %320, i64 %.01728.i491
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %.01728.i491
   %323 = load ptr, ptr %322, align 8, !tbaa !4
   %324 = ptrtoint ptr %323 to i64
   %325 = trunc i64 %324 to i1
@@ -127152,7 +127152,7 @@ lean_dec.exit9:                                   ; preds = %18, %17, %15
 20:                                               ; preds = %41, %.lr.ph.i
   %.01728.i = phi i64 [ %.val15, %.lr.ph.i ], [ %43, %41 ]
   %.01927.i = phi ptr [ %3, %.lr.ph.i ], [ %42, %41 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01728.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01728.i
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1

@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/buildvm_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { ptr, i32 }
-
 @.str = private unnamed_addr constant [47 x i8] c"/* This is a generated file. DO NOT EDIT! */\0A\0A\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"ffnames = {\0A[0]=\22Lua\22,\0A\22C\22,\0A\00", align 1
 @.str.2 = private unnamed_addr constant [50 x i8] c"static const uint16_t recff_idmap[] = {\0A0,\0A0x0100\00", align 1
@@ -742,7 +740,7 @@ define internal void @libdef_func(ptr noundef readonly captures(none) %0, ptr no
 
 84:                                               ; preds = %100, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %100 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv.i
   %86 = load ptr, ptr %85, align 8, !tbaa !20
   %87 = load i8, ptr %86, align 1, !tbaa !21
   %88 = icmp eq i8 %87, 102
@@ -780,7 +778,7 @@ define internal void @libdef_func(ptr noundef readonly captures(none) %0, ptr no
 find_ffofs.exit:                                  ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %104 = load ptr, ptr %103, align 8, !tbaa !41
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv.i
   %106 = load ptr, ptr %105, align 8, !tbaa !42
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %108 = load ptr, ptr %107, align 8, !tbaa !43
@@ -813,7 +811,7 @@ define internal void @libdef_lua(ptr noundef readonly captures(none) %0, ptr nou
 
 .preheader:                                       ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @libbc_map, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @libbc_map, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16, !tbaa !45
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #18
   %.not13 = icmp eq i32 %10, 0

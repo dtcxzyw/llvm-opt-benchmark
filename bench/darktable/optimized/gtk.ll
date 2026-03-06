@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.result_t = type { i32, ptr, ptr, ptr, ptr, ptr }
 %struct._GtkRequisition = type { i32, i32 }
-%struct._GtkRequestedSize = type { ptr, i32, i32 }
 %struct._GtkBorder = type { i16, i16, i16, i16 }
 %struct._GdkEventButton = type { i32, ptr, i8, i32, double, double, ptr, i32, i32, ptr, double, double }
 
@@ -961,7 +960,7 @@ define void @dt_gui_gtk_set_source_rgb(ptr noundef %0, i32 noundef %1) local_unn
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct._GdkRGBA, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %5
   %.sroa.0.0.copyload = load double, ptr %6, align 8, !tbaa !59
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !59
@@ -981,7 +980,7 @@ define void @dt_gui_gtk_set_source_rgba(ptr noundef %0, i32 noundef %1, float no
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct._GdkRGBA, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %6
   %.sroa.0.0.copyload = load double, ptr %7, align 8, !tbaa !59
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !59
@@ -2373,9 +2372,9 @@ _init_main_table.exit.i:                          ; preds = %316, %313, %302
 
 462:                                              ; preds = %469, %_init_main_table.exit.i
   %indvars.iv.i.i = phi i64 [ 1, %_init_main_table.exit.i ], [ %indvars.iv.next.i.i, %469 ]
-  %463 = getelementptr inbounds nuw %struct.color_init, ptr @__const.dt_gui_apply_theme.init, i64 %indvars.iv.i.i
+  %463 = getelementptr inbounds nuw [40 x i8], ptr @__const.dt_gui_apply_theme.init, i64 %indvars.iv.i.i
   %464 = load ptr, ptr %463, align 8, !tbaa !122
-  %465 = getelementptr inbounds nuw %struct._GdkRGBA, ptr %457, i64 %indvars.iv.i.i
+  %465 = getelementptr inbounds nuw [32 x i8], ptr %457, i64 %indvars.iv.i.i
   %466 = call i32 @gtk_style_context_lookup_color(ptr noundef %461, ptr noundef %464, ptr noundef nonnull %465) #18
   %.not.i25.i = icmp eq i32 %466, 0
   br i1 %.not.i25.i, label %467, label %469
@@ -2606,7 +2605,7 @@ _init_widgets.exit:                               ; preds = %469
 
 625:                                              ; preds = %.split82
   %626 = zext nneg i32 %612 to i64
-  %627 = getelementptr inbounds nuw ptr, ptr @_get_source_name.SOURCE_NAMES, i64 %626
+  %627 = getelementptr inbounds nuw [8 x i8], ptr @_get_source_name.SOURCE_NAMES, i64 %626
   %628 = load ptr, ptr %627, align 8, !tbaa !126
   br label %.split
 
@@ -2619,7 +2618,7 @@ _init_widgets.exit:                               ; preds = %469
 
 632:                                              ; preds = %.split
   %633 = zext nneg i32 %630 to i64
-  %634 = getelementptr inbounds nuw ptr, ptr @_get_mode_name.MODE_NAMES, i64 %633
+  %634 = getelementptr inbounds nuw [8 x i8], ptr @_get_mode_name.MODE_NAMES, i64 %633
   %635 = load ptr, ptr %634, align 8, !tbaa !126
   br label %_get_mode_name.exit
 
@@ -2658,7 +2657,7 @@ _get_mode_name.exit:                              ; preds = %.split, %632
 
 647:                                              ; preds = %644
   %648 = zext nneg i32 %645 to i64
-  %649 = getelementptr inbounds nuw ptr, ptr @_get_axis_name.AXIS_NAMES, i64 %648
+  %649 = getelementptr inbounds nuw [8 x i8], ptr @_get_axis_name.AXIS_NAMES, i64 %648
   %650 = load ptr, ptr %649, align 8, !tbaa !126
   br label %_get_axis_name.exit
 
@@ -3679,7 +3678,7 @@ declare i64 @dtgtk_side_panel_get_type() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @dt_ui_get_container(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !76
   %6 = tail call i64 @gtk_box_get_type() #19
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #18
@@ -3692,7 +3691,7 @@ declare i64 @gtk_box_get_type() local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @dt_ui_container_add_widget(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = tail call i64 @gtk_box_get_type() #19
   %.not = icmp eq ptr %6, null
@@ -3758,7 +3757,7 @@ declare void @gtk_box_pack_start(ptr noundef, ptr noundef, i32 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define void @dt_ui_container_focus_widget(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = tail call i64 @gtk_container_get_type() #19
   %.not = icmp eq ptr %6, null
@@ -3814,7 +3813,7 @@ declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @dt_ui_container_foreach(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = tail call i64 @gtk_container_get_type() #19
   %.not = icmp eq ptr %6, null
@@ -3854,7 +3853,7 @@ declare void @gtk_container_foreach(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define void @dt_ui_container_destroy_children(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !76
   %6 = tail call i64 @gtk_container_get_type() #19
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #18
@@ -4092,7 +4091,7 @@ define void @dt_ui_restore_panels(ptr noundef readonly captures(none) %0) local_
   br i1 %.not.i, label %_panels_get_panel_path.exit, label %9
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds nuw ptr, ptr @_ui_panel_config_names, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ui_panel_config_names, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !126
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %2, ptr noundef nonnull @.str.274, ptr noundef %11, ptr noundef nonnull @.str.81) #18
   %12 = load ptr, ptr %2, align 8, !tbaa !126
@@ -4258,7 +4257,7 @@ define void @dt_ui_panel_show(ptr noundef readonly captures(none) %0, i32 nounde
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = tail call i64 @gtk_widget_get_type() #19
   %.not = icmp eq ptr %11, null
@@ -4326,7 +4325,7 @@ define void @dt_ui_panel_show(ptr noundef readonly captures(none) %0, i32 nounde
 
 switch.lookup:                                    ; preds = %31
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.dt_ui_panel_show, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_ui_panel_show, i64 %33
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -4365,7 +4364,7 @@ switch.lookup:                                    ; preds = %31
   br i1 %.not.i, label %_panels_get_panel_path.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw ptr, ptr @_ui_panel_config_names, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @_ui_panel_config_names, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !126
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %7, ptr noundef nonnull @.str.274, ptr noundef %47, ptr noundef nonnull @.str.81) #18
   %48 = load ptr, ptr %7, align 8, !tbaa !126
@@ -4392,7 +4391,7 @@ _panels_get_panel_path.exit:                      ; preds = %43, %45
   br i1 %.not.i90, label %_panels_get_panel_path.exit92, label %51
 
 51:                                               ; preds = %.loopexit
-  %52 = getelementptr inbounds nuw ptr, ptr @_ui_panel_config_names, i64 %9
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @_ui_panel_config_names, i64 %9
   %53 = load ptr, ptr %52, align 8, !tbaa !126
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.274, ptr noundef %53, ptr noundef nonnull @.str.81) #18
   %54 = load ptr, ptr %6, align 8, !tbaa !126
@@ -4411,7 +4410,7 @@ _panels_get_panel_path.exit92:                    ; preds = %.loopexit, %51
   br i1 %.not82, label %67, label %55
 
 55:                                               ; preds = %.preheader
-  %56 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv103
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv103
   %57 = load ptr, ptr %56, align 8, !tbaa !76
   %.not.i93 = icmp eq ptr %57, null
   br i1 %.not.i93, label %dt_ui_panel_visible.exit.thread, label %58
@@ -4459,7 +4458,7 @@ dt_ui_panel_visible.exit:                         ; preds = %60, %63
   br i1 %.not.i95, label %_panels_get_panel_path.exit97, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw ptr, ptr @_ui_panel_config_names, i64 %9
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ui_panel_config_names, i64 %9
   %73 = load ptr, ptr %72, align 8, !tbaa !126
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.274, ptr noundef %73, ptr noundef nonnull @.str.81) #18
   %74 = load ptr, ptr %5, align 8, !tbaa !126
@@ -4618,7 +4617,7 @@ declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #1
 define i32 @dt_ui_panel_visible(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = tail call i64 @gtk_widget_get_type() #19
   %.not = icmp eq ptr %6, null
@@ -4675,7 +4674,7 @@ _panels_get_panel_path.exit.thread:               ; preds = %6
 
 _panels_get_panel_path.exit:                      ; preds = %6
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ui_panel_config_names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ui_panel_config_names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !126
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.274, ptr noundef %10, ptr noundef nonnull @.str.84) #18
   %11 = load ptr, ptr %3, align 8, !tbaa !126
@@ -4744,7 +4743,7 @@ _panels_get_panel_path.exit:                      ; preds = %.split, %12
 .split17:                                         ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !76
   tail call void @gtk_widget_set_size_request(ptr noundef %18, i32 noundef %2, i32 noundef -1) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4754,7 +4753,7 @@ _panels_get_panel_path.exit:                      ; preds = %.split, %12
   br i1 %.not.i18, label %_panels_get_panel_path.exit20, label %20
 
 20:                                               ; preds = %.split17
-  %21 = getelementptr inbounds nuw ptr, ptr @_ui_panel_config_names, i64 %16
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ui_panel_config_names, i64 %16
   %22 = load ptr, ptr %21, align 8, !tbaa !126
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.274, ptr noundef %22, ptr noundef nonnull @.str.84) #18
   %23 = load ptr, ptr %4, align 8, !tbaa !126
@@ -4781,7 +4780,7 @@ declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef)
 define range(i32 0, 2) i32 @dt_ui_panel_ancestor(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !76
   %8 = tail call i64 @gtk_widget_get_type() #19
   %.not = icmp eq ptr %7, null
@@ -5457,7 +5456,7 @@ _get_base_url.exit:                               ; preds = %12, %16
   br i1 %.not59, label %.thread86, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw ptr, ptr @__const.dt_gui_show_help.supported_languages, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @__const.dt_gui_show_help.supported_languages, i64 %indvars.iv
   %49 = call noalias ptr @g_strdup(ptr noundef %.035) #18
   %50 = load ptr, ptr %48, align 8, !tbaa !126
   %51 = call i32 @g_ascii_strcasecmp(ptr noundef %49, ptr noundef %50) #18
@@ -5591,9 +5590,9 @@ define void @dt_gui_apply_theme() local_unnamed_addr #0 {
 
 8:                                                ; preds = %0, %15
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr inbounds nuw %struct.color_init, ptr @__const.dt_gui_apply_theme.init, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [40 x i8], ptr @__const.dt_gui_apply_theme.init, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !122
-  %11 = getelementptr inbounds nuw %struct._GdkRGBA, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv
   %12 = tail call i32 @gtk_style_context_lookup_color(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %11) #18
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %15
@@ -5831,7 +5830,7 @@ define ptr @dt_ui_notebook_page(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not35, label %.thread, label %53
 
 .thread:                                          ; preds = %44
-  %51 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %47, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %47, i64 %50
   store ptr %1, ptr %51, align 8, !tbaa !229
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @dt_action_effect_tabs, ptr %52, align 8, !tbaa !232
@@ -5840,7 +5839,7 @@ define ptr @dt_ui_notebook_page(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 53:                                               ; preds = %44
   %54 = shl nsw i64 %50, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr nonnull align 8 %49, i64 %54, i1 false)
-  %55 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %47, i64 %50
+  %55 = getelementptr inbounds [16 x i8], ptr %47, i64 %50
   store ptr %1, ptr %55, align 8, !tbaa !229
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr @dt_action_effect_tabs, ptr %56, align 8, !tbaa !232
@@ -5891,7 +5890,7 @@ define internal void @_notebook_size_callback(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = load ptr, ptr %12, align 8, !tbaa !233
   call void @gtk_widget_get_allocation(ptr noundef %14, ptr noundef nonnull %5) #18
-  %15 = getelementptr %struct._GtkRequestedSize, ptr %12, i64 %11
+  %15 = getelementptr [16 x i8], ptr %12, i64 %11
   %16 = getelementptr i8, ptr %15, i64 -16
   %17 = load ptr, ptr %16, align 8, !tbaa !233
   call void @gtk_widget_get_allocation(ptr noundef %17, ptr noundef nonnull %6) #18
@@ -5909,7 +5908,7 @@ define internal void @_notebook_size_callback(ptr noundef %0, ptr noundef %1, pt
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = call ptr @gtk_notebook_get_nth_page(ptr noundef %0, i32 noundef %26) #18
   %28 = call ptr @gtk_notebook_get_tab_label(ptr noundef %0, ptr noundef %27) #18
-  %29 = getelementptr inbounds nuw %struct._GtkRequestedSize, ptr %12, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !233
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 0, ptr %30, align 8, !tbaa !236
@@ -5936,7 +5935,7 @@ define internal void @_notebook_size_callback(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv51 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next52, %.lr.ph ]
-  %36 = getelementptr inbounds nuw %struct._GtkRequestedSize, ptr %12, i64 %indvars.iv51
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv51
   %37 = load ptr, ptr %36, align 8, !tbaa !233
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !236
@@ -5947,7 +5946,7 @@ define internal void @_notebook_size_callback(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %indvars.iv56 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next57, %.lr.ph49 ]
-  %40 = getelementptr inbounds nuw %struct._GtkRequestedSize, ptr %12, i64 %indvars.iv56
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv56
   %41 = load ptr, ptr %40, align 8, !tbaa !233
   call void @gtk_widget_set_size_request(ptr noundef %41, i32 noundef -1, i32 noundef -1) #18
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -7969,7 +7968,7 @@ define internal fastcc i32 @_panel_is_visible(i32 noundef range(i32 0, 6) %0) un
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @_ui_panel_config_names, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ui_panel_config_names, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !126
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %2, ptr noundef nonnull @.str.274, ptr noundef %11, ptr noundef nonnull @.str.81) #18
   %12 = load ptr, ptr %2, align 8, !tbaa !126

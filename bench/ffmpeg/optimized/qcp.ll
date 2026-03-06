@@ -186,7 +186,7 @@ is_qcelp_13k_guid.exit.thread:                    ; preds = %16, %is_qcelp_13k_g
 90:                                               ; preds = %.lr.ph
   %91 = trunc i32 %86 to i16
   %92 = sext i32 %87 to i64
-  %93 = getelementptr inbounds i16, ptr %83, i64 %92
+  %93 = getelementptr inbounds [2 x i8], ptr %83, i64 %92
   store i16 %91, ptr %93, align 2, !tbaa !44
   br label %94
 
@@ -244,7 +244,7 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 19:                                               ; preds = %17
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds i16, ptr %9, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %9, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !44
   %23 = icmp slt i16 %22, 0
   br i1 %23, label %38, label %.loopexit

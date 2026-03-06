@@ -562,7 +562,7 @@ define void @_ZN6icu_778RBBINodeC2ENS0_8NodeTypeER10UErrorCode(ptr noundef nonnu
 
 switch.lookup:                                    ; preds = %42
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_778RBBINodeC2ENS0_8NodeTypeER10UErrorCode, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6icu_778RBBINodeC2ENS0_8NodeTypeER10UErrorCode, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %12, align 8, !tbaa !31
   br label %45

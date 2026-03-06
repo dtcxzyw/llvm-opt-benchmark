@@ -946,7 +946,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous
 
 switch.lookup:                                    ; preds = %2
   %21 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5boost3log11v2_mt_posix5sinks3aux9anonymous24severity_level_to_stringENS1_7trivial14severity_levelE.exit
 
@@ -3060,7 +3060,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous
 
 switch.lookup:                                    ; preds = %2
   %21 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5boost3log11v2_mt_posix5sinks3aux9anonymous24severity_level_to_stringENS1_7trivial14severity_levelE.exit
 
@@ -3106,7 +3106,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPSt4pairIN5boost9typeind
 
 13:                                               ; preds = %13, %.lr.ph._crit_edge
   %.015.i.i = phi i64 [ %12, %.lr.ph._crit_edge ], [ %15, %13 ]
-  %14 = getelementptr inbounds nuw %"struct.std::pair.5", ptr %0, i64 %.015.i.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.015.i.i
   %.sroa.02.0.copyload.i.i = load ptr, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -3245,7 +3245,7 @@ define linkonce_odr hidden noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pa
   %5 = sub i64 %3, %4
   %6 = ashr exact i64 %5, 4
   %7 = sdiv i64 %6, 2
-  %8 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZSt22__move_median_to_firstIPSt4pairIN5boost9typeindex14stl_type_indexEPvEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_SF_SF_SF_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %8, ptr noundef nonnull %10)
@@ -3352,8 +3352,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIN5boost9typeindex1
   %.031 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread ], [ %1, %5 ]
   %9 = shl i64 %.031, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %10
-  %12 = getelementptr %"struct.std::pair.5", ptr %0, i64 %9
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
+  %12 = getelementptr [16 x i8], ptr %0, i64 %9
   %13 = getelementptr i8, ptr %12, i64 16
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3379,15 +3379,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
   %28 = icmp slt i32 %.fr, 0
   %29 = or disjoint i64 %9, 1
   %spec.select = select i1 %28, i64 %29, i64 %10
-  %.phi.trans.insert = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %spec.select
+  %.phi.trans.insert = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit, %.lr.ph
   %30 = phi i64 [ %26, %.lr.ph ], [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit ]
   %31 = phi i64 [ %10, %.lr.ph ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit ]
-  %32 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %.031
+  %32 = getelementptr inbounds [16 x i8], ptr %0, i64 %31
+  %33 = getelementptr inbounds [16 x i8], ptr %0, i64 %.031
   store i64 %30, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !17
@@ -3411,8 +3411,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
 44:                                               ; preds = %40
   %45 = shl nsw i64 %.0.lcssa, 1
   %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %46
-  %48 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %.0.lcssa
+  %47 = getelementptr inbounds [16 x i8], ptr %0, i64 %46
+  %48 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa
   %49 = load i64, ptr %47, align 8
   store i64 %49, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -3434,7 +3434,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
   %.01316.i = phi i64 [ %.1, %.lr.ph.i ], [ %.017.i, %71 ]
   %.017.in.i = add nsw i64 %.01316.i, -1
   %.017.i = sdiv i64 %.017.in.i, 2
-  %57 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %.017.i
+  %57 = getelementptr inbounds [16 x i8], ptr %0, i64 %.017.i
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !33
@@ -3457,7 +3457,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_ma
   br i1 %70, label %71, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit
 
 71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i
-  %72 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %.01316.i
+  %72 = getelementptr inbounds [16 x i8], ptr %0, i64 %.01316.i
   store i64 %68, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !17
@@ -3468,7 +3468,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_ma
 
 _ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit: ; preds = %56, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i, %71, %53
   %.013.lcssa.i = phi i64 [ %.1, %53 ], [ %.01316.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i ], [ %.017.i, %71 ], [ %.01316.i, %56 ]
-  %77 = getelementptr inbounds %"struct.std::pair.5", ptr %0, i64 %.013.lcssa.i
+  %77 = getelementptr inbounds [16 x i8], ptr %0, i64 %.013.lcssa.i
   %78 = ptrtoint ptr %3 to i64
   store i64 %78, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -3721,7 +3721,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN5boost3log11v2_mt_posix3aux29type_se
   %4 = load ptr, ptr %3, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !27
-  %7 = getelementptr inbounds nuw %"struct.std::pair.5", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %6
   %8 = icmp sgt i64 %6, 0
   br i1 %8, label %_ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11lower_boundIPKSt4pairIN5boost9typeindex14stl_type_indexEPvES5_NS1_3log11v2_mt_posix3aux21dispatching_map_orderEET_SC_SC_RKT0_T1_.exit
 
@@ -3738,7 +3738,7 @@ _ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.i.i: 
   %.022.i.i = phi ptr [ %4, %_ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.lr.ph.i.i ], [ %28, %.thread.i.i ]
   %.01121.i.i = phi i64 [ %6, %_ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.lr.ph.i.i ], [ %27, %.thread.i.i ]
   %14 = lshr i64 %.01121.i.i, 1
-  %15 = getelementptr inbounds nuw %"struct.std::pair.5", ptr %.022.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %.022.i.i, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !33

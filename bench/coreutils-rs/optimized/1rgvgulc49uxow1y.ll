@@ -1092,7 +1092,7 @@ _ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit: ; preds = %.
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heffe3ebb8dada1deE.exit": ; preds = %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit, %._crit_edge.i
   %92 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %84, %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit ]
   %93 = load ptr, ptr %16, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
-  %94 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %93, i64 %92
+  %94 = getelementptr inbounds [24 x i8], ptr %93, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %95 = load i64, ptr %17, align 8, !alias.scope !119, !noalias !122, !noundef !5
   %96 = add i64 %95, 1
@@ -1395,7 +1395,7 @@ default.unreachable:                              ; preds = %52
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heffe3ebb8dada1deE.exit.i": ; preds = %._crit_edge.i.i, %79
   %88 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %80, %79 ]
   %89 = load ptr, ptr %37, align 8, !alias.scope !154, !noalias !157, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %89, i64 %88
+  %90 = getelementptr inbounds [24 x i8], ptr %89, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !152
   %91 = load i64, ptr %38, align 8, !alias.scope !154, !noalias !157, !noundef !5
   %92 = add i64 %91, 1
@@ -1903,7 +1903,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit97.i: ; preds = %100
 233:                                              ; preds = %._crit_edge.i, %224
   %234 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %225, %224 ]
   %235 = load ptr, ptr %157, align 8, !alias.scope !208, !noalias !211, !nonnull !5, !noundef !5
-  %236 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %235, i64 %234
+  %236 = getelementptr inbounds [24 x i8], ptr %235, i64 %234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   %237 = load i64, ptr %158, align 8, !alias.scope !208, !noalias !211, !noundef !5
   %238 = add i64 %237, 1
@@ -2176,7 +2176,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
 
 358:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit
   %359 = load ptr, ptr %243, align 8, !nonnull !5, !noundef !5
-  %360 = getelementptr inbounds nuw i64, ptr %359, i64 %.sroa.7147.0210
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %.sroa.7147.0210
   %361 = load i64, ptr %360, align 8, !noundef !5
   %362 = icmp ugt i64 %.0.lcssa.i, %361
   br i1 %362, label %363, label %438
@@ -2371,7 +2371,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit120: ; preds
 452:                                              ; preds = %._crit_edge.i121, %443
   %453 = phi i64 [ %.pre.i122, %._crit_edge.i121 ], [ %444, %443 ]
   %454 = load ptr, ptr %157, align 8, !alias.scope !239, !noalias !242, !nonnull !5, !noundef !5
-  %455 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %454, i64 %453
+  %455 = getelementptr inbounds [24 x i8], ptr %454, i64 %453
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %455, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %456 = load i64, ptr %158, align 8, !alias.scope !239, !noalias !242, !noundef !5
   %457 = add i64 %456, 1
@@ -2560,7 +2560,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !5
-  %18 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2639,7 +2639,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   %62 = load ptr, ptr %61, align 8, !nonnull !5, !noundef !5
   %63 = getelementptr inbounds nuw i8, ptr %.079187, i64 16
   %64 = load i64, ptr %63, align 8, !noundef !5
-  %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %62, i64 %64
+  %65 = getelementptr inbounds [24 x i8], ptr %62, i64 %64
   br label %66
 
 66:                                               ; preds = %.thread, %60
@@ -2737,7 +2737,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br i1 %89, label %.loopexit, label %.thread
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i64, ptr %26, i64 %.sroa.055.0201
+  %91 = getelementptr inbounds [8 x i8], ptr %26, i64 %.sroa.055.0201
   %92 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr %13, ptr %9, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h371cc3c1f64aca2aE", ptr %27, align 8
@@ -2771,7 +2771,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br i1 %.not92, label %.thread, label %.thread125
 
 96:                                               ; preds = %84
-  %97 = getelementptr inbounds i64, ptr %26, i64 %.sroa.055.0201
+  %97 = getelementptr inbounds [8 x i8], ptr %26, i64 %.sroa.055.0201
   %98 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr %13, ptr %6, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h371cc3c1f64aca2aE", ptr %40, align 8

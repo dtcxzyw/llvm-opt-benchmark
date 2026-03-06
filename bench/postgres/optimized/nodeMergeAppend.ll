@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.SortSupportData = type { ptr, i32, i8, i8, i16, ptr, ptr, i8, ptr, ptr, ptr }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -116,12 +114,12 @@ list_length.exit79:                               ; preds = %32, %33
   %58 = getelementptr i8, ptr %57, i64 16
   %.val = load ptr, ptr %58, align 8
   %59 = zext nneg i32 %56 to i64
-  %60 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @ExecInitNode(ptr noundef %61, ptr noundef %1, i32 noundef %2) #3
   %63 = add i32 %.07380, 1
   %64 = sext i32 %.07380 to i64
-  %65 = getelementptr inbounds ptr, ptr %44, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %44, i64 %64
   store ptr %62, ptr %65, align 8
   %66 = load ptr, ptr %4, align 8
   %67 = call i32 @bms_next_member(ptr noundef %66, i32 noundef %56) #3
@@ -172,11 +170,11 @@ list_length.exit79:                               ; preds = %32, %33
 89:                                               ; preds = %.lr.ph83, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %89 ]
   %90 = load ptr, ptr %82, align 8
-  %91 = getelementptr inbounds nuw %struct.SortSupportData, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %92, ptr %91, align 8
   %93 = load ptr, ptr %85, align 8
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 %95, ptr %96, align 8
@@ -186,14 +184,14 @@ list_length.exit79:                               ; preds = %32, %33
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 13
   store i8 %99, ptr %100, align 1
   %101 = load ptr, ptr %87, align 8
-  %102 = getelementptr inbounds nuw i16, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %indvars.iv
   %103 = load i16, ptr %102, align 2
   %104 = getelementptr inbounds nuw i8, ptr %91, i64 14
   store i16 %103, ptr %104, align 2
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 32
   store i8 0, ptr %105, align 8
   %106 = load ptr, ptr %88, align 8
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   call void @PrepareSortSupportFromOrderingOp(i32 noundef %108, ptr noundef nonnull %91) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -270,7 +268,7 @@ define internal ptr @ExecMergeAppend(ptr noundef captures(none) %0) #0 {
   %35 = phi i32 [ %29, %.lr.ph ], [ %60, %58 ]
   %36 = load ptr, ptr %31, align 8
   %37 = zext nneg i32 %35 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %41 = load ptr, ptr %40, align 8
@@ -286,10 +284,10 @@ ExecProcNode.exit:                                ; preds = %34, %42
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %39) #3
   %46 = load ptr, ptr %32, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %37
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %37
   store ptr %45, ptr %47, align 8
   %48 = load ptr, ptr %32, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %37
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %37
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %58, label %52
@@ -327,7 +325,7 @@ ExecProcNode.exit:                                ; preds = %34, %42
   %69 = load ptr, ptr %68, align 8
   %sext = shl i64 %67, 32
   %70 = ashr exact i64 %sext, 32
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 104
   %74 = load ptr, ptr %73, align 8
@@ -344,10 +342,10 @@ ExecProcNode.exit47:                              ; preds = %64, %75
   %78 = tail call ptr %77(ptr noundef nonnull %72) #3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %70
+  %81 = getelementptr inbounds [8 x i8], ptr %80, i64 %70
   store ptr %78, ptr %81, align 8
   %82 = load ptr, ptr %79, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %70
+  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 %70
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %92, label %86
@@ -443,7 +441,7 @@ define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noun
 22:                                               ; preds = %.lr.ph, %ApplySortComparator.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ApplySortComparator.exit.thread ]
   %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw %struct.SortSupportData, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 14
   %26 = load i16, ptr %25, align 2
   %27 = sext i16 %26 to i32
@@ -462,7 +460,7 @@ slot_getattr.exit:                                ; preds = %22, %slot_getsomeat
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
   %34 = load i8, ptr %33, align 1, !range !4, !noundef !5
   %35 = load ptr, ptr %18, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %32
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %32
   %37 = load i64, ptr %36, align 8
   %38 = load i16, ptr %19, align 2
   %39 = icmp sgt i16 %26, %38
@@ -477,7 +475,7 @@ slot_getattr.exit29:                              ; preds = %slot_getattr.exit, 
   %41 = getelementptr inbounds i8, ptr %40, i64 %32
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = load ptr, ptr %21, align 8
-  %44 = getelementptr inbounds i64, ptr %43, i64 %32
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %32
   %45 = load i64, ptr %44, align 8
   %46 = trunc nuw i8 %34 to i1
   %47 = trunc nuw i8 %42 to i1
@@ -567,7 +565,7 @@ define dso_local void @ExecEndMergeAppend(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @ExecEndNode(ptr noundef %8) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -616,7 +614,7 @@ define dso_local void @ExecReScanMergeAppend(ptr noundef captures(none) %0) loca
 19:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %18, align 8
   %.not18 = icmp eq ptr %23, null

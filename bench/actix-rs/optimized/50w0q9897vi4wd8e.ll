@@ -98,7 +98,7 @@ define hidden noundef i8 @"_ZN118_$LT$rand..distributions..other..Alphanumeric$u
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217hf9444f22086a289bE.llvm.2744819028355529065.exit": ; preds = %12, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i", %28
   %29 = phi i64 [ %13, %12 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i" ], [ 0, %28 ]
-  %30 = getelementptr inbounds nuw i32, ptr %6, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %29
   %31 = load i32, ptr %30, align 4, !alias.scope !12, !noalias !15, !noundef !7
   %32 = add nuw nsw i64 %29, 1
   store i64 %32, ptr %7, align 16, !alias.scope !12, !noalias !15
@@ -119,10 +119,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !30, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !31, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E.8", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E.8", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -217,7 +217,7 @@ define hidden noundef i32 @"_ZN52_$LT$$RF$mut$u20$R$u20$as$u20$rand_core..RngCor
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217hf9444f22086a289bE.llvm.2744819028355529065.exit": ; preds = %1, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i", %26
   %27 = phi i64 [ %7, %1 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i" ], [ 0, %26 ]
-  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %27
   %29 = load i32, ptr %28, align 4, !alias.scope !50, !noalias !47, !noundef !7
   %30 = add nuw nsw i64 %27, 1
   store i64 %30, ptr %6, align 16, !alias.scope !50, !noalias !47
@@ -285,7 +285,7 @@ define hidden noundef i32 @"_ZN68_$LT$rand..rngs..thread..ThreadRng$u20$as$u20$r
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217hf9444f22086a289bE.llvm.2744819028355529065.exit": ; preds = %1, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i", %25
   %26 = phi i64 [ %6, %1 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i" ], [ 0, %25 ]
-  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !alias.scope !67, !noundef !7
   %29 = add nuw nsw i64 %26, 1
   store i64 %29, ptr %5, align 16, !alias.scope !67
@@ -884,7 +884,7 @@ define hidden noundef i32 @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17ha11efbfbbf20846cE.exit": ; preds = %23, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i", %1
   %24 = phi i64 [ %4, %1 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i" ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4, !noundef !7
   %27 = add nuw nsw i64 %24, 1
   store i64 %27, ptr %3, align 16
@@ -957,7 +957,7 @@ define hidden noundef i8 @"_ZN82_$LT$$RF$D$u20$as$u20$rand..distributions..distr
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217hf9444f22086a289bE.llvm.2744819028355529065.exit.i": ; preds = %28, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i.i", %12
   %29 = phi i64 [ %13, %12 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h28dbd6e8274e99fbE.llvm.16537464404008583024.exit.i.i.i.i" ], [ 0, %28 ]
-  %30 = getelementptr inbounds nuw i32, ptr %6, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %29
   %31 = load i32, ptr %30, align 4, !alias.scope !167, !noalias !170, !noundef !7
   %32 = add nuw nsw i64 %29, 1
   store i64 %32, ptr %7, align 16, !alias.scope !167, !noalias !170

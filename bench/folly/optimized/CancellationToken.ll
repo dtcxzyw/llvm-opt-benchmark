@@ -924,7 +924,7 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17
 .lr.ph:                                           ; preds = %3, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit"
   %8 = phi ptr [ %24, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit" ], [ %7, %3 ]
   %.05 = phi i64 [ %22, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit" ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.05
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05
   %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1045,7 +1045,7 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7MoveTagEmPPNS_17C
 .lr.ph:                                           ; preds = %3, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit"
   %8 = phi ptr [ %24, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit" ], [ %7, %3 ]
   %.05 = phi i64 [ %22, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit" ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.05
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05
   %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1105,7 +1105,7 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_11CopyMoveTagEmPPK
 .lr.ph.i:                                         ; preds = %5, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i"
   %10 = phi ptr [ %26, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i" ], [ %9, %5 ]
   %.05.i = phi i64 [ %24, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i" ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %.05.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05.i
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1151,7 +1151,7 @@ _ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationT
 .lr.ph:                                           ; preds = %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit"
   %28 = phi ptr [ %44, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit" ], [ %27, %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit ]
   %.08 = phi i64 [ %42, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit" ], [ 0, %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit ]
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.08
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.08
   %30 = load ptr, ptr %29, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 32

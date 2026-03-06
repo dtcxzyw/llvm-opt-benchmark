@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.float128_t = type { [2 x i64] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -334,10 +333,10 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %.not116 = icmp eq i64 %142, 0
   %143 = icmp eq i64 %141, 0
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %141
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %141
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %148 = getelementptr inbounds nuw %struct.float128_t, ptr %147, i64 %141
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %141
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 8
   br label %153
 
@@ -894,9 +893,9 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 4312
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %142 = and i64 %126, 31
-  %143 = getelementptr inbounds nuw i64, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %145 = getelementptr inbounds nuw %struct.float128_t, ptr %144, i64 %142
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %142
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
   br label %148
 
@@ -1308,10 +1307,10 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %.not116 = icmp eq i64 %142, 0
   %143 = icmp eq i64 %141, 0
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %141
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %141
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %148 = getelementptr inbounds nuw %struct.float128_t, ptr %147, i64 %141
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %141
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 8
   br label %153
 
@@ -1744,9 +1743,9 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 4312
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %142 = and i64 %126, 31
-  %143 = getelementptr inbounds nuw i64, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %145 = getelementptr inbounds nuw %struct.float128_t, ptr %144, i64 %142
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %142
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
   br label %148
 
@@ -2159,10 +2158,10 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %143 = icmp eq i64 %141, 0
   %144 = icmp samesign ugt i64 %141, 14
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %141
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %141
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %149 = getelementptr inbounds nuw %struct.float128_t, ptr %148, i64 %141
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %141
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
   br label %154
 
@@ -2610,9 +2609,9 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 4312
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %142 = and i64 %126, 31
-  %143 = getelementptr inbounds nuw i64, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %145 = getelementptr inbounds nuw %struct.float128_t, ptr %144, i64 %142
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %142
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
   br label %148
 
@@ -3025,10 +3024,10 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %143 = icmp eq i64 %141, 0
   %144 = icmp samesign ugt i64 %141, 14
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %141
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %141
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %149 = getelementptr inbounds nuw %struct.float128_t, ptr %148, i64 %141
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %141
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
   br label %154
 
@@ -3476,9 +3475,9 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %119, %131
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 4312
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %142 = and i64 %126, 31
-  %143 = getelementptr inbounds nuw i64, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %145 = getelementptr inbounds nuw %struct.float128_t, ptr %144, i64 %142
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %142
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
   br label %148
 

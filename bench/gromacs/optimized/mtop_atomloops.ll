@@ -3,22 +3,6 @@ source_filename = "bench/gromacs/original/mtop_atomloops.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ListOfLists" = type { %"class.std::vector", %"class.std::vector" }
-%struct.gmx_molblock_t = type { i32, i32, %"class.std::vector.38", %"class.std::vector.38" }
-%"class.std::vector.38" = type { %"struct.std::_Vector_base.39" }
-%"struct.std::_Vector_base.39" = type { %"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.t_resinfo = type { ptr, i32, i8, i32, i8, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -61,7 +45,7 @@ define void @_ZN12AtomIteratorC2ERK10gmx_mtop_ti(ptr noundef nonnull writeonly a
   %9 = load i32, ptr %8, align 8, !tbaa !17
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8, !tbaa !24
-  %12 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [2408 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %5, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -119,7 +103,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN12AtomIteratorppEv(pt
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !13
   %28 = load ptr, ptr %25, align 8, !tbaa !14
-  %29 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !92
   %.not3 = icmp slt i32 %24, %31
@@ -139,11 +123,11 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN12AtomIteratorppEv(pt
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %42 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %28, i64 %33
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %33
   %43 = load i32, ptr %42, align 8, !tbaa !17
   %44 = sext i32 %43 to i64
   %45 = load ptr, ptr %41, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [2408 x i8], ptr %45, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %47, ptr %8, align 8, !tbaa !27
   store i32 0, ptr %22, align 8, !tbaa !28
@@ -177,7 +161,7 @@ define noundef nonnull align 4 dereferenceable(36) ptr @_ZNK9AtomProxy4atomEv(pt
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !83
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %9
+  %10 = getelementptr inbounds [36 x i8], ptr %6, i64 %9
   ret ptr %10
 }
 
@@ -199,7 +183,7 @@ define noundef ptr @_ZNK9AtomProxy8atomNameEv(ptr noundef nonnull readonly align
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !83
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !99
   %12 = load ptr, ptr %11, align 8, !tbaa !100
   ret ptr %12
@@ -215,13 +199,13 @@ define noundef ptr @_ZNK9AtomProxy11residueNameEv(ptr noundef nonnull readonly a
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !83
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %9
+  %10 = getelementptr inbounds [36 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 4, !tbaa !102
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !106
   %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds %struct.t_resinfo, ptr %14, i64 %15
+  %16 = getelementptr inbounds [32 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !107
   %18 = load ptr, ptr %17, align 8, !tbaa !100
   ret ptr %18
@@ -237,7 +221,7 @@ define noundef i32 @_ZNK9AtomProxy13residueNumberEv(ptr noundef nonnull readonly
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !83
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %9
+  %10 = getelementptr inbounds [36 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 4, !tbaa !102
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -259,7 +243,7 @@ define noundef i32 @_ZNK9AtomProxy13residueNumberEv(ptr noundef nonnull readonly
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !106
   %26 = sext i32 %12 to i64
-  %27 = getelementptr inbounds %struct.t_resinfo, ptr %25, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !109
   br label %30
@@ -278,11 +262,11 @@ define noundef nonnull align 8 dereferenceable(2408) ptr @_ZNK9AtomProxy12molecu
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = load ptr, ptr %5, align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %7
   %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = sext i32 %10 to i64
   %12 = load ptr, ptr %4, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [2408 x i8], ptr %12, i64 %11
   ret ptr %13
 }
 
@@ -306,7 +290,7 @@ define noundef ptr @_Z28gmx_mtop_atomloop_block_initRK10gmx_mtop_t(ptr noundef n
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %4, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [2408 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !113
@@ -410,11 +394,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 112
-  %42 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %34, i64 %30
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %30
   %43 = load i32, ptr %42, align 8, !tbaa !17
   %44 = sext i32 %43 to i64
   %45 = load ptr, ptr %41, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [2408 x i8], ptr %45, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %47, ptr %25, align 8, !tbaa !113
   store i32 0, ptr %22, align 8, !tbaa !114
@@ -427,9 +411,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %52 = phi ptr [ %47, %40 ], [ %26, %._crit_edge ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !97
-  %55 = getelementptr inbounds %struct.t_atom, ptr %54, i64 %51
+  %55 = getelementptr inbounds [36 x i8], ptr %54, i64 %51
   store ptr %55, ptr %1, align 8, !tbaa !119
-  %56 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %49, i64 %50
+  %56 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %50
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !92
   store i32 %58, ptr %2, align 4, !tbaa !120
@@ -693,11 +677,11 @@ define noundef nonnull align 8 dereferenceable(2280) ptr @_ZNK10IListProxy4listE
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %20 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %9, i64 %4
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %4
   %21 = load i32, ptr %20, align 8, !tbaa !17
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %19, align 8, !tbaa !24
-  %24 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [2408 x i8], ptr %23, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   br label %26
 
@@ -724,7 +708,7 @@ define noundef i32 @_ZNK10IListProxy4nmolEv(ptr noundef nonnull readonly align 8
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %9, i64 %4
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !92
   br label %19

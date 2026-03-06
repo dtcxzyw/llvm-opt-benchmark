@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.folly::LockedPtr" = type { %"class.std::unique_lock" }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -211,7 +207,7 @@ define void @_ZN5folly14AsyncLogWriter12writeMessageEONSt7__cxx1112basic_stringI
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8, !tbaa !39
   %24 = and i64 %23, 1
-  %25 = getelementptr inbounds nuw %"class.std::vector", ptr %18, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -326,7 +322,7 @@ define void @_ZN5folly14AsyncLogWriter5flushEv(ptr noundef nonnull align 8 deref
 
 19:                                               ; preds = %13
   %20 = and i64 %17, 1
-  %21 = getelementptr inbounds nuw %"class.std::vector", ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1034,7 +1030,7 @@ define void @_ZN5folly14AsyncLogWriter8ioThreadEv(ptr noundef nonnull align 8 de
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = and i64 %13, 1
-  %15 = getelementptr inbounds nuw %"class.std::vector", ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %17
 
@@ -1633,7 +1629,7 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexE
   %32 = getelementptr inbounds i8, ptr %30, i64 -40
   %33 = load i64, ptr %32, align 8, !tbaa !39
   %34 = and i64 %33, 1
-  %35 = getelementptr inbounds nuw %"class.std::vector", ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %34
   %36 = getelementptr inbounds i8, ptr %30, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !38
   %38 = load i8, ptr %6, align 8, !tbaa !51, !range !54, !noundef !55
@@ -1890,7 +1886,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !71
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !40
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !43
   ret void
 }
@@ -2040,7 +2036,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit25, %55
   store ptr %19, ptr %0, align 8, !tbaa !71
   store ptr %.0.lcssa.i.i.i24, ptr %3, align 8, !tbaa !40
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %15
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %59, ptr %54, align 8, !tbaa !43
   ret void
 }

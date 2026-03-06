@@ -369,7 +369,7 @@ define internal noundef i32 @os_setlocale(ptr noundef %0) #0 {
   %2 = tail call ptr @luaL_optlstring(ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null) #12
   %3 = tail call i32 @luaL_checkoption(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull @os_setlocale.catnames) #12
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @os_setlocale.cat, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @os_setlocale.cat, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !16
   %7 = tail call ptr @setlocale(i32 noundef %6, ptr noundef %2) #12
   %8 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %7) #12

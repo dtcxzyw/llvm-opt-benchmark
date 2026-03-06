@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.49 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.49 = type { i64, [8 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN5clang26ASTDeserializationListener17ReaderInitializedEPNS_9ASTReaderE = comdat any
 
@@ -83,7 +82,7 @@ define dso_local range(i64 0, 2186138353665) i64 @_ZN5clang13serialization18Type
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang13serialization18TypeIdxFromBuiltinEPKNS_11BuiltinTypeE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang13serialization18TypeIdxFromBuiltinEPKNS_11BuiltinTypeE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %8
 
@@ -825,7 +824,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !95
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -866,7 +865,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !95
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !93

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/xmv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.XMVAudioPacket = type { i32, i32, i16, i16, i32, i16, i64, i16, i32, i16, i32, i32, i64, i32, i64 }
-
 @.str = private unnamed_addr constant [4 x i8] c"xmv\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"Microsoft XMV\00", align 1
 @ff_xmv_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr @.str, ptr null, ptr null, ptr null }, i32 0, i32 112, i32 1, [4 x i8] zeroinitializer, ptr @xmv_probe, ptr @xmv_read_header, ptr @xmv_read_packet, ptr @xmv_read_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -98,7 +96,7 @@ define internal range(i32 -1094995529, 1) i32 @xmv_read_header(ptr noundef %0) #
 .lr.ph:                                           ; preds = %.preheader, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.preheader ]
   %30 = load ptr, ptr %28, align 8, !tbaa !38
-  %31 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [80 x i8], ptr %30, i64 %indvars.iv
   %32 = tail call i32 @avio_rl16(ptr noundef %5) #7
   %33 = trunc i32 %32 to i16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -345,7 +343,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 84:                                               ; preds = %140, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %140 ]
   %85 = load ptr, ptr %82, align 8, !tbaa !38
-  %86 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %85, i64 %indvars.iv.i.i
+  %86 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %indvars.iv.i.i
   %87 = call i32 @avio_read(ptr noundef %33, ptr noundef nonnull %3, i32 noundef 4) #7
   %.not132.i.i = icmp eq i32 %87, 4
   br i1 %.not132.i.i, label %88, label %xmv_process_packet_header.exit.thread.i
@@ -423,7 +421,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %134 = load ptr, ptr %82, align 8, !tbaa !38
   %135 = add nuw nsw i64 %indvars.iv.i.i, 4294967295
   %136 = and i64 %135, 4294967295
-  %137 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %134, i64 %136
+  %137 = getelementptr inbounds nuw [80 x i8], ptr %134, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load i32, ptr %138, align 8, !tbaa !88
   store i32 %139, ptr %130, align 8, !tbaa !88
@@ -465,7 +463,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 160:                                              ; preds = %160, %.lr.ph146.i.i
   %indvars.iv151.i.i = phi i64 [ 0, %.lr.ph146.i.i ], [ %indvars.iv.next152.i.i, %160 ]
   %.0117143.i.i = phi i64 [ %157, %.lr.ph146.i.i ], [ %166, %160 ]
-  %161 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %159, i64 %indvars.iv151.i.i
+  %161 = getelementptr inbounds nuw [80 x i8], ptr %159, i64 %indvars.iv151.i.i
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 56
   store i64 %.0117143.i.i, ptr %162, align 8, !tbaa !91
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 48
@@ -523,7 +521,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %192 = load ptr, ptr %191, align 8, !tbaa !94
   %193 = zext nneg i32 %183 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !95
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load ptr, ptr %196, align 8, !tbaa !64
@@ -656,7 +654,7 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
   %265 = getelementptr inbounds nuw i8, ptr %.val27, i64 104
   %266 = load ptr, ptr %265, align 8, !tbaa !38
   %267 = and i64 %263, 4294967295
-  %268 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw [80 x i8], ptr %266, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 56
   %270 = load i64, ptr %269, align 8, !tbaa !91
   %271 = call i64 @avio_seek(ptr noundef %.val28, i64 noundef %270, i32 noundef 0) #7

@@ -18,14 +18,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.gtp_info_t = type { i32, %struct._address }
 %struct.e_in6_addr = type { [16 x i8] }
 %struct.gtp_hdr_ext_info = type { ptr }
-%struct.gtp_opt_t = type { i32, ptr }
-%struct._gtp_mess_items = type { i8, [46 x %struct.ext_header] }
 %struct.gtp_msg_hash_entry = type { i8, i32, %struct.nstime_t, i32, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct.uat_pdcp_lte_keys_record_t = type { ptr, %struct._address, ptr, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pdcp_nr_info = type { i8, i16, i32, i8, i32, i8, i8, i8, i8, %struct.rohc_info, i8, i16 }
 %struct.rohc_info = type { i8, i8, i8, i8, i32, i8, i8, i16, ptr }
-%struct.uat_pdcp_nr_keys_record_t = type { ptr, %struct._address, ptr, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"cause_type\00", align 1
 @cause_type_ext = hidden global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 63, ptr @cause_type, ptr @.str }, align 8
@@ -7448,8 +7444,8 @@ define hidden void @proto_register_gtp() local_unnamed_addr #1 {
 1:                                                ; preds = %0, %1
   %indvars.iv25 = phi i64 [ 0, %0 ], [ %indvars.iv.next26, %1 ]
   %indvars.iv = phi i64 [ 39, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr i32, ptr @ett_gtp_ies, i64 %indvars.iv25
-  %3 = getelementptr ptr, ptr @proto_register_gtp.ett_gtp_array, i64 %indvars.iv
+  %2 = getelementptr [4 x i8], ptr @ett_gtp_ies, i64 %indvars.iv25
+  %3 = getelementptr [8 x i8], ptr @proto_register_gtp.ett_gtp_array, i64 %indvars.iv
   store ptr %2, ptr %3, align 8
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7862,7 +7858,7 @@ define internal void @pdcp_lte_users_direction_set_cb(ptr noundef writeonly capt
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -7902,7 +7898,7 @@ define internal void @pdcp_lte_users_direction_tostr_cb(ptr noundef readonly cap
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -7952,7 +7948,7 @@ define internal void @pdcp_lte_users_header_present_set_cb(ptr noundef writeonly
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -7992,7 +7988,7 @@ define internal void @pdcp_lte_users_header_present_tostr_cb(ptr noundef readonl
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8042,7 +8038,7 @@ define internal void @pdcp_lte_users_plane_set_cb(ptr noundef writeonly captures
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8082,7 +8078,7 @@ define internal void @pdcp_lte_users_plane_tostr_cb(ptr noundef readonly capture
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8132,7 +8128,7 @@ define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr noundef writeonly 
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8172,7 +8168,7 @@ define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr noundef readonly
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8222,7 +8218,7 @@ define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr noundef writeon
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8262,7 +8258,7 @@ define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr noundef reado
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8312,7 +8308,7 @@ define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr noundef writeonly c
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8352,7 +8348,7 @@ define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr noundef readonly 
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8759,7 +8755,7 @@ define internal void @pdcp_nr_users_direction_set_cb(ptr noundef writeonly captu
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8799,7 +8795,7 @@ define internal void @pdcp_nr_users_direction_tostr_cb(ptr noundef readonly capt
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8849,7 +8845,7 @@ define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr noundef write
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8889,7 +8885,7 @@ define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr noundef rea
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8939,7 +8935,7 @@ define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr noundef writeonly c
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -8979,7 +8975,7 @@ define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr noundef readonly 
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9029,7 +9025,7 @@ define internal void @pdcp_nr_users_plane_set_cb(ptr noundef writeonly captures(
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9069,7 +9065,7 @@ define internal void @pdcp_nr_users_plane_tostr_cb(ptr noundef readonly captures
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9119,7 +9115,7 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr noundef writeon
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9159,7 +9155,7 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr noundef reado
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9209,7 +9205,7 @@ define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr noundef writeonl
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9249,7 +9245,7 @@ define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr noundef readon
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9299,7 +9295,7 @@ define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr noundef writeonly ca
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -9339,7 +9335,7 @@ define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr noundef readonly c
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -11043,7 +11039,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph463.split.us
   br i1 %.not413.us, label %342, label %338
 
 338:                                              ; preds = %337
-  %339 = getelementptr %struct.gtp_opt_t, ptr @gtpopt, i64 %indvars.iv.next486
+  %339 = getelementptr [16 x i8], ptr @gtpopt, i64 %indvars.iv.next486
   %340 = load i32, ptr %339, align 16
   %341 = icmp eq i32 %340, %336
   br i1 %341, label %342, label %337, !llvm.loop !46
@@ -11075,7 +11071,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph463.split.us
   %.02642.i458 = phi i32 [ %354, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %354 = add i32 %.02642.i458, 1
   %355 = zext i32 %354 to i64
-  %356 = getelementptr %struct._gtp_mess_items, ptr %gprs_mess_items.umts_mess_items.i, i64 %355
+  %356 = getelementptr [744 x i8], ptr %gprs_mess_items.umts_mess_items.i, i64 %355
   %357 = load i8, ptr %356, align 8
   %.not.i = icmp eq i8 %357, 0
   br i1 %.not.i, label %check_field_presence_and_decoder.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !48
@@ -11088,7 +11084,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph463.split.us
   %.lcssa = phi ptr [ %gprs_mess_items.umts_mess_items.i, %.lr.ph.i.preheader ], [ %356, %.lr.ph.i ]
   %359 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %360 = sext i32 %.0421461 to i64
-  %361 = getelementptr %struct.ext_header, ptr %359, i64 %360
+  %361 = getelementptr [16 x i8], ptr %359, i64 %360
   %362 = load i8, ptr %361, align 8
   %.not3043.i = icmp eq i8 %362, 0
   br i1 %.not3043.i, label %check_field_presence_and_decoder.exit.thread432, label %.lr.ph44.i
@@ -11109,7 +11105,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph463.split.us
 
 371:                                              ; preds = %366
   %372 = sext i32 %370 to i64
-  %373 = getelementptr %struct.ext_header, ptr %359, i64 %372
+  %373 = getelementptr [16 x i8], ptr %359, i64 %372
   %374 = load i8, ptr %373, align 8
   %.not30.i = icmp eq i8 %374, 0
   br i1 %.not30.i, label %check_field_presence_and_decoder.exit.thread432, label %.lr.ph44.i, !llvm.loop !49
@@ -11148,7 +11144,7 @@ check_field_presence_and_decoder.exit.thread432:  ; preds = %371, %.preheader.i
   br i1 %.not413, label %391, label %387
 
 387:                                              ; preds = %386
-  %388 = getelementptr %struct.gtp_opt_t, ptr @gtpopt, i64 %indvars.iv.next
+  %388 = getelementptr [16 x i8], ptr @gtpopt, i64 %indvars.iv.next
   %389 = load i32, ptr %388, align 16
   %390 = icmp eq i32 %389, %385
   br i1 %390, label %391, label %386, !llvm.loop !46
@@ -11993,7 +11989,7 @@ define internal fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info(ptr noundef %0, p
 
 12:                                               ; preds = %addresses_equal.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %addresses_equal.exit.i ]
-  %13 = getelementptr %struct.uat_pdcp_lte_keys_record_t, ptr %7, i64 %indvars.iv.i
+  %13 = getelementptr [80 x i8], ptr %7, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %9
@@ -12137,7 +12133,7 @@ define internal fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info(ptr noundef %0, pt
 
 13:                                               ; preds = %addresses_equal.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %addresses_equal.exit.i ]
-  %14 = getelementptr %struct.uat_pdcp_nr_keys_record_t, ptr %8, i64 %indvars.iv.i
+  %14 = getelementptr [88 x i8], ptr %8, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %10

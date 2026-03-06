@@ -38,10 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<ZXing::Trit, std::allocator<ZXing::Trit>>::_Vector_impl" }
 %"struct.std::_Vector_base<ZXing::Trit, std::allocator<ZXing::Trit>>::_Vector_impl" = type { %"struct.std::_Vector_base<ZXing::Trit, std::allocator<ZXing::Trit>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ZXing::Trit, std::allocator<ZXing::Trit>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ZXing::QRCode::ECBlocks" = type { i32, %"struct.std::array.8" }
-%"struct.std::array.8" = type { [2 x %"struct.ZXing::QRCode::ECB"] }
-%"struct.ZXing::QRCode::ECB" = type { i32, i32 }
-%"struct.ZXing::QRCode::BlockPair" = type { %"class.ZXing::ByteArray", %"class.ZXing::ByteArray" }
 %"class.ZXing::Trit" = type { i8 }
 %"class.std::allocator.12" = type { i8 }
 %"class.std::allocator" = type { i8 }
@@ -297,7 +293,7 @@ _ZN5ZXing6QRCodeL10ChooseModeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaI
 
 87:                                               ; preds = %85
   %88 = sext i32 %83 to i64
-  %89 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !22
   %.not.not.not.i = icmp eq i32 %90, -1
   br i1 %.not.not.not.i, label %_ZN5ZXing6QRCodeL10ChooseModeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE.exit, label %.thread.i
@@ -509,7 +505,7 @@ _ZN5ZXing6QRCodeL14AppendModeInfoENS0_9CodecModeERNS_8BitArrayE.exit99: ; preds 
 .lr.ph.i.i106:                                    ; preds = %138, %_ZN5ZXing8BitArray10appendBitsEii.exit34.i.i
   %.040.i.i = phi i64 [ %.1.i.i, %_ZN5ZXing8BitArray10appendBitsEii.exit34.i.i ], [ 0, %138 ]
   %141 = load ptr, ptr %1, align 8, !tbaa !15
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %.040.i.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %.040.i.i
   %143 = load i32, ptr %142, align 4, !tbaa !20
   %144 = add nsw i32 %143, -48
   %145 = add i64 %.040.i.i, 2
@@ -519,7 +515,7 @@ _ZN5ZXing6QRCodeL14AppendModeInfoENS0_9CodecModeERNS_8BitArrayE.exit99: ; preds 
 147:                                              ; preds = %.lr.ph.i.i106
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %149 = load i32, ptr %148, align 4, !tbaa !20
-  %150 = getelementptr inbounds nuw i32, ptr %141, i64 %145
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %145
   %151 = load i32, ptr %150, align 4, !tbaa !20
   %152 = mul nsw i32 %144, 100
   %153 = mul i32 %149, 10
@@ -554,7 +550,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit.i.i:       ; preds = %.noexc107
   br i1 %165, label %166, label %.lr.ph.i35.i.i
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i32, ptr %141, i64 %164
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %164
   %168 = load i32, ptr %167, align 4, !tbaa !20
   %169 = mul nsw i32 %144, 10
   %170 = add i32 %169, -48
@@ -607,14 +603,14 @@ _ZN5ZXing8BitArray10appendBitsEii.exit34.i.i:     ; preds = %.noexc109, %.noexc1
 .lr.ph.i17.i:                                     ; preds = %183, %_ZN5ZXing8BitArray10appendBitsEii.exit32.i.i
   %.035.i.i = phi i64 [ %.1.i18.i, %_ZN5ZXing8BitArray10appendBitsEii.exit32.i.i ], [ 0, %183 ]
   %186 = load ptr, ptr %1, align 8, !tbaa !15
-  %187 = getelementptr inbounds nuw i32, ptr %186, i64 %.035.i.i
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %.035.i.i
   %188 = load i32, ptr %187, align 4, !tbaa !20
   %189 = icmp slt i32 %188, 96
   br i1 %189, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.i.i, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.thread.i.i
 
 _ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.i.i: ; preds = %.lr.ph.i17.i
   %190 = sext i32 %188 to i64
-  %191 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !22
   %193 = icmp eq i32 %192, -1
   br i1 %193, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.thread.i.i, label %198
@@ -643,14 +639,14 @@ _ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.thread.i.i: ; preds = %_ZN5ZXing6Q
   br i1 %200, label %201, label %.lr.ph.i29.i.i
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds nuw i32, ptr %186, i64 %199
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %199
   %203 = load i32, ptr %202, align 4, !tbaa !20
   %204 = icmp slt i32 %203, 96
   br i1 %204, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit28.i.i, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit28.thread.i.i
 
 _ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit28.i.i: ; preds = %201
   %205 = sext i32 %203 to i64
-  %206 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !22
   %208 = icmp eq i32 %207, -1
   br i1 %208, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit28.thread.i.i, label %212
@@ -1045,7 +1041,7 @@ _ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESa
   %354 = load i32, ptr %353, align 8, !tbaa !31
   %355 = getelementptr inbounds nuw i8, ptr %336, i64 32
   %356 = sext i32 %2 to i64
-  %357 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [20 x i8], ptr %355, i64 %356
   %358 = load i32, ptr %357, align 4, !tbaa !40
   %359 = getelementptr inbounds nuw i8, ptr %357, i64 4
   %360 = load i32, ptr %359, align 4, !tbaa !43
@@ -1302,7 +1298,7 @@ _ZN5ZXing6QRCodeL16AppendLengthInfoEiRKNS0_7VersionENS0_9CodecModeERNS_8BitArray
 453:                                              ; preds = %_ZN5ZXing6QRCodeL16AppendLengthInfoEiRKNS0_7VersionENS0_9CodecModeERNS_8BitArrayE.exit
   %454 = getelementptr inbounds nuw i8, ptr %.064, i64 32
   %455 = sext i32 %2 to i64
-  %456 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %454, i64 %455
+  %456 = getelementptr inbounds nuw [20 x i8], ptr %454, i64 %455
   %457 = getelementptr inbounds nuw i8, ptr %.064, i64 112
   %458 = load i32, ptr %457, align 8, !tbaa !31
   %459 = load i32, ptr %456, align 4, !tbaa !40
@@ -1714,7 +1710,7 @@ _ZN5ZXing6QRCodeL13TerminateBitsEiRNS_8BitArrayE.exit: ; preds = %._crit_edge.i
 
 603:                                              ; preds = %594
   %604 = load ptr, ptr %14, align 8, !tbaa !52, !noalias !49
-  %605 = getelementptr inbounds nuw %"struct.ZXing::QRCode::BlockPair", ptr %604, i64 %indvars.iv.i
+  %605 = getelementptr inbounds nuw [48 x i8], ptr %604, i64 %indvars.iv.i
   %606 = load ptr, ptr %605, align 8, !tbaa !28
   %607 = getelementptr inbounds nuw i8, ptr %605, i64 8
   %608 = getelementptr inbounds nuw i8, ptr %605, i64 16
@@ -1749,7 +1745,7 @@ _ZNSt6vectorIhSaIhEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit.i: ; 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %616, %_ZNSt6vectorIhSaIhEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit.i, %603
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !49
   %621 = load ptr, ptr %14, align 8, !tbaa !52, !noalias !49
-  %622 = getelementptr inbounds nuw %"struct.ZXing::QRCode::BlockPair", ptr %621, i64 %indvars.iv.i
+  %622 = getelementptr inbounds nuw [48 x i8], ptr %621, i64 %indvars.iv.i
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !49
   %624 = getelementptr inbounds nuw i8, ptr %622, i64 8
@@ -1879,7 +1875,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit22.i.i:              ; preds = %667, %.body.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !49
   %.sroa.speculated117.i = call i32 @llvm.smax.i32(i32 %.0128146.i, i32 %..i.i)
   %673 = load ptr, ptr %14, align 8, !tbaa !52, !noalias !49
-  %674 = getelementptr inbounds nuw %"struct.ZXing::QRCode::BlockPair", ptr %673, i64 %indvars.iv.i
+  %674 = getelementptr inbounds nuw [48 x i8], ptr %673, i64 %indvars.iv.i
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 24
   %676 = getelementptr inbounds nuw i8, ptr %674, i64 32
   %677 = load ptr, ptr %676, align 8, !tbaa !30
@@ -2787,7 +2783,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %22, %25
   %34 = add nsw i32 %33, %.018
   %35 = sext i32 %34 to i64
   %36 = load ptr, ptr %9, align 8, !tbaa !80
-  %37 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %35
   %38 = load i8, ptr %37, align 1, !tbaa !92
   %39 = icmp eq i8 %38, 1
   %40 = xor i1 %10, %39
@@ -3602,7 +3598,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN5ZXi
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %13 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %12, i64 %3
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %12, i64 %3
   %14 = load i32, ptr %13, align 4, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !43
@@ -4042,7 +4038,7 @@ _ZNSt12_Vector_baseIN5ZXing6QRCode9BlockPairESaIS2_EEC2EmRKS3_.exit.thread: ; pr
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZNSt6vectorIN5ZXing6QRCode9BlockPairESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   %6 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing6QRCode9BlockPairEE8allocateEmPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef null) #20
   store ptr %6, ptr %0, align 8, !tbaa !52
-  %7 = getelementptr inbounds nuw %"struct.ZXing::QRCode::BlockPair", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !103
   %9 = mul nuw nsw i64 %1, 48
@@ -4181,7 +4177,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIiSaIiE
 7:                                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit
   %8 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef null) #20
   store ptr %8, ptr %0, align 8, !tbaa !59
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !60
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %1, 2
@@ -4462,7 +4458,7 @@ define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 no
 
 24:                                               ; preds = %21
   %25 = zext nneg i32 %0 to i64
-  %26 = getelementptr %"struct.ZXing::PointT", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %25
+  %26 = getelementptr [8 x i8], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -8
   %28 = load i64, ptr %27, align 4
   %.sroa.014.0.extract.trunc17 = trunc i64 %28 to i32
@@ -4534,7 +4530,7 @@ _ZNSt12_Vector_baseIN5ZXing4TritESaIS1_EE11_M_allocateEm.exit: ; preds = %2, %_Z
   store ptr %7, ptr %0, align 8, !tbaa !80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !90
-  %9 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %7, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !83
   ret void

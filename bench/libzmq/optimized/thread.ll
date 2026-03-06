@@ -309,7 +309,7 @@ define void @_ZN3zmq8thread_t25applySchedulingParametersEv(ptr noundef nonnull r
   %60 = and i64 %59, 63
   %61 = shl nuw i64 1, %60
   %62 = lshr i64 %59, 6
-  %63 = getelementptr inbounds nuw i64, ptr %4, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !37
   %65 = or i64 %64, %61
   store i64 %65, ptr %63, align 8, !tbaa !37

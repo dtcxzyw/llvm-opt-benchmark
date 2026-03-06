@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.AVPacketSideData = type { ptr, i64, i32 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 
 @ff_sd_global_map = local_unnamed_addr constant [10 x %struct.SideDataMap] [%struct.SideDataMap { i32 4, i32 5 }, %struct.SideDataMap { i32 5, i32 6 }, %struct.SideDataMap { i32 21, i32 13 }, %struct.SideDataMap { i32 6, i32 2 }, %struct.SideDataMap { i32 7, i32 10 }, %struct.SideDataMap { i32 20, i32 11 }, %struct.SideDataMap { i32 22, i32 14 }, %struct.SideDataMap { i32 28, i32 15 }, %struct.SideDataMap { i32 35, i32 26 }, %struct.SideDataMap { i32 38, i32 0 }], align 16
@@ -109,7 +108,7 @@ define noundef i32 @avcodec_default_execute(ptr noundef %0, ptr noundef readonly
   %13 = mul i64 %.015, %8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %13
   %15 = tail call i32 %1(ptr noundef %0, ptr noundef %14) #12
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.015
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.015
   store i32 %15, ptr %16, align 4, !tbaa !6
   %17 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %17, %7
@@ -143,7 +142,7 @@ define noundef i32 @avcodec_default_execute2(ptr noundef %0, ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = tail call i32 %1(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0) #12
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %10, ptr %11, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1038,7 +1037,7 @@ define void @ff_codec_close(ptr noundef %0) local_unnamed_addr #4 {
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %49 = load ptr, ptr %47, align 8, !tbaa !90
-  %50 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %50) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %44, align 8, !tbaa !89
@@ -1224,7 +1223,7 @@ define void @avsubtitle_free(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !100
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @av_freep(ptr noundef nonnull %9) #12
@@ -1239,7 +1238,7 @@ define void @avsubtitle_free(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
   tail call void @av_freep(ptr noundef nonnull %14) #12
   %15 = load ptr, ptr %4, align 8, !tbaa !100
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %16) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %2, align 4, !tbaa !96
@@ -2011,7 +2010,7 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
 
 .lr.ph130.split:                                  ; preds = %.preheader, %.lr.ph130.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph130.split ], [ 0, %.preheader ]
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv147
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv147
   %bcmp95 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %13, ptr noundef nonnull dereferenceable(4) @ff_default_get_supported_config.end, i64 4)
   %.not96 = icmp eq i32 %bcmp95, 0
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -2040,7 +2039,7 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
 
 .lr.ph122.split:                                  ; preds = %.preheader97, %.lr.ph122.split
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.lr.ph122.split ], [ 0, %.preheader97 ]
-  %21 = getelementptr inbounds nuw %struct.AVRational, ptr %20, i64 %indvars.iv144
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv144
   %bcmp90 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %21, ptr noundef nonnull dereferenceable(8) @ff_default_get_supported_config.end.59, i64 8)
   %.not91 = icmp eq i32 %bcmp90, 0
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
@@ -2069,7 +2068,7 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
 
 .lr.ph114.split:                                  ; preds = %.preheader98, %.lr.ph114.split
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph114.split ], [ 0, %.preheader98 ]
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv141
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv141
   %bcmp85 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %29, ptr noundef nonnull dereferenceable(4) @ff_default_get_supported_config.end.60, i64 4)
   %.not86 = icmp eq i32 %bcmp85, 0
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
@@ -2098,7 +2097,7 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
 
 .lr.ph106.split:                                  ; preds = %.preheader99, %.lr.ph106.split
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph106.split ], [ 0, %.preheader99 ]
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv138
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv138
   %bcmp80 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %37, ptr noundef nonnull dereferenceable(4) @ff_default_get_supported_config.end.61, i64 4)
   %.not81 = icmp eq i32 %bcmp80, 0
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
@@ -2127,7 +2126,7 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
 
 .lr.ph.split:                                     ; preds = %.preheader100, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.preheader100 ]
-  %45 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %indvars.iv
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %45, ptr noundef nonnull dereferenceable(24) @ff_default_get_supported_config.end.62, i64 24)
   %.not76 = icmp eq i32 %bcmp, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2149,7 +2148,7 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
   %53 = lshr i32 %52, 27
   %54 = and i32 %53, 3
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr @color_range_table, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @color_range_table, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !134
   store ptr %57, ptr %4, align 8, !tbaa !134
   %.not72 = icmp eq ptr %5, null

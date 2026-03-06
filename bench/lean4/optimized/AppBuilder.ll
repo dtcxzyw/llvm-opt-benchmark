@@ -16280,7 +16280,7 @@ declare void @lean_free_object(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -56200,7 +56200,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_AppBuilder_0__Lea
   br label %lean_dec.exit153
 
 lean_dec.exit153:                                 ; preds = %28, %27, %25, %19
-  %29 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0102279
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0102279
   %30 = load ptr, ptr %29, align 8, !tbaa !10
   %31 = ptrtoint ptr %30 to i64
   %32 = trunc i64 %31 to i1
@@ -60217,7 +60217,7 @@ lean_dec.exit748:                                 ; preds = %lean_dec.exit750, %
 
 lean_dec.exit747:                                 ; preds = %110, %109, %107, %103
   %111 = lshr i64 %34, 1
-  %112 = getelementptr inbounds nuw ptr, ptr %22, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !10
   %114 = ptrtoint ptr %113 to i64
   %115 = trunc i64 %114 to i1
@@ -69030,7 +69030,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_AppBuilder_0__Lea
 6:                                                ; preds = %.lr.ph, %44
   %.01834 = phi i64 [ %1, %.lr.ph ], [ %23, %44 ]
   %.02233 = phi ptr [ %3, %.lr.ph ], [ %.224, %44 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01834
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01834
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -69487,7 +69487,7 @@ lean_dec.exit546:                                 ; preds = %142, %141, %139, %l
 
 152:                                              ; preds = %89, %lean_dec.exit552
   %153 = lshr i64 %87, 1
-  %154 = getelementptr inbounds nuw ptr, ptr %22, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !10
   %156 = ptrtoint ptr %155 to i64
   %157 = trunc i64 %156 to i1
@@ -85591,7 +85591,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit631
   br label %lean_dec.exit630
 
 lean_dec.exit630:                                 ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw ptr, ptr %17, i64 %.04041295
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.04041295
   %132 = load ptr, ptr %131, align 8, !tbaa !10
   %133 = ptrtoint ptr %132 to i64
   %134 = trunc i64 %133 to i1

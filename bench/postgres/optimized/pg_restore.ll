@@ -633,7 +633,7 @@ read_restore_filters.exit:                        ; preds = %153, %133
   %166 = add nsw i32 %163, 1
   store i32 %166, ptr @optind, align 4
   %167 = sext i32 %163 to i64
-  %168 = getelementptr inbounds ptr, ptr %1, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %1, i64 %167
   %169 = load ptr, ptr %168, align 8
   br label %170
 
@@ -645,7 +645,7 @@ read_restore_filters.exit:                        ; preds = %153, %133
 
 173:                                              ; preds = %170
   %174 = sext i32 %171 to i64
-  %175 = getelementptr inbounds ptr, ptr %1, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %1, i64 %174
   %176 = load ptr, ptr %175, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.55, ptr noundef %176) #10
   %177 = load ptr, ptr @progname, align 8

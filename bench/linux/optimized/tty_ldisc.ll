@@ -48,7 +48,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tty_register_ldisc(ptr noundef %
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tty_ldiscs_lock) #10
   %7 = load i32, ptr %2, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr ptr, ptr @tty_ldiscs, i64 %8
+  %9 = getelementptr [8 x i8], ptr @tty_ldiscs, i64 %8
   store ptr %0, ptr %9, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @tty_ldiscs_lock, i64 noundef %6) #10
   br label %10
@@ -70,7 +70,7 @@ define dso_local void @tty_unregister_ldisc(ptr noundef readonly captures(none) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr ptr, ptr @tty_ldiscs, i64 %5
+  %6 = getelementptr [8 x i8], ptr @tty_ldiscs, i64 %5
   store ptr null, ptr %6, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @tty_ldiscs_lock, i64 noundef %2) #10
   ret void
@@ -467,7 +467,7 @@ define internal fastcc ptr @tty_ldisc_get(ptr noundef %0, i32 noundef %1) unname
 4:                                                ; preds = %2
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tty_ldiscs_lock) #10
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr ptr, ptr @tty_ldiscs, i64 %6
+  %7 = getelementptr [8 x i8], ptr @tty_ldiscs, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10

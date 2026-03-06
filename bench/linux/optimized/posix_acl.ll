@@ -34,10 +34,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_vfs_remove_a
 %struct.pcpu_hot = type { %union.anon.19 }
 %union.anon.19 = type { %struct.anon.20, [16 x i8] }
 %struct.anon.20 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.posix_acl_entry = type { i16, i16, %union.anon }
-%union.anon = type { %struct.kuid_t }
-%struct.kuid_t = type { i32 }
-%struct.posix_acl_xattr_entry = type { i16, i16, i32 }
 
 @__UNIQUE_ID___addressable_get_cached_acl363 = internal global ptr @get_cached_acl, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_get_cached_acl_rcu366 = internal global ptr @get_cached_acl_rcu, section ".discard.addressable", align 8
@@ -613,7 +609,7 @@ define dso_local noundef range(i32 -22, 1) i32 @posix_acl_valid(ptr readnone cap
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr %struct.posix_acl_entry, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = icmp ult ptr %3, %7
   br i1 %8, label %.preheader, label %.loopexit
 
@@ -708,7 +704,7 @@ define dso_local range(i32 -22, 2) i32 @posix_acl_equiv_mode(ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.posix_acl_entry, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = icmp ult ptr %5, %9
   br i1 %10, label %.preheader, label %.loopexit4
 
@@ -803,7 +799,7 @@ define dso_local noundef ptr @posix_acl_from_mode(i16 noundef zeroext %0, i32 no
 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 48
   %12 = load ptr, ptr %11, align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %1, i64 noundef 56) #20
@@ -849,7 +845,7 @@ define dso_local range(i32 -13, 1) i32 @posix_acl_permission(ptr noundef %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct.posix_acl_entry, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = icmp ult ptr %10, %14
   br i1 %15, label %16, label %.loopexit4
 
@@ -1082,7 +1078,7 @@ define internal fastcc range(i32 -5, 2) i32 @posix_acl_create_masq(ptr noundef n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr %struct.posix_acl_entry, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = icmp ult ptr %3, %7
   br i1 %8, label %.preheader.preheader, label %.thread4
 
@@ -1201,7 +1197,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__posix_acl_chmod(ptr noundef ca
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr %struct.posix_acl_entry, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   %20 = icmp ult ptr %15, %19
   br i1 %20, label %21, label %.thread12
 
@@ -1529,7 +1525,7 @@ define dso_local range(i32 -22, 1) i32 @posix_acl_update_mode(ptr noundef %0, pt
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct.posix_acl_entry, ptr %9, i64 %12
+  %13 = getelementptr [8 x i8], ptr %9, i64 %12
   %14 = icmp ult ptr %9, %13
   br i1 %14, label %.preheader, label %.thread5
 
@@ -1683,7 +1679,7 @@ select.unfold:                                    ; preds = %11, %3, %8
   store volatile i32 1, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %16, ptr %29, align 8
-  %30 = getelementptr %struct.posix_acl_xattr_entry, ptr %4, i64 %23
+  %30 = getelementptr [8 x i8], ptr %4, i64 %23
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 28
   br label %32
 
@@ -1789,7 +1785,7 @@ define dso_local i32 @posix_acl_to_xattr(ptr readnone captures(none) %0, ptr nou
   %23 = phi i32 [ 0, %19 ], [ %38, %35 ]
   %24 = phi ptr [ %20, %19 ], [ %39, %35 ]
   %25 = sext i32 %23 to i64
-  %26 = getelementptr %struct.posix_acl_entry, ptr %21, i64 %25
+  %26 = getelementptr [8 x i8], ptr %21, i64 %25
   %27 = load i16, ptr %26, align 4
   store i16 %27, ptr %24, align 4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 2
@@ -1870,7 +1866,7 @@ define dso_local i32 @set_posix_acl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr %struct.posix_acl_entry, ptr %33, i64 %36
+  %37 = getelementptr [8 x i8], ptr %33, i64 %36
   %38 = icmp ult ptr %33, %37
   br i1 %38, label %.preheader, label %.thread
 
@@ -2260,7 +2256,7 @@ select.unfold:                                    ; preds = %9, %4
 23:                                               ; preds = %36, %21
   %24 = phi i32 [ 0, %21 ], [ %37, %36 ]
   %25 = sext i32 %24 to i64
-  %26 = getelementptr %struct.posix_acl_entry, ptr %22, i64 %25
+  %26 = getelementptr [8 x i8], ptr %22, i64 %25
   %27 = load i16, ptr %26, align 4
   switch i16 %27, label %36 [
     i16 2, label %28
@@ -2882,7 +2878,7 @@ vfs_get_acl.exit.thread:                          ; preds = %29, %10, %25, %18, 
 56:                                               ; preds = %73, %53
   %57 = phi ptr [ %54, %53 ], [ %77, %73 ]
   %58 = phi i64 [ 0, %53 ], [ %76, %73 ]
-  %59 = getelementptr %struct.posix_acl_entry, ptr %55, i64 %58
+  %59 = getelementptr [8 x i8], ptr %55, i64 %58
   %60 = load i16, ptr %59, align 4
   store i16 %60, ptr %57, align 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 2

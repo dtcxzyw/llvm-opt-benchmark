@@ -1146,7 +1146,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %6 = load ptr, ptr %5, align 8, !alias.scope !90, !noalias !92, !nonnull !5, !noundef !5
   %7 = sub nsw i64 0, %1
-  %8 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %6, i64 %7
+  %8 = getelementptr inbounds [192 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -192
   %.val.i.i = load ptr, ptr %3, align 8, !alias.scope !87, !noalias !95, !nonnull !5, !align !96, !noundef !5
   %.val4.i.i = load i32, ptr %9, align 4, !noalias !97, !noundef !5
@@ -3126,7 +3126,7 @@ define hidden noundef nonnull align 8 dereferenceable(184) ptr @"_ZN9hashbrown11
   store i8 %20, ptr %27, align 1, !noalias !275
   %28 = load ptr, ptr %4, align 8, !alias.scope !282, !noalias !275, !nonnull !5, !noundef !5
   %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %28, i64 %29
+  %30 = getelementptr inbounds [192 x i8], ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3250,7 +3250,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %54 = add i64 %.sroa.01.0.i.i, %51
   %55 = and i64 %54, %39
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %40, i64 %56
+  %57 = getelementptr inbounds [192 x i8], ptr %40, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -192
   %.val4.i.i = load i32, ptr %58, align 4, !noalias !329, !noundef !5
   %59 = icmp eq i32 %.val4.i.i, %2
@@ -3360,7 +3360,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17heaf63
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h97460e5772e39dd2E.llvm.6180704580393161520"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = sub nsw i64 0, %1
-  %4 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %0, i64 %3
+  %4 = getelementptr inbounds [192 x i8], ptr %0, i64 %3
   ret ptr %4
 }
 
@@ -3406,7 +3406,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h342c
   %22 = add i64 %.sroa.01.0.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %8, i64 %24
+  %25 = getelementptr inbounds [192 x i8], ptr %8, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -192
   %.val4.i = load i32, ptr %26, align 4, !noalias !348, !noundef !5
   %27 = icmp eq i32 %.val4.i, %.val1.i.i
@@ -3429,7 +3429,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !86, !noundef !5
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   %7 = sub nsw i64 0, %1
-  %8 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %6, i64 %7
+  %8 = getelementptr inbounds [192 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -192
   %.val = load ptr, ptr %3, align 8, !nonnull !5, !align !96, !noundef !5
   %.val4 = load i32, ptr %9, align 4, !noundef !5

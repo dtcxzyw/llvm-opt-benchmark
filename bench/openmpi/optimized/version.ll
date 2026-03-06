@@ -124,7 +124,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %6 = phi i32 [ %4, %pmix_pointer_array_get_item.exit.preheader ], [ %15, %14 ]
   %mca_types.val29 = phi ptr [ %mca_types.val29.pre39, %pmix_pointer_array_get_item.exit.preheader ], [ %mca_types.val2940, %14 ]
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next, %14 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %mca_types.val29, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %mca_types.val29, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %14, label %10
@@ -241,7 +241,7 @@ pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %4
 
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.lr.ph ], [ %indvars.iv.next, %22 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %mca_types.val38, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %mca_types.val38, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   store ptr %15, ptr %8, align 8, !tbaa !4
   %16 = icmp eq ptr %15, null
@@ -273,7 +273,7 @@ pmix_pointer_array_get_item.exit40.lr.ph:         ; preds = %.preheader
 
 pmix_pointer_array_get_item.exit40:               ; preds = %pmix_pointer_array_get_item.exit40.lr.ph, %31
   %indvars.iv51 = phi i64 [ 0, %pmix_pointer_array_get_item.exit40.lr.ph ], [ %indvars.iv.next52, %31 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %prte_component_map.val37, i64 %indvars.iv51
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %prte_component_map.val37, i64 %indvars.iv51
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %31, label %26

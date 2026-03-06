@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Vec.0" = type { %"class.cv::Matx.1" }
-%"class.cv::Matx.1" = type { [3 x i8] }
-%"class.cv::Vec.2" = type { %"class.cv::Matx.3" }
-%"class.cv::Matx.3" = type { [4 x i8] }
 
 @_ZTVN3vas2ot12RgbHistogramE = hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3vas2ot12RgbHistogramE, ptr @_ZN3vas2ot12RgbHistogramD2Ev, ptr @_ZN3vas2ot12RgbHistogramD0Ev, ptr @_ZN3vas2ot12RgbHistogram7ComputeERKN2cv3MatEPS3_, ptr @_ZN3vas2ot12RgbHistogram17ComputeFromBgra32ERKN2cv3MatEPS3_, ptr @_ZNK3vas2ot12RgbHistogram11FeatureSizeEv] }, align 8
 @_ZTIN3vas2ot12RgbHistogramE = hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3vas2ot12RgbHistogramE }, align 8
@@ -97,7 +93,7 @@ define hidden void @_ZN3vas2ot12RgbHistogram7ComputeERKN2cv3MatEPS3_(ptr noundef
 
 27:                                               ; preds = %27, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [3 x i8], ptr %26, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1, !tbaa !28
   %30 = zext i8 %29 to i32
   %31 = sdiv i32 %30, %22
@@ -114,7 +110,7 @@ define hidden void @_ZN3vas2ot12RgbHistogram7ComputeERKN2cv3MatEPS3_(ptr noundef
   %42 = mul nsw i32 %41, %24
   %43 = add nsw i32 %42, %39
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds float, ptr %9, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %9, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !29
   %47 = fadd float %46, 1.000000e+00
   store float %47, ptr %45, align 4, !tbaa !29
@@ -170,7 +166,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [3 x i8], ptr %20, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !28
   %24 = zext i8 %23 to i32
   %25 = sdiv i32 %24, %16
@@ -187,7 +183,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
   %36 = mul nsw i32 %35, %18
   %37 = add nsw i32 %36, %33
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %2, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %2, i64 %38
   %40 = load float, ptr %39, align 4, !tbaa !29
   %41 = fadd float %40, 1.000000e+00
   store float %41, ptr %39, align 4, !tbaa !29
@@ -249,7 +245,7 @@ define hidden void @_ZN3vas2ot12RgbHistogram17ComputeFromBgra32ERKN2cv3MatEPS3_(
 
 27:                                               ; preds = %27, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1, !tbaa !28
   %30 = zext i8 %29 to i32
   %31 = sdiv i32 %30, %22
@@ -266,7 +262,7 @@ define hidden void @_ZN3vas2ot12RgbHistogram17ComputeFromBgra32ERKN2cv3MatEPS3_(
   %42 = mul nsw i32 %41, %24
   %43 = add nsw i32 %42, %39
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds float, ptr %9, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %9, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !29
   %47 = fadd float %46, 1.000000e+00
   store float %47, ptr %45, align 4, !tbaa !29
@@ -318,7 +314,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !28
   %24 = zext i8 %23 to i32
   %25 = sdiv i32 %24, %16
@@ -335,7 +331,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
   %36 = mul nsw i32 %35, %18
   %37 = add nsw i32 %36, %33
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %2, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %2, i64 %38
   %40 = load float, ptr %39, align 4, !tbaa !29
   %41 = fadd float %40, 1.000000e+00
   store float %41, ptr %39, align 4, !tbaa !29
@@ -385,9 +381,9 @@ define hidden noundef float @_ZN3vas2ot12RgbHistogram17ComputeSimilarityERKN2cv3
   %.02330 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %.02528 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %.02627 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %19, %.lr.ph ]
-  %12 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %13 = load float, ptr %12, align 4, !tbaa !29
-  %14 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %15 = load float, ptr %14, align 4, !tbaa !29
   %16 = fmul float %13, %15
   %17 = tail call float @sqrtf(float noundef %16) #12, !tbaa !11
@@ -454,7 +450,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
 
 29:                                               ; preds = %.lr.ph.us, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [3 x i8], ptr %26, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !28
   %32 = zext i8 %31 to i32
   %33 = sdiv i32 %32, %22
@@ -470,10 +466,10 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
   %43 = add nsw i32 %42, %37
   %44 = mul nsw i32 %43, %24
   %45 = add nsw i32 %44, %41
-  %46 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !29
   %48 = sext i32 %45 to i64
-  %49 = getelementptr inbounds float, ptr %3, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %3, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !29
   %51 = fadd float %47, %50
   store float %51, ptr %49, align 4, !tbaa !29
@@ -532,7 +528,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
 
 29:                                               ; preds = %.lr.ph.us, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !28
   %32 = zext i8 %31 to i32
   %33 = sdiv i32 %32, %22
@@ -548,10 +544,10 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
   %43 = add nsw i32 %42, %37
   %44 = mul nsw i32 %43, %24
   %45 = add nsw i32 %44, %41
-  %46 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !29
   %48 = sext i32 %45 to i64
-  %49 = getelementptr inbounds float, ptr %3, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %3, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !29
   %51 = fadd float %47, %50
   store float %51, ptr %49, align 4, !tbaa !29

@@ -2401,7 +2401,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
 .preheader:                                       ; preds = %.loopexit93, %.preheader.backedge
   %.06494 = phi i32 [ %.06494.be, %.preheader.backedge ], [ 0, %.loopexit93 ]
   %64 = zext nneg i32 %.06494 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr @_ZL9CAL_TYPES, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9CAL_TYPES, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #17
   %68 = trunc i64 %67 to i32

@@ -88,7 +88,7 @@ define dso_local noundef range(i32 -16, 1) i32 @arch_install_hw_breakpoint(ptr n
 
 3:                                                ; preds = %12, %1
   %4 = phi i64 [ 0, %1 ], [ %13, %12 ]
-  %5 = getelementptr ptr, ptr @bp_per_reg, i64 %4
+  %5 = getelementptr [8 x i8], ptr @bp_per_reg, i64 %4
   %6 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %5) #6, !srcloc !5
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %7, align 8
@@ -168,7 +168,7 @@ define dso_local noundef range(i32 -16, 1) i32 @arch_install_hw_breakpoint(ptr n
 29:                                               ; preds = %27, %26, %25, %24, %23, %22
   %30 = load i64, ptr %2, align 8
   %31 = zext nneg i32 %15 to i64
-  %32 = getelementptr i64, ptr @cpu_debugreg, i64 %31
+  %32 = getelementptr [8 x i8], ptr @cpu_debugreg, i64 %31
   tail call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 %30, ptr elementtype(i64) %32) #7, !srcloc !23
   %33 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_dr7) #6, !srcloc !24
   %34 = inttoptr i64 %33 to ptr
@@ -220,7 +220,7 @@ define dso_local void @arch_uninstall_hw_breakpoint(ptr noundef readonly capture
 
 2:                                                ; preds = %11, %1
   %3 = phi i64 [ 0, %1 ], [ %12, %11 ]
-  %4 = getelementptr ptr, ptr @bp_per_reg, i64 %3
+  %4 = getelementptr [8 x i8], ptr @bp_per_reg, i64 %3
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %4) #6, !srcloc !26
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %6, align 8
@@ -445,7 +445,7 @@ define dso_local range(i32 -95, 1) i32 @hw_breakpoint_arch_parse(ptr noundef rea
 
 37:                                               ; preds = %33
   %38 = and i64 %34, 63
-  %39 = getelementptr i64, ptr @__per_cpu_offset, i64 %38
+  %39 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, ptrtoint (ptr @gdt_page to i64)
   %42 = icmp ule i64 %41, %9
@@ -589,7 +589,7 @@ define dso_local void @flush_ptrace_hw_breakpoint(ptr noundef captures(none) %0)
 
 3:                                                ; preds = %3, %1
   %4 = phi i64 [ 0, %1 ], [ %7, %3 ]
-  %5 = getelementptr ptr, ptr %2, i64 %4
+  %5 = getelementptr [8 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8
   tail call void @unregister_hw_breakpoint(ptr noundef %6) #7
   store ptr null, ptr %5, align 8
@@ -652,7 +652,7 @@ define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr no
   br i1 %20, label %39, label %21, !prof !9
 
 21:                                               ; preds = %.split.us
-  %22 = getelementptr ptr, ptr @bp_per_reg, i64 %15
+  %22 = getelementptr [8 x i8], ptr @bp_per_reg, i64 %15
   %23 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %22) #7, !srcloc !50
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %39, label %25
@@ -694,7 +694,7 @@ define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr no
   br i1 %47, label %62, label %48, !prof !9
 
 48:                                               ; preds = %.split
-  %49 = getelementptr ptr, ptr @bp_per_reg, i64 %42
+  %49 = getelementptr [8 x i8], ptr @bp_per_reg, i64 %42
   %50 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %49) #7, !srcloc !50
   %51 = inttoptr i64 %50 to ptr
   %52 = icmp eq i64 %50, 0

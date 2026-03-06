@@ -21,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.6" = type { i8 }
-%"class.QuantLib::Date" = type { i64 }
 %"struct.std::pair" = type { %"class.std::vector", %"class.std::vector.21" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<QuantLib::Date, std::allocator<QuantLib::Date>>::_Vector_impl" }
@@ -31,6 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.QuantLib::Date" = type { i64 }
 %"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
 %"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
@@ -1398,7 +1398,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %for.cond.
 
 do.body53:                                        ; preds = %for.cond.preheader, %for.inc
   %i.0200 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %11, i64 %i.0200
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %i.0200
   %33 = load i64, ptr %add.ptr.i, align 8, !tbaa !45
   %cmp56 = icmp ult i64 %33, 86400
   br i1 %cmp56, label %do.end97, label %if.then57
@@ -1552,8 +1552,8 @@ do.end97:                                         ; preds = %do.body53
 
 invoke.cont106:                                   ; preds = %do.end97
   %sub = add i64 %i.0200, -1
-  %add.ptr.i101 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %14, i64 %sub
-  %add.ptr.i102 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %14, i64 %i.0200
+  %add.ptr.i101 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %sub
+  %add.ptr.i102 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %i.0200
   %52 = load i64, ptr %add.ptr.i101, align 8, !tbaa !55
   %53 = load i64, ptr %add.ptr.i102, align 8, !tbaa !55
   %cmp.i = icmp slt i64 %52, %53
@@ -1564,7 +1564,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont106
   br i1 %cmp.i105, label %land.lhs.true, label %if.then121
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %add.ptr.i106 = getelementptr inbounds nuw i64, ptr %11, i64 %sub
+  %add.ptr.i106 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %sub
   %54 = load i64, ptr %add.ptr.i106, align 8, !tbaa !45
   %cmp120 = icmp ult i64 %54, %33
   br i1 %cmp120, label %for.inc, label %if.then121
@@ -1971,7 +1971,7 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17
   %.pre = phi ptr [ %.pre.pre, %if.then.i20.i.i ], [ %2, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i ]
   store ptr %call5.i.i.i.i.i1, ptr %dates, align 8, !tbaa !49
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !47
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i1, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i1, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !59
   br label %invoke.cont1
 
@@ -2034,7 +2034,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorImSaImE
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i26, ptr %secs, align 8, !tbaa !50
   store ptr %incdec.ptr.i.i20, ptr %_M_finish.i2, align 8, !tbaa !54
-  %add.ptr19.i.i22 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i26, i64 %cond.i.i.i16
+  %add.ptr19.i.i22 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i26, i64 %cond.i.i.i16
   store ptr %add.ptr19.i.i22, ptr %_M_end_of_storage.i3, align 8, !tbaa !52
   br label %invoke.cont2
 
@@ -2249,7 +2249,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %i.0109 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont76 ]
   %4 = phi ptr [ %_M_end_of_storage.i.i.promoted, %for.body.lr.ph ], [ %33, %invoke.cont76 ]
   %call5.i.i.i.i.i5794108 = phi ptr [ %agg.result.promoted, %for.body.lr.ph ], [ %call5.i.i.i.i.i5793, %invoke.cont76 ]
-  %add.ptr.i29 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %3, i64 %i.0109
+  %add.ptr.i29 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %i.0109
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont13 unwind label %lpad12
@@ -2268,7 +2268,7 @@ invoke.cont17:                                    ; preds = %invoke.cont16
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp19)
   %5 = load ptr, ptr %dates_.i, align 8, !tbaa !49
-  %add.ptr.i31 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %5, i64 %i.0109
+  %add.ptr.i31 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %i.0109
   %call3.i32 = invoke i64 @_ZN8QuantLib4Date7advanceERKS0_iNS_8TimeUnitE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i31, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont27 unwind label %lpad25
 
@@ -2293,7 +2293,7 @@ invoke.cont35:                                    ; preds = %invoke.cont34
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19)
   %6 = load ptr, ptr %seconds_.i, align 8, !tbaa !50
-  %add.ptr.i33 = getelementptr inbounds nuw i64, ptr %6, i64 %i.0109
+  %add.ptr.i33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.0109
   %7 = load i64, ptr %add.ptr.i33, align 8, !tbaa !45
   %conv = uitofp i64 %7 to double
   %mul = fmul double %sub, %conv
@@ -2559,7 +2559,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i51, align 8, !tbaa !69
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i57, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i57, i64 %cond.i.i.i
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %if.then.i52

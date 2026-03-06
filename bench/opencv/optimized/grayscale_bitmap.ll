@@ -283,7 +283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %80,
   br i1 %104, label %105, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i32, ptr %95, i64 %92
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %92
   %.not.i.i = icmp eq ptr %94, %106
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %107
 
@@ -392,7 +392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %127
   br i1 %154, label %155, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit64
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i32, ptr %145, i64 %142
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %142
   %.not.i.i62 = icmp eq ptr %144, %156
   br i1 %.not.i.i62, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit64, label %157
 
@@ -415,7 +415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %127
 162:                                              ; preds = %.lr.ph, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %163 = phi i32 [ %133, %.lr.ph ], [ %187, %162 ]
-  %164 = getelementptr inbounds nuw i16, ptr %137, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %indvars.iv
   %165 = load i16, ptr %164, align 2, !tbaa !45
   %166 = zext i16 %165 to i32
   %167 = load i32, ptr %16, align 8, !tbaa !3
@@ -434,7 +434,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %127
   %179 = xor i32 %178, -1
   %180 = sdiv i32 %173, %170
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds nuw i32, ptr %117, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !47
   %184 = and i32 %183, %179
   %185 = shl i32 %177, %175
@@ -558,7 +558,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %37 = xor i32 %notmask.i.us, -1
   %38 = sdiv i32 %34, %31
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !47
   %42 = lshr i32 %41, %36
   %43 = and i32 %42, %37
@@ -568,7 +568,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %47 = mul nsw i32 %46, %30
   %48 = sdiv i32 %45, %31
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %25, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !47
   %52 = lshr i32 %51, %47
   %53 = and i32 %52, %37
@@ -577,7 +577,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %54 = shl i32 %..i75.us, %30
   %55 = add i32 %54, %.13.i.us
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %27, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !47
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4, !tbaa !47
@@ -592,7 +592,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %67 = xor i32 %notmask.i76.us, -1
   %68 = sdiv i32 %64, %61
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %25, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !47
   %72 = lshr i32 %71, %66
   %73 = and i32 %72, %67
@@ -602,7 +602,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %77 = mul nsw i32 %76, %60
   %78 = sdiv i32 %75, %61
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %25, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !47
   %82 = lshr i32 %81, %77
   %83 = and i32 %82, %67
@@ -611,7 +611,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %84 = shl i32 %..i78.us, %60
   %85 = add i32 %84, %.13.i79.us
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %27, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !47
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4, !tbaa !47
@@ -626,7 +626,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %97 = xor i32 %notmask.i80.us, -1
   %98 = sdiv i32 %94, %91
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %25, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !47
   %102 = lshr i32 %101, %96
   %103 = and i32 %102, %97
@@ -636,7 +636,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %107 = mul nsw i32 %106, %90
   %108 = sdiv i32 %105, %91
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %25, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !47
   %112 = lshr i32 %111, %107
   %113 = and i32 %112, %97
@@ -645,7 +645,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %114 = shl i32 %..i82.us, %90
   %115 = add i32 %114, %.13.i83.us
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %27, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !47
   %119 = add i32 %118, 1
   store i32 %119, ptr %117, align 4, !tbaa !47
@@ -660,7 +660,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %127 = xor i32 %notmask.i84.us, -1
   %128 = sdiv i32 %124, %121
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %25, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !47
   %132 = lshr i32 %131, %126
   %133 = and i32 %132, %127
@@ -670,7 +670,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %137 = mul nsw i32 %136, %120
   %138 = sdiv i32 %135, %121
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %25, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !47
   %142 = lshr i32 %141, %137
   %143 = and i32 %142, %127
@@ -679,7 +679,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %144 = shl i32 %..i86.us, %120
   %145 = add i32 %144, %.13.i87.us
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds nuw i32, ptr %27, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !47
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 4, !tbaa !47
@@ -731,7 +731,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %166 = trunc nuw nsw i64 %indvars.iv to i32
   %167 = add i32 %163, %166
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %161, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !47
   %.not72 = icmp eq i32 %170, 0
   br i1 %.not72, label %184, label %171
@@ -824,7 +824,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %34 = sdiv i32 %30, %27
   %35 = sext i32 %34 to i64
   %36 = load ptr, ptr %17, align 8, !tbaa !40
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4, !tbaa !47
   %39 = lshr i32 %38, %32
   %40 = and i32 %39, %33
@@ -889,7 +889,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %72 = sdiv i32 %68, %65
   %73 = sext i32 %72 to i64
   %74 = load ptr, ptr %17, align 8, !tbaa !40
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %73
   %76 = load i32, ptr %75, align 4, !tbaa !47
   %77 = lshr i32 %76, %70
   %78 = and i32 %77, %71
@@ -1010,9 +1010,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !40
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !39
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !63
   br label %40
 

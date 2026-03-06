@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"The graph has %d inputs: \00", align 1
@@ -49,7 +48,7 @@ define i32 @Bmc_MeshAddOneHotness(ptr noundef %0, i32 noundef %1, i32 noundef %2
 8:                                                ; preds = %.lr.ph
   %9 = add nsw i32 %.02229, 1
   %10 = sext i32 %.02229 to i64
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %4, i64 %10
   store i32 %.02428, ptr %11, align 4, !tbaa !3
   br label %12
 
@@ -90,7 +89,7 @@ define i32 @Bmc_MeshAddOneHotness(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %19, label %.lr.ph33, label %.loopexit
 
 .lr.ph33:                                         ; preds = %18
-  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv43
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv43
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = shl nsw i32 %21, 1
   %23 = or disjoint i32 %22, 1
@@ -100,7 +99,7 @@ define i32 @Bmc_MeshAddOneHotness(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %indvars.iv37 = phi i64 [ %indvars.iv, %.lr.ph33 ], [ %indvars.iv.next38, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %23, ptr %5, align 4, !tbaa !3
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv37
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv37
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = shl nsw i32 %26, 1
   %28 = or disjoint i32 %27, 1
@@ -203,7 +202,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .lr.ph585.split:                                  ; preds = %.lr.ph585.split.preheader, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph585.split.preheader ], [ %indvars.iv.next, %69 ]
-  %51 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val465, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [12 x i8], ptr %.val465, i64 %indvars.iv
   %.val466 = load i64, ptr %51, align 4
   %52 = and i64 %.val466, 2147483648
   %.not.i = icmp ne i64 %52, 0
@@ -218,7 +217,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %58 = xor i32 %57, -1
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   %60 = add nsw i32 %59, %58
-  %61 = getelementptr [2 x i32], ptr %18, i64 %indvars.iv
+  %61 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   %62 = getelementptr i8, ptr %61, i64 -8
   store i32 %60, ptr %62, align 8, !tbaa !3
   %63 = lshr i64 %.val466, 32
@@ -272,7 +271,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .lr.ph591:                                        ; preds = %.lr.ph591.preheader, %.lr.ph591
   %indvars.iv766 = phi i64 [ %85, %.lr.ph591.preheader ], [ %indvars.iv.next767, %.lr.ph591 ]
-  %86 = getelementptr inbounds [2 x i32], ptr %18, i64 %indvars.iv766
+  %86 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv766
   %87 = load i32, ptr %86, align 8, !tbaa !3
   %88 = add nsw i32 %87, 97
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -308,13 +307,13 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 .preheader577.us:                                 ; preds = %.preheader577.us.preheader, %._crit_edge596.us
   %indvars.iv775 = phi i64 [ 0, %.preheader577.us.preheader ], [ %indvars.iv.next776, %._crit_edge596.us ]
   %.0425597.us = phi i32 [ 0, %.preheader577.us.preheader ], [ %101, %._crit_edge596.us ]
-  %invariant.gep.us = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv775
+  %invariant.gep.us = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv775
   br label %100
 
 100:                                              ; preds = %.preheader577.us, %100
   %indvars.iv770 = phi i64 [ 0, %.preheader577.us ], [ %indvars.iv.next771, %100 ]
   %.1426593.us = phi i32 [ %.0425597.us, %.preheader577.us ], [ %101, %100 ]
-  %gep.us = getelementptr inbounds nuw [102 x i32], ptr %invariant.gep.us, i64 %indvars.iv770
+  %gep.us = getelementptr inbounds nuw [408 x i8], ptr %invariant.gep.us, i64 %indvars.iv770
   store i32 %.1426593.us, ptr %gep.us, align 4, !tbaa !3
   %101 = add nsw i32 %99, %.1426593.us
   %indvars.iv.next771 = add nuw nsw i64 %indvars.iv770, 1
@@ -368,7 +367,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .preheader576.us.us:                              ; preds = %._crit_edge609.split.us.us.us, %.preheader576.lr.ph.split.us.split.us
   %indvars.iv813 = phi i64 [ %indvars.iv.next814, %._crit_edge609.split.us.us.us ], [ 0, %.preheader576.lr.ph.split.us.split.us ]
-  %118 = getelementptr inbounds nuw [102 x i32], ptr %17, i64 %indvars.iv813
+  %118 = getelementptr inbounds nuw [408 x i8], ptr %17, i64 %indvars.iv813
   %119 = icmp eq i64 %indvars.iv813, 0
   %120 = icmp eq i64 %indvars.iv813, %117
   br i1 %119, label %.lr.ph608.split.us.us.us.split.us, label %.lr.ph608.split.us.us.us.split
@@ -378,7 +377,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .lr.ph603.us.us.us.us.us:                         ; preds = %.lr.ph608.split.us.us.us.split.us, %..loopexit575_crit_edge.us.us.us.us.us
   %indvars.iv808 = phi i64 [ %indvars.iv.next809, %..loopexit575_crit_edge.us.us.us.us.us ], [ 0, %.lr.ph608.split.us.us.us.split.us ]
-  %121 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv808
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv808
   %122 = load i32, ptr %121, align 4, !tbaa !3
   br label %129
 
@@ -417,7 +416,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .lr.ph603.us.us.us.us:                            ; preds = %.lr.ph608.split.us.us.us.split.us, %..preheader574_crit_edge.us.us.us.us
   %indvars.iv802 = phi i64 [ %indvars.iv.next803, %..preheader574_crit_edge.us.us.us.us ], [ 0, %.lr.ph608.split.us.us.us.split.us ]
-  %138 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv802
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv802
   %139 = load i32, ptr %138, align 4, !tbaa !3
   br label %140
 
@@ -441,7 +440,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .lr.ph608.split.us.us.us.split:                   ; preds = %.preheader576.us.us, %.loopexit575.us.us.us
   %indvars.iv796 = phi i64 [ %indvars.iv.next797, %.loopexit575.us.us.us ], [ 0, %.preheader576.us.us ]
-  %148 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv796
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv796
   %149 = load i32, ptr %148, align 4, !tbaa !3
   %150 = add nsw i32 %3, %149
   %151 = icmp eq i64 %indvars.iv796, 0
@@ -496,14 +495,14 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .preheader576.us:                                 ; preds = %.preheader576.lr.ph.split.us, %._crit_edge609.split.us627
   %indvars.iv790 = phi i64 [ %indvars.iv.next791, %._crit_edge609.split.us627 ], [ 0, %.preheader576.lr.ph.split.us ]
-  %170 = getelementptr inbounds nuw [102 x i32], ptr %17, i64 %indvars.iv790
+  %170 = getelementptr inbounds nuw [408 x i8], ptr %17, i64 %indvars.iv790
   %171 = icmp eq i64 %indvars.iv790, 0
   %172 = icmp eq i64 %indvars.iv790, %117
   br i1 %171, label %.lr.ph608.split.split.us.us, label %.lr.ph608.split.split.us626
 
 .lr.ph608.split.split.us626:                      ; preds = %.preheader576.us, %.loopexit575.us621
   %indvars.iv780 = phi i64 [ %indvars.iv.next781, %.loopexit575.us621 ], [ 0, %.preheader576.us ]
-  %173 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv780
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv780
   %174 = load i32, ptr %173, align 4, !tbaa !3
   %175 = add nsw i32 %3, %174
   %176 = icmp eq i64 %indvars.iv780, 0
@@ -548,7 +547,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .preheader574.us611.us.us:                        ; preds = %.lr.ph608.split.split.us.us, %..loopexit575_crit_edge.us615.us.us
   %indvars.iv785 = phi i64 [ %indvars.iv.next786, %..loopexit575_crit_edge.us615.us.us ], [ 0, %.lr.ph608.split.split.us.us ]
-  %188 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv785
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv785
   %189 = load i32, ptr %188, align 4, !tbaa !3
   %190 = add nsw i32 %3, %189
   br label %191
@@ -605,7 +604,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 .preheader572.us:                                 ; preds = %.preheader572.us.preheader, %._crit_edge665.us
   %indvars.iv850 = phi i64 [ 1, %.preheader572.us.preheader ], [ %indvars.iv.next851, %._crit_edge665.us ]
   %.0427667.us = phi i32 [ 0, %.preheader572.us.preheader ], [ %.3430.lcssa.us, %._crit_edge665.us ]
-  %217 = getelementptr [102 x i32], ptr %17, i64 %indvars.iv850
+  %217 = getelementptr [408 x i8], ptr %17, i64 %indvars.iv850
   %218 = getelementptr i8, ptr %217, i64 -408
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 408
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %217, i64 4
@@ -617,13 +616,13 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %indvars.iv845 = phi i64 [ 1, %.preheader572.us ], [ %indvars.iv.next846, %._crit_edge660.us ]
   %.1428662.us = phi i32 [ %.0427667.us, %.preheader572.us ], [ %.3430.lcssa.us, %._crit_edge660.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %222 = getelementptr i32, ptr %217, i64 %indvars.iv845
+  %222 = getelementptr [4 x i8], ptr %217, i64 %indvars.iv845
   %223 = add nsw i32 %3, %221
   %224 = add nsw i32 %223, %45
   %.reass.us = add i32 %221, %invariant.op
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %225 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv845
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv845
   %226 = load i32, ptr %225, align 4, !tbaa !3
   store i32 %226, ptr %21, align 16, !tbaa !3
   %227 = add nsw i32 %226, %3
@@ -633,13 +632,13 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   store i32 %229, ptr %201, align 4, !tbaa !3
   %230 = add nsw i32 %229, %3
   store i32 %230, ptr %202, align 4, !tbaa !3
-  %231 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv845
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %indvars.iv845
   %232 = load i32, ptr %231, align 4, !tbaa !3
   store i32 %232, ptr %203, align 8, !tbaa !3
   %233 = add nsw i32 %232, %3
   store i32 %233, ptr %204, align 8, !tbaa !3
   %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
-  %234 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv.next846
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv.next846
   %235 = load i32, ptr %234, align 4, !tbaa !3
   store i32 %235, ptr %205, align 4, !tbaa !3
   %236 = add nsw i32 %235, %3
@@ -693,10 +692,10 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %249 = shl i32 %248, 1
   %250 = add i32 %249, 9
   store i32 %250, ptr %210, align 8, !tbaa !3
-  %251 = getelementptr inbounds nuw [2 x i32], ptr @__const.Bmc_MeshTest.Conf, i64 %indvars.iv835
+  %251 = getelementptr inbounds nuw [8 x i8], ptr @__const.Bmc_MeshTest.Conf, i64 %indvars.iv835
   %252 = load i32, ptr %251, align 8, !tbaa !3
   %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds i32, ptr %21, i64 %253
+  %254 = getelementptr inbounds [4 x i8], ptr %21, i64 %253
   %255 = load i32, ptr %254, align 4, !tbaa !3
   %256 = add nsw i32 %255, %.2406659.us
   %257 = shl i32 %256, 1
@@ -709,7 +708,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %260 = getelementptr inbounds nuw i8, ptr %251, i64 4
   %261 = load i32, ptr %260, align 4, !tbaa !3
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds i32, ptr %21, i64 %262
+  %263 = getelementptr inbounds [4 x i8], ptr %21, i64 %262
   %264 = load i32, ptr %263, align 4, !tbaa !3
   %265 = add nsw i32 %264, %.2406659.us
   %266 = shl i32 %265, 1
@@ -719,7 +718,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   store i32 %337, ptr %20, align 16, !tbaa !3
   store i32 %324, ptr %208, align 4, !tbaa !3
   store i32 %250, ptr %210, align 8, !tbaa !3
-  %269 = getelementptr inbounds i32, ptr %22, i64 %253
+  %269 = getelementptr inbounds [4 x i8], ptr %22, i64 %253
   %270 = load i32, ptr %269, align 4, !tbaa !3
   %271 = load i32, ptr %320, align 8, !tbaa !3
   %272 = add nsw i32 %271, %270
@@ -729,7 +728,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   store i32 %337, ptr %20, align 16, !tbaa !3
   store i32 %324, ptr %208, align 4, !tbaa !3
   store i32 %250, ptr %210, align 8, !tbaa !3
-  %275 = getelementptr inbounds i32, ptr %22, i64 %262
+  %275 = getelementptr inbounds [4 x i8], ptr %22, i64 %262
   %276 = load i32, ptr %275, align 4, !tbaa !3
   %277 = load i32, ptr %321, align 4, !tbaa !3
   %278 = add nsw i32 %277, %276
@@ -772,7 +771,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %294 = shl i32 %.tr928, 1
   %295 = or disjoint i32 %294, 1
   store i32 %295, ptr %210, align 8, !tbaa !3
-  %296 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv828
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv828
   %297 = load i32, ptr %296, align 4, !tbaa !3
   %298 = add nsw i32 %297, %.2406659.us
   %299 = shl i32 %298, 1
@@ -782,7 +781,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   store i32 %334, ptr %20, align 16, !tbaa !3
   store i32 %330, ptr %208, align 4, !tbaa !3
   store i32 %295, ptr %210, align 8, !tbaa !3
-  %302 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv828
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv828
   %303 = load i32, ptr %302, align 4, !tbaa !3
   %304 = add nsw i32 %303, %.2410645.us
   %305 = shl nsw i32 %304, 1
@@ -795,7 +794,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 307:                                              ; preds = %307, %._crit_edge640.us
   %indvars.iv824 = phi i64 [ %indvars.iv.next825, %307 ], [ 0, %._crit_edge640.us ]
   %indvars.iv.next825 = add nuw nsw i64 %indvars.iv824, 1
-  %308 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.next825
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.next825
   %309 = trunc i64 %indvars.iv824 to i32
   %.tr927 = add i32 %224, %309
   %310 = shl i32 %.tr927, 1
@@ -805,7 +804,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .lr.ph639.us:                                     ; preds = %._crit_edge636.us, %.lr.ph639.us
   %indvars.iv819 = phi i64 [ %indvars.iv.next820, %.lr.ph639.us ], [ 1, %._crit_edge636.us ]
-  %311 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv819
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv819
   %312 = trunc i64 %indvars.iv819 to i32
   %.tr = add i32 %221, %312
   %313 = shl i32 %.tr, 1
@@ -831,7 +830,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 .preheader566.us:                                 ; preds = %.preheader566.lr.ph.us, %244
   %indvars.iv839 = phi i64 [ %216, %.preheader566.lr.ph.us ], [ %indvars.iv.next840, %244 ]
   %.8654.us = phi i32 [ %.6433.lcssa.us, %.preheader566.lr.ph.us ], [ %245, %244 ]
-  %320 = getelementptr inbounds [2 x i32], ptr %18, i64 %indvars.iv839
+  %320 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv839
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 4
   %322 = trunc i64 %indvars.iv839 to i32
   %.tr929 = add i32 %223, %322
@@ -965,7 +964,7 @@ Abc_Clock.exit472:                                ; preds = %345, %349
   %.0420679.us = phi i32 [ %.2422.us, %._crit_edge678.us ], [ 0, %.preheader565 ]
   %373 = icmp eq i64 %indvars.iv860, 0
   %374 = icmp eq i64 %indvars.iv860, %370
-  %375 = getelementptr inbounds nuw [102 x i32], ptr %17, i64 %indvars.iv860
+  %375 = getelementptr inbounds nuw [408 x i8], ptr %17, i64 %indvars.iv860
   br label %376
 
 376:                                              ; preds = %.preheader564.us, %483
@@ -981,7 +980,7 @@ Abc_Clock.exit472:                                ; preds = %345, %349
   br i1 %or.cond459.us, label %455, label %380
 
 380:                                              ; preds = %377
-  %381 = getelementptr inbounds nuw i32, ptr %375, i64 %indvars.iv855
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %375, i64 %indvars.iv855
   %382 = load i32, ptr %381, align 4, !tbaa !3
   %383 = add nsw i32 %3, %382
   %384 = add nsw i32 %383, %45
@@ -998,7 +997,7 @@ Abc_Clock.exit472:                                ; preds = %345, %349
 386:                                              ; preds = %.lr.ph.i476.us
   %387 = add nsw i32 %.02229.i477.us, 1
   %388 = sext i32 %.02229.i477.us to i64
-  %389 = getelementptr inbounds i32, ptr %11, i64 %388
+  %389 = getelementptr inbounds [4 x i8], ptr %11, i64 %388
   store i32 %.02428.i478.us, ptr %389, align 4, !tbaa !3
   br label %390
 
@@ -1027,7 +1026,7 @@ Abc_Clock.exit472:                                ; preds = %345, %349
   br i1 %395, label %.lr.ph33.i495.us, label %.loopexit.i491.us
 
 .lr.ph33.i495.us:                                 ; preds = %394
-  %396 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv43.i485.us
+  %396 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv43.i485.us
   %397 = load i32, ptr %396, align 4, !tbaa !3
   %398 = shl nsw i32 %397, 1
   %399 = or disjoint i32 %398, 1
@@ -1037,7 +1036,7 @@ Abc_Clock.exit472:                                ; preds = %345, %349
   %indvars.iv37.i496.us = phi i64 [ %indvars.iv.i487.us, %.lr.ph33.i495.us ], [ %indvars.iv.next38.i497.us, %400 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %399, ptr %12, align 4, !tbaa !3
-  %401 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv37.i496.us
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv37.i496.us
   %402 = load i32, ptr %401, align 4, !tbaa !3
   %403 = shl nsw i32 %402, 1
   %404 = or disjoint i32 %403, 1
@@ -1075,7 +1074,7 @@ Bmc_MeshAddOneHotness.exit500.us:                 ; preds = %.loopexit.i491.us, 
 409:                                              ; preds = %.lr.ph.i502.us
   %410 = add nsw i32 %.02229.i503.us, 1
   %411 = sext i32 %.02229.i503.us to i64
-  %412 = getelementptr inbounds i32, ptr %9, i64 %411
+  %412 = getelementptr inbounds [4 x i8], ptr %9, i64 %411
   store i32 %.02428.i504.us, ptr %412, align 4, !tbaa !3
   br label %413
 
@@ -1104,7 +1103,7 @@ Bmc_MeshAddOneHotness.exit500.us:                 ; preds = %.loopexit.i491.us, 
   br i1 %418, label %.lr.ph33.i521.us, label %.loopexit.i517.us
 
 .lr.ph33.i521.us:                                 ; preds = %417
-  %419 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv43.i511.us
+  %419 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv43.i511.us
   %420 = load i32, ptr %419, align 4, !tbaa !3
   %421 = shl nsw i32 %420, 1
   %422 = or disjoint i32 %421, 1
@@ -1114,7 +1113,7 @@ Bmc_MeshAddOneHotness.exit500.us:                 ; preds = %.loopexit.i491.us, 
   %indvars.iv37.i522.us = phi i64 [ %indvars.iv.i513.us, %.lr.ph33.i521.us ], [ %indvars.iv.next38.i523.us, %423 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %422, ptr %10, align 4, !tbaa !3
-  %424 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv37.i522.us
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv37.i522.us
   %425 = load i32, ptr %424, align 4, !tbaa !3
   %426 = shl nsw i32 %425, 1
   %427 = or disjoint i32 %426, 1
@@ -1152,7 +1151,7 @@ Bmc_MeshAddOneHotness.exit526.us:                 ; preds = %.loopexit.i517.us, 
 432:                                              ; preds = %.lr.ph.i528.us
   %433 = add nsw i32 %.02229.i529.us, 1
   %434 = sext i32 %.02229.i529.us to i64
-  %435 = getelementptr inbounds i32, ptr %7, i64 %434
+  %435 = getelementptr inbounds [4 x i8], ptr %7, i64 %434
   store i32 %.02428.i530.us, ptr %435, align 4, !tbaa !3
   br label %436
 
@@ -1182,7 +1181,7 @@ Bmc_MeshAddOneHotness.exit526.us:                 ; preds = %.loopexit.i517.us, 
   br i1 %442, label %.lr.ph33.i547.us, label %.loopexit.i543.us
 
 .lr.ph33.i547.us:                                 ; preds = %441
-  %443 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv43.i537.us
+  %443 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv43.i537.us
   %444 = load i32, ptr %443, align 4, !tbaa !3
   %445 = shl nsw i32 %444, 1
   %446 = or disjoint i32 %445, 1
@@ -1192,7 +1191,7 @@ Bmc_MeshAddOneHotness.exit526.us:                 ; preds = %.loopexit.i517.us, 
   %indvars.iv37.i548.us = phi i64 [ %indvars.iv.i539.us, %.lr.ph33.i547.us ], [ %indvars.iv.next38.i549.us, %447 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %446, ptr %8, align 4, !tbaa !3
-  %448 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv37.i548.us
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv37.i548.us
   %449 = load i32, ptr %448, align 4, !tbaa !3
   %450 = shl nsw i32 %449, 1
   %451 = or disjoint i32 %450, 1
@@ -1220,7 +1219,7 @@ Bmc_MeshAddOneHotness.exit552.us:                 ; preds = %.loopexit.i543.us, 
   br label %483
 
 455:                                              ; preds = %377, %376
-  %456 = getelementptr inbounds nuw i32, ptr %375, i64 %indvars.iv855
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %375, i64 %indvars.iv855
   %457 = load i32, ptr %456, align 4, !tbaa !3
   %458 = add nsw i32 %3, %457
   %459 = add nsw i32 %458, %45
@@ -1237,7 +1236,7 @@ Bmc_MeshAddOneHotness.exit552.us:                 ; preds = %.loopexit.i543.us, 
 461:                                              ; preds = %.lr.ph.i.us
   %462 = add nsw i32 %.02229.i.us, 1
   %463 = sext i32 %.02229.i.us to i64
-  %464 = getelementptr inbounds i32, ptr %13, i64 %463
+  %464 = getelementptr inbounds [4 x i8], ptr %13, i64 %463
   store i32 %.02428.i.us, ptr %464, align 4, !tbaa !3
   br label %465
 
@@ -1266,7 +1265,7 @@ Bmc_MeshAddOneHotness.exit552.us:                 ; preds = %.loopexit.i543.us, 
   br i1 %470, label %.lr.ph33.i.us, label %.loopexit.i.us
 
 .lr.ph33.i.us:                                    ; preds = %469
-  %471 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv43.i.us
+  %471 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv43.i.us
   %472 = load i32, ptr %471, align 4, !tbaa !3
   %473 = shl nsw i32 %472, 1
   %474 = or disjoint i32 %473, 1
@@ -1276,7 +1275,7 @@ Bmc_MeshAddOneHotness.exit552.us:                 ; preds = %.loopexit.i543.us, 
   %indvars.iv37.i.us = phi i64 [ %indvars.iv.i.us, %.lr.ph33.i.us ], [ %indvars.iv.next38.i.us, %475 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %474, ptr %14, align 4, !tbaa !3
-  %476 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv37.i.us
+  %476 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv37.i.us
   %477 = load i32, ptr %476, align 4, !tbaa !3
   %478 = shl nsw i32 %477, 1
   %479 = or disjoint i32 %478, 1
@@ -1370,14 +1369,14 @@ Abc_Clock.exit554:                                ; preds = %493, %497
   %indvars.iv872 = phi i64 [ %indvars.iv.next873, %._crit_edge693.us ], [ 1, %.preheader563 ]
   %.0396697.us = phi i32 [ %spec.select460.us, %._crit_edge693.us ], [ 0, %.preheader563 ]
   %.0400696.us = phi i32 [ %spec.select.us, %._crit_edge693.us ], [ 0, %.preheader563 ]
-  %invariant.gep.us705 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv872
+  %invariant.gep.us705 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv872
   br label %508
 
 508:                                              ; preds = %.preheader562.us, %510
   %indvars.iv867 = phi i64 [ 1, %.preheader562.us ], [ %indvars.iv.next868, %510 ]
   %.1397690.us = phi i32 [ %.0396697.us, %.preheader562.us ], [ %spec.select460.us, %510 ]
   %.1401689.us = phi i32 [ %.0400696.us, %.preheader562.us ], [ %spec.select.us, %510 ]
-  %gep.us703 = getelementptr inbounds nuw [102 x i32], ptr %invariant.gep.us705, i64 %indvars.iv867
+  %gep.us703 = getelementptr inbounds nuw [408 x i8], ptr %invariant.gep.us705, i64 %indvars.iv867
   %509 = load i32, ptr %gep.us703, align 4, !tbaa !3
   %.reass.us704 = add i32 %509, %340
   br label %515
@@ -1447,7 +1446,7 @@ Abc_Clock.exit554:                                ; preds = %493, %497
   br i1 %111, label %._crit_edge728, label %.lr.ph727
 
 .lr.ph727:                                        ; preds = %525
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv887
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv887
   %528 = icmp eq i64 %indvars.iv887, 0
   %529 = icmp eq i64 %indvars.iv887, %369
   %invariant.op729 = or i1 %528, %529
@@ -1455,7 +1454,7 @@ Abc_Clock.exit554:                                ; preds = %493, %497
 
 .preheader.lr.ph.us:                              ; preds = %.lr.ph727, %536
   %indvars.iv882 = phi i64 [ %indvars.iv.next883, %536 ], [ 0, %.lr.ph727 ]
-  %gep.us730 = getelementptr inbounds nuw [102 x i32], ptr %invariant.gep, i64 %indvars.iv882
+  %gep.us730 = getelementptr inbounds nuw [408 x i8], ptr %invariant.gep, i64 %indvars.iv882
   %530 = load i32, ptr %gep.us730, align 4, !tbaa !3
   %531 = add nsw i32 %3, %530
   br i1 %365, label %.preheader.us.us, label %._crit_edge720.us.thread

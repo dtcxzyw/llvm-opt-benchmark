@@ -294,7 +294,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
 
 156:                                              ; preds = %150, %164
   %indvars.iv = phi i64 [ 0, %150 ], [ %indvars.iv.next, %164 ]
-  %157 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [8 x i8], ptr @ff_h2645_pixel_aspect, i64 %indvars.iv
   %158 = load i32, ptr %157, align 8, !tbaa !100
   %159 = icmp eq i32 %154, %158
   br i1 %159, label %160, label %164

@@ -750,7 +750,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EE11_S_re
 .noexc:                                           ; preds = %72, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %66, ptr %14, align 8, !tbaa !61
   store ptr %71, ptr %29, align 8, !tbaa !58
-  %73 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %66, i64 %64
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   store ptr %73, ptr %30, align 8, !tbaa !62
   br label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit47
 
@@ -877,7 +877,7 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
 117:                                              ; preds = %.lr.ph150, %_ZN9grpc_core12experimental4JsonD2Ev.exit
   %.0149 = phi i64 [ 0, %.lr.ph150 ], [ %131, %_ZN9grpc_core12experimental4JsonD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %118 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %90, i64 %.0149
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.0149
   %119 = load ptr, ptr %118, align 8, !tbaa !52
   %120 = load ptr, ptr %119, align 8, !tbaa !70
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -1822,7 +1822,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EE11_S_re
 .noexc:                                           ; preds = %72, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %66, ptr %14, align 8, !tbaa !61
   store ptr %71, ptr %29, align 8, !tbaa !58
-  %73 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %66, i64 %64
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   store ptr %73, ptr %30, align 8, !tbaa !62
   br label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit47
 
@@ -1949,7 +1949,7 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
 117:                                              ; preds = %.lr.ph150, %_ZN9grpc_core12experimental4JsonD2Ev.exit
   %.0149 = phi i64 [ 0, %.lr.ph150 ], [ %131, %_ZN9grpc_core12experimental4JsonD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %118 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %90, i64 %.0149
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.0149
   %119 = load ptr, ptr %118, align 8, !tbaa !52
   %120 = load ptr, ptr %119, align 8, !tbaa !70
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -2569,7 +2569,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EE11_S_re
 .noexc:                                           ; preds = %56, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %50, ptr %2, align 8, !tbaa !61
   store ptr %55, ptr %8, align 8, !tbaa !58
-  %57 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %57, ptr %9, align 8, !tbaa !62
   br label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit22
 
@@ -2661,7 +2661,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EED2Ev.ex
 85:                                               ; preds = %.lr.ph57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.056 = phi i64 [ 0, %.lr.ph57 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %86 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %12, i64 %.056
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.056
   %87 = load ptr, ptr %86, align 8, !tbaa !52
   invoke void @_ZN9grpc_core8channelz8BaseNode16RenderJsonStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %87)
           to label %88 unwind label %98
@@ -7455,7 +7455,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EE
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit, %40
   store ptr %24, ptr %0, align 8, !tbaa !79
   store ptr %38, ptr %6, align 8, !tbaa !82
-  %44 = getelementptr inbounds nuw %"class.grpc_core::experimental::Json", ptr %24, i64 %18
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %44, ptr %39, align 8, !tbaa !83
   ret void
 }

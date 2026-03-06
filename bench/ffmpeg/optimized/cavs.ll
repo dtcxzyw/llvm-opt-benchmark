@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.cavs_vector = type { i16, i16, i16, i16 }
-%struct.AVSFrame = type { ptr, i32 }
 
 @ff_cavs_partition_flags = external local_unnamed_addr constant [30 x i8], align 16
 @alpha_tab = internal unnamed_addr constant [64 x i8] c"\00\00\00\00\00\00\01\01\01\01\01\02\02\02\03\03\04\04\05\05\06\07\08\09\0A\0B\0C\0D\0F\10\12\14\16\18\1A\1C\1E!!##$%%''*,.02456789:;<=>?@", align 16
@@ -1349,13 +1348,13 @@ define void @ff_cavs_modify_mb_i(ptr noundef captures(none) initializes((1124, 1
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = shl nsw i32 %14, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %12, i64 %16
   store i32 %10, ptr %17, align 4, !tbaa !56
   %18 = load i32, ptr %6, align 8, !tbaa !56
   %19 = load i32, ptr %13, align 8, !tbaa !23
   %20 = shl nsw i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr i32, ptr %12, i64 %21
+  %22 = getelementptr [4 x i8], ptr %12, i64 %21
   %23 = getelementptr i8, ptr %22, i64 4
   store i32 %18, ptr %23, align 4, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 844
@@ -1512,7 +1511,7 @@ define void @ff_cavs_inter(ptr noundef readonly %0, i32 noundef %1) local_unname
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %32 = zext nneg i16 %24 to i64
-  %33 = getelementptr inbounds nuw %struct.AVSFrame, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !60
   %.val.i = load i16, ptr %27, align 8, !tbaa !41
   %35 = getelementptr i8, ptr %0, i64 938
@@ -1562,7 +1561,7 @@ define void @ff_cavs_inter(ptr noundef readonly %0, i32 noundef %1) local_unname
   %64 = load ptr, ptr %50, align 8, !tbaa !58
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %66 = zext nneg i16 %60 to i64
-  %67 = getelementptr inbounds nuw %struct.AVSFrame, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !60
   %.val.i49 = load i16, ptr %63, align 8, !tbaa !41
   %69 = getelementptr i8, ptr %0, i64 938
@@ -1611,7 +1610,7 @@ mc_part_std.exit51:                               ; preds = %70, %74
   %96 = load ptr, ptr %50, align 8, !tbaa !58
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %98 = zext nneg i16 %92 to i64
-  %99 = getelementptr inbounds nuw %struct.AVSFrame, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !60
   %.val.i56 = load i16, ptr %95, align 8, !tbaa !41
   %101 = getelementptr i8, ptr %0, i64 946
@@ -1664,7 +1663,7 @@ mc_part_std.exit58:                               ; preds = %102, %106
   %132 = load ptr, ptr %50, align 8, !tbaa !58
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %134 = zext nneg i16 %128 to i64
-  %135 = getelementptr inbounds nuw %struct.AVSFrame, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !60
   %.val.i63 = load i16, ptr %131, align 8, !tbaa !41
   %137 = getelementptr i8, ptr %0, i64 970
@@ -1720,7 +1719,7 @@ mc_part_std.exit65:                               ; preds = %138, %142
   %171 = load ptr, ptr %50, align 8, !tbaa !58
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %173 = zext nneg i16 %167 to i64
-  %174 = getelementptr inbounds nuw %struct.AVSFrame, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %173
   %175 = load ptr, ptr %174, align 8, !tbaa !60
   %.val.i70 = load i16, ptr %170, align 8, !tbaa !41
   %176 = getelementptr i8, ptr %0, i64 978
@@ -1754,21 +1753,21 @@ mc_part_std.exit:                                 ; preds = %181, %177, %40, %36
 define void @ff_cavs_mv(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.cavs_vector, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = add i32 %1, -1
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.cavs_vector, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %11
   %13 = add i32 %1, -4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.cavs_vector, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %14
   %16 = zext i32 %2 to i64
-  %17 = getelementptr inbounds nuw %struct.cavs_vector, ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %16
   %18 = trunc i32 %5 to i16
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i16 %18, ptr %19, align 2, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %21 = sext i16 %18 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !56
   %24 = trunc i32 %23 to i16
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1788,7 +1787,7 @@ switch.early.test:                                ; preds = %6
 29:                                               ; preds = %switch.early.test, %switch.early.test, %6
   %30 = add i32 %1, -5
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.cavs_vector, ptr %7, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %31
   br label %33
 
 33:                                               ; preds = %switch.early.test, %29
@@ -1896,7 +1895,7 @@ select.unfold:                                    ; preds = %81, %37, %62, %70, 
   %narrow.i.i = tail call i16 @llvm.smax.i16(i16 %36, i16 0)
   %spec.select.i.i = zext nneg i16 %narrow.i.i to i64
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1516
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %spec.select.i.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %spec.select.i.i
   %94 = load i32, ptr %93, align 4, !tbaa !56
   %95 = sext i32 %94 to i64
   %96 = load i16, ptr %12, align 2, !tbaa !41
@@ -1924,7 +1923,7 @@ select.unfold:                                    ; preds = %81, %37, %62, %70, 
   %116 = trunc i64 %115 to i32
   %narrow.i21.i = tail call i16 @llvm.smax.i16(i16 %59, i16 0)
   %spec.select.i22.i = zext nneg i16 %narrow.i21.i to i64
-  %117 = getelementptr inbounds nuw i32, ptr %92, i64 %spec.select.i22.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %spec.select.i22.i
   %118 = load i32, ptr %117, align 4, !tbaa !56
   %119 = sext i32 %118 to i64
   %120 = load i16, ptr %15, align 2, !tbaa !41
@@ -1954,7 +1953,7 @@ select.unfold:                                    ; preds = %81, %37, %62, %70, 
   %142 = load i16, ptr %141, align 2, !tbaa !38
   %narrow.i25.i = tail call i16 @llvm.smax.i16(i16 %142, i16 0)
   %spec.select.i26.i = zext nneg i16 %narrow.i25.i to i64
-  %143 = getelementptr inbounds nuw i32, ptr %92, i64 %spec.select.i26.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %spec.select.i26.i
   %144 = load i32, ptr %143, align 4, !tbaa !56
   %145 = sext i32 %144 to i64
   %146 = load i16, ptr %.0, align 2, !tbaa !41
@@ -2261,16 +2260,16 @@ define void @ff_cavs_init_mb(ptr noundef captures(none) %0) local_unnamed_addr #
 9:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw %struct.cavs_vector, ptr %2, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %11 = load ptr, ptr %3, align 8, !tbaa !66
   %12 = add nsw i64 %indvars.iv, %8
-  %13 = getelementptr inbounds %struct.cavs_vector, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load i64, ptr %13, align 2
   store i64 %14, ptr %10, align 8
-  %15 = getelementptr inbounds nuw %struct.cavs_vector, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load ptr, ptr %7, align 8, !tbaa !66
-  %18 = getelementptr inbounds %struct.cavs_vector, ptr %17, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %12
   %19 = load i64, ptr %18, align 2
   store i64 %19, ptr %16, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2279,7 +2278,7 @@ define void @ff_cavs_init_mb(ptr noundef captures(none) %0) local_unnamed_addr #
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %22 = load ptr, ptr %21, align 8, !tbaa !57
-  %23 = getelementptr inbounds i32, ptr %22, i64 %8
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %8
   %24 = load i32, ptr %23, align 4, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   store i32 %24, ptr %25, align 4, !tbaa !56
@@ -2384,7 +2383,7 @@ define range(i32 0, 2) i32 @ff_cavs_next_mb(ptr noundef captures(none) %0) local
 
 15:                                               ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw %struct.cavs_vector, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %16, align 8
@@ -2399,7 +2398,7 @@ define range(i32 0, 2) i32 @ff_cavs_next_mb(ptr noundef captures(none) %0) local
   %24 = load i32, ptr %23, align 8, !tbaa !23
   %25 = shl nsw i32 %24, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.cavs_vector, ptr %22, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %22, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %27, align 2
@@ -2407,7 +2406,7 @@ define range(i32 0, 2) i32 @ff_cavs_next_mb(ptr noundef captures(none) %0) local
   %31 = load i32, ptr %23, align 8, !tbaa !23
   %32 = shl nsw i32 %31, 1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.cavs_vector, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %37 = load i64, ptr %36, align 8
@@ -2417,7 +2416,7 @@ define range(i32 0, 2) i32 @ff_cavs_next_mb(ptr noundef captures(none) %0) local
   %40 = load i32, ptr %23, align 8, !tbaa !23
   %41 = shl nsw i32 %40, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.cavs_vector, ptr %39, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %39, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %43, align 2
@@ -2425,7 +2424,7 @@ define range(i32 0, 2) i32 @ff_cavs_next_mb(ptr noundef captures(none) %0) local
   %47 = load i32, ptr %23, align 8, !tbaa !23
   %48 = shl nsw i32 %47, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.cavs_vector, ptr %46, i64 %49
+  %50 = getelementptr [8 x i8], ptr %46, i64 %49
   %51 = getelementptr i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %53 = load i64, ptr %52, align 8
@@ -2452,7 +2451,7 @@ define range(i32 0, 2) i32 @ff_cavs_next_mb(ptr noundef captures(none) %0) local
 
 65:                                               ; preds = %62, %65
   %indvars.iv53 = phi i64 [ 0, %62 ], [ %indvars.iv.next54, %65 ]
-  %66 = getelementptr inbounds nuw %struct.cavs_vector, ptr %14, i64 %indvars.iv53
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv53
   store i64 -281470681743360, ptr %66, align 8
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 4
   %67 = icmp samesign ult i64 %indvars.iv53, 17
@@ -2507,7 +2506,7 @@ define noundef i32 @ff_cavs_init_pic(ptr noundef captures(none) %0) local_unname
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.cavs_vector, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 -281470681743360, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %5 = icmp samesign ult i64 %indvars.iv, 17
@@ -3375,7 +3374,7 @@ define internal fastcc void @mc_dir_part(ptr noundef readonly captures(none) %0,
   %79 = shl nsw i64 %78, 1
   %80 = getelementptr inbounds i8, ptr %77, i64 %79
   %81 = zext nneg i32 %20 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %8, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !58
   tail call void %83(ptr noundef %3, ptr noundef nonnull %80, i64 noundef %78) #14
   %84 = load ptr, ptr %68, align 8, !tbaa !112
@@ -3396,7 +3395,7 @@ define internal fastcc void @mc_dir_part(ptr noundef readonly captures(none) %0,
 
 .critedge.critedge:                               ; preds = %63
   %95 = zext nneg i32 %20 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %8, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !58
   tail call void %97(ptr noundef %3, ptr noundef nonnull %30, i64 noundef %28) #14
   %98 = load i64, ptr %38, align 8, !tbaa !33

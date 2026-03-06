@@ -138,12 +138,12 @@ default.unreachable55:                            ; preds = %58, %31
   br label %67
 
 switch.lookup:                                    ; preds = %42
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.SDL_uclibc_atan2, i64 %43
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_uclibc_atan2, i64 %43
   %switch.load = load double, ptr %switch.gep, align 8
   br label %67
 
 switch.lookup56:                                  ; preds = %42
-  %switch.gep57 = getelementptr inbounds nuw double, ptr @switch.table.SDL_uclibc_atan2.1, i64 %43
+  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_uclibc_atan2.1, i64 %43
   %switch.load58 = load double, ptr %switch.gep57, align 8
   br label %67
 

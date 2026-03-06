@@ -3,11 +3,6 @@ source_filename = "bench/gromacs/original/filenm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.t_filenm = type { i32, ptr, ptr, i64, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -78,7 +73,7 @@ define noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef readonly captures(none)
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not.i = icmp eq ptr %10, null
@@ -143,7 +138,7 @@ define { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr noundef readonly captu
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not.i = icmp eq ptr %10, null
@@ -224,7 +219,7 @@ define noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef readonly captu
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not.i = icmp eq ptr %10, null
@@ -274,7 +269,7 @@ define noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef %0, i32 noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
@@ -306,7 +301,7 @@ define { ptr, ptr } @_Z7ftp2fnsB5cxx11iiPK8t_filenm(i32 noundef %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
@@ -345,7 +340,7 @@ define noundef zeroext i1 @_Z8ftp2bSetiiPK8t_filenm(i32 noundef %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
@@ -403,7 +398,7 @@ define noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef readonly captures
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not.i = icmp eq ptr %10, null
@@ -577,7 +572,7 @@ define void @_Z17ftp2path_optionalB5cxx11iiPK8t_filenm(ptr dead_on_unwind noalia
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %3, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8, !tbaa !17
   %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %7
@@ -629,7 +624,7 @@ define noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
@@ -812,7 +807,7 @@ define noundef i32 @_Z26add_suffix_to_output_namesP8t_filenmiPKc(ptr noundef rea
 
 31:                                               ; preds = %.lr.ph, %.loopexit91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit91 ]
-  %32 = getelementptr inbounds nuw %struct.t_filenm, ptr %0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8, !tbaa !25
   %35 = and i64 %34, 4

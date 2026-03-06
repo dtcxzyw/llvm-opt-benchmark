@@ -10215,7 +10215,7 @@ define hidden { ptr, ptr } @"_ZN122_$LT$polars_arrow..array..primitive..Primitiv
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw i128, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -10227,7 +10227,7 @@ define hidden { ptr, ptr } @"_ZN122_$LT$polars_arrow..array..primitive..Primitiv
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw double, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -10239,7 +10239,7 @@ define hidden { ptr, ptr } @"_ZN122_$LT$polars_arrow..array..primitive..Primitiv
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -10251,7 +10251,7 @@ define hidden { ptr, ptr } @"_ZN122_$LT$polars_arrow..array..primitive..Primitiv
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw float, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -10263,7 +10263,7 @@ define hidden { ptr, ptr } @"_ZN122_$LT$polars_arrow..array..primitive..Primitiv
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -10275,7 +10275,7 @@ define hidden { ptr, ptr } @"_ZN122_$LT$polars_arrow..array..primitive..Primitiv
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -10287,7 +10287,7 @@ define hidden { ptr, ptr } @"_ZN122_$LT$polars_arrow..array..primitive..Primitiv
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -10303,7 +10303,7 @@ define hidden void @"_ZN122_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
   %. = select i1 %.not, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   tail call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hafb66eae5864661eE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef %9, ptr noundef align 8 %.)
   ret void
 }
@@ -10318,7 +10318,7 @@ define hidden void @"_ZN122_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
   %. = select i1 %.not, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6
   tail call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he88cce8cf14224bcE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef %9, ptr noundef align 8 %.)
   ret void
 }
@@ -10333,7 +10333,7 @@ define hidden void @"_ZN122_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
   %. = select i1 %.not, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw double, ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   tail call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hc39a0cf41dae9101E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef %9, ptr noundef align 8 %.)
   ret void
 }
@@ -10348,7 +10348,7 @@ define hidden void @"_ZN122_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
   %. = select i1 %.not, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i128, ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %6
   tail call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h61493b63cda23386E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef %9, ptr noundef align 8 %.)
   ret void
 }
@@ -10363,7 +10363,7 @@ define hidden void @"_ZN122_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
   %. = select i1 %.not, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6
   tail call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h274eaed9ef62e502E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef %9, ptr noundef align 8 %.)
   ret void
 }
@@ -10378,7 +10378,7 @@ define hidden void @"_ZN122_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
   %. = select i1 %.not, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6
   tail call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he5657f2bbf37e98fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef %9, ptr noundef align 8 %.)
   ret void
 }
@@ -10393,7 +10393,7 @@ define hidden void @"_ZN122_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
   %. = select i1 %.not, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   tail call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h5479f4c8926f08d4E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef %9, ptr noundef align 8 %.)
   ret void
 }
@@ -10405,12 +10405,12 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
 
 5:                                                ; preds = %3
   %6 = sub nuw i64 %2, %1
-  %7 = getelementptr inbounds nuw { [20 x i64] }, ptr %0, i64 %1
+  %7 = getelementptr inbounds nuw [160 x i8], ptr %0, i64 %1
   br label %8
 
 8:                                                ; preds = %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8442add069a599c4E.exit.i.i", %5
   %.sroa.0.09.i.i = phi i64 [ 0, %5 ], [ %10, %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8442add069a599c4E.exit.i.i" ]
-  %9 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %7, i64 %.sroa.0.09.i.i
+  %9 = getelementptr inbounds nuw [160 x i8], ptr %7, i64 %.sroa.0.09.i.i
   %10 = add nuw i64 %.sroa.0.09.i.i, 1
   %11 = load i8, ptr %9, align 16, !range !745, !alias.scope !746, !noundef !4
   %12 = add nsw i8 %11, -28
@@ -10449,7 +10449,7 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
   br label %19
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %7, i64 %.sroa.0.1.i.i
+  %24 = getelementptr inbounds nuw [160 x i8], ptr %7, i64 %.sroa.0.1.i.i
   %25 = add i64 %.sroa.0.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8442add069a599c4E"(ptr noalias noundef align 16 dereferenceable(160) %24) #28
           to label %19 unwind label %27
@@ -10475,13 +10475,13 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
 
 5:                                                ; preds = %3
   %6 = sub nuw i64 %2, %1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !756)
   br label %8
 
 8:                                                ; preds = %8, %5
   %.sroa.0.08.i.i = phi i64 [ 0, %5 ], [ %10, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.sroa.0.08.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.sroa.0.08.i.i
   %10 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %9, align 8, !alias.scope !759, !nonnull !4, !noundef !4
   tail call void @Py_DecRef(ptr noundef nonnull %.val7.i.i) #26, !noalias !759
@@ -10500,13 +10500,13 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
 
 5:                                                ; preds = %3
   %6 = sub nuw i64 %2, %1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
   br label %8
 
 8:                                                ; preds = %8, %5
   %.sroa.0.08.i.i = phi i64 [ 0, %5 ], [ %10, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.sroa.0.08.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.sroa.0.08.i.i
   %10 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %9, align 8, !alias.scope !766, !nonnull !4, !noundef !4
   tail call void @Py_DecRef(ptr noundef nonnull %.val7.i.i) #26, !noalias !766
@@ -10758,7 +10758,7 @@ define hidden void @"_ZN12polars_arrow2io3ipc5write6writer19FileWriter$LT$W$GT$5
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0a03362d109ca21fE.exit.i": ; preds = %85, %76
   %86 = load ptr, ptr %51, align 8, !alias.scope !801, !noalias !804, !nonnull !4, !noundef !4
-  %87 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %86, i64 %82
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %82
   store i64 %80, ptr %87, align 8, !noalias !807
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %79, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !807
@@ -10801,7 +10801,7 @@ define hidden void @"_ZN12polars_arrow2io3ipc5write6writer19FileWriter$LT$W$GT$5
 97:                                               ; preds = %74, %65
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %99 = load ptr, ptr %98, align 8, !alias.scope !795, !noalias !798, !nonnull !4, !noundef !4
-  %100 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %99, i64 %71
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %71
   store i64 %67, ptr %100, align 8, !noalias !808
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i64 %64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !808
@@ -11306,7 +11306,7 @@ define hidden void @"_ZN12polars_arrow2io3ipc5write6writer19FileWriter$LT$W$GT$7
   %32 = load ptr, ptr %31, align 8, !noalias !866, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %34 = load i64, ptr %33, align 8, !noalias !866, !noundef !4
-  %35 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [104 x i8], ptr %32, i64 %34
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !872
   store i64 0, ptr %12, align 8, !noalias !872
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !875
@@ -16430,7 +16430,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i64, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -16736,7 +16736,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw float, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -16889,7 +16889,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw double, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -17195,7 +17195,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw { i16 }, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -17348,7 +17348,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i128, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -17501,7 +17501,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -17654,7 +17654,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i16, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -17807,7 +17807,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i64, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -17960,7 +17960,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -18113,7 +18113,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i16, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -18775,7 +18775,7 @@ define hidden void @_ZN14polars_parquet7parquet5write12column_chunk18write_colum
 
 59:                                               ; preds = %54, %49
   %60 = load ptr, ptr %21, align 8, !alias.scope !1304, !noalias !1307, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds nuw { { { i64, [18 x i64] }, { i64, [20 x i64] }, { i32, [1 x i32] }, { [8 x i8], i8, [3 x i8] }, i32, i32, i32, i8, [7 x i8] }, { i64, [23 x i64] }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [600 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %61, ptr noundef nonnull align 8 dereferenceable(600) %16, i64 600, i1 false)
   %62 = add i64 %51, 1
   store i64 %62, ptr %22, align 8, !alias.scope !1304, !noalias !1307
@@ -19068,7 +19068,7 @@ define hidden void @"_ZN14polars_parquet7parquet5write4file19FileWriter$LT$W$GT$
 .preheader:                                       ; preds = %51, %.preheader
   %.sroa.07.0.i = phi i64 [ %61, %.preheader ], [ 0, %51 ]
   %.sroa.09.0.i = phi i64 [ %62, %.preheader ], [ 0, %51 ]
-  %59 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, { i16, [1 x i16] }, [2 x i16] }, ptr %54, i64 %.sroa.09.0.i
+  %59 = getelementptr inbounds nuw [104 x i8], ptr %54, i64 %.sroa.09.0.i
   %60 = getelementptr i8, ptr %59, i64 88
   %.val.i = load i64, ptr %60, align 8, !noundef !4
   %61 = add i64 %.val.i, %.sroa.07.0.i
@@ -19145,12 +19145,12 @@ define hidden void @"_ZN14polars_parquet7parquet5write4file19FileWriter$LT$W$GT$
   %89 = phi i64 [ %.pre251, %.loopexit214 ], [ %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6af9d0b20d4fbf42E.exit" ]
   %90 = phi ptr [ %.pre, %.loopexit214 ], [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6af9d0b20d4fbf42E.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %91 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, { i16, [1 x i16] }, [2 x i16] }, ptr %90, i64 %89
+  %91 = getelementptr inbounds nuw [104 x i8], ptr %90, i64 %89
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %93 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %95 = load i64, ptr %94, align 8, !noundef !4
-  %96 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %93, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %95
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17ha37aa3f12ba21dc2E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %34, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %93, ptr noundef nonnull %96)
           to label %_ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit unwind label %.body.thread161.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -19160,7 +19160,7 @@ define hidden void @"_ZN14polars_parquet7parquet5write4file19FileWriter$LT$W$GT$
   %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %101 = load i64, ptr %100, align 8, !noundef !4
-  %102 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %101
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17ha37aa3f12ba21dc2E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %35, ptr noundef nonnull %54, ptr noundef nonnull %57, ptr noundef nonnull %99, ptr noundef nonnull %102)
           to label %_ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit81 unwind label %.body.thread161.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -19190,8 +19190,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit81: ; preds =
   %114 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %116, %.loopexit.i ]
   %115 = phi i64 [ %.promoted34.i, %.lr.ph.i ], [ %144, %.loopexit.i ]
   %116 = add i64 %114, 1
-  %117 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, { i16, [1 x i16] }, [2 x i16] }, ptr %.val.i.i.i, i64 %114
-  %118 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val2.i.i.i, i64 %114
+  %117 = getelementptr inbounds nuw [104 x i8], ptr %.val.i.i.i, i64 %114
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %.val2.i.i.i, i64 %114
   %119 = getelementptr i8, ptr %117, i64 40
   %.val6.i = load ptr, ptr %119, align 8, !noalias !1340, !nonnull !4, !noundef !4
   %120 = getelementptr i8, ptr %117, i64 48
@@ -19201,8 +19201,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit81: ; preds =
   %122 = getelementptr i8, ptr %118, i64 16
   %.val9.i = load i64, ptr %122, align 8, !noalias !1340, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1341
-  %123 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, ptr %.val6.i, i64 %.val7.i
-  %124 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val8.i, i64 %.val9.i
+  %123 = getelementptr inbounds nuw [544 x i8], ptr %.val6.i, i64 %.val7.i
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %.val8.i, i64 %.val9.i
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h0e9a6fbc5672e50eE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %19, ptr noundef nonnull %.val6.i, ptr noundef nonnull %123, ptr noundef nonnull %.val8.i, ptr noundef nonnull %124)
           to label %.noexc82 unwind label %.body.thread161.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -19222,8 +19222,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit81: ; preds =
 127:                                              ; preds = %138, %.lr.ph.i.i.i.i
   %128 = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.i.i.i.i ], [ %139, %138 ]
   %129 = phi i64 [ %115, %.lr.ph.i.i.i.i ], [ %140, %138 ]
-  %130 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, ptr %.val.i.i.i.i.i.i, i64 %128
-  %131 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val2.i.i.i.i.i.i, i64 %128
+  %130 = getelementptr inbounds nuw [544 x i8], ptr %.val.i.i.i.i.i.i, i64 %128
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %.val2.i.i.i.i.i.i, i64 %128
   %132 = getelementptr i8, ptr %131, i64 8
   %.val6.i.i.i.i = load ptr, ptr %132, align 8, !noalias !1359, !nonnull !4, !noundef !4
   %133 = getelementptr i8, ptr %131, i64 16
@@ -19307,8 +19307,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit: ; preds = %
   %157 = phi i64 [ %.promoted.i84, %.lr.ph.i86 ], [ %159, %.loopexit.i95 ]
   %158 = phi i64 [ %.promoted34.i87, %.lr.ph.i86 ], [ %186, %.loopexit.i95 ]
   %159 = add i64 %157, 1
-  %160 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, { i16, [1 x i16] }, [2 x i16] }, ptr %.val.i.i.i88, i64 %157
-  %161 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val2.i.i.i89, i64 %157
+  %160 = getelementptr inbounds nuw [104 x i8], ptr %.val.i.i.i88, i64 %157
+  %161 = getelementptr inbounds nuw [24 x i8], ptr %.val2.i.i.i89, i64 %157
   %162 = getelementptr i8, ptr %160, i64 40
   %.val6.i90 = load ptr, ptr %162, align 8, !noalias !1387, !nonnull !4, !noundef !4
   %163 = getelementptr i8, ptr %160, i64 48
@@ -19318,8 +19318,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit: ; preds = %
   %165 = getelementptr i8, ptr %161, i64 16
   %.val9.i93 = load i64, ptr %165, align 8, !noalias !1387, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1388
-  %166 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, ptr %.val6.i90, i64 %.val7.i91
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val8.i92, i64 %.val9.i93
+  %166 = getelementptr inbounds nuw [544 x i8], ptr %.val6.i90, i64 %.val7.i91
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %.val8.i92, i64 %.val9.i93
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h0e9a6fbc5672e50eE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %17, ptr noundef nonnull %.val6.i90, ptr noundef nonnull %166, ptr noundef nonnull %.val8.i92, ptr noundef nonnull %167)
           to label %.noexc107 unwind label %.body.thread161.loopexit.split-lp.loopexit
 
@@ -19339,8 +19339,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hc1b369fa53e06c5aE.exit: ; preds = %
 170:                                              ; preds = %180, %.lr.ph.i.i.i.i97
   %171 = phi i64 [ %.promoted.i.i.i.i94, %.lr.ph.i.i.i.i97 ], [ %181, %180 ]
   %172 = phi i64 [ %158, %.lr.ph.i.i.i.i97 ], [ %182, %180 ]
-  %173 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, ptr %.val.i.i.i.i.i.i98, i64 %171
-  %174 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val2.i.i.i.i.i.i99, i64 %171
+  %173 = getelementptr inbounds nuw [544 x i8], ptr %.val.i.i.i.i.i.i98, i64 %171
+  %174 = getelementptr inbounds nuw [24 x i8], ptr %.val2.i.i.i.i.i.i99, i64 %171
   %175 = getelementptr i8, ptr %174, i64 8
   %.val6.i.i.i.i100 = load ptr, ptr %175, align 8, !noalias !1406, !nonnull !4, !noundef !4
   %176 = getelementptr i8, ptr %174, i64 16
@@ -20049,7 +20049,7 @@ define hidden void @"_ZN14polars_parquet7parquet5write4file19FileWriter$LT$W$GT$
 51:                                               ; preds = %46, %40
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %53 = load ptr, ptr %52, align 8, !alias.scope !1504, !noalias !1507, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, { i16, [1 x i16] }, [2 x i16] }, ptr %53, i64 %43
+  %54 = getelementptr inbounds nuw [104 x i8], ptr %53, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false)
   %55 = add i64 %43, 1
   store i64 %55, ptr %24, align 8, !alias.scope !1504, !noalias !1507
@@ -20081,7 +20081,7 @@ define hidden void @"_ZN14polars_parquet7parquet5write4file19FileWriter$LT$W$GT$
 66:                                               ; preds = %61, %51
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %68 = load ptr, ptr %67, align 8, !alias.scope !1509, !noalias !1512, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %68, i64 %58
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %70 = add i64 %58, 1
   store i64 %70, ptr %57, align 8, !alias.scope !1509, !noalias !1512
@@ -21339,7 +21339,7 @@ define hidden void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = icmp ult i64 %14, 4611686018427387905
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %18
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %18
   %25 = load i16, ptr %24, align 2, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i16 %25, ptr %26, align 8
@@ -21400,7 +21400,7 @@ define hidden void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = icmp ult i64 %14, 4611686018427387905
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %18
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %18
   %25 = load i16, ptr %24, align 2, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i16 %25, ptr %26, align 8
@@ -21607,7 +21607,7 @@ define hidden void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h490d21368cc9e79aE.exit": ; preds = %3, %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !1827, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %7
   store i16 %5, ptr %13, align 2
   %14 = add i64 %7, 1
   store i64 %14, ptr %6, align 8, !alias.scope !1827
@@ -21635,7 +21635,7 @@ define hidden void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h490d21368cc9e79aE.exit": ; preds = %3, %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !1830, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %7
   store i16 %5, ptr %13, align 2
   %14 = add i64 %7, 1
   store i64 %14, ptr %6, align 8, !alias.scope !1830
@@ -25225,10 +25225,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !860, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !775, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1972c6c7796acb0eE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1972c6c7796acb0eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1972c6c7796acb0eE.197", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1972c6c7796acb0eE.197", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -25338,10 +25338,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2255)
   %3 = load i8, ptr %2, align 1, !range !2258, !alias.scope !2255, !noalias !2259, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E.199", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E.199", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !2255
   ret i1 %6
@@ -25492,7 +25492,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h216ced0957ce146fE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hc325caa24d883a7aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h28edd2467c2b40bbE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26927,7 +26927,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h28a2
   %9 = add nuw nsw i64 %7, 1
   %10 = icmp samesign ult i64 %7, 5
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw ptr, ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
   %12 = load ptr, ptr %11, align 8, !alias.scope !2428, !nonnull !4, !noundef !4
   %13 = add nuw i64 %8, 1
   %14 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %12) #26
@@ -26962,7 +26962,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h28a2
 
 20:                                               ; preds = %20, %18
   %.sroa.0.08.i = phi i64 [ 0, %18 ], [ %22, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.08.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.08.i
   %22 = add nuw nsw i64 %.sroa.0.08.i, 1
   %.val7.i = load ptr, ptr %21, align 8, !alias.scope !2435, !nonnull !4, !noundef !4
   tail call void @Py_DecRef(ptr noundef nonnull %.val7.i) #26, !noalias !2435
@@ -26999,7 +26999,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17hcea5
   %9 = add nuw nsw i64 %7, 1
   %10 = icmp samesign ult i64 %7, 4
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw ptr, ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
   %12 = load ptr, ptr %11, align 8, !alias.scope !2438, !nonnull !4, !noundef !4
   %13 = add nuw i64 %8, 1
   %14 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %12) #26
@@ -27034,7 +27034,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17hcea5
 
 20:                                               ; preds = %20, %18
   %.sroa.0.08.i = phi i64 [ 0, %18 ], [ %22, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.08.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.08.i
   %22 = add nuw nsw i64 %.sroa.0.08.i, 1
   %.val7.i = load ptr, ptr %21, align 8, !alias.scope !2445, !nonnull !4, !noundef !4
   tail call void @Py_DecRef(ptr noundef nonnull %.val7.i) #26, !noalias !2445
@@ -27280,7 +27280,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h0699e3942249d2c
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h5e820715425dccfeE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27316,7 +27316,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h0c2efa491b0aaa9
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h60e9dbbb0209090cE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27352,7 +27352,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h1376497e5b607ef
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h021cc14fb6e98fdbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27388,7 +27388,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h18e780e0719673a
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h3d7a20b1cf6f9244E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27424,7 +27424,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h2d2d03a730cb3be
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h7cff4796a16257edE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27460,7 +27460,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h2fdb8df4a523610
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h2bc9a9fe935db544E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27496,7 +27496,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h349d86f36e6772d
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h61babf0c09aabcc9E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27532,7 +27532,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h39fce92ace4f55b
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h7cca379aa2a63cc2E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27568,7 +27568,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h3d0740f99a5c236
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h94ac4eb4048aaf9fE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27604,7 +27604,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h4176ee3194bcf1c
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hcfa52b0b2367114bE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27640,7 +27640,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h431a26f90eae8b8
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h19572a380317525aE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27676,7 +27676,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h4be8f91d1ff16c7
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hab9e9d04ebd72754E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27712,7 +27712,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h4cca0cfd7d36a59
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h3cadbd2091ebffdaE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27748,7 +27748,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h4f65d2581b7c82d
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17ha77bd4a4cd11f552E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27784,7 +27784,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h5087c830548ac52
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h3c9c2f69d70075efE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27820,7 +27820,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h51a6652f4f84b15
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h6eaeea59a4455629E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27856,7 +27856,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h558b273938b75e5
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h2cb98e0f9ef9443cE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27892,7 +27892,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h5bfb8a14e0588a1
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hb1e0b997107ae98dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27928,7 +27928,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h5e7808e91b1366f
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h6e9ff23d8fc71c84E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -27964,7 +27964,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h60a5f7bc32fa19e
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h0822fe1971002a16E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28000,7 +28000,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h613359f05c3f2f4
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hd63345ed90bc74ffE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28036,7 +28036,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h61421b28a74f3f4
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h444e320b052669a0E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28072,7 +28072,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h62940a0461faa8a
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hd19aee57030efc6bE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28108,7 +28108,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h646f9dd5c809496
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h92cac9bf08d03b12E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28144,7 +28144,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h667a9bbb31b6dc4
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h18c798d7d3cd2654E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28180,7 +28180,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h6fecec4b25aacfc
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hcc2196c24ad0ad3fE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28216,7 +28216,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h7131fc48f2bc57b
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hddecdeb4dcaa57d4E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28252,7 +28252,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h777ce9d057c193a
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hf9b255c5f6224fa4E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28288,7 +28288,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h7a19a10968452b9
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hba115678250eeed0E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28324,7 +28324,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h7a6272075a8dd0c
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17he60a971e3822a784E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28360,7 +28360,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h7b3ffb2443ea542
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h787b94835a670fe8E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28396,7 +28396,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h7c48d3db0c93aa1
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hed5a8d1c684d0364E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28432,7 +28432,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h8dae48169e7e817
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h63354d92ef0a57b5E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28468,7 +28468,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h8f507696a503430
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h68d2422e34e98817E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28504,7 +28504,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h9a4774f170eed78
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hd6b84134e3e4b35aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28540,7 +28540,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h9e75f5bc8bb977b
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h0a4aa5c90f874655E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28576,7 +28576,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h9f3c92d269f2f1e
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h6c2881da36efb69fE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28612,7 +28612,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17ha2768febfe77855
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h9bff838ee70334ceE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28648,7 +28648,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17ha488f053ebfaa7a
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h70ee4ecb41fff330E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28684,7 +28684,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17ha757c16bb217895
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h9287139200def43bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28720,7 +28720,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17ha7d5bf86c221fb2
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h0b45601780049cd1E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28756,7 +28756,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17ha8773909c4cdf08
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h43b654c4cf547b1aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28792,7 +28792,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hb1fdcd89757ba14
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hac172f3dfa0cd506E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28828,7 +28828,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hb4311c30b65d176
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hf31bd67cbe31c4d4E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28864,7 +28864,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hb6c431e0858b047
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h56c27073de50efecE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28900,7 +28900,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hba78316cb1aeace
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h5f1ff7dbb59acfc8E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28936,7 +28936,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hc153d32e574a672
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h3c0bf047c8c5e086E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -28972,7 +28972,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hc29dfc45c63755c
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hecc26f3f4a8cca6bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29008,7 +29008,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hc6c01e26f9bf6fa
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hca43cce82b91982cE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29044,7 +29044,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hc7d071656fa5b90
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hd8071f9f1da4faedE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29080,7 +29080,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hc8bb5fec2955657
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h57da3e0101a99c09E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29116,7 +29116,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hc8dbd6c08503e77
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h5734e3fbbc1dceabE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29152,7 +29152,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hd8302e9c97ec09f
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h495394d5d4d817aaE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29188,7 +29188,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hdfe81beeb702b0a
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h2894067e89227c60E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29224,7 +29224,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hee69b5f7a921959
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hd6f7500aab5d37beE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29260,7 +29260,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17heea260e1039973f
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h608a79c3fc66d5e4E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29296,7 +29296,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17heea8fcd2c75b7c1
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h3be999cb786e24baE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29332,7 +29332,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hf1e26c62e2ab749
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hadd4d43feed3e407E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29368,7 +29368,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hf59639565ee3090
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h2d59114893edcc7dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29404,7 +29404,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hf87e1029ee10e1a
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hc9644eb2d5d09d08E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29440,7 +29440,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hfcce1fe0b9da8ce
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17hc7fb3d972a85c6acE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29476,7 +29476,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hfdf2a98590b09b1
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h9c78de381e52ce39E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29512,7 +29512,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hfec4c8dfc862736
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$12consume_iter17h05e88cd2c6eafc35E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -29548,7 +29548,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hff0a7562d60abec
           to label %8 unwind label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h2245efa48ddf18c4E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -37035,10 +37035,10 @@ define internal noundef zeroext i1 @"_ZN70_$LT$polars_arrow..datatypes..TimeUnit
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2258, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E.199", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E.199", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -37079,8 +37079,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 .lr.ph:                                           ; preds = %.critedge.preheader.split, %.critedge.backedge
   %.sroa.01.07 = phi i64 [ %5, %.critedge.backedge ], [ 0, %.critedge.preheader.split ]
   %5 = add nuw i64 %.sroa.01.07, 1
-  %6 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %0, i64 %.sroa.01.07
-  %7 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %2, i64 %.sroa.01.07
+  %6 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %.sroa.01.07
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %2, i64 %.sroa.01.07
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3054)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3057)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -38862,8 +38862,8 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
 .lr.ph:                                           ; preds = %.preheader.split.i.preheader, %.preheader.split.i.backedge
   %.sroa.01.0.i.i4869 = phi i64 [ %364, %.preheader.split.i.backedge ], [ 0, %.preheader.split.i.preheader ]
   %364 = add nuw i64 %.sroa.01.0.i.i4869, 1
-  %365 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %357, i64 %.sroa.01.0.i.i4869
-  %366 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %361, i64 %.sroa.01.0.i.i4869
+  %365 = getelementptr inbounds nuw [72 x i8], ptr %357, i64 %.sroa.01.0.i.i4869
+  %366 = getelementptr inbounds nuw [72 x i8], ptr %361, i64 %.sroa.01.0.i.i4869
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3245)
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 32
@@ -39769,7 +39769,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39825,7 +39825,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39881,7 +39881,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39937,7 +39937,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39993,7 +39993,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40049,7 +40049,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40105,7 +40105,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40161,7 +40161,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40217,7 +40217,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40273,7 +40273,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40329,7 +40329,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40385,7 +40385,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40441,7 +40441,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40497,7 +40497,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40553,7 +40553,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40609,7 +40609,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40665,7 +40665,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40721,7 +40721,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40777,7 +40777,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40833,7 +40833,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40889,7 +40889,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40945,7 +40945,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %3
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %18 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40973,7 +40973,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr71drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$$u5b$f64$u5d$$GT$$GT$17h49536f238af4a211E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -40986,7 +40986,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr115drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$$GT$17he6335cc141fce577E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -40999,7 +40999,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr71drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$$u5b$u32$u5d$$GT$$GT$17h1bea65665a185cf8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41012,7 +41012,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr59drop_in_place$LT$rayon..vec..DrainProducer$LT$usize$GT$$GT$17hca47c50efc2a7610E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41025,7 +41025,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr71drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$$u5b$f32$u5d$$GT$$GT$17h7010d18ce84b85e3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41038,7 +41038,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr115drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$$GT$17ha27045e8b9b1b3d4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41051,7 +41051,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr83drop_in_place$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$17h59a5f133b6c456f1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41064,7 +41064,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr115drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$$GT$17h87d096531d86c011E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41077,7 +41077,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr115drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$$GT$17hbe62a3e2b53711d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41090,7 +41090,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr100drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$$GT$17h7a9d038212d836e7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41103,7 +41103,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   call void @"_ZN4core3ptr71drop_in_place$LT$rayon..vec..DrainProducer$LT$$RF$$u5b$u64$u5d$$GT$$GT$17h370e2ab2d289997eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %6 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
@@ -41164,7 +41164,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3281, !noalias !3276, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hd406479c36ba2cb9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -41273,7 +41273,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3292, !noalias !3287, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3287
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h17fdc73aa7c0cc44E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -41382,7 +41382,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3303, !noalias !3298, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3298
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h69e245fcf8f1986fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -41491,7 +41491,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3314, !noalias !3309, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h103aa676b7198982E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -41603,7 +41603,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3325, !noalias !3320, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !3329
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hce27af667c9047cdE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -41689,7 +41689,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3336, !noalias !3331, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3331
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hb11080cd071933f4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -41801,7 +41801,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3347, !noalias !3342, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3342
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3351
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hc9f003d763b74e3fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -41890,7 +41890,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3358, !noalias !3353, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false), !noalias !3362
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hd3ea3ad2fd210dedE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -41976,7 +41976,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3369, !noalias !3364, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 80, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hca258100a7336a36E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42085,7 +42085,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3380, !noalias !3375, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hde4ccb5ce2ead9b5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42194,7 +42194,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3391, !noalias !3386, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3386
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h31ae12686daf470aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42306,7 +42306,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3402, !noalias !3397, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !3406
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17ha32bcf969581dad1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42392,7 +42392,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3413, !noalias !3408, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17ha4480e55b0c59963E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42501,7 +42501,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3424, !noalias !3419, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3419
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h2a50b60ed89edcbaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42613,7 +42613,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3435, !noalias !3430, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !3439
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17ha0a769f549c159c9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42702,7 +42702,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3446, !noalias !3441, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3441
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !3450
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17ha4b63f4731d3f189E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -42788,7 +42788,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3457, !noalias !3452, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h9ee5dc9d39c97921E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -42897,7 +42897,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3468, !noalias !3463, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3463
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hbcec019784fe8a07E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -43006,7 +43006,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3479, !noalias !3474, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3474
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h61007a10d9779ff9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -43115,7 +43115,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3490, !noalias !3485, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3485
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h4a835c03943dfde4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -43227,7 +43227,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3501, !noalias !3496, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3505
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hba343c789dfac0baE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -43315,7 +43315,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3512, !noalias !3507, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h46b0b0c453dbdfebE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !3516
 
@@ -43401,7 +43401,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3522, !noalias !3517, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !3526
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h7e83205364eaefebE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -43490,7 +43490,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3533, !noalias !3528, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false), !noalias !3537
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h808c30483ad8d484E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -43579,7 +43579,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3544, !noalias !3539, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3539
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3548
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h849a06219206340aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -43668,7 +43668,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3555, !noalias !3550, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3550
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !3559
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hfc6416035cd5f73bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -43757,7 +43757,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3566, !noalias !3561, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3561
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3570
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h2c4cca7b8e6d2b40E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -43843,7 +43843,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3577, !noalias !3572, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h77d07213287c9ae2E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -43952,7 +43952,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3588, !noalias !3583, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3583
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hdf5866db4a2ff6b1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -44064,7 +44064,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3599, !noalias !3594, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3594
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3603
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17ha587a86f105a254fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -44150,7 +44150,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3610, !noalias !3605, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h109a563d413ca3e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -44262,7 +44262,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3621, !noalias !3616, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !3625
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h386ccdafc13e4994E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -44348,7 +44348,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3632, !noalias !3627, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3627
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hedaf1aaf96109962E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -44457,7 +44457,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3643, !noalias !3638, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3638
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h5592abe9fdc3f04dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -44569,7 +44569,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3654, !noalias !3649, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3649
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !3658
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h98fb20870bcb848dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -44655,7 +44655,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3665, !noalias !3660, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3660
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h61aca9b36179539eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -44764,7 +44764,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3676, !noalias !3671, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3671
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h2f3c0273c5c937c4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -44876,7 +44876,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3687, !noalias !3682, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3682
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !3691
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h5b8af941e3fee8acE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -44964,7 +44964,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3698, !noalias !3693, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h0172a705bce39fe0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !3702
 
@@ -45047,7 +45047,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3708, !noalias !3703, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3703
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h4138bd1d0f4d05bfE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -45156,7 +45156,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3719, !noalias !3714, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3714
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hb738c0fdac6995e8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -45268,7 +45268,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3730, !noalias !3725, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !3734
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17heec304bb471b64e6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -45357,7 +45357,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3741, !noalias !3736, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3736
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3745
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h0cdf50cd4e56d697E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -45443,7 +45443,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3752, !noalias !3747, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3747
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hcd5a19fd4c52e957E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -45555,7 +45555,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3763, !noalias !3758, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3758
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3767
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hab441a9b88202080E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -45644,7 +45644,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3774, !noalias !3769, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3769
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3778
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h084b2ea05a825636E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -45732,7 +45732,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3785, !noalias !3780, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h58513d9c392de779E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !3789
 
@@ -45815,7 +45815,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3795, !noalias !3790, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3790
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hff4fac7a6a3d9d3cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -45924,7 +45924,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3806, !noalias !3801, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3801
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h6fce7561b978b638E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -46036,7 +46036,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3817, !noalias !3812, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3812
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3821
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h797c432bb5c8ad2dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -46122,7 +46122,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3828, !noalias !3823, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3823
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h16da10d72198b8a5E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -46231,7 +46231,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3839, !noalias !3834, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3834
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h3acb169b5a495228E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -46340,7 +46340,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3850, !noalias !3845, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3845
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h2f8371c702c4db99E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -46452,7 +46452,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3861, !noalias !3856, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3856
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !3865
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h0a69e0b530ebc13fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -46540,7 +46540,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3872, !noalias !3867, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hc35f66f80330d80eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !3876
 
@@ -46623,7 +46623,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3882, !noalias !3877, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3877
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h218cdd02d45ba5f8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -46732,7 +46732,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3893, !noalias !3888, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3888
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hc49383575b798797E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -46841,7 +46841,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3904, !noalias !3899, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3899
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hc3c24b3e34b70bc2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -46953,7 +46953,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3915, !noalias !3910, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3910
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3919
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h150c2c0006c4e935E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -47039,7 +47039,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3926, !noalias !3921, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3921
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hc71c5837ffa57c03E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -47148,7 +47148,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3937, !noalias !3932, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3932
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h734c8e75743a70a7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -47257,7 +47257,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3948, !noalias !3943, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3943
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h449a169a9110b9afE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -47368,7 +47368,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3959, !noalias !3954, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h7c5bcc69216fb792E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !3963
 
@@ -47454,7 +47454,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3969, !noalias !3964, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3964
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !3973
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h5c5e03fc8cd69e1eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -47540,7 +47540,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3980, !noalias !3975, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3975
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h67d9945e3e00fa9cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -47649,7 +47649,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !3991, !noalias !3986, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3986
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h656d742ec90163d9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -47761,7 +47761,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4002, !noalias !3997, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3997
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4006
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hff9aef3986df083cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -47847,7 +47847,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4013, !noalias !4008, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4008
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h6a0f66dec2e5ee75E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -47956,7 +47956,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4024, !noalias !4019, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hfbd6fdd6327f925eE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -48065,7 +48065,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4035, !noalias !4030, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4030
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h7dded286cc302c13E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -48176,7 +48176,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4046, !noalias !4041, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h5e434c8ccaa5d538E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !4050
 
@@ -48259,7 +48259,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4056, !noalias !4051, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4051
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hcf68aa6f8a869956E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -48368,7 +48368,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4067, !noalias !4062, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4062
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h9cf515c8f4a94bbcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -48477,7 +48477,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4078, !noalias !4073, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4073
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h98c30cb5798e1b0aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -48589,7 +48589,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4089, !noalias !4084, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4084
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4093
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h97dd3410c2c95a3dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -48678,7 +48678,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4100, !noalias !4095, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4095
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4104
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h8177b928fbf813f2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -48764,7 +48764,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4111, !noalias !4106, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h072ae06a3454e3b4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -48873,7 +48873,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4122, !noalias !4117, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hd2e641eecd0c26adE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -48982,7 +48982,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4133, !noalias !4128, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hd16d3f1e20047b2bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49091,7 +49091,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4144, !noalias !4139, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h1c2e23986c3ff0c0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49200,7 +49200,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4155, !noalias !4150, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h922aac55ac4a9b50E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49309,7 +49309,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4166, !noalias !4161, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h4703ac3cfac58c4bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49421,7 +49421,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4177, !noalias !4172, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4181
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h7f0b107b7df1acb0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -49507,7 +49507,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4188, !noalias !4183, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h2feb8ac92fcf49cbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49616,7 +49616,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4199, !noalias !4194, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 80, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h4242993922c935afE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49725,7 +49725,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4210, !noalias !4205, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h91049fd56ebcce3dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49837,7 +49837,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4221, !noalias !4216, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4225
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h0069472a77ad8055E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -49926,7 +49926,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4232, !noalias !4227, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4236
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17he96b4a69cb8622f7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -50015,7 +50015,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4243, !noalias !4238, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4238
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4247
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17haeaad4886c6e9ed6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50101,7 +50101,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4254, !noalias !4249, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17he2c6ac24a2cd7699E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50210,7 +50210,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4265, !noalias !4260, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h8bd3fb399e4a77b0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50319,7 +50319,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4276, !noalias !4271, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h93da722be4f29baeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50428,7 +50428,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4287, !noalias !4282, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4282
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h4ca7efa092820294E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50537,7 +50537,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4298, !noalias !4293, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hb4783b972b22c880E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50646,7 +50646,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4309, !noalias !4304, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hd658ebfcf71df96cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50758,7 +50758,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4320, !noalias !4315, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4315
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4324
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hbe9046cc86b3d66cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -50847,7 +50847,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4331, !noalias !4326, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4335
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h23e848a972992283E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -50933,7 +50933,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4342, !noalias !4337, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4337
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h5fa0d44b5dc10b33E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -51042,7 +51042,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4353, !noalias !4348, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4348
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h501b11d09c53771bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -51153,7 +51153,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4364, !noalias !4359, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17ha10c0330161ac878E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !4368
 
@@ -51239,7 +51239,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4374, !noalias !4369, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4369
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4378
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hc68ae8feb4e97ecaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -51328,7 +51328,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4385, !noalias !4380, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4380
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4389
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h376c744e0d17fe04E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -51417,7 +51417,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4396, !noalias !4391, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4391
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4400
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h7e07cd7830825fe1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -51506,7 +51506,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4407, !noalias !4402, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4402
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4411
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hfb791788f9f6dbe2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -51595,7 +51595,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4418, !noalias !4413, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4422
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h90df35e0d8d5e04cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -51681,7 +51681,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4429, !noalias !4424, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h1a9a3bad021356ffE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -51790,7 +51790,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4440, !noalias !4435, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h6bd43a000f86212fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -51902,7 +51902,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4451, !noalias !4446, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false), !noalias !4455
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h6ad8f7bb268a1a33E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -51991,7 +51991,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4462, !noalias !4457, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4457
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4466
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h943796cdfc2a054eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -52077,7 +52077,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4473, !noalias !4468, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hca0579e6c8b9f9e0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -52189,7 +52189,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4484, !noalias !4479, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4479
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4488
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9b1434ebd9b97d05E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -52278,7 +52278,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4495, !noalias !4490, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4490
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4499
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hfa67f62582f58b52E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -52364,7 +52364,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4506, !noalias !4501, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4501
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hdb72ff72fafb64edE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -52476,7 +52476,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4517, !noalias !4512, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4521
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h89295b096392c947E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -52564,7 +52564,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4528, !noalias !4523, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h781e6e26f2d6d3b2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !4532
 
@@ -52647,7 +52647,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4538, !noalias !4533, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4533
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h39223c2d3928a06bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -52759,7 +52759,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4549, !noalias !4544, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4553
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hc2856757867b3539E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -52845,7 +52845,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4560, !noalias !4555, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h568288dcb0ba18c7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -52954,7 +52954,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4571, !noalias !4566, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h0e3fd2e9a5ee1526E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -53063,7 +53063,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4582, !noalias !4577, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4577
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h1131512851733ba0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -53175,7 +53175,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4593, !noalias !4588, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4588
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4597
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h17262d41ccb29c9dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -53263,7 +53263,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4604, !noalias !4599, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h391ba3c497821946E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !4608
 
@@ -53346,7 +53346,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4614, !noalias !4609, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4609
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hacf6b35df10e5642E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -53458,7 +53458,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4625, !noalias !4620, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4620
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4629
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h78d1dab898a934fcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -53547,7 +53547,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4636, !noalias !4631, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !4640
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h8c455343d4988b84E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -53635,7 +53635,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4647, !noalias !4642, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h4c24bb6aea7d86bcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !4651
 
@@ -53721,7 +53721,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4657, !noalias !4652, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4652
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4661
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h230126035505cb4bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -53807,7 +53807,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4668, !noalias !4663, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4663
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17hc7e8376ba95ff563E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -53919,7 +53919,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4679, !noalias !4674, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4674
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4683
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h5d698f1577157656E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54005,7 +54005,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4690, !noalias !4685, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4685
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h70bbd09f8a84e75dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54114,7 +54114,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4701, !noalias !4696, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4696
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h6074dc8ce9c79a91E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54223,7 +54223,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4712, !noalias !4707, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4707
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h2d2626f0e9ca0064E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54332,7 +54332,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4723, !noalias !4718, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4718
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h34f931c3a825f51fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54444,7 +54444,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4734, !noalias !4729, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4729
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4738
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h994d6477b7924543E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -54530,7 +54530,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4745, !noalias !4740, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4740
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h9585fed73537f1f3E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54639,7 +54639,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4756, !noalias !4751, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4751
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17he9e619cb253213fbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54748,7 +54748,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4767, !noalias !4762, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4762
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h38fd1217d4e2e113E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54857,7 +54857,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4778, !noalias !4773, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4773
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackA$LT$CB$C$B$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h0b5d3b5015a504aeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -54966,7 +54966,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4789, !noalias !4784, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17ha01c812749f4b460E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -55078,7 +55078,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4800, !noalias !4795, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4804
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h13b92e208f5ff8d0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -55166,7 +55166,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4811, !noalias !4806, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h531f5845939668f2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
           to label %28 unwind label %21, !noalias !4815
 
@@ -55252,7 +55252,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4821, !noalias !4816, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4816
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !4825
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9f0984cb51d6e0f6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 4 %27, i64 noundef %spec.select.i.i.i)
@@ -55338,7 +55338,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4832, !noalias !4827, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4827
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   invoke void @"_ZN202_$LT$$LT$rayon..iter..zip..Zip$LT$A$C$B$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..CallbackB$LT$CB$C$A$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$ITEM$GT$$GT$8callback17h3cdd042125b95075E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -55450,7 +55450,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..IntoIter$LT$T$GT$$u20$as$u20$rayon..i
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !4843, !noalias !4838, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4838
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !4847
   invoke void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17hbb73a815ff996a26E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 %27, i64 noundef %spec.select.i.i.i)
@@ -56047,10 +56047,10 @@ define internal noundef zeroext i1 @"_ZN88_$LT$polars_arrow..datatypes..physical
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !3125, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$polars_arrow..datatypes..physical_type..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a502b8930b51c99E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$polars_arrow..datatypes..physical_type..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a502b8930b51c99E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$polars_arrow..datatypes..physical_type..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a502b8930b51c99E.200", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$polars_arrow..datatypes..physical_type..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a502b8930b51c99E.200", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -57594,7 +57594,7 @@ define hidden void @_ZN9polars_io3csv5write10write_impl5write17h354e8d138bc3c421
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load i64, ptr %28, align 8, !noundef !4
-  %30 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [160 x i8], ptr %27, i64 %29
   br label %31
 
 31:                                               ; preds = %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit, %6
@@ -57660,7 +57660,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %57 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %58 = load i64, ptr %28, align 8, !noundef !4
-  %59 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [160 x i8], ptr %57, i64 %58
   store ptr %57, ptr %15, align 8
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %59, ptr %60, align 8
@@ -58127,7 +58127,7 @@ define internal fastcc void @"_ZN9polars_io3csv5write10write_impl5write28_$u7b$$
 
 32:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %33 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %22, i64 %24
+  %33 = getelementptr inbounds nuw [160 x i8], ptr %22, i64 %24
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !align !9, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -58152,7 +58152,7 @@ define internal fastcc void @"_ZN9polars_io3csv5write10write_impl5write28_$u7b$$
 40:                                               ; preds = %27
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %42, i64 %29
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %29
   invoke void @_ZN4core4iter8adapters3zip3zip17hf31cd67345a56ca4E(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %7, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull align 16 %22, i64 noundef %24)
           to label %55 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -58214,8 +58214,8 @@ define internal fastcc void @"_ZN9polars_io3csv5write10write_impl5write28_$u7b$$
   %59 = add nuw i64 %.sroa.556.0, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.052.0.copyload) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.454.0.copyload) ]
-  %60 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %.sroa.454.0.copyload, i64 %.sroa.556.0
-  %61 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %.sroa.052.0.copyload, i64 %.sroa.556.0
+  %60 = getelementptr inbounds nuw [160 x i8], ptr %.sroa.454.0.copyload, i64 %.sroa.556.0
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.052.0.copyload, i64 %.sroa.556.0
   %62 = load ptr, ptr %61, align 8, !nonnull !4, !align !860, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load ptr, ptr %63, align 8, !nonnull !4, !align !9, !noundef !4
@@ -58281,7 +58281,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %.n
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %89 = load ptr, ptr %88, align 8, !nonnull !4, !align !9
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %91 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %53, i64 %54
+  %91 = getelementptr [16 x i8], ptr %53, i64 %54
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 138
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -59509,7 +59509,7 @@ define void @"_ZN134_$LT$polars_mem_engine..executors..projection_simple..Projec
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load i64, ptr %22, align 8, !noundef !4
-  %24 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [80 x i8], ptr %21, i64 %23
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h46f511438f596224E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull %21, ptr noundef nonnull %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3a3f038c6b1baba8418046c4c953cd.137)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %25 = invoke noundef zeroext i1 @_ZN11polars_expr5state15execution_state14ExecutionState14has_node_timer17h1a080817dea82a3cE(ptr noundef nonnull align 8 %2)

@@ -349,7 +349,7 @@ define internal noundef zeroext i1 @GetOneObject(ptr noundef captures(none) %0, 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %11 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   store ptr %2, ptr %19, align 8
   %.pre = load i32, ptr %10, align 4
   br label %20
@@ -394,7 +394,7 @@ define internal noundef zeroext i1 @LogOneLeakedObject(ptr readnone captures(non
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.LogOneLeakedObject, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.LogOneLeakedObject, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -779,7 +779,7 @@ define hidden noundef ptr @SDL_CreateDeviceName(i16 noundef zeroext %0, i16 noun
 
 switch.lookup:                                    ; preds = %28
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_CreateDeviceName, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_CreateDeviceName, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %37
 
@@ -866,7 +866,7 @@ switch.lookup:                                    ; preds = %28
 
 65:                                               ; preds = %.preheader, %63
   %.2104156 = phi i64 [ 0, %.preheader ], [ %64, %63 ]
-  %66 = getelementptr inbounds nuw %struct.anon, ptr @SDL_CreateDeviceName.replacements, i64 %.2104156
+  %66 = getelementptr inbounds nuw [16 x i8], ptr @SDL_CreateDeviceName.replacements, i64 %.2104156
   %67 = load ptr, ptr %66, align 16
   %68 = tail call i64 @SDL_strlen_REAL(ptr noundef %67) #10
   %69 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %.0106135, ptr noundef %67, i64 noundef %68) #10

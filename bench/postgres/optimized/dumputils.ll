@@ -146,7 +146,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   %indvars.iv227 = phi i64 [ 0, %.preheader188.us.preheader ], [ %indvars.iv.next228, %.loopexit189.us ]
   %.0150193.us = phi i32 [ 0, %.preheader188.us.preheader ], [ %.1151.us, %.loopexit189.us ]
   %40 = load ptr, ptr %11, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv227
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv227
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %12, align 8
   br label %45
@@ -158,7 +158,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 
 45:                                               ; preds = %.preheader188.us, %44
   %indvars.iv222 = phi i64 [ 0, %.preheader188.us ], [ %indvars.iv.next223, %44 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv222
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv222
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %47) #9
   %49 = icmp eq i32 %48, 0
@@ -173,17 +173,17 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 ..critedge_crit_edge.us:                          ; preds = %44
   %50 = add i32 %.0150193.us, 1
   %51 = sext i32 %.0150193.us to i64
-  %52 = getelementptr inbounds ptr, ptr %36, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %36, i64 %51
   store ptr %42, ptr %52, align 8
   br label %.loopexit189.us
 
 .preheader188:                                    ; preds = %.preheader188.lr.ph, %.preheader188
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader188 ], [ 0, %.preheader188.lr.ph ]
   %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %55, ptr %56, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count230
   br i1 %exitcond.not, label %._crit_edge, label %.preheader188, !llvm.loop !6
@@ -211,7 +211,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   %indvars.iv244 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next245, %.loopexit.us ]
   %.0154195.us = phi i32 [ 0, %.preheader.us.preheader ], [ %.1155.us, %.loopexit.us ]
   %64 = load ptr, ptr %12, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv244
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv244
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %11, align 8
   br label %69
@@ -223,7 +223,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 
 69:                                               ; preds = %.preheader.us, %68
   %indvars.iv239 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next240, %68 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv239
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv239
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %71) #9
   %73 = icmp eq i32 %72, 0
@@ -238,17 +238,17 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 ..critedge187_crit_edge.us:                       ; preds = %68
   %74 = add i32 %.0154195.us, 1
   %75 = sext i32 %.0154195.us to i64
-  %76 = getelementptr inbounds ptr, ptr %59, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %59, i64 %75
   store ptr %66, ptr %76, align 8
   br label %.loopexit.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv232 = phi i64 [ %indvars.iv.next233, %.preheader ], [ 0, %.preheader.lr.ph ]
   %77 = load ptr, ptr %12, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv232
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv232
   %79 = load ptr, ptr %78, align 8
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %80 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv232
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv232
   store ptr %79, ptr %80, align 8
   %exitcond238.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count247
   br i1 %exitcond238.not, label %._crit_edge198, label %.preheader, !llvm.loop !8
@@ -274,7 +274,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 
 90:                                               ; preds = %.lr.ph, %113
   %indvars.iv249 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next250, %113 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv249
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv249
   %92 = load ptr, ptr %91, align 8
   %93 = call fastcc zeroext i1 @parseAclItem(ptr noundef %92, ptr noundef %3, ptr noundef %1, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef null)
   br i1 %93, label %94, label %._crit_edge203
@@ -350,7 +350,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 
 120:                                              ; preds = %.lr.ph209, %193
   %indvars.iv254 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next255, %193 ]
-  %121 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv254
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv254
   %122 = load ptr, ptr %121, align 8
   %123 = call fastcc zeroext i1 @parseAclItem(ptr noundef %122, ptr noundef %3, ptr noundef %1, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84)
   br i1 %123, label %124, label %._crit_edge210
@@ -1408,7 +1408,7 @@ define dso_local void @quoteAclUserName(ptr noundef %0, ptr noundef readonly cap
   %10 = phi i8 [ %3, %.lr.ph ], [ %8, %6 ]
   %.01524 = phi ptr [ %1, %.lr.ph ], [ %7, %6 ]
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not18 = icmp ne i16 %14, 0
@@ -1551,7 +1551,7 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
   %.045 = phi ptr [ %0, %3 ], [ %17, %11 ]
   %12 = load i8, ptr %.045, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8192
   %.not = icmp eq i16 %16, 0
@@ -1603,7 +1603,7 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
   %35 = phi i8 [ %20, %.lr.ph ], [ %42, %40 ]
   %.577 = phi ptr [ %.146, %.lr.ph ], [ %41, %40 ]
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %22, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 8192
   %.not56 = icmp eq i16 %39, 0
@@ -1633,7 +1633,7 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
   %.6 = phi ptr [ %.4, %.loopexit ], [ %51, %45 ]
   %46 = load i8, ptr %.6, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 8192
   %.not58 = icmp eq i16 %50, 0
@@ -1649,7 +1649,7 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
   %.7 = getelementptr inbounds nuw i8, ptr %.6.pn, i64 1
   %54 = load i8, ptr %.7, align 1
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %44, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = and i16 %57, 8192
   %.not59 = icmp eq i16 %58, 0

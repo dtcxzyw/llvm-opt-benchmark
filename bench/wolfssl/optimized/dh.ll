@@ -695,7 +695,7 @@ DiscreteLogWorkFactor.exit.i.i:                   ; preds = %85, %82
 
 switch.lookup:                                    ; preds = %77
   %97 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_DhGenerateKeyPair, i64 %97
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_DhGenerateKeyPair, i64 %97
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %98
 

@@ -407,7 +407,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   %32 = add i64 %.02848.us.i.i.i, -1
   %33 = load ptr, ptr %31, align 8, !tbaa !41, !noalias !31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8, !tbaa !21, !noalias !31
   %37 = getelementptr i8, ptr %36, i64 4
   %.val.i.us.i.i.i = load i32, ptr %37, align 4, !noalias !31
@@ -434,7 +434,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   %46 = add i64 %.02848.us50.i.i.i, -1
   %47 = load ptr, ptr %31, align 8, !tbaa !41, !noalias !31
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8, !tbaa !21, !noalias !31
   %51 = getelementptr i8, ptr %50, i64 4
   %.val.i33.us.i.i.i = load i32, ptr %51, align 4, !noalias !31
@@ -732,7 +732,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
 33:                                               ; preds = %32
   %34 = add nsw i64 %indvars.iv.i.i.i, -1
   %35 = load ptr, ptr %30, align 8, !tbaa !83, !noalias !76
-  %36 = getelementptr inbounds nuw %"class.lean::expr", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %34
   %37 = load ptr, ptr %36, align 8, !tbaa !3, !noalias !76
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %2, align 8, !tbaa !3, !noalias !76

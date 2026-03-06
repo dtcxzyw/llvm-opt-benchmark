@@ -3,7 +3,6 @@ source_filename = "bench/llvm/original/ProfDataUtils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
 %"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
 %"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
@@ -74,7 +73,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %3
   %15 = lshr i64 %5, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %4, i64 %17
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %14, %.thread.i
@@ -133,7 +132,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %3
   %15 = lshr i64 %5, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %4, i64 %17
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %14, %.thread.i
@@ -200,7 +199,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %7
   %19 = lshr i64 %9, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %8, i64 %21
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %18, %.thread.i.i
@@ -267,7 +266,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %7
   %19 = lshr i64 %9, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %8, i64 %21
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %18, %.thread.i.i
@@ -329,7 +328,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i7: ; preds = %32
   %44 = lshr i64 %34, 2
   %45 = and i64 %44, 15
   %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds %"class.llvm::MDOperand", ptr %33, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %33, i64 %46
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i9
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i9:         ; preds = %43, %.thread.i.i8
@@ -403,7 +402,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i: ; preds = %7
   %19 = lshr i64 %9, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %8, i64 %21
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %18, %.thread.i.i.i
@@ -455,7 +454,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm21g
   %42 = lshr i64 %29, 2
   %43 = and i64 %42, 15
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %8, i64 %44
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i:    ; preds = %41, %.thread.i.i.i.i.i
@@ -493,7 +492,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i: ; preds = %_ZN4llvm9StringR
   %59 = lshr i64 %53, 2
   %60 = and i64 %59, 15
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %8, i64 %61
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i: ; preds = %58, %55
@@ -562,7 +561,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i: ; preds = %7
   %19 = lshr i64 %9, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %8, i64 %21
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %18, %.thread.i.i.i
@@ -599,7 +598,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i:  ; preds = %_ZN4llvm9StringRefC
   %36 = lshr i64 %30, 2
   %37 = and i64 %36, 15
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %8, i64 %38
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %35, %32
@@ -647,7 +646,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %3
   %15 = lshr i64 %5, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %4, i64 %17
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %14, %.thread.i.i
@@ -684,7 +683,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit:    ; preds = %_ZN4llvm9StringRefC
   %32 = lshr i64 %26, 2
   %33 = and i64 %32, 15
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %4, i64 %34
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %28, %31
@@ -732,7 +731,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i: ; preds = %3
   %15 = lshr i64 %5, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %4, i64 %17
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %14, %.thread.i.i.i
@@ -769,7 +768,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i:  ; preds = %_ZN4llvm9StringRefC
   %32 = lshr i64 %26, 2
   %33 = and i64 %32, 15
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %4, i64 %34
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit: ; preds = %28, %31
@@ -818,7 +817,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i: ; preds = %1
   %16 = lshr i64 %3, 2
   %17 = and i64 %16, 15
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::MDOperand", ptr %2, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %2, i64 %18
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i:      ; preds = %15, %.thread.i.i.i.i
@@ -856,7 +855,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i: ; preds = %_ZN4llvm9StringRef
   %33 = lshr i64 %27, 2
   %34 = and i64 %33, 15
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %"class.llvm::MDOperand", ptr %2, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %35
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %32, %29
@@ -916,7 +915,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %7
   %19 = lshr i64 %9, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %8, i64 %21
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %18, %.thread.i.i
@@ -985,7 +984,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i: ; preds = %2
   %17 = lshr i64 %4, 2
   %18 = and i64 %17, 15
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %19
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i:      ; preds = %16, %.thread.i.i.i.i
@@ -1023,7 +1022,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i: ; preds = %_ZN4llvm9StringRef
   %34 = lshr i64 %28, 2
   %35 = and i64 %34, 15
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %3, i64 %36
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %33, %30
@@ -1070,7 +1069,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i:  ; preds = %54, %50
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i
   %.pre-phi.i.i = zext i32 %.pre-phi.i.i.in to i64
   %56 = load ptr, ptr %1, align 8, !tbaa !9
-  %57 = getelementptr i32, ptr %56, i64 %.pre-phi.i.i
+  %57 = getelementptr [4 x i8], ptr %56, i64 %.pre-phi.i.i
   %58 = sub nsw i64 %44, %.pre-phi.i.i
   %59 = shl nsw i64 %58, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %57, i8 0, i64 %59, i1 false), !tbaa !21
@@ -1107,13 +1106,13 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %_ZN4llvm21getBranch
   %68 = lshr i64 %63, 2
   %69 = and i64 %68, 15
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %3, i64 %70
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %65, %67
   %.sroa.0.0.i.i = phi ptr [ %71, %67 ], [ %66, %65 ]
   %72 = zext i32 %.023 to i64
-  %73 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !10
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
   %76 = load ptr, ptr %75, align 8, !tbaa !22
@@ -1130,7 +1129,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %65, %67
   %84 = trunc i64 %.0.i.i17 to i32
   %85 = sub i32 %.023, %42
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %61, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %86
   store i32 %84, ptr %87, align 4, !tbaa !21
   %88 = add i32 %.023, 1
   %.not = icmp eq i32 %88, %.0.i.i20
@@ -1168,7 +1167,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i: ; preds = %2
   %17 = lshr i64 %4, 2
   %18 = and i64 %17, 15
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %19
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i:    ; preds = %16, %.thread.i.i.i.i.i
@@ -1206,7 +1205,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i: ; preds = %_ZN4llvm9StringR
   %34 = lshr i64 %28, 2
   %35 = and i64 %34, 15
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %3, i64 %36
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i: ; preds = %33, %30
@@ -1253,7 +1252,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i: ; preds = %54, %50
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i
   %.pre-phi.i.i.i = zext i32 %.pre-phi.i.i.in.i to i64
   %56 = load ptr, ptr %1, align 8, !tbaa !9
-  %57 = getelementptr i64, ptr %56, i64 %.pre-phi.i.i.i
+  %57 = getelementptr [8 x i8], ptr %56, i64 %.pre-phi.i.i.i
   %58 = sub nsw i64 %44, %.pre-phi.i.i.i
   %59 = shl nsw i64 %58, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %57, i8 0, i64 %59, i1 false), !tbaa !35
@@ -1287,13 +1286,13 @@ _ZN4llvm15SmallVectorImplImE6resizeEm.exit.i:     ; preds = %.sink.split.i.i.i, 
   %68 = lshr i64 %63, 2
   %69 = and i64 %68, 15
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %3, i64 %70
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %67, %65
   %.sroa.0.0.i.i.i = phi ptr [ %71, %67 ], [ %66, %65 ]
   %72 = zext i32 %.023.i to i64
-  %73 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i.i, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !10
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
   %76 = load ptr, ptr %75, align 8, !tbaa !22
@@ -1309,7 +1308,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %67, %65
   %.0.i.i17.i = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !32
   %84 = sub i32 %.023.i, %42
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i64, ptr %61, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %85
   store i64 %.0.i.i17.i, ptr %86, align 8, !tbaa !35
   %87 = add i32 %.023.i, 1
   %.not.i = icmp eq i32 %87, %.0.i.i20.i
@@ -1351,7 +1350,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %4
   %16 = lshr i64 %6, 2
   %17 = and i64 %16, 15
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %5, i64 %18
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %15, %.thread.i.i
@@ -1422,7 +1421,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i: ; preds = %8
   %20 = lshr i64 %10, 2
   %21 = and i64 %20, 15
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %9, i64 %22
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %19, %.thread.i.i.i
@@ -1501,7 +1500,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i: ; preds = %13
   %25 = lshr i64 %15, 2
   %26 = and i64 %25, 15
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds %"class.llvm::MDOperand", ptr %14, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %14, i64 %27
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %24, %.thread.i.i.i
@@ -1577,7 +1576,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightEPKNS_6MDNo
   %11 = lshr i64 %5, 2
   %12 = and i64 %11, 15
   %13 = sub nsw i64 0, %12
-  %14 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %4, i64 %13
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %7, %10
@@ -1625,7 +1624,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i: ; preds = %_ZN4llvmeqENS
   %32 = lshr i64 %22, 2
   %33 = and i64 %32, 15
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %4, i64 %34
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i:      ; preds = %31, %.thread.i.i.i.i
@@ -1662,7 +1661,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i: ; preds = %_ZN4llvm9StringRef
   %49 = lshr i64 %43, 2
   %50 = and i64 %49, 15
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %4, i64 %51
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %48, %45
@@ -1708,12 +1707,12 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %61
   %72 = lshr i64 %62, 2
   %73 = and i64 %72, 15
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %4, i64 %74
   br label %_ZNK4llvm6MDNode10getOperandEj.exit27
 
 _ZNK4llvm6MDNode10getOperandEj.exit27:            ; preds = %.thread, %71
   %.sroa.0.0.i.i26 = phi ptr [ %75, %71 ], [ %70, %.thread ]
-  %76 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i26, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i26, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !10
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 128
   %79 = load ptr, ptr %78, align 8, !tbaa !22
@@ -1768,7 +1767,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread: ; preds = %_ZN4llvmeqENS_9Stri
   %100 = lshr i64 %91, 2
   %101 = and i64 %100, 15
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %4, i64 %102
   br label %_ZNK4llvm6MDNode10getOperandEj.exit38
 
 _ZNK4llvm6MDNode10getOperandEj.exit38:            ; preds = %.thread54, %99
@@ -1870,7 +1869,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %3
   %25 = lshr i64 %19, 2
   %26 = and i64 %25, 15
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %18, i64 %27
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %21, %24
@@ -1933,7 +1932,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread117:      ; preds = %_ZN4llvmneENS_9Stri
   %50 = lshr i64 %44, 2
   %51 = and i64 %50, 15
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %18, i64 %52
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; preds = %49, %46
@@ -2000,7 +1999,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm6MDN
   %75 = lshr i64 %62, 2
   %76 = and i64 %75, 15
   %77 = sub nsw i64 0, %76
-  %78 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %18, i64 %77
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i:      ; preds = %74, %.thread.i.i.i.i
@@ -2041,7 +2040,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i: ; preds = %_ZN4llvm9StringRef
   %91 = lshr i64 %.pre130, 2
   %92 = and i64 %91, 15
   %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %18, i64 %93
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %90, %87
@@ -2070,12 +2069,12 @@ _ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit: ; preds = %_ZN4llvm9StringRe
   %107 = lshr i64 %100, 2
   %108 = and i64 %107, 15
   %109 = sub nsw i64 0, %108
-  %110 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %18, i64 %109
   br label %_ZNK4llvm6MDNode10getOperandEj.exit55
 
 _ZNK4llvm6MDNode10getOperandEj.exit55:            ; preds = %103, %106
   %.sroa.0.0.i.i54 = phi ptr [ %110, %106 ], [ %105, %103 ]
-  %111 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i54, i64 %101
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i54, i64 %101
   %112 = load ptr, ptr %111, align 8, !tbaa !10
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 128
   %114 = load ptr, ptr %113, align 8, !tbaa !22
@@ -2134,7 +2133,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit63: ; pr
   %140 = phi i32 [ %135, %_ZNK4llvm5APInt15getLimitedValueEm.exit ], [ %.pre.i62, %137 ]
   %141 = load ptr, ptr %5, align 8, !tbaa !9
   %142 = zext i32 %140 to i64
-  %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %142
   %144 = ptrtoint ptr %134 to i64
   store i64 %144, ptr %143, align 1
   %145 = load i32, ptr %42, align 8, !tbaa !3
@@ -2218,13 +2217,13 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit71.thread: ; preds = %_ZN4llvmeqENS_9Stri
   %178 = lshr i64 %168, 2
   %179 = and i64 %178, 15
   %180 = sub nsw i64 0, %179
-  %181 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %180
+  %181 = getelementptr inbounds [8 x i8], ptr %18, i64 %180
   br label %_ZNK4llvm6MDNode10getOperandEj.exit74
 
 _ZNK4llvm6MDNode10getOperandEj.exit74:            ; preds = %.thread, %177
   %.sroa.0.0.i.i73 = phi ptr [ %181, %177 ], [ %176, %.thread ]
   %182 = zext i32 %.0 to i64
-  %183 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i73, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i73, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !10
   %185 = load i32, ptr %42, align 8, !tbaa !3
   %186 = load i32, ptr %43, align 4, !tbaa !20
@@ -2242,7 +2241,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit77: ; pr
   %190 = phi i32 [ %185, %_ZNK4llvm6MDNode10getOperandEj.exit74 ], [ %.pre.i76, %187 ]
   %191 = load ptr, ptr %5, align 8, !tbaa !9
   %192 = zext i32 %190 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %192
   %194 = ptrtoint ptr %184 to i64
   store i64 %194, ptr %193, align 1
   %195 = load i32, ptr %42, align 8, !tbaa !3
@@ -2262,13 +2261,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit77: ; pr
   %203 = lshr i64 %198, 2
   %204 = and i64 %203, 15
   %205 = sub nsw i64 0, %204
-  %206 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %205
+  %206 = getelementptr inbounds [8 x i8], ptr %18, i64 %205
   br label %_ZNK4llvm6MDNode10getOperandEj.exit80
 
 _ZNK4llvm6MDNode10getOperandEj.exit80:            ; preds = %200, %202
   %.sroa.0.0.i.i79 = phi ptr [ %206, %202 ], [ %201, %200 ]
   %207 = zext i32 %197 to i64
-  %208 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i79, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i79, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !10
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 128
   %211 = load ptr, ptr %210, align 8, !tbaa !22
@@ -2296,12 +2295,12 @@ _ZNK4llvm6MDNode10getOperandEj.exit80:            ; preds = %200, %202
   %224 = lshr i64 %198, 2
   %225 = and i64 %224, 15
   %226 = sub nsw i64 0, %225
-  %227 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %18, i64 %226
   br label %_ZNK4llvm6MDNode10getOperandEj.exit89
 
 _ZNK4llvm6MDNode10getOperandEj.exit89:            ; preds = %221, %223
   %.sroa.0.0.i.i88 = phi ptr [ %227, %223 ], [ %222, %221 ]
-  %228 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i88, i64 %207
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i88, i64 %207
   %229 = load ptr, ptr %228, align 8, !tbaa !10
   %230 = load i32, ptr %43, align 4, !tbaa !20
   %.not.i.i.not.i90 = icmp ult i32 %196, %230
@@ -2318,7 +2317,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit92: ; pr
   %234 = phi i32 [ %196, %_ZNK4llvm6MDNode10getOperandEj.exit89 ], [ %.pre.i91, %231 ]
   %235 = load ptr, ptr %5, align 8, !tbaa !9
   %236 = zext i32 %234 to i64
-  %237 = getelementptr inbounds nuw ptr, ptr %235, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %236
   %238 = ptrtoint ptr %229 to i64
   store i64 %238, ptr %237, align 1
   %239 = load i32, ptr %42, align 8, !tbaa !3
@@ -2370,7 +2369,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit101: ; p
   %258 = phi i32 [ %253, %_ZNK4llvm5APInt15getLimitedValueEm.exit98 ], [ %.pre.i100, %255 ]
   %259 = load ptr, ptr %5, align 8, !tbaa !9
   %260 = zext i32 %258 to i64
-  %261 = getelementptr inbounds nuw ptr, ptr %259, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %260
   %262 = ptrtoint ptr %252 to i64
   store i64 %262, ptr %261, align 1
   %263 = load i32, ptr %42, align 8, !tbaa !3

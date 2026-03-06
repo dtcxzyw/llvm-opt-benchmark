@@ -169,7 +169,7 @@ count_items.exit60:                               ; preds = %21
 
 57:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %58 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %59 = load float, ptr %58, align 4, !tbaa !36
   %60 = fcmp nsz ole float %59, 0.000000e+00
   %61 = fcmp nsz ogt float %59, 9.000000e+04
@@ -184,7 +184,7 @@ count_items.exit60:                               ; preds = %21
 
 65:                                               ; preds = %57
   %66 = load ptr, ptr %35, align 8, !tbaa !32
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv
   %68 = load float, ptr %67, align 4, !tbaa !36
   %69 = fcmp nsz ole float %68, 0.000000e+00
   %70 = fcmp nsz ogt float %68, 1.000000e+00
@@ -491,7 +491,7 @@ define internal i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.04147 = phi float [ 1.000000e+00, %.lr.ph ], [ %29, %16 ]
-  %17 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !36
   %19 = load i32, ptr %10, align 8, !tbaa !63
   %20 = sitofp i32 %19 to float
@@ -499,12 +499,12 @@ define internal i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
   %22 = fpext nsz float %21 to double
   %23 = fdiv nsz double %22, 1.000000e+03
   %24 = fptosi double %23 to i32
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !33
   %26 = load i32, ptr %13, align 8, !tbaa !68
   %. = tail call i32 @llvm.smax.i32(i32 %26, i32 %24)
   store i32 %., ptr %13, align 8, !tbaa !68
-  %27 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %28 = load float, ptr %27, align 4, !tbaa !36
   %29 = fadd nsz float %.04147, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -550,7 +550,7 @@ define internal i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
 
 switch.lookup:                                    ; preds = %48
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_output, i64 %52
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_output, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %switch.load, ptr %53, align 8, !tbaa !59
@@ -622,11 +622,11 @@ define internal void @echo_samples_dblp(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us.us:                                   ; preds = %._crit_edge71.split.us.us.us, %.lr.ph.split.us.split.us
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %._crit_edge71.split.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv97
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv97
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv97
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv97
   %29 = load ptr, ptr %28, align 8, !tbaa !74
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv97
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv97
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   br label %.lr.ph.us.us.us
 
@@ -643,16 +643,16 @@ define internal void @echo_samples_dblp(ptr noundef captures(none) %0, ptr nound
 35:                                               ; preds = %35, %.lr.ph.us.us.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %35 ], [ 0, %.lr.ph.us.us.us ]
   %.05463.us.us.us = phi double [ %47, %35 ], [ %33, %.lr.ph.us.us.us ]
-  %36 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv91
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv91
   %37 = load i32, ptr %36, align 4, !tbaa !33
   %38 = sub i32 %34, %37
   %.not62.us.us.us = icmp slt i32 %38, %16
   %39 = select i1 %.not62.us.us.us, i32 0, i32 %16
   %40 = sub nsw i32 %38, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %31, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %31, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !75
-  %44 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv91
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv91
   %45 = load float, ptr %44, align 4, !tbaa !36
   %46 = fpext nsz float %45 to double
   %47 = tail call nsz double @llvm.fmuladd.f64(double %43, double %46, double %.05463.us.us.us)
@@ -668,7 +668,7 @@ define internal void @echo_samples_dblp(ptr noundef captures(none) %0, ptr nound
   %..i.us.us.us = select nsz i1 %51, double 1.000000e+00, double %50
   store double %..i.us.us.us, ptr %.05667.us.us.us, align 8, !tbaa !75
   %52 = sext i32 %.165.us.us.us to i64
-  %53 = getelementptr inbounds double, ptr %31, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %31, i64 %52
   store double %32, ptr %53, align 8, !tbaa !75
   %54 = add nsw i32 %.165.us.us.us, 1
   %.not.us.us.us = icmp slt i32 %54, %16
@@ -687,11 +687,11 @@ define internal void @echo_samples_dblp(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us:                                      ; preds = %.lr.ph70.us.preheader, %._crit_edge71.split.us80
   %indvars.iv = phi i64 [ 0, %.lr.ph70.us.preheader ], [ %indvars.iv.next, %._crit_edge71.split.us80 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !74
-  %62 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !74
-  %64 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !74
   br label %66
 
@@ -709,7 +709,7 @@ define internal void @echo_samples_dblp(ptr noundef captures(none) %0, ptr nound
   %..i.us78 = select nsz i1 %72, double 1.000000e+00, double %71
   store double %..i.us78, ptr %.05667.us75, align 8, !tbaa !75
   %73 = sext i32 %.165.us77 to i64
-  %74 = getelementptr inbounds double, ptr %65, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %65, i64 %73
   store double %67, ptr %74, align 8, !tbaa !75
   %75 = add nsw i32 %.165.us77, 1
   %.not.us79 = icmp slt i32 %75, %16
@@ -773,11 +773,11 @@ define internal void @echo_samples_fltp(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us.us:                                   ; preds = %._crit_edge71.split.us.us.us, %.lr.ph.split.us.split.us
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %._crit_edge71.split.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv97
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv97
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv97
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv97
   %29 = load ptr, ptr %28, align 8, !tbaa !74
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv97
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv97
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   br label %.lr.ph.us.us.us
 
@@ -795,16 +795,16 @@ define internal void @echo_samples_fltp(ptr noundef captures(none) %0, ptr nound
 36:                                               ; preds = %36, %.lr.ph.us.us.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %36 ], [ 0, %.lr.ph.us.us.us ]
   %.05463.us.us.us = phi double [ %49, %36 ], [ %34, %.lr.ph.us.us.us ]
-  %37 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv91
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv91
   %38 = load i32, ptr %37, align 4, !tbaa !33
   %39 = sub i32 %35, %38
   %.not62.us.us.us = icmp slt i32 %39, %16
   %40 = select i1 %.not62.us.us.us, i32 0, i32 %16
   %41 = sub nsw i32 %39, %40
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds float, ptr %31, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %31, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !36
-  %45 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv91
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv91
   %46 = load float, ptr %45, align 4, !tbaa !36
   %47 = fmul nsz float %44, %46
   %48 = fpext nsz float %47 to double
@@ -822,7 +822,7 @@ define internal void @echo_samples_fltp(ptr noundef captures(none) %0, ptr nound
   %54 = fptrunc nsz double %..i.us.us.us to float
   store float %54, ptr %.05667.us.us.us, align 4, !tbaa !36
   %55 = sext i32 %.165.us.us.us to i64
-  %56 = getelementptr inbounds float, ptr %31, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %31, i64 %55
   store float %32, ptr %56, align 4, !tbaa !36
   %57 = add nsw i32 %.165.us.us.us, 1
   %.not.us.us.us = icmp slt i32 %57, %16
@@ -841,11 +841,11 @@ define internal void @echo_samples_fltp(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us:                                      ; preds = %.lr.ph70.us.preheader, %._crit_edge71.split.us80
   %indvars.iv = phi i64 [ 0, %.lr.ph70.us.preheader ], [ %indvars.iv.next, %._crit_edge71.split.us80 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !74
-  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !74
-  %67 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !74
   br label %69
 
@@ -865,7 +865,7 @@ define internal void @echo_samples_fltp(ptr noundef captures(none) %0, ptr nound
   %77 = fptrunc nsz double %..i.us78 to float
   store float %77, ptr %.05667.us75, align 4, !tbaa !36
   %78 = sext i32 %.165.us77 to i64
-  %79 = getelementptr inbounds float, ptr %68, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %68, i64 %78
   store float %70, ptr %79, align 4, !tbaa !36
   %80 = add nsw i32 %.165.us77, 1
   %.not.us79 = icmp slt i32 %80, %16
@@ -929,11 +929,11 @@ define internal void @echo_samples_s16p(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us.us:                                   ; preds = %._crit_edge71.split.us.us.us, %.lr.ph.split.us.split.us
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %._crit_edge71.split.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv97
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv97
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv97
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv97
   %29 = load ptr, ptr %28, align 8, !tbaa !74
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv97
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv97
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   br label %.lr.ph.us.us.us
 
@@ -951,17 +951,17 @@ define internal void @echo_samples_s16p(ptr noundef captures(none) %0, ptr nound
 36:                                               ; preds = %36, %.lr.ph.us.us.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %36 ], [ 0, %.lr.ph.us.us.us ]
   %.05463.us.us.us = phi double [ %50, %36 ], [ %34, %.lr.ph.us.us.us ]
-  %37 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv91
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv91
   %38 = load i32, ptr %37, align 4, !tbaa !33
   %39 = sub i32 %35, %38
   %.not62.us.us.us = icmp slt i32 %39, %16
   %40 = select i1 %.not62.us.us.us, i32 0, i32 %16
   %41 = sub nsw i32 %39, %40
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %31, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %31, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !83
   %45 = sitofp i16 %44 to float
-  %46 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv91
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv91
   %47 = load float, ptr %46, align 4, !tbaa !36
   %48 = fmul nsz float %47, %45
   %49 = fpext nsz float %48 to double
@@ -979,7 +979,7 @@ define internal void @echo_samples_s16p(ptr noundef captures(none) %0, ptr nound
   %55 = fptosi double %..i.us.us.us to i16
   store i16 %55, ptr %.05667.us.us.us, align 2, !tbaa !83
   %56 = sext i32 %.165.us.us.us to i64
-  %57 = getelementptr inbounds i16, ptr %31, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %31, i64 %56
   store i16 %32, ptr %57, align 2, !tbaa !83
   %58 = add nsw i32 %.165.us.us.us, 1
   %.not.us.us.us = icmp slt i32 %58, %16
@@ -998,11 +998,11 @@ define internal void @echo_samples_s16p(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us:                                      ; preds = %.lr.ph70.us.preheader, %._crit_edge71.split.us80
   %indvars.iv = phi i64 [ 0, %.lr.ph70.us.preheader ], [ %indvars.iv.next, %._crit_edge71.split.us80 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !74
-  %66 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !74
-  %68 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !74
   br label %70
 
@@ -1022,7 +1022,7 @@ define internal void @echo_samples_s16p(ptr noundef captures(none) %0, ptr nound
   %78 = fptosi double %..i.us78 to i16
   store i16 %78, ptr %.05667.us75, align 2, !tbaa !83
   %79 = sext i32 %.165.us77 to i64
-  %80 = getelementptr inbounds i16, ptr %69, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %69, i64 %79
   store i16 %71, ptr %80, align 2, !tbaa !83
   %81 = add nsw i32 %.165.us77, 1
   %.not.us79 = icmp slt i32 %81, %16
@@ -1089,11 +1089,11 @@ define internal void @echo_samples_s32p(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us.us:                                   ; preds = %._crit_edge71.split.us.us.us, %.lr.ph.split.us.split.us
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %._crit_edge71.split.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv96
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv96
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv96
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv96
   %29 = load ptr, ptr %28, align 8, !tbaa !74
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv96
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv96
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %32 = load i32, ptr %18, align 4, !tbaa !73
   br label %.lr.ph.us.us.us
@@ -1112,17 +1112,17 @@ define internal void @echo_samples_s32p(ptr noundef captures(none) %0, ptr nound
 37:                                               ; preds = %37, %.lr.ph.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %37 ], [ 0, %.lr.ph.us.us.us ]
   %.05463.us.us.us = phi double [ %51, %37 ], [ %35, %.lr.ph.us.us.us ]
-  %38 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv90
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv90
   %39 = load i32, ptr %38, align 4, !tbaa !33
   %40 = sub i32 %36, %39
   %.not62.us.us.us = icmp slt i32 %40, %16
   %41 = select i1 %.not62.us.us.us, i32 0, i32 %16
   %42 = sub nsw i32 %40, %41
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %31, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %31, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !33
   %46 = sitofp i32 %45 to float
-  %47 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv90
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv90
   %48 = load float, ptr %47, align 4, !tbaa !36
   %49 = fmul nsz float %48, %46
   %50 = fpext nsz float %49 to double
@@ -1140,7 +1140,7 @@ define internal void @echo_samples_s32p(ptr noundef captures(none) %0, ptr nound
   %56 = fptosi double %..i.us.us.us to i32
   store i32 %56, ptr %.05667.us.us.us, align 4, !tbaa !33
   %57 = sext i32 %.165.us.us.us to i64
-  %58 = getelementptr inbounds i32, ptr %31, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %31, i64 %57
   store i32 %33, ptr %58, align 4, !tbaa !33
   %59 = add nsw i32 %.165.us.us.us, 1
   %.not.us.us.us = icmp slt i32 %59, %16
@@ -1159,11 +1159,11 @@ define internal void @echo_samples_s32p(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph70.us:                                      ; preds = %.lr.ph70.us.preheader, %._crit_edge71.split.us80
   %indvars.iv = phi i64 [ 0, %.lr.ph70.us.preheader ], [ %indvars.iv.next, %._crit_edge71.split.us80 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !74
-  %67 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !74
-  %69 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !74
   %71 = load i32, ptr %18, align 4, !tbaa !73
   br label %72
@@ -1184,7 +1184,7 @@ define internal void @echo_samples_s32p(ptr noundef captures(none) %0, ptr nound
   %80 = fptosi double %..i.us78 to i32
   store i32 %80, ptr %.05667.us75, align 4, !tbaa !33
   %81 = sext i32 %.165.us77 to i64
-  %82 = getelementptr inbounds i32, ptr %70, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %70, i64 %81
   store i32 %73, ptr %82, align 4, !tbaa !33
   %83 = add nsw i32 %.165.us77, 1
   %.not.us79 = icmp slt i32 %83, %16
@@ -1238,7 +1238,7 @@ define internal fastcc void @fill_items(ptr noundef %0, ptr noundef nonnull capt
 
 8:                                                ; preds = %.lr.ph
   %9 = sext i32 %.01115 to i64
-  %10 = getelementptr inbounds float, ptr %2, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %2, i64 %9
   %11 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.24, ptr noundef %10) #8
   %12 = icmp eq i32 %11, 1
   %13 = zext i1 %12 to i32

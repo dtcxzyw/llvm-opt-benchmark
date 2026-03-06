@@ -123,11 +123,11 @@ define noundef double @_ZN3gmx9SansDebye19getScatteringLengthEid(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4, !tbaa !16
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %4, align 8, !tbaa !7
-  %12 = getelementptr inbounds nuw double, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load double, ptr %12, align 8, !tbaa !18
   ret double %13
 }
@@ -210,7 +210,7 @@ define void @_ZN3gmx9SansDebyeC2ESt6vectorINS_7IsotopeESaIS2_EE(ptr noundef nonn
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 40
   %35 = load double, ptr %34, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw double, ptr %16, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %31
   store double %35, ptr %36, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 120
   %.not = icmp eq ptr %37, %23

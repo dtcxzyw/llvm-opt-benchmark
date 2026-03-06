@@ -93,15 +93,15 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
 43:                                               ; preds = %42, %35
   %.0 = phi i32 [ 6, %42 ], [ 5, %35 ]
   %44 = zext nneg i32 %.0 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %44
   store ptr @.str.6, ptr %45, align 8
   %46 = add nuw nsw i32 %.0, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %7, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %44
   store ptr %1, ptr %47, align 8
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %6, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %48
   store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %7, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %48
   store ptr null, ptr %50, align 8
   %51 = call ptr @PQconnectdbParams(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1) #5
   %.not47 = icmp eq ptr %51, null

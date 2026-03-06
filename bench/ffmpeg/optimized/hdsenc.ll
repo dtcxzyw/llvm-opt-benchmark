@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FFOutputFormat = type { %struct.AVOutputFormat, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
 %union.anon = type { i64 }
-%struct.OutputStream = type { i32, i32, ptr, i32, [32768 x i8], [1024 x i8], i64, i64, ptr, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, [2 x ptr], [2 x i32], i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"hds\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"HDS Muxer\00", align 1
@@ -104,9 +103,9 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   %29 = load ptr, ptr %22, align 8, !tbaa !27
   %30 = load i32, ptr %24, align 8, !tbaa !30
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.OutputStream, ptr %29, i64 %31
+  %32 = getelementptr inbounds [33920 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %25, align 8, !tbaa !31
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !34
@@ -209,7 +208,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
 ._crit_edge163:                                   ; preds = %75
   %.pre = load i32, ptr %24, align 8, !tbaa !30
   %.pre164 = load ptr, ptr %25, align 8, !tbaa !31
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre164, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre164, i64 %indvars.iv
   %.pre165 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !32
   br label %83
 
@@ -227,7 +226,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !34
   %91 = load ptr, ptr %25, align 8, !tbaa !31
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8, !tbaa !32
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !34
@@ -237,14 +236,14 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   store i32 0, ptr %98, align 8, !tbaa !59
   %99 = getelementptr inbounds nuw i8, ptr %87, i64 72
   %100 = load ptr, ptr %25, align 8, !tbaa !31
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv
   %102 = load ptr, ptr %101, align 8, !tbaa !32
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 72
   %104 = load i64, ptr %103, align 8
   store i64 %104, ptr %99, align 8
   %105 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %106 = load ptr, ptr %25, align 8, !tbaa !31
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !32
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %110 = load i64, ptr %109, align 8
@@ -264,7 +263,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %116 = load i32, ptr %115, align 8, !tbaa !30
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.OutputStream, ptr %114, i64 %117
+  %118 = getelementptr inbounds [33920 x i8], ptr %114, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !51
   %.not121 = icmp eq ptr %120, null
@@ -289,7 +288,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
 129:                                              ; preds = %.lr.ph148, %205
   %indvars.iv160 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next161, %205 ]
   %130 = load ptr, ptr %22, align 8, !tbaa !27
-  %131 = getelementptr inbounds nuw %struct.OutputStream, ptr %130, i64 %indvars.iv160
+  %131 = getelementptr inbounds nuw [33920 x i8], ptr %130, i64 %indvars.iv160
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !51
   %134 = tail call i32 @avformat_write_header(ptr noundef %133, ptr noundef null) #8
@@ -321,12 +320,12 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   %149 = trunc nuw nsw i64 %indvars.iv157 to i32
   %150 = add nsw i32 %148, %149
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %147, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %147, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !32
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 48
   %156 = load ptr, ptr %155, align 8, !tbaa !31
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv157
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv157
   %158 = load ptr, ptr %157, align 8, !tbaa !32
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %160 = load i64, ptr %159, align 8
@@ -367,7 +366,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
 
 182:                                              ; preds = %182, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %182 ]
-  %183 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv.i
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv.i
   %184 = load ptr, ptr %183, align 8, !tbaa !67
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 6
   store i8 0, ptr %185, align 1, !tbaa !68
@@ -382,7 +381,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   store i8 0, ptr %191, align 1, !tbaa !68
   %192 = load ptr, ptr %171, align 8, !tbaa !65
   %193 = load ptr, ptr %183, align 8, !tbaa !67
-  %194 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %indvars.iv.i
   %195 = load i32, ptr %194, align 4, !tbaa !25
   tail call void @avio_write(ptr noundef %192, ptr noundef %193, i32 noundef %195) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -434,14 +433,14 @@ define internal i32 @hds_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %8 = load i32, ptr %7, align 4, !tbaa !73
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !58
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.OutputStream, ptr %13, i64 %16
+  %17 = getelementptr inbounds [33920 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 33852
   %19 = load i32, ptr %18, align 4, !tbaa !71
   %20 = sext i32 %19 to i64
@@ -552,7 +551,7 @@ define internal noundef i32 @hds_write_trailer(ptr noundef %0) #0 {
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !27
-  %11 = getelementptr inbounds nuw %struct.OutputStream, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [33920 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 33824
   %13 = load i64, ptr %12, align 8, !tbaa !90
   %14 = tail call fastcc i32 @hds_flush(ptr noundef nonnull %0, ptr noundef %11, i32 noundef 1, i64 noundef %13)
@@ -617,7 +616,7 @@ define internal void @hds_free(ptr noundef %0) #0 {
 .lr.ph41:                                         ; preds = %.preheader36, %._crit_edge
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %._crit_edge ], [ 0, %.preheader36 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !27
-  %9 = getelementptr inbounds nuw %struct.OutputStream, ptr %8, i64 %indvars.iv48
+  %9 = getelementptr inbounds nuw [33920 x i8], ptr %8, i64 %indvars.iv48
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 33832
   %11 = load ptr, ptr %10, align 8, !tbaa !65
   %.not31 = icmp eq ptr %11, null
@@ -678,7 +677,7 @@ define internal void @hds_free(ptr noundef %0) #0 {
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %34) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %25, align 8, !tbaa !66
@@ -689,7 +688,7 @@ define internal void @hds_free(ptr noundef %0) #0 {
 38:                                               ; preds = %.lr.ph39, %38
   %indvars.iv45 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next46, %38 ]
   %39 = load ptr, ptr %32, align 8, !tbaa !96
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv45
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv45
   tail call void @av_freep(ptr noundef %40) #8
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %41 = load i32, ptr %29, align 4, !tbaa !94
@@ -807,13 +806,13 @@ define internal i32 @hds_write(ptr noundef captures(none) %0, ptr noundef %1, i3
 
 43:                                               ; preds = %40
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %19, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %44
   store i32 %36, ptr %45, align 4, !tbaa !25
   %46 = zext nneg i32 %36 to i64
   %47 = tail call ptr @av_memdup(ptr noundef nonnull %.04057.i, i64 noundef %46) #8
   %48 = load i32, ptr %18, align 8, !tbaa !66
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %20, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %20, i64 %49
   store ptr %47, ptr %50, align 8, !tbaa !67
   %.not51.i = icmp eq ptr %47, null
   br i1 %.not51.i, label %parse_header.exit, label %51
@@ -887,7 +886,7 @@ define internal fastcc i32 @write_abst(ptr noundef %0, ptr noundef readonly capt
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !52
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !58
@@ -917,7 +916,7 @@ define internal fastcc i32 @write_abst(ptr noundef %0, ptr noundef readonly capt
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 33856
   %28 = load ptr, ptr %27, align 8, !tbaa !96
   %29 = sext i32 %.pre to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = load ptr, ptr %31, align 8, !tbaa !102
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1024
@@ -1035,21 +1034,21 @@ define internal fastcc i32 @write_abst(ptr noundef %0, ptr noundef readonly capt
   %indvars.iv = phi i64 [ %97, %.lr.ph ], [ %indvars.iv.next, %98 ]
   %99 = load ptr, ptr %3, align 8, !tbaa !106
   %100 = load ptr, ptr %96, align 8, !tbaa !96
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv
   %102 = load ptr, ptr %101, align 8, !tbaa !102
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1040
   %104 = load i32, ptr %103, align 8, !tbaa !107
   call void @avio_wb32(ptr noundef %99, i32 noundef %104) #8
   %105 = load ptr, ptr %3, align 8, !tbaa !106
   %106 = load ptr, ptr %96, align 8, !tbaa !96
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !102
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 1024
   %110 = load i64, ptr %109, align 8, !tbaa !104
   call void @avio_wb64(ptr noundef %105, i64 noundef %110) #8
   %111 = load ptr, ptr %3, align 8, !tbaa !106
   %112 = load ptr, ptr %96, align 8, !tbaa !96
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !102
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 1032
   %116 = load i64, ptr %115, align 8, !tbaa !108
@@ -1173,7 +1172,7 @@ define internal fastcc i32 @write_manifest(ptr noundef %0, i32 noundef range(i32
 58:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %59 = load ptr, ptr %57, align 8, !tbaa !27
-  %60 = getelementptr inbounds nuw %struct.OutputStream, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [33920 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 33880
   %62 = load i32, ptr %61, align 8, !tbaa !99
   %63 = add nsw i32 %62, 2
@@ -1276,7 +1275,7 @@ define internal fastcc i32 @hds_flush(ptr noundef %0, ptr noundef %1, i32 nounde
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !52
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !58
@@ -1354,7 +1353,7 @@ define internal fastcc i32 @hds_flush(ptr noundef %0, ptr noundef %1, i32 nounde
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %45, align 4, !tbaa !94
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds ptr, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   store ptr %57, ptr %69, align 8, !tbaa !102
   %70 = add nsw i32 %62, 1
   store i32 %70, ptr %35, align 4, !tbaa !71
@@ -1396,7 +1395,7 @@ add_fragment.exit:                                ; preds = %56, %.critedge.i, %
 
 92:                                               ; preds = %92, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %92 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv.i
   %94 = load ptr, ptr %93, align 8, !tbaa !67
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 6
   store i8 %82, ptr %95, align 1, !tbaa !68
@@ -1411,7 +1410,7 @@ add_fragment.exit:                                ; preds = %56, %.critedge.i, %
   store i8 %90, ptr %101, align 1, !tbaa !68
   %102 = load ptr, ptr %24, align 8, !tbaa !65
   %103 = load ptr, ptr %93, align 8, !tbaa !67
-  %104 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4, !tbaa !25
   call void @avio_write(ptr noundef %102, ptr noundef %103, i32 noundef %105) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1473,11 +1472,11 @@ init_file.exit.thread:                            ; preds = %92, %76
 129:                                              ; preds = %.preheader, %129
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %129 ]
   %130 = load ptr, ptr %128, align 8, !tbaa !96
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv
   %132 = load ptr, ptr %131, align 8, !tbaa !102
   %133 = call i32 @unlink(ptr noundef %132) #8
   %134 = load ptr, ptr %128, align 8, !tbaa !96
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv
   call void @av_freep(ptr noundef %135) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1488,7 +1487,7 @@ init_file.exit.thread:                            ; preds = %92, %76
   %138 = sub nsw i32 %137, %.0
   store i32 %138, ptr %45, align 4, !tbaa !94
   %139 = load ptr, ptr %128, align 8, !tbaa !96
-  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %wide.trip.count
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %wide.trip.count
   %141 = sext i32 %138 to i64
   %142 = shl nsw i64 %141, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %139, ptr nonnull align 8 %140, i64 %142, i1 false)

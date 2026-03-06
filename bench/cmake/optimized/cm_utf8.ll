@@ -68,7 +68,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(add
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds nuw i32, ptr @cm_utf8_min, i64 %14
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @cm_utf8_min, i64 %14
   %33 = load i32, ptr %32, align 4, !tbaa !9
   %34 = icmp ult i32 %26, %33
   %35 = and i32 %.02941, 67108832
@@ -153,7 +153,7 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly capt
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %._crit_edge.i
-  %29 = getelementptr inbounds nuw i32, ptr @cm_utf8_min, i64 %11
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @cm_utf8_min, i64 %11
   %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = icmp ult i32 %23, %30
   %32 = and i32 %.02941.i, 67108832

@@ -2707,7 +2707,7 @@ switch.lookup:
   %.sroa.0.07.i.sroa.gep58 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.0.07.i53.sroa.gep59 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %20 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12jsonwebtoken8encoding6encode17hf63aa5d194512182E, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12jsonwebtoken8encoding6encode17hf63aa5d194512182E, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = load i8, ptr %21, align 8, !range !1852, !noundef !5
@@ -3484,7 +3484,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$alloc..string.
 
 5:                                                ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit"
   %.sroa.0.07 = phi i64 [ 0, %1 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit" ]
-  %6 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.0.07
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.sroa.0.07
   %7 = add nuw nsw i64 %.sroa.0.07, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2260
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6d1a0d4999cef1abE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5602,8 +5602,8 @@ define hidden noundef align 8 ptr @"_ZN74_$LT$jsonwebtoken..jwk..KeyOperations$u
   %5 = icmp ult i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$jsonwebtoken..jwk..KeyOperations$u20$as$u20$serde..ser..Serialize$GT$9serialize17hc9257b442ef869ddE", i64 %4
-  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$jsonwebtoken..jwk..KeyOperations$u20$as$u20$serde..ser..Serialize$GT$9serialize17hc9257b442ef869ddE.20", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$jsonwebtoken..jwk..KeyOperations$u20$as$u20$serde..ser..Serialize$GT$9serialize17hc9257b442ef869ddE", i64 %4
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$jsonwebtoken..jwk..KeyOperations$u20$as$u20$serde..ser..Serialize$GT$9serialize17hc9257b442ef869ddE.20", i64 %4
   %.sroa.10.0.in = select i1 %5, ptr %switch.gep, ptr %7
   %.sroa.0.0.in = select i1 %5, ptr %switch.gep4, ptr %6
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8

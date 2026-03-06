@@ -1410,7 +1410,7 @@ cli_max_malloc.exit.tail.thread:                  ; preds = %sub_031, %cli_max_m
   br i1 %.not141.i, label %.thread, label %.thread.sink.split
 
 cli_max_realloc.exit:                             ; preds = %94
-  %100 = getelementptr inbounds nuw %struct.dirent_data, ptr %95, i64 %.0107.i55
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %95, i64 %.0107.i55
   store ptr %59, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %.0106.i, ptr %101, align 8, !tbaa !28
@@ -1471,7 +1471,7 @@ select.unfold:                                    ; preds = %61, %cli_max_reallo
 
 114:                                              ; preds = %.lr.ph, %127
   %.0104.i58 = phi i64 [ 0, %.lr.ph ], [ %128, %127 ]
-  %115 = getelementptr inbounds nuw %struct.dirent_data, ptr %.1103.i, i64 %.0104.i58
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %.1103.i, i64 %.0104.i58
   %116 = call fastcc i32 @handle_entry(ptr noundef %115, i32 noundef %1, i32 noundef %113, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %118 = load i32, ptr %117, align 8, !tbaa !31
@@ -1515,7 +1515,7 @@ select.unfold:                                    ; preds = %61, %cli_max_reallo
 
 .lr.ph62:                                         ; preds = %.loopexit, %.lr.ph62
   %.1105.i61 = phi i64 [ %.1105.i, %.lr.ph62 ], [ %.1105.i60, %.loopexit ]
-  %130 = getelementptr inbounds nuw %struct.dirent_data, ptr %.1103.i, i64 %.1105.i61
+  %130 = getelementptr inbounds nuw [40 x i8], ptr %.1103.i, i64 %.1105.i61
   %131 = load ptr, ptr %130, align 8, !tbaa !33
   call void @free(ptr noundef %131) #23
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 16

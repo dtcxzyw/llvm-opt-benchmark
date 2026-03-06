@@ -247,7 +247,7 @@ define internal i32 @ossltest_digests(ptr readnone captures(none) %0, ptr nounde
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr @ossltest_digest_nids.pos, align 4, !tbaa !12
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i32, ptr @ossltest_digest_nids.digest_nids, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr @ossltest_digest_nids.digest_nids, i64 %12
   store i32 %9, ptr %13, align 4, !tbaa !12
   br label %14
 
@@ -262,7 +262,7 @@ define internal i32 @ossltest_digests(ptr readnone captures(none) %0, ptr nounde
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr @ossltest_digest_nids.pos, align 4, !tbaa !12
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds i32, ptr @ossltest_digest_nids.digest_nids, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr @ossltest_digest_nids.digest_nids, i64 %20
   store i32 %17, ptr %21, align 4, !tbaa !12
   br label %22
 
@@ -277,7 +277,7 @@ define internal i32 @ossltest_digests(ptr readnone captures(none) %0, ptr nounde
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr @ossltest_digest_nids.pos, align 4, !tbaa !12
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i32, ptr @ossltest_digest_nids.digest_nids, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr @ossltest_digest_nids.digest_nids, i64 %28
   store i32 %25, ptr %29, align 4, !tbaa !12
   br label %30
 
@@ -292,7 +292,7 @@ define internal i32 @ossltest_digests(ptr readnone captures(none) %0, ptr nounde
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr @ossltest_digest_nids.pos, align 4, !tbaa !12
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds i32, ptr @ossltest_digest_nids.digest_nids, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr @ossltest_digest_nids.digest_nids, i64 %36
   store i32 %33, ptr %37, align 4, !tbaa !12
   br label %38
 
@@ -311,14 +311,14 @@ define internal i32 @ossltest_digests(ptr readnone captures(none) %0, ptr nounde
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr @ossltest_digest_nids.pos, align 4, !tbaa !12
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds i32, ptr @ossltest_digest_nids.digest_nids, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr @ossltest_digest_nids.digest_nids, i64 %44
   store i32 %41, ptr %45, align 4, !tbaa !12
   br label %46
 
 46:                                               ; preds = %40, %._crit_edge.i
   %47 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %43, %40 ]
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr @ossltest_digest_nids.digest_nids, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr @ossltest_digest_nids.digest_nids, i64 %48
   store i32 0, ptr %49, align 4, !tbaa !12
   store i1 true, ptr @ossltest_digest_nids.init, align 4
   br label %ossltest_digest_nids.exit

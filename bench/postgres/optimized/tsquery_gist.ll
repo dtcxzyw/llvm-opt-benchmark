@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/tsquery_gist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GISTENTRY = type { i64, ptr, ptr, i16, i8 }
-%struct.SPLITCOST = type { i16, i32 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gtsquery_compress(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -139,7 +136,7 @@ define dso_local i64 @gtsquery_union(ptr noundef readonly captures(none) %0) loc
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.0910 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
-  %11 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   %13 = or i64 %12, %.0910
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -243,7 +240,7 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
   %.0107165 = phi i16 [ 0, %.lr.ph167 ], [ %.2109, %.loopexit ]
   %.0113163 = phi i32 [ -1, %.lr.ph167 ], [ %.2115, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %24 = trunc nuw i64 %indvars.iv.next to i16
   %25 = trunc nuw i64 %indvars.iv to i16
@@ -255,7 +252,7 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
   %.1114158 = phi i32 [ %.0113163, %.lr.ph ], [ %.2115, %hemdist.exit ]
   %.0116157 = phi i16 [ %24, %.lr.ph ], [ %37, %hemdist.exit ]
   %27 = zext i16 %.0116157 to i64
-  %28 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %20, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = xor i64 %23, %29
   br label %31
@@ -290,10 +287,10 @@ hemdist.exit:                                     ; preds = %31
   %spec.select131 = select i1 %or.cond, i16 2, i16 %.0105.lcssa
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = zext i16 %spec.select to i64
-  %42 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = zext i16 %spec.select131 to i64
-  %45 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %40, i64 %44
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = trunc i32 %8 to i16
   %48 = add i16 %47, -1
@@ -314,12 +311,12 @@ hemdist.exit:                                     ; preds = %31
 
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %hemdist.exit141
   %indvars.iv194 = phi i64 [ 1, %.lr.ph173.preheader ], [ %indvars.iv.next195, %hemdist.exit141 ]
-  %52 = getelementptr %struct.SPLITCOST, ptr %51, i64 %indvars.iv194
+  %52 = getelementptr [8 x i8], ptr %51, i64 %indvars.iv194
   %53 = getelementptr i8, ptr %52, i64 -8
   %54 = trunc nuw i64 %indvars.iv194 to i16
   store i16 %54, ptr %53, align 4
   %55 = load i64, ptr %42, align 8
-  %56 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %40, i64 %indvars.iv194
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %indvars.iv194
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, %55
   br label %59
@@ -370,7 +367,7 @@ hemdist.exit141:                                  ; preds = %66
   %.0103178 = phi ptr [ %.1104, %124 ], [ %14, %._crit_edge174 ]
   %.0118176 = phi i64 [ %.1119, %124 ], [ %46, %._crit_edge174 ]
   %.0120175 = phi i64 [ %.1121, %124 ], [ %43, %._crit_edge174 ]
-  %74 = getelementptr inbounds nuw %struct.SPLITCOST, ptr %51, i64 %indvars.iv199
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv199
   %75 = load i16, ptr %74, align 4
   %76 = icmp eq i16 %75, %spec.select
   br i1 %76, label %77, label %81
@@ -397,7 +394,7 @@ hemdist.exit141:                                  ; preds = %66
 
 87:                                               ; preds = %81
   %88 = zext i16 %75 to i64
-  %89 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %40, i64 %88
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = xor i64 %90, %.0120175
   br label %92

@@ -2346,7 +2346,7 @@ define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %6, 1
   ret { ptr, i64 } %9
@@ -2359,7 +2359,7 @@ define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds nuw { [2 x i64] }, ptr %0, i64 %3
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %3
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %6, 1
   ret { ptr, i64 } %9
@@ -2372,7 +2372,7 @@ define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %3
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %6, 1
   ret { ptr, i64 } %9
@@ -2385,7 +2385,7 @@ define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %6, 1
   ret { ptr, i64 } %9
@@ -37729,7 +37729,7 @@ define hidden { i64, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   store i64 %7, ptr %2, align 8
   %8 = icmp ult i64 %5, 2
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %10 = load i64, ptr %9, align 8, !noundef !9
   br label %11
 
@@ -37755,7 +37755,7 @@ define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   store i64 %7, ptr %2, align 8
   %8 = icmp ult i64 %5, 3
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { [2 x i64] }, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   %10 = load ptr, ptr %9, align 8, !nonnull !9, !align !198, !noundef !9
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !9
@@ -37783,7 +37783,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN99_$LT$core..a
   store i64 %7, ptr %2, align 8
   %8 = icmp ult i64 %5, 2
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %10 = load ptr, ptr %9, align 8, !nonnull !9, !align !10, !noundef !9
   br label %11
 

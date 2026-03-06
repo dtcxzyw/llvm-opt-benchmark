@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.absl::str_format_internal::ConvTag" = type { i8 }
-%"class.absl::str_format_internal::FormatArgImpl" = type { %"union.absl::str_format_internal::FormatArgImpl::Data", ptr }
-%"union.absl::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -38,6 +36,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::internal_compressed_tuple::Storage.3" = type { i64 }
 %"union.absl::inlined_vector_internal::Storage<absl::str_format_internal::FormatArgImpl, 4, std::allocator<absl::str_format_internal::FormatArgImpl>>::Data" = type { %"struct.absl::inlined_vector_internal::Storage<absl::str_format_internal::FormatArgImpl, 4, std::allocator<absl::str_format_internal::FormatArgImpl>>::Allocated", [48 x i8] }
 %"struct.absl::inlined_vector_internal::Storage<absl::str_format_internal::FormatArgImpl, 4, std::allocator<absl::str_format_internal::FormatArgImpl>>::Allocated" = type { ptr, i64 }
+%"class.absl::str_format_internal::FormatArgImpl" = type { %"union.absl::str_format_internal::FormatArgImpl::Data", ptr }
+%"union.absl::str_format_internal::FormatArgImpl::Data" = type { ptr }
 
 $_ZN4absl19str_format_internal14FormatSinkImplD2Ev = comdat any
 
@@ -79,7 +79,7 @@ define dso_local noundef zeroext i1 @_ZN4absl19str_format_internal12BindWithPack
   br i1 %.not.i, label %10, label %_ZN4absl19str_format_internal12_GLOBAL__N_110ArgContext4BindEPKNS0_17UnboundConversionEPNS0_15BoundConversionE.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw %"class.absl::str_format_internal::FormatArgImpl", ptr %1, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i8, ptr %12, align 4, !tbaa !13
   %.not36.i = icmp eq i8 %13, 0
@@ -100,7 +100,7 @@ define dso_local noundef zeroext i1 @_ZN4absl19str_format_internal12BindWithPack
   br i1 %21, label %.critedge.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i: ; preds = %18
-  %22 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %1, i64 %20
+  %22 = getelementptr [16 x i8], ptr %1, i64 %20
   %23 = getelementptr i8, ptr %22, i64 -16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %23, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %22, i64 -8
@@ -136,7 +136,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_1
   br i1 %38, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit43.thread.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit43.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit43.i: ; preds = %35
-  %39 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %1, i64 %37
+  %39 = getelementptr [16 x i8], ptr %1, i64 %37
   %40 = getelementptr i8, ptr %39, i64 -16
   %.sroa.0.0.copyload.i39.i = load ptr, ptr %40, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i40.i = getelementptr i8, ptr %39, i64 -8
@@ -442,7 +442,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20Summarizing
 116:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit49.i.i
   %117 = load i8, ptr %115, align 1, !tbaa !16
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %118
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %119, align 1, !tbaa !16
   %120 = icmp sgt i8 %.sroa.0.0.copyload.i.i.i, -1
   br i1 %120, label %121, label %128
@@ -927,7 +927,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
 115:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit49.i.i
   %116 = load i8, ptr %114, align 1, !tbaa !16
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %117
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %118, align 1, !tbaa !16
   %119 = icmp sgt i8 %.sroa.0.0.copyload.i.i.i, -1
   br i1 %119, label %120, label %127
@@ -1323,7 +1323,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %11, align 8, !tbaa !100
-  %19 = getelementptr inbounds nuw %"class.absl::str_format_internal::FormatArgImpl", ptr %18, i64 %14
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load i8, ptr %20, align 4, !tbaa !13
   %.not36.i = icmp eq i8 %21, 0
@@ -1344,7 +1344,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
   br i1 %29, label %.critedge.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i: ; preds = %26
-  %30 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %18, i64 %28
+  %30 = getelementptr [16 x i8], ptr %18, i64 %28
   %31 = getelementptr i8, ptr %30, i64 -16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %31, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %30, i64 -8
@@ -1382,7 +1382,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_1
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit43.i: ; preds = %43
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !101
-  %47 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %.sroa.0.0.copyload.i, i64 %45
+  %47 = getelementptr [16 x i8], ptr %.sroa.0.0.copyload.i, i64 %45
   %48 = getelementptr i8, ptr %47, i64 -16
   %.sroa.0.0.copyload.i39.i = load ptr, ptr %48, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i40.i = getelementptr i8, ptr %47, i64 -8
@@ -1817,7 +1817,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8, !tbaa !100
-  %13 = getelementptr inbounds nuw %"class.absl::str_format_internal::FormatArgImpl", ptr %12, i64 %8
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i8, ptr %14, align 4, !tbaa !13
   %.not36.i = icmp eq i8 %15, 0
@@ -1838,7 +1838,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
   br i1 %23, label %.critedge.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i: ; preds = %20
-  %24 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %12, i64 %22
+  %24 = getelementptr [16 x i8], ptr %12, i64 %22
   %25 = getelementptr i8, ptr %24, i64 -16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %25, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %24, i64 -8
@@ -1876,7 +1876,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_1
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit43.i: ; preds = %37
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !101
-  %41 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %.sroa.0.0.copyload.i, i64 %39
+  %41 = getelementptr [16 x i8], ptr %.sroa.0.0.copyload.i, i64 %39
   %42 = getelementptr i8, ptr %41, i64 -16
   %.sroa.0.0.copyload.i39.i = load ptr, ptr %42, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i40.i = getelementptr i8, ptr %41, i64 -8

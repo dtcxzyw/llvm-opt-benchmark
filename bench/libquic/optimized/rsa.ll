@@ -205,7 +205,7 @@ define hidden void @RSA_free(ptr noundef %0) local_unnamed_addr #0 {
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %41 = load ptr, ptr %39, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !46
   tail call void @BN_BLINDING_free(ptr noundef %43) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -713,7 +713,7 @@ define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly ca
 
 .preheader:                                       ; preds = %6, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %6 ]
-  %12 = getelementptr inbounds nuw %struct.pkcs1_sig_prefix, ptr @kPKCS1SigPrefixes, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr @kPKCS1SigPrefixes, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8, !tbaa !64
   %.not39.not = icmp eq i32 %13, %3
   br i1 %.not39.not, label %14, label %11

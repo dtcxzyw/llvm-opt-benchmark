@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [20 x i8] c"identifier too long\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"Identifier must be less than %d characters.\00", align 1
@@ -502,7 +501,7 @@ list_length.exit.thread:                          ; preds = %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %.lr.ph ]
   %.0162226 = phi i32 [ %.1, %29 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8
   %19 = tail call ptr @get_namespace_name(i32 noundef %18) #10
   %.not20 = icmp eq ptr %19, null
@@ -520,7 +519,7 @@ list_length.exit.thread:                          ; preds = %1
   %24 = ptrtoint ptr %19 to i64
   %25 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %24) #10
   %26 = sext i32 %.0162226 to i64
-  %27 = getelementptr inbounds i64, ptr %11, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %11, i64 %26
   store i64 %25, ptr %27, align 8
   %28 = add i32 %.0162226, 1
   br label %29

@@ -3,7 +3,6 @@ source_filename = "bench/hermes/original/JSONEmitter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.hermes::JSONEmitter::State" = type { i8, i8, i8, i8, i8 }
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
 %"class.llvh::SmallVector.0" = type <{ %"class.llvh::SmallVectorImpl.1", %"struct.llvh::SmallVectorStorage.4", [4 x i8] }>
@@ -110,7 +109,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %conv.i.i = zext i32 %0 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::JSONEmitter::State", ptr %1, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [5 x i8], ptr %1, i64 %conv.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -5
   %needsComma = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
   %2 = load i8, ptr %needsComma, align 1
@@ -885,7 +884,7 @@ entry:
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::JSONEmitter::State", ptr %0, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [5 x i8], ptr %0, i64 %conv.i.i
   %needsComma = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
   %2 = load i8, ptr %needsComma, align 1
   %tobool = trunc i8 %2 to i1
@@ -1145,7 +1144,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERK
   %7 = phi i32 [ %.pre.i, %if.then.i3 ], [ %5, %_ZN6hermes11JSONEmitter10indentMoreEv.exit ]
   %8 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::JSONEmitter::State", ptr %8, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [5 x i8], ptr %8, i64 %conv.i3.i
   store i8 0, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1
   store i8 0, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -1197,7 +1196,7 @@ _ZN6hermes11JSONEmitter10indentLessEv.exit:       ; preds = %entry
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::JSONEmitter::State", ptr %2, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [5 x i8], ptr %2, i64 %conv.i.i
   %isEmpty = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -1
   %4 = load i8, ptr %isEmpty, align 1
   %tobool = trunc i8 %4 to i1
@@ -1361,7 +1360,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERK
   %7 = phi i32 [ %.pre.i, %if.then.i3 ], [ %5, %_ZN4llvh11raw_ostreamlsEc.exit ]
   %8 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::JSONEmitter::State", ptr %8, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [5 x i8], ptr %8, i64 %conv.i3.i
   store i8 1, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1
   store i8 0, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -1394,7 +1393,7 @@ _ZN6hermes11JSONEmitter10indentLessEv.exit:       ; preds = %entry
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::JSONEmitter::State", ptr %2, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [5 x i8], ptr %2, i64 %conv.i.i
   %isEmpty = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -1
   %4 = load i8, ptr %isEmpty, align 1
   %tobool = trunc i8 %4 to i1
@@ -1511,7 +1510,7 @@ _ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit: ; preds = 
   %3 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %1, %if.then ]
   %4 = load ptr, ptr %0, align 8
   %conv.i3.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %4, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %conv.i3.i.i
   store i16 %conv, ptr %add.ptr.i.i.i, align 1
   %5 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i = add i32 %5, 1
@@ -1542,7 +1541,7 @@ _ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19: ; preds 
   %11 = phi i32 [ %.pre.i.i15, %if.then.i.i13 ], [ %9, %if.else ]
   %12 = load ptr, ptr %8, align 8
   %conv.i3.i.i16 = zext i32 %11 to i64
-  %add.ptr.i.i.i17 = getelementptr inbounds nuw i16, ptr %12, i64 %conv.i3.i.i16
+  %add.ptr.i.i.i17 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %conv.i3.i.i16
   store i16 %conv4, ptr %add.ptr.i.i.i17, align 1
   %13 = load i32, ptr %Size.i.i.i10, align 8
   %add.i.i18 = add i32 %13, 1
@@ -1568,7 +1567,7 @@ _ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit29: ; preds 
   %19 = phi i32 [ %.pre.i.i25, %if.then.i.i23 ], [ %17, %_ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19 ]
   %20 = load ptr, ptr %16, align 8
   %conv.i3.i.i26 = zext i32 %19 to i64
-  %add.ptr.i.i.i27 = getelementptr inbounds nuw i16, ptr %20, i64 %conv.i3.i.i26
+  %add.ptr.i.i.i27 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %conv.i3.i.i26
   store i16 %conv11, ptr %add.ptr.i.i.i27, align 1
   %21 = load i32, ptr %Size.i.i.i20, align 8
   %add.i.i28 = add i32 %21, 1
@@ -1713,7 +1712,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39.idx = mul nuw nsw i64 %CurSize.0, 5
   %add.ptr39 = getelementptr inbounds nuw i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
-  %add.ptr42 = getelementptr inbounds nuw %"struct.hermes::JSONEmitter::State", ptr %12, i64 %CurSize.0
+  %add.ptr42 = getelementptr inbounds nuw [5 x i8], ptr %12, i64 %CurSize.0
   %add.ptr.i.idx57 = sub nsw i64 %conv.i51, %CurSize.0
   %gepdiff = mul nsw i64 %add.ptr.i.idx57, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %gepdiff, i1 false)

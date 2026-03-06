@@ -57,7 +57,7 @@ get_ref_filter_type.exit:                         ; preds = %28, %24, %2
   %40 = load i32, ptr %39, align 8
   %41 = sub nsw i32 0, %40
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %4, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %4, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 8
@@ -196,10 +196,10 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
   %.05780 = phi i32 [ %.158, %82 ], [ %36, %35 ]
   %.07379 = phi i32 [ %.174, %82 ], [ 0, %35 ]
   %44 = sext i32 %.05481 to i64
-  %45 = getelementptr inbounds i16, ptr %37, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %37, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = sext i32 %.05780 to i64
-  %48 = getelementptr inbounds i16, ptr %38, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %38, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = icmp ult i16 %49, %46
   %51 = icmp sgt i32 %.07379, 0
@@ -210,7 +210,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
 
 53:                                               ; preds = %52
   %54 = zext nneg i32 %.07379 to i64
-  %55 = getelementptr i16, ptr %2, i64 %54
+  %55 = getelementptr [2 x i8], ptr %2, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -2
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %49, %57
@@ -219,7 +219,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
 59:                                               ; preds = %53, %52
   %60 = add nsw i32 %.07379, 1
   %61 = sext i32 %.07379 to i64
-  %62 = getelementptr inbounds i16, ptr %2, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %2, i64 %61
   store i16 %49, ptr %62, align 2
   br label %palette_add_to_cache.exit
 
@@ -234,7 +234,7 @@ palette_add_to_cache.exit:                        ; preds = %53, %59
 
 66:                                               ; preds = %65
   %67 = zext nneg i32 %.07379 to i64
-  %68 = getelementptr i16, ptr %2, i64 %67
+  %68 = getelementptr [2 x i8], ptr %2, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -2
   %70 = load i16, ptr %69, align 2
   %71 = icmp eq i16 %46, %70
@@ -243,7 +243,7 @@ palette_add_to_cache.exit:                        ; preds = %53, %59
 72:                                               ; preds = %66, %65
   %73 = add nsw i32 %.07379, 1
   %74 = sext i32 %.07379 to i64
-  %75 = getelementptr inbounds i16, ptr %2, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %2, i64 %74
   store i16 %46, ptr %75, align 2
   br label %palette_add_to_cache.exit66
 
@@ -285,14 +285,14 @@ palette_add_to_cache.exit66:                      ; preds = %66, %72
   %.27588 = phi i32 [ %.073.lcssa, %.lr.ph91.preheader ], [ %.6, %palette_add_to_cache.exit67 ]
   %88 = add nsw i32 %.390, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
+  %89 = getelementptr inbounds [2 x i8], ptr %37, i64 %indvars.iv
   %90 = load i16, ptr %89, align 2
   %91 = icmp sgt i32 %.27588, 0
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %.lr.ph91
   %93 = zext nneg i32 %.27588 to i64
-  %94 = getelementptr i16, ptr %2, i64 %93
+  %94 = getelementptr [2 x i8], ptr %2, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -2
   %96 = load i16, ptr %95, align 2
   %97 = icmp eq i16 %90, %96
@@ -301,7 +301,7 @@ palette_add_to_cache.exit66:                      ; preds = %66, %72
 98:                                               ; preds = %92, %.lr.ph91
   %99 = add nsw i32 %.27588, 1
   %100 = sext i32 %.27588 to i64
-  %101 = getelementptr inbounds i16, ptr %2, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %2, i64 %100
   store i16 %90, ptr %101, align 2
   br label %palette_add_to_cache.exit67
 
@@ -316,14 +316,14 @@ palette_add_to_cache.exit67:                      ; preds = %92, %98
   %.37693 = phi i32 [ %.275.lcssa, %.lr.ph96.preheader ], [ %.7, %palette_add_to_cache.exit68 ]
   %103 = add nsw i32 %.35395, -1
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
-  %104 = getelementptr inbounds i16, ptr %38, i64 %indvars.iv99
+  %104 = getelementptr inbounds [2 x i8], ptr %38, i64 %indvars.iv99
   %105 = load i16, ptr %104, align 2
   %106 = icmp sgt i32 %.37693, 0
   br i1 %106, label %107, label %113
 
 107:                                              ; preds = %.lr.ph96
   %108 = zext nneg i32 %.37693 to i64
-  %109 = getelementptr i16, ptr %2, i64 %108
+  %109 = getelementptr [2 x i8], ptr %2, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -2
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %105, %111
@@ -332,7 +332,7 @@ palette_add_to_cache.exit67:                      ; preds = %92, %98
 113:                                              ; preds = %107, %.lr.ph96
   %114 = add nsw i32 %.37693, 1
   %115 = sext i32 %.37693 to i64
-  %116 = getelementptr inbounds i16, ptr %2, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr %2, i64 %115
   store i16 %105, ptr %116, align 2
   br label %palette_add_to_cache.exit68
 

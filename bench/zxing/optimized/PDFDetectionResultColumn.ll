@@ -128,7 +128,7 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = sext i32 %6 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !23
-  %10 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %8
   %11 = load i8, ptr %10, align 4, !tbaa !25, !range !28, !noundef !29
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %20, label %.preheader
@@ -157,7 +157,7 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
 
 25:                                               ; preds = %21
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %9, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %26
   %28 = load i8, ptr %27, align 4, !tbaa !25, !range !28, !noundef !29
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %31
@@ -172,7 +172,7 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
   br i1 %.wide, label %33, label %38
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %9, i64 %32
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %32
   %35 = load i8, ptr %34, align 4, !tbaa !25, !range !28, !noundef !29
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %38
@@ -441,7 +441,7 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
   %.07286 = phi i32 [ 0, %.lr.ph91 ], [ %.173, %141 ]
   %.07585 = phi i32 [ 1, %.lr.ph91 ], [ %.176, %141 ]
   %103 = load ptr, ptr %6, align 8, !tbaa !23
-  %104 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %103, i64 %indvars.iv95
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %103, i64 %indvars.iv95
   %105 = load i8, ptr %104, align 4, !tbaa !25, !range !28, !noundef !29
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit, label %141
@@ -516,7 +516,7 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %102
 .lr.ph:                                           ; preds = %132, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %132 ]
   %136 = sub nsw i64 %indvars.iv95, %indvars.iv
-  %137 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %103, i64 %136
+  %137 = getelementptr inbounds nuw [24 x i8], ptr %103, i64 %136
   %138 = load i8, ptr %137, align 4, !tbaa !25, !range !28, !noundef !29
   %139 = trunc nuw i8 %138 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -664,7 +664,7 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorC
   %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %.047 = phi i32 [ -1, %.lr.ph ], [ %.1, %46 ]
   %22 = load ptr, ptr %11, align 8, !tbaa !23
-  %23 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv
   %24 = load i8, ptr %23, align 4, !tbaa !25, !range !28, !noundef !29
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %46
@@ -764,7 +764,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn13getRowHeight
   %indvars.iv.i = phi i64 [ %22, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
   %.047.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %48 ]
   %28 = load ptr, ptr %14, align 8, !tbaa !23
-  %29 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 4, !tbaa !25, !range !28, !noundef !29
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %48
@@ -830,7 +830,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbe
   br i1 %67, label %68, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i32, ptr %58, i64 %55
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %55
   %.not.i.i = icmp eq ptr %57, %69
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %70
 
@@ -869,7 +869,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %64, %66, %68, %70
   br i1 %.not, label %89, label %.critedge
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i32, ptr %77, i64 %88
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %88
   %91 = load i32, ptr %90, align 4, !tbaa !32
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !32
@@ -1417,9 +1417,9 @@ _ZNSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE11_S_relocateEPS4_S
 
 _ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE13_M_deallocateEPS4_m.exit41: ; preds = %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %35
   store ptr %28, ptr %0, align 8, !tbaa !23
-  %37 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !63
-  %38 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %28, i64 %26
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %26
   store ptr %38, ptr %11, align 8, !tbaa !24
   br label %39
 
@@ -1540,9 +1540,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !50
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !47
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !62
   br label %41
 

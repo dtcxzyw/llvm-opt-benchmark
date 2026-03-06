@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
 %struct.ThreadData = type { [4 x ptr], [4 x ptr], i32, i32, [4 x float], i32, [4 x float], [4 x float], [4 x i32], [4 x i32] }
-%struct.Range = type { double, double, double, double }
 
 @.str = private unnamed_addr constant [12 x i8] c"colorlevels\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Adjust the color levels.\00", align 1
@@ -277,7 +276,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 141:                                              ; preds = %.lr.ph339, %.loopexit
   %indvars.iv377 = phi i64 [ 0, %.lr.ph339 ], [ %indvars.iv.next378, %.loopexit ]
-  %142 = getelementptr inbounds nuw %struct.Range, ptr %130, i64 %indvars.iv377
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %indvars.iv377
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv377
   %144 = load i8, ptr %143, align 1, !tbaa !46
   %145 = load double, ptr %142, align 8, !tbaa !48
@@ -397,11 +396,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %189 = sitofp i32 %188 to double
   %190 = fdiv nsz double %187, %189
   %191 = fptrunc nsz double %190 to float
-  %192 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv377
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv377
   store float %191, ptr %192, align 4, !tbaa !60
-  %193 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv377
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv377
   store i32 %.0224401, ptr %193, align 4, !tbaa !40
-  %194 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv377
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv377
   store i32 %158, ptr %194, align 4, !tbaa !40
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %195 = icmp samesign ult i64 %indvars.iv.next378, %140
@@ -409,7 +408,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 196:                                              ; preds = %.lr.ph317, %.loopexit270
   %indvars.iv366 = phi i64 [ 0, %.lr.ph317 ], [ %indvars.iv.next367, %.loopexit270 ]
-  %197 = getelementptr inbounds nuw %struct.Range, ptr %116, i64 %indvars.iv366
+  %197 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %indvars.iv366
   %198 = getelementptr inbounds nuw i8, ptr %117, i64 %indvars.iv366
   %199 = load i8, ptr %198, align 1, !tbaa !46
   %200 = load double, ptr %197, align 8, !tbaa !48
@@ -451,13 +450,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.0236301.us = phi i32 [ %230, %._crit_edge.us303 ], [ 0, %.preheader269.us.preheader ]
   %.1244300.us = phi i32 [ %..2245.us, %._crit_edge.us303 ], [ 65535, %.preheader269.us.preheader ]
   %.0246299.us = phi ptr [ %229, %._crit_edge.us303 ], [ %97, %.preheader269.us.preheader ]
-  %invariant.gep439 = getelementptr i16, ptr %.0246299.us, i64 %223
+  %invariant.gep439 = getelementptr [2 x i8], ptr %.0246299.us, i64 %223
   br label %225
 
 225:                                              ; preds = %.preheader269.us, %225
   %indvars.iv358 = phi i64 [ 0, %.preheader269.us ], [ %indvars.iv.next359, %225 ]
   %.2245296.us = phi i32 [ %.1244300.us, %.preheader269.us ], [ %..2245.us, %225 ]
-  %gep440 = getelementptr i16, ptr %invariant.gep439, i64 %indvars.iv358
+  %gep440 = getelementptr [2 x i8], ptr %invariant.gep439, i64 %indvars.iv358
   %226 = load i16, ptr %gep440, align 2, !tbaa !63
   %227 = zext i16 %226 to i32
   %..2245.us = tail call i32 @llvm.umin.i32(i32 %.2245296.us, i32 %227)
@@ -500,13 +499,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.0233311.us = phi i32 [ %240, %._crit_edge.us313 ], [ 0, %.preheader268.us.preheader ]
   %.1241310.us = phi i32 [ %.2242..us, %._crit_edge.us313 ], [ 0, %.preheader268.us.preheader ]
   %.1247309.us = phi ptr [ %239, %._crit_edge.us313 ], [ %97, %.preheader268.us.preheader ]
-  %invariant.gep441 = getelementptr i16, ptr %.1247309.us, i64 %233
+  %invariant.gep441 = getelementptr [2 x i8], ptr %.1247309.us, i64 %233
   br label %235
 
 235:                                              ; preds = %.preheader268.us, %235
   %indvars.iv362 = phi i64 [ 0, %.preheader268.us ], [ %indvars.iv.next363, %235 ]
   %.2242306.us = phi i32 [ %.1241310.us, %.preheader268.us ], [ %.2242..us, %235 ]
-  %gep442 = getelementptr i16, ptr %invariant.gep441, i64 %indvars.iv362
+  %gep442 = getelementptr [2 x i8], ptr %invariant.gep441, i64 %indvars.iv362
   %236 = load i16, ptr %gep442, align 2, !tbaa !63
   %237 = zext i16 %236 to i32
   %.2242..us = tail call i32 @llvm.umax.i32(i32 %.2242306.us, i32 %237)
@@ -529,11 +528,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %244 = sitofp i32 %243 to double
   %245 = fdiv nsz double %242, %244
   %246 = fptrunc nsz double %245 to float
-  %247 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv366
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv366
   store float %246, ptr %247, align 4, !tbaa !60
-  %248 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv366
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv366
   store i32 %.0243410, ptr %248, align 4, !tbaa !40
-  %249 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv366
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv366
   store i32 %213, ptr %249, align 4, !tbaa !40
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %250 = icmp samesign ult i64 %indvars.iv.next367, %126
@@ -541,7 +540,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 251:                                              ; preds = %.lr.ph, %.loopexit276
   %indvars.iv354 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next355, %.loopexit276 ]
-  %252 = getelementptr inbounds nuw %struct.Range, ptr %103, i64 %indvars.iv354
+  %252 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %indvars.iv354
   %253 = getelementptr inbounds nuw i8, ptr %104, i64 %indvars.iv354
   %254 = load i8, ptr %253, align 1, !tbaa !46
   %255 = load double, ptr %252, align 8, !tbaa !48
@@ -575,13 +574,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.0214284.us = phi i32 [ %277, %._crit_edge.us ], [ 0, %.preheader275.us.preheader ]
   %.1220283.us = phi float [ %274, %._crit_edge.us ], [ 1.000000e+00, %.preheader275.us.preheader ]
   %.0222282.us = phi ptr [ %276, %._crit_edge.us ], [ %97, %.preheader275.us.preheader ]
-  %invariant.gep = getelementptr float, ptr %.0222282.us, i64 %270
+  %invariant.gep = getelementptr [4 x i8], ptr %.0222282.us, i64 %270
   br label %272
 
 272:                                              ; preds = %.preheader275.us, %272
   %indvars.iv = phi i64 [ 0, %.preheader275.us ], [ %indvars.iv.next, %272 ]
   %.2221280.us = phi float [ %.1220283.us, %.preheader275.us ], [ %274, %272 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %273 = load float, ptr %gep, align 4, !tbaa !60
   %274 = tail call nsz float @llvm.minnum.f32(float %.2221280.us, float %273)
   %indvars.iv.next = add nsw i64 %indvars.iv, %110
@@ -629,13 +628,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.0211290.us = phi i32 [ %289, %._crit_edge.us292 ], [ 0, %.preheader274.us.preheader ]
   %.1218289.us = phi float [ %286, %._crit_edge.us292 ], [ 0.000000e+00, %.preheader274.us.preheader ]
   %.1223288.us = phi ptr [ %288, %._crit_edge.us292 ], [ %97, %.preheader274.us.preheader ]
-  %invariant.gep437 = getelementptr float, ptr %.1223288.us, i64 %282
+  %invariant.gep437 = getelementptr [4 x i8], ptr %.1223288.us, i64 %282
   br label %284
 
 284:                                              ; preds = %.preheader274.us, %284
   %indvars.iv350 = phi i64 [ 0, %.preheader274.us ], [ %indvars.iv.next351, %284 ]
   %.2286.us = phi float [ %.1218289.us, %.preheader274.us ], [ %286, %284 ]
-  %gep438 = getelementptr float, ptr %invariant.gep437, i64 %indvars.iv350
+  %gep438 = getelementptr [4 x i8], ptr %invariant.gep437, i64 %indvars.iv350
   %285 = load float, ptr %gep438, align 4, !tbaa !60
   %286 = tail call nsz float @llvm.maxnum.f32(float %.2286.us, float %285)
   %indvars.iv.next351 = add nsw i64 %indvars.iv350, %110
@@ -654,11 +653,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %290 = fsub nsz float %265, %262
   %291 = fsub nsz float %.0217, %.0219420
   %292 = fdiv nsz float %290, %291
-  %293 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv354
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv354
   store float %292, ptr %293, align 4, !tbaa !60
-  %294 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv354
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv354
   store float %.0219420, ptr %294, align 4, !tbaa !60
-  %295 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv354
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv354
   store float %262, ptr %295, align 4, !tbaa !60
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count
@@ -670,7 +669,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %298 = load i32, ptr %297, align 8, !tbaa !75
   %299 = icmp sgt i32 %298, 0
   %300 = zext i1 %299 to i64
-  %301 = getelementptr inbounds nuw ptr, ptr %296, i64 %300
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %300
   %302 = load ptr, ptr %301, align 8, !tbaa !76
   %303 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %6) #9
   %. = tail call i32 @llvm.smin.i32(i32 %26, i32 %303)
@@ -1508,28 +1507,28 @@ define internal noundef i32 @colorlevels_slice_16(ptr noundef readonly captures(
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -1641,7 +1640,7 @@ define internal noundef i32 @colorlevels_slice_16(ptr noundef readonly captures(
 
 .lr.ph159.split.us:                               ; preds = %.lr.ph159.us, %.lr.ph159.split.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.lr.ph159.split.us ], [ 0, %.lr.ph159.us ]
-  %125 = getelementptr inbounds i16, ptr %.0129165.us, i64 %indvars.iv191
+  %125 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %indvars.iv191
   %126 = load i16, ptr %125, align 2, !tbaa !63
   %127 = zext i16 %126 to i32
   %128 = sub nsw i32 %127, %96
@@ -1653,34 +1652,34 @@ define internal noundef i32 @colorlevels_slice_16(ptr noundef readonly captures(
   %132 = sext i1 %isnotneg.i142.us to i16
   %133 = trunc nuw i32 %131 to i16
   %.0.i143.us = select i1 %.not.i141.us, i16 %133, i16 %132
-  %134 = getelementptr inbounds i16, ptr %.0133161.us, i64 %indvars.iv191
+  %134 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %indvars.iv191
   store i16 %.0.i143.us, ptr %134, align 2, !tbaa !63
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, %121
   %135 = icmp slt i64 %indvars.iv.next192, %122
   br i1 %135, label %.lr.ph159.split.us, label %.critedge.us, !llvm.loop !92
 
 .critedge.us:                                     ; preds = %.lr.ph159.split.us, %.lr.ph159.us
-  %136 = getelementptr inbounds i16, ptr %.0124169.us, i64 %118
-  %137 = getelementptr inbounds i16, ptr %.0125168.us, i64 %118
-  %138 = getelementptr inbounds i16, ptr %.0126167.us, i64 %118
-  %139 = getelementptr inbounds i16, ptr %.0129165.us, i64 %118
-  %140 = getelementptr inbounds i16, ptr %.0130164.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0131163.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0132162.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0133161.us, i64 %119
+  %136 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %118
+  %137 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %118
+  %138 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %118
+  %139 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %118
+  %140 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %119
   %144 = add nsw i32 %.0128166.us, 1
   %exitcond.not = icmp eq i32 %144, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader156.us, !llvm.loop !93
 
 145:                                              ; preds = %.preheader156.us, %145
   %indvars.iv = phi i64 [ 0, %.preheader156.us ], [ %indvars.iv.next, %145 ]
-  %146 = getelementptr inbounds i16, ptr %.0124169.us, i64 %indvars.iv
+  %146 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %indvars.iv
   %147 = load i16, ptr %146, align 2, !tbaa !63
   %148 = zext i16 %147 to i32
-  %149 = getelementptr inbounds i16, ptr %.0125168.us, i64 %indvars.iv
+  %149 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %indvars.iv
   %150 = load i16, ptr %149, align 2, !tbaa !63
   %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i16, ptr %.0126167.us, i64 %indvars.iv
+  %152 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %indvars.iv
   %153 = load i16, ptr %152, align 2, !tbaa !63
   %154 = zext i16 %153 to i32
   %155 = sub nsw i32 %148, %98
@@ -1692,7 +1691,7 @@ define internal noundef i32 @colorlevels_slice_16(ptr noundef readonly captures(
   %159 = sext i1 %isnotneg.i.us to i16
   %160 = trunc nuw i32 %158 to i16
   %.0.i.us = select i1 %.not.i.us, i16 %160, i16 %159
-  %161 = getelementptr inbounds i16, ptr %.0130164.us, i64 %indvars.iv
+  %161 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %indvars.iv
   store i16 %.0.i.us, ptr %161, align 2, !tbaa !63
   %162 = sub nsw i32 %151, %97
   %163 = sitofp i32 %162 to float
@@ -1703,7 +1702,7 @@ define internal noundef i32 @colorlevels_slice_16(ptr noundef readonly captures(
   %166 = sext i1 %isnotneg.i136.us to i16
   %167 = trunc nuw i32 %165 to i16
   %.0.i137.us = select i1 %.not.i135.us, i16 %167, i16 %166
-  %168 = getelementptr inbounds i16, ptr %.0131163.us, i64 %indvars.iv
+  %168 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %indvars.iv
   store i16 %.0.i137.us, ptr %168, align 2, !tbaa !63
   %169 = sub nsw i32 %154, %99
   %170 = sitofp i32 %169 to float
@@ -1714,7 +1713,7 @@ define internal noundef i32 @colorlevels_slice_16(ptr noundef readonly captures(
   %173 = sext i1 %isnotneg.i139.us to i16
   %174 = trunc nuw i32 %172 to i16
   %.0.i140.us = select i1 %.not.i138.us, i16 %174, i16 %173
-  %175 = getelementptr inbounds i16, ptr %.0132162.us, i64 %indvars.iv
+  %175 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %indvars.iv
   store i16 %.0.i140.us, ptr %175, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %121
   %176 = icmp slt i64 %indvars.iv.next, %122
@@ -1751,28 +1750,28 @@ define internal noundef i32 @colorlevels_preserve_slice_16(ptr noundef readonly 
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -1889,7 +1888,7 @@ define internal noundef i32 @colorlevels_preserve_slice_16(ptr noundef readonly 
 
 .lr.ph190.split.us:                               ; preds = %.lr.ph190.us, %.lr.ph190.split.us
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph190.split.us ], [ 0, %.lr.ph190.us ]
-  %128 = getelementptr inbounds i16, ptr %.0149199.us, i64 %indvars.iv224
+  %128 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %indvars.iv224
   %129 = load i16, ptr %128, align 2, !tbaa !63
   %130 = zext i16 %129 to i32
   %131 = sub nsw i32 %130, %96
@@ -1901,21 +1900,21 @@ define internal noundef i32 @colorlevels_preserve_slice_16(ptr noundef readonly 
   %135 = sext i1 %isnotneg.i165.us to i16
   %136 = trunc nuw i32 %134 to i16
   %.0.i166.us = select i1 %.not.i164.us, i16 %136, i16 %135
-  %137 = getelementptr inbounds i16, ptr %.0155194.us, i64 %indvars.iv224
+  %137 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %indvars.iv224
   store i16 %.0.i166.us, ptr %137, align 2, !tbaa !63
   %indvars.iv.next225 = add nsw i64 %indvars.iv224, %124
   %138 = icmp slt i64 %indvars.iv.next225, %125
   br i1 %138, label %.lr.ph190.split.us, label %.critedge.us, !llvm.loop !95
 
 .critedge.us:                                     ; preds = %.lr.ph190.split.us, %.lr.ph190.us
-  %139 = getelementptr inbounds i16, ptr %.0143202.us, i64 %119
-  %140 = getelementptr inbounds i16, ptr %.0144201.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0148200.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0149199.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0150198.us, i64 %120
-  %144 = getelementptr inbounds i16, ptr %.0153196.us, i64 %120
-  %145 = getelementptr inbounds i16, ptr %.0154195.us, i64 %120
-  %146 = getelementptr inbounds i16, ptr %.0155194.us, i64 %120
+  %139 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %119
+  %140 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %120
+  %144 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %120
+  %145 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %120
+  %146 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %120
   %147 = add nsw i32 %.0152197.us, 1
   %exitcond.not = icmp eq i32 %147, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader184.us, !llvm.loop !96
@@ -1924,13 +1923,13 @@ define internal noundef i32 @colorlevels_preserve_slice_16(ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.preheader184.us ], [ %indvars.iv.next, %264 ]
   %.1186.us = phi float [ %.0168193.us, %.preheader184.us ], [ %.2.us, %264 ]
   %.1170185.us = phi float [ %.0169192.us, %.preheader184.us ], [ %.3.us, %264 ]
-  %149 = getelementptr inbounds i16, ptr %.0143202.us, i64 %indvars.iv
+  %149 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %indvars.iv
   %150 = load i16, ptr %149, align 2, !tbaa !63
   %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i16, ptr %.0144201.us, i64 %indvars.iv
+  %152 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %indvars.iv
   %153 = load i16, ptr %152, align 2, !tbaa !63
   %154 = zext i16 %153 to i32
-  %155 = getelementptr inbounds i16, ptr %.0148200.us, i64 %indvars.iv
+  %155 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %indvars.iv
   %156 = load i16, ptr %155, align 2, !tbaa !63
   %157 = zext i16 %156 to i32
   br i1 %51, label %161, label %158
@@ -2082,21 +2081,21 @@ preserve_color.exit.us:                           ; preds = %239, %231, %222, %2
   %265 = sext i1 %isnotneg.i.us to i16
   %266 = trunc nuw i32 %.0147.us to i16
   %.0.i.us = select i1 %.not.i.us, i16 %266, i16 %265
-  %267 = getelementptr inbounds i16, ptr %.0150198.us, i64 %indvars.iv
+  %267 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %indvars.iv
   store i16 %.0.i.us, ptr %267, align 2, !tbaa !63
   %.not.i158.us = icmp ult i32 %.0146.us, 65536
   %isnotneg.i159.us = icmp sgt i32 %.0146.us, -1
   %268 = sext i1 %isnotneg.i159.us to i16
   %269 = trunc nuw i32 %.0146.us to i16
   %.0.i160.us = select i1 %.not.i158.us, i16 %269, i16 %268
-  %270 = getelementptr inbounds i16, ptr %.0153196.us, i64 %indvars.iv
+  %270 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %indvars.iv
   store i16 %.0.i160.us, ptr %270, align 2, !tbaa !63
   %.not.i161.us = icmp ult i32 %.0145.us, 65536
   %isnotneg.i162.us = icmp sgt i32 %.0145.us, -1
   %271 = sext i1 %isnotneg.i162.us to i16
   %272 = trunc nuw i32 %.0145.us to i16
   %.0.i163.us = select i1 %.not.i161.us, i16 %272, i16 %271
-  %273 = getelementptr inbounds i16, ptr %.0154195.us, i64 %indvars.iv
+  %273 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %indvars.iv
   store i16 %.0.i163.us, ptr %273, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %124
   %274 = icmp slt i64 %indvars.iv.next, %125
@@ -2756,28 +2755,28 @@ define internal noundef i32 @colorlevels_slice_9_planar(ptr noundef readonly cap
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -2889,7 +2888,7 @@ define internal noundef i32 @colorlevels_slice_9_planar(ptr noundef readonly cap
 
 .lr.ph159.split.us:                               ; preds = %.lr.ph159.us, %.lr.ph159.split.us
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph159.split.us ], [ 0, %.lr.ph159.us ]
-  %125 = getelementptr inbounds i16, ptr %.0129165.us, i64 %indvars.iv189
+  %125 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %indvars.iv189
   %126 = load i16, ptr %125, align 2, !tbaa !63
   %127 = zext i16 %126 to i32
   %128 = sub nsw i32 %127, %96
@@ -2899,34 +2898,34 @@ define internal noundef i32 @colorlevels_slice_9_planar(ptr noundef readonly cap
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 0)
   %133 = tail call i32 @llvm.umin.i32(i32 %132, i32 511)
   %134 = trunc nuw nsw i32 %133 to i16
-  %135 = getelementptr inbounds i16, ptr %.0133161.us, i64 %indvars.iv189
+  %135 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %indvars.iv189
   store i16 %134, ptr %135, align 2, !tbaa !63
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, %121
   %136 = icmp slt i64 %indvars.iv.next190, %122
   br i1 %136, label %.lr.ph159.split.us, label %.critedge.us, !llvm.loop !104
 
 .critedge.us:                                     ; preds = %.lr.ph159.split.us, %.lr.ph159.us
-  %137 = getelementptr inbounds i16, ptr %.0124169.us, i64 %118
-  %138 = getelementptr inbounds i16, ptr %.0125168.us, i64 %118
-  %139 = getelementptr inbounds i16, ptr %.0126167.us, i64 %118
-  %140 = getelementptr inbounds i16, ptr %.0129165.us, i64 %118
-  %141 = getelementptr inbounds i16, ptr %.0130164.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0131163.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0132162.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0133161.us, i64 %119
+  %137 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %118
+  %138 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %118
+  %139 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %118
+  %140 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %118
+  %141 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %119
   %145 = add nsw i32 %.0128166.us, 1
   %exitcond.not = icmp eq i32 %145, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader156.us, !llvm.loop !105
 
 146:                                              ; preds = %.preheader156.us, %146
   %indvars.iv = phi i64 [ 0, %.preheader156.us ], [ %indvars.iv.next, %146 ]
-  %147 = getelementptr inbounds i16, ptr %.0124169.us, i64 %indvars.iv
+  %147 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %indvars.iv
   %148 = load i16, ptr %147, align 2, !tbaa !63
   %149 = zext i16 %148 to i32
-  %150 = getelementptr inbounds i16, ptr %.0125168.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0126167.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
   %156 = sub nsw i32 %149, %98
@@ -2936,7 +2935,7 @@ define internal noundef i32 @colorlevels_slice_9_planar(ptr noundef readonly cap
   %160 = tail call i32 @llvm.smax.i32(i32 %159, i32 0)
   %161 = tail call i32 @llvm.umin.i32(i32 %160, i32 511)
   %162 = trunc nuw nsw i32 %161 to i16
-  %163 = getelementptr inbounds i16, ptr %.0130164.us, i64 %indvars.iv
+  %163 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %indvars.iv
   store i16 %162, ptr %163, align 2, !tbaa !63
   %164 = sub nsw i32 %152, %97
   %165 = sitofp i32 %164 to float
@@ -2945,7 +2944,7 @@ define internal noundef i32 @colorlevels_slice_9_planar(ptr noundef readonly cap
   %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
   %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 511)
   %170 = trunc nuw nsw i32 %169 to i16
-  %171 = getelementptr inbounds i16, ptr %.0131163.us, i64 %indvars.iv
+  %171 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %indvars.iv
   store i16 %170, ptr %171, align 2, !tbaa !63
   %172 = sub nsw i32 %155, %99
   %173 = sitofp i32 %172 to float
@@ -2954,7 +2953,7 @@ define internal noundef i32 @colorlevels_slice_9_planar(ptr noundef readonly cap
   %176 = tail call i32 @llvm.smax.i32(i32 %175, i32 0)
   %177 = tail call i32 @llvm.umin.i32(i32 %176, i32 511)
   %178 = trunc nuw nsw i32 %177 to i16
-  %179 = getelementptr inbounds i16, ptr %.0132162.us, i64 %indvars.iv
+  %179 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %indvars.iv
   store i16 %178, ptr %179, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %121
   %180 = icmp slt i64 %indvars.iv.next, %122
@@ -2991,28 +2990,28 @@ define internal noundef i32 @colorlevels_preserve_slice_9_planar(ptr noundef rea
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -3129,7 +3128,7 @@ define internal noundef i32 @colorlevels_preserve_slice_9_planar(ptr noundef rea
 
 .lr.ph190.split.us:                               ; preds = %.lr.ph190.us, %.lr.ph190.split.us
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph190.split.us ], [ 0, %.lr.ph190.us ]
-  %128 = getelementptr inbounds i16, ptr %.0149199.us, i64 %indvars.iv222
+  %128 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %indvars.iv222
   %129 = load i16, ptr %128, align 2, !tbaa !63
   %130 = zext i16 %129 to i32
   %131 = sub nsw i32 %130, %96
@@ -3139,21 +3138,21 @@ define internal noundef i32 @colorlevels_preserve_slice_9_planar(ptr noundef rea
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 0)
   %136 = tail call i32 @llvm.umin.i32(i32 %135, i32 511)
   %137 = trunc nuw nsw i32 %136 to i16
-  %138 = getelementptr inbounds i16, ptr %.0155194.us, i64 %indvars.iv222
+  %138 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %indvars.iv222
   store i16 %137, ptr %138, align 2, !tbaa !63
   %indvars.iv.next223 = add nsw i64 %indvars.iv222, %124
   %139 = icmp slt i64 %indvars.iv.next223, %125
   br i1 %139, label %.lr.ph190.split.us, label %.critedge.us, !llvm.loop !107
 
 .critedge.us:                                     ; preds = %.lr.ph190.split.us, %.lr.ph190.us
-  %140 = getelementptr inbounds i16, ptr %.0143202.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0144201.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0148200.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0149199.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0150198.us, i64 %120
-  %145 = getelementptr inbounds i16, ptr %.0153196.us, i64 %120
-  %146 = getelementptr inbounds i16, ptr %.0154195.us, i64 %120
-  %147 = getelementptr inbounds i16, ptr %.0155194.us, i64 %120
+  %140 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %120
+  %145 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %120
+  %146 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %120
+  %147 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %120
   %148 = add nsw i32 %.0152197.us, 1
   %exitcond.not = icmp eq i32 %148, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader184.us, !llvm.loop !108
@@ -3162,13 +3161,13 @@ define internal noundef i32 @colorlevels_preserve_slice_9_planar(ptr noundef rea
   %indvars.iv = phi i64 [ 0, %.preheader184.us ], [ %indvars.iv.next, %265 ]
   %.1186.us = phi float [ %.0168193.us, %.preheader184.us ], [ %.2.us, %265 ]
   %.1170185.us = phi float [ %.0169192.us, %.preheader184.us ], [ %.3.us, %265 ]
-  %150 = getelementptr inbounds i16, ptr %.0143202.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0144201.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
-  %156 = getelementptr inbounds i16, ptr %.0148200.us, i64 %indvars.iv
+  %156 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %indvars.iv
   %157 = load i16, ptr %156, align 2, !tbaa !63
   %158 = zext i16 %157 to i32
   br i1 %51, label %162, label %159
@@ -3318,17 +3317,17 @@ preserve_color.exit.us:                           ; preds = %240, %232, %223, %2
   %266 = tail call i32 @llvm.smax.i32(i32 %.0147.us, i32 0)
   %267 = tail call i32 @llvm.umin.i32(i32 %266, i32 511)
   %268 = trunc nuw nsw i32 %267 to i16
-  %269 = getelementptr inbounds i16, ptr %.0150198.us, i64 %indvars.iv
+  %269 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %indvars.iv
   store i16 %268, ptr %269, align 2, !tbaa !63
   %270 = tail call i32 @llvm.smax.i32(i32 %.0146.us, i32 0)
   %271 = tail call i32 @llvm.umin.i32(i32 %270, i32 511)
   %272 = trunc nuw nsw i32 %271 to i16
-  %273 = getelementptr inbounds i16, ptr %.0153196.us, i64 %indvars.iv
+  %273 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %indvars.iv
   store i16 %272, ptr %273, align 2, !tbaa !63
   %274 = tail call i32 @llvm.smax.i32(i32 %.0145.us, i32 0)
   %275 = tail call i32 @llvm.umin.i32(i32 %274, i32 511)
   %276 = trunc nuw nsw i32 %275 to i16
-  %277 = getelementptr inbounds i16, ptr %.0154195.us, i64 %indvars.iv
+  %277 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %indvars.iv
   store i16 %276, ptr %277, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %124
   %278 = icmp slt i64 %indvars.iv.next, %125
@@ -3365,28 +3364,28 @@ define internal noundef i32 @colorlevels_slice_10_planar(ptr noundef readonly ca
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -3498,7 +3497,7 @@ define internal noundef i32 @colorlevels_slice_10_planar(ptr noundef readonly ca
 
 .lr.ph159.split.us:                               ; preds = %.lr.ph159.us, %.lr.ph159.split.us
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph159.split.us ], [ 0, %.lr.ph159.us ]
-  %125 = getelementptr inbounds i16, ptr %.0129165.us, i64 %indvars.iv189
+  %125 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %indvars.iv189
   %126 = load i16, ptr %125, align 2, !tbaa !63
   %127 = zext i16 %126 to i32
   %128 = sub nsw i32 %127, %96
@@ -3508,34 +3507,34 @@ define internal noundef i32 @colorlevels_slice_10_planar(ptr noundef readonly ca
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 0)
   %133 = tail call i32 @llvm.umin.i32(i32 %132, i32 1023)
   %134 = trunc nuw nsw i32 %133 to i16
-  %135 = getelementptr inbounds i16, ptr %.0133161.us, i64 %indvars.iv189
+  %135 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %indvars.iv189
   store i16 %134, ptr %135, align 2, !tbaa !63
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, %121
   %136 = icmp slt i64 %indvars.iv.next190, %122
   br i1 %136, label %.lr.ph159.split.us, label %.critedge.us, !llvm.loop !110
 
 .critedge.us:                                     ; preds = %.lr.ph159.split.us, %.lr.ph159.us
-  %137 = getelementptr inbounds i16, ptr %.0124169.us, i64 %118
-  %138 = getelementptr inbounds i16, ptr %.0125168.us, i64 %118
-  %139 = getelementptr inbounds i16, ptr %.0126167.us, i64 %118
-  %140 = getelementptr inbounds i16, ptr %.0129165.us, i64 %118
-  %141 = getelementptr inbounds i16, ptr %.0130164.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0131163.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0132162.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0133161.us, i64 %119
+  %137 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %118
+  %138 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %118
+  %139 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %118
+  %140 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %118
+  %141 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %119
   %145 = add nsw i32 %.0128166.us, 1
   %exitcond.not = icmp eq i32 %145, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader156.us, !llvm.loop !111
 
 146:                                              ; preds = %.preheader156.us, %146
   %indvars.iv = phi i64 [ 0, %.preheader156.us ], [ %indvars.iv.next, %146 ]
-  %147 = getelementptr inbounds i16, ptr %.0124169.us, i64 %indvars.iv
+  %147 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %indvars.iv
   %148 = load i16, ptr %147, align 2, !tbaa !63
   %149 = zext i16 %148 to i32
-  %150 = getelementptr inbounds i16, ptr %.0125168.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0126167.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
   %156 = sub nsw i32 %149, %98
@@ -3545,7 +3544,7 @@ define internal noundef i32 @colorlevels_slice_10_planar(ptr noundef readonly ca
   %160 = tail call i32 @llvm.smax.i32(i32 %159, i32 0)
   %161 = tail call i32 @llvm.umin.i32(i32 %160, i32 1023)
   %162 = trunc nuw nsw i32 %161 to i16
-  %163 = getelementptr inbounds i16, ptr %.0130164.us, i64 %indvars.iv
+  %163 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %indvars.iv
   store i16 %162, ptr %163, align 2, !tbaa !63
   %164 = sub nsw i32 %152, %97
   %165 = sitofp i32 %164 to float
@@ -3554,7 +3553,7 @@ define internal noundef i32 @colorlevels_slice_10_planar(ptr noundef readonly ca
   %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
   %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 1023)
   %170 = trunc nuw nsw i32 %169 to i16
-  %171 = getelementptr inbounds i16, ptr %.0131163.us, i64 %indvars.iv
+  %171 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %indvars.iv
   store i16 %170, ptr %171, align 2, !tbaa !63
   %172 = sub nsw i32 %155, %99
   %173 = sitofp i32 %172 to float
@@ -3563,7 +3562,7 @@ define internal noundef i32 @colorlevels_slice_10_planar(ptr noundef readonly ca
   %176 = tail call i32 @llvm.smax.i32(i32 %175, i32 0)
   %177 = tail call i32 @llvm.umin.i32(i32 %176, i32 1023)
   %178 = trunc nuw nsw i32 %177 to i16
-  %179 = getelementptr inbounds i16, ptr %.0132162.us, i64 %indvars.iv
+  %179 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %indvars.iv
   store i16 %178, ptr %179, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %121
   %180 = icmp slt i64 %indvars.iv.next, %122
@@ -3600,28 +3599,28 @@ define internal noundef i32 @colorlevels_preserve_slice_10_planar(ptr noundef re
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -3738,7 +3737,7 @@ define internal noundef i32 @colorlevels_preserve_slice_10_planar(ptr noundef re
 
 .lr.ph190.split.us:                               ; preds = %.lr.ph190.us, %.lr.ph190.split.us
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph190.split.us ], [ 0, %.lr.ph190.us ]
-  %128 = getelementptr inbounds i16, ptr %.0149199.us, i64 %indvars.iv222
+  %128 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %indvars.iv222
   %129 = load i16, ptr %128, align 2, !tbaa !63
   %130 = zext i16 %129 to i32
   %131 = sub nsw i32 %130, %96
@@ -3748,21 +3747,21 @@ define internal noundef i32 @colorlevels_preserve_slice_10_planar(ptr noundef re
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 0)
   %136 = tail call i32 @llvm.umin.i32(i32 %135, i32 1023)
   %137 = trunc nuw nsw i32 %136 to i16
-  %138 = getelementptr inbounds i16, ptr %.0155194.us, i64 %indvars.iv222
+  %138 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %indvars.iv222
   store i16 %137, ptr %138, align 2, !tbaa !63
   %indvars.iv.next223 = add nsw i64 %indvars.iv222, %124
   %139 = icmp slt i64 %indvars.iv.next223, %125
   br i1 %139, label %.lr.ph190.split.us, label %.critedge.us, !llvm.loop !113
 
 .critedge.us:                                     ; preds = %.lr.ph190.split.us, %.lr.ph190.us
-  %140 = getelementptr inbounds i16, ptr %.0143202.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0144201.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0148200.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0149199.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0150198.us, i64 %120
-  %145 = getelementptr inbounds i16, ptr %.0153196.us, i64 %120
-  %146 = getelementptr inbounds i16, ptr %.0154195.us, i64 %120
-  %147 = getelementptr inbounds i16, ptr %.0155194.us, i64 %120
+  %140 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %120
+  %145 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %120
+  %146 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %120
+  %147 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %120
   %148 = add nsw i32 %.0152197.us, 1
   %exitcond.not = icmp eq i32 %148, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader184.us, !llvm.loop !114
@@ -3771,13 +3770,13 @@ define internal noundef i32 @colorlevels_preserve_slice_10_planar(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.preheader184.us ], [ %indvars.iv.next, %265 ]
   %.1186.us = phi float [ %.0168193.us, %.preheader184.us ], [ %.2.us, %265 ]
   %.1170185.us = phi float [ %.0169192.us, %.preheader184.us ], [ %.3.us, %265 ]
-  %150 = getelementptr inbounds i16, ptr %.0143202.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0144201.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
-  %156 = getelementptr inbounds i16, ptr %.0148200.us, i64 %indvars.iv
+  %156 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %indvars.iv
   %157 = load i16, ptr %156, align 2, !tbaa !63
   %158 = zext i16 %157 to i32
   br i1 %51, label %162, label %159
@@ -3927,17 +3926,17 @@ preserve_color.exit.us:                           ; preds = %240, %232, %223, %2
   %266 = tail call i32 @llvm.smax.i32(i32 %.0147.us, i32 0)
   %267 = tail call i32 @llvm.umin.i32(i32 %266, i32 1023)
   %268 = trunc nuw nsw i32 %267 to i16
-  %269 = getelementptr inbounds i16, ptr %.0150198.us, i64 %indvars.iv
+  %269 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %indvars.iv
   store i16 %268, ptr %269, align 2, !tbaa !63
   %270 = tail call i32 @llvm.smax.i32(i32 %.0146.us, i32 0)
   %271 = tail call i32 @llvm.umin.i32(i32 %270, i32 1023)
   %272 = trunc nuw nsw i32 %271 to i16
-  %273 = getelementptr inbounds i16, ptr %.0153196.us, i64 %indvars.iv
+  %273 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %indvars.iv
   store i16 %272, ptr %273, align 2, !tbaa !63
   %274 = tail call i32 @llvm.smax.i32(i32 %.0145.us, i32 0)
   %275 = tail call i32 @llvm.umin.i32(i32 %274, i32 1023)
   %276 = trunc nuw nsw i32 %275 to i16
-  %277 = getelementptr inbounds i16, ptr %.0154195.us, i64 %indvars.iv
+  %277 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %indvars.iv
   store i16 %276, ptr %277, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %124
   %278 = icmp slt i64 %indvars.iv.next, %125
@@ -3974,28 +3973,28 @@ define internal noundef i32 @colorlevels_slice_12_planar(ptr noundef readonly ca
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -4107,7 +4106,7 @@ define internal noundef i32 @colorlevels_slice_12_planar(ptr noundef readonly ca
 
 .lr.ph159.split.us:                               ; preds = %.lr.ph159.us, %.lr.ph159.split.us
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph159.split.us ], [ 0, %.lr.ph159.us ]
-  %125 = getelementptr inbounds i16, ptr %.0129165.us, i64 %indvars.iv189
+  %125 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %indvars.iv189
   %126 = load i16, ptr %125, align 2, !tbaa !63
   %127 = zext i16 %126 to i32
   %128 = sub nsw i32 %127, %96
@@ -4117,34 +4116,34 @@ define internal noundef i32 @colorlevels_slice_12_planar(ptr noundef readonly ca
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 0)
   %133 = tail call i32 @llvm.umin.i32(i32 %132, i32 4095)
   %134 = trunc nuw nsw i32 %133 to i16
-  %135 = getelementptr inbounds i16, ptr %.0133161.us, i64 %indvars.iv189
+  %135 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %indvars.iv189
   store i16 %134, ptr %135, align 2, !tbaa !63
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, %121
   %136 = icmp slt i64 %indvars.iv.next190, %122
   br i1 %136, label %.lr.ph159.split.us, label %.critedge.us, !llvm.loop !116
 
 .critedge.us:                                     ; preds = %.lr.ph159.split.us, %.lr.ph159.us
-  %137 = getelementptr inbounds i16, ptr %.0124169.us, i64 %118
-  %138 = getelementptr inbounds i16, ptr %.0125168.us, i64 %118
-  %139 = getelementptr inbounds i16, ptr %.0126167.us, i64 %118
-  %140 = getelementptr inbounds i16, ptr %.0129165.us, i64 %118
-  %141 = getelementptr inbounds i16, ptr %.0130164.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0131163.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0132162.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0133161.us, i64 %119
+  %137 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %118
+  %138 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %118
+  %139 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %118
+  %140 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %118
+  %141 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %119
   %145 = add nsw i32 %.0128166.us, 1
   %exitcond.not = icmp eq i32 %145, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader156.us, !llvm.loop !117
 
 146:                                              ; preds = %.preheader156.us, %146
   %indvars.iv = phi i64 [ 0, %.preheader156.us ], [ %indvars.iv.next, %146 ]
-  %147 = getelementptr inbounds i16, ptr %.0124169.us, i64 %indvars.iv
+  %147 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %indvars.iv
   %148 = load i16, ptr %147, align 2, !tbaa !63
   %149 = zext i16 %148 to i32
-  %150 = getelementptr inbounds i16, ptr %.0125168.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0126167.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
   %156 = sub nsw i32 %149, %98
@@ -4154,7 +4153,7 @@ define internal noundef i32 @colorlevels_slice_12_planar(ptr noundef readonly ca
   %160 = tail call i32 @llvm.smax.i32(i32 %159, i32 0)
   %161 = tail call i32 @llvm.umin.i32(i32 %160, i32 4095)
   %162 = trunc nuw nsw i32 %161 to i16
-  %163 = getelementptr inbounds i16, ptr %.0130164.us, i64 %indvars.iv
+  %163 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %indvars.iv
   store i16 %162, ptr %163, align 2, !tbaa !63
   %164 = sub nsw i32 %152, %97
   %165 = sitofp i32 %164 to float
@@ -4163,7 +4162,7 @@ define internal noundef i32 @colorlevels_slice_12_planar(ptr noundef readonly ca
   %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
   %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 4095)
   %170 = trunc nuw nsw i32 %169 to i16
-  %171 = getelementptr inbounds i16, ptr %.0131163.us, i64 %indvars.iv
+  %171 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %indvars.iv
   store i16 %170, ptr %171, align 2, !tbaa !63
   %172 = sub nsw i32 %155, %99
   %173 = sitofp i32 %172 to float
@@ -4172,7 +4171,7 @@ define internal noundef i32 @colorlevels_slice_12_planar(ptr noundef readonly ca
   %176 = tail call i32 @llvm.smax.i32(i32 %175, i32 0)
   %177 = tail call i32 @llvm.umin.i32(i32 %176, i32 4095)
   %178 = trunc nuw nsw i32 %177 to i16
-  %179 = getelementptr inbounds i16, ptr %.0132162.us, i64 %indvars.iv
+  %179 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %indvars.iv
   store i16 %178, ptr %179, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %121
   %180 = icmp slt i64 %indvars.iv.next, %122
@@ -4209,28 +4208,28 @@ define internal noundef i32 @colorlevels_preserve_slice_12_planar(ptr noundef re
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -4347,7 +4346,7 @@ define internal noundef i32 @colorlevels_preserve_slice_12_planar(ptr noundef re
 
 .lr.ph190.split.us:                               ; preds = %.lr.ph190.us, %.lr.ph190.split.us
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph190.split.us ], [ 0, %.lr.ph190.us ]
-  %128 = getelementptr inbounds i16, ptr %.0149199.us, i64 %indvars.iv222
+  %128 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %indvars.iv222
   %129 = load i16, ptr %128, align 2, !tbaa !63
   %130 = zext i16 %129 to i32
   %131 = sub nsw i32 %130, %96
@@ -4357,21 +4356,21 @@ define internal noundef i32 @colorlevels_preserve_slice_12_planar(ptr noundef re
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 0)
   %136 = tail call i32 @llvm.umin.i32(i32 %135, i32 4095)
   %137 = trunc nuw nsw i32 %136 to i16
-  %138 = getelementptr inbounds i16, ptr %.0155194.us, i64 %indvars.iv222
+  %138 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %indvars.iv222
   store i16 %137, ptr %138, align 2, !tbaa !63
   %indvars.iv.next223 = add nsw i64 %indvars.iv222, %124
   %139 = icmp slt i64 %indvars.iv.next223, %125
   br i1 %139, label %.lr.ph190.split.us, label %.critedge.us, !llvm.loop !119
 
 .critedge.us:                                     ; preds = %.lr.ph190.split.us, %.lr.ph190.us
-  %140 = getelementptr inbounds i16, ptr %.0143202.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0144201.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0148200.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0149199.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0150198.us, i64 %120
-  %145 = getelementptr inbounds i16, ptr %.0153196.us, i64 %120
-  %146 = getelementptr inbounds i16, ptr %.0154195.us, i64 %120
-  %147 = getelementptr inbounds i16, ptr %.0155194.us, i64 %120
+  %140 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %120
+  %145 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %120
+  %146 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %120
+  %147 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %120
   %148 = add nsw i32 %.0152197.us, 1
   %exitcond.not = icmp eq i32 %148, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader184.us, !llvm.loop !120
@@ -4380,13 +4379,13 @@ define internal noundef i32 @colorlevels_preserve_slice_12_planar(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.preheader184.us ], [ %indvars.iv.next, %265 ]
   %.1186.us = phi float [ %.0168193.us, %.preheader184.us ], [ %.2.us, %265 ]
   %.1170185.us = phi float [ %.0169192.us, %.preheader184.us ], [ %.3.us, %265 ]
-  %150 = getelementptr inbounds i16, ptr %.0143202.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0144201.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
-  %156 = getelementptr inbounds i16, ptr %.0148200.us, i64 %indvars.iv
+  %156 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %indvars.iv
   %157 = load i16, ptr %156, align 2, !tbaa !63
   %158 = zext i16 %157 to i32
   br i1 %51, label %162, label %159
@@ -4536,17 +4535,17 @@ preserve_color.exit.us:                           ; preds = %240, %232, %223, %2
   %266 = tail call i32 @llvm.smax.i32(i32 %.0147.us, i32 0)
   %267 = tail call i32 @llvm.umin.i32(i32 %266, i32 4095)
   %268 = trunc nuw nsw i32 %267 to i16
-  %269 = getelementptr inbounds i16, ptr %.0150198.us, i64 %indvars.iv
+  %269 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %indvars.iv
   store i16 %268, ptr %269, align 2, !tbaa !63
   %270 = tail call i32 @llvm.smax.i32(i32 %.0146.us, i32 0)
   %271 = tail call i32 @llvm.umin.i32(i32 %270, i32 4095)
   %272 = trunc nuw nsw i32 %271 to i16
-  %273 = getelementptr inbounds i16, ptr %.0153196.us, i64 %indvars.iv
+  %273 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %indvars.iv
   store i16 %272, ptr %273, align 2, !tbaa !63
   %274 = tail call i32 @llvm.smax.i32(i32 %.0145.us, i32 0)
   %275 = tail call i32 @llvm.umin.i32(i32 %274, i32 4095)
   %276 = trunc nuw nsw i32 %275 to i16
-  %277 = getelementptr inbounds i16, ptr %.0154195.us, i64 %indvars.iv
+  %277 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %indvars.iv
   store i16 %276, ptr %277, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %124
   %278 = icmp slt i64 %indvars.iv.next, %125
@@ -4583,28 +4582,28 @@ define internal noundef i32 @colorlevels_slice_14_planar(ptr noundef readonly ca
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -4716,7 +4715,7 @@ define internal noundef i32 @colorlevels_slice_14_planar(ptr noundef readonly ca
 
 .lr.ph159.split.us:                               ; preds = %.lr.ph159.us, %.lr.ph159.split.us
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph159.split.us ], [ 0, %.lr.ph159.us ]
-  %125 = getelementptr inbounds i16, ptr %.0129165.us, i64 %indvars.iv189
+  %125 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %indvars.iv189
   %126 = load i16, ptr %125, align 2, !tbaa !63
   %127 = zext i16 %126 to i32
   %128 = sub nsw i32 %127, %96
@@ -4726,34 +4725,34 @@ define internal noundef i32 @colorlevels_slice_14_planar(ptr noundef readonly ca
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 0)
   %133 = tail call i32 @llvm.umin.i32(i32 %132, i32 16383)
   %134 = trunc nuw nsw i32 %133 to i16
-  %135 = getelementptr inbounds i16, ptr %.0133161.us, i64 %indvars.iv189
+  %135 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %indvars.iv189
   store i16 %134, ptr %135, align 2, !tbaa !63
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, %121
   %136 = icmp slt i64 %indvars.iv.next190, %122
   br i1 %136, label %.lr.ph159.split.us, label %.critedge.us, !llvm.loop !122
 
 .critedge.us:                                     ; preds = %.lr.ph159.split.us, %.lr.ph159.us
-  %137 = getelementptr inbounds i16, ptr %.0124169.us, i64 %118
-  %138 = getelementptr inbounds i16, ptr %.0125168.us, i64 %118
-  %139 = getelementptr inbounds i16, ptr %.0126167.us, i64 %118
-  %140 = getelementptr inbounds i16, ptr %.0129165.us, i64 %118
-  %141 = getelementptr inbounds i16, ptr %.0130164.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0131163.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0132162.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0133161.us, i64 %119
+  %137 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %118
+  %138 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %118
+  %139 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %118
+  %140 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %118
+  %141 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %119
   %145 = add nsw i32 %.0128166.us, 1
   %exitcond.not = icmp eq i32 %145, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader156.us, !llvm.loop !123
 
 146:                                              ; preds = %.preheader156.us, %146
   %indvars.iv = phi i64 [ 0, %.preheader156.us ], [ %indvars.iv.next, %146 ]
-  %147 = getelementptr inbounds i16, ptr %.0124169.us, i64 %indvars.iv
+  %147 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %indvars.iv
   %148 = load i16, ptr %147, align 2, !tbaa !63
   %149 = zext i16 %148 to i32
-  %150 = getelementptr inbounds i16, ptr %.0125168.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0126167.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
   %156 = sub nsw i32 %149, %98
@@ -4763,7 +4762,7 @@ define internal noundef i32 @colorlevels_slice_14_planar(ptr noundef readonly ca
   %160 = tail call i32 @llvm.smax.i32(i32 %159, i32 0)
   %161 = tail call i32 @llvm.umin.i32(i32 %160, i32 16383)
   %162 = trunc nuw nsw i32 %161 to i16
-  %163 = getelementptr inbounds i16, ptr %.0130164.us, i64 %indvars.iv
+  %163 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %indvars.iv
   store i16 %162, ptr %163, align 2, !tbaa !63
   %164 = sub nsw i32 %152, %97
   %165 = sitofp i32 %164 to float
@@ -4772,7 +4771,7 @@ define internal noundef i32 @colorlevels_slice_14_planar(ptr noundef readonly ca
   %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
   %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 16383)
   %170 = trunc nuw nsw i32 %169 to i16
-  %171 = getelementptr inbounds i16, ptr %.0131163.us, i64 %indvars.iv
+  %171 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %indvars.iv
   store i16 %170, ptr %171, align 2, !tbaa !63
   %172 = sub nsw i32 %155, %99
   %173 = sitofp i32 %172 to float
@@ -4781,7 +4780,7 @@ define internal noundef i32 @colorlevels_slice_14_planar(ptr noundef readonly ca
   %176 = tail call i32 @llvm.smax.i32(i32 %175, i32 0)
   %177 = tail call i32 @llvm.umin.i32(i32 %176, i32 16383)
   %178 = trunc nuw nsw i32 %177 to i16
-  %179 = getelementptr inbounds i16, ptr %.0132162.us, i64 %indvars.iv
+  %179 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %indvars.iv
   store i16 %178, ptr %179, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %121
   %180 = icmp slt i64 %indvars.iv.next, %122
@@ -4818,28 +4817,28 @@ define internal noundef i32 @colorlevels_preserve_slice_14_planar(ptr noundef re
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -4956,7 +4955,7 @@ define internal noundef i32 @colorlevels_preserve_slice_14_planar(ptr noundef re
 
 .lr.ph190.split.us:                               ; preds = %.lr.ph190.us, %.lr.ph190.split.us
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph190.split.us ], [ 0, %.lr.ph190.us ]
-  %128 = getelementptr inbounds i16, ptr %.0149199.us, i64 %indvars.iv222
+  %128 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %indvars.iv222
   %129 = load i16, ptr %128, align 2, !tbaa !63
   %130 = zext i16 %129 to i32
   %131 = sub nsw i32 %130, %96
@@ -4966,21 +4965,21 @@ define internal noundef i32 @colorlevels_preserve_slice_14_planar(ptr noundef re
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 0)
   %136 = tail call i32 @llvm.umin.i32(i32 %135, i32 16383)
   %137 = trunc nuw nsw i32 %136 to i16
-  %138 = getelementptr inbounds i16, ptr %.0155194.us, i64 %indvars.iv222
+  %138 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %indvars.iv222
   store i16 %137, ptr %138, align 2, !tbaa !63
   %indvars.iv.next223 = add nsw i64 %indvars.iv222, %124
   %139 = icmp slt i64 %indvars.iv.next223, %125
   br i1 %139, label %.lr.ph190.split.us, label %.critedge.us, !llvm.loop !125
 
 .critedge.us:                                     ; preds = %.lr.ph190.split.us, %.lr.ph190.us
-  %140 = getelementptr inbounds i16, ptr %.0143202.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0144201.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0148200.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0149199.us, i64 %119
-  %144 = getelementptr inbounds i16, ptr %.0150198.us, i64 %120
-  %145 = getelementptr inbounds i16, ptr %.0153196.us, i64 %120
-  %146 = getelementptr inbounds i16, ptr %.0154195.us, i64 %120
-  %147 = getelementptr inbounds i16, ptr %.0155194.us, i64 %120
+  %140 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %119
+  %144 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %120
+  %145 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %120
+  %146 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %120
+  %147 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %120
   %148 = add nsw i32 %.0152197.us, 1
   %exitcond.not = icmp eq i32 %148, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader184.us, !llvm.loop !126
@@ -4989,13 +4988,13 @@ define internal noundef i32 @colorlevels_preserve_slice_14_planar(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.preheader184.us ], [ %indvars.iv.next, %265 ]
   %.1186.us = phi float [ %.0168193.us, %.preheader184.us ], [ %.2.us, %265 ]
   %.1170185.us = phi float [ %.0169192.us, %.preheader184.us ], [ %.3.us, %265 ]
-  %150 = getelementptr inbounds i16, ptr %.0143202.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %indvars.iv
   %151 = load i16, ptr %150, align 2, !tbaa !63
   %152 = zext i16 %151 to i32
-  %153 = getelementptr inbounds i16, ptr %.0144201.us, i64 %indvars.iv
+  %153 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %indvars.iv
   %154 = load i16, ptr %153, align 2, !tbaa !63
   %155 = zext i16 %154 to i32
-  %156 = getelementptr inbounds i16, ptr %.0148200.us, i64 %indvars.iv
+  %156 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %indvars.iv
   %157 = load i16, ptr %156, align 2, !tbaa !63
   %158 = zext i16 %157 to i32
   br i1 %51, label %162, label %159
@@ -5145,17 +5144,17 @@ preserve_color.exit.us:                           ; preds = %240, %232, %223, %2
   %266 = tail call i32 @llvm.smax.i32(i32 %.0147.us, i32 0)
   %267 = tail call i32 @llvm.umin.i32(i32 %266, i32 16383)
   %268 = trunc nuw nsw i32 %267 to i16
-  %269 = getelementptr inbounds i16, ptr %.0150198.us, i64 %indvars.iv
+  %269 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %indvars.iv
   store i16 %268, ptr %269, align 2, !tbaa !63
   %270 = tail call i32 @llvm.smax.i32(i32 %.0146.us, i32 0)
   %271 = tail call i32 @llvm.umin.i32(i32 %270, i32 16383)
   %272 = trunc nuw nsw i32 %271 to i16
-  %273 = getelementptr inbounds i16, ptr %.0153196.us, i64 %indvars.iv
+  %273 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %indvars.iv
   store i16 %272, ptr %273, align 2, !tbaa !63
   %274 = tail call i32 @llvm.smax.i32(i32 %.0145.us, i32 0)
   %275 = tail call i32 @llvm.umin.i32(i32 %274, i32 16383)
   %276 = trunc nuw nsw i32 %275 to i16
-  %277 = getelementptr inbounds i16, ptr %.0154195.us, i64 %indvars.iv
+  %277 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %indvars.iv
   store i16 %276, ptr %277, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %124
   %278 = icmp slt i64 %indvars.iv.next, %125
@@ -5192,28 +5191,28 @@ define internal noundef i32 @colorlevels_slice_16_planar(ptr noundef readonly ca
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -5325,7 +5324,7 @@ define internal noundef i32 @colorlevels_slice_16_planar(ptr noundef readonly ca
 
 .lr.ph159.split.us:                               ; preds = %.lr.ph159.us, %.lr.ph159.split.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.lr.ph159.split.us ], [ 0, %.lr.ph159.us ]
-  %125 = getelementptr inbounds i16, ptr %.0129165.us, i64 %indvars.iv191
+  %125 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %indvars.iv191
   %126 = load i16, ptr %125, align 2, !tbaa !63
   %127 = zext i16 %126 to i32
   %128 = sub nsw i32 %127, %96
@@ -5337,34 +5336,34 @@ define internal noundef i32 @colorlevels_slice_16_planar(ptr noundef readonly ca
   %132 = sext i1 %isnotneg.i142.us to i16
   %133 = trunc nuw i32 %131 to i16
   %.0.i143.us = select i1 %.not.i141.us, i16 %133, i16 %132
-  %134 = getelementptr inbounds i16, ptr %.0133161.us, i64 %indvars.iv191
+  %134 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %indvars.iv191
   store i16 %.0.i143.us, ptr %134, align 2, !tbaa !63
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, %121
   %135 = icmp slt i64 %indvars.iv.next192, %122
   br i1 %135, label %.lr.ph159.split.us, label %.critedge.us, !llvm.loop !128
 
 .critedge.us:                                     ; preds = %.lr.ph159.split.us, %.lr.ph159.us
-  %136 = getelementptr inbounds i16, ptr %.0124169.us, i64 %118
-  %137 = getelementptr inbounds i16, ptr %.0125168.us, i64 %118
-  %138 = getelementptr inbounds i16, ptr %.0126167.us, i64 %118
-  %139 = getelementptr inbounds i16, ptr %.0129165.us, i64 %118
-  %140 = getelementptr inbounds i16, ptr %.0130164.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0131163.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0132162.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0133161.us, i64 %119
+  %136 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %118
+  %137 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %118
+  %138 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %118
+  %139 = getelementptr inbounds [2 x i8], ptr %.0129165.us, i64 %118
+  %140 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0133161.us, i64 %119
   %144 = add nsw i32 %.0128166.us, 1
   %exitcond.not = icmp eq i32 %144, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader156.us, !llvm.loop !129
 
 145:                                              ; preds = %.preheader156.us, %145
   %indvars.iv = phi i64 [ 0, %.preheader156.us ], [ %indvars.iv.next, %145 ]
-  %146 = getelementptr inbounds i16, ptr %.0124169.us, i64 %indvars.iv
+  %146 = getelementptr inbounds [2 x i8], ptr %.0124169.us, i64 %indvars.iv
   %147 = load i16, ptr %146, align 2, !tbaa !63
   %148 = zext i16 %147 to i32
-  %149 = getelementptr inbounds i16, ptr %.0125168.us, i64 %indvars.iv
+  %149 = getelementptr inbounds [2 x i8], ptr %.0125168.us, i64 %indvars.iv
   %150 = load i16, ptr %149, align 2, !tbaa !63
   %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i16, ptr %.0126167.us, i64 %indvars.iv
+  %152 = getelementptr inbounds [2 x i8], ptr %.0126167.us, i64 %indvars.iv
   %153 = load i16, ptr %152, align 2, !tbaa !63
   %154 = zext i16 %153 to i32
   %155 = sub nsw i32 %148, %98
@@ -5376,7 +5375,7 @@ define internal noundef i32 @colorlevels_slice_16_planar(ptr noundef readonly ca
   %159 = sext i1 %isnotneg.i.us to i16
   %160 = trunc nuw i32 %158 to i16
   %.0.i.us = select i1 %.not.i.us, i16 %160, i16 %159
-  %161 = getelementptr inbounds i16, ptr %.0130164.us, i64 %indvars.iv
+  %161 = getelementptr inbounds [2 x i8], ptr %.0130164.us, i64 %indvars.iv
   store i16 %.0.i.us, ptr %161, align 2, !tbaa !63
   %162 = sub nsw i32 %151, %97
   %163 = sitofp i32 %162 to float
@@ -5387,7 +5386,7 @@ define internal noundef i32 @colorlevels_slice_16_planar(ptr noundef readonly ca
   %166 = sext i1 %isnotneg.i136.us to i16
   %167 = trunc nuw i32 %165 to i16
   %.0.i137.us = select i1 %.not.i135.us, i16 %167, i16 %166
-  %168 = getelementptr inbounds i16, ptr %.0131163.us, i64 %indvars.iv
+  %168 = getelementptr inbounds [2 x i8], ptr %.0131163.us, i64 %indvars.iv
   store i16 %.0.i137.us, ptr %168, align 2, !tbaa !63
   %169 = sub nsw i32 %154, %99
   %170 = sitofp i32 %169 to float
@@ -5398,7 +5397,7 @@ define internal noundef i32 @colorlevels_slice_16_planar(ptr noundef readonly ca
   %173 = sext i1 %isnotneg.i139.us to i16
   %174 = trunc nuw i32 %172 to i16
   %.0.i140.us = select i1 %.not.i138.us, i16 %174, i16 %173
-  %175 = getelementptr inbounds i16, ptr %.0132162.us, i64 %indvars.iv
+  %175 = getelementptr inbounds [2 x i8], ptr %.0132162.us, i64 %indvars.iv
   store i16 %.0.i140.us, ptr %175, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %121
   %176 = icmp slt i64 %indvars.iv.next, %122
@@ -5435,28 +5434,28 @@ define internal noundef i32 @colorlevels_preserve_slice_16_planar(ptr noundef re
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds i16, ptr %29, i64 %26
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds i16, ptr %32, i64 %26
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds i16, ptr %35, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds i16, ptr %38, i64 %26
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds i16, ptr %41, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds i16, ptr %44, i64 %26
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -5573,7 +5572,7 @@ define internal noundef i32 @colorlevels_preserve_slice_16_planar(ptr noundef re
 
 .lr.ph190.split.us:                               ; preds = %.lr.ph190.us, %.lr.ph190.split.us
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph190.split.us ], [ 0, %.lr.ph190.us ]
-  %128 = getelementptr inbounds i16, ptr %.0149199.us, i64 %indvars.iv224
+  %128 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %indvars.iv224
   %129 = load i16, ptr %128, align 2, !tbaa !63
   %130 = zext i16 %129 to i32
   %131 = sub nsw i32 %130, %96
@@ -5585,21 +5584,21 @@ define internal noundef i32 @colorlevels_preserve_slice_16_planar(ptr noundef re
   %135 = sext i1 %isnotneg.i165.us to i16
   %136 = trunc nuw i32 %134 to i16
   %.0.i166.us = select i1 %.not.i164.us, i16 %136, i16 %135
-  %137 = getelementptr inbounds i16, ptr %.0155194.us, i64 %indvars.iv224
+  %137 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %indvars.iv224
   store i16 %.0.i166.us, ptr %137, align 2, !tbaa !63
   %indvars.iv.next225 = add nsw i64 %indvars.iv224, %124
   %138 = icmp slt i64 %indvars.iv.next225, %125
   br i1 %138, label %.lr.ph190.split.us, label %.critedge.us, !llvm.loop !131
 
 .critedge.us:                                     ; preds = %.lr.ph190.split.us, %.lr.ph190.us
-  %139 = getelementptr inbounds i16, ptr %.0143202.us, i64 %119
-  %140 = getelementptr inbounds i16, ptr %.0144201.us, i64 %119
-  %141 = getelementptr inbounds i16, ptr %.0148200.us, i64 %119
-  %142 = getelementptr inbounds i16, ptr %.0149199.us, i64 %119
-  %143 = getelementptr inbounds i16, ptr %.0150198.us, i64 %120
-  %144 = getelementptr inbounds i16, ptr %.0153196.us, i64 %120
-  %145 = getelementptr inbounds i16, ptr %.0154195.us, i64 %120
-  %146 = getelementptr inbounds i16, ptr %.0155194.us, i64 %120
+  %139 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %119
+  %140 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %119
+  %141 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %.0149199.us, i64 %119
+  %143 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %120
+  %144 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %120
+  %145 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %120
+  %146 = getelementptr inbounds [2 x i8], ptr %.0155194.us, i64 %120
   %147 = add nsw i32 %.0152197.us, 1
   %exitcond.not = icmp eq i32 %147, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader184.us, !llvm.loop !132
@@ -5608,13 +5607,13 @@ define internal noundef i32 @colorlevels_preserve_slice_16_planar(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.preheader184.us ], [ %indvars.iv.next, %264 ]
   %.1186.us = phi float [ %.0168193.us, %.preheader184.us ], [ %.2.us, %264 ]
   %.1170185.us = phi float [ %.0169192.us, %.preheader184.us ], [ %.3.us, %264 ]
-  %149 = getelementptr inbounds i16, ptr %.0143202.us, i64 %indvars.iv
+  %149 = getelementptr inbounds [2 x i8], ptr %.0143202.us, i64 %indvars.iv
   %150 = load i16, ptr %149, align 2, !tbaa !63
   %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i16, ptr %.0144201.us, i64 %indvars.iv
+  %152 = getelementptr inbounds [2 x i8], ptr %.0144201.us, i64 %indvars.iv
   %153 = load i16, ptr %152, align 2, !tbaa !63
   %154 = zext i16 %153 to i32
-  %155 = getelementptr inbounds i16, ptr %.0148200.us, i64 %indvars.iv
+  %155 = getelementptr inbounds [2 x i8], ptr %.0148200.us, i64 %indvars.iv
   %156 = load i16, ptr %155, align 2, !tbaa !63
   %157 = zext i16 %156 to i32
   br i1 %51, label %161, label %158
@@ -5766,21 +5765,21 @@ preserve_color.exit.us:                           ; preds = %239, %231, %222, %2
   %265 = sext i1 %isnotneg.i.us to i16
   %266 = trunc nuw i32 %.0147.us to i16
   %.0.i.us = select i1 %.not.i.us, i16 %266, i16 %265
-  %267 = getelementptr inbounds i16, ptr %.0150198.us, i64 %indvars.iv
+  %267 = getelementptr inbounds [2 x i8], ptr %.0150198.us, i64 %indvars.iv
   store i16 %.0.i.us, ptr %267, align 2, !tbaa !63
   %.not.i158.us = icmp ult i32 %.0146.us, 65536
   %isnotneg.i159.us = icmp sgt i32 %.0146.us, -1
   %268 = sext i1 %isnotneg.i159.us to i16
   %269 = trunc nuw i32 %.0146.us to i16
   %.0.i160.us = select i1 %.not.i158.us, i16 %269, i16 %268
-  %270 = getelementptr inbounds i16, ptr %.0153196.us, i64 %indvars.iv
+  %270 = getelementptr inbounds [2 x i8], ptr %.0153196.us, i64 %indvars.iv
   store i16 %.0.i160.us, ptr %270, align 2, !tbaa !63
   %.not.i161.us = icmp ult i32 %.0145.us, 65536
   %isnotneg.i162.us = icmp sgt i32 %.0145.us, -1
   %271 = sext i1 %isnotneg.i162.us to i16
   %272 = trunc nuw i32 %.0145.us to i16
   %.0.i163.us = select i1 %.not.i161.us, i16 %272, i16 %271
-  %273 = getelementptr inbounds i16, ptr %.0154195.us, i64 %indvars.iv
+  %273 = getelementptr inbounds [2 x i8], ptr %.0154195.us, i64 %indvars.iv
   store i16 %.0.i163.us, ptr %273, align 2, !tbaa !63
   %indvars.iv.next = add nsw i64 %indvars.iv, %124
   %274 = icmp slt i64 %indvars.iv.next, %125
@@ -5817,28 +5816,28 @@ define internal noundef i32 @colorlevels_slice_32_planar(ptr noundef readonly ca
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds float, ptr %24, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds float, ptr %29, i64 %26
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds float, ptr %32, i64 %26
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds float, ptr %35, i64 %26
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds float, ptr %38, i64 %26
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds float, ptr %41, i64 %26
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds float, ptr %44, i64 %26
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds float, ptr %47, i64 %26
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -5938,48 +5937,48 @@ define internal noundef i32 @colorlevels_slice_32_planar(ptr noundef readonly ca
 
 .lr.ph144.split.us:                               ; preds = %.lr.ph144.us, %.lr.ph144.split.us
   %indvars.iv173 = phi i64 [ %indvars.iv.next174, %.lr.ph144.split.us ], [ 0, %.lr.ph144.us ]
-  %120 = getelementptr inbounds float, ptr %.0129150.us, i64 %indvars.iv173
+  %120 = getelementptr inbounds [4 x i8], ptr %.0129150.us, i64 %indvars.iv173
   %121 = load float, ptr %120, align 4, !tbaa !60
   %122 = fsub nsz float %121, %100
   %123 = tail call nsz float @llvm.fmuladd.f32(float %122, float %110, float %102)
-  %124 = getelementptr inbounds float, ptr %.0133146.us, i64 %indvars.iv173
+  %124 = getelementptr inbounds [4 x i8], ptr %.0133146.us, i64 %indvars.iv173
   store float %123, ptr %124, align 4, !tbaa !60
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, %116
   %125 = icmp slt i64 %indvars.iv.next174, %117
   br i1 %125, label %.lr.ph144.split.us, label %.critedge.us, !llvm.loop !134
 
 .critedge.us:                                     ; preds = %.lr.ph144.split.us, %.lr.ph144.us
-  %126 = getelementptr inbounds float, ptr %.0124154.us, i64 %113
-  %127 = getelementptr inbounds float, ptr %.0125153.us, i64 %113
-  %128 = getelementptr inbounds float, ptr %.0126152.us, i64 %113
-  %129 = getelementptr inbounds float, ptr %.0129150.us, i64 %113
-  %130 = getelementptr inbounds float, ptr %.0130149.us, i64 %114
-  %131 = getelementptr inbounds float, ptr %.0131148.us, i64 %114
-  %132 = getelementptr inbounds float, ptr %.0132147.us, i64 %114
-  %133 = getelementptr inbounds float, ptr %.0133146.us, i64 %114
+  %126 = getelementptr inbounds [4 x i8], ptr %.0124154.us, i64 %113
+  %127 = getelementptr inbounds [4 x i8], ptr %.0125153.us, i64 %113
+  %128 = getelementptr inbounds [4 x i8], ptr %.0126152.us, i64 %113
+  %129 = getelementptr inbounds [4 x i8], ptr %.0129150.us, i64 %113
+  %130 = getelementptr inbounds [4 x i8], ptr %.0130149.us, i64 %114
+  %131 = getelementptr inbounds [4 x i8], ptr %.0131148.us, i64 %114
+  %132 = getelementptr inbounds [4 x i8], ptr %.0132147.us, i64 %114
+  %133 = getelementptr inbounds [4 x i8], ptr %.0133146.us, i64 %114
   %134 = add nsw i32 %.0128151.us, 1
   %exitcond.not = icmp eq i32 %134, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader141.us, !llvm.loop !135
 
 135:                                              ; preds = %.preheader141.us, %135
   %indvars.iv = phi i64 [ 0, %.preheader141.us ], [ %indvars.iv.next, %135 ]
-  %136 = getelementptr inbounds float, ptr %.0124154.us, i64 %indvars.iv
+  %136 = getelementptr inbounds [4 x i8], ptr %.0124154.us, i64 %indvars.iv
   %137 = load float, ptr %136, align 4, !tbaa !60
-  %138 = getelementptr inbounds float, ptr %.0125153.us, i64 %indvars.iv
+  %138 = getelementptr inbounds [4 x i8], ptr %.0125153.us, i64 %indvars.iv
   %139 = load float, ptr %138, align 4, !tbaa !60
-  %140 = getelementptr inbounds float, ptr %.0126152.us, i64 %indvars.iv
+  %140 = getelementptr inbounds [4 x i8], ptr %.0126152.us, i64 %indvars.iv
   %141 = load float, ptr %140, align 4, !tbaa !60
   %142 = fsub nsz float %137, %98
   %143 = tail call nsz float @llvm.fmuladd.f32(float %142, float %104, float %96)
-  %144 = getelementptr inbounds float, ptr %.0130149.us, i64 %indvars.iv
+  %144 = getelementptr inbounds [4 x i8], ptr %.0130149.us, i64 %indvars.iv
   store float %143, ptr %144, align 4, !tbaa !60
   %145 = fsub nsz float %139, %99
   %146 = tail call nsz float @llvm.fmuladd.f32(float %145, float %106, float %101)
-  %147 = getelementptr inbounds float, ptr %.0131148.us, i64 %indvars.iv
+  %147 = getelementptr inbounds [4 x i8], ptr %.0131148.us, i64 %indvars.iv
   store float %146, ptr %147, align 4, !tbaa !60
   %148 = fsub nsz float %141, %97
   %149 = tail call nsz float @llvm.fmuladd.f32(float %148, float %108, float %95)
-  %150 = getelementptr inbounds float, ptr %.0132147.us, i64 %indvars.iv
+  %150 = getelementptr inbounds [4 x i8], ptr %.0132147.us, i64 %indvars.iv
   store float %149, ptr %150, align 4, !tbaa !60
   %indvars.iv.next = add nsw i64 %indvars.iv, %116
   %151 = icmp slt i64 %indvars.iv.next, %117
@@ -6016,28 +6015,28 @@ define internal noundef i32 @colorlevels_preserve_slice_32_planar(ptr noundef re
   %24 = load ptr, ptr %1, align 8, !tbaa !44
   %25 = mul nsw i32 %20, %14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds float, ptr %24, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds float, ptr %29, i64 %26
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds float, ptr %32, i64 %26
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds float, ptr %35, i64 %26
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds float, ptr %38, i64 %26
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %26
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = getelementptr inbounds float, ptr %41, i64 %26
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = getelementptr inbounds float, ptr %44, i64 %26
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds float, ptr %47, i64 %26
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %26
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i32 %50, 32
@@ -6142,25 +6141,25 @@ define internal noundef i32 @colorlevels_preserve_slice_32_planar(ptr noundef re
 
 .lr.ph175.split.us:                               ; preds = %.lr.ph175.us, %.lr.ph175.split.us
   %indvars.iv206 = phi i64 [ %indvars.iv.next207, %.lr.ph175.split.us ], [ 0, %.lr.ph175.us ]
-  %123 = getelementptr inbounds float, ptr %.0149184.us, i64 %indvars.iv206
+  %123 = getelementptr inbounds [4 x i8], ptr %.0149184.us, i64 %indvars.iv206
   %124 = load float, ptr %123, align 4, !tbaa !60
   %125 = fsub nsz float %124, %100
   %126 = tail call nsz float @llvm.fmuladd.f32(float %125, float %110, float %102)
-  %127 = getelementptr inbounds float, ptr %.0155179.us, i64 %indvars.iv206
+  %127 = getelementptr inbounds [4 x i8], ptr %.0155179.us, i64 %indvars.iv206
   store float %126, ptr %127, align 4, !tbaa !60
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, %119
   %128 = icmp slt i64 %indvars.iv.next207, %120
   br i1 %128, label %.lr.ph175.split.us, label %.critedge.us, !llvm.loop !137
 
 .critedge.us:                                     ; preds = %.lr.ph175.split.us, %.lr.ph175.us
-  %129 = getelementptr inbounds float, ptr %.0143187.us, i64 %114
-  %130 = getelementptr inbounds float, ptr %.0144186.us, i64 %114
-  %131 = getelementptr inbounds float, ptr %.0148185.us, i64 %114
-  %132 = getelementptr inbounds float, ptr %.0149184.us, i64 %114
-  %133 = getelementptr inbounds float, ptr %.0150183.us, i64 %115
-  %134 = getelementptr inbounds float, ptr %.0153181.us, i64 %115
-  %135 = getelementptr inbounds float, ptr %.0154180.us, i64 %115
-  %136 = getelementptr inbounds float, ptr %.0155179.us, i64 %115
+  %129 = getelementptr inbounds [4 x i8], ptr %.0143187.us, i64 %114
+  %130 = getelementptr inbounds [4 x i8], ptr %.0144186.us, i64 %114
+  %131 = getelementptr inbounds [4 x i8], ptr %.0148185.us, i64 %114
+  %132 = getelementptr inbounds [4 x i8], ptr %.0149184.us, i64 %114
+  %133 = getelementptr inbounds [4 x i8], ptr %.0150183.us, i64 %115
+  %134 = getelementptr inbounds [4 x i8], ptr %.0153181.us, i64 %115
+  %135 = getelementptr inbounds [4 x i8], ptr %.0154180.us, i64 %115
+  %136 = getelementptr inbounds [4 x i8], ptr %.0155179.us, i64 %115
   %137 = add nsw i32 %.0152182.us, 1
   %exitcond.not = icmp eq i32 %137, %17
   br i1 %exitcond.not, label %._crit_edge, label %.preheader169.us, !llvm.loop !138
@@ -6169,11 +6168,11 @@ define internal noundef i32 @colorlevels_preserve_slice_32_planar(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.preheader169.us ], [ %indvars.iv.next, %preserve_color.exit.us ]
   %.1171.us = phi float [ %.0159178.us, %.preheader169.us ], [ %.2.us, %preserve_color.exit.us ]
   %.1161170.us = phi float [ %.0160177.us, %.preheader169.us ], [ %.3.us, %preserve_color.exit.us ]
-  %139 = getelementptr inbounds float, ptr %.0143187.us, i64 %indvars.iv
+  %139 = getelementptr inbounds [4 x i8], ptr %.0143187.us, i64 %indvars.iv
   %140 = load float, ptr %139, align 4, !tbaa !60
-  %141 = getelementptr inbounds float, ptr %.0144186.us, i64 %indvars.iv
+  %141 = getelementptr inbounds [4 x i8], ptr %.0144186.us, i64 %indvars.iv
   %142 = load float, ptr %141, align 4, !tbaa !60
-  %143 = getelementptr inbounds float, ptr %.0148185.us, i64 %indvars.iv
+  %143 = getelementptr inbounds [4 x i8], ptr %.0148185.us, i64 %indvars.iv
   %144 = load float, ptr %143, align 4, !tbaa !60
   br i1 %51, label %148, label %145
 
@@ -6298,11 +6297,11 @@ preserve_color.exit.us:                           ; preds = %214, %206, %197, %1
   %.0147.us = select nsz i1 %230, float %232, float %151
   %.0146.us = select nsz i1 %230, float %233, float %153
   %.0145.us = select nsz i1 %230, float %234, float %155
-  %235 = getelementptr inbounds float, ptr %.0150183.us, i64 %indvars.iv
+  %235 = getelementptr inbounds [4 x i8], ptr %.0150183.us, i64 %indvars.iv
   store float %.0147.us, ptr %235, align 4, !tbaa !60
-  %236 = getelementptr inbounds float, ptr %.0153181.us, i64 %indvars.iv
+  %236 = getelementptr inbounds [4 x i8], ptr %.0153181.us, i64 %indvars.iv
   store float %.0146.us, ptr %236, align 4, !tbaa !60
-  %237 = getelementptr inbounds float, ptr %.0154180.us, i64 %indvars.iv
+  %237 = getelementptr inbounds [4 x i8], ptr %.0154180.us, i64 %indvars.iv
   store float %.0145.us, ptr %237, align 4, !tbaa !60
   %indvars.iv.next = add nsw i64 %indvars.iv, %119
   %238 = icmp slt i64 %indvars.iv.next, %120

@@ -80,7 +80,7 @@ define noundef zeroext i1 @_ZN4base10WideToUTF8EPKwmPNSt7__cxx1112basic_stringIc
   %23 = phi i64 [ %15, %._crit_edge.i.i ], [ %15, %17 ], [ %.pre11.i.i, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %23, ptr %24, align 8, !tbaa !16
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %25, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = invoke noundef zeroext i1 @_ZN4base13IsStringASCIIERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -100,7 +100,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %27, %
   br i1 %26, label %30, label %41
 
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %1
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1
   %32 = load ptr, ptr %2, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !21
@@ -312,7 +312,7 @@ define noundef zeroext i1 @_ZN4base10UTF8ToWideEPKcmPNSt7__cxx1112basic_stringIw
   %9 = load ptr, ptr %2, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !16
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE19_M_replace_dispatchIPKcEERS4_N9__gnu_cxx17__normal_iteratorIPKwS4_EESD_T_SE_St12__false_type(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %9, ptr %12, ptr noundef %0, ptr noundef %8)
   br label %16
 
@@ -382,10 +382,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; pr
 
 _ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i, %23
   %24 = phi ptr [ %.pre.i.i, %23 ], [ %16, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %14
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %14
   store i32 %13, ptr %25, align 4, !tbaa !14
   store i64 %15, ptr %8, align 8, !tbaa !16
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %15
   store i32 0, ptr %26, align 4, !tbaa !14
   br label %41
 
@@ -414,10 +414,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i7: ; p
 
 _ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE.exit9: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i7, %37
   %38 = phi ptr [ %.pre.i.i8, %37 ], [ %30, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i7 ]
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %28
   store i32 65533, ptr %39, align 4, !tbaa !14
   store i64 %29, ptr %8, align 8, !tbaa !16
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %29
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %29
   store i32 0, ptr %40, align 4, !tbaa !14
   br label %41
 
@@ -485,7 +485,7 @@ define void @_ZN4base10UTF8ToWideENS_16BasicStringPieceINSt7__cxx1112basic_strin
   %23 = phi ptr [ %12, %._crit_edge.i.i ], [ %17, %.lr.ph.i.i.i ]
   %24 = phi i64 [ %10, %._crit_edge.i.i ], [ %18, %.lr.ph.i.i.i ]
   store i64 %24, ptr %13, align 8, !tbaa !16
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   store i32 0, ptr %25, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
@@ -683,10 +683,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i: ; 
 
 _ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE.exit.i: ; preds = %24, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i
   %25 = phi ptr [ %.pre.i.i.i, %24 ], [ %17, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i ]
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %15
   store i32 %14, ptr %26, align 4, !tbaa !14
   store i64 %16, ptr %6, align 8, !tbaa !16
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   store i32 0, ptr %27, align 4, !tbaa !14
   br label %42
 
@@ -715,10 +715,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i7.i: ;
 
 _ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE.exit9.i: ; preds = %38, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i7.i
   %39 = phi ptr [ %.pre.i.i8.i, %38 ], [ %31, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i7.i ]
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %29
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %29
   store i32 65533, ptr %40, align 4, !tbaa !14
   store i64 %30, ptr %6, align 8, !tbaa !16
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %30
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %30
   store i32 0, ptr %41, align 4, !tbaa !14
   br label %42
 
@@ -788,7 +788,7 @@ define noundef zeroext i1 @_ZN4base11UTF8ToUTF16EPKcmPNSt7__cxx1112basic_stringI
   %11 = load ptr, ptr %2, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !33
-  %14 = getelementptr inbounds nuw i16, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %13
   %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE19_M_replace_dispatchIPKcEERS4_N9__gnu_cxx17__normal_iteratorIPKtS4_EESD_T_SE_St12__false_type(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %11, ptr %14, ptr noundef %0, ptr noundef %10)
   br label %25
 
@@ -883,7 +883,7 @@ define void @_ZN4base11UTF8ToUTF16ENS_16BasicStringPieceINSt7__cxx1112basic_stri
   %25 = phi ptr [ %14, %._crit_edge.i.i ], [ %19, %.lr.ph.i.i.i ]
   %26 = phi i64 [ %12, %._crit_edge.i.i ], [ %20, %.lr.ph.i.i.i ]
   store i64 %26, ptr %15, align 8, !tbaa !33
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %26
   store i16 0, ptr %27, align 2, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %47
@@ -972,7 +972,7 @@ define noundef zeroext i1 @_ZN4base11UTF16ToUTF8EPKtmPNSt7__cxx1112basic_stringI
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %1
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %1
   %11 = load ptr, ptr %2, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !21
@@ -1154,7 +1154,7 @@ define void @_ZN4base12ASCIIToUTF16ENS_16BasicStringPieceINSt7__cxx1112basic_str
   %17 = phi ptr [ %6, %._crit_edge.i.i ], [ %11, %.lr.ph.i.i.i ]
   %18 = phi i64 [ %2, %._crit_edge.i.i ], [ %12, %.lr.ph.i.i.i ]
   store i64 %18, ptr %7, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %18
   store i16 0, ptr %19, align 2, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -1371,7 +1371,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i
   store i64 %16, ptr %9, align 8, !tbaa !16
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %16
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   store i32 0, ptr %22, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %23 = ptrtoint ptr %2 to i64
@@ -1467,7 +1467,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i
   store i64 %16, ptr %9, align 8, !tbaa !33
-  %22 = getelementptr inbounds nuw i16, ptr %17, i64 %16
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %16
   store i16 0, ptr %22, align 2, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %23 = ptrtoint ptr %2 to i64

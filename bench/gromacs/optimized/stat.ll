@@ -7,11 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"struct.std::array" = type { [95 x float] }
 %"struct.gmx::EnumerationArray.89" = type { [5 x i32] }
-%struct.t_grp_tcstat = type { float, float, [3 x [3 x float]], [3 x [3 x float]], [3 x [3 x float]], float, double, double, double }
-%"class.std::vector.55" = type { %"struct.std::_Vector_base.56" }
-%"struct.std::_Vector_base.56" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"gs\00", align 1
 @.str.1 = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/mdlib/stat.cpp\00", align 1
@@ -111,11 +106,11 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   br i1 %.not344, label %42, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %36, %35, %.split.us.i, %.split.us.i
-  %37 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !108
   %39 = add nsw i32 %.02126.us.i, 1
   %40 = sext i32 %.02126.us.i to i64
-  %41 = getelementptr inbounds float, ptr %14, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %14, i64 %40
   store float %38, ptr %41, align 4, !tbaa !108
   br label %42
 
@@ -143,11 +138,11 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 .sink.split96.i:                                  ; preds = %.split.split.us.split.us.i
-  %44 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv370
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv370
   %45 = load float, ptr %44, align 4, !tbaa !108
   %46 = add nsw i32 %.02126.us31.us.i, 1
   %47 = sext i32 %.02126.us31.us.i to i64
-  %48 = getelementptr inbounds float, ptr %14, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %14, i64 %47
   store float %45, ptr %48, align 4, !tbaa !108
   br label %49
 
@@ -168,11 +163,11 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 51:                                               ; preds = %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i
-  %52 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv81.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv81.i
   %53 = load float, ptr %52, align 4, !tbaa !108
   %54 = add nsw i32 %.02126.us31.us57.i, 1
   %55 = sext i32 %.02126.us31.us57.i to i64
-  %56 = getelementptr inbounds float, ptr %14, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %14, i64 %55
   store float %53, ptr %56, align 4, !tbaa !108
   br label %57
 
@@ -200,11 +195,11 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 59:                                               ; preds = %.split.split.split.us.split.us.i
-  %60 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv73.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv73.i
   %61 = load float, ptr %60, align 4, !tbaa !108
   %62 = add nsw i32 %.02126.us40.us.i, 1
   %63 = sext i32 %.02126.us40.us.i to i64
-  %64 = getelementptr inbounds float, ptr %14, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %14, i64 %63
   store float %61, ptr %64, align 4, !tbaa !108
   br label %65
 
@@ -251,10 +246,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %73, align 8, !tbaa !111
-  %79 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %78, i64 %indvars.iv373
+  %79 = getelementptr inbounds nuw [144 x i8], ptr %78, i64 %indvars.iv373
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 44
   %81 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %80)
-  %82 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv373
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv373
   store i32 %81, ptr %82, align 4, !tbaa !114
   br label %83
 
@@ -263,10 +258,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 
 .sink.split:                                      ; preds = %83
   %84 = load ptr, ptr %73, align 8, !tbaa !111
-  %85 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %84, i64 %indvars.iv373
+  %85 = getelementptr inbounds nuw [144 x i8], ptr %84, i64 %indvars.iv373
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.mux
   %87 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %86)
-  %88 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv373
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv373
   store i32 %87, ptr %88, align 4, !tbaa !114
   br label %89
 
@@ -363,10 +358,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 129:                                              ; preds = %122, %129
   %indvars.iv376 = phi i64 [ 0, %122 ], [ %indvars.iv.next377, %129 ]
   %130 = load i32, ptr %124, align 8, !tbaa !140
-  %131 = getelementptr inbounds nuw %"class.std::vector.55", ptr %125, i64 %indvars.iv376
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %indvars.iv376
   %132 = load ptr, ptr %131, align 8, !tbaa !158
   %133 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %130, ptr noundef %132)
-  %134 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv376
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv376
   store i32 %133, ptr %134, align 4, !tbaa !114
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %.not349 = icmp eq i64 %indvars.iv.next377, 5
@@ -506,10 +501,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
   br i1 %9, label %214, label %220
 
 214:                                              ; preds = %213
-  %215 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv379
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv379
   %216 = load i32, ptr %215, align 4, !tbaa !114
   %217 = load ptr, ptr %211, align 8, !tbaa !111
-  %218 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %217, i64 %indvars.iv379
+  %218 = getelementptr inbounds nuw [144 x i8], ptr %217, i64 %indvars.iv379
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 44
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %216, i32 noundef 9, ptr noundef nonnull %219)
   br label %220
@@ -518,10 +513,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
   br i1 %28, label %226, label %.sink.split411
 
 .sink.split411:                                   ; preds = %220
-  %221 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv379
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv379
   %222 = load i32, ptr %221, align 4, !tbaa !114
   %223 = load ptr, ptr %211, align 8, !tbaa !111
-  %224 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %223, i64 %indvars.iv379
+  %224 = getelementptr inbounds nuw [144 x i8], ptr %223, i64 %indvars.iv379
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 %.mux423
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %222, i32 noundef 9, ptr noundef nonnull %225)
   br label %226
@@ -608,10 +603,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 
 260:                                              ; preds = %254, %260
   %indvars.iv382 = phi i64 [ 0, %254 ], [ %indvars.iv.next383, %260 ]
-  %261 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv382
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv382
   %262 = load i32, ptr %261, align 4, !tbaa !114
   %263 = load i32, ptr %255, align 8, !tbaa !140
-  %264 = getelementptr inbounds nuw %"class.std::vector.55", ptr %256, i64 %indvars.iv382
+  %264 = getelementptr inbounds nuw [24 x i8], ptr %256, i64 %indvars.iv382
   %265 = load ptr, ptr %264, align 8, !tbaa !158
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %262, i32 noundef %263, ptr noundef %265)
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
@@ -662,9 +657,9 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 .sink.split.i309:                                 ; preds = %.split.us.i302, %284
   %285 = add nsw i32 %.027.us.i303, 1
   %286 = sext i32 %.027.us.i303 to i64
-  %287 = getelementptr inbounds float, ptr %14, i64 %286
+  %287 = getelementptr inbounds [4 x i8], ptr %14, i64 %286
   %288 = load float, ptr %287, align 4, !tbaa !108
-  %289 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv385
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv385
   store float %288, ptr %289, align 4, !tbaa !108
   br label %290
 
@@ -691,9 +686,9 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 .sink.split96.i301:                               ; preds = %.split.split.us.split.us.i294
   %292 = add nsw i32 %.027.us30.us.i295, 1
   %293 = sext i32 %.027.us30.us.i295 to i64
-  %294 = getelementptr inbounds float, ptr %14, i64 %293
+  %294 = getelementptr inbounds [4 x i8], ptr %14, i64 %293
   %295 = load float, ptr %294, align 4, !tbaa !108
-  %296 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv388
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv388
   store float %295, ptr %296, align 4, !tbaa !108
   br label %297
 
@@ -720,9 +715,9 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 298:                                              ; preds = %.split.split.split.us.split.i
   %299 = add nsw i32 %.027.us39.i, 1
   %300 = sext i32 %.027.us39.i to i64
-  %301 = getelementptr inbounds float, ptr %14, i64 %300
+  %301 = getelementptr inbounds [4 x i8], ptr %14, i64 %300
   %302 = load float, ptr %301, align 4, !tbaa !108
-  %303 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store float %302, ptr %303, align 4, !tbaa !108
   br label %304
 

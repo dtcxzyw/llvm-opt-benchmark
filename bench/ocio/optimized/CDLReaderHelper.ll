@@ -470,7 +470,7 @@ sub_2:                                            ; preds = %sub_1
 27:                                               ; preds = %.tail
   %28 = or disjoint i32 %.01442, 1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !29
   %.not16 = icmp eq ptr %31, null
   br i1 %.not16, label %.noexc.i26, label %32
@@ -621,7 +621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %70,
 76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %.tail
   %77 = add i32 %.01442, 2
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !29
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !40
@@ -1568,7 +1568,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exi
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exit, %58
   store ptr %20, ptr %0, align 8, !tbaa !75
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !73
-  %62 = getelementptr inbounds nuw %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [120 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !74
   ret void
 
@@ -1817,7 +1817,7 @@ _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE11
 _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !80
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !69
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.14", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !72
   ret void
 }

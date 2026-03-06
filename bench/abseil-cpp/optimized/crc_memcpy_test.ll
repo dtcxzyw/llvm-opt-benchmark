@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::shared_ptr.20" = type { %"class.std::__shared_ptr.21" }
-%"class.std::__shared_ptr.21" = type { ptr, %"class.std::__shared_count" }
 %"class.absl::random_internal::RandenPoolSeedSeq" = type { i8 }
 %"class.std::unique_ptr.39" = type { %"struct.std::__uniq_ptr_data.40" }
 %"struct.std::__uniq_ptr_data.40" = type { %"class.std::__uniq_ptr_impl.41" }
@@ -71,7 +69,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.testing::TestParamInfo" = type { %"struct.(anonymous namespace)::TestParams", i64 }
 %"struct.(anonymous namespace)::TestParams" = type { i32, i32, i32 }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
-%"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::EngineParamTestTemplate<(anonymous namespace)::TestParams>>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -279,7 +276,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -531,7 +528,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !13
   store ptr %114, ptr %86, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1025,7 +1022,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS4_10TestParamsEEEE8TestInfoEESaISA_EE17_M_realloc_insertIJPS9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS4_10TestParamsEEEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i
   store ptr %78, ptr %55, align 8, !tbaa !78
   store ptr %87, ptr %56, align 8, !tbaa !74
-  %105 = getelementptr inbounds nuw %"class.std::shared_ptr.20", ptr %78, i64 %74
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %74
   store ptr %105, ptr %58, align 8, !tbaa !77
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS4_10TestParamsEEEE8TestInfoEESaISA_EE12emplace_backIJPS9_EEERSA_DpOT_.exit
 
@@ -2075,7 +2072,7 @@ _ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureUR
   %171 = load i64, ptr %47, align 8, !tbaa !119
   %172 = add i64 %171, 1
   store i64 %172, ptr %47, align 8, !tbaa !119
-  %173 = getelementptr inbounds nuw i64, ptr %46, i64 %171
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %171
   %174 = load i64, ptr %173, align 8, !tbaa !23
   %175 = trunc i64 %174 to i8
   %176 = getelementptr inbounds nuw i8, ptr %107, i64 %.055285
@@ -2123,7 +2120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %191 = load i64, ptr %47, align 8, !tbaa !119
   %192 = add i64 %191, 1
   store i64 %192, ptr %47, align 8, !tbaa !119
-  %193 = getelementptr inbounds nuw i64, ptr %46, i64 %191
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %191
   %194 = load i64, ptr %193, align 8, !tbaa !23
   %.0.i.i.i.i.i.i = trunc i64 %194 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -3100,9 +3097,9 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !90
   %17 = load i32, ptr %15, align 4, !tbaa !90
@@ -3121,7 +3118,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   store i32 %25, ptr %22, align 4, !tbaa !90
   store i32 %24, ptr %23, align 4, !tbaa !90
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !90
   %30 = load i32, ptr %28, align 8, !tbaa !90
@@ -4058,7 +4055,7 @@ _ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureUR
   %170 = load i64, ptr %47, align 8, !tbaa !119
   %171 = add i64 %170, 1
   store i64 %171, ptr %47, align 8, !tbaa !119
-  %172 = getelementptr inbounds nuw i64, ptr %46, i64 %170
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %170
   %173 = load i64, ptr %172, align 8, !tbaa !23
   %174 = trunc i64 %173 to i8
   %175 = getelementptr inbounds nuw i8, ptr %106, i64 %.055283
@@ -4106,7 +4103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %190 = load i64, ptr %47, align 8, !tbaa !119
   %191 = add i64 %190, 1
   store i64 %191, ptr %47, align 8, !tbaa !119
-  %192 = getelementptr inbounds nuw i64, ptr %46, i64 %190
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %190
   %193 = load i64, ptr %192, align 8, !tbaa !23
   %.0.i.i.i.i.i.i = trunc i64 %193 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -5348,7 +5345,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !250
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !251
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !252
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -7668,7 +7665,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !251
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %45
   %51 = load ptr, ptr %50, align 8, !tbaa !252
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %.critedge28, label %52
@@ -7831,7 +7828,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !253
   %33 = load ptr, ptr %0, align 8, !tbaa !251
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !252
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -7857,7 +7854,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !253
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !252
   br label %49
 
@@ -7949,7 +7946,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !253
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !252
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -7964,7 +7961,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !252
   br label %28
 
@@ -8762,7 +8759,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123Eng
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS3_10TestParamsEEEE17InstantiationInfoESaIS8_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIS5_EEvERPFSH_RKNS0_13TestParamInfoIS5_EEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i: ; preds = %277, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS3_10TestParamsEEEE17InstantiationInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit44.i.i.i.i
   store ptr %251, ptr %223, align 8, !tbaa !256
   store ptr %276, ptr %224, align 8, !tbaa !259
-  %281 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::EngineParamTestTemplate<(anonymous namespace)::TestParams>>::InstantiationInfo", ptr %251, i64 %246
+  %281 = getelementptr inbounds nuw [64 x i8], ptr %251, i64 %246
   store ptr %281, ptr %226, align 8, !tbaa !261
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS2_10TestParamsEEEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorIS4_EEvEPFSC_RKNS_13TestParamInfoIS4_EEEPKci.exit.i
 

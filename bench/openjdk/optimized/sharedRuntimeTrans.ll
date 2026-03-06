@@ -339,9 +339,9 @@ define hidden noundef double @_ZN13SharedRuntime4dexpEd(double noundef %0) local
 
 24:                                               ; preds = %22
   %25 = zext nneg i32 %3 to i64
-  %26 = getelementptr inbounds nuw double, ptr @_ZL5ln2HI, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZL5ln2HI, i64 %25
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds nuw double, ptr @_ZL5ln2LO, i64 %25
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZL5ln2LO, i64 %25
   %29 = load double, ptr %28, align 8
   %30 = xor i32 %3, 1
   %31 = sub nsw i32 %30, %3
@@ -350,7 +350,7 @@ define hidden noundef double @_ZN13SharedRuntime4dexpEd(double noundef %0) local
 .thread71.i:                                      ; preds = %22, %18
   %32 = fmul double %0, 0x3FF71547652B82FE
   %33 = zext nneg i32 %3 to i64
-  %34 = getelementptr inbounds nuw double, ptr @_ZL4halF, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZL4halF, i64 %33
   %35 = load double, ptr %34, align 8
   %36 = fadd double %32, %35
   %37 = fptosi double %36 to i32
@@ -740,7 +740,7 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   %.sroa.0.4.insert.insert.i.i = or disjoint i64 %.sroa.0.4.insert.shift.i.i, %.sroa.0.4.insert.mask.i.i
   %164 = bitcast i64 %.sroa.0.4.insert.insert.i.i to double
   %165 = zext nneg i32 %.0204.i to i64
-  %166 = getelementptr inbounds nuw double, ptr @_ZL2bp, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr @_ZL2bp, i64 %165
   %167 = load double, ptr %166, align 8
   %168 = fsub double %164, %167
   %169 = fadd double %167, %164
@@ -803,12 +803,12 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   %221 = fmul double %217, 0x3E3E2FE0145B01F5
   %222 = fmul double %219, 0x3FEEC709DC3A03FD
   %223 = fsub double %222, %221
-  %224 = getelementptr inbounds nuw double, ptr @_ZL4dp_l, i64 %165
+  %224 = getelementptr inbounds nuw [8 x i8], ptr @_ZL4dp_l, i64 %165
   %225 = load double, ptr %224, align 8
   %226 = fadd double %225, %223
   %227 = sitofp i32 %.1202.i to double
   %228 = fadd double %220, %226
-  %229 = getelementptr inbounds nuw double, ptr @_ZL4dp_h, i64 %165
+  %229 = getelementptr inbounds nuw [8 x i8], ptr @_ZL4dp_h, i64 %165
   %230 = load double, ptr %229, align 8
   %231 = fadd double %230, %228
   %232 = fadd double %231, %227

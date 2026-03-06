@@ -149,7 +149,7 @@ define internal noundef i64 @ossl_rsa_initialize(i32 noundef %0, ptr noundef rea
 
 12:                                               ; preds = %.preheader
   %13 = sext i32 %.185.i46 to i64
-  %14 = getelementptr inbounds i64, ptr %1, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !6
   store i64 %15, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %16 = add nsw i32 %.185.i46, 1
@@ -416,7 +416,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %10
 
 14:                                               ; preds = %rb_scan_args_n_opt.exit
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr i64, ptr %1, i64 %15
+  %16 = getelementptr [8 x i8], ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !6
   %19 = tail call i32 @rb_keyword_given_p() #5
@@ -438,7 +438,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %10
   %exitcond.not = phi i1 [ true, %.preheader ], [ false, %23 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader ], [ %4, %23 ]
   %indvars.iv = phi i64 [ 1, %.preheader ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !6
   store i64 %26, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %27, label %.preheader, !llvm.loop !20
@@ -643,7 +643,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %12
 
 19:                                               ; preds = %rb_scan_args_n_opt.exit
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr i64, ptr %1, i64 %20
+  %21 = getelementptr [8 x i8], ptr %1, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !6
   %24 = call i32 @rb_keyword_given_p() #5
@@ -664,13 +664,13 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %12
 .preheader:                                       ; preds = %28, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   %.not109.i = icmp eq ptr %31, null
   br i1 %.not109.i, label %35, label %32
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8, !tbaa !6
   store i64 %34, ptr %31, align 8, !tbaa !6
   br label %35

@@ -172,7 +172,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h0869633e22
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %21 = zext nneg i16 %20 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds { ptr, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.06.1, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
           to label %"_ZN4core3ptr141drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$alloc..vec..Vec$LT$uv_distribution_types..requirement..Requirement$GT$$RP$$GT$17h9ac6c0a7f29ded06E.exit" unwind label %25
@@ -252,7 +252,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h32ee04e6a3
   %25 = zext nneg i16 %24 to i64
   %26 = and i16 %23, %.lcssa.i
   %27 = sub nsw i64 0, %25
-  %28 = getelementptr inbounds { ptr, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.06.1, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1, i64 %27
   %29 = add i64 %.sroa.108.016, -1
   %30 = getelementptr inbounds i8, ptr %28, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30)
@@ -341,7 +341,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h3b5eb9799f
   %22 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %23 = zext nneg i16 %22 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { ptr, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %.sroa.06.1, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26)
           to label %"_ZN4core3ptr146drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$alloc..collections..btree..set..BTreeSet$LT$uv_pep440..version..Version$GT$$RP$$GT$17h1a49d3e66d1fbffcE.exit" unwind label %27
@@ -422,7 +422,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5b93a73459
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %21 = zext nneg i16 %20 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %.sroa.06.1, i64 %22
+  %23 = getelementptr inbounds [40 x i8], ptr %.sroa.06.1, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -40
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24)
           to label %"_ZN4core3ptr126drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$uv_resolver..resolver..availability..UnavailablePackage$RP$$GT$17h0802fd9c207fbe3aE.exit" unwind label %25
@@ -499,7 +499,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h695e289c80
   %22 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %23 = zext nneg i16 %22 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { ptr, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %.sroa.06.1, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26)
           to label %"_ZN4core3ptr201drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$alloc..collections..btree..map..BTreeMap$LT$uv_pep440..version..Version$C$uv_resolver..resolver..provider..MetadataUnavailable$GT$$RP$$GT$17hb070eb3f0f93a6b9E.exit" unwind label %27
@@ -582,7 +582,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7ca0c4f17f
   %22 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %23 = zext nneg i16 %22 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { ptr, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %.sroa.06.1, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26)
           to label %"_ZN4core3ptr161drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$alloc..collections..btree..set..BTreeSet$LT$uv_distribution_types..index_url..IndexUrl$GT$$RP$$GT$17h8c6db92c872c1e16E.exit" unwind label %27
@@ -668,7 +668,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h967e633d5f
   %25 = zext nneg i16 %24 to i64
   %26 = and i16 %23, %.lcssa.i
   %27 = sub nsw i64 0, %25
-  %28 = getelementptr inbounds { { { { i64, [3 x i64] }, { i64, [2 x i64] } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } } }, ptr }, ptr %.sroa.06.1, i64 %27
+  %28 = getelementptr inbounds [88 x i8], ptr %.sroa.06.1, i64 %27
   %29 = add i64 %.sroa.108.019, -1
   %30 = getelementptr inbounds i8, ptr %28, i64 -88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
@@ -800,7 +800,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd7b6eb0652
   %22 = zext nneg i16 %21 to i64
   %23 = and i16 %20, %.lcssa.i
   %24 = sub nsw i64 0, %22
-  %25 = getelementptr inbounds { ptr, { { i64, [1 x i64] }, i8, [7 x i8] } }, ptr %.sroa.06.1, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1, i64 %24
   %26 = add i64 %.sroa.108.016, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27)
@@ -913,7 +913,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17he5067690b8
   %22 = zext nneg i16 %21 to i64
   %23 = and i16 %20, %.lcssa.i
   %24 = sub nsw i64 0, %22
-  %25 = getelementptr inbounds { ptr, { i64, [7 x i64] } }, ptr %.sroa.06.1, i64 %24
+  %25 = getelementptr inbounds [72 x i8], ptr %.sroa.06.1, i64 %24
   %26 = add i64 %.sroa.108.016, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -997,7 +997,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hea1ab46174
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %21 = zext nneg i16 %20 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds { ptr, { { i64, [23 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, ptr } } }, ptr %.sroa.06.1, i64 %22
+  %23 = getelementptr inbounds [296 x i8], ptr %.sroa.06.1, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -296
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(296) %24)
           to label %"_ZN4core3ptr115drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$uv_pypi_types..parsed_url..VerbatimParsedUrl$RP$$GT$17h2723e8d31d13e91cE.exit" unwind label %25
@@ -1220,7 +1220,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h784be54
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %28 = zext nneg i16 %27 to i64
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { ptr, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.06.1.i, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1.i, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
           to label %"_ZN4core3ptr141drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$alloc..vec..Vec$LT$uv_distribution_types..requirement..Requirement$GT$$RP$$GT$17h9ac6c0a7f29ded06E.exit.i" unwind label %32, !noalias !251
@@ -1326,7 +1326,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9526354
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %28 = zext nneg i16 %27 to i64
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %.sroa.06.1.i, i64 %29
+  %30 = getelementptr inbounds [40 x i8], ptr %.sroa.06.1.i, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -40
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(40) %31)
           to label %"_ZN4core3ptr126drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$uv_resolver..resolver..availability..UnavailablePackage$RP$$GT$17h0802fd9c207fbe3aE.exit.i" unwind label %32, !noalias !264
@@ -1432,7 +1432,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9940e99
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %28 = zext nneg i16 %27 to i64
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { ptr, { { i64, [23 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, ptr } } }, ptr %.sroa.06.1.i, i64 %29
+  %30 = getelementptr inbounds [296 x i8], ptr %.sroa.06.1.i, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -296
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(296) %31)
           to label %"_ZN4core3ptr115drop_in_place$LT$$LP$uv_normalize..package_name..PackageName$C$uv_pypi_types..parsed_url..VerbatimParsedUrl$RP$$GT$17h2723e8d31d13e91cE.exit.i" unwind label %32, !noalias !277
@@ -1612,7 +1612,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17he8610e4
   %29 = zext nneg i16 %28 to i64
   %30 = and i16 %27, %.lcssa.i.i
   %31 = sub nsw i64 0, %29
-  %32 = getelementptr inbounds { ptr, { i64, [7 x i64] } }, ptr %.sroa.06.1.i, i64 %31
+  %32 = getelementptr inbounds [72 x i8], ptr %.sroa.06.1.i, i64 %31
   %33 = add i64 %.sroa.108.016.i, -1
   %34 = getelementptr inbounds i8, ptr %32, i64 -72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)

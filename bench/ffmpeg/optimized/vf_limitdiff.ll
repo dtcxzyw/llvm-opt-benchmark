@@ -411,40 +411,40 @@ define internal noundef i32 @limitdiff_slice(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %.loopexit ]
   %24 = load ptr, ptr %1, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !62
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %12, align 8, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !62
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr %13, align 8, !tbaa !60
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !62
   %38 = sext i32 %37 to i64
   %39 = load ptr, ptr %14, align 8, !tbaa !61
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !62
   %43 = sext i32 %42 to i64
   %44 = load i32, ptr %15, align 8, !tbaa !71
   %45 = load i32, ptr %16, align 4, !tbaa !72
-  %46 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !62
-  %48 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !62
   %50 = mul nsw i32 %49, %2
   %51 = sdiv i32 %50, %3
   %52 = mul nsw i32 %49, %19
   %53 = sdiv i32 %52, %3
-  %54 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !73
   %56 = sext i32 %51 to i64
   %57 = mul nsw i64 %56, %28
   %58 = getelementptr inbounds i8, ptr %55, i64 %57
-  %59 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !73
   %61 = mul nsw i64 %56, %43
   %62 = getelementptr inbounds i8, ptr %60, i64 %61
@@ -456,7 +456,7 @@ define internal noundef i32 @limitdiff_slice(ptr noundef readonly captures(none)
   br i1 %.not, label %67, label %71
 
 67:                                               ; preds = %23
-  %68 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !62
   %70 = sub nsw i32 %53, %51
   tail call void @av_image_copy_plane(ptr noundef %62, i32 noundef %42, ptr noundef %58, i32 noundef %27, i32 noundef %69, i32 noundef %70) #10
@@ -467,11 +467,11 @@ define internal noundef i32 @limitdiff_slice(ptr noundef readonly captures(none)
   br i1 %72, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %71
-  %73 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !73
   %75 = mul nsw i64 %56, %33
   %76 = getelementptr inbounds i8, ptr %74, i64 %75
-  %77 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !73
   %79 = mul nsw i64 %56, %38
   %80 = getelementptr inbounds i8, ptr %78, i64 %79
@@ -680,14 +680,14 @@ define internal void @limitdiff16(ptr noundef readonly captures(none) %0, ptr no
 
 12:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2, !tbaa !90
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !90
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
-  %20 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !90
   %22 = zext i16 %21 to i32
   %23 = sub nsw i32 %15, %22
@@ -714,7 +714,7 @@ define internal void @limitdiff16(ptr noundef readonly captures(none) %0, ptr no
 
 34:                                               ; preds = %25, %12, %26
   %.sink = phi i16 [ %14, %12 ], [ %33, %26 ], [ %17, %25 ]
-  %35 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %.sink, ptr %35, align 2, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

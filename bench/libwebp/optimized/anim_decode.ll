@@ -415,9 +415,9 @@ IsKeyFrame.exit.thread128:                        ; preds = %45, %IsKeyFrame.exi
   %126 = add i32 %124, %125
   %127 = zext i32 %126 to i64
   %128 = load ptr, ptr %95, align 8, !tbaa !34
-  %129 = getelementptr inbounds nuw i32, ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %127
   %130 = load ptr, ptr %119, align 8, !tbaa !35
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %127
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %127
   %132 = load i32, ptr %120, align 8, !tbaa !44
   call void %18(ptr noundef %129, ptr noundef %131, i32 noundef %132) #9
   %133 = add nuw nsw i32 %.0101143, 1
@@ -468,9 +468,9 @@ FindBlendRangeAtRow.exit:                         ; preds = %149, %136
   %157 = add i32 %139, %156
   %158 = zext i32 %157 to i64
   %159 = load ptr, ptr %95, align 8, !tbaa !34
-  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %158
   %161 = load ptr, ptr %118, align 8, !tbaa !35
-  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %158
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %158
   call void %18(ptr noundef %160, ptr noundef %162, i32 noundef %.1) #9
   br label %FindBlendRangeAtRow.exit.thread
 
@@ -485,9 +485,9 @@ FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBle
   %166 = add i32 %.0120160, %165
   %167 = zext i32 %166 to i64
   %168 = load ptr, ptr %95, align 8, !tbaa !34
-  %169 = getelementptr inbounds nuw i32, ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %167
   %170 = load ptr, ptr %118, align 8, !tbaa !35
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %167
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %167
   call void %18(ptr noundef %169, ptr noundef %171, i32 noundef %.0119161) #9
   br label %172
 
@@ -626,13 +626,13 @@ define internal void @BlendPixelRowNonPremult(ptr noundef captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !15
   %.not = icmp ugt i32 %6, -16777217
   br i1 %.not, label %50, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = lshr i32 %6, 24
   %11 = icmp eq i32 %10, 0
@@ -704,13 +704,13 @@ define internal void @BlendPixelRowPremult(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !15
   %.not = icmp ugt i32 %6, -16777217
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = lshr i32 %6, 24
   %11 = sub nuw nsw i32 256, %10

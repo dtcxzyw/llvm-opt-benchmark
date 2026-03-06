@@ -957,7 +957,7 @@ define range(i32 -1, -2147483648) i32 @H5S_select_deserialize(ptr noundef %0, pt
 
 switch.lookup:                                    ; preds = %36
   %56 = zext nneg i32 %53 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5S_select_deserialize, i64 %56
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.H5S_select_deserialize, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sink49 = load ptr, ptr %switch.load, align 16, !tbaa !39
   %57 = add i64 %2, -4
@@ -1449,9 +1449,9 @@ define range(i32 -1, 1) i32 @H5Sselect_adjust(i64 noundef %0, ptr noundef %1) lo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8, !tbaa !22
-  %68 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %69 = load i64, ptr %68, align 8, !tbaa !22
   %70 = icmp sgt i64 %67, %69
   br i1 %70, label %71, label %65, !prof !25
@@ -1863,7 +1863,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 
 ._crit_edge253:                                   ; preds = %77, %79
   %.pre-phi255 = phi i64 [ %82, %79 ], [ 0, %77 ]
-  %84 = getelementptr inbounds nuw i64, ptr %6, i64 %.pre-phi255
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.pre-phi255
   store i64 %27, ptr %84, align 8, !tbaa !22
   %85 = tail call noalias ptr @H5FL_seq_malloc(ptr noundef nonnull @H5_size_t_seq_free_list, i64 noundef 1024) #8
   %86 = icmp eq ptr %85, null
@@ -1920,13 +1920,13 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 .lr.ph.us:                                        ; preds = %.preheader.us, %._crit_edge222.split.us.us.us
   %108 = phi i64 [ %113, %._crit_edge222.split.us.us.us ], [ %107, %.preheader.us ]
   %.092227.us.us = phi i64 [ %114, %._crit_edge222.split.us.us.us ], [ 0, %.preheader.us ]
-  %109 = getelementptr inbounds nuw i64, ptr %85, i64 %.092227.us.us
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.092227.us.us
   %110 = load i64, ptr %109, align 8, !tbaa !22
   %.not240 = icmp eq i64 %110, 0
   br i1 %.not240, label %._crit_edge222.split.us.us.us, label %.lr.ph.us.us.us.preheader
 
 .lr.ph.us.us.us.preheader:                        ; preds = %.lr.ph.us
-  %111 = getelementptr inbounds nuw i64, ptr %92, i64 %.092227.us.us
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.092227.us.us
   %112 = load i64, ptr %111, align 8, !tbaa !22
   br label %.lr.ph.us.us.us
 
@@ -1996,10 +1996,10 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 142:                                              ; preds = %142, %.lr.ph.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %142 ], [ %.pre-phi255, %.lr.ph.us.us.us ]
   %.087216.us.us.us = phi i64 [ %147, %142 ], [ %.090218.us.us.us, %.lr.ph.us.us.us ]
-  %143 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %144 = load i64, ptr %143, align 8, !tbaa !22
   %145 = urem i64 %.087216.us.us.us, %144
-  %146 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 %145, ptr %146, align 8, !tbaa !22
   %147 = udiv i64 %.087216.us.us.us, %144
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2046,13 +2046,13 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 .lr.ph:                                           ; preds = %.preheader, %._crit_edge222.split
   %164 = phi i64 [ %202, %._crit_edge222.split ], [ %160, %.preheader ]
   %.092227 = phi i64 [ %203, %._crit_edge222.split ], [ 0, %.preheader ]
-  %165 = getelementptr inbounds nuw i64, ptr %85, i64 %.092227
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.092227
   %166 = load i64, ptr %165, align 8, !tbaa !22
   %.not238 = icmp eq i64 %166, 0
   br i1 %.not238, label %._crit_edge222.split, label %.lr.ph221.preheader
 
 .lr.ph221.preheader:                              ; preds = %.lr.ph
-  %167 = getelementptr inbounds nuw i64, ptr %92, i64 %.092227
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.092227
   %168 = load i64, ptr %167, align 8, !tbaa !22
   br label %.lr.ph221
 
@@ -2459,14 +2459,14 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 76:                                               ; preds = %.preheader287
   %77 = add nsw i64 %indvars.iv313, -1
-  %78 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.next
+  %78 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv.next
   %79 = load i64, ptr %78, align 8, !tbaa !22
-  %80 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.next
+  %80 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv.next
   %81 = load i64, ptr %80, align 8, !tbaa !22
   %82 = sub i64 %79, %81
-  %83 = getelementptr inbounds nuw i64, ptr %6, i64 %77
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %77
   %84 = load i64, ptr %83, align 8, !tbaa !22
-  %85 = getelementptr inbounds nuw i64, ptr %4, i64 %77
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %77
   %86 = load i64, ptr %85, align 8, !tbaa !22
   %87 = sub i64 %84, %86
   %.not175 = icmp eq i64 %82, %87
@@ -2480,9 +2480,9 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %88
   %.1146292 = phi i32 [ %89, %88 ], [ %75, %.lr.ph.preheader ]
   %91 = zext nneg i32 %.1146292 to i64
-  %92 = getelementptr inbounds nuw i64, ptr %3, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !22
-  %94 = getelementptr inbounds nuw i64, ptr %5, i64 %91
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %91
   %95 = load i64, ptr %94, align 8, !tbaa !22
   %.not174 = icmp eq i64 %93, %95
   br i1 %.not174, label %88, label %.thread
@@ -2669,15 +2669,15 @@ H5S_select_iter_init.exit.thread:                 ; preds = %123, %H5S_select_it
 .lr.ph300:                                        ; preds = %.preheader277, %200
   %indvars.iv322 = phi i64 [ %indvars.iv.next323, %200 ], [ %160, %.preheader277 ]
   %.1143299 = phi i32 [ %203, %200 ], [ %158, %.preheader277 ]
-  %189 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv322
+  %189 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv322
   %190 = load i64, ptr %189, align 8, !tbaa !22
-  %191 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv322
+  %191 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv322
   %192 = load i64, ptr %191, align 8, !tbaa !22
   %193 = sub i64 %190, %192
   %194 = zext nneg i32 %.1143299 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %10, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !22
-  %197 = getelementptr inbounds nuw i64, ptr %8, i64 %194
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %194
   %198 = load i64, ptr %197, align 8, !tbaa !22
   %199 = sub i64 %196, %198
   %.not181 = icmp eq i64 %193, %199
@@ -2685,7 +2685,7 @@ H5S_select_iter_init.exit.thread:                 ; preds = %123, %H5S_select_it
 
 200:                                              ; preds = %.lr.ph300
   %201 = sub nsw i64 %198, %192
-  %202 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv322
+  %202 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv322
   store i64 %201, ptr %202, align 8, !tbaa !22
   %indvars.iv.next323 = add nsw i64 %indvars.iv322, -1
   %203 = add nsw i32 %.1143299, -1
@@ -2700,9 +2700,9 @@ H5S_select_iter_init.exit.thread:                 ; preds = %123, %H5S_select_it
 .lr.ph303:                                        ; preds = %.preheader, %205
   %.3148302 = phi i32 [ %206, %205 ], [ %.2147.lcssa, %.preheader ]
   %208 = zext nneg i32 %.3148302 to i64
-  %209 = getelementptr inbounds nuw i64, ptr %7, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %208
   %210 = load i64, ptr %209, align 8, !tbaa !22
-  %211 = getelementptr inbounds nuw i64, ptr %9, i64 %208
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %208
   %212 = load i64, ptr %211, align 8, !tbaa !22
   %.not180 = icmp eq i64 %210, %212
   br i1 %.not180, label %205, label %.thread190
@@ -2715,22 +2715,22 @@ H5S_select_iter_init.exit.thread:                 ; preds = %123, %H5S_select_it
 .lr.ph295:                                        ; preds = %.preheader282, %229
   %indvars.iv319 = phi i64 [ %indvars.iv.next320, %229 ], [ %160, %.preheader282 ]
   %.2144294 = phi i32 [ %230, %229 ], [ %158, %.preheader282 ]
-  %214 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv319
+  %214 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv319
   %215 = load i64, ptr %214, align 8, !tbaa !22
-  %216 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv319
+  %216 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv319
   %217 = load i64, ptr %216, align 8, !tbaa !22
   %218 = add nsw i64 %217, %215
   %219 = zext nneg i32 %.2144294 to i64
-  %220 = getelementptr inbounds nuw i64, ptr %8, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %219
   %221 = load i64, ptr %220, align 8, !tbaa !22
   %.not177 = icmp eq i64 %218, %221
   br i1 %.not177, label %222, label %.thread190
 
 222:                                              ; preds = %.lr.ph295
-  %223 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv319
+  %223 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv319
   %224 = load i64, ptr %223, align 8, !tbaa !22
   %225 = sub i64 %224, %215
-  %226 = getelementptr inbounds nuw i64, ptr %10, i64 %219
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %219
   %227 = load i64, ptr %226, align 8, !tbaa !22
   %228 = sub i64 %227, %218
   %.not178 = icmp eq i64 %225, %228
@@ -2750,9 +2750,9 @@ H5S_select_iter_init.exit.thread:                 ; preds = %123, %H5S_select_it
 .lr.ph297:                                        ; preds = %.preheader279, %232
   %.5296 = phi i32 [ %233, %232 ], [ %.4.lcssa, %.preheader279 ]
   %235 = zext nneg i32 %.5296 to i64
-  %236 = getelementptr inbounds nuw i64, ptr %7, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %235
   %237 = load i64, ptr %236, align 8, !tbaa !22
-  %238 = getelementptr inbounds nuw i64, ptr %9, i64 %235
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %235
   %239 = load i64, ptr %238, align 8, !tbaa !22
   %.not176 = icmp eq i64 %237, %239
   br i1 %.not176, label %232, label %.thread190
@@ -3083,17 +3083,17 @@ define range(i32 -1, -2147483648) i32 @H5S_select_intersect_block(ptr noundef %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !22
   %41 = icmp ugt i64 %38, %40
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !22
-  %45 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !22
   %47 = icmp ugt i64 %44, %46
   br i1 %47, label %.thread, label %36
@@ -3232,9 +3232,9 @@ define range(i32 -1, -2147483648) i32 @H5Sselect_intersect_block(i64 noundef %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
-  %59 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8, !tbaa !22
-  %61 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !22
   %63 = icmp ugt i64 %60, %62
   br i1 %63, label %64, label %69, !prof !25
@@ -3407,11 +3407,11 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   %75 = zext i32 %74 to i64
   %76 = call i32 @H5VM_array_fill(ptr noundef nonnull %9, ptr noundef nonnull %11, i64 noundef 8, i64 noundef %75) #8
   %77 = call i32 @H5VM_array_fill(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 8, i64 noundef %75) #8
-  %78 = getelementptr inbounds nuw i64, ptr %9, i64 %75
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %75
   %79 = zext nneg i32 %28 to i64
   %80 = shl nuw nsw i64 %79, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull align 16 %6, i64 %80, i1 false)
-  %81 = getelementptr inbounds nuw i64, ptr %10, i64 %75
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %81, ptr nonnull align 16 %7, i64 %80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %89
@@ -3419,11 +3419,11 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
 82:                                               ; preds = %71
   %83 = sub nuw nsw i32 %28, %2
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i64, ptr %6, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %84
   %86 = zext nneg i32 %2 to i64
   %87 = shl nuw nsw i64 %86, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 8 %85, i64 %87, i1 false)
-  %88 = getelementptr inbounds nuw i64, ptr %7, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %84
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 8 %88, i64 %87, i1 false)
   br label %89
 
@@ -3470,7 +3470,7 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   %113 = zext i32 %.0 to i64
   %114 = shl nuw nsw i64 %113, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %111, i8 0, i64 %114, i1 false)
-  %115 = getelementptr inbounds nuw i64, ptr %111, i64 %113
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %113
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %117 = zext nneg i32 %28 to i64
   %118 = shl nuw nsw i64 %117, 3
@@ -3480,7 +3480,7 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
 119:                                              ; preds = %110
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %121 = zext i32 %.0 to i64
-  %122 = getelementptr inbounds nuw i64, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %121
   %123 = zext nneg i32 %2 to i64
   %124 = shl nuw nsw i64 %123, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr nonnull align 8 %122, i64 %124, i1 false)
@@ -3715,10 +3715,10 @@ H5S_select_iter_init.exit:                        ; preds = %36, %40
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.043122 = phi i64 [ %96, %.lr.ph ], [ 0, %.preheader ]
-  %89 = getelementptr inbounds nuw i64, ptr %74, i64 %.043122
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.043122
   %90 = load i64, ptr %89, align 8, !tbaa !22
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 %90
-  %92 = getelementptr inbounds nuw i64, ptr %67, i64 %.043122
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.043122
   %93 = load i64, ptr %92, align 8, !tbaa !22
   %94 = udiv i64 %93, %1
   %95 = call i32 @H5VM_array_fill(ptr noundef %91, ptr noundef %0, i64 noundef %1, i64 noundef %94) #8
@@ -4576,15 +4576,15 @@ define range(i32 -1, 1) i32 @H5S_select_subtract(ptr noundef %0, ptr noundef %1)
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 0, ptr %48, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i64 1, ptr %49, align 8, !tbaa !22
-  %50 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 1, ptr %50, align 8, !tbaa !22
-  %51 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8, !tbaa !22
-  %53 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %52, ptr %53, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

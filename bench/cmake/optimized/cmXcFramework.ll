@@ -34,8 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::function.353" = type { %"class.std::_Function_base", ptr }
 %class.anon.364 = type { %"class.std::function.6", i64 }
 %"class.std::function.6" = type { %"class.std::_Function_base", ptr }
-%"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::PlistMetadata>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.353", i8, [7 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
 %class.anon = type { %"class.std::function.3", %"class.std::__cxx11::basic_string" }
 %"class.std::function.356" = type { %"class.std::_Function_base", ptr }
 %class.anon.366 = type { %"class.std::function.6", i64 }
@@ -58,6 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cmXcFrameworkPlistLibrary, std::allocator<cmXcFrameworkPlistLibrary>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmXcFrameworkPlistLibrary, std::allocator<cmXcFrameworkPlistLibrary>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cmXcFrameworkPlistLibrary, std::allocator<cmXcFrameworkPlistLibrary>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair.374" = type { %"class.std::basic_string_view", ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::vector.106" = type { %"struct.std::_Vector_base.107" }
 %"struct.std::_Vector_base.107" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -89,7 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cmJSONState::Error, std::allocator<cmJSONState::Error>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.(anonymous namespace)::PlistMetadata" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
-%"struct.cmJSONHelperBuilder::Object<cmXcFrameworkPlistLibrary>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.356", i8, [7 x i8] }>
 %class.anon.369 = type <{ %"class.std::function.3", %"class.std::function.6", [8 x i8] }>
 %"class.Json::ValueConstIterator" = type { %"class.Json::ValueIteratorBase.base", [7 x i8] }
 %"class.Json::ValueIteratorBase.base" = type <{ %"struct.std::_Rb_tree_iterator", i8 }>
@@ -101,7 +99,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.347" = type { %"struct.std::_Optional_payload_base.base.349", [3 x i8] }
 %"struct.std::_Optional_payload_base.base.349" = type <{ %"union.std::_Optional_payload_base<cmXcFrameworkPlistSupportedPlatformVariant>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<cmXcFrameworkPlistSupportedPlatformVariant>::_Storage" = type { i32 }
-%"struct.cmJSONHelperBuilder::Object<cmXcFrameworkPlist>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.359", i8, [7 x i8] }>
 %"class.cm::static_string_view" = type { %"class.std::basic_string_view" }
 
 $_ZN19cmJSONHelperBuilder6StringERKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
@@ -626,7 +623,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6Memb
 .thread13:                                        ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit46.i.i.i
   store ptr %62, ptr %0, align 8, !tbaa !30
   store ptr %79, ptr %35, align 8, !tbaa !18
-  %80 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::PlistMetadata>::Member", ptr %62, i64 %57
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %62, i64 %57
   store ptr %80, ptr %37, align 8, !tbaa !21
   br label %_ZNSt14_Function_baseD2Ev.exit.sink.split
 
@@ -638,7 +635,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6Memb
   %.pre.pre = load ptr, ptr %33, align 8, !tbaa !4
   store ptr %62, ptr %0, align 8, !tbaa !30
   store ptr %79, ptr %35, align 8, !tbaa !18
-  %85 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::PlistMetadata>::Member", ptr %62, i64 %57
+  %85 = getelementptr inbounds nuw [56 x i8], ptr %62, i64 %57
   store ptr %85, ptr %37, align 8, !tbaa !21
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %86, align 8, !tbaa !42
@@ -5483,10 +5480,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %65,
 
 switch.lookup:                                    ; preds = %61
   %71 = zext nneg i32 %63 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace, i64 %71
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %72 = zext nneg i32 %63 to i64
-  %switch.gep118 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace.63, i64 %72
+  %switch.gep118 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace.63, i64 %72
   %switch.load119 = load i64, ptr %switch.gep118, align 8
   %73 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load119)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %65
@@ -7777,7 +7774,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectI25cmXcFrameworkPlistLibraryE6MemberES
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectI25cmXcFrameworkPlistLibraryE6MemberESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectI25cmXcFrameworkPlistLibraryE6MemberESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !84
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !61
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmXcFrameworkPlistLibrary>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !64
   ret void
 }
@@ -8779,7 +8776,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !157
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !159
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !160
   ret void
 }
@@ -11971,7 +11968,7 @@ _ZNSt16allocator_traitsISaI25cmXcFrameworkPlistLibraryEE9constructIS0_JS0_EEEvRS
 _ZNSt12_Vector_baseI25cmXcFrameworkPlistLibrarySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt16allocator_traitsISaI25cmXcFrameworkPlistLibraryEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit, %82
   store ptr %22, ptr %0, align 8, !tbaa !203
   store ptr %80, ptr %4, align 8, !tbaa !206
-  %86 = getelementptr inbounds nuw %struct.cmXcFrameworkPlistLibrary, ptr %22, i64 %16
+  %86 = getelementptr inbounds nuw [136 x i8], ptr %22, i64 %16
   store ptr %86, ptr %81, align 8, !tbaa !207
   ret void
 }
@@ -12538,7 +12535,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectI18cmXcFrameworkPlistE6MemberESaIS4_EE
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectI18cmXcFrameworkPlistE6MemberESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectI18cmXcFrameworkPlistE6MemberESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !107
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !96
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmXcFrameworkPlist>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !99
   ret void
 }

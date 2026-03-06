@@ -524,7 +524,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv149
   %38 = load i8, ptr %gep, align 1, !tbaa !43
   %39 = zext i8 %38 to i32
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv149
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv149
   %41 = load i32, ptr %40, align 4, !tbaa !44
   %42 = add i32 %41, %39
   store i32 %42, ptr %40, align 4, !tbaa !44
@@ -544,7 +544,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %47 = zext i8 %46 to i32
   %48 = shl i32 %47, %31
   %49 = add i32 %48, %47
-  %50 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   store i32 %49, ptr %50, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -574,7 +574,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %storemerge63127 = phi i32 [ 1, %.lr.ph129 ], [ %65, %60 ]
   %.sroa.speculated90 = tail call i32 @llvm.smin.i32(i32 %59, i32 %storemerge63127)
   %61 = sext i32 %.sroa.speculated90 to i64
-  %62 = getelementptr inbounds i32, ptr %30, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %30, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !44
   %64 = add i32 %63, %.054128
   %65 = add nuw nsw i32 %storemerge63127, 1
@@ -615,10 +615,10 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %84 = add i32 %52, %83
   %.sroa.speculated80 = tail call i32 @llvm.smin.i32(i32 %82, i32 %84)
   %85 = sext i32 %.sroa.speculated80 to i64
-  %86 = getelementptr inbounds i32, ptr %30, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %30, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !44
   %88 = zext nneg i32 %.sroa.speculated85 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %30, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !44
   %91 = add i32 %87, %.1133185
   %92 = sub i32 %91, %90
@@ -677,7 +677,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %gep179 = getelementptr inbounds nuw i8, ptr %invariant.gep178, i64 %indvars.iv160
   %118 = load i8, ptr %gep179, align 1, !tbaa !43
   %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv160
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv160
   %121 = load i32, ptr %120, align 4, !tbaa !44
   %122 = sub i32 %121, %119
   %gep181 = getelementptr i8, ptr %invariant.gep180, i64 %indvars.iv160

@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ResourceOwnerDesc = type { ptr, i32, i32, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.AttrDefault = type { i16, ptr }
-%struct.AttrMissing = type { i8, i64 }
-%struct.ConstrCheck = type { ptr, ptr, i8, i8, i8 }
-%union.ListCell = type { ptr }
 
 @CurrentResourceOwner = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [32 x i8] c"cache lookup failed for type %u\00", align 1
@@ -32,9 +25,9 @@ define dso_local void @populate_compact_attribute(ptr noundef captures(none) %0,
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = getelementptr i8, ptr %6, i64 24
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %7, i64 %8
+  %9 = getelementptr inbounds [100 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr inbounds %struct.CompactAttribute, ptr %10, i64 %8
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   store i32 -1, ptr %11, align 4
@@ -157,8 +150,8 @@ define dso_local noundef ptr @CreateTupleDesc(i32 noundef %0, ptr noundef readon
   %13 = shl nsw i64 %12, 4
   %14 = getelementptr i8, ptr %5, i64 %13
   %15 = getelementptr i8, ptr %14, i64 24
-  %16 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %15, i64 %indvars.iv
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [100 x i8], ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %16, ptr noundef nonnull align 4 dereferenceable(100) %18, i64 100, i1 false)
   %19 = trunc nuw nsw i64 %indvars.iv to i32
@@ -210,7 +203,7 @@ define dso_local noundef ptr @CreateTupleDescCopy(ptr noundef readonly captures(
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 4
   %24 = getelementptr i8, ptr %5, i64 %23
-  %25 = getelementptr %struct.FormData_pg_attribute, ptr %24, i64 %indvars.iv
+  %25 = getelementptr [100 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 110
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %26, i8 0, i64 5, i1 false)
@@ -266,7 +259,7 @@ define dso_local noundef ptr @CreateTupleDescTruncatedCopy(ptr noundef readonly 
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 4
   %24 = getelementptr i8, ptr %5, i64 %23
-  %25 = getelementptr %struct.FormData_pg_attribute, ptr %24, i64 %indvars.iv
+  %25 = getelementptr [100 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 110
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %26, i8 0, i64 5, i1 false)
@@ -374,12 +367,12 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %indvars.iv = phi i64 [ %49, %.lr.ph95.preheader ], [ %indvars.iv.next, %.lr.ph95 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds nuw %struct.AttrDefault, ptr %50, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv.next
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @pstrdup(ptr noundef %53) #10
   %55 = load ptr, ptr %27, align 8
-  %56 = getelementptr inbounds nuw %struct.AttrDefault, ptr %55, i64 %indvars.iv.next
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv.next
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %54, ptr %57, align 8
   %58 = icmp samesign ugt i64 %indvars.iv, 1
@@ -416,13 +409,13 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
 75:                                               ; preds = %.lr.ph99, %94
   %indvars.iv106 = phi i64 [ %74, %.lr.ph99 ], [ %indvars.iv.next107, %94 ]
   %76 = load ptr, ptr %59, align 8
-  %77 = getelementptr inbounds nuw %struct.AttrMissing, ptr %76, i64 %indvars.iv106
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv106
   %78 = load i8, ptr %77, align 8, !range !4, !noundef !5
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %94
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %73, i64 %indvars.iv106
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %indvars.iv106
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %83 = load i64, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 6
@@ -433,7 +426,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %89 = sext i16 %88 to i32
   %90 = tail call i64 @datumCopy(i64 noundef %83, i1 noundef zeroext %86, i32 noundef %89) #10
   %91 = load ptr, ptr %66, align 8
-  %92 = getelementptr inbounds nuw %struct.AttrMissing, ptr %91, i64 %indvars.iv106
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %indvars.iv106
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %90, ptr %93, align 8
   br label %94
@@ -475,43 +468,43 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %indvars.iv109 = phi i64 [ %110, %.lr.ph102.preheader ], [ %indvars.iv.next110, %.lr.ph102 ]
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
   %111 = load ptr, ptr %104, align 8
-  %112 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %111, i64 %indvars.iv.next110
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %indvars.iv.next110
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr @pstrdup(ptr noundef %113) #10
   %115 = load ptr, ptr %103, align 8
-  %116 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %115, i64 %indvars.iv.next110
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %indvars.iv.next110
   store ptr %114, ptr %116, align 8
   %117 = load ptr, ptr %104, align 8
-  %118 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %117, i64 %indvars.iv.next110
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %indvars.iv.next110
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = tail call ptr @pstrdup(ptr noundef %120) #10
   %122 = load ptr, ptr %103, align 8
-  %123 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %122, i64 %indvars.iv.next110
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %122, i64 %indvars.iv.next110
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %121, ptr %124, align 8
   %125 = load ptr, ptr %104, align 8
-  %126 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %125, i64 %indvars.iv.next110
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %indvars.iv.next110
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load i8, ptr %127, align 8, !range !4, !noundef !5
   %129 = load ptr, ptr %103, align 8
-  %130 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %129, i64 %indvars.iv.next110
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %indvars.iv.next110
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store i8 %128, ptr %131, align 8
   %132 = load ptr, ptr %104, align 8
-  %133 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %132, i64 %indvars.iv.next110
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %132, i64 %indvars.iv.next110
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 17
   %135 = load i8, ptr %134, align 1, !range !4, !noundef !5
   %136 = load ptr, ptr %103, align 8
-  %137 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %136, i64 %indvars.iv.next110
+  %137 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %indvars.iv.next110
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 17
   store i8 %135, ptr %138, align 1
   %139 = load ptr, ptr %104, align 8
-  %140 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %139, i64 %indvars.iv.next110
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %indvars.iv.next110
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 18
   %142 = load i8, ptr %141, align 2, !range !4, !noundef !5
   %143 = load ptr, ptr %103, align 8
-  %144 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %143, i64 %indvars.iv.next110
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %143, i64 %indvars.iv.next110
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 18
   store i8 %142, ptr %145, align 2
   %146 = icmp samesign ugt i64 %indvars.iv109, 1
@@ -554,7 +547,7 @@ define dso_local void @TupleDescCopy(ptr noundef captures(none) %0, ptr noundef 
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 4
   %11 = getelementptr i8, ptr %0, i64 %10
-  %12 = getelementptr %struct.FormData_pg_attribute, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [100 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr i8, ptr %12, i64 110
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %13, i8 0, i64 5, i1 false)
@@ -583,14 +576,14 @@ define dso_local void @TupleDescCopyEntry(ptr noundef captures(none) %0, i16 nou
   %10 = getelementptr i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %10, i64 24
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %11, i64 %12
+  %13 = getelementptr inbounds [100 x i8], ptr %11, i64 %12
   %14 = sext i16 %3 to i64
   %15 = load i32, ptr %2, align 8
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 4
   %18 = getelementptr i8, ptr %2, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -76
-  %20 = getelementptr %struct.FormData_pg_attribute, ptr %19, i64 %14
+  %20 = getelementptr [100 x i8], ptr %19, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %13, ptr noundef nonnull align 4 dereferenceable(100) %20, i64 100, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 74
   store i16 %1, ptr %21, align 2
@@ -621,7 +614,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %11 = getelementptr inbounds nuw %struct.AttrDefault, ptr %8, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.next
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @pfree(ptr noundef %13) #10
@@ -652,7 +645,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %indvars.iv44 = phi i64 [ %23, %.lr.ph.preheader ], [ %indvars.iv.next45, %40 ]
-  %24 = getelementptr inbounds nuw %struct.AttrMissing, ptr %19, i64 %indvars.iv44
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv44
   %25 = load i8, ptr %24, align 8, !range !4, !noundef !5
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %40
@@ -662,7 +655,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 4
   %31 = getelementptr i8, ptr %0, i64 %30
-  %32 = getelementptr %struct.FormData_pg_attribute, ptr %31, i64 %indvars.iv44
+  %32 = getelementptr [100 x i8], ptr %31, i64 %indvars.iv44
   %33 = getelementptr i8, ptr %32, i64 106
   %34 = load i8, ptr %33, align 2, !range !4, !noundef !5
   %35 = trunc nuw i8 %34 to i1
@@ -701,7 +694,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
 50:                                               ; preds = %46, %50
   %indvars.iv47 = phi i64 [ %49, %46 ], [ %indvars.iv.next48, %50 ]
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
-  %51 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %48, i64 %indvars.iv.next48
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %indvars.iv.next48
   %52 = load ptr, ptr %51, align 8
   tail call void @pfree(ptr noundef %52) #10
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -800,8 +793,8 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
 
 20:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %21 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %14, i64 %indvars.iv
-  %22 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %18, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [100 x i8], ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [100 x i8], ptr %18, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %24) #11
@@ -997,8 +990,8 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
 
 134:                                              ; preds = %.lr.ph181, %133
   %indvars.iv193 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next194, %133 ]
-  %135 = getelementptr inbounds nuw %struct.AttrDefault, ptr %131, i64 %indvars.iv193
-  %136 = getelementptr inbounds nuw %struct.AttrDefault, ptr %132, i64 %indvars.iv193
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %indvars.iv193
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %132, i64 %indvars.iv193
   %137 = load i16, ptr %135, align 8
   %138 = load i16, ptr %136, align 8
   %.not146 = icmp eq i16 %137, %138
@@ -1036,9 +1029,9 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   %152 = phi i32 [ %3, %.lr.ph184 ], [ %175, %174 ]
   %indvars.iv198 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next199, %174 ]
   %153 = load ptr, ptr %145, align 8
-  %154 = getelementptr inbounds nuw %struct.AttrMissing, ptr %153, i64 %indvars.iv198
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv198
   %155 = load ptr, ptr %147, align 8
-  %156 = getelementptr inbounds nuw %struct.AttrMissing, ptr %155, i64 %indvars.iv198
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %indvars.iv198
   %157 = load i8, ptr %154, align 8, !range !4, !noundef !5
   %158 = load i8, ptr %156, align 8, !range !4, !noundef !5
   %.not145 = icmp eq i8 %157, %158
@@ -1049,7 +1042,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   br i1 %160, label %161, label %174
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %150, i64 %indvars.iv198
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %indvars.iv198
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %164 = load i64, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -1104,8 +1097,8 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
 
 188:                                              ; preds = %.lr.ph186, %187
   %indvars.iv201 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next202, %187 ]
-  %189 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %184, i64 %indvars.iv201
-  %190 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %186, i64 %indvars.iv201
+  %189 = getelementptr inbounds nuw [24 x i8], ptr %184, i64 %indvars.iv201
+  %190 = getelementptr inbounds nuw [24 x i8], ptr %186, i64 %indvars.iv201
   %191 = load ptr, ptr %189, align 8
   %192 = load ptr, ptr %190, align 8
   %193 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %191, ptr noundef nonnull dereferenceable(1) %192) #11
@@ -1197,8 +1190,8 @@ define dso_local noundef zeroext i1 @equalRowTypes(ptr noundef readonly captures
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %13, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [100 x i8], ptr %13, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [100 x i8], ptr %16, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22) #11
@@ -1267,7 +1260,7 @@ define dso_local i32 @hashRowType(ptr noundef readonly captures(none) %0) local_
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 4
   %19 = getelementptr i8, ptr %0, i64 %18
-  %20 = getelementptr %struct.FormData_pg_attribute, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [100 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr i8, ptr %20, i64 92
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 @hash_bytes_uint32(i32 noundef %22) #10
@@ -1298,7 +1291,7 @@ define dso_local void @TupleDescInitEntry(ptr noundef %0, i16 noundef signext %1
   %12 = getelementptr i8, ptr %0, i64 %11
   %13 = getelementptr i8, ptr %12, i64 24
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %13, i64 %14
+  %15 = getelementptr inbounds [100 x i8], ptr %13, i64 %14
   store i32 0, ptr %15, align 4
   %16 = icmp eq ptr %2, null
   %.ptr61 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -1418,7 +1411,7 @@ define dso_local void @TupleDescInitBuiltinEntry(ptr noundef %0, i16 noundef sig
   %12 = getelementptr i8, ptr %0, i64 %11
   %13 = getelementptr i8, ptr %12, i64 24
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %13, i64 %14
+  %15 = getelementptr inbounds [100 x i8], ptr %13, i64 %14
   store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   tail call void @namestrcpy(ptr noundef nonnull %16, ptr noundef %2) #10
@@ -1490,7 +1483,7 @@ define dso_local void @TupleDescInitEntryCollation(ptr noundef captures(none) %0
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 4
   %8 = getelementptr i8, ptr %0, i64 %7
-  %9 = getelementptr %struct.FormData_pg_attribute, ptr %8, i64 %4
+  %9 = getelementptr [100 x i8], ptr %8, i64 %4
   %10 = getelementptr i8, ptr %9, i64 20
   store i32 %2, ptr %10, align 4
   ret void
@@ -1546,7 +1539,7 @@ list_length.exit:                                 ; preds = %4, %5
 28:                                               ; preds = %25
   %29 = load ptr, ptr %17, align 8
   %30 = sext i32 %.sroa.18.0 to i64
-  %31 = getelementptr inbounds %union.ListCell, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   br label %32
 
 32:                                               ; preds = %24, %25, %28
@@ -1561,7 +1554,7 @@ list_length.exit:                                 ; preds = %4, %5
 37:                                               ; preds = %34
   %38 = load ptr, ptr %19, align 8
   %39 = sext i32 %.sroa.18.0 to i64
-  %40 = getelementptr inbounds %union.ListCell, ptr %38, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %38, i64 %39
   br label %41
 
 41:                                               ; preds = %32, %34, %37
@@ -1576,7 +1569,7 @@ list_length.exit:                                 ; preds = %4, %5
 46:                                               ; preds = %43
   %47 = load ptr, ptr %21, align 8
   %48 = sext i32 %.sroa.18.0 to i64
-  %49 = getelementptr inbounds %union.ListCell, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   br label %50
 
 50:                                               ; preds = %41, %43, %46
@@ -1591,7 +1584,7 @@ list_length.exit:                                 ; preds = %4, %5
 55:                                               ; preds = %52
   %56 = load ptr, ptr %23, align 8
   %57 = sext i32 %.sroa.18.0 to i64
-  %58 = getelementptr inbounds %union.ListCell, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   br label %59
 
 59:                                               ; preds = %50, %52, %55
@@ -1623,7 +1616,7 @@ list_length.exit:                                 ; preds = %4, %5
   %75 = sext i32 %74 to i64
   %76 = shl nsw i64 %75, 4
   %77 = getelementptr i8, ptr %11, i64 %76
-  %78 = getelementptr %struct.FormData_pg_attribute, ptr %77, i64 %73
+  %78 = getelementptr [100 x i8], ptr %77, i64 %73
   %79 = getelementptr i8, ptr %78, i64 20
   store i32 %71, ptr %79, align 4
   br label %24, !llvm.loop !24
@@ -1654,7 +1647,7 @@ define dso_local ptr @TupleDescGetDefault(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %struct.AttrDefault, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %11 = load i16, ptr %10, align 8
   %12 = icmp eq i16 %11, %1
   br i1 %12, label %13, label %9

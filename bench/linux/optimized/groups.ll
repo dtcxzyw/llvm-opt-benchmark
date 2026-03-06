@@ -123,7 +123,7 @@ define dso_local noundef range(i32 0, 2) i32 @groups_search(ptr noundef readonly
   %13 = add i32 %10, %9
   %14 = lshr i32 %13, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr %struct.kgid_t, ptr %7, i64 %15
+  %16 = getelementptr [4 x i8], ptr %7, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %17, %1
   %19 = add nuw i32 %14, 1
@@ -299,12 +299,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getgroups(ptr
 .preheader:                                       ; preds = %21, %24
   %27 = phi i32 [ %25, %24 ], [ 0, %21 ]
   %28 = sext i32 %27 to i64
-  %29 = getelementptr %struct.kgid_t, ptr %22, i64 %28
+  %29 = getelementptr [4 x i8], ptr %22, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, -1
   %32 = load i32, ptr @overflowgid, align 4
   %33 = select i1 %31, i32 %32, i32 %30
-  %34 = getelementptr i32, ptr %7, i64 %28
+  %34 = getelementptr [4 x i8], ptr %7, i64 %28
   %35 = tail call i64 @llvm.read_register.i64(metadata !0)
   %36 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %34, i32 %33, i64 4, i64 %35) #11, !srcloc !16
   %37 = extractvalue { ptr, i64 } %36, 0
@@ -366,12 +366,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getgroups(pt
 .preheader:                                       ; preds = %22, %25
   %28 = phi i32 [ %26, %25 ], [ 0, %22 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.kgid_t, ptr %23, i64 %29
+  %30 = getelementptr [4 x i8], ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, -1
   %33 = load i32, ptr @overflowgid, align 4
   %34 = select i1 %32, i32 %33, i32 %31
-  %35 = getelementptr i32, ptr %8, i64 %29
+  %35 = getelementptr [4 x i8], ptr %8, i64 %29
   %36 = tail call i64 @llvm.read_register.i64(metadata !0)
   %37 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %35, i32 %34, i64 4, i64 %36) #11, !srcloc !16
   %38 = extractvalue { ptr, i64 } %37, 0
@@ -442,7 +442,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setgroup
   br label %23
 
 19:                                               ; preds = %35
-  %20 = getelementptr %struct.kgid_t, ptr %18, i64 %26
+  %20 = getelementptr [4 x i8], ptr %18, i64 %26
   store i32 %30, ptr %20, align 4
   %21 = add nuw i32 %24, 1
   %22 = icmp eq i32 %21, %3
@@ -452,7 +452,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setgroup
   %24 = phi i32 [ 0, %17 ], [ %21, %19 ]
   %25 = tail call i64 @llvm.read_register.i64(metadata !0)
   %26 = sext i32 %24 to i64
-  %27 = getelementptr i32, ptr %4, i64 %26
+  %27 = getelementptr [4 x i8], ptr %4, i64 %26
   %28 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %27, i64 4, i64 %25) #11, !srcloc !19
   %29 = extractvalue { ptr, i32, i64 } %28, 0
   %30 = extractvalue { ptr, i32, i64 } %28, 1
@@ -627,7 +627,7 @@ define dso_local noundef range(i32 0, 2) i32 @in_group_p(i32 %0) #4 align 16 {
   %22 = add i32 %19, %18
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr %struct.kgid_t, ptr %16, i64 %24
+  %25 = getelementptr [4 x i8], ptr %16, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %26, %0
   %28 = add nuw i32 %23, 1
@@ -675,7 +675,7 @@ define dso_local noundef range(i32 0, 2) i32 @in_egroup_p(i32 %0) #4 align 16 {
   %22 = add i32 %19, %18
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr %struct.kgid_t, ptr %16, i64 %24
+  %25 = getelementptr [4 x i8], ptr %16, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %26, %0
   %28 = add nuw i32 %23, 1

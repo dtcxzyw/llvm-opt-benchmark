@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/cuddAPI.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DdCache = type { ptr, ptr, i64, ptr, i32 }
-%struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [38 x i8] c"**** CUDD modifiable parameters ****\0A\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"Hard limit for cache size: %u\0A\00", align 1
 @.str.2 = private unnamed_addr constant [40 x i8] c"Cache hit threshold for resizing: %u%%\0A\00", align 1
@@ -241,7 +238,7 @@ define ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = load i32, ptr %3, align 8, !tbaa !3
   %22 = sext i32 %21 to i64
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %23 = getelementptr [8 x i8], ptr %20, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   br label %Cudd_bddIthVar.exit
@@ -266,7 +263,7 @@ define ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   br label %21
 
@@ -302,10 +299,10 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %13 = load ptr, ptr %12, align 8, !tbaa !35
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !36
   %17 = sext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %11, i64 %17
+  %18 = getelementptr [8 x i8], ptr %11, i64 %17
   %19 = getelementptr i8, ptr %18, i64 8
   br label %22
 
@@ -343,7 +340,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %41 = load ptr, ptr %40, align 8, !tbaa !35
   %42 = zext nneg i32 %1 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.preheader.lr.ph, label %._crit_edge
@@ -362,7 +359,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 48:                                               ; preds = %.preheader, %48
   store i32 0, ptr %24, align 8, !tbaa !24
   %49 = load ptr, ptr %46, align 8, !tbaa !39
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.next
   %51 = load i32, ptr %50, align 4, !tbaa !36
   %52 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %.03644, ptr noundef nonnull %.03644) #21
   %53 = load i32, ptr %24, align 8, !tbaa !24
@@ -449,7 +446,7 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
 
 .preheader125.us:                                 ; preds = %._crit_edge135.us, %.preheader125.lr.ph.split.us
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge135.us ], [ 0, %.preheader125.lr.ph.split.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv161
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv161
   %27 = mul nuw nsw i64 %indvars.iv161, %25
   br label %28
 
@@ -460,10 +457,10 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
   %31 = trunc nuw nsw i64 %indvars.iv155 to i32
   %32 = add nsw i32 %30, %31
   %33 = add nuw nsw i64 %indvars.iv155, %27
-  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %33
   store i32 %32, ptr %34, align 4, !tbaa !36
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds i32, ptr %24, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %24, i64 %35
   %37 = trunc nuw i64 %33 to i32
   store i32 %37, ptr %36, align 4, !tbaa !36
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
@@ -492,9 +489,9 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
 
 47:                                               ; preds = %.lr.ph138, %47
   %indvars.iv164 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next165, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv164
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv164
   %49 = load i32, ptr %48, align 4, !tbaa !36
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv164
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv164
   %51 = load ptr, ptr %50, align 8, !tbaa !32
   store i32 %49, ptr %51, align 8, !tbaa !45
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
@@ -524,18 +521,18 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
 
 .preheader127.us:                                 ; preds = %._crit_edge.us, %.preheader127.lr.ph.split.us
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %._crit_edge.us ], [ 0, %.preheader127.lr.ph.split.us ]
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv145
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv145
   %64 = mul nuw nsw i64 %indvars.iv145, %62
   %.pre = load i32, ptr %63, align 4, !tbaa !36
   %65 = mul nsw i32 %.pre, %1
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %56, i64 %64
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %64
   br label %66
 
 66:                                               ; preds = %.preheader127.us, %66
   %indvars.iv = phi i64 [ 0, %.preheader127.us ], [ %indvars.iv.next, %66 ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
   %68 = add nsw i32 %65, %67
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %68, ptr %gep, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -562,7 +559,7 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv150 = phi i64 [ %73, %.lr.ph.preheader ], [ %indvars.iv.next151, %.lr.ph ]
-  %74 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv150
+  %74 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv150
   %75 = trunc nsw i64 %indvars.iv150 to i32
   store i32 %75, ptr %74, align 4, !tbaa !36
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
@@ -722,7 +719,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @addMultiplicityGroups(ptr no
   %16 = getelementptr inbounds nuw i8, ptr %.04256, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !54
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !36
   %21 = sdiv i32 %20, %2
   %22 = getelementptr inbounds nuw i8, ptr %.04256, i64 8
@@ -770,7 +767,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @addMultiplicityGroups(ptr no
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %44 = load ptr, ptr %7, align 8, !tbaa !39
   %45 = mul nsw i64 %indvars.iv61, %8
-  %46 = getelementptr inbounds i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !36
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 %47, ptr %48, align 4, !tbaa !54
@@ -989,7 +986,7 @@ define ptr @Cudd_ReadZddOne(ptr noundef readonly captures(none) %0, i32 noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   br label %15
 
 13:                                               ; preds = %4
@@ -1074,7 +1071,7 @@ define double @Cudd_ReadCacheUsedSlots(ptr noundef readonly captures(none) %0) l
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0910 = phi i64 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
-  %7 = getelementptr inbounds nuw %struct.DdCache, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !79
   %10 = icmp ne i64 %9, 0
@@ -1250,7 +1247,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) loc
 7:                                                ; preds = %.lr.ph54, %._crit_edge
   %indvars.iv79 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next80, %._crit_edge ]
   %.052 = phi i64 [ 0, %.lr.ph54 ], [ %.1.lcssa, %._crit_edge ]
-  %8 = getelementptr inbounds nuw %struct.DdSubtable, ptr %6, i64 %indvars.iv79
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv79
   %9 = load ptr, ptr %8, align 8, !tbaa !92
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !93
@@ -1264,7 +1261,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) loc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.150 = phi i64 [ %.052, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %.not46 = icmp ne ptr %13, %0
   %14 = zext i1 %.not46 to i64
@@ -1295,7 +1292,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) loc
 20:                                               ; preds = %.lr.ph66, %._crit_edge61
   %indvars.iv89 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next90, %._crit_edge61 ]
   %.364 = phi i64 [ %.0.lcssa, %.lr.ph66 ], [ %.4.lcssa, %._crit_edge61 ]
-  %21 = getelementptr inbounds nuw %struct.DdSubtable, ptr %19, i64 %indvars.iv89
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %indvars.iv89
   %22 = load ptr, ptr %21, align 8, !tbaa !92
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !93
@@ -1309,7 +1306,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) loc
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv84 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next85, %.lr.ph60 ]
   %.458 = phi i64 [ %.364, %.lr.ph60.preheader ], [ %spec.select47, %.lr.ph60 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv84
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv84
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %.not45 = icmp ne ptr %26, null
   %27 = zext i1 %.not45 to i64
@@ -1340,7 +1337,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) loc
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv94 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next95, %.lr.ph72 ]
   %.670 = phi i64 [ %.3.lcssa, %.lr.ph72.preheader ], [ %spec.select48, %.lr.ph72 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv94
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv94
   %33 = load ptr, ptr %32, align 8, !tbaa !32
   %.not = icmp ne ptr %33, null
   %34 = zext i1 %.not to i64
@@ -1375,7 +1372,7 @@ define double @Cudd_ExpectedUsedSlots(ptr noundef readonly captures(none) %0) lo
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.029 = phi double [ 0.000000e+00, %.lr.ph ], [ %18, %7 ]
-  %8 = getelementptr inbounds nuw %struct.DdSubtable, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !93
   %11 = uitofp i32 %10 to double
@@ -1406,7 +1403,7 @@ define double @Cudd_ExpectedUsedSlots(ptr noundef readonly captures(none) %0) lo
 24:                                               ; preds = %.lr.ph33, %24
   %indvars.iv38 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next39, %24 ]
   %.131 = phi double [ %.0.lcssa, %.lr.ph33 ], [ %35, %24 ]
-  %25 = getelementptr inbounds nuw %struct.DdSubtable, ptr %23, i64 %indvars.iv38
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv38
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !93
   %28 = uitofp i32 %27 to double
@@ -1638,7 +1635,7 @@ tailrecurse:                                      ; preds = %17, %3
 
 8:                                                ; preds = %tailrecurse
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !36
   br label %12
 
@@ -1743,7 +1740,7 @@ define i32 @Cudd_ReadPerm(ptr noundef readonly captures(none) %0, i32 noundef %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   br label %15
 
@@ -1771,7 +1768,7 @@ define i32 @Cudd_ReadPermZdd(ptr noundef readonly captures(none) %0, i32 noundef
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   br label %15
 
@@ -1799,7 +1796,7 @@ define i32 @Cudd_ReadInvPerm(ptr noundef readonly captures(none) %0, i32 noundef
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   br label %15
 
@@ -1827,7 +1824,7 @@ define i32 @Cudd_ReadInvPermZdd(ptr noundef readonly captures(none) %0, i32 noun
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   br label %15
 
@@ -1851,7 +1848,7 @@ define ptr @Cudd_ReadVars(ptr noundef readonly captures(none) %0, i32 noundef %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   br label %14
 
@@ -2478,7 +2475,7 @@ define i64 @Cudd_ReadNodeCount(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.01517 = phi i64 [ %7, %.lr.ph ], [ %spec.select, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !38
@@ -2703,7 +2700,7 @@ define range(i32 0, 2) i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1,
 switch.lookup:                                    ; preds = %11
   %switch.tableidx = add i64 %4, 4294967291
   %15 = and i64 %switch.tableidx, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Cudd_StdPreReordHook, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Cudd_StdPreReordHook, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %25
 
@@ -2769,7 +2766,7 @@ switch.lookup:                                    ; preds = %11
 45:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
   %.01517.i = phi i64 [ %39, %.lr.ph.i ], [ %spec.select.i, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !38
@@ -2872,7 +2869,7 @@ define range(i32 0, 2) i32 @Cudd_StdPostReordHook(ptr noundef %0, ptr noundef re
 25:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %.01517.i = phi i64 [ %19, %.lr.ph.i ], [ %spec.select.i, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !38
@@ -3220,10 +3217,10 @@ define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 1, ptr %17, align 8, !tbaa !148
   br label %18
@@ -3248,10 +3245,10 @@ define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr noundef readonly captures(none
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 0, ptr %17, align 8, !tbaa !148
   br label %18
@@ -3276,10 +3273,10 @@ define i32 @Cudd_bddVarIsBound(ptr noundef readonly captures(none) %0, i32 nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !148
   br label %19
@@ -3304,10 +3301,10 @@ define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   store i32 0, ptr %17, align 4, !tbaa !149
   br label %18
@@ -3332,10 +3329,10 @@ define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   store i32 1, ptr %17, align 4, !tbaa !149
   br label %18
@@ -3360,10 +3357,10 @@ define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   store i32 2, ptr %17, align 4, !tbaa !149
   br label %18
@@ -3388,10 +3385,10 @@ define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !149
   %19 = icmp eq i32 %18, 0
@@ -3418,10 +3415,10 @@ define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !149
   %19 = icmp eq i32 %18, 1
@@ -3448,10 +3445,10 @@ define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !149
   %19 = icmp eq i32 %18, 2
@@ -3478,10 +3475,10 @@ define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr noundef readonly captures(n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !36
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.DdSubtable, ptr %10, i64 %16
+  %17 = getelementptr inbounds [56 x i8], ptr %10, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 %2, ptr %18, align 8, !tbaa !150
   br label %19
@@ -3506,10 +3503,10 @@ define i32 @Cudd_bddReadPairIndex(ptr noundef readonly captures(none) %0, i32 no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i32, ptr %17, align 8, !tbaa !150
   br label %19
@@ -3534,10 +3531,10 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr noundef readonly captu
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !151
   %19 = icmp ult i32 %18, 2
@@ -3567,10 +3564,10 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i32 2, ptr %17, align 8, !tbaa !151
   br label %18
@@ -3595,10 +3592,10 @@ define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr noundef readonly cap
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !151
   %19 = icmp ult i32 %18, 2
@@ -3628,10 +3625,10 @@ define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr noundef readonly captur
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !151
   %19 = icmp eq i32 %18, 3
@@ -3658,10 +3655,10 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr noundef readonly cap
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i32 3, ptr %17, align 8, !tbaa !151
   br label %18
@@ -3686,10 +3683,10 @@ define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef readonly cap
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !151
   %19 = icmp eq i32 %18, 3
@@ -3716,10 +3713,10 @@ define range(i32 -1, 2) i32 @Cudd_bddIsVarHardGroup(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !151
   %19 = icmp eq i32 %18, 2

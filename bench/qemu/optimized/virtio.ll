@@ -7,25 +7,18 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.QemuEvent = type { i32, i8 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.anon.10 = type { i64 }
-%struct.VirtQueue = type { %struct.VRing, ptr, i16, i8, i16, i8, i16, i8, i16, i8, i8, i16, i32, i16, ptr, ptr, %struct.EventNotifier, %struct.EventNotifier, i8, %struct.anon }
-%struct.VRing = type { i32, i32, i32, i64, i64, i64, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.VRingPackedDesc = type { i64, i32, i16, i16 }
-%struct.iovec = type { ptr, i64 }
 %struct.VRingUsedElem = type { i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, i8, ptr, ptr, ptr, ptr }
 %struct.MemoryRegionCache = type { ptr, i64, i64, ptr, %struct.MemoryRegionSection, i8 }
 %struct.MemoryRegionSection = type { i128, ptr, ptr, i64, i64, i8, i8, i8 }
 %struct.VRingDesc = type { i64, i32, i16, i16 }
+%struct.iovec = type { ptr, i64 }
+%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, i8, ptr, ptr, ptr, ptr }
 %struct.VirtQueueElementOld = type { i32, i32, i32, [1024 x i64], [1024 x i64], [1024 x %struct.iovec], [1024 x %struct.iovec] }
-%struct.anon.6 = type { ptr }
-%struct.VirtIOFeature = type { i64, i64 }
 %struct.VirtioSetFeaturesNocheckData = type { ptr, ptr, i64, i32 }
 %struct.vhost_vring_state = type { i32, i32 }
-%struct.anon.9 = type { i16, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"virtio-net\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"virtio-blk\00", align 1
@@ -288,7 +281,7 @@ define dso_local void @virtio_init_region_cache(ptr noundef %0, i32 noundef %1) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -299,7 +292,7 @@ define dso_local void @virtio_init_region_cache(ptr noundef %0, i32 noundef %1) 
 11:                                               ; preds = %2
   %12 = tail call noalias dereferenceable_or_null(352) ptr @g_malloc0(i64 noundef 352) #23
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.VirtQueue, ptr %13, i64 %5
+  %14 = getelementptr inbounds [152 x i8], ptr %13, i64 %5
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 4
@@ -329,7 +322,7 @@ define dso_local void @virtio_init_region_cache(ptr noundef %0, i32 noundef %1) 
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.VirtQueue, ptr %33, i64 %5
+  %34 = getelementptr inbounds [152 x i8], ptr %33, i64 %5
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 3
@@ -361,7 +354,7 @@ virtio_queue_get_used_size.exit:                  ; preds = %29, %32
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.VirtQueue, ptr %52, i64 %5
+  %53 = getelementptr inbounds [152 x i8], ptr %52, i64 %5
   %54 = load i32, ptr %53, align 8
   %55 = zext i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 1
@@ -432,7 +425,7 @@ define dso_local range(i64 0, 68719476721) i64 @virtio_queue_get_desc_size(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 4
@@ -482,7 +475,7 @@ define dso_local range(i64 4, 34359738367) i64 @virtio_queue_get_used_size(ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.VirtQueue, ptr %7, i64 %8
+  %9 = getelementptr inbounds [152 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 3
@@ -509,7 +502,7 @@ define dso_local range(i64 4, 8589934597) i64 @virtio_queue_get_avail_size(ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.VirtQueue, ptr %7, i64 %8
+  %9 = getelementptr inbounds [152 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 1
@@ -555,7 +548,7 @@ define dso_local void @virtio_queue_update_rings(ptr noundef %0, i32 noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %27, label %8
@@ -1485,7 +1478,7 @@ define dso_local void @virtqueue_detach_element(ptr noundef captures(none) %0, p
   %19 = zext i32 %18 to i64
   %20 = load ptr, ptr %13, align 8
   %21 = sext i32 %.0301.i to i64
-  %22 = getelementptr inbounds %struct.iovec, ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = tail call i64 @llvm.umin.i64(i64 %24, i64 %19)
@@ -1502,7 +1495,7 @@ define dso_local void @virtqueue_detach_element(ptr noundef captures(none) %0, p
   %.13.i = phi i32 [ 0, %.lr.ph4.i ], [ %39, %32 ]
   %33 = load ptr, ptr %16, align 8
   %34 = sext i32 %.13.i to i64
-  %35 = getelementptr inbounds %struct.iovec, ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8
@@ -1577,7 +1570,7 @@ virtqueue_packed_rewind.exit:                     ; preds = %3, %11
   %32 = zext i32 %31 to i64
   %33 = load ptr, ptr %26, align 8
   %34 = sext i32 %.0301.i.i to i64
-  %35 = getelementptr inbounds %struct.iovec, ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 %32)
@@ -1594,7 +1587,7 @@ virtqueue_packed_rewind.exit:                     ; preds = %3, %11
   %.13.i.i = phi i32 [ 0, %.lr.ph4.i.i ], [ %52, %45 ]
   %46 = load ptr, ptr %29, align 8
   %47 = sext i32 %.13.i.i to i64
-  %48 = getelementptr inbounds %struct.iovec, ptr %46, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load i64, ptr %50, align 8
@@ -1734,7 +1727,7 @@ trace_virtqueue_fill.exit:                        ; preds = %4, %8, %10, %16, %2
   %33 = zext i32 %32 to i64
   %34 = load ptr, ptr %27, align 8
   %35 = sext i32 %.0301.i to i64
-  %36 = getelementptr inbounds %struct.iovec, ptr %34, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 %33)
@@ -1751,7 +1744,7 @@ trace_virtqueue_fill.exit:                        ; preds = %4, %8, %10, %16, %2
   %.13.i = phi i32 [ 0, %.lr.ph4.i ], [ %53, %46 ]
   %47 = load ptr, ptr %30, align 8
   %48 = sext i32 %.13.i to i64
-  %49 = getelementptr inbounds %struct.iovec, ptr %47, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i64, ptr %51, align 8
@@ -1801,7 +1794,7 @@ virtio_device_disabled.exit:                      ; preds = %virtqueue_unmap_sg.
   %.040.i = phi i32 [ 0, %66 ], [ %93, %85 ]
   %.02839.i = phi i32 [ %71, %66 ], [ %spec.select.i, %85 ]
   %81 = zext i32 %.02839.i to i64
-  %82 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [56 x i8], ptr %78, i64 %81
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, %79
   br i1 %84, label %.loopexit.i, label %85
@@ -1811,7 +1804,7 @@ virtio_device_disabled.exit:                      ; preds = %virtqueue_unmap_sg.
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, %.02839.i
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %78, i64 %89
+  %90 = getelementptr inbounds nuw [56 x i8], ptr %78, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = add i32 %92, %.040.i
@@ -1825,7 +1818,7 @@ virtio_device_disabled.exit:                      ; preds = %virtqueue_unmap_sg.
   %95 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 %2, ptr %95, align 4
   %96 = load ptr, ptr %77, align 8
-  %97 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %96, i64 %81
+  %97 = getelementptr inbounds nuw [56 x i8], ptr %96, i64 %81
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 20
   store i8 1, ptr %98, align 4
   %99 = icmp ult i32 %.040.i, %76
@@ -1855,16 +1848,16 @@ virtio_device_disabled.exit:                      ; preds = %virtqueue_unmap_sg.
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %112 = load ptr, ptr %111, align 8
   %113 = zext i32 %3 to i64
-  %114 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [56 x i8], ptr %112, i64 %113
   store i32 %110, ptr %114, align 8
   %115 = load ptr, ptr %111, align 8
-  %116 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %115, i64 %113
+  %116 = getelementptr inbounds nuw [56 x i8], ptr %115, i64 %113
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %2, ptr %117, align 4
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %119 = load i32, ptr %118, align 8
   %120 = load ptr, ptr %111, align 8
-  %121 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %120, i64 %113
+  %121 = getelementptr inbounds nuw [56 x i8], ptr %120, i64 %113
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 %119, ptr %122, align 8
   br label %virtqueue_ordered_fill.exit
@@ -1997,7 +1990,7 @@ virtio_device_disabled.exit.thread:               ; preds = %2, %virtio_device_d
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %24 to i64
-  %36 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %38 = load i8, ptr %37, align 4, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
@@ -2007,7 +2000,7 @@ virtio_device_disabled.exit.thread:               ; preds = %2, %virtio_device_d
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = zext nneg i32 %24 to i64
-  %43 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [56 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %45 = load i8, ptr %44, align 4, !range !5, !noundef !6
   %46 = trunc nuw i8 %45 to i1
@@ -2068,11 +2061,11 @@ address_space_write_cached.exit.i.us.i:           ; preds = %70, %67
 
 vring_used_write.exit.us.i:                       ; preds = %address_space_write_cached.exit.i.us.i, %.critedge.us.i
   %72 = load ptr, ptr %33, align 8
-  %73 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %72, i64 %50
+  %73 = getelementptr inbounds nuw [56 x i8], ptr %72, i64 %50
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i8 0, ptr %74, align 4
   %75 = load ptr, ptr %33, align 8
-  %76 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %75, i64 %50
+  %76 = getelementptr inbounds nuw [56 x i8], ptr %75, i64 %50
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = add i32 %78, %.05977.us.i
@@ -2082,7 +2075,7 @@ vring_used_write.exit.us.i:                       ; preds = %address_space_write
   %82 = select i1 %.not68.us.i, i32 0, i32 %81
   %spec.select.us.i = sub nuw i32 %80, %82
   %83 = zext i32 %spec.select.us.i to i64
-  %84 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [56 x i8], ptr %75, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %86 = load i8, ptr %85, align 4, !range !5, !noundef !6
   %87 = trunc nuw i8 %86 to i1
@@ -2113,11 +2106,11 @@ vring_used_write.exit.us.i:                       ; preds = %address_space_write
 
 vring_used_write.exit.i:                          ; preds = %93, %.lr.ph.split.i
   %95 = phi ptr [ %88, %.lr.ph.split.i ], [ %.pre.i, %93 ]
-  %96 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %95, i64 %90
+  %96 = getelementptr inbounds nuw [56 x i8], ptr %95, i64 %90
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 20
   store i8 0, ptr %97, align 4
   %98 = load ptr, ptr %40, align 8
-  %99 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %98, i64 %90
+  %99 = getelementptr inbounds nuw [56 x i8], ptr %98, i64 %90
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = add i32 %101, %.05977.i
@@ -2127,7 +2120,7 @@ vring_used_write.exit.i:                          ; preds = %93, %.lr.ph.split.i
   %105 = select i1 %.not68.i, i32 0, i32 %104
   %spec.select.i = sub nuw i32 %103, %105
   %106 = zext i32 %spec.select.i to i64
-  %107 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %98, i64 %106
+  %107 = getelementptr inbounds nuw [56 x i8], ptr %98, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %109 = load i8, ptr %108, align 4, !range !5, !noundef !6
   %110 = trunc nuw i8 %109 to i1
@@ -2141,7 +2134,7 @@ vring_used_write.exit.i:                          ; preds = %93, %.lr.ph.split.i
 111:                                              ; preds = %._crit_edge.i
   %112 = load i16, ptr %20, align 8
   %113 = zext i16 %112 to i64
-  %114 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %.lcssa.i, i64 %113
+  %114 = getelementptr inbounds nuw [56 x i8], ptr %.lcssa.i, i64 %113
   %.val71.i = load i32, ptr %114, align 8
   %115 = getelementptr i8, ptr %114, i64 4
   %.val72.i = load i32, ptr %115, align 4
@@ -2259,13 +2252,13 @@ virtqueue_ordered_flush.exit:                     ; preds = %26, %29, %32, %.thr
   %165 = phi ptr [ %161, %.lr.ph.preheader.i ], [ %168, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.032.i = phi i32 [ %163, %.lr.ph.preheader.i ], [ %172, %.lr.ph.i ]
-  %166 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %165, i64 %indvars.iv.i
+  %166 = getelementptr inbounds nuw [56 x i8], ptr %165, i64 %indvars.iv.i
   %.val.i12 = load i32, ptr %166, align 8
   %167 = getelementptr i8, ptr %166, i64 4
   %.val28.i = load i32, ptr %167, align 4
   tail call fastcc void @virtqueue_packed_fill_desc(ptr noundef nonnull %0, i32 %.val.i12, i32 %.val28.i, i32 noundef %.032.i, i1 noundef zeroext false)
   %168 = load ptr, ptr %160, align 8
-  %169 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %168, i64 %indvars.iv.i
+  %169 = getelementptr inbounds nuw [56 x i8], ptr %168, i64 %indvars.iv.i
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i32, ptr %170, align 8
   %172 = add i32 %171, %.032.i
@@ -3292,11 +3285,11 @@ define dso_local void @virtqueue_map(ptr noundef readonly captures(none) %0, ptr
 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %14 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %16, ptr %4, align 8
@@ -3344,11 +3337,11 @@ virtqueue_map_iovec.exit:                         ; preds = %12, %2
 
 34:                                               ; preds = %33, %.lr.ph.i9
   %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i9 ], [ %indvars.iv.next.i14, %33 ]
-  %35 = getelementptr inbounds nuw %struct.iovec, ptr %27, i64 %indvars.iv.i11
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv.i11
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = load ptr, ptr %32, align 8
-  %39 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv.i11
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i11
   %40 = load i64, ptr %39, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %37, ptr %3, align 8
@@ -3607,8 +3600,8 @@ virtio_queue_packed_empty_rcu.exit.i:             ; preds = %59, %57
 112:                                              ; preds = %.split.us.i
   %113 = load i32, ptr %10, align 4
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw i64, ptr %12, i64 %114
-  %116 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %114
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %114
   %117 = sub i32 1024, %113
   %118 = load i64, ptr %14, align 8
   %119 = load i32, ptr %92, align 8
@@ -3653,8 +3646,8 @@ virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %132
 137:                                              ; preds = %.split.i
   %138 = load i32, ptr %10, align 4
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw i64, ptr %12, i64 %139
-  %141 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %139
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %139
   %142 = sub i32 1024, %138
   %143 = load i64, ptr %14, align 8
   %144 = load i32, ptr %92, align 8
@@ -3732,14 +3725,14 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
 
 174:                                              ; preds = %174, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %174 ]
-  %175 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %176 = load i64, ptr %175, align 8
   %177 = load ptr, ptr %170, align 8
-  %178 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv.i
   store i64 %176, ptr %178, align 8
   %179 = load ptr, ptr %171, align 8
-  %180 = getelementptr inbounds nuw %struct.iovec, ptr %179, i64 %indvars.iv.i
-  %181 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %indvars.iv.i
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %179, i64 %indvars.iv.i
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef nonnull align 16 dereferenceable(16) %181, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3750,14 +3743,14 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   %183 = trunc nuw i64 %indvars.iv147.i to i32
   %184 = add i32 %167, %183
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw i64, ptr %12, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %185
   %187 = load i64, ptr %186, align 8
   %188 = load ptr, ptr %172, align 8
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv147.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv147.i
   store i64 %187, ptr %189, align 8
   %190 = load ptr, ptr %173, align 8
-  %191 = getelementptr inbounds nuw %struct.iovec, ptr %190, i64 %indvars.iv147.i
-  %192 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %185
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %190, i64 %indvars.iv147.i
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 16 dereferenceable(16) %192, i64 16, i1 false)
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count150.i
@@ -3778,21 +3771,21 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   %198 = load ptr, ptr %197, align 8
   %199 = load i16, ptr %44, align 8
   %200 = zext i16 %199 to i64
-  %201 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %198, i64 %200
+  %201 = getelementptr inbounds nuw [56 x i8], ptr %198, i64 %200
   store i32 %193, ptr %201, align 8
   %202 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %203 = load i32, ptr %202, align 4
   %204 = load ptr, ptr %197, align 8
   %205 = load i16, ptr %44, align 8
   %206 = zext i16 %205 to i64
-  %207 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %204, i64 %206
+  %207 = getelementptr inbounds nuw [56 x i8], ptr %204, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   store i32 %203, ptr %208, align 4
   %209 = load i32, ptr %194, align 8
   %210 = load ptr, ptr %197, align 8
   %211 = load i16, ptr %44, align 8
   %212 = zext i16 %211 to i64
-  %213 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %210, i64 %212
+  %213 = getelementptr inbounds nuw [56 x i8], ptr %210, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i32 %209, ptr %214, align 8
   br label %215
@@ -4230,8 +4223,8 @@ vring_split_desc_read.exit.i:                     ; preds = %371, %369
 401:                                              ; preds = %398
   %402 = load i32, ptr %4, align 4
   %403 = zext i32 %402 to i64
-  %404 = getelementptr inbounds nuw i64, ptr %6, i64 %403
-  %405 = getelementptr inbounds nuw %struct.iovec, ptr %7, i64 %403
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %403
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %403
   %406 = sub i32 1024, %402
   %407 = load i64, ptr %8, align 8
   %408 = load i32, ptr %395, align 8
@@ -4339,14 +4332,14 @@ vring_split_desc_read.exit.i:                     ; preds = %371, %369
 
 451:                                              ; preds = %451, %.lr.ph.i14
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i17, %451 ]
-  %452 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i16
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i16
   %453 = load i64, ptr %452, align 8
   %454 = load ptr, ptr %447, align 8
-  %455 = getelementptr inbounds nuw i64, ptr %454, i64 %indvars.iv.i16
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %indvars.iv.i16
   store i64 %453, ptr %455, align 8
   %456 = load ptr, ptr %448, align 8
-  %457 = getelementptr inbounds nuw %struct.iovec, ptr %456, i64 %indvars.iv.i16
-  %458 = getelementptr inbounds nuw %struct.iovec, ptr %7, i64 %indvars.iv.i16
+  %457 = getelementptr inbounds nuw [16 x i8], ptr %456, i64 %indvars.iv.i16
+  %458 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %457, ptr noundef nonnull align 16 dereferenceable(16) %458, i64 16, i1 false)
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i15
@@ -4357,14 +4350,14 @@ vring_split_desc_read.exit.i:                     ; preds = %371, %369
   %460 = trunc nuw i64 %indvars.iv141.i to i32
   %461 = add i32 %443, %460
   %462 = zext i32 %461 to i64
-  %463 = getelementptr inbounds nuw i64, ptr %6, i64 %462
+  %463 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %462
   %464 = load i64, ptr %463, align 8
   %465 = load ptr, ptr %449, align 8
-  %466 = getelementptr inbounds nuw i64, ptr %465, i64 %indvars.iv141.i
+  %466 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %indvars.iv141.i
   store i64 %464, ptr %466, align 8
   %467 = load ptr, ptr %450, align 8
-  %468 = getelementptr inbounds nuw %struct.iovec, ptr %467, i64 %indvars.iv141.i
-  %469 = getelementptr inbounds nuw %struct.iovec, ptr %7, i64 %462
+  %468 = getelementptr inbounds nuw [16 x i8], ptr %467, i64 %indvars.iv141.i
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %462
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %468, ptr noundef nonnull align 16 dereferenceable(16) %469, i64 16, i1 false)
   %indvars.iv.next142.i = add nuw nsw i64 %indvars.iv141.i, 1
   %exitcond145.not.i = icmp eq i64 %indvars.iv.next142.i, %wide.trip.count144.i
@@ -4386,17 +4379,17 @@ vring_split_desc_read.exit.i:                     ; preds = %371, %369
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %479 = load ptr, ptr %478, align 8
   %480 = zext i32 %476 to i64
-  %481 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %479, i64 %480
+  %481 = getelementptr inbounds nuw [56 x i8], ptr %479, i64 %480
   store i32 %477, ptr %481, align 8
   %482 = getelementptr inbounds nuw i8, ptr %445, i64 4
   %483 = load i32, ptr %482, align 4
   %484 = load ptr, ptr %478, align 8
-  %485 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %484, i64 %480
+  %485 = getelementptr inbounds nuw [56 x i8], ptr %484, i64 %480
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 4
   store i32 %483, ptr %486, align 4
   %487 = load i32, ptr %446, align 8
   %488 = load ptr, ptr %478, align 8
-  %489 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %488, i64 %480
+  %489 = getelementptr inbounds nuw [56 x i8], ptr %488, i64 %480
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
   store i32 %487, ptr %490, align 8
   br label %491
@@ -4851,10 +4844,10 @@ define dso_local noundef ptr @qemu_get_virtqueue_element(ptr noundef readonly ca
 27:                                               ; preds = %.lr.ph, %27
   %.039 = phi i32 [ 0, %.lr.ph ], [ %33, %27 ]
   %28 = sext i32 %.039 to i64
-  %29 = getelementptr inbounds i64, ptr %20, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %20, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds i64, ptr %31, i64 %28
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %28
   store i64 %30, ptr %32, align 8
   %33 = add nuw i32 %.039, 1
   %34 = load i32, ptr %18, align 8
@@ -4878,10 +4871,10 @@ define dso_local noundef ptr @qemu_get_virtqueue_element(ptr noundef readonly ca
 39:                                               ; preds = %.lr.ph41, %39
   %.140 = phi i32 [ 0, %.lr.ph41 ], [ %45, %39 ]
   %40 = sext i32 %.140 to i64
-  %41 = getelementptr inbounds i64, ptr %25, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %25, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = load ptr, ptr %26, align 8
-  %44 = getelementptr inbounds i64, ptr %43, i64 %40
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %40
   store i64 %42, ptr %44, align 8
   %45 = add nuw i32 %.140, 1
   %46 = load i32, ptr %23, align 4
@@ -4905,13 +4898,13 @@ define dso_local noundef ptr @qemu_get_virtqueue_element(ptr noundef readonly ca
   %.242 = phi i32 [ 0, %.lr.ph43 ], [ %60, %50 ]
   %51 = load ptr, ptr %38, align 8
   %52 = sext i32 %.242 to i64
-  %53 = getelementptr inbounds %struct.iovec, ptr %51, i64 %52
+  %53 = getelementptr inbounds [16 x i8], ptr %51, i64 %52
   store ptr null, ptr %53, align 8
-  %54 = getelementptr %struct.iovec, ptr %4, i64 %52
+  %54 = getelementptr [16 x i8], ptr %4, i64 %52
   %55 = getelementptr i8, ptr %54, i64 16408
   %56 = load i64, ptr %55, align 8
   %57 = load ptr, ptr %38, align 8
-  %58 = getelementptr inbounds %struct.iovec, ptr %57, i64 %52
+  %58 = getelementptr inbounds [16 x i8], ptr %57, i64 %52
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %56, ptr %59, align 8
   %60 = add nuw i32 %.242, 1
@@ -4923,13 +4916,13 @@ define dso_local noundef ptr @qemu_get_virtqueue_element(ptr noundef readonly ca
   %.344 = phi i32 [ 0, %.lr.ph45 ], [ %73, %63 ]
   %64 = load ptr, ptr %49, align 8
   %65 = sext i32 %.344 to i64
-  %66 = getelementptr inbounds %struct.iovec, ptr %64, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %64, i64 %65
   store ptr null, ptr %66, align 8
-  %67 = getelementptr %struct.iovec, ptr %4, i64 %65
+  %67 = getelementptr [16 x i8], ptr %4, i64 %65
   %68 = getelementptr i8, ptr %67, i64 32792
   %69 = load i64, ptr %68, align 8
   %70 = load ptr, ptr %49, align 8
-  %71 = getelementptr inbounds %struct.iovec, ptr %70, i64 %65
+  %71 = getelementptr inbounds [16 x i8], ptr %70, i64 %65
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 %69, ptr %72, align 8
   %73 = add nuw i32 %.344, 1
@@ -5082,9 +5075,9 @@ define dso_local void @qemu_put_virtqueue_element(ptr noundef readonly captures(
 19:                                               ; preds = %.lr.ph, %19
   %.033 = phi i32 [ 0, %.lr.ph ], [ %24, %19 ]
   %20 = sext i32 %.033 to i64
-  %21 = getelementptr inbounds i64, ptr %14, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %14, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i64, ptr %15, i64 %20
+  %23 = getelementptr inbounds [8 x i8], ptr %15, i64 %20
   store i64 %22, ptr %23, align 8
   %24 = add nuw i32 %.033, 1
   %exitcond.not = icmp eq i32 %24, %8
@@ -5101,9 +5094,9 @@ define dso_local void @qemu_put_virtqueue_element(ptr noundef readonly captures(
 27:                                               ; preds = %.lr.ph35, %27
   %.134 = phi i32 [ 0, %.lr.ph35 ], [ %32, %27 ]
   %28 = sext i32 %.134 to i64
-  %29 = getelementptr inbounds i64, ptr %17, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %17, i64 %28
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i64, ptr %18, i64 %28
+  %31 = getelementptr inbounds [8 x i8], ptr %18, i64 %28
   store i64 %30, ptr %31, align 8
   %32 = add nuw i32 %.134, 1
   %exitcond44.not = icmp eq i32 %32, %11
@@ -5120,10 +5113,10 @@ define dso_local void @qemu_put_virtqueue_element(ptr noundef readonly captures(
 35:                                               ; preds = %.lr.ph37, %35
   %.236 = phi i32 [ 0, %.lr.ph37 ], [ %42, %35 ]
   %36 = sext i32 %.236 to i64
-  %37 = getelementptr inbounds %struct.iovec, ptr %26, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %26, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr %struct.iovec, ptr %4, i64 %36
+  %40 = getelementptr [16 x i8], ptr %4, i64 %36
   %41 = getelementptr i8, ptr %40, i64 16408
   store i64 %39, ptr %41, align 8
   %42 = add nuw i32 %.236, 1
@@ -5133,10 +5126,10 @@ define dso_local void @qemu_put_virtqueue_element(ptr noundef readonly captures(
 43:                                               ; preds = %.lr.ph39, %43
   %.338 = phi i32 [ 0, %.lr.ph39 ], [ %50, %43 ]
   %44 = sext i32 %.338 to i64
-  %45 = getelementptr inbounds %struct.iovec, ptr %34, i64 %44
+  %45 = getelementptr inbounds [16 x i8], ptr %34, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr %struct.iovec, ptr %4, i64 %44
+  %48 = getelementptr [16 x i8], ptr %4, i64 %44
   %49 = getelementptr i8, ptr %48, i64 32792
   store i64 %47, ptr %49, align 8
   %50 = add nuw i32 %.338, 1
@@ -5354,44 +5347,44 @@ define internal fastcc void @__virtio_queue_reset(ptr noundef readonly captures(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds nuw %struct.VirtQueue, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [152 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %10, align 8
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds nuw %struct.VirtQueue, ptr %11, i64 %5
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds nuw %struct.VirtQueue, ptr %14, i64 %5
+  %15 = getelementptr inbounds nuw [152 x i8], ptr %14, i64 %5
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i16 0, ptr %16, align 8
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds nuw %struct.VirtQueue, ptr %17, i64 %5
+  %18 = getelementptr inbounds nuw [152 x i8], ptr %17, i64 %5
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 60
   store i16 0, ptr %19, align 4
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds nuw %struct.VirtQueue, ptr %20, i64 %5
+  %21 = getelementptr inbounds nuw [152 x i8], ptr %20, i64 %5
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store i16 0, ptr %22, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds nuw %struct.VirtQueue, ptr %23, i64 %5
+  %24 = getelementptr inbounds nuw [152 x i8], ptr %23, i64 %5
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 58
   store i8 1, ptr %25, align 2
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds nuw %struct.VirtQueue, ptr %26, i64 %5
+  %27 = getelementptr inbounds nuw [152 x i8], ptr %26, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 62
   store i8 1, ptr %28, align 2
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds nuw %struct.VirtQueue, ptr %29, i64 %5
+  %30 = getelementptr inbounds nuw [152 x i8], ptr %29, i64 %5
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 66
   store i8 1, ptr %31, align 2
   %32 = load ptr, ptr %3, align 8
   %33 = sext i32 %1 to i64
-  %34 = getelementptr inbounds %struct.VirtQueue, ptr %32, i64 %33
+  %34 = getelementptr inbounds [152 x i8], ptr %32, i64 %33
   %35 = icmp slt i32 %1, 1024
   br i1 %35, label %36, label %virtio_queue_set_vector.exit
 
@@ -5430,7 +5423,7 @@ define internal fastcc void @__virtio_queue_reset(ptr noundef readonly captures(
 
 48:                                               ; preds = %._crit_edge.i, %39, %36
   %49 = phi ptr [ %.pre36.i, %._crit_edge.i ], [ %32, %39 ], [ %32, %36 ]
-  %50 = getelementptr inbounds %struct.VirtQueue, ptr %49, i64 %33
+  %50 = getelementptr inbounds [152 x i8], ptr %49, i64 %33
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store i16 -1, ptr %51, align 8
   %.pre = load ptr, ptr %3, align 8
@@ -5438,28 +5431,28 @@ define internal fastcc void @__virtio_queue_reset(ptr noundef readonly captures(
 
 virtio_queue_set_vector.exit:                     ; preds = %2, %48
   %52 = phi ptr [ %32, %2 ], [ %.pre, %48 ]
-  %53 = getelementptr inbounds nuw %struct.VirtQueue, ptr %52, i64 %5
+  %53 = getelementptr inbounds nuw [152 x i8], ptr %52, i64 %5
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 68
   store i16 0, ptr %54, align 4
   %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds nuw %struct.VirtQueue, ptr %55, i64 %5
+  %56 = getelementptr inbounds nuw [152 x i8], ptr %55, i64 %5
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 70
   store i8 0, ptr %57, align 2
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds nuw %struct.VirtQueue, ptr %58, i64 %5
+  %59 = getelementptr inbounds nuw [152 x i8], ptr %58, i64 %5
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 71
   store i8 1, ptr %60, align 1
   %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds nuw %struct.VirtQueue, ptr %61, i64 %5
+  %62 = getelementptr inbounds nuw [152 x i8], ptr %61, i64 %5
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   store i32 %64, ptr %62, align 8
   %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds nuw %struct.VirtQueue, ptr %65, i64 %5
+  %66 = getelementptr inbounds nuw [152 x i8], ptr %65, i64 %5
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 76
   store i32 0, ptr %67, align 4
   %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds nuw %struct.VirtQueue, ptr %68, i64 %5
+  %69 = getelementptr inbounds nuw [152 x i8], ptr %68, i64 %5
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load atomic i64, ptr %70 monotonic, align 8
   store atomic i64 0, ptr %70 release, align 8
@@ -5613,7 +5606,7 @@ define dso_local void @virtio_queue_set_addr(ptr noundef %0, i32 noundef %1, i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.VirtQueue, ptr %5, i64 %6
+  %7 = getelementptr inbounds [152 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %virtio_queue_update_rings.exit, label %9
@@ -5622,7 +5615,7 @@ define dso_local void @virtio_queue_set_addr(ptr noundef %0, i32 noundef %1, i64
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %2, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.VirtQueue, ptr %11, i64 %6
+  %12 = getelementptr inbounds [152 x i8], ptr %11, i64 %6
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %virtio_queue_update_rings.exit, label %14
@@ -5666,7 +5659,7 @@ define dso_local i64 @virtio_queue_get_addr(ptr noundef readonly captures(none) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   ret i64 %8
@@ -5677,7 +5670,7 @@ define dso_local void @virtio_queue_set_rings(ptr noundef %0, i32 noundef %1, i6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.VirtQueue, ptr %7, i64 %8
+  %9 = getelementptr inbounds [152 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %19, label %11
@@ -5686,11 +5679,11 @@ define dso_local void @virtio_queue_set_rings(ptr noundef %0, i32 noundef %1, i6
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.VirtQueue, ptr %13, i64 %8
+  %14 = getelementptr inbounds [152 x i8], ptr %13, i64 %8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %3, ptr %15, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.VirtQueue, ptr %16, i64 %8
+  %17 = getelementptr inbounds [152 x i8], ptr %16, i64 %8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %4, ptr %18, align 8
   tail call void @virtio_init_region_cache(ptr noundef nonnull %0, i32 noundef %1)
@@ -5706,7 +5699,7 @@ define dso_local void @virtio_queue_set_num(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.VirtQueue, ptr %6, i64 %7
+  %8 = getelementptr inbounds [152 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 8
   %10 = icmp ne i32 %9, 0
   %11 = xor i1 %4, %10
@@ -5727,7 +5720,7 @@ define dso_local ptr @virtio_vector_first_queue(ptr noundef readonly captures(no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load ptr, ptr %3, align 8
   %5 = zext i16 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.anon.6, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   ret ptr %7
 }
@@ -5744,7 +5737,7 @@ define dso_local i32 @virtio_queue_get_num(ptr noundef readonly captures(none) %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   ret i32 %7
 }
@@ -5754,7 +5747,7 @@ define dso_local i32 @virtio_queue_get_max_num(ptr noundef readonly captures(non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   ret i32 %8
@@ -5768,7 +5761,7 @@ define dso_local i32 @virtio_get_num_queues(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %5 = getelementptr inbounds nuw %struct.VirtQueue, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [152 x i8], ptr %3, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.split.loop.exit, label %7
@@ -5821,11 +5814,11 @@ define dso_local void @virtio_queue_set_align(ptr noundef %0, i32 noundef %1, i3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds %struct.VirtQueue, ptr %19, i64 %20
+  %21 = getelementptr inbounds [152 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %2, ptr %22, align 8
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds %struct.VirtQueue, ptr %23, i64 %20
+  %24 = getelementptr inbounds [152 x i8], ptr %23, i64 %20
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %virtio_queue_update_rings.exit, label %26
@@ -5908,7 +5901,7 @@ define dso_local void @virtio_queue_notify(ptr noundef %0, i32 noundef %1) local
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.VirtQueue, ptr %5, i64 %6
+  %7 = getelementptr inbounds [152 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
@@ -6008,7 +6001,7 @@ define dso_local zeroext i16 @virtio_queue_vector(ptr noundef readonly captures(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.VirtQueue, ptr %6, i64 %7
+  %8 = getelementptr inbounds [152 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load i16, ptr %9, align 8
   br label %11
@@ -6023,7 +6016,7 @@ define dso_local void @virtio_queue_set_vector(ptr noundef readonly captures(non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.VirtQueue, ptr %5, i64 %6
+  %7 = getelementptr inbounds [152 x i8], ptr %5, i64 %6
   %8 = icmp slt i32 %1, 1024
   br i1 %8, label %9, label %44
 
@@ -6062,7 +6055,7 @@ define dso_local void @virtio_queue_set_vector(ptr noundef readonly captures(non
 
 21:                                               ; preds = %._crit_edge, %12, %9
   %22 = phi ptr [ %.pre36, %._crit_edge ], [ %5, %12 ], [ %5, %9 ]
-  %23 = getelementptr inbounds %struct.VirtQueue, ptr %22, i64 %6
+  %23 = getelementptr inbounds [152 x i8], ptr %22, i64 %6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store i16 %2, ptr %24, align 8
   %25 = load ptr, ptr %10, align 8
@@ -6073,7 +6066,7 @@ define dso_local void @virtio_queue_set_vector(ptr noundef readonly captures(non
 
 28:                                               ; preds = %21
   %29 = zext i16 %2 to i64
-  %30 = getelementptr inbounds nuw %struct.anon.6, ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store ptr %31, ptr %32, align 8
@@ -6082,7 +6075,7 @@ define dso_local void @virtio_queue_set_vector(ptr noundef readonly captures(non
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds nuw %struct.anon.6, ptr %34, i64 %29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %29
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 144
   store ptr %32, ptr %37, align 8
@@ -6090,10 +6083,10 @@ define dso_local void @virtio_queue_set_vector(ptr noundef readonly captures(non
 
 38:                                               ; preds = %33, %28
   %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds nuw %struct.anon.6, ptr %39, i64 %29
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %29
   store ptr %7, ptr %40, align 8
   %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds nuw %struct.anon.6, ptr %41, i64 %29
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %29
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store ptr %42, ptr %43, align 8
   br label %44
@@ -6110,7 +6103,7 @@ define dso_local ptr @virtio_add_queue(ptr noundef readonly captures(none) %0, i
 
 6:                                                ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds nuw %struct.VirtQueue, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [152 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10
@@ -6132,28 +6125,28 @@ define dso_local ptr @virtio_add_queue(ptr noundef readonly captures(none) %0, i
 
 14:                                               ; preds = %11
   %15 = and i64 %indvars.iv, 4294967295
-  %16 = getelementptr inbounds nuw %struct.VirtQueue, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [152 x i8], ptr %5, i64 %15
   store i32 %1, ptr %16, align 8
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds nuw %struct.VirtQueue, ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [152 x i8], ptr %17, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %1, ptr %19, align 4
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds nuw %struct.VirtQueue, ptr %20, i64 %15
+  %21 = getelementptr inbounds nuw [152 x i8], ptr %20, i64 %15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 4096, ptr %22, align 8
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds nuw %struct.VirtQueue, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [152 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store ptr %2, ptr %25, align 8
   %26 = sext i32 %1 to i64
   %27 = tail call noalias ptr @g_malloc0_n(i64 noundef %26, i64 noundef 56) #27
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds nuw %struct.VirtQueue, ptr %28, i64 %15
+  %29 = getelementptr inbounds nuw [152 x i8], ptr %28, i64 %15
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store ptr %27, ptr %30, align 8
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %struct.VirtQueue, ptr %31, i64 %15
+  %32 = getelementptr inbounds nuw [152 x i8], ptr %31, i64 %15
   ret ptr %32
 }
 
@@ -6199,7 +6192,7 @@ define dso_local void @virtio_del_queue(ptr noundef readonly captures(none) %0, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.VirtQueue, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [152 x i8], ptr %6, i64 %7
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
@@ -6931,7 +6924,7 @@ define dso_local i32 @virtio_save(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 32:                                               ; preds = %17, %36
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %36 ]
-  %33 = getelementptr inbounds nuw %struct.VirtQueue, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [152 x i8], ptr %31, i64 %indvars.iv
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.split.loop.exit, label %36
@@ -6956,7 +6949,7 @@ define dso_local i32 @virtio_save(ptr noundef %0, ptr noundef %1) local_unnamed_
 41:                                               ; preds = %.split.loop.exit89, %67
   %indvars.iv80 = phi i64 [ 0, %.split.loop.exit89 ], [ %indvars.iv.next81, %67 ]
   %42 = load ptr, ptr %30, align 8
-  %43 = getelementptr inbounds nuw %struct.VirtQueue, ptr %42, i64 %indvars.iv80
+  %43 = getelementptr inbounds nuw [152 x i8], ptr %42, i64 %indvars.iv80
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %68, label %46
@@ -6969,7 +6962,7 @@ define dso_local i32 @virtio_save(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %30, align 8
-  %51 = getelementptr inbounds nuw %struct.VirtQueue, ptr %50, i64 %indvars.iv80
+  %51 = getelementptr inbounds nuw [152 x i8], ptr %50, i64 %indvars.iv80
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8
   tail call void @qemu_put_be32(ptr noundef %1, i32 noundef %53) #24
@@ -6977,12 +6970,12 @@ define dso_local i32 @virtio_save(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 54:                                               ; preds = %49, %46
   %55 = load ptr, ptr %30, align 8
-  %56 = getelementptr inbounds nuw %struct.VirtQueue, ptr %55, i64 %indvars.iv80
+  %56 = getelementptr inbounds nuw [152 x i8], ptr %55, i64 %indvars.iv80
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i64, ptr %57, align 8
   tail call void @qemu_put_be64(ptr noundef %1, i64 noundef %58) #24
   %59 = load ptr, ptr %30, align 8
-  %60 = getelementptr inbounds nuw %struct.VirtQueue, ptr %59, i64 %indvars.iv80
+  %60 = getelementptr inbounds nuw [152 x i8], ptr %59, i64 %indvars.iv80
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %.val76 = load i16, ptr %61, align 2
   %62 = zext i16 %.val76 to i32
@@ -7116,7 +7109,7 @@ virtio_set_features_nocheck.exit:                 ; preds = %14, %22
 28:                                               ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds nuw %struct.VirtQueue, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [152 x i8], ptr %29, i64 %indvars.iv
   %31 = load i32, ptr %30, align 8
   %.not21 = icmp eq i32 %31, 0
   br i1 %.not21, label %34, label %32
@@ -7188,7 +7181,7 @@ define dso_local i64 @virtio_get_config_size(ptr noundef readonly captures(none)
   br i1 %.not21, label %14, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw %struct.VirtIOFeature, ptr %5, i64 %.01823
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.01823
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = tail call i64 @llvm.umax.i64(i64 %12, i64 %.024)
@@ -7197,7 +7190,7 @@ define dso_local i64 @virtio_get_config_size(ptr noundef readonly captures(none)
 14:                                               ; preds = %.lr.ph, %9
   %.1 = phi i64 [ %13, %9 ], [ %.024, %.lr.ph ]
   %15 = add i64 %.01823, 1
-  %16 = getelementptr inbounds nuw %struct.VirtIOFeature, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %15
   %17 = load i64, ptr %16, align 8
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
@@ -7317,7 +7310,7 @@ define dso_local i32 @virtio_load(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %indvars.iv = phi i64 [ 0, %.lr.ph241 ], [ %indvars.iv.next, %102 ]
   %60 = tail call i32 @qemu_get_be32(ptr noundef %1) #24
   %61 = load ptr, ptr %54, align 8
-  %62 = getelementptr inbounds nuw %struct.VirtQueue, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [152 x i8], ptr %61, i64 %indvars.iv
   store i32 %60, ptr %62, align 8
   %63 = load i8, ptr %55, align 8, !range !5, !noundef !6
   %64 = trunc nuw i8 %63 to i1
@@ -7326,7 +7319,7 @@ define dso_local i32 @virtio_load(ptr noundef %0, ptr noundef %1, i32 noundef %2
 65:                                               ; preds = %59
   %66 = tail call i32 @qemu_get_be32(ptr noundef %1) #24
   %67 = load ptr, ptr %54, align 8
-  %68 = getelementptr inbounds nuw %struct.VirtQueue, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [152 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 %66, ptr %69, align 8
   br label %70
@@ -7334,25 +7327,25 @@ define dso_local i32 @virtio_load(ptr noundef %0, ptr noundef %1, i32 noundef %2
 70:                                               ; preds = %65, %59
   %71 = tail call i64 @qemu_get_be64(ptr noundef %1) #24
   %72 = load ptr, ptr %54, align 8
-  %73 = getelementptr inbounds nuw %struct.VirtQueue, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [152 x i8], ptr %72, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i64 %71, ptr %74, align 8
   %75 = load ptr, ptr %54, align 8
-  %76 = getelementptr inbounds nuw %struct.VirtQueue, ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [152 x i8], ptr %75, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %78 = tail call i32 @qemu_get_be16(ptr noundef %1) #24
   %79 = trunc i32 %78 to i16
   store i16 %79, ptr %77, align 2
   %80 = load ptr, ptr %54, align 8
-  %81 = getelementptr inbounds nuw %struct.VirtQueue, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [152 x i8], ptr %80, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 70
   store i8 0, ptr %82, align 2
   %83 = load ptr, ptr %54, align 8
-  %84 = getelementptr inbounds nuw %struct.VirtQueue, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [152 x i8], ptr %83, i64 %indvars.iv
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 71
   store i8 1, ptr %85, align 1
   %86 = load ptr, ptr %54, align 8
-  %87 = getelementptr inbounds nuw %struct.VirtQueue, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [152 x i8], ptr %86, i64 %indvars.iv
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8
   %.not215 = icmp eq i64 %89, 0
@@ -7521,7 +7514,7 @@ virtio_device_started.exit:                       ; preds = %.critedge
 166:                                              ; preds = %.lr.ph245, %.thread
   %indvars.iv257 = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next258, %.thread ]
   %167 = load ptr, ptr %165, align 8
-  %168 = getelementptr inbounds nuw %struct.VirtQueue, ptr %167, i64 %indvars.iv257
+  %168 = getelementptr inbounds nuw [152 x i8], ptr %167, i64 %indvars.iv257
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load i64, ptr %169, align 8
   %.not214 = icmp eq i64 %170, 0
@@ -7571,7 +7564,7 @@ virtio_queue_update_rings.exit:                   ; preds = %virtio_queue_update
   %192 = and i64 %.val, 17179869184
   %.not231 = icmp eq i64 %192, 0
   %193 = load ptr, ptr %165, align 8
-  %194 = getelementptr inbounds nuw %struct.VirtQueue, ptr %193, i64 %indvars.iv257
+  %194 = getelementptr inbounds nuw [152 x i8], ptr %193, i64 %indvars.iv257
   br i1 %.not231, label %204, label %195
 
 195:                                              ; preds = %virtio_queue_update_rings.exit
@@ -7580,7 +7573,7 @@ virtio_queue_update_rings.exit:                   ; preds = %virtio_queue_update
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 60
   store i16 %197, ptr %198, align 4
   %199 = load ptr, ptr %165, align 8
-  %200 = getelementptr inbounds nuw %struct.VirtQueue, ptr %199, i64 %indvars.iv257
+  %200 = getelementptr inbounds nuw [152 x i8], ptr %199, i64 %indvars.iv257
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 58
   %202 = load i8, ptr %201, align 2, !range !5, !noundef !6
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 62
@@ -7629,7 +7622,7 @@ virtio_lduw_phys_cached.exit.i:                   ; preds = %217, %215
 vring_avail_idx.exit:                             ; preds = %204, %virtio_lduw_phys_cached.exit.i
   %.0.i224 = phi i16 [ %.0.i.i.i.i, %virtio_lduw_phys_cached.exit.i ], [ 0, %204 ]
   %220 = load ptr, ptr %165, align 8
-  %221 = getelementptr inbounds nuw %struct.VirtQueue, ptr %220, i64 %indvars.iv257
+  %221 = getelementptr inbounds nuw [152 x i8], ptr %220, i64 %indvars.iv257
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 56
   %223 = load i16, ptr %222, align 8
   %224 = sub i16 %.0.i224, %223
@@ -7642,22 +7635,22 @@ vring_avail_idx.exit:                             ; preds = %204, %virtio_lduw_p
   %229 = tail call fastcc zeroext i16 @vring_avail_idx(ptr noundef nonnull %221)
   %230 = zext i16 %229 to i32
   %231 = load ptr, ptr %165, align 8
-  %232 = getelementptr inbounds nuw %struct.VirtQueue, ptr %231, i64 %indvars.iv257
+  %232 = getelementptr inbounds nuw [152 x i8], ptr %231, i64 %indvars.iv257
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 56
   %234 = load i16, ptr %233, align 8
   %235 = zext i16 %234 to i32
   %236 = trunc nuw nsw i64 %indvars.iv257 to i32
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.55, i32 noundef %236, i32 noundef %226, i32 noundef %230, i32 noundef %235, i32 noundef %225)
   %237 = load ptr, ptr %165, align 8
-  %238 = getelementptr inbounds nuw %struct.VirtQueue, ptr %237, i64 %indvars.iv257
+  %238 = getelementptr inbounds nuw [152 x i8], ptr %237, i64 %indvars.iv257
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 64
   store i16 0, ptr %239, align 8
   %240 = load ptr, ptr %165, align 8
-  %241 = getelementptr inbounds nuw %struct.VirtQueue, ptr %240, i64 %indvars.iv257
+  %241 = getelementptr inbounds nuw [152 x i8], ptr %240, i64 %indvars.iv257
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 60
   store i16 0, ptr %242, align 4
   %243 = load ptr, ptr %165, align 8
-  %244 = getelementptr inbounds nuw %struct.VirtQueue, ptr %243, i64 %indvars.iv257
+  %244 = getelementptr inbounds nuw [152 x i8], ptr %243, i64 %indvars.iv257
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 76
   store i32 0, ptr %245, align 4
   br label %.thread
@@ -7665,18 +7658,18 @@ vring_avail_idx.exit:                             ; preds = %204, %virtio_lduw_p
 246:                                              ; preds = %vring_avail_idx.exit
   %247 = tail call fastcc zeroext i16 @vring_used_idx(ptr noundef nonnull %221)
   %248 = load ptr, ptr %165, align 8
-  %249 = getelementptr inbounds nuw %struct.VirtQueue, ptr %248, i64 %indvars.iv257
+  %249 = getelementptr inbounds nuw [152 x i8], ptr %248, i64 %indvars.iv257
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 64
   store i16 %247, ptr %250, align 8
   %251 = load ptr, ptr %165, align 8
-  %252 = getelementptr inbounds nuw %struct.VirtQueue, ptr %251, i64 %indvars.iv257
+  %252 = getelementptr inbounds nuw [152 x i8], ptr %251, i64 %indvars.iv257
   %253 = tail call fastcc zeroext i16 @vring_avail_idx(ptr noundef %252)
   %254 = load ptr, ptr %165, align 8
-  %255 = getelementptr inbounds nuw %struct.VirtQueue, ptr %254, i64 %indvars.iv257
+  %255 = getelementptr inbounds nuw [152 x i8], ptr %254, i64 %indvars.iv257
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 60
   store i16 %253, ptr %256, align 4
   %257 = load ptr, ptr %165, align 8
-  %258 = getelementptr inbounds nuw %struct.VirtQueue, ptr %257, i64 %indvars.iv257
+  %258 = getelementptr inbounds nuw [152 x i8], ptr %257, i64 %indvars.iv257
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 56
   %260 = load i16, ptr %259, align 8
   %261 = getelementptr inbounds nuw i8, ptr %258, i64 64
@@ -7686,7 +7679,7 @@ vring_avail_idx.exit:                             ; preds = %204, %virtio_lduw_p
   %265 = getelementptr inbounds nuw i8, ptr %258, i64 76
   store i32 %264, ptr %265, align 4
   %266 = load ptr, ptr %165, align 8
-  %267 = getelementptr inbounds nuw %struct.VirtQueue, ptr %266, i64 %indvars.iv257
+  %267 = getelementptr inbounds nuw [152 x i8], ptr %266, i64 %indvars.iv257
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 76
   %269 = load i32, ptr %268, align 4
   %270 = load i32, ptr %267, align 8
@@ -7965,20 +7958,20 @@ define dso_local void @virtio_init(ptr noundef %0, i16 noundef zeroext %1, i64 n
 33:                                               ; preds = %.thread, %33
   %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %33 ]
   %34 = load ptr, ptr %28, align 8
-  %35 = getelementptr inbounds nuw %struct.VirtQueue, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [152 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   store i16 -1, ptr %36, align 8
   %37 = load ptr, ptr %28, align 8
-  %38 = getelementptr inbounds nuw %struct.VirtQueue, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [152 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   store ptr %0, ptr %39, align 8
   %40 = trunc i64 %indvars.iv to i16
   %41 = load ptr, ptr %28, align 8
-  %42 = getelementptr inbounds nuw %struct.VirtQueue, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [152 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 72
   store i16 %40, ptr %43, align 8
   %44 = load ptr, ptr %28, align 8
-  %45 = getelementptr inbounds nuw %struct.VirtQueue, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [152 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 128
   store i8 0, ptr %46, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7995,7 +7988,7 @@ define dso_local void @virtio_init(ptr noundef %0, i16 noundef zeroext %1, i64 n
 
 50:                                               ; preds = %47
   %51 = zext nneg i16 %1 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr @virtio_device_names, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @virtio_device_names, i64 %51
   %53 = load ptr, ptr %52, align 8
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %54, label %virtio_id_to_name.exit
@@ -8135,7 +8128,7 @@ define dso_local i64 @virtio_queue_get_desc_addr(ptr noundef readonly captures(n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   ret i64 %8
@@ -8146,7 +8139,7 @@ define dso_local zeroext i1 @virtio_queue_enabled_legacy(ptr noundef readonly ca
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ne i64 %8, 0
@@ -8174,7 +8167,7 @@ define dso_local zeroext i1 @virtio_queue_enabled(ptr noundef %0, i32 noundef %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %struct.VirtQueue, ptr %15, i64 %16
+  %17 = getelementptr inbounds [152 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp ne i64 %19, 0
@@ -8190,7 +8183,7 @@ define dso_local i64 @virtio_queue_get_avail_addr(ptr noundef readonly captures(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   ret i64 %8
@@ -8201,7 +8194,7 @@ define dso_local i64 @virtio_queue_get_used_addr(ptr noundef readonly captures(n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8
   ret i64 %8
@@ -8216,7 +8209,7 @@ define dso_local i32 @virtio_queue_get_last_avail_idx(ptr noundef readonly captu
   %5 = getelementptr i8, ptr %0, i64 224
   %.val6 = load ptr, ptr %5, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.VirtQueue, ptr %.val6, i64 %6
+  %7 = getelementptr inbounds [152 x i8], ptr %.val6, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
@@ -8257,7 +8250,7 @@ define dso_local void @virtio_queue_set_last_avail_idx(ptr noundef readonly capt
   %7 = getelementptr i8, ptr %0, i64 224
   %.val6 = load ptr, ptr %7, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.VirtQueue, ptr %.val6, i64 %8
+  %9 = getelementptr inbounds [152 x i8], ptr %.val6, i64 %8
   %10 = trunc i32 %2 to i16
   %11 = and i16 %10, 32767
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 60
@@ -8287,11 +8280,11 @@ define dso_local void @virtio_queue_set_last_avail_idx(ptr noundef readonly capt
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds %struct.VirtQueue, ptr %28, i64 %29
+  %30 = getelementptr inbounds [152 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store i16 %26, ptr %31, align 8
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds %struct.VirtQueue, ptr %32, i64 %29
+  %33 = getelementptr inbounds [152 x i8], ptr %32, i64 %29
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 60
   store i16 %26, ptr %34, align 4
   br label %35
@@ -8329,7 +8322,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %10, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds %struct.VirtQueue, ptr %14, i64 %15
+  %16 = getelementptr inbounds [152 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %.not.i = icmp eq i64 %18, 0
@@ -8371,11 +8364,11 @@ rcu_read_auto_lock.exit.i:                        ; preds = %10, %5
 vring_used_idx.exit.i:                            ; preds = %32, %30, %19
   %.0.i.i = phi i16 [ 0, %19 ], [ %.val.i.i.i.i.i, %30 ], [ %33, %32 ]
   %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds %struct.VirtQueue, ptr %34, i64 %15
+  %35 = getelementptr inbounds [152 x i8], ptr %34, i64 %15
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store i16 %.0.i.i, ptr %36, align 8
   %37 = load ptr, ptr %13, align 8
-  %38 = getelementptr inbounds %struct.VirtQueue, ptr %37, i64 %15
+  %38 = getelementptr inbounds [152 x i8], ptr %37, i64 %15
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load i16, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 60
@@ -8446,7 +8439,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %10, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds %struct.VirtQueue, ptr %14, i64 %15
+  %16 = getelementptr inbounds [152 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %.not.i = icmp eq i64 %18, 0
@@ -8488,7 +8481,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %10, %5
 vring_used_idx.exit.i:                            ; preds = %32, %30, %19
   %.0.i.i = phi i16 [ 0, %19 ], [ %.val.i.i.i.i.i, %30 ], [ %33, %32 ]
   %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds %struct.VirtQueue, ptr %34, i64 %15
+  %35 = getelementptr inbounds [152 x i8], ptr %34, i64 %15
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store i16 %.0.i.i, ptr %36, align 8
   br label %37
@@ -8533,7 +8526,7 @@ define dso_local void @virtio_queue_invalidate_signalled_used(ptr noundef readon
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 70
   store i8 0, ptr %7, align 2
   ret void
@@ -8544,7 +8537,7 @@ define dso_local ptr @virtio_get_queue(ptr noundef readonly captures(none) %0, i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VirtQueue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %4, i64 %5
   ret ptr %6
 }
 
@@ -8993,7 +8986,7 @@ define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_status(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i16 %1 to i64
-  %15 = getelementptr inbounds nuw %struct.VirtQueue, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [152 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %18
@@ -9009,7 +9002,7 @@ define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_status(ptr nounde
   %22 = tail call noalias ptr @g_strdup(ptr noundef %21) #24
   store ptr %22, ptr %19, align 8
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds nuw %struct.VirtQueue, ptr %23, i64 %14
+  %24 = getelementptr inbounds nuw [152 x i8], ptr %23, i64 %14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load i16, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -9143,7 +9136,7 @@ define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_element(ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i16 %1 to i64
-  %18 = getelementptr inbounds nuw %struct.VirtQueue, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [152 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %21
@@ -9546,7 +9539,7 @@ vring_used_idx.exit:                              ; preds = %vring_used_flags.ex
 199:                                              ; preds = %210, %191
   %indvars.iv.i = phi i64 [ 0, %191 ], [ %indvars.iv.next.i, %210 ]
   %.0911.i = phi ptr [ null, %191 ], [ %.1.i, %210 ]
-  %200 = getelementptr inbounds nuw %struct.anon.9, ptr @__const.qmp_decode_vring_desc_flags.map, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw [16 x i8], ptr @__const.qmp_decode_vring_desc_flags.map, i64 %indvars.iv.i
   %201 = load i16, ptr %200, align 16
   %202 = and i16 %201, %198
   %203 = icmp eq i16 %202, 0
@@ -10083,7 +10076,7 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %21 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = zext i32 %.14257 to i64
-  %23 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %22
   store ptr %20, ptr %23, align 8
   %.not48 = icmp eq ptr %20, null
   br i1 %.not48, label %24, label %25
@@ -10095,7 +10088,7 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %21, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i64, ptr %2, i64 %22
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %22
   store i64 %.03759, ptr %27, align 8
   %28 = sub i64 %.03858, %21
   %29 = add i64 %21, %.03759
@@ -10248,7 +10241,7 @@ define internal zeroext i1 @virtio_ringsize_needed(ptr noundef readonly captures
 
 4:                                                ; preds = %4, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.VirtQueue, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [152 x i8], ptr %3, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
@@ -10414,7 +10407,7 @@ define internal void @virtio_device_instance_finalize(ptr noundef %0) #0 {
 .preheader.i:                                     ; preds = %1, %virtio_virtqueue_reset_region_cache.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %virtio_virtqueue_reset_region_cache.exit.i ], [ 0, %1 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw %struct.VirtQueue, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [152 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %split.i, label %9
@@ -10623,7 +10616,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
   %indvars.iv65 = phi i32 [ -1, %1 ], [ %indvars.iv.next66, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.VirtQueue, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [152 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %.not43 = icmp eq i32 %9, 0
   br i1 %.not43, label %16, label %10
@@ -10652,7 +10645,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
 .preheader50:                                     ; preds = %16, %23
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %23 ], [ 0, %16 ]
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds nuw %struct.VirtQueue, ptr %17, i64 %indvars.iv71
+  %18 = getelementptr inbounds nuw [152 x i8], ptr %17, i64 %indvars.iv71
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %23, label %20
@@ -10671,7 +10664,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %33 ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds nuw %struct.VirtQueue, ptr %24, i64 %indvars.iv.next63
+  %25 = getelementptr inbounds nuw [152 x i8], ptr %24, i64 %indvars.iv.next63
   %26 = load i32, ptr %25, align 8
   %.not45 = icmp eq i32 %26, 0
   br i1 %.not45, label %33, label %27, !llvm.loop !66
@@ -10700,7 +10693,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
 .lr.ph56:                                         ; preds = %._crit_edge, %.backedge
   %indvars.iv68 = phi i64 [ %35, %._crit_edge ], [ %indvars.iv.next69, %.backedge ]
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds nuw %struct.VirtQueue, ptr %36, i64 %indvars.iv68
+  %37 = getelementptr inbounds nuw [152 x i8], ptr %36, i64 %indvars.iv68
   %38 = load i32, ptr %37, align 8
   %.not44 = icmp eq i32 %38, 0
   br i1 %.not44, label %.backedge, label %39
@@ -10737,7 +10730,7 @@ define internal void @virtio_device_stop_ioeventfd_impl(ptr noundef %0) #0 {
 6:                                                ; preds = %1, %16
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.VirtQueue, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [152 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %.not16 = icmp eq i32 %9, 0
   br i1 %.not16, label %16, label %10
@@ -10766,7 +10759,7 @@ define internal void @virtio_device_stop_ioeventfd_impl(ptr noundef %0) #0 {
 18:                                               ; preds = %17, %24
   %indvars.iv20 = phi i64 [ 0, %17 ], [ %indvars.iv.next21, %24 ]
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds nuw %struct.VirtQueue, ptr %19, i64 %indvars.iv20
+  %20 = getelementptr inbounds nuw [152 x i8], ptr %19, i64 %indvars.iv20
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %24, label %22
@@ -10798,7 +10791,7 @@ define internal void @virtio_memory_listener_commit(ptr noundef %0) #0 {
 4:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw %struct.VirtQueue, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [152 x i8], ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %9

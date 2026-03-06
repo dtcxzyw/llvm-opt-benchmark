@@ -35,9 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
-%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 
 $_ZN4absl12lts_2024072212log_internal10LogMessagelsIPcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_ = comdat any
 
@@ -681,7 +678,7 @@ common.resume:                                    ; preds = %58, %13
   %.04288.i = phi ptr [ %5, %.lr.ph.i ], [ %46, %.thread66.i ]
   %.04487.i = phi i64 [ 4, %.lr.ph.i ], [ %47, %.thread66.i ]
   %.04686.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %.thread66.i ]
-  %33 = getelementptr inbounds nuw %struct.grpc_slice, ptr %31, i64 %.04686.i
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %.04686.i
   %34 = load ptr, ptr %33, align 8, !tbaa !45
   %.not.i = icmp eq ptr %34, null
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8

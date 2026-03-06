@@ -812,7 +812,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2056,7 +2056,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit25, %55
   store ptr %19, ptr %0, align 8, !tbaa !69
   store ptr %.0.lcssa.i.i.i24, ptr %3, align 8, !tbaa !64
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %15
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %59, ptr %54, align 8, !tbaa !67
   ret void
 }
@@ -4929,7 +4929,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb14ExitIdleLockedEv(
   %8 = getelementptr inbounds nuw i8, ptr %.val15, i64 64
   %9 = zext i32 %5 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !69
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %9
   %12 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core17priority_lb_traceE, i64 16) monotonic, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %.critedge13, !prof !52
@@ -7613,7 +7613,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN9grpc_core13RefC
   %104 = phi ptr [ %24, %.lr.ph ], [ %344, %.critedge103 ]
   %105 = phi i64 [ 0, %.lr.ph ], [ %340, %.critedge103 ]
   %.074401 = phi i32 [ 0, %.lr.ph ], [ %339, %.critedge103 ]
-  %106 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %105
   %107 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core17priority_lb_traceE, i64 16) monotonic, align 8
   %108 = trunc i8 %107 to i1
   br i1 %108, label %109, label %.critedge99, !prof !52
@@ -8394,7 +8394,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi14EEERS2_RAT__Kc.exit188: ;
   %374 = phi ptr [ %366, %.lr.ph404 ], [ %399, %.critedge117 ]
   %375 = phi i64 [ 0, %.lr.ph404 ], [ %395, %.critedge117 ]
   %.069403 = phi i32 [ 0, %.lr.ph404 ], [ %394, %.critedge117 ]
-  %376 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %374, i64 %375
+  %376 = getelementptr inbounds nuw [32 x i8], ptr %374, i64 %375
   %377 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core17priority_lb_traceE, i64 16) monotonic, align 8
   %378 = trunc i8 %377 to i1
   br i1 %378, label %379, label %.critedge113, !prof !52
@@ -12121,7 +12121,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !69
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !64
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !67
   ret void
 }
@@ -12686,7 +12686,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi9EEERS2_RAT__Kc.exit: ; pre
   %19 = getelementptr inbounds nuw i8, ptr %.val47, i64 64
   %20 = sext i32 %1 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !69
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %20
   %23 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %24 unwind label %49
 
@@ -12774,7 +12774,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; pr
   %52 = phi ptr [ %80, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriorityENS7_16OrphanableDeleteEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit.thread ], [ %37, %.lr.ph ]
   %53 = phi i64 [ %76, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriorityENS7_16OrphanableDeleteEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit.thread ], [ %33, %.lr.ph ]
   %.02662 = phi i32 [ %.026, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriorityENS7_16OrphanableDeleteEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit.thread ], [ %.02660, %.lr.ph ]
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %53
   %.val49 = load ptr, ptr %54, align 8
   %55 = getelementptr i8, ptr %54, i64 8
   %.val50 = load i64, ptr %55, align 8
@@ -12871,7 +12871,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9g
   %86 = phi ptr [ %.pre, %.critedge35..loopexit_crit_edge ], [ %37, %.lr.ph ], [ %37, %.preheader ], [ %80, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriorityENS7_16OrphanableDeleteEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit.thread ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %88 = sext i32 %1 to i64
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %88
   %90 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriorityENS7_16OrphanableDeleteEESt4lessIS5_ESaISt4pairIKS5_SC_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(32) %89)
   %.val52 = load ptr, ptr %90, align 8, !tbaa !176
   %.not = icmp eq ptr %.val52, null

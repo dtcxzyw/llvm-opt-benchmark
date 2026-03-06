@@ -100,7 +100,7 @@ define hidden void @_ZN4ncnn6CpuSet6enableEi(ptr noundef nonnull align 8 capture
   %6 = and i64 %5, 63
   %7 = shl nuw i64 1, %6
   %8 = lshr i64 %5, 6
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !4
   %11 = or i64 %10, %7
   store i64 %11, ptr %9, align 8, !tbaa !4
@@ -121,7 +121,7 @@ define hidden void @_ZN4ncnn6CpuSet7disableEi(ptr noundef nonnull align 8 captur
   %7 = shl nuw i64 1, %6
   %8 = xor i64 %7, -1
   %9 = lshr i64 %5, 6
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !4
   %12 = and i64 %11, %8
   store i64 %12, ptr %10, align 8, !tbaa !4
@@ -142,7 +142,7 @@ define hidden noundef zeroext i1 @_ZNK4ncnn6CpuSet10is_enabledEi(ptr noundef non
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
   %6 = lshr i64 %5, 6
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = and i64 %5, 63
   %10 = lshr i64 %8, %9
@@ -165,7 +165,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit:              ; preds = %1, %_ZNK4ncnn6CpuSe
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ]
   %.056 = phi i32 [ 0, %1 ], [ %spec.select, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ]
   %3 = lshr i64 %indvars.iv, 6
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = and i64 %indvars.iv, 63
   %7 = lshr i64 %5, %6
@@ -281,7 +281,7 @@ _ZL12get_cpucountv.exit.i:                        ; preds = %.thread.i.i, %7
 
 .lr.ph.i2.i:                                      ; preds = %.preheader.i.i, %31
   %.055.i.i = phi i64 [ %32, %31 ], [ 0, %.preheader.i.i ]
-  %33 = getelementptr inbounds nuw i32, ptr %.sroa.0.059.i.i, i64 %.055.i.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.059.i.i, i64 %.055.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !10
   %35 = icmp eq i32 %34, %22
   br i1 %35, label %.loopexit.i.i, label %31
@@ -340,7 +340,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %48, %.
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %49, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
-  %50 = getelementptr inbounds nuw i32, ptr %45, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %43
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %36
@@ -446,7 +446,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc49.
   %72 = and i64 %indvars.iv.i.i, 63
   %73 = shl nuw i64 1, %72
   %74 = lshr i64 %indvars.iv.i.i, 6
-  %75 = getelementptr inbounds nuw i64, ptr @_ZL23g_cpu_affinity_mask_all, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23g_cpu_affinity_mask_all, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !4
   %77 = or i64 %76, %73
   store i64 %77, ptr %75, align 8, !tbaa !4
@@ -563,7 +563,7 @@ _ZN4ncnn6CpuSet6enableEi.exit.i.i:                ; preds = %71, %.lr.ph.i14.i
 111:                                              ; preds = %109, %102, %.thread.i.i.i, %92
   %.1.i.i.i = phi i32 [ %.027.i.i.i, %109 ], [ %104, %102 ], [ %.035.i.i.i, %92 ], [ -1, %.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %112 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv33.i.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv33.i.i
   store i32 %.1.i.i.i, ptr %112, align 4, !tbaa !10
   %spec.select.i6.i = call i32 @llvm.smax.i32(i32 %.1.i.i.i, i32 %.04221.i.i)
   %.1.i7.i = call i32 @llvm.smin.i32(i32 %.1.i.i.i, i32 %.03623.i.i)
@@ -630,7 +630,7 @@ _ZN4ncnn6CpuSet6enableEi.exit.i.i:                ; preds = %71, %.lr.ph.i14.i
 
 .thread.i10.i:                                    ; preds = %128, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %133 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv36.i.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv36.i.i
   %134 = load i32, ptr %133, align 4, !tbaa !10
   %135 = icmp slt i32 %134, %79
   %136 = icmp samesign ult i64 %indvars.iv36.i.i, 1024
@@ -642,7 +642,7 @@ _ZN4ncnn6CpuSet6enableEi.exit54.sink.split.i.i:   ; preds = %.thread.i10.i, %130
   %137 = and i64 %indvars.iv36.i.i, 63
   %138 = shl nuw i64 1, %137
   %139 = lshr i64 %indvars.iv36.i.i, 6
-  %140 = getelementptr inbounds nuw i64, ptr %_ZL23g_cpu_affinity_mask_big.sink.i.i, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %_ZL23g_cpu_affinity_mask_big.sink.i.i, i64 %139
   %141 = load i64, ptr %140, align 8, !tbaa !4
   %142 = or i64 %141, %138
   store i64 %142, ptr %140, align 8, !tbaa !4
@@ -845,7 +845,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i:      ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i ], [ %indvars.iv.next.i.i.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i ]
   %.056.i.i.i.i = phi i32 [ 0, %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i ], [ %spec.select.i.i.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i ]
   %202 = lshr i64 %indvars.iv.i.i.i.i, 6
-  %203 = getelementptr inbounds nuw i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23g_cpu_affinity_mask_big, i64 %202
   %204 = load i64, ptr %203, align 8, !tbaa !4
   %205 = and i64 %indvars.iv.i.i.i.i, 63
   %206 = lshr i64 %204, %205
@@ -876,7 +876,7 @@ _ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i:       ; preds = %_ZNK4ncnn6CpuSet10i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i:        ; preds = %.lr.ph.i.i.i
   %213 = lshr i64 %indvars.iv.i.i.i, 6
-  %214 = getelementptr inbounds nuw i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23g_cpu_affinity_mask_big, i64 %213
   %215 = load i64, ptr %214, align 8, !tbaa !4
   %216 = and i64 %indvars.iv.i.i.i, 63
   %217 = lshr i64 %215, %216
@@ -925,7 +925,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i57.i:    ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i.i.i58.i = phi i64 [ 0, %_ZL24get_cpu_level2_cachesizev.exit.i ], [ %indvars.iv.next.i.i.i61.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i57.i ]
   %.056.i.i.i59.i = phi i32 [ 0, %_ZL24get_cpu_level2_cachesizev.exit.i ], [ %spec.select.i.i.i60.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i57.i ]
   %231 = lshr i64 %indvars.iv.i.i.i58.i, 6
-  %232 = getelementptr inbounds nuw i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %231
+  %232 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23g_cpu_affinity_mask_big, i64 %231
   %233 = load i64, ptr %232, align 8, !tbaa !4
   %234 = and i64 %indvars.iv.i.i.i58.i, 63
   %235 = lshr i64 %233, %234
@@ -956,7 +956,7 @@ _ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i63.i:     ; preds = %_ZNK4ncnn6CpuSet10i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i75.i:      ; preds = %.lr.ph.i.i70.i
   %242 = lshr i64 %indvars.iv.i.i71.i, 6
-  %243 = getelementptr inbounds nuw i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %242
+  %243 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23g_cpu_affinity_mask_big, i64 %242
   %244 = load i64, ptr %243, align 8, !tbaa !4
   %245 = and i64 %indvars.iv.i.i71.i, 63
   %246 = lshr i64 %244, %245
@@ -1298,7 +1298,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
   %59 = and i64 %indvars.iv198, 60
   %60 = shl nuw nsw i64 1, %59
   %61 = lshr i64 %indvars.iv198, 6
-  %62 = getelementptr inbounds nuw i64, ptr %7, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !4
   %64 = or i64 %63, %60
   store i64 %64, ptr %62, align 8, !tbaa !4
@@ -1314,7 +1314,7 @@ _ZN4ncnn6CpuSet6enableEi.exit:                    ; preds = %58, %.lr.ph175
   %67 = and i64 %indvars.iv198, 60
   %68 = shl nuw nsw i64 2, %67
   %69 = lshr i64 %indvars.iv198, 6
-  %70 = getelementptr inbounds nuw i64, ptr %7, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !4
   %72 = or i64 %71, %68
   store i64 %72, ptr %70, align 8, !tbaa !4
@@ -1330,7 +1330,7 @@ _ZN4ncnn6CpuSet6enableEi.exit117:                 ; preds = %66, %_ZN4ncnn6CpuSe
   %75 = and i64 %indvars.iv198, 60
   %76 = shl nuw nsw i64 4, %75
   %77 = lshr i64 %indvars.iv198, 6
-  %78 = getelementptr inbounds nuw i64, ptr %7, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !4
   %80 = or i64 %79, %76
   store i64 %80, ptr %78, align 8, !tbaa !4
@@ -1346,7 +1346,7 @@ _ZN4ncnn6CpuSet6enableEi.exit118:                 ; preds = %74, %_ZN4ncnn6CpuSe
   %83 = and i64 %indvars.iv198, 60
   %84 = shl nuw i64 8, %83
   %85 = lshr i64 %indvars.iv198, 6
-  %86 = getelementptr inbounds nuw i64, ptr %7, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !4
   %88 = or i64 %87, %84
   store i64 %88, ptr %86, align 8, !tbaa !4
@@ -1365,7 +1365,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i:            ; preds = %._crit_edge, %_ZNK4
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ], [ 0, %._crit_edge ]
   %.056.i = phi i32 [ %spec.select.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ], [ 0, %._crit_edge ]
   %90 = lshr i64 %indvars.iv.i, 6
-  %91 = getelementptr inbounds nuw i64, ptr %7, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !4
   %93 = and i64 %indvars.iv.i, 63
   %94 = lshr i64 %92, %93
@@ -1415,7 +1415,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge185, %10
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit:              ; preds = %.lr.ph184
   %111 = lshr i64 %indvars.iv203, 6
-  %112 = getelementptr inbounds nuw i64, ptr %7, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !4
   %114 = and i64 %indvars.iv203, 63
   %115 = lshr i64 %113, %114
@@ -1451,7 +1451,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit:              ; preds = %.lr.ph184
 
 .lr.ph177:                                        ; preds = %.preheader, %128
   %.0176 = phi i64 [ %129, %128 ], [ 0, %.preheader ]
-  %130 = getelementptr inbounds nuw i32, ptr %.sroa.0.0181, i64 %.0176
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0181, i64 %.0176
   %131 = load i32, ptr %130, align 4, !tbaa !10
   %132 = icmp eq i32 %131, %119
   br i1 %132, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread, label %128
@@ -1510,7 +1510,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %145, %.noe
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %146, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %147 = getelementptr inbounds nuw i32, ptr %142, i64 %140
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %140
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %133
@@ -1821,7 +1821,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i:            ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %.056.i = phi i32 [ 0, %0 ], [ %spec.select.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %1 = lshr i64 %indvars.iv.i, 6
-  %2 = getelementptr inbounds nuw i64, ptr @_ZL26g_cpu_affinity_mask_little, i64 %1
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @_ZL26g_cpu_affinity_mask_little, i64 %1
   %3 = load i64, ptr %2, align 8, !tbaa !4
   %4 = and i64 %indvars.iv.i, 63
   %5 = lshr i64 %3, %4
@@ -1851,7 +1851,7 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN4ncnn28get_cp
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -1870,7 +1870,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i:            ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %.056.i = phi i32 [ 0, %0 ], [ %spec.select.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %1 = lshr i64 %indvars.iv.i, 6
-  %2 = getelementptr inbounds nuw i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %1
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23g_cpu_affinity_mask_big, i64 %1
   %3 = load i64, ptr %2, align 8, !tbaa !4
   %4 = and i64 %indvars.iv.i, 63
   %5 = lshr i64 %3, %4
@@ -1912,7 +1912,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i:          ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i ]
   %.056.i.i = phi i32 [ 0, %4 ], [ %spec.select.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i ]
   %5 = lshr i64 %indvars.iv.i.i, 6
-  %6 = getelementptr inbounds nuw i64, ptr @_ZL26g_cpu_affinity_mask_little, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZL26g_cpu_affinity_mask_little, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !4
   %8 = and i64 %indvars.iv.i.i, 63
   %9 = lshr i64 %7, %8
@@ -1950,7 +1950,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i:          ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i ]
   %.056.i.i = phi i32 [ 0, %4 ], [ %spec.select.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i ]
   %5 = lshr i64 %indvars.iv.i.i, 6
-  %6 = getelementptr inbounds nuw i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23g_cpu_affinity_mask_big, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !4
   %8 = and i64 %indvars.iv.i.i, 63
   %9 = lshr i64 %7, %8
@@ -2013,7 +2013,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn17set_cpu_powersaveEi(i32 no
 switch.lookup:                                    ; preds = %1
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
   %6 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = tail call noundef i32 @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE(ptr noundef nonnull align 8 dereferenceable(128) %switch.load)
   %.not = icmp eq i32 %7, 0
@@ -2041,7 +2041,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i:            ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %.056.i = phi i32 [ 0, %1 ], [ %spec.select.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %5 = lshr i64 %indvars.iv.i, 6
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !4
   %8 = and i64 %indvars.iv.i, 63
   %9 = lshr i64 %7, %8
@@ -2068,7 +2068,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %13 = shl nuw nsw i64 %12, 2
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #27
   store ptr %14, ptr %3, align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !38
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false), !tbaa !10
@@ -2097,7 +2097,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 21:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %22 = getelementptr inbounds nuw i32, ptr %.pr.pre, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.pr.pre, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %20, label %.thread
@@ -2181,7 +2181,7 @@ define internal void @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.omp_outlin
 _ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit:     ; preds = %.lr.ph, %23
   %.0.i = phi i32 [ -1, %23 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %3, align 8, !tbaa !35
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store i32 %.0.i, ptr %28, align 4, !tbaa !10
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %7, align 4, !tbaa !10

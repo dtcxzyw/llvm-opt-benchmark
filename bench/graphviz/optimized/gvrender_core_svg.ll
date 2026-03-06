@@ -528,7 +528,7 @@ define internal void @svg_begin_node(ptr noundef %0) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 488
   %10 = load ptr, ptr %9, align 8, !tbaa !69
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !49
   br label %14
 
@@ -1011,7 +1011,7 @@ define internal void @svg_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.029 = phi i64 [ %25, %.lr.ph ], [ 0, %9 ]
-  %18 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.029
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.029
   %19 = load double, ptr %18, align 8, !tbaa !102
   tail call void @gvprintdouble(ptr noundef %0, double noundef %19) #11
   %20 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 44) #11
@@ -1071,7 +1071,7 @@ define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   %.011.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %23 ]
   %25 = call i64 @gvwrite(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #11
-  %26 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.011.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.011.i
   %27 = load double, ptr %26, align 8, !tbaa !102
   call void @gvprintdouble(ptr noundef nonnull %0, double noundef %27) #11
   %28 = call i32 @gvputc(ptr noundef nonnull %0, i32 noundef 44) #11
@@ -1106,7 +1106,7 @@ define internal void @svg_polyline(ptr noundef %0, ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %3, %16
   %.017 = phi i64 [ %13, %16 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.017
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.017
   %8 = load double, ptr %7, align 8, !tbaa !102
   tail call void @gvprintdouble(ptr noundef %0, double noundef %8) #11
   %9 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 44) #11

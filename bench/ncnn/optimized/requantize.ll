@@ -1498,7 +1498,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
   %50 = icmp eq i32 %49, 1
   %51 = load ptr, ptr %25, align 8, !tbaa !16
   %.in.idx = select i1 %50, i64 0, i64 %indvars.iv
-  %.in = getelementptr inbounds nuw float, ptr %51, i64 %.in.idx
+  %.in = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.in.idx
   %52 = load float, ptr %.in, align 4, !tbaa !47
   %53 = load i32, ptr %26, align 8, !tbaa !35
   switch i32 %53, label %57 [
@@ -1513,7 +1513,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
 
 57:                                               ; preds = %33
   %58 = load ptr, ptr %27, align 8, !tbaa !16
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !47
   br label %61
 
@@ -1523,7 +1523,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
   %64 = icmp eq i32 %63, 1
   %65 = load ptr, ptr %29, align 8, !tbaa !16
   %.in27.idx = select i1 %64, i64 0, i64 %indvars.iv
-  %.in27 = getelementptr inbounds nuw float, ptr %65, i64 %.in27.idx
+  %.in27 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %.in27.idx
   %66 = load float, ptr %.in27, align 4, !tbaa !47
   %67 = load i32, ptr %30, align 4, !tbaa !36
   %68 = load i32, ptr %6, align 4, !tbaa !44
@@ -1729,7 +1729,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
   %48 = icmp eq i32 %47, 1
   %49 = load ptr, ptr %26, align 8, !tbaa !16
   %.in.idx = select i1 %48, i64 0, i64 %indvars.iv
-  %.in = getelementptr inbounds nuw float, ptr %49, i64 %.in.idx
+  %.in = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.in.idx
   %50 = load float, ptr %.in, align 4, !tbaa !47
   %51 = load i32, ptr %27, align 8, !tbaa !35
   switch i32 %51, label %55 [
@@ -1744,7 +1744,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
 
 55:                                               ; preds = %.noexc37
   %56 = load ptr, ptr %28, align 8, !tbaa !16
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !47
   br label %59
 
@@ -1754,7 +1754,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
   %62 = icmp eq i32 %61, 1
   %63 = load ptr, ptr %30, align 8, !tbaa !16
   %.in28.idx = select i1 %62, i64 0, i64 %indvars.iv
-  %.in28 = getelementptr inbounds nuw float, ptr %63, i64 %.in28.idx
+  %.in28 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %.in28.idx
   %64 = load float, ptr %.in28, align 4, !tbaa !47
   %65 = load i32, ptr %31, align 4, !tbaa !36
   %66 = load i32, ptr %6, align 4, !tbaa !44

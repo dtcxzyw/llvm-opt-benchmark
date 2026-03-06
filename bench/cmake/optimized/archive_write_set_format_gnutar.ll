@@ -428,7 +428,7 @@ thread-pre-split:                                 ; preds = %101, %94
 
 switch.lookup:                                    ; preds = %146
   %152 = zext nneg i32 %149 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.archive_write_gnutar_header, i64 %152
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.archive_write_gnutar_header, i64 %152
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %153
 

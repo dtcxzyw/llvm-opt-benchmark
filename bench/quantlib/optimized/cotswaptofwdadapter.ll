@@ -487,7 +487,7 @@ _ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt
   store ptr %cond.i.i.i.i, ptr %pseudoRoots_, align 8, !tbaa !57
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !58
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %cond.i.i.i.i, i64 %call15
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %call15
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !59
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN8QuantLib6MatrixEmS1_ET_S3_T0_RKT1_(ptr noundef %cond.i.i.i.i, i64 noundef %call15, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -605,7 +605,7 @@ lpad25:                                           ; preds = %cond.false.i75, %in
 
 do.body:                                          ; preds = %do.body.lr.ph, %for.inc
   %i.0247 = phi i64 [ 1, %do.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %25, i64 %i.0247
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %i.0247
   %33 = load double, ptr %add.ptr.i, align 8, !tbaa !62
   %cmp35 = fcmp oeq double %33, %26
   br i1 %cmp35, label %for.inc, label %if.then
@@ -628,7 +628,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
 
 invoke.cont44:                                    ; preds = %invoke.cont42
   %34 = load ptr, ptr %call31, align 8, !tbaa !61
-  %add.ptr.i89 = getelementptr inbounds nuw double, ptr %34, i64 %i.0247
+  %add.ptr.i89 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %i.0247
   %35 = load double, ptr %add.ptr.i89, align 8, !tbaa !62
   %call.i91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call43, double noundef %35)
           to label %invoke.cont47 unwind label %lpad39
@@ -861,7 +861,7 @@ land.rhs.lr.ph.split.us:                          ; preds = %land.rhs.lr.ph
 
 land.rhs.us:                                      ; preds = %for.inc184.us, %land.rhs.lr.ph.split.us
   %i104.0257.us = phi i64 [ 0, %land.rhs.lr.ph.split.us ], [ %inc185.us, %for.inc184.us ]
-  %add.ptr.i127.us = getelementptr inbounds nuw double, ptr %62, i64 %i104.0257.us
+  %add.ptr.i127.us = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %i104.0257.us
   %67 = load double, ptr %add.ptr.i127.us, align 8, !tbaa !62
   %cmp110.us = fcmp ugt double %67, %64
   br i1 %cmp110.us, label %for.cond.cleanup111, label %for.body.i.i.i.us
@@ -954,7 +954,7 @@ land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph.split, %for.inc184
   %i104.0257 = phi i64 [ 0, %land.rhs.lr.ph.split ], [ %inc185, %for.inc184 ]
-  %add.ptr.i127 = getelementptr inbounds nuw double, ptr %62, i64 %i104.0257
+  %add.ptr.i127 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %i104.0257
   %75 = load double, ptr %add.ptr.i127, align 8, !tbaa !62
   %cmp110 = fcmp ugt double %75, %64
   br i1 %cmp110, label %for.cond.cleanup111, label %do.body113
@@ -1333,7 +1333,7 @@ invoke.cont231:                                   ; preds = %invoke.cont227
 
 invoke.cont233:                                   ; preds = %invoke.cont231
   %119 = load ptr, ptr %pseudoRoots_, align 8, !tbaa !57
-  %add.ptr.i181 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %119, i64 %k.0261
+  %add.ptr.i181 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %k.0261
   %120 = load ptr, ptr %add.ptr.i181, align 8, !tbaa !3
   %121 = load ptr, ptr %ref.tmp224, align 8, !tbaa !3
   store ptr %121, ptr %add.ptr.i181, align 8, !tbaa !3
@@ -1358,14 +1358,14 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZN8QuantLib6MatrixD2Ev.exit184:                  ; preds = %invoke.cont233, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i183
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp224)
   %126 = load ptr, ptr %call218, align 8, !tbaa !73
-  %add.ptr.i185 = getelementptr inbounds nuw i64, ptr %126, i64 %k.0261
+  %add.ptr.i185 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %k.0261
   %127 = load i64, ptr %add.ptr.i185, align 8, !tbaa !72
   %cmp241258.not = icmp eq i64 %127, 0
   br i1 %cmp241258.not, label %for.cond.cleanup242, label %for.body243.lr.ph
 
 for.body243.lr.ph:                                ; preds = %_ZN8QuantLib6MatrixD2Ev.exit184
   %128 = load ptr, ptr %pseudoRoots_, align 8, !tbaa !57
-  %add.ptr.i186 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %128, i64 %k.0261
+  %add.ptr.i186 = getelementptr inbounds nuw [24 x i8], ptr %128, i64 %k.0261
   %129 = load ptr, ptr %add.ptr.i186, align 8, !tbaa !3
   %columns_.i187 = getelementptr inbounds nuw i8, ptr %add.ptr.i186, i64 16
   %130 = load i64, ptr %columns_.i187, align 8, !tbaa !56
@@ -1948,24 +1948,24 @@ for.cond56.preheader.us.us.preheader:             ; preds = %_ZN8QuantLib6Matrix
 for.cond56.preheader.us.us:                       ; preds = %for.cond56.preheader.us.us.preheader, %for.cond56.for.cond.cleanup61_crit_edge.split.us.us.us
   %i.0100.us.us = phi i64 [ %inc84.us.us, %for.cond56.for.cond.cleanup61_crit_edge.split.us.us.us ], [ 0, %for.cond56.preheader.us.us.preheader ]
   %mul.i.i.us.us = mul i64 %i.0100.us.us, %0
-  %add.ptr.i.i70.us.us = getelementptr inbounds nuw double, ptr %.pre, i64 %mul.i.i.us.us
+  %add.ptr.i.i70.us.us = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %mul.i.i.us.us
   %mul.i.i75.us.us = mul i64 %24, %i.0100.us.us
-  %add.ptr.i.i76.us.us = getelementptr inbounds nuw double, ptr %28, i64 %mul.i.i75.us.us
+  %add.ptr.i.i76.us.us = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %mul.i.i75.us.us
   br label %for.cond63.preheader.us.us.us
 
 for.cond63.preheader.us.us.us:                    ; preds = %for.cond63.for.cond.cleanup68_crit_edge.us.us.us, %for.cond56.preheader.us.us
   %k.098.us.us.us = phi i64 [ 0, %for.cond56.preheader.us.us ], [ %inc80.us.us.us, %for.cond63.for.cond.cleanup68_crit_edge.us.us.us ]
-  %arrayidx.us.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i70.us.us, i64 %k.098.us.us.us
+  %arrayidx.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i70.us.us, i64 %k.098.us.us.us
   %mul.i.i72.us.us.us = mul i64 %k.098.us.us.us, %24
-  %add.ptr.i.i73.us.us.us = getelementptr inbounds nuw double, ptr %.pre111, i64 %mul.i.i72.us.us.us
+  %add.ptr.i.i73.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %.pre111, i64 %mul.i.i72.us.us.us
   br label %invoke.cont75.us.us.us
 
 invoke.cont75.us.us.us:                           ; preds = %invoke.cont75.us.us.us, %for.cond63.preheader.us.us.us
   %j.096.us.us.us = phi i64 [ 0, %for.cond63.preheader.us.us.us ], [ %inc.us.us.us, %invoke.cont75.us.us.us ]
   %29 = load double, ptr %arrayidx.us.us.us, align 8, !tbaa !62
-  %arrayidx74.us.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i73.us.us.us, i64 %j.096.us.us.us
+  %arrayidx74.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i73.us.us.us, i64 %j.096.us.us.us
   %30 = load double, ptr %arrayidx74.us.us.us, align 8, !tbaa !62
-  %arrayidx77.us.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i76.us.us, i64 %j.096.us.us.us
+  %arrayidx77.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i76.us.us, i64 %j.096.us.us.us
   %31 = load double, ptr %arrayidx77.us.us.us, align 8, !tbaa !62
   %32 = tail call double @llvm.fmuladd.f64(double %29, double %30, double %31)
   store double %32, ptr %arrayidx77.us.us.us, align 8, !tbaa !62
@@ -3106,7 +3106,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantL
 entry:
   %pseudoRoots_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %pseudoRoots_, align 8, !tbaa !57
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %0, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %i
   ret ptr %add.ptr.i
 }
 

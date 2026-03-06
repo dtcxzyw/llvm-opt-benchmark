@@ -299,8 +299,8 @@ define hidden void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping
 5:                                                ; preds = %3, %5
   %.sroa.0.03 = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw i64 %.sroa.0.03, 1
-  %7 = getelementptr inbounds nuw { [8 x i8] }, ptr %0, i64 %.sroa.0.03
-  %8 = getelementptr inbounds nuw { [8 x i8] }, ptr %1, i64 %.sroa.0.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.03
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.03
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 1, !alias.scope !13, !noalias !16
@@ -337,8 +337,8 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
   br i1 %12, label %49, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %.not = icmp ugt i64 %4, %11
   %.16 = select i1 %.not, ptr %14, ptr %0
   %16 = shl i64 %.sroa.0.0.sroa.speculated.i, 3
@@ -372,11 +372,11 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
   %29 = load i64, ptr %..i, align 8, !noalias !18
   store i64 %29, ptr %27, align 8, !noalias !18
   %30 = zext i1 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %30
   store ptr %31, ptr %19, align 8, !alias.scope !18
   %.lobit.i = lshr i8 %26, 7
   %32 = zext nneg i8 %.lobit.i to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %32
   store ptr %33, ptr %18, align 8, !alias.scope !18
   %34 = icmp eq ptr %31, %0
   %35 = icmp eq ptr %33, %2
@@ -400,11 +400,11 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
   %40 = load i64, ptr %.sroa.05.0.i, align 8, !noalias !21
   store i64 %40, ptr %36, align 8, !noalias !21
   %41 = zext i1 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %41
   store ptr %42, ptr %7, align 8, !alias.scope !21
   %.lobit.i18 = lshr i8 %38, 7
   %43 = zext nneg i8 %.lobit.i18 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %.sroa.0.02.i, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.02.i, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %45, ptr %19, align 8, !alias.scope !21
   %46 = icmp ne ptr %42, %17
@@ -526,7 +526,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h714e8d6824f88a06E"
 14:                                               ; preds = %9, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr, ptr }, ptr %16, i64 %1
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %1
   %18 = icmp samesign ult i64 %1, %6
   br i1 %18, label %23, label %21
 
@@ -587,7 +587,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h9bdd4f3e4f0d5cc2E"
 14:                                               ; preds = %9, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr }, ptr %16, i64 %1
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %1
   %18 = icmp samesign ult i64 %1, %6
   br i1 %18, label %23, label %21
 
@@ -739,7 +739,7 @@ define hidden { ptr, i64 } @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..s
   %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !8
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load i64, ptr %0, align 8, !range !9, !noundef !8
   %8 = sub i64 %7, %5
   %9 = insertvalue { ptr, i64 } poison, ptr %6, 0
@@ -1033,7 +1033,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8e19a35b09112a5cE.exit.i.i.i": ; preds = %65, %55
   %60 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !112, !noalias !61, !nonnull !8, !noundef !8
-  %61 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %60, i64 %56
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !61
   %62 = add nuw nsw i64 %56, 1
   store i64 %62, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !112, !noalias !61
@@ -2438,7 +2438,7 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter27timestamp_to_rfc9110_string1
 define { ptr, i64 } @_ZN4jiff3fmt7rfc282214weekday_abbrev17h5942adfb489a7c42E(i8 noundef range(i8 1, 8) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %2 = getelementptr ptr, ptr @switch.table._ZN4jiff3fmt7rfc282214weekday_abbrev17h5942adfb489a7c42E, i64 %1
+  %2 = getelementptr [8 x i8], ptr @switch.table._ZN4jiff3fmt7rfc282214weekday_abbrev17h5942adfb489a7c42E, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
@@ -2476,7 +2476,7 @@ define { ptr, i64 } @_ZN4jiff3fmt7rfc282210month_name17h2d7434e461112cabE(i8 nou
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt7rfc282210month_name17h2d7434e461112cabE, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff3fmt7rfc282210month_name17h2d7434e461112cabE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %13 = insertvalue { ptr, i64 } %12, i64 3, 1

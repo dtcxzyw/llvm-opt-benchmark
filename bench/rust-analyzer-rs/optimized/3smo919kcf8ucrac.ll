@@ -780,7 +780,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3new17
 define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h877f0a1dd35ef896E.llvm.1648072262051207133(ptr noalias noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 %1, i64 %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = ptrtoint ptr %1 to i64
   %6 = urem i64 %5, 67
-  %7 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %6
+  %7 = getelementptr inbounds nuw [128 x i8], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %6
   %8 = getelementptr i8, ptr %1, i64 8
   %.not = icmp eq i32 %3, 1000000000
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1093,10 +1093,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !72, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !73, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc22457a34f4dc76dE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc22457a34f4dc76dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc22457a34f4dc76dE.8", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc22457a34f4dc76dE.8", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

@@ -14,14 +14,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.87 }
 %union.anon.87 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.i915_gem_proto_engine = type { i32, ptr, i32, i32, ptr, %struct.intel_sseu }
-%struct.intel_sseu = type { i8, i8, i8, i8 }
 %struct.radix_tree_iter = type { i64, i64, i64, ptr }
 %struct.create_ext = type { ptr, ptr }
 %struct.drm_i915_gem_context_param_sseu = type { %struct.i915_engine_class_instance, i32, i64, i64, i16, i16, i32 }
 %struct.i915_engine_class_instance = type { i16, i16 }
+%struct.intel_sseu = type { i8, i8, i8, i8 }
 %struct.set_proto_ctx_engines = type { ptr, i32, ptr }
-%struct.atomic64_t = type { i64 }
 %struct.drm_i915_gem_context_create_ext_setparam = type { %struct.i915_user_extension, %struct.drm_i915_gem_context_param }
 %struct.i915_user_extension = type { i64, i32, i32, [4 x i32] }
 %struct.drm_i915_gem_context_param = type { i32, i32, i64, i64 }
@@ -328,7 +326,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
 
 78:                                               ; preds = %213, %75
   %79 = phi i64 [ 0, %75 ], [ %214, %213 ]
-  %80 = getelementptr %struct.i915_gem_proto_engine, ptr %65, i64 %79
+  %80 = getelementptr [40 x i8], ptr %65, i64 %79
   %81 = load i32, ptr %80, align 8
   switch i32 %81, label %213 [
     i32 1, label %82
@@ -371,7 +369,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br i1 %107, label %.loopexit93, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr ptr, ptr %76, i64 %79
+  %109 = getelementptr [8 x i8], ptr %76, i64 %79
   store ptr %106, ptr %109, align 8
   %110 = load i32, ptr %77, align 8
   %111 = tail call fastcc i32 @intel_context_set_gem(ptr noundef %106, ptr noundef nonnull %4, i32 %110)
@@ -572,7 +570,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
 220:                                              ; preds = %.thread77, %218
   %221 = phi i64 [ %219, %218 ], [ %222, %.thread77 ]
   %222 = add nsw i64 %221, -1
-  %223 = getelementptr ptr, ptr %76, i64 %222
+  %223 = getelementptr [8 x i8], ptr %76, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, null
   br i1 %225, label %.thread77, label %226
@@ -644,7 +642,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
 264:                                              ; preds = %261
   %265 = load i32, ptr %258, align 4
   %266 = zext i32 %265 to i64
-  %267 = getelementptr ptr, ptr %254, i64 %266
+  %267 = getelementptr [8 x i8], ptr %254, i64 %266
   store ptr %262, ptr %267, align 8
   %268 = load i32, ptr %255, align 8
   %269 = load i32, ptr %258, align 4
@@ -686,7 +684,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
 292:                                              ; preds = %.thread83, %290
   %293 = phi i64 [ %291, %290 ], [ %294, %.thread83 ]
   %294 = add nsw i64 %293, -1
-  %295 = getelementptr ptr, ptr %254, i64 %294
+  %295 = getelementptr [8 x i8], ptr %254, i64 %294
   %296 = load ptr, ptr %295, align 8
   %297 = icmp eq ptr %296, null
   br i1 %297, label %.thread83, label %298
@@ -866,7 +864,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
 394:                                              ; preds = %.thread87, %391
   %395 = phi i64 [ %393, %391 ], [ %396, %.thread87 ]
   %396 = add nsw i64 %395, -1
-  %397 = getelementptr ptr, ptr %392, i64 %396
+  %397 = getelementptr [8 x i8], ptr %392, i64 %396
   %398 = load ptr, ptr %397, align 8
   %399 = icmp eq ptr %398, null
   br i1 %399, label %.thread87, label %400
@@ -989,7 +987,7 @@ define internal fastcc void @proto_context_close(ptr noundef %0, ptr noundef %1)
 .preheader:                                       ; preds = %22, %.preheader
   %26 = phi i64 [ %30, %.preheader ], [ 0, %22 ]
   %27 = load ptr, ptr %19, align 8
-  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %27, i64 %26
+  %.split = getelementptr [40 x i8], ptr %27, i64 %26
   %28 = getelementptr i8, ptr %.split, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void @kfree(ptr noundef %29) #17
@@ -1204,7 +1202,7 @@ define internal fastcc void @context_close(ptr noundef %0) unnamed_addr #0 align
 12:                                               ; preds = %.loopexit61, %9
   %13 = phi i64 [ %11, %9 ], [ %14, %.loopexit61 ]
   %14 = add nsw i64 %13, -1
-  %15 = getelementptr ptr, ptr %10, i64 %14
+  %15 = getelementptr [8 x i8], ptr %10, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit61, label %18, !llvm.loop !47
@@ -1378,7 +1376,7 @@ thread-pre-split:                                 ; preds = %.loopexit61
 108:                                              ; preds = %105
   %109 = add i32 %106, 1
   %110 = zext i32 %106 to i64
-  %111 = getelementptr ptr, ptr %99, i64 %110
+  %111 = getelementptr [8 x i8], ptr %99, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %105, label %114, !llvm.loop !49
@@ -3115,7 +3113,7 @@ define dso_local i32 @i915_gem_context_setparam_ioctl(ptr noundef readnone captu
 127:                                              ; preds = %124
   %128 = add i32 %125, 1
   %129 = zext i32 %125 to i64
-  %130 = getelementptr ptr, ptr %119, i64 %129
+  %130 = getelementptr [8 x i8], ptr %119, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %124, label %133, !llvm.loop !49
@@ -3527,7 +3525,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %125 = and i64 %124, %122
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr %struct.i915_gem_proto_engine, ptr %127, i64 %125
+  %128 = getelementptr [40 x i8], ptr %127, i64 %125
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 56
@@ -3730,13 +3728,13 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %243 = phi i64 [ 0, %235 ], [ %276, %273 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !51
-  %244 = getelementptr %struct.i915_engine_class_instance, ptr %236, i64 %243
+  %244 = getelementptr [4 x i8], ptr %236, i64 %243
   %245 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %244, i64 noundef 4) #17
   %246 = icmp eq i64 %245, 0
   br i1 %246, label %247, label %.thread17
 
 247:                                              ; preds = %240
-  %248 = getelementptr %struct.i915_gem_proto_engine, ptr %242, i64 %243
+  %248 = getelementptr [40 x i8], ptr %242, i64 %243
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %248, i8 0, i64 40, i1 false)
   %249 = load i16, ptr %5, align 4
   %250 = icmp eq i16 %249, -1
@@ -3773,7 +3771,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
 270:                                              ; preds = %254
   store i32 1, ptr %248, align 8
   %271 = load ptr, ptr %194, align 8
-  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %271, i64 %243
+  %.split = getelementptr [40 x i8], ptr %271, i64 %243
   %272 = getelementptr i8, ptr %.split, i64 8
   store ptr %257, ptr %272, align 8
   %.pre = load i32, ptr %193, align 8
@@ -4025,7 +4023,7 @@ define dso_local ptr @i915_gem_engines_iter_next(ptr noundef captures(none) %0) 
   %13 = add nuw i32 %9, 1
   store i32 %13, ptr %0, align 8
   %14 = zext i32 %9 to i64
-  %15 = getelementptr ptr, ptr %6, i64 %14
+  %15 = getelementptr [8 x i8], ptr %6, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %8, label %.loopexit, !llvm.loop !49
@@ -4456,7 +4454,7 @@ define internal noundef i32 @engines_notify(ptr noundef %0, i32 noundef %1) #0 a
 31:                                               ; preds = %28
   %32 = add i32 %29, 1
   %33 = zext i32 %29 to i64
-  %34 = getelementptr ptr, ptr %22, i64 %33
+  %34 = getelementptr [8 x i8], ptr %22, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %28, label %37, !llvm.loop !49
@@ -4468,7 +4466,7 @@ define internal noundef i32 @engines_notify(ptr noundef %0, i32 noundef %1) #0 a
   %41 = load i16, ptr %40, align 2
   %42 = tail call i64 @intel_context_get_total_runtime_ns(ptr noundef nonnull %35) #17
   %43 = zext i16 %41 to i64
-  %44 = getelementptr %struct.atomic64_t, ptr %24, i64 %43
+  %44 = getelementptr [8 x i8], ptr %24, i64 %43
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %44, i64 %42, ptr elementtype(i64) %44) #17, !srcloc !75
   br label %.lr.ph.split
 
@@ -4524,7 +4522,7 @@ define internal void @free_engines_rcu(ptr noundef %0) #0 align 16 {
 8:                                                ; preds = %.thread, %5
   %9 = phi i64 [ %7, %5 ], [ %10, %.thread ]
   %10 = add nsw i64 %9, -1
-  %11 = getelementptr ptr, ptr %6, i64 %10
+  %11 = getelementptr [8 x i8], ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -4701,7 +4699,7 @@ define internal fastcc void @kill_engines(ptr noundef readonly captures(address_
 17:                                               ; preds = %14
   %18 = add i32 %15, 1
   %19 = zext i32 %15 to i64
-  %20 = getelementptr ptr, ptr %6, i64 %19
+  %20 = getelementptr [8 x i8], ptr %6, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %14, label %23, !llvm.loop !49
@@ -5020,7 +5018,7 @@ define internal fastcc ptr @lookup_user_engine(ptr noundef %0, i64 noundef range
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %41 = zext i32 %31 to i64
-  %42 = getelementptr ptr, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %54, label %45, !prof !9
@@ -5114,7 +5112,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_balance(ptr noundef
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr %struct.i915_gem_proto_engine, ptr %40, i64 %37
+  %41 = getelementptr [40 x i8], ptr %40, i64 %37
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %51, label %44
@@ -5203,7 +5201,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_balance(ptr noundef
   %103 = phi i64 [ 0, %97 ], [ %126, %125 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !51
-  %104 = getelementptr %struct.i915_engine_class_instance, ptr %98, i64 %103
+  %104 = getelementptr [4 x i8], ptr %98, i64 %103
   %105 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %104, i64 noundef 4) #17
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %107, label %.loopexit
@@ -5214,7 +5212,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_balance(ptr noundef
   %110 = load i16, ptr %99, align 2
   %111 = trunc i16 %110 to i8
   %112 = call ptr @intel_engine_lookup_user(ptr noundef %4, i8 noundef zeroext %109, i8 noundef zeroext %111) #17
-  %113 = getelementptr ptr, ptr %95, i64 %103
+  %113 = getelementptr [8 x i8], ptr %95, i64 %103
   store ptr %112, ptr %113, align 8
   %114 = icmp eq ptr %112, null
   br i1 %114, label %115, label %125
@@ -5245,14 +5243,14 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_balance(ptr noundef
 128:                                              ; preds = %125
   %129 = icmp eq i16 %56, 1
   %130 = load ptr, ptr %39, align 8
-  %131 = getelementptr %struct.i915_gem_proto_engine, ptr %130, i64 %37
+  %131 = getelementptr [40 x i8], ptr %130, i64 %37
   br i1 %129, label %132, label %136
 
 132:                                              ; preds = %128
   store i32 1, ptr %131, align 8
   %133 = load ptr, ptr %95, align 8
   %134 = load ptr, ptr %39, align 8
-  %.split8 = getelementptr %struct.i915_gem_proto_engine, ptr %134, i64 %37
+  %.split8 = getelementptr [40 x i8], ptr %134, i64 %37
   %135 = getelementptr i8, ptr %.split8, i64 8
   store ptr %133, ptr %135, align 8
   call void @kfree(ptr noundef nonnull %95) #17
@@ -5261,11 +5259,11 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_balance(ptr noundef
 136:                                              ; preds = %128
   store i32 2, ptr %131, align 8
   %137 = load ptr, ptr %39, align 8
-  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %137, i64 %37
+  %.split = getelementptr [40 x i8], ptr %137, i64 %37
   %138 = getelementptr i8, ptr %.split, i64 16
   store i32 %91, ptr %138, align 8
   %139 = load ptr, ptr %39, align 8
-  %.split7 = getelementptr %struct.i915_gem_proto_engine, ptr %139, i64 %37
+  %.split7 = getelementptr [40 x i8], ptr %139, i64 %37
   %140 = getelementptr i8, ptr %.split7, i64 24
   store ptr %95, ptr %140, align 8
   br label %141
@@ -5355,7 +5353,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_bond(ptr noundef %0
   %47 = trunc nuw nsw i64 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr %struct.i915_gem_proto_engine, ptr %49, i64 %46
+  %50 = getelementptr [40 x i8], ptr %49, i64 %46
   %51 = load i32, ptr %50, align 8
   switch i32 %51, label %59 [
     i32 0, label %52
@@ -5419,7 +5417,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_bond(ptr noundef %0
 85:                                               ; preds = %82, %80
   %86 = phi i64 [ 0, %80 ], [ %83, %82 ]
   %87 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %88 = getelementptr i64, ptr %81, i64 %86
+  %88 = getelementptr [8 x i8], ptr %81, i64 %86
   %89 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %88, i64 8, i64 %87) #17, !srcloc !85
   %90 = extractvalue { ptr, i64, i64 } %89, 0
   %91 = extractvalue { ptr, i64, i64 } %89, 1
@@ -5519,7 +5517,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_bond(ptr noundef %0
 
 154:                                              ; preds = %151, %146
   %155 = phi i64 [ 0, %146 ], [ %152, %151 ]
-  %156 = getelementptr %struct.i915_engine_class_instance, ptr %147, i64 %155
+  %156 = getelementptr [4 x i8], ptr %147, i64 %155
   %157 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %156, i64 noundef 4) #17
   %158 = icmp eq i64 %157, 0
   br i1 %158, label %159, label %.thread
@@ -5664,7 +5662,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
 70:                                               ; preds = %58
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr %struct.i915_gem_proto_engine, ptr %72, i64 %12
+  %73 = getelementptr [40 x i8], ptr %72, i64 %12
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %83, label %76
@@ -5726,7 +5724,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
 107:                                              ; preds = %104, %95
   %108 = phi i64 [ 0, %95 ], [ %105, %104 ]
   %109 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %110 = getelementptr i64, ptr %96, i64 %108
+  %110 = getelementptr [8 x i8], ptr %96, i64 %108
   %111 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %110, i64 8, i64 %109) #17, !srcloc !93
   %112 = extractvalue { ptr, i64, i64 } %111, 0
   %113 = extractvalue { ptr, i64, i64 } %111, 1
@@ -5821,7 +5819,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   %168 = add nuw nsw i64 %165, %157
   %169 = shl i64 %168, 32
   %170 = ashr exact i64 %169, 32
-  %171 = getelementptr %struct.i915_engine_class_instance, ptr %147, i64 %170
+  %171 = getelementptr [4 x i8], ptr %147, i64 %170
   %172 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %171, i64 noundef 4) #17
   %173 = icmp eq i64 %172, 0
   br i1 %173, label %174, label %.thread18
@@ -5832,7 +5830,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   %177 = load i16, ptr %148, align 2
   %178 = trunc i16 %177 to i8
   %179 = call ptr @intel_engine_lookup_user(ptr noundef %4, i8 noundef zeroext %176, i8 noundef zeroext %178) #17
-  %180 = getelementptr ptr, ptr %144, i64 %170
+  %180 = getelementptr [8 x i8], ptr %144, i64 %170
   store ptr %179, ptr %180, align 8
   %181 = icmp eq ptr %179, null
   br i1 %181, label %182, label %192
@@ -5914,18 +5912,18 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %71, align 8
-  %221 = getelementptr %struct.i915_gem_proto_engine, ptr %220, i64 %12
+  %221 = getelementptr [40 x i8], ptr %220, i64 %12
   store i32 3, ptr %221, align 8
   %222 = load ptr, ptr %71, align 8
-  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %222, i64 %12
+  %.split = getelementptr [40 x i8], ptr %222, i64 %12
   %223 = getelementptr i8, ptr %.split, i64 16
   store i32 %37, ptr %223, align 8
   %224 = load ptr, ptr %71, align 8
-  %.split15 = getelementptr %struct.i915_gem_proto_engine, ptr %224, i64 %12
+  %.split15 = getelementptr [40 x i8], ptr %224, i64 %12
   %225 = getelementptr i8, ptr %.split15, i64 20
   store i32 %23, ptr %225, align 4
   %226 = load ptr, ptr %71, align 8
-  %.split16 = getelementptr %struct.i915_gem_proto_engine, ptr %226, i64 %12
+  %.split16 = getelementptr [40 x i8], ptr %226, i64 %12
   %227 = getelementptr i8, ptr %.split16, i64 24
   store ptr %144, ptr %227, align 8
   br label %.thread

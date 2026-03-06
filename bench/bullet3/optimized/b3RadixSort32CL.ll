@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.b3LauncherCL = type { ptr, ptr, ptr, i32, [4 x i8], %class.b3AlignedObjectArray.7, i32, i8, ptr, %class.b3AlignedObjectArray.9 }
 %class.b3AlignedObjectArray.7 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.b3AlignedObjectArray.9 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%struct.b3KernelArgData = type { i32, i32, i32, i32, %union.anon.11 }
-%union.anon.11 = type { ptr, [8 x i8] }
 
 $_ZN13b3OpenCLArrayIjE6resizeEmb = comdat any
 
@@ -713,7 +711,7 @@ _ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit15.i.i: ; preds = %.noe
 
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw %struct.b3SortData, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   store i64 0, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
@@ -736,18 +734,18 @@ _ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit15.i.i: ; preds = %.noe
 
 .preheader.us:                                    ; preds = %38, %.preheader.us
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.preheader.us ], [ 0, %38 ]
-  %24 = getelementptr inbounds nuw %struct.b3SortData, ptr %.05161.us, i64 %indvars.iv92
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.05161.us, i64 %indvars.iv92
   %25 = load i32, ptr %24, align 4, !tbaa !67
   %26 = lshr i32 %25, %.03663.us
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !53
-  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %28
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %28
   %32 = load i32, ptr %31, align 4, !tbaa !53
   %33 = add nsw i32 %32, %30
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.b3SortData, ptr %.062.us, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.062.us, i64 %34
   %36 = load i64, ptr %24, align 4
   store i64 %36, ptr %35, align 4
   %37 = add nsw i32 %32, 1
@@ -759,7 +757,7 @@ _ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit15.i.i: ; preds = %.noe
 38:                                               ; preds = %.preheader52.us, %38
   %indvars.iv88 = phi i64 [ 0, %.preheader52.us ], [ %indvars.iv.next89, %38 ]
   %.03857.us = phi i32 [ 0, %.preheader52.us ], [ %41, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv88
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv88
   %40 = load i32, ptr %39, align 4, !tbaa !53
   store i32 %.03857.us, ptr %39, align 4, !tbaa !53
   %41 = add nsw i32 %40, %.03857.us
@@ -769,12 +767,12 @@ _ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit15.i.i: ; preds = %.noe
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv84 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next85, %.lr.ph.us ]
-  %42 = getelementptr inbounds nuw %struct.b3SortData, ptr %.05161.us, i64 %indvars.iv84
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.05161.us, i64 %indvars.iv84
   %43 = load i32, ptr %42, align 4, !tbaa !67
   %44 = lshr i32 %43, %.03663.us
   %45 = and i32 %44, 255
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %4, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !53
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !53
@@ -851,7 +849,7 @@ _ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit: ; preds = %.loopexit.thread, %
 .preheader53:                                     ; preds = %.preheader54, %.preheader53
   %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %.preheader53 ]
   %.03857 = phi i32 [ 0, %.preheader54 ], [ %65, %.preheader53 ]
-  %63 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !53
   store i32 %.03857, ptr %63, align 4, !tbaa !53
   %65 = add nsw i32 %64, %.03857
@@ -991,9 +989,9 @@ _ZN20b3AlignedObjectArrayI10b3SortDataE8allocateEi.exit.i.i: ; preds = %14
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw %struct.b3SortData, ptr %16, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i.i
   %23 = load ptr, ptr %20, align 8, !tbaa !62
-  %24 = getelementptr inbounds nuw %struct.b3SortData, ptr %23, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %25 = load i64, ptr %24, align 4
   store i64 %25, ptr %22, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1038,7 +1036,7 @@ _ZN20b3AlignedObjectArrayI10b3SortDataE10deallocateEv.exit.i.i: ; preds = %31, %
 34:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %35 = load ptr, ptr %32, align 8, !tbaa !62
-  %36 = getelementptr inbounds %struct.b3SortData, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %indvars.iv.i
   store i64 0, ptr %36, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1450,9 +1448,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i: ; preds = %149
 
 156:                                              ; preds = %156, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %156 ]
-  %157 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %152, i64 %indvars.iv.i.i.i
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %indvars.iv.i.i.i
   %158 = load ptr, ptr %81, align 8, !tbaa !94
-  %159 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %158, i64 %indvars.iv.i.i.i
+  %159 = getelementptr inbounds nuw [32 x i8], ptr %158, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %157, ptr noundef nonnull align 16 dereferenceable(32) %159, i64 32, i1 false), !tbaa.struct !95
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1495,7 +1493,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i: ; preds = %
   %164 = phi i32 [ %.pre.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i ], [ %142, %145 ], [ %142, %140 ]
   %165 = load ptr, ptr %81, align 8, !tbaa !94
   %166 = sext i32 %164 to i64
-  %167 = getelementptr inbounds %struct.b3KernelArgData, ptr %165, i64 %166
+  %167 = getelementptr inbounds [32 x i8], ptr %165, i64 %166
   store i32 0, ptr %167, align 16, !tbaa !53
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 4
   store i32 %141, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !53
@@ -1633,9 +1631,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i78: ; preds = %2
 
 217:                                              ; preds = %217, %.lr.ph.i.i.i87
   %indvars.iv.i.i.i89 = phi i64 [ 0, %.lr.ph.i.i.i87 ], [ %indvars.iv.next.i.i.i90, %217 ]
-  %218 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %213, i64 %indvars.iv.i.i.i89
+  %218 = getelementptr inbounds nuw [32 x i8], ptr %213, i64 %indvars.iv.i.i.i89
   %219 = load ptr, ptr %95, align 8, !tbaa !94
-  %220 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %219, i64 %indvars.iv.i.i.i89
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %219, i64 %indvars.iv.i.i.i89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %218, ptr noundef nonnull align 16 dereferenceable(32) %220, i64 32, i1 false), !tbaa.struct !95
   %indvars.iv.next.i.i.i90 = add nuw nsw i64 %indvars.iv.i.i.i89, 1
   %exitcond.not.i.i.i91 = icmp eq i64 %indvars.iv.next.i.i.i90, %wide.trip.count.i.i.i88
@@ -1678,7 +1676,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i85: ; preds =
   %225 = phi i32 [ %.pre.i86, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i85 ], [ %203, %206 ], [ %203, %201 ]
   %226 = load ptr, ptr %95, align 8, !tbaa !94
   %227 = sext i32 %225 to i64
-  %228 = getelementptr inbounds %struct.b3KernelArgData, ptr %226, i64 %227
+  %228 = getelementptr inbounds [32 x i8], ptr %226, i64 %227
   store i32 0, ptr %228, align 16, !tbaa !53
   %.sroa.4135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 4
   store i32 %202, ptr %.sroa.4135.0..sroa_idx, align 4, !tbaa !53
@@ -1821,9 +1819,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i100: ; preds = %
 
 280:                                              ; preds = %280, %.lr.ph.i.i.i109
   %indvars.iv.i.i.i111 = phi i64 [ 0, %.lr.ph.i.i.i109 ], [ %indvars.iv.next.i.i.i112, %280 ]
-  %281 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %276, i64 %indvars.iv.i.i.i111
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %276, i64 %indvars.iv.i.i.i111
   %282 = load ptr, ptr %113, align 8, !tbaa !94
-  %283 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %282, i64 %indvars.iv.i.i.i111
+  %283 = getelementptr inbounds nuw [32 x i8], ptr %282, i64 %indvars.iv.i.i.i111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %281, ptr noundef nonnull align 16 dereferenceable(32) %283, i64 32, i1 false), !tbaa.struct !95
   %indvars.iv.next.i.i.i112 = add nuw nsw i64 %indvars.iv.i.i.i111, 1
   %exitcond.not.i.i.i113 = icmp eq i64 %indvars.iv.next.i.i.i112, %wide.trip.count.i.i.i110
@@ -1866,7 +1864,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i107: ; preds 
   %288 = phi i32 [ %.pre.i108, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i107 ], [ %266, %269 ], [ %266, %264 ]
   %289 = load ptr, ptr %113, align 8, !tbaa !94
   %290 = sext i32 %288 to i64
-  %291 = getelementptr inbounds %struct.b3KernelArgData, ptr %289, i64 %290
+  %291 = getelementptr inbounds [32 x i8], ptr %289, i64 %290
   store i32 0, ptr %291, align 16, !tbaa !53
   %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %291, i64 4
   store i32 %265, ptr %.sroa.4139.0..sroa_idx, align 4, !tbaa !53
@@ -2225,9 +2223,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i: ; preds = %150
 
 157:                                              ; preds = %157, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %157 ]
-  %158 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %153, i64 %indvars.iv.i.i.i
+  %158 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %indvars.iv.i.i.i
   %159 = load ptr, ptr %82, align 8, !tbaa !94
-  %160 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %159, i64 %indvars.iv.i.i.i
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %159, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %158, ptr noundef nonnull align 16 dereferenceable(32) %160, i64 32, i1 false), !tbaa.struct !95
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -2270,7 +2268,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i: ; preds = %
   %165 = phi i32 [ %.pre.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i ], [ %143, %146 ], [ %143, %141 ]
   %166 = load ptr, ptr %82, align 8, !tbaa !94
   %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds %struct.b3KernelArgData, ptr %166, i64 %167
+  %168 = getelementptr inbounds [32 x i8], ptr %166, i64 %167
   store i32 0, ptr %168, align 16, !tbaa !53
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 4
   store i32 %142, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !53
@@ -2408,9 +2406,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i80: ; preds = %2
 
 218:                                              ; preds = %218, %.lr.ph.i.i.i89
   %indvars.iv.i.i.i91 = phi i64 [ 0, %.lr.ph.i.i.i89 ], [ %indvars.iv.next.i.i.i92, %218 ]
-  %219 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %214, i64 %indvars.iv.i.i.i91
+  %219 = getelementptr inbounds nuw [32 x i8], ptr %214, i64 %indvars.iv.i.i.i91
   %220 = load ptr, ptr %96, align 8, !tbaa !94
-  %221 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %220, i64 %indvars.iv.i.i.i91
+  %221 = getelementptr inbounds nuw [32 x i8], ptr %220, i64 %indvars.iv.i.i.i91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %219, ptr noundef nonnull align 16 dereferenceable(32) %221, i64 32, i1 false), !tbaa.struct !95
   %indvars.iv.next.i.i.i92 = add nuw nsw i64 %indvars.iv.i.i.i91, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %indvars.iv.next.i.i.i92, %wide.trip.count.i.i.i90
@@ -2453,7 +2451,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i87: ; preds =
   %226 = phi i32 [ %.pre.i88, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i87 ], [ %204, %207 ], [ %204, %202 ]
   %227 = load ptr, ptr %96, align 8, !tbaa !94
   %228 = sext i32 %226 to i64
-  %229 = getelementptr inbounds %struct.b3KernelArgData, ptr %227, i64 %228
+  %229 = getelementptr inbounds [32 x i8], ptr %227, i64 %228
   store i32 0, ptr %229, align 16, !tbaa !53
   %.sroa.4137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 4
   store i32 %203, ptr %.sroa.4137.0..sroa_idx, align 4, !tbaa !53
@@ -2596,9 +2594,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i102: ; preds = %
 
 281:                                              ; preds = %281, %.lr.ph.i.i.i111
   %indvars.iv.i.i.i113 = phi i64 [ 0, %.lr.ph.i.i.i111 ], [ %indvars.iv.next.i.i.i114, %281 ]
-  %282 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %277, i64 %indvars.iv.i.i.i113
+  %282 = getelementptr inbounds nuw [32 x i8], ptr %277, i64 %indvars.iv.i.i.i113
   %283 = load ptr, ptr %114, align 8, !tbaa !94
-  %284 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %283, i64 %indvars.iv.i.i.i113
+  %284 = getelementptr inbounds nuw [32 x i8], ptr %283, i64 %indvars.iv.i.i.i113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %282, ptr noundef nonnull align 16 dereferenceable(32) %284, i64 32, i1 false), !tbaa.struct !95
   %indvars.iv.next.i.i.i114 = add nuw nsw i64 %indvars.iv.i.i.i113, 1
   %exitcond.not.i.i.i115 = icmp eq i64 %indvars.iv.next.i.i.i114, %wide.trip.count.i.i.i112
@@ -2641,7 +2639,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i109: ; preds 
   %289 = phi i32 [ %.pre.i110, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i109 ], [ %267, %270 ], [ %267, %265 ]
   %290 = load ptr, ptr %114, align 8, !tbaa !94
   %291 = sext i32 %289 to i64
-  %292 = getelementptr inbounds %struct.b3KernelArgData, ptr %290, i64 %291
+  %292 = getelementptr inbounds [32 x i8], ptr %290, i64 %291
   store i32 0, ptr %292, align 16, !tbaa !53
   %.sroa.4141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %292, i64 4
   store i32 %266, ptr %.sroa.4141.0..sroa_idx, align 4, !tbaa !53

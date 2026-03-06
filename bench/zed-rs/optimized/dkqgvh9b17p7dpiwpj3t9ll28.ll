@@ -8118,7 +8118,7 @@ _ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E.exit.i.i.i.i.i.i.i.i
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %262, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %277, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %262 ]
   %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %278, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %262 ]
-  %268 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %264, i64 %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %268 = getelementptr inbounds [24 x i8], ptr %264, i64 %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %269 = getelementptr i8, ptr %268, i64 16
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %269, align 8, !noalias !1633, !noundef !4
   %270 = or i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1

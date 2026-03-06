@@ -131,7 +131,7 @@ mqc_decode_bypass.exit:                           ; preds = %5, %18, %20, %25
 34:                                               ; preds = %2
   %35 = load i8, ptr %1, align 1, !tbaa !12
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @ff_mqc_qe, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !15
   %39 = zext i16 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -157,7 +157,7 @@ mqc_decode_bypass.exit:                           ; preds = %5, %18, %20, %25
 
 53:                                               ; preds = %47
   %54 = zext i8 %49 to i64
-  %55 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr @ff_mqc_qe, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !15
   %57 = zext i16 %56 to i32
   %.not31 = icmp ult i32 %42, %57
@@ -235,7 +235,7 @@ exchange.exit:                                    ; preds = %bytein.exit.i
   store i32 %92, ptr %43, align 4, !tbaa !13
   %93 = load i8, ptr %1, align 1, !tbaa !12
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr @ff_mqc_qe, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !15
   %97 = zext i16 %96 to i32
   %98 = icmp samesign uge i32 %42, %97

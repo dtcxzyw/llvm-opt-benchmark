@@ -51,11 +51,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData" }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData" = type { [16 x double] }
 %"class.tbb::detail::d1::range_vector" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space" }
 %"class.tbb::detail::d0::aligned_space" = type { [192 x i8] }
-%"class.tbb::detail::d1::blocked_range" = type { i64, i64, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -195,10 +192,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeBoneCountERKNS_15Us
 
 42:                                               ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_boneVertsE, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_boneVertsE, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, %40
-  %46 = getelementptr i32, ptr %41, i64 %indvars.iv
+  %46 = getelementptr [4 x i8], ptr %41, i64 %indvars.iv
   store i32 %45, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -466,7 +463,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   store ptr %30, ptr %13, align 8
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %26
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %32, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 -1, i64 %29, i1 false)
@@ -504,7 +501,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology12GetNumJointsEv.exit: ; 
 
 46:                                               ; preds = %42
   %47 = add nsw i32 %.022, 1
-  %48 = getelementptr inbounds i32, ptr %35, i64 %.019
+  %48 = getelementptr inbounds [4 x i8], ptr %35, i64 %.019
   store i32 %.022, ptr %48, align 4
   %49 = add i64 %.020, 5
   br label %57
@@ -787,13 +784,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__37UsdSkelImaging
 
 23:                                               ; preds = %21
   %24 = trunc i64 %.02635 to i32
-  %25 = getelementptr inbounds i32, ptr %1, i64 %.02734
+  %25 = getelementptr inbounds [4 x i8], ptr %1, i64 %.02734
   store i32 %24, ptr %25, align 4
   br label %26
 
 26:                                               ; preds = %23, %26
   %indvars.iv = phi i64 [ 1, %23 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr i32, ptr %25, i64 %indvars.iv
+  %27 = getelementptr [4 x i8], ptr %25, i64 %indvars.iv
   store i32 %18, ptr %27, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -877,7 +874,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__31UsdSkelIma
   %.017 = phi i64 [ %1, %.lr.ph ], [ %169, %168 ]
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i32, ptr %10, i64 %.017
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %.017
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %14, label %168
@@ -890,9 +887,9 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__31UsdSkelIma
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %21, i64 %.017
+  %22 = getelementptr inbounds [128 x i8], ptr %21, i64 %.017
   %23 = sext i32 %17 to i64
-  %24 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %21, i64 %23
+  %24 = getelementptr inbounds [128 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %26 = load double, ptr %25, align 8, !noalias !11
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 104
@@ -961,11 +958,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBone
   %indvars.iv.i.mux.le.i = select i1 %76, i64 %indvars.iv.i.i, i64 2
   %.sroa.0249.0.vec.insert.i = insertelement <2 x float> poison, float %31, i64 0
   %.sroa.0249.4.vec.insert.i = insertelement <2 x float> %.sroa.0249.0.vec.insert.i, float %32, i64 1
-  %79 = getelementptr inbounds nuw i32, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5iAxis, i64 %indvars.iv.i.mux.le.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5iAxis, i64 %indvars.iv.i.mux.le.i
   %80 = load i32, ptr %79, align 4
   %81 = shl nsw i32 %80, 2
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds double, ptr %24, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %24, i64 %82
   %84 = load double, ptr %83, align 8, !noalias !20
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load double, ptr %85, align 8, !noalias !20
@@ -991,11 +988,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBone
   %105 = fpext float %91 to double
   %106 = fmul double %98, %105
   %107 = fptrunc double %106 to float
-  %108 = getelementptr inbounds nuw i32, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5jAxis, i64 %indvars.iv.i.mux.le.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5jAxis, i64 %indvars.iv.i.mux.le.i
   %109 = load i32, ptr %108, align 4
   %110 = shl nsw i32 %109, 2
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds double, ptr %24, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %24, i64 %111
   %113 = load double, ptr %112, align 8, !noalias !23
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load double, ptr %114, align 8, !noalias !23
@@ -1372,7 +1369,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %116 = phi i8 [ %144, %114 ], [ %.promoted.i.pr51.i.i, %.lr.ph.i.i.i ]
   %117 = phi i8 [ %130, %114 ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ]
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = load i64, ptr %119, align 8
@@ -1387,7 +1384,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %129 = add i8 %117, 1
   %130 = and i8 %129, 7
   %131 = zext nneg i8 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %131
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %119, i64 24, i1 false)
   %133 = load i64, ptr %132, align 8
   store i64 %133, ptr %119, align 8
@@ -1447,7 +1444,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %158 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %159 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %155
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %155
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %160, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS5_31UsdSkelImagingComputeBonePointsERKNS5_15UsdSkelTopologyEPKNS5_10GfMatrix4dEPNS5_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %158, align 64
@@ -1501,7 +1498,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %187, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i: ; preds = %183
-  %188 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %184
+  %188 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %184
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load i64, ptr %189, align 8
   %191 = load i64, ptr %188, align 8
@@ -1513,7 +1510,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, %183, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre53.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i ], [ %184, %183 ], [ %184, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i ]
-  %196 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %.pre-phi.i.i
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %.pre-phi.i.i
   %.val13.i.i = load ptr, ptr %107, align 8
   %.val14.i.i = load i64, ptr %196, align 8
   %197 = getelementptr i8, ptr %196, i64 8

@@ -3,8 +3,6 @@ source_filename = "bench/git/original/diffcore-delta.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.spanhash = type { i32, i32 }
-
 @.str.1 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -303,7 +301,7 @@ define internal fastcc noundef ptr @add_spanhash(ptr noundef captures(ret: addre
   %7 = and i32 %6, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.spanhash, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !8
   %.not34 = icmp eq i32 %12, 0
@@ -363,7 +361,7 @@ st_mult.exit.i:                                   ; preds = %20
 
 38:                                               ; preds = %57, %.lr.ph43.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next.i, %57 ]
-  %39 = getelementptr inbounds nuw %struct.spanhash, ptr %8, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !8
   %.not.i = icmp eq i32 %41, 0
@@ -373,7 +371,7 @@ st_mult.exit.i:                                   ; preds = %20
   %43 = load i32, ptr %39, align 4, !tbaa !11
   %44 = and i32 %43, %37
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.spanhash, ptr %36, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %36, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !8
   %.not3339.i = icmp eq i32 %48, 0
@@ -395,7 +393,7 @@ st_mult.exit.i:                                   ; preds = %20
   %.not34.i = icmp sgt i32 %23, %52
   %spec.store.select.i = select i1 %.not34.i, i32 %52, i32 0
   %53 = sext i32 %spec.store.select.i to i64
-  %54 = getelementptr inbounds %struct.spanhash, ptr %36, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %36, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !8
   %.not33.i = icmp eq i32 %56, 0
@@ -418,7 +416,7 @@ spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa53 = phi i32 [ %12, %.lr.ph.preheader ], [ %68, %.lr.ph ]
   %60 = phi i64 [ %9, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %61 = getelementptr inbounds %struct.spanhash, ptr %8, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %8, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = add i32 %.lcssa53, %2
   store i32 %63, ptr %62, align 4, !tbaa !8
@@ -430,7 +428,7 @@ spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
   %.not23 = icmp sgt i32 %5, %64
   %spec.store.select = select i1 %.not23, i32 %64, i32 0
   %65 = sext i32 %spec.store.select to i64
-  %66 = getelementptr inbounds %struct.spanhash, ptr %8, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %8, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !8
   %.not = icmp eq i32 %68, 0

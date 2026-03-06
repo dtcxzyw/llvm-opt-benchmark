@@ -131,7 +131,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i.
   br i1 %.not8.i.i.i.i, label %33, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i32, ptr %19, i64 %14
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %14
   %cond.i.i.i.i = icmp eq i64 %13, 1
   br i1 %cond.i.i.i.i, label %28, label %30
 
@@ -152,7 +152,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i.
 33:                                               ; preds = %30, %28, %25, %32
   store i64 %18, ptr %7, align 8, !tbaa !14
   %34 = load ptr, ptr %4, align 8, !tbaa !17
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %18
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %18
   store i32 0, ptr %35, align 4, !tbaa !12
   %36 = load ptr, ptr %5, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -183,10 +183,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i12:
   br i1 %47, label %53, label %.thread
 
 .thread:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i12
-  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %8, ptr %48, align 4, !tbaa !12
   store i64 %44, ptr %7, align 8, !tbaa !14
-  %49 = getelementptr inbounds nuw i32, ptr %42, i64 %44
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %44
   store i32 0, ptr %49, align 4, !tbaa !12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %50, ptr %0, align 8, !tbaa !6, !alias.scope !19
@@ -262,10 +262,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 
 70:                                               ; preds = %.noexc14, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i12.thread
   %71 = phi ptr [ %62, %.noexc14 ], [ %42, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i12.thread ]
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %43
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %43
   store i32 %8, ptr %72, align 4, !tbaa !12
   store i64 %44, ptr %7, align 8, !tbaa !14
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %44
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %44
   store i32 0, ptr %73, align 4, !tbaa !12
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %74, ptr %0, align 8, !tbaa !6, !alias.scope !19
@@ -486,7 +486,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
 50:                                               ; preds = %.lr.ph, %451
   %.0185 = phi i64 [ 0, %.lr.ph ], [ %452, %451 ]
   %51 = load ptr, ptr %1, align 8, !tbaa !17
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.0185
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.0185
   %53 = load i32, ptr %52, align 4, !tbaa !12
   switch i32 %53, label %203 [
     i32 34, label %54
@@ -532,7 +532,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i:
   br i1 %.not.i.i.i, label %70, label %66
 
 66:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i
-  %67 = getelementptr inbounds nuw i32, ptr %60, i64 %55
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %55
   br i1 %2, label %68, label %69
 
 68:                                               ; preds = %66
@@ -550,7 +550,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i:
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit:  ; preds = %70, %68, %69
   store i64 %59, ptr %9, align 8, !tbaa !14
   %71 = load ptr, ptr %4, align 8, !tbaa !17
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %59
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %59
   store i32 0, ptr %72, align 4, !tbaa !12
   br label %451
 
@@ -588,7 +588,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i3
   br i1 %.not.i.i.i37, label %88, label %84
 
 84:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i36
-  %85 = getelementptr inbounds nuw i32, ptr %78, i64 %74
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %74
   br i1 %2, label %87, label %86
 
 86:                                               ; preds = %84
@@ -606,7 +606,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i3
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit42: ; preds = %88, %86, %87
   store i64 %77, ptr %9, align 8, !tbaa !14
   %89 = load ptr, ptr %4, align 8, !tbaa !17
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %77
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %77
   store i32 0, ptr %90, align 4, !tbaa !12
   br label %451
 
@@ -634,7 +634,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i4
   br i1 %.not.i.i.i46, label %104, label %102
 
 102:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i45
-  %103 = getelementptr inbounds nuw i32, ptr %96, i64 %92
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %92
   store i64 395136991324, ptr %103, align 4
   br label %_ZN7jsonnet8internal13UStringStreamlsEPKDi.exit51
 
@@ -645,7 +645,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i4
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit51: ; preds = %104, %102
   store i64 %95, ptr %9, align 8, !tbaa !14
   %105 = load ptr, ptr %4, align 8, !tbaa !17
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %95
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %95
   store i32 0, ptr %106, align 4, !tbaa !12
   br label %451
 
@@ -673,7 +673,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i5
   br i1 %.not.i.i.i55, label %120, label %118
 
 118:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i54
-  %119 = getelementptr inbounds nuw i32, ptr %112, i64 %108
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %108
   store i64 420906795100, ptr %119, align 4
   br label %_ZN7jsonnet8internal13UStringStreamlsEPKDi.exit60
 
@@ -684,7 +684,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i5
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit60: ; preds = %120, %118
   store i64 %111, ptr %9, align 8, !tbaa !14
   %121 = load ptr, ptr %4, align 8, !tbaa !17
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %111
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %111
   store i32 0, ptr %122, align 4, !tbaa !12
   br label %451
 
@@ -712,7 +712,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i6
   br i1 %.not.i.i.i64, label %136, label %134
 
 134:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i63
-  %135 = getelementptr inbounds nuw i32, ptr %128, i64 %124
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %124
   store i64 438086664284, ptr %135, align 4
   br label %_ZN7jsonnet8internal13UStringStreamlsEPKDi.exit69
 
@@ -723,7 +723,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i6
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit69: ; preds = %136, %134
   store i64 %127, ptr %9, align 8, !tbaa !14
   %137 = load ptr, ptr %4, align 8, !tbaa !17
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %127
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %127
   store i32 0, ptr %138, align 4, !tbaa !12
   br label %451
 
@@ -751,7 +751,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i7
   br i1 %.not.i.i.i73, label %152, label %150
 
 150:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i72
-  %151 = getelementptr inbounds nuw i32, ptr %144, i64 %140
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %140
   store i64 472446402652, ptr %151, align 4
   br label %_ZN7jsonnet8internal13UStringStreamlsEPKDi.exit78
 
@@ -762,7 +762,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i7
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit78: ; preds = %152, %150
   store i64 %143, ptr %9, align 8, !tbaa !14
   %153 = load ptr, ptr %4, align 8, !tbaa !17
-  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %143
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %143
   store i32 0, ptr %154, align 4, !tbaa !12
   br label %451
 
@@ -790,7 +790,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i8
   br i1 %.not.i.i.i82, label %168, label %166
 
 166:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i81
-  %167 = getelementptr inbounds nuw i32, ptr %160, i64 %156
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %156
   store i64 489626271836, ptr %167, align 4
   br label %_ZN7jsonnet8internal13UStringStreamlsEPKDi.exit87
 
@@ -801,7 +801,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i8
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit87: ; preds = %168, %166
   store i64 %159, ptr %9, align 8, !tbaa !14
   %169 = load ptr, ptr %4, align 8, !tbaa !17
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %159
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %159
   store i32 0, ptr %170, align 4, !tbaa !12
   br label %451
 
@@ -829,7 +829,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i9
   br i1 %.not.i.i.i91, label %184, label %182
 
 182:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i90
-  %183 = getelementptr inbounds nuw i32, ptr %176, i64 %172
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %172
   store i64 498216206428, ptr %183, align 4
   br label %_ZN7jsonnet8internal13UStringStreamlsEPKDi.exit96
 
@@ -840,7 +840,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i9
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit96: ; preds = %184, %182
   store i64 %175, ptr %9, align 8, !tbaa !14
   %185 = load ptr, ptr %4, align 8, !tbaa !17
-  %186 = getelementptr inbounds nuw i32, ptr %185, i64 %175
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %175
   store i32 0, ptr %186, align 4, !tbaa !12
   br label %451
 
@@ -868,7 +868,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i9
   br i1 %.not.i.i.i100, label %200, label %198
 
 198:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i99
-  %199 = getelementptr inbounds nuw i32, ptr %192, i64 %188
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %199, ptr noundef nonnull align 4 dereferenceable(24) @.str.10, i64 24, i1 false)
   br label %_ZN7jsonnet8internal13UStringStreamlsEPKDi.exit105
 
@@ -879,7 +879,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i9
 _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit105: ; preds = %200, %198
   store i64 %191, ptr %9, align 8, !tbaa !14
   %201 = load ptr, ptr %4, align 8, !tbaa !17
-  %202 = getelementptr inbounds nuw i32, ptr %201, i64 %191
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %191
   store i32 0, ptr %202, align 4, !tbaa !12
   br label %451
 
@@ -1214,10 +1214,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 357:                                              ; preds = %.noexc.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i
   %358 = phi i64 [ %.pre.i, %.noexc.i ], [ %259, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i ]
   %.pre188 = phi ptr [ %349, %.noexc.i ], [ %260, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i ]
-  %359 = getelementptr inbounds nuw i32, ptr %.pre188, i64 %261
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %.pre188, i64 %261
   store i32 %.0.i.i, ptr %359, align 4, !tbaa !12
   store i64 %336, ptr %28, align 8, !tbaa !14, !alias.scope !75
-  %360 = getelementptr inbounds nuw i32, ptr %.pre188, i64 %336
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %.pre188, i64 %336
   store i32 0, ptr %360, align 4, !tbaa !12
   %361 = add i64 %.0.i, 1
   %362 = icmp ult i64 %361, %358
@@ -1277,7 +1277,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i.
   br i1 %.not8.i.i.i.i, label %388, label %381
 
 381:                                              ; preds = %380
-  %382 = getelementptr inbounds nuw i32, ptr %374, i64 %371
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %374, i64 %371
   %cond.i.i.i.i = icmp eq i64 %372, 1
   br i1 %cond.i.i.i.i, label %383, label %385
 
@@ -1298,7 +1298,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i.
 388:                                              ; preds = %385, %383, %380, %387
   store i64 %373, ptr %9, align 8, !tbaa !14
   %389 = load ptr, ptr %4, align 8, !tbaa !17
-  %390 = getelementptr inbounds nuw i32, ptr %389, i64 %373
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %389, i64 %373
   store i32 0, ptr %390, align 4, !tbaa !12
   %391 = load ptr, ptr %6, align 8, !tbaa !17
   %392 = icmp eq ptr %391, %27
@@ -1498,10 +1498,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 
 _ZN7jsonnet8internal13UStringStreamlsEDi.exit:    ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i123.thread, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i123, %.noexc125
   %448 = phi ptr [ %440, %.noexc125 ], [ %425, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i123 ], [ %425, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i123.thread ]
-  %449 = getelementptr inbounds nuw i32, ptr %448, i64 %423
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %448, i64 %423
   store i32 %53, ptr %449, align 4, !tbaa !12
   store i64 %424, ptr %9, align 8, !tbaa !14
-  %450 = getelementptr inbounds nuw i32, ptr %448, i64 %424
+  %450 = getelementptr inbounds nuw [4 x i8], ptr %448, i64 %424
   store i32 0, ptr %450, align 4, !tbaa !12
   br label %451
 
@@ -1578,7 +1578,7 @@ define noundef i64 @_ZN7jsonnet8internal28jsonnet_string_parse_unicodeERKNS0_13L
 8:                                                ; preds = %2, %59
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %59 ]
   %.04165 = phi i64 [ 0, %2 ], [ %62, %59 ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !12
   %11 = and i32 %10, 255
   %12 = icmp eq i32 %11, 0
@@ -2131,10 +2131,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i: ;
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i, %.noexc
   %40 = phi ptr [ %.pre.i.i, %.noexc ], [ %17, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i ]
   %41 = phi ptr [ %.pre.i.i, %.noexc ], [ %18, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i ]
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %26
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %26
   store i32 %30, ptr %42, align 4, !tbaa !12
   store i64 %32, ptr %14, align 8, !tbaa !14
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %32
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %32
   store i32 0, ptr %43, align 4, !tbaa !12
   br label %310
 
@@ -2171,10 +2171,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit85: ; preds = 
   %55 = phi ptr [ %.pre.i.i83, %.noexc84 ], [ %17, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i82 ]
   %56 = phi ptr [ %.pre.i.i83, %.noexc84 ], [ %18, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i82 ]
   %57 = phi ptr [ %.pre.i.i83, %.noexc84 ], [ %19, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i82 ]
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %26
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %26
   store i32 92, ptr %58, align 4, !tbaa !12
   store i64 %47, ptr %14, align 8, !tbaa !14
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %47
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %47
   store i32 0, ptr %59, align 4, !tbaa !12
   br label %310
 
@@ -2207,10 +2207,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit89: ; preds = 
   %70 = phi ptr [ %.pre.i.i87, %.noexc88 ], [ %18, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i86 ]
   %71 = phi ptr [ %.pre.i.i87, %.noexc88 ], [ %19, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i86 ]
   %72 = phi ptr [ %.pre.i.i87, %.noexc88 ], [ %20, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i86 ]
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %26
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %26
   store i32 47, ptr %73, align 4, !tbaa !12
   store i64 %61, ptr %14, align 8, !tbaa !14
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %61
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %61
   store i32 0, ptr %74, align 4, !tbaa !12
   br label %310
 
@@ -2244,10 +2244,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit93: ; preds = 
   %86 = phi ptr [ %.pre.i.i91, %.noexc92 ], [ %19, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i90 ]
   %87 = phi ptr [ %.pre.i.i91, %.noexc92 ], [ %20, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i90 ]
   %88 = phi ptr [ %.pre.i.i91, %.noexc92 ], [ %21, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i90 ]
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %26
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %26
   store i32 8, ptr %89, align 4, !tbaa !12
   store i64 %76, ptr %14, align 8, !tbaa !14
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %76
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %76
   store i32 0, ptr %90, align 4, !tbaa !12
   br label %310
 
@@ -2282,10 +2282,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit97: ; preds = 
   %103 = phi ptr [ %.pre.i.i95, %.noexc96 ], [ %20, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i94 ]
   %104 = phi ptr [ %.pre.i.i95, %.noexc96 ], [ %21, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i94 ]
   %105 = phi ptr [ %.pre.i.i95, %.noexc96 ], [ %22, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i94 ]
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %26
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %26
   store i32 12, ptr %106, align 4, !tbaa !12
   store i64 %92, ptr %14, align 8, !tbaa !14
-  %107 = getelementptr inbounds nuw i32, ptr %105, i64 %92
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %92
   store i32 0, ptr %107, align 4, !tbaa !12
   br label %310
 
@@ -2321,10 +2321,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit101: ; preds =
   %121 = phi ptr [ %.pre.i.i99, %.noexc100 ], [ %21, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i98 ]
   %122 = phi ptr [ %.pre.i.i99, %.noexc100 ], [ %22, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i98 ]
   %123 = phi ptr [ %.pre.i.i99, %.noexc100 ], [ %23, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i98 ]
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %26
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %26
   store i32 10, ptr %124, align 4, !tbaa !12
   store i64 %109, ptr %14, align 8, !tbaa !14
-  %125 = getelementptr inbounds nuw i32, ptr %123, i64 %109
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %109
   store i32 0, ptr %125, align 4, !tbaa !12
   br label %310
 
@@ -2361,10 +2361,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit105: ; preds =
   %140 = phi ptr [ %.pre.i.i103, %.noexc104 ], [ %22, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i102 ]
   %141 = phi ptr [ %.pre.i.i103, %.noexc104 ], [ %23, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i102 ]
   %142 = phi ptr [ %.pre.i.i103, %.noexc104 ], [ %24, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i102 ]
-  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %26
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %26
   store i32 13, ptr %143, align 4, !tbaa !12
   store i64 %127, ptr %14, align 8, !tbaa !14
-  %144 = getelementptr inbounds nuw i32, ptr %142, i64 %127
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %127
   store i32 0, ptr %144, align 4, !tbaa !12
   br label %310
 
@@ -2402,10 +2402,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit109: ; preds =
   %160 = phi ptr [ %.pre.i.i107, %.noexc108 ], [ %23, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i106 ]
   %161 = phi ptr [ %.pre.i.i107, %.noexc108 ], [ %24, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i106 ]
   %162 = phi ptr [ %.pre.i.i107, %.noexc108 ], [ %25, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i106 ]
-  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %26
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %26
   store i32 9, ptr %163, align 4, !tbaa !12
   store i64 %146, ptr %14, align 8, !tbaa !14
-  %164 = getelementptr inbounds nuw i32, ptr %162, i64 %146
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %146
   store i32 0, ptr %164, align 4, !tbaa !12
   br label %310
 
@@ -2639,10 +2639,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i116
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit119: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i116, %.noexc118
   %248 = phi ptr [ %.pre.i.i117, %.noexc118 ], [ %240, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i116 ]
-  %249 = getelementptr inbounds nuw i32, ptr %248, i64 %238
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %248, i64 %238
   store i32 %237, ptr %249, align 4, !tbaa !12
   store i64 %239, ptr %14, align 8, !tbaa !14
-  %250 = getelementptr inbounds nuw i32, ptr %248, i64 %239
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %248, i64 %239
   store i32 0, ptr %250, align 4, !tbaa !12
   br label %310
 
@@ -2829,10 +2829,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i134
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit137: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i134, %.noexc136
   %307 = phi ptr [ %.pre.i.i135, %.noexc136 ], [ %17, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i134 ]
-  %308 = getelementptr inbounds nuw i32, ptr %307, i64 %26
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %26
   store i32 %27, ptr %308, align 4, !tbaa !12
   store i64 %299, ptr %14, align 8, !tbaa !14
-  %309 = getelementptr inbounds nuw i32, ptr %307, i64 %299
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %299
   store i32 0, ptr %309, align 4, !tbaa !12
   br label %310
 
@@ -3297,7 +3297,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit: 
   br i1 %or.cond, label %36, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit26
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit
-  %37 = getelementptr inbounds nuw i32, ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %1
   %cond = icmp eq i64 %4, 1
   br i1 %cond, label %38, label %40
 
@@ -3316,10 +3316,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit26
   br i1 %.not25, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27, label %42
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit26
-  %43 = getelementptr inbounds nuw i32, ptr %29, i64 %1
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %4
-  %45 = getelementptr inbounds nuw i32, ptr %12, i64 %1
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %2
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %1
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %4
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %2
   %cond29 = icmp eq i64 %9, 1
   br i1 %cond29, label %47, label %49
 

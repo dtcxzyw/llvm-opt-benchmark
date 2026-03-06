@@ -540,10 +540,10 @@ define internal void @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3MatERKN
   %32 = mul i64 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 %32
   %34 = load ptr, ptr %22, align 8, !tbaa !16
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !29
   %37 = load ptr, ptr %23, align 8, !tbaa !16
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !29
   %40 = load i32, ptr %5, align 4, !tbaa !21
   %41 = icmp eq i32 %40, 4
@@ -563,18 +563,18 @@ define internal void @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3MatERKN
 
 49:                                               ; preds = %26
   %50 = shl nsw i64 %indvars.iv, 2
-  %51 = getelementptr inbounds float, ptr %34, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %34, i64 %50
   %52 = load <4 x float>, ptr %51, align 1, !tbaa !25
-  %53 = getelementptr inbounds float, ptr %37, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %37, i64 %50
   %54 = load <4 x float>, ptr %53, align 1, !tbaa !25
   %55 = shufflevector <4 x float> %52, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %62
 
 56:                                               ; preds = %42
   %57 = shl nsw i64 %indvars.iv, 3
-  %58 = getelementptr inbounds float, ptr %34, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %34, i64 %57
   %59 = load <8 x float>, ptr %58, align 1, !tbaa !25
-  %60 = getelementptr inbounds float, ptr %37, i64 %57
+  %60 = getelementptr inbounds [4 x i8], ptr %37, i64 %57
   %61 = load <8 x float>, ptr %60, align 1, !tbaa !25
   br label %67
 
@@ -743,10 +743,10 @@ define internal void @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3MatERKN
   %30 = mul i64 %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %30
   %32 = load ptr, ptr %22, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !29
   %35 = load ptr, ptr %23, align 8, !tbaa !16
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !29
   %38 = load i32, ptr %5, align 4, !tbaa !21
   %39 = icmp eq i32 %38, 4
@@ -766,18 +766,18 @@ define internal void @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3MatERKN
 
 47:                                               ; preds = %.noexc
   %48 = shl nsw i64 %indvars.iv, 2
-  %49 = getelementptr inbounds float, ptr %32, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %32, i64 %48
   %50 = load <4 x float>, ptr %49, align 1, !tbaa !25
-  %51 = getelementptr inbounds float, ptr %35, i64 %48
+  %51 = getelementptr inbounds [4 x i8], ptr %35, i64 %48
   %52 = load <4 x float>, ptr %51, align 1, !tbaa !25
   %53 = shufflevector <4 x float> %50, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %60
 
 54:                                               ; preds = %40
   %55 = shl nsw i64 %indvars.iv, 3
-  %56 = getelementptr inbounds float, ptr %32, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %32, i64 %55
   %57 = load <8 x float>, ptr %56, align 1, !tbaa !25
-  %58 = getelementptr inbounds float, ptr %35, i64 %55
+  %58 = getelementptr inbounds [4 x i8], ptr %35, i64 %55
   %59 = load <8 x float>, ptr %58, align 1, !tbaa !25
   br label %65
 

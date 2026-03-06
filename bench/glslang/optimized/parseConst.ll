@@ -3,9 +3,6 @@ source_filename = "bench/glslang/original/parseConst.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.glslang::TArraySize" = type { i32, ptr }
-%"class.glslang::TConstUnion" = type <{ %union.anon.6, i32, [4 x i8] }>
-%union.anon.6 = type { i64 }
 %"class.glslang::TConstTraverser" = type { %"class.glslang::TIntermTraverser", i32, %"class.glslang::TConstUnionArray", i32, ptr, i32, i8, i8, i32, i8, i32, i32 }
 %"class.glslang::TIntermTraverser" = type { ptr, i8, i8, i8, i8, i32, i32, %"class.glslang::TVector" }
 %"class.glslang::TVector" = type { %"class.std::vector" }
@@ -319,7 +316,7 @@ _ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %41
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
   %.05611.i = phi i32 [ 1, %.lr.ph.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %55 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %48, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 8
   %57 = mul i32 %56, %.05611.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -377,10 +374,10 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %27 = load ptr, ptr %22, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %indvars.iv
   %31 = sext i32 %26 to i64
   %32 = load ptr, ptr %23, align 8
-  %33 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %32, i64 %31
+  %33 = getelementptr inbounds [16 x i8], ptr %32, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
   %34 = load i32, ptr %8, align 8
   %35 = add nsw i32 %34, 1
@@ -426,9 +423,9 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %57 = load ptr, ptr %51, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %59, i64 %indvars.iv117
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv117
   %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %61, i64 %indvars.iv119
+  %62 = getelementptr inbounds [16 x i8], ptr %61, i64 %indvars.iv119
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %62, ptr noundef nonnull align 8 dereferenceable(12) %60, i64 12, i1 false)
   %63 = load i32, ptr %8, align 8
   %64 = add nsw i32 %63, 1
@@ -510,10 +507,10 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %116 = load ptr, ptr %74, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %118, i64 %115
+  %119 = getelementptr inbounds [16 x i8], ptr %118, i64 %115
   %120 = sext i32 %84 to i64
   %121 = load ptr, ptr %73, align 8
-  %122 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %121, i64 %120
+  %122 = getelementptr inbounds [16 x i8], ptr %121, i64 %120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %122, ptr noundef nonnull align 8 dereferenceable(12) %119, i64 12, i1 false)
   br label %131
 
@@ -521,7 +518,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %124 = icmp eq i32 %.065105, %.066109
   %125 = sext i32 %84 to i64
   %126 = load ptr, ptr %73, align 8
-  %127 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %126, i64 %125
+  %127 = getelementptr inbounds [16 x i8], ptr %126, i64 %125
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   br i1 %124, label %129, label %130
 
@@ -594,7 +591,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %162 = load i32, ptr %8, align 8
   %163 = sext i32 %162 to i64
   %164 = load ptr, ptr %150, align 8
-  %165 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %164, i64 %163
+  %165 = getelementptr inbounds [16 x i8], ptr %164, i64 %163
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %165, ptr noundef nonnull align 8 dereferenceable(12) %161, i64 12, i1 false)
   br label %172
 
@@ -602,7 +599,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %167 = load i32, ptr %8, align 8
   %168 = sext i32 %167 to i64
   %169 = load ptr, ptr %150, align 8
-  %170 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %169, i64 %168
+  %170 = getelementptr inbounds [16 x i8], ptr %169, i64 %168
   store double 0.000000e+00, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 2, ptr %171, align 8
@@ -648,9 +645,9 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %189 = load ptr, ptr %184, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %191, i64 %indvars.iv126
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %indvars.iv126
   %193 = load ptr, ptr %185, align 8
-  %194 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %193, i64 %indvars.iv124
+  %194 = getelementptr inbounds [16 x i8], ptr %193, i64 %indvars.iv124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %194, ptr noundef nonnull align 8 dereferenceable(12) %192, i64 12, i1 false)
   %195 = load i32, ptr %8, align 8
   %196 = add nsw i32 %195, 1

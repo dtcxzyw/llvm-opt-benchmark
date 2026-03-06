@@ -1983,7 +1983,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %49, label %44
@@ -2347,7 +2347,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %115 = add nsw i32 %112, 1
   store i32 %115, ptr %5, align 4
   %116 = sext i32 %112 to i64
-  %117 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %4, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %117, align 8
@@ -2409,7 +2409,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %157 = add nsw i32 %154, 1
   store i32 %157, ptr %5, align 4
   %158 = sext i32 %154 to i64
-  %159 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %158
+  %159 = getelementptr inbounds [24 x i8], ptr %4, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %159, align 8
@@ -3591,7 +3591,7 @@ define linkonce_odr hidden void @_ZNK4nori7TVectorIiLi2EE8toStringB5cxx11Ev(ptr 
 6:                                                ; preds = %12, %2
   %7 = phi i1 [ true, %2 ], [ false, %12 ]
   %.079 = phi i64 [ 0, %2 ], [ 1, %12 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %.079
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.079
   %9 = load i32, ptr %8, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %9) #24
   %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)

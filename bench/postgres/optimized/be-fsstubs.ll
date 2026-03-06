@@ -97,7 +97,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_open(ptr noundef 
 
 21:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit.loopexit.i, label %25
@@ -153,7 +153,7 @@ newLOfd.exit:                                     ; preds = %32, %.loopexit.loop
 43:                                               ; preds = %40, %newLOfd.exit
   %44 = load ptr, ptr @cookies, align 8
   %45 = sext i32 %.0.i to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   store ptr %35, ptr %46, align 8
   ret i64 %45
 }
@@ -180,7 +180,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_close(ptr
 7:                                                ; preds = %1
   %8 = load ptr, ptr @cookies, align 8
   %9 = and i64 %3, 2147483647
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
@@ -229,7 +229,7 @@ define dso_local i32 @lo_read(i32 noundef %0, ptr noundef %1, i32 noundef %2) lo
 6:                                                ; preds = %3
   %7 = load ptr, ptr @cookies, align 8
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
@@ -273,7 +273,7 @@ define dso_local i32 @lo_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
 6:                                                ; preds = %3
   %7 = load ptr, ptr @cookies, align 8
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
@@ -325,7 +325,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_lseek(ptr noundef
 12:                                               ; preds = %1
   %13 = load ptr, ptr @cookies, align 8
   %14 = and i64 %3, 2147483647
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
@@ -376,7 +376,7 @@ define dso_local i64 @be_lo_lseek64(ptr noundef readonly captures(none) %0) loca
 11:                                               ; preds = %1
   %12 = load ptr, ptr @cookies, align 8
   %13 = and i64 %3, 2147483647
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
@@ -431,7 +431,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_tell(ptr noundef 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @cookies, align 8
   %9 = and i64 %3, 2147483647
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
@@ -476,7 +476,7 @@ define dso_local i64 @be_lo_tell64(ptr noundef readonly captures(none) %0) local
 7:                                                ; preds = %1
   %8 = load ptr, ptr @cookies, align 8
   %9 = and i64 %3, 2147483647
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
@@ -542,7 +542,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_unlink(ptr nounde
   %24 = phi i32 [ %22, %.lr.ph.preheader ], [ %37, %36 ]
   %25 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %38, %36 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not12 = icmp eq ptr %27, null
   br i1 %.not12, label %36, label %28
@@ -899,7 +899,7 @@ define internal fastcc void @lo_truncate_internal(i32 noundef %0, i64 noundef %1
 5:                                                ; preds = %2
   %6 = load ptr, ptr @cookies, align 8
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
@@ -961,7 +961,7 @@ define dso_local void @AtEOXact_LargeObject(i1 noundef zeroext %0) local_unnamed
   %5 = phi i32 [ %3, %.lr.ph.preheader ], [ %15, %14 ]
   %6 = phi ptr [ %.pre11, %.lr.ph.preheader ], [ %16, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %14, label %9
@@ -1036,7 +1036,7 @@ define dso_local void @AtEOSubXact_LargeObject(i1 noundef zeroext %0, i32 nounde
 
 9:                                                ; preds = %17, %.lr.ph.split.us
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %17 ], [ 0, %.lr.ph.split.us ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv14
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv14
   %11 = load ptr, ptr %10, align 8
   %.not.us = icmp eq ptr %11, null
   br i1 %.not.us, label %17, label %12
@@ -1060,7 +1060,7 @@ define dso_local void @AtEOSubXact_LargeObject(i1 noundef zeroext %0, i32 nounde
   %18 = phi i32 [ %32, %31 ], [ %6, %.lr.ph ]
   %19 = phi ptr [ %33, %31 ], [ %8, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %31, label %22

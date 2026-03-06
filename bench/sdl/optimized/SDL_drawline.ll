@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_drawline.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Point = type { i32, i32 }
-
 @.str = private unnamed_addr constant [26 x i8] c"Parameter '%s' is invalid\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"SDL_DrawLine(): dst\00", align 1
 @.str.2 = private unnamed_addr constant [43 x i8] c"SDL_DrawLine(): Unsupported surface format\00", align 1
@@ -130,7 +128,7 @@ SDL_CalculateDrawLineFunc.exit:                   ; preds = %12, %17, %21
 
 26:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %27 = getelementptr %struct.SDL_Point, ptr %1, i64 %indvars.iv
+  %27 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %5, align 4
@@ -179,7 +177,7 @@ SDL_CalculateDrawLineFunc.exit:                   ; preds = %12, %17, %21
 ._crit_edge:                                      ; preds = %50, %SDL_CalculateDrawLineFunc.exit
   %51 = load i32, ptr %1, align 4
   %52 = sext i32 %2 to i64
-  %53 = getelementptr %struct.SDL_Point, ptr %1, i64 %52
+  %53 = getelementptr [8 x i8], ptr %1, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i32, ptr %54, align 4
   %.not38 = icmp eq i32 %51, %55
@@ -486,18 +484,18 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   %23 = load ptr, ptr %22, align 8
   %24 = mul nsw i32 %21, %2
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %23, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %23, i64 %25
   br i1 %.not411, label %31, label %27
 
 27:                                               ; preds = %13
   %28 = sext i32 %1 to i64
-  %29 = getelementptr inbounds i16, ptr %26, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %26, i64 %28
   %30 = sub i32 %3, %1
   br label %35
 
 31:                                               ; preds = %13
   %32 = sext i32 %3 to i64
-  %33 = getelementptr inbounds i16, ptr %26, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %26, i64 %32
   %spec.select.idx = select i1 %6, i64 0, i64 2
   %spec.select = getelementptr inbounds nuw i8, ptr %33, i64 %spec.select.idx
   %34 = sub i32 %1, %3
@@ -546,19 +544,19 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
 56:                                               ; preds = %44
   %57 = mul nsw i32 %52, %2
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i16, ptr %54, i64 %58
-  %60 = getelementptr inbounds i16, ptr %59, i64 %55
+  %59 = getelementptr inbounds [2 x i8], ptr %54, i64 %58
+  %60 = getelementptr inbounds [2 x i8], ptr %59, i64 %55
   %61 = sub i32 %4, %2
   br label %.lr.ph449
 
 62:                                               ; preds = %44
   %63 = mul nsw i32 %52, %4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i16, ptr %54, i64 %64
-  %66 = getelementptr inbounds i16, ptr %65, i64 %55
+  %65 = getelementptr inbounds [2 x i8], ptr %54, i64 %64
+  %66 = getelementptr inbounds [2 x i8], ptr %65, i64 %55
   %67 = sext i32 %52 to i64
   %.1334.idx = select i1 %6, i64 0, i64 %67
-  %.1334 = getelementptr inbounds i16, ptr %66, i64 %.1334.idx
+  %.1334 = getelementptr inbounds [2 x i8], ptr %66, i64 %.1334.idx
   %68 = sub i32 %2, %4
   br label %.lr.ph449
 
@@ -576,7 +574,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   %.2335447 = phi ptr [ %.0333, %.lr.ph449 ], [ %75, %73 ]
   %74 = add nsw i32 %.1332448, -1
   store i16 %71, ptr %.2335447, align 2
-  %75 = getelementptr inbounds i16, ptr %.2335447, i64 %72
+  %75 = getelementptr inbounds [2 x i8], ptr %.2335447, i64 %72
   %.not410 = icmp eq i32 %74, 0
   br i1 %.not410, label %.loopexit, label %73, !llvm.loop !10
 
@@ -605,9 +603,9 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
 93:                                               ; preds = %82
   %94 = mul nsw i32 %90, %2
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i16, ptr %92, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %92, i64 %95
   %97 = sext i32 %1 to i64
-  %98 = getelementptr inbounds i16, ptr %96, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %96, i64 %97
   %.not407 = icmp sgt i32 %1, %3
   %.0359.v = select i1 %.not407, i32 -1, i32 1
   %.0359 = add nsw i32 %90, %.0359.v
@@ -617,15 +615,15 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
 100:                                              ; preds = %82
   %101 = mul nsw i32 %90, %4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i16, ptr %92, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %92, i64 %102
   %104 = sext i32 %3 to i64
-  %105 = getelementptr inbounds i16, ptr %103, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %103, i64 %104
   %.not406 = icmp sgt i32 %3, %1
   %.2361.v = select i1 %.not406, i32 -1, i32 1
   %.2361 = add nsw i32 %90, %.2361.v
   %106 = sext i32 %.2361 to i64
   %.1364.idx = select i1 %6, i64 0, i64 %106
-  %.1364 = getelementptr inbounds i16, ptr %105, i64 %.1364.idx
+  %.1364 = getelementptr inbounds [2 x i8], ptr %105, i64 %.1364.idx
   br label %107
 
 107:                                              ; preds = %100, %93
@@ -647,7 +645,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   %.2365443 = phi ptr [ %.0363, %.lr.ph445 ], [ %113, %111 ]
   %112 = add nsw i32 %.2358444, -1
   store i16 %109, ptr %.2365443, align 2
-  %113 = getelementptr inbounds i16, ptr %.2365443, i64 %110
+  %113 = getelementptr inbounds [2 x i8], ptr %.2365443, i64 %110
   %.not408 = icmp eq i32 %112, 0
   br i1 %.not408, label %.loopexit, label %111, !llvm.loop !11
 
@@ -908,18 +906,18 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   %23 = load ptr, ptr %22, align 8
   %24 = mul nsw i32 %21, %2
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %23, i64 %25
   br i1 %.not411, label %31, label %27
 
 27:                                               ; preds = %13
   %28 = sext i32 %1 to i64
-  %29 = getelementptr inbounds i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %26, i64 %28
   %30 = sub i32 %3, %1
   br label %35
 
 31:                                               ; preds = %13
   %32 = sext i32 %3 to i64
-  %33 = getelementptr inbounds i32, ptr %26, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %26, i64 %32
   %spec.select.idx = select i1 %6, i64 0, i64 4
   %spec.select = getelementptr inbounds nuw i8, ptr %33, i64 %spec.select.idx
   %34 = sub i32 %1, %3
@@ -964,19 +962,19 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
 54:                                               ; preds = %42
   %55 = mul nsw i32 %50, %2
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %52, i64 %56
-  %58 = getelementptr inbounds i32, ptr %57, i64 %53
+  %57 = getelementptr inbounds [4 x i8], ptr %52, i64 %56
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %53
   %59 = sub i32 %4, %2
   br label %.lr.ph449
 
 60:                                               ; preds = %42
   %61 = mul nsw i32 %50, %4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr %52, i64 %62
-  %64 = getelementptr inbounds i32, ptr %63, i64 %53
+  %63 = getelementptr inbounds [4 x i8], ptr %52, i64 %62
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %53
   %65 = sext i32 %50 to i64
   %.1334.idx = select i1 %6, i64 0, i64 %65
-  %.1334 = getelementptr inbounds i32, ptr %64, i64 %.1334.idx
+  %.1334 = getelementptr inbounds [4 x i8], ptr %64, i64 %.1334.idx
   %66 = sub i32 %2, %4
   br label %.lr.ph449
 
@@ -993,7 +991,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   %.2335447 = phi ptr [ %.0333, %.lr.ph449 ], [ %72, %70 ]
   %71 = add nsw i32 %.1332448, -1
   store i32 %5, ptr %.2335447, align 4
-  %72 = getelementptr inbounds i32, ptr %.2335447, i64 %69
+  %72 = getelementptr inbounds [4 x i8], ptr %.2335447, i64 %69
   %.not410 = icmp eq i32 %71, 0
   br i1 %.not410, label %.loopexit, label %70, !llvm.loop !16
 
@@ -1022,9 +1020,9 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
 90:                                               ; preds = %79
   %91 = mul nsw i32 %87, %2
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %89, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %89, i64 %92
   %94 = sext i32 %1 to i64
-  %95 = getelementptr inbounds i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %93, i64 %94
   %.not407 = icmp sgt i32 %1, %3
   %.0359.v = select i1 %.not407, i32 -1, i32 1
   %.0359 = add nsw i32 %87, %.0359.v
@@ -1034,15 +1032,15 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
 97:                                               ; preds = %79
   %98 = mul nsw i32 %87, %4
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %89, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %89, i64 %99
   %101 = sext i32 %3 to i64
-  %102 = getelementptr inbounds i32, ptr %100, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %100, i64 %101
   %.not406 = icmp sgt i32 %3, %1
   %.2361.v = select i1 %.not406, i32 -1, i32 1
   %.2361 = add nsw i32 %87, %.2361.v
   %103 = sext i32 %.2361 to i64
   %.1364.idx = select i1 %6, i64 0, i64 %103
-  %.1364 = getelementptr inbounds i32, ptr %102, i64 %.1364.idx
+  %.1364 = getelementptr inbounds [4 x i8], ptr %102, i64 %.1364.idx
   br label %104
 
 104:                                              ; preds = %97, %90
@@ -1063,7 +1061,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   %.2365443 = phi ptr [ %.0363, %.lr.ph445 ], [ %109, %107 ]
   %108 = add nsw i32 %.2358444, -1
   store i32 %5, ptr %.2365443, align 4
-  %109 = getelementptr inbounds i32, ptr %.2365443, i64 %106
+  %109 = getelementptr inbounds [4 x i8], ptr %.2365443, i64 %106
   %.not408 = icmp eq i32 %108, 0
   br i1 %.not408, label %.loopexit, label %107, !llvm.loop !17
 

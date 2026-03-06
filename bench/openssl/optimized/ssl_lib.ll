@@ -8,13 +8,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.crypto_ex_data_st = type { ptr, ptr }
 %struct.anon.5 = type { ptr, ptr, i64, i64, i32, i32, ptr, i64, i8 }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.anon.6 = type { i8, i8, i32 }
-%struct.tls_group_info_st = type { ptr, ptr, ptr, i32, i16, i32, i32, i32, i32, i8 }
-%struct.tls_sigalg_info_st = type { ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.ssl_async_args = type { ptr, ptr, i64, i32, %union.anon }
 %union.anon = type { ptr }
-%struct.raw_extension_st = type { %struct.PACKET, i32, i32, i32, i64 }
 %struct.PACKET = type { ptr, i64 }
 
 @ssl3_undef_enc_method = local_unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @ssl_undefined_function_8, ptr @ssl_undefined_function_3, ptr @ssl_undefined_function_4, ptr @ssl_undefined_function_5, ptr null, i64 0, ptr null, i64 0, ptr @ssl_undefined_function_6, ptr @ssl_undefined_function_7, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, align 8
@@ -1869,7 +1865,7 @@ define range(i32 0, 2) i32 @SSL_CTX_dane_enable(ptr noundef captures(none) %0) l
 
 .preheader.i:                                     ; preds = %4, %25
   %.02530.i = phi i64 [ %26, %25 ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw %struct.anon.6, ptr @dane_mds, i64 %.02530.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @dane_mds, i64 %.02530.i
   %11 = icmp eq i64 %.02530.i, 0
   br i1 %11, label %25, label %12
 
@@ -1884,7 +1880,7 @@ define range(i32 0, 2) i32 @SSL_CTX_dane_enable(ptr noundef captures(none) %0) l
 18:                                               ; preds = %12
   %19 = load i8, ptr %10, align 8, !tbaa !258
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %20
   store ptr %16, ptr %21, align 8, !tbaa !259
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !260
@@ -2404,7 +2400,7 @@ define range(i32 -1, 2) i32 @SSL_dane_tlsa_add(ptr noundef %0, i8 noundef zeroex
 tlsa_md_get.exit.i:                               ; preds = %38
   %42 = load ptr, ptr %.val.i, align 8, !tbaa !255
   %43 = zext i8 %3 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !259
   %46 = icmp eq ptr %45, null
   br i1 %46, label %tlsa_md_get.exit.thread.i, label %47
@@ -2737,7 +2733,7 @@ define range(i32 -1, 2) i32 @SSL_CTX_dane_mtype_set(ptr noundef captures(none) %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %31, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   store ptr null, ptr %32, align 8, !tbaa !259
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i
   store i8 0, ptr %33, align 1, !tbaa !261
@@ -2752,7 +2748,7 @@ define range(i32 -1, 2) i32 @SSL_CTX_dane_mtype_set(ptr noundef captures(none) %
 34:                                               ; preds = %.critedge.i, %10
   %35 = load ptr, ptr %5, align 8, !tbaa !255
   %36 = zext i8 %2 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store ptr %1, ptr %37, align 8, !tbaa !259
   %38 = icmp eq ptr %1, null
   %39 = select i1 %38, i8 0, i8 %3
@@ -3025,7 +3021,7 @@ ssl_evp_md_free.exit83:                           ; preds = %ssl_evp_md_free.exi
 
 74:                                               ; preds = %ssl_evp_md_free.exit83, %ssl_evp_cipher_free.exit
   %.088 = phi i64 [ 0, %ssl_evp_md_free.exit83 ], [ %81, %ssl_evp_cipher_free.exit ]
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %.088
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.088
   %76 = load ptr, ptr %75, align 8, !tbaa !304
   %77 = icmp eq ptr %76, null
   br i1 %77, label %ssl_evp_cipher_free.exit, label %78
@@ -3056,7 +3052,7 @@ ssl_evp_cipher_free.exit:                         ; preds = %74, %78, %80
 
 85:                                               ; preds = %.preheader87, %ssl_evp_md_free.exit86
   %.189 = phi i64 [ 0, %.preheader87 ], [ %92, %ssl_evp_md_free.exit86 ]
-  %86 = getelementptr inbounds nuw ptr, ptr %73, i64 %.189
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.189
   %87 = load ptr, ptr %86, align 8, !tbaa !259
   %88 = icmp eq ptr %87, null
   br i1 %88, label %ssl_evp_md_free.exit86, label %89
@@ -3078,16 +3074,16 @@ ssl_evp_md_free.exit86:                           ; preds = %85, %89, %91
 93:                                               ; preds = %.lr.ph, %93
   %.290 = phi i64 [ 0, %.lr.ph ], [ %105, %93 ]
   %94 = load ptr, ptr %84, align 8, !tbaa !308
-  %95 = getelementptr inbounds nuw %struct.tls_group_info_st, ptr %94, i64 %.290
+  %95 = getelementptr inbounds nuw [56 x i8], ptr %94, i64 %.290
   %96 = load ptr, ptr %95, align 8, !tbaa !309
   tail call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 4389) #20
   %97 = load ptr, ptr %84, align 8, !tbaa !308
-  %98 = getelementptr inbounds nuw %struct.tls_group_info_st, ptr %97, i64 %.290
+  %98 = getelementptr inbounds nuw [56 x i8], ptr %97, i64 %.290
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !311
   tail call void @CRYPTO_free(ptr noundef %100, ptr noundef nonnull @.str, i32 noundef 4390) #20
   %101 = load ptr, ptr %84, align 8, !tbaa !308
-  %102 = getelementptr inbounds nuw %struct.tls_group_info_st, ptr %101, i64 %.290
+  %102 = getelementptr inbounds nuw [56 x i8], ptr %101, i64 %.290
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !312
   tail call void @CRYPTO_free(ptr noundef %104, ptr noundef nonnull @.str, i32 noundef 4391) #20
@@ -3112,46 +3108,46 @@ ssl_evp_md_free.exit86:                           ; preds = %85, %89, %91
 113:                                              ; preds = %.lr.ph93, %113
   %.391 = phi i64 [ 0, %.lr.ph93 ], [ %149, %113 ]
   %114 = load ptr, ptr %112, align 8, !tbaa !314
-  %115 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %114, i64 %.391
+  %115 = getelementptr inbounds nuw [96 x i8], ptr %114, i64 %.391
   %116 = load ptr, ptr %115, align 8, !tbaa !315
   tail call void @CRYPTO_free(ptr noundef %116, ptr noundef nonnull @.str, i32 noundef 4395) #20
   %117 = load ptr, ptr %112, align 8, !tbaa !314
-  %118 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %117, i64 %.391
+  %118 = getelementptr inbounds nuw [96 x i8], ptr %117, i64 %.391
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !317
   tail call void @CRYPTO_free(ptr noundef %120, ptr noundef nonnull @.str, i32 noundef 4396) #20
   %121 = load ptr, ptr %112, align 8, !tbaa !314
-  %122 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %121, i64 %.391
+  %122 = getelementptr inbounds nuw [96 x i8], ptr %121, i64 %.391
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !318
   tail call void @CRYPTO_free(ptr noundef %124, ptr noundef nonnull @.str, i32 noundef 4397) #20
   %125 = load ptr, ptr %112, align 8, !tbaa !314
-  %126 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %125, i64 %.391
+  %126 = getelementptr inbounds nuw [96 x i8], ptr %125, i64 %.391
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %128 = load ptr, ptr %127, align 8, !tbaa !319
   tail call void @CRYPTO_free(ptr noundef %128, ptr noundef nonnull @.str, i32 noundef 4398) #20
   %129 = load ptr, ptr %112, align 8, !tbaa !314
-  %130 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %129, i64 %.391
+  %130 = getelementptr inbounds nuw [96 x i8], ptr %129, i64 %.391
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 40
   %132 = load ptr, ptr %131, align 8, !tbaa !320
   tail call void @CRYPTO_free(ptr noundef %132, ptr noundef nonnull @.str, i32 noundef 4399) #20
   %133 = load ptr, ptr %112, align 8, !tbaa !314
-  %134 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %133, i64 %.391
+  %134 = getelementptr inbounds nuw [96 x i8], ptr %133, i64 %.391
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %136 = load ptr, ptr %135, align 8, !tbaa !321
   tail call void @CRYPTO_free(ptr noundef %136, ptr noundef nonnull @.str, i32 noundef 4400) #20
   %137 = load ptr, ptr %112, align 8, !tbaa !314
-  %138 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %137, i64 %.391
+  %138 = getelementptr inbounds nuw [96 x i8], ptr %137, i64 %.391
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
   %140 = load ptr, ptr %139, align 8, !tbaa !322
   tail call void @CRYPTO_free(ptr noundef %140, ptr noundef nonnull @.str, i32 noundef 4401) #20
   %141 = load ptr, ptr %112, align 8, !tbaa !314
-  %142 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %141, i64 %.391
+  %142 = getelementptr inbounds nuw [96 x i8], ptr %141, i64 %.391
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 64
   %144 = load ptr, ptr %143, align 8, !tbaa !323
   tail call void @CRYPTO_free(ptr noundef %144, ptr noundef nonnull @.str, i32 noundef 4402) #20
   %145 = load ptr, ptr %112, align 8, !tbaa !314
-  %146 = getelementptr inbounds nuw %struct.tls_sigalg_info_st, ptr %145, i64 %.391
+  %146 = getelementptr inbounds nuw [96 x i8], ptr %145, i64 %.391
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 72
   %148 = load ptr, ptr %147, align 8, !tbaa !324
   tail call void @CRYPTO_free(ptr noundef %148, ptr noundef nonnull @.str, i32 noundef 4403) #20
@@ -15772,7 +15768,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get1_extensions_present(ptr noundef
 23:                                               ; preds = %.lr.ph, %23
   %.03955 = phi i64 [ 0, %.lr.ph ], [ %28, %23 ]
   %.04054 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %23 ]
-  %24 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %22, i64 %.03955
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %.03955
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !500
   %.not51 = icmp ne i32 %26, 0
@@ -15811,7 +15807,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get1_extensions_present(ptr noundef
 
 39:                                               ; preds = %.lr.ph57, %50
   %.156 = phi i64 [ 0, %.lr.ph57 ], [ %51, %50 ]
-  %40 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %38, i64 %.156
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %.156
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !500
   %.not49 = icmp eq i32 %42, 0
@@ -15826,7 +15822,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get1_extensions_present(ptr noundef
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !505
-  %49 = getelementptr inbounds nuw i32, ptr %32, i64 %45
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %45
   store i32 %48, ptr %49, align 4, !tbaa !364
   br label %50
 
@@ -15892,7 +15888,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get_extension_order(ptr noundef %0,
 22:                                               ; preds = %.lr.ph, %22
   %.03651 = phi i64 [ 0, %.lr.ph ], [ %27, %22 ]
   %.03750 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %22 ]
-  %23 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %21, i64 %.03651
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %.03651
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !500
   %.not47 = icmp ne i32 %25, 0
@@ -15922,7 +15918,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get_extension_order(ptr noundef %0,
 
 36:                                               ; preds = %.lr.ph54, %48
   %.153 = phi i64 [ 0, %.lr.ph54 ], [ %49, %48 ]
-  %37 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %35, i64 %.153
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %.153
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i32, ptr %38, align 8, !tbaa !500
   %.not45 = icmp eq i32 %39, 0
@@ -15938,7 +15934,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get_extension_order(ptr noundef %0,
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !505
   %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %42
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %42
   store i16 %46, ptr %47, align 2, !tbaa !508
   br label %48
 
@@ -15997,7 +15993,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get0_ext(ptr noundef %0, i32 nounde
 
 22:                                               ; preds = %.lr.ph, %35
   %.02132 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
-  %23 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %21, i64 %.02132
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %.02132
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !500
   %.not27 = icmp eq i32 %25, 0

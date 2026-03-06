@@ -187,7 +187,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit9:                ; preds = %14, %_ZNKSt7__cxx11
 
 20:                                               ; preds = %2
   %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @_ZN5zxing6qrcode20ErrorCorrectionLevel8FOR_BITSE, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5zxing6qrcode20ErrorCorrectionLevel8FOR_BITSE, i64 %21
   br label %23
 
 23:                                               ; preds = %20, %_ZN5zxing12ErrorHandlerD2Ev.exit

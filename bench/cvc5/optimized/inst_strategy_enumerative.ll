@@ -852,7 +852,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers16InstStr
   %23 = icmp eq i32 %22, 2
   %spec.select.i.i = select i1 %23, i64 2, i64 1
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %spec.select.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %spec.select.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !282, !noalias !279
   store ptr %26, ptr %5, align 8, !tbaa !263, !alias.scope !279
   %27 = load i64, ptr %26, align 8, !noalias !279
@@ -905,7 +905,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %32, %38, %40
   %53 = icmp eq i32 %52, 2
   %spec.select.i.i45 = select i1 %53, i64 2, i64 1
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %spec.select.i.i45
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %spec.select.i.i45
   %56 = load ptr, ptr %55, align 8, !tbaa !282, !noalias !283
   store ptr %56, ptr %6, align 8, !tbaa !263, !alias.scope !283
   %57 = load i64, ptr %56, align 8, !noalias !283
@@ -1408,7 +1408,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %_ZN4cvc58internal12
   %295 = sub i64 %293, %294
   %296 = ashr exact i64 %295, 3
   %297 = sub nsw i64 0, %296
-  %298 = getelementptr inbounds i64, ptr %292, i64 %297
+  %298 = getelementptr inbounds [8 x i8], ptr %292, i64 %297
   call void @_ZdlPvm(ptr noundef %298, i64 noundef %295) #19
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1493,7 +1493,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterf
   %332 = sub i64 %330, %331
   %333 = ashr exact i64 %332, 3
   %334 = sub nsw i64 0, %333
-  %335 = getelementptr inbounds i64, ptr %329, i64 %334
+  %335 = getelementptr inbounds [8 x i8], ptr %329, i64 %334
   call void @_ZdlPvm(ptr noundef %335, i64 noundef %332) #19
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceESt14default_deleteIS4_EED2Ev.exit78
 

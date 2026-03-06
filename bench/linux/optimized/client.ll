@@ -227,7 +227,7 @@ define dso_local void @register_nfs_version(ptr noundef %0) #0 align 16 {
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr ptr, ptr @nfs_version, i64 %11
+  %12 = getelementptr [8 x i8], ptr @nfs_version, i64 %11
   store ptr %7, ptr %12, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nfs_version_lock) #13
   ret void
@@ -240,7 +240,7 @@ define dso_local void @unregister_nfs_version(ptr noundef captures(none) %0) #0 
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr ptr, ptr @nfs_version, i64 %5
+  %6 = getelementptr [8 x i8], ptr @nfs_version, i64 %5
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -452,7 +452,7 @@ define dso_local void @nfs_put_client(ptr noundef %0) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
@@ -475,7 +475,7 @@ define dso_local void @nfs_put_client(ptr noundef %0) #0 align 16 {
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 2536
   %23 = load volatile ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   tail call void @__rcu_read_unlock() #13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -615,7 +615,7 @@ define dso_local ptr @nfs_get_client(ptr noundef %0) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void @__rcu_read_unlock() #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -652,7 +652,7 @@ define dso_local ptr @nfs_get_client(ptr noundef %0) #0 align 16 {
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 2536
   %31 = load volatile ptr, ptr %30, align 8
   %32 = zext i32 %29 to i64
-  %33 = getelementptr ptr, ptr %31, i64 %32
+  %33 = getelementptr [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   tail call void @__rcu_read_unlock() #13
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 88
@@ -1883,7 +1883,7 @@ define dso_local void @nfs_server_insert_lists(ptr noundef initializes((8, 24)) 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #13
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
@@ -1927,7 +1927,7 @@ define dso_local void @nfs_server_remove_lists(ptr noundef captures(none) %0) #0
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
@@ -2788,7 +2788,7 @@ nfs_start_lockd.exit:                             ; preds = %232
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 2536
   %365 = load volatile ptr, ptr %364, align 8
   %366 = zext i32 %363 to i64
-  %367 = getelementptr ptr, ptr %365, i64 %366
+  %367 = getelementptr [8 x i8], ptr %365, i64 %366
   %368 = load ptr, ptr %367, align 8
   call void @__rcu_read_unlock() #13
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 160
@@ -3095,7 +3095,7 @@ nfs_start_lockd.exit:                             ; preds = %153
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 2536
   %168 = load volatile ptr, ptr %167, align 8
   %169 = zext i32 %166 to i64
-  %170 = getelementptr ptr, ptr %168, i64 %169
+  %170 = getelementptr [8 x i8], ptr %168, i64 %169
   %171 = load ptr, ptr %170, align 8
   tail call void @__rcu_read_unlock() #13
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 160
@@ -3149,7 +3149,7 @@ define dso_local void @nfs_clients_init(ptr noundef %0) local_unnamed_addr #0 al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -3185,7 +3185,7 @@ define dso_local void @nfs_clients_exit(ptr noundef %0) local_unnamed_addr #0 al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #13
   tail call void @nfs_netns_sysfs_destroy(ptr noundef %7) #13
@@ -3193,7 +3193,7 @@ define dso_local void @nfs_clients_exit(ptr noundef %0) local_unnamed_addr #0 al
   tail call void @__rcu_read_lock() #13
   %9 = load volatile ptr, ptr %3, align 8
   %10 = zext i32 %8 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
@@ -3235,7 +3235,7 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs_fs_proc_net_init(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -3422,7 +3422,7 @@ define internal ptr @nfs_server_list_start(ptr noundef readonly captures(none) %
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
@@ -3443,7 +3443,7 @@ define internal void @nfs_server_list_stop(ptr noundef readonly captures(none) %
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
@@ -3461,7 +3461,7 @@ define internal ptr @nfs_server_list_next(ptr noundef readonly captures(none) %0
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
@@ -3479,7 +3479,7 @@ define internal noundef i32 @nfs_server_list_show(ptr noundef %0, ptr noundef %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -3543,7 +3543,7 @@ define internal ptr @nfs_volume_list_start(ptr noundef readonly captures(none) %
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
@@ -3564,7 +3564,7 @@ define internal void @nfs_volume_list_stop(ptr noundef readonly captures(none) %
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
@@ -3582,7 +3582,7 @@ define internal ptr @nfs_volume_list_next(ptr noundef readonly captures(none) %0
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
@@ -3606,7 +3606,7 @@ define internal noundef i32 @nfs_volume_list_show(ptr noundef %0, ptr noundef re
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2536
   %10 = load volatile ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @__rcu_read_unlock() #13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104

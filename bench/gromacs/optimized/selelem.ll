@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.gmx_ana_selmethod_t = type { ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.gmx_ana_selmethod_help_t }
 %struct.gmx_ana_selmethod_help_t = type { ptr, ptr, i32, ptr }
-%struct.gmx_ana_index_t = type { i32, ptr, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.2 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.2 = type { i64, [8 x i8] }
@@ -18,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%struct.gmx_ana_selparam_t = type { ptr, %struct.gmx_ana_selvalue_t, ptr, i32 }
-%struct.gmx_ana_selvalue_t = type { i32, i32, %union.anon, i32 }
-%union.anon = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -39,6 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
+%struct.gmx_ana_index_t = type { i32, ptr, i32 }
 %"class.std::unique_ptr.16" = type { %"struct.std::__uniq_ptr_data.17" }
 %"struct.std::__uniq_ptr_data.17" = type { %"class.std::__uniq_ptr_impl.18" }
 %"class.std::__uniq_ptr_impl.18" = type { %"class.std::tuple.19" }
@@ -179,7 +176,7 @@ define noundef ptr @_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE(ptr 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -196,7 +193,7 @@ define noundef ptr @_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t(ptr nounde
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -214,7 +211,7 @@ define noundef ptr @_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeEleme
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -583,7 +580,7 @@ define void @_ZN3gmx20SelectionTreeElement10freeValuesEv(ptr noundef nonnull ali
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv21 = phi i64 [ 0, %.lr.ph18.preheader ], [ %indvars.iv.next22, %.lr.ph18 ]
   %21 = load ptr, ptr %6, align 8, !tbaa !26
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv21
   %23 = load ptr, ptr %22, align 8, !tbaa !43
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 197, ptr noundef %23)
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
@@ -593,7 +590,7 @@ define void @_ZN3gmx20SelectionTreeElement10freeValuesEv(ptr noundef nonnull ali
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %24 = load ptr, ptr %6, align 8, !tbaa !26
-  %25 = getelementptr inbounds nuw %struct.gmx_ana_index_t, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
   tail call void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr noundef %25)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -633,7 +630,7 @@ define void @_ZN3gmx20SelectionTreeElement10freeValuesEv(ptr noundef nonnull ali
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %42 = load ptr, ptr %34, align 8, !tbaa !26
-  %43 = getelementptr inbounds nuw %struct.gmx_ana_index_t, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %indvars.iv.i
   tail call void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr noundef %43)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %39, align 4, !tbaa !50
@@ -893,7 +890,7 @@ define void @_Z23_gmx_selelem_free_paramP18gmx_ana_selparam_t(ptr noundef %0) lo
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %11 = load ptr, ptr %3, align 8, !tbaa !26
-  %12 = getelementptr inbounds nuw %struct.gmx_ana_index_t, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv
   tail call void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %8, align 4, !tbaa !50
@@ -935,7 +932,7 @@ define void @_Z24_gmx_selelem_free_methodP19gmx_ana_selmethod_tPv(ptr noundef %0
   %11 = phi i32 [ %7, %.lr.ph ], [ %28, %_Z23_gmx_selelem_free_paramP18gmx_ana_selparam_t.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z23_gmx_selelem_free_paramP18gmx_ana_selparam_t.exit ]
   %12 = load ptr, ptr %9, align 8, !tbaa !60
-  %13 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !26
@@ -956,7 +953,7 @@ define void @_Z24_gmx_selelem_free_methodP19gmx_ana_selmethod_tPv(ptr noundef %0
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %23 = load ptr, ptr %15, align 8, !tbaa !26
-  %24 = getelementptr inbounds nuw %struct.gmx_ana_index_t, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %indvars.iv.i
   tail call void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr noundef %24)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = load i32, ptr %20, align 4, !tbaa !50
@@ -2359,7 +2356,7 @@ _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %60
   store ptr %53, ptr %5, align 8, !tbaa !69
   store ptr %59, ptr %34, align 8, !tbaa !72
-  %61 = getelementptr inbounds nuw %"class.std::__exception_ptr::exception_ptr", ptr %53, i64 %51
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %61, ptr %36, align 8, !tbaa !76
   %.pr = load ptr, ptr %3, align 8, !tbaa !73
   %.not.i = icmp eq ptr %.pr, null
@@ -3498,7 +3495,7 @@ define void @_Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementE
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
 
@@ -3511,7 +3508,7 @@ _Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = %switch.
 
 switch.lookup229:                                 ; preds = %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
   %14 = zext nneg i32 %12 to i64
-  %switch.gep230 = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 %14
+  %switch.gep230 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 %14
   %switch.load231 = load ptr, ptr %switch.gep230, align 8
   br label %_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit
 
@@ -3688,7 +3685,7 @@ _Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit: ; preds = %switch.lookup
 
 switch.lookup232:                                 ; preds = %89
   %93 = zext nneg i32 %91 to i64
-  %switch.gep233 = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 %93
+  %switch.gep233 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 %93
   %switch.load234 = load ptr, ptr %switch.gep233, align 8
   br label %_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit
 
@@ -3799,7 +3796,7 @@ _Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = 
 143:                                              ; preds = %.lr.ph, %143
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %143 ]
   %144 = load ptr, ptr %142, align 8, !tbaa !92
-  %145 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv
   %146 = load i32, ptr %145, align 4, !tbaa !34
   %147 = add nsw i32 %146, 1
   %148 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.58, i32 noundef %147) #24
@@ -3944,7 +3941,7 @@ _Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = 
   %216 = phi ptr [ %223, %.lr.ph189 ], [ %.pre204, %214 ]
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !92
-  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv193
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv193
   %220 = load i32, ptr %219, align 4, !tbaa !34
   %221 = add nsw i32 %220, 1
   %222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.58, i32 noundef %221) #24

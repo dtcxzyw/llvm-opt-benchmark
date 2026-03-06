@@ -3,10 +3,7 @@ source_filename = "bench/postgres/original/appendinfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.adjust_appendrel_attrs_context = type { ptr, i32, ptr }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [37 x i8] c"childrel is not a child of parentrel\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"appendinfo.c\00", align 1
@@ -81,7 +78,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures
   %35 = shl nsw i64 %34, 4
   %36 = getelementptr i8, ptr %19, i64 %35
   %37 = getelementptr i8, ptr %36, i64 24
-  %38 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %37, i64 %indvars.iv93.i
+  %38 = getelementptr inbounds nuw [100 x i8], ptr %37, i64 %indvars.iv93.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 91
   %40 = load i8, ptr %39, align 1, !range !4, !noundef !5
   %41 = trunc nuw i8 %40 to i1
@@ -98,7 +95,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures
   %50 = add i16 %49, 1
   %51 = tail call ptr @makeVar(i32 noundef %3, i16 noundef signext %50, i32 noundef %44, i32 noundef %46, i32 noundef %48, i32 noundef 0) #7
   %52 = tail call ptr @lappend(ptr noundef %.088.us.i, ptr noundef %51) #7
-  %53 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv93.i
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv93.i
   store i16 %50, ptr %53, align 2
   br label %56
 
@@ -121,7 +118,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures
   %59 = shl nsw i64 %58, 4
   %60 = getelementptr i8, ptr %19, i64 %59
   %61 = getelementptr i8, ptr %60, i64 24
-  %62 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [100 x i8], ptr %61, i64 %indvars.iv.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 91
   %64 = load i8, ptr %63, align 1, !range !4, !noundef !5
   %65 = trunc nuw i8 %64 to i1
@@ -149,7 +146,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures
   %80 = getelementptr i8, ptr %21, i64 %79
   %81 = getelementptr i8, ptr %80, i64 24
   %82 = sext i32 %.06886.i to i64
-  %83 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %81, i64 %82
+  %83 = getelementptr inbounds [100 x i8], ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 91
   %85 = load i8, ptr %84, align 1, !range !4, !noundef !5
   %86 = trunc nuw i8 %85 to i1
@@ -192,7 +189,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures
   %110 = getelementptr i8, ptr %21, i64 %109
   %111 = getelementptr i8, ptr %110, i64 24
   %112 = sext i32 %106 to i64
-  %113 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %111, i64 %112
+  %113 = getelementptr inbounds [100 x i8], ptr %111, i64 %112
   br label %114
 
 114:                                              ; preds = %97, %87
@@ -241,7 +238,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures
   %140 = trunc i64 %indvars.iv.i to i16
   %141 = add i16 %140, 1
   %142 = sext i32 %.2.i to i64
-  %143 = getelementptr inbounds i16, ptr %29, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %29, i64 %142
   store i16 %141, ptr %143, align 2
   br label %144
 
@@ -317,7 +314,7 @@ define internal ptr @adjust_appendrel_attrs_mutator(ptr noundef %0, ptr noundef 
 
 18:                                               ; preds = %.lr.ph274, %17
   %indvars.iv284 = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next285, %17 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv284
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv284
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
@@ -368,7 +365,7 @@ list_length.exit:                                 ; preds = %33
   %50 = getelementptr i8, ptr %35, i64 16
   %.val = load ptr, ptr %50, align 8
   %51 = and i64 %49, 4294967295
-  %52 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @copyObjectImpl(ptr noundef %53) #7
   %55 = icmp eq ptr %54, null
@@ -467,7 +464,7 @@ list_length.exit:                                 ; preds = %33
   %109 = getelementptr i8, ptr %106, i64 16
   %.val187 = load ptr, ptr %109, align 8
   %110 = sext i32 %108 to i64
-  %111 = getelementptr inbounds %union.ListCell, ptr %.val187, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %.val187, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %114 = load ptr, ptr %113, align 8
@@ -528,7 +525,7 @@ list_length.exit:                                 ; preds = %33
 .lr.ph278:                                        ; preds = %.lr.ph278.preheader, %157
   %indvars.iv289 = phi i64 [ 0, %.lr.ph278.preheader ], [ %indvars.iv.next290, %157 ]
   %.0169275 = phi i32 [ 0, %.lr.ph278.preheader ], [ %.1170, %157 ]
-  %144 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv289
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv289
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i32, ptr %146, align 8
@@ -570,7 +567,7 @@ list_length.exit:                                 ; preds = %33
   %164 = sext i16 %163 to i64
   %165 = getelementptr i8, ptr %161, i64 16
   %.val188 = load ptr, ptr %165, align 8
-  %166 = getelementptr %union.ListCell, ptr %.val188, i64 %164
+  %166 = getelementptr [8 x i8], ptr %.val188, i64 %164
   %167 = getelementptr i8, ptr %166, i64 -8
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
@@ -618,7 +615,7 @@ list_length.exit:                                 ; preds = %33
 
 193:                                              ; preds = %.lr.ph, %192
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %192 ]
-  %194 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4
@@ -651,7 +648,7 @@ list_length.exit:                                 ; preds = %33
 .lr.ph.i:                                         ; preds = %225, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %225 ]
   %.01719.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %.1.i, %225 ]
-  %211 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4
@@ -716,7 +713,7 @@ adjust_child_relids.exit:                         ; preds = %225, %207
 .lr.ph.i195:                                      ; preds = %255, %.lr.ph.preheader.i193
   %indvars.iv.i196 = phi i64 [ 0, %.lr.ph.preheader.i193 ], [ %indvars.iv.next.i199, %255 ]
   %.01719.i197 = phi ptr [ null, %.lr.ph.preheader.i193 ], [ %.1.i198, %255 ]
-  %241 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv.i196
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %indvars.iv.i196
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %244 = load i32, ptr %243, align 4
@@ -766,7 +763,7 @@ adjust_child_relids.exit203:                      ; preds = %255, %226
 .lr.ph.i209:                                      ; preds = %276, %.lr.ph.preheader.i207
   %indvars.iv.i210 = phi i64 [ 0, %.lr.ph.preheader.i207 ], [ %indvars.iv.next.i213, %276 ]
   %.01719.i211 = phi ptr [ null, %.lr.ph.preheader.i207 ], [ %.1.i212, %276 ]
-  %262 = getelementptr inbounds nuw ptr, ptr %260, i64 %indvars.iv.i210
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv.i210
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 4
   %265 = load i32, ptr %264, align 4
@@ -816,7 +813,7 @@ adjust_child_relids.exit217:                      ; preds = %276, %adjust_child_
 .lr.ph.i223:                                      ; preds = %297, %.lr.ph.preheader.i221
   %indvars.iv.i224 = phi i64 [ 0, %.lr.ph.preheader.i221 ], [ %indvars.iv.next.i227, %297 ]
   %.01719.i225 = phi ptr [ null, %.lr.ph.preheader.i221 ], [ %.1.i226, %297 ]
-  %283 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv.i224
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv.i224
   %284 = load ptr, ptr %283, align 8
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 4
   %286 = load i32, ptr %285, align 4
@@ -866,7 +863,7 @@ adjust_child_relids.exit231:                      ; preds = %297, %adjust_child_
 .lr.ph.i237:                                      ; preds = %318, %.lr.ph.preheader.i235
   %indvars.iv.i238 = phi i64 [ 0, %.lr.ph.preheader.i235 ], [ %indvars.iv.next.i241, %318 ]
   %.01719.i239 = phi ptr [ null, %.lr.ph.preheader.i235 ], [ %.1.i240, %318 ]
-  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %indvars.iv.i238
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %indvars.iv.i238
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 4
   %307 = load i32, ptr %306, align 4
@@ -916,7 +913,7 @@ adjust_child_relids.exit245:                      ; preds = %318, %adjust_child_
 .lr.ph.i251:                                      ; preds = %339, %.lr.ph.preheader.i249
   %indvars.iv.i252 = phi i64 [ 0, %.lr.ph.preheader.i249 ], [ %indvars.iv.next.i255, %339 ]
   %.01719.i253 = phi ptr [ null, %.lr.ph.preheader.i249 ], [ %.1.i254, %339 ]
-  %325 = getelementptr inbounds nuw ptr, ptr %323, i64 %indvars.iv.i252
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %indvars.iv.i252
   %326 = load ptr, ptr %325, align 8
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
   %328 = load i32, ptr %327, align 4
@@ -1043,7 +1040,7 @@ define dso_local ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %1, pt
   %.019 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
   %13 = load ptr, ptr %10, align 8
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %23
@@ -1062,7 +1059,7 @@ define dso_local ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %1, pt
 23:                                               ; preds = %11
   %24 = add i32 %.019, 1
   %25 = sext i32 %.019 to i64
-  %26 = getelementptr inbounds ptr, ptr %7, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %7, i64 %25
   store ptr %16, ptr %26, align 8
   br label %27
 
@@ -1092,7 +1089,7 @@ define dso_local ptr @adjust_child_relids(ptr noundef %0, i32 noundef %1, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %.01719 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %19 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
@@ -1182,7 +1179,7 @@ define dso_local ptr @adjust_child_relids_multilevel(ptr noundef %0, ptr noundef
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %38 ]
   %.01719.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %.1.i, %38 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
@@ -1244,7 +1241,7 @@ define dso_local ptr @adjust_inherited_attnums(ptr noundef readonly captures(add
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.lr.ph ]
   %.02834 = phi ptr [ %42, %38 ], [ null, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
   %sext = shl i32 %10, 16
   %11 = ashr exact i32 %sext, 16
@@ -1279,7 +1276,7 @@ list_length.exit.thread:                          ; preds = %.lr.ph36, %list_len
   %24 = getelementptr i8, ptr %14, i64 16
   %.val = load ptr, ptr %24, align 8
   %25 = zext nneg i32 %11 to i64
-  %26 = getelementptr %union.ListCell, ptr %.val, i64 %25
+  %26 = getelementptr [8 x i8], ptr %.val, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -1320,7 +1317,7 @@ define dso_local ptr @adjust_inherited_attnums_multilevel(ptr noundef readonly c
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %13
@@ -1470,7 +1467,7 @@ list_length.exit:                                 ; preds = %10, %13
 
 34:                                               ; preds = %.lr.ph57, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next, %33 ]
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
@@ -1663,7 +1660,7 @@ define dso_local void @distribute_row_identity_vars(ptr noundef %0) local_unname
   %12 = getelementptr i8, ptr %10, i64 16
   %.val = load ptr, ptr %12, align 8
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i8, ptr %16, align 8, !range !4, !noundef !5
@@ -1706,7 +1703,7 @@ define dso_local void @distribute_row_identity_vars(ptr noundef %0) local_unname
   %38 = phi i32 [ %60, %59 ], [ %36, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %34, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8

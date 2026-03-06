@@ -228,7 +228,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
 79:                                               ; preds = %76
   %80 = call ptr @SSL_accept_stream(ptr noundef nonnull %13, i64 noundef 0) #7
   %81 = add i64 %.2119, 1
-  %82 = getelementptr inbounds nuw ptr, ptr %3, i64 %.2119
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.2119
   store ptr %80, ptr %82, align 8, !tbaa !4
   %83 = icmp eq ptr %80, null
   br i1 %83, label %.loopexit, label %.thread
@@ -243,13 +243,13 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw ptr, ptr %3, i64 %.1105
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1105
   %91 = load ptr, ptr %90, align 8, !tbaa !4
   br label %.thread
 
 92:                                               ; preds = %86
   %93 = add i64 %.2119, 1
-  %94 = getelementptr inbounds nuw ptr, ptr %3, i64 %.2119
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.2119
   store ptr %87, ptr %94, align 8, !tbaa !4
   br label %.thread
 
@@ -261,7 +261,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   %98 = add i64 %.1105, 1
   %99 = icmp eq i64 %98, %.2119
   %spec.store.select3 = select i1 %99, i64 0, i64 %98
-  %100 = getelementptr inbounds nuw ptr, ptr %3, i64 %spec.store.select3
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %spec.store.select3
   %101 = load ptr, ptr %100, align 8, !tbaa !4
   br label %.thread
 
@@ -368,7 +368,7 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0103179 = phi i64 [ %140, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %138 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0103179
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0103179
   %139 = load ptr, ptr %138, align 8, !tbaa !4
   call void @SSL_free(ptr noundef %139) #7
   %140 = add nuw i64 %.0103179, 1

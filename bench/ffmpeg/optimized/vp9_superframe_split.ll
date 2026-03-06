@@ -131,7 +131,7 @@ bytestream2_get_byte.exit:                        ; preds = %48, %52
   br i1 %68, label %74, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   store i32 %58, ptr %70, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -167,7 +167,7 @@ bytestream2_get_byte.exit:                        ; preds = %48, %52
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %87 = load i32, ptr %86, align 4, !tbaa !30
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %85, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %85, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !27
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %90, ptr %91, align 8, !tbaa !23

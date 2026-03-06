@@ -13,16 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<QuantLib::MarketModelPathwiseMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelPathwiseMultiProduct::CashFlow>>::_Vector_impl" }
 %"struct.std::_Vector_base<QuantLib::MarketModelPathwiseMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelPathwiseMultiProduct::CashFlow>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::MarketModelPathwiseMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelPathwiseMultiProduct::CashFlow>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<QuantLib::MarketModelPathwiseMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelPathwiseMultiProduct::CashFlow>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.QuantLib::MarketModelPathwiseMultiProduct::CashFlow" = type { i64, %"class.std::vector.8" }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.28" = type { %"struct.std::_Vector_base.29" }
-%"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.QuantLib::MarketModelMultiProduct::CashFlow" = type { i64, double }
 %"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
 %"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
@@ -125,7 +119,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN8Quan
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i13, ptr %ref.tmp, align 8, !tbaa !9
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.QuantLib::MarketModelPathwiseMultiProduct::CashFlow", ptr %call5.i.i.i.i2.i.i13, i64 %call8
+  %add.ptr.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i13, i64 %call8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i13, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i13, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont11
@@ -162,7 +156,7 @@ _ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFl
   store ptr %cond.i.i.i.i, ptr %cashFlowsGenerated_, align 8, !tbaa !13
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !15
-  %add.ptr.i.i.i17 = getelementptr inbounds nuw %"class.std::vector.2", ptr %cond.i.i.i.i, i64 %call
+  %add.ptr.i.i.i17 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %call
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !16
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEmS5_ET_S7_T0_RKT1_(ptr noundef %cond.i.i.i.i, i64 noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -404,9 +398,9 @@ if.then.i35.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37.i: ; preds = %if.then.i35.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i
   store ptr %call5.i.i.i.i51, ptr %amount, align 8, !tbaa !17
-  %add.ptr37.i = getelementptr inbounds nuw double, ptr %add.ptr.i48, i64 %sub.i
+  %add.ptr37.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i48, i64 %sub.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8, !tbaa !36
-  %add.ptr40.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i51, i64 %28
+  %add.ptr40.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i51, i64 %28
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !19
   br label %invoke.cont44
 
@@ -415,7 +409,7 @@ if.else.i:                                        ; preds = %invoke.cont42
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont44
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %26, i64 %add
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %add
   %tobool.not.i.i = icmp eq ptr %25, %add.ptr.i
   br i1 %tobool.not.i.i, label %invoke.cont44, label %invoke.cont.i.i
 
@@ -671,15 +665,15 @@ for.cond3.preheader.lr.ph:                        ; preds = %entry
 
 for.cond3.preheader:                              ; preds = %for.cond3.preheader.lr.ph, %for.cond.cleanup6
   %i.026 = phi i64 [ 0, %for.cond3.preheader.lr.ph ], [ %inc22, %for.cond.cleanup6 ]
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %3, i64 %i.026
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %i.026
   %6 = load i64, ptr %add.ptr.i, align 8, !tbaa !42
   %cmp523.not = icmp eq i64 %6, 0
   br i1 %cmp523.not, label %for.cond.cleanup6, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %for.cond3.preheader
-  %add.ptr.i14 = getelementptr inbounds nuw %"class.std::vector.2", ptr %4, i64 %i.026
+  %add.ptr.i14 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %i.026
   %7 = load ptr, ptr %add.ptr.i14, align 8, !tbaa !9
-  %add.ptr.i16 = getelementptr inbounds nuw %"class.std::vector.28", ptr %5, i64 %i.026
+  %add.ptr.i16 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %i.026
   %8 = load ptr, ptr %add.ptr.i16, align 8, !tbaa !43
   br label %for.body7
 
@@ -693,9 +687,9 @@ for.cond.cleanup6:                                ; preds = %for.body7, %for.con
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
   %j.024 = phi i64 [ 0, %for.body7.lr.ph ], [ %inc, %for.body7 ]
-  %add.ptr.i15 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelPathwiseMultiProduct::CashFlow", ptr %7, i64 %j.024
+  %add.ptr.i15 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %j.024
   %9 = load i64, ptr %add.ptr.i15, align 8, !tbaa !46
-  %add.ptr.i17 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %8, i64 %j.024
+  %add.ptr.i17 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %j.024
   store i64 %9, ptr %add.ptr.i17, align 8, !tbaa !51
   %amount = getelementptr inbounds nuw i8, ptr %add.ptr.i15, i64 8
   %10 = load ptr, ptr %amount, align 8, !tbaa !17

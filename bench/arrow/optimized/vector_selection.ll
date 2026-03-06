@@ -64,8 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.arrow::ArraySpan" = type { ptr, i64, i64, i64, [3 x %"struct.arrow::BufferSpan"], %"class.std::vector.85" }
 %"struct.arrow::BufferSpan" = type { ptr, i64, ptr }
-%"class.std::shared_ptr.350" = type { %"class.std::__shared_ptr.351" }
-%"class.std::__shared_ptr.351" = type { ptr, %"class.std::__shared_count" }
 %"class.arrow::Result.78" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.81" }
 %"class.arrow::internal::AlignedStorage.81" = type { [24 x i8] }
 %"class.arrow::NumericBuilder" = type { %"class.arrow::ArrayBuilder", %"class.std::shared_ptr.53", %"class.arrow::TypedBufferBuilder.108" }
@@ -170,6 +168,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.339" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::shared_ptr.350" = type { %"class.std::__shared_ptr.351" }
+%"class.std::__shared_ptr.351" = type { ptr, %"class.std::__shared_count" }
 %"class.std::allocator.74" = type { i8 }
 %"class.arrow::Result.426" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.429" }
 %"class.arrow::internal::AlignedStorage.429" = type { [16 x i8] }
@@ -4903,7 +4903,7 @@ _ZNK5arrow5Datum13chunked_arrayEv.exit:           ; preds = %4
   %35 = phi ptr [ %18, %.lr.ph ], [ %60, %_ZN5arrow9ArraySpanD2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5arrow9ArraySpanD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = getelementptr inbounds nuw %"class.std::shared_ptr.350", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !229
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !232
@@ -8840,7 +8840,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9UInt8TypeEEEN
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i183, i64 32
   %490 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i183, i64 56
   %491 = load ptr, ptr %490, align 8, !tbaa !319, !noalias !357
-  %492 = getelementptr inbounds i16, ptr %491, i64 %488
+  %492 = getelementptr inbounds [2 x i8], ptr %491, i64 %488
   %493 = load ptr, ptr %489, align 8, !tbaa !319, !noalias !357
   %494 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i183, i64 8
   %495 = load i64, ptr %494, align 8, !tbaa !322, !noalias !357
@@ -8954,7 +8954,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i213: ; preds = %52
   %.2.i199 = phi i64 [ %.3.i203, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i188, %.preheader.i.i.i.i.i193 ]
   %.02316.i.i.i.i.i200 = phi i64 [ %560, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i193 ]
   %.115.i.i.i.i.i201 = phi i64 [ %561, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i189, %.preheader.i.i.i.i.i193 ]
-  %539 = getelementptr inbounds i16, ptr %492, i64 %.115.i.i.i.i.i201
+  %539 = getelementptr inbounds [2 x i8], ptr %492, i64 %.115.i.i.i.i.i201
   %540 = load i16, ptr %539, align 2, !tbaa !360, !noalias !357
   %.not.i.i.i.i.i.i.i.i202 = icmp eq i16 %540, 0
   br i1 %.not.i.i.i.i.i.i.i.i202, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i, label %541
@@ -9023,7 +9023,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7comp
   br i1 %574, label %575, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
 
 575:                                              ; preds = %.lr.ph.i.i.i.i.i220
-  %576 = getelementptr inbounds i16, ptr %492, i64 %.49.i.i.i.i.i223
+  %576 = getelementptr inbounds [2 x i8], ptr %492, i64 %.49.i.i.i.i.i223
   %577 = load i16, ptr %576, align 2, !tbaa !360, !noalias !357
   %.not.i.i.i32.i.i.i.i.i227 = icmp eq i16 %577, 0
   br i1 %.not.i.i.i32.i.i.i.i.i227, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i, label %578
@@ -9115,7 +9115,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9Int16TypeEEEN
   %620 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i235, i64 32
   %621 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i235, i64 56
   %622 = load ptr, ptr %621, align 8, !tbaa !319, !noalias !367
-  %623 = getelementptr inbounds i16, ptr %622, i64 %619
+  %623 = getelementptr inbounds [2 x i8], ptr %622, i64 %619
   %624 = load ptr, ptr %620, align 8, !tbaa !319, !noalias !367
   %625 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i235, i64 8
   %626 = load i64, ptr %625, align 8, !tbaa !322, !noalias !367
@@ -9229,7 +9229,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i265: ; preds = %65
   %.2.i251 = phi i64 [ %.3.i255, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i240, %.preheader.i.i.i.i.i245 ]
   %.02316.i.i.i.i.i252 = phi i64 [ %691, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i245 ]
   %.115.i.i.i.i.i253 = phi i64 [ %692, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i241, %.preheader.i.i.i.i.i245 ]
-  %670 = getelementptr inbounds i16, ptr %623, i64 %.115.i.i.i.i.i253
+  %670 = getelementptr inbounds [2 x i8], ptr %623, i64 %.115.i.i.i.i.i253
   %671 = load i16, ptr %670, align 2, !tbaa !360, !noalias !367
   %.not.i.i.i.i.i.i.i.i254 = icmp eq i16 %671, 0
   br i1 %.not.i.i.i.i.i.i.i.i254, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i, label %672
@@ -9298,7 +9298,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7co
   br i1 %705, label %706, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
 
 706:                                              ; preds = %.lr.ph.i.i.i.i.i272
-  %707 = getelementptr inbounds i16, ptr %623, i64 %.49.i.i.i.i.i275
+  %707 = getelementptr inbounds [2 x i8], ptr %623, i64 %.49.i.i.i.i.i275
   %708 = load i16, ptr %707, align 2, !tbaa !360, !noalias !367
   %.not.i.i.i32.i.i.i.i.i279 = icmp eq i16 %708, 0
   br i1 %.not.i.i.i32.i.i.i.i.i279, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i, label %709
@@ -9390,7 +9390,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_10UInt16TypeEE
   %751 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i287, i64 32
   %752 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i287, i64 56
   %753 = load ptr, ptr %752, align 8, !tbaa !319, !noalias !376
-  %754 = getelementptr inbounds i32, ptr %753, i64 %750
+  %754 = getelementptr inbounds [4 x i8], ptr %753, i64 %750
   %755 = load ptr, ptr %751, align 8, !tbaa !319, !noalias !376
   %756 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i287, i64 8
   %757 = load i64, ptr %756, align 8, !tbaa !322, !noalias !376
@@ -9504,7 +9504,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i317: ; preds = %78
   %.2.i303 = phi i64 [ %.3.i307, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i292, %.preheader.i.i.i.i.i297 ]
   %.02316.i.i.i.i.i304 = phi i64 [ %822, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i297 ]
   %.115.i.i.i.i.i305 = phi i64 [ %823, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i293, %.preheader.i.i.i.i.i297 ]
-  %801 = getelementptr inbounds i32, ptr %754, i64 %.115.i.i.i.i.i305
+  %801 = getelementptr inbounds [4 x i8], ptr %754, i64 %.115.i.i.i.i.i305
   %802 = load i32, ptr %801, align 4, !tbaa !91, !noalias !376
   %.not.i.i.i.i.i.i.i.i306 = icmp eq i32 %802, 0
   br i1 %.not.i.i.i.i.i.i.i.i306, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i, label %803
@@ -9573,7 +9573,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7comp
   br i1 %836, label %837, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
 
 837:                                              ; preds = %.lr.ph.i.i.i.i.i324
-  %838 = getelementptr inbounds i32, ptr %754, i64 %.49.i.i.i.i.i327
+  %838 = getelementptr inbounds [4 x i8], ptr %754, i64 %.49.i.i.i.i.i327
   %839 = load i32, ptr %838, align 4, !tbaa !91, !noalias !376
   %.not.i.i.i32.i.i.i.i.i331 = icmp eq i32 %839, 0
   br i1 %.not.i.i.i32.i.i.i.i.i331, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i, label %840
@@ -9665,7 +9665,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9Int32TypeEEEN
   %882 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i339, i64 32
   %883 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i339, i64 56
   %884 = load ptr, ptr %883, align 8, !tbaa !319, !noalias !385
-  %885 = getelementptr inbounds i32, ptr %884, i64 %881
+  %885 = getelementptr inbounds [4 x i8], ptr %884, i64 %881
   %886 = load ptr, ptr %882, align 8, !tbaa !319, !noalias !385
   %887 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i339, i64 8
   %888 = load i64, ptr %887, align 8, !tbaa !322, !noalias !385
@@ -9779,7 +9779,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i369: ; preds = %91
   %.2.i355 = phi i64 [ %.3.i359, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i344, %.preheader.i.i.i.i.i349 ]
   %.02316.i.i.i.i.i356 = phi i64 [ %953, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i349 ]
   %.115.i.i.i.i.i357 = phi i64 [ %954, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i345, %.preheader.i.i.i.i.i349 ]
-  %932 = getelementptr inbounds i32, ptr %885, i64 %.115.i.i.i.i.i357
+  %932 = getelementptr inbounds [4 x i8], ptr %885, i64 %.115.i.i.i.i.i357
   %933 = load i32, ptr %932, align 4, !tbaa !91, !noalias !385
   %.not.i.i.i.i.i.i.i.i358 = icmp eq i32 %933, 0
   br i1 %.not.i.i.i.i.i.i.i.i358, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i, label %934
@@ -9848,7 +9848,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7co
   br i1 %967, label %968, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
 
 968:                                              ; preds = %.lr.ph.i.i.i.i.i376
-  %969 = getelementptr inbounds i32, ptr %885, i64 %.49.i.i.i.i.i379
+  %969 = getelementptr inbounds [4 x i8], ptr %885, i64 %.49.i.i.i.i.i379
   %970 = load i32, ptr %969, align 4, !tbaa !91, !noalias !385
   %.not.i.i.i32.i.i.i.i.i383 = icmp eq i32 %970, 0
   br i1 %.not.i.i.i32.i.i.i.i.i383, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i, label %971
@@ -9940,7 +9940,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_10UInt32TypeEE
   %1013 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i391, i64 32
   %1014 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i391, i64 56
   %1015 = load ptr, ptr %1014, align 8, !tbaa !319, !noalias !394
-  %1016 = getelementptr inbounds i64, ptr %1015, i64 %1012
+  %1016 = getelementptr inbounds [8 x i8], ptr %1015, i64 %1012
   %1017 = load ptr, ptr %1013, align 8, !tbaa !319, !noalias !394
   %1018 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i391, i64 8
   %1019 = load i64, ptr %1018, align 8, !tbaa !322, !noalias !394
@@ -10054,7 +10054,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i421: ; preds = %10
   %.2.i407 = phi i64 [ %.3.i411, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i396, %.preheader.i.i.i.i.i401 ]
   %.02316.i.i.i.i.i408 = phi i64 [ %1084, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i401 ]
   %.115.i.i.i.i.i409 = phi i64 [ %1085, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i397, %.preheader.i.i.i.i.i401 ]
-  %1063 = getelementptr inbounds i64, ptr %1016, i64 %.115.i.i.i.i.i409
+  %1063 = getelementptr inbounds [8 x i8], ptr %1016, i64 %.115.i.i.i.i.i409
   %1064 = load i64, ptr %1063, align 8, !tbaa !36, !noalias !394
   %.not.i.i.i.i.i.i.i.i410 = icmp eq i64 %1064, 0
   br i1 %.not.i.i.i.i.i.i.i.i410, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i, label %1065
@@ -10123,7 +10123,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7comp
   br i1 %1098, label %1099, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
 
 1099:                                             ; preds = %.lr.ph.i.i.i.i.i428
-  %1100 = getelementptr inbounds i64, ptr %1016, i64 %.49.i.i.i.i.i431
+  %1100 = getelementptr inbounds [8 x i8], ptr %1016, i64 %.49.i.i.i.i.i431
   %1101 = load i64, ptr %1100, align 8, !tbaa !36, !noalias !394
   %.not.i.i.i32.i.i.i.i.i435 = icmp eq i64 %1101, 0
   br i1 %.not.i.i.i32.i.i.i.i.i435, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i, label %1102
@@ -10215,7 +10215,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9Int64TypeEEEN
   %1144 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i443, i64 32
   %1145 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i443, i64 56
   %1146 = load ptr, ptr %1145, align 8, !tbaa !319, !noalias !403
-  %1147 = getelementptr inbounds i64, ptr %1146, i64 %1143
+  %1147 = getelementptr inbounds [8 x i8], ptr %1146, i64 %1143
   %1148 = load ptr, ptr %1144, align 8, !tbaa !319, !noalias !403
   %1149 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i443, i64 8
   %1150 = load i64, ptr %1149, align 8, !tbaa !322, !noalias !403
@@ -10329,7 +10329,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i473: ; preds = %11
   %.2.i459 = phi i64 [ %.3.i463, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i448, %.preheader.i.i.i.i.i453 ]
   %.02316.i.i.i.i.i460 = phi i64 [ %1215, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i453 ]
   %.115.i.i.i.i.i461 = phi i64 [ %1216, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i449, %.preheader.i.i.i.i.i453 ]
-  %1194 = getelementptr inbounds i64, ptr %1147, i64 %.115.i.i.i.i.i461
+  %1194 = getelementptr inbounds [8 x i8], ptr %1147, i64 %.115.i.i.i.i.i461
   %1195 = load i64, ptr %1194, align 8, !tbaa !36, !noalias !403
   %.not.i.i.i.i.i.i.i.i462 = icmp eq i64 %1195, 0
   br i1 %.not.i.i.i.i.i.i.i.i462, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i, label %1196
@@ -10398,7 +10398,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7co
   br i1 %1229, label %1230, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
 
 1230:                                             ; preds = %.lr.ph.i.i.i.i.i480
-  %1231 = getelementptr inbounds i64, ptr %1147, i64 %.49.i.i.i.i.i483
+  %1231 = getelementptr inbounds [8 x i8], ptr %1147, i64 %.49.i.i.i.i.i483
   %1232 = load i64, ptr %1231, align 8, !tbaa !36, !noalias !403
   %.not.i.i.i32.i.i.i.i.i487 = icmp eq i64 %1232, 0
   br i1 %.not.i.i.i32.i.i.i.i.i487, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i, label %1233
@@ -10490,7 +10490,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_10UInt64TypeEE
   %1275 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i495, i64 32
   %1276 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i495, i64 56
   %1277 = load ptr, ptr %1276, align 8, !tbaa !319, !noalias !412
-  %1278 = getelementptr inbounds i16, ptr %1277, i64 %1274
+  %1278 = getelementptr inbounds [2 x i8], ptr %1277, i64 %1274
   %1279 = load ptr, ptr %1275, align 8, !tbaa !319, !noalias !412
   %1280 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i495, i64 8
   %1281 = load i64, ptr %1280, align 8, !tbaa !322, !noalias !412
@@ -10604,7 +10604,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i525: ; preds = %13
   %.2.i511 = phi i64 [ %.3.i515, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i500, %.preheader.i.i.i.i.i505 ]
   %.02316.i.i.i.i.i512 = phi i64 [ %1346, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i505 ]
   %.115.i.i.i.i.i513 = phi i64 [ %1347, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i501, %.preheader.i.i.i.i.i505 ]
-  %1325 = getelementptr inbounds i16, ptr %1278, i64 %.115.i.i.i.i.i513
+  %1325 = getelementptr inbounds [2 x i8], ptr %1278, i64 %.115.i.i.i.i.i513
   %1326 = load i16, ptr %1325, align 2, !tbaa !360, !noalias !412
   %.not.i.i.i.i.i.i.i.i514 = icmp eq i16 %1326, 0
   br i1 %.not.i.i.i.i.i.i.i.i514, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i, label %1327
@@ -10673,7 +10673,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_
   br i1 %1360, label %1361, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
 
 1361:                                             ; preds = %.lr.ph.i.i.i.i.i532
-  %1362 = getelementptr inbounds i16, ptr %1278, i64 %.49.i.i.i.i.i535
+  %1362 = getelementptr inbounds [2 x i8], ptr %1278, i64 %.49.i.i.i.i.i535
   %1363 = load i16, ptr %1362, align 2, !tbaa !360, !noalias !412
   %.not.i.i.i32.i.i.i.i.i539 = icmp eq i16 %1363, 0
   br i1 %.not.i.i.i32.i.i.i.i.i539, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i, label %1364
@@ -10765,7 +10765,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_13HalfFloatTyp
   %1406 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i547, i64 32
   %1407 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i547, i64 56
   %1408 = load ptr, ptr %1407, align 8, !tbaa !319, !noalias !421
-  %1409 = getelementptr inbounds float, ptr %1408, i64 %1405
+  %1409 = getelementptr inbounds [4 x i8], ptr %1408, i64 %1405
   %1410 = load ptr, ptr %1406, align 8, !tbaa !319, !noalias !421
   %1411 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i547, i64 8
   %1412 = load i64, ptr %1411, align 8, !tbaa !322, !noalias !421
@@ -10879,7 +10879,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i576: ; preds = %14
   %.2.i563 = phi i64 [ %.3.i566, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i552, %.preheader.i.i.i.i.i557 ]
   %.02316.i.i.i.i.i564 = phi i64 [ %1478, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i557 ]
   %.115.i.i.i.i.i565 = phi i64 [ %1479, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i553, %.preheader.i.i.i.i.i557 ]
-  %1456 = getelementptr inbounds float, ptr %1409, i64 %.115.i.i.i.i.i565
+  %1456 = getelementptr inbounds [4 x i8], ptr %1409, i64 %.115.i.i.i.i.i565
   %1457 = load float, ptr %1456, align 4, !tbaa !424, !noalias !421
   %1458 = fcmp une float %1457, 0.000000e+00
   br i1 %1458, label %1459, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -10948,7 +10948,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br i1 %1492, label %1493, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
 
 1493:                                             ; preds = %.lr.ph.i.i.i.i.i583
-  %1494 = getelementptr inbounds float, ptr %1409, i64 %.49.i.i.i.i.i586
+  %1494 = getelementptr inbounds [4 x i8], ptr %1409, i64 %.49.i.i.i.i.i586
   %1495 = load float, ptr %1494, align 4, !tbaa !424, !noalias !421
   %1496 = fcmp une float %1495, 0.000000e+00
   br i1 %1496, label %1497, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
@@ -11040,7 +11040,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9FloatTypeEEEN
   %1539 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i597, i64 32
   %1540 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i597, i64 56
   %1541 = load ptr, ptr %1540, align 8, !tbaa !319, !noalias !432
-  %1542 = getelementptr inbounds double, ptr %1541, i64 %1538
+  %1542 = getelementptr inbounds [8 x i8], ptr %1541, i64 %1538
   %1543 = load ptr, ptr %1539, align 8, !tbaa !319, !noalias !432
   %1544 = getelementptr inbounds nuw i8, ptr %.sroa.03.013.i597, i64 8
   %1545 = load i64, ptr %1544, align 8, !tbaa !322, !noalias !432
@@ -11154,7 +11154,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i626: ; preds = %15
   %.2.i613 = phi i64 [ %.3.i616, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.1.i602, %.preheader.i.i.i.i.i607 ]
   %.02316.i.i.i.i.i614 = phi i64 [ %1611, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i607 ]
   %.115.i.i.i.i.i615 = phi i64 [ %1612, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i ], [ %.02419.i.i.i.i.i603, %.preheader.i.i.i.i.i607 ]
-  %1589 = getelementptr inbounds double, ptr %1542, i64 %.115.i.i.i.i.i615
+  %1589 = getelementptr inbounds [8 x i8], ptr %1542, i64 %.115.i.i.i.i.i615
   %1590 = load double, ptr %1589, align 8, !tbaa !435, !noalias !432
   %1591 = fcmp une double %1590, 0.000000e+00
   br i1 %1591, label %1592, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -11223,7 +11223,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br i1 %1625, label %1626, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
 
 1626:                                             ; preds = %.lr.ph.i.i.i.i.i633
-  %1627 = getelementptr inbounds double, ptr %1542, i64 %.49.i.i.i.i.i636
+  %1627 = getelementptr inbounds [8 x i8], ptr %1542, i64 %.49.i.i.i.i.i636
   %1628 = load double, ptr %1627, align 8, !tbaa !435, !noalias !432
   %1629 = fcmp une double %1628, 0.000000e+00
   br i1 %1629, label %1630, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
@@ -15116,7 +15116,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !36
   br label %_ZN5arrow18TypedBufferBuilderImvE12UnsafeAppendElm.exit
 
@@ -15242,7 +15242,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !36
   br label %_ZN5arrow18TypedBufferBuilderImvE12UnsafeAppendElm.exit
 
@@ -15266,8 +15266,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_10UInt64TypeEE16AppendArr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !319
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
-  %12 = getelementptr inbounds i64, ptr %11, i64 %3
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !319
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_10UInt64TypeEE12AppendValuesEPKmlPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -17815,7 +17815,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; pr
 _ZNSt12_Vector_baseIN5arrow9ArraySpanESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %55
   store ptr %20, ptr %0, align 8, !tbaa !184
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !196
-  %59 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %16
   store ptr %59, ptr %54, align 8, !tbaa !187
   ret void
 }
@@ -23524,7 +23524,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !215
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !212
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.350", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !782
   ret void
 }
@@ -25012,7 +25012,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !825
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !819
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.371", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !822
   ret void
 }

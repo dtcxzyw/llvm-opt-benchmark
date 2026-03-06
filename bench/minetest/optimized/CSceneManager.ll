@@ -15,14 +15,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"struct.irr::scene::SViewFrustum" = type { %"class.irr::core::vector3d", [6 x %"class.irr::core::plane3d"], %"class.irr::core::aabbox3d", [2 x %"class.irr::core::CMatrix4"], float, float, %"class.irr::core::vector3d" }
 %"class.irr::core::plane3d" = type { %"class.irr::core::vector3d", float }
-%"struct.irr::scene::CSceneManager::DefaultNodeEntry" = type { ptr, ptr }
-%"struct.irr::scene::CSceneManager::TransparentNodeEntry" = type { ptr, double }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
 %"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
+%"struct.irr::scene::CSceneManager::DefaultNodeEntry" = type { ptr, ptr }
+%"struct.irr::scene::CSceneManager::TransparentNodeEntry" = type { ptr, double }
 
 $_ZN3irr5scene10ISceneNode9removeAllEv = comdat any
 
@@ -430,7 +430,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %MeshLoaderList, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !87
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !86
   br label %_ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit
 
@@ -494,7 +494,7 @@ if.then.i39.i.i.i.i97:                            ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i98: ; preds = %if.then.i39.i.i.i.i97, %_ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i93
   store ptr %call5.i.i.i.i.i.i.i88, ptr %MeshLoaderList, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i.i.i95, ptr %_M_finish.i.i.i, align 8, !tbaa !87
-  %add.ptr19.i.i.i.i99 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i88, i64 %cond.i.i.i.i.i84
+  %add.ptr19.i.i.i.i99 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i88, i64 %cond.i.i.i.i.i84
   store ptr %add.ptr19.i.i.i.i99, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !86
   br label %_ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit102
 
@@ -558,7 +558,7 @@ if.then.i39.i.i.i.i132:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i133: ; preds = %if.then.i39.i.i.i.i132, %_ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i128
   store ptr %call5.i.i.i.i.i.i.i123, ptr %MeshLoaderList, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i.i.i130, ptr %_M_finish.i.i.i, align 8, !tbaa !87
-  %add.ptr19.i.i.i.i134 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i123, i64 %cond.i.i.i.i.i119
+  %add.ptr19.i.i.i.i134 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i123, i64 %cond.i.i.i.i.i119
   store ptr %add.ptr19.i.i.i.i134, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !86
   br label %_ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit137
 
@@ -825,7 +825,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %MeshLoaderList, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !87
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !86
   br label %_ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit
 
@@ -889,7 +889,7 @@ if.then.i39.i.i.i.i92:                            ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i93: ; preds = %if.then.i39.i.i.i.i92, %_ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i88
   store ptr %call5.i.i.i.i.i.i.i83, ptr %MeshLoaderList, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i.i.i90, ptr %_M_finish.i.i.i, align 8, !tbaa !87
-  %add.ptr19.i.i.i.i94 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i83, i64 %cond.i.i.i.i.i79
+  %add.ptr19.i.i.i.i94 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i83, i64 %cond.i.i.i.i.i79
   store ptr %add.ptr19.i.i.i.i94, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !86
   br label %_ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit97
 
@@ -953,7 +953,7 @@ if.then.i39.i.i.i.i127:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i128: ; preds = %if.then.i39.i.i.i.i127, %_ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i123
   store ptr %call5.i.i.i.i.i.i.i118, ptr %MeshLoaderList, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i.i.i125, ptr %_M_finish.i.i.i, align 8, !tbaa !87
-  %add.ptr19.i.i.i.i129 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i118, i64 %cond.i.i.i.i.i114
+  %add.ptr19.i.i.i.i129 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i118, i64 %cond.i.i.i.i.i114
   store ptr %add.ptr19.i.i.i.i129, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !86
   br label %_ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit132
 
@@ -1010,14 +1010,14 @@ _ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE5clearEv.exit.i: ; preds = %if.then.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ 0, %for.cond.preheader.i ]
   %8 = phi ptr [ %.pr.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ %5, %for.cond.preheader.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %9 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %vtable.i = load ptr, ptr %9, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 160
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(222) %9) #23
   %11 = load ptr, ptr %DeletionList.i, align 8, !tbaa !92
-  %add.ptr.i.i16.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %add.ptr.i.i16.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %12 = load ptr, ptr %add.ptr.i.i16.i, align 8, !tbaa !85
   %vtable8.i = load ptr, ptr %12, align 8, !tbaa !3
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable8.i, i64 -24
@@ -1129,7 +1129,7 @@ for.body:                                         ; preds = %if.end22, %_ZNK3irr
   %28 = phi ptr [ %33, %_ZNK3irr17IReferenceCounted4dropEv.exit96 ], [ %26, %if.end22 ]
   %29 = phi ptr [ %34, %_ZNK3irr17IReferenceCounted4dropEv.exit96 ], [ %25, %if.end22 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit96 ], [ 0, %if.end22 ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !85
   %vtable26 = load ptr, ptr %30, align 8, !tbaa !3
   %vbase.offset.ptr27 = getelementptr i8, ptr %vtable26, i64 -24
@@ -1429,14 +1429,14 @@ _ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE5clearEv.exit: ; preds = %if.then.i.i
 for.body:                                         ; preds = %for.cond.preheader, %_ZNK3irr17IReferenceCounted4dropEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %for.cond.preheader ]
   %3 = phi ptr [ %.pr, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %0, %for.cond.preheader ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !85
   %vtable = load ptr, ptr %4, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(222) %4) #23
   %6 = load ptr, ptr %DeletionList, align 8, !tbaa !92
-  %add.ptr.i.i16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %add.ptr.i.i16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %add.ptr.i.i16, align 8, !tbaa !85
   %vtable8 = load ptr, ptr %7, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable8, i64 -24
@@ -1612,7 +1612,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %MeshLoaderList, align 8, !tbaa !88
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.next
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv.next
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !85
   %vtable = load ptr, ptr %4, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -1626,7 +1626,7 @@ if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #23
   %7 = load ptr, ptr %MeshLoaderList, align 8, !tbaa !88
-  %add.ptr.i.i36 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next
+  %add.ptr.i.i36 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv.next
   %8 = load ptr, ptr %add.ptr.i.i36, align 8, !tbaa !85
   %vtable10 = load ptr, ptr %8, align 8, !tbaa !3
   %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 24
@@ -3169,7 +3169,7 @@ _ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit290: ; preds = %
 
 for.cond69.preheader:                             ; preds = %for.inc83, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit290
   %indvars.iv = phi i64 [ 0, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit290 ], [ %indvars.iv.next, %for.inc83 ]
-  %arrayidx = getelementptr inbounds nuw %"class.irr::core::plane3d", ptr %arrayctor.cur.ptr.i, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %arrayctor.cur.ptr.i, i64 %indvars.iv
   %461 = load float, ptr %arrayidx, align 4, !tbaa !116
   %Y.i.i150 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %462 = load float, ptr %Y.i.i150, align 8, !tbaa !117
@@ -3283,7 +3283,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !85
   %cmp4 = icmp eq ptr %4, %node
   br i1 %cmp4, label %sw.epilog, label %for.cond
@@ -3341,7 +3341,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %CameraList, align 8, !tbaa !92
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !93
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !146
   br label %sw.epilog.sink.split
 
@@ -3405,7 +3405,7 @@ if.then.i39.i.i.i107:                             ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i108: ; preds = %if.then.i39.i.i.i107, %_ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i103
   store ptr %call5.i.i.i.i.i.i98, ptr %SkyBoxList, align 8, !tbaa !92
   store ptr %incdec.ptr.i.i.i105, ptr %_M_finish.i.i78, align 8, !tbaa !93
-  %add.ptr19.i.i.i109 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i98, i64 %cond.i.i.i.i94
+  %add.ptr19.i.i.i109 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i98, i64 %cond.i.i.i.i94
   store ptr %add.ptr19.i.i.i109, ptr %_M_end_of_storage.i.i79, align 8, !tbaa !146
   br label %sw.epilog.sink.split
 
@@ -3503,7 +3503,7 @@ if.then.i41.i.i.i.i:                              ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene13CSceneManager16DefaultNodeEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i41.i.i.i.i, %_ZNSt6vectorIN3irr5scene13CSceneManager16DefaultNodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %SolidNodeList, align 8, !tbaa !99
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !152
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !151
   br label %sw.epilog.sink.split
 
@@ -3606,7 +3606,7 @@ if.then.i41.i.i.i.i151:                           ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i41.i.i.i.i151, %_ZNSt6vectorIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i138, ptr %TransparentNodeList, align 8, !tbaa !98
   store ptr %incdec.ptr.i.i.i.i149, ptr %_M_finish.i.i.i119, align 8, !tbaa !162
-  %add.ptr19.i.i.i.i152 = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %call5.i.i.i.i.i.i.i138, i64 %cond.i.i.i.i.i134
+  %add.ptr19.i.i.i.i152 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i138, i64 %cond.i.i.i.i.i134
   store ptr %add.ptr19.i.i.i.i152, ptr %_M_end_of_storage.i.i.i120, align 8, !tbaa !159
   br label %sw.epilog.sink.split
 
@@ -3709,7 +3709,7 @@ if.then.i41.i.i.i.i203:                           ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i204: ; preds = %if.then.i41.i.i.i.i203, %_ZNSt6vectorIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i199
   store ptr %call5.i.i.i.i.i.i.i188, ptr %TransparentEffectNodeList, align 8, !tbaa !98
   store ptr %incdec.ptr.i.i.i.i201, ptr %_M_finish.i.i.i168, align 8, !tbaa !162
-  %add.ptr19.i.i.i.i205 = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %call5.i.i.i.i.i.i.i188, i64 %cond.i.i.i.i.i184
+  %add.ptr19.i.i.i.i205 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i188, i64 %cond.i.i.i.i.i184
   store ptr %add.ptr19.i.i.i.i205, ptr %_M_end_of_storage.i.i.i169, align 8, !tbaa !159
   br label %sw.epilog.sink.split
 
@@ -3842,7 +3842,7 @@ if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i
   store ptr %call5.i.i.i.i.i.i241, ptr %TransparentNodeList49, align 8, !tbaa !98
   store ptr %incdec.ptr.i.i.i244, ptr %_M_finish.i.i222, align 8, !tbaa !162
-  %add.ptr19.i.i.i246 = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %call5.i.i.i.i.i.i241, i64 %cond.i.i.i.i237
+  %add.ptr19.i.i.i246 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i241, i64 %cond.i.i.i.i237
   store ptr %add.ptr19.i.i.i246, ptr %_M_end_of_storage.i.i223, align 8, !tbaa !159
   br label %sw.epilog.sink.split
 
@@ -3933,7 +3933,7 @@ if.then.i41.i.i.i.i293:                           ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene13CSceneManager16DefaultNodeEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i294: ; preds = %if.then.i41.i.i.i.i293, %_ZNSt6vectorIN3irr5scene13CSceneManager16DefaultNodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i289
   store ptr %call5.i.i.i.i.i.i.i278, ptr %SolidNodeList58, align 8, !tbaa !99
   store ptr %incdec.ptr.i.i.i.i291, ptr %_M_finish.i.i.i258, align 8, !tbaa !152
-  %add.ptr19.i.i.i.i295 = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %call5.i.i.i.i.i.i.i278, i64 %cond.i.i.i.i.i274
+  %add.ptr19.i.i.i.i295 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i278, i64 %cond.i.i.i.i.i274
   store ptr %add.ptr19.i.i.i.i295, ptr %_M_end_of_storage.i.i.i259, align 8, !tbaa !151
   br label %sw.epilog.sink.split
 
@@ -4004,7 +4004,7 @@ if.then.i39.i.i.i327:                             ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i328: ; preds = %if.then.i39.i.i.i327, %_ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i323
   store ptr %call5.i.i.i.i.i.i318, ptr %GuiNodeList, align 8, !tbaa !92
   store ptr %incdec.ptr.i.i.i325, ptr %_M_finish.i.i298, align 8, !tbaa !93
-  %add.ptr19.i.i.i329 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i318, i64 %cond.i.i.i.i314
+  %add.ptr19.i.i.i329 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i318, i64 %cond.i.i.i.i314
   store ptr %add.ptr19.i.i.i329, ptr %_M_end_of_storage.i.i299, align 8, !tbaa !146
   br label %sw.epilog.sink.split
 
@@ -4335,7 +4335,7 @@ if.end35:                                         ; preds = %if.then25, %_ZN3irr
 for.body52:                                       ; preds = %if.end35, %for.body52
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body52 ], [ 0, %if.end35 ]
   %39 = phi ptr [ %43, %for.body52 ], [ %37, %if.end35 ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %40 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !85
   %vtable55 = load ptr, ptr %40, align 8, !tbaa !3
   %vfn56 = getelementptr inbounds nuw i8, ptr %vtable55, i64 32
@@ -4397,7 +4397,7 @@ _ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE8set_usedEj.exit: ; preds = %if.then.
 for.body79:                                       ; preds = %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE8set_usedEj.exit, %for.body79
   %indvars.iv388 = phi i64 [ %indvars.iv.next389, %for.body79 ], [ 0, %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE8set_usedEj.exit ]
   %54 = phi ptr [ %58, %for.body79 ], [ %52, %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE8set_usedEj.exit ]
-  %add.ptr.i.i239 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv388
+  %add.ptr.i.i239 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv388
   %55 = load ptr, ptr %add.ptr.i.i239, align 8, !tbaa !85
   %vtable82 = load ptr, ptr %55, align 8, !tbaa !3
   %vfn83 = getelementptr inbounds nuw i8, ptr %vtable82, i64 32
@@ -4490,7 +4490,7 @@ _ZN3irr4core5arrayINS_5scene13CSceneManager16DefaultNodeEntryEE4sortEv.exit: ; p
 for.body108:                                      ; preds = %_ZN3irr4core5arrayINS_5scene13CSceneManager16DefaultNodeEntryEE4sortEv.exit, %for.body108
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %for.body108 ], [ 0, %_ZN3irr4core5arrayINS_5scene13CSceneManager16DefaultNodeEntryEE4sortEv.exit ]
   %72 = phi ptr [ %76, %for.body108 ], [ %69, %_ZN3irr4core5arrayINS_5scene13CSceneManager16DefaultNodeEntryEE4sortEv.exit ]
-  %add.ptr.i.i259 = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %72, i64 %indvars.iv391
+  %add.ptr.i.i259 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %indvars.iv391
   %73 = load ptr, ptr %add.ptr.i.i259, align 8, !tbaa !208
   %vtable111 = load ptr, ptr %73, align 8, !tbaa !3
   %vfn112 = getelementptr inbounds nuw i8, ptr %vtable111, i64 32
@@ -4574,7 +4574,7 @@ _ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit:
 for.body137:                                      ; preds = %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit, %for.body137
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %for.body137 ], [ 0, %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit ]
   %90 = phi ptr [ %94, %for.body137 ], [ %87, %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit ]
-  %add.ptr.i.i279 = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %90, i64 %indvars.iv394
+  %add.ptr.i.i279 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %indvars.iv394
   %91 = load ptr, ptr %add.ptr.i.i279, align 8, !tbaa !211
   %vtable141 = load ptr, ptr %91, align 8, !tbaa !3
   %vfn142 = getelementptr inbounds nuw i8, ptr %vtable141, i64 32
@@ -4658,7 +4658,7 @@ _ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit2
 for.body167:                                      ; preds = %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit293, %for.body167
   %indvars.iv397 = phi i64 [ %indvars.iv.next398, %for.body167 ], [ 0, %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit293 ]
   %108 = phi ptr [ %112, %for.body167 ], [ %105, %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit293 ]
-  %add.ptr.i.i301 = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %108, i64 %indvars.iv397
+  %add.ptr.i.i301 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %indvars.iv397
   %109 = load ptr, ptr %add.ptr.i.i301, align 8, !tbaa !211
   %vtable171 = load ptr, ptr %109, align 8, !tbaa !3
   %vfn172 = getelementptr inbounds nuw i8, ptr %vtable171, i64 32
@@ -4711,7 +4711,7 @@ for.end175:                                       ; preds = %for.body167, %_ZN3i
 for.body196:                                      ; preds = %for.end175, %for.body196
   %indvars.iv400 = phi i64 [ %indvars.iv.next401, %for.body196 ], [ 0, %for.end175 ]
   %123 = phi ptr [ %127, %for.body196 ], [ %121, %for.end175 ]
-  %add.ptr.i.i309 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv400
+  %add.ptr.i.i309 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv400
   %124 = load ptr, ptr %add.ptr.i.i309, align 8, !tbaa !85
   %vtable199 = load ptr, ptr %124, align 8, !tbaa !3
   %vfn200 = getelementptr inbounds nuw i8, ptr %vtable199, i64 32
@@ -4772,14 +4772,14 @@ _ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE5clearEv.exit.i: ; preds = %if.then.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ 0, %for.cond.preheader.i ]
   %132 = phi ptr [ %.pr.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ %129, %for.cond.preheader.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv.i
   %133 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %vtable.i = load ptr, ptr %133, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 160
   %134 = load ptr, ptr %vfn.i, align 8
   call void %134(ptr noundef nonnull align 8 dereferenceable(222) %133) #23
   %135 = load ptr, ptr %DeletionList.i, align 8, !tbaa !92
-  %add.ptr.i.i16.i = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i
+  %add.ptr.i.i16.i = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv.i
   %136 = load ptr, ptr %add.ptr.i.i16.i, align 8, !tbaa !85
   %vtable8.i = load ptr, ptr %136, align 8, !tbaa !3
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable8.i, i64 -24
@@ -4896,7 +4896,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5scene11IMeshLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %MeshLoaderList, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !87
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !86
   br label %_ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backERKS4_.exit
 
@@ -4941,7 +4941,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i5
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !85
   br label %return
 
@@ -5044,7 +5044,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %DeletionList, align 8, !tbaa !92
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !93
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !146
   br label %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE9push_backERKS4_.exit
 
@@ -5354,7 +5354,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5scene10ISceneNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %outNodes, align 8, !tbaa !92
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !93
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !146
   br label %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE9push_backERKS4_.exit
 
@@ -6088,9 +6088,9 @@ if.then.i65.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 
 _ZNSt12_Vector_baseIN3irr4core8vector3dIfEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %if.then.i65.i.i, %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %edges, align 8, !tbaa !228
-  %add.ptr34.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %add.ptr.i.i, i64 %sub.i
+  %add.ptr34.i.i = getelementptr inbounds nuw [12 x i8], ptr %add.ptr.i.i, i64 %sub.i
   store ptr %add.ptr34.i.i, ptr %_M_finish.i.i, align 8, !tbaa !226
-  %add.ptr37.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i, i64 %add.i.i.i
+  %add.ptr37.i.i = getelementptr inbounds nuw [12 x i8], ptr %call5.i.i.i.i.i, i64 %add.i.i.i
   store ptr %add.ptr37.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !229
   br label %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit
 
@@ -9880,13 +9880,13 @@ if.then:                                          ; preds = %while.body, %while.
   %0 = and i64 %sub.ptr.sub.i.i.fr.i48.lcssa, 16
   %cmp16.i.i.i = icmp eq i64 %0, 0
   %sub24.i.i.i = or disjoint i64 %sub.i.i, 1
-  %add.ptr.i57.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i
-  %add.ptr.i58.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %div2526.i.i
+  %add.ptr.i57.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub24.i.i.i
+  %add.ptr.i58.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %div2526.i.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, %if.then
   %__parent.0.i.i = phi i64 [ %div2526.i.i, %if.then ], [ %dec.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.0.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__parent.0.i.i
   %__value.sroa.0.0.copyload.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %__value.sroa.4.0.copyload.i.i = load ptr, ptr %__value.sroa.4.0.call5.sroa_idx.i.i, align 8, !tbaa !85
@@ -9898,16 +9898,16 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i, %wh
   %add.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub3.i.i.i = or disjoint i64 %add.i.i.i, 1
-  %TextureValue.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i
+  %TextureValue.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %mul.i.i.i
   %TextureValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue.i.i.i.i.i.split, i64 8
   %1 = load ptr, ptr %TextureValue.i.i.i.i.i, align 8, !tbaa !242
-  %TextureValue2.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i
+  %TextureValue2.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub3.i.i.i
   %TextureValue2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue2.i.i.i.i.i.split, i64 8
   %2 = load ptr, ptr %TextureValue2.i.i.i.i.i, align 8, !tbaa !242
   %cmp.i.i.i.i.i = icmp ult ptr %1, %2
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub3.i.i.i, i64 %mul.i.i.i
-  %add.ptr.i55.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i
-  %add.ptr.i56.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i
+  %add.ptr.i55.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i
+  %add.ptr.i56.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.i34 = icmp slt i64 %spec.select.i.i.i, %div.i2728.i.i
   br i1 %cmp.i.i.i34, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !243
@@ -9931,21 +9931,21 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end33.i.i.i, %wh
   %__holeIndex.addr.032.i.i.i.i = phi i64 [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ], [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ]
   %__parent.033.in.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i, -1
   %__parent.033.i.i.i.i = sdiv i64 %__parent.033.in.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__parent.033.i.i.i.i
   %TextureValue.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %TextureValue.i.i.i.i.i.i30, align 8, !tbaa !242
   %cmp.i.i.i.i.i.i31 = icmp ult ptr %3, %__value.sroa.4.0.copyload.i.i
   br i1 %cmp.i.i.i.i.i.i31, label %while.body.i.i.i.i32, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i
 
 while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
-  %add.ptr.i24.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i
+  %add.ptr.i24.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.i.i33 = icmp sgt i64 %__parent.033.i.i.i.i, %__parent.0.i.i
   br i1 %cmp.i.i.i.i33, label %land.rhs.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, !llvm.loop !244
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i: ; preds = %while.body.i.i.i.i32, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i29 = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i, %land.rhs.i.i.i.i ], [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ]
-  %add.ptr.i25.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
+  %add.ptr.i25.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
   store ptr %__value.sroa.0.0.copyload.i.i, ptr %add.ptr.i25.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i, i64 8
   store ptr %__value.sroa.4.0.copyload.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !85
@@ -9977,16 +9977,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %add.i.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %TextureValue.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i.i
+  %TextureValue.i.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %mul.i.i.i.i
   %TextureValue.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue.i.i.i.i.i.i.split, i64 8
   %4 = load ptr, ptr %TextureValue.i.i.i.i.i.i, align 8, !tbaa !242
-  %TextureValue2.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i.i
+  %TextureValue2.i.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub3.i.i.i.i
   %TextureValue2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue2.i.i.i.i.i.i.split, i64 8
   %5 = load ptr, ptr %TextureValue2.i.i.i.i.i.i, align 8, !tbaa !242
   %cmp.i.i.i.i.i.i = icmp ult ptr %4, %5
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i.i
-  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
+  %add.ptr.i55.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i56.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !243
@@ -10006,8 +10006,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
 if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i57.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i.i
-  %add.ptr.i58.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr.i57.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i58.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i58.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i57.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   br label %if.end33.i.i.i.i
 
@@ -10020,21 +10020,21 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.032.i.i.i.i.i = phi i64 [ %__parent.033.i.i1112.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.033.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i.i, -1
   %__parent.033.i.i1112.i.i.i = lshr i64 %__parent.033.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i1112.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %__parent.033.i.i1112.i.i.i
   %TextureValue.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %TextureValue.i.i.i.i.i.i.i, align 8, !tbaa !242
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %7, %__value.sroa.4.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i.i
+  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.033.in.i.i.i.i.i, 2
   br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !244
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i.i, i64 8
   store ptr %__value.sroa.4.0.copyload.i.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !85
@@ -10047,7 +10047,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %sub.ptr.div.i4960 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i44, %while.body.lr.ph ]
   %dec = add nsw i64 %__depth_limit.addr.04761, -1
   %div.i3536 = lshr i64 %sub.ptr.div.i4960, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %div.i3536
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %div.i3536
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge4662, i64 -16
   %8 = load ptr, ptr %TextureValue.i.i.i.i, align 8, !tbaa !242
   %TextureValue2.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
@@ -10296,7 +10296,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16
   %sub.ptr.sub.i.i.i.i.i.i64 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i63, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i65 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i64, 4
   %.pre.i.i.i.i.i.i66 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i65
-  %add.ptr.i.i.i.i.i.i67 = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %add.ptr.i29.i62, i64 %.pre.i.i.i.i.i.i66
+  %add.ptr.i.i.i.i.i.i67 = getelementptr inbounds [16 x i8], ptr %add.ptr.i29.i62, i64 %.pre.i.i.i.i.i.i66
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__val.i33, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %__val.i33)
@@ -10408,9 +10408,9 @@ if.then.i60.i:                                    ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5scene13CSceneManager16DefaultNodeEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i60.i, %_ZNSt6vectorIN3irr5scene13CSceneManager16DefaultNodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !99
-  %add.ptr34.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw [16 x i8], ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8, !tbaa !152
-  %add.ptr37.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %call5.i.i.i.i, i64 %4
+  %add.ptr37.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !151
   br label %if.end6
 
@@ -10419,7 +10419,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %add.ptr = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %1, i64 %__new_size
+  %add.ptr = getelementptr inbounds [16 x i8], ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
   br i1 %tobool.not.i, label %if.end6, label %if.then.i24
 
@@ -10471,13 +10471,13 @@ if.then:                                          ; preds = %while.body, %while.
   %0 = and i64 %sub.ptr.sub.i.i.fr.i48.lcssa, 16
   %cmp16.i.i.i = icmp eq i64 %0, 0
   %sub24.i.i.i = or disjoint i64 %sub.i.i, 1
-  %add.ptr.i57.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i
-  %add.ptr.i58.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %div2526.i.i
+  %add.ptr.i57.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub24.i.i.i
+  %add.ptr.i58.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %div2526.i.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, %if.then
   %__parent.0.i.i = phi i64 [ %div2526.i.i, %if.then ], [ %dec.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__parent.0.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__parent.0.i.i
   %__value.sroa.0.0.copyload.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %__value.sroa.4.0.copyload.i.i = load double, ptr %__value.sroa.4.0.call5.sroa_idx.i.i, align 8, !tbaa !160
@@ -10489,16 +10489,16 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i, %wh
   %add.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub3.i.i.i = or disjoint i64 %add.i.i.i, 1
-  %Distance.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i
+  %Distance.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %mul.i.i.i
   %Distance.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance.i.i.i.i.i.split, i64 8
   %1 = load double, ptr %Distance.i.i.i.i.i, align 8, !tbaa !258
-  %Distance2.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i
+  %Distance2.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub3.i.i.i
   %Distance2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance2.i.i.i.i.i.split, i64 8
   %2 = load double, ptr %Distance2.i.i.i.i.i, align 8, !tbaa !258
   %cmp.i.i.i.i.i = fcmp ogt double %1, %2
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub3.i.i.i, i64 %mul.i.i.i
-  %add.ptr.i55.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i
-  %add.ptr.i56.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i
+  %add.ptr.i55.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i
+  %add.ptr.i56.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.i34 = icmp slt i64 %spec.select.i.i.i, %div.i2728.i.i
   br i1 %cmp.i.i.i34, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !259
@@ -10522,21 +10522,21 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end33.i.i.i, %wh
   %__holeIndex.addr.032.i.i.i.i = phi i64 [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ], [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ]
   %__parent.033.in.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i, -1
   %__parent.033.i.i.i.i = sdiv i64 %__parent.033.in.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__parent.033.i.i.i.i
   %Distance.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %3 = load double, ptr %Distance.i.i.i.i.i.i30, align 8, !tbaa !258
   %cmp.i.i.i.i.i.i31 = fcmp ogt double %3, %__value.sroa.4.0.copyload.i.i
   br i1 %cmp.i.i.i.i.i.i31, label %while.body.i.i.i.i32, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i
 
 while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
-  %add.ptr.i24.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i
+  %add.ptr.i24.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.i.i33 = icmp sgt i64 %__parent.033.i.i.i.i, %__parent.0.i.i
   br i1 %cmp.i.i.i.i33, label %land.rhs.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, !llvm.loop !260
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i: ; preds = %while.body.i.i.i.i32, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i29 = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i, %land.rhs.i.i.i.i ], [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ]
-  %add.ptr.i25.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
+  %add.ptr.i25.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
   store ptr %__value.sroa.0.0.copyload.i.i, ptr %add.ptr.i25.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i, i64 8
   store double %__value.sroa.4.0.copyload.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !160
@@ -10568,16 +10568,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %add.i.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %Distance.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i.i
+  %Distance.i.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %mul.i.i.i.i
   %Distance.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance.i.i.i.i.i.i.split, i64 8
   %4 = load double, ptr %Distance.i.i.i.i.i.i, align 8, !tbaa !258
-  %Distance2.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i.i
+  %Distance2.i.i.i.i.i.i.split = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub3.i.i.i.i
   %Distance2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance2.i.i.i.i.i.i.split, i64 8
   %5 = load double, ptr %Distance2.i.i.i.i.i.i, align 8, !tbaa !258
   %cmp.i.i.i.i.i.i = fcmp ogt double %4, %5
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i.i
-  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
+  %add.ptr.i55.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i56.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !259
@@ -10597,8 +10597,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
 if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i57.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i.i
-  %add.ptr.i58.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr.i57.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i58.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i58.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i57.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   br label %if.end33.i.i.i.i
 
@@ -10611,21 +10611,21 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.032.i.i.i.i.i = phi i64 [ %__parent.033.i.i1112.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.033.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i.i, -1
   %__parent.033.i.i1112.i.i.i = lshr i64 %__parent.033.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i1112.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %__parent.033.i.i1112.i.i.i
   %Distance.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %7 = load double, ptr %Distance.i.i.i.i.i.i.i, align 8, !tbaa !258
   %cmp.i.i.i.i.i.i.i = fcmp ogt double %7, %__value.sroa.4.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i.i
+  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.033.in.i.i.i.i.i, 2
   br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !260
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds [16 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i.i, i64 8
   store double %__value.sroa.4.0.copyload.i.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !160
@@ -10638,7 +10638,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %sub.ptr.div.i4960 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i44, %while.body.lr.ph ]
   %dec = add nsw i64 %__depth_limit.addr.04761, -1
   %div.i3536 = lshr i64 %sub.ptr.div.i4960, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %div.i3536
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.coerce, i64 %div.i3536
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge4662, i64 -16
   %8 = load double, ptr %Distance.i.i.i.i, align 8, !tbaa !258
   %Distance2.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
@@ -10887,7 +10887,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20
   %sub.ptr.sub.i.i.i.i.i.i64 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i63, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i65 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i64, 4
   %.pre.i.i.i.i.i.i66 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i65
-  %add.ptr.i.i.i.i.i.i67 = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %add.ptr.i29.i62, i64 %.pre.i.i.i.i.i.i66
+  %add.ptr.i.i.i.i.i.i67 = getelementptr inbounds [16 x i8], ptr %add.ptr.i29.i62, i64 %.pre.i.i.i.i.i.i66
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__val.i33, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.end.p0(ptr nonnull %__val.i33)
@@ -10996,9 +10996,9 @@ if.then.i60.i:                                    ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i60.i, %_ZNSt6vectorIN3irr5scene13CSceneManager20TransparentNodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !98
-  %add.ptr34.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw [16 x i8], ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8, !tbaa !162
-  %add.ptr37.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %call5.i.i.i.i, i64 %4
+  %add.ptr37.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !159
   br label %if.end6
 
@@ -11007,7 +11007,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %add.ptr = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %1, i64 %__new_size
+  %add.ptr = getelementptr inbounds [16 x i8], ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
   br i1 %tobool.not.i, label %if.end6, label %if.then.i24
 

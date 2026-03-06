@@ -611,7 +611,7 @@ pop_int.exit176:                                  ; preds = %pop_int.exit165, %p
 200:                                              ; preds = %pop_int.exit176
   %201 = load ptr, ptr %14, align 8, !tbaa !42
   %202 = zext nneg i32 %71 to i64
-  %203 = getelementptr inbounds nuw ptr, ptr %201, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %202
   %204 = load ptr, ptr %203, align 8, !tbaa !43
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8, !tbaa !45
@@ -643,7 +643,7 @@ pop_int.exit176:                                  ; preds = %pop_int.exit165, %p
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %71, ptr %220, align 4, !tbaa !55
   %221 = load ptr, ptr %14, align 8, !tbaa !42
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %202
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %202
   %223 = load ptr, ptr %222, align 8, !tbaa !43
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load ptr, ptr %224, align 8, !tbaa !56
@@ -729,7 +729,7 @@ define internal noundef i32 @moflex_read_close(ptr noundef readonly captures(non
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !42
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @av_packet_free(ptr noundef nonnull %9) #5
@@ -902,7 +902,7 @@ read_var_byte.exit88:                             ; preds = %read_var_byte.exit,
 
 switch.lookup:                                    ; preds = %70
   %75 = zext nneg i32 %72 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.moflex_read_sync, i64 %75
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.moflex_read_sync, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   %76 = tail call i32 @avio_rb24(ptr noundef %5) #5
   %77 = add i32 %76, 1

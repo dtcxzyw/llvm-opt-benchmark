@@ -787,7 +787,7 @@ define hidden i32 @cmsGetTagSignature(ptr noundef readonly captures(none) %0, i3
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   br label %12
 
@@ -812,7 +812,7 @@ define hidden range(i32 -1, -2147483648) i32 @_cmsSearchTag(ptr noundef readonly
 
 .lr.ph.i.us:                                      ; preds = %.split, %12
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %12 ], [ 0, %.split ]
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.us
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.us
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %1, %10
   br i1 %11, label %SearchOneTag.exit.thread.loopexit16.split.loop.exit, label %12
@@ -828,7 +828,7 @@ define hidden range(i32 -1, -2147483648) i32 @_cmsSearchTag(ptr noundef readonly
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %.011, %14
   br i1 %15, label %SearchOneTag.exit, label %16
@@ -840,7 +840,7 @@ define hidden range(i32 -1, -2147483648) i32 @_cmsSearchTag(ptr noundef readonly
 
 SearchOneTag.exit:                                ; preds = %.lr.ph.i
   %17 = and i64 %indvars.iv.i, 4294967295
-  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %17
   %19 = load i32, ptr %18, align 4
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %SearchOneTag.exit.thread.loopexit16.split.loop.exit18, label %.lr.ph.preheader.i, !llvm.loop !9
@@ -869,7 +869,7 @@ define hidden range(i32 0, 2) i32 @cmsIsTag(ptr noundef readonly captures(none) 
 
 .lr.ph.i.us.i:                                    ; preds = %2, %10
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %10 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.us.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.us.i
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %1, %8
   br i1 %9, label %_cmsSearchTag.exit, label %10
@@ -1101,25 +1101,25 @@ validDeviceClass.exit:                            ; preds = %79, %79, %79, %79, 
   %126 = load i32, ptr %2, align 4
   %127 = load i32, ptr %101, align 4
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %104, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %128
   store i32 %126, ptr %129, align 4
-  %130 = getelementptr inbounds nuw i32, ptr %105, i64 %128
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %128
   store i32 %119, ptr %130, align 4
-  %131 = getelementptr inbounds nuw i32, ptr %106, i64 %128
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %128
   store i32 %117, ptr %131, align 4
   %.not108 = icmp eq i32 %127, 0
   br i1 %.not108, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %125, %CompatibleTypes.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %CompatibleTypes.exit.thread ], [ 0, %125 ]
-  %132 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv
   %133 = load i32, ptr %132, align 4
   %134 = load i32, ptr %102, align 4
   %135 = icmp eq i32 %133, %134
   br i1 %135, label %136, label %CompatibleTypes.exit.thread
 
 136:                                              ; preds = %.lr.ph
-  %137 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv
   %138 = load i32, ptr %137, align 4
   %139 = load i32, ptr %103, align 4
   %140 = icmp eq i32 %138, %139
@@ -1127,7 +1127,7 @@ validDeviceClass.exit:                            ; preds = %79, %79, %79, %79, 
 
 141:                                              ; preds = %136
   %142 = load ptr, ptr %107, align 8
-  %143 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv
   %144 = load i32, ptr %143, align 4
   %145 = call ptr @_cmsGetTagDescriptor(ptr noundef %142, i32 noundef %144) #19
   %146 = load ptr, ptr %107, align 8
@@ -1169,9 +1169,9 @@ validDeviceClass.exit:                            ; preds = %79, %79, %79, %79, 
 
 162:                                              ; preds = %161, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %161 ]
-  %163 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %indvars.iv.i
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv.i
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv.i
   %166 = load i32, ptr %165, align 4
   %.not18.i = icmp eq i32 %164, %166
   br i1 %.not18.i, label %161, label %CompatibleTypes.exit.thread
@@ -1180,7 +1180,7 @@ CompatibleTypes.exit:                             ; preds = %161, %.preheader.i
   %167 = load i32, ptr %143, align 4
   %168 = load i32, ptr %101, align 4
   %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds nuw i32, ptr %108, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %169
   store i32 %167, ptr %170, align 4
   br label %CompatibleTypes.exit.thread
 
@@ -1208,7 +1208,7 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %151, %141, %1
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %190
   %indvars.iv116 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next117, %190 ]
-  %179 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv116
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv116
   br label %180
 
 180:                                              ; preds = %.preheader, %189
@@ -1218,7 +1218,7 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %151, %141, %1
 
 181:                                              ; preds = %180
   %182 = load i32, ptr %179, align 4
-  %183 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv113
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv113
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %182, %184
   br i1 %185, label %186, label %189
@@ -1370,7 +1370,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteHeader(ptr noundef %0, i32 noundef %
 83:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %.047 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4
   %.not44 = icmp ne i32 %85, 0
   %86 = zext i1 %.not44 to i32
@@ -1402,7 +1402,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteHeader(ptr noundef %0, i32 noundef %
 95:                                               ; preds = %.lr.ph49, %112
   %96 = phi i32 [ %89, %.lr.ph49 ], [ %113, %112 ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next57, %112 ]
-  %97 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv56
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv56
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %112, label %100
@@ -1410,11 +1410,11 @@ define hidden range(i32 0, 2) i32 @_cmsWriteHeader(ptr noundef %0, i32 noundef %
 100:                                              ; preds = %95
   %101 = call i32 @_cmsAdjustEndianess32(i32 noundef %98) #19
   store i32 %101, ptr %4, align 4
-  %102 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv56
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv56
   %103 = load i32, ptr %102, align 4
   %104 = call i32 @_cmsAdjustEndianess32(i32 noundef %103) #19
   store i32 %104, ptr %92, align 4
-  %105 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv56
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv56
   %106 = load i32, ptr %105, align 4
   %107 = call i32 @_cmsAdjustEndianess32(i32 noundef %106) #19
   store i32 %107, ptr %94, align 4
@@ -1808,13 +1808,13 @@ cmsSaveProfileToFile.exit:                        ; preds = %20, %12, %cmsGetPro
 31:                                               ; preds = %.lr.ph, %freeOneTag.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %freeOneTag.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %32 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %.not.i26 = icmp eq ptr %33, null
   br i1 %.not.i26, label %freeOneTag.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %.not13.i = icmp eq ptr %36, null
   br i1 %.not13.i, label %41, label %37
@@ -2241,14 +2241,14 @@ cmsGetProfileContextID.exit:                      ; preds = %2
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_cmsSearchTag.exit.thread.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_cmsSearchTag.exit.thread.us.i ], [ 0, %.lr.ph.i ]
-  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4
   %.not.us.i = icmp eq i32 %39, 0
   br i1 %.not.us.i, label %_cmsSearchTag.exit.thread.us.i, label %.lr.ph.i.us.i.us.i
 
 .lr.ph.i.us.i.us.i:                               ; preds = %.lr.ph.split.us.i, %43
   %indvars.iv.i.us.i.us.i = phi i64 [ %indvars.iv.next.i.us.i.us.i, %43 ], [ 0, %.lr.ph.split.us.i ]
-  %40 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i.us.i.us.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i.us.i.us.i
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %39, %41
   br i1 %42, label %_cmsSearchTag.exit.us.i, label %43
@@ -2260,13 +2260,13 @@ cmsGetProfileContextID.exit:                      ; preds = %2
 
 _cmsSearchTag.exit.us.i:                          ; preds = %.lr.ph.i.us.i.us.i
   %44 = and i64 %indvars.iv.i.us.i.us.i, 4294967295
-  %45 = getelementptr inbounds nuw i32, ptr %36, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %44
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %44
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %44
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i
   store i32 %49, ptr %50, align 4
   br label %_cmsSearchTag.exit.thread.us.i
 
@@ -2384,22 +2384,22 @@ cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit
 
 39:                                               ; preds = %.lr.ph, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %123, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %46, label %123
 
 46:                                               ; preds = %43
   %47 = load i32, ptr %27, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %.not92 = icmp eq ptr %50, null
   br i1 %.not92, label %51, label %80
@@ -2414,9 +2414,9 @@ cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit
   br i1 %.not94, label %123, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 288
   %60 = load ptr, ptr %59, align 8
@@ -2449,21 +2449,21 @@ cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit
   call void @_cmsFree(ptr noundef %75, ptr noundef nonnull %64) #19
   %76 = load i32, ptr %27, align 8
   %77 = sub i32 %76, %47
-  %78 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store i32 %77, ptr %78, align 4
   %79 = call i32 @_cmsWriteAlignment(ptr noundef nonnull %6) #19
   %.not98 = icmp eq i32 %79, 0
   br i1 %.not98, label %.loopexit, label %123
 
 80:                                               ; preds = %46
-  %81 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4
   %.not99 = icmp eq i32 %82, 0
   br i1 %.not99, label %88, label %83
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %31, align 8
-  %85 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
   %87 = call i32 %84(ptr noundef nonnull %6, i32 noundef %86, ptr noundef nonnull %50) #19
   %.not103 = icmp eq i32 %87, 1
@@ -2530,7 +2530,7 @@ cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit
 118:                                              ; preds = %110, %83
   %119 = load i32, ptr %27, align 8
   %120 = sub i32 %119, %47
-  %121 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store i32 %120, ptr %121, align 4
   %122 = call i32 @_cmsWriteAlignment(ptr noundef nonnull %6) #19
   %.not104 = icmp eq i32 %122, 0
@@ -2722,7 +2722,7 @@ define hidden ptr @cmsReadTag(ptr noundef captures(none) %0, i32 noundef %1) loc
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %.011.i, %21
   br i1 %22, label %SearchOneTag.exit.i, label %23
@@ -2734,7 +2734,7 @@ define hidden ptr @cmsReadTag(ptr noundef captures(none) %0, i32 noundef %1) loc
 
 SearchOneTag.exit.i:                              ; preds = %.lr.ph.i.i
   %24 = and i64 %indvars.iv.i.i, 4294967295
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %24
   %26 = load i32, ptr %25, align 4
   %.not14.i = icmp eq i32 %26, 0
   br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !9
@@ -2747,14 +2747,14 @@ _cmsSearchTag.exit.thread:                        ; preds = %23, %14
 
 _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   %31 = load ptr, ptr %30, align 8
   %.not87 = icmp eq ptr %31, null
   br i1 %.not87, label %59, label %32
 
 32:                                               ; preds = %_cmsSearchTag.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %IsTypeSupported.exit.thread, label %37
@@ -2789,14 +2789,14 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %38, %50
   br i1 %51, label %IsTypeSupported.exit, label %48
 
 IsTypeSupported.exit:                             ; preds = %.lr.ph.i
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %24
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %24
   %54 = load i32, ptr %53, align 4
   %.not91 = icmp eq i32 %54, 0
   br i1 %.not91, label %55, label %IsTypeSupported.exit.thread
@@ -2810,10 +2810,10 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
 
 59:                                               ; preds = %_cmsSearchTag.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %24
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %24
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %24
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %24
   %65 = load i32, ptr %64, align 4
   %66 = icmp ult i32 %65, 8
   br i1 %66, label %IsTypeSupported.exit.thread, label %67
@@ -2871,7 +2871,7 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
 
 .lr.ph.i96:                                       ; preds = %89, %.lr.ph.preheader.i93
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.preheader.i93 ], [ %indvars.iv.next.i98, %89 ]
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.i97
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i97
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %83, %91
   br i1 %92, label %IsTypeSupported.exit101, label %89
@@ -2886,7 +2886,7 @@ IsTypeSupported.exit101:                          ; preds = %.lr.ph.i96
   %97 = add i32 %65, -8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %94, i64 56, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %24
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %24
   store ptr %94, ptr %99, align 8
   %100 = load ptr, ptr %9, align 8
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2937,7 +2937,7 @@ IsTypeSupported.exit.thread:                      ; preds = %48, %89, %85, %44, 
 
 124:                                              ; preds = %IsTypeSupported.exit.thread
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %24
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %24
   %127 = load ptr, ptr %126, align 8
   %.not13.i = icmp eq ptr %127, null
   br i1 %.not13.i, label %136, label %128
@@ -2999,7 +2999,7 @@ define hidden i32 @_cmsGetTagTrueType(ptr noundef readonly captures(none) %0, i3
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %11 ]
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %.011.i, %9
   br i1 %10, label %SearchOneTag.exit.i, label %11
@@ -3011,14 +3011,14 @@ define hidden i32 @_cmsGetTagTrueType(ptr noundef readonly captures(none) %0, i3
 
 SearchOneTag.exit.i:                              ; preds = %.lr.ph.i.i
   %12 = and i64 %indvars.iv.i.i, 4294967295
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not14.i = icmp eq i32 %14, 0
   br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !9
 
 _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   br label %_cmsSearchTag.exit.thread
@@ -3058,7 +3058,7 @@ define hidden range(i32 0, 2) i32 @cmsWriteTag(ptr noundef captures(none) %0, i3
 
 .lr.ph.i.us.i:                                    ; preds = %21, %25
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %25 ], [ 0, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i.us.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i.us.i
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %1, %23
   br i1 %24, label %_cmsSearchTag.exit, label %25
@@ -3072,14 +3072,14 @@ _cmsSearchTag.exit:                               ; preds = %.lr.ph.i.us.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %27 = and i64 %indvars.iv.i.us.i, 4294967295
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %_cmsDeleteTagByPos.exit, label %30
 
 30:                                               ; preds = %_cmsSearchTag.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %27
   %33 = load i32, ptr %32, align 4
   %.not17.i = icmp eq i32 %33, 0
   br i1 %.not17.i, label %36, label %34
@@ -3091,7 +3091,7 @@ _cmsSearchTag.exit:                               ; preds = %.lr.ph.i.us.i
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %27
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %27
   %39 = load ptr, ptr %38, align 8
   %.not18.i = icmp eq ptr %39, null
   br i1 %.not18.i, label %_cmsDeleteTagByPos.exit, label %40
@@ -3113,7 +3113,7 @@ _cmsSearchTag.exit:                               ; preds = %.lr.ph.i.us.i
 
 _cmsDeleteTagByPos.exit:                          ; preds = %_cmsSearchTag.exit, %34, %36, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %48 = getelementptr inbounds nuw i32, ptr %17, i64 %27
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %27
   store i32 0, ptr %48, align 4
   br label %.sink.split
 
@@ -3122,7 +3122,7 @@ _cmsDeleteTagByPos.exit:                          ; preds = %_cmsSearchTag.exit,
 
 .lr.ph.i.us.i.i:                                  ; preds = %49, %53
   %indvars.iv.i.us.i.i = phi i64 [ %indvars.iv.next.i.us.i.i, %53 ], [ 0, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i.us.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i.us.i.i
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %1, %51
   br i1 %52, label %_cmsSearchTag.exit.i, label %53
@@ -3137,14 +3137,14 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %56 = and i64 %indvars.iv.i.us.i.i, 4294967295
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i, label %_cmsDeleteTagByPos.exit.i, label %59
 
 59:                                               ; preds = %_cmsSearchTag.exit.i
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %56
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %56
   %62 = load i32, ptr %61, align 4
   %.not17.i.i = icmp eq i32 %62, 0
   br i1 %.not17.i.i, label %65, label %63
@@ -3156,7 +3156,7 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %56
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %56
   %68 = load ptr, ptr %67, align 8
   %.not18.i.i = icmp eq ptr %68, null
   br i1 %.not18.i.i, label %_cmsDeleteTagByPos.exit.i, label %69
@@ -3198,10 +3198,10 @@ _cmsNewTag.exit:                                  ; preds = %_cmsSearchTag.exit.
   %.072.ph = phi i32 [ %19, %78 ], [ %54, %_cmsDeleteTagByPos.exit.i ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %83 = sext i32 %.072.ph to i64
-  %84 = getelementptr inbounds i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %82, i64 %83
   store i32 0, ptr %84, align 4
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %86 = getelementptr inbounds i32, ptr %85, i64 %83
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %83
   store i32 0, ptr %86, align 4
   %87 = load ptr, ptr %10, align 8
   %88 = call ptr @_cmsGetTagDescriptor(ptr noundef %87, i32 noundef %1) #19
@@ -3287,7 +3287,7 @@ cmsGetProfileVersion.exit:                        ; preds = %92, %BaseToBase.exi
 
 .lr.ph.i:                                         ; preds = %120, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %120 ]
-  %121 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv.i
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %.056, %122
   br i1 %123, label %IsTypeSupported.exit, label %120
@@ -3314,15 +3314,15 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
 
 130:                                              ; preds = %IsTypeSupported.exit
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %83
+  %132 = getelementptr inbounds [8 x i8], ptr %131, i64 %83
   store ptr %126, ptr %132, align 8
-  %133 = getelementptr inbounds i32, ptr %17, i64 %83
+  %133 = getelementptr inbounds [4 x i8], ptr %17, i64 %83
   store i32 %1, ptr %133, align 4
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %135 = getelementptr inbounds i32, ptr %134, i64 %83
+  %135 = getelementptr inbounds [4 x i8], ptr %134, i64 %83
   store i32 0, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %137 = getelementptr inbounds i32, ptr %136, i64 %83
+  %137 = getelementptr inbounds [4 x i8], ptr %136, i64 %83
   store i32 0, ptr %137, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %126, i64 56, i1 false)
   %138 = load ptr, ptr %10, align 8
@@ -3336,7 +3336,7 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
   %144 = load i32, ptr %88, align 8
   %145 = call ptr %143(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %144) #19
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %147 = getelementptr inbounds ptr, ptr %146, i64 %83
+  %147 = getelementptr inbounds [8 x i8], ptr %146, i64 %83
   store ptr %145, ptr %147, align 8
   %148 = icmp eq ptr %145, null
   br i1 %148, label %149, label %.sink.split
@@ -3392,7 +3392,7 @@ define hidden i32 @cmsReadRawTag(ptr noundef captures(none) %0, i32 noundef %1, 
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %.011.i, %21
   br i1 %22, label %SearchOneTag.exit.i, label %23
@@ -3404,26 +3404,26 @@ define hidden i32 @cmsReadRawTag(ptr noundef captures(none) %0, i32 noundef %1, 
 
 SearchOneTag.exit.i:                              ; preds = %.lr.ph.i.i
   %24 = and i64 %indvars.iv.i.i, 4294967295
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %24
   %26 = load i32, ptr %25, align 4
   %.not14.i = icmp eq i32 %26, 0
   br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !9
 
 _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %24
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %55
 
 31:                                               ; preds = %_cmsSearchTag.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %24
   br i1 %6, label %34, label %51
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %24
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %24
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %33, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %3, i32 %38)
@@ -3457,7 +3457,7 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
 
 55:                                               ; preds = %_cmsSearchTag.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %24
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %24
   %58 = load i32, ptr %57, align 4
   %.not102 = icmp eq i32 %58, 0
   br i1 %.not102, label %73, label %59
@@ -3467,7 +3467,7 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %24
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %24
   %63 = load i32, ptr %62, align 4
   %spec.select108 = tail call i32 @llvm.umin.i32(i32 %3, i32 %63)
   %64 = zext i32 %spec.select108 to i64
@@ -3482,7 +3482,7 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %69 = load ptr, ptr %11, align 8
   tail call void @_cmsUnlockMutex(ptr noundef %68, ptr noundef %69) #19
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %24
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %24
   %72 = load i32, ptr %71, align 4
   br label %134
 
@@ -3521,7 +3521,7 @@ cmsGetProfileContextID.exit111:                   ; preds = %82
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %24
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %24
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %9, align 8
   %94 = tail call ptr @_cmsGetTagDescriptor(ptr noundef %93, i32 noundef %1) #19
@@ -3618,7 +3618,7 @@ define hidden range(i32 0, 2) i32 @cmsWriteRawTag(ptr noundef captures(none) %0,
 
 .lr.ph.i.us.i.i:                                  ; preds = %11, %19
   %indvars.iv.i.us.i.i = phi i64 [ %indvars.iv.next.i.us.i.i, %19 ], [ 0, %11 ]
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.us.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.us.i.i
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %1, %17
   br i1 %18, label %_cmsSearchTag.exit.i, label %19
@@ -3633,14 +3633,14 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %22 = and i64 %indvars.iv.i.us.i.i, 4294967295
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_cmsDeleteTagByPos.exit.i, label %25
 
 25:                                               ; preds = %_cmsSearchTag.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %22
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %22
   %28 = load i32, ptr %27, align 4
   %.not17.i.i = icmp eq i32 %28, 0
   br i1 %.not17.i.i, label %31, label %29
@@ -3652,7 +3652,7 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %22
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %22
   %34 = load ptr, ptr %33, align 8
   %.not18.i.i = icmp eq ptr %34, null
   br i1 %.not18.i.i, label %_cmsDeleteTagByPos.exit.i, label %35
@@ -3697,20 +3697,20 @@ _cmsSearchTag.exit.thread.i:                      ; preds = %19, %11
   %.025.ph = phi i32 [ %14, %44 ], [ %20, %_cmsDeleteTagByPos.exit.i ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %52 = sext i32 %.025.ph to i64
-  %53 = getelementptr inbounds i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %51, i64 %52
   store i32 1, ptr %53, align 4
-  %54 = getelementptr inbounds i32, ptr %12, i64 %52
+  %54 = getelementptr inbounds [4 x i8], ptr %12, i64 %52
   store i32 %1, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %56 = getelementptr inbounds i32, ptr %55, i64 %52
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %52
   store i32 0, ptr %56, align 4
   %57 = load ptr, ptr %6, align 8
   %58 = call ptr @_cmsDupMem(ptr noundef %57, ptr noundef %2, i32 noundef %3) #19
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %52
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %52
   store ptr %58, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %62 = getelementptr inbounds i32, ptr %61, i64 %52
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %52
   store i32 %3, ptr %62, align 4
   %63 = load ptr, ptr %6, align 8
   %64 = load ptr, ptr %8, align 8
@@ -3751,7 +3751,7 @@ define hidden range(i32 0, 2) i32 @cmsLinkTag(ptr noundef captures(none) %0, i32
 
 .lr.ph.i.us.i.i:                                  ; preds = %10, %18
   %indvars.iv.i.us.i.i = phi i64 [ %indvars.iv.next.i.us.i.i, %18 ], [ 0, %10 ]
-  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.us.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us.i.i
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %1, %16
   br i1 %17, label %_cmsSearchTag.exit.i, label %18
@@ -3766,14 +3766,14 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %21 = and i64 %indvars.iv.i.us.i.i, 4294967295
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %_cmsDeleteTagByPos.exit.i, label %24
 
 24:                                               ; preds = %_cmsSearchTag.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %21
   %27 = load i32, ptr %26, align 4
   %.not17.i.i = icmp eq i32 %27, 0
   br i1 %.not17.i.i, label %30, label %28
@@ -3785,7 +3785,7 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %21
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %21
   %33 = load ptr, ptr %32, align 8
   %.not18.i.i = icmp eq ptr %33, null
   br i1 %.not18.i.i, label %_cmsDeleteTagByPos.exit.i, label %34
@@ -3830,21 +3830,21 @@ _cmsSearchTag.exit.thread.i:                      ; preds = %18, %10
   %.020.ph = phi i32 [ %13, %43 ], [ %19, %_cmsDeleteTagByPos.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %51 = sext i32 %.020.ph to i64
-  %52 = getelementptr inbounds i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %50, i64 %51
   store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i32, ptr %11, i64 %51
+  %53 = getelementptr inbounds [4 x i8], ptr %11, i64 %51
   store i32 %1, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %55 = getelementptr inbounds i32, ptr %54, i64 %51
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %51
   store i32 %2, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %51
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %51
   store ptr null, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %59 = getelementptr inbounds i32, ptr %58, i64 %51
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %51
   store i32 0, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %61 = getelementptr inbounds i32, ptr %60, i64 %51
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %51
   store i32 0, ptr %61, align 4
   %62 = load ptr, ptr %5, align 8
   %63 = load ptr, ptr %7, align 8
@@ -3867,7 +3867,7 @@ define hidden i32 @cmsTagLinkedTo(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph.i.us.i:                                    ; preds = %2, %10
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %10 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.us.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.us.i
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %1, %8
   br i1 %9, label %_cmsSearchTag.exit, label %10
@@ -3880,7 +3880,7 @@ define hidden i32 @cmsTagLinkedTo(ptr noundef readonly captures(none) %0, i32 no
 _cmsSearchTag.exit:                               ; preds = %.lr.ph.i.us.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %12 = and i64 %indvars.iv.i.us.i, 4294967295
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   br label %_cmsSearchTag.exit.thread
 

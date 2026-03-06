@@ -62,7 +62,6 @@ module asm ".popsection\09\09\09\09\09"
 %union.anon.28 = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.p4d_t = type { i64 }
 
 @__tpstrtab_emulate_vsyscall = internal constant [17 x i8] c"emulate_vsyscall\00", section "__tracepoints_strings", align 16
 @__SCK__tp_func_emulate_vsyscall = dso_local global %struct.static_call_key { ptr @__traceiter_emulate_vsyscall, %union.anon.0 { i64 1 } }, align 8
@@ -779,7 +778,7 @@ define dso_local void @set_vsyscall_pgtable_user_bits(ptr noundef %0) local_unna
   %8 = zext nneg i32 %7 to i64
   %9 = lshr i64 -10485760, %8
   %10 = and i64 %9, 511
-  %11 = getelementptr %struct.pgd_t, ptr %0, i64 %10
+  %11 = getelementptr [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = or i64 %12, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -809,7 +808,7 @@ define dso_local void @set_vsyscall_pgtable_user_bits(ptr noundef %0) local_unna
   %25 = add i32 %24, 33554431
   %26 = and i32 %25, 33554431
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr %struct.p4d_t, ptr %23, i64 %27
+  %28 = getelementptr [8 x i8], ptr %23, i64 %27
   br label %29
 
 29:                                               ; preds = %18, %16

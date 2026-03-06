@@ -34,8 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.66 = type <{ %"class.std::function.0", i32, [4 x i8] }>
 %"class.std::function.0" = type { %"class.std::_Function_base", ptr }
 %class.anon.103 = type { %"class.std::function", i64 }
-%"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.2", i8, [7 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::function.78" = type { %"class.std::_Function_base", ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -77,9 +75,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.(anonymous namespace)::TopVersion" = type { %"struct.(anonymous namespace)::Version" }
 %"struct.(anonymous namespace)::Version" = type { i32, i32 }
 %class.anon.73 = type { %"class.std::function.0", %"class.std::__cxx11::basic_string" }
-%"struct.cmJSONHelperBuilder::Object<cmCTestResourceSpec::Resource>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.78", i8, [7 x i8] }>
 %class.anon.116 = type <{ %"class.std::function.0", %"class.cmJSONHelperBuilder::Object.16", [8 x i8] }>
 %"struct.std::pair.120" = type { %"class.std::basic_string_view", ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
 %"class.Json::ValueConstIterator" = type { %"class.Json::ValueIteratorBase.base", [7 x i8] }
 %"class.Json::ValueIteratorBase.base" = type <{ %"struct.std::_Rb_tree_iterator", i8 }>
@@ -97,7 +95,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<cmCTestResourceSpec::Resource>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<cmCTestResourceSpec::Resource>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.cmJSONHelperBuilder::Object<cmCTestResourceSpec>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.94", i8, [7 x i8] }>
 %class.anon.123 = type <{ %"class.std::function.0", %"class.std::function.27", [8 x i8] }>
 %"class.cm::static_string_view" = type { %"class.std::basic_string_view" }
 %"class.std::function.69" = type { %"class.std::_Function_base", ptr }
@@ -108,7 +105,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member, std::allocator<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member>>::_Vector_impl" }
 %"struct.std::_Vector_base<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member, std::allocator<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member, std::allocator<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member, std::allocator<cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::TopVersion>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.69", i8, [7 x i8] }>
 
 $_ZN5cmsys17RegularExpressionD2Ev = comdat any
 
@@ -727,7 +723,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS
 .thread13:                                        ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit46.i.i.i
   store ptr %62, ptr %0, align 8, !tbaa !38
   store ptr %79, ptr %35, align 8, !tbaa !28
-  %80 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member", ptr %62, i64 %57
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %62, i64 %57
   store ptr %80, ptr %37, align 8, !tbaa !31
   br label %_ZNSt14_Function_baseD2Ev.exit.sink.split
 
@@ -739,7 +735,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS
   %.pre.pre = load ptr, ptr %33, align 8, !tbaa !13
   store ptr %62, ptr %0, align 8, !tbaa !38
   store ptr %79, ptr %35, align 8, !tbaa !28
-  %85 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member", ptr %62, i64 %57
+  %85 = getelementptr inbounds nuw [56 x i8], ptr %62, i64 %57
   store ptr %85, ptr %37, align 8, !tbaa !31
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %86, align 8, !tbaa !50
@@ -9648,7 +9644,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCTestResourceSpec8ResourceEE6Mem
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCTestResourceSpec8ResourceEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCTestResourceSpec8ResourceEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !99
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !71
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCTestResourceSpec::Resource>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !74
   ret void
 }
@@ -11645,7 +11641,7 @@ _ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
 _ZNSt12_Vector_baseIN19cmCTestResourceSpec8ResourceESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !221
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !224
-  %82 = getelementptr inbounds nuw %"class.cmCTestResourceSpec::Resource", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !226
   ret void
 }
@@ -13943,7 +13939,7 @@ _ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IN19cm
 _ZNSt12_Vector_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS9_EESt4lessIS6_ESaISt4pairIKS6_SB_EEESaISI_EE13_M_deallocateEPSI_m.exit: ; preds = %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EE11_S_relocateEPSH_SK_SK_RSI_.exit28, %83
   store ptr %22, ptr %0, align 8, !tbaa !112
   store ptr %.0.lcssa.i.i.i27, ptr %4, align 8, !tbaa !109
-  %87 = getelementptr inbounds nuw %"class.std::map", ptr %22, i64 %16
+  %87 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %87, ptr %82, align 8, !tbaa !125
   ret void
 }
@@ -14535,7 +14531,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectI19cmCTestResourceSpecE6MemberESaIS4_E
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectI19cmCTestResourceSpecE6MemberESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectI19cmCTestResourceSpecE6MemberESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !143
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !132
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCTestResourceSpec>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !135
   ret void
 }
@@ -15738,7 +15734,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
 _ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb.exit.thread12.i.i: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit46.i.i.i.i.i
   store ptr %356, ptr %22, align 8, !tbaa !62
   store ptr %373, ptr %330, align 8, !tbaa !65
-  %374 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::TopVersion>::Member", ptr %356, i64 %351
+  %374 = getelementptr inbounds nuw [56 x i8], ptr %356, i64 %351
   store ptr %374, ptr %332, align 8, !tbaa !67
   br label %_ZNSt14_Function_baseD2Ev.exit.i5.i
 
@@ -15747,7 +15743,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE11BindPrivateERKSt1
   %.pre.pre.i.i = load ptr, ptr %328, align 8, !tbaa !13
   store ptr %356, ptr %22, align 8, !tbaa !62
   store ptr %373, ptr %330, align 8, !tbaa !65
-  %375 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::TopVersion>::Member", ptr %356, i64 %351
+  %375 = getelementptr inbounds nuw [56 x i8], ptr %356, i64 %351
   store ptr %375, ptr %332, align 8, !tbaa !67
   %.not.i.i6.i = icmp eq ptr %.pre.pre.i.i, null
   br i1 %.not.i.i6.i, label %_ZNSt14_Function_baseD2Ev.exit.i5.i, label %376

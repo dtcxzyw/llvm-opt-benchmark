@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"class.cv::Point_" = type { i32, i32 }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
@@ -96,17 +95,17 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %1, %12
   %24 = load ptr, ptr %23, align 8, !tbaa !20
   %25 = sext i32 %21 to i64
   %26 = load ptr, ptr %24, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %25
   %28 = load i32, ptr %27, align 4, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %28, ptr %29, align 4, !tbaa !25
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %32, ptr %33, align 8, !tbaa !26
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %26, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %36, ptr %37, align 4, !tbaa !27
@@ -114,11 +113,11 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %1, %12
   %38 = load i32, ptr %29, align 4, !tbaa !25
   %39 = load i32, ptr %33, align 8, !tbaa !26
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %26, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %40
   store i32 %38, ptr %41, align 4, !tbaa !24
   %42 = load i32, ptr %37, align 4, !tbaa !27
   %43 = sext i32 %38 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %26, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %43
   store i32 %42, ptr %44, align 4, !tbaa !24
   ret void
 }
@@ -133,17 +132,17 @@ define hidden void @_ZN14TravelSalesman12reverseStateEv(ptr noundef nonnull read
   %7 = load i32, ptr %6, align 8, !tbaa !19
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %5, align 8, !tbaa !21
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   store i32 %3, ptr %10, align 4, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !26
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %13
   store i32 %12, ptr %14, align 4, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %9, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %17
   store i32 %16, ptr %18, align 4, !tbaa !24
   ret void
 }
@@ -174,11 +173,11 @@ define hidden noundef double @_ZNK14TravelSalesman6energyEv(ptr noundef nonnull 
 13:                                               ; preds = %.lr.ph, %13
   %.013 = phi i64 [ 0, %.lr.ph ], [ %28, %13 ]
   %.0612 = phi double [ 0.000000e+00, %.lr.ph ], [ %27, %13 ]
-  %14 = getelementptr inbounds nuw %"class.cv::Point_", ptr %12, i64 %.013
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %.013
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.013
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.013
   %16 = load i32, ptr %15, align 4, !tbaa !24
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.cv::Point_", ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %17
   %.val = load i32, ptr %14, align 4, !tbaa !29
   %19 = getelementptr i8, ptr %14, i64 4
   %.val7 = load i32, ptr %19, align 4, !tbaa !31
@@ -306,7 +305,7 @@ define hidden noundef i32 @main() local_unnamed_addr #5 personality ptr @__gxx_p
   %67 = fmul double %66, %41
   %68 = fptosi double %67 to i32
   %69 = add nsw i32 %27, %68
-  %70 = getelementptr inbounds nuw %"class.cv::Point_", ptr %31, i64 %.052157
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.052157
   store i32 %69, ptr %70, align 4, !tbaa !29
   %71 = call double @sin(double noundef %65) #18, !tbaa !24
   %72 = fmul double %71, %41
@@ -318,7 +317,7 @@ define hidden noundef i32 @main() local_unnamed_addr #5 personality ptr @__gxx_p
   %.cmp.not = icmp eq i64 %.052157, 39
   %77 = trunc nuw nsw i64 %76 to i32
   %78 = select i1 %.cmp.not, i32 0, i32 %77
-  %79 = getelementptr inbounds nuw i32, ptr %36, i64 %.052157
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.052157
   store i32 %78, ptr %79, align 4, !tbaa !24
   %exitcond.not = icmp eq i64 %76, 40
   br i1 %exitcond.not, label %42, label %50, !llvm.loop !47
@@ -349,7 +348,7 @@ define hidden noundef i32 @main() local_unnamed_addr #5 personality ptr @__gxx_p
   store i32 50397184, ptr %5, align 8, !tbaa !49
   store ptr %9, ptr %84, align 8, !tbaa !52
   %93 = load ptr, ptr %12, align 8, !tbaa !17
-  %94 = getelementptr inbounds nuw %"class.cv::Point_", ptr %93, i64 %.018.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.018.i
   %.sroa.02.0.copyload.i = load i64, ptr %94, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -366,13 +365,13 @@ define hidden noundef i32 @main() local_unnamed_addr #5 personality ptr @__gxx_p
   store i32 50397184, ptr %7, align 8, !tbaa !49
   store ptr %9, ptr %88, align 8, !tbaa !52
   %95 = load ptr, ptr %12, align 8, !tbaa !17
-  %96 = getelementptr inbounds nuw %"class.cv::Point_", ptr %95, i64 %.018.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.018.i
   %.sroa.01.0.copyload.i = load i64, ptr %96, align 4
   %97 = load ptr, ptr %13, align 8, !tbaa !21
-  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %.018.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.018.i
   %99 = load i32, ptr %98, align 4, !tbaa !24
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"class.cv::Point_", ptr %95, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %100
   %.sroa.0.0.copyload.i = load i64, ptr %101, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store double 0.000000e+00, ptr %8, align 8, !tbaa !53
@@ -513,7 +512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %137
   store i32 50397184, ptr %1, align 8, !tbaa !49
   store ptr %9, ptr %123, align 8, !tbaa !52
   %152 = load ptr, ptr %12, align 8, !tbaa !17
-  %153 = getelementptr inbounds nuw %"class.cv::Point_", ptr %152, i64 %.018.i77
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %.018.i77
   %.sroa.02.0.copyload.i78 = load i64, ptr %153, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -530,13 +529,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %137
   store i32 50397184, ptr %3, align 8, !tbaa !49
   store ptr %9, ptr %127, align 8, !tbaa !52
   %154 = load ptr, ptr %12, align 8, !tbaa !17
-  %155 = getelementptr inbounds nuw %"class.cv::Point_", ptr %154, i64 %.018.i77
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %.018.i77
   %.sroa.01.0.copyload.i79 = load i64, ptr %155, align 4
   %156 = load ptr, ptr %13, align 8, !tbaa !21
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.018.i77
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.018.i77
   %158 = load i32, ptr %157, align 4, !tbaa !24
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %"class.cv::Point_", ptr %154, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %159
   %.sroa.0.0.copyload.i80 = load i64, ptr %160, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 0.000000e+00, ptr %4, align 8, !tbaa !53
@@ -636,11 +635,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit98: ; preds = %_ZNSo
 194:                                              ; preds = %194, %.lr.ph.i100
   %.013.i = phi i64 [ 0, %.lr.ph.i100 ], [ %209, %194 ]
   %.0612.i = phi double [ 0.000000e+00, %.lr.ph.i100 ], [ %208, %194 ]
-  %195 = getelementptr inbounds nuw %"class.cv::Point_", ptr %193, i64 %.013.i
-  %196 = getelementptr inbounds nuw i32, ptr %187, i64 %.013.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.013.i
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %.013.i
   %197 = load i32, ptr %196, align 4, !tbaa !24
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds nuw %"class.cv::Point_", ptr %193, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %198
   %.val.i = load i32, ptr %195, align 4, !tbaa !29
   %200 = getelementptr i8, ptr %195, i64 4
   %.val7.i = load i32, ptr %200, align 4, !tbaa !31
@@ -1113,11 +1112,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %57,
 74:                                               ; preds = %74, %.lr.ph.i
   %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %89, %74 ]
   %.0612.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %88, %74 ]
-  %75 = getelementptr inbounds nuw %"class.cv::Point_", ptr %73, i64 %.013.i
-  %76 = getelementptr inbounds nuw i32, ptr %67, i64 %.013.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.013.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %.013.i
   %77 = load i32, ptr %76, align 4, !tbaa !24
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"class.cv::Point_", ptr %73, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %78
   %.val.i = load i32, ptr %75, align 4, !tbaa !29
   %80 = getelementptr i8, ptr %75, i64 4
   %.val7.i = load i32, ptr %80, align 4, !tbaa !31
@@ -1191,37 +1190,37 @@ _ZN14TravelSalesman11changeStateEv.exit:          ; preds = %112, %113
   %121 = phi i32 [ %120, %113 ], [ 0, %112 ]
   store i32 %121, ptr %100, align 8, !tbaa !19
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %67, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !24
   store i32 %124, ptr %101, align 4, !tbaa !25
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %67, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !24
   store i32 %127, ptr %102, align 8, !tbaa !26
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %67, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !24
   store i32 %130, ptr %103, align 4, !tbaa !27
   store i32 %127, ptr %123, align 4, !tbaa !24
   %131 = load i32, ptr %101, align 4, !tbaa !25
   %132 = load i32, ptr %102, align 8, !tbaa !26
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %67, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %133
   store i32 %131, ptr %134, align 4, !tbaa !24
   %135 = load i32, ptr %103, align 4, !tbaa !27
   %136 = sext i32 %131 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %67, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %136
   store i32 %135, ptr %137, align 4, !tbaa !24
   br i1 %.not.i, label %_ZNK14TravelSalesman6energyEv.exit84, label %.lr.ph.i74
 
 .lr.ph.i74:                                       ; preds = %_ZN14TravelSalesman11changeStateEv.exit, %.lr.ph.i74
   %.013.i75 = phi i64 [ %152, %.lr.ph.i74 ], [ 0, %_ZN14TravelSalesman11changeStateEv.exit ]
   %.0612.i76 = phi double [ %151, %.lr.ph.i74 ], [ 0.000000e+00, %_ZN14TravelSalesman11changeStateEv.exit ]
-  %138 = getelementptr inbounds nuw %"class.cv::Point_", ptr %93, i64 %.013.i75
-  %139 = getelementptr inbounds nuw i32, ptr %67, i64 %.013.i75
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.013.i75
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %.013.i75
   %140 = load i32, ptr %139, align 4, !tbaa !24
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %"class.cv::Point_", ptr %93, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %141
   %.val.i77 = load i32, ptr %138, align 4, !tbaa !29
   %143 = getelementptr i8, ptr %138, i64 4
   %.val7.i78 = load i32, ptr %143, align 4, !tbaa !31
@@ -1280,15 +1279,15 @@ _ZNK14TravelSalesman6energyEv.exit84:             ; preds = %.lr.ph.i74, %_ZN14T
   %179 = load i32, ptr %101, align 4, !tbaa !25
   %180 = load i32, ptr %100, align 8, !tbaa !19
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds nuw i32, ptr %67, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %181
   store i32 %179, ptr %182, align 4, !tbaa !24
   %183 = load i32, ptr %102, align 8, !tbaa !26
   %184 = sext i32 %179 to i64
-  %185 = getelementptr inbounds nuw i32, ptr %67, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %184
   store i32 %183, ptr %185, align 4, !tbaa !24
   %186 = load i32, ptr %103, align 4, !tbaa !27
   %187 = sext i32 %183 to i64
-  %188 = getelementptr inbounds nuw i32, ptr %67, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %187
   store i32 %186, ptr %188, align 4, !tbaa !24
   br label %189
 

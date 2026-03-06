@@ -1418,7 +1418,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
 589:                                              ; preds = %587
   %590 = zext nneg i32 %562 to i64
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %592 = getelementptr inbounds nuw %struct.AVRational, ptr @avc_sample_aspect_ratio, i64 %590
+  %592 = getelementptr inbounds nuw [8 x i8], ptr @avc_sample_aspect_ratio, i64 %590
   %593 = load i64, ptr %592, align 8
   store i64 %593, ptr %591, align 4
   %594 = lshr i64 %593, 32

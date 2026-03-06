@@ -658,8 +658,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %73 = phi ptr [ %.pre350, %for.body.lr.ph ], [ %105, %invoke.cont185 ]
   %i.0348 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont185 ]
   %74 = load ptr, ptr %initialPopulation, align 8, !tbaa !46
-  %add.ptr.i154 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %74, i64 %i.0348
-  %add.ptr.i155 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %73, i64 %i.0348
+  %add.ptr.i154 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %i.0348
+  %add.ptr.i155 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %i.0348
   %n_.i.i156 = getelementptr inbounds nuw i8, ptr %add.ptr.i154, i64 8
   %75 = load i64, ptr %n_.i.i156, align 8, !tbaa !21
   %cmp.not.i.i157 = icmp eq i64 %75, 0
@@ -692,7 +692,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 do.body130:                                       ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i164, %_ZN8QuantLib5ArrayC2ERKS0_.exit.i160
   %81 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i167 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %81, i64 %i.0348
+  %add.ptr.i167 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %i.0348
   %n_.i168 = getelementptr inbounds nuw i8, ptr %add.ptr.i167, i64 8
   %82 = load i64, ptr %n_.i168, align 8, !tbaa !21
   %83 = load i64, ptr %n_.i170, align 8, !tbaa !21
@@ -857,7 +857,7 @@ do.end180:                                        ; preds = %do.body130
 
 invoke.cont185:                                   ; preds = %do.end180
   %105 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i197 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %105, i64 %i.0348
+  %add.ptr.i197 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %i.0348
   %cost = getelementptr inbounds nuw i8, ptr %add.ptr.i197, i64 16
   store double %call186, ptr %cost, align 8, !tbaa !50
   %inc = add nuw i64 %i.0348, 1
@@ -934,7 +934,7 @@ if.then.i.i.i:                                    ; preds = %lpad.i
   br label %lpad203.body
 
 invoke.cont204:                                   ; preds = %_ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EEC2EmRKS3_.exit.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %cond.i.i.i.i, i64 %107
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %107
   %113 = load ptr, ptr %population, align 8, !tbaa !45
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %population, i64 8
   %114 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !43
@@ -1915,13 +1915,13 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup14,
 for.cond.cleanup14:                               ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit, %for.cond10.preheader
   %13 = load ptr, ptr %p, align 8, !tbaa !47
   %14 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %14, i64 %j.037
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %j.037
   %vtable25 = load ptr, ptr %13, align 8, !tbaa !48
   %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 16
   %15 = load ptr, ptr %vfn26, align 8
   %call27 = tail call noundef double %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
   %16 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i24 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %16, i64 %j.037
+  %add.ptr.i24 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %j.037
   %cost29 = getelementptr inbounds nuw i8, ptr %add.ptr.i24, i64 16
   %17 = tail call double @llvm.fabs.f64(double %call27)
   %18 = fcmp ueq double %17, 0x7FF0000000000000
@@ -1941,10 +1941,10 @@ for.body15:                                       ; preds = %for.body15.preheade
   %21 = phi i64 [ %inc.i.i, %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit ], [ %.pre, %for.body15.preheader ]
   %i.031 = phi i64 [ %inc, %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit ], [ 0, %for.body15.preheader ]
   %22 = load ptr, ptr %lowerBound_, align 8, !tbaa !23
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %22, i64 %i.031
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %i.031
   %23 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %24 = load ptr, ptr %upperBound_, align 8, !tbaa !23
-  %arrayidx.i26 = getelementptr inbounds nuw double, ptr %24, i64 %i.031
+  %arrayidx.i26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %i.031
   %25 = load double, ptr %arrayidx.i26, align 8, !tbaa !39
   %sub = fsub double %25, %23
   %cmp.i.i = icmp eq i64 %21, 624
@@ -1961,7 +1961,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body15,
   %27 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %21, %for.body15 ]
   %inc.i.i = add i64 %27, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %27
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %27
   %28 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %28, 11
   %xor.i.i = xor i64 %shr.i.i, %28
@@ -1978,9 +1978,9 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body15,
   %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %29 = tail call double @llvm.fmuladd.f64(double %sub, double %div.i, double %23)
   %30 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i27 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %30, i64 %j.037
+  %add.ptr.i27 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %j.037
   %31 = load ptr, ptr %add.ptr.i27, align 8, !tbaa !23
-  %arrayidx.i28 = getelementptr inbounds nuw double, ptr %31, i64 %i.031
+  %arrayidx.i28 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %i.031
   store double %29, ptr %arrayidx.i28, align 8, !tbaa !39
   %inc = add nuw i64 %i.031, 1
   %cmp13 = icmp ult i64 %inc, %26
@@ -2010,7 +2010,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 while.cond.i.i.i:                                 ; preds = %_ZN8QuantLib21DifferentialEvolution9CandidateD2Ev.exit15.i.i.i, %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div67.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %_ZN8QuantLib21DifferentialEvolution9CandidateD2Ev.exit15.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__parent.0.i.i.i
   %0 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !23
   store ptr null, ptr %add.ptr.i.i.i.i, align 8, !tbaa !23
   %n_3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -2327,7 +2327,7 @@ for.body.lr.ph.i:                                 ; preds = %sw.bb
 for.body.i:                                       ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i, %for.body.lr.ph.i
   %i.011.i = phi i64 [ %i.08.i, %for.body.lr.ph.i ], [ %i.0.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i ]
   %i.0.in10.i = phi i64 [ %sub.ptr.div.i.i205, %for.body.lr.ph.i ], [ %i.011.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i ]
-  %arrayidx.i.i = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %6, i64 %i.011.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i8], ptr %6, i64 %i.011.i
   %8 = load i64, ptr %mti.i.i, align 8, !tbaa !68
   %cmp.i.i = icmp eq i64 %8, 624
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i
@@ -2344,7 +2344,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %.noexc20
   %9 = phi i64 [ %.pre.i.i, %.noexc206 ], [ %8, %for.body.i ]
   %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i4.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %9
+  %arrayidx.i4.i = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %9
   %10 = load i64, ptr %arrayidx.i4.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %10, 11
   %xor.i.i = xor i64 %shr.i.i, %10
@@ -2357,7 +2357,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %.noexc20
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %rem.i = urem i64 %xor8.i.i, %i.0.in10.i
-  %arrayidx.i5.i = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %6, i64 %rem.i
+  %arrayidx.i5.i = getelementptr inbounds [24 x i8], ptr %6, i64 %rem.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i, align 8, !tbaa !23
   %n_3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
@@ -2458,7 +2458,7 @@ for.body.lr.ph.i242:                              ; preds = %invoke.cont12
 for.body.i244:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i249, %for.body.lr.ph.i242
   %i.011.i245 = phi i64 [ %i.08.i240, %for.body.lr.ph.i242 ], [ %i.0.i268, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i249 ]
   %i.0.in10.i246 = phi i64 [ %sub.ptr.div.i.i239, %for.body.lr.ph.i242 ], [ %i.011.i245, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i249 ]
-  %arrayidx.i.i247 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %22, i64 %i.011.i245
+  %arrayidx.i.i247 = getelementptr inbounds [24 x i8], ptr %22, i64 %i.011.i245
   %24 = load i64, ptr %mti.i.i243, align 8, !tbaa !68
   %cmp.i.i248 = icmp eq i64 %24, 624
   br i1 %cmp.i.i248, label %if.then.i.i270, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i249
@@ -2475,7 +2475,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i249: ; preds = %.noex
   %25 = phi i64 [ %.pre.i.i271, %.noexc272 ], [ %24, %for.body.i244 ]
   %inc.i.i250 = add i64 %25, 1
   store i64 %inc.i.i250, ptr %mti.i.i243, align 8, !tbaa !68
-  %arrayidx.i4.i251 = getelementptr inbounds nuw i64, ptr %rng_, i64 %25
+  %arrayidx.i4.i251 = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %25
   %26 = load i64, ptr %arrayidx.i4.i251, align 8, !tbaa !24
   %shr.i.i252 = lshr i64 %26, 11
   %xor.i.i253 = xor i64 %shr.i.i252, %26
@@ -2488,7 +2488,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i249: ; preds = %.noex
   %shr7.i.i260 = lshr i64 %xor6.i.i259, 18
   %xor8.i.i261 = xor i64 %shr7.i.i260, %xor6.i.i259
   %rem.i262 = urem i64 %xor8.i.i261, %i.0.in10.i246
-  %arrayidx.i5.i263 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %22, i64 %rem.i262
+  %arrayidx.i5.i263 = getelementptr inbounds [24 x i8], ptr %22, i64 %rem.i262
   %27 = load ptr, ptr %arrayidx.i.i247, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i247, align 8, !tbaa !23
   %n_3.i.i.i.i.i264 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i247, i64 8
@@ -2582,7 +2582,7 @@ for.body.lr.ph.i309:                              ; preds = %invoke.cont25
 for.body.i311:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i316, %for.body.lr.ph.i309
   %i.011.i312 = phi i64 [ %i.08.i307, %for.body.lr.ph.i309 ], [ %i.0.i335, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i316 ]
   %i.0.in10.i313 = phi i64 [ %sub.ptr.div.i.i306, %for.body.lr.ph.i309 ], [ %i.011.i312, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i316 ]
-  %arrayidx.i.i314 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %37, i64 %i.011.i312
+  %arrayidx.i.i314 = getelementptr inbounds [24 x i8], ptr %37, i64 %i.011.i312
   %39 = load i64, ptr %mti.i.i310, align 8, !tbaa !68
   %cmp.i.i315 = icmp eq i64 %39, 624
   br i1 %cmp.i.i315, label %if.then.i.i337, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i316
@@ -2599,7 +2599,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i316: ; preds = %.noex
   %40 = phi i64 [ %.pre.i.i338, %.noexc339 ], [ %39, %for.body.i311 ]
   %inc.i.i317 = add i64 %40, 1
   store i64 %inc.i.i317, ptr %mti.i.i310, align 8, !tbaa !68
-  %arrayidx.i4.i318 = getelementptr inbounds nuw i64, ptr %rng_, i64 %40
+  %arrayidx.i4.i318 = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %40
   %41 = load i64, ptr %arrayidx.i4.i318, align 8, !tbaa !24
   %shr.i.i319 = lshr i64 %41, 11
   %xor.i.i320 = xor i64 %shr.i.i319, %41
@@ -2612,7 +2612,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i316: ; preds = %.noex
   %shr7.i.i327 = lshr i64 %xor6.i.i326, 18
   %xor8.i.i328 = xor i64 %shr7.i.i327, %xor6.i.i326
   %rem.i329 = urem i64 %xor8.i.i328, %i.0.in10.i313
-  %arrayidx.i5.i330 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %37, i64 %rem.i329
+  %arrayidx.i5.i330 = getelementptr inbounds [24 x i8], ptr %37, i64 %rem.i329
   %42 = load ptr, ptr %arrayidx.i.i314, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i314, align 8, !tbaa !23
   %n_3.i.i.i.i.i331 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i314, i64 8
@@ -2767,14 +2767,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %62 = phi ptr [ %49, %for.body.lr.ph ], [ %77, %_ZN8QuantLib5ArrayD2Ev.exit380 ]
   %popIter.02259 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8QuantLib5ArrayD2Ev.exit380 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
-  %add.ptr.i = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %62, i64 %popIter.02259
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %popIter.02259
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp41)
   %63 = load double, ptr %stepsizeWeight, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp45)
   %64 = load ptr, ptr %shuffledPop1, align 8, !tbaa !45
-  %add.ptr.i370 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %64, i64 %popIter.02259
+  %add.ptr.i370 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %popIter.02259
   %65 = load ptr, ptr %shuffledPop2, align 8, !tbaa !45
-  %add.ptr.i371 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %65, i64 %popIter.02259
+  %add.ptr.i371 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %popIter.02259
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i370, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i371)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -2806,7 +2806,7 @@ invoke.cont53:                                    ; preds = %for.body.i.i, %invo
 
 invoke.cont55:                                    ; preds = %invoke.cont53
   %69 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i372 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %69, i64 %popIter.02259
+  %add.ptr.i372 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %popIter.02259
   %70 = load ptr, ptr %add.ptr.i372, align 8, !tbaa !23
   %71 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   store ptr %71, ptr %add.ptr.i372, align 8, !tbaa !23
@@ -2929,7 +2929,7 @@ for.body.lr.ph.i394:                              ; preds = %sw.bb67
 for.body.i396:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i401, %for.body.lr.ph.i394
   %i.011.i397 = phi i64 [ %i.08.i392, %for.body.lr.ph.i394 ], [ %i.0.i420, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i401 ]
   %i.0.in10.i398 = phi i64 [ %sub.ptr.div.i.i391, %for.body.lr.ph.i394 ], [ %i.011.i397, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i401 ]
-  %arrayidx.i.i399 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %82, i64 %i.011.i397
+  %arrayidx.i.i399 = getelementptr inbounds [24 x i8], ptr %82, i64 %i.011.i397
   %84 = load i64, ptr %mti.i.i395, align 8, !tbaa !68
   %cmp.i.i400 = icmp eq i64 %84, 624
   br i1 %cmp.i.i400, label %if.then.i.i422, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i401
@@ -2946,7 +2946,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i401: ; preds = %.noex
   %85 = phi i64 [ %.pre.i.i423, %.noexc424 ], [ %84, %for.body.i396 ]
   %inc.i.i402 = add i64 %85, 1
   store i64 %inc.i.i402, ptr %mti.i.i395, align 8, !tbaa !68
-  %arrayidx.i4.i403 = getelementptr inbounds nuw i64, ptr %rng_74, i64 %85
+  %arrayidx.i4.i403 = getelementptr inbounds nuw [8 x i8], ptr %rng_74, i64 %85
   %86 = load i64, ptr %arrayidx.i4.i403, align 8, !tbaa !24
   %shr.i.i404 = lshr i64 %86, 11
   %xor.i.i405 = xor i64 %shr.i.i404, %86
@@ -2959,7 +2959,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i401: ; preds = %.noex
   %shr7.i.i412 = lshr i64 %xor6.i.i411, 18
   %xor8.i.i413 = xor i64 %shr7.i.i412, %xor6.i.i411
   %rem.i414 = urem i64 %xor8.i.i413, %i.0.in10.i398
-  %arrayidx.i5.i415 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %82, i64 %rem.i414
+  %arrayidx.i5.i415 = getelementptr inbounds [24 x i8], ptr %82, i64 %rem.i414
   %87 = load ptr, ptr %arrayidx.i.i399, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i399, align 8, !tbaa !23
   %n_3.i.i.i.i.i416 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i399, i64 8
@@ -3053,7 +3053,7 @@ for.body.lr.ph.i461:                              ; preds = %invoke.cont80
 for.body.i463:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i468, %for.body.lr.ph.i461
   %i.011.i464 = phi i64 [ %i.08.i459, %for.body.lr.ph.i461 ], [ %i.0.i487, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i468 ]
   %i.0.in10.i465 = phi i64 [ %sub.ptr.div.i.i458, %for.body.lr.ph.i461 ], [ %i.011.i464, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i468 ]
-  %arrayidx.i.i466 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %96, i64 %i.011.i464
+  %arrayidx.i.i466 = getelementptr inbounds [24 x i8], ptr %96, i64 %i.011.i464
   %98 = load i64, ptr %mti.i.i462, align 8, !tbaa !68
   %cmp.i.i467 = icmp eq i64 %98, 624
   br i1 %cmp.i.i467, label %if.then.i.i489, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i468
@@ -3070,7 +3070,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i468: ; preds = %.noex
   %99 = phi i64 [ %.pre.i.i490, %.noexc491 ], [ %98, %for.body.i463 ]
   %inc.i.i469 = add i64 %99, 1
   store i64 %inc.i.i469, ptr %mti.i.i462, align 8, !tbaa !68
-  %arrayidx.i4.i470 = getelementptr inbounds nuw i64, ptr %rng_74, i64 %99
+  %arrayidx.i4.i470 = getelementptr inbounds nuw [8 x i8], ptr %rng_74, i64 %99
   %100 = load i64, ptr %arrayidx.i4.i470, align 8, !tbaa !24
   %shr.i.i471 = lshr i64 %100, 11
   %xor.i.i472 = xor i64 %shr.i.i471, %100
@@ -3083,7 +3083,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i468: ; preds = %.noex
   %shr7.i.i479 = lshr i64 %xor6.i.i478, 18
   %xor8.i.i480 = xor i64 %shr7.i.i479, %xor6.i.i478
   %rem.i481 = urem i64 %xor8.i.i480, %i.0.in10.i465
-  %arrayidx.i5.i482 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %96, i64 %rem.i481
+  %arrayidx.i5.i482 = getelementptr inbounds [24 x i8], ptr %96, i64 %rem.i481
   %101 = load ptr, ptr %arrayidx.i.i466, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i466, align 8, !tbaa !23
   %n_3.i.i.i.i.i483 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i466, i64 8
@@ -3216,8 +3216,8 @@ for.cond.cleanup112:                              ; preds = %for.cond.cleanup112
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp124)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp126)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp127)
-  %add.ptr.i531 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %.pr.i632, i64 %popIter98.02250
-  %add.ptr.i532 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %121, i64 %popIter98.02250
+  %add.ptr.i531 = getelementptr inbounds nuw [24 x i8], ptr %.pr.i632, i64 %popIter98.02250
+  %add.ptr.i532 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %popIter98.02250
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i531, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i532)
           to label %invoke.cont133 unwind label %lpad132
 
@@ -3239,7 +3239,7 @@ invoke.cont116:                                   ; preds = %.noexc550, %for.bod
   %123 = phi i64 [ %.pre.i.i549, %.noexc550 ], [ %122, %for.body113 ]
   %inc.i.i536 = add i64 %123, 1
   store i64 %inc.i.i536, ptr %mti.i.i533, align 8, !tbaa !68
-  %arrayidx.i.i537 = getelementptr inbounds nuw i64, ptr %rng_74, i64 %123
+  %arrayidx.i.i537 = getelementptr inbounds nuw [8 x i8], ptr %rng_74, i64 %123
   %124 = load i64, ptr %arrayidx.i.i537, align 8, !tbaa !24
   %shr.i.i538 = lshr i64 %124, 11
   %xor.i.i539 = xor i64 %shr.i.i538, %124
@@ -3314,7 +3314,7 @@ invoke.cont144:                                   ; preds = %invoke.cont142
 
 invoke.cont146:                                   ; preds = %invoke.cont144
   %129 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i569 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %129, i64 %popIter98.02250
+  %add.ptr.i569 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %popIter98.02250
   %130 = load ptr, ptr %add.ptr.i569, align 8, !tbaa !23
   %131 = load ptr, ptr %ref.tmp124, align 8, !tbaa !23
   store ptr %131, ptr %add.ptr.i569, align 8, !tbaa !23
@@ -3561,7 +3561,7 @@ for.body.lr.ph.i652:                              ; preds = %sw.bb177
 for.body.i654:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i659, %for.body.lr.ph.i652
   %i.011.i655 = phi i64 [ %i.08.i650, %for.body.lr.ph.i652 ], [ %i.0.i678, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i659 ]
   %i.0.in10.i656 = phi i64 [ %sub.ptr.div.i.i649, %for.body.lr.ph.i652 ], [ %i.011.i655, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i659 ]
-  %arrayidx.i.i657 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %154, i64 %i.011.i655
+  %arrayidx.i.i657 = getelementptr inbounds [24 x i8], ptr %154, i64 %i.011.i655
   %156 = load i64, ptr %mti.i.i653, align 8, !tbaa !68
   %cmp.i.i658 = icmp eq i64 %156, 624
   br i1 %cmp.i.i658, label %if.then.i.i680, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i659
@@ -3578,7 +3578,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i659: ; preds = %.noex
   %157 = phi i64 [ %.pre.i.i681, %.noexc682 ], [ %156, %for.body.i654 ]
   %inc.i.i660 = add i64 %157, 1
   store i64 %inc.i.i660, ptr %mti.i.i653, align 8, !tbaa !68
-  %arrayidx.i4.i661 = getelementptr inbounds nuw i64, ptr %rng_184, i64 %157
+  %arrayidx.i4.i661 = getelementptr inbounds nuw [8 x i8], ptr %rng_184, i64 %157
   %158 = load i64, ptr %arrayidx.i4.i661, align 8, !tbaa !24
   %shr.i.i662 = lshr i64 %158, 11
   %xor.i.i663 = xor i64 %shr.i.i662, %158
@@ -3591,7 +3591,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i659: ; preds = %.noex
   %shr7.i.i670 = lshr i64 %xor6.i.i669, 18
   %xor8.i.i671 = xor i64 %shr7.i.i670, %xor6.i.i669
   %rem.i672 = urem i64 %xor8.i.i671, %i.0.in10.i656
-  %arrayidx.i5.i673 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %154, i64 %rem.i672
+  %arrayidx.i5.i673 = getelementptr inbounds [24 x i8], ptr %154, i64 %rem.i672
   %159 = load ptr, ptr %arrayidx.i.i657, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i657, align 8, !tbaa !23
   %n_3.i.i.i.i.i674 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i657, i64 8
@@ -3692,7 +3692,7 @@ for.body.lr.ph.i719:                              ; preds = %invoke.cont190
 for.body.i721:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i726, %for.body.lr.ph.i719
   %i.011.i722 = phi i64 [ %i.08.i717, %for.body.lr.ph.i719 ], [ %i.0.i745, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i726 ]
   %i.0.in10.i723 = phi i64 [ %sub.ptr.div.i.i716, %for.body.lr.ph.i719 ], [ %i.011.i722, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i726 ]
-  %arrayidx.i.i724 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %170, i64 %i.011.i722
+  %arrayidx.i.i724 = getelementptr inbounds [24 x i8], ptr %170, i64 %i.011.i722
   %172 = load i64, ptr %mti.i.i720, align 8, !tbaa !68
   %cmp.i.i725 = icmp eq i64 %172, 624
   br i1 %cmp.i.i725, label %if.then.i.i747, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i726
@@ -3709,7 +3709,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i726: ; preds = %.noex
   %173 = phi i64 [ %.pre.i.i748, %.noexc749 ], [ %172, %for.body.i721 ]
   %inc.i.i727 = add i64 %173, 1
   store i64 %inc.i.i727, ptr %mti.i.i720, align 8, !tbaa !68
-  %arrayidx.i4.i728 = getelementptr inbounds nuw i64, ptr %rng_184, i64 %173
+  %arrayidx.i4.i728 = getelementptr inbounds nuw [8 x i8], ptr %rng_184, i64 %173
   %174 = load i64, ptr %arrayidx.i4.i728, align 8, !tbaa !24
   %shr.i.i729 = lshr i64 %174, 11
   %xor.i.i730 = xor i64 %shr.i.i729, %174
@@ -3722,7 +3722,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i726: ; preds = %.noex
   %shr7.i.i737 = lshr i64 %xor6.i.i736, 18
   %xor8.i.i738 = xor i64 %shr7.i.i737, %xor6.i.i736
   %rem.i739 = urem i64 %xor8.i.i738, %i.0.in10.i723
-  %arrayidx.i5.i740 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %170, i64 %rem.i739
+  %arrayidx.i5.i740 = getelementptr inbounds [24 x i8], ptr %170, i64 %rem.i739
   %175 = load ptr, ptr %arrayidx.i.i724, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i724, align 8, !tbaa !23
   %n_3.i.i.i.i.i741 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i724, i64 8
@@ -3789,7 +3789,7 @@ for.body207:                                      ; preds = %for.body207.lr.ph, 
   %popIter202.02242 = phi i64 [ 0, %for.body207.lr.ph ], [ %inc259, %_ZN8QuantLib5ArrayD2Ev.exit804 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp208)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp209)
-  %add.ptr.i756 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %2, i64 %popIter202.02242
+  %add.ptr.i756 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %popIter202.02242
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp212)
   %184 = load double, ptr %stepsizeWeight216, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp217)
@@ -3827,9 +3827,9 @@ invoke.cont227:                                   ; preds = %invoke.cont225
   %188 = load double, ptr %stepsizeWeight216, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp233)
   %189 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i771 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %189, i64 %popIter202.02242
+  %add.ptr.i771 = getelementptr inbounds nuw [24 x i8], ptr %189, i64 %popIter202.02242
   %190 = load ptr, ptr %shuffledPop1188, align 8, !tbaa !45
-  %add.ptr.i772 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %190, i64 %popIter202.02242
+  %add.ptr.i772 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %popIter202.02242
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp233, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i771, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i772)
           to label %invoke.cont239 unwind label %lpad238
 
@@ -3861,7 +3861,7 @@ invoke.cont241:                                   ; preds = %for.body.i.i778, %i
 
 invoke.cont243:                                   ; preds = %invoke.cont241
   %194 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i784 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %194, i64 %popIter202.02242
+  %add.ptr.i784 = getelementptr inbounds nuw [24 x i8], ptr %194, i64 %popIter202.02242
   %195 = load ptr, ptr %add.ptr.i784, align 8, !tbaa !23
   %196 = load ptr, ptr %ref.tmp208, align 8, !tbaa !23
   store ptr %196, ptr %add.ptr.i784, align 8, !tbaa !23
@@ -4096,7 +4096,7 @@ for.body.lr.ph.i847:                              ; preds = %sw.bb266
 for.body.i849:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i854, %for.body.lr.ph.i847
   %i.011.i850 = phi i64 [ %i.08.i845, %for.body.lr.ph.i847 ], [ %i.0.i873, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i854 ]
   %i.0.in10.i851 = phi i64 [ %sub.ptr.div.i.i844, %for.body.lr.ph.i847 ], [ %i.011.i850, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i854 ]
-  %arrayidx.i.i852 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %220, i64 %i.011.i850
+  %arrayidx.i.i852 = getelementptr inbounds [24 x i8], ptr %220, i64 %i.011.i850
   %222 = load i64, ptr %mti.i.i848, align 8, !tbaa !68
   %cmp.i.i853 = icmp eq i64 %222, 624
   br i1 %cmp.i.i853, label %if.then.i.i875, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i854
@@ -4113,7 +4113,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i854: ; preds = %.noex
   %223 = phi i64 [ %.pre.i.i876, %.noexc877 ], [ %222, %for.body.i849 ]
   %inc.i.i855 = add i64 %223, 1
   store i64 %inc.i.i855, ptr %mti.i.i848, align 8, !tbaa !68
-  %arrayidx.i4.i856 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %223
+  %arrayidx.i4.i856 = getelementptr inbounds nuw [8 x i8], ptr %rng_273, i64 %223
   %224 = load i64, ptr %arrayidx.i4.i856, align 8, !tbaa !24
   %shr.i.i857 = lshr i64 %224, 11
   %xor.i.i858 = xor i64 %shr.i.i857, %224
@@ -4126,7 +4126,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i854: ; preds = %.noex
   %shr7.i.i865 = lshr i64 %xor6.i.i864, 18
   %xor8.i.i866 = xor i64 %shr7.i.i865, %xor6.i.i864
   %rem.i867 = urem i64 %xor8.i.i866, %i.0.in10.i851
-  %arrayidx.i5.i868 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %220, i64 %rem.i867
+  %arrayidx.i5.i868 = getelementptr inbounds [24 x i8], ptr %220, i64 %rem.i867
   %225 = load ptr, ptr %arrayidx.i.i852, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i852, align 8, !tbaa !23
   %n_3.i.i.i.i.i869 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i852, i64 8
@@ -4227,7 +4227,7 @@ for.body.lr.ph.i914:                              ; preds = %invoke.cont279
 for.body.i916:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i921, %for.body.lr.ph.i914
   %i.011.i917 = phi i64 [ %i.08.i912, %for.body.lr.ph.i914 ], [ %i.0.i940, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i921 ]
   %i.0.in10.i918 = phi i64 [ %sub.ptr.div.i.i911, %for.body.lr.ph.i914 ], [ %i.011.i917, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i921 ]
-  %arrayidx.i.i919 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %236, i64 %i.011.i917
+  %arrayidx.i.i919 = getelementptr inbounds [24 x i8], ptr %236, i64 %i.011.i917
   %238 = load i64, ptr %mti.i.i915, align 8, !tbaa !68
   %cmp.i.i920 = icmp eq i64 %238, 624
   br i1 %cmp.i.i920, label %if.then.i.i942, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i921
@@ -4244,7 +4244,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i921: ; preds = %.noex
   %239 = phi i64 [ %.pre.i.i943, %.noexc944 ], [ %238, %for.body.i916 ]
   %inc.i.i922 = add i64 %239, 1
   store i64 %inc.i.i922, ptr %mti.i.i915, align 8, !tbaa !68
-  %arrayidx.i4.i923 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %239
+  %arrayidx.i4.i923 = getelementptr inbounds nuw [8 x i8], ptr %rng_273, i64 %239
   %240 = load i64, ptr %arrayidx.i4.i923, align 8, !tbaa !24
   %shr.i.i924 = lshr i64 %240, 11
   %xor.i.i925 = xor i64 %shr.i.i924, %240
@@ -4257,7 +4257,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i921: ; preds = %.noex
   %shr7.i.i932 = lshr i64 %xor6.i.i931, 18
   %xor8.i.i933 = xor i64 %shr7.i.i932, %xor6.i.i931
   %rem.i934 = urem i64 %xor8.i.i933, %i.0.in10.i918
-  %arrayidx.i5.i935 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %236, i64 %rem.i934
+  %arrayidx.i5.i935 = getelementptr inbounds [24 x i8], ptr %236, i64 %rem.i934
   %241 = load ptr, ptr %arrayidx.i.i919, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i919, align 8, !tbaa !23
   %n_3.i.i.i.i.i936 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i919, i64 8
@@ -4351,7 +4351,7 @@ for.body.lr.ph.i981:                              ; preds = %invoke.cont293
 for.body.i983:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i988, %for.body.lr.ph.i981
   %i.011.i984 = phi i64 [ %i.08.i979, %for.body.lr.ph.i981 ], [ %i.0.i1007, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i988 ]
   %i.0.in10.i985 = phi i64 [ %sub.ptr.div.i.i978, %for.body.lr.ph.i981 ], [ %i.011.i984, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i988 ]
-  %arrayidx.i.i986 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %251, i64 %i.011.i984
+  %arrayidx.i.i986 = getelementptr inbounds [24 x i8], ptr %251, i64 %i.011.i984
   %253 = load i64, ptr %mti.i.i982, align 8, !tbaa !68
   %cmp.i.i987 = icmp eq i64 %253, 624
   br i1 %cmp.i.i987, label %if.then.i.i1009, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i988
@@ -4368,7 +4368,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i988: ; preds = %.noex
   %254 = phi i64 [ %.pre.i.i1010, %.noexc1011 ], [ %253, %for.body.i983 ]
   %inc.i.i989 = add i64 %254, 1
   store i64 %inc.i.i989, ptr %mti.i.i982, align 8, !tbaa !68
-  %arrayidx.i4.i990 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %254
+  %arrayidx.i4.i990 = getelementptr inbounds nuw [8 x i8], ptr %rng_273, i64 %254
   %255 = load i64, ptr %arrayidx.i4.i990, align 8, !tbaa !24
   %shr.i.i991 = lshr i64 %255, 11
   %xor.i.i992 = xor i64 %shr.i.i991, %255
@@ -4381,7 +4381,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i988: ; preds = %.noex
   %shr7.i.i999 = lshr i64 %xor6.i.i998, 18
   %xor8.i.i1000 = xor i64 %shr7.i.i999, %xor6.i.i998
   %rem.i1001 = urem i64 %xor8.i.i1000, %i.0.in10.i985
-  %arrayidx.i5.i1002 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %251, i64 %rem.i1001
+  %arrayidx.i5.i1002 = getelementptr inbounds [24 x i8], ptr %251, i64 %rem.i1001
   %256 = load ptr, ptr %arrayidx.i.i986, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i986, align 8, !tbaa !23
   %n_3.i.i.i.i.i1003 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i986, i64 8
@@ -4505,7 +4505,7 @@ invoke.cont328:                                   ; preds = %.noexc1050, %for.bo
   %276 = phi i64 [ %.pre.i.i1049, %.noexc1050 ], [ %274, %for.body322 ]
   %inc.i.i1033 = add i64 %276, 1
   store i64 %inc.i.i1033, ptr %mti.i.i1030, align 8, !tbaa !68
-  %arrayidx.i.i1034 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %276
+  %arrayidx.i.i1034 = getelementptr inbounds nuw [8 x i8], ptr %rng_273, i64 %276
   %277 = load i64, ptr %arrayidx.i.i1034, align 8, !tbaa !24
   %shr.i.i1035 = lshr i64 %277, 11
   %xor.i.i1036 = xor i64 %shr.i.i1035, %277
@@ -4624,13 +4624,13 @@ for.body345:                                      ; preds = %for.body345.lr.ph, 
   %290 = phi ptr [ %267, %for.body345.lr.ph ], [ %301, %_ZN8QuantLib5ArrayD2Ev.exit1115 ]
   %popIter340.02236 = phi i64 [ 0, %for.body345.lr.ph ], [ %inc370, %_ZN8QuantLib5ArrayD2Ev.exit1115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp346)
-  %add.ptr.i1101 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %290, i64 %popIter340.02236
+  %add.ptr.i1101 = getelementptr inbounds nuw [24 x i8], ptr %290, i64 %popIter340.02236
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp349)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp350)
   %291 = load ptr, ptr %shuffledPop1277, align 8, !tbaa !45
-  %add.ptr.i1102 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %291, i64 %popIter340.02236
+  %add.ptr.i1102 = getelementptr inbounds nuw [24 x i8], ptr %291, i64 %popIter340.02236
   %292 = load ptr, ptr %shuffledPop2291, align 8, !tbaa !45
-  %add.ptr.i1103 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %292, i64 %popIter340.02236
+  %add.ptr.i1103 = getelementptr inbounds nuw [24 x i8], ptr %292, i64 %popIter340.02236
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp350, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1102, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1103)
           to label %invoke.cont356 unwind label %lpad355
 
@@ -4644,7 +4644,7 @@ invoke.cont358:                                   ; preds = %invoke.cont356
 
 invoke.cont360:                                   ; preds = %invoke.cont358
   %293 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i1104 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %293, i64 %popIter340.02236
+  %add.ptr.i1104 = getelementptr inbounds nuw [24 x i8], ptr %293, i64 %popIter340.02236
   %294 = load ptr, ptr %add.ptr.i1104, align 8, !tbaa !23
   %295 = load ptr, ptr %ref.tmp346, align 8, !tbaa !23
   store ptr %295, ptr %add.ptr.i1104, align 8, !tbaa !23
@@ -4791,7 +4791,7 @@ for.body.lr.ph.i1132:                             ; preds = %sw.bb379
 for.body.i1134:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1139, %for.body.lr.ph.i1132
   %i.011.i1135 = phi i64 [ %i.08.i1130, %for.body.lr.ph.i1132 ], [ %i.0.i1158, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1139 ]
   %i.0.in10.i1136 = phi i64 [ %sub.ptr.div.i.i1129, %for.body.lr.ph.i1132 ], [ %i.011.i1135, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1139 ]
-  %arrayidx.i.i1137 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %308, i64 %i.011.i1135
+  %arrayidx.i.i1137 = getelementptr inbounds [24 x i8], ptr %308, i64 %i.011.i1135
   %310 = load i64, ptr %mti.i.i1133, align 8, !tbaa !68
   %cmp.i.i1138 = icmp eq i64 %310, 624
   br i1 %cmp.i.i1138, label %if.then.i.i1160, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1139
@@ -4808,7 +4808,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1139: ; preds = %.noe
   %311 = phi i64 [ %.pre.i.i1161, %.noexc1162 ], [ %310, %for.body.i1134 ]
   %inc.i.i1140 = add i64 %311, 1
   store i64 %inc.i.i1140, ptr %mti.i.i1133, align 8, !tbaa !68
-  %arrayidx.i4.i1141 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %311
+  %arrayidx.i4.i1141 = getelementptr inbounds nuw [8 x i8], ptr %rng_386, i64 %311
   %312 = load i64, ptr %arrayidx.i4.i1141, align 8, !tbaa !24
   %shr.i.i1142 = lshr i64 %312, 11
   %xor.i.i1143 = xor i64 %shr.i.i1142, %312
@@ -4821,7 +4821,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1139: ; preds = %.noe
   %shr7.i.i1150 = lshr i64 %xor6.i.i1149, 18
   %xor8.i.i1151 = xor i64 %shr7.i.i1150, %xor6.i.i1149
   %rem.i1152 = urem i64 %xor8.i.i1151, %i.0.in10.i1136
-  %arrayidx.i5.i1153 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %308, i64 %rem.i1152
+  %arrayidx.i5.i1153 = getelementptr inbounds [24 x i8], ptr %308, i64 %rem.i1152
   %313 = load ptr, ptr %arrayidx.i.i1137, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1137, align 8, !tbaa !23
   %n_3.i.i.i.i.i1154 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1137, i64 8
@@ -4922,7 +4922,7 @@ for.body.lr.ph.i1199:                             ; preds = %invoke.cont392
 for.body.i1201:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1206, %for.body.lr.ph.i1199
   %i.011.i1202 = phi i64 [ %i.08.i1197, %for.body.lr.ph.i1199 ], [ %i.0.i1225, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1206 ]
   %i.0.in10.i1203 = phi i64 [ %sub.ptr.div.i.i1196, %for.body.lr.ph.i1199 ], [ %i.011.i1202, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1206 ]
-  %arrayidx.i.i1204 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %324, i64 %i.011.i1202
+  %arrayidx.i.i1204 = getelementptr inbounds [24 x i8], ptr %324, i64 %i.011.i1202
   %326 = load i64, ptr %mti.i.i1200, align 8, !tbaa !68
   %cmp.i.i1205 = icmp eq i64 %326, 624
   br i1 %cmp.i.i1205, label %if.then.i.i1227, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1206
@@ -4939,7 +4939,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1206: ; preds = %.noe
   %327 = phi i64 [ %.pre.i.i1228, %.noexc1229 ], [ %326, %for.body.i1201 ]
   %inc.i.i1207 = add i64 %327, 1
   store i64 %inc.i.i1207, ptr %mti.i.i1200, align 8, !tbaa !68
-  %arrayidx.i4.i1208 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %327
+  %arrayidx.i4.i1208 = getelementptr inbounds nuw [8 x i8], ptr %rng_386, i64 %327
   %328 = load i64, ptr %arrayidx.i4.i1208, align 8, !tbaa !24
   %shr.i.i1209 = lshr i64 %328, 11
   %xor.i.i1210 = xor i64 %shr.i.i1209, %328
@@ -4952,7 +4952,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1206: ; preds = %.noe
   %shr7.i.i1217 = lshr i64 %xor6.i.i1216, 18
   %xor8.i.i1218 = xor i64 %shr7.i.i1217, %xor6.i.i1216
   %rem.i1219 = urem i64 %xor8.i.i1218, %i.0.in10.i1203
-  %arrayidx.i5.i1220 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %324, i64 %rem.i1219
+  %arrayidx.i5.i1220 = getelementptr inbounds [24 x i8], ptr %324, i64 %rem.i1219
   %329 = load ptr, ptr %arrayidx.i.i1204, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1204, align 8, !tbaa !23
   %n_3.i.i.i.i.i1221 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1204, i64 8
@@ -5046,7 +5046,7 @@ for.body.lr.ph.i1266:                             ; preds = %invoke.cont406
 for.body.i1268:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1273, %for.body.lr.ph.i1266
   %i.011.i1269 = phi i64 [ %i.08.i1264, %for.body.lr.ph.i1266 ], [ %i.0.i1292, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1273 ]
   %i.0.in10.i1270 = phi i64 [ %sub.ptr.div.i.i1263, %for.body.lr.ph.i1266 ], [ %i.011.i1269, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1273 ]
-  %arrayidx.i.i1271 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %339, i64 %i.011.i1269
+  %arrayidx.i.i1271 = getelementptr inbounds [24 x i8], ptr %339, i64 %i.011.i1269
   %341 = load i64, ptr %mti.i.i1267, align 8, !tbaa !68
   %cmp.i.i1272 = icmp eq i64 %341, 624
   br i1 %cmp.i.i1272, label %if.then.i.i1294, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1273
@@ -5063,7 +5063,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1273: ; preds = %.noe
   %342 = phi i64 [ %.pre.i.i1295, %.noexc1296 ], [ %341, %for.body.i1268 ]
   %inc.i.i1274 = add i64 %342, 1
   store i64 %inc.i.i1274, ptr %mti.i.i1267, align 8, !tbaa !68
-  %arrayidx.i4.i1275 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %342
+  %arrayidx.i4.i1275 = getelementptr inbounds nuw [8 x i8], ptr %rng_386, i64 %342
   %343 = load i64, ptr %arrayidx.i4.i1275, align 8, !tbaa !24
   %shr.i.i1276 = lshr i64 %343, 11
   %xor.i.i1277 = xor i64 %shr.i.i1276, %343
@@ -5076,7 +5076,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1273: ; preds = %.noe
   %shr7.i.i1284 = lshr i64 %xor6.i.i1283, 18
   %xor8.i.i1285 = xor i64 %shr7.i.i1284, %xor6.i.i1283
   %rem.i1286 = urem i64 %xor8.i.i1285, %i.0.in10.i1270
-  %arrayidx.i5.i1287 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %339, i64 %rem.i1286
+  %arrayidx.i5.i1287 = getelementptr inbounds [24 x i8], ptr %339, i64 %rem.i1286
   %344 = load ptr, ptr %arrayidx.i.i1271, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1271, align 8, !tbaa !23
   %n_3.i.i.i.i.i1288 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1271, i64 8
@@ -5125,7 +5125,7 @@ invoke.cont427:                                   ; preds = %.noexc1319, %invoke
   %353 = phi i64 [ %.pre.i.i1318, %.noexc1319 ], [ %351, %invoke.cont418 ]
   %inc.i.i1302 = add i64 %353, 1
   store i64 %inc.i.i1302, ptr %mti.i.i1299, align 8, !tbaa !68
-  %arrayidx.i.i1303 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %353
+  %arrayidx.i.i1303 = getelementptr inbounds nuw [8 x i8], ptr %rng_386, i64 %353
   %354 = load i64, ptr %arrayidx.i.i1303, align 8, !tbaa !24
   %shr.i.i1304 = lshr i64 %354, 11
   %xor.i.i1305 = xor i64 %shr.i.i1304, %354
@@ -5273,13 +5273,13 @@ for.body437:                                      ; preds = %for.body437.lr.ph, 
   %371 = phi ptr [ %357, %for.body437.lr.ph ], [ %385, %_ZN8QuantLib5ArrayD2Ev.exit1392 ]
   %popIter432.02228 = phi i64 [ 0, %for.body437.lr.ph ], [ %inc462, %_ZN8QuantLib5ArrayD2Ev.exit1392 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp438)
-  %add.ptr.i1367 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %371, i64 %popIter432.02228
+  %add.ptr.i1367 = getelementptr inbounds nuw [24 x i8], ptr %371, i64 %popIter432.02228
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp441)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp442)
   %372 = load ptr, ptr %shuffledPop1390, align 8, !tbaa !45
-  %add.ptr.i1368 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %372, i64 %popIter432.02228
+  %add.ptr.i1368 = getelementptr inbounds nuw [24 x i8], ptr %372, i64 %popIter432.02228
   %373 = load ptr, ptr %shuffledPop2404, align 8, !tbaa !45
-  %add.ptr.i1369 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %373, i64 %popIter432.02228
+  %add.ptr.i1369 = getelementptr inbounds nuw [24 x i8], ptr %373, i64 %popIter432.02228
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp442, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1368, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1369)
           to label %invoke.cont448 unwind label %lpad447
 
@@ -5311,7 +5311,7 @@ invoke.cont450:                                   ; preds = %for.body.i.i1375, %
 
 invoke.cont452:                                   ; preds = %invoke.cont450
   %377 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i1381 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %377, i64 %popIter432.02228
+  %add.ptr.i1381 = getelementptr inbounds nuw [24 x i8], ptr %377, i64 %popIter432.02228
   %378 = load ptr, ptr %add.ptr.i1381, align 8, !tbaa !23
   %379 = load ptr, ptr %ref.tmp438, align 8, !tbaa !23
   store ptr %379, ptr %add.ptr.i1381, align 8, !tbaa !23
@@ -5434,7 +5434,7 @@ for.body.lr.ph.i1406:                             ; preds = %sw.bb470
 for.body.i1408:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1413, %for.body.lr.ph.i1406
   %i.011.i1409 = phi i64 [ %i.08.i1404, %for.body.lr.ph.i1406 ], [ %i.0.i1432, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1413 ]
   %i.0.in10.i1410 = phi i64 [ %sub.ptr.div.i.i1403, %for.body.lr.ph.i1406 ], [ %i.011.i1409, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1413 ]
-  %arrayidx.i.i1411 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %390, i64 %i.011.i1409
+  %arrayidx.i.i1411 = getelementptr inbounds [24 x i8], ptr %390, i64 %i.011.i1409
   %392 = load i64, ptr %mti.i.i1407, align 8, !tbaa !68
   %cmp.i.i1412 = icmp eq i64 %392, 624
   br i1 %cmp.i.i1412, label %if.then.i.i1434, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1413
@@ -5451,7 +5451,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1413: ; preds = %.noe
   %393 = phi i64 [ %.pre.i.i1435, %.noexc1436 ], [ %392, %for.body.i1408 ]
   %inc.i.i1414 = add i64 %393, 1
   store i64 %inc.i.i1414, ptr %mti.i.i1407, align 8, !tbaa !68
-  %arrayidx.i4.i1415 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %393
+  %arrayidx.i4.i1415 = getelementptr inbounds nuw [8 x i8], ptr %rng_477, i64 %393
   %394 = load i64, ptr %arrayidx.i4.i1415, align 8, !tbaa !24
   %shr.i.i1416 = lshr i64 %394, 11
   %xor.i.i1417 = xor i64 %shr.i.i1416, %394
@@ -5464,7 +5464,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1413: ; preds = %.noe
   %shr7.i.i1424 = lshr i64 %xor6.i.i1423, 18
   %xor8.i.i1425 = xor i64 %shr7.i.i1424, %xor6.i.i1423
   %rem.i1426 = urem i64 %xor8.i.i1425, %i.0.in10.i1410
-  %arrayidx.i5.i1427 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %390, i64 %rem.i1426
+  %arrayidx.i5.i1427 = getelementptr inbounds [24 x i8], ptr %390, i64 %rem.i1426
   %395 = load ptr, ptr %arrayidx.i.i1411, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1411, align 8, !tbaa !23
   %n_3.i.i.i.i.i1428 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1411, i64 8
@@ -5565,7 +5565,7 @@ for.body.lr.ph.i1473:                             ; preds = %invoke.cont483
 for.body.i1475:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1480, %for.body.lr.ph.i1473
   %i.011.i1476 = phi i64 [ %i.08.i1471, %for.body.lr.ph.i1473 ], [ %i.0.i1499, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1480 ]
   %i.0.in10.i1477 = phi i64 [ %sub.ptr.div.i.i1470, %for.body.lr.ph.i1473 ], [ %i.011.i1476, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1480 ]
-  %arrayidx.i.i1478 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %406, i64 %i.011.i1476
+  %arrayidx.i.i1478 = getelementptr inbounds [24 x i8], ptr %406, i64 %i.011.i1476
   %408 = load i64, ptr %mti.i.i1474, align 8, !tbaa !68
   %cmp.i.i1479 = icmp eq i64 %408, 624
   br i1 %cmp.i.i1479, label %if.then.i.i1501, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1480
@@ -5582,7 +5582,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1480: ; preds = %.noe
   %409 = phi i64 [ %.pre.i.i1502, %.noexc1503 ], [ %408, %for.body.i1475 ]
   %inc.i.i1481 = add i64 %409, 1
   store i64 %inc.i.i1481, ptr %mti.i.i1474, align 8, !tbaa !68
-  %arrayidx.i4.i1482 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %409
+  %arrayidx.i4.i1482 = getelementptr inbounds nuw [8 x i8], ptr %rng_477, i64 %409
   %410 = load i64, ptr %arrayidx.i4.i1482, align 8, !tbaa !24
   %shr.i.i1483 = lshr i64 %410, 11
   %xor.i.i1484 = xor i64 %shr.i.i1483, %410
@@ -5595,7 +5595,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1480: ; preds = %.noe
   %shr7.i.i1491 = lshr i64 %xor6.i.i1490, 18
   %xor8.i.i1492 = xor i64 %shr7.i.i1491, %xor6.i.i1490
   %rem.i1493 = urem i64 %xor8.i.i1492, %i.0.in10.i1477
-  %arrayidx.i5.i1494 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %406, i64 %rem.i1493
+  %arrayidx.i5.i1494 = getelementptr inbounds [24 x i8], ptr %406, i64 %rem.i1493
   %411 = load ptr, ptr %arrayidx.i.i1478, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1478, align 8, !tbaa !23
   %n_3.i.i.i.i.i1495 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1478, i64 8
@@ -5689,7 +5689,7 @@ for.body.lr.ph.i1540:                             ; preds = %invoke.cont497
 for.body.i1542:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1547, %for.body.lr.ph.i1540
   %i.011.i1543 = phi i64 [ %i.08.i1538, %for.body.lr.ph.i1540 ], [ %i.0.i1566, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1547 ]
   %i.0.in10.i1544 = phi i64 [ %sub.ptr.div.i.i1537, %for.body.lr.ph.i1540 ], [ %i.011.i1543, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1547 ]
-  %arrayidx.i.i1545 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %421, i64 %i.011.i1543
+  %arrayidx.i.i1545 = getelementptr inbounds [24 x i8], ptr %421, i64 %i.011.i1543
   %423 = load i64, ptr %mti.i.i1541, align 8, !tbaa !68
   %cmp.i.i1546 = icmp eq i64 %423, 624
   br i1 %cmp.i.i1546, label %if.then.i.i1568, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1547
@@ -5706,7 +5706,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1547: ; preds = %.noe
   %424 = phi i64 [ %.pre.i.i1569, %.noexc1570 ], [ %423, %for.body.i1542 ]
   %inc.i.i1548 = add i64 %424, 1
   store i64 %inc.i.i1548, ptr %mti.i.i1541, align 8, !tbaa !68
-  %arrayidx.i4.i1549 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %424
+  %arrayidx.i4.i1549 = getelementptr inbounds nuw [8 x i8], ptr %rng_477, i64 %424
   %425 = load i64, ptr %arrayidx.i4.i1549, align 8, !tbaa !24
   %shr.i.i1550 = lshr i64 %425, 11
   %xor.i.i1551 = xor i64 %shr.i.i1550, %425
@@ -5719,7 +5719,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1547: ; preds = %.noe
   %shr7.i.i1558 = lshr i64 %xor6.i.i1557, 18
   %xor8.i.i1559 = xor i64 %shr7.i.i1558, %xor6.i.i1557
   %rem.i1560 = urem i64 %xor8.i.i1559, %i.0.in10.i1544
-  %arrayidx.i5.i1561 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %421, i64 %rem.i1560
+  %arrayidx.i5.i1561 = getelementptr inbounds [24 x i8], ptr %421, i64 %rem.i1560
   %426 = load ptr, ptr %arrayidx.i.i1545, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1545, align 8, !tbaa !23
   %n_3.i.i.i.i.i1562 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1545, i64 8
@@ -5764,7 +5764,7 @@ invoke.cont513:                                   ; preds = %.noexc1592, %invoke
   %433 = phi i64 [ %.pre.i.i1591, %.noexc1592 ], [ %432, %invoke.cont509 ]
   %inc.i.i1575 = add i64 %433, 1
   store i64 %inc.i.i1575, ptr %mti.i.i1572, align 8, !tbaa !68
-  %arrayidx.i.i1576 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %433
+  %arrayidx.i.i1576 = getelementptr inbounds nuw [8 x i8], ptr %rng_477, i64 %433
   %434 = load i64, ptr %arrayidx.i.i1576, align 8, !tbaa !24
   %shr.i.i1577 = lshr i64 %434, 11
   %xor.i.i1578 = xor i64 %shr.i.i1577, %434
@@ -5828,14 +5828,14 @@ lpad512:                                          ; preds = %if.then.i.i1590
 for.body521:                                      ; preds = %for.body521.lr.ph, %_ZN8QuantLib5ArrayD2Ev.exit1625
   %popIter516.02222 = phi i64 [ 0, %for.body521.lr.ph ], [ %inc550, %_ZN8QuantLib5ArrayD2Ev.exit1625 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp522)
-  %add.ptr.i1599 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %2, i64 %popIter516.02222
+  %add.ptr.i1599 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %popIter516.02222
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp525)
   %441 = load double, ptr %stepsizeWeight529, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp530)
   %442 = load ptr, ptr %shuffledPop1481, align 8, !tbaa !45
-  %add.ptr.i1601 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %442, i64 %popIter516.02222
+  %add.ptr.i1601 = getelementptr inbounds nuw [24 x i8], ptr %442, i64 %popIter516.02222
   %443 = load ptr, ptr %shuffledPop2495, align 8, !tbaa !45
-  %add.ptr.i1602 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %443, i64 %popIter516.02222
+  %add.ptr.i1602 = getelementptr inbounds nuw [24 x i8], ptr %443, i64 %popIter516.02222
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp530, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1601, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1602)
           to label %invoke.cont536 unwind label %lpad535
 
@@ -5867,7 +5867,7 @@ invoke.cont538:                                   ; preds = %for.body.i.i1608, %
 
 invoke.cont540:                                   ; preds = %invoke.cont538
   %447 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i1614 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %447, i64 %popIter516.02222
+  %add.ptr.i1614 = getelementptr inbounds nuw [24 x i8], ptr %447, i64 %popIter516.02222
   %448 = load ptr, ptr %add.ptr.i1614, align 8, !tbaa !23
   %449 = load ptr, ptr %ref.tmp522, align 8, !tbaa !23
   store ptr %449, ptr %add.ptr.i1614, align 8, !tbaa !23
@@ -5971,21 +5971,21 @@ for.body562.lr.ph:                                ; preds = %if.else
 for.body562:                                      ; preds = %for.body562.lr.ph, %_ZN8QuantLib5ArrayD2Ev.exit1687
   %popIter557.02216 = phi i64 [ 0, %for.body562.lr.ph ], [ %inc599, %_ZN8QuantLib5ArrayD2Ev.exit1687 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp563)
-  %add.ptr.i1638 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %2, i64 %popIter557.02216
+  %add.ptr.i1638 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %popIter557.02216
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp566)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp567)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp568)
   %463 = load ptr, ptr %shuffledPop1481, align 8, !tbaa !45
-  %add.ptr.i1639 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %463, i64 %popIter557.02216
+  %add.ptr.i1639 = getelementptr inbounds nuw [24 x i8], ptr %463, i64 %popIter557.02216
   %464 = load ptr, ptr %shuffledPop2495, align 8, !tbaa !45
-  %add.ptr.i1640 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %464, i64 %popIter557.02216
+  %add.ptr.i1640 = getelementptr inbounds nuw [24 x i8], ptr %464, i64 %popIter557.02216
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp568, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1639, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i1640)
           to label %invoke.cont574 unwind label %lpad573
 
 invoke.cont574:                                   ; preds = %for.body562
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp575)
   %465 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i1641 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %465, i64 %popIter557.02216
+  %add.ptr.i1641 = getelementptr inbounds nuw [24 x i8], ptr %465, i64 %popIter557.02216
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %n_.i.i1642 = getelementptr inbounds nuw i8, ptr %add.ptr.i1641, i64 8
   %466 = load i64, ptr %n_.i.i1642, align 8, !tbaa !21, !noalias !106
@@ -6053,7 +6053,7 @@ invoke.cont583:                                   ; preds = %for.body.i.i1664, %
 
 invoke.cont585:                                   ; preds = %invoke.cont583
   %475 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i1670 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %475, i64 %popIter557.02216
+  %add.ptr.i1670 = getelementptr inbounds nuw [24 x i8], ptr %475, i64 %popIter557.02216
   %476 = load ptr, ptr %add.ptr.i1670, align 8, !tbaa !23
   %477 = load ptr, ptr %ref.tmp563, align 8, !tbaa !23
   store ptr %477, ptr %add.ptr.i1670, align 8, !tbaa !23
@@ -6309,7 +6309,7 @@ for.body.lr.ph.i1747:                             ; preds = %sw.bb608
 for.body.i1749:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1754, %for.body.lr.ph.i1747
   %i.011.i1750 = phi i64 [ %i.08.i1745, %for.body.lr.ph.i1747 ], [ %i.0.i1773, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1754 ]
   %i.0.in10.i1751 = phi i64 [ %sub.ptr.div.i.i1744, %for.body.lr.ph.i1747 ], [ %i.011.i1750, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1754 ]
-  %arrayidx.i.i1752 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %501, i64 %i.011.i1750
+  %arrayidx.i.i1752 = getelementptr inbounds [24 x i8], ptr %501, i64 %i.011.i1750
   %503 = load i64, ptr %mti.i.i1748, align 8, !tbaa !68
   %cmp.i.i1753 = icmp eq i64 %503, 624
   br i1 %cmp.i.i1753, label %if.then.i.i1775, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1754
@@ -6326,7 +6326,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1754: ; preds = %.noe
   %504 = phi i64 [ %.pre.i.i1776, %.noexc1777 ], [ %503, %for.body.i1749 ]
   %inc.i.i1755 = add i64 %504, 1
   store i64 %inc.i.i1755, ptr %mti.i.i1748, align 8, !tbaa !68
-  %arrayidx.i4.i1756 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %504
+  %arrayidx.i4.i1756 = getelementptr inbounds nuw [8 x i8], ptr %rng_615, i64 %504
   %505 = load i64, ptr %arrayidx.i4.i1756, align 8, !tbaa !24
   %shr.i.i1757 = lshr i64 %505, 11
   %xor.i.i1758 = xor i64 %shr.i.i1757, %505
@@ -6339,7 +6339,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1754: ; preds = %.noe
   %shr7.i.i1765 = lshr i64 %xor6.i.i1764, 18
   %xor8.i.i1766 = xor i64 %shr7.i.i1765, %xor6.i.i1764
   %rem.i1767 = urem i64 %xor8.i.i1766, %i.0.in10.i1751
-  %arrayidx.i5.i1768 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %501, i64 %rem.i1767
+  %arrayidx.i5.i1768 = getelementptr inbounds [24 x i8], ptr %501, i64 %rem.i1767
   %506 = load ptr, ptr %arrayidx.i.i1752, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1752, align 8, !tbaa !23
   %n_3.i.i.i.i.i1769 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1752, i64 8
@@ -6440,7 +6440,7 @@ for.body.lr.ph.i1814:                             ; preds = %invoke.cont621
 for.body.i1816:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1821, %for.body.lr.ph.i1814
   %i.011.i1817 = phi i64 [ %i.08.i1812, %for.body.lr.ph.i1814 ], [ %i.0.i1840, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1821 ]
   %i.0.in10.i1818 = phi i64 [ %sub.ptr.div.i.i1811, %for.body.lr.ph.i1814 ], [ %i.011.i1817, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1821 ]
-  %arrayidx.i.i1819 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %517, i64 %i.011.i1817
+  %arrayidx.i.i1819 = getelementptr inbounds [24 x i8], ptr %517, i64 %i.011.i1817
   %519 = load i64, ptr %mti.i.i1815, align 8, !tbaa !68
   %cmp.i.i1820 = icmp eq i64 %519, 624
   br i1 %cmp.i.i1820, label %if.then.i.i1842, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1821
@@ -6457,7 +6457,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1821: ; preds = %.noe
   %520 = phi i64 [ %.pre.i.i1843, %.noexc1844 ], [ %519, %for.body.i1816 ]
   %inc.i.i1822 = add i64 %520, 1
   store i64 %inc.i.i1822, ptr %mti.i.i1815, align 8, !tbaa !68
-  %arrayidx.i4.i1823 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %520
+  %arrayidx.i4.i1823 = getelementptr inbounds nuw [8 x i8], ptr %rng_615, i64 %520
   %521 = load i64, ptr %arrayidx.i4.i1823, align 8, !tbaa !24
   %shr.i.i1824 = lshr i64 %521, 11
   %xor.i.i1825 = xor i64 %shr.i.i1824, %521
@@ -6470,7 +6470,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1821: ; preds = %.noe
   %shr7.i.i1832 = lshr i64 %xor6.i.i1831, 18
   %xor8.i.i1833 = xor i64 %shr7.i.i1832, %xor6.i.i1831
   %rem.i1834 = urem i64 %xor8.i.i1833, %i.0.in10.i1818
-  %arrayidx.i5.i1835 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %517, i64 %rem.i1834
+  %arrayidx.i5.i1835 = getelementptr inbounds [24 x i8], ptr %517, i64 %rem.i1834
   %522 = load ptr, ptr %arrayidx.i.i1819, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1819, align 8, !tbaa !23
   %n_3.i.i.i.i.i1836 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1819, i64 8
@@ -6564,7 +6564,7 @@ for.body.lr.ph.i1881:                             ; preds = %invoke.cont635
 for.body.i1883:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1888, %for.body.lr.ph.i1881
   %i.011.i1884 = phi i64 [ %i.08.i1879, %for.body.lr.ph.i1881 ], [ %i.0.i1907, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1888 ]
   %i.0.in10.i1885 = phi i64 [ %sub.ptr.div.i.i1878, %for.body.lr.ph.i1881 ], [ %i.011.i1884, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1888 ]
-  %arrayidx.i.i1886 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %531, i64 %i.011.i1884
+  %arrayidx.i.i1886 = getelementptr inbounds [24 x i8], ptr %531, i64 %i.011.i1884
   %533 = load i64, ptr %mti.i.i1882, align 8, !tbaa !68
   %cmp.i.i1887 = icmp eq i64 %533, 624
   br i1 %cmp.i.i1887, label %if.then.i.i1909, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1888
@@ -6581,7 +6581,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1888: ; preds = %.noe
   %534 = phi i64 [ %.pre.i.i1910, %.noexc1911 ], [ %533, %for.body.i1883 ]
   %inc.i.i1889 = add i64 %534, 1
   store i64 %inc.i.i1889, ptr %mti.i.i1882, align 8, !tbaa !68
-  %arrayidx.i4.i1890 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %534
+  %arrayidx.i4.i1890 = getelementptr inbounds nuw [8 x i8], ptr %rng_615, i64 %534
   %535 = load i64, ptr %arrayidx.i4.i1890, align 8, !tbaa !24
   %shr.i.i1891 = lshr i64 %535, 11
   %xor.i.i1892 = xor i64 %shr.i.i1891, %535
@@ -6594,7 +6594,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1888: ; preds = %.noe
   %shr7.i.i1899 = lshr i64 %xor6.i.i1898, 18
   %xor8.i.i1900 = xor i64 %shr7.i.i1899, %xor6.i.i1898
   %rem.i1901 = urem i64 %xor8.i.i1900, %i.0.in10.i1885
-  %arrayidx.i5.i1902 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %531, i64 %rem.i1901
+  %arrayidx.i5.i1902 = getelementptr inbounds [24 x i8], ptr %531, i64 %rem.i1901
   %536 = load ptr, ptr %arrayidx.i.i1886, align 8, !tbaa !23
   store ptr null, ptr %arrayidx.i.i1886, align 8, !tbaa !23
   %n_3.i.i.i.i.i1903 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1886, i64 8
@@ -6756,7 +6756,7 @@ invoke.cont658:                                   ; preds = %.noexc1978, %for.bo
   %554 = phi i64 [ %.pre.i.i1977, %.noexc1978 ], [ %553, %for.body655 ]
   %inc.i.i1961 = add i64 %554, 1
   store i64 %inc.i.i1961, ptr %mti.i.i1958, align 8, !tbaa !68
-  %arrayidx.i.i1962 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %554
+  %arrayidx.i.i1962 = getelementptr inbounds nuw [8 x i8], ptr %rng_615, i64 %554
   %555 = load i64, ptr %arrayidx.i.i1962, align 8, !tbaa !24
   %shr.i.i1963 = lshr i64 %555, 11
   %xor.i.i1964 = xor i64 %shr.i.i1963, %555
@@ -6802,7 +6802,7 @@ for.body.i.i1987:                                 ; preds = %_ZNK8QuantLib25Mers
   %561 = phi i64 [ %inc.i.i1961, %for.body.lr.ph.i.i ], [ %inc.i.i.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i ]
   %i.09.i.i = phi i64 [ %i.06.i.i2128, %for.body.lr.ph.i.i ], [ %i.0.i.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i ]
   %i.0.in8.i.i = phi i64 [ %556, %for.body.lr.ph.i.i ], [ %i.09.i.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i ]
-  %arrayidx.i.i1988 = getelementptr inbounds nuw double, ptr %agg.tmp663.sroa.0.02125, i64 %i.09.i.i
+  %arrayidx.i.i1988 = getelementptr inbounds nuw [8 x i8], ptr %agg.tmp663.sroa.0.02125, i64 %i.09.i.i
   %cmp.i.i.i = icmp eq i64 %561, 624
   br i1 %cmp.i.i.i, label %if.then.i.i.i1990, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i
 
@@ -6818,7 +6818,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i: ; preds = %.noexc
   %562 = phi i64 [ %.pre.i.i.i, %.noexc1991 ], [ %561, %for.body.i.i1987 ]
   %inc.i.i.i = add i64 %562, 1
   store i64 %inc.i.i.i, ptr %mti.i.i1958, align 8, !tbaa !68, !noalias !113
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rng_615, i64 %562
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_615, i64 %562
   %563 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !24, !noalias !113
   %shr.i.i.i = lshr i64 %563, 11
   %xor.i.i.i = xor i64 %shr.i.i.i, %563
@@ -6831,7 +6831,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i: ; preds = %.noexc
   %shr7.i.i.i = lshr i64 %xor6.i.i.i, 18
   %xor8.i.i.i = xor i64 %shr7.i.i.i, %xor6.i.i.i
   %rem.i.i = urem i64 %xor8.i.i.i, %i.0.in8.i.i
-  %arrayidx1.i.i = getelementptr inbounds nuw double, ptr %agg.tmp663.sroa.0.02125, i64 %rem.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw [8 x i8], ptr %agg.tmp663.sroa.0.02125, i64 %rem.i.i
   %564 = load double, ptr %arrayidx.i.i1988, align 8, !tbaa !39, !noalias !113
   %565 = load double, ptr %arrayidx1.i.i, align 8, !tbaa !39, !noalias !113
   store double %565, ptr %arrayidx.i.i1988, align 8, !tbaa !39, !noalias !113
@@ -6843,7 +6843,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i: ; preds = %.noexc
 invoke.cont669:                                   ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i, %invoke.cont667
   %agg.tmp663.sroa.0.02126 = phi ptr [ %call.i1984, %invoke.cont667 ], [ %agg.tmp663.sroa.0.02125, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i ]
   %566 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i1992 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %566, i64 %popIter650.02210
+  %add.ptr.i1992 = getelementptr inbounds nuw [24 x i8], ptr %566, i64 %popIter650.02210
   %567 = load ptr, ptr %add.ptr.i1992, align 8, !tbaa !23
   store ptr %agg.tmp663.sroa.0.02126, ptr %add.ptr.i1992, align 8, !tbaa !23
   %n_.i.i1993 = getelementptr inbounds nuw i8, ptr %add.ptr.i1992, i64 8
@@ -6879,12 +6879,12 @@ if.else675:                                       ; preds = %invoke.cont658
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp676)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp679)
   %571 = load ptr, ptr %currGenSizeWeights_, align 8, !tbaa !23
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %571, i64 %popIter650.02210
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %571, i64 %popIter650.02210
   %572 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp683)
   %573 = load ptr, ptr %shuffledPop1619, align 8, !tbaa !45
-  %add.ptr.i2004 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %573, i64 %popIter650.02210
-  %add.ptr.i2005 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %.pr.i1928, i64 %popIter650.02210
+  %add.ptr.i2004 = getelementptr inbounds nuw [24 x i8], ptr %573, i64 %popIter650.02210
+  %add.ptr.i2005 = getelementptr inbounds nuw [24 x i8], ptr %.pr.i1928, i64 %popIter650.02210
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp683, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i2004, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i2005)
           to label %invoke.cont689 unwind label %lpad688
 
@@ -6916,7 +6916,7 @@ invoke.cont691:                                   ; preds = %for.body.i.i2011, %
 
 invoke.cont693:                                   ; preds = %invoke.cont691
   %577 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i2017 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %577, i64 %popIter650.02210
+  %add.ptr.i2017 = getelementptr inbounds nuw [24 x i8], ptr %577, i64 %popIter650.02210
   %578 = load ptr, ptr %add.ptr.i2017, align 8, !tbaa !23
   %579 = load ptr, ptr %ref.tmp676, align 8, !tbaa !23
   store ptr %579, ptr %add.ptr.i2017, align 8, !tbaa !23
@@ -8756,7 +8756,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body, %
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %for.body ]
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %3
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %3
   %4 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %4, 11
   %xor.i.i = xor i64 %shr.i.i, %4
@@ -8787,7 +8787,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit23: ; preds = %if.then, 
   %5 = phi i64 [ %.pre.i.i22, %if.then.i.i21 ], [ %inc.i.i, %if.then ]
   %inc.i.i6 = add i64 %5, 1
   store i64 %inc.i.i6, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i7 = getelementptr inbounds nuw i64, ptr %rng_, i64 %5
+  %arrayidx.i.i7 = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %5
   %6 = load i64, ptr %arrayidx.i.i7, align 8, !tbaa !24
   %shr.i.i8 = lshr i64 %6, 11
   %xor.i.i9 = xor i64 %shr.i.i8, %6
@@ -8833,7 +8833,7 @@ for.body.i:                                       ; preds = %_ZNK8QuantLib25Mers
   %2 = phi i64 [ %.pre.i, %for.body.lr.ph.i ], [ %inc.i.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i ]
   %i.09.i = phi i64 [ %i.06.i, %for.body.lr.ph.i ], [ %i.0.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i ]
   %i.0.in8.i = phi i64 [ %1, %for.body.lr.ph.i ], [ %i.09.i, %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %0, i64 %i.09.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %i.09.i
   %cmp.i.i = icmp eq i64 %2, 624
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i
 
@@ -8846,7 +8846,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %if.then.
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %for.body.i ]
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %3
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %3
   %4 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %4, 11
   %xor.i.i = xor i64 %shr.i.i, %4
@@ -8859,7 +8859,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %if.then.
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %rem.i = urem i64 %xor8.i.i, %i.0.in8.i
-  %arrayidx1.i = getelementptr inbounds nuw double, ptr %0, i64 %rem.i
+  %arrayidx1.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %rem.i
   %5 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %6 = load double, ptr %arrayidx1.i, align 8, !tbaa !39
   store double %6, ptr %arrayidx.i, align 8, !tbaa !39
@@ -8971,7 +8971,7 @@ _ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt1
   %.pre25.i = phi ptr [ null, %_ZNSt6vectorIN8QuantLib5ArrayESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %call5.i.i.i.i2.i.i57, %_ZNSt16allocator_traitsISaIN8QuantLib5ArrayEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %.pre25.i, ptr %crossoverMask, align 8, !tbaa !46
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %crossoverMask, i64 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %.pre25.i, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre25.i, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %crossoverMask, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !133
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN8QuantLib5ArrayEmS1_ET_S3_T0_RKT1_(ptr noundef %.pre25.i, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
@@ -9056,7 +9056,7 @@ for.cond2.preheader.lr.ph.i:                      ; preds = %invoke.cont10
 
 for.cond2.preheader.i:                            ; preds = %for.cond.cleanup6.i, %for.cond2.preheader.lr.ph.i
   %cmIter.024.i = phi i64 [ 0, %for.cond2.preheader.lr.ph.i ], [ %inc16.i, %for.cond.cleanup6.i ]
-  %add.ptr.i15.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %.pre25.i, i64 %cmIter.024.i
+  %add.ptr.i15.i = getelementptr inbounds nuw [16 x i8], ptr %.pre25.i, i64 %cmIter.024.i
   %n_.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i15.i, i64 8
   %11 = load i64, ptr %n_.i16.i, align 8, !tbaa !21
   %cmp517.not.i = icmp eq i64 %11, 0
@@ -9064,8 +9064,8 @@ for.cond2.preheader.i:                            ; preds = %for.cond.cleanup6.i
 
 for.body7.preheader.i:                            ; preds = %for.cond2.preheader.i
   %.pre.i = load i64, ptr %mti.i.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %10, i64 %cmIter.024.i
-  %add.ptr.i.i73 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %.pre25.i, i64 %cmIter.024.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %cmIter.024.i
+  %add.ptr.i.i73 = getelementptr inbounds nuw [16 x i8], ptr %.pre25.i, i64 %cmIter.024.i
   %n_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i73, i64 8
   br label %for.body7.i
 
@@ -9095,7 +9095,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit.i: ; preds = %.noexc78,
   %13 = phi i64 [ %.pre.i.i.i, %.noexc78 ], [ %12, %for.body7.i ]
   %inc.i.i.i = add i64 %13, 1
   store i64 %inc.i.i.i, ptr %mti.i.i.i, align 8, !tbaa !68
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rng_.i, i64 %13
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_.i, i64 %13
   %14 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !24
   %shr.i.i.i = lshr i64 %14, 11
   %xor.i.i.i = xor i64 %shr.i.i.i, %14
@@ -9113,9 +9113,9 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit.i: ; preds = %.noexc78,
   %15 = load double, ptr %arrayidx.i.i, align 8, !tbaa !39
   %cmp10.i = fcmp olt double %div.i.i, %15
   %.pr.i..pre25.i = select i1 %cmp10.i, ptr %.pr.i, ptr %.pre25.i
-  %.sink.in = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %.pr.i..pre25.i, i64 %cmIter.024.i
+  %.sink.in = getelementptr inbounds nuw [16 x i8], ptr %.pr.i..pre25.i, i64 %cmIter.024.i
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !23
-  %arrayidx.i14.i = getelementptr inbounds nuw double, ptr %.sink, i64 %memIter.018.i
+  %arrayidx.i14.i = getelementptr inbounds nuw [8 x i8], ptr %.sink, i64 %memIter.018.i
   store double 0.000000e+00, ptr %arrayidx.i14.i, align 8, !tbaa !39
   %inc.i = add nuw i64 %memIter.018.i, 1
   %16 = load i64, ptr %n_.i.i, align 8, !tbaa !21
@@ -9264,17 +9264,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp14)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp15)
   %32 = load ptr, ptr %oldPopulation, align 8, !tbaa !45
-  %add.ptr.i = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %32, i64 %popIter.0210
-  %add.ptr.i122 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %.pr.i, i64 %popIter.0210
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %popIter.0210
+  %add.ptr.i122 = getelementptr inbounds nuw [16 x i8], ptr %.pr.i, i64 %popIter.0210
   invoke void @_ZN8QuantLibmlERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i122)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %for.body
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21)
   %33 = load ptr, ptr %mutantPopulation, align 8, !tbaa !45
-  %add.ptr.i123 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %33, i64 %popIter.0210
+  %add.ptr.i123 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %popIter.0210
   %34 = load ptr, ptr %crossoverMask, align 8, !tbaa !46
-  %add.ptr.i124 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %34, i64 %popIter.0210
+  %add.ptr.i124 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %popIter.0210
   invoke void @_ZN8QuantLibmlERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i123, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i124)
           to label %invoke.cont26 unwind label %lpad25
 
@@ -9284,7 +9284,7 @@ invoke.cont26:                                    ; preds = %invoke.cont20
 
 invoke.cont28:                                    ; preds = %invoke.cont26
   %35 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i125 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %35, i64 %popIter.0210
+  %add.ptr.i125 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %popIter.0210
   %36 = load ptr, ptr %add.ptr.i125, align 8, !tbaa !23
   %37 = load ptr, ptr %ref.tmp14, align 8, !tbaa !23
   store ptr %37, ptr %add.ptr.i125, align 8, !tbaa !23
@@ -9330,7 +9330,7 @@ _ZN8QuantLib5ArrayD2Ev.exit135:                   ; preds = %_ZN8QuantLib5ArrayD
   br i1 %loadedv40, label %for.cond42.preheader, label %if.end104
 
 for.cond42.preheader:                             ; preds = %_ZN8QuantLib5ArrayD2Ev.exit135
-  %add.ptr.i137200 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %.pre221, i64 %popIter.0210
+  %add.ptr.i137200 = getelementptr inbounds nuw [24 x i8], ptr %.pre221, i64 %popIter.0210
   %n_.i138201 = getelementptr inbounds nuw i8, ptr %add.ptr.i137200, i64 8
   %43 = load i64, ptr %n_.i138201, align 8, !tbaa !21
   %cmp48202.not = icmp eq i64 %43, 0
@@ -9387,10 +9387,10 @@ for.body50:                                       ; preds = %for.body50.preheade
   %.pre215 = phi ptr [ %.pre215226, %for.inc ], [ %.pre225, %for.body50.preheader ]
   %50 = phi ptr [ %77, %for.inc ], [ %.pre221, %for.body50.preheader ]
   %memIter.0203 = phi i64 [ %inc, %for.inc ], [ 0, %for.body50.preheader ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %.pre215, i64 %memIter.0203
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %.pre215, i64 %memIter.0203
   %51 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %52 = load ptr, ptr %upperBound_, align 8, !tbaa !23
-  %arrayidx.i146 = getelementptr inbounds nuw double, ptr %52, i64 %memIter.0203
+  %arrayidx.i146 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %memIter.0203
   %53 = load double, ptr %arrayidx.i146, align 8, !tbaa !39
   %cmp57 = fcmp ogt double %51, %53
   br i1 %cmp57, label %if.then58, label %if.end75
@@ -9407,7 +9407,7 @@ if.then.i.i150:                                   ; preds = %if.then58
 .noexc151:                                        ; preds = %if.then.i.i150
   %.pre.i.i = load i64, ptr %mti.i.i, align 8, !tbaa !68
   %.pre = load ptr, ptr %upperBound_, align 8, !tbaa !23
-  %arrayidx.i154.phi.trans.insert = getelementptr inbounds nuw double, ptr %.pre, i64 %memIter.0203
+  %arrayidx.i154.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %memIter.0203
   %.pre213 = load double, ptr %arrayidx.i154.phi.trans.insert, align 8, !tbaa !39
   %.pre214 = load ptr, ptr %population, align 8, !tbaa !45
   br label %invoke.cont62
@@ -9418,7 +9418,7 @@ invoke.cont62:                                    ; preds = %.noexc151, %if.then
   %57 = phi i64 [ %.pre.i.i, %.noexc151 ], [ %54, %if.then58 ]
   %inc.i.i = add i64 %57, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i149 = getelementptr inbounds nuw i64, ptr %rng_, i64 %57
+  %arrayidx.i.i149 = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %57
   %58 = load i64, ptr %arrayidx.i.i149, align 8, !tbaa !24
   %shr.i.i = lshr i64 %58, 11
   %xor.i.i = xor i64 %shr.i.i, %58
@@ -9434,15 +9434,15 @@ invoke.cont62:                                    ; preds = %.noexc151, %if.then
   %add.i = fadd nnan double %conv.i, 5.000000e-01
   %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %59 = load ptr, ptr %mirrorPopulation, align 8, !tbaa !45
-  %add.ptr.i152 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %59, i64 %popIter.0210
+  %add.ptr.i152 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %popIter.0210
   %60 = load ptr, ptr %add.ptr.i152, align 8, !tbaa !23
-  %arrayidx.i153 = getelementptr inbounds nuw double, ptr %60, i64 %memIter.0203
+  %arrayidx.i153 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %memIter.0203
   %61 = load double, ptr %arrayidx.i153, align 8, !tbaa !39
   %sub = fsub double %61, %56
   %62 = call double @llvm.fmuladd.f64(double %div.i, double %sub, double %53)
-  %add.ptr.i155 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %55, i64 %popIter.0210
+  %add.ptr.i155 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %popIter.0210
   %63 = load ptr, ptr %add.ptr.i155, align 8, !tbaa !23
-  %arrayidx.i156 = getelementptr inbounds nuw double, ptr %63, i64 %memIter.0203
+  %arrayidx.i156 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %memIter.0203
   store double %62, ptr %arrayidx.i156, align 8, !tbaa !39
   br label %if.end75
 
@@ -9451,7 +9451,7 @@ if.end75:                                         ; preds = %for.body50, %invoke
   %64 = phi ptr [ %55, %invoke.cont62 ], [ %50, %for.body50 ]
   %65 = phi double [ %62, %invoke.cont62 ], [ %51, %for.body50 ]
   %66 = load ptr, ptr %lowerBound_, align 8, !tbaa !23
-  %arrayidx.i159 = getelementptr inbounds nuw double, ptr %66, i64 %memIter.0203
+  %arrayidx.i159 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %memIter.0203
   %67 = load double, ptr %arrayidx.i159, align 8, !tbaa !39
   %cmp82 = fcmp olt double %65, %67
   br i1 %cmp82, label %if.then83, label %for.inc
@@ -9468,10 +9468,10 @@ if.then.i.i178:                                   ; preds = %if.then83
 .noexc180:                                        ; preds = %if.then.i.i178
   %.pre.i.i179 = load i64, ptr %mti.i.i, align 8, !tbaa !68
   %.pre217 = load ptr, ptr %lowerBound_, align 8, !tbaa !23
-  %arrayidx.i184.phi.trans.insert = getelementptr inbounds nuw double, ptr %.pre217, i64 %memIter.0203
+  %arrayidx.i184.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre217, i64 %memIter.0203
   %.pre218 = load double, ptr %arrayidx.i184.phi.trans.insert, align 8, !tbaa !39
   %.pre219 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i185.phi.trans.insert = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %.pre219, i64 %popIter.0210
+  %add.ptr.i185.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre219, i64 %popIter.0210
   %.pre220 = load ptr, ptr %add.ptr.i185.phi.trans.insert, align 8, !tbaa !23
   br label %invoke.cont88
 
@@ -9482,7 +9482,7 @@ invoke.cont88:                                    ; preds = %.noexc180, %if.then
   %71 = phi i64 [ %.pre.i.i179, %.noexc180 ], [ %68, %if.then83 ]
   %inc.i.i163 = add i64 %71, 1
   store i64 %inc.i.i163, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i164 = getelementptr inbounds nuw i64, ptr %rng_, i64 %71
+  %arrayidx.i.i164 = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %71
   %72 = load i64, ptr %arrayidx.i.i164, align 8, !tbaa !24
   %shr.i.i165 = lshr i64 %72, 11
   %xor.i.i166 = xor i64 %shr.i.i165, %72
@@ -9498,13 +9498,13 @@ invoke.cont88:                                    ; preds = %.noexc180, %if.then
   %add.i176 = fadd nnan double %conv.i175, 5.000000e-01
   %div.i177 = fmul nnan double %add.i176, 0x3DF0000000000000
   %73 = load ptr, ptr %mirrorPopulation, align 8, !tbaa !45
-  %add.ptr.i182 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %73, i64 %popIter.0210
+  %add.ptr.i182 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %popIter.0210
   %74 = load ptr, ptr %add.ptr.i182, align 8, !tbaa !23
-  %arrayidx.i183 = getelementptr inbounds nuw double, ptr %74, i64 %memIter.0203
+  %arrayidx.i183 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %memIter.0203
   %75 = load double, ptr %arrayidx.i183, align 8, !tbaa !39
   %sub97 = fsub double %75, %70
   %76 = call double @llvm.fmuladd.f64(double %div.i177, double %sub97, double %67)
-  %arrayidx.i186 = getelementptr inbounds nuw double, ptr %.pre215227, i64 %memIter.0203
+  %arrayidx.i186 = getelementptr inbounds nuw [8 x i8], ptr %.pre215227, i64 %memIter.0203
   store double %76, ptr %arrayidx.i186, align 8, !tbaa !39
   br label %for.inc
 
@@ -9512,7 +9512,7 @@ for.inc:                                          ; preds = %if.end75, %invoke.c
   %.pre215226 = phi ptr [ %.pre215228, %if.end75 ], [ %.pre215227, %invoke.cont88 ]
   %77 = phi ptr [ %64, %if.end75 ], [ %69, %invoke.cont88 ]
   %inc = add nuw i64 %memIter.0203, 1
-  %add.ptr.i137 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %77, i64 %popIter.0210
+  %add.ptr.i137 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %popIter.0210
   %n_.i138 = getelementptr inbounds nuw i8, ptr %add.ptr.i137, i64 8
   %78 = load i64, ptr %n_.i138, align 8, !tbaa !21
   %cmp48 = icmp ult i64 %inc, %78
@@ -9520,7 +9520,7 @@ for.inc:                                          ; preds = %if.end75, %invoke.c
 
 if.end104:                                        ; preds = %for.inc, %for.cond42.preheader, %_ZN8QuantLib5ArrayD2Ev.exit135
   %79 = phi ptr [ %.pre221, %_ZN8QuantLib5ArrayD2Ev.exit135 ], [ %.pre221, %for.cond42.preheader ], [ %77, %for.inc ]
-  %add.ptr.i187 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %79, i64 %popIter.0210
+  %add.ptr.i187 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %popIter.0210
   %80 = load i32, ptr %functionEvaluation_.i, align 8, !tbaa !18
   %inc.i188 = add nsw i32 %80, 1
   store i32 %inc.i188, ptr %functionEvaluation_.i, align 8, !tbaa !18
@@ -9533,7 +9533,7 @@ if.end104:                                        ; preds = %for.inc, %for.cond4
 
 invoke.cont108:                                   ; preds = %if.end104
   %83 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i191 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %83, i64 %popIter.0210
+  %add.ptr.i191 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %popIter.0210
   %cost = getelementptr inbounds nuw i8, ptr %add.ptr.i191, i64 16
   store double %call.i190, ptr %cost, align 8, !tbaa !50
   br label %try.cont
@@ -9551,7 +9551,7 @@ catch:                                            ; preds = %lpad107
   %87 = extractvalue { ptr, i32 } %84, 0
   %88 = call ptr @__cxa_begin_catch(ptr %87) #23
   %89 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i192 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %89, i64 %popIter.0210
+  %add.ptr.i192 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %popIter.0210
   %cost113 = getelementptr inbounds nuw i8, ptr %add.ptr.i192, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %cost113, align 8, !tbaa !50
   invoke void @__cxa_end_catch()
@@ -9559,7 +9559,7 @@ catch:                                            ; preds = %lpad107
 
 catch.try.cont_crit_edge:                         ; preds = %catch
   %.pre222 = load ptr, ptr %population, align 8, !tbaa !45
-  %add.ptr.i193.phi.trans.insert = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %.pre222, i64 %popIter.0210
+  %add.ptr.i193.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre222, i64 %popIter.0210
   %cost118.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i193.phi.trans.insert, i64 16
   %.pre223 = load double, ptr %cost118.phi.trans.insert, align 8, !tbaa !50
   br label %try.cont
@@ -9572,7 +9572,7 @@ try.cont:                                         ; preds = %catch.try.cont_crit
   br i1 %93, label %if.then121, label %for.inc126
 
 if.then121:                                       ; preds = %try.cont
-  %add.ptr.i193 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %91, i64 %popIter.0210
+  %add.ptr.i193 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %popIter.0210
   %cost118 = getelementptr inbounds nuw i8, ptr %add.ptr.i193, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %cost118, align 8, !tbaa !50
   br label %for.inc126
@@ -9655,7 +9655,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body, %
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %for.body ]
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %3
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %3
   %4 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %4, 11
   %xor.i.i = xor i64 %shr.i.i, %4
@@ -9686,7 +9686,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit23: ; preds = %if.then, 
   %5 = phi i64 [ %.pre.i.i22, %if.then.i.i21 ], [ %inc.i.i, %if.then ]
   %inc.i.i6 = add i64 %5, 1
   store i64 %inc.i.i6, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i7 = getelementptr inbounds nuw i64, ptr %rng_, i64 %5
+  %arrayidx.i.i7 = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %5
   %6 = load i64, ptr %arrayidx.i.i7, align 8, !tbaa !24
   %shr.i.i8 = lshr i64 %6, 11
   %xor.i.i9 = xor i64 %shr.i.i8, %6
@@ -9829,14 +9829,14 @@ lpad5:                                            ; preds = %for.body.i.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %coIter.091 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %7, i64 %coIter.091
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %coIter.091
   %19 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %call.i36 = tail call noundef double @pow(double noundef %19, double noundef %conv.i) #23, !tbaa !149
   %sub34 = fsub double 1.000000e+00, %call.i36
   %sub43 = fsub double 1.000000e+00, %19
   %mul = fmul double %sub43, %conv39
   %div44 = fdiv double %sub34, %mul
-  %arrayidx.i39 = getelementptr inbounds nuw double, ptr %5, i64 %coIter.091
+  %arrayidx.i39 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %coIter.091
   store double %div44, ptr %arrayidx.i39, align 8, !tbaa !39
   %inc = add nuw i64 %coIter.091, 1
   %exitcond.not = icmp eq i64 %inc, %0
@@ -10032,7 +10032,7 @@ for.cond2.preheader:                              ; preds = %for.cond2.preheader
   %2 = phi ptr [ %1, %for.cond2.preheader.lr.ph ], [ %5, %for.cond.cleanup6 ]
   %3 = phi ptr [ %0, %for.cond2.preheader.lr.ph ], [ %6, %for.cond.cleanup6 ]
   %cmIter.024 = phi i64 [ 0, %for.cond2.preheader.lr.ph ], [ %inc16, %for.cond.cleanup6 ]
-  %add.ptr.i15 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %2, i64 %cmIter.024
+  %add.ptr.i15 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %cmIter.024
   %n_.i16 = getelementptr inbounds nuw i8, ptr %add.ptr.i15, i64 8
   %4 = load i64, ptr %n_.i16, align 8, !tbaa !21
   %cmp517.not = icmp eq i64 %4, 0
@@ -10075,7 +10075,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body7, 
   %8 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %7, %for.body7 ]
   %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %8
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_, i64 %8
   %9 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %9, 11
   %xor.i.i = xor i64 %shr.i.i, %9
@@ -10091,32 +10091,32 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body7, 
   %add.i = fadd nnan double %conv.i, 5.000000e-01
   %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %10 = load ptr, ptr %mutationProbabilities, align 8, !tbaa !23
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %10, i64 %cmIter.024
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %cmIter.024
   %11 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %cmp10 = fcmp olt double %div.i, %11
   br i1 %cmp10, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit
   %12 = load ptr, ptr %invCrossoverMask, align 8, !tbaa !46
-  %add.ptr.i11 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %12, i64 %cmIter.024
+  %add.ptr.i11 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %cmIter.024
   %13 = load ptr, ptr %add.ptr.i11, align 8, !tbaa !23
-  %arrayidx.i12 = getelementptr inbounds nuw double, ptr %13, i64 %memIter.018
+  %arrayidx.i12 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %memIter.018
   store double 0.000000e+00, ptr %arrayidx.i12, align 8, !tbaa !39
   %.pre25 = load ptr, ptr %crossoverMask, align 8, !tbaa !46
   br label %for.inc
 
 if.else:                                          ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit
   %14 = load ptr, ptr %crossoverMask, align 8, !tbaa !46
-  %add.ptr.i13 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %14, i64 %cmIter.024
+  %add.ptr.i13 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %cmIter.024
   %15 = load ptr, ptr %add.ptr.i13, align 8, !tbaa !23
-  %arrayidx.i14 = getelementptr inbounds nuw double, ptr %15, i64 %memIter.018
+  %arrayidx.i14 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %memIter.018
   store double 0.000000e+00, ptr %arrayidx.i14, align 8, !tbaa !39
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
   %16 = phi ptr [ %.pre25, %if.then ], [ %14, %if.else ]
   %inc = add nuw i64 %memIter.018, 1
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %16, i64 %cmIter.024
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %cmIter.024
   %n_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %17 = load i64, ptr %n_.i, align 8, !tbaa !21
   %cmp5 = icmp ult i64 %inc, %17
@@ -10764,9 +10764,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE13_M_deallocateEPS2_m.exit31: ; preds = %_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !45
-  %add.ptr37 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [24 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !43
-  %add.ptr40 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %call5.i.i.i, i64 %4
+  %add.ptr40 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !53
   br label %if.end44
 
@@ -10890,7 +10890,7 @@ entry:
   br i1 %cmp39, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
-  %add.ptr.i19.phi.trans.insert = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %__holeIndex
+  %add.ptr.i19.phi.trans.insert = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex
   %.pre = load ptr, ptr %add.ptr.i19.phi.trans.insert, align 8, !tbaa !23
   %n_.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i19.phi.trans.insert, i64 8
   %.pre41 = load i64, ptr %n_.i.i.i.phi.trans.insert, align 8, !tbaa !24
@@ -10900,17 +10900,17 @@ while.body:                                       ; preds = %while.body.preheade
   %__holeIndex.addr.040 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %while.body.preheader ]
   %add = shl i64 %__holeIndex.addr.040, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i17 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i17 = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %sub3
   %0 = getelementptr i8, ptr %add.ptr.i, i64 16
   %call.val.i = load double, ptr %0, align 8, !tbaa !50
   %1 = getelementptr i8, ptr %add.ptr.i17, i64 16
   %call3.val.i = load double, ptr %1, align 8, !tbaa !50
   %cmp.i.i = fcmp olt double %call.val.i, %call3.val.i
   %spec.select = select i1 %cmp.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i18 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i19 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %__holeIndex.addr.040
+  %add.ptr.i18 = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i19 = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.040
   %2 = load ptr, ptr %add.ptr.i18, align 8, !tbaa !23
   store ptr %2, ptr %add.ptr.i19, align 8, !tbaa !23
   store ptr %.pre, ptr %add.ptr.i18, align 8, !tbaa !23
@@ -10941,8 +10941,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i20 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i21 = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i20 = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i21 = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %5 = load ptr, ptr %add.ptr.i21, align 8, !tbaa !23
   %6 = load ptr, ptr %add.ptr.i20, align 8, !tbaa !23
   store ptr %6, ptr %add.ptr.i21, align 8, !tbaa !23
@@ -10975,14 +10975,14 @@ land.rhs.i:                                       ; preds = %if.end35, %while.bo
   %__holeIndex.addr.07.i = phi i64 [ %__parent.08.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end35 ]
   %__parent.08.in.i = add nsw i64 %__holeIndex.addr.07.i, -1
   %__parent.08.i = sdiv i64 %__parent.08.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %__parent.08.i
+  %add.ptr.i.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__parent.08.i
   %13 = getelementptr i8, ptr %add.ptr.i.i, i64 16
   %call.val.i.i = load double, ptr %13, align 8, !tbaa !50
   %cmp.i.i.i = fcmp olt double %call.val.i.i, %12
   br i1 %cmp.i.i.i, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %add.ptr.i8.i = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %__holeIndex.addr.07.i
+  %add.ptr.i8.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.07.i
   %14 = load ptr, ptr %add.ptr.i8.i, align 8, !tbaa !23
   %15 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !23
   store ptr %15, ptr %add.ptr.i8.i, align 8, !tbaa !23
@@ -11000,7 +11000,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 invoke.cont:                                      ; preds = %while.body.i, %land.rhs.i, %if.end35
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.07.i, %land.rhs.i ], [ %__parent.08.i, %while.body.i ]
-  %add.ptr.i9.i = getelementptr inbounds %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr.i9.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %18 = load ptr, ptr %add.ptr.i9.i, align 8, !tbaa !23
   store ptr %10, ptr %add.ptr.i9.i, align 8, !tbaa !23
   %n_.i.i.i10.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i, i64 8

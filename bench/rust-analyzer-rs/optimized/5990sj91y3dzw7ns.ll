@@ -1565,7 +1565,7 @@ _ZN3std7process7Command3arg17hf8d1692eef547b05E.llvm.222060067980964550.exit.i: 
   store i64 %26, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !303, !noalias !298
   %27 = icmp ult i64 %21, 2
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %21
   %29 = load ptr, ptr %28, align 8, !alias.scope !303, !noalias !298, !nonnull !4, !align !11, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !alias.scope !303, !noalias !298, !noundef !4
@@ -3744,7 +3744,7 @@ _ZN3std7process7Command11current_dir17h7a15ac82f1872ebdE.exit60.i: ; preds = %.n
   store ptr %488, ptr %.sroa.417.0..sroa_idx.i, align 8, !noalias !583
   store i64 11, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !583
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !668
-  %489 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %483, i64 %484
+  %489 = getelementptr inbounds [24 x i8], ptr %483, i64 %484
   store ptr %483, ptr %26, align 8, !noalias !668
   store ptr %489, ptr %192, align 8, !noalias !668
   br label %490

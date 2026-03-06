@@ -309,7 +309,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
   %indvars.iv250.i = phi i64 [ 0, %.lr.ph237.preheader.i ], [ %indvars.iv.next251.i, %.lr.ph237.i ]
   %.0188235.i = phi float [ 0.000000e+00, %.lr.ph237.preheader.i ], [ %..0188.i, %.lr.ph237.i ]
-  %107 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv250.i
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv250.i
   %108 = load i16, ptr %107, align 2, !tbaa !63
   %109 = sitofp i16 %108 to float
   %110 = fdiv nsz float %109, 3.276700e+04
@@ -325,7 +325,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 .lr.ph234.i:                                      ; preds = %.lr.ph234.i, %.lr.ph234.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph234.preheader.i ], [ %indvars.iv.next.i, %.lr.ph234.i ]
   %.2232.i = phi float [ 0.000000e+00, %.lr.ph234.preheader.i ], [ %121, %.lr.ph234.i ]
-  %115 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %116 = load float, ptr %115, align 4, !tbaa !66
   %117 = fcmp nsz oge float %116, 0.000000e+00
   %118 = fneg nsz float %116

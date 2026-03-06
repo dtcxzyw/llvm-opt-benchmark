@@ -885,7 +885,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %72, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %74, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %69, ptr %1, align 8, !tbaa !41
   store ptr %73, ptr %10, align 8, !tbaa !35
-  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %67
   store ptr %75, ptr %11, align 8, !tbaa !38
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -1527,7 +1527,7 @@ define dso_local void @_ZN11StringUtils15breakup_assignsERKNSt7__cxx1112basic_st
   %.034 = phi i64 [ 0, %.lr.ph ], [ %89, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %.034
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.034
   invoke void @_ZN11StringUtils12split_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(24) %8, i8 noundef signext 61)
           to label %24 unwind label %99
 
@@ -2250,7 +2250,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !79
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !25
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !28
   ret void
 

@@ -171,12 +171,12 @@ define range(i32 -2147483648, 1) i32 @ff_hls_senc_parse_audio_setup_info(ptr nou
   %79 = and i32 %73, 7
   %80 = shl i32 %78, %79
   %81 = zext nneg i32 %59 to i64
-  %82 = getelementptr inbounds nuw i32, ptr @eac3_sample_rate_tab, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @eac3_sample_rate_tab, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !39
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i32 %83, ptr %84, align 8, !tbaa !35
   %85 = zext nneg i32 %71 to i64
-  %86 = getelementptr inbounds nuw i16, ptr @ff_ac3_channel_layout_tab, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr @ff_ac3_channel_layout_tab, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !40
   %88 = zext i16 %87 to i64
   %89 = or i64 %88, 8

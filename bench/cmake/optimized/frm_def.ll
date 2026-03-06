@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/frm_def.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._PAGE = type { i16, i16, i16, i16 }
-
 @_nc_Default_Form = dso_local local_unnamed_addr global ptr @default_form, align 8
 @default_form = internal global { i16, i16, i16, [2 x i8], i32, i32, i32, i32, i16, i16, i16, [2 x i8], i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i16 0, i16 0, i16 0, [2 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, i16 -1, i16 -1, i16 -1, [2 x i8] zeroinitializer, i32 3, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
@@ -354,7 +352,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   %.184 = phi i32 [ %16, %15 ], [ %.083101, %12 ]
   store ptr %0, ptr %8, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   %.not92 = icmp eq ptr %19, null
   br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !38
@@ -389,7 +387,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   br label %42
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv119
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv119
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %35 = load i16, ptr %34, align 8, !tbaa !37
   %36 = and i16 %35, 4
@@ -467,7 +465,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %._crit_edge112
   %indvars.iv126 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next127, %._crit_edge112 ]
-  %77 = getelementptr inbounds nuw %struct._PAGE, ptr %22, i64 %indvars.iv126
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv126
   %78 = load i16, ptr %77, align 2, !tbaa !39
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %80 = load i16, ptr %79, align 2, !tbaa !41
@@ -482,7 +480,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   %indvars.iv121 = phi i64 [ %83, %.lr.ph116 ], [ %indvars.iv.next122, %Insert_Field_By_Position.exit ]
   %.0109 = phi ptr [ null, %.lr.ph116 ], [ %.0.i, %Insert_Field_By_Position.exit ]
   %85 = trunc i64 %indvars.iv121 to i16
-  %86 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv121
+  %86 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv121
   %87 = load ptr, ptr %86, align 8, !tbaa !18
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 34
   store i16 %85, ptr %88, align 2, !tbaa !47

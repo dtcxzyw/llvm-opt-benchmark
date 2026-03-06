@@ -22,7 +22,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.pcpu_hot = type { %union.anon.19 }
 %union.anon.19 = type { %struct.anon.20, [16 x i8] }
 %struct.anon.20 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 
 @pci_bus_group = internal constant %struct.attribute_group { ptr null, ptr null, ptr null, ptr @pci_bus_attrs, ptr null }, align 8
 @pci_bus_groups = dso_local local_unnamed_addr global [2 x ptr] [ptr @pci_bus_group, ptr null], align 16
@@ -183,7 +182,7 @@ define dso_local noundef range(i32 0, 2) i32 @pci_mmap_fits(ptr noundef %0, i32 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %8 = sext i32 %1 to i64
-  %9 = getelementptr %struct.resource, ptr %7, i64 %8
+  %9 = getelementptr [64 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
@@ -262,7 +261,7 @@ define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_ad
 
 5:                                                ; preds = %pci_create_attr.exit.thread, %1
   %6 = phi i64 [ 0, %1 ], [ %71, %pci_create_attr.exit.thread ]
-  %7 = getelementptr %struct.resource, ptr %2, i64 %6
+  %7 = getelementptr [64 x i8], ptr %2, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
@@ -310,7 +309,7 @@ define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_ad
   store i16 384, ptr %35, align 8
   %sext = shl i64 %6, 32
   %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr %struct.resource, ptr %2, i64 %36
+  %37 = getelementptr [64 x i8], ptr %2, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
@@ -338,7 +337,7 @@ define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_ad
   br label %pci_create_attr.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr ptr, ptr %4, i64 %36
+  %54 = getelementptr [8 x i8], ptr %4, i64 %36
   store ptr %27, ptr %54, align 8
   br label %pci_create_attr.exit.thread
 
@@ -349,7 +348,7 @@ pci_create_attr.exit:                             ; preds = %15, %26, %52
 
 57:                                               ; preds = %68, %pci_create_attr.exit
   %58 = phi i64 [ 0, %pci_create_attr.exit ], [ %69, %68 ]
-  %59 = getelementptr ptr, ptr %56, i64 %58
+  %59 = getelementptr [8 x i8], ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %63, label %62
@@ -360,7 +359,7 @@ pci_create_attr.exit:                             ; preds = %15, %26, %52
   br label %63
 
 63:                                               ; preds = %62, %57
-  %64 = getelementptr ptr, ptr %4, i64 %58
+  %64 = getelementptr [8 x i8], ptr %4, i64 %58
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %68, label %67
@@ -398,7 +397,7 @@ define dso_local void @pci_remove_sysfs_dev_files(ptr noundef %0) local_unnamed_
 
 7:                                                ; preds = %18, %3
   %8 = phi i64 [ 0, %3 ], [ %19, %18 ]
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %12
@@ -409,7 +408,7 @@ define dso_local void @pci_remove_sysfs_dev_files(ptr noundef %0) local_unnamed_
   br label %13
 
 13:                                               ; preds = %12, %7
-  %14 = getelementptr ptr, ptr %6, i64 %8
+  %14 = getelementptr [8 x i8], ptr %6, i64 %8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
@@ -570,7 +569,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cpuaffinity_show(ptr nou
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   %9 = sext i32 %7 to i64
-  %10 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %9
+  %10 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %9
   %11 = select i1 %8, ptr @__cpu_online_mask, ptr %10
   %12 = load i32, ptr @nr_cpu_ids, align 4
   %13 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext false, ptr noundef %2, ptr noundef %11, i32 noundef %12) #11
@@ -589,7 +588,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cpulistaffinity_show(ptr
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   %9 = sext i32 %7 to i64
-  %10 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %9
+  %10 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %9
   %11 = select i1 %8, ptr @__cpu_online_mask, ptr %10
   %12 = load i32, ptr @nr_cpu_ids, align 4
   %13 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext true, ptr noundef %2, ptr noundef %11, i32 noundef %12) #11
@@ -652,7 +651,7 @@ define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 
   store i16 384, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %35 = sext i32 %1 to i64
-  %36 = getelementptr %struct.resource, ptr %34, i64 %35
+  %36 = getelementptr [64 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
@@ -685,13 +684,13 @@ define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1864
-  %56 = getelementptr ptr, ptr %55, i64 %35
+  %56 = getelementptr [8 x i8], ptr %55, i64 %35
   store ptr %6, ptr %56, align 8
   br label %60
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1776
-  %59 = getelementptr ptr, ptr %58, i64 %35
+  %59 = getelementptr [8 x i8], ptr %58, i64 %35
   store ptr %6, ptr %59, align 8
   br label %60
 
@@ -1004,7 +1003,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @power_state_show(ptr nou
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr ptr, ptr @pci_power_names, i64 %7
+  %8 = getelementptr [8 x i8], ptr @pci_power_names, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef %9) #11
   %11 = sext i32 %10 to i64
@@ -1033,7 +1032,7 @@ define internal i64 @resource_show(ptr noundef %0, ptr readnone captures(none) %
 12:                                               ; preds = %12, %3
   %13 = phi i64 [ 0, %3 ], [ %25, %12 ]
   %14 = phi i64 [ 0, %3 ], [ %24, %12 ]
-  %15 = getelementptr %struct.resource, ptr %10, i64 %13
+  %15 = getelementptr [64 x i8], ptr %10, i64 %13
   %16 = trunc i64 %13 to i32
   call void @pci_resource_to_user(ptr noundef %6, i32 noundef %16, ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %17 = trunc i64 %14 to i32
@@ -1150,7 +1149,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @local_cpus_show(ptr noun
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = sext i32 %5 to i64
-  %8 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %7
+  %8 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %7
   %9 = select i1 %6, ptr @__cpu_online_mask, ptr %8
   %10 = load i32, ptr @nr_cpu_ids, align 4
   %11 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext false, ptr noundef %2, ptr noundef %9, i32 noundef %10) #11
@@ -1164,7 +1163,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @local_cpulist_show(ptr n
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = sext i32 %5 to i64
-  %8 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %7
+  %8 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %7
   %9 = select i1 %6, ptr @__cpu_online_mask, ptr %8
   %10 = load i32, ptr @nr_cpu_ids, align 4
   %11 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext true, ptr noundef %2, ptr noundef %9, i32 noundef %10) #11
@@ -2169,7 +2168,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr readnone
 
 32:                                               ; preds = %43, %23
   %33 = phi i64 [ 0, %23 ], [ %44, %43 ]
-  %34 = getelementptr ptr, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -2180,7 +2179,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr readnone
   br label %38
 
 38:                                               ; preds = %37, %32
-  %39 = getelementptr ptr, ptr %31, i64 %33
+  %39 = getelementptr [8 x i8], ptr %31, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %43, label %42
@@ -2201,7 +2200,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr readnone
 
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
-  %50 = getelementptr %struct.resource, ptr %47, i64 %49
+  %50 = getelementptr [64 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -2350,7 +2349,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr readnone
 
 32:                                               ; preds = %43, %23
   %33 = phi i64 [ 0, %23 ], [ %44, %43 ]
-  %34 = getelementptr ptr, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -2361,7 +2360,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr readnone
   br label %38
 
 38:                                               ; preds = %37, %32
-  %39 = getelementptr ptr, ptr %31, i64 %33
+  %39 = getelementptr [8 x i8], ptr %31, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %43, label %42
@@ -2382,7 +2381,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr readnone
 
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
-  %50 = getelementptr %struct.resource, ptr %47, i64 %49
+  %50 = getelementptr [64 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -2510,7 +2509,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr readnone
 
 32:                                               ; preds = %43, %23
   %33 = phi i64 [ 0, %23 ], [ %44, %43 ]
-  %34 = getelementptr ptr, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -2521,7 +2520,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr readnone
   br label %38
 
 38:                                               ; preds = %37, %32
-  %39 = getelementptr ptr, ptr %31, i64 %33
+  %39 = getelementptr [8 x i8], ptr %31, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %43, label %42
@@ -2542,7 +2541,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr readnone
 
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
-  %50 = getelementptr %struct.resource, ptr %47, i64 %49
+  %50 = getelementptr [64 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -2670,7 +2669,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr readnone
 
 32:                                               ; preds = %43, %23
   %33 = phi i64 [ 0, %23 ], [ %44, %43 ]
-  %34 = getelementptr ptr, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -2681,7 +2680,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr readnone
   br label %38
 
 38:                                               ; preds = %37, %32
-  %39 = getelementptr ptr, ptr %31, i64 %33
+  %39 = getelementptr [8 x i8], ptr %31, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %43, label %42
@@ -2702,7 +2701,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr readnone
 
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
-  %50 = getelementptr %struct.resource, ptr %47, i64 %49
+  %50 = getelementptr [64 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -2830,7 +2829,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr readnone
 
 32:                                               ; preds = %43, %23
   %33 = phi i64 [ 0, %23 ], [ %44, %43 ]
-  %34 = getelementptr ptr, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -2841,7 +2840,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr readnone
   br label %38
 
 38:                                               ; preds = %37, %32
-  %39 = getelementptr ptr, ptr %31, i64 %33
+  %39 = getelementptr [8 x i8], ptr %31, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %43, label %42
@@ -2862,7 +2861,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr readnone
 
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
-  %50 = getelementptr %struct.resource, ptr %47, i64 %49
+  %50 = getelementptr [64 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -2990,7 +2989,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr readnone
 
 32:                                               ; preds = %43, %23
   %33 = phi i64 [ 0, %23 ], [ %44, %43 ]
-  %34 = getelementptr ptr, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -3001,7 +3000,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr readnone
   br label %38
 
 38:                                               ; preds = %37, %32
-  %39 = getelementptr ptr, ptr %31, i64 %33
+  %39 = getelementptr [8 x i8], ptr %31, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %43, label %42
@@ -3022,7 +3021,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr readnone
 
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
-  %50 = getelementptr %struct.resource, ptr %47, i64 %49
+  %50 = getelementptr [64 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0

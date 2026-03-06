@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.avifRGBImage = type { i32, i32, i32, i32, i32, i32, i32, ptr, i32 }
 %struct.avifRWData = type { ptr, i64 }
-%struct.anon = type { ptr, i32 }
 
 @darktable = external local_unnamed_addr global %struct.darktable_t, align 8
 @.str = private unnamed_addr constant [40 x i8] c"libavif doesn't offer encoding support!\00", align 1
@@ -1087,7 +1086,7 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
 78:                                               ; preds = %1, %78
   %.059 = phi i64 [ 0, %1 ], [ %86, %78 ]
   %.05558 = phi i64 [ 0, %1 ], [ %spec.select, %78 ]
-  %79 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.059
+  %79 = getelementptr inbounds nuw [16 x i8], ptr @avif_bit_depth, i64 %.059
   %80 = load ptr, ptr %79, align 16, !tbaa !109
   %81 = load ptr, ptr %3, align 8, !tbaa !101
   %82 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %80, i32 noundef 5) #17
@@ -1147,7 +1146,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 define internal void @bit_depth_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @avif_bit_depth, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !111
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.15, i32 noundef %7) #17
@@ -1204,7 +1203,7 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 9:                                                ; preds = %1, %16
   %.018 = phi i64 [ 0, %1 ], [ %17, %16 ]
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.018
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @avif_bit_depth, i64 %.018
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !111
   %13 = icmp eq i32 %12, %4

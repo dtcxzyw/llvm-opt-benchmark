@@ -34,19 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.65" = type { i8 }
 %"class.std::allocator" = type { i8 }
 %"class.rocksdb::Slice" = type { ptr, i64 }
-%"struct.rocksdb::FSReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::IOStatus", %"class.std::unique_ptr.30" }
-%"class.std::unique_ptr.30" = type { %"struct.std::__uniq_ptr_data.31" }
-%"struct.std::__uniq_ptr_data.31" = type { %"class.std::__uniq_ptr_impl.32" }
-%"class.std::__uniq_ptr_impl.32" = type { %"class.std::tuple.33" }
-%"class.std::tuple.33" = type { %"struct.std::_Tuple_impl.34" }
-%"struct.std::_Tuple_impl.34" = type { %"struct.std::_Tuple_impl.35", %"struct.std::_Head_base.40" }
-%"struct.std::_Tuple_impl.35" = type { %"struct.std::_Head_base.36" }
-%"struct.std::_Head_base.36" = type { %"class.std::function.37" }
-%"class.std::function.37" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::_Head_base.40" = type { ptr }
 %"class.rocksdb::PerfStepTimer" = type { i8, i8, i32, ptr, i64, ptr, ptr }
 %"struct.rocksdb::IOOptions" = type <{ %"class.std::chrono::duration", i8, [3 x i8], i32, i8, [7 x i8], %"class.std::unordered_map", i8, i8, i8, i8, [4 x i8] }>
 %"class.std::chrono::duration" = type { i64 }
@@ -6864,7 +6851,7 @@ define linkonce_odr void @_ZN7rocksdb18FSRandomAccessFile9MultiReadEPNS_13FSRead
 
 16:                                               ; preds = %.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %41, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %17 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %2, i64 %.012
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.012
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = load i64, ptr %17, align 8, !tbaa !223
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -17906,7 +17893,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !128
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !125
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !129
   ret void
 }

@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.YuvPixel = type { i8, i8, i8 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.HuffCode = type { i8, i8 }
-%struct.VLCElem = type { %union.anon.1 }
-%union.anon.1 = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 
 @.str = private unnamed_addr constant [13 x i8] c"motionpixels\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Motion Pixels video\00", align 1
@@ -319,7 +315,7 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %148 = add i32 %139, 4
   %149 = tail call i32 @llvm.umin.i32(i32 %86, i32 %148)
   %150 = trunc nuw nsw i32 %147 to i8
-  %151 = getelementptr inbounds nuw %struct.HuffCode, ptr %11, i64 %indvars.iv.i
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 57
   store i8 %150, ptr %152, align 1, !tbaa !63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -403,7 +399,7 @@ mp_read_codes_table.exit:                         ; preds = %.mp_read_codes_tabl
   %196 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %197 = load i32, ptr %196, align 4, !tbaa !65
   %198 = zext nneg i32 %162 to i64
-  %199 = getelementptr %struct.HuffCode, ptr %11, i64 %198
+  %199 = getelementptr [2 x i8], ptr %11, i64 %198
   %200 = getelementptr i8, ptr %199, i64 54
   %201 = getelementptr i8, ptr %199, i64 55
   %202 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %195, i32 noundef %197, i32 noundef %162, ptr noundef %200, i32 noundef -2, ptr noundef %201, i32 noundef -2, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #11
@@ -470,7 +466,7 @@ mp_read_codes_table.exit:                         ; preds = %.mp_read_codes_tabl
   %241 = load i16, ptr %240, align 2, !tbaa !61
   %242 = and i16 %241, 32767
   %243 = zext nneg i16 %242 to i64
-  %244 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %243
+  %244 = getelementptr inbounds nuw [3 x i8], ptr @mp_rgb_yuv_table, i64 %243
   %.sroa.0.0.copyload.i.i = load i24, ptr %244, align 1
   %.sroa.0.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload.i.i to i8
   %.sroa.7.0.extract.shift.i = lshr i24 %.sroa.0.0.copyload.i.i, 8
@@ -496,7 +492,7 @@ mp_read_codes_table.exit:                         ; preds = %.mp_read_codes_tabl
   %256 = sub nsw i32 32, %248
   %257 = lshr i32 %255, %256
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw %struct.VLCElem, ptr %246, i64 %258
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 2
   %261 = load i16, ptr %260, align 2, !tbaa !39
   %262 = sext i16 %261 to i32
@@ -545,7 +541,7 @@ mp_get_vlc.exit.i:                                ; preds = %267, %247
   %295 = sub nsw i32 32, %287
   %296 = lshr i32 %294, %295
   %297 = zext i32 %296 to i64
-  %298 = getelementptr inbounds nuw %struct.VLCElem, ptr %246, i64 %297
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 2
   %300 = load i16, ptr %299, align 2, !tbaa !39
   %301 = sext i16 %300 to i32
@@ -593,7 +589,7 @@ mp_get_vlc.exit33.i:                              ; preds = %306, %286
   %335 = sub nsw i32 32, %327
   %336 = lshr i32 %334, %335
   %337 = zext i32 %336 to i64
-  %338 = getelementptr inbounds nuw %struct.VLCElem, ptr %246, i64 %337
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 2
   %340 = load i16, ptr %339, align 2, !tbaa !39
   %341 = sext i16 %340 to i32
@@ -634,7 +630,7 @@ mp_get_vlc.exit35.i:                              ; preds = %346, %326
   %.sroa.10.1.i = phi i8 [ %365, %mp_get_vlc.exit35.i ], [ %.sroa.10.047.i, %mp_get_vlc.exit.i ]
   %.sroa.7.1.i = phi i8 [ %325, %mp_get_vlc.exit35.i ], [ %.sroa.7.048.i, %mp_get_vlc.exit.i ]
   %368 = load ptr, ptr %215, align 8, !tbaa !41
-  %369 = getelementptr inbounds nuw %struct.YuvPixel, ptr %368, i64 %indvars.iv.i73
+  %369 = getelementptr inbounds nuw [3 x i8], ptr %368, i64 %indvars.iv.i73
   store i8 %282, ptr %369, align 1, !tbaa !39
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %369, i64 1
   store i8 %.sroa.7.1.i, ptr %.sroa.7.0..sroa_idx.i, align 1, !tbaa !39
@@ -723,7 +719,7 @@ mp_get_vlc.exit35.i:                              ; preds = %346, %326
   %425 = trunc nuw nsw i64 %indvars.iv56.i to i32
   %426 = mul nsw i32 %424, %425
   %427 = load ptr, ptr %217, align 8, !tbaa !41
-  %428 = getelementptr inbounds nuw %struct.YuvPixel, ptr %427, i64 %indvars.iv56.i
+  %428 = getelementptr inbounds nuw [3 x i8], ptr %427, i64 %indvars.iv56.i
   %.sroa.0.0.copyload.i41.i = load i8, ptr %428, align 1, !tbaa !39
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %428, i64 1
   %.sroa.8.0.copyload.i.i = load i8, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !tbaa !39
@@ -816,7 +812,7 @@ mp_get_vlc.exit35.i:                              ; preds = %346, %326
   %482 = add nsw i32 %481, %.099.i.i
   %483 = sdiv i32 %482, 4
   %484 = sext i32 %483 to i64
-  %485 = getelementptr inbounds %struct.YuvPixel, ptr %477, i64 %484
+  %485 = getelementptr inbounds [3 x i8], ptr %477, i64 %484
   %.val85.i.i = load ptr, ptr %12, align 8, !tbaa !44
   %.val85.val.i.i = load ptr, ptr %.val85.i.i, align 8, !tbaa !60
   %486 = getelementptr i8, ptr %.val85.i.i, i64 64
@@ -829,7 +825,7 @@ mp_get_vlc.exit35.i:                              ; preds = %346, %326
   %492 = load i16, ptr %491, align 2, !tbaa !61
   %493 = and i16 %492, 32767
   %494 = zext nneg i16 %493 to i64
-  %495 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %494
+  %495 = getelementptr inbounds nuw [3 x i8], ptr @mp_rgb_yuv_table, i64 %494
   %.sroa.0.0.copyload.i.i.i = load i24, ptr %495, align 1
   store i24 %.sroa.0.0.copyload.i.i.i, ptr %485, align 1
   %496 = add nsw i32 %.099.i.i, 4
@@ -852,7 +848,7 @@ mp_get_vlc.exit35.i:                              ; preds = %346, %326
   %506 = load i16, ptr %505, align 2, !tbaa !61
   %507 = and i16 %506, 32767
   %508 = zext nneg i16 %507 to i64
-  %509 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %508
+  %509 = getelementptr inbounds nuw [3 x i8], ptr @mp_rgb_yuv_table, i64 %508
   %.sroa.0.0.copyload.i90.i.i = load i24, ptr %509, align 1
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i90.i.i to i8
   %.sroa.8.0.extract.shift.i.i = lshr i24 %.sroa.0.0.copyload.i90.i.i, 8
@@ -878,7 +874,7 @@ mp_get_vlc.exit35.i:                              ; preds = %346, %326
   %521 = sub nsw i32 32, %513
   %522 = lshr i32 %520, %521
   %523 = zext i32 %522 to i64
-  %524 = getelementptr inbounds nuw %struct.VLCElem, ptr %511, i64 %523
+  %524 = getelementptr inbounds nuw [4 x i8], ptr %511, i64 %523
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 2
   %526 = load i16, ptr %525, align 2, !tbaa !39
   %527 = sext i16 %526 to i32
@@ -930,7 +926,7 @@ mp_get_vlc.exit82.i.i:                            ; preds = %532, %512
   %561 = sub nsw i32 32, %553
   %562 = lshr i32 %560, %561
   %563 = zext i32 %562 to i64
-  %564 = getelementptr inbounds nuw %struct.VLCElem, ptr %511, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %511, i64 %563
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 2
   %566 = load i16, ptr %565, align 2, !tbaa !39
   %567 = sext i16 %566 to i32
@@ -978,7 +974,7 @@ mp_get_vlc.exit80.i.i:                            ; preds = %572, %552
   %601 = sub nsw i32 32, %593
   %602 = lshr i32 %600, %601
   %603 = zext i32 %602 to i64
-  %604 = getelementptr inbounds nuw %struct.VLCElem, ptr %511, i64 %603
+  %604 = getelementptr inbounds nuw [4 x i8], ptr %511, i64 %603
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 2
   %606 = load i16, ptr %605, align 2, !tbaa !39
   %607 = sext i16 %606 to i32
@@ -1018,7 +1014,7 @@ mp_get_vlc.exit.i.i:                              ; preds = %612, %592
   %635 = add nsw i32 %634, %.1103.i.i
   %636 = sdiv i32 %635, 4
   %637 = sext i32 %636 to i64
-  %638 = getelementptr inbounds %struct.YuvPixel, ptr %632, i64 %637
+  %638 = getelementptr inbounds [3 x i8], ptr %632, i64 %637
   store i8 %547, ptr %638, align 1, !tbaa !39
   %.sroa.8.0..sroa_idx93.i.i = getelementptr inbounds nuw i8, ptr %638, i64 1
   store i8 %591, ptr %.sroa.8.0..sroa_idx93.i.i, align 1, !tbaa !39
@@ -1033,7 +1029,7 @@ mp_get_vlc.exit.i.i:                              ; preds = %612, %592
   %643 = add nsw i32 %642, %.1103.i.i
   %644 = sdiv i32 %643, 4
   %645 = sext i32 %644 to i64
-  %646 = getelementptr inbounds %struct.YuvPixel, ptr %640, i64 %645
+  %646 = getelementptr inbounds [3 x i8], ptr %640, i64 %645
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 1
   %648 = load i8, ptr %647, align 1, !tbaa !72
   %649 = getelementptr inbounds nuw i8, ptr %646, i64 2
@@ -1216,7 +1212,7 @@ define internal fastcc void @mp_build_rgb_yuv_table() unnamed_addr #4 {
   %19 = or disjoint i32 %18, %7
   %20 = or disjoint i32 %19, %14
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %21
+  %22 = getelementptr inbounds nuw [3 x i8], ptr @mp_rgb_yuv_table, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = load i8, ptr %23, align 1, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 1
@@ -1273,7 +1269,7 @@ define internal fastcc void @mp_set_zero_yuv(ptr noundef captures(none) %0) unna
 
 2:                                                ; preds = %.preheader29, %13
   %indvars.iv = phi i64 [ 31, %.preheader29 ], [ %indvars.iv.next, %13 ]
-  %3 = getelementptr inbounds %struct.YuvPixel, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds [3 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %5 = load i8, ptr %4, align 1, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -1296,7 +1292,7 @@ define internal fastcc void @mp_set_zero_yuv(ptr noundef captures(none) %0) unna
 
 .lr.ph:                                           ; preds = %13, %25
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %25 ], [ 0, %13 ]
-  %15 = getelementptr inbounds nuw %struct.YuvPixel, ptr %0, i64 %indvars.iv35
+  %15 = getelementptr inbounds nuw [3 x i8], ptr %0, i64 %indvars.iv35
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !74
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -1524,7 +1520,7 @@ get_bits_long.exit:                               ; preds = %12, %24, %29
 
 119:                                              ; preds = %.preheader.us, %119
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %119 ]
-  %120 = getelementptr inbounds nuw i16, ptr %.04662.us64, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %.04662.us64, i64 %indvars.iv
   store i16 %104, ptr %120, align 2, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1540,7 +1536,7 @@ get_bits_long.exit:                               ; preds = %12, %24, %29
   %127 = load i32, ptr %126, align 8, !tbaa !68
   %128 = sdiv i32 %127, 2
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i16, ptr %.04662.us64, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %.04662.us64, i64 %129
   %131 = add nsw i32 %115, -1
   %.not57.us66 = icmp eq i32 %115, 0
   br i1 %.not57.us66, label %..loopexit58_crit_edge, label %.preheader.us, !llvm.loop !88
@@ -1635,7 +1631,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mp_get_code(ptr noundef ca
   %39 = add nsw i32 %31, 1
   store i32 %39, ptr %30, align 8, !tbaa !67
   %40 = sext i32 %31 to i64
-  %41 = getelementptr inbounds %struct.HuffCode, ptr %38, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %38, i64 %40
   store i8 %37, ptr %41, align 2, !tbaa !91
   br label %.loopexit
 

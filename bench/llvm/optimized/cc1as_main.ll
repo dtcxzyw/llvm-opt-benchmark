@@ -242,7 +242,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::_List_base.93" = type { %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::pair" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
-%"struct.std::pair.115" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.llvm::opt::arg_iterator.138" = type { ptr, ptr, [2 x %"class.llvm::opt::OptSpecifier"] }
 %"class.std::error_code" = type { i32, ptr }
 
@@ -669,7 +668,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEED2Ev.exit: ; preds = %_ZN4l
 _ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit: ; preds = %.lr.ph, %177
   %188 = add i32 %182, 1
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw ptr, ptr %186, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %189
   store ptr null, ptr %190, align 8, !tbaa !58
   %191 = call noundef zeroext i1 @_ZN4llvm2cl23ParseCommandLineOptionsEiPKPKcNS_9StringRefEPNS_11raw_ostreamES2_b(i32 noundef %188, ptr noundef nonnull %186, ptr nonnull @.str.4, i64 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #18
   call void @_ZdaPv(ptr noundef nonnull %186) #20
@@ -677,10 +676,10 @@ _ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit: ; preds = %.lr.ph, %17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %192 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %173, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [32 x i8], ptr %173, i64 %indvars.iv
   %193 = load ptr, ptr %192, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %194 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv.next
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv.next
   store ptr %193, ptr %194, align 8, !tbaa !58
   %.not16 = icmp eq i64 %indvars.iv.next, %187
   br i1 %.not16, label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit, label %.lr.ph, !llvm.loop !59
@@ -1280,7 +1279,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i.i:      ; preds = %434, %431
   %457 = add nsw i64 %280, 4294967295
   %458 = and i64 %457, 4294967295
   %459 = load ptr, ptr %19, align 8, !tbaa !128
-  %460 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %459, i64 %458
+  %460 = getelementptr inbounds nuw [24 x i8], ptr %459, i64 %458
   %461 = load ptr, ptr %460, align 8, !tbaa !126
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
   %463 = load ptr, ptr %462, align 8, !tbaa !310
@@ -2662,7 +2661,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AssemblerInvocatio
   %79 = getelementptr inbounds nuw i8, ptr %43, i64 176
   %80 = zext i32 %78 to i64
   %81 = load ptr, ptr %79, align 8, !tbaa !25
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !58
   %84 = ptrtoint ptr %83 to i64
   %85 = load ptr, ptr %44, align 8, !tbaa !112
@@ -2716,7 +2715,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %94
   %108 = add i32 %90, -1
   store i32 %108, ptr %89, align 8, !tbaa !374
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !387
   store i8 0, ptr %111, align 8, !tbaa !375
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 424
@@ -2775,7 +2774,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %134 = add i8 %133, 1
   store i8 %134, ptr %131, align 8, !tbaa !375
   %135 = zext i8 %133 to i64
-  %136 = getelementptr inbounds nuw i64, ptr %132, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %135
   store i64 %84, ptr %136, align 8, !tbaa !304
   %137 = load i32, ptr %42, align 4, !tbaa !118
   %138 = zext i32 %137 to i64
@@ -2789,7 +2788,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %145 = add i8 %144, 1
   store i8 %145, ptr %142, align 8, !tbaa !375
   %146 = zext i8 %144 to i64
-  %147 = getelementptr inbounds nuw i64, ptr %143, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %146
   store i64 %138, ptr %147, align 8, !tbaa !304
   %148 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %149 = load i8, ptr %148, align 8, !tbaa !104, !range !102, !noundef !103
@@ -2849,8 +2848,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   %171 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !389
   %173 = and i64 %170, 4294967295
-  %174 = getelementptr inbounds nuw ptr, ptr %172, i64 %173
-  %175 = getelementptr ptr, ptr %172, i64 %.sroa.4.0.extract.shift.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %173
+  %175 = getelementptr [8 x i8], ptr %172, i64 %.sroa.4.0.extract.shift.i
   %.not29.i.i.i = icmp samesign eq i64 %173, %.sroa.4.0.extract.shift.i
   br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.i
 
@@ -3003,8 +3002,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !396
   %236 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !396
   %237 = and i64 %235, 4294967295
-  %238 = getelementptr inbounds nuw ptr, ptr %236, i64 %237
-  %239 = getelementptr ptr, ptr %236, i64 %.sroa.4.0.extract.shift.i.i
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %237
+  %239 = getelementptr [8 x i8], ptr %236, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %237, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -3279,8 +3278,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !415
   %327 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !415
   %328 = and i64 %326, 4294967295
-  %329 = getelementptr inbounds nuw ptr, ptr %327, i64 %328
-  %330 = getelementptr ptr, ptr %327, i64 %.sroa.4.0.extract.shift.i.i147
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %328
+  %330 = getelementptr [8 x i8], ptr %327, i64 %.sroa.4.0.extract.shift.i.i147
   %.not29.i.i.i.i148 = icmp samesign eq i64 %328, %.sroa.4.0.extract.shift.i.i147
   br i1 %.not29.i.i.i.i148, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i156, label %.lr.ph.i.i.i.i150
 
@@ -3423,7 +3422,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i691:   ; preds = %369
   %383 = add i32 %365, -1
   store i32 %383, ptr %364, align 8, !tbaa !374
   %384 = zext i32 %383 to i64
-  %385 = getelementptr inbounds nuw ptr, ptr %382, i64 %384
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %384
   %386 = load ptr, ptr %385, align 8, !tbaa !387
   store i8 0, ptr %386, align 8, !tbaa !375
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 424
@@ -3482,7 +3481,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %409 = add i8 %408, 1
   store i8 %409, ptr %406, align 8, !tbaa !375
   %410 = zext i8 %408 to i64
-  %411 = getelementptr inbounds nuw i64, ptr %407, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %407, i64 %410
   store i64 %359, ptr %411, align 8, !tbaa !304
   %412 = load ptr, ptr %54, align 8, !tbaa !16
   %413 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -3993,8 +3992,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !419
   %600 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !419
   %601 = and i64 %599, 4294967295
-  %602 = getelementptr inbounds nuw ptr, ptr %600, i64 %601
-  %603 = getelementptr ptr, ptr %600, i64 %.sroa.4.0.extract.shift.i.i693
+  %602 = getelementptr inbounds nuw [8 x i8], ptr %600, i64 %601
+  %603 = getelementptr [8 x i8], ptr %600, i64 %.sroa.4.0.extract.shift.i.i693
   %.not29.i.i.i.i694 = icmp samesign eq i64 %601, %.sroa.4.0.extract.shift.i.i693
   br i1 %.not29.i.i.i.i694, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i702, label %.lr.ph.i.i.i.i696
 
@@ -4071,8 +4070,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !422
   %626 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !422
   %627 = and i64 %625, 4294967295
-  %628 = getelementptr inbounds nuw ptr, ptr %626, i64 %627
-  %629 = getelementptr ptr, ptr %626, i64 %.sroa.4.0.extract.shift.i.i720
+  %628 = getelementptr inbounds nuw [8 x i8], ptr %626, i64 %627
+  %629 = getelementptr [8 x i8], ptr %626, i64 %.sroa.4.0.extract.shift.i.i720
   %.not29.i.i.i.i721 = icmp samesign eq i64 %627, %.sroa.4.0.extract.shift.i.i720
   br i1 %.not29.i.i.i.i721, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i729, label %.lr.ph.i.i.i.i723
 
@@ -4148,8 +4147,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !425
   %651 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !425
   %652 = and i64 %650, 4294967295
-  %653 = getelementptr inbounds nuw ptr, ptr %651, i64 %652
-  %654 = getelementptr ptr, ptr %651, i64 %.sroa.4.0.extract.shift.i.i747
+  %653 = getelementptr inbounds nuw [8 x i8], ptr %651, i64 %652
+  %654 = getelementptr [8 x i8], ptr %651, i64 %.sroa.4.0.extract.shift.i.i747
   %.not29.i.i.i.i748 = icmp samesign eq i64 %652, %.sroa.4.0.extract.shift.i.i747
   br i1 %.not29.i.i.i.i748, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i756, label %.lr.ph.i.i.i.i750
 
@@ -4225,8 +4224,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !428
   %676 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !428
   %677 = and i64 %675, 4294967295
-  %678 = getelementptr inbounds nuw ptr, ptr %676, i64 %677
-  %679 = getelementptr ptr, ptr %676, i64 %.sroa.4.0.extract.shift.i.i234
+  %678 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %677
+  %679 = getelementptr [8 x i8], ptr %676, i64 %.sroa.4.0.extract.shift.i.i234
   %.not29.i.i.i.i235 = icmp samesign eq i64 %677, %.sroa.4.0.extract.shift.i.i234
   br i1 %.not29.i.i.i.i235, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i243, label %.lr.ph.i.i.i.i237
 
@@ -4854,8 +4853,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !431
   %900 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !431
   %901 = and i64 %899, 4294967295
-  %902 = getelementptr inbounds nuw ptr, ptr %900, i64 %901
-  %903 = getelementptr ptr, ptr %900, i64 %.sroa.4.0.extract.shift.i.i774
+  %902 = getelementptr inbounds nuw [8 x i8], ptr %900, i64 %901
+  %903 = getelementptr [8 x i8], ptr %900, i64 %.sroa.4.0.extract.shift.i.i774
   %.not29.i.i.i.i775 = icmp samesign eq i64 %901, %.sroa.4.0.extract.shift.i.i774
   br i1 %.not29.i.i.i.i775, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i783, label %.lr.ph.i.i.i.i777
 
@@ -4968,7 +4967,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %925, %926
 936:                                              ; preds = %_ZNK4llvm9StringRef5splitEc.exit
   %937 = zext i32 %932 to i64
   %938 = load ptr, ptr %883, align 8, !tbaa !25
-  %939 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %938, i64 %937
+  %939 = getelementptr inbounds nuw [64 x i8], ptr %938, i64 %937
   call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRN4llvm9StringRefESA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEntclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb0EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(64) %939, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %882)
   %940 = load i32, ptr %884, align 8, !tbaa !27
   %941 = add i32 %940, 1
@@ -4989,8 +4988,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !443
   %944 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !443
   %945 = and i64 %943, 4294967295
-  %946 = getelementptr inbounds nuw ptr, ptr %944, i64 %945
-  %947 = getelementptr ptr, ptr %944, i64 %.sroa.4.0.extract.shift.i338
+  %946 = getelementptr inbounds nuw [8 x i8], ptr %944, i64 %945
+  %947 = getelementptr [8 x i8], ptr %944, i64 %.sroa.4.0.extract.shift.i338
   %.not29.i.i.i339 = icmp samesign eq i64 %945, %.sroa.4.0.extract.shift.i338
   br i1 %.not29.i.i.i339, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit351, label %.lr.ph.i.i.i341
 
@@ -5519,8 +5518,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !446
   %1136 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !446
   %1137 = and i64 %1135, 4294967295
-  %1138 = getelementptr inbounds nuw ptr, ptr %1136, i64 %1137
-  %1139 = getelementptr ptr, ptr %1136, i64 %.sroa.4.0.extract.shift.i.i430
+  %1138 = getelementptr inbounds nuw [8 x i8], ptr %1136, i64 %1137
+  %1139 = getelementptr [8 x i8], ptr %1136, i64 %.sroa.4.0.extract.shift.i.i430
   %.not29.i.i.i.i431 = icmp samesign eq i64 %1137, %.sroa.4.0.extract.shift.i.i430
   br i1 %.not29.i.i.i.i431, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i439, label %.lr.ph.i.i.i.i433
 
@@ -5699,8 +5698,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !449
   %1194 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !449
   %1195 = and i64 %1193, 4294967295
-  %1196 = getelementptr inbounds nuw ptr, ptr %1194, i64 %1195
-  %1197 = getelementptr ptr, ptr %1194, i64 %.sroa.4.0.extract.shift.i.i801
+  %1196 = getelementptr inbounds nuw [8 x i8], ptr %1194, i64 %1195
+  %1197 = getelementptr [8 x i8], ptr %1194, i64 %.sroa.4.0.extract.shift.i.i801
   %.not29.i.i.i.i802 = icmp samesign eq i64 %1195, %.sroa.4.0.extract.shift.i.i801
   br i1 %.not29.i.i.i.i802, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i810, label %.lr.ph.i.i.i.i804
 
@@ -5777,8 +5776,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !452
   %1220 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !452
   %1221 = and i64 %1219, 4294967295
-  %1222 = getelementptr inbounds nuw ptr, ptr %1220, i64 %1221
-  %1223 = getelementptr ptr, ptr %1220, i64 %.sroa.4.0.extract.shift.i.i828
+  %1222 = getelementptr inbounds nuw [8 x i8], ptr %1220, i64 %1221
+  %1223 = getelementptr [8 x i8], ptr %1220, i64 %.sroa.4.0.extract.shift.i.i828
   %.not29.i.i.i.i829 = icmp samesign eq i64 %1221, %.sroa.4.0.extract.shift.i.i828
   br i1 %.not29.i.i.i.i829, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i837, label %.lr.ph.i.i.i.i831
 
@@ -5857,8 +5856,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !455
   %1247 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !455
   %1248 = and i64 %1246, 4294967295
-  %1249 = getelementptr inbounds nuw ptr, ptr %1247, i64 %1248
-  %1250 = getelementptr ptr, ptr %1247, i64 %.sroa.4.0.extract.shift.i.i855
+  %1249 = getelementptr inbounds nuw [8 x i8], ptr %1247, i64 %1248
+  %1250 = getelementptr [8 x i8], ptr %1247, i64 %.sroa.4.0.extract.shift.i.i855
   %.not29.i.i.i.i856 = icmp samesign eq i64 %1248, %.sroa.4.0.extract.shift.i.i855
   br i1 %.not29.i.i.i.i856, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i864, label %.lr.ph.i.i.i.i858
 
@@ -5935,8 +5934,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !458
   %1273 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !458
   %1274 = and i64 %1272, 4294967295
-  %1275 = getelementptr inbounds nuw ptr, ptr %1273, i64 %1274
-  %1276 = getelementptr ptr, ptr %1273, i64 %.sroa.4.0.extract.shift.i.i882
+  %1275 = getelementptr inbounds nuw [8 x i8], ptr %1273, i64 %1274
+  %1276 = getelementptr [8 x i8], ptr %1273, i64 %.sroa.4.0.extract.shift.i.i882
   %.not29.i.i.i.i883 = icmp samesign eq i64 %1274, %.sroa.4.0.extract.shift.i.i882
   br i1 %.not29.i.i.i.i883, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i891, label %.lr.ph.i.i.i.i885
 
@@ -6012,8 +6011,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !461
   %1298 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !461
   %1299 = and i64 %1297, 4294967295
-  %1300 = getelementptr inbounds nuw ptr, ptr %1298, i64 %1299
-  %1301 = getelementptr ptr, ptr %1298, i64 %.sroa.4.0.extract.shift.i.i909
+  %1300 = getelementptr inbounds nuw [8 x i8], ptr %1298, i64 %1299
+  %1301 = getelementptr [8 x i8], ptr %1298, i64 %.sroa.4.0.extract.shift.i.i909
   %.not29.i.i.i.i910 = icmp samesign eq i64 %1299, %.sroa.4.0.extract.shift.i.i909
   br i1 %.not29.i.i.i.i910, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i918, label %.lr.ph.i.i.i.i912
 
@@ -6089,8 +6088,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !464
   %1323 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !464
   %1324 = and i64 %1322, 4294967295
-  %1325 = getelementptr inbounds nuw ptr, ptr %1323, i64 %1324
-  %1326 = getelementptr ptr, ptr %1323, i64 %.sroa.4.0.extract.shift.i.i936
+  %1325 = getelementptr inbounds nuw [8 x i8], ptr %1323, i64 %1324
+  %1326 = getelementptr [8 x i8], ptr %1323, i64 %.sroa.4.0.extract.shift.i.i936
   %.not29.i.i.i.i937 = icmp samesign eq i64 %1324, %.sroa.4.0.extract.shift.i.i936
   br i1 %.not29.i.i.i.i937, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i945, label %.lr.ph.i.i.i.i939
 
@@ -6166,8 +6165,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !467
   %1348 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !467
   %1349 = and i64 %1347, 4294967295
-  %1350 = getelementptr inbounds nuw ptr, ptr %1348, i64 %1349
-  %1351 = getelementptr ptr, ptr %1348, i64 %.sroa.4.0.extract.shift.i.i963
+  %1350 = getelementptr inbounds nuw [8 x i8], ptr %1348, i64 %1349
+  %1351 = getelementptr [8 x i8], ptr %1348, i64 %.sroa.4.0.extract.shift.i.i963
   %.not29.i.i.i.i964 = icmp samesign eq i64 %1349, %.sroa.4.0.extract.shift.i.i963
   br i1 %.not29.i.i.i.i964, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i972, label %.lr.ph.i.i.i.i966
 
@@ -6243,8 +6242,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !470
   %1373 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !470
   %1374 = and i64 %1372, 4294967295
-  %1375 = getelementptr inbounds nuw ptr, ptr %1373, i64 %1374
-  %1376 = getelementptr ptr, ptr %1373, i64 %.sroa.4.0.extract.shift.i.i990
+  %1375 = getelementptr inbounds nuw [8 x i8], ptr %1373, i64 %1374
+  %1376 = getelementptr [8 x i8], ptr %1373, i64 %.sroa.4.0.extract.shift.i.i990
   %.not29.i.i.i.i991 = icmp samesign eq i64 %1374, %.sroa.4.0.extract.shift.i.i990
   br i1 %.not29.i.i.i.i991, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i999, label %.lr.ph.i.i.i.i993
 
@@ -6320,8 +6319,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !473
   %1398 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !473
   %1399 = and i64 %1397, 4294967295
-  %1400 = getelementptr inbounds nuw ptr, ptr %1398, i64 %1399
-  %1401 = getelementptr ptr, ptr %1398, i64 %.sroa.4.0.extract.shift.i.i1017
+  %1400 = getelementptr inbounds nuw [8 x i8], ptr %1398, i64 %1399
+  %1401 = getelementptr [8 x i8], ptr %1398, i64 %.sroa.4.0.extract.shift.i.i1017
   %.not29.i.i.i.i1018 = icmp samesign eq i64 %1399, %.sroa.4.0.extract.shift.i.i1017
   br i1 %.not29.i.i.i.i1018, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i1026, label %.lr.ph.i.i.i.i1020
 
@@ -6683,8 +6682,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit524: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !476
   %1525 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !476
   %1526 = and i64 %1524, 4294967295
-  %1527 = getelementptr inbounds nuw ptr, ptr %1525, i64 %1526
-  %1528 = getelementptr ptr, ptr %1525, i64 %.sroa.4.0.extract.shift.i.i1044
+  %1527 = getelementptr inbounds nuw [8 x i8], ptr %1525, i64 %1526
+  %1528 = getelementptr [8 x i8], ptr %1525, i64 %.sroa.4.0.extract.shift.i.i1044
   %.not29.i.i.i.i1045 = icmp samesign eq i64 %1526, %.sroa.4.0.extract.shift.i.i1044
   br i1 %.not29.i.i.i.i1045, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i1053, label %.lr.ph.i.i.i.i1047
 
@@ -6852,8 +6851,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !479
   %1585 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !479
   %1586 = and i64 %1584, 4294967295
-  %1587 = getelementptr inbounds nuw ptr, ptr %1585, i64 %1586
-  %1588 = getelementptr ptr, ptr %1585, i64 %.sroa.4.0.extract.shift.i.i547
+  %1587 = getelementptr inbounds nuw [8 x i8], ptr %1585, i64 %1586
+  %1588 = getelementptr [8 x i8], ptr %1585, i64 %.sroa.4.0.extract.shift.i.i547
   %.not29.i.i.i.i548 = icmp samesign eq i64 %1586, %.sroa.4.0.extract.shift.i.i547
   br i1 %.not29.i.i.i.i548, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i556, label %.lr.ph.i.i.i.i550
 
@@ -6965,8 +6964,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !482
   %1616 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !482
   %1617 = and i64 %1615, 4294967295
-  %1618 = getelementptr inbounds nuw ptr, ptr %1616, i64 %1617
-  %1619 = getelementptr ptr, ptr %1616, i64 %.sroa.4.0.extract.shift.i.i602
+  %1618 = getelementptr inbounds nuw [8 x i8], ptr %1616, i64 %1617
+  %1619 = getelementptr [8 x i8], ptr %1616, i64 %.sroa.4.0.extract.shift.i.i602
   %.not29.i.i.i.i603 = icmp samesign eq i64 %1617, %.sroa.4.0.extract.shift.i.i602
   br i1 %.not29.i.i.i.i603, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i611, label %.lr.ph.i.i.i.i605
 
@@ -7077,8 +7076,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !485
   %1644 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !485
   %1645 = and i64 %1643, 4294967295
-  %1646 = getelementptr inbounds nuw ptr, ptr %1644, i64 %1645
-  %1647 = getelementptr ptr, ptr %1644, i64 %.sroa.4.0.extract.shift.i.i1071
+  %1646 = getelementptr inbounds nuw [8 x i8], ptr %1644, i64 %1645
+  %1647 = getelementptr [8 x i8], ptr %1644, i64 %.sroa.4.0.extract.shift.i.i1071
   %.not29.i.i.i.i1072 = icmp samesign eq i64 %1645, %.sroa.4.0.extract.shift.i.i1071
   br i1 %.not29.i.i.i.i1072, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i1080, label %.lr.ph.i.i.i.i1074
 
@@ -7155,8 +7154,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !488
   %1670 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !488
   %1671 = and i64 %1669, 4294967295
-  %1672 = getelementptr inbounds nuw ptr, ptr %1670, i64 %1671
-  %1673 = getelementptr ptr, ptr %1670, i64 %.sroa.4.0.extract.shift.i.i1098
+  %1672 = getelementptr inbounds nuw [8 x i8], ptr %1670, i64 %1671
+  %1673 = getelementptr [8 x i8], ptr %1670, i64 %.sroa.4.0.extract.shift.i.i1098
   %.not29.i.i.i.i1099 = icmp samesign eq i64 %1671, %.sroa.4.0.extract.shift.i.i1098
   br i1 %.not29.i.i.i.i1099, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i1107, label %.lr.ph.i.i.i.i1101
 
@@ -7232,8 +7231,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !491
   %1695 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !491
   %1696 = and i64 %1694, 4294967295
-  %1697 = getelementptr inbounds nuw ptr, ptr %1695, i64 %1696
-  %1698 = getelementptr ptr, ptr %1695, i64 %.sroa.4.0.extract.shift.i.i1125
+  %1697 = getelementptr inbounds nuw [8 x i8], ptr %1695, i64 %1696
+  %1698 = getelementptr [8 x i8], ptr %1695, i64 %.sroa.4.0.extract.shift.i.i1125
   %.not29.i.i.i.i1126 = icmp samesign eq i64 %1696, %.sroa.4.0.extract.shift.i.i1125
   br i1 %.not29.i.i.i.i1126, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i1134, label %.lr.ph.i.i.i.i1128
 
@@ -7309,8 +7308,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !494
   %1720 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !494
   %1721 = and i64 %1719, 4294967295
-  %1722 = getelementptr inbounds nuw ptr, ptr %1720, i64 %1721
-  %1723 = getelementptr ptr, ptr %1720, i64 %.sroa.4.0.extract.shift.i.i1152
+  %1722 = getelementptr inbounds nuw [8 x i8], ptr %1720, i64 %1721
+  %1723 = getelementptr [8 x i8], ptr %1720, i64 %.sroa.4.0.extract.shift.i.i1152
   %.not29.i.i.i.i1153 = icmp samesign eq i64 %1721, %.sroa.4.0.extract.shift.i.i1152
   br i1 %.not29.i.i.i.i1153, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i1161, label %.lr.ph.i.i.i.i1155
 
@@ -7386,8 +7385,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !497
   %1745 = load ptr, ptr %171, align 8, !tbaa !25, !noalias !497
   %1746 = and i64 %1744, 4294967295
-  %1747 = getelementptr inbounds nuw ptr, ptr %1745, i64 %1746
-  %1748 = getelementptr ptr, ptr %1745, i64 %.sroa.4.0.extract.shift.i.i1179
+  %1747 = getelementptr inbounds nuw [8 x i8], ptr %1745, i64 %1746
+  %1748 = getelementptr [8 x i8], ptr %1745, i64 %.sroa.4.0.extract.shift.i.i1179
   %.not29.i.i.i.i1180 = icmp samesign eq i64 %1746, %.sroa.4.0.extract.shift.i.i1179
   br i1 %.not29.i.i.i.i1180, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i1188, label %.lr.ph.i.i.i.i1182
 
@@ -7638,7 +7637,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
   %27 = add i32 %9, -1
   store i32 %27, ptr %8, align 8, !tbaa !374
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !387
   store i8 0, ptr %30, align 8, !tbaa !375
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 424
@@ -7698,7 +7697,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %55 = add i8 %54, 1
   store i8 %55, ptr %52, align 8, !tbaa !375
   %56 = zext i8 %54 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   store i64 %1, ptr %57, align 8, !tbaa !304
   ret void
 }
@@ -7719,7 +7718,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !374
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !387
   br label %43
 
@@ -7994,8 +7993,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !25, !noalias !500
   %10 = and i64 %7, 4294967295
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.4.0.extract.shift.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.4.0.extract.shift.i
   store ptr %11, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %13, align 8
@@ -8222,7 +8221,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !374
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !387
   store i8 0, ptr %32, align 8, !tbaa !375
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -8330,7 +8329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !375
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -8442,7 +8441,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRN4llvm9StringRefESA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEntclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb0EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ELb0EE19moveElementsForGrowEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %6)
   %11 = load i64, ptr %4, align 8, !tbaa !304
@@ -8463,7 +8462,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_tr
   %18 = add i32 %17, 1
   store i32 %18, ptr %7, align 8, !tbaa !27
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %6, i64 %19
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 -64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %21
@@ -9347,7 +9346,7 @@ _ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %.l
 _ZNSt12_Vector_baseIN4llvm9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !128
   store ptr %.0.lcssa.i.i.i.i.i23, ptr %4, align 8, !tbaa !131
-  %33 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !372
   ret void
 }

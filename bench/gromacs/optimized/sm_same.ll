@@ -261,10 +261,10 @@ define internal void @_ZL19init_frame_same_intRKN3gmx20SelMethodEvalContextEPv(p
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.045 = phi i32 [ 0, %.lr.ph ], [ %.1, %26 ]
   %12 = load ptr, ptr %8, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = sext i32 %.045 to i64
-  %16 = getelementptr inbounds i32, ptr %12, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %.not43 = icmp eq i32 %14, %17
   br i1 %.not43, label %26, label %18
@@ -281,7 +281,7 @@ define internal void @_ZL19init_frame_same_intRKN3gmx20SelMethodEvalContextEPv(p
   %22 = phi i8 [ 0, %20 ], [ %10, %18 ]
   %23 = add nsw i32 %.045, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %12, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %12, i64 %24
   store i32 %14, ptr %25, align 4, !tbaa !27
   %.pre = load i32, ptr %4, align 8, !tbaa !21
   br label %26
@@ -315,10 +315,10 @@ define internal void @_ZL19init_frame_same_intRKN3gmx20SelMethodEvalContextEPv(p
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %50 ], [ 1, %33 ]
   %.247 = phi i32 [ %.3, %50 ], [ 0, %33 ]
   %40 = load ptr, ptr %34, align 8, !tbaa !19
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv53
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv53
   %42 = load i32, ptr %41, align 4, !tbaa !27
   %43 = sext i32 %.247 to i64
-  %44 = getelementptr inbounds i32, ptr %40, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %40, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !27
   %.not = icmp eq i32 %42, %45
   br i1 %.not, label %50, label %46
@@ -326,7 +326,7 @@ define internal void @_ZL19init_frame_same_intRKN3gmx20SelMethodEvalContextEPv(p
 46:                                               ; preds = %.lr.ph49
   %47 = add nsw i32 %.247, 1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %40, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %40, i64 %48
   store i32 %42, ptr %49, align 4, !tbaa !27
   %.pre56 = load i32, ptr %4, align 8, !tbaa !21
   br label %50
@@ -392,7 +392,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 .lr.ph78:                                         ; preds = %.preheader74
   %18 = load ptr, ptr %11, align 8, !tbaa !19
   %19 = sext i32 %.06587 to i64
-  %20 = getelementptr inbounds i32, ptr %.pre105.pre, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %.pre105.pre, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !27
   %22 = sext i32 %.088 to i64
   %23 = sext i32 %16 to i64
@@ -400,7 +400,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 
 24:                                               ; preds = %.lr.ph78, %28
   %indvars.iv = phi i64 [ %22, %.lr.ph78 ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %25 = getelementptr inbounds [4 x i8], ptr %18, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !27
   %27 = icmp slt i32 %26, %21
   br i1 %27, label %28, label %.critedge.loopexit
@@ -415,7 +415,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %.pre101 = load ptr, ptr %11, align 8, !tbaa !19
   %.pre102 = load ptr, ptr %3, align 8, !tbaa !19
   %31 = sext i32 %.06587 to i64
-  %32 = getelementptr inbounds i32, ptr %.pre102, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %.pre102, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !27
   br i1 %30, label %.lr.ph, label %._crit_edge
 
@@ -425,7 +425,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %34 = add nuw nsw i32 %.06876, %.07075
   %35 = lshr i32 %34, 1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %.pre101, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.pre101, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !27
   %.not = icmp sgt i32 %38, %33
   %.070. = select i1 %.not, i32 %.07075, i32 %35
@@ -437,7 +437,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %.070.lcssa = phi i32 [ 0, %29 ], [ %.070., %.lr.ph ]
   %41 = zext nneg i32 %.070.lcssa to i64
-  %42 = getelementptr inbounds nuw i32, ptr %.pre101, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.pre101, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !27
   %44 = icmp eq i32 %43, %33
   %spec.select = select i1 %44, i32 %.070.lcssa, i32 %16
@@ -457,17 +457,17 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %.2123 = phi i32 [ %.2, %.critedge ], [ %16, %28 ]
   %.pre105119 = phi ptr [ %.pre105, %.critedge ], [ %.pre105.pre, %28 ]
   %.phi.trans.insert106 = sext i32 %.06587 to i64
-  %.phi.trans.insert107 = getelementptr inbounds i32, ptr %.pre105119, i64 %.phi.trans.insert106
+  %.phi.trans.insert107 = getelementptr inbounds [4 x i8], ptr %.pre105119, i64 %.phi.trans.insert106
   %.pre108 = load i32, ptr %.phi.trans.insert107, align 4, !tbaa !27
   br label %64
 
 47:                                               ; preds = %.critedge
   %48 = load ptr, ptr %11, align 8, !tbaa !19
   %49 = sext i32 %.2 to i64
-  %50 = getelementptr inbounds i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !27
   %52 = sext i32 %.06587 to i64
-  %53 = getelementptr inbounds i32, ptr %.pre105, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %.pre105, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !27
   %.not72 = icmp eq i32 %51, %54
   br i1 %.not72, label %.preheader, label %64
@@ -478,10 +478,10 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 
 .lr.ph83.preheader:                               ; preds = %.preheader
   %56 = load ptr, ptr %3, align 8, !tbaa !19
-  %57 = getelementptr inbounds i32, ptr %56, i64 %52
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %52
   %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = load ptr, ptr %11, align 8, !tbaa !19
-  %60 = getelementptr inbounds i32, ptr %59, i64 %49
+  %60 = getelementptr inbounds [4 x i8], ptr %59, i64 %49
   %61 = load i32, ptr %60, align 4, !tbaa !27
   %62 = icmp eq i32 %58, %61
   br i1 %62, label %.lr.ph138.preheader, label %.critedge4.loopexit92
@@ -505,24 +505,24 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %68, label %69, label %._crit_edge91
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i32, ptr %.pre105120, i64 %indvars.iv.next98
+  %70 = getelementptr inbounds [4 x i8], ptr %.pre105120, i64 %indvars.iv.next98
   %71 = load i32, ptr %70, align 4, !tbaa !27
   %72 = icmp eq i32 %71, %65
   br i1 %72, label %67, label %.critedge4.loopexit, !llvm.loop !38
 
 .lr.ph83:                                         ; preds = %.lr.ph138
   %73 = load ptr, ptr %3, align 8, !tbaa !19
-  %74 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv.next95
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %indvars.iv.next95
   %75 = load i32, ptr %74, align 4, !tbaa !27
   %76 = load ptr, ptr %11, align 8, !tbaa !19
-  %77 = getelementptr inbounds i32, ptr %76, i64 %49
+  %77 = getelementptr inbounds [4 x i8], ptr %76, i64 %49
   %78 = load i32, ptr %77, align 4, !tbaa !27
   %79 = icmp eq i32 %75, %78
   br i1 %79, label %.lr.ph138, label %.critedge4.loopexit92, !llvm.loop !39
 
 .lr.ph138:                                        ; preds = %.lr.ph138.preheader, %.lr.ph83
   %indvars.iv94137 = phi i64 [ %indvars.iv.next95, %.lr.ph83 ], [ %52, %.lr.ph138.preheader ]
-  %80 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv94137
+  %80 = getelementptr inbounds [4 x i8], ptr %63, i64 %indvars.iv94137
   %81 = load i32, ptr %80, align 4, !tbaa !27
   %82 = load ptr, ptr %5, align 8, !tbaa !19
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -531,7 +531,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %82, align 8, !tbaa !32
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %84, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %84, i64 %87
   store i32 %81, ptr %88, align 4, !tbaa !27
   %indvars.iv.next95 = add nsw i64 %indvars.iv94137, 1
   %89 = load i32, ptr %1, align 8, !tbaa !32
@@ -562,7 +562,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 96:                                               ; preds = %.critedge4
   %97 = load ptr, ptr %3, align 8, !tbaa !19
   %98 = sext i32 %.267 to i64
-  %99 = getelementptr inbounds i32, ptr %97, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %97, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !27
   %101 = getelementptr i8, ptr %99, i64 -4
   %102 = load i32, ptr %101, align 4, !tbaa !27
@@ -1574,10 +1574,10 @@ define internal void @_ZL19init_frame_same_strRKN3gmx20SelMethodEvalContextEPv(p
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %.038 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %25 ]
   %14 = load ptr, ptr %8, align 8, !tbaa !19
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !26
   %17 = sext i32 %.038 to i64
-  %18 = getelementptr inbounds ptr, ptr %12, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %12, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %19) #28
   %.not36 = icmp eq i32 %20, 0
@@ -1586,7 +1586,7 @@ define internal void @_ZL19init_frame_same_strRKN3gmx20SelMethodEvalContextEPv(p
 21:                                               ; preds = %.lr.ph
   %22 = add nsw i32 %.038, 1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %12, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %12, i64 %23
   store ptr %16, ptr %24, align 8, !tbaa !26
   br label %25
 
@@ -1617,10 +1617,10 @@ define internal void @_ZL19init_frame_same_strRKN3gmx20SelMethodEvalContextEPv(p
 31:                                               ; preds = %.lr.ph42, %42
   %indvars.iv46 = phi i64 [ 1, %.lr.ph42 ], [ %indvars.iv.next47, %42 ]
   %.240 = phi i32 [ 0, %.lr.ph42 ], [ %.3, %42 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv46
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv46
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = sext i32 %.240 to i64
-  %35 = getelementptr inbounds ptr, ptr %30, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %30, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %36) #28
   %.not = icmp eq i32 %37, 0
@@ -1629,7 +1629,7 @@ define internal void @_ZL19init_frame_same_strRKN3gmx20SelMethodEvalContextEPv(p
 38:                                               ; preds = %31
   %39 = add nsw i32 %.240, 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %30, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %30, i64 %40
   store ptr %33, ptr %41, align 8, !tbaa !26
   br label %42
 
@@ -1680,7 +1680,7 @@ define internal void @_ZL17evaluate_same_strRKN3gmx20SelMethodEvalContextEP15gmx
   %16 = icmp sgt i32 %14, 0
   %.pre = load ptr, ptr %3, align 8, !tbaa !19
   %17 = sext i32 %.041 to i64
-  %18 = getelementptr inbounds ptr, ptr %.pre, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %17
   br i1 %16, label %19, label %.lr.ph42.split..critedge35_crit_edge
 
 .lr.ph42.split..critedge35_crit_edge:             ; preds = %.lr.ph42.split
@@ -1731,7 +1731,7 @@ define internal void @_ZL17evaluate_same_strRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %38, label %39, label %._crit_edge
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv.next48
+  %40 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %indvars.iv.next48
   %41 = load ptr, ptr %40, align 8, !tbaa !26
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %35) #28
   %43 = icmp eq i32 %42, 0
@@ -1743,7 +1743,7 @@ bsearch.exit:                                     ; preds = %30
 
 .lr.ph.preheader:                                 ; preds = %bsearch.exit
   %45 = load ptr, ptr %3, align 8, !tbaa !19
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %17
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %17
   %47 = load ptr, ptr %46, align 8, !tbaa !26
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %22) #28
   %49 = icmp eq i32 %48, 0
@@ -1755,7 +1755,7 @@ bsearch.exit:                                     ; preds = %30
 
 .lr.ph:                                           ; preds = %.lr.ph62
   %51 = load ptr, ptr %3, align 8, !tbaa !19
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.next
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %indvars.iv.next
   %53 = load ptr, ptr %52, align 8, !tbaa !26
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %22) #28
   %55 = icmp eq i32 %54, 0
@@ -1763,7 +1763,7 @@ bsearch.exit:                                     ; preds = %30
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph
   %indvars.iv61 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %17, %.lr.ph62.preheader ]
-  %56 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv61
+  %56 = getelementptr inbounds [4 x i8], ptr %50, i64 %indvars.iv61
   %57 = load i32, ptr %56, align 4, !tbaa !27
   %58 = load ptr, ptr %5, align 8, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -1772,7 +1772,7 @@ bsearch.exit:                                     ; preds = %30
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %58, align 8, !tbaa !32
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i32, ptr %60, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %60, i64 %63
   store i32 %57, ptr %64, align 4, !tbaa !27
   %indvars.iv.next = add nsw i64 %indvars.iv61, 1
   %65 = load i32, ptr %1, align 8, !tbaa !32

@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::PatternMatch::BinaryOp_match" = type { %"struct.llvm::PatternMatch::cstval_pred_ty", %"struct.llvm::PatternMatch::bind_ty" }
 %"struct.llvm::PatternMatch::cstval_pred_ty" = type { ptr }
 %"struct.llvm::PatternMatch::bind_ty" = type { ptr }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 $_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EE10match_implINS_8ConstantEEEbPT_ = comdat any
 
@@ -156,7 +155,7 @@ _ZN4llvm12PatternMatch5matchINS_13IntrinsicInstENS0_16match_combine_orINS0_17Int
   %60 = and i32 %59, 134217727
   %61 = zext nneg i32 %60 to i64
   %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds %"class.llvm::Use", ptr %39, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %39, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !12
   %65 = icmp eq ptr %64, %13
   br i1 %65, label %132, label %66
@@ -301,7 +300,7 @@ _ZN4llvm12PatternMatch5matchINS_13IntrinsicInstENS0_16match_combine_orINS0_17Int
   %122 = and i32 %121, 134217727
   %123 = zext nneg i32 %122 to i64
   %124 = sub nsw i64 0, %123
-  %125 = getelementptr inbounds %"class.llvm::Use", ptr %101, i64 %124
+  %125 = getelementptr inbounds [32 x i8], ptr %101, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !12
   %127 = icmp eq ptr %126, %13
   br i1 %127, label %132, label %128
@@ -335,12 +334,12 @@ _ZN4llvm12PatternMatch5matchINS_13IntrinsicInstENS0_16match_combine_orINS0_17Int
   %140 = and i32 %134, 134217727
   %141 = zext nneg i32 %140 to i64
   %142 = sub nsw i64 0, %141
-  %143 = getelementptr inbounds %"class.llvm::Use", ptr %.041, i64 %142
+  %143 = getelementptr inbounds [32 x i8], ptr %.041, i64 %142
   br label %_ZN4llvm8CallBase16getArgOperandUseEj.exit
 
 _ZN4llvm8CallBase16getArgOperandUseEj.exit:       ; preds = %136, %139
   %144 = phi ptr [ %138, %136 ], [ %143, %139 ]
-  %145 = getelementptr inbounds nuw %"class.llvm::Use", ptr %144, i64 %.not
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %.not
   store ptr %145, ptr %3, align 8, !tbaa !55
   br label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CmpClass_matchINS0_7bind_tyIS2_EENS0_7is_zeroENS_8ICmpInstELb0EEEEEbPT_RKT0_.exit.thread
 

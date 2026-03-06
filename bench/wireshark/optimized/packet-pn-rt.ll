@@ -1239,13 +1239,13 @@ define internal noundef zeroext i1 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr no
   %56 = shl i32 %55, 2
   %57 = or i32 %56, %53
   %58 = and i64 %5, 15
-  %59 = getelementptr i32, ptr @start_frag_OR_ID, i64 %58
+  %59 = getelementptr [4 x i8], ptr @start_frag_OR_ID, i64 %58
   store i32 %57, ptr %59, align 4
   br label %60
 
 60:                                               ; preds = %._crit_edge, %52
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %58, %52 ]
-  %61 = getelementptr i32, ptr @start_frag_OR_ID, i64 %.pre-phi
+  %61 = getelementptr [4 x i8], ptr @start_frag_OR_ID, i64 %.pre-phi
   %62 = load i32, ptr %61, align 4
   %63 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %64 = tail call ptr @fragment_add_seq(ptr noundef nonnull @pdu_reassembly_table, ptr noundef %0, i32 noundef 2, ptr noundef %1, i32 noundef %62, ptr noundef null, i32 noundef %31, i32 noundef %63, i1 noundef zeroext %30, i32 noundef 0)

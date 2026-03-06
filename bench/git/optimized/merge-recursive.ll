@@ -112,7 +112,7 @@ sub_1:                                            ; preds = %sub_0
 .preheader:                                       ; preds = %.preheader.preheader, %62
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %62 ]
   %.03977 = phi i32 [ 0, %.preheader.preheader ], [ %.2.ph, %62 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !9
   %37 = call i32 @starts_with(ptr noundef %36, ptr noundef nonnull @.str.3) #12
   %.not48 = icmp eq i32 %37, 0
@@ -143,7 +143,7 @@ sub_1:                                            ; preds = %sub_0
   %49 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %50 = load ptr, ptr %35, align 8, !tbaa !9
   %51 = add nuw nsw i32 %.03977, 1
-  %52 = getelementptr inbounds nuw %struct.object_id, ptr %5, i64 %48
+  %52 = getelementptr inbounds nuw [36 x i8], ptr %5, i64 %48
   %53 = call i32 @repo_get_oid(ptr noundef %49, ptr noundef %50, ptr noundef nonnull %52) #12
   %.not49 = icmp eq i32 %53, 0
   br i1 %.not49, label %62, label %54
@@ -203,7 +203,7 @@ Q_.exit:                                          ; preds = %57, %59
 
 71:                                               ; preds = %67
   %72 = zext nneg i32 %.040.lcssa to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %1, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !9
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 16

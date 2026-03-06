@@ -4738,9 +4738,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4757,7 +4757,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -4781,7 +4781,7 @@ _ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4gr
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }

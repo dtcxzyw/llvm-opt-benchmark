@@ -755,12 +755,12 @@ define dso_local void @kthread_bind(ptr noundef %0, i32 noundef %1) #0 align 16 
 6:                                                ; preds = %2
   %7 = and i32 %1, 63
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %8
+  %9 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %8
   %10 = getelementptr i8, ptr %9, i64 8
   %11 = lshr i32 %1, 6
   %12 = zext nneg i32 %11 to i64
   %13 = sub nsw i64 0, %12
-  %14 = getelementptr i64, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2060
   %16 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %15) #16
   tail call void @do_set_cpus_allowed(ptr noundef %0, ptr noundef %14) #16
@@ -778,7 +778,7 @@ define dso_local void @kthread_bind(ptr noundef %0, i32 noundef %1) #0 align 16 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @kthread_create_on_cpu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = sext i32 %2 to i64
-  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %6 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @numa_node to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -801,12 +801,12 @@ define dso_local ptr @kthread_create_on_cpu(ptr noundef %0, ptr noundef %1, i32 
 17:                                               ; preds = %13
   %18 = and i32 %2, 63
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %19
+  %20 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %19
   %21 = getelementptr i8, ptr %20, i64 8
   %22 = lshr i32 %2, 6
   %23 = zext nneg i32 %22 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr i64, ptr %21, i64 %24
+  %25 = getelementptr [8 x i8], ptr %21, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 2060
   %27 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %26) #16
   tail call void @do_set_cpus_allowed(ptr noundef %11, ptr noundef %25) #16
@@ -953,12 +953,12 @@ define dso_local void @kthread_unpark(ptr noundef %0) #0 align 16 {
 19:                                               ; preds = %13
   %20 = and i32 %15, 63
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %21
+  %22 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %21
   %23 = getelementptr i8, ptr %22, i64 8
   %24 = lshr i32 %15, 6
   %25 = zext nneg i32 %24 to i64
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr i64, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2060
   %29 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %28) #16
   tail call void @do_set_cpus_allowed(ptr noundef %0, ptr noundef %27) #16
@@ -1654,7 +1654,7 @@ define dso_local ptr @kthread_create_worker_on_cpu(i32 noundef %0, i32 noundef %
 
 14:                                               ; preds = %8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
+  %16 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @numa_node to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -1682,12 +1682,12 @@ define dso_local ptr @kthread_create_worker_on_cpu(i32 noundef %0, i32 noundef %
 29:                                               ; preds = %25
   %30 = and i32 %0, 63
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %31
+  %32 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %31
   %33 = getelementptr i8, ptr %32, i64 8
   %34 = lshr i32 %0, 6
   %35 = zext nneg i32 %34 to i64
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr i64, ptr %33, i64 %36
+  %37 = getelementptr [8 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 2060
   %39 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %38) #16
   call void @do_set_cpus_allowed(ptr noundef %21, ptr noundef %37) #16

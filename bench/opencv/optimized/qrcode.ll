@@ -63,7 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point_" = type { i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -4993,7 +4992,7 @@ define internal fastcc void @_ZL17drawQRCodeResultsRN2cv3MatERKSt6vectorINS_6Poi
   br label %.body
 
 63:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  %64 = getelementptr inbounds %"class.cv::Point_", ptr %58, i64 %.025102
+  %64 = getelementptr inbounds [8 x i8], ptr %58, i64 %.025102
   store ptr %60, ptr %19, align 8, !tbaa !87
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr %65, ptr %26, align 8, !tbaa !113
@@ -5126,7 +5125,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i.i: ; p
   store i32 50397184, ptr %18, align 8, !tbaa !77
   store ptr %0, ptr %42, align 8, !tbaa !79
   %115 = load ptr, ptr %19, align 8, !tbaa !87
-  %116 = getelementptr inbounds nuw %"class.cv::Point_", ptr %115, i64 %.01841.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.01841.i
   %.sroa.0.0.copyload.i = load i64, ptr %116, align 4
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 %.sroa.0.0.copyload.i, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef -1, i32 noundef 8, i32 noundef 0)
           to label %117 unwind label %119
@@ -5397,7 +5396,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %205
   br i1 %213, label %214, label %267
 
 214:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42
-  %215 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %208, i64 %59
+  %215 = getelementptr inbounds nuw [32 x i8], ptr %208, i64 %59
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i64, ptr %216, align 8, !tbaa !15
   %218 = icmp eq i64 %217, 0
@@ -5409,7 +5408,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %205
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit44: ; preds = %219
   %221 = load ptr, ptr %2, align 8, !tbaa !81
-  %222 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %221, i64 %59
+  %222 = getelementptr inbounds nuw [32 x i8], ptr %221, i64 %59
   %223 = load ptr, ptr %222, align 8, !tbaa !12
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %225 = load i64, ptr %224, align 8, !tbaa !15
@@ -6125,7 +6124,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !84
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !111
   ret void
 
@@ -6374,7 +6373,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE13_M_deallocateEPS5
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !118
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !121
-  %62 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !170
   ret void
 

@@ -523,7 +523,7 @@ define internal fastcc range(i32 0, 2) i32 @pefromupx(ptr noundef %0, i32 nounde
   %22 = phi i32 [ %23, %.lr.ph.split.us ], [ 1, %.lr.ph ]
   %23 = add i32 %22, 1
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !6
   %.not.us = icmp eq i32 %26, 0
   br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
@@ -572,7 +572,7 @@ define internal fastcc range(i32 0, 2) i32 @pefromupx(ptr noundef %0, i32 nounde
 52:                                               ; preds = %46, %39, %32, %.lr.ph.split
   %53 = add i32 %29, 1
   %54 = zext i32 %29 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !6
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split

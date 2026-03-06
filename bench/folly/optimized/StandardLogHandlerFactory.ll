@@ -1802,7 +1802,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !55
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !50
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !89
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -3542,7 +3542,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !86
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !47
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !49
   ret void
 }
@@ -4021,7 +4021,7 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %49 = load i64, ptr %48, align 8, !tbaa !90
   %50 = urem i64 %49, %31
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %32, ptr %51, align 8, !tbaa !89
   br label %_ZN5folly16LogHandlerConfigC2EOS0_.exit
 
@@ -4422,7 +4422,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !55
   %41 = urem i64 %36, %40
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   store ptr %37, ptr %42, align 8, !tbaa !89
   %.02837 = load ptr, ptr %19, align 8, !tbaa !36
   %.not3038 = icmp eq ptr %.02837, null
@@ -4475,7 +4475,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %59 = load i64, ptr %39, align 8, !tbaa !55
   %60 = urem i64 %58, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !50
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !89
   %.not32 = icmp eq ptr %63, null
   br i1 %.not32, label %64, label %69
@@ -4860,7 +4860,7 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %48 = load i64, ptr %47, align 8, !tbaa !90
   %49 = urem i64 %48, %30
-  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %49
   store ptr %31, ptr %50, align 8, !tbaa !89
   br label %_ZN5folly16LogHandlerConfigC2EOS0_.exit
 

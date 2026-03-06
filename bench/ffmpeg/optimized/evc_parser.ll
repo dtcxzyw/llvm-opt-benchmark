@@ -437,12 +437,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %56 = load i8, ptr %6, align 4, !tbaa !50
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !53
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !55
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %7, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !57
   %65 = icmp ne ptr %64, null
   %66 = icmp ne ptr %59, null
@@ -553,12 +553,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef
 
 switch.lookup:                                    ; preds = %121
   %126 = zext nneg i8 %123 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_nal_unit, i64 %126
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.parse_nal_unit, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   %127 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %128 = load i8, ptr %127, align 4, !tbaa !84
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %switch.load, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %switch.load, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !43
   store i32 %131, ptr %124, align 8, !tbaa !83
   br label %132

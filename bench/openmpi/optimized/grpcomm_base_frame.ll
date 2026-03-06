@@ -166,7 +166,7 @@ define internal i32 @prte_grpcomm_base_close() #1 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !32
   %11 = icmp sgt i32 %10, 1

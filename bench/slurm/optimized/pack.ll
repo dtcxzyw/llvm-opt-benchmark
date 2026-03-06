@@ -1223,7 +1223,7 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 
 39:                                               ; preds = %.lr.ph, %pack16.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack16.exit ]
-  %40 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %41)
   %42 = load i32, ptr %5, align 8
@@ -1338,7 +1338,7 @@ define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
@@ -1432,7 +1432,7 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 
 39:                                               ; preds = %.lr.ph, %pack32.exit10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack32.exit10 ]
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = tail call noundef i32 @llvm.bswap.i32(i32 %41)
   %43 = load i32, ptr %5, align 8
@@ -1547,7 +1547,7 @@ define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
@@ -2215,7 +2215,7 @@ try_grow_buf_remaining.exit:                      ; preds = %28, %3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %.not17 = icmp eq ptr %37, null
   br i1 %.not17, label %42, label %38
@@ -2285,7 +2285,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr @slurmdbd_conf, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %30, label %unpackstr_xmalloc_chooser.exit
@@ -2786,7 +2786,7 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 
 39:                                               ; preds = %.lr.ph, %pack64.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack64.exit ]
-  %40 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8
   %42 = load i32, ptr %5, align 8
   %43 = load i32, ptr %7, align 4
@@ -2901,7 +2901,7 @@ define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
@@ -2995,7 +2995,7 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 
 39:                                               ; preds = %.lr.ph, %packdouble.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %packdouble.exit ]
-  %40 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %41 = load double, ptr %40, align 8
   %42 = load i32, ptr %5, align 8
   %43 = load i32, ptr %7, align 4
@@ -3108,7 +3108,7 @@ define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initialize
 
 29:                                               ; preds = %.lr.ph
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %11, align 8
   %33 = zext i32 %26 to i64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
@@ -3201,7 +3201,7 @@ pack32.exit:                                      ; preds = %12, %18, %24, %26, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %37 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %38 = load x86_fp80, ptr %37, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.13, x86_fp80 noundef %38) #14
@@ -3264,7 +3264,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initia
 .lr.ph:                                           ; preds = %24, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %24 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds nuw x86_fp80, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load i32, ptr %5, align 8
   %29 = load i32, ptr %7, align 4

@@ -478,7 +478,7 @@ define noundef range(i32 -1, 6) i32 @_ZN6icu_7713PluralMapBase10toCategoryEPKc(p
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L12gPluralFormsE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L12gPluralFormsE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #17
   %6 = icmp eq i32 %5, 0
@@ -527,7 +527,7 @@ define noundef i32 @_ZN6icu_7713PluralMapBase10toCategoryERKNS_13UnicodeStringE(
 
 12:                                               ; preds = %17, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %17 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L12gPluralFormsE, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L12gPluralFormsE, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %14) #17
   %16 = icmp eq i32 %15, 0
@@ -567,7 +567,7 @@ define noundef ptr @_ZN6icu_7713PluralMapBase15getCategoryNameENS0_8CategoryE(i3
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L12gPluralFormsE, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L12gPluralFormsE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   br label %6
 

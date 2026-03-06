@@ -386,7 +386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %56,
 .lr.ph:                                           ; preds = %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit41
   %.143 = phi i64 [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit41 ], [ %.0, %62 ]
   %65 = load ptr, ptr %4, align 8, !tbaa !21
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %.143
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %.143
   %67 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %66)
           to label %68 unwind label %54
 
@@ -878,7 +878,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit: ; 
   %.12244 = phi i64 [ %.021, %.lr.ph ], [ %86, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = load ptr, ptr %4, align 8, !tbaa !21
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %73, i64 %.12244
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %.12244
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRS5_S8_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75)
           to label %76 unwind label %88

@@ -218,13 +218,13 @@ define void @DrawLineStrip(ptr noundef readonly captures(none) %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load float, ptr %8, align 4
   tail call void @rlVertex2f(float noundef %7, float noundef %9) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
@@ -373,7 +373,7 @@ define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 nound
   %indvars.iv = phi i64 [ 2, %5 ], [ %indvars.iv.next, %7 ]
   %8 = and i64 %indvars.iv, 1
   %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
@@ -1851,9 +1851,9 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
 
 164:                                              ; preds = %26, %246
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %246 ]
-  %165 = getelementptr inbounds nuw float, ptr @__const.DrawRectangleRoundedLinesEx.angles, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [4 x i8], ptr @__const.DrawRectangleRoundedLinesEx.angles, i64 %indvars.iv
   %166 = load float, ptr %165, align 4
-  %167 = getelementptr inbounds nuw %struct.Vector2, ptr %6, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %.sroa.0.0.copyload = load float, ptr %167, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 4
   %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 4
@@ -2214,9 +2214,9 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
 
 .lr.ph.us408:                                     ; preds = %115, %._crit_edge.us409
   %indvars.iv420 = phi i64 [ %indvars.iv.next421, %._crit_edge.us409 ], [ 0, %115 ]
-  %119 = getelementptr inbounds nuw float, ptr @__const.DrawRectangleRoundedLinesEx.angles, i64 %indvars.iv420
+  %119 = getelementptr inbounds nuw [4 x i8], ptr @__const.DrawRectangleRoundedLinesEx.angles, i64 %indvars.iv420
   %120 = load float, ptr %119, align 4
-  %121 = getelementptr inbounds nuw %struct.Vector2, ptr %8, i64 %indvars.iv420
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv420
   %.sroa.020.0.copyload.us = load float, ptr %121, align 8
   %.sroa.7.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %121, i64 4
   %.sroa.7.0.copyload.us = load float, ptr %.sroa.7.0..sroa_idx.us, align 4
@@ -2433,9 +2433,9 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
 
 .lr.ph.us:                                        ; preds = %263, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %263 ]
-  %265 = getelementptr inbounds nuw float, ptr @__const.DrawRectangleRoundedLinesEx.angles, i64 %indvars.iv
+  %265 = getelementptr inbounds nuw [4 x i8], ptr @__const.DrawRectangleRoundedLinesEx.angles, i64 %indvars.iv
   %266 = load float, ptr %265, align 4
-  %267 = getelementptr inbounds nuw %struct.Vector2, ptr %8, i64 %indvars.iv
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %.sroa.0.0.copyload.us = load float, ptr %267, align 8
   %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %267, i64 4
   %.sroa.5.0.copyload.us = load float, ptr %.sroa.5.0..sroa_idx.us, align 4
@@ -2474,7 +2474,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv416 = phi i64 [ %indvars.iv.next417, %.preheader ], [ 0, %.preheader.preheader ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0230.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %282 = getelementptr inbounds nuw %struct.Vector2, ptr %7, i64 %indvars.iv416
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv416
   %283 = load float, ptr %282, align 16
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 4
   %285 = load float, ptr %284, align 4
@@ -2642,7 +2642,7 @@ define void @DrawTriangleFan(ptr noundef readonly captures(none) %0, i32 noundef
   %22 = sitofp i32 %21 to float
   %23 = fdiv float %7, %22
   tail call void @rlTexCoord2f(float noundef %20, float noundef %23) #16
-  %24 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %25 = load float, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load float, ptr %26, align 4
@@ -2655,7 +2655,7 @@ define void @DrawTriangleFan(ptr noundef readonly captures(none) %0, i32 noundef
   %33 = fdiv float %7, %32
   tail call void @rlTexCoord2f(float noundef %30, float noundef %33) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %35 = load float, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load float, ptr %36, align 4
@@ -2927,9 +2927,9 @@ define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.050 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load float, ptr %18, align 4
   %20 = fsub float %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -3005,12 +3005,12 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   %.0123150 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi142, %.split137.us ]
   %.0125149 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi141, %.split137.us ]
   %.us-phi140147148 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi140, %.split137.us ]
-  %17 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv170
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv170
   %.sroa.021.0.copyload = load float, ptr %17, align 4
   %.sroa.725.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.sroa.725.0.copyload = load float, ptr %.sroa.725.0..sroa_idx, align 4
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  %18 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next171
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next171
   %.sroa.016.0.copyload = load float, ptr %18, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
@@ -3233,12 +3233,12 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   %.0121140 = phi float [ 0.000000e+00, %.lr.ph ], [ %73, %29 ]
   %.sroa.057.0139 = phi <2 x float> [ %.sroa.057.0.copyload, %.lr.ph ], [ %.sroa.057.4.vec.insert, %29 ]
   %.lcssa136137 = phi float [ 0.000000e+00, %.lr.ph ], [ %86, %29 ]
-  %18 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv152
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv152
   %.sroa.020.0.copyload = load float, ptr %18, align 4
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.421.0.copyload = load float, ptr %.sroa.421.0..sroa_idx, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %19 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next153
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next153
   %.sroa.018.0.copyload = load float, ptr %19, align 4
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.419.0.copyload = load float, ptr %.sroa.419.0..sroa_idx, align 4
@@ -3393,10 +3393,10 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
 
 14:                                               ; preds = %.lr.ph, %DrawSplineSegmentBezierQuadratic.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %DrawSplineSegmentBezierQuadratic.exit ]
-  %15 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %18 = load <2 x float>, ptr %15, align 4
   %19 = load <2 x float>, ptr %16, align 4
   %20 = load <2 x float>, ptr %17, align 4
@@ -3598,11 +3598,11 @@ define void @DrawSplineBezierCubic(ptr noundef readonly captures(none) %0, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %11 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %12 = load <2 x float>, ptr %8, align 4
   %13 = load <2 x float>, ptr %9, align 4
   %14 = load <2 x float>, ptr %10, align 4
@@ -4256,12 +4256,12 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %29 ]
   %.031 = phi i32 [ %6, %5 ], [ %30, %29 ]
   %.129 = phi i1 [ false, %5 ], [ %.2, %29 ]
-  %8 = getelementptr inbounds nuw %struct.Vector2, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load float, ptr %9, align 4
   %11 = fcmp ogt float %10, %.sroa.0.4.vec.extract
   %12 = sext i32 %.031 to i64
-  %13 = getelementptr inbounds %struct.Vector2, ptr %1, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load float, ptr %14, align 4
   %16 = fcmp ule float %15, %.sroa.0.4.vec.extract

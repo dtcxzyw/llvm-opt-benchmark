@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_class_t = type { ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64 }
 %struct.prte_process_info_t = type { %struct.pmix_proc, %struct.pmix_proc, ptr, %struct.pmix_proc, i32, i32, i32, ptr, ptr, i32, i8, ptr, i16, ptr, ptr, i8, ptr, i8 }
 %struct.pmix_proc = type { [256 x i8], i32 }
-%struct.hwloc_info_s = type { ptr, ptr }
 
 @prte_hwloc_base_output = external local_unnamed_addr global i32, align 4
 @pmix_output_info = external local_unnamed_addr global [0 x %struct.pmix_output_desc_t], align 8
@@ -186,7 +185,7 @@ prte_hwloc_base_core_cpus.exit.thread:            ; preds = %4, %hwloc_get_obj_b
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %18
+  %19 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !17
   %22 = icmp sgt i32 %21, 4
@@ -213,7 +212,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %24, %26
 
 29:                                               ; preds = %hwloc_get_obj_by_type.exit
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %30
+  %31 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = icmp sgt i32 %33, 4
@@ -244,7 +243,7 @@ define noundef ptr @prte_hwloc_base_generate_cpuset(ptr noundef %0, i1 noundef z
 
 .lr.ph52:                                         ; preds = %3, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = tail call ptr @PMIx_Argv_split(ptr noundef %11, i32 noundef 45) #18
   %13 = tail call i32 @PMIx_Argv_count(ptr noundef %12) #18
@@ -319,7 +318,7 @@ prte_hwloc_base_core_cpus.exit.thread.i:          ; preds = %prte_hwloc_base_cor
 
 47:                                               ; preds = %45
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %48
+  %49 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !17
   %52 = icmp sgt i32 %51, 4
@@ -346,7 +345,7 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %56, %54
 
 59:                                               ; preds = %hwloc_get_obj_by_type.exit.i
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %60
+  %61 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = icmp sgt i32 %63, 4
@@ -566,7 +565,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %55
 
 55:                                               ; preds = %.lr.ph, %hwloc_get_numanode_obj_by_os_index.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hwloc_get_numanode_obj_by_os_index.exit ]
-  %56 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !46
   %58 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %54, ptr noundef %57) #19
   %.not = icmp eq i32 %58, 0
@@ -589,7 +588,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %55
 62:                                               ; preds = %.loopexit
   %63 = tail call noalias ptr @hwloc_bitmap_alloc() #18
   %64 = zext i32 %.04457 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %36, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %64
   store ptr %63, ptr %65, align 8, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 184
   %67 = load ptr, ptr %66, align 8, !tbaa !3
@@ -627,7 +626,7 @@ split.thread:                                     ; preds = %.loopexit, %75, %sp
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
   %indvars.iv66 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next67, %.lr.ph62 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv66
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv66
   %78 = load ptr, ptr %77, align 8, !tbaa !46
   tail call void @hwloc_bitmap_free(ptr noundef %78) #18
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
@@ -664,7 +663,7 @@ define noundef ptr @prte_hwloc_base_filter_cpus(ptr noundef %0) local_unnamed_ad
 
 6:                                                ; preds = %5
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = icmp sgt i32 %10, 4
@@ -685,7 +684,7 @@ define noundef ptr @prte_hwloc_base_filter_cpus(ptr noundef %0) local_unnamed_ad
 
 18:                                               ; preds = %17
   %19 = zext nneg i32 %4 to i64
-  %20 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %19
+  %20 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !17
   %23 = icmp sgt i32 %22, 4
@@ -716,7 +715,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_get_topology() local_unnamed_addr #
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp sgt i32 %6, 1
@@ -743,7 +742,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_get_topology() local_unnamed_addr #
 
 16:                                               ; preds = %15
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %17
+  %18 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = icmp sgt i32 %20, 0
@@ -786,7 +785,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %25, %23, %prte_hwlo
 
 35:                                               ; preds = %34
   %36 = zext nneg i32 %14 to i64
-  %37 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %36
+  %37 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !17
   %40 = icmp sgt i32 %39, 0
@@ -918,7 +917,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_set_topology(ptr noundef %0) local_
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4
+  %5 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = icmp sgt i32 %7, 4
@@ -957,7 +956,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_set_topology(ptr noundef %0) local_
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %22
+  %23 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !17
   %26 = icmp sgt i32 %25, 4
@@ -998,7 +997,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %28, %prte_hwloc_bas
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %40
+  %41 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !17
   %44 = icmp sgt i32 %43, 4
@@ -1027,7 +1026,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %28, %prte_hwloc_bas
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %81 ]
-  %53 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %51, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !57
   %55 = icmp eq ptr %54, null
   br i1 %55, label %81, label %56
@@ -1047,7 +1046,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %28, %prte_hwloc_bas
   %64 = trunc nuw i64 %indvars.iv to i32
   tail call void @free(ptr noundef nonnull %54) #18
   %65 = load ptr, ptr %50, align 8, !tbaa !56
-  %66 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !59
   tail call void @free(ptr noundef %68) #18
@@ -1063,9 +1062,9 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %28, %prte_hwloc_bas
 .lr.ph59:                                         ; preds = %63, %.lr.ph59
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph59 ], [ %indvars.iv, %63 ]
   %72 = load ptr, ptr %50, align 8, !tbaa !56
-  %73 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %72, i64 %indvars.iv70
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %indvars.iv70
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %74 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %72, i64 %indvars.iv.next71
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %indvars.iv.next71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !60
   %75 = load i32, ptr %48, align 8, !tbaa !55
   %76 = add i32 %75, -1
@@ -1077,7 +1076,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %28, %prte_hwloc_bas
   %.pre-phi = phi i64 [ %.pre73, %.._crit_edge_crit_edge ], [ %77, %.lr.ph59 ]
   %.lcssa = phi i32 [ %70, %.._crit_edge_crit_edge ], [ %76, %.lr.ph59 ]
   %79 = load ptr, ptr %50, align 8, !tbaa !56
-  %80 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %79, i64 %.pre-phi
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   store i32 %.lcssa, ptr %48, align 8, !tbaa !55
   %.pre = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
@@ -1350,7 +1349,7 @@ define noundef i32 @prte_hwloc_base_get_obj_idx(ptr noundef %0, ptr noundef read
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %5
+  %6 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = icmp sgt i32 %8, 4
@@ -1369,7 +1368,7 @@ define noundef i32 @prte_hwloc_base_get_obj_idx(ptr noundef %0, ptr noundef read
 
 15:                                               ; preds = %11
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %16
+  %17 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !17
   %20 = icmp sgt i32 %19, 4
@@ -1609,7 +1608,7 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %14
+  %15 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !17
   %18 = icmp sgt i32 %17, 4
@@ -1629,14 +1628,14 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 .lr.ph173:                                        ; preds = %20, %200
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %200 ], [ 0, %20 ]
   %23 = phi ptr [ %202, %200 ], [ %22, %20 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv196
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv196
   %25 = load i32, ptr @prte_hwloc_base_output, align 4, !tbaa !16
   %or.cond3 = icmp ult i32 %25, 64
   br i1 %or.cond3, label %26, label %33
 
 26:                                               ; preds = %.lr.ph173
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %27
+  %28 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !17
   %31 = icmp sgt i32 %30, 4
@@ -1739,7 +1738,7 @@ prte_hwloc_base_get_obj_by_type.exit30.i:         ; preds = %64, %prte_hwloc_bas
 
 78:                                               ; preds = %48, %.loopexit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.next
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.next
   %80 = load ptr, ptr %79, align 8, !tbaa !20
   %.not125 = icmp eq ptr %80, null
   br i1 %.not125, label %.sink.split, label %.lr.ph, !llvm.loop !86
@@ -1849,7 +1848,7 @@ prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get
   %127 = load ptr, ptr %126, align 8, !tbaa !3
   %128 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %127) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %129 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.next.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.next.i
   %130 = load ptr, ptr %129, align 8, !tbaa !20
   %.not83.i = icmp eq ptr %130, null
   br i1 %.not83.i, label %._crit_edge.i, label %.lr.ph97.i, !llvm.loop !87
@@ -1866,7 +1865,7 @@ prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get
 
 133:                                              ; preds = %131
   %134 = zext nneg i32 %132 to i64
-  %135 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %134
+  %135 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i32, ptr %136, align 4, !tbaa !17
   %138 = icmp sgt i32 %137, 4
@@ -1909,7 +1908,7 @@ prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get
   %.3.i = phi i32 [ %.2.i, %._crit_edge.i ], [ %.070103.i, %143 ], [ -13, %.lr.ph.i ], [ %.070103.i, %154 ]
   tail call void @PMIx_Argv_free(ptr noundef %113) #18
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
-  %159 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.next108.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.next108.i
   %160 = load ptr, ptr %159, align 8, !tbaa !20
   %.not.i = icmp eq ptr %160, null
   br i1 %.not.i, label %package_core_to_cpu_set.exit, label %.lr.ph104.i, !llvm.loop !89
@@ -1960,7 +1959,7 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
   %179 = load ptr, ptr %178, align 8, !tbaa !3
   %180 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %179) #18
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
-  %181 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv.next191
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.next191
   %182 = load ptr, ptr %181, align 8, !tbaa !20
   %.not123 = icmp eq ptr %182, null
   br i1 %.not123, label %._crit_edge164, label %.lr.ph163, !llvm.loop !90
@@ -1997,7 +1996,7 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
 .loopexit:                                        ; preds = %193, %183, %._crit_edge164
   tail call void @PMIx_Argv_free(ptr noundef %165) #18
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %198 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv.next194
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv.next194
   %199 = load ptr, ptr %198, align 8, !tbaa !20
   %.not121 = icmp eq ptr %199, null
   br i1 %.not121, label %.sink.split, label %.lr.ph168, !llvm.loop !92
@@ -2009,7 +2008,7 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
 
 200:                                              ; preds = %.sink.split, %package_core_to_cpu_set.exit
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %201 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next197
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next197
   %202 = load ptr, ptr %201, align 8, !tbaa !20
   %.not = icmp eq ptr %202, null
   br i1 %.not, label %.sink.split243, label %.lr.ph173, !llvm.loop !93
@@ -2111,7 +2110,7 @@ define zeroext i16 @prte_hwloc_base_get_relative_locality(ptr noundef %0, ptr no
 
 23:                                               ; preds = %._crit_edge
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %24
+  %25 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !17
   %28 = icmp sgt i32 %27, 4
@@ -2180,7 +2179,7 @@ define internal fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr 
 
 switch.lookup:                                    ; preds = %17
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.prte_hwloc_base_get_relative_locality_by_depth, i64 %20
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table.prte_hwloc_base_get_relative_locality_by_depth, i64 %20
   %switch.load = load i16, ptr %switch.gep, align 2
   %21 = load i16, ptr %4, align 2, !tbaa !94
   %22 = or i16 %21, %switch.load
@@ -2209,7 +2208,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = icmp sgt i32 %11, 4
@@ -2246,7 +2245,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
   %24 = phi i32 [ %21, %.lr.ph ], [ %48, %47 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %25 = load ptr, ptr %22, align 8, !tbaa !56
-  %26 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(16) @.str.27, i64 noundef 15) #19
   %29 = icmp eq i32 %28, 0
@@ -2259,7 +2258,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %33
+  %34 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !17
   %37 = icmp sgt i32 %36, 4
@@ -2274,7 +2273,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
 
 41:                                               ; preds = %38, %32, %30
   %42 = phi ptr [ %.pre, %38 ], [ %25, %32 ], [ %25, %30 ]
-  %43 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !59
   %46 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %2, ptr noundef %45) #18
@@ -2313,7 +2312,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
 
 57:                                               ; preds = %._crit_edge.thread
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %58
+  %59 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !17
   %62 = icmp sgt i32 %61, 4
@@ -2400,7 +2399,7 @@ hwloc_getline.exit:                               ; preds = %.preheader, %.backe
 
 20:                                               ; preds = %.loopexit
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %21
+  %22 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !17
   %25 = icmp sgt i32 %24, 4
@@ -2439,7 +2438,7 @@ define ptr @prte_hwloc_base_print_binding(i16 noundef zeroext %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.prte_hwloc_base_print_binding, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.prte_hwloc_base_print_binding, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -2473,7 +2472,7 @@ switch.lookup:                                    ; preds = %1
 
 19:                                               ; preds = %15
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds ptr, ptr %6, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 50, ptr noundef nonnull @.str.43, ptr noundef nonnull %.024) #18
   br label %36
@@ -2482,7 +2481,7 @@ switch.lookup:                                    ; preds = %1
   %25 = and i32 %2, 8192
   %.not26 = icmp eq i32 %25, 0
   %26 = sext i32 %16 to i64
-  %27 = getelementptr inbounds ptr, ptr %6, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %6, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !20
   br i1 %.not26, label %31, label %29
 
@@ -2504,7 +2503,7 @@ switch.lookup:                                    ; preds = %1
 36:                                               ; preds = %29, %34, %32, %19
   %37 = load i32, ptr %11, align 8, !tbaa !101
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %6, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %6, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = add nsw i32 %37, 1
   store i32 %41, ptr %11, align 8, !tbaa !101
@@ -3288,7 +3287,7 @@ prte_hwloc_base_get_nbobjs_by_type.exit56:        ; preds = %prte_hwloc_base_get
 
 53:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %54 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %51, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !57
   %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(13) @.str.55) #19
   %57 = icmp eq i32 %56, 0
@@ -3666,7 +3665,7 @@ define noalias ptr @prte_hwloc_base_get_location(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.prte_hwloc_base_get_location, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.prte_hwloc_base_get_location, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 58) #18
   %9 = load ptr, ptr %8, align 8, !tbaa !20
@@ -3675,7 +3674,7 @@ switch.lookup:                                    ; preds = %5
 
 10:                                               ; preds = %.lr.ph
   %11 = add i64 %.020, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !114
@@ -3722,7 +3721,7 @@ define zeroext range(i16 15, 4096) i16 @prte_hwloc_compute_relative_locality(ptr
   %11 = phi ptr [ %68, %.loopexit ], [ %10, %5 ]
   %.05290 = phi i64 [ %66, %.loopexit ], [ 0, %5 ]
   %.05489 = phi i16 [ %.1, %.loopexit ], [ 15, %5 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %.05290
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05290
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %14 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %8, ptr noundef nonnull %13) #18
   %15 = load ptr, ptr %7, align 8, !tbaa !20
@@ -3735,7 +3734,7 @@ define zeroext range(i16 15, 4096) i16 @prte_hwloc_compute_relative_locality(ptr
 
 17:                                               ; preds = %21
   %18 = add i64 %.087, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %.not59 = icmp eq ptr %20, null
   br i1 %.not59, label %.loopexit, label %21, !llvm.loop !115
@@ -3842,7 +3841,7 @@ sub_0:                                            ; preds = %25
 .loopexit:                                        ; preds = %17, %.lr.ph91, %34, %44, %54, %64, %.tail81.thread, %59, %49, %39, %25
   %.1 = phi i16 [ %35, %34 ], [ %40, %39 ], [ %45, %44 ], [ %50, %49 ], [ %55, %54 ], [ %60, %59 ], [ %65, %64 ], [ %.05489, %.tail81.thread ], [ %.05489, %25 ], [ %.05489, %.lr.ph91 ], [ %.05489, %17 ]
   %66 = add i64 %.05290, 1
-  %67 = getelementptr inbounds nuw ptr, ptr %6, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !20
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %._crit_edge, label %.lr.ph91, !llvm.loop !116
@@ -4007,7 +4006,7 @@ define internal fastcc void @print_hwloc_obj(ptr noundef nonnull captures(none) 
 77:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %78 = load ptr, ptr %76, align 8, !tbaa !121
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !122
   %81 = load ptr, ptr %8, align 8, !tbaa !20
   call fastcc void @print_hwloc_obj(ptr noundef %7, ptr noundef %81, ptr noundef %2, ptr noundef %80)

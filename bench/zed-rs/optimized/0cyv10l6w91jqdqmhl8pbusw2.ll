@@ -758,7 +758,7 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..vec..in_pla
 
 11:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$notifications..NotificationEntry$GT$17h8997f5424aae1328E.exit.i.i", %.lr.ph.i.i
   %.sroa.0.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %13, %"_ZN4core3ptr53drop_in_place$LT$notifications..NotificationEntry$GT$17h8997f5424aae1328E.exit.i.i" ]
-  %12 = getelementptr inbounds { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %3, i64 %.sroa.0.07.i.i
+  %12 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.07.i.i
   %13 = add nuw i64 %.sroa.0.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
@@ -807,7 +807,7 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..vec..in_pla
   br label %25
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %3, i64 %.sroa.0.1.i.i
+  %30 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.1.i.i
   %31 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$notifications..NotificationEntry$GT$17h8997f5424aae1328E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %30) #23
           to label %25 unwind label %32, !noalias !153
@@ -2046,7 +2046,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hbf1a18
   br i1 %32, label %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h8c511469837b1ad5E.exit", label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i64, i8, i8, [6 x i8] }, ptr %25, i64 %.sroa.0.0.i.i
+  %34 = getelementptr inbounds nuw [88 x i8], ptr %25, i64 %.sroa.0.0.i.i
   %35 = add nuw nsw i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$proto..Notification$GT$17h6bd70221a6aefb0bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %34)
           to label %31 unwind label %38, !noalias !288
@@ -2062,7 +2062,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hbf1a18
   br label %36
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i64, i8, i8, [6 x i8] }, ptr %25, i64 %.sroa.0.1.i.i
+  %41 = getelementptr inbounds [88 x i8], ptr %25, i64 %.sroa.0.1.i.i
   %42 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$proto..Notification$GT$17h6bd70221a6aefb0bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %41) #23
           to label %36 unwind label %43, !noalias !288
@@ -4502,7 +4502,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
   %.sroa.5110.0.copyload.i = load ptr, ptr %.sroa.5110.0..sroa_idx.i, align 8, !noalias !581, !nonnull !5, !noundef !5
   %.sroa.6111.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.6111.0.copyload.i = load i64, ptr %.sroa.6111.0..sroa_idx.i, align 8, !noalias !581
-  %127 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i64, i8, i8, [6 x i8] }, ptr %.sroa.5110.0.copyload.i, i64 %.sroa.6111.0.copyload.i
+  %127 = getelementptr inbounds [88 x i8], ptr %.sroa.5110.0.copyload.i, i64 %.sroa.6111.0.copyload.i
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 680
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !590
   store ptr %.sroa.5110.0.copyload.i, ptr %6, align 8, !alias.scope !597, !noalias !601
@@ -4721,7 +4721,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit.i": ; preds = %200, %194
   %201 = load ptr, ptr %122, align 8, !alias.scope !646, !noalias !581, !nonnull !5, !noundef !5
-  %202 = getelementptr inbounds i64, ptr %201, i64 %197
+  %202 = getelementptr inbounds [8 x i8], ptr %201, i64 %197
   store i64 %196, ptr %202, align 8
   %203 = add i64 %197, 1
   store i64 %203, ptr %123, align 8, !alias.scope !646, !noalias !581
@@ -4741,7 +4741,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit45.i": ; preds = %210, %204
   %211 = load ptr, ptr %122, align 8, !alias.scope !649, !noalias !581, !nonnull !5, !noundef !5
-  %212 = getelementptr inbounds i64, ptr %211, i64 %207
+  %212 = getelementptr inbounds [8 x i8], ptr %211, i64 %207
   store i64 %206, ptr %212, align 8
   %213 = add i64 %207, 1
   store i64 %213, ptr %123, align 8, !alias.scope !649, !noalias !581
@@ -4761,7 +4761,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit47.i": ; preds = %220, %214
   %221 = load ptr, ptr %122, align 8, !alias.scope !652, !noalias !581, !nonnull !5, !noundef !5
-  %222 = getelementptr inbounds i64, ptr %221, i64 %217
+  %222 = getelementptr inbounds [8 x i8], ptr %221, i64 %217
   store i64 %216, ptr %222, align 8
   %223 = add i64 %217, 1
   store i64 %223, ptr %123, align 8, !alias.scope !652, !noalias !581
@@ -4807,7 +4807,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
 
 243:                                              ; preds = %232, %224
   %244 = load ptr, ptr %122, align 8, !alias.scope !655, !noalias !581, !nonnull !5, !noundef !5
-  %245 = getelementptr inbounds i64, ptr %244, i64 %229
+  %245 = getelementptr inbounds [8 x i8], ptr %244, i64 %229
   store i64 %226, ptr %245, align 8
   %246 = add i64 %229, 1
   store i64 %246, ptr %123, align 8, !alias.scope !655, !noalias !581
@@ -4822,7 +4822,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit51.i": ; preds = %250, %243
   %251 = load ptr, ptr %125, align 8, !alias.scope !658, !noalias !581, !nonnull !5, !noundef !5
-  %252 = getelementptr inbounds i64, ptr %251, i64 %247
+  %252 = getelementptr inbounds [8 x i8], ptr %251, i64 %247
   store i64 %228, ptr %252, align 8
   %253 = add i64 %247, 1
   store i64 %253, ptr %126, align 8, !alias.scope !658, !noalias !581

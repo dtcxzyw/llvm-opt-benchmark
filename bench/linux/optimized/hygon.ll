@@ -489,7 +489,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
 105:                                              ; preds = %100
   %106 = load i32, ptr %14, align 4
   %107 = sext i32 %106 to i64
-  %108 = getelementptr i16, ptr @__apicid_to_node, i64 %107
+  %108 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = icmp eq i16 %109, -1
   %111 = sext i16 %109 to i32
@@ -526,7 +526,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
 
 129:                                              ; preds = %139, %121
   %130 = phi i64 [ %122, %121 ], [ %140, %139 ]
-  %131 = getelementptr i16, ptr @__apicid_to_node, i64 %130
+  %131 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %130
   %132 = load i16, ptr %131, align 2
   %133 = icmp eq i16 %132, -1
   br i1 %133, label %139, label %134
@@ -546,7 +546,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
 
 142:                                              ; preds = %152, %126
   %143 = phi i64 [ %128, %126 ], [ %153, %152 ]
-  %144 = getelementptr i16, ptr @__apicid_to_node, i64 %143
+  %144 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %143
   %145 = load i16, ptr %144, align 2
   %146 = icmp eq i16 %145, -1
   br i1 %146, label %152, label %147

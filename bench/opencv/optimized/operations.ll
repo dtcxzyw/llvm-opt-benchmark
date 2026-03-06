@@ -519,7 +519,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3ccm9OperationESaIS2_EE15_M_ra
 
 22:                                               ; preds = %17
   %23 = sub nsw i64 0, %9
-  %24 = getelementptr inbounds %"class.cv::ccm::Operation", ptr %13, i64 %23
+  %24 = getelementptr inbounds [144 x i8], ptr %13, i64 %23
   %25 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN2cv3ccm9OperationEES4_ET0_T_S7_S6_(ptr %24, ptr %13, ptr noundef %13)
   %26 = load ptr, ptr %12, align 8, !tbaa !40
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %8
@@ -533,7 +533,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_Sa
   %31 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %30, ptr %3, ptr noundef %13)
   %32 = sub nuw nsw i64 %9, %20
   %33 = load ptr, ptr %12, align 8, !tbaa !40
-  %34 = getelementptr inbounds nuw %"class.cv::ccm::Operation", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [144 x i8], ptr %33, i64 %32
   store ptr %34, ptr %12, align 8, !tbaa !40
   %35 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN2cv3ccm9OperationEES4_ET0_T_S7_S6_(ptr %1, ptr %13, ptr noundef %34)
   %36 = load ptr, ptr %12, align 8, !tbaa !40
@@ -606,7 +606,7 @@ _ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i.i
 _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit, %61
   store ptr %54, ptr %0, align 8, !tbaa !41
   store ptr %57, ptr %12, align 8, !tbaa !40
-  %62 = getelementptr inbounds nuw %"class.cv::ccm::Operation", ptr %54, i64 %50
+  %62 = getelementptr inbounds nuw [144 x i8], ptr %54, i64 %50
   store ptr %62, ptr %10, align 8, !tbaa !38
   br label %74
 

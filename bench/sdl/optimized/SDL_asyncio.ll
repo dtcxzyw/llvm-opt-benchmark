@@ -49,7 +49,7 @@ define hidden noundef ptr @SDL_AsyncIOFromFile_REAL(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %5, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %5 ]
-  %9 = getelementptr inbounds nuw %struct.anon, ptr @AsyncFileModeValid.mode_map, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @AsyncFileModeValid.mode_map, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 16
   %11 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %1, ptr noundef %10) #5
   %12 = icmp eq i32 %11, 0

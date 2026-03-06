@@ -105,13 +105,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::function.0" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.291" = type { %"class.std::_Function_base", ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
-%"struct.dap::BreakpointLocation" = type { %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::integer" }
-%"class.dap::optional.70" = type <{ %"class.dap::integer", i8, [7 x i8] }>
-%"class.dap::integer" = type { i64 }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator.297" = type { ptr }
-%"struct.dap::CompletionItem" = type { %"class.dap::optional.56", %"class.std::__cxx11::basic_string", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.56", %"class.dap::optional.70", %"class.dap::optional.56", %"class.dap::optional.56" }
-%"class.dap::optional.56" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.dap::boolean" = type { i8 }
 %"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
 %"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
@@ -119,29 +114,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.301" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator.303" = type { ptr }
-%"struct.dap::DisassembledInstruction" = type { %"class.std::__cxx11::basic_string", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.std::__cxx11::basic_string", %"class.dap::optional.56", %"class.dap::optional.70", %"class.dap::optional.304", %"class.dap::optional.56", %"class.dap::optional.56" }
-%"class.dap::optional.304" = type { %"struct.dap::Source", i8, [7 x i8] }
-%"struct.dap::Source" = type { %"class.dap::optional.305", %"class.dap::optional.308", %"class.dap::optional.56", %"class.dap::optional.56", %"class.dap::optional.56", %"class.dap::optional.56", %"class.dap::optional.70", %"class.dap::optional.315" }
-%"class.dap::optional.305" = type <{ %"class.dap::variant.306", i8, [7 x i8] }>
-%"class.dap::variant.306" = type { %"class.dap::any" }
-%"class.dap::any" = type { ptr, ptr, ptr, [32 x i8] }
-%"class.dap::optional.308" = type <{ %"class.std::vector.309", i8, [7 x i8] }>
-%"class.std::vector.309" = type { %"struct.std::_Vector_base.310" }
-%"struct.std::_Vector_base.310" = type { %"struct.std::_Vector_base<dap::Checksum, std::allocator<dap::Checksum>>::_Vector_impl" }
-%"struct.std::_Vector_base<dap::Checksum, std::allocator<dap::Checksum>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::Checksum, std::allocator<dap::Checksum>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<dap::Checksum, std::allocator<dap::Checksum>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.dap::optional.315" = type <{ %"class.std::vector.133", i8, [7 x i8] }>
-%"class.std::vector.133" = type { %"struct.std::_Vector_base.134" }
-%"struct.std::_Vector_base.134" = type { %"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl" }
-%"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<dap::Source, std::allocator<dap::Source>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.392" = type { %"struct.std::_Vector_base.393" }
 %"struct.std::_Vector_base.393" = type { %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl" }
 %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::any, std::allocator<dap::any>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.398" = type { ptr }
 %"struct.dap::Message" = type { %"class.std::__cxx11::basic_string", %"class.dap::integer", %"class.dap::optional", %"class.dap::optional", [4 x i8], %"class.dap::optional.56", %"class.dap::optional.56", %"class.dap::optional.58" }
+%"class.dap::integer" = type { i64 }
 %"class.dap::optional" = type { %"class.dap::boolean", i8 }
+%"class.dap::optional.56" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.dap::optional.58" = type <{ %"class.std::unordered_map", i8, [7 x i8] }>
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
@@ -157,47 +138,33 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<dap::ExceptionDetails, std::allocator<dap::ExceptionDetails>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::ExceptionDetails, std::allocator<dap::ExceptionDetails>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::ExceptionDetails, std::allocator<dap::ExceptionDetails>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.330" = type { ptr }
-%"struct.dap::GotoTarget" = type { %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::integer", %"class.dap::optional.56", %"class.std::__cxx11::basic_string", %"class.dap::integer" }
 %"class.std::vector.105" = type { %"struct.std::_Vector_base.106" }
 %"struct.std::_Vector_base.106" = type { %"struct.std::_Vector_base<dap::ColumnDescriptor, std::allocator<dap::ColumnDescriptor>>::_Vector_impl" }
 %"struct.std::_Vector_base<dap::ColumnDescriptor, std::allocator<dap::ColumnDescriptor>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::ColumnDescriptor, std::allocator<dap::ColumnDescriptor>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::ColumnDescriptor, std::allocator<dap::ColumnDescriptor>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.332" = type { ptr }
-%"struct.dap::ColumnDescriptor" = type { %"class.std::__cxx11::basic_string", %"class.dap::optional.56", %"class.std::__cxx11::basic_string", %"class.dap::optional.56", %"class.dap::optional.70" }
 %"class.std::vector.112" = type { %"struct.std::_Vector_base.113" }
 %"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<dap::BreakpointMode, std::allocator<dap::BreakpointMode>>::_Vector_impl" }
 %"struct.std::_Vector_base<dap::BreakpointMode, std::allocator<dap::BreakpointMode>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::BreakpointMode, std::allocator<dap::BreakpointMode>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::BreakpointMode, std::allocator<dap::BreakpointMode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.333" = type { ptr }
-%"struct.dap::BreakpointMode" = type { %"class.std::vector.33", %"class.dap::optional.56", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::vector.119" = type { %"struct.std::_Vector_base.120" }
 %"struct.std::_Vector_base.120" = type { %"struct.std::_Vector_base<dap::ExceptionBreakpointsFilter, std::allocator<dap::ExceptionBreakpointsFilter>>::_Vector_impl" }
 %"struct.std::_Vector_base<dap::ExceptionBreakpointsFilter, std::allocator<dap::ExceptionBreakpointsFilter>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::ExceptionBreakpointsFilter, std::allocator<dap::ExceptionBreakpointsFilter>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::ExceptionBreakpointsFilter, std::allocator<dap::ExceptionBreakpointsFilter>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.334" = type { ptr }
-%"struct.dap::ExceptionBreakpointsFilter" = type <{ %"class.dap::optional.56", %"class.dap::optional", [6 x i8], %"class.dap::optional.56", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.dap::optional", [6 x i8] }>
 %"class.__gnu_cxx::__normal_iterator.319" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator.339" = type { ptr }
-%"struct.dap::Module" = type { %"class.dap::optional.56", %"class.dap::optional.56", %"class.dap::variant.338", %"class.dap::optional", %"class.dap::optional", %"class.std::__cxx11::basic_string", %"class.dap::optional.56", %"class.dap::optional.56", %"class.dap::optional.56", %"class.dap::optional.56" }
-%"class.dap::variant.338" = type { %"class.dap::any" }
 %"class.__gnu_cxx::__normal_iterator.348" = type { ptr }
-%"struct.dap::Scope" = type { %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::boolean", [7 x i8], %"class.dap::optional.70", %"class.dap::optional.70", %"class.std::__cxx11::basic_string", %"class.dap::optional.70", %"class.dap::optional.56", %"class.dap::optional.304", %"class.dap::integer" }
 %"class.__gnu_cxx::__normal_iterator.350" = type { ptr }
-%"struct.dap::Breakpoint" = type { %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.56", %"class.dap::optional.70", %"class.dap::optional.56", %"class.dap::optional.70", %"class.dap::optional.56", %"class.dap::optional.304", %"class.dap::boolean", [7 x i8] }
 %"class.std::vector.188" = type { %"struct.std::_Vector_base.189" }
 %"struct.std::_Vector_base.189" = type { %"struct.std::_Vector_base<dap::Breakpoint, std::allocator<dap::Breakpoint>>::_Vector_impl" }
 %"struct.std::_Vector_base<dap::Breakpoint, std::allocator<dap::Breakpoint>>::_Vector_impl" = type { %"struct.std::_Vector_base<dap::Breakpoint, std::allocator<dap::Breakpoint>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dap::Breakpoint, std::allocator<dap::Breakpoint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.361" = type { ptr }
-%"struct.dap::StackFrame" = type { %"class.dap::optional", %"class.dap::integer", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::integer", %"class.dap::optional.56", %"class.dap::integer", %"class.dap::optional.359", %"class.std::__cxx11::basic_string", %"class.dap::optional.56", %"class.dap::optional.304" }
-%"class.dap::optional.359" = type <{ %"class.dap::variant.338", i8, [7 x i8] }>
 %"class.__gnu_cxx::__normal_iterator.366" = type { ptr }
-%"struct.dap::StepInTarget" = type { %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::optional.70", %"class.dap::integer", %"class.std::__cxx11::basic_string", %"class.dap::optional.70" }
 %"class.__gnu_cxx::__normal_iterator.371" = type { ptr }
-%"struct.dap::Thread" = type { %"class.dap::integer", %"class.std::__cxx11::basic_string" }
 %"class.__gnu_cxx::__normal_iterator.373" = type { ptr }
-%"struct.dap::Variable" = type { %"class.dap::optional.56", %"class.dap::optional.70", %"class.dap::optional.56", %"class.std::__cxx11::basic_string", %"class.dap::optional.70", %"class.dap::optional.72", %"class.dap::optional.56", %"class.std::__cxx11::basic_string", %"class.dap::integer" }
-%"class.dap::optional.72" = type { %"struct.dap::VariablePresentationHint", i8, [7 x i8] }
 
 $_ZN3dap13BasicTypeInfoINS_14AttachResponseEED2Ev = comdat any
 
@@ -29205,7 +29172,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !189
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !207
   %.02837 = load ptr, ptr %19, align 8, !tbaa !196
   %.not3038 = icmp eq ptr %.02837, null
@@ -29258,7 +29225,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !189
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !182
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !207
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -48342,7 +48309,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoISt6vec
   br i1 %22, label %23, label %_ZNSt6vectorIN3dap18BreakpointLocationESaIS1_EE6resizeEm.exit.i
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"struct.dap::BreakpointLocation", ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %10
   %.not.i.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3dap18BreakpointLocationESaIS1_EE6resizeEm.exit.i, label %25
 
@@ -48584,9 +48551,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3dap18BreakpointLocationES2_SaIS1_EET
 
 _ZNSt12_Vector_baseIN3dap18BreakpointLocationESaIS1_EE13_M_deallocateEPS1_m.exit46: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3dap18BreakpointLocationES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %50
   store ptr %26, ptr %0, align 8, !tbaa !87
-  %52 = getelementptr inbounds nuw %"struct.dap::BreakpointLocation", ptr %27, i64 %1
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %1
   store ptr %52, ptr %4, align 8, !tbaa !84
-  %53 = getelementptr inbounds nuw %"struct.dap::BreakpointLocation", ptr %26, i64 %24
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %24
   store ptr %53, ptr %11, align 8, !tbaa !89
   br label %54
 
@@ -48608,7 +48575,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !87
-  %11 = getelementptr inbounds nuw %"struct.dap::BreakpointLocation", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_18BreakpointLocationEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -49067,7 +49034,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap14CompletionItemESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::CompletionItem", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap14CompletionItemESaIS1_EE6resizeEm.exit, label %24
 
@@ -49292,7 +49259,7 @@ _ZSt8_DestroyIPN3dap14CompletionItemEEvT_S3_.exit.i.i.i.i.i: ; preds = %53
 .body:                                            ; preds = %57
   %63 = extractvalue { ptr, i32 } %58, 0
   %64 = tail call ptr @__cxa_begin_catch(ptr %63) #22
-  %65 = getelementptr inbounds nuw %"struct.dap::CompletionItem", ptr %38, i64 %1
+  %65 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 %1
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN3dap14CompletionItemEEEvT_S5_(ptr noundef nonnull %38, ptr noundef nonnull %65)
           to label %_ZSt8_DestroyIPN3dap14CompletionItemES1_EvT_S3_RSaIT0_E.exit.thread unwind label %66
 
@@ -49324,9 +49291,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3dap14CompletionItemES2_SaIS1_EET0_T_
 
 _ZNSt12_Vector_baseIN3dap14CompletionItemESaIS1_EE13_M_deallocateEPS1_m.exit48: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3dap14CompletionItemES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %69
   store ptr %37, ptr %0, align 8, !tbaa !103
-  %73 = getelementptr inbounds nuw %"struct.dap::CompletionItem", ptr %38, i64 %1
+  %73 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 %1
   store ptr %73, ptr %4, align 8, !tbaa !106
-  %74 = getelementptr inbounds nuw %"struct.dap::CompletionItem", ptr %37, i64 %35
+  %74 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 %35
   store ptr %74, ptr %11, align 8, !tbaa !107
   br label %75
 
@@ -49355,7 +49322,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !103
-  %11 = getelementptr inbounds nuw %"struct.dap::CompletionItem", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_14CompletionItemEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -50419,7 +50386,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -50639,9 +50606,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !121
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %54, ptr %4, align 8, !tbaa !124
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %55, ptr %11, align 8, !tbaa !126
   br label %56
 
@@ -50660,7 +50627,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !121
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %3, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
@@ -52159,7 +52126,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap23DisassembledInstructionESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::DisassembledInstruction", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [560 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap23DisassembledInstructionESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -52484,9 +52451,9 @@ _ZSt8_DestroyIPN3dap23DisassembledInstructionES1_EvT_S3_RSaIT0_E.exit63: ; preds
 
 _ZNSt12_Vector_baseIN3dap23DisassembledInstructionESaIS1_EE13_M_deallocateEPS1_m.exit65: ; preds = %_ZSt8_DestroyIPN3dap23DisassembledInstructionES1_EvT_S3_RSaIT0_E.exit63, %75
   store ptr %38, ptr %0, align 8, !tbaa !140
-  %79 = getelementptr inbounds nuw %"struct.dap::DisassembledInstruction", ptr %39, i64 %1
+  %79 = getelementptr inbounds nuw [560 x i8], ptr %39, i64 %1
   store ptr %79, ptr %4, align 8, !tbaa !143
-  %80 = getelementptr inbounds nuw %"struct.dap::DisassembledInstruction", ptr %38, i64 %36
+  %80 = getelementptr inbounds nuw [560 x i8], ptr %38, i64 %36
   store ptr %80, ptr %11, align 8, !tbaa !145
   br label %81
 
@@ -53756,7 +53723,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.dap::any", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -54022,9 +53989,9 @@ _ZNSt6vectorIN3dap3anyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZS
 
 _ZNSt12_Vector_baseIN3dap3anyESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3dap3anyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %80
   store ptr %26, ptr %0, align 8, !tbaa !486
-  %84 = getelementptr inbounds nuw %"class.dap::any", ptr %27, i64 %1
+  %84 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %1
   store ptr %84, ptr %4, align 8, !tbaa !489
-  %85 = getelementptr inbounds nuw %"class.dap::any", ptr %26, i64 %24
+  %85 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %24
   store ptr %85, ptr %11, align 8, !tbaa !491
   br label %86
 
@@ -54043,7 +54010,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !486
-  %11 = getelementptr inbounds nuw %"class.dap::any", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %3, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
@@ -54460,7 +54427,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !140
-  %11 = getelementptr inbounds nuw %"struct.dap::DisassembledInstruction", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [560 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_23DisassembledInstructionEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -55340,7 +55307,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !189
   %31 = urem i64 %26, %30
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !207
   %.02833 = load ptr, ptr %19, align 8, !tbaa !196
   %.not3034 = icmp eq ptr %.02833, null
@@ -55362,7 +55329,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %39 = load i64, ptr %29, align 8, !tbaa !189
   %40 = urem i64 %38, %39
   %41 = load ptr, ptr %0, align 8, !tbaa !182
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !207
   %.not32 = icmp eq ptr %43, null
   br i1 %.not32, label %44, label %49
@@ -57897,7 +57864,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap10GotoTargetESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::GotoTarget", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap10GotoTargetESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -58127,7 +58094,7 @@ _ZSt10_ConstructIN3dap10GotoTargetEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
 .body:                                            ; preds = %48
   %54 = extractvalue { ptr, i32 } %49, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #22
-  %56 = getelementptr inbounds nuw %"struct.dap::GotoTarget", ptr %33, i64 %1
+  %56 = getelementptr inbounds nuw [136 x i8], ptr %33, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap10GotoTargetES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %33, ptr noundef nonnull %56, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %.thread unwind label %57
 
@@ -58190,9 +58157,9 @@ _ZSt8_DestroyIPN3dap10GotoTargetES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Destr
 
 _ZNSt12_Vector_baseIN3dap10GotoTargetESaIS1_EE13_M_deallocateEPS1_m.exit50: ; preds = %_ZSt8_DestroyIPN3dap10GotoTargetES1_EvT_S3_RSaIT0_E.exit, %73
   store ptr %32, ptr %0, align 8, !tbaa !236
-  %77 = getelementptr inbounds nuw %"struct.dap::GotoTarget", ptr %33, i64 %1
+  %77 = getelementptr inbounds nuw [136 x i8], ptr %33, i64 %1
   store ptr %77, ptr %4, align 8, !tbaa !239
-  %78 = getelementptr inbounds nuw %"struct.dap::GotoTarget", ptr %32, i64 %30
+  %78 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %30
   store ptr %78, ptr %11, align 8, !tbaa !241
   br label %79
 
@@ -58221,7 +58188,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !236
-  %11 = getelementptr inbounds nuw %"struct.dap::GotoTarget", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [136 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_10GotoTargetEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -58847,7 +58814,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap16ColumnDescriptorESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::ColumnDescriptor", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %9
   tail call void @_ZNSt6vectorIN3dap16ColumnDescriptorESaIS1_EE15_M_erase_at_endEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %23) #22
   br label %_ZNSt6vectorIN3dap16ColumnDescriptorESaIS1_EE6resizeEm.exit
 
@@ -59051,7 +59018,7 @@ _ZSt10_ConstructIN3dap16ColumnDescriptorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; pr
 .body:                                            ; preds = %54
   %60 = extractvalue { ptr, i32 } %55, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #22
-  %62 = getelementptr inbounds nuw %"struct.dap::ColumnDescriptor", ptr %36, i64 %1
+  %62 = getelementptr inbounds nuw [160 x i8], ptr %36, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %36, ptr noundef nonnull %62, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %.thread unwind label %63
 
@@ -59139,9 +59106,9 @@ _ZSt8_DestroyIPN3dap16ColumnDescriptorES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8
 
 _ZNSt12_Vector_baseIN3dap16ColumnDescriptorESaIS1_EE13_M_deallocateEPS1_m.exit50: ; preds = %_ZSt8_DestroyIPN3dap16ColumnDescriptorES1_EvT_S3_RSaIT0_E.exit, %90
   store ptr %35, ptr %0, align 8, !tbaa !258
-  %94 = getelementptr inbounds nuw %"struct.dap::ColumnDescriptor", ptr %36, i64 %1
+  %94 = getelementptr inbounds nuw [160 x i8], ptr %36, i64 %1
   store ptr %94, ptr %4, align 8, !tbaa !261
-  %95 = getelementptr inbounds nuw %"struct.dap::ColumnDescriptor", ptr %35, i64 %33
+  %95 = getelementptr inbounds nuw [160 x i8], ptr %35, i64 %33
   store ptr %95, ptr %11, align 8, !tbaa !263
   br label %96
 
@@ -59242,7 +59209,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !258
-  %11 = getelementptr inbounds nuw %"struct.dap::ColumnDescriptor", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [160 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_16ColumnDescriptorEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -60537,7 +60504,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap14BreakpointModeESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::BreakpointMode", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap14BreakpointModeESaIS1_EE6resizeEm.exit, label %24
 
@@ -60748,7 +60715,7 @@ _ZSt8_DestroyIPN3dap14BreakpointModeEEvT_S3_.exit.i.i.i.i.i: ; preds = %45
 .body:                                            ; preds = %49
   %55 = extractvalue { ptr, i32 } %50, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #22
-  %57 = getelementptr inbounds nuw %"struct.dap::BreakpointMode", ptr %34, i64 %1
+  %57 = getelementptr inbounds nuw [128 x i8], ptr %34, i64 %1
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN3dap14BreakpointModeEEEvT_S5_(ptr noundef nonnull %34, ptr noundef nonnull %57)
           to label %_ZSt8_DestroyIPN3dap14BreakpointModeES1_EvT_S3_RSaIT0_E.exit.thread unwind label %58
 
@@ -60780,9 +60747,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3dap14BreakpointModeES2_SaIS1_EET0_T_
 
 _ZNSt12_Vector_baseIN3dap14BreakpointModeESaIS1_EE13_M_deallocateEPS1_m.exit48: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3dap14BreakpointModeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %61
   store ptr %33, ptr %0, align 8, !tbaa !246
-  %65 = getelementptr inbounds nuw %"struct.dap::BreakpointMode", ptr %34, i64 %1
+  %65 = getelementptr inbounds nuw [128 x i8], ptr %34, i64 %1
   store ptr %65, ptr %4, align 8, !tbaa !249
-  %66 = getelementptr inbounds nuw %"struct.dap::BreakpointMode", ptr %33, i64 %31
+  %66 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %31
   store ptr %66, ptr %11, align 8, !tbaa !250
   br label %67
 
@@ -60811,7 +60778,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !246
-  %11 = getelementptr inbounds nuw %"struct.dap::BreakpointMode", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_14BreakpointModeEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -62020,7 +61987,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap26ExceptionBreakpointsFilterESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::ExceptionBreakpointsFilter", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %9
   tail call void @_ZNSt6vectorIN3dap26ExceptionBreakpointsFilterESaIS1_EE15_M_erase_at_endEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %23) #22
   br label %_ZNSt6vectorIN3dap26ExceptionBreakpointsFilterESaIS1_EE6resizeEm.exit
 
@@ -62224,7 +62191,7 @@ _ZSt10_ConstructIN3dap26ExceptionBreakpointsFilterEJRKS1_EEvPT_DpOT0_.exit.i.i.i
 .body:                                            ; preds = %54
   %60 = extractvalue { ptr, i32 } %55, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #22
-  %62 = getelementptr inbounds nuw %"struct.dap::ExceptionBreakpointsFilter", ptr %36, i64 %1
+  %62 = getelementptr inbounds nuw [160 x i8], ptr %36, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %36, ptr noundef nonnull %62, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %.thread unwind label %63
 
@@ -62312,9 +62279,9 @@ _ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterES1_EvT_S3_RSaIT0_E.exit: ; pred
 
 _ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS1_m.exit50: ; preds = %_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterES1_EvT_S3_RSaIT0_E.exit, %90
   store ptr %35, ptr %0, align 8, !tbaa !251
-  %94 = getelementptr inbounds nuw %"struct.dap::ExceptionBreakpointsFilter", ptr %36, i64 %1
+  %94 = getelementptr inbounds nuw [160 x i8], ptr %36, i64 %1
   store ptr %94, ptr %4, align 8, !tbaa !254
-  %95 = getelementptr inbounds nuw %"struct.dap::ExceptionBreakpointsFilter", ptr %35, i64 %33
+  %95 = getelementptr inbounds nuw [160 x i8], ptr %35, i64 %33
   store ptr %95, ptr %11, align 8, !tbaa !256
   br label %96
 
@@ -62415,7 +62382,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !251
-  %11 = getelementptr inbounds nuw %"struct.dap::ExceptionBreakpointsFilter", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [160 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_26ExceptionBreakpointsFilterEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -63591,7 +63558,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap6SourceESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::Source", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [304 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap6SourceESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i
 
@@ -63916,9 +63883,9 @@ _ZSt8_DestroyIPN3dap6SourceES1_EvT_S3_RSaIT0_E.exit61: ; preds = %.lr.ph.i.i58, 
 
 _ZNSt12_Vector_baseIN3dap6SourceESaIS1_EE13_M_deallocateEPS1_m.exit63: ; preds = %_ZSt8_DestroyIPN3dap6SourceES1_EvT_S3_RSaIT0_E.exit61, %75
   store ptr %38, ptr %0, align 8, !tbaa !175
-  %79 = getelementptr inbounds nuw %"struct.dap::Source", ptr %39, i64 %1
+  %79 = getelementptr inbounds nuw [304 x i8], ptr %39, i64 %1
   store ptr %79, ptr %4, align 8, !tbaa !174
-  %80 = getelementptr inbounds nuw %"struct.dap::Source", ptr %38, i64 %36
+  %80 = getelementptr inbounds nuw [304 x i8], ptr %38, i64 %36
   store ptr %80, ptr %11, align 8, !tbaa !176
   br label %81
 
@@ -64074,7 +64041,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !175
-  %11 = getelementptr inbounds nuw %"struct.dap::Source", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [304 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_6SourceEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -64533,7 +64500,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap6ModuleESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::Module", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [336 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap6ModuleESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -64765,9 +64732,9 @@ _ZSt8_DestroyIPN3dap6ModuleES1_EvT_S3_RSaIT0_E.exit44: ; preds = %.lr.ph.i.i.i41
 
 _ZNSt12_Vector_baseIN3dap6ModuleESaIS1_EE13_M_deallocateEPS1_m.exit46: ; preds = %_ZSt8_DestroyIPN3dap6ModuleES1_EvT_S3_RSaIT0_E.exit44, %54
   store ptr %27, ptr %0, align 8, !tbaa !289
-  %58 = getelementptr inbounds nuw %"struct.dap::Module", ptr %28, i64 %1
+  %58 = getelementptr inbounds nuw [336 x i8], ptr %28, i64 %1
   store ptr %58, ptr %4, align 8, !tbaa !292
-  %59 = getelementptr inbounds nuw %"struct.dap::Module", ptr %27, i64 %25
+  %59 = getelementptr inbounds nuw [336 x i8], ptr %27, i64 %25
   store ptr %59, ptr %11, align 8, !tbaa !294
   br label %60
 
@@ -65023,7 +64990,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !289
-  %11 = getelementptr inbounds nuw %"struct.dap::Module", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [336 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_6ModuleEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -65681,7 +65648,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap5ScopeESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::Scope", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [496 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap5ScopeESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -65888,7 +65855,7 @@ _ZSt10_ConstructIN3dap5ScopeEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.p
 .body:                                            ; preds = %37
   %46 = extractvalue { ptr, i32 } %38, 0
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #22
-  %48 = getelementptr inbounds nuw %"struct.dap::Scope", ptr %28, i64 %1
+  %48 = getelementptr inbounds nuw [496 x i8], ptr %28, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap5ScopeES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %28, ptr noundef nonnull %48, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN3dap5ScopeESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %49
 
@@ -65953,9 +65920,9 @@ _ZSt8_DestroyIPN3dap5ScopeES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN3d
 
 _ZNSt12_Vector_baseIN3dap5ScopeESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZSt8_DestroyIPN3dap5ScopeES1_EvT_S3_RSaIT0_E.exit, %66
   store ptr %27, ptr %0, align 8, !tbaa !303
-  %70 = getelementptr inbounds nuw %"struct.dap::Scope", ptr %28, i64 %1
+  %70 = getelementptr inbounds nuw [496 x i8], ptr %28, i64 %1
   store ptr %70, ptr %4, align 8, !tbaa !306
-  %71 = getelementptr inbounds nuw %"struct.dap::Scope", ptr %27, i64 %25
+  %71 = getelementptr inbounds nuw [496 x i8], ptr %27, i64 %25
   store ptr %71, ptr %11, align 8, !tbaa !308
   br label %72
 
@@ -66075,7 +66042,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !303
-  %11 = getelementptr inbounds nuw %"struct.dap::Scope", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [496 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_5ScopeEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -66563,7 +66530,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap10BreakpointESaIS1_EE6resi
   br i1 %14, label %15, label %_ZNSt6vectorIN3dap10BreakpointESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [536 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN3dap10BreakpointESaIS1_EE15_M_erase_at_endEPS1_.exit, label %.lr.ph.i.i.i.i
 
@@ -66807,7 +66774,7 @@ _ZSt10_ConstructIN3dap10BreakpointEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #22
-  %70 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %39, i64 %1
+  %70 = getelementptr inbounds nuw [536 x i8], ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %70, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN3dap10BreakpointESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %71
 
@@ -66882,9 +66849,9 @@ _ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Destr
 
 _ZNSt12_Vector_baseIN3dap10BreakpointESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit, %93
   store ptr %38, ptr %0, align 8, !tbaa !316
-  %97 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %39, i64 %1
+  %97 = getelementptr inbounds nuw [536 x i8], ptr %39, i64 %1
   store ptr %97, ptr %4, align 8, !tbaa !313
-  %98 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %38, i64 %36
+  %98 = getelementptr inbounds nuw [536 x i8], ptr %38, i64 %36
   store ptr %98, ptr %11, align 8, !tbaa !317
   br label %99
 
@@ -67010,7 +66977,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !316
-  %11 = getelementptr inbounds nuw %"struct.dap::Breakpoint", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [536 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_10BreakpointEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -69812,7 +69779,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap10StackFrameESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::StackFrame", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [552 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap10StackFrameESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -70137,9 +70104,9 @@ _ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit63: ; preds = %.lr.ph.i.
 
 _ZNSt12_Vector_baseIN3dap10StackFrameESaIS1_EE13_M_deallocateEPS1_m.exit65: ; preds = %_ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit63, %75
   store ptr %38, ptr %0, align 8, !tbaa !342
-  %79 = getelementptr inbounds nuw %"struct.dap::StackFrame", ptr %39, i64 %1
+  %79 = getelementptr inbounds nuw [552 x i8], ptr %39, i64 %1
   store ptr %79, ptr %4, align 8, !tbaa !345
-  %80 = getelementptr inbounds nuw %"struct.dap::StackFrame", ptr %38, i64 %36
+  %80 = getelementptr inbounds nuw [552 x i8], ptr %38, i64 %36
   store ptr %80, ptr %11, align 8, !tbaa !347
   br label %81
 
@@ -70273,7 +70240,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !342
-  %11 = getelementptr inbounds nuw %"struct.dap::StackFrame", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [552 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_10StackFrameEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -70799,7 +70766,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap12StepInTargetESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::StepInTarget", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [104 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap12StepInTargetESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -71041,9 +71008,9 @@ _ZSt8_DestroyIPN3dap12StepInTargetES1_EvT_S3_RSaIT0_E.exit56: ; preds = %_ZSt8_D
 
 _ZNSt12_Vector_baseIN3dap12StepInTargetESaIS1_EE13_M_deallocateEPS1_m.exit58: ; preds = %_ZSt8_DestroyIPN3dap12StepInTargetES1_EvT_S3_RSaIT0_E.exit56, %58
   store ptr %29, ptr %0, align 8, !tbaa !358
-  %62 = getelementptr inbounds nuw %"struct.dap::StepInTarget", ptr %30, i64 %1
+  %62 = getelementptr inbounds nuw [104 x i8], ptr %30, i64 %1
   store ptr %62, ptr %4, align 8, !tbaa !355
-  %63 = getelementptr inbounds nuw %"struct.dap::StepInTarget", ptr %29, i64 %27
+  %63 = getelementptr inbounds nuw [104 x i8], ptr %29, i64 %27
   store ptr %63, ptr %11, align 8, !tbaa !359
   br label %64
 
@@ -71202,7 +71169,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !358
-  %11 = getelementptr inbounds nuw %"struct.dap::StepInTarget", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [104 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_12StepInTargetEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -71728,7 +71695,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap6ThreadESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::Thread", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap6ThreadESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -71951,9 +71918,9 @@ _ZNSt6vectorIN3dap6ThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %
 
 _ZNSt12_Vector_baseIN3dap6ThreadESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZNSt6vectorIN3dap6ThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %53
   store ptr %29, ptr %0, align 8, !tbaa !368
-  %57 = getelementptr inbounds nuw %"struct.dap::Thread", ptr %30, i64 %1
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %1
   store ptr %57, ptr %4, align 8, !tbaa !365
-  %58 = getelementptr inbounds nuw %"struct.dap::Thread", ptr %29, i64 %27
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %27
   store ptr %58, ptr %11, align 8, !tbaa !369
   br label %59
 
@@ -71972,7 +71939,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !368
-  %11 = getelementptr inbounds nuw %"struct.dap::Thread", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_6ThreadEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -72431,7 +72398,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap8VariableESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.dap::Variable", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [352 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap8VariableESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -72726,9 +72693,9 @@ _ZSt8_DestroyIPN3dap8VariableES1_EvT_S3_RSaIT0_E.exit53: ; preds = %.lr.ph.i.i.i
 
 _ZNSt12_Vector_baseIN3dap8VariableESaIS1_EE13_M_deallocateEPS1_m.exit55: ; preds = %_ZSt8_DestroyIPN3dap8VariableES1_EvT_S3_RSaIT0_E.exit53, %84
   store ptr %43, ptr %0, align 8, !tbaa !375
-  %88 = getelementptr inbounds nuw %"struct.dap::Variable", ptr %44, i64 %1
+  %88 = getelementptr inbounds nuw [352 x i8], ptr %44, i64 %1
   store ptr %88, ptr %4, align 8, !tbaa !378
-  %89 = getelementptr inbounds nuw %"struct.dap::Variable", ptr %43, i64 %41
+  %89 = getelementptr inbounds nuw [352 x i8], ptr %43, i64 %41
   store ptr %89, ptr %11, align 8, !tbaa !380
   br label %90
 
@@ -72757,7 +72724,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !35
   %10 = load ptr, ptr %5, align 8, !tbaa !375
-  %11 = getelementptr inbounds nuw %"struct.dap::Variable", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [352 x i8], ptr %10, i64 %8
   %12 = tail call noundef ptr @_ZN3dap6TypeOfINS_8VariableEE4typeEv()
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64

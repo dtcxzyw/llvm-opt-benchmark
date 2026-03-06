@@ -93,7 +93,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
 46:                                               ; preds = %.preheader330, %46
   %indvars.iv = phi i64 [ 0, %.preheader330 ], [ %indvars.iv.next, %46 ]
   %47 = tail call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
-  %48 = getelementptr inbounds nuw %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv
   %.sroa.0275.0.copyload = load float, ptr %48, align 16
   %.sroa.5277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
   %.sroa.5277.0.copyload = load float, ptr %.sroa.5277.0..sroa_idx, align 4
@@ -123,7 +123,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.0.0.vec.insert.i140 = insertelement <2 x float> poison, float %57, i64 0
   %.sroa.0.4.vec.insert.i141 = insertelement <2 x float> %.sroa.0.0.vec.insert.i140, float %63, i64 1
   %.sroa.3.12.vec.insert.i142 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %69, i64 0
-  %70 = getelementptr inbounds nuw %class.btVector3, ptr %13, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i141, ptr %70, align 16
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i142, ptr %.sroa.434.0..sroa_idx, align 8, !tbaa !12
@@ -148,7 +148,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.0.0.vec.insert.i145 = insertelement <2 x float> poison, float %76, i64 0
   %.sroa.0.4.vec.insert.i146 = insertelement <2 x float> %.sroa.0.0.vec.insert.i145, float %82, i64 1
   %.sroa.3.12.vec.insert.i147 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %88, i64 0
-  %89 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i146, ptr %89, align 16
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i147, ptr %.sroa.432.0..sroa_idx, align 8, !tbaa !12
@@ -204,7 +204,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   store <2 x float> %.sroa.0.4.vec.insert.i151, ptr %15, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i152, ptr %97, align 8, !tbaa !12
   %123 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
-  %124 = getelementptr inbounds nuw %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv353
+  %124 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !17
   %125 = load float, ptr %15, align 8, !tbaa !10
   %126 = fneg float %125
@@ -233,7 +233,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.0.0.vec.insert.i160 = insertelement <2 x float> poison, float %136, i64 0
   %.sroa.0.4.vec.insert.i161 = insertelement <2 x float> %.sroa.0.0.vec.insert.i160, float %142, i64 1
   %.sroa.3.12.vec.insert.i162 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %148, i64 0
-  %149 = getelementptr inbounds nuw %class.btVector3, ptr %13, i64 %indvars.iv353
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv353
   store <2 x float> %.sroa.0.4.vec.insert.i161, ptr %149, align 16
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i162, ptr %.sroa.423.0..sroa_idx, align 8, !tbaa !12
@@ -258,7 +258,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.0.0.vec.insert.i165 = insertelement <2 x float> poison, float %155, i64 0
   %.sroa.0.4.vec.insert.i166 = insertelement <2 x float> %.sroa.0.0.vec.insert.i165, float %161, i64 1
   %.sroa.3.12.vec.insert.i167 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %167, i64 0
-  %168 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %indvars.iv353
+  %168 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv353
   store <2 x float> %.sroa.0.4.vec.insert.i166, ptr %168, align 16
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i167, ptr %.sroa.421.0..sroa_idx, align 8, !tbaa !12
@@ -322,7 +322,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   store <2 x float> %.sroa.0.4.vec.insert.i171, ptr %16, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i172, ptr %177, align 8, !tbaa !12
   %204 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
-  %205 = getelementptr inbounds nuw %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv357
+  %205 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %205, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !17
   %206 = load float, ptr %16, align 8, !tbaa !10
   %207 = fneg float %206
@@ -351,7 +351,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.0.0.vec.insert.i180 = insertelement <2 x float> poison, float %217, i64 0
   %.sroa.0.4.vec.insert.i181 = insertelement <2 x float> %.sroa.0.0.vec.insert.i180, float %223, i64 1
   %.sroa.3.12.vec.insert.i182 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %229, i64 0
-  %230 = getelementptr inbounds nuw %class.btVector3, ptr %13, i64 %indvars.iv357
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv357
   store <2 x float> %.sroa.0.4.vec.insert.i181, ptr %230, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %230, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i182, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !12
@@ -376,7 +376,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.0.0.vec.insert.i185 = insertelement <2 x float> poison, float %236, i64 0
   %.sroa.0.4.vec.insert.i186 = insertelement <2 x float> %.sroa.0.0.vec.insert.i185, float %242, i64 1
   %.sroa.3.12.vec.insert.i187 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %248, i64 0
-  %249 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %indvars.iv357
+  %249 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv357
   store <2 x float> %.sroa.0.4.vec.insert.i186, ptr %249, align 16
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i187, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !12
@@ -421,7 +421,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.13.0339 = phi float [ 0.000000e+00, %.lr.ph344 ], [ %.sroa.13.1, %333 ]
   %.sroa.0312.0338 = phi float [ 0.000000e+00, %.lr.ph344 ], [ %.sroa.0312.1, %333 ]
   %266 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
-  %267 = getelementptr inbounds nuw %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv361
+  %267 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv361
   %.sroa.0257.0.copyload = load float, ptr %267, align 16
   %.sroa.6260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %267, i64 4
   %.sroa.6260.0.copyload = load float, ptr %.sroa.6260.0..sroa_idx, align 4
@@ -438,13 +438,13 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   br i1 %272, label %273, label %333
 
 273:                                              ; preds = %265
-  %274 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %indvars.iv361
+  %274 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv361
   %.sroa.0293.0.copyload = load float, ptr %274, align 16
   %.sroa.5294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %274, i64 4
   %.sroa.5294.0.copyload = load float, ptr %.sroa.5294.0..sroa_idx, align 4
   %.sroa.6295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %274, i64 8
   %.sroa.6295.0.copyload = load float, ptr %.sroa.6295.0..sroa_idx, align 8
-  %275 = getelementptr inbounds nuw %class.btVector3, ptr %12, i64 %indvars.iv361
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv361
   %.sroa.0289.0.copyload = load float, ptr %275, align 16
   %.sroa.5290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 4
   %.sroa.5290.0.copyload = load float, ptr %.sroa.5290.0..sroa_idx, align 4

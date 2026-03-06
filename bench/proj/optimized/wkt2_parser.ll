@@ -323,7 +323,7 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
 
 .preheader80:                                     ; preds = %13, %29
   %.06585 = phi i64 [ %30, %29 ], [ 0, %13 ]
-  %16 = getelementptr inbounds nuw %struct.wkt2_tokens, ptr @_ZL6tokens, i64 %.06585
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6tokens, i64 %.06585
   %17 = load ptr, ptr %16, align 16, !tbaa !21
   %18 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.066, ptr noundef %17) #11
   br i1 %18, label %19, label %29

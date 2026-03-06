@@ -361,7 +361,7 @@ parse_command_line.exit:                          ; preds = %._crit_edge.i
   tail call void @h5tools_error_report() #20
   %74 = load i32, ptr @H5_optind, align 4, !tbaa !9
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %1, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %1, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !4
   %78 = tail call noalias ptr @strdup(ptr noundef %77) #20
   %79 = icmp eq ptr %78, null
@@ -543,13 +543,13 @@ parse_command_line.exit:                          ; preds = %._crit_edge.i
 
 .lr.ph.i73:                                       ; preds = %142, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %142 ]
-  %143 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %144 = load i64, ptr %143, align 8, !tbaa !18
   %145 = icmp eq i64 %144, -1
   br i1 %145, label %.loopexit.i, label %146
 
 146:                                              ; preds = %.lr.ph.i73
-  %147 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %148 = load i64, ptr %147, align 8, !tbaa !18
   %.not.i74 = icmp eq i64 %148, %144
   br i1 %.not.i74, label %142, label %.loopexit.i
@@ -1042,9 +1042,9 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
 
 .lr.ph:                                           ; preds = %.preheader69, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader69 ]
-  %35 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !18
   %.not = icmp eq i64 %36, %38
   br i1 %.not, label %39, label %._crit_edge
@@ -1062,9 +1062,9 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
 .lr.ph78:                                         ; preds = %._crit_edge, %62
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %62 ], [ 0, %._crit_edge ]
   %42 = load ptr, ptr @stdout, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv98
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv98
   %44 = load i64, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv98
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv98
   %46 = load i64, ptr %45, align 8, !tbaa !18
   %47 = trunc nuw nsw i64 %indvars.iv98 to i32
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.102, i32 noundef %47, i64 noundef %44, i64 noundef %46) #20
@@ -1104,9 +1104,9 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %73 ], [ 0, %._crit_edge79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %63 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv103
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv103
   %64 = load i64, ptr %63, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv103
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv103
   %66 = load i64, ptr %65, align 8, !tbaa !18
   %67 = icmp ugt i64 %64, %66
   br i1 %67, label %.lr.ph84.preheader, label %73
@@ -1119,7 +1119,7 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv108 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next109, %.lr.ph84 ]
-  %70 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv108
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv108
   store i64 1, ptr %70, align 8, !tbaa !18
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %26
@@ -1290,15 +1290,15 @@ define internal fastcc i32 @slicendump(i64 noundef range(i64 0, -922337203685477
   br i1 %10, label %.preheader, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %7
-  %.phi.trans.insert73 = getelementptr inbounds i64, ptr %2, i64 %11
+  %.phi.trans.insert73 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %.pre = load i64, ptr %.phi.trans.insert73, align 8, !tbaa !18
-  %.phi.trans.insert75 = getelementptr inbounds i64, ptr %1, i64 %11
+  %.phi.trans.insert75 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
   %.pre76 = load i64, ptr %.phi.trans.insert75, align 8, !tbaa !18
   br label %.loopexit
 
 .preheader:                                       ; preds = %7
-  %12 = getelementptr inbounds i64, ptr %1, i64 %11
-  %13 = getelementptr inbounds i64, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %14 = load i64, ptr %12, align 8, !tbaa !18
   %15 = load i64, ptr %13, align 8, !tbaa !18
   %.63 = tail call i64 @llvm.umin.i64(i64 %14, i64 %15)
@@ -1306,7 +1306,7 @@ define internal fastcc i32 @slicendump(i64 noundef range(i64 0, -922337203685477
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds i64, ptr %3, i64 %11
+  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 %11
   br label %22
 
 18:                                               ; preds = %22
@@ -1332,14 +1332,14 @@ define internal fastcc i32 @slicendump(i64 noundef range(i64 0, -922337203685477
   br i1 %.not, label %27, label %.loopexit61
 
 27:                                               ; preds = %.loopexit
-  %28 = getelementptr inbounds i64, ptr %1, i64 %11
-  %29 = getelementptr inbounds i64, ptr %2, i64 %11
-  %30 = getelementptr inbounds i64, ptr %3, i64 %11
+  %28 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
+  %30 = getelementptr inbounds [8 x i8], ptr %3, i64 %11
   store i64 %25, ptr %30, align 8, !tbaa !18
   %31 = load i64, ptr %29, align 8, !tbaa !18
   %32 = load i64, ptr %28, align 8, !tbaa !18
   %33 = sub i64 %31, %32
-  %34 = getelementptr inbounds i64, ptr %4, i64 %11
+  %34 = getelementptr inbounds [8 x i8], ptr %4, i64 %11
   store i64 %33, ptr %34, align 8, !tbaa !18
   %.15265 = add nsw i32 %8, 1
   %35 = icmp slt i32 %.15265, %5
@@ -1351,11 +1351,11 @@ define internal fastcc i32 @slicendump(i64 noundef range(i64 0, -922337203685477
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
   %indvars.iv70 = phi i64 [ %36, %.lr.ph67.preheader ], [ %indvars.iv.next71, %.lr.ph67 ]
-  %37 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv70
+  %37 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv70
   store i64 0, ptr %37, align 8, !tbaa !18
-  %38 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv70
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv70
   %39 = load i64, ptr %38, align 8, !tbaa !18
-  %40 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv70
+  %40 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv70
   store i64 %39, ptr %40, align 8, !tbaa !18
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next71 to i32
@@ -1411,9 +1411,9 @@ define internal fastcc i32 @doprint(i64 noundef range(i64 0, -922337203685477580
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 1, ptr %17, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store i64 1, ptr %18, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15

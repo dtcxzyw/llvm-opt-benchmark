@@ -241,7 +241,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -373,7 +373,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -3668,7 +3668,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit21: ; preds = %_ZN4llvm11S
   br i1 %.not.i.i.not.i, label %81, label %54, !prof !33
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw %"class.std::unique_ptr.67", ptr %.pre3.i, i64 %51
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i, i64 %51
   %56 = icmp uge ptr %11, %.pre3.i
   %57 = icmp ult ptr %11, %55
   %spec.select.i.i.i.i.i = and i1 %56, %57
@@ -3749,7 +3749,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_del
   %.016.i.i.i = phi ptr [ %11, %49 ], [ %62, %58 ], [ %11, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit ]
   %83 = load i32, ptr %28, align 8, !tbaa !26
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"class.std::unique_ptr.67", ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %84
   %86 = load i64, ptr %.016.i.i.i, align 8, !tbaa !135
   store i64 %86, ptr %85, align 8, !tbaa !135
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !135

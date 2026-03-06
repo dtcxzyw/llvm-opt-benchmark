@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -82,10 +80,10 @@ list_length.exit:                                 ; preds = %3, %22
 .lr.ph57:                                         ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %30, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store ptr %45, ptr %47, align 8
   %48 = load ptr, ptr %39, align 8
   %.not51 = icmp eq ptr %48, null
@@ -103,7 +101,7 @@ list_length.exit:                                 ; preds = %3, %22
   store i32 0, ptr %40, align 8
   %53 = tail call ptr @ExecInitExprList(ptr noundef %45, ptr noundef nonnull %4) #3
   %54 = load ptr, ptr %35, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   store ptr %53, ptr %55, align 8
   store i32 %52, ptr %40, align 8
   br label %56
@@ -220,11 +218,11 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %26 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %35
   %41 = load ptr, ptr %40, align 8
   tail call void @ReScanExprContext(ptr noundef %9) #3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -255,14 +253,14 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
 .lr.ph64:                                         ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
   %55 = load ptr, ptr %51, align 8
-  %56 = getelementptr inbounds nuw %union.ListCell, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %52, align 8
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i64 %61(ptr noundef %57, ptr noundef %9, ptr noundef %59) #3
-  %63 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   store i64 %62, ptr %63, align 8
   %64 = load i8, ptr %59, align 1, !range !4, !noundef !5
   %65 = trunc nuw i8 %64 to i1
@@ -274,7 +272,7 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   br label %78
 
 67:                                               ; preds = %.lr.ph64
-  %68 = getelementptr %struct.CompactAttribute, ptr %58, i64 %indvars.iv
+  %68 = getelementptr [16 x i8], ptr %58, i64 %indvars.iv
   %69 = getelementptr i8, ptr %68, i64 28
   %70 = load i16, ptr %69, align 4
   %.not58 = icmp eq i16 %70, -1

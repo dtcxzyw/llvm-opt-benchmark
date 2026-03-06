@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._per_sequence_t = type { ptr, i32, i32, ptr }
-%struct.ran_function_id_mapping_t = type { i32, i32, i32, [1001 x i8], ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.1, %struct.anon.4, %struct.anon.5, ptr }
 %struct.anon.1 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
 %union.anon = type { %struct.anon.2 }
@@ -4185,7 +4184,7 @@ define hidden void @register_e2ap_ran_function_dissector(i32 noundef %0, ptr nou
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr %struct.ran_function_available_dissectors_t, ptr @g_ran_functions_available_dissectors, i64 %5
+  %6 = getelementptr [72 x i8], ptr @g_ran_functions_available_dissectors, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 8
   br i1 %8, label %9, label %14
@@ -4195,7 +4194,7 @@ define hidden void @register_e2ap_ran_function_dissector(i32 noundef %0, ptr nou
   %11 = add nuw nsw i32 %7, 1
   store i32 %11, ptr %6, align 8
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr ptr, ptr %10, i64 %12
+  %13 = getelementptr [8 x i8], ptr %10, i64 %12
   store ptr %1, ptr %13, align 8
   br label %14
 
@@ -4244,7 +4243,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 
 25:                                               ; preds = %22, %41
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %41 ]
-  %26 = getelementptr ptr, ptr @g_ran_function_name_table, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr @g_ran_function_name_table, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef %27) #11
   %29 = icmp eq i32 %28, 0
@@ -4252,11 +4251,11 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 
 30:                                               ; preds = %25
   %31 = trunc nuw nsw i64 %indvars.iv to i32
-  %32 = getelementptr %struct.ran_function_id_mapping_t, ptr %14, i64 %indvars.iv
+  %32 = getelementptr [1024 x i8], ptr %14, i64 %indvars.iv
   %33 = getelementptr i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr %struct.ran_function_available_dissectors_t, ptr @g_ran_functions_available_dissectors, i64 %35
+  %36 = getelementptr [72 x i8], ptr @g_ran_functions_available_dissectors, i64 %35
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %42, label %38
@@ -4287,7 +4286,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv92 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next93, %43 ]
-  %44 = getelementptr %struct.ran_function_id_mapping_t, ptr %14, i64 %indvars.iv92
+  %44 = getelementptr [1024 x i8], ptr %14, i64 %indvars.iv92
   %45 = getelementptr i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, %24
@@ -4300,7 +4299,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %52 = getelementptr %struct.ran_function_id_mapping_t, ptr %51, i64 %.pre-phi
+  %52 = getelementptr [1024 x i8], ptr %51, i64 %.pre-phi
   store i32 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %24, ptr %53, align 4
@@ -4326,7 +4325,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 
 .lr.ph84.split.us:                                ; preds = %.lr.ph84, %.lr.ph84.split.us
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph84.split.us ], [ 0, %.lr.ph84 ]
-  %62 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv101
+  %62 = getelementptr [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv101
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 0, ptr %63, align 8
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -4335,7 +4334,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %67
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %67 ], [ 0, %.lr.ph84 ]
-  %64 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv96
+  %64 = getelementptr [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv96
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 %58, ptr %65, align 8
   %bcmp = tail call i32 @bcmp(ptr %64, ptr nonnull %59, i64 %61)
@@ -4354,7 +4353,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 .critedge72.thread:                               ; preds = %56, %.critedge72
   %69 = zext nneg i32 %60 to i64
   %.idx.neg = mul nsw i64 %69, -24
-  %70 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %69
+  %70 = getelementptr [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 %58, ptr %71, align 8
   %72 = zext i32 %58 to i64
@@ -4483,7 +4482,7 @@ proto_item_set_generated.exit:                    ; preds = %._crit_edge, %24, %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %.038 = phi i32 [ 4, %.lr.ph ], [ %.1, %44 ]
   %34 = load i32, ptr %18, align 4
-  %35 = getelementptr %struct.ran_function_id_mapping_t, ptr %19, i64 %indvars.iv
+  %35 = getelementptr [1024 x i8], ptr %19, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %34, %37
@@ -4554,7 +4553,7 @@ e2ap_get_private_data.exit.i.i:                   ; preds = %58, %54
 
 69:                                               ; preds = %68, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %68 ]
-  %70 = getelementptr %struct.ran_function_id_mapping_t, ptr %67, i64 %indvars.iv.i.i
+  %70 = getelementptr [1024 x i8], ptr %67, i64 %indvars.iv.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %64, %72
@@ -4563,7 +4562,7 @@ e2ap_get_private_data.exit.i.i:                   ; preds = %58, %54
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %76 = zext nneg i32 %.0.lcssa to i64
-  %77 = getelementptr %struct.ran_function_available_dissectors_t, ptr @g_ran_functions_available_dissectors, i64 %76
+  %77 = getelementptr [72 x i8], ptr @g_ran_functions_available_dissectors, i64 %76
   %78 = load i32, ptr %77, align 8
   %.not.i29 = icmp eq i32 %78, 0
   br i1 %.not.i29, label %update_dissector_using_oid.exit, label %79
@@ -4608,7 +4607,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
 93:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
   %.03956.i = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %93 ]
-  %94 = getelementptr %struct.ran_function_id_mapping_t, ptr %92, i64 %indvars.iv.i
+  %94 = getelementptr [1024 x i8], ptr %92, i64 %indvars.iv.i
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %89, %96
@@ -4647,7 +4646,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
 
 104:                                              ; preds = %103, %.lr.ph59.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph59.i ], [ %indvars.iv.next73.i, %103 ]
-  %105 = getelementptr ptr, ptr %100, i64 %indvars.iv72.i
+  %105 = getelementptr [8 x i8], ptr %100, i64 %indvars.iv72.i
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(1) %107) #11
@@ -4661,7 +4660,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
 
 111:                                              ; preds = %110, %.lr.ph61.i
   %indvars.iv77.i = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next78.i, %110 ]
-  %112 = getelementptr ptr, ptr %101, i64 %indvars.iv77.i
+  %112 = getelementptr [8 x i8], ptr %101, i64 %indvars.iv77.i
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1009
   %115 = load i8, ptr %114, align 1
@@ -5126,7 +5125,7 @@ define hidden void @proto_reg_handoff_e2ap() local_unnamed_addr #1 {
   %272 = add nuw nsw i32 %269, 1
   store i32 %272, ptr @g_ran_functions_available_dissectors, align 16
   %273 = zext nneg i32 %269 to i64
-  %274 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 8), i64 %273
+  %274 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 8), i64 %273
   store ptr @proto_reg_handoff_e2ap.kpm_v3, ptr %274, align 8
   br label %register_e2ap_ran_function_dissector.exit
 
@@ -5139,7 +5138,7 @@ register_e2ap_ran_function_dissector.exit:        ; preds = %0, %271
   %278 = add nuw nsw i32 %275, 1
   store i32 %278, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 72), align 8
   %279 = zext nneg i32 %275 to i64
-  %280 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 80), i64 %279
+  %280 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 80), i64 %279
   store ptr @proto_reg_handoff_e2ap.rc_v1, ptr %280, align 8
   br label %register_e2ap_ran_function_dissector.exit1
 
@@ -5152,7 +5151,7 @@ register_e2ap_ran_function_dissector.exit1:       ; preds = %register_e2ap_ran_f
   %284 = add nuw nsw i32 %281, 1
   store i32 %284, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 144), align 16
   %285 = zext nneg i32 %281 to i64
-  %286 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 152), i64 %285
+  %286 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 152), i64 %285
   store ptr @proto_reg_handoff_e2ap.ni_v1, ptr %286, align 8
   br label %register_e2ap_ran_function_dissector.exit2
 
@@ -5165,7 +5164,7 @@ register_e2ap_ran_function_dissector.exit3:       ; preds = %register_e2ap_ran_f
   %289 = add nuw nsw i32 %287, 1
   store i32 %289, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 216), align 8
   %290 = zext nneg i32 %287 to i64
-  %291 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %290
+  %291 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %290
   store ptr @proto_reg_handoff_e2ap.ccc_v1, ptr %291, align 8
   %.not = icmp eq i32 %287, 7
   br i1 %.not, label %register_e2ap_ran_function_dissector.exit7, label %register_e2ap_ran_function_dissector.exit4
@@ -5174,7 +5173,7 @@ register_e2ap_ran_function_dissector.exit4:       ; preds = %register_e2ap_ran_f
   %292 = add nuw nsw i32 %287, 2
   store i32 %292, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 216), align 8
   %293 = zext nneg i32 %289 to i64
-  %294 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %293
+  %294 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %293
   store ptr @proto_reg_handoff_e2ap.ccc_v2, ptr %294, align 8
   %295 = icmp samesign ult i32 %287, 6
   br i1 %295, label %register_e2ap_ran_function_dissector.exit5, label %register_e2ap_ran_function_dissector.exit7
@@ -5183,7 +5182,7 @@ register_e2ap_ran_function_dissector.exit5:       ; preds = %register_e2ap_ran_f
   %296 = add nuw nsw i32 %287, 3
   store i32 %296, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 216), align 8
   %297 = zext nneg i32 %292 to i64
-  %298 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %297
+  %298 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %297
   store ptr @proto_reg_handoff_e2ap.ccc_v3, ptr %298, align 8
   %.not18 = icmp eq i32 %287, 5
   br i1 %.not18, label %register_e2ap_ran_function_dissector.exit7, label %register_e2ap_ran_function_dissector.exit6
@@ -5192,7 +5191,7 @@ register_e2ap_ran_function_dissector.exit6:       ; preds = %register_e2ap_ran_f
   %299 = add nuw nsw i32 %287, 4
   store i32 %299, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 216), align 8
   %300 = zext nneg i32 %296 to i64
-  %301 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %300
+  %301 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %300
   store ptr @proto_reg_handoff_e2ap.ccc_v4, ptr %301, align 8
   %302 = icmp ult i32 %287, 4
   br i1 %302, label %303, label %register_e2ap_ran_function_dissector.exit7
@@ -5201,7 +5200,7 @@ register_e2ap_ran_function_dissector.exit6:       ; preds = %register_e2ap_ran_f
   %304 = add nuw nsw i32 %287, 5
   store i32 %304, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 216), align 8
   %305 = zext nneg i32 %299 to i64
-  %306 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %305
+  %306 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 %305
   store ptr @proto_reg_handoff_e2ap.ccc_v5, ptr %306, align 8
   br label %register_e2ap_ran_function_dissector.exit7
 
@@ -8917,7 +8916,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv6.i = phi i64 [ %indvars.iv.next7.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %64 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv6.i
+  %64 = getelementptr [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv6.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 0, ptr %65, align 8
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
@@ -8926,7 +8925,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %73
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ 0, %.lr.ph.i ]
-  %66 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv.i
+  %66 = getelementptr [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 %60, ptr %67, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %66, ptr nonnull %61, i64 %63)
@@ -9081,13 +9080,13 @@ define internal i32 @dissect_e2ap_RANfunctionDefinition(ptr noundef %0, i32 noun
   %indvars.iv62 = phi i64 [ 0, %5 ], [ %indvars.iv.next63, %.critedge ]
   %10 = load ptr, ptr %6, align 8
   %11 = call i32 @tvb_captured_length(ptr noundef %10)
-  %12 = getelementptr ptr, ptr @g_ran_function_name_table, i64 %indvars.iv62
+  %12 = getelementptr [8 x i8], ptr @g_ran_function_name_table, i64 %indvars.iv62
   %13 = load ptr, ptr %12, align 8
   %14 = call i64 @strlen(ptr noundef %13) #11
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, 1
   %17 = and i64 %14, 4294967295
-  %18 = getelementptr %struct.ran_function_available_dissectors_t, ptr @g_ran_functions_available_dissectors, i64 %indvars.iv62
+  %18 = getelementptr [72 x i8], ptr @g_ran_functions_available_dissectors, i64 %indvars.iv62
   br label %19
 
 19:                                               ; preds = %9, %35
@@ -9115,7 +9114,7 @@ define internal i32 @dissect_e2ap_RANfunctionDefinition(ptr noundef %0, i32 noun
 29:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
   %.04253 = phi i32 [ 0, %.preheader ], [ %spec.select, %29 ]
-  %30 = getelementptr ptr, ptr %28, i64 %indvars.iv
+  %30 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1009
   %33 = load i8, ptr %32, align 1
@@ -9138,7 +9137,7 @@ define internal i32 @dissect_e2ap_RANfunctionDefinition(ptr noundef %0, i32 noun
 
 38:                                               ; preds = %29
   %39 = zext i32 %spec.select to i64
-  %40 = getelementptr ptr, ptr %28, i64 %39
+  %40 = getelementptr [8 x i8], ptr %28, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1016
   %43 = load ptr, ptr %42, align 8
@@ -9371,7 +9370,7 @@ e2ap_get_private_data.exit:                       ; preds = %3, %9
 
 20:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %21 = getelementptr %struct.ran_function_id_mapping_t, ptr %18, i64 %indvars.iv
+  %21 = getelementptr [1024 x i8], ptr %18, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %15, %23
@@ -9394,7 +9393,7 @@ e2ap_get_private_data.exit:                       ; preds = %3, %9
 
 switch.lookup:                                    ; preds = %26
   %35 = zext nneg i32 %33 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.lookup_ranfunction_dissector.3, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lookup_ranfunction_dissector.3, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ran_function_to_str.exit
 
@@ -9447,7 +9446,7 @@ proto_item_set_generated.exit64:                  ; preds = %proto_item_set_gene
 
 switch.lookup92:                                  ; preds = %proto_item_set_generated.exit64
   %57 = zext nneg i32 %55 to i64
-  %switch.gep93 = getelementptr inbounds nuw ptr, ptr @switch.table.lookup_ranfunction_dissector.3, i64 %57
+  %switch.gep93 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lookup_ranfunction_dissector.3, i64 %57
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   br label %ran_function_to_str.exit66
 

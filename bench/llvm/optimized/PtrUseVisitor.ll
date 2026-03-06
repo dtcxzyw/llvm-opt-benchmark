@@ -117,7 +117,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %43, %45
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit, label %50, !prof !42
 
 50:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %51 = getelementptr inbounds nuw %"struct.llvm::detail::PtrUseVisitorBase::UseToVisit", ptr %.pre3.i, i64 %47
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %47
   %52 = icmp uge ptr %3, %.pre3.i
   %53 = icmp ult ptr %3, %51
   %spec.select.i.i.i.i.i = and i1 %52, %53
@@ -141,7 +141,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0E
   %.016.i.i.i = phi ptr [ %3, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %58, %54 ], [ %3, %.critedge.i.i.i ]
   %60 = load i32, ptr %15, align 8, !tbaa !39
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::PtrUseVisitorBase::UseToVisit", ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %61
   %63 = load i64, ptr %.016.i.i.i, align 8, !tbaa !38
   store i64 %63, ptr %62, align 8, !tbaa !38
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8

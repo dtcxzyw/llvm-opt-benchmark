@@ -108,7 +108,7 @@ define hidden void @_ZN6Assimp22DropFaceNormalsProcess7ExecuteEP7aiScene(ptr non
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh.exit ]
   %.01011 = phi i1 [ false, %.lr.ph ], [ %24, %_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh.exit ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8

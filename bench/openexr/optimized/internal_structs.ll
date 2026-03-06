@@ -109,15 +109,15 @@ define hidden i32 @internal_exr_add_part(ptr noundef %0, ptr noundef writeonly c
 
 ._crit_edge:                                      ; preds = %49, %.preheader
   %47 = zext nneg i32 %5 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %.055, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.055, i64 %47
   store ptr %.056, ptr %48, align 8, !tbaa !39
   br label %53
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !39
-  %52 = getelementptr inbounds nuw ptr, ptr %.055, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.055, i64 %indvars.iv
   store ptr %51, ptr %52, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -238,14 +238,14 @@ internal_exr_destroy_part.exit:                   ; preds = %15, %19
 38:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %.03337 = phi i32 [ 0, %.lr.ph ], [ %.1, %46 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !39
   %41 = icmp eq ptr %40, %7
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %38
   %43 = sext i32 %.03337 to i64
-  %44 = getelementptr inbounds ptr, ptr %24, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %24, i64 %43
   store ptr %40, ptr %44, align 8, !tbaa !39
   %45 = add nsw i32 %.03337, 1
   br label %46
@@ -678,15 +678,15 @@ define hidden i32 @internal_exr_alloc_context(ptr noundef writeonly captures(non
 
 ._crit_edge.i:                                    ; preds = %154, %.preheader.i
   %152 = zext nneg i32 %119 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %.055.i, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %.055.i, i64 %152
   store ptr %.056.i, ptr %153, align 8, !tbaa !39
   br label %158
 
 154:                                              ; preds = %154, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %154 ]
-  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i
   %156 = load ptr, ptr %155, align 8, !tbaa !39
-  %157 = getelementptr inbounds nuw ptr, ptr %.055.i, i64 %indvars.iv.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %.055.i, i64 %indvars.iv.i
   store ptr %156, ptr %157, align 8, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -776,7 +776,7 @@ define hidden void @internal_exr_destroy_context(ptr noundef %0) local_unnamed_a
 17:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !38
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = load ptr, ptr %2, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8

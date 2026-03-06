@@ -363,7 +363,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i: ; pre
 
 .noexc45:                                         ; preds = %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %47 = getelementptr inbounds nuw float, ptr %45, i64 %39
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %39
   store ptr %45, ptr %9, align 8
   store ptr %45, ptr %46, align 8
   store ptr %47, ptr %40, align 8
@@ -437,11 +437,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .noexc48:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i
   %75 = getelementptr inbounds i8, ptr %74, i64 %62
-  %76 = getelementptr inbounds nuw float, ptr %74, i64 %.0.i.i.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.0.i.i.i
   store float %51, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %78 = sub nsw i64 0, %63
-  %79 = getelementptr inbounds float, ptr %75, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %75, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %79, ptr align 4 %59, i64 %62, i1 false)
   store ptr %79, ptr %9, align 8
   store ptr %77, ptr %49, align 8
@@ -801,7 +801,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i
   store ptr %196, ptr %14, align 8
-  %201 = getelementptr inbounds nuw float, ptr %196, i64 %184
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %184
   store ptr %201, ptr %190, align 8
   %202 = getelementptr i8, ptr %196, i64 %195
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %196, i8 0, i64 %195, i1 false)
@@ -810,10 +810,10 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.099 = phi i64 [ %207, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %203 = getelementptr inbounds double, ptr %188, i64 %.099
+  %203 = getelementptr inbounds [8 x i8], ptr %188, i64 %.099
   %204 = load double, ptr %203, align 8
   %205 = fptrunc double %204 to float
-  %206 = getelementptr inbounds float, ptr %196, i64 %.099
+  %206 = getelementptr inbounds [4 x i8], ptr %196, i64 %.099
   store float %205, ptr %206, align 4
   %207 = add nuw i64 %.099, 1
   %exitcond.not = icmp eq i64 %207, %184
@@ -2532,7 +2532,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -3090,7 +3090,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -3183,7 +3183,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -3770,7 +3770,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__alloca
   store float %..i, ptr %43, align 4
   %59 = fadd contract double %.0116153, %57
   %60 = fptrunc double %59 to float
-  %61 = getelementptr inbounds float, ptr %32, i64 %.0115154
+  %61 = getelementptr inbounds [4 x i8], ptr %32, i64 %.0115154
   store float %60, ptr %61, align 4
   %62 = fcmp contract olt float %51, 0.000000e+00
   %63 = fcmp contract olt float %54, 0.000000e+00
@@ -3866,7 +3866,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %95, %87
   %99 = zext i32 %98 to i64
   %100 = icmp eq i64 %97, 1
   %spec.store.select.i = select i1 %100, i64 0, i64 %99
-  %101 = getelementptr inbounds nuw float, ptr %96, i64 %spec.store.select.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %spec.store.select.i
   %102 = load float, ptr %101, align 4
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store float %102, ptr %103, align 8
@@ -4304,7 +4304,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
   %38 = icmp eq i64 %37, 1
   %spec.store.select.i = select i1 %38, i64 0, i64 %.020
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds float, ptr %39, i64 %spec.store.select.i
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %spec.store.select.i
   %41 = load float, ptr %40, align 4
   %42 = fpext float %41 to double
   %43 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.33, double noundef %42)
@@ -4505,7 +4505,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %52
   %.013 = phi i64 [ %31, %52 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %27 = getelementptr inbounds float, ptr %1, i64 %.013
+  %27 = getelementptr inbounds [4 x i8], ptr %1, i64 %.013
   %28 = load float, ptr %27, align 4
   %29 = fpext float %28 to double
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.33, double noundef %29)

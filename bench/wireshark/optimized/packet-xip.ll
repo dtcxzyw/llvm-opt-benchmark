@@ -348,7 +348,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next75, %23 ]
   %.057 = phi i32 [ %7, %.lr.ph.preheader ], [ %26, %23 ]
-  %17 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv74
+  %17 = getelementptr [28 x i8], ptr %9, i64 %indvars.iv74
   %18 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.057)
   store i32 %18, ptr %17, align 4
   %.153 = add i32 %.057, 4
@@ -359,7 +359,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.155 = phi i32 [ %.153, %.lr.ph ], [ %.1, %20 ]
   %21 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.155)
-  %22 = getelementptr i32, ptr %19, i64 %indvars.iv
+  %22 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.1 = add i32 %.155, 4
@@ -389,7 +389,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %37 ], [ 0, %.preheader.preheader ]
   %.03378.i.i = phi i32 [ %.134.i.i, %37 ], [ 9, %.preheader.preheader ]
   %.03677.i.i = phi i32 [ %.137.i.i, %37 ], [ 0, %.preheader.preheader ]
-  %32 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv.i.i
+  %32 = getelementptr [28 x i8], ptr %9, i64 %indvars.iv.i.i
   %33 = load i32, ptr %32, align 4
   %.not41.i.i = icmp eq i32 %.03677.i.i, 0
   %.not57.i.i = icmp eq i32 %33, 0
@@ -414,7 +414,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
 38:                                               ; preds = %select.unfold.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i.i ], [ 0, %.lr.ph.i.i ]
   %.080.i.i = phi i32 [ %.4.i.i, %select.unfold.i.i ], [ 0, %.lr.ph.i.i ]
-  %39 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv.i
+  %39 = getelementptr [28 x i8], ptr %9, i64 %indvars.iv.i
   %40 = trunc i64 %indvars.iv.i to i8
   %41 = getelementptr i8, ptr %39, i64 24
   %.val.i.i.i = load i32, ptr %41, align 4
@@ -492,7 +492,7 @@ select.unfold.i.i:                                ; preds = %51, %63, %.split55.
   br i1 %exitcond99.not.i.i, label %._crit_edge.i.i, label %38, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %select.unfold.i.i
-  %69 = getelementptr %struct.xia_row, ptr %9, i64 %31
+  %69 = getelementptr [28 x i8], ptr %9, i64 %31
   %70 = getelementptr i8, ptr %69, i64 -4
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 2139062143
@@ -510,7 +510,7 @@ xia_test_addr.exit.thread26.i:                    ; preds = %34, %.split55.us.i.
 
 75:                                               ; preds = %.loopexit.us.i, %xia_test_addr.exit.thread26.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.loopexit.us.i ], [ 0, %xia_test_addr.exit.thread26.i ]
-  %76 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv63.i
+  %76 = getelementptr [28 x i8], ptr %9, i64 %indvars.iv63.i
   %77 = load i32, ptr %76, align 4
   %.not.us.i = icmp eq i32 %77, 0
   br i1 %.not.us.i, label %xia_ntop.exit, label %78
@@ -603,7 +603,7 @@ edge_to_char.exit.us.i.us.i:                      ; preds = %108, %107
 
 xia_test_addr.exit.split.i:                       ; preds = %73, %.loopexit28.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.loopexit28.i ], [ 0, %73 ]
-  %112 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv60.i
+  %112 = getelementptr [28 x i8], ptr %9, i64 %indvars.iv60.i
   %113 = load i32, ptr %112, align 4
   %.not.i = icmp eq i32 %113, 0
   br i1 %.not.i, label %xia_ntop.exit, label %114

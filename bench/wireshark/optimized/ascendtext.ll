@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.erf_ehdr = type { i64 }
 %union.anon.1 = type { i32 }
 %struct.Buffer = type { ptr, i64, i64, i64 }
-%struct._ascend_magic_string = type { i32, ptr, i64 }
 
 @ascend_file_type_subtype = internal unnamed_addr global i32 -1, align 4
 @.str = private unnamed_addr constant [7 x i8] c"ASCEND\00", align 1
@@ -156,10 +155,10 @@ define internal fastcc i64 @ascend_find_next_packet(ptr noundef readonly capture
 
 .preheader:                                       ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph ]
-  %10 = getelementptr %struct._ascend_magic_string, ptr @ascend_magic, i64 %indvars.iv
+  %10 = getelementptr [24 x i8], ptr @ascend_magic, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr i64, ptr %4, i64 %indvars.iv
+  %13 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr i8, ptr %12, i64 %14
   %16 = load i8, ptr %15, align 1

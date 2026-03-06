@@ -127,7 +127,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
 42:                                               ; preds = %.lr.ph, %_set_cond.exit
   %storemerge191 = phi i32 [ 0, %.lr.ph ], [ %275, %_set_cond.exit ]
   %43 = zext nneg i32 %storemerge191 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #13
   %47 = trunc i64 %46 to i32
@@ -178,7 +178,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
 66:                                               ; preds = %.thread289.i, %.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next293.i, %.thread289.i ], [ %indvars.iv.ph.i, %.outer.i ]
   %.0175257.i = phi i32 [ 1, %.thread289.i ], [ %.0175257.ph.i, %.outer.i ]
-  %67 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %67 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 @parse_option_end(ptr noundef %68) #11
   %.not197.i = icmp eq i32 %69, 0
@@ -211,7 +211,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   br i1 %.not199.i, label %.thread289.i, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %85 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.i
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 @xstrncasecmp(ptr noundef %86, ptr noundef nonnull @.str.13, i64 noundef %.0177244.i) #11
   %.not200.i = icmp eq i32 %87, 0
@@ -225,7 +225,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
 
 .critedge229.i:                                   ; preds = %80, %75
   %.0180242.i = phi i32 [ %81, %80 ], [ %69, %75 ]
-  %90 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %90 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.i
   %91 = add nsw i32 %69, -1
   %92 = call i32 @llvm.smax.i32(i32 %91, i32 1)
   %93 = zext nneg i32 %92 to i64

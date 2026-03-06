@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.cv::tinyxml2::Entity" = type { ptr, i32, i8 }
-%"union.cv::tinyxml2::MemPoolT<88>::Chunk" = type { ptr, [80 x i8] }
-%"union.cv::tinyxml2::MemPoolT<96>::Chunk" = type { ptr, [88 x i8] }
-%"union.cv::tinyxml2::MemPoolT<104>::Chunk" = type { ptr, [96 x i8] }
 %"class.cv::tinyxml2::StrPair" = type { i32, ptr, ptr }
-%"union.cv::tinyxml2::MemPoolT<72>::Chunk" = type { ptr, [64 x i8] }
 %"class.cv::tinyxml2::XMLPrinter" = type { %"class.cv::tinyxml2::XMLVisitor", i8, %"class.cv::tinyxml2::DynArray.6", i8, ptr, i32, i32, i8, i8, [64 x i8], [64 x i8], [6 x i8], %"class.cv::tinyxml2::DynArray.7" }
 %"class.cv::tinyxml2::XMLVisitor" = type { ptr }
 %"class.cv::tinyxml2::DynArray.6" = type { ptr, [10 x ptr], i32, i32 }
@@ -727,7 +723,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
 
 .preheader:                                       ; preds = %32, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %32 ]
-  %46 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 16, !tbaa !20
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !22
@@ -1091,7 +1087,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
 91:                                               ; preds = %84, %71
   %92 = phi i64 [ %90, %84 ], [ 1, %71 ]
   %.2.i = phi i64 [ %89, %84 ], [ %.3, %71 ]
-  %93 = getelementptr inbounds i64, ptr %4, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %4, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !28
   %95 = or i64 %94, %.2.i
   %96 = trunc i64 %95 to i8
@@ -1219,7 +1215,7 @@ define hidden void @_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi(i64 nounde
 38:                                               ; preds = %18, %31
   %39 = phi i64 [ %37, %31 ], [ 1, %18 ]
   %.2 = phi i64 [ %36, %31 ], [ %0, %18 ]
-  %40 = getelementptr inbounds i64, ptr %4, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %4, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !28
   %42 = or i64 %41, %.2
   %43 = trunc i64 %42 to i8
@@ -1766,7 +1762,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EE4PushES5_.exit: ; pre
   %28 = add nsw i32 %26, 1
   store i32 %28, ptr %7, align 4, !tbaa !56
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr %5, ptr %30, align 8, !tbaa !59
   br label %33
 
@@ -1779,8 +1775,8 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EE4PushES5_.exit: ; pre
 33:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EE4PushES5_.exit, %33
   %indvars.iv = phi i64 [ 0, %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EE4PushES5_.exit ], [ %indvars.iv.next, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<88>::Chunk", ptr %5, i64 %indvars.iv.next
-  %35 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<88>::Chunk", ptr %5, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %indvars.iv
   store ptr %34, ptr %35, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, 45
   br i1 %exitcond.not, label %31, label %33, !llvm.loop !61
@@ -1871,7 +1867,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi96EE5BlockELi10EE4PushES5_.exit: ; pre
   %28 = add nsw i32 %26, 1
   store i32 %28, ptr %7, align 4, !tbaa !71
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr %5, ptr %30, align 8, !tbaa !74
   br label %33
 
@@ -1884,8 +1880,8 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi96EE5BlockELi10EE4PushES5_.exit: ; pre
 33:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi96EE5BlockELi10EE4PushES5_.exit, %33
   %indvars.iv = phi i64 [ 0, %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi96EE5BlockELi10EE4PushES5_.exit ], [ %indvars.iv.next, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<96>::Chunk", ptr %5, i64 %indvars.iv.next
-  %35 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<96>::Chunk", ptr %5, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %indvars.iv
   store ptr %34, ptr %35, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, 41
   br i1 %exitcond.not, label %31, label %33, !llvm.loop !76
@@ -1976,7 +1972,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EE4PushES5_.exit: ; pr
   %28 = add nsw i32 %26, 1
   store i32 %28, ptr %7, align 4, !tbaa !86
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr %5, ptr %30, align 8, !tbaa !89
   br label %33
 
@@ -1989,8 +1985,8 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EE4PushES5_.exit: ; pr
 33:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EE4PushES5_.exit, %33
   %indvars.iv = phi i64 [ 0, %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EE4PushES5_.exit ], [ %indvars.iv.next, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<104>::Chunk", ptr %5, i64 %indvars.iv.next
-  %35 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<104>::Chunk", ptr %5, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %indvars.iv
   store ptr %34, ptr %35, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, 38
   br i1 %exitcond.not, label %31, label %33, !llvm.loop !91
@@ -5961,7 +5957,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EE4PushES5_.exit: ; pre
   %28 = add nsw i32 %26, 1
   store i32 %28, ptr %7, align 4, !tbaa !132
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr %5, ptr %30, align 8, !tbaa !135
   br label %33
 
@@ -5974,8 +5970,8 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EE4PushES5_.exit: ; pre
 33:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EE4PushES5_.exit, %33
   %indvars.iv = phi i64 [ 0, %_ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EE4PushES5_.exit ], [ %indvars.iv.next, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<72>::Chunk", ptr %5, i64 %indvars.iv.next
-  %35 = getelementptr inbounds nuw %"union.cv::tinyxml2::MemPoolT<72>::Chunk", ptr %5, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %indvars.iv
   store ptr %34, ptr %35, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, 55
   br i1 %exitcond.not, label %31, label %33, !llvm.loop !137
@@ -6768,7 +6764,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi96EE5BlockELi10EED2Ev.exit: ; preds = 
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !73
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !74
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -6814,7 +6810,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EED2Ev.exit: ; preds = 
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !134
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !135
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -6860,7 +6856,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EED2Ev.exit: ; preds =
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !88
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !89
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -6981,7 +6977,7 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i:       ; preds = %19, %._crit_edge.i.
   %45 = phi i32 [ %52, %51 ], [ %39, %35 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %35 ]
   %46 = load ptr, ptr %37, align 8, !tbaa !58
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !59
   %49 = icmp eq ptr %48, null
   br i1 %49, label %51, label %50
@@ -7023,7 +7019,7 @@ _ZN2cv8tinyxml28MemPoolTILi88EED2Ev.exit:         ; preds = %._crit_edge.i, %44
   %64 = phi i32 [ %71, %70 ], [ %58, %_ZN2cv8tinyxml28MemPoolTILi88EED2Ev.exit ]
   %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i9, %70 ], [ 0, %_ZN2cv8tinyxml28MemPoolTILi88EED2Ev.exit ]
   %65 = load ptr, ptr %56, align 8, !tbaa !73
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i7
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i7
   %67 = load ptr, ptr %66, align 8, !tbaa !74
   %68 = icmp eq ptr %67, null
   br i1 %68, label %70, label %69
@@ -7065,7 +7061,7 @@ _ZN2cv8tinyxml28MemPoolTILi96EED2Ev.exit:         ; preds = %._crit_edge.i3, %63
   %83 = phi i32 [ %90, %89 ], [ %77, %_ZN2cv8tinyxml28MemPoolTILi96EED2Ev.exit ]
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i16, %89 ], [ 0, %_ZN2cv8tinyxml28MemPoolTILi96EED2Ev.exit ]
   %84 = load ptr, ptr %75, align 8, !tbaa !134
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i14
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i14
   %86 = load ptr, ptr %85, align 8, !tbaa !135
   %87 = icmp eq ptr %86, null
   br i1 %87, label %89, label %88
@@ -7107,7 +7103,7 @@ _ZN2cv8tinyxml28MemPoolTILi72EED2Ev.exit:         ; preds = %._crit_edge.i10, %8
   %102 = phi i32 [ %109, %108 ], [ %96, %_ZN2cv8tinyxml28MemPoolTILi72EED2Ev.exit ]
   %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i23, %108 ], [ 0, %_ZN2cv8tinyxml28MemPoolTILi72EED2Ev.exit ]
   %103 = load ptr, ptr %94, align 8, !tbaa !88
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.i21
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv.i21
   %105 = load ptr, ptr %104, align 8, !tbaa !89
   %106 = icmp eq ptr %105, null
   br i1 %106, label %108, label %107
@@ -7164,7 +7160,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EED2Ev.exit: ; preds = 
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !58
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !59
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -7662,7 +7658,7 @@ define hidden noundef i32 @_ZN2cv8tinyxml211XMLDocument8SaveFileEP8_IO_FILEb(ptr
 
 21:                                               ; preds = %21, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %21 ]
-  %22 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %24 = load i8, ptr %23, align 4, !tbaa !23
   %25 = sext i8 %24 to i64
@@ -7760,7 +7756,7 @@ define hidden void @_ZNK2cv8tinyxml211XMLDocument5PrintEPNS0_10XMLPrinterE(ptr n
 
 20:                                               ; preds = %20, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i8, ptr %22, align 4, !tbaa !23
   %24 = sext i8 %23 to i64
@@ -8123,7 +8119,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnu
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i8, ptr %22, align 4, !tbaa !23
   %24 = sext i8 %23 to i64
@@ -8309,7 +8305,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef no
 
 22:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
-  %23 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i8, ptr %24, align 4, !tbaa !23
   %26 = icmp eq i8 %25, %16
@@ -8513,7 +8509,7 @@ _ZN2cv8tinyxml28DynArrayIPKcLi10EE4PushES3_.exit: ; preds = %._ZN2cv8tinyxml28Dy
   %31 = add nsw i32 %29, 1
   store i32 %31, ptr %10, align 4, !tbaa !162
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %30, i64 %32
   store ptr %1, ptr %33, align 8, !tbaa !115
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %35 = load i32, ptr %34, align 4, !tbaa !166
@@ -8628,7 +8624,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKci(ptr noundef 
 
 24:                                               ; preds = %23, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i8, ptr %26, align 4, !tbaa !23
   %28 = icmp eq i8 %27, %18
@@ -8737,7 +8733,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcj(ptr noundef 
 
 24:                                               ; preds = %23, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i8, ptr %26, align 4, !tbaa !23
   %28 = icmp eq i8 %27, %18
@@ -8847,7 +8843,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcb(ptr noundef 
 
 25:                                               ; preds = %24, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %26 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i8, ptr %27, align 4, !tbaa !23
   %29 = icmp eq i8 %28, %19
@@ -8956,7 +8952,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcd(ptr noundef 
 
 24:                                               ; preds = %23, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i8, ptr %26, align 4, !tbaa !23
   %28 = icmp eq i8 %27, %18
@@ -9018,7 +9014,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 4, !tbaa !162
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !115
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8, !tbaa !153, !range !119, !noundef !120
@@ -9183,7 +9179,7 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
 
 31:                                               ; preds = %30, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %32 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i8, ptr %33, align 4, !tbaa !23
   %35 = icmp eq i8 %34, %25
@@ -9306,7 +9302,7 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
 
 31:                                               ; preds = %30, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %32 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i8, ptr %33, align 4, !tbaa !23
   %35 = icmp eq i8 %34, %25
@@ -9430,7 +9426,7 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %13
 
 32:                                               ; preds = %31, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %31 ]
-  %33 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i8, ptr %34, align 4, !tbaa !23
   %36 = icmp eq i8 %35, %26
@@ -9554,7 +9550,7 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %13
 
 32:                                               ; preds = %31, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %31 ]
-  %33 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i8, ptr %34, align 4, !tbaa !23
   %36 = icmp eq i8 %35, %26
@@ -9677,7 +9673,7 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
 
 31:                                               ; preds = %30, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %32 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i8, ptr %33, align 4, !tbaa !23
   %35 = icmp eq i8 %34, %25
@@ -10529,7 +10525,7 @@ define linkonce_odr hidden void @_ZN2cv8tinyxml28MemPoolTILi104EED0Ev(ptr nounde
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !88
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !89
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -10610,7 +10606,7 @@ define linkonce_odr hidden void @_ZN2cv8tinyxml28MemPoolTILi72EED0Ev(ptr noundef
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !134
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !135
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -10691,7 +10687,7 @@ define linkonce_odr hidden void @_ZN2cv8tinyxml28MemPoolTILi96EED0Ev(ptr noundef
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !73
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !74
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -10772,7 +10768,7 @@ define linkonce_odr hidden void @_ZN2cv8tinyxml28MemPoolTILi88EED0Ev(ptr noundef
   %10 = phi i32 [ %17, %16 ], [ %4, %1 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !58
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !59
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15

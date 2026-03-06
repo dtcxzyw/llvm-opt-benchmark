@@ -735,7 +735,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %145
 
 182:                                              ; preds = %182, %179
   %indvars.iv.i = phi i64 [ 0, %179 ], [ %indvars.iv.next.i, %182 ]
-  %183 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   store i32 %181, ptr %183, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -1062,7 +1062,7 @@ set_sort_order.exit.thread.i:                     ; preds = %249, %246
 297:                                              ; preds = %._crit_edge.i
   %298 = load i32, ptr @H5_optind, align 4, !tbaa !4
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds ptr, ptr %1, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr %1, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !8
   %.not120.i = icmp eq ptr %301, null
   br i1 %.not120.i, label %.sink.split.i, label %302

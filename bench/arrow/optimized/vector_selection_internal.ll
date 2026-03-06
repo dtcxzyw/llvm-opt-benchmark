@@ -129,8 +129,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.arrow::compute::internal::(anonymous namespace)::VarBinarySelectionImpl" = type { %"struct.arrow::compute::internal::(anonymous namespace)::Selection.277", %"class.arrow::TypedBufferBuilder.100", %"class.arrow::TypedBufferBuilder.278" }
 %"struct.arrow::compute::internal::(anonymous namespace)::Selection.277" = type { ptr, ptr, ptr, ptr, i64, ptr, %"class.arrow::TypedBufferBuilder" }
 %"class.arrow::TypedBufferBuilder.278" = type { %"class.arrow::BufferBuilder" }
-%"class.std::shared_ptr.136" = type { %"class.std::__shared_ptr.137" }
-%"class.std::__shared_ptr.137" = type { ptr, %"class.std::__shared_count" }
 %"struct.arrow::compute::internal::(anonymous namespace)::VarBinarySelectionImpl.291" = type { %"struct.arrow::compute::internal::(anonymous namespace)::Selection.292", %"class.arrow::TypedBufferBuilder.205", %"class.arrow::TypedBufferBuilder.278" }
 %"struct.arrow::compute::internal::(anonymous namespace)::Selection.292" = type { ptr, ptr, ptr, ptr, i64, ptr, %"class.arrow::TypedBufferBuilder" }
 %"struct.arrow::compute::internal::(anonymous namespace)::SparseUnionSelectionImpl" = type <{ %"struct.arrow::compute::internal::(anonymous namespace)::Selection.370", %"class.arrow::TypedBufferBuilder.239", i8, [7 x i8] }>
@@ -155,6 +153,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::compute::FunctionOptions" = type { ptr, ptr }
 %"class.arrow::Result.148" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.151" }
 %"class.arrow::internal::AlignedStorage.151" = type { [16 x i8] }
+%"class.std::shared_ptr.136" = type { %"class.std::__shared_ptr.137" }
+%"class.std::__shared_ptr.137" = type { ptr, %"class.std::__shared_count" }
 %"class.std::vector.152" = type { %"struct.std::_Vector_base.153" }
 %"struct.std::_Vector_base.153" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data" }
@@ -2423,7 +2423,7 @@ define void @_ZN5arrow7compute8internal34VisitPlainxREEFilterOutputSegmentsERKNS
   %60 = load i64, ptr %59, align 8, !tbaa !154
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %62 = load ptr, ptr %61, align 8, !tbaa !155
-  %63 = getelementptr inbounds i16, ptr %62, i64 %60
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %60
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !125, !noalias !159
   %66 = icmp sgt i64 %65, 0
@@ -2433,7 +2433,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %54, %_ZSt7advanceIP
   %.017.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i ], [ %63, %54 ]
   %.01116.i.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i ], [ %65, %54 ]
   %67 = lshr i64 %.01116.i.i.i.i.i.i, 1
-  %68 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i.i.i, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i.i.i, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !162, !noalias !159
   %70 = sext i16 %69 to i64
   %71 = icmp slt i64 %58, %70
@@ -2495,7 +2495,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i: ; preds = %_ZSt7a
   br i1 %99, label %.critedge35.i, label %110
 
 .critedge35.i:                                    ; preds = %95, %86
-  %100 = getelementptr inbounds i16, ptr %63, i64 %.sroa.25.0132.i
+  %100 = getelementptr inbounds [2 x i8], ptr %63, i64 %.sroa.25.0132.i
   %101 = load i16, ptr %100, align 2, !tbaa !162
   %102 = sext i16 %101 to i64
   %103 = sub nsw i64 %102, %58
@@ -2526,7 +2526,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit.i:             ; preds = %.critedge35.i
   br i1 %109, label %110, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 110:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit.i, %95
-  %111 = getelementptr inbounds i16, ptr %63, i64 %.sroa.25.0132.i
+  %111 = getelementptr inbounds [2 x i8], ptr %63, i64 %.sroa.25.0132.i
   %112 = load i16, ptr %111, align 2, !tbaa !162
   %113 = sext i16 %112 to i64
   %114 = sub nsw i64 %113, %58
@@ -2557,7 +2557,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit.i:             ; preds = %.critedge35.i
   br i1 %129, label %.critedge39.i, label %139
 
 .critedge39.i:                                    ; preds = %125
-  %130 = getelementptr inbounds i16, ptr %63, i64 %.sroa.25.2129.i
+  %130 = getelementptr inbounds [2 x i8], ptr %63, i64 %.sroa.25.2129.i
   %131 = load i16, ptr %130, align 2, !tbaa !162
   %132 = sext i16 %131 to i64
   %133 = sub nsw i64 %132, %58
@@ -2587,7 +2587,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit48.i:           ; preds = %.critedge39.i
   br i1 %138, label %139, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 139:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit48.i, %125, %116
-  %140 = getelementptr inbounds i16, ptr %63, i64 %.sroa.25.2129.i
+  %140 = getelementptr inbounds [2 x i8], ptr %63, i64 %.sroa.25.2129.i
   %141 = load i16, ptr %140, align 2, !tbaa !162
   %142 = sext i16 %141 to i64
   %143 = sub nsw i64 %142, %58
@@ -2604,7 +2604,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit48.i:           ; preds = %.critedge39.i
   %148 = load i64, ptr %147, align 8, !tbaa !154
   %149 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %150 = load ptr, ptr %149, align 8, !tbaa !155
-  %151 = getelementptr inbounds i16, ptr %150, i64 %148
+  %151 = getelementptr inbounds [2 x i8], ptr %150, i64 %148
   %152 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %153 = load i64, ptr %152, align 8, !tbaa !125, !noalias !168
   %154 = icmp sgt i64 %153, 0
@@ -2614,7 +2614,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i52.i:     ; preds = %.critedge.i, %_ZSt7
   %.017.i.i.i.i.i53.i = phi ptr [ %.1.i.i.i.i.i58.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i52.i ], [ %151, %.critedge.i ]
   %.01116.i.i.i.i.i54.i = phi i64 [ %.112.i.i.i.i.i57.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i52.i ], [ %153, %.critedge.i ]
   %155 = lshr i64 %.01116.i.i.i.i.i54.i, 1
-  %156 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i.i53.i, i64 %155
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i.i53.i, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !162, !noalias !168
   %158 = sext i16 %157 to i64
   %159 = icmp slt i64 %146, %158
@@ -2660,7 +2660,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit59.i: ; preds = %_ZSt
   br i1 %178, label %179, label %189
 
 179:                                              ; preds = %170
-  %180 = getelementptr inbounds i16, ptr %.sroa.7.0.ph.i, i64 %.sroa.25.4136.i
+  %180 = getelementptr inbounds [2 x i8], ptr %.sroa.7.0.ph.i, i64 %.sroa.25.4136.i
   %181 = load i16, ptr %180, align 2, !tbaa !162
   %182 = sext i16 %181 to i64
   %183 = sub nsw i64 %182, %.sroa.28.0.ph.i
@@ -2690,7 +2690,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit63.i:           ; preds = %179
   br i1 %188, label %189, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 189:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit63.i, %170
-  %190 = getelementptr inbounds i16, ptr %.sroa.7.0.ph.i, i64 %.sroa.25.4136.i
+  %190 = getelementptr inbounds [2 x i8], ptr %.sroa.7.0.ph.i, i64 %.sroa.25.4136.i
   %191 = load i16, ptr %190, align 2, !tbaa !162
   %192 = sext i16 %191 to i64
   %193 = sub nsw i64 %192, %.sroa.28.0.ph.i
@@ -2713,7 +2713,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit63.i:           ; preds = %179
   %202 = load i64, ptr %201, align 8, !tbaa !154
   %203 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %204 = load ptr, ptr %203, align 8, !tbaa !155
-  %205 = getelementptr inbounds i32, ptr %204, i64 %202
+  %205 = getelementptr inbounds [4 x i8], ptr %204, i64 %202
   %206 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %207 = load i64, ptr %206, align 8, !tbaa !125, !noalias !171
   %208 = icmp sgt i64 %207, 0
@@ -2723,7 +2723,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %196, %_ZSt7advanceI
   %.017.i.i.i.i.i.i66 = phi ptr [ %.1.i.i.i.i.i.i71, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i ], [ %205, %196 ]
   %.01116.i.i.i.i.i.i67 = phi i64 [ %.112.i.i.i.i.i.i70, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i ], [ %207, %196 ]
   %209 = lshr i64 %.01116.i.i.i.i.i.i67, 1
-  %210 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i.i66, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i.i66, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !75, !noalias !171
   %212 = sext i32 %211 to i64
   %213 = icmp slt i64 %200, %212
@@ -2785,7 +2785,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i: ; preds = %_ZSt7a
   br i1 %241, label %.critedge35.i58, label %252
 
 .critedge35.i58:                                  ; preds = %237, %228
-  %242 = getelementptr inbounds i32, ptr %205, i64 %.sroa.25.0132.i57
+  %242 = getelementptr inbounds [4 x i8], ptr %205, i64 %.sroa.25.0132.i57
   %243 = load i32, ptr %242, align 4, !tbaa !75
   %244 = sext i32 %243 to i64
   %245 = sub nsw i64 %244, %200
@@ -2816,7 +2816,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit.i62:           ; preds = %.critedge35.i58
   br i1 %251, label %252, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 252:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit.i62, %237
-  %253 = getelementptr inbounds i32, ptr %205, i64 %.sroa.25.0132.i57
+  %253 = getelementptr inbounds [4 x i8], ptr %205, i64 %.sroa.25.0132.i57
   %254 = load i32, ptr %253, align 4, !tbaa !75
   %255 = sext i32 %254 to i64
   %256 = sub nsw i64 %255, %200
@@ -2847,7 +2847,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit.i62:           ; preds = %.critedge35.i58
   br i1 %271, label %.critedge39.i49, label %281
 
 .critedge39.i49:                                  ; preds = %267
-  %272 = getelementptr inbounds i32, ptr %205, i64 %.sroa.25.2129.i45
+  %272 = getelementptr inbounds [4 x i8], ptr %205, i64 %.sroa.25.2129.i45
   %273 = load i32, ptr %272, align 4, !tbaa !75
   %274 = sext i32 %273 to i64
   %275 = sub nsw i64 %274, %200
@@ -2877,7 +2877,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit48.i53:         ; preds = %.critedge39.i49
   br i1 %280, label %281, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 281:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit48.i53, %267, %258
-  %282 = getelementptr inbounds i32, ptr %205, i64 %.sroa.25.2129.i45
+  %282 = getelementptr inbounds [4 x i8], ptr %205, i64 %.sroa.25.2129.i45
   %283 = load i32, ptr %282, align 4, !tbaa !75
   %284 = sext i32 %283 to i64
   %285 = sub nsw i64 %284, %200
@@ -2894,7 +2894,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit48.i53:         ; preds = %.critedge39.i49
   %290 = load i64, ptr %289, align 8, !tbaa !154
   %291 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %292 = load ptr, ptr %291, align 8, !tbaa !155
-  %293 = getelementptr inbounds i32, ptr %292, i64 %290
+  %293 = getelementptr inbounds [4 x i8], ptr %292, i64 %290
   %294 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %295 = load i64, ptr %294, align 8, !tbaa !125, !noalias !175
   %296 = icmp sgt i64 %295, 0
@@ -2904,7 +2904,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i52.i:     ; preds = %.critedge.i15, %_ZS
   %.017.i.i.i.i.i53.i33 = phi ptr [ %.1.i.i.i.i.i58.i38, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i52.i ], [ %293, %.critedge.i15 ]
   %.01116.i.i.i.i.i54.i34 = phi i64 [ %.112.i.i.i.i.i57.i37, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i52.i ], [ %295, %.critedge.i15 ]
   %297 = lshr i64 %.01116.i.i.i.i.i54.i34, 1
-  %298 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i53.i33, i64 %297
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i53.i33, i64 %297
   %299 = load i32, ptr %298, align 4, !tbaa !75, !noalias !175
   %300 = sext i32 %299 to i64
   %301 = icmp slt i64 %288, %300
@@ -2950,7 +2950,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit59.i: ; preds = %_ZSt
   br i1 %320, label %321, label %331
 
 321:                                              ; preds = %312
-  %322 = getelementptr inbounds i32, ptr %.sroa.7.0.ph.i20, i64 %.sroa.25.4136.i25
+  %322 = getelementptr inbounds [4 x i8], ptr %.sroa.7.0.ph.i20, i64 %.sroa.25.4136.i25
   %323 = load i32, ptr %322, align 4, !tbaa !75
   %324 = sext i32 %323 to i64
   %325 = sub nsw i64 %324, %.sroa.28.0.ph.i18
@@ -2980,7 +2980,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit63.i32:         ; preds = %321
   br i1 %330, label %331, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 331:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit63.i32, %312
-  %332 = getelementptr inbounds i32, ptr %.sroa.7.0.ph.i20, i64 %.sroa.25.4136.i25
+  %332 = getelementptr inbounds [4 x i8], ptr %.sroa.7.0.ph.i20, i64 %.sroa.25.4136.i25
   %333 = load i32, ptr %332, align 4, !tbaa !75
   %334 = sext i32 %333 to i64
   %335 = sub nsw i64 %334, %.sroa.28.0.ph.i18
@@ -3003,7 +3003,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit63.i32:         ; preds = %321
   %344 = load i64, ptr %343, align 8, !tbaa !154
   %345 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %346 = load ptr, ptr %345, align 8, !tbaa !155
-  %347 = getelementptr inbounds i64, ptr %346, i64 %344
+  %347 = getelementptr inbounds [8 x i8], ptr %346, i64 %344
   %348 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %349 = load i64, ptr %348, align 8, !tbaa !125, !noalias !178
   %350 = icmp sgt i64 %349, 0
@@ -3013,7 +3013,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %338, %_ZSt7advanceI
   %.017.i.i.i.i.i.i124 = phi ptr [ %.1.i.i.i.i.i.i129, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i ], [ %347, %338 ]
   %.01116.i.i.i.i.i.i125 = phi i64 [ %.112.i.i.i.i.i.i128, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i ], [ %349, %338 ]
   %351 = lshr i64 %.01116.i.i.i.i.i.i125, 1
-  %352 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i.i124, i64 %351
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i.i124, i64 %351
   %353 = load i64, ptr %352, align 8, !tbaa !164, !noalias !178
   %354 = icmp slt i64 %342, %353
   %355 = getelementptr inbounds nuw i8, ptr %352, i64 8
@@ -3074,7 +3074,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i: ; preds = %_ZSt7a
   br i1 %382, label %.critedge35.i116, label %392
 
 .critedge35.i116:                                 ; preds = %378, %369
-  %383 = getelementptr inbounds i64, ptr %347, i64 %.sroa.25.0132.i115
+  %383 = getelementptr inbounds [8 x i8], ptr %347, i64 %.sroa.25.0132.i115
   %384 = load i64, ptr %383, align 8, !tbaa !164
   %385 = sub nsw i64 %384, %342
   %.sroa.speculated4.i.i.i.i117 = call i64 @llvm.smax.i64(i64 %385, i64 0)
@@ -3104,7 +3104,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit.i120:          ; preds = %.critedge35.i116
   br i1 %391, label %392, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 392:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit.i120, %378
-  %393 = getelementptr inbounds i64, ptr %347, i64 %.sroa.25.0132.i115
+  %393 = getelementptr inbounds [8 x i8], ptr %347, i64 %.sroa.25.0132.i115
   %394 = load i64, ptr %393, align 8, !tbaa !164
   %395 = sub nsw i64 %394, %342
   %.sroa.speculated4.i.i.i121 = call i64 @llvm.smax.i64(i64 %395, i64 0)
@@ -3134,7 +3134,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit.i120:          ; preds = %.critedge35.i116
   br i1 %410, label %.critedge39.i107, label %419
 
 .critedge39.i107:                                 ; preds = %406
-  %411 = getelementptr inbounds i64, ptr %347, i64 %.sroa.25.2129.i103
+  %411 = getelementptr inbounds [8 x i8], ptr %347, i64 %.sroa.25.2129.i103
   %412 = load i64, ptr %411, align 8, !tbaa !164
   %413 = sub nsw i64 %412, %342
   %.sroa.speculated4.i.i.i45.i108 = call i64 @llvm.smax.i64(i64 %413, i64 0)
@@ -3163,7 +3163,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit48.i111:        ; preds = %.critedge39.i107
   br i1 %418, label %419, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 419:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit48.i111, %406, %397
-  %420 = getelementptr inbounds i64, ptr %347, i64 %.sroa.25.2129.i103
+  %420 = getelementptr inbounds [8 x i8], ptr %347, i64 %.sroa.25.2129.i103
   %421 = load i64, ptr %420, align 8, !tbaa !164
   %422 = sub nsw i64 %421, %342
   %.sroa.speculated4.i.i49.i104 = call i64 @llvm.smax.i64(i64 %422, i64 0)
@@ -3179,7 +3179,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit48.i111:        ; preds = %.critedge39.i107
   %427 = load i64, ptr %426, align 8, !tbaa !154
   %428 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %429 = load ptr, ptr %428, align 8, !tbaa !155
-  %430 = getelementptr inbounds i64, ptr %429, i64 %427
+  %430 = getelementptr inbounds [8 x i8], ptr %429, i64 %427
   %431 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %432 = load i64, ptr %431, align 8, !tbaa !125, !noalias !182
   %433 = icmp sgt i64 %432, 0
@@ -3189,7 +3189,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i52.i:     ; preds = %.critedge.i73, %_ZS
   %.017.i.i.i.i.i53.i91 = phi ptr [ %.1.i.i.i.i.i58.i96, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i52.i ], [ %430, %.critedge.i73 ]
   %.01116.i.i.i.i.i54.i92 = phi i64 [ %.112.i.i.i.i.i57.i95, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i52.i ], [ %432, %.critedge.i73 ]
   %434 = lshr i64 %.01116.i.i.i.i.i54.i92, 1
-  %435 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i53.i91, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i53.i91, i64 %434
   %436 = load i64, ptr %435, align 8, !tbaa !164, !noalias !182
   %437 = icmp slt i64 %425, %436
   %438 = getelementptr inbounds nuw i8, ptr %435, i64 8
@@ -3234,7 +3234,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit59.i: ; preds = %_ZSt
   br i1 %456, label %457, label %466
 
 457:                                              ; preds = %448
-  %458 = getelementptr inbounds i64, ptr %.sroa.7.0.ph.i78, i64 %.sroa.25.4136.i83
+  %458 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.ph.i78, i64 %.sroa.25.4136.i83
   %459 = load i64, ptr %458, align 8, !tbaa !164
   %460 = sub nsw i64 %459, %.sroa.28.0.ph.i76
   %.sroa.speculated4.i.i.i60.i87 = call i64 @llvm.smax.i64(i64 %460, i64 0)
@@ -3263,7 +3263,7 @@ _ZNKSt8functionIFbllbEEclEllb.exit63.i90:         ; preds = %457
   br i1 %465, label %466, label %_ZN5arrow7compute8internal12_GLOBAL__N_138VisitPlainxREEFilterOutputSegmentsImplINS_9Int16TypeEEEvRKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE.exit, !prof !110
 
 466:                                              ; preds = %_ZNKSt8functionIFbllbEEclEllb.exit63.i90, %448
-  %467 = getelementptr inbounds i64, ptr %.sroa.7.0.ph.i78, i64 %.sroa.25.4136.i83
+  %467 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.ph.i78, i64 %.sroa.25.4136.i83
   %468 = load i64, ptr %467, align 8, !tbaa !164
   %469 = sub nsw i64 %468, %.sroa.28.0.ph.i76
   %.sroa.speculated4.i.i64.i84 = call i64 @llvm.smax.i64(i64 %469, i64 0)
@@ -3764,7 +3764,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %198, %
   %229 = load ptr, ptr %95, align 8, !tbaa !281, !noalias !276
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 56
   %231 = load ptr, ptr %230, align 8, !tbaa !282, !noalias !276
-  %232 = getelementptr inbounds i32, ptr %231, i64 %.2267.i.i.i.i.i
+  %232 = getelementptr inbounds [4 x i8], ptr %231, i64 %.2267.i.i.i.i.i
   %233 = load i32, ptr %232, align 4, !tbaa !75, !noalias !276
   %234 = getelementptr i8, ptr %232, i64 4
   %235 = load i32, ptr %234, align 4, !tbaa !75, !noalias !276
@@ -5105,7 +5105,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %198, %
   %229 = load ptr, ptr %95, align 8, !tbaa !467, !noalias !463
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 56
   %231 = load ptr, ptr %230, align 8, !tbaa !468, !noalias !463
-  %232 = getelementptr inbounds i64, ptr %231, i64 %.2267.i.i.i.i.i
+  %232 = getelementptr inbounds [8 x i8], ptr %231, i64 %.2267.i.i.i.i.i
   %233 = load i64, ptr %232, align 8, !tbaa !164, !noalias !463
   %234 = getelementptr i8, ptr %232, i64 8
   %235 = load i64, ptr %234, align 8, !tbaa !164, !noalias !463
@@ -6119,12 +6119,12 @@ _ZN5arrow6StatusD2Ev.exit24.i.i:                  ; preds = %76, %_ZN5arrow6Stat
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %90 = load ptr, ptr %89, align 8, !tbaa !155, !noalias !621
-  %91 = getelementptr inbounds i32, ptr %90, i64 %87
+  %91 = getelementptr inbounds [4 x i8], ptr %90, i64 %87
   store ptr %91, ptr %17, align 8, !tbaa !243, !noalias !621
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !621
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 80
   %93 = load ptr, ptr %92, align 8, !tbaa !155, !noalias !621
-  %94 = getelementptr inbounds i32, ptr %93, i64 %87
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %87
   store ptr %94, ptr %18, align 8, !tbaa !243, !noalias !621
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !621
   store i32 0, ptr %19, align 4, !tbaa !75, !noalias !621
@@ -6433,11 +6433,11 @@ _ZN5arrow6StatusD2Ev.exit153.i.i.i.i.i:           ; preds = %.noexc12.i, %_ZN5ar
   %213 = load ptr, ptr %96, align 8, !tbaa !625, !noalias !647
   %214 = load ptr, ptr %21, align 8, !tbaa !650, !noalias !647
   %215 = load ptr, ptr %214, align 8, !tbaa !243, !noalias !647
-  %216 = getelementptr inbounds i32, ptr %215, i64 %.2239.i.i.i.i.i
+  %216 = getelementptr inbounds [4 x i8], ptr %215, i64 %.2239.i.i.i.i.i
   %217 = load i32, ptr %216, align 4, !tbaa !75, !noalias !647
   %218 = load ptr, ptr %95, align 8, !tbaa !651, !noalias !647
   %219 = load ptr, ptr %218, align 8, !tbaa !243, !noalias !647
-  %220 = getelementptr inbounds i32, ptr %219, i64 %.2239.i.i.i.i.i
+  %220 = getelementptr inbounds [4 x i8], ptr %219, i64 %.2239.i.i.i.i.i
   %221 = load i32, ptr %220, align 4, !tbaa !75, !noalias !647
   %222 = getelementptr inbounds nuw i8, ptr %213, i64 144
   %223 = load ptr, ptr %222, align 8, !tbaa !225, !noalias !647
@@ -6527,12 +6527,12 @@ _ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i:           ; preds = %.lr.ph232.i.i.i.i.i
   %269 = load ptr, ptr %268, align 8, !tbaa !625, !noalias !663
   %270 = load ptr, ptr %267, align 8, !tbaa !650, !noalias !663
   %271 = load ptr, ptr %270, align 8, !tbaa !243, !noalias !663
-  %272 = getelementptr inbounds i32, ptr %271, i64 %.7230.i.i.i.i.i
+  %272 = getelementptr inbounds [4 x i8], ptr %271, i64 %.7230.i.i.i.i.i
   %273 = load i32, ptr %272, align 4, !tbaa !75, !noalias !663
   %274 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %275 = load ptr, ptr %274, align 8, !tbaa !651, !noalias !663
   %276 = load ptr, ptr %275, align 8, !tbaa !243, !noalias !663
-  %277 = getelementptr inbounds i32, ptr %276, i64 %.7230.i.i.i.i.i
+  %277 = getelementptr inbounds [4 x i8], ptr %276, i64 %.7230.i.i.i.i.i
   %278 = load i32, ptr %277, align 4, !tbaa !75, !noalias !663
   %279 = getelementptr inbounds nuw i8, ptr %269, i64 144
   %280 = load ptr, ptr %279, align 8, !tbaa !225, !noalias !663
@@ -7042,12 +7042,12 @@ _ZN5arrow6StatusD2Ev.exit24.i.i:                  ; preds = %76, %_ZN5arrow6Stat
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %90 = load ptr, ptr %89, align 8, !tbaa !155, !noalias !730
-  %91 = getelementptr inbounds i64, ptr %90, i64 %87
+  %91 = getelementptr inbounds [8 x i8], ptr %90, i64 %87
   store ptr %91, ptr %17, align 8, !tbaa !441, !noalias !730
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !730
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 80
   %93 = load ptr, ptr %92, align 8, !tbaa !155, !noalias !730
-  %94 = getelementptr inbounds i64, ptr %93, i64 %87
+  %94 = getelementptr inbounds [8 x i8], ptr %93, i64 %87
   store ptr %94, ptr %18, align 8, !tbaa !441, !noalias !730
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !730
   store i64 0, ptr %19, align 8, !tbaa !164, !noalias !730
@@ -7356,11 +7356,11 @@ _ZN5arrow6StatusD2Ev.exit153.i.i.i.i.i:           ; preds = %.noexc12.i, %_ZN5ar
   %213 = load ptr, ptr %96, align 8, !tbaa !734, !noalias !756
   %214 = load ptr, ptr %21, align 8, !tbaa !759, !noalias !756
   %215 = load ptr, ptr %214, align 8, !tbaa !441, !noalias !756
-  %216 = getelementptr inbounds i64, ptr %215, i64 %.2239.i.i.i.i.i
+  %216 = getelementptr inbounds [8 x i8], ptr %215, i64 %.2239.i.i.i.i.i
   %217 = load i64, ptr %216, align 8, !tbaa !164, !noalias !756
   %218 = load ptr, ptr %95, align 8, !tbaa !760, !noalias !756
   %219 = load ptr, ptr %218, align 8, !tbaa !441, !noalias !756
-  %220 = getelementptr inbounds i64, ptr %219, i64 %.2239.i.i.i.i.i
+  %220 = getelementptr inbounds [8 x i8], ptr %219, i64 %.2239.i.i.i.i.i
   %221 = load i64, ptr %220, align 8, !tbaa !164, !noalias !756
   %222 = getelementptr inbounds nuw i8, ptr %213, i64 144
   %223 = load ptr, ptr %222, align 8, !tbaa !225, !noalias !756
@@ -7450,12 +7450,12 @@ _ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i:           ; preds = %.lr.ph232.i.i.i.i.i
   %269 = load ptr, ptr %268, align 8, !tbaa !734, !noalias !772
   %270 = load ptr, ptr %267, align 8, !tbaa !759, !noalias !772
   %271 = load ptr, ptr %270, align 8, !tbaa !441, !noalias !772
-  %272 = getelementptr inbounds i64, ptr %271, i64 %.7230.i.i.i.i.i
+  %272 = getelementptr inbounds [8 x i8], ptr %271, i64 %.7230.i.i.i.i.i
   %273 = load i64, ptr %272, align 8, !tbaa !164, !noalias !772
   %274 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %275 = load ptr, ptr %274, align 8, !tbaa !760, !noalias !772
   %276 = load ptr, ptr %275, align 8, !tbaa !441, !noalias !772
-  %277 = getelementptr inbounds i64, ptr %276, i64 %.7230.i.i.i.i.i
+  %277 = getelementptr inbounds [8 x i8], ptr %276, i64 %.7230.i.i.i.i.i
   %278 = load i64, ptr %277, align 8, !tbaa !164, !noalias !772
   %279 = getelementptr inbounds nuw i8, ptr %269, i64 144
   %280 = load ptr, ptr %279, align 8, !tbaa !225, !noalias !772
@@ -8738,7 +8738,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i.i.i:        ; preds = %.noexc27.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i:         ; preds = %450
   %457 = lshr i64 %454, 3
-  %458 = getelementptr i64, ptr %452, i64 %457
+  %458 = getelementptr [8 x i8], ptr %452, i64 %457
   call void @llvm.memset.p0.i64(ptr align 8 %458, i8 0, i64 %455, i1 false), !tbaa !164, !noalias !953
   br label %_ZN5arrow6StatusD2Ev.exit179.i.i.i.i.i
 
@@ -9529,7 +9529,7 @@ _ZN5arrow6StatusD2Ev.exit153.i.i.i.i.i:           ; preds = %.noexc13.i.i.i, %_Z
   %224 = load i8, ptr %223, align 1, !tbaa !74, !noalias !1021
   %225 = sext i8 %224 to i64
   %226 = load ptr, ptr %220, align 8, !tbaa !1034, !noalias !1021
-  %227 = getelementptr inbounds nuw i32, ptr %226, i64 %225
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %225
   %228 = load i32, ptr %227, align 4, !tbaa !75, !noalias !1021
   %229 = zext i32 %228 to i64
   %230 = getelementptr inbounds nuw i8, ptr %216, i64 232
@@ -9550,11 +9550,11 @@ _ZN5arrow6StatusD2Ev.exit153.i.i.i.i.i:           ; preds = %.noexc13.i.i.i, %_Z
   %242 = load ptr, ptr %23, align 8, !tbaa !1024, !noalias !1021
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 72
   %244 = load ptr, ptr %243, align 8, !tbaa !1038, !noalias !1021
-  %245 = getelementptr inbounds i32, ptr %244, i64 %.2256.i.i.i.i.i
+  %245 = getelementptr inbounds [4 x i8], ptr %244, i64 %.2256.i.i.i.i.i
   %246 = load i32, ptr %245, align 4, !tbaa !75, !noalias !1021
   %247 = getelementptr inbounds nuw i8, ptr %216, i64 256
   %248 = load ptr, ptr %247, align 8, !tbaa !1040, !noalias !1021
-  %249 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %248, i64 %231
+  %249 = getelementptr inbounds nuw [216 x i8], ptr %248, i64 %231
   %250 = load ptr, ptr %249, align 8, !tbaa !41, !noalias !1021
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %252 = load ptr, ptr %251, align 8, !noalias !1021
@@ -9574,7 +9574,7 @@ _ZN5arrow6StatusD2Ev.exit153.i.i.i.i.i:           ; preds = %.noexc13.i.i.i, %_Z
   store i64 %261, ptr %257, align 8, !tbaa !280, !noalias !1021
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1021
   %262 = load ptr, ptr %247, align 8, !tbaa !1040, !noalias !1021
-  %263 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %262, i64 %231
+  %263 = getelementptr inbounds nuw [216 x i8], ptr %262, i64 %231
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 112
   %265 = load i64, ptr %264, align 8, !tbaa !291, !noalias !1043
   %266 = load ptr, ptr %263, align 8, !tbaa !41, !noalias !1043
@@ -9609,7 +9609,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %.noexc28.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit155.i.i.i.i.i:           ; preds = %.noexc29.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i
   %276 = load ptr, ptr %247, align 8, !tbaa !1040, !noalias !1021
-  %277 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %276, i64 %231
+  %277 = getelementptr inbounds nuw [216 x i8], ptr %276, i64 %231
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 48
   %279 = load ptr, ptr %278, align 8, !tbaa !225, !noalias !1021
   %280 = getelementptr inbounds nuw i8, ptr %277, i64 80
@@ -10695,7 +10695,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %198, %
   %229 = load ptr, ptr %95, align 8, !tbaa !1188, !noalias !1184
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 56
   %231 = load ptr, ptr %230, align 8, !tbaa !282, !noalias !1184
-  %232 = getelementptr inbounds i32, ptr %231, i64 %.2267.i.i.i.i.i
+  %232 = getelementptr inbounds [4 x i8], ptr %231, i64 %.2267.i.i.i.i.i
   %233 = load i32, ptr %232, align 4, !tbaa !75, !noalias !1184
   %234 = getelementptr i8, ptr %232, i64 4
   %235 = load i32, ptr %234, align 4, !tbaa !75, !noalias !1184
@@ -11886,7 +11886,7 @@ _ZN5arrow6StatusD2Ev.exit83.i.i:                  ; preds = %164, %160, %_ZN5arr
   br i1 %182, label %183, label %_ZN5arrow6StatusD2Ev.exit85.i.i
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %173, i64 %170
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %170
   %.not.i.i.i.i.i = icmp eq ptr %172, %184
   br i1 %.not.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit85.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -12517,7 +12517,7 @@ _ZN5arrow6StatusD2Ev.exit83.i.i:                  ; preds = %164, %160, %_ZN5arr
   br i1 %182, label %183, label %_ZN5arrow6StatusD2Ev.exit85.i.i
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %173, i64 %170
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %170
   %.not.i.i.i.i.i = icmp eq ptr %172, %184
   br i1 %.not.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit85.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -16033,7 +16033,7 @@ _ZN5arrow6StatusD2Ev.exit83.i.i:                  ; preds = %163, %159, %_ZN5arr
   br i1 %181, label %182, label %_ZN5arrow6StatusD2Ev.exit85.i.i
 
 182:                                              ; preds = %180
-  %183 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %172, i64 %169
+  %183 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %169
   %.not.i.i.i.i.i = icmp eq ptr %171, %183
   br i1 %.not.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit85.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -16743,7 +16743,7 @@ _ZN5arrow6StatusD2Ev.exit83.i.i:                  ; preds = %152, %148, %_ZN5arr
   br i1 %170, label %171, label %_ZN5arrow6StatusD2Ev.exit85.i.i
 
 171:                                              ; preds = %169
-  %172 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %161, i64 %158
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %158
   %.not.i.i.i.i.i = icmp eq ptr %160, %172
   br i1 %.not.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit85.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -21361,7 +21361,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !75
   br label %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit
 
@@ -21487,7 +21487,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !75
   br label %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit
 
@@ -21511,8 +21511,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int32TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
-  %12 = getelementptr inbounds i32, ptr %11, i64 %3
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !155
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int32TypeEE12AppendValuesEPKilPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -25246,7 +25246,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionI
   br i1 %21, label %22, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -25484,7 +25484,7 @@ define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19Selection
   %33 = load ptr, ptr %32, align 8, !tbaa !281, !noalias !1966
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !282, !noalias !1966
-  %36 = getelementptr inbounds i32, ptr %35, i64 %2
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %2
   %37 = load i32, ptr %36, align 4, !tbaa !75, !noalias !1966
   %38 = getelementptr i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !75, !noalias !1966
@@ -25809,7 +25809,7 @@ declare void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr noundef, i64 noundef, i64 n
 define linkonce_odr noundef i32 @_ZNK5arrow13BaseListArrayINS_8ListTypeEE12value_lengthEl(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !282
-  %5 = getelementptr i32, ptr %4, i64 %1
+  %5 = getelementptr [4 x i8], ptr %4, i64 %1
   %6 = getelementptr i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !75
   %8 = load i32, ptr %5, align 4, !tbaa !75
@@ -25901,9 +25901,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !1340
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !1338
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !1872
   br label %39
 
@@ -27495,7 +27495,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !164
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit
 
@@ -27621,7 +27621,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !164
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit
 
@@ -27641,8 +27641,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int64TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
-  %12 = getelementptr inbounds i64, ptr %11, i64 %3
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !155
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int64TypeEE12AppendValuesEPKllPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -28738,7 +28738,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionI
   br i1 %21, label %22, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -28868,7 +28868,7 @@ define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19Selection
   %33 = load ptr, ptr %32, align 8, !tbaa !467, !noalias !2134
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !468, !noalias !2134
-  %36 = getelementptr inbounds i64, ptr %35, i64 %2
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %2
   %37 = load i64, ptr %36, align 8, !tbaa !164, !noalias !2134
   %38 = getelementptr i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !164, !noalias !2134
@@ -29620,7 +29620,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionI
   br i1 %21, label %22, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -29756,12 +29756,12 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread: ; preds = %3, %_ZNK5arr
   %36 = load ptr, ptr %35, align 8, !tbaa !625, !noalias !2214
   %37 = load ptr, ptr %34, align 8, !tbaa !650, !noalias !2214
   %38 = load ptr, ptr %37, align 8, !tbaa !243, !noalias !2214
-  %39 = getelementptr inbounds i32, ptr %38, i64 %2
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %2
   %40 = load i32, ptr %39, align 4, !tbaa !75, !noalias !2214
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !651, !noalias !2214
   %43 = load ptr, ptr %42, align 8, !tbaa !243, !noalias !2214
-  %44 = getelementptr inbounds i32, ptr %43, i64 %2
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %2
   %45 = load i32, ptr %44, align 4, !tbaa !75, !noalias !2214
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %47 = load ptr, ptr %46, align 8, !tbaa !225, !noalias !2214
@@ -30450,7 +30450,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionI
   br i1 %21, label %22, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -30586,12 +30586,12 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread: ; preds = %3, %_ZNK5arr
   %36 = load ptr, ptr %35, align 8, !tbaa !734, !noalias !2277
   %37 = load ptr, ptr %34, align 8, !tbaa !759, !noalias !2277
   %38 = load ptr, ptr %37, align 8, !tbaa !441, !noalias !2277
-  %39 = getelementptr inbounds i64, ptr %38, i64 %2
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %2
   %40 = load i64, ptr %39, align 8, !tbaa !164, !noalias !2277
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !760, !noalias !2277
   %43 = load ptr, ptr %42, align 8, !tbaa !441, !noalias !2277
-  %44 = getelementptr inbounds i64, ptr %43, i64 %2
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %2
   %45 = load i64, ptr %44, align 8, !tbaa !164, !noalias !2277
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %47 = load ptr, ptr %46, align 8, !tbaa !225, !noalias !2277
@@ -32031,7 +32031,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionI
   br i1 %21, label %22, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -32297,7 +32297,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %77
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %115
   %122 = lshr i64 %119, 3
-  %123 = getelementptr i64, ptr %117, i64 %122
+  %123 = getelementptr [8 x i8], ptr %117, i64 %122
   call void @llvm.memset.p0.i64(ptr align 8 %123, i8 0, i64 %120, i1 false), !tbaa !164, !noalias !2341
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit.i.i.i
 
@@ -32440,7 +32440,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i:            ; preds = %23
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i:             ; preds = %60
   %67 = lshr i64 %64, 3
-  %68 = getelementptr i64, ptr %62, i64 %67
+  %68 = getelementptr [8 x i8], ptr %62, i64 %67
   call void @llvm.memset.p0.i64(ptr align 8 %68, i8 0, i64 %65, i1 false), !tbaa !164, !noalias !2357
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit.i.i.i.i.i.i
 
@@ -32673,7 +32673,7 @@ _ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.e
   store ptr %74, ptr %73, align 8, !tbaa !1040
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %74, ptr %75, align 8, !tbaa !2373
-  %76 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %74, i64 %63
+  %76 = getelementptr inbounds nuw [216 x i8], ptr %74, i64 %63
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %76, ptr %77, align 8, !tbaa !2374
   %78 = invoke noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN5arrow14NumericBuilderINS2_9Int32TypeEEEmEET_S7_T0_(ptr noundef %74, i64 noundef %63)
@@ -33837,7 +33837,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %178 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %194 = load ptr, ptr %170, align 8, !tbaa !1040
-  %195 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %194, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [216 x i8], ptr %194, i64 %indvars.iv
   invoke void @_ZN5arrow12ArrayBuilder6FinishEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Result.182") align 8 %14, ptr noundef nonnull align 8 dereferenceable(144) %195)
           to label %196 unwind label %200
 
@@ -36088,7 +36088,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !1953
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !1955
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.110", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !1952
   ret void
 }
@@ -36129,7 +36129,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionI
   br i1 %21, label %22, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -36235,7 +36235,7 @@ define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUni
   %14 = load i8, ptr %13, align 1, !tbaa !74
   %15 = sext i8 %14 to i64
   %16 = load ptr, ptr %10, align 8, !tbaa !1034
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4, !tbaa !75
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 232
@@ -36256,11 +36256,11 @@ define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUni
   %32 = load ptr, ptr %1, align 8, !tbaa !1024
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8, !tbaa !1038
-  %35 = getelementptr inbounds i32, ptr %34, i64 %2
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %2
   %36 = load i32, ptr %35, align 4, !tbaa !75
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %38 = load ptr, ptr %37, align 8, !tbaa !1040
-  %39 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %38, i64 %21
+  %39 = getelementptr inbounds nuw [216 x i8], ptr %38, i64 %21
   %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -36277,7 +36277,7 @@ define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUni
   store i64 %51, ptr %47, align 8, !tbaa !280
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = load ptr, ptr %37, align 8, !tbaa !1040
-  %53 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %52, i64 %21
+  %53 = getelementptr inbounds nuw [216 x i8], ptr %52, i64 %21
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %55 = load i64, ptr %54, align 8, !tbaa !291, !noalias !2460
   %56 = load ptr, ptr %53, align 8, !tbaa !41, !noalias !2460
@@ -36306,7 +36306,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 _ZN5arrow6StatusD2Ev.exit12:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
   %66 = load ptr, ptr %37, align 8, !tbaa !1040
-  %67 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %66, i64 %21
+  %67 = getelementptr inbounds nuw [216 x i8], ptr %66, i64 %21
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8, !tbaa !225
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 80
@@ -37866,7 +37866,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionI
   br i1 %21, label %22, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.136", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -37996,7 +37996,7 @@ define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19Selection
   %33 = load ptr, ptr %32, align 8, !tbaa !1188, !noalias !2530
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !282, !noalias !2530
-  %36 = getelementptr inbounds i32, ptr %35, i64 %2
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %2
   %37 = load i32, ptr %36, align 4, !tbaa !75, !noalias !2530
   %38 = getelementptr i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !75, !noalias !2530
@@ -38618,7 +38618,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -38627,7 +38627,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %21 = load i32, ptr %20, align 4, !tbaa !75
   %22 = load i32, ptr %13, align 4, !tbaa !75
   %23 = sub nsw i32 %21, %22
@@ -38755,7 +38755,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %93 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2600
   %94 = add nsw i64 %93, 4
   store i64 %94, ptr %72, align 8, !tbaa !280, !noalias !2600
-  %95 = getelementptr inbounds nuw i32, ptr %13, i64 %89
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %89
   %96 = load i32, ptr %95, align 4, !tbaa !75, !noalias !2600
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !75, !noalias !2600
@@ -38884,7 +38884,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %158 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2612
   %159 = add nsw i64 %158, 4
   store i64 %159, ptr %72, align 8, !tbaa !280, !noalias !2612
-  %160 = getelementptr inbounds nuw i32, ptr %13, i64 %154
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %154
   %161 = load i32, ptr %160, align 4, !tbaa !75, !noalias !2612
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !75, !noalias !2612
@@ -39059,7 +39059,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -39068,7 +39068,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %21 = load i32, ptr %20, align 4, !tbaa !75
   %22 = load i32, ptr %13, align 4, !tbaa !75
   %23 = sub nsw i32 %21, %22
@@ -39125,7 +39125,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !155, !noalias !2642
-  %52 = getelementptr inbounds i16, ptr %51, i64 %48
+  %52 = getelementptr inbounds [2 x i8], ptr %51, i64 %48
   %53 = load ptr, ptr %49, align 8, !tbaa !155, !noalias !2642
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !155, !noalias !2642
@@ -39186,7 +39186,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %.058127.i.i = phi i64 [ %118, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %80 ]
   %.160126.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059137.i.i, %80 ]
   %86 = add nsw i64 %.160126.i.i, 1
-  %87 = getelementptr inbounds i16, ptr %52, i64 %.160126.i.i
+  %87 = getelementptr inbounds [2 x i8], ptr %52, i64 %.160126.i.i
   %88 = load i16, ptr %87, align 2, !tbaa !162, !noalias !2642
   %89 = zext i16 %88 to i64
   %90 = load ptr, ptr %71, align 8, !tbaa !225, !noalias !2647
@@ -39196,7 +39196,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %93 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2647
   %94 = add nsw i64 %93, 4
   store i64 %94, ptr %72, align 8, !tbaa !280, !noalias !2647
-  %95 = getelementptr inbounds nuw i32, ptr %13, i64 %89
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %89
   %96 = load i32, ptr %95, align 4, !tbaa !75, !noalias !2647
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !75, !noalias !2647
@@ -39286,7 +39286,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %122
   br i1 %130, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit95.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %122
-  %131 = getelementptr inbounds i16, ptr %52, i64 %.564131.i.i
+  %131 = getelementptr inbounds [2 x i8], ptr %52, i64 %.564131.i.i
   br i1 %70, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -39325,7 +39325,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %158 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2659
   %159 = add nsw i64 %158, 4
   store i64 %159, ptr %72, align 8, !tbaa !280, !noalias !2659
-  %160 = getelementptr inbounds nuw i32, ptr %13, i64 %154
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %154
   %161 = load i32, ptr %160, align 4, !tbaa !75, !noalias !2659
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !75, !noalias !2659
@@ -39500,7 +39500,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -39509,7 +39509,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %21 = load i32, ptr %20, align 4, !tbaa !75
   %22 = load i32, ptr %13, align 4, !tbaa !75
   %23 = sub nsw i32 %21, %22
@@ -39566,7 +39566,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !155, !noalias !2689
-  %52 = getelementptr inbounds i32, ptr %51, i64 %48
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %48
   %53 = load ptr, ptr %49, align 8, !tbaa !155, !noalias !2689
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !155, !noalias !2689
@@ -39627,7 +39627,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %.058127.i.i = phi i64 [ %118, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %80 ]
   %.160126.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059137.i.i, %80 ]
   %86 = add nsw i64 %.160126.i.i, 1
-  %87 = getelementptr inbounds i32, ptr %52, i64 %.160126.i.i
+  %87 = getelementptr inbounds [4 x i8], ptr %52, i64 %.160126.i.i
   %88 = load i32, ptr %87, align 4, !tbaa !75, !noalias !2689
   %89 = zext i32 %88 to i64
   %90 = load ptr, ptr %71, align 8, !tbaa !225, !noalias !2694
@@ -39637,7 +39637,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %93 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2694
   %94 = add nsw i64 %93, 4
   store i64 %94, ptr %72, align 8, !tbaa !280, !noalias !2694
-  %95 = getelementptr inbounds nuw i32, ptr %13, i64 %89
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %89
   %96 = load i32, ptr %95, align 4, !tbaa !75, !noalias !2694
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !75, !noalias !2694
@@ -39727,7 +39727,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %122
   br i1 %130, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit95.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %122
-  %131 = getelementptr inbounds i32, ptr %52, i64 %.564131.i.i
+  %131 = getelementptr inbounds [4 x i8], ptr %52, i64 %.564131.i.i
   br i1 %70, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -39766,7 +39766,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %158 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2706
   %159 = add nsw i64 %158, 4
   store i64 %159, ptr %72, align 8, !tbaa !280, !noalias !2706
-  %160 = getelementptr inbounds nuw i32, ptr %13, i64 %154
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %154
   %161 = load i32, ptr %160, align 4, !tbaa !75, !noalias !2706
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !75, !noalias !2706
@@ -39941,7 +39941,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -39950,7 +39950,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %21 = load i32, ptr %20, align 4, !tbaa !75
   %22 = load i32, ptr %13, align 4, !tbaa !75
   %23 = sub nsw i32 %21, %22
@@ -40007,7 +40007,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !155, !noalias !2736
-  %52 = getelementptr inbounds i64, ptr %51, i64 %48
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %48
   %53 = load ptr, ptr %49, align 8, !tbaa !155, !noalias !2736
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !155, !noalias !2736
@@ -40068,7 +40068,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %.058127.i.i = phi i64 [ %117, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %80 ]
   %.160126.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059137.i.i, %80 ]
   %86 = add nsw i64 %.160126.i.i, 1
-  %87 = getelementptr inbounds i64, ptr %52, i64 %.160126.i.i
+  %87 = getelementptr inbounds [8 x i8], ptr %52, i64 %.160126.i.i
   %88 = load i64, ptr %87, align 8, !tbaa !164, !noalias !2736
   %89 = load ptr, ptr %71, align 8, !tbaa !225, !noalias !2741
   %90 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2741
@@ -40077,7 +40077,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %92 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2741
   %93 = add nsw i64 %92, 4
   store i64 %93, ptr %72, align 8, !tbaa !280, !noalias !2741
-  %94 = getelementptr inbounds i32, ptr %13, i64 %88
+  %94 = getelementptr inbounds [4 x i8], ptr %13, i64 %88
   %95 = load i32, ptr %94, align 4, !tbaa !75, !noalias !2741
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !2741
@@ -40167,7 +40167,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %121
   br i1 %129, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit95.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %121
-  %130 = getelementptr inbounds i64, ptr %52, i64 %.564131.i.i
+  %130 = getelementptr inbounds [8 x i8], ptr %52, i64 %.564131.i.i
   br i1 %70, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -40204,7 +40204,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %155 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2753
   %156 = add nsw i64 %155, 4
   store i64 %156, ptr %72, align 8, !tbaa !280, !noalias !2753
-  %157 = getelementptr inbounds i32, ptr %13, i64 %151
+  %157 = getelementptr inbounds [4 x i8], ptr %13, i64 %151
   %158 = load i32, ptr %157, align 4, !tbaa !75, !noalias !2753
   %159 = getelementptr i8, ptr %157, i64 4
   %160 = load i32, ptr %159, align 4, !tbaa !75, !noalias !2753
@@ -40780,7 +40780,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i64, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -40789,7 +40789,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %21 = load i64, ptr %20, align 8, !tbaa !164
   %22 = load i64, ptr %13, align 8, !tbaa !164
   %23 = sub nsw i64 %21, %22
@@ -40917,7 +40917,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %93 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2804
   %94 = add nsw i64 %93, 8
   store i64 %94, ptr %72, align 8, !tbaa !280, !noalias !2804
-  %95 = getelementptr inbounds nuw i64, ptr %13, i64 %89
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %89
   %96 = load i64, ptr %95, align 8, !tbaa !164, !noalias !2804
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load i64, ptr %97, align 8, !tbaa !164, !noalias !2804
@@ -41044,7 +41044,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %156 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2816
   %157 = add nsw i64 %156, 8
   store i64 %157, ptr %72, align 8, !tbaa !280, !noalias !2816
-  %158 = getelementptr inbounds nuw i64, ptr %13, i64 %152
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %152
   %159 = load i64, ptr %158, align 8, !tbaa !164, !noalias !2816
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %161 = load i64, ptr %160, align 8, !tbaa !164, !noalias !2816
@@ -41217,7 +41217,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i64, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -41226,7 +41226,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %21 = load i64, ptr %20, align 8, !tbaa !164
   %22 = load i64, ptr %13, align 8, !tbaa !164
   %23 = sub nsw i64 %21, %22
@@ -41283,7 +41283,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !155, !noalias !2846
-  %52 = getelementptr inbounds i16, ptr %51, i64 %48
+  %52 = getelementptr inbounds [2 x i8], ptr %51, i64 %48
   %53 = load ptr, ptr %49, align 8, !tbaa !155, !noalias !2846
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !155, !noalias !2846
@@ -41344,7 +41344,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %.058127.i.i = phi i64 [ %116, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %80 ]
   %.160126.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059137.i.i, %80 ]
   %86 = add nsw i64 %.160126.i.i, 1
-  %87 = getelementptr inbounds i16, ptr %52, i64 %.160126.i.i
+  %87 = getelementptr inbounds [2 x i8], ptr %52, i64 %.160126.i.i
   %88 = load i16, ptr %87, align 2, !tbaa !162, !noalias !2846
   %89 = zext i16 %88 to i64
   %90 = load ptr, ptr %71, align 8, !tbaa !225, !noalias !2851
@@ -41354,7 +41354,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %93 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2851
   %94 = add nsw i64 %93, 8
   store i64 %94, ptr %72, align 8, !tbaa !280, !noalias !2851
-  %95 = getelementptr inbounds nuw i64, ptr %13, i64 %89
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %89
   %96 = load i64, ptr %95, align 8, !tbaa !164, !noalias !2851
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load i64, ptr %97, align 8, !tbaa !164, !noalias !2851
@@ -41442,7 +41442,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %120
   br i1 %128, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit95.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %120
-  %129 = getelementptr inbounds i16, ptr %52, i64 %.564131.i.i
+  %129 = getelementptr inbounds [2 x i8], ptr %52, i64 %.564131.i.i
   br i1 %70, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -41481,7 +41481,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %156 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2863
   %157 = add nsw i64 %156, 8
   store i64 %157, ptr %72, align 8, !tbaa !280, !noalias !2863
-  %158 = getelementptr inbounds nuw i64, ptr %13, i64 %152
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %152
   %159 = load i64, ptr %158, align 8, !tbaa !164, !noalias !2863
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %161 = load i64, ptr %160, align 8, !tbaa !164, !noalias !2863
@@ -41654,7 +41654,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i64, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -41663,7 +41663,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %21 = load i64, ptr %20, align 8, !tbaa !164
   %22 = load i64, ptr %13, align 8, !tbaa !164
   %23 = sub nsw i64 %21, %22
@@ -41720,7 +41720,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !155, !noalias !2893
-  %52 = getelementptr inbounds i32, ptr %51, i64 %48
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %48
   %53 = load ptr, ptr %49, align 8, !tbaa !155, !noalias !2893
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !155, !noalias !2893
@@ -41781,7 +41781,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %.058127.i.i = phi i64 [ %116, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %80 ]
   %.160126.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059137.i.i, %80 ]
   %86 = add nsw i64 %.160126.i.i, 1
-  %87 = getelementptr inbounds i32, ptr %52, i64 %.160126.i.i
+  %87 = getelementptr inbounds [4 x i8], ptr %52, i64 %.160126.i.i
   %88 = load i32, ptr %87, align 4, !tbaa !75, !noalias !2893
   %89 = zext i32 %88 to i64
   %90 = load ptr, ptr %71, align 8, !tbaa !225, !noalias !2898
@@ -41791,7 +41791,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %93 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2898
   %94 = add nsw i64 %93, 8
   store i64 %94, ptr %72, align 8, !tbaa !280, !noalias !2898
-  %95 = getelementptr inbounds nuw i64, ptr %13, i64 %89
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %89
   %96 = load i64, ptr %95, align 8, !tbaa !164, !noalias !2898
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load i64, ptr %97, align 8, !tbaa !164, !noalias !2898
@@ -41879,7 +41879,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %120
   br i1 %128, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit95.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %120
-  %129 = getelementptr inbounds i32, ptr %52, i64 %.564131.i.i
+  %129 = getelementptr inbounds [4 x i8], ptr %52, i64 %.564131.i.i
   br i1 %70, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -41918,7 +41918,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %156 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2910
   %157 = add nsw i64 %156, 8
   store i64 %157, ptr %72, align 8, !tbaa !280, !noalias !2910
-  %158 = getelementptr inbounds nuw i64, ptr %13, i64 %152
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %152
   %159 = load i64, ptr %158, align 8, !tbaa !164, !noalias !2910
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %161 = load i64, ptr %160, align 8, !tbaa !164, !noalias !2910
@@ -42091,7 +42091,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   %10 = load i64, ptr %9, align 8, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = getelementptr inbounds i64, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -42100,7 +42100,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinary
   br i1 %18, label %19, label %_ZN5arrow6StatusD2Ev.exit17
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %21 = load i64, ptr %20, align 8, !tbaa !164
   %22 = load i64, ptr %13, align 8, !tbaa !164
   %23 = sub nsw i64 %21, %22
@@ -42157,7 +42157,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !155, !noalias !2940
-  %52 = getelementptr inbounds i64, ptr %51, i64 %48
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %48
   %53 = load ptr, ptr %49, align 8, !tbaa !155, !noalias !2940
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !155, !noalias !2940
@@ -42218,7 +42218,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %.058127.i.i = phi i64 [ %115, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %80 ]
   %.160126.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059137.i.i, %80 ]
   %86 = add nsw i64 %.160126.i.i, 1
-  %87 = getelementptr inbounds i64, ptr %52, i64 %.160126.i.i
+  %87 = getelementptr inbounds [8 x i8], ptr %52, i64 %.160126.i.i
   %88 = load i64, ptr %87, align 8, !tbaa !164, !noalias !2940
   %89 = load ptr, ptr %71, align 8, !tbaa !225, !noalias !2945
   %90 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2945
@@ -42227,7 +42227,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %92 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2945
   %93 = add nsw i64 %92, 8
   store i64 %93, ptr %72, align 8, !tbaa !280, !noalias !2945
-  %94 = getelementptr inbounds i64, ptr %13, i64 %88
+  %94 = getelementptr inbounds [8 x i8], ptr %13, i64 %88
   %95 = load i64, ptr %94, align 8, !tbaa !164, !noalias !2945
   %96 = getelementptr i8, ptr %94, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !164, !noalias !2945
@@ -42315,7 +42315,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %119
   br i1 %127, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit95.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %119
-  %128 = getelementptr inbounds i64, ptr %52, i64 %.564131.i.i
+  %128 = getelementptr inbounds [8 x i8], ptr %52, i64 %.564131.i.i
   br i1 %70, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -42352,7 +42352,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %153 = load i64, ptr %72, align 8, !tbaa !280, !noalias !2957
   %154 = add nsw i64 %153, 8
   store i64 %154, ptr %72, align 8, !tbaa !280, !noalias !2957
-  %155 = getelementptr inbounds i64, ptr %13, i64 %149
+  %155 = getelementptr inbounds [8 x i8], ptr %13, i64 %149
   %156 = load i64, ptr %155, align 8, !tbaa !164, !noalias !2957
   %157 = getelementptr i8, ptr %155, i64 8
   %158 = load i64, ptr %157, align 8, !tbaa !164, !noalias !2957
@@ -42673,7 +42673,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 4
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !2982
   %93 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !2982
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %95 = load i32, ptr %94, align 4, !tbaa !75, !noalias !2982
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !2982
@@ -42821,7 +42821,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %173 = add nsw i64 %172, 4
   store i64 %173, ptr %64, align 8, !tbaa !280, !noalias !2993
   %174 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !2993
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %168
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %168
   %176 = load i32, ptr %175, align 4, !tbaa !75, !noalias !2993
   %177 = getelementptr i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !75, !noalias !2993
@@ -43209,7 +43209,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !3011
-  %41 = getelementptr inbounds i16, ptr %40, i64 %37
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !3011
   %43 = load ptr, ptr %8, align 8, !tbaa !237, !noalias !3011
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -43286,7 +43286,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %132, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc14 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc14 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i16, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [2 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i16, ptr %85, align 2, !tbaa !162, !noalias !3011
   %87 = zext i16 %86 to i64
   %88 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !3016
@@ -43297,7 +43297,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 4
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !3016
   %93 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !3016
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %95 = load i32, ptr %94, align 4, !tbaa !75, !noalias !3016
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !3016
@@ -43405,7 +43405,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %136
   br i1 %144, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %136
-  %145 = getelementptr inbounds i16, ptr %41, i64 %.564138.i.i
+  %145 = getelementptr inbounds [2 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -43445,7 +43445,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %173 = add nsw i64 %172, 4
   store i64 %173, ptr %64, align 8, !tbaa !280, !noalias !3027
   %174 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !3027
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %168
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %168
   %176 = load i32, ptr %175, align 4, !tbaa !75, !noalias !3027
   %177 = getelementptr i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !75, !noalias !3027
@@ -43833,7 +43833,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !3045
-  %41 = getelementptr inbounds i32, ptr %40, i64 %37
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !3045
   %43 = load ptr, ptr %8, align 8, !tbaa !237, !noalias !3045
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -43910,7 +43910,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %132, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc14 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc14 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i32, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [4 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i32, ptr %85, align 4, !tbaa !75, !noalias !3045
   %87 = zext i32 %86 to i64
   %88 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !3050
@@ -43921,7 +43921,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 4
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !3050
   %93 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !3050
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %95 = load i32, ptr %94, align 4, !tbaa !75, !noalias !3050
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !3050
@@ -44029,7 +44029,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %136
   br i1 %144, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %136
-  %145 = getelementptr inbounds i32, ptr %41, i64 %.564138.i.i
+  %145 = getelementptr inbounds [4 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -44069,7 +44069,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %173 = add nsw i64 %172, 4
   store i64 %173, ptr %64, align 8, !tbaa !280, !noalias !3061
   %174 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !3061
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %168
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %168
   %176 = load i32, ptr %175, align 4, !tbaa !75, !noalias !3061
   %177 = getelementptr i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !75, !noalias !3061
@@ -44457,7 +44457,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !3079
-  %41 = getelementptr inbounds i64, ptr %40, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !3079
   %43 = load ptr, ptr %8, align 8, !tbaa !237, !noalias !3079
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -44534,7 +44534,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %131, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc14 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc14 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i64, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [8 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i64, ptr %85, align 8, !tbaa !164, !noalias !3079
   %87 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !3084
   %88 = load i64, ptr %64, align 8, !tbaa !280, !noalias !3084
@@ -44544,7 +44544,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %91 = add nsw i64 %90, 4
   store i64 %91, ptr %64, align 8, !tbaa !280, !noalias !3084
   %92 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !3084
-  %93 = getelementptr inbounds i32, ptr %92, i64 %86
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %86
   %94 = load i32, ptr %93, align 4, !tbaa !75, !noalias !3084
   %95 = getelementptr i8, ptr %93, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !75, !noalias !3084
@@ -44652,7 +44652,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %135
   br i1 %143, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %135
-  %144 = getelementptr inbounds i64, ptr %41, i64 %.564138.i.i
+  %144 = getelementptr inbounds [8 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -44690,7 +44690,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %170 = add nsw i64 %169, 4
   store i64 %170, ptr %64, align 8, !tbaa !280, !noalias !3095
   %171 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !3095
-  %172 = getelementptr inbounds i32, ptr %171, i64 %165
+  %172 = getelementptr inbounds [4 x i8], ptr %171, i64 %165
   %173 = load i32, ptr %172, align 4, !tbaa !75, !noalias !3095
   %174 = getelementptr i8, ptr %172, i64 4
   %175 = load i32, ptr %174, align 4, !tbaa !75, !noalias !3095
@@ -45168,7 +45168,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 8
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !3118
   %93 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3118
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %87
   %95 = load i64, ptr %94, align 8, !tbaa !164, !noalias !3118
   %96 = getelementptr i8, ptr %94, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !164, !noalias !3118
@@ -45315,7 +45315,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %172 = add nsw i64 %171, 8
   store i64 %172, ptr %64, align 8, !tbaa !280, !noalias !3129
   %173 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3129
-  %174 = getelementptr inbounds nuw i64, ptr %173, i64 %167
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %167
   %175 = load i64, ptr %174, align 8, !tbaa !164, !noalias !3129
   %176 = getelementptr i8, ptr %174, i64 8
   %177 = load i64, ptr %176, align 8, !tbaa !164, !noalias !3129
@@ -45705,7 +45705,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !3147
-  %41 = getelementptr inbounds i16, ptr %40, i64 %37
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !3147
   %43 = load ptr, ptr %8, align 8, !tbaa !435, !noalias !3147
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -45782,7 +45782,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %131, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc12 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc12 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i16, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [2 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i16, ptr %85, align 2, !tbaa !162, !noalias !3147
   %87 = zext i16 %86 to i64
   %88 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !3152
@@ -45793,7 +45793,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 8
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !3152
   %93 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3152
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %87
   %95 = load i64, ptr %94, align 8, !tbaa !164, !noalias !3152
   %96 = getelementptr i8, ptr %94, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !164, !noalias !3152
@@ -45900,7 +45900,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %135
   br i1 %143, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %135
-  %144 = getelementptr inbounds i16, ptr %41, i64 %.564138.i.i
+  %144 = getelementptr inbounds [2 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -45940,7 +45940,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %172 = add nsw i64 %171, 8
   store i64 %172, ptr %64, align 8, !tbaa !280, !noalias !3163
   %173 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3163
-  %174 = getelementptr inbounds nuw i64, ptr %173, i64 %167
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %167
   %175 = load i64, ptr %174, align 8, !tbaa !164, !noalias !3163
   %176 = getelementptr i8, ptr %174, i64 8
   %177 = load i64, ptr %176, align 8, !tbaa !164, !noalias !3163
@@ -46330,7 +46330,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !3181
-  %41 = getelementptr inbounds i32, ptr %40, i64 %37
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !3181
   %43 = load ptr, ptr %8, align 8, !tbaa !435, !noalias !3181
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -46407,7 +46407,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %131, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc12 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc12 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i32, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [4 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i32, ptr %85, align 4, !tbaa !75, !noalias !3181
   %87 = zext i32 %86 to i64
   %88 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !3186
@@ -46418,7 +46418,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 8
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !3186
   %93 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3186
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %87
   %95 = load i64, ptr %94, align 8, !tbaa !164, !noalias !3186
   %96 = getelementptr i8, ptr %94, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !164, !noalias !3186
@@ -46525,7 +46525,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %135
   br i1 %143, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %135
-  %144 = getelementptr inbounds i32, ptr %41, i64 %.564138.i.i
+  %144 = getelementptr inbounds [4 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -46565,7 +46565,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %172 = add nsw i64 %171, 8
   store i64 %172, ptr %64, align 8, !tbaa !280, !noalias !3197
   %173 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3197
-  %174 = getelementptr inbounds nuw i64, ptr %173, i64 %167
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %167
   %175 = load i64, ptr %174, align 8, !tbaa !164, !noalias !3197
   %176 = getelementptr i8, ptr %174, i64 8
   %177 = load i64, ptr %176, align 8, !tbaa !164, !noalias !3197
@@ -46955,7 +46955,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !3215
-  %41 = getelementptr inbounds i64, ptr %40, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !3215
   %43 = load ptr, ptr %8, align 8, !tbaa !435, !noalias !3215
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -47032,7 +47032,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %130, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc12 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc12 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i64, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [8 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i64, ptr %85, align 8, !tbaa !164, !noalias !3215
   %87 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !3220
   %88 = load i64, ptr %64, align 8, !tbaa !280, !noalias !3220
@@ -47042,7 +47042,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %91 = add nsw i64 %90, 8
   store i64 %91, ptr %64, align 8, !tbaa !280, !noalias !3220
   %92 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3220
-  %93 = getelementptr inbounds i64, ptr %92, i64 %86
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %86
   %94 = load i64, ptr %93, align 8, !tbaa !164, !noalias !3220
   %95 = getelementptr i8, ptr %93, i64 8
   %96 = load i64, ptr %95, align 8, !tbaa !164, !noalias !3220
@@ -47149,7 +47149,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %134
   br i1 %142, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %134
-  %143 = getelementptr inbounds i64, ptr %41, i64 %.564138.i.i
+  %143 = getelementptr inbounds [8 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -47187,7 +47187,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %169 = add nsw i64 %168, 8
   store i64 %169, ptr %64, align 8, !tbaa !280, !noalias !3231
   %170 = load ptr, ptr %65, align 8, !tbaa !468, !noalias !3231
-  %171 = getelementptr inbounds i64, ptr %170, i64 %164
+  %171 = getelementptr inbounds [8 x i8], ptr %170, i64 %164
   %172 = load i64, ptr %171, align 8, !tbaa !164, !noalias !3231
   %173 = getelementptr i8, ptr %171, i64 8
   %174 = load i64, ptr %173, align 8, !tbaa !164, !noalias !3231
@@ -47513,10 +47513,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i32, ptr %13, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3249
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -47583,9 +47583,9 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6Stat
   %55 = getelementptr inbounds i8, ptr %22, i64 %.160116.i.i
   %56 = load i8, ptr %55, align 1, !tbaa !74, !noalias !3249
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !75, !noalias !3254
-  %60 = getelementptr inbounds nuw i32, ptr %14, i64 %57
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %57
   %61 = load i32, ptr %60, align 4, !tbaa !75, !noalias !3254
   %62 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3254
   %63 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3254
@@ -47669,9 +47669,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   store i64 %107, ptr %36, align 8, !tbaa !214, !noalias !3249
   %108 = load i8, ptr %86, align 1, !tbaa !74, !noalias !3249
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %11, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !75, !noalias !3258
-  %112 = getelementptr inbounds nuw i32, ptr %14, i64 %109
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %109
   %113 = load i32, ptr %112, align 4, !tbaa !75, !noalias !3258
   %114 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3258
   %115 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3258
@@ -47797,10 +47797,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i32, ptr %13, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3273
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -47808,7 +47808,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !155, !noalias !3273
-  %22 = getelementptr inbounds i16, ptr %21, i64 %18
+  %22 = getelementptr inbounds [2 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %19, align 8, !tbaa !155, !noalias !3273
   %24 = load ptr, ptr %8, align 8, !tbaa !155, !noalias !3273
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -47864,12 +47864,12 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6StatusD2Ev.exit.i.i
   %.058117.i.i = phi i64 [ %73, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %49 ]
   %.160116.i.i = phi i64 [ %72, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059126.i.i, %49 ]
-  %55 = getelementptr inbounds i16, ptr %22, i64 %.160116.i.i
+  %55 = getelementptr inbounds [2 x i8], ptr %22, i64 %.160116.i.i
   %56 = load i16, ptr %55, align 2, !tbaa !162, !noalias !3273
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !75, !noalias !3278
-  %60 = getelementptr inbounds nuw i32, ptr %14, i64 %57
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %57
   %61 = load i32, ptr %60, align 4, !tbaa !75, !noalias !3278
   %62 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3278
   %63 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3278
@@ -47921,7 +47921,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %77
   br i1 %85, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit91.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %77
-  %86 = getelementptr inbounds i16, ptr %22, i64 %.564121.i.i
+  %86 = getelementptr inbounds [2 x i8], ptr %22, i64 %.564121.i.i
   br i1 %39, label %_ZN5arrow6StatusD2Ev.exit87.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -47953,9 +47953,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   store i64 %107, ptr %36, align 8, !tbaa !214, !noalias !3273
   %108 = load i16, ptr %86, align 2, !tbaa !162, !noalias !3273
   %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %11, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !75, !noalias !3282
-  %112 = getelementptr inbounds nuw i32, ptr %14, i64 %109
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %109
   %113 = load i32, ptr %112, align 4, !tbaa !75, !noalias !3282
   %114 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3282
   %115 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3282
@@ -48081,10 +48081,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i32, ptr %13, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3297
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -48092,7 +48092,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !155, !noalias !3297
-  %22 = getelementptr inbounds i32, ptr %21, i64 %18
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %19, align 8, !tbaa !155, !noalias !3297
   %24 = load ptr, ptr %8, align 8, !tbaa !155, !noalias !3297
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -48148,12 +48148,12 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6StatusD2Ev.exit.i.i
   %.058117.i.i = phi i64 [ %73, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %49 ]
   %.160116.i.i = phi i64 [ %72, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059126.i.i, %49 ]
-  %55 = getelementptr inbounds i32, ptr %22, i64 %.160116.i.i
+  %55 = getelementptr inbounds [4 x i8], ptr %22, i64 %.160116.i.i
   %56 = load i32, ptr %55, align 4, !tbaa !75, !noalias !3297
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !75, !noalias !3302
-  %60 = getelementptr inbounds nuw i32, ptr %14, i64 %57
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %57
   %61 = load i32, ptr %60, align 4, !tbaa !75, !noalias !3302
   %62 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3302
   %63 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3302
@@ -48205,7 +48205,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %77
   br i1 %85, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit91.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %77
-  %86 = getelementptr inbounds i32, ptr %22, i64 %.564121.i.i
+  %86 = getelementptr inbounds [4 x i8], ptr %22, i64 %.564121.i.i
   br i1 %39, label %_ZN5arrow6StatusD2Ev.exit87.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -48237,9 +48237,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   store i64 %107, ptr %36, align 8, !tbaa !214, !noalias !3297
   %108 = load i32, ptr %86, align 4, !tbaa !75, !noalias !3297
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %11, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !75, !noalias !3306
-  %112 = getelementptr inbounds nuw i32, ptr %14, i64 %109
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %109
   %113 = load i32, ptr %112, align 4, !tbaa !75, !noalias !3306
   %114 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3306
   %115 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3306
@@ -48365,10 +48365,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i32, ptr %13, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3321
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -48376,7 +48376,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !155, !noalias !3321
-  %22 = getelementptr inbounds i64, ptr %21, i64 %18
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %19, align 8, !tbaa !155, !noalias !3321
   %24 = load ptr, ptr %8, align 8, !tbaa !155, !noalias !3321
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -48432,11 +48432,11 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6StatusD2Ev.exit.i.i
   %.058117.i.i = phi i64 [ %72, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %49 ]
   %.160116.i.i = phi i64 [ %71, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059126.i.i, %49 ]
-  %55 = getelementptr inbounds i64, ptr %22, i64 %.160116.i.i
+  %55 = getelementptr inbounds [8 x i8], ptr %22, i64 %.160116.i.i
   %56 = load i64, ptr %55, align 8, !tbaa !164, !noalias !3321
-  %57 = getelementptr inbounds i32, ptr %11, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %11, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !75, !noalias !3326
-  %59 = getelementptr inbounds i32, ptr %14, i64 %56
+  %59 = getelementptr inbounds [4 x i8], ptr %14, i64 %56
   %60 = load i32, ptr %59, align 4, !tbaa !75, !noalias !3326
   %61 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3326
   %62 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3326
@@ -48488,7 +48488,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %76
   br i1 %84, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit91.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %76
-  %85 = getelementptr inbounds i64, ptr %22, i64 %.564121.i.i
+  %85 = getelementptr inbounds [8 x i8], ptr %22, i64 %.564121.i.i
   br i1 %39, label %_ZN5arrow6StatusD2Ev.exit87.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -48518,9 +48518,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   %105 = add nsw i64 %104, 1
   store i64 %105, ptr %36, align 8, !tbaa !214, !noalias !3321
   %106 = load i64, ptr %85, align 8, !tbaa !164, !noalias !3321
-  %107 = getelementptr inbounds i32, ptr %11, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %11, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !75, !noalias !3330
-  %109 = getelementptr inbounds i32, ptr %14, i64 %106
+  %109 = getelementptr inbounds [4 x i8], ptr %14, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !75, !noalias !3330
   %111 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3330
   %112 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3330
@@ -48646,10 +48646,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i64, ptr %13, i64 %7
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3345
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -48716,9 +48716,9 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6Stat
   %55 = getelementptr inbounds i8, ptr %22, i64 %.160116.i.i
   %56 = load i8, ptr %55, align 1, !tbaa !74, !noalias !3345
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %11, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !164, !noalias !3350
-  %60 = getelementptr inbounds nuw i64, ptr %14, i64 %57
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %57
   %61 = load i64, ptr %60, align 8, !tbaa !164, !noalias !3350
   %62 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3350
   %63 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3350
@@ -48802,9 +48802,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   store i64 %107, ptr %36, align 8, !tbaa !214, !noalias !3345
   %108 = load i8, ptr %86, align 1, !tbaa !74, !noalias !3345
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds nuw i64, ptr %11, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !164, !noalias !3354
-  %112 = getelementptr inbounds nuw i64, ptr %14, i64 %109
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %109
   %113 = load i64, ptr %112, align 8, !tbaa !164, !noalias !3354
   %114 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3354
   %115 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3354
@@ -48930,10 +48930,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i64, ptr %13, i64 %7
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3369
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -48941,7 +48941,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !155, !noalias !3369
-  %22 = getelementptr inbounds i16, ptr %21, i64 %18
+  %22 = getelementptr inbounds [2 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %19, align 8, !tbaa !155, !noalias !3369
   %24 = load ptr, ptr %8, align 8, !tbaa !155, !noalias !3369
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -48997,12 +48997,12 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6StatusD2Ev.exit.i.i
   %.058117.i.i = phi i64 [ %73, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %49 ]
   %.160116.i.i = phi i64 [ %72, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059126.i.i, %49 ]
-  %55 = getelementptr inbounds i16, ptr %22, i64 %.160116.i.i
+  %55 = getelementptr inbounds [2 x i8], ptr %22, i64 %.160116.i.i
   %56 = load i16, ptr %55, align 2, !tbaa !162, !noalias !3369
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %11, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !164, !noalias !3374
-  %60 = getelementptr inbounds nuw i64, ptr %14, i64 %57
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %57
   %61 = load i64, ptr %60, align 8, !tbaa !164, !noalias !3374
   %62 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3374
   %63 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3374
@@ -49054,7 +49054,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %77
   br i1 %85, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit91.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %77
-  %86 = getelementptr inbounds i16, ptr %22, i64 %.564121.i.i
+  %86 = getelementptr inbounds [2 x i8], ptr %22, i64 %.564121.i.i
   br i1 %39, label %_ZN5arrow6StatusD2Ev.exit87.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -49086,9 +49086,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   store i64 %107, ptr %36, align 8, !tbaa !214, !noalias !3369
   %108 = load i16, ptr %86, align 2, !tbaa !162, !noalias !3369
   %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw i64, ptr %11, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !164, !noalias !3378
-  %112 = getelementptr inbounds nuw i64, ptr %14, i64 %109
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %109
   %113 = load i64, ptr %112, align 8, !tbaa !164, !noalias !3378
   %114 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3378
   %115 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3378
@@ -49214,10 +49214,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i64, ptr %13, i64 %7
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3393
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -49225,7 +49225,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !155, !noalias !3393
-  %22 = getelementptr inbounds i32, ptr %21, i64 %18
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %19, align 8, !tbaa !155, !noalias !3393
   %24 = load ptr, ptr %8, align 8, !tbaa !155, !noalias !3393
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -49281,12 +49281,12 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6StatusD2Ev.exit.i.i
   %.058117.i.i = phi i64 [ %73, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %49 ]
   %.160116.i.i = phi i64 [ %72, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059126.i.i, %49 ]
-  %55 = getelementptr inbounds i32, ptr %22, i64 %.160116.i.i
+  %55 = getelementptr inbounds [4 x i8], ptr %22, i64 %.160116.i.i
   %56 = load i32, ptr %55, align 4, !tbaa !75, !noalias !3393
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %11, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !164, !noalias !3398
-  %60 = getelementptr inbounds nuw i64, ptr %14, i64 %57
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %57
   %61 = load i64, ptr %60, align 8, !tbaa !164, !noalias !3398
   %62 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3398
   %63 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3398
@@ -49338,7 +49338,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %77
   br i1 %85, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit91.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %77
-  %86 = getelementptr inbounds i32, ptr %22, i64 %.564121.i.i
+  %86 = getelementptr inbounds [4 x i8], ptr %22, i64 %.564121.i.i
   br i1 %39, label %_ZN5arrow6StatusD2Ev.exit87.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -49370,9 +49370,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   store i64 %107, ptr %36, align 8, !tbaa !214, !noalias !3393
   %108 = load i32, ptr %86, align 4, !tbaa !75, !noalias !3393
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i64, ptr %11, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !164, !noalias !3402
-  %112 = getelementptr inbounds nuw i64, ptr %14, i64 %109
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %109
   %113 = load i64, ptr %112, align 8, !tbaa !164, !noalias !3402
   %114 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3402
   %115 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3402
@@ -49498,10 +49498,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !155
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds i64, ptr %13, i64 %7
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3417
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -49509,7 +49509,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !155, !noalias !3417
-  %22 = getelementptr inbounds i64, ptr %21, i64 %18
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %19, align 8, !tbaa !155, !noalias !3417
   %24 = load ptr, ptr %8, align 8, !tbaa !155, !noalias !3417
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -49565,11 +49565,11 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewS
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %49, %_ZN5arrow6StatusD2Ev.exit.i.i
   %.058117.i.i = phi i64 [ %72, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %49 ]
   %.160116.i.i = phi i64 [ %71, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059126.i.i, %49 ]
-  %55 = getelementptr inbounds i64, ptr %22, i64 %.160116.i.i
+  %55 = getelementptr inbounds [8 x i8], ptr %22, i64 %.160116.i.i
   %56 = load i64, ptr %55, align 8, !tbaa !164, !noalias !3417
-  %57 = getelementptr inbounds i64, ptr %11, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %11, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !164, !noalias !3422
-  %59 = getelementptr inbounds i64, ptr %14, i64 %56
+  %59 = getelementptr inbounds [8 x i8], ptr %14, i64 %56
   %60 = load i64, ptr %59, align 8, !tbaa !164, !noalias !3422
   %61 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3422
   %62 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3422
@@ -49621,7 +49621,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %76
   br i1 %84, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit91.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %76
-  %85 = getelementptr inbounds i64, ptr %22, i64 %.564121.i.i
+  %85 = getelementptr inbounds [8 x i8], ptr %22, i64 %.564121.i.i
   br i1 %39, label %_ZN5arrow6StatusD2Ev.exit87.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -49651,9 +49651,9 @@ _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %_ZNK5arrow8internal
   %105 = add nsw i64 %104, 1
   store i64 %105, ptr %36, align 8, !tbaa !214, !noalias !3417
   %106 = load i64, ptr %85, align 8, !tbaa !164, !noalias !3417
-  %107 = getelementptr inbounds i64, ptr %11, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %11, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !164, !noalias !3426
-  %109 = getelementptr inbounds i64, ptr %14, i64 %106
+  %109 = getelementptr inbounds [8 x i8], ptr %14, i64 %106
   %110 = load i64, ptr %109, align 8, !tbaa !164, !noalias !3426
   %111 = load ptr, ptr %40, align 8, !tbaa !225, !noalias !3426
   %112 = load i64, ptr %41, align 8, !tbaa !280, !noalias !3426
@@ -50197,7 +50197,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %.noexc22
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %231
   %235 = lshr i64 %233, 3
-  %236 = getelementptr i64, ptr %232, i64 %235
+  %236 = getelementptr [8 x i8], ptr %232, i64 %235
   call void @llvm.memset.p0.i64(ptr align 8 %236, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3465
   br label %_ZN5arrow6StatusD2Ev.exit94.i.i
 
@@ -50271,7 +50271,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i100.i.i:             ; preds = %.noexc26
 
 .lr.ph.i.i.i.i.preheader.i.i98.i.i:               ; preds = %257
   %261 = lshr i64 %259, 3
-  %262 = getelementptr i64, ptr %258, i64 %261
+  %262 = getelementptr [8 x i8], ptr %258, i64 %261
   call void @llvm.memset.p0.i64(ptr align 8 %262, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3477
   br label %_ZN5arrow6StatusD2Ev.exit107.i.i
 
@@ -50592,7 +50592,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !155, !noalias !3510
-  %74 = getelementptr inbounds i16, ptr %73, i64 %70
+  %74 = getelementptr inbounds [2 x i8], ptr %73, i64 %70
   %75 = load ptr, ptr %71, align 8, !tbaa !155, !noalias !3510
   %76 = load ptr, ptr %9, align 8, !tbaa !839, !noalias !3510
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -50672,7 +50672,7 @@ _ZN5arrow6StatusD2Ev.exit82.us.preheader.i.i:     ; preds = %.lr.ph.i.i
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %_ZN5arrow6StatusD2Ev.exit82.i.i
   %.058129.i.i = phi i64 [ %144, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.lr.ph.i.i ]
   %.160128.i.i = phi i64 [ %143, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059140.i.i, %.lr.ph.i.i ]
-  %116 = getelementptr inbounds i16, ptr %74, i64 %.160128.i.i
+  %116 = getelementptr inbounds [2 x i8], ptr %74, i64 %.160128.i.i
   %117 = load i16, ptr %116, align 2, !tbaa !162, !noalias !3510
   %118 = zext i16 %117 to i64
   %119 = add nsw i64 %42, %118
@@ -50745,7 +50745,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %148
   br i1 %156, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %205
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %148
-  %157 = getelementptr inbounds i16, ptr %74, i64 %.564134.i.i
+  %157 = getelementptr inbounds [2 x i8], ptr %74, i64 %.564134.i.i
   br i1 %95, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -50873,7 +50873,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %.noexc22
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %231
   %235 = lshr i64 %233, 3
-  %236 = getelementptr i64, ptr %232, i64 %235
+  %236 = getelementptr [8 x i8], ptr %232, i64 %235
   call void @llvm.memset.p0.i64(ptr align 8 %236, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3519
   br label %_ZN5arrow6StatusD2Ev.exit94.i.i
 
@@ -50947,7 +50947,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i100.i.i:             ; preds = %.noexc26
 
 .lr.ph.i.i.i.i.preheader.i.i98.i.i:               ; preds = %257
   %261 = lshr i64 %259, 3
-  %262 = getelementptr i64, ptr %258, i64 %261
+  %262 = getelementptr [8 x i8], ptr %258, i64 %261
   call void @llvm.memset.p0.i64(ptr align 8 %262, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3531
   br label %_ZN5arrow6StatusD2Ev.exit107.i.i
 
@@ -51268,7 +51268,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !155, !noalias !3564
-  %74 = getelementptr inbounds i32, ptr %73, i64 %70
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %70
   %75 = load ptr, ptr %71, align 8, !tbaa !155, !noalias !3564
   %76 = load ptr, ptr %9, align 8, !tbaa !839, !noalias !3564
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -51348,7 +51348,7 @@ _ZN5arrow6StatusD2Ev.exit82.us.preheader.i.i:     ; preds = %.lr.ph.i.i
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %_ZN5arrow6StatusD2Ev.exit82.i.i
   %.058129.i.i = phi i64 [ %144, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.lr.ph.i.i ]
   %.160128.i.i = phi i64 [ %143, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059140.i.i, %.lr.ph.i.i ]
-  %116 = getelementptr inbounds i32, ptr %74, i64 %.160128.i.i
+  %116 = getelementptr inbounds [4 x i8], ptr %74, i64 %.160128.i.i
   %117 = load i32, ptr %116, align 4, !tbaa !75, !noalias !3564
   %118 = zext i32 %117 to i64
   %119 = add nsw i64 %42, %118
@@ -51421,7 +51421,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %148
   br i1 %156, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %205
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %148
-  %157 = getelementptr inbounds i32, ptr %74, i64 %.564134.i.i
+  %157 = getelementptr inbounds [4 x i8], ptr %74, i64 %.564134.i.i
   br i1 %95, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -51549,7 +51549,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %.noexc22
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %231
   %235 = lshr i64 %233, 3
-  %236 = getelementptr i64, ptr %232, i64 %235
+  %236 = getelementptr [8 x i8], ptr %232, i64 %235
   call void @llvm.memset.p0.i64(ptr align 8 %236, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3573
   br label %_ZN5arrow6StatusD2Ev.exit94.i.i
 
@@ -51623,7 +51623,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i100.i.i:             ; preds = %.noexc26
 
 .lr.ph.i.i.i.i.preheader.i.i98.i.i:               ; preds = %257
   %261 = lshr i64 %259, 3
-  %262 = getelementptr i64, ptr %258, i64 %261
+  %262 = getelementptr [8 x i8], ptr %258, i64 %261
   call void @llvm.memset.p0.i64(ptr align 8 %262, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3585
   br label %_ZN5arrow6StatusD2Ev.exit107.i.i
 
@@ -51944,7 +51944,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !155, !noalias !3618
-  %74 = getelementptr inbounds i64, ptr %73, i64 %70
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %70
   %75 = load ptr, ptr %71, align 8, !tbaa !155, !noalias !3618
   %76 = load ptr, ptr %9, align 8, !tbaa !839, !noalias !3618
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -52024,7 +52024,7 @@ _ZN5arrow6StatusD2Ev.exit82.us.preheader.i.i:     ; preds = %.lr.ph.i.i
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %_ZN5arrow6StatusD2Ev.exit82.i.i
   %.058129.i.i = phi i64 [ %143, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.lr.ph.i.i ]
   %.160128.i.i = phi i64 [ %142, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059140.i.i, %.lr.ph.i.i ]
-  %116 = getelementptr inbounds i64, ptr %74, i64 %.160128.i.i
+  %116 = getelementptr inbounds [8 x i8], ptr %74, i64 %.160128.i.i
   %117 = load i64, ptr %116, align 8, !tbaa !164, !noalias !3618
   %118 = add nsw i64 %117, %42
   %119 = mul nsw i64 %118, %99
@@ -52096,7 +52096,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %147
   br i1 %155, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %202
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %147
-  %156 = getelementptr inbounds i64, ptr %74, i64 %.564134.i.i
+  %156 = getelementptr inbounds [8 x i8], ptr %74, i64 %.564134.i.i
   br i1 %95, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -52222,7 +52222,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %.noexc22
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %228
   %232 = lshr i64 %230, 3
-  %233 = getelementptr i64, ptr %229, i64 %232
+  %233 = getelementptr [8 x i8], ptr %229, i64 %232
   call void @llvm.memset.p0.i64(ptr align 8 %233, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3627
   br label %_ZN5arrow6StatusD2Ev.exit94.i.i
 
@@ -52296,7 +52296,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i100.i.i:             ; preds = %.noexc26
 
 .lr.ph.i.i.i.i.preheader.i.i98.i.i:               ; preds = %254
   %258 = lshr i64 %256, 3
-  %259 = getelementptr i64, ptr %255, i64 %258
+  %259 = getelementptr [8 x i8], ptr %255, i64 %258
   call void @llvm.memset.p0.i64(ptr align 8 %259, i8 0, i64 %103, i1 false), !tbaa !164, !noalias !3639
   br label %_ZN5arrow6StatusD2Ev.exit107.i.i
 
@@ -52630,7 +52630,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %93 = load i8, ptr %92, align 1, !tbaa !74, !noalias !3663
   %94 = sext i8 %93 to i64
   %95 = load ptr, ptr %90, align 8, !tbaa !1034, !noalias !3663
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %94
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !3663
   %98 = zext i32 %97 to i64
   %sext.i.i.i = shl i64 %98, 56
@@ -52646,10 +52646,10 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %107 = add nsw i64 %106, 1
   store i64 %107, ptr %69, align 8, !tbaa !280, !noalias !3663
   %108 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3663
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %88
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %88
   %110 = load i32, ptr %109, align 4, !tbaa !75, !noalias !3663
   %111 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3663
-  %112 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %111, i64 %99
+  %112 = getelementptr inbounds nuw [216 x i8], ptr %111, i64 %99
   %113 = load ptr, ptr %112, align 8, !tbaa !41, !noalias !3663
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8, !noalias !3663
@@ -52667,7 +52667,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   store i64 %122, ptr %73, align 8, !tbaa !280, !noalias !3663
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3663
   %123 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3663
-  %124 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %123, i64 %99
+  %124 = getelementptr inbounds nuw [216 x i8], ptr %123, i64 %99
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 112
   %126 = load i64, ptr %125, align 8, !tbaa !291, !noalias !3666
   %127 = load ptr, ptr %124, align 8, !tbaa !41, !noalias !3666
@@ -52702,7 +52702,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %.noexc15
 
 _ZN5arrow6StatusD2Ev.exit80.i.i:                  ; preds = %.noexc16, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   %137 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3663
-  %138 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %137, i64 %99
+  %138 = getelementptr inbounds nuw [216 x i8], ptr %137, i64 %99
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8, !tbaa !225, !noalias !3663
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 80
@@ -52804,7 +52804,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %203 = load i8, ptr %202, align 1, !tbaa !74, !noalias !3673
   %204 = sext i8 %203 to i64
   %205 = load ptr, ptr %200, align 8, !tbaa !1034, !noalias !3673
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %204
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %204
   %207 = load i32, ptr %206, align 4, !tbaa !75, !noalias !3673
   %208 = zext i32 %207 to i64
   %sext.i82.i.i = shl i64 %208, 56
@@ -52820,10 +52820,10 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %217 = add nsw i64 %216, 1
   store i64 %217, ptr %69, align 8, !tbaa !280, !noalias !3673
   %218 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3673
-  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %198
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %198
   %220 = load i32, ptr %219, align 4, !tbaa !75, !noalias !3673
   %221 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3673
-  %222 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %221, i64 %209
+  %222 = getelementptr inbounds nuw [216 x i8], ptr %221, i64 %209
   %223 = load ptr, ptr %222, align 8, !tbaa !41, !noalias !3673
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load ptr, ptr %224, align 8, !noalias !3673
@@ -52841,7 +52841,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   store i64 %232, ptr %73, align 8, !tbaa !280, !noalias !3673
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3673
   %233 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3673
-  %234 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %233, i64 %209
+  %234 = getelementptr inbounds nuw [216 x i8], ptr %233, i64 %209
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 112
   %236 = load i64, ptr %235, align 8, !tbaa !291, !noalias !3676
   %237 = load ptr, ptr %234, align 8, !tbaa !41, !noalias !3676
@@ -52876,7 +52876,7 @@ _ZN5arrow6StatusD2Ev.exit.i84.i.i:                ; preds = %.noexc18
 
 _ZN5arrow6StatusD2Ev.exit94.i.i:                  ; preds = %.noexc19, %_ZN5arrow6StatusD2Ev.exit.thread.i89.i.i
   %247 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3673
-  %248 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %247, i64 %209
+  %248 = getelementptr inbounds nuw [216 x i8], ptr %247, i64 %209
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 48
   %250 = load ptr, ptr %249, align 8, !tbaa !225, !noalias !3673
   %251 = getelementptr inbounds nuw i8, ptr %248, i64 80
@@ -53283,7 +53283,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !155, !noalias !3703
-  %43 = getelementptr inbounds i16, ptr %42, i64 %39
+  %43 = getelementptr inbounds [2 x i8], ptr %42, i64 %39
   %44 = load ptr, ptr %40, align 8, !tbaa !155, !noalias !3703
   %45 = load ptr, ptr %10, align 8, !tbaa !995, !noalias !3703
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -53357,7 +53357,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058149.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit80.i.i ], [ 0, %.noexc13 ]
   %.160148.i.i = phi i64 [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ], [ %.059160.i.i, %.noexc13 ]
   %85 = add nsw i64 %.160148.i.i, 1
-  %86 = getelementptr inbounds i16, ptr %43, i64 %.160148.i.i
+  %86 = getelementptr inbounds [2 x i8], ptr %43, i64 %.160148.i.i
   %87 = load i16, ptr %86, align 2, !tbaa !162, !noalias !3703
   %88 = zext i16 %87 to i64
   %89 = load ptr, ptr %65, align 8, !tbaa !1025, !noalias !3708
@@ -53367,7 +53367,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %93 = load i8, ptr %92, align 1, !tbaa !74, !noalias !3708
   %94 = sext i8 %93 to i64
   %95 = load ptr, ptr %90, align 8, !tbaa !1034, !noalias !3708
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %94
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !3708
   %98 = zext i32 %97 to i64
   %sext.i.i.i = shl i64 %98, 56
@@ -53383,10 +53383,10 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %107 = add nsw i64 %106, 1
   store i64 %107, ptr %69, align 8, !tbaa !280, !noalias !3708
   %108 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3708
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %88
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %88
   %110 = load i32, ptr %109, align 4, !tbaa !75, !noalias !3708
   %111 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3708
-  %112 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %111, i64 %99
+  %112 = getelementptr inbounds nuw [216 x i8], ptr %111, i64 %99
   %113 = load ptr, ptr %112, align 8, !tbaa !41, !noalias !3708
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8, !noalias !3708
@@ -53404,7 +53404,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   store i64 %122, ptr %73, align 8, !tbaa !280, !noalias !3708
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3708
   %123 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3708
-  %124 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %123, i64 %99
+  %124 = getelementptr inbounds nuw [216 x i8], ptr %123, i64 %99
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 112
   %126 = load i64, ptr %125, align 8, !tbaa !291, !noalias !3711
   %127 = load ptr, ptr %124, align 8, !tbaa !41, !noalias !3711
@@ -53439,7 +53439,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %.noexc15
 
 _ZN5arrow6StatusD2Ev.exit80.i.i:                  ; preds = %.noexc16, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   %137 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3708
-  %138 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %137, i64 %99
+  %138 = getelementptr inbounds nuw [216 x i8], ptr %137, i64 %99
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8, !tbaa !225, !noalias !3708
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 80
@@ -53502,7 +53502,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %166
   br i1 %174, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %265
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %166
-  %175 = getelementptr inbounds i16, ptr %43, i64 %.564154.i.i
+  %175 = getelementptr inbounds [2 x i8], ptr %43, i64 %.564154.i.i
   br i1 %64, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -53541,7 +53541,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %203 = load i8, ptr %202, align 1, !tbaa !74, !noalias !3718
   %204 = sext i8 %203 to i64
   %205 = load ptr, ptr %200, align 8, !tbaa !1034, !noalias !3718
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %204
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %204
   %207 = load i32, ptr %206, align 4, !tbaa !75, !noalias !3718
   %208 = zext i32 %207 to i64
   %sext.i82.i.i = shl i64 %208, 56
@@ -53557,10 +53557,10 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %217 = add nsw i64 %216, 1
   store i64 %217, ptr %69, align 8, !tbaa !280, !noalias !3718
   %218 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3718
-  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %198
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %198
   %220 = load i32, ptr %219, align 4, !tbaa !75, !noalias !3718
   %221 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3718
-  %222 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %221, i64 %209
+  %222 = getelementptr inbounds nuw [216 x i8], ptr %221, i64 %209
   %223 = load ptr, ptr %222, align 8, !tbaa !41, !noalias !3718
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load ptr, ptr %224, align 8, !noalias !3718
@@ -53578,7 +53578,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   store i64 %232, ptr %73, align 8, !tbaa !280, !noalias !3718
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3718
   %233 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3718
-  %234 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %233, i64 %209
+  %234 = getelementptr inbounds nuw [216 x i8], ptr %233, i64 %209
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 112
   %236 = load i64, ptr %235, align 8, !tbaa !291, !noalias !3721
   %237 = load ptr, ptr %234, align 8, !tbaa !41, !noalias !3721
@@ -53613,7 +53613,7 @@ _ZN5arrow6StatusD2Ev.exit.i84.i.i:                ; preds = %.noexc18
 
 _ZN5arrow6StatusD2Ev.exit94.i.i:                  ; preds = %.noexc19, %_ZN5arrow6StatusD2Ev.exit.thread.i89.i.i
   %247 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3718
-  %248 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %247, i64 %209
+  %248 = getelementptr inbounds nuw [216 x i8], ptr %247, i64 %209
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 48
   %250 = load ptr, ptr %249, align 8, !tbaa !225, !noalias !3718
   %251 = getelementptr inbounds nuw i8, ptr %248, i64 80
@@ -54020,7 +54020,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !155, !noalias !3748
-  %43 = getelementptr inbounds i32, ptr %42, i64 %39
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %39
   %44 = load ptr, ptr %40, align 8, !tbaa !155, !noalias !3748
   %45 = load ptr, ptr %10, align 8, !tbaa !995, !noalias !3748
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -54094,7 +54094,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058149.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit80.i.i ], [ 0, %.noexc13 ]
   %.160148.i.i = phi i64 [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ], [ %.059160.i.i, %.noexc13 ]
   %85 = add nsw i64 %.160148.i.i, 1
-  %86 = getelementptr inbounds i32, ptr %43, i64 %.160148.i.i
+  %86 = getelementptr inbounds [4 x i8], ptr %43, i64 %.160148.i.i
   %87 = load i32, ptr %86, align 4, !tbaa !75, !noalias !3748
   %88 = zext i32 %87 to i64
   %89 = load ptr, ptr %65, align 8, !tbaa !1025, !noalias !3753
@@ -54104,7 +54104,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %93 = load i8, ptr %92, align 1, !tbaa !74, !noalias !3753
   %94 = sext i8 %93 to i64
   %95 = load ptr, ptr %90, align 8, !tbaa !1034, !noalias !3753
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %94
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !3753
   %98 = zext i32 %97 to i64
   %sext.i.i.i = shl i64 %98, 56
@@ -54120,10 +54120,10 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %107 = add nsw i64 %106, 1
   store i64 %107, ptr %69, align 8, !tbaa !280, !noalias !3753
   %108 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3753
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %88
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %88
   %110 = load i32, ptr %109, align 4, !tbaa !75, !noalias !3753
   %111 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3753
-  %112 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %111, i64 %99
+  %112 = getelementptr inbounds nuw [216 x i8], ptr %111, i64 %99
   %113 = load ptr, ptr %112, align 8, !tbaa !41, !noalias !3753
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8, !noalias !3753
@@ -54141,7 +54141,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   store i64 %122, ptr %73, align 8, !tbaa !280, !noalias !3753
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3753
   %123 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3753
-  %124 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %123, i64 %99
+  %124 = getelementptr inbounds nuw [216 x i8], ptr %123, i64 %99
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 112
   %126 = load i64, ptr %125, align 8, !tbaa !291, !noalias !3756
   %127 = load ptr, ptr %124, align 8, !tbaa !41, !noalias !3756
@@ -54176,7 +54176,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %.noexc15
 
 _ZN5arrow6StatusD2Ev.exit80.i.i:                  ; preds = %.noexc16, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   %137 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3753
-  %138 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %137, i64 %99
+  %138 = getelementptr inbounds nuw [216 x i8], ptr %137, i64 %99
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8, !tbaa !225, !noalias !3753
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 80
@@ -54239,7 +54239,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %166
   br i1 %174, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %265
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %166
-  %175 = getelementptr inbounds i32, ptr %43, i64 %.564154.i.i
+  %175 = getelementptr inbounds [4 x i8], ptr %43, i64 %.564154.i.i
   br i1 %64, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -54278,7 +54278,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %203 = load i8, ptr %202, align 1, !tbaa !74, !noalias !3763
   %204 = sext i8 %203 to i64
   %205 = load ptr, ptr %200, align 8, !tbaa !1034, !noalias !3763
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %204
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %204
   %207 = load i32, ptr %206, align 4, !tbaa !75, !noalias !3763
   %208 = zext i32 %207 to i64
   %sext.i82.i.i = shl i64 %208, 56
@@ -54294,10 +54294,10 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %217 = add nsw i64 %216, 1
   store i64 %217, ptr %69, align 8, !tbaa !280, !noalias !3763
   %218 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3763
-  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %198
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %198
   %220 = load i32, ptr %219, align 4, !tbaa !75, !noalias !3763
   %221 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3763
-  %222 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %221, i64 %209
+  %222 = getelementptr inbounds nuw [216 x i8], ptr %221, i64 %209
   %223 = load ptr, ptr %222, align 8, !tbaa !41, !noalias !3763
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load ptr, ptr %224, align 8, !noalias !3763
@@ -54315,7 +54315,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   store i64 %232, ptr %73, align 8, !tbaa !280, !noalias !3763
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3763
   %233 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3763
-  %234 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %233, i64 %209
+  %234 = getelementptr inbounds nuw [216 x i8], ptr %233, i64 %209
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 112
   %236 = load i64, ptr %235, align 8, !tbaa !291, !noalias !3766
   %237 = load ptr, ptr %234, align 8, !tbaa !41, !noalias !3766
@@ -54350,7 +54350,7 @@ _ZN5arrow6StatusD2Ev.exit.i84.i.i:                ; preds = %.noexc18
 
 _ZN5arrow6StatusD2Ev.exit94.i.i:                  ; preds = %.noexc19, %_ZN5arrow6StatusD2Ev.exit.thread.i89.i.i
   %247 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3763
-  %248 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %247, i64 %209
+  %248 = getelementptr inbounds nuw [216 x i8], ptr %247, i64 %209
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 48
   %250 = load ptr, ptr %249, align 8, !tbaa !225, !noalias !3763
   %251 = getelementptr inbounds nuw i8, ptr %248, i64 80
@@ -54757,7 +54757,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !155, !noalias !3793
-  %43 = getelementptr inbounds i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %39
   %44 = load ptr, ptr %40, align 8, !tbaa !155, !noalias !3793
   %45 = load ptr, ptr %10, align 8, !tbaa !995, !noalias !3793
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -54831,7 +54831,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058149.i.i = phi i64 [ %161, %_ZN5arrow6StatusD2Ev.exit80.i.i ], [ 0, %.noexc13 ]
   %.160148.i.i = phi i64 [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ], [ %.059160.i.i, %.noexc13 ]
   %85 = add nsw i64 %.160148.i.i, 1
-  %86 = getelementptr inbounds i64, ptr %43, i64 %.160148.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %43, i64 %.160148.i.i
   %87 = load i64, ptr %86, align 8, !tbaa !164, !noalias !3793
   %88 = load ptr, ptr %65, align 8, !tbaa !1025, !noalias !3798
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
@@ -54840,7 +54840,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = load i8, ptr %91, align 1, !tbaa !74, !noalias !3798
   %93 = sext i8 %92 to i64
   %94 = load ptr, ptr %89, align 8, !tbaa !1034, !noalias !3798
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %93
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %93
   %96 = load i32, ptr %95, align 4, !tbaa !75, !noalias !3798
   %97 = zext i32 %96 to i64
   %sext.i.i.i = shl i64 %97, 56
@@ -54856,10 +54856,10 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %106 = add nsw i64 %105, 1
   store i64 %106, ptr %69, align 8, !tbaa !280, !noalias !3798
   %107 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3798
-  %108 = getelementptr inbounds i32, ptr %107, i64 %87
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %87
   %109 = load i32, ptr %108, align 4, !tbaa !75, !noalias !3798
   %110 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3798
-  %111 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %110, i64 %98
+  %111 = getelementptr inbounds nuw [216 x i8], ptr %110, i64 %98
   %112 = load ptr, ptr %111, align 8, !tbaa !41, !noalias !3798
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8, !noalias !3798
@@ -54877,7 +54877,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   store i64 %121, ptr %73, align 8, !tbaa !280, !noalias !3798
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3798
   %122 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3798
-  %123 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %122, i64 %98
+  %123 = getelementptr inbounds nuw [216 x i8], ptr %122, i64 %98
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 112
   %125 = load i64, ptr %124, align 8, !tbaa !291, !noalias !3801
   %126 = load ptr, ptr %123, align 8, !tbaa !41, !noalias !3801
@@ -54912,7 +54912,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %.noexc15
 
 _ZN5arrow6StatusD2Ev.exit80.i.i:                  ; preds = %.noexc16, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   %136 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3798
-  %137 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %136, i64 %98
+  %137 = getelementptr inbounds nuw [216 x i8], ptr %136, i64 %98
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load ptr, ptr %138, align 8, !tbaa !225, !noalias !3798
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 80
@@ -54975,7 +54975,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %165
   br i1 %173, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %262
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %165
-  %174 = getelementptr inbounds i64, ptr %43, i64 %.564154.i.i
+  %174 = getelementptr inbounds [8 x i8], ptr %43, i64 %.564154.i.i
   br i1 %64, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -55012,7 +55012,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %200 = load i8, ptr %199, align 1, !tbaa !74, !noalias !3808
   %201 = sext i8 %200 to i64
   %202 = load ptr, ptr %197, align 8, !tbaa !1034, !noalias !3808
-  %203 = getelementptr inbounds nuw i32, ptr %202, i64 %201
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %201
   %204 = load i32, ptr %203, align 4, !tbaa !75, !noalias !3808
   %205 = zext i32 %204 to i64
   %sext.i82.i.i = shl i64 %205, 56
@@ -55028,10 +55028,10 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   %214 = add nsw i64 %213, 1
   store i64 %214, ptr %69, align 8, !tbaa !280, !noalias !3808
   %215 = load ptr, ptr %70, align 8, !tbaa !1038, !noalias !3808
-  %216 = getelementptr inbounds i32, ptr %215, i64 %195
+  %216 = getelementptr inbounds [4 x i8], ptr %215, i64 %195
   %217 = load i32, ptr %216, align 4, !tbaa !75, !noalias !3808
   %218 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3808
-  %219 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %218, i64 %206
+  %219 = getelementptr inbounds nuw [216 x i8], ptr %218, i64 %206
   %220 = load ptr, ptr %219, align 8, !tbaa !41, !noalias !3808
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %222 = load ptr, ptr %221, align 8, !noalias !3808
@@ -55049,7 +55049,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit81.thread.i.i: ; preds = %_ZNK5a
   store i64 %229, ptr %73, align 8, !tbaa !280, !noalias !3808
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3808
   %230 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3808
-  %231 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %230, i64 %206
+  %231 = getelementptr inbounds nuw [216 x i8], ptr %230, i64 %206
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 112
   %233 = load i64, ptr %232, align 8, !tbaa !291, !noalias !3811
   %234 = load ptr, ptr %231, align 8, !tbaa !41, !noalias !3811
@@ -55084,7 +55084,7 @@ _ZN5arrow6StatusD2Ev.exit.i84.i.i:                ; preds = %.noexc18
 
 _ZN5arrow6StatusD2Ev.exit94.i.i:                  ; preds = %.noexc19, %_ZN5arrow6StatusD2Ev.exit.thread.i89.i.i
   %244 = load ptr, ptr %71, align 8, !tbaa !1040, !noalias !3808
-  %245 = getelementptr inbounds nuw %"class.arrow::NumericBuilder", ptr %244, i64 %206
+  %245 = getelementptr inbounds nuw [216 x i8], ptr %244, i64 %206
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 48
   %247 = load ptr, ptr %246, align 8, !tbaa !225, !noalias !3808
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 80
@@ -56043,7 +56043,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE13_M_deallocateEPS
   store ptr %173, ptr %155, align 8, !tbaa !1953
   %181 = getelementptr inbounds nuw i8, ptr %173, i64 %171
   store ptr %181, ptr %168, align 8, !tbaa !1955
-  %182 = getelementptr inbounds nuw %"class.std::shared_ptr.110", ptr %173, i64 %156
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %156
   store ptr %182, ptr %160, align 8, !tbaa !1952
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE7reserveEm.exit
 
@@ -58090,7 +58090,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !155, !noalias !3907
-  %39 = getelementptr inbounds i16, ptr %38, i64 %35
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %35
   %40 = load ptr, ptr %36, align 8, !tbaa !155, !noalias !3907
   %41 = load ptr, ptr %6, align 8, !tbaa !1632, !noalias !3907
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -58163,7 +58163,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZN5arrow6StatusD2E
   %76 = phi i64 [ %85, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pre.i, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
   %.058119.i.i = phi i64 [ %87, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
   %.160118.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059128.i.i, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
-  %77 = getelementptr inbounds i16, ptr %39, i64 %.160118.i.i
+  %77 = getelementptr inbounds [2 x i8], ptr %39, i64 %.160118.i.i
   %78 = load i16, ptr %77, align 2, !tbaa !162, !noalias !3907
   %79 = zext i16 %78 to i64
   %.val77.val.i.i = load ptr, ptr %61, align 8, !tbaa !1033, !noalias !3907
@@ -58210,7 +58210,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %91
   br i1 %99, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit93.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %91
-  %100 = getelementptr inbounds i16, ptr %39, i64 %.564123.i.i
+  %100 = getelementptr inbounds [2 x i8], ptr %39, i64 %.564123.i.i
   br i1 %60, label %_ZN5arrow6StatusD2Ev.exit89.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit85.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit85.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -58431,7 +58431,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !155, !noalias !3925
-  %39 = getelementptr inbounds i32, ptr %38, i64 %35
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %35
   %40 = load ptr, ptr %36, align 8, !tbaa !155, !noalias !3925
   %41 = load ptr, ptr %6, align 8, !tbaa !1632, !noalias !3925
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -58504,7 +58504,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZN5arrow6StatusD2E
   %76 = phi i64 [ %85, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pre.i, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
   %.058119.i.i = phi i64 [ %87, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
   %.160118.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059128.i.i, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
-  %77 = getelementptr inbounds i32, ptr %39, i64 %.160118.i.i
+  %77 = getelementptr inbounds [4 x i8], ptr %39, i64 %.160118.i.i
   %78 = load i32, ptr %77, align 4, !tbaa !75, !noalias !3925
   %79 = zext i32 %78 to i64
   %.val77.val.i.i = load ptr, ptr %61, align 8, !tbaa !1033, !noalias !3925
@@ -58551,7 +58551,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %91
   br i1 %99, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit93.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %91
-  %100 = getelementptr inbounds i32, ptr %39, i64 %.564123.i.i
+  %100 = getelementptr inbounds [4 x i8], ptr %39, i64 %.564123.i.i
   br i1 %60, label %_ZN5arrow6StatusD2Ev.exit89.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit85.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit85.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -58772,7 +58772,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !155, !noalias !3943
-  %39 = getelementptr inbounds i64, ptr %38, i64 %35
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %35
   %40 = load ptr, ptr %36, align 8, !tbaa !155, !noalias !3943
   %41 = load ptr, ptr %6, align 8, !tbaa !1632, !noalias !3943
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -58845,7 +58845,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZN5arrow6StatusD2E
   %76 = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pre.i, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
   %.058119.i.i = phi i64 [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
   %.160118.i.i = phi i64 [ %85, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.059128.i.i, %_ZN5arrow6StatusD2Ev.exit.i.preheader.i ]
-  %77 = getelementptr inbounds i64, ptr %39, i64 %.160118.i.i
+  %77 = getelementptr inbounds [8 x i8], ptr %39, i64 %.160118.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !164, !noalias !3943
   %.val77.val.i.i = load ptr, ptr %61, align 8, !tbaa !1033, !noalias !3943
   %79 = getelementptr inbounds i8, ptr %.val77.val.i.i, i64 %78
@@ -58891,7 +58891,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %90
   br i1 %98, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit93.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %90
-  %99 = getelementptr inbounds i64, ptr %39, i64 %.564123.i.i
+  %99 = getelementptr inbounds [8 x i8], ptr %39, i64 %.564123.i.i
   br i1 %60, label %_ZN5arrow6StatusD2Ev.exit89.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit85.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit85.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -59267,7 +59267,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   br i1 %65, label %66, label %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE6resizeEm.exit
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw %"class.std::shared_ptr.110", ptr %56, i64 %53
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %53
   %.not.i.i33 = icmp eq ptr %55, %67
   br i1 %.not.i.i33, label %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -59593,7 +59593,7 @@ _ZNK5arrow5Datum5arrayEv.exit:                    ; preds = %187
   %192 = load ptr, ptr %41, align 8, !tbaa !1651
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 64
   %194 = load ptr, ptr %193, align 8, !tbaa !1953
-  %195 = getelementptr inbounds nuw %"class.std::shared_ptr.110", ptr %194, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %194, i64 %indvars.iv
   store ptr %188, ptr %195, align 8, !tbaa !590
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8, !tbaa !43
@@ -59996,9 +59996,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_R
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !1953
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.110", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !1955
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr.110", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !1952
   br label %39
 
@@ -60373,7 +60373,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !155, !noalias !3999
-  %39 = getelementptr inbounds i16, ptr %38, i64 %35
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %35
   %40 = load ptr, ptr %36, align 8, !tbaa !155, !noalias !3999
   %41 = load ptr, ptr %6, align 8, !tbaa !1678, !noalias !3999
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -60469,7 +60469,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arr
   br i1 %60, label %_ZN5arrow6StatusD2Ev.exit84.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit80.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit80.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
-  %86 = getelementptr inbounds i16, ptr %39, i64 %.56417.i.i
+  %86 = getelementptr inbounds [2 x i8], ptr %39, i64 %.56417.i.i
   %87 = load i16, ptr %86, align 2, !tbaa !162, !noalias !3999
   %88 = zext i16 %87 to i64
   %89 = add nsw i64 %45, %88
@@ -60659,7 +60659,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !155, !noalias !4011
-  %39 = getelementptr inbounds i32, ptr %38, i64 %35
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %35
   %40 = load ptr, ptr %36, align 8, !tbaa !155, !noalias !4011
   %41 = load ptr, ptr %6, align 8, !tbaa !1678, !noalias !4011
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -60755,7 +60755,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arr
   br i1 %60, label %_ZN5arrow6StatusD2Ev.exit84.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit80.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit80.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
-  %86 = getelementptr inbounds i32, ptr %39, i64 %.56417.i.i
+  %86 = getelementptr inbounds [4 x i8], ptr %39, i64 %.56417.i.i
   %87 = load i32, ptr %86, align 4, !tbaa !75, !noalias !4011
   %88 = zext i32 %87 to i64
   %89 = add nsw i64 %45, %88
@@ -60945,7 +60945,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !155, !noalias !4023
-  %39 = getelementptr inbounds i64, ptr %38, i64 %35
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %35
   %40 = load ptr, ptr %36, align 8, !tbaa !155, !noalias !4023
   %41 = load ptr, ptr %6, align 8, !tbaa !1678, !noalias !4023
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -61041,7 +61041,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arr
   br i1 %60, label %_ZN5arrow6StatusD2Ev.exit84.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit80.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit80.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
-  %86 = getelementptr inbounds i64, ptr %39, i64 %.56417.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %39, i64 %.56417.i.i
   %87 = load i64, ptr %86, align 8, !tbaa !164, !noalias !4023
   %88 = add nsw i64 %87, %45
   %89 = lshr i64 %88, 3
@@ -61318,7 +61318,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 4
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !4034
   %93 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4034
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %95 = load i32, ptr %94, align 4, !tbaa !75, !noalias !4034
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !4034
@@ -61466,7 +61466,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %173 = add nsw i64 %172, 4
   store i64 %173, ptr %64, align 8, !tbaa !280, !noalias !4045
   %174 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4045
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %168
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %168
   %176 = load i32, ptr %175, align 4, !tbaa !75, !noalias !4045
   %177 = getelementptr i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !75, !noalias !4045
@@ -61756,7 +61756,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !4063
-  %41 = getelementptr inbounds i16, ptr %40, i64 %37
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !4063
   %43 = load ptr, ptr %8, align 8, !tbaa !1158, !noalias !4063
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -61833,7 +61833,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %132, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc14 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc14 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i16, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [2 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i16, ptr %85, align 2, !tbaa !162, !noalias !4063
   %87 = zext i16 %86 to i64
   %88 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !4068
@@ -61844,7 +61844,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 4
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !4068
   %93 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4068
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %95 = load i32, ptr %94, align 4, !tbaa !75, !noalias !4068
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !4068
@@ -61952,7 +61952,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %136
   br i1 %144, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %136
-  %145 = getelementptr inbounds i16, ptr %41, i64 %.564138.i.i
+  %145 = getelementptr inbounds [2 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -61992,7 +61992,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %173 = add nsw i64 %172, 4
   store i64 %173, ptr %64, align 8, !tbaa !280, !noalias !4079
   %174 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4079
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %168
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %168
   %176 = load i32, ptr %175, align 4, !tbaa !75, !noalias !4079
   %177 = getelementptr i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !75, !noalias !4079
@@ -62282,7 +62282,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !4097
-  %41 = getelementptr inbounds i32, ptr %40, i64 %37
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !4097
   %43 = load ptr, ptr %8, align 8, !tbaa !1158, !noalias !4097
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -62359,7 +62359,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %132, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc14 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc14 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i32, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [4 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i32, ptr %85, align 4, !tbaa !75, !noalias !4097
   %87 = zext i32 %86 to i64
   %88 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !4102
@@ -62370,7 +62370,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %92 = add nsw i64 %91, 4
   store i64 %92, ptr %64, align 8, !tbaa !280, !noalias !4102
   %93 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4102
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %95 = load i32, ptr %94, align 4, !tbaa !75, !noalias !4102
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !75, !noalias !4102
@@ -62478,7 +62478,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %136
   br i1 %144, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %136
-  %145 = getelementptr inbounds i32, ptr %41, i64 %.564138.i.i
+  %145 = getelementptr inbounds [4 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -62518,7 +62518,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %173 = add nsw i64 %172, 4
   store i64 %173, ptr %64, align 8, !tbaa !280, !noalias !4113
   %174 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4113
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %168
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %168
   %176 = load i32, ptr %175, align 4, !tbaa !75, !noalias !4113
   %177 = getelementptr i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !75, !noalias !4113
@@ -62808,7 +62808,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !155, !noalias !4131
-  %41 = getelementptr inbounds i64, ptr %40, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %38, align 8, !tbaa !155, !noalias !4131
   %43 = load ptr, ptr %8, align 8, !tbaa !1158, !noalias !4131
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -62885,7 +62885,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.058134.i.i = phi i64 [ %131, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ 0, %.noexc14 ]
   %.160133.i.i = phi i64 [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ], [ %.059144.i.i, %.noexc14 ]
   %84 = add nsw i64 %.160133.i.i, 1
-  %85 = getelementptr inbounds i64, ptr %41, i64 %.160133.i.i
+  %85 = getelementptr inbounds [8 x i8], ptr %41, i64 %.160133.i.i
   %86 = load i64, ptr %85, align 8, !tbaa !164, !noalias !4131
   %87 = load ptr, ptr %63, align 8, !tbaa !225, !noalias !4136
   %88 = load i64, ptr %64, align 8, !tbaa !280, !noalias !4136
@@ -62895,7 +62895,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %91 = add nsw i64 %90, 4
   store i64 %91, ptr %64, align 8, !tbaa !280, !noalias !4136
   %92 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4136
-  %93 = getelementptr inbounds i32, ptr %92, i64 %86
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %86
   %94 = load i32, ptr %93, align 4, !tbaa !75, !noalias !4136
   %95 = getelementptr i8, ptr %93, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !75, !noalias !4136
@@ -63003,7 +63003,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i: ; preds = %135
   br i1 %143, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit102.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.i.i, %135
-  %144 = getelementptr inbounds i64, ptr %41, i64 %.564138.i.i
+  %144 = getelementptr inbounds [8 x i8], ptr %41, i64 %.564138.i.i
   br i1 %62, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i, label %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i
 
 _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.i.i: ; preds = %_ZNK5arrow8internal18OptionalBitIndexerixEl.exit.thread.i.i
@@ -63041,7 +63041,7 @@ _ZNK5arrow8internal18OptionalBitIndexerixEl.exit83.thread.i.i: ; preds = %_ZNK5a
   %170 = add nsw i64 %169, 4
   store i64 %170, ptr %64, align 8, !tbaa !280, !noalias !4147
   %171 = load ptr, ptr %65, align 8, !tbaa !282, !noalias !4147
-  %172 = getelementptr inbounds i32, ptr %171, i64 %165
+  %172 = getelementptr inbounds [4 x i8], ptr %171, i64 %165
   %173 = load i32, ptr %172, align 4, !tbaa !75, !noalias !4147
   %174 = getelementptr i8, ptr %172, i64 4
   %175 = load i32, ptr %174, align 4, !tbaa !75, !noalias !4147

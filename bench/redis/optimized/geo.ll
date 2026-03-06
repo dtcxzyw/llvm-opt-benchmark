@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.replDataBuf = type { ptr, i64, i64, i64, i64 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.geoPoint = type { double, double, double, double, ptr }
 %struct.zrangespec = type { double, double, i32, i32 }
 %struct.GeoHashBits = type { i64, i8 }
 %struct.GeoShape = type { i32, [2 x double], double, [4 x double], %union.anon }
@@ -106,7 +105,7 @@ define dso_local noundef ptr @geoArrayAppend(ptr noundef captures(none) %0, ptr 
 16:                                               ; preds = %11, %5
   %17 = phi i64 [ %.pre22, %11 ], [ %7, %5 ]
   %18 = phi ptr [ %15, %11 ], [ %.pre, %5 ]
-  %19 = getelementptr inbounds nuw %struct.geoPoint, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %17
   %20 = load double, ptr %1, align 8, !tbaa !14
   store double %20, ptr %19, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -137,7 +136,7 @@ define dso_local void @geoArrayFree(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.06 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !13
-  %5 = getelementptr inbounds nuw %struct.geoPoint, ptr %4, i64 %.06
+  %5 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   tail call void @sdsfree(ptr noundef %7) #14
@@ -179,9 +178,9 @@ define dso_local range(i32 -1, 1) i32 @extractLongLatOrReply(ptr noundef %0, ptr
 5:                                                ; preds = %3, %4
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %10 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %8, ptr noundef %9, ptr noundef null) #14
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %4, label %.loopexit
@@ -621,7 +620,7 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
 geoArrayAppend.exit:                              ; preds = %50, %56
   %61 = phi i64 [ %.pre22.i, %56 ], [ %53, %50 ]
   %62 = phi ptr [ %60, %56 ], [ %.pre.i, %50 ]
-  %63 = getelementptr inbounds nuw %struct.geoPoint, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %62, i64 %61
   %64 = load double, ptr %12, align 16, !tbaa !14
   store double %64, ptr %63, align 8, !tbaa !16
   %65 = load double, ptr %30, align 8, !tbaa !14
@@ -723,7 +722,7 @@ geoArrayAppend.exit:                              ; preds = %50, %56
 geoArrayAppend.exit75:                            ; preds = %92, %100
   %105 = phi i64 [ %.pre22.i74, %100 ], [ %97, %92 ]
   %106 = phi ptr [ %104, %100 ], [ %.pre.i72, %92 ]
-  %107 = getelementptr inbounds nuw %struct.geoPoint, ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [40 x i8], ptr %106, i64 %105
   %108 = load double, ptr %14, align 16, !tbaa !14
   store double %108, ptr %107, align 8, !tbaa !16
   %109 = load double, ptr %82, align 8, !tbaa !14
@@ -856,7 +855,7 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %56 ]
   %.06984 = phi i32 [ 0, %5 ], [ %.1, %56 ]
   %.07083 = phi i32 [ 0, %5 ], [ %.171, %56 ]
-  %26 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %6, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %27 = load i64, ptr %26, align 16, !tbaa !53
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %28, label %31
@@ -873,7 +872,7 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
 
 32:                                               ; preds = %31
   %33 = zext i32 %.07083 to i64
-  %34 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %6, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %33
   %35 = load i64, ptr %34, align 16, !tbaa !53
   %36 = icmp eq i64 %27, %35
   br i1 %36, label %37, label %43
@@ -940,7 +939,7 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.096 = phi i32 [ 0, %.lr.ph ], [ %.2, %19 ]
   %.06295 = phi i32 [ 0, %.lr.ph ], [ %.264, %19 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !28
@@ -1021,16 +1020,16 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %43 = add nuw nsw i32 %.066.lcssa134139, 1
   %44 = zext i32 %43 to i64
   %wide.trip.count122 = zext nneg i32 %31 to i64
-  %invariant.gep = getelementptr inbounds nuw ptr, ptr %36, i64 %41
-  %invariant.gep146 = getelementptr inbounds nuw ptr, ptr %36, i64 %44
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %41
+  %invariant.gep146 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %44
   br label %50
 
 45:                                               ; preds = %.lr.ph106, %45
   %indvars.iv114 = phi i64 [ 1, %.lr.ph106 ], [ %indvars.iv.next115, %45 ]
   %46 = load ptr, ptr %38, align 8, !tbaa !71
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv114
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv114
   %48 = load ptr, ptr %47, align 8, !tbaa !26
-  %49 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv114
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv114
   store ptr %48, ptr %49, align 8, !tbaa !26
   tail call void @incrRefCount(ptr noundef %48) #14
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -1041,9 +1040,9 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv119 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next120, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %51 = load ptr, ptr %40, align 8, !tbaa !71
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %41
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %41
   %53 = mul nuw nsw i64 %indvars.iv119, 3
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   br label %56
 
 55:                                               ; preds = %56
@@ -1053,7 +1052,7 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %57 = phi i1 [ true, %50 ], [ false, %55 ]
   %indvars.iv.i.sroa.phi = phi ptr [ %2, %50 ], [ %indvars.iv.i.sroa.gep81, %55 ]
   %indvars.iv.i = phi i64 [ 0, %50 ], [ 1, %55 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8, !tbaa !26
   %60 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %59, ptr noundef nonnull %indvars.iv.i.sroa.phi, ptr noundef null) #14
   %.not.i = icmp eq i32 %60, 0
@@ -1083,7 +1082,7 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %69
   %indvars.iv124 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next125, %69 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv124
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv124
   %67 = load ptr, ptr %66, align 8, !tbaa !26
   %.not80 = icmp eq ptr %67, null
   br i1 %.not80, label %69, label %68
@@ -1110,14 +1109,14 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
   %74 = call i64 @geohashAlign52Bits(i64 %72, i8 %73) #14
   %75 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %74) #14
   %76 = load ptr, ptr %40, align 8, !tbaa !71
-  %77 = getelementptr ptr, ptr %76, i64 %53
-  %78 = getelementptr ptr, ptr %77, i64 %41
+  %77 = getelementptr [8 x i8], ptr %76, i64 %53
+  %78 = getelementptr [8 x i8], ptr %77, i64 %41
   %79 = getelementptr i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !26
   %81 = shl nuw nsw i64 %indvars.iv119, 1
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %81
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %81
   store ptr %75, ptr %gep, align 8, !tbaa !26
-  %gep147 = getelementptr inbounds nuw ptr, ptr %invariant.gep146, i64 %81
+  %gep147 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep146, i64 %81
   store ptr %80, ptr %gep147, align 8, !tbaa !26
   call void @incrRefCount(ptr noundef %80) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1166,7 +1165,7 @@ define dso_local void @georadiusGeneric(ptr noundef %0, i32 noundef %1, i32 noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = tail call ptr @lookupKeyRead(ptr noundef %10, ptr noundef %15) #14
   %17 = tail call i32 @checkType(ptr noundef %0, ptr noundef %16, i32 noundef 3) #14
@@ -1193,9 +1192,9 @@ define dso_local void @georadiusGeneric(ptr noundef %0, i32 noundef %1, i32 noun
 25:                                               ; preds = %24, %20
   %26 = phi i1 [ true, %20 ], [ false, %24 ]
   %indvars.iv.i = phi i64 [ 0, %20 ], [ 1, %24 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !26
-  %29 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %30 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %29, ptr noundef null) #14
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %24, label %extractLongLatOrReply.exit.thread
@@ -1339,7 +1338,7 @@ longLatFromMember.exit:                           ; preds = %45
   %90 = load ptr, ptr %11, align 8, !tbaa !71
   %91 = add nsw i32 %.0328518, %.0291
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %90, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %90, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !26
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !28
@@ -1474,9 +1473,9 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %or.cond465, label %165, label %158
 
 158:                                              ; preds = %153
-  %159 = getelementptr inbounds nuw ptr, ptr %90, i64 %85
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %85
   %160 = sext i32 %.0328518 to i64
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %159, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = call i32 @extractLongLatOrReply(ptr noundef nonnull %0, ptr noundef nonnull %162, ptr noundef nonnull %84)
   %164 = icmp eq i32 %163, -1
@@ -1496,9 +1495,9 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %or.cond466, label %179, label %172
 
 172:                                              ; preds = %167
-  %173 = getelementptr inbounds nuw ptr, ptr %90, i64 %85
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %85
   %174 = sext i32 %.0328518 to i64
-  %175 = getelementptr inbounds ptr, ptr %173, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %173, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = call i32 @extractDistanceOrReply(ptr noundef nonnull %0, ptr noundef nonnull %176, ptr noundef nonnull %86, ptr noundef nonnull %87)
   %.not396 = icmp eq i32 %177, 0
@@ -1522,9 +1521,9 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %or.cond467, label %193, label %186
 
 186:                                              ; preds = %181
-  %187 = getelementptr inbounds nuw ptr, ptr %90, i64 %85
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %85
   %188 = sext i32 %.0328518 to i64
-  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %187, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = call i32 @extractBoxOrReply(ptr noundef nonnull %0, ptr noundef nonnull %190, ptr noundef nonnull %86, ptr noundef nonnull %88, ptr noundef nonnull %87)
   %.not398 = icmp eq i32 %191, 0
@@ -1744,7 +1743,7 @@ longLatFromMember.exit:                           ; preds = %45
 277:                                              ; preds = %.lr.ph546, %302
   %indvars.iv548 = phi i64 [ 0, %.lr.ph546 ], [ %indvars.iv.next549, %302 ]
   %278 = load ptr, ptr %248, align 8, !tbaa !13
-  %279 = getelementptr inbounds nuw %struct.geoPoint, ptr %278, i64 %indvars.iv548
+  %279 = getelementptr inbounds nuw [40 x i8], ptr %278, i64 %indvars.iv548
   %280 = load double, ptr %275, align 8, !tbaa !34
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %282 = load double, ptr %281, align 8, !tbaa !20
@@ -1820,7 +1819,7 @@ longLatFromMember.exit:                           ; preds = %45
   %.0292538 = phi i64 [ 0, %.lr.ph540 ], [ %356, %355 ]
   %.0293537 = phi i64 [ 0, %.lr.ph540 ], [ %spec.select419, %355 ]
   %312 = load ptr, ptr %248, align 8, !tbaa !13
-  %313 = getelementptr inbounds nuw %struct.geoPoint, ptr %312, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw [40 x i8], ptr %312, i64 %indvars.iv
   %314 = load double, ptr %309, align 8, !tbaa !34
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %316 = load double, ptr %315, align 8, !tbaa !20
@@ -2115,7 +2114,7 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %59 ], [ 2, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = load ptr, ptr %9, align 8, !tbaa !71
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv35
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv35
   %32 = load ptr, ptr %31, align 8, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !28
@@ -2241,7 +2240,7 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 2, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = load ptr, ptr %6, align 8, !tbaa !71
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !28
@@ -2354,7 +2353,7 @@ extractUnitOrReply.exit.thread:                   ; preds = %.extractUnitOrReply
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !115
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   %35 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %34) #14
   %36 = icmp eq ptr %35, null

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.WaitEvent = type { i32, i32, i32, ptr }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
@@ -117,7 +116,7 @@ list_length.exit110:                              ; preds = %37, %38
   %60 = getelementptr i8, ptr %59, i64 16
   %.val = load ptr, ptr %60, align 8
   %61 = zext nneg i32 %58 to i64
-  %62 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 38
   %65 = load i8, ptr %64, align 2, !range !4, !noundef !5
@@ -144,7 +143,7 @@ list_length.exit110:                              ; preds = %37, %38
   %76 = call ptr @ExecInitNode(ptr noundef nonnull %63, ptr noundef %1, i32 noundef %2) #6
   %77 = add i32 %.098112, 1
   %78 = sext i32 %.098112 to i64
-  %79 = getelementptr inbounds ptr, ptr %50, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %50, i64 %78
   store ptr %76, ptr %79, align 8
   %80 = load ptr, ptr %4, align 8
   %81 = call i32 @bms_next_member(ptr noundef %80, i32 noundef %58) #6
@@ -207,7 +206,7 @@ list_length.exit110:                              ; preds = %37, %38
   %105 = call ptr @palloc(i64 noundef 32) #6
   store ptr %5, ptr %105, align 8
   %106 = zext nneg i32 %104 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %50, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %108, ptr %109, align 8
@@ -220,7 +219,7 @@ list_length.exit110:                              ; preds = %37, %38
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store ptr null, ptr %113, align 8
   %114 = load ptr, ptr %94, align 8
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %106
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %106
   store ptr %105, ptr %115, align 8
   %116 = call i32 @bms_next_member(ptr noundef %.0.lcssa, i32 noundef %104) #6
   %117 = icmp sgt i32 %116, -1
@@ -376,7 +375,7 @@ classify_matching_subplans.exit.i:                ; preds = %38, %36, %30, %20
   %60 = phi i32 [ %56, %.lr.ph.i ], [ %66, %59 ]
   %61 = load ptr, ptr %58, align 8
   %62 = zext nneg i32 %60 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   tail call void @ExecAsyncRequest(ptr noundef %64) #6
   %65 = load ptr, ptr %50, align 8
@@ -461,7 +460,7 @@ ExecAppendAsyncRequest.exit.i.preheader:          ; preds = %._crit_edge.i.i, %1
   %106 = phi i32 [ %111, %.lr.ph.i.i ], [ %104, %103 ]
   %107 = load ptr, ptr %87, align 8
   %108 = zext nneg i32 %106 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8
   tail call void @ExecAsyncRequest(ptr noundef %110) #6
   %111 = tail call i32 @bms_next_member(ptr noundef nonnull %.pre, i32 noundef %106) #6
@@ -481,7 +480,7 @@ ExecAppendAsyncRequest.exit.thread.i:             ; preds = %._crit_edge.i.i, %.
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %117 = load ptr, ptr %116, align 8
   %118 = zext nneg i32 %115 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = load ptr, ptr %119, align 8
   br label %.thread
 
@@ -520,7 +519,7 @@ ExecAppendAsyncRequest.exit.i:                    ; preds = %ExecAppendAsyncRequ
   %135 = phi i32 [ %140, %.lr.ph.i16.i ], [ %133, %132 ]
   %136 = load ptr, ptr %87, align 8
   %137 = zext nneg i32 %135 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %137
   %139 = load ptr, ptr %138, align 8
   tail call void @ExecAsyncRequest(ptr noundef %139) #6
   %140 = tail call i32 @bms_next_member(ptr noundef nonnull %127, i32 noundef %135) #6
@@ -540,7 +539,7 @@ ExecAppendAsyncRequest.exit17.i:                  ; preds = %._crit_edge.i12.i, 
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %146 = load ptr, ptr %145, align 8
   %147 = zext nneg i32 %144 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %147
   %149 = load ptr, ptr %148, align 8
   br label %.thread
 
@@ -568,7 +567,7 @@ ExecAppendAsyncGetNext.exit:                      ; preds = %150, %split.i, %99
   %161 = load ptr, ptr %89, align 8
   %162 = load i32, ptr %90, align 4
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds ptr, ptr %161, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %161, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 104
   %167 = load ptr, ptr %166, align 8
@@ -741,7 +740,7 @@ define dso_local void @ExecEndAppend(ptr noundef readonly captures(none) %0) loc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @ExecEndNode(ptr noundef %8) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -798,7 +797,7 @@ define dso_local void @ExecReScanAppend(ptr noundef captures(none) %0) local_unn
 24:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %23, align 8
   %.not36 = icmp eq ptr %28, null
@@ -844,7 +843,7 @@ define dso_local void @ExecReScanAppend(ptr noundef captures(none) %0) local_unn
   %46 = phi i32 [ %42, %.lr.ph38 ], [ %55, %45 ]
   %47 = load ptr, ptr %44, align 8
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i8 0, ptr %51, align 4
@@ -1278,7 +1277,7 @@ define dso_local void @ExecAsyncAppendResponse(ptr noundef readonly captures(non
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds ptr, ptr %20, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %20, i64 %24
   store ptr %4, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %27 = load ptr, ptr %26, align 8
@@ -1324,7 +1323,7 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
   %20 = phi i32 [ %16, %.lr.ph ], [ %31, %29 ]
   %21 = load ptr, ptr %18, align 8
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i8, ptr %25, align 4, !range !4, !noundef !5
@@ -1369,7 +1368,7 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next, %54 ]
-  %43 = getelementptr inbounds nuw %struct.WaitEvent, ptr %2, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 2

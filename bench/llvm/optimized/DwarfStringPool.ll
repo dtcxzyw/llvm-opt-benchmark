@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.134" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.135" = type { [512 x i8] }
-%"struct.std::pair.136" = type { ptr, i64 }
 
 $_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_ = comdat any
 
@@ -382,7 +381,7 @@ _ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE7re
 _ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE7reserveEm.exit
   %.sroa.0.1.i = phi ptr [ %24, %_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE7reserveEm.exit ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %30 = zext i32 %26 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %30
   %.not6670 = icmp eq ptr %.sroa.0.1.i, %31
   %.val43.pre = load i32, ptr %18, align 8, !tbaa !158
   br i1 %.not6670, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit._crit_edge, label %.lr.ph.preheader
@@ -514,7 +513,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %64 = sub i64 %63, %35
   %65 = ashr exact i64 %64, 3
   %66 = sub nsw i64 0, %65
-  %67 = getelementptr inbounds ptr, ptr %62, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %62, i64 %66
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %67, ptr noundef nonnull align 8 dereferenceable(1) %.val, i64 %64, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i"
 
@@ -579,7 +578,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14StringMapEntryINS_20DwarfStringPoolEntr
   %87 = phi i32 [ %81, %.lr.ph ], [ %.pre.i, %84 ]
   %88 = load ptr, ptr %6, align 8, !tbaa !157
   %89 = zext i32 %87 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %89
   %91 = ptrtoint ptr %82 to i64
   store i64 %91, ptr %90, align 1
   %92 = load i32, ptr %18, align 8, !tbaa !158
@@ -678,7 +677,7 @@ _ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE7re
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE7reserveEm.exit.i.i
   %.pre-phi.i.i = zext i32 %.pre-phi.i.i.in to i64
   %133 = load ptr, ptr %6, align 8, !tbaa !157
-  %134 = getelementptr ptr, ptr %133, i64 %.pre-phi.i.i
+  %134 = getelementptr [8 x i8], ptr %133, i64 %.pre-phi.i.i
   %135 = sub nsw i64 %124, %.pre-phi.i.i
   %136 = shl nsw i64 %135, 3
   call void @llvm.memset.p0.i64(ptr align 8 %134, i8 0, i64 %136, i1 false), !tbaa !164
@@ -710,7 +709,7 @@ _ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE6re
 _ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit51: ; preds = %.preheader.i.i.i46, %_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE6resizeEm.exit
   %.sroa.0.1.i50 = phi ptr [ %137, %_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE6resizeEm.exit ], [ %.sroa.0.0.i47, %.preheader.i.i.i46 ]
   %142 = zext i32 %138 to i64
-  %143 = getelementptr inbounds nuw ptr, ptr %137, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %142
   %.not6775 = icmp eq ptr %.sroa.0.1.i50, %143
   br i1 %.not6775, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56._crit_edge, label %.lr.ph77
 
@@ -760,7 +759,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 
 161:                                              ; preds = %157
   %162 = zext i32 %160 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %144, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %162
   store ptr %158, ptr %163, align 8, !tbaa !164
   br label %.critedge.i.i55.preheader
 
@@ -818,7 +817,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_20DwarfStringPoolE
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #11
   %7 = load ptr, ptr %0, align 8, !tbaa !160
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !140
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -902,7 +901,7 @@ _ZN4llvm14StringMapEntryINS_20DwarfStringPoolEntryEE6createINS_20BumpPtrAllocato
   %46 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #11
   %47 = load ptr, ptr %0, align 8, !tbaa !160
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryINS_20DwarfStringPoolEntryEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJS1_EEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -963,7 +962,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !157
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.136", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1004,7 +1003,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !157
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !158
@@ -1067,13 +1066,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 
 .split.preheader.i.i.i:                           ; preds = %12
   %20 = or disjoint i64 %14, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %20
-  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   br label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %12, %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i"
   %.014.us.i.i.i = phi i64 [ %48, %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i" ], [ %15, %12 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014.us.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !164
   %25 = icmp slt i64 %.014.us.i.i.i, %17
   br i1 %25, label %.lr.ph.i.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i"
@@ -1082,8 +1081,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.030.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ], [ %.014.us.i.i.i, %.split.us.i.i.i ]
   %26 = shl i64 %.030.i.us.i.i.i, 1
   %27 = add i64 %26, 2
-  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
-  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %26
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.val.i.us.i.i.i = load ptr, ptr %28, align 8, !tbaa !164
   %.val29.i.us.i.i.i = load ptr, ptr %30, align 8, !tbaa !164
@@ -1094,9 +1093,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %33 = icmp ult i64 %.val.val.i.us.i.i.i, %.val29.val.i.us.i.i.i
   %34 = or disjoint i64 %26, 1
   %spec.select.i.us.i.i.i = select i1 %33, i64 %34, i64 %27
-  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.us.i.i.i
   %36 = load ptr, ptr %35, align 8, !tbaa !164
-  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.us.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.us.i.i.i
   store ptr %36, ptr %37, align 8, !tbaa !164
   %38 = icmp slt i64 %spec.select.i.us.i.i.i, %17
   br i1 %38, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !195
@@ -1110,7 +1109,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.0133.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ], [ %.048.i.i.us.i.i.i, %44 ]
   %.04.in.i.i.us.i.i.i = add nsw i64 %.0133.i.i.us.i.i.i, -1
   %.048.i.i.us.i.i.i = lshr i64 %.04.in.i.i.us.i.i.i, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.us.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.us.i.i.i
   %.val.i.i.us.i.i.i = load ptr, ptr %41, align 8, !tbaa !164
   %42 = getelementptr i8, ptr %.val.i.i.us.i.i.i, i64 16
   %.val.val.i.i.us.i.i.i = load i64, ptr %42, align 8, !tbaa !144
@@ -1118,14 +1117,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   br i1 %43, label %44, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i"
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.us.i.i.i
   store ptr %.val.i.i.us.i.i.i, ptr %45, align 8, !tbaa !164
   %46 = icmp samesign ugt i64 %.048.i.i.us.i.i.i, %.014.us.i.i.i
   br i1 %46, label %40, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i", !llvm.loop !196
 
 "_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i": ; preds = %44, %40, %.split.us.i.i.i
   %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.048.i.i.us.i.i.i, %44 ], [ %.0133.i.i.us.i.i.i, %40 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
   store ptr %24, ptr %47, align 8, !tbaa !164
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0
   %48 = add nsw i64 %.014.us.i.i.i, -1
@@ -1133,7 +1132,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
   %.014.i.i.i = phi i64 [ %79, %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i" ], [ %15, %.split.preheader.i.i.i ]
-  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014.i.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !164
   %51 = icmp slt i64 %.014.i.i.i, %17
   br i1 %51, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -1142,8 +1141,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.014.i.i.i, %.split.i.i.i ]
   %52 = shl i64 %.030.i.i.i.i, 1
   %53 = add i64 %52, 2
-  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %53
-  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %52
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.val.i.i.i.i = load ptr, ptr %54, align 8, !tbaa !164
   %.val29.i.i.i.i = load ptr, ptr %56, align 8, !tbaa !164
@@ -1154,9 +1153,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %59 = icmp ult i64 %.val.val.i.i.i.i, %.val29.val.i.i.i.i
   %60 = or disjoint i64 %52, 1
   %spec.select.i.i.i.i = select i1 %59, i64 %60, i64 %53
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %62 = load ptr, ptr %61, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i.i
   store ptr %62, ptr %63, align 8, !tbaa !164
   %64 = icmp slt i64 %spec.select.i.i.i.i, %17
   br i1 %64, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !195
@@ -1185,7 +1184,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.0133.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.048.i.i.i.i.i, %75 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.048.i.i.i.i.i = lshr i64 %.04.in.i.i.i.i.i, 1
-  %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %72, align 8, !tbaa !164
   %73 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 16
   %.val.val.i.i.i.i.i = load i64, ptr %73, align 8, !tbaa !144
@@ -1193,14 +1192,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   br i1 %74, label %75, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i"
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %76, align 8, !tbaa !164
   %77 = icmp samesign ugt i64 %.048.i.i.i.i.i, %.014.i.i.i
   br i1 %77, label %71, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", !llvm.loop !196
 
 "_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i": ; preds = %75, %71, %68
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %68 ], [ %.0133.i.i.i.i.i, %71 ], [ %.048.i.i.i.i.i, %75 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %50, ptr %78, align 8, !tbaa !164
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %79 = add nsw i64 %.014.i.i.i, -1
@@ -1227,8 +1226,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.030.i.i.i18.i = phi i64 [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i17.i ], [ 0, %.lr.ph.i5.i ]
   %89 = shl i64 %.030.i.i.i18.i, 1
   %90 = add i64 %89, 2
-  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %90
-  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %89
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %89
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.val.i.i.i19.i = load ptr, ptr %91, align 8, !tbaa !164
   %.val29.i.i.i20.i = load ptr, ptr %93, align 8, !tbaa !164
@@ -1239,9 +1238,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %96 = icmp ult i64 %.val.val.i.i.i21.i, %.val29.val.i.i.i22.i
   %97 = or disjoint i64 %89, 1
   %spec.select.i.i.i23.i = select i1 %96, i64 %97, i64 %90
-  %98 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i23.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i23.i
   %99 = load ptr, ptr %98, align 8, !tbaa !164
-  %100 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i18.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i18.i
   store ptr %99, ptr %100, align 8, !tbaa !164
   %101 = icmp slt i64 %spec.select.i.i.i23.i, %87
   br i1 %101, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i6.i, !llvm.loop !195
@@ -1261,9 +1260,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 .thread.i.i.i:                                    ; preds = %104
   %108 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
   %109 = or disjoint i64 %108, 1
-  %110 = getelementptr inbounds nuw ptr, ptr %0, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !164
-  %112 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %111, ptr %112, align 8, !tbaa !164
   br label %.lr.ph.i.i.i.i9.i
 
@@ -1281,7 +1280,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.0133.i.i.i.i11.i = phi i64 [ %.128.i2.i.i.i, %.lr.ph.i.i.i.i9.i ], [ %.048.i.i.i.i13.i, %119 ]
   %.04.in.i.i.i.i12.i = add nsw i64 %.0133.i.i.i.i11.i, -1
   %.048.i.i.i.i13.i = lshr i64 %.04.in.i.i.i.i12.i, 1
-  %116 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i13.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i13.i
   %.val.i.i.i.i14.i = load ptr, ptr %116, align 8, !tbaa !164
   %117 = getelementptr i8, ptr %.val.i.i.i.i14.i, i64 16
   %.val.val.i.i.i.i15.i = load i64, ptr %117, align 8, !tbaa !144
@@ -1289,14 +1288,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   br i1 %118, label %119, label %"_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i"
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i11.i
   store ptr %.val.i.i.i.i14.i, ptr %120, align 8, !tbaa !164
   %.not3.i.i.i = icmp eq i64 %.048.i.i.i.i13.i, 0
   br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i", label %115, !llvm.loop !196
 
 "_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i": ; preds = %119, %115, %113
   %.013.lcssa.i.i.i.i16.i = phi i64 [ 0, %113 ], [ %.0133.i.i.i.i11.i, %115 ], [ 0, %119 ]
-  %121 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i16.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i16.i
   store ptr %81, ptr %121, align 8, !tbaa !164
   %122 = icmp sgt i64 %84, 8
   br i1 %122, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_T0_.exit", !llvm.loop !198
@@ -1304,7 +1303,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 123:                                              ; preds = %9
   %124 = add nsw i64 %.01725, -1
   %125 = lshr i64 %10, 4
-  %126 = getelementptr inbounds nuw ptr, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %125
   %127 = getelementptr inbounds i8, ptr %.026, i64 -8
   %.val29.i.i = load ptr, ptr %8, align 8, !tbaa !164
   %.val30.i.i = load ptr, ptr %126, align 8, !tbaa !164

@@ -37,7 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tracepoint = type { ptr, %struct.static_key, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.static_key = type { %struct.atomic_t, %union.anon.5 }
 %union.anon.5 = type { i64 }
-%struct.thermal_trip = type { i32, i32, i32, i32, ptr }
 
 @__param_str_notify_delay_ms = internal constant [16 x i8] c"notify_delay_ms\00", align 16
 @__this_module = external dso_local global %struct.module, align 64
@@ -155,7 +154,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = zext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_info to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -170,7 +169,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #2 align 16 {
 15:                                               ; preds = %1
   %16 = load ptr, ptr @zones, align 8
   %17 = zext nneg i32 %10 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -262,7 +261,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #2 align 16 {
   %70 = mul nsw i32 %68, -1000
   %71 = add nsw i32 %70, %43
   %72 = select i1 %69, i32 -274000, i32 %71
-  %73 = getelementptr %struct.thermal_trip, ptr %53, i64 %56
+  %73 = getelementptr [24 x i8], ptr %53, i64 %56
   store i32 %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 1, ptr %74, align 4
@@ -324,7 +323,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #2 align 16 {
   call void @_raw_spin_lock_irq(ptr noundef nonnull @pkg_temp_lock) #8
   %105 = load ptr, ptr @zones, align 8
   %106 = sext i32 %10 to i64
-  %107 = getelementptr ptr, ptr %105, i64 %106
+  %107 = getelementptr [8 x i8], ptr %105, i64 %106
   store ptr %47, ptr %107, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @pkg_temp_lock) #8
   br label %115
@@ -353,7 +352,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -368,7 +367,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #2 align 16
 13:                                               ; preds = %1
   %14 = load ptr, ptr @zones, align 8
   %15 = zext nneg i32 %8 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -430,7 +429,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #2 align 16
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 244
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
-  %54 = getelementptr ptr, ptr %47, i64 %53
+  %54 = getelementptr [8 x i8], ptr %47, i64 %53
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %56 = load i64, ptr %55, align 8
@@ -528,7 +527,7 @@ define internal noundef i32 @pkg_thermal_notify(i64 %0) #2 align 16 {
 
 19:                                               ; preds = %17, %12
   %20 = zext i32 %2 to i64
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, ptrtoint (ptr @cpu_info to i64)
   %24 = inttoptr i64 %23 to ptr
@@ -543,7 +542,7 @@ define internal noundef i32 @pkg_thermal_notify(i64 %0) #2 align 16 {
 31:                                               ; preds = %19
   %32 = load ptr, ptr @zones, align 8
   %33 = zext nneg i32 %26 to i64
-  %34 = getelementptr ptr, ptr %32, i64 %33
+  %34 = getelementptr [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
@@ -598,7 +597,7 @@ define internal void @pkg_temp_thermal_threshold_work_fn(ptr readnone captures(n
   %4 = add i32 %3, 1
   store i32 %4, ptr @pkg_work_cnt, align 4
   %5 = zext i32 %2 to i64
-  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %6 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpu_info to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -613,7 +612,7 @@ define internal void @pkg_temp_thermal_threshold_work_fn(ptr readnone captures(n
 16:                                               ; preds = %1
   %17 = load ptr, ptr @zones, align 8
   %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread, label %22

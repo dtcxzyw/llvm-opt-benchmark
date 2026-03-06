@@ -4,14 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.SortSupportData = type { ptr, i32, i8, i8, i16, ptr, ptr, i8, ptr, ptr, ptr }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %struct.SortTuple = type { ptr, i64, i8, i32 }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @trace_sort = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [62 x i8] c"begin tuple sort: nkeys = %d, workMem = %d, randomAccess = %c\00", align 1
@@ -97,10 +93,10 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
   %35 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds nuw %struct.SortSupportData, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %39, ptr %40, align 8
@@ -108,7 +104,7 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 13
   store i8 %42, ptr %43, align 1
-  %44 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %45 = load i16, ptr %44, align 2
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 14
   store i16 %45, ptr %46, align 2
@@ -123,7 +119,7 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   %51 = phi i8 [ 0, %.lr.ph ], [ %49, %48 ]
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i8 %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %54, ptr noundef nonnull %36) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -178,7 +174,7 @@ define internal void @removeabbrev_heap(ptr noundef readonly captures(none) %0, 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = getelementptr inbounds nuw %struct.SortTuple, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 8
@@ -630,8 +626,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
 68:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
   %69 = load ptr, ptr %64, align 8
-  %70 = getelementptr inbounds nuw %struct.SortSupportData, ptr %69, i64 %indvars.iv
-  %71 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %67, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [64 x i8], ptr %69, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [72 x i8], ptr %67, i64 %indvars.iv
   %72 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %72, ptr %70, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 12
@@ -690,7 +686,7 @@ define internal void @removeabbrev_cluster(ptr noundef readonly captures(none) %
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.SortTuple, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -895,7 +891,7 @@ ApplySortAbbrevFullComparator.exit.thread98:      ; preds = %35, %20, %ApplySort
   %.170127 = phi ptr [ %.069, %.lr.ph128.preheader ], [ %101, %ApplySortComparator.exit.thread106 ]
   %70 = load ptr, ptr %61, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  %72 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv138
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %indvars.iv138
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i32
   %75 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef %74, ptr noundef %16, ptr noundef nonnull %4)
@@ -1005,12 +1001,12 @@ ApplySortComparator.exit.thread106:               ; preds = %81, %ApplySortCompa
   %128 = phi i32 [ %126, %.lr.ph.preheader ], [ %159, %ApplySortComparator.exit94.thread114 ]
   %indvars.iv = phi i64 [ %127, %.lr.ph.preheader ], [ %indvars.iv.next, %ApplySortComparator.exit94.thread114 ]
   %.271125 = phi ptr [ %.069, %.lr.ph.preheader ], [ %160, %ApplySortComparator.exit94.thread114 ]
-  %129 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %130 = load i64, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %132 = load i8, ptr %131, align 1, !range !4, !noundef !5
   %133 = trunc nuw i8 %132 to i1
-  %134 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %137 = load i8, ptr %136, align 1, !range !4, !noundef !5
@@ -1325,8 +1321,8 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
 49:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds nuw %struct.SortSupportData, ptr %50, i64 %indvars.iv
-  %52 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %48, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [72 x i8], ptr %48, i64 %indvars.iv
   %53 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %53, ptr %51, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
@@ -1387,7 +1383,7 @@ define internal void @removeabbrev_index(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.SortTuple, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -2133,11 +2129,11 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
 43:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds nuw %struct.SortSupportData, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %46, ptr %45, align 8
   %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %49, ptr %50, align 8
@@ -2218,7 +2214,7 @@ define internal void @removeabbrev_index_brin(ptr readnone captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %struct.SortTuple, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
@@ -2424,7 +2420,7 @@ define internal void @removeabbrev_datum(ptr readnone captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %struct.SortTuple, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2848,7 +2844,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %21 = getelementptr [16 x i8], ptr %2, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
@@ -3195,7 +3191,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = sext i32 %7 to i64
-  %11 = getelementptr inbounds %struct.CompactAttribute, ptr %9, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %14, label %44

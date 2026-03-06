@@ -66,22 +66,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.57 = type { %"class.absl::lts_20240722::AnyInvocable.0", %"class.absl::lts_20240722::Status", [8 x i8] }
 %class.anon.62 = type { %"class.absl::lts_20240722::AnyInvocable.0", %"class.std::unique_ptr.23", [8 x i8] }
 %class.anon.64 = type { %"class.absl::lts_20240722::AnyInvocable.0", %"class.absl::lts_20240722::Status", [8 x i8] }
-%"struct.grpc_event_engine::experimental::PosixEventEngine::ConnectionShard" = type { %"class.absl::lts_20240722::Mutex", %"class.absl::lts_20240722::flat_hash_map" }
-%"class.absl::lts_20240722::Mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.absl::lts_20240722::flat_hash_map" = type { %"class.absl::lts_20240722::container_internal::raw_hash_map" }
-%"class.absl::lts_20240722::container_internal::raw_hash_map" = type { %"class.absl::lts_20240722::container_internal::raw_hash_set.66" }
-%"class.absl::lts_20240722::container_internal::raw_hash_set.66" = type { %"class.absl::lts_20240722::container_internal::CompressedTuple.67" }
-%"class.absl::lts_20240722::container_internal::CompressedTuple.67" = type { %"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::CompressedTupleImpl.68" }
-%"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::CompressedTupleImpl.68" = type { %"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20240722::container_internal::CommonFields" }
-%"class.absl::lts_20240722::container_internal::CommonFields" = type { i64, i64, %"union.absl::lts_20240722::container_internal::HeapOrSoo" }
-%"union.absl::lts_20240722::container_internal::HeapOrSoo" = type { %"struct.absl::lts_20240722::container_internal::HeapPtrs" }
-%"struct.absl::lts_20240722::container_internal::HeapPtrs" = type { ptr, %"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" }
-%"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" = type { ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type" = type { %"struct.std::pair.186" }
-%"struct.std::pair.186" = type { i64, ptr }
 %"class.std::shared_ptr.58" = type { %"class.std::__shared_ptr.59" }
 %"class.std::__shared_ptr.59" = type { ptr, %"class.std::__shared_count" }
 %"class.std::allocator.311" = type { i8 }
@@ -193,6 +177,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.absl::lts_20240722::container_internal::HashSetResizeHelper" = type <{ %"union.absl::lts_20240722::container_internal::HeapOrSoo", i64, i8, i8, i8, [5 x i8] }>
+%"union.absl::lts_20240722::container_internal::HeapOrSoo" = type { %"struct.absl::lts_20240722::container_internal::HeapPtrs" }
+%"struct.absl::lts_20240722::container_internal::HeapPtrs" = type { ptr, %"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" }
+%"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" = type { ptr }
 %"class.std::allocator" = type { i8 }
 %"class.std::shared_ptr.54" = type { %"class.std::__shared_ptr.55" }
 %"class.std::__shared_ptr.55" = type { ptr, %"class.std::__shared_count" }
@@ -3746,7 +3733,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   %447 = urem i64 %356, %446
   %sext = shl i64 %447, 32
   %448 = ashr exact i64 %sext, 32
-  %449 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::PosixEventEngine::ConnectionShard", ptr %442, i64 %448
+  %449 = getelementptr inbounds nuw [40 x i8], ptr %442, i64 %448
   invoke void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %449)
           to label %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit unwind label %565
 
@@ -3792,7 +3779,7 @@ _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit: ; preds = %_ZNSt12__shared
 .noexc166:                                        ; preds = %.noexc165
   %471 = getelementptr inbounds nuw i8, ptr %449, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %471, align 8, !tbaa !59, !noalias !149
-  %472 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %470
+  %472 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %470
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlPN17grpc_event_engine12experimental12AsyncConnectEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS7_EEE22find_or_prepare_insertIlEESE_INSI_8iteratorEbERKT_.exit.i.i.thread
 
 473:                                              ; preds = %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit
@@ -3834,7 +3821,7 @@ _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit: ; preds = %_ZNSt12__shared
   %497 = zext nneg i16 %496 to i64
   %498 = add i64 %.sroa.7.0.i, %497
   %499 = and i64 %498, %451
-  %500 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %499
+  %500 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %499
   %501 = load i64, ptr %500, align 8, !tbaa !104, !noalias !152
   %502 = icmp eq i64 %501, %356
   br i1 %502, label %_ZN4absl12lts_2024072218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIlPN17grpc_event_engine12experimental12AsyncConnectEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS7_EEE16insert_or_assignIlS7_EESE_INS1_12raw_hash_setIS8_SB_SD_SH_E8iteratorEbERSF_RKT0_.exit, label %.critedge.i, !prof !155
@@ -3861,7 +3848,7 @@ _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit: ; preds = %_ZNSt12__shared
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlPN17grpc_event_engine12experimental12AsyncConnectEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS7_EEE22find_or_prepare_insertIlEESE_INSI_8iteratorEbERKT_.exit.i.i.thread236: ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %490, align 8, !tbaa !59, !noalias !152
-  %512 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %511
+  %512 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %511
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlPN17grpc_event_engine12experimental12AsyncConnectEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS7_EEE22find_or_prepare_insertIlEESE_INSI_8iteratorEbERKT_.exit.i.i.thread
 
 513:                                              ; preds = %.critedge19.i
@@ -4388,7 +4375,7 @@ define void @_ZN17grpc_event_engine12experimental16PosixEventEngine23OnConnectFi
   %12 = urem i64 %3, %11
   %sext = shl i64 %12, 32
   %13 = ashr exact i64 %sext, 32
-  %14 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::PosixEventEngine::ConnectionShard", ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %13
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !139
@@ -4448,7 +4435,7 @@ define void @_ZN17grpc_event_engine12experimental16PosixEventEngine23OnConnectFi
   %50 = zext nneg i16 %49 to i64
   %51 = add i64 %.sroa.6.0.i.i.i, %50
   %52 = and i64 %51, %16
-  %53 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !104
   %55 = icmp eq i64 %54, %3
   br i1 %55, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlPN17grpc_event_engine12experimental12AsyncConnectEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS7_EEE4findIlEENSI_8iteratorERSF_.exit.i, label %56, !prof !155
@@ -4948,7 +4935,7 @@ _ZNSt12_Vector_baseIN17grpc_event_engine12experimental16PosixEventEngine15Connec
 
 .noexc16:                                         ; preds = %_ZNSt12_Vector_baseIN17grpc_event_engine12experimental16PosixEventEngine15ConnectionShardESaIS3_EEC2EmRKS4_.exit.i
   store ptr %22, ptr %17, align 8, !tbaa !138
-  %23 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::PosixEventEngine::ConnectionShard", ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %23, ptr %24, align 8, !tbaa !174
   br label %.lr.ph.i.i.i.i.i
@@ -5519,7 +5506,7 @@ _ZNSt12_Vector_baseIN17grpc_event_engine12experimental16PosixEventEngine15Connec
 
 .noexc19:                                         ; preds = %_ZNSt12_Vector_baseIN17grpc_event_engine12experimental16PosixEventEngine15ConnectionShardESaIS3_EEC2EmRKS4_.exit.i
   store ptr %22, ptr %17, align 8, !tbaa !138
-  %23 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::PosixEventEngine::ConnectionShard", ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %23, ptr %24, align 8, !tbaa !174
   br label %.lr.ph.i.i.i.i.i
@@ -6149,7 +6136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   %36 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %35, i1 true)
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 %37
-  %39 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %29, i64 %37
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %37
   %40 = load i8, ptr %38, align 1, !tbaa !204
   %41 = icmp slt i8 %40, -1
   br i1 %41, label %.lr.ph.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEENS5_20TaskHandleComparatorIS7_E4HashESt8equal_toIS7_ESaIS7_EE8iterator21skip_empty_or_deletedEv.exit.i, !llvm.loop !206
@@ -6612,7 +6599,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %21 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %20, i1 true)
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 %22
-  %24 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %14, i64 %22
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %22
   %25 = load i8, ptr %23, align 1, !tbaa !204
   %26 = icmp slt i8 %25, -1
   br i1 %26, label %.lr.ph.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEENS5_20TaskHandleComparatorIS7_E4HashESt8equal_toIS7_ESaIS7_EE8iterator21skip_empty_or_deletedEv.exit, !llvm.loop !206
@@ -7944,7 +7931,7 @@ define noundef zeroext i1 @_ZN17grpc_event_engine12experimental16PosixEventEngin
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 40
   %18 = urem i64 %9, %17
-  %19 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::PosixEventEngine::ConnectionShard", ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %18
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !139
@@ -8006,7 +7993,7 @@ define noundef zeroext i1 @_ZN17grpc_event_engine12experimental16PosixEventEngin
   %55 = zext nneg i16 %54 to i64
   %56 = add i64 %.sroa.6.0.i.i, %55
   %57 = and i64 %56, %21
-  %58 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !104
   %60 = icmp eq i64 %59, %9
   br i1 %60, label %.thread29.i.i, label %62, !prof !155
@@ -11556,7 +11543,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %72 = getelementptr i8, ptr %42, i64 %70
   %73 = getelementptr i8, ptr %72, i64 %71
   store i8 %67, ptr %73, align 1, !tbaa !204
-  %74 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %138
 
@@ -11576,7 +11563,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %81, label %82, label %124
 
 82:                                               ; preds = %.lr.ph
-  %83 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i, i64 %.064
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %84 = load i64, ptr %83, align 8, !tbaa !104
   %85 = add i64 %84, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
   %86 = zext i64 %85 to i128
@@ -11637,7 +11624,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolic
   %121 = getelementptr i8, ptr %91, i64 %119
   %122 = getelementptr i8, ptr %121, i64 %120
   store i8 %116, ptr %122, align 1, !tbaa !204
-  %123 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %123, ptr noundef nonnull align 1 dereferenceable(16) %83, i64 16, i1 false)
   %.pre = load i64, ptr %24, align 8, !tbaa !361
   br label %124
@@ -12943,7 +12930,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %45 = zext nneg i16 %44 to i64
   %46 = add i64 %.sroa.6.0.i, %45
   %47 = and i64 %46, %3
-  %48 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %47
   %49 = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimentaleqERKNS0_11EventEngine10TaskHandleES4_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %49, label %.thread29.i, label %53, !prof !155
 
@@ -12951,7 +12938,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %50 = load ptr, ptr %13, align 8, !tbaa !59
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %47
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !59
-  %52 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %47
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %47
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEENS5_20TaskHandleComparatorIS7_E4HashESt8equal_toIS7_ESaIS7_EE12find_non_sooIS7_EENSF_8iteratorERKS7_m.exit
 
@@ -13050,7 +13037,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !59, !noalias !385
-  %35 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEENS5_20TaskHandleComparatorIS7_E4HashESt8equal_toIS7_ESaIS7_EE26find_or_prepare_insert_sooIS7_EESt4pairINSF_8iteratorEbERKT_.exit
 
@@ -13123,7 +13110,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %37 = zext nneg i16 %36 to i64
   %38 = add i64 %.sroa.7.0, %37
   %39 = and i64 %38, %21
-  %40 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %39
   %41 = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimentaleqERKNS0_11EventEngine10TaskHandleES4_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %41, label %.critedge21, label %.critedge, !prof !155
 
@@ -13158,7 +13145,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %54 = load ptr, ptr %4, align 8, !tbaa !59
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink74
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %30, align 8, !tbaa !59
-  %56 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink74
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink74
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %55) ]
   store ptr %55, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13313,7 +13300,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %88 = getelementptr i8, ptr %58, i64 %86
   %89 = getelementptr i8, ptr %88, i64 %87
   store i8 %83, ptr %89, align 1, !tbaa !204
-  %90 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %162
 
@@ -13333,7 +13320,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %97, label %98, label %148
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i, i64 %.064
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i64, ptr %99, align 8, !tbaa !104
   %102 = load i64, ptr %100, align 8, !tbaa !104
@@ -13402,7 +13389,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %145 = getelementptr i8, ptr %115, i64 %143
   %146 = getelementptr i8, ptr %145, i64 %144
   store i8 %140, ptr %146, align 1, !tbaa !204
-  %147 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false)
   %.pre = load i64, ptr %33, align 8, !tbaa !361
   br label %148
@@ -13490,7 +13477,7 @@ define linkonce_odr noundef i32 @_ZN17grpc_event_engine12experimental24GrpcPolle
   %16 = load i64, ptr %15, align 8, !tbaa !265
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %13, align 8, !tbaa !264
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !401
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %21
@@ -13770,7 +13757,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
   %10 = load i64, ptr %9, align 8, !tbaa !265
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !264
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !401
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -13907,7 +13894,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 31:                                               ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !264
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !401
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -13934,7 +13921,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %45 = load i32, ptr %43, align 4, !tbaa !70
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !401
   br label %49
 
@@ -13999,7 +13986,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %16 = load i32, ptr %15, align 8, !tbaa !70
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !401
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -14014,7 +14001,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !401
   br label %29
 

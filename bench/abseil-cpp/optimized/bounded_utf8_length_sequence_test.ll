@@ -6139,7 +6139,7 @@ define internal void @_ZN4absl18debugging_internal12_GLOBAL__N_175BoundedUtf8Len
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %1
   %indvars.iv50.i = phi i64 [ 2, %1 ], [ %indvars.iv.next51.i, %.lr.ph48.i ]
-  %34 = getelementptr i64, ptr %2, i64 %indvars.iv50.i
+  %34 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv50.i
   %35 = load i64, ptr %34, align 8, !tbaa !65
   %36 = getelementptr i8, ptr %34, i64 -8
   %37 = load i64, ptr %36, align 8, !tbaa !65
@@ -6462,7 +6462,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph48.i103:                                    ; preds = %.lr.ph48.i103, %146
   %indvars.iv50.i104 = phi i64 [ 2, %146 ], [ %indvars.iv.next51.i105, %.lr.ph48.i103 ]
-  %147 = getelementptr i64, ptr %2, i64 %indvars.iv50.i104
+  %147 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv50.i104
   %148 = load i64, ptr %147, align 8, !tbaa !65
   %149 = getelementptr i8, ptr %147, i64 -8
   %150 = load i64, ptr %149, align 8, !tbaa !65
@@ -6622,7 +6622,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %indvars.iv.i129 = phi i64 [ 2, %194 ], [ %indvars.iv.next.i132, %.lr.ph.i128 ]
   %.04044.i130 = phi i32 [ %201, %194 ], [ %211, %.lr.ph.i128 ]
   %.04143.i131 = phi i32 [ %198, %194 ], [ %207, %.lr.ph.i128 ]
-  %202 = getelementptr i64, ptr %2, i64 %indvars.iv.i129
+  %202 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv.i129
   %203 = getelementptr i8, ptr %202, i64 -8
   %204 = load i64, ptr %203, align 8, !tbaa !65
   %205 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %204)
@@ -6798,7 +6798,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %indvars.iv.i155 = phi i64 [ 2, %262 ], [ %indvars.iv.next.i158, %.lr.ph.i154 ]
   %.04044.i156 = phi i32 [ 0, %262 ], [ %272, %.lr.ph.i154 ]
   %.04143.i157 = phi i32 [ 0, %262 ], [ %268, %.lr.ph.i154 ]
-  %263 = getelementptr i64, ptr %2, i64 %indvars.iv.i155
+  %263 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv.i155
   %264 = getelementptr i8, ptr %263, i64 -8
   %265 = load i64, ptr %264, align 8, !tbaa !65
   %266 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %265)

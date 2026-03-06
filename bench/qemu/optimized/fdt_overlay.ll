@@ -749,7 +749,7 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !4
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %rev.i = call noundef i32 @llvm.bswap.i32(i32 %25)
   %26 = zext i32 %rev.i to i64

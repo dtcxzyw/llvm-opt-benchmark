@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.t_pbc = type { i32, i32, i32, i32, [3 x [3 x float]], [3 x float], [3 x float], [3 x float], float, i32, [12 x [3 x i32]], [12 x [3 x float]] }
 %"class.gmx::BasicVector" = type { [3 x float] }
-%"class.gmx::Site" = type { i32, %"class.gmx::BasicVector" }
-%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
-%"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry" = type { i32, %"struct.gmx_ga2la_t::Entry", i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -183,7 +180,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   %.sroa.10.0118 = phi float [ %.fca.1.extract32, %.lr.ph ], [ %45, %30 ]
   %.sroa.097.0117 = phi <2 x float> [ %.fca.0.extract31, %.lr.ph ], [ %.sroa.097.4.vec.insert104, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %32 = getelementptr inbounds nuw %"class.gmx::Site", ptr %31, i64 %.068119
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.068119
   %.sroa.026.0.copyload = load ptr, ptr %1, align 8
   %.sroa.227.0.copyload = load ptr, ptr %.sroa.236.0..sroa_idx, align 8
   %33 = load double, ptr %13, align 8, !tbaa !23
@@ -195,7 +192,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = add nuw i64 %.068119, 1
   %36 = load ptr, ptr %14, align 8, !tbaa !20
-  %37 = getelementptr inbounds nuw %"class.gmx::Site", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %35
   %.sroa.020.0.copyload = load ptr, ptr %1, align 8
   %.sroa.221.0.copyload = load ptr, ptr %.sroa.236.0..sroa_idx, align 8
   %38 = load double, ptr %13, align 8, !tbaa !23
@@ -307,7 +304,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %98, %96
 101:                                              ; preds = %_ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i
   %102 = sext i32 %83 to i64
   %103 = load ptr, ptr %89, align 8, !tbaa !74
-  %104 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %103, i64 %102
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %102
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4, !tbaa !77
   %107 = icmp eq i32 %106, -1
@@ -323,7 +320,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %98, %96
 113:                                              ; preds = %120, %108
   %.0.i.i.i = phi i32 [ %111, %108 ], [ %122, %120 ]
   %114 = sext i32 %.0.i.i.i to i64
-  %115 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !87
   %117 = icmp eq i32 %116, %83
   br i1 %117, label %118, label %120
@@ -355,7 +352,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4f
   %127 = sext i32 %126 to i64
   %128 = load i64, ptr %84, align 8
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds %"class.gmx::BasicVector", ptr %129, i64 %127
+  %130 = getelementptr inbounds [12 x i8], ptr %129, i64 %127
   %131 = load float, ptr %130, align 4, !tbaa !44
   %.sroa.0.0.vec.extract = extractelement <2 x float> %80, i64 0
   %132 = fadd float %.sroa.0.0.vec.extract, %131
@@ -415,7 +412,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i80:      ; preds = %155, %153
 158:                                              ; preds = %_ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i80
   %159 = sext i32 %142 to i64
   %160 = load ptr, ptr %146, align 8, !tbaa !74
-  %161 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %160, i64 %159
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %159
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !77
   %164 = icmp eq i32 %163, -1
@@ -431,7 +428,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i80:      ; preds = %155, %153
 170:                                              ; preds = %177, %165
   %.0.i.i.i82 = phi i32 [ %168, %165 ], [ %179, %177 ]
   %171 = sext i32 %.0.i.i.i82 to i64
-  %172 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %169, i64 %171
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !87
   %174 = icmp eq i32 %173, %142
   br i1 %174, label %175, label %177
@@ -463,7 +460,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit88:              ; preds = %_ZNK11gmx_ga2la_t4f
   %184 = sext i32 %183 to i64
   %185 = load i64, ptr %84, align 8
   %186 = inttoptr i64 %185 to ptr
-  %187 = getelementptr inbounds %"class.gmx::BasicVector", ptr %186, i64 %184
+  %187 = getelementptr inbounds [12 x i8], ptr %186, i64 %184
   %188 = load float, ptr %187, align 4, !tbaa !44
   %.sroa.0.0.vec.extract92 = extractelement <2 x float> %80, i64 0
   %189 = fsub float %188, %.sroa.0.0.vec.extract92
@@ -1116,7 +1113,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx4SiteES2_SaIS1_EET0_T_S5_S4_RT1_.
 _ZNSt12_Vector_baseIN3gmx4SiteESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx4SiteES2_SaIS1_EET0_T_S5_S4_RT1_.exit34, %38
   store ptr %20, ptr %0, align 8, !tbaa !20
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !24
-  %42 = getelementptr inbounds nuw %"class.gmx::Site", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %37, align 8, !tbaa !106
   ret void
 }
@@ -1242,7 +1239,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %21, %19
 24:                                               ; preds = %_ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i
   %25 = sext i32 %12 to i64
   %26 = load ptr, ptr %11, align 8, !tbaa !74
-  %27 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !77
   %30 = icmp eq i32 %29, -1
@@ -1258,7 +1255,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %21, %19
 36:                                               ; preds = %43, %31
   %.0.i.i.i = phi i32 [ %34, %31 ], [ %45, %43 ]
   %37 = sext i32 %.0.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !87
   %40 = icmp eq i32 %39, %12
   br i1 %40, label %41, label %43
@@ -1284,7 +1281,7 @@ _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %41, %24
 _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i
   %49 = load i32, ptr %.0.i.i, align 4, !tbaa !91
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %50
+  %51 = getelementptr inbounds [12 x i8], ptr %3, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !44
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load float, ptr %53, align 4, !tbaa !44
@@ -1318,7 +1315,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %43, %24, %_ZNK11gmx
 68:                                               ; preds = %6
   %69 = load i32, ptr %0, align 4, !tbaa !59
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %70
+  %71 = getelementptr inbounds [12 x i8], ptr %3, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !44
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = load float, ptr %73, align 4, !tbaa !44

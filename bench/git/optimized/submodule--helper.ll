@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.submodule_update_strategy = type { i32, ptr }
 %struct.module_list = type { ptr, i32, i32 }
 %struct.init_cb = type { ptr, ptr, i32 }
-%struct.update_clone_data = type { ptr, %struct.object_id, i32 }
 %struct.foreach_cb = type { i32, ptr, ptr, ptr, i32, i32 }
 %struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i32, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
 %struct.object_array = type { i32, i32, ptr }
@@ -45,11 +44,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.module_cb_list = type { ptr, i32, i32 }
 %struct.summary_cb = type { i32, ptr, ptr, ptr, i8, i32 }
 %struct.refspec = type { ptr, i32, i32, i32 }
-%struct.refspec_item = type { i8, ptr, ptr, ptr }
 %struct.submodule_alternate_setup = type { ptr, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [32 x i8] c"git submodule--helper <command>\00", align 1
 @__const.cmd_submodule__helper.usage = private unnamed_addr constant [2 x ptr] [ptr @.str, ptr null], align 16
@@ -1363,7 +1360,7 @@ define internal i32 @module_add(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %198 = phi ptr [ %233, %229 ], [ %195, %187 ]
   %.014.i = phi i64 [ %230, %229 ], [ 0, %187 ]
   %199 = load ptr, ptr %198, align 8, !tbaa !70
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %.014.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.014.i
   %201 = load ptr, ptr %200, align 8, !tbaa !71
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 64
   %203 = load i32, ptr %202, align 8, !tbaa !17
@@ -1394,7 +1391,7 @@ define internal i32 @module_add(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 384
   %219 = load ptr, ptr %218, align 8, !tbaa !40
   %220 = load ptr, ptr %219, align 8, !tbaa !70
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %.014.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %.014.i
   %222 = load ptr, ptr %221, align 8, !tbaa !71
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 52
   %224 = load i32, ptr %223, align 4, !tbaa !17
@@ -2488,7 +2485,7 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
   %.sroa.7.029.i = phi i32 [ %.sroa.7.1.i, %313 ], [ 0, %289 ]
   %.sroa.0.028.i = phi ptr [ %.sroa.0.1.i, %313 ], [ null, %289 ]
   %294 = load ptr, ptr %33, align 8, !tbaa !112
-  %295 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv.i
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv.i
   %296 = load ptr, ptr %295, align 8, !tbaa !71
   %297 = load ptr, ptr @the_repository, align 8, !tbaa !35
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 108
@@ -2525,7 +2522,7 @@ st_mult.exit.i:                                   ; preds = %302
   %.sroa.0.2.i = phi ptr [ %309, %st_mult.exit.i ], [ %.sroa.0.028.i, %300 ]
   %.sroa.7.3.i = phi i32 [ %..i, %st_mult.exit.i ], [ %.sroa.7.029.i, %300 ]
   %311 = sext i32 %.sroa.13.030.i to i64
-  %312 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %311
+  %312 = getelementptr inbounds [8 x i8], ptr %.sroa.0.2.i, i64 %311
   store ptr %296, ptr %312, align 8, !tbaa !71
   br label %313
 
@@ -2582,7 +2579,7 @@ module_list_active.exit:                          ; preds = %313, %289
 
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25.preheader, %.lr.ph.i25
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i27, %.lr.ph.i25 ], [ 0, %.lr.ph.i25.preheader ]
-  %331 = getelementptr inbounds nuw ptr, ptr %.val24.pre, i64 %indvars.iv.i26
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %.val24.pre, i64 %indvars.iv.i26
   %332 = load ptr, ptr %331, align 8, !tbaa !71
   call fastcc void @init_submodule_cb(ptr noundef %332, ptr noundef nonnull %34) #20
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
@@ -2680,7 +2677,7 @@ module_list_active.exit:                          ; preds = %313, %289
   %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.i29 ], [ %indvars.iv.next.i31, %805 ]
   %.169.i = phi i32 [ 0, %.lr.ph.i29 ], [ %.2.ph.i, %805 ]
   %385 = load ptr, ptr %351, align 8, !tbaa !136
-  %386 = getelementptr inbounds nuw %struct.update_clone_data, ptr %385, i64 %indvars.iv.i30
+  %386 = getelementptr inbounds nuw [48 x i8], ptr %385, i64 %indvars.iv.i30
   %.sroa.0.0.copyload.i = load ptr, ptr %386, align 8, !tbaa !137
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %386, i64 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %386, i64 40
@@ -4009,7 +4006,7 @@ define internal range(i32 0, 2) i32 @module_foreach(i32 noundef %0, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %runcommand_in_submodule_cb.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %runcommand_in_submodule_cb.exit ], [ 0, %.lr.ph.i.preheader ]
-  %60 = getelementptr inbounds nuw ptr, ptr %.val.pre31, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre31, i64 %indvars.iv.i
   %61 = load ptr, ptr %60, align 8, !tbaa !71
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 108
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 72
@@ -4276,7 +4273,7 @@ define internal range(i32 0, 2) i32 @module_init(i32 noundef %0, ptr noundef %1,
   %.sroa.7.029.i = phi i32 [ %.sroa.7.1.i, %48 ], [ 0, %24 ]
   %.sroa.0.028.i = phi ptr [ %.sroa.0.1.i, %48 ], [ null, %24 ]
   %29 = load ptr, ptr %7, align 8, !tbaa !112
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !71
   %32 = load ptr, ptr @the_repository, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 108
@@ -4313,7 +4310,7 @@ st_mult.exit.i:                                   ; preds = %37
   %.sroa.0.2.i = phi ptr [ %44, %st_mult.exit.i ], [ %.sroa.0.028.i, %35 ]
   %.sroa.7.3.i = phi i32 [ %..i, %st_mult.exit.i ], [ %.sroa.7.029.i, %35 ]
   %46 = sext i32 %.sroa.13.030.i to i64
-  %47 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %.sroa.0.2.i, i64 %46
   store ptr %31, ptr %47, align 8, !tbaa !71
   br label %48
 
@@ -4363,7 +4360,7 @@ module_list_active.exit:                          ; preds = %48, %24
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %.lr.ph.i9
   %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %.lr.ph.i9 ], [ 0, %.lr.ph.i9.preheader ]
-  %63 = getelementptr inbounds nuw ptr, ptr %.val.pre12, i64 %indvars.iv.i10
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre12, i64 %indvars.iv.i10
   %64 = load ptr, ptr %63, align 8, !tbaa !71
   call fastcc void @init_submodule_cb(ptr noundef %64, ptr noundef nonnull %5) #20
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
@@ -4535,7 +4532,7 @@ define internal range(i32 0, 2) i32 @module_status(i32 noundef %0, ptr noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %status_submodule_cb.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %status_submodule_cb.exit ], [ 0, %.lr.ph.i.preheader ]
-  %84 = getelementptr inbounds nuw ptr, ptr %.val.pre40, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre40, i64 %indvars.iv.i
   %85 = load ptr, ptr %84, align 8, !tbaa !71
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 108
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 72
@@ -4939,7 +4936,7 @@ define internal range(i32 0, 2) i32 @module_sync(i32 noundef %0, ptr noundef %1,
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %60 = getelementptr inbounds nuw ptr, ptr %.val.pre7, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre7, i64 %indvars.iv.i
   %61 = load ptr, ptr %60, align 8, !tbaa !71
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 108
   %63 = load ptr, ptr %5, align 8, !tbaa !219
@@ -5092,7 +5089,7 @@ define internal range(i32 0, 2) i32 @module_deinit(i32 noundef %0, ptr noundef %
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %deinit_submodule_cb.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %deinit_submodule_cb.exit ], [ 0, %.lr.ph.i.preheader ]
   %65 = load ptr, ptr %11, align 8, !tbaa !112
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i
   %67 = load ptr, ptr %66, align 8, !tbaa !71
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 108
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5626,7 +5623,7 @@ define internal range(i32 -1, 1) i32 @module_summary(i32 noundef %0, ptr noundef
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.preheader, %170
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %170 ], [ 0, %.lr.ph.i.i.preheader ]
   %157 = load ptr, ptr %10, align 8, !tbaa !238
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv.i.i.us
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv.i.i.us
   %159 = load ptr, ptr %158, align 8, !tbaa !239
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.verify_submodule_committish.result, i64 24, i1 false)
@@ -5669,7 +5666,7 @@ define internal range(i32 -1, 1) i32 @module_summary(i32 noundef %0, ptr noundef
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %207
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %207 ], [ 0, %.lr.ph.i.i.preheader ]
   %174 = load ptr, ptr %10, align 8, !tbaa !238
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv.i.i
   %176 = load ptr, ptr %175, align 8, !tbaa !239
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.verify_submodule_committish.result, i64 24, i1 false)
@@ -5772,7 +5769,7 @@ prepare_submodule_summary.exit.i:                 ; preds = %207, %170, %prepare
 .lr.ph.i17.i:                                     ; preds = %prepare_submodule_summary.exit.i, %.lr.ph.i17.i
   %indvars.iv.i18.i = phi i64 [ %indvars.iv.next.i19.i, %.lr.ph.i17.i ], [ 0, %prepare_submodule_summary.exit.i ]
   %214 = load ptr, ptr %10, align 8, !tbaa !238
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv.i18.i
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv.i18.i
   %216 = load ptr, ptr %215, align 8, !tbaa !239
   %217 = getelementptr i8, ptr %216, i64 88
   %.val.i.i = load ptr, ptr %217, align 8, !tbaa !243
@@ -5876,7 +5873,7 @@ define internal noundef i32 @push_check(i32 noundef %0, ptr noundef %1, ptr read
   %36 = phi i32 [ %50, %49 ], [ %34, %.lr.ph ]
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %49 ], [ 0, %.lr.ph ]
   %37 = load ptr, ptr %6, align 8, !tbaa !254
-  %38 = getelementptr inbounds nuw %struct.refspec_item, ptr %37, i64 %indvars.iv54
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %indvars.iv54
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 6
   %or.cond.us = icmp eq i8 %40, 0
@@ -5912,7 +5909,7 @@ define internal noundef i32 @push_check(i32 noundef %0, ptr noundef %1, ptr read
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
   %53 = load ptr, ptr %6, align 8, !tbaa !254
-  %54 = getelementptr inbounds nuw %struct.refspec_item, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %indvars.iv
   %55 = load i8, ptr %54, align 8
   %56 = and i8 %55, 6
   %or.cond = icmp eq i8 %56, 0
@@ -6021,7 +6018,7 @@ define internal range(i32 0, 2) i32 @absorb_git_dirs(i32 noundef %0, ptr noundef
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.val.pre11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre11, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %25 = load ptr, ptr %7, align 8, !tbaa !18
@@ -6710,7 +6707,7 @@ prepare_possible_alternates.exit:                 ; preds = %53, %89
 .lr.ph.preheader:                                 ; preds = %112
   %114 = load ptr, ptr %1, align 8, !tbaa !264
   %115 = load i64, ptr %110, align 8, !tbaa !263
-  %116 = getelementptr inbounds nuw %struct.string_list_item, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %115
   %117 = icmp ult ptr %113, %116
   br i1 %117, label %.lr.ph, label %.critedge
 
@@ -6721,7 +6718,7 @@ prepare_possible_alternates.exit:                 ; preds = %53, %89
   %119 = getelementptr inbounds nuw i8, ptr %.0771181, i64 16
   %120 = load ptr, ptr %1, align 8, !tbaa !264
   %121 = load i64, ptr %110, align 8, !tbaa !263
-  %122 = getelementptr inbounds nuw %struct.string_list_item, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %121
   %123 = icmp ult ptr %119, %122
   br i1 %123, label %.lr.ph, label %.critedge
 
@@ -7587,7 +7584,7 @@ define internal fastcc range(i32 -1, 1) i32 @module_list_compute(ptr noundef %0,
   %23 = phi ptr [ %15, %.lr.ph ], [ %75, %.critedge ]
   %.03548 = phi i64 [ 0, %.lr.ph ], [ %72, %.critedge ]
   %24 = load ptr, ptr %23, align 8, !tbaa !70
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.03548
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.03548
   %26 = load ptr, ptr %25, align 8, !tbaa !71
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 108
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
@@ -7642,7 +7639,7 @@ st_mult.exit:                                     ; preds = %39
   %52 = add nsw i32 %50, 1
   store i32 %52, ptr %18, align 4, !tbaa !111
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds ptr, ptr %51, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %51, i64 %53
   store ptr %26, ptr %54, align 8, !tbaa !71
   %55 = load ptr, ptr @the_repository, align 8, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 384
@@ -7663,7 +7660,7 @@ st_mult.exit:                                     ; preds = %39
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %57, align 8, !tbaa !70
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %64
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %64
   %69 = load ptr, ptr %68, align 8, !tbaa !71
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 108
   %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %70) #22
@@ -7969,7 +7966,7 @@ define internal range(i32 0, 2) i32 @update_clone_get_next_task(ptr noundef %0, 
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %14 = load ptr, ptr %13, align 8, !tbaa !280
   %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !71
   %18 = tail call fastcc i32 @prepare_to_clone_next_submodule(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1)
   %.not36 = icmp eq i32 %18, 0
@@ -8007,7 +8004,7 @@ define internal range(i32 0, 2) i32 @update_clone_get_next_task(ptr noundef %0, 
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !163
   %37 = sext i32 %30 to i64
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !71
   %40 = tail call fastcc i32 @prepare_to_clone_next_submodule(ptr noundef %39, ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1)
   %.not = icmp eq i32 %40, 0
@@ -8062,7 +8059,7 @@ define internal range(i32 0, 2) i32 @update_clone_task_finished(i32 noundef %0, 
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %14 = load ptr, ptr %13, align 8, !tbaa !280
   %15 = sext i32 %5 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !71
   %18 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !17
   %.not4.i = icmp eq i32 %18, 0
@@ -8149,7 +8146,7 @@ st_mult.exit:                                     ; preds = %37
   %51 = add nsw i32 %49, 1
   store i32 %51, ptr %33, align 8, !tbaa !282
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %50, i64 %52
   store ptr %17, ptr %53, align 8, !tbaa !71
   br label %79
 
@@ -8158,7 +8155,7 @@ st_mult.exit:                                     ; preds = %37
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !163
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !71
   %61 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !17
   %.not4.i41 = icmp eq i32 %61, 0
@@ -8550,7 +8547,7 @@ st_mult.exit:                                     ; preds = %128
   %141 = phi ptr [ %.pre167, %strbuf_setlen.exit163._crit_edge ], [ %138, %st_mult.exit ]
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %143 = sext i32 %140 to i64
-  %144 = getelementptr inbounds %struct.update_clone_data, ptr %141, i64 %143
+  %144 = getelementptr inbounds [48 x i8], ptr %141, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %145, ptr noundef nonnull readonly align 4 dereferenceable(32) %146, i64 32, i1 false)
@@ -8561,7 +8558,7 @@ st_mult.exit:                                     ; preds = %128
   %150 = load ptr, ptr %142, align 8, !tbaa !136
   %151 = load i32, ptr %124, align 8, !tbaa !135
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds %struct.update_clone_data, ptr %150, i64 %152
+  %153 = getelementptr inbounds [48 x i8], ptr %150, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 44
   store i32 %123, ptr %154, align 4, !tbaa !285
   store ptr %48, ptr %153, align 8, !tbaa !287
@@ -8707,7 +8704,7 @@ st_mult.exit:                                     ; preds = %128
   %228 = load ptr, ptr %227, align 8, !tbaa !293
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 72
   %230 = load i64, ptr %229, align 8, !tbaa !292
-  %231 = getelementptr inbounds nuw %struct.string_list_item, ptr %228, i64 %230
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %228, i64 %230
   %232 = icmp ult ptr %225, %231
   br i1 %232, label %.lr.ph, label %.critedge
 
@@ -8721,7 +8718,7 @@ st_mult.exit:                                     ; preds = %128
   %237 = load ptr, ptr %236, align 8, !tbaa !293
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 72
   %239 = load i64, ptr %238, align 8, !tbaa !292
-  %240 = getelementptr inbounds nuw %struct.string_list_item, ptr %237, i64 %239
+  %240 = getelementptr inbounds nuw [16 x i8], ptr %237, i64 %239
   %241 = icmp ult ptr %234, %240
   br i1 %241, label %.lr.ph, label %.critedge
 
@@ -9360,7 +9357,7 @@ define internal void @submodule_summary_callback(ptr noundef readonly captures(n
   %10 = phi i32 [ %5, %.lr.ph ], [ %56, %55 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %11 = load ptr, ptr %0, align 8, !tbaa !301
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !302
   %14 = load ptr, ptr %13, align 8, !tbaa !304
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
@@ -9437,7 +9434,7 @@ st_mult.exit:                                     ; preds = %39
   %52 = add nsw i32 %50, 1
   store i32 %52, ptr %7, align 4, !tbaa !235
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds ptr, ptr %51, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %51, i64 %53
   store ptr %21, ptr %54, align 8, !tbaa !239
   %.pre45 = load i32, ptr %4, align 4, !tbaa !298
   br label %55

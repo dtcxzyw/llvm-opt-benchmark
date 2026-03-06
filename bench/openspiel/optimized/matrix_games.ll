@@ -8460,7 +8460,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIlSaI
   store ptr %15, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %11
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %17, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %14, i1 false)
@@ -9081,7 +9081,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:
   call void %6(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.6") align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds double, ptr %8, i64 %7
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %7
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8

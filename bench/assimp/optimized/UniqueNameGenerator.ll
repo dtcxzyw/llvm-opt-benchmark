@@ -378,7 +378,7 @@ _ZNSt6vectorImSaImEED2Ev.exit116.thread:          ; preds = %2
   %.sroa.0146.0255 = phi ptr [ null, %.lr.ph ], [ %.sroa.0146.3, %_ZNSt6vectorImSaImEE9push_backERKm.exit ]
   %.sroa.9.0254 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %_ZNSt6vectorImSaImEE9push_backERKm.exit ]
   %.sroa.14.0253 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.3, %_ZNSt6vectorImSaImEE9push_backERKm.exit ]
-  %47 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %46, i64 %storemerge261
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %storemerge261
   %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 noundef signext 32, i64 noundef 0) #23
   %49 = icmp eq i64 %48, -1
   br i1 %49, label %50, label %72
@@ -439,7 +439,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %68, %.noex
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
-  %71 = getelementptr inbounds nuw i64, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 .loopexit187:                                     ; preds = %245, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i45, %247
@@ -459,7 +459,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
 
 72:                                               ; preds = %45
   %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %73, i64 %storemerge261
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %storemerge261
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = load i64, ptr %28, align 8
@@ -623,7 +623,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i48: ; preds = %128, %.n
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i50
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i50: ; preds = %130, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i48
-  %131 = getelementptr inbounds nuw i64, ptr %125, i64 %123
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %123
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit53
 
 132:                                              ; preds = %.noexc10.i.i
@@ -637,7 +637,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit53:        ; preds = %_ZNSt6vectorImSaImE
   %.sroa.9.2 = phi ptr [ %.sroa.9.0254, %.critedge ], [ %129, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i50 ], [ %112, %111 ]
   %.sroa.0146.5 = phi ptr [ %.sroa.0146.0255, %.critedge ], [ %125, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i50 ], [ %.sroa.0146.0255, %111 ]
   %134 = load ptr, ptr %1, align 8
-  %135 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %134, i64 %storemerge261
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %storemerge261
   %.val30 = load ptr, ptr %135, align 8
   %136 = getelementptr i8, ptr %135, i64 8
   %.val31 = load i64, ptr %136, align 8
@@ -1086,7 +1086,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0269, i64 16
   %272 = load i64, ptr %271, align 8
   %273 = load ptr, ptr %1, align 8
-  %274 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %273, i64 %272
+  %274 = getelementptr inbounds nuw [32 x i8], ptr %273, i64 %272
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %277 = icmp eq ptr %275, %276
@@ -1196,7 +1196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
 308:                                              ; preds = %307
   %309 = load i64, ptr %.sroa.0123.0279, align 8
   %310 = load ptr, ptr %1, align 8
-  %311 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %310, i64 %309
+  %311 = getelementptr inbounds nuw [32 x i8], ptr %310, i64 %309
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 16
   %314 = icmp eq ptr %312, %313
@@ -1308,7 +1308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
 346:                                              ; preds = %345
   %347 = load i64, ptr %.sroa.0119.0282, align 8
   %348 = load ptr, ptr %1, align 8
-  %349 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %348, i64 %347
+  %349 = getelementptr inbounds nuw [32 x i8], ptr %348, i64 %347
   %350 = load ptr, ptr %349, align 8
   %351 = getelementptr inbounds nuw i8, ptr %349, i64 16
   %352 = icmp eq ptr %350, %351
@@ -2172,7 +2172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.027.us = phi i64 [ %65, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %61 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %53, i64 %.027.us
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %.027.us
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
@@ -2187,7 +2187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread25
   %.027 = phi i64 [ %75, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread25 ], [ 0, %.lr.ph ]
-  %67 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %53, i64 %.027
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %.027
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %.fr29, %69

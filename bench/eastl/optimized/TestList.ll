@@ -16,17 +16,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::reverse_iterator.8" = type { %"struct.eastl::ListIterator.4" }
 %"struct.eastl::ListIterator.4" = type { ptr }
 %"struct.eastl::less.11" = type { i8 }
-%struct.Align64 = type { i32, [60 x i8] }
 %"struct.eastl::ListIterator.16" = type { ptr }
 %"class.eastl::reverse_iterator.17" = type { %"struct.eastl::ListIterator.16" }
 %"class.eastl::reverse_iterator.18" = type { %"struct.eastl::ListIterator.14" }
 %"struct.eastl::ListIterator.14" = type { ptr }
 %"struct.eastl::less.20" = type { i8 }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::ListIterator.25" = type { ptr }
 %"class.eastl::reverse_iterator.26" = type { %"struct.eastl::ListIterator.25" }
 %"class.eastl::reverse_iterator.27" = type { %"struct.eastl::ListIterator.23" }
 %"struct.eastl::ListIterator.23" = type { ptr }
+%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::less.29" = type { i8 }
 %"struct.eastl::ListIterator.99" = type { ptr }
 %"class.eastl::list.2" = type { %"class.eastl::ListBase.3" }
@@ -4113,7 +4112,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl4listIiNS_9allocatorEEaSESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   tail call void @_ZN5eastl4listIiNS_9allocatorEE8DoAssignIPKiEEvT_S6_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret ptr %this
 }
@@ -4431,7 +4430,7 @@ if.end:                                           ; preds = %for.body.i, %while.
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6assignESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   tail call void @_ZN5eastl4listIiNS_9allocatorEE8DoAssignIPKiEEvT_S6_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret void
 }
@@ -6686,7 +6685,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl4listI7Align64NS_9allocatorEEaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [64 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   tail call void @_ZN5eastl4listI7Align64NS_9allocatorEE8DoAssignIPKS1_EEvT_S7_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret ptr %this
 }
@@ -7002,7 +7001,7 @@ if.end:                                           ; preds = %for.body.i, %while.
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6assignESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [64 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   tail call void @_ZN5eastl4listI7Align64NS_9allocatorEE8DoAssignIPKS1_EEvT_S7_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret void
 }
@@ -9475,7 +9474,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl4listI10TestObjectNS_9allocatorEEaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [24 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   tail call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoAssignIPKS1_EEvT_S7_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret ptr %this
 }
@@ -9933,7 +9932,7 @@ if.end:                                           ; preds = %for.body.i, %_ZN5ea
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6assignESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [24 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   tail call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoAssignIPKS1_EEvT_S7_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret void
 }

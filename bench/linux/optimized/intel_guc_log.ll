@@ -17,8 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.pcpu_hot = type { %union.anon.84 }
 %union.anon.84 = type { %struct.anon.85, [16 x i8] }
 %struct.anon.85 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.anon = type { i32, i32, i32, i32 }
-%struct.anon.3 = type { i32, i32, i32 }
 
 @intel_guc_check_log_buf_overflow._rs = internal global %struct.ratelimit_state { %struct.raw_spinlock zeroinitializer, i32 5000, i32 10, i32 0, i32 0, i64 0, i64 0 }, align 8
 @__func__.intel_guc_check_log_buf_overflow = private unnamed_addr constant [33 x i8] c"intel_guc_check_log_buf_overflow\00", align 1
@@ -94,10 +92,10 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %12, %7 ]
-  %.split = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %8
+  %.split = getelementptr [24 x i8], ptr @_guc_log_init_sizes.sections, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr %struct.anon, ptr %6, i64 %8
+  %11 = getelementptr [16 x i8], ptr %6, i64 %8
   store i32 %10, ptr %11, align 4
   %12 = add nuw nsw i64 %8, 1
   %13 = icmp eq i64 %12, 3
@@ -120,7 +118,7 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 
 22:                                               ; preds = %86, %19
   %23 = phi i64 [ 0, %19 ], [ %87, %86 ]
-  %24 = getelementptr %struct.anon, ptr %6, i64 %23
+  %24 = getelementptr [16 x i8], ptr %6, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1048575
   %27 = icmp eq i32 %26, 0
@@ -128,7 +126,7 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
   br i1 %27, label %29, label %32
 
 29:                                               ; preds = %22
-  %.split10 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
+  %.split10 = getelementptr [24 x i8], ptr @_guc_log_init_sizes.sections, i64 %23
   %30 = getelementptr i8, ptr %.split10, i64 4
   %31 = load i32, ptr %30, align 4
   br label %32
@@ -157,7 +155,7 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 44:                                               ; preds = %41, %38
   %45 = phi ptr [ %43, %41 ], [ null, %38 ]
   %46 = load i32, ptr %21, align 8
-  %.split11 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
+  %.split11 = getelementptr [24 x i8], ptr @_guc_log_init_sizes.sections, i64 %23
   %47 = getelementptr i8, ptr %.split11, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %45, ptr noundef nonnull @.str.20, i32 noundef %46, ptr noundef %48, i32 noundef %25, i32 noundef %.sink) #11
@@ -187,7 +185,7 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 61:                                               ; preds = %58, %55
   %62 = phi ptr [ %60, %58 ], [ null, %55 ]
   %63 = load i32, ptr %21, align 8
-  %.split12 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
+  %.split12 = getelementptr [24 x i8], ptr @_guc_log_init_sizes.sections, i64 %23
   %64 = getelementptr i8, ptr %.split12, i64 16
   %65 = load ptr, ptr %64, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %62, ptr noundef nonnull @.str.21, i32 noundef %63, ptr noundef %65) #11
@@ -201,7 +199,7 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 
 68:                                               ; preds = %66, %61
   %69 = phi i32 [ %67, %66 ], [ %.pre14, %61 ]
-  %70 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
+  %70 = getelementptr [24 x i8], ptr @_guc_log_init_sizes.sections, i64 %23
   %71 = load i32, ptr %70, align 8
   %72 = icmp ugt i32 %69, %71
   br i1 %72, label %73, label %86
@@ -272,7 +270,7 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 define dso_local noundef zeroext i1 @intel_guc_check_log_buf_overflow(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = zext i32 %1 to i64
-  %6 = getelementptr %struct.anon.3, ptr %4, i64 %5
+  %6 = getelementptr [12 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp ne i32 %7, %2
   br i1 %8, label %9, label %23
@@ -1015,7 +1013,7 @@ intel_guc_get_log_buffer_size.exit:               ; preds = %.thread, %78
   %108 = load i32, ptr %107, align 4
   %109 = add i32 %108, %105
   store i32 %109, ptr %107, align 4
-  %110 = getelementptr %struct.anon.3, ptr %81, i64 %84
+  %110 = getelementptr [12 x i8], ptr %81, i64 %84
   %111 = load i32, ptr %110, align 4
   %112 = icmp eq i32 %111, %104
   br i1 %112, label %125, label %113
@@ -1301,7 +1299,7 @@ default.unreachable1:                             ; preds = %11
 
 16:                                               ; preds = %15, %14, %11
   %17 = phi ptr [ @.str.38, %15 ], [ @.str.37, %14 ], [ @.str.36, %11 ]
-  %18 = getelementptr %struct.anon.3, ptr %10, i64 %12
+  %18 = getelementptr [12 x i8], ptr %10, i64 %12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %18, align 4
@@ -1406,7 +1404,7 @@ define dso_local i32 @intel_guc_log_dump(ptr noundef %0, ptr noundef %1, i1 noun
 
 49:                                               ; preds = %.preheader11, %49
   %50 = phi i64 [ %59, %49 ], [ 0, %.preheader11 ]
-  %51 = getelementptr i32, ptr %23, i64 %50
+  %51 = getelementptr [4 x i8], ptr %23, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr i8, ptr %51, i64 4
   %54 = load i32, ptr %53, align 4

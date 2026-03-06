@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.157" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.158" = type { [48 x i8] }
-%"class.llvm::ilist_iterator.203" = type { ptr }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 %"class.llvm::MCCFIInstruction" = type { ptr, %union.anon.371, i8, %"class.llvm::SMLoc", %"class.std::vector.374", %"class.std::__cxx11::basic_string" }
 %union.anon.371 = type { %struct.anon.372 }
 %struct.anon.372 = type { i32, i64, i32 }
@@ -137,7 +135,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define dso_local noundef range(i32 0, 21) i32 @_ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -382,7 +380,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14ilist_iteratorINS_12ilist_detail12node_op
   %107 = phi i32 [ %98, %102 ], [ %.pre.i, %104 ]
   %108 = load ptr, ptr %45, align 8, !tbaa !151
   %109 = zext i32 %107 to i64
-  %110 = getelementptr inbounds nuw %"class.llvm::ilist_iterator.203", ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   %111 = ptrtoint ptr %.sroa.037.049 to i64
   store i64 %111, ptr %110, align 1
   %112 = load i32, ptr %52, align 8, !tbaa !152
@@ -555,7 +553,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit44.i: ; preds = %172, %_
   %.pre98.i = load i8, ptr %136, align 2, !tbaa !180, !range !217
   %173 = trunc nuw i8 %.pre98.i to i1
   %.neg89.i = select i1 %173, i64 -5370, i64 -5364
-  %174 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.pre100.i, i64 %.neg89.i
+  %174 = getelementptr inbounds [32 x i8], ptr %.pre100.i, i64 %.neg89.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   %175 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %143, ptr nonnull %131, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(32) %174)
   %176 = extractvalue { ptr, ptr } %175, 1
@@ -620,7 +618,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit60.i: ; preds = %190, %_
   %.pre93.i = load i8, ptr %136, align 2, !tbaa !180, !range !217
   %191 = trunc nuw i8 %.pre93.i to i1
   %.neg.i = select i1 %191, i64 -5369, i64 -5363
-  %192 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.pre95.i, i64 %.neg.i
+  %192 = getelementptr inbounds [32 x i8], ptr %.pre95.i, i64 %.neg.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   %193 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %143, ptr nonnull %131, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(32) %192)
   %194 = extractvalue { ptr, ptr } %193, 1
@@ -859,7 +857,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i: ; preds = %_ZN4llvm1
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load ptr, ptr %275, align 8, !tbaa !222
   %.neg146.i = select i1 %228, i64 -5574, i64 -5571
-  %277 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %276, i64 %.neg146.i
+  %277 = getelementptr inbounds [32 x i8], ptr %276, i64 %.neg146.i
   %278 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %233, ptr nonnull %238, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(32) %277)
   %279 = extractvalue { ptr, ptr } %278, 0
   %280 = extractvalue { ptr, ptr } %278, 1
@@ -946,7 +944,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit69.i: ; preds = %_ZN4llv
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %300 = load ptr, ptr %299, align 8, !tbaa !222
   %.neg.i27 = select i1 %228, i64 -5573, i64 -5570
-  %301 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %300, i64 %.neg.i27
+  %301 = getelementptr inbounds [32 x i8], ptr %300, i64 %.neg.i27
   %302 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %233, ptr nonnull %238, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(32) %301)
   %303 = extractvalue { ptr, ptr } %302, 0
   %304 = extractvalue { ptr, ptr } %302, 1
@@ -1115,7 +1113,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit85.i: ; preds = %_ZN4llv
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %362 = load ptr, ptr %361, align 8, !tbaa !222
   %.neg148.i = select i1 %228, i64 -1659, i64 -1652
-  %363 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %362, i64 %.neg148.i
+  %363 = getelementptr inbounds [32 x i8], ptr %362, i64 %.neg148.i
   %364 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %233, ptr nonnull %131, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %363)
   %365 = extractvalue { ptr, ptr } %364, 0
   %366 = extractvalue { ptr, ptr } %364, 1
@@ -1222,7 +1220,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101.i: ; preds = %_ZN4ll
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
   %392 = load ptr, ptr %391, align 8, !tbaa !222
   %.neg147.i = select i1 %228, i64 -1658, i64 -1651
-  %393 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %392, i64 %.neg147.i
+  %393 = getelementptr inbounds [32 x i8], ptr %392, i64 %.neg147.i
   %394 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %233, ptr nonnull %131, ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(32) %393)
   %395 = extractvalue { ptr, ptr } %394, 1
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 44

@@ -3,25 +3,6 @@ source_filename = "bench/ozz-animation/original/raw_animation.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.ozz::animation::offline::RawAnimation::TranslationKey" = type { float, %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Float3" = type { float, float, float }
-%"struct.ozz::animation::offline::RawAnimation::RotationKey" = type { float, %"struct.ozz::math::Quaternion" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::animation::offline::RawAnimation::ScaleKey" = type { float, %"struct.ozz::math::Float3" }
-%"struct.ozz::animation::offline::RawAnimation::JointTrack" = type { %"class.std::vector.2", %"class.std::vector.6", %"class.std::vector.10" }
-%"class.std::vector.2" = type { %"struct.std::_Vector_base.3" }
-%"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 @_ZN3ozz9animation7offline12RawAnimationC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3ozz9animation7offline12RawAnimationC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -61,7 +42,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %.0164.i = phi i64 [ %9, %8 ], [ 0, %.lr.ph.preheader.i ]
   %.0173.i = phi float [ %11, %8 ], [ -1.000000e+00, %.lr.ph.preheader.i ]
-  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.val, i64 %.0164.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.val, i64 %.0164.i
   %11 = load float, ptr %10, align 4, !tbaa !24
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, %1
@@ -93,7 +74,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
 .lr.ph.i11:                                       ; preds = %21, %.lr.ph.preheader.i10
   %.0164.i12 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader.i10 ]
   %.0173.i13 = phi float [ %24, %21 ], [ -1.000000e+00, %.lr.ph.preheader.i10 ]
-  %23 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.val5, i64 %.0164.i12
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.val5, i64 %.0164.i12
   %24 = load float, ptr %23, align 4, !tbaa !28
   %25 = fcmp uge float %24, 0.000000e+00
   %26 = fcmp ule float %24, %1
@@ -120,7 +101,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i19
   %.0164.i21 = phi i64 [ %39, %.lr.ph.i20 ], [ 0, %.lr.ph.preheader.i19 ]
   %.0173.i22 = phi float [ %35, %.lr.ph.i20 ], [ -1.000000e+00, %.lr.ph.preheader.i19 ]
-  %34 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.val7, i64 %.0164.i21
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.val7, i64 %.0164.i21
   %35 = load float, ptr %34, align 4, !tbaa !31
   %36 = fcmp uge float %35, 0.000000e+00
   %37 = fcmp ule float %35, %1
@@ -161,7 +142,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit
   %.01027 = phi i64 [ %53, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ], [ 0, %.preheader.preheader ]
-  %14 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %8, i64 %.01027
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %8, i64 %.01027
   %.val.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.val4.i = load ptr, ptr %15, align 8
@@ -183,7 +164,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.preheader.i.i
   %.0164.i.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader.i.i ]
   %.0173.i.i = phi float [ %23, %20 ], [ -1.000000e+00, %.lr.ph.preheader.i.i ]
-  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.val.i, i64 %.0164.i.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %.0164.i.i
   %23 = load float, ptr %22, align 4, !tbaa !24
   %24 = fcmp uge float %23, 0.000000e+00
   %25 = fcmp ule float %23, %3
@@ -215,7 +196,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
 .lr.ph.i11.i:                                     ; preds = %33, %.lr.ph.preheader.i10.i
   %.0164.i12.i = phi i64 [ %34, %33 ], [ 0, %.lr.ph.preheader.i10.i ]
   %.0173.i13.i = phi float [ %36, %33 ], [ -1.000000e+00, %.lr.ph.preheader.i10.i ]
-  %35 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.val5.i, i64 %.0164.i12.i
+  %35 = getelementptr inbounds nuw [20 x i8], ptr %.val5.i, i64 %.0164.i12.i
   %36 = load float, ptr %35, align 4, !tbaa !28
   %37 = fcmp uge float %36, 0.000000e+00
   %38 = fcmp ule float %36, %3
@@ -247,7 +228,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
 .lr.ph.i20.i:                                     ; preds = %46, %.lr.ph.preheader.i19.i
   %.0164.i21.i = phi i64 [ %47, %46 ], [ 0, %.lr.ph.preheader.i19.i ]
   %.0173.i22.i = phi float [ %49, %46 ], [ -1.000000e+00, %.lr.ph.preheader.i19.i ]
-  %48 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.val7.i, i64 %.0164.i21.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %.val7.i, i64 %.0164.i21.i
   %49 = load float, ptr %48, align 4, !tbaa !31
   %50 = fcmp uge float %49, 0.000000e+00
   %51 = fcmp ule float %49, %3
@@ -292,7 +273,7 @@ define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.018 = phi i64 [ %37, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.01317 = phi i64 [ %36, %.lr.ph ], [ 64, %.lr.ph.preheader ]
-  %13 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %4, i64 %.018
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %.018
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = load ptr, ptr %13, align 8, !tbaa !40

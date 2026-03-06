@@ -62,7 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.147" = type { %"class.llvm::support::detail::AlignAdapter" }
 %"class.llvm::support::detail::AlignAdapter" = type <{ %"class.llvm::FormatAdapter", i32, [4 x i8], i64, i8, [7 x i8] }>
 %"class.llvm::FormatAdapter" = type { %"class.llvm::support::detail::format_adapter", ptr }
-%"struct.(anonymous namespace)::Run" = type { i32, i64 }
 %"class.llvm::formatv_object.148" = type { %"class.llvm::formatv_object_base.base", [7 x i8], %"class.std::tuple.149", %"struct.std::array" }
 %"class.std::tuple.149" = type { %"struct.std::_Tuple_impl.150" }
 %"struct.std::_Tuple_impl.150" = type { %"struct.std::_Head_base.151" }
@@ -71,12 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected" = type { %union.anon.153, i8, [7 x i8] }
 %union.anon.153 = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [16 x i8] }
-%"class.std::unique_ptr.155" = type { %"struct.std::__uniq_ptr_data.156" }
-%"struct.std::__uniq_ptr_data.156" = type { %"class.std::__uniq_ptr_impl.157" }
-%"class.std::__uniq_ptr_impl.157" = type { %"class.std::tuple.158" }
-%"class.std::tuple.158" = type { %"struct.std::_Tuple_impl.159" }
-%"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
-%"struct.std::_Head_base.162" = type { ptr }
 %"class.llvm::support::detail::provider_format_adapter.180" = type { %"class.llvm::support::detail::format_adapter", ptr }
 %"struct.llvm::FmtAlign" = type <{ ptr, i32, i32, i8, [7 x i8] }>
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.181" }
@@ -2099,7 +2092,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE17_M_realloc_insertIJRjEEEvN9__gnu_cxx1
   %.0.lcssa.i.i.i.i.i24.i = phi ptr [ %95, %_ZNKSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12_M_check_lenEmPKc.exit.i.i16.i ], [ %99, %.lr.ph.i.i.i.i.i19.i ]
   %100 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i24.i, i64 16
   call void @_ZdlPvm(ptr noundef nonnull %.val16.i.i15.i, i64 noundef %85) #20, !noalias !171
-  %101 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Run", ptr %95, i64 %93
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %93
   br label %_ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit27.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit27.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE17_M_realloc_insertIJRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i26.i, %79, %73
@@ -3418,7 +3411,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !249
   store ptr %67, ptr %41, align 8, !tbaa !246
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.155", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !248
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -3568,7 +3561,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !249
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !246
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.155", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !248
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -3691,7 +3684,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !249
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !246
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.155", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !248
   ret void
 }

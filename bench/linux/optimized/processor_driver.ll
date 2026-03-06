@@ -416,7 +416,7 @@ declare dso_local i32 @driver_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_soft_cpu_online(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @processors to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -472,7 +472,7 @@ define internal noundef i32 @acpi_soft_cpu_online(i32 noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_soft_cpu_dead(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @processors to i64)
   %6 = inttoptr i64 %5 to ptr

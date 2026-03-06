@@ -787,7 +787,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
   %.015 = select i1 %.not, i32 %., i32 3
   %24 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #12
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr @H5O_attr_ver_bounds, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr @H5O_attr_ver_bounds, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !43
   %28 = and i32 %27, 255
   %29 = icmp samesign ugt i32 %.015, %28
@@ -796,7 +796,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
 30:                                               ; preds = %9
   %31 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #12
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr @H5O_attr_ver_bounds, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr @H5O_attr_ver_bounds, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !43
   %35 = and i32 %34, 255
   br label %36
@@ -805,7 +805,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
   %37 = phi i32 [ %35, %30 ], [ %.015, %9 ]
   %38 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #12
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr @H5O_attr_ver_bounds, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr @H5O_attr_ver_bounds, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !43
   %42 = icmp ugt i32 %37, %41
   br i1 %42, label %43, label %47
@@ -2543,7 +2543,7 @@ define range(i32 -1, 1) i32 @H5A__compact_build_table(ptr noundef %0, ptr nounde
   %61 = phi i64 [ %69, %68 ], [ %60, %59 ]
   %.01318.i = phi i64 [ %70, %68 ], [ 0, %59 ]
   %62 = load ptr, ptr %15, align 8, !tbaa !79
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %.01318.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.01318.i
   %64 = load ptr, ptr %63, align 8, !tbaa !80
   %.not17.i = icmp eq ptr %64, null
   br i1 %.not17.i, label %68, label %65
@@ -2635,7 +2635,7 @@ define internal range(i32 -1, 1) i32 @H5A__compact_build_table_cb(ptr readnone c
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !79
   %39 = load i64, ptr %36, align 8, !tbaa !76
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   store ptr %35, ptr %40, align 8, !tbaa !80
   %41 = icmp eq ptr %35, null
   br i1 %41, label %42, label %46
@@ -2694,7 +2694,7 @@ define range(i32 -1, 1) i32 @H5A__attr_release_table(ptr noundef captures(none) 
   %12 = phi i64 [ %9, %.lr.ph ], [ %24, %23 ]
   %.01318 = phi i64 [ 0, %.lr.ph ], [ %25, %23 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !79
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.01318
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01318
   %15 = load ptr, ptr %14, align 8, !tbaa !80
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %23, label %16
@@ -2893,7 +2893,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_build_table_cb(ptr noundef %0, 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   %13 = load i64, ptr %1, align 8, !tbaa !76
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   store ptr %10, ptr %14, align 8, !tbaa !80
   %15 = icmp eq ptr %10, null
   br i1 %15, label %16, label %20
@@ -2985,7 +2985,7 @@ define i32 @H5A__attr_iterate_table(ptr noundef readonly captures(none) %0, i64 
 
 .sink.split.i:                                    ; preds = %28
   %35 = load ptr, ptr %22, align 8, !tbaa !79
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04160
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.04160
   %37 = load ptr, ptr %36, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8, !tbaa !21
@@ -3013,7 +3013,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
 49:                                               ; preds = %H5A__get_info.exit
   %50 = load ptr, ptr %21, align 8, !tbaa !48
   %51 = load ptr, ptr %22, align 8, !tbaa !79
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.04160
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.04160
   %53 = load ptr, ptr %52, align 8, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 96
   %55 = load ptr, ptr %54, align 8, !tbaa !21
@@ -3048,7 +3048,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
 68:                                               ; preds = %65
   %69 = load ptr, ptr %21, align 8, !tbaa !48
   %70 = load ptr, ptr %22, align 8, !tbaa !79
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.04160
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.04160
   %72 = load ptr, ptr %71, align 8, !tbaa !80
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %74 = load ptr, ptr %73, align 8, !tbaa !21
@@ -3075,7 +3075,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
 84:                                               ; preds = %26
   %85 = load ptr, ptr %21, align 8, !tbaa !48
   %86 = load ptr, ptr %22, align 8, !tbaa !79
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %.04160
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.04160
   %88 = load ptr, ptr %87, align 8, !tbaa !80
   %89 = call i32 %85(ptr noundef %88, ptr noundef %5) #12
   br label %94

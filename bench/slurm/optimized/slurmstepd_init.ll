@@ -1764,7 +1764,7 @@ define dso_local void @unpack_stepd_reconf(ptr noundef %0) local_unnamed_addr #0
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 272), align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.unpack_stepd_reconf, i32 noundef %19, ptr noundef %18) #4

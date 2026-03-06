@@ -304,7 +304,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 
 30:                                               ; preds = %27
   %31 = add i64 %.03952, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %.03952
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.03952
   store ptr %.04051, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.04051, i64 112
   %34 = load ptr, ptr %33, align 8
@@ -319,7 +319,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
   %.154 = phi i64 [ %35, %.lr.ph ], [ %.039.lcssa, %.critedge ]
   %35 = add i64 %.154, -1
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %35
   %37 = load ptr, ptr %36, align 8
   tail call fastcc void @AssignTransactionId(ptr noundef %37)
   %.not43 = icmp eq i64 %35, 0
@@ -374,7 +374,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %59 = trunc i64 %58 to i32
   %60 = load i32, ptr @nUnreportedXids, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr @unreportedXids, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr @unreportedXids, i64 %61
   store i32 %59, ptr %62, align 4
   %63 = add i32 %60, 1
   store i32 %63, ptr @nUnreportedXids, align 4
@@ -769,7 +769,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   %14 = sdiv i32 %13, 2
   %15 = add i32 %14, %.04882
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %11, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %11, i64 %16
   %18 = load i32, ptr %17, align 4
   %.not63 = icmp eq i32 %18, %0
   br i1 %.not63, label %.critedge, label %19
@@ -819,7 +819,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   %39 = add i32 %38, %.04272
   %40 = load ptr, ptr %35, align 8
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4
   %.not61 = icmp eq i32 %43, %0
   br i1 %.not61, label %.critedge, label %44
@@ -1151,7 +1151,7 @@ define internal fastcc noundef nonnull ptr @BlockStateAsString(i32 noundef %0) u
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ShowTransactionStateRec, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ShowTransactionStateRec, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2854,7 +2854,7 @@ ShowTransactionState.exit:                        ; preds = %0, %3
 
 switch.lookup:                                    ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 
@@ -2988,7 +2988,7 @@ CallSubXactCallbacks.exit:                        ; preds = %CallSubXactCallback
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %84 = load ptr, ptr %83, align 8
   %85 = sext i32 %79 to i64
-  %86 = getelementptr inbounds i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %84, i64 %85
   store i32 %82, ptr %86, align 4
   %87 = load i32, ptr %45, align 8
   %88 = icmp sgt i32 %87, 0
@@ -3002,7 +3002,7 @@ CallSubXactCallbacks.exit:                        ; preds = %CallSubXactCallback
   %94 = load i32, ptr %93, align 8
   %95 = add i32 %94, 1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %92, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %92, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %99 = load ptr, ptr %98, align 8
   %100 = zext nneg i32 %87 to i64
@@ -3244,7 +3244,7 @@ ShowTransactionState.exit:                        ; preds = %0, %11
 
 switch.lookup:                                    ; preds = %17
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 
@@ -3413,7 +3413,7 @@ ShowTransactionState.exit:                        ; preds = %0, %3
 
 switch.lookup:                                    ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 
@@ -3641,7 +3641,7 @@ define internal fastcc void @AbortTransaction() unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %21
   %24 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 
@@ -3986,7 +3986,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
 
 35:                                               ; preds = %.lr.ph53
   %36 = add i64 %.03650, 1
-  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %.03650
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.03650
   store i32 %34, ptr %37, align 4
   br label %38
 
@@ -3998,7 +3998,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i32, ptr %32, i64 %.137
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.137
   %44 = getelementptr inbounds nuw i8, ptr %.151, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i32 %40 to i64
@@ -4118,7 +4118,7 @@ ShowTransactionState.exit:                        ; preds = %13, %15
 
 switch.lookup:                                    ; preds = %21
   %24 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 
@@ -5489,7 +5489,7 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %20 ]
   %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, i32 noundef %28) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5516,7 +5516,7 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %33
   %41 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ShowTransactionStateRec, i64 %41
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ShowTransactionStateRec, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %BlockStateAsString.exit
 
@@ -5529,7 +5529,7 @@ BlockStateAsString.exit:                          ; preds = %33, %switch.lookup
 
 switch.lookup24:                                  ; preds = %BlockStateAsString.exit
   %45 = zext nneg i32 %43 to i64
-  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %45
+  %switch.gep25 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %45
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   br label %TransStateAsString.exit
 
@@ -5567,7 +5567,7 @@ define internal fastcc noundef nonnull ptr @TransStateAsString(i32 noundef %0) u
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -5617,7 +5617,7 @@ ShowTransactionState.exit:                        ; preds = %GetCurrentTransacti
 
 switch.lookup:                                    ; preds = %14
   %17 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 
@@ -5809,7 +5809,7 @@ define internal fastcc void @StartSubTransaction() unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 
@@ -6214,7 +6214,7 @@ define internal fastcc void @PopTransaction() unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PopTransaction, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %TransStateAsString.exit
 

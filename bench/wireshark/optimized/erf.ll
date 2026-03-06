@@ -6,19 +6,19 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.supported_block_type = type { i32, i32, i64, ptr }
 %struct.supported_option_type = type { i32, i32 }
 %struct.anon.5 = type { i32, i32 }
-%struct.erf_if_info = type { i32, ptr, ptr, i32, %struct.anon.1 }
-%struct.anon.1 = type { i8, [3 x i8] }
 %struct.erf_record = type { i64, i8, i8, i16, i16, i16 }
 %struct.erf_eth_hdr = type { i8, i8 }
 %struct.if_filter_opt_s = type { i32, %union.anon.4 }
 %union.anon.4 = type { %struct.wtap_bpf_insns }
 %struct.wtap_bpf_insns = type { i32, ptr }
 %struct.erf_if_mapping = type { i64, i8, [8 x %struct.erf_if_info], ptr, ptr, i8, i32, i32, i64, i64 }
+%struct.erf_if_info = type { i32, ptr, ptr, i32, %struct.anon.1 }
+%struct.anon.1 = type { i8, [3 x i8] }
 %struct.erf_meta_read_state = type { ptr, i32, ptr, i16, i16, i16, i16, i64, i32 }
-%struct.erf_ehdr = type { i64 }
 %struct.erf_anchor_mapping = type { i64, i64, i64, ptr }
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
 %struct.wtap_erf_eth_hdr = type { i8, i8 }
+%struct.erf_ehdr = type { i64 }
 %union.wtap_pseudo_header = type { %struct.erf_mc_phdr }
 %struct.erf_mc_phdr = type { %struct.erf_phdr, [16 x %struct.erf_ehdr], %union.anon.0 }
 %struct.erf_phdr = type { i64, i8, i8, i16, i16, i16 }
@@ -172,7 +172,7 @@ define internal void @erf_if_mapping_destroy(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr %struct.erf_if_info, ptr %2, i64 %indvars.iv
+  %4 = getelementptr [32 x i8], ptr %2, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6)
@@ -598,7 +598,7 @@ define internal noundef zeroext i1 @erf_read(ptr noundef %0, ptr noundef %1, ptr
   %.0195.i = phi i8 [ %.2197.i, %.thread.i.i ], [ 0, %67 ]
   %70 = phi i8 [ %81, %.thread.i.i ], [ 0, %67 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.thread.i.i ], [ 0, %67 ]
-  %71 = getelementptr %struct.erf_ehdr, ptr %24, i64 %indvars.iv.i.i
+  %71 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv.i.i
   %72 = load i64, ptr %71, align 8
   %73 = lshr i64 %72, 56
   %74 = trunc nuw nsw i64 %73 to i32
@@ -662,7 +662,7 @@ erf_get_source_from_header.exit.thread.i:         ; preds = %.thread.i.i, %90, %
 
 98:                                               ; preds = %98, %94
   %indvars.iv.i108.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i109.i, %98 ]
-  %99 = getelementptr %struct.erf_if_info, ptr %97, i64 %indvars.iv.i108.i
+  %99 = getelementptr [32 x i8], ptr %97, i64 %indvars.iv.i108.i
   store i32 -1, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store i32 -1, ptr %100, align 8
@@ -974,7 +974,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
 .lr.ph15.i.i:                                     ; preds = %.preheader.i.i, %286
   %indvars.iv.i119.i = phi i64 [ %indvars.iv.next.i120.i, %286 ], [ 0, %.preheader.i.i ]
   %260 = load ptr, ptr %17, align 8
-  %261 = getelementptr ptr, ptr %260, i64 %indvars.iv.i119.i
+  %261 = getelementptr [8 x i8], ptr %260, i64 %indvars.iv.i119.i
   %262 = load ptr, ptr %261, align 8
   %263 = load ptr, ptr %111, align 8
   %264 = call ptr @g_hash_table_lookup(ptr noundef %263, ptr noundef %262)
@@ -1470,7 +1470,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
 500:                                              ; preds = %496
   %501 = getelementptr inbounds nuw i8, ptr %493, i64 16
   %502 = zext nneg i32 %498 to i64
-  %503 = getelementptr %struct.erf_if_info, ptr %501, i64 %502
+  %503 = getelementptr [32 x i8], ptr %501, i64 %502
   %504 = load i32, ptr %503, align 8
   %505 = icmp eq i32 %504, -1
   br i1 %505, label %506, label %598
@@ -1640,7 +1640,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   %605 = load ptr, ptr %33, align 8
   %606 = load ptr, ptr %605, align 8
   %607 = zext nneg i32 %.0123.i.i to i64
-  %608 = getelementptr ptr, ptr %606, i64 %607
+  %608 = getelementptr [8 x i8], ptr %606, i64 %607
   %609 = load ptr, ptr %608, align 8
   %610 = call ptr @wtap_block_get_mandatory_data(ptr noundef %609)
   %.not143.i.i = icmp eq ptr %609, null
@@ -2157,7 +2157,7 @@ populate_module_info.exit.i:                      ; preds = %340, %326, %841, %p
   %915 = load i32, ptr %856, align 8
   %916 = load ptr, ptr %853, align 8
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 16
-  %918 = getelementptr %struct.erf_if_info, ptr %917, i64 %indvars.iv.i165.i
+  %918 = getelementptr [32 x i8], ptr %917, i64 %indvars.iv.i165.i
   %919 = getelementptr inbounds nuw i8, ptr %916, i64 296
   %920 = load i32, ptr %919, align 8
   %921 = trunc nuw nsw i64 %indvars.iv.i165.i to i32
@@ -2189,7 +2189,7 @@ populate_module_info.exit.i:                      ; preds = %340, %326, %841, %p
   %934 = load ptr, ptr %33, align 8
   %935 = load ptr, ptr %934, align 8
   %936 = zext nneg i32 %931 to i64
-  %937 = getelementptr ptr, ptr %935, i64 %936
+  %937 = getelementptr [8 x i8], ptr %935, i64 %936
   %938 = load ptr, ptr %937, align 8
   %939 = call ptr @wtap_block_get_mandatory_data(ptr noundef %938)
   br label %940
@@ -2530,7 +2530,7 @@ define hidden i32 @erf_populate_interface_from_header(ptr noundef captures(addre
   %.013 = phi i8 [ 0, %.lr.ph.i ], [ %.2, %.thread.i ]
   %18 = phi i8 [ 0, %.lr.ph.i ], [ %33, %.thread.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.i ]
-  %19 = getelementptr %struct.erf_ehdr, ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8
   %21 = lshr i64 %20, 56
   %22 = trunc nuw nsw i64 %21 to i32
@@ -2697,7 +2697,7 @@ define internal fastcc i32 @erf_populate_interface(ptr noundef captures(address_
 66:                                               ; preds = %112, %.preheader123.i
   %indvars.iv.i = phi i64 [ 0, %.preheader123.i ], [ %indvars.iv.next.i, %112 ]
   %indvars136.i = trunc i64 %indvars.iv.i to i32
-  %67 = getelementptr %struct.erf_if_info, ptr %63, i64 %indvars.iv.i
+  %67 = getelementptr [32 x i8], ptr %63, i64 %indvars.iv.i
   %68 = load i32, ptr %67, align 8
   %69 = icmp sgt i32 %68, -1
   br i1 %69, label %70, label %112
@@ -2706,7 +2706,7 @@ define internal fastcc i32 @erf_populate_interface(ptr noundef captures(address_
   %71 = load ptr, ptr %54, align 8
   %72 = load ptr, ptr %71, align 8
   %73 = zext nneg i32 %68 to i64
-  %74 = getelementptr ptr, ptr %72, i64 %73
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = add i32 %indvars136.i, 65
   %77 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %26, i64 noundef 16, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.36, i32 noundef %76)
@@ -2823,7 +2823,7 @@ erf_set_interface_descr.exit112.i:                ; preds = %110, %108
 117:                                              ; preds = %157, %.preheader122.i
   %indvars.iv137.i = phi i64 [ 0, %.preheader122.i ], [ %indvars.iv.next138.i, %157 ]
   %indvars139.i = trunc i64 %indvars.iv137.i to i32
-  %118 = getelementptr %struct.erf_if_info, ptr %115, i64 %indvars.iv137.i
+  %118 = getelementptr [32 x i8], ptr %115, i64 %indvars.iv137.i
   %119 = load i32, ptr %118, align 8
   %120 = icmp sgt i32 %119, -1
   br i1 %120, label %121, label %157
@@ -2832,7 +2832,7 @@ erf_set_interface_descr.exit112.i:                ; preds = %110, %108
   %122 = load ptr, ptr %54, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = zext nneg i32 %119 to i64
-  %125 = getelementptr ptr, ptr %123, i64 %124
+  %125 = getelementptr [8 x i8], ptr %123, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = load i8, ptr %116, align 8
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 8
@@ -3033,7 +3033,7 @@ erf_update_implicit_host_id.exit:                 ; preds = %._crit_edge.thread.
 
 201:                                              ; preds = %201, %197
   %indvars.iv.i71 = phi i64 [ 0, %197 ], [ %indvars.iv.next.i72, %201 ]
-  %202 = getelementptr %struct.erf_if_info, ptr %200, i64 %indvars.iv.i71
+  %202 = getelementptr [32 x i8], ptr %200, i64 %indvars.iv.i71
   store i32 -1, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store i32 -1, ptr %203, align 8
@@ -3054,7 +3054,7 @@ erf_if_mapping_create.exit:                       ; preds = %201
   %.0 = phi ptr [ %196, %194 ], [ %198, %erf_if_mapping_create.exit ]
   %209 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %210 = zext nneg i8 %5 to i64
-  %211 = getelementptr %struct.erf_if_info, ptr %209, i64 %210
+  %211 = getelementptr [32 x i8], ptr %209, i64 %210
   %212 = load i32, ptr %211, align 8
   %213 = icmp sgt i32 %212, -1
   br i1 %213, label %245, label %214
@@ -3352,7 +3352,7 @@ define internal fastcc noundef zeroext i1 @erf_read_header(ptr noundef %0, ptr n
 
 129:                                              ; preds = %94
   %130 = sext i32 %.0146189 to i64
-  %131 = getelementptr %struct.erf_ehdr, ptr %87, i64 %130
+  %131 = getelementptr [8 x i8], ptr %87, i64 %130
   store i64 %127, ptr %131, align 1
   br label %132
 
@@ -3428,7 +3428,7 @@ define internal fastcc noundef zeroext i1 @erf_read_header(ptr noundef %0, ptr n
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %erf_find_anchor_mapping.exit.thread.us.i
   %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %erf_find_anchor_mapping.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.05576.us.i = phi i64 [ %.156.us.i, %erf_find_anchor_mapping.exit.thread.us.i ], [ %150, %.lr.ph.split.us.i ]
-  %157 = getelementptr %struct.erf_ehdr, ptr %153, i64 %indvars.iv96.i
+  %157 = getelementptr [8 x i8], ptr %153, i64 %indvars.iv96.i
   %158 = load i64, ptr %157, align 8
   %159 = lshr i64 %158, 56
   %160 = trunc nuw nsw i64 %159 to i32
@@ -3478,7 +3478,7 @@ erf_find_anchor_mapping.exit.thread.us.i:         ; preds = %162, %172, %169, %1
   %.05477.us78.i = phi i64 [ %.1.us85.i, %198 ], [ 0, %.lr.ph.split.i ]
   %.05576.us79.i = phi i64 [ %.156.us84.i, %198 ], [ %150, %.lr.ph.split.i ]
   %.05775.us80.i = phi ptr [ %.158.us83.i, %198 ], [ null, %.lr.ph.split.i ]
-  %177 = getelementptr %struct.erf_ehdr, ptr %153, i64 %indvars.iv93.i
+  %177 = getelementptr [8 x i8], ptr %153, i64 %indvars.iv93.i
   %178 = load i64, ptr %177, align 8
   %179 = lshr i64 %178, 56
   %180 = trunc nuw nsw i64 %179 to i32
@@ -3542,7 +3542,7 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %182
   %.05477.i = phi i64 [ %.1.i, %230 ], [ 0, %.lr.ph.split.i ]
   %.05576.i = phi i64 [ %.156.i, %230 ], [ %150, %.lr.ph.split.i ]
   %.05775.i = phi ptr [ %.158.i, %230 ], [ null, %.lr.ph.split.i ]
-  %202 = getelementptr %struct.erf_ehdr, ptr %153, i64 %indvars.iv.i
+  %202 = getelementptr [8 x i8], ptr %153, i64 %indvars.iv.i
   %203 = load i64, ptr %202, align 8
   %204 = lshr i64 %203, 56
   %205 = trunc nuw nsw i64 %204 to i32
@@ -3930,7 +3930,7 @@ define internal range(i32 -8, 1) i32 @erf_dump_can_write_encap(i32 noundef %0) #
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
-  %4 = getelementptr %struct.anon.5, ptr @erf_to_wtap_map, i64 %indvars.iv.i
+  %4 = getelementptr [8 x i8], ptr @erf_to_wtap_map, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, %0
@@ -4105,7 +4105,7 @@ define internal noundef zeroext i1 @erf_dump(ptr noundef %0, ptr noundef readonl
 
 .preheader:                                       ; preds = %34, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %34 ]
-  %42 = getelementptr %struct.anon.5, ptr @erf_to_wtap_map, i64 %indvars.iv.i
+  %42 = getelementptr [8 x i8], ptr @erf_to_wtap_map, i64 %indvars.iv.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %33
@@ -4288,7 +4288,7 @@ wtap_wtap_encap_to_erf_encap.exit:                ; preds = %.preheader
   %indvars.iv.i178 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i179, %.thread.i ]
   %.04572.i = phi i8 [ 0, %.lr.ph.i ], [ %.146.i, %.thread.i ]
   %.04771.i = phi i8 [ 0, %.lr.ph.i ], [ %.148.i, %.thread.i ]
-  %140 = getelementptr %struct.erf_ehdr, ptr %134, i64 %indvars.iv.i178
+  %140 = getelementptr [8 x i8], ptr %134, i64 %indvars.iv.i178
   %141 = load i64, ptr %140, align 8
   %142 = lshr i64 %141, 56
   %143 = trunc nuw nsw i64 %142 to i32
@@ -4332,7 +4332,7 @@ wtap_wtap_encap_to_erf_encap.exit:                ; preds = %.preheader
 
 161:                                              ; preds = %160, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %160 ]
-  %162 = getelementptr %struct.erf_ehdr, ptr %156, i64 %indvars.iv.i.i
+  %162 = getelementptr [8 x i8], ptr %156, i64 %indvars.iv.i.i
   %163 = load i64, ptr %162, align 8
   %164 = and i64 %163, 9223372036854775807
   %165 = icmp eq i64 %154, %164
@@ -4433,7 +4433,7 @@ wtap_wtap_encap_to_erf_encap.exit:                ; preds = %.preheader
 
 204:                                              ; preds = %203, %.lr.ph.i57.i
   %indvars.iv.i60.i = phi i64 [ 0, %.lr.ph.i57.i ], [ %indvars.iv.next.i61.i, %203 ]
-  %205 = getelementptr %struct.erf_ehdr, ptr %199, i64 %indvars.iv.i60.i
+  %205 = getelementptr [8 x i8], ptr %199, i64 %indvars.iv.i60.i
   %206 = load i64, ptr %205, align 8
   %207 = and i64 %206, 9223372036854775807
   %208 = icmp eq i64 %196, %207
@@ -4972,7 +4972,7 @@ define internal fastcc void @erf_comment_to_sections(i16 noundef zeroext range(i
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi i16 [ %37, %.lr.ph.i ], [ 8, %.lr.ph.i.preheader ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %30 = getelementptr ptr, ptr %.pre, i64 %indvars.iv.i
+  %30 = getelementptr [8 x i8], ptr %.pre, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %33 = load i16, ptr %32, align 2
@@ -5015,7 +5015,7 @@ define internal fastcc noundef zeroext i1 @erf_write_meta_record(ptr noundef %0,
 17:                                               ; preds = %.preheader61, %17
   %indvars.iv = phi i64 [ 0, %.preheader61 ], [ %indvars.iv.next, %17 ]
   %.04862 = phi i32 [ 0, %.preheader61 ], [ %23, %17 ]
-  %18 = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %18 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i16, ptr %20, align 4
@@ -5122,7 +5122,7 @@ erf_meta_write_tag.exit:                          ; preds = %68, %65
 75:                                               ; preds = %.lr.ph, %erf_meta_write_section.exit
   %indvars.iv67 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next68, %erf_meta_write_section.exit ]
   %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr ptr, ptr %76, i64 %indvars.iv67
+  %77 = getelementptr [8 x i8], ptr %76, i64 %indvars.iv67
   %78 = load ptr, ptr %77, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %79 = load i16, ptr %78, align 8
@@ -5152,7 +5152,7 @@ erf_meta_write_tag.exit:                          ; preds = %68, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %111 ], [ 0, %.preheader.i ]
   %89 = phi ptr [ %112, %111 ], [ %86, %.preheader.i ]
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr ptr, ptr %90, i64 %indvars.iv.i
+  %91 = getelementptr [8 x i8], ptr %90, i64 %indvars.iv.i
   %92 = load ptr, ptr %91, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5267,7 +5267,7 @@ define internal fastcc void @erf_wtap_info_to_sections(ptr noundef readonly capt
   %19 = phi i16 [ %28, %.lr.ph.i.i ], [ 8, %9 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %9 ]
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %indvars.iv.i.i
+  %21 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = load i16, ptr %23, align 2
@@ -5316,7 +5316,7 @@ erf_wtap_blocks_to_erf_sections.exit:             ; preds = %2, %erf_populate_se
   %44 = phi i16 [ %53, %.lr.ph.i.i15 ], [ 8, %34 ]
   %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i17, %.lr.ph.i.i15 ], [ 0, %34 ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %indvars.iv.i.i16
+  %46 = getelementptr [8 x i8], ptr %45, i64 %indvars.iv.i.i16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %49 = load i16, ptr %48, align 2
@@ -5348,7 +5348,7 @@ erf_wtap_blocks_to_erf_sections.exit19:           ; preds = %erf_wtap_blocks_to_
   %61 = phi ptr [ %90, %erf_wtap_blocks_to_erf_sections.exit26 ], [ %58, %erf_wtap_blocks_to_erf_sections.exit19 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %erf_wtap_blocks_to_erf_sections.exit26 ], [ 0, %erf_wtap_blocks_to_erf_sections.exit19 ]
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %.not28 = icmp eq ptr %64, null
   br i1 %.not28, label %erf_wtap_blocks_to_erf_sections.exit26, label %65
@@ -5376,7 +5376,7 @@ erf_wtap_blocks_to_erf_sections.exit19:           ; preds = %erf_wtap_blocks_to_
   %77 = phi i16 [ %86, %.lr.ph.i.i22 ], [ 8, %65 ]
   %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i24, %.lr.ph.i.i22 ], [ 0, %65 ]
   %78 = load ptr, ptr %74, align 8
-  %79 = getelementptr ptr, ptr %78, i64 %indvars.iv.i.i23
+  %79 = getelementptr [8 x i8], ptr %78, i64 %indvars.iv.i.i23
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %82 = load i16, ptr %81, align 2
@@ -5441,7 +5441,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %.098134 = phi i8 [ 0, %.lr.ph ], [ %.199, %39 ]
   %.0101133 = phi i64 [ 0, %.lr.ph ], [ %.1102, %39 ]
   %.0105131 = phi i64 [ -1, %.lr.ph ], [ %.1106, %39 ]
-  %21 = getelementptr %struct.erf_ehdr, ptr %19, i64 %indvars.iv
+  %21 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 56
   %24 = trunc nuw nsw i64 %23 to i32
@@ -5546,7 +5546,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
 
 73:                                               ; preds = %70
   %74 = zext i8 %53 to i64
-  %75 = getelementptr %struct.erf_ehdr, ptr %3, i64 %74
+  %75 = getelementptr [8 x i8], ptr %3, i64 %74
   %76 = getelementptr i8, ptr %75, i64 8
   %77 = load i64, ptr %76, align 8
   %78 = or i64 %77, -9223372036854775808
@@ -5577,9 +5577,9 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %indvars.iv148 = phi i64 [ %93, %.preheader ], [ %indvars.iv.next149, %94 ]
   %95 = add nuw nsw i64 %indvars.iv148, 4294967295
   %96 = and i64 %95, 4294967295
-  %97 = getelementptr %struct.erf_ehdr, ptr %92, i64 %96
+  %97 = getelementptr [8 x i8], ptr %92, i64 %96
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr %struct.erf_ehdr, ptr %92, i64 %indvars.iv148
+  %99 = getelementptr [8 x i8], ptr %92, i64 %indvars.iv148
   store i64 %98, ptr %99, align 8
   %indvars.iv.next149 = add nsw i64 %indvars.iv148, -1
   %indvars = trunc i64 %indvars.iv.next149 to i8
@@ -5602,7 +5602,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %110 = add i8 %53, 1
   %111 = zext i8 %53 to i64
-  %112 = getelementptr %struct.erf_ehdr, ptr %109, i64 %111
+  %112 = getelementptr [8 x i8], ptr %109, i64 %111
   store i64 %108, ptr %112, align 8
   br label %113
 
@@ -5616,7 +5616,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %117 = add i8 %.4, 1
   %118 = zext i8 %.4 to i64
-  %119 = getelementptr %struct.erf_ehdr, ptr %116, i64 %118
+  %119 = getelementptr [8 x i8], ptr %116, i64 %118
   store i64 %115, ptr %119, align 8
   br label %120
 
@@ -5624,7 +5624,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %.5 = phi i8 [ %.4, %113 ], [ %117, %114 ]
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %122 = zext i8 %.5 to i64
-  %123 = getelementptr %struct.erf_ehdr, ptr %121, i64 %122
+  %123 = getelementptr [8 x i8], ptr %121, i64 %122
   store i64 %.0100, ptr %123, align 8
   %124 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5644,7 +5644,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %131 = load ptr, ptr %124, align 8
   %132 = add i32 %129, -1
   %133 = zext i32 %132 to i64
-  %134 = getelementptr %struct.erf_ehdr, ptr %131, i64 %133
+  %134 = getelementptr [8 x i8], ptr %131, i64 %133
   %135 = load i64, ptr %134, align 8
   %136 = or i64 %135, -9223372036854775808
   store i64 %136, ptr %134, align 8
@@ -5664,7 +5664,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %142 = load ptr, ptr %124, align 8
   %143 = add i32 %140, -1
   %144 = zext i32 %143 to i64
-  %145 = getelementptr %struct.erf_ehdr, ptr %142, i64 %144
+  %145 = getelementptr [8 x i8], ptr %142, i64 %144
   %146 = load i64, ptr %145, align 8
   %147 = or i64 %146, -9223372036854775808
   store i64 %147, ptr %145, align 8
@@ -5694,7 +5694,7 @@ erf_append_ext_hdr_to_list.exit125.thread:        ; preds = %120
   %152 = load ptr, ptr %124, align 8
   %153 = add i32 %150, -1
   %154 = zext i32 %153 to i64
-  %155 = getelementptr %struct.erf_ehdr, ptr %152, i64 %154
+  %155 = getelementptr [8 x i8], ptr %152, i64 %154
   %156 = load i64, ptr %155, align 8
   %157 = or i64 %156, -9223372036854775808
   store i64 %157, ptr %155, align 8
@@ -5862,7 +5862,7 @@ define internal fastcc zeroext i1 @erf_write_phdr(ptr noundef %0, ptr noundef re
 
 71:                                               ; preds = %.preheader, %100
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %100 ]
-  %72 = getelementptr %struct.erf_ehdr, ptr %70, i64 %indvars.iv
+  %72 = getelementptr [8 x i8], ptr %70, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8
   %74 = lshr i64 %73, 56
   %75 = trunc nuw i64 %74 to i8

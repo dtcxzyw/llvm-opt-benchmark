@@ -47,7 +47,7 @@ define hidden void @BrotliEstimateBitCostsForLiterals(i64 noundef %0, i64 nounde
 
 UTF8Position.exit.i.i:                            ; preds = %19, %17, %.lr.ph.i.i
   %.0.i.i.i = phi i64 [ %spec.select.i.i.i, %19 ], [ 0, %.lr.ph.i.i ], [ 1, %17 ]
-  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0.i.i.i
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8, !tbaa !6
@@ -89,11 +89,11 @@ UTF8Position.exit.i.i:                            ; preds = %19, %17, %.lr.ph.i.
   %38 = zext i8 %37 to i64
   %.idx117.i = shl nuw nsw i64 %.0111133.i, 11
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx117.i
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   %41 = load i64, ptr %40, align 8, !tbaa !6
   %42 = add i64 %41, 1
   store i64 %42, ptr %40, align 8, !tbaa !6
-  %43 = getelementptr inbounds nuw i64, ptr %8, i64 %.0111133.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0111133.i
   %44 = load i64, ptr %43, align 8, !tbaa !6
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !6
@@ -160,11 +160,11 @@ UTF8Position.exit123.i:                           ; preds = %71, %69, %54
   %77 = zext i8 %76 to i64
   %.idx.i = shl nuw nsw i64 %.0.i122.i, 11
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %77
   %80 = load i64, ptr %79, align 8, !tbaa !6
   %81 = add i64 %80, -1
   store i64 %81, ptr %79, align 8, !tbaa !6
-  %82 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i122.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0.i122.i
   %83 = load i64, ptr %82, align 8, !tbaa !6
   %84 = add i64 %83, -1
   store i64 %84, ptr %82, align 8, !tbaa !6
@@ -206,11 +206,11 @@ UTF8Position.exit126.i:                           ; preds = %102, %100, %88
   %107 = zext i8 %106 to i64
   %.idx115.i = shl nuw nsw i64 %.0.i125.i, 11
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx115.i
-  %109 = getelementptr inbounds nuw i64, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %107
   %110 = load i64, ptr %109, align 8, !tbaa !6
   %111 = add i64 %110, 1
   store i64 %111, ptr %109, align 8, !tbaa !6
-  %112 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i125.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0.i125.i
   %113 = load i64, ptr %112, align 8, !tbaa !6
   %114 = add i64 %113, 1
   store i64 %114, ptr %112, align 8, !tbaa !6
@@ -256,16 +256,16 @@ UTF8Position.exit129.i:                           ; preds = %132, %130, %115
   %138 = zext i8 %137 to i64
   %.idx116.i = shl nuw nsw i64 %.0.i128.i, 11
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx116.i
-  %140 = getelementptr inbounds nuw i64, ptr %139, i64 %138
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %138
   %141 = load i64, ptr %140, align 8, !tbaa !6
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %141, i64 1)
-  %142 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i128.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0.i128.i
   %143 = load i64, ptr %142, align 8, !tbaa !6
   %144 = icmp ult i64 %143, 256
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %UTF8Position.exit129.i
-  %146 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %143
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %143
   %147 = load double, ptr %146, align 8, !tbaa !11
   br label %FastLog2.exit.i
 
@@ -280,7 +280,7 @@ FastLog2.exit.i:                                  ; preds = %148, %145
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %FastLog2.exit.i
-  %153 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %spec.store.select.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %spec.store.select.i
   %154 = load double, ptr %153, align 8, !tbaa !11
   br label %FastLog2.exit119.i
 
@@ -303,7 +303,7 @@ FastLog2.exit119.i:                               ; preds = %155, %152
   %166 = fadd double %165, %.0.i66
   %.1.i = select i1 %163, double %166, double %.0.i66
   %167 = fptrunc double %.1.i to float
-  %168 = getelementptr inbounds nuw float, ptr %5, i64 %.1109136.i
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.1109136.i
   store float %167, ptr %168, align 4, !tbaa !15
   %169 = add nuw i64 %.1109136.i, 1
   %exitcond140.not.i = icmp eq i64 %169, %1
@@ -330,7 +330,7 @@ EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %FastLog2.exit119.i,
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 %175
   %177 = load i8, ptr %176, align 1, !tbaa !3
   %178 = zext i8 %177 to i64
-  %179 = getelementptr inbounds nuw i64, ptr %4, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !6
   %181 = add i64 %180, 1
   store i64 %181, ptr %179, align 8, !tbaa !6
@@ -350,7 +350,7 @@ EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %FastLog2.exit119.i,
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 %187
   %189 = load i8, ptr %188, align 1, !tbaa !3
   %190 = zext i8 %189 to i64
-  %191 = getelementptr inbounds nuw i64, ptr %4, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %190
   %192 = load i64, ptr %191, align 8, !tbaa !6
   %193 = add i64 %192, -1
   store i64 %193, ptr %191, align 8, !tbaa !6
@@ -369,7 +369,7 @@ EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %FastLog2.exit119.i,
   %201 = getelementptr inbounds nuw i8, ptr %3, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !3
   %203 = zext i8 %202 to i64
-  %204 = getelementptr inbounds nuw i64, ptr %4, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %203
   %205 = load i64, ptr %204, align 8, !tbaa !6
   %206 = add i64 %205, 1
   store i64 %206, ptr %204, align 8, !tbaa !6
@@ -383,14 +383,14 @@ EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %FastLog2.exit119.i,
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !3
   %213 = zext i8 %212 to i64
-  %214 = getelementptr inbounds nuw i64, ptr %4, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %213
   %215 = load i64, ptr %214, align 8, !tbaa !6
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %215, i64 1)
   %216 = icmp ult i64 %.2, 256
   br i1 %216, label %217, label %220
 
 217:                                              ; preds = %208
-  %218 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.2
+  %218 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.2
   %219 = load double, ptr %218, align 8, !tbaa !11
   br label %FastLog2.exit
 
@@ -405,7 +405,7 @@ FastLog2.exit:                                    ; preds = %217, %220
   br i1 %223, label %224, label %227
 
 224:                                              ; preds = %FastLog2.exit
-  %225 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %spec.store.select
+  %225 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %spec.store.select
   %226 = load double, ptr %225, align 8, !tbaa !11
   br label %FastLog2.exit65
 
@@ -423,7 +423,7 @@ FastLog2.exit65:                                  ; preds = %224, %227
   %234 = fadd double %233, 5.000000e-01
   %.0 = select i1 %232, double %234, double %231
   %235 = fptrunc double %.0 to float
-  %236 = getelementptr inbounds nuw float, ptr %5, i64 %.15968
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.15968
   store float %235, ptr %236, align 4, !tbaa !15
   %237 = add nuw i64 %.15968, 1
   %exitcond73.not = icmp eq i64 %237, %1

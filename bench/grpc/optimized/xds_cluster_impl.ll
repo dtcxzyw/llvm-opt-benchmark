@@ -129,36 +129,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::__variant::_Uninitialized.466" = type { %"struct.__gnu_cxx::__aligned_membuf.467" }
 %"struct.__gnu_cxx::__aligned_membuf.467" = type { [200 x i8] }
 %"struct.grpc_core::LoadBalancingPolicy::PickArgs" = type { %"class.std::basic_string_view", ptr, ptr }
-%"struct.std::pair.506" = type { %"class.std::basic_string_view", %"class.grpc_event_engine::experimental::Slice" }
-%"class.grpc_event_engine::experimental::Slice" = type { %"class.grpc_event_engine::experimental::slice_detail::BaseSlice" }
-%"class.grpc_event_engine::experimental::slice_detail::BaseSlice" = type { %struct.grpc_slice }
-%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
-%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type" = type { %"struct.std::pair.298" }
-%"struct.std::pair.298" = type { %"class.std::__cxx11::basic_string", %"class.absl::lts_20240722::StatusOr.300" }
-%"class.absl::lts_20240722::StatusOr.300" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.301" }
-%"class.absl::lts_20240722::internal_statusor::StatusOrData.301" = type { %union.anon.302, %union.anon.303 }
-%union.anon.302 = type { %"class.absl::lts_20240722::Status" }
-%union.anon.303 = type { %"struct.grpc_core::XdsConfig::ClusterConfig" }
-%"struct.grpc_core::XdsConfig::ClusterConfig" = type { %"class.std::shared_ptr.233", %"class.std::variant.304" }
-%"class.std::shared_ptr.233" = type { %"class.std::__shared_ptr.234" }
-%"class.std::__shared_ptr.234" = type { ptr, %"class.std::__shared_count" }
-%"class.std::variant.304" = type { %"struct.std::__detail::__variant::_Variant_base.base.322", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base.322" = type { %"struct.std::__detail::__variant::_Move_assign_base.base.321" }
-%"struct.std::__detail::__variant::_Move_assign_base.base.321" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base.320" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base.320" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base.319" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base.319" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base.318" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base.318" = type { %"struct.std::__detail::__variant::_Variant_storage.base.317" }
-%"struct.std::__detail::__variant::_Variant_storage.base.317" = type { %"union.std::__detail::__variant::_Variadic_union.311", i8 }
-%"union.std::__detail::__variant::_Variadic_union.311" = type { %"struct.std::__detail::__variant::_Uninitialized.312" }
-%"struct.std::__detail::__variant::_Uninitialized.312" = type { %"struct.__gnu_cxx::__aligned_membuf.313" }
-%"struct.__gnu_cxx::__aligned_membuf.313" = type { [48 x i8] }
 %"class.std::vector.398" = type { %"struct.std::_Vector_base.399" }
 %"struct.std::_Vector_base.399" = type { %"struct.std::_Vector_base<grpc_core::StringMatcher, std::allocator<grpc_core::StringMatcher>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_core::StringMatcher, std::allocator<grpc_core::StringMatcher>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::StringMatcher, std::allocator<grpc_core::StringMatcher>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_core::StringMatcher, std::allocator<grpc_core::StringMatcher>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
+%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
+%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::RefCountedPtr.595" = type { ptr }
+%"class.grpc_event_engine::experimental::Slice" = type { %"class.grpc_event_engine::experimental::slice_detail::BaseSlice" }
+%"class.grpc_event_engine::experimental::slice_detail::BaseSlice" = type { %struct.grpc_slice }
 %"struct.grpc_core::LoadBalancingPolicy::SubchannelCallTrackerInterface::FinishArgs" = type { %"class.std::basic_string_view", %"class.absl::lts_20240722::Status", ptr, ptr }
 %class.anon = type { i8 }
 %"class.grpc_core::RefCountedPtr.490" = type { ptr }
@@ -821,7 +801,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -8562,7 +8542,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.std::pair.506", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #37
   %.not.i = icmp eq i64 %8, 0
@@ -8650,7 +8630,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %39 = zext nneg i16 %38 to i64
   %40 = add i64 %.sroa.6.0.i.us, %39
   %41 = and i64 %40, %16
-  %42 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %41
+  %42 = getelementptr inbounds nuw [112 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !36
   %45 = icmp eq i64 %44, 0
@@ -8679,7 +8659,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.6.0.i, %54
   %56 = and i64 %55, %16
-  %57 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %56
+  %57 = getelementptr inbounds nuw [112 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !36
   %60 = icmp eq i64 %59, %.fr24

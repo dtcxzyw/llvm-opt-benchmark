@@ -3,11 +3,6 @@ source_filename = "bench/openjdk/original/dgif_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GifColorType = type { i8, i8, i8 }
-%struct.SavedImage = type { %struct.GifImageDesc, ptr, i32, ptr }
-%struct.GifImageDesc = type { i32, i32, i32, i32, i8, ptr }
-%struct.ExtensionBlock = type { i32, ptr, i32 }
-
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"GIFVER\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"GIF89a\00", align 1
@@ -372,20 +367,20 @@ InternalRead.exit47:                              ; preds = %88, %90
   %101 = load ptr, ptr %76, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw %struct.GifColorType, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [3 x i8], ptr %103, i64 %indvars.iv
   store i8 %100, ptr %104, align 1
   %105 = load i8, ptr %64, align 1
   %106 = load ptr, ptr %76, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw %struct.GifColorType, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [3 x i8], ptr %108, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 1
   store i8 %105, ptr %110, align 1
   %111 = load i8, ptr %68, align 1
   %112 = load ptr, ptr %76, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw %struct.GifColorType, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [3 x i8], ptr %114, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 2
   store i8 %111, ptr %116, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -889,20 +884,20 @@ InternalRead.exit63:                              ; preds = %117, %119
   %130 = load ptr, ptr %99, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw %struct.GifColorType, ptr %132, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [3 x i8], ptr %132, i64 %indvars.iv
   store i8 %129, ptr %133, align 1
   %134 = load i8, ptr %109, align 1
   %135 = load ptr, ptr %99, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw %struct.GifColorType, ptr %137, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [3 x i8], ptr %137, i64 %indvars.iv
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 1
   store i8 %134, ptr %139, align 1
   %140 = load i8, ptr %110, align 1
   %141 = load ptr, ptr %99, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw %struct.GifColorType, ptr %143, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [3 x i8], ptr %143, i64 %indvars.iv
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 2
   store i8 %140, ptr %145, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -982,7 +977,7 @@ InternalRead.exit.i65:                            ; preds = %161, %159
 
 190:                                              ; preds = %190, %171
   %indvars.iv.i = phi i64 [ 0, %171 ], [ %indvars.iv.next.i, %190 ]
-  %191 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv.i
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %indvars.iv.i
   store i32 4098, ptr %191, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
@@ -1062,7 +1057,7 @@ define hidden range(i32 0, 2) i32 @DGifGetImageDesc(ptr noundef %0) local_unname
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.SavedImage, ptr %30, i64 %33
+  %34 = getelementptr inbounds [56 x i8], ptr %30, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1327,7 +1322,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
 
 .preheader:                                       ; preds = %43, %.preheader
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.preheader ], [ 0, %43 ]
-  %45 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv198
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv198
   store i32 4098, ptr %45, align 4
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next199, 4096
@@ -1359,7 +1354,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
 
 59:                                               ; preds = %52
   %60 = sext i32 %39 to i64
-  %61 = getelementptr inbounds i32, ptr %9, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %9, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 4098
   br i1 %63, label %64, label %96
@@ -1387,7 +1382,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
 
 73:                                               ; preds = %71
   %74 = sext i32 %.089.i to i64
-  %75 = getelementptr inbounds i32, ptr %9, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %9, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, %15
   br i1 %77, label %.lr.ph.i, label %.sink.split, !llvm.loop !13
@@ -1409,7 +1404,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
 
 83:                                               ; preds = %81
   %84 = sext i32 %.089.i122 to i64
-  %85 = getelementptr inbounds i32, ptr %9, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %9, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = icmp sgt i32 %86, %15
   br i1 %87, label %.lr.ph.i120, label %.sink.split, !llvm.loop !13
@@ -1455,7 +1450,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %indvars.iv.next185 = add nsw i64 %indvars.iv184, 1
   %105 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv184
   store i8 %104, ptr %105, align 1
-  %106 = getelementptr inbounds i32, ptr %9, i64 %102
+  %106 = getelementptr inbounds [4 x i8], ptr %9, i64 %102
   %107 = load i32, ptr %106, align 4
   %108 = and i64 %indvars.iv.next185, 4294967295
   %exitcond187.not = icmp eq i64 %108, 4095
@@ -1520,7 +1515,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
 
 133:                                              ; preds = %130
   %134 = sext i32 %131 to i64
-  %135 = getelementptr i32, ptr %9, i64 %134
+  %135 = getelementptr [4 x i8], ptr %9, i64 %134
   %136 = getelementptr i8, ptr %135, i64 -8
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %137, 4098
@@ -1550,7 +1545,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
 
 148:                                              ; preds = %146
   %149 = sext i32 %.089.i128 to i64
-  %150 = getelementptr inbounds i32, ptr %9, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %9, i64 %149
   %151 = load i32, ptr %150, align 4
   %152 = icmp sgt i32 %151, %15
   br i1 %152, label %.lr.ph.i126, label %DGifGetPrefixChar.exit130, !llvm.loop !13
@@ -1581,7 +1576,7 @@ DGifGetPrefixChar.exit130:                        ; preds = %.lr.ph.i126, %146, 
 
 162:                                              ; preds = %160
   %163 = sext i32 %.089.i134 to i64
-  %164 = getelementptr inbounds i32, ptr %9, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %9, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = icmp sgt i32 %165, %15
   br i1 %166, label %.lr.ph.i132, label %DGifGetPrefixChar.exit136, !llvm.loop !13
@@ -2098,7 +2093,7 @@ define hidden range(i32 0, 2) i32 @DGifSavedExtensionToGCB(ptr noundef readonly 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %struct.SavedImage, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
@@ -2117,7 +2112,7 @@ define hidden range(i32 0, 2) i32 @DGifSavedExtensionToGCB(ptr noundef readonly 
 
 22:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %23 = getelementptr inbounds nuw %struct.ExtensionBlock, ptr %20, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 249
@@ -2667,7 +2662,7 @@ InternalRead.exit22.i:                            ; preds = %47, %44
   %.lcssa = phi i32 [ %6, %.preheader.._crit_edge_crit_edge ], [ %67, %66 ]
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %78 = sext i32 %.lcssa to i64
-  %79 = getelementptr inbounds i16, ptr @DGifDecompressInput.CodeMasks, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr @DGifDecompressInput.CodeMasks, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i64
   %82 = and i64 %76, %81
@@ -2717,7 +2712,7 @@ define hidden void @DGifDecreaseImageCounter(ptr noundef captures(none) %0) loca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds %struct.SavedImage, ptr %6, i64 %7
+  %8 = getelementptr inbounds [56 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
@@ -2816,7 +2811,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   %33 = load ptr, ptr %12, align 8
   %34 = load i32, ptr %13, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct.SavedImage, ptr %33, i64 %35
+  %36 = getelementptr [56 x i8], ptr %33, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -48
   %38 = load i32, ptr %37, align 8
   %39 = icmp slt i32 %38, 1
@@ -2837,7 +2832,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   %48 = add nsw i32 %34, -1
   store i32 %48, ptr %13, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.SavedImage, ptr %33, i64 %49
+  %50 = getelementptr inbounds [56 x i8], ptr %33, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not.i62 = icmp eq ptr %52, null
@@ -2887,13 +2882,13 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %69 = phi i32 [ %.pre, %.preheader.preheader ], [ %100, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %70 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedOffset, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @DGifSlurp.InterlacedOffset, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4
   %72 = icmp slt i32 %71, %69
   br i1 %72, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %73 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedJumps, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @DGifSlurp.InterlacedJumps, i64 %indvars.iv
   br label %74
 
 74:                                               ; preds = %.lr.ph, %95
@@ -2913,7 +2908,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   store i32 %84, ptr %13, align 8
   %85 = load ptr, ptr %12, align 8
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds %struct.SavedImage, ptr %85, i64 %86
+  %87 = getelementptr inbounds [56 x i8], ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %89 = load ptr, ptr %88, align 8
   %.not.i63 = icmp eq ptr %89, null

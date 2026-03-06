@@ -174,10 +174,10 @@ define range(i32 0, -1) i32 @Saig_TsiStateHash(ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !38
   %7 = and i64 %indvars.iv, 127
-  %8 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !38
   %10 = mul i32 %9, %6
   %11 = xor i32 %10, %.089
@@ -233,9 +233,9 @@ define i32 @Saig_TsiCountNonXValuedRegisters(ptr noundef captures(none) initiali
 
 23:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %24 = getelementptr inbounds ptr, ptr %.val22, i64 %indvars.iv
+  %24 = getelementptr inbounds [8 x i8], ptr %.val22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !42
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %20
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %20
   %27 = load i32, ptr %26, align 4, !tbaa !38
   %28 = lshr i32 %27, %22
   %29 = shl nuw i32 %28, 1
@@ -327,7 +327,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %39, align 4, !tbaa !40
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i32, ptr %65, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %65, i64 %68
   store i32 %.02029, ptr %69, align 4, !tbaa !38
   br label %70
 
@@ -421,9 +421,9 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.13548 = phi i32 [ %.03453, %.lr.ph ], [ %spec.select41, %28 ]
   %.13747 = phi i32 [ %.03652, %.lr.ph ], [ %38, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %.val42, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val42, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !42
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %25
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %25
   %32 = load i32, ptr %31, align 4, !tbaa !38
   %33 = lshr i32 %32, %27
   %34 = shl nuw i32 %33, 1
@@ -449,7 +449,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 41:                                               ; preds = %.critedge
   %42 = sext i32 %.135.lcssa to i64
-  %43 = getelementptr inbounds i32, ptr %.val44, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %.val44, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !38
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !38
@@ -535,9 +535,9 @@ define void @Saig_TsiPrintTraces(ptr noundef readonly captures(none) %0, i32 %1,
   %42 = phi ptr [ %33, %.lr.ph45 ], [ %61, %60 ]
   %43 = getelementptr i8, ptr %42, i64 8
   %.val35 = load ptr, ptr %43, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val35, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !42
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %38
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %38
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %48 = lshr i32 %47, %40
   %49 = shl nuw i32 %48, 1
@@ -610,10 +610,10 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_TsiComputePrefix(ptr noundef
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !38
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !38
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -627,7 +627,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %.02025 = load ptr, ptr %18, align 8, !tbaa !51
   %.not26 = icmp eq ptr %.02025, null
   br i1 %.not26, label %.critedge, label %.lr.ph
@@ -659,7 +659,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
 
 27:                                               ; preds = %.lr.ph29, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %31 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.val22, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = icmp eq ptr %29, %.02027
   br i1 %30, label %.critedge.loopexit.split.loop.exit37, label %31
@@ -670,7 +670,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !52
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i32, ptr %.02027, i64 %19
+  %33 = getelementptr inbounds [4 x i8], ptr %.02027, i64 %19
   %.020 = load ptr, ptr %33, align 8, !tbaa !51
   %.not = icmp eq ptr %.020, null
   br i1 %.not, label %.critedge, label %21, !llvm.loop !53
@@ -698,10 +698,10 @@ define range(i32 0, 2) i32 @Saig_TsiStateLookup(ptr noundef readonly captures(no
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !38
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !38
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -715,7 +715,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = sext i32 %2 to i64
   %20 = shl nsw i64 %19, 2
   %.01113 = load ptr, ptr %18, align 8, !tbaa !51
@@ -729,7 +729,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
   br i1 %.not12, label %._crit_edge, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i32, ptr %.01115, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %.01115, i64 %19
   %.011 = load ptr, ptr %22, align 8, !tbaa !51
   %.not = icmp eq ptr %.011, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
@@ -753,10 +753,10 @@ define void @Saig_TsiStateInsert(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !38
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !38
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -770,10 +770,10 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !51
   %20 = sext i32 %2 to i64
-  %21 = getelementptr inbounds i32, ptr %1, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %1, i64 %20
   store ptr %19, ptr %21, align 8, !tbaa !51
   store ptr %1, ptr %18, align 8, !tbaa !51
   ret void
@@ -855,7 +855,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %11, align 4, !tbaa !25
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %37, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %37, i64 %40
   store ptr %4, ptr %41, align 8, !tbaa !42
   ret ptr %4
 }
@@ -878,7 +878,7 @@ define void @Saig_TsiStatePrint(ptr noundef readonly captures(none) %0, ptr noun
   %6 = shl nuw nsw i32 %.01927, 1
   %7 = lshr i32 %.01927, 4
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !38
   %11 = and i32 %6, 30
   %12 = or disjoint i32 %11, 1
@@ -946,7 +946,7 @@ define i32 @Saig_TsiStateCount(ptr noundef readonly captures(none) %0, ptr nound
   %6 = shl nuw nsw i32 %.01418, 1
   %7 = lshr i32 %.01418, 4
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !38
   %11 = and i32 %6, 30
   %12 = or disjoint i32 %11, 1
@@ -990,16 +990,16 @@ define void @Saig_TsiStateOrAll(ptr noundef readonly captures(none) %0, ptr noun
   %.val23 = phi i32 [ %.val, %._crit_edge ], [ %.val14, %.lr.ph17 ]
   %11 = phi i32 [ %23, %._crit_edge ], [ %9, %.lr.ph17 ]
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %._crit_edge ], [ 0, %.lr.ph17 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %indvars.iv20
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = icmp sgt i32 %11, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph17.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph17.split ]
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !38
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !38
   %19 = or i32 %18, %16
   store i32 %19, ptr %17, align 4, !tbaa !38
@@ -1049,7 +1049,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %14 = load ptr, ptr %12, align 8, !tbaa !62
   %15 = getelementptr i8, ptr %14, i64 8
   %.val112 = load ptr, ptr %15, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw ptr, ptr %.val112, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val112, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8
@@ -1093,10 +1093,10 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %33 = getelementptr i8, ptr %30, i64 8
   %.val111 = load ptr, ptr %33, align 8, !tbaa !28
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds ptr, ptr %.val111, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.val111, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %.val113 = load ptr, ptr %27, align 8, !tbaa !36
-  %37 = getelementptr inbounds nuw i32, ptr %.val113, i64 %indvars.iv196
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.val113, i64 %indvars.iv196
   %38 = load i32, ptr %37, align 4, !tbaa !38
   %39 = icmp eq i32 %38, 0
   %40 = icmp eq i32 %38, 1
@@ -1123,7 +1123,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %54 = getelementptr i8, ptr %52, i64 8
   %.val110 = load ptr, ptr %54, align 8, !tbaa !28
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds ptr, ptr %.val110, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.val110, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i64, ptr %58, align 8
@@ -1164,7 +1164,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %.val129 = load i32, ptr %10, align 4, !tbaa !61
   %76 = add nsw i32 %.val129, %.3181
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %.val128.val, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %.val128.val, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !42
   %80 = getelementptr i8, ptr %79, i64 24
   %.val132 = load i64, ptr %80, align 8
@@ -1180,7 +1180,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %87 = shl nuw nsw i32 1, %86
   %88 = lshr i32 %.3181, 4
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %73, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !38
   %92 = or i32 %91, %87
   store i32 %92, ptr %90, align 4, !tbaa !38
@@ -1197,7 +1197,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %98 = shl nuw i32 2, %97
   %99 = lshr i32 %.3181, 4
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %73, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !38
   %103 = or i32 %102, %98
   store i32 %103, ptr %101, align 4, !tbaa !38
@@ -1223,10 +1223,10 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %116, %.lr.ph.i.i ]
-  %110 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i.i
   %111 = load i32, ptr %110, align 4, !tbaa !38
   %112 = and i64 %indvars.iv.i.i, 127
-  %113 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !38
   %115 = mul i32 %114, %111
   %116 = xor i32 %115, %.089.i.i
@@ -1239,7 +1239,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %._crit
   %117 = urem i32 %.08.lcssa.i.i, %108
   %118 = load ptr, ptr %68, align 8, !tbaa !34
   %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds ptr, ptr %118, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %118, i64 %119
   %121 = sext i32 %107 to i64
   %122 = shl nsw i64 %121, 2
   %.01113.i = load ptr, ptr %120, align 8, !tbaa !51
@@ -1253,7 +1253,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %._crit
   br i1 %.not12.i, label %Saig_TsiStateLookup.exit, label %123
 
 123:                                              ; preds = %.lr.ph.i
-  %124 = getelementptr inbounds i32, ptr %.01115.i, i64 %121
+  %124 = getelementptr inbounds [4 x i8], ptr %.01115.i, i64 %121
   %.011.i = load ptr, ptr %124, align 8, !tbaa !51
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !54
@@ -1276,10 +1276,10 @@ Saig_TsiStateLookup.exit:                         ; preds = %.lr.ph.i
 .lr.ph.i.i145:                                    ; preds = %.lr.ph.i.i145, %.lr.ph.preheader.i.i143
   %indvars.iv.i.i146 = phi i64 [ 0, %.lr.ph.preheader.i.i143 ], [ %indvars.iv.next.i.i148, %.lr.ph.i.i145 ]
   %.089.i.i147 = phi i32 [ 0, %.lr.ph.preheader.i.i143 ], [ %133, %.lr.ph.i.i145 ]
-  %127 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i146
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i.i146
   %128 = load i32, ptr %127, align 4, !tbaa !38
   %129 = and i64 %indvars.iv.i.i146, 127
-  %130 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !38
   %132 = mul i32 %131, %128
   %133 = xor i32 %132, %.089.i.i147
@@ -1291,9 +1291,9 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %.08.lcssa.i.i142 = phi i32 [ 0, %.loopexit ], [ %133, %.lr.ph.i.i145 ]
   %134 = urem i32 %.08.lcssa.i.i142, %108
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds ptr, ptr %118, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %118, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !51
-  %138 = getelementptr inbounds i32, ptr %73, i64 %121
+  %138 = getelementptr inbounds [4 x i8], ptr %73, i64 %121
   store ptr %137, ptr %138, align 8, !tbaa !51
   store ptr %73, ptr %136, align 8, !tbaa !51
   %139 = load ptr, ptr %69, align 8, !tbaa !67
@@ -1316,7 +1316,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %180 ], [ 0, %Saig_TsiStateInsert.exit ]
   %144 = getelementptr i8, ptr %143, i64 8
   %.val109 = load ptr, ptr %144, align 8, !tbaa !28
-  %145 = getelementptr inbounds nuw ptr, ptr %.val109, i64 %indvars.iv199
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.val109, i64 %indvars.iv199
   %146 = load ptr, ptr %145, align 8, !tbaa !42
   %147 = icmp eq ptr %146, null
   br i1 %147, label %180, label %148
@@ -1402,7 +1402,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %189 = getelementptr i8, ptr %187, i64 8
   %.val108 = load ptr, ptr %189, align 8, !tbaa !28
   %190 = sext i32 %188 to i64
-  %191 = getelementptr inbounds ptr, ptr %.val108, i64 %190
+  %191 = getelementptr inbounds [8 x i8], ptr %.val108, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !42
   %193 = getelementptr i8, ptr %192, i64 8
   %.val139 = load ptr, ptr %193, align 8, !tbaa !68
@@ -1438,7 +1438,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %.val126.val = load ptr, ptr %208, align 8, !tbaa !28
   %209 = add nsw i32 %.val127, %.6189
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds ptr, ptr %.val126.val, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %.val126.val, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !42
   %.val130 = load ptr, ptr %65, align 8, !tbaa !62
   %.val131 = load i32, ptr %10, align 4, !tbaa !61
@@ -1446,7 +1446,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %.val130.val = load ptr, ptr %213, align 8, !tbaa !28
   %214 = add nsw i32 %.val131, %.6189
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds ptr, ptr %.val130.val, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %.val130.val, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !42
   %218 = getelementptr i8, ptr %212, i64 24
   %.val133 = load i64, ptr %218, align 8
@@ -1505,14 +1505,14 @@ define void @Saig_ManAnalizeControl(ptr noundef %0, i32 noundef %1) local_unname
   %.val53.val = load ptr, ptr %5, align 8, !tbaa !28
   %6 = add nsw i32 %.val54, %1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %.val53.val, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %.val53.val, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %10 = getelementptr i8, ptr %0, i64 104
   %.val50 = load i32, ptr %10, align 8, !tbaa !14
   %11 = add i32 %.val54, -1
   %12 = add i32 %11, %.val50
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %.val53.val, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val53.val, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !67
@@ -1529,7 +1529,7 @@ define void @Saig_ManAnalizeControl(ptr noundef %0, i32 noundef %1) local_unname
 
 21:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   %24 = icmp eq ptr %23, null
   br i1 %24, label %42, label %25
@@ -1592,7 +1592,7 @@ define void @Saig_ManAnalizeControl(ptr noundef %0, i32 noundef %1) local_unname
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %64 ], [ 0, %.critedge ]
   %47 = getelementptr i8, ptr %46, i64 8
   %.val48 = load ptr, ptr %47, align 8, !tbaa !28
-  %48 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv69
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.val48, i64 %indvars.iv69
   %49 = load ptr, ptr %48, align 8, !tbaa !42
   %50 = icmp eq ptr %49, null
   br i1 %50, label %64, label %51
@@ -1677,7 +1677,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
   %.05889 = phi i32 [ 0, %.lr.ph91 ], [ %.1, %.loopexit ]
   %24 = getelementptr i8, ptr %23, i64 8
   %.val74 = load ptr, ptr %24, align 8, !tbaa !36
-  %25 = getelementptr inbounds nuw i32, ptr %.val74, i64 %indvars.iv106
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.val74, i64 %indvars.iv106
   %26 = load i32, ptr %25, align 4, !tbaa !38
   br i1 %16, label %.lr.ph, label %.critedge69
 
@@ -1702,9 +1702,9 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
   %40 = icmp slt i64 %indvars.iv, %36
   %41 = select i1 %40, i64 0, i64 %35
   %.sink = sub nsw i64 %indvars.iv, %41
-  %42 = getelementptr inbounds ptr, ptr %.val, i64 %.sink
+  %42 = getelementptr inbounds [8 x i8], ptr %.val, i64 %.sink
   %.0 = load ptr, ptr %42, align 8, !tbaa !42
-  %43 = getelementptr inbounds i32, ptr %.0, i64 %32
+  %43 = getelementptr inbounds [4 x i8], ptr %.0, i64 %32
   %44 = load i32, ptr %43, align 4, !tbaa !38
   %45 = lshr i32 %44, %34
   %46 = shl nuw i32 %45, 1
@@ -1719,7 +1719,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = srem i32 %53, %1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %55
   br i1 %or.cond94, label %57, label %58
 
 57:                                               ; preds = %39
@@ -1748,7 +1748,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
 
 62:                                               ; preds = %.lr.ph79, %65
   %indvars.iv96 = phi i64 [ 1, %.lr.ph79 ], [ %indvars.iv.next97, %65 ]
-  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv96
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv96
   %64 = load i32, ptr %63, align 4, !tbaa !38
   %.not66 = icmp eq i32 %64, %61
   br i1 %.not66, label %65, label %._crit_edge.loopexit
@@ -1770,7 +1770,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
 68:                                               ; preds = %._crit_edge, %.critedge69
   %69 = add nsw i32 %.05889, 1
   %70 = sext i32 %.05889 to i64
-  %71 = getelementptr inbounds i32, ptr %.val74, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %.val74, i64 %70
   store i32 %26, ptr %71, align 4, !tbaa !38
   br i1 %.not67, label %.loopexit, label %72
 
@@ -1781,7 +1781,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph84:                                         ; preds = %72, %.lr.ph84
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph84 ], [ 0, %72 ]
   %74 = load ptr, ptr @stdout, align 8, !tbaa !82
-  %75 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv101
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv101
   %76 = load i32, ptr %75, align 4, !tbaa !38
   %switch.selectcmp.i = icmp eq i32 %76, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 49, i32 120
@@ -1890,7 +1890,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %36 = mul nsw i32 %.val208, %1
   %37 = sext i32 %36 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr ptr, ptr %10, i64 %37
+  %invariant.gep = getelementptr [8 x i8], ptr %10, i64 %37
   br label %41
 
 .preheader242.._crit_edge_crit_edge:              ; preds = %Abc_UtilStrsav.exit223
@@ -1910,7 +1910,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store ptr %.val200, ptr %gep, align 8, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1928,7 +1928,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %43 = load ptr, ptr %40, align 8, !tbaa !62
   %44 = getelementptr i8, ptr %43, i64 8
   %.val190 = load ptr, ptr %44, align 8, !tbaa !28
-  %45 = getelementptr inbounds nuw ptr, ptr %.val190, i64 %indvars.iv273
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val190, i64 %indvars.iv273
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   %47 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %15) #23
   %48 = getelementptr i8, ptr %46, i64 36
@@ -1936,7 +1936,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %49 = mul nsw i32 %.val209, %1
   %50 = add nsw i32 %49, %.1248
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %10, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %10, i64 %51
   store ptr %47, ptr %52, align 8, !tbaa !89
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %.val196 = load i32, ptr %38, align 8, !tbaa !38
@@ -1994,14 +1994,14 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %73 = phi ptr [ %61, %.lr.ph252.preheader ], [ %82, %.lr.ph252 ]
   %74 = getelementptr i8, ptr %73, i64 8
   %.val189 = load ptr, ptr %74, align 8, !tbaa !28
-  %75 = getelementptr inbounds ptr, ptr %.val189, i64 %indvars.iv277
+  %75 = getelementptr inbounds [8 x i8], ptr %.val189, i64 %indvars.iv277
   %76 = load ptr, ptr %75, align 8, !tbaa !42
   %77 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %15) #23
   %78 = getelementptr i8, ptr %76, i64 36
   %.val210 = load i32, ptr %78, align 4, !tbaa !88
   %79 = mul nsw i32 %.val210, %1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %10, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %10, i64 %80
   store ptr %77, ptr %81, align 8, !tbaa !89
   %indvars.iv.next278 = add nsw i64 %indvars.iv277, 1
   %82 = load ptr, ptr %60, align 8, !tbaa !62
@@ -2029,7 +2029,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %91 = load ptr, ptr %67, align 8, !tbaa !29
   %92 = getelementptr i8, ptr %91, i64 8
   %.val188 = load ptr, ptr %92, align 8, !tbaa !28
-  %93 = getelementptr inbounds nuw ptr, ptr %.val188, i64 %indvars.iv293
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.val188, i64 %indvars.iv293
   %94 = load ptr, ptr %93, align 8, !tbaa !42
   %wide.trip.count283 = zext nneg i32 %.val191 to i64
   %95 = trunc nuw nsw i64 %indvars.iv293 to i32
@@ -2060,16 +2060,16 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
 
 106:                                              ; preds = %.lr.ph254, %106
   %indvars.iv280 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next281, %106 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.val192, i64 %indvars.iv280
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.val192, i64 %indvars.iv280
   %108 = load i32, ptr %107, align 4, !tbaa !38
   %109 = add nsw i32 %.val203, %108
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %.val202.val, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %.val202.val, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !42
   %113 = shl nsw i32 %108, 1
   %114 = ashr i32 %108, 4
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i32, ptr %94, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %94, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !38
   %118 = and i32 %113, 30
   %119 = or disjoint i32 %118, 1
@@ -2086,7 +2086,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %129 = mul nsw i32 %.val211, %1
   %130 = add nsw i32 %129, %95
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds ptr, ptr %10, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %10, i64 %131
   store ptr %127, ptr %132, align 8, !tbaa !89
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count283
@@ -2124,7 +2124,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %indvars.iv285 = phi i64 [ 0, %.lr.ph257.preheader ], [ %indvars.iv.next286, %.critedge4 ]
   %143 = getelementptr i8, ptr %142, i64 8
   %.val187 = load ptr, ptr %143, align 8, !tbaa !28
-  %144 = getelementptr inbounds nuw ptr, ptr %.val187, i64 %indvars.iv285
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.val187, i64 %indvars.iv285
   %145 = load ptr, ptr %144, align 8, !tbaa !42
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.critedge4, label %147
@@ -2153,7 +2153,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %159 = mul nsw i32 %.val7.i, %1
   %160 = add nsw i32 %159, %104
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %10, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %10, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !89
   %164 = and i64 %154, 1
   %165 = ptrtoint ptr %163 to i64
@@ -2177,7 +2177,7 @@ Saig_ObjChild0Frames.exit:                        ; preds = %152, %156
   %175 = mul nsw i32 %.val7.i226, %1
   %176 = add nsw i32 %175, %105
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds ptr, ptr %10, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %10, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !89
   %180 = and i64 %170, 1
   %181 = ptrtoint ptr %179 to i64
@@ -2194,7 +2194,7 @@ Saig_ObjChild1Frames.exit:                        ; preds = %Saig_ObjChild0Frame
   %187 = mul nsw i32 %.val212, %1
   %188 = add nsw i32 %187, %.pre-phi
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds ptr, ptr %10, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %10, i64 %189
   store ptr %185, ptr %190, align 8, !tbaa !89
   %.pre = load ptr, ptr %5, align 8, !tbaa !67
   br label %.critedge4
@@ -2213,11 +2213,11 @@ Saig_ObjChild1Frames.exit:                        ; preds = %Saig_ObjChild0Frame
   %195 = trunc nuw nsw i64 %indvars.iv288 to i32
   %.reass = add i32 %invariant.op, %195
   %196 = sext i32 %.reass to i64
-  %197 = getelementptr inbounds ptr, ptr %.val3.i, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %.val3.i, i64 %196
   %198 = load ptr, ptr %197, align 8, !tbaa !42
   %.reass260 = add i32 %invariant.op259, %195
   %199 = sext i32 %.reass260 to i64
-  %200 = getelementptr inbounds ptr, ptr %.val3.i229, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.val3.i229, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !42
   %202 = getelementptr i8, ptr %198, i64 8
   %.val218 = load ptr, ptr %202, align 8, !tbaa !68
@@ -2233,7 +2233,7 @@ Saig_ObjChild1Frames.exit:                        ; preds = %Saig_ObjChild0Frame
   %208 = mul nsw i32 %.val7.i231, %1
   %209 = add nsw i32 %208, %140
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds ptr, ptr %10, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %10, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !89
   %213 = and i64 %203, 1
   %214 = ptrtoint ptr %212 to i64
@@ -2251,7 +2251,7 @@ Saig_ObjChild0Frames.exit232:                     ; preds = %.critedge8, %205
   %220 = mul nsw i32 %.val213, %1
   %221 = add nsw i32 %220, %141
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds ptr, ptr %10, i64 %222
+  %223 = getelementptr inbounds [8 x i8], ptr %10, i64 %222
   store ptr %217, ptr %223, align 8, !tbaa !89
   br label %.critedge6
 
@@ -2277,7 +2277,7 @@ Saig_ObjChild0Frames.exit232:                     ; preds = %.critedge8, %205
   %225 = load ptr, ptr %100, align 8, !tbaa !71
   %226 = getelementptr i8, ptr %225, i64 8
   %.val186 = load ptr, ptr %226, align 8, !tbaa !28
-  %227 = getelementptr inbounds nuw ptr, ptr %.val186, i64 %indvars.iv298
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %.val186, i64 %indvars.iv298
   %228 = load ptr, ptr %227, align 8, !tbaa !42
   %229 = getelementptr i8, ptr %228, i64 8
   %.val219 = load ptr, ptr %229, align 8, !tbaa !68
@@ -2293,7 +2293,7 @@ Saig_ObjChild0Frames.exit232:                     ; preds = %.critedge8, %205
   %235 = mul nsw i32 %.val7.i234, %1
   %236 = add nsw i32 %235, %.3266
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds ptr, ptr %10, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %10, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !89
   %240 = and i64 %230, 1
   %241 = ptrtoint ptr %239 to i64
@@ -2309,7 +2309,7 @@ Saig_ObjChild0Frames.exit235:                     ; preds = %.lr.ph265, %232
   %247 = mul nsw i32 %.val214, %1
   %248 = add nsw i32 %247, %.3266
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds ptr, ptr %10, i64 %249
+  %250 = getelementptr inbounds [8 x i8], ptr %10, i64 %249
   store ptr %245, ptr %250, align 8, !tbaa !89
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %.val193 = load i32, ptr %99, align 4, !tbaa !38
@@ -2361,7 +2361,7 @@ Saig_ObjChild0Frames.exit235:                     ; preds = %.lr.ph265, %232
   %272 = phi ptr [ %266, %.lr.ph271 ], [ %298, %Saig_ObjChild0Frames.exit238 ]
   %273 = getelementptr i8, ptr %272, i64 8
   %.val185 = load ptr, ptr %273, align 8, !tbaa !28
-  %274 = getelementptr inbounds ptr, ptr %.val185, i64 %indvars.iv302
+  %274 = getelementptr inbounds [8 x i8], ptr %.val185, i64 %indvars.iv302
   %275 = load ptr, ptr %274, align 8, !tbaa !42
   %276 = getelementptr i8, ptr %275, i64 8
   %.val220 = load ptr, ptr %276, align 8, !tbaa !68
@@ -2377,7 +2377,7 @@ Saig_ObjChild0Frames.exit235:                     ; preds = %.lr.ph265, %232
   %282 = mul nsw i32 %.val7.i237, %1
   %283 = add nsw i32 %282, %269
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds ptr, ptr %10, i64 %284
+  %285 = getelementptr inbounds [8 x i8], ptr %10, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !89
   %287 = and i64 %277, 1
   %288 = ptrtoint ptr %286 to i64
@@ -2393,7 +2393,7 @@ Saig_ObjChild0Frames.exit238:                     ; preds = %271, %279
   %294 = mul nsw i32 %.val215, %1
   %295 = add nsw i32 %294, %269
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %10, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr %10, i64 %296
   store ptr %292, ptr %297, align 8, !tbaa !89
   %indvars.iv.next303 = add nsw i64 %indvars.iv302, 1
   %298 = load ptr, ptr %265, align 8, !tbaa !71
@@ -2444,7 +2444,7 @@ define i32 @Saig_ManPhaseFrameNum(ptr noundef %0, ptr noundef readonly captures(
   %9 = getelementptr i8, ptr %7, i64 8
   %.val12 = load ptr, ptr %9, align 8, !tbaa !28
   %10 = sext i32 %.val11 to i64
-  %11 = getelementptr ptr, ptr %.val12, i64 %10
+  %11 = getelementptr [8 x i8], ptr %.val12, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2461,10 +2461,10 @@ define i32 @Saig_ManPhaseFrameNum(ptr noundef %0, ptr noundef readonly captures(
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !38
   %21 = and i64 %indvars.iv.i.i, 127
-  %22 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !38
   %24 = mul i32 %23, %20
   %25 = xor i32 %24, %.089.i.i
@@ -2478,7 +2478,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %.02025.i = load ptr, ptr %30, align 8, !tbaa !51
   %.not26.i = icmp eq ptr %.02025.i, null
   br i1 %.not26.i, label %Saig_TsiComputePrefix.exit, label %.lr.ph.i
@@ -2504,7 +2504,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
 
 35:                                               ; preds = %39, %.lr.ph29.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph29.i ], [ %indvars.iv.next.i, %39 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   %38 = icmp eq ptr %37, %.02027.i
   br i1 %38, label %.critedge.loopexit.split.loop.exit37.i, label %39
@@ -2515,7 +2515,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   br i1 %exitcond.not.i, label %Saig_TsiComputePrefix.exit, label %35, !llvm.loop !52
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i32, ptr %.02027.i, i64 %31
+  %41 = getelementptr inbounds [4 x i8], ptr %.02027.i, i64 %31
   %.020.i = load ptr, ptr %41, align 8, !tbaa !51
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %33, !llvm.loop !53
@@ -2550,7 +2550,7 @@ define noundef i32 @Saig_ManPhasePrefixLength(ptr noundef %0, i32 noundef %1, i3
   %11 = getelementptr i8, ptr %9, i64 8
   %.val30 = load ptr, ptr %11, align 8, !tbaa !28
   %12 = sext i32 %.val29 to i64
-  %13 = getelementptr ptr, ptr %.val30, i64 %12
+  %13 = getelementptr [8 x i8], ptr %.val30, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2567,10 +2567,10 @@ define noundef i32 @Saig_ManPhasePrefixLength(ptr noundef %0, i32 noundef %1, i3
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %27, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !38
   %23 = and i64 %indvars.iv.i.i, 127
-  %24 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !38
   %26 = mul i32 %25, %22
   %27 = xor i32 %26, %.089.i.i
@@ -2584,7 +2584,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %7
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   %.02025.i = load ptr, ptr %32, align 8, !tbaa !51
   %.not26.i = icmp eq ptr %.02025.i, null
   br i1 %.not26.i, label %Saig_TsiComputePrefix.exit, label %.lr.ph.i
@@ -2610,7 +2610,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %7
 
 37:                                               ; preds = %41, %.lr.ph29.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph29.i ], [ %indvars.iv.next.i, %41 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.val30, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val30, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %40 = icmp eq ptr %39, %.02027.i
   br i1 %40, label %.critedge.loopexit.split.loop.exit37.i, label %41
@@ -2621,7 +2621,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %7
   br i1 %exitcond.not.i, label %Saig_TsiComputePrefix.exit, label %37, !llvm.loop !52
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i32, ptr %.02027.i, i64 %33
+  %43 = getelementptr inbounds [4 x i8], ptr %.02027.i, i64 %33
   %.020.i = load ptr, ptr %43, align 8, !tbaa !51
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %35, !llvm.loop !53
@@ -2684,7 +2684,7 @@ define ptr @Saig_ManPhaseAbstract(ptr noundef %0, ptr noundef readonly captures(
   %14 = getelementptr i8, ptr %12, i64 8
   %.val58 = load ptr, ptr %14, align 8, !tbaa !28
   %15 = sext i32 %.val57 to i64
-  %16 = getelementptr ptr, ptr %.val58, i64 %15
+  %16 = getelementptr [8 x i8], ptr %.val58, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load ptr, ptr %17, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2701,10 +2701,10 @@ define ptr @Saig_ManPhaseAbstract(ptr noundef %0, ptr noundef readonly captures(
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %30, %.lr.ph.i.i ]
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !38
   %26 = and i64 %indvars.iv.i.i, 127
-  %27 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !38
   %29 = mul i32 %28, %25
   %30 = xor i32 %29, %.089.i.i
@@ -2718,7 +2718,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %10
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   %.02025.i = load ptr, ptr %35, align 8, !tbaa !51
   %.not26.i = icmp eq ptr %.02025.i, null
   br i1 %.not26.i, label %Saig_TsiComputePrefix.exit, label %.lr.ph.i
@@ -2744,7 +2744,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %10
 
 40:                                               ; preds = %44, %.lr.ph29.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph29.i ], [ %indvars.iv.next.i, %44 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %.val58, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val58, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !42
   %43 = icmp eq ptr %42, %.02027.i
   br i1 %43, label %.critedge.loopexit.split.loop.exit37.i, label %44
@@ -2755,7 +2755,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %10
   br i1 %exitcond.not.i, label %Saig_TsiComputePrefix.exit, label %40, !llvm.loop !52
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i32, ptr %.02027.i, i64 %36
+  %46 = getelementptr inbounds [4 x i8], ptr %.02027.i, i64 %36
   %.020.i = load ptr, ptr %46, align 8, !tbaa !51
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %38, !llvm.loop !53
@@ -2886,7 +2886,7 @@ define ptr @Saig_ManPhaseAbstractAuto(ptr noundef %0, i32 noundef %1) local_unna
   %9 = getelementptr i8, ptr %7, i64 8
   %.val53 = load ptr, ptr %9, align 8, !tbaa !28
   %10 = sext i32 %.val52 to i64
-  %11 = getelementptr ptr, ptr %.val53, i64 %10
+  %11 = getelementptr [8 x i8], ptr %.val53, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2903,10 +2903,10 @@ define ptr @Saig_ManPhaseAbstractAuto(ptr noundef %0, i32 noundef %1) local_unna
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !38
   %21 = and i64 %indvars.iv.i.i, 127
-  %22 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @Saig_TsiStateHash.s_FPrimes, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !38
   %24 = mul i32 %23, %20
   %25 = xor i32 %24, %.089.i.i
@@ -2920,7 +2920,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %.02025.i = load ptr, ptr %30, align 8, !tbaa !51
   %.not26.i = icmp eq ptr %.02025.i, null
   br i1 %.not26.i, label %Saig_TsiComputePrefix.exit, label %.lr.ph.i
@@ -2946,7 +2946,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
 
 35:                                               ; preds = %39, %.lr.ph29.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph29.i ], [ %indvars.iv.next.i, %39 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val53, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   %38 = icmp eq ptr %37, %.02027.i
   br i1 %38, label %.critedge.loopexit.split.loop.exit37.i, label %39
@@ -2957,7 +2957,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   br i1 %exitcond.not.i, label %Saig_TsiComputePrefix.exit, label %35, !llvm.loop !52
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i32, ptr %.02027.i, i64 %31
+  %41 = getelementptr inbounds [4 x i8], ptr %.02027.i, i64 %31
   %.020.i = load ptr, ptr %41, align 8, !tbaa !51
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %33, !llvm.loop !53
@@ -3103,7 +3103,7 @@ define noundef ptr @Saig_PhaseTranslateCex(ptr noundef readonly captures(none) %
   %.02835 = phi i32 [ %24, %.lr.ph ], [ %51, %49 ]
   %34 = ashr i32 %.02736, 5
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %30, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %30, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !38
   %38 = and i32 %.02736, 31
   %39 = shl nuw i32 1, %38
@@ -3116,7 +3116,7 @@ define noundef ptr @Saig_PhaseTranslateCex(ptr noundef readonly captures(none) %
   %43 = shl nuw i32 1, %42
   %44 = ashr i32 %.02835, 5
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %31, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %31, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %48 = or i32 %47, %43
   store i32 %48, ptr %46, align 4, !tbaa !38

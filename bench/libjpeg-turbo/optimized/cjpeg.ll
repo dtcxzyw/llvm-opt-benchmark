@@ -225,7 +225,7 @@ define dso_local range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %20 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = call noalias ptr @fopen(ptr noundef %35, ptr noundef nonnull @.str.2)
   %37 = icmp eq ptr %36, null
@@ -658,7 +658,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %.0161425 = phi i32 [ 0, %.lr.ph ], [ %.1162, %267 ]
   %.0163424 = phi i32 [ 1, %.lr.ph ], [ %268, %267 ]
   %26 = sext i32 %.0163424 to i64
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = load i8, ptr %28, align 1, !tbaa !11
   %.not = icmp eq i8 %29, 45
@@ -703,7 +703,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 44:                                               ; preds = %41
   %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds ptr, ptr %2, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %2, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = call i32 @keymatch(ptr noundef %47, ptr noundef nonnull @.str.59, i32 noundef 1) #9
   %.not214 = icmp eq i32 %48, 0
@@ -821,7 +821,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 96:                                               ; preds = %93
   %97 = sext i32 %94 to i64
-  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %2, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   store ptr %99, ptr @icc_filename, align 8, !tbaa !4
   br label %267
@@ -844,7 +844,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 105:                                              ; preds = %102
   %106 = sext i32 %103 to i64
-  %107 = getelementptr inbounds ptr, ptr %2, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %2, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !4
   %109 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %108, ptr noundef nonnull @.str.78, ptr noundef nonnull %5, ptr noundef nonnull %7) #9
   %110 = icmp slt i32 %109, 1
@@ -904,7 +904,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 127:                                              ; preds = %124
   %128 = sext i32 %125 to i64
-  %129 = getelementptr inbounds ptr, ptr %2, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %2, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !4
   %131 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %130, ptr noundef nonnull @.str.81, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
   %132 = icmp slt i32 %131, 1
@@ -958,7 +958,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 151:                                              ; preds = %148
   %152 = sext i32 %149 to i64
-  %153 = getelementptr inbounds ptr, ptr %2, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %2, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !4
   store ptr %154, ptr @outfilename, align 8, !tbaa !4
   br label %267
@@ -980,7 +980,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 160:                                              ; preds = %157
   %161 = sext i32 %158 to i64
-  %162 = getelementptr inbounds ptr, ptr %2, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %2, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !4
   %164 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %163, ptr noundef nonnull @.str.79, ptr noundef nonnull %10) #9
   %.not205 = icmp eq i32 %164, 1
@@ -1035,7 +1035,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 181:                                              ; preds = %178
   %182 = sext i32 %179 to i64
-  %183 = getelementptr inbounds ptr, ptr %2, i64 %182
+  %183 = getelementptr inbounds [8 x i8], ptr %2, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !4
   br label %267
 
@@ -1055,7 +1055,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 190:                                              ; preds = %187
   %191 = sext i32 %188 to i64
-  %192 = getelementptr inbounds ptr, ptr %2, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %2, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !4
   br label %267
 
@@ -1075,7 +1075,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 199:                                              ; preds = %196
   %200 = sext i32 %197 to i64
-  %201 = getelementptr inbounds ptr, ptr %2, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %2, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !4
   br label %267
 
@@ -1107,7 +1107,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 211:                                              ; preds = %208
   %212 = sext i32 %209 to i64
-  %213 = getelementptr inbounds ptr, ptr %2, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %2, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !4
   %215 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %214, ptr noundef nonnull @.str.81, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %216 = icmp slt i32 %215, 1
@@ -1160,7 +1160,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 232:                                              ; preds = %229
   %233 = sext i32 %230 to i64
-  %234 = getelementptr inbounds ptr, ptr %2, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %2, i64 %233
   %235 = load ptr, ptr %234, align 8, !tbaa !4
   br label %267
 
@@ -1180,7 +1180,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 241:                                              ; preds = %238
   %242 = sext i32 %239 to i64
-  %243 = getelementptr inbounds ptr, ptr %2, i64 %242
+  %243 = getelementptr inbounds [8 x i8], ptr %2, i64 %242
   %244 = load ptr, ptr %243, align 8, !tbaa !4
   br label %267
 
@@ -1201,7 +1201,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 250:                                              ; preds = %247
   %251 = sext i32 %248 to i64
-  %252 = getelementptr inbounds ptr, ptr %2, i64 %251
+  %252 = getelementptr inbounds [8 x i8], ptr %2, i64 %251
   %253 = load ptr, ptr %252, align 8, !tbaa !4
   %254 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %253, ptr noundef nonnull @.str.79, ptr noundef nonnull %13) #9
   %.not197 = icmp eq i32 %254, 1

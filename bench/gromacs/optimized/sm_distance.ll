@@ -465,14 +465,14 @@ define internal void @_ZL17evaluate_distanceRKN3gmx20SelMethodEvalContextEP13gmx
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %1, align 8, !tbaa !61
-  %17 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %indvars.iv
   store i32 1, ptr %5, align 8, !tbaa !49
   store i32 -1, ptr %11, align 4, !tbaa !51
   store ptr %17, ptr %12, align 8, !tbaa !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %18 = call noundef float @_ZNK3gmx26AnalysisNeighborhoodSearch15minimumDistanceERKNS_29AnalysisNeighborhoodPositionsE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %19 = load ptr, ptr %14, align 8, !tbaa !32
-  %20 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store float %18, ptr %20, align 4, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -844,7 +844,7 @@ define internal void @_ZL15evaluate_withinRKN3gmx20SelMethodEvalContextEP13gmx_a
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %1, align 8, !tbaa !61
-  %17 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %indvars.iv
   store i32 1, ptr %5, align 8, !tbaa !49
   store i32 -1, ptr %12, align 4, !tbaa !51
   store ptr %17, ptr %13, align 8, !tbaa !52

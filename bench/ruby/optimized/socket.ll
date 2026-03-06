@@ -254,7 +254,7 @@ define i64 @rsock_sock_s_socketpair(i32 noundef %0, ptr noundef readonly capture
   %exitcond.not = phi i1 [ true, %.preheader19 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader19 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader19 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !10
   store i64 %9, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   br i1 %exitcond.not, label %.preheader, label %.preheader19, !llvm.loop !19
@@ -627,7 +627,7 @@ define internal i64 @sock_initialize(i32 noundef %0, ptr noundef readonly captur
   %exitcond.not = phi i1 [ true, %.preheader7 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader7 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader7 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !10
   store i64 %8, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   br i1 %exitcond.not, label %.preheader, label %.preheader7, !llvm.loop !19
@@ -1412,7 +1412,7 @@ define internal i64 @sock_s_getaddrinfo(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not109.i, label %25, label %22
 
 22:                                               ; preds = %.preheader9
-  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !10
   store i64 %24, ptr %21, align 8, !tbaa !10
   br label %25
@@ -1424,7 +1424,7 @@ define internal i64 @sock_s_getaddrinfo(i32 noundef %0, ptr noundef readonly cap
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %38 ], [ 2, %25 ]
   %.185.i14 = phi i32 [ %.286.i, %38 ], [ 2, %25 ]
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %26 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv22
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv22
   %27 = load ptr, ptr %26, align 8, !tbaa !71
   %28 = icmp slt i32 %.185.i14, %0
   %.not108.i = icmp eq ptr %27, null
@@ -1435,7 +1435,7 @@ define internal i64 @sock_s_getaddrinfo(i32 noundef %0, ptr noundef readonly cap
 
 30:                                               ; preds = %29
   %31 = sext i32 %.185.i14 to i64
-  %32 = getelementptr inbounds i64, ptr %1, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %1, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !10
   store i64 %33, ptr %27, align 8, !tbaa !10
   br label %34

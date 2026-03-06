@@ -672,7 +672,7 @@ declare i32 @type_alloca_alignment(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i32 @binaryop_assign_base_op(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds i32, ptr @assign_binop, i64 %2
+  %3 = getelementptr inbounds [4 x i8], ptr @assign_binop, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -680,7 +680,7 @@ define dso_local i32 @binaryop_assign_base_op(i32 noundef %0) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @binaryop_from_token(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @binary_op, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @binary_op, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -691,7 +691,7 @@ define dso_local range(i32 0, 190) i32 @binaryop_to_token(i32 noundef %0) local_
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw i32, ptr @binary_op, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @binary_op, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %.split.loop.exit9, label %6
@@ -713,7 +713,7 @@ define dso_local range(i32 0, 190) i32 @binaryop_to_token(i32 noundef %0) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @unaryop_from_token(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @unary_op, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @unary_op, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -742,7 +742,7 @@ tailrecurse:                                      ; preds = %9, %1
 
 9:                                                ; preds = %6
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.Ast_, ptr %2, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %.not11 = icmp eq i32 %13, 0
@@ -759,7 +759,7 @@ define dso_local range(i32 0, 42) i32 @attribute_by_name(ptr noundef readnone ca
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @attribute_list, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @attribute_list, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.split.loop.exit8, label %6
@@ -803,7 +803,7 @@ define dso_local void @decl_append_links_to_global(ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   tail call void @global_context_add_link(ptr noundef %11) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -839,7 +839,7 @@ define dso_local void @decl_append_links_to_global(ptr noundef readonly captures
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.loopexit
   %indvars.iv74 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next75, %.loopexit ]
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv74
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv74
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i16, ptr %24, align 8
@@ -866,7 +866,7 @@ define dso_local void @decl_append_links_to_global(ptr noundef readonly captures
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %39
   %indvars.iv69 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next70, %39 ]
   %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv69
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv69
   %35 = load ptr, ptr %34, align 8
   %.not56 = icmp eq ptr %35, null
   br i1 %.not56, label %39, label %36
@@ -917,7 +917,7 @@ define dso_local i32 @decl_count_elements(ptr noundef readonly captures(none) %0
 14:                                               ; preds = %8, %27
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %27 ]
   %.02227 = phi i32 [ 0, %8 ], [ %.1, %27 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
@@ -992,7 +992,7 @@ define dso_local zeroext i1 @ast_is_compile_time(ptr noundef readonly captures(n
 17:                                               ; preds = %16
   %18 = load ptr, ptr @ast_arena, align 8
   %19 = zext i32 %.011 to i64
-  %20 = getelementptr inbounds nuw %struct.Ast_, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = tail call zeroext i1 @ast_is_compile_time(ptr noundef nonnull %20)
@@ -1098,7 +1098,7 @@ define dso_local noundef ptr @decl_find_enum_constant(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
@@ -1153,7 +1153,7 @@ define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.027, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.027, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %1
   br i1 %21, label %22, label %26

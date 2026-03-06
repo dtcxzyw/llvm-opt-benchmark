@@ -59,7 +59,7 @@ refdict.exit:                                     ; preds = %6
   %18 = phi ptr [ %24, %23 ], [ %7, %refdict.exit ]
   %.015.i = phi i64 [ %25, %23 ], [ 0, %refdict.exit ]
   %19 = load ptr, ptr %18, align 8, !tbaa !23
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.015.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.015.i
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %.not14.i = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
   br i1 %.not14.i, label %23, label %22
@@ -135,7 +135,7 @@ refdict.exit:                                     ; preds = %7, %strdict_new.exi
   %.02432.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %35, %refstr_eq.exit.thread.i.i ]
   %25 = add i64 %.02432.i.i, %17
   %26 = and i64 %25, %23
-  %27 = getelementptr inbounds nuw ptr, ptr %18, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !20
   %magicptr.i.i = ptrtoint ptr %28 to i64
   switch i64 %magicptr.i.i, label %29 [
@@ -227,7 +227,7 @@ refdict.exit:                                     ; preds = %10, %strdict_new.ex
   %.02432.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %refstr_eq.exit.thread.i ]
   %28 = add i64 %.02432.i, %20
   %29 = and i64 %28, %26
-  %30 = getelementptr inbounds nuw ptr, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !20
   %magicptr.i = ptrtoint ptr %31 to i64
   switch i64 %magicptr.i, label %32 [
@@ -370,7 +370,7 @@ refdict.exit:                                     ; preds = %10, %strdict_new.ex
   %.02432.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %refstr_eq.exit.thread.i ]
   %28 = add i64 %.02432.i, %20
   %29 = and i64 %28, %26
-  %30 = getelementptr inbounds nuw ptr, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !20
   %magicptr.i = ptrtoint ptr %31 to i64
   switch i64 %magicptr.i, label %32 [
@@ -425,7 +425,7 @@ strdict_find.exit:                                ; preds = %refstr_eq.exit.i
   %.030.i = phi i64 [ 0, %.lr.ph.i16 ], [ %71, %refstr_eq.exit.thread.i18 ]
   %55 = add i64 %.030.i, %48
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw ptr, ptr %49, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !20
   %magicptr.i17 = ptrtoint ptr %58 to i64
   switch i64 %magicptr.i17, label %59 [
@@ -448,7 +448,7 @@ refstr_eq.exit.i21:                               ; preds = %59
 65:                                               ; preds = %refstr_eq.exit.i21
   tail call void @free(ptr noundef nonnull %58) #18
   %66 = load ptr, ptr %19, align 8, !tbaa !23
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %56
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %56
   store ptr inttoptr (i64 -1 to ptr), ptr %67, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !29
@@ -586,7 +586,7 @@ gv_calloc.exit:                                   ; preds = %21
 .lr.ph:                                           ; preds = %gv_calloc.exit, %39
   %.04152 = phi i64 [ %40, %39 ], [ 0, %gv_calloc.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !23
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04152
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.04152
   %37 = load ptr, ptr %36, align 8, !tbaa !20
   %magicptr = ptrtoint ptr %37 to i64
   %magicptr.off = add i64 %magicptr, -1
@@ -623,7 +623,7 @@ gv_calloc.exit:                                   ; preds = %21
   %.04055 = phi i64 [ 0, %41 ], [ %52, %51 ]
   %54 = add i64 %.04055, %48
   %55 = and i64 %54, %49
-  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !20
   %magicptr46 = ptrtoint ptr %57 to i64
   %magicptr46.off = add i64 %magicptr46, -1
@@ -637,7 +637,7 @@ gv_calloc.exit:                                   ; preds = %21
   unreachable
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw ptr, ptr %50, i64 %55
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %55
   store ptr %1, ptr %61, align 8, !tbaa !20
   %62 = load i64, ptr %43, align 8, !tbaa !29
   %63 = add i64 %62, 1

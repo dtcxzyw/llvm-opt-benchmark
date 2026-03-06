@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DIEValue" = type { i32, i16, i16, %"struct.llvm::AlignedCharArrayUnion.750" }
 %"struct.llvm::AlignedCharArrayUnion.750" = type { [8 x i8] }
 %"struct.llvm::dwarf::FormParams" = type <{ i16, i8, i8, i8, i8 }>
-%"struct.llvm::detail::DenseMapPair.783" = type { %"struct.std::pair.448" }
 %"struct.std::pair.448" = type { ptr, ptr }
 %"struct.std::pair" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
@@ -26,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<llvm::MD5::MD5Result>::_Storage" = type { %"struct.llvm::MD5::MD5Result" }
 %"struct.llvm::MD5::MD5Result" = type { %"struct.std::array" }
 %"struct.std::array" = type { [16 x i8] }
-%"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::APInt" = type <{ %union.anon.596, i32, [4 x i8] }>
 %union.anon.596 = type { i64 }
 %class.anon = type { ptr, ptr, ptr }
@@ -62,15 +60,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.703" = type { ptr, ptr }
 %"struct.std::pair.699" = type <{ %"class.llvm::DenseMapIterator.701", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator.701" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair.785" = type { %"struct.std::pair.786" }
-%"struct.std::pair.786" = type { ptr, ptr }
 %class.anon.708 = type { ptr, ptr, ptr }
 %class.anon.715 = type { ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.703" }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"struct.std::pair.781" = type { ptr, i64 }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev = comdat any
 
@@ -831,7 +825,7 @@ _ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit: ; preds = %11, %11
   %36 = add i32 %28, -1
   %.01826.i.i.i.i = and i32 %36, %35
   %37 = zext nneg i32 %.01826.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %26, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !462
   %40 = icmp eq ptr %1, %39
   br i1 %40, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !464
@@ -848,14 +842,14 @@ _ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit: ; preds = %11, %11
   %45 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
   %.018.i.i.i.i = and i32 %45, %36
   %46 = zext i32 %.018.i.i.i.i to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %26, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !462
   %49 = icmp eq ptr %1, %48
   br i1 %49, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !466, !llvm.loop !467
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i: ; preds = %43, %30
   %50 = phi i64 [ %37, %30 ], [ %46, %43 ]
-  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %26, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %50
   br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split
 
 _ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread: ; preds = %11, %13, %7, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit
@@ -875,7 +869,7 @@ _ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread: ; preds = %
   %63 = add i32 %55, -1
   %.01826.i.i.i = and i32 %63, %62
   %64 = zext nneg i32 %.01826.i.i.i to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %53, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !462
   %67 = icmp eq ptr %1, %66
   br i1 %67, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i, label %.lr.ph.i.i.i, !prof !464
@@ -892,14 +886,14 @@ _ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread: ; preds = %
   %72 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %72, %63
   %73 = zext i32 %.018.i.i.i to i64
-  %74 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %53, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !462
   %76 = icmp eq ptr %1, %75
   br i1 %76, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i, label %.lr.ph.i.i.i, !prof !466, !llvm.loop !467
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i: ; preds = %70, %57
   %77 = phi i64 [ %64, %57 ], [ %73, %70 ]
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %53, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %77
   br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split
 
 _ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i
@@ -1636,7 +1630,7 @@ _ZN4llvm9DwarfUnit16addSectionOffsetERNS_3DIEENS_5dwarf9AttributeEm.exit: ; pred
   %51 = lshr i64 %45, 2
   %52 = and i64 %51, 15
   %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds %"class.llvm::MDOperand", ptr %44, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %44, i64 %53
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %50, %47
@@ -1670,7 +1664,7 @@ _ZNK4llvm6DIFile12getDirectoryEv.exit:            ; preds = %_ZNK4llvm6DINode12g
   %67 = lshr i64 %61, 2
   %68 = and i64 %67, 15
   %69 = sub nsw i64 0, %68
-  %70 = getelementptr inbounds %"class.llvm::MDOperand", ptr %44, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %44, i64 %69
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i9
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i9: ; preds = %66, %63
@@ -2398,7 +2392,7 @@ _ZNSt6vectorIPN4llvm6DIELocESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; p
 _ZNSt6vectorIPN4llvm6DIELocESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIPN4llvm6DIELocESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %32, ptr %12, align 8, !tbaa !638
   store ptr %36, ptr %13, align 8, !tbaa !636
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %15, align 8, !tbaa !637
   br label %_ZNSt6vectorIPN4llvm6DIELocESaIS2_EE9push_backERKS2_.exit
 
@@ -2532,7 +2526,7 @@ _ZNSt6vectorIPN4llvm8DIEBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4llvm8DIEBlockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN4llvm8DIEBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %33, ptr %13, align 8, !tbaa !643
   store ptr %37, ptr %14, align 8, !tbaa !639
-  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %39, ptr %16, align 8, !tbaa !640
   br label %_ZNSt6vectorIPN4llvm8DIEBlockESaIS2_EE9push_backERKS2_.exit
 
@@ -2704,7 +2698,7 @@ define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_15DILocal
   %13 = lshr i64 %7, 2
   %14 = and i64 %13, 15
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %6, i64 %15
   br label %_ZNK4llvm10DIVariable7getFileEv.exit
 
 _ZNK4llvm10DIVariable7getFileEv.exit:             ; preds = %9, %12
@@ -2734,7 +2728,7 @@ define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_16DIGloba
   %13 = lshr i64 %7, 2
   %14 = and i64 %13, 15
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %6, i64 %15
   br label %_ZNK4llvm10DIVariable7getFileEv.exit
 
 _ZNK4llvm10DIVariable7getFileEv.exit:             ; preds = %9, %12
@@ -2769,7 +2763,7 @@ define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_12DISubpr
   %16 = lshr i64 %10, 2
   %17 = and i64 %16, 15
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %9, i64 %18
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %15, %12
@@ -2802,7 +2796,7 @@ define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_7DILabelE
   %13 = lshr i64 %7, 2
   %14 = and i64 %13, 15
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %6, i64 %15
   br label %_ZNK4llvm7DILabel7getFileEv.exit
 
 _ZNK4llvm7DILabel7getFileEv.exit:                 ; preds = %9, %12
@@ -2837,7 +2831,7 @@ define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_6DITypeE(
   %16 = lshr i64 %10, 2
   %17 = and i64 %16, 15
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %9, i64 %18
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %15, %12
@@ -2870,7 +2864,7 @@ define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_14DIObjCP
   %13 = lshr i64 %7, 2
   %14 = and i64 %13, 15
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %6, i64 %15
   br label %_ZNK4llvm14DIObjCProperty7getFileEv.exit
 
 _ZNK4llvm14DIObjCProperty7getFileEv.exit:         ; preds = %9, %12
@@ -3039,7 +3033,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %73 = add nsw i32 %63, %72
   %74 = sdiv i32 %73, 8
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i64, ptr %.0.i28, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %.0.i28, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !54
   %78 = shl i32 %73, 3
   %79 = and i32 %78, 56
@@ -3070,7 +3064,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %.02530 = phi i32 [ %98, %.lr.ph.split ], [ 0, %.lr.ph ]
   %88 = lshr i32 %.02530, 3
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i64, ptr %.0.i28, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.0.i28, i64 %89
   %91 = load i64, ptr %90, align 8, !tbaa !54
   %92 = shl i32 %.02530, 3
   %93 = and i32 %92, 56
@@ -3245,11 +3239,11 @@ define dso_local void @_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTup
   %15 = lshr i64 %6, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %17
   %19 = lshr i64 %6, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %5, i64 %21
   %23 = lshr i64 %6, 6
   %24 = and i64 %23, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -3258,7 +3252,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %8, %14
   %.sroa.0.0.i.ph33 = phi ptr [ %18, %14 ], [ %10, %8 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %24, %14 ], [ %13, %8 ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %22, %14 ], [ %10, %8 ]
-  %25 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i
   %.not2529 = icmp eq ptr %.sroa.0.0.i.ph33, %25
   br i1 %.not2529, label %._crit_edge, label %.lr.ph
 
@@ -3360,7 +3354,7 @@ _ZNK4llvm19DITemplateParameter7getTypeEv.exit:    ; preds = %_ZN4llvm9DwarfUnit1
   %40 = lshr i64 %38, 2
   %41 = and i64 %40, 15
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds %"class.llvm::MDOperand", ptr %37, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !485
   %.not = icmp eq ptr %45, null
@@ -3399,7 +3393,7 @@ _ZNK4llvm19DITemplateParameter7getTypeEv.exit13:  ; preds = %_ZNK4llvm19DITempla
   %62 = lshr i64 %56, 2
   %63 = and i64 %62, 15
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %"class.llvm::MDOperand", ptr %37, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %37, i64 %64
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %61, %58
@@ -3429,7 +3423,7 @@ _ZNK4llvm19DITemplateParameter7getNameEv.exit:    ; preds = %_ZNK4llvm6DINode12g
   %77 = lshr i64 %71, 2
   %78 = and i64 %77, 15
   %79 = sub nsw i64 0, %78
-  %80 = getelementptr inbounds %"class.llvm::MDOperand", ptr %37, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %37, i64 %79
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i16
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i16: ; preds = %76, %73
@@ -3566,7 +3560,7 @@ _ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit: ;
   %49 = lshr i64 %43, 2
   %50 = and i64 %49, 15
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %42, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %42, i64 %51
   br label %_ZNK4llvm19DITemplateParameter7getTypeEv.exit
 
 _ZNK4llvm19DITemplateParameter7getTypeEv.exit:    ; preds = %45, %48
@@ -3596,7 +3590,7 @@ _ZNK4llvm19DITemplateParameter7getTypeEv.exit:    ; preds = %45, %48
   %67 = lshr i64 %61, 2
   %68 = and i64 %67, 15
   %69 = sub nsw i64 0, %68
-  %70 = getelementptr inbounds %"class.llvm::MDOperand", ptr %60, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %60, i64 %69
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %66, %63
@@ -3626,7 +3620,7 @@ _ZNK4llvm19DITemplateParameter7getNameEv.exit:    ; preds = %_ZNK4llvm6DINode12g
   %82 = lshr i64 %76, 2
   %83 = and i64 %82, 15
   %84 = sub nsw i64 0, %83
-  %85 = getelementptr inbounds %"class.llvm::MDOperand", ptr %60, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %60, i64 %84
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i35
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i35: ; preds = %81, %78
@@ -3690,7 +3684,7 @@ _ZNK4llvm9DwarfUnit23isCompatibleWithVersionEt.exit.thread: ; preds = %94, %_ZNK
   %113 = lshr i64 %107, 2
   %114 = and i64 %113, 15
   %115 = sub nsw i64 0, %114
-  %116 = getelementptr inbounds %"class.llvm::MDOperand", ptr %60, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %60, i64 %115
   br label %_ZNK4llvm24DITemplateValueParameter8getValueEv.exit
 
 _ZNK4llvm24DITemplateValueParameter8getValueEv.exit: ; preds = %109, %112
@@ -3724,7 +3718,7 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXs
   %130 = lshr i64 %107, 2
   %131 = and i64 %130, 15
   %132 = sub nsw i64 0, %131
-  %133 = getelementptr inbounds %"class.llvm::MDOperand", ptr %60, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %60, i64 %132
   br label %_ZNK4llvm19DITemplateParameter7getTypeEv.exit46
 
 _ZNK4llvm19DITemplateParameter7getTypeEv.exit46:  ; preds = %126, %129
@@ -3844,11 +3838,11 @@ define dso_local void @_ZN4llvm9DwarfUnit14addThrownTypesERNS_3DIEENS_24MDTupleT
   %15 = lshr i64 %6, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %17
   %19 = lshr i64 %6, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %5, i64 %21
   %23 = lshr i64 %6, 6
   %24 = and i64 %23, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -3857,7 +3851,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %8, %14
   %.sroa.0.0.i.ph24 = phi ptr [ %18, %14 ], [ %10, %8 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %24, %14 ], [ %13, %8 ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %22, %14 ], [ %10, %8 ]
-  %25 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i
   %.not18 = icmp eq ptr %.sroa.0.0.i.ph24, %25
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -4144,7 +4138,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit20getOrCreateNameSpaceEP
   %10 = lshr i64 %4, 2
   %11 = and i64 %10, 15
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %12
   br label %_ZNK4llvm11DINamespace8getScopeEv.exit
 
 _ZNK4llvm11DINamespace8getScopeEv.exit:           ; preds = %6, %9
@@ -4175,7 +4169,7 @@ _ZNK4llvm11DINamespace8getScopeEv.exit:           ; preds = %6, %9
   %29 = lshr i64 %23, 2
   %30 = and i64 %29, 15
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %3, i64 %31
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %28, %25
@@ -4207,7 +4201,7 @@ _ZNK4llvm11DINamespace7getNameEv.exit:            ; preds = %_ZNK4llvm6DINode12g
   %46 = lshr i64 %40, 2
   %47 = and i64 %46, 15
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %3, i64 %48
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i23
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i23: ; preds = %45, %42
@@ -4253,7 +4247,7 @@ _ZNK4llvm11DINamespace7getNameEv.exit.thread:     ; preds = %_ZNK4llvm11DINamesp
   %68 = lshr i64 %62, 2
   %69 = and i64 %68, 15
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %3, i64 %70
   br label %_ZNK4llvm11DINamespace8getScopeEv.exit33
 
 _ZNK4llvm11DINamespace8getScopeEv.exit33:         ; preds = %64, %67
@@ -4302,7 +4296,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit24getOrCreateSubprogramD
   %14 = lshr i64 %8, 2
   %15 = and i64 %14, 15
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::MDOperand", ptr %7, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %7, i64 %16
   br label %_ZNK4llvm12DISubprogram8getScopeEv.exit
 
 _ZNK4llvm12DISubprogram8getScopeEv.exit:          ; preds = %10, %13
@@ -4337,7 +4331,7 @@ _ZNK4llvm12DISubprogram8getScopeEv.exit:          ; preds = %10, %13
   %35 = lshr i64 %29, 2
   %36 = and i64 %35, 15
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %"class.llvm::MDOperand", ptr %28, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %28, i64 %37
   br label %_ZNK4llvm12DISubprogram14getDeclarationEv.exit
 
 _ZNK4llvm12DISubprogram14getDeclarationEv.exit:   ; preds = %31, %34
@@ -4391,7 +4385,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit17getOrCreateModuleEPKNS
   %12 = lshr i64 %6, 2
   %13 = and i64 %12, 15
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %5, i64 %14
   br label %_ZNK4llvm8DIModule8getScopeEv.exit
 
 _ZNK4llvm8DIModule8getScopeEv.exit:               ; preds = %8, %11
@@ -4422,7 +4416,7 @@ _ZNK4llvm8DIModule8getScopeEv.exit:               ; preds = %8, %11
   %31 = lshr i64 %25, 2
   %32 = and i64 %31, 15
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %5, i64 %33
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %30, %27
@@ -4453,7 +4447,7 @@ _ZNK4llvm8DIModule7getNameEv.exit:                ; preds = %_ZNK4llvm6DINode12g
   %46 = lshr i64 %.pre156, 2
   %47 = and i64 %46, 15
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %5, i64 %48
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44: ; preds = %45, %42
@@ -4487,7 +4481,7 @@ _ZNK4llvm8DIModule7getNameEv.exit51:              ; preds = %_ZNK4llvm6DINode12g
   %62 = lshr i64 %56, 2
   %63 = and i64 %62, 15
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %5, i64 %64
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i53
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i53: ; preds = %61, %58
@@ -4521,7 +4515,7 @@ _ZNK4llvm8DIModule7getNameEv.exit60:              ; preds = %_ZNK4llvm6DINode12g
   %78 = lshr i64 %72, 2
   %79 = and i64 %78, 15
   %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %5, i64 %80
   br label %_ZNK4llvm8DIModule8getScopeEv.exit63
 
 _ZNK4llvm8DIModule8getScopeEv.exit63:             ; preds = %74, %77
@@ -4550,7 +4544,7 @@ _ZNK4llvm8DIModule7getNameEv.exit.thread:         ; preds = %_ZNK4llvm6DINode12g
   %93 = lshr i64 %87, 2
   %94 = and i64 %93, 15
   %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %5, i64 %95
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65: ; preds = %92, %89
@@ -4581,7 +4575,7 @@ _ZNK4llvm8DIModule22getConfigurationMacrosEv.exit: ; preds = %_ZNK4llvm6DINode12
   %108 = lshr i64 %.pre158, 2
   %109 = and i64 %108, 15
   %110 = sub nsw i64 0, %109
-  %111 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %5, i64 %110
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i73
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i73: ; preds = %107, %104
@@ -4619,7 +4613,7 @@ _ZNK4llvm8DIModule22getConfigurationMacrosEv.exit.thread: ; preds = %_ZNK4llvm6D
   %124 = lshr i64 %118, 2
   %125 = and i64 %124, 15
   %126 = sub nsw i64 0, %125
-  %127 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %5, i64 %126
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i82
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i82: ; preds = %123, %120
@@ -4650,7 +4644,7 @@ _ZNK4llvm8DIModule14getIncludePathEv.exit:        ; preds = %_ZNK4llvm6DINode12g
   %139 = lshr i64 %.pre160, 2
   %140 = and i64 %139, 15
   %141 = sub nsw i64 0, %140
-  %142 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %5, i64 %141
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i90
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i90: ; preds = %138, %135
@@ -4688,7 +4682,7 @@ _ZNK4llvm8DIModule14getIncludePathEv.exit.thread: ; preds = %_ZNK4llvm6DINode12g
   %155 = lshr i64 %149, 2
   %156 = and i64 %155, 15
   %157 = sub nsw i64 0, %156
-  %158 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %5, i64 %157
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i99
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i99: ; preds = %154, %151
@@ -4719,7 +4713,7 @@ _ZNK4llvm8DIModule15getAPINotesFileEv.exit:       ; preds = %_ZNK4llvm6DINode12g
   %171 = lshr i64 %165, 2
   %172 = and i64 %171, 15
   %173 = sub nsw i64 0, %172
-  %174 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %5, i64 %173
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i107
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i107: ; preds = %170, %167
@@ -4756,7 +4750,7 @@ _ZNK4llvm7DIScope7getFileEv.exit:                 ; preds = %183
   %186 = lshr i64 %184, 2
   %187 = and i64 %186, 15
   %188 = sub nsw i64 0, %187
-  %189 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %5, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !485
   %.not41 = icmp eq ptr %190, null
   br i1 %.not41, label %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit, label %196
@@ -4777,7 +4771,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread:          ; preds = %183
   %197 = lshr i64 %184, 2
   %198 = and i64 %197, 15
   %199 = sub nsw i64 0, %198
-  %200 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %5, i64 %199
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i118
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i118:       ; preds = %196, %.thread
@@ -4908,7 +4902,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit13createTypeDIEEPKNS_15D
   %10 = lshr i64 %4, 2
   %11 = and i64 %10, 15
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %12
   br label %_ZNK4llvm6DIType8getScopeEv.exit
 
 _ZNK4llvm6DIType8getScopeEv.exit:                 ; preds = %6, %9
@@ -4963,7 +4957,7 @@ define dso_local void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_15DICo
   %20 = lshr i64 %14, 2
   %21 = and i64 %20, 15
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %13, i64 %22
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %19, %16
@@ -5024,7 +5018,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   %46 = lshr i64 %40, 2
   %47 = and i64 %46, 15
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %13, i64 %48
   br label %_ZNK4llvm15DICompositeType16getDiscriminatorEv.exit
 
 _ZNK4llvm15DICompositeType16getDiscriminatorEv.exit: ; preds = %42, %45
@@ -5061,7 +5055,7 @@ _ZNK4llvm15DICompositeType16getDiscriminatorEv.exit: ; preds = %42, %45
   %62 = lshr i64 %56, 2
   %63 = and i64 %62, 15
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %13, i64 %64
   br label %_ZNK4llvm15DICompositeType17getTemplateParamsEv.exit
 
 _ZNK4llvm15DICompositeType17getTemplateParamsEv.exit: ; preds = %58, %61
@@ -5090,7 +5084,7 @@ _ZNK4llvm15DICompositeType17getTemplateParamsEv.exit: ; preds = %58, %61
   %79 = lshr i64 %70, 2
   %80 = and i64 %79, 15
   %81 = sub nsw i64 0, %80
-  %82 = getelementptr inbounds %"class.llvm::MDOperand", ptr %69, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %69, i64 %81
   %83 = lshr i64 %70, 6
   %84 = and i64 %83, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i
@@ -5141,7 +5135,7 @@ _ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_
   %98 = lshr i64 %92, 2
   %99 = and i64 %98, 15
   %100 = sub nsw i64 0, %99
-  %101 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %13, i64 %100
   br label %_ZNK4llvm15DICompositeType11getElementsEv.exit
 
 _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %94, %97
@@ -5170,11 +5164,11 @@ _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %94, %97
   %115 = lshr i64 %106, 2
   %116 = and i64 %115, 15
   %117 = sub nsw i64 0, %116
-  %118 = getelementptr inbounds %"class.llvm::MDOperand", ptr %105, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %105, i64 %117
   %119 = lshr i64 %106, 2
   %120 = and i64 %119, 15
   %121 = sub nsw i64 0, %120
-  %122 = getelementptr inbounds %"class.llvm::MDOperand", ptr %105, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %105, i64 %121
   %123 = lshr i64 %106, 6
   %124 = and i64 %123, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -5183,7 +5177,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %108, %11
   %.sroa.0.0.i.ph471 = phi ptr [ %118, %114 ], [ %110, %108 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %124, %114 ], [ %113, %108 ]
   %.sroa.0.0.i.i.i.i209 = phi ptr [ %122, %114 ], [ %110, %108 ]
-  %125 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i209, i64 %.sroa.3.0.i.i.i.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i.i.i209, i64 %.sroa.3.0.i.i.i.i
   %.not409425 = icmp eq ptr %.sroa.0.0.i.ph471, %125
   br i1 %.not409425, label %._crit_edge, label %.lr.ph
 
@@ -5311,7 +5305,7 @@ _ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit: ;
   %193 = lshr i64 %187, 2
   %194 = and i64 %193, 15
   %195 = sub nsw i64 0, %194
-  %196 = getelementptr inbounds %"class.llvm::MDOperand", ptr %186, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %186, i64 %195
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit
 
 _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %189, %192
@@ -5418,7 +5412,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
   %248 = lshr i64 %243, 2
   %249 = and i64 %248, 15
   %250 = sub nsw i64 0, %249
-  %251 = getelementptr inbounds %"class.llvm::MDOperand", ptr %131, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %131, i64 %250
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit224
 
 _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit224:  ; preds = %245, %247
@@ -5621,7 +5615,7 @@ _ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit238
   %355 = lshr i64 %349, 2
   %356 = and i64 %355, 15
   %357 = sub nsw i64 0, %356
-  %358 = getelementptr inbounds %"class.llvm::MDOperand", ptr %348, i64 %357
+  %358 = getelementptr inbounds [8 x i8], ptr %348, i64 %357
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i240
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i240: ; preds = %354, %351
@@ -5649,7 +5643,7 @@ _ZNK4llvm14DIObjCProperty7getTypeEv.exit:         ; preds = %_ZNK4llvm14DIObjCPr
   %366 = lshr i64 %364, 2
   %367 = and i64 %366, 15
   %368 = sub nsw i64 0, %367
-  %369 = getelementptr inbounds %"class.llvm::MDOperand", ptr %348, i64 %368
+  %369 = getelementptr inbounds [8 x i8], ptr %348, i64 %368
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 32
   %371 = load ptr, ptr %370, align 8, !tbaa !485
   %.not191 = icmp eq ptr %371, null
@@ -5690,7 +5684,7 @@ _ZNK4llvm14DIObjCProperty7getTypeEv.exit251:      ; preds = %_ZNK4llvm14DIObjCPr
   %390 = lshr i64 %382, 2
   %391 = and i64 %390, 15
   %392 = sub nsw i64 0, %391
-  %393 = getelementptr inbounds %"class.llvm::MDOperand", ptr %348, i64 %392
+  %393 = getelementptr inbounds [8 x i8], ptr %348, i64 %392
   br label %_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_14DIObjCPropertyE.exit
 
 _ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_14DIObjCPropertyE.exit: ; preds = %386, %389
@@ -5712,7 +5706,7 @@ _ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_14DIObjCPropertyE.exit: ; preds 
   %402 = lshr i64 %396, 2
   %403 = and i64 %402, 15
   %404 = sub nsw i64 0, %403
-  %405 = getelementptr inbounds %"class.llvm::MDOperand", ptr %348, i64 %404
+  %405 = getelementptr inbounds [8 x i8], ptr %348, i64 %404
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i255
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i255: ; preds = %401, %398
@@ -5748,7 +5742,7 @@ _ZNK4llvm14DIObjCProperty13getGetterNameEv.exit.thread: ; preds = %_ZNK4llvm6DIN
   %419 = lshr i64 %413, 2
   %420 = and i64 %419, 15
   %421 = sub nsw i64 0, %420
-  %422 = getelementptr inbounds %"class.llvm::MDOperand", ptr %348, i64 %421
+  %422 = getelementptr inbounds [8 x i8], ptr %348, i64 %421
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i263
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i263: ; preds = %418, %415
@@ -5975,7 +5969,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %527 = lshr i64 %521, 2
   %528 = and i64 %527, 15
   %529 = sub nsw i64 0, %528
-  %530 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %529
+  %530 = getelementptr inbounds [8 x i8], ptr %13, i64 %529
   br label %_ZNK4llvm15DICompositeType15getVTableHolderEv.exit
 
 _ZNK4llvm15DICompositeType15getVTableHolderEv.exit: ; preds = %523, %526
@@ -6082,7 +6076,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %586 = lshr i64 %580, 2
   %587 = and i64 %586, 15
   %588 = sub nsw i64 0, %587
-  %589 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %588
+  %589 = getelementptr inbounds [8 x i8], ptr %13, i64 %588
   br label %_ZNK4llvm15DICompositeType16getSpecificationEv.exit
 
 _ZNK4llvm15DICompositeType16getSpecificationEv.exit: ; preds = %582, %585
@@ -6124,7 +6118,7 @@ _ZNK4llvm15DICompositeType16getRawIdentifierEv.exit: ; preds = %604
   %606 = lshr i64 %.pre429, 2
   %607 = and i64 %606, 15
   %608 = sub nsw i64 0, %607
-  %609 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %608
+  %609 = getelementptr inbounds [8 x i8], ptr %13, i64 %608
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 56
   %611 = load ptr, ptr %610, align 8, !tbaa !485
   %.not194 = icmp eq ptr %611, null
@@ -6162,7 +6156,7 @@ _ZNK4llvm15DICompositeType13getIdentifierEv.exit: ; preds = %_ZNK4llvm15DICompos
   %627 = lshr i64 %621, 2
   %628 = and i64 %627, 15
   %629 = sub nsw i64 0, %628
-  %630 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %629
+  %630 = getelementptr inbounds [8 x i8], ptr %13, i64 %629
   br label %_ZNK4llvm15DICompositeType14getAnnotationsEv.exit
 
 _ZNK4llvm15DICompositeType14getAnnotationsEv.exit: ; preds = %623, %626
@@ -6321,7 +6315,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %707 = lshr i64 %701, 2
   %708 = and i64 %707, 15
   %709 = sub nsw i64 0, %708
-  %710 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %709
+  %710 = getelementptr inbounds [8 x i8], ptr %13, i64 %709
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %706, %703
@@ -6484,7 +6478,7 @@ define dso_local void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScope
   %12 = lshr i64 %6, 2
   %13 = and i64 %12, 15
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %5, i64 %14
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %11, %8
@@ -6544,7 +6538,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   %45 = lshr i64 %39, 2
   %46 = and i64 %45, 15
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %5, i64 %47
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i30
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i30: ; preds = %44, %41
@@ -6583,7 +6577,7 @@ _ZNK4llvm6DIType7getNameEv.exit37:                ; preds = %_ZNK4llvm6DINode12g
   %63 = lshr i64 %57, 2
   %64 = and i64 %63, 15
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %5, i64 %65
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i40
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i40: ; preds = %62, %59
@@ -6617,7 +6611,7 @@ _ZNK4llvm6DIType7getNameEv.exit47:                ; preds = %_ZNK4llvm6DINode12g
   %79 = lshr i64 %73, 2
   %80 = and i64 %79, 15
   %81 = sub nsw i64 0, %80
-  %82 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %5, i64 %81
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i49
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i49: ; preds = %78, %75
@@ -6673,7 +6667,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm15DICompos
   %105 = lshr i64 %99, 2
   %106 = and i64 %105, 15
   %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %5, i64 %107
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57: ; preds = %104, %101
@@ -6771,7 +6765,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit13createTypeDIEEPKNS_7DI
   %30 = lshr i64 %24, 2
   %31 = and i64 %30, 15
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.llvm::MDOperand", ptr %23, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %23, i64 %32
   br label %_ZNK4llvm6DIType10getRawNameEv.exit
 
 _ZNK4llvm6DIType10getRawNameEv.exit:              ; preds = %26, %29
@@ -6797,7 +6791,7 @@ _ZNK4llvm6DIType10getRawNameEv.exit:              ; preds = %26, %29
   %44 = lshr i64 %37, 2
   %45 = and i64 %44, 15
   %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %36, i64 %46
   br label %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit
 
 _ZNK4llvm15DICompositeType16getRawIdentifierEv.exit: ; preds = %40, %43
@@ -6822,7 +6816,7 @@ _ZNK4llvm6DIType10getRawNameEv.exit._crit_edge:   ; preds = %_ZNK4llvm6DIType10g
   %56 = lshr i64 %37, 2
   %57 = and i64 %56, 15
   %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds %"class.llvm::MDOperand", ptr %55, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %55, i64 %58
   br label %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit50
 
 _ZNK4llvm15DICompositeType16getRawIdentifierEv.exit50: ; preds = %51, %54
@@ -6978,7 +6972,7 @@ define dso_local noundef ptr @_ZN4llvm9DwarfUnit18getOrCreateTypeDIEEPKNS_6MDNod
   %19 = lshr i64 %13, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %12, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %12, i64 %21
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit
 
 _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %15, %18
@@ -7019,7 +7013,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %15, %18
   %45 = lshr i64 %39, 2
   %46 = and i64 %45, 15
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %38, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %38, i64 %47
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit22
 
 _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit22:   ; preds = %41, %44
@@ -7048,7 +7042,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit22:   ; preds = %41, %44
   %63 = lshr i64 %57, 2
   %64 = and i64 %63, 15
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %"class.llvm::MDOperand", ptr %56, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %56, i64 %65
   br label %_ZNK4llvm6DIType8getScopeEv.exit
 
 _ZNK4llvm6DIType8getScopeEv.exit:                 ; preds = %59, %62
@@ -7142,7 +7136,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_7DIScopeELb1EE9push_backES3_.exit: ; pred
   %26 = phi i32 [ %.pre40, %21 ], [ %.pre.i, %23 ]
   %27 = load ptr, ptr %4, align 8, !tbaa !23
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %.025 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %16, align 8, !tbaa !24
@@ -7261,7 +7255,7 @@ define dso_local void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_11DIBa
   %16 = lshr i64 %10, 2
   %17 = and i64 %16, 15
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %9, i64 %18
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %15, %12
@@ -7531,7 +7525,7 @@ define dso_local void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_12DISt
   %17 = lshr i64 %11, 2
   %18 = and i64 %17, 15
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::MDOperand", ptr %10, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %10, i64 %19
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %16, %13
@@ -7562,7 +7556,7 @@ _ZNK4llvm12DIStringType15getStringLengthEv.exit:  ; preds = %_ZNK4llvm6DIType7ge
   %30 = lshr i64 %28, 2
   %31 = and i64 %30, 15
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.llvm::MDOperand", ptr %10, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %10, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !485
   %.not = icmp eq ptr %35, null
@@ -7740,7 +7734,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %130 = lshr i64 %124, 2
   %131 = and i64 %130, 15
   %132 = sub nsw i64 0, %131
-  %133 = getelementptr inbounds %"class.llvm::MDOperand", ptr %10, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %10, i64 %132
   br label %_ZNK4llvm12DIStringType20getStringLocationExpEv.exit
 
 _ZNK4llvm12DIStringType20getStringLocationExpEv.exit: ; preds = %126, %129
@@ -7900,7 +7894,7 @@ define dso_local void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_13DIDe
   %16 = lshr i64 %10, 2
   %17 = and i64 %16, 15
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %9, i64 %18
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %15, %12
@@ -7939,7 +7933,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   %37 = lshr i64 %26, 2
   %38 = and i64 %37, 15
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %9, i64 %39
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit
 
 _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %33, %36
@@ -7980,7 +7974,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %33, %36
   %58 = lshr i64 %52, 2
   %59 = and i64 %58, 15
   %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %9, i64 %60
   br label %_ZNK4llvm13DIDerivedType14getAnnotationsEv.exit
 
 _ZNK4llvm13DIDerivedType14getAnnotationsEv.exit:  ; preds = %54, %57
@@ -8144,7 +8138,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %146 = lshr i64 %140, 2
   %147 = and i64 %146, 15
   %148 = sub nsw i64 0, %147
-  %149 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %9, i64 %148
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %145, %142
@@ -8219,7 +8213,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %185 = lshr i64 %179, 2
   %186 = and i64 %185, 15
   %187 = sub nsw i64 0, %186
-  %188 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %9, i64 %187
   br label %_ZNK4llvm13DIDerivedType17getTemplateParamsEv.exit
 
 _ZNK4llvm13DIDerivedType17getTemplateParamsEv.exit: ; preds = %181, %184
@@ -8248,7 +8242,7 @@ _ZNK4llvm13DIDerivedType17getTemplateParamsEv.exit: ; preds = %181, %184
   %202 = lshr i64 %193, 2
   %203 = and i64 %202, 15
   %204 = sub nsw i64 0, %203
-  %205 = getelementptr inbounds %"class.llvm::MDOperand", ptr %192, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %192, i64 %204
   %206 = lshr i64 %193, 6
   %207 = and i64 %206, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i
@@ -8416,7 +8410,7 @@ define dso_local void @_ZN4llvm9DwarfUnit13addAnnotationERNS_3DIEENS_24MDTupleTy
   %15 = lshr i64 %6, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %17
   %19 = lshr i64 %6, 6
   %20 = and i64 %19, 15
   br label %_ZNK4llvm6MDNode8operandsEv.exit
@@ -8455,7 +8449,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %8, %14
   %36 = lshr i64 %30, 2
   %37 = and i64 %36, 15
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %"class.llvm::MDOperand", ptr %29, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %29, i64 %38
   br label %_ZNK4llvm6MDNode10getOperandEj.exit31
 
 _ZNK4llvm6MDNode10getOperandEj.exit31:            ; preds = %32, %35
@@ -8612,12 +8606,12 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit:            ; preds = %8, %12
   %30 = lshr i64 %25, 2
   %31 = and i64 %30, 15
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.llvm::MDOperand", ptr %17, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %17, i64 %32
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
 
 _ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %27, %29
   %.sroa.0.0.i.i.i = phi ptr [ %33, %29 ], [ %28, %27 ]
-  %34 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i.i, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !485
   %.not = icmp eq ptr %35, null
   %36 = load i64, ptr %20, align 8, !tbaa !475
@@ -8762,7 +8756,7 @@ define dso_local void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_16DISu
   %12 = lshr i64 %6, 2
   %13 = and i64 %12, 15
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %5, i64 %14
   br label %_ZNK4llvm16DISubroutineType12getTypeArrayEv.exit
 
 _ZNK4llvm16DISubroutineType12getTypeArrayEv.exit: ; preds = %8, %11
@@ -8799,7 +8793,7 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit.thread:     ; preds = %18
   %28 = lshr i64 %20, 2
   %29 = and i64 %28, 15
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.llvm::MDOperand", ptr %19, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %19, i64 %30
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
 
 _ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread, %27
@@ -8843,7 +8837,7 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit23.thread:   ; preds = %38
   %49 = lshr i64 %39, 2
   %50 = and i64 %49, 15
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %19, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %19, i64 %51
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit26
 
 _ZNK4llvm14DITypeRefArrayixEj.exit26:             ; preds = %.thread39, %48
@@ -9059,7 +9053,7 @@ define dso_local void @_ZN4llvm9DwarfUnit21constructArrayTypeDIEERNS_3DIEEPKNS_1
   %27 = lshr i64 %21, 2
   %28 = and i64 %27, 15
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.llvm::MDOperand", ptr %20, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %20, i64 %29
   br label %_ZNK4llvm15DICompositeType11getElementsEv.exit.i
 
 _ZNK4llvm15DICompositeType11getElementsEv.exit.i: ; preds = %26, %23
@@ -9085,7 +9079,7 @@ _ZNK4llvm15DICompositeType11getElementsEv.exit.i: ; preds = %26, %23
   %41 = lshr i64 %35, 2
   %42 = and i64 %41, 15
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds %"class.llvm::MDOperand", ptr %34, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %34, i64 %43
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEEixEj.exit.i
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEEixEj.exit.i: ; preds = %40, %37
@@ -9197,7 +9191,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %104 = lshr i64 %98, 2
   %105 = and i64 %104, 15
   %106 = sub nsw i64 0, %105
-  %107 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %97, i64 %106
   br label %_ZNK4llvm15DICompositeType18getRawDataLocationEv.exit.i
 
 _ZNK4llvm15DICompositeType18getRawDataLocationEv.exit.i: ; preds = %103, %100
@@ -9234,7 +9228,7 @@ _ZNK4llvm15DICompositeType15getDataLocationEv.exit: ; preds = %110
   %120 = lshr i64 %98, 2
   %121 = and i64 %120, 15
   %122 = sub nsw i64 0, %121
-  %123 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %97, i64 %122
   br label %_ZNK4llvm15DICompositeType18getRawDataLocationEv.exit.i90
 
 _ZNK4llvm15DICompositeType18getRawDataLocationEv.exit.i90: ; preds = %119, %116
@@ -9344,7 +9338,7 @@ _ZNK4llvm15DICompositeType18getDataLocationExpEv.exit.thread: ; preds = %_ZNK4ll
   %181 = lshr i64 %175, 2
   %182 = and i64 %181, 15
   %183 = sub nsw i64 0, %182
-  %184 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %97, i64 %183
   br label %_ZNK4llvm15DICompositeType16getRawAssociatedEv.exit.i
 
 _ZNK4llvm15DICompositeType16getRawAssociatedEv.exit.i: ; preds = %180, %177
@@ -9381,7 +9375,7 @@ _ZNK4llvm15DICompositeType13getAssociatedEv.exit: ; preds = %187
   %197 = lshr i64 %175, 2
   %198 = and i64 %197, 15
   %199 = sub nsw i64 0, %198
-  %200 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %97, i64 %199
   br label %_ZNK4llvm15DICompositeType16getRawAssociatedEv.exit.i105
 
 _ZNK4llvm15DICompositeType16getRawAssociatedEv.exit.i105: ; preds = %196, %193
@@ -9491,7 +9485,7 @@ _ZNK4llvm15DICompositeType16getAssociatedExpEv.exit.thread: ; preds = %_ZNK4llvm
   %258 = lshr i64 %252, 2
   %259 = and i64 %258, 15
   %260 = sub nsw i64 0, %259
-  %261 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr %97, i64 %260
   br label %_ZNK4llvm15DICompositeType15getRawAllocatedEv.exit.i
 
 _ZNK4llvm15DICompositeType15getRawAllocatedEv.exit.i: ; preds = %257, %254
@@ -9528,7 +9522,7 @@ _ZNK4llvm15DICompositeType12getAllocatedEv.exit:  ; preds = %264
   %274 = lshr i64 %252, 2
   %275 = and i64 %274, 15
   %276 = sub nsw i64 0, %275
-  %277 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %276
+  %277 = getelementptr inbounds [8 x i8], ptr %97, i64 %276
   br label %_ZNK4llvm15DICompositeType15getRawAllocatedEv.exit.i123
 
 _ZNK4llvm15DICompositeType15getRawAllocatedEv.exit.i123: ; preds = %273, %270
@@ -9638,7 +9632,7 @@ _ZNK4llvm15DICompositeType15getAllocatedExpEv.exit.thread: ; preds = %_ZNK4llvm1
   %335 = lshr i64 %329, 2
   %336 = and i64 %335, 15
   %337 = sub nsw i64 0, %336
-  %338 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %337
+  %338 = getelementptr inbounds [8 x i8], ptr %97, i64 %337
   br label %_ZNK4llvm15DICompositeType10getRawRankEv.exit.i
 
 _ZNK4llvm15DICompositeType10getRawRankEv.exit.i:  ; preds = %334, %331
@@ -9734,7 +9728,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i140:       ; preds = %361, %354
   %389 = lshr i64 %329, 2
   %390 = and i64 %389, 15
   %391 = sub nsw i64 0, %390
-  %392 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %391
+  %392 = getelementptr inbounds [8 x i8], ptr %97, i64 %391
   br label %_ZNK4llvm15DICompositeType10getRawRankEv.exit.i144
 
 _ZNK4llvm15DICompositeType10getRawRankEv.exit.i144: ; preds = %388, %385
@@ -9844,7 +9838,7 @@ _ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %450 = lshr i64 %444, 2
   %451 = and i64 %450, 15
   %452 = sub nsw i64 0, %451
-  %453 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %452
+  %453 = getelementptr inbounds [8 x i8], ptr %97, i64 %452
   br label %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit
 
 _ZNK4llvm15DICompositeType11getBaseTypeEv.exit:   ; preds = %446, %449
@@ -9871,7 +9865,7 @@ _ZNK4llvm15DICompositeType11getBaseTypeEv.exit:   ; preds = %446, %449
   %467 = lshr i64 %461, 2
   %468 = and i64 %467, 15
   %469 = sub nsw i64 0, %468
-  %470 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %469
+  %470 = getelementptr inbounds [8 x i8], ptr %97, i64 %469
   br label %_ZNK4llvm15DICompositeType11getElementsEv.exit
 
 _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %463, %466
@@ -9900,11 +9894,11 @@ _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %463, %466
   %484 = lshr i64 %475, 2
   %485 = and i64 %484, 15
   %486 = sub nsw i64 0, %485
-  %487 = getelementptr inbounds %"class.llvm::MDOperand", ptr %474, i64 %486
+  %487 = getelementptr inbounds [8 x i8], ptr %474, i64 %486
   %488 = lshr i64 %475, 2
   %489 = and i64 %488, 15
   %490 = sub nsw i64 0, %489
-  %491 = getelementptr inbounds %"class.llvm::MDOperand", ptr %474, i64 %490
+  %491 = getelementptr inbounds [8 x i8], ptr %474, i64 %490
   %492 = lshr i64 %475, 6
   %493 = and i64 %492, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -9913,7 +9907,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %477, %48
   %.sroa.0.0.i.ph228 = phi ptr [ %487, %483 ], [ %479, %477 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %493, %483 ], [ %482, %477 ]
   %.sroa.0.0.i.i.i.i163 = phi ptr [ %491, %483 ], [ %479, %477 ]
-  %494 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i163, i64 %.sroa.3.0.i.i.i.i
+  %494 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i.i.i163, i64 %.sroa.3.0.i.i.i.i
   %.not199200 = icmp eq ptr %.sroa.0.0.i.ph228, %494
   br i1 %.not199200, label %._crit_edge, label %.lr.ph
 
@@ -9967,7 +9961,7 @@ define dso_local void @_ZN4llvm9DwarfUnit20constructEnumTypeDIEERNS_3DIEEPKNS_15
   %11 = lshr i64 %5, 2
   %12 = and i64 %11, 15
   %13 = sub nsw i64 0, %12
-  %14 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %4, i64 %13
   br label %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit
 
 _ZNK4llvm15DICompositeType11getBaseTypeEv.exit:   ; preds = %7, %10
@@ -10038,7 +10032,7 @@ _ZNK4llvm15DICompositeType11getBaseTypeEv.exit:   ; preds = %7, %10
   %53 = lshr i64 %47, 2
   %54 = and i64 %53, 15
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %4, i64 %55
   br label %_ZNK4llvm6DIType8getScopeEv.exit
 
 _ZNK4llvm6DIType8getScopeEv.exit:                 ; preds = %49, %52
@@ -10072,7 +10066,7 @@ switch.edge:                                      ; preds = %59, %switch.lookup,
   %67 = lshr i64 %47, 2
   %68 = and i64 %67, 15
   %69 = sub nsw i64 0, %68
-  %70 = getelementptr inbounds %"class.llvm::MDOperand", ptr %4, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %4, i64 %69
   br label %_ZNK4llvm15DICompositeType11getElementsEv.exit
 
 _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %63, %66
@@ -10101,11 +10095,11 @@ _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %63, %66
   %84 = lshr i64 %75, 2
   %85 = and i64 %84, 15
   %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds %"class.llvm::MDOperand", ptr %74, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %74, i64 %86
   %88 = lshr i64 %75, 2
   %89 = and i64 %88, 15
   %90 = sub nsw i64 0, %89
-  %91 = getelementptr inbounds %"class.llvm::MDOperand", ptr %74, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %74, i64 %90
   %92 = lshr i64 %75, 6
   %93 = and i64 %92, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -10114,7 +10108,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %77, %83
   %.sroa.0.0.i.ph68 = phi ptr [ %87, %83 ], [ %79, %77 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %93, %83 ], [ %82, %77 ]
   %.sroa.0.0.i.i.i.i38 = phi ptr [ %91, %83 ], [ %79, %77 ]
-  %94 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i38, i64 %.sroa.3.0.i.i.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i.i.i.i38, i64 %.sroa.3.0.i.i.i.i
   %.not5657 = icmp eq ptr %.sroa.0.0.i.ph68, %94
   br i1 %.not5657, label %._crit_edge, label %.lr.ph
 
@@ -10211,7 +10205,7 @@ _ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit: ;
   %140 = lshr i64 %134, 2
   %141 = and i64 %140, 15
   %142 = sub nsw i64 0, %141
-  %143 = getelementptr inbounds %"class.llvm::MDOperand", ptr %133, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %133, i64 %142
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %139, %136
@@ -10344,7 +10338,7 @@ _ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit: ;
   %64 = lshr i64 %58, 2
   %65 = and i64 %64, 15
   %66 = sub nsw i64 0, %65
-  %67 = getelementptr inbounds %"class.llvm::MDOperand", ptr %57, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %57, i64 %66
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %63, %60
@@ -10380,7 +10374,7 @@ _ZNK4llvm6DIType7getNameEv.exit.thread:           ; preds = %_ZNK4llvm6DINode12g
   %81 = lshr i64 %75, 2
   %82 = and i64 %81, 15
   %83 = sub nsw i64 0, %82
-  %84 = getelementptr inbounds %"class.llvm::MDOperand", ptr %57, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %57, i64 %83
   br label %_ZNK4llvm13DIDerivedType14getAnnotationsEv.exit
 
 _ZNK4llvm13DIDerivedType14getAnnotationsEv.exit:  ; preds = %77, %80
@@ -10402,7 +10396,7 @@ _ZNK4llvm13DIDerivedType14getAnnotationsEv.exit:  ; preds = %77, %80
   %93 = lshr i64 %87, 2
   %94 = and i64 %93, 15
   %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds %"class.llvm::MDOperand", ptr %57, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %57, i64 %95
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit
 
 _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %89, %92
@@ -10442,7 +10436,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %89, %92
   %116 = lshr i64 %110, 2
   %117 = and i64 %116, 15
   %118 = sub nsw i64 0, %117
-  %119 = getelementptr inbounds %"class.llvm::MDOperand", ptr %57, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %57, i64 %118
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %115, %112
@@ -11082,7 +11076,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %458 = lshr i64 %452, 2
   %459 = and i64 %458, 15
   %460 = sub nsw i64 0, %459
-  %461 = getelementptr inbounds %"class.llvm::MDOperand", ptr %57, i64 %460
+  %461 = getelementptr inbounds [8 x i8], ptr %57, i64 %460
   br label %_ZNK4llvm13DIDerivedType12getExtraDataEv.exit.i
 
 _ZNK4llvm13DIDerivedType12getExtraDataEv.exit.i:  ; preds = %457, %454
@@ -11172,7 +11166,7 @@ define dso_local noundef ptr @_ZN4llvm9DwarfUnit26getOrCreateStaticMemberDIEEPKN
   %13 = lshr i64 %7, 2
   %14 = and i64 %13, 15
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %6, i64 %15
   br label %_ZNK4llvm6DIType8getScopeEv.exit
 
 _ZNK4llvm6DIType8getScopeEv.exit:                 ; preds = %9, %12
@@ -11204,7 +11198,7 @@ _ZNK4llvm6DIType8getScopeEv.exit:                 ; preds = %9, %12
   %33 = lshr i64 %27, 2
   %34 = and i64 %33, 15
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %6, i64 %35
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %32, %29
@@ -11252,7 +11246,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   %59 = lshr i64 %53, 2
   %60 = and i64 %59, 15
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %6, i64 %61
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %58, %55
@@ -11457,7 +11451,7 @@ define dso_local void @_ZN4llvm9DwarfUnit25applySubprogramAttributesEPKNS_12DISu
   %28 = lshr i64 %22, 2
   %29 = and i64 %28, 15
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %21, i64 %30
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %27, %24
@@ -11488,7 +11482,7 @@ _ZNK4llvm12DISubprogram7getNameEv.exit:           ; preds = %_ZNK4llvm6DINode12g
   %43 = lshr i64 %.pre206, 2
   %44 = and i64 %43, 15
   %45 = sub nsw i64 0, %44
-  %46 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %21, i64 %45
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i94
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i94: ; preds = %42, %39
@@ -11537,7 +11531,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %_ZNK4llvm12DISubp
   %63 = lshr i64 %53, 2
   %64 = and i64 %63, 15
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %21, i64 %65
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit.i.i: ; preds = %62, %.thread.i.i
@@ -11573,7 +11567,7 @@ _ZNK4llvm12DISubprogram14getAnnotationsEv.exit:   ; preds = %_ZNK4llvm6MDNode14g
   %82 = lshr i64 %76, 2
   %83 = and i64 %82, 15
   %84 = sub nsw i64 0, %83
-  %85 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %21, i64 %84
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %81, %78
@@ -11635,7 +11629,7 @@ _ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_12DISubprogramE.exit: ; preds = 
   %113 = lshr i64 %107, 2
   %114 = and i64 %113, 15
   %115 = sub nsw i64 0, %114
-  %116 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %21, i64 %115
   br label %_ZNK4llvm12DISubprogram7getTypeEv.exit
 
 _ZNK4llvm12DISubprogram7getTypeEv.exit:           ; preds = %109, %112
@@ -11661,7 +11655,7 @@ _ZNK4llvm12DISubprogram7getTypeEv.exit:           ; preds = %109, %112
   %127 = lshr i64 %121, 2
   %128 = and i64 %127, 15
   %129 = sub nsw i64 0, %128
-  %130 = getelementptr inbounds %"class.llvm::MDOperand", ptr %120, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %120, i64 %129
   br label %131
 
 131:                                              ; preds = %126, %123
@@ -11740,7 +11734,7 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226:  ; preds = %158
   %168 = lshr i64 %160, 2
   %169 = and i64 %168, 15
   %170 = sub nsw i64 0, %169
-  %171 = getelementptr inbounds %"class.llvm::MDOperand", ptr %159, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %159, i64 %170
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
 
 _ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread228, %167
@@ -11893,7 +11887,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i118: ; preds = %235
   %247 = lshr i64 %237, 2
   %248 = and i64 %247, 15
   %249 = sub nsw i64 0, %248
-  %250 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %249
+  %250 = getelementptr inbounds [8 x i8], ptr %21, i64 %249
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit.i.i120
 
 _ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit.i.i120: ; preds = %246, %.thread.i.i119
@@ -11951,7 +11945,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i124: ; preds = %259
   %270 = lshr i64 %260, 2
   %271 = and i64 %270, 15
   %272 = sub nsw i64 0, %271
-  %273 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %272
+  %273 = getelementptr inbounds [8 x i8], ptr %21, i64 %272
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit.i.i126
 
 _ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit.i.i126: ; preds = %269, %.thread.i.i125
@@ -12153,7 +12147,7 @@ _ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i: ; preds = %_ZNK4llvm6MDN
   %361 = lshr i64 %354, 2
   %362 = and i64 %361, 15
   %363 = sub nsw i64 0, %362
-  %364 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %363
+  %364 = getelementptr inbounds [8 x i8], ptr %21, i64 %363
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 96
   %366 = load ptr, ptr %365, align 8, !tbaa !485
   %.not.i140 = icmp eq ptr %366, null
@@ -12195,7 +12189,7 @@ _ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i151: ; preds = %_ZNK4llvm6
   %383 = lshr i64 %376, 2
   %384 = and i64 %383, 15
   %385 = sub nsw i64 0, %384
-  %386 = getelementptr inbounds %"class.llvm::MDOperand", ptr %21, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %21, i64 %385
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 96
   %388 = load ptr, ptr %387, align 8, !tbaa !485
   %.not.i152 = icmp eq ptr %388, null
@@ -12261,7 +12255,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9DwarfUnit35applySubprogramDefiniti
   %14 = lshr i64 %8, 2
   %15 = and i64 %14, 15
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::MDOperand", ptr %7, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %7, i64 %16
   br label %_ZNK4llvm12DISubprogram14getDeclarationEv.exit
 
 _ZNK4llvm12DISubprogram14getDeclarationEv.exit:   ; preds = %10, %13
@@ -12288,7 +12282,7 @@ _ZNK4llvm12DISubprogram14getDeclarationEv.exit:   ; preds = %10, %13
   %29 = lshr i64 %23, 2
   %30 = and i64 %29, 15
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds %"class.llvm::MDOperand", ptr %22, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %22, i64 %31
   br label %_ZNK4llvm12DISubprogram7getTypeEv.exit
 
 _ZNK4llvm12DISubprogram7getTypeEv.exit:           ; preds = %25, %28
@@ -12310,7 +12304,7 @@ _ZNK4llvm12DISubprogram7getTypeEv.exit:           ; preds = %25, %28
   %42 = lshr i64 %36, 2
   %43 = and i64 %42, 15
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %"class.llvm::MDOperand", ptr %35, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %35, i64 %44
   br label %_ZNK4llvm16DISubroutineType12getTypeArrayEv.exit
 
 _ZNK4llvm16DISubroutineType12getTypeArrayEv.exit: ; preds = %38, %41
@@ -12328,7 +12322,7 @@ _ZNK4llvm16DISubroutineType12getTypeArrayEv.exit: ; preds = %38, %41
   %52 = lshr i64 %8, 2
   %53 = and i64 %52, 15
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %"class.llvm::MDOperand", ptr %7, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %7, i64 %54
   br label %_ZNK4llvm12DISubprogram7getTypeEv.exit49
 
 _ZNK4llvm12DISubprogram7getTypeEv.exit49:         ; preds = %48, %51
@@ -12350,7 +12344,7 @@ _ZNK4llvm12DISubprogram7getTypeEv.exit49:         ; preds = %48, %51
   %65 = lshr i64 %59, 2
   %66 = and i64 %65, 15
   %67 = sub nsw i64 0, %66
-  %68 = getelementptr inbounds %"class.llvm::MDOperand", ptr %58, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %58, i64 %67
   br label %_ZNK4llvm16DISubroutineType12getTypeArrayEv.exit52
 
 _ZNK4llvm16DISubroutineType12getTypeArrayEv.exit52: ; preds = %61, %64
@@ -12412,7 +12406,7 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit55.thread:   ; preds = %83
   %93 = lshr i64 %85, 2
   %94 = and i64 %93, 15
   %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds %"class.llvm::MDOperand", ptr %84, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %84, i64 %95
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
 
 _ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread128, %92
@@ -12433,7 +12427,7 @@ _ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread128, %92
   %103 = lshr i64 %73, 2
   %104 = and i64 %103, 15
   %105 = sub nsw i64 0, %104
-  %106 = getelementptr inbounds %"class.llvm::MDOperand", ptr %72, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %72, i64 %105
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit59
 
 _ZNK4llvm14DITypeRefArrayixEj.exit59:             ; preds = %99, %102
@@ -12445,7 +12439,7 @@ _ZNK4llvm14DITypeRefArrayixEj.exit62:             ; preds = %_ZNK4llvm14DITypeRe
   %108 = lshr i64 %85, 2
   %109 = and i64 %108, 15
   %110 = sub nsw i64 0, %109
-  %111 = getelementptr inbounds %"class.llvm::MDOperand", ptr %84, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %84, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !485
   %.not38 = icmp eq ptr %107, %112
   br i1 %.not38, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %_ZNK4llvm14DITypeRefArrayixEj.exit65
@@ -12490,7 +12484,7 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit.thread:     ; preds = %_ZNK4llvm14DITypeRe
   %134 = lshr i64 %128, 2
   %135 = and i64 %134, 15
   %136 = sub nsw i64 0, %135
-  %137 = getelementptr inbounds %"class.llvm::MDOperand", ptr %22, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %22, i64 %136
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %133, %130
@@ -12526,7 +12520,7 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit:   ; preds = %140, %_ZNK4llvm6DIN
   %152 = lshr i64 %146, 2
   %153 = and i64 %152, 15
   %154 = sub nsw i64 0, %153
-  %155 = getelementptr inbounds %"class.llvm::MDOperand", ptr %22, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %22, i64 %154
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %151, %148
@@ -12559,7 +12553,7 @@ _ZNK4llvm7DIScope7getFileEv.exit:                 ; preds = %_ZNK4llvm12DISubpro
   %171 = lshr i64 %165, 2
   %172 = and i64 %171, 15
   %173 = sub nsw i64 0, %172
-  %174 = getelementptr inbounds %"class.llvm::MDOperand", ptr %7, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %7, i64 %173
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i69
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i69:        ; preds = %170, %167
@@ -12690,7 +12684,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %_ZN4llvm9DwarfUni
   %241 = lshr i64 %231, 2
   %242 = and i64 %241, 15
   %243 = sub nsw i64 0, %242
-  %244 = getelementptr inbounds %"class.llvm::MDOperand", ptr %7, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %7, i64 %243
   br label %_ZNK4llvm12DISubprogram17getTemplateParamsEv.exit
 
 _ZNK4llvm12DISubprogram17getTemplateParamsEv.exit: ; preds = %.thread.i.i, %240
@@ -12719,7 +12713,7 @@ _ZNK4llvm12DISubprogram17getTemplateParamsEv.exit: ; preds = %.thread.i.i, %240
   %258 = lshr i64 %249, 2
   %259 = and i64 %258, 15
   %260 = sub nsw i64 0, %259
-  %261 = getelementptr inbounds %"class.llvm::MDOperand", ptr %248, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr %248, i64 %260
   %262 = lshr i64 %249, 6
   %263 = and i64 %262, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i
@@ -12773,7 +12767,7 @@ _ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_
   %277 = lshr i64 %271, 2
   %278 = and i64 %277, 15
   %279 = sub nsw i64 0, %278
-  %280 = getelementptr inbounds %"class.llvm::MDOperand", ptr %7, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %7, i64 %279
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i84
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i84: ; preds = %276, %273
@@ -12822,7 +12816,7 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit91: ; preds = %_ZNK4llvm6DINode12g
   %308 = add i32 %300, -1
   %.01826.i.i.i = and i32 %308, %307
   %309 = zext nneg i32 %.01826.i.i.i to i64
-  %310 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.785", ptr %298, i64 %309
+  %310 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %309
   %311 = load ptr, ptr %310, align 8, !tbaa !757
   %312 = icmp eq ptr %1, %311
   br i1 %312, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit, label %.lr.ph.i.i.i, !prof !464
@@ -12839,14 +12833,14 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit91: ; preds = %_ZNK4llvm6DINode12g
   %317 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %317, %308
   %318 = zext i32 %.018.i.i.i to i64
-  %319 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.785", ptr %298, i64 %318
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !757
   %321 = icmp eq ptr %1, %320
   br i1 %321, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit, label %.lr.ph.i.i.i, !prof !466, !llvm.loop !759
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit: ; preds = %315, %302
   %322 = phi i64 [ %309, %302 ], [ %318, %315 ]
-  %323 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.785", ptr %298, i64 %322
+  %323 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %322
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %325 = load ptr, ptr %324, align 8, !tbaa !468
   %.not41 = icmp eq ptr %325, null
@@ -13705,7 +13699,7 @@ define dso_local void @_ZN4llvm9DwarfUnit27constructContainingTypeDIEsEv(ptr nou
   br i1 %5, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit
 
 12:                                               ; preds = %1
@@ -13731,7 +13725,7 @@ define dso_local void @_ZN4llvm9DwarfUnit27constructContainingTypeDIEsEv(ptr nou
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %10, %12
   %.pn14.i = phi ptr [ %11, %10 ], [ %6, %12 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %13, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %13, %.critedge2.i8.i14.i6.i ], [ %13, %.lr.ph.i6.i12.i3.i ]
-  %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   %.not1617 = icmp eq ptr %.pn14.i, %16
   br i1 %.not1617, label %._crit_edge, label %.lr.ph
 
@@ -14592,7 +14586,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !23
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.781", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -14633,7 +14627,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !23
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !24
@@ -14678,7 +14672,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNod
   %17 = add i32 %8, -1
   %.02944.i = and i32 %16, %17
   %18 = zext nneg i32 %.02944.i to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !462
   %21 = icmp eq ptr %11, %20
   br i1 %21, label %.loopexit, label %.lr.ph.i, !prof !464
@@ -14706,7 +14700,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNod
   %31 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %31, %17
   %32 = zext i32 %.029.i to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !462
   %35 = icmp eq ptr %11, %34
   br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !466, !llvm.loop !820
@@ -14778,7 +14772,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_v
   %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
   %65 = zext i32 %.sink32 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %.sink30, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %.sink30, i64 %65
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
@@ -14805,7 +14799,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !462
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !464
@@ -14833,7 +14827,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !462
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !466, !llvm.loop !820
@@ -14941,7 +14935,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_v
   %46 = xor i32 %44, %45
   %.02944.i.i = and i32 %46, %38
   %47 = zext nneg i32 %.02944.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !462
   %50 = icmp eq ptr %41, %49
   br i1 %50, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i, label %.lr.ph.i15.i, !prof !464
@@ -14969,7 +14963,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_v
   %60 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %60, %38
   %61 = zext i32 %.029.i.i to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %21, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !462
   %64 = icmp eq ptr %41, %63
   br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i, label %.lr.ph.i15.i, !prof !466, !llvm.loop !820
@@ -15301,7 +15295,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPK
   %17 = add i32 %8, -1
   %.02944.i = and i32 %16, %17
   %18 = zext nneg i32 %.02944.i to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !468
   %21 = icmp eq ptr %11, %20
   br i1 %21, label %.loopexit, label %.lr.ph.i, !prof !464
@@ -15329,7 +15323,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPK
   %31 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %31, %17
   %32 = zext i32 %.029.i to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !468
   %35 = icmp eq ptr %11, %34
   br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !466, !llvm.loop !835
@@ -15401,7 +15395,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_v
   %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
   %65 = zext i32 %.sink32 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %.sink30, i64 %65
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
@@ -15428,7 +15422,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !468
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !464
@@ -15456,7 +15450,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !468
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !466, !llvm.loop !835
@@ -15564,7 +15558,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_v
   %46 = xor i32 %44, %45
   %.02944.i.i = and i32 %46, %38
   %47 = zext nneg i32 %.02944.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !468
   %50 = icmp eq ptr %41, %49
   br i1 %50, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit.i, label %.lr.ph.i15.i, !prof !464
@@ -15592,7 +15586,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_v
   %60 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %60, %38
   %61 = zext i32 %.029.i.i to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !468
   %64 = icmp eq ptr %41, %63
   br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit.i, label %.lr.ph.i15.i, !prof !466, !llvm.loop !835

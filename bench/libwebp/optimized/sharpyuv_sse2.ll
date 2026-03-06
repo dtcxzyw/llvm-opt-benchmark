@@ -33,11 +33,11 @@ define internal i64 @SharpYuvUpdateY_SSE2(ptr noundef readonly captures(none) %0
   %indvars.iv64 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next65, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = phi <4 x i32> [ zeroinitializer, %.lr.ph.preheader ], [ %24, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv64
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv64
   %13 = load <8 x i16>, ptr %12, align 1, !tbaa !7
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv64
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv64
   %15 = load <8 x i16>, ptr %14, align 1, !tbaa !7
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv64
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv64
   %17 = load <8 x i16>, ptr %16, align 1, !tbaa !7
   %18 = sub <8 x i16> %13, %15
   %.lobit.i = ashr <8 x i16> %18, splat (i16 15)
@@ -79,14 +79,14 @@ define internal i64 @SharpYuvUpdateY_SSE2(ptr noundef readonly captures(none) %0
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv69 = phi i64 [ %29, %.lr.ph58.preheader ], [ %indvars.iv.next70, %.lr.ph58 ]
   %.056 = phi i64 [ %27, %.lr.ph58.preheader ], [ %47, %.lr.ph58 ]
-  %30 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv69
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv69
   %31 = load i16, ptr %30, align 2, !tbaa !10
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv69
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv69
   %34 = load i16, ptr %33, align 2, !tbaa !10
   %35 = zext i16 %34 to i32
   %36 = sub nsw i32 %32, %35
-  %37 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv69
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv69
   %38 = load i16, ptr %37, align 2, !tbaa !10
   %39 = zext i16 %38 to i32
   %40 = add nsw i32 %36, %39
@@ -133,11 +133,11 @@ define internal void @SharpYuvUpdateRGB_SSE2(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv31 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next32, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv31
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv31
   %10 = load <8 x i16>, ptr %9, align 1, !tbaa !7
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv31
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv31
   %12 = load <8 x i16>, ptr %11, align 1, !tbaa !7
-  %13 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv31
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv31
   %14 = load <8 x i16>, ptr %13, align 1, !tbaa !7
   %15 = sub <8 x i16> %10, %12
   %16 = add <8 x i16> %15, %14
@@ -149,12 +149,12 @@ define internal void @SharpYuvUpdateRGB_SSE2(ptr noundef readonly captures(none)
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
   %indvars.iv36 = phi i64 [ %8, %.lr.ph30.preheader ], [ %indvars.iv.next37, %.lr.ph30 ]
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv36
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv36
   %18 = load i16, ptr %17, align 2, !tbaa !10
-  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv36
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv36
   %20 = load i16, ptr %19, align 2, !tbaa !10
   %21 = sub i16 %18, %20
-  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv36
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv36
   %23 = load i16, ptr %22, align 2, !tbaa !10
   %24 = add i16 %21, %23
   store i16 %24, ptr %22, align 2, !tbaa !10
@@ -201,11 +201,11 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv96.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next97.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 8, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv96.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv96.i
   %18 = load <8 x i16>, ptr %17, align 1, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %20 = load <8 x i16>, ptr %19, align 1, !tbaa !7
-  %21 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv96.i
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv96.i
   %22 = load <8 x i16>, ptr %21, align 1, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %24 = load <8 x i16>, ptr %23, align 1, !tbaa !7
@@ -226,7 +226,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %39 = shufflevector <8 x i16> %37, <8 x i16> %38, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %40 = shufflevector <8 x i16> %37, <8 x i16> %38, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %41 = shl nuw nsw i64 %indvars.iv96.i, 1
-  %42 = getelementptr inbounds nuw i16, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %41
   %43 = load <8 x i16>, ptr %42, align 1, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load <8 x i16>, ptr %44, align 1, !tbaa !7
@@ -236,7 +236,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %49 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %48, <8 x i16> zeroinitializer)
   %50 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %47, <8 x i16> %11)
   %51 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %50, <8 x i16> zeroinitializer)
-  %52 = getelementptr inbounds nuw i16, ptr %4, i64 %41
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %41
   store <8 x i16> %49, ptr %52, align 1, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store <8 x i16> %51, ptr %53, align 1, !tbaa !7
@@ -247,18 +247,18 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
 
 .lr.ph95.i:                                       ; preds = %.lr.ph95.i, %.lr.ph95.preheader.i
   %indvars.iv101.i = phi i64 [ %16, %.lr.ph95.preheader.i ], [ %indvars.iv.next102.i, %.lr.ph95.i ]
-  %54 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv101.i
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv101.i
   %55 = load i16, ptr %54, align 2, !tbaa !10
   %56 = sext i16 %55 to i32
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
-  %57 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next102.i
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next102.i
   %58 = load i16, ptr %57, align 2, !tbaa !10
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %59, %56
-  %61 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next102.i
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next102.i
   %62 = load i16, ptr %61, align 2, !tbaa !10
   %63 = sext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv101.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv101.i
   %65 = load i16, ptr %64, align 2, !tbaa !10
   %66 = sext i16 %65 to i32
   %67 = add nsw i32 %66, %63
@@ -275,7 +275,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %78 = add nsw i32 %77, %69
   %79 = ashr i32 %78, 4
   %80 = shl nuw nsw i64 %indvars.iv101.i, 1
-  %81 = getelementptr inbounds nuw i16, ptr %3, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !10
   %83 = zext i16 %82 to i32
   %84 = add nsw i32 %74, %83
@@ -283,10 +283,10 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %86 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %84, i32 range(i32 -2147483648, 2147483647) %8)
   %87 = trunc i32 %86 to i16
   %88 = select i1 %85, i16 0, i16 %87
-  %89 = getelementptr inbounds nuw i16, ptr %4, i64 %80
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %80
   store i16 %88, ptr %89, align 2, !tbaa !10
   %90 = or disjoint i64 %80, 1
-  %91 = getelementptr inbounds nuw i16, ptr %3, i64 %90
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !10
   %93 = zext i16 %92 to i32
   %94 = add nsw i32 %79, %93
@@ -294,7 +294,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %96 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %94, i32 range(i32 -2147483648, 2147483647) %8)
   %97 = trunc i32 %96 to i16
   %98 = select i1 %95, i16 0, i16 %97
-  %99 = getelementptr inbounds nuw i16, ptr %4, i64 %90
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %90
   store i16 %98, ptr %99, align 2, !tbaa !10
   %exitcond.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %SharpYuvFilterRow16_SSE2.exit, label %.lr.ph95.i, !llvm.loop !16
@@ -324,7 +324,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
 .lr.ph.i14:                                       ; preds = %.lr.ph.i14, %.lr.ph.preheader.i13
   %indvars.iv87.i = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next88.i, %.lr.ph.i14 ]
   %indvars.iv.i15 = phi i64 [ 4, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i16, %.lr.ph.i14 ]
-  %105 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv87.i
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv87.i
   %106 = load i64, ptr %105, align 1, !tbaa !7
   %107 = insertelement <2 x i64> poison, i64 %106, i64 0
   %108 = bitcast <2 x i64> %107 to <8 x i16>
@@ -338,7 +338,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %116 = shufflevector <8 x i16> %115, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3>
   %117 = bitcast <8 x i16> %116 to <4 x i32>
   %118 = ashr <4 x i32> %117, splat (i32 16)
-  %119 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv87.i
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv87.i
   %120 = load i64, ptr %119, align 1, !tbaa !7
   %121 = insertelement <2 x i64> poison, i64 %120, i64 0
   %122 = bitcast <2 x i64> %121 to <8 x i16>
@@ -369,13 +369,13 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %147 = shufflevector <4 x i32> %145, <4 x i32> %146, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %148 = shufflevector <4 x i32> %145, <4 x i32> %146, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %149 = shl nuw nsw i64 %indvars.iv87.i, 1
-  %150 = getelementptr inbounds nuw i16, ptr %3, i64 %149
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %149
   %151 = load <8 x i16>, ptr %150, align 1, !tbaa !7
   %152 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %147, <4 x i32> %148)
   %153 = add <8 x i16> %152, %151
   %154 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %153, <8 x i16> %11)
   %155 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %154, <8 x i16> zeroinitializer)
-  %156 = getelementptr inbounds nuw i16, ptr %4, i64 %149
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %149
   store <8 x i16> %155, ptr %156, align 1, !tbaa !7
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 4
   %.not.i17 = icmp samesign ugt i64 %indvars.iv.next.i16, %101
@@ -384,18 +384,18 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
 
 .lr.ph86.i:                                       ; preds = %.lr.ph86.i, %.lr.ph86.preheader.i
   %indvars.iv92.i = phi i64 [ %104, %.lr.ph86.preheader.i ], [ %indvars.iv.next93.i, %.lr.ph86.i ]
-  %157 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv92.i
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv92.i
   %158 = load i16, ptr %157, align 2, !tbaa !10
   %159 = sext i16 %158 to i32
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
-  %160 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next93.i
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next93.i
   %161 = load i16, ptr %160, align 2, !tbaa !10
   %162 = sext i16 %161 to i32
   %163 = add nsw i32 %162, %159
-  %164 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next93.i
+  %164 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next93.i
   %165 = load i16, ptr %164, align 2, !tbaa !10
   %166 = sext i16 %165 to i32
-  %167 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv92.i
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv92.i
   %168 = load i16, ptr %167, align 2, !tbaa !10
   %169 = sext i16 %168 to i32
   %170 = add nsw i32 %169, %166
@@ -412,7 +412,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %181 = add nsw i32 %180, %172
   %182 = ashr i32 %181, 4
   %183 = shl nuw nsw i64 %indvars.iv92.i, 1
-  %184 = getelementptr inbounds nuw i16, ptr %3, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !10
   %186 = zext i16 %185 to i32
   %187 = add nsw i32 %177, %186
@@ -420,10 +420,10 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %189 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %187, i32 range(i32 -2147483648, 2147483647) %8)
   %190 = trunc i32 %189 to i16
   %191 = select i1 %188, i16 0, i16 %190
-  %192 = getelementptr inbounds nuw i16, ptr %4, i64 %183
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %183
   store i16 %191, ptr %192, align 2, !tbaa !10
   %193 = or disjoint i64 %183, 1
-  %194 = getelementptr inbounds nuw i16, ptr %3, i64 %193
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %193
   %195 = load i16, ptr %194, align 2, !tbaa !10
   %196 = zext i16 %195 to i32
   %197 = add nsw i32 %182, %196
@@ -431,7 +431,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
   %199 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %197, i32 range(i32 -2147483648, 2147483647) %8)
   %200 = trunc i32 %199 to i16
   %201 = select i1 %198, i16 0, i16 %200
-  %202 = getelementptr inbounds nuw i16, ptr %4, i64 %193
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %193
   store i16 %201, ptr %202, align 2, !tbaa !10
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next93.i, %wide.trip.count.i21
   br i1 %exitcond.not.i22, label %SharpYuvFilterRow16_SSE2.exit, label %.lr.ph86.i, !llvm.loop !18

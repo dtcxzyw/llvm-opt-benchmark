@@ -49,16 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::Span" = type { ptr, i64 }
 %"class.absl::lts_20240722::Status" = type { i64 }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"struct.std::atomic.27", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"struct.std::atomic.27" = type { %"struct.std::__atomic_base.28" }
-%"struct.std::__atomic_base.28" = type { i64 }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.27"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic.27"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic.27"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic.27"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.27"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.27"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.27"] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.29 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.29 = type { i64, [8 x i8] }
@@ -626,7 +616,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
 
 switch.lookup:                                    ; preds = %.critedge26
   %19 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._Z37grpc_completion_queue_create_internal23grpc_cq_completion_type20grpc_cq_polling_typeP29grpc_completion_queue_functor, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z37grpc_completion_queue_create_internal23grpc_cq_completion_type20grpc_cq_polling_typeP29grpc_completion_queue_functor, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
@@ -636,10 +626,10 @@ switch.lookup:                                    ; preds = %.critedge26
 23:                                               ; preds = %.critedge26, %switch.lookup
   %24 = load i32, ptr %4, align 4, !tbaa !79
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.cq_vtable, ptr @_ZL11g_cq_vtable, i64 %25
+  %26 = getelementptr inbounds nuw [72 x i8], ptr @_ZL11g_cq_vtable, i64 %25
   %27 = load i32, ptr %5, align 4, !tbaa !80
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.(anonymous namespace)::cq_poller_vtable", ptr @_ZN12_GLOBAL__N_130g_poller_vtable_by_poller_typeE, i64 %28
+  %29 = getelementptr inbounds nuw [56 x i8], ptr @_ZN12_GLOBAL__N_130g_poller_vtable_by_poller_typeE, i64 %28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %7, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1535,7 +1525,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !108
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !105
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !109
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1760,7 +1750,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !110
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !120
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -3766,7 +3756,7 @@ _ZL24cq_finish_shutdown_pluckP21grpc_completion_queue.exit: ; preds = %.critedge
 
 142:                                              ; preds = %.lr.ph, %141
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %141 ]
-  %143 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %116, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %indvars.iv
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !156
   %146 = icmp eq ptr %145, %1
@@ -4300,7 +4290,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi68EEERS2_RAT__Kc.exit: ; pr
 168:                                              ; preds = %143
   %169 = getelementptr inbounds nuw i8, ptr %138, i64 336
   %170 = sext i32 %145 to i64
-  %171 = getelementptr inbounds %"struct.(anonymous namespace)::plucker", ptr %169, i64 %170
+  %171 = getelementptr inbounds [16 x i8], ptr %169, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store ptr %1, ptr %172, align 8, !tbaa !156
   store ptr %15, ptr %171, align 8, !tbaa !159
@@ -4489,7 +4479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %23
 
 243:                                              ; preds = %251, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %251 ]
-  %244 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %242, i64 %indvars.iv.i
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %indvars.iv.i
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !156
   %247 = icmp eq ptr %246, %1
@@ -4542,7 +4532,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %248
   %258 = add nsw i32 %241, -1
   store i32 %258, ptr %240, align 4, !tbaa !152
   %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %242, i64 %259
+  %260 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %259
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %244, i64 16, i1 false), !tbaa.struct !167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %244, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !167
@@ -5683,7 +5673,7 @@ define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_
 
 8:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %9 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !156
   %12 = icmp eq ptr %11, %1
@@ -5707,7 +5697,7 @@ define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_
   %18 = add nsw i32 %6, -1
   store i32 %18, ptr %5, align 4, !tbaa !152
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !167
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !167

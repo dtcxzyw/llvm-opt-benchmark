@@ -1176,7 +1176,7 @@ default.unreachable:                              ; preds = %.noexc34.i
   br label %157
 
 121:                                              ; preds = %104
-  %122 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %35, i64 %.sroa.52.0.copyload.i.i.i
+  %122 = getelementptr inbounds [104 x i8], ptr %35, i64 %.sroa.52.0.copyload.i.i.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %124 = load ptr, ptr %123, align 8, !noalias !64, !noundef !3
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 40
@@ -1239,7 +1239,7 @@ default.unreachable:                              ; preds = %.noexc34.i
 
 142:                                              ; preds = %134, %"_ZN4http6header3map18HeaderMap$LT$T$GT$3get17hd88a30b24a321366E.exit.thread.i"
   %143 = load ptr, ptr %22, align 8, !alias.scope !160, !noalias !163, !nonnull !3, !noundef !3
-  %144 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %143, i64 %131
+  %144 = getelementptr inbounds [48 x i8], ptr %143, i64 %131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %144, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false), !noalias !64
   %145 = add i64 %131, 1
   store i64 %145, ptr %23, align 8, !alias.scope !160, !noalias !163
@@ -1682,7 +1682,7 @@ _ZN4rkyv6string4repr18ArchivedStringRepr3len17hdd44a93acde2a2cdE.exit.i: ; preds
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %160 = load i32, ptr %159, align 4, !alias.scope !205, !noalias !208, !noundef !3
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw { { { [2 x i32] } }, { { { { i32 }, {} }, {}, {} }, { i32 } } }, ptr %158, i64 %161
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %158, i64 %161
   %.sroa.52.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %164 = load i64, ptr %163, align 8, !alias.scope !208, !noalias !205
@@ -1800,7 +1800,7 @@ _ZN4rkyv6string4repr18ArchivedStringRepr3len17hdd44a93acde2a2cdE.exit.i174: ; pr
   unreachable
 
 206:                                              ; preds = %203
-  %207 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %166, i64 %.sroa.52.0.copyload.i.i.i
+  %207 = getelementptr inbounds [104 x i8], ptr %166, i64 %.sroa.52.0.copyload.i.i.i
   %208 = getelementptr i8, ptr %207, i64 32
   %.val.i.i = load ptr, ptr %208, align 8, !noundef !3
   %209 = getelementptr i8, ptr %207, i64 40
@@ -6397,7 +6397,7 @@ define void @"_ZN117_$LT$uv_client..httpcache..ResponseHeaders$u20$as$u20$core..
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %49 = load ptr, ptr %48, align 8, !alias.scope !545, !noalias !546, !nonnull !3, !noundef !3
-  %50 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %49, i64 %.sroa.52.0.copyload.i.i
+  %50 = getelementptr inbounds [104 x i8], ptr %49, i64 %.sroa.52.0.copyload.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8, !noundef !3
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -6551,7 +6551,7 @@ define void @"_ZN117_$LT$uv_client..httpcache..ResponseHeaders$u20$as$u20$core..
 111:                                              ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %113 = load ptr, ptr %112, align 8, !alias.scope !574, !noalias !575, !nonnull !3, !noundef !3
-  %114 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %113, i64 %.sroa.52.0.copyload.i.i38
+  %114 = getelementptr inbounds [104 x i8], ptr %113, i64 %.sroa.52.0.copyload.i.i38
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hc87b8013f065d5adE(ptr noundef nonnull align 8 %115)
   %117 = extractvalue { ptr, i64 } %116, 0
@@ -6637,7 +6637,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9b7eb7dd45981cc7E.exit: ; preds = %.thr
 140:                                              ; preds = %135
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %142 = load ptr, ptr %141, align 8, !alias.scope !616, !noalias !617, !nonnull !3, !noundef !3
-  %143 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %142, i64 %.sroa.52.0.copyload.i.i46
+  %143 = getelementptr inbounds [104 x i8], ptr %142, i64 %.sroa.52.0.copyload.i.i46
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %145 = call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hc87b8013f065d5adE(ptr noundef nonnull align 8 %144)
   %146 = extractvalue { ptr, i64 } %145, 0
@@ -6723,7 +6723,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9b7eb7dd45981cc7E.exit57: ; preds = %.t
 169:                                              ; preds = %164
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %171 = load ptr, ptr %170, align 8, !alias.scope !658, !noalias !659, !nonnull !3, !noundef !3
-  %172 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %171, i64 %.sroa.52.0.copyload.i.i60
+  %172 = getelementptr inbounds [104 x i8], ptr %171, i64 %.sroa.52.0.copyload.i.i60
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hc87b8013f065d5adE(ptr noundef nonnull align 8 %173)
   %175 = extractvalue { ptr, i64 } %174, 0
@@ -6809,7 +6809,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9b7eb7dd45981cc7E.exit71: ; preds = %.t
 198:                                              ; preds = %193
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %200 = load ptr, ptr %199, align 8, !alias.scope !700, !noalias !701, !nonnull !3, !noundef !3
-  %201 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %200, i64 %.sroa.52.0.copyload.i.i74
+  %201 = getelementptr inbounds [104 x i8], ptr %200, i64 %.sroa.52.0.copyload.i.i74
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %203 = load ptr, ptr %202, align 8, !noundef !3
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 40
@@ -7205,10 +7205,10 @@ define internal noundef zeroext i1 @"_ZN73_$LT$uv_client..httpcache..ArchivedMet
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !416, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN73_$LT$uv_client..httpcache..ArchivedMethod$u20$as$u20$core..fmt..Debug$GT$3fmt17h995de3dd6d0c8f1eE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN73_$LT$uv_client..httpcache..ArchivedMethod$u20$as$u20$core..fmt..Debug$GT$3fmt17h995de3dd6d0c8f1eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$uv_client..httpcache..ArchivedMethod$u20$as$u20$core..fmt..Debug$GT$3fmt17h995de3dd6d0c8f1eE.41", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN73_$LT$uv_client..httpcache..ArchivedMethod$u20$as$u20$core..fmt..Debug$GT$3fmt17h995de3dd6d0c8f1eE.41", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

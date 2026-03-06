@@ -2762,7 +2762,7 @@ define internal fastcc void @dissect_storeans(ptr noundef %0, ptr noundef %1, pt
 
 52:                                               ; preds = %51, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %51 ]
-  %53 = getelementptr %struct._Kind, ptr %50, i64 %indvars.iv.i.i.i
+  %53 = getelementptr [16 x i8], ptr %50, i64 %indvars.iv.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %48, %55
@@ -2779,7 +2779,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %57
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %57
   %indvars.iv18.i.i.i = phi i64 [ %indvars.iv.next19.i.i.i, %57 ], [ 0, %.preheader.i.i.i.preheader ]
-  %59 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i.i
+  %59 = getelementptr [16 x i8], ptr @predefined_kinds, i64 %indvars.iv18.i.i.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %48, %61
@@ -2921,7 +2921,7 @@ define internal fastcc void @dissect_fetchreq(ptr noundef %0, ptr noundef %1, pt
 
 67:                                               ; preds = %66, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %66 ]
-  %68 = getelementptr %struct._Kind, ptr %65, i64 %indvars.iv.i.i.i
+  %68 = getelementptr [16 x i8], ptr %65, i64 %indvars.iv.i.i.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %63, %70
@@ -2938,7 +2938,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %72
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %72
   %indvars.iv18.i.i.i = phi i64 [ %indvars.iv.next19.i.i.i, %72 ], [ 0, %.preheader.i.i.i.preheader ]
-  %74 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i.i
+  %74 = getelementptr [16 x i8], ptr @predefined_kinds, i64 %indvars.iv18.i.i.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %63, %76
@@ -3288,7 +3288,7 @@ define internal fastcc void @dissect_findans(ptr noundef %0, ptr noundef %1, ptr
 
 48:                                               ; preds = %47, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %47 ]
-  %49 = getelementptr %struct._Kind, ptr %46, i64 %indvars.iv.i.i
+  %49 = getelementptr [16 x i8], ptr %46, i64 %indvars.iv.i.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %44, %51
@@ -3305,7 +3305,7 @@ getKindFromId.exit.i.thread:                      ; preds = %53
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %53
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %53 ], [ 0, %.preheader.i.i.preheader ]
-  %55 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i
+  %55 = getelementptr [16 x i8], ptr @predefined_kinds, i64 %indvars.iv18.i.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %44, %57
@@ -3599,7 +3599,7 @@ define internal fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1,
 
 33:                                               ; preds = %32, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %34 = getelementptr %struct._Kind, ptr %31, i64 %indvars.iv.i.i
+  %34 = getelementptr [16 x i8], ptr %31, i64 %indvars.iv.i.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %29, %36
@@ -3616,7 +3616,7 @@ getKindFromId.exit.i.thread:                      ; preds = %38
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %38
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %38 ], [ 0, %.preheader.i.i.preheader ]
-  %40 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i
+  %40 = getelementptr [16 x i8], ptr @predefined_kinds, i64 %indvars.iv18.i.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %29, %42
@@ -3679,7 +3679,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_diagnosticrequest(i32 no
 
 27:                                               ; preds = %27, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr ptr, ptr @reload_dmflag_items, i64 %indvars.iv.i
+  %28 = getelementptr [8 x i8], ptr @reload_dmflag_items, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %31 = trunc i64 %indvars.iv.i to i32
@@ -3955,7 +3955,7 @@ define internal fastcc noundef range(i32 0, 65536) i32 @dissect_diagnosticrespon
 
 108:                                              ; preds = %107, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %107 ]
-  %109 = getelementptr %struct._Kind, ptr %106, i64 %indvars.iv.i.i.i
+  %109 = getelementptr [16 x i8], ptr %106, i64 %indvars.iv.i.i.i
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i32, ptr %110, align 8
   %112 = icmp eq i32 %104, %111
@@ -3972,7 +3972,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %113
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %113
   %indvars.iv18.i.i.i = phi i64 [ %indvars.iv.next19.i.i.i, %113 ], [ 0, %.preheader.i.i.i.preheader ]
-  %115 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i.i
+  %115 = getelementptr [16 x i8], ptr @predefined_kinds, i64 %indvars.iv18.i.i.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %104, %117
@@ -4230,7 +4230,7 @@ define internal void @kindidlist_uats_data_model_set_cb(ptr noundef writeonly ca
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -4270,7 +4270,7 @@ define internal void @kindidlist_uats_data_model_tostr_cb(ptr noundef readonly c
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -5554,7 +5554,7 @@ define internal fastcc range(i32 -2147483632, -2147483648) i32 @dissect_kinddata
 
 29:                                               ; preds = %28, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
-  %30 = getelementptr %struct._Kind, ptr %27, i64 %indvars.iv.i.i
+  %30 = getelementptr [16 x i8], ptr %27, i64 %indvars.iv.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %25, %32
@@ -5571,7 +5571,7 @@ getKindFromId.exit.i.thread:                      ; preds = %34
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %34
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %34 ], [ 0, %.preheader.i.i.preheader ]
-  %36 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i
+  %36 = getelementptr [16 x i8], ptr @predefined_kinds, i64 %indvars.iv18.i.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %25, %38

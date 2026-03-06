@@ -632,21 +632,21 @@ define internal fastcc i32 @output_single_frame(ptr noundef readonly captures(no
 149:                                              ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
   %150 = phi ptr [ %147, %.lr.ph ], [ %164, %149 ]
-  %151 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %152 = load i32, ptr %151, align 4, !tbaa !70
-  %153 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv
   %154 = load i32, ptr %153, align 4, !tbaa !70
   %155 = mul nsw i32 %154, %152
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds i8, ptr %150, i64 %156
-  %158 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !70
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i8, ptr %157, i64 %160
-  %162 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %161, ptr %162, align 8, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %164 = load ptr, ptr %163, align 8, !tbaa !82
   %.not151 = icmp eq ptr %164, null
   br i1 %.not151, label %._crit_edge, label %149, !llvm.loop !83

@@ -123,7 +123,7 @@ common.ret:
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_vectored17h1ba7de558e4173a7E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %2, i64 %3
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %3
   br label %6
 
 6:                                                ; preds = %9, %4
@@ -206,7 +206,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17hcaa90edf2ee213c1E"(ptr noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(208) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = and i64 %1, 31
-  %5 = getelementptr inbounds nuw { { { [26 x i64] } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %2, i64 208, i1 false)
   %6 = shl nuw nsw i64 1, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6672

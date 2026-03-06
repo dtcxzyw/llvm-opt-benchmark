@@ -58,25 +58,25 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %45 = load i32, ptr %9, align 4, !tbaa !3
   %narrow = xor i32 %45, -1
   %46 = sext i32 %narrow to i64
-  %47 = getelementptr inbounds double, ptr %8, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %8, i64 %46
   %48 = load i32, ptr %11, align 4, !tbaa !3
   %narrow506 = xor i32 %48, -1
   %49 = sext i32 %narrow506 to i64
-  %50 = getelementptr inbounds double, ptr %10, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %10, i64 %49
   %51 = getelementptr inbounds i8, ptr %14, i64 -8
   %52 = getelementptr inbounds i8, ptr %15, i64 -8
   %53 = load i32, ptr %17, align 4, !tbaa !3
   %narrow513 = xor i32 %53, -1
   %54 = sext i32 %narrow513 to i64
-  %55 = getelementptr inbounds double, ptr %16, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %16, i64 %54
   %56 = load i32, ptr %19, align 4, !tbaa !3
   %narrow514 = xor i32 %56, -1
   %57 = sext i32 %narrow514 to i64
-  %58 = getelementptr inbounds double, ptr %18, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %18, i64 %57
   %59 = load i32, ptr %21, align 4, !tbaa !3
   %narrow515 = xor i32 %59, -1
   %60 = sext i32 %narrow515 to i64
-  %61 = getelementptr inbounds double, ptr %20, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %20, i64 %60
   %62 = getelementptr inbounds i8, ptr %22, i64 -8
   %63 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #4
   %.not = icmp eq i32 %63, 0
@@ -262,12 +262,12 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph564
   %136 = sext i32 %indvars.iv to i64
   %137 = mul nsw i64 %indvars.iv595, %127
-  %138 = getelementptr double, ptr %58, i64 %137
+  %138 = getelementptr [8 x i8], ptr %58, i64 %137
   %139 = getelementptr i8, ptr %138, i64 8
   %140 = trunc nuw nsw i64 %indvars.iv595 to i32
-  %141 = getelementptr double, ptr %50, i64 %indvars.iv595
-  %142 = getelementptr double, ptr %50, i64 %indvars.iv595
-  %143 = getelementptr double, ptr %50, i64 %indvars.iv595
+  %141 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv595
+  %142 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv595
+  %143 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv595
   br label %144
 
 144:                                              ; preds = %.lr.ph, %312
@@ -289,7 +289,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %151 = mul nsw i32 %150, %45
   %152 = add nsw i32 %151, %146
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds double, ptr %47, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %47, i64 %153
   %155 = load double, ptr %154, align 8, !tbaa !9
   store double %155, ptr %30, align 8, !tbaa !9
   br label %156
@@ -306,7 +306,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %162 = mul nsw i32 %161, %45
   %163 = add nsw i32 %162, %158
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds double, ptr %47, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %47, i64 %164
   %166 = load double, ptr %165, align 8, !tbaa !9
   store double %166, ptr %32, align 8, !tbaa !9
   br label %167
@@ -316,14 +316,14 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %169 = add nsw i32 %168, %140
   %170 = mul nsw i32 %169, %48
   %171 = sext i32 %170 to i64
-  %172 = getelementptr double, ptr %141, i64 %171
+  %172 = getelementptr [8 x i8], ptr %141, i64 %171
   %173 = load double, ptr %172, align 8, !tbaa !9
   store double %173, ptr %33, align 8, !tbaa !9
   %174 = add nsw i32 %168, %157
   %175 = mul nsw i32 %174, %48
   %176 = sext i32 %175 to i64
-  %177 = getelementptr double, ptr %50, i64 %indvars.iv592
-  %178 = getelementptr double, ptr %177, i64 %176
+  %177 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv592
+  %178 = getelementptr [8 x i8], ptr %177, i64 %176
   %179 = load double, ptr %178, align 8, !tbaa !9
   store double %179, ptr %36, align 8, !tbaa !9
   %180 = load i32, ptr %34, align 4, !tbaa !3
@@ -337,7 +337,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %183 = mul nsw i32 %174, %45
   %184 = add nsw i32 %183, %146
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds double, ptr %47, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %47, i64 %185
   %187 = load double, ptr %186, align 8, !tbaa !9
   store double %187, ptr %31, align 8, !tbaa !9
   br label %188
@@ -353,7 +353,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %192 = mul nsw i32 %169, %45
   %193 = add nsw i32 %192, %158
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds double, ptr %47, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %47, i64 %194
   %196 = load double, ptr %195, align 8, !tbaa !9
   store double %196, ptr %31, align 8, !tbaa !9
   br label %197
@@ -365,7 +365,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 199:                                              ; preds = %197, %188
   %.pn.in = phi i32 [ %198, %197 ], [ %189, %188 ]
   %.pn = sext i32 %.pn.in to i64
-  %storemerge.in = getelementptr inbounds double, ptr %50, i64 %.pn
+  %storemerge.in = getelementptr inbounds [8 x i8], ptr %50, i64 %.pn
   %storemerge = load double, ptr %storemerge.in, align 8, !tbaa !9
   store double %storemerge, ptr %35, align 8, !tbaa !9
   call void @dlags2_(ptr noundef nonnull %34, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %39, ptr noundef nonnull %43, ptr noundef nonnull %40, ptr noundef nonnull %44, ptr noundef nonnull %38, ptr noundef nonnull %41) #4
@@ -383,11 +383,11 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %208 = mul nsw i32 %207, %45
   %209 = add nsw i32 %208, %201
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds double, ptr %47, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %47, i64 %210
   %212 = add nsw i32 %200, %140
   %213 = add nsw i32 %212, %208
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds double, ptr %47, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %47, i64 %214
   call void @drot_(ptr noundef nonnull %7, ptr noundef %211, ptr noundef nonnull %9, ptr noundef %215, ptr noundef nonnull %9, ptr noundef nonnull %39, ptr noundef nonnull %43) #4
   br label %216
 
@@ -398,9 +398,9 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %220 = sub i32 %219, %218
   %221 = mul nsw i32 %220, %48
   %222 = sext i32 %221 to i64
-  %223 = getelementptr double, ptr %50, i64 %indvars.iv592
-  %224 = getelementptr double, ptr %223, i64 %222
-  %225 = getelementptr double, ptr %142, i64 %222
+  %223 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv592
+  %224 = getelementptr [8 x i8], ptr %223, i64 %222
+  %225 = getelementptr [8 x i8], ptr %142, i64 %222
   call void @drot_(ptr noundef nonnull %7, ptr noundef %224, ptr noundef nonnull %11, ptr noundef %225, ptr noundef nonnull %11, ptr noundef nonnull %40, ptr noundef nonnull %44) #4
   %226 = load i32, ptr %6, align 4, !tbaa !3
   %227 = load i32, ptr %7, align 4, !tbaa !3
@@ -413,12 +413,12 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %232 = add nsw i32 %231, %157
   %233 = mul nsw i32 %232, %45
   %234 = sext i32 %233 to i64
-  %235 = getelementptr double, ptr %47, i64 %234
+  %235 = getelementptr [8 x i8], ptr %47, i64 %234
   %236 = getelementptr i8, ptr %235, i64 8
   %237 = add nsw i32 %231, %140
   %238 = mul nsw i32 %237, %45
   %239 = sext i32 %238 to i64
-  %240 = getelementptr double, ptr %47, i64 %239
+  %240 = getelementptr [8 x i8], ptr %47, i64 %239
   %241 = getelementptr i8, ptr %240, i64 8
   call void @drot_(ptr noundef nonnull %28, ptr noundef %236, ptr noundef nonnull @c__1, ptr noundef %241, ptr noundef nonnull @c__1, ptr noundef nonnull %38, ptr noundef nonnull %41) #4
   %242 = load i32, ptr %5, align 4, !tbaa !3
@@ -427,12 +427,12 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %245 = add nsw i32 %244, %157
   %246 = mul nsw i32 %245, %48
   %247 = sext i32 %246 to i64
-  %248 = getelementptr double, ptr %50, i64 %247
+  %248 = getelementptr [8 x i8], ptr %50, i64 %247
   %249 = getelementptr i8, ptr %248, i64 8
   %250 = add nsw i32 %244, %140
   %251 = mul nsw i32 %250, %48
   %252 = sext i32 %251 to i64
-  %253 = getelementptr double, ptr %50, i64 %252
+  %253 = getelementptr [8 x i8], ptr %50, i64 %252
   %254 = getelementptr i8, ptr %253, i64 8
   call void @drot_(ptr noundef nonnull %7, ptr noundef %249, ptr noundef nonnull @c__1, ptr noundef %254, ptr noundef nonnull @c__1, ptr noundef nonnull %38, ptr noundef nonnull %41) #4
   %255 = load i32, ptr %34, align 4, !tbaa !3
@@ -454,14 +454,14 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %261 = mul nsw i32 %.pre629, %45
   %262 = add nsw i32 %261, %259
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds double, ptr %47, i64 %263
+  %264 = getelementptr inbounds [8 x i8], ptr %47, i64 %263
   store double 0.000000e+00, ptr %264, align 8, !tbaa !9
   br label %._crit_edge623
 
 ._crit_edge623:                                   ; preds = %258, %260
   %265 = mul nsw i32 %.pre629, %48
   %266 = sext i32 %265 to i64
-  %267 = getelementptr double, ptr %143, i64 %266
+  %267 = getelementptr [8 x i8], ptr %143, i64 %266
   store double 0.000000e+00, ptr %267, align 8, !tbaa !9
   br label %279
 
@@ -476,15 +476,15 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %271 = mul nsw i32 %.pre625, %45
   %272 = add nsw i32 %271, %269
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds double, ptr %47, i64 %273
+  %274 = getelementptr inbounds [8 x i8], ptr %47, i64 %273
   store double 0.000000e+00, ptr %274, align 8, !tbaa !9
   br label %._crit_edge624
 
 ._crit_edge624:                                   ; preds = %268, %270
   %275 = mul nsw i32 %.pre625, %48
   %276 = sext i32 %275 to i64
-  %277 = getelementptr double, ptr %50, i64 %indvars.iv592
-  %278 = getelementptr double, ptr %277, i64 %276
+  %277 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv592
+  %278 = getelementptr [8 x i8], ptr %277, i64 %276
   store double 0.000000e+00, ptr %278, align 8, !tbaa !9
   br label %279
 
@@ -499,12 +499,12 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 282:                                              ; preds = %280
   %283 = mul nsw i32 %281, %53
   %284 = sext i32 %283 to i64
-  %285 = getelementptr double, ptr %55, i64 %284
+  %285 = getelementptr [8 x i8], ptr %55, i64 %284
   %286 = getelementptr i8, ptr %285, i64 8
   %287 = add nsw i32 %256, %140
   %288 = mul nsw i32 %287, %53
   %289 = sext i32 %288 to i64
-  %290 = getelementptr double, ptr %55, i64 %289
+  %290 = getelementptr [8 x i8], ptr %55, i64 %289
   %291 = getelementptr i8, ptr %290, i64 8
   call void @drot_(ptr noundef nonnull %3, ptr noundef %286, ptr noundef nonnull @c__1, ptr noundef %291, ptr noundef nonnull @c__1, ptr noundef nonnull %39, ptr noundef nonnull %43) #4
   br label %292
@@ -514,7 +514,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 293:                                              ; preds = %292
   %294 = mul nsw i64 %indvars.iv592, %127
-  %295 = getelementptr double, ptr %58, i64 %294
+  %295 = getelementptr [8 x i8], ptr %58, i64 %294
   %296 = getelementptr i8, ptr %295, i64 8
   call void @drot_(ptr noundef nonnull %4, ptr noundef %296, ptr noundef nonnull @c__1, ptr noundef %139, ptr noundef nonnull @c__1, ptr noundef nonnull %40, ptr noundef nonnull %44) #4
   br label %297
@@ -529,12 +529,12 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %302 = add nsw i32 %301, %157
   %303 = mul nsw i32 %302, %59
   %304 = sext i32 %303 to i64
-  %305 = getelementptr double, ptr %61, i64 %304
+  %305 = getelementptr [8 x i8], ptr %61, i64 %304
   %306 = getelementptr i8, ptr %305, i64 8
   %307 = add nsw i32 %301, %140
   %308 = mul nsw i32 %307, %59
   %309 = sext i32 %308 to i64
-  %310 = getelementptr double, ptr %61, i64 %309
+  %310 = getelementptr [8 x i8], ptr %61, i64 %309
   %311 = getelementptr i8, ptr %310, i64 8
   call void @drot_(ptr noundef nonnull %5, ptr noundef %306, ptr noundef nonnull @c__1, ptr noundef %311, ptr noundef nonnull @c__1, ptr noundef nonnull %38, ptr noundef nonnull %41) #4
   br label %312
@@ -583,7 +583,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %330 = mul nsw i32 %329, %45
   %331 = add nsw i32 %326, %330
   %332 = sext i32 %331 to i64
-  %333 = getelementptr inbounds double, ptr %47, i64 %332
+  %333 = getelementptr inbounds [8 x i8], ptr %47, i64 %332
   call void @dcopy_(ptr noundef nonnull %27, ptr noundef %333, ptr noundef nonnull %9, ptr noundef %22, ptr noundef nonnull @c__1) #4
   %334 = load i32, ptr %7, align 4, !tbaa !3
   %335 = add i32 %323, %334
@@ -594,16 +594,16 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %339 = mul nsw i32 %338, %48
   %340 = add nsw i32 %339, %.1566
   %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds double, ptr %50, i64 %341
+  %342 = getelementptr inbounds [8 x i8], ptr %50, i64 %341
   %343 = sext i32 %334 to i64
-  %344 = getelementptr double, ptr %62, i64 %343
+  %344 = getelementptr [8 x i8], ptr %62, i64 %343
   %345 = getelementptr i8, ptr %344, i64 8
   call void @dcopy_(ptr noundef nonnull %27, ptr noundef %342, ptr noundef nonnull %11, ptr noundef %345, ptr noundef nonnull @c__1) #4
   %346 = load i32, ptr %7, align 4, !tbaa !3
   %347 = add i32 %323, %346
   store i32 %347, ptr %27, align 4, !tbaa !3
   %348 = sext i32 %346 to i64
-  %349 = getelementptr double, ptr %62, i64 %348
+  %349 = getelementptr [8 x i8], ptr %62, i64 %348
   %350 = getelementptr i8, ptr %349, i64 8
   call void @dlapll_(ptr noundef nonnull %27, ptr noundef %22, ptr noundef nonnull @c__1, ptr noundef %350, ptr noundef nonnull @c__1, ptr noundef nonnull %37) #4
   %351 = load double, ptr %37, align 8, !tbaa !9
@@ -648,9 +648,9 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph576:                                        ; preds = %.lr.ph576.preheader, %.lr.ph576
   %indvars.iv598 = phi i64 [ 1, %.lr.ph576.preheader ], [ %indvars.iv.next599, %.lr.ph576 ]
-  %365 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv598
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv598
   store double 1.000000e+00, ptr %365, align 8, !tbaa !9
-  %366 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv598
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv598
   store double 0.000000e+00, ptr %366, align 8, !tbaa !9
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
   %exitcond601.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count
@@ -683,13 +683,13 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %379 = mul nsw i32 %378, %45
   %380 = add nsw i32 %379, %374
   %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds double, ptr %47, i64 %381
+  %382 = getelementptr inbounds [8 x i8], ptr %47, i64 %381
   %383 = load double, ptr %382, align 8, !tbaa !9
   store double %383, ptr %30, align 8, !tbaa !9
   %384 = mul nsw i32 %378, %48
   %385 = sext i32 %384 to i64
-  %386 = getelementptr double, ptr %50, i64 %indvars.iv602
-  %387 = getelementptr double, ptr %386, i64 %385
+  %386 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv602
+  %387 = getelementptr [8 x i8], ptr %386, i64 %385
   %388 = load double, ptr %387, align 8, !tbaa !9
   store double %388, ptr %33, align 8, !tbaa !9
   %389 = fdiv double %388, %383
@@ -709,7 +709,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 396:                                              ; preds = %393
   %397 = mul nsw i64 %indvars.iv602, %127
-  %398 = getelementptr double, ptr %58, i64 %397
+  %398 = getelementptr [8 x i8], ptr %58, i64 %397
   %399 = getelementptr i8, ptr %398, i64 8
   call void @dscal_(ptr noundef nonnull %4, ptr noundef nonnull @c_b44, ptr noundef %399, ptr noundef nonnull @c__1) #4
   br label %400
@@ -722,15 +722,15 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %404 = load i32, ptr %6, align 4, !tbaa !3
   %405 = sext i32 %404 to i64
   %406 = add nsw i64 %indvars.iv602, %405
-  %407 = getelementptr inbounds double, ptr %52, i64 %406
-  %408 = getelementptr inbounds double, ptr %51, i64 %406
+  %407 = getelementptr inbounds [8 x i8], ptr %52, i64 %406
+  %408 = getelementptr inbounds [8 x i8], ptr %51, i64 %406
   call void @dlartg_(ptr noundef nonnull %29, ptr noundef nonnull @c_b15, ptr noundef nonnull %407, ptr noundef nonnull %408, ptr noundef nonnull %42) #4
   %409 = load i32, ptr %6, align 4, !tbaa !3
   %410 = add nsw i32 %409, %373
   %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds double, ptr %51, i64 %411
+  %412 = getelementptr inbounds [8 x i8], ptr %51, i64 %411
   %413 = load double, ptr %412, align 8, !tbaa !9
-  %414 = getelementptr inbounds double, ptr %52, i64 %411
+  %414 = getelementptr inbounds [8 x i8], ptr %52, i64 %411
   %415 = load double, ptr %414, align 8, !tbaa !9
   %416 = fcmp ult double %413, %415
   %417 = load i32, ptr %7, align 4, !tbaa !3
@@ -748,7 +748,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %425 = mul nsw i32 %424, %45
   %426 = add nsw i32 %425, %410
   %427 = sext i32 %426 to i64
-  %428 = getelementptr inbounds double, ptr %47, i64 %427
+  %428 = getelementptr inbounds [8 x i8], ptr %47, i64 %427
   call void @dscal_(ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %428, ptr noundef nonnull %9) #4
   br label %458
 
@@ -759,8 +759,8 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %432 = add i32 %420, %431
   %433 = mul nsw i32 %432, %48
   %434 = sext i32 %433 to i64
-  %435 = getelementptr double, ptr %50, i64 %indvars.iv602
-  %436 = getelementptr double, ptr %435, i64 %434
+  %435 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv602
+  %436 = getelementptr [8 x i8], ptr %435, i64 %434
   call void @dscal_(ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %436, ptr noundef nonnull %11) #4
   %437 = load i32, ptr %7, align 4, !tbaa !3
   %438 = add i32 %418, %437
@@ -770,22 +770,22 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %441 = add nsw i32 %440, %373
   %442 = mul nsw i32 %441, %48
   %443 = sext i32 %442 to i64
-  %444 = getelementptr double, ptr %50, i64 %indvars.iv602
-  %445 = getelementptr double, ptr %444, i64 %443
+  %444 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv602
+  %445 = getelementptr [8 x i8], ptr %444, i64 %443
   %446 = load i32, ptr %6, align 4, !tbaa !3
   %447 = add nsw i32 %446, %373
   %448 = mul nsw i32 %441, %45
   %449 = add nsw i32 %447, %448
   %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds double, ptr %47, i64 %450
+  %451 = getelementptr inbounds [8 x i8], ptr %47, i64 %450
   call void @dcopy_(ptr noundef nonnull %27, ptr noundef %445, ptr noundef nonnull %11, ptr noundef %451, ptr noundef nonnull %9) #4
   br label %458
 
 452:                                              ; preds = %.lr.ph582
   %453 = sext i32 %374 to i64
-  %454 = getelementptr inbounds double, ptr %51, i64 %453
+  %454 = getelementptr inbounds [8 x i8], ptr %51, i64 %453
   store double 0.000000e+00, ptr %454, align 8, !tbaa !9
-  %455 = getelementptr inbounds double, ptr %52, i64 %453
+  %455 = getelementptr inbounds [8 x i8], ptr %52, i64 %453
   store double 1.000000e+00, ptr %455, align 8, !tbaa !9
   %456 = add nsw i32 %.3.neg580, 1
   %457 = add i32 %456, %376
@@ -822,9 +822,9 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph587:                                        ; preds = %.lr.ph587.preheader, %.lr.ph587
   %indvars.iv606 = phi i64 [ %465, %.lr.ph587.preheader ], [ %indvars.iv.next607, %.lr.ph587 ]
   %indvars.iv.next607 = add nsw i64 %indvars.iv606, 1
-  %466 = getelementptr double, ptr %14, i64 %indvars.iv606
+  %466 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv606
   store double 0.000000e+00, ptr %466, align 8, !tbaa !9
-  %467 = getelementptr double, ptr %15, i64 %indvars.iv606
+  %467 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv606
   store double 1.000000e+00, ptr %467, align 8, !tbaa !9
   %exitcond610.not = icmp eq i64 %indvars.iv.next607, %wide.trip.count609
   br i1 %exitcond610.not, label %._crit_edge588, label %.lr.ph587, !llvm.loop !16
@@ -844,9 +844,9 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 475:                                              ; preds = %470, %475
   %indvars.iv611 = phi i64 [ %473, %470 ], [ %indvars.iv.next612, %475 ]
   %indvars.iv.next612 = add nsw i64 %indvars.iv611, 1
-  %476 = getelementptr double, ptr %14, i64 %indvars.iv611
+  %476 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv611
   store double 0.000000e+00, ptr %476, align 8, !tbaa !9
-  %477 = getelementptr double, ptr %15, i64 %indvars.iv611
+  %477 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv611
   store double 0.000000e+00, ptr %477, align 8, !tbaa !9
   %.not525.not = icmp slt i64 %indvars.iv.next612, %474
   br i1 %.not525.not, label %475, label %.loopexit, !llvm.loop !17

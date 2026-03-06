@@ -583,7 +583,7 @@ define noundef nonnull ptr @_ZN10tikv_alloc5trace11MemoryTrace9sub_trace17h27ae4
   %20 = add i64 %.sroa.01.0.i.i.i, %19
   %21 = and i64 %20, %12
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %13, i64 %22
+  %23 = getelementptr inbounds [24 x i8], ptr %13, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -24
   %25 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h64cc8b0324c6d16eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24), !noalias !84
   br i1 %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb4e6d01e5a603591E.exit", label %29, !prof !87
@@ -736,7 +736,7 @@ define void @_ZN10tikv_alloc5trace11MemoryTrace16get_children_ids17h07bcd8b61099
 
 21:                                               ; preds = %15, %19
   %22 = load ptr, ptr %7, align 8, !alias.scope !98, !noalias !101, !nonnull !12, !noundef !12
-  %23 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
   %24 = add i64 %16, 1
   store i64 %24, ptr %8, align 8, !alias.scope !98, !noalias !101

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
-%struct.cloudNode = type { i32, i32, ptr, ptr }
-%struct.cloudCacheEntry2 = type { i32, ptr, ptr, ptr }
 
 @CacheLogRatioDefault = internal unnamed_addr constant [4 x i32] [i32 2, i32 8, i32 8, i32 8], align 16
 @.str = private unnamed_addr constant [12 x i8] c"Constant 0.\00", align 1
@@ -41,10 +39,10 @@ define noalias noundef ptr @Cloud_Init(i32 noundef %0, i32 noundef %1) local_unn
 
 10:                                               ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr @CacheLogRatioDefault, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @CacheLogRatioDefault, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !13
   %13 = sub nsw i32 %spec.store.select, %12
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %13, ptr %14, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -59,10 +57,10 @@ define noalias noundef ptr @Cloud_Init(i32 noundef %0, i32 noundef %1) local_unn
 
 19:                                               ; preds = %15, %19
   %indvars.iv65 = phi i64 [ 0, %15 ], [ %indvars.iv.next66, %19 ]
-  %20 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv65
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv65
   %21 = load i32, ptr %20, align 4, !tbaa !13
   %22 = sub i32 32, %21
-  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv65
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv65
   store i32 %22, ptr %23, align 4, !tbaa !13
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 4
@@ -108,7 +106,7 @@ Abc_Clock.exit:                                   ; preds = %19
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %46, ptr %47, align 8, !tbaa !28
-  %48 = getelementptr inbounds %struct.cloudNode, ptr %31, i64 %30
+  %48 = getelementptr inbounds [24 x i8], ptr %31, i64 %30
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %48, ptr %49, align 8, !tbaa !29
   %50 = sext i32 %0 to i64
@@ -142,7 +140,7 @@ Abc_Clock.exit:                                   ; preds = %19
   %69 = mul i32 %68, 741457
   %70 = lshr i32 %69, %16
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct.cloudNode, ptr %31, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %71
   %73 = load i32, ptr %72, align 8, !tbaa !22
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %.lr.ph.i, label %._crit_edge.i
@@ -214,7 +212,7 @@ Abc_Clock.exit:                                   ; preds = %19
 cloudMakeNode.exit:                               ; preds = %87, %104, %105
   %109 = phi i32 [ %63, %87 ], [ %27, %104 ], [ %102, %105 ]
   %.032.i = phi ptr [ %.035.i, %87 ], [ null, %104 ], [ %.0.lcssa.i, %105 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv69
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv69
   store ptr %.032.i, ptr %110, align 8, !tbaa !37
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
@@ -247,7 +245,7 @@ define internal fastcc noundef ptr @cloudMakeNode(ptr noundef captures(none) %0,
   %17 = load i32, ptr %16, align 8, !tbaa !16
   %18 = lshr i32 %15, %17
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.cloudNode, ptr %6, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8, !tbaa !21
   %23 = load i32, ptr %20, align 8, !tbaa !22
@@ -377,7 +375,7 @@ define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #4 {
 
 15:                                               ; preds = %13, %19
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %19 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !40
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %19, label %18
@@ -423,7 +421,7 @@ define void @Cloud_Restart(ptr noundef captures(none) %0) local_unnamed_addr #6 
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = load i32, ptr %15, align 8, !tbaa !22
   %17 = add i32 %16, 1
@@ -447,7 +445,7 @@ define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.phi.trans.insert10 = zext i32 %1 to i64
-  %.phi.trans.insert11 = getelementptr inbounds nuw i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert10
+  %.phi.trans.insert11 = getelementptr inbounds nuw [4 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert10
   %.pre = load i32, ptr %.phi.trans.insert11, align 4, !tbaa !13
   br label %14
 
@@ -457,11 +455,11 @@ define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, 
   %7 = sub nsw i32 %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   store i32 %7, ptr %10, align 4, !tbaa !13
   %11 = sub i32 32, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %9
   store i32 %11, ptr %13, align 4, !tbaa !13
   br label %14
 
@@ -472,7 +470,7 @@ define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, 
   %17 = sext i32 %16 to i64
   %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.pre-phi
   store ptr %18, ptr %20, align 8, !tbaa !40
   %21 = shl i32 32, %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -508,7 +506,7 @@ define ptr @Cloud_MakeNode(ptr noundef captures(none) %0, i32 noundef %1, ptr no
   %23 = load i32, ptr %22, align 8, !tbaa !16
   %24 = lshr i32 %21, %23
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.cloudNode, ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i32, ptr %27, align 8, !tbaa !21
   %29 = load i32, ptr %26, align 8, !tbaa !22
@@ -615,7 +613,7 @@ cloudMakeNode.exit:                               ; preds = %._crit_edge.i
   %92 = load i32, ptr %91, align 8, !tbaa !16
   %93 = lshr i32 %90, %92
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %struct.cloudNode, ptr %82, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %97 = load i32, ptr %96, align 8, !tbaa !21
   %98 = load i32, ptr %95, align 8, !tbaa !22
@@ -748,7 +746,7 @@ define ptr @cloudBddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %31 = load i32, ptr %30, align 4, !tbaa !13
   %32 = lshr i32 %29, %31
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %24, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %33
   %35 = load i32, ptr %34, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load i32, ptr %36, align 8, !tbaa !21
@@ -1190,14 +1188,14 @@ define ptr @Cloud_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %.01930 = phi ptr [ %10, %.lr.ph ], [ %.2, %45 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next
   %20 = load i32, ptr %19, align 4, !tbaa !13
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %45
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %13, align 8, !tbaa !30
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = icmp ult ptr %.01930, inttoptr (i64 2 to ptr)
   %27 = icmp ult ptr %25, inttoptr (i64 2 to ptr)
@@ -1275,7 +1273,7 @@ tailrecurse:                                      ; preds = %2, %tailrecurse
   %10 = or disjoint i32 %8, 268435456
   store i32 %10, ptr %9, align 4, !tbaa !24
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %11
   store i32 1, ptr %12, align 4, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %.tr4, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !31
@@ -1355,7 +1353,7 @@ define i32 @Cloud_SupportSize(ptr noundef readonly captures(none) %0, ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.017 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !13
   %13 = icmp eq i32 %12, 1
   %14 = zext i1 %13 to i32
@@ -1476,7 +1474,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %2, align 4, !tbaa !13
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   store ptr %1, ptr %16, align 8, !tbaa !37
   br label %common.ret17
 
@@ -1500,7 +1498,7 @@ common.ret17:                                     ; preds = %3, %10, %17
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %2, align 4, !tbaa !13
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %1, ptr %32, align 8, !tbaa !37
   %33 = add i32 %20, 1
   %34 = add i32 %33, %26
@@ -1523,7 +1521,7 @@ define i32 @Cloud_SharingSize(ptr noundef readnone captures(none) %0, ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01315 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, -2
@@ -1536,7 +1534,7 @@ define i32 @Cloud_SharingSize(ptr noundef readnone captures(none) %0, ptr nounde
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ 0, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv20
   %13 = load ptr, ptr %12, align 8, !tbaa !37
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -2
@@ -1603,7 +1601,7 @@ define ptr @Cloud_GetOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %34 = load ptr, ptr %33, align 8, !tbaa !30
   %35 = load i32, ptr %6, align 4, !tbaa !24
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !37
   %39 = ptrtoint ptr %38 to i64
   %40 = xor i64 %39, 1
@@ -1655,7 +1653,7 @@ define ptr @Cloud_GetOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %68 = load ptr, ptr %67, align 8, !tbaa !30
   %69 = load i32, ptr %6, align 4, !tbaa !24
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !37
   %73 = icmp ult ptr %64, inttoptr (i64 2 to ptr)
   %74 = icmp ult ptr %72, inttoptr (i64 2 to ptr)
@@ -1964,7 +1962,7 @@ define void @Cloud_PrintHashTable(ptr noundef readonly captures(none) %0) local_
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %struct.cloudNode, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !24
   %11 = icmp eq i32 %10, 268435455

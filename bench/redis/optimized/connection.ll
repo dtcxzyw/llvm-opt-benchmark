@@ -44,7 +44,7 @@ define dso_local range(i32 -1, 1) i32 @connTypeRegister(ptr noundef %0) local_un
 
 4:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %16, label %7
@@ -82,7 +82,7 @@ define dso_local range(i32 -1, 1) i32 @connTypeRegister(ptr noundef %0) local_un
 
 20:                                               ; preds = %16, %19
   %21 = and i64 %.0.lcssa, 4294967295
-  %22 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %21
   store ptr %0, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !43
@@ -151,7 +151,7 @@ define dso_local ptr @connectionByType(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
@@ -190,7 +190,7 @@ define dso_local nonnull ptr @connectionTypeTcp() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %9, label %5
@@ -246,7 +246,7 @@ define dso_local ptr @connectionTypeTls() local_unnamed_addr #0 {
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %10, label %6
@@ -290,7 +290,7 @@ define dso_local ptr @connectionTypeUnix() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %9, label %5
@@ -327,7 +327,7 @@ define dso_local range(i32 -1, 8) i32 @connectionIndexByType(ptr noundef readonl
 
 2:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.split.loop.exit, label %5
@@ -359,7 +359,7 @@ define dso_local void @connTypeCleanupAll() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %8
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
-  %2 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -389,7 +389,7 @@ define dso_local i32 @connTypeHasPendingData(ptr noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -422,7 +422,7 @@ define dso_local i32 @connTypeProcessPendingData(ptr noundef %0) local_unnamed_a
 2:                                                ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
   %.013 = phi i32 [ 0, %1 ], [ %.1, %11 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @connTypes, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @connTypes, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -458,7 +458,7 @@ define dso_local ptr @getListensInfoString(ptr noundef %0) local_unnamed_addr #0
 3:                                                ; preds = %1, %31
   %indvars.iv26 = phi i64 [ 0, %1 ], [ %indvars.iv.next27, %31 ]
   %.01724 = phi ptr [ %0, %1 ], [ %.1, %31 ]
-  %4 = getelementptr inbounds nuw %struct.connListener, ptr getelementptr inbounds nuw (i8, ptr @server, i64 488), i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw [104 x i8], ptr getelementptr inbounds nuw (i8, ptr @server, i64 488), i64 %indvars.iv26
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !53
   %7 = icmp eq ptr %6, null
@@ -489,7 +489,7 @@ define dso_local ptr @getListensInfoString(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.221 = phi ptr [ %12, %.lr.ph ], [ %23, %19 ]
   %20 = load ptr, ptr %16, align 8, !tbaa !56
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !57
   %23 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.221, ptr noundef nonnull @.str.11, ptr noundef %22) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

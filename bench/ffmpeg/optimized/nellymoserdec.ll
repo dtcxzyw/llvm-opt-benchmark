@@ -148,7 +148,7 @@ define internal range(i32 64, 0) i32 @decode_tag(ptr noundef %0, ptr noundef %1,
   %45 = and i32 %44, 63
   store i32 6, ptr %30, align 8, !tbaa !58
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr @ff_nelly_init_table, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_init_table, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !59
   %49 = uitofp i16 %48 to float
   br label %50
@@ -174,7 +174,7 @@ define internal range(i32 64, 0) i32 @decode_tag(ptr noundef %0, ptr noundef %1,
   %61 = call i32 @llvm.umin.i32(i32 %41, i32 %60)
   store i32 %61, ptr %30, align 8, !tbaa !58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i16, ptr @ff_nelly_delta_table, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_delta_table, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !59
   %65 = sitofp i16 %64 to float
   %66 = fadd nsz float %.05872.i, %65
@@ -239,34 +239,34 @@ define internal range(i32 64, 0) i32 @decode_tag(ptr noundef %0, ptr noundef %1,
 91:                                               ; preds = %144, %85
   %92 = phi i32 [ %90, %85 ], [ %145, %144 ]
   %indvars.iv81.i = phi i64 [ 0, %85 ], [ %indvars.iv.next82.i, %144 ]
-  %93 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv81.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv81.i
   %94 = load i32, ptr %93, align 4, !tbaa !42
   %95 = icmp slt i32 %94, 1
   br i1 %95, label %96, label %122
 
 96:                                               ; preds = %91
-  %97 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv81.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv81.i
   %98 = load float, ptr %97, align 4, !tbaa !4
   %99 = fpext nsz float %98 to double
   %100 = fmul nsz double %99, 0x3FE6A09E667F3BCD
   %101 = fptrunc nsz double %100 to float
-  %102 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv81.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv81.i
   store float %101, ptr %102, align 4, !tbaa !4
   %103 = load i32, ptr %33, align 4, !tbaa !64
   %104 = add i32 %103, 40
   %105 = and i32 %104, 63
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %32, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !42
   %109 = add i32 %103, 9
   %110 = and i32 %109, 63
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %32, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !42
   %114 = add i32 %113, %108
   %115 = and i32 %103, 63
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %32, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %116
   store i32 %114, ptr %117, align 4, !tbaa !42
   %118 = add i32 %103, 1
   store i32 %118, ptr %33, align 4, !tbaa !64
@@ -297,12 +297,12 @@ define internal range(i32 64, 0) i32 @decode_tag(ptr noundef %0, ptr noundef %1,
   %135 = and i32 %134, %128
   %136 = add nuw nsw i32 %135, %133
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw float, ptr @ff_nelly_dequantization_table, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr @ff_nelly_dequantization_table, i64 %137
   %139 = load float, ptr %138, align 4, !tbaa !4
-  %140 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv81.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv81.i
   %141 = load float, ptr %140, align 4, !tbaa !4
   %142 = fmul nsz float %139, %141
-  %143 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv81.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv81.i
   store float %142, ptr %143, align 4, !tbaa !4
   br label %144
 

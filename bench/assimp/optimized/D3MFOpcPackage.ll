@@ -1966,7 +1966,7 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds
 _ZNSt6vectorIP9aiTextureSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %59, %_ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %54, ptr %33, align 8
   store ptr %58, ptr %34, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %54, i64 %52
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   store ptr %60, ptr %36, align 8
   br label %_ZNSt6vectorIP9aiTextureSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
 
@@ -2332,7 +2332,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp10TXmlParserIN4pugi8xml
 
 switch.lookup:                                    ; preds = %44
   %48 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
 
@@ -3570,7 +3570,7 @@ _ZNSt6vectorISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESaIS4_EE11_S_
 _ZNSt12_Vector_baseISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 }
@@ -6111,14 +6111,14 @@ switch.lookup:
   %6 = lshr i32 %3, 4
   %7 = and i32 %6, 15
   %8 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = and i32 %6, 3
   %10 = lshr i32 %3, 9
   %11 = and i32 %10, 4
   %12 = or disjoint i32 %9, %11
   %13 = zext nneg i32 %12 to i64
-  %switch.gep814 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc.4, i64 %13
+  %switch.gep814 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc.4, i64 %13
   %switch.load815 = load ptr, ptr %switch.gep814, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8

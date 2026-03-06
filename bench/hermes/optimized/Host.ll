@@ -644,7 +644,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %Hardware.sroa.0.0880 = phi ptr [ null, %for.body.lr.ph ], [ %Hardware.sroa.0.1, %for.inc ]
   %Hardware.sroa.4.0879 = phi i64 [ 0, %for.body.lr.ph ], [ %Hardware.sroa.4.1, %for.inc ]
   %5 = load ptr, ptr %Lines, align 8
-  %arrayidx.i1003 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %5, i64 %indvars.iv
+  %arrayidx.i1003 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %Length.i1044 = getelementptr inbounds nuw i8, ptr %arrayidx.i1003, i64 8
   %6 = load i64, ptr %Length.i1044, align 8
   %cmp.i1046 = icmp ugt i64 %6, 14
@@ -668,7 +668,7 @@ if.then:                                          ; preds = %if.end.i1426
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %.sroa.speculated.i
   %sub.i.i.i = sub i64 %9, %.sroa.speculated.i
   %.pre = load ptr, ptr %Lines, align 8
-  %arrayidx.i993.phi.trans.insert = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %.pre, i64 %indvars.iv
+  %arrayidx.i993.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv
   %Length.i1033.phi.trans.insert = getelementptr inbounds nuw i8, ptr %arrayidx.i993.phi.trans.insert, i64 8
   %.pre919 = load i64, ptr %Length.i1033.phi.trans.insert, align 8
   br label %if.end
@@ -686,7 +686,7 @@ if.end.i1435:                                     ; preds = %if.end.i1426, %if.e
   %Implementer.sroa.7.1937 = phi i64 [ %Implementer.sroa.7.1, %if.end ], [ %Implementer.sroa.7.0881, %if.end.i1426 ]
   %13 = phi ptr [ %12, %if.end ], [ %5, %if.end.i1426 ]
   %14 = phi i64 [ %11, %if.end ], [ %6, %if.end.i1426 ]
-  %arrayidx.i993 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %13, i64 %indvars.iv
+  %arrayidx.i993 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx.i993, align 8
   %bcmp296 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %15, ptr noundef nonnull dereferenceable(8) @.str.33, i64 8)
   %16 = icmp eq i32 %bcmp296, 0
@@ -751,7 +751,7 @@ for.body40.lr.ph:                                 ; preds = %if.end33
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %for.inc88
   %indvars.iv910 = phi i64 [ 0, %for.body40.lr.ph ], [ %indvars.iv.next911, %for.inc88 ]
-  %arrayidx.i983 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %24, i64 %indvars.iv910
+  %arrayidx.i983 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv910
   %Length.i1022 = getelementptr inbounds nuw i8, ptr %arrayidx.i983, i64 8
   %26 = load i64, ptr %Length.i1022, align 8
   %cmp.i1024 = icmp ugt i64 %26, 7
@@ -891,7 +891,7 @@ for.body106.lr.ph:                                ; preds = %if.then99
 
 for.body106:                                      ; preds = %for.body106.lr.ph, %for.inc134
   %indvars.iv913 = phi i64 [ 0, %for.body106.lr.ph ], [ %indvars.iv.next914, %for.inc134 ]
-  %arrayidx.i973 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %51, i64 %indvars.iv913
+  %arrayidx.i973 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv913
   %Length.i1011 = getelementptr inbounds nuw i8, ptr %arrayidx.i973, i64 8
   %53 = load i64, ptr %Length.i1011, align 8
   %cmp.i1013 = icmp ugt i64 %53, 7
@@ -981,7 +981,7 @@ for.body148.lr.ph:                                ; preds = %if.then141
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.inc180
   %indvars.iv916 = phi i64 [ 0, %for.body148.lr.ph ], [ %indvars.iv.next917, %for.inc180 ]
-  %arrayidx.i963 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %67, i64 %indvars.iv916
+  %arrayidx.i963 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv916
   %Length.i1006 = getelementptr inbounds nuw i8, ptr %arrayidx.i963, i64 8
   %69 = load i64, ptr %Length.i1006, align 8
   %cmp.i = icmp ugt i64 %69, 7
@@ -1236,7 +1236,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %Lines, align 8
-  %arrayidx.i211 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %3, i64 %indvars.iv
+  %arrayidx.i211 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %Length.i219 = getelementptr inbounds nuw i8, ptr %arrayidx.i211, i64 8
   %4 = load i64, ptr %Length.i219, align 8
   %cmp.i221 = icmp ugt i64 %4, 7
@@ -1255,7 +1255,7 @@ if.then:                                          ; preds = %if.end.i
 
 if.then10:                                        ; preds = %if.then
   %7 = load ptr, ptr %Lines, align 8
-  %arrayidx.i201 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %7, i64 %indvars.iv
+  %arrayidx.i201 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %add = add nuw i64 %call8, 1
   %Length.i.i257 = getelementptr inbounds nuw i8, ptr %arrayidx.i201, i64 8
   %8 = load i64, ptr %Length.i.i257, align 8
@@ -1287,7 +1287,7 @@ for.body21.lr.ph:                                 ; preds = %for.end
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc29
   %indvars.iv114 = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next115, %for.inc29 ]
   %HaveVectorSupport.0106 = phi i1 [ false, %for.body21.lr.ph ], [ %HaveVectorSupport.1, %for.inc29 ]
-  %arrayidx.i196 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %11, i64 %indvars.iv114
+  %arrayidx.i196 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv114
   %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i196, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx, align 8
   %cmp.i283 = icmp eq i64 %agg.tmp22.sroa.2.0.copyload, 2
@@ -1319,7 +1319,7 @@ for.body38.lr.ph:                                 ; preds = %for.end31
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.inc75
   %indvars.iv116 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next117, %for.inc75 ]
-  %arrayidx.i191 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %14, i64 %indvars.iv116
+  %arrayidx.i191 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv116
   %Length.i214 = getelementptr inbounds nuw i8, ptr %arrayidx.i191, i64 8
   %16 = load i64, ptr %Length.i214, align 8
   %cmp.i = icmp ugt i64 %16, 9
@@ -1339,7 +1339,7 @@ if.then43:                                        ; preds = %if.end.i273
 if.then50:                                        ; preds = %if.then43
   %add51 = add i64 %call48, 10
   %19 = load ptr, ptr %Lines, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %19, i64 %indvars.iv116
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv116
   %Length.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %20 = load i64, ptr %Length.i.i, align 8
   %.sroa.speculated92 = call i64 @llvm.umin.i64(i64 %20, i64 %add51)
@@ -1907,10 +1907,10 @@ _ZN4llvh9StringRefC2EPKc.exit745:                 ; preds = %if.then8, %if.then6
 
 switch.lookup:                                    ; preds = %sw.bb1.i142
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep294 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 %37
+  %switch.gep294 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 %37
   %switch.load295 = load ptr, ptr %switch.gep294, align 8
   br label %return
 
@@ -3321,7 +3321,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 _ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit: ; preds = %for.body.i, %for.inc.i
   %retval.0.i = phi ptr [ %I.07.i, %for.body.i ], [ %add.ptr.i14.i, %for.inc.i ]
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.22", ptr %2, i64 %conv.i.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv.i.i
   %cmp.not = icmp eq ptr %retval.0.i, %add.ptr.i
   br i1 %cmp.not, label %if.end9, label %return
 
@@ -3346,7 +3346,7 @@ if.then.i:                                        ; preds = %if.then13
 _ZN4llvh23SmallVectorTemplateBaseISt4pairIiiELb1EE9push_backERKS2_.exit: ; preds = %if.then13, %if.then.i
   %conv.i3.i.pre-phi = phi i64 [ %conv.i.i, %if.then13 ], [ %.pre37, %if.then.i ]
   %10 = phi ptr [ %2, %if.then13 ], [ %.pre, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair.22", ptr %10, i64 %conv.i3.i.pre-phi
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i.pre-phi
   %11 = load i64, ptr %V, align 4
   store i64 %11, ptr %add.ptr.i.i, align 1
   %12 = load i32, ptr %Size.i.i, align 8
@@ -3362,7 +3362,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %13 = phi i32 [ %3, %while.body.lr.ph ], [ %sub.i, %while.body ]
   %14 = load ptr, ptr %this, align 8
   %conv.i.i19 = zext i32 %13 to i64
-  %add.ptr.i.i20 = getelementptr inbounds nuw %"struct.std::pair.22", ptr %14, i64 %conv.i.i19
+  %add.ptr.i.i20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %conv.i.i19
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i20, i64 -8
   %call.i21 = tail call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EES0_ISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %Set20, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i)
   %15 = load i32, ptr %Size.i.i, align 8
@@ -3616,7 +3616,7 @@ entry:
   %call = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %Key.coerce0, i64 %Key.coerce1) #19
   %0 = load ptr, ptr %this, align 8
   %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %while.cond.i.i.i [
@@ -3678,7 +3678,7 @@ _ZN4llvh14StringMapEntryIbE6CreateINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %call12 = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %call) #19
   %5 = load ptr, ptr %this, align 8
   %idx.ext15 = zext i32 %call12 to i64
-  %add.ptr16 = getelementptr inbounds nuw ptr, ptr %5, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idx.ext15
   br label %while.cond.i.i.i9
 
 while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12, %_ZN4llvh14StringMapEntryIbE6CreateINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit

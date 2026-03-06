@@ -40,7 +40,7 @@ define dso_local void @_ZN4absl12log_internal16FormatLogMessageB5cxx11ENS_11LogS
 
 switch.lookup:                                    ; preds = %11
   %15 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
 
@@ -191,7 +191,7 @@ define dso_local noundef i64 @_ZN4absl12log_internal15FormatLogPrefixENS_11LogSe
 
 switch.lookup:                                    ; preds = %23
   %31 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
 
@@ -230,7 +230,7 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i: ; preds = %23, %switch.looku
 
 switch.lookup28:                                  ; preds = %40
   %43 = zext nneg i32 %0 to i64
-  %switch.gep29 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 %43
+  %switch.gep29 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 %43
   %switch.load30 = load ptr, ptr %switch.gep29, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
 

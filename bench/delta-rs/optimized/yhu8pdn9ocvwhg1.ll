@@ -4338,7 +4338,7 @@ default.unreachable370:                           ; preds = %2
   %.val124 = load ptr, ptr %45, align 8, !nonnull !5, !noundef !5
   %46 = getelementptr i8, ptr %44, i64 40
   %.val125 = load i64, ptr %46, align 8, !noundef !5
-  %47 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val124, i64 %.val125
+  %47 = getelementptr inbounds [48 x i8], ptr %.val124, i64 %.val125
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !5, !align !6, !noundef !5
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4813,7 +4813,7 @@ default.unreachable370:                           ; preds = %2
   %.val126 = load ptr, ptr %187, align 8, !nonnull !5, !noundef !5
   %188 = getelementptr i8, ptr %186, i64 40
   %.val127 = load i64, ptr %188, align 8, !noundef !5
-  %189 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val126, i64 %.val127
+  %189 = getelementptr inbounds [48 x i8], ptr %.val126, i64 %.val127
   %190 = load ptr, ptr %48, align 8, !nonnull !5, !align !6, !noundef !5
   %191 = load ptr, ptr %50, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution17haef1a5724fc54081E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %23, ptr noundef nonnull %.val126, ptr noundef nonnull %189, ptr noundef nonnull align 8 %190, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %186, ptr noalias noundef nonnull align 8 dereferenceable(80) %191)
@@ -5732,7 +5732,7 @@ default.unreachable2685:                          ; preds = %1343, %519, %2
   %.val947 = load ptr, ptr %399, align 8, !nonnull !5, !noundef !5
   %400 = getelementptr i8, ptr %398, i64 40
   %.val948 = load i64, ptr %400, align 8, !noundef !5
-  %401 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val947, i64 %.val948
+  %401 = getelementptr inbounds [48 x i8], ptr %.val947, i64 %.val948
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %403 = load ptr, ptr %402, align 8, !nonnull !5, !align !6, !noundef !5
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6314,7 +6314,7 @@ common.ret:                                       ; preds = %509, %1144, %1241, 
   %602 = load ptr, ptr %601, align 8, !alias.scope !827, !noalias !792, !nonnull !5, !noundef !5
   %603 = getelementptr inbounds nuw i8, ptr %599, i64 16
   %604 = load i64, ptr %603, align 8, !alias.scope !827, !noalias !792, !noundef !5
-  %605 = getelementptr inbounds ptr, ptr %602, i64 %604
+  %605 = getelementptr inbounds [8 x i8], ptr %602, i64 %604
   store ptr %602, ptr %107, align 8, !noalias !828
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %605, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !828
@@ -6513,7 +6513,7 @@ select.unfold.i:                                  ; preds = %611, %.noexc177.i, 
   %667 = load ptr, ptr %666, align 8, !alias.scope !855, !noalias !792, !nonnull !5, !noundef !5
   %668 = getelementptr inbounds nuw i8, ptr %663, i64 16
   %669 = load i64, ptr %668, align 8, !alias.scope !855, !noalias !792, !noundef !5
-  %670 = getelementptr inbounds ptr, ptr %667, i64 %669
+  %670 = getelementptr inbounds [8 x i8], ptr %667, i64 %669
   store ptr %667, ptr %104, align 8, !noalias !856
   %.sroa.4.0..sroa_idx.i.i194.i = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %670, ptr %.sroa.4.0..sroa_idx.i.i194.i, align 8, !noalias !856
@@ -7673,7 +7673,7 @@ select.unfold.i:                                  ; preds = %611, %.noexc177.i, 
   %.val949 = load ptr, ptr %1023, align 8, !nonnull !5, !noundef !5
   %1024 = getelementptr i8, ptr %1022, i64 40
   %.val950 = load i64, ptr %1024, align 8, !noundef !5
-  %1025 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val949, i64 %.val950
+  %1025 = getelementptr inbounds [48 x i8], ptr %.val949, i64 %.val950
   %1026 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1027 = load ptr, ptr %1026, align 8, !nonnull !5, !align !6, !noundef !5
   %1028 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7699,7 +7699,7 @@ select.unfold.i:                                  ; preds = %611, %.noexc177.i, 
   %.val951 = load ptr, ptr %1037, align 8, !nonnull !5, !noundef !5
   %1038 = getelementptr i8, ptr %1036, i64 40
   %.val952 = load i64, ptr %1038, align 8, !noundef !5
-  %1039 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val951, i64 %.val952
+  %1039 = getelementptr inbounds [48 x i8], ptr %.val951, i64 %.val952
   %1040 = load ptr, ptr %1026, align 8, !nonnull !5, !align !6, !noundef !5
   %1041 = load ptr, ptr %1028, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing17hf75db8e750fed8d3E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %354, ptr noundef nonnull %.val951, ptr noundef nonnull %1039, ptr noundef nonnull align 8 %1040, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1036, ptr noalias noundef nonnull align 8 dereferenceable(80) %1041)
@@ -8688,7 +8688,7 @@ select.unfold.i:                                  ; preds = %611, %.noexc177.i, 
   %1364 = load ptr, ptr %1363, align 8, !alias.scope !1192, !noalias !1193, !nonnull !5, !noundef !5
   %1365 = getelementptr inbounds nuw i8, ptr %1361, i64 16
   %1366 = load i64, ptr %1365, align 8, !alias.scope !1192, !noalias !1193, !noundef !5
-  %1367 = getelementptr inbounds ptr, ptr %1364, i64 %1366
+  %1367 = getelementptr inbounds [8 x i8], ptr %1364, i64 %1366
   store ptr %1364, ptr %10, align 8, !noalias !1194
   %.sroa.4.0..sroa_idx.i.i.i1092 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1367, ptr %.sroa.4.0..sroa_idx.i.i.i1092, align 8, !noalias !1194
@@ -8807,7 +8807,7 @@ select.unfold.i1110:                              ; preds = %1373, %.noexc359.i,
   %1411 = load ptr, ptr %1410, align 8, !alias.scope !1209, !noalias !1193, !nonnull !5, !noundef !5
   %1412 = getelementptr inbounds nuw i8, ptr %1408, i64 16
   %1413 = load i64, ptr %1412, align 8, !alias.scope !1209, !noalias !1193, !noundef !5
-  %1414 = getelementptr inbounds ptr, ptr %1411, i64 %1413
+  %1414 = getelementptr inbounds [8 x i8], ptr %1411, i64 %1413
   store ptr %1411, ptr %9, align 8, !noalias !1210
   %.sroa.4.0..sroa_idx.i.i361.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1414, ptr %.sroa.4.0..sroa_idx.i.i361.i, align 8, !noalias !1210
@@ -11933,7 +11933,7 @@ select.unfold1056.i:                              ; preds = %1420, %.noexc367.i,
   %.val953 = load ptr, ptr %2355, align 8, !nonnull !5, !noundef !5
   %2356 = getelementptr i8, ptr %2354, i64 40
   %.val954 = load i64, ptr %2356, align 8, !noundef !5
-  %2357 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val953, i64 %.val954
+  %2357 = getelementptr inbounds [48 x i8], ptr %.val953, i64 %.val954
   %2358 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2359 = load ptr, ptr %2358, align 8, !nonnull !5, !align !6, !noundef !5
   %2360 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11959,7 +11959,7 @@ select.unfold1056.i:                              ; preds = %1420, %.noexc367.i,
   %.val955 = load ptr, ptr %2369, align 8, !nonnull !5, !noundef !5
   %2370 = getelementptr i8, ptr %2368, i64 40
   %.val956 = load i64, ptr %2370, align 8, !noundef !5
-  %2371 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val955, i64 %.val956
+  %2371 = getelementptr inbounds [48 x i8], ptr %.val955, i64 %.val956
   %2372 = load ptr, ptr %2358, align 8, !nonnull !5, !align !6, !noundef !5
   %2373 = load ptr, ptr %2360, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit17h8fce1cc6d7e8c8ddE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %316, ptr noundef nonnull %.val955, ptr noundef nonnull %2371, ptr noalias noundef nonnull align 8 dereferenceable(1064) %2372, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2368, ptr noalias noundef nonnull align 8 dereferenceable(80) %2373)
@@ -11983,7 +11983,7 @@ select.unfold1056.i:                              ; preds = %1420, %.noexc367.i,
   %.val957 = load ptr, ptr %2381, align 8, !nonnull !5, !noundef !5
   %2382 = getelementptr i8, ptr %2380, i64 40
   %.val958 = load i64, ptr %2382, align 8, !noundef !5
-  %2383 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val957, i64 %.val958
+  %2383 = getelementptr inbounds [48 x i8], ptr %.val957, i64 %.val958
   %2384 = load ptr, ptr %2358, align 8, !nonnull !5, !align !6, !noundef !5
   %2385 = load ptr, ptr %2360, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit17ha616a6657867db1bE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %303, ptr noundef nonnull %.val957, ptr noundef nonnull %2383, ptr noundef nonnull align 8 %2384, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2380, ptr noalias noundef nonnull align 8 dereferenceable(80) %2385)
@@ -14855,7 +14855,7 @@ select.unfold1056.i:                              ; preds = %1420, %.noexc367.i,
   %.val959 = load ptr, ptr %3307, align 8, !nonnull !5, !noundef !5
   %3308 = getelementptr i8, ptr %3306, i64 40
   %.val960 = load i64, ptr %3308, align 8, !noundef !5
-  %3309 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val959, i64 %.val960
+  %3309 = getelementptr inbounds [48 x i8], ptr %.val959, i64 %.val960
   %3310 = load ptr, ptr %3264, align 8, !nonnull !5, !align !6, !noundef !5
   %3311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3312 = load ptr, ptr %3311, align 8, !nonnull !5, !align !6, !noundef !5
@@ -14880,7 +14880,7 @@ select.unfold1056.i:                              ; preds = %1420, %.noexc367.i,
   %.val961 = load ptr, ptr %3320, align 8, !nonnull !5, !noundef !5
   %3321 = getelementptr i8, ptr %3319, i64 40
   %.val962 = load i64, ptr %3321, align 8, !noundef !5
-  %3322 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val961, i64 %.val962
+  %3322 = getelementptr inbounds [48 x i8], ptr %.val961, i64 %.val962
   %3323 = load ptr, ptr %3264, align 8, !nonnull !5, !align !6, !noundef !5
   %3324 = load ptr, ptr %3311, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization17h7dbcfe2f921c3386E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %209, ptr noundef nonnull %.val961, ptr noundef nonnull %3322, ptr noalias noundef nonnull align 8 dereferenceable(1064) %3323, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3319, ptr noalias noundef nonnull align 8 dereferenceable(80) %3324)
@@ -14904,7 +14904,7 @@ select.unfold1056.i:                              ; preds = %1420, %.noexc367.i,
   %.val963 = load ptr, ptr %3332, align 8, !nonnull !5, !noundef !5
   %3333 = getelementptr i8, ptr %3331, i64 40
   %.val964 = load i64, ptr %3333, align 8, !noundef !5
-  %3334 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val963, i64 %.val964
+  %3334 = getelementptr inbounds [48 x i8], ptr %.val963, i64 %.val964
   %3335 = load ptr, ptr %3264, align 8, !nonnull !5, !align !6, !noundef !5
   %3336 = load ptr, ptr %3311, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization17hf32c62c43f12998cE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %196, ptr noundef nonnull %.val963, ptr noundef nonnull %3334, ptr noundef nonnull align 8 %3335, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3331, ptr noalias noundef nonnull align 8 dereferenceable(80) %3336)
@@ -16641,7 +16641,7 @@ select.unfold1056.i:                              ; preds = %1420, %.noexc367.i,
   %.val965 = load ptr, ptr %3898, align 8, !nonnull !5, !noundef !5
   %3899 = getelementptr i8, ptr %3897, i64 40
   %.val966 = load i64, ptr %3899, align 8, !noundef !5
-  %3900 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val965, i64 %.val966
+  %3900 = getelementptr inbounds [48 x i8], ptr %.val965, i64 %.val966
   %3901 = load ptr, ptr %3867, align 8, !nonnull !5, !align !6, !noundef !5
   %3902 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3903 = load ptr, ptr %3902, align 8, !nonnull !5, !align !6, !noundef !5
@@ -17356,7 +17356,7 @@ default.unreachable108:                           ; preds = %247, %_ZN7tracing4s
   %57 = load ptr, ptr %56, align 8, !alias.scope !2504, !nonnull !5, !noundef !5
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %59 = load i64, ptr %58, align 8, !alias.scope !2504, !noundef !5
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %57, i64 %59
   store ptr %57, ptr %27, align 8, !noalias !2504
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %60, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !2504
@@ -17872,8 +17872,8 @@ _ZN7tracing4span4Span8do_enter17hbed5ccb6152a3815E.llvm.8869660220870374449.exit
 
 234:                                              ; preds = %234, %225
   %.05.i.i.i.i = phi i64 [ 0, %225 ], [ %239, %234 ]
-  %235 = getelementptr inbounds nuw i64, ptr %230, i64 %.05.i.i.i.i
-  %236 = getelementptr inbounds nuw i64, ptr %233, i64 %.05.i.i.i.i
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %.05.i.i.i.i
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %.05.i.i.i.i
   %237 = load i64, ptr %235, align 8, !alias.scope !2585, !noalias !2590
   %238 = load i64, ptr %236, align 8, !alias.scope !2588, !noalias !2591
   store i64 %238, ptr %235, align 8, !alias.scope !2585, !noalias !2590
@@ -18275,8 +18275,8 @@ _ZN7tracing4span4Span8do_enter17hbed5ccb6152a3815E.llvm.8869660220870374449.exit
 
 360:                                              ; preds = %360, %356
   %.05.i.i12.i.i = phi i64 [ 0, %356 ], [ %365, %360 ]
-  %361 = getelementptr inbounds nuw i64, ptr %21, i64 %.05.i.i12.i.i
-  %362 = getelementptr inbounds nuw i64, ptr %359, i64 %.05.i.i12.i.i
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.05.i.i12.i.i
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %.05.i.i12.i.i
   %363 = load i64, ptr %361, align 8, !alias.scope !2651, !noalias !2656
   %364 = load i64, ptr %362, align 8, !alias.scope !2654, !noalias !2657
   store i64 %364, ptr %361, align 8, !alias.scope !2651, !noalias !2656
@@ -19433,7 +19433,7 @@ default.unreachable370:                           ; preds = %2
   %.val124 = load ptr, ptr %45, align 8, !nonnull !5, !noundef !5
   %46 = getelementptr i8, ptr %44, i64 40
   %.val125 = load i64, ptr %46, align 8, !noundef !5
-  %47 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val124, i64 %.val125
+  %47 = getelementptr inbounds [48 x i8], ptr %.val124, i64 %.val125
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !5, !align !6, !noundef !5
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -19908,7 +19908,7 @@ default.unreachable370:                           ; preds = %2
   %.val126 = load ptr, ptr %187, align 8, !nonnull !5, !noundef !5
   %188 = getelementptr i8, ptr %186, i64 40
   %.val127 = load i64, ptr %188, align 8, !noundef !5
-  %189 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val126, i64 %.val127
+  %189 = getelementptr inbounds [48 x i8], ptr %.val126, i64 %.val127
   %190 = load ptr, ptr %48, align 8, !nonnull !5, !align !6, !noundef !5
   %191 = load ptr, ptr %50, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt17h1cba5e35d69a4531E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %23, ptr noundef nonnull %.val126, ptr noundef nonnull %189, ptr noundef nonnull align 8 %190, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %186, ptr noalias noundef nonnull align 8 dereferenceable(80) %191)
@@ -21895,7 +21895,7 @@ default.unreachable3045:                          ; preds = %925, %899, %889, %2
   %.val1100 = load ptr, ptr %298, align 8, !nonnull !5, !noundef !5
   %299 = getelementptr i8, ptr %297, i64 40
   %.val1101 = load i64, ptr %299, align 8, !noundef !5
-  %300 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val1100, i64 %.val1101
+  %300 = getelementptr inbounds [48 x i8], ptr %.val1100, i64 %.val1101
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %302 = load ptr, ptr %301, align 8, !nonnull !5, !align !6, !noundef !5
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -21921,7 +21921,7 @@ default.unreachable3045:                          ; preds = %925, %899, %889, %2
   %.val1102 = load ptr, ptr %312, align 8, !nonnull !5, !noundef !5
   %313 = getelementptr i8, ptr %311, i64 40
   %.val1103 = load i64, ptr %313, align 8, !noundef !5
-  %314 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val1102, i64 %.val1103
+  %314 = getelementptr inbounds [48 x i8], ptr %.val1102, i64 %.val1103
   %315 = load ptr, ptr %301, align 8, !nonnull !5, !align !6, !noundef !5
   %316 = load ptr, ptr %303, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization17hb8b3c143a0bc929fE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %275, ptr noundef nonnull %.val1102, ptr noundef nonnull %314, ptr noalias noundef nonnull align 8 dereferenceable(1064) %315, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %311, ptr noalias noundef nonnull align 8 dereferenceable(80) %316)
@@ -22140,7 +22140,7 @@ default.unreachable3045:                          ; preds = %925, %899, %889, %2
   %395 = load ptr, ptr %394, align 8, !alias.scope !2953, !nonnull !5, !noundef !5
   %396 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %397 = load i64, ptr %396, align 8, !alias.scope !2953, !noundef !5
-  %398 = getelementptr inbounds ptr, ptr %395, i64 %397
+  %398 = getelementptr inbounds [8 x i8], ptr %395, i64 %397
   store ptr %395, ptr %25, align 8, !noalias !2953
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %398, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !2953
@@ -22352,7 +22352,7 @@ select.unfold:                                    ; preds = %404, %.noexc1123, %
   %454 = load ptr, ptr %453, align 8, !alias.scope !2994, !nonnull !5, !noundef !5
   %455 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %456 = load i64, ptr %455, align 8, !alias.scope !2994, !noundef !5
-  %457 = getelementptr inbounds ptr, ptr %454, i64 %456
+  %457 = getelementptr inbounds [8 x i8], ptr %454, i64 %456
   store ptr %454, ptr %24, align 8, !noalias !2994
   %.sroa.4.0..sroa_idx.i.i1130 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %457, ptr %.sroa.4.0..sroa_idx.i.i1130, align 8, !noalias !2994
@@ -22696,8 +22696,8 @@ select.unfold:                                    ; preds = %404, %.noexc1123, %
 
 575:                                              ; preds = %575, %573
   %.05.i.i = phi i64 [ 0, %573 ], [ %580, %575 ]
-  %576 = getelementptr inbounds nuw i64, ptr %564, i64 %.05.i.i
-  %577 = getelementptr inbounds nuw i64, ptr %574, i64 %.05.i.i
+  %576 = getelementptr inbounds nuw [8 x i8], ptr %564, i64 %.05.i.i
+  %577 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %.05.i.i
   %578 = load i64, ptr %576, align 8, !alias.scope !3044, !noalias !3047
   %579 = load i64, ptr %577, align 8, !alias.scope !3047, !noalias !3044
   store i64 %579, ptr %576, align 8, !alias.scope !3044, !noalias !3047
@@ -24241,7 +24241,7 @@ common.ret:                                       ; preds = %1933, %689, %785, %
   %.val1104 = load ptr, ptr %1066, align 8, !nonnull !5, !noundef !5
   %1067 = getelementptr i8, ptr %1065, i64 40
   %.val1105 = load i64, ptr %1067, align 8, !noundef !5
-  %1068 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val1104, i64 %.val1105
+  %1068 = getelementptr inbounds [48 x i8], ptr %.val1104, i64 %.val1105
   %1069 = load ptr, ptr %472, align 8, !nonnull !5, !align !6, !noundef !5
   %1070 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1071 = load ptr, ptr %1070, align 8, !nonnull !5, !align !6, !noundef !5
@@ -24266,7 +24266,7 @@ common.ret:                                       ; preds = %1933, %689, %785, %
   %.val1106 = load ptr, ptr %1079, align 8, !nonnull !5, !noundef !5
   %1080 = getelementptr i8, ptr %1078, i64 40
   %.val1107 = load i64, ptr %1080, align 8, !noundef !5
-  %1081 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } } }, ptr %.val1106, i64 %.val1107
+  %1081 = getelementptr inbounds [48 x i8], ptr %.val1106, i64 %.val1107
   %1082 = load ptr, ptr %472, align 8, !nonnull !5, !align !6, !noundef !5
   %1083 = load ptr, ptr %1070, align 8, !nonnull !5, !align !6, !noundef !5
   invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop17hf377573fd6f7d53aE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %203, ptr noundef nonnull %.val1106, ptr noundef nonnull %1081, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1082, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1078, ptr noalias noundef nonnull align 8 dereferenceable(80) %1083)
@@ -31273,7 +31273,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std
   %53 = add i64 %.sroa.01.0.i.i.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 } }, ptr %.val.i, i64 %55
+  %56 = getelementptr inbounds [48 x i8], ptr %.val.i, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -32
   %.val6.i.i.i.i = load i64, ptr %57, align 8, !alias.scope !4257, !noalias !4262, !noundef !5
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %2, %.val6.i.i.i.i

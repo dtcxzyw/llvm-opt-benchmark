@@ -353,7 +353,7 @@ define noundef zeroext i1 @prte_schizo_base_check_qualifiers(ptr noundef %0, ptr
 
 5:                                                ; preds = %.lr.ph
   %6 = add i64 %.01116, 1
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %.not.not = icmp eq ptr %8, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
@@ -407,7 +407,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.preheader, %23
   %14 = phi ptr [ %26, %23 ], [ %12, %.preheader ]
   %.04352 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %.04352
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.04352
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %.critedge.loopexit, label %17
@@ -422,7 +422,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 
 23:                                               ; preds = %17
   %24 = add i64 %.04352, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !36
   %.not47 = icmp eq ptr %26, null
   br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !38
@@ -491,7 +491,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 16:                                               ; preds = %.lr.ph.i
   %17 = add i64 %.01116.i, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !36
   %.not.not.i = icmp eq ptr %19, null
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !37
@@ -511,7 +511,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 24:                                               ; preds = %.lr.ph.i
   %25 = add i64 %.067112, 1
-  %26 = getelementptr inbounds nuw ptr, ptr %12, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !36
   %.not83 = icmp eq ptr %27, null
   br i1 %.not83, label %._crit_edge115, label %.lr.ph114, !llvm.loop !39
@@ -553,7 +553,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 44:                                               ; preds = %.lr.ph
   %45 = add i64 %.068101, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !36
   %.not77 = icmp eq ptr %47, null
   br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !40
@@ -626,7 +626,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 83:                                               ; preds = %87
   %84 = add i64 %.1103, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %7, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !36
   %.not80.not = icmp eq ptr %86, null
   br i1 %.not80.not, label %.critedge, label %87, !llvm.loop !41
@@ -676,7 +676,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 106:                                              ; preds = %.lr.ph.i85
   %107 = add i64 %.01116.i86, 1
-  %108 = getelementptr inbounds nuw ptr, ptr %2, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !36
   %.not.not.i87 = icmp eq ptr %109, null
   br i1 %.not.not.i87, label %.loopexit94, label %.lr.ph.i85, !llvm.loop !37
@@ -697,7 +697,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 114:                                              ; preds = %.lr.ph.i85
   %115 = add i64 %.2107, 1
-  %116 = getelementptr inbounds nuw ptr, ptr %102, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !36
   %.not82 = icmp eq ptr %117, null
   br i1 %.not82, label %._crit_edge110, label %.lr.ph109, !llvm.loop !42
@@ -972,7 +972,7 @@ pmix_cmd_line_get_ninsts.exit151.thread:          ; preds = %67, %pmix_cmd_line_
   br label %82
 
 80:                                               ; preds = %82
-  %81 = getelementptr inbounds nuw %struct.prte_synonym_t, ptr @synonyms, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [16 x i8], ptr @synonyms, i64 %indvars.iv.i
   br i1 %.not.i, label %pmix_cmd_line_get_param.exit, label %82, !llvm.loop !48
 
 82:                                               ; preds = %80, %77
@@ -1041,7 +1041,7 @@ check_synonym.exit:                               ; preds = %82
 110:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %111 = load ptr, ptr %90, align 8, !tbaa !47
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv.next
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.next
   %113 = load ptr, ptr %112, align 8, !tbaa !36
   %.not114 = icmp eq ptr %113, null
   br i1 %.not114, label %pmix_cmd_line_get_param.exit, label %.lr.ph, !llvm.loop !52
@@ -1112,7 +1112,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %80, %110, %.lr.ph.i
 
 146:                                              ; preds = %.lr.ph186
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
-  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.next222
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.next222
   %148 = load ptr, ptr %147, align 8, !tbaa !36
   %.not103 = icmp eq ptr %148, null
   br i1 %.not103, label %._crit_edge187, label %.lr.ph186, !llvm.loop !54
@@ -1143,7 +1143,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %80, %110, %.lr.ph.i
 
 159:                                              ; preds = %.lr.ph191
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %160 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv.next225
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv.next225
   %161 = load ptr, ptr %160, align 8, !tbaa !36
   %.not105 = icmp eq ptr %161, null
   br i1 %.not105, label %._crit_edge192, label %.lr.ph191, !llvm.loop !55
@@ -1174,7 +1174,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %80, %110, %.lr.ph.i
 
 172:                                              ; preds = %.lr.ph196
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
-  %173 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv.next228
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %indvars.iv.next228
   %174 = load ptr, ptr %173, align 8, !tbaa !36
   %.not107 = icmp eq ptr %174, null
   br i1 %.not107, label %._crit_edge197, label %.lr.ph196, !llvm.loop !56
@@ -1343,7 +1343,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_ndirs(ptr noundef readonly c
 
 4:                                                ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @limits, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @limits, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = load ptr, ptr %2, align 8, !tbaa !43
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6) #23
@@ -1395,7 +1395,7 @@ define noundef i32 @prte_schizo_base_parse_display(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.lr.ph176, %82
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph176 ]
   %9 = phi ptr [ %84, %82 ], [ %8, %.lr.ph176 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 58) #23
   %.not108 = icmp eq ptr %11, null
   br i1 %.not108, label %23, label %12
@@ -1567,7 +1567,7 @@ define noundef i32 @prte_schizo_base_parse_display(ptr noundef readonly captures
 
 82:                                               ; preds = %78, %63, %47, %40, %33, %26, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next
   %84 = load ptr, ptr %83, align 8, !tbaa !36
   %.not107 = icmp eq ptr %84, null
   br i1 %.not107, label %._crit_edge, label %.lr.ph, !llvm.loop !60
@@ -1576,7 +1576,7 @@ define noundef i32 @prte_schizo_base_parse_display(ptr noundef readonly captures
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #19
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %85 = load ptr, ptr %3, align 8, !tbaa !47
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.next219
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.next219
   %87 = load ptr, ptr %86, align 8, !tbaa !36
   %.not = icmp eq ptr %87, null
   br i1 %.not, label %.loopexit131, label %.lr.ph176, !llvm.loop !61
@@ -1623,7 +1623,7 @@ define noundef i32 @prte_schizo_base_parse_output(ptr noundef readonly captures(
   %12 = phi ptr [ %150, %148 ], [ %11, %.lr.ph471 ]
   %.1168460 = phi ptr [ %.2169, %148 ], [ %.0167468, %.lr.ph471 ]
   %.1173459 = phi ptr [ %.2174, %148 ], [ %.0172467, %.lr.ph471 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv619
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv619
   %14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #23
   %.not207 = icmp eq ptr %14, null
   br i1 %.not207, label %42, label %15
@@ -1639,7 +1639,7 @@ define noundef i32 @prte_schizo_base_parse_output(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %15, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %15 ]
   %19 = phi ptr [ %41, %.thread ], [ %18, %15 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %21 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %19, ptr noundef nonnull @.str.55)
   br i1 %21, label %22, label %26
 
@@ -1706,7 +1706,7 @@ define noundef i32 @prte_schizo_base_parse_output(ptr noundef readonly captures(
 
 .thread:                                          ; preds = %33, %29, %22, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8, !tbaa !36
   %.not208 = icmp eq ptr %41, null
   br i1 %.not208, label %._crit_edge, label %.lr.ph, !llvm.loop !62
@@ -2024,7 +2024,7 @@ define noundef i32 @prte_schizo_base_parse_output(ptr noundef readonly captures(
   %.2174 = phi ptr [ %.1173459, %42 ], [ %.1173459, %52 ], [ %.1173459, %59 ], [ %.1173459, %66 ], [ %.1173459, %73 ], [ %.1173459, %80 ], [ %.1173459, %87 ], [ %.1173459, %94 ], [ null, %119 ], [ %.4176, %144 ], [ %.1173459, %123 ]
   %.2169 = phi ptr [ %.1168460, %42 ], [ %.1168460, %52 ], [ %.1168460, %59 ], [ %.1168460, %66 ], [ %.1168460, %73 ], [ %.1168460, %80 ], [ %.1168460, %87 ], [ %.1168460, %94 ], [ %.4171, %119 ], [ null, %144 ], [ %.1168460, %123 ]
   %indvars.iv.next620 = add nuw nsw i64 %indvars.iv619, 1
-  %149 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next620
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next620
   %150 = load ptr, ptr %149, align 8, !tbaa !36
   %.not206 = icmp eq ptr %150, null
   br i1 %.not206, label %._crit_edge464, label %.lr.ph463, !llvm.loop !63
@@ -2035,7 +2035,7 @@ define noundef i32 @prte_schizo_base_parse_output(ptr noundef readonly captures(
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #19
   %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
   %151 = load ptr, ptr %5, align 8, !tbaa !47
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.next623
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.next623
   %153 = load ptr, ptr %152, align 8, !tbaa !36
   %.not = icmp eq ptr %153, null
   br i1 %.not, label %._crit_edge472, label %.lr.ph471, !llvm.loop !64

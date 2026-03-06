@@ -3,35 +3,25 @@ source_filename = "bench/rocksdb/original/block_cache_tier_metadata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket" = type { %"class.std::__cxx11::list.51" }
-%"class.std::__cxx11::list.51" = type { %"class.std::__cxx11::_List_base.52" }
-%"class.std::__cxx11::_List_base.52" = type { %"struct.std::__cxx11::_List_base<rocksdb::BlockCacheFile *, std::allocator<rocksdb::BlockCacheFile *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<rocksdb::BlockCacheFile *, std::allocator<rocksdb::BlockCacheFile *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.rocksdb::LRUList" = type { ptr, %"class.rocksdb::port::Mutex", ptr, ptr }
-%"class.rocksdb::port::Mutex" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.rocksdb::port::RWMutex" = type { %union.pthread_rwlock_t }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
 %"class.rocksdb::BlockCacheFile" = type { %"struct.rocksdb::LRUElement", %"class.rocksdb::port::RWMutex", ptr, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::list" }
 %"struct.rocksdb::LRUElement" = type { ptr, ptr, ptr, %"struct.std::atomic" }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i64 }
+%"class.rocksdb::port::RWMutex" = type { %union.pthread_rwlock_t }
+%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
+%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<rocksdb::BlockInfo *, std::allocator<rocksdb::BlockInfo *>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<rocksdb::BlockInfo *, std::allocator<rocksdb::BlockInfo *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket" = type { %"class.std::__cxx11::list" }
 %"class.std::unique_ptr.37" = type { %"struct.std::__uniq_ptr_data.38" }
 %"struct.std::__uniq_ptr_data.38" = type { %"class.std::__uniq_ptr_impl.39" }
 %"class.std::__uniq_ptr_impl.39" = type { %"class.std::tuple.40" }
@@ -128,17 +118,17 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb18EvictableHashTableINS_14Blo
   %.zext = zext i32 %7 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !42
-  %10 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket", ptr %9, i64 %.zext
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.zext
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !43
   %13 = urem i32 %7, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = zext i32 %13 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !44
-  %17 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !46
-  %20 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %19, i64 %15
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %15
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
   br label %21
 
@@ -323,17 +313,17 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb18EvictableHashTableINS_14Blo
   %.zext = zext i32 %8 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !42
-  %11 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket", ptr %10, i64 %.zext
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %.zext
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !43
   %14 = urem i32 %8, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = zext i32 %14 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !44
-  %18 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !46
-  %21 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %20, i64 %16
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   tail call void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
   br label %22
 
@@ -530,10 +520,10 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18EvictableHashTableINS_14BlockCache
   %22 = add nuw nsw i64 %.047, %16
   %23 = urem i64 %22, %21
   %24 = load ptr, ptr %18, align 8, !tbaa !46
-  %25 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %23
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %25)
   %26 = load ptr, ptr %19, align 8, !tbaa !44
-  %27 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %28)
           to label %.noexc unwind label %64
@@ -576,7 +566,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18EvictableHashTableINS_14BlockCache
   %.zext = zext i32 %46 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !42
-  %49 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket", ptr %48, i64 %.zext
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %.zext
   br label %50
 
 50:                                               ; preds = %51, %41
@@ -700,12 +690,12 @@ define void @_ZN7rocksdb22BlockCacheTierMetadata5ClearEv(ptr noundef nonnull rea
   %11 = urem i32 %10, %9
   %12 = zext i32 %11 to i64
   %13 = load ptr, ptr %5, align 8, !tbaa !46
-  %14 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %12
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %14)
   %15 = load ptr, ptr %6, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %12
   %17 = load ptr, ptr %7, align 8, !tbaa !42
-  %18 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket", ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -880,24 +870,24 @@ _ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata1
   %77 = urem i32 %76, %75
   %78 = zext i32 %77 to i64
   %79 = load ptr, ptr %72, align 8, !tbaa !46
-  %80 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %79, i64 %78
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %80)
   %81 = load ptr, ptr %73, align 8, !tbaa !91
-  %82 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %81, i64 %indvars.iv.i2
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %indvars.iv.i2
   %.sroa.013.0.i23 = load ptr, ptr %82, align 8, !tbaa !47
   %.not.i324 = icmp eq ptr %.sroa.013.0.i23, %82
   br i1 %.not.i324, label %._crit_edge28, label %.lr.ph27
 
 ._crit_edge28.loopexit:                           ; preds = %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit"
   %.pre38 = load ptr, ptr %73, align 8, !tbaa !91
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %.pre38, i64 %indvars.iv.i2
+  %.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre38, i64 %indvars.iv.i2
   %.pre39 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !47
   br label %._crit_edge28
 
 ._crit_edge28:                                    ; preds = %._crit_edge28.loopexit, %74
   %83 = phi ptr [ %.pre39, %._crit_edge28.loopexit ], [ %.sroa.013.0.i23, %74 ]
   %84 = phi ptr [ %.pre38, %._crit_edge28.loopexit ], [ %81, %74 ]
-  %85 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %84, i64 %indvars.iv.i2
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %indvars.iv.i2
   %.not8.i.i.i4 = icmp eq ptr %83, %85
   br i1 %.not8.i.i.i4, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i, label %.lr.ph.i.i.i5
 
@@ -1060,11 +1050,11 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = zext i32 %18 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !46
-  %22 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %20
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %22)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !91
-  %25 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %24, i64 %14
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %14
   %.sroa.05.013.i.i = load ptr, ptr %25, align 8, !tbaa !47
   %.not1214.i.i = icmp eq ptr %.sroa.05.013.i.i, %25
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !93
@@ -1307,11 +1297,11 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = zext i32 %20 to i64
   %23 = load ptr, ptr %21, align 8, !tbaa !46
-  %24 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %22
   tail call void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %24)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !91
-  %27 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %26, i64 %16
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %16
   %.sroa.05.013.i.i = load ptr, ptr %27, align 8, !tbaa !47
   %.not1214.i.i = icmp eq ptr %.sroa.05.013.i.i, %27
   br i1 %.not1214.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNS6_6BucketERKS2_PS2_.exit.thread, label %.lr.ph.i.i
@@ -1479,11 +1469,11 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = zext i32 %19 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !46
-  %23 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %21
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %23)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !91
-  %26 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %15
   %.sroa.05.013.i.i = load ptr, ptr %26, align 8, !tbaa !47
   %.not1214.i.i = icmp eq ptr %.sroa.05.013.i.i, %26
   br i1 %.not1214.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5EraseEPNS6_6BucketERKS2_PS2_.exit, label %.lr.ph.i.i

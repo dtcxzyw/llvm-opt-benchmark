@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.pubkey = type { i32, ptr, i64 }
-%struct.anon = type { i32, ptr, i64, [10 x %struct.pubkey] }
 
 @.str = private unnamed_addr constant [16 x i8] c"params_bio_test\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"set_enc_pubkey_test\00", align 1
@@ -48,7 +47,7 @@ define internal range(i32 0, 2) i32 @params_bio_test(i32 noundef %0) #0 {
   store ptr null, ptr %2, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.anon, ptr @pkey_params, i64 %4
+  %5 = getelementptr inbounds [264 x i8], ptr @pkey_params, i64 %4
   %6 = load i32, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !14
@@ -117,7 +116,7 @@ define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.anon, ptr @pkey_params, i64 %3
+  %4 = getelementptr inbounds [264 x i8], ptr @pkey_params, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = icmp eq i32 %0, 1
@@ -146,7 +145,7 @@ define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %18, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw %struct.pubkey, ptr %6, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %.not32 = icmp eq ptr %23, null

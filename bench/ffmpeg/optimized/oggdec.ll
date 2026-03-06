@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ogg_codec = type { ptr, i8, ptr, ptr, ptr, ptr, i32, i32, ptr }
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"ogg\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"Ogg\00", align 1
@@ -107,7 +106,7 @@ define internal range(i32 -2147483648, 1) i32 @ogg_read_header(ptr noundef %0) #
 18:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %19 = load ptr, ptr %4, align 8, !tbaa !35
-  %20 = getelementptr inbounds nuw %struct.ogg_stream, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [432 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load i32, ptr %21, align 8, !tbaa !36
   %23 = icmp slt i32 %22, 0
@@ -117,7 +116,7 @@ define internal range(i32 -2147483648, 1) i32 @ogg_read_header(ptr noundef %0) #
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %25) #9
   %26 = load ptr, ptr %4, align 8, !tbaa !35
-  %27 = getelementptr inbounds nuw %struct.ogg_stream, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [432 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr null, ptr %28, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 424
@@ -155,7 +154,7 @@ define internal range(i32 -2147483648, 1) i32 @ogg_read_header(ptr noundef %0) #
 46:                                               ; preds = %43
   %47 = load ptr, ptr %3, align 8, !tbaa !12
   %48 = load ptr, ptr %47, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw %struct.ogg_stream, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [432 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
   %51 = load ptr, ptr %50, align 8, !tbaa !39
   %.not.i = icmp eq ptr %51, null
@@ -184,7 +183,7 @@ define internal range(i32 -2147483648, 1) i32 @ogg_read_header(ptr noundef %0) #
 ogg_gptopts.exit:                                 ; preds = %58, %59
   %.1.i = phi i64 [ -9223372036854775808, %59 ], [ %.0.i, %58 ]
   %60 = load ptr, ptr %17, align 8, !tbaa !46
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !47
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store i64 %.1.i, ptr %63, align 8, !tbaa !49
@@ -249,7 +248,7 @@ ogg_gptopts.exit:                                 ; preds = %58, %59
 94:                                               ; preds = %91
   %95 = load ptr, ptr %69, align 8, !tbaa !35
   %96 = zext nneg i32 %92 to i64
-  %97 = getelementptr inbounds nuw %struct.ogg_stream, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [432 x i8], ptr %95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %99 = load i64, ptr %98, align 8, !tbaa !64
   %.off.i = add i64 %99, -1
@@ -265,7 +264,7 @@ ogg_gptopts.exit:                                 ; preds = %58, %59
 103:                                              ; preds = %100
   %104 = load ptr, ptr %3, align 8, !tbaa !12
   %105 = load ptr, ptr %104, align 8, !tbaa !35
-  %106 = getelementptr inbounds nuw %struct.ogg_stream, ptr %105, i64 %96
+  %106 = getelementptr inbounds nuw [432 x i8], ptr %105, i64 %96
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 96
   %108 = load ptr, ptr %107, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %108, null
@@ -293,7 +292,7 @@ ogg_gptopts.exit:                                 ; preds = %58, %59
 ogg_gptopts.exit.i:                               ; preds = %115, %114
   %.1.i.i = phi i64 [ -9223372036854775808, %115 ], [ %.0.i.i, %114 ]
   %116 = load ptr, ptr %90, align 8, !tbaa !46
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %96
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %96
   %118 = load ptr, ptr %117, align 8, !tbaa !47
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
   store i64 %.1.i.i, ptr %119, align 8, !tbaa !65
@@ -306,7 +305,7 @@ ogg_gptopts.exit.i:                               ; preds = %115, %114
   %123 = sub nsw i64 %.1.i.i, %121
   store i64 %123, ptr %119, align 8, !tbaa !65
   %124 = load ptr, ptr %69, align 8, !tbaa !35
-  %125 = getelementptr inbounds nuw %struct.ogg_stream, ptr %124, i64 %96
+  %125 = getelementptr inbounds nuw [432 x i8], ptr %124, i64 %96
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 384
   %127 = load i32, ptr %126, align 8, !tbaa !66
   %128 = icmp eq i32 %127, -1
@@ -317,7 +316,7 @@ ogg_gptopts.exit.i:                               ; preds = %115, %114
 
 130:                                              ; preds = %ogg_gptopts.exit.i
   %131 = load ptr, ptr %69, align 8, !tbaa !35
-  %132 = getelementptr inbounds nuw %struct.ogg_stream, ptr %131, i64 %96
+  %132 = getelementptr inbounds nuw [432 x i8], ptr %131, i64 %96
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 384
   %134 = load i32, ptr %133, align 8, !tbaa !66
   %.not73.i = icmp eq i32 %134, 0
@@ -357,7 +356,7 @@ ogg_gptopts.exit.i:                               ; preds = %115, %114
 .lr.ph.i.i:                                       ; preds = %141, %168
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %168 ], [ 0, %141 ]
   %152 = load ptr, ptr %146, align 8, !tbaa !35
-  %153 = getelementptr inbounds nuw %struct.ogg_stream, ptr %152, i64 %indvars.iv.i.i
+  %153 = getelementptr inbounds nuw [432 x i8], ptr %152, i64 %indvars.iv.i.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 12
   store i32 0, ptr %154, align 4, !tbaa !73
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 16
@@ -432,7 +431,7 @@ ogg_reset.exit.i:                                 ; preds = %168, %141
   %186 = call fastcc i64 @ogg_calc_pts(ptr noundef nonnull %0, i32 noundef %183, ptr noundef null)
   %187 = load ptr, ptr %179, align 8, !tbaa !46
   %188 = zext nneg i32 %183 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !47
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 48
   %192 = load i64, ptr %191, align 8, !tbaa !65
@@ -451,7 +450,7 @@ ogg_reset.exit.i:                                 ; preds = %168, %141
 
 197:                                              ; preds = %196
   %198 = load ptr, ptr %69, align 8, !tbaa !35
-  %199 = getelementptr inbounds nuw %struct.ogg_stream, ptr %198, i64 %188
+  %199 = getelementptr inbounds nuw [432 x i8], ptr %198, i64 %188
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 384
   %201 = load i32, ptr %200, align 8, !tbaa !66
   %.not66.i = icmp eq i32 %201, 0
@@ -469,7 +468,7 @@ ogg_reset.exit.i:                                 ; preds = %168, %141
 
 .thread93.i:                                      ; preds = %205, %196
   %206 = load ptr, ptr %69, align 8, !tbaa !35
-  %207 = getelementptr inbounds nuw %struct.ogg_stream, ptr %206, i64 %188
+  %207 = getelementptr inbounds nuw [432 x i8], ptr %206, i64 %188
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 384
   %209 = load i32, ptr %208, align 8, !tbaa !66
   %.not68.i = icmp eq i32 %209, 0
@@ -534,7 +533,7 @@ define internal i32 @ogg_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 20:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %21 = load ptr, ptr %12, align 8, !tbaa !35
-  %22 = getelementptr inbounds nuw %struct.ogg_stream, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [432 x i8], ptr %21, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 0, ptr %23, align 4, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -608,7 +607,7 @@ ogg_reset.exit:                                   ; preds = %37, %10
 55:                                               ; preds = %.lr.ph
   %56 = load ptr, ptr %48, align 8, !tbaa !46
   %57 = zext nneg i32 %53 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !47
   %.not54 = icmp eq ptr %59, null
   br i1 %.not54, label %.critedge.backedge, label %62
@@ -621,19 +620,19 @@ ogg_reset.exit:                                   ; preds = %37, %10
 62:                                               ; preds = %55
   %63 = load ptr, ptr %49, align 8, !tbaa !12
   %64 = load ptr, ptr %63, align 8, !tbaa !35
-  %65 = getelementptr inbounds nuw %struct.ogg_stream, ptr %64, i64 %57
+  %65 = getelementptr inbounds nuw [432 x i8], ptr %64, i64 %57
   %66 = call fastcc i64 @ogg_calc_pts(ptr noundef nonnull %0, i32 noundef %53, ptr noundef nonnull %7)
   %67 = load i32, ptr %4, align 4, !tbaa !63
   %68 = load i32, ptr %5, align 4, !tbaa !63
   %69 = load ptr, ptr %49, align 8, !tbaa !12
   %70 = load ptr, ptr %69, align 8, !tbaa !35
-  %71 = getelementptr inbounds nuw %struct.ogg_stream, ptr %70, i64 %57
+  %71 = getelementptr inbounds nuw [432 x i8], ptr %70, i64 %57
   %.not.i63 = icmp eq i32 %68, 0
   br i1 %.not.i63, label %ogg_validate_keyframe.exit, label %72
 
 72:                                               ; preds = %62
   %73 = load ptr, ptr %48, align 8, !tbaa !46
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %57
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %57
   %75 = load ptr, ptr %74, align 8, !tbaa !47
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !90
@@ -800,7 +799,7 @@ define internal noundef i32 @ogg_read_close(ptr noundef %0) #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %free_stream.exit ], [ 0, %1 ]
   %7 = load ptr, ptr %2, align 8, !tbaa !12
   %8 = load ptr, ptr %7, align 8, !tbaa !35
-  %9 = getelementptr inbounds nuw %struct.ogg_stream, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [432 x i8], ptr %8, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %9) #9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8, !tbaa !39
@@ -841,7 +840,7 @@ define internal i32 @ogg_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = load ptr, ptr %6, align 8, !tbaa !35
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.ogg_stream, ptr %7, i64 %8
+  %9 = getelementptr inbounds [432 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !34
   %12 = icmp slt i32 %1, %11
@@ -867,7 +866,7 @@ define internal i32 @ogg_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
 21:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %22 = load ptr, ptr %6, align 8, !tbaa !35
-  %23 = getelementptr inbounds nuw %struct.ogg_stream, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [432 x i8], ptr %22, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %24, align 4, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -922,7 +921,7 @@ ogg_reset.exit:                                   ; preds = %38, %14
   store i32 -1, ptr %47, align 8, !tbaa !27
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !46
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %8
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %8
   %51 = load ptr, ptr %50, align 8, !tbaa !47
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !90
@@ -954,7 +953,7 @@ ogg_reset.exit:                                   ; preds = %38, %14
 68:                                               ; preds = %85, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i22, %85 ]
   %69 = load ptr, ptr %61, align 8, !tbaa !35
-  %70 = getelementptr inbounds nuw %struct.ogg_stream, ptr %69, i64 %indvars.iv.i20
+  %70 = getelementptr inbounds nuw [432 x i8], ptr %69, i64 %indvars.iv.i20
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %71, align 4, !tbaa !73
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -1012,7 +1011,7 @@ ogg_reset.exit23:                                 ; preds = %85, %59
 
 96:                                               ; preds = %ogg_reset.exit23
   %97 = load ptr, ptr %6, align 8, !tbaa !35
-  %98 = getelementptr inbounds %struct.ogg_stream, ptr %97, i64 %8
+  %98 = getelementptr inbounds [432 x i8], ptr %97, i64 %8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 380
   store i32 0, ptr %99, align 4, !tbaa !96
   br label %100
@@ -1050,7 +1049,7 @@ define internal i64 @ogg_read_timestamp(ptr noundef %0, i32 noundef %1, ptr noun
 21:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %22 = load ptr, ptr %14, align 8, !tbaa !35
-  %23 = getelementptr inbounds nuw %struct.ogg_stream, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [432 x i8], ptr %22, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %24, align 4, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1128,7 +1127,7 @@ ogg_reset.exit:                                   ; preds = %38, %4
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %9, align 8, !tbaa !35
-  %59 = getelementptr inbounds %struct.ogg_stream, ptr %58, i64 %48
+  %59 = getelementptr inbounds [432 x i8], ptr %58, i64 %48
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 88
   %61 = load i32, ptr %60, align 8, !tbaa !110
   %62 = and i32 %61, 6
@@ -1147,13 +1146,13 @@ ogg_reset.exit:                                   ; preds = %38, %4
   %70 = load i32, ptr %7, align 4, !tbaa !63
   %71 = load ptr, ptr %8, align 8, !tbaa !12
   %72 = load ptr, ptr %71, align 8, !tbaa !35
-  %73 = getelementptr inbounds %struct.ogg_stream, ptr %72, i64 %48
+  %73 = getelementptr inbounds [432 x i8], ptr %72, i64 %48
   %.not.i38 = icmp eq i32 %70, 0
   br i1 %.not.i38, label %ogg_validate_keyframe.exit, label %74
 
 74:                                               ; preds = %67
   %75 = load ptr, ptr %49, align 8, !tbaa !46
-  %76 = getelementptr inbounds ptr, ptr %75, i64 %48
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %48
   %77 = load ptr, ptr %76, align 8, !tbaa !47
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !90
@@ -1254,7 +1253,7 @@ ogg_validate_keyframe.exit:                       ; preds = %67, %74, %82, %93, 
 126:                                              ; preds = %143, %.lr.ph.i40
   %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i43, %143 ]
   %127 = load ptr, ptr %119, align 8, !tbaa !35
-  %128 = getelementptr inbounds nuw %struct.ogg_stream, ptr %127, i64 %indvars.iv.i41
+  %128 = getelementptr inbounds nuw [432 x i8], ptr %127, i64 %indvars.iv.i41
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
   store i32 0, ptr %129, align 4, !tbaa !73
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -1354,7 +1353,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %.lcssa167 = phi i32 [ %15, %14 ], [ %.pr, %thread-pre-split ]
   %20 = load ptr, ptr %10, align 8, !tbaa !35
   %21 = zext nneg i32 %.lcssa167 to i64
-  %22 = getelementptr inbounds nuw %struct.ogg_stream, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [432 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 20
@@ -1399,7 +1398,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 49:                                               ; preds = %46, %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %50 = getelementptr inbounds nuw ptr, ptr @ogg_codecs, i64 %indvars.iv.next.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @ogg_codecs, i64 %indvars.iv.next.i
   %51 = load ptr, ptr %50, align 8, !tbaa !115
   %.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %.not.i, label %52, label %41, !llvm.loop !116
@@ -1536,7 +1535,7 @@ ogg_find_codec.exit:                              ; preds = %46
 106:                                              ; preds = %.lr.ph202, %114
   %107 = phi i64 [ %101, %.lr.ph202 ], [ %115, %114 ]
   %indvars.iv231 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next232, %114 ]
-  %108 = getelementptr inbounds nuw %struct.ogg_stream, ptr %105, i64 %indvars.iv231
+  %108 = getelementptr inbounds nuw [432 x i8], ptr %105, i64 %indvars.iv231
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 372
   %110 = load i32, ptr %109, align 4, !tbaa !81
   %.not153 = icmp eq i32 %110, 0
@@ -1870,7 +1869,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
 
 94:                                               ; preds = %99, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %99 ]
-  %95 = getelementptr inbounds nuw %struct.ogg_stream, ptr %93, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [432 x i8], ptr %93, i64 %indvars.iv.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load i32, ptr %96, align 8, !tbaa !125
   %98 = icmp eq i32 %97, %70
@@ -1884,7 +1883,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
 ogg_find_stream.exit:                             ; preds = %94
   %100 = trunc nuw nsw i64 %indvars.iv.i to i32
   %101 = and i64 %indvars.iv.i, 4294967295
-  %102 = getelementptr inbounds nuw %struct.ogg_stream, ptr %93, i64 %101
+  %102 = getelementptr inbounds nuw [432 x i8], ptr %93, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8, !tbaa !127
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 12
@@ -1998,7 +1997,7 @@ ogg_find_stream.exit:                             ; preds = %94
 
 152:                                              ; preds = %151, %.lr.ph.i185
   %indvars.iv.i187 = phi i64 [ 0, %.lr.ph.i185 ], [ %indvars.iv.next.i189, %151 ]
-  %153 = getelementptr inbounds nuw %struct.ogg_stream, ptr %150, i64 %indvars.iv.i187
+  %153 = getelementptr inbounds nuw [432 x i8], ptr %150, i64 %indvars.iv.i187
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 388
   %155 = load i32, ptr %154, align 4, !tbaa !82
   %.not.i188 = icmp eq i32 %155, 0
@@ -2025,7 +2024,7 @@ data_packets_seen.exit:                           ; preds = %152
 161:                                              ; preds = %158
   %162 = load ptr, ptr %10, align 8, !tbaa !35
   %163 = zext nneg i32 %.1161 to i64
-  %164 = getelementptr inbounds nuw %struct.ogg_stream, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [432 x i8], ptr %162, i64 %163
   %165 = call fastcc i32 @buf_realloc(ptr noundef %164, i32 noundef %.0162.lcssa)
   %166 = icmp slt i32 %165, 0
   br i1 %166, label %167, label %168
@@ -2233,7 +2232,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @ogg_replace_stream(ptr nou
 
 18:                                               ; preds = %15, %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw ptr, ptr @ogg_codecs, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @ogg_codecs, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8, !tbaa !115
   %.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %.not.i, label %ogg_find_codec.exit, label %.preheader, !llvm.loop !116
@@ -2297,7 +2296,7 @@ define internal fastcc i32 @ogg_new_stream(ptr noundef %0, i32 noundef %1) unnam
 15:                                               ; preds = %10
   store ptr %14, ptr %4, align 8, !tbaa !35
   %16 = sext i32 %6 to i64
-  %17 = getelementptr inbounds %struct.ogg_stream, ptr %14, i64 %16
+  %17 = getelementptr inbounds [432 x i8], ptr %14, i64 %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %17, i8 0, i64 432, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %1, ptr %18, align 8, !tbaa !125
@@ -2398,7 +2397,7 @@ define internal fastcc range(i32 -12, 1) i32 @ogg_save(ptr noundef %0) unnamed_a
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %11 ]
   %.03339 = phi i32 [ %.1, %41 ], [ 0, %11 ]
   %28 = load ptr, ptr %3, align 8, !tbaa !35
-  %29 = getelementptr inbounds nuw %struct.ogg_stream, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [432 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !127
   %32 = add i32 %31, 64
@@ -2409,7 +2408,7 @@ define internal fastcc range(i32 -12, 1) i32 @ogg_save(ptr noundef %0) unnamed_a
   br i1 %.not37, label %41, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds nuw %struct.ogg_stream, ptr %23, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [432 x i8], ptr %23, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !95
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !73
@@ -2468,7 +2467,7 @@ define internal fastcc void @ogg_restore(ptr noundef %0) unnamed_addr #1 {
 15:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %16 = load ptr, ptr %3, align 8, !tbaa !35
-  %17 = getelementptr inbounds nuw %struct.ogg_stream, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [432 x i8], ptr %16, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %17) #9
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 408
   tail call void @av_freep(ptr noundef nonnull %18) #9
@@ -2478,7 +2477,7 @@ define internal fastcc void @ogg_restore(ptr noundef %0) unnamed_addr #1 {
   br i1 %.not37, label %21, label %25
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [432 x i8], ptr %7, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 456
   %24 = load ptr, ptr %23, align 8, !tbaa !137
   %.not38 = icmp eq ptr %24, null
@@ -2487,7 +2486,7 @@ define internal fastcc void @ogg_restore(ptr noundef %0) unnamed_addr #1 {
 25:                                               ; preds = %21, %15
   %26 = load ptr, ptr %2, align 8, !tbaa !12
   %27 = load ptr, ptr %26, align 8, !tbaa !35
-  %28 = getelementptr inbounds nuw %struct.ogg_stream, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [432 x i8], ptr %27, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %28) #9
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !39
@@ -2560,7 +2559,7 @@ define internal fastcc i64 @ogg_calc_pts(ptr noundef %0, i32 noundef %1, ptr nou
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.ogg_stream, ptr %6, i64 %7
+  %8 = getelementptr inbounds [432 x i8], ptr %6, i64 %7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %9
 

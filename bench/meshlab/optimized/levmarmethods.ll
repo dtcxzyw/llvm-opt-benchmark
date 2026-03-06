@@ -318,7 +318,7 @@ define void @_ZN13LevmarMethods12estimateExtrEPdS0_iiPv(ptr noundef readonly cap
 
 59:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
   %.sroa.0.0.copyload.i.i = load float, ptr %40, align 4
   %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.323.0..sroa_idx, align 4
@@ -613,7 +613,7 @@ define void @_ZN13LevmarMethods13estimateFocalEPdS0_iiPv(ptr noundef readonly ca
 
 21:                                               ; preds = %.lr.ph, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit ]
-  %22 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.sroa.0.0.copyload.i.i = load float, ptr %13, align 4
   %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 4

@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon = type { [5 x i8], i16 }
-%struct.crx_data_header_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.crx_sample_to_chunk_t = type { i32, i32, i32 }
-%struct.libraw_thumbnail_item_t = type { i32, i16, i16, i16, i32, i32, i64 }
-%struct.tiff_ifd_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, float, i64, i64, i32, [2 x %struct.libraw_dng_color_t], %struct.libraw_dng_levels_t, i32 }
-%struct.libraw_dng_color_t = type { i32, i16, [4 x [4 x float]], [4 x [3 x float]], [3 x [4 x float]] }
-%struct.libraw_dng_levels_t = type { i32, [4104 x i32], i32, [4104 x float], float, [4 x i32], [4 x i16], [4 x float], i32, [4 x float], [4 x float], float, float }
 
 @__const._ZN6LibRaw8parseCR3ExxRsPcS0_S0_.UIID_Canon = private unnamed_addr constant [17 x i8] c"\85\C0\B6\87\82\0F\11\E0\81\11\F4\CEF+jH\00", align 16
 @__const._ZN6LibRaw8parseCR3ExxRsPcS0_S0_.UIID_CanonPreview = private unnamed_addr constant [17 x i8] c"\EA\F4+^\1C\98K\88\B9\FB\B7\DC@nM\16\00", align 16
@@ -45,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14selectCRXFrameEsj(ptr noundef nonnull align 8 captures(none) dereferenceable(767680) %0, i16 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 381992
   %5 = sext i16 %1 to i64
-  %6 = getelementptr inbounds %struct.crx_data_header_t, ptr %4, i64 %5
+  %6 = getelementptr inbounds [128 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %.not = icmp ult i32 %2, %8
@@ -73,7 +67,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14selectCRXFrameEsj(ptr noundef n
   %indvars.iv76 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next77, %._crit_edge ]
   %.04465 = phi i32 [ 0, %.lr.ph67 ], [ %.145.lcssa, %._crit_edge ]
   %.04664 = phi i32 [ 0, %.lr.ph67 ], [ %.147.lcssa, %._crit_edge ]
-  %20 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv76
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv76
   %21 = load i64, ptr %20, align 8, !tbaa !19
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %22 = zext i32 %.04664 to i64
@@ -89,7 +83,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14selectCRXFrameEsj(ptr noundef n
 
 25:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %16, i64 %indvars.iv.next
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %indvars.iv.next
   %27 = load i32, ptr %26, align 4, !tbaa !20
   %28 = zext i32 %27 to i64
   %29 = icmp eq i64 %indvars.iv.next77, %28
@@ -102,7 +96,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14selectCRXFrameEsj(ptr noundef n
 .critedge:                                        ; preds = %24, %.critedge.split.loop.exit89
   %.147.lcssa = phi i32 [ %30, %.critedge.split.loop.exit89 ], [ %umax, %24 ]
   %31 = zext i32 %.147.lcssa to i64
-  %32 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %16, i64 %31
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !24
   %.not5159.not = icmp eq i32 %34, 0
@@ -127,7 +121,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14selectCRXFrameEsj(ptr noundef n
 39:                                               ; preds = %37
   %40 = load ptr, ptr %18, align 8, !tbaa !26
   %41 = zext i32 %.14560 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !27
   br label %44
 
@@ -190,7 +184,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 13:                                               ; preds = %8, %36
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %36 ]
   %.0136272 = phi i64 [ 0, %8 ], [ %.1137, %36 ]
-  %14 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load i32, ptr %15, align 8, !tbaa !91
   %17 = icmp eq i32 %16, 1
@@ -208,7 +202,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   %27 = load i32, ptr %26, align 8, !tbaa !94
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %25, %28
-  %30 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %29, ptr %30, align 8, !tbaa !19
   %..0136 = tail call i64 @llvm.smax.i64(i64 %29, i64 %.0136272)
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 92
@@ -217,7 +211,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %18
-  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %32, ptr %35, align 4, !tbaa !27
   br label %36
 
@@ -237,14 +231,14 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv323 = phi i64 [ %indvars.iv.next324, %48 ], [ 0, %11 ]
   %.0142275 = phi i32 [ %.1143, %48 ], [ 0, %11 ]
   %.0144274 = phi i32 [ %.1145, %48 ], [ 0, %11 ]
-  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv323
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv323
   %40 = load i64, ptr %39, align 8, !tbaa !19
   %41 = icmp eq i64 %40, %.1137
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %.lr.ph
   %43 = add nsw i32 %.0144274, 1
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv323
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv323
   %45 = load i32, ptr %44, align 4, !tbaa !27
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %48
@@ -278,7 +272,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv328 = phi i64 [ 0, %.lr.ph281.preheader ], [ %indvars.iv.next329, %.lr.ph281 ]
   %.0149279 = phi i32 [ 0, %.lr.ph281.preheader ], [ %.1150, %.lr.ph281 ]
   %.0152277 = phi i32 [ -1, %.lr.ph281.preheader ], [ %.2, %.lr.ph281 ]
-  %52 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv328
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv328
   %53 = load i64, ptr %52, align 8, !tbaa !19
   %54 = icmp eq i64 %53, %.1137
   %.not181 = icmp sle i32 %.0149279, %.0155
@@ -293,7 +287,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 
 58:                                               ; preds = %._crit_edge282
   %59 = zext nneg i32 %.2 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !27
   %62 = tail call i32 @llvm.smin.i32(i32 %.0157, i32 %61)
   %spec.select182 = tail call i32 @llvm.smax.i32(i32 %62, i32 0)
@@ -301,7 +295,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   br i1 %.not, label %.lr.ph292, label %63
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %59
+  %64 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %59
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 92
   %66 = load i32, ptr %65, align 4, !tbaa !6
   %.not.i = icmp ult i32 %spec.select182, %66
@@ -329,7 +323,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv76.i = phi i64 [ 0, %.lr.ph67.i ], [ %indvars.iv.next77.i, %._crit_edge.i ]
   %.04465.i = phi i32 [ 0, %.lr.ph67.i ], [ %.145.lcssa.i, %._crit_edge.i ]
   %.04664.i = phi i32 [ 0, %.lr.ph67.i ], [ %.147.lcssa.i, %._crit_edge.i ]
-  %78 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv76.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv76.i
   %79 = load i64, ptr %78, align 8, !tbaa !19
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %80 = zext i32 %.04664.i to i64
@@ -344,7 +338,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 
 82:                                               ; preds = %81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %83 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %74, i64 %indvars.iv.next.i
+  %83 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %indvars.iv.next.i
   %84 = load i32, ptr %83, align 4, !tbaa !20
   %85 = zext i32 %84 to i64
   %86 = icmp eq i64 %indvars.iv.next77.i, %85
@@ -358,7 +352,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 .critedge.i:                                      ; preds = %81, %.critedge.split.loop.exit89.i
   %.pre-phi358 = phi i64 [ %.pre357, %.critedge.split.loop.exit89.i ], [ %umax74.i, %81 ]
   %.147.lcssa.i = phi i32 [ %87, %.critedge.split.loop.exit89.i ], [ %umax.i, %81 ]
-  %88 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %74, i64 %.pre-phi358
+  %88 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %.pre-phi358
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !24
   %.not5159.not.i = icmp eq i32 %90, 0
@@ -383,7 +377,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 95:                                               ; preds = %93
   %96 = load ptr, ptr %76, align 8, !tbaa !26
   %97 = zext i32 %.14560.i to i64
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !27
   br label %100
 
@@ -427,7 +421,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %100
   %spec.select = select i1 %.not174, i32 %.1145, i32 %61
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 %spec.select, ptr %115, align 8, !tbaa !98
-  %116 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %59
+  %116 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %59
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 64
   %118 = load i64, ptr %117, align 8, !tbaa !28
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 381584
@@ -467,7 +461,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %100
   %indvars.iv339 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next340, %.loopexit ]
   %.0140290 = phi i32 [ 0, %.lr.ph292 ], [ %.1141, %.loopexit ]
   %.0147287 = phi i32 [ 0, %.lr.ph292 ], [ %.1148, %.loopexit ]
-  %141 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %indvars.iv339
+  %141 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv339
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 92
   %143 = load i32, ptr %142, align 4, !tbaa !6
   %144 = tail call i32 @llvm.umin.i32(i32 %spec.select182, i32 %143)
@@ -506,7 +500,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %100
   %indvars.iv76.i195 = phi i64 [ 0, %.lr.ph67.i193 ], [ %indvars.iv.next77.i198, %._crit_edge.i215 ]
   %.04465.i196 = phi i32 [ 0, %.lr.ph67.i193 ], [ %.145.lcssa.i216, %._crit_edge.i215 ]
   %.04664.i197 = phi i32 [ 0, %.lr.ph67.i193 ], [ %.147.lcssa.i206, %._crit_edge.i215 ]
-  %159 = getelementptr inbounds nuw i64, ptr %151, i64 %indvars.iv76.i195
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv76.i195
   %160 = load i64, ptr %159, align 8, !tbaa !19
   %indvars.iv.next77.i198 = add nuw nsw i64 %indvars.iv76.i195, 1
   %161 = zext i32 %.04664.i197 to i64
@@ -521,7 +515,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %100
 
 163:                                              ; preds = %162
   %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i201, 1
-  %164 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %155, i64 %indvars.iv.next.i203
+  %164 = getelementptr inbounds nuw [12 x i8], ptr %155, i64 %indvars.iv.next.i203
   %165 = load i32, ptr %164, align 4, !tbaa !20
   %166 = zext i32 %165 to i64
   %167 = icmp eq i64 %indvars.iv.next77.i198, %166
@@ -535,7 +529,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %100
 .critedge.i205:                                   ; preds = %162, %.critedge.split.loop.exit89.i204
   %.pre-phi = phi i64 [ %.pre, %.critedge.split.loop.exit89.i204 ], [ %umax74.i200, %162 ]
   %.147.lcssa.i206 = phi i32 [ %168, %.critedge.split.loop.exit89.i204 ], [ %umax.i199, %162 ]
-  %169 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %155, i64 %.pre-phi
+  %169 = getelementptr inbounds nuw [12 x i8], ptr %155, i64 %.pre-phi
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %171 = load i32, ptr %170, align 4, !tbaa !24
   %.not5159.not.i207 = icmp eq i32 %171, 0
@@ -560,7 +554,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %100
 176:                                              ; preds = %174
   %177 = load ptr, ptr %157, align 8, !tbaa !26
   %178 = zext i32 %.14560.i212 to i64
-  %179 = getelementptr inbounds nuw i32, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !27
   br label %181
 
@@ -623,7 +617,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit218:            ; preds = %._crit_edge.i215, %
   %indvars.iv76.i225 = phi i64 [ 0, %.lr.ph67.i223 ], [ %indvars.iv.next77.i228, %._crit_edge.i245 ]
   %.04465.i226 = phi i32 [ 0, %.lr.ph67.i223 ], [ %.145.lcssa.i246, %._crit_edge.i245 ]
   %.04664.i227 = phi i32 [ 0, %.lr.ph67.i223 ], [ %.147.lcssa.i236, %._crit_edge.i245 ]
-  %207 = getelementptr inbounds nuw i64, ptr %199, i64 %indvars.iv76.i225
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv76.i225
   %208 = load i64, ptr %207, align 8, !tbaa !19
   %indvars.iv.next77.i228 = add nuw nsw i64 %indvars.iv76.i225, 1
   %209 = zext i32 %.04664.i227 to i64
@@ -638,7 +632,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit218:            ; preds = %._crit_edge.i215, %
 
 211:                                              ; preds = %210
   %indvars.iv.next.i233 = add nuw nsw i64 %indvars.iv.i231, 1
-  %212 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %203, i64 %indvars.iv.next.i233
+  %212 = getelementptr inbounds nuw [12 x i8], ptr %203, i64 %indvars.iv.next.i233
   %213 = load i32, ptr %212, align 4, !tbaa !20
   %214 = zext i32 %213 to i64
   %215 = icmp eq i64 %indvars.iv.next77.i228, %214
@@ -652,7 +646,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit218:            ; preds = %._crit_edge.i215, %
 .critedge.i235:                                   ; preds = %210, %.critedge.split.loop.exit89.i234
   %.pre-phi356 = phi i64 [ %.pre355, %.critedge.split.loop.exit89.i234 ], [ %umax74.i230, %210 ]
   %.147.lcssa.i236 = phi i32 [ %216, %.critedge.split.loop.exit89.i234 ], [ %umax.i229, %210 ]
-  %217 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %203, i64 %.pre-phi356
+  %217 = getelementptr inbounds nuw [12 x i8], ptr %203, i64 %.pre-phi356
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
   %219 = load i32, ptr %218, align 4, !tbaa !24
   %.not5159.not.i237 = icmp eq i32 %219, 0
@@ -677,7 +671,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit218:            ; preds = %._crit_edge.i215, %
 224:                                              ; preds = %222
   %225 = load ptr, ptr %205, align 8, !tbaa !26
   %226 = zext i32 %.14560.i242 to i64
-  %227 = getelementptr inbounds nuw i32, ptr %225, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !27
   br label %229
 
@@ -736,7 +730,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit248:            ; preds = %._crit_edge.i245, %
 
 .lr.ph286:                                        ; preds = %.lr.ph286.preheader, %248
   %indvars.iv334 = phi i64 [ 0, %.lr.ph286.preheader ], [ %indvars.iv.next335, %248 ]
-  %249 = getelementptr inbounds nuw %struct.libraw_thumbnail_item_t, ptr %0, i64 %indvars.iv334
+  %249 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv334
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 193408
   %251 = load i64, ptr %250, align 8, !tbaa !111
   %252 = icmp eq i64 %251, %245
@@ -744,7 +738,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit248:            ; preds = %._crit_edge.i245, %
 
 .critedge:                                        ; preds = %248, %.preheader252
   %253 = sext i32 %246 to i64
-  %254 = getelementptr inbounds %struct.libraw_thumbnail_item_t, ptr %113, i64 %253
+  %254 = getelementptr inbounds [32 x i8], ptr %113, i64 %253
   store i32 4, ptr %254, align 8, !tbaa !113
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 24
   store i64 %245, ptr %255, align 8, !tbaa !111
@@ -771,7 +765,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit248:            ; preds = %._crit_edge.i245, %
 
 switch.lookup:                                    ; preds = %._crit_edge293
   %262 = zext nneg i32 %138 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6LibRaw14selectCRXTrackEv, i64 %262
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6LibRaw14selectCRXTrackEv, i64 %262
   %switch.load = load i32, ptr %switch.gep, align 4
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %switch.load, ptr %263, align 8, !tbaa !120
@@ -798,7 +792,7 @@ switch.lookup:                                    ; preds = %._crit_edge293
   %indvars.iv346 = phi i64 [ 0, %.lr.ph299.preheader ], [ %indvars.iv.next347, %.lr.ph299 ]
   %.0133296 = phi i64 [ 0, %.lr.ph299.preheader ], [ %spec.select184, %.lr.ph299 ]
   %.0134295 = phi i32 [ -1, %.lr.ph299.preheader ], [ %spec.select183, %.lr.ph299 ]
-  %269 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %0, i64 %indvars.iv346
+  %269 = getelementptr inbounds nuw [33408 x i8], ptr %0, i64 %indvars.iv346
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 433340
   %271 = load i32, ptr %270, align 4, !tbaa !123
   %272 = sext i32 %271 to i64
@@ -813,7 +807,7 @@ switch.lookup:                                    ; preds = %._crit_edge293
 
 276:                                              ; preds = %._crit_edge300
   %277 = zext nneg i32 %spec.select183 to i64
-  %278 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %0, i64 %277
+  %278 = getelementptr inbounds nuw [33408 x i8], ptr %0, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 433360
   %280 = load i32, ptr %279, align 8, !tbaa !126
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -838,7 +832,7 @@ switch.lookup:                                    ; preds = %._crit_edge293
 
 288:                                              ; preds = %.preheader, %288
   %indvars.iv351 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next352, %288 ]
-  %289 = getelementptr inbounds nuw float, ptr %287, i64 %indvars.iv351
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv351
   store float 1.024000e+03, ptr %289, align 4, !tbaa !128
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next352, 4
@@ -864,7 +858,7 @@ define noundef range(i32 -13, 1) i32 @_ZN6LibRaw13parseCR3_CTMDEs(ptr noundef no
   store i16 18761, ptr %4, align 8, !tbaa !130
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 381992
   %7 = sext i16 %1 to i64
-  %8 = getelementptr inbounds %struct.crx_data_header_t, ptr %6, i64 %7
+  %8 = getelementptr inbounds [128 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !91
   %.not = icmp eq i32 %10, 3
@@ -1236,7 +1230,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 129:                                              ; preds = %120, %128
   %indvars.iv542 = phi i64 [ 0, %120 ], [ %indvars.iv.next543, %128 ]
-  %130 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw8parseCR3ExxRsPcS0_S0_E13AtomNamesList, i64 %indvars.iv542
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6LibRaw8parseCR3ExxRsPcS0_S0_E13AtomNamesList, i64 %indvars.iv542
   %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %130) #10
   %.not297 = icmp eq i32 %131, 0
   br i1 %.not297, label %132, label %128
@@ -1392,7 +1386,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %208
   %indvars.iv546 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next547, %208 ]
-  %209 = getelementptr inbounds nuw %struct.libraw_thumbnail_item_t, ptr %0, i64 %indvars.iv546
+  %209 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv546
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 193408
   %211 = load i64, ptr %210, align 8, !tbaa !111
   %212 = icmp eq i64 %211, %205
@@ -1400,7 +1394,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 .critedge:                                        ; preds = %208, %.preheader446
   %213 = sext i32 %206 to i64
-  %214 = getelementptr inbounds %struct.libraw_thumbnail_item_t, ptr %33, i64 %213
+  %214 = getelementptr inbounds [32 x i8], ptr %33, i64 %213
   store i32 4, ptr %214, align 8, !tbaa !113
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   store i64 %205, ptr %215, align 8, !tbaa !111
@@ -1567,7 +1561,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 .lr.ph467:                                        ; preds = %.lr.ph467.preheader, %297
   %indvars.iv578 = phi i64 [ 0, %.lr.ph467.preheader ], [ %indvars.iv.next579, %297 ]
-  %298 = getelementptr inbounds nuw %struct.libraw_thumbnail_item_t, ptr %0, i64 %indvars.iv578
+  %298 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv578
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 193408
   %300 = load i64, ptr %299, align 8, !tbaa !111
   %301 = icmp eq i64 %300, %294
@@ -1575,7 +1569,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 .critedge369:                                     ; preds = %297, %.preheader
   %302 = sext i32 %295 to i64
-  %303 = getelementptr inbounds %struct.libraw_thumbnail_item_t, ptr %33, i64 %302
+  %303 = getelementptr inbounds [32 x i8], ptr %33, i64 %302
   store i32 4, ptr %303, align 8, !tbaa !113
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 24
   store i64 %294, ptr %304, align 8, !tbaa !111
@@ -1871,7 +1865,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 451:                                              ; preds = %440
   %452 = load i16, ptr %5, align 2, !tbaa !138
   %453 = sext i16 %452 to i64
-  %454 = getelementptr %struct.crx_data_header_t, ptr %0, i64 %453
+  %454 = getelementptr [128 x i8], ptr %0, i64 %453
   %455 = getelementptr i8, ptr %454, i64 382064
   store i32 1, ptr %455, align 8, !tbaa !91
   br label %.thread428
@@ -2046,7 +2040,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
 566:                                              ; preds = %564
   %567 = load i16, ptr %5, align 2, !tbaa !138
   %568 = sext i16 %567 to i64
-  %569 = getelementptr %struct.crx_data_header_t, ptr %0, i64 %568
+  %569 = getelementptr [128 x i8], ptr %0, i64 %568
   %570 = getelementptr i8, ptr %569, i64 382064
   store i32 2, ptr %570, align 8, !tbaa !91
   br label %.thread428
@@ -2077,7 +2071,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %585 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %584, i64 noundef 1)
   %586 = load i16, ptr %5, align 2, !tbaa !138
   %587 = sext i16 %586 to i64
-  %588 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %587
+  %588 = getelementptr inbounds [128 x i8], ptr %26, i64 %587
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 80
   store ptr %585, ptr %589, align 8, !tbaa !18
   %.not354 = icmp eq ptr %585, null
@@ -2094,27 +2088,27 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %591 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %592 = load i16, ptr %5, align 2, !tbaa !138
   %593 = sext i16 %592 to i64
-  %594 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %593
+  %594 = getelementptr inbounds [128 x i8], ptr %26, i64 %593
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 80
   %596 = load ptr, ptr %595, align 8, !tbaa !18
-  %597 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %596, i64 %indvars.iv560
+  %597 = getelementptr inbounds nuw [12 x i8], ptr %596, i64 %indvars.iv560
   store i32 %591, ptr %597, align 4, !tbaa !20
   %598 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %599 = load i16, ptr %5, align 2, !tbaa !138
   %600 = sext i16 %599 to i64
-  %601 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %600
+  %601 = getelementptr inbounds [128 x i8], ptr %26, i64 %600
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 80
   %603 = load ptr, ptr %602, align 8, !tbaa !18
-  %604 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %603, i64 %indvars.iv560
+  %604 = getelementptr inbounds nuw [12 x i8], ptr %603, i64 %indvars.iv560
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 4
   store i32 %598, ptr %605, align 4, !tbaa !24
   %606 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %607 = load i16, ptr %5, align 2, !tbaa !138
   %608 = sext i16 %607 to i64
-  %609 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %608
+  %609 = getelementptr inbounds [128 x i8], ptr %26, i64 %608
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 80
   %611 = load ptr, ptr %610, align 8, !tbaa !18
-  %612 = getelementptr inbounds nuw %struct.crx_sample_to_chunk_t, ptr %611, i64 %indvars.iv560
+  %612 = getelementptr inbounds nuw [12 x i8], ptr %611, i64 %indvars.iv560
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 8
   store i32 %606, ptr %613, align 4, !tbaa !153
   %indvars.iv.next561 = add nuw nsw i64 %indvars.iv560, 1
@@ -2140,7 +2134,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %625 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %626 = load i16, ptr %5, align 2, !tbaa !138
   %627 = sext i16 %626 to i64
-  %628 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %627
+  %628 = getelementptr inbounds [128 x i8], ptr %26, i64 %627
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 92
   store i32 %625, ptr %629, align 4, !tbaa !6
   %.not356 = icmp eq i32 %624, 0
@@ -2166,7 +2160,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %639 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %638, i64 noundef 1)
   %640 = load i16, ptr %5, align 2, !tbaa !138
   %641 = sext i16 %640 to i64
-  %642 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %641
+  %642 = getelementptr inbounds [128 x i8], ptr %26, i64 %641
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 104
   store ptr %639, ptr %643, align 8, !tbaa !26
   %.not357 = icmp eq ptr %639, null
@@ -2177,7 +2171,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br label %.lr.ph457
 
 ._crit_edge458:                                   ; preds = %.lr.ph457
-  %644 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %649
+  %644 = getelementptr inbounds [128 x i8], ptr %26, i64 %649
   %645 = load i32, ptr %652, align 4, !tbaa !27
   %646 = getelementptr inbounds nuw i8, ptr %644, i64 56
   store i32 %645, ptr %646, align 8, !tbaa !29
@@ -2188,10 +2182,10 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %647 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %648 = load i16, ptr %5, align 2, !tbaa !138
   %649 = sext i16 %648 to i64
-  %650 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %649
+  %650 = getelementptr inbounds [128 x i8], ptr %26, i64 %649
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 104
   %652 = load ptr, ptr %651, align 8, !tbaa !26
-  %653 = getelementptr inbounds nuw i32, ptr %652, i64 %indvars.iv555
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %652, i64 %indvars.iv555
   store i32 %647, ptr %653, align 4, !tbaa !27
   %indvars.iv.next556 = add nuw nsw i64 %indvars.iv555, 1
   %exitcond559.not = icmp eq i64 %indvars.iv.next556, %wide.trip.count558
@@ -2221,7 +2215,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %669 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %668, i64 noundef 1)
   %670 = load i16, ptr %5, align 2, !tbaa !138
   %671 = sext i16 %670 to i64
-  %672 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %671
+  %672 = getelementptr inbounds [128 x i8], ptr %26, i64 %671
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 120
   store ptr %669, ptr %673, align 8, !tbaa !16
   %.not358 = icmp eq ptr %669, null
@@ -2243,17 +2237,17 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %680 = or disjoint i64 %677, %679
   %681 = load i16, ptr %5, align 2, !tbaa !138
   %682 = sext i16 %681 to i64
-  %683 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %682
+  %683 = getelementptr inbounds [128 x i8], ptr %26, i64 %682
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 120
   %685 = load ptr, ptr %684, align 8, !tbaa !16
-  %686 = getelementptr inbounds nuw i64, ptr %685, i64 %indvars.iv550
+  %686 = getelementptr inbounds nuw [8 x i8], ptr %685, i64 %indvars.iv550
   store i64 %680, ptr %686, align 8, !tbaa !19
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond554.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count553
   br i1 %exitcond554.not, label %._crit_edge, label %.lr.ph455, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %.lr.ph455
-  %687 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %682
+  %687 = getelementptr inbounds [128 x i8], ptr %26, i64 %682
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 112
   store i32 %664, ptr %688, align 8, !tbaa !15
   %689 = load i64, ptr %685, align 8, !tbaa !19
@@ -2276,7 +2270,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
 
 692:                                              ; preds = %.thread428
   %693 = zext nneg i16 %691 to i64
-  %694 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %26, i64 %693
+  %694 = getelementptr inbounds nuw [128 x i8], ptr %26, i64 %693
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 56
   %696 = load i32, ptr %695, align 8, !tbaa !29
   %.not360 = icmp eq i32 %696, 0
@@ -2406,7 +2400,7 @@ define void @_ZN6LibRaw13parseCR3_FreeEv(ptr noundef nonnull align 8 dereference
 
 9:                                                ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
-  %10 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %.not = icmp eq ptr %12, null

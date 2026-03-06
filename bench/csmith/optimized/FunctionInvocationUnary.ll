@@ -818,7 +818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %88
   %91 = zext nneg i32 %89 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 %91
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load, i64 noundef 1)
   br label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit
@@ -840,7 +840,7 @@ _ZL22OutputStandardFuncName9eUnaryOpsRSo.exit:    ; preds = %88, %switch.lookup
 
 switch.lookup55:                                  ; preds = %99
   %102 = zext nneg i32 %100 to i64
-  %switch.gep56 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 %102
+  %switch.gep56 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 %102
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   %103 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load57, i64 noundef 1)
   br label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit45
@@ -981,7 +981,7 @@ thread-pre-split:                                 ; preds = %9
 
 switch.lookup:                                    ; preds = %38
   %41 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 %41
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load, i64 noundef 1)
   br label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit

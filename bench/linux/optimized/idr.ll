@@ -928,7 +928,7 @@ define dso_local i32 @ida_alloc_range(ptr noundef %0, i32 noundef %1, i32 nounde
 
 148:                                              ; preds = %147, %.thread17
   %149 = phi i64 [ 0, %.thread17 ], [ %22, %147 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %149
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %149
   %150 = getelementptr i8, ptr %.split, i64 56
   %151 = load ptr, ptr %150, align 8
   %152 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %151, i32 noundef %23, i64 noundef 128) #9
@@ -1146,7 +1146,7 @@ define dso_local void @ida_destroy(ptr noundef %0) #0 align 16 {
 
 40:                                               ; preds = %34
   %41 = zext i8 %35 to i64
-  %42 = getelementptr ptr, ptr %33, i64 %41
+  %42 = getelementptr [8 x i8], ptr %33, i64 %41
   %43 = load volatile ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, 3

@@ -1037,7 +1037,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$$u5b$indexmap..Bucket$LT$al
   br i1 %6, label %24, label %7
 
 7:                                                ; preds = %"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0f8c6ccc0e3f9536E.exit"
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %0, i64 %.sroa.0.0
+  %8 = getelementptr inbounds [104 x i8], ptr %0, i64 %.sroa.0.0
   %9 = add i64 %.sroa.0.0, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !402
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1380b73e51c9010eE.llvm.16429374078602074278"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %8)
@@ -1095,7 +1095,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$$u5b$indexmap..Bucket$LT$al
   br label %25
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %0, i64 %.sroa.0.1
+  %30 = getelementptr inbounds [104 x i8], ptr %0, i64 %.sroa.0.1
   %31 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0f8c6ccc0e3f9536E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %30) #20
           to label %25 unwind label %33
@@ -1489,7 +1489,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %19 = getelementptr inbounds { i64, [8 x i64] }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [72 x i8], ptr %1, i64 %2
   %20 = icmp eq i64 %11, 0
   br i1 %20, label %.thread, label %.lr.ph
 
@@ -1583,7 +1583,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17had9fa88c416c23edE.exit": ; preds = %.noexc15, %.noexc14, %.noexc, %32, %29, %24
   %.sroa.018.0 = phi i64 [ %.sroa.035.0.copyload, %.noexc15 ], [ -9223372036854775804, %.noexc14 ], [ -9223372036854775807, %29 ], [ -9223372036854775806, %32 ], [ -9223372036854775805, %.noexc ], [ -9223372036854775808, %24 ]
   %.sroa.9.1 = phi i8 [ %.sroa.436.0.copyload, %.noexc15 ], [ %.sroa.9.8.copyload, %.noexc14 ], [ %31, %29 ], [ %.sroa.038.0.copyload, %32 ], [ %.sroa.9.8.copyload22, %.noexc ], [ %.sroa.9.050, %24 ]
-  %42 = getelementptr inbounds nuw { [9 x i64] }, ptr %16, i64 %.sroa.7.048
+  %42 = getelementptr inbounds nuw [72 x i8], ptr %16, i64 %.sroa.7.048
   store i64 %.sroa.018.0, ptr %42, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i8 %.sroa.9.1, ptr %.sroa.431.0..sroa_idx, align 8
@@ -1783,7 +1783,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf07f42
 
 "_ZN101_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$I$GT$$GT$11spec_extend17h10778a1c61765851E.llvm.2337583790011467692.exit": ; preds = %3, %10
   %11 = phi i64 [ %6, %3 ], [ %.pre.i.i.i, %10 ]
-  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %2
+  %12 = getelementptr inbounds [104 x i8], ptr %1, i64 %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !600, !nonnull !13, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !601
@@ -1825,7 +1825,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5cb90ea62a6ed8c
   %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !13, !noundef !13
-  %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [104 x i8], ptr %9, i64 %1
   store i64 %1, ptr %3, align 8
   tail call void @"_ZN4core3ptr103drop_in_place$LT$$u5b$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$u5d$$GT$17he86d7061a9d0bc56E.llvm.2337583790011467692"(ptr noalias noundef nonnull align 8 %10, i64 noundef %7)
   br label %11

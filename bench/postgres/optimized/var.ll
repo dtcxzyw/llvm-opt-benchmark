@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.locate_var_of_level_context = type { i32, i32 }
 %struct.pull_var_clause_context = type { ptr, i32 }
 %struct.flatten_join_alias_vars_context = type { ptr, ptr, i32, i8, i8 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [41 x i8] c"Upper-level Var found where not expected\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"var.c\00", align 1
@@ -119,7 +118,7 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 288
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %42 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread, label %57
@@ -902,7 +901,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %19 = getelementptr i8, ptr %15, i64 16
   %.val = load ptr, ptr %19, align 8
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.val, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
@@ -943,7 +942,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 44:                                               ; preds = %.split.split
   %45 = load ptr, ptr %38, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   br label %47
 
 47:                                               ; preds = %.split.split, %44
@@ -955,7 +954,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %39, align 8
-  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = icmp ne ptr %48, null
   %56 = icmp ne ptr %53, null
   %57 = select i1 %55, i1 %56, i1 false
@@ -1029,7 +1028,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 16
   %.val111 = load ptr, ptr %93, align 8
-  %94 = getelementptr %union.ListCell, ptr %.val111, i64 %90
+  %94 = getelementptr [8 x i8], ptr %.val111, i64 %90
   %95 = getelementptr i8, ptr %94, i64 -8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr @copyObjectImpl(ptr noundef %96) #5
@@ -1106,7 +1105,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %140 = getelementptr i8, ptr %139, i64 16
   %.val.i = load ptr, ptr %140, align 8
   %141 = zext nneg i32 %138 to i64
-  %142 = getelementptr %union.ListCell, ptr %.val.i, i64 %141
+  %142 = getelementptr [8 x i8], ptr %.val.i, i64 %141
   %143 = getelementptr i8, ptr %142, i64 -8
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
@@ -1219,7 +1218,7 @@ define internal ptr @flatten_group_exprs_mutator(ptr noundef %0, ptr noundef %1)
   %20 = getelementptr i8, ptr %16, i64 16
   %.val = load ptr, ptr %20, align 8
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.val, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 8
@@ -1234,7 +1233,7 @@ define internal ptr @flatten_group_exprs_mutator(ptr noundef %0, ptr noundef %1)
   %31 = sext i16 %30 to i64
   %32 = getelementptr i8, ptr %28, i64 16
   %.val71 = load ptr, ptr %32, align 8
-  %33 = getelementptr %union.ListCell, ptr %.val71, i64 %31
+  %33 = getelementptr [8 x i8], ptr %.val71, i64 %31
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @copyObjectImpl(ptr noundef %35) #5
@@ -1593,7 +1592,7 @@ tailrecurse.backedge:                             ; preds = %24, %27, %29, %31
 
 41:                                               ; preds = %41, %.lr.ph65
   %indvars.iv = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = tail call fastcc zeroext i1 @is_standard_join_alias_expression(ptr noundef %43, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1679,7 +1678,7 @@ tailrecurse.backedge:                             ; preds = %16, %20, %22, %24
 .lr.ph51:                                         ; preds = %.lr.ph, %.lr.ph51
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph51 ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @adjust_standard_join_alias_expression(ptr noundef %35, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -134,7 +134,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds float, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -159,7 +159,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i16, ptr %2, i64 %0
+  %12 = getelementptr inbounds [2 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -209,7 +209,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i16, ptr %2, i64 %0
+  %12 = getelementptr inbounds [2 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -259,7 +259,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds float, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -431,10 +431,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !13, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E.108", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E.108", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -446,10 +446,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !14, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E.109", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E.109", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -739,7 +739,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h39164b1eac0b8962E(ptr n
   br i1 %28, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
+  %29 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %24
   store i32 %.sroa.0.0.copyload.i.us44.i, ptr %29, align 2, !noalias !42
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us45.i
@@ -1112,7 +1112,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h6e045b57ffd38eeaE(ptr n
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us38.i = load i16, ptr %21, align 2, !noalias !81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = getelementptr inbounds i16, ptr %.val.i.i, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %23
   store i16 %.sroa.0.0.copyload.i.us38.i, ptr %24, align 2, !noalias !81
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us39.i
@@ -1230,7 +1230,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hacdf18294d0a168eE(ptr n
   br i1 %28, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %29 = getelementptr inbounds float, ptr %.val.i.i, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false), !noalias !94
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us42.i
@@ -1354,7 +1354,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hbd991d547f202d50E(ptr n
   br i1 %28, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %29 = getelementptr inbounds float, ptr %.val.i.i, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false), !noalias !107
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us44.i
@@ -1721,7 +1721,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017he71b6a36bde27be5E(ptr n
   br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
+  %29 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %24
   store i48 %.sroa.0.0.copyload.i.us46.i, ptr %29, align 2, !noalias !146
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us47.i
@@ -1846,7 +1846,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hf914a3fe05119ec1E(ptr n
   br i1 %28, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
+  %29 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %24
   store i64 %.sroa.0.0.copyload.i.us44.i, ptr %29, align 2, !noalias !159
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us45.i
@@ -2104,7 +2104,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr 
   br i1 %33, label %.split57.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %32
-  %34 = getelementptr inbounds i16, ptr %.val.i.i, i64 %29
+  %34 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %29
   store i64 %.sroa.0.0.copyload.i.us47.i, ptr %34, align 2, !noalias !185
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %22
@@ -2232,7 +2232,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr 
   br i1 %33, label %.split60.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %32
-  %34 = getelementptr inbounds i16, ptr %.val.i.i, i64 %29
+  %34 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %29
   store i48 %.sroa.0.0.copyload.i.us49.i, ptr %34, align 2, !noalias !198
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %22
@@ -2472,7 +2472,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us41.i = load i16, ptr %24, align 2, !noalias !224
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %28
   store i16 %.sroa.0.0.copyload.i.us41.i, ptr %29, align 2, !noalias !224
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %22
@@ -2723,7 +2723,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
   br i1 %33, label %.split57.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %32
-  %34 = getelementptr inbounds float, ptr %.val.i.i, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !noalias !250
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %22
@@ -2981,7 +2981,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr 
   br i1 %33, label %.split57.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %32
-  %34 = getelementptr inbounds i16, ptr %.val.i.i, i64 %29
+  %34 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %29
   store i32 %.sroa.0.0.copyload.i.us47.i, ptr %34, align 2, !noalias !276
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %22
@@ -3108,7 +3108,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
   br i1 %33, label %.split54.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %32
-  %34 = getelementptr inbounds float, ptr %.val.i.i, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false), !noalias !289
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %22
@@ -3487,7 +3487,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
   br i1 %30, label %.split42.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %26
   store i32 %.sroa.0.0.copyload.i.us.i, ptr %31, align 2, !noalias !328
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -3611,7 +3611,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
   br i1 %30, label %.split43.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %29
-  %31 = getelementptr inbounds float, ptr %.val.i.i, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false), !noalias !341
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -3845,7 +3845,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us.i = load i16, ptr %20, align 2, !noalias !367
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %25
   store i16 %.sroa.0.0.copyload.i.us.i, ptr %26, align 2, !noalias !367
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -4090,7 +4090,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
   br i1 %30, label %.split40.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %29
-  %31 = getelementptr inbounds float, ptr %.val.i.i, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false), !noalias !393
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -4215,7 +4215,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
   br i1 %30, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %26
   store i48 %.sroa.0.0.copyload.i.us.i, ptr %31, align 2, !noalias !406
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -4340,7 +4340,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
   br i1 %30, label %.split42.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %26
   store i64 %.sroa.0.0.copyload.i.us.i, ptr %31, align 2, !noalias !419
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -4451,7 +4451,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h266f63872491b440E.l
   br i1 %29, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %28
-  %30 = getelementptr inbounds float, ptr %.val.i, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us44
@@ -4543,7 +4543,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h3e034ffd9864049dE.l
   br i1 %29, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %28
-  %30 = getelementptr inbounds i16, ptr %.val.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %25
   store i32 %.sroa.0.0.copyload.i.us44, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us45
@@ -4910,7 +4910,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h5cd3001408b39c08E.l
   br i1 %29, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %28
-  %30 = getelementptr inbounds float, ptr %.val.i, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us42
@@ -4996,7 +4996,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h73a64648e5528865E.l
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us39
   %.sroa.0.0.copyload.i.us38 = load i16, ptr %22, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds i16, ptr %.val.i, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %24
   store i16 %.sroa.0.0.copyload.i.us38, ptr %25, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us39
@@ -5085,7 +5085,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hbd4beb87f282cfd1E.l
   br i1 %29, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %28
-  %30 = getelementptr inbounds i16, ptr %.val.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %25
   store i64 %.sroa.0.0.copyload.i.us44, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us45
@@ -5177,7 +5177,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hdaedff5c8f400268E.l
   br i1 %29, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %28
-  %30 = getelementptr inbounds i16, ptr %.val.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %25
   store i48 %.sroa.0.0.copyload.i.us46, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us47
@@ -5444,7 +5444,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h558af5a1f5d05ef3E.
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %23
   %.sroa.0.0.copyload.i.us41 = load i16, ptr %25, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds i16, ptr %.val.i, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %29
   store i16 %.sroa.0.0.copyload.i.us41, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
@@ -5536,7 +5536,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h7355b7d5e4ac00f0E.
   br i1 %34, label %.split57.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %33
-  %35 = getelementptr inbounds i16, ptr %.val.i, i64 %30
+  %35 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %30
   store i64 %.sroa.0.0.copyload.i.us47, ptr %35, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
@@ -5631,7 +5631,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h77aa5956049beb78E.
   br i1 %34, label %.split60.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %33
-  %35 = getelementptr inbounds i16, ptr %.val.i, i64 %30
+  %35 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %30
   store i48 %.sroa.0.0.copyload.i.us49, ptr %35, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
@@ -6002,7 +6002,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hd521d0908c900114E.
   br i1 %34, label %.split57.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %33
-  %35 = getelementptr inbounds i16, ptr %.val.i, i64 %30
+  %35 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %30
   store i32 %.sroa.0.0.copyload.i.us47, ptr %35, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
@@ -6096,7 +6096,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.
   br i1 %34, label %.split57.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %33
-  %35 = getelementptr inbounds float, ptr %.val.i, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
@@ -6190,7 +6190,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.
   br i1 %34, label %.split54.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %33
-  %35 = getelementptr inbounds float, ptr %.val.i, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
@@ -6548,7 +6548,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.
   br i1 %31, label %.split43.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds float, ptr %.val.i, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -6639,7 +6639,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h7ceb42689a176d40E.
   br i1 %31, label %.split40.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds float, ptr %.val.i, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -6731,7 +6731,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h8c4e41229ff8b5eaE.
   br i1 %31, label %.split42.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds i16, ptr %.val.i, i64 %27
+  %32 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %27
   store i32 %.sroa.0.0.copyload.i.us, ptr %32, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -6915,7 +6915,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.
   br i1 %31, label %.split42.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds i16, ptr %.val.i, i64 %27
+  %32 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %27
   store i64 %.sroa.0.0.copyload.i.us, ptr %32, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -7007,7 +7007,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.
   br i1 %31, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds i16, ptr %.val.i, i64 %27
+  %32 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %27
   store i48 %.sroa.0.0.copyload.i.us, ptr %32, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -7093,7 +7093,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %19
   %.sroa.0.0.copyload.i.us = load i16, ptr %21, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %26
   store i16 %.sroa.0.0.copyload.i.us, ptr %27, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -7437,7 +7437,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
   br i1 %29, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %28
-  %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %25
   store i48 %.sroa.0.0.copyload.i.us.i, ptr %30, align 2, !noalias !716
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -7688,7 +7688,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
   br i1 %29, label %.split40.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %28
-  %30 = getelementptr inbounds float, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false), !noalias !742
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -7813,7 +7813,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
   br i1 %29, label %.split42.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %28
-  %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %25
   store i64 %.sroa.0.0.copyload.i.us.i, ptr %30, align 2, !noalias !755
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -7938,7 +7938,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
   br i1 %29, label %.split42.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %28
-  %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %25
   store i32 %.sroa.0.0.copyload.i.us.i, ptr %30, align 2, !noalias !768
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -8189,7 +8189,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
   br i1 %29, label %.split43.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %28
-  %30 = getelementptr inbounds float, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false), !noalias !794
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -8308,7 +8308,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us.i = load i16, ptr %20, align 2, !noalias !807
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %24
   store i16 %.sroa.0.0.copyload.i.us.i, ptr %25, align 2, !noalias !807
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %18
@@ -8554,7 +8554,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E
   br i1 %29, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %30 = getelementptr inbounds float, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !noalias !833
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us42.i
@@ -8679,7 +8679,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE
   br i1 %29, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %25
   store i64 %.sroa.0.0.copyload.i.us44.i, ptr %30, align 2, !noalias !846
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us45.i
@@ -8803,7 +8803,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h8c7e817064366020E
   br i1 %29, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %28
-  %30 = getelementptr inbounds float, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false), !noalias !859
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
@@ -9183,7 +9183,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E
   br i1 %29, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %27
-  %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %25
   store i32 %.sroa.0.0.copyload.i.us44.i, ptr %30, align 2, !noalias !898
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us45.i
@@ -9302,7 +9302,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hdbc9b822497e11d6E
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us38.i = load i16, ptr %23, align 2, !noalias !911
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %24
   store i16 %.sroa.0.0.copyload.i.us38.i, ptr %25, align 2, !noalias !911
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
@@ -9538,7 +9538,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hec343f3be3f80951E
   br i1 %29, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %28
-  %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
+  %30 = getelementptr inbounds [2 x i8], ptr %.val.i.i, i64 %25
   store i48 %.sroa.0.0.copyload.i.us46.i, ptr %30, align 2, !noalias !937
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
@@ -9650,7 +9650,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e
   br i1 %30, label %.split40.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -9736,7 +9736,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc66
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %19
   %.sroa.0.0.copyload.i.us = load i16, ptr %21, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds i16, ptr %.val.i, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %25
   store i16 %.sroa.0.0.copyload.i.us, ptr %26, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -9825,7 +9825,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4
   br i1 %30, label %.split42.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %26
   store i32 %.sroa.0.0.copyload.i.us, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -10008,7 +10008,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa9011726
   br i1 %30, label %.split43.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -10183,7 +10183,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h5d13567e0230
   br i1 %30, label %.split42.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %26
   store i64 %.sroa.0.0.copyload.i.us, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -10459,7 +10459,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e37
   br i1 %30, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %26
   store i48 %.sroa.0.0.copyload.i.us, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
@@ -10551,7 +10551,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d
   br i1 %30, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %28
-  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %26
   store i32 %.sroa.0.0.copyload.i.us44, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us45
@@ -10729,7 +10729,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h2ab0cd3a788e73
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us39
   %.sroa.0.0.copyload.i.us38 = load i16, ptr %24, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds i16, ptr %.val.i, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %25
   store i16 %.sroa.0.0.copyload.i.us38, ptr %26, align 2
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
@@ -10818,7 +10818,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e
   br i1 %30, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %28
-  %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us42
@@ -10910,7 +10910,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a
   br i1 %30, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %28
-  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %26
   store i64 %.sroa.0.0.copyload.i.us44, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us45
@@ -11001,7 +11001,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hb859d94d3f4992
   br i1 %30, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
@@ -11363,7 +11363,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hec8d27641da2ab
   br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  %31 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %26
   store i48 %.sroa.0.0.copyload.i.us46, ptr %31, align 2
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
@@ -11695,7 +11695,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h9f20b8390
 
 ._crit_edge.i:                                    ; preds = %48
   %.val.i = load ptr, ptr %21, align 8, !alias.scope !1142, !noalias !1152, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds i16, ptr %.val.i, i64 %52
+  %55 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %52
   store i16 %spec.select.i.i.i.i, ptr %55, align 2
   %.not.i = icmp uge i32 %27, %9
   %56 = zext i1 %.not.i to i32
@@ -11879,7 +11879,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68
   unreachable
 
 ._crit_edge.i:                                    ; preds = %63
-  %67 = getelementptr inbounds float, ptr %.val.i, i64 %60
+  %67 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %60
   store float %.0.i.i.i.i, ptr %67, align 4
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 4
   store float %.0.i.i.i.i, ptr %.sroa.214.0..sroa_idx, align 4
@@ -12055,7 +12055,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h1f9
   unreachable
 
 ._crit_edge.i:                                    ; preds = %57
-  %61 = getelementptr inbounds i16, ptr %.val.i, i64 %54
+  %61 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %54
   store i32 %.sroa.0.2.insert.insert.i, ptr %61, align 2
   %.not.i = icmp uge i32 %27, %9
   %62 = zext i1 %.not.i to i32
@@ -12213,7 +12213,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h5d2
   unreachable
 
 ._crit_edge.i:                                    ; preds = %48
-  %52 = getelementptr inbounds i16, ptr %.val.i, i64 %45
+  %52 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %45
   store i32 %.sroa.0.0.copyload.i.i, ptr %52, align 2
   %.not.i = icmp uge i32 %27, %9
   %53 = zext i1 %.not.i to i32
@@ -12399,7 +12399,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4
   unreachable
 
 ._crit_edge.i:                                    ; preds = %63
-  %67 = getelementptr inbounds float, ptr %.val.i, i64 %60
+  %67 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %60
   store float %.0.i.i.i.i, ptr %67, align 4
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 4
   store float %.0.i.i.i.i, ptr %.sroa.215.0..sroa_idx, align 4
@@ -13566,7 +13566,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %69
-  %73 = getelementptr inbounds i16, ptr %.val.i, i64 %66
+  %73 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %66
   store i48 %.sroa.0.0.copyload.i, ptr %73, align 2
   %.not.i = icmp uge i32 %32, %11
   %74 = zext i1 %.not.i to i32
@@ -13943,7 +13943,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr
 
 ._crit_edge.i:                                    ; preds = %57
   %.val.i = load ptr, ptr %25, align 8, !alias.scope !1420, !noalias !1430, !nonnull !4, !noundef !4
-  %64 = getelementptr inbounds i16, ptr %.val.i, i64 %61
+  %64 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %61
   store i16 %44, ptr %64, align 2
   %.not.i = icmp uge i32 %31, %10
   %65 = zext i1 %.not.i to i32
@@ -14145,7 +14145,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %69
-  %73 = getelementptr inbounds i16, ptr %.val.i, i64 %66
+  %73 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %66
   store i32 %.sroa.0.0.copyload.i, ptr %73, align 2
   %.not.i = icmp uge i32 %32, %11
   %74 = zext i1 %.not.i to i32
@@ -14330,7 +14330,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h9e2d54cade3a4914E(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %62
-  %66 = getelementptr inbounds float, ptr %.val.i, i64 %59
+  %66 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %66, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.015, i64 12, i1 false)
   %.not.i = icmp uge i32 %41, %11
   %67 = zext i1 %.not.i to i32
@@ -14515,7 +14515,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hbd6fa2c6dc15acb1E(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %62
-  %66 = getelementptr inbounds float, ptr %.val.i, i64 %59
+  %66 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.015, i64 16, i1 false)
   %.not.i = icmp uge i32 %41, %11
   %67 = zext i1 %.not.i to i32
@@ -15105,7 +15105,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %69
-  %73 = getelementptr inbounds i16, ptr %.val.i, i64 %66
+  %73 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %66
   store i64 %.sroa.0.0.copyload.i, ptr %73, align 2
   %.not.i = icmp uge i32 %32, %11
   %74 = zext i1 %.not.i to i32
@@ -15297,7 +15297,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %61
-  %65 = getelementptr inbounds float, ptr %.val.i, i64 %58
+  %65 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.017, i64 16, i1 false)
   %.not.i = icmp uge i32 %29, %11
   %66 = zext i1 %.not.i to i32
@@ -15489,7 +15489,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %61
-  %65 = getelementptr inbounds float, ptr %.val.i, i64 %58
+  %65 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.017, i64 12, i1 false)
   %.not.i = icmp uge i32 %29, %11
   %66 = zext i1 %.not.i to i32
@@ -15793,7 +15793,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h48e73d165d4f9ba6E(ptr
 
 ._crit_edge.i:                                    ; preds = %46
   %.val.i = load ptr, ptr %22, align 8, !alias.scope !1687, !noalias !1697, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds i16, ptr %.val.i, i64 %50
+  %53 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %50
   store i16 %33, ptr %53, align 2
   %.not.i = icmp uge i32 %28, %10
   %54 = zext i1 %.not.i to i32
@@ -15973,7 +15973,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %57
-  %61 = getelementptr inbounds i16, ptr %.val.i, i64 %54
+  %61 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %54
   store i48 %.sroa.0.0.copyload.i, ptr %61, align 2
   %.not.i = icmp uge i32 %36, %11
   %62 = zext i1 %.not.i to i32
@@ -16153,7 +16153,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %57
-  %61 = getelementptr inbounds i16, ptr %.val.i, i64 %54
+  %61 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %54
   store i64 %.sroa.0.0.copyload.i, ptr %61, align 2
   %.not.i = icmp uge i32 %36, %11
   %62 = zext i1 %.not.i to i32
@@ -16667,7 +16667,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hdbae2855b93cb8bbE(ptr
   unreachable
 
 ._crit_edge.i:                                    ; preds = %53
-  %57 = getelementptr inbounds i16, ptr %.val.i, i64 %50
+  %57 = getelementptr inbounds [2 x i8], ptr %.val.i, i64 %50
   store i32 %.sroa.0.0.insert.insert.i, ptr %57, align 2
   %.not.i = icmp uge i32 %28, %10
   %58 = zext i1 %.not.i to i32
@@ -17781,7 +17781,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
 
 78:                                               ; preds = %78, %77
   %79 = phi i64 [ 0, %77 ], [ %81, %78 ]
-  %80 = getelementptr inbounds nuw float, ptr %4, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %79
   store float 1.000000e+00, ptr %80, align 4, !noalias !1944
   %81 = add nuw nsw i64 %79, 1
   %exitcond.not.i.us = icmp eq i64 %81, 4
@@ -19306,7 +19306,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
 
 77:                                               ; preds = %77, %76
   %78 = phi i64 [ 0, %76 ], [ %80, %77 ]
-  %79 = getelementptr inbounds nuw float, ptr %4, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %78
   store float 1.000000e+00, ptr %79, align 4, !noalias !2062
   %80 = add nuw nsw i64 %78, 1
   %exitcond.not.i.us = icmp eq i64 %80, 4
@@ -19472,7 +19472,7 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN5image7buffer_
   unreachable
 
 "_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h4c1a6a92d1e3bb7eE.exit": ; preds = %36
-  %40 = getelementptr inbounds i16, ptr %.val, i64 %31
+  %40 = getelementptr inbounds [2 x i8], ptr %.val, i64 %31
   ret ptr %40
 }
 
@@ -19694,7 +19694,7 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN5image7buffer_
   unreachable
 
 "_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h27a974e38348630eE.exit": ; preds = %36
-  %40 = getelementptr inbounds i16, ptr %.val, i64 %31
+  %40 = getelementptr inbounds [2 x i8], ptr %.val, i64 %31
   ret ptr %40
 }
 
@@ -19848,7 +19848,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN5image7buffer
   unreachable
 
 "_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3ecb10ad974cc5b8E.exit": ; preds = %36
-  %40 = getelementptr inbounds float, ptr %.val, i64 %31
+  %40 = getelementptr inbounds [4 x i8], ptr %.val, i64 %31
   ret ptr %40
 }
 
@@ -20002,7 +20002,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN5image7buffer
   unreachable
 
 "_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE.exit": ; preds = %36
-  %40 = getelementptr inbounds float, ptr %.val, i64 %31
+  %40 = getelementptr inbounds [4 x i8], ptr %.val, i64 %31
   ret ptr %40
 }
 
@@ -20079,7 +20079,7 @@ define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN5image7buffer_
   unreachable
 
 "_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h5108e8d1b274d1b2E.exit": ; preds = %36
-  %40 = getelementptr inbounds i16, ptr %.val, i64 %31
+  %40 = getelementptr inbounds [2 x i8], ptr %.val, i64 %31
   ret ptr %40
 }
 
@@ -20147,7 +20147,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN5image7buffer_
 "_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h1e378f2bd0a6fb68E.exit": ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds i16, ptr %.val, i64 %30
+  %35 = getelementptr inbounds [2 x i8], ptr %.val, i64 %30
   ret ptr %35
 }
 
@@ -24261,7 +24261,7 @@ switch.lookup:
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load i8, ptr %11, align 8, !range !2449, !alias.scope !2450, !noundef !4
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext i32 %.0.i.i.i to i64
   %15 = zext i32 %.0.i3.i.i to i64
@@ -24404,7 +24404,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 362
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !2468, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -24830,7 +24830,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 149
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !2536, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -24985,7 +24985,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !2557, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -26120,7 +26120,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 386
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !2781, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -27695,7 +27695,7 @@ switch.lookup:
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i8, ptr %11, align 8, !range !2449, !alias.scope !3105, !noundef !4
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext i32 %.0.i.i.i to i64
   %15 = zext i32 %.0.i3.i.i to i64
@@ -28974,7 +28974,7 @@ switch.lookup:
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load i8, ptr %11, align 8, !range !2449, !alias.scope !3341, !noundef !4
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext i32 %.0.i.i.i to i64
   %15 = zext i32 %.0.i3.i.i to i64
@@ -29533,7 +29533,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !3419, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -29810,7 +29810,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !3458, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -29956,7 +29956,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 173
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !3476, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -30317,7 +30317,7 @@ switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
   %36 = zext nneg i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
   %38 = extractvalue { i64, i1 } %37, 1
@@ -31056,7 +31056,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 386
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !3727, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -31705,7 +31705,7 @@ switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
   %36 = zext nneg i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
   %38 = extractvalue { i64, i1 } %37, 1
@@ -32057,7 +32057,7 @@ switch.lookup:
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i8, ptr %11, align 8, !range !2449, !alias.scope !3897, !noundef !4
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext i32 %.0.i.i.i to i64
   %15 = zext i32 %.0.i3.i.i to i64
@@ -32244,7 +32244,7 @@ switch.lookup:
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i8, ptr %11, align 8, !range !2449, !alias.scope !3946, !noundef !4
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext i32 %.0.i.i.i to i64
   %15 = zext i32 %.0.i3.i.i to i64
@@ -32910,7 +32910,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 149
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4079, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -33051,7 +33051,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 149
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4097, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -33543,7 +33543,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !4160, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -33687,7 +33687,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 173
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4178, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -34119,7 +34119,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 386
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !4243, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -34856,7 +34856,7 @@ switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
   %36 = zext nneg i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
   %38 = extractvalue { i64, i1 } %37, 1
@@ -35201,7 +35201,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !4420, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -35836,7 +35836,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 362
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !4522, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -36499,7 +36499,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !4627, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -36650,7 +36650,7 @@ switch.lookup:
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load i8, ptr %11, align 8, !range !2449, !alias.scope !4650, !noundef !4
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext i32 %.0.i.i.i to i64
   %15 = zext i32 %.0.i3.i.i to i64
@@ -36968,7 +36968,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 362
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !4695, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -37347,7 +37347,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 173
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4755, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -38067,7 +38067,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d
   br i1 %41, label %.split56.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i16, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %37
   store i48 %.sroa.0.0.copyload.i.us, ptr %43, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -38238,7 +38238,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af
   br i1 %41, label %.split54.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds float, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [4 x i8], ptr %.val.i.us, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -38584,7 +38584,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94
   br i1 %41, label %.split53.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i16, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %37
   store i32 %.sroa.0.0.copyload.i.us, ptr %43, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -38750,7 +38750,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b0
 
 37:                                               ; preds = %35
   %.val.i.us = load ptr, ptr %24, align 8, !alias.scope !4834, !noalias !4837, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds i16, ptr %.val.i.us, i64 %36
+  %38 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %36
   store i16 %.sroa.0.0.copyload.i.us, ptr %38, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -38915,7 +38915,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5
   br i1 %41, label %.split51.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds float, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [4 x i8], ptr %.val.i.us, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -39609,7 +39609,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c
   br i1 %41, label %.split53.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i16, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %37
   store i64 %.sroa.0.0.copyload.i.us, ptr %43, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -39781,7 +39781,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c
   br i1 %41, label %.split56.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i16, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %37
   store i48 %.sroa.0.0.copyload.i.us, ptr %43, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -39952,7 +39952,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0
   br i1 %41, label %.split54.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds float, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [4 x i8], ptr %.val.i.us, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -40123,7 +40123,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8
   br i1 %41, label %.split51.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds float, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [4 x i8], ptr %.val.i.us, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -40295,7 +40295,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca6266
   br i1 %41, label %.split53.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i16, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %37
   store i64 %.sroa.0.0.copyload.i.us, ptr %43, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -40461,7 +40461,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d0
 
 37:                                               ; preds = %35
   %.val.i.us = load ptr, ptr %24, align 8, !alias.scope !4977, !noalias !4980, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds i16, ptr %.val.i.us, i64 %36
+  %38 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %36
   store i16 %.sroa.0.0.copyload.i.us, ptr %38, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -40627,7 +40627,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb
   br i1 %41, label %.split53.us, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i16, ptr %.val.i.us, i64 %37
+  %43 = getelementptr inbounds [2 x i8], ptr %.val.i.us, i64 %37
   store i32 %.sroa.0.0.copyload.i.us, ptr %43, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %29
@@ -41401,7 +41401,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw float, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store float 1.000000e+00, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
@@ -42018,8 +42018,8 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i", %5
   %.sroa.8.023.i = phi i64 [ 0, %5 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i" ]
   %10 = add nuw nsw i64 %.sroa.8.023.i, 1
-  %11 = getelementptr inbounds nuw float, ptr %6, i64 %.sroa.8.023.i
-  %12 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.8.023.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.sroa.8.023.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.8.023.i
   %13 = load float, ptr %12, align 4, !alias.scope !5167, !noalias !5175, !noundef !4
   %14 = load float, ptr %11, align 4, !alias.scope !5164, !noalias !5176, !noundef !4
   %15 = fcmp ult float %14, 0xC1E0000000000000
@@ -42137,8 +42137,8 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i", %4
   %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i" ]
   %9 = add nuw nsw i64 %.sroa.8.023.i, 1
-  %10 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.8.023.i
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.8.023.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.8.023.i
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.8.023.i
   %12 = load i16, ptr %11, align 2, !alias.scope !5195, !noalias !5203, !noundef !4
   %13 = load i16, ptr %10, align 2, !alias.scope !5192, !noalias !5204, !noundef !4
   %14 = zext i16 %13 to i32
@@ -42185,8 +42185,8 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit"
   %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %.sroa.8.023
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %.sroa.8.023
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.8.023
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.8.023
   %12 = load float, ptr %11, align 4, !noundef !4
   %13 = load float, ptr %10, align 4, !noundef !4
   %14 = fcmp ult float %13, 0xC1E0000000000000
@@ -42243,8 +42243,8 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit"
   %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.8.023
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.8.023
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.sroa.8.023
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.8.023
   %12 = load i16, ptr %11, align 2, !noundef !4
   %13 = load i16, ptr %10, align 2, !noundef !4
   %14 = zext i16 %13 to i32
@@ -42766,7 +42766,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw float, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store float 1.000000e+00, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
@@ -43416,8 +43416,8 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i", %5
   %.sroa.8.023.i = phi i64 [ 0, %5 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i" ]
   %10 = add nuw nsw i64 %.sroa.8.023.i, 1
-  %11 = getelementptr inbounds nuw float, ptr %6, i64 %.sroa.8.023.i
-  %12 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.8.023.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.sroa.8.023.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.8.023.i
   %13 = load float, ptr %12, align 4, !alias.scope !5393, !noalias !5401, !noundef !4
   %14 = load float, ptr %11, align 4, !alias.scope !5390, !noalias !5402, !noundef !4
   %15 = fcmp ult float %14, 0xC1E0000000000000
@@ -43537,8 +43537,8 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i", %4
   %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i" ]
   %10 = add nuw nsw i64 %.sroa.8.023.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.8.023.i
-  %12 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.8.023.i
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.8.023.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.8.023.i
   %13 = load i16, ptr %12, align 2, !alias.scope !5421, !noalias !5429, !noundef !4
   %14 = load i16, ptr %11, align 2, !alias.scope !5418, !noalias !5430, !noundef !4
   %15 = zext i16 %14 to i32
@@ -43585,8 +43585,8 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit"
   %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %.sroa.8.023
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %.sroa.8.023
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.8.023
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.8.023
   %12 = load float, ptr %11, align 4, !noundef !4
   %13 = load float, ptr %10, align 4, !noundef !4
   %14 = fcmp ult float %13, 0xC1E0000000000000
@@ -43686,8 +43686,8 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit"
   %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.8.023
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.8.023
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.sroa.8.023
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.8.023
   %12 = load i16, ptr %11, align 2, !noundef !4
   %13 = load i16, ptr %10, align 2, !noundef !4
   %14 = zext i16 %13 to i32
@@ -44138,7 +44138,7 @@ define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
   %.sroa.8.023.i.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %4 ], [ %.sroa.0.sroa.5, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
   %.sroa.8.023.i = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.8.023.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.8.023.i
   %11 = load i16, ptr %10, align 2, !alias.scope !5507, !noalias !5515, !noundef !4
   %12 = load i16, ptr %.sroa.8.023.i.sroa.phi, align 2, !alias.scope !5504, !noalias !5516, !noundef !4
   %13 = zext i16 %12 to i32
@@ -44232,8 +44232,8 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
 8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit"
   %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit" ]
   %.sroa.8.023 = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit" ]
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.8.023
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.8.023
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.sroa.8.023
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.8.023
   %12 = load i16, ptr %11, align 2, !noundef !4
   %13 = load i16, ptr %10, align 2, !noundef !4
   %14 = zext i16 %13 to i32

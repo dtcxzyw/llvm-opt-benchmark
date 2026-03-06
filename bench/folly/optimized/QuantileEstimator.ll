@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { double, double }
 
 @.str = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -40,7 +39,7 @@ _ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i: ; preds = %11
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #10
   store ptr %15, ptr %5, align 8, !tbaa !7
   store ptr %15, ptr %13, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %9
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %9
   store ptr %16, ptr %12, align 8, !tbaa !14
   br label %_ZNSt6vectorISt4pairIddESaIS1_EE7reserveEm.exit
 
@@ -141,7 +140,7 @@ _ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 
 _ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %50, %_ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %49, ptr %22, align 8, !tbaa !13
-  %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %45, i64 %43
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   br label %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %31

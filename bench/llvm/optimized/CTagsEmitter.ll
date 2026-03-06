@@ -13,16 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.73" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.(anonymous namespace)::Tag" = type <{ %"class.llvm::StringRef", %"class.llvm::StringRef", i32, [4 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.llvm::SourceMgr::SrcBuffer" = type { %"class.std::unique_ptr.79", ptr, %"class.llvm::SMLoc" }
-%"class.std::unique_ptr.79" = type { %"struct.std::__uniq_ptr_data.80" }
-%"struct.std::__uniq_ptr_data.80" = type { %"class.std::__uniq_ptr_impl.81" }
-%"class.std::__uniq_ptr_impl.81" = type { %"class.std::tuple.82" }
-%"class.std::tuple.82" = type { %"struct.std::_Tuple_impl.83" }
-%"struct.std::_Tuple_impl.83" = type { %"struct.std::_Head_base.86" }
-%"struct.std::_Head_base.86" = type { ptr }
-%"class.llvm::SMLoc" = type { ptr }
+%"class.(anonymous namespace)::Tag" = type <{ %"class.llvm::StringRef", %"class.llvm::StringRef", i32, [4 x i8] }>
 %"class.std::tuple.87" = type { %"struct.std::_Tuple_impl.88" }
 %"struct.std::_Tuple_impl.88" = type { %"struct.std::_Tuple_impl.89", %"struct.std::_Head_base.93" }
 %"struct.std::_Tuple_impl.89" = type { %"struct.std::_Tuple_impl.90", %"struct.std::_Head_base.92" }
@@ -73,7 +65,7 @@ define internal void @_ZN4llvm8TableGen7Emitter8OptClassIN12_GLOBAL__N_112CTagsE
 _ZNSt12_Vector_baseIN12_GLOBAL__N_13TagESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds = %10
   %11 = mul nuw nsw i64 %7, 40
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #14
-  %13 = getelementptr inbounds nuw %"class.(anonymous namespace)::Tag", ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %7
   br label %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE7reserveEm.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_13TagESaIS1_EE13_M_deallocateEPS1_m.exit.i.i, %10
@@ -124,7 +116,7 @@ _ZN12_GLOBAL__N_112CTagsEmitter6locateEPKN4llvm6RecordE.exit.i: ; preds = %28, %
   %33 = add i32 %32, -1
   %34 = zext i32 %33 to i64
   %35 = load ptr, ptr @_ZN4llvm6SrcMgrE, align 8, !tbaa !25
-  %36 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %34
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = load ptr, ptr %37, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -203,7 +195,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i
   br label %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %63, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i.i
-  %64 = getelementptr inbounds nuw %"class.(anonymous namespace)::Tag", ptr %59, i64 %57
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %57
   br label %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %45
@@ -243,7 +235,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNS
   %76 = add i32 %75, -1
   %77 = zext i32 %76 to i64
   %78 = load ptr, ptr @_ZN4llvm6SrcMgrE, align 8, !tbaa !25
-  %79 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !28
   %81 = load ptr, ptr %80, align 8, !tbaa !30
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -322,7 +314,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i
   br label %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i58.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i58.i: ; preds = %106, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i55.i
-  %107 = getelementptr inbounds nuw %"class.(anonymous namespace)::Tag", ptr %102, i64 %100
+  %107 = getelementptr inbounds nuw [40 x i8], ptr %102, i64 %100
   br label %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit59.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit59.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i58.i, %88
@@ -558,7 +550,7 @@ _ZN12_GLOBAL__N_112CTagsEmitter6locateEPKN4llvm6RecordE.exit67.i: ; preds = %175
   %180 = add i32 %179, -1
   %181 = zext i32 %180 to i64
   %182 = load ptr, ptr @_ZN4llvm6SrcMgrE, align 8, !tbaa !25
-  %183 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %182, i64 %181
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %182, i64 %181
   %184 = load ptr, ptr %183, align 8, !tbaa !28
   %185 = load ptr, ptr %184, align 8, !tbaa !30
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
@@ -637,7 +629,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i
   br label %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83.i: ; preds = %210, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i80.i
-  %211 = getelementptr inbounds nuw %"class.(anonymous namespace)::Tag", ptr %206, i64 %204
+  %211 = getelementptr inbounds nuw [40 x i8], ptr %206, i64 %204
   br label %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit84.i
 
 _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit84.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83.i, %192
@@ -887,7 +879,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 58:                                               ; preds = %58, %54
   %.07.i.i.i = phi i64 [ %57, %54 ], [ %60, %58 ]
-  %59 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %.07.i.i.i
+  %59 = getelementptr inbounds [40 x i8], ptr %0, i64 %.07.i.i.i
   call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %.07.i.i.i, i64 noundef %55, ptr noundef nonnull byval(%"class.(anonymous namespace)::Tag") align 8 %59)
   %.not.i.i.i = icmp eq i64 %.07.i.i.i, 0
   %60 = add nsw i64 %.07.i.i.i, -1
@@ -910,7 +902,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 66:                                               ; preds = %51
   %67 = add nsw i64 %.018, -1
   %68 = udiv i64 %52, 80
-  %69 = getelementptr inbounds nuw %"class.(anonymous namespace)::Tag", ptr %0, i64 %68
+  %69 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %68
   %70 = getelementptr inbounds i8, ptr %storemerge17, i64 -40
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %71 = load i32, ptr %28, align 4, !tbaa !33
@@ -1289,9 +1281,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.042 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %16 ]
   %17 = shl i64 %.042, 1
   %18 = add i64 %17, 2
-  %19 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %18
+  %19 = getelementptr inbounds [40 x i8], ptr %0, i64 %18
   %20 = or disjoint i64 %17, 1
-  %21 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %20
+  %21 = getelementptr inbounds [40 x i8], ptr %0, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -1310,8 +1302,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %spec.select = select i1 %28, i64 %20, i64 %18
-  %29 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %spec.select
-  %30 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %.042
+  %29 = getelementptr inbounds [40 x i8], ptr %0, i64 %spec.select
+  %30 = getelementptr inbounds [40 x i8], ptr %0, i64 %.042
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef nonnull align 8 dereferenceable(36) %29, i64 36, i1 false), !tbaa.struct !34
   %31 = icmp slt i64 %spec.select, %10
   br i1 %31, label %16, label %._crit_edge, !llvm.loop !69
@@ -1331,8 +1323,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 38:                                               ; preds = %34
   %39 = shl nsw i64 %.0.lcssa, 1
   %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %40
-  %42 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %.0.lcssa
+  %41 = getelementptr inbounds [40 x i8], ptr %0, i64 %40
+  %42 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %42, ptr noundef nonnull align 8 dereferenceable(36) %41, i64 36, i1 false), !tbaa.struct !34
   br label %43
 
@@ -1355,7 +1347,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.06.i = phi i64 [ %.1, %.lr.ph.i ], [ %.097.i, %56 ]
   %.097.in.i = add nsw i64 %.06.i, -1
   %.097.i = sdiv i64 %.097.in.i, 2
-  %51 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %.097.i
+  %51 = getelementptr inbounds [40 x i8], ptr %0, i64 %.097.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -1373,14 +1365,14 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   br i1 %55, label %56, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %.06.i
+  %57 = getelementptr inbounds [40 x i8], ptr %0, i64 %.06.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %57, ptr noundef nonnull align 8 dereferenceable(36) %51, i64 36, i1 false), !tbaa.struct !34
   %58 = icmp sgt i64 %.097.i, %1
   br i1 %58, label %50, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !70
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit: ; preds = %50, %56, %43
   %.0.lcssa.i = phi i64 [ %.1, %43 ], [ %.06.i, %50 ], [ %.097.i, %56 ]
-  %59 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %0, i64 %.0.lcssa.i
+  %59 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %.sroa.6.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i32 %.sroa.2.0.copyload, ptr %.sroa.6.0..sroa_idx39, align 8, !tbaa !33
@@ -1545,7 +1537,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vecto
   %21 = ptrtoint ptr %.sroa.0.034 to i64
   %22 = sub i64 %21, %13
   %.neg.i.i.i.i.i = sdiv exact i64 %22, -40
-  %23 = getelementptr inbounds %"class.(anonymous namespace)::Tag", ptr %20, i64 %.neg.i.i.i.i.i
+  %23 = getelementptr inbounds [40 x i8], ptr %20, i64 %.neg.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %22, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

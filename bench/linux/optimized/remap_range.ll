@@ -13,7 +13,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_vfs_dedupe_f
 %struct.pcpu_hot = type { %union.anon.29 }
 %union.anon.29 = type { %struct.anon.30, [16 x i8] }
 %struct.anon.30 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.file_dedupe_range_info = type { i64, i64, i64, i32, i32 }
 
 @__UNIQUE_ID___addressable_generic_remap_file_range_prep445 = internal global ptr @generic_remap_file_range_prep, section ".discard.addressable", align 8
 @.str = private unnamed_addr constant [17 x i8] c"fs/remap_range.c\00", align 1
@@ -1085,7 +1084,7 @@ define dso_local range(i32 -2147483648, 1) i32 @vfs_dedupe_file_range(ptr nounde
 
 53:                                               ; preds = %53, %50
   %54 = phi i64 [ 0, %50 ], [ %58, %53 ]
-  %55 = getelementptr %struct.file_dedupe_range_info, ptr %51, i64 %54
+  %55 = getelementptr [32 x i8], ptr %51, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i64 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 24

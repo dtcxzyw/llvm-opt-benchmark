@@ -1212,7 +1212,7 @@ _ZN12regex_syntax3hir3Hir10repetition17h6fa78416cf457f7aE.exit: ; preds = %224, 
   %.sroa.2197.0.copyload = load ptr, ptr %.sroa.2197.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %262 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.sroa.2197.0.copyload, i64 %.sroa.3.0.copyload
+  %262 = getelementptr inbounds [48 x i8], ptr %.sroa.2197.0.copyload, i64 %.sroa.3.0.copyload
   store ptr %.sroa.2197.0.copyload, ptr %15, align 8
   %.sroa.4199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.sroa.2197.0.copyload, ptr %.sroa.4199.0..sroa_idx, align 8
@@ -1249,7 +1249,7 @@ _ZN12regex_syntax3hir3Hir10repetition17h6fa78416cf457f7aE.exit: ; preds = %224, 
   %.sroa.2203.0.copyload = load ptr, ptr %.sroa.2203.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.3204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
   %.sroa.3204.0.copyload = load i64, ptr %.sroa.3204.0..sroa_idx, align 8
-  %272 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.sroa.2203.0.copyload, i64 %.sroa.3204.0.copyload
+  %272 = getelementptr inbounds [48 x i8], ptr %.sroa.2203.0.copyload, i64 %.sroa.3204.0.copyload
   store ptr %.sroa.2203.0.copyload, ptr %13, align 8
   %.sroa.4206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.2203.0.copyload, ptr %.sroa.4206.0..sroa_idx, align 8

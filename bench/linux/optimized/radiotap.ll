@@ -158,7 +158,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
 34:                                               ; preds = %28
   %35 = load ptr, ptr %26, align 8
   %36 = sext i32 %16 to i64
-  %37 = getelementptr %struct.radiotap_align_size, ptr %35, i64 %36
+  %37 = getelementptr i8, ptr %35, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = and i8 %38, 15
   %40 = zext nneg i8 %39 to i32
@@ -246,7 +246,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
 
 95:                                               ; preds = %105, %92
   %96 = phi i64 [ 0, %92 ], [ %106, %105 ]
-  %97 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %93, i64 %96
+  %97 = getelementptr [24 x i8], ptr %93, i64 %96
   %.fr = freeze ptr %97
   %98 = getelementptr inbounds nuw i8, ptr %.fr, i64 12
   %99 = load i32, ptr %98, align 4

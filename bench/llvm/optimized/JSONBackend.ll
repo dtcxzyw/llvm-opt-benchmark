@@ -814,7 +814,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
   br label %_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %331, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i
-  %332 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %323, i64 %321
+  %332 = getelementptr inbounds nuw [40 x i8], ptr %323, i64 %321
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i
 
 _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i: ; preds = %_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %309
@@ -1546,7 +1546,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i250.i: ; preds = %_ZSt
   br label %_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit252.i
 
 _ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit252.i: ; preds = %577, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i250.i
-  %578 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %569, i64 %567
+  %578 = getelementptr inbounds nuw [40 x i8], ptr %569, i64 %567
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit118.i
 
 _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit118.i: ; preds = %_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit252.i, %555
@@ -1895,7 +1895,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i283.i: ; preds = %_ZSt
 _ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit285.i: ; preds = %686, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i283.i
   store ptr %678, ptr %604, align 8, !tbaa !73
   store ptr %685, ptr %658, align 8, !tbaa !76
-  %690 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %678, i64 %676
+  %690 = getelementptr inbounds nuw [40 x i8], ptr %678, i64 %676
   store ptr %690, ptr %660, align 8, !tbaa !79
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit131.i
 
@@ -2282,7 +2282,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i316.i: ; preds = %_ZSt
   br label %_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit318.i
 
 _ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit318.i: ; preds = %808, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i316.i
-  %809 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %800, i64 %798
+  %809 = getelementptr inbounds nuw [40 x i8], ptr %800, i64 %798
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit189.i
 
 _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit189.i: ; preds = %_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit318.i, %786
@@ -2914,7 +2914,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 63:                                               ; preds = %.lr.ph, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %64 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !91
   call fastcc void @_ZN12_GLOBAL__N_111JSONEmitter13translateInitERKN4llvm4InitE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(10) %65)
   %66 = load ptr, ptr %55, align 8, !tbaa !76
@@ -3370,7 +3370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %217 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv19
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv19
   %218 = load ptr, ptr %217, align 8, !tbaa !91
   call fastcc void @_ZN12_GLOBAL__N_111JSONEmitter13translateInitERKN4llvm4InitE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(10) %218)
   call void @_ZN4llvm4json5Array9push_backEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(40) %34)
@@ -3378,8 +3378,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %219 = load i32, ptr %189, align 8, !tbaa !160
   %220 = zext i32 %219 to i64
-  %221 = getelementptr inbounds nuw ptr, ptr %191, i64 %220
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv19
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %220
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv19
   %223 = load ptr, ptr %222, align 8, !tbaa !161
   %.not103 = icmp eq ptr %223, null
   br i1 %.not103, label %229, label %224
@@ -4197,7 +4197,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.
 _ZNSt12_Vector_baseIN4llvm4json5ValueESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !73
   store ptr %.0.lcssa.i.i.i.i.i23, ptr %4, align 8, !tbaa !76
-  %33 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !79
   ret void
 }

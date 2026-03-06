@@ -1184,7 +1184,7 @@ _ZNSt11_Deque_baseISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE15_M_allocate_
   store ptr %10, ptr %0, align 8, !tbaa !105
   %11 = sub nsw i64 %.sroa.speculated, %8
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %.idx = shl nuw nsw i64 %8, 3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   br label %.lr.ph.i
@@ -1277,7 +1277,7 @@ _ZNSt11_Deque_baseISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE15_M_create_no
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !100
   store ptr %42, ptr %40, align 8, !tbaa !113
-  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %49, i64 %4
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %4
   store ptr %53, ptr %46, align 8, !tbaa !93
   ret void
 
@@ -3144,9 +3144,9 @@ define linkonce_odr void @_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaI
   %19 = load ptr, ptr %0, align 8, !tbaa !105
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -3165,12 +3165,12 @@ define linkonce_odr void @_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaI
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt4pairISt8functionIFvvEESt7promiseIbEES8_ET0_T_SA_S9_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt4pairISt8functionIFvvEESt7promiseIbEES8_ET0_T_SA_S9_.exit
 
@@ -3198,9 +3198,9 @@ _ZNSt11_Deque_baseISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE15_M_allocate_
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #26
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt4pairISt8functionIFvvEESt7promiseIbEES8_ET0_T_SA_S9_.exit26, label %53
@@ -3228,7 +3228,7 @@ _ZSt4copyIPPSt4pairISt8functionIFvvEESt7promiseIbEES8_ET0_T_SA_S9_.exit: ; preds
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 504
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !100
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !101
   %64 = load ptr, ptr %63, align 8, !tbaa !108

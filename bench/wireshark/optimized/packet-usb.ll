@@ -3402,7 +3402,7 @@ dissect_usbpcap_buffer_packet_header.exit:        ; preds = %.thread60.i, %320
 400:                                              ; preds = %398, %354
   %401 = phi i8 [ %399, %398 ], [ 4, %354 ]
   %402 = zext i8 %401 to i64
-  %403 = getelementptr i32, ptr @darwin_endpoint_to_linux, i64 %402
+  %403 = getelementptr [4 x i8], ptr @darwin_endpoint_to_linux, i64 %402
   %404 = load i32, ptr %403, align 4
   %405 = trunc i32 %404 to i8
   store i8 %405, ptr %207, align 4
@@ -6434,10 +6434,10 @@ define internal noundef i32 @dissect_usb_setup_clear_feature_request(ptr readnon
 
 switch.lookup:                                    ; preds = %6
   %13 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_setup_set_feature_request, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_setup_set_feature_request, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %11 to i64
-  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 %14
+  %switch.gep46 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 %14
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %15
 
@@ -6472,10 +6472,10 @@ define internal noundef i32 @dissect_usb_setup_set_feature_request(ptr readnone 
 
 switch.lookup:                                    ; preds = %6
   %13 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_setup_set_feature_request, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_setup_set_feature_request, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %11 to i64
-  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 %14
+  %switch.gep46 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 %14
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %15
 
@@ -7319,7 +7319,7 @@ dissect_usb_device_descriptor.exit:               ; preds = %dissect_max_packet_
 
 switch.lookup:                                    ; preds = %382
   %391 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_setup_get_descriptor_response, i64 %391
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_setup_get_descriptor_response, i64 %391
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_usb_interface_descriptor.exit.i
 
@@ -7832,7 +7832,7 @@ dissect_usb_device_qualifier_descriptor.exit:     ; preds = %sanitize_usb_max_pa
 695:                                              ; preds = %694, %689
   %696 = phi i1 [ true, %689 ], [ false, %694 ]
   %indvars.iv.i.i = phi i64 [ 0, %689 ], [ 1, %694 ]
-  %697 = getelementptr %struct.anon.5, ptr @bos_platform_uuids, i64 %indvars.iv.i.i
+  %697 = getelementptr [32 x i8], ptr @bos_platform_uuids, i64 %indvars.iv.i.i
   %698 = call i32 @guid_cmp(ptr noundef %697, ptr noundef nonnull %6)
   %699 = icmp eq i32 %698, 0
   br i1 %699, label %700, label %694

@@ -31,12 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.net::QuicFrame" = type { i32, %union.anon.154 }
 %union.anon.154 = type { ptr }
 %"struct.net::PendingRetransmission" = type <{ i64, ptr, i8, i8, i8, i8, i32, i8, i8, [6 x i8] }>
-%"class.std::unique_ptr.155" = type { %"struct.std::__uniq_ptr_data.156" }
-%"struct.std::__uniq_ptr_data.156" = type { %"class.std::__uniq_ptr_impl.157" }
-%"class.std::__uniq_ptr_impl.157" = type { %"class.std::tuple.158" }
-%"class.std::tuple.158" = type { %"struct.std::_Tuple_impl.159" }
-%"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
-%"struct.std::_Head_base.162" = type { ptr }
 
 $_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev = comdat any
 
@@ -3136,7 +3130,7 @@ define noundef zeroext i1 @_ZN3net14QuicConnection19SelectMutualVersionERKSt6vec
 
 .lr.ph.i.i.i.i.us:                                ; preds = %.critedge.us, %.lr.ph.split.us
   %.01430.us = phi i64 [ 0, %.lr.ph.split.us ], [ %56, %.critedge.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %.01430.us
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01430.us
   %24 = load i32, ptr %23, align 4, !tbaa !301
   br label %25
 
@@ -3238,7 +3232,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 ._crit_edge.i.i.i.i.us34:                         ; preds = %.critedge.us43, %.lr.ph.split.split.us
   %.01430.us36 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %70, %.critedge.us43 ]
-  %61 = getelementptr inbounds nuw i32, ptr %7, i64 %.01430.us36
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01430.us36
   %62 = load i32, ptr %61, align 4, !tbaa !301
   %63 = icmp eq i32 %59, %62
   br i1 %63, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us40, label %64
@@ -3270,7 +3264,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 ._crit_edge.i.i.i.i.us52:                         ; preds = %.critedge.us63, %.lr.ph.split.split.us51
   %.01430.us54 = phi i64 [ 0, %.lr.ph.split.split.us51 ], [ %77, %.critedge.us63 ]
-  %72 = getelementptr inbounds nuw i32, ptr %7, i64 %.01430.us54
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01430.us54
   %.pre.i.i.i.i.us56 = load i32, ptr %72, align 4, !tbaa !301
   %73 = icmp eq i32 %71, %.pre.i.i.i.i.us56
   br i1 %73, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us60, label %74
@@ -3305,7 +3299,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 ._crit_edge.i.i.i.i.us72:                         ; preds = %.critedge.us83
   %81 = add nuw i64 %.01430.us7494, 1
-  %82 = getelementptr inbounds nuw i32, ptr %7, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %81
   %.pre58.i.i.i.i.us76 = load i32, ptr %82, align 4, !tbaa !301
   %83 = icmp ne i32 %78, %.pre58.i.i.i.i.us76
   %.not18.us82 = or i1 %83, %.not18.us829397
@@ -10146,7 +10140,7 @@ _ZNSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EES
 _ZNSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %133, %_ZNSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %126, ptr %102, align 8, !tbaa !248
   store ptr %132, ptr %106, align 8, !tbaa !251
-  %134 = getelementptr inbounds nuw %"class.std::unique_ptr.155", ptr %126, i64 %124
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %124
   store ptr %134, ptr %108, align 8, !tbaa !431
   br label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
 
@@ -12669,7 +12663,7 @@ _ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !257
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -12761,7 +12755,7 @@ _ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE15_M_create_nodesEPPS2_S6
   store ptr %46, ptr %47, align 8, !tbaa !266
   store ptr %37, ptr %35, align 8, !tbaa !410
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !407
   ret void
 
@@ -13252,9 +13246,9 @@ define linkonce_odr void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE17_M_r
   %19 = load ptr, ptr %0, align 8, !tbaa !257
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -13273,12 +13267,12 @@ define linkonce_odr void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE17_M_r
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN3net19QuicEncryptedPacketES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN3net19QuicEncryptedPacketES4_ET0_T_S6_S5_.exit
 
@@ -13306,9 +13300,9 @@ _ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE15_M_allocate_mapEm.exit:
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #26
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN3net19QuicEncryptedPacketES4_ET0_T_S6_S5_.exit26, label %53
@@ -13335,7 +13329,7 @@ _ZSt4copyIPPPN3net19QuicEncryptedPacketES4_ET0_T_S6_S5_.exit: ; preds = %32, %31
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !266
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !267
   %63 = load ptr, ptr %62, align 8, !tbaa !260

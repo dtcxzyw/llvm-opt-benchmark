@@ -120,12 +120,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.328" = type { %union.anon.329, i8, [7 x i8] }
 %union.anon.329 = type { %"struct.llvm::AlignedCharArrayUnion.330" }
 %"struct.llvm::AlignedCharArrayUnion.330" = type { [16 x i8] }
-%"class.std::unique_ptr.332" = type { %"struct.std::__uniq_ptr_data.333" }
-%"struct.std::__uniq_ptr_data.333" = type { %"class.std::__uniq_ptr_impl.334" }
-%"class.std::__uniq_ptr_impl.334" = type { %"class.std::tuple.335" }
-%"class.std::tuple.335" = type { %"struct.std::_Tuple_impl.336" }
-%"struct.std::_Tuple_impl.336" = type { %"struct.std::_Head_base.339" }
-%"struct.std::_Head_base.339" = type { ptr }
 
 $_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE = comdat any
 
@@ -334,7 +328,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %63, %7
   %66 = phi i32 [ %61, %7 ], [ %.pre.i, %63 ]
   %67 = load ptr, ptr %28, align 8, !tbaa !3
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = ptrtoint ptr %60 to i64
   store i64 %70, ptr %69, align 1
   %71 = load i32, ptr %56, align 8, !tbaa !9
@@ -366,7 +360,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit42: ; preds = %_ZN4
   %82 = phi i32 [ %77, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.pre.i41, %79 ]
   %83 = load ptr, ptr %28, align 8, !tbaa !3
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %84
   %86 = ptrtoint ptr %76 to i64
   store i64 %86, ptr %85, align 1
   %87 = load i32, ptr %56, align 8, !tbaa !9
@@ -645,7 +639,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48: ; preds = %._cr
   %221 = phi i32 [ %216, %._crit_edge ], [ %.pre.i47, %218 ]
   %222 = load ptr, ptr %28, align 8, !tbaa !3
   %223 = zext i32 %221 to i64
-  %224 = getelementptr inbounds nuw ptr, ptr %222, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %223
   %225 = ptrtoint ptr %215 to i64
   store i64 %225, ptr %224, align 1
   %226 = load i32, ptr %56, align 8, !tbaa !9
@@ -691,7 +685,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit53: ; preds = %_ZN4
   %242 = phi i32 [ %237, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48 ], [ %.pre.i52, %239 ]
   %243 = load ptr, ptr %28, align 8, !tbaa !3
   %244 = zext i32 %242 to i64
-  %245 = getelementptr inbounds nuw ptr, ptr %243, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %244
   %246 = ptrtoint ptr %236 to i64
   store i64 %246, ptr %245, align 1
   %247 = load i32, ptr %56, align 8, !tbaa !9
@@ -1275,7 +1269,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit94: ; preds = %_ZNS
   %442 = phi i32 [ %437, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ %.pre.i93, %439 ]
   %443 = load ptr, ptr %28, align 8, !tbaa !3
   %444 = zext i32 %442 to i64
-  %445 = getelementptr inbounds nuw ptr, ptr %443, i64 %444
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %444
   %446 = ptrtoint ptr %432 to i64
   store i64 %446, ptr %445, align 1
   %447 = load i32, ptr %56, align 8, !tbaa !9
@@ -1354,7 +1348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   br i1 %.not.i.i.not.i.i.i, label %_ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS3_EE.exit.i, label %481, !prof !16
 
 481:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
-  %482 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.pre3.i.i.i, i64 %477
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i.i, i64 %477
   %483 = icmp uge ptr %8, %.pre3.i.i.i
   %484 = icmp ult ptr %8, %482
   %spec.select.i.i.i.i.i.i.i = and i1 %483, %484
@@ -1381,7 +1375,7 @@ _ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS
   %.016.i.i.i.i.i = phi ptr [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97 ], [ %490, %485 ], [ %8, %.critedge.i.i.i.i.i ]
   %493 = load i32, ptr %475, align 8, !tbaa !9
   %494 = zext i32 %493 to i64
-  %495 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %492, i64 %494
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %494
   store i64 %491, ptr %495, align 8, !tbaa !193
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !193
   %496 = add i32 %493, 1
@@ -1626,7 +1620,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit133: ; preds = %_ZN
   %571 = phi i32 [ %566, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %.pre.i132, %568 ]
   %572 = load ptr, ptr %28, align 8, !tbaa !3
   %573 = zext i32 %571 to i64
-  %574 = getelementptr inbounds nuw ptr, ptr %572, i64 %573
+  %574 = getelementptr inbounds nuw [8 x i8], ptr %572, i64 %573
   %575 = ptrtoint ptr %565 to i64
   store i64 %575, ptr %574, align 1
   %576 = load i32, ptr %56, align 8, !tbaa !9
@@ -2013,7 +2007,7 @@ _ZN5clang6driver11Compilation11addTempFileEPKc.exit: ; preds = %126, %139
   %143 = phi i32 [ %136, %126 ], [ %.pre.i.i, %139 ]
   %144 = load ptr, ptr %134, align 8, !tbaa !3
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %145
   %147 = ptrtoint ptr %133 to i64
   store i64 %147, ptr %146, align 1
   %148 = load i32, ptr %135, align 8, !tbaa !9
@@ -2049,7 +2043,7 @@ _ZN5clang6driver11Compilation11addTempFileEPKc.exit65: ; preds = %_ZN5clang6driv
   %162 = phi i32 [ %156, %_ZN5clang6driver11Compilation11addTempFileEPKc.exit ], [ %.pre.i.i64, %158 ]
   %163 = load ptr, ptr %134, align 8, !tbaa !3
   %164 = zext i32 %162 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %164
   %166 = ptrtoint ptr %155 to i64
   store i64 %166, ptr %165, align 1
   %167 = load i32, ptr %135, align 8, !tbaa !9
@@ -3269,8 +3263,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit192:              ; preds = %768, %766, %_ZN4llv
   %774 = getelementptr inbounds nuw i8, ptr %772, i64 8
   %775 = load ptr, ptr %774, align 8, !tbaa !3, !noalias !284
   %776 = and i64 %773, 4294967295
-  %777 = getelementptr inbounds nuw ptr, ptr %775, i64 %776
-  %778 = getelementptr ptr, ptr %775, i64 %.sroa.4.0.extract.shift.i.i
+  %777 = getelementptr inbounds nuw [8 x i8], ptr %775, i64 %776
+  %778 = getelementptr [8 x i8], ptr %775, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %776, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i238
 
@@ -3524,7 +3518,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %84
   br i1 %.not.i.i.not.i.i.i, label %_ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS3_EE.exit.i, label %877, !prof !16
 
 877:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201
-  %878 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.pre3.i.i.i, i64 %873
+  %878 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i.i, i64 %873
   %879 = icmp uge ptr %8, %.pre3.i.i.i
   %880 = icmp ult ptr %8, %878
   %spec.select.i.i.i.i.i.i.i = and i1 %879, %880
@@ -3551,7 +3545,7 @@ _ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS
   %.016.i.i.i.i.i = phi ptr [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ %886, %881 ], [ %8, %.critedge.i.i.i.i.i ]
   %889 = load i32, ptr %871, align 8, !tbaa !9
   %890 = zext i32 %889 to i64
-  %891 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %888, i64 %890
+  %891 = getelementptr inbounds nuw [8 x i8], ptr %888, i64 %890
   store i64 %887, ptr %891, align 8, !tbaa !193
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !193
   %892 = add i32 %889, 1
@@ -3842,8 +3836,8 @@ _ZN5clang17DiagnosticsEngine15getCustomDiagIDILj50EEEjNS0_5LevelERAT__Kc.exit: ;
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !3, !noalias !360
   %32 = and i64 %29, 4294967295
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
-  %34 = getelementptr ptr, ptr %31, i64 %.sroa.4.0.extract.shift.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
+  %34 = getelementptr [8 x i8], ptr %31, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %32, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -3919,8 +3913,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !3, !noalias !364
   %57 = and i64 %54, 4294967295
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
-  %59 = getelementptr ptr, ptr %56, i64 %.sroa.4.0.extract.shift.i.i23
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
+  %59 = getelementptr [8 x i8], ptr %56, i64 %.sroa.4.0.extract.shift.i.i23
   %.not29.i.i.i.i24 = icmp samesign eq i64 %57, %.sroa.4.0.extract.shift.i.i23
   br i1 %.not29.i.i.i.i24, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i32, label %.lr.ph.i.i.i.i26
 
@@ -5046,7 +5040,7 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE6insertIPKPS2_vEESt15_Deque_iterator
   %304 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %305 = load i32, ptr %304, align 8, !tbaa !9
   %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds nuw ptr, ptr %303, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %306
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !430)
   store ptr %300, ptr %2, align 8, !tbaa !386, !alias.scope !430, !noalias !433
@@ -5268,8 +5262,8 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit: ; preds = %_ZNSt7__cxx1112bas
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !3, !noalias !446
   %67 = and i64 %64, 4294967295
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
-  %69 = getelementptr ptr, ptr %66, i64 %.sroa.4.0.extract.shift.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
+  %69 = getelementptr [8 x i8], ptr %66, i64 %.sroa.4.0.extract.shift.i
   %.not29.i.i.i = icmp samesign eq i64 %67, %.sroa.4.0.extract.shift.i
   br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.i
 
@@ -5303,8 +5297,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !3, !noalias !449
   %78 = and i64 %75, 4294967295
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
-  %80 = getelementptr ptr, ptr %77, i64 %.sroa.4.0.extract.shift.i32
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %78
+  %80 = getelementptr [8 x i8], ptr %77, i64 %.sroa.4.0.extract.shift.i32
   %.not29.i.i.i33 = icmp samesign eq i64 %78, %.sroa.4.0.extract.shift.i32
   br i1 %.not29.i.i.i33, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit45, label %.lr.ph.i.i.i35
 
@@ -5370,7 +5364,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %99 = phi i32 [ %94, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %.pre.i, %96 ]
   %100 = load ptr, ptr %7, align 8, !tbaa !3
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %101
   store ptr %92, ptr %102, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 %93, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -5397,7 +5391,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit50: ; pr
   %111 = phi i32 [ %106, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread164 ], [ %.pre.i48, %108 ]
   %112 = load ptr, ptr %5, align 8, !tbaa !3
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %113
   store ptr %89, ptr %114, align 1
   %.sroa.2.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 %105, ptr %.sroa.2.0..sroa_idx.i49, align 1
@@ -5479,7 +5473,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit58: ; pr
   %142 = phi i32 [ %137, %_ZN4llvm9StringRefC2EPKc.exit54 ], [ %.pre.i56, %139 ]
   %143 = load ptr, ptr %6, align 8, !tbaa !3
   %144 = zext i32 %142 to i64
-  %145 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %144
   store ptr %133, ptr %145, align 1
   %.sroa.2.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 %136, ptr %.sroa.2.0..sroa_idx.i57, align 1
@@ -6687,9 +6681,9 @@ define linkonce_odr void @_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE17_M_reall
   %19 = load ptr, ptr %0, align 8, !tbaa !378
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -6708,12 +6702,12 @@ define linkonce_odr void @_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE17_M_reall
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPKN5clang6driver6ActionES6_ET0_T_S8_S7_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPKN5clang6driver6ActionES6_ET0_T_S8_S7_.exit
 
@@ -6741,9 +6735,9 @@ _ZNSt11_Deque_baseIPKN5clang6driver6ActionESaIS4_EE15_M_allocate_mapEm.exit: ; p
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #21
   %49 = sub i64 %41, %13
   %50 = lshr i64 %49, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   %52 = select i1 %2, i64 %1, i64 0
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %54, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPKN5clang6driver6ActionES6_ET0_T_S8_S7_.exit26, label %55
@@ -6771,7 +6765,7 @@ _ZSt4copyIPPPKN5clang6driver6ActionES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %2
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 512
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %62, ptr %63, align 8, !tbaa !382
-  %64 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   store ptr %65, ptr %4, align 8, !tbaa !380
   %66 = load ptr, ptr %65, align 8, !tbaa !379
@@ -8740,7 +8734,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !595
   store ptr %67, ptr %41, align 8, !tbaa !592
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.332", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !594
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -8890,7 +8884,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !595
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !592
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.332", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !594
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -9010,7 +9004,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !595
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !592
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.332", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !594
   ret void
 }
@@ -9075,7 +9069,7 @@ define linkonce_odr void @_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE19_M_range
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds ptr, ptr %26, i64 %31
+  %37 = getelementptr inbounds [8 x i8], ptr %26, i64 %31
   br label %_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exit
 
 38:                                               ; preds = %34
@@ -9088,12 +9082,12 @@ define linkonce_odr void @_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE19_M_range
 
 42:                                               ; preds = %40, %38
   %43 = phi i64 [ %39, %38 ], [ %41, %40 ]
-  %44 = getelementptr inbounds ptr, ptr %30, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %30, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !379, !noalias !635
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 512
   %47 = shl nsw i64 %43, 6
   %48 = sub nsw i64 %32, %47
-  %49 = getelementptr inbounds ptr, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   br label %_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %36, %42
@@ -9116,7 +9110,7 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exi
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %56, i64 %storemerge12.i.i.i.i.i.i)
-  %57 = getelementptr inbounds ptr, ptr %.013.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i
+  %57 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i
   %58 = icmp sgt i64 %56, 0
   br i1 %58, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i.i.i.i
 
@@ -9145,7 +9139,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i
+  %72 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i
 
 73:                                               ; preds = %69
@@ -9158,12 +9152,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 77:                                               ; preds = %75, %73
   %78 = phi i64 [ %74, %73 ], [ %76, %75 ]
-  %79 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i.i.i.i, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i.i.i.i, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !379, !noalias !638
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 512
   %82 = shl nsw i64 %78, 6
   %83 = sub nsw i64 %67, %82
-  %84 = getelementptr inbounds ptr, ptr %80, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %80, i64 %83
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i: ; preds = %77, %71
@@ -9240,12 +9234,12 @@ _ZSt22__uninitialized_copy_aIPKPN5clang6driver6ActionESt15_Deque_iteratorIPKS2_R
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %110, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %110, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !379, !noalias !657
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 6
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds ptr, ptr %127, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %127, i64 %130
   br label %_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit: ; preds = %118, %124
@@ -9268,7 +9262,7 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit
   %137 = sub i64 %135, %136
   %138 = ashr exact i64 %137, 3
   %.sroa.speculated.i.i.i.i.i.i20 = tail call i64 @llvm.smin.i64(i64 %138, i64 %storemerge12.i.i.i.i.i.i19)
-  %139 = getelementptr inbounds ptr, ptr %.013.i.i.i.i.i.i18, i64 %.sroa.speculated.i.i.i.i.i.i20
+  %139 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i.i.i.i18, i64 %.sroa.speculated.i.i.i.i.i.i20
   %140 = icmp sgt i64 %138, 0
   br i1 %140, label %.lr.ph.i.i.i.i.i.i.i.i.i25, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i.i.i.i21
 
@@ -9297,7 +9291,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %151
-  %154 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i.i.i.i17, i64 %.sroa.speculated.i.i.i.i.i.i20
+  %154 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i.i.i.i17, i64 %.sroa.speculated.i.i.i.i.i.i20
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i22
 
 155:                                              ; preds = %151
@@ -9310,12 +9304,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 159:                                              ; preds = %157, %155
   %160 = phi i64 [ %156, %155 ], [ %158, %157 ]
-  %161 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i.i.i.i16, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i.i.i.i16, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !379, !noalias !660
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 512
   %164 = shl nsw i64 %160, 6
   %165 = sub nsw i64 %149, %164
-  %166 = getelementptr inbounds ptr, ptr %162, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %162, i64 %165
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i22
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i22: ; preds = %159, %153
@@ -9471,7 +9465,7 @@ define linkonce_odr void @_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE13_M_inser
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds ptr, ptr %91, i64 %92
+  %98 = getelementptr inbounds [8 x i8], ptr %91, i64 %92
   br label %_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exit
 
 99:                                               ; preds = %95
@@ -9484,12 +9478,12 @@ define linkonce_odr void @_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE13_M_inser
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %88, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %88, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !379, !noalias !676
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 6
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %106, i64 %109
   br label %_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %97, %103
@@ -9510,7 +9504,7 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exi
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw ptr, ptr %91, i64 %57
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %57
   br label %_ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit
 
 121:                                              ; preds = %117
@@ -9523,12 +9517,12 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE28_M_reserve_elements_at_frontEm.exi
 
 125:                                              ; preds = %123, %121
   %126 = phi i64 [ %122, %121 ], [ %124, %123 ]
-  %127 = getelementptr inbounds ptr, ptr %88, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %88, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !379, !noalias !679
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 512
   %130 = shl nsw i64 %126, 6
   %131 = sub nsw i64 %115, %130
-  %132 = getelementptr inbounds ptr, ptr %128, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %128, i64 %131
   br label %_ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit
 
 _ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit: ; preds = %119, %125
@@ -9562,7 +9556,7 @@ _ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit: ; preds = %
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds ptr, ptr %134, i64 %4
+  %147 = getelementptr inbounds [8 x i8], ptr %134, i64 %4
   br label %_ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit32
 
 148:                                              ; preds = %144
@@ -9575,12 +9569,12 @@ _ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit: ; preds = %
 
 152:                                              ; preds = %150, %148
   %153 = phi i64 [ %149, %148 ], [ %151, %150 ]
-  %154 = getelementptr inbounds ptr, ptr %137, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %137, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !379, !noalias !682
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
   %157 = shl nsw i64 %153, 6
   %158 = sub nsw i64 %142, %157
-  %159 = getelementptr inbounds ptr, ptr %155, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %155, i64 %158
   br label %_ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit32
 
 _ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit32: ; preds = %146, %152
@@ -9673,7 +9667,7 @@ _ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit32: ; preds =
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %192
-  %195 = getelementptr inbounds ptr, ptr %182, i64 %92
+  %195 = getelementptr inbounds [8 x i8], ptr %182, i64 %92
   br label %_ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit
 
 196:                                              ; preds = %192
@@ -9686,12 +9680,12 @@ _ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit32: ; preds =
 
 200:                                              ; preds = %198, %196
   %201 = phi i64 [ %197, %196 ], [ %199, %198 ]
-  %202 = getelementptr inbounds ptr, ptr %185, i64 %201
+  %202 = getelementptr inbounds [8 x i8], ptr %185, i64 %201
   %203 = load ptr, ptr %202, align 8, !tbaa !379, !noalias !711
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 512
   %205 = shl nsw i64 %201, 6
   %206 = sub nsw i64 %190, %205
-  %207 = getelementptr inbounds ptr, ptr %203, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %203, i64 %206
   br label %_ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit: ; preds = %194, %200
@@ -9718,7 +9712,7 @@ _ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit: ; preds = %
   %217 = sub i64 %215, %216
   %218 = ashr exact i64 %217, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.smin.i64(i64 %218, i64 %storemerge12.i.i.i)
-  %219 = getelementptr inbounds ptr, ptr %.013.i.i.i, i64 %.sroa.speculated.i.i.i
+  %219 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i, i64 %.sroa.speculated.i.i.i
   %220 = icmp sgt i64 %218, 0
   br i1 %220, label %.lr.ph.i.i.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
@@ -9747,7 +9741,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %232, label %233, label %235
 
 233:                                              ; preds = %231
-  %234 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i, i64 %.sroa.speculated.i.i.i
+  %234 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i, i64 %.sroa.speculated.i.i.i
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i
 
 235:                                              ; preds = %231
@@ -9760,12 +9754,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 239:                                              ; preds = %237, %235
   %240 = phi i64 [ %236, %235 ], [ %238, %237 ]
-  %241 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !379, !noalias !714
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 512
   %244 = shl nsw i64 %240, 6
   %245 = sub nsw i64 %229, %244
-  %246 = getelementptr inbounds ptr, ptr %242, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %242, i64 %245
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i: ; preds = %239, %233
@@ -9779,7 +9773,7 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i: ; preds
 
 _ZSt7advanceIPKPN5clang6driver6ActionElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit
   %251 = sub nsw i64 %4, %57
-  %252 = getelementptr inbounds nuw ptr, ptr %2, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %251
   %253 = load ptr, ptr %30, align 8, !tbaa !386
   %254 = load ptr, ptr %79, align 8, !tbaa !381
   %255 = load ptr, ptr %50, align 8, !tbaa !382
@@ -9837,7 +9831,7 @@ _ZSt7advanceIPKPN5clang6driver6ActionElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_De
   %279 = sub i64 %277, %278
   %280 = ashr exact i64 %279, 3
   %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %280, i64 %storemerge12.i.i.i.i.i.i.i)
-  %281 = getelementptr inbounds ptr, ptr %.013.i.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i
+  %281 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i
   %282 = icmp sgt i64 %280, 0
   br i1 %282, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i.i.i.i.i
 
@@ -9866,7 +9860,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %293
-  %296 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i
+  %296 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i.i
 
 297:                                              ; preds = %293
@@ -9879,12 +9873,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 301:                                              ; preds = %299, %297
   %302 = phi i64 [ %298, %297 ], [ %300, %299 ]
-  %303 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i.i.i.i.i, i64 %302
+  %303 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i.i.i.i.i, i64 %302
   %304 = load ptr, ptr %303, align 8, !tbaa !379, !noalias !743
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 512
   %306 = shl nsw i64 %302, 6
   %307 = sub nsw i64 %291, %306
-  %308 = getelementptr inbounds ptr, ptr %304, i64 %307
+  %308 = getelementptr inbounds [8 x i8], ptr %304, i64 %307
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i.i: ; preds = %301, %295
@@ -9919,7 +9913,7 @@ _ZSt25__uninitialized_move_copyISt15_Deque_iteratorIPKN5clang6driver6ActionERS5_
   %321 = sub i64 %319, %320
   %322 = ashr exact i64 %321, 3
   %.sroa.speculated.i.i.i40 = call i64 @llvm.smin.i64(i64 %322, i64 %storemerge12.i.i.i39)
-  %323 = getelementptr inbounds ptr, ptr %.013.i.i.i38, i64 %.sroa.speculated.i.i.i40
+  %323 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i38, i64 %.sroa.speculated.i.i.i40
   %324 = icmp sgt i64 %322, 0
   br i1 %324, label %.lr.ph.i.i.i.i.i.i45, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i41
 
@@ -9948,7 +9942,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %336, label %337, label %339
 
 337:                                              ; preds = %335
-  %338 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i37, i64 %.sroa.speculated.i.i.i40
+  %338 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i37, i64 %.sroa.speculated.i.i.i40
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i42
 
 339:                                              ; preds = %335
@@ -9961,12 +9955,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 343:                                              ; preds = %341, %339
   %344 = phi i64 [ %340, %339 ], [ %342, %341 ]
-  %345 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i36, i64 %344
+  %345 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i36, i64 %344
   %346 = load ptr, ptr %345, align 8, !tbaa !379, !noalias !756
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 512
   %348 = shl nsw i64 %344, 6
   %349 = sub nsw i64 %333, %348
-  %350 = getelementptr inbounds ptr, ptr %346, i64 %349
+  %350 = getelementptr inbounds [8 x i8], ptr %346, i64 %349
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i42
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i42: ; preds = %343, %337
@@ -10017,7 +10011,7 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i42: ; pre
   br i1 %373, label %374, label %376
 
 374:                                              ; preds = %372
-  %375 = getelementptr inbounds ptr, ptr %369, i64 %4
+  %375 = getelementptr inbounds [8 x i8], ptr %369, i64 %4
   br label %_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit
 
 376:                                              ; preds = %372
@@ -10030,12 +10024,12 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i42: ; pre
 
 380:                                              ; preds = %378, %376
   %381 = phi i64 [ %377, %376 ], [ %379, %378 ]
-  %382 = getelementptr inbounds ptr, ptr %366, i64 %381
+  %382 = getelementptr inbounds [8 x i8], ptr %366, i64 %381
   %383 = load ptr, ptr %382, align 8, !tbaa !379, !noalias !766
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 512
   %385 = shl nsw i64 %381, 6
   %386 = sub nsw i64 %370, %385
-  %387 = getelementptr inbounds ptr, ptr %383, i64 %386
+  %387 = getelementptr inbounds [8 x i8], ptr %383, i64 %386
   br label %_ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit: ; preds = %374, %380
@@ -10057,7 +10051,7 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit
   br i1 %396, label %397, label %399
 
 397:                                              ; preds = %395
-  %398 = getelementptr inbounds ptr, ptr %369, i64 %389
+  %398 = getelementptr inbounds [8 x i8], ptr %369, i64 %389
   br label %_ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit55
 
 399:                                              ; preds = %395
@@ -10070,12 +10064,12 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE27_M_reserve_elements_at_backEm.exit
 
 403:                                              ; preds = %401, %399
   %404 = phi i64 [ %400, %399 ], [ %402, %401 ]
-  %405 = getelementptr inbounds ptr, ptr %366, i64 %404
+  %405 = getelementptr inbounds [8 x i8], ptr %366, i64 %404
   %406 = load ptr, ptr %405, align 8, !tbaa !379, !noalias !769
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 512
   %408 = shl nsw i64 %404, 6
   %409 = sub nsw i64 %393, %408
-  %410 = getelementptr inbounds ptr, ptr %406, i64 %409
+  %410 = getelementptr inbounds [8 x i8], ptr %406, i64 %409
   br label %_ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit55
 
 _ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit55: ; preds = %397, %403
@@ -10110,7 +10104,7 @@ _ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit55: ; preds =
   br i1 %425, label %426, label %428
 
 426:                                              ; preds = %424
-  %427 = getelementptr inbounds ptr, ptr %413, i64 %417
+  %427 = getelementptr inbounds [8 x i8], ptr %413, i64 %417
   br label %_ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit57
 
 428:                                              ; preds = %424
@@ -10123,12 +10117,12 @@ _ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit55: ; preds =
 
 432:                                              ; preds = %430, %428
   %433 = phi i64 [ %429, %428 ], [ %431, %430 ]
-  %434 = getelementptr inbounds ptr, ptr %416, i64 %433
+  %434 = getelementptr inbounds [8 x i8], ptr %416, i64 %433
   %435 = load ptr, ptr %434, align 8, !tbaa !379, !noalias !772
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 512
   %437 = shl nsw i64 %433, 6
   %438 = sub nsw i64 %422, %437
-  %439 = getelementptr inbounds ptr, ptr %435, i64 %438
+  %439 = getelementptr inbounds [8 x i8], ptr %435, i64 %438
   br label %_ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit57
 
 _ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit57: ; preds = %426, %432
@@ -10230,7 +10224,7 @@ _ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit57: ; preds =
   %475 = sub i64 %473, %474
   %476 = ashr exact i64 %475, 3
   %.sroa.speculated.i.i.i64 = call i64 @llvm.smin.i64(i64 %476, i64 %storemerge12.i.i.i63)
-  %477 = getelementptr inbounds ptr, ptr %.013.i.i.i62, i64 %.sroa.speculated.i.i.i64
+  %477 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i62, i64 %.sroa.speculated.i.i.i64
   %478 = icmp sgt i64 %476, 0
   br i1 %478, label %.lr.ph.i.i.i.i.i.i69, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i65
 
@@ -10259,7 +10253,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %490, label %491, label %493
 
 491:                                              ; preds = %489
-  %492 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i61, i64 %.sroa.speculated.i.i.i64
+  %492 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i61, i64 %.sroa.speculated.i.i.i64
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i66
 
 493:                                              ; preds = %489
@@ -10272,12 +10266,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 497:                                              ; preds = %495, %493
   %498 = phi i64 [ %494, %493 ], [ %496, %495 ]
-  %499 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i60, i64 %498
+  %499 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i60, i64 %498
   %500 = load ptr, ptr %499, align 8, !tbaa !379, !noalias !801
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 512
   %502 = shl nsw i64 %498, 6
   %503 = sub nsw i64 %487, %502
-  %504 = getelementptr inbounds ptr, ptr %500, i64 %503
+  %504 = getelementptr inbounds [8 x i8], ptr %500, i64 %503
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i66
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i66: ; preds = %497, %491
@@ -10290,7 +10284,7 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i66: ; pre
   br i1 %508, label %.lr.ph.i.i.i59, label %_ZSt4copyIPKPN5clang6driver6ActionESt15_Deque_iteratorIPKS2_RS8_PS8_EET0_T_SD_SC_.exit, !llvm.loop !652
 
 _ZSt7advanceIPKPN5clang6driver6ActionElEvRT_T0_.exit77: ; preds = %_ZStmiRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit55
-  %509 = getelementptr inbounds ptr, ptr %2, i64 %388
+  %509 = getelementptr inbounds [8 x i8], ptr %2, i64 %388
   %510 = load ptr, ptr %58, align 8, !tbaa !386
   %511 = load ptr, ptr %68, align 8, !tbaa !381
   %512 = load ptr, ptr %356, align 8, !tbaa !382
@@ -10314,7 +10308,7 @@ _ZSt7advanceIPKPN5clang6driver6ActionElEvRT_T0_.exit77: ; preds = %_ZStmiRKSt15_
   %523 = sub i64 %521, %522
   %524 = ashr exact i64 %523, 3
   %.sroa.speculated.i.i.i.i.i.i.i84 = tail call i64 @llvm.smin.i64(i64 %524, i64 %storemerge12.i.i.i.i.i.i.i83)
-  %525 = getelementptr inbounds ptr, ptr %.013.i.i.i.i.i.i.i82, i64 %.sroa.speculated.i.i.i.i.i.i.i84
+  %525 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i.i.i.i.i82, i64 %.sroa.speculated.i.i.i.i.i.i.i84
   %526 = icmp sgt i64 %524, 0
   br i1 %526, label %.lr.ph.i.i.i.i.i.i.i.i.i.i89, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i.i.i.i.i85
 
@@ -10343,7 +10337,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %538, label %539, label %541
 
 539:                                              ; preds = %537
-  %540 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i.i.i.i.i81, i64 %.sroa.speculated.i.i.i.i.i.i.i84
+  %540 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i.i.i.i.i81, i64 %.sroa.speculated.i.i.i.i.i.i.i84
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i.i86
 
 541:                                              ; preds = %537
@@ -10356,12 +10350,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 545:                                              ; preds = %543, %541
   %546 = phi i64 [ %542, %541 ], [ %544, %543 ]
-  %547 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i.i.i.i.i80, i64 %546
+  %547 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i.i.i.i.i80, i64 %546
   %548 = load ptr, ptr %547, align 8, !tbaa !379, !noalias !808
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 512
   %550 = shl nsw i64 %546, 6
   %551 = sub nsw i64 %535, %550
-  %552 = getelementptr inbounds ptr, ptr %548, i64 %551
+  %552 = getelementptr inbounds [8 x i8], ptr %548, i64 %551
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i.i86
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i.i.i.i.i86: ; preds = %545, %539
@@ -10434,7 +10428,7 @@ _ZSt25__uninitialized_copy_moveIPKPN5clang6driver6ActionESt15_Deque_iteratorIPKS
   %578 = sub i64 %576, %577
   %579 = ashr exact i64 %578, 3
   %.sroa.speculated.i.i.i99 = call i64 @llvm.smin.i64(i64 %579, i64 %storemerge12.i.i.i98)
-  %580 = getelementptr inbounds ptr, ptr %.013.i.i.i97, i64 %.sroa.speculated.i.i.i99
+  %580 = getelementptr inbounds [8 x i8], ptr %.013.i.i.i97, i64 %.sroa.speculated.i.i.i99
   %581 = icmp sgt i64 %579, 0
   br i1 %581, label %.lr.ph.i.i.i.i.i.i104, label %_ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i100
 
@@ -10463,7 +10457,7 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
   br i1 %593, label %594, label %596
 
 594:                                              ; preds = %592
-  %595 = getelementptr inbounds ptr, ptr %storemerge.i15.i.i.i96, i64 %.sroa.speculated.i.i.i99
+  %595 = getelementptr inbounds [8 x i8], ptr %storemerge.i15.i.i.i96, i64 %.sroa.speculated.i.i.i99
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i101
 
 596:                                              ; preds = %592
@@ -10476,12 +10470,12 @@ _ZSt14__copy_move_a1ILb0EPKPN5clang6driver6ActionEPPKS2_ET1_T0_SA_S9_.exit.i.i.i
 
 600:                                              ; preds = %598, %596
   %601 = phi i64 [ %597, %596 ], [ %599, %598 ]
-  %602 = getelementptr inbounds ptr, ptr %.sroa.11.0.i.i95, i64 %601
+  %602 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0.i.i95, i64 %601
   %603 = load ptr, ptr %602, align 8, !tbaa !379, !noalias !840
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 512
   %605 = shl nsw i64 %601, 6
   %606 = sub nsw i64 %590, %605
-  %607 = getelementptr inbounds ptr, ptr %603, i64 %606
+  %607 = getelementptr inbounds [8 x i8], ptr %603, i64 %606
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i101
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i101: ; preds = %600, %594
@@ -10563,7 +10557,7 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE23_M_reserve_map_at_frontEm.exit: ; 
   %.013 = phi i64 [ 1, %.lr.ph ], [ %46, %42 ]
   %43 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
   %44 = sub nsw i64 0, %.013
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store ptr %43, ptr %45, align 8, !tbaa !379
   %46 = add nuw nsw i64 %.013, 1
   %exitcond = icmp eq i64 %.013, %35
@@ -10641,7 +10635,7 @@ _ZNSt5dequeIPKN5clang6driver6ActionESaIS4_EE22_M_reserve_map_at_backEm.exit: ; p
 45:                                               ; preds = %.lr.ph, %45
   %.014 = phi i64 [ 1, %.lr.ph ], [ %48, %45 ]
   %46 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %.014
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.014
   store ptr %46, ptr %47, align 8, !tbaa !379
   %48 = add nuw nsw i64 %.014, 1
   %exitcond = icmp eq i64 %.014, %35
@@ -10712,7 +10706,7 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i: ; pre
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds ptr, ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -10725,12 +10719,12 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i: ; pre
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !379, !noalias !849
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 6
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i: ; preds = %44, %38
@@ -10806,7 +10800,7 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i17: ; p
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds ptr, ptr %.sroa.058.0, i64 %.sroa.speculated.i12
+  %84 = getelementptr inbounds [8 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i19
 
 85:                                               ; preds = %81
@@ -10819,12 +10813,12 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i17: ; p
 
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
-  %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !379, !noalias !853
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 6
   %95 = sub nsw i64 %79, %94
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %92, i64 %95
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i19: ; preds = %89, %83
@@ -10879,7 +10873,7 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i34: ; p
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds ptr, ptr %.sroa.064.0, i64 %.sroa.speculated.i29
+  %119 = getelementptr inbounds [8 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i36
 
 120:                                              ; preds = %116
@@ -10892,12 +10886,12 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i34: ; p
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !379, !noalias !856
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 6
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds ptr, ptr %127, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %127, i64 %130
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i36: ; preds = %124, %118
@@ -10968,7 +10962,7 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i51: ; p
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -10981,12 +10975,12 @@ _ZSt14__copy_move_a1ILb1EPPKN5clang6driver6ActionES5_ET1_T0_S7_S6_.exit.i51: ; p
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !379, !noalias !860
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 6
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i53: ; preds = %167, %161
@@ -11079,7 +11073,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPKN5clang6driver6Ac
   %gepdiff.i = sub nsw i64 0, %.idx41.i
   %38 = ashr exact i64 %gepdiff.i, 3
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds ptr, ptr %.0938.i, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.0938.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !863
   %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated39.i
   %42 = icmp sgt i64 %41, -1
@@ -11090,7 +11084,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPKN5clang6driver6Ac
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds ptr, ptr %.sroa.088.0, i64 %36
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -11103,12 +11097,12 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPKN5clang6driver6Ac
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.1291.0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !379, !noalias !863
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 6
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i: ; preds = %51, %45
@@ -11189,7 +11183,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPKN5clang6driver6ActionES4_EN9__gnu_cxx11__en
   %gepdiff.i17 = sub nsw i64 0, %.idx41.i16
   %90 = ashr exact i64 %gepdiff.i17, 3
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds ptr, ptr %.0938.i15, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.0938.i15, i64 %91
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !867
   %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated39.i14
   %94 = icmp sgt i64 %93, -1
@@ -11200,7 +11194,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPKN5clang6driver6ActionES4_EN9__gnu_cxx11__en
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds ptr, ptr %.sroa.076.0, i64 %88
+  %98 = getelementptr inbounds [8 x i8], ptr %.sroa.076.0, i64 %88
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i24
 
 99:                                               ; preds = %95
@@ -11213,12 +11207,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPKN5clang6driver6ActionES4_EN9__gnu_cxx11__en
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.1279.0, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !379, !noalias !867
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 6
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %106, i64 %109
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i24
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i24: ; preds = %103, %97
@@ -11279,7 +11273,7 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i24: ; preds =
   %gepdiff.i40 = sub nsw i64 0, %.idx41.i39
   %133 = ashr exact i64 %gepdiff.i40, 3
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds ptr, ptr %.0938.i38, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %.0938.i38, i64 %134
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !870
   %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated39.i37
   %137 = icmp sgt i64 %136, -1
@@ -11290,7 +11284,7 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i24: ; preds =
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds ptr, ptr %.sroa.082.0, i64 %131
+  %141 = getelementptr inbounds [8 x i8], ptr %.sroa.082.0, i64 %131
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i47
 
 142:                                              ; preds = %138
@@ -11303,12 +11297,12 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i24: ; preds =
 
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ %143, %142 ], [ %145, %144 ]
-  %148 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !379, !noalias !870
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
   %151 = shl nsw i64 %147, 6
   %152 = sub nsw i64 %136, %151
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %149, i64 %152
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i47
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i47: ; preds = %146, %140
@@ -11386,7 +11380,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPKN5clang6driver6ActionES4_EN9__gnu_cxx11__en
   %gepdiff.i63 = sub nsw i64 0, %.idx41.i62
   %185 = ashr exact i64 %gepdiff.i63, 3
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds ptr, ptr %.0938.i61, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %.0938.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !874
   %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated39.i60
   %189 = icmp sgt i64 %188, -1
@@ -11397,7 +11391,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPKN5clang6driver6ActionES4_EN9__gnu_cxx11__en
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %183
+  %193 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %183
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i70
 
 194:                                              ; preds = %190
@@ -11410,12 +11404,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPKN5clang6driver6ActionES4_EN9__gnu_cxx11__en
 
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
-  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !379, !noalias !874
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 6
   %204 = sub nsw i64 %188, %203
-  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %201, i64 %204
   br label %_ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i70
 
 _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EmIEl.exit.i70: ; preds = %198, %192
@@ -11948,7 +11942,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !897
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !899
   br label %43
 
@@ -12140,7 +12134,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !897
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !899
   store i8 0, ptr %32, align 8, !tbaa !902
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -12248,7 +12242,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !902
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !27
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -12532,7 +12526,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %73
   store ptr %23, ptr %0, align 8, !tbaa !333
   store ptr %.0.lcssa.i.i.i25, ptr %5, align 8, !tbaa !279
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !280
   ret void
 }

@@ -1311,7 +1311,7 @@ _ZN12_GLOBAL__N_110make_indexEPKcRKSt6vectorIfSaIfEE.exit: ; preds = %8
 
 29:                                               ; preds = %.preheader59, %54
   %indvars.iv69 = phi i64 [ 0, %.preheader59 ], [ %indvars.iv.next70, %54 ]
-  %30 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv69
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv69
   %31 = load i64, ptr %30, align 8, !tbaa !55
   %32 = load ptr, ptr %20, align 8, !tbaa !56
   %sext = shl i64 %31, 32
@@ -1356,7 +1356,7 @@ _ZN12_GLOBAL__N_110make_indexEPKcRKSt6vectorIfSaIfEE.exit: ; preds = %8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %51 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8, !tbaa !55
   %53 = icmp eq i64 %52, %indvars.iv69
   br i1 %53, label %54, label %46
@@ -1468,7 +1468,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i:
   %3 = shl nuw nsw i64 %1, 8
   %4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #21
   store ptr %4, ptr %0, align 8, !tbaa !49
-  %5 = getelementptr inbounds nuw float, ptr %4, i64 %2
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8, !tbaa !82
   store float 0.000000e+00, ptr %4, align 4, !tbaa !83
@@ -1516,10 +1516,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc13, %17
 24:                                               ; preds = %24, %23
   %25 = phi i64 [ %.pre.i.i, %23 ], [ %30, %24 ]
   %.021.i.i = phi i64 [ 0, %23 ], [ %28, %24 ]
-  %26 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_13rngE, i64 %.021.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_13rngE, i64 %.021.i.i
   %27 = and i64 %25, -2147483648
   %28 = add nuw nsw i64 %.021.i.i, 1
-  %29 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_13rngE, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_13rngE, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !55
   %31 = and i64 %30, 2147483646
   %32 = or disjoint i64 %31, %27
@@ -1542,10 +1542,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc13, %17
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %40 = phi i64 [ %45, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %43, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %41 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_13rngE, i64 %.01822.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_13rngE, i64 %.01822.i.i
   %42 = and i64 %40, -2147483648
   %43 = add nuw nsw i64 %.01822.i.i, 1
-  %44 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_13rngE, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_13rngE, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !55
   %46 = and i64 %45, 2147483646
   %47 = or disjoint i64 %46, %42
@@ -1581,7 +1581,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %66 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %21, %select.unfold.i.i.i.i ]
   %67 = add nuw nsw i64 %66, 1
   store i64 %67, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_13rngE, i64 4992), align 8, !tbaa !85
-  %68 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_13rngE, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_13rngE, i64 %66
   %69 = load i64, ptr %68, align 8, !tbaa !55
   %70 = lshr i64 %69, 11
   %71 = and i64 %70, 4294967295
@@ -1611,7 +1611,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %.016.i.i.i.i = phi double [ %88, %87 ], [ %19, %18 ]
   %90 = fadd double %.016.i.i.i.i, 0.000000e+00
   %91 = fptrunc double %90 to float
-  %92 = getelementptr inbounds nuw float, ptr %4, i64 %.016
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016
   store float %91, ptr %92, align 4, !tbaa !83
   %93 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %93, %2
@@ -1854,14 +1854,14 @@ _ZN12_GLOBAL__N_110make_indexEPKcRKSt6vectorIfSaIfEE.exit: ; preds = %9
 
 69:                                               ; preds = %.preheader174, %select.unfold
   %indvars.iv180 = phi i64 [ 0, %.preheader174 ], [ %indvars.iv.next181, %select.unfold ]
-  %70 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv180
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv180
   %71 = load i64, ptr %70, align 8, !tbaa !55
   %72 = and i64 %71, 2147483648
   %.not = icmp eq i64 %72, 0
   br i1 %.not, label %73, label %select.unfold
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv180
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv180
   %75 = load i64, ptr %74, align 8, !tbaa !55
   %76 = load ptr, ptr %42, align 8, !tbaa !56
   %sext = shl i64 %75, 32
@@ -1907,7 +1907,7 @@ _ZN12_GLOBAL__N_110make_indexEPKcRKSt6vectorIfSaIfEE.exit: ; preds = %9
 
 96:                                               ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
-  %97 = getelementptr inbounds nuw i64, ptr %87, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv
   %98 = load i64, ptr %97, align 8, !tbaa !55
   %99 = icmp eq i64 %98, %90
   br i1 %99, label %select.unfold, label %91
@@ -2957,7 +2957,7 @@ define internal void @_GLOBAL__sub_I_test_pairs_decoding.cpp() #15 section ".tex
 18:                                               ; preds = %18, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %24, %18 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %25, %18 ]
-  %19 = getelementptr i64, ptr @_ZN12_GLOBAL__N_13rngE, i64 %.011.i.i.i.i
+  %19 = getelementptr [8 x i8], ptr @_ZN12_GLOBAL__N_13rngE, i64 %.011.i.i.i.i
   %20 = lshr i64 %store_forwarded, 30
   %21 = xor i64 %20, %store_forwarded
   %22 = mul nuw nsw i64 %21, 1812433253

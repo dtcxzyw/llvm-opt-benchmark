@@ -291,7 +291,7 @@ define dso_local void @_ZN4Fact26abstract_fact_for_var_initEPK8Variable(ptr dead
 38:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
   %39 = phi ptr [ %29, %.lr.ph ], [ %130, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ]
   %.053 = phi i64 [ 0, %.lr.ph ], [ %128, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.053
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.053
   %41 = load ptr, ptr %40, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -317,7 +317,7 @@ define dso_local void @_ZN4Fact26abstract_fact_for_var_initEPK8Variable(ptr dead
   %50 = phi ptr [ %113, %.noexc ], [ %.pre, %.lr.ph.i.preheader ]
   %51 = phi ptr [ %116, %.noexc ], [ %48, %.lr.ph.i.preheader ]
   %.067.i = phi i64 [ %114, %.noexc ], [ 0, %.lr.ph.i.preheader ]
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.067.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.067.i
   %53 = load ptr, ptr %52, align 8, !tbaa !112
   %.not.i32 = icmp eq ptr %50, %49
   br i1 %.not.i32, label %.thread.i, label %.lr.ph.i33
@@ -325,7 +325,7 @@ define dso_local void @_ZN4Fact26abstract_fact_for_var_initEPK8Variable(ptr dead
 .lr.ph.i33:                                       ; preds = %.lr.ph.i, %77
   %54 = phi ptr [ %80, %77 ], [ %49, %.lr.ph.i ]
   %.01729.i = phi i64 [ %78, %77 ], [ 0, %.lr.ph.i ]
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.01729.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.01729.i
   %56 = load ptr, ptr %55, align 8, !tbaa !112
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
@@ -366,7 +366,7 @@ define dso_local void @_ZN4Fact26abstract_fact_for_var_initEPK8Variable(ptr dead
 
 .noexc37:                                         ; preds = %.noexc36
   %75 = load ptr, ptr %0, align 8, !tbaa !66
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.01729.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.01729.i
   store ptr %70, ptr %76, align 8, !tbaa !112
   br label %.thread.i
 
@@ -448,7 +448,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds =
 _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %110, %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %105, ptr %0, align 8, !tbaa !66
   store ptr %109, ptr %31, align 8, !tbaa !111
-  %111 = getelementptr inbounds nuw ptr, ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %103
   store ptr %111, ptr %32, align 8, !tbaa !68
   br label %.noexc
 
@@ -603,7 +603,7 @@ define dso_local noundef zeroext i1 @_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERK
   %6 = phi ptr [ %12, %.lr.ph ], [ %5, %2 ]
   %.08 = phi i1 [ %spec.select, %.lr.ph ], [ false, %2 ]
   %.067 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.067
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.067
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = tail call noundef zeroext i1 @_Z10merge_factRSt6vectorIPK4FactSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %8)
   %spec.select = select i1 %9, i1 true, i1 %.08
@@ -674,7 +674,7 @@ define dso_local noundef i32 @_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_(ptr nou
 .lr.ph:                                           ; preds = %2, %15
   %6 = phi ptr [ %18, %15 ], [ %5, %2 ]
   %.09 = phi i64 [ %16, %15 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.09
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = load ptr, ptr %1, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -713,7 +713,7 @@ define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2
 .lr.ph:                                           ; preds = %2, %17
   %6 = phi ptr [ %20, %17 ], [ %5, %2 ]
   %.010 = phi i64 [ %18, %17 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.010
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.010
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = load ptr, ptr %1, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -723,7 +723,7 @@ define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %0, align 8, !tbaa !66
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.010
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.010
   %16 = load ptr, ptr %15, align 8, !tbaa !112
   br label %.loopexit
 
@@ -754,7 +754,7 @@ define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIP4FactSaIS1_EEPKS
 .lr.ph:                                           ; preds = %2, %17
   %6 = phi ptr [ %20, %17 ], [ %5, %2 ]
   %.010 = phi i64 [ %18, %17 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.010
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.010
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = load ptr, ptr %1, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -764,7 +764,7 @@ define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIP4FactSaIS1_EEPKS
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %0, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.010
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.010
   %16 = load ptr, ptr %15, align 8, !tbaa !112
   br label %.loopexit
 
@@ -795,7 +795,7 @@ define dso_local noundef zeroext i1 @_Z10merge_factRSt6vectorIPK4FactSaIS2_EES2_
 .lr.ph:                                           ; preds = %2, %29
   %6 = phi ptr [ %32, %29 ], [ %5, %2 ]
   %.01729 = phi i64 [ %30, %29 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01729
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01729
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -824,7 +824,7 @@ define dso_local noundef zeroext i1 @_Z10merge_factRSt6vectorIPK4FactSaIS2_EES2_
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 8 dereferenceable(12) %8)
   %27 = load ptr, ptr %0, align 8, !tbaa !66
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.01729
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.01729
   store ptr %22, ptr %28, align 8, !tbaa !112
   br label %.thread
 
@@ -902,7 +902,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %
 _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %58, ptr %0, align 8, !tbaa !66
   store ptr %62, ptr %3, align 8, !tbaa !111
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %64, ptr %46, align 8, !tbaa !68
   br label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit
 
@@ -922,7 +922,7 @@ define dso_local noundef zeroext i1 @_Z10renew_factRSt6vectorIPK4FactSaIS2_EES2_
 .lr.ph:                                           ; preds = %2, %24
   %6 = phi ptr [ %27, %24 ], [ %5, %2 ]
   %.020 = phi i64 [ %25, %24 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.020
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.020
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = load ptr, ptr %1, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -932,7 +932,7 @@ define dso_local noundef zeroext i1 @_Z10renew_factRSt6vectorIPK4FactSaIS2_EES2_
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %0, align 8, !tbaa !66
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.020
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.020
   %16 = load ptr, ptr %15, align 8, !tbaa !112
   %17 = load ptr, ptr %1, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -942,7 +942,7 @@ define dso_local noundef zeroext i1 @_Z10renew_factRSt6vectorIPK4FactSaIS2_EES2_
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %0, align 8, !tbaa !66
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.020
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.020
   store ptr %1, ptr %23, align 8, !tbaa !112
   %.pre = load ptr, ptr %3, align 8, !tbaa !111
   br label %thread-pre-split
@@ -1020,7 +1020,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %
 _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %58, %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %53, ptr %0, align 8, !tbaa !66
   store ptr %57, ptr %3, align 8, !tbaa !111
-  %59 = getelementptr inbounds nuw ptr, ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %59, ptr %41, align 8, !tbaa !68
   br label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit
 
@@ -1041,7 +1041,7 @@ define dso_local noundef zeroext i1 @_Z11renew_factsRSt6vectorIPK4FactSaIS2_EERK
   %6 = phi ptr [ %12, %.lr.ph ], [ %5, %2 ]
   %.08 = phi i1 [ %spec.select, %.lr.ph ], [ false, %2 ]
   %.067 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.067
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.067
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = tail call noundef zeroext i1 @_Z10renew_factRSt6vectorIPK4FactSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %8)
   %spec.select = select i1 %9, i1 true, i1 %.08
@@ -1080,7 +1080,7 @@ define dso_local void @_Z10copy_factsRKSt6vectorIPK4FactSaIS2_EE(ptr dead_on_unw
   %11 = phi ptr [ %5, %.lr.ph ], [ %46, %_ZNSt6vectorIP4FactSaIS1_EE9push_backERKS1_.exit ]
   %.012 = phi i64 [ 0, %.lr.ph ], [ %44, %_ZNSt6vectorIP4FactSaIS1_EE9push_backERKS1_.exit ]
   %12 = phi ptr [ null, %.lr.ph ], [ %43, %_ZNSt6vectorIP4FactSaIS1_EE9push_backERKS1_.exit ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %.012
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.012
   %14 = load ptr, ptr %13, align 8, !tbaa !112
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1147,7 +1147,7 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %3
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %38, ptr %6, align 8, !tbaa !120
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %40, ptr %7, align 8, !tbaa !10
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backERKS1_.exit
 
@@ -1212,7 +1212,7 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
 7:                                                ; preds = %.lr.ph19, %.loopexit
   %8 = phi ptr [ %5, %.lr.ph19 ], [ %36, %.loopexit ]
   %.01418 = phi i64 [ 0, %.lr.ph19 ], [ %34, %.loopexit ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01418
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01418
   %10 = load ptr, ptr %9, align 8, !tbaa !112
   %11 = load ptr, ptr %6, align 8, !tbaa !120
   %12 = load ptr, ptr %0, align 8, !tbaa !4
@@ -1233,7 +1233,7 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
 .lr.ph:                                           ; preds = %7, %13
   %22 = phi ptr [ %16, %13 ], [ %12, %7 ]
   %.01517 = phi i64 [ %14, %13 ], [ 0, %7 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.01517
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.01517
   %24 = load ptr, ptr %23, align 8, !tbaa !112
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
@@ -1298,7 +1298,7 @@ define dso_local noundef zeroext i1 @_Z10same_factsRKSt6vectorIPK4FactSaIS2_EES6
 .lr.ph:                                           ; preds = %.preheader, %16
   %24 = phi ptr [ %19, %16 ], [ %5, %.preheader ]
   %.013 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.013
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.013
   %26 = load ptr, ptr %25, align 8, !tbaa !112
   %27 = load ptr, ptr %9, align 8, !tbaa !111
   %28 = load ptr, ptr %1, align 8, !tbaa !66
@@ -1308,7 +1308,7 @@ define dso_local noundef zeroext i1 @_Z10same_factsRKSt6vectorIPK4FactSaIS2_EES6
 .lr.ph.i:                                         ; preds = %.lr.ph, %36
   %29 = phi ptr [ %39, %36 ], [ %28, %.lr.ph ]
   %.09.i = phi i64 [ %37, %36 ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.09.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.09.i
   %31 = load ptr, ptr %30, align 8, !tbaa !112
   %32 = load ptr, ptr %26, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
@@ -1372,7 +1372,7 @@ define dso_local noundef zeroext i1 @_Z12subset_factsRKSt6vectorIPK4FactSaIS2_EE
 .lr.ph:                                           ; preds = %.preheader, %16
   %24 = phi ptr [ %19, %16 ], [ %5, %.preheader ]
   %.01420 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01420
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.01420
   %26 = load ptr, ptr %25, align 8, !tbaa !112
   %27 = load ptr, ptr %9, align 8, !tbaa !111
   %28 = load ptr, ptr %1, align 8, !tbaa !66
@@ -1382,7 +1382,7 @@ define dso_local noundef zeroext i1 @_Z12subset_factsRKSt6vectorIPK4FactSaIS2_EE
 .lr.ph.i:                                         ; preds = %.lr.ph, %36
   %29 = phi ptr [ %39, %36 ], [ %28, %.lr.ph ]
   %.010.i = phi i64 [ %37, %36 ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.010.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.010.i
   %31 = load ptr, ptr %30, align 8, !tbaa !112
   %32 = load ptr, ptr %26, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
@@ -1403,7 +1403,7 @@ define dso_local noundef zeroext i1 @_Z12subset_factsRKSt6vectorIPK4FactSaIS2_EE
 
 _Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit: ; preds = %.lr.ph.i
   %45 = load ptr, ptr %1, align 8, !tbaa !66
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.010.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.010.i
   %47 = load ptr, ptr %46, align 8, !tbaa !112
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, label %.critedge
@@ -1434,7 +1434,7 @@ define dso_local void @_Z11print_factsRKSt6vectorIPK4FactSaIS2_EE(ptr noundef no
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %5 = phi ptr [ %13, %.lr.ph ], [ %4, %1 ]
   %.05 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.05
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
@@ -1465,7 +1465,7 @@ define dso_local void @_Z14print_var_factRKSt6vectorIPK4FactSaIS2_EEPKc(ptr noun
 .lr.ph:                                           ; preds = %2, %20
   %6 = phi ptr [ %23, %20 ], [ %5, %2 ]
   %.07 = phi i64 [ %21, %20 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.07
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.07
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120

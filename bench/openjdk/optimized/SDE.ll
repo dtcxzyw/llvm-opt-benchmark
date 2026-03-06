@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.StratumTableRecord = type { ptr, i32, i32 }
-%struct.FileTableRecord = type { i32, ptr, ptr, i32 }
-%struct.LineTableRecord = type { i32, i32, i32, i32, i32, i32 }
 
 @stratumIndex = internal unnamed_addr global i32 0, align 4
 @globalDefaultStratumId = internal unnamed_addr global ptr null, align 8
@@ -72,7 +69,7 @@ define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noun
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %10 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr i8, ptr %10, i64 24
@@ -86,7 +83,7 @@ define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noun
 
 .lr.ph.split.i:                                   ; preds = %patternMatch.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %16, %.lr.ph.i ], [ %indvars.iv.next.i, %patternMatch.exit.thread.i ]
-  %17 = getelementptr inbounds %struct.FileTableRecord, ptr %8, i64 %indvars.iv.i
+  %17 = getelementptr inbounds [32 x i8], ptr %8, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -687,7 +684,7 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %21
   %22 = load ptr, ptr @stratumTable, align 8
   %23 = zext nneg i32 %11 to i64
-  %24 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %27 = load ptr, ptr @lineTable, align 8
@@ -715,7 +712,7 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
 
 38:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %37, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %39 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %indvars.iv.i
+  %39 = getelementptr inbounds [24 x i8], ptr %27, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4
   %.not.i = icmp slt i32 %33, %40
   br i1 %.not.i, label %44, label %41
@@ -738,7 +735,7 @@ stiLineTableIndex.exit:                           ; preds = %41
 
 46:                                               ; preds = %stiLineTableIndex.exit
   %47 = and i64 %indvars.iv.i, 4294967295
-  %48 = getelementptr inbounds nuw %struct.LineTableRecord, ptr %27, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
@@ -819,7 +816,7 @@ common.ret:                                       ; preds = %.loopexit.loopexit,
 
 14:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %15 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %0) #10
   %18 = icmp eq i32 %17, 0
@@ -1085,7 +1082,7 @@ define internal fastcc void @storeStratum(ptr noundef %0) unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stratumTable, align 8
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr %struct.StratumTableRecord, ptr %5, i64 %6
+  %7 = getelementptr [16 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr @fileIndex, align 4
@@ -1153,7 +1150,7 @@ assureStratumTableSize.exit:                      ; preds = %.assureStratumTable
   %39 = phi i32 [ %20, %.assureStratumTableSize.exit_crit_edge ], [ %.pre1, %38 ]
   %40 = phi ptr [ %.pre, %.assureStratumTableSize.exit_crit_edge ], [ %27, %38 ]
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds %struct.StratumTableRecord, ptr %40, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %40, i64 %41
   store ptr %0, ptr %42, align 8
   %43 = load i32, ptr @fileIndex, align 4
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1217,7 +1214,7 @@ assureFileTableSize.exit:                         ; preds = %.assureFileTableSiz
   %23 = phi i32 [ %4, %.assureFileTableSize.exit_crit_edge ], [ %.pre2, %22 ]
   %24 = phi ptr [ %.pre, %.assureFileTableSize.exit_crit_edge ], [ %11, %22 ]
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.FileTableRecord, ptr %24, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %24, i64 %25
   store i32 %0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %1, ptr %27, align 8
@@ -1278,7 +1275,7 @@ assureLineTableSize.exit:                         ; preds = %.assureLineTableSiz
   %26 = phi i32 [ %7, %.assureLineTableSize.exit_crit_edge ], [ %.pre6, %25 ]
   %27 = phi ptr [ %.pre, %.assureLineTableSize.exit_crit_edge ], [ %14, %25 ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %27, i64 %28
   store i32 %0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %1, ptr %30, align 4

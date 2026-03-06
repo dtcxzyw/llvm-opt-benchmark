@@ -1905,7 +1905,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %27, label %85, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i32, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVmaxOverBaseE, i64 %65
+  %69 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVmaxOverBaseE, i64 %65
   %70 = load i32, ptr %69, align 4, !tbaa !31
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
@@ -1937,7 +1937,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !35
 
 85:                                               ; preds = %62
-  %86 = getelementptr inbounds nuw i32, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 %65
+  %86 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 %65
   %87 = load i32, ptr %86, align 4, !tbaa !31
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
@@ -2128,7 +2128,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %27, label %85, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVmaxOverBaseE, i64 %65
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVmaxOverBaseE, i64 %65
   %70 = load i64, ptr %69, align 8, !tbaa !37
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
@@ -2160,7 +2160,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !39
 
 85:                                               ; preds = %62
-  %86 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 %65
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 %65
   %87 = load i64, ptr %86, align 8, !tbaa !37
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
@@ -2355,7 +2355,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
 
 .lr.ph.i6.i:                                      ; preds = %65
   %68 = zext nneg i32 %.0.i.i to i64
-  %69 = getelementptr inbounds nuw %"class.absl::int128", ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVmaxOverBaseE, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVmaxOverBaseE, i64 %68
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.024.0.copyload.i.i = load i64, ptr %69, align 16
@@ -2421,7 +2421,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
 
 .lr.ph.i10.i:                                     ; preds = %84
   %87 = zext nneg i32 %.0.i.i to i64
-  %88 = getelementptr inbounds nuw %"class.absl::int128", ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 %87
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.096.0.copyload.i.i = load i64, ptr %88, align 16
@@ -2635,7 +2635,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
-  %66 = getelementptr inbounds nuw i32, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIjE13kVmaxOverBaseE, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIjE13kVmaxOverBaseE, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %64
   %69 = icmp eq i64 %.pre-phi.i.i, %63
@@ -2826,7 +2826,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
-  %66 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesImE13kVmaxOverBaseE, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesImE13kVmaxOverBaseE, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !37
   %68 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %64
   %69 = icmp eq i64 %.pre-phi.i.i, %63
@@ -3023,7 +3023,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
 
 .lr.ph.i4.i:                                      ; preds = %62
   %67 = zext nneg i32 %.0.i.i to i64
-  %68 = getelementptr inbounds nuw %"class.absl::uint128", ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE, i64 %67
   %.sroa.4.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i5.i, align 8, !tbaa !37
   %.sroa.024.0.copyload.i.i = load i64, ptr %68, align 16, !tbaa !37
@@ -3325,7 +3325,7 @@ _ZN4abslL5Mul32ESt4pairImmEj.exit:                ; preds = %.lr.ph, %26
   %.sroa.9.0.lcssa = phi i64 [ 0, %2 ], [ %.sroa.3.0.i, %_ZN4abslL5Mul32ESt4pairImmEj.exit ]
   %.0.lcssa = phi i32 [ %1, %2 ], [ %35, %_ZN4abslL5Mul32ESt4pairImmEj.exit ]
   %37 = zext nneg i32 %.0.lcssa to i64
-  %38 = getelementptr inbounds nuw i32, ptr @__const._ZN4abslL7PowFiveEmi.powers_of_five, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN4abslL7PowFiveEmi.powers_of_five, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !31
   %40 = and i64 %.sroa.9.0.lcssa, 4294967295
   %41 = lshr i64 %.sroa.9.0.lcssa, 32

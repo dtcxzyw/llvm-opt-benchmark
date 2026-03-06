@@ -3,7 +3,6 @@ source_filename = "bench/folly/original/SplitStringSimd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.folly::Range" = type { ptr, ptr }
 %struct.Initializer = type { i8 }
 %struct.Initializer.5 = type { i8 }
 %struct.Initializer.4 = type { i8 }
@@ -21,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.93 = type { ptr, ptr }
 %class.anon.110 = type { ptr, ptr }
 %class.anon.127 = type { ptr, ptr }
-%"class.std::basic_string_view" = type { i64, ptr }
 %class.anon.157 = type { ptr, ptr }
 %class.anon.173 = type { ptr, ptr }
 %class.anon.189 = type { ptr, ptr }
@@ -30,14 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.237 = type { ptr, ptr }
 %class.anon.253 = type { ptr, ptr }
 %class.anon.269 = type { ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.289 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.289 = type { i64, [8 x i8] }
 %"class.std::allocator.286" = type { i8 }
-%"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
-%"class.folly::fbstring_core" = type { %union.anon.298 }
-%union.anon.298 = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
-%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 
 $_ZN5folly6detail19SimdSplitByCharImplISt6vectorINS_5RangeIPKcEESaIS6_EEE9keepEmptyEcS6_RS8_ = comdat any
 
@@ -439,7 +430,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %41, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.i
   store ptr %34, ptr %3, align 8, !tbaa !19
   store ptr %40, ptr %5, align 8, !tbaa !10
-  %42 = getelementptr inbounds nuw %"class.folly::Range", ptr %34, i64 %32
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %32
   store ptr %42, ptr %6, align 8, !tbaa !14
   br label %_ZZN5folly6detail17splitByCharScalarILb0ESt6vectorINS_5RangeIPKcEESaIS6_EEEEvcS6_RT0_ENUlS5_S5_E_clES5_S5_.exit
 
@@ -523,7 +514,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i25: ; preds = %74, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.i22
   store ptr %67, ptr %3, align 8, !tbaa !19
   store ptr %73, ptr %46, align 8, !tbaa !10
-  %75 = getelementptr inbounds nuw %"class.folly::Range", ptr %67, i64 %65
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %75, ptr %48, align 8, !tbaa !14
   br label %_ZZN5folly6detail17splitByCharScalarILb0ESt6vectorINS_5RangeIPKcEESaIS6_EEEEvcS6_RT0_ENUlS5_S5_E_clES5_S5_.exit26
 
@@ -657,7 +648,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.i
   store ptr %35, ptr %3, align 8, !tbaa !19
   store ptr %41, ptr %5, align 8, !tbaa !10
-  %43 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %33
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %33
   store ptr %43, ptr %6, align 8, !tbaa !14
   br label %_ZZN5folly6detail17splitByCharScalarILb1ESt6vectorINS_5RangeIPKcEESaIS6_EEEEvcS6_RT0_ENUlS5_S5_E_clES5_S5_.exit
 
@@ -743,7 +734,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i28: ; preds = %77, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i.i25
   store ptr %70, ptr %3, align 8, !tbaa !19
   store ptr %76, ptr %49, align 8, !tbaa !10
-  %78 = getelementptr inbounds nuw %"class.folly::Range", ptr %70, i64 %68
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %68
   store ptr %78, ptr %51, align 8, !tbaa !14
   br label %_ZZN5folly6detail17splitByCharScalarILb1ESt6vectorINS_5RangeIPKcEESaIS6_EEEEvcS6_RT0_ENUlS5_S5_E_clES5_S5_.exit29
 
@@ -1006,7 +997,7 @@ _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %60, %_ZN5folly10can
 84:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit27
   %85 = load ptr, ptr %0, align 8, !tbaa !49
   %86 = lshr i64 %83, 4
-  %87 = getelementptr inbounds nuw %"class.folly::Range", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %86
   store ptr %87, ptr %7, align 8, !tbaa !47
   %88 = load ptr, ptr %61, align 8, !tbaa !44
   %89 = load ptr, ptr %1, align 8, !tbaa !21
@@ -1065,7 +1056,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_5RangeIPKcEESaIS6_EE16emplace_
   %115 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr %96, ptr %0, align 8, !tbaa !49
   store ptr %115, ptr %98, align 8, !tbaa !44
-  %116 = getelementptr inbounds nuw %"class.folly::Range", ptr %96, i64 %94
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %94
   store ptr %116, ptr %7, align 8, !tbaa !47
   br label %117
 
@@ -1563,7 +1554,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i: ; preds = %3
 
 41:                                               ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i
   %42 = load ptr, ptr %11, align 8, !tbaa !7
-  %43 = getelementptr inbounds nuw %"class.folly::Range", ptr %42, i64 %27
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %27
   store ptr %.026, ptr %43, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.026, i64 %21
@@ -1653,7 +1644,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i16: ; preds = 
 76:                                               ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i16
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !7
-  %79 = getelementptr inbounds nuw %"class.folly::Range", ptr %78, i64 %60
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %60
   store ptr %.0.lcssa, ptr %79, align 8, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %52
@@ -1795,7 +1786,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 56:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %57 = and i64 %52, 4611686018427387903
-  %58 = getelementptr inbounds nuw %"class.folly::Range", ptr %spec.select, i64 %4
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %spec.select, i64 %4
   %59 = load ptr, ptr %3, align 8, !tbaa !67
   %60 = load ptr, ptr %59, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2067,7 +2058,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i: ; preds = %3
 
 42:                                               ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i
   %43 = load ptr, ptr %11, align 8, !tbaa !7
-  %44 = getelementptr inbounds nuw %"class.folly::Range", ptr %43, i64 %28
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %28
   store ptr %.030, ptr %44, align 8, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %.030, i64 %22
@@ -2159,7 +2150,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i19: ; preds = 
 79:                                               ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i19
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !7
-  %82 = getelementptr inbounds nuw %"class.folly::Range", ptr %81, i64 %63
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %63
   store ptr %.1, ptr %82, align 8, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %.1, i64 %55
@@ -2226,7 +2217,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store ptr %.025, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -2253,7 +2244,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store ptr %.025, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -2289,7 +2280,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm2EvE
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = getelementptr inbounds nuw %"class.folly::Range", ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %43
   store ptr %.0.lcssa, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -2319,7 +2310,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm2EvE
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.folly::Range", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store ptr %.0.lcssa, ptr %61, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -2429,7 +2420,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.folly::Range", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !72
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2573,7 +2564,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store ptr %.029, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -2600,7 +2591,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %12, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %30
   store ptr %.029, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -2638,7 +2629,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm2EvE
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = getelementptr inbounds nuw %"class.folly::Range", ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %46
   store ptr %.1, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -2668,7 +2659,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm2EvE
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw %"class.folly::Range", ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %54
   store ptr %.1, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -2731,7 +2722,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store ptr %.025, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -2758,7 +2749,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store ptr %.025, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -2794,7 +2785,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm3EvE
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = getelementptr inbounds nuw %"class.folly::Range", ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %43
   store ptr %.0.lcssa, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -2824,7 +2815,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm3EvE
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.folly::Range", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store ptr %.0.lcssa, ptr %61, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -2934,7 +2925,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.folly::Range", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !79
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3078,7 +3069,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store ptr %.029, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -3105,7 +3096,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %12, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %30
   store ptr %.029, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -3143,7 +3134,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm3EvE
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = getelementptr inbounds nuw %"class.folly::Range", ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %46
   store ptr %.1, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -3173,7 +3164,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm3EvE
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw %"class.folly::Range", ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %54
   store ptr %.1, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -3236,7 +3227,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store ptr %.025, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -3263,7 +3254,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store ptr %.025, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -3299,7 +3290,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm4EvE
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = getelementptr inbounds nuw %"class.folly::Range", ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %43
   store ptr %.0.lcssa, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -3329,7 +3320,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm4EvE
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.folly::Range", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store ptr %.0.lcssa, ptr %61, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -3439,7 +3430,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.folly::Range", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !86
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3583,7 +3574,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store ptr %.029, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -3610,7 +3601,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %12, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %30
   store ptr %.029, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -3648,7 +3639,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm4EvE
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = getelementptr inbounds nuw %"class.folly::Range", ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %46
   store ptr %.1, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -3678,7 +3669,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm4EvE
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw %"class.folly::Range", ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %54
   store ptr %.1, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -3741,7 +3732,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store ptr %.025, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -3768,7 +3759,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store ptr %.025, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -3804,7 +3795,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm5EvE
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = getelementptr inbounds nuw %"class.folly::Range", ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %43
   store ptr %.0.lcssa, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -3834,7 +3825,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm5EvE
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.folly::Range", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store ptr %.0.lcssa, ptr %61, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -3944,7 +3935,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.folly::Range", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !93
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4088,7 +4079,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store ptr %.029, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -4115,7 +4106,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %12, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %30
   store ptr %.029, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -4153,7 +4144,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm5EvE
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = getelementptr inbounds nuw %"class.folly::Range", ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %46
   store ptr %.1, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -4183,7 +4174,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm5EvE
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw %"class.folly::Range", ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %54
   store ptr %.1, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -4246,7 +4237,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store ptr %.025, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -4273,7 +4264,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store ptr %.025, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -4309,7 +4300,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm6EvE
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = getelementptr inbounds nuw %"class.folly::Range", ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %43
   store ptr %.0.lcssa, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -4339,7 +4330,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm6EvE
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.folly::Range", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store ptr %.0.lcssa, ptr %61, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -4449,7 +4440,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.folly::Range", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !100
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4593,7 +4584,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store ptr %.029, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -4620,7 +4611,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %12, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %30
   store ptr %.029, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -4658,7 +4649,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm6EvE
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = getelementptr inbounds nuw %"class.folly::Range", ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %46
   store ptr %.1, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -4688,7 +4679,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm6EvE
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw %"class.folly::Range", ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %54
   store ptr %.1, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -4751,7 +4742,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store ptr %.025, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -4778,7 +4769,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store ptr %.025, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -4814,7 +4805,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm7EvE
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = getelementptr inbounds nuw %"class.folly::Range", ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %43
   store ptr %.0.lcssa, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -4844,7 +4835,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm7EvE
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.folly::Range", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store ptr %.0.lcssa, ptr %61, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -4954,7 +4945,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.folly::Range", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !107
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5098,7 +5089,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store ptr %.029, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -5125,7 +5116,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %12, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %30
   store ptr %.029, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -5163,7 +5154,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm7EvE
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = getelementptr inbounds nuw %"class.folly::Range", ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %46
   store ptr %.1, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -5193,7 +5184,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm7EvE
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw %"class.folly::Range", ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %54
   store ptr %.1, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -5256,7 +5247,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store ptr %.025, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -5283,7 +5274,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.folly::Range", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store ptr %.025, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 %21
@@ -5319,7 +5310,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm8EvE
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = getelementptr inbounds nuw %"class.folly::Range", ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %43
   store ptr %.0.lcssa, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -5349,7 +5340,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm8EvE
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.folly::Range", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store ptr %.0.lcssa, ptr %61, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %42
@@ -5459,7 +5450,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.folly::Range", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !114
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5603,7 +5594,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.folly::Range", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store ptr %.029, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -5630,7 +5621,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %12, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %30
   store ptr %.029, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.029, i64 %22
@@ -5668,7 +5659,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm8EvE
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = getelementptr inbounds nuw %"class.folly::Range", ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %46
   store ptr %.1, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -5698,7 +5689,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm8EvE
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw %"class.folly::Range", ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %54
   store ptr %.1, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 %45
@@ -5810,7 +5801,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i.i
   store ptr %33, ptr %3, align 8, !tbaa !127
   store ptr %38, ptr %5, align 8, !tbaa !120
-  %40 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %31
   store ptr %40, ptr %6, align 8, !tbaa !123
   br label %_ZZN5folly6detail17splitByCharScalarILb0ESt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEEvcNS_5RangeIPKcEERT0_ENUlSB_SB_E_clESB_SB_.exit
 
@@ -5892,7 +5883,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i25: ; preds = %70, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i.i22
   store ptr %64, ptr %3, align 8, !tbaa !127
   store ptr %69, ptr %44, align 8, !tbaa !120
-  %71 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %64, i64 %62
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %62
   store ptr %71, ptr %46, align 8, !tbaa !123
   br label %_ZZN5folly6detail17splitByCharScalarILb0ESt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEEvcNS_5RangeIPKcEERT0_ENUlSB_SB_E_clESB_SB_.exit26
 
@@ -5997,7 +5988,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %40, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i.i
   store ptr %34, ptr %3, align 8, !tbaa !127
   store ptr %39, ptr %5, align 8, !tbaa !120
-  %41 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %32
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %32
   store ptr %41, ptr %6, align 8, !tbaa !123
   br label %_ZZN5folly6detail17splitByCharScalarILb1ESt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEEvcNS_5RangeIPKcEERT0_ENUlSB_SB_E_clESB_SB_.exit
 
@@ -6081,7 +6072,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i28: ; preds = %73, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i.i25
   store ptr %67, ptr %3, align 8, !tbaa !127
   store ptr %72, ptr %47, align 8, !tbaa !120
-  %74 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %67, i64 %65
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %74, ptr %49, align 8, !tbaa !123
   br label %_ZZN5folly6detail17splitByCharScalarILb1ESt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEEvcNS_5RangeIPKcEERT0_ENUlSB_SB_E_clESB_SB_.exit29
 
@@ -6342,7 +6333,7 @@ _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %60, %_ZN5folly10can
 84:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit27
   %85 = load ptr, ptr %0, align 8, !tbaa !153
   %86 = lshr i64 %83, 4
-  %87 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %86
   store ptr %87, ptr %7, align 8, !tbaa !151
   %88 = load ptr, ptr %61, align 8, !tbaa !148
   %89 = load ptr, ptr %1, align 8, !tbaa !21
@@ -6375,7 +6366,7 @@ _ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE10M_allocat
 
 _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread: ; preds = %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE10M_allocateEm.exit
   %101 = ashr i64 %100, 4
-  %102 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %101
   %103 = load ptr, ptr %1, align 8, !tbaa !21
   %104 = load i64, ptr %2, align 8, !tbaa !42
   store i64 %104, ptr %102, align 8, !tbaa !124
@@ -6401,7 +6392,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorISt17basic_string_viewIcSt11char_t
   %114 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   store ptr %95, ptr %0, align 8, !tbaa !153
   store ptr %114, ptr %97, align 8, !tbaa !148
-  %115 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %95, i64 %93
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %93
   store ptr %115, ptr %7, align 8, !tbaa !151
   br label %116
 
@@ -6601,7 +6592,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capaci
 
 40:                                               ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i
   %41 = load ptr, ptr %11, align 8, !tbaa !7
-  %42 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %41, i64 %26
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %26
   store i64 %21, ptr %42, align 8, !tbaa !124
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %.026, ptr %43, align 8, !tbaa !126
@@ -6689,7 +6680,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capaci
 73:                                               ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i16
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !7
-  %76 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %75, i64 %57
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %57
   store i64 %50, ptr %76, align 8, !tbaa !124
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %.0.lcssa, ptr %77, align 8, !tbaa !126
@@ -6827,7 +6818,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 56:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %57 = and i64 %52, 4611686018427387903
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %spec.select, i64 %4
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %spec.select, i64 %4
   %59 = load ptr, ptr %3, align 8, !tbaa !156
   %60 = load ptr, ptr %59, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7046,7 +7037,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capaci
 
 41:                                               ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i
   %42 = load ptr, ptr %11, align 8, !tbaa !7
-  %43 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %42, i64 %27
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %27
   store i64 %22, ptr %43, align 8, !tbaa !124
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %.030, ptr %44, align 8, !tbaa !126
@@ -7136,7 +7127,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capaci
 76:                                               ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i19
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !7
-  %79 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %78, i64 %60
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %60
   store i64 %53, ptr %79, align 8, !tbaa !124
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %.1, ptr %80, align 8, !tbaa !126
@@ -7202,7 +7193,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store i64 %21, ptr %25, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.025, ptr %26, align 8, !tbaa !126
@@ -7228,7 +7219,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %12, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %28
   store i64 %21, ptr %35, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.025, ptr %36, align 8, !tbaa !126
@@ -7263,7 +7254,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %41
   store i64 %40, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.lcssa, ptr %46, align 8, !tbaa !126
@@ -7292,7 +7283,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %48
   store i64 %40, ptr %58, align 8, !tbaa !124
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.0.lcssa, ptr %59, align 8, !tbaa !126
@@ -7401,7 +7392,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !161
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7544,7 +7535,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store i64 %22, ptr %26, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.029, ptr %27, align 8, !tbaa !126
@@ -7570,7 +7561,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store i64 %22, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.029, ptr %37, align 8, !tbaa !126
@@ -7607,7 +7598,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   store i64 %43, ptr %48, align 8, !tbaa !124
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.1, ptr %49, align 8, !tbaa !126
@@ -7636,7 +7627,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store i64 %43, ptr %61, align 8, !tbaa !124
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.1, ptr %62, align 8, !tbaa !126
@@ -7698,7 +7689,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store i64 %21, ptr %25, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.025, ptr %26, align 8, !tbaa !126
@@ -7724,7 +7715,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %12, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %28
   store i64 %21, ptr %35, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.025, ptr %36, align 8, !tbaa !126
@@ -7759,7 +7750,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %41
   store i64 %40, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.lcssa, ptr %46, align 8, !tbaa !126
@@ -7788,7 +7779,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %48
   store i64 %40, ptr %58, align 8, !tbaa !124
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.0.lcssa, ptr %59, align 8, !tbaa !126
@@ -7897,7 +7888,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !168
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8040,7 +8031,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store i64 %22, ptr %26, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.029, ptr %27, align 8, !tbaa !126
@@ -8066,7 +8057,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store i64 %22, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.029, ptr %37, align 8, !tbaa !126
@@ -8103,7 +8094,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   store i64 %43, ptr %48, align 8, !tbaa !124
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.1, ptr %49, align 8, !tbaa !126
@@ -8132,7 +8123,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store i64 %43, ptr %61, align 8, !tbaa !124
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.1, ptr %62, align 8, !tbaa !126
@@ -8194,7 +8185,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store i64 %21, ptr %25, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.025, ptr %26, align 8, !tbaa !126
@@ -8220,7 +8211,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %12, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %28
   store i64 %21, ptr %35, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.025, ptr %36, align 8, !tbaa !126
@@ -8255,7 +8246,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %41
   store i64 %40, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.lcssa, ptr %46, align 8, !tbaa !126
@@ -8284,7 +8275,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %48
   store i64 %40, ptr %58, align 8, !tbaa !124
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.0.lcssa, ptr %59, align 8, !tbaa !126
@@ -8393,7 +8384,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !175
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8536,7 +8527,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store i64 %22, ptr %26, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.029, ptr %27, align 8, !tbaa !126
@@ -8562,7 +8553,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store i64 %22, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.029, ptr %37, align 8, !tbaa !126
@@ -8599,7 +8590,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   store i64 %43, ptr %48, align 8, !tbaa !124
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.1, ptr %49, align 8, !tbaa !126
@@ -8628,7 +8619,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store i64 %43, ptr %61, align 8, !tbaa !124
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.1, ptr %62, align 8, !tbaa !126
@@ -8690,7 +8681,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store i64 %21, ptr %25, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.025, ptr %26, align 8, !tbaa !126
@@ -8716,7 +8707,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %12, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %28
   store i64 %21, ptr %35, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.025, ptr %36, align 8, !tbaa !126
@@ -8751,7 +8742,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %41
   store i64 %40, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.lcssa, ptr %46, align 8, !tbaa !126
@@ -8780,7 +8771,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %48
   store i64 %40, ptr %58, align 8, !tbaa !124
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.0.lcssa, ptr %59, align 8, !tbaa !126
@@ -8889,7 +8880,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !182
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9032,7 +9023,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store i64 %22, ptr %26, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.029, ptr %27, align 8, !tbaa !126
@@ -9058,7 +9049,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store i64 %22, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.029, ptr %37, align 8, !tbaa !126
@@ -9095,7 +9086,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   store i64 %43, ptr %48, align 8, !tbaa !124
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.1, ptr %49, align 8, !tbaa !126
@@ -9124,7 +9115,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store i64 %43, ptr %61, align 8, !tbaa !124
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.1, ptr %62, align 8, !tbaa !126
@@ -9186,7 +9177,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store i64 %21, ptr %25, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.025, ptr %26, align 8, !tbaa !126
@@ -9212,7 +9203,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %12, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %28
   store i64 %21, ptr %35, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.025, ptr %36, align 8, !tbaa !126
@@ -9247,7 +9238,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %41
   store i64 %40, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.lcssa, ptr %46, align 8, !tbaa !126
@@ -9276,7 +9267,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %48
   store i64 %40, ptr %58, align 8, !tbaa !124
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.0.lcssa, ptr %59, align 8, !tbaa !126
@@ -9385,7 +9376,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !189
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9528,7 +9519,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store i64 %22, ptr %26, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.029, ptr %27, align 8, !tbaa !126
@@ -9554,7 +9545,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store i64 %22, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.029, ptr %37, align 8, !tbaa !126
@@ -9591,7 +9582,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   store i64 %43, ptr %48, align 8, !tbaa !124
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.1, ptr %49, align 8, !tbaa !126
@@ -9620,7 +9611,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store i64 %43, ptr %61, align 8, !tbaa !124
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.1, ptr %62, align 8, !tbaa !126
@@ -9682,7 +9673,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store i64 %21, ptr %25, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.025, ptr %26, align 8, !tbaa !126
@@ -9708,7 +9699,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %12, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %28
   store i64 %21, ptr %35, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.025, ptr %36, align 8, !tbaa !126
@@ -9743,7 +9734,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %41
   store i64 %40, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.lcssa, ptr %46, align 8, !tbaa !126
@@ -9772,7 +9763,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %48
   store i64 %40, ptr %58, align 8, !tbaa !124
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.0.lcssa, ptr %59, align 8, !tbaa !126
@@ -9881,7 +9872,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !196
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -10024,7 +10015,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store i64 %22, ptr %26, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.029, ptr %27, align 8, !tbaa !126
@@ -10050,7 +10041,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store i64 %22, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.029, ptr %37, align 8, !tbaa !126
@@ -10087,7 +10078,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   store i64 %43, ptr %48, align 8, !tbaa !124
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.1, ptr %49, align 8, !tbaa !126
@@ -10116,7 +10107,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store i64 %43, ptr %61, align 8, !tbaa !124
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.1, ptr %62, align 8, !tbaa !126
@@ -10178,7 +10169,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %22
   store i64 %21, ptr %25, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.025, ptr %26, align 8, !tbaa !126
@@ -10204,7 +10195,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %12, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %28
   store i64 %21, ptr %35, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.025, ptr %36, align 8, !tbaa !126
@@ -10239,7 +10230,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %41
   store i64 %40, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.lcssa, ptr %46, align 8, !tbaa !126
@@ -10268,7 +10259,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %48
   store i64 %40, ptr %58, align 8, !tbaa !124
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.0.lcssa, ptr %59, align 8, !tbaa !126
@@ -10377,7 +10368,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   %45 = and i64 %40, 4611686018427387903
-  %46 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %38, i64 %4
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %4
   %47 = load ptr, ptr %3, align 8, !tbaa !203
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -10520,7 +10511,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %12, i64 %23
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %23
   store i64 %22, ptr %26, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.029, ptr %27, align 8, !tbaa !126
@@ -10546,7 +10537,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %29
   store i64 %22, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.029, ptr %37, align 8, !tbaa !126
@@ -10583,7 +10574,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   store i64 %43, ptr %48, align 8, !tbaa !124
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.1, ptr %49, align 8, !tbaa !126
@@ -10612,7 +10603,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %51
   store i64 %43, ptr %61, align 8, !tbaa !124
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.1, ptr %62, align 8, !tbaa !126
@@ -10959,7 +10950,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %76
   store ptr %24, ptr %0, align 8, !tbaa !220
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !210
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %80, ptr %75, align 8, !tbaa !213
   ret void
 
@@ -11253,7 +11244,7 @@ _ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_core
 _ZNSt12_Vector_baseIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit33, %35
   store ptr %22, ptr %0, align 8, !tbaa !240
   store ptr %.0.lcssa.i.i.i32, ptr %6, align 8, !tbaa !235
-  %39 = getelementptr inbounds nuw %"class.folly::basic_fbstring", ptr %22, i64 %18
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %18
   store ptr %39, ptr %34, align 8, !tbaa !238
   ret void
 
@@ -12029,7 +12020,7 @@ _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %62, %_ZN5folly10can
 86:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit27
   %87 = load ptr, ptr %0, align 8, !tbaa !263
   %88 = lshr i64 %85, 5
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %88
   store ptr %89, ptr %9, align 8, !tbaa !261
   %90 = load ptr, ptr %63, align 8, !tbaa !258
   %91 = load ptr, ptr %1, align 8, !tbaa !21
@@ -12232,7 +12223,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINSt7__cxx1112basic_stringIcSt11ch
 162:                                              ; preds = %160, %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit
   store ptr %112, ptr %0, align 8, !tbaa !263
   store ptr %139, ptr %114, align 8, !tbaa !258
-  %163 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %112, i64 %110
+  %163 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %110
   store ptr %163, ptr %9, align 8, !tbaa !261
   br label %164
 
@@ -12800,7 +12791,7 @@ _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %62, %_ZN5folly10can
 86:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit27
   %87 = load ptr, ptr %0, align 8, !tbaa !273
   %88 = udiv i64 %85, 24
-  %89 = getelementptr inbounds nuw %"class.folly::basic_fbstring", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %88
   store ptr %89, ptr %9, align 8, !tbaa !271
   %90 = load ptr, ptr %63, align 8, !tbaa !268
   %91 = load ptr, ptr %1, align 8, !tbaa !21
@@ -12866,7 +12857,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_14basic_fbstringIcSt11char_tra
 113:                                              ; preds = %111, %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS9_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit
   store ptr %97, ptr %0, align 8, !tbaa !273
   store ptr %109, ptr %99, align 8, !tbaa !268
-  %114 = getelementptr inbounds nuw %"class.folly::basic_fbstring", ptr %97, i64 %95
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %95
   store ptr %114, ptr %9, align 8, !tbaa !271
   br label %115
 

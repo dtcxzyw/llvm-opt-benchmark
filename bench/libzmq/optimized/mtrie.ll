@@ -135,7 +135,7 @@ _ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %4
   %.011 = phi i16 [ 0, %.lr.ph ], [ %40, %36 ]
   %30 = load ptr, ptr %13, align 8, !tbaa !24
   %31 = zext i16 %.011 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !28
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35
@@ -150,7 +150,7 @@ _ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %4
 36:                                               ; preds = %35, %28
   %37 = phi i16 [ %.pre12, %35 ], [ %29, %28 ]
   %38 = phi ptr [ %.pre, %35 ], [ %30, %28 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %31
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %31
   store ptr null, ptr %39, align 8, !tbaa !28
   %40 = add i16 %.011, 1
   %.not8 = icmp eq i16 %40, %37
@@ -288,14 +288,14 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
   %47 = zext i8 %.sroa.speculated to i32
   %48 = sub nsw i32 %26, %47
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %25, ptr %50, align 8, !tbaa !28
   br label %.loopexit
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
   %indvars.iv = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next, %.lr.ph169 ]
   %51 = load ptr, ptr %24, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   store ptr null, ptr %52, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not126 = icmp eq i64 %indvars.iv.next, %44
@@ -338,7 +338,7 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
   %.098163 = phi i16 [ %76, %.lr.ph165 ], [ %17, %71 ]
   %73 = load ptr, ptr %57, align 8, !tbaa !24
   %74 = zext i16 %.098163 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   store ptr null, ptr %75, align 8, !tbaa !28
   %76 = add i16 %.098163, 1
   %.not124 = icmp eq i16 %76, %72
@@ -371,10 +371,10 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
   %91 = phi ptr [ %.pre182, %85 ], [ %84, %77 ]
   %92 = load i8, ptr %6, align 8, !tbaa !15
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   %95 = zext i8 %5 to i64
   %96 = sub nsw i64 0, %95
-  %97 = getelementptr inbounds ptr, ptr %94, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %94, i64 %96
   %98 = zext i16 %17 to i64
   %99 = shl nuw nsw i64 %98, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %97, ptr align 8 %91, i64 %99, i1 false)
@@ -393,7 +393,7 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
   %.0101161 = phi i16 [ %106, %.lr.ph ], [ 0, %90 ]
   %103 = load ptr, ptr %57, align 8, !tbaa !24
   %104 = zext i16 %.0101161 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %104
   store ptr null, ptr %105, align 8, !tbaa !28
   %106 = add i16 %.0101161, 1
   %107 = zext i16 %106 to i32
@@ -452,7 +452,7 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
   %132 = load i8, ptr %6, align 8, !tbaa !15
   %133 = zext i8 %132 to i64
   %134 = sub nsw i64 %131, %133
-  %135 = getelementptr inbounds ptr, ptr %130, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %130, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !28
   %.not127 = icmp eq ptr %136, null
   br i1 %.not127, label %137, label %161
@@ -471,10 +471,10 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
   %143 = load i8, ptr %6, align 8, !tbaa !15
   %144 = zext i8 %143 to i64
   %145 = sub nsw i64 %131, %144
-  %146 = getelementptr inbounds ptr, ptr %142, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %142, i64 %145
   store ptr %138, ptr %146, align 8, !tbaa !28
   %147 = load ptr, ptr %129, align 8, !tbaa !24
-  %148 = getelementptr inbounds ptr, ptr %147, i64 %145
+  %148 = getelementptr inbounds [8 x i8], ptr %147, i64 %145
   %149 = load ptr, ptr %148, align 8, !tbaa !28
   %.not128 = icmp eq ptr %149, null
   br i1 %.not128, label %150, label %157, !prof !25
@@ -507,7 +507,7 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
 161:                                              ; preds = %157, %.loopexit.thread205
   %.pre-phi192 = phi i64 [ %.pre191, %157 ], [ %134, %.loopexit.thread205 ]
   %162 = phi ptr [ %.pre186, %157 ], [ %130, %.loopexit.thread205 ]
-  %163 = getelementptr inbounds ptr, ptr %162, i64 %.pre-phi192
+  %163 = getelementptr inbounds [8 x i8], ptr %162, i64 %.pre-phi192
   br label %164
 
 164:                                              ; preds = %110, %125, %161
@@ -827,7 +827,7 @@ _ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %.thread269
   %68 = load ptr, ptr %66, align 8, !tbaa !24
   %69 = sub nsw i32 %55, %58
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   br label %72
 
 72:                                               ; preds = %64, %67
@@ -950,7 +950,7 @@ thread-pre-split:                                 ; preds = %98
   %120 = load i8, ptr %119, align 8, !tbaa !15
   %121 = zext i8 %120 to i64
   %122 = sub nsw i64 %118, %121
-  %123 = getelementptr inbounds ptr, ptr %117, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %117, i64 %122
   store ptr null, ptr %123, align 8, !tbaa !28
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.078.0.copyload, i64 20
   %125 = load i16, ptr %124, align 4, !tbaa !17
@@ -988,7 +988,7 @@ thread-pre-split:                                 ; preds = %98
 
 138:                                              ; preds = %.lr.ph179, %141
   %indvars.iv222 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next223, %141 ]
-  %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv222
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv222
   %140 = load ptr, ptr %139, align 8, !tbaa !28
   %.not65 = icmp eq ptr %140, null
   br i1 %.not65, label %141, label %.thread.loopexit
@@ -1028,7 +1028,7 @@ thread-pre-split:                                 ; preds = %98
   store i8 %152, ptr %119, align 8, !tbaa !15
   store i16 1, ptr %96, align 2, !tbaa !16
   %153 = zext i16 %.038152 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %149, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !28
   call void @free(ptr noundef %149) #21
   store ptr %155, ptr %106, align 8, !tbaa !24
@@ -1053,7 +1053,7 @@ thread-pre-split:                                 ; preds = %98
 
 164:                                              ; preds = %.lr.ph173, %167
   %indvars.iv = phi i64 [ 1, %.lr.ph173 ], [ %indvars.iv.next, %167 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv
   %166 = load ptr, ptr %165, align 8, !tbaa !28
   %.not60 = icmp eq ptr %166, null
   br i1 %.not60, label %167, label %.thread142.loopexit
@@ -1128,7 +1128,7 @@ thread-pre-split:                                 ; preds = %98
   %.pre-phi245 = phi i64 [ %.pre244, %._crit_edge238 ], [ %182, %.thread142 ]
   %192 = phi ptr [ %.pre239, %._crit_edge238 ], [ %183, %.thread142 ]
   %193 = zext i16 %.034149 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr %175, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %193
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %192, ptr nonnull align 8 %194, i64 %.pre-phi245, i1 false)
   call void @free(ptr noundef %175) #21
   br label %229
@@ -1148,13 +1148,13 @@ thread-pre-split:                                 ; preds = %98
   %201 = load ptr, ptr %106, align 8, !tbaa !24
   %202 = zext i16 %161 to i64
   %wide.trip.count = zext i16 %161 to i64
-  %invariant.gep = getelementptr ptr, ptr %201, i64 %202
+  %invariant.gep = getelementptr [8 x i8], ptr %201, i64 %202
   br label %203
 
 203:                                              ; preds = %.lr.ph, %206
   %indvars.iv216 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next217, %206 ]
   %204 = xor i64 %indvars.iv216, -1
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %204
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %204
   %205 = load ptr, ptr %gep, align 8, !tbaa !28
   %.not56 = icmp eq ptr %205, null
   br i1 %.not56, label %206, label %.thread143.loopexit

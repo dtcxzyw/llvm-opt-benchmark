@@ -281,7 +281,7 @@ define hidden void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$Alloc
 
 3:                                                ; preds = %2, %3
   %4 = phi i64 [ 0, %2 ], [ %7, %3 ]
-  %5 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %4
   store ptr @anon.df85db53104d6355c74a0fd604072ac5.1.llvm.3304932924735990938, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
@@ -326,9 +326,9 @@ define hidden void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$Alloc
   unreachable
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw { i16, i8, [1 x i8] }, ptr %.val16, i64 %17
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val16, i64 %17
   %23 = sub nuw i64 %.val17, %17
-  %24 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %.025
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.025
   store ptr %22, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %23, ptr %25, align 8

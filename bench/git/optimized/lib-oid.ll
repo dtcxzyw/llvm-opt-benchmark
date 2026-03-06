@@ -108,7 +108,7 @@ init_hash_algo.exit:                              ; preds = %2, %10, %15
   br i1 %.not, label %41, label %21
 
 21:                                               ; preds = %init_hash_algo.exit
-  %22 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %17
+  %22 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %17
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_oid_arbitrary_hex_algop.buf, i64 24, i1 false)

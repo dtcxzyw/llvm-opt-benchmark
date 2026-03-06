@@ -296,7 +296,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 110:                                              ; preds = %110, %80
   %indvars.iv.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i, %110 ]
   %.02543.i = phi i32 [ 0, %80 ], [ %112, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv.i
   store i32 %.02543.i, ptr %111, align 4, !tbaa !51
   %112 = add nuw nsw i32 %.02543.i, %103
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -308,7 +308,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.pn45.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %113 ]
   %.1.i = sub i32 %.pn45.i, %103
   %114 = sub nsw i64 0, %indvars.iv53.i
-  %115 = getelementptr inbounds i32, ptr %108, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %108, i64 %114
   store i32 %.1.i, ptr %115, align 4, !tbaa !51
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
@@ -342,7 +342,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %134 = tail call i32 @llvm.umin.i32(i32 %124, i32 %133)
   store i32 %134, ptr %63, align 8, !tbaa !58
   %135 = zext nneg i32 %132 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr @filler_list, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr @filler_list, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !69
   %138 = tail call i32 %137(ptr noundef nonnull %6, i32 noundef %132, i32 noundef %.01113.i.i) #8
   %139 = icmp slt i32 %138, 0
@@ -404,13 +404,13 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %166 = add i32 %165, %.03139.us.i.i.i
   %167 = add i32 %166, %164
   store i32 %167, ptr %.03238.us.i.i.i, align 4, !tbaa !51
-  %168 = getelementptr inbounds nuw i32, ptr %.03238.us.i.i.i, i64 %159
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.03238.us.i.i.i, i64 %159
   %169 = load i32, ptr %168, align 4, !tbaa !51
   %170 = shl i32 %164, 1
   %171 = add i32 %.03040.us.i.i.i, %169
   %172 = sub i32 %170, %171
   store i32 %172, ptr %168, align 4, !tbaa !51
-  %173 = getelementptr inbounds nuw i32, ptr %168, i64 %159
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %159
   %174 = add nuw nsw i32 %.03337.us.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %174, %158
   br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %163, !llvm.loop !70
@@ -427,7 +427,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 juggle.exit.i.i:                                  ; preds = %._crit_edge.us.i.i.i, %.lr.ph46.i.i.i, %154
   %178 = shl nsw i32 %157, 1
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr %153, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %179
   %.not80.i.i = icmp eq i32 %156, 0
   br i1 %.not80.i.i, label %.preheader.i.i, label %.lr.ph.i30.i
 
@@ -445,7 +445,7 @@ juggle.exit.i.i:                                  ; preds = %._crit_edge.us.i.i.
   %184 = load i32, ptr %.076.i.i, align 4, !tbaa !51
   %185 = add nsw i32 %184, 1
   store i32 %185, ptr %.076.i.i, align 4, !tbaa !51
-  %186 = getelementptr inbounds nuw i32, ptr %.076.i.i, i64 %181
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %.076.i.i, i64 %181
   %187 = add nuw i32 %.04275.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %187, %156
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %183, !llvm.loop !72
@@ -480,13 +480,13 @@ juggle.exit.i.i:                                  ; preds = %._crit_edge.us.i.i.
   %198 = add i32 %197, %.03139.us.i57.i.i
   %199 = add i32 %198, %196
   store i32 %199, ptr %.03238.us.i58.i.i, align 4, !tbaa !51
-  %200 = getelementptr inbounds nuw i32, ptr %.03238.us.i58.i.i, i64 %191
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %.03238.us.i58.i.i, i64 %191
   %201 = load i32, ptr %200, align 4, !tbaa !51
   %202 = shl i32 %196, 1
   %203 = add i32 %.03040.us.i56.i.i, %201
   %204 = sub i32 %202, %203
   store i32 %204, ptr %200, align 4, !tbaa !51
-  %205 = getelementptr inbounds nuw i32, ptr %200, i64 %191
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %191
   %206 = add nuw nsw i32 %.03337.us.i59.i.i, 1
   %exitcond.not.i60.i.i = icmp eq i32 %206, %190
   br i1 %exitcond.not.i60.i.i, label %._crit_edge.us.i61.i.i, label %195, !llvm.loop !70
@@ -503,7 +503,7 @@ juggle.exit.i.i:                                  ; preds = %._crit_edge.us.i.i.
 juggle.exit66.i.i:                                ; preds = %._crit_edge.us.i61.i.i, %.lr.ph46.i50.i.i
   %210 = and i32 %.04578.i.i, -2
   %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds nuw i32, ptr %.04179.i.i, i64 %211
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %.04179.i.i, i64 %211
   %213 = icmp ugt i32 %.04578.i.i, 3
   br i1 %213, label %.lr.ph46.i50.i.i, label %._crit_edge.i.i, !llvm.loop !73
 
@@ -516,7 +516,7 @@ juggle.exit66.i.i:                                ; preds = %._crit_edge.us.i61.
   %216 = load i32, ptr %141, align 8, !tbaa !36
   %217 = shl i32 %.043.i.i, %216
   %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds nuw i32, ptr %.040.i.i, i64 %218
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %.040.i.i, i64 %218
   %.pre.i = load i32, ptr %117, align 8, !tbaa !38
   br label %154
 
@@ -538,7 +538,7 @@ juggle.exit66.i.i:                                ; preds = %._crit_edge.us.i61.
 228:                                              ; preds = %.lr.ph, %228
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %228 ]
   %.092126 = phi ptr [ %224, %.lr.ph ], [ %233, %228 ]
-  %229 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %indvars.iv
   %230 = load i32, ptr %229, align 4, !tbaa !51
   %231 = ashr i32 %230, %227
   %232 = trunc i32 %231 to i16
@@ -641,7 +641,7 @@ define internal void @decode_init_static() #3 {
 6:                                                ; preds = %.preheader43, %6
   %indvars.iv = phi i64 [ 0, %.preheader43 ], [ %indvars.iv.next, %6 ]
   %7 = add nuw nsw i64 %indvars.iv, %3
-  %8 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %gep, i64 %indvars.iv
   %9 = trunc nuw nsw i64 %7 to i32
   store i32 %9, ptr %8, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -676,7 +676,7 @@ define internal void @decode_init_static() #3 {
 15:                                               ; preds = %.preheader40, %15
   %indvars.iv62 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next63, %15 ]
   %16 = add nuw nsw i64 %indvars.iv62, %12
-  %17 = getelementptr inbounds nuw i32, ptr %gep87, i64 %indvars.iv62
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %gep87, i64 %indvars.iv62
   %18 = trunc nuw nsw i64 %16 to i32
   store i32 %18, ptr %17, align 4, !tbaa !51
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -701,7 +701,7 @@ define internal void @decode_init_static() #3 {
 22:                                               ; preds = %.preheader, %22
   %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %22 ]
   %23 = add nuw nsw i64 %indvars.iv74, %19
-  %gep89 = getelementptr inbounds nuw i32, ptr %invariant.gep88, i64 %indvars.iv74
+  %gep89 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep88, i64 %indvars.iv74
   %24 = trunc nuw nsw i64 %23 to i32
   store i32 %24, ptr %gep89, align 4, !tbaa !51
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -739,7 +739,7 @@ define internal noundef i32 @zero(ptr noundef readonly captures(none) %0, i32 %1
   %13 = shl i32 %.08, %12
   %14 = add i32 %13, %2
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %15
   store i32 %.pre, ptr %16, align 4, !tbaa !51
   %17 = add nuw i32 %.08, 1
   %18 = load i32, ptr %4, align 4, !tbaa !37
@@ -797,10 +797,10 @@ define internal noundef i32 @linear(ptr noundef captures(none) %0, i32 noundef %
   %32 = add i32 %31, %2
   %33 = add i32 %27, %.neg
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %15, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %15, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !51
   %37 = zext i32 %32 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %17, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %37
   store i32 %36, ptr %38, align 4, !tbaa !51
   %39 = add nuw i32 %.014, 1
   %40 = load i32, ptr %5, align 4, !tbaa !37
@@ -856,7 +856,7 @@ define internal noundef i32 @k13(ptr noundef captures(none) %0, i32 %1, i32 noun
   %33 = load i32, ptr %32, align 4, !tbaa !51
   %34 = load ptr, ptr %12, align 8, !tbaa !42
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %33, ptr %36, align 4, !tbaa !51
   %37 = load i32, ptr %4, align 4, !tbaa !37
   %.not = icmp ult i32 %28, %37
@@ -911,7 +911,7 @@ define internal noundef i32 @k13(ptr noundef captures(none) %0, i32 %1, i32 noun
   %74 = getelementptr inbounds nuw i8, ptr @map_1bit, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !34
   %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %72, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %72, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !51
   %79 = load ptr, ptr %12, align 8, !tbaa !42
   br label %80
@@ -923,7 +923,7 @@ define internal noundef i32 @k13(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.1 = phi i32 [ %.038, %59 ], [ %.038, %53 ], [ %28, %38 ]
   %.sink45 = add i32 %.pn, %2
   %81 = zext i32 %.sink45 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %.sink43, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sink43, i64 %81
   store i32 %.sink, ptr %82, align 4, !tbaa !51
   %83 = add nuw i32 %.1, 1
   %84 = load i32, ptr %4, align 4, !tbaa !37
@@ -993,7 +993,7 @@ define internal noundef i32 @k12(ptr noundef captures(none) %0, i32 %1, i32 noun
   %43 = getelementptr inbounds nuw i8, ptr @map_1bit, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !34
   %45 = sext i8 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %41, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %41, i64 %45
   br label %47
 
 47:                                               ; preds = %30, %28
@@ -1003,7 +1003,7 @@ define internal noundef i32 @k12(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.pn = shl i32 %.020, %.pn25
   %.sink24 = add i32 %.pn, %2
   %48 = zext i32 %.sink24 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %13, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %48
   store i32 %.sink, ptr %49, align 4, !tbaa !51
   %50 = add nuw i32 %.020, 1
   %51 = load i32, ptr %4, align 4, !tbaa !37
@@ -1055,7 +1055,7 @@ define internal range(i32 -1094995529, 1) i32 @t15(ptr noundef captures(none) %0
 
 28:                                               ; preds = %13
   %29 = zext nneg i32 %22 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @mul_3x3, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @mul_3x3, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !51
   %32 = and i32 %31, 15
   %33 = lshr i32 %31, 8
@@ -1066,12 +1066,12 @@ define internal range(i32 -1094995529, 1) i32 @t15(ptr noundef captures(none) %0
   %38 = add i32 %37, %2
   %39 = load ptr, ptr %11, align 8, !tbaa !46
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr i32, ptr %39, i64 %40
+  %41 = getelementptr [4 x i8], ptr %39, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !51
   %44 = load ptr, ptr %12, align 8, !tbaa !42
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %43, ptr %46, align 4, !tbaa !51
   %47 = load i32, ptr %4, align 4, !tbaa !37
   %.not = icmp ult i32 %35, %47
@@ -1085,11 +1085,11 @@ define internal range(i32 -1094995529, 1) i32 @t15(ptr noundef captures(none) %0
   %53 = shl i32 %35, %52
   %54 = add i32 %53, %2
   %55 = zext nneg i32 %50 to i64
-  %56 = getelementptr i32, ptr %39, i64 %55
+  %56 = getelementptr [4 x i8], ptr %39, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -4
   %58 = load i32, ptr %57, align 4, !tbaa !51
   %59 = zext i32 %54 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %44, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %59
   store i32 %58, ptr %60, align 4, !tbaa !51
   %61 = load i32, ptr %4, align 4, !tbaa !37
   %.not40 = icmp ult i32 %51, %61
@@ -1100,11 +1100,11 @@ define internal range(i32 -1094995529, 1) i32 @t15(ptr noundef captures(none) %0
   %64 = shl i32 %51, %63
   %65 = add i32 %64, %2
   %66 = zext nneg i32 %34 to i64
-  %67 = getelementptr i32, ptr %39, i64 %66
+  %67 = getelementptr [4 x i8], ptr %39, i64 %66
   %68 = getelementptr i8, ptr %67, i64 -4
   %69 = load i32, ptr %68, align 4, !tbaa !51
   %70 = zext i32 %65 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %44, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %70
   store i32 %69, ptr %71, align 4, !tbaa !51
   %72 = add nuw i32 %.03641, 3
   %73 = load i32, ptr %4, align 4, !tbaa !37
@@ -1161,7 +1161,7 @@ define internal noundef i32 @k24(ptr noundef captures(none) %0, i32 %1, i32 noun
   %33 = load i32, ptr %32, align 4, !tbaa !51
   %34 = load ptr, ptr %12, align 8, !tbaa !42
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %33, ptr %36, align 4, !tbaa !51
   %37 = load i32, ptr %4, align 4, !tbaa !37
   %.not = icmp ult i32 %28, %37
@@ -1214,7 +1214,7 @@ define internal noundef i32 @k24(ptr noundef captures(none) %0, i32 %1, i32 noun
   %73 = getelementptr inbounds nuw i8, ptr @map_2bit_near, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !34
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %71, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %71, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !51
   %78 = load ptr, ptr %12, align 8, !tbaa !42
   br label %79
@@ -1226,7 +1226,7 @@ define internal noundef i32 @k24(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.1 = phi i32 [ %.037, %59 ], [ %.037, %53 ], [ %28, %38 ]
   %.sink44 = add i32 %.pn, %2
   %80 = zext i32 %.sink44 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %.sink42, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.sink42, i64 %80
   store i32 %.sink, ptr %81, align 4, !tbaa !51
   %82 = add nuw i32 %.1, 1
   %83 = load i32, ptr %4, align 4, !tbaa !37
@@ -1294,7 +1294,7 @@ define internal noundef i32 @k23(ptr noundef captures(none) %0, i32 %1, i32 noun
   %42 = getelementptr inbounds nuw i8, ptr @map_2bit_near, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !34
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %40, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %40, i64 %44
   br label %46
 
 46:                                               ; preds = %30, %28
@@ -1304,7 +1304,7 @@ define internal noundef i32 @k23(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.pn = shl i32 %.019, %.pn24
   %.sink23 = add i32 %.pn, %2
   %47 = zext i32 %.sink23 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %13, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %47
   store i32 %.sink, ptr %48, align 4, !tbaa !51
   %49 = add nuw i32 %.019, 1
   %50 = load i32, ptr %4, align 4, !tbaa !37
@@ -1356,7 +1356,7 @@ define internal range(i32 -1094995529, 1) i32 @t27(ptr noundef captures(none) %0
 
 28:                                               ; preds = %13
   %29 = zext nneg i32 %22 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @mul_3x5, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @mul_3x5, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !51
   %32 = and i32 %31, 15
   %33 = lshr i32 %31, 8
@@ -1367,12 +1367,12 @@ define internal range(i32 -1094995529, 1) i32 @t27(ptr noundef captures(none) %0
   %38 = add i32 %37, %2
   %39 = load ptr, ptr %11, align 8, !tbaa !46
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr i32, ptr %39, i64 %40
+  %41 = getelementptr [4 x i8], ptr %39, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load i32, ptr %42, align 4, !tbaa !51
   %44 = load ptr, ptr %12, align 8, !tbaa !42
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %43, ptr %46, align 4, !tbaa !51
   %47 = load i32, ptr %4, align 4, !tbaa !37
   %.not = icmp ult i32 %35, %47
@@ -1386,11 +1386,11 @@ define internal range(i32 -1094995529, 1) i32 @t27(ptr noundef captures(none) %0
   %53 = shl i32 %35, %52
   %54 = add i32 %53, %2
   %55 = zext nneg i32 %50 to i64
-  %56 = getelementptr i32, ptr %39, i64 %55
+  %56 = getelementptr [4 x i8], ptr %39, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -8
   %58 = load i32, ptr %57, align 4, !tbaa !51
   %59 = zext i32 %54 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %44, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %59
   store i32 %58, ptr %60, align 4, !tbaa !51
   %61 = load i32, ptr %4, align 4, !tbaa !37
   %.not40 = icmp ult i32 %51, %61
@@ -1401,11 +1401,11 @@ define internal range(i32 -1094995529, 1) i32 @t27(ptr noundef captures(none) %0
   %64 = shl i32 %51, %63
   %65 = add i32 %64, %2
   %66 = zext nneg i32 %34 to i64
-  %67 = getelementptr i32, ptr %39, i64 %66
+  %67 = getelementptr [4 x i8], ptr %39, i64 %66
   %68 = getelementptr i8, ptr %67, i64 -8
   %69 = load i32, ptr %68, align 4, !tbaa !51
   %70 = zext i32 %65 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %44, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %70
   store i32 %69, ptr %71, align 4, !tbaa !51
   %72 = add nuw i32 %.03641, 3
   %73 = load i32, ptr %4, align 4, !tbaa !37
@@ -1462,7 +1462,7 @@ define internal noundef i32 @k35(ptr noundef captures(none) %0, i32 %1, i32 noun
   %33 = load i32, ptr %32, align 4, !tbaa !51
   %34 = load ptr, ptr %12, align 8, !tbaa !42
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %33, ptr %36, align 4, !tbaa !51
   %37 = load i32, ptr %4, align 4, !tbaa !37
   %.not = icmp ult i32 %28, %37
@@ -1533,7 +1533,7 @@ define internal noundef i32 @k35(ptr noundef captures(none) %0, i32 %1, i32 noun
   %86 = getelementptr inbounds nuw i8, ptr @map_1bit, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !34
   %88 = sext i8 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %84, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %84, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !51
   %91 = load ptr, ptr %12, align 8, !tbaa !42
   br label %109
@@ -1553,7 +1553,7 @@ define internal noundef i32 @k35(ptr noundef captures(none) %0, i32 %1, i32 noun
   %103 = getelementptr inbounds nuw i8, ptr @map_2bit_far, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !34
   %105 = sext i8 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %101, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %101, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !51
   %108 = load ptr, ptr %12, align 8, !tbaa !42
   br label %109
@@ -1565,7 +1565,7 @@ define internal noundef i32 @k35(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.1 = phi i32 [ %.049, %92 ], [ %.049, %74 ], [ %.049, %53 ], [ %28, %38 ]
   %.sink56 = add i32 %.pn, %2
   %110 = zext i32 %.sink56 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %.sink54, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.sink54, i64 %110
   store i32 %.sink, ptr %111, align 4, !tbaa !51
   %112 = add nuw i32 %.1, 1
   %113 = load i32, ptr %4, align 4, !tbaa !37
@@ -1651,7 +1651,7 @@ define internal noundef i32 @k34(ptr noundef captures(none) %0, i32 %1, i32 noun
   %55 = getelementptr inbounds nuw i8, ptr @map_1bit, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !34
   %57 = sext i8 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %53, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %53, i64 %57
   br label %72
 
 59:                                               ; preds = %30
@@ -1667,7 +1667,7 @@ define internal noundef i32 @k34(ptr noundef captures(none) %0, i32 %1, i32 noun
   %68 = getelementptr inbounds nuw i8, ptr @map_2bit_far, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !34
   %70 = sext i8 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %66, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %66, i64 %70
   br label %72
 
 72:                                               ; preds = %59, %45, %28
@@ -1677,7 +1677,7 @@ define internal noundef i32 @k34(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.pn = shl i32 %.031, %.pn36
   %.sink35 = add i32 %.pn, %2
   %73 = zext i32 %.sink35 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %13, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %73
   store i32 %.sink, ptr %74, align 4, !tbaa !51
   %75 = add nuw i32 %.031, 1
   %76 = load i32, ptr %4, align 4, !tbaa !37
@@ -1732,7 +1732,7 @@ define internal noundef i32 @k45(ptr noundef captures(none) %0, i32 %1, i32 noun
   %32 = load i32, ptr %31, align 4, !tbaa !51
   %33 = load ptr, ptr %12, align 8, !tbaa !42
   %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 %32, ptr %35, align 4, !tbaa !51
   %36 = add nuw i32 %.038, 1
   %37 = load i32, ptr %5, align 4, !tbaa !37
@@ -1786,7 +1786,7 @@ define internal noundef i32 @k45(ptr noundef captures(none) %0, i32 %1, i32 noun
   %73 = getelementptr inbounds nuw i8, ptr @map_3bit, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !34
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %71, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %71, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !51
   %78 = load ptr, ptr %12, align 8, !tbaa !42
   br label %79
@@ -1798,7 +1798,7 @@ define internal noundef i32 @k45(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.1 = phi i32 [ %.038, %59 ], [ %.038, %53 ], [ %36, %38 ]
   %.sink45 = add i32 %.pn, %2
   %80 = zext i32 %.sink45 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %.sink43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.sink43, i64 %80
   store i32 %.sink, ptr %81, align 4, !tbaa !51
   %82 = add nuw i32 %.1, 1
   %83 = load i32, ptr %5, align 4, !tbaa !37
@@ -1866,7 +1866,7 @@ define internal noundef i32 @k44(ptr noundef captures(none) %0, i32 %1, i32 noun
   %42 = getelementptr inbounds nuw i8, ptr @map_3bit, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !34
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %40, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %40, i64 %44
   br label %46
 
 46:                                               ; preds = %30, %28
@@ -1876,7 +1876,7 @@ define internal noundef i32 @k44(ptr noundef captures(none) %0, i32 %1, i32 noun
   %.pn = shl i32 %.019, %.pn24
   %.sink23 = add i32 %.pn, %2
   %47 = zext i32 %.sink23 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %13, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %47
   store i32 %.sink, ptr %48, align 4, !tbaa !51
   %49 = add nuw i32 %.019, 1
   %50 = load i32, ptr %4, align 4, !tbaa !37
@@ -1928,7 +1928,7 @@ define internal range(i32 -1094995529, 1) i32 @t37(ptr noundef captures(none) %0
 
 28:                                               ; preds = %13
   %29 = zext nneg i32 %22 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @mul_2x11, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @mul_2x11, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !51
   %32 = and i32 %31, 15
   %33 = or disjoint i32 %.02629, 1
@@ -1937,12 +1937,12 @@ define internal range(i32 -1094995529, 1) i32 @t37(ptr noundef captures(none) %0
   %36 = add i32 %35, %2
   %37 = load ptr, ptr %11, align 8, !tbaa !46
   %38 = zext nneg i32 %32 to i64
-  %39 = getelementptr i32, ptr %37, i64 %38
+  %39 = getelementptr [4 x i8], ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -20
   %41 = load i32, ptr %40, align 4, !tbaa !51
   %42 = load ptr, ptr %12, align 8, !tbaa !42
   %43 = zext i32 %36 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %41, ptr %44, align 4, !tbaa !51
   %45 = load i32, ptr %4, align 4, !tbaa !37
   %.not = icmp ult i32 %33, %45
@@ -1955,11 +1955,11 @@ define internal range(i32 -1094995529, 1) i32 @t37(ptr noundef captures(none) %0
   %50 = shl i32 %33, %49
   %51 = add i32 %50, %2
   %52 = zext nneg i32 %48 to i64
-  %53 = getelementptr i32, ptr %37, i64 %52
+  %53 = getelementptr [4 x i8], ptr %37, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -20
   %55 = load i32, ptr %54, align 4, !tbaa !51
   %56 = zext i32 %51 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %42, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %56
   store i32 %55, ptr %57, align 4, !tbaa !51
   %58 = add nuw i32 %.02629, 2
   %59 = load i32, ptr %4, align 4, !tbaa !37

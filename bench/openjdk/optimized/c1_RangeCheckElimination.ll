@@ -600,7 +600,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_f
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %15 ]
   %.121 = phi i1 [ %.017.lcssa, %.lr.ph24 ], [ %20, %15 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_flagsEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %18)
   %20 = or i1 %.121, %19
@@ -746,8 +746,8 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit.i: ; preds = %47
 
 .lr.ph.i70:                                       ; preds = %.lr.ph.i70.preheader, %.lr.ph.i70
   %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i72, %.lr.ph.i70 ], [ 0, %.lr.ph.i70.preheader ]
-  %67 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i71
-  %68 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i71
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i71
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i71
   %69 = load ptr, ptr %68, align 8
   store ptr %69, ptr %67, align 8
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
@@ -763,7 +763,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
   %71 = phi i32 [ %.0.i.i.i.i, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE9expand_toEi.exit ], [ %33, %47 ]
   store i32 %49, ptr %6, align 8
   %72 = sext i32 %32 to i64
-  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %70, i64 %72
   store ptr %46, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %75 = load ptr, ptr %74, align 8
@@ -781,7 +781,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
 
 78:                                               ; preds = %77, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, %75
   br i1 %81, label %_ZNK17GrowableArrayViewIP11InstructionE8containsERKS1_.exit, label %77
@@ -827,8 +827,8 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit.i: ; preds = %.loopexit
 
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82.preheader, %.lr.ph.i82
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i82 ], [ 0, %.lr.ph.i82.preheader ]
-  %100 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.i83
-  %101 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i83
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv.i83
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i83
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %100, align 8
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
@@ -844,7 +844,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE6appendERKS1_
   %104 = phi i32 [ %.0.i.i.i.i51, %_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE9expand_toEi.exit ], [ %36, %.loopexit ]
   store i32 %83, ptr %5, align 8
   %105 = sext i32 %35 to i64
-  %106 = getelementptr inbounds ptr, ptr %103, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %103, i64 %105
   store ptr %75, ptr %106, align 8
   br label %_ZNK17GrowableArrayViewIP11InstructionE8containsERKS1_.exit
 
@@ -1084,7 +1084,7 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
 235:                                              ; preds = %.lr.ph106, %256
   %indvars.iv = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next, %256 ]
   %236 = load ptr, ptr %228, align 8
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 132
   %240 = load i32, ptr %239, align 4
@@ -1130,11 +1130,11 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
 260:                                              ; preds = %.lr.ph108, %260
   %indvars.iv112 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next113, %260 ]
   %261 = load ptr, ptr %9, align 8
-  %262 = getelementptr inbounds nuw i32, ptr %261, i64 %indvars.iv112
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %indvars.iv112
   %263 = load i32, ptr %262, align 4
   %264 = load ptr, ptr %234, align 8
   %265 = sext i32 %263 to i64
-  %266 = getelementptr inbounds ptr, ptr %264, i64 %265
+  %266 = getelementptr inbounds [8 x i8], ptr %264, i64 %265
   %267 = load ptr, ptr %266, align 8
   %268 = load i32, ptr %267, align 8
   %269 = add nsw i32 %268, -1
@@ -1816,7 +1816,7 @@ define hidden noundef ptr @_ZN20RangeCheckEliminator9get_boundEP11Instruction(pt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %24, label %113
@@ -1833,7 +1833,7 @@ define hidden noundef ptr @_ZN20RangeCheckEliminator9get_boundEP11Instruction(pt
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %29, align 8
   %30 = load ptr, ptr %19, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %21
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %21
   store ptr %25, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1850,7 +1850,7 @@ define hidden noundef ptr @_ZN20RangeCheckEliminator9get_boundEP11Instruction(pt
   %39 = load i32, ptr %17, align 8
   %40 = load ptr, ptr %19, align 8
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -1879,7 +1879,7 @@ _ZN26GrowableArrayWithAllocatorIPN20RangeCheckEliminator5BoundE13GrowableArrayIS
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   store ptr %37, ptr %61, align 8
   br label %62
 
@@ -1887,7 +1887,7 @@ _ZN26GrowableArrayWithAllocatorIPN20RangeCheckEliminator5BoundE13GrowableArrayIS
   %63 = load i32, ptr %17, align 8
   %64 = load ptr, ptr %19, align 8
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
@@ -1963,12 +1963,12 @@ _ZN26GrowableArrayWithAllocatorIPN20RangeCheckEliminator5BoundE13GrowableArrayIS
   %109 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = sext i32 %107 to i64
-  %112 = getelementptr inbounds ptr, ptr %110, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %110, i64 %111
   store ptr %.0.i.i.i, ptr %112, align 8
   %.pre = load i32, ptr %17, align 8
   %.pre30 = load ptr, ptr %19, align 8
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert31 = getelementptr inbounds ptr, ptr %.pre30, i64 %.phi.trans.insert
+  %.phi.trans.insert31 = getelementptr inbounds [8 x i8], ptr %.pre30, i64 %.phi.trans.insert
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
   %.pre33 = load i32, ptr %.pre32, align 8
   br label %140
@@ -2026,7 +2026,7 @@ _ZN22CompilationResourceObjnwEm.exit27:           ; preds = %131, %133
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = sext i32 %141 to i64
-  %146 = getelementptr ptr, ptr %144, i64 %145
+  %146 = getelementptr [8 x i8], ptr %144, i64 %145
   %147 = getelementptr i8, ptr %146, i64 -8
   %148 = load ptr, ptr %147, align 8
   br label %149
@@ -3036,7 +3036,7 @@ define hidden void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %17, label %19
@@ -3046,7 +3046,7 @@ define hidden void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP
   %.pre = load i32, ptr %10, align 8
   %.pre16 = load ptr, ptr %12, align 8
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert17 = getelementptr inbounds ptr, ptr %.pre16, i64 %.phi.trans.insert
+  %.phi.trans.insert17 = getelementptr inbounds [8 x i8], ptr %.pre16, i64 %.phi.trans.insert
   %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8
   br label %19
 
@@ -3060,7 +3060,7 @@ define hidden void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %21 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load ptr, ptr %28, align 8
   %.not12 = icmp eq ptr %29, null
@@ -3071,7 +3071,7 @@ define hidden void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP
   %.pre19 = load i32, ptr %10, align 8
   %.pre20 = load ptr, ptr %12, align 8
   %.phi.trans.insert21 = sext i32 %.pre19 to i64
-  %.phi.trans.insert22 = getelementptr inbounds ptr, ptr %.pre20, i64 %.phi.trans.insert21
+  %.phi.trans.insert22 = getelementptr inbounds [8 x i8], ptr %.pre20, i64 %.phi.trans.insert21
   %.pre23 = load ptr, ptr %.phi.trans.insert22, align 8
   %.pre24 = load i32, ptr %.pre23, align 8
   br label %.thread
@@ -3105,7 +3105,7 @@ _ZN26GrowableArrayWithAllocatorIPN20RangeCheckEliminator5BoundE13GrowableArrayIS
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   store ptr %3, ptr %49, align 8
   %50 = load i32, ptr %10, align 8
   %51 = load i32, ptr %1, align 8
@@ -3135,7 +3135,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %66, i64 %67
   store i32 %50, ptr %68, align 4
   br label %69
 
@@ -3281,7 +3281,7 @@ define hidden void @_ZN20RangeCheckEliminator23add_access_indexed_infoER13Growab
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %7 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %63
@@ -3324,7 +3324,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %29, %31
 
 35:                                               ; preds = %34, %_ZN22CompilationResourceObjnwEm.exit
   %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %10
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %10
   store ptr %.0.i.i.i, ptr %37, align 8
   %38 = load i32, ptr %1, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3353,7 +3353,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE6appendERKS1_
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = sext i32 %50 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %53, i64 %54
   store ptr %3, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %2, ptr %56, align 8
@@ -3439,7 +3439,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
   %99 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = sext i32 %97 to i64
-  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %100, i64 %101
   store ptr %4, ptr %102, align 8
   br label %103
 
@@ -3491,7 +3491,7 @@ define hidden void @_ZN20RangeCheckEliminator15in_block_motionEP10BlockBeginR13G
   %19 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv331
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv331
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %2, align 8
   %24 = icmp sgt i32 %23, 0
@@ -3504,7 +3504,7 @@ define hidden void @_ZN20RangeCheckEliminator15in_block_motionEP10BlockBeginR13G
   %.sroa.9.0294 = phi i32 [ %.sroa.9.1, %137 ], [ 2, %18 ]
   %.sroa.0.0292 = phi i32 [ %.sroa.0.1, %137 ], [ 0, %18 ]
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
@@ -3593,8 +3593,8 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit.i: ; preds = %56
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %76 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i
-  %77 = getelementptr inbounds nuw ptr, ptr %.sroa.16.0295, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.16.0295, i64 %indvars.iv.i
   %78 = load ptr, ptr %77, align 8
   store ptr %78, ptr %76, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3606,7 +3606,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
   %.sroa.16.2 = phi ptr [ %.sroa.16.0295, %56 ], [ %65, %.preheader15.i ], [ %65, %.lr.ph18.preheader.i ]
   %79 = add nsw i32 %.sroa.0.0292, 1
   %80 = sext i32 %.sroa.0.0292 to i64
-  %81 = getelementptr inbounds ptr, ptr %.sroa.16.2, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.sroa.16.2, i64 %80
   store ptr %27, ptr %81, align 8
   br label %137
 
@@ -3741,13 +3741,13 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
 .lr.ph305:                                        ; preds = %.preheader, %.loopexit
   %indvars.iv321 = phi i64 [ %indvars.iv.next322, %.loopexit ], [ 0, %.preheader ]
   %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv321
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv321
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i32, ptr %148, align 8
   %150 = load ptr, ptr %15, align 8
   %151 = sext i32 %149 to i64
-  %152 = getelementptr inbounds ptr, ptr %150, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %150, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 12
   %155 = load i32, ptr %154, align 4
@@ -4867,7 +4867,7 @@ _ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStac
   %793 = phi ptr [ %802, %.lr.ph303 ], [ %790, %_ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStackS1_i.exit242 ]
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 8
   %795 = load ptr, ptr %794, align 8
-  %796 = getelementptr inbounds nuw ptr, ptr %795, i64 %indvars.iv318
+  %796 = getelementptr inbounds nuw [8 x i8], ptr %795, i64 %indvars.iv318
   %797 = load ptr, ptr %796, align 8
   %798 = getelementptr inbounds nuw i8, ptr %797, i64 56
   %799 = load i32, ptr %798, align 8
@@ -5187,7 +5187,7 @@ _ZN10ValueStack4copyEv.exit228:                   ; preds = %_ZN22CompilationRes
 
 .lr.ph309:                                        ; preds = %.lr.ph309.preheader, %.lr.ph309
   %indvars.iv324 = phi i64 [ 0, %.lr.ph309.preheader ], [ %indvars.iv.next325, %.lr.ph309 ]
-  %982 = getelementptr inbounds nuw ptr, ptr %.sroa.16.0.lcssa, i64 %indvars.iv324
+  %982 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.16.0.lcssa, i64 %indvars.iv324
   %983 = load ptr, ptr %982, align 8
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 56
   %985 = load i32, ptr %984, align 8
@@ -5207,13 +5207,13 @@ _ZN10ValueStack4copyEv.exit228:                   ; preds = %_ZN22CompilationRes
 .lr.ph312:                                        ; preds = %.loopexit273, %.lr.ph312
   %indvars.iv328 = phi i64 [ %indvars.iv.next329, %.lr.ph312 ], [ 0, %.loopexit273 ]
   %990 = load ptr, ptr %8, align 8
-  %991 = getelementptr inbounds nuw ptr, ptr %990, i64 %indvars.iv328
+  %991 = getelementptr inbounds nuw [8 x i8], ptr %990, i64 %indvars.iv328
   %992 = load ptr, ptr %991, align 8
   %993 = getelementptr inbounds nuw i8, ptr %992, i64 8
   %994 = load i32, ptr %993, align 8
   %995 = load ptr, ptr %15, align 8
   %996 = sext i32 %994 to i64
-  %997 = getelementptr inbounds ptr, ptr %995, i64 %996
+  %997 = getelementptr inbounds [8 x i8], ptr %995, i64 %996
   store ptr null, ptr %997, align 8
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %998 = load i32, ptr %5, align 8
@@ -8008,9 +8008,9 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8027,7 +8027,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv20
   store i32 0, ptr %35, align 4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -8106,9 +8106,9 @@ _ZN13GrowableArrayIPN20RangeCheckEliminator5BoundEE8allocateEv.exit: ; preds = %
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8125,7 +8125,7 @@ _ZN13GrowableArrayIPN20RangeCheckEliminator5BoundEE8allocateEv.exit: ; preds = %
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -8201,9 +8201,9 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8220,7 +8220,7 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -8296,9 +8296,9 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8315,7 +8315,7 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

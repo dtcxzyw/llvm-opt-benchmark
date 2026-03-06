@@ -1040,7 +1040,7 @@ define void @ff_mpv_reconstruct_mb(ptr noundef %0, ptr noundef %1) local_unnamed
 
 .preheader:                                       ; preds = %33, %38
   %indvars.iv168 = phi i64 [ 0, %33 ], [ %indvars.iv.next169, %38 ]
-  %37 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 %indvars.iv168
+  %37 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv168
   br label %40
 
 38:                                               ; preds = %40
@@ -1056,7 +1056,7 @@ define void @ff_mpv_reconstruct_mb(ptr noundef %0, ptr noundef %1) local_unnamed
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1, !tbaa !75
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %37, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !144
   %47 = sext i16 %46 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %41, i32 noundef 48, ptr noundef nonnull @.str.8, i32 noundef %47) #10
@@ -2101,7 +2101,7 @@ add_dct.exit99:                                   ; preds = %add_dct.exit98, %54
 
 switch.lookup:                                    ; preds = %669
   %673 = zext nneg i32 %671 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.lowest_referenced_row, i64 %673
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lowest_referenced_row, i64 %673
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %686
 
@@ -2125,7 +2125,7 @@ switch.lookup:                                    ; preds = %669
   %indvars.iv.i = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next.i, %686 ]
   %.02934.i = phi i32 [ -2147483648, %switch.lookup ], [ %690, %686 ]
   %.03033.i = phi i32 [ 2147483647, %switch.lookup ], [ %691, %686 ]
-  %687 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.i
+  %687 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 2980
   %689 = load i32, ptr %688, align 4, !tbaa !94
   %690 = tail call i32 @llvm.smax.i32(i32 %.02934.i, i32 %689)
@@ -2179,7 +2179,7 @@ lowest_referenced_row.exit:                       ; preds = %674, %692
 
 switch.lookup194:                                 ; preds = %711
   %715 = zext nneg i32 %713 to i64
-  %switch.gep195 = getelementptr inbounds nuw i64, ptr @switch.table.lowest_referenced_row, i64 %715
+  %switch.gep195 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lowest_referenced_row, i64 %715
   %switch.load196 = load i64, ptr %switch.gep195, align 8
   br label %728
 
@@ -2203,7 +2203,7 @@ switch.lookup194:                                 ; preds = %711
   %indvars.iv.i108 = phi i64 [ 0, %switch.lookup194 ], [ %indvars.iv.next.i111, %728 ]
   %.02934.i109 = phi i32 [ -2147483648, %switch.lookup194 ], [ %732, %728 ]
   %.03033.i110 = phi i32 [ 2147483647, %switch.lookup194 ], [ %733, %728 ]
-  %729 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.i108
+  %729 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i108
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 3012
   %731 = load i32, ptr %730, align 4, !tbaa !94
   %732 = tail call i32 @llvm.smax.i32(i32 %.02934.i109, i32 %731)
@@ -2869,10 +2869,10 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @lowest_referenced
 
 switch.lookup:                                    ; preds = %11
   %15 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.lowest_referenced_row, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lowest_referenced_row, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %16
   br label %31
 
 18:                                               ; preds = %31
@@ -2896,7 +2896,7 @@ switch.lookup:                                    ; preds = %11
   %indvars.iv = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next, %31 ]
   %.02934 = phi i32 [ -2147483648, %switch.lookup ], [ %35, %31 ]
   %.03033 = phi i32 [ 2147483647, %switch.lookup ], [ %36, %31 ]
-  %32 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 2980
   %34 = load i32, ptr %33, align 4, !tbaa !94
   %35 = tail call i32 @llvm.smax.i32(i32 %.02934, i32 %34)
@@ -2941,9 +2941,9 @@ define internal fastcc void @MPV_motion_lowres(ptr noundef readonly %0, ptr noun
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4212
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 3040
   %21 = zext nneg i32 %4 to i64
-  %22 = getelementptr inbounds nuw [2 x i32], ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2976
-  %24 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %23, i64 %21
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %21
   %25 = shl nuw nsw i32 %12, 1
   %26 = ashr i32 %16, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4256
@@ -2977,7 +2977,7 @@ define internal fastcc void @MPV_motion_lowres(ptr noundef readonly %0, ptr noun
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %54 = zext nneg i32 %4 to i64
-  %55 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4092
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1440
@@ -2987,7 +2987,7 @@ define internal fastcc void @MPV_motion_lowres(ptr noundef readonly %0, ptr noun
 60:                                               ; preds = %7
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %62 = zext nneg i32 %4 to i64
-  %63 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %62
   %64 = load i32, ptr %63, align 8, !tbaa !94
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !94
@@ -3177,7 +3177,7 @@ define internal fastcc void @MPV_motion_lowres(ptr noundef readonly %0, ptr noun
   %199 = shl i32 %94, 2
   %200 = ashr i32 %199, %11
   %201 = sext i32 %68 to i64
-  %202 = getelementptr inbounds ptr, ptr %6, i64 %201
+  %202 = getelementptr inbounds [8 x i8], ptr %6, i64 %201
   %203 = load ptr, ptr %202, align 8, !tbaa !172
   tail call void %203(ptr noundef %1, ptr noundef %.0235.i, i64 noundef %84, i32 noundef range(i32 0, 17) %67, i32 noundef %198, i32 noundef %200) #10
   %.not260.i = icmp eq i32 %82, 0
@@ -3189,7 +3189,7 @@ define internal fastcc void @MPV_motion_lowres(ptr noundef readonly %0, ptr noun
   %207 = shl i32 %.0242.i, 2
   %208 = ashr i32 %207, %11
   %209 = sext i32 %71 to i64
-  %210 = getelementptr inbounds ptr, ptr %6, i64 %209
+  %210 = getelementptr inbounds [8 x i8], ptr %6, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !172
   tail call void %211(ptr noundef %2, ptr noundef %.0237.i, i64 noundef %86, i32 noundef %82, i32 noundef %208, i32 noundef %206) #10
   %212 = load ptr, ptr %210, align 8, !tbaa !172
@@ -3287,7 +3287,7 @@ define internal fastcc void @MPV_motion_lowres(ptr noundef readonly %0, ptr noun
   %280 = shl i32 %245, 2
   %281 = ashr i32 %280, %216
   %282 = sext i32 %216 to i64
-  %283 = getelementptr inbounds ptr, ptr %6, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %6, i64 %282
   %284 = load ptr, ptr %283, align 8, !tbaa !172
   tail call void %284(ptr noundef %2, ptr noundef %.0.i384, i64 noundef %277, i32 noundef %217, i32 noundef %279, i32 noundef %281) #10
   %285 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3333,7 +3333,7 @@ chroma_4mv_motion_lowres.exit:                    ; preds = %276, %288
   %312 = ashr i32 %311, %11
   %313 = load i32, ptr %52, align 8, !tbaa !169
   %314 = ashr i32 %313, %11
-  %315 = getelementptr inbounds nuw [2 x i32], ptr %55, i64 %indvars.iv437
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv437
   %316 = load i32, ptr %315, align 8, !tbaa !94
   %317 = getelementptr inbounds nuw i8, ptr %315, i64 4
   %318 = load i32, ptr %317, align 4, !tbaa !94
@@ -3397,7 +3397,7 @@ hpel_motion_lowres.exit:                          ; preds = %345, %350
   %356 = shl i32 %329, 2
   %357 = ashr i32 %356, %321
   %358 = sext i32 %321 to i64
-  %359 = getelementptr inbounds ptr, ptr %6, i64 %358
+  %359 = getelementptr inbounds [8 x i8], ptr %6, i64 %358
   %360 = load ptr, ptr %359, align 8, !tbaa !172
   tail call void %360(ptr noundef %305, ptr noundef %.065.i, i64 noundef %301, i32 noundef range(i32 0, 9) %12, i32 noundef %357, i32 noundef %355) #10
   %361 = load i32, ptr %315, align 8, !tbaa !94
@@ -3414,13 +3414,13 @@ hpel_motion_lowres.exit:                          ; preds = %345, %350
   %368 = icmp eq i32 %367, 3
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 3040
   %370 = zext nneg i32 %4 to i64
-  %371 = getelementptr inbounds nuw [2 x i32], ptr %369, i64 %370
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %370
   %372 = load i32, ptr %371, align 8, !tbaa !94
   br i1 %368, label %373, label %714
 
 373:                                              ; preds = %365
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 2976
-  %375 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %374, i64 %370
+  %375 = getelementptr inbounds nuw [32 x i8], ptr %374, i64 %370
   %376 = load i32, ptr %375, align 8, !tbaa !94
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 4
   %378 = load i32, ptr %377, align 4, !tbaa !94
@@ -3642,7 +3642,7 @@ hpel_motion_lowres.exit:                          ; preds = %345, %350
   %533 = shl i32 %412, 2
   %534 = ashr i32 %533, %11
   %535 = sext i32 %379 to i64
-  %536 = getelementptr inbounds ptr, ptr %6, i64 %535
+  %536 = getelementptr inbounds [8 x i8], ptr %6, i64 %535
   %537 = load ptr, ptr %536, align 8, !tbaa !172
   tail call void %537(ptr noundef %1, ptr noundef %.1236.i, i64 noundef %398, i32 noundef range(i32 0, 17) %12, i32 noundef %532, i32 noundef %534) #10
   %.not260.i231 = icmp eq i32 %395, 0
@@ -3654,7 +3654,7 @@ hpel_motion_lowres.exit:                          ; preds = %345, %350
   %541 = shl i32 %.0242.i221, 2
   %542 = ashr i32 %541, %11
   %543 = sext i32 %382 to i64
-  %544 = getelementptr inbounds ptr, ptr %6, i64 %543
+  %544 = getelementptr inbounds [8 x i8], ptr %6, i64 %543
   %545 = load ptr, ptr %544, align 8, !tbaa !172
   tail call void %545(ptr noundef %2, ptr noundef %.1238.i, i64 noundef %401, i32 noundef %395, i32 noundef %542, i32 noundef %540) #10
   %546 = load ptr, ptr %544, align 8, !tbaa !172
@@ -3873,7 +3873,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
   %698 = shl i32 %582, 2
   %699 = ashr i32 %698, %555
   %700 = sext i32 %556 to i64
-  %701 = getelementptr inbounds ptr, ptr %6, i64 %700
+  %701 = getelementptr inbounds [8 x i8], ptr %6, i64 %700
   %702 = load ptr, ptr %701, align 8, !tbaa !172
   tail call void %702(ptr noundef %693, ptr noundef %.1236.i258, i64 noundef %570, i32 noundef range(i32 0, 17) %12, i32 noundef %697, i32 noundef %699) #10
   %.not260.i259 = icmp eq i32 %568, 0
@@ -3890,7 +3890,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
   %708 = shl i32 %.0242.i245, 2
   %709 = ashr i32 %708, %555
   %710 = sext i32 %558 to i64
-  %711 = getelementptr inbounds ptr, ptr %6, i64 %710
+  %711 = getelementptr inbounds [8 x i8], ptr %6, i64 %710
   %712 = load ptr, ptr %711, align 8, !tbaa !172
   tail call void %712(ptr noundef %705, ptr noundef %.1238.i257, i64 noundef %572, i32 noundef %568, i32 noundef %709, i32 noundef %707) #10
   %713 = load ptr, ptr %711, align 8, !tbaa !172
@@ -3923,7 +3923,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
 726:                                              ; preds = %722, %719, %716, %714
   %.0205 = phi ptr [ %5, %719 ], [ %725, %722 ], [ %5, %716 ], [ %5, %714 ]
   %727 = getelementptr inbounds nuw i8, ptr %0, i64 2976
-  %728 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %727, i64 %370
+  %728 = getelementptr inbounds nuw [32 x i8], ptr %727, i64 %370
   %729 = load i32, ptr %728, align 8, !tbaa !94
   %730 = getelementptr inbounds nuw i8, ptr %728, i64 4
   %731 = load i32, ptr %730, align 4, !tbaa !94
@@ -4133,7 +4133,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
   %876 = shl i32 %760, 2
   %877 = ashr i32 %876, %11
   %878 = sext i32 %734 to i64
-  %879 = getelementptr inbounds ptr, ptr %6, i64 %878
+  %879 = getelementptr inbounds [8 x i8], ptr %6, i64 %878
   %880 = load ptr, ptr %879, align 8, !tbaa !172
   tail call void %880(ptr noundef %1, ptr noundef %.1236.i286, i64 noundef %750, i32 noundef range(i32 0, 17) %732, i32 noundef %875, i32 noundef %877) #10
   %.not260.i287 = icmp eq i32 %748, 0
@@ -4145,7 +4145,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
   %884 = shl i32 %.0242.i273, 2
   %885 = ashr i32 %884, %11
   %886 = sext i32 %737 to i64
-  %887 = getelementptr inbounds ptr, ptr %6, i64 %886
+  %887 = getelementptr inbounds [8 x i8], ptr %6, i64 %886
   %888 = load ptr, ptr %887, align 8, !tbaa !172
   tail call void %888(ptr noundef %2, ptr noundef %.1238.i285, i64 noundef %752, i32 noundef %748, i32 noundef %885, i32 noundef %883) #10
   %889 = load ptr, ptr %887, align 8, !tbaa !172
@@ -4159,7 +4159,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
   %.0203417 = phi ptr [ %2, %.preheader404 ], [ %1069, %mpeg_motion_lowres.exit321 ]
   %.0204416 = phi ptr [ %3, %.preheader404 ], [ %1070, %mpeg_motion_lowres.exit321 ]
   %892 = load i32, ptr %19, align 4, !tbaa !79
-  %893 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv434
+  %893 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv434
   %894 = load i32, ptr %893, align 4, !tbaa !94
   %895 = add nsw i32 %894, 1
   %896 = icmp eq i32 %892, %895
@@ -4182,7 +4182,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
 
 905:                                              ; preds = %890, %897, %900, %902
   %.0199 = phi ptr [ %904, %902 ], [ %5, %900 ], [ %5, %897 ], [ %5, %890 ]
-  %906 = getelementptr inbounds nuw [2 x i32], ptr %24, i64 %indvars.iv434
+  %906 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv434
   %907 = load i32, ptr %906, align 8, !tbaa !94
   %908 = getelementptr inbounds nuw i8, ptr %906, i64 4
   %909 = load i32, ptr %908, align 4, !tbaa !94
@@ -4385,7 +4385,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
   %1047 = shl i32 %936, 2
   %1048 = ashr i32 %1047, %915
   %1049 = sext i32 %916 to i64
-  %1050 = getelementptr inbounds ptr, ptr %6, i64 %1049
+  %1050 = getelementptr inbounds [8 x i8], ptr %6, i64 %1049
   %1051 = load ptr, ptr %1050, align 8, !tbaa !172
   tail call void %1051(ptr noundef %.0202418, ptr noundef %.1236.i314, i64 noundef %928, i32 noundef range(i32 0, 17) %12, i32 noundef %1046, i32 noundef %1048) #10
   %.not260.i315 = icmp eq i32 %927, 0
@@ -4397,7 +4397,7 @@ mpeg_motion_lowres.exit237:                       ; preds = %530, %538
   %1055 = shl i32 %.0242.i301, 2
   %1056 = ashr i32 %1055, %915
   %1057 = sext i32 %918 to i64
-  %1058 = getelementptr inbounds ptr, ptr %6, i64 %1057
+  %1058 = getelementptr inbounds [8 x i8], ptr %6, i64 %1057
   %1059 = load ptr, ptr %1058, align 8, !tbaa !172
   tail call void %1059(ptr noundef %.0203417, ptr noundef %.1238.i313, i64 noundef %929, i32 noundef %927, i32 noundef %1056, i32 noundef %1054) #10
   %1060 = load ptr, ptr %1058, align 8, !tbaa !172
@@ -4423,7 +4423,7 @@ mpeg_motion_lowres.exit321:                       ; preds = %1044, %1052
   %1074 = icmp eq i32 %1073, 3
   %1075 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %1076 = zext nneg i32 %4 to i64
-  %1077 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %1075, i64 %1076
+  %1077 = getelementptr inbounds nuw [32 x i8], ptr %1075, i64 %1076
   br i1 %1074, label %.preheader406, label %.preheader408
 
 .preheader408:                                    ; preds = %1071
@@ -4486,7 +4486,7 @@ mpeg_motion_lowres.exit321:                       ; preds = %1044, %1052
   %1118 = trunc nuw nsw i64 %indvars.iv428 to i32
   %1119 = xor i64 %indvars.iv428, %indvars.iv431
   %1120 = trunc nuw nsw i64 %1119 to i32
-  %gep = getelementptr inbounds nuw [2 x i32], ptr %invariant.gep, i64 %indvars.iv428
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv428
   %1121 = load i32, ptr %gep, align 8, !tbaa !94
   %1122 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %1123 = load i32, ptr %1122, align 4, !tbaa !94
@@ -4713,7 +4713,7 @@ mpeg_motion_lowres.exit321:                       ; preds = %1044, %1052
   %1275 = shl i32 %1155, 2
   %1276 = ashr i32 %1275, %1126
   %1277 = sext i32 %1127 to i64
-  %1278 = getelementptr inbounds ptr, ptr %.0208414, i64 %1277
+  %1278 = getelementptr inbounds [8 x i8], ptr %.0208414, i64 %1277
   %1279 = load ptr, ptr %1278, align 8, !tbaa !172
   tail call void %1279(ptr noundef %.0230.i, ptr noundef %.1236.i342, i64 noundef %1143, i32 noundef range(i32 0, 17) %12, i32 noundef %1274, i32 noundef %1276) #10
   %.not260.i343 = icmp eq i32 %1141, 0
@@ -4725,7 +4725,7 @@ mpeg_motion_lowres.exit321:                       ; preds = %1044, %1052
   %1283 = shl i32 %.0242.i329, 2
   %1284 = ashr i32 %1283, %1126
   %1285 = sext i32 %1129 to i64
-  %1286 = getelementptr inbounds ptr, ptr %.0208414, i64 %1285
+  %1286 = getelementptr inbounds [8 x i8], ptr %.0208414, i64 %1285
   %1287 = load ptr, ptr %1286, align 8, !tbaa !172
   tail call void %1287(ptr noundef %.0231.i, ptr noundef %.1238.i341, i64 noundef %1145, i32 noundef %1141, i32 noundef %1284, i32 noundef %1282) #10
   %1288 = load ptr, ptr %1286, align 8, !tbaa !172
@@ -4944,7 +4944,7 @@ mpeg_motion_lowres.exit349:                       ; preds = %1272, %1280
   %1431 = shl i32 %1320, 2
   %1432 = ashr i32 %1431, %1299
   %1433 = sext i32 %1300 to i64
-  %1434 = getelementptr inbounds ptr, ptr %.1209410, i64 %1433
+  %1434 = getelementptr inbounds [8 x i8], ptr %.1209410, i64 %1433
   %1435 = load ptr, ptr %1434, align 8, !tbaa !172
   tail call void %1435(ptr noundef %1, ptr noundef %.1236.i373, i64 noundef %1312, i32 noundef range(i32 0, 17) %1078, i32 noundef %1430, i32 noundef %1432) #10
   %.not260.i374 = icmp eq i32 %1311, 0
@@ -4956,7 +4956,7 @@ mpeg_motion_lowres.exit349:                       ; preds = %1272, %1280
   %1439 = shl i32 %.0242.i357, 2
   %1440 = ashr i32 %1439, %1299
   %1441 = sext i32 %1302 to i64
-  %1442 = getelementptr inbounds ptr, ptr %.1209410, i64 %1441
+  %1442 = getelementptr inbounds [8 x i8], ptr %.1209410, i64 %1441
   %1443 = load ptr, ptr %1442, align 8, !tbaa !172
   tail call void %1443(ptr noundef %2, ptr noundef %.1238.i372, i64 noundef %1313, i32 noundef %1311, i32 noundef %1440, i32 noundef %1438) #10
   %1444 = load ptr, ptr %1442, align 8, !tbaa !172

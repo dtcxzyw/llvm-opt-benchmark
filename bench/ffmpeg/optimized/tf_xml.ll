@@ -91,7 +91,7 @@ define internal void @xml_print_section_header(ptr noundef %0, ptr noundef %1) #
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %.thread.i, label %tf_get_section.exit
@@ -116,7 +116,7 @@ tf_get_section.exit:                              ; preds = %10, %.thread.i
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %22 = zext nneg i32 %18 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %.thread.i.i, label %tf_get_parent_section.exit
@@ -186,7 +186,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
 
 54:                                               ; preds = %52
   %55 = sext i32 %53 to i64
-  %56 = getelementptr i32, ptr %0, i64 %55
+  %56 = getelementptr [4 x i8], ptr %0, i64 %55
   %57 = getelementptr i8, ptr %56, i64 52
   %58 = load i32, ptr %57, align 4, !tbaa !33
   %.not44 = icmp eq i32 %58, 0
@@ -264,7 +264,7 @@ define internal void @xml_print_section_footer(ptr noundef %0) #1 {
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %tf_get_section.exit.thread, label %tf_get_section.exit
@@ -382,7 +382,7 @@ define internal fastcc void @xml_print_value(ptr noundef %0, ptr noundef %1, ptr
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %tf_get_section.exit.thread, label %tf_get_section.exit
@@ -435,7 +435,7 @@ tf_get_section.exit:                              ; preds = %13
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load i32, ptr %9, align 4, !tbaa !21
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %36, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %36, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !33
   %.not27 = icmp eq i32 %40, 0
   br i1 %.not27, label %47, label %41

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.URLProtocol = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.concat_nodes = type { ptr, i64 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 
 @.str = private unnamed_addr constant [7 x i8] c"concat\00", align 1
@@ -115,7 +114,7 @@ define internal i32 @concat_open(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %.loopexit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds nuw %struct.concat_nodes, ptr %19, i64 %.163
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.163
   store ptr %49, ptr %53, align 8, !tbaa !26
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %47, ptr %54, align 8, !tbaa !28
@@ -187,7 +186,7 @@ define internal i32 @concat_read(ptr noundef readonly captures(none) %0, ptr nou
   %.02946 = phi ptr [ %1, %.lr.ph ], [ %31, %.thread ]
   %.03045 = phi i32 [ 0, %.lr.ph ], [ %29, %.thread ]
   %.03444 = phi i32 [ %2, %.lr.ph ], [ %32, %.thread ]
-  %12 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.047
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.047
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = tail call i32 @ffurl_read2(ptr noundef %13, ptr noundef %.02946, i32 noundef range(i32 1, -2147483648) %.03444) #5
   %15 = icmp eq i32 %14, -541478725
@@ -200,7 +199,7 @@ define internal i32 @concat_read(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %19, label %._crit_edge, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %17
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %17
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = tail call i64 @ffurl_seek2(ptr noundef %22, i64 noundef 0, i32 noundef 0) #5
   %24 = icmp slt i64 %23, 0
@@ -283,7 +282,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
 .lr.ph86:                                         ; preds = %14, %17
   %.084 = phi i64 [ %.0, %17 ], [ %.081, %14 ]
   %.14883 = phi i64 [ %18, %17 ], [ %1, %14 ]
-  %19 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.084
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.084
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !28
   %22 = sub nsw i64 0, %21
@@ -293,7 +292,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.269 = phi i64 [ %28, %.lr.ph ], [ 0, %.preheader ]
   %.35068 = phi i64 [ %27, %.lr.ph ], [ %1, %.preheader ]
-  %24 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.269
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.269
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !28
   %27 = add nsw i64 %26, %.35068
@@ -303,7 +302,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.350.lcssa = phi i64 [ %1, %.preheader ], [ %27, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %13
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %13
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = tail call i64 @ffurl_seek2(ptr noundef %30, i64 noundef 0, i32 noundef 1) #5
   %32 = add nsw i64 %31, %.350.lcssa
@@ -320,7 +319,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
 .lr.ph75:                                         ; preds = %33, %40
   %.373 = phi i64 [ %42, %40 ], [ 0, %33 ]
   %.45172 = phi i64 [ %41, %40 ], [ %.047, %33 ]
-  %37 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.373
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.373
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !28
   %.not63 = icmp slt i64 %.45172, %39
@@ -336,7 +335,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
   %.155 = phi i32 [ 2, %14 ], [ 2, %17 ], [ 0, %33 ], [ 2, %.lr.ph86 ], [ 0, %.lr.ph75 ], [ 0, %40 ]
   %.249 = phi i64 [ %1, %14 ], [ %18, %17 ], [ %.047, %33 ], [ %.14883, %.lr.ph86 ], [ %41, %40 ], [ %.45172, %.lr.ph75 ]
   %.1 = phi i64 [ 0, %14 ], [ 0, %17 ], [ 0, %33 ], [ %.084, %.lr.ph86 ], [ %36, %40 ], [ %.373, %.lr.ph75 ]
-  %43 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.1
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.1
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %45 = tail call i64 @ffurl_seek2(ptr noundef %44, i64 noundef %.249, i32 noundef range(i32 0, 3) %.155) #5
   %46 = icmp sgt i64 %45, -1
@@ -352,7 +351,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
   %.494 = phi i64 [ %49, %.lr.ph96 ], [ %.1, %47 ]
   %.15393 = phi i64 [ %53, %.lr.ph96 ], [ %45, %47 ]
   %49 = add i64 %.494, -1
-  %50 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !28
   %53 = add nsw i64 %52, %.15393
@@ -377,7 +376,7 @@ define internal range(i32 -1, 1) i32 @concat_close(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.012 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %.0911 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw %struct.concat_nodes, ptr %4, i64 %.0911
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.0911
   %8 = tail call i32 @ffurl_closep(ptr noundef %7) #5
   %9 = or i32 %8, %.012
   %10 = add i64 %.0911, 1
@@ -527,7 +526,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
 65:                                               ; preds = %61
   store ptr %64, ptr %11, align 8, !tbaa !19
   %66 = load ptr, ptr %9, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04491190
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %.04491190
   store ptr %66, ptr %67, align 8, !tbaa !26
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %59, ptr %68, align 8, !tbaa !28

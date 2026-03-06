@@ -237,7 +237,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i": ; preds = %35, %33, %16
   %36 = phi i64 [ %21, %16 ], [ 0, %33 ], [ 0, %35 ]
-  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4, !alias.scope !44, !noalias !43, !noundef !4
   %39 = add nuw nsw i64 %36, 1
   store i64 %39, ptr %20, align 16, !alias.scope !44, !noalias !43
@@ -298,7 +298,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us": ; preds = %67, %65, %55
   %68 = phi i64 [ %56, %55 ], [ 0, %65 ], [ 0, %67 ]
-  %69 = getelementptr inbounds nuw i32, ptr %50, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %68
   %70 = load i32, ptr %69, align 4, !alias.scope !63, !noalias !66, !noundef !4
   %71 = add nuw nsw i64 %68, 1
   store i64 %71, ptr %51, align 16, !alias.scope !63, !noalias !66
@@ -360,7 +360,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10": ; preds = %96, %94, %78
   %97 = phi i64 [ %82, %78 ], [ 0, %94 ], [ 0, %96 ]
-  %98 = getelementptr inbounds nuw i32, ptr %80, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %97
   %99 = load i32, ptr %98, align 4, !alias.scope !63, !noalias !66, !noundef !4
   %100 = add nuw nsw i64 %97, 1
   store i64 %100, ptr %81, align 16, !alias.scope !63, !noalias !66
@@ -459,7 +459,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i": ; preds = %35, %33, %16
   %36 = phi i64 [ %21, %16 ], [ 0, %33 ], [ 0, %35 ]
-  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4, !alias.scope !89, !noalias !88, !noundef !4
   %39 = add nuw nsw i64 %36, 1
   store i64 %39, ptr %20, align 16, !alias.scope !89, !noalias !88
@@ -521,7 +521,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9.us": ; preds = %67, %65, %55
   %68 = phi i64 [ %56, %55 ], [ 0, %65 ], [ 0, %67 ]
-  %69 = getelementptr inbounds nuw i32, ptr %50, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %68
   %70 = load i32, ptr %69, align 4, !alias.scope !109, !noalias !102, !noundef !4
   %71 = add nuw nsw i64 %68, 1
   store i64 %71, ptr %51, align 16, !alias.scope !109, !noalias !102
@@ -585,7 +585,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9": ; preds = %96, %94, %78
   %97 = phi i64 [ %82, %78 ], [ 0, %94 ], [ 0, %96 ]
-  %98 = getelementptr inbounds nuw i32, ptr %80, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %97
   %99 = load i32, ptr %98, align 4, !alias.scope !109, !noalias !102, !noundef !4
   %100 = add nuw nsw i64 %97, 1
   store i64 %100, ptr %81, align 16, !alias.scope !109, !noalias !102

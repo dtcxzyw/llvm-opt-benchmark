@@ -20,9 +20,9 @@ define i32 @Csw_CutHash(ptr noundef readonly captures(none) %0) local_unnamed_ad
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.078 = phi i32 [ 0, %.lr.ph ], [ %12, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !11
-  %9 = getelementptr inbounds nuw i32, ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !11
   %11 = mul nsw i32 %10, %8
   %12 = xor i32 %11, %.078
@@ -51,7 +51,7 @@ define i32 @Csw_TableCountCuts(ptr noundef readonly captures(none) %0) local_unn
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.011 = phi i32 [ 0, %.lr.ph ], [ %.1, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -87,9 +87,9 @@ define void @Csw_TableCutInsert(ptr noundef readonly captures(none) %0, ptr noun
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !11
-  %10 = getelementptr inbounds nuw i32, ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = mul nsw i32 %11, %9
   %13 = xor i32 %12, %.078.i
@@ -105,7 +105,7 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   store ptr %21, ptr %1, align 8, !tbaa !26
   store ptr %1, ptr %20, align 8, !tbaa !23
@@ -127,9 +127,9 @@ define ptr @Csw_TableCutLookup(ptr noundef readonly captures(none) %0, ptr nound
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !11
-  %10 = getelementptr inbounds nuw i32, ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = mul nsw i32 %11, %9
   %13 = xor i32 %12, %.078.i
@@ -145,7 +145,7 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %.02751 = load ptr, ptr %20, align 8, !tbaa !23
   %.not52 = icmp eq ptr %.02751, null
   br i1 %.not52, label %Aig_ManObj.exit, label %.lr.ph
@@ -188,10 +188,10 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
   %42 = getelementptr inbounds nuw i8, ptr %.02753, i64 22
   %43 = load i8, ptr %42, align 2, !tbaa !28
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %40, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %40, i64 %44
   %46 = load i8, ptr %25, align 2, !tbaa !28
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %22, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %22, i64 %47
   %49 = load i32, ptr %45, align 4, !tbaa !11
   %50 = load i32, ptr %48, align 4, !tbaa !11
   %51 = xor i32 %50, %49
@@ -207,9 +207,9 @@ select.unfold.i:                                  ; preds = %41, %56
 
 56:                                               ; preds = %select.unfold.i
   %57 = add nsw i64 %indvars.iv.i34, -1
-  %58 = getelementptr inbounds nuw i32, ptr %45, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !11
-  %60 = getelementptr inbounds nuw i32, ptr %48, i64 %57
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %57
   %61 = load i32, ptr %60, align 4, !tbaa !11
   %.not.i = icmp eq i32 %59, %61
   br i1 %.not.i, label %select.unfold.i, label %Kit_TruthIsEqual.exit.thread, !llvm.loop !29
@@ -228,7 +228,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i
   %68 = getelementptr i8, ptr %.val, i64 8
   %.val.i = load ptr, ptr %68, align 8, !tbaa !41
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds ptr, ptr %.val.i, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !43
   br label %Aig_ManObj.exit
 
@@ -240,9 +240,9 @@ select.unfold.i37:                                ; preds = %41, %74
 
 74:                                               ; preds = %select.unfold.i37
   %75 = add nsw i64 %indvars.iv.i38, -1
-  %76 = getelementptr inbounds nuw i32, ptr %45, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !11
-  %78 = getelementptr inbounds nuw i32, ptr %48, i64 %75
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %75
   %79 = load i32, ptr %78, align 4, !tbaa !11
   %80 = xor i32 %79, %77
   %.not.i40 = icmp eq i32 %80, -1
@@ -262,7 +262,7 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i37
   %87 = getelementptr i8, ptr %.val33, i64 8
   %.val.i42 = load ptr, ptr %87, align 8, !tbaa !41
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds ptr, ptr %.val.i42, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %.val.i42, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !43
   %91 = ptrtoint ptr %90 to i64
   %92 = xor i64 %91, 1

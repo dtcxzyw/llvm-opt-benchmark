@@ -649,7 +649,7 @@ define internal fastcc void @set_locale(ptr noundef %0, ptr noundef %1) unnamed_
 
 21:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next.i
   %23 = load ptr, ptr %22, align 8, !tbaa !20
   %.not19.i = icmp eq ptr %23, null
   br i1 %.not19.i, label %.thread.i, label %.lr.ph.i
@@ -671,7 +671,7 @@ _dt_full_locale_name.exit.thread:                 ; preds = %.thread.i, %15, %9,
   br label %31
 
 _dt_full_locale_name.exit:                        ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = call noalias ptr @g_strdup(ptr noundef %27) #10
   call void @g_strfreev(ptr noundef nonnull %18) #10

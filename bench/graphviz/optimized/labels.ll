@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.anon.1 }
 %struct.anon.1 = type { ptr, i64, i64, [7 x i8], i8 }
 %struct.textfont_t = type { ptr, ptr, ptr, double, i32 }
-%struct.textspan_t = type { ptr, ptr, ptr, ptr, double, double, %struct.pointf_s, i8 }
-%struct.pointf_s = type { double, double }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"in label of graph %s\0A\00", align 1
@@ -505,7 +503,7 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
   %.0.i.i = phi ptr [ null, %19 ], [ %21, %28 ], [ %21, %26 ]
   store ptr %.0.i.i, ptr %6, align 8, !tbaa !13
   %31 = load i64, ptr %7, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw %struct.textspan_t, ptr %.0.i.i, i64 %31
+  %32 = getelementptr inbounds nuw [72 x i8], ptr %.0.i.i, i64 %31
   store ptr %2, ptr %32, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store i8 %3, ptr %33, align 8, !tbaa !23
@@ -1584,7 +1582,7 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %55 = phi ptr [ %.pre, %.lr.ph ], [ %69, %68 ]
   %.047 = phi i64 [ 0, %.lr.ph ], [ %74, %68 ]
   %.sroa.6.246 = phi double [ %.sroa.6.1, %.lr.ph ], [ %73, %68 ]
-  %56 = getelementptr inbounds nuw %struct.textspan_t, ptr %55, i64 %.047
+  %56 = getelementptr inbounds nuw [72 x i8], ptr %55, i64 %.047
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %58 = load i8, ptr %57, align 8, !tbaa !23
   %59 = load double, ptr %52, align 8, !tbaa !127
@@ -1609,7 +1607,7 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %.sroa.0.0 = phi double [ %67, %64 ], [ %63, %60 ], [ %59, %54 ]
   tail call void @gvrender_textspan(ptr noundef nonnull %0, double %.sroa.0.0, double %.sroa.6.246, ptr noundef nonnull %56) #16
   %69 = load ptr, ptr %11, align 8, !tbaa !13
-  %70 = getelementptr inbounds nuw %struct.textspan_t, ptr %69, i64 %.047
+  %70 = getelementptr inbounds nuw [72 x i8], ptr %69, i64 %.047
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
   %72 = load double, ptr %71, align 8, !tbaa !54
   %73 = fsub double %.sroa.6.246, %72

@@ -4,9 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._ProcessHandler = type { ptr, ptr, ptr, i32, i32, ptr }
-%struct._Edge = type { i32, i32, ptr, i32, ptr, ptr }
-%struct._Point = type { i32, i32, i8, ptr, ptr, ptr, i8, ptr }
 %struct.FillData = type { ptr, [256 x %struct._Point], i32, i32, i32, i32 }
+%struct._Point = type { i32, i32, i8, ptr, ptr, ptr, i8, ptr }
 
 @__const.doFillPath.hnd = private unnamed_addr constant %struct._ProcessHandler { ptr @StoreFixedLine, ptr @endSubPath, ptr null, i32 1, i32 1, ptr null }, align 8
 @__const.doDrawPath.hnd = private unnamed_addr constant %struct._ProcessHandler { ptr @ProcessFixedLine, ptr null, ptr null, i32 1, i32 0, ptr null }, align 8
@@ -769,7 +768,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 132:                                              ; preds = %130, %120
   %133 = sext i32 %.0280 to i64
-  %134 = getelementptr inbounds float, ptr %3, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %3, i64 %133
   %135 = load float, ptr %134, align 4
   %136 = fadd float %.0193, %135
   store float %136, ptr %14, align 16
@@ -794,7 +793,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 146:                                              ; preds = %144
   %147 = sext i32 %.0280 to i64
-  %148 = getelementptr inbounds float, ptr %3, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %3, i64 %147
   %149 = load float, ptr %148, align 4
   %150 = fadd float %.0193, %149
   store float %150, ptr %79, align 8
@@ -833,7 +832,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 162:                                              ; preds = %160
   %163 = sext i32 %.0280 to i64
-  %164 = getelementptr inbounds float, ptr %3, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %3, i64 %163
   %165 = load float, ptr %164, align 4
   %166 = fadd float %.0193, %165
   store float %166, ptr %79, align 8
@@ -1071,7 +1070,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 
 281:                                              ; preds = %279
   %282 = sext i32 %.0280 to i64
-  %283 = getelementptr inbounds float, ptr %3, i64 %282
+  %283 = getelementptr inbounds [4 x i8], ptr %3, i64 %282
   %284 = load float, ptr %283, align 4
   %285 = fadd float %.0193, %284
   store float %285, ptr %79, align 8
@@ -1200,7 +1199,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 358:                                              ; preds = %354
   %359 = add nuw nsw i32 %.1.i, 1
   %360 = zext nneg i32 %.1.i to i64
-  %361 = getelementptr inbounds nuw double, ptr %10, i64 %360
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %360
   store double %355, ptr %361, align 8
   br label %370
 
@@ -1277,7 +1276,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 406:                                              ; preds = %397
   %407 = add nuw nsw i32 %.0.i, 1
   %408 = zext nneg i32 %.0.i to i64
-  %409 = getelementptr inbounds nuw double, ptr %10, i64 %408
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %408
   store double %403, ptr %409, align 8
   br label %410
 
@@ -1317,7 +1316,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   %.sink.i = phi double [ %414, %413 ], [ %421, %419 ]
   %425 = add nuw nsw i32 %.0.sink229.i, 1
   %426 = zext nneg i32 %.0.sink229.i to i64
-  %427 = getelementptr inbounds nuw double, ptr %10, i64 %426
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %426
   store double %.sink.i, ptr %427, align 8
   br label %.preheader.i
 
@@ -1332,20 +1331,20 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %429 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %430 = load double, ptr %429, align 8
   br label %431
 
 431:                                              ; preds = %435, %.lr.ph.i
   %indvars.iv187.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next188.i, %435 ]
   %indvars.iv.next188.i = add nsw i64 %indvars.iv187.i, -1
-  %432 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next188.i
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next188.i
   %433 = load double, ptr %432, align 8
   %434 = fcmp ogt double %433, %430
   br i1 %434, label %435, label %.critedge.i
 
 435:                                              ; preds = %431
-  %436 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv187.i
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv187.i
   store double %433, ptr %436, align 8
   %437 = icmp sgt i64 %indvars.iv187.i, 1
   br i1 %437, label %431, label %.critedge.i, !llvm.loop !6
@@ -1426,7 +1425,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   %473 = phi float [ %.promoted312, %.lr.ph186.i ], [ %514, %509 ]
   %474 = phi float [ %.promoted, %.lr.ph186.i ], [ %515, %509 ]
   %indvars.iv191.i = phi i64 [ 1, %.lr.ph186.i ], [ %indvars.iv.next192.i, %509 ]
-  %475 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv191.i
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv191.i
   %476 = load double, ptr %475, align 8
   %477 = getelementptr i8, ptr %475, i64 -8
   %478 = load double, ptr %477, align 8
@@ -1948,7 +1947,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %43 = add i32 %42, %38
   %44 = ashr i32 %43, 10
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %28, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0302357, i64 32
   store ptr %47, ptr %48, align 8
@@ -1968,7 +1967,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %54 = add i32 %53, %38
   %55 = ashr i32 %54, 10
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %28, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %28, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %36, i64 -24
   store ptr %58, ptr %59, align 8
@@ -1987,7 +1986,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %.0284404 = phi i32 [ %.0284, %._crit_edge397.thread ], [ %.0284400, %._crit_edge360 ]
   %.0290402 = phi ptr [ %.6, %._crit_edge397.thread ], [ null, %._crit_edge360 ]
   %.0297401 = phi i32 [ %.1298.lcssa, %._crit_edge397.thread ], [ 0, %._crit_edge360 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %.0301361 = load ptr, ptr %64, align 8
   %.not322362 = icmp eq ptr %.0301361, null
   br i1 %.not322362, label %._crit_edge369, label %.lr.ph368
@@ -2054,7 +2053,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %88 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = sext i32 %.1298363 to i64
-  %91 = getelementptr inbounds %struct._Edge, ptr %34, i64 %90
+  %91 = getelementptr inbounds [40 x i8], ptr %34, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %.pre, %93
@@ -2200,7 +2199,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 
 162:                                              ; preds = %._crit_edge415
   %163 = sext i32 %.2299 to i64
-  %164 = getelementptr inbounds %struct._Edge, ptr %34, i64 %163
+  %164 = getelementptr inbounds [40 x i8], ptr %34, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %.0301365, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, %.pre417
@@ -2662,7 +2661,7 @@ tailrecurse._crit_edge:                           ; preds = %109, %.fold.split28
 
 114:                                              ; preds = %tailrecurse._crit_edge
   %115 = sext i32 %113 to i64
-  %116 = getelementptr %struct._Point, ptr %.pre, i64 %115
+  %116 = getelementptr [56 x i8], ptr %.pre, i64 %115
   %117 = getelementptr i8, ptr %116, i64 -48
   %118 = load i8, ptr %117, align 8
   %.not271 = icmp eq i8 %118, 0
@@ -2703,7 +2702,7 @@ tailrecurse._crit_edge:                           ; preds = %109, %.fold.split28
 136:                                              ; preds = %134, %119
   %.0232 = phi ptr [ %135, %134 ], [ %.pre, %119 ]
   %137 = sext i32 %113 to i64
-  %138 = getelementptr inbounds %struct._Point, ptr %.0232, i64 %137
+  %138 = getelementptr inbounds [56 x i8], ptr %.0232, i64 %137
   store i32 %.tr338.lcssa, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 %.tr339.lcssa, ptr %139, align 4
@@ -2780,7 +2779,7 @@ thread-pre-split:                                 ; preds = %114, %153
 173:                                              ; preds = %171, %thread-pre-split
   %.0225 = phi ptr [ %172, %171 ], [ %155, %thread-pre-split ]
   %174 = sext i32 %156 to i64
-  %175 = getelementptr inbounds %struct._Point, ptr %.0225, i64 %174
+  %175 = getelementptr inbounds [56 x i8], ptr %.0225, i64 %174
   store i32 %.tr340.lcssa, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   store i32 %.tr341.lcssa, ptr %176, align 4
@@ -2823,7 +2822,7 @@ thread-pre-split:                                 ; preds = %114, %153
 
 192:                                              ; preds = %190
   %193 = load ptr, ptr %111, align 8
-  %194 = getelementptr inbounds %struct._Point, ptr %193, i64 %174
+  %194 = getelementptr inbounds [56 x i8], ptr %193, i64 %174
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i8 1, ptr %195, align 8
   br label %.critedge
@@ -2895,7 +2894,7 @@ define internal void @endSubPath(ptr noundef readonly captures(none) %0) #6 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr %3, align 8
   %8 = sext i32 %5 to i64
-  %9 = getelementptr %struct._Point, ptr %7, i64 %8
+  %9 = getelementptr [56 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -48
   store i8 1, ptr %10, align 8
   br label %11

@@ -78,7 +78,7 @@ define void @_ZN6LibRaw17unpacked_load_rawEv(ptr noundef nonnull align 8 derefer
   %40 = mul nuw nsw i32 %37, %.01117
   %41 = add nuw nsw i32 %40, %.01016
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !80
   %45 = zext i16 %44 to i32
   %46 = lshr i32 %45, %38
@@ -327,7 +327,7 @@ define void @_ZN6LibRaw15packed_load_rawEv(ptr noundef nonnull align 8 dereferen
   %117 = xor i32 %116, %.04162
   %118 = add i32 %117, %113
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw i16, ptr %111, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %119
   store i16 %110, ptr %120, align 2, !tbaa !80
   %.not52 = trunc i32 %114 to i1
   %121 = urem i32 %.04162, 10
@@ -485,12 +485,12 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %10, %.noexc, %1
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !96
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !80
   %46 = mul nuw i32 %.01121, %40
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv
-  %49 = getelementptr inbounds nuw i16, ptr %48, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %47
   store i16 %45, ptr %49, align 2, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i16, ptr %3, align 2, !tbaa !74

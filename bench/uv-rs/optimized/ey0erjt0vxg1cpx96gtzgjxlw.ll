@@ -2026,7 +2026,7 @@ _ZN9rmp_serde6decode13read_str_data17h94e382516914a877E.exit.i.i.i: ; preds = %2
   %.sroa.0.0.copyload.i.i418.i.i.i = load ptr, ptr %295, align 8, !noalias !752, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i.i.i.i, align 8, !noalias !752
   %331 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i418.i.i.i, i64 272
-  %332 = getelementptr inbounds { [3 x i64] }, ptr %331, i64 %.sroa.43.0.copyload.i.i.i.i.i
+  %332 = getelementptr inbounds [24 x i8], ptr %331, i64 %.sroa.43.0.copyload.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %332, i64 24, i1 false), !noalias !761
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %332, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !760
   %.pr.i.i.i.i = load i64, ptr %17, align 8, !alias.scope !762, !noalias !719
@@ -26368,7 +26368,7 @@ _ZN9rmp_serde6decode13read_str_data17hcf9db3d400c51348E.exit: ; preds = %189, %1
 358:                                              ; preds = %.noexc4.i
   %.sroa.0.0.copyload.i.i418 = load ptr, ptr %298, align 8, !noalias !9796, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !9796
-  %359 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.0.0.copyload.i.i418, i64 %.sroa.43.0.copyload.i.i
+  %359 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i.i418, i64 %.sroa.43.0.copyload.i.i
   store ptr %.sroa.913.152.i.i.i.i, ptr %359, align 8, !noalias !9804
   %.sroa.3.0..sroa_idx74.i = getelementptr inbounds nuw i8, ptr %359, i64 8
   store i64 %.sroa.21.36.insert.insert.i, ptr %.sroa.3.0..sroa_idx74.i, align 8, !noalias !9804
@@ -27523,7 +27523,7 @@ _ZN9rmp_serde6decode13read_str_data17h495aac34bc55b30cE.exit: ; preds = %192, %2
   %.sroa.0.0.copyload.i.i418 = load ptr, ptr %299, align 8, !noalias !10243, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !10243
   %365 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i418, i64 272
-  %366 = getelementptr inbounds { [3 x i64] }, ptr %365, i64 %.sroa.43.0.copyload.i.i
+  %366 = getelementptr inbounds [24 x i8], ptr %365, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %366, i64 24, i1 false), !noalias !10252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %366, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !10251
   %.pr.i = load i64, ptr %16, align 8, !alias.scope !10253, !noalias !10161

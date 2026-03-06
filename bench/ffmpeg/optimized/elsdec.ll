@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Ladder = type { i8, i8, i8, i8 }
-%struct.ElsRungNode = type { i8, i16 }
 
 @els_exp_tab = internal unnamed_addr constant [145 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 3, i32 4, i32 4, i32 5, i32 6, i32 7, i32 8, i32 10, i32 11, i32 13, i32 16, i32 18, i32 21, i32 25, i32 29, i32 34, i32 40, i32 47, i32 54, i32 64, i32 74, i32 87, i32 101, i32 118, i32 138, i32 161, i32 188, i32 219, i32 256, i32 298, i32 348, i32 406, i32 474, i32 552, i32 645, i32 752, i32 877, i32 1024, i32 1194, i32 1393, i32 1625, i32 1896, i32 2211, i32 2580, i32 3010, i32 3511, i32 4096, i32 4778, i32 5573, i32 6501, i32 7584, i32 8847, i32 10321, i32 12040, i32 14045, i32 16384, i32 19112, i32 22295, i32 26007, i32 30339, i32 35391, i32 41285, i32 48160, i32 56180, i32 65536, i32 76288, i32 89088, i32 103936, i32 121344, i32 141312, i32 165120, i32 192512, i32 224512, i32 262144, i32 305664, i32 356608, i32 416000, i32 485376, i32 566016, i32 660480, i32 770560, i32 898816, i32 1048576, i32 1223168, i32 1426688, i32 1664256, i32 1941504, i32 2264832, i32 2642176, i32 3082240, i32 3595520, i32 4194304, i32 4892672, i32 5707520, i32 6657792, i32 7766784, i32 9060096, i32 10568960, i32 12328960, i32 14382080, i32 16777216], align 16
 @Ladder = internal unnamed_addr constant [174 x %struct.Ladder] [%struct.Ladder { i8 -6, i8 -5, i8 2, i8 1 }, %struct.Ladder { i8 -2, i8 -12, i8 3, i8 6 }, %struct.Ladder { i8 -2, i8 -12, i8 4, i8 6 }, %struct.Ladder { i8 -1, i8 -16, i8 7, i8 5 }, %struct.Ladder { i8 -1, i8 -16, i8 8, i8 10 }, %struct.Ladder { i8 -5, i8 -6, i8 11, i8 9 }, %struct.Ladder { i8 -6, i8 -5, i8 10, i8 5 }, %struct.Ladder { i8 -1, i8 -18, i8 13, i8 11 }, %struct.Ladder { i8 -1, i8 -18, i8 12, i8 14 }, %struct.Ladder { i8 -6, i8 -5, i8 15, i8 18 }, %struct.Ladder { i8 -5, i8 -6, i8 14, i8 9 }, %struct.Ladder { i8 -3, i8 -8, i8 17, i8 15 }, %struct.Ladder { i8 -1, i8 -20, i8 20, i8 16 }, %struct.Ladder { i8 -1, i8 -20, i8 23, i8 17 }, %struct.Ladder { i8 -3, i8 -8, i8 16, i8 18 }, %struct.Ladder { i8 -5, i8 -6, i8 19, i8 26 }, %struct.Ladder { i8 -3, i8 -9, i8 22, i8 24 }, %struct.Ladder { i8 -3, i8 -9, i8 21, i8 19 }, %struct.Ladder { i8 -5, i8 -6, i8 24, i8 26 }, %struct.Ladder { i8 -4, i8 -7, i8 27, i8 25 }, %struct.Ladder { i8 -1, i8 -22, i8 34, i8 28 }, %struct.Ladder { i8 -2, i8 -11, i8 29, i8 27 }, %struct.Ladder { i8 -2, i8 -11, i8 28, i8 30 }, %struct.Ladder { i8 -1, i8 -22, i8 39, i8 29 }, %struct.Ladder { i8 -4, i8 -7, i8 30, i8 32 }, %struct.Ladder { i8 -6, i8 -5, i8 33, i8 31 }, %struct.Ladder { i8 -6, i8 -5, i8 32, i8 25 }, %struct.Ladder { i8 -3, i8 -8, i8 35, i8 33 }, %struct.Ladder { i8 -2, i8 -12, i8 36, i8 38 }, %struct.Ladder { i8 -2, i8 -12, i8 37, i8 35 }, %struct.Ladder { i8 -3, i8 -8, i8 38, i8 40 }, %struct.Ladder { i8 -6, i8 -5, i8 41, i8 48 }, %struct.Ladder { i8 -6, i8 -5, i8 40, i8 31 }, %struct.Ladder { i8 -5, i8 -6, i8 43, i8 41 }, %struct.Ladder { i8 -1, i8 -24, i8 94, i8 42 }, %struct.Ladder { i8 -3, i8 -8, i8 45, i8 43 }, %struct.Ladder { i8 -2, i8 -12, i8 42, i8 44 }, %struct.Ladder { i8 -2, i8 -12, i8 47, i8 45 }, %struct.Ladder { i8 -3, i8 -8, i8 44, i8 46 }, %struct.Ladder { i8 -1, i8 -24, i8 125, i8 47 }, %struct.Ladder { i8 -5, i8 -6, i8 46, i8 48 }, %struct.Ladder { i8 -6, i8 -5, i8 49, i8 49 }, %struct.Ladder { i8 -2, i8 -13, i8 -104, i8 -92 }, %struct.Ladder { i8 -4, i8 -7, i8 51, i8 49 }, %struct.Ladder { i8 -3, i8 -9, i8 -92, i8 -88 }, %struct.Ladder { i8 -3, i8 -9, i8 55, i8 51 }, %struct.Ladder { i8 -4, i8 -7, i8 -88, i8 -86 }, %struct.Ladder { i8 -2, i8 -13, i8 67, i8 55 }, %struct.Ladder { i8 -6, i8 -5, i8 -86, i8 49 }, %struct.Ladder { i8 -6, i8 -5, i8 51, i8 -86 }, %struct.Ladder { i8 -1, i8 -72, i8 50, i8 74 }, %struct.Ladder { i8 -4, i8 -7, i8 53, i8 49 }, %struct.Ladder { i8 -1, i8 -61, i8 50, i8 74 }, %struct.Ladder { i8 -3, i8 -8, i8 55, i8 49 }, %struct.Ladder { i8 -1, i8 -51, i8 52, i8 76 }, %struct.Ladder { i8 -3, i8 -9, i8 57, i8 51 }, %struct.Ladder { i8 -1, i8 -46, i8 54, i8 76 }, %struct.Ladder { i8 -2, i8 -10, i8 59, i8 53 }, %struct.Ladder { i8 -1, i8 -43, i8 56, i8 78 }, %struct.Ladder { i8 -2, i8 -11, i8 61, i8 53 }, %struct.Ladder { i8 -1, i8 -41, i8 58, i8 80 }, %struct.Ladder { i8 -2, i8 -12, i8 63, i8 55 }, %struct.Ladder { i8 -1, i8 -39, i8 60, i8 82 }, %struct.Ladder { i8 -2, i8 -12, i8 65, i8 55 }, %struct.Ladder { i8 -1, i8 -37, i8 62, i8 84 }, %struct.Ladder { i8 -2, i8 -13, i8 67, i8 57 }, %struct.Ladder { i8 -1, i8 -36, i8 64, i8 86 }, %struct.Ladder { i8 -1, i8 -14, i8 69, i8 59 }, %struct.Ladder { i8 -1, i8 -35, i8 66, i8 88 }, %struct.Ladder { i8 -1, i8 -14, i8 71, i8 59 }, %struct.Ladder { i8 -1, i8 -34, i8 68, i8 90 }, %struct.Ladder { i8 -1, i8 -15, i8 73, i8 61 }, %struct.Ladder { i8 -1, i8 -33, i8 70, i8 92 }, %struct.Ladder { i8 -1, i8 -15, i8 75, i8 61 }, %struct.Ladder { i8 -1, i8 -32, i8 72, i8 94 }, %struct.Ladder { i8 -1, i8 -15, i8 77, i8 63 }, %struct.Ladder { i8 -1, i8 -31, i8 74, i8 96 }, %struct.Ladder { i8 -1, i8 -16, i8 79, i8 65 }, %struct.Ladder { i8 -1, i8 -31, i8 76, i8 98 }, %struct.Ladder { i8 -1, i8 -16, i8 81, i8 67 }, %struct.Ladder { i8 -1, i8 -30, i8 78, i8 100 }, %struct.Ladder { i8 -1, i8 -17, i8 83, i8 67 }, %struct.Ladder { i8 -1, i8 -29, i8 80, i8 102 }, %struct.Ladder { i8 -1, i8 -17, i8 85, i8 69 }, %struct.Ladder { i8 -1, i8 -29, i8 82, i8 104 }, %struct.Ladder { i8 -1, i8 -18, i8 87, i8 71 }, %struct.Ladder { i8 -1, i8 -28, i8 84, i8 104 }, %struct.Ladder { i8 -1, i8 -18, i8 89, i8 73 }, %struct.Ladder { i8 -1, i8 -28, i8 86, i8 108 }, %struct.Ladder { i8 -1, i8 -18, i8 91, i8 73 }, %struct.Ladder { i8 -1, i8 -27, i8 88, i8 108 }, %struct.Ladder { i8 -1, i8 -19, i8 93, i8 75 }, %struct.Ladder { i8 -1, i8 -27, i8 90, i8 112 }, %struct.Ladder { i8 -1, i8 -19, i8 95, i8 77 }, %struct.Ladder { i8 -1, i8 -26, i8 92, i8 112 }, %struct.Ladder { i8 -1, i8 -20, i8 97, i8 79 }, %struct.Ladder { i8 -1, i8 -26, i8 94, i8 114 }, %struct.Ladder { i8 -1, i8 -20, i8 99, i8 81 }, %struct.Ladder { i8 -1, i8 -25, i8 96, i8 116 }, %struct.Ladder { i8 -1, i8 -20, i8 101, i8 83 }, %struct.Ladder { i8 -1, i8 -25, i8 98, i8 118 }, %struct.Ladder { i8 -1, i8 -21, i8 103, i8 83 }, %struct.Ladder { i8 -1, i8 -24, i8 100, i8 120 }, %struct.Ladder { i8 -1, i8 -21, i8 105, i8 85 }, %struct.Ladder { i8 -1, i8 -24, i8 102, i8 122 }, %struct.Ladder { i8 -1, i8 -22, i8 107, i8 87 }, %struct.Ladder { i8 -1, i8 -23, i8 104, i8 124 }, %struct.Ladder { i8 -1, i8 -22, i8 109, i8 89 }, %struct.Ladder { i8 -1, i8 -23, i8 106, i8 126 }, %struct.Ladder { i8 -1, i8 -22, i8 111, i8 91 }, %struct.Ladder { i8 -1, i8 -22, i8 108, i8 -128 }, %struct.Ladder { i8 -1, i8 -23, i8 113, i8 93 }, %struct.Ladder { i8 -1, i8 -22, i8 110, i8 -126 }, %struct.Ladder { i8 -1, i8 -23, i8 115, i8 95 }, %struct.Ladder { i8 -1, i8 -22, i8 112, i8 -124 }, %struct.Ladder { i8 -1, i8 -24, i8 117, i8 97 }, %struct.Ladder { i8 -1, i8 -21, i8 114, i8 -122 }, %struct.Ladder { i8 -1, i8 -24, i8 119, i8 99 }, %struct.Ladder { i8 -1, i8 -21, i8 116, i8 -120 }, %struct.Ladder { i8 -1, i8 -25, i8 121, i8 101 }, %struct.Ladder { i8 -1, i8 -20, i8 118, i8 -120 }, %struct.Ladder { i8 -1, i8 -25, i8 123, i8 103 }, %struct.Ladder { i8 -1, i8 -20, i8 120, i8 -118 }, %struct.Ladder { i8 -1, i8 -26, i8 125, i8 105 }, %struct.Ladder { i8 -1, i8 -20, i8 122, i8 -116 }, %struct.Ladder { i8 -1, i8 -26, i8 127, i8 107 }, %struct.Ladder { i8 -1, i8 -19, i8 124, i8 -114 }, %struct.Ladder { i8 -1, i8 -27, i8 -127, i8 107 }, %struct.Ladder { i8 -1, i8 -19, i8 126, i8 -112 }, %struct.Ladder { i8 -1, i8 -27, i8 -125, i8 111 }, %struct.Ladder { i8 -1, i8 -18, i8 -128, i8 -110 }, %struct.Ladder { i8 -1, i8 -28, i8 -123, i8 111 }, %struct.Ladder { i8 -1, i8 -18, i8 -126, i8 -110 }, %struct.Ladder { i8 -1, i8 -28, i8 -121, i8 115 }, %struct.Ladder { i8 -1, i8 -18, i8 -124, i8 -108 }, %struct.Ladder { i8 -1, i8 -29, i8 -119, i8 115 }, %struct.Ladder { i8 -1, i8 -17, i8 -122, i8 -106 }, %struct.Ladder { i8 -1, i8 -29, i8 -117, i8 117 }, %struct.Ladder { i8 -1, i8 -17, i8 -120, i8 -104 }, %struct.Ladder { i8 -1, i8 -30, i8 -115, i8 119 }, %struct.Ladder { i8 -1, i8 -16, i8 -118, i8 -104 }, %struct.Ladder { i8 -1, i8 -31, i8 -113, i8 121 }, %struct.Ladder { i8 -1, i8 -16, i8 -116, i8 -102 }, %struct.Ladder { i8 -1, i8 -31, i8 -111, i8 123 }, %struct.Ladder { i8 -1, i8 -15, i8 -114, i8 -100 }, %struct.Ladder { i8 -1, i8 -32, i8 -109, i8 125 }, %struct.Ladder { i8 -1, i8 -15, i8 -112, i8 -98 }, %struct.Ladder { i8 -1, i8 -33, i8 -107, i8 127 }, %struct.Ladder { i8 -1, i8 -15, i8 -110, i8 -98 }, %struct.Ladder { i8 -1, i8 -34, i8 -105, i8 -127 }, %struct.Ladder { i8 -1, i8 -14, i8 -108, i8 -96 }, %struct.Ladder { i8 -1, i8 -35, i8 -103, i8 -125 }, %struct.Ladder { i8 -1, i8 -14, i8 -106, i8 -96 }, %struct.Ladder { i8 -1, i8 -36, i8 -101, i8 -123 }, %struct.Ladder { i8 -2, i8 -13, i8 -104, i8 -94 }, %struct.Ladder { i8 -1, i8 -37, i8 -99, i8 -121 }, %struct.Ladder { i8 -2, i8 -12, i8 -102, i8 -92 }, %struct.Ladder { i8 -1, i8 -39, i8 -97, i8 -119 }, %struct.Ladder { i8 -2, i8 -12, i8 -100, i8 -92 }, %struct.Ladder { i8 -1, i8 -41, i8 -95, i8 -117 }, %struct.Ladder { i8 -2, i8 -11, i8 -98, i8 -90 }, %struct.Ladder { i8 -1, i8 -43, i8 -93, i8 -115 }, %struct.Ladder { i8 -2, i8 -10, i8 -96, i8 -90 }, %struct.Ladder { i8 -1, i8 -46, i8 -91, i8 -113 }, %struct.Ladder { i8 -3, i8 -9, i8 -94, i8 -88 }, %struct.Ladder { i8 -1, i8 -51, i8 -89, i8 -113 }, %struct.Ladder { i8 -3, i8 -8, i8 -92, i8 -86 }, %struct.Ladder { i8 -1, i8 -61, i8 -87, i8 -111 }, %struct.Ladder { i8 -4, i8 -7, i8 -90, i8 -86 }, %struct.Ladder { i8 -1, i8 -72, i8 -87, i8 -111 }, %struct.Ladder { i8 -6, i8 -5, i8 -88, i8 49 }, %struct.Ladder { i8 0, i8 -108, i8 -85, i8 -85 }, %struct.Ladder { i8 0, i8 -108, i8 -84, i8 -84 }, %struct.Ladder { i8 -6, i8 -5, i8 -83, i8 -83 }], align 16
@@ -88,13 +87,13 @@ define range(i32 -541478725, 2) i32 @ff_els_decode_bit(ptr noundef captures(none
   %7 = load i32, ptr %6, align 8, !tbaa !16
   %8 = load i8, ptr %1, align 1, !tbaa !4
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Ladder, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !19
   %13 = sext i8 %12 to i32
   %14 = add nsw i32 %7, %13
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4, !tbaa !17
@@ -122,7 +121,7 @@ define range(i32 -541478725, 2) i32 @ff_els_decode_bit(ptr noundef captures(none
 33:                                               ; preds = %29
   %34 = load i8, ptr %1, align 1, !tbaa !4
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @Ladder, i64 %35
   %37 = load i8, ptr %36, align 4, !tbaa !22
   %38 = sext i8 %37 to i32
   %39 = add i32 %7, %38
@@ -131,7 +130,7 @@ define range(i32 -541478725, 2) i32 @ff_els_decode_bit(ptr noundef captures(none
 
 41:                                               ; preds = %41, %33
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %41 ], [ %40, %33 ]
-  %42 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %indvars.iv82
+  %42 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %indvars.iv82
   %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = icmp ugt i32 %20, %43
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
@@ -182,7 +181,7 @@ els_import_byte.exit:                             ; preds = %48
   store i32 %17, ptr %18, align 4, !tbaa !17
   %66 = load i8, ptr %1, align 1, !tbaa !4
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr @Ladder, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !19
   %71 = sext i8 %70 to i32
@@ -228,7 +227,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
 .preheader:                                       ; preds = %88
   %.promoted = load i32, ptr %6, align 8, !tbaa !16
   %92 = sext i32 %.promoted to i64
-  %93 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %92
+  %93 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %92
   %94 = getelementptr i8, ptr %93, i64 -4
   %95 = load i32, ptr %94, align 4, !tbaa !21
   %.not7179 = icmp ult i32 %95, %89
@@ -237,7 +236,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %92, %.preheader ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %96 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %indvars.iv.next
+  %96 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %indvars.iv.next
   %97 = getelementptr i8, ptr %96, i64 -4
   %98 = load i32, ptr %97, align 4, !tbaa !21
   %.not71 = icmp ult i32 %98, %89
@@ -261,7 +260,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
   %.062 = phi i32 [ %.1, %.loopexit ], [ %61, %60 ]
   %.061.in = phi i8 [ %102, %.loopexit ], [ %63, %60 ]
   %104 = zext i8 %.sink to i64
-  %105 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr @Ladder, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.sink95
   %.061 = zext nneg i8 %.061.in to i32
   %storemerge = load i8, ptr %106, align 1, !tbaa !4
@@ -270,7 +269,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
   %108 = sub i32 %.062, %107
   %109 = load i32, ptr %6, align 8, !tbaa !16
   %110 = sext i32 %109 to i64
-  %111 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %110
+  %111 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %110
   %112 = getelementptr i8, ptr %111, i64 -4
   %113 = load i32, ptr %112, align 4, !tbaa !21
   %114 = sub i32 %.062, %113
@@ -401,7 +400,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %15, align 8, !tbaa !27
-  %30 = getelementptr inbounds nuw %struct.ElsRungNode, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %26
   br label %67
 
 31:                                               ; preds = %27
@@ -458,7 +457,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %63 = zext i16 %61 to i32
   %64 = add nsw i32 %.05979, %63
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.ElsRungNode, ptr %62, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %62, i64 %65
   br label %67
 
 67:                                               ; preds = %60, %28

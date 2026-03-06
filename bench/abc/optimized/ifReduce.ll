@@ -99,7 +99,7 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
   %41 = phi ptr [ %35, %.lr.ph.i ], [ %282, %If_ManImproveNodeExpand.exit.i ]
   %42 = getelementptr i8, ptr %41, i64 8
   %.val16.i = load ptr, ptr %42, align 8, !tbaa !35
-  %43 = getelementptr inbounds nuw ptr, ptr %.val16.i, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.val16.i, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8, !tbaa !37
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 15
@@ -131,13 +131,13 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
 .lr.ph.i.i.i:                                     ; preds = %54, %Vec_PtrPush.exit33.i.i.i
   %60 = phi i32 [ %113, %Vec_PtrPush.exit33.i.i.i ], [ %40, %54 ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %Vec_PtrPush.exit33.i.i.i ], [ 0, %54 ]
-  %61 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !42
   %.val.i.i.i = load ptr, ptr %34, align 8, !tbaa !36
   %63 = getelementptr i8, ptr %.val.i.i.i, i64 8
   %.val.val.i.i.i = load ptr, ptr %63, align 8, !tbaa !35
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds ptr, ptr %.val.val.i.i.i, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %.val.val.i.i.i, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !37
   %.not.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i, label %If_ManImproveNodePrepare.exit.i.i.loopexit.split.loop.exit, label %67
@@ -200,7 +200,7 @@ Vec_PtrPush.exit.i.i.i:                           ; preds = %86, %Vec_PtrGrow.ex
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %indvars31 = trunc i64 %indvars.iv.next.i.i.i to i32
   store i32 %indvars31, ptr %15, align 4, !tbaa !32
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.i.i.i
   store ptr %66, ptr %90, align 8, !tbaa !37
   %91 = zext i32 %60 to i64
   %92 = icmp eq i64 %indvars.iv.i.i.i, %91
@@ -259,7 +259,7 @@ Vec_PtrPush.exit26.i.i.i:                         ; preds = %111, %Vec_PtrGrow.e
   %113 = phi i32 [ %60, %.Vec_PtrGrow.exit11_crit_edge.i20.i.i.i ], [ %103, %111 ], [ 16, %Vec_PtrGrow.exit.i25.i.i.i ]
   %114 = phi ptr [ %.pre.i22.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i20.i.i.i ], [ %112, %111 ], [ %101, %Vec_PtrGrow.exit.i25.i.i.i ]
   store i32 %indvars31, ptr %23, align 4, !tbaa !32
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv.i.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i.i.i
   store ptr %66, ptr %115, align 8, !tbaa !37
   %116 = load i32, ptr %31, align 4, !tbaa !32
   %117 = load i32, ptr %30, align 8, !tbaa !34
@@ -321,7 +321,7 @@ Vec_PtrPush.exit33.i.i.i:                         ; preds = %137, %Vec_PtrGrow.e
   %141 = add nsw i32 %140, 1
   store i32 %141, ptr %31, align 4, !tbaa !32
   %142 = sext i32 %140 to i64
-  %143 = getelementptr inbounds ptr, ptr %139, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %139, i64 %142
   store ptr %66, ptr %143, align 8, !tbaa !37
   %144 = load i32, ptr %66, align 8
   %145 = or i32 %144, 256
@@ -352,7 +352,7 @@ If_ManImproveNodePrepare.exit.i.i:                ; preds = %Vec_PtrPush.exit33.
 
 154:                                              ; preds = %186, %.lr.ph.i.i27.i
   %indvars.iv.i.i28.i = phi i64 [ 0, %.lr.ph.i.i27.i ], [ %indvars.iv.next.i.i33.i, %186 ]
-  %155 = getelementptr inbounds nuw ptr, ptr %.val16.i.i.i, i64 %indvars.iv.i.i28.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %.val16.i.i.i, i64 %indvars.iv.i.i28.i
   %156 = load ptr, ptr %155, align 8, !tbaa !37
   %.val17.i.i29.i = load i32, ptr %156, align 8
   %157 = and i32 %.val17.i.i29.i, 15
@@ -430,7 +430,7 @@ thread-pre-split.i.i:                             ; preds = %186
 
 .lr.ph.i15.i.i:                                   ; preds = %thread-pre-split.i.i, %213
   %indvars.iv.i17.i.i = phi i64 [ %indvars.iv.next.i26.i.i, %213 ], [ 0, %thread-pre-split.i.i ]
-  %188 = getelementptr inbounds nuw ptr, ptr %.val16.i.i.i, i64 %indvars.iv.i17.i.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %.val16.i.i.i, i64 %indvars.iv.i17.i.i
   %189 = load ptr, ptr %188, align 8, !tbaa !37
   %.val14.i.i.i = load i32, ptr %189, align 8
   %190 = and i32 %.val14.i.i.i, 15
@@ -502,7 +502,7 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 .lr.ph.i.i:                                       ; preds = %If_ManImproveCutCost.exit70.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %If_ManImproveCutCost.exit70.i.i ]
   %.val54.i.i = load ptr, ptr %33, align 8, !tbaa !35
-  %217 = getelementptr inbounds nuw ptr, ptr %.val54.i.i, i64 %indvars.iv.i.i
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %.val54.i.i, i64 %indvars.iv.i.i
   %218 = load ptr, ptr %217, align 8, !tbaa !37
   %219 = load i32, ptr %218, align 8
   %220 = and i32 %219, -257
@@ -531,11 +531,11 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 
 231:                                              ; preds = %231, %.lr.ph.i71.i.i
   %indvars.iv.i72.i.i = phi i64 [ 0, %.lr.ph.i71.i.i ], [ %indvars.iv.next.i73.i.i, %231 ]
-  %232 = getelementptr inbounds nuw ptr, ptr %.val18.i.i.i, i64 %indvars.iv.i72.i.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %.val18.i.i.i, i64 %indvars.iv.i72.i.i
   %233 = load ptr, ptr %232, align 8, !tbaa !37
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %235 = load i32, ptr %234, align 4, !tbaa !51
-  %236 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i72.i.i
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i72.i.i
   store i32 %235, ptr %236, align 4, !tbaa !42
   %indvars.iv.next.i73.i.i = add nuw nsw i64 %indvars.iv.i72.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i73.i.i, %230
@@ -556,7 +556,7 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 239:                                              ; preds = %239, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %239 ]
   %.067.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %244, %239 ]
-  %240 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i.i.i.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.i.i.i
   %241 = load i32, ptr %240, align 4, !tbaa !42
   %242 = urem i32 %241, 31
   %243 = shl nuw nsw i32 1, %242
@@ -602,11 +602,11 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %239, %.critedge.i.i
 
 265:                                              ; preds = %265, %.lr.ph.i87.i.i
   %indvars.iv.i89.i.i = phi i64 [ 0, %.lr.ph.i87.i.i ], [ %indvars.iv.next.i90.i.i, %265 ]
-  %266 = getelementptr inbounds nuw ptr, ptr %.val18.i88.i.i, i64 %indvars.iv.i89.i.i
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %.val18.i88.i.i, i64 %indvars.iv.i89.i.i
   %267 = load ptr, ptr %266, align 8, !tbaa !37
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %269 = load i32, ptr %268, align 4, !tbaa !51
-  %270 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i89.i.i
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i89.i.i
   store i32 %269, ptr %270, align 4, !tbaa !42
   %indvars.iv.next.i90.i.i = add nuw nsw i64 %indvars.iv.i89.i.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next.i90.i.i, %264
@@ -627,7 +627,7 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %239, %.critedge.i.i
 273:                                              ; preds = %273, %.lr.ph.i.i80.i.i
   %indvars.iv.i.i82.i.i = phi i64 [ 0, %.lr.ph.i.i80.i.i ], [ %indvars.iv.next.i.i84.i.i, %273 ]
   %.067.i.i83.i.i = phi i32 [ 0, %.lr.ph.i.i80.i.i ], [ %278, %273 ]
-  %274 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i.i82.i.i
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.i82.i.i
   %275 = load i32, ptr %274, align 4, !tbaa !42
   %276 = urem i32 %275, 31
   %277 = shl nuw nsw i32 1, %276
@@ -804,7 +804,7 @@ define i32 @If_ManImproveCutCost(ptr noundef readnone captures(none) %0, ptr nou
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.val8, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val8, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !40
@@ -898,7 +898,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %9, align 4, !tbaa !32
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %35, i64 %38
   store ptr %1, ptr %39, align 8, !tbaa !37
   %40 = load i32, ptr %1, align 8
   %41 = or i32 %40, 256
@@ -994,7 +994,7 @@ define void @If_ManImproveNodeFaninUpdate(ptr readnone captures(none) %0, ptr no
 12:                                               ; preds = %9
   %13 = add nsw i64 %indvars.iv.i, -1
   %14 = load ptr, ptr %7, align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %18, label %9, !llvm.loop !70
@@ -1012,7 +1012,7 @@ define void @If_ManImproveNodeFaninUpdate(ptr readnone captures(none) %0, ptr no
 21:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv18.i = phi i64 [ %20, %.lr.ph.i ], [ %indvars.iv.next19.i, %21 ]
   %22 = load ptr, ptr %7, align 8, !tbaa !35
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv18.i
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %indvars.iv18.i
   %24 = load ptr, ptr %23, align 8, !tbaa !37
   %25 = getelementptr i8, ptr %23, i64 -8
   store ptr %24, ptr %25, align 8, !tbaa !37
@@ -1090,7 +1090,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %5, align 4, !tbaa !32
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %53, i64 %56
   store ptr %.val, ptr %57, align 8, !tbaa !37
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !32
@@ -1156,7 +1156,7 @@ Vec_PtrPush.exit24:                               ; preds = %.Vec_PtrGrow.exit11
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %58, align 4, !tbaa !32
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds ptr, ptr %84, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %84, i64 %87
   store ptr %.val, ptr %88, align 8, !tbaa !37
   %89 = load i32, ptr %.val, align 8
   %90 = or i32 %89, 256
@@ -1232,7 +1232,7 @@ Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11
   %121 = add nsw i32 %120, 1
   store i32 %121, ptr %5, align 4, !tbaa !32
   %122 = sext i32 %120 to i64
-  %123 = getelementptr inbounds ptr, ptr %119, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %119, i64 %122
   store ptr %.val17, ptr %123, align 8, !tbaa !37
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %125 = load i32, ptr %124, align 4, !tbaa !32
@@ -1298,7 +1298,7 @@ Vec_PtrPush.exit38:                               ; preds = %.Vec_PtrGrow.exit11
   %152 = add nsw i32 %151, 1
   store i32 %152, ptr %124, align 4, !tbaa !32
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds ptr, ptr %150, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %150, i64 %153
   store ptr %.val17, ptr %154, align 8, !tbaa !37
   %155 = load i32, ptr %.val17, align 8
   %156 = or i32 %155, 256
@@ -1324,7 +1324,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact0(ptr noundef readnone 
 
 9:                                                ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val16, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val16, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.val17 = load i32, ptr %11, align 8
   %12 = and i32 %.val17, 15
@@ -1420,7 +1420,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr noundef readnone 
 
 9:                                                ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val13, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.val14 = load i32, ptr %11, align 8
   %12 = and i32 %.val14, 15
@@ -1499,7 +1499,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr noundef readnone 
 
 9:                                                ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val13, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.val14 = load i32, ptr %11, align 8
   %12 = and i32 %.val14, 15
@@ -1578,7 +1578,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact_int(ptr noundef readno
 
 9:                                                ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val16.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val16.i, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.val17.i = load i32, ptr %11, align 8
   %12 = and i32 %.val17.i, 15
@@ -1662,7 +1662,7 @@ thread-pre-split:                                 ; preds = %41
 
 44:                                               ; preds = %70, %.lr.ph.i15
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i26, %70 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %.val13.i, i64 %indvars.iv.i17
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val13.i, i64 %indvars.iv.i17
   %46 = load ptr, ptr %45, align 8, !tbaa !37
   %.val14.i = load i32, ptr %46, align 8
   %47 = and i32 %.val14.i, 15

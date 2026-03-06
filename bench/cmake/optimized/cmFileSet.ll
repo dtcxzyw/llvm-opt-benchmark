@@ -60,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.407" = type { %"struct.std::_Head_base.408" }
 %"struct.std::_Head_base.408" = type { ptr }
 %"class.std::tuple.409" = type { i8 }
-%class.BT = type { %"class.std::__cxx11::basic_string", %class.cmListFileBacktrace }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<std::__cxx11::basic_string<char>>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 
 $_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev = comdat any
@@ -1190,7 +1189,7 @@ _ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1
 _ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %175
   store ptr %168, ptr %0, align 8, !tbaa !76
   store ptr %174, ptr %25, align 8, !tbaa !70
-  %176 = getelementptr inbounds nuw %"class.std::unique_ptr.280", ptr %168, i64 %166
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %166
   store ptr %176, ptr %26, align 8, !tbaa !73
   %.pr = load ptr, ptr %11, align 8, !tbaa !74
   %.not.i = icmp eq ptr %.pr, null
@@ -1911,7 +1910,7 @@ _ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1
 _ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %175
   store ptr %168, ptr %0, align 8, !tbaa !76
   store ptr %174, ptr %25, align 8, !tbaa !70
-  %176 = getelementptr inbounds nuw %"class.std::unique_ptr.280", ptr %168, i64 %166
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %166
   store ptr %176, ptr %26, align 8, !tbaa !73
   %.pr = load ptr, ptr %11, align 8, !tbaa !74
   %.not.i = icmp eq ptr %.pr, null
@@ -2724,7 +2723,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %.val46.i.i.i = load ptr, ptr %229, align 8
   %.val47.i.i.i = load i64, ptr %239, align 8
   %.8.val4.fr.i.i.i.i.i = freeze i64 %.val47.i.i.i
-  %280 = getelementptr inbounds nuw ptr, ptr %.val44.i.i.i, i64 %277
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %.val44.i.i.i, i64 %277
   %281 = load ptr, ptr %280, align 8, !tbaa !121
   %.not.i.i.i.i.i = icmp eq ptr %281, null
   br i1 %.not.i.i.i.i.i, label %.critedge28.i.i.i, label %282
@@ -2859,7 +2858,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %317 = getelementptr i8, ptr %.032.i.i.i.i.i.i, i64 104
   %.val29.i.i.i.i.i.i = load i64, ptr %317, align 8, !tbaa !122
   %318 = urem i64 %.val29.i.i.i.i.i.i, %308
-  %319 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i.i.i, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !121
   %.not27.i.i.i.i.i.i = icmp eq ptr %320, null
   br i1 %.not27.i.i.i.i.i.i, label %321, label %326
@@ -2874,7 +2873,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28.i.i.i.i.i.i, label %329, label %324
 
 324:                                              ; preds = %321
-  %325 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
   store ptr %.032.i.i.i.i.i.i, ptr %325, align 8, !tbaa !121
   br label %329
 
@@ -2946,7 +2945,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %.0.i52.i.i.i = phi i64 [ %344, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZNK9cmFileSet24EvaluateDirectoryEntriesERKSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteISB_EESaISE_EEP16cmLocalGeneratorRS7_PK17cmGeneratorTargetP31cmGeneratorExpressionDAGCheckerE13DirCacheEntryESaISS_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSU_18_Mod_range_hashingENSU_20_Default_ranged_hashENSU_20_Prime_rehash_policyENSU_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i ], [ %277, %._crit_edge.i.i.i.i ]
   %347 = getelementptr inbounds nuw i8, ptr %228, i64 104
   store i64 %272, ptr %347, align 8, !tbaa !122
-  %348 = getelementptr inbounds nuw ptr, ptr %346, i64 %.0.i52.i.i.i
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %.0.i52.i.i.i
   %349 = load ptr, ptr %348, align 8, !tbaa !121
   %.not.i.i53.i.i.i = icmp eq ptr %349, null
   br i1 %.not.i.i53.i.i.i, label %353, label %350
@@ -2970,7 +2969,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %356 = getelementptr i8, ptr %354, i64 104
   %.val13.i.i.i.i.i = load i64, ptr %356, align 8, !tbaa !122
   %357 = urem i64 %.val13.i.i.i.i.i, %.val12.i.i.i.i.i
-  %358 = getelementptr inbounds nuw ptr, ptr %346, i64 %357
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %357
   store ptr %228, ptr %358, align 8, !tbaa !121
   br label %359
 
@@ -3301,7 +3300,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %.val18.i.i.i = load ptr, ptr %.sroa.0220.0682, align 8
   %.val19.i.i.i = load i64, ptr %452, align 8
   %.8.val4.fr.i.i.i.i.i135 = freeze i64 %.val19.i.i.i
-  %458 = getelementptr inbounds nuw ptr, ptr %.val16.i.i.i, i64 %457
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %.val16.i.i.i, i64 %457
   %459 = load ptr, ptr %458, align 8, !tbaa !121
   %.not.i.i.i.i.i136 = icmp eq ptr %459, null
   br i1 %.not.i.i.i.i.i136, label %.loopexit.i.i, label %460
@@ -5689,7 +5688,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !66
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !68
   ret void
 
@@ -5908,7 +5907,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt1
   %58 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEEPS9_ET0_T_SI_SH_(ptr %57, ptr %3, ptr noundef %13)
   %59 = sub nuw nsw i64 %9, %20
   %60 = load ptr, ptr %12, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw %class.BT, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %59
   store ptr %61, ptr %12, align 8, !tbaa !45
   %.not11.i.i.i.i.i52 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit60, label %.lr.ph.i.i.i.i.i53
@@ -6198,7 +6197,7 @@ _ZSt8_DestroyIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit, %174
   store ptr %101, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i.i.i76, ptr %12, align 8, !tbaa !45
-  %178 = getelementptr inbounds nuw %class.BT, ptr %101, i64 %97
+  %178 = getelementptr inbounds nuw [48 x i8], ptr %101, i64 %97
   store ptr %178, ptr %10, align 8, !tbaa !59
   br label %189
 
@@ -6990,7 +6989,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, %87
   store ptr %22, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !45
-  %91 = getelementptr inbounds nuw %class.BT, ptr %22, i64 %16
+  %91 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %91, ptr %86, align 8, !tbaa !59
   ret void
 }

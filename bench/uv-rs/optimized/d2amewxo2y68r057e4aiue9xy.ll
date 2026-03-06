@@ -461,7 +461,7 @@ define internal fastcc { ptr, ptr } @"_ZN10rayon_core4join12join_context28_$u7b$
   %.sroa.02.0.i = load ptr, ptr %34, align 32, !noundef !4
   %35 = add i64 %.sroa.03.0.i, -1
   %36 = and i64 %35, %24
-  %37 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.02.0.i, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %.sroa.02.0.i, i64 %36
   store volatile ptr @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as$u20$rayon_core..job..Job$GT$7execute17h03cb9a99f7130d44E", ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store volatile ptr %8, ptr %38, align 8

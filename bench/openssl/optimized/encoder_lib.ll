@@ -1082,12 +1082,12 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
   %48 = tail call ptr @__ctype_tolower_loc() #9
   %49 = load ptr, ptr %48, align 8, !tbaa !63
   %50 = zext i8 %46 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !43
   %53 = getelementptr inbounds nuw i8, ptr %.15570, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !62
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !43
   %58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %47, i32 noundef %52, i32 noundef %57) #8
   %59 = icmp slt i32 %58, 1

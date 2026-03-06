@@ -1318,7 +1318,7 @@ _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.ex
   br label %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i78
 
 _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i78: ; preds = %141, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i76
-  %142 = getelementptr inbounds nuw ptr, ptr %136, i64 %134
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %134
   br label %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backERKS4_.exit81
 
 _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backERKS4_.exit81: ; preds = %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i78, %122
@@ -1376,7 +1376,7 @@ _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0275.1, i64 noundef %148) #24
   %.pre.pre = load ptr, ptr %21, align 8, !tbaa !80
-  %163 = getelementptr inbounds nuw ptr, ptr %157, i64 %155
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %155
   br label %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backERKS4_.exit91
 
 _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backERKS4_.exit91: ; preds = %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i88, %143
@@ -1619,7 +1619,7 @@ _ZNKSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
 _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %245, %.noexc100
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0275.2680, i64 noundef %233) #24
-  %246 = getelementptr inbounds nuw ptr, ptr %242, i64 %240
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %240
   br label %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %229
@@ -2167,7 +2167,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit14
 469:                                              ; preds = %.lr.ph666
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %470 = load ptr, ptr %385, align 8, !tbaa !104
-  %471 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %470, i64 %.040665
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %470, i64 %.040665
   %472 = load ptr, ptr %471, align 8, !tbaa !68
   store ptr %472, ptr %29, align 8, !tbaa !68
   %473 = load i64, ptr %472, align 8
@@ -7568,7 +7568,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !104
   store ptr %42, ptr %4, align 8, !tbaa !99
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !102
   ret void
 
@@ -7849,7 +7849,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !104
   store ptr %42, ptr %4, align 8, !tbaa !99
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !102
   ret void
 

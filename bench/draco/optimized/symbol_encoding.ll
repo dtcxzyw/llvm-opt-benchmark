@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<draco::rans_sym, std::allocator<draco::rans_sym>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.draco::RAnsEncoder" = type { %"struct.draco::AnsCoder" }
 %"struct.draco::AnsCoder" = type { ptr, i32, i32 }
-%"struct.draco::rans_sym" = type { i32, i32 }
 %"class.draco::RAnsSymbolEncoder.31" = type { %"class.std::vector.13", i32, i64, %"class.draco::RAnsEncoder", i64 }
 %"class.draco::RAnsSymbolEncoder.35" = type { %"class.std::vector.13", i32, i64, %"class.draco::RAnsEncoder", i64 }
 %"class.draco::RAnsSymbolEncoder.39" = type { %"class.std::vector.13", i32, i64, %"class.draco::RAnsEncoder", i64 }
@@ -674,7 +673,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %15
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %17
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %17
   %23 = icmp sgt i32 %2, 1
   %24 = zext nneg i32 %spec.store.select to i64
   br i1 %23, label %.lr.ph.i.preheader.us, label %._crit_edge.i
@@ -687,14 +686,14 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %15
   %28 = phi ptr [ %52, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us ], [ %20, %.noexc ]
   %29 = phi ptr [ %53, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us ], [ %22, %.noexc ]
   %indvars.iv36.i.us = phi i64 [ %indvars.iv.next37.i.us, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us ], [ 0, %.noexc ]
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv36.i.us
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv36.i.us
   %31 = load i32, ptr %30, align 4, !tbaa !15
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 1, %.lr.ph.i.preheader.us ]
   %.02732.i.us = phi i32 [ %spec.select.i.us, %.lr.ph.i.us ], [ %31, %.lr.ph.i.preheader.us ]
-  %gep.i.us = getelementptr i32, ptr %30, i64 %indvars.iv.i.us
+  %gep.i.us = getelementptr [4 x i8], ptr %30, i64 %indvars.iv.i.us
   %32 = load i32, ptr %gep.i.us, align 4, !tbaa !15
   %spec.select.i.us = tail call i32 @llvm.umax.i32(i32 %.02732.i.us, i32 %32)
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -737,7 +736,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i.us: ; preds = %34
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.us: ; preds = %48, %.noexc65.us
   tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %37) #19
-  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %43
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %43
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us:      ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.us, %33
@@ -773,7 +772,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us:      ; preds = %_ZNSt6vectorIjSaIjE
   %61 = phi ptr [ %86, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ], [ %20, %.noexc ]
   %62 = phi ptr [ %87, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ], [ %22, %.noexc ]
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ], [ 0, %.noexc ]
-  %63 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv36.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv36.i
   %64 = load i32, ptr %63, align 4, !tbaa !15
   %.not.i = icmp eq i32 %64, 0
   %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %64, i1 true)
@@ -832,7 +831,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %68
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i: ; preds = %82, %.noexc65
   tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %71) #19
-  %83 = getelementptr inbounds nuw i32, ptr %79, i64 %77
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %77
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i:         ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i, %67
@@ -908,7 +907,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %97, %.noexc67.threa
 .lr.ph.i69:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit, %.lr.ph.i69
   %.02.i = phi i64 [ %111, %.lr.ph.i69 ], [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit ]
   %.081.i = phi i64 [ %112, %.lr.ph.i69 ], [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit ]
-  %108 = getelementptr inbounds nuw i32, ptr %100, i64 %.081.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.081.i
   %109 = load i32, ptr %108, align 4, !tbaa !15
   %110 = zext i32 %109 to i64
   %111 = add i64 %.02.i, %110
@@ -1296,10 +1295,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAns
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03449 = phi i64 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %.03449
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.03449
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !9
   %21 = add i64 %20, 1
   store i64 %21, ptr %19, align 8, !tbaa !9
@@ -1378,11 +1377,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAns
   %59 = sdiv i32 %.03954, %2
   %60 = sext i32 %59 to i64
   %61 = load ptr, ptr %3, align 8, !tbaa !44
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !15
   %64 = zext i32 %63 to i64
   %65 = load ptr, ptr %8, align 8, !tbaa !65
-  %66 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   %67 = load i32, ptr %66, align 4, !tbaa !66
   %68 = shl i32 %67, 10
   %69 = load i32, ptr %47, align 4, !tbaa !64
@@ -1423,7 +1422,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAns
   %87 = sub nsw i32 %50, %.03954
   %88 = sdiv i32 %87, %2
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %79, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !15
   br i1 %52, label %.lr.ph52, label %._crit_edge53
 
@@ -1435,7 +1434,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAns
 
 .lr.ph52.split.preheader:                         ; preds = %.lr.ph52
   %95 = sext i32 %87 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %95
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %95
   br label %.lr.ph52.split
 
 ._crit_edge53:                                    ; preds = %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit, %.lr.ph52, %.loopexit
@@ -1450,7 +1449,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAns
 .lr.ph52.split:                                   ; preds = %.lr.ph52.splitthread-pre-split, %.lr.ph52.split.preheader
   %98 = phi i64 [ %.pr, %.lr.ph52.splitthread-pre-split ], [ %93, %.lr.ph52.split.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph52.splitthread-pre-split ], [ 0, %.lr.ph52.split.preheader ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %99 = load i32, ptr %gep, align 4, !tbaa !15
   %100 = icmp sgt i64 %98, 0
   br i1 %100, label %101, label %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit
@@ -2182,7 +2181,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -2198,7 +2197,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -2215,7 +2214,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -2225,7 +2224,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -2303,7 +2302,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -2319,7 +2318,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -2345,10 +2344,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -2410,7 +2409,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -2431,7 +2430,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -2439,7 +2438,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -2681,7 +2680,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -2707,7 +2706,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -2978,9 +2977,9 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds
 
 _ZNSt12_Vector_baseIN5draco8rans_symESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %44
   store ptr %33, ptr %0, align 8, !tbaa !65
-  %46 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !82
-  %47 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %47, ptr %11, align 8, !tbaa !78
   br label %48
 
@@ -3006,7 +3005,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -3024,7 +3023,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -3094,9 +3093,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -3107,7 +3106,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -3123,7 +3122,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_T0_.exit
@@ -3200,9 +3199,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -3219,7 +3218,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -3235,14 +3234,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -3260,7 +3259,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -3285,7 +3284,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -3302,14 +3301,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -3325,7 +3324,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -3441,7 +3440,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %36, label %.lr.ph101.preheader, label %._crit_edge102
 
 .lr.ph101.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds i32, ptr %.sroa.043.0, i64 %.086
+  %37 = getelementptr inbounds [4 x i8], ptr %.sroa.043.0, i64 %.086
   br label %.lr.ph101
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %35
@@ -3484,7 +3483,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %53 = add nsw i64 %.idx, -4
   %54 = ashr exact i64 %53, 2
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds i32, ptr %49, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %56, ptr nonnull align 4 %.sroa.043.0, i64 %53, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
@@ -3493,9 +3492,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds i32, ptr %.sroa.043.0, i64 %.0
+  %58 = getelementptr inbounds [4 x i8], ptr %.sroa.043.0, i64 %.0
   %59 = sub i64 0, %25
-  %60 = getelementptr inbounds i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.086, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 
@@ -3633,9 +3632,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -3714,9 +3713,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -3761,7 +3760,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -3771,7 +3770,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -3787,14 +3786,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -3812,7 +3811,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -3837,7 +3836,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -3854,14 +3853,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -3877,7 +3876,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -3934,7 +3933,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -3984,13 +3983,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -4087,9 +4086,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -4180,9 +4179,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -4303,9 +4302,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -4396,9 +4395,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -4568,7 +4567,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -4587,10 +4586,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -4668,11 +4667,11 @@ _ZN5draco17RAnsSymbolEncoderILi1EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %57 = phi i32 [ 16384, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi1EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi1EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -4760,7 +4759,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -4779,10 +4778,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -4860,11 +4859,11 @@ _ZN5draco17RAnsSymbolEncoderILi2EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %57 = phi i32 [ 16384, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi2EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi2EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -4952,7 +4951,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -4971,10 +4970,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -5052,11 +5051,11 @@ _ZN5draco17RAnsSymbolEncoderILi3EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %57 = phi i32 [ 16384, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi3EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi3EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -5144,7 +5143,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -5163,10 +5162,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -5244,11 +5243,11 @@ _ZN5draco17RAnsSymbolEncoderILi4EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %57 = phi i32 [ 16384, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi4EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi4EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -5336,7 +5335,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -5355,10 +5354,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.030.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -5427,11 +5426,11 @@ _ZN5draco17RAnsSymbolEncoderILi5EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %51 = phi i32 [ 16384, %.lr.ph39.preheader ], [ %74, %_ZN5draco17RAnsSymbolEncoderILi5EE12EncodeSymbolEj.exit ]
   %indvars.iv42 = phi i64 [ %47, %.lr.ph39.preheader ], [ %indvars.iv.next43, %_ZN5draco17RAnsSymbolEncoderILi5EE12EncodeSymbolEj.exit ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next43
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %5, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = shl i32 %57, 10
   %.not6.i.i = icmp ult i32 %51, %58
@@ -5528,7 +5527,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -5547,10 +5546,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -5628,11 +5627,11 @@ _ZN5draco17RAnsSymbolEncoderILi6EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %57 = phi i32 [ 16384, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi6EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi6EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -5720,7 +5719,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -5739,10 +5738,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -5820,11 +5819,11 @@ _ZN5draco17RAnsSymbolEncoderILi7EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %57 = phi i32 [ 16384, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi7EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi7EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -5912,7 +5911,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -5931,10 +5930,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -6012,11 +6011,11 @@ _ZN5draco17RAnsSymbolEncoderILi8EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %57 = phi i32 [ 16384, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi8EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi8EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -6104,7 +6103,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -6123,10 +6122,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.030.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -6195,11 +6194,11 @@ _ZN5draco17RAnsSymbolEncoderILi9EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %51 = phi i32 [ 32768, %.lr.ph39.preheader ], [ %74, %_ZN5draco17RAnsSymbolEncoderILi9EE12EncodeSymbolEj.exit ]
   %indvars.iv42 = phi i64 [ %47, %.lr.ph39.preheader ], [ %indvars.iv.next43, %_ZN5draco17RAnsSymbolEncoderILi9EE12EncodeSymbolEj.exit ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next43
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %5, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = shl i32 %57, 10
   %.not6.i.i = icmp ult i32 %51, %58
@@ -6296,7 +6295,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -6315,10 +6314,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.030.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -6387,11 +6386,11 @@ _ZN5draco17RAnsSymbolEncoderILi10EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %51 = phi i32 [ 131072, %.lr.ph39.preheader ], [ %74, %_ZN5draco17RAnsSymbolEncoderILi10EE12EncodeSymbolEj.exit ]
   %indvars.iv42 = phi i64 [ %47, %.lr.ph39.preheader ], [ %indvars.iv.next43, %_ZN5draco17RAnsSymbolEncoderILi10EE12EncodeSymbolEj.exit ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next43
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %5, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = shl i32 %57, 10
   %.not6.i.i = icmp ult i32 %51, %58
@@ -6488,7 +6487,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -6507,10 +6506,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.030.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -6579,11 +6578,11 @@ _ZN5draco17RAnsSymbolEncoderILi11EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %51 = phi i32 [ 262144, %.lr.ph39.preheader ], [ %74, %_ZN5draco17RAnsSymbolEncoderILi11EE12EncodeSymbolEj.exit ]
   %indvars.iv42 = phi i64 [ %47, %.lr.ph39.preheader ], [ %indvars.iv.next43, %_ZN5draco17RAnsSymbolEncoderILi11EE12EncodeSymbolEj.exit ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next43
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %5, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = shl i32 %57, 10
   %.not6.i.i = icmp ult i32 %51, %58
@@ -6680,7 +6679,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -6699,10 +6698,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.030.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -6771,11 +6770,11 @@ _ZN5draco17RAnsSymbolEncoderILi12EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %51 = phi i32 [ 1048576, %.lr.ph39.preheader ], [ %74, %_ZN5draco17RAnsSymbolEncoderILi12EE12EncodeSymbolEj.exit ]
   %indvars.iv42 = phi i64 [ %47, %.lr.ph39.preheader ], [ %indvars.iv.next43, %_ZN5draco17RAnsSymbolEncoderILi12EE12EncodeSymbolEj.exit ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next43
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %5, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = shl i32 %57, 10
   %.not6.i.i = icmp ult i32 %51, %58
@@ -6872,7 +6871,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -6891,10 +6890,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.030.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -6963,11 +6962,11 @@ _ZN5draco17RAnsSymbolEncoderILi13EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %51 = phi i32 [ 2097152, %.lr.ph39.preheader ], [ %74, %_ZN5draco17RAnsSymbolEncoderILi13EE12EncodeSymbolEj.exit ]
   %indvars.iv42 = phi i64 [ %47, %.lr.ph39.preheader ], [ %indvars.iv.next43, %_ZN5draco17RAnsSymbolEncoderILi13EE12EncodeSymbolEj.exit ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next43
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %5, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = shl i32 %57, 10
   %.not6.i.i = icmp ult i32 %51, %58
@@ -7064,7 +7063,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -7083,10 +7082,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.030.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -7155,11 +7154,11 @@ _ZN5draco17RAnsSymbolEncoderILi14EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %51 = phi i32 [ 4194304, %.lr.ph39.preheader ], [ %74, %_ZN5draco17RAnsSymbolEncoderILi14EE12EncodeSymbolEj.exit ]
   %indvars.iv42 = phi i64 [ %47, %.lr.ph39.preheader ], [ %indvars.iv.next43, %_ZN5draco17RAnsSymbolEncoderILi14EE12EncodeSymbolEj.exit ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next43
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %5, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = shl i32 %57, 10
   %.not6.i.i = icmp ult i32 %51, %58
@@ -7256,7 +7255,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -7275,10 +7274,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -7356,11 +7355,11 @@ _ZN5draco17RAnsSymbolEncoderILi15EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %57 = phi i32 [ 4194304, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi15EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi15EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -7448,7 +7447,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -7467,10 +7466,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -7548,11 +7547,11 @@ _ZN5draco17RAnsSymbolEncoderILi16EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %57 = phi i32 [ 4194304, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi16EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi16EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -7640,7 +7639,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -7659,10 +7658,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -7740,11 +7739,11 @@ _ZN5draco17RAnsSymbolEncoderILi17EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %57 = phi i32 [ 4194304, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi17EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi17EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -7832,7 +7831,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %10 to i64
@@ -7851,10 +7850,10 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.028.0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.028.0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !9
@@ -7932,11 +7931,11 @@ _ZN5draco17RAnsSymbolEncoderILi18EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %57 = phi i32 [ 4194304, %.lr.ph36.preheader ], [ %80, %_ZN5draco17RAnsSymbolEncoderILi18EE12EncodeSymbolEj.exit ]
   %indvars.iv39 = phi i64 [ %47, %.lr.ph36.preheader ], [ %indvars.iv.next40, %_ZN5draco17RAnsSymbolEncoderILi18EE12EncodeSymbolEj.exit ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next40
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = zext i32 %59 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !66
   %64 = shl i32 %63, 10
   %.not6.i.i = icmp ult i32 %57, %64
@@ -8053,7 +8052,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -8069,7 +8068,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -8086,7 +8085,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -8096,7 +8095,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -8174,7 +8173,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -8190,7 +8189,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -8216,10 +8215,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -8281,7 +8280,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -8302,7 +8301,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -8310,7 +8309,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -8506,7 +8505,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -8532,7 +8531,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -8717,7 +8716,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -8735,7 +8734,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -8802,9 +8801,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -8815,7 +8814,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -8831,7 +8830,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_T0_.exit
@@ -8908,9 +8907,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -8927,7 +8926,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -8943,14 +8942,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -8968,7 +8967,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -8993,7 +8992,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -9010,14 +9009,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -9033,7 +9032,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -9176,9 +9175,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -9257,9 +9256,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -9304,7 +9303,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -9314,7 +9313,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -9330,14 +9329,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -9355,7 +9354,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -9380,7 +9379,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -9397,14 +9396,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -9420,7 +9419,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -9477,7 +9476,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -9527,13 +9526,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -9630,9 +9629,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -9723,9 +9722,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -9846,9 +9845,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -9939,9 +9938,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -10026,7 +10025,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -10042,7 +10041,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -10059,7 +10058,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -10069,7 +10068,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -10147,7 +10146,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -10163,7 +10162,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -10189,10 +10188,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -10254,7 +10253,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -10275,7 +10274,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -10283,7 +10282,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -10479,7 +10478,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -10505,7 +10504,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -10690,7 +10689,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -10708,7 +10707,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -10775,9 +10774,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -10788,7 +10787,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -10804,7 +10803,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_T0_.exit
@@ -10881,9 +10880,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -10900,7 +10899,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -10916,14 +10915,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -10941,7 +10940,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -10966,7 +10965,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -10983,14 +10982,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -11006,7 +11005,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -11149,9 +11148,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -11230,9 +11229,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -11277,7 +11276,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -11287,7 +11286,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -11303,14 +11302,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -11328,7 +11327,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -11353,7 +11352,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -11370,14 +11369,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -11393,7 +11392,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -11450,7 +11449,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -11500,13 +11499,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -11603,9 +11602,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -11696,9 +11695,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -11819,9 +11818,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -11912,9 +11911,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -11999,7 +11998,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -12015,7 +12014,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -12032,7 +12031,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -12042,7 +12041,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -12120,7 +12119,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -12136,7 +12135,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -12162,10 +12161,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -12227,7 +12226,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -12248,7 +12247,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -12256,7 +12255,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -12452,7 +12451,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -12478,7 +12477,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -12663,7 +12662,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -12681,7 +12680,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -12748,9 +12747,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -12761,7 +12760,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -12777,7 +12776,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_T0_.exit
@@ -12854,9 +12853,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -12873,7 +12872,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -12889,14 +12888,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -12914,7 +12913,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -12939,7 +12938,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -12956,14 +12955,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -12979,7 +12978,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -13122,9 +13121,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -13203,9 +13202,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -13250,7 +13249,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -13260,7 +13259,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -13276,14 +13275,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -13301,7 +13300,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -13326,7 +13325,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -13343,14 +13342,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -13366,7 +13365,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -13423,7 +13422,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -13473,13 +13472,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -13576,9 +13575,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -13669,9 +13668,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -13792,9 +13791,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -13885,9 +13884,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -13972,7 +13971,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -13988,7 +13987,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -14005,7 +14004,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -14015,7 +14014,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -14093,7 +14092,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -14109,7 +14108,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -14135,10 +14134,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -14200,7 +14199,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -14221,7 +14220,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -14229,7 +14228,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -14425,7 +14424,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -14451,7 +14450,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -14636,7 +14635,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -14654,7 +14653,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -14721,9 +14720,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -14734,7 +14733,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -14750,7 +14749,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_T0_.exit
@@ -14827,9 +14826,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -14846,7 +14845,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -14862,14 +14861,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -14887,7 +14886,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -14912,7 +14911,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -14929,14 +14928,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -14952,7 +14951,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -15095,9 +15094,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -15176,9 +15175,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -15223,7 +15222,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -15233,7 +15232,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -15249,14 +15248,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -15274,7 +15273,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -15299,7 +15298,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -15316,14 +15315,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -15339,7 +15338,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -15396,7 +15395,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -15446,13 +15445,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -15549,9 +15548,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -15642,9 +15641,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -15765,9 +15764,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -15858,9 +15857,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -15945,7 +15944,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -15961,7 +15960,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -15978,7 +15977,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -15988,7 +15987,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -16066,7 +16065,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -16082,7 +16081,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -16108,10 +16107,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -16173,7 +16172,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -16194,7 +16193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -16202,7 +16201,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -16398,7 +16397,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -16424,7 +16423,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -16609,7 +16608,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -16627,7 +16626,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -16694,9 +16693,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -16707,7 +16706,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -16723,7 +16722,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_T0_.exit
@@ -16800,9 +16799,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -16819,7 +16818,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -16835,14 +16834,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -16860,7 +16859,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -16885,7 +16884,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -16902,14 +16901,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -16925,7 +16924,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -17068,9 +17067,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -17149,9 +17148,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -17196,7 +17195,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -17206,7 +17205,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -17222,14 +17221,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -17247,7 +17246,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -17272,7 +17271,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -17289,14 +17288,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -17312,7 +17311,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -17369,7 +17368,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -17419,13 +17418,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -17522,9 +17521,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -17615,9 +17614,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -17738,9 +17737,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -17831,9 +17830,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -17918,7 +17917,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -17934,7 +17933,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -17951,7 +17950,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -17961,7 +17960,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -18039,7 +18038,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -18055,7 +18054,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -18081,10 +18080,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -18146,7 +18145,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -18167,7 +18166,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -18175,7 +18174,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -18371,7 +18370,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -18397,7 +18396,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -18582,7 +18581,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -18600,7 +18599,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -18667,9 +18666,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -18680,7 +18679,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -18696,7 +18695,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_T0_.exit
@@ -18773,9 +18772,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -18792,7 +18791,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -18808,14 +18807,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -18833,7 +18832,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -18858,7 +18857,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -18875,14 +18874,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -18898,7 +18897,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -19041,9 +19040,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -19122,9 +19121,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -19169,7 +19168,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -19179,7 +19178,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -19195,14 +19194,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -19220,7 +19219,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -19245,7 +19244,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -19262,14 +19261,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -19285,7 +19284,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -19342,7 +19341,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -19392,13 +19391,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -19495,9 +19494,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -19588,9 +19587,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -19711,9 +19710,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -19804,9 +19803,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -19891,7 +19890,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -19907,7 +19906,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -19924,7 +19923,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -19934,7 +19933,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -20012,7 +20011,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -20028,7 +20027,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 4096
@@ -20054,10 +20053,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -20119,7 +20118,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -20140,7 +20139,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -20148,7 +20147,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F30000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -20344,7 +20343,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -20370,7 +20369,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -20555,7 +20554,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -20573,7 +20572,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -20640,9 +20639,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -20653,7 +20652,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -20669,7 +20668,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_T0_.exit
@@ -20746,9 +20745,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -20765,7 +20764,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -20781,14 +20780,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -20806,7 +20805,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -20831,7 +20830,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -20848,14 +20847,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -20871,7 +20870,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -21014,9 +21013,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -21095,9 +21094,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -21142,7 +21141,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -21152,7 +21151,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -21168,14 +21167,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -21193,7 +21192,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -21218,7 +21217,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -21235,14 +21234,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -21258,7 +21257,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -21315,7 +21314,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -21365,13 +21364,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -21468,9 +21467,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -21561,9 +21560,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -21684,9 +21683,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -21777,9 +21776,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -21864,7 +21863,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE6Creat
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -21880,7 +21879,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -21897,7 +21896,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -21907,7 +21906,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -21985,7 +21984,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -22001,7 +22000,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 8192
@@ -22027,10 +22026,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -22092,7 +22091,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -22113,7 +22112,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -22121,7 +22120,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F20000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -22318,7 +22317,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11Enco
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -22344,7 +22343,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11Enco
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -22529,7 +22528,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -22547,7 +22546,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -22614,9 +22613,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -22627,7 +22626,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -22643,7 +22642,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15Probabilit
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_T0_.exit
@@ -22720,9 +22719,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -22739,7 +22738,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15Probabili
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -22755,14 +22754,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -22780,7 +22779,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -22805,7 +22804,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -22822,14 +22821,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -22845,7 +22844,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -22988,9 +22987,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -23069,9 +23068,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -23116,7 +23115,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -23126,7 +23125,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -23142,14 +23141,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -23167,7 +23166,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -23192,7 +23191,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -23209,14 +23208,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -23232,7 +23231,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -23289,7 +23288,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -23339,13 +23338,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -23442,9 +23441,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -23535,9 +23534,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -23658,9 +23657,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -23751,9 +23750,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -23838,7 +23837,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -23854,7 +23853,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -23871,7 +23870,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -23881,7 +23880,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -23959,7 +23958,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -23975,7 +23974,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 32768
@@ -24001,10 +24000,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -24066,7 +24065,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -24087,7 +24086,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -24095,7 +24094,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3F00000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -24292,7 +24291,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -24318,7 +24317,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -24503,7 +24502,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -24521,7 +24520,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -24588,9 +24587,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -24601,7 +24600,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -24617,7 +24616,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_T0_.exit
@@ -24694,9 +24693,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -24713,7 +24712,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -24729,14 +24728,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -24754,7 +24753,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -24779,7 +24778,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -24796,14 +24795,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -24819,7 +24818,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -24962,9 +24961,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -25043,9 +25042,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -25090,7 +25089,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -25100,7 +25099,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -25116,14 +25115,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -25141,7 +25140,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -25166,7 +25165,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -25183,14 +25182,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -25206,7 +25205,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -25263,7 +25262,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -25313,13 +25312,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -25416,9 +25415,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -25509,9 +25508,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -25632,9 +25631,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -25725,9 +25724,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -25812,7 +25811,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -25828,7 +25827,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -25845,7 +25844,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -25855,7 +25854,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -25933,7 +25932,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -25949,7 +25948,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 65536
@@ -25975,10 +25974,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -26040,7 +26039,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -26061,7 +26060,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -26069,7 +26068,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3EF0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -26266,7 +26265,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -26292,7 +26291,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -26477,7 +26476,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -26495,7 +26494,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -26562,9 +26561,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -26575,7 +26574,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -26591,7 +26590,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_T0_.exit
@@ -26668,9 +26667,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -26687,7 +26686,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -26703,14 +26702,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -26728,7 +26727,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -26753,7 +26752,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -26770,14 +26769,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -26793,7 +26792,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -26936,9 +26935,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -27017,9 +27016,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -27064,7 +27063,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -27074,7 +27073,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -27090,14 +27089,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -27115,7 +27114,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -27140,7 +27139,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -27157,14 +27156,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -27180,7 +27179,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -27237,7 +27236,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -27287,13 +27286,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -27390,9 +27389,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -27483,9 +27482,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -27606,9 +27605,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -27699,9 +27698,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -27786,7 +27785,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -27802,7 +27801,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -27819,7 +27818,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -27829,7 +27828,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -27907,7 +27906,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -27923,7 +27922,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 262144
@@ -27949,10 +27948,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -28014,7 +28013,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -28035,7 +28034,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -28043,7 +28042,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3ED0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -28240,7 +28239,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -28266,7 +28265,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -28451,7 +28450,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -28469,7 +28468,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -28536,9 +28535,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -28549,7 +28548,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -28565,7 +28564,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_T0_.exit
@@ -28642,9 +28641,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -28661,7 +28660,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -28677,14 +28676,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -28702,7 +28701,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -28727,7 +28726,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -28744,14 +28743,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -28767,7 +28766,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -28910,9 +28909,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -28991,9 +28990,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -29038,7 +29037,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -29048,7 +29047,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -29064,14 +29063,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -29089,7 +29088,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -29114,7 +29113,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -29131,14 +29130,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -29154,7 +29153,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -29211,7 +29210,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -29261,13 +29260,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -29364,9 +29363,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -29457,9 +29456,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -29580,9 +29579,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -29673,9 +29672,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -29760,7 +29759,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -29776,7 +29775,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -29793,7 +29792,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -29803,7 +29802,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -29881,7 +29880,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -29897,7 +29896,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 524288
@@ -29923,10 +29922,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -29988,7 +29987,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -30009,7 +30008,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -30017,7 +30016,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3EC0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -30214,7 +30213,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -30240,7 +30239,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -30425,7 +30424,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -30443,7 +30442,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -30510,9 +30509,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -30523,7 +30522,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -30539,7 +30538,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_T0_.exit
@@ -30616,9 +30615,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -30635,7 +30634,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -30651,14 +30650,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -30676,7 +30675,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -30701,7 +30700,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -30718,14 +30717,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -30741,7 +30740,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -30884,9 +30883,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -30965,9 +30964,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -31012,7 +31011,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -31022,7 +31021,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -31038,14 +31037,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -31063,7 +31062,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -31088,7 +31087,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -31105,14 +31104,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -31128,7 +31127,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -31185,7 +31184,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -31235,13 +31234,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -31338,9 +31337,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -31431,9 +31430,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -31554,9 +31553,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -31647,9 +31646,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -31734,7 +31733,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -31750,7 +31749,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -31767,7 +31766,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -31777,7 +31776,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -31855,7 +31854,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -31871,7 +31870,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 1048576
@@ -31897,10 +31896,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -31962,7 +31961,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -31983,7 +31982,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -31991,7 +31990,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3EB0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -32188,7 +32187,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -32214,7 +32213,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -32399,7 +32398,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -32417,7 +32416,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -32484,9 +32483,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -32497,7 +32496,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -32513,7 +32512,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_T0_.exit
@@ -32590,9 +32589,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -32609,7 +32608,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -32625,14 +32624,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -32650,7 +32649,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -32675,7 +32674,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -32692,14 +32691,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -32715,7 +32714,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -32858,9 +32857,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -32939,9 +32938,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -32986,7 +32985,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -32996,7 +32995,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -33012,14 +33011,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -33037,7 +33036,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -33062,7 +33061,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -33079,14 +33078,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -33102,7 +33101,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -33159,7 +33158,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -33209,13 +33208,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -33312,9 +33311,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -33405,9 +33404,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -33528,9 +33527,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -33621,9 +33620,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -33708,7 +33707,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -33724,7 +33723,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -33741,7 +33740,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -33751,7 +33750,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -33829,7 +33828,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -33845,7 +33844,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 1048576
@@ -33871,10 +33870,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -33936,7 +33935,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -33957,7 +33956,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -33965,7 +33964,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3EB0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -34162,7 +34161,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -34188,7 +34187,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -34373,7 +34372,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -34391,7 +34390,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -34458,9 +34457,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -34471,7 +34470,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -34487,7 +34486,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_T0_.exit
@@ -34564,9 +34563,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -34583,7 +34582,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -34599,14 +34598,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -34624,7 +34623,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -34649,7 +34648,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -34666,14 +34665,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -34689,7 +34688,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -34832,9 +34831,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -34913,9 +34912,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -34960,7 +34959,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -34970,7 +34969,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -34986,14 +34985,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -35011,7 +35010,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -35036,7 +35035,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -35053,14 +35052,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -35076,7 +35075,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -35133,7 +35132,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -35183,13 +35182,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -35286,9 +35285,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -35379,9 +35378,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -35502,9 +35501,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -35595,9 +35594,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -35682,7 +35681,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -35698,7 +35697,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -35715,7 +35714,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -35725,7 +35724,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -35803,7 +35802,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -35819,7 +35818,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 1048576
@@ -35845,10 +35844,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -35910,7 +35909,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -35931,7 +35930,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -35939,7 +35938,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3EB0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -36136,7 +36135,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -36162,7 +36161,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -36347,7 +36346,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -36365,7 +36364,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -36432,9 +36431,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -36445,7 +36444,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -36461,7 +36460,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_T0_.exit
@@ -36538,9 +36537,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -36557,7 +36556,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -36573,14 +36572,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -36598,7 +36597,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -36623,7 +36622,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -36640,14 +36639,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -36663,7 +36662,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -36806,9 +36805,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -36887,9 +36886,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -36934,7 +36933,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -36944,7 +36943,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -36960,14 +36959,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -36985,7 +36984,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -37010,7 +37009,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -37027,14 +37026,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -37050,7 +37049,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -37107,7 +37106,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -37157,13 +37156,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -37260,9 +37259,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -37353,9 +37352,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -37476,9 +37475,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -37569,9 +37568,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -37656,7 +37655,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -37672,7 +37671,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -37689,7 +37688,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -37699,7 +37698,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -37777,7 +37776,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -37793,7 +37792,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 1048576
@@ -37819,10 +37818,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -37884,7 +37883,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -37905,7 +37904,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -37913,7 +37912,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3EB0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -38110,7 +38109,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -38136,7 +38135,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -38321,7 +38320,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -38339,7 +38338,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -38406,9 +38405,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -38419,7 +38418,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -38435,7 +38434,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_T0_.exit
@@ -38512,9 +38511,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -38531,7 +38530,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -38547,14 +38546,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -38572,7 +38571,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -38597,7 +38596,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -38614,14 +38613,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -38637,7 +38636,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -38780,9 +38779,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -38861,9 +38860,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -38908,7 +38907,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -38918,7 +38917,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -38934,14 +38933,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -38959,7 +38958,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -38984,7 +38983,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -39001,14 +39000,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -39024,7 +39023,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -39081,7 +39080,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -39131,13 +39130,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -39234,9 +39233,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -39327,9 +39326,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -39450,9 +39449,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -39543,9 +39542,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70
@@ -39630,7 +39629,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE6Crea
   br i1 %21, label %22, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, label %24
 
@@ -39646,7 +39645,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0107176 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.0114175 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %.0107176
   %.not138 = icmp eq i64 %27, 0
@@ -39663,7 +39662,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
   %.0121179 = phi i32 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %41, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv210
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv210
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = uitofp i64 %33 to double
   %35 = fdiv double %34, %.0107.lcssa
@@ -39673,7 +39672,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
   %39 = icmp ne i64 %33, 0
   %or.cond = select i1 %38, i1 %39, i1 false
   %spec.store.select7 = select i1 %or.cond, i32 1, i32 %37
-  %40 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %25, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv210
   store i32 %spec.store.select7, ptr %40, align 4, !tbaa !66
   %41 = add i32 %spec.store.select7, %.0121179
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -39751,7 +39750,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
   %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv215
   %64 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -39767,7 +39766,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8, !tbaa !65
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load i32, ptr %71, align 4, !tbaa !66
   %reass.sub199 = sub i32 %72, %41
   %73 = add i32 %reass.sub199, 1048576
@@ -39793,10 +39792,10 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
   %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
   %80 = zext nneg i32 %.0113183.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %102, label %87
@@ -39858,7 +39857,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 109:                                              ; preds = %105, %109
   %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
   %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
-  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv220
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %.0104195, ptr %111, align 4, !tbaa !69
   %112 = load i32, ptr %110, align 4, !tbaa !66
@@ -39879,7 +39878,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 120:                                              ; preds = %.preheader, %132
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
   %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
-  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv225
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %132, label %124
@@ -39887,7 +39886,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
   %126 = fmul nnan double %125, 0x3EB0000000000000
-  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
   %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
@@ -40084,7 +40083,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11Enc
   %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
   %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !65
-  %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = icmp ugt i32 %19, 63
   br i1 %20, label %21, label %25
@@ -40110,7 +40109,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11Enc
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %27, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !66
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %35
@@ -40295,7 +40294,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -40313,7 +40312,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %9 = ashr exact i64 %8, 2
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -40380,9 +40379,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %20 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !66
-  %22 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !66
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i
@@ -40393,7 +40392,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_T0_.exit
 
@@ -40409,7 +40408,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15Probabili
   %.sroa.05.018.us27.i = phi ptr [ %.sroa.0.019.us26.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %.sroa.0.019.us26.i = phi ptr [ %.sroa.0.0.us.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %.pn36, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
   %35 = load i32, ptr %20, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %11, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %33
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_T0_.exit
@@ -40486,9 +40485,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  %27 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %16
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !66
-  %29 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %18, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %32, label %.loopexit
@@ -40505,7 +40504,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15Probabil
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %33
   %36 = sdiv i64 %.tr77107, 2
-  %37 = getelementptr inbounds i32, ptr %.tr103, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr103, i64 %36
   %38 = sub i64 %10, %35
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
@@ -40521,14 +40520,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %47 = load i32, ptr %37, align 4
   %48 = sext i32 %47 to i64
   %.not.i.i2.i.i.i = icmp ugt i64 %46, %48
-  %49 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr75105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %50 = lshr i64 %.020.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %53 = sext i32 %52 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %46, %53
@@ -40546,7 +40545,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advance
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !66
   %58 = load i32, ptr %49, align 4, !tbaa !66
   %59 = icmp ult i32 %57, %58
@@ -40571,7 +40570,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit55: ; preds = %33
   %66 = sdiv i64 %.tr78108, 2
-  %67 = getelementptr inbounds i32, ptr %.tr75105, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.tr75105, i64 %66
   %68 = ptrtoint ptr %.tr103 to i64
   %69 = sub i64 %35, %68
   %70 = ashr exact i64 %69, 2
@@ -40588,14 +40587,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %.not.i.i.i.i.i58 = icmp ugt i64 %79, %73
-  %80 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   br i1 %.not.i.i.i.i.i58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59, label %85
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i60 = phi i64 [ %.1.i66, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %.sroa.012.019.i61 = phi ptr [ %.sroa.012.1.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57 ]
   %81 = lshr i64 %.020.i60, 1
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i61, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i61, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %.not.i.i2.i.i.i64 = icmp ugt i64 %79, %84
@@ -40611,7 +40610,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
   %87 = load i32, ptr %80, align 4, !tbaa !66
-  %88 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %84
   %89 = load i32, ptr %88, align 4, !tbaa !66
   %90 = icmp ult i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -40754,9 +40753,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %31 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %32 = load i32, ptr %31, align 4, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = icmp ult i32 %32, %34
   %.sink.i = select i1 %35, i32 %19, i32 %28
@@ -40835,9 +40834,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  %62 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !66
-  %64 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %49, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %60
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = icmp ult i32 %63, %65
   %67 = getelementptr inbounds i8, ptr %.sroa.021.047.i, i64 -4
@@ -40882,7 +40881,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %.lcssa.sink.i, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.lcssa.sink.i, i64 %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %86, ptr align 4 %5, i64 %83, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -40892,7 +40891,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %87
   %89 = sdiv i64 %.tr119185, 2
-  %90 = getelementptr inbounds i32, ptr %.tr181, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.tr181, i64 %89
   %91 = sub i64 %11, %88
   %92 = ashr exact i64 %91, 2
   %93 = icmp sgt i64 %92, 0
@@ -40908,14 +40907,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %100 = load i32, ptr %90, align 4
   %101 = sext i32 %100 to i64
   %.not.i.i2.i.i.i87 = icmp ugt i64 %99, %101
-  %102 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %101
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117183, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %103 = lshr i64 %.020.i, 1
-  %104 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %.not.i.i.i.i.i88 = icmp ugt i64 %99, %106
@@ -40933,7 +40932,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advan
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %95, i64 %106
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %106
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = load i32, ptr %102, align 4, !tbaa !66
   %112 = icmp ult i32 %110, %111
@@ -40958,7 +40957,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %87
   %119 = sdiv i64 %.tr120186, 2
-  %120 = getelementptr inbounds i32, ptr %.tr117183, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.tr117183, i64 %119
   %121 = ptrtoint ptr %.tr181 to i64
   %122 = sub i64 %88, %121
   %123 = ashr exact i64 %122, 2
@@ -40975,14 +40974,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
   %.not.i.i.i.i.i98 = icmp ugt i64 %132, %126
-  %133 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr181, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %134 = lshr i64 %.020.i100, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.sroa.012.019.i101, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.012.019.i101, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = sext i32 %136 to i64
   %.not.i.i2.i.i.i104 = icmp ugt i64 %132, %137
@@ -40998,7 +40997,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
   %140 = load i32, ptr %133, align 4, !tbaa !66
-  %141 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %128, i64 %137
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !66
   %143 = icmp ult i32 %140, %142
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -41055,7 +41054,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
   %161 = sub i64 %156, %160
   %162 = ashr exact i64 %161, 2
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %163
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %164, ptr align 4 %.sroa.0112.0, i64 %161, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -41105,13 +41104,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 177:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %178 = ashr exact i64 %172, 2
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr align 4 %5, i64 %172, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %177, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %179, %177 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
-  %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %181 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 182:                                              ; preds = %167
@@ -41208,9 +41207,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -41301,9 +41300,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %59, i64 %69
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %74 = load i32, ptr %73, align 4, !tbaa !66
   %75 = icmp ult i32 %72, %74
   %.sink.i31 = select i1 %75, i32 %65, i32 %68
@@ -41424,9 +41423,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %29
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !66
-  %36 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !66
   %38 = icmp ult i32 %35, %37
   %.sink.i = select i1 %38, i32 %28, i32 %31
@@ -41517,9 +41516,9 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  %73 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %68
   %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %61, i64 %71
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !66
   %77 = icmp ult i32 %74, %76
   %.sink.i39 = select i1 %77, i32 %67, i32 %70

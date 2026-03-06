@@ -965,7 +965,7 @@ entry:
   store double %div, ptr %param, align 8
   %cmp = fcmp ogt double %div, 5.000000e-01
   %idxprom = zext i1 %cmp to i64
-  %arrayidx18 = getelementptr inbounds nuw %"struct.msdfgen::Vector2", ptr %p, i64 %idxprom
+  %arrayidx18 = getelementptr inbounds nuw [16 x i8], ptr %p, i64 %idxprom
   %agg.tmp16.sroa.0.0.copyload = load double, ptr %arrayidx18, align 8
   %agg.tmp16.sroa.2.0.arrayidx18.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
   %agg.tmp16.sroa.2.0.copyload = load double, ptr %agg.tmp16.sroa.2.0.arrayidx18.sroa_idx, align 8
@@ -1137,7 +1137,7 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %minDistance.1131 = phi double [ %minDistance.0, %for.body.preheader ], [ %minDistance.2, %for.inc ]
-  %arrayidx84 = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
+  %arrayidx84 = getelementptr inbounds nuw [8 x i8], ptr %t, i64 %indvars.iv
   %25 = load double, ptr %arrayidx84, align 8
   %cmp85 = fcmp ogt double %25, 0.000000e+00
   %cmp88 = fcmp olt double %25, 1.000000e+00
@@ -1660,7 +1660,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %total.164 = phi i32 [ %total.0, %for.body.preheader ], [ %total.2, %for.inc ]
   %nextDY.163 = phi i32 [ %nextDY.0, %for.body.preheader ], [ %nextDY.2, %for.inc ]
-  %arrayidx71 = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
+  %arrayidx71 = getelementptr inbounds nuw [8 x i8], ptr %t, i64 %indvars.iv
   %8 = load double, ptr %arrayidx71, align 8
   %cmp72 = fcmp ult double %8, 0.000000e+00
   %cmp76 = fcmp ugt double %8, 1.000000e+00
@@ -1674,7 +1674,7 @@ if.then77:                                        ; preds = %for.body
   %mul90 = fmul nnan double %8, %8
   %11 = call double @llvm.fmuladd.f64(double %mul90, double %sub.i58, double %10)
   %idxprom93 = zext nneg i32 %total.164 to i64
-  %arrayidx94 = getelementptr inbounds nuw double, ptr %x, i64 %idxprom93
+  %arrayidx94 = getelementptr inbounds nuw [8 x i8], ptr %x, i64 %idxprom93
   store double %11, ptr %arrayidx94, align 8
   %conv = sitofp i32 %nextDY.163 to double
   %12 = call double @llvm.fmuladd.f64(double %8, double %sub3.i59, double %sub3.i)
@@ -1684,7 +1684,7 @@ if.then77:                                        ; preds = %for.body
 
 if.then102:                                       ; preds = %if.then77
   %inc103 = add nuw nsw i32 %total.164, 1
-  %arrayidx105 = getelementptr inbounds nuw i32, ptr %dy, i64 %idxprom93
+  %arrayidx105 = getelementptr inbounds nuw [4 x i8], ptr %dy, i64 %idxprom93
   store i32 %nextDY.163, ptr %arrayidx105, align 4
   %sub106 = sub nsw i32 0, %nextDY.163
   br label %for.inc
@@ -1734,14 +1734,14 @@ land.lhs.true143:                                 ; preds = %if.then114
 if.then145:                                       ; preds = %land.lhs.true135, %land.lhs.true143
   %17 = load double, ptr %arrayidx44, align 8
   %idxprom149 = sext i32 %spec.select53 to i64
-  %arrayidx150 = getelementptr inbounds double, ptr %x, i64 %idxprom149
+  %arrayidx150 = getelementptr inbounds [8 x i8], ptr %x, i64 %idxprom149
   store double %17, ptr %arrayidx150, align 8
   %cmp151 = icmp slt i32 %spec.select, 0
   br i1 %cmp151, label %if.then152, label %if.end158
 
 if.then152:                                       ; preds = %if.then145
   %inc153 = add nsw i32 %spec.select53, 1
-  %arrayidx155 = getelementptr inbounds i32, ptr %dy, i64 %idxprom149
+  %arrayidx155 = getelementptr inbounds [4 x i8], ptr %dy, i64 %idxprom149
   store i32 -1, ptr %arrayidx155, align 4
   br label %if.end158
 
@@ -1786,14 +1786,14 @@ if.else169.if.end185_crit_edge:                   ; preds = %if.else169
 if.then179:                                       ; preds = %if.else169
   %23 = load double, ptr %arrayidx44, align 8
   %idxprom183 = sext i32 %total.3 to i64
-  %arrayidx184 = getelementptr inbounds double, ptr %x, i64 %idxprom183
+  %arrayidx184 = getelementptr inbounds [8 x i8], ptr %x, i64 %idxprom183
   store double %23, ptr %arrayidx184, align 8
   br label %if.end185
 
 if.end185:                                        ; preds = %if.else169.if.end185_crit_edge, %if.then179
   %idxprom187.pre-phi = phi i64 [ %.pre, %if.else169.if.end185_crit_edge ], [ %idxprom183, %if.then179 ]
   %inc186 = add nsw i32 %total.3, 1
-  %arrayidx188 = getelementptr inbounds i32, ptr %dy, i64 %idxprom187.pre-phi
+  %arrayidx188 = getelementptr inbounds [4 x i8], ptr %dy, i64 %idxprom187.pre-phi
   store i32 %nextDY.3, ptr %arrayidx188, align 4
   br label %if.end190
 
@@ -1932,7 +1932,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %total.195 = phi i32 [ %total.0, %for.body.preheader ], [ %total.2, %for.inc ]
   %nextDY.194 = phi i32 [ %nextDY.0, %for.body.preheader ], [ %nextDY.2, %for.inc ]
-  %arrayidx130 = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
+  %arrayidx130 = getelementptr inbounds nuw [8 x i8], ptr %t, i64 %indvars.iv
   %12 = load double, ptr %arrayidx130, align 8
   %cmp131 = fcmp ult double %12, 0.000000e+00
   %cmp135 = fcmp ugt double %12, 1.000000e+00
@@ -1949,7 +1949,7 @@ if.then136:                                       ; preds = %for.body
   %mul160 = fmul double %12, %mul157
   %16 = call double @llvm.fmuladd.f64(double %mul160, double %sub.i89, double %15)
   %idxprom163 = sext i32 %total.195 to i64
-  %arrayidx164 = getelementptr inbounds double, ptr %x, i64 %idxprom163
+  %arrayidx164 = getelementptr inbounds [8 x i8], ptr %x, i64 %idxprom163
   store double %16, ptr %arrayidx164, align 8
   %conv = sitofp i32 %nextDY.194 to double
   %mul168 = fmul nnan double %12, 2.000000e+00
@@ -1961,7 +1961,7 @@ if.then136:                                       ; preds = %for.body
 
 if.then180:                                       ; preds = %if.then136
   %inc181 = add nsw i32 %total.195, 1
-  %arrayidx183 = getelementptr inbounds i32, ptr %dy, i64 %idxprom163
+  %arrayidx183 = getelementptr inbounds [4 x i8], ptr %dy, i64 %idxprom163
   store i32 %nextDY.194, ptr %arrayidx183, align 4
   %sub184 = sub nsw i32 0, %nextDY.194
   br label %for.inc
@@ -2020,14 +2020,14 @@ land.lhs.true237:                                 ; preds = %land.lhs.true213, %
 if.then239:                                       ; preds = %land.lhs.true229, %land.lhs.true237
   %24 = load double, ptr %arrayidx71, align 8
   %idxprom243 = sext i32 %spec.select68 to i64
-  %arrayidx244 = getelementptr inbounds double, ptr %x, i64 %idxprom243
+  %arrayidx244 = getelementptr inbounds [8 x i8], ptr %x, i64 %idxprom243
   store double %24, ptr %arrayidx244, align 8
   %cmp245 = icmp slt i32 %spec.select, 0
   br i1 %cmp245, label %if.then246, label %if.end252
 
 if.then246:                                       ; preds = %if.then239
   %inc247 = add nsw i32 %spec.select68, 1
-  %arrayidx249 = getelementptr inbounds i32, ptr %dy, i64 %idxprom243
+  %arrayidx249 = getelementptr inbounds [4 x i8], ptr %dy, i64 %idxprom243
   store i32 -1, ptr %arrayidx249, align 4
   br label %if.end252
 
@@ -2072,14 +2072,14 @@ if.else263.if.end279_crit_edge:                   ; preds = %if.else263
 if.then273:                                       ; preds = %if.else263
   %30 = load double, ptr %arrayidx71, align 8
   %idxprom277 = sext i32 %total.3 to i64
-  %arrayidx278 = getelementptr inbounds double, ptr %x, i64 %idxprom277
+  %arrayidx278 = getelementptr inbounds [8 x i8], ptr %x, i64 %idxprom277
   store double %30, ptr %arrayidx278, align 8
   br label %if.end279
 
 if.end279:                                        ; preds = %if.else263.if.end279_crit_edge, %if.then273
   %idxprom281.pre-phi = phi i64 [ %.pre, %if.else263.if.end279_crit_edge ], [ %idxprom277, %if.then273 ]
   %inc280 = add nsw i32 %total.3, 1
-  %arrayidx282 = getelementptr inbounds i32, ptr %dy, i64 %idxprom281.pre-phi
+  %arrayidx282 = getelementptr inbounds [4 x i8], ptr %dy, i64 %idxprom281.pre-phi
   store i32 %nextDY.3, ptr %arrayidx282, align 4
   br label %if.end284
 
@@ -2507,7 +2507,7 @@ for.body.preheader:                               ; preds = %_ZN7msdfgenL11point
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx47 = getelementptr inbounds nuw double, ptr %params, i64 %indvars.iv
+  %arrayidx47 = getelementptr inbounds nuw [8 x i8], ptr %params, i64 %indvars.iv
   %8 = load double, ptr %arrayidx47, align 8
   %cmp48 = fcmp ogt double %8, 0.000000e+00
   %cmp51 = fcmp olt double %8, 1.000000e+00
@@ -2572,7 +2572,7 @@ for.body63.preheader:                             ; preds = %for.end
 
 for.body63:                                       ; preds = %for.body63.preheader, %for.inc79
   %indvars.iv93 = phi i64 [ 0, %for.body63.preheader ], [ %indvars.iv.next94, %for.inc79 ]
-  %arrayidx65 = getelementptr inbounds nuw double, ptr %params, i64 %indvars.iv93
+  %arrayidx65 = getelementptr inbounds nuw [8 x i8], ptr %params, i64 %indvars.iv93
   %16 = load double, ptr %arrayidx65, align 8
   %cmp66 = fcmp ogt double %16, 0.000000e+00
   %cmp70 = fcmp olt double %16, 1.000000e+00

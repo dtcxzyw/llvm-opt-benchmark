@@ -29,9 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.aiFace = type { i32, ptr }
-%class.aiVector3t = type { float, float, float }
-%struct.aiTexel = type { i8, i8, i8, i8 }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
@@ -1337,7 +1334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 31:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE9push_backERKS3_.exit
   %32 = phi ptr [ %11, %.lr.ph ], [ %153, %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE9push_backERKS3_.exit ]
   %.01436 = phi i64 [ 0, %.lr.ph ], [ %151, %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE9push_backERKS3_.exit ]
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.01436
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.01436
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
@@ -1689,7 +1686,7 @@ _ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.ex
 _ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %149, %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %144, ptr %.01330, align 8
   store ptr %148, ptr %124, align 8
-  %150 = getelementptr inbounds nuw ptr, ptr %144, i64 %142
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %142
   store ptr %150, ptr %126, align 8
   br label %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE9push_backERKS3_.exit
 
@@ -1860,7 +1857,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %54 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %36
@@ -1925,7 +1922,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %76, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %77 = getelementptr inbounds nuw ptr, ptr %70, i64 %68
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
 
 .loopexit89:                                      ; preds = %32, %_ZNKSt6vectorIP6aiNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -1992,14 +1989,14 @@ _ZNK6Assimp17Q3BSPFileImporter9countDataERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS
 
 .lr.ph132:                                        ; preds = %84, %93
   %.036130 = phi i64 [ %94, %93 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %.sroa.072.0.lcssa, i64 %.036130
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.072.0.lcssa, i64 %.036130
   %89 = load ptr, ptr %88, align 8
   %.not41 = icmp eq ptr %89, null
   br i1 %.not41, label %93, label %90
 
 90:                                               ; preds = %.lr.ph132
   %91 = load ptr, ptr %85, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %.036130
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.036130
   store ptr %89, ptr %92, align 8
   br label %93
 
@@ -2055,16 +2052,16 @@ _ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit:           ; preds = %._crit_edge136, %._
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %.034133 = phi i64 [ %125, %.lr.ph135 ], [ 0, %.lr.ph135.preheader ]
-  %114 = getelementptr inbounds nuw ptr, ptr %.sroa.063.0.lcssa, i64 %.034133
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.063.0.lcssa, i64 %.034133
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1096
   store ptr %3, ptr %116, align 8
   %117 = load ptr, ptr %104, align 8
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %.034133
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.034133
   store ptr %115, ptr %118, align 8
   %119 = trunc i64 %.034133 to i32
   %120 = load ptr, ptr %104, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %.034133
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.034133
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1128
   %124 = load ptr, ptr %123, align 8
@@ -2695,7 +2692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   %225 = load ptr, ptr %24, align 8
   %226 = load i32, ptr %45, align 8
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw ptr, ptr %225, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %227
   store ptr %89, ptr %228, align 8
   %229 = load i32, ptr %45, align 8
   %230 = add i32 %229, 1
@@ -2884,7 +2881,7 @@ _ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFac
   br i1 %53, label %.lr.ph.preheader, label %54
 
 54:                                               ; preds = %_ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit
-  %55 = getelementptr inbounds %struct.aiFace, ptr %52, i64 %.1.i50
+  %55 = getelementptr inbounds [16 x i8], ptr %52, i64 %.1.i50
   br label %56
 
 56:                                               ; preds = %56, %54
@@ -3082,7 +3079,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit: ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw %struct.aiFace, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   %16 = add nuw i32 %7, 1
   store i32 %16, ptr %4, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3124,8 +3121,8 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit: ; preds = %6
   %40 = load i32, ptr %30, align 4
   %41 = sext i32 %40 to i64
   %42 = load ptr, ptr %29, align 8
-  %43 = getelementptr i32, ptr %42, i64 %.04152
-  %44 = getelementptr i32, ptr %43, i64 %41
+  %43 = getelementptr [4 x i8], ptr %42, i64 %.04152
+  %44 = getelementptr [4 x i8], ptr %43, i64 %41
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %45, %39
   %47 = sext i32 %46 to i64
@@ -3139,7 +3136,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit: ; preds = %6
   br i1 %.not, label %54, label %129
 
 54:                                               ; preds = %37
-  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %129, label %58
@@ -3161,7 +3158,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit48.thread: ; preds = %
 _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit48: ; preds = %60
   %64 = load ptr, ptr %12, align 8
   %65 = zext i32 %61 to i64
-  %66 = getelementptr inbounds nuw %struct.aiFace, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %65
   %67 = add nuw i32 %61, 1
   store i32 %67, ptr %4, align 4
   store ptr %66, ptr %17, align 8
@@ -3186,7 +3183,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit48: ; preds = %60
   %78 = load ptr, ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.053
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.053
   store i32 %77, ptr %81, align 4
   %82 = add nuw nsw i64 %.053, 1
   br label %83
@@ -3196,7 +3193,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit48: ; preds = %60
   %84 = load ptr, ptr %33, align 8
   %85 = load i32, ptr %5, align 4
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %class.aiVector3t, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [12 x i8], ptr %84, i64 %86
   %88 = load float, ptr %56, align 4
   %89 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %90 = load float, ptr %89, align 4
@@ -3210,7 +3207,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit48: ; preds = %60
   %95 = load ptr, ptr %34, align 8
   %96 = load i32, ptr %5, align 4
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %class.aiVector3t, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [12 x i8], ptr %95, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %100 = load float, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -3225,7 +3222,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit48: ; preds = %60
   %107 = load ptr, ptr %35, align 8
   %108 = load i32, ptr %5, align 4
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %class.aiVector3t, ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [12 x i8], ptr %107, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %112 = load float, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -3238,7 +3235,7 @@ _ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj.exit48: ; preds = %60
   %117 = load ptr, ptr %36, align 8
   %118 = load i32, ptr %5, align 4
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %class.aiVector3t, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [12 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %122 = load float, ptr %121, align 4
   %123 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -3278,7 +3275,7 @@ define hidden noundef ptr @_ZN6Assimp17Q3BSPFileImporter11getNextFaceEP6aiMeshRj
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds nuw %struct.aiFace, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = add nuw i32 %4, 1
   store i32 %13, ptr %2, align 4
   br label %14
@@ -3323,7 +3320,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter24importTextureFr
 
 27:                                               ; preds = %17
   %28 = zext nneg i32 %5 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not44.not = icmp eq ptr %30, null
   br i1 %.not44.not, label %235, label %31
@@ -3657,7 +3654,7 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds
 _ZNSt6vectorIP9aiTextureSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %169, %_ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %164, ptr %113, align 8
   store ptr %168, ptr %114, align 8
-  %170 = getelementptr inbounds nuw ptr, ptr %164, i64 %162
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %162
   store ptr %170, ptr %146, align 8
   br label %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit
 
@@ -3980,7 +3977,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter14importLightmapE
 
 21:                                               ; preds = %11
   %22 = zext nneg i32 %4 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %15, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not40 = icmp eq ptr %24, null
   br i1 %.not40, label %101, label %25
@@ -4124,7 +4121,7 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds
 _ZNSt6vectorIP9aiTextureSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %86, %_ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %81, ptr %35, align 8
   store ptr %85, ptr %36, align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %79
   store ptr %87, ptr %63, align 8
   br label %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit
 
@@ -4137,7 +4134,7 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit: ; preds = %65, %_ZNSt6vec
   %.02741 = phi i64 [ 0, %25 ], [ %96, %88 ]
   %89 = getelementptr inbounds nuw i8, ptr %24, i64 %.02741
   %90 = load i8, ptr %89, align 1
-  %91 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.042
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
   store i8 %90, ptr %92, align 1
   %93 = getelementptr i8, ptr %89, i64 1
@@ -5616,7 +5613,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %71
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %70, align 8
   ret void
 

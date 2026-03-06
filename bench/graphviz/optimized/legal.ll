@@ -3,11 +3,6 @@ source_filename = "bench/graphviz/original/legal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.vertex = type { %struct.pointf_s, ptr, ptr }
-%struct.pointf_s = type { double, double }
-%struct.polygon = type { ptr, ptr, %struct.boxf }
-%struct.boxf = type { %struct.pointf_s, %struct.pointf_s }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
@@ -58,7 +53,7 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.06194 = phi i64 [ 0, %.lr.ph.preheader ], [ %23, %.lr.ph ]
-  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !10
@@ -107,10 +102,10 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   %indvars.iv138 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next139, %._crit_edge103 ]
   %.063109 = phi i32 [ 0, %.lr.ph111.preheader ], [ %.164.lcssa, %._crit_edge103 ]
   %37 = sext i32 %.063109 to i64
-  %38 = getelementptr inbounds %struct.vertex, ptr %36, i64 %37
-  %39 = getelementptr inbounds nuw %struct.polygon, ptr %11, i64 %indvars.iv138
+  %38 = getelementptr inbounds [32 x i8], ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv138
   store ptr %38, ptr %39, align 8, !tbaa !16
-  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv138
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv138
   %41 = load ptr, ptr %40, align 8, !tbaa !8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !10
@@ -134,7 +129,7 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   %.sroa.6.0.lcssa = phi double [ %56, %._crit_edge103.loopexit ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph111 ]
   %.sroa.0.0.lcssa = phi double [ %55, %._crit_edge103.loopexit ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph111 ]
   %.164.lcssa = phi i32 [ %45, %._crit_edge103.loopexit ], [ %.063109, %.lr.ph111 ]
-  %46 = getelementptr %struct.vertex, ptr %36, i64 %.pre-phi
+  %46 = getelementptr [32 x i8], ptr %36, i64 %.pre-phi
   %47 = getelementptr i8, ptr %46, i64 -32
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %47, ptr %48, align 8, !tbaa !22
@@ -157,7 +152,7 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   %.sroa.6.097 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph102 ], [ %56, %50 ]
   %.sroa.9.096 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph102 ], [ %57, %50 ]
   %.sroa.12.095 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph102 ], [ %58, %50 ]
-  %51 = getelementptr inbounds nuw %struct.pointf_s, ptr %44, i64 %.0100
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.0100
   %52 = load double, ptr %51, align 8, !tbaa !25
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load double, ptr %53, align 8, !tbaa !26
@@ -165,7 +160,7 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   %56 = tail call double @llvm.minnum.f64(double %.sroa.6.097, double %54)
   %57 = tail call double @llvm.maxnum.f64(double %.sroa.9.096, double %52)
   %58 = tail call double @llvm.maxnum.f64(double %.sroa.12.095, double %54)
-  %59 = getelementptr inbounds %struct.vertex, ptr %36, i64 %indvars.iv134
+  %59 = getelementptr inbounds [32 x i8], ptr %36, i64 %indvars.iv134
   store double %52, ptr %59, align 8, !tbaa !27
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store double %54, ptr %60, align 8, !tbaa !31
@@ -207,8 +202,8 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
 
 .lr.ph.i:                                         ; preds = %.thread212, %.lr.ph.i
   %.082132.i = phi i64 [ %75, %.lr.ph.i ], [ 0, %.thread212 ]
-  %73 = getelementptr inbounds nuw %struct.vertex, ptr %36, i64 %.082132.i
-  %74 = getelementptr inbounds nuw ptr, ptr %67, i64 %.082132.i
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.082132.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.082132.i
   store ptr %73, ptr %74, align 8, !tbaa !35
   %75 = add nuw nsw i64 %.082132.i, 1
   %exitcond.not.i = icmp eq i64 %75, %.061.lcssa198205
@@ -219,7 +214,7 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   %.sroa.0.0144.i = phi ptr [ %.sroa.0.4.i, %523 ], [ null, %.lr.ph147.preheader.i ]
   %.sroa.11.0143.i = phi ptr [ %.sroa.11.2.i, %523 ], [ null, %.lr.ph147.preheader.i ]
   %.sroa.20.0142.i = phi i32 [ %.sroa.20.3.i, %523 ], [ 0, %.lr.ph147.preheader.i ]
-  %76 = getelementptr inbounds nuw ptr, ptr %67, i64 %.081145.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.081145.i
   %77 = load ptr, ptr %76, align 8, !tbaa !35
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !32
@@ -1216,7 +1211,7 @@ gt.exit.thread.i:                                 ; preds = %97, %90
 .lr.ph107.i:                                      ; preds = %.loopexit.i74, %.lr.ph107.preheader.i
   %indvars.iv112.i = phi i64 [ 0, %.lr.ph107.preheader.i ], [ %indvars.iv.next113.i, %.loopexit.i74 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph107.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i74 ]
-  %533 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv112.i
+  %533 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv112.i
   %534 = load ptr, ptr %533, align 8, !tbaa !8
   %535 = load ptr, ptr %534, align 8, !tbaa !21
   %.sroa.0.0.copyload.i = load double, ptr %535, align 8, !tbaa !23
@@ -1227,7 +1222,7 @@ gt.exit.thread.i:                                 ; preds = %97, %90
   br i1 %536, label %.lr.ph.i75, label %.loopexit.i74
 
 .lr.ph.i75:                                       ; preds = %.lr.ph107.i
-  %537 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv112.i
+  %537 = getelementptr inbounds nuw [48 x i8], ptr %530, i64 %indvars.iv112.i
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 16
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 24
   %540 = getelementptr inbounds nuw i8, ptr %537, i64 32
@@ -1237,10 +1232,10 @@ gt.exit.thread.i:                                 ; preds = %97, %90
 
 543:                                              ; preds = %602, %.lr.ph.i75
   %indvars.iv109.i = phi i64 [ %indvars.iv.i, %.lr.ph.i75 ], [ %indvars.iv.next110.i, %602 ]
-  %544 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv109.i
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv109.i
   %545 = load ptr, ptr %544, align 8, !tbaa !8
   %546 = load double, ptr %538, align 8, !tbaa !47
-  %547 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv109.i
+  %547 = getelementptr inbounds nuw [48 x i8], ptr %530, i64 %indvars.iv109.i
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 16
   %549 = getelementptr inbounds nuw i8, ptr %547, i64 32
   %550 = load double, ptr %549, align 8, !tbaa !48

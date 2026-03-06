@@ -26,7 +26,7 @@ define noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef %0, ptr noundef %1, i32
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   %16 = load i32, ptr %15, align 4, !tbaa !3
   switch i32 %16, label %17 [
     i32 92, label %.thread75

@@ -41,7 +41,7 @@ define hidden { ptr, ptr } @"_ZN101_$LT$$RF$mut$u20$smallvec..SmallVec$LT$A$GT$$
   %.sink10.i = select i1 %4, ptr %5, ptr %0
   %.val = load i64, ptr %6, align 8
   %7 = select i1 %4, i64 %.val, i64 %3
-  %8 = getelementptr inbounds nuw { i64, [15 x i64] }, ptr %.sink10.i, i64 %7
+  %8 = getelementptr inbounds nuw [128 x i8], ptr %.sink10.i, i64 %7
   %9 = insertvalue { ptr, ptr } poison, ptr %.sink10.i, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   ret { ptr, ptr } %10
@@ -274,7 +274,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit: ; preds = %"_ZN8smallvec17Sma
   %57 = phi i64 [ %.pre.i, %55 ], [ %53, %47 ]
   %.sroa.01.0.i = phi ptr [ %14, %55 ], [ %.sink9.i.i, %47 ]
   %.sroa.0.0.i9 = phi ptr [ %56, %55 ], [ %.sink10.i.i, %47 ]
-  %58 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.0.0.i9, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.i9, i64 %57
   store i64 %48, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %49, ptr %59, align 8
@@ -305,7 +305,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit: ; preds = %"_ZN8smallvec17Sma
 68:                                               ; preds = %65
   %69 = load i64, ptr %37, align 8, !noundef !8
   %70 = load i64, ptr %38, align 8, !noundef !8
-  %71 = getelementptr inbounds nuw { i64, i64 }, ptr %.sink10.i, i64 %.sroa.7.023
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %.sink10.i, i64 %.sroa.7.023
   store i64 %69, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 %70, ptr %72, align 8
@@ -435,7 +435,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit: ; preds = %"_ZN8smallvec17Sma
   %46 = phi i64 [ %.pre.i, %44 ], [ %42, %.lr.ph27 ]
   %.sroa.01.0.i = phi ptr [ %10, %44 ], [ %.sink9.i.i, %.lr.ph27 ]
   %.sroa.0.0.i12 = phi ptr [ %45, %44 ], [ %.sink10.i.i, %.lr.ph27 ]
-  %47 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i12, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i12, i64 %46
   store i64 %38, ptr %47, align 8
   %48 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !64, !noundef !8
   %49 = add i64 %48, 1
@@ -460,7 +460,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit: ; preds = %"_ZN8smallvec17Sma
 
 57:                                               ; preds = %54
   %58 = extractvalue { i64, i64 } %36, 1
-  %59 = getelementptr inbounds nuw i64, ptr %.sink10.i, i64 %storemerge25
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.sink10.i, i64 %storemerge25
   store i64 %58, ptr %59, align 8
   %60 = add i64 %storemerge25, 1
   %exitcond.not = icmp eq i64 %60, %.sink.i.pre-phi
@@ -614,7 +614,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit:
   %36 = phi i64 [ %.pre.i, %34 ], [ %32, %.loopexit ]
   %.sroa.01.0.i = phi ptr [ %3, %34 ], [ %.sink9.i.i, %.loopexit ]
   %.sroa.0.0.i37 = phi ptr [ %35, %34 ], [ %.sink10.i.i, %.loopexit ]
-  %37 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i37, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i37, i64 %36
   store i64 %.val.i22, ptr %37, align 8
   %38 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !92, !noundef !8
   %39 = add i64 %38, 1
@@ -630,7 +630,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit:
   %.sroa.8.1 = phi ptr [ %.sroa.8.077, %.critedge.i.i.i ], [ null, %9 ], [ %.sroa.8.077, %.preheader.i.i.i ], [ %.sroa.8.077, %.lr.ph.i.i.i ], [ %.sroa.8.077, %.preheader2.i.i.i ]
   %40 = getelementptr inbounds i8, ptr %.sroa.5.076, i64 -8
   %.val.i11 = load i64, ptr %40, align 8, !noalias !93, !noundef !8
-  %41 = getelementptr inbounds nuw i64, ptr %.sink10.i, i64 %storemerge78
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.sink10.i, i64 %storemerge78
   store i64 %.val.i11, ptr %41, align 8
   %42 = add nuw i64 %storemerge78, 1
   %exitcond.not = icmp eq i64 %42, %.sink.i
@@ -842,7 +842,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %63 = phi i64 [ %.pre.i, %.noexc22 ], [ %56, %50 ]
   %.sroa.01.0.i = phi ptr [ %16, %.noexc22 ], [ %.sink9.i.i, %50 ]
   %.sroa.0.0.i21 = phi ptr [ %59, %.noexc22 ], [ %.sink10.i.i, %50 ]
-  %64 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.0.0.i21, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.i21, i64 %63
   store i64 %51, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %52, ptr %65, align 8
@@ -868,7 +868,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %73 = extractvalue { i64, i64 } %43, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !113
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %74 = getelementptr inbounds nuw { i64, i64 }, ptr %.sink10.i, i64 %.sroa.7.068
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %.sink10.i, i64 %.sroa.7.068
   store i64 %72, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %73, ptr %75, align 8
@@ -1113,7 +1113,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit:
   %75 = phi i64 [ %.pre.i, %73 ], [ %71, %67 ]
   %.sroa.01.0.i = phi ptr [ %9, %73 ], [ %.sink9.i.i, %67 ]
   %.sroa.0.0.i29 = phi ptr [ %74, %73 ], [ %.sink10.i.i, %67 ]
-  %76 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %.sroa.0.0.i29, i64 %75
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.i29, i64 %75
   store i16 %.sroa.042.0.copyload43, ptr %76, align 4
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.247.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.247, i64 30, i1 false)
@@ -1147,7 +1147,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit:
 83:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46d9a507ddfa131dE.exit"
   %.sroa.739.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %28, i64 2466
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.2, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.739.0..sroa_idx40, i64 30, i1 false)
-  %84 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %.sink10.i, i64 %.sroa.7.068
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %.sink10.i, i64 %.sroa.7.068
   store i16 %.sroa.037.0.copyload38, ptr %84, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.2, i64 30, i1 false)
@@ -3012,7 +3012,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   %9 = load i64, ptr %8, align 8, !alias.scope !342, !noalias !345
   %.sink11.i = select i1 %6, ptr %7, ptr %0
   %.sink10.i = select i1 %6, i64 %9, i64 %5
-  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %.sink11.i, i64 %.sink10.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.sink11.i, i64 %.sink10.i
   %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h46fb6f3fae0c3b97E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %.sink11.i, ptr noundef nonnull %10)
   %12 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

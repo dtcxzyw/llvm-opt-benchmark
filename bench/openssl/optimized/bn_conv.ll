@@ -66,7 +66,7 @@ define ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr #0 {
   %.232 = phi ptr [ %.135, %.preheader ], [ %.3, %35 ]
   %.12431 = phi i32 [ %.02334, %.preheader ], [ %.225, %35 ]
   %24 = load ptr, ptr %0, align 8, !tbaa !14
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next39
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next39
   %26 = load i64, ptr %25, align 8, !tbaa !15
   %27 = lshr i64 %26, %indvars.iv
   %28 = icmp ne i32 %.12431, 0
@@ -368,7 +368,7 @@ bn_expand.exit:                                   ; preds = %31
 .critedge65:                                      ; preds = %39
   %48 = load ptr, ptr %.049, align 8, !tbaa !14
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv78
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv78
   store i64 %46, ptr %49, align 8, !tbaa !15
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -16
   %50 = icmp sgt i64 %indvars.iv74, 16

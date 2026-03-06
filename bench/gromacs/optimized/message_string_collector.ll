@@ -518,7 +518,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !25
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !28
   ret void
 
@@ -583,7 +583,7 @@ define void @_ZN3gmx22MessageStringCollector6appendERKNSt7__cxx1112basic_stringI
   br i1 %12, label %.loopexit32, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %7
+  %14 = getelementptr inbounds [32 x i8], ptr %9, i64 %7
   %.not48 = icmp eq ptr %14, %11
   br i1 %.not48, label %.loopexit32, label %.lr.ph.preheader
 

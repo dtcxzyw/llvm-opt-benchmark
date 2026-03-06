@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -144,7 +143,7 @@ _ZN4llvm8dyn_castINS_14GCRelocateInstENS_11InstructionEEEDcPT0_.exit.i: ; preds 
   %59 = and i32 %58, 134217727
   %60 = zext nneg i32 %59 to i64
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %"class.llvm::Use", ptr %37, i64 %61
+  %62 = getelementptr inbounds [32 x i8], ptr %37, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !29
   %64 = load i8, ptr %63, align 8, !tbaa !24
   %65 = icmp ugt i8 %64, 28
@@ -198,7 +197,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14GCRelocateInstELb1EE9push_backES2_.exit.
   %85 = phi i32 [ %36, %80 ], [ %.pre.i.i, %82 ]
   %86 = load ptr, ptr %5, align 8, !tbaa !3
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = ptrtoint ptr %37 to i64
   store i64 %89, ptr %88, align 1
   %90 = load i32, ptr %10, align 8, !tbaa !9

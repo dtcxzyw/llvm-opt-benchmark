@@ -80,8 +80,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %32
   %indvars.iv26 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next27, %32 ]
-  %26 = getelementptr double, ptr %.pre, i64 %indvars.iv26
-  %27 = getelementptr i32, ptr %24, i64 %indvars.iv26
+  %26 = getelementptr [8 x i8], ptr %.pre, i64 %indvars.iv26
+  %27 = getelementptr [4 x i8], ptr %24, i64 %indvars.iv26
   br label %33
 
 ._crit_edge:                                      ; preds = %32, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKd.exit
@@ -107,13 +107,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
 33:                                               ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %33 ]
   %34 = mul nsw i64 %23, %indvars.iv
-  %35 = getelementptr double, ptr %26, i64 %34
+  %35 = getelementptr [8 x i8], ptr %26, i64 %34
   %36 = load double, ptr %35, align 8, !tbaa !13
   %37 = mul nsw i64 %19, %indvars.iv
-  %38 = getelementptr i32, ptr %27, i64 %37
+  %38 = getelementptr [4 x i8], ptr %27, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !22
   %40 = sext i32 %39 to i64
-  %41 = getelementptr double, ptr %25, i64 %40
+  %41 = getelementptr [8 x i8], ptr %25, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !13
   %43 = fsub double %42, %36
   store double %43, ptr %41, align 8, !tbaa !13
@@ -189,8 +189,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEll
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %31
   %indvars.iv26 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next27, %31 ]
-  %25 = getelementptr double, ptr %.pre, i64 %indvars.iv26
-  %26 = getelementptr i32, ptr %23, i64 %indvars.iv26
+  %25 = getelementptr [8 x i8], ptr %.pre, i64 %indvars.iv26
+  %26 = getelementptr [4 x i8], ptr %23, i64 %indvars.iv26
   br label %32
 
 ._crit_edge:                                      ; preds = %31, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKd.exit
@@ -216,13 +216,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEll
 32:                                               ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
   %33 = mul nsw i64 %22, %indvars.iv
-  %34 = getelementptr double, ptr %25, i64 %33
+  %34 = getelementptr [8 x i8], ptr %25, i64 %33
   %35 = load double, ptr %34, align 8, !tbaa !13
   %36 = mul nsw i64 %18, %indvars.iv
-  %37 = getelementptr i32, ptr %26, i64 %36
+  %37 = getelementptr [4 x i8], ptr %26, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !22
   %39 = sext i32 %38 to i64
-  %40 = getelementptr double, ptr %24, i64 %39
+  %40 = getelementptr [8 x i8], ptr %24, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !13
   %42 = fsub double %41, %35
   store double %42, ptr %40, align 8, !tbaa !13

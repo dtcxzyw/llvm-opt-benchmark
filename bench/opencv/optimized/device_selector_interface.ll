@@ -37,7 +37,7 @@ define noundef nonnull ptr @_ZN2cv4gapi3wip6onevpl10to_cstringENS2_9AccelTypeE(i
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv4gapi3wip6onevpl10to_cstringENS2_9AccelTypeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv4gapi3wip6onevpl10to_cstringENS2_9AccelTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

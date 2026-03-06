@@ -96,7 +96,7 @@ define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0130180 = phi i8 [ 1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !7
   %29 = icmp ugt i16 %28, 127
   %spec.select = select i1 %29, i8 0, i8 %.0130180
@@ -168,7 +168,7 @@ thread-pre-split:                                 ; preds = %23, %._crit_edge, %
   %.0186 = phi i32 [ -1, %.lr.ph187.preheader ], [ %.1, %62 ]
   %.0128184 = phi i8 [ 1, %.lr.ph187.preheader ], [ %.1129, %62 ]
   %.2183 = phi i8 [ 1, %.lr.ph187.preheader ], [ %.3, %62 ]
-  %51 = getelementptr inbounds nuw i16, ptr %.2134, i64 %indvars.iv192
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.2134, i64 %indvars.iv192
   %52 = load i16, ptr %51, align 2, !tbaa !7
   %53 = icmp ugt i16 %52, 127
   br i1 %53, label %62, label %54
@@ -224,7 +224,7 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
 
 68:                                               ; preds = %.thread229
   %69 = sext i32 %.1141 to i64
-  %70 = getelementptr i16, ptr %.2134, i64 %69
+  %70 = getelementptr [2 x i8], ptr %.2134, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -2
   %72 = load i16, ptr %71, align 2, !tbaa !7
   %73 = icmp eq i16 %72, 45
@@ -270,13 +270,13 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
 
 .preheader.i:                                     ; preds = %82, %84
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %84 ], [ 0, %82 ]
-  %85 = getelementptr inbounds nuw i16, ptr %.2134, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %.2134, i64 %indvars.iv.i
   %86 = load i16, ptr %85, align 2, !tbaa !7
   %87 = add i16 %86, -65
   %or.cond.i.i = icmp ult i16 %87, 26
   %88 = or disjoint i16 %86, 32
   %.0.i.i = select i1 %or.cond.i.i, i16 %88, i16 %86
-  %89 = getelementptr inbounds nuw i16, ptr @_ZL10ACE_PREFIX, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [2 x i8], ptr @_ZL10ACE_PREFIX, i64 %indvars.iv.i
   %90 = load i16, ptr %89, align 2, !tbaa !7
   %.not.i = icmp eq i16 %.0.i.i, %90
   br i1 %.not.i, label %84, label %.loopexit
@@ -446,7 +446,7 @@ define internal fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UString
   %16 = icmp ugt i16 %15, 127
   %spec.select = select i1 %16, i8 0, i8 %.0118180
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next184
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next184
   %18 = load i16, ptr %17, align 2, !tbaa !7
   %.not = icmp eq i16 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -466,7 +466,7 @@ define internal fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UString
 
 .preheader176:                                    ; preds = %.preheader176.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader176.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !7
   %24 = icmp ugt i16 %23, 127
   br i1 %24, label %.thread, label %21
@@ -521,13 +521,13 @@ define internal fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UString
 
 .preheader.i:                                     ; preds = %.thread169, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %.thread169 ]
-  %43 = getelementptr inbounds nuw i16, ptr %.2126, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.2126, i64 %indvars.iv.i
   %44 = load i16, ptr %43, align 2, !tbaa !7
   %45 = add i16 %44, -65
   %or.cond.i.i = icmp ult i16 %45, 26
   %46 = or disjoint i16 %44, 32
   %.0.i.i = select i1 %or.cond.i.i, i16 %46, i16 %44
-  %47 = getelementptr inbounds nuw i16, ptr @_ZL10ACE_PREFIX, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr @_ZL10ACE_PREFIX, i64 %indvars.iv.i
   %48 = load i16, ptr %47, align 2, !tbaa !7
   %.not.i = icmp eq i16 %.0.i.i, %48
   br i1 %.not.i, label %42, label %.loopexit
@@ -642,9 +642,9 @@ uidna_toASCII_77.exit159:                         ; preds = %89, %uidna_toASCII_
 
 .lr.ph.i:                                         ; preds = %104, %.lr.ph.preheader.i
   %indvars.iv.i160 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i163, %104 ]
-  %95 = getelementptr inbounds nuw i16, ptr %.2126, i64 %indvars.iv.i160
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %.2126, i64 %indvars.iv.i160
   %96 = load i16, ptr %95, align 2, !tbaa !7
-  %97 = getelementptr inbounds nuw i16, ptr %.1134, i64 %indvars.iv.i160
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %.1134, i64 %indvars.iv.i160
   %98 = load i16, ptr %97, align 2, !tbaa !7
   %.not31.i = icmp eq i16 %96, %98
   br i1 %.not31.i, label %104, label %99
@@ -814,7 +814,7 @@ define i32 @uidna_IDNToASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 .preheader.i:                                     ; preds = %25, %36
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %36 ], [ 0, %25 ]
-  %29 = getelementptr inbounds nuw i16, ptr %.064, i64 %indvars.iv55.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.064, i64 %indvars.iv55.i
   %30 = load i16, ptr %29, align 2, !tbaa !7
   switch i16 %30, label %36 [
     i16 0, label %31
@@ -829,7 +829,7 @@ define i32 @uidna_IDNToASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 _ZL16isLabelSeparatorDs.exit.i:                   ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  %33 = getelementptr inbounds nuw i16, ptr %.064, i64 %indvars.iv55.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %.064, i64 %indvars.iv55.i
   %34 = trunc nuw nsw i64 %indvars.iv55.i to i32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread
@@ -840,7 +840,7 @@ _ZL16isLabelSeparatorDs.exit.i:                   ; preds = %.preheader.i, %.pre
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %42 ]
-  %37 = getelementptr inbounds nuw i16, ptr %.064, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.064, i64 %indvars.iv.i
   %38 = load i16, ptr %37, align 2, !tbaa !7
   switch i16 %38, label %42 [
     i16 46, label %_ZL16isLabelSeparatorDs.exit34.i
@@ -850,7 +850,7 @@ _ZL16isLabelSeparatorDs.exit.i:                   ; preds = %.preheader.i, %.pre
   ]
 
 _ZL16isLabelSeparatorDs.exit34.i:                 ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %39 = getelementptr inbounds nuw i16, ptr %.064, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.064, i64 %indvars.iv.i
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread
@@ -868,7 +868,7 @@ _ZL16isLabelSeparatorDs.exit34.i:                 ; preds = %.lr.ph.i, %.lr.ph.i
 _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %31, %._crit_edge.i
   %indvars.iv55.i.pn = phi i64 [ %indvars.iv55.i, %31 ], [ %43, %._crit_edge.i ]
   %.1.i = phi i32 [ %32, %31 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %.080 = getelementptr inbounds i16, ptr %.064, i64 %indvars.iv55.i.pn
+  %.080 = getelementptr inbounds [2 x i8], ptr %.064, i64 %indvars.iv55.i.pn
   %44 = icmp eq i32 %.1.i, 0
   br i1 %44, label %51, label %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread
 
@@ -913,7 +913,7 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparat
   %.080103112119 = phi ptr [ %.080102, %.thread ], [ %.080103, %54 ]
   %60 = phi i32 [ 0, %.thread ], [ %52, %54 ]
   %.162.idx116.pn = sext i32 %.162.idx116.pn.in to i64
-  %.162120 = getelementptr inbounds i16, ptr %.061, i64 %.162.idx116.pn
+  %.162120 = getelementptr inbounds [2 x i8], ptr %.061, i64 %.162.idx116.pn
   %.not76 = icmp eq i32 %.2121, 0
   br i1 %.not76, label %64, label %61
 
@@ -1014,7 +1014,7 @@ define i32 @uidna_IDNToUnicode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 .preheader.i:                                     ; preds = %25, %36
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %36 ], [ 0, %25 ]
-  %28 = getelementptr inbounds nuw i16, ptr %.062, i64 %indvars.iv55.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.062, i64 %indvars.iv55.i
   %29 = load i16, ptr %28, align 2, !tbaa !7
   switch i16 %29, label %36 [
     i16 0, label %30
@@ -1025,12 +1025,12 @@ define i32 @uidna_IDNToUnicode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   ]
 
 30:                                               ; preds = %.preheader.i
-  %31 = getelementptr inbounds nuw i16, ptr %.062, i64 %indvars.iv55.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.062, i64 %indvars.iv55.i
   %32 = trunc nuw nsw i64 %indvars.iv55.i to i32
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 _ZL16isLabelSeparatorDs.exit.i:                   ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  %33 = getelementptr inbounds nuw i16, ptr %.062, i64 %indvars.iv55.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %.062, i64 %indvars.iv55.i
   %34 = trunc nuw nsw i64 %indvars.iv55.i to i32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
@@ -1041,7 +1041,7 @@ _ZL16isLabelSeparatorDs.exit.i:                   ; preds = %.preheader.i, %.pre
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %42 ]
-  %37 = getelementptr inbounds nuw i16, ptr %.062, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.062, i64 %indvars.iv.i
   %38 = load i16, ptr %37, align 2, !tbaa !7
   switch i16 %38, label %42 [
     i16 46, label %_ZL16isLabelSeparatorDs.exit34.i
@@ -1051,7 +1051,7 @@ _ZL16isLabelSeparatorDs.exit.i:                   ; preds = %.preheader.i, %.pre
   ]
 
 _ZL16isLabelSeparatorDs.exit34.i:                 ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %39 = getelementptr inbounds nuw i16, ptr %.062, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.062, i64 %indvars.iv.i
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
@@ -1064,7 +1064,7 @@ _ZL16isLabelSeparatorDs.exit34.i:                 ; preds = %.lr.ph.i, %.lr.ph.i
 ._crit_edge.i:                                    ; preds = %42, %.preheader39.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader39.i ], [ %.057, %42 ]
   %43 = sext i32 %.057 to i64
-  %44 = getelementptr inbounds i16, ptr %.062, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.062, i64 %43
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSeparatorDs.exit.i, %_ZL16isLabelSeparatorDs.exit34.i, %._crit_edge.i
@@ -1091,7 +1091,7 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSe
   %53 = sub nsw i32 %.195, %45
   %narrow = select i1 %52, i32 %45, i32 0
   %.160.idx = sext i32 %narrow to i64
-  %.160 = getelementptr inbounds i16, ptr %.059, i64 %.160.idx
+  %.160 = getelementptr inbounds [2 x i8], ptr %.059, i64 %.160.idx
   %.2 = select i1 %52, i32 %53, i32 0
   br i1 %.not74, label %54, label %69
 
@@ -1101,7 +1101,7 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSe
 
 55:                                               ; preds = %54
   %56 = sext i32 %.1.i to i64
-  %57 = getelementptr inbounds i16, ptr %.062, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %.062, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !7
   %59 = getelementptr inbounds nuw i8, ptr %.160, i64 2
   store i16 %58, ptr %.160, align 2, !tbaa !7
@@ -1216,9 +1216,9 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit.thread: ; preds = %18
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %51 ]
-  %39 = getelementptr inbounds nuw i16, ptr %.046, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.046, i64 %indvars.iv.i
   %40 = load i16, ptr %39, align 2, !tbaa !7
-  %41 = getelementptr inbounds nuw i16, ptr %.150, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.150, i64 %indvars.iv.i
   %42 = load i16, ptr %41, align 2, !tbaa !7
   %.not31.i = icmp eq i16 %40, %42
   br i1 %.not31.i, label %51, label %43

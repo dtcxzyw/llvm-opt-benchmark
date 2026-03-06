@@ -44,7 +44,7 @@ define internal void @diameteravp_init(ptr noundef %0, ptr readnone captures(non
 8:                                                ; preds = %8, %2
   %.048 = phi i32 [ 0, %2 ], [ %12, %8 ]
   %9 = zext i32 %.048 to i64
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   %12 = add i32 %.048, 1
@@ -81,7 +81,7 @@ define internal void @diameteravp_init(ptr noundef %0, ptr readnone captures(non
 
 .lr.ph:                                           ; preds = %24, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 3, %24 ]
-  %25 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @g_string_append(ptr noundef %6, ptr noundef nonnull @.str.5)
   %28 = tail call ptr @strchr(ptr noundef %26, i32 noundef 46) #9

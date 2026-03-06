@@ -8,9 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.SDPParseState = type { %struct.sockaddr_storage, i32, i32, i32, ptr, i32, ptr, i32, i32, [2048 x i8] }
-%struct.RTSPTransportField = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.sockaddr_storage, [47 x i8], i32, i32 }
 %struct.RTSPMessageHeader = type { i32, i32, i32, i64, i64, [8 x %struct.RTSPTransportField], i32, [512 x i8], [4096 x i8], [64 x i8], [64 x i8], i32, i32, [256 x i8], [64 x i8], [64 x i8] }
-%struct.pollfd = type { i32, i16, i16 }
+%struct.RTSPTransportField = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.sockaddr_storage, [47 x i8], i32, i32 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 %struct.FFIOContext = type { %struct.AVIOContext, ptr, i32, i32, i64, i64, i64, i64, i32, i32, i32, i64 }
 %struct.AVIOContext = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i64, i64 }
@@ -797,7 +796,7 @@ get_word_sep.exit:                                ; preds = %152, %152, %141, %1
   %164 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %165 = load i32, ptr %164, align 8, !tbaa !56
   %166 = sext i32 %165 to i64
-  %167 = getelementptr ptr, ptr %163, i64 %166
+  %167 = getelementptr [8 x i8], ptr %163, i64 %166
   %168 = getelementptr i8, ptr %167, i64 -8
   %169 = load ptr, ptr %168, align 8, !tbaa !57
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4128
@@ -937,7 +936,7 @@ get_word.exit315.i:                               ; preds = %192, %179
 
 .lr.ph.i164:                                      ; preds = %228, %.lr.ph.preheader.i162
   %indvars.iv.i165 = phi i64 [ 0, %.lr.ph.preheader.i162 ], [ %indvars.iv.next.i167, %228 ]
-  %224 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv.i165
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv.i165
   %225 = load ptr, ptr %224, align 8, !tbaa !69
   %226 = call ptr @av_memdup(ptr noundef %225, i64 noundef 128) #15
   %.not.i166 = icmp eq ptr %226, null
@@ -966,7 +965,7 @@ copy_default_source_addrs.exit169:                ; preds = %228, %213
 
 .lr.ph.i158:                                      ; preds = %238, %.lr.ph.preheader.i
   %indvars.iv.i159 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i161, %238 ]
-  %234 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv.i159
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv.i159
   %235 = load ptr, ptr %234, align 8, !tbaa !69
   %236 = call ptr @av_memdup(ptr noundef %235, i64 noundef 128) #15
   %.not.i160 = icmp eq ptr %236, null
@@ -1427,7 +1426,7 @@ finalize_rtp_handler_init.exit106:                ; preds = %352, %338, %335, %i
   %443 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %444 = load ptr, ptr %443, align 8, !tbaa !47
   %445 = sext i32 %434 to i64
-  %446 = getelementptr ptr, ptr %444, i64 %445
+  %446 = getelementptr [8 x i8], ptr %444, i64 %445
   %447 = getelementptr i8, ptr %446, i64 -8
   %448 = load ptr, ptr %447, align 8, !tbaa !57
   %449 = load ptr, ptr %8, align 8, !tbaa !4
@@ -1529,7 +1528,7 @@ get_word.exit93:                                  ; preds = %486, %472
   %496 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %497 = load i32, ptr %496, align 8, !tbaa !56
   %498 = sext i32 %497 to i64
-  %499 = getelementptr ptr, ptr %495, i64 %498
+  %499 = getelementptr [8 x i8], ptr %495, i64 %498
   %500 = getelementptr i8, ptr %499, i64 -8
   %501 = load ptr, ptr %500, align 8, !tbaa !57
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 16
@@ -1540,7 +1539,7 @@ get_word.exit93:                                  ; preds = %486, %472
 505:                                              ; preds = %get_word.exit93
   %506 = load ptr, ptr %24, align 8, !tbaa !114
   %507 = zext nneg i32 %503 to i64
-  %508 = getelementptr inbounds nuw ptr, ptr %506, i64 %507
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %506, i64 %507
   %509 = load ptr, ptr %508, align 8, !tbaa !115
   %510 = load ptr, ptr %8, align 8, !tbaa !4
   %511 = getelementptr inbounds nuw i8, ptr %509, i64 16
@@ -1910,7 +1909,7 @@ sdp_parse_rtpmap.exit:                            ; preds = %627, %630, %637, %6
   %658 = phi i32 [ %678, %677 ], [ %656, %655 ]
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %677 ], [ 0, %655 ]
   %659 = load ptr, ptr %494, align 8, !tbaa !47
-  %660 = getelementptr inbounds nuw ptr, ptr %659, i64 %indvars.iv.i53
+  %660 = getelementptr inbounds nuw [8 x i8], ptr %659, i64 %indvars.iv.i53
   %661 = load ptr, ptr %660, align 8, !tbaa !57
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 4292
   %663 = load i32, ptr %662, align 4, !tbaa !77
@@ -2025,7 +2024,7 @@ get_word.exit:                                    ; preds = %701, %687
   %716 = phi i32 [ %712, %.lr.ph.i49 ], [ %736, %735 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i49 ], [ %indvars.iv.next.i, %735 ]
   %717 = load ptr, ptr %714, align 8, !tbaa !47
-  %718 = getelementptr inbounds nuw ptr, ptr %717, i64 %indvars.iv.i
+  %718 = getelementptr inbounds nuw [8 x i8], ptr %717, i64 %indvars.iv.i
   %719 = load ptr, ptr %718, align 8, !tbaa !57
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 4292
   %721 = load i32, ptr %720, align 4, !tbaa !77
@@ -2082,7 +2081,7 @@ get_word.exit:                                    ; preds = %701, %687
   %749 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %750 = load i32, ptr %749, align 8, !tbaa !56
   %751 = sext i32 %750 to i64
-  %752 = getelementptr ptr, ptr %748, i64 %751
+  %752 = getelementptr [8 x i8], ptr %748, i64 %751
   %753 = getelementptr i8, ptr %752, i64 -8
   %754 = load ptr, ptr %753, align 8, !tbaa !57
   call fastcc void @get_word(ptr noundef nonnull %6, i32 noundef 64, ptr noundef %8)
@@ -2132,7 +2131,7 @@ get_word.exit:                                    ; preds = %701, %687
   %776 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %777 = load i32, ptr %776, align 8, !tbaa !56
   %778 = sext i32 %777 to i64
-  %779 = getelementptr ptr, ptr %775, i64 %778
+  %779 = getelementptr [8 x i8], ptr %775, i64 %778
   %780 = getelementptr i8, ptr %779, i64 -8
   %781 = load ptr, ptr %780, align 8, !tbaa !57
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 16
@@ -2143,7 +2142,7 @@ get_word.exit:                                    ; preds = %701, %687
 785:                                              ; preds = %773
   %786 = load ptr, ptr %24, align 8, !tbaa !114
   %787 = zext nneg i32 %783 to i64
-  %788 = getelementptr inbounds nuw ptr, ptr %786, i64 %787
+  %788 = getelementptr inbounds nuw [8 x i8], ptr %786, i64 %787
   %789 = load ptr, ptr %788, align 8, !tbaa !115
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 80
   %791 = call i32 @av_dict_set(ptr noundef nonnull %790, ptr noundef nonnull @.str.163, ptr noundef nonnull %6, i32 noundef 0) #15
@@ -2186,7 +2185,7 @@ get_word.exit:                                    ; preds = %701, %687
   %809 = load ptr, ptr %24, align 8, !tbaa !114
   %810 = add i32 %807, -1
   %811 = zext i32 %810 to i64
-  %812 = getelementptr inbounds nuw ptr, ptr %809, i64 %811
+  %812 = getelementptr inbounds nuw [8 x i8], ptr %809, i64 %811
   %813 = load ptr, ptr %812, align 8, !tbaa !115
   %814 = load ptr, ptr %8, align 8, !tbaa !4
   %815 = call i64 @strtol(ptr noundef nonnull captures(none) %814, ptr noundef null, i32 noundef 10) #15
@@ -2214,7 +2213,7 @@ get_word.exit:                                    ; preds = %701, %687
   %828 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %829 = load i32, ptr %828, align 8, !tbaa !56
   %830 = sext i32 %829 to i64
-  %831 = getelementptr ptr, ptr %827, i64 %830
+  %831 = getelementptr [8 x i8], ptr %827, i64 %830
   %832 = getelementptr i8, ptr %831, i64 -8
   %833 = load ptr, ptr %832, align 8, !tbaa !57
   call fastcc void @get_word(ptr noundef nonnull %6, i32 noundef 64, ptr noundef %8)
@@ -2300,7 +2299,7 @@ switch.early.test.i:                              ; preds = %847
   %858 = load ptr, ptr %851, align 8, !tbaa !47
   %859 = load i32, ptr %852, align 8, !tbaa !56
   %860 = sext i32 %859 to i64
-  %861 = getelementptr ptr, ptr %858, i64 %860
+  %861 = getelementptr [8 x i8], ptr %858, i64 %860
   %862 = getelementptr i8, ptr %861, i64 -8
   %863 = load ptr, ptr %862, align 8, !tbaa !57
   %864 = getelementptr inbounds nuw i8, ptr %863, i64 4280
@@ -2337,7 +2336,7 @@ switch.early.test.i:                              ; preds = %847
   %876 = load ptr, ptr %851, align 8, !tbaa !47
   %877 = load i32, ptr %852, align 8, !tbaa !56
   %878 = sext i32 %877 to i64
-  %879 = getelementptr ptr, ptr %876, i64 %878
+  %879 = getelementptr [8 x i8], ptr %876, i64 %878
   %880 = getelementptr i8, ptr %879, i64 -8
   %881 = load ptr, ptr %880, align 8, !tbaa !57
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 4264
@@ -2373,7 +2372,7 @@ switch.early.test.i:                              ; preds = %847
   %899 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %900 = load i32, ptr %899, align 8, !tbaa !56
   %901 = sext i32 %900 to i64
-  %902 = getelementptr ptr, ptr %898, i64 %901
+  %902 = getelementptr [8 x i8], ptr %898, i64 %901
   %903 = getelementptr i8, ptr %902, i64 -8
   %904 = load ptr, ptr %903, align 8, !tbaa !57
   %905 = load i32, ptr %888, align 8, !tbaa !85
@@ -2443,7 +2442,7 @@ sdp_parse_line.exit:                              ; preds = %677, %735, %.lr.ph.
 932:                                              ; preds = %.lr.ph216, %932
   %indvars.iv = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next, %932 ]
   %933 = load ptr, ptr %41, align 8, !tbaa !68
-  %934 = getelementptr inbounds nuw ptr, ptr %933, i64 %indvars.iv
+  %934 = getelementptr inbounds nuw [8 x i8], ptr %933, i64 %indvars.iv
   call void @av_freep(ptr noundef %934) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %935 = load i32, ptr %40, align 8, !tbaa !10
@@ -2466,7 +2465,7 @@ sdp_parse_line.exit:                              ; preds = %677, %735, %.lr.ph.
 943:                                              ; preds = %.lr.ph219, %943
   %indvars.iv237 = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next238, %943 ]
   %944 = load ptr, ptr %942, align 8, !tbaa !72
-  %945 = getelementptr inbounds nuw ptr, ptr %944, i64 %indvars.iv237
+  %945 = getelementptr inbounds nuw [8 x i8], ptr %944, i64 %indvars.iv237
   call void @av_freep(ptr noundef %945) #15
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %946 = load i32, ptr %939, align 8, !tbaa !73
@@ -2508,7 +2507,7 @@ define void @ff_rtsp_undo_setup(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %12 = phi i32 [ %37, %36 ], [ %6, %.lr.ph ]
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %36 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %8, align 8, !tbaa !47
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv35
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv35
   %15 = load ptr, ptr %14, align 8, !tbaa !57
   %.not.us = icmp eq ptr %15, null
   br i1 %.not.us, label %36, label %16
@@ -2575,7 +2574,7 @@ define void @ff_rtsp_undo_setup(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %40 = phi i32 [ %69, %68 ], [ %6, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
   %41 = load ptr, ptr %8, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !57
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %68, label %44
@@ -2687,7 +2686,7 @@ define void @ff_rtsp_close_streams(ptr noundef %0) local_unnamed_addr #2 {
   %10 = phi i32 [ %6, %.lr.ph39 ], [ %56, %55 ]
   %indvars.iv47 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next48, %55 ]
   %11 = load ptr, ptr %8, align 8, !tbaa !47
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv47
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv47
   %13 = load ptr, ptr %12, align 8, !tbaa !57
   store ptr %13, ptr %2, align 8, !tbaa !57
   %.not26 = icmp eq ptr %13, null
@@ -2736,7 +2735,7 @@ define void @ff_rtsp_close_streams(ptr noundef %0) local_unnamed_addr #2 {
   %31 = phi ptr [ %35, %.lr.ph ], [ %27, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4264
   %33 = load ptr, ptr %32, align 8, !tbaa !139
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   call void @av_freep(ptr noundef %34) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load ptr, ptr %2, align 8, !tbaa !57
@@ -2761,7 +2760,7 @@ define void @ff_rtsp_close_streams(ptr noundef %0) local_unnamed_addr #2 {
   %45 = phi ptr [ %49, %.lr.ph34 ], [ %41, %._crit_edge ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4280
   %47 = load ptr, ptr %46, align 8, !tbaa !142
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv44
   call void @av_freep(ptr noundef %48) #15
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %49 = load ptr, ptr %2, align 8, !tbaa !57
@@ -2856,7 +2855,7 @@ define range(i32 -2147483648, 1) i32 @ff_rtsp_open_transport_ctx(ptr noundef %0,
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !114
   %22 = zext nneg i32 %17 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !115
   %.not72 = icmp eq ptr %24, null
   br i1 %.not72, label %.thread68, label %28
@@ -3130,7 +3129,7 @@ get_word_sep.exit:                                ; preds = %40, %40, %27, %27
 
 75:                                               ; preds = %69
   %76 = sext i32 %70 to i64
-  %77 = getelementptr inbounds %struct.RTSPTransportField, ptr %63, i64 %76
+  %77 = getelementptr inbounds [224 x i8], ptr %63, i64 %76
   %78 = icmp eq i8 %73, 47
   %spec.select.idx.i = zext i1 %78 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %72, i64 %spec.select.idx.i
@@ -4586,7 +4585,7 @@ get_word_sep.exit34:                              ; preds = %49, %32
 
 74:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8, !tbaa !57
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !133
@@ -4649,7 +4648,7 @@ handle_rtp_info.exit:                             ; preds = %84, %67, %69, %.pre
 
 95:                                               ; preds = %105, %.lr.ph.i39
   %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i44, %105 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i41
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i41
   %97 = load ptr, ptr %96, align 8, !tbaa !57
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !133
@@ -5627,7 +5626,7 @@ define i32 @ff_rtsp_make_setup_request(ptr noundef %0, ptr noundef %1, i32 %2, i
 
 90:                                               ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !57
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #14
@@ -5660,7 +5659,7 @@ define i32 @ff_rtsp_make_setup_request(ptr noundef %0, ptr noundef %1, i32 %2, i
 105:                                              ; preds = %._crit_edge
   %106 = load ptr, ptr %54, align 8, !tbaa !47
   %107 = zext nneg i32 %.1190.lcssa to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %107
   br label %119
 
 .thread233:                                       ; preds = %86
@@ -5677,7 +5676,7 @@ define i32 @ff_rtsp_make_setup_request(ptr noundef %0, ptr noundef %1, i32 %2, i
 
 116:                                              ; preds = %83, %81
   %117 = load ptr, ptr %54, align 8, !tbaa !47
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv303
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv303
   br label %119
 
 119:                                              ; preds = %105, %116
@@ -5815,7 +5814,7 @@ map_to_opts.exit:                                 ; preds = %127, %135, %137
 177:                                              ; preds = %173
   %178 = load ptr, ptr %55, align 8, !tbaa !114
   %179 = zext nneg i32 %175 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !115
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load ptr, ptr %182, align 8, !tbaa !94
@@ -6946,7 +6945,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
   %.2137206 = phi ptr [ %.3138, %76 ], [ %.0135, %.preheader ]
   %.0147204 = phi i64 [ %.1148, %76 ], [ 0, %.preheader ]
   %62 = load ptr, ptr %48, align 8, !tbaa !47
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !57
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !133
@@ -6966,7 +6965,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %48, align 8, !tbaa !47
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !57
   br label %76
 
@@ -7054,7 +7053,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
   %115 = getelementptr inbounds nuw i8, ptr %88, i64 8928
   %116 = load i32, ptr %115, align 8, !tbaa !225
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.pollfd, ptr %109, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %109, i64 %117
   store i32 %114, ptr %118, align 4, !tbaa !226
   %119 = add nsw i32 %116, 1
   store i32 %119, ptr %115, align 8, !tbaa !225
@@ -7076,7 +7075,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
   %127 = phi i32 [ %122, %.lr.ph114.i.i ], [ %150, %149 ]
   %indvars.iv142.i.i = phi i64 [ 0, %.lr.ph114.i.i ], [ %indvars.iv.next143.i.i, %149 ]
   %128 = load ptr, ptr %124, align 8, !tbaa !47
-  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv142.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv142.i.i
   %130 = load ptr, ptr %129, align 8, !tbaa !57
   %131 = load ptr, ptr %130, align 8, !tbaa !149
   %.not88.i.i = icmp eq ptr %131, null
@@ -7110,9 +7109,9 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
 140:                                              ; preds = %140, %.lr.ph.i.i
   %indvars.iv137.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next138.i.i, %140 ]
   %indvars.iv.i.i = phi i64 [ %138, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %140 ]
-  %141 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv137.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv137.i.i
   %142 = load i32, ptr %141, align 4, !tbaa !121
-  %143 = getelementptr inbounds %struct.pollfd, ptr %109, i64 %indvars.iv.i.i
+  %143 = getelementptr inbounds [8 x i8], ptr %109, i64 %indvars.iv.i.i
   store i32 %142, ptr %143, align 4, !tbaa !226
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %144 = trunc nsw i64 %indvars.iv.next.i.i to i32
@@ -7185,7 +7184,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
   %indvars.iv145.i.i = phi i64 [ 0, %.lr.ph118.preheader.i.i ], [ %indvars.iv.next146.i.i, %193 ]
   %.0116.i.i = phi i32 [ %172, %.lr.ph118.preheader.i.i ], [ %.1.i.i, %193 ]
   %174 = load ptr, ptr %157, align 8, !tbaa !47
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv145.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv145.i.i
   %176 = load ptr, ptr %175, align 8, !tbaa !57
   %177 = load ptr, ptr %176, align 8, !tbaa !149
   %.not97.i.i = icmp eq ptr %177, null
@@ -7193,7 +7192,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
 
 178:                                              ; preds = %.lr.ph118.i.i
   %179 = sext i32 %.0116.i.i to i64
-  %180 = getelementptr inbounds %struct.pollfd, ptr %.068.i.i, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %.068.i.i, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 6
   %182 = load i16, ptr %181, align 2, !tbaa !231
   %183 = and i16 %182, 1
@@ -7435,7 +7434,7 @@ udp_read_packet.exit._crit_edge.i:                ; preds = %udp_read_packet.exi
 289:                                              ; preds = %301, %.lr.ph74.i.i
   %indvars.iv79.i.i = phi i64 [ 0, %.lr.ph74.i.i ], [ %indvars.iv.next80.i.i, %301 ]
   %.04173.i.i = phi i32 [ 0, %.lr.ph74.i.i ], [ %.142.ph.i.i, %301 ]
-  %290 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv79.i.i
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv79.i.i
   %291 = load ptr, ptr %290, align 8, !tbaa !57
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load ptr, ptr %292, align 8, !tbaa !133
@@ -7476,7 +7475,7 @@ udp_read_packet.exit._crit_edge.i:                ; preds = %udp_read_packet.exi
 
 305:                                              ; preds = %304, %.lr.ph.i45.i
   %indvars.iv.i46.i = phi i64 [ 0, %.lr.ph.i45.i ], [ %indvars.iv.next.i47.i, %304 ]
-  %306 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv.i46.i
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv.i46.i
   %307 = load ptr, ptr %306, align 8, !tbaa !57
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 4292
   %309 = load i32, ptr %308, align 4, !tbaa !77
@@ -7606,7 +7605,7 @@ read_packet.exit:                                 ; preds = %udp_read_packet.exi
 371:                                              ; preds = %367
   %372 = load ptr, ptr %54, align 8, !tbaa !114
   %373 = zext nneg i32 %369 to i64
-  %374 = getelementptr inbounds nuw ptr, ptr %372, i64 %373
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %373
   %375 = load ptr, ptr %374, align 8, !tbaa !115
   br label %376
 
@@ -7626,7 +7625,7 @@ read_packet.exit:                                 ; preds = %udp_read_packet.exi
 
 383:                                              ; preds = %.lr.ph210, %.thread183
   %indvars.iv226 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next227, %.thread183 ]
-  %384 = getelementptr inbounds nuw ptr, ptr %379, i64 %indvars.iv226
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %indvars.iv226
   %385 = load ptr, ptr %384, align 8, !tbaa !57
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = load ptr, ptr %386, align 8, !tbaa !133
@@ -7638,7 +7637,7 @@ read_packet.exit:                                 ; preds = %udp_read_packet.exi
 391:                                              ; preds = %383
   %392 = load ptr, ptr %54, align 8, !tbaa !114
   %393 = zext nneg i32 %389 to i64
-  %394 = getelementptr inbounds nuw ptr, ptr %392, i64 %393
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %392, i64 %393
   %395 = load ptr, ptr %394, align 8, !tbaa !115
   %396 = icmp ne ptr %387, null
   %or.cond5 = select i1 %396, i1 %380, i1 false
@@ -7918,7 +7917,7 @@ define internal range(i32 -2147483648, 1) i32 @sdp_read_header(ptr noundef %0) #
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = load ptr, ptr %36, align 8, !tbaa !47
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !57
   %48 = load i32, ptr %17, align 4, !tbaa !201
   %49 = and i32 %48, 4
@@ -8021,7 +8020,7 @@ map_to_opts.exit:                                 ; preds = %50, %58, %60
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %93 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i
   %94 = load ptr, ptr %93, align 8, !tbaa !69
   %95 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.239, ptr noundef %94) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8048,7 +8047,7 @@ append_source_addrs.exit:                         ; preds = %.lr.ph.i, %84, %89
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78, %.lr.ph.preheader.i76
   %indvars.iv.i79 = phi i64 [ 1, %.lr.ph.preheader.i76 ], [ %indvars.iv.next.i80, %.lr.ph.i78 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.i79
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.i79
   %105 = load ptr, ptr %104, align 8, !tbaa !69
   %106 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.239, ptr noundef %105) #15
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
@@ -8270,7 +8269,7 @@ map_to_opts.exit:                                 ; preds = %17, %28, %30
 .preheader64:                                     ; preds = %70, %87
   %77 = phi i1 [ false, %87 ], [ true, %70 ]
   %indvars.iv = phi i64 [ 1, %87 ], [ 0, %70 ]
-  %78 = getelementptr inbounds nuw [2 x [8 x i8]], ptr @rtp_read_header.filters, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr @rtp_read_header.filters, i64 %indvars.iv
   %79 = call i32 @av_find_info_tag(ptr noundef nonnull %5, i32 noundef 1000, ptr noundef nonnull %78, ptr noundef nonnull %76) #15
   %.not59 = icmp eq i32 %79, 0
   br i1 %.not59, label %87, label %.preheader

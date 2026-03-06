@@ -426,7 +426,7 @@ invoke.cont45:                                    ; preds = %_ZSt10accumulateIPK
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
   store double %div, ptr %strike_.i.i, align 8, !tbaa !44
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %ref.tmp43, align 8, !tbaa !14
-  %30 = getelementptr double, ptr %21, i64 %22
+  %30 = getelementptr [8 x i8], ptr %21, i64 %22
   %arrayidx.i.i = getelementptr i8, ptr %30, i64 -8
   %31 = load double, ptr %arrayidx.i.i, align 8, !tbaa !29
   %call48 = call noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, double noundef %31)

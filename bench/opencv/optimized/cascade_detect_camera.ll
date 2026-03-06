@@ -42,8 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::dpm::DPMDetector::ObjectDetection" = type { %"class.cv::Rect_", float, i32 }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -669,7 +667,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EEC2ERKS5_.exit: ; pre
   store i64 0, ptr %155, align 8
   store i32 50397184, ptr %3, align 8, !tbaa !51
   store ptr %16, ptr %154, align 8, !tbaa !54
-  %217 = getelementptr inbounds nuw %"struct.cv::dpm::DPMDetector::ObjectDetection", ptr %197, i64 %216
+  %217 = getelementptr inbounds nuw [24 x i8], ptr %197, i64 %216
   %.sroa.0.0.copyload.i = load i64, ptr %217, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %217, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -1144,7 +1142,7 @@ define hidden void @_Z9drawBoxesRN2cv3MatESt6vectorINS_3dpm11DPMDetector15Object
   store i64 0, ptr %12, align 8
   store i32 50397184, ptr %5, align 8, !tbaa !51
   store ptr %0, ptr %11, align 8, !tbaa !54
-  %18 = getelementptr inbounds nuw %"struct.cv::dpm::DPMDetector::ObjectDetection", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %17
   %.sroa.0.0.copyload = load i64, ptr %18, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4

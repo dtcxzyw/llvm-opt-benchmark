@@ -248,7 +248,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.preheader: ; preds = %0
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.preheader, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.preheader ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv
   store volatile ptr null, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -497,7 +497,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %13 = xor i32 %11, %12
   %14 = and i32 %13, 255
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %15
   %17 = load volatile ptr, ptr %16, align 8
   %.not8.i = icmp eq ptr %17, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -546,7 +546,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %42 = xor i32 %41, %12
   %43 = and i32 %42, 255
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %44
   %46 = load volatile ptr, ptr %45, align 8
   store ptr %46, ptr %.1, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
@@ -638,7 +638,7 @@ define hidden noundef ptr @_ZN11VtableStubs6lookupEbi(i1 noundef zeroext %0, i32
   %11 = xor i32 %9, %10
   %12 = and i32 %11, 255
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %13
   %15 = load volatile ptr, ptr %14, align 8
   %.not8 = icmp eq ptr %15, null
   br i1 %.not8, label %.critedge, label %.lr.ph
@@ -683,7 +683,7 @@ define hidden void @_ZN11VtableStubs5enterEbiP10VtableStub(i1 noundef zeroext %0
   %12 = xor i32 %10, %11
   %13 = and i32 %12, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %14
   %16 = load volatile ptr, ptr %15, align 8
   store ptr %16, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
@@ -725,7 +725,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %17 = xor i32 %15, %16
   %18 = and i32 %17, 255
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %.not12 = icmp eq ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -760,7 +760,7 @@ define hidden noundef zeroext i1 @_ZN11VtableStubs8containsEPh(ptr noundef readn
 
 2:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv.i
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %.not12.i = icmp eq ptr %4, null
@@ -811,7 +811,7 @@ define hidden noundef ptr @_ZN11VtableStubs15stub_containingEPh(ptr noundef read
 
 2:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %.not12 = icmp eq ptr %4, null
@@ -873,7 +873,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.preheader: ; preds = 
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.preheader, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.preheader ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv.i
   store volatile ptr null, ptr %4, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -896,7 +896,7 @@ define hidden void @_ZN11VtableStubs14vtable_stub_doEPFvP10VtableStubE(ptr nound
 
 2:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11VtableStubs6_tableE, i64 %indvars.iv
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %.not7 = icmp eq ptr %4, null

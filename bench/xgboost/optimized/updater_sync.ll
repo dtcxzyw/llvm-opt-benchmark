@@ -446,7 +446,7 @@ _ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.ex
 _ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !29
   store ptr %73, ptr %51, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !28
   br label %_ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE9push_backERKS3_.exit
 
@@ -514,7 +514,7 @@ _ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !33
   store ptr %98, ptr %76, align 8, !tbaa !30
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE9push_backERKS2_.exit
 
@@ -2181,7 +2181,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !56
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -2237,7 +2237,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !108
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48

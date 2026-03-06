@@ -5,34 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.ozz::io::internal::Array" = type { ptr, i64 }
-%"struct.ozz::animation::offline::RawAnimation" = type { %"class.std::vector", float, %"class.std::__cxx11::basic_string" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::JointTrack, ozz::StdAllocator<ozz::animation::offline::RawAnimation::JointTrack>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::JointTrack, ozz::StdAllocator<ozz::animation::offline::RawAnimation::JointTrack>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::JointTrack, ozz::StdAllocator<ozz::animation::offline::RawAnimation::JointTrack>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::JointTrack, ozz::StdAllocator<ozz::animation::offline::RawAnimation::JointTrack>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.ozz::log::Err" = type { %"class.ozz::log::Logger.base", [7 x i8] }
 %"class.ozz::log::Logger.base" = type <{ ptr, i8 }>
-%"struct.ozz::animation::offline::RawAnimation::JointTrack" = type { %"class.std::vector.2", %"class.std::vector.6", %"class.std::vector.10" }
-%"class.std::vector.2" = type { %"struct.std::_Vector_base.3" }
-%"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::TranslationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::TranslationKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::RotationKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::RotationKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawAnimation::ScaleKey, ozz::StdAllocator<ozz::animation::offline::RawAnimation::ScaleKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ozz::animation::offline::RawAnimation::TranslationKey" = type { float, %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Float3" = type { float, float, float }
-%"struct.ozz::animation::offline::RawAnimation::RotationKey" = type { float, %"struct.ozz::math::Quaternion" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::animation::offline::RawAnimation::ScaleKey" = type { float, %"struct.ozz::math::Float3" }
 %"struct.ozz::io::internal::Array.17" = type { ptr, i64 }
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation10JointTrackEEEE4SaveERNS0_8OArchiveEPKS9_m = comdat any
@@ -81,7 +55,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_9animation7offline12RawAnimationEE4S
 
 10:                                               ; preds = %.lr.ph, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS7_EEEEEvRKT_.exit
   %.010 = phi i64 [ 0, %.lr.ph ], [ %50, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS7_EEEEEvRKT_.exit ]
-  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation", ptr %1, i64 %.010
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %.010
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load float, ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -243,7 +217,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc17
 
 36:                                               ; preds = %.lr.ph, %36
   %.019 = phi i64 [ 0, %.lr.ph ], [ %48, %36 ]
-  %37 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation", ptr %1, i64 %.019
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %.019
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load ptr, ptr %0, align 8, !tbaa !59
@@ -299,7 +273,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
 
 14:                                               ; preds = %.lr.ph, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4SaveERNS0_8OArchiveEPKS5_m.exit
   %.023 = phi i64 [ 0, %.lr.ph ], [ %140, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4SaveERNS0_8OArchiveEPKS5_m.exit ]
-  %15 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %1, i64 %.023
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.023
   %16 = load ptr, ptr %15, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !65
@@ -308,7 +282,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
 
 .lr.ph.i:                                         ; preds = %14, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation8ScaleKeyENS_12StdAllocatorIS7_EEEEEvRKT_.exit
   %.010.i = phi i64 [ %139, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation8ScaleKeyENS_12StdAllocatorIS7_EEEEEvRKT_.exit ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %16, i64 %.010.i
+  %19 = getelementptr inbounds nuw [72 x i8], ptr %16, i64 %.010.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !66
   %22 = load ptr, ptr %19, align 8, !tbaa !69
@@ -351,7 +325,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
 
 .lr.ph.i.i.i.i.i19:                               ; preds = %35, %.lr.ph.i.i.i.i.i19
   %.08.i.i.i.i.i20 = phi i64 [ %58, %.lr.ph.i.i.i.i.i19 ], [ 0, %35 ]
-  %45 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %36, i64 %.08.i.i.i.i.i20
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %.08.i.i.i.i.i20
   %46 = load float, ptr %45, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = load i8, ptr %13, align 8, !tbaa !19, !range !23, !noundef !24
@@ -417,7 +391,7 @@ _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation14Translation
 
 .lr.ph.i.i.i.i.i10:                               ; preds = %75, %.lr.ph.i.i.i.i.i10
   %.08.i.i.i.i.i11 = phi i64 [ %98, %.lr.ph.i.i.i.i.i10 ], [ 0, %75 ]
-  %85 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %76, i64 %.08.i.i.i.i.i11
+  %85 = getelementptr inbounds nuw [20 x i8], ptr %76, i64 %.08.i.i.i.i.i11
   %86 = load float, ptr %85, align 4, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %87 = load i8, ptr %13, align 8, !tbaa !19, !range !23, !noundef !24
@@ -483,7 +457,7 @@ _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation11RotationKey
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %115, %.lr.ph.i.i.i.i.i
   %.08.i.i.i.i.i = phi i64 [ %138, %.lr.ph.i.i.i.i.i ], [ 0, %115 ]
-  %125 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %116, i64 %.08.i.i.i.i.i
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %.08.i.i.i.i.i
   %126 = load float, ptr %125, align 4, !tbaa !86
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %127 = load i8, ptr %13, align 8, !tbaa !19, !range !23, !noundef !24
@@ -553,7 +527,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
 
 10:                                               ; preds = %.lr.ph, %80
   %.010 = phi i64 [ 0, %.lr.ph ], [ %81, %80 ]
-  %11 = getelementptr inbounds nuw %"class.std::vector", ptr %1, i64 %.010
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.010
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load ptr, ptr %0, align 8, !tbaa !59
   %13 = load ptr, ptr %12, align 8, !tbaa !27
@@ -587,7 +561,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
   br i1 %33, label %34, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %24, i64 %21
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %24, i64 %21
   %.not.i.i = icmp eq ptr %23, %35
   br i1 %.not.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit, label %.lr.ph.i.i.i
 
@@ -849,9 +823,9 @@ _ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAlloca
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit49, %68
   store ptr %31, ptr %0, align 8, !tbaa !30
-  %75 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %36, i64 %1
+  %75 = getelementptr inbounds nuw [72 x i8], ptr %36, i64 %1
   store ptr %75, ptr %4, align 8, !tbaa !29
-  %76 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %31, i64 %24
+  %76 = getelementptr inbounds nuw [72 x i8], ptr %31, i64 %24
   store ptr %76, ptr %11, align 8, !tbaa !93
   br label %77
 
@@ -978,7 +952,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9a
 
 15:                                               ; preds = %.lr.ph, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4LoadERNS0_8IArchiveEPS5_mj.exit
   %.054 = phi i64 [ 0, %.lr.ph ], [ %258, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4LoadERNS0_8IArchiveEPS5_mj.exit ]
-  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.17", ptr %1, i64 %.054
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.054
   %17 = load ptr, ptr %16, align 8, !tbaa !98
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !100
@@ -987,7 +961,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9a
 
 .lr.ph.i:                                         ; preds = %15, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation8ScaleKeyEEEEEvRT_.exit.i
   %.010.i = phi i64 [ %257, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation8ScaleKeyEEEEEvRT_.exit.i ], [ 0, %15 ]
-  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %17, i64 %.010.i
+  %20 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %.010.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = load ptr, ptr %0, align 8, !tbaa !59
   %22 = load ptr, ptr %21, align 8, !tbaa !27
@@ -1092,9 +1066,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation1
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i: ; preds = %67, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i
   store ptr %56, ptr %20, align 8, !tbaa !69
-  %74 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %61, i64 %40
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %40
   store ptr %74, ptr %31, align 8, !tbaa !66
-  %75 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %56, i64 %49
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %49
   store ptr %75, ptr %41, align 8, !tbaa !94
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
@@ -1103,7 +1077,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12
   br i1 %77, label %78, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %33, i64 %30
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %30
   %.not.i.i.i31 = icmp eq ptr %32, %79
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i, label %80
 
@@ -1128,7 +1102,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
 
 .lr.ph.i.i.i.i25:                                 ; preds = %.lr.ph.i.i.i.i25, %81
   %.08.i.i.i.i26 = phi i64 [ %98, %.lr.ph.i.i.i.i25 ], [ 0, %81 ]
-  %88 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %82, i64 %.08.i.i.i.i26
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %.08.i.i.i.i26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %89 = load ptr, ptr %0, align 8, !tbaa !59
   %90 = load ptr, ptr %89, align 8, !tbaa !27
@@ -1254,9 +1228,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation1
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i: ; preds = %146, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i
   store ptr %135, ptr %99, align 8, !tbaa !77
-  %153 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %140, i64 %119
+  %153 = getelementptr inbounds nuw [20 x i8], ptr %140, i64 %119
   store ptr %153, ptr %110, align 8, !tbaa !74
-  %154 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %135, i64 %128
+  %154 = getelementptr inbounds nuw [20 x i8], ptr %135, i64 %128
   store ptr %154, ptr %120, align 8, !tbaa !95
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
@@ -1265,7 +1239,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12Std
   br i1 %156, label %157, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
 157:                                              ; preds = %155
-  %158 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %112, i64 %109
+  %158 = getelementptr inbounds nuw [20 x i8], ptr %112, i64 %109
   %.not.i.i.i20 = icmp eq ptr %111, %158
   br i1 %.not.i.i.i20, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i, label %159
 
@@ -1290,7 +1264,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
 
 .lr.ph.i.i.i.i14:                                 ; preds = %.lr.ph.i.i.i.i14, %160
   %.08.i.i.i.i15 = phi i64 [ %177, %.lr.ph.i.i.i.i14 ], [ 0, %160 ]
-  %167 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %161, i64 %.08.i.i.i.i15
+  %167 = getelementptr inbounds nuw [20 x i8], ptr %161, i64 %.08.i.i.i.i15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %168 = load ptr, ptr %0, align 8, !tbaa !59
   %169 = load ptr, ptr %168, align 8, !tbaa !27
@@ -1416,9 +1390,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i: ; preds = %225, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i
   store ptr %214, ptr %178, align 8, !tbaa !85
-  %232 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %219, i64 %198
+  %232 = getelementptr inbounds nuw [16 x i8], ptr %219, i64 %198
   store ptr %232, ptr %189, align 8, !tbaa !82
-  %233 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %214, i64 %207
+  %233 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %207
   store ptr %233, ptr %199, align 8, !tbaa !96
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
@@ -1427,7 +1401,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllo
   br i1 %235, label %236, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
 236:                                              ; preds = %234
-  %237 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %191, i64 %188
+  %237 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %188
   %.not.i.i.i = icmp eq ptr %190, %237
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i, label %238
 
@@ -1452,7 +1426,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %239
   %.08.i.i.i.i = phi i64 [ %256, %.lr.ph.i.i.i.i ], [ 0, %239 ]
-  %246 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %240, i64 %.08.i.i.i.i
+  %246 = getelementptr inbounds nuw [16 x i8], ptr %240, i64 %.08.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %247 = load ptr, ptr %0, align 8, !tbaa !59
   %248 = load ptr, ptr %247, align 8, !tbaa !27

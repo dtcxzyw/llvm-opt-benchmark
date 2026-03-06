@@ -420,7 +420,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr noundef captures(n
   %17 = phi i64 [ %3, %9 ], [ %65, %55 ]
   %18 = phi i8 [ 0, %9 ], [ %56, %55 ]
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr ptr, ptr %19, i64 %15
+  %20 = getelementptr [8 x i8], ptr %19, i64 %15
   %21 = load ptr, ptr %20, align 8
   %22 = trunc i64 %16 to i32
   %23 = and i64 %16, 4294967295
@@ -453,7 +453,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr noundef captures(n
   tail call void @fill_page_dma(ptr noundef %44, i64 noundef %45, i32 noundef 512) #7
   tail call void @_raw_spin_lock(ptr noundef nonnull %7) #7
   %46 = load ptr, ptr %11, align 8
-  %47 = getelementptr ptr, ptr %46, i64 %15
+  %47 = getelementptr [8 x i8], ptr %46, i64 %15
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %55
@@ -464,7 +464,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr noundef captures(n
   store ptr %52, ptr %1, align 8
   store volatile i32 0, ptr %51, align 8
   %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr ptr, ptr %53, i64 %15
+  %54 = getelementptr [8 x i8], ptr %53, i64 %15
   store ptr %37, ptr %54, align 8
   br label %55
 
@@ -554,7 +554,7 @@ define internal void @gen6_ppgtt_clear_range(ptr noundef captures(none) %0, i64 
   %26 = load ptr, ptr %25, align 8
   %27 = and i32 %20, 65535
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr ptr, ptr %26, i64 %28
+  %29 = getelementptr [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = sub nuw nsw i32 1024, %21
   %32 = tail call i32 @llvm.umin.i32(i32 %22, i32 %31)
@@ -573,7 +573,7 @@ define internal void @gen6_ppgtt_clear_range(ptr noundef captures(none) %0, i64 
   %40 = load ptr, ptr %30, align 8
   %41 = tail call ptr @__px_vaddr(ptr noundef %40) #7
   %42 = zext nneg i32 %21 to i64
-  %43 = getelementptr i32, ptr %41, i64 %42
+  %43 = getelementptr [4 x i8], ptr %41, i64 %42
   %44 = zext nneg i32 %32 to i64
   %45 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosl", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, ptr %43, i64 %44) #7, !srcloc !24
   %46 = icmp eq i32 %33, 0
@@ -617,7 +617,7 @@ define internal void @gen6_ppgtt_insert_entries(ptr noundef readonly captures(no
   %32 = load ptr, ptr %25, align 8
   %33 = and i32 %27, 65535
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr ptr, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @__px_vaddr(ptr noundef %37) #7
@@ -633,7 +633,7 @@ define internal void @gen6_ppgtt_insert_entries(ptr noundef readonly captures(no
   %45 = or i64 %15, %44
   %46 = or i64 %45, %41
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr i32, ptr %38, i64 %indvars.iv
+  %48 = getelementptr [4 x i8], ptr %38, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
   %49 = add i64 %41, 4096
   %50 = icmp eq i64 %49, %42
@@ -703,7 +703,7 @@ define internal void @gen6_ppgtt_cleanup(ptr noundef %0) #0 align 16 {
 5:                                                ; preds = %12, %1
   %6 = phi i64 [ 0, %1 ], [ %13, %12 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %6
+  %8 = getelementptr [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
@@ -775,7 +775,7 @@ define internal fastcc void @gen6_flush_pd(ptr noundef %0, i64 noundef %1, i64 n
   %23 = phi i64 [ %6, %16 ], [ %44, %21 ]
   %24 = phi i64 [ %10, %16 ], [ %45, %21 ]
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %22
+  %26 = getelementptr [8 x i8], ptr %25, i64 %22
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   %29 = select i1 %28, ptr %18, ptr %27
@@ -787,7 +787,7 @@ define internal fastcc void @gen6_flush_pd(ptr noundef %0, i64 noundef %1, i64 n
   %35 = trunc i64 %34 to i32
   %36 = or i32 %35, 1
   %37 = load ptr, ptr %19, align 8
-  %38 = getelementptr i32, ptr %37, i64 %22
+  %38 = getelementptr [4 x i8], ptr %37, i64 %22
   tail call void @iowrite32(i32 noundef %36, ptr noundef %38) #7
   %39 = add i64 %23, 4194304
   %40 = and i64 %39, 4290772992
@@ -812,7 +812,7 @@ define internal fastcc void @gen6_flush_pd(ptr noundef %0, i64 noundef %1, i64 n
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %55 = load ptr, ptr %54, align 8
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr i32, ptr %55, i64 %56
+  %57 = getelementptr [4 x i8], ptr %55, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -4
   %59 = tail call i32 @ioread32(ptr noundef %58) #7
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -911,7 +911,7 @@ define internal void @pd_vma_bind(ptr noundef readonly captures(none) %0, ptr re
   store i32 %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr i32, ptr %16, i64 %11
+  %17 = getelementptr [4 x i8], ptr %16, i64 %11
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 728
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 328
@@ -940,7 +940,7 @@ define internal void @pd_vma_unbind(ptr readnone captures(none) %0, ptr noundef 
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr ptr, ptr %16, i64 %13
+  %17 = getelementptr [8 x i8], ptr %16, i64 %13
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %27, label %20
@@ -954,7 +954,7 @@ define internal void @pd_vma_unbind(ptr readnone captures(none) %0, ptr noundef 
 24:                                               ; preds = %20
   tail call void @free_px(ptr noundef %4, ptr noundef nonnull %18, i32 noundef 0) #7
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %13
+  %26 = getelementptr [8 x i8], ptr %25, i64 %13
   store ptr null, ptr %26, align 8
   br label %27
 

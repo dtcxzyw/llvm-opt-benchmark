@@ -203,13 +203,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ErrorOr" = type { %union.anon.343, i8, [7 x i8] }
 %union.anon.343 = type { %"struct.llvm::AlignedCharArrayUnion.345" }
 %"struct.llvm::AlignedCharArrayUnion.345" = type { [16 x i8] }
-%"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo" = type { %"class.llvm::cl::generic_parser_base::GenericOptionInfo", %"struct.llvm::cl::OptionValue.2" }
-%"class.llvm::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.453" }
-%"struct.std::pair.453" = type { %"class.llvm::StringRef", %"class.llvm::DenseMap.414" }
-%"class.llvm::DenseMap.414" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"struct.llvm::detail::DenseMapPair.476" = type { %"struct.std::pair.477" }
-%"struct.std::pair.477" = type { i64, ptr }
 %"class.llvm::SmallVector.479" = type { %"class.llvm::SmallVectorImpl.480", %"struct.llvm::SmallVectorStorage.483" }
 %"class.llvm::SmallVectorImpl.480" = type { %"class.llvm::SmallVectorTemplateBase.481" }
 %"class.llvm::SmallVectorTemplateBase.481" = type { %"class.llvm::SmallVectorTemplateCommon.482" }
@@ -529,14 +522,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallPtrSet.990" = type { %"class.llvm::SmallPtrSetImpl.base.992", [2 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.992" = type { %"class.llvm::SmallPtrSetImplBase.base" }
 %"class.std::error_code" = type { i32, ptr }
-%"struct.llvm::detail::DenseMapPair.1071" = type { %"struct.std::pair.1072" }
-%"struct.std::pair.1072" = type { ptr, %"class.std::unique_ptr.1044" }
-%"class.std::unique_ptr.1044" = type { %"struct.std::__uniq_ptr_data.1045" }
-%"struct.std::__uniq_ptr_data.1045" = type { %"class.std::__uniq_ptr_impl.1046" }
-%"class.std::__uniq_ptr_impl.1046" = type { %"class.std::tuple.1047" }
-%"class.std::tuple.1047" = type { %"struct.std::_Tuple_impl.1048" }
-%"struct.std::_Tuple_impl.1048" = type { %"struct.std::_Head_base.1051" }
-%"struct.std::_Head_base.1051" = type { ptr }
 %"class.std::unique_ptr.1079" = type { %"struct.std::__uniq_ptr_data.1080" }
 %"struct.std::__uniq_ptr_data.1080" = type { %"class.std::__uniq_ptr_impl.1081" }
 %"class.std::__uniq_ptr_impl.1081" = type { %"class.std::tuple.1082" }
@@ -546,12 +531,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::TargetLibraryInfo" = type { ptr, %"class.std::bitset" }
 %"class.std::bitset" = type { %"struct.std::_Base_bitset" }
 %"struct.std::_Base_bitset" = type { [9 x i64] }
-%"class.std::unique_ptr.1111" = type { %"struct.std::__uniq_ptr_data.1112" }
-%"struct.std::__uniq_ptr_data.1112" = type { %"class.std::__uniq_ptr_impl.1113" }
-%"class.std::__uniq_ptr_impl.1113" = type { %"class.std::tuple.1114" }
-%"class.std::tuple.1114" = type { %"struct.std::_Tuple_impl.1115" }
-%"struct.std::_Tuple_impl.1115" = type { %"struct.std::_Head_base.1118" }
-%"struct.std::_Head_base.1118" = type { ptr }
 %"class.llvm::SanitizerCoveragePass" = type { %"struct.llvm::SanitizerCoverageOptions", %"class.std::unique_ptr.1187", %"class.std::unique_ptr.1187" }
 %"struct.llvm::SanitizerCoverageOptions" = type <{ i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8] }>
 %"class.std::unique_ptr.1187" = type { %"struct.std::__uniq_ptr_data.1188" }
@@ -658,16 +637,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::MemorySanitizerOptions" = type <{ i8, [3 x i8], i32, i8, i8, [2 x i8] }>
 %"struct.llvm::AddressSanitizerOptions" = type <{ i8, i8, i8, i8, i32, i32, i32, i8, [3 x i8] }>
 %"class.llvm::AddressSanitizerPass" = type { %"struct.llvm::AddressSanitizerOptions", i8, i8, i32, i32 }
-%"struct.std::pair.1348" = type { ptr, i64 }
 %"struct.llvm::SmallDenseMap<llvm::Value *, unsigned int>::LargeRep" = type { ptr, i32 }
-%"struct.llvm::detail::DenseMapPair.1350" = type { %"struct.std::pair.base.1353", [4 x i8] }
-%"struct.std::pair.base.1353" = type <{ ptr, i32 }>
-%"struct.std::pair.1355" = type { ptr, ptr }
-%"struct.std::pair.1314" = type <{ ptr, i32, [4 x i8] }>
 %"class.llvm::GCOVProfilerPass" = type { %"struct.llvm::GCOVOptions" }
 %"class.llvm::InstrProfilingLoweringPass" = type <{ %"struct.llvm::InstrProfOptions", i8, [7 x i8] }>
 %"class.llvm::MemProfilerPass" = type { i8 }
 %"class.llvm::ModuleMemProfilerPass" = type { i8 }
+%"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo" = type { %"class.llvm::cl::generic_parser_base::GenericOptionInfo", %"struct.llvm::cl::OptionValue.2" }
+%"class.llvm::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"struct.llvm::cl::initializer" = type { ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"class.llvm::cl::ValuesClass" = type { %"class.llvm::SmallVector.17" }
@@ -1958,7 +1934,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -2089,7 +2065,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %28 = phi i32 [ %23, %6 ], [ %.pre.i.i, %25 ]
   %29 = load ptr, ptr %12, align 8, !tbaa !25
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = ptrtoint ptr %22 to i64
   store i64 %32, ptr %31, align 1
   %33 = load i32, ptr %14, align 8, !tbaa !26
@@ -4947,7 +4923,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_10PGOOptions11
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
   %.01525.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %18, i64 %.01525.i.us
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %.01525.i.us
   %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !47
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
@@ -4960,7 +4936,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
   %.01525.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i ], [ 0, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %18, i64 %.01525.i
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !47
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
@@ -4974,7 +4950,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
 
 _ZN4llvm2cl6parserINS_10PGOOptions11ColdFuncOptEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
   %24 = phi i64 [ %.01525.i.us, %.lr.ph.i.split.us ], [ %.01525.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %25 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %18, i64 %24
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 4, !tbaa !62
   store i32 %27, ptr %9, align 4, !tbaa !62
@@ -5216,7 +5192,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i: ; pr
   %28 = phi i32 [ %23, %16 ], [ %.pre.i.i, %25 ]
   %29 = load ptr, ptr %1, align 8, !tbaa !25
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   store ptr %21, ptr %31, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %22, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -5263,7 +5239,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm2cl6parserINS_10PGOOptions11Co
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !46
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !47
@@ -5277,7 +5253,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm2cl6parserINS_10PGOOptions11Co
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8, !tbaa !46
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5294,7 +5270,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   ret ptr %7
 }
@@ -5420,7 +5396,7 @@ define linkonce_odr hidden void @_ZNK4llvm18ModuleSummaryIndex34collectDefinedGV
   %.039.i = phi ptr [ null, %30 ], [ %spec.select.i, %47 ]
   %.042.i = and i32 %.pn.i17, %32
   %37 = zext i32 %.042.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %27, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %37
   %.sroa.08.0.copyload.i = load ptr, ptr %38, align 8, !tbaa !46
   %magicptr.i.i = ptrtoint ptr %.sroa.08.0.copyload.i to i64
   switch i64 %magicptr.i.i, label %40 [
@@ -5540,7 +5516,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS1_ImPNS_18GlobalValueSummary
   %77 = add i32 %74, -1
   %78 = and i32 %77, %22
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.476", ptr %72, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !47
   %82 = icmp eq i64 %14, %81
   br i1 %82, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_EixERKm.exit, label %.lr.ph.i.i, !prof !600
@@ -5568,7 +5544,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS1_ImPNS_18GlobalValueSummary
   %92 = add i32 %.02745.i.i, %.02546.i.i
   %93 = and i32 %92, %77
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.476", ptr %72, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !47
   %97 = icmp eq i64 %14, %96
   br i1 %97, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_EixERKm.exit, label %.lr.ph.i.i, !prof !601, !llvm.loop !602
@@ -5609,7 +5585,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoI
   %114 = add i32 %111, -1
   %115 = and i32 %114, %22
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.476", ptr %110, i64 %116
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !47
   %119 = icmp eq i64 %14, %118
   br i1 %119, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E15LookupBucketForImEEbRKT_RPS8_.exit, label %.lr.ph.i, !prof !600
@@ -5637,7 +5613,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoI
   %129 = add i32 %.02745.i, %.02546.i
   %130 = and i32 %129, %114
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.476", ptr %110, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !47
   %134 = icmp eq i64 %14, %133
   br i1 %134, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E15LookupBucketForImEEbRKT_RPS8_.exit, label %.lr.ph.i, !prof !601, !llvm.loop !602
@@ -5718,12 +5694,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit15: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %.pre19 = load ptr, ptr %17, align 8, !tbaa !73
   %.pre22 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %.pre22
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pre22
   store i64 ptrtoint (ptr @.str.26 to i64), ptr %18, align 8
   %19 = add nuw nsw i32 %13, 1
   store i32 %19, ptr %3, align 8, !tbaa !26
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %20
   %22 = ptrtoint ptr %.pre19 to i64
   store i64 %22, ptr %21, align 8
   %23 = add nuw nsw i32 %13, 2
@@ -5751,7 +5727,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit15: ; preds = %12
 _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit18: ; preds = %28, %30
   %.pre-phi = phi i64 [ %26, %28 ], [ %.pre21, %30 ]
   %32 = load ptr, ptr %1, align 8, !tbaa !25
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.pre-phi
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.pre-phi
   store i64 0, ptr %33, align 1
   %34 = load i32, ptr %3, align 8, !tbaa !26
   %35 = add i32 %34, 1
@@ -7168,7 +7144,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   %513 = phi i64 [ 0, %508 ], [ %535, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i262 ]
   %.158.i = phi i1 [ %.not.i, %508 ], [ %.2.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i262 ]
   %.01557.i = phi i32 [ 0, %508 ], [ %534, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i262 ]
-  %514 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %482, i64 %513
+  %514 = getelementptr inbounds nuw [32 x i8], ptr %482, i64 %513
   %515 = load ptr, ptr %514, align 8, !tbaa !73, !noalias !648
   %516 = getelementptr inbounds nuw i8, ptr %514, i64 8
   %517 = load i64, ptr %516, align 8, !tbaa !70, !noalias !648
@@ -8298,7 +8274,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoI
   %46 = trunc i64 %45 to i32
   %47 = and i32 %38, %46
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.476", ptr %21, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !47
   %51 = icmp eq i64 %41, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E15LookupBucketForImEEbRKT_RPS8_.exit.i, label %.lr.ph.i13.i, !prof !600
@@ -8326,7 +8302,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoI
   %61 = add i32 %.02745.i.i, %.02546.i.i
   %62 = and i32 %61, %38
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.476", ptr %21, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !47
   %66 = icmp eq i64 %41, %65
   br i1 %66, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E15LookupBucketForImEEbRKT_RPS8_.exit.i, label %.lr.ph.i13.i, !prof !601, !llvm.loop !602
@@ -8574,7 +8550,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !678
   store ptr %67, ptr %41, align 8, !tbaa !675
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.492", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !677
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -8724,7 +8700,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !678
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !675
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.492", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !677
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -8941,7 +8917,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !678
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !675
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.492", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !677
   ret void
 }
@@ -9112,7 +9088,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !722
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !736
   store i8 0, ptr %32, align 8, !tbaa !724
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -9220,7 +9196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !724
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !73
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -9705,7 +9681,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %73
   store ptr %23, ptr %0, align 8, !tbaa !615
   store ptr %.0.lcssa.i.i.i25, ptr %5, align 8, !tbaa !614
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !616
   ret void
 }
@@ -10090,7 +10066,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.039 = phi ptr [ null, %8 ], [ %spec.select, %25 ]
   %.042 = and i32 %.pn, %10
   %12 = zext i32 %.042 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %12
   %.sroa.010.0.copyload = load ptr, ptr %1, align 8, !tbaa !46
   %.sroa.211.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !47
   %.sroa.08.0.copyload = load ptr, ptr %13, align 8, !tbaa !46
@@ -12263,7 +12239,7 @@ _ZNSt14_Optional_baseIN4llvm10PGOOptionsELb0ELb0EED2Ev.exit249: ; preds = %_ZNSt
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i, label %836, !prof !33
 
 836:                                              ; preds = %826
-  %837 = getelementptr inbounds nuw %"class.std::function.880", ptr %.pre3.i.i, i64 %832
+  %837 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %832
   %838 = icmp uge ptr %94, %.pre3.i.i
   %839 = icmp ult ptr %94, %837
   %spec.select.i.i.i.i.i.i = and i1 %838, %839
@@ -12288,7 +12264,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i = phi ptr [ %94, %826 ], [ %845, %840 ], [ %94, %.critedge.i.i.i.i ]
   %847 = load i32, ptr %830, align 8, !tbaa !26
   %848 = zext i32 %847 to i64
-  %849 = getelementptr inbounds nuw %"class.std::function.880", ptr %846, i64 %848
+  %849 = getelementptr inbounds nuw [32 x i8], ptr %846, i64 %848
   %850 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %849, i8 0, i64 32, i1 false)
   %851 = load ptr, ptr %850, align 8, !tbaa !43
@@ -12355,7 +12331,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm11PassBuild
   br i1 %.not.i.i.not.i.i251, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i256, label %882, !prof !33
 
 882:                                              ; preds = %872
-  %883 = getelementptr inbounds nuw %"class.std::function.880", ptr %.pre3.i.i252, i64 %878
+  %883 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i252, i64 %878
   %884 = icmp uge ptr %95, %.pre3.i.i252
   %885 = icmp ult ptr %95, %883
   %spec.select.i.i.i.i.i.i253 = and i1 %884, %885
@@ -12380,7 +12356,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i257 = phi ptr [ %95, %872 ], [ %891, %886 ], [ %95, %.critedge.i.i.i.i254 ]
   %893 = load i32, ptr %876, align 8, !tbaa !26
   %894 = zext i32 %893 to i64
-  %895 = getelementptr inbounds nuw %"class.std::function.880", ptr %892, i64 %894
+  %895 = getelementptr inbounds nuw [32 x i8], ptr %892, i64 %894
   %896 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i257, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %895, i8 0, i64 32, i1 false)
   %897 = load ptr, ptr %896, align 8, !tbaa !43
@@ -12954,7 +12930,7 @@ default.unreachable:                              ; preds = %1131
 switch.lookup:                                    ; preds = %1131
   %1137 = lshr i64 %.val83, 12
   %1138 = and i64 %1137, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerE, i64 %1138
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerE, i64 %1138
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
 
@@ -12997,7 +12973,7 @@ _ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit:   ; preds = %switch.lookup, %113
   br i1 %.not.i.i.not.i.i271, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i276, label %1160, !prof !33
 
 1160:                                             ; preds = %1150
-  %1161 = getelementptr inbounds nuw %"class.std::function.880", ptr %.pre3.i.i272, i64 %1156
+  %1161 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i272, i64 %1156
   %1162 = icmp uge ptr %104, %.pre3.i.i272
   %1163 = icmp ult ptr %104, %1161
   %spec.select.i.i.i.i.i.i273 = and i1 %1162, %1163
@@ -13022,7 +12998,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i277 = phi ptr [ %104, %1150 ], [ %1169, %1164 ], [ %104, %.critedge.i.i.i.i274 ]
   %1171 = load i32, ptr %1154, align 8, !tbaa !26
   %1172 = zext i32 %1171 to i64
-  %1173 = getelementptr inbounds nuw %"class.std::function.880", ptr %1170, i64 %1172
+  %1173 = getelementptr inbounds nuw [32 x i8], ptr %1170, i64 %1172
   %1174 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i277, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1173, i8 0, i64 32, i1 false)
   %1175 = load ptr, ptr %1174, align 8, !tbaa !43
@@ -13072,7 +13048,7 @@ _ZNSt14_Function_baseD2Ev.exit281:                ; preds = %_ZN4llvm11PassBuild
   br i1 %.not.i.i.not.i.i282, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEEELb0EE28reserveForParamAndGetAddressERKSB_m.exit.i.i, label %1197, !prof !33
 
 1197:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit281
-  %1198 = getelementptr inbounds nuw %"class.std::function.945", ptr %.pre3.i.i283, i64 %1193
+  %1198 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i283, i64 %1193
   %1199 = icmp uge ptr %105, %.pre3.i.i283
   %1200 = icmp ult ptr %105, %1198
   %spec.select.i.i.i.i.i.i284 = and i1 %1199, %1200
@@ -13097,7 +13073,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i287 = phi ptr [ %105, %_ZNSt14_Function_baseD2Ev.exit281 ], [ %1206, %1201 ], [ %105, %.critedge.i.i.i.i285 ]
   %1208 = load i32, ptr %1191, align 8, !tbaa !26
   %1209 = zext i32 %1208 to i64
-  %1210 = getelementptr inbounds nuw %"class.std::function.945", ptr %1207, i64 %1209
+  %1210 = getelementptr inbounds nuw [32 x i8], ptr %1207, i64 %1209
   %1211 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i287, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1210, i8 0, i64 32, i1 false)
   %1212 = load ptr, ptr %1211, align 8, !tbaa !43
@@ -13147,7 +13123,7 @@ _ZNSt14_Function_baseD2Ev.exit290:                ; preds = %_ZN4llvm11PassBuild
   br i1 %.not.i.i.not.i.i291, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i, label %1234, !prof !33
 
 1234:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit290
-  %1235 = getelementptr inbounds nuw %"class.std::function.949", ptr %.pre3.i.i292, i64 %1230
+  %1235 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i292, i64 %1230
   %1236 = icmp uge ptr %106, %.pre3.i.i292
   %1237 = icmp ult ptr %106, %1235
   %spec.select.i.i.i.i.i.i293 = and i1 %1236, %1237
@@ -13172,7 +13148,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_8FunctionEN
   %.016.i.i.i.i296 = phi ptr [ %106, %_ZNSt14_Function_baseD2Ev.exit290 ], [ %1243, %1238 ], [ %106, %.critedge.i.i.i.i294 ]
   %1245 = load i32, ptr %1228, align 8, !tbaa !26
   %1246 = zext i32 %1245 to i64
-  %1247 = getelementptr inbounds nuw %"class.std::function.949", ptr %1244, i64 %1246
+  %1247 = getelementptr inbounds nuw [32 x i8], ptr %1244, i64 %1246
   %1248 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i296, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1247, i8 0, i64 32, i1 false)
   %1249 = load ptr, ptr %1248, align 8, !tbaa !43
@@ -13233,7 +13209,7 @@ _ZNSt14_Function_baseD2Ev.exit299:                ; preds = %_ZN4llvm11PassBuild
   br i1 %.not.i.i.not.i.i300, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i305, label %1277, !prof !33
 
 1277:                                             ; preds = %1267
-  %1278 = getelementptr inbounds nuw %"class.std::function.880", ptr %.pre3.i.i301, i64 %1273
+  %1278 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i301, i64 %1273
   %1279 = icmp uge ptr %107, %.pre3.i.i301
   %1280 = icmp ult ptr %107, %1278
   %spec.select.i.i.i.i.i.i302 = and i1 %1279, %1280
@@ -13258,7 +13234,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i306 = phi ptr [ %107, %1267 ], [ %1286, %1281 ], [ %107, %.critedge.i.i.i.i303 ]
   %1288 = load i32, ptr %1271, align 8, !tbaa !26
   %1289 = zext i32 %1288 to i64
-  %1290 = getelementptr inbounds nuw %"class.std::function.880", ptr %1287, i64 %1289
+  %1290 = getelementptr inbounds nuw [32 x i8], ptr %1287, i64 %1289
   %1291 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i306, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1290, i8 0, i64 32, i1 false)
   %1292 = load ptr, ptr %1291, align 8, !tbaa !43
@@ -13322,7 +13298,7 @@ _ZNSt14_Function_baseD2Ev.exit310:                ; preds = %_ZN4llvm11PassBuild
   br i1 %.not.i.i.not.i.i314, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i319, label %1320, !prof !33
 
 1320:                                             ; preds = %1308
-  %1321 = getelementptr inbounds nuw %"class.std::function.949", ptr %.pre3.i.i315, i64 %1316
+  %1321 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i315, i64 %1316
   %1322 = icmp uge ptr %108, %.pre3.i.i315
   %1323 = icmp ult ptr %108, %1321
   %spec.select.i.i.i.i.i.i316 = and i1 %1322, %1323
@@ -13347,7 +13323,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_8FunctionEN
   %.016.i.i.i.i320 = phi ptr [ %108, %1308 ], [ %1329, %1324 ], [ %108, %.critedge.i.i.i.i317 ]
   %1331 = load i32, ptr %1314, align 8, !tbaa !26
   %1332 = zext i32 %1331 to i64
-  %1333 = getelementptr inbounds nuw %"class.std::function.949", ptr %1330, i64 %1332
+  %1333 = getelementptr inbounds nuw [32 x i8], ptr %1330, i64 %1332
   %1334 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i320, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1333, i8 0, i64 32, i1 false)
   %1335 = load ptr, ptr %1334, align 8, !tbaa !43
@@ -13418,7 +13394,7 @@ _ZNSt14_Function_baseD2Ev.exit324:                ; preds = %_ZN4llvm11PassBuild
   br i1 %.not.i.i.not.i.i.i326, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEEELb0EE28reserveForParamAndGetAddressERKSB_m.exit.i.i.i, label %1366, !prof !33
 
 1366:                                             ; preds = %1354
-  %1367 = getelementptr inbounds nuw %"class.std::function.945", ptr %.pre3.i.i.i, i64 %1362
+  %1367 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %1362
   %1368 = icmp uge ptr %14, %.pre3.i.i.i
   %1369 = icmp ult ptr %14, %1367
   %spec.select.i.i.i.i.i.i.i = and i1 %1368, %1369
@@ -13443,7 +13419,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i.i = phi ptr [ %14, %1354 ], [ %1375, %1370 ], [ %14, %.critedge.i.i.i.i.i ]
   %1377 = load i32, ptr %1360, align 8, !tbaa !26
   %1378 = zext i32 %1377 to i64
-  %1379 = getelementptr inbounds nuw %"class.std::function.945", ptr %1376, i64 %1378
+  %1379 = getelementptr inbounds nuw [32 x i8], ptr %1376, i64 %1378
   %1380 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1379, i8 0, i64 32, i1 false)
   %1381 = load ptr, ptr %1380, align 8, !tbaa !43
@@ -13504,7 +13480,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %1392, %_ZN4llvm11Pa
   br i1 %.not.i.i.not.i.i7.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEEELb0EE28reserveForParamAndGetAddressERKSB_m.exit.i.i12.i, label %1406, !prof !33
 
 1406:                                             ; preds = %1394
-  %1407 = getelementptr inbounds nuw %"class.std::function.945", ptr %.pre3.i.i8.i, i64 %1402
+  %1407 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i8.i, i64 %1402
   %1408 = icmp uge ptr %15, %.pre3.i.i8.i
   %1409 = icmp ult ptr %15, %1407
   %spec.select.i.i.i.i.i.i9.i = and i1 %1408, %1409
@@ -13529,7 +13505,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i13.i = phi ptr [ %15, %1394 ], [ %1415, %1410 ], [ %15, %.critedge.i.i.i.i10.i ]
   %1417 = load i32, ptr %1400, align 8, !tbaa !26
   %1418 = zext i32 %1417 to i64
-  %1419 = getelementptr inbounds nuw %"class.std::function.945", ptr %1416, i64 %1418
+  %1419 = getelementptr inbounds nuw [32 x i8], ptr %1416, i64 %1418
   %1420 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i13.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1419, i8 0, i64 32, i1 false)
   %1421 = load ptr, ptr %1420, align 8, !tbaa !43
@@ -13648,7 +13624,7 @@ _ZNSt8optionalISt6vectorIjSaIjEEEC2ERKS3_.exit.i: ; preds = %1440
   br i1 %.not.i.i.not.i.i17.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEEELb0EE28reserveForParamAndGetAddressERKSB_m.exit.i.i22.i, label %1474, !prof !33
 
 1474:                                             ; preds = %"_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelENS0_18ThinOrFullLTOPhaseEEEC2IZL13addSanitizersRKNS0_6TripleERKN5clang14CodeGenOptionsERKNSF_11LangOptionsERNS0_11PassBuilderEE3$_2vEEOT_.exit.i"
-  %1475 = getelementptr inbounds nuw %"class.std::function.945", ptr %.pre3.i.i18.i, i64 %1470
+  %1475 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i18.i, i64 %1470
   %1476 = icmp uge ptr %17, %.pre3.i.i18.i
   %1477 = icmp ult ptr %17, %1475
   %spec.select.i.i.i.i.i.i19.i = and i1 %1476, %1477
@@ -13673,7 +13649,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i23.i = phi ptr [ %17, %"_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelENS0_18ThinOrFullLTOPhaseEEEC2IZL13addSanitizersRKNS0_6TripleERKN5clang14CodeGenOptionsERKNSF_11LangOptionsERNS0_11PassBuilderEE3$_2vEEOT_.exit.i" ], [ %1483, %1478 ], [ %17, %.critedge.i.i.i.i20.i ]
   %1485 = load i32, ptr %1468, align 8, !tbaa !26
   %1486 = zext i32 %1485 to i64
-  %1487 = getelementptr inbounds nuw %"class.std::function.945", ptr %1484, i64 %1486
+  %1487 = getelementptr inbounds nuw [32 x i8], ptr %1484, i64 %1486
   %1488 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i23.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1487, i8 0, i64 32, i1 false)
   %1489 = load ptr, ptr %1488, align 8, !tbaa !43
@@ -13772,7 +13748,7 @@ _ZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsE
   br i1 %.not.i.i.not.i.i.i328, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEEELb0EE28reserveForParamAndGetAddressERKSB_m.exit.i.i.i333, label %1533, !prof !33
 
 1533:                                             ; preds = %.thread.i
-  %1534 = getelementptr inbounds nuw %"class.std::function.945", ptr %.pre3.i.i.i329, i64 %1529
+  %1534 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i329, i64 %1529
   %1535 = icmp uge ptr %12, %.pre3.i.i.i329
   %1536 = icmp ult ptr %12, %1534
   %spec.select.i.i.i.i.i.i.i330 = and i1 %1535, %1536
@@ -13797,7 +13773,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i.i334 = phi ptr [ %12, %.thread.i ], [ %1542, %1537 ], [ %12, %.critedge.i.i.i.i.i331 ]
   %1544 = load i32, ptr %1527, align 8, !tbaa !26
   %1545 = zext i32 %1544 to i64
-  %1546 = getelementptr inbounds nuw %"class.std::function.945", ptr %1543, i64 %1545
+  %1546 = getelementptr inbounds nuw [32 x i8], ptr %1543, i64 %1545
   %1547 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i334, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1546, i8 0, i64 32, i1 false)
   %1548 = load ptr, ptr %1547, align 8, !tbaa !43
@@ -13849,7 +13825,7 @@ _ZNSt14_Function_baseD2Ev.exit.i338:              ; preds = %1559, %_ZN4llvm11Pa
   br i1 %.not.i.i.not.i.i8.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i.i, label %1571, !prof !33
 
 1571:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i338
-  %1572 = getelementptr inbounds nuw %"class.std::function.949", ptr %.pre3.i.i9.i, i64 %1567
+  %1572 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i9.i, i64 %1567
   %1573 = icmp uge ptr %13, %.pre3.i.i9.i
   %1574 = icmp ult ptr %13, %1572
   %spec.select.i.i.i.i.i.i10.i = and i1 %1573, %1574
@@ -13874,7 +13850,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_8FunctionEN
   %.016.i.i.i.i13.i339 = phi ptr [ %13, %_ZNSt14_Function_baseD2Ev.exit.i338 ], [ %1580, %1575 ], [ %13, %.critedge.i.i.i.i11.i ]
   %1582 = load i32, ptr %1565, align 8, !tbaa !26
   %1583 = zext i32 %1582 to i64
-  %1584 = getelementptr inbounds nuw %"class.std::function.949", ptr %1581, i64 %1583
+  %1584 = getelementptr inbounds nuw [32 x i8], ptr %1581, i64 %1583
   %1585 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i13.i339, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1584, i8 0, i64 32, i1 false)
   %1586 = load ptr, ptr %1585, align 8, !tbaa !43
@@ -14127,7 +14103,7 @@ _ZNSt22_Optional_payload_baseIN4llvm11GCOVOptionsEE12_M_constructIJS1_EEEvDpOT_.
   br i1 %.not.i.i.not.i.i347, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i352, label %1705, !prof !33
 
 1705:                                             ; preds = %"_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEEC2IZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISG_EERSF_INS0_14ToolOutputFileESH_ISL_EEPNSD_15BackendConsumerEE3$_7vEEOT_.exit"
-  %1706 = getelementptr inbounds nuw %"class.std::function.880", ptr %.pre3.i.i348, i64 %1701
+  %1706 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i348, i64 %1701
   %1707 = icmp uge ptr %110, %.pre3.i.i348
   %1708 = icmp ult ptr %110, %1706
   %spec.select.i.i.i.i.i.i349 = and i1 %1707, %1708
@@ -14152,7 +14128,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i353 = phi ptr [ %110, %"_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEEC2IZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISG_EERSF_INS0_14ToolOutputFileESH_ISL_EEPNSD_15BackendConsumerEE3$_7vEEOT_.exit" ], [ %1714, %1709 ], [ %110, %.critedge.i.i.i.i350 ]
   %1716 = load i32, ptr %1699, align 8, !tbaa !26
   %1717 = zext i32 %1716 to i64
-  %1718 = getelementptr inbounds nuw %"class.std::function.880", ptr %1715, i64 %1717
+  %1718 = getelementptr inbounds nuw [32 x i8], ptr %1715, i64 %1717
   %1719 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i353, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1718, i8 0, i64 32, i1 false)
   %1720 = load ptr, ptr %1719, align 8, !tbaa !43
@@ -14414,7 +14390,7 @@ _ZNSt22_Optional_payload_baseIN4llvm16InstrProfOptionsEE12_M_constructIJS1_EEEvD
   br i1 %.not.i.i.not.i.i366, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE28reserveForParamAndGetAddressERKSA_m.exit.i.i371, label %1838, !prof !33
 
 1838:                                             ; preds = %_ZNSt22_Optional_payload_baseIN4llvm16InstrProfOptionsEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i
-  %1839 = getelementptr inbounds nuw %"class.std::function.880", ptr %.pre3.i.i367, i64 %1834
+  %1839 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i367, i64 %1834
   %1840 = icmp uge ptr %113, %.pre3.i.i367
   %1841 = icmp ult ptr %113, %1839
   %spec.select.i.i.i.i.i.i368 = and i1 %1840, %1841
@@ -14439,7 +14415,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i372 = phi ptr [ %113, %_ZNSt22_Optional_payload_baseIN4llvm16InstrProfOptionsEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i ], [ %1847, %1842 ], [ %113, %.critedge.i.i.i.i369 ]
   %1849 = load i32, ptr %1832, align 8, !tbaa !26
   %1850 = zext i32 %1849 to i64
-  %1851 = getelementptr inbounds nuw %"class.std::function.880", ptr %1848, i64 %1850
+  %1851 = getelementptr inbounds nuw [32 x i8], ptr %1848, i64 %1850
   %1852 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i372, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1851, i8 0, i64 32, i1 false)
   %1853 = load ptr, ptr %1852, align 8, !tbaa !43
@@ -14534,7 +14510,7 @@ _ZNSt14_Optional_baseIN4llvm16InstrProfOptionsELb0ELb0EED2Ev.exit: ; preds = %18
   br i1 %.not.i.i.not.i.i381, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEEELb0EE28reserveForParamAndGetAddressERKSB_m.exit.i.i386, label %1895, !prof !33
 
 1895:                                             ; preds = %1885
-  %1896 = getelementptr inbounds nuw %"class.std::function.945", ptr %.pre3.i.i382, i64 %1891
+  %1896 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i382, i64 %1891
   %1897 = icmp uge ptr %115, %.pre3.i.i382
   %1898 = icmp ult ptr %115, %1896
   %spec.select.i.i.i.i.i.i383 = and i1 %1897, %1898
@@ -14559,7 +14535,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_6ModuleENS_
   %.016.i.i.i.i387 = phi ptr [ %115, %1885 ], [ %1904, %1899 ], [ %115, %.critedge.i.i.i.i384 ]
   %1906 = load i32, ptr %1889, align 8, !tbaa !26
   %1907 = zext i32 %1906 to i64
-  %1908 = getelementptr inbounds nuw %"class.std::function.945", ptr %1905, i64 %1907
+  %1908 = getelementptr inbounds nuw [32 x i8], ptr %1905, i64 %1907
   %1909 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i387, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1908, i8 0, i64 32, i1 false)
   %1910 = load ptr, ptr %1909, align 8, !tbaa !43
@@ -14708,7 +14684,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit569: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i566, %1968
   store ptr %1961, ptr %103, align 8, !tbaa !847
   store ptr %1967, ptr %1940, align 8, !tbaa !850
-  %1969 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %1961, i64 %1959
+  %1969 = getelementptr inbounds nuw [8 x i8], ptr %1961, i64 %1959
   store ptr %1969, ptr %1941, align 8, !tbaa !851
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit514
 
@@ -14856,7 +14832,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit588: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i585, %2018
   store ptr %2011, ptr %103, align 8, !tbaa !847
   store ptr %2017, ptr %1990, align 8, !tbaa !850
-  %2019 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2011, i64 %2009
+  %2019 = getelementptr inbounds nuw [8 x i8], ptr %2011, i64 %2009
   store ptr %2019, ptr %1991, align 8, !tbaa !851
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit516
 
@@ -15004,7 +14980,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit607: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i604, %2068
   store ptr %2061, ptr %103, align 8, !tbaa !847
   store ptr %2067, ptr %2040, align 8, !tbaa !850
-  %2069 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2061, i64 %2059
+  %2069 = getelementptr inbounds nuw [8 x i8], ptr %2061, i64 %2059
   store ptr %2069, ptr %2041, align 8, !tbaa !851
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit518
 
@@ -15149,7 +15125,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit626: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i623, %2117
   store ptr %2110, ptr %103, align 8, !tbaa !847
   store ptr %2116, ptr %2089, align 8, !tbaa !850
-  %2118 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2110, i64 %2108
+  %2118 = getelementptr inbounds nuw [8 x i8], ptr %2110, i64 %2108
   store ptr %2118, ptr %2090, align 8, !tbaa !851
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit520
 
@@ -15292,7 +15268,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit645: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i642, %2169
   store ptr %2162, ptr %103, align 8, !tbaa !847
   store ptr %2168, ptr %2142, align 8, !tbaa !850
-  %2170 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2162, i64 %2160
+  %2170 = getelementptr inbounds nuw [8 x i8], ptr %2162, i64 %2160
   store ptr %2170, ptr %2144, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17LinkInModulesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -15390,7 +15366,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.pre905.pre = phi ptr [ %.pre904, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i661 ], [ %.pre905.pre.pre, %2208 ]
   store ptr %2201, ptr %103, align 8, !tbaa !847
   store ptr %2207, ptr %2181, align 8, !tbaa !850
-  %2209 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2201, i64 %2199
+  %2209 = getelementptr inbounds nuw [8 x i8], ptr %2201, i64 %2199
   store ptr %2209, ptr %2183, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12VerifierPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit449
 
@@ -15588,7 +15564,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit683: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i680, %2296
   store ptr %2289, ptr %103, align 8, !tbaa !847
   store ptr %2295, ptr %2269, align 8, !tbaa !850
-  %2297 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2289, i64 %2287
+  %2297 = getelementptr inbounds nuw [8 x i8], ptr %2289, i64 %2287
   store ptr %2297, ptr %2271, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24ThinLTOBitcodeWriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -15884,7 +15860,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit702: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i699, %2416
   store ptr %2409, ptr %103, align 8, !tbaa !847
   store ptr %2415, ptr %2389, align 8, !tbaa !850
-  %2417 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2409, i64 %2407
+  %2417 = getelementptr inbounds nuw [8 x i8], ptr %2409, i64 %2407
   store ptr %2417, ptr %2391, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24ThinLTOBitcodeWriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -16042,7 +16018,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PrintModulePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit481.thread1246: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i718
   store ptr %2477, ptr %103, align 8, !tbaa !847
   store ptr %2483, ptr %2458, align 8, !tbaa !850
-  %2484 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2477, i64 %2475
+  %2484 = getelementptr inbounds nuw [8 x i8], ptr %2477, i64 %2475
   store ptr %2484, ptr %2460, align 8, !tbaa !851
   br label %_ZN4llvm15PrintModulePassD2Ev.exit540
 
@@ -16051,7 +16027,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15Pr
   %.pre913.pre = load ptr, ptr %2429, align 8, !tbaa !73
   store ptr %2477, ptr %103, align 8, !tbaa !847
   store ptr %2483, ptr %2458, align 8, !tbaa !850
-  %2485 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2477, i64 %2475
+  %2485 = getelementptr inbounds nuw [8 x i8], ptr %2477, i64 %2475
   store ptr %2485, ptr %2460, align 8, !tbaa !851
   %2486 = icmp eq ptr %.pre913.pre, %2431
   br i1 %2486, label %_ZN4llvm15PrintModulePassD2Ev.exit540, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i537
@@ -16153,7 +16129,7 @@ _ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thr
 2525:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %2526 = load ptr, ptr %103, align 8, !tbaa !847
-  %2527 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2526, i64 %indvars.iv.i
+  %2527 = getelementptr inbounds nuw [8 x i8], ptr %2526, i64 %indvars.iv.i
   %2528 = load ptr, ptr %2527, align 8, !tbaa !845
   %2529 = load ptr, ptr %2528, align 8, !tbaa !3
   %2530 = getelementptr inbounds nuw i8, ptr %2529, i64 24
@@ -16295,7 +16271,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit740: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i737, %2591
   store ptr %2584, ptr %103, align 8, !tbaa !847
   store ptr %2590, ptr %2564, align 8, !tbaa !850
-  %2592 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %2584, i64 %2582
+  %2592 = getelementptr inbounds nuw [8 x i8], ptr %2584, i64 %2582
   store ptr %2592, ptr %2566, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_36HipStdParAllocationInterpositionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -19606,7 +19582,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %32, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %25, ptr %1, align 8, !tbaa !847
   store ptr %31, ptr %5, align 8, !tbaa !850
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %25, i64 %23
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %33, ptr %7, align 8, !tbaa !851
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
 
@@ -19716,7 +19692,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !847
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !850
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !851
   ret void
 }
@@ -19978,7 +19954,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %37, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %30, ptr %1, align 8, !tbaa !847
   store ptr %36, ptr %10, align 8, !tbaa !850
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %30, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %38, ptr %12, align 8, !tbaa !851
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_1JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
 
@@ -20024,7 +20000,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %15 = add i32 %6, -1
   %.02944.i = and i32 %14, %15
   %16 = zext nneg i32 %.02944.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1071", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !825
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !600
@@ -20052,7 +20028,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %29 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %29, %15
   %30 = zext i32 %.029.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1071", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !825
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !601, !llvm.loop !1123
@@ -20139,7 +20115,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1071", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !825
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !600
@@ -20167,7 +20143,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1071", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !825
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !601, !llvm.loop !1123
@@ -20276,7 +20252,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %46 = xor i32 %44, %45
   %.02944.i.i = and i32 %46, %39
   %47 = zext nneg i32 %.02944.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1071", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !825
   %50 = icmp eq ptr %41, %49
   br i1 %50, label %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EED2Ev.exit.i, label %.lr.ph.i15.i, !prof !600
@@ -20304,7 +20280,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %60 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %60, %39
   %61 = zext i32 %.029.i.i to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1071", ptr %21, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !825
   %64 = icmp eq ptr %41, %63
   br i1 %64, label %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EED2Ev.exit.i, label %.lr.ph.i15.i, !prof !601, !llvm.loop !1123
@@ -20819,7 +20795,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %41, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %34, ptr %1, align 8, !tbaa !847
   store ptr %40, ptr %14, align 8, !tbaa !850
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %34, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %42, ptr %16, align 8, !tbaa !851
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_2JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
 
@@ -21321,7 +21297,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %38, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %31, ptr %1, align 8, !tbaa !847
   store ptr %37, ptr %11, align 8, !tbaa !850
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %13, align 8, !tbaa !851
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_3JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelENS5_18ThinOrFullLTOPhaseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.exit"
 
@@ -21692,7 +21668,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %37, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %30, ptr %1, align 8, !tbaa !1165
   store ptr %36, ptr %10, align 8, !tbaa !1161
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.1111", ptr %30, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %38, ptr %12, align 8, !tbaa !1164
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_4JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
 
@@ -21964,7 +21940,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %26, ptr %1, align 8, !tbaa !847
   store ptr %32, ptr %6, align 8, !tbaa !850
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %34, ptr %8, align 8, !tbaa !851
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
 
@@ -22280,7 +22256,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %53, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %46, ptr %1, align 8, !tbaa !1165
   store ptr %52, ptr %26, align 8, !tbaa !1161
-  %54 = getelementptr inbounds nuw %"class.std::unique_ptr.1111", ptr %46, i64 %44
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   store ptr %54, ptr %28, align 8, !tbaa !1164
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
 
@@ -22494,7 +22470,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %36, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %29, ptr %5, align 8, !tbaa !847
   store ptr %35, ptr %7, align 8, !tbaa !850
-  %37 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %37, ptr %12, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_9GlobalsAAES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit.i.i.i
 
@@ -22810,7 +22786,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZN4llvm21SanitizerCoveragePassD2Ev.exit99.thread388: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i
   store ptr %93, ptr %1, align 8, !tbaa !847
   store ptr %99, ptr %74, align 8, !tbaa !850
-  %100 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %93, i64 %91
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %100, ptr %76, align 8, !tbaa !851
   br label %_ZNSt10unique_ptrIN4llvm15SpecialCaseListESt14default_deleteIS1_EED2Ev.exit.i
 
@@ -22819,7 +22795,7 @@ _ZN4llvm21SanitizerCoveragePassD2Ev.exit99:       ; preds = %_ZNSt6vectorISt10un
   %.pre.pre = load ptr, ptr %69, align 8, !tbaa !1194
   store ptr %93, ptr %1, align 8, !tbaa !847
   store ptr %99, ptr %74, align 8, !tbaa !850
-  %101 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %93, i64 %91
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %101, ptr %76, align 8, !tbaa !851
   %.not.i.i35 = icmp eq ptr %.pre.pre, null
   br i1 %.not.i.i35, label %_ZNSt10unique_ptrIN4llvm15SpecialCaseListESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm15SpecialCaseListEEclEPS1_.exit.i.i
@@ -22952,7 +22928,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit147: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i144, %151
   store ptr %144, ptr %1, align 8, !tbaa !847
   store ptr %150, ptr %124, align 8, !tbaa !850
-  %152 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %144, i64 %142
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %142
   store ptr %152, ptr %126, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27SanitizerBinaryMetadataPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -23054,7 +23030,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit166: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i163, %192
   store ptr %185, ptr %1, align 8, !tbaa !847
   store ptr %191, ptr %165, align 8, !tbaa !850
-  %193 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %185, i64 %183
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %183
   store ptr %193, ptr %167, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25ModuleThreadSanitizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -23135,7 +23111,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit185: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i182, %224
   store ptr %217, ptr %1, align 8, !tbaa !847
   store ptr %223, ptr %165, align 8, !tbaa !850
-  %225 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %217, i64 %215
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %215
   store ptr %225, ptr %167, align 8, !tbaa !851
   br label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit
 
@@ -23221,7 +23197,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.pre319 = phi ptr [ %226, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i201 ], [ %.pre319.pre, %258 ]
   store ptr %251, ptr %1, align 8, !tbaa !847
   store ptr %257, ptr %231, align 8, !tbaa !850
-  %259 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %251, i64 %249
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %249
   store ptr %259, ptr %233, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17TypeSanitizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -23307,7 +23283,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.pre320 = phi ptr [ %260, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i220 ], [ %.pre320.pre, %292 ]
   store ptr %285, ptr %1, align 8, !tbaa !847
   store ptr %291, ptr %265, align 8, !tbaa !850
-  %293 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %285, i64 %283
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %283
   store ptr %293, ptr %267, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_31NumericalStabilitySanitizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -23393,7 +23369,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.pre321 = phi ptr [ %294, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i239 ], [ %.pre321.pre, %326 ]
   store ptr %319, ptr %1, align 8, !tbaa !847
   store ptr %325, ptr %299, align 8, !tbaa !850
-  %327 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %319, i64 %317
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %317
   store ptr %327, ptr %301, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21RealtimeSanitizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -23505,7 +23481,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i: ; preds = %376, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i
   store ptr %369, ptr %1, align 8, !tbaa !847
   store ptr %375, ptr %349, align 8, !tbaa !850
-  %377 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %369, i64 %367
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %367
   store ptr %377, ptr %351, align 8, !tbaa !851
   br label %"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEENKUlNS3_13SanitizerMaskEbE1_clESL_b.exit"
 
@@ -23601,7 +23577,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i84: ; preds = %416, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i81
   store ptr %409, ptr %1, align 8, !tbaa !847
   store ptr %415, ptr %389, align 8, !tbaa !850
-  %417 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %409, i64 %407
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %407
   store ptr %417, ptr %391, align 8, !tbaa !851
   br label %"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseEENKUlNS3_13SanitizerMaskEbE1_clESL_b.exit85"
 
@@ -23696,7 +23672,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZN4llvm21DataFlowSanitizerPassD2Ev.exit124.thread392: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i258
   store ptr %451, ptr %1, align 8, !tbaa !847
   store ptr %457, ptr %432, align 8, !tbaa !850
-  %458 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %451, i64 %449
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %451, i64 %449
   store ptr %458, ptr %434, align 8, !tbaa !851
   br label %_ZN4llvm21DataFlowSanitizerPassD2Ev.exit
 
@@ -23706,7 +23682,7 @@ _ZN4llvm21DataFlowSanitizerPassD2Ev.exit124:      ; preds = %_ZNSt6vectorISt10un
   %.pre323.pre = load ptr, ptr %425, align 8, !tbaa !614
   store ptr %451, ptr %1, align 8, !tbaa !847
   store ptr %457, ptr %432, align 8, !tbaa !850
-  %459 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %451, i64 %449
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %451, i64 %449
   store ptr %459, ptr %434, align 8, !tbaa !851
   %.not4.i.i.i.i.i = icmp eq ptr %.pre322.pre, %.pre323.pre
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i92
@@ -24000,7 +23976,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i, %59
   store ptr %52, ptr %29, align 8, !tbaa !847
   store ptr %58, ptr %32, align 8, !tbaa !850
-  %63 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %52, i64 %50
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %63, ptr %34, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19MemorySanitizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -24093,7 +24069,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit88: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i85, %103
   store ptr %96, ptr %74, align 8, !tbaa !847
   store ptr %102, ptr %76, align 8, !tbaa !850
-  %107 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %96, i64 %94
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %94
   store ptr %107, ptr %78, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -24495,7 +24471,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Anal
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit179: ; preds = %.lr.ph.i.i.i.i165, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i161
   %.0.lcssa.i.i.i.i170 = phi ptr [ %266, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i161 ], [ %271, %.lr.ph.i.i.i.i165 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0206.3, i64 noundef %257) #28
-  %272 = getelementptr inbounds nuw %"class.std::unique_ptr.1111", ptr %266, i64 %264
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %264
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15InstCombinePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit39
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15InstCombinePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit39: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit179, %252
@@ -24660,7 +24636,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit198: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i195, %351
   store ptr %344, ptr %315, align 8, !tbaa !847
   store ptr %350, ptr %324, align 8, !tbaa !850
-  %352 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %344, i64 %342
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %342
   store ptr %352, ptr %326, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
@@ -24833,7 +24809,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i, %76
   store ptr %69, ptr %46, align 8, !tbaa !847
   store ptr %75, ptr %49, align 8, !tbaa !850
-  %77 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %69, i64 %67
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %77, ptr %51, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20AddressSanitizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -25712,7 +25688,7 @@ _ZSt4moveIPPN4llvm11InstructionES3_ET0_T_S5_S4_.exit35: ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -26551,7 +26527,7 @@ _ZSt4moveIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit35: ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -26663,7 +26639,7 @@ _ZSt4moveIPPvS1_ET0_T_S3_S2_.exit35:              ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -26804,7 +26780,7 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35,
   %.idx40 = shl nuw nsw i64 %.026, 4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx40
   %58 = load ptr, ptr %0, align 8, !tbaa !25
-  %59 = getelementptr inbounds nuw %"struct.std::pair.1348", ptr %58, i64 %.026
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.026
   %60 = sub nsw i64 %.pre-phi, %.026
   %gepdiff = shl nsw i64 %60, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %57, i64 %gepdiff, i1 false)
@@ -26857,8 +26833,8 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_5ValueEjLj4ENS_12De
 
 24:                                               ; preds = %.preheader, %.thread70
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread70 ]
-  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1350", ptr %22, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1350", ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %27 = load ptr, ptr %25, align 8, !tbaa !1295
   %28 = icmp eq ptr %27, inttoptr (i64 -4096 to ptr)
   br i1 %28, label %.thread72, label %29
@@ -26973,8 +26949,8 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_5ValueEjLj4ENS_12De
 
 70:                                               ; preds = %60, %78
   %indvars.iv80 = phi i64 [ 0, %60 ], [ %indvars.iv.next81, %78 ]
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1350", ptr %64, i64 %indvars.iv80
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1350", ptr %66, i64 %indvars.iv80
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %indvars.iv80
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv80
   %73 = load ptr, ptr %72, align 8, !tbaa !1295
   store ptr %73, ptr %71, align 8, !tbaa !1295
   %magicptr = ptrtoint ptr %73 to i64
@@ -27125,7 +27101,7 @@ _ZSt4moveIPSt4pairIPN4llvm5ValueES3_ES5_ET0_T_S7_S6_.exit39: ; preds = %.lr.ph.i
   %.idx40 = shl nuw nsw i64 %.026, 4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx40
   %58 = load ptr, ptr %0, align 8, !tbaa !25
-  %59 = getelementptr inbounds nuw %"struct.std::pair.1355", ptr %58, i64 %.026
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.026
   %60 = sub nsw i64 %.pre-phi, %.026
   %gepdiff = shl nsw i64 %60, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %57, i64 %gepdiff, i1 false)
@@ -27266,7 +27242,7 @@ _ZSt4moveIPSt4pairIPN4llvm11InstructionEjES5_ET0_T_S7_S6_.exit39: ; preds = %.lr
   %.idx40 = shl nuw nsw i64 %.026, 4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx40
   %58 = load ptr, ptr %0, align 8, !tbaa !25
-  %59 = getelementptr inbounds nuw %"struct.std::pair.1314", ptr %58, i64 %.026
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.026
   %60 = sub nsw i64 %.pre-phi, %.026
   %gepdiff = shl nsw i64 %60, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %57, i64 %gepdiff, i1 false)
@@ -27606,7 +27582,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail9PassModelINS_8FunctionENS_11Pas
 17:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %18 = load ptr, ptr %5, align 8, !tbaa !1165
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr.1111", ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !1139
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -29529,7 +29505,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %63, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %56, ptr %1, align 8, !tbaa !847
   store ptr %62, ptr %36, align 8, !tbaa !850
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %56, i64 %54
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %54
   store ptr %64, ptr %38, align 8, !tbaa !851
   br label %_ZN4llvm19LowerAllowCheckPass7OptionsD2Ev.exit.i.i.i
 
@@ -29886,7 +29862,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %46, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %39, ptr %1, align 8, !tbaa !847
   store ptr %45, ptr %19, align 8, !tbaa !850
-  %47 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %39, i64 %37
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %47, ptr %21, align 8, !tbaa !851
   br label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelENS0_18ThinOrFullLTOPhaseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
 
@@ -30178,7 +30154,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %40, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %33, ptr %1, align 8, !tbaa !1165
   store ptr %39, ptr %13, align 8, !tbaa !1161
-  %41 = getelementptr inbounds nuw %"class.std::unique_ptr.1111", ptr %33, i64 %31
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %41, ptr %15, align 8, !tbaa !1164
   br label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
@@ -30506,7 +30482,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16GCOVProfilerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread38.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %76, ptr %1, align 8, !tbaa !847
   store ptr %82, ptr %57, align 8, !tbaa !850
-  %83 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %76, i64 %74
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %83, ptr %59, align 8, !tbaa !851
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i3.i.i.i
 
@@ -30515,7 +30491,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16GC
   %.pre14.pre.i.i.i = load ptr, ptr %24, align 8, !tbaa !73
   store ptr %76, ptr %1, align 8, !tbaa !847
   store ptr %82, ptr %57, align 8, !tbaa !850
-  %84 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %76, i64 %74
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %84, ptr %59, align 8, !tbaa !851
   %85 = icmp eq ptr %.pre14.pre.i.i.i, %26
   br i1 %85, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i3.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i2.i.i.i
@@ -31184,7 +31160,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %93, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %86, ptr %1, align 8, !tbaa !847
   store ptr %92, ptr %66, align 8, !tbaa !850
-  %94 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %86, i64 %84
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %84
   store ptr %94, ptr %68, align 8, !tbaa !851
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_26InstrProfilingLoweringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
 
@@ -31612,7 +31588,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i: ; preds = %39, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i.i
   store ptr %32, ptr %1, align 8, !tbaa !847
   store ptr %38, ptr %12, align 8, !tbaa !850
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %32, i64 %30
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %40, ptr %14, align 8, !tbaa !851
   br label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i
 
@@ -31689,7 +31665,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit27.i.i.i: ; preds = %67, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i24.i.i.i
   store ptr %60, ptr %1, align 8, !tbaa !847
   store ptr %66, ptr %12, align 8, !tbaa !850
-  %68 = getelementptr inbounds nuw %"class.std::unique_ptr.1016", ptr %60, i64 %58
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %58
   store ptr %68, ptr %14, align 8, !tbaa !851
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelENS5_18ThinOrFullLTOPhaseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.exit"
 
@@ -33276,7 +33252,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringMapISt13unordered_mapISt4pairImm
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !1528
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !1529
   %magicptr = ptrtoint ptr %11 to i64
   switch i64 %magicptr, label %12 [
@@ -33355,7 +33331,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringMapINS_11SmallVectorISt10unique_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !1528
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !1529
   %magicptr = ptrtoint ptr %11 to i64
   switch i64 %magicptr, label %12 [
@@ -33463,7 +33439,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !722
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !736
   br label %43
 
@@ -33698,7 +33674,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_10P
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm2cl6parserINS_10PGOOptions11ColdFuncOptEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit, label %26, !prof !33
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %.pre3.i.i, i64 %23
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %.pre3.i.i, i64 %23
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
@@ -33722,7 +33698,7 @@ _ZN4llvm2cl6parserINS_10PGOOptions11ColdFuncOptEE16addLiteralOptionIiEEvNS_9Stri
   %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %14, align 8, !tbaa !26
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOOptions::ColdFuncOpt>::OptionInfo", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !1548
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_10PGOOptions11ColdFuncOptEEE, i64 16), ptr %39, align 8, !tbaa !3
@@ -33873,7 +33849,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %1, %10
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %56 ]
   %50 = load ptr, ptr %42, align 8, !tbaa !1528
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !1529
   %magicptr.i = ptrtoint ptr %52 to i64
   switch i64 %magicptr.i, label %53 [

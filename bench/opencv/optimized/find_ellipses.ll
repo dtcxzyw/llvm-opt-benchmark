@@ -267,7 +267,7 @@ _ZN2cv3VecIfLi6EEC2ERKS1_.exit:                   ; preds = %.lr.ph, %125
   %81 = phi i64 [ 0, %.lr.ph ], [ %127, %125 ]
   %.090 = phi i32 [ 0, %.lr.ph ], [ %126, %125 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %82 = getelementptr inbounds nuw %"class.cv::Vec", ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(24) %82, i64 24, i1 false), !tbaa !50
   %83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.4, i64 noundef 1)
           to label %.noexc51 unwind label %.loopexit.split-lp.loopexit
@@ -284,7 +284,7 @@ _ZN2cv3VecIfLi6EEC2ERKS1_.exit:                   ; preds = %.lr.ph, %125
 
 .noexc51:                                         ; preds = %_ZN2cv3VecIfLi6EEC2ERKS1_.exit, %.noexc55
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc55 ], [ 0, %_ZN2cv3VecIfLi6EEC2ERKS1_.exit ]
-  %89 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %90 = load float, ptr %89, align 4, !tbaa !50
   %91 = fpext float %90 to double
   %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %91)

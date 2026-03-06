@@ -111,9 +111,9 @@ define void @_ZN6icu_7715PersianCalendarD0Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7715PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZL22kPersianCalendarLimits, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL22kPersianCalendarLimits, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !6
   ret i32 %8
 }
@@ -430,7 +430,7 @@ _ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %15, %27
 
 34:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds i16, ptr @_ZL15kPersianNumDays, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr @_ZL15kPersianNumDays, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !9
   %38 = sext i16 %37 to i64
   %39 = add nsw i64 %32, %38
@@ -566,7 +566,7 @@ _ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %12, %20
   %.0 = phi i32 [ %38, %.thread ], [ %36, %.thread38 ]
   %40 = add nsw i32 %.02636, 1
   %41 = sext i32 %.0 to i64
-  %42 = getelementptr inbounds i16, ptr @_ZL15kPersianNumDays, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr @_ZL15kPersianNumDays, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !9
   %44 = sext i16 %43 to i32
   %45 = sub nsw i32 %40, %44

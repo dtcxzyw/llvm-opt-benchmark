@@ -164,7 +164,7 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %81 = trunc nuw i64 %indvars.iv to i32
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.22, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %81) #6
   %83 = load ptr, ptr %73, align 8, !tbaa !46
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv
   %85 = load i64, ptr %84, align 8, !tbaa !16
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %70, ptr noundef nonnull @.str.4, i32 noundef %72, ptr noundef nonnull @.str.23, i64 noundef %85) #6
   %87 = load ptr, ptr %74, align 8, !tbaa !47
@@ -180,7 +180,7 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %90 = load ptr, ptr %74, align 8, !tbaa !47
   %91 = load ptr, ptr %78, align 8, !tbaa !48
   %92 = load ptr, ptr %79, align 8, !tbaa !49
-  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
   %94 = load i64, ptr %93, align 8, !tbaa !16
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 %94
   %96 = call i32 %90(ptr noundef %2, i32 noundef %75, i32 noundef %77, ptr noundef %95, ptr noundef %6) #6
@@ -189,7 +189,7 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %99 = load ptr, ptr %78, align 8, !tbaa !48
   %100 = load ptr, ptr %79, align 8, !tbaa !49
   %101 = add nuw nsw i64 %indvars.iv, 1
-  %102 = getelementptr inbounds nuw i64, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !16
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 %103
   %105 = call i32 %98(ptr noundef %2, i32 noundef %75, i32 noundef %77, ptr noundef %104, ptr noundef %6) #6
@@ -460,7 +460,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 137:                                              ; preds = %.preheader129
   %138 = load ptr, ptr %130, align 8, !tbaa !46
-  %139 = getelementptr inbounds nuw i64, ptr %138, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv
   %140 = load i64, ptr %139, align 8, !tbaa !16
   %141 = icmp eq i64 %136, %140
   br i1 %141, label %142, label %146
@@ -490,7 +490,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 156:                                              ; preds = %149
   %157 = load ptr, ptr %130, align 8, !tbaa !46
-  %158 = getelementptr inbounds nuw i64, ptr %157, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv
   %159 = load i64, ptr %158, align 8, !tbaa !16
   store i64 %159, ptr %150, align 8, !tbaa !53
   %160 = load i32, ptr %74, align 8, !tbaa !41
@@ -502,11 +502,11 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   %164 = load ptr, ptr %59, align 8, !tbaa !59
   %165 = load ptr, ptr %131, align 8, !tbaa !48
   %166 = load ptr, ptr %60, align 8, !tbaa !49
-  %167 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv
   %168 = load i64, ptr %167, align 8, !tbaa !16
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 %168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %170 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv.next
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv.next
   %171 = load i64, ptr %170, align 8, !tbaa !16
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 %171
   %173 = call i32 %164(ptr noundef %169, ptr noundef %3, ptr noundef %172) #6

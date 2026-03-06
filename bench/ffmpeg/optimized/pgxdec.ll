@@ -320,7 +320,7 @@ pgx_get_number.exit.thread.i:                     ; preds = %31, %29, %52, %50, 
   %147 = shl nuw i32 %146, %134
   %148 = xor i32 %147, %132
   %149 = trunc i32 %148 to i16
-  %150 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv.i32
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %indvars.iv.i32
   store i16 %149, ptr %150, align 2, !tbaa !37
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i30

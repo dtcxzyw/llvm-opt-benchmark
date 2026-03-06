@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.float128_t = type { [2 x i64] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -293,7 +292,7 @@ _ZNK11processor_t8get_flenEv.exit70:              ; preds = %105, %114
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %117 = lshr i64 %1, 7
   %118 = and i64 %117, 31
-  %119 = getelementptr inbounds nuw %struct.float128_t, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %118
   store i64 %.sink95, ptr %119, align 8
   %.sroa.2.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i73, align 8, !tbaa !157
@@ -648,7 +647,7 @@ _ZNK11processor_t8get_flenEv.exit70:              ; preds = %105, %114
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %117 = lshr i64 %1, 7
   %118 = and i64 %117, 31
-  %119 = getelementptr inbounds nuw %struct.float128_t, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %118
   store i64 %.sink95, ptr %119, align 8
   %.sroa.2.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i73, align 8, !tbaa !157
@@ -911,7 +910,7 @@ _ZNK11processor_t8get_flenEv.exit71:              ; preds = %107
   %.sink101 = phi i64 [ %124, %121 ], [ %117, %_ZNK11processor_t8get_flenEv.exit71 ]
   %.sink98 = phi i64 [ %122, %121 ], [ %.188, %_ZNK11processor_t8get_flenEv.exit71 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %130 = getelementptr inbounds nuw %struct.float128_t, ptr %129, i64 %.sink101
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %.sink101
   store i64 %.sink98, ptr %130, align 8
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i74, align 8, !tbaa !157
@@ -1176,7 +1175,7 @@ _ZNK11processor_t8get_flenEv.exit71:              ; preds = %107
   %.sink101 = phi i64 [ %124, %121 ], [ %117, %_ZNK11processor_t8get_flenEv.exit71 ]
   %.sink98 = phi i64 [ %122, %121 ], [ %.188, %_ZNK11processor_t8get_flenEv.exit71 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %130 = getelementptr inbounds nuw %struct.float128_t, ptr %129, i64 %.sink101
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %.sink101
   store i64 %.sink98, ptr %130, align 8
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i74, align 8, !tbaa !157
@@ -1413,7 +1412,7 @@ _ZNK11processor_t8get_flenEv.exit70:              ; preds = %105, %114
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %117 = lshr i64 %1, 7
   %118 = and i64 %117, 31
-  %119 = getelementptr inbounds nuw %struct.float128_t, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %118
   store i64 %.sink95, ptr %119, align 8
   %.sroa.2.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i73, align 8, !tbaa !157
@@ -1652,7 +1651,7 @@ _ZNK11processor_t8get_flenEv.exit70:              ; preds = %105, %114
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %117 = lshr i64 %1, 7
   %118 = and i64 %117, 31
-  %119 = getelementptr inbounds nuw %struct.float128_t, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %118
   store i64 %.sink95, ptr %119, align 8
   %.sroa.2.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i73, align 8, !tbaa !157
@@ -1915,7 +1914,7 @@ _ZNK11processor_t8get_flenEv.exit71:              ; preds = %107
   %.sink101 = phi i64 [ %124, %121 ], [ %117, %_ZNK11processor_t8get_flenEv.exit71 ]
   %.sink98 = phi i64 [ %122, %121 ], [ %.188, %_ZNK11processor_t8get_flenEv.exit71 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %130 = getelementptr inbounds nuw %struct.float128_t, ptr %129, i64 %.sink101
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %.sink101
   store i64 %.sink98, ptr %130, align 8
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i74, align 8, !tbaa !157
@@ -2180,7 +2179,7 @@ _ZNK11processor_t8get_flenEv.exit71:              ; preds = %107
   %.sink101 = phi i64 [ %124, %121 ], [ %117, %_ZNK11processor_t8get_flenEv.exit71 ]
   %.sink98 = phi i64 [ %122, %121 ], [ %.188, %_ZNK11processor_t8get_flenEv.exit71 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %130 = getelementptr inbounds nuw %struct.float128_t, ptr %129, i64 %.sink101
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %.sink101
   store i64 %.sink98, ptr %130, align 8
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i74, align 8, !tbaa !157

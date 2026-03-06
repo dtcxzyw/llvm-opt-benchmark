@@ -319,7 +319,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca968904f01ab6c6E.exit.i.i": ; preds = %.noexc.i, %2
   %12 = phi ptr [ %7, %2 ], [ %.pre.i, %.noexc.i ]
   %13 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc.i ]
-  %14 = getelementptr { i32, i16, i16 }, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
@@ -831,7 +831,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1904a65cb5e8d383E.exit.i.i": ; preds = %.noexc.i, %2
   %12 = phi ptr [ %7, %2 ], [ %.pre.i, %.noexc.i ]
   %13 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc.i ]
-  %14 = getelementptr { [16 x i16] }, ptr %12, i64 %13
+  %14 = getelementptr [32 x i8], ptr %12, i64 %13
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
@@ -1174,7 +1174,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd5428b73f56e4ec6E.exit.i.i": ; preds = %.noexc.i, %2
   %12 = phi ptr [ %7, %2 ], [ %.pre.i, %.noexc.i ]
   %13 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc.i ]
-  %14 = getelementptr inbounds { { i32, [1 x i32] }, i32, i32, i32 }, ptr %12, i64 %13
+  %14 = getelementptr inbounds [20 x i8], ptr %12, i64 %13
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -1329,7 +1329,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0d44a02e9f2cd1ceE.exit.i.i": ; preds = %.noexc.i, %2
   %12 = phi ptr [ %7, %2 ], [ %.pre.i, %.noexc.i ]
   %13 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc.i ]
-  %14 = getelementptr { i32, i32, float, float }, ptr %12, i64 %13
+  %14 = getelementptr [16 x i8], ptr %12, i64 %13
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
@@ -1466,7 +1466,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf0616c0f26151a87E.exit.i.i": ; preds = %.noexc.i, %2
   %12 = phi ptr [ %7, %2 ], [ %.pre.i, %.noexc.i ]
   %13 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc.i ]
-  %14 = getelementptr inbounds { i16, i8, [1 x i8] }, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -1686,7 +1686,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8ca9b9c39aedb43fE.exit.i.i": ; preds = %.noexc.i, %2
   %13 = phi ptr [ %8, %2 ], [ %.pre.i, %.noexc.i ]
   %14 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc.i ]
-  %15 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %13, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %13, i64 %14
   %16 = icmp ugt i64 %1, 1
   br i1 %16, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -2053,7 +2053,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd9ae898a9f9fc0e7E.exit.i.i": ; preds = %.noexc.i, %2
   %12 = phi ptr [ %7, %2 ], [ %.pre.i, %.noexc.i ]
   %13 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc.i ]
-  %14 = getelementptr inbounds { [8 x float] }, ptr %12, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %12, i64 %13
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -3099,10 +3099,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !367, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !419, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0bb45c3970ae5670E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0bb45c3970ae5670E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0bb45c3970ae5670E.39", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0bb45c3970ae5670E.39", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -4098,7 +4098,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h313595c3b1b4
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { [8 x float] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [32 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4151,7 +4151,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h493d53571046
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { [704 x i32], i64, float, [1 x i32] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [2832 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4215,7 +4215,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h556e19fe845b
   %11 = phi i64 [ %6, %4 ], [ %.pre, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds { i16, i16 }, ptr %13, i64 %11
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %11
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -4272,7 +4272,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h588440fc443e
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i32, i32, float, float }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4326,7 +4326,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h6ea437cf15db
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i8, [39 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [40 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4469,7 +4469,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8238eb0fa7ee
   %11 = phi i64 [ %6, %4 ], [ %.pre, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds { i16, i8, [1 x i8] }, ptr %13, i64 %11
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %11
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -4526,7 +4526,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h837f32d4dc37
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { { i32, [1 x i32] }, i32, i32, i32 }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [20 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4579,7 +4579,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8b10067e9334
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { [16 x i16] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [32 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4632,7 +4632,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hac72240daae2
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4685,7 +4685,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb51b03d7ee3a
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { [544 x i32], i64, float, [1 x i32] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [2192 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4749,7 +4749,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb89423b72856
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i32, i16, i16 }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -4802,7 +4802,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hc44be6151210
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { [256 x i32], i64, float, [1 x i32] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [1040 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -6287,7 +6287,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb1c1bd19547fded3E.exit.i": ; preds = %.noexc, %6
   %14 = phi ptr [ %9, %6 ], [ %.pre, %.noexc ]
   %15 = phi i64 [ 0, %6 ], [ %.pre.i, %.noexc ]
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = icmp ugt i64 %2, 1
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
@@ -6384,7 +6384,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17haa87d8a3e46307fcE.exit.i": ; preds = %.noexc, %6
   %14 = phi ptr [ %9, %6 ], [ %.pre, %.noexc ]
   %15 = phi i64 [ 0, %6 ], [ %.pre.i, %.noexc ]
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = icmp ugt i64 %2, 1
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
@@ -6481,7 +6481,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1e34391fc02b4a58E.exit.i": ; preds = %.noexc, %6
   %14 = phi ptr [ %9, %6 ], [ %.pre, %.noexc ]
   %15 = phi i64 [ 0, %6 ], [ %.pre.i, %.noexc ]
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = icmp ugt i64 %2, 1
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
@@ -6578,7 +6578,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb14f1c781c059a30E.exit.i": ; preds = %.noexc, %6
   %14 = phi ptr [ %9, %6 ], [ %.pre, %.noexc ]
   %15 = phi i64 [ 0, %6 ], [ %.pre.i, %.noexc ]
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = icmp ugt i64 %2, 1
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
@@ -6675,7 +6675,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3b3fa679df427b94E.exit.i": ; preds = %.noexc, %6
   %14 = phi ptr [ %9, %6 ], [ %.pre, %.noexc ]
   %15 = phi i64 [ 0, %6 ], [ %.pre.i, %.noexc ]
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = icmp ugt i64 %2, 1
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
@@ -8725,7 +8725,7 @@ define hidden void @_ZN10actix_http7helpers17write_status_line17h4d1d98d83ac87ac
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10actix_http7helpers17write_status_line17h4d1d98d83ac87ac1E, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10actix_http7helpers17write_status_line17h4d1d98d83ac87ac1E, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 9)
   br label %10

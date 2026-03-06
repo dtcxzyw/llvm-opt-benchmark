@@ -30006,7 +30006,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   %.sroa.09.0 = sub nuw i64 %61, %63
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %65 = load ptr, ptr %64, align 8, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds i64, ptr %65, i64 %.sroa.09.0
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %.sroa.09.0
   %67 = load i64, ptr %66, align 8, !noundef !5
   %68 = icmp eq i64 %67, %38
   br i1 %68, label %69, label %71
@@ -30249,7 +30249,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   %.sroa.09.0 = sub nuw i64 %61, %63
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %65 = load ptr, ptr %64, align 8, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds i64, ptr %65, i64 %.sroa.09.0
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %.sroa.09.0
   %67 = load i64, ptr %66, align 8, !noundef !5
   %68 = icmp eq i64 %67, %38
   br i1 %68, label %69, label %71

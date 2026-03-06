@@ -338,7 +338,7 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
           to label %88 unwind label %.thread49.loopexit
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw { { ptr, i64 }, ptr }, ptr @anon.0d4f455794be986747178006f459c304.19, i64 %73
+  %79 = getelementptr inbounds nuw [24 x i8], ptr @anon.0d4f455794be986747178006f459c304.19, i64 %73
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %47, align 8
@@ -373,7 +373,7 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
 91:                                               ; preds = %88
   %92 = extractvalue { ptr, i64 } %89, 0
   %93 = extractvalue { ptr, i64 } %89, 1
-  %94 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %92, i64 %93
+  %94 = getelementptr inbounds [24 x i8], ptr %92, i64 %93
   store ptr %92, ptr %9, align 8
   store ptr %94, ptr %46, align 8
   br label %95

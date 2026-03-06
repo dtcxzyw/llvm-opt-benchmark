@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::function_ref" = type { ptr, i64 }
 %"class.llvm::APInt" = type <{ %union.anon.32, i32, [4 x i8] }>
 %union.anon.32 = type { i64 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::IRBuilder" = type { %"class.llvm::IRBuilderBase", %"class.llvm::ConstantFolder", %"class.llvm::IRBuilderDefaultInserter" }
 %"class.llvm::IRBuilderBase" = type { %"class.llvm::SmallVector.19", ptr, %"class.llvm::ilist_iterator_w_bits", ptr, ptr, ptr, ptr, %"class.llvm::FastMathFlags", i8, i8, i8, %"class.llvm::ArrayRef" }
 %"class.llvm::SmallVector.19" = type { %"class.llvm::SmallVectorImpl.20", %"struct.llvm::SmallVectorStorage.23" }
@@ -31,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"struct.std::pair" = type { i32, ptr }
 
 $_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE = comdat any
 
@@ -1085,7 +1083,7 @@ define dso_local noundef i32 @_ZN4llvm10VNCoercion32analyzeLoadFromClobberingMem
   %8 = and i32 %7, 134217727
   %9 = zext nneg i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %2, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !98
   %14 = load i8, ptr %13, align 8, !tbaa !26
@@ -1145,7 +1143,7 @@ _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit: ; preds = %_ZNK
   br i1 %42, label %46, label %.critedge
 
 46:                                               ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit
-  %47 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %45
+  %47 = getelementptr inbounds [32 x i8], ptr %2, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !98
   %50 = load i8, ptr %49, align 8, !tbaa !26
@@ -1171,7 +1169,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %51
 
 .critedge:                                        ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit, %_ZNK4llvm4Type13getScalarTypeEv.exit, %56, %_ZNK4llvm11ConstantInt6isZeroEv.exit
   %.pre-phi73 = phi i64 [ %45, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %10, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %45, %56 ], [ %45, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit ]
-  %61 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %.pre-phi73
+  %61 = getelementptr inbounds [32 x i8], ptr %2, i64 %.pre-phi73
   %62 = load ptr, ptr %61, align 8, !tbaa !98
   %63 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #9
   %64 = tail call fastcc noundef i32 @_ZN4llvm10VNCoercionL30analyzeLoadFromClobberingWriteEPNS_4TypeEPNS_5ValueES4_mRKNS_10DataLayoutE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %63, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(496) %3)
@@ -1216,7 +1214,7 @@ _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit: ; preds = %80
   %86 = and i32 %85, 134217727
   %87 = zext nneg i32 %86 to i64
   %88 = sub nsw i64 0, %87
-  %89 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %88
+  %89 = getelementptr inbounds [32 x i8], ptr %2, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !98
   %91 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %90) #9
   %92 = tail call fastcc noundef i32 @_ZN4llvm10VNCoercionL30analyzeLoadFromClobberingWriteEPNS_4TypeEPNS_5ValueES4_mRKNS_10DataLayoutE(ptr noundef %0, ptr noundef %1, ptr noundef %91, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(496) %3)
@@ -1624,7 +1622,7 @@ define dso_local noundef ptr @_ZN4llvm10VNCoercion22getMemInstValueForLoadEPNS_1
   %27 = and i32 %26, 134217727
   %28 = zext nneg i32 %27 to i64
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !98
   br i1 %.not, label %.thread, label %33
@@ -1961,7 +1959,7 @@ define dso_local noundef ptr @_ZN4llvm10VNCoercion30getConstantMemInstValueForLo
   %16 = and i32 %15, 134217727
   %17 = zext nneg i32 %16 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !98
   br i1 %.not, label %37, label %22
@@ -2523,7 +2521,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !93
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -2532,7 +2530,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !94
   %20 = load ptr, ptr %0, align 8, !tbaa !93
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

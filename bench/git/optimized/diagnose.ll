@@ -5,9 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strvec = type { ptr, i64, i64 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.diagnose_option = type { i32, ptr }
 %struct.statvfs = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [6 x i32] }
-%struct.archive_dir = type { ptr, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -80,7 +78,7 @@ define dso_local range(i32 -1, 1) i32 @option_parse_diagnose(ptr noundef readonl
 .preheader:                                       ; preds = %3, %8
   %.not19 = phi i1 [ false, %8 ], [ true, %3 ]
   %.018 = phi i64 [ 1, %8 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %struct.diagnose_option, ptr @diagnose_options, i64 %.018
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @diagnose_options, i64 %.018
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #11
@@ -425,7 +423,7 @@ loose_objs_stats.exit:                            ; preds = %strbuf_setlen.exit4
 
 .preheader:                                       ; preds = %loose_objs_stats.exit, %123
   %.02561 = phi i64 [ %124, %123 ], [ 0, %loose_objs_stats.exit ]
-  %125 = getelementptr inbounds nuw %struct.archive_dir, ptr @__const.create_diagnostics_archive.archive_dirs, i64 %.02561
+  %125 = getelementptr inbounds nuw [16 x i8], ptr @__const.create_diagnostics_archive.archive_dirs, i64 %.02561
   %126 = load ptr, ptr %125, align 16, !tbaa !67
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load i32, ptr %127, align 8, !tbaa !69

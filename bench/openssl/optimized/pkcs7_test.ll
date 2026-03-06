@@ -56,7 +56,7 @@ define internal range(i32 0, 2) i32 @pkcs7_verify_test() #0 {
 
 .preheader:                                       ; preds = %0, %.preheader
   %.02737 = phi i64 [ %7, %.preheader ], [ 0, %0 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @__const.pkcs7_verify_test.sig, i64 %.02737
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @__const.pkcs7_verify_test.sig, i64 %.02737
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call i32 @BIO_puts(ptr noundef %2, ptr noundef %5) #4
   %7 = add nuw nsw i64 %.02737, 1

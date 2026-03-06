@@ -232,7 +232,7 @@ define dso_local noundef i32 @_ZN21btSimpleDynamicsWorld14stepSimulationEfif(ptr
   %12 = phi i32 [ %8, %.lr.ph.i ], [ %28, %_ZNK17btCollisionObject8isActiveEv.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK17btCollisionObject8isActiveEv.exit.i ]
   %13 = load ptr, ptr %10, align 8, !tbaa !65
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %17 = load i32, ptr %16, align 8, !tbaa !68
@@ -409,7 +409,7 @@ _ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %_ZNK17b
   %111 = phi i32 [ %107, %.lr.ph.i11 ], [ %126, %_ZNK17btCollisionObject8isActiveEv.exit.i15 ]
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i16, %_ZNK17btCollisionObject8isActiveEv.exit.i15 ]
   %112 = load ptr, ptr %109, align 8, !tbaa !65
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.i12
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.i12
   %114 = load ptr, ptr %113, align 8, !tbaa !66
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 272
   %116 = load i32, ptr %115, align 8, !tbaa !68
@@ -482,7 +482,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf(p
   %8 = phi i32 [ %4, %.lr.ph ], [ %24, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %9 = load ptr, ptr %6, align 8, !tbaa !65
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %13 = load i32, ptr %12, align 8, !tbaa !68
@@ -545,7 +545,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld19integrateTransformsEf(ptr nou
   %9 = phi i32 [ %5, %.lr.ph ], [ %24, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %10 = load ptr, ptr %7, align 8, !tbaa !65
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !66
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 272
   %14 = load i32, ptr %13, align 8, !tbaa !68
@@ -602,7 +602,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld11clearForcesEv(ptr noundef non
   %7 = phi i32 [ %3, %.lr.ph ], [ %17, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !65
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !66
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %12 = load i32, ptr %11, align 8, !tbaa !68
@@ -646,7 +646,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld10setGravityERK9btVector3(ptr n
   %9 = phi i32 [ %5, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !65
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !66
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 272
   %14 = load i32, ptr %13, align 8, !tbaa !68
@@ -795,7 +795,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld11updateAabbsEv(ptr noundef non
   %11 = phi i32 [ %5, %.lr.ph ], [ %39, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %12 = load ptr, ptr %7, align 8, !tbaa !65
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %16 = load i32, ptr %15, align 8, !tbaa !68
@@ -879,7 +879,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld23synchronizeMotionStatesEv(ptr
   %7 = phi i32 [ %3, %.lr.ph ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !65
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !66
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %12 = load i32, ptr %11, align 8, !tbaa !68

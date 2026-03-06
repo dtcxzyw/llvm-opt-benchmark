@@ -14,14 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.327" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.328" = type { [32 x i8] }
-%"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
-%"struct.std::pair" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.272" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.272" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.273" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.273" = type { %"class.llvm::PointerIntPair.274" }
-%"class.llvm::PointerIntPair.274" = type { %"struct.llvm::detail::PunnedPointer.275" }
-%"struct.llvm::detail::PunnedPointer.275" = type { [8 x i8] }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -549,7 +541,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
   %132 = phi i32 [ %127, %126 ], [ %.pre.i.i, %129 ]
   %133 = load ptr, ptr %3, align 8, !tbaa !333
   %134 = zext i32 %132 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %134
   %136 = ptrtoint ptr %.sroa.01.016.i to i64
   store i64 %136, ptr %135, align 1
   %137 = load i32, ptr %16, align 8, !tbaa !334
@@ -635,11 +627,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSVERegOpRKN4llvm18TargetRegist
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !395, !noalias !392
   %12 = zext nneg i32 %.4.val to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !396, !noalias !392
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %16
   %18 = load ptr, ptr @_ZN4llvm7AArch6411ZPRRegClassE, align 8, !noalias !398
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 22
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -704,7 +696,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i: ; pr
 55:                                               ; preds = %4
   %56 = and i32 %.4.val, 2147483647
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %.48.val, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %.48.val, i64 %57
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %58, align 8
   %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %60 = inttoptr i64 %59 to ptr

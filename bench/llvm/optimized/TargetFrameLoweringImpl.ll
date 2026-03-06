@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/TargetFrameLoweringImpl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::MachineFrameInfo::StackObject" = type <{ i64, i64, %"struct.llvm::Align", i8, i8, i8, i8, [3 x i8], ptr, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.llvm::Align" = type { i8 }
 %"class.llvm::Register" = type { i32 }
 
 $_ZNK4llvm19TargetFrameLowering17getStackThresholdEv = comdat any
@@ -150,7 +148,7 @@ define dso_local { i64, i64 } @_ZNK4llvm19TargetFrameLowering22getFrameIndexRefe
   %20 = add i32 %19, %2
   %21 = zext i32 %20 to i64
   %22 = load ptr, ptr %17, align 8, !tbaa !160
-  %23 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !161
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %26 = load i64, ptr %25, align 8, !tbaa !164
@@ -177,7 +175,7 @@ define dso_local { i64, i64 } @_ZNK4llvm19TargetFrameLowering28getFrameIndexRefe
   %9 = add i32 %8, %2
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8, !tbaa !160
-  %12 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %10
   %13 = load i64, ptr %12, align 8, !tbaa !161
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !165
@@ -230,7 +228,7 @@ define dso_local void @_ZNK4llvm19TargetFrameLowering14getCalleeSavesERKNS_15Mac
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !192
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load i64, ptr %24, align 8, !tbaa !194
   %26 = and i64 %25, %18
@@ -272,7 +270,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %35 ], [ %.pre.i.i, %39 ]
   %41 = phi i32 [ %27, %35 ], [ %.pre.i.i.i, %39 ]
   %42 = load ptr, ptr %2, align 8, !tbaa !193
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %.pre-phi.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %36, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !194
   %44 = trunc nuw nsw i64 %36 to i32
@@ -298,7 +296,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   %52 = xor i64 %51, -1
   %53 = load ptr, ptr %2, align 8, !tbaa !193
   %54 = zext i32 %46 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -8
   %57 = load i64, ptr %56, align 8, !tbaa !194
   %58 = and i64 %57, %52
@@ -333,7 +331,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %73 = shl nuw i64 1, %72
   %74 = lshr i32 %.sroa.0.0.copyload.i, 6
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw i64, ptr %69, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !194
   %78 = or i64 %73, %77
   store i64 %78, ptr %76, align 8, !tbaa !194
@@ -375,7 +373,7 @@ define dso_local void @_ZNK4llvm19TargetFrameLowering20determineCalleeSavesERNS_
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !192
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
   %26 = load i64, ptr %25, align 8, !tbaa !194
   %27 = and i64 %26, %19
@@ -417,7 +415,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %36 ], [ %.pre.i.i, %40 ]
   %42 = phi i32 [ %28, %36 ], [ %.pre.i.i.i, %40 ]
   %43 = load ptr, ptr %2, align 8, !tbaa !193
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.pre-phi.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %37, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !194
   %45 = trunc nuw nsw i64 %37 to i32
@@ -443,7 +441,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   %53 = xor i64 %52, -1
   %54 = load ptr, ptr %2, align 8, !tbaa !193
   %55 = zext i32 %47 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   %58 = load i64, ptr %57, align 8, !tbaa !194
   %59 = and i64 %58, %53
@@ -591,13 +589,13 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
   %131 = shl nuw i64 1, %130
   %132 = lshr i32 %128, 6
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw i64, ptr %125, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %133
   %135 = load i64, ptr %134, align 8, !tbaa !194
   %136 = or i64 %135, %131
   store i64 %136, ptr %134, align 8, !tbaa !194
   %137 = add i32 %.02834.us, 1
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i16, ptr %.0, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %.0, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !214
   %.not31.us = icmp eq i16 %140, 0
   br i1 %.not31.us, label %.loopexit, label %126, !llvm.loop !216
@@ -616,7 +614,7 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
   %148 = lshr i32 %142, 6
   %149 = zext nneg i32 %148 to i64
   %150 = load ptr, ptr %2, align 8, !tbaa !193
-  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %149
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %149
   %152 = load i64, ptr %151, align 8, !tbaa !194
   %153 = or i64 %152, %147
   store i64 %153, ptr %151, align 8, !tbaa !194
@@ -625,7 +623,7 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
 154:                                              ; preds = %144, %.lr.ph.split
   %155 = add i32 %.02834, 1
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw i16, ptr %.0, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %.0, i64 %156
   %158 = load i16, ptr %157, align 2, !tbaa !214
   %.not31 = icmp eq i16 %158, 0
   br i1 %.not31, label %.loopexit, label %.lr.ph.split, !llvm.loop !216

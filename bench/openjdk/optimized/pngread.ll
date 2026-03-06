@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.png_row_info_struct = type { i32, i64, i8, i8, i8, i8 }
 %struct.png_image_read_control = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i32, i32, i32 }
 %struct.png_color_16_struct = type { i8, i16, i16, i16, i16 }
-%struct.png_color_struct = type { i8, i8, i8 }
 
 @.str = private unnamed_addr constant [25 x i8] c"Missing IHDR before IDAT\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Missing PLTE before IDAT\00", align 1
@@ -1676,7 +1675,7 @@ png_read_update_info.exit:                        ; preds = %65, %66
 .lr.ph:                                           ; preds = %70, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %70 ]
   %79 = load ptr, ptr %67, align 8
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv
   store ptr null, ptr %80, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %8, align 4
@@ -1701,7 +1700,7 @@ png_read_update_info.exit:                        ; preds = %65, %66
   %90 = load i64, ptr %88, align 8
   %91 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %90) #12
   %92 = load ptr, ptr %67, align 8
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv86
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv86
   store ptr %91, ptr %93, align 8
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %94 = load i32, ptr %8, align 4
@@ -2492,7 +2491,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   %108 = mul nuw nsw i32 %.0404, 255
   %109 = lshr i32 %108, 15
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = zext i16 %112 to i32
   %114 = and i32 %108, 32767
@@ -2617,7 +2616,7 @@ make_gray_colormap.exit464:                       ; preds = %.preheader580
   %163 = mul nuw nsw i32 %.0402, 255
   %164 = lshr i32 %163, 15
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %165
+  %166 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %165
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i32
   %169 = and i32 %163, 32767
@@ -2675,15 +2674,15 @@ make_gray_colormap.exit464:                       ; preds = %.preheader580
 
 194:                                              ; preds = %192
   %195 = zext nneg i32 %.0400 to i64
-  %196 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %195
+  %196 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %195
   %197 = load i16, ptr %196, align 2
   %198 = zext i16 %197 to i32
   %199 = zext nneg i32 %.0402 to i64
-  %200 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %199
+  %200 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %199
   %201 = load i16, ptr %200, align 2
   %202 = zext i16 %201 to i32
   %203 = zext nneg i32 %.0404 to i64
-  %204 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %203
+  %204 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %203
   %205 = load i16, ptr %204, align 2
   %206 = zext i16 %205 to i32
   br label %207
@@ -2716,7 +2715,7 @@ make_gray_colormap.exit464:                       ; preds = %.preheader580
   %220 = add nuw nsw i32 %218, %211
   %221 = lshr i32 %220, 15
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %222
+  %223 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %222
   %224 = load i16, ptr %223, align 2
   %225 = zext i16 %224 to i32
   %226 = and i32 %220, 32767
@@ -2731,7 +2730,7 @@ make_gray_colormap.exit464:                       ; preds = %.preheader580
   %235 = add nuw nsw i32 %218, %212
   %236 = lshr i32 %235, 15
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %237
+  %238 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %237
   %239 = load i16, ptr %238, align 2
   %240 = zext i16 %239 to i32
   %241 = and i32 %235, 32767
@@ -2746,7 +2745,7 @@ make_gray_colormap.exit464:                       ; preds = %.preheader580
   %250 = add nuw nsw i32 %218, %213
   %251 = lshr i32 %250, 15
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %252
+  %253 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %252
   %254 = load i16, ptr %253, align 2
   %255 = zext i16 %254 to i32
   %256 = and i32 %250, 32767
@@ -2917,7 +2916,7 @@ make_gray_file_colormap.exit:                     ; preds = %png_gamma_not_sRGB.
 
 322:                                              ; preds = %321
   %323 = zext nneg i32 %.0402 to i64
-  %324 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %323
+  %324 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %323
   %325 = load i16, ptr %324, align 2
   %326 = zext i16 %325 to i32
   br label %327
@@ -2940,7 +2939,7 @@ make_gray_file_colormap.exit:                     ; preds = %png_gamma_not_sRGB.
   %336 = mul nuw nsw i32 %.0402, 255
   %337 = lshr i32 %336, 15
   %338 = zext nneg i32 %337 to i64
-  %339 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %338
+  %339 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %338
   %340 = load i16, ptr %339, align 2
   %341 = zext i16 %340 to i32
   %342 = and i32 %336, 32767
@@ -3117,7 +3116,7 @@ make_rgb_colormap.exit496:                        ; preds = %409
   %412 = mul nuw nsw i32 %.0400, 255
   %413 = lshr i32 %412, 15
   %414 = zext nneg i32 %413 to i64
-  %415 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %414
+  %415 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %414
   %416 = load i16, ptr %415, align 2
   %417 = zext i16 %416 to i32
   %418 = and i32 %412, 32767
@@ -3132,7 +3131,7 @@ make_rgb_colormap.exit496:                        ; preds = %409
   %427 = mul nuw nsw i32 %.0402, 255
   %428 = lshr i32 %427, 15
   %429 = zext nneg i32 %428 to i64
-  %430 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %429
+  %430 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %429
   %431 = load i16, ptr %430, align 2
   %432 = zext i16 %431 to i32
   %433 = and i32 %427, 32767
@@ -3147,7 +3146,7 @@ make_rgb_colormap.exit496:                        ; preds = %409
   %442 = mul nuw nsw i32 %.0404, 255
   %443 = lshr i32 %442, 15
   %444 = zext nneg i32 %443 to i64
-  %445 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %444
+  %445 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %444
   %446 = load i16, ptr %445, align 2
   %447 = zext i16 %446 to i32
   %448 = and i32 %442, 32767
@@ -3198,18 +3197,18 @@ make_rgb_colormap.exit496:                        ; preds = %409
   %.reass609 = mul nuw nsw i32 %.0402, 32639
   %.reass612 = mul nuw nsw i32 %.0404, 32639
   %483 = zext nneg i32 %.0400 to i64
-  %484 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %483
+  %484 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %483
   %485 = zext nneg i32 %.0402 to i64
-  %486 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %485
+  %486 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %485
   %487 = zext nneg i32 %.0404 to i64
-  %488 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %487
+  %488 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %487
   br label %.preheader587
 
 .preheader587:                                    ; preds = %481, %.split619.us
   %.5622 = phi i32 [ %482, %481 ], [ %.us-phi620, %.split619.us ]
   %.1393621 = phi i32 [ 0, %481 ], [ %596, %.split619.us ]
   %489 = zext nneg i32 %.1393621 to i64
-  %490 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %489
+  %490 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %489
   %491 = load i16, ptr %490, align 2
   %492 = zext i16 %491 to i32
   %factor.op.mul606.reass = mul nuw i32 %492, 32896
@@ -3228,7 +3227,7 @@ make_rgb_colormap.exit496:                        ; preds = %409
   %502 = add nuw nsw i32 %501, %498
   %503 = lshr i32 %502, 15
   %504 = zext nneg i32 %503 to i64
-  %505 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %504
+  %505 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %504
   %506 = load i16, ptr %505, align 2
   %507 = zext i16 %506 to i32
   %508 = and i32 %502, 32767
@@ -3252,14 +3251,14 @@ make_rgb_colormap.exit496:                        ; preds = %409
   %.6617.us = phi i32 [ %.5622, %.preheader587.split.us ], [ %543, %.split.us.us ]
   %.1391616.us = phi i32 [ 0, %.preheader587.split.us ], [ %568, %.split.us.us ]
   %523 = zext nneg i32 %.1391616.us to i64
-  %524 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %523
+  %524 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %523
   %525 = load i16, ptr %524, align 2
   %526 = zext i16 %525 to i32
   %527 = shl nuw nsw i32 %526, 7
   %528 = add nuw nsw i32 %519, %527
   %529 = lshr i32 %528, 15
   %530 = zext nneg i32 %529 to i64
-  %531 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %530
+  %531 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %530
   %532 = load i16, ptr %531, align 2
   %533 = zext i16 %532 to i32
   %534 = and i32 %528, 32767
@@ -3278,14 +3277,14 @@ png_colormap_compose.exit.us.us:                  ; preds = %png_colormap_compos
   %.1389614.us.us = phi i32 [ 0, %.preheader586.us ], [ %565, %png_colormap_compose.exit.us.us ]
   %543 = add i32 %.7615.us.us, 1
   %544 = zext nneg i32 %.1389614.us.us to i64
-  %545 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %544
+  %545 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %544
   %546 = load i16, ptr %545, align 2
   %547 = zext i16 %546 to i32
   %548 = shl nuw nsw i32 %547, 7
   %549 = add nuw nsw i32 %522, %548
   %550 = lshr i32 %549, 15
   %551 = zext nneg i32 %550 to i64
-  %552 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %551
+  %552 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %551
   %553 = load i16, ptr %552, align 2
   %554 = zext i16 %553 to i32
   %555 = and i32 %549, 32767
@@ -3313,7 +3312,7 @@ png_colormap_compose.exit.us.us:                  ; preds = %png_colormap_compos
   %.6617 = phi i32 [ %579, %.split ], [ %.5622, %.preheader587 ]
   %.1391616 = phi i32 [ %593, %.split ], [ 0, %.preheader587 ]
   %570 = zext nneg i32 %.1391616 to i64
-  %571 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %570
+  %571 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %570
   %572 = load i16, ptr %571, align 2
   %573 = zext i16 %572 to i32
   %.reass610 = mul nuw i32 %573, 32896
@@ -3329,7 +3328,7 @@ decode_gamma.exit522.thread:                      ; preds = %.preheader586, %dec
   %.1389614 = phi i32 [ 0, %.preheader586 ], [ %590, %decode_gamma.exit522.thread ]
   %579 = add i32 %.7615, 1
   %580 = zext nneg i32 %.1389614 to i64
-  %581 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %580
+  %581 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %580
   %582 = load i16, ptr %581, align 2
   %583 = zext i16 %582 to i32
   %.reass613 = mul nuw i32 %583, 32896
@@ -3477,7 +3476,7 @@ decode_gamma.exit522.thread:                      ; preds = %.preheader586, %dec
 
 650:                                              ; preds = %645
   %651 = zext i8 %647 to i32
-  %652 = getelementptr inbounds nuw %struct.png_color_struct, ptr %630, i64 %indvars.iv
+  %652 = getelementptr inbounds nuw [3 x i8], ptr %630, i64 %indvars.iv
   %653 = load i8, ptr %652, align 1
   %654 = zext i8 %653 to i32
   %655 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %654, i32 noundef 3)
@@ -3499,7 +3498,7 @@ decode_gamma.exit522.thread:                      ; preds = %.preheader586, %dec
 667:                                              ; preds = %650
   %668 = lshr i32 %660, 15
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %669
+  %670 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %669
   %671 = load i16, ptr %670, align 2
   %672 = zext i16 %671 to i32
   %673 = and i32 %660, 32767
@@ -3539,7 +3538,7 @@ png_colormap_compose.exit515:                     ; preds = %661, %667
 699:                                              ; preds = %png_colormap_compose.exit515
   %700 = lshr i32 %692, 15
   %701 = zext nneg i32 %700 to i64
-  %702 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %701
+  %702 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %701
   %703 = load i16, ptr %702, align 2
   %704 = zext i16 %703 to i32
   %705 = and i32 %692, 32767
@@ -3582,7 +3581,7 @@ png_colormap_compose.exit517:                     ; preds = %693, %699
 734:                                              ; preds = %png_colormap_compose.exit517
   %735 = lshr i32 %724, 15
   %736 = zext nneg i32 %735 to i64
-  %737 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %736
+  %737 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %736
   %738 = load i16, ptr %737, align 2
   %739 = zext i16 %738 to i32
   %740 = and i32 %724, 32767
@@ -3606,7 +3605,7 @@ png_colormap_compose.exit517:                     ; preds = %693, %699
   br label %771
 
 754:                                              ; preds = %645, %.lr.ph
-  %755 = getelementptr inbounds nuw %struct.png_color_struct, ptr %630, i64 %indvars.iv
+  %755 = getelementptr inbounds nuw [3 x i8], ptr %630, i64 %indvars.iv
   %756 = load i8, ptr %755, align 1
   %757 = zext i8 %756 to i32
   %758 = getelementptr inbounds nuw i8, ptr %755, i64 1
@@ -4584,7 +4583,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %63 = mul nuw nsw i32 %53, 255
   %64 = lshr i32 %63, 15
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
   %69 = and i32 %63, 32767
@@ -4599,7 +4598,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %78 = mul nuw nsw i32 %56, 255
   %79 = lshr i32 %78, 15
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   %84 = and i32 %78, 32767
@@ -4614,7 +4613,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %93 = mul nuw nsw i32 %59, 255
   %94 = lshr i32 %93, 15
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %95
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
   %99 = and i32 %93, 32767
@@ -4641,15 +4640,15 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
 
 114:                                              ; preds = %113
   %115 = zext i32 %2 to i64
-  %116 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %115
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = zext i32 %3 to i64
-  %120 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %119
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i32
   %123 = zext i32 %4 to i64
-  %124 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %123
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i32
   %127 = mul nuw nsw i32 %5, 257
@@ -4683,7 +4682,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %142 = lshr i32 %141, 7
   %143 = lshr i32 %141, 22
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %144
+  %145 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %144
   %146 = load i16, ptr %145, align 2
   %147 = zext i16 %146 to i32
   %148 = and i32 %142, 32767
@@ -4707,7 +4706,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %162 = mul i32 %.0169, 255
   %163 = lshr i32 %162, 15
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %164
+  %165 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %164
   %166 = load i16, ptr %165, align 2
   %167 = zext i16 %166 to i32
   %168 = and i32 %162, 32767
@@ -4722,7 +4721,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %177 = mul i32 %.0141168, 255
   %178 = lshr i32 %177, 15
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %179
+  %180 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %179
   %181 = load i16, ptr %180, align 2
   %182 = zext i16 %181 to i32
   %183 = and i32 %177, 32767
@@ -4737,7 +4736,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %192 = mul i32 %.0145167, 255
   %193 = lshr i32 %192, 15
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %194
+  %195 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %194
   %196 = load i16, ptr %195, align 2
   %197 = zext i16 %196 to i32
   %198 = and i32 %192, 32767
@@ -4785,7 +4784,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   br i1 %12, label %225, label %272
 
 225:                                              ; preds = %213
-  %226 = getelementptr inbounds nuw i16, ptr %220, i64 %224
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %220, i64 %224
   switch i32 %222, label %default.unreachable183 [
     i32 4, label %227
     i32 3, label %231
@@ -4796,7 +4795,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
 227:                                              ; preds = %225
   %228 = trunc i32 %.1149 to i16
   %229 = select i1 %spec.select, i64 0, i64 3
-  %230 = getelementptr inbounds nuw i16, ptr %226, i64 %229
+  %230 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %229
   store i16 %228, ptr %230, align 2
   br label %231
 
@@ -4828,15 +4827,15 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %246 = or disjoint i32 %218, %216
   %247 = xor i32 %246, 2
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds nuw i16, ptr %226, i64 %248
+  %249 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %248
   store i16 %245, ptr %249, align 2
   %250 = trunc i32 %.2143 to i16
   %251 = select i1 %spec.select, i64 2, i64 1
-  %252 = getelementptr inbounds nuw i16, ptr %226, i64 %251
+  %252 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %251
   store i16 %250, ptr %252, align 2
   %253 = trunc i32 %.2 to i16
   %254 = zext nneg i32 %246 to i64
-  %255 = getelementptr inbounds nuw i16, ptr %226, i64 %254
+  %255 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %254
   store i16 %253, ptr %255, align 2
   br label %299
 
@@ -4844,7 +4843,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %257 = trunc i32 %.1149 to i16
   %258 = xor i32 %216, 1
   %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds nuw i16, ptr %226, i64 %259
+  %260 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %259
   store i16 %257, ptr %260, align 2
   br label %261
 
@@ -4866,7 +4865,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %.3 = phi i32 [ %267, %264 ], [ %.1142, %261 ], [ 0, %263 ]
   %269 = trunc i32 %.3 to i16
   %270 = zext i1 %spec.select to i64
-  %271 = getelementptr inbounds nuw i16, ptr %226, i64 %270
+  %271 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %270
   store i16 %269, ptr %271, align 2
   br label %299
 
@@ -5011,7 +5010,7 @@ png_gamma_not_sRGB.exit.thread10.i:               ; preds = %png_gamma_not_sRGB.
 
 32:                                               ; preds = %.thread.thread, %.thread
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   br label %43
@@ -5538,14 +5537,14 @@ define internal noundef i32 @png_image_read_composite(ptr noundef readonly captu
   %83 = getelementptr inbounds nuw i8, ptr %.07487, i64 %indvars.iv
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   %89 = mul nuw nsw i32 %88, %75
   %90 = add nuw nsw i32 %89, %82
   %91 = lshr i32 %90, 15
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %92
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
   %96 = and i32 %90, 32767
@@ -5757,13 +5756,13 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 
 93:                                               ; preds = %91
   %94 = zext i8 %92 to i64
-  %95 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   %98 = mul nuw nsw i32 %97, %90
   %99 = load i8, ptr %.0189227, align 1
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i32
   %104 = xor i32 %90, 255
@@ -5771,7 +5770,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   %106 = add nuw nsw i32 %105, %98
   %107 = lshr i32 %106, 15
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %108
+  %109 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
   %112 = and i32 %106, 32767
@@ -5809,7 +5808,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 
 .lr.ph226:                                        ; preds = %128
   %132 = zext i8 %130 to i64
-  %133 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %132
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
   %136 = icmp samesign ult i64 %.0182, %43
@@ -5845,7 +5844,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 
 149:                                              ; preds = %147
   %150 = zext i8 %148 to i64
-  %151 = getelementptr inbounds nuw i16, ptr @png_sRGB_table, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_table, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i32
   %154 = mul nuw nsw i32 %153, %146
@@ -5854,7 +5853,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   %157 = add nuw nsw i32 %154, %156
   %158 = lshr i32 %157, 15
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %159
+  %160 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %159
   %161 = load i16, ptr %160, align 2
   %162 = zext i16 %161 to i32
   %163 = and i32 %157, 32767
@@ -5967,14 +5966,14 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   %.1177216.us.us = phi i32 [ %.0176.us, %.lr.ph218.us ], [ %239, %._crit_edge.split.us.us.us ]
   %232 = zext i32 %.1177216.us.us to i64
   %233 = mul nsw i64 %184, %232
-  %234 = getelementptr inbounds i16, ptr %181, i64 %233
-  %235 = getelementptr inbounds nuw i16, ptr %234, i64 %189
+  %234 = getelementptr inbounds [2 x i8], ptr %181, i64 %233
+  %235 = getelementptr inbounds nuw [2 x i8], ptr %234, i64 %189
   %236 = load ptr, ptr %190, align 8
   tail call void @png_read_row(ptr noundef nonnull %4, ptr noundef %236, ptr noundef null)
   br i1 %230, label %.lr.ph.us.us.preheader, label %._crit_edge.split.us.us.us
 
 .lr.ph.us.us.preheader:                           ; preds = %231
-  %237 = getelementptr inbounds nuw i16, ptr %234, i64 %.0180.us
+  %237 = getelementptr inbounds nuw [2 x i8], ptr %234, i64 %.0180.us
   %238 = load ptr, ptr %190, align 8
   br label %.lr.ph.us.us
 
@@ -6008,12 +6007,12 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 
 252:                                              ; preds = %245, %244, %.lr.ph.us.us
   %.0172.us.us.us = phi i16 [ %251, %245 ], [ %241, %.lr.ph.us.us ], [ 0, %244 ]
-  %253 = getelementptr inbounds nuw i16, ptr %.0174215.us.us.us, i64 %191
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %.0174215.us.us.us, i64 %191
   store i16 %.0172.us.us.us, ptr %253, align 2
-  %254 = getelementptr inbounds nuw i16, ptr %.0174215.us.us.us, i64 %193
+  %254 = getelementptr inbounds nuw [2 x i8], ptr %.0174215.us.us.us, i64 %193
   store i16 %243, ptr %254, align 2
   %255 = getelementptr inbounds nuw i8, ptr %.0175214.us.us.us, i64 4
-  %256 = getelementptr inbounds nuw i16, ptr %.0174215.us.us.us, i64 %229
+  %256 = getelementptr inbounds nuw [2 x i8], ptr %.0174215.us.us.us, i64 %229
   %257 = icmp ult ptr %256, %235
   br i1 %257, label %.lr.ph.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !85
 
@@ -6075,14 +6074,14 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   %.1177216 = phi i32 [ %.0176, %.lr.ph218 ], [ %318, %._crit_edge.split ]
   %295 = zext i32 %.1177216 to i64
   %296 = mul nsw i64 %184, %295
-  %297 = getelementptr inbounds i16, ptr %181, i64 %296
-  %298 = getelementptr inbounds nuw i16, ptr %297, i64 %189
+  %297 = getelementptr inbounds [2 x i8], ptr %181, i64 %296
+  %298 = getelementptr inbounds nuw [2 x i8], ptr %297, i64 %189
   %299 = load ptr, ptr %190, align 8
   tail call void @png_read_row(ptr noundef nonnull %4, ptr noundef %299, ptr noundef null)
   br i1 %293, label %.lr.ph.preheader, label %._crit_edge.split
 
 .lr.ph.preheader:                                 ; preds = %294
-  %300 = getelementptr inbounds nuw i16, ptr %297, i64 %.0180
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %297, i64 %.0180
   %301 = load ptr, ptr %190, align 8
   br label %.lr.ph
 
@@ -6111,10 +6110,10 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 
 313:                                              ; preds = %.lr.ph, %305, %312
   %.0172 = phi i16 [ %311, %305 ], [ %302, %.lr.ph ], [ 0, %312 ]
-  %314 = getelementptr inbounds nuw i16, ptr %.0174215, i64 %191
+  %314 = getelementptr inbounds nuw [2 x i8], ptr %.0174215, i64 %191
   store i16 %.0172, ptr %314, align 2
   %315 = getelementptr inbounds nuw i8, ptr %.0175214, i64 4
-  %316 = getelementptr inbounds nuw i16, ptr %.0174215, i64 %292
+  %316 = getelementptr inbounds nuw [2 x i8], ptr %.0174215, i64 %292
   %317 = icmp ult ptr %316, %298
   br i1 %317, label %.lr.ph, label %._crit_edge.split, !llvm.loop !85
 

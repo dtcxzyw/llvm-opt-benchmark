@@ -799,7 +799,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl17findFeat
   br i1 %17, label %18, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %5
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %5
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %20
 
@@ -835,7 +835,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %indvars.iv72 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
   %.03851.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %52, %._crit_edge.us ]
   %.03950.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %53, %._crit_edge.us ]
-  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv72
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv72
   %35 = load i32, ptr %34, align 4, !tbaa !47
   %36 = mul i64 %29, %indvars.iv72
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 %36
@@ -862,7 +862,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %48 = fmul double %42, %42
   %49 = fdiv double %48, %46
   %50 = fsub double %47, %49
-  %51 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv72
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv72
   store double %50, ptr %51, align 8, !tbaa !62
   %52 = fadd double %.03851.us, %50
   %53 = tail call double @llvm.fmuladd.f64(double %50, double %50, double %.03950.us)
@@ -895,7 +895,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph52.split ], [ 0, %.lr.ph52 ]
   %.03851 = phi double [ %75, %.lr.ph52.split ], [ 0.000000e+00, %.lr.ph52 ]
   %.03950 = phi double [ %76, %.lr.ph52.split ], [ 0.000000e+00, %.lr.ph52 ]
-  %66 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !47
   %68 = sitofp i32 %67 to double
   %69 = fadd double %68, 1.000000e-05
@@ -903,7 +903,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %71 = fdiv double 0.000000e+00, %69
   %72 = fdiv double 0.000000e+00, %70
   %73 = fsub double %71, %72
-  %74 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store double %73, ptr %74, align 8, !tbaa !62
   %75 = fadd double %.03851, %73
   %76 = tail call double @llvm.fmuladd.f64(double %73, double %73, double %.03950)
@@ -916,7 +916,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
 
 77:                                               ; preds = %.lr.ph, %77
   %indvars.iv77 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next78, %77 ]
-  %78 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv77
   %79 = load double, ptr %78, align 8, !tbaa !62
   %80 = fsub double %79, %57
   %81 = fdiv double %80, %62
@@ -1041,7 +1041,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
 24:                                               ; preds = %.preheader.us, %24
   %.0422.us = phi i64 [ 0, %.preheader.us ], [ %35, %24 ]
   %.0431.us = phi double [ 0.000000e+00, %.preheader.us ], [ %34, %24 ]
-  %25 = getelementptr inbounds nuw double, ptr %.104.val, i64 %.0422.us
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.104.val, i64 %.0422.us
   %26 = load double, ptr %25, align 8, !tbaa !62
   %27 = shl i64 %.0422.us, 1
   %28 = or disjoint i64 %27, 1
@@ -1060,7 +1060,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   %37 = fmul double %34, 0x3FF6A09E667F3BCD
   %.v = select i1 %36, double %34, double %37
   %38 = fdiv double %.v, %sqrt.i49
-  %39 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %38, ptr %39, align 8, !tbaa !62
   %40 = fcmp ogt double %38, %.05.us
   br i1 %40, label %20, label %17
@@ -1074,7 +1074,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   %indvars.iv13 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next14, %50 ]
   %.05 = phi double [ 0.000000e+00, %.preheader.lr.ph.split ], [ %.1, %50 ]
   %.0384 = phi double [ 0.000000e+00, %.preheader.lr.ph.split ], [ %.139, %50 ]
-  %41 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv13
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv13
   store double %., ptr %41, align 8, !tbaa !62
   %42 = fcmp ogt double %., %.05
   br i1 %42, label %50, label %47
@@ -1112,7 +1112,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
 
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph ], [ 0, %51 ]
-  %54 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv17
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv17
   %55 = load double, ptr %54, align 8, !tbaa !62
   %56 = fsub double %55, %.038.lcssa
   %57 = fmul double %56, 2.550000e+02
@@ -1326,7 +1326,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl17radialPr
   %63 = sext i32 %62 to i64
   %64 = mul i64 %57, %63
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 %64
-  %66 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv68.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv68.i
   br label %67
 
 67:                                               ; preds = %125, %.lr.ph.us.i
@@ -1402,7 +1402,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl17radialPr
   %119 = sdiv i32 %118, 2
   %120 = sub nsw i32 %119, %49
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %41, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %41, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !47
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %122, align 4, !tbaa !47
@@ -1480,9 +1480,9 @@ _ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.e
   %163 = sub nsw i64 %indvars.iv84.i, %indvars.iv86.i
   %164 = mul i64 %160, %163
   %165 = getelementptr inbounds nuw i8, ptr %158, i64 %164
-  %166 = getelementptr inbounds i32, ptr %139, i64 %indvars.iv84.i
+  %166 = getelementptr inbounds [4 x i8], ptr %139, i64 %indvars.iv84.i
   %167 = icmp eq i64 %indvars.iv84.i, %150
-  %168 = getelementptr inbounds i32, ptr %139, i64 %163
+  %168 = getelementptr inbounds [4 x i8], ptr %139, i64 %163
   br label %169
 
 169:                                              ; preds = %223, %.lr.ph.us.i23
@@ -2133,9 +2133,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !54
-  %38 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !53
-  %39 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !55
   br label %40
 

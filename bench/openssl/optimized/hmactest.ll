@@ -98,7 +98,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_hmac_md5(i32 noundef %0) #0 {
   %2 = tail call ptr @EVP_md5() #5
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.test_st, ptr @test, i64 %3
+  %4 = getelementptr inbounds [96 x i8], ptr @test, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 16, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -688,7 +688,7 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.test_chunks_st, ptr @test_chunks, i64 %4
+  %5 = getelementptr inbounds [320 x i8], ptr @test_chunks, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !17
   %7 = tail call ptr @EVP_get_digestbyname(ptr noundef %6) #5
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 395, ptr noundef nonnull @.str.50, ptr noundef %7) #5
@@ -731,7 +731,7 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
 
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !16
   %31 = icmp slt i32 %30, 32768
   %32 = zext i1 %31 to i32

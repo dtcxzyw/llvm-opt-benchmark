@@ -1704,7 +1704,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %540
   %542 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_obdii_response, i64 %542
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_obdii_response, i64 %542
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %543
 

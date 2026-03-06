@@ -32,7 +32,7 @@ define noundef range(i32 1, -2147483647) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0911 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %.fr17 = freeze float %8
   %9 = fcmp ogt float %.fr17, 0.000000e+00
@@ -86,7 +86,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   %indvars.iv61 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next62, %.lr.ph56 ]
   %.154 = phi float [ %.035, %.lr.ph56.preheader ], [ %.2, %.lr.ph56 ]
   %.13753 = phi i32 [ %.036, %.lr.ph56.preheader ], [ %.238, %.lr.ph56 ]
-  %14 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv61
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv61
   %15 = load float, ptr %14, align 4
   %16 = fcmp ogt float %15, 0.000000e+00
   %17 = fcmp ole float %15, 1.000000e+00
@@ -103,13 +103,13 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %.450 = phi float [ %.035, %.lr.ph.preheader ], [ %.5, %30 ]
   %.44049 = phi i32 [ %.036, %.lr.ph.preheader ], [ %.541, %30 ]
-  %20 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %21 = load float, ptr %20, align 4
   %22 = fcmp ogt float %21, 0.000000e+00
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %25 = load float, ptr %24, align 4
   %26 = fcmp ugt float %25, 0.000000e+00
   br i1 %26, label %30, label %27
@@ -184,7 +184,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease30SubdivideEdgeSharpness
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02531 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.02630 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.127, %.lr.ph ]
-  %20 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %21 = load float, ptr %20, align 4
   %22 = fcmp ogt float %21, 0.000000e+00
   %23 = fcmp olt float %21, 1.000000e+01
@@ -244,7 +244,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease36SubdivideEdgeSharpnessesAroundV
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit
   %indvars.iv91 = phi i64 [ 0, %.lr.ph71.preheader ], [ %indvars.iv.next92, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit ]
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv91
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv91
   %11 = load float, ptr %10, align 4
   %12 = fcmp ugt float %11, 0.000000e+00
   br i1 %12, label %13, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit
@@ -263,7 +263,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease36SubdivideEdgeSharpnessesAroundV
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %.lr.ph71, %13, %15, %17
   %.0.i = phi float [ 1.000000e+01, %13 ], [ 0.000000e+00, %.lr.ph71 ], [ %18, %17 ], [ 0.000000e+00, %15 ]
-  %19 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv91
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv91
   store float %.0.i, ptr %19, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
@@ -281,7 +281,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04864 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.04963 = phi i32 [ 0, %.lr.ph.preheader ], [ %.150, %.lr.ph ]
-  %22 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %24 = fcmp ogt float %23, 0.000000e+00
   %25 = fcmp olt float %23, 1.000000e+01
@@ -308,8 +308,8 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %.lr.ph
 
 .lr.ph67.split.us:                                ; preds = %.lr.ph67, %41
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %41 ], [ 0, %.lr.ph67 ]
-  %33 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv81
-  %34 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv81
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv81
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv81
   %35 = load float, ptr %33, align 4
   %36 = fcmp ugt float %35, 0.000000e+00
   br i1 %36, label %37, label %41
@@ -337,9 +337,9 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv86 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next87, %.lr.ph69 ]
-  %42 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv86
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv86
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv86
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv86
   store float %43, ptr %44, align 4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
@@ -347,8 +347,8 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %58
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %58 ], [ 0, %.lr.ph67 ]
-  %45 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv76
-  %46 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv76
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv76
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv76
   %47 = load float, ptr %45, align 4
   %48 = fcmp ugt float %47, 0.000000e+00
   br i1 %48, label %49, label %58

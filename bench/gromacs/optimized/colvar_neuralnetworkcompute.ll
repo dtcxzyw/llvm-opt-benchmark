@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.neuralnetworkCV::denseLayer" = type { i64, i64, %"class.std::function", %"class.std::function", %"class.std::vector", %"class.std::vector.37" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::pair<std::function<double (double)>, std::function<double (double)>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::pair<std::function<double (double)>, std::function<double (double)>>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"struct.std::pair.3" }
 %"struct.std::pair.3" = type { %"class.std::function", %"class.std::function" }
@@ -1783,7 +1782,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %11
 
 .noexc110:                                        ; preds = %130
   store ptr %132, ptr %11, align 8, !tbaa !41
-  %133 = getelementptr inbounds nuw double, ptr %132, i64 %126
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %126
   store ptr %133, ptr %62, align 8, !tbaa !44
   store double 0.000000e+00, ptr %132, align 8, !tbaa !20
   %134 = getelementptr i8, ptr %132, i64 8
@@ -1901,7 +1900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %16
   %170 = phi i32 [ %.pre, %.lr.ph ], [ %194, %193 ]
   %171 = phi ptr [ %122, %.lr.ph ], [ %199, %193 ]
   %.039303 = phi i64 [ 0, %.lr.ph ], [ %197, %193 ]
-  %172 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %171, i64 %.039303
+  %172 = getelementptr inbounds nuw [32 x i8], ptr %171, i64 %.039303
   %173 = load ptr, ptr %172, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %138, align 4, !tbaa !22
@@ -1937,7 +1936,7 @@ _ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %187 = load ptr, ptr %9, align 8, !tbaa !81
-  %188 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %187, i64 %.039303
+  %188 = getelementptr inbounds nuw [32 x i8], ptr %187, i64 %.039303
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %188)
           to label %205 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.thread
 
@@ -1963,7 +1962,7 @@ _ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2
   %194 = phi i32 [ %190, %189 ], [ %170, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %195 = load ptr, ptr %11, align 8, !tbaa !41
-  %196 = getelementptr inbounds nuw double, ptr %195, i64 %.039303
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %.039303
   store double %174, ptr %196, align 8, !tbaa !20
   %197 = add nuw i64 %.039303, 1
   %198 = load ptr, ptr %61, align 8, !tbaa !78
@@ -2509,7 +2508,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %392, %.noe
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %394, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
   store ptr %389, ptr %34, align 8, !tbaa !41
   store ptr %393, ptr %36, align 8, !tbaa !50
-  %395 = getelementptr inbounds nuw double, ptr %389, i64 %387
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %387
   store ptr %395, ptr %292, align 8, !tbaa !44
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -3248,7 +3247,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %61
   store ptr %20, ptr %0, align 8, !tbaa !45
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !48
-  %65 = getelementptr inbounds nuw %"class.std::vector.37", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !82
   ret void
 
@@ -3460,7 +3459,7 @@ define void @_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_(p
 12:                                               ; preds = %.lr.ph23, %_ZNKSt8functionIFddEEclEd.exit
   %13 = phi ptr [ %.pre, %.lr.ph23 ], [ %29, %_ZNKSt8functionIFddEEclEd.exit ]
   %.01921 = phi i64 [ 0, %.lr.ph23 ], [ %31, %_ZNKSt8functionIFddEEclEd.exit ]
-  %14 = getelementptr inbounds nuw double, ptr %13, i64 %.01921
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01921
   store double 0.000000e+00, ptr %14, align 8, !tbaa !20
   %15 = load i64, ptr %0, align 8, !tbaa !91
   %.not25 = icmp eq i64 %15, 0
@@ -3469,14 +3468,14 @@ define void @_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_(p
 .lr.ph:                                           ; preds = %12
   %16 = load ptr, ptr %1, align 8, !tbaa !41
   %17 = load ptr, ptr %7, align 8, !tbaa !45
-  %18 = getelementptr inbounds nuw %"class.std::vector.37", ptr %17, i64 %.01921
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.01921
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   br label %34
 
 ._crit_edge:                                      ; preds = %34, %12
   %20 = phi double [ 0.000000e+00, %12 ], [ %40, %34 ]
   %21 = load ptr, ptr %8, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw double, ptr %21, i64 %.01921
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.01921
   %23 = load double, ptr %22, align 8, !tbaa !20
   %24 = fadd double %23, %20
   store double %24, ptr %14, align 8, !tbaa !20
@@ -3495,7 +3494,7 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %._crit_edge
   %28 = call noundef double %27(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = load ptr, ptr %2, align 8, !tbaa !41
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %.01921
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.01921
   store double %28, ptr %30, align 8, !tbaa !20
   %31 = add nuw i64 %.01921, 1
   %32 = load i64, ptr %5, align 8, !tbaa !99
@@ -3505,9 +3504,9 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %._crit_edge
 34:                                               ; preds = %.lr.ph, %34
   %35 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %34 ]
   %.020 = phi i64 [ 0, %.lr.ph ], [ %41, %34 ]
-  %36 = getelementptr inbounds nuw double, ptr %16, i64 %.020
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.020
   %37 = load double, ptr %36, align 8, !tbaa !20
-  %38 = getelementptr inbounds nuw double, ptr %19, i64 %.020
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.020
   %39 = load double, ptr %38, align 8, !tbaa !20
   %40 = call double @llvm.fmuladd.f64(double %37, double %39, double %35)
   store double %40, ptr %14, align 8, !tbaa !20
@@ -3530,7 +3529,7 @@ define noundef double @_ZNK15neuralnetworkCV10denseLayer22computeGradientElement
   %7 = load ptr, ptr %1, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !45
-  %10 = getelementptr inbounds nuw %"class.std::vector.37", ptr %9, i64 %2
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %2
   %11 = load ptr, ptr %10, align 8, !tbaa !41
   br label %31
 
@@ -3538,7 +3537,7 @@ define noundef double @_ZNK15neuralnetworkCV10denseLayer22computeGradientElement
   %.0.lcssa = phi double [ 0.000000e+00, %4 ], [ %36, %31 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8, !tbaa !41
-  %14 = getelementptr inbounds nuw double, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load double, ptr %14, align 8, !tbaa !20
   %16 = fadd double %.0.lcssa, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3560,9 +3559,9 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load ptr, ptr %24, align 8, !tbaa !45
-  %26 = getelementptr inbounds nuw %"class.std::vector.37", ptr %25, i64 %2
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %2
   %27 = load ptr, ptr %26, align 8, !tbaa !41
-  %28 = getelementptr inbounds nuw double, ptr %27, i64 %3
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %3
   %29 = load double, ptr %28, align 8, !tbaa !20
   %30 = fmul double %23, %29
   ret double %30
@@ -3570,9 +3569,9 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %._crit_edge
 31:                                               ; preds = %.lr.ph, %31
   %.015 = phi double [ 0.000000e+00, %.lr.ph ], [ %36, %31 ]
   %.01314 = phi i64 [ 0, %.lr.ph ], [ %37, %31 ]
-  %32 = getelementptr inbounds nuw double, ptr %7, i64 %.01314
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01314
   %33 = load double, ptr %32, align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw double, ptr %11, i64 %.01314
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.01314
   %35 = load double, ptr %34, align 8, !tbaa !20
   %36 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %.015)
   %37 = add nuw i64 %.01314, 1
@@ -3628,14 +3627,14 @@ define void @_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaI
 .lr.ph.i:                                         ; preds = %.lr.ph
   %20 = load ptr, ptr %1, align 8, !tbaa !41
   %21 = load ptr, ptr %7, align 8, !tbaa !45
-  %22 = getelementptr inbounds nuw %"class.std::vector.37", ptr %21, i64 %.011
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %.011
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   br label %30
 
 ._crit_edge.i:                                    ; preds = %30, %.lr.ph
   %.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph ], [ %35, %30 ]
   %24 = load ptr, ptr %8, align 8, !tbaa !41
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %.011
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.011
   %26 = load double, ptr %25, align 8, !tbaa !20
   %27 = fadd double %.0.lcssa.i, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3651,9 +3650,9 @@ define void @_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaI
 30:                                               ; preds = %30, %.lr.ph.i
   %.015.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %35, %30 ]
   %.01314.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %30 ]
-  %31 = getelementptr inbounds nuw double, ptr %20, i64 %.01314.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01314.i
   %32 = load double, ptr %31, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw double, ptr %23, i64 %.01314.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.01314.i
   %34 = load double, ptr %33, align 8, !tbaa !20
   %35 = call double @llvm.fmuladd.f64(double %32, double %34, double %.015.i)
   %36 = add nuw i64 %.01314.i, 1
@@ -3665,15 +3664,15 @@ _ZNK15neuralnetworkCV10denseLayer22computeGradientElementERKSt6vectorIdSaIdEEmm.
   %38 = call noundef double %37(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = load ptr, ptr %7, align 8, !tbaa !45
-  %40 = getelementptr inbounds nuw %"class.std::vector.37", ptr %39, i64 %.011
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %.011
   %41 = load ptr, ptr %40, align 8, !tbaa !41
-  %42 = getelementptr inbounds nuw double, ptr %41, i64 %.01012
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01012
   %43 = load double, ptr %42, align 8, !tbaa !20
   %44 = fmul double %38, %43
   %45 = load ptr, ptr %2, align 8, !tbaa !45
-  %46 = getelementptr inbounds nuw %"class.std::vector.37", ptr %45, i64 %.011
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %.011
   %47 = load ptr, ptr %46, align 8, !tbaa !41
-  %48 = getelementptr inbounds nuw double, ptr %47, i64 %.01012
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.01012
   store double %44, ptr %48, align 8, !tbaa !20
   %49 = add nuw i64 %.011, 1
   %50 = load i64, ptr %6, align 8, !tbaa !99
@@ -3734,7 +3733,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %13
   br i1 %27, label %28, label %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw %"class.std::vector", ptr %.pre37, i64 %.pre43
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %.pre37, i64 %.pre43
   %.not.i.i17 = icmp eq ptr %.pre36, %29
   br i1 %.not.i.i17, label %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i18
 
@@ -3815,9 +3814,9 @@ _ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %2, %24, %26
 55:                                               ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %56 = phi ptr [ %50, %.lr.ph ], [ %84, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %.033 = phi i64 [ 0, %.lr.ph ], [ %82, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
-  %57 = getelementptr inbounds nuw %"class.std::vector.37", ptr %56, i64 %.033
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %.033
   %58 = load ptr, ptr %0, align 8, !tbaa !121
-  %59 = getelementptr inbounds nuw %"class.neuralnetworkCV::denseLayer", ptr %58, i64 %.033
+  %59 = getelementptr inbounds nuw [128 x i8], ptr %58, i64 %.033
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3828,9 +3827,9 @@ _ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %2, %24, %26
 _ZNSt6vectorIdSaIdEE6assignEmRKd.exit:            ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = load ptr, ptr %7, align 8, !tbaa !125
-  %63 = getelementptr inbounds nuw %"class.std::vector", ptr %62, i64 %.033
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %.033
   %64 = load ptr, ptr %0, align 8, !tbaa !121
-  %65 = getelementptr inbounds nuw %"class.neuralnetworkCV::denseLayer", ptr %64, i64 %.033
+  %65 = getelementptr inbounds nuw [128 x i8], ptr %64, i64 %.033
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3860,7 +3859,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 
 .noexc26:                                         ; preds = %71
   store ptr %73, ptr %4, align 8, !tbaa !41
-  %74 = getelementptr inbounds nuw double, ptr %73, i64 %68
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %68
   store ptr %74, ptr %51, align 8, !tbaa !44
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %72, i1 false), !tbaa !20
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 %72
@@ -4720,9 +4719,9 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw %"class.std::vector.37", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !48
-  %43 = getelementptr inbounds nuw %"class.std::vector.37", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !82
   br label %44
 
@@ -4817,9 +4816,9 @@ _ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; p
 
 _ZNSt12_Vector_baseISt6vectorIS0_IdSaIdEESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37: ; preds = %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !125
-  %42 = getelementptr inbounds nuw %"class.std::vector", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !122
-  %43 = getelementptr inbounds nuw %"class.std::vector", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !132
   br label %44
 
@@ -4862,7 +4861,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %16, i64 %1
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !41
   store ptr %17, ptr %21, align 8, !tbaa !50
@@ -4980,7 +4979,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.37", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !48
@@ -5393,7 +5392,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 
 .noexc30:                                         ; preds = %24
   store ptr %26, ptr %3, align 8, !tbaa !41
-  %27 = getelementptr inbounds nuw double, ptr %26, i64 %21
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %21
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !44
   store double 0.000000e+00, ptr %26, align 8, !tbaa !20
@@ -5482,7 +5481,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i34: ; preds = %_ZNSt6vectorIdS
 
 .noexc36:                                         ; preds = %57
   store ptr %59, ptr %5, align 8, !tbaa !41
-  %60 = getelementptr inbounds nuw double, ptr %59, i64 %54
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %54
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %60, ptr %61, align 8, !tbaa !44
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %58, i1 false), !tbaa !20
@@ -5518,7 +5517,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   store ptr %68, ptr %4, align 8, !tbaa !45
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !48
-  %70 = getelementptr inbounds nuw %"class.std::vector.37", ptr %68, i64 %53
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %53
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %70, ptr %71, align 8, !tbaa !82
   %72 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RKT1_(ptr noundef %68, i64 noundef %53, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -5737,7 +5736,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i59: ; preds = %_ZNSt6vectorIdS
 
 .noexc61:                                         ; preds = %146
   store ptr %148, ptr %6, align 8, !tbaa !41
-  %149 = getelementptr inbounds nuw double, ptr %148, i64 %143
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %143
   %150 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %149, ptr %150, align 8, !tbaa !44
   store double 0.000000e+00, ptr %148, align 8, !tbaa !20
@@ -5826,7 +5825,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i74: ; preds = %_ZNSt6vectorIdS
 
 .noexc76:                                         ; preds = %179
   store ptr %181, ptr %8, align 8, !tbaa !41
-  %182 = getelementptr inbounds nuw double, ptr %181, i64 %176
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %176
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %182, ptr %183, align 8, !tbaa !44
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %181, i8 0, i64 %180, i1 false), !tbaa !20
@@ -5862,7 +5861,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i81: ; preds = %_ZNS
   store ptr %190, ptr %7, align 8, !tbaa !45
   %191 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %190, ptr %191, align 8, !tbaa !48
-  %192 = getelementptr inbounds nuw %"class.std::vector.37", ptr %190, i64 %175
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %175
   %193 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %192, ptr %193, align 8, !tbaa !82
   %194 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RKT1_(ptr noundef %190, i64 noundef %175, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -6205,7 +6204,7 @@ _ZSt8_DestroyIPN15neuralnetworkCV10denseLayerES1_EvT_S3_RSaIT0_E.exit: ; preds =
 _ZNSt12_Vector_baseIN15neuralnetworkCV10denseLayerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN15neuralnetworkCV10denseLayerES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !118
-  %53 = getelementptr inbounds nuw %"class.neuralnetworkCV::denseLayer", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !128
   ret void
 
@@ -6367,7 +6366,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !45
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !48
-  %53 = getelementptr inbounds nuw %"class.std::vector.37", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !82
   ret void
 }
@@ -6479,7 +6478,7 @@ _ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22: ;
 _ZNSt12_Vector_baseISt6vectorIS0_IdSaIdEESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !125
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !122
-  %53 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !132
   ret void
 }
@@ -6626,25 +6625,25 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %57, %59
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph, %._crit_edge45.split.us.us.us
   %.03246.us.us = phi i64 [ %83, %._crit_edge45.split.us.us.us ], [ 0, %.preheader.lr.ph ]
-  %67 = getelementptr inbounds nuw %"class.std::vector.37", ptr %65, i64 %.03246.us.us
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.03246.us.us
   %68 = load ptr, ptr %67, align 8, !tbaa !41
-  %69 = getelementptr inbounds nuw %"class.std::vector.37", ptr %49, i64 %.03246.us.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %.03246.us.us
   %70 = load ptr, ptr %69, align 8, !tbaa !41
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %.03143.us.us.us = phi i64 [ 0, %.preheader.us.us ], [ %82, %._crit_edge.us.us.us ]
-  %71 = getelementptr inbounds nuw double, ptr %68, i64 %.03143.us.us.us
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.03143.us.us.us
   %72 = load double, ptr %71, align 8, !tbaa !20
-  %73 = getelementptr inbounds nuw %"class.std::vector.37", ptr %66, i64 %.03143.us.us.us
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %.03143.us.us.us
   %74 = load ptr, ptr %73, align 8, !tbaa !41
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.us.us.us
   %.042.us.us.us = phi i64 [ 0, %.lr.ph.us.us.us ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw double, ptr %74, i64 %.042.us.us.us
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.042.us.us.us
   %77 = load double, ptr %76, align 8, !tbaa !20
-  %78 = getelementptr inbounds nuw double, ptr %70, i64 %.042.us.us.us
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.042.us.us.us
   %79 = load double, ptr %78, align 8, !tbaa !20
   %80 = call double @llvm.fmuladd.f64(double %72, double %77, double %79)
   store double %80, ptr %78, align 8, !tbaa !20
@@ -6727,7 +6726,7 @@ define void @_ZN15neuralnetworkCV20neuralNetworkCompute7computeEv(ptr noundef no
 23:                                               ; preds = %_ZNKSt8functionIFddEEclEd.exit.i, %.lr.ph23.i
   %24 = phi ptr [ %.pre.i, %.lr.ph23.i ], [ %40, %_ZNKSt8functionIFddEEclEd.exit.i ]
   %.01921.i = phi i64 [ 0, %.lr.ph23.i ], [ %42, %_ZNKSt8functionIFddEEclEd.exit.i ]
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %.01921.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.01921.i
   store double 0.000000e+00, ptr %25, align 8, !tbaa !20
   %26 = load i64, ptr %8, align 8, !tbaa !91
   %.not25.i = icmp eq i64 %26, 0
@@ -6736,14 +6735,14 @@ define void @_ZN15neuralnetworkCV20neuralNetworkCompute7computeEv(ptr noundef no
 .lr.ph.i:                                         ; preds = %23
   %27 = load ptr, ptr %13, align 8, !tbaa !41
   %28 = load ptr, ptr %18, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw %"class.std::vector.37", ptr %28, i64 %.01921.i
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.01921.i
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   br label %45
 
 ._crit_edge.i:                                    ; preds = %45, %23
   %31 = phi double [ 0.000000e+00, %23 ], [ %51, %45 ]
   %32 = load ptr, ptr %19, align 8, !tbaa !41
-  %33 = getelementptr inbounds nuw double, ptr %32, i64 %.01921.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.01921.i
   %34 = load double, ptr %33, align 8, !tbaa !20
   %35 = fadd double %31, %34
   store double %35, ptr %25, align 8, !tbaa !20
@@ -6762,7 +6761,7 @@ _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %._crit_edge.i
   %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = load ptr, ptr %15, align 8, !tbaa !41
-  %41 = getelementptr inbounds nuw double, ptr %40, i64 %.01921.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.01921.i
   store double %39, ptr %41, align 8, !tbaa !20
   %42 = add nuw i64 %.01921.i, 1
   %43 = load i64, ptr %16, align 8, !tbaa !99
@@ -6772,9 +6771,9 @@ _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %._crit_edge.i
 45:                                               ; preds = %45, %.lr.ph.i
   %46 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %51, %45 ]
   %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %52, %45 ]
-  %47 = getelementptr inbounds nuw double, ptr %27, i64 %.020.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.020.i
   %48 = load double, ptr %47, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw double, ptr %30, i64 %.020.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.020.i
   %50 = load double, ptr %49, align 8, !tbaa !20
   %51 = call double @llvm.fmuladd.f64(double %48, double %50, double %46)
   store double %51, ptr %25, align 8, !tbaa !20
@@ -6800,9 +6799,9 @@ _ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit: ; preds 
   %59 = phi ptr [ %102, %_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit24 ], [ %53, %_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit ]
   %60 = phi ptr [ %103, %_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit24 ], [ %54, %_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit ]
   %.081 = phi i64 [ %104, %_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit24 ], [ 1, %_ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit ]
-  %61 = getelementptr inbounds nuw %"class.neuralnetworkCV::denseLayer", ptr %59, i64 %.081
+  %61 = getelementptr inbounds nuw [128 x i8], ptr %59, i64 %.081
   %62 = load ptr, ptr %14, align 8, !tbaa !45
-  %63 = getelementptr %"class.std::vector.37", ptr %62, i64 %.081
+  %63 = getelementptr [24 x i8], ptr %62, i64 %.081
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !99
@@ -6821,7 +6820,7 @@ _ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit: ; preds 
 72:                                               ; preds = %_ZNKSt8functionIFddEEclEd.exit.i23, %.lr.ph23.i14
   %73 = phi ptr [ %.pre.i15, %.lr.ph23.i14 ], [ %89, %_ZNKSt8functionIFddEEclEd.exit.i23 ]
   %.01921.i16 = phi i64 [ 0, %.lr.ph23.i14 ], [ %91, %_ZNKSt8functionIFddEEclEd.exit.i23 ]
-  %74 = getelementptr inbounds nuw double, ptr %73, i64 %.01921.i16
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.01921.i16
   store double 0.000000e+00, ptr %74, align 8, !tbaa !20
   %75 = load i64, ptr %61, align 8, !tbaa !91
   %.not25.i17 = icmp eq i64 %75, 0
@@ -6830,14 +6829,14 @@ _ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit: ; preds 
 .lr.ph.i18:                                       ; preds = %72
   %76 = load ptr, ptr %64, align 8, !tbaa !41
   %77 = load ptr, ptr %67, align 8, !tbaa !45
-  %78 = getelementptr inbounds nuw %"class.std::vector.37", ptr %77, i64 %.01921.i16
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.01921.i16
   %79 = load ptr, ptr %78, align 8, !tbaa !41
   br label %94
 
 ._crit_edge.i21:                                  ; preds = %94, %72
   %80 = phi double [ 0.000000e+00, %72 ], [ %100, %94 ]
   %81 = load ptr, ptr %68, align 8, !tbaa !41
-  %82 = getelementptr inbounds nuw double, ptr %81, i64 %.01921.i16
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.01921.i16
   %83 = load double, ptr %82, align 8, !tbaa !20
   %84 = fadd double %80, %83
   store double %84, ptr %74, align 8, !tbaa !20
@@ -6856,7 +6855,7 @@ _ZNKSt8functionIFddEEclEd.exit.i23:               ; preds = %._crit_edge.i21
   %88 = call noundef double %87(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %89 = load ptr, ptr %63, align 8, !tbaa !41
-  %90 = getelementptr inbounds nuw double, ptr %89, i64 %.01921.i16
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.01921.i16
   store double %88, ptr %90, align 8, !tbaa !20
   %91 = add nuw i64 %.01921.i16, 1
   %92 = load i64, ptr %65, align 8, !tbaa !99
@@ -6866,9 +6865,9 @@ _ZNKSt8functionIFddEEclEd.exit.i23:               ; preds = %._crit_edge.i21
 94:                                               ; preds = %94, %.lr.ph.i18
   %95 = phi double [ 0.000000e+00, %.lr.ph.i18 ], [ %100, %94 ]
   %.020.i19 = phi i64 [ 0, %.lr.ph.i18 ], [ %101, %94 ]
-  %96 = getelementptr inbounds nuw double, ptr %76, i64 %.020.i19
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.020.i19
   %97 = load double, ptr %96, align 8, !tbaa !20
-  %98 = getelementptr inbounds nuw double, ptr %79, i64 %.020.i19
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.020.i19
   %99 = load double, ptr %98, align 8, !tbaa !20
   %100 = call double @llvm.fmuladd.f64(double %97, double %99, double %95)
   store double %100, ptr %74, align 8, !tbaa !20
@@ -6939,14 +6938,14 @@ _ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit24: ; pred
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i26
   %128 = load ptr, ptr %13, align 8, !tbaa !41
   %129 = load ptr, ptr %115, align 8, !tbaa !45
-  %130 = getelementptr inbounds nuw %"class.std::vector.37", ptr %129, i64 %.011.i
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %.011.i
   %131 = load ptr, ptr %130, align 8, !tbaa !41
   br label %138
 
 ._crit_edge.i.i:                                  ; preds = %138, %.lr.ph.i26
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %.lr.ph.i26 ], [ %143, %138 ]
   %132 = load ptr, ptr %116, align 8, !tbaa !41
-  %133 = getelementptr inbounds nuw double, ptr %132, i64 %.011.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %.011.i
   %134 = load double, ptr %133, align 8, !tbaa !20
   %135 = fadd double %.0.lcssa.i.i, %134
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6962,9 +6961,9 @@ _ZNK15neuralnetworkCV10denseLayer7computeERKSt6vectorIdSaIdEERS3_.exit24: ; pred
 138:                                              ; preds = %138, %.lr.ph.i.i
   %.015.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %143, %138 ]
   %.01314.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw double, ptr %128, i64 %.01314.i.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %.01314.i.i
   %140 = load double, ptr %139, align 8, !tbaa !20
-  %141 = getelementptr inbounds nuw double, ptr %131, i64 %.01314.i.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.01314.i.i
   %142 = load double, ptr %141, align 8, !tbaa !20
   %143 = call double @llvm.fmuladd.f64(double %140, double %142, double %.015.i.i)
   %144 = add nuw i64 %.01314.i.i, 1
@@ -6976,15 +6975,15 @@ _ZNK15neuralnetworkCV10denseLayer22computeGradientElementERKSt6vectorIdSaIdEEmm.
   %146 = call noundef double %145(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %147 = load ptr, ptr %115, align 8, !tbaa !45
-  %148 = getelementptr inbounds nuw %"class.std::vector.37", ptr %147, i64 %.011.i
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %.011.i
   %149 = load ptr, ptr %148, align 8, !tbaa !41
-  %150 = getelementptr inbounds nuw double, ptr %149, i64 %.01012.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %.01012.i
   %151 = load double, ptr %150, align 8, !tbaa !20
   %152 = fmul double %146, %151
   %153 = load ptr, ptr %112, align 8, !tbaa !45
-  %154 = getelementptr inbounds nuw %"class.std::vector.37", ptr %153, i64 %.011.i
+  %154 = getelementptr inbounds nuw [24 x i8], ptr %153, i64 %.011.i
   %155 = load ptr, ptr %154, align 8, !tbaa !41
-  %156 = getelementptr inbounds nuw double, ptr %155, i64 %.01012.i
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %.01012.i
   store double %152, ptr %156, align 8, !tbaa !20
   %157 = add nuw i64 %.011.i, 1
   %158 = load i64, ptr %114, align 8, !tbaa !99
@@ -7009,12 +7008,12 @@ _ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_Sa
   %166 = phi ptr [ %221, %_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_SaIS3_EE.exit49 ], [ %160, %_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_SaIS3_EE.exit ]
   %167 = phi ptr [ %222, %_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_SaIS3_EE.exit49 ], [ %161, %_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_SaIS3_EE.exit ]
   %.182 = phi i64 [ %223, %_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_SaIS3_EE.exit49 ], [ 1, %_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_SaIS3_EE.exit ]
-  %168 = getelementptr inbounds nuw %"class.neuralnetworkCV::denseLayer", ptr %166, i64 %.182
+  %168 = getelementptr inbounds nuw [128 x i8], ptr %166, i64 %.182
   %169 = load ptr, ptr %14, align 8, !tbaa !45
-  %170 = getelementptr %"class.std::vector.37", ptr %169, i64 %.182
+  %170 = getelementptr [24 x i8], ptr %169, i64 %.182
   %171 = getelementptr i8, ptr %170, i64 -24
   %172 = load ptr, ptr %111, align 8, !tbaa !125
-  %173 = getelementptr inbounds nuw %"class.std::vector", ptr %172, i64 %.182
+  %173 = getelementptr inbounds nuw [24 x i8], ptr %172, i64 %.182
   %174 = load i64, ptr %168, align 8, !tbaa !91
   %.not.i29 = icmp eq i64 %174, 0
   br i1 %.not.i29, label %_ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_SaIS3_EE.exit49, label %.preheader.lr.ph.i30
@@ -7057,14 +7056,14 @@ _ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_Sa
 .lr.ph.i.i38:                                     ; preds = %.lr.ph.i35
   %189 = load ptr, ptr %171, align 8, !tbaa !41
   %190 = load ptr, ptr %176, align 8, !tbaa !45
-  %191 = getelementptr inbounds nuw %"class.std::vector.37", ptr %190, i64 %.011.i36
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %.011.i36
   %192 = load ptr, ptr %191, align 8, !tbaa !41
   br label %199
 
 ._crit_edge.i.i42:                                ; preds = %199, %.lr.ph.i35
   %.0.lcssa.i.i43 = phi double [ 0.000000e+00, %.lr.ph.i35 ], [ %204, %199 ]
   %193 = load ptr, ptr %177, align 8, !tbaa !41
-  %194 = getelementptr inbounds nuw double, ptr %193, i64 %.011.i36
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.011.i36
   %195 = load double, ptr %194, align 8, !tbaa !20
   %196 = fadd double %.0.lcssa.i.i43, %195
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -7080,9 +7079,9 @@ _ZNK15neuralnetworkCV10denseLayer15computeGradientERKSt6vectorIdSaIdEERS1_IS3_Sa
 199:                                              ; preds = %199, %.lr.ph.i.i38
   %.015.i.i39 = phi double [ 0.000000e+00, %.lr.ph.i.i38 ], [ %204, %199 ]
   %.01314.i.i40 = phi i64 [ 0, %.lr.ph.i.i38 ], [ %205, %199 ]
-  %200 = getelementptr inbounds nuw double, ptr %189, i64 %.01314.i.i40
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.01314.i.i40
   %201 = load double, ptr %200, align 8, !tbaa !20
-  %202 = getelementptr inbounds nuw double, ptr %192, i64 %.01314.i.i40
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %.01314.i.i40
   %203 = load double, ptr %202, align 8, !tbaa !20
   %204 = call double @llvm.fmuladd.f64(double %201, double %203, double %.015.i.i39)
   %205 = add nuw i64 %.01314.i.i40, 1
@@ -7094,15 +7093,15 @@ _ZNK15neuralnetworkCV10denseLayer22computeGradientElementERKSt6vectorIdSaIdEEmm.
   %207 = call noundef double %206(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %208 = load ptr, ptr %176, align 8, !tbaa !45
-  %209 = getelementptr inbounds nuw %"class.std::vector.37", ptr %208, i64 %.011.i36
+  %209 = getelementptr inbounds nuw [24 x i8], ptr %208, i64 %.011.i36
   %210 = load ptr, ptr %209, align 8, !tbaa !41
-  %211 = getelementptr inbounds nuw double, ptr %210, i64 %.01012.i33
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.01012.i33
   %212 = load double, ptr %211, align 8, !tbaa !20
   %213 = fmul double %207, %212
   %214 = load ptr, ptr %173, align 8, !tbaa !45
-  %215 = getelementptr inbounds nuw %"class.std::vector.37", ptr %214, i64 %.011.i36
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.011.i36
   %216 = load ptr, ptr %215, align 8, !tbaa !41
-  %217 = getelementptr inbounds nuw double, ptr %216, i64 %.01012.i33
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %.01012.i33
   store double %213, ptr %217, align 8, !tbaa !20
   %218 = add nuw i64 %.011.i36, 1
   %219 = load i64, ptr %175, align 8, !tbaa !99
@@ -7201,7 +7200,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit:         ; preds = %252, %_ZSt8_Destroy
   %.286 = phi i64 [ 2, %.lr.ph87 ], [ %283, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit71 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %263 = load ptr, ptr %111, align 8, !tbaa !125
-  %264 = getelementptr inbounds nuw %"class.std::vector", ptr %263, i64 %.286
+  %264 = getelementptr inbounds nuw [24 x i8], ptr %263, i64 %.286
   call void @_ZN15neuralnetworkCV20neuralNetworkCompute15multiply_matrixERKSt6vectorIS1_IdSaIdEESaIS3_EES7_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %264, ptr noundef nonnull align 8 dereferenceable(24) %233)
   %265 = load ptr, ptr %233, align 8, !tbaa !45
   %266 = load ptr, ptr %235, align 8, !tbaa !48

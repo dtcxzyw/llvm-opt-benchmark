@@ -3,10 +3,6 @@ source_filename = "bench/llvm/original/MCInst.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
-%"class.llvm::MCOperand" = type { i8, %union.anon }
-%union.anon = type { i64 }
-
 $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
@@ -115,7 +111,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %37, %39
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !33
   %49 = zext i32 %43 to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !34
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 %52
@@ -405,7 +401,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %27, %29
 
 _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %36, %38
   %41 = load ptr, ptr %22, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv
   tail call void @_ZNK4llvm9MCOperand5printERNS_11raw_ostreamEPKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %23
@@ -555,7 +551,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %42, %40, %_ZN4llvm1
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21.us: ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21.us
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21.us ], [ 0, %.lr.ph ]
   %.pre = load ptr, ptr %47, align 8, !tbaa !47
-  %49 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.pre, i64 %indvars.iv27
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv27
   tail call void @_ZNK4llvm9MCOperand5printERNS_11raw_ostreamEPKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %.not.us = icmp eq i64 %indvars.iv.next28, %48
@@ -604,7 +600,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %53, %55
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21:    ; preds = %64, %66
   %69 = load ptr, ptr %47, align 8, !tbaa !47
-  %70 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %indvars.iv
   tail call void @_ZNK4llvm9MCOperand5printERNS_11raw_ostreamEPKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %48

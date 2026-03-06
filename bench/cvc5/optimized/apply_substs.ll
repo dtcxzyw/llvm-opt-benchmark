@@ -165,7 +165,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %2
   %45 = load ptr, ptr %27, align 8, !tbaa !39
   call void @_ZN4cvc58internal13preprocessing24PreprocessingPassContext13spendResourceENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(168) %45, i32 noundef 10)
   %46 = load ptr, ptr %30, align 8, !tbaa !49
-  %47 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !50
   store ptr %48, ptr %4, align 8, !tbaa !50
   %49 = load i64, ptr %48, align 8

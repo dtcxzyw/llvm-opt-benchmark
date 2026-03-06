@@ -135,7 +135,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 
 42:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 8, !tbaa !22
   %.not67 = icmp eq ptr %44, null
   br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !25
@@ -148,7 +148,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br i1 %47, label %48, label %42
 
 48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !22
   br label %.loopexit

@@ -136,7 +136,7 @@ bytestream2_init.exit:                            ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %18, ptr %19, align 4, !tbaa !24
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw i16, ptr @mask, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr @mask, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !25
   %23 = zext i16 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -392,7 +392,7 @@ lzw_get_code.exit:                                ; preds = %._crit_edge44.i, %.
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %16, align 4, !tbaa !24
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i16, ptr @mask, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr @mask, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !25
   %121 = zext i16 %120 to i32
   store i32 %121, ptr %20, align 8, !tbaa !27
@@ -440,7 +440,7 @@ lzw_get_code.exit:                                ; preds = %._crit_edge44.i, %.
   %136 = load i8, ptr %135, align 1, !tbaa !16
   %137 = getelementptr inbounds nuw i8, ptr %.4103, i64 1
   store i8 %136, ptr %.4103, align 1, !tbaa !16
-  %138 = getelementptr inbounds i16, ptr %25, i64 %134
+  %138 = getelementptr inbounds [2 x i8], ptr %25, i64 %134
   %139 = load i16, ptr %138, align 2, !tbaa !25
   %140 = zext i16 %139 to i32
   %141 = load i32, ptr %23, align 8, !tbaa !31
@@ -469,7 +469,7 @@ lzw_get_code.exit:                                ; preds = %._crit_edge44.i, %.
   %153 = add nsw i32 %152, 1
   store i32 %153, ptr %22, align 4, !tbaa !32
   %154 = sext i32 %152 to i64
-  %155 = getelementptr inbounds i16, ptr %25, i64 %154
+  %155 = getelementptr inbounds [2 x i8], ptr %25, i64 %154
   store i16 %151, ptr %155, align 2, !tbaa !25
   %.pre118 = load i32, ptr %26, align 4, !tbaa !28
   br label %156
@@ -493,7 +493,7 @@ lzw_get_code.exit:                                ; preds = %._crit_edge44.i, %.
   %166 = add nsw i32 %162, 1
   store i32 %166, ptr %16, align 4, !tbaa !24
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds i16, ptr @mask, i64 %167
+  %168 = getelementptr inbounds [2 x i8], ptr @mask, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !25
   %170 = zext i16 %169 to i32
   store i32 %170, ptr %20, align 8, !tbaa !27

@@ -3,22 +3,6 @@ source_filename = "bench/opencv/original/tcd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.opj_tcp = type { i32, i32, i32, i32, i32, [100 x float], i32, [32 x %struct.opj_poc], i32, ptr, ptr, ptr, i32, i32, [100 x float], ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i8 }
-%struct.opj_poc = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [5 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.opj_tcd_cblk_dec = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32 }
-%struct.opj_tcd_cblk_enc = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.opj_tcd_resolution = type { i32, i32, i32, i32, i32, i32, i32, [3 x %struct.opj_tcd_band], i32, i32, i32, i32 }
-%struct.opj_tcd_band = type { i32, i32, i32, i32, i32, ptr, i32, i32, float }
-%struct.opj_tile_info = type { ptr, i32, i32, i32, i32, [33 x i32], [33 x i32], [33 x i32], [33 x i32], ptr, i32, double, i32, ptr, i32, i32, ptr }
-%struct.opj_tcd_tilecomp = type { i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i64, i64, ptr, i32, i32, i32, i32, i64 }
-%struct.opj_tcd_precinct = type { i32, i32, i32, i32, i32, i32, %union.anon.0, i32, ptr, ptr }
-%union.anon.0 = type { ptr }
-%struct.opj_tcd_pass = type { i32, double, i32, i8 }
-%struct.opj_image_comp = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i16 }
-%struct.opj_tcd_layer = type { i32, i32, double, ptr }
-%struct.opj_tccp = type { i32, i32, i32, i32, i32, i32, i32, [97 x %struct.opj_stepsize], i32, i32, [33 x i32], [33 x i32], i32 }
-%struct.opj_stepsize = type { i32, i32 }
-
 @.str = private unnamed_addr constant [41 x i8] c"Size of tile data exceeds system limits\0A\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"Invalid tilec->win_xxx values\0A\00", align 1
 @.str.2 = private unnamed_addr constant [38 x i8] c"Tile X coordinates are not supported\0A\00", align 1
@@ -361,7 +345,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.opj_tcp, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [5696 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = load ptr, ptr %13, align 8, !tbaa !17
@@ -648,9 +632,9 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %192 = getelementptr inbounds nuw i8, ptr %.0464629, i64 12
   store i32 %191, ptr %192, align 4, !tbaa !100
   %193 = zext i32 %.0457630 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %159, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !101
-  %196 = getelementptr inbounds nuw i32, ptr %160, i64 %193
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %193
   %197 = load i32, ptr %196, align 4, !tbaa !101
   %198 = shl nsw i32 -1, %195
   %199 = and i32 %198, %174
@@ -1111,7 +1095,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %472 = add i32 %468, 1
   %473 = shl i32 %472, %261
   %474 = load ptr, ptr %419, align 8, !tbaa !30
-  %475 = getelementptr inbounds nuw %struct.opj_tcd_cblk_dec, ptr %474, i64 %indvars.iv687
+  %475 = getelementptr inbounds nuw [88 x i8], ptr %474, i64 %indvars.iv687
   %476 = load ptr, ptr %475, align 8, !tbaa !127
   %.not.i554.us = icmp eq ptr %476, null
   br i1 %.not.i554.us, label %489, label %477
@@ -1191,7 +1175,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %515 = add i32 %511, 1
   %516 = shl i32 %515, %261
   %517 = load ptr, ptr %419, align 8, !tbaa !30
-  %518 = getelementptr inbounds nuw %struct.opj_tcd_cblk_enc, ptr %517, i64 %indvars.iv
+  %518 = getelementptr inbounds nuw [64 x i8], ptr %517, i64 %indvars.iv
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
   %520 = load ptr, ptr %519, align 8, !tbaa !140
   %.not.i = icmp eq ptr %520, null
@@ -1367,7 +1351,7 @@ define hidden i32 @opj_tcd_get_decoded_tile_size(ptr noundef readonly captures(n
   %24 = getelementptr inbounds nuw i8, ptr %.04461, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !95
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [192 x i8], ptr %23, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -192
   br i1 %.not52, label %37, label %29
 
@@ -1455,7 +1439,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_encode_tile(ptr noundef %0, i32 nound
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw %struct.opj_tcp, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [5696 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %22, ptr %23, align 8, !tbaa !161
   %.not = icmp eq ptr %5, null
@@ -1479,7 +1463,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_encode_tile(ptr noundef %0, i32 nound
   %35 = load ptr, ptr %34, align 8, !tbaa !33
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %37 = load ptr, ptr %36, align 8, !tbaa !162
-  %38 = getelementptr inbounds nuw %struct.opj_tile_info, ptr %37, i64 %21
+  %38 = getelementptr inbounds nuw [608 x i8], ptr %37, i64 %21
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 156
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 812
@@ -1491,25 +1475,25 @@ define hidden range(i32 0, 2) i32 @opj_tcd_encode_tile(ptr noundef %0, i32 nound
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %.062121 = phi i32 [ 0, %.lr.ph ], [ %55, %45 ]
-  %46 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %35, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [192 x i8], ptr %35, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !102
-  %49 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store i32 %48, ptr %49, align 4, !tbaa !101
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %51 = load i32, ptr %50, align 4, !tbaa !103
-  %52 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !101
   %53 = load i32, ptr %47, align 8, !tbaa !102
   %54 = mul i32 %51, %53
   %55 = add i32 %54, %.062121
-  %56 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !101
-  %58 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !101
-  %59 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !101
-  %61 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %60, ptr %61, align 4, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %30, align 4, !tbaa !94
@@ -1534,7 +1518,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_encode_tile(ptr noundef %0, i32 nound
   %74 = tail call ptr @opj_calloc(i64 noundef %73, i64 noundef 32) #16
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %76 = load ptr, ptr %75, align 8, !tbaa !162
-  %77 = getelementptr inbounds nuw %struct.opj_tile_info, ptr %76, i64 %21
+  %77 = getelementptr inbounds nuw [608 x i8], ptr %76, i64 %21
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 552
   store ptr %74, ptr %78, align 8, !tbaa !169
   %.not68.not = icmp eq ptr %74, null
@@ -1685,7 +1669,7 @@ opj_tcd_dc_level_shift_encode.exit:               ; preds = %79, %opj_tcd_dc_lev
   %.03643.i = phi ptr [ %.pre, %.lr.ph.preheader.i ], [ %148, %.lr.ph.i78 ]
   %145 = getelementptr inbounds nuw i8, ptr %.03643.i, i64 48
   %146 = load ptr, ptr %145, align 8, !tbaa !52
-  %147 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv.i
   store ptr %146, ptr %147, align 8, !tbaa !180
   %148 = getelementptr inbounds nuw i8, ptr %.03643.i, i64 112
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1862,7 +1846,7 @@ opj_tcd_t1_encode.exit:                           ; preds = %201, %203, %205
   %.0225317.i.i = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph320.i.i ], [ %.1226.lcssa.i.i, %._crit_edge312.i.i ]
   %.0232316.i.i = phi double [ 0.000000e+00, %.lr.ph320.i.i ], [ %.1233.lcssa.i.i, %._crit_edge312.i.i ]
   %.0241315.i.i = phi double [ 0.000000e+00, %.lr.ph320.i.i ], [ %342, %._crit_edge312.i.i ]
-  %237 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %230, i64 %indvars.iv366.i.i
+  %237 = getelementptr inbounds nuw [112 x i8], ptr %230, i64 %indvars.iv366.i.i
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 104
   store i64 0, ptr %238, align 8, !tbaa !187
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 20
@@ -1882,7 +1866,7 @@ opj_tcd_t1_encode.exit:                           ; preds = %201, %203, %205
   %indvars.iv361.i.i = phi i64 [ 0, %.lr.ph311.i.i ], [ %indvars.iv.next362.i.i, %._crit_edge304.i.i ]
   %.1226308.i.i = phi double [ %.0225317.i.i, %.lr.ph311.i.i ], [ %.2227.lcssa.i.i, %._crit_edge304.i.i ]
   %.1233307.i.i = phi double [ %.0232316.i.i, %.lr.ph311.i.i ], [ %.2234.lcssa.i.i, %._crit_edge304.i.i ]
-  %246 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %242, i64 %indvars.iv361.i.i
+  %246 = getelementptr inbounds nuw [192 x i8], ptr %242, i64 %indvars.iv361.i.i
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %248 = load i32, ptr %247, align 8, !tbaa !104
   %.not340.i.i = icmp eq i32 %248, 0
@@ -1901,7 +1885,7 @@ opj_tcd_t1_encode.exit:                           ; preds = %201, %203, %205
   %indvars.iv356.i.i = phi i64 [ 0, %.lr.ph303.i.i ], [ %indvars.iv.next357.i.i, %opj_tcd_is_band_empty.exit.thread.i.i ]
   %.2227300.i.i = phi double [ %.1226308.i.i, %.lr.ph303.i.i ], [ %.3228.i.i, %opj_tcd_is_band_empty.exit.thread.i.i ]
   %.2234299.i.i = phi double [ %.1233307.i.i, %.lr.ph303.i.i ], [ %.3235.i.i, %opj_tcd_is_band_empty.exit.thread.i.i ]
-  %255 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %249, i64 %indvars.iv356.i.i
+  %255 = getelementptr inbounds nuw [48 x i8], ptr %249, i64 %indvars.iv356.i.i
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = load i32, ptr %256, align 8, !tbaa !110
   %258 = load i32, ptr %255, align 8, !tbaa !108
@@ -1935,7 +1919,7 @@ opj_tcd_is_band_empty.exit.i.i:                   ; preds = %252
   %indvars.iv351.i.i = phi i64 [ 0, %.lr.ph296.i.i ], [ %indvars.iv.next352.i.i, %._crit_edge290.i.i ]
   %.4229294.i.i = phi double [ %.2227300.i.i, %.lr.ph296.i.i ], [ %.5230.lcssa.i.i, %._crit_edge290.i.i ]
   %.4236293.i.i = phi double [ %.2234299.i.i, %.lr.ph296.i.i ], [ %.5237.lcssa.i.i, %._crit_edge290.i.i ]
-  %272 = getelementptr inbounds nuw %struct.opj_tcd_precinct, ptr %268, i64 %indvars.iv351.i.i
+  %272 = getelementptr inbounds nuw [56 x i8], ptr %268, i64 %indvars.iv351.i.i
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %274 = load i32, ptr %273, align 8, !tbaa !124
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 20
@@ -1956,7 +1940,7 @@ opj_tcd_is_band_empty.exit.i.i:                   ; preds = %252
   %.5230286.i.i = phi double [ %.4229294.i.i, %.lr.ph289.i.i ], [ %.6231.lcssa.i.i, %._crit_edge.i.i ]
   %.5237285.i.i = phi double [ %.4236293.i.i, %.lr.ph289.i.i ], [ %.6238.lcssa.i.i, %._crit_edge.i.i ]
   %282 = load ptr, ptr %278, align 8, !tbaa !30
-  %283 = getelementptr inbounds nuw %struct.opj_tcd_cblk_enc, ptr %282, i64 %indvars.iv346.i.i
+  %283 = getelementptr inbounds nuw [64 x i8], ptr %282, i64 %indvars.iv346.i.i
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 60
   %285 = load i32, ptr %284, align 4, !tbaa !188
   %.not343.i.i = icmp eq i32 %285, 0
@@ -1972,7 +1956,7 @@ opj_tcd_is_band_empty.exit.i.i:                   ; preds = %252
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %311 ]
   %.6231282.i.i = phi double [ %.5230286.i.i, %.lr.ph.i.i ], [ %.7.i.i, %311 ]
   %.6238281.i.i = phi double [ %.5237285.i.i, %.lr.ph.i.i ], [ %.7239.i.i, %311 ]
-  %289 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %287, i64 %indvars.iv.i.i
+  %289 = getelementptr inbounds nuw [24 x i8], ptr %287, i64 %indvars.iv.i.i
   %290 = icmp eq i64 %indvars.iv.i.i, 0
   %291 = load i32, ptr %289, align 8, !tbaa !189
   br i1 %290, label %292, label %295
@@ -2074,7 +2058,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %334 = phi i64 [ %236, %235 ], [ %331, %._crit_edge312.loopexit.i.i ]
   %.1233.lcssa.i.i = phi double [ %.0232316.i.i, %235 ], [ %.2234.lcssa.i.i, %._crit_edge312.loopexit.i.i ]
   %.1226.lcssa.i.i = phi double [ %.0225317.i.i, %235 ], [ %.2227.lcssa.i.i, %._crit_edge312.loopexit.i.i ]
-  %335 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %234, i64 %indvars.iv366.i.i
+  %335 = getelementptr inbounds nuw [64 x i8], ptr %234, i64 %indvars.iv366.i.i
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %337 = load i32, ptr %336, align 8, !tbaa !113
   %338 = shl nuw i32 1, %337
@@ -2102,7 +2086,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %347 = load ptr, ptr %346, align 8, !tbaa !162
   %348 = load i32, ptr %16, align 8, !tbaa !160
   %349 = zext i32 %348 to i64
-  %350 = getelementptr inbounds nuw %struct.opj_tile_info, ptr %347, i64 %349
+  %350 = getelementptr inbounds nuw [608 x i8], ptr %347, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 560
   store i32 %344, ptr %351, align 8, !tbaa !198
   %352 = getelementptr inbounds nuw i8, ptr %224, i64 40
@@ -2138,7 +2122,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
 
 372:                                              ; preds = %.critedge.i.i, %.lr.ph334.i.i
   %indvars.iv372.i.i = phi i64 [ 0, %.lr.ph334.i.i ], [ %indvars.iv.next373.i.i, %.critedge.i.i ]
-  %373 = getelementptr inbounds nuw float, ptr %365, i64 %indvars.iv372.i.i
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %365, i64 %indvars.iv372.i.i
   %374 = load float, ptr %373, align 4, !tbaa !175
   %375 = fcmp ogt float %374, 0.000000e+00
   br i1 %375, label %376, label %380
@@ -2152,7 +2136,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
 380:                                              ; preds = %376, %372
   %381 = phi i32 [ %379, %376 ], [ %4, %372 ]
   %382 = load double, ptr %366, align 8, !tbaa !199
-  %383 = getelementptr inbounds nuw float, ptr %367, i64 %indvars.iv372.i.i
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %367, i64 %indvars.iv372.i.i
   %384 = load float, ptr %383, align 4, !tbaa !175
   %385 = fdiv float %384, 1.000000e+01
   %386 = fpext float %385 to double
@@ -2183,8 +2167,8 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %398 = trunc nuw i64 %indvars.iv372.i.i to i32
   %399 = add nuw nsw i64 %indvars.iv372.i.i, 4294967295
   %400 = and i64 %399, 4294967295
-  %401 = getelementptr inbounds nuw double, ptr %10, i64 %400
-  %402 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv372.i.i
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %400
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv372.i.i
   %403 = add nuw i32 %398, 1
   br label %404
 
@@ -2317,9 +2301,9 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %463 = load ptr, ptr %371, align 8, !tbaa !162
   %464 = load i32, ptr %16, align 8, !tbaa !160
   %465 = zext i32 %464 to i64
-  %466 = getelementptr inbounds nuw %struct.opj_tile_info, ptr %463, i64 %465
+  %466 = getelementptr inbounds nuw [608 x i8], ptr %463, i64 %465
   %467 = load ptr, ptr %466, align 8, !tbaa !202
-  %468 = getelementptr inbounds nuw double, ptr %467, i64 %indvars.iv372.i.i
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %467, i64 %indvars.iv372.i.i
   store double %.1212.i.i, ptr %468, align 8, !tbaa !205
   br label %469
 
@@ -2336,17 +2320,17 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   br label %.critedge.i.i
 
 475:                                              ; preds = %469
-  %476 = getelementptr double, ptr %10, i64 %indvars.iv372.i.i
+  %476 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv372.i.i
   %477 = getelementptr i8, ptr %476, i64 -8
   %478 = load double, ptr %477, align 8, !tbaa !205
-  %479 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv372.i.i
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv372.i.i
   %480 = load double, ptr %479, align 8, !tbaa !205
   %481 = fadd double %478, %480
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %475, %473
   %482 = phi double [ %474, %473 ], [ %481, %475 ]
-  %483 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv372.i.i
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv372.i.i
   store double %482, ptr %483, align 8, !tbaa !205
   %indvars.iv.next373.i.i = add nuw nsw i64 %indvars.iv372.i.i, 1
   %484 = load i32, ptr %363, align 8, !tbaa !201
@@ -2382,15 +2366,15 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %indvars.iv.i16.i = phi i64 [ 0, %.lr.ph.split.i.i ], [ %indvars.iv.next.i17.i, %opj_tcd_makelayer_fixed.exit.loopexit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %499 = icmp eq i64 %indvars.iv.i16.i, 0
-  %invariant.gep169.i.i.i = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %indvars.iv.i16.i
+  %invariant.gep169.i.i.i = getelementptr inbounds nuw [120 x i8], ptr %9, i64 %indvars.iv.i16.i
   %500 = add nuw nsw i64 %indvars.iv.i16.i, 4294967295
   %501 = and i64 %500, 4294967295
-  %invariant.gep.i.i.i = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %501
+  %invariant.gep.i.i.i = getelementptr inbounds nuw [120 x i8], ptr %9, i64 %501
   br i1 %499, label %.preheader141.lr.ph.i.us.i.i, label %.preheader141.lr.ph.i.i.i
 
 .preheader141.lr.ph.i.us.i.i:                     ; preds = %.lr.ph176.i.i.i, %._crit_edge168.i.us.i.i
   %indvars.iv216.i.us.i.i = phi i64 [ %indvars.iv.next217.i.us.i.i, %._crit_edge168.i.us.i.i ], [ 0, %.lr.ph176.i.i.i ]
-  %502 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %497, i64 %indvars.iv216.i.us.i.i
+  %502 = getelementptr inbounds nuw [112 x i8], ptr %497, i64 %indvars.iv216.i.us.i.i
   %.phi.trans.insert.i.us.i.i = getelementptr inbounds nuw i8, ptr %502, i64 20
   %.pre.i.us.i.i = load i32, ptr %.phi.trans.insert.i.us.i.i, align 4, !tbaa !94
   %.not180.i.us.i.i = icmp eq i32 %.pre.i.us.i.i, 0
@@ -2401,7 +2385,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %504 = load ptr, ptr %495, align 8, !tbaa !15
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 24
   %506 = load ptr, ptr %505, align 8, !tbaa !69
-  %507 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %506, i64 %indvars.iv216.i.us.i.i
+  %507 = getelementptr inbounds nuw [64 x i8], ptr %506, i64 %indvars.iv216.i.us.i.i
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 24
   %509 = load i32, ptr %508, align 8, !tbaa !113
   %510 = uitofp i32 %509 to double
@@ -2414,7 +2398,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %indvars.iv191.i.us.i.i = phi i64 [ %indvars.iv.next192.i.us.i.i, %._crit_edge.us.i.us.i.i ], [ 0, %.preheader141.lr.ph.split.us.i.us.i.i ]
   %513 = trunc nuw i64 %indvars.iv191.i.us.i.i to i32
   %514 = mul i32 %.pre.i.us.i.i, %513
-  %515 = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %indvars.iv191.i.us.i.i
+  %515 = getelementptr inbounds nuw [120 x i8], ptr %9, i64 %indvars.iv191.i.us.i.i
   br label %.preheader140.us.i.us.i.i
 
 .preheader140.us.i.us.i.i:                        ; preds = %530, %.preheader141.us.i.us.i.i
@@ -2422,7 +2406,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %516 = trunc nuw i64 %indvars.iv187.i.us.i.i to i32
   %517 = add i32 %514, %516
   %518 = mul i32 %517, 3
-  %519 = getelementptr inbounds nuw [3 x i32], ptr %515, i64 %indvars.iv187.i.us.i.i
+  %519 = getelementptr inbounds nuw [12 x i8], ptr %515, i64 %indvars.iv187.i.us.i.i
   br label %520
 
 520:                                              ; preds = %520, %.preheader140.us.i.us.i.i
@@ -2430,12 +2414,12 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %521 = trunc nuw nsw i64 %indvars.iv.i.us.i.i to i32
   %522 = add i32 %518, %521
   %523 = zext i32 %522 to i64
-  %524 = getelementptr inbounds nuw i32, ptr %503, i64 %523
+  %524 = getelementptr inbounds nuw [4 x i8], ptr %503, i64 %523
   %525 = load i32, ptr %524, align 4, !tbaa !101
   %526 = sitofp i32 %525 to float
   %527 = fmul float %512, %526
   %528 = fptosi float %527 to i32
-  %529 = getelementptr inbounds nuw i32, ptr %519, i64 %indvars.iv.i.us.i.i
+  %529 = getelementptr inbounds nuw [4 x i8], ptr %519, i64 %indvars.iv.i.us.i.i
   store i32 %528, ptr %529, align 4, !tbaa !101
   %indvars.iv.next.i.us.i.i = add nuw nsw i64 %indvars.iv.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.us.i.i, 3
@@ -2463,7 +2447,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
 
 533:                                              ; preds = %._crit_edge160.i.us.us.i.i, %.lr.ph167.i.us.i.i
   %indvars.iv211.i.us.us.i.i = phi i64 [ 0, %.lr.ph167.i.us.i.i ], [ %indvars.iv.next212.i.us.us.i.i, %._crit_edge160.i.us.us.i.i ]
-  %534 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %532, i64 %indvars.iv211.i.us.us.i.i
+  %534 = getelementptr inbounds nuw [192 x i8], ptr %532, i64 %indvars.iv211.i.us.us.i.i
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 24
   %536 = load i32, ptr %535, align 8, !tbaa !104
   %.not182.i.us.us.i.i = icmp eq i32 %536, 0
@@ -2473,7 +2457,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 32
   %538 = getelementptr inbounds nuw i8, ptr %534, i64 16
   %539 = getelementptr inbounds nuw i8, ptr %534, i64 20
-  %gep170.i.us.us.i.i = getelementptr inbounds nuw [3 x i32], ptr %invariant.gep169.i.i.i, i64 %indvars.iv211.i.us.us.i.i
+  %gep170.i.us.us.i.i = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep169.i.i.i, i64 %indvars.iv211.i.us.us.i.i
   %wide.trip.count209.i.us.us.i.i = zext i32 %536 to i64
   br label %540
 
@@ -2484,7 +2468,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
 
 540:                                              ; preds = %opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i, %.lr.ph159.i.us.us.i.i
   %indvars.iv206.i.us.us.us.i.i = phi i64 [ 0, %.lr.ph159.i.us.us.i.i ], [ %indvars.iv.next207.i.us.us.us.i.i, %opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i ]
-  %541 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %537, i64 %indvars.iv206.i.us.us.us.i.i
+  %541 = getelementptr inbounds nuw [48 x i8], ptr %537, i64 %indvars.iv206.i.us.us.us.i.i
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
   %543 = load i32, ptr %542, align 8, !tbaa !110
   %544 = load i32, ptr %541, align 8, !tbaa !108
@@ -2509,7 +2493,7 @@ opj_tcd_is_band_empty.exit.i.us.us.us.i.i:        ; preds = %540
 .lr.ph156.i.us.us.us.i.i:                         ; preds = %.preheader.i.us.us.us.i.i
   %553 = getelementptr inbounds nuw i8, ptr %541, i64 24
   %554 = load ptr, ptr %553, align 8, !tbaa !37
-  %gep.i.us.us.us.i.i = getelementptr inbounds nuw i32, ptr %gep170.i.us.us.i.i, i64 %indvars.iv206.i.us.us.us.i.i
+  %gep.i.us.us.us.i.i = getelementptr inbounds nuw [4 x i8], ptr %gep170.i.us.us.i.i, i64 %indvars.iv206.i.us.us.us.i.i
   %wide.trip.count204.i.us.us.us.i.i = zext i32 %552 to i64
   br label %555
 
@@ -2520,7 +2504,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
 
 555:                                              ; preds = %._crit_edge.i.us.us.us.us.i.i, %.lr.ph156.i.us.us.us.i.i
   %indvars.iv201.i.us.us.us.us.i.i = phi i64 [ 0, %.lr.ph156.i.us.us.us.i.i ], [ %indvars.iv.next202.i.us.us.us.us.i.i, %._crit_edge.i.us.us.us.us.i.i ]
-  %556 = getelementptr inbounds nuw %struct.opj_tcd_precinct, ptr %554, i64 %indvars.iv201.i.us.us.us.us.i.i
+  %556 = getelementptr inbounds nuw [56 x i8], ptr %554, i64 %indvars.iv201.i.us.us.us.us.i.i
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 16
   %558 = load i32, ptr %557, align 8, !tbaa !124
   %559 = getelementptr inbounds nuw i8, ptr %556, i64 20
@@ -2543,7 +2527,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
 564:                                              ; preds = %586, %.lr.ph.i.us.us.us.us.i.i
   %indvars.iv196.i.us.us.us.us.us.i.i = phi i64 [ 0, %.lr.ph.i.us.us.us.us.i.i ], [ %indvars.iv.next197.i.us.us.us.us.us.i.i, %586 ]
   %565 = load ptr, ptr %562, align 8, !tbaa !30
-  %566 = getelementptr inbounds nuw %struct.opj_tcd_cblk_enc, ptr %565, i64 %indvars.iv196.i.us.us.us.us.us.i.i
+  %566 = getelementptr inbounds nuw [64 x i8], ptr %565, i64 %indvars.iv196.i.us.us.us.us.us.i.i
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   %568 = load ptr, ptr %567, align 8, !tbaa !140
   %569 = getelementptr inbounds nuw i8, ptr %566, i64 40
@@ -2567,7 +2551,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %578 = load ptr, ptr %577, align 8, !tbaa !144
   %579 = add i32 %.0109.i.us.us.us.us.us.i.i, -1
   %580 = zext i32 %579 to i64
-  %581 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %578, i64 %580
+  %581 = getelementptr inbounds nuw [24 x i8], ptr %578, i64 %580
   %582 = load i32, ptr %581, align 8, !tbaa !189
   %583 = getelementptr inbounds nuw i8, ptr %568, i64 4
   store i32 %582, ptr %583, align 4, !tbaa !219
@@ -2584,7 +2568,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
 
 .preheader141.lr.ph.i.i.i:                        ; preds = %.lr.ph176.i.i.i, %._crit_edge168.i.i.i
   %indvars.iv216.i.i.i = phi i64 [ %indvars.iv.next217.i.i.i, %._crit_edge168.i.i.i ], [ 0, %.lr.ph176.i.i.i ]
-  %587 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %497, i64 %indvars.iv216.i.i.i
+  %587 = getelementptr inbounds nuw [112 x i8], ptr %497, i64 %indvars.iv216.i.i.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %587, i64 20
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !94
   %.not180.i.i.i = icmp eq i32 %.pre.i.i.i, 0
@@ -2595,7 +2579,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %589 = load ptr, ptr %495, align 8, !tbaa !15
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 24
   %591 = load ptr, ptr %590, align 8, !tbaa !69
-  %592 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %591, i64 %indvars.iv216.i.i.i
+  %592 = getelementptr inbounds nuw [64 x i8], ptr %591, i64 %indvars.iv216.i.i.i
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 24
   %594 = load i32, ptr %593, align 8, !tbaa !113
   %595 = uitofp i32 %594 to double
@@ -2608,7 +2592,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %indvars.iv191.i.i.i = phi i64 [ %indvars.iv.next192.i.i.i, %._crit_edge.us.i.i.i ], [ 0, %.preheader141.lr.ph.split.us.i.i.i ]
   %598 = trunc nuw i64 %indvars.iv191.i.i.i to i32
   %599 = mul i32 %.pre.i.i.i, %598
-  %600 = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %indvars.iv191.i.i.i
+  %600 = getelementptr inbounds nuw [120 x i8], ptr %9, i64 %indvars.iv191.i.i.i
   br label %.preheader140.us.i.i.i
 
 601:                                              ; preds = %602
@@ -2621,12 +2605,12 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %603 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %604 = add i32 %614, %603
   %605 = zext i32 %604 to i64
-  %606 = getelementptr inbounds nuw i32, ptr %588, i64 %605
+  %606 = getelementptr inbounds nuw [4 x i8], ptr %588, i64 %605
   %607 = load i32, ptr %606, align 4, !tbaa !101
   %608 = sitofp i32 %607 to float
   %609 = fmul float %597, %608
   %610 = fptosi float %609 to i32
-  %611 = getelementptr inbounds nuw i32, ptr %615, i64 %indvars.iv.i.i.i
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %615, i64 %indvars.iv.i.i.i
   store i32 %610, ptr %611, align 4, !tbaa !101
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -2637,7 +2621,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %612 = trunc nuw i64 %indvars.iv187.i.i.i to i32
   %613 = add i32 %599, %612
   %614 = mul i32 %613, 3
-  %615 = getelementptr inbounds nuw [3 x i32], ptr %600, i64 %indvars.iv187.i.i.i
+  %615 = getelementptr inbounds nuw [12 x i8], ptr %600, i64 %indvars.iv187.i.i.i
   br label %602
 
 ._crit_edge.us.i.i.i:                             ; preds = %601
@@ -2652,7 +2636,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
 
 618:                                              ; preds = %._crit_edge160.i.i.i, %.lr.ph167.i.i.i
   %indvars.iv211.i.i.i = phi i64 [ 0, %.lr.ph167.i.i.i ], [ %indvars.iv.next212.i.i.i, %._crit_edge160.i.i.i ]
-  %619 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %617, i64 %indvars.iv211.i.i.i
+  %619 = getelementptr inbounds nuw [192 x i8], ptr %617, i64 %indvars.iv211.i.i.i
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 24
   %621 = load i32, ptr %620, align 8, !tbaa !104
   %.not182.i.i.i = icmp eq i32 %621, 0
@@ -2662,14 +2646,14 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %622 = getelementptr inbounds nuw i8, ptr %619, i64 32
   %623 = getelementptr inbounds nuw i8, ptr %619, i64 16
   %624 = getelementptr inbounds nuw i8, ptr %619, i64 20
-  %gep170.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %invariant.gep169.i.i.i, i64 %indvars.iv211.i.i.i
-  %gep171.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %invariant.gep.i.i.i, i64 %indvars.iv211.i.i.i
+  %gep170.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep169.i.i.i, i64 %indvars.iv211.i.i.i
+  %gep171.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv211.i.i.i
   %wide.trip.count209.i.i.i = zext i32 %621 to i64
   br label %625
 
 625:                                              ; preds = %opj_tcd_is_band_empty.exit.thread.i.i.i, %.lr.ph159.i.i.i
   %indvars.iv206.i.i.i = phi i64 [ 0, %.lr.ph159.i.i.i ], [ %indvars.iv.next207.i.i.i, %opj_tcd_is_band_empty.exit.thread.i.i.i ]
-  %626 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %622, i64 %indvars.iv206.i.i.i
+  %626 = getelementptr inbounds nuw [48 x i8], ptr %622, i64 %indvars.iv206.i.i.i
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 8
   %628 = load i32, ptr %627, align 8, !tbaa !110
   %629 = load i32, ptr %626, align 8, !tbaa !108
@@ -2694,14 +2678,14 @@ opj_tcd_is_band_empty.exit.i.i.i:                 ; preds = %625
 .lr.ph156.i.i.i:                                  ; preds = %.preheader.i.i.i
   %638 = getelementptr inbounds nuw i8, ptr %626, i64 24
   %639 = load ptr, ptr %638, align 8, !tbaa !37
-  %gep.i.i.i = getelementptr inbounds nuw i32, ptr %gep170.i.i.i, i64 %indvars.iv206.i.i.i
-  %gep163.i.i.i = getelementptr inbounds nuw i32, ptr %gep171.i.i.i, i64 %indvars.iv206.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %gep170.i.i.i, i64 %indvars.iv206.i.i.i
+  %gep163.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %gep171.i.i.i, i64 %indvars.iv206.i.i.i
   %wide.trip.count204.i.i.i = zext i32 %637 to i64
   br label %640
 
 640:                                              ; preds = %._crit_edge.i.i.i, %.lr.ph156.i.i.i
   %indvars.iv201.i.i.i = phi i64 [ 0, %.lr.ph156.i.i.i ], [ %indvars.iv.next202.i.i.i, %._crit_edge.i.i.i ]
-  %641 = getelementptr inbounds nuw %struct.opj_tcd_precinct, ptr %639, i64 %indvars.iv201.i.i.i
+  %641 = getelementptr inbounds nuw [56 x i8], ptr %639, i64 %indvars.iv201.i.i.i
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 16
   %643 = load i32, ptr %642, align 8, !tbaa !124
   %644 = getelementptr inbounds nuw i8, ptr %641, i64 20
@@ -2721,10 +2705,10 @@ opj_tcd_is_band_empty.exit.i.i.i:                 ; preds = %625
 .thread.i.i.i:                                    ; preds = %694, %.lr.ph.i.i.i
   %indvars.iv196.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next197.i.i.i, %694 ]
   %651 = load ptr, ptr %647, align 8, !tbaa !30
-  %652 = getelementptr inbounds nuw %struct.opj_tcd_cblk_enc, ptr %651, i64 %indvars.iv196.i.i.i
+  %652 = getelementptr inbounds nuw [64 x i8], ptr %651, i64 %indvars.iv196.i.i.i
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 8
   %654 = load ptr, ptr %653, align 8, !tbaa !140
-  %655 = getelementptr inbounds nuw %struct.opj_tcd_layer, ptr %654, i64 %indvars.iv.i16.i
+  %655 = getelementptr inbounds nuw [24 x i8], ptr %654, i64 %indvars.iv.i16.i
   %656 = getelementptr inbounds nuw i8, ptr %652, i64 40
   %657 = load i32, ptr %656, align 8, !tbaa !215
   %658 = sub i32 %594, %657
@@ -2757,7 +2741,7 @@ opj_tcd_is_band_empty.exit.i.i.i:                 ; preds = %625
   %669 = load ptr, ptr %668, align 8, !tbaa !144
   %670 = add i32 %.0109.i.i.i, -1
   %671 = zext i32 %670 to i64
-  %672 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %669, i64 %671
+  %672 = getelementptr inbounds nuw [24 x i8], ptr %669, i64 %671
   %673 = load i32, ptr %672, align 8, !tbaa !189
   %674 = getelementptr inbounds nuw i8, ptr %655, i64 4
   store i32 %673, ptr %674, align 4, !tbaa !219
@@ -2770,11 +2754,11 @@ opj_tcd_is_band_empty.exit.i.i.i:                 ; preds = %625
   %678 = load ptr, ptr %677, align 8, !tbaa !144
   %679 = add i32 %676, -1
   %680 = zext i32 %679 to i64
-  %681 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %678, i64 %680
+  %681 = getelementptr inbounds nuw [24 x i8], ptr %678, i64 %680
   %682 = load i32, ptr %681, align 8, !tbaa !189
   %683 = add i32 %661, -1
   %684 = zext i32 %683 to i64
-  %685 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %678, i64 %684
+  %685 = getelementptr inbounds nuw [24 x i8], ptr %678, i64 %684
   %686 = load i32, ptr %685, align 8, !tbaa !189
   %687 = sub i32 %682, %686
   %688 = getelementptr inbounds nuw i8, ptr %655, i64 4
@@ -2924,7 +2908,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_decode_tile(ptr noundef initializes((
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %19 = load ptr, ptr %18, align 8, !tbaa !58
   %20 = zext i32 %9 to i64
-  %21 = getelementptr inbounds nuw %struct.opj_tcp, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [5696 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %22, align 8, !tbaa !161
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2960,10 +2944,10 @@ define hidden range(i32 0, 2) i32 @opj_tcd_decode_tile(ptr noundef initializes((
 
 .preheader263:                                    ; preds = %.preheader263.preheader, %.preheader263
   %indvars.iv = phi i64 [ 0, %.preheader263.preheader ], [ %indvars.iv.next, %.preheader263 ]
-  %37 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !101
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %39
   store i32 1, ptr %40, align 4, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2994,7 +2978,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_decode_tile(ptr noundef initializes((
   br i1 %.not187, label %54, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv300
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv300
   %53 = load i32, ptr %52, align 4, !tbaa !101
   %.not188 = icmp eq i32 %53, 0
   br i1 %.not188, label %opj_tcd_is_whole_tilecomp_decoding.exit.thread231, label %54
@@ -3004,9 +2988,9 @@ define hidden range(i32 0, 2) i32 @opj_tcd_decode_tile(ptr noundef initializes((
   %56 = load ptr, ptr %55, align 8, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !24
-  %59 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %58, i64 %indvars.iv300
+  %59 = getelementptr inbounds nuw [112 x i8], ptr %58, i64 %indvars.iv300
   %60 = load ptr, ptr %49, align 8, !tbaa !69
-  %61 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %60, i64 %indvars.iv300
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %60, i64 %indvars.iv300
   %62 = load i32, ptr %61, align 8, !tbaa !87
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -3109,14 +3093,14 @@ thread-pre-split:                                 ; preds = %opj_tcd_is_whole_ti
   %127 = load ptr, ptr %126, align 8, !tbaa !17
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load ptr, ptr %128, align 8, !tbaa !24
-  %130 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %129, i64 %indvars.iv305
+  %130 = getelementptr inbounds nuw [112 x i8], ptr %129, i64 %indvars.iv305
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !33
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %134 = load i32, ptr %133, align 8, !tbaa !95
   %135 = add i32 %134, -1
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %132, i64 %136
+  %137 = getelementptr inbounds nuw [192 x i8], ptr %132, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i32, ptr %138, align 8, !tbaa !99
   %140 = load i32, ptr %137, align 8, !tbaa !96
@@ -3133,7 +3117,7 @@ thread-pre-split:                                 ; preds = %opj_tcd_is_whole_ti
   br i1 %.not200, label %153, label %150
 
 150:                                              ; preds = %125
-  %151 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv305
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv305
   %152 = load i32, ptr %151, align 4, !tbaa !101
   %.not201 = icmp eq i32 %152, 0
   br i1 %.not201, label %opj_alloc_tile_component_data.exit.thread, label %153
@@ -3231,12 +3215,12 @@ opj_alloc_tile_component_data.exit.thread:        ; preds = %168, %184, %177, %1
 
 192:                                              ; preds = %.lr.ph283, %.loopexit258
   %indvars.iv313 = phi i64 [ 0, %.lr.ph283 ], [ %indvars.iv.next314, %.loopexit258 ]
-  %193 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %120, i64 %indvars.iv313
-  %194 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %122, i64 %indvars.iv313
+  %193 = getelementptr inbounds nuw [112 x i8], ptr %120, i64 %indvars.iv313
+  %194 = getelementptr inbounds nuw [64 x i8], ptr %122, i64 %indvars.iv313
   br i1 %.not191, label %198, label %195
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv313
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv313
   %197 = load i32, ptr %196, align 4, !tbaa !101
   %.not192 = icmp eq i32 %197, 0
   br i1 %.not192, label %.loopexit258, label %198
@@ -3315,7 +3299,7 @@ opj_alloc_tile_component_data.exit.thread:        ; preds = %168, %184, %177, %1
 
 251:                                              ; preds = %.lr.ph275, %251
   %indvars.iv308 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next309, %251 ]
-  %252 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %246, i64 %indvars.iv308
+  %252 = getelementptr inbounds nuw [192 x i8], ptr %246, i64 %indvars.iv308
   %253 = trunc nuw i64 %indvars.iv308 to i32
   %254 = xor i32 %253, -1
   %255 = add i32 %244, %254
@@ -3415,7 +3399,7 @@ opj_tcd_t2_decode.exit:                           ; preds = %.loopexit260
   br i1 %.not27.i, label %308, label %305
 
 305:                                              ; preds = %.lr.ph.i
-  %306 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv.i
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %304, i64 %indvars.iv.i
   %307 = load i32, ptr %306, align 4, !tbaa !101
   %.not28.i = icmp eq i32 %307, 0
   br i1 %.not28.i, label %310, label %308
@@ -3475,16 +3459,16 @@ opj_tcd_t1_decode.exit:                           ; preds = %._crit_edge.i209, %
   %327 = load ptr, ptr %326, align 8, !tbaa !17
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 24
   %329 = load ptr, ptr %328, align 8, !tbaa !24
-  %330 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %329, i64 %indvars.iv318
+  %330 = getelementptr inbounds nuw [112 x i8], ptr %329, i64 %indvars.iv318
   %331 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %332 = load ptr, ptr %331, align 8, !tbaa !69
-  %333 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %332, i64 %indvars.iv318
+  %333 = getelementptr inbounds nuw [64 x i8], ptr %332, i64 %indvars.iv318
   %334 = getelementptr inbounds nuw i8, ptr %330, i64 32
   %335 = load ptr, ptr %334, align 8, !tbaa !33
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 36
   %337 = load i32, ptr %336, align 4, !tbaa !85
   %338 = zext i32 %337 to i64
-  %339 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %335, i64 %338
+  %339 = getelementptr inbounds nuw [192 x i8], ptr %335, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 184
   %341 = load i32, ptr %340, align 8, !tbaa !156
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 176
@@ -3506,7 +3490,7 @@ opj_tcd_t1_decode.exit:                           ; preds = %._crit_edge.i209, %
   br i1 %.not196, label %358, label %355
 
 355:                                              ; preds = %.lr.ph285
-  %356 = getelementptr inbounds nuw i32, ptr %354, i64 %indvars.iv318
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %354, i64 %indvars.iv318
   %357 = load i32, ptr %356, align 4, !tbaa !101
   %.not197 = icmp eq i32 %357, 0
   br i1 %.not197, label %372, label %358
@@ -3575,7 +3559,7 @@ opj_tcd_t1_decode.exit:                           ; preds = %._crit_edge.i209, %
   br i1 %.not.i212, label %394, label %391
 
 391:                                              ; preds = %389
-  %392 = getelementptr inbounds nuw i32, ptr %390, i64 %indvars.iv.i211
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %390, i64 %indvars.iv.i211
   %393 = load i32, ptr %392, align 4, !tbaa !101
   %.not25.i = icmp eq i32 %393, 0
   br i1 %.not25.i, label %405, label %394
@@ -3641,7 +3625,7 @@ opj_tcd_dwt_decode.exit:                          ; preds = %opj_tcd_dwt_decode.
   %426 = getelementptr inbounds nuw i8, ptr %415, i64 24
   %427 = load i32, ptr %426, align 8, !tbaa !95
   %428 = zext i32 %427 to i64
-  %429 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %424, i64 %428
+  %429 = getelementptr inbounds nuw [192 x i8], ptr %424, i64 %428
   %430 = getelementptr inbounds i8, ptr %429, i64 -192
   %431 = getelementptr inbounds i8, ptr %429, i64 -184
   %432 = load i32, ptr %431, align 8, !tbaa !99
@@ -3679,11 +3663,11 @@ opj_tcd_dwt_decode.exit:                          ; preds = %opj_tcd_dwt_decode.
 454:                                              ; preds = %449
   %455 = getelementptr inbounds nuw i8, ptr %415, i64 144
   %456 = load ptr, ptr %455, align 8, !tbaa !33
-  %457 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %456, i64 %428
+  %457 = getelementptr inbounds nuw [192 x i8], ptr %456, i64 %428
   %458 = getelementptr inbounds i8, ptr %457, i64 -192
   %459 = getelementptr inbounds nuw i8, ptr %415, i64 256
   %460 = load ptr, ptr %459, align 8, !tbaa !33
-  %461 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %460, i64 %428
+  %461 = getelementptr inbounds nuw [192 x i8], ptr %460, i64 %428
   %462 = getelementptr inbounds i8, ptr %461, i64 -192
   %463 = load ptr, ptr %44, align 8, !tbaa !15
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 24
@@ -3744,7 +3728,7 @@ opj_tcd_dwt_decode.exit:                          ; preds = %opj_tcd_dwt_decode.
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 36
   %505 = load i32, ptr %504, align 4, !tbaa !85
   %506 = zext i32 %505 to i64
-  %507 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %424, i64 %506
+  %507 = getelementptr inbounds nuw [192 x i8], ptr %424, i64 %506
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 184
   %509 = load i32, ptr %508, align 8, !tbaa !156
   %510 = getelementptr inbounds nuw i8, ptr %507, i64 176
@@ -3771,7 +3755,7 @@ opj_tcd_dwt_decode.exit:                          ; preds = %opj_tcd_dwt_decode.
   %529 = getelementptr inbounds nuw i8, ptr %503, i64 164
   %530 = load i32, ptr %529, align 4, !tbaa !85
   %531 = zext i32 %530 to i64
-  %532 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %528, i64 %531
+  %532 = getelementptr inbounds nuw [192 x i8], ptr %528, i64 %531
   %.not134.i = icmp eq i32 %505, %526
   %.not135.i = icmp eq i32 %505, %530
   %or.cond.i222 = select i1 %.not134.i, i1 %.not135.i, i1 false
@@ -3780,7 +3764,7 @@ opj_tcd_dwt_decode.exit:                          ; preds = %opj_tcd_dwt_decode.
 533:                                              ; preds = %524
   %534 = getelementptr inbounds nuw i8, ptr %415, i64 144
   %535 = load ptr, ptr %534, align 8, !tbaa !33
-  %536 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %535, i64 %506
+  %536 = getelementptr inbounds nuw [192 x i8], ptr %535, i64 %506
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 184
   %538 = load i32, ptr %537, align 8, !tbaa !156
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 176
@@ -3854,7 +3838,7 @@ opj_tcd_dwt_decode.exit:                          ; preds = %opj_tcd_dwt_decode.
   %.0117160.us.i = phi ptr [ %580, %.lr.ph.split.us.i ], [ %415, %.lr.ph.i218 ]
   %577 = getelementptr inbounds nuw i8, ptr %.0117160.us.i, i64 80
   %578 = load ptr, ptr %577, align 8, !tbaa !53
-  %579 = getelementptr inbounds nuw ptr, ptr %574, i64 %indvars.iv164.i
+  %579 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %indvars.iv164.i
   store ptr %578, ptr %579, align 8, !tbaa !180
   %580 = getelementptr inbounds nuw i8, ptr %.0117160.us.i, i64 112
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
@@ -3866,7 +3850,7 @@ opj_tcd_dwt_decode.exit:                          ; preds = %opj_tcd_dwt_decode.
   %.0117160.i = phi ptr [ %584, %.lr.ph.split.i ], [ %415, %.lr.ph.i218 ]
   %581 = getelementptr inbounds nuw i8, ptr %.0117160.i, i64 48
   %582 = load ptr, ptr %581, align 8, !tbaa !52
-  %583 = getelementptr inbounds nuw ptr, ptr %574, i64 %indvars.iv.i219
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %indvars.iv.i219
   store ptr %582, ptr %583, align 8, !tbaa !180
   %584 = getelementptr inbounds nuw i8, ptr %.0117160.i, i64 112
   %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i219, 1
@@ -3973,7 +3957,7 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   br i1 %.not.i224, label %648, label %645
 
 645:                                              ; preds = %644
-  %646 = getelementptr inbounds nuw i32, ptr %643, i64 %indvars.iv.i225
+  %646 = getelementptr inbounds nuw [4 x i8], ptr %643, i64 %indvars.iv.i225
   %647 = load i32, ptr %646, align 4, !tbaa !101
   %.not89.i = icmp eq i32 %647, 0
   br i1 %.not89.i, label %.loopexit.i, label %648
@@ -3984,7 +3968,7 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   %651 = getelementptr inbounds nuw i8, ptr %.086110.i, i64 36
   %652 = load i32, ptr %651, align 4, !tbaa !85
   %653 = zext i32 %652 to i64
-  %654 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %650, i64 %653
+  %654 = getelementptr inbounds nuw [192 x i8], ptr %650, i64 %653
   %655 = load i32, ptr %27, align 8, !tbaa !155
   %.not90.i = icmp eq i32 %655, 0
   br i1 %.not90.i, label %656, label %668
@@ -4017,7 +4001,7 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   %679 = load i32, ptr %678, align 8, !tbaa !95
   %680 = add i32 %679, -1
   %681 = zext i32 %680 to i64
-  %682 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %650, i64 %681
+  %682 = getelementptr inbounds nuw [192 x i8], ptr %650, i64 %681
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 8
   %684 = load i32, ptr %683, align 8, !tbaa !99
   %685 = load i32, ptr %682, align 8, !tbaa !96
@@ -4108,7 +4092,7 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   br i1 %exitcond.not.i227, label %._crit_edge.us.i, label %712, !llvm.loop !247
 
 ._crit_edge.us.i:                                 ; preds = %725
-  %728 = getelementptr inbounds nuw i32, ptr %726, i64 %.075.i
+  %728 = getelementptr inbounds nuw [4 x i8], ptr %726, i64 %.075.i
   %729 = add nuw i32 %.180102.us.i, 1
   %exitcond123.not.i = icmp eq i32 %729, %.083.i
   br i1 %exitcond123.not.i, label %.loopexit.i, label %.preheader96.us.i, !llvm.loop !248
@@ -4134,7 +4118,7 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   br i1 %exitcond124.not.i, label %._crit_edge.us108.i, label %730, !llvm.loop !249
 
 ._crit_edge.us108.i:                              ; preds = %730
-  %737 = getelementptr inbounds nuw i32, ptr %735, i64 %.075.i
+  %737 = getelementptr inbounds nuw [4 x i8], ptr %735, i64 %.075.i
   %738 = add nuw i32 %.079106.us.i, 1
   %exitcond125.not.i = icmp eq i32 %738, %.083.i
   br i1 %exitcond125.not.i, label %.loopexit.i, label %.preheader.us.i, !llvm.loop !250
@@ -4198,7 +4182,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_update_tile_data(ptr noundef readonly
   %25 = getelementptr inbounds nuw i8, ptr %.04461.i.us, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !95
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [192 x i8], ptr %24, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -8
   %30 = load i32, ptr %29, align 8, !tbaa !156
   %31 = getelementptr inbounds i8, ptr %28, i64 -16
@@ -4260,7 +4244,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_update_tile_data(ptr noundef readonly
   %60 = getelementptr inbounds nuw i8, ptr %.04461.i, i64 24
   %61 = load i32, ptr %60, align 8, !tbaa !95
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %59, i64 %62
+  %63 = getelementptr inbounds nuw [192 x i8], ptr %59, i64 %62
   %64 = getelementptr inbounds i8, ptr %63, i64 -192
   %65 = getelementptr inbounds i8, ptr %63, i64 -184
   %66 = load i32, ptr %65, align 8, !tbaa !99
@@ -4336,7 +4320,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   %104 = getelementptr inbounds nuw i8, ptr %.0130206, i64 36
   %105 = load i32, ptr %104, align 4, !tbaa !85
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %103, i64 %106
+  %107 = getelementptr inbounds nuw [192 x i8], ptr %103, i64 %106
   %108 = load i32, ptr %96, align 8, !tbaa !155
   %.not = icmp eq i32 %108, 0
   br i1 %.not, label %129, label %109
@@ -4355,7 +4339,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   %120 = load i32, ptr %119, align 8, !tbaa !95
   %121 = add i32 %120, -1
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %103, i64 %122
+  %123 = getelementptr inbounds nuw [192 x i8], ptr %103, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 8, !tbaa !99
   %126 = load i32, ptr %123, align 8, !tbaa !96
@@ -4440,7 +4424,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   br i1 %exitcond246.not, label %._crit_edge.us192, label %152, !llvm.loop !252
 
 ._crit_edge.us192:                                ; preds = %152
-  %158 = getelementptr inbounds nuw i32, ptr %153, i64 %151
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %151
   %159 = add nuw i32 %.0124188.us, 1
   %exitcond247.not = icmp eq i32 %159, %.0119
   br i1 %exitcond247.not, label %.loopexit, label %.preheader143.us, !llvm.loop !253
@@ -4473,7 +4457,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   br i1 %exitcond248.not, label %._crit_edge.us204, label %161, !llvm.loop !254
 
 ._crit_edge.us204:                                ; preds = %161
-  %167 = getelementptr inbounds nuw i32, ptr %162, i64 %160
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %160
   %168 = add nuw i32 %.1125200.us, 1
   %exitcond249.not = icmp eq i32 %168, %.0119
   br i1 %exitcond249.not, label %.loopexit, label %.preheader.us, !llvm.loop !255
@@ -4513,7 +4497,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   br i1 %exitcond242.not, label %._crit_edge.us, label %173, !llvm.loop !256
 
 ._crit_edge.us:                                   ; preds = %173
-  %179 = getelementptr inbounds nuw i32, ptr %174, i64 %172
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %172
   %180 = add nuw i32 %.2126165.us, 1
   %exitcond243.not = icmp eq i32 %180, %.0119
   br i1 %exitcond243.not, label %.loopexit, label %.preheader145.us, !llvm.loop !257
@@ -4546,7 +4530,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   br i1 %exitcond244.not, label %._crit_edge.us180, label %182, !llvm.loop !258
 
 ._crit_edge.us180:                                ; preds = %182
-  %188 = getelementptr inbounds nuw i32, ptr %183, i64 %181
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %181
   %189 = add nuw i32 %.3127176.us, 1
   %exitcond245.not = icmp eq i32 %189, %.0119
   br i1 %exitcond245.not, label %.loopexit, label %.preheader144.us, !llvm.loop !259
@@ -4556,8 +4540,8 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   %.0100157 = phi ptr [ %.0102209, %.lr.ph ], [ %191, %190 ]
   %.4128156 = phi i32 [ 0, %.lr.ph ], [ %193, %190 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0100157, ptr align 4 %.0158, i64 %145, i1 false)
-  %191 = getelementptr inbounds nuw i32, ptr %.0100157, i64 %144
-  %192 = getelementptr inbounds nuw i32, ptr %.0158, i64 %147
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %.0100157, i64 %144
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %.0158, i64 %147
   %193 = add nuw i32 %.4128156, 1
   %exitcond.not = icmp eq i32 %193, %.0119
   br i1 %exitcond.not, label %.loopexit, label %190, !llvm.loop !260
@@ -4891,7 +4875,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_is_subband_area_of_interest(ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 5600
   %12 = load ptr, ptr %11, align 8, !tbaa !62
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.opj_tccp, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [1080 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !112
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4899,12 +4883,12 @@ define hidden range(i32 0, 2) i32 @opj_tcd_is_subband_area_of_interest(ptr nound
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %21, i64 %13
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %21, i64 %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !69
-  %27 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %13
   %28 = load i32, ptr %22, align 8, !tbaa !88
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load i32, ptr %29, align 8, !tbaa !224
@@ -5276,7 +5260,7 @@ declare double @llvm.fabs.f64(double) #12
 define internal fastcc range(i32 0, 2) i32 @opj_tcd_makelayer(ptr captures(none) %.24.val.0.val, i32 noundef %0, double noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %.24.val.0.val, i64 48
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   store double 0.000000e+00, ptr %6, align 8, !tbaa !205
   %7 = getelementptr inbounds nuw i8, ptr %.24.val.0.val, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !29
@@ -5295,7 +5279,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_makelayer(ptr captures(none)
 13:                                               ; preds = %.lr.ph27, %._crit_edge22
   %indvars.iv56 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next57, %._crit_edge22 ]
   %.010524 = phi i32 [ 1, %.lr.ph27 ], [ %.1106.lcssa, %._crit_edge22 ]
-  %14 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %10, i64 %indvars.iv56
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %10, i64 %indvars.iv56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !94
   %.not31 = icmp eq i32 %16, 0
@@ -5310,7 +5294,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_makelayer(ptr captures(none)
 19:                                               ; preds = %.lr.ph21, %._crit_edge16
   %indvars.iv51 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next52, %._crit_edge16 ]
   %.110618 = phi i32 [ %.010524, %.lr.ph21 ], [ %.2107.lcssa, %._crit_edge16 ]
-  %20 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %18, i64 %indvars.iv51
+  %20 = getelementptr inbounds nuw [192 x i8], ptr %18, i64 %indvars.iv51
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !104
   %.not32 = icmp eq i32 %22, 0
@@ -5326,7 +5310,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_makelayer(ptr captures(none)
 26:                                               ; preds = %.lr.ph15, %opj_tcd_is_band_empty.exit.thread
   %indvars.iv46 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next47, %opj_tcd_is_band_empty.exit.thread ]
   %.210712 = phi i32 [ %.110618, %.lr.ph15 ], [ %.3108, %opj_tcd_is_band_empty.exit.thread ]
-  %27 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %23, i64 %indvars.iv46
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %indvars.iv46
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !110
   %30 = load i32, ptr %27, align 8, !tbaa !108
@@ -5357,7 +5341,7 @@ opj_tcd_is_band_empty.exit:                       ; preds = %26
 41:                                               ; preds = %.lr.ph10, %._crit_edge
   %indvars.iv41 = phi i64 [ 0, %.lr.ph10 ], [ %indvars.iv.next42, %._crit_edge ]
   %.41098 = phi i32 [ %.210712, %.lr.ph10 ], [ %.5.lcssa, %._crit_edge ]
-  %42 = getelementptr inbounds nuw %struct.opj_tcd_precinct, ptr %40, i64 %indvars.iv41
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %indvars.iv41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8, !tbaa !124
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 20
@@ -5375,10 +5359,10 @@ opj_tcd_is_band_empty.exit:                       ; preds = %26
   %indvars.iv36 = phi i64 [ 0, %.lr.ph6 ], [ %indvars.iv.next37, %140 ]
   %.54 = phi i32 [ %.41098, %.lr.ph6 ], [ %.6, %140 ]
   %50 = load ptr, ptr %48, align 8, !tbaa !30
-  %51 = getelementptr inbounds nuw %struct.opj_tcd_cblk_enc, ptr %50, i64 %indvars.iv36
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %indvars.iv36
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !140
-  %54 = getelementptr inbounds nuw %struct.opj_tcd_layer, ptr %53, i64 %5
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %5
   br i1 %11, label %55, label %57
 
 55:                                               ; preds = %49
@@ -5413,7 +5397,7 @@ opj_tcd_is_band_empty.exit:                       ; preds = %26
 70:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %69, %.lr.ph ], [ %97, %96 ]
   %.13 = phi i32 [ %63, %.lr.ph ], [ %.4, %96 ]
-  %71 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %68, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %indvars.iv
   %72 = icmp eq i32 %.13, 0
   %73 = load i32, ptr %71, align 8, !tbaa !189
   br i1 %72, label %74, label %77
@@ -5426,7 +5410,7 @@ opj_tcd_is_band_empty.exit:                       ; preds = %26
 77:                                               ; preds = %70
   %78 = add i32 %.13, -1
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %68, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %79
   %81 = load i32, ptr %80, align 8, !tbaa !189
   %82 = sub i32 %73, %81
   %83 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -5490,7 +5474,7 @@ opj_tcd_is_band_empty.exit:                       ; preds = %26
   %110 = load ptr, ptr %109, align 8, !tbaa !144
   %111 = add i32 %.099, -1
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %110, i64 %112
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %110, i64 %112
   %114 = load i32, ptr %113, align 8, !tbaa !189
   br i1 %108, label %115, label %119
 
@@ -5503,7 +5487,7 @@ opj_tcd_is_band_empty.exit:                       ; preds = %26
 119:                                              ; preds = %107
   %120 = add i32 %99, -1
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %110, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %110, i64 %121
   %123 = load i32, ptr %122, align 8, !tbaa !189
   %124 = sub i32 %114, %123
   %125 = load ptr, ptr %51, align 8, !tbaa !150

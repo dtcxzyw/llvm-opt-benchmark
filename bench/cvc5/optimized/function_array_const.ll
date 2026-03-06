@@ -115,7 +115,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %24, %18, %26
 
 42:                                               ; preds = %.lr.ph
   %43 = load ptr, ptr %3, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %43, i64 %.01752
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.01752
   %45 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 214)
           to label %.noexc32 unwind label %80
 
@@ -123,7 +123,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %24, %18, %26
   %46 = icmp eq i32 %45, 2
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %48 = zext i1 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !15, !noalias !16
   %51 = load i64, ptr %50, align 8, !noalias !16
   %52 = lshr i64 %51, 40
@@ -206,7 +206,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %24, %18, %26
 .noexc34:                                         ; preds = %82
   %89 = icmp eq i32 %88, 2
   %spec.select.i.i.i = select i1 %89, i64 2, i64 1
-  %90 = getelementptr inbounds nuw ptr, ptr %47, i64 %spec.select.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %spec.select.i.i.i
   %91 = load ptr, ptr %90, align 8, !tbaa !15, !noalias !27
   store ptr %91, ptr %5, align 8, !tbaa !3, !alias.scope !27
   %92 = load i64, ptr %91, align 8, !noalias !27

@@ -20,8 +20,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hda_jack
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hda_jack_unsol_event: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad snd_hda_jack_unsol_event ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hda_jack_poll_all: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad snd_hda_jack_poll_all ; .previous"
 
-%struct.auto_pin_cfg_item = type { i16, i32, i8 }
-
 @__UNIQUE_ID___addressable_is_jack_detectable361 = internal global ptr @is_jack_detectable, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_snd_hda_jack_tbl_get_mst362 = internal global ptr @snd_hda_jack_tbl_get_mst, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_snd_hda_jack_tbl_get_from_tag363 = internal global ptr @snd_hda_jack_tbl_get_from_tag, section ".discard.addressable", align 8
@@ -91,7 +89,7 @@ define dso_local noundef zeroext i1 @is_jack_detectable(ptr noundef %0, i16 noun
   %32 = load ptr, ptr %31, align 8
   %33 = sub nsw i32 %20, %23
   %34 = sext i32 %33 to i64
-  %35 = getelementptr i32, ptr %32, i64 %34
+  %35 = getelementptr [4 x i8], ptr %32, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 128
   %38 = icmp eq i32 %37, 0
@@ -1644,7 +1642,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
 
 14:                                               ; preds = %9, %6
   %15 = phi i64 [ 0, %6 ], [ %10, %9 ]
-  %16 = getelementptr %struct.auto_pin_cfg_item, ptr %7, i64 %15
+  %16 = getelementptr [12 x i8], ptr %7, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 4
   %19 = and i8 %18, 2
@@ -1883,7 +1881,7 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %48 = load ptr, ptr %47, align 8
   %49 = sub nsw i32 %36, %39
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %48, i64 %50
+  %51 = getelementptr [4 x i8], ptr %48, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 128
   %54 = icmp eq i32 %53, 0

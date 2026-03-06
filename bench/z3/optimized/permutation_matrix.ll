@@ -103,7 +103,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorIjLb1EjE
 .lr.ph.preheader.i:                               ; preds = %12
   %14 = zext i32 %1 to i64
   %15 = zext i32 %.0.i16.i.ph to i64
-  %16 = getelementptr i32, ptr %7, i64 %15
+  %16 = getelementptr [4 x i8], ptr %7, i64 %15
   %17 = sub nsw i64 %14, %15
   %18 = shl nsw i64 %17, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %18, i1 false), !tbaa !9
@@ -166,7 +166,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE
 .lr.ph.preheader.i17:                             ; preds = %36
   %38 = zext i32 %1 to i64
   %39 = zext i32 %.0.i16.ph.i13 to i64
-  %40 = getelementptr i32, ptr %.pr.i12, i64 %39
+  %40 = getelementptr [4 x i8], ptr %.pr.i12, i64 %39
   %41 = sub nsw i64 %38, %39
   %42 = shl nsw i64 %41, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 0, i64 %42, i1 false), !tbaa !9
@@ -187,10 +187,10 @@ _ZN6vectorIjLb1EjE6resizeEj.exit22:               ; preds = %_ZN6vectorIjLb1EjE3
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %47 = trunc nuw i64 %indvars.iv to i32
   store i32 %47, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -247,7 +247,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorIjLb1EjE
 .lr.ph.preheader.i:                               ; preds = %12
   %14 = zext i32 %1 to i64
   %15 = zext i32 %.0.i16.i.ph to i64
-  %16 = getelementptr i32, ptr %7, i64 %15
+  %16 = getelementptr [4 x i8], ptr %7, i64 %15
   %17 = sub nsw i64 %14, %15
   %18 = shl nsw i64 %17, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %18, i1 false), !tbaa !9
@@ -310,7 +310,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE
 .lr.ph.preheader.i17:                             ; preds = %36
   %38 = zext i32 %1 to i64
   %39 = zext i32 %.0.i16.ph.i13 to i64
-  %40 = getelementptr i32, ptr %.pr.i12, i64 %39
+  %40 = getelementptr [4 x i8], ptr %.pr.i12, i64 %39
   %41 = sub nsw i64 %38, %39
   %42 = shl nsw i64 %41, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 0, i64 %42, i1 false), !tbaa !9
@@ -331,10 +331,10 @@ _ZN6vectorIjLb1EjE6resizeEj.exit22:               ; preds = %_ZN6vectorIjLb1EjE3
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %47 = trunc nuw i64 %indvars.iv to i32
   store i32 %47, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -390,10 +390,10 @@ _ZN6vectorIjLb1EjEC2Ej.exit11.thread:             ; preds = %2
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %20 = trunc nuw i64 %indvars.iv to i32
   store i32 %20, ptr %19, align 4, !tbaa !9
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %20, ptr %21, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -429,18 +429,18 @@ define weak_odr hidden void @_ZN2lp18permutation_matrixI8rationalS1_E19transpose
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = load ptr, ptr %0, align 8, !tbaa !3
   %13 = zext i32 %8 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 %2, ptr %14, align 4, !tbaa !9
   store i32 %8, ptr %10, align 4, !tbaa !9
   %15 = zext i32 %11 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   store i32 %1, ptr %16, align 4, !tbaa !9
   store i32 %11, ptr %7, align 4, !tbaa !9
   ret void
@@ -450,20 +450,20 @@ define weak_odr hidden void @_ZN2lp18permutation_matrixI8rationalS1_E19transpose
 define weak_odr hidden void @_ZN2lp18permutation_matrixI8rationalS1_E20transpose_from_rightEjj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !9
   store i32 %10, ptr %6, align 4, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 %1, ptr %14, align 4, !tbaa !9
   store i32 %7, ptr %9, align 4, !tbaa !9
   %15 = zext i32 %7 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   store i32 %2, ptr %16, align 4, !tbaa !9
   ret void
 }
@@ -517,10 +517,10 @@ _ZN6vectorIjLb1EjEC2Ej.exit11.thread:             ; preds = %2
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %20 = trunc nuw i64 %indvars.iv to i32
   store i32 %20, ptr %19, align 4, !tbaa !9
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %20, ptr %21, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -532,18 +532,18 @@ define weak_odr hidden void @_ZN2lp18permutation_matrixI8rationalNS_12numeric_pa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = load ptr, ptr %0, align 8, !tbaa !3
   %13 = zext i32 %8 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 %2, ptr %14, align 4, !tbaa !9
   store i32 %8, ptr %10, align 4, !tbaa !9
   %15 = zext i32 %11 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   store i32 %1, ptr %16, align 4, !tbaa !9
   store i32 %11, ptr %7, align 4, !tbaa !9
   ret void

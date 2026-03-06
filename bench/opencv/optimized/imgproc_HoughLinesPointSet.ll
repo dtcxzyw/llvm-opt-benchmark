@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::Point_" = type { float, float }
 
 @_ZZ4mainE6Points = internal unnamed_addr constant [20 x [2 x float]] [[2 x float] [float 0.000000e+00, float 3.690000e+02], [2 x float] [float 1.000000e+01, float 3.640000e+02], [2 x float] [float 2.000000e+01, float 3.580000e+02], [2 x float] [float 3.000000e+01, float 3.520000e+02], [2 x float] [float 4.000000e+01, float 3.460000e+02], [2 x float] [float 5.000000e+01, float 3.410000e+02], [2 x float] [float 6.000000e+01, float 3.350000e+02], [2 x float] [float 7.000000e+01, float 3.290000e+02], [2 x float] [float 8.000000e+01, float 3.230000e+02], [2 x float] [float 9.000000e+01, float 3.180000e+02], [2 x float] [float 1.000000e+02, float 3.120000e+02], [2 x float] [float 1.100000e+02, float 3.060000e+02], [2 x float] [float 1.200000e+02, float 3.000000e+02], [2 x float] [float 1.300000e+02, float 2.950000e+02], [2 x float] [float 1.400000e+02, float 2.890000e+02], [2 x float] [float 1.500000e+02, float 2.840000e+02], [2 x float] [float 1.600000e+02, float 2.770000e+02], [2 x float] [float 1.700000e+02, float 2.710000e+02], [2 x float] [float 1.800000e+02, float 2.660000e+02], [2 x float] [float 1.900000e+02, float 2.600000e+02]], align 16
 @.str = private unnamed_addr constant [32 x i8] c"votes:%d, rho:%.7f, theta:%.7f\0A\00", align 1
@@ -45,7 +44,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 9:                                                ; preds = %0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
   %10 = phi ptr [ null, %0 ], [ %40, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit ]
-  %11 = getelementptr inbounds nuw [2 x float], ptr @_ZZ4mainE6Points, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ4mainE6Points, i64 %indvars.iv
   %12 = load float, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load float, ptr %13, align 4, !tbaa !4
@@ -123,7 +122,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %32, ptr %3, align 8, !tbaa !13
   store ptr %37, ptr %7, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw %"class.cv::Point_", ptr %32, i64 %30
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %39, ptr %8, align 8, !tbaa !8
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
 

@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.slab_stats_automove = type { i32, i32, i64, i64 }
 %struct.thread_stats = type { %union.pthread_mutex_t, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x %struct.slab_stats], [256 x i64], i64, i64, i64 }
 %struct.slab_stats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 
@@ -73,7 +72,7 @@ define dso_local i32 @slabs_clsid(i64 noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %12 ]
-  %8 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8, !tbaa !4
   %10 = zext i32 %9 to i64
   %11 = icmp ugt i64 %0, %10
@@ -96,7 +95,7 @@ define dso_local i32 @slabs_clsid(i64 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @slabs_size(i32 noundef %0) local_unnamed_addr #1 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.slabclass_t, ptr @slabclass, i64 %2
+  %3 = getelementptr inbounds [40 x i8], ptr @slabclass, i64 %2
   %4 = load i32, ptr %3, align 8, !tbaa !4
   ret i32 %4
 }
@@ -137,13 +136,13 @@ do_grow_slab_list.exit:                           ; preds = %8, %12, %17
   %19 = add i32 %9, 1
   store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4, !tbaa !13
   %20 = zext i32 %9 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   store ptr %0, ptr %21, align 8, !tbaa !16
   br label %63
 
 22:                                               ; preds = %2
   %23 = zext nneg i8 %5 to i64
-  %24 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %23
   %25 = icmp eq i32 %1, 0
   br i1 %25, label %26, label %47
 
@@ -184,7 +183,7 @@ do_grow_slab_list.exit29:                         ; preds = %26, %29, %33, %40
   %44 = add i32 %.pre, 1
   store i32 %44, ptr %43, align 4, !tbaa !13
   %45 = zext i32 %.pre to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   store ptr %0, ptr %46, align 8, !tbaa !16
   br label %47
 
@@ -390,7 +389,7 @@ alloc_large_chunk.exit:                           ; preds = %41
 67:                                               ; preds = %.split.us
   %.1.biased.us = add i32 %.04156.us, 7
   %.2.us = and i32 %.1.biased.us, -8
-  %68 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %indvars.iv67
+  %68 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %indvars.iv67
   store i32 %.2.us, ptr %68, align 8, !tbaa !4
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %70 = udiv i32 %69, %.2.us
@@ -418,7 +417,7 @@ alloc_large_chunk.exit:                           ; preds = %41
 .split:                                           ; preds = %60, %96
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %96 ], [ 0, %60 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 1, %60 ]
-  %82 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv62
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv62
   %83 = load i32, ptr %82, align 4, !tbaa !17
   %84 = icmp eq i32 %83, 0
   %85 = trunc nuw nsw i64 %indvars.iv to i32
@@ -427,7 +426,7 @@ alloc_large_chunk.exit:                           ; preds = %41
 86:                                               ; preds = %.split
   %.1.biased = add i32 %83, 7
   %.2 = and i32 %.1.biased, -8
-  %87 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %indvars.iv
   store i32 %.2, ptr %87, align 8, !tbaa !4
   %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %89 = udiv i32 %88, %.2
@@ -458,7 +457,7 @@ alloc_large_chunk.exit:                           ; preds = %41
   %.us-phi = phi i32 [ %.us-phi.ph61, %.split59.us.loopexit60 ], [ 63, %80 ], [ %66, %.split.us ]
   store i32 %.us-phi, ptr @power_largest, align 4, !tbaa !17
   %98 = zext nneg i32 %.us-phi to i64
-  %99 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %98
+  %99 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %98
   store i32 %97, ptr %99, align 8, !tbaa !4
   %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %101 = sdiv i32 %100, %97
@@ -598,7 +597,7 @@ do_grow_slab_list.exit.us:                        ; preds = %19, %14, %12
   %21 = add i32 %8, 1
   store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4, !tbaa !13
   %22 = zext i32 %8 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   store ptr %10, ptr %23, align 8, !tbaa !16
   %24 = icmp ult i64 %11, %1
   br i1 %24, label %memory_allocate.exit.us, label %.critedge.sink.split, !llvm.loop !41
@@ -649,7 +648,7 @@ do_grow_slab_list.exit:                           ; preds = %33, %35, %40
   %42 = add i32 %28, 1
   store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4, !tbaa !13
   %43 = zext i32 %28 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   store ptr %26, ptr %44, align 8, !tbaa !16
   %45 = icmp ult i64 %32, %1
   br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !41
@@ -671,7 +670,7 @@ define dso_local range(i32 0, 2) i32 @slabs_grow_slab_list(i32 noundef %0) local
 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -715,8 +714,8 @@ define dso_local void @fill_slab_stats_automove(ptr noundef writeonly captures(n
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %indvars.iv
-  %5 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !38
   store i32 %7, ptr %5, align 8, !tbaa !42
@@ -773,7 +772,7 @@ define dso_local noundef ptr @slabs_alloc(i32 noundef %0, i32 noundef %1) local_
 
 7:                                                ; preds = %2
   %8 = zext i32 %0 to i64
-  %9 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = icmp eq i32 %11, 0
@@ -839,7 +838,7 @@ define internal fastcc void @do_slabs_free(ptr noundef %0, i32 noundef %1) unnam
 
 6:                                                ; preds = %2
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %10 = load i16, ptr %9, align 2, !tbaa !18
   %11 = and i16 %10, 32
@@ -892,7 +891,7 @@ define internal fastcc void @do_slabs_free(ptr noundef %0, i32 noundef %1) unnam
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 41
   %42 = load i8, ptr %41, align 1, !tbaa !12
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %43
+  %44 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %42, ptr %45, align 8, !tbaa !12
   %46 = load ptr, ptr %39, align 8, !tbaa !49
@@ -932,7 +931,7 @@ define internal fastcc void @do_slabs_free(ptr noundef %0, i32 noundef %1) unnam
   %59 = getelementptr inbounds nuw i8, ptr %.142.i, i64 40
   %60 = load i8, ptr %59, align 8, !tbaa !12
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %61
+  %62 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %61
   %63 = load ptr, ptr %.142.i, align 8, !tbaa !49
   %64 = getelementptr inbounds nuw i8, ptr %.142.i, i64 8
   store ptr null, ptr %64, align 8, !tbaa !49
@@ -980,7 +979,7 @@ define dso_local void @slabs_stats(ptr noundef %0, ptr noundef %1) local_unnamed
   %10 = phi i32 [ %7, %.lr.ph.i ], [ %87, %86 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
   %.0105109.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %86 ]
-  %11 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !13
   %.not107.i = icmp eq i32 %13, 0
@@ -1027,7 +1026,7 @@ define dso_local void @slabs_stats(ptr noundef %0, ptr noundef %1) local_unnamed
   %44 = trunc i32 %42 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %44, ptr noundef nonnull %5, i32 noundef %43, ptr noundef %1) #22
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.21) #22
-  %46 = getelementptr inbounds nuw %struct.slab_stats, ptr %8, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !52
   %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %48) #22
@@ -1133,7 +1132,7 @@ define dso_local noundef zeroext i1 @slabs_adjust_mem_limit(i64 noundef %0) loca
 get_page_from_global_pool.exit.i.i:               ; preds = %10
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %indvars.i.i = trunc nuw i64 %indvars.iv.next.i.i to i32
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   store i32 %indvars.i.i, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4, !tbaa !13
   %.not1.i.i = icmp eq ptr %14, null
@@ -1157,7 +1156,7 @@ do_slabs_adjust_mem_limit.exit:                   ; preds = %10, %get_page_from_
 define dso_local i32 @slabs_available_chunks(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !23
   %.not = icmp eq ptr %1, null
@@ -1195,7 +1194,7 @@ define dso_local ptr @slabs_peek_page(i32 noundef %0, ptr noundef writeonly capt
 6:                                                ; preds = %3
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   %8 = zext i32 %0 to i64
-  %9 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !13
   %12 = icmp ult i32 %11, 2
@@ -1225,7 +1224,7 @@ define dso_local ptr @slabs_peek_page(i32 noundef %0, ptr noundef writeonly capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @do_slabs_unlink_free_chunk(i32 noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #11 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %3
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = icmp eq ptr %6, %1
@@ -1268,9 +1267,9 @@ thread-pre-split:                                 ; preds = %2, %9
 define dso_local void @slabs_finalize_page_move(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %5
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !13
   %11 = add i32 %10, -1
@@ -1300,7 +1299,7 @@ do_grow_slab_list.exit.thread:                    ; preds = %._crit_edge
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !13
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   store ptr %2, ptr %24, align 8, !tbaa !16
   br label %43
 
@@ -1339,7 +1338,7 @@ do_grow_slab_list.exit:                           ; preds = %.do_grow_slab_list.
   %40 = add i32 %27, 1
   store i32 %40, ptr %26, align 4, !tbaa !13
   %41 = zext i32 %27 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %41
   store ptr %2, ptr %42, align 8, !tbaa !16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %54, label %43
@@ -1395,7 +1394,7 @@ do_grow_slab_list.exit:                           ; preds = %.do_grow_slab_list.
 get_page_from_global_pool.exit.i:                 ; preds = %62
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc nuw i64 %indvars.iv.next.i to i32
-  %65 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.next.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.next.i
   %66 = load ptr, ptr %65, align 8, !tbaa !16
   store i32 %indvars.i, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4, !tbaa !13
   %.not1.i = icmp eq ptr %66, null
@@ -1432,7 +1431,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @slabs_pick_any_for_rea
 
 7:                                                ; preds = %3
   %8 = sext i32 %spec.store.select to i64
-  %9 = getelementptr inbounds %struct.slabclass_t, ptr @slabclass, i64 %8
+  %9 = getelementptr inbounds [40 x i8], ptr @slabclass, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !13
   %12 = icmp ugt i32 %11, 1
@@ -1463,7 +1462,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @slabs_pick_any_for_rea
 define dso_local i32 @slabs_page_count(i32 noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %3
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !13
   %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
@@ -1514,7 +1513,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @do_slabs_newslab(i32 noundef %0) unnamed_addr #8 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @slabclass, i64 %2
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !tbaa !67, !range !63, !noundef !68
   %5 = trunc nuw i8 %4 to i1
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
@@ -1599,7 +1598,7 @@ get_page_from_global_pool.exit:                   ; preds = %do_grow_slab_list.e
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 24), align 8, !tbaa !15
   %45 = add i32 %42, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !16
   store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4, !tbaa !13
   %49 = icmp eq ptr %48, null
@@ -1679,7 +1678,7 @@ split_slab_page_into_freelist.exit:               ; preds = %.lr.ph.i, %68
   %80 = add i32 %79, 1
   store i32 %80, ptr %30, align 4, !tbaa !13
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %81
   store ptr %.0, ptr %82, align 8, !tbaa !16
   br label %do_grow_slab_list.exit.thread
 

@@ -290,13 +290,13 @@ define void @_ZN6Assimp26RemoveRedundantMatsProcess7ExecuteEP7aiScene(ptr nounde
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 232
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 6
   %.zext204 = zext nneg i32 %31 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %18, i64 %.zext204
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.zext204
   %33 = and i32 %30, 63
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw i64 1, %34
@@ -373,7 +373,7 @@ _ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2
 56:                                               ; preds = %.lr.ph225, %_ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEA1024_cET_S9_S9_RKT0_.exit.thread
   %indvars.iv255 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next256, %_ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEA1024_cET_S9_S9_RKT0_.exit.thread ]
   %57 = load ptr, ptr %43, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv255
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv255
   %59 = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %6, i8 0, i64 1028, i1 false)
@@ -412,7 +412,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 71:                                               ; preds = %69
   %72 = lshr i64 %indvars.iv255, 6
-  %73 = getelementptr inbounds nuw i64, ptr %18, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %72
   %74 = and i64 %indvars.iv255, 63
   %75 = shl nuw i64 1, %74
   %76 = load i64, ptr %73, align 8
@@ -502,7 +502,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %indvars.iv266 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next267, %154 ]
   %.0116234 = phi i32 [ 0, %.lr.ph236 ], [ %.1117, %154 ]
   %101 = lshr i64 %indvars.iv266, 6
-  %102 = getelementptr inbounds nuw i64, ptr %18, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %101
   %103 = and i64 %indvars.iv266, 63
   %104 = shl nuw i64 1, %103
   %105 = load i64, ptr %102, align 8
@@ -515,7 +515,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %109 = add i32 %108, 1
   store i32 %109, ptr %4, align 4
   %110 = load ptr, ptr %94, align 8
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv266
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv266
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %115, label %114
@@ -528,19 +528,19 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 115:                                              ; preds = %114, %107
   %116 = phi ptr [ %.pre276, %114 ], [ %110, %107 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv266
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv266
   store ptr null, ptr %117, align 8
   br label %154
 
 118:                                              ; preds = %100
   %119 = load ptr, ptr %94, align 8
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv266
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv266
   %121 = load ptr, ptr %120, align 8
   %122 = invoke noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr noundef %121, i1 noundef zeroext false)
           to label %123 unwind label %126
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv266
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv266
   store i32 %122, ptr %124, align 4
   %.not249 = icmp eq i64 %indvars.iv266, 0
   br i1 %.not249, label %._crit_edge233, label %.lr.ph232
@@ -558,7 +558,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %.critedge ], [ 0, %123 ]
   %128 = lshr i64 %indvars.iv261, 6
   %.zext208 = and i64 %128, 67108863
-  %129 = getelementptr inbounds nuw i64, ptr %18, i64 %.zext208
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.zext208
   %130 = and i64 %indvars.iv261, 63
   %131 = shl nuw i64 1, %130
   %132 = load i64, ptr %129, align 8
@@ -567,7 +567,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br i1 %.not215, label %.critedge, label %134
 
 134:                                              ; preds = %.lr.ph232
-  %135 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv261
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv261
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %122, %136
   br i1 %137, label %138, label %.critedge
@@ -576,12 +576,12 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %139 = load i32, ptr %3, align 4
   %140 = add i32 %139, 1
   store i32 %140, ptr %3, align 4
-  %141 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv261
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv261
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv266
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv266
   store i32 %142, ptr %143, align 4
   %144 = load ptr, ptr %94, align 8
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv266
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv266
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %.critedge147, label %148
@@ -594,7 +594,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 .critedge147:                                     ; preds = %148, %138
   %149 = phi ptr [ %.pre275, %148 ], [ %144, %138 ]
-  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv266
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv266
   store ptr null, ptr %150, align 8
   br label %154
 
@@ -605,7 +605,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 151:                                              ; preds = %._crit_edge233
   %152 = add i32 %.0116234, 1
-  %153 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv266
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv266
   store i32 %.0116234, ptr %153, align 4
   br label %154
 
@@ -662,7 +662,7 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %indvars.iv269 = phi i64 [ 0, %.lr.ph241 ], [ %indvars.iv.next270, %197 ]
   %172 = trunc nuw i64 %indvars.iv269 to i32
   %173 = lshr i64 %indvars.iv269, 6
-  %174 = getelementptr inbounds nuw i64, ptr %18, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %173
   %175 = and i64 %indvars.iv269, 63
   %176 = shl nuw i64 1, %175
   %177 = load i64, ptr %174, align 8
@@ -671,10 +671,10 @@ _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br i1 %.not212, label %197, label %179
 
 179:                                              ; preds = %170
-  %180 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv269
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv269
   %181 = load i32, ptr %180, align 4
   %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr %162, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %182
   %184 = load ptr, ptr %183, align 8
   %.not127 = icmp eq ptr %184, null
   br i1 %.not127, label %193, label %185
@@ -708,7 +708,7 @@ _ZNK10aiMaterial3GetEPKcjjR8aiString.exit167:     ; preds = %185
 
 193:                                              ; preds = %179
   %194 = load ptr, ptr %165, align 8
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv269
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv269
   %196 = load ptr, ptr %195, align 8
   store ptr %196, ptr %183, align 8
   br label %197
@@ -729,12 +729,12 @@ _ZNK10aiMaterial3GetEPKcjjR8aiString.exit167:     ; preds = %185
 204:                                              ; preds = %.lr.ph243, %204
   %indvars.iv272 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next273, %204 ]
   %205 = load ptr, ptr %167, align 8
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv272
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv272
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 232
   %209 = load i32, ptr %208, align 8
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %92, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %210
   %212 = load i32, ptr %211, align 4
   store i32 %212, ptr %208, align 8
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1

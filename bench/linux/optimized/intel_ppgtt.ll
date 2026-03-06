@@ -182,14 +182,14 @@ define dso_local void @__set_pd_entry(ptr noundef %0, i16 noundef zeroext %1, pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = zext i16 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   store ptr %2, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %2, align 8
   %12 = tail call i64 @__px_dma(ptr noundef %11) #8
   %13 = tail call i64 %3(i64 noundef %12, i32 noundef 1) #8
   %14 = tail call ptr @__px_vaddr(ptr noundef %10) #8
-  %15 = getelementptr i64, ptr %14, i64 %8
+  %15 = getelementptr [8 x i8], ptr %14, i64 %8
   store i64 %13, ptr %15, align 8
   tail call void @drm_clflush_virt_range(ptr noundef %15, i64 noundef 8) #8
   ret void
@@ -205,12 +205,12 @@ define dso_local void @clear_pd_entry(ptr noundef %0, i16 noundef zeroext %1, pt
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @__px_vaddr(ptr noundef %4) #8
   %8 = zext i16 %1 to i64
-  %9 = getelementptr i64, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   store i64 %6, ptr %9, align 8
   tail call void @drm_clflush_virt_range(ptr noundef %9, i64 noundef 8) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr ptr, ptr %11, i64 %8
+  %12 = getelementptr [8 x i8], ptr %11, i64 %8
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, ptr nonnull elementtype(i32) %13) #8, !srcloc !12
@@ -254,12 +254,12 @@ define dso_local noundef zeroext i1 @release_pd_entry(ptr noundef %0, i16 nounde
   %24 = load i64, ptr %23, align 8
   %25 = tail call ptr @__px_vaddr(ptr noundef %22) #8
   %26 = zext i16 %1 to i64
-  %27 = getelementptr i64, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   store i64 %24, ptr %27, align 8
   tail call void @drm_clflush_virt_range(ptr noundef %27, i64 noundef 8) #8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr ptr, ptr %29, i64 %26
+  %30 = getelementptr [8 x i8], ptr %29, i64 %26
   store ptr null, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, ptr nonnull elementtype(i32) %31) #8, !srcloc !12
@@ -598,7 +598,7 @@ define dso_local void @i915_vm_free_pt_stash(ptr readnone captures(none) %0, ptr
 3:                                                ; preds = %.loopexit, %2
   %4 = phi i1 [ true, %2 ], [ false, %.loopexit ]
   %5 = phi i64 [ 0, %2 ], [ 1, %.loopexit ]
-  %6 = getelementptr ptr, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -689,7 +689,7 @@ define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr noundef readonly 
 3:                                                ; preds = %.loopexit3, %2
   %4 = phi i1 [ true, %2 ], [ false, %.loopexit3 ]
   %5 = phi i64 [ 0, %2 ], [ 1, %.loopexit3 ]
-  %6 = getelementptr ptr, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit3, label %.preheader

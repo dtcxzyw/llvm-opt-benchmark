@@ -48,8 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::empty_::empty_value.12" = type { %"struct.boost::urls::grammar::implementation_defined::ch_delim_rule" }
 %"struct.boost::urls::grammar::detail::tuple_element_impl.15" = type { %"class.boost::empty_::empty_value.11" }
 %"struct.boost::urls::encoding_opts" = type { i8, i8, i8 }
-%"class.boost::urls::detail::format_arg" = type <{ ptr, ptr, ptr, %"class.boost::core::basic_string_view", i64, i8, [7 x i8] }>
-%"class.boost::core::basic_string_view" = type { ptr, i64 }
 %"struct.std::is_same.113" = type { i8 }
 %"class.boost::system::result.98" = type { %"class.boost::variant2::variant.99" }
 %"class.boost::variant2::variant.99" = type { %"struct.boost::variant2::detail::variant_ma_base_impl.base.111", [4 x i8] }
@@ -479,7 +477,7 @@ define noundef i64 @_ZNK5boost4urls6detail9formatterINS_4core17basic_string_view
 
 .lr.ph.i.split.i:                                 ; preds = %16, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
   %.012.i.i = phi i64 [ %22, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %16 ]
-  %18 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i20, i64 %.012.i.i
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i20, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !71
   %19 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i25
@@ -500,7 +498,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_Z
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %14
   %.sroa.0.0.copyload.i28 = phi ptr [ %.sroa.0.0.copyload.i, %14 ], [ %.sroa.0.0.copyload.i20, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %.sink50.i = phi i64 [ %8, %14 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %23 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i28, i64 %.sink50.i
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i28, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
 
@@ -521,7 +519,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %30 = load i8, ptr %0, align 8, !tbaa !34
   %31 = and i8 %30, 3
   %32 = zext nneg i8 %31 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %4, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !61
   %35 = lshr i8 %30, 2
   %36 = zext nneg i8 %35 to i64
@@ -562,7 +560,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %50 = load i8, ptr %.01927.i, align 1, !tbaa !23
   %51 = and i8 %50, 3
   %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %4, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !61
   %55 = lshr i8 %50, 2
   %56 = zext nneg i8 %55 to i64
@@ -581,7 +579,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %60 = load i8, ptr %.12030.i, align 1, !tbaa !23
   %61 = and i8 %60, 3
   %62 = zext nneg i8 %61 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %4, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !61
   %65 = lshr i8 %60, 2
   %66 = zext nneg i8 %65 to i64
@@ -622,7 +620,7 @@ define void @_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us
   %.012.i.us = phi i64 [ %13, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.012.i.us
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %.012.i.us
   %.sroa.2.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sroa.2.0.copyload.i.i.us = load i64, ptr %.sroa.2.0..sroa_idx.i.i.us, align 8, !tbaa !61, !noalias !81
   %12 = icmp eq i64 %.sroa.2.0.copyload.i.i.us, 0
@@ -635,7 +633,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us: ; preds = %.
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i
   %.012.i = phi i64 [ %18, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.012.i
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %.012.i
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !61, !noalias !81
   %15 = icmp eq i64 %.sroa.2.0.copyload.i.i, %.fr38
@@ -655,7 +653,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i: ; preds = %_ZN5
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i, %.lr.ph.i.split.us, %7
   %.sink50 = phi i64 [ %0, %7 ], [ %.012.i.us, %.lr.ph.i.split.us ], [ %.012.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i ]
-  %19 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.sink50
+  %19 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %.sink50
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
   %.sroa.7.sroa.5.0.copyload = load i64, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 8, !tbaa !61
   br label %_ZNK5boost4urls6detail11format_args3getEm.exit
@@ -702,7 +700,7 @@ define noundef ptr @_ZNK5boost4urls6detail9formatterINS_4core17basic_string_view
 
 .lr.ph.i.split.i:                                 ; preds = %15, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
   %.012.i.i = phi i64 [ %21, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %15 ]
-  %17 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i54, i64 %.012.i.i
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i54, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !84
   %18 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i59
@@ -723,7 +721,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_Z
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %13
   %.sroa.0.0.copyload.i62 = phi ptr [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload.i54, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %.sink50.i = phi i64 [ %7, %13 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %22 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i62, i64 %.sink50.i
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i62, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
 
@@ -778,7 +776,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %37 = load i8, ptr %0, align 8, !tbaa !34
   %38 = and i8 %37, 3
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %4, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !61
   %42 = lshr i8 %37, 2
   %43 = zext nneg i8 %42 to i64
@@ -823,7 +821,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
   %60 = load i8, ptr %.02774, align 1, !tbaa !23
   %61 = and i8 %60, 3
   %62 = zext nneg i8 %61 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %4, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !61
   %65 = lshr i8 %60, 2
   %66 = zext nneg i8 %65 to i64
@@ -870,7 +868,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit33: ; preds 
   %84 = load i8, ptr %0, align 8, !tbaa !34
   %85 = and i8 %84, 3
   %86 = zext nneg i8 %85 to i64
-  %87 = getelementptr inbounds nuw i64, ptr %4, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !61
   %89 = lshr i8 %84, 2
   %90 = zext nneg i8 %89 to i64
@@ -1187,7 +1185,7 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureExRNS1
 15:                                               ; preds = %12
   %16 = and i8 %14, 3
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !61
   %20 = lshr i8 %14, 2
   %21 = zext nneg i8 %20 to i64
@@ -1210,7 +1208,7 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureExRNS1
   %26 = urem i64 %.1, 10
   %27 = udiv i64 %.1, 10
   %28 = and i64 %26, 3
-  %29 = getelementptr inbounds nuw i64, ptr %3, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !61
   %31 = lshr i64 %26, 2
   %32 = shl nuw nsw i64 4096, %31
@@ -1254,7 +1252,7 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureExRNS1
 
 .lr.ph.i.split.i:                                 ; preds = %47, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
   %.012.i.i = phi i64 [ %53, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %47 ]
-  %49 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i47, i64 %.012.i.i
+  %49 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i47, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !114
   %50 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i52
@@ -1275,7 +1273,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_Z
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %45
   %.sroa.0.0.copyload.i55 = phi ptr [ %.sroa.0.0.copyload.i, %45 ], [ %.sroa.0.0.copyload.i47, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %.sink50.i = phi i64 [ %39, %45 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %54 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i55, i64 %.sink50.i
+  %54 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i55, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
 
@@ -1295,7 +1293,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %61 = load i8, ptr %0, align 8, !tbaa !91
   %62 = and i8 %61, 3
   %63 = zext nneg i8 %62 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %3, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !61
   %66 = lshr i8 %61, 2
   %67 = zext nneg i8 %66 to i64
@@ -1336,7 +1334,7 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureEyRNS1
 7:                                                ; preds = %4
   %8 = and i8 %6, 3
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !61
   %12 = lshr i8 %6, 2
   %13 = zext nneg i8 %12 to i64
@@ -1358,7 +1356,7 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureEyRNS1
   %18 = urem i64 %.0, 10
   %19 = udiv i64 %.0, 10
   %20 = and i64 %18, 3
-  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !61
   %23 = lshr i64 %18, 2
   %24 = shl nuw nsw i64 4096, %23
@@ -1402,7 +1400,7 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureEyRNS1
 
 .lr.ph.i.split.i:                                 ; preds = %39, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
   %.012.i.i = phi i64 [ %45, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %39 ]
-  %41 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i38, i64 %.012.i.i
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i38, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !118
   %42 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i43
@@ -1423,7 +1421,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_Z
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %37
   %.sroa.0.0.copyload.i46 = phi ptr [ %.sroa.0.0.copyload.i, %37 ], [ %.sroa.0.0.copyload.i38, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %.sink50.i = phi i64 [ %31, %37 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %46 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i46, i64 %.sink50.i
+  %46 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i46, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
 
@@ -1443,7 +1441,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %53 = load i8, ptr %0, align 8, !tbaa !91
   %54 = and i8 %53, 3
   %55 = zext nneg i8 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %3, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !61
   %58 = lshr i8 %53, 2
   %59 = zext nneg i8 %58 to i64
@@ -1530,7 +1528,7 @@ define noundef ptr @_ZNK5boost4urls6detail22integer_formatter_impl6formatExRNS1_
 
 .lr.ph.i.split.i:                                 ; preds = %24, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
   %.012.i.i = phi i64 [ %30, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %24 ]
-  %26 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i113, i64 %.012.i.i
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i113, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !122
   %27 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i118
@@ -1551,7 +1549,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_Z
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %22
   %.sroa.0.0.copyload.i121 = phi ptr [ %.sroa.0.0.copyload.i, %22 ], [ %.sroa.0.0.copyload.i113, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %.sink50.i = phi i64 [ %16, %22 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %31 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i121, i64 %.sink50.i
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i121, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
 
@@ -1610,7 +1608,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %54 = load i8, ptr %0, align 8, !tbaa !91
   %55 = and i8 %54, 3
   %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %3, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !61
   %59 = lshr i8 %54, 2
   %60 = zext nneg i8 %59 to i64
@@ -1679,7 +1677,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
 89:                                               ; preds = %87
   %90 = and i8 %88, 3
   %91 = zext nneg i8 %90 to i64
-  %92 = getelementptr inbounds nuw i64, ptr %3, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !61
   %94 = lshr i8 %88, 2
   %95 = zext nneg i8 %94 to i64
@@ -1759,7 +1757,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit82: ; preds 
   %124 = trunc i64 %122 to i8
   %125 = add i8 %124, 48
   %126 = and i64 %122, 3
-  %127 = getelementptr inbounds nuw i64, ptr %3, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !61
   %129 = lshr i8 %125, 2
   %130 = zext nneg i8 %129 to i64
@@ -1811,7 +1809,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit84: ; preds 
   %152 = load i8, ptr %0, align 8, !tbaa !91
   %153 = and i8 %152, 3
   %154 = zext nneg i8 %153 to i64
-  %155 = getelementptr inbounds nuw i64, ptr %3, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %154
   %156 = load i64, ptr %155, align 8, !tbaa !61
   %157 = lshr i8 %152, 2
   %158 = zext nneg i8 %157 to i64
@@ -1905,7 +1903,7 @@ define noundef ptr @_ZNK5boost4urls6detail22integer_formatter_impl6formatEyRNS1_
 
 .lr.ph.i.split.i:                                 ; preds = %22, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
   %.012.i.i = phi i64 [ %28, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %22 ]
-  %24 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i95, i64 %.012.i.i
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i95, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !130
   %25 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i100
@@ -1926,7 +1924,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_Z
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %20
   %.sroa.0.0.copyload.i103 = phi ptr [ %.sroa.0.0.copyload.i, %20 ], [ %.sroa.0.0.copyload.i95, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %.sink50.i = phi i64 [ %14, %20 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %29 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i103, i64 %.sink50.i
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %.sroa.0.0.copyload.i103, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
 
@@ -1985,7 +1983,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %52 = load i8, ptr %0, align 8, !tbaa !91
   %53 = and i8 %52, 3
   %54 = zext nneg i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %3, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !61
   %57 = lshr i8 %52, 2
   %58 = zext nneg i8 %57 to i64
@@ -2035,7 +2033,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
 77:                                               ; preds = %.loopexit110
   %78 = and i8 %76, 3
   %79 = zext nneg i8 %78 to i64
-  %80 = getelementptr inbounds nuw i64, ptr %3, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !61
   %82 = lshr i8 %76, 2
   %83 = zext nneg i8 %82 to i64
@@ -2114,7 +2112,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit67: ; preds 
   %112 = trunc i64 %110 to i8
   %113 = add i8 %112, 48
   %114 = and i64 %110, 3
-  %115 = getelementptr inbounds nuw i64, ptr %3, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %114
   %116 = load i64, ptr %115, align 8, !tbaa !61
   %117 = lshr i8 %113, 2
   %118 = zext nneg i8 %117 to i64
@@ -2166,7 +2164,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit69: ; preds 
   %140 = load i8, ptr %0, align 8, !tbaa !91
   %141 = and i8 %140, 3
   %142 = zext nneg i8 %141 to i64
-  %143 = getelementptr inbounds nuw i64, ptr %3, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %142
   %144 = load i64, ptr %143, align 8, !tbaa !61
   %145 = lshr i8 %140, 2
   %146 = zext nneg i8 %145 to i64

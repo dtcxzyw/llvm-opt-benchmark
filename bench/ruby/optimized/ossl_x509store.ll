@@ -860,7 +860,7 @@ define internal noundef i64 @ossl_x509stctx_initialize(i32 noundef %0, ptr nound
   %13 = phi i1 [ true, %.preheader ], [ false, %26 ]
   %.185.i24 = phi i32 [ 1, %.preheader ], [ %.286.i, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %16 = icmp slt i32 %.185.i24, %0
   %.not108.i = icmp eq ptr %15, null
@@ -871,7 +871,7 @@ define internal noundef i64 @ossl_x509stctx_initialize(i32 noundef %0, ptr nound
 
 18:                                               ; preds = %17
   %19 = sext i32 %.185.i24 to i64
-  %20 = getelementptr inbounds i64, ptr %1, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !20
   store i64 %21, ptr %15, align 8, !tbaa !20
   br label %22

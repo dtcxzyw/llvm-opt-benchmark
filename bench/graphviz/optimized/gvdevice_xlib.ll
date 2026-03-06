@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.gvdevice_engine_s = type { ptr, ptr, ptr }
 %struct.pointf_s = type { double, double }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-%struct.gvevent_key_binding_s = type { ptr, ptr }
 %union._XEvent = type { [24 x i64] }
 %struct.XGCValues = type { i32, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i64, i32, i32, i32, i32, i64, i32, i8 }
 %struct.XSetWindowAttributes = type { i64, i64, i64, i64, i32, i32, i32, i64, i64, i32, i64, i64, i32, i64, i64 }
@@ -90,7 +88,7 @@ define internal void @xlib_initialize(ptr noundef captures(none) %0) #0 {
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = sext i32 %10 to i64
-  %26 = getelementptr inbounds %struct.Screen, ptr %24, i64 %25
+  %26 = getelementptr inbounds [128 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !39
   %29 = sitofp i32 %28 to double
@@ -120,7 +118,7 @@ define internal void @xlib_initialize(ptr noundef captures(none) %0) #0 {
 47:                                               ; preds = %.lr.ph, %62
   %.040 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
   %48 = load ptr, ptr %17, align 8, !tbaa !50
-  %49 = getelementptr inbounds nuw %struct.gvevent_key_binding_s, ptr %48, i64 %.040
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %.040
   %50 = load ptr, ptr %49, align 8, !tbaa !51
   %51 = tail call i64 @XStringToKeysym(ptr noundef %50) #21
   %52 = icmp eq i64 %51, 0
@@ -129,7 +127,7 @@ define internal void @xlib_initialize(ptr noundef captures(none) %0) #0 {
 53:                                               ; preds = %47
   %54 = load ptr, ptr @stderr, align 8, !tbaa !3
   %55 = load ptr, ptr %17, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw %struct.gvevent_key_binding_s, ptr %55, i64 %.040
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %.040
   %57 = load ptr, ptr %56, align 8, !tbaa !51
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.4, ptr noundef %57) #22
   br label %62
@@ -368,7 +366,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !tbaa !58
   %99 = lshr i32 %16, 6
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i64, ptr %8, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %100
   %102 = and i32 %16, 63
   %103 = zext nneg i32 %102 to i64
   %104 = shl nuw i64 1, %103
@@ -376,7 +374,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %86
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %107 = sdiv i32 %.077, 64
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i64, ptr %8, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %8, i64 %108
   %110 = srem i32 %.077, 64
   %111 = zext nneg i32 %110 to i64
   %112 = shl nuw i64 1, %111
@@ -398,7 +396,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %86
   %128 = shl nuw i64 1, %127
   %129 = sdiv i32 %24, 64
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i64, ptr %8, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %8, i64 %130
   %132 = add nsw i32 %.076, 1
   br label %272
 
@@ -445,7 +443,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %86
   %157 = getelementptr inbounds nuw i8, ptr %.0145, i64 665
   store i8 1, ptr %157, align 1, !tbaa !64
   %158 = load ptr, ptr %91, align 8, !tbaa !38
-  %159 = getelementptr inbounds %struct.Screen, ptr %158, i64 %92
+  %159 = getelementptr inbounds [128 x i8], ptr %158, i64 %92
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 80
   %161 = load i64, ptr %160, align 8, !tbaa !65
   %162 = getelementptr inbounds nuw i8, ptr %134, i64 40
@@ -569,7 +567,7 @@ agxbfree.exit.i:                                  ; preds = %207, %agxbuse.exit.
   %213 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 %212, ptr %213, align 8, !tbaa !88
   %214 = load ptr, ptr %91, align 8, !tbaa !38
-  %215 = getelementptr inbounds %struct.Screen, ptr %214, i64 %92
+  %215 = getelementptr inbounds [128 x i8], ptr %214, i64 %92
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 88
   %217 = load i64, ptr %216, align 8, !tbaa !70
   store i64 %217, ptr %98, align 8, !tbaa !89
@@ -987,7 +985,7 @@ browser_show.exit.i:                              ; preds = %409, %403, %401
 handle_keypress.exit.i:                           ; preds = %.lr.ph.i.i
   %430 = getelementptr inbounds nuw i8, ptr %.03653.i, i64 744
   %431 = load ptr, ptr %430, align 8, !tbaa !50
-  %432 = getelementptr inbounds nuw %struct.gvevent_key_binding_s, ptr %431, i64 %.0113.i.i
+  %432 = getelementptr inbounds nuw [16 x i8], ptr %431, i64 %.0113.i.i
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %434 = load ptr, ptr %433, align 8, !tbaa !115
   %435 = call i32 %434(ptr noundef nonnull %.03653.i) #21

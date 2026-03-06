@@ -74,7 +74,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7nanogui6Shader6Buffer9to_stringB5cxx11Ev, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7nanogui6Shader6Buffer9to_stringB5cxx11Ev, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 
@@ -123,7 +123,7 @@ switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basi
 
 29:                                               ; preds = %.lr.ph, %42
   %.013 = phi i64 [ 0, %.lr.ph ], [ %35, %42 ]
-  %30 = getelementptr inbounds i64, ptr %28, i64 %.013
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %.013
   %31 = load i64, ptr %30, align 8
   invoke void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i64 noundef %31)
           to label %32 unwind label %.loopexit

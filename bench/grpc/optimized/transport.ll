@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::Storage.11" = type { i64 }
 %"union.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::CallCombinerClosureList::CallCombinerClosure, 6, std::allocator<grpc_core::CallCombinerClosureList::CallCombinerClosure>>::Data" = type { %"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::CallCombinerClosureList::CallCombinerClosure, 6, std::allocator<grpc_core::CallCombinerClosureList::CallCombinerClosure>>::Allocated", [128 x i8] }
 %"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::CallCombinerClosureList::CallCombinerClosure, 6, std::allocator<grpc_core::CallCombinerClosureList::CallCombinerClosure>>::Allocated" = type { ptr, i64 }
-%"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure" = type { ptr, %"class.absl::lts_20240722::Status", ptr }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.std::optional", ptr }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
@@ -551,7 +550,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %19, %26
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8, !noalias !76
   %.sink2.i.i.i.i = select i1 %30, ptr %35, ptr %34
-  %36 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %37 = load i64, ptr %12, align 8, !tbaa !41
   %38 = trunc i64 %37 to i1
   br i1 %38, label %.thread.i.i.i.i.i, label %41
@@ -656,7 +655,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit19:     ; preds = %66, %73
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %82 = load ptr, ptr %81, align 8, !noalias !83
   %.sink2.i.i.i.i23 = select i1 %77, ptr %82, ptr %81
-  %83 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i23, i64 %.sink1.i.i.i.i21
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i23, i64 %.sink1.i.i.i.i21
   %84 = load i64, ptr %13, align 8, !tbaa !41
   %85 = trunc i64 %84 to i1
   br i1 %85, label %.thread.i.i.i.i.i25, label %88
@@ -761,7 +760,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit29:     ; preds = %113, %120
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %129 = load ptr, ptr %128, align 8, !noalias !87
   %.sink2.i.i.i.i33 = select i1 %124, ptr %129, ptr %128
-  %130 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i33, i64 %.sink1.i.i.i.i31
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i33, i64 %.sink1.i.i.i.i31
   br i1 %119, label %.thread.i.i.i.i.i35, label %133
 
 .thread.i.i.i.i.i35:                              ; preds = %127
@@ -863,7 +862,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit39:     ; preds = %157, %160
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %169 = load ptr, ptr %168, align 8, !noalias !91
   %.sink2.i.i.i.i43 = select i1 %164, ptr %169, ptr %168
-  %170 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i43, i64 %.sink1.i.i.i.i41
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i43, i64 %.sink1.i.i.i.i41
   br i1 %159, label %.thread.i.i.i.i.i45, label %173
 
 .thread.i.i.i.i.i45:                              ; preds = %167
@@ -991,7 +990,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %._crit_edge, %18
   %23 = trunc i64 %22 to i1
   %24 = load ptr, ptr %8, align 8
   %25 = select i1 %23, ptr %24, ptr %8
-  %26 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %25, i64 %.01117
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.01117
   %27 = load ptr, ptr %26, align 8, !tbaa !79
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !41
@@ -1070,7 +1069,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit14:         ; preds = %50, %53
 .lr.ph.i.i:                                       ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit14, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i
   %.06.i.i = phi i64 [ %63, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %62, %_ZN4absl12lts_202407226StatusD2Ev.exit14 ]
   %63 = add nsw i64 %.06.i.i, -1
-  %64 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !41
   %67 = trunc i64 %66 to i1
@@ -1753,7 +1752,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !123
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !120
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !124
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1839,7 +1838,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = trunc i64 %11 to i1
@@ -1912,7 +1911,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE8AllocateERS6_m.exit.i: ; preds = %4
   %16 = mul nuw nsw i64 %12, 24
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #29
-  %18 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %17, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.sink1.i
   %19 = load ptr, ptr %1, align 8, !tbaa !73
   %20 = load i64, ptr %2, align 8, !tbaa !41
   %21 = trunc i64 %20 to i1
@@ -1954,7 +1953,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
 .lr.ph.i:                                         ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit, %.lr.ph.i
   %.012.i = phi i64 [ %45, %.lr.ph.i ], [ 0, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit ]
   %35 = phi ptr [ %44, %.lr.ph.i ], [ %.sink2.i, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit ]
-  %36 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %17, i64 %.012.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.012.i
   %37 = load ptr, ptr %35, align 8, !tbaa !79
   store ptr %37, ptr %36, align 8, !tbaa !79
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1974,7 +1973,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
 .lr.ph.i17:                                       ; preds = %.lr.ph.i, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %46, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %.lr.ph.i ]
   %46 = add nsw i64 %.06.i, -1
-  %47 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !41
   %50 = trunc i64 %49 to i1

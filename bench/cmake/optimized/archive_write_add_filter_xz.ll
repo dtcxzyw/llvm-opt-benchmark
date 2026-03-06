@@ -356,7 +356,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr noundef ca
 31:                                               ; preds = %.critedge
   %32 = load i32, ptr %4, align 8, !tbaa !15
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.option_value, ptr @option_values, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr @option_values, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !35
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i32 %35, ptr %36, align 8, !tbaa !37

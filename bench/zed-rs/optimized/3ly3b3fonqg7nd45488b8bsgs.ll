@@ -1599,7 +1599,7 @@ _ZN10serde_json3ser9Formatter9write_f6417h29954f6c4da34bb0E.exit.i.i: ; preds = 
   %204 = load ptr, ptr %203, align 8, !alias.scope !279, !noalias !282, !nonnull !4, !noundef !4
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %206 = load i64, ptr %205, align 8, !alias.scope !279, !noalias !282, !noundef !4
-  %207 = getelementptr inbounds { i64, [8 x i64] }, ptr %204, i64 %206
+  %207 = getelementptr inbounds [72 x i8], ptr %204, i64 %206
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
   %.val.i23 = load ptr, ptr %1, align 8, !alias.scope !285, !noalias !288, !nonnull !4, !align !37, !noundef !4
   %208 = getelementptr inbounds nuw i8, ptr %.val.i23, i64 16
@@ -1781,7 +1781,7 @@ _ZN10serde_json3ser9Formatter10end_object17h92133e0d87b66bcfE.exit.i: ; preds = 
   %286 = load ptr, ptr %285, align 8, !nonnull !4, !noundef !4
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %288 = load i64, ptr %287, align 8, !noundef !4
-  %289 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %286, i64 %288
+  %289 = getelementptr inbounds [104 x i8], ptr %286, i64 %288
   br label %290
 
 290:                                              ; preds = %308, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h2f647ac7e099a2d9E.exit"
@@ -4967,7 +4967,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr42drop
 62:                                               ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %64 = load ptr, ptr %63, align 8, !noalias !1261, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %64, i64 %55
+  %65 = getelementptr inbounds [104 x i8], ptr %64, i64 %55
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i64, ptr %66, align 8, !range !168, !noundef !4
   %68 = icmp eq i64 %67, -9223372036854775806
@@ -5128,7 +5128,7 @@ _ZN10serde_json3ser9Formatter10end_object17h92133e0d87b66bcfE.exit.i.i.i.i.i: ; 
   %124 = load ptr, ptr %123, align 8, !alias.scope !1315, !noalias !1322, !nonnull !4, !noundef !4
   %125 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %126 = load i64, ptr %125, align 8, !alias.scope !1315, !noalias !1322, !noundef !4
-  %127 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %124, i64 %126
+  %127 = getelementptr inbounds [104 x i8], ptr %124, i64 %126
   br label %128
 
 128:                                              ; preds = %.noexc6.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h2f647ac7e099a2d9E.exit.i.i.i.i"

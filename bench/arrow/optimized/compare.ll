@@ -33,13 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::internal::BaseSetBitRunReader" = type <{ ptr, i64, i64, i64, i32, [4 x i8] }>
 %class.anon = type { ptr, ptr, ptr }
 %"class.arrow::util::Float16" = type { i16 }
-%"union.arrow::BinaryViewType::c_type" = type { %struct.anon }
-%struct.anon = type { i32, %"struct.std::array" }
-%"struct.std::array" = type { [12 x i8] }
-%"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos" = type { i32, i32, i64 }
-%"struct.arrow::DayTimeIntervalType::DayMilliseconds" = type { i32, i32 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"struct.arrow::ArraySpan" = type { ptr, i64, i64, i64, [3 x %"struct.arrow::BufferSpan"], %"class.std::vector.211" }
 %"struct.arrow::BufferSpan" = type { ptr, i64, ptr }
 %"class.std::vector.211" = type { %"struct.std::_Vector_base.212" }
@@ -53,8 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.238" = type { %"struct.std::_Tuple_impl.239" }
 %"struct.std::_Tuple_impl.239" = type { %"struct.std::_Head_base.242" }
 %"struct.std::_Head_base.242" = type { ptr }
-%"class.std::shared_ptr.334" = type { %"class.std::__shared_ptr.335" }
-%"class.std::__shared_ptr.335" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.59" = type { %"class.std::__shared_ptr.60" }
 %"class.std::__shared_ptr.60" = type { ptr, %"class.std::__shared_count" }
 
@@ -2252,9 +2243,9 @@ common.resume:                                    ; preds = %1019, %791, %550, %
 
 .lr.ph11.i.i.i:                                   ; preds = %315, %.critedge.i.i.i
   %.02510.i.i.i = phi i64 [ %326, %.critedge.i.i.i ], [ 0, %315 ]
-  %318 = getelementptr inbounds nuw float, ptr %228, i64 %.02510.i.i.i
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %.02510.i.i.i
   %319 = load float, ptr %318, align 4, !tbaa !336
-  %320 = getelementptr inbounds nuw float, ptr %273, i64 %.02510.i.i.i
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %.02510.i.i.i
   %321 = load float, ptr %320, align 4, !tbaa !336
   %322 = fcmp une float %319, %321
   br i1 %322, label %323, label %.critedge.i.i.i
@@ -2272,9 +2263,9 @@ common.resume:                                    ; preds = %1019, %791, %550, %
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader4.i.i.i, %.lr.ph.i.i.i
   %.07.i.i.i = phi i64 [ %332, %.lr.ph.i.i.i ], [ 0, %.preheader4.i.i.i ]
-  %327 = getelementptr inbounds nuw float, ptr %228, i64 %.07.i.i.i
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %.07.i.i.i
   %328 = load float, ptr %327, align 4, !tbaa !336
-  %329 = getelementptr inbounds nuw float, ptr %273, i64 %.07.i.i.i
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %.07.i.i.i
   %330 = load float, ptr %329, align 4, !tbaa !336
   %331 = fcmp oeq float %328, %330
   %332 = add nuw nsw i64 %.07.i.i.i, 1
@@ -2300,9 +2291,9 @@ common.resume:                                    ; preds = %1019, %791, %550, %
 
 .lr.ph11.i52.i.i:                                 ; preds = %337, %.critedge.i54.i.i
   %.02510.i53.i.i = phi i64 [ %348, %.critedge.i54.i.i ], [ 0, %337 ]
-  %340 = getelementptr inbounds nuw double, ptr %228, i64 %.02510.i53.i.i
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %.02510.i53.i.i
   %341 = load double, ptr %340, align 8, !tbaa !114
-  %342 = getelementptr inbounds nuw double, ptr %273, i64 %.02510.i53.i.i
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %.02510.i53.i.i
   %343 = load double, ptr %342, align 8, !tbaa !114
   %344 = fcmp une double %341, %343
   br i1 %344, label %345, label %.critedge.i54.i.i
@@ -2320,9 +2311,9 @@ common.resume:                                    ; preds = %1019, %791, %550, %
 
 .lr.ph.i48.i.i:                                   ; preds = %.preheader4.i46.i.i, %.lr.ph.i48.i.i
   %.07.i49.i.i = phi i64 [ %354, %.lr.ph.i48.i.i ], [ 0, %.preheader4.i46.i.i ]
-  %349 = getelementptr inbounds nuw double, ptr %228, i64 %.07.i49.i.i
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %.07.i49.i.i
   %350 = load double, ptr %349, align 8, !tbaa !114
-  %351 = getelementptr inbounds nuw double, ptr %273, i64 %.07.i49.i.i
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %.07.i49.i.i
   %352 = load double, ptr %351, align 8, !tbaa !114
   %353 = fcmp oeq double %350, %352
   %354 = add nuw nsw i64 %.07.i49.i.i, 1
@@ -2745,9 +2736,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph11.i.i.i85:                                 ; preds = %556, %.critedge.i.i.i87
   %.02510.i.i.i86 = phi i64 [ %567, %.critedge.i.i.i87 ], [ 0, %556 ]
-  %559 = getelementptr inbounds nuw float, ptr %469, i64 %.02510.i.i.i86
+  %559 = getelementptr inbounds nuw [4 x i8], ptr %469, i64 %.02510.i.i.i86
   %560 = load float, ptr %559, align 4, !tbaa !336
-  %561 = getelementptr inbounds nuw float, ptr %514, i64 %.02510.i.i.i86
+  %561 = getelementptr inbounds nuw [4 x i8], ptr %514, i64 %.02510.i.i.i86
   %562 = load float, ptr %561, align 4, !tbaa !336
   %563 = fcmp une float %560, %562
   br i1 %563, label %564, label %.critedge.i.i.i87
@@ -2765,9 +2756,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph.i.i.i81:                                   ; preds = %.preheader4.i.i.i80, %.lr.ph.i.i.i81
   %.07.i.i.i82 = phi i64 [ %573, %.lr.ph.i.i.i81 ], [ 0, %.preheader4.i.i.i80 ]
-  %568 = getelementptr inbounds nuw float, ptr %469, i64 %.07.i.i.i82
+  %568 = getelementptr inbounds nuw [4 x i8], ptr %469, i64 %.07.i.i.i82
   %569 = load float, ptr %568, align 4, !tbaa !336
-  %570 = getelementptr inbounds nuw float, ptr %514, i64 %.07.i.i.i82
+  %570 = getelementptr inbounds nuw [4 x i8], ptr %514, i64 %.07.i.i.i82
   %571 = load float, ptr %570, align 4, !tbaa !336
   %572 = fcmp oeq float %569, %571
   %573 = add nuw nsw i64 %.07.i.i.i82, 1
@@ -2793,9 +2784,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph11.i52.i.i74:                               ; preds = %578, %.critedge.i54.i.i76
   %.02510.i53.i.i75 = phi i64 [ %589, %.critedge.i54.i.i76 ], [ 0, %578 ]
-  %581 = getelementptr inbounds nuw double, ptr %469, i64 %.02510.i53.i.i75
+  %581 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %.02510.i53.i.i75
   %582 = load double, ptr %581, align 8, !tbaa !114
-  %583 = getelementptr inbounds nuw double, ptr %514, i64 %.02510.i53.i.i75
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %.02510.i53.i.i75
   %584 = load double, ptr %583, align 8, !tbaa !114
   %585 = fcmp une double %582, %584
   br i1 %585, label %586, label %.critedge.i54.i.i76
@@ -2813,9 +2804,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph.i48.i.i70:                                 ; preds = %.preheader4.i46.i.i69, %.lr.ph.i48.i.i70
   %.07.i49.i.i71 = phi i64 [ %595, %.lr.ph.i48.i.i70 ], [ 0, %.preheader4.i46.i.i69 ]
-  %590 = getelementptr inbounds nuw double, ptr %469, i64 %.07.i49.i.i71
+  %590 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %.07.i49.i.i71
   %591 = load double, ptr %590, align 8, !tbaa !114
-  %592 = getelementptr inbounds nuw double, ptr %514, i64 %.07.i49.i.i71
+  %592 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %.07.i49.i.i71
   %593 = load double, ptr %592, align 8, !tbaa !114
   %594 = fcmp oeq double %591, %593
   %595 = add nuw nsw i64 %.07.i49.i.i71, 1
@@ -3238,9 +3229,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph11.i.i.i141:                                ; preds = %797, %.critedge.i.i.i143
   %.02510.i.i.i142 = phi i64 [ %808, %.critedge.i.i.i143 ], [ 0, %797 ]
-  %800 = getelementptr inbounds nuw float, ptr %710, i64 %.02510.i.i.i142
+  %800 = getelementptr inbounds nuw [4 x i8], ptr %710, i64 %.02510.i.i.i142
   %801 = load float, ptr %800, align 4, !tbaa !336
-  %802 = getelementptr inbounds nuw float, ptr %755, i64 %.02510.i.i.i142
+  %802 = getelementptr inbounds nuw [4 x i8], ptr %755, i64 %.02510.i.i.i142
   %803 = load float, ptr %802, align 4, !tbaa !336
   %804 = fcmp une float %801, %803
   br i1 %804, label %805, label %.critedge.i.i.i143
@@ -3258,9 +3249,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph.i.i.i137:                                  ; preds = %.preheader4.i.i.i136, %.lr.ph.i.i.i137
   %.07.i.i.i138 = phi i64 [ %814, %.lr.ph.i.i.i137 ], [ 0, %.preheader4.i.i.i136 ]
-  %809 = getelementptr inbounds nuw float, ptr %710, i64 %.07.i.i.i138
+  %809 = getelementptr inbounds nuw [4 x i8], ptr %710, i64 %.07.i.i.i138
   %810 = load float, ptr %809, align 4, !tbaa !336
-  %811 = getelementptr inbounds nuw float, ptr %755, i64 %.07.i.i.i138
+  %811 = getelementptr inbounds nuw [4 x i8], ptr %755, i64 %.07.i.i.i138
   %812 = load float, ptr %811, align 4, !tbaa !336
   %813 = fcmp oeq float %810, %812
   %814 = add nuw nsw i64 %.07.i.i.i138, 1
@@ -3286,9 +3277,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph11.i52.i.i130:                              ; preds = %819, %.critedge.i54.i.i132
   %.02510.i53.i.i131 = phi i64 [ %830, %.critedge.i54.i.i132 ], [ 0, %819 ]
-  %822 = getelementptr inbounds nuw double, ptr %710, i64 %.02510.i53.i.i131
+  %822 = getelementptr inbounds nuw [8 x i8], ptr %710, i64 %.02510.i53.i.i131
   %823 = load double, ptr %822, align 8, !tbaa !114
-  %824 = getelementptr inbounds nuw double, ptr %755, i64 %.02510.i53.i.i131
+  %824 = getelementptr inbounds nuw [8 x i8], ptr %755, i64 %.02510.i53.i.i131
   %825 = load double, ptr %824, align 8, !tbaa !114
   %826 = fcmp une double %823, %825
   br i1 %826, label %827, label %.critedge.i54.i.i132
@@ -3306,9 +3297,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph.i48.i.i126:                                ; preds = %.preheader4.i46.i.i125, %.lr.ph.i48.i.i126
   %.07.i49.i.i127 = phi i64 [ %836, %.lr.ph.i48.i.i126 ], [ 0, %.preheader4.i46.i.i125 ]
-  %831 = getelementptr inbounds nuw double, ptr %710, i64 %.07.i49.i.i127
+  %831 = getelementptr inbounds nuw [8 x i8], ptr %710, i64 %.07.i49.i.i127
   %832 = load double, ptr %831, align 8, !tbaa !114
-  %833 = getelementptr inbounds nuw double, ptr %755, i64 %.07.i49.i.i127
+  %833 = getelementptr inbounds nuw [8 x i8], ptr %755, i64 %.07.i49.i.i127
   %834 = load double, ptr %833, align 8, !tbaa !114
   %835 = fcmp oeq double %832, %834
   %836 = add nuw nsw i64 %.07.i49.i.i127, 1
@@ -3700,9 +3691,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph11.i.i.i197:                                ; preds = %1025, %.critedge.i.i.i199
   %.02510.i.i.i198 = phi i64 [ %1036, %.critedge.i.i.i199 ], [ 0, %1025 ]
-  %1028 = getelementptr inbounds nuw float, ptr %938, i64 %.02510.i.i.i198
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %938, i64 %.02510.i.i.i198
   %1029 = load float, ptr %1028, align 4, !tbaa !336
-  %1030 = getelementptr inbounds nuw float, ptr %983, i64 %.02510.i.i.i198
+  %1030 = getelementptr inbounds nuw [4 x i8], ptr %983, i64 %.02510.i.i.i198
   %1031 = load float, ptr %1030, align 4, !tbaa !336
   %1032 = fcmp une float %1029, %1031
   br i1 %1032, label %1033, label %.critedge.i.i.i199
@@ -3720,9 +3711,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph.i.i.i193:                                  ; preds = %.preheader4.i.i.i192, %.lr.ph.i.i.i193
   %.07.i.i.i194 = phi i64 [ %1042, %.lr.ph.i.i.i193 ], [ 0, %.preheader4.i.i.i192 ]
-  %1037 = getelementptr inbounds nuw float, ptr %938, i64 %.07.i.i.i194
+  %1037 = getelementptr inbounds nuw [4 x i8], ptr %938, i64 %.07.i.i.i194
   %1038 = load float, ptr %1037, align 4, !tbaa !336
-  %1039 = getelementptr inbounds nuw float, ptr %983, i64 %.07.i.i.i194
+  %1039 = getelementptr inbounds nuw [4 x i8], ptr %983, i64 %.07.i.i.i194
   %1040 = load float, ptr %1039, align 4, !tbaa !336
   %1041 = fcmp oeq float %1038, %1040
   %1042 = add nuw nsw i64 %.07.i.i.i194, 1
@@ -3748,9 +3739,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph11.i52.i.i186:                              ; preds = %1047, %.critedge.i54.i.i188
   %.02510.i53.i.i187 = phi i64 [ %1058, %.critedge.i54.i.i188 ], [ 0, %1047 ]
-  %1050 = getelementptr inbounds nuw double, ptr %938, i64 %.02510.i53.i.i187
+  %1050 = getelementptr inbounds nuw [8 x i8], ptr %938, i64 %.02510.i53.i.i187
   %1051 = load double, ptr %1050, align 8, !tbaa !114
-  %1052 = getelementptr inbounds nuw double, ptr %983, i64 %.02510.i53.i.i187
+  %1052 = getelementptr inbounds nuw [8 x i8], ptr %983, i64 %.02510.i53.i.i187
   %1053 = load double, ptr %1052, align 8, !tbaa !114
   %1054 = fcmp une double %1051, %1053
   br i1 %1054, label %1055, label %.critedge.i54.i.i188
@@ -3768,9 +3759,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45.i
 
 .lr.ph.i48.i.i182:                                ; preds = %.preheader4.i46.i.i181, %.lr.ph.i48.i.i182
   %.07.i49.i.i183 = phi i64 [ %1064, %.lr.ph.i48.i.i182 ], [ 0, %.preheader4.i46.i.i181 ]
-  %1059 = getelementptr inbounds nuw double, ptr %938, i64 %.07.i49.i.i183
+  %1059 = getelementptr inbounds nuw [8 x i8], ptr %938, i64 %.07.i49.i.i183
   %1060 = load double, ptr %1059, align 8, !tbaa !114
-  %1061 = getelementptr inbounds nuw double, ptr %983, i64 %.07.i49.i.i183
+  %1061 = getelementptr inbounds nuw [8 x i8], ptr %983, i64 %.07.i49.i.i183
   %1062 = load double, ptr %1061, align 8, !tbaa !114
   %1063 = fcmp oeq double %1060, %1062
   %1064 = add nuw nsw i64 %.07.i49.i.i183, 1
@@ -6977,10 +6968,10 @@ _ZN5arrow12_GLOBAL__N_117TypeEqualsVisitor5VisitINS_17FixedSizeListTypeEEENSt9en
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %1549
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %1549 ], [ 0, %.preheader.i.i.i ]
   %1557 = phi ptr [ %1551, %1549 ], [ %1533, %.preheader.i.i.i ]
-  %1558 = getelementptr inbounds nuw %"class.std::shared_ptr.54", ptr %1557, i64 %indvars.iv.i.i.i
+  %1558 = getelementptr inbounds nuw [16 x i8], ptr %1557, i64 %indvars.iv.i.i.i
   %1559 = load ptr, ptr %1558, align 8, !tbaa !455, !noalias !564
   %1560 = load ptr, ptr %1539, align 8, !tbaa !454, !noalias !564
-  %1561 = getelementptr inbounds nuw %"class.std::shared_ptr.54", ptr %1560, i64 %indvars.iv.i.i.i
+  %1561 = getelementptr inbounds nuw [16 x i8], ptr %1560, i64 %indvars.iv.i.i.i
   %1562 = tail call noundef zeroext i1 @_ZNK5arrow5Field6EqualsERKSt10shared_ptrIS0_Eb(ptr noundef nonnull align 8 dereferenceable(96) %1559, ptr noundef nonnull align 8 dereferenceable(16) %1561, i1 noundef zeroext %2), !noalias !564
   br i1 %1562, label %1549, label %_ZN5arrow6StatusD2Ev.exit
 
@@ -8826,7 +8817,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !686
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i16, ptr %18, i64 %12
+  %19 = getelementptr inbounds [2 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i:   ; preds = %10, %2
@@ -8849,7 +8840,7 @@ _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !686
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i16, ptr %34, i64 %28
+  %35 = getelementptr inbounds [2 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i
@@ -8873,10 +8864,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !686
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !686
-  %48 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !686
-  %51 = getelementptr inbounds i16, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 1
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !686
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -8907,11 +8898,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !686
-  %72 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i16, ptr %72, i64 %70
+  %72 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [2 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !686
-  %75 = getelementptr inbounds i16, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i16, ptr %75, i64 %70
+  %75 = getelementptr inbounds [2 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [2 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 1
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !686
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -8953,7 +8944,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !693
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i16, ptr %18, i64 %12
+  %19 = getelementptr inbounds [2 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i:   ; preds = %10, %2
@@ -8976,7 +8967,7 @@ _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !693
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i16, ptr %34, i64 %28
+  %35 = getelementptr inbounds [2 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i
@@ -9000,10 +8991,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !693
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !693
-  %48 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !693
-  %51 = getelementptr inbounds i16, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 1
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !693
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -9034,11 +9025,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !693
-  %72 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i16, ptr %72, i64 %70
+  %72 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [2 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !693
-  %75 = getelementptr inbounds i16, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i16, ptr %75, i64 %70
+  %75 = getelementptr inbounds [2 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [2 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 1
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !693
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -9080,7 +9071,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !700
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i32, ptr %18, i64 %12
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
@@ -9103,7 +9094,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !700
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i32, ptr %34, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
@@ -9127,10 +9118,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !700
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !700
-  %48 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !700
-  %51 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !700
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -9161,11 +9152,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !700
-  %72 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i32, ptr %72, i64 %70
+  %72 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !700
-  %75 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i32, ptr %75, i64 %70
+  %75 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 2
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !700
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -9207,7 +9198,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !707
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i32, ptr %18, i64 %12
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i:   ; preds = %10, %2
@@ -9230,7 +9221,7 @@ _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !707
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i32, ptr %34, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i
@@ -9254,10 +9245,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !707
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !707
-  %48 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !707
-  %51 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !707
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -9288,11 +9279,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !707
-  %72 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i32, ptr %72, i64 %70
+  %72 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !707
-  %75 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i32, ptr %75, i64 %70
+  %75 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 2
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !707
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -9334,7 +9325,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !714
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i64, ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
@@ -9357,7 +9348,7 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !714
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i64, ptr %34, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
@@ -9381,10 +9372,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !714
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !714
-  %48 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !714
-  %51 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 3
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !714
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -9415,11 +9406,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !714
-  %72 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i64, ptr %72, i64 %70
+  %72 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !714
-  %75 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i64, ptr %75, i64 %70
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 3
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !714
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -9461,7 +9452,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !721
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i64, ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit.i:   ; preds = %10, %2
@@ -9484,7 +9475,7 @@ _ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !721
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i64, ptr %34, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit.i
@@ -9508,10 +9499,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !721
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !721
-  %48 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !721
-  %51 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 3
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !721
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -9542,11 +9533,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !721
-  %72 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i64, ptr %72, i64 %70
+  %72 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !721
-  %75 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i64, ptr %75, i64 %70
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 3
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !721
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -9611,7 +9602,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %40 = load ptr, ptr %39, align 8, !noalias !728
   %41 = select i1 %38, ptr %40, ptr null, !prof !96
-  %42 = getelementptr inbounds i16, ptr %41, i64 %35
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %35
   br label %_ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i:   ; preds = %33, %2
@@ -9634,7 +9625,7 @@ _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i:   ; preds = %33, %2
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %56 = load ptr, ptr %55, align 8, !noalias !728
   %57 = select i1 %54, ptr %56, ptr null, !prof !96
-  %58 = getelementptr inbounds i16, ptr %57, i64 %51
+  %58 = getelementptr inbounds [2 x i8], ptr %57, i64 %51
   br label %_ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit3.i:  ; preds = %49, %_ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i
@@ -9693,12 +9684,12 @@ _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit3.i:  ; preds = %49, %_ZNK5arrow9Arr
 90:                                               ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %115, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %91 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %92 = getelementptr i16, ptr %.0.i.i.i, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %93 = getelementptr i16, ptr %92, i64 %91
+  %92 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %93 = getelementptr [2 x i8], ptr %92, i64 %91
   %94 = load i16, ptr %93, align 2, !tbaa !733, !noalias !728
   %95 = load i64, ptr %89, align 8, !tbaa !89, !noalias !728
-  %96 = getelementptr i16, ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %97 = getelementptr i16, ptr %96, i64 %95
+  %96 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %97 = getelementptr [2 x i8], ptr %96, i64 %95
   %98 = load i16, ptr %97, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !728
   store i16 %94, ptr %24, align 2, !noalias !728
@@ -9760,12 +9751,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %.05.i11.i.i.i.i.i.i.i.i.i = phi i64 [ %151, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i13.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %126 = add nsw i64 %.05.i11.i.i.i.i.i.i.i.i.i, %124
   %127 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %128 = getelementptr i16, ptr %.0.i.i.i, i64 %126
-  %129 = getelementptr i16, ptr %128, i64 %127
+  %128 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %126
+  %129 = getelementptr [2 x i8], ptr %128, i64 %127
   %130 = load i16, ptr %129, align 2, !tbaa !733, !noalias !728
   %131 = load i64, ptr %121, align 8, !tbaa !89, !noalias !728
-  %132 = getelementptr i16, ptr %.0.i.i2.i, i64 %126
-  %133 = getelementptr i16, ptr %132, i64 %131
+  %132 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %126
+  %133 = getelementptr [2 x i8], ptr %132, i64 %131
   %134 = load i16, ptr %133, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !728
   store i16 %130, ptr %22, align 2, !noalias !728
@@ -9838,12 +9829,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 166:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i.i.i.i
   %.05.i.i.i.i.i7.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i.i.i.i.i ], [ %191, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %167 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %168 = getelementptr i16, ptr %.0.i.i.i, i64 %.05.i.i.i.i.i7.i.i.i.i.i
-  %169 = getelementptr i16, ptr %168, i64 %167
+  %168 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %.05.i.i.i.i.i7.i.i.i.i.i
+  %169 = getelementptr [2 x i8], ptr %168, i64 %167
   %170 = load i16, ptr %169, align 2, !tbaa !733, !noalias !728
   %171 = load i64, ptr %165, align 8, !tbaa !89, !noalias !728
-  %172 = getelementptr i16, ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i7.i.i.i.i.i
-  %173 = getelementptr i16, ptr %172, i64 %171
+  %172 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i7.i.i.i.i.i
+  %173 = getelementptr [2 x i8], ptr %172, i64 %171
   %174 = load i16, ptr %173, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !728
   store i16 %170, ptr %19, align 2, !noalias !728
@@ -9905,12 +9896,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %.05.i11.i.i.i.i15.i.i.i.i.i = phi i64 [ %227, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i13.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i12.i.i.i.i.i ]
   %202 = add nsw i64 %.05.i11.i.i.i.i15.i.i.i.i.i, %200
   %203 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %204 = getelementptr i16, ptr %.0.i.i.i, i64 %202
-  %205 = getelementptr i16, ptr %204, i64 %203
+  %204 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %202
+  %205 = getelementptr [2 x i8], ptr %204, i64 %203
   %206 = load i16, ptr %205, align 2, !tbaa !733, !noalias !728
   %207 = load i64, ptr %197, align 8, !tbaa !89, !noalias !728
-  %208 = getelementptr i16, ptr %.0.i.i2.i, i64 %202
-  %209 = getelementptr i16, ptr %208, i64 %207
+  %208 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %202
+  %209 = getelementptr [2 x i8], ptr %208, i64 %207
   %210 = load i16, ptr %209, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !728
   store i16 %206, ptr %17, align 2, !noalias !728
@@ -9986,12 +9977,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 243:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb0ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i13.i.i.i.i
   %.05.i.i.i.i.i.i14.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i13.i.i.i.i ], [ %263, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb0ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %244 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %245 = getelementptr i16, ptr %.0.i.i.i, i64 %.05.i.i.i.i.i.i14.i.i.i.i
-  %246 = getelementptr i16, ptr %245, i64 %244
+  %245 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %.05.i.i.i.i.i.i14.i.i.i.i
+  %246 = getelementptr [2 x i8], ptr %245, i64 %244
   %247 = load i16, ptr %246, align 2, !tbaa !733, !noalias !728
   %248 = load i64, ptr %242, align 8, !tbaa !89, !noalias !728
-  %249 = getelementptr i16, ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i.i14.i.i.i.i
-  %250 = getelementptr i16, ptr %249, i64 %248
+  %249 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i.i14.i.i.i.i
+  %250 = getelementptr [2 x i8], ptr %249, i64 %248
   %251 = load i16, ptr %250, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !728
   store i16 %247, ptr %14, align 2, !noalias !728
@@ -10045,12 +10036,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %.05.i11.i.i.i.i.i21.i.i.i.i = phi i64 [ %294, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb0ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i12.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i18.i.i.i.i ]
   %274 = add nsw i64 %.05.i11.i.i.i.i.i21.i.i.i.i, %272
   %275 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %276 = getelementptr i16, ptr %.0.i.i.i, i64 %274
-  %277 = getelementptr i16, ptr %276, i64 %275
+  %276 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %274
+  %277 = getelementptr [2 x i8], ptr %276, i64 %275
   %278 = load i16, ptr %277, align 2, !tbaa !733, !noalias !728
   %279 = load i64, ptr %269, align 8, !tbaa !89, !noalias !728
-  %280 = getelementptr i16, ptr %.0.i.i2.i, i64 %274
-  %281 = getelementptr i16, ptr %280, i64 %279
+  %280 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %274
+  %281 = getelementptr [2 x i8], ptr %280, i64 %279
   %282 = load i16, ptr %281, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !728
   store i16 %278, ptr %12, align 2, !noalias !728
@@ -10115,12 +10106,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 309:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i
   %.05.i.i.i.i.i7.i10.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i ], [ %329, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %310 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %311 = getelementptr i16, ptr %.0.i.i.i, i64 %.05.i.i.i.i.i7.i10.i.i.i.i
-  %312 = getelementptr i16, ptr %311, i64 %310
+  %311 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %.05.i.i.i.i.i7.i10.i.i.i.i
+  %312 = getelementptr [2 x i8], ptr %311, i64 %310
   %313 = load i16, ptr %312, align 2, !tbaa !733, !noalias !728
   %314 = load i64, ptr %308, align 8, !tbaa !89, !noalias !728
-  %315 = getelementptr i16, ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i7.i10.i.i.i.i
-  %316 = getelementptr i16, ptr %315, i64 %314
+  %315 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %.05.i.i.i.i.i7.i10.i.i.i.i
+  %316 = getelementptr [2 x i8], ptr %315, i64 %314
   %317 = load i16, ptr %316, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !728
   store i16 %313, ptr %9, align 2, !noalias !728
@@ -10174,12 +10165,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %.05.i11.i.i.i.i14.i.i.i.i.i = phi i64 [ %360, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i12.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i11.i.i.i.i.i ]
   %340 = add nsw i64 %.05.i11.i.i.i.i14.i.i.i.i.i, %338
   %341 = load i64, ptr %73, align 8, !tbaa !88, !noalias !728
-  %342 = getelementptr i16, ptr %.0.i.i.i, i64 %340
-  %343 = getelementptr i16, ptr %342, i64 %341
+  %342 = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %340
+  %343 = getelementptr [2 x i8], ptr %342, i64 %341
   %344 = load i16, ptr %343, align 2, !tbaa !733, !noalias !728
   %345 = load i64, ptr %335, align 8, !tbaa !89, !noalias !728
-  %346 = getelementptr i16, ptr %.0.i.i2.i, i64 %340
-  %347 = getelementptr i16, ptr %346, i64 %345
+  %346 = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %340
+  %347 = getelementptr [2 x i8], ptr %346, i64 %345
   %348 = load i16, ptr %347, align 2, !tbaa !733, !noalias !728
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !728
   store i16 %344, ptr %7, align 2, !noalias !728
@@ -10252,10 +10243,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %381, label %.lr.ph.i.i.i.i.i.i.i11.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i11.i.i.i:                     ; preds = %.thread.i.i.i.i.i10.i.i.i
-  %invariant.gep.i.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %368
+  %invariant.gep.i.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %368
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %383 = load i64, ptr %382, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %383
+  %invariant.gep2.i.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %383
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i.i.i.i.i = load i8, ptr %384, align 8, !tbaa !91, !noalias !728
   %385 = icmp ne i8 %.promoted.i.i.i.i.i.i.i.i.i.i, 0
@@ -10269,9 +10260,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 387:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i11.i.i.i
   %388 = phi i1 [ %385, %.lr.ph.i.i.i.i.i.i.i11.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i13.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i11.i.i.i ], [ %398, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %389 = load i16, ptr %gep.i.i.i.i.i.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
+  %gep3.i.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %390 = load i16, ptr %gep3.i.i.i.i.i.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %391 = icmp eq i16 %389, %390
   br i1 %391, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, label %392
@@ -10313,9 +10304,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
 
 .lr.ph.i13.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i16.i.i.i
   %409 = load i64, ptr %367, align 8, !tbaa !88, !noalias !728
-  %invariant.gep.i14.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %409
+  %invariant.gep.i14.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %409
   %410 = load i64, ptr %404, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i15.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %410
+  %invariant.gep2.i15.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %410
   %.promoted.i16.i.i.i.i.i.i.i.i.i = load i8, ptr %403, align 8, !tbaa !91, !noalias !728
   %411 = icmp ne i8 %.promoted.i16.i.i.i.i.i.i.i.i.i, 0
   br label %413
@@ -10329,9 +10320,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %414 = phi i1 [ %411, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %425, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %415 = add nsw i64 %.01.i17.i.i.i.i.i.i.i.i.i, %407
-  %gep.i18.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %415
+  %gep.i18.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %415
   %416 = load i16, ptr %gep.i18.i.i.i.i.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i19.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i15.i.i.i.i.i.i.i.i.i, i64 %415
+  %gep3.i19.i.i.i.i.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i15.i.i.i.i.i.i.i.i.i, i64 %415
   %417 = load i16, ptr %gep3.i19.i.i.i.i.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %418 = icmp eq i16 %416, %417
   br i1 %418, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, label %419
@@ -10379,10 +10370,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %437, label %.lr.ph.i.i.i.i.i6.i.i8.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i.i8.i.i.i:                     ; preds = %.thread.i.i.i5.i.i7.i.i.i
-  %invariant.gep.i.i.i.i.i7.i.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %368
+  %invariant.gep.i.i.i.i.i7.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %368
   %438 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %439 = load i64, ptr %438, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i.i.i.i.i8.i.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %439
+  %invariant.gep2.i.i.i.i.i8.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %439
   %440 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i9.i.i.i.i.i = load i8, ptr %440, align 8, !tbaa !91, !noalias !728
   %441 = icmp ne i8 %.promoted.i.i.i.i.i9.i.i.i.i.i, 0
@@ -10396,9 +10387,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 443:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i8.i.i.i
   %444 = phi i1 [ %441, %.lr.ph.i.i.i.i.i6.i.i8.i.i.i ], [ %.0.i.i.i.i.i.i.i14.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i10.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i.i8.i.i.i ], [ %454, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i11.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i.i.i7.i.i.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
+  %gep.i.i.i.i.i11.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i.i.i.i7.i.i.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
   %445 = load i16, ptr %gep.i.i.i.i.i11.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i.i.i.i.i12.i.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i.i.i.i.i8.i.i.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
+  %gep3.i.i.i.i.i12.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i.i.i.i.i8.i.i.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
   %446 = load i16, ptr %gep3.i.i.i.i.i12.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %447 = icmp eq i16 %445, %446
   br i1 %447, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, label %448
@@ -10440,9 +10431,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
 
 .lr.ph.i13.i.i.i.i20.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i18.i.i.i.i.i
   %465 = load i64, ptr %367, align 8, !tbaa !88, !noalias !728
-  %invariant.gep.i14.i.i.i.i21.i.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %465
+  %invariant.gep.i14.i.i.i.i21.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %465
   %466 = load i64, ptr %460, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %466
+  %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %466
   %.promoted.i16.i.i.i.i23.i.i.i.i.i = load i8, ptr %459, align 8, !tbaa !91, !noalias !728
   %467 = icmp ne i8 %.promoted.i16.i.i.i.i23.i.i.i.i.i, 0
   br label %469
@@ -10456,9 +10447,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %470 = phi i1 [ %467, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i28.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i24.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %481, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %471 = add nsw i64 %.01.i17.i.i.i.i24.i.i.i.i.i, %463
-  %gep.i18.i.i.i.i25.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i14.i.i.i.i21.i.i.i.i.i, i64 %471
+  %gep.i18.i.i.i.i25.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i14.i.i.i.i21.i.i.i.i.i, i64 %471
   %472 = load i16, ptr %gep.i18.i.i.i.i25.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i19.i.i.i.i26.i.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i, i64 %471
+  %gep3.i19.i.i.i.i26.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i, i64 %471
   %473 = load i16, ptr %gep3.i19.i.i.i.i26.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %474 = icmp eq i16 %472, %473
   br i1 %474, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, label %475
@@ -10509,10 +10500,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %494, label %.lr.ph.i.i.i.i.i.i17.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i17.i.i.i.i:                     ; preds = %.thread.i.i.i.i16.i.i.i.i
-  %invariant.gep.i.i.i.i.i.i18.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %368
+  %invariant.gep.i.i.i.i.i.i18.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %368
   %495 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %496 = load i64, ptr %495, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i.i.i.i.i.i19.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %496
+  %invariant.gep2.i.i.i.i.i.i19.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %496
   %497 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i20.i.i.i.i = load i8, ptr %497, align 8, !tbaa !91, !noalias !728
   %498 = icmp ne i8 %.promoted.i.i.i.i.i.i20.i.i.i.i, 0
@@ -10526,9 +10517,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 500:                                              ; preds = %500, %.lr.ph.i.i.i.i.i.i17.i.i.i.i
   %501 = phi i1 [ %498, %.lr.ph.i.i.i.i.i.i17.i.i.i.i ], [ %505, %500 ]
   %.01.i.i.i.i.i.i21.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i17.i.i.i.i ], [ %506, %500 ]
-  %gep.i.i.i.i.i.i22.i.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i.i.i.i18.i.i.i.i, i64 %.01.i.i.i.i.i.i21.i.i.i.i
+  %gep.i.i.i.i.i.i22.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i.i.i.i.i18.i.i.i.i, i64 %.01.i.i.i.i.i.i21.i.i.i.i
   %502 = load i16, ptr %gep.i.i.i.i.i.i22.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i.i.i.i.i.i23.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i.i.i.i.i.i19.i.i.i.i, i64 %.01.i.i.i.i.i.i21.i.i.i.i
+  %gep3.i.i.i.i.i.i23.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i.i.i.i.i.i19.i.i.i.i, i64 %.01.i.i.i.i.i.i21.i.i.i.i
   %503 = load i16, ptr %gep3.i.i.i.i.i.i23.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %504 = icmp eq i16 %502, %503
   %505 = and i1 %501, %504
@@ -10558,9 +10549,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 
 .lr.ph.i13.i.i.i.i.i29.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i27.i.i.i.i
   %517 = load i64, ptr %367, align 8, !tbaa !88, !noalias !728
-  %invariant.gep.i14.i.i.i.i.i30.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %517
+  %invariant.gep.i14.i.i.i.i.i30.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %517
   %518 = load i64, ptr %512, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i15.i.i.i.i.i31.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %518
+  %invariant.gep2.i15.i.i.i.i.i31.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %518
   %.promoted.i16.i.i.i.i.i32.i.i.i.i = load i8, ptr %511, align 8, !tbaa !91, !noalias !728
   %519 = icmp ne i8 %.promoted.i16.i.i.i.i.i32.i.i.i.i, 0
   br label %521
@@ -10574,9 +10565,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %522 = phi i1 [ %519, %.lr.ph.i13.i.i.i.i.i29.i.i.i.i ], [ %527, %521 ]
   %.01.i17.i.i.i.i.i33.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i29.i.i.i.i ], [ %528, %521 ]
   %523 = add nsw i64 %.01.i17.i.i.i.i.i33.i.i.i.i, %515
-  %gep.i18.i.i.i.i.i34.i.i.i.i = getelementptr i16, ptr %invariant.gep.i14.i.i.i.i.i30.i.i.i.i, i64 %523
+  %gep.i18.i.i.i.i.i34.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i14.i.i.i.i.i30.i.i.i.i, i64 %523
   %524 = load i16, ptr %gep.i18.i.i.i.i.i34.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i19.i.i.i.i.i35.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i15.i.i.i.i.i31.i.i.i.i, i64 %523
+  %gep3.i19.i.i.i.i.i35.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i15.i.i.i.i.i31.i.i.i.i, i64 %523
   %525 = load i16, ptr %gep3.i19.i.i.i.i.i35.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %526 = icmp eq i16 %524, %525
   %527 = and i1 %522, %526
@@ -10612,10 +10603,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %540, label %.lr.ph.i.i.i.i.i6.i8.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i8.i.i.i.i:                     ; preds = %.thread.i.i.i5.i7.i.i.i.i
-  %invariant.gep.i.i.i.i.i7.i9.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %368
+  %invariant.gep.i.i.i.i.i7.i9.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %368
   %541 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %542 = load i64, ptr %541, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %542
+  %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %542
   %543 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i9.i11.i.i.i.i = load i8, ptr %543, align 8, !tbaa !91, !noalias !728
   %544 = icmp ne i8 %.promoted.i.i.i.i.i9.i11.i.i.i.i, 0
@@ -10629,9 +10620,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 546:                                              ; preds = %546, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i
   %547 = phi i1 [ %544, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i ], [ %551, %546 ]
   %.01.i.i.i.i.i10.i12.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i ], [ %552, %546 ]
-  %gep.i.i.i.i.i11.i13.i.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i.i.i7.i9.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
+  %gep.i.i.i.i.i11.i13.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i.i.i.i7.i9.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
   %548 = load i16, ptr %gep.i.i.i.i.i11.i13.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i.i.i.i.i12.i14.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
+  %gep3.i.i.i.i.i12.i14.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
   %549 = load i16, ptr %gep3.i.i.i.i.i12.i14.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %550 = icmp eq i16 %548, %549
   %551 = and i1 %547, %550
@@ -10661,9 +10652,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 
 .lr.ph.i13.i.i.i.i18.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i16.i.i.i.i.i
   %563 = load i64, ptr %367, align 8, !tbaa !88, !noalias !728
-  %invariant.gep.i14.i.i.i.i19.i.i.i.i.i = getelementptr i16, ptr %.0.i.i.i, i64 %563
+  %invariant.gep.i14.i.i.i.i19.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i.i, i64 %563
   %564 = load i64, ptr %558, align 8, !tbaa !89, !noalias !728
-  %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i = getelementptr i16, ptr %.0.i.i2.i, i64 %564
+  %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i = getelementptr [2 x i8], ptr %.0.i.i2.i, i64 %564
   %.promoted.i16.i.i.i.i21.i.i.i.i.i = load i8, ptr %557, align 8, !tbaa !91, !noalias !728
   %565 = icmp ne i8 %.promoted.i16.i.i.i.i21.i.i.i.i.i, 0
   br label %567
@@ -10677,9 +10668,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %568 = phi i1 [ %565, %.lr.ph.i13.i.i.i.i18.i.i.i.i.i ], [ %573, %567 ]
   %.01.i17.i.i.i.i22.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i18.i.i.i.i.i ], [ %574, %567 ]
   %569 = add nsw i64 %.01.i17.i.i.i.i22.i.i.i.i.i, %561
-  %gep.i18.i.i.i.i23.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i14.i.i.i.i19.i.i.i.i.i, i64 %569
+  %gep.i18.i.i.i.i23.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i14.i.i.i.i19.i.i.i.i.i, i64 %569
   %570 = load i16, ptr %gep.i18.i.i.i.i23.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
-  %gep3.i19.i.i.i.i24.i.i.i.i.i = getelementptr i16, ptr %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i, i64 %569
+  %gep3.i19.i.i.i.i24.i.i.i.i.i = getelementptr [2 x i8], ptr %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i, i64 %569
   %571 = load i16, ptr %gep3.i19.i.i.i.i24.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
   %572 = icmp eq i16 %570, %571
   %573 = and i1 %568, %572
@@ -10731,7 +10722,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !745
   %25 = select i1 %22, ptr %24, ptr null, !prof !96
-  %26 = getelementptr inbounds float, ptr %25, i64 %19
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %19
   br label %_ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit.i:   ; preds = %17, %2
@@ -10754,7 +10745,7 @@ _ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit.i:   ; preds = %17, %2
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %40 = load ptr, ptr %39, align 8, !noalias !745
   %41 = select i1 %38, ptr %40, ptr null, !prof !96
-  %42 = getelementptr inbounds float, ptr %41, i64 %35
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %35
   br label %_ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit.i
@@ -10806,10 +10797,10 @@ _ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
   br i1 %71, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.thread.i.i.i.i.i.i.i.i
-  %invariant.gep.i.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %58
+  %invariant.gep.i.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %58
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %73 = load i64, ptr %72, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %73
+  %invariant.gep2.i.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %73
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted7.i.i.i.i.i = load i8, ptr %74, align 8, !tbaa !91, !noalias !745
   %75 = icmp ne i8 %.promoted7.i.i.i.i.i, 0
@@ -10818,9 +10809,9 @@ _ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
 76:                                               ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %77 = phi i1 [ %75, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %89, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %78 = load float, ptr %gep.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
+  %gep3.i.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %79 = load float, ptr %gep3.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %80 = fcmp oeq float %78, %79
   br i1 %80, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, label %81
@@ -10866,9 +10857,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
 
 .lr.ph.i13.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %100 = load i64, ptr %57, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %100
+  %invariant.gep.i14.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %100
   %101 = load i64, ptr %95, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %101
+  %invariant.gep2.i15.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %101
   %.promoted5.i.i.i.i.i = load i8, ptr %94, align 8, !tbaa !91, !noalias !745
   %102 = icmp ne i8 %.promoted5.i.i.i.i.i, 0
   br label %103
@@ -10877,9 +10868,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   %104 = phi i1 [ %102, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i16.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %117, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %105 = add nsw i64 %.01.i16.i.i.i.i.i.i.i.i.i, %98
-  %gep.i17.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %105
+  %gep.i17.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %105
   %106 = load float, ptr %gep.i17.i.i.i.i.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i18.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i.i.i.i.i.i, i64 %105
+  %gep3.i18.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i.i.i.i.i.i, i64 %105
   %107 = load float, ptr %gep3.i18.i.i.i.i.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %108 = fcmp oeq float %106, %107
   br i1 %108, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, label %109
@@ -10936,10 +10927,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %130, label %.lr.ph.i.i.i.i.i6.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i.i.i.i.i:                      ; preds = %.thread.i.i.i5.i.i.i.i.i
-  %invariant.gep.i.i.i.i.i7.i.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %58
+  %invariant.gep.i.i.i.i.i7.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %58
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %132 = load i64, ptr %131, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i8.i.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %132
+  %invariant.gep2.i.i.i.i.i8.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %132
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted3.i.i.i.i.i = load i8, ptr %133, align 8, !tbaa !91, !noalias !745
   %134 = icmp ne i8 %.promoted3.i.i.i.i.i, 0
@@ -10948,9 +10939,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 135:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i.i.i.i
   %136 = phi i1 [ %134, %.lr.ph.i.i.i.i.i6.i.i.i.i.i ], [ %152, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i9.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i.i.i.i.i ], [ %153, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i10.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i7.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
+  %gep.i.i.i.i.i10.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i7.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
   %137 = load float, ptr %gep.i.i.i.i.i10.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i11.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i8.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
+  %gep3.i.i.i.i.i11.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i8.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
   %138 = load float, ptr %gep3.i.i.i.i.i11.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %139 = fcmp oeq float %137, %138
   br i1 %139, label %140, label %145
@@ -11003,9 +10994,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
 
 .lr.ph.i13.i.i.i.i19.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i17.i.i.i.i.i
   %164 = load i64, ptr %57, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i20.i.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %164
+  %invariant.gep.i14.i.i.i.i20.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %164
   %165 = load i64, ptr %159, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %165
+  %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %165
   %.promoted.i.i.i.i.i = load i8, ptr %158, align 8, !tbaa !91, !noalias !745
   %166 = icmp ne i8 %.promoted.i.i.i.i.i, 0
   br label %167
@@ -11014,9 +11005,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   %168 = phi i1 [ %166, %.lr.ph.i13.i.i.i.i19.i.i.i.i.i ], [ %185, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i16.i.i.i.i22.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i19.i.i.i.i.i ], [ %186, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %169 = add nsw i64 %.01.i16.i.i.i.i22.i.i.i.i.i, %162
-  %gep.i17.i.i.i.i23.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i20.i.i.i.i.i, i64 %169
+  %gep.i17.i.i.i.i23.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i20.i.i.i.i.i, i64 %169
   %170 = load float, ptr %gep.i17.i.i.i.i23.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i18.i.i.i.i24.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i, i64 %169
+  %gep3.i18.i.i.i.i24.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i, i64 %169
   %171 = load float, ptr %gep3.i18.i.i.i.i24.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %172 = fcmp oeq float %170, %171
   br i1 %172, label %173, label %178
@@ -11093,10 +11084,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
   br i1 %202, label %.lr.ph.i.i.i.i.i.i19.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i19.i.i.i.i:                     ; preds = %.thread.i.i.i.i18.i.i.i.i
-  %invariant.gep.i.i.i.i.i.i20.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %58
+  %invariant.gep.i.i.i.i.i.i20.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %58
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %204 = load i64, ptr %203, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i.i21.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %204
+  %invariant.gep2.i.i.i.i.i.i21.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %204
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.pre.i.i.i.i.i.i.i.i.i.i = load i8, ptr %205, align 8, !tbaa !91, !range !81, !noalias !745
   %206 = icmp ne i8 %.pre.i.i.i.i.i.i.i.i.i.i, 0
@@ -11105,9 +11096,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
 207:                                              ; preds = %207, %.lr.ph.i.i.i.i.i.i19.i.i.i.i
   %208 = phi i1 [ %206, %.lr.ph.i.i.i.i.i.i19.i.i.i.i ], [ %215, %207 ]
   %.01.i.i.i.i.i.i22.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i19.i.i.i.i ], [ %216, %207 ]
-  %gep.i.i.i.i.i.i23.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
+  %gep.i.i.i.i.i.i23.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
   %209 = load float, ptr %gep.i.i.i.i.i.i23.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i.i24.i.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i.i21.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
+  %gep3.i.i.i.i.i.i24.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i.i21.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
   %210 = load float, ptr %gep3.i.i.i.i.i.i24.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %211 = fcmp oeq float %209, %210
   %212 = fsub float %209, %210
@@ -11141,9 +11132,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
 
 .lr.ph.i13.i.i.i.i.i30.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i28.i.i.i.i
   %227 = load i64, ptr %57, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i.i31.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %227
+  %invariant.gep.i14.i.i.i.i.i31.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %227
   %228 = load i64, ptr %222, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %228
+  %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %228
   %.pre.i16.i.i.i.i.i.i.i.i.i = load i8, ptr %221, align 8, !tbaa !91, !range !81, !noalias !745
   %229 = icmp ne i8 %.pre.i16.i.i.i.i.i.i.i.i.i, 0
   br label %230
@@ -11152,9 +11143,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
   %231 = phi i1 [ %229, %.lr.ph.i13.i.i.i.i.i30.i.i.i.i ], [ %239, %230 ]
   %.01.i17.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i30.i.i.i.i ], [ %240, %230 ]
   %232 = add nsw i64 %.01.i17.i.i.i.i.i.i.i.i.i, %225
-  %gep.i18.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i.i31.i.i.i.i, i64 %232
+  %gep.i18.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i.i31.i.i.i.i, i64 %232
   %233 = load float, ptr %gep.i18.i.i.i.i.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i19.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i, i64 %232
+  %gep3.i19.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i, i64 %232
   %234 = load float, ptr %gep3.i19.i.i.i.i.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %235 = fcmp oeq float %233, %234
   %236 = fsub float %233, %234
@@ -11199,10 +11190,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %253, label %.lr.ph.i.i.i.i.i6.i9.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i9.i.i.i.i:                     ; preds = %.thread.i.i.i5.i8.i.i.i.i
-  %invariant.gep.i.i.i.i.i7.i10.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %58
+  %invariant.gep.i.i.i.i.i7.i10.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %58
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %255 = load i64, ptr %254, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %255
+  %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %255
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i.i.i.i.i = load i8, ptr %256, align 8, !tbaa !91, !noalias !745
   %257 = icmp ne i8 %.promoted.i.i.i.i.i.i.i.i.i.i, 0
@@ -11211,9 +11202,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 258:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i
   %259 = phi i1 [ %257, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i ], [ %272, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i9.i12.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i ], [ %273, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i10.i13.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i7.i10.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
+  %gep.i.i.i.i.i10.i13.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i7.i10.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
   %260 = load float, ptr %gep.i.i.i.i.i10.i13.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i11.i14.i.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
+  %gep3.i.i.i.i.i11.i14.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
   %261 = load float, ptr %gep3.i.i.i.i.i11.i14.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %262 = fcmp oeq float %260, %261
   br i1 %262, label %263, label %268
@@ -11260,9 +11251,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
 
 .lr.ph.i13.i.i.i.i18.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i16.i.i.i.i.i
   %284 = load i64, ptr %57, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i19.i.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %284
+  %invariant.gep.i14.i.i.i.i19.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %284
   %285 = load i64, ptr %279, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %285
+  %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %285
   %.promoted.i16.i.i.i.i.i.i.i.i.i = load i8, ptr %278, align 8, !tbaa !91, !noalias !745
   %286 = icmp ne i8 %.promoted.i16.i.i.i.i.i.i.i.i.i, 0
   br label %287
@@ -11271,9 +11262,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   %288 = phi i1 [ %286, %.lr.ph.i13.i.i.i.i18.i.i.i.i.i ], [ %302, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i21.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i18.i.i.i.i.i ], [ %303, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %289 = add nsw i64 %.01.i17.i.i.i.i21.i.i.i.i.i, %282
-  %gep.i18.i.i.i.i22.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i19.i.i.i.i.i, i64 %289
+  %gep.i18.i.i.i.i22.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i19.i.i.i.i.i, i64 %289
   %290 = load float, ptr %gep.i18.i.i.i.i22.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i19.i.i.i.i23.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i, i64 %289
+  %gep3.i19.i.i.i.i23.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i, i64 %289
   %291 = load float, ptr %gep3.i19.i.i.i.i23.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %292 = fcmp oeq float %290, %291
   br i1 %292, label %293, label %298
@@ -11356,10 +11347,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
   br i1 %327, label %.lr.ph.i.i.i.i.i.i.i31.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i31.i.i.i:                     ; preds = %.thread.i.i.i.i.i30.i.i.i
-  %invariant.gep.i.i.i.i.i.i.i32.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %314
+  %invariant.gep.i.i.i.i.i.i.i32.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %314
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %329 = load i64, ptr %328, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i.i.i33.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %329
+  %invariant.gep2.i.i.i.i.i.i.i33.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %329
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i.i34.i.i.i = load i8, ptr %330, align 8, !tbaa !91, !noalias !745
   %331 = icmp ne i8 %.promoted.i.i.i.i.i.i.i34.i.i.i, 0
@@ -11373,9 +11364,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
 333:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i31.i.i.i
   %334 = phi i1 [ %331, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i39.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i35.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %342, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i.i.i36.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i.i32.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
+  %gep.i.i.i.i.i.i.i36.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i.i.i32.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
   %335 = load float, ptr %gep.i.i.i.i.i.i.i36.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i.i.i37.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i.i.i33.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
+  %gep3.i.i.i.i.i.i.i37.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i.i.i33.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
   %336 = load float, ptr %gep3.i.i.i.i.i.i.i37.i.i.i, align 4, !tbaa !336, !noalias !745
   %337 = fcmp oeq float %335, %336
   br i1 %337, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, label %338
@@ -11415,9 +11406,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
 
 .lr.ph.i13.i.i.i.i.i.i44.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i42.i.i.i
   %353 = load i64, ptr %313, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i.i.i45.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %353
+  %invariant.gep.i14.i.i.i.i.i.i45.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %353
   %354 = load i64, ptr %348, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %354
+  %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %354
   %.promoted.i16.i.i.i.i.i.i47.i.i.i = load i8, ptr %347, align 8, !tbaa !91, !noalias !745
   %355 = icmp ne i8 %.promoted.i16.i.i.i.i.i.i47.i.i.i, 0
   br label %357
@@ -11431,9 +11422,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   %358 = phi i1 [ %355, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i52.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i.i.i48.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %367, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %359 = add nsw i64 %.01.i17.i.i.i.i.i.i48.i.i.i, %351
-  %gep.i18.i.i.i.i.i.i49.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i.i.i45.i.i.i, i64 %359
+  %gep.i18.i.i.i.i.i.i49.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i.i.i45.i.i.i, i64 %359
   %360 = load float, ptr %gep.i18.i.i.i.i.i.i49.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i19.i.i.i.i.i.i50.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i, i64 %359
+  %gep3.i19.i.i.i.i.i.i50.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i, i64 %359
   %361 = load float, ptr %gep3.i19.i.i.i.i.i.i50.i.i.i, align 4, !tbaa !336, !noalias !745
   %362 = fcmp oeq float %360, %361
   br i1 %362, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, label %363
@@ -11479,10 +11470,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %379, label %.lr.ph.i.i.i.i.i6.i.i23.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i.i23.i.i.i:                    ; preds = %.thread.i.i.i5.i.i22.i.i.i
-  %invariant.gep.i.i.i.i.i7.i.i24.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %314
+  %invariant.gep.i.i.i.i.i7.i.i24.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %314
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %381 = load i64, ptr %380, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %381
+  %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %381
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i9.i.i.i.i.i = load i8, ptr %382, align 8, !tbaa !91, !noalias !745
   %383 = icmp ne i8 %.promoted.i.i.i.i.i9.i.i.i.i.i, 0
@@ -11496,9 +11487,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 385:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i23.i.i.i
   %386 = phi i1 [ %383, %.lr.ph.i.i.i.i.i6.i.i23.i.i.i ], [ %398, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i10.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i.i23.i.i.i ], [ %399, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i11.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i7.i.i24.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
+  %gep.i.i.i.i.i11.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i7.i.i24.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
   %387 = load float, ptr %gep.i.i.i.i.i11.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i12.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
+  %gep3.i.i.i.i.i12.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
   %388 = load float, ptr %gep3.i.i.i.i.i12.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %389 = fcmp oeq float %387, %388
   br i1 %389, label %390, label %395
@@ -11545,9 +11536,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
 
 .lr.ph.i13.i.i.i.i20.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i18.i.i.i.i.i
   %410 = load i64, ptr %313, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i21.i.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %410
+  %invariant.gep.i14.i.i.i.i21.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %410
   %411 = load i64, ptr %405, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %411
+  %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %411
   %.promoted.i16.i.i.i.i23.i.i.i.i.i = load i8, ptr %404, align 8, !tbaa !91, !noalias !745
   %412 = icmp ne i8 %.promoted.i16.i.i.i.i23.i.i.i.i.i, 0
   br label %414
@@ -11561,9 +11552,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   %415 = phi i1 [ %412, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %428, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i24.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %429, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %416 = add nsw i64 %.01.i17.i.i.i.i24.i.i.i.i.i, %408
-  %gep.i18.i.i.i.i25.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i21.i.i.i.i.i, i64 %416
+  %gep.i18.i.i.i.i25.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i21.i.i.i.i.i, i64 %416
   %417 = load float, ptr %gep.i18.i.i.i.i25.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i19.i.i.i.i26.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i, i64 %416
+  %gep3.i19.i.i.i.i26.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i, i64 %416
   %418 = load float, ptr %gep3.i19.i.i.i.i26.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %419 = fcmp oeq float %417, %418
   br i1 %419, label %420, label %425
@@ -11619,10 +11610,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %442, label %.lr.ph.i.i.i.i.i.i18.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i18.i.i.i.i:                     ; preds = %.thread.i.i.i.i17.i.i.i.i
-  %invariant.gep.i.i.i.i.i.i19.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %314
+  %invariant.gep.i.i.i.i.i.i19.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %314
   %443 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %444 = load i64, ptr %443, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i.i20.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %444
+  %invariant.gep2.i.i.i.i.i.i20.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %444
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i21.i.i.i.i = load i8, ptr %445, align 8, !tbaa !91, !noalias !745
   %446 = icmp ne i8 %.promoted.i.i.i.i.i.i21.i.i.i.i, 0
@@ -11636,9 +11627,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 448:                                              ; preds = %448, %.lr.ph.i.i.i.i.i.i18.i.i.i.i
   %449 = phi i1 [ %446, %.lr.ph.i.i.i.i.i.i18.i.i.i.i ], [ %453, %448 ]
   %.01.i.i.i.i.i.i22.i12.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i18.i.i.i.i ], [ %454, %448 ]
-  %gep.i.i.i.i.i.i23.i13.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i19.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
+  %gep.i.i.i.i.i.i23.i13.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i.i19.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
   %450 = load float, ptr %gep.i.i.i.i.i.i23.i13.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i.i24.i14.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
+  %gep3.i.i.i.i.i.i24.i14.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
   %451 = load float, ptr %gep3.i.i.i.i.i.i24.i14.i.i.i, align 4, !tbaa !336, !noalias !745
   %452 = fcmp oeq float %450, %451
   %453 = and i1 %449, %452
@@ -11668,9 +11659,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 
 .lr.ph.i13.i.i.i.i.i30.i18.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i28.i16.i.i.i
   %465 = load i64, ptr %313, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %465
+  %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %465
   %466 = load i64, ptr %460, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %466
+  %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %466
   %.promoted.i16.i.i.i.i.i33.i.i.i.i = load i8, ptr %459, align 8, !tbaa !91, !noalias !745
   %467 = icmp ne i8 %.promoted.i16.i.i.i.i.i33.i.i.i.i, 0
   br label %469
@@ -11684,9 +11675,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %470 = phi i1 [ %467, %.lr.ph.i13.i.i.i.i.i30.i18.i.i.i ], [ %475, %469 ]
   %.01.i17.i.i.i.i.i34.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i30.i18.i.i.i ], [ %476, %469 ]
   %471 = add nsw i64 %.01.i17.i.i.i.i.i34.i.i.i.i, %463
-  %gep.i18.i.i.i.i.i35.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i, i64 %471
+  %gep.i18.i.i.i.i.i35.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i, i64 %471
   %472 = load float, ptr %gep.i18.i.i.i.i.i35.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i19.i.i.i.i.i36.i.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i, i64 %471
+  %gep3.i19.i.i.i.i.i36.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i, i64 %471
   %473 = load float, ptr %gep3.i19.i.i.i.i.i36.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %474 = fcmp oeq float %472, %473
   %475 = and i1 %470, %474
@@ -11722,10 +11713,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %488, label %.lr.ph.i.i.i.i.i6.i8.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i8.i.i.i.i:                     ; preds = %.thread.i.i.i5.i7.i.i.i.i
-  %invariant.gep.i.i.i.i.i7.i9.i.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %314
+  %invariant.gep.i.i.i.i.i7.i9.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %314
   %489 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %490 = load i64, ptr %489, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %490
+  %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %490
   %491 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i9.i11.i.i.i.i = load i8, ptr %491, align 8, !tbaa !91, !noalias !745
   %492 = icmp ne i8 %.promoted.i.i.i.i.i9.i11.i.i.i.i, 0
@@ -11739,9 +11730,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 494:                                              ; preds = %494, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i
   %495 = phi i1 [ %492, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i ], [ %503, %494 ]
   %.01.i.i.i.i.i10.i12.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i ], [ %504, %494 ]
-  %gep.i.i.i.i.i11.i13.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i7.i9.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
+  %gep.i.i.i.i.i11.i13.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i.i.i7.i9.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
   %496 = load float, ptr %gep.i.i.i.i.i11.i13.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i.i.i.i.i12.i14.i.i.i.i = getelementptr float, ptr %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
+  %gep3.i.i.i.i.i12.i14.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
   %497 = load float, ptr %gep3.i.i.i.i.i12.i14.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %498 = fcmp oeq float %496, %497
   %499 = bitcast float %496 to i32
@@ -11776,9 +11767,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 
 .lr.ph.i13.i.i.i.i18.i.i9.i.i.i:                  ; preds = %.lr.ph.i.i.i.i16.i.i7.i.i.i
   %515 = load i64, ptr %313, align 8, !tbaa !88, !noalias !745
-  %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i = getelementptr float, ptr %.0.i.i.i, i64 %515
+  %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i = getelementptr [4 x i8], ptr %.0.i.i.i, i64 %515
   %516 = load i64, ptr %510, align 8, !tbaa !89, !noalias !745
-  %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i = getelementptr float, ptr %.0.i.i2.i, i64 %516
+  %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i = getelementptr [4 x i8], ptr %.0.i.i2.i, i64 %516
   %.promoted.i16.i.i.i.i21.i.i.i.i.i = load i8, ptr %509, align 8, !tbaa !91, !noalias !745
   %517 = icmp ne i8 %.promoted.i16.i.i.i.i21.i.i.i.i.i, 0
   br label %519
@@ -11792,9 +11783,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %520 = phi i1 [ %517, %.lr.ph.i13.i.i.i.i18.i.i9.i.i.i ], [ %529, %519 ]
   %.01.i17.i.i.i.i22.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i18.i.i9.i.i.i ], [ %530, %519 ]
   %521 = add nsw i64 %.01.i17.i.i.i.i22.i.i.i.i.i, %513
-  %gep.i18.i.i.i.i23.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i, i64 %521
+  %gep.i18.i.i.i.i23.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i, i64 %521
   %522 = load float, ptr %gep.i18.i.i.i.i23.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
-  %gep3.i19.i.i.i.i24.i.i.i.i.i = getelementptr float, ptr %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i, i64 %521
+  %gep3.i19.i.i.i.i24.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i, i64 %521
   %523 = load float, ptr %gep3.i19.i.i.i.i24.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
   %524 = fcmp oeq float %522, %523
   %525 = bitcast float %522 to i32
@@ -11851,7 +11842,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !759
   %25 = select i1 %22, ptr %24, ptr null, !prof !96
-  %26 = getelementptr inbounds double, ptr %25, i64 %19
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %19
   br label %_ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit.i:   ; preds = %17, %2
@@ -11874,7 +11865,7 @@ _ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit.i:   ; preds = %17, %2
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %40 = load ptr, ptr %39, align 8, !noalias !759
   %41 = select i1 %38, ptr %40, ptr null, !prof !96
-  %42 = getelementptr inbounds double, ptr %41, i64 %35
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %35
   br label %_ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit.i
@@ -11925,10 +11916,10 @@ _ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
   br i1 %70, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.thread.i.i.i.i.i.i.i.i
-  %invariant.gep.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %57
+  %invariant.gep.i.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %57
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %72 = load i64, ptr %71, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %72
+  %invariant.gep2.i.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %72
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted7.i.i.i.i.i = load i8, ptr %73, align 8, !tbaa !91, !noalias !759
   %74 = icmp ne i8 %.promoted7.i.i.i.i.i, 0
@@ -11937,9 +11928,9 @@ _ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
 75:                                               ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %76 = phi i1 [ %74, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %88, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %77 = load double, ptr %gep.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
+  %gep3.i.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %78 = load double, ptr %gep3.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %79 = fcmp oeq double %77, %78
   br i1 %79, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, label %80
@@ -11985,9 +11976,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
 
 .lr.ph.i13.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %99 = load i64, ptr %56, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %99
+  %invariant.gep.i14.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %99
   %100 = load i64, ptr %94, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %100
+  %invariant.gep2.i15.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %100
   %.promoted5.i.i.i.i.i = load i8, ptr %93, align 8, !tbaa !91, !noalias !759
   %101 = icmp ne i8 %.promoted5.i.i.i.i.i, 0
   br label %102
@@ -11996,9 +11987,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   %103 = phi i1 [ %101, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i16.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %116, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %104 = add nsw i64 %.01.i16.i.i.i.i.i.i.i.i.i, %97
-  %gep.i17.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %104
+  %gep.i17.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %104
   %105 = load double, ptr %gep.i17.i.i.i.i.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i18.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i.i.i.i.i.i, i64 %104
+  %gep3.i18.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i.i.i.i.i.i, i64 %104
   %106 = load double, ptr %gep3.i18.i.i.i.i.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %107 = fcmp oeq double %105, %106
   br i1 %107, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, label %108
@@ -12055,10 +12046,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %129, label %.lr.ph.i.i.i.i.i6.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i.i.i.i.i:                      ; preds = %.thread.i.i.i5.i.i.i.i.i
-  %invariant.gep.i.i.i.i.i7.i.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %57
+  %invariant.gep.i.i.i.i.i7.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %57
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %131 = load i64, ptr %130, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i8.i.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %131
+  %invariant.gep2.i.i.i.i.i8.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %131
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted3.i.i.i.i.i = load i8, ptr %132, align 8, !tbaa !91, !noalias !759
   %133 = icmp ne i8 %.promoted3.i.i.i.i.i, 0
@@ -12067,9 +12058,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 134:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i.i.i.i
   %135 = phi i1 [ %133, %.lr.ph.i.i.i.i.i6.i.i.i.i.i ], [ %151, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i9.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i.i.i.i.i ], [ %152, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i10.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i7.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
+  %gep.i.i.i.i.i10.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i7.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
   %136 = load double, ptr %gep.i.i.i.i.i10.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i11.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i8.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
+  %gep3.i.i.i.i.i11.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i8.i.i.i.i.i, i64 %.01.i.i.i.i.i9.i.i.i.i.i
   %137 = load double, ptr %gep3.i.i.i.i.i11.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %138 = fcmp oeq double %136, %137
   br i1 %138, label %139, label %144
@@ -12122,9 +12113,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
 
 .lr.ph.i13.i.i.i.i19.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i17.i.i.i.i.i
   %163 = load i64, ptr %56, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i20.i.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %163
+  %invariant.gep.i14.i.i.i.i20.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %163
   %164 = load i64, ptr %158, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %164
+  %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %164
   %.promoted.i.i.i.i.i = load i8, ptr %157, align 8, !tbaa !91, !noalias !759
   %165 = icmp ne i8 %.promoted.i.i.i.i.i, 0
   br label %166
@@ -12133,9 +12124,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   %167 = phi i1 [ %165, %.lr.ph.i13.i.i.i.i19.i.i.i.i.i ], [ %184, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i16.i.i.i.i22.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i19.i.i.i.i.i ], [ %185, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %168 = add nsw i64 %.01.i16.i.i.i.i22.i.i.i.i.i, %161
-  %gep.i17.i.i.i.i23.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i20.i.i.i.i.i, i64 %168
+  %gep.i17.i.i.i.i23.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i20.i.i.i.i.i, i64 %168
   %169 = load double, ptr %gep.i17.i.i.i.i23.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i18.i.i.i.i24.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i, i64 %168
+  %gep3.i18.i.i.i.i24.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i21.i.i.i.i.i, i64 %168
   %170 = load double, ptr %gep3.i18.i.i.i.i24.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %171 = fcmp oeq double %169, %170
   br i1 %171, label %172, label %177
@@ -12212,10 +12203,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
   br i1 %201, label %.lr.ph.i.i.i.i.i.i19.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i19.i.i.i.i:                     ; preds = %.thread.i.i.i.i18.i.i.i.i
-  %invariant.gep.i.i.i.i.i.i20.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %57
+  %invariant.gep.i.i.i.i.i.i20.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %57
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %203 = load i64, ptr %202, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i.i21.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %203
+  %invariant.gep2.i.i.i.i.i.i21.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %203
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.pre.i.i.i.i.i.i.i.i.i.i = load i8, ptr %204, align 8, !tbaa !91, !range !81, !noalias !759
   %205 = icmp ne i8 %.pre.i.i.i.i.i.i.i.i.i.i, 0
@@ -12224,9 +12215,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
 206:                                              ; preds = %206, %.lr.ph.i.i.i.i.i.i19.i.i.i.i
   %207 = phi i1 [ %205, %.lr.ph.i.i.i.i.i.i19.i.i.i.i ], [ %214, %206 ]
   %.01.i.i.i.i.i.i22.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i19.i.i.i.i ], [ %215, %206 ]
-  %gep.i.i.i.i.i.i23.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
+  %gep.i.i.i.i.i.i23.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
   %208 = load double, ptr %gep.i.i.i.i.i.i23.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i.i24.i.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i.i21.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
+  %gep3.i.i.i.i.i.i24.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i.i21.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i.i.i.i
   %209 = load double, ptr %gep3.i.i.i.i.i.i24.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %210 = fcmp oeq double %208, %209
   %211 = fsub double %208, %209
@@ -12260,9 +12251,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
 
 .lr.ph.i13.i.i.i.i.i30.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i28.i.i.i.i
   %226 = load i64, ptr %56, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i.i31.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %226
+  %invariant.gep.i14.i.i.i.i.i31.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %226
   %227 = load i64, ptr %221, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %227
+  %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %227
   %.pre.i16.i.i.i.i.i.i.i.i.i = load i8, ptr %220, align 8, !tbaa !91, !range !81, !noalias !759
   %228 = icmp ne i8 %.pre.i16.i.i.i.i.i.i.i.i.i, 0
   br label %229
@@ -12271,9 +12262,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
   %230 = phi i1 [ %228, %.lr.ph.i13.i.i.i.i.i30.i.i.i.i ], [ %238, %229 ]
   %.01.i17.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i30.i.i.i.i ], [ %239, %229 ]
   %231 = add nsw i64 %.01.i17.i.i.i.i.i.i.i.i.i, %224
-  %gep.i18.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i.i31.i.i.i.i, i64 %231
+  %gep.i18.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i.i31.i.i.i.i, i64 %231
   %232 = load double, ptr %gep.i18.i.i.i.i.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i19.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i, i64 %231
+  %gep3.i19.i.i.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i.i32.i.i.i.i, i64 %231
   %233 = load double, ptr %gep3.i19.i.i.i.i.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %234 = fcmp oeq double %232, %233
   %235 = fsub double %232, %233
@@ -12318,10 +12309,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %252, label %.lr.ph.i.i.i.i.i6.i9.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i9.i.i.i.i:                     ; preds = %.thread.i.i.i5.i8.i.i.i.i
-  %invariant.gep.i.i.i.i.i7.i10.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %57
+  %invariant.gep.i.i.i.i.i7.i10.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %57
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %254 = load i64, ptr %253, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %254
+  %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %254
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i.i.i.i.i = load i8, ptr %255, align 8, !tbaa !91, !noalias !759
   %256 = icmp ne i8 %.promoted.i.i.i.i.i.i.i.i.i.i, 0
@@ -12330,9 +12321,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 257:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i
   %258 = phi i1 [ %256, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i ], [ %271, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i9.i12.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i9.i.i.i.i ], [ %272, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i10.i13.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i7.i10.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
+  %gep.i.i.i.i.i10.i13.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i7.i10.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
   %259 = load double, ptr %gep.i.i.i.i.i10.i13.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i11.i14.i.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
+  %gep3.i.i.i.i.i11.i14.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i8.i11.i.i.i.i, i64 %.01.i.i.i.i.i9.i12.i.i.i.i
   %260 = load double, ptr %gep3.i.i.i.i.i11.i14.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %261 = fcmp oeq double %259, %260
   br i1 %261, label %262, label %267
@@ -12379,9 +12370,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
 
 .lr.ph.i13.i.i.i.i18.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i16.i.i.i.i.i
   %283 = load i64, ptr %56, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i19.i.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %283
+  %invariant.gep.i14.i.i.i.i19.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %283
   %284 = load i64, ptr %278, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %284
+  %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %284
   %.promoted.i16.i.i.i.i.i.i.i.i.i = load i8, ptr %277, align 8, !tbaa !91, !noalias !759
   %285 = icmp ne i8 %.promoted.i16.i.i.i.i.i.i.i.i.i, 0
   br label %286
@@ -12390,9 +12381,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   %287 = phi i1 [ %285, %.lr.ph.i13.i.i.i.i18.i.i.i.i.i ], [ %301, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i21.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i18.i.i.i.i.i ], [ %302, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb0ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %288 = add nsw i64 %.01.i17.i.i.i.i21.i.i.i.i.i, %281
-  %gep.i18.i.i.i.i22.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i19.i.i.i.i.i, i64 %288
+  %gep.i18.i.i.i.i22.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i19.i.i.i.i.i, i64 %288
   %289 = load double, ptr %gep.i18.i.i.i.i22.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i19.i.i.i.i23.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i, i64 %288
+  %gep3.i19.i.i.i.i23.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i20.i.i.i.i.i, i64 %288
   %290 = load double, ptr %gep3.i19.i.i.i.i23.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %291 = fcmp oeq double %289, %290
   br i1 %291, label %292, label %297
@@ -12475,10 +12466,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
   br i1 %326, label %.lr.ph.i.i.i.i.i.i.i31.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i31.i.i.i:                     ; preds = %.thread.i.i.i.i.i30.i.i.i
-  %invariant.gep.i.i.i.i.i.i.i32.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %313
+  %invariant.gep.i.i.i.i.i.i.i32.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %313
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %328 = load i64, ptr %327, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i.i.i33.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %328
+  %invariant.gep2.i.i.i.i.i.i.i33.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %328
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i.i34.i.i.i = load i8, ptr %329, align 8, !tbaa !91, !noalias !759
   %330 = icmp ne i8 %.promoted.i.i.i.i.i.i.i34.i.i.i, 0
@@ -12492,9 +12483,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
 332:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i31.i.i.i
   %333 = phi i1 [ %330, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i39.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i35.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %341, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i.i.i36.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i32.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
+  %gep.i.i.i.i.i.i.i36.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i.i.i32.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
   %334 = load double, ptr %gep.i.i.i.i.i.i.i36.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i.i.i37.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i.i.i33.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
+  %gep3.i.i.i.i.i.i.i37.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i.i.i33.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
   %335 = load double, ptr %gep3.i.i.i.i.i.i.i37.i.i.i, align 8, !tbaa !114, !noalias !759
   %336 = fcmp oeq double %334, %335
   br i1 %336, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, label %337
@@ -12534,9 +12525,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
 
 .lr.ph.i13.i.i.i.i.i.i44.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i42.i.i.i
   %352 = load i64, ptr %312, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i.i.i45.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %352
+  %invariant.gep.i14.i.i.i.i.i.i45.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %352
   %353 = load i64, ptr %347, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %353
+  %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %353
   %.promoted.i16.i.i.i.i.i.i47.i.i.i = load i8, ptr %346, align 8, !tbaa !91, !noalias !759
   %354 = icmp ne i8 %.promoted.i16.i.i.i.i.i.i47.i.i.i, 0
   br label %356
@@ -12550,9 +12541,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   %357 = phi i1 [ %354, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i52.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i.i.i48.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %366, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %358 = add nsw i64 %.01.i17.i.i.i.i.i.i48.i.i.i, %350
-  %gep.i18.i.i.i.i.i.i49.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i.i.i45.i.i.i, i64 %358
+  %gep.i18.i.i.i.i.i.i49.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i.i.i45.i.i.i, i64 %358
   %359 = load double, ptr %gep.i18.i.i.i.i.i.i49.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i19.i.i.i.i.i.i50.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i, i64 %358
+  %gep3.i19.i.i.i.i.i.i50.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i.i.i46.i.i.i, i64 %358
   %360 = load double, ptr %gep3.i19.i.i.i.i.i.i50.i.i.i, align 8, !tbaa !114, !noalias !759
   %361 = fcmp oeq double %359, %360
   br i1 %361, label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, label %362
@@ -12598,10 +12589,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %378, label %.lr.ph.i.i.i.i.i6.i.i23.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i.i23.i.i.i:                    ; preds = %.thread.i.i.i5.i.i22.i.i.i
-  %invariant.gep.i.i.i.i.i7.i.i24.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %313
+  %invariant.gep.i.i.i.i.i7.i.i24.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %313
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %380 = load i64, ptr %379, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %380
+  %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %380
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i9.i.i.i.i.i = load i8, ptr %381, align 8, !tbaa !91, !noalias !759
   %382 = icmp ne i8 %.promoted.i.i.i.i.i9.i.i.i.i.i, 0
@@ -12615,9 +12606,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 384:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i23.i.i.i
   %385 = phi i1 [ %382, %.lr.ph.i.i.i.i.i6.i.i23.i.i.i ], [ %397, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i10.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i.i23.i.i.i ], [ %398, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
-  %gep.i.i.i.i.i11.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i7.i.i24.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
+  %gep.i.i.i.i.i11.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i7.i.i24.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
   %386 = load double, ptr %gep.i.i.i.i.i11.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i12.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
+  %gep3.i.i.i.i.i12.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i8.i.i25.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
   %387 = load double, ptr %gep3.i.i.i.i.i12.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %388 = fcmp oeq double %386, %387
   br i1 %388, label %389, label %394
@@ -12664,9 +12655,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
 
 .lr.ph.i13.i.i.i.i20.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i18.i.i.i.i.i
   %409 = load i64, ptr %312, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i21.i.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %409
+  %invariant.gep.i14.i.i.i.i21.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %409
   %410 = load i64, ptr %404, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %410
+  %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %410
   %.promoted.i16.i.i.i.i23.i.i.i.i.i = load i8, ptr %403, align 8, !tbaa !91, !noalias !759
   %411 = icmp ne i8 %.promoted.i16.i.i.i.i23.i.i.i.i.i, 0
   br label %413
@@ -12680,9 +12671,9 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   %414 = phi i1 [ %411, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %427, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i24.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %428, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %415 = add nsw i64 %.01.i17.i.i.i.i24.i.i.i.i.i, %407
-  %gep.i18.i.i.i.i25.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i21.i.i.i.i.i, i64 %415
+  %gep.i18.i.i.i.i25.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i21.i.i.i.i.i, i64 %415
   %416 = load double, ptr %gep.i18.i.i.i.i25.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i19.i.i.i.i26.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i, i64 %415
+  %gep3.i19.i.i.i.i26.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i22.i.i.i.i.i, i64 %415
   %417 = load double, ptr %gep3.i19.i.i.i.i26.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %418 = fcmp oeq double %416, %417
   br i1 %418, label %419, label %424
@@ -12738,10 +12729,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %441, label %.lr.ph.i.i.i.i.i.i18.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i.i18.i.i.i.i:                     ; preds = %.thread.i.i.i.i17.i.i.i.i
-  %invariant.gep.i.i.i.i.i.i19.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %313
+  %invariant.gep.i.i.i.i.i.i19.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %313
   %442 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %443 = load i64, ptr %442, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i.i20.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %443
+  %invariant.gep2.i.i.i.i.i.i20.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %443
   %444 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i.i21.i.i.i.i = load i8, ptr %444, align 8, !tbaa !91, !noalias !759
   %445 = icmp ne i8 %.promoted.i.i.i.i.i.i21.i.i.i.i, 0
@@ -12755,9 +12746,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 447:                                              ; preds = %447, %.lr.ph.i.i.i.i.i.i18.i.i.i.i
   %448 = phi i1 [ %445, %.lr.ph.i.i.i.i.i.i18.i.i.i.i ], [ %452, %447 ]
   %.01.i.i.i.i.i.i22.i12.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i18.i.i.i.i ], [ %453, %447 ]
-  %gep.i.i.i.i.i.i23.i13.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i19.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
+  %gep.i.i.i.i.i.i23.i13.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i.i19.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
   %449 = load double, ptr %gep.i.i.i.i.i.i23.i13.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i.i24.i14.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
+  %gep3.i.i.i.i.i.i24.i14.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i.i20.i.i.i.i, i64 %.01.i.i.i.i.i.i22.i12.i.i.i
   %450 = load double, ptr %gep3.i.i.i.i.i.i24.i14.i.i.i, align 8, !tbaa !114, !noalias !759
   %451 = fcmp oeq double %449, %450
   %452 = and i1 %448, %451
@@ -12787,9 +12778,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 
 .lr.ph.i13.i.i.i.i.i30.i18.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i28.i16.i.i.i
   %464 = load i64, ptr %312, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %464
+  %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %464
   %465 = load i64, ptr %459, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %465
+  %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %465
   %.promoted.i16.i.i.i.i.i33.i.i.i.i = load i8, ptr %458, align 8, !tbaa !91, !noalias !759
   %466 = icmp ne i8 %.promoted.i16.i.i.i.i.i33.i.i.i.i, 0
   br label %468
@@ -12803,9 +12794,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %469 = phi i1 [ %466, %.lr.ph.i13.i.i.i.i.i30.i18.i.i.i ], [ %474, %468 ]
   %.01.i17.i.i.i.i.i34.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i30.i18.i.i.i ], [ %475, %468 ]
   %470 = add nsw i64 %.01.i17.i.i.i.i.i34.i.i.i.i, %462
-  %gep.i18.i.i.i.i.i35.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i, i64 %470
+  %gep.i18.i.i.i.i.i35.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i.i31.i19.i.i.i, i64 %470
   %471 = load double, ptr %gep.i18.i.i.i.i.i35.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i19.i.i.i.i.i36.i.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i, i64 %470
+  %gep3.i19.i.i.i.i.i36.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i.i32.i20.i.i.i, i64 %470
   %472 = load double, ptr %gep3.i19.i.i.i.i.i36.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %473 = fcmp oeq double %471, %472
   %474 = and i1 %469, %473
@@ -12841,10 +12832,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br i1 %487, label %.lr.ph.i.i.i.i.i6.i8.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 .lr.ph.i.i.i.i.i6.i8.i.i.i.i:                     ; preds = %.thread.i.i.i5.i7.i.i.i.i
-  %invariant.gep.i.i.i.i.i7.i9.i.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %313
+  %invariant.gep.i.i.i.i.i7.i9.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %313
   %488 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %489 = load i64, ptr %488, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %489
+  %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %489
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted.i.i.i.i.i9.i11.i.i.i.i = load i8, ptr %490, align 8, !tbaa !91, !noalias !759
   %491 = icmp ne i8 %.promoted.i.i.i.i.i9.i11.i.i.i.i, 0
@@ -12858,9 +12849,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 493:                                              ; preds = %493, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i
   %494 = phi i1 [ %491, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i ], [ %502, %493 ]
   %.01.i.i.i.i.i10.i12.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i8.i.i.i.i ], [ %503, %493 ]
-  %gep.i.i.i.i.i11.i13.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i7.i9.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
+  %gep.i.i.i.i.i11.i13.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i.i7.i9.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
   %495 = load double, ptr %gep.i.i.i.i.i11.i13.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i.i.i.i.i12.i14.i.i.i.i = getelementptr double, ptr %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
+  %gep3.i.i.i.i.i12.i14.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i.i.i.i.i8.i10.i.i.i.i, i64 %.01.i.i.i.i.i10.i12.i.i.i.i
   %496 = load double, ptr %gep3.i.i.i.i.i12.i14.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %497 = fcmp oeq double %495, %496
   %498 = bitcast double %495 to i64
@@ -12895,9 +12886,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
 
 .lr.ph.i13.i.i.i.i18.i.i9.i.i.i:                  ; preds = %.lr.ph.i.i.i.i16.i.i7.i.i.i
   %514 = load i64, ptr %312, align 8, !tbaa !88, !noalias !759
-  %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i = getelementptr double, ptr %.0.i.i.i, i64 %514
+  %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %514
   %515 = load i64, ptr %509, align 8, !tbaa !89, !noalias !759
-  %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i = getelementptr double, ptr %.0.i.i2.i, i64 %515
+  %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i = getelementptr [8 x i8], ptr %.0.i.i2.i, i64 %515
   %.promoted.i16.i.i.i.i21.i.i.i.i.i = load i8, ptr %508, align 8, !tbaa !91, !noalias !759
   %516 = icmp ne i8 %.promoted.i16.i.i.i.i21.i.i.i.i.i, 0
   br label %518
@@ -12911,9 +12902,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %519 = phi i1 [ %516, %.lr.ph.i13.i.i.i.i18.i.i9.i.i.i ], [ %528, %518 ]
   %.01.i17.i.i.i.i22.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i18.i.i9.i.i.i ], [ %529, %518 ]
   %520 = add nsw i64 %.01.i17.i.i.i.i22.i.i.i.i.i, %512
-  %gep.i18.i.i.i.i23.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i, i64 %520
+  %gep.i18.i.i.i.i23.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i14.i.i.i.i19.i.i10.i.i.i, i64 %520
   %521 = load double, ptr %gep.i18.i.i.i.i23.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
-  %gep3.i19.i.i.i.i24.i.i.i.i.i = getelementptr double, ptr %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i, i64 %520
+  %gep3.i19.i.i.i.i24.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep2.i15.i.i.i.i20.i.i11.i.i.i, i64 %520
   %522 = load double, ptr %gep3.i19.i.i.i.i24.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
   %523 = fcmp oeq double %521, %522
   %524 = bitcast double %521 to i64
@@ -13002,14 +12993,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i: ; preds = %_ZNK5arrow9ArrayDat
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !773
   %43 = select i1 %40, ptr %42, ptr null, !prof !96
-  %44 = getelementptr inbounds i32, ptr %43, i64 %37
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %37
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i: ; preds = %35, %32
   %.0.i.i.i.i = phi ptr [ %44, %35 ], [ null, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !88, !noalias !773
-  %47 = getelementptr inbounds i32, ptr %.0.i.i.i.i, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i.i, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !169, !noalias !773
   %.not.i.i3.i.i = icmp eq ptr %49, null
@@ -13024,14 +13015,14 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i: ; preds = %35, %32
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %57 = load ptr, ptr %56, align 8, !noalias !773
   %58 = select i1 %55, ptr %57, ptr null, !prof !96
-  %59 = getelementptr inbounds i32, ptr %58, i64 %52
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %52
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit5.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit5.i.i: ; preds = %50, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i
   %.0.i.i4.i.i = phi ptr [ %59, %50 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = load i64, ptr %60, align 8, !tbaa !89, !noalias !773
-  %62 = getelementptr inbounds i32, ptr %.0.i.i4.i.i, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %.0.i.i4.i.i, i64 %61
   %63 = load ptr, ptr %8, align 8, !tbaa !169, !noalias !773
   %.not.i.i6.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i6.i.i, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i, label %64
@@ -13059,14 +13050,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i: ; preds = %64, %_ZNK
 
 74:                                               ; preds = %73
   %75 = add nuw i64 %.016.i.i.i.i, 1
-  %76 = getelementptr inbounds nuw i32, ptr %47, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !284, !noalias !773
-  %78 = getelementptr inbounds nuw i32, ptr %47, i64 %.016.i.i.i.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.016.i.i.i.i
   %79 = load i32, ptr %78, align 4, !tbaa !284, !noalias !773
   %80 = sub nsw i32 %77, %79
-  %81 = getelementptr inbounds nuw i32, ptr %62, i64 %75
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %75
   %82 = load i32, ptr %81, align 4, !tbaa !284, !noalias !773
-  %83 = getelementptr inbounds nuw i32, ptr %62, i64 %.016.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.016.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !284, !noalias !773
   %85 = sub nsw i32 %82, %84
   %.not.i8.i.i.i = icmp eq i32 %80, %85
@@ -13077,7 +13068,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i: ; preds = %64, %_ZNK
   %88 = sext i32 %87 to i64
   %89 = load i32, ptr %62, align 4, !tbaa !284, !noalias !773
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %47, i64 %72
+  %91 = getelementptr inbounds [4 x i8], ptr %47, i64 %72
   %92 = load i32, ptr %91, align 4, !tbaa !284, !noalias !773
   %93 = sub nsw i32 %92, %87
   %94 = sext i32 %93 to i64
@@ -13122,27 +13113,27 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_13Comp
 
 115:                                              ; preds = %113
   %116 = add nsw i64 %.016.i9.i.i.i, 1
-  %117 = getelementptr inbounds i32, ptr %47, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %47, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !284, !noalias !773
-  %119 = getelementptr inbounds i32, ptr %47, i64 %.016.i9.i.i.i
+  %119 = getelementptr inbounds [4 x i8], ptr %47, i64 %.016.i9.i.i.i
   %120 = load i32, ptr %119, align 4, !tbaa !284, !noalias !773
   %121 = sub nsw i32 %118, %120
-  %122 = getelementptr inbounds i32, ptr %62, i64 %116
+  %122 = getelementptr inbounds [4 x i8], ptr %62, i64 %116
   %123 = load i32, ptr %122, align 4, !tbaa !284, !noalias !773
-  %124 = getelementptr inbounds i32, ptr %62, i64 %.016.i9.i.i.i
+  %124 = getelementptr inbounds [4 x i8], ptr %62, i64 %.016.i9.i.i.i
   %125 = load i32, ptr %124, align 4, !tbaa !284, !noalias !773
   %126 = sub nsw i32 %123, %125
   %.not.i16.i.i.i = icmp eq i32 %121, %126
   br i1 %.not.i16.i.i.i, label %113, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_13CompareBinaryINS_10BinaryTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit17.thread.i.i.i, !llvm.loop !776
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_13CompareBinaryINS_10BinaryTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit17.i.i.i: ; preds = %113
-  %127 = getelementptr inbounds i32, ptr %47, i64 %111
+  %127 = getelementptr inbounds [4 x i8], ptr %47, i64 %111
   %128 = load i32, ptr %127, align 4, !tbaa !284, !noalias !773
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i32, ptr %62, i64 %111
+  %130 = getelementptr inbounds [4 x i8], ptr %62, i64 %111
   %131 = load i32, ptr %130, align 4, !tbaa !284, !noalias !773
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %47, i64 %112
+  %133 = getelementptr inbounds [4 x i8], ptr %47, i64 %112
   %134 = load i32, ptr %133, align 4, !tbaa !284, !noalias !773
   %135 = sub nsw i32 %134, %128
   %136 = sext i32 %135 to i64
@@ -13176,14 +13167,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i: ; preds = %_ZNK5arrow9A
   %149 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %150 = load ptr, ptr %149, align 8, !noalias !773
   %151 = select i1 %148, ptr %150, ptr null, !prof !96
-  %152 = getelementptr inbounds i32, ptr %151, i64 %145
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %145
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i6.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i6.i: ; preds = %143, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i
   %.0.i.i.i7.i = phi ptr [ %152, %143 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i ]
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %154 = load i64, ptr %153, align 8, !tbaa !88, !noalias !773
-  %155 = getelementptr inbounds i32, ptr %.0.i.i.i7.i, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i7.i, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !169, !noalias !773
   %.not.i.i4.i.i = icmp eq ptr %157, null
@@ -13198,14 +13189,14 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i6.i: ; preds = %143, %_ZNK5arrow9A
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %165 = load ptr, ptr %164, align 8, !noalias !773
   %166 = select i1 %163, ptr %165, ptr null, !prof !96
-  %167 = getelementptr inbounds i32, ptr %166, i64 %160
+  %167 = getelementptr inbounds [4 x i8], ptr %166, i64 %160
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit6.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit6.i.i: ; preds = %158, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i6.i
   %.0.i.i5.i.i = phi ptr [ %167, %158 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i6.i ]
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %169 = load i64, ptr %168, align 8, !tbaa !89, !noalias !773
-  %170 = getelementptr inbounds i32, ptr %.0.i.i5.i.i, i64 %169
+  %170 = getelementptr inbounds [4 x i8], ptr %.0.i.i5.i.i, i64 %169
   %171 = load ptr, ptr %8, align 8, !tbaa !169, !noalias !773
   %.not.i.i7.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i7.i.i, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i9.i, label %172
@@ -13233,14 +13224,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i9.i: ; preds = %172, %_Z
 
 182:                                              ; preds = %181
   %183 = add nuw i64 %.016.i.i.i11.i, 1
-  %184 = getelementptr inbounds nuw i32, ptr %155, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !284, !noalias !773
-  %186 = getelementptr inbounds nuw i32, ptr %155, i64 %.016.i.i.i11.i
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %.016.i.i.i11.i
   %187 = load i32, ptr %186, align 4, !tbaa !284, !noalias !773
   %188 = sub nsw i32 %185, %187
-  %189 = getelementptr inbounds nuw i32, ptr %170, i64 %183
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %183
   %190 = load i32, ptr %189, align 4, !tbaa !284, !noalias !773
-  %191 = getelementptr inbounds nuw i32, ptr %170, i64 %.016.i.i.i11.i
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %.016.i.i.i11.i
   %192 = load i32, ptr %191, align 4, !tbaa !284, !noalias !773
   %193 = sub nsw i32 %190, %192
   %.not.i8.i.i12.i = icmp eq i32 %188, %193
@@ -13287,14 +13278,14 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiZNS1_13Compar
 
 213:                                              ; preds = %212
   %214 = add nsw i64 %.016.i9.i.i13.i, 1
-  %215 = getelementptr inbounds i32, ptr %155, i64 %214
+  %215 = getelementptr inbounds [4 x i8], ptr %155, i64 %214
   %216 = load i32, ptr %215, align 4, !tbaa !284, !noalias !773
-  %217 = getelementptr inbounds i32, ptr %155, i64 %.016.i9.i.i13.i
+  %217 = getelementptr inbounds [4 x i8], ptr %155, i64 %.016.i9.i.i13.i
   %218 = load i32, ptr %217, align 4, !tbaa !284, !noalias !773
   %219 = sub nsw i32 %216, %218
-  %220 = getelementptr inbounds i32, ptr %170, i64 %214
+  %220 = getelementptr inbounds [4 x i8], ptr %170, i64 %214
   %221 = load i32, ptr %220, align 4, !tbaa !284, !noalias !773
-  %222 = getelementptr inbounds i32, ptr %170, i64 %.016.i9.i.i13.i
+  %222 = getelementptr inbounds [4 x i8], ptr %170, i64 %.016.i9.i.i13.i
   %223 = load i32, ptr %222, align 4, !tbaa !284, !noalias !773
   %224 = sub nsw i32 %221, %223
   %.not.i11.i.i.i = icmp eq i32 %219, %224
@@ -13335,14 +13326,14 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %18, i64 %12
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit
 
 _ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit: ; preds = %2, %10
   %.0.i.i = phi ptr [ %19, %10 ], [ null, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i64, ptr %20, align 8, !tbaa !88
-  %22 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !647
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -13361,14 +13352,14 @@ _ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit: ; preds 
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = select i1 %34, ptr %36, ptr null, !prof !96
-  %38 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %37, i64 %31
+  %38 = getelementptr inbounds [16 x i8], ptr %37, i64 %31
   br label %_ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit3
 
 _ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit3: ; preds = %_ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit, %29
   %.0.i.i2 = phi ptr [ %38, %29 ], [ null, %_ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %40 = load i64, ptr %39, align 8, !tbaa !89
-  %41 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i2, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %.0.i.i2, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %44 = load ptr, ptr %7, align 8, !tbaa !169
@@ -13393,11 +13384,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i: ; preds = %45, %_ZNK5arr
 
 .lr.ph.i.i:                                       ; preds = %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i, %80
   %.01114.i.i = phi i64 [ %81, %80 ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i ]
-  %55 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %22, i64 %.01114.i.i
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.01114.i.i
   %.sroa.01.0.copyload.i.i = load i64, ptr %55, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !274
-  %56 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %41, i64 %.01114.i.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.01114.i.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %56, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !274
@@ -13472,11 +13463,11 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUll
 
 .lr.ph.i9.i:                                      ; preds = %.lr.ph.i, %122
   %.01114.i10.i = phi i64 [ %123, %122 ], [ %94, %.lr.ph.i ]
-  %97 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %22, i64 %.01114.i10.i
+  %97 = getelementptr inbounds [16 x i8], ptr %22, i64 %.01114.i10.i
   %.sroa.01.0.copyload.i11.i = load i64, ptr %97, align 8
   %.sroa.22.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.22.0.copyload.i13.i = load i64, ptr %.sroa.22.0..sroa_idx.i12.i, align 8, !tbaa !274
-  %98 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %41, i64 %.01114.i10.i
+  %98 = getelementptr inbounds [16 x i8], ptr %41, i64 %.01114.i10.i
   %.sroa.0.0.copyload.i14.i = load i64, ptr %98, align 8
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds nuw i8, ptr %98, i64 8
   %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !tbaa !274
@@ -13603,14 +13594,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i: ; preds = %_ZNK5arrow9ArrayDat
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !787
   %43 = select i1 %40, ptr %42, ptr null, !prof !96
-  %44 = getelementptr inbounds i64, ptr %43, i64 %37
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %37
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i: ; preds = %35, %32
   %.0.i.i.i.i = phi ptr [ %44, %35 ], [ null, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !88, !noalias !787
-  %47 = getelementptr inbounds i64, ptr %.0.i.i.i.i, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !169, !noalias !787
   %.not.i.i3.i.i = icmp eq ptr %49, null
@@ -13625,14 +13616,14 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i: ; preds = %35, %32
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %57 = load ptr, ptr %56, align 8, !noalias !787
   %58 = select i1 %55, ptr %57, ptr null, !prof !96
-  %59 = getelementptr inbounds i64, ptr %58, i64 %52
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %52
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit5.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit5.i.i: ; preds = %50, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i
   %.0.i.i4.i.i = phi ptr [ %59, %50 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = load i64, ptr %60, align 8, !tbaa !89, !noalias !787
-  %62 = getelementptr inbounds i64, ptr %.0.i.i4.i.i, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %.0.i.i4.i.i, i64 %61
   %63 = load ptr, ptr %8, align 8, !tbaa !169, !noalias !787
   %.not.i.i6.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i6.i.i, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i, label %64
@@ -13660,14 +13651,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i: ; preds = %64, %_ZNK
 
 74:                                               ; preds = %73
   %75 = add nuw i64 %.016.i.i.i.i, 1
-  %76 = getelementptr inbounds nuw i64, ptr %47, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !223, !noalias !787
-  %78 = getelementptr inbounds nuw i64, ptr %47, i64 %.016.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.016.i.i.i.i
   %79 = load i64, ptr %78, align 8, !tbaa !223, !noalias !787
   %80 = sub nsw i64 %77, %79
-  %81 = getelementptr inbounds nuw i64, ptr %62, i64 %75
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %75
   %82 = load i64, ptr %81, align 8, !tbaa !223, !noalias !787
-  %83 = getelementptr inbounds nuw i64, ptr %62, i64 %.016.i.i.i.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.016.i.i.i.i
   %84 = load i64, ptr %83, align 8, !tbaa !223, !noalias !787
   %85 = sub nsw i64 %82, %84
   %.not.i8.i.i.i = icmp eq i64 %80, %85
@@ -13676,7 +13667,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i: ; preds = %64, %_ZNK
 86:                                               ; preds = %73
   %87 = load i64, ptr %47, align 8, !tbaa !223, !noalias !787
   %88 = load i64, ptr %62, align 8, !tbaa !223, !noalias !787
-  %89 = getelementptr inbounds i64, ptr %47, i64 %72
+  %89 = getelementptr inbounds [8 x i8], ptr %47, i64 %72
   %90 = load i64, ptr %89, align 8, !tbaa !223, !noalias !787
   %91 = sub nsw i64 %90, %87
   %92 = getelementptr inbounds i8, ptr %.0.i.i, i64 %87
@@ -13720,25 +13711,25 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_13Comp
 
 112:                                              ; preds = %110
   %113 = add nsw i64 %.016.i9.i.i.i, 1
-  %114 = getelementptr inbounds i64, ptr %47, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %47, i64 %113
   %115 = load i64, ptr %114, align 8, !tbaa !223, !noalias !787
-  %116 = getelementptr inbounds i64, ptr %47, i64 %.016.i9.i.i.i
+  %116 = getelementptr inbounds [8 x i8], ptr %47, i64 %.016.i9.i.i.i
   %117 = load i64, ptr %116, align 8, !tbaa !223, !noalias !787
   %118 = sub nsw i64 %115, %117
-  %119 = getelementptr inbounds i64, ptr %62, i64 %113
+  %119 = getelementptr inbounds [8 x i8], ptr %62, i64 %113
   %120 = load i64, ptr %119, align 8, !tbaa !223, !noalias !787
-  %121 = getelementptr inbounds i64, ptr %62, i64 %.016.i9.i.i.i
+  %121 = getelementptr inbounds [8 x i8], ptr %62, i64 %.016.i9.i.i.i
   %122 = load i64, ptr %121, align 8, !tbaa !223, !noalias !787
   %123 = sub nsw i64 %120, %122
   %.not.i16.i.i.i = icmp eq i64 %118, %123
   br i1 %.not.i16.i.i.i, label %110, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_13CompareBinaryINS_15LargeBinaryTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit17.thread.i.i.i, !llvm.loop !790
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_13CompareBinaryINS_15LargeBinaryTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit17.i.i.i: ; preds = %110
-  %124 = getelementptr inbounds i64, ptr %47, i64 %108
+  %124 = getelementptr inbounds [8 x i8], ptr %47, i64 %108
   %125 = load i64, ptr %124, align 8, !tbaa !223, !noalias !787
-  %126 = getelementptr inbounds i64, ptr %62, i64 %108
+  %126 = getelementptr inbounds [8 x i8], ptr %62, i64 %108
   %127 = load i64, ptr %126, align 8, !tbaa !223, !noalias !787
-  %128 = getelementptr inbounds i64, ptr %47, i64 %109
+  %128 = getelementptr inbounds [8 x i8], ptr %47, i64 %109
   %129 = load i64, ptr %128, align 8, !tbaa !223, !noalias !787
   %130 = sub nsw i64 %129, %125
   %131 = getelementptr inbounds i8, ptr %.0.i.i, i64 %125
@@ -13771,14 +13762,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i: ; preds = %_ZNK5arrow9A
   %143 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %144 = load ptr, ptr %143, align 8, !noalias !787
   %145 = select i1 %142, ptr %144, ptr null, !prof !96
-  %146 = getelementptr inbounds i64, ptr %145, i64 %139
+  %146 = getelementptr inbounds [8 x i8], ptr %145, i64 %139
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i6.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i6.i: ; preds = %137, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i
   %.0.i.i.i7.i = phi ptr [ %146, %137 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i ]
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %148 = load i64, ptr %147, align 8, !tbaa !88, !noalias !787
-  %149 = getelementptr inbounds i64, ptr %.0.i.i.i7.i, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i7.i, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %151 = load ptr, ptr %150, align 8, !tbaa !169, !noalias !787
   %.not.i.i4.i.i = icmp eq ptr %151, null
@@ -13793,14 +13784,14 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i6.i: ; preds = %137, %_ZNK5arrow9A
   %158 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %159 = load ptr, ptr %158, align 8, !noalias !787
   %160 = select i1 %157, ptr %159, ptr null, !prof !96
-  %161 = getelementptr inbounds i64, ptr %160, i64 %154
+  %161 = getelementptr inbounds [8 x i8], ptr %160, i64 %154
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit6.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit6.i.i: ; preds = %152, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i6.i
   %.0.i.i5.i.i = phi ptr [ %161, %152 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i6.i ]
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %163 = load i64, ptr %162, align 8, !tbaa !89, !noalias !787
-  %164 = getelementptr inbounds i64, ptr %.0.i.i5.i.i, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %.0.i.i5.i.i, i64 %163
   %165 = load ptr, ptr %8, align 8, !tbaa !169, !noalias !787
   %.not.i.i7.i.i = icmp eq ptr %165, null
   br i1 %.not.i.i7.i.i, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i9.i, label %166
@@ -13828,14 +13819,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i9.i: ; preds = %166, %_Z
 
 176:                                              ; preds = %175
   %177 = add nuw i64 %.016.i.i.i11.i, 1
-  %178 = getelementptr inbounds nuw i64, ptr %149, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !223, !noalias !787
-  %180 = getelementptr inbounds nuw i64, ptr %149, i64 %.016.i.i.i11.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %.016.i.i.i11.i
   %181 = load i64, ptr %180, align 8, !tbaa !223, !noalias !787
   %182 = sub nsw i64 %179, %181
-  %183 = getelementptr inbounds nuw i64, ptr %164, i64 %177
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %177
   %184 = load i64, ptr %183, align 8, !tbaa !223, !noalias !787
-  %185 = getelementptr inbounds nuw i64, ptr %164, i64 %.016.i.i.i11.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %.016.i.i.i11.i
   %186 = load i64, ptr %185, align 8, !tbaa !223, !noalias !787
   %187 = sub nsw i64 %184, %186
   %.not.i8.i.i12.i = icmp eq i64 %182, %187
@@ -13882,14 +13873,14 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlZNS1_13Compar
 
 207:                                              ; preds = %206
   %208 = add nsw i64 %.016.i9.i.i13.i, 1
-  %209 = getelementptr inbounds i64, ptr %149, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %149, i64 %208
   %210 = load i64, ptr %209, align 8, !tbaa !223, !noalias !787
-  %211 = getelementptr inbounds i64, ptr %149, i64 %.016.i9.i.i13.i
+  %211 = getelementptr inbounds [8 x i8], ptr %149, i64 %.016.i9.i.i13.i
   %212 = load i64, ptr %211, align 8, !tbaa !223, !noalias !787
   %213 = sub nsw i64 %210, %212
-  %214 = getelementptr inbounds i64, ptr %164, i64 %208
+  %214 = getelementptr inbounds [8 x i8], ptr %164, i64 %208
   %215 = load i64, ptr %214, align 8, !tbaa !223, !noalias !787
-  %216 = getelementptr inbounds i64, ptr %164, i64 %.016.i9.i.i13.i
+  %216 = getelementptr inbounds [8 x i8], ptr %164, i64 %.016.i9.i.i13.i
   %217 = load i64, ptr %216, align 8, !tbaa !223, !noalias !787
   %218 = sub nsw i64 %215, %217
   %.not.i11.i.i.i = icmp eq i64 %213, %218
@@ -14120,7 +14111,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !801
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i64, ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
@@ -14143,7 +14134,7 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !801
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i64, ptr %34, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
@@ -14167,10 +14158,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !801
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !801
-  %48 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !801
-  %51 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 3
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !801
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -14201,11 +14192,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !801
-  %72 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i64, ptr %72, i64 %70
+  %72 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !801
-  %75 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i64, ptr %75, i64 %70
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 3
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !801
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -14247,7 +14238,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !808
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i32, ptr %18, i64 %12
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
@@ -14270,7 +14261,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !808
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i32, ptr %34, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
@@ -14294,10 +14285,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !808
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !808
-  %48 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !808
-  %51 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !808
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -14328,11 +14319,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !808
-  %72 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i32, ptr %72, i64 %70
+  %72 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !808
-  %75 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i32, ptr %75, i64 %70
+  %75 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 2
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !808
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -14374,7 +14365,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !815
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i64, ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
@@ -14397,7 +14388,7 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !815
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i64, ptr %34, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
@@ -14421,10 +14412,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !815
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !815
-  %48 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !815
-  %51 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 3
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !815
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -14455,11 +14446,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !815
-  %72 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i64, ptr %72, i64 %70
+  %72 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !815
-  %75 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i64, ptr %75, i64 %70
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 3
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !815
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -14501,7 +14492,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !822
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i64, ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
@@ -14524,7 +14515,7 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !822
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i64, ptr %34, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
@@ -14548,10 +14539,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !822
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !822
-  %48 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !822
-  %51 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 3
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !822
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -14582,11 +14573,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !822
-  %72 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i64, ptr %72, i64 %70
+  %72 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !822
-  %75 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i64, ptr %75, i64 %70
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 3
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !822
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -14628,7 +14619,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !829
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i32, ptr %18, i64 %12
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
@@ -14651,7 +14642,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !829
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i32, ptr %34, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
@@ -14675,10 +14666,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !829
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !829
-  %48 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !829
-  %51 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !829
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -14709,11 +14700,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !829
-  %72 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i32, ptr %72, i64 %70
+  %72 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !829
-  %75 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i32, ptr %75, i64 %70
+  %75 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 2
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !829
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -14755,7 +14746,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !836
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i64, ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
@@ -14778,7 +14769,7 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !836
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i64, ptr %34, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
@@ -14802,10 +14793,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !836
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !836
-  %48 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !836
-  %51 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 3
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !836
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -14836,11 +14827,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !836
-  %72 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i64, ptr %72, i64 %70
+  %72 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !836
-  %75 = getelementptr inbounds i64, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i64, ptr %75, i64 %70
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 3
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !836
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -14882,7 +14873,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !843
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %18, i64 %12
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesINS_24MonthDayNanoIntervalType13MonthDayNanosEEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesINS_24MonthDayNanoIntervalType13MonthDayNanosEEEPKT_i.exit.i: ; preds = %10, %2
@@ -14905,7 +14896,7 @@ _ZNK5arrow9ArrayData9GetValuesINS_24MonthDayNanoIntervalType13MonthDayNanosEEEPK
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !843
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %34, i64 %28
+  %35 = getelementptr inbounds [16 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesINS_24MonthDayNanoIntervalType13MonthDayNanosEEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesINS_24MonthDayNanoIntervalType13MonthDayNanosEEEPKT_i.exit3.i: ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesINS_24MonthDayNanoIntervalType13MonthDayNanosEEEPKT_i.exit.i
@@ -14929,10 +14920,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !843
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !843
-  %48 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !843
-  %51 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 4
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !843
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -14963,11 +14954,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !843
-  %72 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %72, i64 %70
+  %72 = getelementptr inbounds [16 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [16 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !843
-  %75 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %75, i64 %70
+  %75 = getelementptr inbounds [16 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [16 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 4
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !843
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -15009,7 +15000,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !850
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds i32, ptr %18, i64 %12
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
@@ -15032,7 +15023,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %10, %2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !850
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds i32, ptr %34, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit3.i:  ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
@@ -15056,10 +15047,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !850
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !850
-  %48 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !850
-  %51 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !850
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -15090,11 +15081,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !850
-  %72 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds i32, ptr %72, i64 %70
+  %72 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !850
-  %75 = getelementptr inbounds i32, ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds i32, ptr %75, i64 %70
+  %75 = getelementptr inbounds [4 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 2
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !850
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -15136,7 +15127,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitI
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !857
   %18 = select i1 %15, ptr %17, ptr null, !prof !96
-  %19 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %18, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %12
   br label %_ZNK5arrow9ArrayData9GetValuesINS_19DayTimeIntervalType15DayMillisecondsEEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesINS_19DayTimeIntervalType15DayMillisecondsEEEPKT_i.exit.i: ; preds = %10, %2
@@ -15159,7 +15150,7 @@ _ZNK5arrow9ArrayData9GetValuesINS_19DayTimeIntervalType15DayMillisecondsEEEPKT_i
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !857
   %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %34, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %28
   br label %_ZNK5arrow9ArrayData9GetValuesINS_19DayTimeIntervalType15DayMillisecondsEEEPKT_i.exit3.i
 
 _ZNK5arrow9ArrayData9GetValuesINS_19DayTimeIntervalType15DayMillisecondsEEEPKT_i.exit3.i: ; preds = %26, %_ZNK5arrow9ArrayData9GetValuesINS_19DayTimeIntervalType15DayMillisecondsEEEPKT_i.exit.i
@@ -15183,10 +15174,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
   %45 = load i64, ptr %44, align 8, !tbaa !90, !noalias !857
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !88, !noalias !857
-  %48 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %.0.i.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !89, !noalias !857
-  %51 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %.0.i.i2.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %50
   %52 = shl i64 %45, 3
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %48, ptr %51, i64 %52), !noalias !857
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -15217,11 +15208,11 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i: ; preds = %37, %_ZNK5a
 69:                                               ; preds = %65
   %70 = extractvalue { i64, i64 } %66, 0
   %71 = load i64, ptr %59, align 8, !tbaa !88, !noalias !857
-  %72 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %.0.i.i.i, i64 %71
-  %73 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %72, i64 %70
+  %72 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load i64, ptr %64, align 8, !tbaa !89, !noalias !857
-  %75 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %.0.i.i2.i, i64 %74
-  %76 = getelementptr inbounds %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %75, i64 %70
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i2.i, i64 %74
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %70
   %77 = shl i64 %67, 3
   %bcmp.i8.i.i = call i32 @bcmp(ptr %73, ptr %76, i64 %77), !noalias !857
   %78 = icmp eq i32 %bcmp.i8.i.i, 0
@@ -15272,14 +15263,14 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !864
   %28 = select i1 %25, ptr %27, ptr null, !prof !96
-  %29 = getelementptr inbounds i32, ptr %28, i64 %22
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %22
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %20, %2
   %.0.i.i.i = phi ptr [ %29, %20 ], [ null, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load i64, ptr %30, align 8, !tbaa !88, !noalias !864
-  %32 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !648, !noalias !864
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -15296,14 +15287,14 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %20, %2
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8, !noalias !864
   %45 = select i1 %42, ptr %44, ptr null, !prof !96
-  %46 = getelementptr inbounds i32, ptr %45, i64 %39
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %39
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit5.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit5.i:  ; preds = %37, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
   %.0.i.i4.i = phi ptr [ %46, %37 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load i64, ptr %47, align 8, !tbaa !89, !noalias !864
-  %49 = getelementptr inbounds i32, ptr %.0.i.i4.i, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %.0.i.i4.i, i64 %48
   %50 = load ptr, ptr %17, align 8, !tbaa !169, !noalias !864
   %.not.i7 = icmp eq ptr %50, null
   br i1 %.not.i7, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread, label %51
@@ -15331,14 +15322,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread: ; preds = %_ZNK5arrow9Arra
 
 61:                                               ; preds = %60
   %62 = add nuw i64 %.016.i2, 1
-  %63 = getelementptr inbounds nuw i32, ptr %32, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !284, !noalias !864
-  %65 = getelementptr inbounds nuw i32, ptr %32, i64 %.016.i2
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.016.i2
   %66 = load i32, ptr %65, align 4, !tbaa !284, !noalias !864
   %67 = sub nsw i32 %64, %66
-  %68 = getelementptr inbounds nuw i32, ptr %49, i64 %62
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %62
   %69 = load i32, ptr %68, align 4, !tbaa !284, !noalias !864
-  %70 = getelementptr inbounds nuw i32, ptr %49, i64 %.016.i2
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.016.i2
   %71 = load i32, ptr %70, align 4, !tbaa !284, !noalias !864
   %72 = sub nsw i32 %69, %71
   %.not.i5 = icmp eq i32 %67, %72
@@ -15349,7 +15340,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread: ; preds = %_ZNK5arrow9Arra
   %75 = sext i32 %74 to i64
   %76 = load i32, ptr %49, align 4, !tbaa !284, !noalias !864
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %32, i64 %59
+  %78 = getelementptr inbounds [4 x i8], ptr %32, i64 %59
   %79 = load i32, ptr %78, align 4, !tbaa !284, !noalias !864
   %80 = sub nsw i32 %79, %74
   %81 = sext i32 %80 to i64
@@ -15419,27 +15410,27 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_11Comp
 
 118:                                              ; preds = %116
   %119 = add nsw i64 %.016.i, 1
-  %120 = getelementptr inbounds i32, ptr %32, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %32, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !284, !noalias !864
-  %122 = getelementptr inbounds i32, ptr %32, i64 %.016.i
+  %122 = getelementptr inbounds [4 x i8], ptr %32, i64 %.016.i
   %123 = load i32, ptr %122, align 4, !tbaa !284, !noalias !864
   %124 = sub nsw i32 %121, %123
-  %125 = getelementptr inbounds i32, ptr %49, i64 %119
+  %125 = getelementptr inbounds [4 x i8], ptr %49, i64 %119
   %126 = load i32, ptr %125, align 4, !tbaa !284, !noalias !864
-  %127 = getelementptr inbounds i32, ptr %49, i64 %.016.i
+  %127 = getelementptr inbounds [4 x i8], ptr %49, i64 %.016.i
   %128 = load i32, ptr %127, align 4, !tbaa !284, !noalias !864
   %129 = sub nsw i32 %126, %128
   %.not.i = icmp eq i32 %124, %129
   br i1 %.not.i, label %116, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_11CompareListINS_8ListTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit.thread, !llvm.loop !868
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_11CompareListINS_8ListTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit: ; preds = %116
-  %130 = getelementptr inbounds i32, ptr %32, i64 %114
+  %130 = getelementptr inbounds [4 x i8], ptr %32, i64 %114
   %131 = load i32, ptr %130, align 4, !tbaa !284, !noalias !864
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %49, i64 %114
+  %133 = getelementptr inbounds [4 x i8], ptr %49, i64 %114
   %134 = load i32, ptr %133, align 4, !tbaa !284, !noalias !864
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %32, i64 %115
+  %136 = getelementptr inbounds [4 x i8], ptr %32, i64 %115
   %137 = load i32, ptr %136, align 4, !tbaa !284, !noalias !864
   %138 = sub nsw i32 %137, %131
   %139 = sext i32 %138 to i64
@@ -15503,14 +15494,14 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !873
   %28 = select i1 %25, ptr %27, ptr null, !prof !96
-  %29 = getelementptr inbounds i64, ptr %28, i64 %22
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %22
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %20, %2
   %.0.i.i.i = phi ptr [ %29, %20 ], [ null, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load i64, ptr %30, align 8, !tbaa !88, !noalias !873
-  %32 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !648, !noalias !873
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -15527,14 +15518,14 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %20, %2
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8, !noalias !873
   %45 = select i1 %42, ptr %44, ptr null, !prof !96
-  %46 = getelementptr inbounds i64, ptr %45, i64 %39
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %39
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit5.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit5.i:  ; preds = %37, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
   %.0.i.i4.i = phi ptr [ %46, %37 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load i64, ptr %47, align 8, !tbaa !89, !noalias !873
-  %49 = getelementptr inbounds i64, ptr %.0.i.i4.i, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %.0.i.i4.i, i64 %48
   %50 = load ptr, ptr %17, align 8, !tbaa !169, !noalias !873
   %.not.i7 = icmp eq ptr %50, null
   br i1 %.not.i7, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread, label %51
@@ -15562,14 +15553,14 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread: ; preds = %_ZNK5arrow9Arra
 
 61:                                               ; preds = %60
   %62 = add nuw i64 %.016.i2, 1
-  %63 = getelementptr inbounds nuw i64, ptr %32, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !223, !noalias !873
-  %65 = getelementptr inbounds nuw i64, ptr %32, i64 %.016.i2
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.016.i2
   %66 = load i64, ptr %65, align 8, !tbaa !223, !noalias !873
   %67 = sub nsw i64 %64, %66
-  %68 = getelementptr inbounds nuw i64, ptr %49, i64 %62
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %62
   %69 = load i64, ptr %68, align 8, !tbaa !223, !noalias !873
-  %70 = getelementptr inbounds nuw i64, ptr %49, i64 %.016.i2
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.016.i2
   %71 = load i64, ptr %70, align 8, !tbaa !223, !noalias !873
   %72 = sub nsw i64 %69, %71
   %.not.i5 = icmp eq i64 %67, %72
@@ -15578,7 +15569,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread: ; preds = %_ZNK5arrow9Arra
 73:                                               ; preds = %60
   %74 = load i64, ptr %32, align 8, !tbaa !223, !noalias !873
   %75 = load i64, ptr %49, align 8, !tbaa !223, !noalias !873
-  %76 = getelementptr inbounds i64, ptr %32, i64 %59
+  %76 = getelementptr inbounds [8 x i8], ptr %32, i64 %59
   %77 = load i64, ptr %76, align 8, !tbaa !223, !noalias !873
   %78 = sub nsw i64 %77, %74
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !873
@@ -15647,25 +15638,25 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_11Comp
 
 115:                                              ; preds = %113
   %116 = add nsw i64 %.016.i, 1
-  %117 = getelementptr inbounds i64, ptr %32, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %32, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !223, !noalias !873
-  %119 = getelementptr inbounds i64, ptr %32, i64 %.016.i
+  %119 = getelementptr inbounds [8 x i8], ptr %32, i64 %.016.i
   %120 = load i64, ptr %119, align 8, !tbaa !223, !noalias !873
   %121 = sub nsw i64 %118, %120
-  %122 = getelementptr inbounds i64, ptr %49, i64 %116
+  %122 = getelementptr inbounds [8 x i8], ptr %49, i64 %116
   %123 = load i64, ptr %122, align 8, !tbaa !223, !noalias !873
-  %124 = getelementptr inbounds i64, ptr %49, i64 %.016.i
+  %124 = getelementptr inbounds [8 x i8], ptr %49, i64 %.016.i
   %125 = load i64, ptr %124, align 8, !tbaa !223, !noalias !873
   %126 = sub nsw i64 %123, %125
   %.not.i = icmp eq i64 %121, %126
   br i1 %.not.i, label %113, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_11CompareListINS_13LargeListTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit.thread, !llvm.loop !876
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_11CompareListINS_13LargeListTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit: ; preds = %113
-  %127 = getelementptr inbounds i64, ptr %32, i64 %111
+  %127 = getelementptr inbounds [8 x i8], ptr %32, i64 %111
   %128 = load i64, ptr %127, align 8, !tbaa !223, !noalias !873
-  %129 = getelementptr inbounds i64, ptr %49, i64 %111
+  %129 = getelementptr inbounds [8 x i8], ptr %49, i64 %111
   %130 = load i64, ptr %129, align 8, !tbaa !223, !noalias !873
-  %131 = getelementptr inbounds i64, ptr %32, i64 %112
+  %131 = getelementptr inbounds [8 x i8], ptr %32, i64 %112
   %132 = load i64, ptr %131, align 8, !tbaa !223, !noalias !873
   %133 = sub nsw i64 %132, %128
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !873
@@ -15728,14 +15719,14 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !881
   %28 = select i1 %25, ptr %27, ptr null, !prof !96
-  %29 = getelementptr inbounds i32, ptr %28, i64 %22
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %22
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit12
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit12:   ; preds = %2, %20
   %.0.i.i11 = phi ptr [ %29, %20 ], [ null, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load i64, ptr %30, align 8, !tbaa !88, !noalias !881
-  %32 = getelementptr inbounds i32, ptr %.0.i.i11, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %.0.i.i11, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !648, !noalias !881
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -15752,14 +15743,14 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit12:   ; preds = %2, %20
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8, !noalias !881
   %45 = select i1 %42, ptr %44, ptr null, !prof !96
-  %46 = getelementptr inbounds i32, ptr %45, i64 %39
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %39
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit9
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit9:    ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit12, %37
   %.0.i.i8 = phi ptr [ %46, %37 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit12 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load i64, ptr %47, align 8, !tbaa !89, !noalias !881
-  %49 = getelementptr inbounds i32, ptr %.0.i.i8, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %.0.i.i8, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !169, !noalias !881
   %.not.i.i4 = icmp eq ptr %51, null
@@ -15774,12 +15765,12 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit9:    ; preds = %_ZNK5arrow9ArrayDat
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %59 = load ptr, ptr %58, align 8, !noalias !881
   %60 = select i1 %57, ptr %59, ptr null, !prof !96
-  %61 = getelementptr inbounds i32, ptr %60, i64 %54
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %54
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit6
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit6:    ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit9, %52
   %.0.i.i5 = phi ptr [ %61, %52 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit9 ]
-  %62 = getelementptr inbounds i32, ptr %.0.i.i5, i64 %31
+  %62 = getelementptr inbounds [4 x i8], ptr %.0.i.i5, i64 %31
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %64 = load ptr, ptr %63, align 8, !tbaa !169, !noalias !881
   %.not.i.i2 = icmp eq ptr %64, null
@@ -15794,12 +15785,12 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit6:    ; preds = %_ZNK5arrow9ArrayDat
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %72 = load ptr, ptr %71, align 8, !noalias !881
   %73 = select i1 %70, ptr %72, ptr null, !prof !96
-  %74 = getelementptr inbounds i32, ptr %73, i64 %67
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %67
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit:     ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit6, %65
   %.0.i.i3 = phi ptr [ %74, %65 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit6 ]
-  %75 = getelementptr inbounds i32, ptr %.0.i.i3, i64 %48
+  %75 = getelementptr inbounds [4 x i8], ptr %.0.i.i3, i64 %48
   %76 = load ptr, ptr %17, align 8, !tbaa !169, !noalias !881
   %.not.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.i.thread, label %77
@@ -15833,9 +15824,9 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.i.thread: ; preds = %_ZNK5arrow9Ar
 
 95:                                               ; preds = %.lr.ph28, %select.unfold16
   %.018.i.i27 = phi i64 [ 0, %.lr.ph28 ], [ %113, %select.unfold16 ]
-  %96 = getelementptr inbounds nuw i32, ptr %62, i64 %.018.i.i27
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.018.i.i27
   %97 = load i32, ptr %96, align 4, !tbaa !284, !noalias !881
-  %98 = getelementptr inbounds nuw i32, ptr %75, i64 %.018.i.i27
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.018.i.i27
   %99 = load i32, ptr %98, align 4, !tbaa !284, !noalias !881
   %.not.i8.i = icmp eq i32 %97, %99
   br i1 %.not.i8.i, label %100, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareListViewINS_12ListViewTypeEEENS_6StatusERKT_ENKUlllE_clEll.exit.i
@@ -15848,10 +15839,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.i.thread: ; preds = %_ZNK5arrow9Ar
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !881
   %103 = load ptr, ptr %1, align 8, !tbaa !731, !noalias !881
   %104 = load i8, ptr %87, align 8, !tbaa !85, !range !81, !noalias !881, !noundef !82
-  %105 = getelementptr inbounds nuw i32, ptr %32, i64 %.018.i.i27
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.018.i.i27
   %106 = load i32, ptr %105, align 4, !tbaa !284, !noalias !881
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %49, i64 %.018.i.i27
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.018.i.i27
   %109 = load i32, ptr %108, align 4, !tbaa !284, !noalias !881
   %110 = sext i32 %109 to i64
   %111 = sext i32 %97 to i64
@@ -15920,9 +15911,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareListViewINS_12ListViewType
 
 .lr.ph:                                           ; preds = %137, %.thread19
   %.018.i9.i25 = phi i64 [ %192, %.thread19 ], [ %140, %137 ]
-  %143 = getelementptr inbounds i32, ptr %62, i64 %.018.i9.i25
+  %143 = getelementptr inbounds [4 x i8], ptr %62, i64 %.018.i9.i25
   %144 = load i32, ptr %143, align 4, !tbaa !284, !noalias !881
-  %145 = getelementptr inbounds i32, ptr %75, i64 %.018.i9.i25
+  %145 = getelementptr inbounds [4 x i8], ptr %75, i64 %.018.i9.i25
   %146 = load i32, ptr %145, align 4, !tbaa !284, !noalias !881
   %.not.i11.i = icmp eq i32 %144, %146
   br i1 %.not.i11.i, label %147, label %.loopexit
@@ -15935,10 +15926,10 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareListViewINS_12ListViewType
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !881
   %150 = load ptr, ptr %1, align 8, !tbaa !731, !noalias !881
   %151 = load i8, ptr %124, align 8, !tbaa !85, !range !81, !noalias !881, !noundef !82
-  %152 = getelementptr inbounds i32, ptr %32, i64 %.018.i9.i25
+  %152 = getelementptr inbounds [4 x i8], ptr %32, i64 %.018.i9.i25
   %153 = load i32, ptr %152, align 4, !tbaa !284, !noalias !881
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %49, i64 %.018.i9.i25
+  %155 = getelementptr inbounds [4 x i8], ptr %49, i64 %.018.i9.i25
   %156 = load i32, ptr %155, align 4, !tbaa !284, !noalias !881
   %157 = sext i32 %156 to i64
   %158 = sext i32 %144 to i64
@@ -16063,14 +16054,14 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitE
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !889
   %28 = select i1 %25, ptr %27, ptr null, !prof !96
-  %29 = getelementptr inbounds i64, ptr %28, i64 %22
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %22
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit12
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit12:   ; preds = %2, %20
   %.0.i.i11 = phi ptr [ %29, %20 ], [ null, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load i64, ptr %30, align 8, !tbaa !88, !noalias !889
-  %32 = getelementptr inbounds i64, ptr %.0.i.i11, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.0.i.i11, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !648, !noalias !889
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -16087,14 +16078,14 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit12:   ; preds = %2, %20
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8, !noalias !889
   %45 = select i1 %42, ptr %44, ptr null, !prof !96
-  %46 = getelementptr inbounds i64, ptr %45, i64 %39
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %39
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit9
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit9:    ; preds = %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit12, %37
   %.0.i.i8 = phi ptr [ %46, %37 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit12 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load i64, ptr %47, align 8, !tbaa !89, !noalias !889
-  %49 = getelementptr inbounds i64, ptr %.0.i.i8, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %.0.i.i8, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !169, !noalias !889
   %.not.i.i4 = icmp eq ptr %51, null
@@ -16109,12 +16100,12 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit9:    ; preds = %_ZNK5arrow9ArrayDat
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %59 = load ptr, ptr %58, align 8, !noalias !889
   %60 = select i1 %57, ptr %59, ptr null, !prof !96
-  %61 = getelementptr inbounds i64, ptr %60, i64 %54
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %54
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit6
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit6:    ; preds = %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit9, %52
   %.0.i.i5 = phi ptr [ %61, %52 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit9 ]
-  %62 = getelementptr inbounds i64, ptr %.0.i.i5, i64 %31
+  %62 = getelementptr inbounds [8 x i8], ptr %.0.i.i5, i64 %31
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %64 = load ptr, ptr %63, align 8, !tbaa !169, !noalias !889
   %.not.i.i2 = icmp eq ptr %64, null
@@ -16129,12 +16120,12 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit6:    ; preds = %_ZNK5arrow9ArrayDat
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %72 = load ptr, ptr %71, align 8, !noalias !889
   %73 = select i1 %70, ptr %72, ptr null, !prof !96
-  %74 = getelementptr inbounds i64, ptr %73, i64 %67
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %67
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit:     ; preds = %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit6, %65
   %.0.i.i3 = phi ptr [ %74, %65 ], [ null, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit6 ]
-  %75 = getelementptr inbounds i64, ptr %.0.i.i3, i64 %48
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.i.i3, i64 %48
   %76 = load ptr, ptr %17, align 8, !tbaa !169, !noalias !889
   %.not.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.i.thread, label %77
@@ -16168,9 +16159,9 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.i.thread: ; preds = %_ZNK5arrow9Ar
 
 95:                                               ; preds = %.lr.ph28, %select.unfold16
   %.018.i.i27 = phi i64 [ 0, %.lr.ph28 ], [ %110, %select.unfold16 ]
-  %96 = getelementptr inbounds nuw i64, ptr %62, i64 %.018.i.i27
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.018.i.i27
   %97 = load i64, ptr %96, align 8, !tbaa !223, !noalias !889
-  %98 = getelementptr inbounds nuw i64, ptr %75, i64 %.018.i.i27
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.018.i.i27
   %99 = load i64, ptr %98, align 8, !tbaa !223, !noalias !889
   %.not.i8.i = icmp eq i64 %97, %99
   br i1 %.not.i8.i, label %100, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareListViewINS_17LargeListViewTypeEEENS_6StatusERKT_ENKUlllE_clEll.exit.i
@@ -16183,9 +16174,9 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.i.thread: ; preds = %_ZNK5arrow9Ar
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !889
   %103 = load ptr, ptr %1, align 8, !tbaa !731, !noalias !889
   %104 = load i8, ptr %87, align 8, !tbaa !85, !range !81, !noalias !889, !noundef !82
-  %105 = getelementptr inbounds nuw i64, ptr %32, i64 %.018.i.i27
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.018.i.i27
   %106 = load i64, ptr %105, align 8, !tbaa !223, !noalias !889
-  %107 = getelementptr inbounds nuw i64, ptr %49, i64 %.018.i.i27
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.018.i.i27
   %108 = load i64, ptr %107, align 8, !tbaa !223, !noalias !889
   store ptr %103, ptr %4, align 8, !tbaa !83, !noalias !889
   store i8 %104, ptr %88, align 8, !tbaa !85, !noalias !889
@@ -16252,9 +16243,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareListViewINS_17LargeListVie
 
 .lr.ph:                                           ; preds = %134, %.thread19
   %.018.i9.i25 = phi i64 [ %186, %.thread19 ], [ %137, %134 ]
-  %140 = getelementptr inbounds i64, ptr %62, i64 %.018.i9.i25
+  %140 = getelementptr inbounds [8 x i8], ptr %62, i64 %.018.i9.i25
   %141 = load i64, ptr %140, align 8, !tbaa !223, !noalias !889
-  %142 = getelementptr inbounds i64, ptr %75, i64 %.018.i9.i25
+  %142 = getelementptr inbounds [8 x i8], ptr %75, i64 %.018.i9.i25
   %143 = load i64, ptr %142, align 8, !tbaa !223, !noalias !889
   %.not.i11.i = icmp eq i64 %141, %143
   br i1 %.not.i11.i, label %144, label %.loopexit
@@ -16267,9 +16258,9 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareListViewINS_17LargeListVie
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !889
   %147 = load ptr, ptr %1, align 8, !tbaa !731, !noalias !889
   %148 = load i8, ptr %121, align 8, !tbaa !85, !range !81, !noalias !889, !noundef !82
-  %149 = getelementptr inbounds i64, ptr %32, i64 %.018.i9.i25
+  %149 = getelementptr inbounds [8 x i8], ptr %32, i64 %.018.i9.i25
   %150 = load i64, ptr %149, align 8, !tbaa !223, !noalias !889
-  %151 = getelementptr inbounds i64, ptr %49, i64 %.018.i9.i25
+  %151 = getelementptr inbounds [8 x i8], ptr %49, i64 %.018.i9.i25
   %152 = load i64, ptr %151, align 8, !tbaa !223, !noalias !889
   store ptr %147, ptr %3, align 8, !tbaa !83, !noalias !889
   store i8 %148, ptr %122, align 8, !tbaa !85, !noalias !889
@@ -16575,12 +16566,12 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread: ; preds = %3, %21
   %46 = load ptr, ptr %16, align 8, !tbaa !646
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = load ptr, ptr %47, align 8, !tbaa !867
-  %49 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %48, i64 %indvars.iv22
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv22
   %50 = load ptr, ptr %49, align 8, !tbaa !32
   %51 = load ptr, ptr %32, align 8, !tbaa !647
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !867
-  %54 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %53, i64 %indvars.iv22
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv22
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %56 = load i64, ptr %33, align 8, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -16660,12 +16651,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10StructTypeEENKUlllE_c
   %95 = load ptr, ptr %16, align 8, !tbaa !646
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %97 = load ptr, ptr %96, align 8, !tbaa !867
-  %98 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !32
   %100 = load ptr, ptr %79, align 8, !tbaa !647
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %102 = load ptr, ptr %101, align 8, !tbaa !867
-  %103 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8, !tbaa !32
   %105 = load i64, ptr %69, align 8, !tbaa !88
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 32
@@ -16875,7 +16866,7 @@ _ZNK5arrow9ArrayData9GetValuesIaEEPKT_i.exit43:   ; preds = %_ZNK5arrow9ArrayDat
 67:                                               ; preds = %64
   %68 = sext i8 %66 to i64
   %69 = load ptr, ptr %6, align 8, !tbaa !906
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %68
   %71 = load i32, ptr %70, align 4, !tbaa !284
   %72 = sub nsw i64 %.03561, %.062
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -16885,12 +16876,12 @@ _ZNK5arrow9ArrayData9GetValuesIaEEPKT_i.exit43:   ; preds = %_ZNK5arrow9ArrayDat
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %77 = sext i32 %71 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !867
-  %79 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !32
   %81 = load ptr, ptr %23, align 8, !tbaa !647
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %83 = load ptr, ptr %82, align 8, !tbaa !867
-  %84 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %83, i64 %77
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %77
   %85 = load ptr, ptr %84, align 8, !tbaa !32
   %86 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %87 = load i64, ptr %86, align 8, !tbaa !649
@@ -16945,7 +16936,7 @@ select.unfold:                                    ; preds = %67
   %107 = load i8, ptr %106, align 1, !tbaa !274
   %108 = sext i8 %107 to i64
   %109 = load ptr, ptr %6, align 8, !tbaa !906
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !284
   %112 = load i64, ptr %39, align 8, !tbaa !90
   %113 = sub nsw i64 %112, %.0.lcssa
@@ -16957,12 +16948,12 @@ select.unfold:                                    ; preds = %67
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %119 = sext i32 %111 to i64
   %120 = load ptr, ptr %118, align 8, !tbaa !867
-  %121 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !32
   %123 = load ptr, ptr %23, align 8, !tbaa !647
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
   %125 = load ptr, ptr %124, align 8, !tbaa !867
-  %126 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %125, i64 %119
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %119
   %127 = load ptr, ptr %126, align 8, !tbaa !32
   %128 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %129 = load i64, ptr %128, align 8, !tbaa !649
@@ -17069,7 +17060,7 @@ _ZNK5arrow9ArrayData9GetValuesIaEEPKT_i.exit22:   ; preds = %_ZNK5arrow9ArrayDat
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = select i1 %45, ptr %47, ptr null, !prof !96
-  %49 = getelementptr inbounds i32, ptr %48, i64 %42
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %42
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit:     ; preds = %_ZNK5arrow9ArrayData9GetValuesIaEEPKT_i.exit22, %40
@@ -17088,7 +17079,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit:     ; preds = %_ZNK5arrow9ArrayDat
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = select i1 %57, ptr %59, ptr null, !prof !96
-  %61 = getelementptr inbounds i32, ptr %60, i64 %54
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %54
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit27
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit27:   ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit, %52
@@ -17132,7 +17123,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit27:   ; preds = %_ZNK5arrow9ArrayDat
 85:                                               ; preds = %75
   %86 = sext i8 %79 to i64
   %87 = load ptr, ptr %5, align 8, !tbaa !906
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %86
   %89 = load i32, ptr %88, align 4, !tbaa !284
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %90 = load ptr, ptr %1, align 8, !tbaa !731
@@ -17141,19 +17132,19 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit27:   ; preds = %_ZNK5arrow9ArrayDat
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %94 = sext i32 %89 to i64
   %95 = load ptr, ptr %93, align 8, !tbaa !867
-  %96 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %94
   %97 = load ptr, ptr %96, align 8, !tbaa !32
   %98 = load ptr, ptr %22, align 8, !tbaa !647
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
   %100 = load ptr, ptr %99, align 8, !tbaa !867
-  %101 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %100, i64 %94
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %94
   %102 = load ptr, ptr %101, align 8, !tbaa !32
-  %103 = getelementptr i32, ptr %.0.i.i24, i64 %76
-  %104 = getelementptr i32, ptr %103, i64 %.028
+  %103 = getelementptr [4 x i8], ptr %.0.i.i24, i64 %76
+  %104 = getelementptr [4 x i8], ptr %103, i64 %.028
   %105 = load i32, ptr %104, align 4, !tbaa !284
   %106 = sext i32 %105 to i64
-  %107 = getelementptr i32, ptr %.0.i.i26, i64 %80
-  %108 = getelementptr i32, ptr %107, i64 %.028
+  %107 = getelementptr [4 x i8], ptr %.0.i.i26, i64 %80
+  %108 = getelementptr [4 x i8], ptr %107, i64 %.028
   %109 = load i32, ptr %108, align 4, !tbaa !284
   %110 = sext i32 %109 to i64
   store ptr %90, ptr %4, align 8, !tbaa !83
@@ -17423,14 +17414,14 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit:      ; preds = %_ZN5arrow9ArraySpan
   %76 = load i64, ptr %75, align 8, !tbaa !929, !noalias !919
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %78 = load ptr, ptr %77, align 8, !tbaa !933, !noalias !919
-  %79 = getelementptr inbounds i16, ptr %78, i64 %76
+  %79 = getelementptr inbounds [2 x i8], ptr %78, i64 %76
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %81 = load ptr, ptr %80, align 8, !tbaa !932, !noalias !919
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load i64, ptr %82, align 8, !tbaa !929, !noalias !919
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %85 = load ptr, ptr %84, align 8, !tbaa !933, !noalias !919
-  %86 = getelementptr inbounds i16, ptr %85, i64 %83
+  %86 = getelementptr inbounds [2 x i8], ptr %85, i64 %83
   %87 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %88 = load ptr, ptr %87, align 8, !tbaa !867, !noalias !919
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -17448,7 +17439,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %72, %_ZSt7advanceIP
   %.017.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i ], [ %79, %72 ]
   %.01116.i.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i ], [ %96, %72 ]
   %98 = lshr i64 %.01116.i.i.i.i.i.i, 1
-  %99 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i.i.i, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i.i.i, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !733, !noalias !935
   %101 = sext i16 %100 to i64
   %102 = icmp slt i64 %40, %101
@@ -17471,7 +17462,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i5.i:      ; preds = %_ZNK5arrow8ree_util
   %.017.i.i.i.i.i6.i = phi ptr [ %.1.i.i.i.i.i11.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i5.i ], [ %86, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i ]
   %.01116.i.i.i.i.i7.i = phi i64 [ %.112.i.i.i.i.i10.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i5.i ], [ %108, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i ]
   %110 = lshr i64 %.01116.i.i.i.i.i7.i, 1
-  %111 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i.i6.i, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i.i6.i, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !733, !noalias !939
   %113 = sext i16 %112 to i64
   %114 = icmp slt i64 %60, %113
@@ -17543,13 +17534,13 @@ _ZN5arrow8ree_util18MergedRunsIteratorINS0_22RunEndEncodedArraySpanIsEES3_EC2ERK
 
 .critedge.i:                                      ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !919
-  %145 = getelementptr inbounds i16, ptr %79, i64 %.sroa.18.0195
+  %145 = getelementptr inbounds [2 x i8], ptr %79, i64 %.sroa.18.0195
   %146 = load i16, ptr %145, align 2, !tbaa !733, !noalias !919
   %147 = sext i16 %146 to i64
   %148 = sub nsw i64 %147, %40
   %.sroa.speculated4.i.i.i = call i64 @llvm.smax.i64(i64 %148, i64 0)
   %.sroa.speculated.i.i.i = call noundef i64 @llvm.smin.i64(i64 %42, i64 %.sroa.speculated4.i.i.i)
-  %149 = getelementptr inbounds i16, ptr %86, i64 %.sroa.8.0196
+  %149 = getelementptr inbounds [2 x i8], ptr %86, i64 %.sroa.8.0196
   %150 = load i16, ptr %149, align 2, !tbaa !733, !noalias !919
   %151 = sext i16 %150 to i64
   %152 = sub nsw i64 %151, %60
@@ -17765,14 +17756,14 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit79:    ; preds = %_ZN5arrow9ArraySpan
   %242 = load i64, ptr %241, align 8, !tbaa !929, !noalias !951
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 56
   %244 = load ptr, ptr %243, align 8, !tbaa !933, !noalias !951
-  %245 = getelementptr inbounds i32, ptr %244, i64 %242
+  %245 = getelementptr inbounds [4 x i8], ptr %244, i64 %242
   %246 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %247 = load ptr, ptr %246, align 8, !tbaa !932, !noalias !951
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %249 = load i64, ptr %248, align 8, !tbaa !929, !noalias !951
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 56
   %251 = load ptr, ptr %250, align 8, !tbaa !933, !noalias !951
-  %252 = getelementptr inbounds i32, ptr %251, i64 %249
+  %252 = getelementptr inbounds [4 x i8], ptr %251, i64 %249
   %253 = getelementptr inbounds nuw i8, ptr %201, i64 64
   %254 = load ptr, ptr %253, align 8, !tbaa !867, !noalias !951
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
@@ -17790,7 +17781,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %238, %_ZSt7advanceI
   %.017.i.i.i.i.i.i63 = phi ptr [ %.1.i.i.i.i.i.i68, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i ], [ %245, %238 ]
   %.01116.i.i.i.i.i.i64 = phi i64 [ %.112.i.i.i.i.i.i67, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i ], [ %262, %238 ]
   %264 = lshr i64 %.01116.i.i.i.i.i.i64, 1
-  %265 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i.i63, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i.i63, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !284, !noalias !954
   %267 = sext i32 %266 to i64
   %268 = icmp slt i64 %206, %267
@@ -17813,7 +17804,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i5.i:      ; preds = %_ZNK5arrow8ree_util
   %.017.i.i.i.i.i6.i57 = phi ptr [ %.1.i.i.i.i.i11.i62, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i5.i ], [ %252, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i ]
   %.01116.i.i.i.i.i7.i58 = phi i64 [ %.112.i.i.i.i.i10.i61, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i5.i ], [ %274, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i ]
   %276 = lshr i64 %.01116.i.i.i.i.i7.i58, 1
-  %277 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i6.i57, i64 %276
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i6.i57, i64 %276
   %278 = load i32, ptr %277, align 4, !tbaa !284, !noalias !958
   %279 = sext i32 %278 to i64
   %280 = icmp slt i64 %226, %279
@@ -17885,13 +17876,13 @@ _ZN5arrow8ree_util18MergedRunsIteratorINS0_22RunEndEncodedArraySpanIiEES3_EC2ERK
 
 .critedge.i8:                                     ; preds = %306
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !951
-  %311 = getelementptr inbounds i32, ptr %245, i64 %.sroa.18141.0191
+  %311 = getelementptr inbounds [4 x i8], ptr %245, i64 %.sroa.18141.0191
   %312 = load i32, ptr %311, align 4, !tbaa !284, !noalias !951
   %313 = sext i32 %312 to i64
   %314 = sub nsw i64 %313, %206
   %.sroa.speculated4.i.i.i47 = call i64 @llvm.smax.i64(i64 %314, i64 0)
   %.sroa.speculated.i.i.i48 = call noundef i64 @llvm.smin.i64(i64 %208, i64 %.sroa.speculated4.i.i.i47)
-  %315 = getelementptr inbounds i32, ptr %252, i64 %.sroa.8137.0192
+  %315 = getelementptr inbounds [4 x i8], ptr %252, i64 %.sroa.8137.0192
   %316 = load i32, ptr %315, align 4, !tbaa !284, !noalias !951
   %317 = sext i32 %316 to i64
   %318 = sub nsw i64 %317, %226
@@ -18107,14 +18098,14 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit131:   ; preds = %_ZN5arrow9ArraySpan
   %408 = load i64, ptr %407, align 8, !tbaa !929, !noalias !967
   %409 = getelementptr inbounds nuw i8, ptr %406, i64 56
   %410 = load ptr, ptr %409, align 8, !tbaa !933, !noalias !967
-  %411 = getelementptr inbounds i64, ptr %410, i64 %408
+  %411 = getelementptr inbounds [8 x i8], ptr %410, i64 %408
   %412 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %413 = load ptr, ptr %412, align 8, !tbaa !932, !noalias !967
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
   %415 = load i64, ptr %414, align 8, !tbaa !929, !noalias !967
   %416 = getelementptr inbounds nuw i8, ptr %413, i64 56
   %417 = load ptr, ptr %416, align 8, !tbaa !933, !noalias !967
-  %418 = getelementptr inbounds i64, ptr %417, i64 %415
+  %418 = getelementptr inbounds [8 x i8], ptr %417, i64 %415
   %419 = getelementptr inbounds nuw i8, ptr %367, i64 64
   %420 = load ptr, ptr %419, align 8, !tbaa !867, !noalias !967
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 16
@@ -18132,7 +18123,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %404, %_ZSt7advanceI
   %.017.i.i.i.i.i.i115 = phi ptr [ %.1.i.i.i.i.i.i120, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i ], [ %411, %404 ]
   %.01116.i.i.i.i.i.i116 = phi i64 [ %.112.i.i.i.i.i.i119, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i ], [ %428, %404 ]
   %430 = lshr i64 %.01116.i.i.i.i.i.i116, 1
-  %431 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i.i115, i64 %430
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i.i115, i64 %430
   %432 = load i64, ptr %431, align 8, !tbaa !223, !noalias !970
   %433 = icmp slt i64 %372, %432
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 8
@@ -18154,7 +18145,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i5.i:      ; preds = %_ZNK5arrow8ree_util
   %.017.i.i.i.i.i6.i109 = phi ptr [ %.1.i.i.i.i.i11.i114, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i5.i ], [ %418, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i ]
   %.01116.i.i.i.i.i7.i110 = phi i64 [ %.112.i.i.i.i.i10.i113, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i5.i ], [ %439, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i ]
   %441 = lshr i64 %.01116.i.i.i.i.i7.i110, 1
-  %442 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i6.i109, i64 %441
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i6.i109, i64 %441
   %443 = load i64, ptr %442, align 8, !tbaa !223, !noalias !974
   %444 = icmp slt i64 %392, %443
   %445 = getelementptr inbounds nuw i8, ptr %442, i64 8
@@ -18225,12 +18216,12 @@ _ZN5arrow8ree_util18MergedRunsIteratorINS0_22RunEndEncodedArraySpanIlEES3_EC2ERK
 
 .critedge.i14:                                    ; preds = %470
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !967
-  %475 = getelementptr inbounds i64, ptr %411, i64 %.sroa.18151.0190
+  %475 = getelementptr inbounds [8 x i8], ptr %411, i64 %.sroa.18151.0190
   %476 = load i64, ptr %475, align 8, !tbaa !223, !noalias !967
   %477 = sub nsw i64 %476, %372
   %.sroa.speculated4.i.i.i99 = call i64 @llvm.smax.i64(i64 %477, i64 0)
   %.sroa.speculated.i.i.i100 = call noundef i64 @llvm.smin.i64(i64 %374, i64 %.sroa.speculated4.i.i.i99)
-  %478 = getelementptr inbounds i64, ptr %418, i64 %.sroa.8147.0189
+  %478 = getelementptr inbounds [8 x i8], ptr %418, i64 %.sroa.8147.0189
   %479 = load i64, ptr %478, align 8, !tbaa !223, !noalias !967
   %480 = sub nsw i64 %479, %392
   %.sroa.speculated4.i.i14.i101 = call i64 @llvm.smax.i64(i64 %480, i64 0)
@@ -20545,10 +20536,10 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitE
 22:                                               ; preds = %.lr.ph, %22
   %23 = phi ptr [ %15, %.lr.ph ], [ %34, %22 ]
   %.013 = phi i64 [ 0, %.lr.ph ], [ %32, %22 ]
-  %24 = getelementptr inbounds nuw %"class.std::shared_ptr.334", ptr %23, i64 %.013
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.013
   %25 = load ptr, ptr %24, align 8, !tbaa !260
   %26 = load ptr, ptr %5, align 8, !tbaa !1057
-  %27 = getelementptr inbounds nuw %"class.std::shared_ptr.334", ptr %26, i64 %.013
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.013
   %28 = load ptr, ptr %27, align 8, !tbaa !260
   %29 = load i8, ptr %20, align 8, !tbaa !117, !range !81, !noundef !82
   %30 = trunc nuw i8 %29 to i1
@@ -20580,14 +20571,14 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitE
   %7 = load i32, ptr %6, align 8, !tbaa !1062
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %5, align 8, !tbaa !1057
-  %10 = getelementptr inbounds nuw %"class.std::shared_ptr.334", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !260
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %14 = load i32, ptr %13, align 8, !tbaa !1062
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %12, align 8, !tbaa !1057
-  %17 = getelementptr inbounds nuw %"class.std::shared_ptr.334", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !260
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -20760,15 +20751,15 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_133StridedInteg
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = sext i32 %0 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !279
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8, !tbaa !223
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !279
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %8
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %8
   %15 = load i64, ptr %14, align 8, !tbaa !223
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !279
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %8
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %8
   %19 = load i64, ptr %18, align 8, !tbaa !223
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !276
@@ -20932,15 +20923,15 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloat
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = sext i32 %0 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !279
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !223
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !279
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %7
   %14 = load i64, ptr %13, align 8, !tbaa !223
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !279
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %7
   %18 = load i64, ptr %17, align 8, !tbaa !223
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !276
@@ -21121,15 +21112,15 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloat
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = sext i32 %0 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !279
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !223
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !279
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %7
   %14 = load i64, ptr %13, align 8, !tbaa !223
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !279
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %7
   %18 = load i64, ptr %17, align 8, !tbaa !223
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !276

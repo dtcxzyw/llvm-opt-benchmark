@@ -788,7 +788,7 @@ if.end15.i.i.i.i:                                 ; preds = %entry
   %2 = load i64, ptr %_M_bucket_count.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = urem i64 %id, %2
   %3 = load ptr, ptr %pendingStreams_.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %rem.i.i.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %cond.false, label %if.end.i.i.i.i.i.i
@@ -1505,7 +1505,7 @@ if.end:                                           ; preds = %for.body.i, %for.co
   %7 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %2, %7
   %.pre = load ptr, ptr %this, align 8
-  %arrayidx.i15.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %rem.i.i.i
+  %arrayidx.i15.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %rem.i.i.i
   %.pre37 = load ptr, ptr %arrayidx.i15.phi.trans.insert, align 8
   br label %if.end13
 
@@ -1515,7 +1515,7 @@ if.else:                                          ; preds = %entry
   %9 = load i64, ptr %_M_bucket_count.i10, align 8
   %rem.i.i.i11 = urem i64 %8, %9
   %10 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i11
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i11
   %11 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i12 = icmp eq ptr %11, null
   br i1 %tobool.not.i12, label %return, label %if.end.i
@@ -1582,10 +1582,10 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
-  %arrayidx5.i.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i21
+  %arrayidx5.i.i = getelementptr inbounds [8 x i8], ptr %23, i64 %rem.i.i.i.i21
   store ptr %22, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.05258
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %__bkt.05258
   %.pre23.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
@@ -1597,7 +1597,7 @@ if.end.i.i:                                       ; preds = %if.end13.thread, %i
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre23.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.05259
+  %arrayidx7.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %__bkt.05259
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %27
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -1620,7 +1620,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br i1 %cmp10.not.i, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then6.i
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i14.i
+  %arrayidx13.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i14.i
   store ptr %__prev_n.0, ptr %arrayidx13.i, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit
 
@@ -1668,9 +1668,9 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %offset.011.i.i.i.i = phi i64 [ %add6.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %index.010.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %add.ptr.i.i.i.i = getelementptr i8, ptr @_ZZN4quic34better_enums_data_PacketDropReason13_name_storageEvE7storage, i64 %offset.011.i.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZZN4quic34better_enums_data_PacketDropReason11_name_arrayEvE5value, i64 %index.010.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4quic34better_enums_data_PacketDropReason11_name_arrayEvE5value, i64 %index.010.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx1.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN4quic34better_enums_data_PacketDropReasonL14_the_raw_namesE, i64 %index.010.i.i.i.i
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN4quic34better_enums_data_PacketDropReasonL14_the_raw_namesE, i64 %index.010.i.i.i.i
   %1 = load ptr, ptr %arrayidx1.i.i.i.i, align 8
   %call.i.i.i.i = tail call i64 @strcspn(ptr noundef %1, ptr noundef nonnull @.str.17) #21
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i, i64 %call.i.i.i.i
@@ -1695,9 +1695,9 @@ for.body.i.i.i.i2:                                ; preds = %__cxx_global_var_in
   %offset.011.i.i.i.i3 = phi i64 [ %add6.i.i.i.i12, %for.body.i.i.i.i2 ], [ 0, %__cxx_global_var_init.exit ]
   %index.010.i.i.i.i4 = phi i64 [ %inc.i.i.i.i13, %for.body.i.i.i.i2 ], [ 0, %__cxx_global_var_init.exit ]
   %add.ptr.i.i.i.i5 = getelementptr i8, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId13_name_storageEvE7storage, i64 %offset.011.i.i.i.i3
-  %arrayidx.i.i.i.i6 = getelementptr inbounds nuw ptr, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId11_name_arrayEvE5value, i64 %index.010.i.i.i.i4
+  %arrayidx.i.i.i.i6 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4quic38better_enums_data_TransportKnobParamId11_name_arrayEvE5value, i64 %index.010.i.i.i.i4
   store ptr %add.ptr.i.i.i.i5, ptr %arrayidx.i.i.i.i6, align 8
-  %arrayidx1.i.i.i.i7 = getelementptr inbounds nuw ptr, ptr @_ZN4quic38better_enums_data_TransportKnobParamIdL14_the_raw_namesE, i64 %index.010.i.i.i.i4
+  %arrayidx1.i.i.i.i7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4quic38better_enums_data_TransportKnobParamIdL14_the_raw_namesE, i64 %index.010.i.i.i.i4
   %3 = load ptr, ptr %arrayidx1.i.i.i.i7, align 8
   %call.i.i.i.i8 = tail call i64 @strcspn(ptr noundef %3, ptr noundef nonnull @.str.17) #21
   %arrayidx2.i.i.i.i9 = getelementptr i8, ptr %add.ptr.i.i.i.i5, i64 %call.i.i.i.i8

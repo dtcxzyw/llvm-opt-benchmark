@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/cuddCheck.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [56 x i8] c"Permutation corrupted: invperm[%u] = %d\09 perm[%d] = %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"Error: node has illegal index\0A\00", align 1
 @.str.2 = private unnamed_addr constant [34 x i8] c"Error: node has illegal children\0A\00", align 1
@@ -92,11 +90,11 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %indvars.iv341 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next342, %257 ]
   %.0149274 = phi i32 [ 0, %.lr.ph275 ], [ %.10, %257 ]
   %20 = load ptr, ptr %8, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv341
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv341
   %22 = load i32, ptr %21, align 4, !tbaa !26
   %23 = load ptr, ptr %9, align 8, !tbaa !27
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !26
   %27 = zext i32 %26 to i64
   %.not206 = icmp eq i64 %indvars.iv341, %27
@@ -110,7 +108,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 
 32:                                               ; preds = %28, %19
   %33 = load ptr, ptr %11, align 8, !tbaa !29
-  %34 = getelementptr inbounds nuw %struct.DdSubtable, ptr %33, i64 %indvars.iv341
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %indvars.iv341
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %37 = load i32, ptr %36, align 4, !tbaa !31
@@ -126,7 +124,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.0266 = phi i32 [ 0, %.lr.ph268.preheader ], [ %.1.lcssa, %._crit_edge ]
   %.0143265 = phi i32 [ 0, %.lr.ph268.preheader ], [ %.1144.lcssa, %._crit_edge ]
   %.1150264 = phi i32 [ %.0149274, %.lr.ph268.preheader ], [ %.2151.lcssa, %._crit_edge ]
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %storemerge209255 = load ptr, ptr %39, align 8, !tbaa !32
   store ptr %storemerge209255, ptr %3, align 8, !tbaa !32
   %.not210256 = icmp eq ptr %storemerge209255, %0
@@ -190,7 +188,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 73:                                               ; preds = %69
   %74 = load ptr, ptr %9, align 8, !tbaa !27
   %75 = zext i32 %71 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !26
   %78 = zext i32 %77 to i64
   br label %79
@@ -212,7 +210,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 88:                                               ; preds = %81
   %89 = load ptr, ptr %9, align 8, !tbaa !27
   %90 = zext i32 %86 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !26
   %93 = zext i32 %92 to i64
   br label %94
@@ -440,7 +438,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.1150.lcssa = phi i32 [ %.0149274, %32 ], [ %.2151.lcssa, %._crit_edge269.loopexit ]
   %.0143.lcssa = phi i32 [ 0, %32 ], [ %.1144.lcssa, %._crit_edge269.loopexit ]
   %.0.lcssa = phi i32 [ 0, %32 ], [ %.1.lcssa, %._crit_edge269.loopexit ]
-  %243 = getelementptr inbounds nuw %struct.DdSubtable, ptr %242, i64 %indvars.iv341
+  %243 = getelementptr inbounds nuw [56 x i8], ptr %242, i64 %indvars.iv341
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = load i32, ptr %244, align 8, !tbaa !39
   %.not207 = icmp eq i32 %.0143.lcssa, %245
@@ -455,7 +453,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 249:                                              ; preds = %246, %._crit_edge269
   %250 = phi ptr [ %.pre362, %246 ], [ %242, %._crit_edge269 ]
   %.9 = phi i32 [ 1, %246 ], [ %.1150.lcssa, %._crit_edge269 ]
-  %251 = getelementptr inbounds nuw %struct.DdSubtable, ptr %250, i64 %indvars.iv341
+  %251 = getelementptr inbounds nuw [56 x i8], ptr %250, i64 %indvars.iv341
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %253 = load i32, ptr %252, align 8, !tbaa !40
   %.not208 = icmp eq i32 %.0.lcssa, %253
@@ -478,11 +476,11 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %indvars.iv349 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next350, %521 ]
   %.11300 = phi i32 [ %.0149.lcssa, %.lr.ph301 ], [ %.21, %521 ]
   %262 = load ptr, ptr %14, align 8, !tbaa !42
-  %263 = getelementptr inbounds nuw i32, ptr %262, i64 %indvars.iv349
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %indvars.iv349
   %264 = load i32, ptr %263, align 4, !tbaa !26
   %265 = load ptr, ptr %15, align 8, !tbaa !43
   %266 = sext i32 %264 to i64
-  %267 = getelementptr inbounds i32, ptr %265, i64 %266
+  %267 = getelementptr inbounds [4 x i8], ptr %265, i64 %266
   %268 = load i32, ptr %267, align 4, !tbaa !26
   %269 = zext i32 %268 to i64
   %.not187 = icmp eq i64 %indvars.iv349, %269
@@ -496,7 +494,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 
 274:                                              ; preds = %270, %261
   %275 = load ptr, ptr %17, align 8, !tbaa !44
-  %276 = getelementptr inbounds nuw %struct.DdSubtable, ptr %275, i64 %indvars.iv349
+  %276 = getelementptr inbounds nuw [56 x i8], ptr %275, i64 %indvars.iv349
   %277 = load ptr, ptr %276, align 8, !tbaa !30
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 12
   %279 = load i32, ptr %278, align 4, !tbaa !31
@@ -512,7 +510,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.3292 = phi i32 [ 0, %.lr.ph294.preheader ], [ %.4.lcssa, %._crit_edge285 ]
   %.2145291 = phi i32 [ 0, %.lr.ph294.preheader ], [ %.3146.lcssa, %._crit_edge285 ]
   %.12290 = phi i32 [ %.11300, %.lr.ph294.preheader ], [ %.13.lcssa, %._crit_edge285 ]
-  %281 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv344
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %indvars.iv344
   %storemerge190277 = load ptr, ptr %281, align 8, !tbaa !32
   store ptr %storemerge190277, ptr %3, align 8, !tbaa !32
   %.not191278 = icmp eq ptr %storemerge190277, null
@@ -611,7 +609,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 340:                                              ; preds = %336
   %341 = load ptr, ptr %15, align 8, !tbaa !43
   %342 = zext i32 %338 to i64
-  %343 = getelementptr inbounds nuw i32, ptr %341, i64 %342
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %341, i64 %342
   %344 = load i32, ptr %343, align 4, !tbaa !26
   %345 = zext i32 %344 to i64
   br label %346
@@ -630,7 +628,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 352:                                              ; preds = %348
   %353 = load ptr, ptr %15, align 8, !tbaa !43
   %354 = zext i32 %350 to i64
-  %355 = getelementptr inbounds nuw i32, ptr %353, i64 %354
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %353, i64 %354
   %356 = load i32, ptr %355, align 4, !tbaa !26
   %357 = zext i32 %356 to i64
   br label %358
@@ -852,7 +850,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.12.lcssa = phi i32 [ %.11300, %274 ], [ %.13.lcssa, %._crit_edge295.loopexit ]
   %.2145.lcssa = phi i32 [ 0, %274 ], [ %.3146.lcssa, %._crit_edge295.loopexit ]
   %.3.lcssa = phi i32 [ 0, %274 ], [ %.4.lcssa, %._crit_edge295.loopexit ]
-  %507 = getelementptr inbounds nuw %struct.DdSubtable, ptr %506, i64 %indvars.iv349
+  %507 = getelementptr inbounds nuw [56 x i8], ptr %506, i64 %indvars.iv349
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 16
   %509 = load i32, ptr %508, align 8, !tbaa !39
   %.not188 = icmp eq i32 %.2145.lcssa, %509
@@ -867,7 +865,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 513:                                              ; preds = %510, %._crit_edge295
   %514 = phi ptr [ %.pre369, %510 ], [ %506, %._crit_edge295 ]
   %.20 = phi i32 [ 1, %510 ], [ %.12.lcssa, %._crit_edge295 ]
-  %515 = getelementptr inbounds nuw %struct.DdSubtable, ptr %514, i64 %indvars.iv349
+  %515 = getelementptr inbounds nuw [56 x i8], ptr %514, i64 %indvars.iv349
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 24
   %517 = load i32, ptr %516, align 8, !tbaa !40
   %.not189 = icmp eq i32 %.3.lcssa, %517
@@ -905,7 +903,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.6319 = phi i32 [ 0, %.lr.ph321 ], [ %.7.lcssa, %._crit_edge312 ]
   %.4147318 = phi i32 [ 0, %.lr.ph321 ], [ %.5148.lcssa, %._crit_edge312 ]
   %.22317 = phi i32 [ %.11.lcssa, %.lr.ph321 ], [ %.23.lcssa, %._crit_edge312 ]
-  %532 = getelementptr inbounds nuw ptr, ptr %526, i64 %indvars.iv352
+  %532 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %indvars.iv352
   %storemerge304 = load ptr, ptr %532, align 8, !tbaa !32
   store ptr %storemerge304, ptr %3, align 8, !tbaa !32
   %.not184305 = icmp eq ptr %storemerge304, null
@@ -1097,7 +1095,7 @@ define internal fastcc void @debugFindParent(ptr noundef readonly captures(none)
 9:                                                ; preds = %6
   %10 = load ptr, ptr %3, align 8, !tbaa !27
   %11 = zext i32 %7 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !26
   %14 = sext i32 %13 to i64
   br label %15
@@ -1109,7 +1107,7 @@ define internal fastcc void @debugFindParent(ptr noundef readonly captures(none)
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %4, align 8, !tbaa !29
-  %20 = getelementptr inbounds nuw %struct.DdSubtable, ptr %19, i64 %indvars.iv38
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %indvars.iv38
   %21 = load ptr, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !31
@@ -1122,7 +1120,7 @@ define internal fastcc void @debugFindParent(ptr noundef readonly captures(none)
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %.030 = load ptr, ptr %25, align 8, !tbaa !32
   %.not31 = icmp eq ptr %.030, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
@@ -1193,7 +1191,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.0151219 = phi i32 [ 0, %.lr.ph225 ], [ %15, %52 ]
   %.0153218 = phi i32 [ 0, %.lr.ph225 ], [ %.1154, %52 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !29
-  %9 = getelementptr inbounds nuw %struct.DdSubtable, ptr %8, i64 %indvars.iv296
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv296
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !39
@@ -1233,7 +1231,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.1145210 = phi i32 [ %.0144222, %.lr.ph213.preheader ], [ %spec.select, %._crit_edge ]
   %.0158209 = phi i32 [ %14, %.lr.ph213.preheader ], [ %.1159.lcssa, %._crit_edge ]
   %.0166208 = phi i32 [ %12, %.lr.ph213.preheader ], [ %.1167.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !32
   %.not196 = icmp ne ptr %33, %0
   %34 = zext i1 %.not196 to i32
@@ -1318,7 +1316,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.1152252 = phi i32 [ %.0151.lcssa, %.lr.ph258 ], [ %66, %91 ]
   %.2155251 = phi i32 [ %.0153.lcssa, %.lr.ph258 ], [ %.3156, %91 ]
   %59 = load ptr, ptr %56, align 8, !tbaa !44
-  %60 = getelementptr inbounds nuw %struct.DdSubtable, ptr %59, i64 %indvars.iv306
+  %60 = getelementptr inbounds nuw [56 x i8], ptr %59, i64 %indvars.iv306
   %61 = load ptr, ptr %60, align 8, !tbaa !30
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !39
@@ -1341,7 +1339,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.4243 = phi i32 [ %.3255, %.lr.ph246.preheader ], [ %spec.select199, %._crit_edge238 ]
   %.3161242 = phi i32 [ %65, %.lr.ph246.preheader ], [ %.4162.lcssa, %._crit_edge238 ]
   %.2168241 = phi i32 [ %63, %.lr.ph246.preheader ], [ %.3169.lcssa, %._crit_edge238 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv301
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv301
   %72 = load ptr, ptr %71, align 8, !tbaa !32
   %.not191 = icmp ne ptr %72, null
   %73 = zext i1 %.not191 to i32
@@ -1430,7 +1428,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.6276 = phi i32 [ %.3.lcssa, %.lr.ph279.preheader ], [ %spec.select201, %._crit_edge271 ]
   %.6164275 = phi i32 [ %97, %.lr.ph279.preheader ], [ %.7165.lcssa, %._crit_edge271 ]
   %.4170274 = phi i32 [ %95, %.lr.ph279.preheader ], [ %.5171.lcssa, %._crit_edge271 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv311
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv311
   %104 = load ptr, ptr %103, align 8, !tbaa !32
   %.not187 = icmp ne ptr %104, null
   %105 = zext i1 %.not187 to i32
@@ -1587,7 +1585,7 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   %.061 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %26 ]
   %.04060 = phi i32 [ -1, %.lr.ph.preheader ], [ %.141, %26 ]
   %.04359 = phi i32 [ -1, %.lr.ph.preheader ], [ %.144, %26 ]
-  %12 = getelementptr inbounds nuw %struct.DdSubtable, ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -1674,7 +1672,7 @@ define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noun
   %. = select i1 %.not, i64 312, i64 320
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %9 = load ptr, ptr %8, align 8, !tbaa !81
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %7
   %.0 = load i32, ptr %10, align 4, !tbaa !26
   %.not26 = icmp eq i32 %3, 0
   br i1 %.not26, label %11, label %13

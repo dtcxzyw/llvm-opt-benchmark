@@ -18,26 +18,9 @@ module asm ".previous\09\09\09\09\09"
 %struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
 %struct.kobj_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.address_space = type { ptr, %struct.xarray, %struct.rw_semaphore, i32, %struct.atomic_t, %struct.rb_root_cached, i64, i64, ptr, i64, %struct.rw_semaphore, i32, %struct.spinlock, %struct.list_head, ptr }
-%struct.xarray = type { %struct.spinlock, i32, ptr }
-%struct.rb_root_cached = type { %struct.rb_root, ptr }
-%struct.rb_root = type { ptr }
-%struct.rw_semaphore = type { %struct.atomic64_t, %struct.atomic64_t, %struct.optimistic_spin_queue, %struct.raw_spinlock, %struct.list_head }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.list_head = type { ptr, ptr }
 %struct.xa_state = type { ptr, i64, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
 %struct.blk_plug = type { ptr, ptr, i16, i16, i8, i8, %struct.list_head }
-%struct.page = type { i64, %union.anon.7, %union.anon.15, %struct.atomic_t, [8 x i8] }
-%union.anon.7 = type { %struct.anon.8 }
-%struct.anon.8 = type { %union.anon.9, ptr, %union.anon.11, i64 }
-%union.anon.9 = type { %struct.list_head }
-%union.anon.11 = type { i64 }
-%union.anon.15 = type { %struct.atomic_t }
+%struct.list_head = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"%lu pages in swap cache\0A\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Free swap  = %ldkB\0A\00", align 1
@@ -93,11 +76,11 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @get_shadow_from_swap_cache(i64 %0) local_unnamed_addr #2 align 16 {
   %2 = lshr i64 %0, 58
-  %3 = getelementptr ptr, ptr @swapper_spaces, i64 %2
+  %3 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = and i64 %0, 288230376151711743
   %6 = lshr i64 %5, 14
-  %.split = getelementptr %struct.address_space, ptr %4, i64 %6
+  %.split = getelementptr [192 x i8], ptr %4, i64 %6
   %7 = getelementptr i8, ptr %.split, i64 8
   %8 = tail call ptr @xa_load(ptr noundef %7, i64 noundef %5) #11
   %9 = ptrtoint ptr %8 to i64
@@ -114,11 +97,11 @@ declare dso_local ptr @xa_load(ptr noundef, i64 noundef) local_unnamed_addr #3
 define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = lshr i64 %1, 58
-  %7 = getelementptr ptr, ptr @swapper_spaces, i64 %6
+  %7 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = and i64 %1, 288230376151711743
   %10 = lshr i64 %9, 14
-  %11 = getelementptr %struct.address_space, ptr %8, i64 %10
+  %11 = getelementptr [192 x i8], ptr %8, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -257,12 +240,12 @@ define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, 
 100:                                              ; preds = %.split.us
   %101 = load i64, ptr %0, align 16
   %102 = lshr i64 %101, 58
-  %103 = getelementptr ptr, ptr @node_data, i64 %102
+  %103 = getelementptr [8 x i8], ptr @node_data, i64 %102
   %104 = load ptr, ptr %103, align 8
   call void @__mod_node_page_state(ptr noundef %104, i32 noundef 19, i64 noundef 0) #11
   %105 = load i64, ptr %0, align 16
   %106 = lshr i64 %105, 58
-  %107 = getelementptr ptr, ptr @node_data, i64 %106
+  %107 = getelementptr [8 x i8], ptr @node_data, i64 %106
   %108 = load ptr, ptr %107, align 8
   call void @__mod_node_page_state(ptr noundef %108, i32 noundef 40, i64 noundef %89) #11
   br label %109
@@ -327,7 +310,7 @@ define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, 
   store i8 %143, ptr %69, align 2
   %144 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %145 = zext i8 %143 to i64
-  %146 = getelementptr ptr, ptr %144, i64 %145
+  %146 = getelementptr [8 x i8], ptr %144, i64 %145
   %147 = load volatile ptr, ptr %146, align 8
   br label %150
 
@@ -346,12 +329,12 @@ define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, 
   store i64 %154, ptr %87, align 8
   %155 = load i64, ptr %0, align 16
   %156 = lshr i64 %155, 58
-  %157 = getelementptr ptr, ptr @node_data, i64 %156
+  %157 = getelementptr [8 x i8], ptr @node_data, i64 %156
   %158 = load ptr, ptr %157, align 8
   call void @__mod_node_page_state(ptr noundef %158, i32 noundef 19, i64 noundef %.fr6) #11
   %159 = load i64, ptr %0, align 16
   %160 = lshr i64 %159, 58
-  %161 = getelementptr ptr, ptr @node_data, i64 %160
+  %161 = getelementptr [8 x i8], ptr @node_data, i64 %160
   %162 = load ptr, ptr %161, align 8
   call void @__mod_node_page_state(ptr noundef %162, i32 noundef 40, i64 noundef %89) #11
   br label %123
@@ -415,7 +398,7 @@ define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, 
   store i8 %198, ptr %69, align 2
   %199 = getelementptr inbounds nuw i8, ptr %181, i64 40
   %200 = zext i8 %198 to i64
-  %201 = getelementptr ptr, ptr %199, i64 %200
+  %201 = getelementptr [8 x i8], ptr %199, i64 %200
   %202 = load volatile ptr, ptr %201, align 8
   br label %203
 
@@ -430,12 +413,12 @@ define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, 
   store i64 %207, ptr %87, align 8
   %208 = load i64, ptr %0, align 16
   %209 = lshr i64 %208, 58
-  %210 = getelementptr ptr, ptr @node_data, i64 %209
+  %210 = getelementptr [8 x i8], ptr @node_data, i64 %209
   %211 = load ptr, ptr %210, align 8
   call void @__mod_node_page_state(ptr noundef %211, i32 noundef 19, i64 noundef %.fr6) #11
   %212 = load i64, ptr %0, align 16
   %213 = lshr i64 %212, 58
-  %214 = getelementptr ptr, ptr @node_data, i64 %213
+  %214 = getelementptr [8 x i8], ptr @node_data, i64 %213
   %215 = load ptr, ptr %214, align 8
   call void @__mod_node_page_state(ptr noundef %215, i32 noundef 40, i64 noundef %89) #11
   br label %216
@@ -500,11 +483,11 @@ declare dso_local zeroext i1 @xas_nomem(ptr noundef, i32 noundef) local_unnamed_
 define dso_local void @__delete_from_swap_cache(ptr noundef %0, i64 %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = alloca %struct.xa_state, align 8
   %5 = lshr i64 %1, 58
-  %6 = getelementptr ptr, ptr @swapper_spaces, i64 %5
+  %6 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = and i64 %1, 288230376151711743
   %9 = lshr i64 %8, 14
-  %10 = getelementptr %struct.address_space, ptr %7, i64 %9
+  %10 = getelementptr [192 x i8], ptr %7, i64 %9
   %11 = load volatile i64, ptr %0, align 8
   %12 = and i64 %11, 64
   %13 = icmp eq i64 %12, 0
@@ -568,7 +551,7 @@ define dso_local void @__delete_from_swap_cache(ptr noundef %0, i64 %1, ptr noun
   store i8 %47, ptr %23, align 2
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %49 = zext i8 %47 to i64
-  %50 = getelementptr ptr, ptr %48, i64 %49
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
   %51 = load volatile ptr, ptr %50, align 8
   br label %52
 
@@ -590,12 +573,12 @@ define dso_local void @__delete_from_swap_cache(ptr noundef %0, i64 %1, ptr noun
   %61 = sub nsw i64 0, %19
   %62 = load i64, ptr %0, align 16
   %63 = lshr i64 %62, 58
-  %64 = getelementptr ptr, ptr @node_data, i64 %63
+  %64 = getelementptr [8 x i8], ptr @node_data, i64 %63
   %65 = load ptr, ptr %64, align 8
   call void @__mod_node_page_state(ptr noundef %65, i32 noundef 19, i64 noundef %61) #11
   %66 = load i64, ptr %0, align 16
   %67 = lshr i64 %66, 58
-  %68 = getelementptr ptr, ptr @node_data, i64 %67
+  %68 = getelementptr [8 x i8], ptr @node_data, i64 %67
   %69 = load ptr, ptr %68, align 8
   call void @__mod_node_page_state(ptr noundef %69, i32 noundef 40, i64 noundef %61) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -640,11 +623,11 @@ define dso_local void @delete_from_swap_cache(ptr noundef %0) local_unnamed_addr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 58
-  %5 = getelementptr ptr, ptr @swapper_spaces, i64 %4
+  %5 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = lshr i64 %3, 14
   %8 = and i64 %7, 17592186044415
-  %.split = getelementptr %struct.address_space, ptr %6, i64 %8
+  %.split = getelementptr [192 x i8], ptr %6, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 8
   tail call void @_raw_spin_lock_irq(ptr noundef %9) #11
   tail call void @__delete_from_swap_cache(ptr noundef %0, i64 %3, ptr noundef null)
@@ -672,7 +655,7 @@ define dso_local void @clear_shadow_from_swap_cache(i32 noundef %0, i64 noundef 
   %4 = alloca %struct.xa_state, align 8
   %5 = and i32 %0, 63
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr ptr, ptr @swapper_spaces, i64 %6
+  %7 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -688,7 +671,7 @@ define dso_local void @clear_shadow_from_swap_cache(i32 noundef %0, i64 noundef 
   %18 = and i64 %17, 17592186044415
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %13, align 8, !annotation !5
-  %.split = getelementptr %struct.address_space, ptr %16, i64 %18
+  %.split = getelementptr [192 x i8], ptr %16, i64 %18
   %19 = getelementptr i8, ptr %.split, i64 8
   store ptr %19, ptr %4, align 8
   store i64 %15, ptr %8, align 8
@@ -747,7 +730,7 @@ define dso_local void @clear_shadow_from_swap_cache(i32 noundef %0, i64 noundef 
 
 51:                                               ; preds = %45
   %52 = zext i8 %46 to i64
-  %53 = getelementptr ptr, ptr %44, i64 %52
+  %53 = getelementptr [8 x i8], ptr %44, i64 %52
   %54 = load volatile ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %55, 3
@@ -956,7 +939,7 @@ define dso_local void @free_pages_and_swap_cache(ptr noundef %0, i32 noundef %1)
 
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ 0, %4 ], [ %13, %6 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -4
@@ -976,11 +959,11 @@ declare dso_local void @release_pages(ptr, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @swap_cache_get_folio(i64 %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = lshr i64 %0, 58
-  %5 = getelementptr ptr, ptr @swapper_spaces, i64 %4
+  %5 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = and i64 %0, 288230376151711743
   %8 = lshr i64 %7, 14
-  %9 = getelementptr %struct.address_space, ptr %6, i64 %8
+  %9 = getelementptr [192 x i8], ptr %6, i64 %8
   %10 = tail call ptr @__filemap_get_folio(ptr noundef %9, i64 noundef %7, i32 noundef 0, i32 noundef 0) #11
   %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
   br i1 %11, label %45, label %12
@@ -1077,10 +1060,10 @@ define dso_local ptr @filemap_get_incore_folio(ptr noundef %0, i64 noundef %1) l
 
 20:                                               ; preds = %17
   %21 = and i64 %14, 288230376151711743
-  %22 = getelementptr ptr, ptr @swapper_spaces, i64 %15
+  %22 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %15
   %23 = load ptr, ptr %22, align 8
   %24 = lshr i64 %21, 14
-  %25 = getelementptr %struct.address_space, ptr %23, i64 %24
+  %25 = getelementptr [192 x i8], ptr %23, i64 %24
   %26 = tail call ptr @__filemap_get_folio(ptr noundef %25, i64 noundef %21, i32 noundef 0, i32 noundef 0) #11
   tail call void @__rcu_read_lock() #11
   %27 = load volatile i64, ptr %18, align 8
@@ -1136,11 +1119,11 @@ define dso_local ptr @__read_swap_cache_async(i64 %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %6
   %11 = lshr i64 %0, 58
-  %12 = getelementptr ptr, ptr @swapper_spaces, i64 %11
+  %12 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %11
   %13 = and i64 %0, 288230376151711743
   %14 = lshr i64 %13, 14
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr %struct.address_space, ptr %15, i64 %14
+  %16 = getelementptr [192 x i8], ptr %15, i64 %14
   %17 = tail call ptr @__filemap_get_folio(ptr noundef %16, i64 noundef %13, i32 noundef 0, i32 noundef 0) #11
   %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
   br i1 %18, label %.lr.ph, label %.thread6
@@ -1217,7 +1200,7 @@ define dso_local ptr @__read_swap_cache_async(i64 %0, i32 noundef %1, ptr nounde
 56:                                               ; preds = %55
   %57 = tail call i64 @schedule_timeout_uninterruptible(i64 noundef 1) #11
   %58 = load ptr, ptr %12, align 8
-  %59 = getelementptr %struct.address_space, ptr %58, i64 %14
+  %59 = getelementptr [192 x i8], ptr %58, i64 %14
   %60 = tail call ptr @__filemap_get_folio(ptr noundef %59, i64 noundef %13, i32 noundef 0, i32 noundef 0) #11
   %61 = icmp ugt ptr %60, inttoptr (i64 -4096 to ptr)
   br i1 %61, label %.lr.ph.split, label %.thread6
@@ -1566,7 +1549,7 @@ define dso_local noundef range(i32 -12, 1) i32 @init_swap_address_space(i32 noun
 
 .preheader:                                       ; preds = %9, %.preheader
   %12 = phi i64 [ %20, %.preheader ], [ 0, %9 ]
-  %13 = getelementptr %struct.address_space, ptr %7, i64 %12
+  %13 = getelementptr [192 x i8], ptr %7, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -1585,7 +1568,7 @@ define dso_local noundef range(i32 -12, 1) i32 @init_swap_address_space(i32 noun
 
 .loopexit:                                        ; preds = %.preheader, %9
   %22 = zext i32 %0 to i64
-  %23 = getelementptr ptr, ptr @swapper_spaces, i64 %22
+  %23 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %22
   store ptr %7, ptr %23, align 8
   br label %24
 
@@ -1597,7 +1580,7 @@ define dso_local noundef range(i32 -12, 1) i32 @init_swap_address_space(i32 noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @exit_swap_address_space(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @swapper_spaces, i64 %2
+  %3 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %2
   %4 = load ptr, ptr %3, align 8
   tail call void @kvfree(ptr noundef %4) #11
   store ptr null, ptr %3, align 8
@@ -1911,7 +1894,7 @@ define dso_local ptr @swapin_readahead(i64 %0, i32 noundef %1, ptr noundef reado
 
 194:                                              ; preds = %187, %183
   %195 = phi i64 [ %193, %187 ], [ 0, %183 ]
-  %196 = getelementptr %struct.page, ptr %173, i64 %195
+  %196 = getelementptr [64 x i8], ptr %173, i64 %195
   br label %197
 
 197:                                              ; preds = %194, %181

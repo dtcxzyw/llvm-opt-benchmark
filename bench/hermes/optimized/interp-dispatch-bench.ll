@@ -2545,7 +2545,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN6hermes19Uniquin
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %11, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %11, i64 %idx.neg.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i.i) #20
   store ptr null, ptr %isIdentifier_.i.i, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 472
@@ -6863,9 +6863,9 @@ if.then.i24.i:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorISt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr34.i = getelementptr inbounds nuw %"class.std::unique_ptr.334", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
-  %add.ptr37.i = getelementptr inbounds nuw %"class.std::unique_ptr.334", ptr %call5.i.i.i.i, i64 %4
+  %add.ptr37.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
@@ -6874,7 +6874,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %add.ptr = getelementptr inbounds %"class.std::unique_ptr.334", ptr %1, i64 %__new_size
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
   br i1 %tobool.not.i, label %if.end6, label %for.body.i.i.i.i18
 

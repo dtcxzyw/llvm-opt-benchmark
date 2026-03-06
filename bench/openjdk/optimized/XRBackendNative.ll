@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._XPointFixed = type { i32, i32 }
 %struct._XRadialGradient = type { %struct._XCircle, %struct._XCircle }
 %struct._XCircle = type { i32, i32, i32 }
-%struct._XGlyphInfo = type { i16, i16, i16, i16, i16, i16 }
 %struct._XGlyphElt32 = type { i64, ptr, i32, i32, i32 }
 
 @Java_sun_awt_X11GraphicsEnvironment_initXRender.xrenderAvailable = internal unnamed_addr global i8 0, align 1
@@ -640,7 +639,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noun
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %33 = load i32, ptr %32, align 4
   %34 = trunc i32 %33 to i16
-  %35 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv
   store i16 %34, ptr %35, align 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %37 = load i32, ptr %36, align 4
@@ -793,16 +792,16 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %52 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %53 = load float, ptr %52, align 4
   %54 = fmul float %53, 6.553600e+04
   %55 = fptosi float %54 to i32
-  %56 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store i32 %55, ptr %56, align 4
   %.idx = shl nsw i64 %indvars.iv, 3
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds nuw %struct.XRenderColor, ptr %36, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 %58, ptr %60, align 2
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 2
@@ -936,16 +935,16 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %54 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %55 = load float, ptr %54, align 4
   %56 = fmul float %55, 6.553600e+04
   %57 = fptosi float %56 to i32
-  %58 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %57, ptr %58, align 4
   %.idx = shl nsw i64 %indvars.iv, 3
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds nuw %struct.XRenderColor, ptr %38, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
   store i16 %60, ptr %62, align 2
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 2
@@ -1267,19 +1266,19 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %36 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store i64 %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %44 = load float, ptr %43, align 8
   %45 = fneg float %44
   %46 = fptosi float %45 to i16
-  %47 = getelementptr inbounds nuw %struct._XGlyphInfo, ptr %12, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i16 %46, ptr %48, align 2
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 20
@@ -1378,10 +1377,10 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %.025, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.025, i64 %indvars.iv
   store i64 %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1521,9 +1520,9 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 .lr.ph:                                           ; preds = %.preheader102, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader102 ]
-  %58 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds nuw i32, ptr %.084, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.084, i64 %indvars.iv
   store i32 %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
@@ -1535,7 +1534,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %.idx = shl nsw i64 %indvars.iv108, 4
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds nuw %struct._XGlyphElt32, ptr %.085, i64 %indvars.iv108
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %.085, i64 %indvars.iv108
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i32 %62, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -1551,7 +1550,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %73 = sext i32 %72 to i64
   store i64 %73, ptr %63, align 8
   %74 = sext i32 %.0105 to i64
-  %75 = getelementptr inbounds i32, ptr %.084, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %.084, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %75, ptr %76, align 8
   %77 = add nsw i32 %62, %.0105
@@ -1651,7 +1650,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %25 = load i32, ptr %24, align 4
   %26 = trunc i32 %25 to i16
-  %27 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv
   store i16 %26, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %29 = load i32, ptr %28, align 4

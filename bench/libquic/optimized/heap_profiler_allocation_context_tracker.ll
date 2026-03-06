@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.base::ThreadLocalStorage::StaticSlot" = type { i32, i32 }
-%"struct.base::trace_event::AllocationContextTracker::PseudoStackFrame" = type { ptr, ptr }
 %"struct.base::trace_event::AllocationContext" = type { %"struct.base::trace_event::Backtrace", ptr }
 %"struct.base::trace_event::Backtrace" = type { [48 x %"struct.base::trace_event::StackFrame"], i64 }
 %"struct.base::trace_event::StackFrame" = type { i32, ptr }
@@ -261,7 +260,7 @@ _ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaI
 _ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %22, ptr %0, align 8, !tbaa !3
   store ptr %26, ptr %4, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw %"struct.base::trace_event::AllocationContextTracker::PseudoStackFrame", ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %20
   store ptr %28, ptr %13, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE9push_backERKS3_.exit
 
@@ -345,7 +344,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %25, 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %22, ptr %3, align 8, !tbaa !11
   store ptr %26, ptr %4, align 8, !tbaa !14
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr %28, ptr %13, align 8, !tbaa !15
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit
 
@@ -479,7 +478,7 @@ define void @_ZN4base11trace_event24AllocationContextTracker18GetContextSnapshot
   %.553 = phi ptr [ %44, %.lr.ph54 ], [ %.0.ptr, %36 ]
   %.03352 = phi i64 [ %41, %.lr.ph54 ], [ %37, %36 ]
   %41 = add i64 %.03352, -1
-  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !32
   %44 = getelementptr inbounds nuw i8, ptr %.553, i64 16
   store i32 2, ptr %.553, align 8, !tbaa !30

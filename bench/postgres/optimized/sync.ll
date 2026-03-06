@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SyncOps = type { ptr, ptr, ptr }
 %struct.CheckpointStatsData = type { i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i64, i64 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.timespec = type { i64, i64 }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 
@@ -104,7 +103,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.lr.ph ]
   %.0184043 = phi i32 [ %.1.ph, %38 ], [ 10, %.lr.ph ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 26
@@ -122,7 +121,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 18:                                               ; preds = %13
   %19 = load i16, ptr %9, align 8
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr @syncsw, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 %23(ptr noundef nonnull %9, ptr noundef nonnull %1) #8
@@ -165,7 +164,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   br i1 %41, label %.lr.ph45, label %.thread35.loopexit
 
 .split:                                           ; preds = %13
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %43 = load ptr, ptr @pendingUnlinks, align 8
   %44 = getelementptr i8, ptr %43, i64 16
@@ -205,7 +204,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %55 = load ptr, ptr @pendingUnlinks, align 8
   %56 = getelementptr i8, ptr %55, i64 16
   %.val26 = load ptr, ptr %56, align 8
-  %57 = getelementptr inbounds nuw %union.ListCell, ptr %.val26, i64 %indvars.iv52
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.val26, i64 %indvars.iv52
   %58 = load ptr, ptr %57, align 8
   call void @pfree(ptr noundef %58) #8
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -334,7 +333,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = load i16, ptr %24, align 8
   %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %44
+  %45 = getelementptr inbounds [24 x i8], ptr @syncsw, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 %46(ptr noundef nonnull %24, ptr noundef nonnull %4) #8
   %48 = icmp eq i32 %47, 0
@@ -354,7 +353,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = load i16, ptr %24, align 8
   %55 = sext i16 %54 to i64
-  %56 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %55
+  %56 = getelementptr inbounds [24 x i8], ptr @syncsw, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef nonnull %24, ptr noundef nonnull %4) #8
   %59 = icmp eq i32 %58, 0
@@ -523,7 +522,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 
 17:                                               ; preds = %.lr.ph
   %18 = sext i16 %14 to i64
-  %19 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %18
+  %19 = getelementptr inbounds [24 x i8], ptr @syncsw, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = call zeroext i1 %21(ptr noundef nonnull %0, ptr noundef nonnull %13) #8
@@ -554,7 +553,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 .lr.ph46:                                         ; preds = %.lr.ph43, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph43 ]
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = load i16, ptr %34, align 8
   %36 = load i16, ptr %0, align 8
@@ -567,7 +566,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 
 38:                                               ; preds = %.lr.ph46
   %39 = sext i16 %35 to i64
-  %40 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %39
+  %40 = getelementptr inbounds [24 x i8], ptr @syncsw, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call zeroext i1 %42(ptr noundef nonnull %0, ptr noundef nonnull %34) #8

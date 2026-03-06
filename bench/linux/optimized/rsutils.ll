@@ -102,9 +102,9 @@ define dso_local void @acpi_rs_move_data(ptr noundef writeonly captures(none) %0
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
   %9 = phi i64 [ %13, %.split.us ], [ 0, %.split.us.preheader ]
-  %10 = getelementptr i16, ptr %1, i64 %9
+  %10 = getelementptr [2 x i8], ptr %1, i64 %9
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr i16, ptr %0, i64 %9
+  %12 = getelementptr [2 x i8], ptr %0, i64 %9
   store i16 %11, ptr %12, align 2
   %13 = add nuw nsw i64 %9, 1
   %14 = icmp eq i64 %13, %8
@@ -112,9 +112,9 @@ define dso_local void @acpi_rs_move_data(ptr noundef writeonly captures(none) %0
 
 .split.us2:                                       ; preds = %7, %.split.us2
   %15 = phi i64 [ %19, %.split.us2 ], [ 0, %7 ]
-  %16 = getelementptr i32, ptr %1, i64 %15
+  %16 = getelementptr [4 x i8], ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr i32, ptr %0, i64 %15
+  %18 = getelementptr [4 x i8], ptr %0, i64 %15
   store i32 %17, ptr %18, align 4
   %19 = add nuw nsw i64 %15, 1
   %20 = icmp eq i64 %19, %8
@@ -122,9 +122,9 @@ define dso_local void @acpi_rs_move_data(ptr noundef writeonly captures(none) %0
 
 .split:                                           ; preds = %7, %.split
   %21 = phi i64 [ %25, %.split ], [ 0, %7 ]
-  %22 = getelementptr i64, ptr %1, i64 %21
+  %22 = getelementptr [8 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr i64, ptr %0, i64 %21
+  %24 = getelementptr [8 x i8], ptr %0, i64 %21
   store i64 %23, ptr %24, align 8
   %25 = add nuw nsw i64 %21, 1
   %26 = icmp eq i64 %25, %8

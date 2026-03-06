@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct.ChanStats = type { double, double, double }
 
 @.str = private unnamed_addr constant [5 x i8] c"asdr\00", align 1
 @.str.1 = private unnamed_addr constant [42 x i8] c"Measure Audio Signal-to-Distortion Ratio.\00", align 1
@@ -52,7 +51,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 11:                                               ; preds = %.lr.ph61, %11
   %indvars.iv68 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next69, %11 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw %struct.ChanStats, ptr %12, i64 %indvars.iv68
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv68
   %14 = load double, ptr %13, align 8, !tbaa !29
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load double, ptr %15, align 8, !tbaa !31
@@ -93,7 +92,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 32:                                               ; preds = %.lr.ph59, %32
   %indvars.iv65 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next66, %32 ]
   %33 = load ptr, ptr %31, align 8, !tbaa !28
-  %34 = getelementptr inbounds nuw %struct.ChanStats, ptr %33, i64 %indvars.iv65
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv65
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load double, ptr %35, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -120,7 +119,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 54:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %55 = load ptr, ptr %28, align 8, !tbaa !28
-  %56 = getelementptr inbounds nuw %struct.ChanStats, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load double, ptr %57, align 8, !tbaa !31
   %59 = fcmp nsz ogt double %58, 0.000000e+00
@@ -185,7 +184,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8, !tbaa !43
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   tail call void @ff_inlink_set_status(ptr noundef %16, i32 noundef %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -223,9 +222,9 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %.not97 = phi i1 [ true, %.preheader ], [ false, %33 ]
   %indvars.iv109 = phi i64 [ 0, %.preheader ], [ 1, %33 ]
   %35 = load ptr, ptr %20, align 8, !tbaa !43
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv109
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv109
   %37 = load ptr, ptr %36, align 8, !tbaa !40
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv109
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv109
   %39 = tail call i32 @ff_inlink_consume_samples(ptr noundef %37, i32 noundef %30, i32 noundef %30, ptr noundef nonnull %38) #10
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %33
@@ -272,7 +271,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %.not95 = phi i1 [ false, %61 ], [ true, %.critedge ]
   %indvars.iv103 = phi i64 [ 1, %61 ], [ 0, %.critedge ]
   %62 = load ptr, ptr %20, align 8, !tbaa !43
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv103
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv103
   %64 = load ptr, ptr %63, align 8, !tbaa !40
   %65 = call i32 @ff_inlink_acknowledge_status(ptr noundef %64, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %.not75 = icmp eq i32 %65, 0
@@ -296,14 +295,14 @@ define internal i32 @activate(ptr noundef %0) #1 {
 71:                                               ; preds = %.preheader84, %84
   %.not96 = phi i1 [ true, %.preheader84 ], [ false, %84 ]
   %indvars.iv106 = phi i64 [ 0, %.preheader84 ], [ 1, %84 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv106
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv106
   %73 = load ptr, ptr %72, align 8, !tbaa !57
   %.not77 = icmp eq ptr %73, null
   br i1 %.not77, label %74, label %84
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %20, align 8, !tbaa !43
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv106
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv106
   %77 = load ptr, ptr %76, align 8, !tbaa !40
   %78 = call i32 @ff_inlink_queued_samples(ptr noundef %77) #10
   %79 = icmp sgt i32 %78, 0
@@ -311,7 +310,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %20, align 8, !tbaa !43
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv106
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv106
   %83 = load ptr, ptr %82, align 8, !tbaa !40
   call void @ff_inlink_request_frame(ptr noundef %83) #10
   br label %.critedge82
@@ -430,9 +429,9 @@ define internal noundef i32 @sdr_fltp(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv55 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv55
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv55
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv55
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv55
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -440,12 +439,12 @@ define internal noundef i32 @sdr_fltp(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %33 ]
   %.04145.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %38, %33 ]
   %.04244.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %44, %33 ]
-  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !73
   %36 = fmul nsz float %35, %35
   %37 = fpext nsz float %36 to double
   %38 = fadd nsz double %.04145.us, %37
-  %39 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !73
   %41 = fsub nsz float %35, %40
   %42 = fmul nsz float %41, %41
@@ -456,7 +455,7 @@ define internal noundef i32 @sdr_fltp(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %33
-  %45 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv55
+  %45 = getelementptr inbounds [24 x i8], ptr %22, i64 %indvars.iv55
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load double, ptr %46, align 8, !tbaa !31
   %48 = fadd nsz double %44, %47
@@ -510,9 +509,9 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv55 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv55
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv55
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv55
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv55
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -520,10 +519,10 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %33 ]
   %.04145.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %36, %33 ]
   %.04244.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %40, %33 ]
-  %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %35 = load double, ptr %34, align 8, !tbaa !77
   %36 = tail call nsz double @llvm.fmuladd.f64(double %35, double %35, double %.04145.us)
-  %37 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !77
   %39 = fsub nsz double %35, %38
   %40 = tail call nsz double @llvm.fmuladd.f64(double %39, double %39, double %.04244.us)
@@ -532,7 +531,7 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %33
-  %41 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv55
+  %41 = getelementptr inbounds [24 x i8], ptr %22, i64 %indvars.iv55
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load double, ptr %42, align 8, !tbaa !31
   %44 = fadd nsz double %40, %43
@@ -586,9 +585,9 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv62
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv62
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv62
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv62
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -597,12 +596,12 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
   %.04450.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %43, %33 ]
   %.04549.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %38, %33 ]
   %.04648.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %46, %33 ]
-  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !73
   %36 = fmul nsz float %35, %35
   %37 = fpext nsz float %36 to double
   %38 = fadd nsz double %.04549.us, %37
-  %39 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !73
   %41 = fmul nsz float %40, %40
   %42 = fpext nsz float %41 to double
@@ -615,7 +614,7 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !80
 
 ._crit_edge.us:                                   ; preds = %33
-  %47 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv62
+  %47 = getelementptr inbounds [24 x i8], ptr %22, i64 %indvars.iv62
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load double, ptr %48, align 8, !tbaa !31
   %50 = fadd nsz double %46, %49
@@ -673,9 +672,9 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv62
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv62
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv62
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv62
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -684,10 +683,10 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
   %.04450.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %39, %33 ]
   %.04549.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %36, %33 ]
   %.04648.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %40, %33 ]
-  %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %35 = load double, ptr %34, align 8, !tbaa !77
   %36 = tail call nsz double @llvm.fmuladd.f64(double %35, double %35, double %.04549.us)
-  %37 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !77
   %39 = tail call nsz double @llvm.fmuladd.f64(double %38, double %38, double %.04450.us)
   %40 = tail call nsz double @llvm.fmuladd.f64(double %35, double %38, double %.04648.us)
@@ -696,7 +695,7 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %33
-  %41 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv62
+  %41 = getelementptr inbounds [24 x i8], ptr %22, i64 %indvars.iv62
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load double, ptr %42, align 8, !tbaa !31
   %44 = fadd nsz double %40, %43
@@ -754,18 +753,18 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv44 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next45, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv44
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv44
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv44
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv44
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
 33:                                               ; preds = %.lr.ph.us, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %33 ]
   %.03436.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %41, %33 ]
-  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !73
-  %36 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !73
   %38 = fsub nsz float %35, %37
   %39 = fmul nsz float %38, %38
@@ -776,7 +775,7 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %33
-  %42 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44
+  %42 = getelementptr inbounds [24 x i8], ptr %22, i64 %indvars.iv44
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load double, ptr %43, align 8, !tbaa !31
   %45 = fadd nsz double %41, %44
@@ -827,18 +826,18 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv44 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next45, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv44
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv44
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv44
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv44
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
 33:                                               ; preds = %.lr.ph.us, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %33 ]
   %.03436.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %39, %33 ]
-  %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %35 = load double, ptr %34, align 8, !tbaa !77
-  %36 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %37 = load double, ptr %36, align 8, !tbaa !77
   %38 = fsub nsz double %35, %37
   %39 = tail call nsz double @llvm.fmuladd.f64(double %38, double %38, double %.03436.us)
@@ -847,7 +846,7 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %33
-  %40 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44
+  %40 = getelementptr inbounds [24 x i8], ptr %22, i64 %indvars.iv44
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load double, ptr %41, align 8, !tbaa !31
   %43 = fadd nsz double %39, %42

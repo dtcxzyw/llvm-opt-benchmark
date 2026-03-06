@@ -71,21 +71,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.55" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::D3DS::Face" = type { %struct.FaceWithSmoothingGroup }
-%struct.FaceWithSmoothingGroup = type { [3 x i32], i32 }
 %struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
 %"struct.Assimp::D3DS::aiFloatKey" = type { double, float }
-%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
 %class.aiQuaterniont = type { float, float, float, float }
-%"struct.Assimp::D3DS::Material" = type <{ ptr, %"class.std::__cxx11::basic_string", %struct.aiColor3D, float, float, %struct.aiColor3D, %struct.aiColor3D, i32, float, [4 x i8], %"struct.Assimp::D3DS::Texture", %"struct.Assimp::D3DS::Texture", %"struct.Assimp::D3DS::Texture", %"struct.Assimp::D3DS::Texture", %"struct.Assimp::D3DS::Texture", %"struct.Assimp::D3DS::Texture", %"struct.Assimp::D3DS::Texture", float, %struct.aiColor3D, %"struct.Assimp::D3DS::Texture", i8, [7 x i8] }>
-%"struct.Assimp::D3DS::Texture" = type { float, %"class.std::__cxx11::basic_string", float, float, float, float, float, i32, i8, i32 }
-%"struct.Assimp::D3DS::Mesh" = type { %struct.MeshWithSmoothingGroups, %"class.std::__cxx11::basic_string", %"class.std::vector.44", %"class.std::vector.54", %class.aiMatrix4x4t }
-%struct.MeshWithSmoothingGroups = type { %"class.std::vector.44", %"class.std::vector.49", %"class.std::vector.44" }
-%"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
-%"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<Assimp::D3DS::Face, std::allocator<Assimp::D3DS::Face>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::D3DS::Face, std::allocator<Assimp::D3DS::Face>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::D3DS::Face, std::allocator<Assimp::D3DS::Face>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::D3DS::Face, std::allocator<Assimp::D3DS::Face>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
+%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
 
 $_ZN17DeadlyImportErrorC2IJRA21_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpOT_ = comdat any
 
@@ -1503,19 +1492,19 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit: ; preds = %24, %26, %28
   %41 = phi ptr [ %90, %86 ], [ %34, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit ]
   %42 = phi i64 [ %88, %86 ], [ 0, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit ]
   %.082223 = phi i32 [ %87, %86 ], [ 0, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit ]
-  %43 = getelementptr inbounds nuw %"struct.Assimp::D3DS::Face", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw %class.aiVector3t, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %46, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %class.aiVector3t, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [12 x i8], ptr %46, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %class.aiVector3t, ptr %46, i64 %54
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %46, i64 %54
   %56 = load float, ptr %51, align 4
   %57 = load float, ptr %47, align 4
   %58 = fsub float %56, %57
@@ -1564,11 +1553,11 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit: ; preds = %24, %26, %28
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
   %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds nuw %class.aiVector3t, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [12 x i8], ptr %100, i64 %99
   store <2 x float> %.sroa.0.4.vec.insert.i100, ptr %101, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 8
   store float %85, ptr %.sroa.4.0..sroa_idx, align 4
@@ -1628,7 +1617,7 @@ _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %116
   %.sroa.0180.0226 = phi float [ %.sroa.speculated190, %.lr.ph231 ], [ -1.000000e+10, %.preheader219 ]
   %.sroa.8.0225 = phi float [ %.sroa.speculated187, %.lr.ph231 ], [ -1.000000e+10, %.preheader219 ]
   %.sroa.13183.0224 = phi float [ %.sroa.speculated, %.lr.ph231 ], [ -1.000000e+10, %.preheader219 ]
-  %123 = getelementptr inbounds nuw %class.aiVector3t, ptr %36, i64 %122
+  %123 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %122
   %124 = load float, ptr %123, align 4
   %125 = fcmp olt float %124, %.sroa.0191.0229
   %.sroa.speculated204 = select i1 %125, float %124, float %.sroa.0191.0229
@@ -1685,11 +1674,11 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._crit_edge, %_ZN
 
 148:                                              ; preds = %.preheader, %155
   %indvars.iv265 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next266, %155 ]
-  %149 = getelementptr inbounds nuw i32, ptr %.sroa.0173.0239, i64 %indvars.iv265
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0173.0239, i64 %indvars.iv265
   %150 = load i32, ptr %149, align 4
   %151 = zext i32 %150 to i64
   %152 = load ptr, ptr %0, align 8
-  %153 = getelementptr inbounds nuw %class.aiVector3t, ptr %152, i64 %151
+  %153 = getelementptr inbounds nuw [12 x i8], ptr %152, i64 %151
   %154 = load i32, ptr %142, align 4
   invoke void @_ZN6Assimp13SGSpatialSort3AddERK10aiVector3tIfEjj(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 4 dereferenceable(12) %153, i32 noundef %150, i32 noundef %154)
           to label %155 unwind label %156
@@ -1723,7 +1712,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._crit_edge, %_ZN
 
 170:                                              ; preds = %161
   %171 = lshr i64 %166, 6
-  %172 = getelementptr inbounds nuw i64, ptr %169, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %171
   %.idx.i = shl nuw nsw i64 %171, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %169, i8 0, i64 %.idx.i, i1 false)
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
@@ -1784,12 +1773,12 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %183, %184
 191:                                              ; preds = %181, %.loopexit
   %192 = phi ptr [ null, %181 ], [ %244, %.loopexit ]
   %indvars.iv269 = phi i64 [ 0, %181 ], [ %indvars.iv.next270, %.loopexit ]
-  %193 = getelementptr inbounds nuw i32, ptr %.sroa.0158.0257, i64 %indvars.iv269
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0158.0257, i64 %indvars.iv269
   %194 = load i32, ptr %193, align 4
   %195 = zext i32 %194 to i64
   %196 = lshr i32 %194, 6
   %.zext = zext nneg i32 %196 to i64
-  %197 = getelementptr inbounds nuw i64, ptr %.sroa.0163.0, i64 %.zext
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0163.0, i64 %.zext
   %198 = and i64 %195, 63
   %199 = shl nuw i64 1, %198
   %200 = load i64, ptr %197, align 8
@@ -1799,7 +1788,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %183, %184
 
 202:                                              ; preds = %191
   %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds nuw %class.aiVector3t, ptr %203, i64 %195
+  %204 = getelementptr inbounds nuw [12 x i8], ptr %203, i64 %195
   %205 = load i32, ptr %182, align 4
   invoke void @_ZNK6Assimp13SGSpatialSort13FindPositionsERK10aiVector3tIfEjfRSt6vectorIjSaIjEEb(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 4 dereferenceable(12) %204, i32 noundef %205, float noundef %sqrt.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext false)
           to label %206 unwind label %218
@@ -1846,7 +1835,7 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %._crit_edge248
   %.sroa.14.0242 = phi float [ 0.000000e+00, %.lr.ph247 ], [ %232, %221 ]
   %222 = load i32, ptr %.sroa.0148.0245, align 4
   %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds nuw %class.aiVector3t, ptr %209, i64 %223
+  %224 = getelementptr inbounds nuw [12 x i8], ptr %209, i64 %223
   %225 = load float, ptr %224, align 4
   %226 = fadd float %.sroa.0151.0244, %225
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 4
@@ -1869,7 +1858,7 @@ _ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %_ZN10aiVector3tIfEd
   %.sroa.0143.0253 = phi ptr [ %243, %.lr.ph254 ], [ %207, %_ZN10aiVector3tIfE13NormalizeSafeEv.exit ]
   %234 = load i32, ptr %.sroa.0143.0253, align 4
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds nuw %class.aiVector3t, ptr %138, i64 %235
+  %236 = getelementptr inbounds nuw [12 x i8], ptr %138, i64 %235
   store float %.sroa.0151.1, ptr %236, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 4
   store float %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 4
@@ -1877,7 +1866,7 @@ _ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %_ZN10aiVector3tIfEd
   store float %.sroa.14.1, ptr %.sroa.14.0..sroa_idx, align 4
   %237 = lshr i32 %234, 6
   %.zext214 = zext nneg i32 %237 to i64
-  %238 = getelementptr inbounds nuw i64, ptr %.sroa.0163.0, i64 %.zext214
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0163.0, i64 %.zext214
   %239 = and i64 %235, 63
   %240 = shl nuw i64 1, %239
   %241 = load i64, ptr %238, align 8
@@ -1915,7 +1904,7 @@ _ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %_ZN10aiVector3tIfEd
   %254 = sub i64 %252, %253
   %255 = ashr exact i64 %254, 3
   %256 = sub nsw i64 0, %255
-  %257 = getelementptr inbounds i64, ptr %.sroa.28169.0, i64 %256
+  %257 = getelementptr inbounds [8 x i8], ptr %.sroa.28169.0, i64 %256
   call void @_ZdlPvm(ptr noundef %257, i64 noundef %254) #31
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1966,7 +1955,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %_ZN6Assimp13SGSpati
   %278 = sub i64 %276, %277
   %279 = ashr exact i64 %278, 3
   %280 = sub nsw i64 0, %279
-  %281 = getelementptr inbounds i64, ptr %.sroa.28169.0, i64 %280
+  %281 = getelementptr inbounds [8 x i8], ptr %.sroa.28169.0, i64 %280
   call void @_ZdlPvm(ptr noundef %281, i64 noundef %278) #31
   br label %.body
 
@@ -2258,7 +2247,7 @@ _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EED2Ev.exit: ; preds = %_ZNSt7__cxx1112ba
   %66 = phi ptr [ %74, %72 ], [ %4, %1 ]
   %67 = phi i64 [ %76, %72 ], [ 0, %1 ]
   %.015 = phi i32 [ %75, %72 ], [ 0, %1 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %72, label %71
@@ -4102,7 +4091,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds =
 _ZNSt6vectorIP7aiLightSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %134, %_ZNSt6vectorIP7aiLightSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %129, ptr %108, align 8
   store ptr %133, ptr %109, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %129, i64 %127
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %127
   store ptr %135, ptr %111, align 8
   br label %_ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit
 
@@ -4417,7 +4406,7 @@ _ZNSt6vectorIP8aiCameraSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds 
 _ZNSt6vectorIP8aiCameraSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %263, %_ZNSt6vectorIP8aiCameraSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %258, ptr %237, align 8
   store ptr %262, ptr %238, align 8
-  %264 = getelementptr inbounds nuw ptr, ptr %258, i64 %256
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %256
   store ptr %264, ptr %240, align 8
   br label %_ZNSt6vectorIP8aiCameraSaIS1_EE9push_backERKS1_.exit
 
@@ -6319,7 +6308,7 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds
   store ptr %87, ptr %53, align 8
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 %85
   store ptr %91, ptr %82, align 8
-  %92 = getelementptr inbounds nuw %class.aiVector3t, ptr %87, i64 %73
+  %92 = getelementptr inbounds nuw [12 x i8], ptr %87, i64 %73
   store ptr %92, ptr %74, align 8
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit
 
@@ -6482,7 +6471,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; p
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %158, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %153, ptr %53, align 8
   store ptr %157, ptr %93, align 8
-  %159 = getelementptr inbounds nuw %class.aiVector3t, ptr %153, i64 %151
+  %159 = getelementptr inbounds nuw [12 x i8], ptr %153, i64 %151
   store ptr %159, ptr %74, align 8
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE9push_backERKS1_.exit
 
@@ -6900,7 +6889,7 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit.i62: ; pre
   store ptr %360, ptr %345, align 8
   %364 = getelementptr inbounds nuw i8, ptr %360, i64 %358
   store ptr %364, ptr %355, align 8
-  %365 = getelementptr inbounds nuw %class.aiVector3t, ptr %360, i64 %346
+  %365 = getelementptr inbounds nuw [12 x i8], ptr %360, i64 %346
   store ptr %365, ptr %347, align 8
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit63
 
@@ -7037,7 +7026,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i75: ;
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i78: ; preds = %418, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i75
   store ptr %413, ptr %345, align 8
   store ptr %417, ptr %366, align 8
-  %419 = getelementptr inbounds nuw %class.aiVector3t, ptr %413, i64 %411
+  %419 = getelementptr inbounds nuw [12 x i8], ptr %413, i64 %411
   store ptr %419, ptr %347, align 8
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE9push_backERKS1_.exit79
 
@@ -7116,7 +7105,7 @@ _ZNSt12_Vector_baseIN6Assimp4D3DS4FaceESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; p
   store ptr %451, ptr %436, align 8
   %455 = getelementptr inbounds nuw i8, ptr %451, i64 %449
   store ptr %455, ptr %446, align 8
-  %456 = getelementptr inbounds nuw %"struct.Assimp::D3DS::Face", ptr %451, i64 %437
+  %456 = getelementptr inbounds nuw [16 x i8], ptr %451, i64 %437
   store ptr %456, ptr %438, align 8
   br label %_ZNSt6vectorIN6Assimp4D3DS4FaceESaIS2_EE7reserveEm.exit
 
@@ -7193,7 +7182,7 @@ _ZNSt6vectorIN6Assimp4D3DS4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i:
 _ZNSt6vectorIN6Assimp4D3DS4FaceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %484, %_ZNSt6vectorIN6Assimp4D3DS4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
   store ptr %479, ptr %436, align 8
   store ptr %483, ptr %457, align 8
-  %485 = getelementptr inbounds nuw %"struct.Assimp::D3DS::Face", ptr %479, i64 %477
+  %485 = getelementptr inbounds nuw [16 x i8], ptr %479, i64 %477
   store ptr %485, ptr %438, align 8
   br label %_ZNSt6vectorIN6Assimp4D3DS4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -7339,7 +7328,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit98: ; preds = %_ZN6Assimp12Stream
   br i1 %562, label %563, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 563:                                              ; preds = %561
-  %564 = getelementptr inbounds nuw i32, ptr %553, i64 %550
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %553, i64 %550
   %.not.i.i = icmp eq ptr %552, %564
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %565
 
@@ -8598,7 +8587,7 @@ _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %180, %_ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %175, ptr %155, align 8
   store ptr %179, ptr %156, align 8
-  %181 = getelementptr inbounds nuw ptr, ptr %175, i64 %173
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %173
   store ptr %181, ptr %158, align 8
   br label %182
 
@@ -8699,7 +8688,7 @@ _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i174: ; preds = %215, %_ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i172
   store ptr %210, ptr %190, align 8
   store ptr %214, ptr %191, align 8
-  %216 = getelementptr inbounds nuw ptr, ptr %210, i64 %208
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %208
   store ptr %216, ptr %193, align 8
   br label %217
 
@@ -9160,7 +9149,7 @@ _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds =
   store ptr %393, ptr %.0139, align 8
   %397 = getelementptr inbounds nuw i8, ptr %393, i64 %391
   store ptr %397, ptr %388, align 8
-  %398 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %393, i64 %379
+  %398 = getelementptr inbounds nuw [24 x i8], ptr %393, i64 %379
   store ptr %398, ptr %380, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE7reserveEm.exit
 
@@ -9379,7 +9368,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; pre
 _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %484, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %479, ptr %.0139, align 8
   store ptr %483, ptr %399, align 8
-  %485 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %479, i64 %477
+  %485 = getelementptr inbounds nuw [24 x i8], ptr %479, i64 %477
   store ptr %485, ptr %380, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE9push_backERKS0_.exit
 
@@ -9628,7 +9617,7 @@ _ZNSt12_Vector_baseIN6Assimp4D3DS10aiFloatKeyESaIS2_EE13_M_deallocateEPS2_m.exit
   store ptr %576, ptr %536, align 8
   %580 = getelementptr inbounds nuw i8, ptr %576, i64 %574
   store ptr %580, ptr %571, align 8
-  %581 = getelementptr inbounds nuw %"struct.Assimp::D3DS::aiFloatKey", ptr %576, i64 %562
+  %581 = getelementptr inbounds nuw [16 x i8], ptr %576, i64 %562
   store ptr %581, ptr %563, align 8
   br label %_ZNSt6vectorIN6Assimp4D3DS10aiFloatKeyESaIS2_EE7reserveEm.exit
 
@@ -9776,7 +9765,7 @@ _ZNSt6vectorIN6Assimp4D3DS10aiFloatKeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIN6Assimp4D3DS10aiFloatKeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %641, %_ZNSt6vectorIN6Assimp4D3DS10aiFloatKeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %636, ptr %536, align 8
   store ptr %640, ptr %582, align 8
-  %642 = getelementptr inbounds nuw %"struct.Assimp::D3DS::aiFloatKey", ptr %636, i64 %634
+  %642 = getelementptr inbounds nuw [16 x i8], ptr %636, i64 %634
   store ptr %642, ptr %563, align 8
   br label %_ZNSt6vectorIN6Assimp4D3DS10aiFloatKeyESaIS2_EE9push_backERKS2_.exit
 
@@ -10003,7 +9992,7 @@ _ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %7
   store ptr %729, ptr %714, align 8
   %733 = getelementptr inbounds nuw i8, ptr %729, i64 %727
   store ptr %733, ptr %724, align 8
-  %734 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %729, i64 %715
+  %734 = getelementptr inbounds nuw [32 x i8], ptr %729, i64 %715
   store ptr %734, ptr %716, align 8
   br label %_ZNSt6vectorI9aiQuatKeySaIS0_EE7reserveEm.exit
 
@@ -10288,7 +10277,7 @@ _ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds 
 _ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %850, %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %845, ptr %714, align 8
   store ptr %849, ptr %735, align 8
-  %851 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %845, i64 %843
+  %851 = getelementptr inbounds nuw [32 x i8], ptr %845, i64 %843
   store ptr %851, ptr %716, align 8
   br label %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit
 
@@ -10558,7 +10547,7 @@ _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i320: ; pred
   store ptr %952, ptr %937, align 8
   %956 = getelementptr inbounds nuw i8, ptr %952, i64 %950
   store ptr %956, ptr %947, align 8
-  %957 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %952, i64 %938
+  %957 = getelementptr inbounds nuw [24 x i8], ptr %952, i64 %938
   store ptr %957, ptr %939, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE7reserveEm.exit321
 
@@ -10783,7 +10772,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i335: ; 
 _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i338: ; preds = %1046, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i335
   store ptr %1041, ptr %937, align 8
   store ptr %1045, ptr %958, align 8
-  %1047 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %1041, i64 %1039
+  %1047 = getelementptr inbounds nuw [24 x i8], ptr %1041, i64 %1039
   store ptr %1047, ptr %939, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE9push_backERKS0_.exit339
 
@@ -11079,7 +11068,7 @@ _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %29, ptr %8, align 8
   store ptr %33, ptr %9, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %11, align 8
   br label %_ZN6Assimp4D3DS4Node9push_backEPS1_.exit
 
@@ -11155,7 +11144,7 @@ _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i20: ; preds = %69, %_ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i18
   store ptr %64, ptr %43, align 8
   store ptr %68, ptr %44, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %62
   store ptr %70, ptr %46, align 8
   br label %_ZN6Assimp4D3DS4Node9push_backEPS1_.exit
 
@@ -11219,7 +11208,7 @@ _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i28: ; preds = %98, %_ZNSt6vectorIPN6Assimp4D3DS4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i26
   store ptr %93, ptr %72, align 8
   store ptr %97, ptr %73, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %99, ptr %75, align 8
   br label %_ZN6Assimp4D3DS4Node9push_backEPS1_.exit
 
@@ -11837,7 +11826,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit34: ; preds = %151
   br label %176
 
 174:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit34
-  %175 = getelementptr inbounds nuw i32, ptr %167, i64 %165
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %165
   store i32 %.02644, ptr %175, align 4
   br label %176
 
@@ -13850,7 +13839,7 @@ _ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loo
 
 _ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %9, %19 ]
-  %24 = getelementptr inbounds nuw %class.aiVector3t, ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %2
   store ptr %24, ptr %8, align 8
   %.not.i.i.i.i.i68 = icmp eq ptr %20, %1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIP10aiVector3tIfES2_ET0_T_S4_S3_.exit, label %25
@@ -13859,7 +13848,7 @@ _ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; 
   %26 = ptrtoint ptr %20 to i64
   %27 = sub i64 %26, %15
   %.neg.i.i.i.i.i = sdiv exact i64 %27, -12
-  %28 = getelementptr inbounds %class.aiVector3t, ptr %9, i64 %.neg.i.i.i.i.i
+  %28 = getelementptr inbounds [12 x i8], ptr %9, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %28, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIP10aiVector3tIfES2_ET0_T_S4_S3_.exit
 
@@ -13990,7 +13979,7 @@ _ZSt24__uninitialized_fill_n_aIP10aiVector3tIfEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exi
 
 _ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIP10aiVector3tIfEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %59, %_ZSt24__uninitialized_fill_n_aIP10aiVector3tIfEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87 ], [ %64, %.lr.ph.i.i.i.i.i89 ]
-  %65 = getelementptr inbounds nuw %class.aiVector3t, ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %65 = getelementptr inbounds nuw [12 x i8], ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -14018,7 +14007,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_R
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit100, %68
   store ptr %59, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i99, ptr %8, align 8
-  %72 = getelementptr inbounds nuw %class.aiVector3t, ptr %59, i64 %53
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %53
   store ptr %72, ptr %6, align 8
   br label %73
 
@@ -14292,7 +14281,7 @@ _ZSt8_DestroyIPN6Assimp4D3DS8MaterialES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph
 _ZNSt12_Vector_baseIN6Assimp4D3DS8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN6Assimp4D3DS8MaterialES2_EvT_S4_RSaIT0_E.exit, %55
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %59 = getelementptr inbounds nuw %"struct.Assimp::D3DS::Material", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [696 x i8], ptr %20, i64 %16
   store ptr %59, ptr %54, align 8
   ret void
 
@@ -15506,7 +15495,7 @@ _ZNKSt6vectorIN6Assimp4D3DS4MeshESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
 _ZNSt12_Vector_baseIN6Assimp4D3DS4MeshESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %35, %52
   store ptr %21, ptr %0, align 8
   store ptr %50, ptr %5, align 8
-  %56 = getelementptr inbounds nuw %"struct.Assimp::D3DS::Mesh", ptr %21, i64 %17
+  %56 = getelementptr inbounds nuw [216 x i8], ptr %21, i64 %17
   store ptr %56, ptr %51, align 8
   ret void
 
@@ -15702,7 +15691,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   %14 = ptrtoint ptr %.sroa.0.018.i to i64
   %15 = sub i64 %14, %5
   %.neg.i.i.i.i.i.i = sdiv exact i64 %15, -24
-  %16 = getelementptr inbounds %struct.aiVectorKey, ptr %13, i64 %.neg.i.i.i.i.i.i
+  %16 = getelementptr inbounds [24 x i8], ptr %13, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %15, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -15744,7 +15733,7 @@ common.ret20:                                     ; preds = %8, %22, %23
 23:                                               ; preds = %2
   %24 = udiv exact i64 %6, 24
   %25 = lshr i64 %24, 1
-  %26 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %25
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_T0_(ptr %0, ptr %26)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_T0_(ptr %26, ptr %1)
   %27 = ptrtoint ptr %26 to i64
@@ -15762,7 +15751,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__nor
   %8 = sdiv exact i64 %7, 24
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %struct.aiVectorKey, ptr %0, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -15832,7 +15821,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__nor
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit: ; preds = %21
   %24 = sdiv i64 %.tr6876, 2
-  %25 = getelementptr inbounds %struct.aiVectorKey, ptr %.tr74, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %.tr74, i64 %24
   %26 = sub i64 %12, %23
   %27 = icmp sgt i64 %26, 0
   br i1 %27, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES2_NS0_5__ops14_Iter_less_valEET_SA_SA_RKT0_T1_.exit
@@ -15846,7 +15835,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEE
   %.013.i = phi i64 [ %28, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr6675, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %30 = lshr i64 %.013.i, 1
-  %31 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %.sroa.011.012.i, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.011.012.i, i64 %30
   %32 = load double, ptr %31, align 8
   %33 = fcmp olt double %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -15870,7 +15859,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit49: ; preds = %21
   %40 = sdiv i64 %.tr6977, 2
-  %41 = getelementptr inbounds %struct.aiVectorKey, ptr %.tr6675, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %.tr6675, i64 %40
   %42 = ptrtoint ptr %.tr74 to i64
   %43 = sub i64 %23, %42
   %44 = icmp sgt i64 %43, 0
@@ -15885,7 +15874,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEE
   %.013.i53 = phi i64 [ %45, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.1.i58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i52 ]
   %.sroa.011.012.i54 = phi ptr [ %.tr74, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.sroa.011.1.i57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i52 ]
   %47 = lshr i64 %.013.i53, 1
-  %48 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %.sroa.011.012.i54, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.011.012.i54, i64 %47
   %49 = load double, ptr %48, align 8
   %50 = fcmp olt double %46, %49
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -15962,7 +15951,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   br i1 %80, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %79
-  %81 = getelementptr inbounds %struct.aiVectorKey, ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %81 = getelementptr inbounds [24 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %79
@@ -15991,9 +15980,9 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   br label %.backedge
 
 88:                                               ; preds = %76
-  %89 = getelementptr inbounds %struct.aiVectorKey, ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %89 = getelementptr inbounds [24 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %90 = sub i64 0, %77
-  %91 = getelementptr inbounds %struct.aiVectorKey, ptr %89, i64 %90
+  %91 = getelementptr inbounds [24 x i8], ptr %89, i64 %90
   %92 = icmp sgt i64 %.0.i.i, 0
   br i1 %92, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -16472,7 +16461,7 @@ _ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0
   %48 = ptrtoint ptr %5 to i64
   %49 = sub i64 %47, %48
   %.neg.i.i.i.i.i19.i = sdiv exact i64 %49, -24
-  %50 = getelementptr inbounds %struct.aiVectorKey, ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
+  %50 = getelementptr inbounds [24 x i8], ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr align 8 %5, i64 %49, i1 false)
   br label %_ZSt21__move_merge_adaptiveIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEES7_NS2_5__ops15_Iter_less_iterEEvT_SA_T0_SB_T1_T2_.exit
 
@@ -16482,7 +16471,7 @@ _ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit: ; preds = %51
   %53 = sdiv i64 %.tr96112, 2
-  %54 = getelementptr inbounds %struct.aiVectorKey, ptr %.tr110, i64 %53
+  %54 = getelementptr inbounds [24 x i8], ptr %.tr110, i64 %53
   %55 = sub i64 %8, %52
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES2_NS0_5__ops14_Iter_less_valEET_SA_SA_RKT0_T1_.exit
@@ -16496,7 +16485,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEE
   %.013.i = phi i64 [ %57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr94111, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %59 = lshr i64 %.013.i, 1
-  %60 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %.sroa.011.012.i, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.011.012.i, i64 %59
   %61 = load double, ptr %60, align 8
   %62 = fcmp olt double %61, %58
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
@@ -16520,7 +16509,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit77: ; preds = %51
   %69 = sdiv i64 %.tr97113, 2
-  %70 = getelementptr inbounds %struct.aiVectorKey, ptr %.tr94111, i64 %69
+  %70 = getelementptr inbounds [24 x i8], ptr %.tr94111, i64 %69
   %71 = ptrtoint ptr %.tr110 to i64
   %72 = sub i64 %52, %71
   %73 = icmp sgt i64 %72, 0
@@ -16535,7 +16524,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEE
   %.013.i81 = phi i64 [ %74, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.1.i86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i80 ]
   %.sroa.011.012.i82 = phi ptr [ %.tr110, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.sroa.011.1.i85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i80 ]
   %76 = lshr i64 %.013.i81, 1
-  %77 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %.sroa.011.012.i82, i64 %76
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.011.012.i82, i64 %76
   %78 = load double, ptr %77, align 8
   %79 = fcmp olt double %75, %78
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 24
@@ -16624,7 +16613,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   %20 = ptrtoint ptr %.sroa.0.018.i to i64
   %21 = sub i64 %20, %14
   %.neg.i.i.i.i.i.i = sdiv exact i64 %21, -24
-  %22 = getelementptr inbounds %struct.aiVectorKey, ptr %19, i64 %.neg.i.i.i.i.i.i
+  %22 = getelementptr inbounds [24 x i8], ptr %19, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.026.031, i64 %21, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.026.031, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -16691,7 +16680,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   %37 = ptrtoint ptr %.sroa.0.018.i11 to i64
   %38 = sub i64 %37, %.lcssa
   %.neg.i.i.i.i.i.i24 = sdiv exact i64 %38, -24
-  %39 = getelementptr inbounds %struct.aiVectorKey, ptr %36, i64 %.neg.i.i.i.i.i.i24
+  %39 = getelementptr inbounds [24 x i8], ptr %36, i64 %.neg.i.i.i.i.i.i24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.026.0.lcssa, i64 %38, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.026.0.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -16764,7 +16753,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES3
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -24
-  %21 = getelementptr inbounds %struct.aiVectorKey, ptr %2, i64 %.neg.i.i.i.i.i
+  %21 = getelementptr inbounds [24 x i8], ptr %2, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
@@ -16813,13 +16802,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
   %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
-  %35 = getelementptr inbounds %struct.aiVectorKey, ptr %2, i64 %.neg.i.i.i.i.i43
+  %35 = getelementptr inbounds [24 x i8], ptr %2, i64 %.neg.i.i.i.i.i43
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit
 
 _ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %34
   %.pre-phi.i.i.i.i.i44 = phi i64 [ %.neg.i.i.i.i.i43, %34 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit ]
-  %36 = getelementptr inbounds %struct.aiVectorKey, ptr %2, i64 %.pre-phi.i.i.i.i.i44
+  %36 = getelementptr inbounds [24 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i44
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS3_SaIS3_EEEEEET_S9_S9_S9_.exit
 
 37:                                               ; preds = %24
@@ -16873,7 +16862,7 @@ _ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0
   br i1 %60, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %59
-  %61 = getelementptr inbounds %struct.aiVectorKey, ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %61 = getelementptr inbounds [24 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %59
@@ -16902,9 +16891,9 @@ _ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0
   br label %.backedge
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds %struct.aiVectorKey, ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %69 = getelementptr inbounds [24 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %70 = sub i64 0, %57
-  %71 = getelementptr inbounds %struct.aiVectorKey, ptr %69, i64 %70
+  %71 = getelementptr inbounds [24 x i8], ptr %69, i64 %70
   %72 = icmp sgt i64 %.0.i.i, 0
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -16973,7 +16962,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
   %16 = sub i64 %15, %5
   %17 = ashr exact i64 %16, 4
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %14, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %14, i64 %18
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -17012,7 +17001,7 @@ common.ret20:                                     ; preds = %9, %25, %26
 
 26:                                               ; preds = %2
   %27 = lshr i64 %7, 1
-  %28 = getelementptr inbounds nuw %"struct.Assimp::D3DS::aiFloatKey", ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %27
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %0, ptr %28)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %28, ptr %1)
   %29 = ptrtoint ptr %28 to i64
@@ -17030,7 +17019,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__nor
   %8 = ashr exact i64 %7, 4
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %0, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -17124,7 +17113,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__nor
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %18
   %21 = sdiv i64 %.tr6876, 2
-  %22 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.tr73, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %.tr73, i64 %21
   %23 = sub i64 %9, %20
   %24 = ashr exact i64 %23, 4
   %25 = icmp sgt i64 %24, 0
@@ -17138,7 +17127,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vector
   %.013.i = phi i64 [ %24, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr6674, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %27 = lshr i64 %.013.i, 1
-  %28 = getelementptr inbounds nuw %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.011.012.i, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i, i64 %27
   %29 = load double, ptr %28, align 8
   %30 = fcmp olt double %29, %26
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -17162,7 +17151,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit49: ; preds = %18
   %37 = sdiv i64 %.tr6977, 2
-  %38 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.tr6674, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %.tr6674, i64 %37
   %39 = ptrtoint ptr %.tr73 to i64
   %40 = sub i64 %20, %39
   %41 = ashr exact i64 %40, 4
@@ -17177,7 +17166,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vector
   %.013.i53 = phi i64 [ %41, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.1.i58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i52 ]
   %.sroa.011.012.i54 = phi ptr [ %.tr73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.sroa.011.1.i57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i52 ]
   %44 = lshr i64 %.013.i53, 1
-  %45 = getelementptr inbounds nuw %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.011.012.i54, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i54, i64 %44
   %46 = load double, ptr %45, align 8
   %47 = fcmp olt double %43, %46
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -17298,7 +17287,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4
   br i1 %38, label %.lr.ph99.preheader, label %._crit_edge100
 
 .lr.ph99.preheader:                               ; preds = %37
-  %39 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.041.0, i64 %.084
+  %39 = getelementptr inbounds [16 x i8], ptr %.sroa.041.0, i64 %.084
   br label %.lr.ph99
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %37
@@ -17343,7 +17332,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4
   %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %49, i64 %54
+  %55 = getelementptr inbounds [16 x i8], ptr %49, i64 %54
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr nonnull align 8 %.sroa.041.0, i64 %52, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -17353,9 +17342,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.041.0, i64 %.0
+  %57 = getelementptr inbounds [16 x i8], ptr %.sroa.041.0, i64 %.0
   %58 = sub i64 0, %28
-  %59 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %57, i64 %58
+  %59 = getelementptr inbounds [16 x i8], ptr %57, i64 %58
   %60 = icmp sgt i64 %.084, 0
   br i1 %60, label %.lr.ph, label %._crit_edge
 
@@ -17521,7 +17510,7 @@ _ZSt13move_backwardIPN6Assimp4D3DS10aiFloatKeyEN9__gnu_cxx17__normal_iteratorIS3
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 4
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.lcssa.sink.i, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %.lcssa.sink.i, i64 %51
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %49, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN6Assimp4D3DS10aiFloatKeyEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_less_iterEEvT_SC_T0_SD_T1_T2_.exit
 
@@ -17531,7 +17520,7 @@ _ZSt13move_backwardIPN6Assimp4D3DS10aiFloatKeyEN9__gnu_cxx17__normal_iteratorIS3
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %53
   %55 = sdiv i64 %.tr99116, 2
-  %56 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.tr113, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %.tr113, i64 %55
   %57 = sub i64 %8, %54
   %58 = ashr exact i64 %57, 4
   %59 = icmp sgt i64 %58, 0
@@ -17545,7 +17534,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vector
   %.013.i = phi i64 [ %58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr97114, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %61 = lshr i64 %.013.i, 1
-  %62 = getelementptr inbounds nuw %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.011.012.i, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i, i64 %61
   %63 = load double, ptr %62, align 8
   %64 = fcmp olt double %63, %60
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -17569,7 +17558,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit77: ; preds = %53
   %71 = sdiv i64 %.tr100117, 2
-  %72 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.tr97114, i64 %71
+  %72 = getelementptr inbounds [16 x i8], ptr %.tr97114, i64 %71
   %73 = ptrtoint ptr %.tr113 to i64
   %74 = sub i64 %54, %73
   %75 = ashr exact i64 %74, 4
@@ -17584,7 +17573,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vector
   %.013.i81 = phi i64 [ %75, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.1.i86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i80 ]
   %.sroa.011.012.i82 = phi ptr [ %.tr113, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.sroa.011.1.i85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i80 ]
   %78 = lshr i64 %.013.i81, 1
-  %79 = getelementptr inbounds nuw %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.011.012.i82, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i82, i64 %78
   %80 = load double, ptr %79, align 8
   %81 = fcmp olt double %77, %80
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
@@ -17641,7 +17630,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4
   %99 = sub i64 %94, %98
   %100 = ashr exact i64 %99, 4
   %101 = sub nsw i64 0, %100
-  %102 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.0.0, i64 %101
+  %102 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %101
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %102, ptr align 8 %.sroa.092.0, i64 %99, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
 
@@ -17691,13 +17680,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4
 115:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %116 = ashr exact i64 %110, 4
   %117 = sub nsw i64 0, %116
-  %118 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.0.0, i64 %117
+  %118 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %117
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %118, ptr align 8 %5, i64 %110, i1 false)
   br label %_ZSt13move_backwardIPN6Assimp4D3DS10aiFloatKeyEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i
 
 _ZSt13move_backwardIPN6Assimp4D3DS10aiFloatKeyEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %115, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %117, %115 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i ]
-  %119 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %119 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_.exit
 
 120:                                              ; preds = %105
@@ -17765,7 +17754,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
   %21 = sub i64 %20, %14
   %22 = ashr exact i64 %21, 4
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %19, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %19, i64 %23
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.025.030, i64 %21, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.030, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -17831,7 +17820,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
   %40 = sub i64 %39, %.lcssa
   %41 = ashr exact i64 %40, 4
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %38, i64 %42
+  %43 = getelementptr inbounds [16 x i8], ptr %38, i64 %42
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.025.0.lcssa, i64 %40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -18249,7 +18238,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   %16 = sub i64 %15, %5
   %17 = ashr exact i64 %16, 5
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %struct.aiQuatKey, ptr %14, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %14, i64 %18
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(28) %3, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -18290,7 +18279,7 @@ common.ret20:                                     ; preds = %9, %25, %26
 
 26:                                               ; preds = %2
   %27 = lshr i64 %7, 1
-  %28 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %27
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_T0_(ptr %0, ptr %28)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_T0_(ptr %28, ptr %1)
   %29 = ptrtoint ptr %28 to i64
@@ -18308,7 +18297,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__nor
   %8 = ashr exact i64 %7, 5
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %struct.aiQuatKey, ptr %0, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -18405,7 +18394,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__nor
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit: ; preds = %21
   %24 = sdiv i64 %.tr6876, 2
-  %25 = getelementptr inbounds %struct.aiQuatKey, ptr %.tr74, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %.tr74, i64 %24
   %26 = sub i64 %12, %23
   %27 = ashr exact i64 %26, 5
   %28 = icmp sgt i64 %27, 0
@@ -18419,7 +18408,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElE
   %.013.i = phi i64 [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr6675, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %30 = lshr i64 %.013.i, 1
-  %31 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %.sroa.011.012.i, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i, i64 %30
   %32 = load double, ptr %31, align 8
   %33 = fcmp olt double %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -18443,7 +18432,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit49: ; preds = %21
   %40 = sdiv i64 %.tr6977, 2
-  %41 = getelementptr inbounds %struct.aiQuatKey, ptr %.tr6675, i64 %40
+  %41 = getelementptr inbounds [32 x i8], ptr %.tr6675, i64 %40
   %42 = ptrtoint ptr %.tr74 to i64
   %43 = sub i64 %23, %42
   %44 = ashr exact i64 %43, 5
@@ -18458,7 +18447,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElE
   %.013.i53 = phi i64 [ %44, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.1.i58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i52 ]
   %.sroa.011.012.i54 = phi ptr [ %.tr74, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.sroa.011.1.i57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i52 ]
   %47 = lshr i64 %.013.i53, 1
-  %48 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %.sroa.011.012.i54, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i54, i64 %47
   %49 = load double, ptr %48, align 8
   %50 = fcmp olt double %46, %49
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 32
@@ -18535,7 +18524,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   br i1 %80, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %79
-  %81 = getelementptr inbounds %struct.aiQuatKey, ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %81 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %79
@@ -18564,9 +18553,9 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   br label %.backedge
 
 88:                                               ; preds = %76
-  %89 = getelementptr inbounds %struct.aiQuatKey, ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %89 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %90 = sub i64 0, %77
-  %91 = getelementptr inbounds %struct.aiQuatKey, ptr %89, i64 %90
+  %91 = getelementptr inbounds [32 x i8], ptr %89, i64 %90
   %92 = icmp sgt i64 %.0.i.i, 0
   br i1 %92, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -18741,7 +18730,7 @@ _ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_Sa
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 5
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %struct.aiQuatKey, ptr %.lcssa.sink.i, i64 %51
+  %52 = getelementptr inbounds [32 x i8], ptr %.lcssa.sink.i, i64 %51
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %49, i1 false)
   br label %_ZSt21__move_merge_adaptiveIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEES7_NS2_5__ops15_Iter_less_iterEEvT_SA_T0_SB_T1_T2_.exit
 
@@ -18751,7 +18740,7 @@ _ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_Sa
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit: ; preds = %53
   %55 = sdiv i64 %.tr96112, 2
-  %56 = getelementptr inbounds %struct.aiQuatKey, ptr %.tr110, i64 %55
+  %56 = getelementptr inbounds [32 x i8], ptr %.tr110, i64 %55
   %57 = sub i64 %8, %54
   %58 = ashr exact i64 %57, 5
   %59 = icmp sgt i64 %58, 0
@@ -18765,7 +18754,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElE
   %.013.i = phi i64 [ %58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr94111, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i ]
   %61 = lshr i64 %.013.i, 1
-  %62 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %.sroa.011.012.i, i64 %61
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i, i64 %61
   %63 = load double, ptr %62, align 8
   %64 = fcmp olt double %63, %60
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -18789,7 +18778,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit77: ; preds = %53
   %71 = sdiv i64 %.tr97113, 2
-  %72 = getelementptr inbounds %struct.aiQuatKey, ptr %.tr94111, i64 %71
+  %72 = getelementptr inbounds [32 x i8], ptr %.tr94111, i64 %71
   %73 = ptrtoint ptr %.tr110 to i64
   %74 = sub i64 %54, %73
   %75 = ashr exact i64 %74, 5
@@ -18804,7 +18793,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElE
   %.013.i81 = phi i64 [ %75, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.1.i86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i80 ]
   %.sroa.011.012.i82 = phi ptr [ %.tr110, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.sroa.011.1.i85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEElEvRT_T0_.exit.i80 ]
   %78 = lshr i64 %.013.i81, 1
-  %79 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %.sroa.011.012.i82, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i82, i64 %78
   %80 = load double, ptr %79, align 8
   %81 = fcmp olt double %77, %80
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
@@ -18894,7 +18883,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   %21 = sub i64 %20, %14
   %22 = ashr exact i64 %21, 5
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %struct.aiQuatKey, ptr %19, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %19, i64 %23
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.025.030, i64 %21, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.025.030, ptr noundef nonnull align 8 dereferenceable(28) %5, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -18962,7 +18951,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   %40 = sub i64 %39, %.lcssa
   %41 = ashr exact i64 %40, 5
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds %struct.aiQuatKey, ptr %38, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %38, i64 %42
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.025.0.lcssa, i64 %40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.025.0.lcssa, ptr noundef nonnull align 8 dereferenceable(28) %4, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -19382,7 +19371,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES3_ET
   %20 = sub i64 %15, %19
   %21 = ashr exact i64 %20, 5
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %struct.aiQuatKey, ptr %2, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %2, i64 %22
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %23, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
@@ -19432,13 +19421,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET
 36:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
   %37 = ashr exact i64 %31, 5
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %struct.aiQuatKey, ptr %2, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %2, i64 %38
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 %31, i1 false)
   br label %_ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit
 
 _ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %36
   %.pre-phi.i.i.i.i.i43 = phi i64 [ %38, %36 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit ]
-  %40 = getelementptr inbounds %struct.aiQuatKey, ptr %2, i64 %.pre-phi.i.i.i.i.i43
+  %40 = getelementptr inbounds [32 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i43
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS3_SaIS3_EEEEEET_S9_S9_S9_.exit
 
 41:                                               ; preds = %26
@@ -19492,7 +19481,7 @@ _ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_Sa
   br i1 %64, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %63
-  %65 = getelementptr inbounds %struct.aiQuatKey, ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %65 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %63
@@ -19521,9 +19510,9 @@ _ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_Sa
   br label %.backedge
 
 72:                                               ; preds = %60
-  %73 = getelementptr inbounds %struct.aiQuatKey, ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %73 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %74 = sub i64 0, %61
-  %75 = getelementptr inbounds %struct.aiQuatKey, ptr %73, i64 %74
+  %75 = getelementptr inbounds [32 x i8], ptr %73, i64 %74
   %76 = icmp sgt i64 %.0.i.i, 0
   br i1 %76, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -19706,7 +19695,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
@@ -19715,7 +19704,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -19826,7 +19815,7 @@ _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -19848,7 +19837,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8
   store ptr %72, ptr %8, align 8
-  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 

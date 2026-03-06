@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.hermes::vm::TwineChar16" = type { %"union.hermes::vm::TwineChar16::Node", i32, %"union.hermes::vm::TwineChar16::Node", i32, i64, i64 }
 %"union.hermes::vm::TwineChar16::Node" = type { ptr }
 %"class.std::lock_guard" = type { ptr }
-%"class.hermes::vm::GCHermesValueBase" = type { %"class.hermes::vm::HermesValue" }
-%"class.hermes::vm::HermesValue" = type { i64 }
-%"class.hermes::vm::GCHermesValueBase.164" = type { %"class.hermes::vm::HermesValue32" }
-%"class.hermes::vm::HermesValue32" = type { i32 }
 
 $_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE17_trimSizeCallbackEPKNS0_6GCCellE = comdat any
 
@@ -450,9 +446,9 @@ if.end:                                           ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idx.ext.i.i
   %idx.ext3.i.i = zext i32 %size to i64
-  %add.ptr4.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i, i64 %idx.ext3.i.i
+  %add.ptr4.i.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idx.ext3.i.i
   br label %for.body5.i.i.i
 
 for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %if.then.i.i
@@ -510,9 +506,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i, i64 %idx.ext.i
   %idx.ext3.i = zext i32 %newSize to i64
-  %add.ptr4.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idx.ext3.i
+  %add.ptr4.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i, i64 %idx.ext3.i
   br label %for.body5.i.i
 
 for.body5.i.i:                                    ; preds = %for.body5.i.i, %if.then.i
@@ -602,7 +598,7 @@ entry:
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load atomic i32, ptr %size_.i monotonic, align 4
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -626,7 +622,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %idxprom = zext nneg i32 %2 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom
   store i64 %retval.sroa.0.0.copyload.i.i12, ptr %arrayidx, align 8
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %4 = load ptr, ptr %youngGen_.i.i.i, align 8
@@ -661,7 +657,7 @@ if.end.i:                                         ; preds = %if.end
   %9 = inttoptr i64 %and.i.i.i.i.i7.i to ptr
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %idxprom.i.i = zext i32 %7 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
   %youngGen_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %10 = load ptr, ptr %youngGen_.i.i.i.i.i, align 8
   %11 = ptrtoint ptr %arrayidx.i.i to i64
@@ -706,7 +702,7 @@ if.end:                                           ; preds = %entry
   %4 = inttoptr i64 %and.i.i.i.i.i7 to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i = zext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i, i64 %idxprom.i
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %5 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %6 = ptrtoint ptr %arrayidx.i to i64
@@ -737,7 +733,7 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub = add i32 %0, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom
   %retval.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %1 = load ptr, ptr %youngGen_.i.i.i, align 8
@@ -915,7 +911,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_11HermesVa
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %sub10, i32 %sub)
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %idx.ext = zext i32 %fromFirst to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   %add.ptr.i.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %idx.ext14 = zext i32 %toFirst to i64
   %add.ptr15.idx = shl nuw nsw i64 %idx.ext14, 3
@@ -1175,7 +1171,7 @@ if.then:                                          ; preds = %entry
 if.then8:                                         ; preds = %if.then
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %idx.ext = zext i32 %fromFirst to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   %idx.ext13 = zext i32 %.sroa.speculated90 to i64
   %add.ptr14.idx = shl nuw nsw i64 %idx.ext13, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
@@ -1185,7 +1181,7 @@ if.then8:                                         ; preds = %if.then
 
 for.body.lr.ph.i:                                 ; preds = %if.then8
   %idx.ext16 = zext i32 %toFirst to i64
-  %add.ptr17 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idx.ext16
+  %add.ptr17 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext16
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   br label %for.body.i
 
@@ -1218,7 +1214,7 @@ if.else:                                          ; preds = %if.then
 if.then21:                                        ; preds = %if.else
   %add.ptr.i.i.i52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %idx.ext23 = zext i32 %fromFirst to i64
-  %add.ptr24 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i52, i64 %idx.ext23
+  %add.ptr24 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i52, i64 %idx.ext23
   %heapStorage_.i55 = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %cmp.not3.i = icmp eq i32 %.sroa.speculated90, 0
   br i1 %cmp.not3.i, label %if.end37.thread, label %while.body.lr.ph.i
@@ -1236,8 +1232,8 @@ while.body.lr.ph.i:                               ; preds = %if.then21
   %add.ptr29.idx = shl nuw nsw i64 %idx.ext28, 3
   %add.ptr29 = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 %add.ptr29.idx
   %idx.ext31 = zext i32 %toFirst to i64
-  %add.ptr32 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i52, i64 %idx.ext31
-  %add.ptr34 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr32, i64 %idx.ext28
+  %add.ptr32 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i52, i64 %idx.ext31
+  %add.ptr34 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr32, i64 %idx.ext28
   %youngGen_.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   br label %while.body.i
 
@@ -1403,9 +1399,9 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   %idx.ext3 = zext i32 %newSize to i64
-  %add.ptr4 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idx.ext3
+  %add.ptr4 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext3
   br label %for.body5.i
 
 for.body5.i:                                      ; preds = %if.then, %for.body5.i
@@ -1771,9 +1767,9 @@ if.end:                                           ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i.i.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idx.ext.i.i
   %idx.ext3.i.i = zext i32 %size to i64
-  %add.ptr4.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i.i.i, i64 %idx.ext3.i.i
+  %add.ptr4.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idx.ext3.i.i
   br label %for.body5.i.i.i
 
 for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %if.then.i.i
@@ -1831,9 +1827,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idx.ext.i
   %idx.ext3.i = zext i32 %newSize to i64
-  %add.ptr4.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i.i, i64 %idx.ext3.i
+  %add.ptr4.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idx.ext3.i
   br label %for.body5.i.i
 
 for.body5.i.i:                                    ; preds = %for.body5.i.i, %if.then.i
@@ -1920,7 +1916,7 @@ entry:
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load atomic i32, ptr %size_.i monotonic, align 4
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -2047,7 +2043,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
 if.then:                                          ; preds = %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 8
   %idxprom = zext nneg i32 %2 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom
   store i32 %retval.sroa.0.0.i, ptr %arrayidx, align 4
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %13 = load ptr, ptr %youngGen_.i.i.i, align 8
@@ -2197,7 +2193,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %13 = inttoptr i64 %and.i.i.i.i.i7 to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %idxprom.i = zext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idxprom.i
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %14 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %15 = ptrtoint ptr %arrayidx.i to i64
@@ -2228,7 +2224,7 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub = add i32 %0, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom
   %retval.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %1 = load ptr, ptr %youngGen_.i.i.i, align 8
@@ -2406,7 +2402,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_13HermesVa
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %sub10, i32 %sub)
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %idx.ext = zext i32 %fromFirst to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   %add.ptr.i.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %idx.ext14 = zext i32 %toFirst to i64
   %add.ptr15.idx = shl nuw nsw i64 %idx.ext14, 2
@@ -2666,7 +2662,7 @@ if.then:                                          ; preds = %entry
 if.then8:                                         ; preds = %if.then
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %idx.ext = zext i32 %fromFirst to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   %idx.ext13 = zext i32 %.sroa.speculated90 to i64
   %add.ptr14.idx = shl nuw nsw i64 %idx.ext13, 2
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
@@ -2676,7 +2672,7 @@ if.then8:                                         ; preds = %if.then
 
 for.body.lr.ph.i:                                 ; preds = %if.then8
   %idx.ext16 = zext i32 %toFirst to i64
-  %add.ptr17 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idx.ext16
+  %add.ptr17 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext16
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   br label %for.body.i
 
@@ -2709,7 +2705,7 @@ if.else:                                          ; preds = %if.then
 if.then21:                                        ; preds = %if.else
   %add.ptr.i.i.i52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %idx.ext23 = zext i32 %fromFirst to i64
-  %add.ptr24 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i52, i64 %idx.ext23
+  %add.ptr24 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i52, i64 %idx.ext23
   %heapStorage_.i55 = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %cmp.not3.i = icmp eq i32 %.sroa.speculated90, 0
   br i1 %cmp.not3.i, label %if.end37.thread, label %while.body.lr.ph.i
@@ -2727,8 +2723,8 @@ while.body.lr.ph.i:                               ; preds = %if.then21
   %add.ptr29.idx = shl nuw nsw i64 %idx.ext28, 2
   %add.ptr29 = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 %add.ptr29.idx
   %idx.ext31 = zext i32 %toFirst to i64
-  %add.ptr32 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i52, i64 %idx.ext31
-  %add.ptr34 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr32, i64 %idx.ext28
+  %add.ptr32 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i52, i64 %idx.ext31
+  %add.ptr34 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr32, i64 %idx.ext28
   %youngGen_.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   br label %while.body.i
 
@@ -2894,9 +2890,9 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext
   %idx.ext3 = zext i32 %newSize to i64
-  %add.ptr4 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.164", ptr %add.ptr.i.i.i, i64 %idx.ext3
+  %add.ptr4 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idx.ext3
   br label %for.body5.i
 
 for.body5.i:                                      ; preds = %if.then, %for.body5.i

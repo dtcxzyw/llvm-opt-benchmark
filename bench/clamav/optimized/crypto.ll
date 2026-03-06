@@ -1050,7 +1050,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
 .preheader70:                                     ; preds = %18, %.preheader70
   %.189 = phi i64 [ %19, %.preheader70 ], [ %.053.ph84, %18 ]
   %19 = add i64 %.189, -1
-  %20 = getelementptr inbounds nuw ptr, ptr %.052.ph85, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.052.ph85, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   tail call void @free(ptr noundef %21) #12
   %.not66 = icmp eq i64 %19, 0
@@ -1070,7 +1070,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   %28 = add i64 %26, 2
   %29 = add i64 %28, %27
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #13
-  %31 = getelementptr inbounds nuw ptr, ptr %17, i64 %.053.ph84
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.053.ph84
   store ptr %30, ptr %31, align 8, !tbaa !12
   %.not67 = icmp eq ptr %30, null
   br i1 %.not67, label %32, label %.outer
@@ -1082,7 +1082,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
 .preheader71:                                     ; preds = %32, %.preheader71
   %.288 = phi i64 [ %33, %.preheader71 ], [ %.053.ph84, %32 ]
   %33 = add i64 %.288, -1
-  %34 = getelementptr inbounds nuw ptr, ptr %17, i64 %.288
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.288
   %35 = load ptr, ptr %34, align 8, !tbaa !12
   tail call void @free(ptr noundef %35) #12
   %.not69 = icmp eq i64 %33, 0
@@ -1121,7 +1121,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
 .preheader:                                       ; preds = %46, %.preheader
   %.395 = phi i64 [ %47, %.preheader ], [ %.053.ph.lcssa78, %46 ]
   %47 = add i64 %.395, -1
-  %48 = getelementptr inbounds nuw ptr, ptr %.052.ph.lcssa76, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.052.ph.lcssa76, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !12
   tail call void @free(ptr noundef %49) #12
   %.not61 = icmp eq i64 %47, 0
@@ -1132,7 +1132,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   br label %57
 
 51:                                               ; preds = %.outer._crit_edge
-  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %.053.ph.lcssa78
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.053.ph.lcssa78
   store ptr null, ptr %52, align 8, !tbaa !12
   %53 = tail call i32 @cl_validate_certificate_chain(ptr noundef nonnull %45, ptr noundef null, ptr noundef %1)
   %.not6290 = icmp eq i64 %.053.ph.lcssa78, 0
@@ -1141,7 +1141,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
 .lr.ph93:                                         ; preds = %51, %.lr.ph93
   %.491 = phi i64 [ %54, %.lr.ph93 ], [ %.053.ph.lcssa78, %51 ]
   %54 = add i64 %.491, -1
-  %55 = getelementptr inbounds nuw ptr, ptr %45, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !12
   tail call void @free(ptr noundef %56) #12
   %.not62 = icmp eq i64 %54, 0
@@ -1247,7 +1247,7 @@ cl_load_crl.exit:                                 ; preds = %18
 
 30:                                               ; preds = %.lr.ph
   %31 = add i64 %.069113, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %.not85 = icmp eq ptr %33, null
   br i1 %.not85, label %._crit_edge, label %.lr.ph

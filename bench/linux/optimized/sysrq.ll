@@ -258,7 +258,7 @@ define dso_local void @__handle_sysrq(i8 noundef zeroext %0, i1 noundef zeroext 
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr ptr, ptr @sysrq_key_table, i64 %8
+  %9 = getelementptr [8 x i8], ptr @sysrq_key_table, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
@@ -298,7 +298,7 @@ define dso_local void @__handle_sysrq(i8 noundef zeroext %0, i1 noundef zeroext 
 
 31:                                               ; preds = %49, %.thread
   %32 = phi i64 [ 0, %.thread ], [ %50, %49 ]
-  %33 = getelementptr ptr, ptr @sysrq_key_table, i64 %32
+  %33 = getelementptr [8 x i8], ptr @sysrq_key_table, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %49, label %.preheader
@@ -306,7 +306,7 @@ define dso_local void @__handle_sysrq(i8 noundef zeroext %0, i1 noundef zeroext 
 .preheader:                                       ; preds = %31, %.preheader
   %36 = phi i32 [ %41, %.preheader ], [ 0, %31 ]
   %37 = sext i32 %36 to i64
-  %38 = getelementptr ptr, ptr @sysrq_key_table, i64 %37
+  %38 = getelementptr [8 x i8], ptr @sysrq_key_table, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %34, %39
   %41 = add i32 %36, 1
@@ -412,7 +412,7 @@ define dso_local range(i32 -1, 1) i32 @register_sysrq_key(i8 noundef zeroext %0,
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr ptr, ptr @sysrq_key_table, i64 %6
+  %7 = getelementptr [8 x i8], ptr @sysrq_key_table, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %.thread
@@ -442,7 +442,7 @@ define dso_local range(i32 -1, 1) i32 @unregister_sysrq_key(i8 noundef zeroext %
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr ptr, ptr @sysrq_key_table, i64 %8
+  %9 = getelementptr [8 x i8], ptr @sysrq_key_table, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, %1
   br i1 %.not, label %11, label %12
@@ -684,7 +684,7 @@ define internal void @moom_callback(ptr readnone captures(none) %0) #2 align 16 
 
 11:                                               ; preds = %6, %1
   %12 = phi i64 [ %10, %6 ], [ 64, %1 ]
-  %13 = getelementptr ptr, ptr @node_data, i64 %12
+  %13 = getelementptr [8 x i8], ptr @node_data, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4864
   store ptr %15, ptr %2, align 8
@@ -771,7 +771,7 @@ declare dso_local void @emergency_thaw_all() local_unnamed_addr #3
 define internal void @sysrq_handle_SAK(i8 zeroext %0) #2 align 16 {
   %2 = load i32, ptr @fg_console, align 4
   %3 = sext i32 %2 to i64
-  %.split = getelementptr %struct.vc, ptr @vc_cons, i64 %3
+  %.split = getelementptr [40 x i8], ptr @vc_cons, i64 %3
   %4 = getelementptr i8, ptr %.split, i64 8
   %5 = load ptr, ptr @system_wq, align 8
   %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %5, ptr noundef %4) #18
@@ -1135,7 +1135,7 @@ thread-pre-split:                                 ; preds = %37, %35
 92:                                               ; preds = %109, %88
   %93 = phi i32 [ 0, %88 ], [ %110, %109 ]
   %94 = sext i32 %93 to i64
-  %95 = getelementptr i16, ptr @sysrq_reset_seq, i64 %94
+  %95 = getelementptr [2 x i8], ptr @sysrq_reset_seq, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = add i16 %96, -768
   %98 = icmp ult i16 %97, -767

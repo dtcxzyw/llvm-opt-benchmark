@@ -63,7 +63,7 @@ define hidden noundef ptr @mbedtls_md_info_from_type(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_md_info_from_type, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_md_info_from_type, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

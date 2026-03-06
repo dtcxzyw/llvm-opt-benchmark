@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ChContext = type { i32, i32, i32, i32, i32, [64 x i8], ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"apac\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"Marian's A-pac audio\00", align 1
@@ -43,7 +42,7 @@ define internal range(i32 -1094995529, 1) i32 @apac_init(ptr noundef captures(no
 
 16:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %17 = getelementptr inbounds nuw %struct.ChContext, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %12, i64 %indvars.iv
   %18 = load i32, ptr %4, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %18, ptr %19, align 4, !tbaa !32
@@ -249,7 +248,7 @@ define internal i32 @apac_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %105 = phi i32 [ %100, %.lr.ph221.preheader ], [ %289, %288 ]
   %106 = phi i32 [ %101, %.lr.ph221.preheader ], [ %289, %288 ]
   %indvars.iv257 = phi i64 [ %104, %.lr.ph221.preheader ], [ %indvars.iv.next258, %288 ]
-  %107 = getelementptr inbounds %struct.ChContext, ptr %97, i64 %indvars.iv257
+  %107 = getelementptr inbounds [96 x i8], ptr %97, i64 %indvars.iv257
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %108, ptr %5, align 16, !tbaa !60
@@ -497,7 +496,7 @@ get_bits_long.exit.us:                            ; preds = %get_bits_long.exit.
 
 248:                                              ; preds = %get_bits_long.exit.us
   %249 = trunc i32 %243 to i16
-  %250 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv254
+  %250 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %indvars.iv254
   store i16 %249, ptr %250, align 2, !tbaa !64
   br label %251
 
@@ -561,7 +560,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
 
 280:                                              ; preds = %get_bits_long.exit
   %281 = trunc i32 %278 to i16
-  %282 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv
+  %282 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %indvars.iv
   store i16 %281, ptr %282, align 2, !tbaa !64
   br label %286
 
@@ -627,7 +626,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
 .lr.ph229:                                        ; preds = %.loopexit, %310
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %310 ], [ 0, %.loopexit ]
   %.0153226 = phi i32 [ %311, %310 ], [ %297, %.loopexit ]
-  %302 = getelementptr inbounds nuw %struct.ChContext, ptr %8, i64 %indvars.iv260
+  %302 = getelementptr inbounds nuw [96 x i8], ptr %8, i64 %indvars.iv260
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 128
   %304 = load ptr, ptr %303, align 8, !tbaa !37
   %305 = call i32 @av_audio_fifo_size(ptr noundef %304) #7
@@ -660,10 +659,10 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   %indvars.iv263 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next264, %318 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %319 = load ptr, ptr %301, align 8, !tbaa !72
-  %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv263
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv263
   %321 = load ptr, ptr %320, align 8, !tbaa !73
   store ptr %321, ptr %6, align 8, !tbaa !60
-  %322 = getelementptr inbounds nuw %struct.ChContext, ptr %8, i64 %indvars.iv263
+  %322 = getelementptr inbounds nuw [96 x i8], ptr %8, i64 %indvars.iv263
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 128
   %324 = load ptr, ptr %323, align 8, !tbaa !37
   %325 = call i32 @av_audio_fifo_read(ptr noundef %324, ptr noundef nonnull %6, i32 noundef %311) #7

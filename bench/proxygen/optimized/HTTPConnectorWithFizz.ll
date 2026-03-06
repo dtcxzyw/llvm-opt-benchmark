@@ -124,11 +124,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.524 = type { i32 }
 %"struct.fizz::SecretType" = type { %union.anon.454, i32 }
 %union.anon.454 = type { i32 }
-%"struct.fizz::detail::PendingEvent" = type <{ %union.anon.429, i32, [4 x i8] }>
-%union.anon.429 = type { %"struct.fizz::WriteNewSessionTicket", [24 x i8] }
-%"struct.fizz::WriteNewSessionTicket" = type { %"class.std::unique_ptr.30" }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.fizz::TLSContent" = type { %"class.std::unique_ptr.30", i8, i32 }
 %"class.folly::Optional.455" = type { %"struct.folly::Optional<folly::AsyncSocketException>::StorageNonTriviallyDestructible" }
 %"struct.folly::Optional<folly::AsyncSocketException>::StorageNonTriviallyDestructible" = type <{ %union.anon.456, i8, [7 x i8] }>
 %union.anon.456 = type { %"class.folly::AsyncSocketException" }
@@ -148,13 +144,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 %"class.folly::exception_wrapper" = type { %"class.std::__exception_ptr::exception_ptr" }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
+%"struct.fizz::detail::PendingEvent" = type <{ %union.anon.429, i32, [4 x i8] }>
+%union.anon.429 = type { %"struct.fizz::WriteNewSessionTicket", [24 x i8] }
+%"struct.fizz::WriteNewSessionTicket" = type { %"class.std::unique_ptr.30" }
 %"class.folly::Optional.494" = type { %"struct.folly::Optional<folly::small_vector<fizz::client::Action, 4>>::StorageNonTriviallyDestructible" }
 %"struct.folly::Optional<folly::small_vector<fizz::client::Action, 4>>::StorageNonTriviallyDestructible" = type <{ %union.anon.495, i8, [15 x i8] }>
 %union.anon.495 = type { %"class.folly::small_vector.437" }
 %struct.Initializer = type { i8 }
-%"struct.fizz::client::Action" = type <{ %union.anon.442, i32, [12 x i8] }>
-%union.anon.442 = type { %"struct.fizz::client::NewCachedPsk" }
-%"struct.fizz::client::NewCachedPsk" = type { %"struct.fizz::client::CachedPsk" }
 %struct.Initializer.497 = type { i8 }
 %struct.Initializer.496 = type { i8 }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
@@ -12608,7 +12604,7 @@ _ZNSt11_Deque_baseIN4fizz6detail12PendingEventESaIS2_EE15_M_allocate_mapEm.exit:
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div137
   %add.ptr14.idx = shl nuw nsw i64 %add, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
@@ -12696,7 +12692,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   %_M_last.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
-  %add.ptr36 = getelementptr inbounds nuw %"struct.fizz::detail::PendingEvent", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -13138,7 +13134,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %6 = load ptr, ptr %u.i.i.i, align 8
   %tobool.not1.i.i.i8 = icmp slt i64 %4, 0
   %cond.i.i.i9 = select i1 %tobool.not1.i.i.i8, ptr %6, ptr %u.i.i.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.fizz::TLSContent", ptr %cond.i.i.i9, i64 %i.012
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %cond.i.i.i9, i64 %i.012
   invoke void @_ZN5folly5IOBuf13appendToChainEOSt10unique_ptrIS0_St14default_deleteIS0_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
           to label %for.inc unwind label %lpad14.loopexit
 
@@ -15518,9 +15514,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -15539,12 +15535,12 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
   %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
@@ -15572,9 +15568,9 @@ _ZNSt11_Deque_baseIN4fizz6detail12PendingEventESaIS2_EE15_M_allocate_mapEm.exit:
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN4fizz6detail12PendingEventES4_ET0_T_S6_S5_.exit30, label %if.then.i.i.i.i.i28
@@ -15601,7 +15597,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 480
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
@@ -15801,7 +15797,7 @@ _ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6
   %tobool.not1.i.i.i.i = icmp slt i64 %13, 0
   %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %14, ptr %u.i.i
   %and.i.i.i.i.i = and i64 %13, 4611686018427387903
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.fizz::client::Action", ptr %cond.i.i.i.i, i64 %and.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [208 x i8], ptr %cond.i.i.i.i, i64 %and.i.i.i.i.i
   %cmp.not7.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %cmp.not7.i.i, label %_ZN5folly12small_vectorIN4fizz6client6ActionELm4EvE5clearEv.exit, label %for.body.i.i
 
@@ -16729,7 +16725,7 @@ invoke.cont25:                                    ; preds = %invoke.cont25.loope
   %tobool.not1.i.i.i.i = icmp slt i64 %9, 0
   %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %10, ptr %u.i.i
   %and.i.i.i.i.i = and i64 %9, 4611686018427387903
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.fizz::TLSContent", ptr %cond.i.i.i.i, i64 %and.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %cond.i.i.i.i, i64 %and.i.i.i.i.i
   %cmp.not7.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %cmp.not7.i.i, label %_ZN5folly12small_vectorIN4fizz10TLSContentELm4EvE5clearEv.exit, label %for.body.i.i
 
@@ -17907,7 +17903,7 @@ _ZNSt11_Deque_baseIN4fizz8AppWriteESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div137
   %add.ptr14.idx = shl nuw nsw i64 %add, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
@@ -17996,7 +17992,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 15
-  %add.ptr36 = getelementptr inbounds nuw %"struct.fizz::AppWrite", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -20512,9 +20508,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -20533,12 +20529,12 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
   %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
@@ -20566,9 +20562,9 @@ _ZNSt11_Deque_baseIN4fizz8AppWriteESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN4fizz8AppWriteES3_ET0_T_S5_S4_.exit30, label %if.then.i.i.i.i.i28
@@ -20595,7 +20591,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8

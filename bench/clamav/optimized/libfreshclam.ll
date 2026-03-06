@@ -160,7 +160,7 @@ define noundef nonnull ptr @fc_strerror(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fc_strerror, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fc_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -668,7 +668,7 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
 25:                                               ; preds = %.lr.ph.us, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %25 ]
   %.02055.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   %28 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull %16, i64 noundef %22) #17
   %29 = icmp eq i32 %28, 0
@@ -1149,7 +1149,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.preheader
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %31 = icmp eq i64 %indvars.iv, %27
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1535,7 +1535,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly captures(address_is
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
   %.03044 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %64 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !16
   %63 = call i32 @fc_update_database(ptr noundef %62, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull %10)
   %.not = icmp eq i32 %63, 0
@@ -1774,7 +1774,7 @@ define noundef i32 @fc_download_url_databases(ptr noundef readonly captures(addr
 12:                                               ; preds = %11, %30
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %30 ]
   %.01963 = phi i32 [ 0, %11 ], [ %spec.select, %30 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = call i32 @fc_download_url_database(ptr noundef %14, ptr noundef %2, ptr noundef nonnull %5)
   switch i32 %15, label %28 [

@@ -140,7 +140,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_input, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_input, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %switch.load, ptr %10, align 8, !tbaa !46
@@ -197,11 +197,11 @@ define internal void @aderivative_fltp(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %9 = load ptr, ptr %8, align 8, !tbaa !51
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %.pre = load float, ptr %13, align 4, !tbaa !52
   br label %14
@@ -209,10 +209,10 @@ define internal void @aderivative_fltp(ptr noundef readonly captures(none) %0, p
 14:                                               ; preds = %.lr.ph.us, %14
   %15 = phi float [ %.pre, %.lr.ph.us ], [ %17, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !52
   %18 = fsub nsz float %17, %15
-  %19 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store float %18, ptr %19, align 4, !tbaa !52
   store float %17, ptr %13, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -242,11 +242,11 @@ define internal void @aderivative_dblp(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %9 = load ptr, ptr %8, align 8, !tbaa !51
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %.pre = load double, ptr %13, align 8, !tbaa !57
   br label %14
@@ -254,10 +254,10 @@ define internal void @aderivative_dblp(ptr noundef readonly captures(none) %0, p
 14:                                               ; preds = %.lr.ph.us, %14
   %15 = phi double [ %.pre, %.lr.ph.us ], [ %17, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !57
   %18 = fsub nsz double %17, %15
-  %19 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !57
   store double %17, ptr %13, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -287,11 +287,11 @@ define internal void @aderivative_s32p(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %9 = load ptr, ptr %8, align 8, !tbaa !51
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %.pre = load i32, ptr %13, align 4, !tbaa !61
   br label %14
@@ -299,10 +299,10 @@ define internal void @aderivative_s32p(ptr noundef readonly captures(none) %0, p
 14:                                               ; preds = %.lr.ph.us, %14
   %15 = phi i32 [ %.pre, %.lr.ph.us ], [ %17, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !61
   %18 = sub nsw i32 %17, %15
-  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !61
   store i32 %17, ptr %13, align 4, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -332,11 +332,11 @@ define internal void @aderivative_s16p(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %9 = load ptr, ptr %8, align 8, !tbaa !51
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %.pre = load i16, ptr %13, align 2, !tbaa !64
   br label %14
@@ -344,10 +344,10 @@ define internal void @aderivative_s16p(ptr noundef readonly captures(none) %0, p
 14:                                               ; preds = %.lr.ph.us, %14
   %15 = phi i16 [ %.pre, %.lr.ph.us ], [ %17, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !64
   %18 = sub i16 %17, %15
-  %19 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   store i16 %18, ptr %19, align 2, !tbaa !64
   store i16 %17, ptr %13, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -380,11 +380,11 @@ define internal void @aintegral_fltp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv28 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next29, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv28
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv28
   %9 = load ptr, ptr %8, align 8, !tbaa !51
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv28
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv28
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv28
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv28
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %.pre = load float, ptr %13, align 4, !tbaa !52
   br label %14
@@ -392,10 +392,10 @@ define internal void @aintegral_fltp(ptr noundef readonly captures(none) %0, ptr
 14:                                               ; preds = %.lr.ph.us, %14
   %15 = phi float [ %.pre, %.lr.ph.us ], [ %18, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !52
   %18 = fadd nsz float %17, %15
-  %19 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store float %18, ptr %19, align 4, !tbaa !52
   store float %18, ptr %13, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -425,11 +425,11 @@ define internal void @aintegral_dblp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv28 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next29, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv28
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv28
   %9 = load ptr, ptr %8, align 8, !tbaa !51
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv28
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv28
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv28
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv28
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %.pre = load double, ptr %13, align 8, !tbaa !57
   br label %14
@@ -437,10 +437,10 @@ define internal void @aintegral_dblp(ptr noundef readonly captures(none) %0, ptr
 14:                                               ; preds = %.lr.ph.us, %14
   %15 = phi double [ %.pre, %.lr.ph.us ], [ %18, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !57
   %18 = fadd nsz double %17, %15
-  %19 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !57
   store double %18, ptr %13, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

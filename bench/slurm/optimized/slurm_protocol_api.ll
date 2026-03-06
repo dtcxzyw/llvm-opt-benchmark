@@ -314,7 +314,7 @@ define dso_local i32 @revert_num_unit(ptr noundef readonly captures(address_is_n
   %8 = sext i8 %7 to i64
   %9 = tail call ptr @__ctype_toupper_loc() #21
   %.pn = load ptr, ptr %9, align 8
-  %.027.in = getelementptr inbounds i32, ptr %.pn, i64 %8
+  %.027.in = getelementptr inbounds [4 x i8], ptr %.pn, i64 %8
   %.027 = load i32, ptr %.027.in, align 4
   br label %10
 
@@ -359,7 +359,7 @@ define dso_local range(i32 -2147483648, 2147482625) i32 @get_convert_unit_val(i3
   %6 = tail call ptr @__ctype_toupper_loc() #21
   %7 = load ptr, ptr %6, align 8
   %8 = sext i8 %1 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @.str.74, i64 1), i32 %10, i64 6)
   %.not.i = icmp eq ptr %memchr.i, null
@@ -410,7 +410,7 @@ define dso_local i32 @get_unit_type(i8 noundef signext %0) #1 {
   %7 = tail call ptr @__ctype_toupper_loc() #21
   %8 = load ptr, ptr %7, align 8
   %9 = sext i8 %0 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @.str.74, i64 1), i32 %11, i64 6)
   %.not = icmp eq ptr %memchr, null
@@ -562,7 +562,7 @@ define dso_local ptr @slurm_get_tres_weight_array(ptr noundef %0, i32 noundef %1
   %63 = tail call ptr @__ctype_toupper_loc() #21
   %64 = load ptr, ptr %63, align 8
   %65 = sext i8 %60 to i64
-  %66 = getelementptr inbounds i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4
   %memchr.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @.str.74, i64 1), i32 %67, i64 6)
   %.not.i.i.i = icmp eq ptr %memchr.i.i.i, null
@@ -626,7 +626,7 @@ get_convert_unit_val.exit.i:                      ; preds = %.lr.ph.i.i
 85:                                               ; preds = %79, %get_convert_unit_val.exit.i, %.preheader.i.i, %56, %54
   %.021.i = phi double [ %49, %54 ], [ %49, %56 ], [ %81, %79 ], [ %49, %get_convert_unit_val.exit.i ], [ %49, %.preheader.i.i ]
   %86 = sext i32 %39 to i64
-  %87 = getelementptr inbounds double, ptr %18, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %18, i64 %86
   store double %.021.i, ptr %87, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1087,7 +1087,7 @@ define dso_local i32 @slurm_open_controller_conn_spec(i32 noundef %0, ptr nounde
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %0 to i64
-  %27 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [128 x i8], ptr %25, i64 %26
   %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %_remap_slurmctld_errno.exit.thread, label %28
 
@@ -1224,14 +1224,14 @@ define internal fastcc ptr @_slurm_api_get_comm_config() unnamed_addr #1 {
   %37 = phi i32 [ %45, %44 ], [ %34, %17 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %17 ]
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %.not30 = icmp eq ptr %40, null
   br i1 %.not30, label %44, label %41
 
 41:                                               ; preds = %.lr.ph
   %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [128 x i8], ptr %42, i64 %indvars.iv
   tail call void @slurm_set_addr(ptr noundef %43, i16 noundef zeroext %28, ptr noundef nonnull %40) #19
   %.pre = load i32, ptr %29, align 8
   br label %44
@@ -3856,7 +3856,7 @@ define dso_local void @slurm_pack_addr_array(ptr noundef %0, i32 noundef %1, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [128 x i8], ptr %0, i64 %indvars.iv
   tail call void @slurm_pack_addr(ptr noundef %4, ptr noundef %2) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3902,7 +3902,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_unpack_addr_array(ptr noundef write
 
 .lr.ph:                                           ; preds = %11, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %11 ]
-  %17 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %indvars.iv
   %18 = tail call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %17, ptr noundef %2) #19
   %.not22 = icmp eq i32 %18, 0
   br i1 %.not22, label %13, label %.thread
@@ -4548,7 +4548,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noun
   %23 = urem i32 %22, %20
   %24 = load ptr, ptr %13, align 8
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.sockaddr_storage, ptr %24, i64 %25
+  %26 = getelementptr inbounds [128 x i8], ptr %24, i64 %25
   %27 = tail call zeroext i1 @slurm_addr_is_unspec(ptr noundef %26) #19
   br i1 %27, label %38, label %28
 
@@ -5771,7 +5771,7 @@ tolower.exit:                                     ; preds = %1
   %3 = tail call ptr @__ctype_tolower_loc() #21
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %.021 = load i32, ptr %6, align 4
   %7 = add nsw i32 %0, -48
   %or.cond3 = icmp ult i32 %7, 10

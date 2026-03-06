@@ -66,11 +66,11 @@ define hidden i32 @mbedtls_psa_ffdh_export_public_key(ptr noundef readonly captu
   br i1 %or.cond61, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread46
 
 switch.lookup:                                    ; preds = %19
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep57 = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 %26
+  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 %26
   %switch.load58 = load ptr, ptr %switch.gep57, align 8
-  %switch.gep59 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 %26
+  %switch.gep59 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 %26
   %switch.load60 = load i64, ptr %switch.gep59, align 8
   %28 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %10, ptr noundef nonnull %switch.load, i64 noundef %switch.load60) #7
   %29 = icmp eq i32 %28, 0
@@ -167,9 +167,9 @@ define hidden i32 @mbedtls_psa_ffdh_generate_key(ptr noundef readnone captures(n
   br i1 %or.cond34, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread24
 
 switch.lookup:                                    ; preds = %4
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep32 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 %8
+  %switch.gep32 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 %8
   %switch.load33 = load i64, ptr %switch.gep32, align 8
   %10 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %6, ptr noundef nonnull %switch.load, i64 noundef %switch.load33) #7
   %.not.i = icmp eq i32 %10, 0
@@ -287,11 +287,11 @@ define hidden i32 @mbedtls_psa_ffdh_key_agreement(ptr noundef readonly captures(
   br i1 %or.cond59, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread44
 
 switch.lookup:                                    ; preds = %18
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep55 = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 %25
+  %switch.gep55 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 %25
   %switch.load56 = load ptr, ptr %switch.gep55, align 8
-  %switch.gep57 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 %25
+  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 %25
   %switch.load58 = load i64, ptr %switch.gep57, align 8
   %27 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %9, ptr noundef nonnull %switch.load, i64 noundef %switch.load58) #7
   %28 = icmp eq i32 %27, 0

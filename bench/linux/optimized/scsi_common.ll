@@ -71,7 +71,7 @@ define dso_local ptr @scsi_device_type(i32 noundef %0) #0 align 16 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr ptr, ptr @scsi_device_types, i64 %6
+  %7 = getelementptr [8 x i8], ptr @scsi_device_types, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 

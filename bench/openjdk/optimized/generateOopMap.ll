@@ -11,10 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 %class.BytecodeStream = type { %class.BaseBytecodeStream.base, i32 }
 %class.BaseBytecodeStream.base = type <{ [8 x i8], %class.methodHandle, i32, i32, i32, i32, i8, i8 }>
 %class.methodHandle = type { ptr, ptr }
-%class.ExceptionTableElement = type { i16, i16, i16, i16 }
 %class.Bytecode_tableswitch = type { %class.Bytecode.base, [4 x i8] }
 %class.Bytecode.base = type <{ ptr, i32 }>
-%class.BasicBlock = type { i8, i32, i32, i32, i32, ptr, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.ComputeEntryStack = type <{ %class.SignatureIterator, ptr, i32, [4 x i8] }>
 %class.SignatureIterator = type { ptr, i8, i64 }
@@ -274,7 +272,7 @@ define hidden void @_ZN13RetTableEntry9add_deltaEii(ptr noundef nonnull align 8 
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, %1
   br i1 %19, label %20, label %22
@@ -412,7 +410,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
 _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %19 = phi i32 [ %18, %17 ], [ %16, %7 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
   br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
@@ -575,7 +573,7 @@ _ZN13RetTableEntry7add_jsrEi.exit:                ; preds = %.critedge, %26
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %37, i64 %38
   store i32 %1, ptr %39, align 4
   ret void
 }
@@ -696,7 +694,7 @@ define hidden void @_ZN8RetTable16update_ret_tableEii(ptr noundef nonnull readon
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, %1
   br i1 %19, label %20, label %22
@@ -866,7 +864,7 @@ define hidden void @_ZN14GenerateOopMap11bb_mark_fctEPS_iPi(ptr noundef %0, i32 
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
   %7 = lshr i64 %5, 6
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %5, 63
   %11 = shl nuw i64 1, %10
@@ -932,13 +930,13 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN14GenerateOopMap11bb_mark_fctEPS_iPi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN14GenerateOopMap11bb_mark_fctEPS_iPi.exit ]
-  %22 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
   %26 = load ptr, ptr %5, align 8
   %27 = lshr i64 %25, 6
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %25, 63
   %31 = shl nuw i64 1, %30
@@ -984,7 +982,7 @@ _ZN14GenerateOopMap11bb_mark_fctEPS_iPi.exit:     ; preds = %.lr.ph, %33
   %49 = sext i32 %47 to i64
   %50 = load ptr, ptr %5, align 8
   %51 = lshr i64 %49, 6
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %49, 63
   %55 = shl nuw i64 1, %54
@@ -1011,7 +1009,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN14GenerateOopMap
   %62 = sext i32 %61 to i64
   %63 = load ptr, ptr %5, align 8
   %64 = lshr i64 %62, 6
-  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %62, 63
   %68 = shl nuw i64 1, %67
@@ -1024,7 +1022,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit17:       ; preds = %_ZN14GenerateOopMap
   %71 = sext i32 %70 to i64
   %72 = load ptr, ptr %5, align 8
   %73 = lshr i64 %71, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = and i64 %71, 63
   %77 = shl nuw i64 1, %76
@@ -1393,7 +1391,7 @@ define hidden void @_ZN14GenerateOopMap20reachable_basicblockEPS_iPi(ptr noundef
   %9 = add nuw nsw i32 %.02329.i.i, %.02230.i.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %class.BasicBlock, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %10, %8
@@ -1406,7 +1404,7 @@ define hidden void @_ZN14GenerateOopMap20reachable_basicblockEPS_iPi(ptr noundef
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr inbounds nuw %class.BasicBlock, ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %1, %22
@@ -1457,7 +1455,7 @@ define hidden noundef ptr @_ZNK14GenerateOopMap18get_basic_block_atEi(ptr nounde
   %8 = add nuw nsw i32 %.02329.i, %.02230.i
   %9 = lshr i32 %8, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw %class.BasicBlock, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %9, %7
@@ -1470,7 +1468,7 @@ define hidden noundef ptr @_ZNK14GenerateOopMap18get_basic_block_atEi(ptr nounde
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw %class.BasicBlock, ptr %4, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %1, %21
@@ -1527,7 +1525,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %1
 
 18:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %19 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
@@ -1543,7 +1541,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %1
   %26 = add nuw nsw i32 %.02329.i.i, %.02230.i.i
   %27 = lshr i32 %26, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw %class.BasicBlock, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %27, %25
@@ -1556,7 +1554,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %1
 
 35:                                               ; preds = %33
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw %class.BasicBlock, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, %22
@@ -1628,7 +1626,7 @@ _ZNK14GenerateOopMap18get_basic_block_atEi.exit:  ; preds = %.lr.ph.i.i, %35
 .lr.ph31:                                         ; preds = %.lr.ph34.split, %165
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %165 ], [ 0, %.lr.ph34.split ]
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds nuw %class.BasicBlock, ptr %64, i64 %indvars.iv43
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %64, i64 %indvars.iv43
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i32, ptr %66, align 8
   %.not22 = icmp eq i32 %67, -2
@@ -1666,7 +1664,7 @@ _ZNK14GenerateOopMap18get_basic_block_atEi.exit:  ; preds = %.lr.ph.i.i, %35
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %84, %77
   %86 = phi i32 [ %85, %84 ], [ %83, %77 ]
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = icmp ult i32 %89, 239
   br i1 %90, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN14BytecodeStream4nextEv.exit.thread
@@ -1775,7 +1773,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN14BytecodeStream
   %137 = add nuw nsw i32 %.02329.i.i.i, %.02230.i.i.i
   %138 = lshr i32 %137, 1
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw %class.BasicBlock, ptr %134, i64 %139
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %134, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %138, %136
@@ -1788,7 +1786,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN14BytecodeStream
 
 146:                                              ; preds = %144
   %147 = zext nneg i32 %145 to i64
-  %148 = getelementptr inbounds nuw %class.BasicBlock, ptr %134, i64 %147
+  %148 = getelementptr inbounds nuw [40 x i8], ptr %134, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = icmp slt i32 %133, %150
@@ -1864,7 +1862,7 @@ define hidden noundef ptr @_ZNK14GenerateOopMap26get_basic_block_containingEi(pt
   %8 = add nuw nsw i32 %.02230, %.02329
   %9 = lshr i32 %8, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw %class.BasicBlock, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %9, %7
@@ -1877,7 +1875,7 @@ define hidden noundef ptr @_ZNK14GenerateOopMap26get_basic_block_containingEi(pt
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw %class.BasicBlock, ptr %4, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %1, %21
@@ -1955,7 +1953,7 @@ define hidden noundef i32 @_ZN14GenerateOopMap16next_bb_start_pcEP10BasicBlock(p
   br label %26
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds %class.BasicBlock, ptr %4, i64 %9
+  %23 = getelementptr inbounds [40 x i8], ptr %4, i64 %9
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   br label %26
@@ -2039,7 +2037,7 @@ define hidden void @_ZN14GenerateOopMap26make_context_uninitializedEv(ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw %class.CellTypeState, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %.pre, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %4, align 8
@@ -2127,8 +2125,8 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap25merge_local_state_vectors
   %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK13CellTypeState5mergeES_i.exit ]
   %.01518 = phi i1 [ false, %.lr.ph.preheader ], [ %28, %_ZNK13CellTypeState5mergeES_i.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %11 = getelementptr inbounds nuw %class.CellTypeState, ptr %1, i64 %indvars.iv.next
-  %12 = getelementptr inbounds nuw %class.CellTypeState, ptr %2, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %.sroa.01.0.copyload = load i32, ptr %12, align 4
   %13 = load i32, ptr %11, align 4
   %14 = or i32 %13, %.sroa.01.0.copyload
@@ -2194,8 +2192,8 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap27merge_monitor_state_vecto
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK13CellTypeState5mergeES_i.exit ]
   %.123 = phi i1 [ false, %.lr.ph.preheader ], [ %narrow, %_ZNK13CellTypeState5mergeES_i.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds %class.CellTypeState, ptr %1, i64 %indvars.iv.next
-  %19 = getelementptr inbounds %class.CellTypeState, ptr %2, i64 %indvars.iv.next
+  %18 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next
+  %19 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next
   %.sroa.01.0.copyload = load i32, ptr %19, align 4
   %20 = load i32, ptr %18, align 4
   %21 = or i32 %20, %.sroa.01.0.copyload
@@ -2249,7 +2247,7 @@ define hidden void @_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_(ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw %class.CellTypeState, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, -100663296
   %13 = icmp eq i32 %12, 1107296256
@@ -2257,7 +2255,7 @@ define hidden void @_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_(ptr noun
   %15 = and i32 %14, 16777215
   %16 = or disjoint i32 %15, 1191182336
   %.sink = select i1 %13, i32 %16, i32 %11
-  %17 = getelementptr inbounds nuw %class.CellTypeState, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %.sink, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2287,8 +2285,8 @@ define hidden void @_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_(ptr noun
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
   %indvars.iv29 = phi i64 [ %30, %.lr.ph26.preheader ], [ %indvars.iv.next30, %.lr.ph26 ]
-  %32 = getelementptr inbounds %class.CellTypeState, ptr %2, i64 %indvars.iv29
-  %33 = getelementptr inbounds %class.CellTypeState, ptr %1, i64 %indvars.iv29
+  %32 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv29
+  %33 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv29
   %34 = load i32, ptr %32, align 4
   store i32 %34, ptr %33, align 4
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
@@ -2337,8 +2335,8 @@ define hidden void @_ZN14GenerateOopMap19merge_state_into_bbEP10BasicBlock(ptr n
   %indvars.iv.i = phi i64 [ %20, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZNK13CellTypeState5mergeES_i.exit.i ]
   %.01518.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %38, %_ZNK13CellTypeState5mergeES_i.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %21 = getelementptr inbounds nuw %class.CellTypeState, ptr %13, i64 %indvars.iv.next.i
-  %22 = getelementptr inbounds nuw %class.CellTypeState, ptr %15, i64 %indvars.iv.next.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.next.i
   %.sroa.01.0.copyload.i = load i32, ptr %22, align 4
   %23 = load i32, ptr %21, align 4
   %24 = or i32 %23, %.sroa.01.0.copyload.i
@@ -2410,8 +2408,8 @@ _ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread: 
   %indvars.iv.i18 = phi i64 [ %57, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i19, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
   %.123.i = phi i1 [ false, %.lr.ph.preheader.i16 ], [ %narrow.i, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, -1
-  %59 = getelementptr inbounds %class.CellTypeState, ptr %47, i64 %indvars.iv.next.i19
-  %60 = getelementptr inbounds %class.CellTypeState, ptr %48, i64 %indvars.iv.next.i19
+  %59 = getelementptr inbounds [4 x i8], ptr %47, i64 %indvars.iv.next.i19
+  %60 = getelementptr inbounds [4 x i8], ptr %48, i64 %indvars.iv.next.i19
   %.sroa.01.0.copyload.i20 = load i32, ptr %60, align 4
   %61 = load i32, ptr %59, align 4
   %62 = or i32 %61, %.sroa.01.0.copyload.i20
@@ -2488,7 +2486,7 @@ _ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit: ; pre
 
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i24
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.preheader.i24 ], [ %indvars.iv.next.i27, %.lr.ph.i25 ]
-  %93 = getelementptr inbounds nuw %class.CellTypeState, ptr %88, i64 %indvars.iv.i26
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i26
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, -100663296
   %96 = icmp eq i32 %95, 1107296256
@@ -2496,7 +2494,7 @@ _ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit: ; pre
   %98 = and i32 %97, 16777215
   %99 = or disjoint i32 %98, 1191182336
   %.sink.i = select i1 %96, i32 %99, i32 %94
-  %100 = getelementptr inbounds nuw %class.CellTypeState, ptr %86, i64 %indvars.iv.i26
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i26
   store i32 %.sink.i, ptr %100, align 4
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i
@@ -2526,8 +2524,8 @@ _ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit: ; pre
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i, %.lr.ph26.preheader.i
   %indvars.iv29.i = phi i64 [ %113, %.lr.ph26.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph26.i ]
-  %115 = getelementptr inbounds %class.CellTypeState, ptr %88, i64 %indvars.iv29.i
-  %116 = getelementptr inbounds %class.CellTypeState, ptr %86, i64 %indvars.iv29.i
+  %115 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv29.i
+  %116 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv29.i
   %117 = load i32, ptr %115, align 4
   store i32 %117, ptr %116, align 4
   %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, 1
@@ -2631,7 +2629,7 @@ define hidden void @_ZN14GenerateOopMap11merge_stateEPS_iPi(ptr noundef captures
   %9 = add nuw nsw i32 %.02329.i.i, %.02230.i.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %class.BasicBlock, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %10, %8
@@ -2644,7 +2642,7 @@ define hidden void @_ZN14GenerateOopMap11merge_stateEPS_iPi(ptr noundef captures
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr inbounds nuw %class.BasicBlock, ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %1, %22
@@ -2686,7 +2684,7 @@ define hidden void @_ZN14GenerateOopMap7set_varEi13CellTypeState(ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %class.CellTypeState, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 %2, ptr %13, align 4
   br label %14
 
@@ -2711,7 +2709,7 @@ define hidden i32 @_ZN14GenerateOopMap7get_varEi(ptr noundef nonnull align 8 cap
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %class.CellTypeState, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %8, %7
@@ -2737,11 +2735,11 @@ define hidden i32 @_ZN14GenerateOopMap3popEv(ptr noundef nonnull align 8 capture
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %8, i64 %11
   %13 = add nsw i32 %3, -1
   store i32 %13, ptr %2, align 8
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.CellTypeState, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   br label %16
 
 16:                                               ; preds = %6, %5
@@ -2769,11 +2767,11 @@ define hidden void @_ZN14GenerateOopMap4pushE13CellTypeState(ptr noundef nonnull
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %class.CellTypeState, ptr %10, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %10, i64 %13
   %15 = add nsw i32 %4, 1
   store i32 %15, ptr %3, align 8
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds %class.CellTypeState, ptr %14, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %14, i64 %16
   store i32 %1, ptr %17, align 4
   br label %18
 
@@ -2806,15 +2804,15 @@ define hidden i32 @_ZN14GenerateOopMap11monitor_popEv(ptr noundef nonnull align 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %class.CellTypeState, ptr %11, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %class.CellTypeState, ptr %15, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
   %20 = add nsw i32 %3, -1
   store i32 %20, ptr %2, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %class.CellTypeState, ptr %19, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %21
   br label %23
 
 23:                                               ; preds = %5, %8, %9
@@ -2850,15 +2848,15 @@ define hidden void @_ZN14GenerateOopMap12monitor_pushE13CellTypeState(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %class.CellTypeState, ptr %13, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %class.CellTypeState, ptr %17, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %17, i64 %20
   %22 = add nsw i32 %4, 1
   store i32 %22, ptr %3, align 4
   %23 = sext i32 %4 to i64
-  %24 = getelementptr inbounds %class.CellTypeState, ptr %21, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %21, i64 %23
   store i32 %1, ptr %24, align 4
   br label %25
 
@@ -2930,7 +2928,7 @@ define hidden void @_ZN14GenerateOopMap17do_interpretationEv(ptr noundef nonnull
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.preheader.i ]
   %.113.i = phi i1 [ %.2.i, %33 ], [ false, %.preheader.i ]
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds nuw %class.BasicBlock, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %33
@@ -3023,7 +3021,7 @@ define hidden void @_ZN14GenerateOopMap17init_basic_blocksEv(ptr noundef nonnull
   %25 = sext i32 %24 to i64
   %26 = load ptr, ptr %17, align 8
   %27 = lshr i64 %25, 6
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %25, 63
   %31 = shl nuw i64 1, %30
@@ -3034,7 +3032,7 @@ define hidden void @_ZN14GenerateOopMap17init_basic_blocksEv(ptr noundef nonnull
 33:                                               ; preds = %20
   %34 = load ptr, ptr %8, align 8
   %35 = sext i32 %.041 to i64
-  %36 = getelementptr inbounds %class.BasicBlock, ptr %34, i64 %35
+  %36 = getelementptr inbounds [40 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %24, ptr %37, align 4
   %38 = load i32, ptr %18, align 8
@@ -3054,7 +3052,7 @@ define hidden void @_ZN14GenerateOopMap17init_basic_blocksEv(ptr noundef nonnull
 45:                                               ; preds = %33
   %46 = load ptr, ptr %8, align 8
   %47 = zext nneg i32 %.041 to i64
-  %48 = getelementptr %class.BasicBlock, ptr %46, i64 %47
+  %48 = getelementptr [40 x i8], ptr %46, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -32
   store i32 %.03539, ptr %49, align 8
   br label %50
@@ -3075,7 +3073,7 @@ define hidden void @_ZN14GenerateOopMap17init_basic_blocksEv(ptr noundef nonnull
   %.0.lcssa = phi i32 [ 0, %11 ], [ %.1, %52 ]
   %55 = load ptr, ptr %8, align 8
   %56 = sext i32 %.0.lcssa to i64
-  %57 = getelementptr %class.BasicBlock, ptr %55, i64 %56
+  %57 = getelementptr [40 x i8], ptr %55, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -32
   store i32 %.035.lcssa, ptr %58, align 8
   %59 = load i32, ptr %3, align 4
@@ -3163,12 +3161,12 @@ _ZN14GenerateOopMap10init_stateEv.exit:           ; preds = %75, %.sink.split.i
 .lr.ph46:                                         ; preds = %102, %.lr.ph46
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph46 ], [ 0, %102 ]
   %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds nuw %class.BasicBlock, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [40 x i8], ptr %108, i64 %indvars.iv
   %110 = load i32, ptr %69, align 4
   %111 = trunc nuw nsw i64 %indvars.iv to i32
   %112 = mul nsw i32 %110, %111
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds %class.CellTypeState, ptr %99, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %99, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store ptr %114, ptr %115, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3204,7 +3202,7 @@ define hidden void @_ZN14GenerateOopMap24setup_method_entry_stateEv(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %8 = getelementptr inbounds nuw %class.CellTypeState, ptr %4, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %.pre.i, ptr %8, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %5, align 8
@@ -3232,7 +3230,7 @@ _ZN14GenerateOopMap26make_context_uninitializedEv.exit: ; preds = %_ZN14Generate
   %22 = load i16, ptr %21, align 2
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %24 = zext i16 %22 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %27, align 8
@@ -3273,9 +3271,9 @@ _ZN14GenerateOopMap19methodsig_to_effectEP6SymbolbP13CellTypeState.exit: ; preds
   %42 = load ptr, ptr %3, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv.i2
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i2
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds %class.CellTypeState, ptr %42, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %42, i64 %46
   store i32 %41, ptr %47, align 4
   %indvars.iv.next.i3 = add nuw nsw i64 %indvars.iv.i2, 1
   %48 = load ptr, ptr %34, align 8
@@ -3325,7 +3323,7 @@ define hidden void @_ZN14GenerateOopMap10interp_allEv(ptr noundef nonnull align 
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
   %.113 = phi i1 [ %.2, %18 ], [ false, %.preheader ]
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw %class.BasicBlock, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %18
@@ -3393,7 +3391,7 @@ define hidden void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef 
   %19 = phi i32 [ %.pre14, %.lr.ph ], [ %29, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %.not = icmp eq i64 %indvars.iv, %23
@@ -3463,9 +3461,9 @@ define hidden void @_ZN14GenerateOopMap15initialize_varsEv(ptr noundef nonnull r
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds %class.CellTypeState, ptr %12, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %12, i64 %16
   store i32 %11, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load ptr, ptr %2, align 8
@@ -3495,7 +3493,7 @@ define hidden void @_ZN14GenerateOopMap19update_basic_blocksEiii(ptr noundef non
 11:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw %class.BasicBlock, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, %1
@@ -3505,13 +3503,13 @@ define hidden void @_ZN14GenerateOopMap19update_basic_blocksEiii(ptr noundef non
   %18 = add nsw i32 %15, %2
   store i32 %18, ptr %14, align 4
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds nuw %class.BasicBlock, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = add nsw i32 %22, %2
   store i32 %23, ptr %21, align 8
   %.pre = load ptr, ptr %10, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw %class.BasicBlock, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %indvars.iv
   %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.pre14 = load i32, ptr %.phi.trans.insert13, align 4
   br label %24
@@ -3552,7 +3550,7 @@ define hidden void @_ZN14GenerateOopMap19add_to_ref_init_setEi(ptr noundef nonnu
 
 11:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, %5
   br i1 %14, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit, label %10
@@ -3584,7 +3582,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit: ; preds = 
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %26 to i64
-  %31 = getelementptr inbounds i64, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   store i64 %5, ptr %31, align 8
   br label %_ZNK17GrowableArrayViewIlE8containsERKl.exit
 
@@ -3637,7 +3635,7 @@ define hidden void @_ZN14GenerateOopMap9interp_bbEP10BasicBlock(ptr noundef nonn
   br label %_ZN14GenerateOopMap16next_bb_start_pcEP10BasicBlock.exit
 
 37:                                               ; preds = %2
-  %38 = getelementptr inbounds %class.BasicBlock, ptr %20, i64 %25
+  %38 = getelementptr inbounds [40 x i8], ptr %20, i64 %25
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   br label %_ZN14GenerateOopMap16next_bb_start_pcEP10BasicBlock.exit
@@ -3745,7 +3743,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i:       ; preds = %90, %84
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 2
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %95
   %97 = load i16, ptr %96, align 2
   %98 = and i16 %97, 128
   %.not.i.i = icmp eq i16 %98, 0
@@ -3798,7 +3796,7 @@ define hidden void @_ZN14GenerateOopMap17do_exception_edgeEP14BytecodeStream(ptr
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = trunc i16 %7 to i1
   br i1 %8, label %9, label %.loopexit39
@@ -3865,7 +3863,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %20
 
 38:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %39 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %30, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 2
@@ -3894,7 +3892,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %20
   %55 = add nuw nsw i32 %.02329.i.i, %.02230.i.i
   %56 = lshr i32 %55, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %class.BasicBlock, ptr %52, i64 %57
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %56, %54
@@ -3907,7 +3905,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %20
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %63 to i64
-  %66 = getelementptr inbounds nuw %class.BasicBlock, ptr %52, i64 %65
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, %46
@@ -3931,7 +3929,7 @@ _ZNK14GenerateOopMap18get_basic_block_atEi.exit:  ; preds = %64, %.lr.ph.i.i
   %74 = load ptr, ptr %35, align 8
   %75 = load i32, ptr %36, align 8
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %class.CellTypeState, ptr %74, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %74, i64 %76
   %.sroa.01.0.copyload = load i32, ptr %77, align 4
   %78 = load i32, ptr %37, align 8
   %79 = and i32 %75, 16777215
@@ -4003,7 +4001,7 @@ define hidden void @_ZN14GenerateOopMap7interp1EP14BytecodeStream(ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %class.CellTypeState, ptr %14, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
@@ -4263,11 +4261,11 @@ define hidden void @_ZN14GenerateOopMap7interp1EP14BytecodeStream(ptr noundef no
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %class.CellTypeState, ptr %48, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %48, i64 %51
   %53 = add nsw i32 %42, 1
   store i32 %53, ptr %41, align 8
   %54 = sext i32 %42 to i64
-  %55 = getelementptr inbounds %class.CellTypeState, ptr %52, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %52, i64 %54
   store i32 805306367, ptr %55, align 4
   br label %_ZN14GenerateOopMap23do_return_monitor_checkEv.exit
 
@@ -4378,11 +4376,11 @@ define hidden void @_ZN14GenerateOopMap7interp1EP14BytecodeStream(ptr noundef no
   %95 = load ptr, ptr %86, align 8
   %96 = load i32, ptr %87, align 8
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %class.CellTypeState, ptr %95, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %95, i64 %97
   %99 = add nsw i32 %91, -1
   store i32 %99, ptr %85, align 8
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw %class.CellTypeState, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   br label %_ZN14GenerateOopMap3popEv.exit.i.i.i
 
 _ZN14GenerateOopMap3popEv.exit.i.i.i:             ; preds = %94, %93
@@ -4430,11 +4428,11 @@ _ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i: ; preds = %_ZN14GenerateOopMap
   %119 = load ptr, ptr %110, align 8
   %120 = load i32, ptr %111, align 8
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds %class.CellTypeState, ptr %119, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %119, i64 %121
   %123 = add nsw i32 %115, 1
   store i32 %123, ptr %108, align 8
   %124 = sext i32 %115 to i64
-  %125 = getelementptr inbounds %class.CellTypeState, ptr %122, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %122, i64 %124
   store i32 %113, ptr %125, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i
 
@@ -4545,11 +4543,11 @@ _ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i: ; preds = %118, %117
   %164 = load ptr, ptr %155, align 8
   %165 = load i32, ptr %156, align 8
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds %class.CellTypeState, ptr %164, i64 %166
+  %167 = getelementptr inbounds [4 x i8], ptr %164, i64 %166
   %168 = add nsw i32 %160, -1
   store i32 %168, ptr %154, align 8
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw %class.CellTypeState, ptr %167, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %169
   br label %_ZN14GenerateOopMap3popEv.exit.i.i
 
 _ZN14GenerateOopMap3popEv.exit.i.i:               ; preds = %163, %162
@@ -4661,11 +4659,11 @@ _ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i: ; preds = %_ZNK13CellTypeState
   %209 = load ptr, ptr %200, align 8
   %210 = load i32, ptr %201, align 8
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds %class.CellTypeState, ptr %209, i64 %211
+  %212 = getelementptr inbounds [4 x i8], ptr %209, i64 %211
   %213 = add nsw i32 %205, -1
   store i32 %213, ptr %199, align 8
   %214 = zext nneg i32 %213 to i64
-  %215 = getelementptr inbounds nuw %class.CellTypeState, ptr %212, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %214
   br label %_ZN14GenerateOopMap3popEv.exit.i.i.i59
 
 _ZN14GenerateOopMap3popEv.exit.i.i.i59:           ; preds = %208, %207
@@ -4713,11 +4711,11 @@ _ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i64: ; preds = %_ZN14GenerateOopM
   %233 = load ptr, ptr %224, align 8
   %234 = load i32, ptr %225, align 8
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds %class.CellTypeState, ptr %233, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %233, i64 %235
   %237 = add nsw i32 %229, 1
   store i32 %237, ptr %222, align 8
   %238 = sext i32 %229 to i64
-  %239 = getelementptr inbounds %class.CellTypeState, ptr %236, i64 %238
+  %239 = getelementptr inbounds [4 x i8], ptr %236, i64 %238
   store i32 %227, ptr %239, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i68
 
@@ -4753,11 +4751,11 @@ _ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i68: ; preds = %232, %231
   %255 = load ptr, ptr %246, align 8
   %256 = load i32, ptr %247, align 8
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds %class.CellTypeState, ptr %255, i64 %257
+  %258 = getelementptr inbounds [4 x i8], ptr %255, i64 %257
   %259 = add nsw i32 %251, -1
   store i32 %259, ptr %245, align 8
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw %class.CellTypeState, ptr %258, i64 %260
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %258, i64 %260
   br label %_ZN14GenerateOopMap3popEv.exit.i.i.i72
 
 _ZN14GenerateOopMap3popEv.exit.i.i.i72:           ; preds = %254, %253
@@ -4805,11 +4803,11 @@ _ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i77: ; preds = %_ZN14GenerateOopM
   %279 = load ptr, ptr %270, align 8
   %280 = load i32, ptr %271, align 8
   %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds %class.CellTypeState, ptr %279, i64 %281
+  %282 = getelementptr inbounds [4 x i8], ptr %279, i64 %281
   %283 = add nsw i32 %275, 1
   store i32 %283, ptr %268, align 8
   %284 = sext i32 %275 to i64
-  %285 = getelementptr inbounds %class.CellTypeState, ptr %282, i64 %284
+  %285 = getelementptr inbounds [4 x i8], ptr %282, i64 %284
   store i32 %273, ptr %285, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i81
 
@@ -4845,11 +4843,11 @@ _ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i81: ; preds = %278, %277
   %301 = load ptr, ptr %292, align 8
   %302 = load i32, ptr %293, align 8
   %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds %class.CellTypeState, ptr %301, i64 %303
+  %304 = getelementptr inbounds [4 x i8], ptr %301, i64 %303
   %305 = add nsw i32 %297, -1
   store i32 %305, ptr %291, align 8
   %306 = zext nneg i32 %305 to i64
-  %307 = getelementptr inbounds nuw %class.CellTypeState, ptr %304, i64 %306
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %304, i64 %306
   br label %_ZN14GenerateOopMap3popEv.exit.i.i.i85
 
 _ZN14GenerateOopMap3popEv.exit.i.i.i85:           ; preds = %300, %299
@@ -4894,11 +4892,11 @@ _ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i90: ; preds = %_ZN14GenerateOopM
   %321 = load ptr, ptr %292, align 8
   %322 = load i32, ptr %293, align 8
   %323 = sext i32 %322 to i64
-  %324 = getelementptr inbounds %class.CellTypeState, ptr %321, i64 %323
+  %324 = getelementptr inbounds [4 x i8], ptr %321, i64 %323
   %325 = add nsw i32 %317, 1
   store i32 %325, ptr %291, align 8
   %326 = sext i32 %317 to i64
-  %327 = getelementptr inbounds %class.CellTypeState, ptr %324, i64 %326
+  %327 = getelementptr inbounds [4 x i8], ptr %324, i64 %326
   store i32 %315, ptr %327, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i94
 
@@ -4943,11 +4941,11 @@ _ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i94: ; preds = %320, %319
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %344 = load i32, ptr %343, align 8
   %345 = sext i32 %344 to i64
-  %346 = getelementptr inbounds %class.CellTypeState, ptr %342, i64 %345
+  %346 = getelementptr inbounds [4 x i8], ptr %342, i64 %345
   %347 = add nsw i32 %337, -1
   store i32 %347, ptr %336, align 8
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw %class.CellTypeState, ptr %346, i64 %348
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %346, i64 %348
   br label %_ZN14GenerateOopMap3popEv.exit.i
 
 _ZN14GenerateOopMap3popEv.exit.i:                 ; preds = %340, %339
@@ -5009,11 +5007,11 @@ _ZN14GenerateOopMap23do_return_monitor_checkEv.exit97: ; preds = %352, %356, %35
   %373 = load ptr, ptr %364, align 8
   %374 = load i32, ptr %365, align 8
   %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds %class.CellTypeState, ptr %373, i64 %375
+  %376 = getelementptr inbounds [4 x i8], ptr %373, i64 %375
   %377 = add nsw i32 %369, -1
   store i32 %377, ptr %363, align 8
   %378 = zext nneg i32 %377 to i64
-  %379 = getelementptr inbounds nuw %class.CellTypeState, ptr %376, i64 %378
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %378
   br label %_ZN14GenerateOopMap3popEv.exit.i.i100
 
 _ZN14GenerateOopMap3popEv.exit.i.i100:            ; preds = %372, %371
@@ -5287,7 +5285,7 @@ define hidden void @_ZN14GenerateOopMap19ret_jump_targets_doEP14BytecodeStreamPF
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds %class.CellTypeState, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, -134217728
   %12 = icmp eq i32 %11, 268435456
@@ -5340,7 +5338,7 @@ _ZN8RetTable20find_jsrs_for_targetEi.exit.preheader: ; preds = %.lr.ph.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8RetTable20find_jsrs_for_targetEi.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, -1
   %36 = load ptr, ptr %23, align 8
@@ -5355,7 +5353,7 @@ _ZN8RetTable20find_jsrs_for_targetEi.exit.preheader: ; preds = %.lr.ph.i
   %39 = add nuw nsw i32 %.02329.i, %.02230.i
   %40 = lshr i32 %39, 1
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw %class.BasicBlock, ptr %36, i64 %41
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %36, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %40, %38
@@ -5368,7 +5366,7 @@ _ZN8RetTable20find_jsrs_for_targetEi.exit.preheader: ; preds = %.lr.ph.i
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw %class.BasicBlock, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %.not = icmp sgt i32 %34, %52
@@ -5442,7 +5440,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit:         ; preds = %9, %16
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 128
   %.not.i = icmp eq i16 %24, 0
@@ -5487,7 +5485,7 @@ define hidden void @_ZN14GenerateOopMap12print_statesEP12outputStreamP13CellType
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %class.CellTypeState, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr @tty, align 8
   tail call void @_ZN13CellTypeState5printEP12outputStream(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5519,7 +5517,7 @@ define hidden void @_ZN14GenerateOopMap19print_current_stateEP12outputStreamP14B
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw %class.CellTypeState, ptr %9, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %14 = load ptr, ptr @tty, align 8
   tail call void @_ZN13CellTypeState5printEP12outputStream(ptr noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noundef %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5530,7 +5528,7 @@ _ZN14GenerateOopMap12print_statesEP12outputStreamP13CellTypeStatei.exit: ; preds
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr @_ZN9Bytecodes5_nameE, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr @_ZN9Bytecodes5_nameE, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.46, ptr noundef %19) #19
   br label %110
@@ -5550,7 +5548,7 @@ _ZN14GenerateOopMap12print_statesEP12outputStreamP13CellTypeStatei.exit: ; preds
 
 27:                                               ; preds = %_ZNK13CellTypeState7to_charEv.exit.i, %.lr.ph.i35
   %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i38, %_ZNK13CellTypeState7to_charEv.exit.i ]
-  %28 = getelementptr inbounds nuw %class.CellTypeState, ptr %22, i64 %indvars.iv.i37
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i37
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 1073741824
   %.not.i.i = icmp eq i32 %30, 0
@@ -5600,7 +5598,7 @@ _ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit: ; preds = %_ZNK
   %47 = load ptr, ptr %21, align 8
   %48 = load i32, ptr %23, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %class.CellTypeState, ptr %47, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load i32, ptr %51, align 8
   %53 = icmp sgt i32 %52, 0
@@ -5612,7 +5610,7 @@ _ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit: ; preds = %_ZNK
 
 54:                                               ; preds = %_ZNK13CellTypeState7to_charEv.exit.i45, %.lr.ph.i40
   %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i47, %_ZNK13CellTypeState7to_charEv.exit.i45 ]
-  %55 = getelementptr inbounds nuw %class.CellTypeState, ptr %50, i64 %indvars.iv.i42
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i42
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1073741824
   %.not.i.i43 = icmp eq i32 %57, 0
@@ -5667,11 +5665,11 @@ _ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit53: ; preds = %_Z
   %76 = load ptr, ptr %21, align 8
   %77 = load i32, ptr %23, align 8
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %class.CellTypeState, ptr %76, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %76, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %class.CellTypeState, ptr %79, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %79, i64 %82
   %84 = icmp sgt i32 %74, 0
   br i1 %84, label %.lr.ph.i54, label %_ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit67
 
@@ -5681,7 +5679,7 @@ _ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit53: ; preds = %_Z
 
 85:                                               ; preds = %_ZNK13CellTypeState7to_charEv.exit.i59, %.lr.ph.i54
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.i54 ], [ %indvars.iv.next.i61, %_ZNK13CellTypeState7to_charEv.exit.i59 ]
-  %86 = getelementptr inbounds nuw %class.CellTypeState, ptr %83, i64 %indvars.iv.i56
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i56
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 1073741824
   %.not.i.i57 = icmp eq i32 %88, 0
@@ -5729,7 +5727,7 @@ _ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit67: ; preds = %_Z
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds ptr, ptr @_ZN9Bytecodes5_nameE, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr @_ZN9Bytecodes5_nameE, i64 %106
   %108 = load ptr, ptr %107, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.49, ptr noundef %103, ptr noundef %108) #19
   br label %110
@@ -5802,7 +5800,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit:        ; preds = %141, %142
   %144 = phi i32 [ %127, %141 ], [ %.pre, %142 ]
   %145 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %146
+  %147 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = and i16 %148, 128
   %.not.i.i70 = icmp eq i16 %149, 0
@@ -5826,7 +5824,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit:        ; preds = %141, %142
   %163 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %159, i32 noundef %162) #19
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 72
   %165 = zext i16 %163 to i64
-  %166 = getelementptr inbounds nuw i64, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %167) #19
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.51, ptr noundef %168) #19
@@ -5843,7 +5841,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit:        ; preds = %141, %142
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %174 = load i32, ptr %173, align 8
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds %class.CellTypeState, ptr %172, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %172, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %178 = load i32, ptr %177, align 8
   %179 = icmp sgt i32 %178, 0
@@ -5855,7 +5853,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit:        ; preds = %141, %142
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i74 ]
-  %180 = getelementptr inbounds nuw %class.CellTypeState, ptr %176, i64 %indvars.iv.i75
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv.i75
   %181 = load ptr, ptr @tty, align 8
   tail call void @_ZN13CellTypeState5printEP12outputStream(ptr noundef nonnull readonly align 4 dereferenceable(4) %180, ptr noundef %181)
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
@@ -5874,11 +5872,11 @@ _ZN14GenerateOopMap12print_statesEP12outputStreamP13CellTypeStatei.exit78: ; pre
   %185 = load ptr, ptr %171, align 8
   %186 = load i32, ptr %173, align 8
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds %class.CellTypeState, ptr %185, i64 %187
+  %188 = getelementptr inbounds [4 x i8], ptr %185, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %190 = load i32, ptr %189, align 4
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds %class.CellTypeState, ptr %188, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %188, i64 %191
   %193 = load i32, ptr %182, align 4
   %194 = icmp sgt i32 %193, 0
   br i1 %194, label %.lr.ph.preheader.i79, label %_ZN14GenerateOopMap12print_statesEP12outputStreamP13CellTypeStatei.exit85
@@ -5889,7 +5887,7 @@ _ZN14GenerateOopMap12print_statesEP12outputStreamP13CellTypeStatei.exit78: ; pre
 
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81, %.lr.ph.preheader.i79
   %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i83, %.lr.ph.i81 ]
-  %195 = getelementptr inbounds nuw %class.CellTypeState, ptr %192, i64 %indvars.iv.i82
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %indvars.iv.i82
   %196 = load ptr, ptr @tty, align 8
   tail call void @_ZN13CellTypeState5printEP12outputStream(ptr noundef nonnull readonly align 4 dereferenceable(4) %195, ptr noundef %196)
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
@@ -5917,7 +5915,7 @@ define hidden noundef ptr @_ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeS
 
 6:                                                ; preds = %.lr.ph, %_ZNK13CellTypeState7to_charEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK13CellTypeState7to_charEv.exit ]
-  %7 = getelementptr inbounds nuw %class.CellTypeState, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1073741824
   %.not.i = icmp eq i32 %9, 0
@@ -5990,7 +5988,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit:         ; preds = %1, %12
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 128
   %.not.i = icmp eq i16 %20, 0
@@ -6049,11 +6047,11 @@ define hidden void @_ZN14GenerateOopMap6ppush1E13CellTypeState(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %class.CellTypeState, ptr %10, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %10, i64 %13
   %15 = add nsw i32 %4, 1
   store i32 %15, ptr %3, align 8
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds %class.CellTypeState, ptr %14, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %14, i64 %16
   store i32 %1, ptr %17, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
@@ -6091,11 +6089,11 @@ define hidden void @_ZN14GenerateOopMap5ppushEP13CellTypeState(ptr noundef nonnu
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %class.CellTypeState, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %20 = add nsw i32 %12, 1
   store i32 %20, ptr %5, align 8
   %21 = sext i32 %12 to i64
-  %22 = getelementptr inbounds %class.CellTypeState, ptr %19, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %21
   store i32 %10, ptr %22, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit
 
@@ -6152,7 +6150,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   store ptr %8, ptr %30, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -6211,11 +6209,11 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit: ; preds = %_ZN12methodHandl
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %class.CellTypeState, ptr %62, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %62, i64 %65
   %67 = add nsw i32 %53, 1
   store i32 %67, ptr %52, align 8
   %68 = sext i32 %53 to i64
-  %69 = getelementptr inbounds %class.CellTypeState, ptr %66, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %66, i64 %68
   store i32 %.sroa.02.0, ptr %69, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit
 
@@ -6259,7 +6257,7 @@ define hidden void @_ZN14GenerateOopMap6pploadEP13CellTypeStatei(ptr noundef non
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds nuw %class.CellTypeState, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   br label %_ZN14GenerateOopMap7get_varEi.exit
 
 _ZN14GenerateOopMap7get_varEi.exit:               ; preds = %22, %23
@@ -6298,7 +6296,7 @@ _ZN14GenerateOopMap7get_varEi.exit:               ; preds = %22, %23
 
 40:                                               ; preds = %39, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %39 ]
-  %41 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i.i
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, %indvars.iv
   br i1 %43, label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit, label %39
@@ -6330,7 +6328,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i: ; preds 
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds i64, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   store i64 %indvars.iv, ptr %60, align 8
   br label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
 
@@ -6352,7 +6350,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i: ; preds 
 .lr.ph.i:                                         ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %63 ]
   %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.i
   %72 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %72, ptr %71, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6367,7 +6365,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i: ; preds 
 
 .loopexit.i9:                                     ; preds = %.loopexit.loopexit.i, %63, %61
   %76 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %67, %63 ], [ %62, %61 ]
-  %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds [4 x i8], ptr %76, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
   %79 = trunc nsw i64 %indvars.iv to i32
   %80 = icmp eq i32 %78, %79
@@ -6405,11 +6403,11 @@ _ZN14GenerateOopMap19add_to_ref_init_setEi.exit:  ; preds = %40, %87, %86, %.loo
   %94 = load ptr, ptr %7, align 8
   %95 = load i32, ptr %6, align 8
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %class.CellTypeState, ptr %94, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %94, i64 %96
   %98 = add nsw i32 %90, 1
   store i32 %98, ptr %8, align 8
   %99 = sext i32 %90 to i64
-  %100 = getelementptr inbounds %class.CellTypeState, ptr %97, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %97, i64 %99
   store i32 %16, ptr %100, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
@@ -6427,11 +6425,11 @@ _ZN14GenerateOopMap19add_to_ref_init_setEi.exit:  ; preds = %40, %87, %86, %.loo
   %106 = load ptr, ptr %7, align 8
   %107 = load i32, ptr %6, align 8
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %class.CellTypeState, ptr %106, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %106, i64 %108
   %110 = add nsw i32 %102, 1
   store i32 %110, ptr %8, align 8
   %111 = sext i32 %102 to i64
-  %112 = getelementptr inbounds %class.CellTypeState, ptr %109, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %109, i64 %111
   store i32 %.sroa.0.0.i, ptr %112, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
@@ -6449,11 +6447,11 @@ _ZN14GenerateOopMap19add_to_ref_init_setEi.exit:  ; preds = %40, %87, %86, %.loo
   %118 = load ptr, ptr %7, align 8
   %119 = load i32, ptr %6, align 8
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds %class.CellTypeState, ptr %118, i64 %120
+  %121 = getelementptr inbounds [4 x i8], ptr %118, i64 %120
   %122 = add nsw i32 %114, 1
   store i32 %122, ptr %8, align 8
   %123 = sext i32 %114 to i64
-  %124 = getelementptr inbounds %class.CellTypeState, ptr %121, i64 %123
+  %124 = getelementptr inbounds [4 x i8], ptr %121, i64 %123
   store i32 %16, ptr %124, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
@@ -6495,11 +6493,11 @@ define hidden void @_ZN14GenerateOopMap2ppEP13CellTypeStateS1_(ptr noundef nonnu
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %class.CellTypeState, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %20 = add nsw i32 %12, -1
   store i32 %20, ptr %6, align 8
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %class.CellTypeState, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %21
   br label %_ZN14GenerateOopMap3popEv.exit.i.i
 
 _ZN14GenerateOopMap3popEv.exit.i.i:               ; preds = %15, %14
@@ -6547,11 +6545,11 @@ _ZN14GenerateOopMap4ppopEP13CellTypeState.exit:   ; preds = %_ZN14GenerateOopMap
   %40 = load ptr, ptr %31, align 8
   %41 = load i32, ptr %32, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %class.CellTypeState, ptr %40, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %40, i64 %42
   %44 = add nsw i32 %36, 1
   store i32 %44, ptr %29, align 8
   %45 = sext i32 %36 to i64
-  %46 = getelementptr inbounds %class.CellTypeState, ptr %43, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %43, i64 %45
   store i32 %34, ptr %46, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i
 
@@ -6592,11 +6590,11 @@ define hidden void @_ZN14GenerateOopMap10pp_new_refEP13CellTypeStatei(ptr nounde
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %class.CellTypeState, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %20 = add nsw i32 %12, -1
   store i32 %20, ptr %6, align 8
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %class.CellTypeState, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %21
   br label %_ZN14GenerateOopMap3popEv.exit.i.i
 
 _ZN14GenerateOopMap3popEv.exit.i.i:               ; preds = %15, %14
@@ -6635,11 +6633,11 @@ _ZN14GenerateOopMap4ppopEP13CellTypeState.exit:   ; preds = %_ZN14GenerateOopMap
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %class.CellTypeState, ptr %36, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %36, i64 %39
   %41 = add nsw i32 %28, 1
   store i32 %41, ptr %27, align 8
   %42 = sext i32 %28 to i64
-  %43 = getelementptr inbounds %class.CellTypeState, ptr %40, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %40, i64 %42
   store i32 %34, ptr %43, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit
 
@@ -6676,11 +6674,11 @@ define hidden void @_ZN14GenerateOopMap7ppstoreEP13CellTypeStatei(ptr noundef no
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %class.CellTypeState, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %20 = add nsw i32 %12, -1
   store i32 %20, ptr %6, align 8
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %class.CellTypeState, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %21
   br label %_ZN14GenerateOopMap3popEv.exit
 
 _ZN14GenerateOopMap3popEv.exit:                   ; preds = %14, %15
@@ -6709,7 +6707,7 @@ _ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit: ; preds = %_ZN14Generat
 30:                                               ; preds = %_ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit
   %31 = load ptr, ptr %7, align 8
   %32 = zext nneg i32 %.089 to i64
-  %33 = getelementptr inbounds nuw %class.CellTypeState, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %.sroa.0.0.i, ptr %33, align 4
   br label %_ZN14GenerateOopMap7set_varEi13CellTypeState.exit
 
@@ -6739,11 +6737,11 @@ define hidden void @_ZN14GenerateOopMap9do_astoreEi(ptr noundef nonnull align 8 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %class.CellTypeState, ptr %9, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %9, i64 %12
   %14 = add nsw i32 %4, -1
   store i32 %14, ptr %3, align 8
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.CellTypeState, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   br label %_ZN14GenerateOopMap3popEv.exit
 
 _ZN14GenerateOopMap3popEv.exit:                   ; preds = %6, %7
@@ -6775,7 +6773,7 @@ _ZNK13CellTypeState7to_charEv.exit:               ; preds = %_ZN14GenerateOopMap
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds nuw %class.CellTypeState, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 %.sroa.0.0.i, ptr %28, align 4
   br label %_ZN14GenerateOopMap7set_varEi13CellTypeState.exit
 
@@ -6811,11 +6809,11 @@ define hidden void @_ZN14GenerateOopMap4ppopEP13CellTypeState(ptr noundef nonnul
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %7, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %class.CellTypeState, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %19 = add nsw i32 %11, -1
   store i32 %19, ptr %5, align 8
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %class.CellTypeState, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %20
   br label %_ZN14GenerateOopMap3popEv.exit.i
 
 _ZN14GenerateOopMap3popEv.exit.i:                 ; preds = %14, %13
@@ -6894,17 +6892,17 @@ define hidden void @_ZN14GenerateOopMap9ppdupswapEiPKc(ptr noundef nonnull align
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr %8, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %class.CellTypeState, ptr %17, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %17, i64 %19
   %21 = add nsw i32 %13, -1
   store i32 %21, ptr %6, align 8
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw %class.CellTypeState, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %22
   br label %_ZN14GenerateOopMap3popEv.exit
 
 _ZN14GenerateOopMap3popEv.exit:                   ; preds = %15, %16
   %.sroa.0.0.in.i = phi ptr [ @_ZL6valCTS, %15 ], [ %23, %16 ]
   %.sroa.0.0.i = load i32, ptr %.sroa.0.0.in.i, align 4
-  %24 = getelementptr inbounds nuw %class.CellTypeState, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %.sroa.0.0.i, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6924,7 +6922,7 @@ _ZN14GenerateOopMap3popEv.exit:                   ; preds = %15, %16
 
 29:                                               ; preds = %.lr.ph22, %29
   %indvars.iv29 = phi i64 [ %11, %.lr.ph22 ], [ %indvars.iv.next30, %29 ]
-  %30 = getelementptr inbounds %class.CellTypeState, ptr %4, i64 %indvars.iv29
+  %30 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv29
   store i32 %10, ptr %30, align 4
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
   %31 = and i64 %indvars.iv.next30, 4294967295
@@ -6946,17 +6944,17 @@ _ZN14GenerateOopMap3popEv.exit:                   ; preds = %15, %16
 
 36:                                               ; preds = %32
   %37 = sext i8 %.01526 to i64
-  %38 = getelementptr %class.CellTypeState, ptr %4, i64 %37
+  %38 = getelementptr [4 x i8], ptr %4, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -196
   %.sroa.0.0.copyload = load i32, ptr %39, align 4
   %40 = load ptr, ptr %27, align 8
   %41 = load i32, ptr %28, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %class.CellTypeState, ptr %40, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %40, i64 %42
   %44 = add nsw i32 %33, 1
   store i32 %44, ptr %25, align 8
   %45 = sext i32 %33 to i64
-  %46 = getelementptr inbounds %class.CellTypeState, ptr %43, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %43, i64 %45
   store i32 %.sroa.0.0.copyload, ptr %46, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
@@ -6986,11 +6984,11 @@ define hidden void @_ZN14GenerateOopMap5ppop1E13CellTypeState(ptr noundef nonnul
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %class.CellTypeState, ptr %9, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %9, i64 %12
   %14 = add nsw i32 %4, -1
   store i32 %14, ptr %3, align 8
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.CellTypeState, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   br label %_ZN14GenerateOopMap3popEv.exit
 
 _ZN14GenerateOopMap3popEv.exit:                   ; preds = %6, %7
@@ -7029,11 +7027,11 @@ define hidden void @_ZN14GenerateOopMap6do_jsrEi(ptr noundef nonnull align 8 cap
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %class.CellTypeState, ptr %12, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %12, i64 %15
   %17 = add nsw i32 %4, 1
   store i32 %17, ptr %3, align 8
   %18 = sext i32 %4 to i64
-  %19 = getelementptr inbounds %class.CellTypeState, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   store i32 %10, ptr %19, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
@@ -7056,7 +7054,7 @@ define hidden void @_ZN14GenerateOopMap8do_fieldEiiiiN9Bytecodes4CodeE(ptr nound
   %17 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %14, i32 noundef %16) #19
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %19 = zext i16 %17 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %23 = load i8, ptr %22, align 1
@@ -7101,10 +7099,10 @@ _ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit: ; pred
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %33 ]
   %36 = phi i32 [ %39, %.lr.ph.i ], [ %34, %33 ]
-  %37 = getelementptr inbounds nuw %class.CellTypeState, ptr %8, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   store i32 %36, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %38 = getelementptr inbounds nuw %class.CellTypeState, ptr %.0.i, i64 %indvars.iv.next.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv.next.i
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !49
@@ -7122,7 +7120,7 @@ _ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit: ; preds = %._crit_edge.lo
 42:                                               ; preds = %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
   %43 = add nsw i32 %.0, 1
   %44 = sext i32 %.0 to i64
-  %45 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %8, i64 %44
   %46 = load i32, ptr @_ZN13CellTypeState3refE, align 4
   store i32 %46, ptr %45, align 4
   br label %47
@@ -7130,7 +7128,7 @@ _ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit: ; preds = %._crit_edge.lo
 47:                                               ; preds = %42, %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
   %.1 = phi i32 [ %.0, %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit ], [ %43, %42 ]
   %48 = sext i32 %.1 to i64
-  %49 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %8, i64 %48
   %50 = load i32, ptr @_ZN13CellTypeState6bottomE, align 4
   store i32 %50, ptr %49, align 4
   %51 = load i32, ptr %8, align 16
@@ -7159,11 +7157,11 @@ _ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit: ; preds = %._crit_edge.lo
   %63 = load ptr, ptr %54, align 8
   %64 = load i32, ptr %55, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %class.CellTypeState, ptr %63, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %63, i64 %65
   %67 = add nsw i32 %59, -1
   store i32 %67, ptr %53, align 8
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw %class.CellTypeState, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %68
   br label %_ZN14GenerateOopMap3popEv.exit.i.i.i
 
 _ZN14GenerateOopMap3popEv.exit.i.i.i:             ; preds = %62, %61
@@ -7211,11 +7209,11 @@ _ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i: ; preds = %_ZN14GenerateOopMap
   %87 = load ptr, ptr %78, align 8
   %88 = load i32, ptr %79, align 8
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %class.CellTypeState, ptr %87, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %87, i64 %89
   %91 = add nsw i32 %83, 1
   store i32 %91, ptr %76, align 8
   %92 = sext i32 %83 to i64
-  %93 = getelementptr inbounds %class.CellTypeState, ptr %90, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %90, i64 %92
   store i32 %81, ptr %93, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i
 
@@ -7244,7 +7242,7 @@ define hidden void @_ZN14GenerateOopMap9do_methodEiiiiN9Bytecodes4CodeE(ptr noun
   %18 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %15, i32 noundef %17) #19
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %20 = zext i16 %18 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -7266,7 +7264,7 @@ define hidden void @_ZN14GenerateOopMap9do_methodEiiiiN9Bytecodes4CodeE(ptr noun
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %25, align 8
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %class.CellTypeState, ptr %30, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %30, i64 %33
   store i32 %.sroa.05.0.copyload.i.i, ptr %34, align 4
   br label %_ZN16ComputeCallStack22compute_for_returntypeEP13CellTypeState.exit
 
@@ -7277,7 +7275,7 @@ define hidden void @_ZN14GenerateOopMap9do_methodEiiiiN9Bytecodes4CodeE(ptr noun
   %38 = load i32, ptr %25, align 8
   %39 = add nsw i32 %38, 1
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %class.CellTypeState, ptr %37, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %37, i64 %40
   br i1 %or.cond.i.i.i, label %42, label %_Z17is_reference_type9BasicTypeb.exit.i.i
 
 42:                                               ; preds = %35
@@ -7301,7 +7299,7 @@ _Z17is_reference_type9BasicTypeb.exit.i.i:        ; preds = %35
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %25, align 8
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds %class.CellTypeState, ptr %44, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 %47
   store i32 %.sroa.03.0.copyload.i.i, ptr %48, align 4
   br label %_ZN16ComputeCallStack22compute_for_returntypeEP13CellTypeState.exit
 
@@ -7310,7 +7308,7 @@ _ZN16ComputeCallStack22compute_for_returntypeEP13CellTypeState.exit: ; preds = %
   %49 = load ptr, ptr %26, align 8
   %50 = load i32, ptr %25, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %class.CellTypeState, ptr %49, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %49, i64 %51
   store i32 %.sroa.0.0.copyload.i, ptr %52, align 4
   %.sroa.06.0.copyload = load i32, ptr @_ZN13CellTypeState3refE, align 4
   %53 = load i32, ptr %7, align 16
@@ -7354,7 +7352,7 @@ _ZN16ComputeCallStack22compute_for_parametersEbP13CellTypeState.exit: ; preds = 
 69:                                               ; preds = %.lr.ph, %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit
   %indvars.iv = phi i64 [ %68, %.lr.ph ], [ %indvars.iv.next, %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %70 = getelementptr inbounds nuw %class.CellTypeState, ptr %8, i64 %indvars.iv.next
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next
   %.sroa.0.0.copyload = load i32, ptr %70, align 4
   %71 = load i32, ptr %65, align 8
   %72 = icmp slt i32 %71, 1
@@ -7368,11 +7366,11 @@ _ZN16ComputeCallStack22compute_for_parametersEbP13CellTypeState.exit: ; preds = 
   %75 = load ptr, ptr %66, align 8
   %76 = load i32, ptr %67, align 8
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds %class.CellTypeState, ptr %75, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %75, i64 %77
   %79 = add nsw i32 %71, -1
   store i32 %79, ptr %65, align 8
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw %class.CellTypeState, ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %80
   br label %_ZN14GenerateOopMap3popEv.exit.i
 
 _ZN14GenerateOopMap3popEv.exit.i:                 ; preds = %74, %73
@@ -7404,7 +7402,7 @@ _ZN14GenerateOopMap5ppop1E13CellTypeState.exit:   ; preds = %_ZN14GenerateOopMap
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %94 = load i32, ptr %93, align 8
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %class.CellTypeState, ptr %92, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %92, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %98 = load i32, ptr %97, align 8
   %99 = load ptr, ptr %0, align 8
@@ -7443,11 +7441,11 @@ _ZN14GenerateOopMap5ppop1E13CellTypeState.exit:   ; preds = %_ZN14GenerateOopMap
   %116 = load ptr, ptr %107, align 8
   %117 = load i32, ptr %108, align 8
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %class.CellTypeState, ptr %116, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %116, i64 %118
   %120 = add nsw i32 %112, 1
   store i32 %120, ptr %105, align 8
   %121 = sext i32 %112 to i64
-  %122 = getelementptr inbounds %class.CellTypeState, ptr %119, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %119, i64 %121
   store i32 %110, ptr %122, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i
 
@@ -7477,11 +7475,11 @@ define hidden void @_ZN14GenerateOopMap12do_checkcastEv(ptr noundef nonnull alig
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %8, i64 %11
   %13 = add nsw i32 %3, -1
   store i32 %13, ptr %2, align 8
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.CellTypeState, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   br label %_ZN14GenerateOopMap3popEv.exit
 
 _ZN14GenerateOopMap3popEv.exit:                   ; preds = %5, %6
@@ -7512,11 +7510,11 @@ _ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit: ; preds = %_ZN14Generat
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %class.CellTypeState, ptr %24, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %24, i64 %27
   %29 = add nsw i32 %18, 1
   store i32 %29, ptr %2, align 8
   %30 = sext i32 %18 to i64
-  %31 = getelementptr inbounds %class.CellTypeState, ptr %28, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
   store i32 %.sroa.0.0.i, ptr %31, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
@@ -7541,11 +7539,11 @@ define hidden void @_ZN14GenerateOopMap15do_monitorenterEi(ptr noundef nonnull a
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %class.CellTypeState, ptr %9, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %9, i64 %12
   %14 = add nsw i32 %4, -1
   store i32 %14, ptr %3, align 8
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.CellTypeState, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   br label %_ZN14GenerateOopMap3popEv.exit
 
 _ZN14GenerateOopMap3popEv.exit:                   ; preds = %6, %7
@@ -7606,7 +7604,7 @@ _ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit: ; preds = %27, %_ZNK13C
   %indvars.iv.i = phi i64 [ %40, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds nuw %class.CellTypeState, ptr %42, i64 %indvars.iv.next.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.next.i
   %.sroa.02.0.copyload.i = load i32, ptr %43, align 4
   %44 = icmp eq i32 %.sroa.0.0.i, %.sroa.02.0.copyload.i
   br i1 %44, label %45, label %46
@@ -7639,7 +7637,7 @@ _ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit: ; preds = %27, %_ZNK13C
   %indvars.iv22.i = phi i64 [ %57, %50 ], [ %indvars.iv.next23.i, %64 ]
   %indvars.iv.next23.i = add nsw i64 %indvars.iv22.i, -1
   %60 = load ptr, ptr %56, align 8
-  %61 = getelementptr inbounds %class.CellTypeState, ptr %60, i64 %indvars.iv.next23.i
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv.next23.i
   %.sroa.0.0.copyload.i = load i32, ptr %61, align 4
   %62 = icmp eq i32 %.sroa.0.0.i, %.sroa.0.0.copyload.i
   br i1 %62, label %63, label %64
@@ -7680,15 +7678,15 @@ _ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit: ; preds = 
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %34, align 8
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %class.CellTypeState, ptr %74, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %74, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %class.CellTypeState, ptr %77, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %77, i64 %80
   %82 = add nsw i32 %65, 1
   store i32 %82, ptr %17, align 4
   %83 = sext i32 %65 to i64
-  %84 = getelementptr inbounds %class.CellTypeState, ptr %81, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %81, i64 %83
   store i32 %29, ptr %84, align 4
   br label %_ZN14GenerateOopMap12monitor_pushE13CellTypeState.exit
 
@@ -7713,11 +7711,11 @@ define hidden void @_ZN14GenerateOopMap14do_monitorexitEi(ptr noundef nonnull al
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %class.CellTypeState, ptr %9, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %9, i64 %12
   %14 = add nsw i32 %4, -1
   store i32 %14, ptr %3, align 8
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.CellTypeState, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   br label %_ZN14GenerateOopMap3popEv.exit
 
 _ZN14GenerateOopMap3popEv.exit:                   ; preds = %6, %7
@@ -7761,15 +7759,15 @@ _ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit: ; preds = %20, %_ZNK13C
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %class.CellTypeState, ptr %31, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %31, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %class.CellTypeState, ptr %35, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %35, i64 %38
   %40 = add nsw i32 %23, -1
   store i32 %40, ptr %17, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %class.CellTypeState, ptr %39, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %39, i64 %41
   br label %_ZN14GenerateOopMap11monitor_popEv.exit
 
 _ZN14GenerateOopMap11monitor_popEv.exit:          ; preds = %25, %28, %29
@@ -7799,7 +7797,7 @@ _ZN14GenerateOopMap11monitor_popEv.exit:          ; preds = %25, %28, %29
   %53 = add nuw nsw i32 %.02329.i, %.02230.i
   %54 = lshr i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw %class.BasicBlock, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %54, %52
@@ -7812,7 +7810,7 @@ _ZN14GenerateOopMap11monitor_popEv.exit:          ; preds = %25, %28, %29
 
 62:                                               ; preds = %60
   %63 = zext nneg i32 %61 to i64
-  %64 = getelementptr inbounds nuw %class.BasicBlock, ptr %49, i64 %63
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = icmp slt i32 %1, %66
@@ -7863,7 +7861,7 @@ _ZNK14GenerateOopMap26get_basic_block_containingEi.exit: ; preds = %62, %.lr.ph.
   %indvars.iv.i = phi i64 [ %84, %.lr.ph.i13 ], [ %indvars.iv.next.i, %90 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds nuw %class.CellTypeState, ptr %86, i64 %indvars.iv.next.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.next.i
   %.sroa.02.0.copyload.i = load i32, ptr %87, align 4
   %88 = icmp eq i32 %.sroa.0.0.i, %.sroa.02.0.copyload.i
   br i1 %88, label %89, label %90
@@ -7896,7 +7894,7 @@ _ZNK14GenerateOopMap26get_basic_block_containingEi.exit: ; preds = %62, %.lr.ph.
   %indvars.iv22.i = phi i64 [ %101, %94 ], [ %indvars.iv.next23.i, %108 ]
   %indvars.iv.next23.i = add nsw i64 %indvars.iv22.i, -1
   %104 = load ptr, ptr %100, align 8
-  %105 = getelementptr inbounds %class.CellTypeState, ptr %104, i64 %indvars.iv.next23.i
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %indvars.iv.next23.i
   %.sroa.0.0.copyload.i = load i32, ptr %105, align 4
   %106 = icmp eq i32 %.sroa.0.0.i, %.sroa.0.0.copyload.i
   br i1 %106, label %107, label %108
@@ -7939,11 +7937,11 @@ define hidden void @_ZN14GenerateOopMap17do_multianewarrayEii(ptr noundef nonnul
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %7, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %class.CellTypeState, ptr %13, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %13, i64 %15
   %17 = add nsw i32 %9, -1
   store i32 %17, ptr %5, align 8
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %class.CellTypeState, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %18
   br label %_ZN14GenerateOopMap3popEv.exit.i
 
 _ZN14GenerateOopMap3popEv.exit.i:                 ; preds = %12, %11
@@ -7981,11 +7979,11 @@ _ZN14GenerateOopMap5ppop1E13CellTypeState.exit:   ; preds = %_ZN14GenerateOopMap
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %class.CellTypeState, ptr %32, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %32, i64 %35
   %37 = add nsw i32 %24, 1
   store i32 %37, ptr %23, align 8
   %38 = sext i32 %24 to i64
-  %39 = getelementptr inbounds %class.CellTypeState, ptr %36, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %36, i64 %38
   store i32 %30, ptr %39, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit
 
@@ -8028,7 +8026,7 @@ define hidden void @_ZN14GenerateOopMap22record_refval_conflictEi(ptr noundef no
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %15, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8044,7 +8042,7 @@ define hidden void @_ZN14GenerateOopMap22record_refval_conflictEi(ptr noundef no
 .loopexit:                                        ; preds = %.loopexit.loopexit, %5, %2
   %19 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %10, %5 ], [ %4, %2 ]
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %24, label %35
@@ -8092,7 +8090,7 @@ define hidden void @_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeState
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %class.CellTypeState, ptr %13, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next
   %.sroa.02.0.copyload = load i32, ptr %14, align 4
   %15 = icmp eq i32 %1, %.sroa.02.0.copyload
   br i1 %15, label %16, label %17
@@ -8126,7 +8124,7 @@ define hidden void @_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeState
   %indvars.iv22 = phi i64 [ %29, %22 ], [ %indvars.iv.next23, %36 ]
   %indvars.iv.next23 = add nsw i64 %indvars.iv22, -1
   %32 = load ptr, ptr %28, align 8
-  %33 = getelementptr inbounds %class.CellTypeState, ptr %32, i64 %indvars.iv.next23
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %indvars.iv.next23
   %.sroa.0.0.copyload = load i32, ptr %33, align 4
   %34 = icmp eq i32 %1, %.sroa.0.0.copyload
   br i1 %34, label %35, label %36
@@ -8159,10 +8157,10 @@ define hidden noundef i32 @_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_(ptr 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = phi i32 [ %9, %.lr.ph ], [ %4, %3 ]
-  %7 = getelementptr inbounds nuw %class.CellTypeState, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %class.CellTypeState, ptr %2, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
@@ -8413,7 +8411,7 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap11compute_mapEP6Thread(ptr 
   %96 = phi i32 [ %92, %.lr.ph.i ], [ %106, %105 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %105 ]
   %97 = load ptr, ptr %94, align 8
-  %98 = getelementptr inbounds nuw %class.BasicBlock, ptr %97, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [40 x i8], ptr %97, i64 %indvars.iv.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load i32, ptr %99, align 8
   %101 = icmp sgt i32 %100, -1
@@ -8422,7 +8420,7 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap11compute_mapEP6Thread(ptr 
 102:                                              ; preds = %95
   store i8 1, ptr %98, align 8
   %103 = load ptr, ptr %94, align 8
-  %104 = getelementptr inbounds nuw %class.BasicBlock, ptr %103, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %103, i64 %indvars.iv.i
   call void @_ZN14GenerateOopMap9interp_bbEP10BasicBlock(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %104)
   %.pre.i = load i32, ptr %91, align 4
   br label %105
@@ -8487,7 +8485,7 @@ define hidden void @_ZN14GenerateOopMap13report_resultEv(ptr noundef nonnull ali
   %13 = phi i32 [ %9, %.lr.ph ], [ %23, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %class.BasicBlock, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, -1
@@ -8496,7 +8494,7 @@ define hidden void @_ZN14GenerateOopMap13report_resultEv(ptr noundef nonnull ali
 19:                                               ; preds = %12
   store i8 1, ptr %15, align 8
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds nuw %class.BasicBlock, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %indvars.iv
   tail call void @_ZN14GenerateOopMap9interp_bbEP10BasicBlock(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %21)
   %.pre = load i32, ptr %8, align 4
   br label %22
@@ -8543,7 +8541,7 @@ define hidden void @_ZN14GenerateOopMap10error_workEPKcP13__va_list_tag(ptr noun
   %15 = load i16, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %17 = zext i16 %15 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %19) #19
   %21 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull @.str.77, ptr noundef nonnull %4, ptr noundef %20) #19
@@ -8596,7 +8594,7 @@ define hidden void @_ZN14GenerateOopMap21result_for_basicblockEi(ptr noundef non
   %9 = add nuw nsw i32 %.02329.i, %.02230.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %class.BasicBlock, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %10, %8
@@ -8609,7 +8607,7 @@ define hidden void @_ZN14GenerateOopMap21result_for_basicblockEi(ptr noundef non
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr inbounds nuw %class.BasicBlock, ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %1, %22
@@ -8668,7 +8666,7 @@ define hidden void @_ZN14GenerateOopMap22compute_ret_adr_at_TOSEv(ptr noundef no
   %24 = phi i32 [ %6, %.lr.ph16 ], [ %193, %192 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph16 ], [ %indvars.iv.next, %192 ]
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds nuw %class.BasicBlock, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, -1
@@ -8699,7 +8697,7 @@ define hidden void @_ZN14GenerateOopMap22compute_ret_adr_at_TOSEv(ptr noundef no
   br label %_ZN14GenerateOopMap16next_bb_start_pcEP10BasicBlock.exit
 
 49:                                               ; preds = %30
-  %50 = getelementptr inbounds %class.BasicBlock, ptr %33, i64 %38
+  %50 = getelementptr inbounds [40 x i8], ptr %33, i64 %38
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   br label %_ZN14GenerateOopMap16next_bb_start_pcEP10BasicBlock.exit
@@ -8747,7 +8745,7 @@ _ZN14GenerateOopMap16next_bb_start_pcEP10BasicBlock.exit: ; preds = %42, %49
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %73, %.lr.ph
   %75 = phi i32 [ %74, %73 ], [ %72, %.lr.ph ]
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = icmp ult i32 %78, 239
   br i1 %79, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN14BytecodeStream4nextEv.exit.thread
@@ -8842,9 +8840,9 @@ _ZN14BytecodeStream4nextEv.exit:                  ; preds = %108, %111
   %121 = load ptr, ptr %13, align 8
   %122 = load i32, ptr %22, align 8
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds %class.CellTypeState, ptr %121, i64 %123
+  %124 = getelementptr inbounds [4 x i8], ptr %121, i64 %123
   %125 = zext nneg i32 %118 to i64
-  %126 = getelementptr %class.CellTypeState, ptr %124, i64 %125
+  %126 = getelementptr [4 x i8], ptr %124, i64 %125
   %127 = getelementptr i8, ptr %126, i64 -4
   %128 = load i32, ptr %127, align 4
   %129 = and i32 %128, -268435456
@@ -8925,9 +8923,9 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %156, %152, %148
 
 166:                                              ; preds = %166, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %166 ]
-  %167 = getelementptr inbounds nuw i32, ptr %.0.i.i, i64 %indvars.iv.i
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i, i64 %indvars.iv.i
   %168 = load ptr, ptr %161, align 8
-  %169 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv.i
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %indvars.iv.i
   %170 = load i32, ptr %169, align 4
   store i32 %170, ptr %167, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8944,7 +8942,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %156, %152, %148
 
 .lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
   %indvars.iv20.i = phi i64 [ %165, %.lr.ph18.preheader.i ], [ %indvars.iv.next21.i, %.lr.ph18.i ]
-  %176 = getelementptr inbounds nuw i32, ptr %.0.i.i, i64 %indvars.iv20.i
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i, i64 %indvars.iv20.i
   store i32 0, ptr %176, align 4
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %177 = load i32, ptr %134, align 4
@@ -8972,7 +8970,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %186 = add nsw i32 %185, 1
   store i32 %186, ptr %132, align 8
   %187 = sext i32 %185 to i64
-  %188 = getelementptr inbounds i32, ptr %184, i64 %187
+  %188 = getelementptr inbounds [4 x i8], ptr %184, i64 %187
   store i32 %101, ptr %188, align 4
   br label %189
 
@@ -9066,7 +9064,7 @@ define hidden void @_ZN14GenerateOopMap23rewrite_refval_conflictEii(ptr noundef 
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %45, %36
   %47 = phi i32 [ %46, %45 ], [ %44, %36 ]
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp ult i32 %50, 239
   br i1 %51, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN14BytecodeStream4nextEv.exit.thread
@@ -9184,7 +9182,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i.i.i:   ; preds = %99, %94
   %101 = phi i32 [ %.pre, %99 ], [ %.014.i, %94 ]
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %103 = sext i32 %101 to i64
-  %104 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = and i16 %105, 128
   %.not.i.i.i.i = icmp eq i16 %106, 0
@@ -9391,7 +9389,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i.i20.i: ; preds = %188, %182
   %190 = phi i32 [ %.pre41, %188 ], [ %172, %182 ]
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 2
   %192 = sext i32 %190 to i64
-  %193 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %192
+  %193 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %192
   %194 = load i16, ptr %193, align 2
   %195 = and i16 %194, 128
   %.not.i.i.i21.i = icmp eq i16 %195, 0
@@ -9438,7 +9436,7 @@ _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i: ; preds = %_ZNK14Bytec
 
 214:                                              ; preds = %213, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %213 ]
-  %215 = getelementptr inbounds nuw i32, ptr %212, i64 %indvars.iv.i.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %indvars.iv.i.i
   %216 = load i32, ptr %215, align 4
   %217 = icmp eq i32 %216, %73
   br i1 %217, label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit, label %213
@@ -9612,7 +9610,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i.i:     ; preds = %24, %19
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 128
   %.not.i.i.i = icmp eq i16 %32, 0
@@ -9689,7 +9687,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i.i20:   ; preds = %62, %56
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 2
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 128
   %.not.i.i.i21 = icmp eq i16 %70, 0
@@ -9737,7 +9735,7 @@ _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit: ; preds = %46, %_ZNK14By
 
 90:                                               ; preds = %89, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %89 ]
-  %91 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, %7
   br i1 %93, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit, label %89
@@ -9796,7 +9794,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i:       ; preds = %23, %16
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 128
   %.not.i.i = icmp eq i16 %31, 0
@@ -9997,7 +9995,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i:       ; preds = %23, %16
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 128
   %.not.i.i = icmp eq i16 %31, 0
@@ -10047,7 +10045,7 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap24stack_top_holds_ret_addrE
 
 9:                                                ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10120,7 +10118,7 @@ define hidden void @_ZN14GenerateOopMap21update_ret_adr_at_TOSEii(ptr noundef no
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, %1
   br i1 %14, label %15, label %17
@@ -10195,7 +10193,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %26 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   store ptr %9, ptr %31, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -10424,7 +10422,7 @@ _Z17is_reference_type9BasicTypeb.exit.i:          ; preds = %15
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %14, align 8
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %class.CellTypeState, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   store i32 %.sroa.03.0.copyload.i, ptr %26, align 4
   switch i8 %16, label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit [
     i8 11, label %27
@@ -10442,7 +10440,7 @@ _Z17is_reference_type9BasicTypeb.exit.i:          ; preds = %15
   %storemerge = add nsw i32 %storemerge.in, 1
   store i32 %storemerge, ptr %14, align 8
   %29 = sext i32 %storemerge.in to i64
-  %30 = getelementptr inbounds %class.CellTypeState, ptr %.sink10.i, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %.sink10.i, i64 %29
   store i32 %.sink.i, ptr %30, align 4
   br label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit
 
@@ -10494,7 +10492,7 @@ _Z17is_reference_type9BasicTypeb.exit.i4:         ; preds = %43
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %42, align 8
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds %class.CellTypeState, ptr %52, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %52, i64 %55
   store i32 %.sroa.03.0.copyload.i5, ptr %56, align 4
   switch i8 %45, label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10 [
     i8 11, label %57
@@ -10512,7 +10510,7 @@ _Z17is_reference_type9BasicTypeb.exit.i4:         ; preds = %43
   %storemerge16 = add nsw i32 %storemerge16.in, 1
   store i32 %storemerge16, ptr %42, align 8
   %59 = sext i32 %storemerge16.in to i64
-  %60 = getelementptr inbounds %class.CellTypeState, ptr %.sink10.i8, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %.sink10.i8, i64 %59
   store i32 %.sink.i9, ptr %60, align 4
   br label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10
 
@@ -10598,9 +10596,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10617,7 +10615,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -10683,7 +10681,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI16Comp
   %19 = load i32, ptr %14, align 8
   %20 = add nsw i32 %19, 1
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %class.CellTypeState, ptr %18, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %21
   br i1 %or.cond.i.i, label %23, label %_Z17is_reference_type9BasicTypeb.exit.i
 
 23:                                               ; preds = %15
@@ -10707,7 +10705,7 @@ _Z17is_reference_type9BasicTypeb.exit.i:          ; preds = %15
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %14, align 8
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %class.CellTypeState, ptr %25, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %25, i64 %28
   store i32 %.sroa.03.0.copyload.i, ptr %29, align 4
   br label %_ZN16ComputeCallStack7do_typeE9BasicTypeb.exit
 
@@ -10748,7 +10746,7 @@ _ZN16ComputeCallStack7do_typeE9BasicTypeb.exit:   ; preds = %23, %_Z17is_referen
   %48 = load i32, ptr %41, align 8
   %49 = add nsw i32 %48, 1
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds %class.CellTypeState, ptr %47, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %47, i64 %50
   br i1 %or.cond.i.i3, label %52, label %_Z17is_reference_type9BasicTypeb.exit.i4
 
 52:                                               ; preds = %42
@@ -10772,7 +10770,7 @@ _Z17is_reference_type9BasicTypeb.exit.i4:         ; preds = %42
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %41, align 8
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %class.CellTypeState, ptr %54, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %54, i64 %57
   store i32 %.sroa.03.0.copyload.i5, ptr %58, align 4
   br label %_ZN16ComputeCallStack7do_typeE9BasicTypeb.exit7
 
@@ -10812,7 +10810,7 @@ define linkonce_odr hidden void @_ZN13RelocCallback9relocatedEiii(ptr noundef no
 13:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw %class.BasicBlock, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, %1
@@ -10822,13 +10820,13 @@ define linkonce_odr hidden void @_ZN13RelocCallback9relocatedEiii(ptr noundef no
   %20 = add nsw i32 %17, %2
   store i32 %20, ptr %16, align 4
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds nuw %class.BasicBlock, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %24, %2
   store i32 %25, ptr %23, align 8
   %.pre.i = load ptr, ptr %12, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw %class.BasicBlock, ptr %.pre.i, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [40 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %.phi.trans.insert13.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 4
   %.pre14.i = load i32, ptr %.phi.trans.insert13.i, align 4
   br label %26
@@ -10857,7 +10855,7 @@ _ZN14GenerateOopMap19update_basic_blocksEiii.exit: ; preds = %26, %4
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i9, %46 ], [ 0, %_ZN14GenerateOopMap19update_basic_blocksEiii.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i8
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i8
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, %1
   br i1 %43, label %44, label %46
@@ -10912,7 +10910,7 @@ _ZN14GenerateOopMap21update_ret_adr_at_TOSEii.exit: ; preds = %_ZN14GenerateOopM
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %71 ], [ 0, %57 ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i.i
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, %1
   br i1 %68, label %69, label %71
@@ -10996,9 +10994,9 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11015,7 +11013,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv20
   store i32 0, ptr %35, align 4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -11093,9 +11091,9 @@ _ZN13GrowableArrayIlE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11112,7 +11110,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit:            ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store i64 0, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

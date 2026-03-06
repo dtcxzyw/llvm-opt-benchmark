@@ -792,7 +792,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_tmsi_avail_msk(ptr noundef %0, p
 
 8:                                                ; preds = %7, %8
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr i32, ptr @hf_rr_tmsi_avail_msk_tmsi, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr @hf_rr_tmsi_avail_msk_tmsi, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -970,7 +970,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_persistence_lvl(ptr noundef %0, 
 
 8:                                                ; preds = %7, %8
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr i32, ptr @hf_rr_persistence_lvl, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr @hf_rr_persistence_lvl, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = lshr i32 %11, 1
@@ -1015,10 +1015,10 @@ define hidden void @gmr1_get_msg_rr_params(i8 noundef zeroext %0, i32 noundef %1
 14:                                               ; preds = %.thread15, %.thread
   %15 = load i32, ptr %7, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i32, ptr @ett_msg_rr, i64 %16
+  %17 = getelementptr [4 x i8], ptr @ett_msg_rr, i64 %16
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %3, align 4
-  %19 = getelementptr ptr, ptr @gmr1_msg_rr_func, i64 %16
+  %19 = getelementptr [8 x i8], ptr @gmr1_msg_rr_func, i64 %16
   %20 = load ptr, ptr %19, align 8
   br label %22
 
@@ -1045,8 +1045,8 @@ define hidden void @proto_register_gmr1_rr() local_unnamed_addr #1 {
 1:                                                ; preds = %0, %1
   %indvars.iv17 = phi i64 [ 2, %0 ], [ %indvars.iv.next18, %1 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr i32, ptr @ett_gmr1_ie_rr, i64 %indvars.iv
-  %3 = getelementptr ptr, ptr @proto_register_gmr1_rr.ett, i64 %indvars.iv17
+  %2 = getelementptr [4 x i8], ptr @ett_gmr1_ie_rr, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr @proto_register_gmr1_rr.ett, i64 %indvars.iv17
   store ptr %2, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
@@ -1056,8 +1056,8 @@ define hidden void @proto_register_gmr1_rr() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.preheader ], [ 34, %1 ]
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader ], [ 0, %1 ]
-  %4 = getelementptr i32, ptr @ett_msg_rr, i64 %indvars.iv22
-  %5 = getelementptr ptr, ptr @proto_register_gmr1_rr.ett, i64 %indvars.iv24
+  %4 = getelementptr [4 x i8], ptr @ett_msg_rr, i64 %indvars.iv22
+  %5 = getelementptr [8 x i8], ptr @proto_register_gmr1_rr.ett, i64 %indvars.iv24
   store ptr %4, ptr %5, align 8
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
@@ -1230,9 +1230,9 @@ define internal i32 @dissect_gmr1_ccch(ptr noundef %0, ptr noundef %1, ptr nound
 29:                                               ; preds = %18
   %30 = load i32, ptr %5, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr i32, ptr @ett_msg_rr, i64 %31
+  %32 = getelementptr [4 x i8], ptr @ett_msg_rr, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr ptr, ptr @gmr1_msg_rr_func, i64 %31
+  %34 = getelementptr [8 x i8], ptr @gmr1_msg_rr_func, i64 %31
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = load i32, ptr @proto_gmr1_ccch, align 4

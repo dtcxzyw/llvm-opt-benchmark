@@ -48,7 +48,7 @@ define internal range(i32 -12, 1) i32 @aasc_decode_init(ptr noundef %0) #0 {
   %.02225 = phi ptr [ %9, %.lr.ph ], [ %19, %15 ]
   %16 = load i32, ptr %.02225, align 1, !tbaa !37
   %17 = or i32 %16, -16777216
-  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %.02225, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

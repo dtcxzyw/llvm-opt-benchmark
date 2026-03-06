@@ -292,7 +292,7 @@ getattr.exit.i.i:                                 ; preds = %47
   %68 = load ptr, ptr %67, align 8, !tbaa !35
   %69 = load i32, ptr %55, align 8, !tbaa !36
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !15
   %73 = call i32 @aghtmlstr(ptr noundef %72) #12
   %74 = call ptr @agroot(ptr noundef nonnull %.027.i.i) #12
@@ -565,7 +565,7 @@ addattr.exit.i:                                   ; preds = %192, %190
   %195 = load ptr, ptr %194, align 8, !tbaa !35
   %196 = load i32, ptr %160, align 8, !tbaa !36
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr %195, i64 %197
+  %198 = getelementptr inbounds [8 x i8], ptr %195, i64 %197
   store ptr %.sink.i.i, ptr %198, align 8, !tbaa !15
   %199 = call ptr @agnxtout(ptr noundef %19, ptr noundef nonnull %.0102.i) #12
   %.not87.i = icmp eq ptr %199, null
@@ -612,7 +612,7 @@ setattr.exit:                                     ; preds = %.lr.ph110.i, %164, 
 
 switch.lookup:                                    ; preds = %208
   %211 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %211
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %211
   %switch.load = load i64, ptr %switch.gep, align 8
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 %switch.load
   %.0.i.i15 = load ptr, ptr %212, align 8, !tbaa !34
@@ -655,7 +655,7 @@ define ptr @agnxtattr(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
 
 switch.lookup:                                    ; preds = %5
   %8 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
   %.0.i = load ptr, ptr %9, align 8, !tbaa !34
@@ -764,7 +764,7 @@ define internal fastcc void @agmakeattrs(ptr noundef %0, ptr noundef %1) unnamed
 switch.lookup:                                    ; preds = %2
   %7 = and i32 %5, 3
   %8 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %switch.load
   %10 = load ptr, ptr %9, align 8, !tbaa !34
@@ -787,7 +787,7 @@ agdictof.exit:                                    ; preds = %switch.lookup, %2
 switch.lookup1:                                   ; preds = %14
   %18 = and i32 %16, 3
   %19 = zext nneg i32 %18 to i64
-  %switch.gep2 = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %19
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %19
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %switch.load3
   %21 = load ptr, ptr %20, align 8, !tbaa !34
@@ -806,7 +806,7 @@ agdictof.exit29:                                  ; preds = %switch.lookup1, %14
 switch.lookup4:                                   ; preds = %agdictof.exit29
   %26 = and i32 %24, 3
   %27 = zext nneg i32 %26 to i64
-  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %27
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %27
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 %switch.load6
   %.0.i35 = load ptr, ptr %28, align 8, !tbaa !34
@@ -864,7 +864,7 @@ gv_calloc.exit:                                   ; preds = %topdictsize.exit
   %53 = load ptr, ptr %39, align 8, !tbaa !35
   %54 = load i32, ptr %47, align 8, !tbaa !36
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %53, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %55
   store ptr %.sink52, ptr %56, align 8, !tbaa !15
   %57 = load ptr, ptr %.0.i, align 8, !tbaa !25
   %58 = tail call ptr %57(ptr noundef nonnull %.0.i, ptr noundef nonnull %.043, i32 noundef 8) #12
@@ -938,7 +938,7 @@ define internal fastcc void @freeattr(ptr noundef %0, ptr noundef nonnull readon
 switch.lookup:                                    ; preds = %2
   %8 = and i32 %6, 3
   %9 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %switch.load
   %.0.i.i = load ptr, ptr %10, align 8, !tbaa !34
@@ -958,7 +958,7 @@ topdictsize.exit:                                 ; preds = %switch.lookup
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !35
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = tail call i32 @aghtmlstr(ptr noundef %17) #12
   %19 = icmp ne i32 %18, 0
@@ -1082,7 +1082,7 @@ agattrsym.exit:                                   ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !36
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   br label %agattrsym.exit.thread
 
@@ -1100,7 +1100,7 @@ define ptr @agxget(ptr noundef %0, ptr noundef readonly captures(none) %1) local
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !36
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   ret ptr %11
 }
@@ -1151,7 +1151,7 @@ define internal fastcc void @agxset_(ptr noundef %0, ptr noundef %1, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !36
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = tail call i32 @aghtmlstr(ptr noundef %15) #12
   %17 = icmp ne i32 %16, 0
@@ -1171,7 +1171,7 @@ define internal fastcc void @agxset_(ptr noundef %0, ptr noundef %1, ptr noundef
   %25 = load ptr, ptr %9, align 8, !tbaa !35
   %26 = load i32, ptr %11, align 8, !tbaa !36
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   store ptr %24, ptr %28, align 8, !tbaa !15
   %29 = load i32, ptr %0, align 8
   %30 = and i32 %29, 3
@@ -1296,7 +1296,7 @@ define noundef i32 @agsafeset(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 switch.lookup:                                    ; preds = %15
   %17 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %switch.load
   %.0.i.i15.i = load ptr, ptr %18, align 8, !tbaa !34
@@ -1355,7 +1355,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %31
   %.02033 = phi ptr [ null, %.lr.ph ], [ %.0.i, %31 ]
   %13 = and i32 %12, 3
   %14 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.agcopyattr, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agcopyattr, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %switch.load
   %.0.i.i = load ptr, ptr %15, align 8, !tbaa !34
@@ -1407,7 +1407,7 @@ agattrsym.exit:                                   ; preds = %22
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !36
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %35, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !15
   %41 = call i32 @aghtmlstr(ptr noundef %40) #12
   %.not25 = icmp ne i32 %41, 0
@@ -1496,7 +1496,7 @@ gv_recalloc.exit:                                 ; preds = %9
   %32 = load ptr, ptr %31, align 8, !tbaa !35
   %33 = load i32, ptr %6, align 8, !tbaa !36
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %32, i64 %34
   store ptr %.sink, ptr %35, align 8, !tbaa !15
   ret void
 }

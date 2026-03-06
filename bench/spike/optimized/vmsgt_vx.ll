@@ -259,7 +259,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmsgt_vxP1
   %107 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %109 = and i64 %102, 31
-  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %149
@@ -703,7 +703,7 @@ define noundef i64 @_Z19fast_rv64i_vmsgt_vxP11processor_t6insn_tm(ptr noundef %0
   %107 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %109 = and i64 %102, 31
-  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %149
@@ -1027,7 +1027,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmsgt_vx
   %107 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %109 = and i64 %102, 31
-  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %149
@@ -1353,7 +1353,7 @@ define noundef i64 @_Z21logged_rv64i_vmsgt_vxP11processor_t6insn_tm(ptr noundef 
   %107 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %109 = and i64 %102, 31
-  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %149
@@ -1678,7 +1678,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmsgt_vxP1
   %108 = and i64 %102, 31
   %109 = icmp samesign ugt i64 %108, 15
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %108
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %154
@@ -2065,7 +2065,7 @@ define noundef i64 @_Z19fast_rv64e_vmsgt_vxP11processor_t6insn_tm(ptr noundef %0
   %108 = and i64 %102, 31
   %109 = icmp samesign ugt i64 %108, 15
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %108
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %154
@@ -2450,7 +2450,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmsgt_vx
   %108 = and i64 %102, 31
   %109 = icmp samesign ugt i64 %108, 15
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %108
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %154
@@ -2837,7 +2837,7 @@ define noundef i64 @_Z21logged_rv64e_vmsgt_vxP11processor_t6insn_tm(ptr noundef 
   %108 = and i64 %102, 31
   %109 = icmp samesign ugt i64 %108, 15
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %108
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %154

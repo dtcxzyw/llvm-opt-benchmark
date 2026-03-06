@@ -920,7 +920,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PyInterpreterConfig = type { i32, i32, i32, i32, i32, i32, i32 }
 %struct.PyCompilerFlags = type { i32, i32 }
 %struct._PyXIData_lookup_context_t = type { ptr, ptr, ptr }
-%struct.triple = type { i64, i64, i32 }
 
 @_testcapimodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 8, ptr @module_functions, ptr @module_slots, ptr @module_traverse, ptr @module_clear, ptr @module_free }, align 8
 @.str = private unnamed_addr constant [18 x i8] c"_testinternalcapi\00", align 1
@@ -3740,7 +3739,7 @@ _PyObject_InlineValues.exit:                      ; preds = %13
 
 37:                                               ; preds = %.lr.ph, %PyTuple_SET_ITEM.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %PyTuple_SET_ITEM.exit ]
-  %38 = getelementptr ptr, ptr %33, i64 %indvars.iv
+  %38 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !9
   %40 = icmp eq ptr %39, null
   br i1 %40, label %Py_INCREF.exit, label %41
@@ -3794,7 +3793,7 @@ Py_SIZE.exit.i:                                   ; preds = %51
   unreachable
 
 PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
-  %56 = getelementptr ptr, ptr %36, i64 %indvars.iv
+  %56 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %.0, ptr %56, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4663,7 +4662,7 @@ define internal noundef ptr @_testinternalcapi_test_long_numbits(ptr readnone ca
   %.0121.i = phi i64 [ 0, %2 ], [ %24, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -7, ptr %3, align 4, !tbaa !25
-  %5 = getelementptr %struct.triple, ptr @__const._testinternalcapi_test_long_numbits_impl.testcases, i64 %.0121.i
+  %5 = getelementptr [24 x i8], ptr @__const._testinternalcapi_test_long_numbits_impl.testcases, i64 %.0121.i
   %6 = load i64, ptr %5, align 8, !tbaa !252
   %7 = call ptr @PyLong_FromLong(i64 noundef %6) #12
   %8 = icmp eq ptr %7, null

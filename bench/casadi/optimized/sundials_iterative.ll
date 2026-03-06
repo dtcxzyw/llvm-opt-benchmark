@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ModifiedGS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = tail call double @N_VDotProd(ptr noundef %8, ptr noundef %8) #5
   %10 = tail call double @SUNRsqrt(double noundef %9) #5
@@ -24,13 +24,13 @@ define noundef i32 @ModifiedGS(ptr noundef readonly captures(none) %0, ptr nound
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = load ptr, ptr %7, align 8, !tbaa !3
   %21 = tail call double @N_VDotProd(ptr noundef %19, ptr noundef %20) #5
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %15
   store double %21, ptr %24, align 8, !tbaa !10
   %25 = load ptr, ptr %7, align 8, !tbaa !3
   %26 = fneg double %21
@@ -60,13 +60,13 @@ define noundef i32 @ModifiedGS(ptr noundef readonly captures(none) %0, ptr nound
 36:                                               ; preds = %.lr.ph80, %54
   %indvars.iv83 = phi i64 [ %35, %.lr.ph80 ], [ %indvars.iv.next84, %54 ]
   %.07379 = phi double [ 0.000000e+00, %.lr.ph80 ], [ %.1, %54 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv83
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv83
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = load ptr, ptr %7, align 8, !tbaa !3
   %40 = tail call double @N_VDotProd(ptr noundef %38, ptr noundef %39) #5
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv83
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv83
   %42 = load ptr, ptr %41, align 8, !tbaa !8
-  %43 = getelementptr inbounds nuw double, ptr %42, i64 %34
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %34
   %44 = load double, ptr %43, align 8, !tbaa !10
   %45 = fmul double %44, 1.000000e+03
   %46 = fadd double %40, %45
@@ -126,7 +126,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = add nsw i32 %2, -1
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = tail call double @N_VDotProd(ptr noundef %11, ptr noundef %11) #5
   %13 = tail call double @SUNRsqrt(double noundef %12) #5
@@ -149,13 +149,13 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = load ptr, ptr %10, align 8, !tbaa !3
   %25 = tail call double @N_VDotProd(ptr noundef %23, ptr noundef %24) #5
-  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !8
-  %28 = getelementptr inbounds nuw double, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %17
   store double %25, ptr %28, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -164,12 +164,12 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
 29:                                               ; preds = %.lr.ph91, %29
   %indvars.iv101 = phi i64 [ %20, %.lr.ph91 ], [ %indvars.iv.next102, %29 ]
   %30 = load ptr, ptr %10, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv101
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv101
   %32 = load ptr, ptr %31, align 8, !tbaa !8
-  %33 = getelementptr inbounds nuw double, ptr %32, i64 %19
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %19
   %34 = load double, ptr %33, align 8, !tbaa !10
   %35 = fneg double %34
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv101
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv101
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %30, double noundef %35, ptr noundef %37, ptr noundef %30) #5
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -195,11 +195,11 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv106 = phi i64 [ %43, %.lr.ph93.preheader ], [ %indvars.iv.next107, %.lr.ph93 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv106
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv106
   %45 = load ptr, ptr %44, align 8, !tbaa !3
   %46 = load ptr, ptr %10, align 8, !tbaa !3
   %47 = tail call double @N_VDotProd(ptr noundef %45, ptr noundef %46) #5
-  %48 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv106
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv106
   store double %47, ptr %48, align 8, !tbaa !10
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -207,16 +207,16 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
 
 49:                                               ; preds = %.lr.ph93
   %50 = zext nneg i32 %15 to i64
-  %51 = getelementptr inbounds nuw double, ptr %6, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %50
   %52 = load double, ptr %51, align 8, !tbaa !10
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %50
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   tail call void @N_VScale(double noundef %52, ptr noundef %54, ptr noundef %5) #5
   %55 = load double, ptr %51, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw ptr, ptr %1, i64 %50
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %50
   %57 = load ptr, ptr %56, align 8, !tbaa !8
   %58 = zext nneg i32 %8 to i64
-  %59 = getelementptr inbounds nuw double, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load double, ptr %59, align 8, !tbaa !10
   %61 = fadd double %55, %60
   store double %61, ptr %59, align 8, !tbaa !10
@@ -235,15 +235,15 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
 
 65:                                               ; preds = %.lr.ph98, %65
   %indvars.iv111 = phi i64 [ %64, %.lr.ph98 ], [ %indvars.iv.next112, %65 ]
-  %66 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv111
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv111
   %67 = load double, ptr %66, align 8, !tbaa !10
-  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv111
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv111
   %69 = load ptr, ptr %68, align 8, !tbaa !3
   tail call void @N_VLinearSum(double noundef %67, ptr noundef %69, double noundef 1.000000e+00, ptr noundef %5, ptr noundef %5) #5
   %70 = load double, ptr %66, align 8, !tbaa !10
-  %71 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv111
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv111
   %72 = load ptr, ptr %71, align 8, !tbaa !8
-  %73 = getelementptr inbounds nuw double, ptr %72, i64 %63
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %63
   %74 = load double, ptr %73, align 8, !tbaa !10
   %75 = fadd double %70, %74
   store double %75, ptr %73, align 8, !tbaa !10
@@ -290,7 +290,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
 .lr.ph147:                                        ; preds = %.preheader
   %wide.trip.count157 = zext i32 %indvars.iv155 to i64
   %.pre165 = load ptr, ptr %1, align 8, !tbaa !8
-  %.phi.trans.insert166 = getelementptr inbounds nuw double, ptr %.pre165, i64 %indvars.iv159
+  %.phi.trans.insert166 = getelementptr inbounds nuw [8 x i8], ptr %.pre165, i64 %indvars.iv159
   %.pre167 = load double, ptr %.phi.trans.insert166, align 8, !tbaa !10
   br label %7
 
@@ -298,11 +298,11 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %8 = phi double [ %.pre167, %.lr.ph147 ], [ %23, %7 ]
   %9 = phi ptr [ %.pre165, %.lr.ph147 ], [ %12, %7 ]
   %indvars.iv152 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next153, %7 ]
-  %10 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv159
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv159
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next153
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next153
   %12 = load ptr, ptr %11, align 8, !tbaa !8
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv159
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv159
   %14 = load double, ptr %13, align 8, !tbaa !10
   %.idx171 = shl nuw nsw i64 %indvars.iv152, 4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx171
@@ -320,14 +320,14 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   br i1 %exitcond158.not, label %._crit_edge148, label %7, !llvm.loop !19
 
 ._crit_edge148:                                   ; preds = %7, %.preheader
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv159
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv159
   %25 = load ptr, ptr %24, align 8, !tbaa !8
-  %26 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv159
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv159
   %27 = load double, ptr %26, align 8, !tbaa !10
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next160
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next160
   %29 = load ptr, ptr %28, align 8, !tbaa !8
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv159
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv159
   %31 = load double, ptr %30, align 8, !tbaa !10
   %32 = fcmp oeq double %31, 0.000000e+00
   br i1 %32, label %51, label %33
@@ -368,7 +368,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %55 = fmul double %.0138, %54
   %56 = tail call double @llvm.fmuladd.f64(double %.0133, double %27, double %55)
   %57 = load ptr, ptr %24, align 8, !tbaa !8
-  %58 = getelementptr inbounds nuw double, ptr %57, i64 %indvars.iv159
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv159
   store double %56, ptr %58, align 8, !tbaa !10
   %59 = fcmp oeq double %56, 0.000000e+00
   %60 = trunc nuw nsw i64 %indvars.iv.next160 to i32
@@ -390,7 +390,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %64 = zext nneg i32 %62 to i64
   %wide.trip.count = zext nneg i32 %62 to i64
   %.pre = load ptr, ptr %1, align 8, !tbaa !8
-  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %.pre, i64 %64
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %64
   %.pre164 = load double, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %65
 
@@ -398,11 +398,11 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %66 = phi double [ %.pre164, %.lr.ph ], [ %81, %65 ]
   %67 = phi ptr [ %.pre, %.lr.ph ], [ %70, %65 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %64
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %70 = load ptr, ptr %69, align 8, !tbaa !8
-  %71 = getelementptr inbounds nuw double, ptr %70, i64 %64
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %64
   %72 = load double, ptr %71, align 8, !tbaa !10
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -421,14 +421,14 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
 
 ._crit_edge:                                      ; preds = %65, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre168, %.._crit_edge_crit_edge ], [ %64, %65 ]
-  %82 = getelementptr inbounds ptr, ptr %1, i64 %.pre-phi
+  %82 = getelementptr inbounds [8 x i8], ptr %1, i64 %.pre-phi
   %83 = load ptr, ptr %82, align 8, !tbaa !8
-  %84 = getelementptr inbounds double, ptr %83, i64 %.pre-phi
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %.pre-phi
   %85 = load double, ptr %84, align 8, !tbaa !10
   %86 = sext i32 %0 to i64
-  %87 = getelementptr inbounds ptr, ptr %1, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %1, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !8
-  %89 = getelementptr inbounds double, ptr %88, i64 %.pre-phi
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %.pre-phi
   %90 = load double, ptr %89, align 8, !tbaa !10
   %91 = fcmp oeq double %90, 0.000000e+00
   br i1 %91, label %110, label %92
@@ -462,7 +462,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %.1134 = phi double [ %107, %103 ], [ %102, %96 ], [ 1.000000e+00, %._crit_edge ]
   %111 = shl nsw i32 %62, 1
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds double, ptr %2, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %2, i64 %112
   store double %.1134, ptr %113, align 8, !tbaa !10
   %114 = getelementptr i8, ptr %113, i64 8
   store double %.1139, ptr %114, align 8, !tbaa !10
@@ -470,7 +470,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %116 = fmul double %.1139, %115
   %117 = tail call double @llvm.fmuladd.f64(double %.1134, double %85, double %116)
   %118 = load ptr, ptr %82, align 8, !tbaa !8
-  %119 = getelementptr inbounds double, ptr %118, i64 %.pre-phi
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %.pre-phi
   store double %117, ptr %119, align 8, !tbaa !10
   %120 = fcmp oeq double %117, 0.000000e+00
   br i1 %120, label %121, label %.loopexit
@@ -498,9 +498,9 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
 .lr.ph56.preheader:                               ; preds = %.lr.ph
   %6 = zext nneg i32 %0 to i64
   %indvars.iv.next7080 = add nsw i64 %6, -1
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next7080
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next7080
   %8 = load ptr, ptr %7, align 8, !tbaa !8
-  %9 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next7080
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next7080
   %10 = load double, ptr %9, align 8, !tbaa !10
   %11 = fcmp oeq double %10, 0.000000e+00
   br i1 %11, label %._crit_edge, label %.lr.ph84
@@ -518,9 +518,9 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %16 = load double, ptr %15, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !10
-  %19 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %21 = load double, ptr %20, align 8, !tbaa !10
   %22 = fneg double %21
   %23 = fmul double %18, %22
@@ -535,9 +535,9 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
 .loopexit:                                        ; preds = %.lr.ph52
   %indvars.iv.next68 = add nsw i64 %indvars.iv6782, -1
   %indvars.iv.next70 = add nsw i64 %indvars.iv.next7083, -1
-  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next70
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next70
   %28 = load ptr, ptr %27, align 8, !tbaa !8
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next70
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next70
   %30 = load double, ptr %29, align 8, !tbaa !10
   %31 = fcmp oeq double %30, 0.000000e+00
   br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge, label %32, !llvm.loop !23
@@ -547,7 +547,7 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %indvars.iv.next7083 = phi i64 [ %indvars.iv.next7080, %.lr.ph84 ], [ %indvars.iv.next70, %.loopexit ]
   %indvars.iv6782 = phi i64 [ %13, %.lr.ph84 ], [ %indvars.iv.next68, %.loopexit ]
   %indvars.iv6981 = phi i64 [ %6, %.lr.ph84 ], [ %indvars.iv.next7083, %.loopexit ]
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next7083
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next7083
   %35 = load double, ptr %34, align 8, !tbaa !10
   %36 = fdiv double %35, %33
   store double %36, ptr %34, align 8, !tbaa !10
@@ -557,11 +557,11 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
 .lr.ph52:                                         ; preds = %32, %.lr.ph52
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph52 ], [ 0, %32 ]
   %38 = load double, ptr %34, align 8, !tbaa !10
-  %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv60
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv60
   %40 = load ptr, ptr %39, align 8, !tbaa !8
-  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next7083
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next7083
   %42 = load double, ptr %41, align 8, !tbaa !10
-  %43 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv60
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv60
   %44 = load double, ptr %43, align 8, !tbaa !10
   %45 = fneg double %38
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %42, double %44)

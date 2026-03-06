@@ -5,17 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %class.symbol = type { ptr }
-%class.parameter = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.0" }
-%"union.std::__detail::__variant::_Variadic_union.0" = type { %"struct.std::__detail::__variant::_Uninitialized.1" }
-%"struct.std::__detail::__variant::_Uninitialized.1" = type { ptr }
 
 $_ZNSt18bad_variant_accessD0Ev = comdat any
 
@@ -191,11 +180,11 @@ _ZNK4decl18get_num_parametersEv.exit312.split:    ; preds = %67
   %74 = load ptr, ptr %27, align 8, !tbaa !9
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw %class.parameter, ptr %76, i64 %indvars.iv1579
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv1579
   %78 = load ptr, ptr %38, align 8, !tbaa !9
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !14
-  %81 = getelementptr inbounds nuw %class.parameter, ptr %80, i64 %indvars.iv1579
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %indvars.iv1579
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %83 = load i8, ptr %82, align 8, !tbaa !18
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -582,11 +571,11 @@ _ZNK4decl18get_num_parametersEv.exit368.split:    ; preds = %262
   %269 = load ptr, ptr %222, align 8, !tbaa !9
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load ptr, ptr %270, align 8, !tbaa !14
-  %272 = getelementptr inbounds nuw %class.parameter, ptr %271, i64 %indvars.iv1569
+  %272 = getelementptr inbounds nuw [16 x i8], ptr %271, i64 %indvars.iv1569
   %273 = load ptr, ptr %233, align 8, !tbaa !9
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load ptr, ptr %274, align 8, !tbaa !14
-  %276 = getelementptr inbounds nuw %class.parameter, ptr %275, i64 %indvars.iv1569
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %indvars.iv1569
   %277 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %278 = load i8, ptr %277, align 8, !tbaa !18
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 8
@@ -870,9 +859,9 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 
 404:                                              ; preds = %.lr.ph1125, %403
   %indvars.iv1574 = phi i64 [ 0, %.lr.ph1125 ], [ %indvars.iv.next1575, %403 ]
-  %405 = getelementptr inbounds nuw ptr, ptr %401, i64 %indvars.iv1574
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %401, i64 %indvars.iv1574
   %406 = load ptr, ptr %405, align 8, !tbaa !46
-  %407 = getelementptr inbounds nuw ptr, ptr %402, i64 %indvars.iv1574
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %402, i64 %indvars.iv1574
   %408 = load ptr, ptr %407, align 8, !tbaa !46
   %.not299 = icmp eq ptr %406, %408
   br i1 %.not299, label %403, label %.backedge
@@ -939,9 +928,9 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 
 436:                                              ; preds = %.lr.ph1112, %435
   %indvars.iv1564 = phi i64 [ 0, %.lr.ph1112 ], [ %indvars.iv.next1565, %435 ]
-  %437 = getelementptr inbounds nuw ptr, ptr %433, i64 %indvars.iv1564
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %433, i64 %indvars.iv1564
   %438 = load ptr, ptr %437, align 8, !tbaa !55
-  %439 = getelementptr inbounds nuw ptr, ptr %434, i64 %indvars.iv1564
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %434, i64 %indvars.iv1564
   %440 = load ptr, ptr %439, align 8, !tbaa !55
   %.not292 = icmp eq ptr %438, %440
   br i1 %.not292, label %435, label %.backedge
@@ -1014,9 +1003,9 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 .lr.ph:                                           ; preds = %.preheader514
   %474 = getelementptr inbounds nuw i8, ptr %.02361139, i64 80
   %475 = zext i32 %450 to i64
-  %476 = getelementptr inbounds nuw ptr, ptr %474, i64 %475
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %474, i64 %475
   %477 = getelementptr inbounds nuw i8, ptr %.02461138, i64 80
-  %478 = getelementptr inbounds nuw ptr, ptr %477, i64 %475
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %475
   br label %482
 
 479:                                              ; preds = %469
@@ -1030,23 +1019,23 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 
 482:                                              ; preds = %.lr.ph, %481
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %481 ]
-  %483 = getelementptr inbounds nuw %class.symbol, ptr %476, i64 %indvars.iv
-  %484 = getelementptr inbounds nuw %class.symbol, ptr %478, i64 %indvars.iv
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %indvars.iv
+  %484 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %indvars.iv
   %485 = load ptr, ptr %483, align 8, !tbaa !3
   %486 = load ptr, ptr %484, align 8, !tbaa !3
   %.not504 = icmp eq ptr %485, %486
   br i1 %.not504, label %490, label %.thread479
 
 .thread479:                                       ; preds = %482
-  %487 = getelementptr inbounds nuw %class.symbol, ptr %476, i64 %indvars.iv
-  %488 = getelementptr inbounds nuw %class.symbol, ptr %478, i64 %indvars.iv
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %indvars.iv
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %indvars.iv
   %489 = tail call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %487, ptr noundef nonnull align 8 dereferenceable(8) %488)
   br label %.thread445
 
 490:                                              ; preds = %482
-  %491 = getelementptr inbounds nuw ptr, ptr %474, i64 %indvars.iv
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %474, i64 %indvars.iv
   %492 = load ptr, ptr %491, align 8, !tbaa !46
-  %493 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv
+  %493 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %indvars.iv
   %494 = load ptr, ptr %493, align 8, !tbaa !46
   %.not286 = icmp eq ptr %492, %494
   br i1 %.not286, label %481, label %.backedge
@@ -1058,11 +1047,11 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 .lr.ph1105:                                       ; preds = %._crit_edge
   %495 = getelementptr inbounds nuw i8, ptr %.02361139, i64 80
   %496 = zext i32 %450 to i64
-  %497 = getelementptr inbounds nuw ptr, ptr %495, i64 %496
-  %498 = getelementptr inbounds nuw %class.symbol, ptr %497, i64 %496
+  %497 = getelementptr inbounds nuw [8 x i8], ptr %495, i64 %496
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %496
   %499 = getelementptr inbounds nuw i8, ptr %.02461138, i64 80
-  %500 = getelementptr inbounds nuw ptr, ptr %499, i64 %496
-  %501 = getelementptr inbounds nuw %class.symbol, ptr %500, i64 %496
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %499, i64 %496
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 %496
   %wide.trip.count1557 = zext i32 %457 to i64
   br label %503
 
@@ -1073,9 +1062,9 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 
 503:                                              ; preds = %.lr.ph1105, %502
   %indvars.iv1554 = phi i64 [ 0, %.lr.ph1105 ], [ %indvars.iv.next1555, %502 ]
-  %504 = getelementptr inbounds nuw ptr, ptr %498, i64 %indvars.iv1554
+  %504 = getelementptr inbounds nuw [8 x i8], ptr %498, i64 %indvars.iv1554
   %505 = load ptr, ptr %504, align 8, !tbaa !55
-  %506 = getelementptr inbounds nuw ptr, ptr %501, i64 %indvars.iv1554
+  %506 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %indvars.iv1554
   %507 = load ptr, ptr %506, align 8, !tbaa !55
   %.not287 = icmp eq ptr %505, %507
   br i1 %.not287, label %502, label %.backedge
@@ -1087,11 +1076,11 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 .lr.ph1109:                                       ; preds = %._crit_edge1106
   %508 = getelementptr inbounds nuw i8, ptr %.02361139, i64 80
   %509 = zext i32 %450 to i64
-  %510 = getelementptr inbounds nuw ptr, ptr %508, i64 %509
-  %511 = getelementptr inbounds nuw %class.symbol, ptr %510, i64 %509
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %508, i64 %509
+  %511 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %509
   %512 = getelementptr inbounds nuw i8, ptr %.02461138, i64 80
-  %513 = getelementptr inbounds nuw ptr, ptr %512, i64 %509
-  %514 = getelementptr inbounds nuw %class.symbol, ptr %513, i64 %509
+  %513 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %509
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %509
   %wide.trip.count1562 = zext i32 %464 to i64
   br label %516
 
@@ -1102,9 +1091,9 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
 
 516:                                              ; preds = %.lr.ph1109, %515
   %indvars.iv1559 = phi i64 [ 0, %.lr.ph1109 ], [ %indvars.iv.next1560, %515 ]
-  %517 = getelementptr inbounds nuw ptr, ptr %511, i64 %indvars.iv1559
+  %517 = getelementptr inbounds nuw [8 x i8], ptr %511, i64 %indvars.iv1559
   %518 = load ptr, ptr %517, align 8, !tbaa !55
-  %519 = getelementptr inbounds nuw ptr, ptr %514, i64 %indvars.iv1559
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %indvars.iv1559
   %520 = load ptr, ptr %519, align 8, !tbaa !55
   %.not288 = icmp eq ptr %518, %520
   br i1 %.not288, label %515, label %.backedge
@@ -1166,10 +1155,10 @@ define hidden noundef zeroext i1 @_Z9is_sortedjPKP4expr(i32 noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %5 = getelementptr i8, ptr %4, i64 -8
   %6 = load ptr, ptr %5, align 8, !tbaa !55
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !55
   %9 = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %8, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1202,9 +1191,9 @@ define hidden noundef zeroext i1 @_Z6lex_ltjPKP3astS2_(i32 noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %4, label %10

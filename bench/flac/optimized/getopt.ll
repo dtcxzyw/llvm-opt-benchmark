@@ -136,7 +136,7 @@ define dso_local i32 @share___getopt_internal(i32 noundef %0, ptr noundef captur
 
 .lr.ph67.preheader.i:                             ; preds = %42
   %46 = sext i32 %33 to i64
-  %invariant.gep79.i = getelementptr ptr, ptr %1, i64 %46
+  %invariant.gep79.i = getelementptr [8 x i8], ptr %1, i64 %46
   br label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %._crit_edge63.i, %.lr.ph67.preheader.i
@@ -154,7 +154,7 @@ define dso_local i32 @share___getopt_internal(i32 noundef %0, ptr noundef captur
 .lr.ph.preheader.i:                               ; preds = %.preheader59.i
   %51 = sext i32 %.05165.i to i64
   %wide.trip.count.i = zext nneg i32 %47 to i64
-  %invariant.gep.i = getelementptr ptr, ptr %1, i64 %51
+  %invariant.gep.i = getelementptr [8 x i8], ptr %1, i64 %51
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph67.i
@@ -166,15 +166,15 @@ define dso_local i32 @share___getopt_internal(i32 noundef %0, ptr noundef captur
   %54 = sext i32 %.05165.i to i64
   %55 = sext i32 %53 to i64
   %wide.trip.count73.i = zext nneg i32 %48 to i64
-  %invariant.gep81.i = getelementptr ptr, ptr %1, i64 %54
-  %invariant.gep83.i = getelementptr ptr, ptr %1, i64 %55
+  %invariant.gep81.i = getelementptr [8 x i8], ptr %1, i64 %54
+  %invariant.gep83.i = getelementptr [8 x i8], ptr %1, i64 %55
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph62.i
   %indvars.iv70.i = phi i64 [ 0, %.lr.ph62.i ], [ %indvars.iv.next71.i, %56 ]
-  %gep82.i = getelementptr ptr, ptr %invariant.gep81.i, i64 %indvars.iv70.i
+  %gep82.i = getelementptr [8 x i8], ptr %invariant.gep81.i, i64 %indvars.iv70.i
   %57 = load ptr, ptr %gep82.i, align 8, !tbaa !4
-  %gep84.i = getelementptr ptr, ptr %invariant.gep83.i, i64 %indvars.iv70.i
+  %gep84.i = getelementptr [8 x i8], ptr %invariant.gep83.i, i64 %indvars.iv70.i
   %58 = load ptr, ptr %gep84.i, align 8, !tbaa !4
   store ptr %58, ptr %gep82.i, align 8, !tbaa !4
   store ptr %57, ptr %gep84.i, align 8, !tbaa !4
@@ -184,9 +184,9 @@ define dso_local i32 @share___getopt_internal(i32 noundef %0, ptr noundef captur
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %59 = load ptr, ptr %gep.i, align 8, !tbaa !4
-  %gep80.i = getelementptr ptr, ptr %invariant.gep79.i, i64 %indvars.iv.i
+  %gep80.i = getelementptr [8 x i8], ptr %invariant.gep79.i, i64 %indvars.iv.i
   %60 = load ptr, ptr %gep80.i, align 8, !tbaa !4
   store ptr %60, ptr %gep.i, align 8, !tbaa !4
   store ptr %59, ptr %gep80.i, align 8, !tbaa !4
@@ -231,7 +231,7 @@ exchange.exit:                                    ; preds = %._crit_edge63.i, %4
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge3
   %72 = phi i32 [ %share__optind.promoted421, %.lr.ph.preheader ], [ %80, %.critedge3 ]
   %indvars.iv = phi i64 [ %71, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge3 ]
-  %73 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %73 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !4
   %75 = load i8, ptr %74, align 1, !tbaa !11
   %.not219 = icmp eq i8 %75, 45
@@ -269,7 +269,7 @@ exchange.exit:                                    ; preds = %._crit_edge63.i, %4
 
 sub_0:                                            ; preds = %83
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds ptr, ptr %1, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %1, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !4
   %90 = load i8, ptr %89, align 1
   %.not364 = icmp eq i8 %90, 45
@@ -302,7 +302,7 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph67.preheader.i267:                          ; preds = %98
   %102 = sext i32 %84 to i64
-  %invariant.gep79.i268 = getelementptr ptr, ptr %1, i64 %102
+  %invariant.gep79.i268 = getelementptr [8 x i8], ptr %1, i64 %102
   br label %.lr.ph67.i269
 
 .lr.ph67.i269:                                    ; preds = %._crit_edge63.i274, %.lr.ph67.preheader.i267
@@ -320,7 +320,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph.preheader.i277:                            ; preds = %.preheader59.i272
   %107 = sext i32 %.05165.i270 to i64
   %wide.trip.count.i278 = zext nneg i32 %103 to i64
-  %invariant.gep.i279 = getelementptr ptr, ptr %1, i64 %107
+  %invariant.gep.i279 = getelementptr [8 x i8], ptr %1, i64 %107
   br label %.lr.ph.i280
 
 .preheader.i286:                                  ; preds = %.lr.ph67.i269
@@ -332,15 +332,15 @@ sub_1:                                            ; preds = %sub_0
   %110 = sext i32 %.05165.i270 to i64
   %111 = sext i32 %109 to i64
   %wide.trip.count73.i288 = zext nneg i32 %104 to i64
-  %invariant.gep81.i289 = getelementptr ptr, ptr %1, i64 %110
-  %invariant.gep83.i290 = getelementptr ptr, ptr %1, i64 %111
+  %invariant.gep81.i289 = getelementptr [8 x i8], ptr %1, i64 %110
+  %invariant.gep83.i290 = getelementptr [8 x i8], ptr %1, i64 %111
   br label %112
 
 112:                                              ; preds = %112, %.lr.ph62.i287
   %indvars.iv70.i291 = phi i64 [ 0, %.lr.ph62.i287 ], [ %indvars.iv.next71.i294, %112 ]
-  %gep82.i292 = getelementptr ptr, ptr %invariant.gep81.i289, i64 %indvars.iv70.i291
+  %gep82.i292 = getelementptr [8 x i8], ptr %invariant.gep81.i289, i64 %indvars.iv70.i291
   %113 = load ptr, ptr %gep82.i292, align 8, !tbaa !4
-  %gep84.i293 = getelementptr ptr, ptr %invariant.gep83.i290, i64 %indvars.iv70.i291
+  %gep84.i293 = getelementptr [8 x i8], ptr %invariant.gep83.i290, i64 %indvars.iv70.i291
   %114 = load ptr, ptr %gep84.i293, align 8, !tbaa !4
   store ptr %114, ptr %gep82.i292, align 8, !tbaa !4
   store ptr %113, ptr %gep84.i293, align 8, !tbaa !4
@@ -350,9 +350,9 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph.i280:                                      ; preds = %.lr.ph.i280, %.lr.ph.preheader.i277
   %indvars.iv.i281 = phi i64 [ 0, %.lr.ph.preheader.i277 ], [ %indvars.iv.next.i284, %.lr.ph.i280 ]
-  %gep.i282 = getelementptr ptr, ptr %invariant.gep.i279, i64 %indvars.iv.i281
+  %gep.i282 = getelementptr [8 x i8], ptr %invariant.gep.i279, i64 %indvars.iv.i281
   %115 = load ptr, ptr %gep.i282, align 8, !tbaa !4
-  %gep80.i283 = getelementptr ptr, ptr %invariant.gep79.i268, i64 %indvars.iv.i281
+  %gep80.i283 = getelementptr [8 x i8], ptr %invariant.gep79.i268, i64 %indvars.iv.i281
   %116 = load ptr, ptr %gep80.i283, align 8, !tbaa !4
   store ptr %116, ptr %gep.i282, align 8, !tbaa !4
   store ptr %115, ptr %gep80.i283, align 8, !tbaa !4
@@ -403,7 +403,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
 
 .tail.thread:                                     ; preds = %.tail, %sub_0, %sub_1
   %129 = sext i32 %86 to i64
-  %130 = getelementptr inbounds ptr, ptr %1, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %1, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !4
   %132 = load i8, ptr %131, align 1, !tbaa !11
   %.not224 = icmp eq i8 %132, 45
@@ -443,7 +443,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
 
 148:                                              ; preds = %145
   %149 = sext i32 %147 to i64
-  %150 = getelementptr inbounds ptr, ptr %1, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %1, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !4
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %153 = load i8, ptr %152, align 1, !tbaa !11
@@ -540,7 +540,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %188 = load ptr, ptr %1, align 8, !tbaa !4
   %189 = load i32, ptr @share__optind, align 4, !tbaa !9
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds ptr, ptr %1, i64 %190
+  %191 = getelementptr inbounds [8 x i8], ptr %1, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !4
   %193 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %186, i32 noundef 1, ptr noundef %187, ptr noundef %188, ptr noundef %192) #5
   %.pre372 = load ptr, ptr @nextchar, align 8, !tbaa !4
@@ -604,7 +604,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %221 = load ptr, ptr %1, align 8, !tbaa !4
   %222 = load i32, ptr @share__optind, align 4, !tbaa !9
   %223 = sext i32 %222 to i64
-  %224 = getelementptr ptr, ptr %1, i64 %223
+  %224 = getelementptr [8 x i8], ptr %1, i64 %223
   %225 = getelementptr i8, ptr %224, i64 -8
   %226 = load ptr, ptr %225, align 8, !tbaa !4
   %227 = load i8, ptr %226, align 1, !tbaa !11
@@ -635,7 +635,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %242 = add nsw i32 %147, 2
   store i32 %242, ptr @share__optind, align 4, !tbaa !9
   %243 = sext i32 %201 to i64
-  %244 = getelementptr inbounds ptr, ptr %1, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %1, i64 %243
   %245 = load ptr, ptr %244, align 8, !tbaa !4
   br label %.sink.split455
 
@@ -650,7 +650,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %251 = load ptr, ptr %1, align 8, !tbaa !4
   %252 = load i32, ptr @share__optind, align 4, !tbaa !9
   %253 = sext i32 %252 to i64
-  %254 = getelementptr ptr, ptr %1, i64 %253
+  %254 = getelementptr [8 x i8], ptr %1, i64 %253
   %255 = getelementptr i8, ptr %254, i64 -8
   %256 = load ptr, ptr %255, align 8, !tbaa !4
   %257 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %249, i32 noundef 1, ptr noundef %250, ptr noundef %251, ptr noundef %256) #5
@@ -744,7 +744,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %295 = load ptr, ptr %1, align 8, !tbaa !4
   %296 = load i32, ptr @share__optind, align 4, !tbaa !9
   %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds ptr, ptr %1, i64 %297
+  %298 = getelementptr inbounds [8 x i8], ptr %1, i64 %297
   %299 = load ptr, ptr %298, align 8, !tbaa !4
   %300 = load i8, ptr %299, align 1, !tbaa !11
   %301 = sext i8 %300 to i32
@@ -848,7 +848,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %351 = add nsw i32 %317, 1
   store i32 %351, ptr @share__optind, align 4, !tbaa !9
   %352 = sext i32 %317 to i64
-  %353 = getelementptr inbounds ptr, ptr %1, i64 %352
+  %353 = getelementptr inbounds [8 x i8], ptr %1, i64 %352
   %354 = load ptr, ptr %353, align 8, !tbaa !4
   store ptr %354, ptr @share__optarg, align 8, !tbaa !4
   br label %355
@@ -930,7 +930,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %384 = load ptr, ptr %1, align 8, !tbaa !4
   %385 = load i32, ptr @share__optind, align 4, !tbaa !9
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds ptr, ptr %1, i64 %386
+  %387 = getelementptr inbounds [8 x i8], ptr %1, i64 %386
   %388 = load ptr, ptr %387, align 8, !tbaa !4
   %389 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %382, i32 noundef 1, ptr noundef %383, ptr noundef %384, ptr noundef %388) #5
   %.pre377 = load ptr, ptr @nextchar, align 8, !tbaa !4
@@ -1000,7 +1000,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %419 = add nsw i32 %356, 1
   store i32 %419, ptr @share__optind, align 4, !tbaa !9
   %420 = sext i32 %356 to i64
-  %421 = getelementptr inbounds ptr, ptr %1, i64 %420
+  %421 = getelementptr inbounds [8 x i8], ptr %1, i64 %420
   %422 = load ptr, ptr %421, align 8, !tbaa !4
   br label %.sink.split461
 
@@ -1015,7 +1015,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %428 = load ptr, ptr %1, align 8, !tbaa !4
   %429 = load i32, ptr @share__optind, align 4, !tbaa !9
   %430 = sext i32 %429 to i64
-  %431 = getelementptr ptr, ptr %1, i64 %430
+  %431 = getelementptr [8 x i8], ptr %1, i64 %430
   %432 = getelementptr i8, ptr %431, i64 -8
   %433 = load ptr, ptr %432, align 8, !tbaa !4
   %434 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %426, i32 noundef 1, ptr noundef %427, ptr noundef %428, ptr noundef %433) #5
@@ -1126,7 +1126,7 @@ exchange.exit296:                                 ; preds = %._crit_edge63.i274,
   %478 = add nsw i32 %317, 1
   store i32 %478, ptr @share__optind, align 4, !tbaa !9
   %479 = sext i32 %317 to i64
-  %480 = getelementptr inbounds ptr, ptr %1, i64 %479
+  %480 = getelementptr inbounds [8 x i8], ptr %1, i64 %479
   %481 = load ptr, ptr %480, align 8, !tbaa !4
   store ptr %481, ptr @share__optarg, align 8, !tbaa !4
   br label %482

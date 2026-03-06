@@ -2572,7 +2572,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %390
 
 .noexc257:                                        ; preds = %396
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %398, i8 -1, i64 %397, i1 false), !tbaa !47
-  %399 = getelementptr inbounds nuw i32, ptr %398, i64 %393
+  %399 = getelementptr inbounds nuw [4 x i8], ptr %398, i64 %393
   %400 = getelementptr inbounds nuw i8, ptr %398, i64 %397
   %401 = ptrtoint ptr %400 to i64
   %402 = ptrtoint ptr %399 to i64
@@ -2585,7 +2585,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i: ; preds = %.no
   %403 = load i32, ptr %85, align 8, !tbaa !42
   %404 = load i32, ptr %163, align 4, !tbaa !35
   %405 = sext i32 %404 to i64
-  %406 = getelementptr inbounds nuw i32, ptr %.sroa.0539.0, i64 %405
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0539.0, i64 %405
   store i32 %403, ptr %406, align 4, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -2964,7 +2964,7 @@ _ZNSt6vectorIN7xgboost10collective5proto8PeerInfoESaIS3_EE17_S_check_init_lenEmR
 
 .noexc316:                                        ; preds = %_ZNSt6vectorIN7xgboost10collective5proto8PeerInfoESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   store ptr %539, ptr %47, align 8, !tbaa !202
-  %540 = getelementptr inbounds nuw %"struct.xgboost::collective::proto::PeerInfo", ptr %539, i64 %535
+  %540 = getelementptr inbounds nuw [40 x i8], ptr %539, i64 %535
   %541 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %540, ptr %541, align 8, !tbaa !205
   br label %.lr.ph.i.i.i.i.i313
@@ -3004,7 +3004,7 @@ _ZNSt6vectorIN7xgboost10collective5proto8PeerInfoESaIS3_EE17_S_check_init_lenEmR
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %556 = load i32, ptr %163, align 4, !tbaa !35
   %557 = sext i32 %556 to i64
-  %558 = getelementptr inbounds nuw %"struct.xgboost::collective::proto::PeerInfo", ptr %.pre717, i64 %557
+  %558 = getelementptr inbounds nuw [40 x i8], ptr %.pre717, i64 %557
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 32
   %560 = load i32, ptr %559, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -3042,7 +3042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit310.thread660: ; p
 567:                                              ; preds = %564
   %568 = shl nsw i64 %indvars.iv, 6
   %569 = getelementptr inbounds nuw i8, ptr %160, i64 %568
-  %570 = getelementptr inbounds nuw i32, ptr %.sroa.0539.0, i64 %indvars.iv
+  %570 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0539.0, i64 %indvars.iv
   %571 = load i32, ptr %570, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %572 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3120,7 +3120,7 @@ _ZN7xgboost10collective5proto8PeerInfoC2ENSt7__cxx1112basic_stringIcSt11char_tra
   store i32 %574, ptr %554, align 4, !tbaa !43
   %596 = sext i32 %574 to i64
   %597 = load ptr, ptr %47, align 8, !tbaa !202
-  %598 = getelementptr inbounds nuw %"struct.xgboost::collective::proto::PeerInfo", ptr %597, i64 %596
+  %598 = getelementptr inbounds nuw [40 x i8], ptr %597, i64 %596
   %599 = load ptr, ptr %598, align 8, !tbaa !39
   %600 = getelementptr inbounds nuw i8, ptr %598, i64 16
   %601 = icmp eq ptr %599, %600
@@ -3356,7 +3356,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %678, label %679, label %_ZNSt6vectorISt10shared_ptrIN7xgboost10collective9TCPSocketEESaIS4_EE6resizeEm.exit
 
 679:                                              ; preds = %677
-  %680 = getelementptr inbounds nuw %"class.std::shared_ptr.10", ptr %669, i64 %666
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %669, i64 %666
   %.not.i.i347 = icmp eq ptr %668, %680
   br i1 %.not.i.i347, label %_ZNSt6vectorISt10shared_ptrIN7xgboost10collective9TCPSocketEESaIS4_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i348
 
@@ -3585,7 +3585,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost10collective9TCPSocketEESaIS4_EE6resizeEm.e
 748:                                              ; preds = %.lr.ph694, %_ZNSt12__shared_ptrIN7xgboost10collective9TCPSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %indvars.iv703 = phi i64 [ %741, %.lr.ph694 ], [ %indvars.iv.next704, %_ZNSt12__shared_ptrIN7xgboost10collective9TCPSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %749 = load ptr, ptr %47, align 8, !tbaa !202
-  %750 = getelementptr inbounds nuw %"struct.xgboost::collective::proto::PeerInfo", ptr %749, i64 %indvars.iv703
+  %750 = getelementptr inbounds nuw [40 x i8], ptr %749, i64 %indvars.iv703
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.experimental.noalias.scope.decl(metadata !223)
   %751 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
@@ -3786,7 +3786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %79
 
 805:                                              ; preds = %786
   %806 = load ptr, ptr %7, align 8, !tbaa !218
-  %807 = getelementptr inbounds nuw %"class.std::shared_ptr.10", ptr %806, i64 %indvars.iv703
+  %807 = getelementptr inbounds nuw [16 x i8], ptr %806, i64 %indvars.iv703
   %808 = load ptr, ptr %54, align 8, !tbaa !162
   %809 = load ptr, ptr %739, align 8, !tbaa !103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
@@ -4215,7 +4215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit440: ; preds = %93
   %938 = load i32, ptr %65, align 4, !tbaa !47
   %939 = sext i32 %938 to i64
   %940 = load ptr, ptr %7, align 8, !tbaa !218
-  %941 = getelementptr inbounds nuw %"class.std::shared_ptr.10", ptr %940, i64 %939
+  %941 = getelementptr inbounds nuw [16 x i8], ptr %940, i64 %939
   %942 = load ptr, ptr %62, align 8, !tbaa !162
   %943 = load ptr, ptr %744, align 8, !tbaa !103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
@@ -4379,7 +4379,7 @@ _ZNSt12__shared_ptrIN7xgboost10collective9TCPSocketELN9__gnu_cxx12_Lock_policyE2
 
 999:                                              ; preds = %.lr.ph700
   %1000 = load ptr, ptr %7, align 8, !tbaa !218
-  %1001 = getelementptr inbounds nuw %"class.std::shared_ptr.10", ptr %1000, i64 %indvars.iv706
+  %1001 = getelementptr inbounds nuw [16 x i8], ptr %1000, i64 %indvars.iv706
   %1002 = load ptr, ptr %1001, align 8, !tbaa !162
   %.not676 = icmp eq ptr %1002, null
   br i1 %.not676, label %1003, label %.critedge161, !prof !48
@@ -10627,7 +10627,7 @@ define linkonce_odr void @_ZNK7xgboost10collective4Comm4ChanEi(ptr dead_on_unwin
   unreachable
 
 _ZNKSt6vectorISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE2atEm.exit: ; preds = %3
-  %14 = getelementptr inbounds nuw %"class.std::shared_ptr.22", ptr %8, i64 %5
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %5
   %15 = load ptr, ptr %14, align 8, !tbaa !159
   store ptr %15, ptr %0, align 8, !tbaa !159
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11118,7 +11118,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !483
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -11174,7 +11174,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !484
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -16895,9 +16895,9 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost10collective9TCPSocketEESaIS4_EE11_S_reloca
 
 _ZNSt12_Vector_baseISt10shared_ptrIN7xgboost10collective9TCPSocketEESaIS4_EE13_M_deallocateEPS4_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost10collective9TCPSocketEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !218
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.10", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !215
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr.10", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !373
   br label %39
 
@@ -20242,7 +20242,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE11_S_relocate
 _ZNSt12_Vector_baseISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !377
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !371
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.22", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !372
   ret void
 }

@@ -15,7 +15,7 @@ define internal void @hqx_idct_put(ptr noundef writeonly captures(none) %0, i64 
 
 5:                                                ; preds = %4, %5
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %8 = load i16, ptr %6, align 2, !tbaa !9
   %9 = sext i16 %8 to i32
@@ -282,7 +282,7 @@ define internal void @hqx_idct_put(ptr noundef writeonly captures(none) %0, i64 
 
 228:                                              ; preds = %.preheader, %228
   %indvars.iv41 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next42, %228 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv41
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv41
   %229 = load i16, ptr %gep, align 2, !tbaa !9
   %230 = sext i16 %229 to i32
   %231 = add nsw i32 %230, 2048
@@ -294,14 +294,14 @@ define internal void @hqx_idct_put(ptr noundef writeonly captures(none) %0, i64 
   %235 = lshr i32 %.0.i, 8
   %236 = or i32 %234, %235
   %237 = trunc i32 %236 to i16
-  %238 = getelementptr inbounds nuw i16, ptr %.035, i64 %indvars.iv41
+  %238 = getelementptr inbounds nuw [2 x i8], ptr %.035, i64 %indvars.iv41
   store i16 %237, ptr %238, align 2, !tbaa !9
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 8
   br i1 %exitcond44.not, label %239, label %228, !llvm.loop !15
 
 239:                                              ; preds = %228
-  %240 = getelementptr inbounds i16, ptr %.035, i64 %127
+  %240 = getelementptr inbounds [2 x i8], ptr %.035, i64 %127
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 8
   br i1 %exitcond48.not, label %241, label %.preheader, !llvm.loop !16

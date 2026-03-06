@@ -230,7 +230,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$$u5b$ruff_formatter
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr66drop_in_place$LT$ruff_formatter..format_element..FormatElement$GT$17hf7d5738ba8e42476E.exit"
   %.sroa.0.08 = phi i64 [ %5, %"_ZN4core3ptr66drop_in_place$LT$ruff_formatter..format_element..FormatElement$GT$17hf7d5738ba8e42476E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %0, i64 %.sroa.0.08
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.sroa.0.08
   %5 = add nuw i64 %.sroa.0.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %6 = load i8, ptr %4, align 8, !range !26, !alias.scope !27, !noundef !3
@@ -280,7 +280,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$$u5b$ruff_formatter
   br label %17
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %0, i64 %.sroa.0.1
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.sroa.0.1
   %23 = add i64 %.sroa.0.1, 1
   invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$ruff_formatter..format_element..FormatElement$GT$17hf7d5738ba8e42476E"(ptr noalias noundef align 8 dereferenceable(24) %22) #24
           to label %17 unwind label %25
@@ -403,7 +403,7 @@ define internal void @"_ZN64_$LT$$RF$mut$u20$W$u20$as$u20$ruff_formatter..buffer
 "_ZN99_$LT$ruff_formatter..buffer..VecBuffer$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$13write_element17h317a129bb51032eeE.exit": ; preds = %2, %8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !34, !noalias !39, !nonnull !3, !noundef !3
-  %16 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %15, i64 %5
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %17 = add i64 %5, 1
   store i64 %17, ptr %4, align 8, !alias.scope !34, !noalias !39
@@ -551,7 +551,7 @@ define internal void @"_ZN64_$LT$$RF$mut$u20$W$u20$as$u20$ruff_formatter..buffer
   %20 = sub nuw nsw i64 %11, %5
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !62, !noalias !65, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %22, i64 %5
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %5
   store i64 %5, ptr %10, align 8, !alias.scope !62, !noalias !65
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$$u5b$ruff_formatter..format_element..FormatElement$u5d$$GT$17h8174fb203d5a91e4E"(ptr noalias noundef nonnull align 8 %23, i64 noundef %20)
           to label %24 unwind label %6, !noalias !62
@@ -1203,7 +1203,7 @@ define hidden void @_ZN14ruff_formatter7printer10call_stack13FitsCallStack3new17
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1270,7 +1270,7 @@ define hidden void @_ZN14ruff_formatter7printer5queue10PrintQueue3new17hd6f13c17
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %1, i64 %2
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %2
   store ptr %1, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %12, ptr %13, align 8
@@ -1287,7 +1287,7 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
-  %7 = getelementptr { ptr, ptr, {} }, ptr %6, i64 %3
+  %7 = getelementptr [16 x i8], ptr %6, i64 %3
   %8 = getelementptr i8, ptr %7, i64 -16
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr i8, ptr %7, i64 -8
@@ -1318,7 +1318,7 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
   br i1 %.not.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb1a782f05f96b331E.exit", label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr { ptr, ptr, {} }, ptr %6, i64 %16
+  %21 = getelementptr [16 x i8], ptr %6, i64 %16
   %22 = getelementptr i8, ptr %21, i64 -16
   %23 = load ptr, ptr %22, align 8, !noalias !118, !nonnull !3, !noundef !3
   %24 = getelementptr i8, ptr %21, i64 -8
@@ -1378,7 +1378,7 @@ define void @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$r
   ret void
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %1, i64 %2
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !124, !noundef !3
   %10 = load i64, ptr %0, align 8, !range !24, !alias.scope !124, !noundef !3
@@ -1392,7 +1392,7 @@ define void @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$r
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h799d8046f72ee3c9E.exit": ; preds = %6, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !124, !nonnull !3, !noundef !3
-  %15 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %14, i64 %9
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %9
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %7, ptr %16, align 8
@@ -1418,7 +1418,7 @@ define { ptr, i64 } @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = icmp ult i64 %3, 576460752303423489
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %10, i64 %6
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %6
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
@@ -1442,7 +1442,7 @@ define hidden void @_ZN14ruff_formatter7printer5queue9FitsQueue3new17h0c9fa1d05e
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
@@ -1468,7 +1468,7 @@ define noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !127, !nonnull !3, !noundef !3
-  %7 = getelementptr { ptr, ptr, {} }, ptr %6, i64 %3
+  %7 = getelementptr [16 x i8], ptr %6, i64 %3
   %8 = getelementptr i8, ptr %7, i64 -16
   %9 = load ptr, ptr %8, align 8, !noalias !127, !nonnull !3, !noundef !3
   %10 = getelementptr i8, ptr %7, i64 -8
@@ -1495,7 +1495,7 @@ define noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue
   br i1 %.not.i.i.i, label %29, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr { ptr, ptr, {} }, ptr %6, i64 %16
+  %21 = getelementptr [16 x i8], ptr %6, i64 %16
   %22 = getelementptr i8, ptr %21, i64 -16
   %23 = load ptr, ptr %22, align 8, !noalias !136, !nonnull !3, !noundef !3
   %24 = getelementptr i8, ptr %21, i64 -8
@@ -1558,7 +1558,7 @@ define internal fastcc noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h799d8046f72ee3c9E.exit.i": ; preds = %22, %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !143, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %24, i64 %19
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %19
   store ptr %9, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %17, ptr %26, align 8
@@ -1576,7 +1576,7 @@ define internal fastcc noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..
 30:                                               ; preds = %"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$11extend_back17h56daa174292a5535E.exit"
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !140, !nonnull !3, !noundef !3
-  %33 = getelementptr { ptr, ptr, {} }, ptr %32, i64 %28
+  %33 = getelementptr [16 x i8], ptr %32, i64 %28
   %34 = getelementptr i8, ptr %33, i64 -16
   %35 = load ptr, ptr %34, align 8, !noalias !140, !nonnull !3, !noundef !3
   %36 = getelementptr i8, ptr %33, i64 -8
@@ -1603,7 +1603,7 @@ define internal fastcc noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..
   br i1 %.not.i.i.i, label %"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$3pop17h1c2dba19db47e764E.exit", label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr { ptr, ptr, {} }, ptr %32, i64 %42
+  %47 = getelementptr [16 x i8], ptr %32, i64 %42
   %48 = getelementptr i8, ptr %47, i64 -16
   %49 = load ptr, ptr %48, align 8, !noalias !154, !nonnull !3, !noundef !3
   %50 = getelementptr i8, ptr %47, i64 -8
@@ -1685,7 +1685,7 @@ define void @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue$u20$as$u20$ruf
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %1, i64 %2
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !163, !noundef !3
   %9 = load i64, ptr %0, align 8, !range !24, !alias.scope !163, !noundef !3
@@ -1699,7 +1699,7 @@ define void @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue$u20$as$u20$ruf
 "_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$11extend_back17h56daa174292a5535E.exit": ; preds = %5, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !163, !nonnull !3, !noundef !3
-  %14 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %13, i64 %8
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %6, ptr %15, align 8
@@ -1729,7 +1729,7 @@ define { ptr, i64 } @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue$u20$as
   %9 = load ptr, ptr %8, align 8, !alias.scope !168, !nonnull !3, !noundef !3
   %10 = icmp ult i64 %3, 576460752303423489
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %9, i64 %5
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %5
   %12 = load ptr, ptr %11, align 8, !noalias !168, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !168, !nonnull !3, !noundef !3

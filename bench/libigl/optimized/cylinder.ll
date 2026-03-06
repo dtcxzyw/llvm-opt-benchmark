@@ -72,9 +72,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %36 = fdiv double %35, %15
   %37 = mul nuw nsw i64 %indvars.iv, %20
   %38 = add nuw nsw i64 %37, %indvars.iv83
-  %39 = getelementptr double, ptr %16, i64 %38
+  %39 = getelementptr [8 x i8], ptr %16, i64 %38
   store double %26, ptr %39, align 8, !tbaa !8
-  %40 = getelementptr double, ptr %39, i64 %18
+  %40 = getelementptr [8 x i8], ptr %39, i64 %18
   store double %27, ptr %40, align 8, !tbaa !8
   %41 = getelementptr i8, ptr %39, i64 %.idx
   store double %36, ptr %41, align 8, !tbaa !8
@@ -86,23 +86,23 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %44 = mul nsw i64 %43, %21
   %45 = add nsw i64 %indvars.iv83, %44
   %46 = sext i32 %.175.us to i64
-  %47 = getelementptr i32, ptr %28, i64 %46
+  %47 = getelementptr [4 x i8], ptr %28, i64 %46
   %48 = trunc nsw i64 %45 to i32
   store i32 %48, ptr %47, align 4, !tbaa !4
-  %49 = getelementptr i32, ptr %47, i64 %29
+  %49 = getelementptr [4 x i8], ptr %47, i64 %29
   %50 = trunc i64 %44 to i32
   %51 = add i32 %iv.rem, %50
   store i32 %51, ptr %49, align 4, !tbaa !4
-  %52 = getelementptr i32, ptr %47, i64 %30
+  %52 = getelementptr [4 x i8], ptr %47, i64 %30
   %53 = trunc nuw i64 %38 to i32
   store i32 %53, ptr %52, align 4, !tbaa !4
   %54 = getelementptr i8, ptr %47, i64 4
   store i32 %51, ptr %54, align 4, !tbaa !4
-  %55 = getelementptr i32, ptr %54, i64 %29
+  %55 = getelementptr [4 x i8], ptr %54, i64 %29
   %56 = trunc i64 %37 to i32
   %57 = add i32 %iv.rem, %56
   store i32 %57, ptr %55, align 4, !tbaa !4
-  %58 = getelementptr i32, ptr %54, i64 %30
+  %58 = getelementptr [4 x i8], ptr %54, i64 %30
   store i32 %53, ptr %58, align 4, !tbaa !4
   %59 = add nsw i32 %.175.us, 2
   br label %60

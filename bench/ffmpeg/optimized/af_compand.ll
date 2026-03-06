@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.ChanParam = type { double, double, double }
-%struct.CompandSegment = type { double, double, double, double }
 
 @.str = private unnamed_addr constant [8 x i8] c"compand\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"Compress or expand audio dynamic range.\00", align 1
@@ -166,11 +164,11 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.preheader.split.us.i
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %._crit_edge.us.i ], [ 0, %.preheader.split.us.i ]
-  %56 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv62.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv62.i
   %57 = load ptr, ptr %56, align 8, !tbaa !56
-  %58 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv62.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv62.i
   %59 = load ptr, ptr %58, align 8, !tbaa !56
-  %60 = getelementptr inbounds nuw %struct.ChanParam, ptr %46, i64 %indvars.iv62.i
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %indvars.iv62.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   br label %62
 
@@ -178,7 +176,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %get_volume.exit.us.i ]
   %.156.us.i = phi i32 [ %48, %.lr.ph.us.i ], [ %98, %get_volume.exit.us.i ]
   %63 = sext i32 %.156.us.i to i64
-  %64 = getelementptr inbounds double, ptr %57, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %57, i64 %63
   %65 = load double, ptr %64, align 8, !tbaa !57
   %66 = load double, ptr %61, align 8, !tbaa !58
   %67 = load double, ptr %50, align 8, !tbaa !60
@@ -198,7 +196,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 
 74:                                               ; preds = %78, %.lr.ph.i.us.i
   %indvars.iv.i.us.i = phi i64 [ 1, %.lr.ph.i.us.i ], [ %indvars.iv.next.i.us.i, %78 ]
-  %75 = getelementptr inbounds nuw %struct.CompandSegment, ptr %73, i64 %indvars.iv.i.us.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %indvars.iv.i.us.i
   %76 = load double, ptr %75, align 8, !tbaa !63
   %77 = fcmp nsz ugt double %70, %76
   br i1 %77, label %78, label %._crit_edge.loopexit.split.loop.exit.i.us.i
@@ -214,7 +212,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 
 ._crit_edge.i.us.i:                               ; preds = %78, %._crit_edge.loopexit.split.loop.exit.i.us.i, %69
   %.0.lcssa.i.us.i = phi i64 [ 1, %69 ], [ %.pre.i, %._crit_edge.loopexit.split.loop.exit.i.us.i ], [ %wide.trip.count.i.us.i, %78 ]
-  %79 = getelementptr %struct.CompandSegment, ptr %73, i64 %.0.lcssa.i.us.i
+  %79 = getelementptr [32 x i8], ptr %73, i64 %.0.lcssa.i.us.i
   %80 = getelementptr i8, ptr %79, i64 -32
   %81 = load double, ptr %80, align 8, !tbaa !63
   %82 = fsub nsz double %70, %81
@@ -236,7 +234,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 get_volume.exit.us.i:                             ; preds = %92, %._crit_edge.i.us.i
   %.020.i.us.i = phi nsz double [ %93, %92 ], [ %91, %._crit_edge.i.us.i ]
   %94 = fmul nsz double %65, %.020.i.us.i
-  %95 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv.i
   store double %94, ptr %95, align 8, !tbaa !57
   %96 = add nsw i32 %.156.us.i, 1
   %.not54.us.i = icmp slt i32 %96, %55
@@ -432,10 +430,10 @@ count_items.exit376:                              ; preds = %34
 
 69:                                               ; preds = %.lr.ph
   %70 = load ptr, ptr %55, align 8, !tbaa !53
-  %71 = getelementptr inbounds nuw %struct.ChanParam, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %indvars.iv
   %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %67, ptr noundef nonnull @.str.9, ptr noundef %71) #13
   %73 = load ptr, ptr %55, align 8, !tbaa !53
-  %74 = getelementptr inbounds nuw %struct.ChanParam, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %indvars.iv
   %75 = load double, ptr %74, align 8, !tbaa !79
   %76 = fcmp nsz olt double %75, 0.000000e+00
   br i1 %76, label %77, label %78
@@ -477,11 +475,11 @@ count_items.exit376:                              ; preds = %34
 
 87:                                               ; preds = %.lr.ph408
   %88 = load ptr, ptr %55, align 8, !tbaa !53
-  %89 = getelementptr inbounds nuw %struct.ChanParam, ptr %88, i64 %indvars.iv443
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %88, i64 %indvars.iv443
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %85, ptr noundef nonnull @.str.9, ptr noundef nonnull %90) #13
   %92 = load ptr, ptr %55, align 8, !tbaa !53
-  %93 = getelementptr inbounds nuw %struct.ChanParam, ptr %92, i64 %indvars.iv443
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %indvars.iv443
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !81
   %96 = fcmp nsz olt double %95, 0.000000e+00
@@ -511,7 +509,7 @@ count_items.exit376:                              ; preds = %34
 
 .lr.ph412:                                        ; preds = %.preheader394
   %104 = zext i32 %.0328.lcssa to i64
-  %105 = getelementptr %struct.ChanParam, ptr %102, i64 %104
+  %105 = getelementptr [24 x i8], ptr %102, i64 %104
   %106 = getelementptr i8, ptr %105, i64 -24
   %107 = getelementptr i8, ptr %105, i64 -16
   %.pre = load double, ptr %106, align 8, !tbaa !79
@@ -525,7 +523,7 @@ count_items.exit376:                              ; preds = %34
 
 109:                                              ; preds = %.lr.ph412, %109
   %indvars.iv448 = phi i64 [ %104, %.lr.ph412 ], [ %indvars.iv.next449, %109 ]
-  %110 = getelementptr inbounds nuw %struct.ChanParam, ptr %102, i64 %indvars.iv448
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %102, i64 %indvars.iv448
   store double %.pre, ptr %110, align 8, !tbaa !79
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store double %.pre474, ptr %111, align 8, !tbaa !81
@@ -559,7 +557,7 @@ count_items.exit376:                              ; preds = %34
   %119 = shl i64 %indvars.iv451, 33
   %sext = add i64 %119, 8589934592
   %120 = ashr exact i64 %sext, 32
-  %121 = getelementptr inbounds %struct.CompandSegment, ptr %118, i64 %120
+  %121 = getelementptr inbounds [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %116, ptr noundef nonnull @.str.11, ptr noundef %121, ptr noundef nonnull %122) #13
   %.not363 = icmp eq i32 %123, 2
@@ -576,7 +574,7 @@ count_items.exit376:                              ; preds = %34
   br i1 %.not364, label %._crit_edge476, label %126
 
 ._crit_edge476:                                   ; preds = %125
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.CompandSegment, ptr %.pre475, i64 %120
+  %.phi.trans.insert = getelementptr inbounds nuw [32 x i8], ptr %.pre475, i64 %120
   %.pre477 = load double, ptr %.phi.trans.insert, align 8, !tbaa !63
   br label %133
 
@@ -584,7 +582,7 @@ count_items.exit376:                              ; preds = %34
   %.idx = shl nuw i64 %indvars.iv451, 6
   %127 = getelementptr inbounds nuw i8, ptr %.pre475, i64 %.idx
   %128 = load double, ptr %127, align 8, !tbaa !63
-  %129 = getelementptr inbounds %struct.CompandSegment, ptr %.pre475, i64 %120
+  %129 = getelementptr inbounds [32 x i8], ptr %.pre475, i64 %120
   %130 = load double, ptr %129, align 8, !tbaa !63
   %131 = fcmp nsz ogt double %128, %130
   br i1 %131, label %132, label %133
@@ -596,7 +594,7 @@ count_items.exit376:                              ; preds = %34
 
 133:                                              ; preds = %._crit_edge476, %126
   %134 = phi double [ %.pre477, %._crit_edge476 ], [ %130, %126 ]
-  %135 = getelementptr inbounds %struct.CompandSegment, ptr %.pre475, i64 %120
+  %135 = getelementptr inbounds [32 x i8], ptr %.pre475, i64 %120
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load double, ptr %136, align 8, !tbaa !67
   %138 = fsub nsz double %137, %134
@@ -611,7 +609,7 @@ count_items.exit376:                              ; preds = %34
   %.pre478.pre = load ptr, ptr %61, align 8, !tbaa !62
   %140 = shl nuw nsw i32 %.0387, 1
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw %struct.CompandSegment, ptr %.pre478.pre, i64 %141
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %.pre478.pre, i64 %141
   %143 = load double, ptr %142, align 8, !tbaa !63
   %144 = fcmp nsz une double %143, 0.000000e+00
   br i1 %144, label %145, label %147
@@ -664,17 +662,17 @@ count_items.exit376:                              ; preds = %34
   %163 = shl i32 %.4341424, 1
   %164 = add i32 %163, -2
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds %struct.CompandSegment, ptr %162, i64 %165
+  %166 = getelementptr inbounds [32 x i8], ptr %162, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load double, ptr %167, align 8, !tbaa !67
   %169 = add i32 %163, -4
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds %struct.CompandSegment, ptr %162, i64 %170
+  %171 = getelementptr inbounds [32 x i8], ptr %162, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load double, ptr %172, align 8, !tbaa !67
   %174 = fsub nsz double %168, %173
   %175 = sext i32 %163 to i64
-  %176 = getelementptr inbounds %struct.CompandSegment, ptr %162, i64 %175
+  %176 = getelementptr inbounds [32 x i8], ptr %162, i64 %175
   %177 = load double, ptr %176, align 8, !tbaa !63
   %178 = load double, ptr %166, align 8, !tbaa !63
   %179 = fsub nsz double %177, %178
@@ -732,7 +730,7 @@ count_items.exit376:                              ; preds = %34
 
 202:                                              ; preds = %.lr.ph429, %202
   %indvars.iv463 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next464, %202 ]
-  %203 = getelementptr inbounds nuw %struct.CompandSegment, ptr %.pre479.pre, i64 %indvars.iv463
+  %203 = getelementptr inbounds nuw [32 x i8], ptr %.pre479.pre, i64 %indvars.iv463
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load double, ptr %204, align 8, !tbaa !67
   %206 = fadd nsz double %160, %205
@@ -747,7 +745,7 @@ count_items.exit376:                              ; preds = %34
 
 211:                                              ; preds = %.lr.ph432, %211
   %indvars.iv466 = phi i64 [ 4, %.lr.ph432 ], [ %indvars.iv.next467, %211 ]
-  %212 = getelementptr %struct.CompandSegment, ptr %.pre479.pre, i64 %indvars.iv466
+  %212 = getelementptr [32 x i8], ptr %.pre479.pre, i64 %indvars.iv466
   %213 = getelementptr i8, ptr %212, i64 -128
   %214 = getelementptr i8, ptr %212, i64 -112
   store double 0.000000e+00, ptr %214, align 8, !tbaa !68
@@ -828,7 +826,7 @@ count_items.exit376:                              ; preds = %34
 
 .lr.ph437:                                        ; preds = %.preheader393, %.preheader, %._crit_edge433.loopexit
   %.7.lcssa = phi i64 [ 4, %.preheader ], [ %274, %._crit_edge433.loopexit ], [ 4, %.preheader393 ]
-  %275 = getelementptr %struct.CompandSegment, ptr %.pre479.pre, i64 %.7.lcssa
+  %275 = getelementptr [32 x i8], ptr %.pre479.pre, i64 %.7.lcssa
   %276 = getelementptr i8, ptr %275, i64 -96
   store double 0.000000e+00, ptr %276, align 8, !tbaa !63
   %277 = getelementptr i8, ptr %275, i64 -56
@@ -858,7 +856,7 @@ count_items.exit376:                              ; preds = %34
 
 296:                                              ; preds = %.lr.ph437, %314
   %indvars.iv469 = phi i64 [ 0, %.lr.ph437 ], [ %indvars.iv.next470, %314 ]
-  %297 = getelementptr inbounds nuw %struct.ChanParam, ptr %288, i64 %indvars.iv469
+  %297 = getelementptr inbounds nuw [24 x i8], ptr %288, i64 %indvars.iv469
   %298 = load double, ptr %297, align 8, !tbaa !79
   %299 = fcmp nsz ogt double %298, %290
   br i1 %299, label %300, label %305
@@ -1043,17 +1041,17 @@ update_volume.exit.lr.ph.us.preheader:            ; preds = %.lr.ph
 
 update_volume.exit.lr.ph.us:                      ; preds = %update_volume.exit.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv41 = phi i64 [ 0, %update_volume.exit.lr.ph.us.preheader ], [ %indvars.iv.next42, %._crit_edge.us ]
-  %39 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv41
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv41
   %40 = load ptr, ptr %39, align 8, !tbaa !56
-  %41 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv41
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv41
   %42 = load ptr, ptr %41, align 8, !tbaa !56
-  %43 = getelementptr inbounds nuw %struct.ChanParam, ptr %33, i64 %indvars.iv41
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv41
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   br label %update_volume.exit.us
 
 update_volume.exit.us:                            ; preds = %update_volume.exit.lr.ph.us, %get_volume.exit.us
   %indvars.iv = phi i64 [ 0, %update_volume.exit.lr.ph.us ], [ %indvars.iv.next, %get_volume.exit.us ]
-  %45 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %46 = load double, ptr %45, align 8, !tbaa !57
   %47 = tail call nsz double @llvm.fabs.f64(double %46)
   %48 = load double, ptr %44, align 8, !tbaa !58
@@ -1082,7 +1080,7 @@ update_volume.exit.us:                            ; preds = %update_volume.exit.
 
 60:                                               ; preds = %64, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 1, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %64 ]
-  %61 = getelementptr inbounds nuw %struct.CompandSegment, ptr %59, i64 %indvars.iv.i.us
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %59, i64 %indvars.iv.i.us
   %62 = load double, ptr %61, align 8, !tbaa !63
   %63 = fcmp nsz ugt double %56, %62
   br i1 %63, label %64, label %._crit_edge.loopexit.split.loop.exit.i.us
@@ -1098,7 +1096,7 @@ update_volume.exit.us:                            ; preds = %update_volume.exit.
 
 ._crit_edge.i.us:                                 ; preds = %64, %._crit_edge.loopexit.split.loop.exit.i.us, %55
   %.0.lcssa.i.us = phi i64 [ 1, %55 ], [ %.pre, %._crit_edge.loopexit.split.loop.exit.i.us ], [ %wide.trip.count.i.us, %64 ]
-  %65 = getelementptr %struct.CompandSegment, ptr %59, i64 %.0.lcssa.i.us
+  %65 = getelementptr [32 x i8], ptr %59, i64 %.0.lcssa.i.us
   %66 = getelementptr i8, ptr %65, i64 -32
   %67 = load double, ptr %66, align 8, !tbaa !63
   %68 = fsub nsz double %56, %67
@@ -1120,7 +1118,7 @@ update_volume.exit.us:                            ; preds = %update_volume.exit.
 get_volume.exit.us:                               ; preds = %78, %._crit_edge.i.us
   %.020.i.us = phi nsz double [ %79, %78 ], [ %77, %._crit_edge.i.us ]
   %80 = fmul nsz double %52, %.020.i.us
-  %81 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   store double %80, ptr %81, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1215,14 +1213,14 @@ update_volume.exit.lr.ph.us:                      ; preds = %update_volume.exit.
   %indvars.iv138 = phi i64 [ 0, %update_volume.exit.lr.ph.us.preheader ], [ %indvars.iv.next139, %._crit_edge.us ]
   %37 = load ptr, ptr %23, align 8, !tbaa !51
   %38 = load ptr, ptr %24, align 8, !tbaa !52
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv138
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv138
   %40 = load ptr, ptr %39, align 8, !tbaa !56
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %42 = load ptr, ptr %41, align 8, !tbaa !52
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv138
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv138
   %44 = load ptr, ptr %43, align 8, !tbaa !56
   %45 = load ptr, ptr %25, align 8, !tbaa !53
-  %46 = getelementptr inbounds nuw %struct.ChanParam, ptr %45, i64 %indvars.iv138
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv138
   %47 = load i32, ptr %26, align 4, !tbaa !42
   %48 = load i32, ptr %27, align 8, !tbaa !54
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -1237,7 +1235,7 @@ update_volume.exit.us:                            ; preds = %update_volume.exit.
   %.071113.us = phi i32 [ 0, %update_volume.exit.lr.ph.us ], [ %.273.us, %120 ]
   %.175112.us = phi i32 [ %47, %update_volume.exit.lr.ph.us ], [ %.377.us, %120 ]
   %52 = phi ptr [ %.promoted.us, %update_volume.exit.lr.ph.us ], [ %122, %120 ]
-  %53 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load double, ptr %53, align 8, !tbaa !57
   %55 = tail call nsz double @llvm.fabs.f64(double %54)
   %56 = load double, ptr %49, align 8, !tbaa !58
@@ -1289,10 +1287,10 @@ update_volume.exit.us:                            ; preds = %update_volume.exit.
   %79 = phi ptr [ %66, %70 ], [ %52, %60 ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 96
   %81 = load ptr, ptr %80, align 8, !tbaa !52
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv138
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv138
   %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = sext i32 %.168114.us to i64
-  %85 = getelementptr inbounds double, ptr %44, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %44, i64 %84
   %86 = load double, ptr %85, align 8, !tbaa !57
   %87 = load double, ptr %32, align 8, !tbaa !60
   %88 = fcmp nsz olt double %78, %87
@@ -1311,7 +1309,7 @@ update_volume.exit.us:                            ; preds = %update_volume.exit.
 
 94:                                               ; preds = %98, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 1, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %98 ]
-  %95 = getelementptr inbounds nuw %struct.CompandSegment, ptr %93, i64 %indvars.iv.i.us
+  %95 = getelementptr inbounds nuw [32 x i8], ptr %93, i64 %indvars.iv.i.us
   %96 = load double, ptr %95, align 8, !tbaa !63
   %97 = fcmp nsz ugt double %90, %96
   br i1 %97, label %98, label %._crit_edge.loopexit.split.loop.exit.i.us
@@ -1327,7 +1325,7 @@ update_volume.exit.us:                            ; preds = %update_volume.exit.
 
 ._crit_edge.i.us:                                 ; preds = %98, %._crit_edge.loopexit.split.loop.exit.i.us, %89
   %.0.lcssa.i.us = phi i64 [ 1, %89 ], [ %.pre150, %._crit_edge.loopexit.split.loop.exit.i.us ], [ %wide.trip.count.i.us, %98 ]
-  %99 = getelementptr %struct.CompandSegment, ptr %93, i64 %.0.lcssa.i.us
+  %99 = getelementptr [32 x i8], ptr %93, i64 %.0.lcssa.i.us
   %100 = getelementptr i8, ptr %99, i64 -32
   %101 = load double, ptr %100, align 8, !tbaa !63
   %102 = fsub nsz double %90, %101
@@ -1351,7 +1349,7 @@ get_volume.exit.us:                               ; preds = %112, %._crit_edge.i
   %114 = fmul nsz double %86, %.020.i.us
   %115 = add nsw i32 %.071113.us, 1
   %116 = sext i32 %.071113.us to i64
-  %117 = getelementptr inbounds double, ptr %83, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %83, i64 %116
   store double %114, ptr %117, align 8, !tbaa !57
   %.pre145 = load i32, ptr %28, align 8, !tbaa !55
   br label %120
@@ -1368,7 +1366,7 @@ get_volume.exit.us:                               ; preds = %112, %._crit_edge.i
   %122 = phi ptr [ %52, %118 ], [ %79, %get_volume.exit.us ]
   %.377.us = phi i32 [ %119, %118 ], [ %.175112.us, %get_volume.exit.us ]
   %.273.us = phi i32 [ %.071113.us, %118 ], [ %115, %get_volume.exit.us ]
-  %123 = getelementptr inbounds double, ptr %44, i64 %.pre-phi
+  %123 = getelementptr inbounds [8 x i8], ptr %44, i64 %.pre-phi
   store double %54, ptr %123, align 8, !tbaa !57
   %124 = add nsw i32 %.168114.us, 1
   %.not90.us = icmp slt i32 %124, %121

@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec64 = type { i64, i64 }
 %struct.old_itimerval32 = type { %struct.old_timeval32, %struct.old_timeval32 }
 %struct.old_timeval32 = type { i32, i32 }
-%struct.cpu_itimer = type { i64, i64 }
 
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 @__tracepoint_itimer_expire = external dso_local global %struct.tracepoint, align 8
@@ -938,7 +937,7 @@ define internal fastcc void @set_cpu_itimer(ptr noundef %0, i32 noundef range(i3
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr %struct.cpu_itimer, ptr %9, i64 %10
+  %11 = getelementptr [16 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp sgt i64 %13, 9223372035

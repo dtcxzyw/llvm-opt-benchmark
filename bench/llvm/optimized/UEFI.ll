@@ -230,8 +230,8 @@ define hidden void @_ZNK5clang6driver10toolchains4UEFI25AddClangSystemIncludeArg
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !9, !noalias !6
   %18 = and i64 %15, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
-  %20 = getelementptr ptr, ptr %17, i64 %.sroa.4.0.extract.shift.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
+  %20 = getelementptr [8 x i8], ptr %17, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %18, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -301,8 +301,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !37
   %37 = load ptr, ptr %16, align 8, !tbaa !9, !noalias !37
   %38 = and i64 %36, 4294967295
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
-  %40 = getelementptr ptr, ptr %37, i64 %.sroa.4.0.extract.shift.i.i9
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
+  %40 = getelementptr [8 x i8], ptr %37, i64 %.sroa.4.0.extract.shift.i.i9
   %.not29.i.i.i.i10 = icmp samesign eq i64 %38, %.sroa.4.0.extract.shift.i.i9
   br i1 %.not29.i.i.i.i10, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i18, label %.lr.ph.i.i.i.i12
 
@@ -455,8 +455,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !121
   %85 = load ptr, ptr %16, align 8, !tbaa !9, !noalias !121
   %86 = and i64 %84, 4294967295
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
-  %88 = getelementptr ptr, ptr %85, i64 %.sroa.4.0.extract.shift.i.i36
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
+  %88 = getelementptr [8 x i8], ptr %85, i64 %.sroa.4.0.extract.shift.i.i36
   %.not29.i.i.i.i37 = icmp samesign eq i64 %86, %.sroa.4.0.extract.shift.i.i36
   br i1 %.not29.i.i.i.i37, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i45, label %.lr.ph.i.i.i.i39
 
@@ -670,7 +670,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZStpl
   %56 = phi i32 [ %51, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit ], [ %.pre.i17, %53 ]
   %57 = load ptr, ptr %12, align 8, !tbaa !9
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = ptrtoint ptr %50 to i64
   store i64 %60, ptr %59, align 1
   %61 = load i32, ptr %20, align 8, !tbaa !128
@@ -717,7 +717,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit24: ; preds = %7, %
   %75 = phi i32 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20 ], [ %.pre.i23, %72 ], [ 0, %7 ]
   %76 = load ptr, ptr %12, align 8, !tbaa !9
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   store i64 ptrtoint (ptr @.str.3 to i64), ptr %78, align 1
   %79 = load i32, ptr %20, align 8, !tbaa !128
   %80 = add i32 %79, 1
@@ -737,7 +737,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit27: ; preds = %_ZN4
   %85 = phi i32 [ %80, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit24 ], [ %.pre.i26, %82 ]
   %86 = load ptr, ptr %12, align 8, !tbaa !9
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   store i64 ptrtoint (ptr @.str.4 to i64), ptr %88, align 1
   %89 = load i32, ptr %20, align 8, !tbaa !128
   %90 = add i32 %89, 1
@@ -757,7 +757,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit30: ; preds = %_ZN4
   %95 = phi i32 [ %90, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit27 ], [ %.pre.i29, %92 ]
   %96 = load ptr, ptr %12, align 8, !tbaa !9
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %97
   store i64 ptrtoint (ptr @.str.5 to i64), ptr %98, align 1
   %99 = load i32, ptr %20, align 8, !tbaa !128
   %100 = add i32 %99, 1
@@ -777,7 +777,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit33: ; preds = %_ZN4
   %105 = phi i32 [ %100, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit30 ], [ %.pre.i32, %102 ]
   %106 = load ptr, ptr %12, align 8, !tbaa !9
   %107 = zext i32 %105 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %107
   store i64 ptrtoint (ptr @.str.6 to i64), ptr %108, align 1
   %109 = load i32, ptr %20, align 8, !tbaa !128
   %110 = add i32 %109, 1
@@ -797,7 +797,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit36: ; preds = %_ZN4
   %115 = phi i32 [ %110, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit33 ], [ %.pre.i35, %112 ]
   %116 = load ptr, ptr %12, align 8, !tbaa !9
   %117 = zext i32 %115 to i64
-  %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %117
   store i64 ptrtoint (ptr @.str.7 to i64), ptr %118, align 1
   %119 = load i32, ptr %20, align 8, !tbaa !128
   %120 = add i32 %119, 1
@@ -823,7 +823,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit39: ; preds = %122,
   %128 = phi i32 [ %123, %122 ], [ %.pre.i38, %125 ]
   %129 = load ptr, ptr %12, align 8, !tbaa !9
   %130 = zext i32 %128 to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %130
   store i64 ptrtoint (ptr @.str.8 to i64), ptr %131, align 1
   %132 = load i32, ptr %20, align 8, !tbaa !128
   %133 = add i32 %132, 1
@@ -972,7 +972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   br i1 %.not.i.i.not.i.i.i, label %_ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS3_EE.exit.i, label %180, !prof !142
 
 180:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %181 = getelementptr inbounds nuw %"class.std::unique_ptr.110", ptr %.pre3.i.i.i, i64 %176
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i.i, i64 %176
   %182 = icmp uge ptr %8, %.pre3.i.i.i
   %183 = icmp ult ptr %8, %181
   %spec.select.i.i.i.i.i.i.i = and i1 %182, %183
@@ -999,7 +999,7 @@ _ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS
   %.016.i.i.i.i.i = phi ptr [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %189, %184 ], [ %8, %.critedge.i.i.i.i.i ]
   %192 = load i32, ptr %174, align 8, !tbaa !128
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw %"class.std::unique_ptr.110", ptr %191, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %193
   store i64 %190, ptr %194, align 8, !tbaa !155
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !155
   %195 = add i32 %192, 1
@@ -1676,8 +1676,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !9, !noalias !160
   %10 = and i64 %7, 4294967295
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.4.0.extract.shift.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.4.0.extract.shift.i
   store ptr %11, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %13, align 8

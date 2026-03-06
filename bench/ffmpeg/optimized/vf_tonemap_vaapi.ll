@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._VAProcPipelineParameterBuffer = type { i32, ptr, i32, ptr, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, ptr, i32, ptr, i32, i32, i32, %struct._VAProcColorProperties, %struct._VAProcColorProperties, i32, ptr, [16 x i32] }
 %struct._VAProcColorProperties = type { i8, i8, i8, i8, i8, [3 x i8] }
 %struct._VAHdrMetaData = type { i32, ptr, i32, [4 x i32] }
-%struct.AVRational = type { i32, i32 }
 %struct._VAProcFilterParameterBufferHDRToneMapping = type { i32, %struct._VAHdrMetaData, [16 x i32] }
 %struct._VAProcFilterCapHighDynamicRange = type { i32, i16, [16 x i16] }
 
@@ -342,10 +341,10 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
 
 71:                                               ; preds = %71, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr @__const.tonemap_vaapi_update_sidedata.mapping, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @__const.tonemap_vaapi_update_sidedata.mapping, i64 %indvars.iv.i
   %73 = load i32, ptr %72, align 4, !tbaa !75
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [2 x %struct.AVRational], ptr %38, i64 %74
+  %75 = getelementptr inbounds [16 x i8], ptr %38, i64 %74
   %76 = load i64, ptr %75, align 4
   %.sroa.0.0.extract.trunc.i87.i = trunc i64 %76 to i32
   %.sroa.2.0.extract.shift.i88.i = lshr i64 %76, 32
@@ -357,7 +356,7 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
   %81 = tail call i64 @llvm.lrint.i64.f64(double %80)
   %spec.select111114.i = tail call i64 @llvm.smin.i64(i64 %81, i64 50000)
   %spec.select111.i = trunc i64 %spec.select111114.i to i16
-  %82 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv.i
   store i16 %spec.select111.i, ptr %82, align 2, !tbaa !76
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %84 = load i64, ptr %83, align 4
@@ -371,7 +370,7 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
   %89 = tail call i64 @llvm.lrint.i64.f64(double %88)
   %90 = tail call i64 @llvm.smin.i64(i64 %89, i64 50000)
   %91 = trunc i64 %90 to i16
-  %92 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv.i
   store i16 %91, ptr %92, align 2, !tbaa !76
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -610,17 +609,17 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
 
 224:                                              ; preds = %224, %219
   %indvars.iv.i61 = phi i64 [ 0, %219 ], [ %indvars.iv.next.i62, %224 ]
-  %225 = getelementptr inbounds nuw i32, ptr @__const.tonemap_vaapi_update_sidedata.mapping, i64 %indvars.iv.i61
+  %225 = getelementptr inbounds nuw [4 x i8], ptr @__const.tonemap_vaapi_update_sidedata.mapping, i64 %indvars.iv.i61
   %226 = load i32, ptr %225, align 4, !tbaa !75
-  %227 = getelementptr inbounds nuw i16, ptr %222, i64 %indvars.iv.i61
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %222, i64 %indvars.iv.i61
   %228 = load i16, ptr %227, align 2, !tbaa !76
   %229 = zext i16 %228 to i32
   %230 = sext i32 %226 to i64
-  %231 = getelementptr inbounds [2 x %struct.AVRational], ptr %221, i64 %230
+  %231 = getelementptr inbounds [16 x i8], ptr %221, i64 %230
   store i32 %229, ptr %231, align 4, !tbaa !100
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
   store i32 50000, ptr %232, align 4, !tbaa !101
-  %233 = getelementptr inbounds nuw i16, ptr %223, i64 %indvars.iv.i61
+  %233 = getelementptr inbounds nuw [2 x i8], ptr %223, i64 %indvars.iv.i61
   %234 = load i16, ptr %233, align 2, !tbaa !76
   %235 = zext i16 %234 to i32
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -870,7 +869,7 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw %struct._VAProcFilterCapHighDynamicRange, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv
   %20 = load i32, ptr %19, align 8, !tbaa !125
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %18, label %21
@@ -892,7 +891,7 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 
 .lr.ph44:                                         ; preds = %21, %24
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %24 ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw %struct._VAProcFilterCapHighDynamicRange, ptr %3, i64 %indvars.iv51
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv51
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i16, ptr %26, align 4, !tbaa !128
   %28 = and i16 %27, 1
@@ -910,7 +909,7 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 
 .lr.ph47:                                         ; preds = %21, %29
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %29 ], [ 0, %21 ]
-  %30 = getelementptr inbounds nuw %struct._VAProcFilterCapHighDynamicRange, ptr %3, i64 %indvars.iv56
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv56
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i16, ptr %31, align 4, !tbaa !128
   %33 = and i16 %32, 2

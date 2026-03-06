@@ -3123,7 +3123,7 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceISt
   %18 = shl nuw nsw i64 %16, 3
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #20
   store ptr %19, ptr %9, align 8
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %20, ptr %21, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -3279,7 +3279,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtValueESaIS1_EEC2EmRKS2
   store ptr %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -3406,7 +3406,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2Em
   store ptr %34, ptr %10, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %17
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %17
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %33
@@ -3627,12 +3627,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv.exit.preheader: 
 69:                                               ; preds = %.lr.ph, %_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv.exit
   %70 = phi ptr [ %61, %.lr.ph ], [ %194, %_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv.exit ]
   %.039123 = phi i64 [ 0, %.lr.ph ], [ %192, %_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv.exit ]
-  %71 = getelementptr inbounds double, ptr %70, i64 %.039123
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %.039123
   %72 = load double, ptr %71, align 8
   %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %73, i64 %.039123
+  %74 = getelementptr inbounds [16 x i8], ptr %73, i64 %.039123
   %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds i32, ptr %75, i64 %.039123
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %.039123
   %77 = load i32, ptr %76, align 4
   store i32 %77, ptr %18, align 4
   %78 = invoke ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11lower_boundEd(ptr noundef nonnull align 8 dereferenceable(24) %59, double noundef %72)
@@ -7116,7 +7116,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES1_EvT_S3_RSaIT0_
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -7571,7 +7571,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES1_EvT_S3_RSaIT0_
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -8564,7 +8564,7 @@ _ZNSt6vectorISt4pairIdN32pxrInternal_v0_24__pxrReserved__7VtValueEESaIS3_EE11_S_
 _ZNSt12_Vector_baseISt4pairIdN32pxrInternal_v0_24__pxrReserved__7VtValueEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt4pairIdN32pxrInternal_v0_24__pxrReserved__7VtValueEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, %66
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8
-  %70 = getelementptr inbounds nuw %"struct.std::pair.46", ptr %20, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %70, ptr %65, align 8
   ret void
 }

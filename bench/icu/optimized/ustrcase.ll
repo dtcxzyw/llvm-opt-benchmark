@@ -77,7 +77,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 37:                                               ; preds = %.lr.ph279
   %38 = add nsw i32 %.0128278, 1
   %39 = sext i32 %.0128278 to i64
-  %40 = getelementptr inbounds i16, ptr %5, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %5, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !14
   %42 = zext i16 %41 to i32
   %43 = and i32 %42, 64512
@@ -88,7 +88,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 
 45:                                               ; preds = %37
   %46 = sext i32 %38 to i64
-  %47 = getelementptr inbounds i16, ptr %5, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %5, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !14
   %49 = zext i16 %48 to i32
   %50 = and i32 %49, 64512
@@ -138,7 +138,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 68:                                               ; preds = %.thread.us
   %69 = add nsw i32 %.3142.us258, 1
   %70 = sext i32 %.3142.us258 to i64
-  %71 = getelementptr inbounds i16, ptr %5, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr %5, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !14
   %73 = zext i16 %72 to i32
   %74 = and i32 %73, 64512
@@ -149,7 +149,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 
 76:                                               ; preds = %68
   %77 = sext i32 %69 to i64
-  %78 = getelementptr inbounds i16, ptr %5, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %5, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !14
   %80 = zext i16 %79 to i32
   %81 = and i32 %80, 64512
@@ -190,7 +190,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   %.3142249354 = phi i32 [ %.5144, %.thread ], [ %.1140, %.thread.preheader ]
   %97 = add nsw i32 %.3142249354, 1
   %98 = sext i32 %.3142249354 to i64
-  %99 = getelementptr inbounds i16, ptr %5, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr %5, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !14
   %101 = zext i16 %100 to i32
   %102 = and i32 %101, 64512
@@ -201,7 +201,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 
 104:                                              ; preds = %.lr.ph355
   %105 = sext i32 %97 to i64
-  %106 = getelementptr inbounds i16, ptr %5, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %5, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !14
   %108 = zext i16 %107 to i32
   %109 = and i32 %108, 64512
@@ -255,7 +255,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 
 129:                                              ; preds = %127
   %130 = sext i32 %.0276 to i64
-  %131 = getelementptr inbounds i16, ptr %3, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %3, i64 %130
   %132 = call ptr @u_memcpy_77(ptr noundef %131, ptr noundef nonnull %40, i32 noundef range(i32 1, -2147483648) %121)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
 
@@ -304,7 +304,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds =
 145:                                              ; preds = %144, %144
   %146 = add nsw i32 %.0146, 2
   %147 = sext i32 %142 to i64
-  %148 = getelementptr inbounds i16, ptr %5, i64 %147
+  %148 = getelementptr inbounds [2 x i8], ptr %5, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !14
   %150 = icmp eq i32 %spec.select, 73
   br i1 %150, label %151, label %160
@@ -320,7 +320,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds =
 155:                                              ; preds = %153
   %156 = add nsw i32 %.0146, 3
   %157 = sext i32 %146 to i64
-  %158 = getelementptr inbounds i16, ptr %5, i64 %157
+  %158 = getelementptr inbounds [2 x i8], ptr %5, i64 %157
   %159 = load i16, ptr %158, align 2, !tbaa !14
   br label %160
 
@@ -350,7 +350,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds =
 
 169:                                              ; preds = %167
   %170 = sext i32 %.078.i to i64
-  %171 = getelementptr inbounds i16, ptr %5, i64 %170
+  %171 = getelementptr inbounds [2 x i8], ptr %5, i64 %170
   %172 = load i16, ptr %171, align 2, !tbaa !14
   %.not.i174 = icmp eq i16 %172, 769
   br i1 %.not.i174, label %173, label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKDsiiiPDsRiijPN6icu_775EditsE.exit
@@ -371,7 +371,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds =
 178:                                              ; preds = %176
   %179 = add nsw i32 %.179.i, 1
   %180 = sext i32 %.179.i to i64
-  %181 = getelementptr inbounds i16, ptr %5, i64 %180
+  %181 = getelementptr inbounds [2 x i8], ptr %5, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !14
   %183 = zext i16 %182 to i32
   %184 = and i32 %183, 64512
@@ -382,7 +382,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds =
 
 186:                                              ; preds = %178
   %187 = sext i32 %179 to i64
-  %188 = getelementptr inbounds i16, ptr %5, i64 %187
+  %188 = getelementptr inbounds [2 x i8], ptr %5, i64 %187
   %189 = load i16, ptr %188, align 2, !tbaa !14
   %190 = zext i16 %189 to i32
   %191 = and i32 %190, 64512
@@ -430,7 +430,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds =
 
 212:                                              ; preds = %210
   %213 = zext nneg i32 %139 to i64
-  %214 = getelementptr inbounds nuw i16, ptr %3, i64 %213
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %213
   %215 = call ptr @u_memcpy_77(ptr noundef %214, ptr noundef nonnull %148, i32 noundef range(i32 1, -2147483648) %.2.i)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
 
@@ -445,7 +445,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i: ; preds
 
 219:                                              ; preds = %217
   %220 = sext i32 %.0.i.i to i64
-  %221 = getelementptr inbounds i16, ptr %3, i64 %220
+  %221 = getelementptr inbounds [2 x i8], ptr %3, i64 %220
   store i16 74, ptr %221, align 2, !tbaa !14
   br label %224
 
@@ -473,7 +473,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %224, %222
   %230 = phi i32 [ %.0.i89.i, %227 ], [ %.0.i.i, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i ]
   %.068.i = phi i32 [ %228, %227 ], [ %216, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i ]
   %231 = sext i32 %.068.i to i64
-  %232 = getelementptr inbounds i16, ptr %5, i64 %231
+  %232 = getelementptr inbounds [2 x i8], ptr %5, i64 %231
   br i1 %.073.i, label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKDsiiiPDsRiijPN6icu_775EditsE.exit, label %233
 
 233:                                              ; preds = %229
@@ -497,7 +497,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %224, %222
 
 240:                                              ; preds = %238
   %241 = sext i32 %230 to i64
-  %242 = getelementptr inbounds i16, ptr %3, i64 %241
+  %242 = getelementptr inbounds [2 x i8], ptr %3, i64 %241
   %243 = call ptr @u_memcpy_77(ptr noundef %242, ptr noundef %232, i32 noundef range(i32 1, -2147483648) 1)
   br label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKDsiiiPDsRiijPN6icu_775EditsE.exit
 
@@ -512,7 +512,7 @@ _ZN12_GLOBAL__N_117maybeTitleDutchIJEPKDsiiiPDsRiijPN6icu_775EditsE.exit: ; pred
 
 246:                                              ; preds = %245
   %247 = sext i32 %.5189 to i64
-  %248 = getelementptr inbounds i16, ptr %3, i64 %247
+  %248 = getelementptr inbounds [2 x i8], ptr %3, i64 %247
   %249 = select i1 %29, ptr null, ptr %248
   %250 = sub nsw i32 %4, %.5189
   %251 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %0, i32 noundef %1, ptr noundef %249, i32 noundef %250, ptr noundef %5, ptr noundef nonnull %10, i32 noundef %.6145, i32 noundef %.1150, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
@@ -528,7 +528,7 @@ _ZN12_GLOBAL__N_117maybeTitleDutchIJEPKDsiiiPDsRiijPN6icu_775EditsE.exit: ; pred
 
 255:                                              ; preds = %245
   %256 = sext i32 %.6145 to i64
-  %257 = getelementptr inbounds i16, ptr %5, i64 %256
+  %257 = getelementptr inbounds [2 x i8], ptr %5, i64 %256
   %258 = sub nsw i32 %.1150, %.6145
   br i1 %.not.i.i, label %260, label %259
 
@@ -551,7 +551,7 @@ _ZN12_GLOBAL__N_117maybeTitleDutchIJEPKDsiiiPDsRiijPN6icu_775EditsE.exit: ; pred
 
 266:                                              ; preds = %264
   %267 = sext i32 %.5189 to i64
-  %268 = getelementptr inbounds i16, ptr %3, i64 %267
+  %268 = getelementptr inbounds [2 x i8], ptr %3, i64 %267
   %269 = call ptr @u_memcpy_77(ptr noundef %268, ptr noundef %257, i32 noundef range(i32 1, -2147483648) %258)
   br label %.thread206.backedge.sink.split
 
@@ -671,7 +671,7 @@ define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_125u
   %24 = add nsw i32 %17, -1
   store i32 %24, ptr %20, align 4, !tbaa !23
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %23, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %23, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !14
   %28 = zext i16 %27 to i32
   %29 = and i32 %28, 64512
@@ -682,7 +682,7 @@ define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_125u
 
 32:                                               ; preds = %22
   %33 = sext i32 %17 to i64
-  %34 = getelementptr i16, ptr %23, i64 %33
+  %34 = getelementptr [2 x i8], ptr %23, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i16, ptr %35, align 2, !tbaa !14
   %37 = zext i16 %36 to i32
@@ -711,7 +711,7 @@ define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_125u
   %52 = add nsw i32 %45, 1
   store i32 %52, ptr %46, align 4, !tbaa !23
   %53 = sext i32 %45 to i64
-  %54 = getelementptr inbounds i16, ptr %51, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %51, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !14
   %56 = zext i16 %55 to i32
   %57 = and i32 %56, 64512
@@ -722,7 +722,7 @@ define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_125u
 
 59:                                               ; preds = %50
   %60 = sext i32 %52 to i64
-  %61 = getelementptr inbounds i16, ptr %51, i64 %60
+  %61 = getelementptr inbounds [2 x i8], ptr %51, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !14
   %63 = zext i16 %62 to i32
   %64 = and i32 %63, 64512
@@ -771,7 +771,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsii
   %19 = trunc nuw i32 %15 to i16
   %20 = add nsw i32 %1, 1
   %21 = sext i32 %1 to i64
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %0, i64 %21
   store i16 %19, ptr %22, align 2, !tbaa !14
   br label %.loopexit
 
@@ -789,7 +789,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsii
   %29 = trunc nuw i32 %3 to i16
   %30 = add nsw i32 %1, 1
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds i16, ptr %0, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %0, i64 %31
   store i16 %29, ptr %32, align 2, !tbaa !14
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %33
@@ -835,7 +835,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsii
   %48 = trunc nuw i32 %.071 to i16
   %49 = add nsw i32 %1, 1
   %50 = sext i32 %1 to i64
-  %51 = getelementptr inbounds i16, ptr %0, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %0, i64 %50
   store i16 %48, ptr %51, align 2, !tbaa !14
   br label %.loopexit
 
@@ -853,14 +853,14 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsii
   %59 = trunc nuw nsw i32 %58 to i16
   %60 = add nuw nsw i16 %59, -10304
   %61 = sext i32 %1 to i64
-  %62 = getelementptr inbounds i16, ptr %0, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %0, i64 %61
   store i16 %60, ptr %62, align 2, !tbaa !14
   %63 = trunc i32 %.071 to i16
   %64 = and i16 %63, 1023
   %65 = or disjoint i16 %64, -9216
   %66 = add nsw i32 %1, 2
   %67 = sext i32 %55 to i64
-  %68 = getelementptr inbounds i16, ptr %0, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %0, i64 %67
   store i16 %65, ptr %68, align 2, !tbaa !14
   br label %.loopexit
 
@@ -888,7 +888,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsii
   %75 = getelementptr inbounds nuw i8, ptr %.07799, i64 2
   %76 = load i16, ptr %.07799, align 2, !tbaa !14
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %77 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %76, ptr %77, align 2, !tbaa !14
   %78 = add nsw i32 %.2101, -1
   %79 = icmp samesign ugt i32 %.2101, 1
@@ -953,7 +953,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7712_GLOBA
   %.1126249 = phi i32 [ %.3128, %.thread187 ], [ %.0125, %27 ]
   %.1145247 = phi i32 [ %.4148, %.thread187 ], [ %.0144, %27 ]
   %29 = sext i32 %.1145247 to i64
-  %30 = getelementptr inbounds i16, ptr %4, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %4, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !14
   %32 = zext i16 %31 to i32
   %33 = icmp ult i16 %31, 383
@@ -980,14 +980,14 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7712_GLOBA
   %45 = load ptr, ptr %22, align 8, !tbaa !28
   %46 = lshr i32 %32, 5
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !34
   %50 = zext i16 %49 to i32
   %51 = shl nuw nsw i32 %50, 2
   %52 = and i32 %32, 31
   %53 = add nuw nsw i32 %51, %52
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %45, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !34
   %57 = zext i16 %56 to i32
   %58 = and i32 %57, 8
@@ -1008,7 +1008,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7712_GLOBA
   %.5137 = phi i16 [ %40, %39 ], [ %62, %59 ]
   %65 = add i16 %.5137, %31
   %66 = sext i32 %.1126249 to i64
-  %67 = getelementptr inbounds i16, ptr %4, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %4, i64 %66
   %68 = xor i32 %.1126249, -1
   %69 = add i32 %.5149, %68
   %70 = icmp slt i32 %69, 1
@@ -1036,7 +1036,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7712_GLOBA
 
 79:                                               ; preds = %77
   %80 = zext nneg i32 %.1114250 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %2, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %80
   %82 = call ptr @u_memcpy_77(ptr noundef %81, ptr noundef %67, i32 noundef range(i32 1, -2147483648) %69)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
 
@@ -1047,7 +1047,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds =
 
 84:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
   %85 = zext nneg i32 %.0.i to i64
-  %86 = getelementptr inbounds nuw i16, ptr %2, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %85
   store i16 %65, ptr %86, align 2, !tbaa !14
   br label %89
 
@@ -1109,7 +1109,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %87, %89
 
 101:                                              ; preds = %96
   %102 = sext i32 %97 to i64
-  %103 = getelementptr inbounds i16, ptr %4, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %4, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !14
   %105 = zext i16 %104 to i32
   %106 = and i32 %105, 64512
@@ -1147,7 +1147,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %87, %89
 
 120:                                              ; preds = %118
   %121 = sext i32 %.1126.lcssa to i64
-  %122 = getelementptr inbounds i16, ptr %4, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %4, i64 %121
   %123 = sub nsw i32 %.1145.lcssa, %.1126.lcssa
   %124 = icmp slt i32 %123, 1
   br i1 %124, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177, label %125
@@ -1174,7 +1174,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %87, %89
 
 133:                                              ; preds = %131
   %134 = zext nneg i32 %.1114.lcssa to i64
-  %135 = getelementptr inbounds nuw i16, ptr %2, i64 %134
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %134
   %136 = call ptr @u_memcpy_77(ptr noundef %135, ptr noundef %122, i32 noundef range(i32 1, -2147483648) %123)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
 
@@ -1199,7 +1199,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177: ; pred
 
 .thread223:                                       ; preds = %.thread198
   %142 = sext i32 %.1126.lcssa to i64
-  %143 = getelementptr inbounds i16, ptr %4, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %4, i64 %142
   %144 = sub nsw i32 %.1145.lcssa, %.1126.lcssa
   %145 = icmp slt i32 %144, 1
   br i1 %145, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182, label %146
@@ -1226,7 +1226,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177: ; pred
 
 154:                                              ; preds = %152
   %155 = zext nneg i32 %.1114.lcssa to i64
-  %156 = getelementptr inbounds nuw i16, ptr %2, i64 %155
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %155
   %157 = call ptr @u_memcpy_77(ptr noundef %156, ptr noundef %143, i32 noundef range(i32 1, -2147483648) %144)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182
 
@@ -1254,7 +1254,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7710GreekUpper13getLetterDataEi(
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i16, ptr @_ZN6icu_7710GreekUpperL8data0370E, i64 %7
+  %8 = getelementptr [2 x i8], ptr @_ZN6icu_7710GreekUpperL8data0370E, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -1760
   %10 = load i16, ptr %9, align 2, !tbaa !34
   br label %20
@@ -1265,7 +1265,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7710GreekUpper13getLetterDataEi(
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr i16, ptr @_ZN6icu_7710GreekUpperL8data1F00E, i64 %14
+  %15 = getelementptr [2 x i8], ptr @_ZN6icu_7710GreekUpperL8data1F00E, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -15872
   %17 = load i16, ptr %16, align 2, !tbaa !34
   br label %20
@@ -1332,7 +1332,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710GreekUpper23isFollowedByCa
 6:                                                ; preds = %4
   %7 = add nsw i32 %.017, 1
   %8 = sext i32 %.017 to i64
-  %9 = getelementptr inbounds i16, ptr %0, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %0, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !14
   %11 = zext i16 %10 to i32
   %12 = and i32 %11, 64512
@@ -1343,7 +1343,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710GreekUpper23isFollowedByCa
 
 14:                                               ; preds = %6
   %15 = sext i32 %7 to i64
-  %16 = getelementptr inbounds i16, ptr %0, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %0, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %18, 64512
@@ -1397,7 +1397,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7710GreekUpper7toUpperEjPD
   %.0160289 = phi i32 [ 0, %.lr.ph293 ], [ %.1161, %._crit_edge.thread316 ]
   %14 = add nsw i32 %.0160289, 1
   %15 = sext i32 %.0160289 to i64
-  %16 = getelementptr inbounds i16, ptr %3, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %3, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %18, 64512
@@ -1408,7 +1408,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7710GreekUpper7toUpperEjPD
 
 21:                                               ; preds = %13
   %22 = sext i32 %14 to i64
-  %23 = getelementptr inbounds i16, ptr %3, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %3, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !14
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512
@@ -1455,7 +1455,7 @@ _ZN6icu_7710GreekUpper13getLetterDataEi.exit:     ; preds = %41, %39
   %_ZN6icu_7710GreekUpperL8data0370E.sink = phi ptr [ @_ZN6icu_7710GreekUpperL8data0370E, %39 ], [ @_ZN6icu_7710GreekUpperL8data1F00E, %41 ]
   %.sink325 = phi i64 [ -1760, %39 ], [ -15872, %41 ]
   %45 = zext nneg i32 %.1188 to i64
-  %46 = getelementptr i16, ptr %_ZN6icu_7710GreekUpperL8data0370E.sink, i64 %45
+  %46 = getelementptr [2 x i8], ptr %_ZN6icu_7710GreekUpperL8data0370E.sink, i64 %45
   %47 = getelementptr i8, ptr %46, i64 %.sink325
   %48 = load i16, ptr %47, align 2, !tbaa !34
   %.0.i = zext i16 %48 to i32
@@ -1502,7 +1502,7 @@ _ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread307: ; preds = %43, %_ZN6icu_
   %indvars.iv = phi i64 [ %61, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
   %.0162277 = phi i32 [ %.lobit, %.lr.ph.preheader ], [ %spec.select225, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
   %.1169276 = phi i32 [ %.0168, %.lr.ph.preheader ], [ %68, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
-  %62 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
+  %62 = getelementptr inbounds [2 x i8], ptr %3, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !14
   switch i16 %63, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit [
     i16 768, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
@@ -1576,7 +1576,7 @@ _ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251: ; preds = %_ZN6icu_77
 83:                                               ; preds = %.preheader
   %84 = add nsw i32 %.017.i, 1
   %85 = sext i32 %.017.i to i64
-  %86 = getelementptr inbounds i16, ptr %3, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %3, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !14
   %88 = zext i16 %87 to i32
   %89 = and i32 %88, 64512
@@ -1587,7 +1587,7 @@ _ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251: ; preds = %_ZN6icu_77
 
 91:                                               ; preds = %83
   %92 = sext i32 %84 to i64
-  %93 = getelementptr inbounds i16, ptr %3, i64 %92
+  %93 = getelementptr inbounds [2 x i8], ptr %3, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !14
   %95 = zext i16 %94 to i32
   %96 = and i32 %95, 64512
@@ -1659,7 +1659,7 @@ _ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread: ; preds = %.
 
 122:                                              ; preds = %121
   %123 = sext i32 %14 to i64
-  %124 = getelementptr inbounds i16, ptr %3, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %3, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !14
   %126 = icmp ne i16 %125, 776
   %127 = zext i1 %126 to i8
@@ -1682,7 +1682,7 @@ _ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread: ; preds = %.
 
 134:                                              ; preds = %133
   %135 = sext i32 %.0151 to i64
-  %136 = getelementptr inbounds i16, ptr %3, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %3, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !14
   %138 = icmp ne i16 %137, 769
   %139 = zext i1 %138 to i8
@@ -1730,7 +1730,7 @@ _ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread: ; preds = %.
 157:                                              ; preds = %.critedge
   %158 = trunc nuw nsw i32 %.0167 to i16
   %159 = zext nneg i32 %.0144291 to i64
-  %160 = getelementptr inbounds nuw i16, ptr %1, i64 %159
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %159
   store i16 %158, ptr %160, align 2, !tbaa !14
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
 
@@ -1750,7 +1750,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %157, %161
 
 167:                                              ; preds = %165
   %168 = zext nneg i32 %163 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %1, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %168
   store i16 776, ptr %169, align 2, !tbaa !14
   br label %172
 
@@ -1772,7 +1772,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240: ; preds = %172, %_ZN6icu_
 
 176:                                              ; preds = %174
   %177 = zext nneg i32 %.3147 to i64
-  %178 = getelementptr inbounds nuw i16, ptr %1, i64 %177
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %177
   store i16 769, ptr %178, align 2, !tbaa !14
   br label %181
 
@@ -1799,7 +1799,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242: ; preds = %181, %_ZN6icu_
 
 187:                                              ; preds = %.lr.ph286
   %188 = zext nneg i32 %.5149285 to i64
-  %189 = getelementptr inbounds nuw i16, ptr %1, i64 %188
+  %189 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %188
   store i16 921, ptr %189, align 2, !tbaa !14
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244
 
@@ -1932,7 +1932,7 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
   %.1114235.i = phi i32 [ %.3116.i, %.thread173.i ], [ %.0113.i, %23 ]
   %.1133233.i = phi i32 [ %.4136.i, %.thread173.i ], [ %.0132.i, %23 ]
   %25 = sext i32 %.1133233.i to i64
-  %26 = getelementptr inbounds i16, ptr %5, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %5, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !14
   %28 = zext i16 %27 to i32
   %29 = icmp ult i16 %27, 383
@@ -1959,14 +1959,14 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
   %41 = load ptr, ptr %19, align 8, !tbaa !28
   %42 = lshr i32 %28, 5
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !34
   %46 = zext i16 %45 to i32
   %47 = shl nuw nsw i32 %46, 2
   %48 = and i32 %28, 31
   %49 = add nuw nsw i32 %47, %48
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %41, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !34
   %53 = zext i16 %52 to i32
   %54 = and i32 %53, 8
@@ -1987,7 +1987,7 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
   %.5125.i = phi i16 [ %36, %35 ], [ %58, %55 ]
   %61 = add i16 %.5125.i, %27
   %62 = sext i32 %.1114235.i to i64
-  %63 = getelementptr inbounds i16, ptr %5, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %5, i64 %62
   %64 = xor i32 %.1114235.i, -1
   %65 = add i32 %.5137.i, %64
   %66 = icmp slt i32 %65, 1
@@ -2015,7 +2015,7 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
 
 75:                                               ; preds = %73
   %76 = sext i32 %.1102236.i to i64
-  %77 = getelementptr inbounds i16, ptr %3, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %3, i64 %76
   %78 = call ptr @u_memcpy_77(ptr noundef %77, ptr noundef %63, i32 noundef range(i32 1, -2147483648) %65)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
 
@@ -2030,7 +2030,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i: ; preds
 
 82:                                               ; preds = %80
   %83 = zext nneg i32 %.0.i.i to i64
-  %84 = getelementptr inbounds nuw i16, ptr %3, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %83
   store i16 %61, ptr %84, align 2, !tbaa !14
   br label %87
 
@@ -2089,7 +2089,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %87, %85
 
 98:                                               ; preds = %93
   %99 = sext i32 %94 to i64
-  %100 = getelementptr inbounds i16, ptr %5, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %5, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !14
   %102 = zext i16 %101 to i32
   %103 = and i32 %102, 64512
@@ -2115,7 +2115,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %87, %85
 
 113:                                              ; preds = %110
   %114 = sext i32 %.1114.lcssa.i to i64
-  %115 = getelementptr inbounds i16, ptr %5, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %5, i64 %114
   %116 = sub nsw i32 %.1133.lcssa.i, %.1114.lcssa.i
   %117 = icmp slt i32 %116, 1
   br i1 %117, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i, label %118
@@ -2142,7 +2142,7 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %87, %85
 
 126:                                              ; preds = %124
   %127 = sext i32 %.1102.lcssa.i to i64
-  %128 = getelementptr inbounds i16, ptr %3, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr %3, i64 %127
   %129 = call ptr @u_memcpy_77(ptr noundef %128, ptr noundef %115, i32 noundef range(i32 1, -2147483648) %116)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i
 
@@ -2171,7 +2171,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i: ; pr
 
 .thread209.i:                                     ; preds = %.thread184.i
   %137 = sext i32 %.1114.lcssa.i to i64
-  %138 = getelementptr inbounds i16, ptr %5, i64 %137
+  %138 = getelementptr inbounds [2 x i8], ptr %5, i64 %137
   %139 = sub nsw i32 %.1133.lcssa.i, %.1114.lcssa.i
   %140 = icmp slt i32 %139, 1
   br i1 %140, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, label %141
@@ -2198,7 +2198,7 @@ _ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i: ; pr
 
 149:                                              ; preds = %147
   %150 = sext i32 %.1102.lcssa.i to i64
-  %151 = getelementptr inbounds i16, ptr %3, i64 %150
+  %151 = getelementptr inbounds [2 x i8], ptr %3, i64 %150
   %152 = call ptr @u_memcpy_77(ptr noundef %151, ptr noundef %138, i32 noundef range(i32 1, -2147483648) %139)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i
 
@@ -2308,7 +2308,7 @@ define i32 @ustrcase_map_77(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 26:                                               ; preds = %25
   %.not50 = icmp uge ptr %5, %3
   %27 = zext nneg i32 %4 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %27
   %29 = icmp ult ptr %5, %28
   %or.cond55 = select i1 %.not50, i1 %29, i1 false
   br i1 %or.cond55, label %34, label %30
@@ -2316,7 +2316,7 @@ define i32 @ustrcase_map_77(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 30:                                               ; preds = %26
   %.not51 = icmp uge ptr %3, %5
   %31 = sext i32 %.043 to i64
-  %32 = getelementptr inbounds i16, ptr %5, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %5, i64 %31
   %33 = icmp ult ptr %3, %32
   %or.cond58 = select i1 %.not51, i1 %33, i1 false
   br i1 %or.cond58, label %34, label %35
@@ -2394,7 +2394,7 @@ define i32 @ustrcase_mapWithOverlap_77(i32 noundef %0, i32 noundef %1, ptr nound
 26:                                               ; preds = %25
   %.not65 = icmp uge ptr %5, %3
   %27 = zext nneg i32 %4 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %27
   %29 = icmp ult ptr %5, %28
   %or.cond72 = select i1 %.not65, i1 %29, i1 false
   br i1 %or.cond72, label %34, label %30
@@ -2402,7 +2402,7 @@ define i32 @ustrcase_mapWithOverlap_77(i32 noundef %0, i32 noundef %1, ptr nound
 30:                                               ; preds = %26
   %.not66 = icmp uge ptr %3, %5
   %31 = sext i32 %.057 to i64
-  %32 = getelementptr inbounds i16, ptr %5, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %5, i64 %31
   %33 = icmp ult ptr %3, %32
   %or.cond75 = select i1 %.not66, i1 %33, i1 false
   br i1 %or.cond75, label %34, label %.thread
@@ -2516,7 +2516,7 @@ define noundef i32 @_ZN6icu_777CaseMap4foldEjPKDsiPDsiPNS_5EditsER10UErrorCode(i
 23:                                               ; preds = %22
   %.not50.i = icmp uge ptr %1, %3
   %24 = zext nneg i32 %4 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %24
   %26 = icmp ult ptr %1, %25
   %or.cond55.i = select i1 %.not50.i, i1 %26, i1 false
   br i1 %or.cond55.i, label %31, label %27
@@ -2524,7 +2524,7 @@ define noundef i32 @_ZN6icu_777CaseMap4foldEjPKDsiPDsiPNS_5EditsER10UErrorCode(i
 27:                                               ; preds = %23
   %.not51.i = icmp uge ptr %3, %1
   %28 = sext i32 %.043.i to i64
-  %29 = getelementptr inbounds i16, ptr %1, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %1, i64 %28
   %30 = icmp ult ptr %3, %29
   %or.cond58.i = select i1 %.not51.i, i1 %30, i1 false
   br i1 %or.cond58.i, label %31, label %32
@@ -2609,11 +2609,11 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 16:                                               ; preds = %15, %14
   %17 = icmp eq i32 %1, -1
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds i16, ptr %0, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %0, i64 %18
   %.0206 = select i1 %17, ptr null, ptr %19
   %20 = icmp eq i32 %3, -1
   %21 = sext i32 %3 to i64
-  %22 = getelementptr inbounds i16, ptr %2, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %2, i64 %21
   %.0202 = select i1 %20, ptr null, ptr %22
   %23 = and i32 %4, 4096
   %.not235 = icmp eq i32 %23, 0
@@ -2712,7 +2712,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 .preheader7.us:                                   ; preds = %.preheader7.us.preheader, %.preheader7.us
   %indvars.iv = phi i64 [ %39, %.preheader7.us.preheader ], [ %indvars.iv.next, %.preheader7.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %40 = getelementptr inbounds %struct.CmpEquivLevel, ptr %9, i64 %indvars.iv.next
+  %40 = getelementptr inbounds [24 x i8], ptr %9, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8, !tbaa !40
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.preheader7.us, label %43, !llvm.loop !42
@@ -2761,7 +2761,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 .preheader7:                                      ; preds = %.preheader7.preheader, %.preheader7
   %indvars.iv171 = phi i64 [ %56, %.preheader7.preheader ], [ %indvars.iv.next172, %.preheader7 ]
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, -1
-  %59 = getelementptr inbounds %struct.CmpEquivLevel, ptr %9, i64 %indvars.iv.next172
+  %59 = getelementptr inbounds [24 x i8], ptr %9, i64 %indvars.iv.next172
   %60 = load ptr, ptr %59, align 8, !tbaa !40
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.preheader7, label %62, !llvm.loop !42
@@ -2815,7 +2815,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv174 = phi i64 [ %76, %.preheader.preheader ], [ %indvars.iv.next175, %.preheader ]
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, -1
-  %80 = getelementptr inbounds %struct.CmpEquivLevel, ptr %10, i64 %indvars.iv.next175
+  %80 = getelementptr inbounds [24 x i8], ptr %10, i64 %indvars.iv.next175
   %81 = load ptr, ptr %80, align 8, !tbaa !40
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.preheader, label %83, !llvm.loop !46
@@ -3026,7 +3026,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 
 189:                                              ; preds = %180, %182, %174
   %.0184 = phi i64 [ %177, %174 ], [ 1, %180 ], [ 2, %182 ]
-  %190 = getelementptr inbounds nuw i16, ptr %11, i64 %.0184
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %.0184
   br label %.outer12, !llvm.loop !48
 
 191:                                              ; preds = %157, %155
@@ -3097,7 +3097,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 
 225:                                              ; preds = %216, %218, %210
   %.1185 = phi i64 [ %213, %210 ], [ 1, %216 ], [ 2, %218 ]
-  %226 = getelementptr inbounds nuw i16, ptr %12, i64 %.1185
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %.1185
   br label %30, !llvm.loop !48
 
 227:                                              ; preds = %193, %191

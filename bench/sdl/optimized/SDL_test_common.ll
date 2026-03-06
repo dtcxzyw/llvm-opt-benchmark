@@ -513,7 +513,7 @@ define dso_local noundef ptr @SDLTest_CommonCreateState(ptr noundef %0, i32 noun
 
 15:                                               ; preds = %9, %14, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -626,7 +626,7 @@ declare noalias ptr @SDL_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds ptr, ptr %1, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %1, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @SDL_strcasecmp(ptr noundef %6, ptr noundef nonnull @.str.216) #11
   %8 = icmp eq i32 %7, 0
@@ -859,7 +859,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 7:                                                ; preds = %3
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.235) #11
   %12 = icmp eq i32 %11, 0
@@ -1754,7 +1754,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 7:                                                ; preds = %3
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.323) #11
   %12 = icmp eq i32 %11, 0
@@ -2027,7 +2027,7 @@ define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none
   tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %14) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not28 = icmp eq ptr %17, null
   br i1 %.not28, label %.loopexit30, label %.lr.ph, !llvm.loop !16
@@ -2052,7 +2052,7 @@ define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none
   %20 = phi ptr [ %22, %.lr.ph39 ], [ %19, %.preheader ]
   tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %20) #11
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next42
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next42
   %22 = load ptr, ptr %21, align 8
   %.not25 = icmp eq ptr %22, null
   br i1 %.not25, label %.loopexit, label %.lr.ph39, !llvm.loop !18
@@ -2144,7 +2144,7 @@ SDLTest_CommonArg.exit.thread:                    ; preds = %8, %SDLTest_CommonA
   tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %28) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.next.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.next.i
   %31 = load ptr, ptr %30, align 8
   %.not28.i = icmp eq ptr %31, null
   br i1 %.not28.i, label %.loopexit30.i, label %.lr.ph.i14, !llvm.loop !16
@@ -2382,7 +2382,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 137:                                              ; preds = %.lr.ph295, %.loopexit288
   %indvars.iv308 = phi i64 [ 0, %.lr.ph295 ], [ %indvars.iv.next309, %.loopexit288 ]
-  %138 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv308
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv308
   %139 = load i32, ptr %138, align 4
   %140 = call ptr @SDL_GetDisplayName(i32 noundef %139) #11
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.12, i32 noundef %139, ptr noundef %140) #11
@@ -2460,7 +2460,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 .lr.ph292:                                        ; preds = %184, %217
   %indvars.iv = phi i64 [ %indvars.iv.next, %217 ], [ 0, %184 ]
-  %187 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4
@@ -2580,7 +2580,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 248:                                              ; preds = %243
   %249 = sext i32 %245 to i64
-  %250 = getelementptr inbounds i32, ptr %244, i64 %249
+  %250 = getelementptr inbounds [4 x i8], ptr %244, i64 %249
   %251 = load i32, ptr %250, align 4
   store i32 %251, ptr %239, align 4
   br label %252
@@ -2758,11 +2758,11 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %367 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.37, i64 noundef %366) #11
   %368 = call ptr @SDL_CreateWindowWithProperties(i32 noundef %352) #11
   %369 = load ptr, ptr %274, align 8
-  %370 = getelementptr inbounds nuw ptr, ptr %369, i64 %indvars.iv311
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %indvars.iv311
   store ptr %368, ptr %370, align 8
   call void @SDL_DestroyProperties(i32 noundef %352) #11
   %371 = load ptr, ptr %274, align 8
-  %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv311
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv311
   %373 = load ptr, ptr %372, align 8
   %.not267 = icmp eq ptr %373, null
   br i1 %.not267, label %558, label %374
@@ -2789,7 +2789,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 380:                                              ; preds = %378
   %381 = load ptr, ptr %274, align 8
-  %382 = getelementptr inbounds nuw ptr, ptr %381, i64 %indvars.iv311
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %indvars.iv311
   %383 = load ptr, ptr %382, align 8
   %384 = call zeroext i1 @SDL_SetWindowMaximumSize(ptr noundef %383, i32 noundef %379, i32 noundef %.pre317) #11
   br label %385
@@ -2804,14 +2804,14 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 389:                                              ; preds = %385
   %390 = load ptr, ptr %274, align 8
-  %391 = getelementptr inbounds nuw ptr, ptr %390, i64 %indvars.iv311
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %indvars.iv311
   %392 = load ptr, ptr %391, align 8
   %393 = call zeroext i1 @SDL_SetWindowAspectRatio(ptr noundef %392, float noundef %386, float noundef %.pre318) #11
   br label %394
 
 394:                                              ; preds = %385, %389
   %395 = load ptr, ptr %274, align 8
-  %396 = getelementptr inbounds nuw ptr, ptr %395, i64 %indvars.iv311
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %395, i64 %indvars.iv311
   %397 = load ptr, ptr %396, align 8
   %398 = call zeroext i1 @SDL_GetWindowSize(ptr noundef %397, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %399 = load i64, ptr %259, align 8
@@ -2851,14 +2851,14 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 413:                                              ; preds = %410
   %414 = load ptr, ptr %274, align 8
-  %415 = getelementptr inbounds nuw ptr, ptr %414, i64 %indvars.iv311
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %indvars.iv311
   %416 = load ptr, ptr %415, align 8
   %417 = call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef %416, ptr noundef nonnull %268) #11
   br label %418
 
 418:                                              ; preds = %413, %410
   %419 = load ptr, ptr %274, align 8
-  %420 = getelementptr inbounds nuw ptr, ptr %419, i64 %indvars.iv311
+  %420 = getelementptr inbounds nuw [8 x i8], ptr %419, i64 %indvars.iv311
   %421 = load ptr, ptr %420, align 8
   %422 = call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef %421, i1 noundef zeroext true) #11
   %.pre322 = load i64, ptr %259, align 8
@@ -2872,7 +2872,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 427:                                              ; preds = %423
   %428 = load ptr, ptr %274, align 8
-  %429 = getelementptr inbounds nuw ptr, ptr %428, i64 %indvars.iv311
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %428, i64 %indvars.iv311
   %430 = load ptr, ptr %429, align 8
   %431 = call zeroext i1 @SDL_SetWindowHitTest(ptr noundef %430, ptr noundef nonnull @SDLTest_ExampleHitTestCallback, ptr noundef null) #11
   br label %432
@@ -2908,7 +2908,7 @@ SDLTest_LoadIcon.exit:                            ; preds = %434
 
 447:                                              ; preds = %436, %440
   %448 = load ptr, ptr %274, align 8
-  %449 = getelementptr inbounds nuw ptr, ptr %448, i64 %indvars.iv311
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %448, i64 %indvars.iv311
   %450 = load ptr, ptr %449, align 8
   %451 = call zeroext i1 @SDL_SetWindowIcon(ptr noundef %450, ptr noundef nonnull %435) #11
   call void @SDL_DestroySurface(ptr noundef nonnull %435) #11
@@ -2926,7 +2926,7 @@ SDL_RectEmpty.exit:                               ; preds = %452
 
 457:                                              ; preds = %SDL_RectEmpty.exit
   %458 = load ptr, ptr %274, align 8
-  %459 = getelementptr inbounds nuw ptr, ptr %458, i64 %indvars.iv311
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %458, i64 %indvars.iv311
   %460 = load ptr, ptr %459, align 8
   %461 = call zeroext i1 @SDL_SetWindowMouseRect(ptr noundef %460, ptr noundef nonnull %304) #11
   br label %SDL_RectEmpty.exit.thread
@@ -2949,14 +2949,14 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
 
 469:                                              ; preds = %466, %464
   %470 = load ptr, ptr %274, align 8
-  %471 = getelementptr inbounds nuw ptr, ptr %470, i64 %indvars.iv311
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %470, i64 %indvars.iv311
   %472 = load ptr, ptr %471, align 8
   %473 = call ptr @SDL_CreateRenderer(ptr noundef %472, ptr noundef %465) #11
   %474 = load ptr, ptr %278, align 8
-  %475 = getelementptr inbounds nuw ptr, ptr %474, i64 %indvars.iv311
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %474, i64 %indvars.iv311
   store ptr %473, ptr %475, align 8
   %476 = load ptr, ptr %278, align 8
-  %477 = getelementptr inbounds nuw ptr, ptr %476, i64 %indvars.iv311
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %indvars.iv311
   %478 = load ptr, ptr %477, align 8
   %.not280 = icmp eq ptr %478, null
   br i1 %.not280, label %558, label %479
@@ -2997,7 +2997,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
   %496 = phi i32 [ %.pre325, %492 ], [ %489, %488 ]
   %497 = phi i32 [ %.pre324, %492 ], [ %490, %488 ]
   %498 = phi ptr [ %.pre323, %492 ], [ %476, %488 ]
-  %499 = getelementptr inbounds nuw ptr, ptr %498, i64 %indvars.iv311
+  %499 = getelementptr inbounds nuw [8 x i8], ptr %498, i64 %indvars.iv311
   %500 = load ptr, ptr %499, align 8
   %501 = load i32, ptr %312, align 8
   %502 = call zeroext i1 @SDL_SetRenderLogicalPresentation(ptr noundef %500, i32 noundef %497, i32 noundef %496, i32 noundef %501) #11
@@ -3010,7 +3010,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
 
 506:                                              ; preds = %503
   %507 = load ptr, ptr %278, align 8
-  %508 = getelementptr inbounds nuw ptr, ptr %507, i64 %indvars.iv311
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %indvars.iv311
   %509 = load ptr, ptr %508, align 8
   %510 = call zeroext i1 @SDL_SetRenderScale(ptr noundef %509, float noundef %504, float noundef %504) #11
   br label %511
@@ -3024,7 +3024,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
 514:                                              ; preds = %511
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.42) #11
   %515 = load ptr, ptr %278, align 8
-  %516 = getelementptr inbounds nuw ptr, ptr %515, i64 %indvars.iv311
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv311
   %517 = load ptr, ptr %516, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %518 = call ptr @SDL_GetRendererName(ptr noundef %517) #11
@@ -3063,7 +3063,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
   br i1 %.not21.i, label %537, label %535
 
 535:                                              ; preds = %.lr.ph.i
-  %536 = getelementptr inbounds nuw i32, ptr %530, i64 %indvars.iv.i
+  %536 = getelementptr inbounds nuw [4 x i8], ptr %530, i64 %indvars.iv.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef %2, i64 noundef 1024, ptr noundef nonnull @.str.361)
   %.pre.i = load i32, ptr %536, align 4
   br label %537
@@ -3088,7 +3088,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
 
 SDLTest_PrintPixelFormat.exit.i:                  ; preds = %543, %540
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %544 = getelementptr inbounds nuw i32, ptr %530, i64 %indvars.iv.next.i
+  %544 = getelementptr inbounds nuw [4 x i8], ptr %530, i64 %indvars.iv.next.i
   %545 = load i32, ptr %544, align 4
   %.not19.i = icmp eq i32 %545, 0
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
@@ -3114,7 +3114,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
 
 .critedge:                                        ; preds = %511, %SDLTest_PrintRenderer.exit, %466, %SDL_RectEmpty.exit.thread
   %551 = load ptr, ptr %274, align 8
-  %552 = getelementptr inbounds nuw ptr, ptr %551, i64 %indvars.iv311
+  %552 = getelementptr inbounds nuw [8 x i8], ptr %551, i64 %indvars.iv311
   %553 = load ptr, ptr %552, align 8
   %554 = call zeroext i1 @SDL_ShowWindow(ptr noundef %553) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -3560,7 +3560,7 @@ define dso_local void @SDLTest_PrintEvent(ptr noundef %0) local_unnamed_addr #0 
 
 switch.lookup:                                    ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDLTest_PrintEvent, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SystemThemeName.exit
 
@@ -3621,7 +3621,7 @@ SystemThemeName.exit:                             ; preds = %5, %switch.lookup
 
 switch.lookup185:                                 ; preds = %36
   %42 = zext nneg i32 %40 to i64
-  %switch.gep186 = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent.1, i64 %42
+  %switch.gep186 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDLTest_PrintEvent.1, i64 %42
   %switch.load187 = load ptr, ptr %switch.gep186, align 8
   br label %DisplayOrientationName.exit
 
@@ -4016,7 +4016,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
 
 switch.lookup188:                                 ; preds = %278
   %282 = zext nneg i8 %280 to i64
-  %switch.gep189 = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent.2, i64 %282
+  %switch.gep189 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDLTest_PrintEvent.2, i64 %282
   %switch.load190 = load ptr, ptr %switch.gep189, align 8
   br label %283
 
@@ -4085,7 +4085,7 @@ switch.lookup188:                                 ; preds = %278
 
 switch.lookup191:                                 ; preds = %315
   %322 = zext nneg i8 %319 to i64
-  %switch.gep192 = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent.3, i64 %322
+  %switch.gep192 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDLTest_PrintEvent.3, i64 %322
   %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %GamepadAxisName.exit
 
@@ -4435,7 +4435,7 @@ define internal fastcc void @SDLTest_PrintModState(ptr noundef nonnull %0, i64 n
 4:                                                ; preds = %3, %32
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %32 ]
   %.01214 = phi i32 [ 0, %3 ], [ %.1, %32 ]
-  %5 = getelementptr inbounds nuw i16, ptr @__const.SDLTest_PrintModState.kmod_flags, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const.SDLTest_PrintModState.kmod_flags, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, %2
   %8 = icmp eq i16 %7, %6
@@ -4554,7 +4554,7 @@ define internal fastcc noundef nonnull ptr @GamepadButtonName(i32 noundef range(
 
 switch.lookup:                                    ; preds = %1
   %trunc = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GamepadButtonName, i64 %trunc
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GamepadButtonName, i64 %trunc
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %3
 
@@ -4724,14 +4724,14 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %72 = phi i32 [ %67, %.lr.ph321 ], [ %82, %81 ]
   %indvars.iv328 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next329, %81 ]
   %73 = load ptr, ptr %69, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv328
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv328
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %65, %75
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %70, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv328
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv328
   %80 = load ptr, ptr %79, align 8
   tail call fastcc void @SDLTest_CopyScreenShot(ptr noundef %80)
   %.pre333 = load i32, ptr %66, align 8
@@ -4812,7 +4812,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 
 .lr.ph319:                                        ; preds = %.lr.ph319.preheader, %117
   %indvars.iv325 = phi i64 [ 0, %.lr.ph319.preheader ], [ %indvars.iv.next326, %117 ]
-  %114 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv325
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv325
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %111, %115
   br i1 %116, label %118, label %117
@@ -4844,7 +4844,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %.pn312 = phi i32 [ %123, %121 ], [ %126, %124 ]
   %.pn.in = srem i32 %.pn312, %112
   %.pn = sext i32 %.pn.in to i64
-  %.0230.in = getelementptr inbounds i32, ptr %109, i64 %.pn
+  %.0230.in = getelementptr inbounds [4 x i8], ptr %109, i64 %.pn
   %.0230 = load i32, ptr %.0230.in, align 4
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.165, i32 noundef %.0230) #11
   %128 = or i32 %.0230, 805240832
@@ -4967,14 +4967,14 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %172 = phi i32 [ %167, %.lr.ph ], [ %182, %181 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %181 ]
   %173 = load ptr, ptr %169, align 8
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %165, %175
   br i1 %176, label %177, label %181
 
 177:                                              ; preds = %171
   %178 = load ptr, ptr %170, align 8
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv
   %180 = load ptr, ptr %179, align 8
   tail call fastcc void @SDLTest_CopyScreenShot(ptr noundef %180)
   %.pre332 = load i32, ptr %166, align 8
@@ -5071,7 +5071,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 
 switch.lookup:                                    ; preds = %211
   %216 = zext nneg i32 %spec.store.select to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_CommonEventMainCallbacks, i64 %216
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDLTest_CommonEventMainCallbacks, i64 %216
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %217
 
@@ -5446,7 +5446,7 @@ define internal fastcc void @SDLTest_PasteScreenShot() unnamed_addr #0 {
 3:                                                ; preds = %0, %16
   %.01015 = phi i64 [ 0, %0 ], [ %17, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %4 = getelementptr inbounds nuw ptr, ptr @__const.SDLTest_PasteScreenShot.image_formats, i64 %.01015
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @__const.SDLTest_PasteScreenShot.image_formats, i64 %.01015
   %5 = load ptr, ptr %4, align 8
   %6 = call ptr @SDL_GetClipboardData(ptr noundef %5, ptr noundef nonnull %1) #11
   %.not = icmp eq ptr %6, null
@@ -5553,7 +5553,7 @@ define internal fastcc void @FullscreenTo(ptr noundef readonly captures(none) %0
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = call zeroext i1 @SDL_GetDisplayBounds(i32 noundef %15, ptr noundef nonnull %5) #11
   %17 = call i64 @SDL_GetWindowFlags(ptr noundef nonnull %11) #11
@@ -5655,7 +5655,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   %8 = phi i32 [ %14, %13 ], [ %6, %.preheader37 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader37 ]
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not35 = icmp eq ptr %11, null
   br i1 %.not35, label %13, label %12
@@ -5697,7 +5697,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   %24 = phi i32 [ %30, %29 ], [ %22, %.preheader36 ]
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %29 ], [ 0, %.preheader36 ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv46
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv46
   %27 = load ptr, ptr %26, align 8
   %.not34 = icmp eq ptr %27, null
   br i1 %.not34, label %29, label %28
@@ -5738,7 +5738,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph43 ], [ 0, %.preheader ]
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv49
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv49
   %42 = load ptr, ptr %41, align 8
   tail call void @SDL_DestroyWindow(ptr noundef %42) #11
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
@@ -5922,7 +5922,7 @@ SDLTest_PrintLogicalPresentation.exit:            ; preds = %67, %68, %69, %70, 
 99:                                               ; preds = %138, %SDLTest_PrintLogicalPresentation.exit
   %indvars.iv.i = phi i64 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %indvars.iv.next.i, %138 ]
   %.01215.i = phi i32 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %.1.i, %138 ]
-  %100 = getelementptr inbounds nuw i64, ptr @__const.SDLTest_PrintWindowFlags.window_flags, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @__const.SDLTest_PrintWindowFlags.window_flags, i64 %indvars.iv.i
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %101, %98
   %103 = icmp eq i64 %102, %101

@@ -174,13 +174,13 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 .preheader103:                                    ; preds = %48, %88
   %73 = phi i1 [ true, %48 ], [ false, %88 ]
   %indvars.iv111 = phi i64 [ 0, %48 ], [ 1, %88 ]
-  %74 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %29, i64 %indvars.iv111
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %indvars.iv111
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader103, %87
   %75 = phi i1 [ true, %.preheader103 ], [ false, %87 ]
   %indvars.iv108 = phi i64 [ 0, %.preheader103 ], [ 1, %87 ]
-  %76 = getelementptr inbounds nuw [2 x ptr], ptr %74, i64 %indvars.iv108
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv108
   br label %78
 
 77:                                               ; preds = %78
@@ -189,7 +189,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 78:                                               ; preds = %.preheader, %77
   %79 = phi i1 [ true, %.preheader ], [ false, %77 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %77 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !11
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %77
@@ -585,13 +585,13 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 .preheader103:                                    ; preds = %50, %112
   %97 = phi i1 [ true, %50 ], [ false, %112 ]
   %indvars.iv111 = phi i64 [ 0, %50 ], [ 1, %112 ]
-  %98 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %29, i64 %indvars.iv111
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %indvars.iv111
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader103, %111
   %99 = phi i1 [ true, %.preheader103 ], [ false, %111 ]
   %indvars.iv108 = phi i64 [ 0, %.preheader103 ], [ 1, %111 ]
-  %100 = getelementptr inbounds nuw [2 x ptr], ptr %98, i64 %indvars.iv108
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %indvars.iv108
   br label %102
 
 101:                                              ; preds = %102
@@ -600,7 +600,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 102:                                              ; preds = %.preheader, %101
   %103 = phi i1 [ true, %.preheader ], [ false, %101 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %101 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !11
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %101
@@ -782,13 +782,13 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
 .preheader113:                                    ; preds = %45, %78
   %63 = phi i1 [ true, %45 ], [ false, %78 ]
   %indvars.iv121 = phi i64 [ 0, %45 ], [ 1, %78 ]
-  %64 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %28, i64 %indvars.iv121
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv121
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader113, %77
   %65 = phi i1 [ true, %.preheader113 ], [ false, %77 ]
   %indvars.iv118 = phi i64 [ 0, %.preheader113 ], [ 1, %77 ]
-  %66 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 %indvars.iv118
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %indvars.iv118
   br label %68
 
 67:                                               ; preds = %68
@@ -797,7 +797,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
 68:                                               ; preds = %.preheader, %67
   %69 = phi i1 [ true, %.preheader ], [ false, %67 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %67 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %67
@@ -895,12 +895,12 @@ define noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef 
   %21 = and i64 %20, 15
   %22 = icmp eq i64 %21, 0
   %23 = zext i1 %22 to i64
-  %24 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %23
   %25 = zext i1 %17 to i64
-  %26 = getelementptr inbounds nuw [2 x ptr], ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = xor i32 %1, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !11
   tail call void @fftwf_execute_dft(ptr noundef %30, ptr noundef %2, ptr noundef %3)
   ret i32 0
@@ -948,12 +948,12 @@ _Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_.exit: ; preds = %9
   %20 = and i64 %19, 15
   %21 = icmp eq i64 %20, 0
   %22 = zext i1 %21 to i64
-  %23 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = zext i1 %16 to i64
-  %25 = getelementptr inbounds nuw [2 x ptr], ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %24
   %26 = xor i32 %1, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !11
   tail call void @fftwf_execute_dft(ptr noundef %29, ptr noundef %2, ptr noundef %3)
   ret i32 0
@@ -1001,9 +1001,9 @@ define noundef i32 @_Z15gmx_fft_1d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
 
 23:                                               ; preds = %15
   %24 = zext i1 %10 to i64
-  %25 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %24
   %26 = zext i1 %11 to i64
-  %27 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   br i1 %12, label %28, label %31
 
 28:                                               ; preds = %23
@@ -1073,9 +1073,9 @@ define noundef i32 @_Z15gmx_fft_2d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
 
 23:                                               ; preds = %15
   %24 = zext i1 %10 to i64
-  %25 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %24
   %26 = zext i1 %11 to i64
-  %27 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   br i1 %12, label %28, label %31
 
 28:                                               ; preds = %23
@@ -1101,19 +1101,19 @@ define void @_Z15gmx_fft_destroyP7gmx_fft(ptr noundef %0) local_unnamed_addr #0 
 .preheader46:                                     ; preds = %1, %29
   %2 = phi i1 [ false, %29 ], [ true, %1 ]
   %indvars.iv55 = phi i64 [ 1, %29 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv55
+  %3 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv55
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader46, %28
   %4 = phi i1 [ true, %.preheader46 ], [ false, %28 ]
   %indvars.iv52 = phi i64 [ 0, %.preheader46 ], [ 1, %28 ]
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 %indvars.iv52
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv52
   br label %6
 
 6:                                                ; preds = %.preheader, %27
   %7 = phi i1 [ true, %.preheader ], [ false, %27 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %27 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %.not42 = icmp eq ptr %9, null
   br i1 %.not42, label %27, label %10

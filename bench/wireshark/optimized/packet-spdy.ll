@@ -1443,7 +1443,7 @@ spdy_decompress_header_block.exit.i:              ; preds = %403
 
 517:                                              ; preds = %515
   %518 = zext i8 %516 to i64
-  %519 = getelementptr i16, ptr %514, i64 %518
+  %519 = getelementptr [2 x i8], ptr %514, i64 %518
   %520 = load i16, ptr %519, align 2
   %521 = and i16 %520, 256
   %.not22.i.i = icmp eq i16 %521, 0
@@ -1474,7 +1474,7 @@ spdy_decompress_header_block.exit.i:              ; preds = %403
 
 529:                                              ; preds = %.critedge2.i.i
   %530 = zext i8 %527 to i64
-  %531 = getelementptr i16, ptr %514, i64 %530
+  %531 = getelementptr [2 x i8], ptr %514, i64 %530
   %532 = load i16, ptr %531, align 2
   %533 = and i16 %532, 256
   %.not25.i.i = icmp eq i16 %533, 0

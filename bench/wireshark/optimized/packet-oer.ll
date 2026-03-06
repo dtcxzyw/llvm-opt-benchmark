@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._oer_sequence_t = type { ptr, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"constrained_integer to large value\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"constrained_integer negative value\00", align 1
@@ -785,7 +784,7 @@ proto_item_set_hidden.exit:                       ; preds = %29, %26, %19, %7
   %.1143 = phi i32 [ %.0142210, %.lr.ph ], [ %spec.select, %39 ]
   %45 = add i32 %.0127211, 1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %46
+  %47 = getelementptr [24 x i8], ptr %6, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -866,7 +865,7 @@ proto_item_set_hidden.exit:                       ; preds = %29, %26, %19, %7
   %.1.i = phi i32 [ %80, %79 ], [ %.01421.i, %68 ], [ %.01421.i, %.lr.ph.i ]
   %82 = add i32 %.01322.i, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %83
+  %84 = getelementptr [24 x i8], ptr %6, i64 %83
   %85 = load ptr, ptr %84, align 8
   %.not.i165 = icmp eq ptr %85, null
   br i1 %.not.i165, label %index_get_optional_name.exit, label %.lr.ph.i, !llvm.loop !11
@@ -912,7 +911,7 @@ proto_item_set_hidden.exit168:                    ; preds = %96, %93, %91, %88
   %103 = lshr exact i32 -2147483648, %102
   %104 = lshr i32 %.1128213, 5
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr i32, ptr %10, i64 %105
+  %106 = getelementptr [4 x i8], ptr %10, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = or i32 %107, %103
   store i32 %108, ptr %106, align 4
@@ -963,7 +962,7 @@ proto_item_set_hidden.exit168:                    ; preds = %96, %93, %91, %88
   %126 = lshr exact i32 -2147483648, %125
   %127 = lshr i32 %.0136221, 5
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr i32, ptr %10, i64 %128
+  %129 = getelementptr [4 x i8], ptr %10, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, %126
   %.not158 = icmp eq i32 %131, 0
@@ -988,7 +987,7 @@ proto_item_set_hidden.exit168:                    ; preds = %96, %93, %91, %88
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = sext i32 %.2129222 to i64
-  %144 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %143
+  %144 = getelementptr [24 x i8], ptr %6, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %145, align 4
   %147 = call ptr @proto_registrar_get_nth(i32 noundef %146)
@@ -1014,7 +1013,7 @@ index_get_field_name.exit:                        ; preds = %140, %148
   %.1 = phi i32 [ %139, %137 ], [ %.0223, %124 ], [ %.0223, %.lr.ph225 ], [ %.0223, %122 ]
   %154 = add i32 %.2129222, 1
   %155 = zext i32 %154 to i64
-  %156 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %155
+  %156 = getelementptr [24 x i8], ptr %6, i64 %155
   %157 = load ptr, ptr %156, align 8
   %.not151 = icmp eq ptr %157, null
   br i1 %.not151, label %._crit_edge226, label %.lr.ph225, !llvm.loop !13
@@ -1121,7 +1120,7 @@ dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.
 201:                                              ; preds = %.lr.ph230
   %202 = add i32 %.0131229, 1
   %203 = sext i32 %202 to i64
-  %204 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %203
+  %204 = getelementptr [24 x i8], ptr %6, i64 %203
   %205 = load ptr, ptr %204, align 8
   %.not153 = icmp eq ptr %205, null
   br i1 %.not153, label %._crit_edge231, label %.lr.ph230, !llvm.loop !15
@@ -1167,7 +1166,7 @@ dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.
   br i1 %.not154, label %._crit_edge254, label %217
 
 217:                                              ; preds = %214
-  %218 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %.pre255
+  %218 = getelementptr [24 x i8], ptr %6, i64 %.pre255
   %219 = load ptr, ptr %218, align 8
   %.not155 = icmp eq ptr %219, null
   %220 = load i32, ptr @hf_oer_length_determinant, align 4
@@ -1360,7 +1359,7 @@ dissect_oer_length_determinant.exit187:           ; preds = %proto_item_set_hidd
 
 ._crit_edge254:                                   ; preds = %214, %259, %dissect_oer_length_determinant.exit187
   %.5 = phi i32 [ %312, %dissect_oer_length_determinant.exit187 ], [ %262, %259 ], [ %.4237, %214 ]
-  %313 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %.pre255
+  %313 = getelementptr [24 x i8], ptr %6, i64 %.pre255
   %314 = load ptr, ptr %313, align 8
   %.not157 = icmp ne ptr %314, null
   %315 = zext i1 %.not157 to i32

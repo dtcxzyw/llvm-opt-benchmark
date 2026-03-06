@@ -127,7 +127,7 @@ define internal void @snd_hdac_bus_process_unsol_events(ptr noundef %0) #0 align
   store i32 %15, ptr %3, align 8
   %16 = shl nuw nsw i32 %15, 1
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr i32, ptr %9, i64 %17
+  %18 = getelementptr [4 x i8], ptr %9, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4
@@ -138,7 +138,7 @@ define internal void @snd_hdac_bus_process_unsol_events(ptr noundef %0) #0 align
 24:                                               ; preds = %11
   %25 = and i32 %21, 15
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr ptr, ptr %10, i64 %26
+  %27 = getelementptr [8 x i8], ptr %10, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %35, label %30
@@ -430,7 +430,7 @@ define dso_local void @snd_hdac_bus_queue_event(ptr noundef %0, i32 noundef %1, 
   %31 = shl nuw nsw i32 %30, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr i32, ptr %32, i64 %33
+  %34 = getelementptr [4 x i8], ptr %32, i64 %33
   store i32 %1, ptr %34, align 4
   %35 = getelementptr i8, ptr %34, i64 4
   store i32 %2, ptr %35, align 4
@@ -449,7 +449,7 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hdac_bus_add_device(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %10
@@ -471,7 +471,7 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hdac_bus_add_device(ptr noun
   store volatile ptr %13, ptr %16, align 8
   %18 = load i32, ptr %4, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %3, i64 %19
+  %20 = getelementptr [8 x i8], ptr %3, i64 %19
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %22 = load i32, ptr %4, align 8
@@ -522,7 +522,7 @@ define dso_local void @snd_hdac_bus_remove_device(ptr noundef %0, ptr noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %21 = load i32, ptr %16, align 8

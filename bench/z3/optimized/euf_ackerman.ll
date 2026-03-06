@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%class.default_hash_entry = type { i32, i32, ptr }
 %"class.sat::status" = type { i32, i32, ptr }
 %class.svector.61 = type { %class.vector.62 }
 %class.vector.62 = type { ptr }
@@ -222,7 +221,7 @@ define hidden void @_ZN3euf8ackerman5resetEv(ptr noundef nonnull align 8 capture
 
 _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE5beginEv.exit: ; preds = %.lr.ph.i.i.i, %11, %1
   %.sroa.0.1.i = phi ptr [ %3, %1 ], [ %.sroa.0.0.i, %.lr.ph.i.i.i ], [ %7, %11 ]
-  %13 = getelementptr inbounds nuw %class.default_hash_entry, ptr %3, i64 %6
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %6
   %.not18 = icmp eq ptr %.sroa.0.1.i, %13
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -1250,9 +1249,9 @@ define hidden void @_ZN3euf8ackerman6add_ccEP4exprS2_(ptr noundef nonnull readon
 
 14:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !56
-  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %.not = icmp eq ptr %16, %18
   br i1 %.not, label %59, label %19
@@ -1298,7 +1297,7 @@ define hidden void @_ZN3euf8ackerman6add_ccEP4exprS2_(ptr noundef nonnull readon
   %38 = phi ptr [ %.pre.i, %.noexc ], [ %27, %29 ]
   %39 = getelementptr inbounds i8, ptr %38, i64 -4
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw %"class.sat::literal", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %40
   store i32 %26, ptr %41, align 4, !tbaa !445
   %42 = add i32 %37, 1
   store i32 %42, ptr %39, align 4, !tbaa !445
@@ -1385,7 +1384,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %36, %44, %50
   %76 = phi ptr [ %.pre.i33, %.noexc36 ], [ %65, %67 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -4
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds nuw %"class.sat::literal", ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %78
   store i32 %63, ptr %79, align 4, !tbaa !445
   %80 = add i32 %75, 1
   store i32 %80, ptr %77, align 4, !tbaa !445
@@ -2189,7 +2188,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14infer
   %.idx = shl nuw nsw i64 %68, 4
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
   %70 = zext i32 %64 to i64
-  %71 = getelementptr inbounds nuw %class.default_hash_entry, ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %70
   %.not83 = icmp eq i32 %66, %64
   br i1 %.not83, label %.preheader, label %.lr.ph
 
@@ -2395,7 +2394,7 @@ _ZN14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14infere
   %14 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %14, 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE10move_tableEPS5_jS9_j.exit, label %.lr.ph41.i
 
@@ -2551,7 +2550,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14infer
   %.idx = shl nuw nsw i64 %56, 4
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
   %58 = zext i32 %52 to i64
-  %59 = getelementptr inbounds nuw %class.default_hash_entry, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %58
   %.not58 = icmp eq i32 %54, %52
   br i1 %.not58, label %.preheader, label %.lr.ph
 
@@ -2733,7 +2732,7 @@ _ZN14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14infere
   %15 = zext i32 %13 to i64
   %.idx.i = shl nuw nsw i64 %15, 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
-  %17 = getelementptr inbounds nuw %class.default_hash_entry, ptr %8, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %15
   %.not38.i = icmp eq i32 %13, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE10move_tableEPS5_jS9_j.exit, label %.lr.ph41.i
 

@@ -255,7 +255,7 @@ define dso_local i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) 
 
 23:                                               ; preds = %.lr.ph.i
   %24 = lshr i64 %indvars.iv.i, 6
-  %25 = getelementptr inbounds nuw i64, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %indvars.iv.i, 63
   %28 = lshr i64 %26, %27
@@ -308,7 +308,7 @@ uv_thread_getaffinity.exit:                       ; preds = %19
   %41 = and i64 %indvars.iv, 63
   %42 = shl nuw i64 1, %41
   %43 = lshr i64 %indvars.iv, 6
-  %44 = getelementptr inbounds nuw i64, ptr %6, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = or i64 %45, %42
   store i64 %46, ptr %44, align 8
@@ -368,7 +368,7 @@ define dso_local i32 @uv_thread_getaffinity(ptr noundef readonly captures(none) 
 
 16:                                               ; preds = %.lr.ph
   %17 = lshr i64 %indvars.iv, 6
-  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %indvars.iv, 63
   %21 = lshr i64 %19, %20

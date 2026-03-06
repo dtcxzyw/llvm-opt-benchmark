@@ -3,10 +3,6 @@ source_filename = "bench/abc/original/fretFlow.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Vec_Ptr_t_ = type { i32, i32, ptr }
-%struct.Flow_Data_t_ = type { i16, %union.anon, i32 }
-%union.anon = type { ptr }
-
 @pManMR = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -71,7 +67,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_PtrAlloc.exit, 
   %indvars.iv464 = phi i64 [ %indvars.iv.next465, %.critedge2 ], [ 0, %.preheader422 ]
   %28 = getelementptr i8, ptr %26, i64 8
   %.val214.val = load ptr, ptr %28, align 8, !tbaa !27
-  %29 = getelementptr inbounds nuw ptr, ptr %.val214.val, i64 %indvars.iv464
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val214.val, i64 %indvars.iv464
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.critedge2, label %.preheader421
@@ -82,7 +78,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_PtrAlloc.exit, 
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %.val218423 = load i32, ptr %32, align 8, !tbaa !40
   %35 = zext i32 %.val218423 to i64
-  %36 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   %37 = getelementptr i8, ptr %36, i64 4
   %.val203424 = load i32, ptr %37, align 4, !tbaa !24
   %38 = icmp sgt i32 %.val203424, 0
@@ -94,14 +90,14 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_PtrAlloc.exit, 
   %40 = phi ptr [ %88, %Vec_PtrPush.exit ], [ %27, %.preheader421 ]
   %41 = getelementptr i8, ptr %39, i64 8
   %.val210 = load ptr, ptr %41, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw ptr, ptr %.val210, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val210, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !38
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 112
   %45 = load ptr, ptr %44, align 8, !tbaa !43
   %46 = getelementptr i8, ptr %43, i64 16
   %.val220 = load i32, ptr %46, align 8, !tbaa !40
   %47 = zext i32 %.val220 to i64
-  %48 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !44
   %.not200 = icmp eq ptr %50, null
@@ -184,7 +180,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %57, align 4, !tbaa !24
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds ptr, ptr %83, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %83, i64 %86
   store ptr %30, ptr %87, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = load ptr, ptr @pManMR, align 8, !tbaa !31
@@ -192,7 +188,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %90 = load ptr, ptr %89, align 8, !tbaa !39
   %.val218 = load i32, ptr %32, align 8, !tbaa !40
   %91 = zext i32 %.val218 to i64
-  %92 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %91
   %93 = getelementptr i8, ptr %92, i64 4
   %.val203 = load i32, ptr %93, align 4, !tbaa !24
   %94 = sext i32 %.val203 to i64
@@ -246,7 +242,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %113 = phi ptr [ %268, %.thread405 ], [ %109, %.critedge ]
   %114 = getelementptr i8, ptr %113, i64 8
   %.val215.val = load ptr, ptr %114, align 8, !tbaa !27
-  %115 = getelementptr inbounds nuw ptr, ptr %.val215.val, i64 %indvars.iv467
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.val215.val, i64 %indvars.iv467
   %116 = load ptr, ptr %115, align 8, !tbaa !38
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.thread405, label %118
@@ -273,7 +269,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %128 = getelementptr i8, ptr %116, i64 16
   %.val222 = load i32, ptr %128, align 8, !tbaa !40
   %129 = zext i32 %.val222 to i64
-  %130 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %127, i64 %129
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %129
   %131 = load i16, ptr %130, align 8
   %132 = and i16 %131, 144
   %133 = zext nneg i16 %132 to i32
@@ -344,7 +340,7 @@ Vec_PtrPush.exit284:                              ; preds = %.Vec_PtrGrow.exit11
   %163 = add nsw i32 %162, 1
   store i32 %163, ptr %5, align 4, !tbaa !24
   %164 = sext i32 %162 to i64
-  %165 = getelementptr inbounds ptr, ptr %161, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %161, i64 %164
   store ptr %116, ptr %165, align 8, !tbaa !38
   %166 = load i32, ptr %13, align 4, !tbaa !28
   %167 = load i32, ptr %12, align 8, !tbaa !29
@@ -414,7 +410,7 @@ Vec_IntGrow.exit.i:                               ; preds = %175, %173
   %193 = getelementptr i8, ptr %116, i64 16
   %.val224 = load i32, ptr %193, align 8, !tbaa !40
   %194 = zext i32 %.val224 to i64
-  %195 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %192, i64 %194
+  %195 = getelementptr inbounds nuw [24 x i8], ptr %192, i64 %194
   %196 = load i16, ptr %195, align 8
   %197 = and i16 %196, 144
   %198 = zext nneg i16 %197 to i32
@@ -485,7 +481,7 @@ Vec_PtrPush.exit294:                              ; preds = %.Vec_PtrGrow.exit11
   %228 = add nsw i32 %227, 1
   store i32 %228, ptr %5, align 4, !tbaa !24
   %229 = sext i32 %227 to i64
-  %230 = getelementptr inbounds ptr, ptr %226, i64 %229
+  %230 = getelementptr inbounds [8 x i8], ptr %226, i64 %229
   store ptr %116, ptr %230, align 8, !tbaa !38
   %231 = load i32, ptr %13, align 4, !tbaa !28
   %232 = load i32, ptr %12, align 8, !tbaa !29
@@ -550,7 +546,7 @@ Vec_IntGrow.exit.i300:                            ; preds = %240, %238
   %255 = add nsw i32 %254, 1
   store i32 %255, ptr %13, align 4, !tbaa !28
   %256 = sext i32 %254 to i64
-  %257 = getelementptr inbounds i32, ptr %.sink634, i64 %256
+  %257 = getelementptr inbounds [4 x i8], ptr %.sink634, i64 %256
   store i32 %.sink, ptr %257, align 4, !tbaa !51
   %258 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 112
@@ -558,7 +554,7 @@ Vec_IntGrow.exit.i300:                            ; preds = %240, %238
   %261 = getelementptr i8, ptr %116, i64 16
   %.val225 = load i32, ptr %261, align 8, !tbaa !40
   %262 = zext i32 %.val225 to i64
-  %263 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %260, i64 %262
+  %263 = getelementptr inbounds nuw [24 x i8], ptr %260, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %265 = load i32, ptr %264, align 8
   %266 = and i32 %265, %.sink628
@@ -579,9 +575,9 @@ Vec_IntGrow.exit.i300:                            ; preds = %240, %238
   %.val260 = phi ptr [ %.val260.pre, %.lr.ph454.preheader ], [ %.val260503, %.critedge4.backedge ]
   %indvars.iv488 = phi i64 [ 0, %.lr.ph454.preheader ], [ %indvars.iv.next489, %.critedge4.backedge ]
   %.val211 = load ptr, ptr %11, align 8, !tbaa !27
-  %272 = getelementptr inbounds nuw ptr, ptr %.val211, i64 %indvars.iv488
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %.val211, i64 %indvars.iv488
   %273 = load ptr, ptr %272, align 8, !tbaa !38
-  %274 = getelementptr inbounds nuw i32, ptr %.val260, i64 %indvars.iv488
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %.val260, i64 %indvars.iv488
   %275 = load i32, ptr %274, align 4, !tbaa !51
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %276 = icmp eq i32 %275, 114
@@ -594,7 +590,7 @@ Vec_IntGrow.exit.i300:                            ; preds = %240, %238
   %281 = getelementptr i8, ptr %273, i64 16
   %.val226 = load i32, ptr %281, align 8, !tbaa !40
   %282 = zext i32 %.val226 to i64
-  %283 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %280, i64 %282
+  %283 = getelementptr inbounds nuw [24 x i8], ptr %280, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %285 = load i32, ptr %284, align 8
   %286 = lshr i32 %285, 16
@@ -638,17 +634,17 @@ Vec_IntGrow.exit.i300:                            ; preds = %240, %238
   %.val263.val = load ptr, ptr %301, align 8, !tbaa !37
   %302 = getelementptr i8, ptr %.val263.val, i64 8
   %.val263.val.val = load ptr, ptr %302, align 8, !tbaa !27
-  %303 = getelementptr inbounds nuw i32, ptr %.val264, i64 %indvars.iv476
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %.val264, i64 %indvars.iv476
   %304 = load i32, ptr %303, align 4, !tbaa !51
   %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds ptr, ptr %.val263.val.val, i64 %305
+  %306 = getelementptr inbounds [8 x i8], ptr %.val263.val.val, i64 %305
   %307 = load ptr, ptr %306, align 8, !tbaa !38
   %308 = getelementptr inbounds nuw i8, ptr %300, i64 112
   %309 = load ptr, ptr %308, align 8, !tbaa !43
   %310 = getelementptr i8, ptr %307, i64 16
   %.val227 = load i32, ptr %310, align 8, !tbaa !40
   %311 = zext i32 %.val227 to i64
-  %312 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %309, i64 %311
+  %312 = getelementptr inbounds nuw [24 x i8], ptr %309, i64 %311
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i32, ptr %313, align 8
   %315 = and i32 %314, 65535
@@ -718,7 +714,7 @@ Vec_PtrPush.exit308:                              ; preds = %.Vec_PtrGrow.exit11
   %343 = add nsw i32 %342, 1
   store i32 %343, ptr %5, align 4, !tbaa !24
   %344 = sext i32 %342 to i64
-  %345 = getelementptr inbounds ptr, ptr %341, i64 %344
+  %345 = getelementptr inbounds [8 x i8], ptr %341, i64 %344
   store ptr %307, ptr %345, align 8, !tbaa !38
   %346 = load i32, ptr %13, align 4, !tbaa !28
   %347 = load i32, ptr %12, align 8, !tbaa !29
@@ -780,7 +776,7 @@ Vec_IntPush.exit315:                              ; preds = %.Vec_IntGrow.exit10
   %371 = add nsw i32 %370, 1
   store i32 %371, ptr %13, align 4, !tbaa !28
   %372 = sext i32 %370 to i64
-  %373 = getelementptr inbounds i32, ptr %369, i64 %372
+  %373 = getelementptr inbounds [4 x i8], ptr %369, i64 %372
   store i32 101, ptr %373, align 4, !tbaa !51
   %.val261.pre = load i32, ptr %289, align 4, !tbaa !53
   %.pre541 = load ptr, ptr @pManMR, align 8, !tbaa !31
@@ -806,17 +802,17 @@ Vec_IntPush.exit315:                              ; preds = %.Vec_IntGrow.exit10
   %.val269.val = load ptr, ptr %380, align 8, !tbaa !37
   %381 = getelementptr i8, ptr %.val269.val, i64 8
   %.val269.val.val = load ptr, ptr %381, align 8, !tbaa !27
-  %382 = getelementptr inbounds nuw i32, ptr %.val270, i64 %indvars.iv479
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %.val270, i64 %indvars.iv479
   %383 = load i32, ptr %382, align 4, !tbaa !51
   %384 = sext i32 %383 to i64
-  %385 = getelementptr inbounds ptr, ptr %.val269.val.val, i64 %384
+  %385 = getelementptr inbounds [8 x i8], ptr %.val269.val.val, i64 %384
   %386 = load ptr, ptr %385, align 8, !tbaa !38
   %387 = getelementptr inbounds nuw i8, ptr %379, i64 112
   %388 = load ptr, ptr %387, align 8, !tbaa !43
   %389 = getelementptr i8, ptr %386, i64 16
   %.val229 = load i32, ptr %389, align 8, !tbaa !40
   %390 = zext i32 %.val229 to i64
-  %391 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %388, i64 %390
+  %391 = getelementptr inbounds nuw [24 x i8], ptr %388, i64 %390
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 16
   %393 = load i32, ptr %392, align 8
   %394 = and i32 %393, 65535
@@ -886,7 +882,7 @@ Vec_PtrPush.exit322:                              ; preds = %.Vec_PtrGrow.exit11
   %422 = add nsw i32 %421, 1
   store i32 %422, ptr %5, align 4, !tbaa !24
   %423 = sext i32 %421 to i64
-  %424 = getelementptr inbounds ptr, ptr %420, i64 %423
+  %424 = getelementptr inbounds [8 x i8], ptr %420, i64 %423
   store ptr %386, ptr %424, align 8, !tbaa !38
   %425 = load i32, ptr %13, align 4, !tbaa !28
   %426 = load i32, ptr %12, align 8, !tbaa !29
@@ -948,7 +944,7 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
   %450 = add nsw i32 %449, 1
   store i32 %450, ptr %13, align 4, !tbaa !28
   %451 = sext i32 %449 to i64
-  %452 = getelementptr inbounds i32, ptr %448, i64 %451
+  %452 = getelementptr inbounds [4 x i8], ptr %448, i64 %451
   store i32 101, ptr %452, align 4, !tbaa !51
   %.val267.pre = load i32, ptr %294, align 4, !tbaa !54
   %.pre543 = load ptr, ptr @pManMR, align 8, !tbaa !31
@@ -998,17 +994,17 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
   %.val271.val = load ptr, ptr %468, align 8, !tbaa !37
   %469 = getelementptr i8, ptr %.val271.val, i64 8
   %.val271.val.val = load ptr, ptr %469, align 8, !tbaa !27
-  %470 = getelementptr inbounds nuw i32, ptr %.val272, i64 %indvars.iv482
+  %470 = getelementptr inbounds nuw [4 x i8], ptr %.val272, i64 %indvars.iv482
   %471 = load i32, ptr %470, align 4, !tbaa !51
   %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds ptr, ptr %.val271.val.val, i64 %472
+  %473 = getelementptr inbounds [8 x i8], ptr %.val271.val.val, i64 %472
   %474 = load ptr, ptr %473, align 8, !tbaa !38
   %475 = getelementptr inbounds nuw i8, ptr %467, i64 112
   %476 = load ptr, ptr %475, align 8, !tbaa !43
   %477 = getelementptr i8, ptr %474, i64 16
   %.val231 = load i32, ptr %477, align 8, !tbaa !40
   %478 = zext i32 %.val231 to i64
-  %479 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %476, i64 %478
+  %479 = getelementptr inbounds nuw [24 x i8], ptr %476, i64 %478
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 16
   %481 = load i32, ptr %480, align 8
   %.not190 = icmp ult i32 %481, 65536
@@ -1084,7 +1080,7 @@ Vec_PtrPush.exit336:                              ; preds = %.Vec_PtrGrow.exit11
   %512 = add nsw i32 %511, 1
   store i32 %512, ptr %5, align 4, !tbaa !24
   %513 = sext i32 %511 to i64
-  %514 = getelementptr inbounds ptr, ptr %510, i64 %513
+  %514 = getelementptr inbounds [8 x i8], ptr %510, i64 %513
   store ptr %474, ptr %514, align 8, !tbaa !38
   %515 = load i32, ptr %13, align 4, !tbaa !28
   %516 = load i32, ptr %12, align 8, !tbaa !29
@@ -1146,7 +1142,7 @@ Vec_IntPush.exit343:                              ; preds = %.Vec_IntGrow.exit10
   %540 = add nsw i32 %539, 1
   store i32 %540, ptr %13, align 4, !tbaa !28
   %541 = sext i32 %539 to i64
-  %542 = getelementptr inbounds i32, ptr %538, i64 %541
+  %542 = getelementptr inbounds [4 x i8], ptr %538, i64 %541
   store i32 114, ptr %542, align 4, !tbaa !51
   %.val268.pre = load i32, ptr %461, align 4, !tbaa !54
   %.pre545 = load ptr, ptr @pManMR, align 8, !tbaa !31
@@ -1173,7 +1169,7 @@ Vec_IntPush.exit343:                              ; preds = %.Vec_IntGrow.exit10
   %550 = load ptr, ptr %549, align 8, !tbaa !43
   %.val233 = load i32, ptr %281, align 8, !tbaa !40
   %551 = zext i32 %.val233 to i64
-  %552 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %550, i64 %551
+  %552 = getelementptr inbounds nuw [24 x i8], ptr %550, i64 %551
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %554 = load ptr, ptr %553, align 8, !tbaa !44
   %.not188 = icmp eq ptr %554, null
@@ -1199,12 +1195,12 @@ Vec_IntPush.exit343:                              ; preds = %.Vec_IntGrow.exit10
   %562 = phi ptr [ %550, %.lr.ph451 ], [ %632, %629 ]
   %563 = getelementptr i8, ptr %561, i64 8
   %.val212 = load ptr, ptr %563, align 8, !tbaa !27
-  %564 = getelementptr inbounds nuw ptr, ptr %.val212, i64 %indvars.iv485
+  %564 = getelementptr inbounds nuw [8 x i8], ptr %.val212, i64 %indvars.iv485
   %565 = load ptr, ptr %564, align 8, !tbaa !38
   %566 = getelementptr i8, ptr %565, i64 16
   %.val236 = load i32, ptr %566, align 8, !tbaa !40
   %567 = zext i32 %.val236 to i64
-  %568 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %562, i64 %567
+  %568 = getelementptr inbounds nuw [24 x i8], ptr %562, i64 %567
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 16
   %570 = load i32, ptr %569, align 8
   %.not189 = icmp ult i32 %570, 65536
@@ -1273,7 +1269,7 @@ Vec_PtrPush.exit350:                              ; preds = %.Vec_PtrGrow.exit11
   %598 = add nsw i32 %597, 1
   store i32 %598, ptr %5, align 4, !tbaa !24
   %599 = sext i32 %597 to i64
-  %600 = getelementptr inbounds ptr, ptr %596, i64 %599
+  %600 = getelementptr inbounds [8 x i8], ptr %596, i64 %599
   store ptr %565, ptr %600, align 8, !tbaa !38
   %601 = load i32, ptr %13, align 4, !tbaa !28
   %602 = load i32, ptr %12, align 8, !tbaa !29
@@ -1335,7 +1331,7 @@ Vec_IntPush.exit357:                              ; preds = %.Vec_IntGrow.exit10
   %626 = add nsw i32 %625, 1
   store i32 %626, ptr %13, align 4, !tbaa !28
   %627 = sext i32 %625 to i64
-  %628 = getelementptr inbounds i32, ptr %624, i64 %627
+  %628 = getelementptr inbounds [4 x i8], ptr %624, i64 %627
   store i32 114, ptr %628, align 4, !tbaa !51
   %.pre529 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %.val234.pre = load i32, ptr %281, align 8, !tbaa !40
@@ -1349,7 +1345,7 @@ Vec_IntPush.exit357:                              ; preds = %.Vec_IntGrow.exit10
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 112
   %632 = load ptr, ptr %631, align 8, !tbaa !43
   %633 = zext i32 %.val234 to i64
-  %634 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %632, i64 %633
+  %634 = getelementptr inbounds nuw [24 x i8], ptr %632, i64 %633
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 8
   %636 = load ptr, ptr %635, align 8, !tbaa !44
   %637 = getelementptr i8, ptr %636, i64 4
@@ -1372,7 +1368,7 @@ Vec_IntPush.exit357:                              ; preds = %.Vec_IntGrow.exit10
   %647 = getelementptr i8, ptr %273, i64 16
   %.val238 = load i32, ptr %647, align 8, !tbaa !40
   %648 = zext i32 %.val238 to i64
-  %649 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %646, i64 %648
+  %649 = getelementptr inbounds nuw [24 x i8], ptr %646, i64 %648
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 16
   %651 = load i32, ptr %650, align 8
   %.not177 = icmp ult i32 %651, 65536
@@ -1443,7 +1439,7 @@ Vec_PtrPush.exit364:                              ; preds = %.Vec_PtrGrow.exit11
   %681 = add nsw i32 %680, 1
   store i32 %681, ptr %5, align 4, !tbaa !24
   %682 = sext i32 %680 to i64
-  %683 = getelementptr inbounds ptr, ptr %679, i64 %682
+  %683 = getelementptr inbounds [8 x i8], ptr %679, i64 %682
   store ptr %273, ptr %683, align 8, !tbaa !38
   %684 = load i32, ptr %13, align 4, !tbaa !28
   %685 = load i32, ptr %12, align 8, !tbaa !29
@@ -1505,7 +1501,7 @@ Vec_IntPush.exit371:                              ; preds = %.Vec_IntGrow.exit10
   %709 = add nsw i32 %708, 1
   store i32 %709, ptr %13, align 4, !tbaa !28
   %710 = sext i32 %708 to i64
-  %711 = getelementptr inbounds i32, ptr %707, i64 %710
+  %711 = getelementptr inbounds [4 x i8], ptr %707, i64 %710
   store i32 114, ptr %711, align 4, !tbaa !51
   %.pre515 = load ptr, ptr @pManMR, align 8, !tbaa !31
   br label %712
@@ -1541,17 +1537,17 @@ Vec_IntPush.exit371:                              ; preds = %.Vec_IntGrow.exit10
   %.val265.val = load ptr, ptr %722, align 8, !tbaa !37
   %723 = getelementptr i8, ptr %.val265.val, i64 8
   %.val265.val.val = load ptr, ptr %723, align 8, !tbaa !27
-  %724 = getelementptr inbounds nuw i32, ptr %.val266, i64 %indvars.iv470
+  %724 = getelementptr inbounds nuw [4 x i8], ptr %.val266, i64 %indvars.iv470
   %725 = load i32, ptr %724, align 4, !tbaa !51
   %726 = sext i32 %725 to i64
-  %727 = getelementptr inbounds ptr, ptr %.val265.val.val, i64 %726
+  %727 = getelementptr inbounds [8 x i8], ptr %.val265.val.val, i64 %726
   %728 = load ptr, ptr %727, align 8, !tbaa !38
   %729 = getelementptr inbounds nuw i8, ptr %721, i64 112
   %730 = load ptr, ptr %729, align 8, !tbaa !43
   %731 = getelementptr i8, ptr %728, i64 16
   %.val241 = load i32, ptr %731, align 8, !tbaa !40
   %732 = zext i32 %.val241 to i64
-  %733 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %730, i64 %732
+  %733 = getelementptr inbounds nuw [24 x i8], ptr %730, i64 %732
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 16
   %735 = load i32, ptr %734, align 8
   %736 = and i32 %735, 65535
@@ -1628,7 +1624,7 @@ Vec_PtrPush.exit378:                              ; preds = %.Vec_PtrGrow.exit11
   %767 = add nsw i32 %766, 1
   store i32 %767, ptr %5, align 4, !tbaa !24
   %768 = sext i32 %766 to i64
-  %769 = getelementptr inbounds ptr, ptr %765, i64 %768
+  %769 = getelementptr inbounds [8 x i8], ptr %765, i64 %768
   store ptr %728, ptr %769, align 8, !tbaa !38
   %770 = load i32, ptr %13, align 4, !tbaa !28
   %771 = load i32, ptr %12, align 8, !tbaa !29
@@ -1690,7 +1686,7 @@ Vec_IntPush.exit385:                              ; preds = %.Vec_IntGrow.exit10
   %795 = add nsw i32 %794, 1
   store i32 %795, ptr %13, align 4, !tbaa !28
   %796 = sext i32 %794 to i64
-  %797 = getelementptr inbounds i32, ptr %793, i64 %796
+  %797 = getelementptr inbounds [4 x i8], ptr %793, i64 %796
   store i32 101, ptr %797, align 4, !tbaa !51
   %.val262.pre = load i32, ptr %715, align 4, !tbaa !53
   %.pre537 = load ptr, ptr @pManMR, align 8, !tbaa !31
@@ -1717,7 +1713,7 @@ Vec_IntPush.exit385:                              ; preds = %.Vec_IntGrow.exit10
   %805 = load ptr, ptr %804, align 8, !tbaa !43
   %.val243 = load i32, ptr %647, align 8, !tbaa !40
   %806 = zext i32 %.val243 to i64
-  %807 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %805, i64 %806
+  %807 = getelementptr inbounds nuw [24 x i8], ptr %805, i64 %806
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 8
   %809 = load ptr, ptr %808, align 8, !tbaa !44
   %.not180 = icmp eq ptr %809, null
@@ -1743,12 +1739,12 @@ Vec_IntPush.exit385:                              ; preds = %.Vec_IntGrow.exit10
   %817 = phi ptr [ %805, %.lr.ph438 ], [ %888, %885 ]
   %818 = getelementptr i8, ptr %816, i64 8
   %.val213 = load ptr, ptr %818, align 8, !tbaa !27
-  %819 = getelementptr inbounds nuw ptr, ptr %.val213, i64 %indvars.iv473
+  %819 = getelementptr inbounds nuw [8 x i8], ptr %.val213, i64 %indvars.iv473
   %820 = load ptr, ptr %819, align 8, !tbaa !38
   %821 = getelementptr i8, ptr %820, i64 16
   %.val246 = load i32, ptr %821, align 8, !tbaa !40
   %822 = zext i32 %.val246 to i64
-  %823 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %817, i64 %822
+  %823 = getelementptr inbounds nuw [24 x i8], ptr %817, i64 %822
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 16
   %825 = load i32, ptr %824, align 8
   %826 = and i32 %825, 65535
@@ -1818,7 +1814,7 @@ Vec_PtrPush.exit392:                              ; preds = %.Vec_PtrGrow.exit11
   %854 = add nsw i32 %853, 1
   store i32 %854, ptr %5, align 4, !tbaa !24
   %855 = sext i32 %853 to i64
-  %856 = getelementptr inbounds ptr, ptr %852, i64 %855
+  %856 = getelementptr inbounds [8 x i8], ptr %852, i64 %855
   store ptr %820, ptr %856, align 8, !tbaa !38
   %857 = load i32, ptr %13, align 4, !tbaa !28
   %858 = load i32, ptr %12, align 8, !tbaa !29
@@ -1880,7 +1876,7 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   %882 = add nsw i32 %881, 1
   store i32 %882, ptr %13, align 4, !tbaa !28
   %883 = sext i32 %881 to i64
-  %884 = getelementptr inbounds i32, ptr %880, i64 %883
+  %884 = getelementptr inbounds [4 x i8], ptr %880, i64 %883
   store i32 101, ptr %884, align 4, !tbaa !51
   %.pre519 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %.val244.pre = load i32, ptr %647, align 8, !tbaa !40
@@ -1894,7 +1890,7 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 112
   %888 = load ptr, ptr %887, align 8, !tbaa !43
   %889 = zext i32 %.val244 to i64
-  %890 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %888, i64 %889
+  %890 = getelementptr inbounds nuw [24 x i8], ptr %888, i64 %889
   %891 = getelementptr inbounds nuw i8, ptr %890, i64 8
   %892 = load ptr, ptr %891, align 8, !tbaa !44
   %893 = getelementptr i8, ptr %892, i64 4
@@ -1932,7 +1928,7 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv491 = phi i64 [ %indvars.iv.next492, %925 ], [ 0, %.preheader ]
   %902 = getelementptr i8, ptr %901, i64 8
   %.val216.val = load ptr, ptr %902, align 8, !tbaa !27
-  %903 = getelementptr inbounds nuw ptr, ptr %.val216.val, i64 %indvars.iv491
+  %903 = getelementptr inbounds nuw [8 x i8], ptr %.val216.val, i64 %indvars.iv491
   %904 = load ptr, ptr %903, align 8, !tbaa !38
   %905 = icmp eq ptr %904, null
   br i1 %905, label %925, label %906
@@ -1944,7 +1940,7 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   %910 = getelementptr i8, ptr %904, i64 16
   %.val248 = load i32, ptr %910, align 8, !tbaa !40
   %911 = zext i32 %.val248 to i64
-  %912 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %909, i64 %911
+  %912 = getelementptr inbounds nuw [24 x i8], ptr %909, i64 %911
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 8
   %914 = load ptr, ptr %913, align 8, !tbaa !44
   %.not175 = icmp eq ptr %914, null
@@ -1967,7 +1963,7 @@ Vec_PtrFree.exit:                                 ; preds = %915, %918
   %921 = load ptr, ptr %920, align 8, !tbaa !43
   %.val249 = load i32, ptr %910, align 8, !tbaa !40
   %922 = zext i32 %.val249 to i64
-  %923 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %921, i64 %922
+  %923 = getelementptr inbounds nuw [24 x i8], ptr %921, i64 %922
   %924 = getelementptr inbounds nuw i8, ptr %923, i64 8
   store ptr null, ptr %924, align 8, !tbaa !44
   %.pre532 = load ptr, ptr %108, align 8, !tbaa !37
@@ -2000,7 +1996,7 @@ Vec_PtrFree.exit:                                 ; preds = %915, %918
 937:                                              ; preds = %.lr.ph460, %964
   %.val209535 = phi i32 [ %.val209458, %.lr.ph460 ], [ %.val209, %964 ]
   %indvars.iv494 = phi i64 [ 0, %.lr.ph460 ], [ %indvars.iv.next495, %964 ]
-  %938 = getelementptr inbounds nuw ptr, ptr %.val217.val, i64 %indvars.iv494
+  %938 = getelementptr inbounds nuw [8 x i8], ptr %.val217.val, i64 %indvars.iv494
   %939 = load ptr, ptr %938, align 8, !tbaa !38
   %940 = icmp eq ptr %939, null
   br i1 %940, label %964, label %941
@@ -2011,25 +2007,25 @@ Vec_PtrFree.exit:                                 ; preds = %915, %918
   %944 = getelementptr i8, ptr %939, i64 16
   %.val250 = load i32, ptr %944, align 8, !tbaa !40
   %945 = zext i32 %.val250 to i64
-  %946 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %943, i64 %945
+  %946 = getelementptr inbounds nuw [24 x i8], ptr %943, i64 %945
   %947 = getelementptr inbounds nuw i8, ptr %946, i64 16
   %948 = load i32, ptr %947, align 8
   %949 = lshr i32 %948, 16
   %950 = getelementptr i8, ptr %942, i64 8
   %.val273 = load ptr, ptr %950, align 8, !tbaa !30
   %951 = zext nneg i32 %949 to i64
-  %952 = getelementptr inbounds nuw i32, ptr %.val273, i64 %951
+  %952 = getelementptr inbounds nuw [4 x i8], ptr %.val273, i64 %951
   %953 = load i32, ptr %952, align 4, !tbaa !51
   %954 = add nsw i32 %953, 1
   store i32 %954, ptr %952, align 4, !tbaa !51
   %.val251 = load i32, ptr %944, align 8, !tbaa !40
   %955 = zext i32 %.val251 to i64
-  %956 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %943, i64 %955
+  %956 = getelementptr inbounds nuw [24 x i8], ptr %943, i64 %955
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 16
   %958 = load i32, ptr %957, align 8
   %959 = and i32 %958, 65535
   %960 = zext nneg i32 %959 to i64
-  %961 = getelementptr inbounds nuw i32, ptr %.val273, i64 %960
+  %961 = getelementptr inbounds nuw [4 x i8], ptr %.val273, i64 %960
   %962 = load i32, ptr %961, align 4, !tbaa !51
   %963 = add nsw i32 %962, 1
   store i32 %963, ptr %961, align 4, !tbaa !51
@@ -2084,7 +2080,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %9 = getelementptr i8, ptr %0, i64 16
   %.val102 = load i32, ptr %9, align 8, !tbaa !40
   %10 = zext i32 %.val102 to i64
-  %11 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 8
   %13 = and i16 %12, 144
   %14 = zext nneg i16 %13 to i32
@@ -2142,17 +2138,17 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.val112.val = load ptr, ptr %34, align 8, !tbaa !37
   %35 = getelementptr i8, ptr %.val112.val, i64 8
   %.val112.val.val = load ptr, ptr %35, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw i32, ptr %.val113, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.val113, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !51
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %.val112.val.val, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.val112.val.val, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !38
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !43
   %43 = getelementptr i8, ptr %40, i64 16
   %.val100 = load i32, ptr %43, align 8, !tbaa !40
   %44 = zext i32 %.val100 to i64
-  %45 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %44
   %46 = load i16, ptr %45, align 8
   %47 = and i16 %46, 2
   %.not77 = icmp eq i16 %47, 0
@@ -2161,7 +2157,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 48:                                               ; preds = %32
   %.val99 = load i32, ptr %9, align 8, !tbaa !40
   %49 = zext i32 %.val99 to i64
-  %50 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %42, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 65535
@@ -2202,17 +2198,17 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.val106.val = load ptr, ptr %67, align 8, !tbaa !37
   %68 = getelementptr i8, ptr %.val106.val, i64 8
   %.val106.val.val = load ptr, ptr %68, align 8, !tbaa !27
-  %69 = getelementptr inbounds nuw i32, ptr %.val107, i64 %indvars.iv144
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.val107, i64 %indvars.iv144
   %70 = load i32, ptr %69, align 4, !tbaa !51
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %.val106.val.val, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %.val106.val.val, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !38
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 112
   %75 = load ptr, ptr %74, align 8, !tbaa !43
   %76 = getelementptr i8, ptr %73, i64 16
   %.val97 = load i32, ptr %76, align 8, !tbaa !40
   %77 = zext i32 %.val97 to i64
-  %78 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %77
   %79 = load i16, ptr %78, align 8
   %80 = and i16 %79, 2
   %.not65 = icmp eq i16 %80, 0
@@ -2221,7 +2217,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 81:                                               ; preds = %65
   %.val96 = load i32, ptr %9, align 8, !tbaa !40
   %82 = zext i32 %.val96 to i64
-  %83 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %75, i64 %82
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8
   %86 = and i32 %85, 65535
@@ -2294,17 +2290,17 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.val110.val = load ptr, ptr %107, align 8, !tbaa !37
   %108 = getelementptr i8, ptr %.val110.val, i64 8
   %.val110.val.val = load ptr, ptr %108, align 8, !tbaa !27
-  %109 = getelementptr inbounds nuw i32, ptr %.val111, i64 %indvars.iv147
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.val111, i64 %indvars.iv147
   %110 = load i32, ptr %109, align 4, !tbaa !51
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds ptr, ptr %.val110.val.val, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %.val110.val.val, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !38
   %114 = getelementptr inbounds nuw i8, ptr %106, i64 112
   %115 = load ptr, ptr %114, align 8, !tbaa !43
   %116 = getelementptr i8, ptr %113, i64 16
   %.val94 = load i32, ptr %116, align 8, !tbaa !40
   %117 = zext i32 %.val94 to i64
-  %118 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %115, i64 %117
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %117
   %119 = load i16, ptr %118, align 8
   %120 = and i16 %119, 1
   %.not72 = icmp eq i16 %120, 0
@@ -2313,7 +2309,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 121:                                              ; preds = %105
   %.val93 = load i32, ptr %9, align 8, !tbaa !40
   %122 = zext i32 %.val93 to i64
-  %123 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %115, i64 %122
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 65535
@@ -2355,7 +2351,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 120
   %141 = load ptr, ptr %140, align 8, !tbaa !39
   %142 = zext i32 %.val86.pre179 to i64
-  %143 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %142
   %144 = getelementptr i8, ptr %143, i64 4
   %.val135 = load i32, ptr %144, align 4, !tbaa !24
   %145 = icmp sgt i32 %.val135, 0
@@ -2369,21 +2365,21 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %148 = phi i64 [ %175, %171 ], [ %142, %.preheader ]
   %149 = getelementptr i8, ptr %147, i64 8
   %.val79 = load ptr, ptr %149, align 8, !tbaa !27
-  %150 = getelementptr inbounds nuw ptr, ptr %.val79, i64 %indvars.iv150
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %.val79, i64 %indvars.iv150
   %151 = load ptr, ptr %150, align 8, !tbaa !38
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 112
   %153 = load ptr, ptr %152, align 8, !tbaa !43
   %154 = getelementptr i8, ptr %151, i64 16
   %.val89 = load i32, ptr %154, align 8, !tbaa !40
   %155 = zext i32 %.val89 to i64
-  %156 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [24 x i8], ptr %153, i64 %155
   %157 = load i16, ptr %156, align 8
   %158 = and i16 %157, 1
   %.not70 = icmp eq i16 %158, 0
   br i1 %.not70, label %159, label %171
 
 159:                                              ; preds = %.lr.ph137
-  %160 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %153, i64 %148
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %153, i64 %148
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load i32, ptr %161, align 8
   %163 = and i32 %162, 65535
@@ -2411,7 +2407,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 120
   %174 = load ptr, ptr %173, align 8, !tbaa !39
   %175 = zext i32 %.val91 to i64
-  %176 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %175
   %177 = getelementptr i8, ptr %176, i64 4
   %.val = load i32, ptr %177, align 4, !tbaa !24
   %178 = sext i32 %.val to i64
@@ -2424,7 +2420,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 112
   %182 = load ptr, ptr %181, align 8, !tbaa !43
   %183 = zext i32 %.val86 to i64
-  %184 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [24 x i8], ptr %182, i64 %183
   %185 = load i16, ptr %184, align 8
   %186 = and i16 %185, 6
   %or.cond = icmp eq i16 %186, 4
@@ -2452,7 +2448,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %199 = getelementptr inbounds nuw i8, ptr %.pre181, i64 112
   %200 = load ptr, ptr %199, align 8, !tbaa !43
   %201 = zext i32 %.val81.pre182 to i64
-  %202 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %200, i64 %201
   %203 = load i16, ptr %202, align 8
   %204 = and i16 %203, -5
   store i16 %204, ptr %202, align 8
@@ -2461,7 +2457,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 112
   %207 = load ptr, ptr %206, align 8, !tbaa !43
   %208 = zext i32 %.val115 to i64
-  %209 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [24 x i8], ptr %207, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store ptr null, ptr %210, align 8, !tbaa !44
   br label %.loopexit
@@ -2472,7 +2468,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 112
   %214 = load ptr, ptr %213, align 8, !tbaa !43
   %215 = zext i32 %.val81 to i64
-  %216 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %215
   %217 = load i16, ptr %216, align 8
   %218 = and i16 %217, -2
   store i16 %218, ptr %216, align 8
@@ -2481,7 +2477,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %221 = load ptr, ptr %220, align 8, !tbaa !43
   %.val97.i = load i32, ptr %9, align 8, !tbaa !40
   %222 = zext i32 %.val97.i to i64
-  %223 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %221, i64 %222
+  %223 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load i32, ptr %224, align 8
   %226 = and i32 %225, 65535
@@ -2527,15 +2523,15 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 239:                                              ; preds = %239, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %239 ]
   %.0115.i = phi i32 [ 30000, %.lr.ph.i ], [ %.1.i, %239 ]
-  %240 = getelementptr inbounds nuw i32, ptr %.val108.i, i64 %indvars.iv.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %.val108.i, i64 %indvars.iv.i
   %241 = load i32, ptr %240, align 4, !tbaa !51
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds ptr, ptr %.val107.val.val.i, i64 %242
+  %243 = getelementptr inbounds [8 x i8], ptr %.val107.val.val.i, i64 %242
   %244 = load ptr, ptr %243, align 8, !tbaa !38
   %245 = getelementptr i8, ptr %244, i64 16
   %.val96.i = load i32, ptr %245, align 8, !tbaa !40
   %246 = zext i32 %.val96.i to i64
-  %247 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %221, i64 %246
+  %247 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load i32, ptr %248, align 8
   %250 = lshr i32 %249, 16
@@ -2549,15 +2545,15 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 252:                                              ; preds = %252, %.lr.ph118.i
   %indvars.iv130.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next131.i, %252 ]
   %.3117.i = phi i32 [ 30000, %.lr.ph118.i ], [ %.4.i, %252 ]
-  %253 = getelementptr inbounds nuw i32, ptr %.val102.i, i64 %indvars.iv130.i
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %.val102.i, i64 %indvars.iv130.i
   %254 = load i32, ptr %253, align 4, !tbaa !51
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds ptr, ptr %.val101.val.val.i, i64 %255
+  %256 = getelementptr inbounds [8 x i8], ptr %.val101.val.val.i, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !38
   %258 = getelementptr i8, ptr %257, i64 16
   %.val95.i = load i32, ptr %258, align 8, !tbaa !40
   %259 = zext i32 %.val95.i to i64
-  %260 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %221, i64 %259
+  %260 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %259
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %262 = load i32, ptr %261, align 8
   %263 = lshr i32 %262, 16
@@ -2614,15 +2610,15 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 279:                                              ; preds = %279, %.lr.ph122.i
   %indvars.iv135.i = phi i64 [ 0, %.lr.ph122.i ], [ %indvars.iv.next136.i, %279 ]
   %.7121.i = phi i32 [ %.6.i, %.lr.ph122.i ], [ %.8.i, %279 ]
-  %280 = getelementptr inbounds nuw i32, ptr %.val106.i, i64 %indvars.iv135.i
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %.val106.i, i64 %indvars.iv135.i
   %281 = load i32, ptr %280, align 4, !tbaa !51
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds ptr, ptr %.val105.val.val.i, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %.val105.val.val.i, i64 %282
   %284 = load ptr, ptr %283, align 8, !tbaa !38
   %285 = getelementptr i8, ptr %284, i64 16
   %.val92.i = load i32, ptr %285, align 8, !tbaa !40
   %286 = zext i32 %.val92.i to i64
-  %287 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %221, i64 %286
+  %287 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %286
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 16
   %289 = load i32, ptr %288, align 8
   %290 = and i32 %289, 65535
@@ -2642,7 +2638,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 .preheader.i:                                     ; preds = %.critedge4.i
   %293 = getelementptr inbounds nuw i8, ptr %219, i64 120
   %294 = load ptr, ptr %293, align 8, !tbaa !39
-  %295 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %294, i64 %222
+  %295 = getelementptr inbounds nuw [16 x i8], ptr %294, i64 %222
   %296 = getelementptr i8, ptr %295, i64 4
   %.val.i = load i32, ptr %296, align 4, !tbaa !24
   %297 = icmp sgt i32 %.val.i, 0
@@ -2657,12 +2653,12 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 299:                                              ; preds = %299, %.lr.ph126.i
   %indvars.iv140.i = phi i64 [ 0, %.lr.ph126.i ], [ %indvars.iv.next141.i, %299 ]
   %.9125.i = phi i32 [ %.7.lcssa.i, %.lr.ph126.i ], [ %.10.i, %299 ]
-  %300 = getelementptr inbounds nuw ptr, ptr %.val87.i, i64 %indvars.iv140.i
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %.val87.i, i64 %indvars.iv140.i
   %301 = load ptr, ptr %300, align 8, !tbaa !38
   %302 = getelementptr i8, ptr %301, i64 16
   %.val89.i = load i32, ptr %302, align 8, !tbaa !40
   %303 = zext i32 %.val89.i to i64
-  %304 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %221, i64 %303
+  %304 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %306 = load i32, ptr %305, align 8
   %307 = and i32 %306, 65535
@@ -2688,12 +2684,12 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %317 = getelementptr i8, ptr %316, i64 8
   %.val98.i = load ptr, ptr %317, align 8, !tbaa !30
   %318 = zext nneg i32 %226 to i64
-  %319 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %318
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %.val98.i, i64 %318
   %320 = load i32, ptr %319, align 4, !tbaa !51
   %321 = add nsw i32 %320, -1
   store i32 %321, ptr %319, align 4, !tbaa !51
   %322 = zext nneg i32 %spec.store.select.i to i64
-  %323 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %322
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %.val98.i, i64 %322
   %324 = load i32, ptr %323, align 4, !tbaa !51
   %325 = add nsw i32 %324, 1
   store i32 %325, ptr %323, align 4, !tbaa !51
@@ -2712,7 +2708,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %331 = load ptr, ptr %330, align 8, !tbaa !43
   %.val80 = load i32, ptr %9, align 8, !tbaa !40
   %332 = zext i32 %.val80 to i64
-  %333 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %331, i64 %332
+  %333 = getelementptr inbounds nuw [24 x i8], ptr %331, i64 %332
   %334 = load i16, ptr %333, align 8
   %335 = and i16 %334, -2
   store i16 %335, ptr %333, align 8
@@ -2750,7 +2746,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %.phi.trans.insert114 = getelementptr i8, ptr %0, i64 16
   %.val87.pre = load i32, ptr %.phi.trans.insert114, align 8, !tbaa !40
   %.phi.trans.insert116 = zext i32 %.val87.pre to i64
-  %.phi.trans.insert117 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %.pre, i64 %.phi.trans.insert116
+  %.phi.trans.insert117 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %.phi.trans.insert116
   %.pre118 = load i16, ptr %.phi.trans.insert117, align 8
   br label %.thread
 
@@ -2764,7 +2760,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %16 = getelementptr i8, ptr %0, i64 16
   %.val88 = load i32, ptr %16, align 8, !tbaa !40
   %17 = zext i32 %.val88 to i64
-  %18 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %17
   %19 = load i16, ptr %18, align 8
   %20 = and i16 %19, 144
   %21 = zext nneg i16 %20 to i32
@@ -2779,7 +2775,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %25 = phi i16 [ %.pre118, %..thread_crit_edge ], [ %19, %13 ]
   %26 = phi ptr [ %.pre, %..thread_crit_edge ], [ %15, %13 ]
   %27 = getelementptr i8, ptr %0, i64 16
-  %28 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %26, i64 %.pre-phi
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %.pre-phi
   %29 = or i16 %25, 2
   store i16 %29, ptr %28, align 8
   %30 = load ptr, ptr @pManMR, align 8, !tbaa !31
@@ -2787,7 +2783,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %32 = load ptr, ptr %31, align 8, !tbaa !43
   %.val86 = load i32, ptr %27, align 8, !tbaa !40
   %33 = zext i32 %.val86 to i64
-  %34 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   %35 = load i16, ptr %34, align 8
   %36 = and i16 %35, 4
   %.not55 = icmp eq i16 %36, 0
@@ -2803,7 +2799,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %41 = getelementptr i8, ptr %39, i64 16
   %.val85 = load i32, ptr %41, align 8, !tbaa !40
   %42 = zext i32 %.val85 to i64
-  %43 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %32, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %42
   %44 = load i16, ptr %43, align 8
   %45 = and i16 %44, 1
   %.not59 = icmp eq i16 %45, 0
@@ -2851,7 +2847,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %70 = load ptr, ptr %69, align 8, !tbaa !43
   %.val79 = load i32, ptr %27, align 8, !tbaa !40
   %71 = zext i32 %.val79 to i64
-  %72 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %71
   %73 = load i16, ptr %72, align 8
   %74 = or i16 %73, 4
   store i16 %74, ptr %72, align 8
@@ -2890,17 +2886,17 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %.val93.val = load ptr, ptr %84, align 8, !tbaa !37
   %85 = getelementptr i8, ptr %.val93.val, i64 8
   %.val93.val.val = load ptr, ptr %85, align 8, !tbaa !27
-  %86 = getelementptr inbounds nuw i32, ptr %.val94, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.val94, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !51
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %.val93.val.val, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %.val93.val.val, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !38
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %92 = load ptr, ptr %91, align 8, !tbaa !43
   %93 = getelementptr i8, ptr %90, i64 16
   %.val78 = load i32, ptr %93, align 8, !tbaa !40
   %94 = zext i32 %.val78 to i64
-  %95 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %94
   %96 = load i16, ptr %95, align 8
   %97 = and i16 %96, 2
   %.not65 = icmp eq i16 %97, 0
@@ -2909,7 +2905,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 98:                                               ; preds = %82
   %.val77 = load i32, ptr %27, align 8, !tbaa !40
   %99 = zext i32 %.val77 to i64
-  %100 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %92, i64 %99
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = lshr i32 %102, 16
@@ -2958,7 +2954,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 120
   %121 = load ptr, ptr %120, align 8, !tbaa !39
   %122 = zext i32 %.val70.pre132 to i64
-  %123 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %122
   %124 = getelementptr i8, ptr %123, i64 4
   %.val106 = load i32, ptr %124, align 4, !tbaa !24
   %125 = icmp sgt i32 %.val106, 0
@@ -2972,21 +2968,21 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %128 = phi i64 [ %155, %151 ], [ %122, %.preheader ]
   %129 = getelementptr i8, ptr %127, i64 8
   %.val68 = load ptr, ptr %129, align 8, !tbaa !27
-  %130 = getelementptr inbounds nuw ptr, ptr %.val68, i64 %indvars.iv111
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %.val68, i64 %indvars.iv111
   %131 = load ptr, ptr %130, align 8, !tbaa !38
   %132 = getelementptr inbounds nuw i8, ptr %126, i64 112
   %133 = load ptr, ptr %132, align 8, !tbaa !43
   %134 = getelementptr i8, ptr %131, i64 16
   %.val73 = load i32, ptr %134, align 8, !tbaa !40
   %135 = zext i32 %.val73 to i64
-  %136 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %133, i64 %135
   %137 = load i16, ptr %136, align 8
   %138 = and i16 %137, 2
   %.not63 = icmp eq i16 %138, 0
   br i1 %.not63, label %139, label %151
 
 139:                                              ; preds = %.lr.ph108
-  %140 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %133, i64 %128
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %133, i64 %128
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load i32, ptr %141, align 8
   %143 = lshr i32 %142, 16
@@ -3014,7 +3010,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 120
   %154 = load ptr, ptr %153, align 8, !tbaa !39
   %155 = zext i32 %.val75 to i64
-  %156 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %154, i64 %155
   %157 = getelementptr i8, ptr %156, i64 4
   %.val = load i32, ptr %157, align 4, !tbaa !24
   %158 = sext i32 %.val to i64
@@ -3027,7 +3023,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 112
   %162 = load ptr, ptr %161, align 8, !tbaa !43
   %163 = zext i32 %.val70 to i64
-  %164 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %163
   %165 = load i16, ptr %164, align 8
   %166 = and i16 %165, -3
   store i16 %166, ptr %164, align 8
@@ -3036,7 +3032,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %169 = load ptr, ptr %168, align 8, !tbaa !43
   %.val73.i = load i32, ptr %27, align 8, !tbaa !40
   %170 = zext i32 %.val73.i to i64
-  %171 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [24 x i8], ptr %169, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load i32, ptr %172, align 8
   %174 = lshr i32 %173, 16
@@ -3055,7 +3051,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %181 = getelementptr i8, ptr %179, i64 16
   %.val71.i = load i32, ptr %181, align 8, !tbaa !40
   %182 = zext i32 %.val71.i to i64
-  %183 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %169, i64 %182
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %169, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load i32, ptr %184, align 8
   %186 = and i32 %185, 65535
@@ -3102,10 +3098,10 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 201:                                              ; preds = %218, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %218 ]
   %.284.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.3.i, %218 ]
-  %202 = getelementptr inbounds nuw i32, ptr %.val78.i, i64 %indvars.iv.i
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %.val78.i, i64 %indvars.iv.i
   %203 = load i32, ptr %202, align 4, !tbaa !51
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds ptr, ptr %.val77.val.val.i, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %.val77.val.val.i, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !38
   %207 = getelementptr i8, ptr %206, i64 20
   %.val75.i = load i32, ptr %207, align 4
@@ -3117,7 +3113,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %210 = getelementptr i8, ptr %206, i64 16
   %.val69.i = load i32, ptr %210, align 8, !tbaa !40
   %211 = zext i32 %.val69.i to i64
-  %212 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %169, i64 %211
+  %212 = getelementptr inbounds nuw [24 x i8], ptr %169, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %214 = load i32, ptr %213, align 8
   %215 = lshr i32 %214, 16
@@ -3143,7 +3139,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 .preheader.i:                                     ; preds = %.critedge.i
   %220 = getelementptr inbounds nuw i8, ptr %167, i64 120
   %221 = load ptr, ptr %220, align 8, !tbaa !39
-  %222 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %221, i64 %170
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %221, i64 %170
   %223 = getelementptr i8, ptr %222, i64 4
   %.val.i = load i32, ptr %223, align 4, !tbaa !24
   %224 = icmp sgt i32 %.val.i, 0
@@ -3158,12 +3154,12 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 226:                                              ; preds = %226, %.lr.ph87.i
   %indvars.iv90.i = phi i64 [ 0, %.lr.ph87.i ], [ %indvars.iv.next91.i, %226 ]
   %.486.i = phi i32 [ %.2.lcssa.i, %.lr.ph87.i ], [ %.5.i, %226 ]
-  %227 = getelementptr inbounds nuw ptr, ptr %.val64.i, i64 %indvars.iv90.i
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %.val64.i, i64 %indvars.iv90.i
   %228 = load ptr, ptr %227, align 8, !tbaa !38
   %229 = getelementptr i8, ptr %228, i64 16
   %.val66.i = load i32, ptr %229, align 8, !tbaa !40
   %230 = zext i32 %.val66.i to i64
-  %231 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %169, i64 %230
+  %231 = getelementptr inbounds nuw [24 x i8], ptr %169, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load i32, ptr %232, align 8
   %234 = lshr i32 %233, 16
@@ -3189,12 +3185,12 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %244 = getelementptr i8, ptr %243, i64 8
   %.val74.i = load ptr, ptr %244, align 8, !tbaa !30
   %245 = zext nneg i32 %174 to i64
-  %246 = getelementptr inbounds nuw i32, ptr %.val74.i, i64 %245
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %.val74.i, i64 %245
   %247 = load i32, ptr %246, align 4, !tbaa !51
   %248 = add nsw i32 %247, -1
   store i32 %248, ptr %246, align 4, !tbaa !51
   %249 = zext nneg i32 %spec.store.select.i to i64
-  %250 = getelementptr inbounds nuw i32, ptr %.val74.i, i64 %249
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %.val74.i, i64 %249
   %251 = load i32, ptr %250, align 4, !tbaa !51
   %252 = add nsw i32 %251, 1
   store i32 %252, ptr %250, align 4, !tbaa !51
@@ -3213,7 +3209,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %256 = getelementptr inbounds nuw i8, ptr %.sink, i64 112
   %257 = load ptr, ptr %256, align 8, !tbaa !43
   %258 = zext i32 %.val97.sink to i64
-  %259 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %257, i64 %258
+  %259 = getelementptr inbounds nuw [24 x i8], ptr %257, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store ptr %1, ptr %260, align 8, !tbaa !44
   br label %.loopexit
@@ -3224,7 +3220,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %263 = load ptr, ptr %262, align 8, !tbaa !43
   %.val69 = load i32, ptr %27, align 8, !tbaa !40
   %264 = zext i32 %.val69 to i64
-  %265 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %263, i64 %264
+  %265 = getelementptr inbounds nuw [24 x i8], ptr %263, i64 %264
   %266 = load i16, ptr %265, align 8
   %267 = and i16 %266, -3
   store i16 %267, ptr %265, align 8
@@ -3243,7 +3239,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %6 = getelementptr i8, ptr %0, i64 16
   %.val76 = load i32, ptr %6, align 8, !tbaa !40
   %7 = zext i32 %.val76 to i64
-  %8 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %7
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 144
   %11 = zext nneg i16 %10 to i32
@@ -3301,17 +3297,17 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %.val86.val = load ptr, ptr %31, align 8, !tbaa !37
   %32 = getelementptr i8, ptr %.val86.val, i64 8
   %.val86.val.val = load ptr, ptr %32, align 8, !tbaa !27
-  %33 = getelementptr inbounds nuw i32, ptr %.val87, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.val87, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !51
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %.val86.val.val, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.val86.val.val, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %39 = load ptr, ptr %38, align 8, !tbaa !43
   %40 = getelementptr i8, ptr %37, i64 16
   %.val74 = load i32, ptr %40, align 8, !tbaa !40
   %41 = zext i32 %.val74 to i64
-  %42 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %41
   %43 = load i16, ptr %42, align 8
   %44 = and i16 %43, 2
   %.not63 = icmp eq i16 %44, 0
@@ -3347,17 +3343,17 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %.val80.val = load ptr, ptr %53, align 8, !tbaa !37
   %54 = getelementptr i8, ptr %.val80.val, i64 8
   %.val80.val.val = load ptr, ptr %54, align 8, !tbaa !27
-  %55 = getelementptr inbounds nuw i32, ptr %.val81, i64 %indvars.iv116
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.val81, i64 %indvars.iv116
   %56 = load i32, ptr %55, align 4, !tbaa !51
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.val80.val.val, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.val80.val.val, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %61 = load ptr, ptr %60, align 8, !tbaa !43
   %62 = getelementptr i8, ptr %59, i64 16
   %.val73 = load i32, ptr %62, align 8, !tbaa !40
   %63 = zext i32 %.val73 to i64
-  %64 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %63
   %65 = load i16, ptr %64, align 8
   %66 = and i16 %65, 2
   %.not51 = icmp eq i16 %66, 0
@@ -3421,17 +3417,17 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %.val84.val = load ptr, ptr %82, align 8, !tbaa !37
   %83 = getelementptr i8, ptr %.val84.val, i64 8
   %.val84.val.val = load ptr, ptr %83, align 8, !tbaa !27
-  %84 = getelementptr inbounds nuw i32, ptr %.val85, i64 %indvars.iv119
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.val85, i64 %indvars.iv119
   %85 = load i32, ptr %84, align 4, !tbaa !51
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr %.val84.val.val, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.val84.val.val, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !38
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 112
   %90 = load ptr, ptr %89, align 8, !tbaa !43
   %91 = getelementptr i8, ptr %88, i64 16
   %.val72 = load i32, ptr %91, align 8, !tbaa !40
   %92 = zext i32 %.val72 to i64
-  %93 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %92
   %94 = load i16, ptr %93, align 8
   %95 = and i16 %94, 1
   %.not58 = icmp eq i16 %95, 0
@@ -3468,7 +3464,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 120
   %105 = load ptr, ptr %104, align 8, !tbaa !39
   %106 = zext i32 %.val68.pre151 to i64
-  %107 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %108 = getelementptr i8, ptr %107, i64 4
   %.val108 = load i32, ptr %108, align 4, !tbaa !24
   %109 = icmp sgt i32 %.val108, 0
@@ -3481,14 +3477,14 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %111 = phi ptr [ %129, %124 ], [ %107, %.preheader ]
   %112 = getelementptr i8, ptr %111, i64 8
   %.val65 = load ptr, ptr %112, align 8, !tbaa !27
-  %113 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %indvars.iv122
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %.val65, i64 %indvars.iv122
   %114 = load ptr, ptr %113, align 8, !tbaa !38
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 112
   %116 = load ptr, ptr %115, align 8, !tbaa !43
   %117 = getelementptr i8, ptr %114, i64 16
   %.val69 = load i32, ptr %117, align 8, !tbaa !40
   %118 = zext i32 %.val69 to i64
-  %119 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %118
   %120 = load i16, ptr %119, align 8
   %121 = and i16 %120, 1
   %.not56 = icmp eq i16 %121, 0
@@ -3511,7 +3507,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 120
   %127 = load ptr, ptr %126, align 8, !tbaa !39
   %128 = zext i32 %.val71 to i64
-  %129 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %128
   %130 = getelementptr i8, ptr %129, i64 4
   %.val = load i32, ptr %130, align 4, !tbaa !24
   %131 = sext i32 %.val to i64
@@ -3524,7 +3520,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 112
   %135 = load ptr, ptr %134, align 8, !tbaa !43
   %136 = zext i32 %.val68 to i64
-  %137 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [24 x i8], ptr %135, i64 %136
   %138 = load i16, ptr %137, align 8
   %139 = and i16 %138, 6
   %or.cond = icmp eq i16 %139, 4
@@ -3543,7 +3539,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %147 = load ptr, ptr %146, align 8, !tbaa !43
   %.val66 = load i32, ptr %6, align 8, !tbaa !40
   %148 = zext i32 %.val66 to i64
-  %149 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %148
   %150 = load i16, ptr %149, align 8
   %151 = and i16 %150, -5
   store i16 %151, ptr %149, align 8
@@ -3552,7 +3548,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 112
   %154 = load ptr, ptr %153, align 8, !tbaa !43
   %155 = zext i32 %.val89 to i64
-  %156 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [24 x i8], ptr %154, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr null, ptr %157, align 8, !tbaa !44
   br label %.loopexit
@@ -3583,7 +3579,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %.phi.trans.insert93 = getelementptr i8, ptr %0, i64 16
   %.val65.pre = load i32, ptr %.phi.trans.insert93, align 8, !tbaa !40
   %.phi.trans.insert95 = zext i32 %.val65.pre to i64
-  %.phi.trans.insert96 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %.pre, i64 %.phi.trans.insert95
+  %.phi.trans.insert96 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %.phi.trans.insert95
   %.pre97 = load i16, ptr %.phi.trans.insert96, align 8
   br label %.thread
 
@@ -3597,7 +3593,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %13 = getelementptr i8, ptr %0, i64 16
   %.val66 = load i32, ptr %13, align 8, !tbaa !40
   %14 = zext i32 %.val66 to i64
-  %15 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %14
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 144
   %18 = zext nneg i16 %17 to i32
@@ -3612,7 +3608,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %22 = phi i16 [ %.pre97, %..thread_crit_edge ], [ %16, %10 ]
   %23 = phi ptr [ %.pre, %..thread_crit_edge ], [ %12, %10 ]
   %24 = getelementptr i8, ptr %0, i64 16
-  %25 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %23, i64 %.pre-phi
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.pre-phi
   %26 = or i16 %22, 2
   store i16 %26, ptr %25, align 8
   %27 = load ptr, ptr @pManMR, align 8, !tbaa !31
@@ -3620,7 +3616,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %29 = load ptr, ptr %28, align 8, !tbaa !43
   %.val64 = load i32, ptr %24, align 8, !tbaa !40
   %30 = zext i32 %.val64 to i64
-  %31 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 8
   %33 = and i16 %32, 4
   %.not43 = icmp eq i16 %33, 0
@@ -3636,7 +3632,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %38 = getelementptr i8, ptr %36, i64 16
   %.val63 = load i32, ptr %38, align 8, !tbaa !40
   %39 = zext i32 %.val63 to i64
-  %40 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %29, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %39
   %41 = load i16, ptr %40, align 8
   %42 = and i16 %41, 1
   %.not47 = icmp eq i16 %42, 0
@@ -3664,7 +3660,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %51 = load ptr, ptr %50, align 8, !tbaa !43
   %.val61 = load i32, ptr %24, align 8, !tbaa !40
   %52 = zext i32 %.val61 to i64
-  %53 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %52
   %54 = load i16, ptr %53, align 8
   %55 = or i16 %54, 4
   store i16 %55, ptr %53, align 8
@@ -3699,17 +3695,17 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %.val71.val = load ptr, ptr %65, align 8, !tbaa !37
   %66 = getelementptr i8, ptr %.val71.val, i64 8
   %.val71.val.val = load ptr, ptr %66, align 8, !tbaa !27
-  %67 = getelementptr inbounds nuw i32, ptr %.val72, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.val72, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !51
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %.val71.val.val, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %.val71.val.val, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !38
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 112
   %73 = load ptr, ptr %72, align 8, !tbaa !43
   %74 = getelementptr i8, ptr %71, i64 16
   %.val60 = load i32, ptr %74, align 8, !tbaa !40
   %75 = zext i32 %.val60 to i64
-  %76 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %75
   %77 = load i16, ptr %76, align 8
   %78 = and i16 %77, 2
   %.not53 = icmp eq i16 %78, 0
@@ -3753,7 +3749,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %91 = load ptr, ptr %90, align 8, !tbaa !39
   %.val5982 = load i32, ptr %24, align 8, !tbaa !40
   %92 = zext i32 %.val5982 to i64
-  %93 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %92
   %94 = getelementptr i8, ptr %93, i64 4
   %.val83 = load i32, ptr %94, align 4, !tbaa !24
   %95 = icmp sgt i32 %.val83, 0
@@ -3766,14 +3762,14 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %97 = phi ptr [ %115, %110 ], [ %93, %.preheader ]
   %98 = getelementptr i8, ptr %97, i64 8
   %.val56 = load ptr, ptr %98, align 8, !tbaa !27
-  %99 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %indvars.iv90
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %.val56, i64 %indvars.iv90
   %100 = load ptr, ptr %99, align 8, !tbaa !38
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 112
   %102 = load ptr, ptr %101, align 8, !tbaa !43
   %103 = getelementptr i8, ptr %100, i64 16
   %.val57 = load i32, ptr %103, align 8, !tbaa !40
   %104 = zext i32 %.val57 to i64
-  %105 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %102, i64 %104
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %102, i64 %104
   %106 = load i16, ptr %105, align 8
   %107 = and i16 %106, 2
   %.not51 = icmp eq i16 %107, 0
@@ -3796,7 +3792,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 120
   %113 = load ptr, ptr %112, align 8, !tbaa !39
   %114 = zext i32 %.val59 to i64
-  %115 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %114
   %116 = getelementptr i8, ptr %115, i64 4
   %.val = load i32, ptr %116, align 4, !tbaa !24
   %117 = sext i32 %.val to i64
@@ -3809,7 +3805,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %119 = getelementptr inbounds nuw i8, ptr %.pre99.sink, i64 112
   %120 = load ptr, ptr %119, align 8, !tbaa !43
   %121 = zext i32 %.val75.sink to i64
-  %122 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %1, ptr %123, align 8, !tbaa !44
   br label %.critedge2

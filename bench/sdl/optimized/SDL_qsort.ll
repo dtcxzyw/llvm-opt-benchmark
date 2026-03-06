@@ -254,7 +254,7 @@ define hidden void @SDL_qsort_r_REAL(ptr noundef %0, i64 noundef %1, i64 noundef
 109:                                              ; preds = %107
   %110 = add nsw i32 %.0221.i.ph238, -1
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw %struct.stack_entry, ptr %8, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %111
   %113 = load ptr, ptr %112, align 16
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load ptr, ptr %114, align 8
@@ -272,7 +272,7 @@ define hidden void @SDL_qsort_r_REAL(ptr noundef %0, i64 noundef %1, i64 noundef
 
 117:                                              ; preds = %116
   %118 = sext i32 %.0221.i.ph238 to i64
-  %119 = getelementptr inbounds %struct.stack_entry, ptr %8, i64 %118
+  %119 = getelementptr inbounds [16 x i8], ptr %8, i64 %118
   store ptr %.4.i, ptr %119, align 16
   %120 = add nsw i32 %.0221.i.ph238, 1
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -285,7 +285,7 @@ define hidden void @SDL_qsort_r_REAL(ptr noundef %0, i64 noundef %1, i64 noundef
 
 123:                                              ; preds = %122
   %124 = sext i32 %.0221.i.ph238 to i64
-  %125 = getelementptr inbounds %struct.stack_entry, ptr %8, i64 %124
+  %125 = getelementptr inbounds [16 x i8], ptr %8, i64 %124
   store ptr %.0236.i, ptr %125, align 16
   %126 = add nsw i32 %.0221.i.ph238, 1
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
@@ -619,7 +619,7 @@ qsort_r_nonaligned.exit:                          ; preds = %._crit_edge313.thre
 252:                                              ; preds = %250
   %253 = add nsw i32 %.0221.i22.ph215, -1
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw %struct.stack_entry, ptr %7, i64 %254
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %254
   %256 = load ptr, ptr %255, align 16
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %258 = load ptr, ptr %257, align 8
@@ -637,7 +637,7 @@ qsort_r_nonaligned.exit:                          ; preds = %._crit_edge313.thre
 
 260:                                              ; preds = %259
   %261 = sext i32 %.0221.i22.ph215 to i64
-  %262 = getelementptr inbounds %struct.stack_entry, ptr %7, i64 %261
+  %262 = getelementptr inbounds [16 x i8], ptr %7, i64 %261
   store ptr %.4.i43, ptr %262, align 16
   %263 = add nsw i32 %.0221.i22.ph215, 1
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 8
@@ -650,7 +650,7 @@ qsort_r_nonaligned.exit:                          ; preds = %._crit_edge313.thre
 
 266:                                              ; preds = %265
   %267 = sext i32 %.0221.i22.ph215 to i64
-  %268 = getelementptr inbounds %struct.stack_entry, ptr %7, i64 %267
+  %268 = getelementptr inbounds [16 x i8], ptr %7, i64 %267
   store ptr %.0236.i21, ptr %268, align 16
   %269 = add nsw i32 %.0221.i22.ph215, 1
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 8
@@ -910,7 +910,7 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge313.thre
 372:                                              ; preds = %370
   %373 = add nsw i32 %.0162.i.ph195, -1
   %374 = zext nneg i32 %373 to i64
-  %375 = getelementptr inbounds nuw %struct.stack_entry, ptr %6, i64 %374
+  %375 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %374
   %376 = load ptr, ptr %375, align 16
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = load ptr, ptr %377, align 8
@@ -928,7 +928,7 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge313.thre
 
 380:                                              ; preds = %379
   %381 = sext i32 %.0162.i.ph195 to i64
-  %382 = getelementptr inbounds %struct.stack_entry, ptr %6, i64 %381
+  %382 = getelementptr inbounds [16 x i8], ptr %6, i64 %381
   store ptr %.4.i114, ptr %382, align 16
   %383 = add nsw i32 %.0162.i.ph195, 1
   %384 = getelementptr inbounds nuw i8, ptr %382, i64 8
@@ -941,7 +941,7 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge313.thre
 
 387:                                              ; preds = %385
   %388 = sext i32 %.0162.i.ph195 to i64
-  %389 = getelementptr inbounds %struct.stack_entry, ptr %6, i64 %388
+  %389 = getelementptr inbounds [16 x i8], ptr %6, i64 %388
   store ptr %.0174.i, ptr %389, align 16
   %390 = add nsw i32 %.0162.i.ph195, 1
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 8
@@ -1380,7 +1380,7 @@ pivot_big.exit20:                                 ; preds = %.sink.split134.i18,
 167:                                              ; preds = %165
   %168 = add nsw i32 %.0221.i.i.ph144, -1
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw %struct.stack_entry, ptr %7, i64 %169
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %169
   %171 = load ptr, ptr %170, align 16
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -1398,7 +1398,7 @@ pivot_big.exit20:                                 ; preds = %.sink.split134.i18,
 
 175:                                              ; preds = %174
   %176 = sext i32 %.0221.i.i.ph144 to i64
-  %177 = getelementptr inbounds %struct.stack_entry, ptr %7, i64 %176
+  %177 = getelementptr inbounds [16 x i8], ptr %7, i64 %176
   store ptr %.4.i.i, ptr %177, align 16
   %178 = add nsw i32 %.0221.i.i.ph144, 1
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
@@ -1411,7 +1411,7 @@ pivot_big.exit20:                                 ; preds = %.sink.split134.i18,
 
 181:                                              ; preds = %180
   %182 = sext i32 %.0221.i.i.ph144 to i64
-  %183 = getelementptr inbounds %struct.stack_entry, ptr %7, i64 %182
+  %183 = getelementptr inbounds [16 x i8], ptr %7, i64 %182
   store ptr %.0236.i.i, ptr %183, align 16
   %184 = add nsw i32 %.0221.i.i.ph144, 1
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
@@ -1843,7 +1843,7 @@ pivot_big.exit11:                                 ; preds = %.sink.split134.i9, 
 369:                                              ; preds = %367
   %370 = add nsw i32 %.0221.i22.i.ph121, -1
   %371 = zext nneg i32 %370 to i64
-  %372 = getelementptr inbounds nuw %struct.stack_entry, ptr %6, i64 %371
+  %372 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %371
   %373 = load ptr, ptr %372, align 16
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %375 = load ptr, ptr %374, align 8
@@ -1861,7 +1861,7 @@ pivot_big.exit11:                                 ; preds = %.sink.split134.i9, 
 
 377:                                              ; preds = %376
   %378 = sext i32 %.0221.i22.i.ph121 to i64
-  %379 = getelementptr inbounds %struct.stack_entry, ptr %6, i64 %378
+  %379 = getelementptr inbounds [16 x i8], ptr %6, i64 %378
   store ptr %.4.i43.i, ptr %379, align 16
   %380 = add nsw i32 %.0221.i22.i.ph121, 1
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 8
@@ -1874,7 +1874,7 @@ pivot_big.exit11:                                 ; preds = %.sink.split134.i9, 
 
 383:                                              ; preds = %382
   %384 = sext i32 %.0221.i22.i.ph121 to i64
-  %385 = getelementptr inbounds %struct.stack_entry, ptr %6, i64 %384
+  %385 = getelementptr inbounds [16 x i8], ptr %6, i64 %384
   store ptr %.0236.i21.i, ptr %385, align 16
   %386 = add nsw i32 %.0221.i22.i.ph121, 1
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
@@ -2232,7 +2232,7 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
 548:                                              ; preds = %546
   %549 = add nsw i32 %.0162.i.i.ph101, -1
   %550 = zext nneg i32 %549 to i64
-  %551 = getelementptr inbounds nuw %struct.stack_entry, ptr %5, i64 %550
+  %551 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %550
   %552 = load ptr, ptr %551, align 16
   %553 = getelementptr inbounds nuw i8, ptr %551, i64 8
   %554 = load ptr, ptr %553, align 8
@@ -2250,7 +2250,7 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
 
 556:                                              ; preds = %555
   %557 = sext i32 %.0162.i.i.ph101 to i64
-  %558 = getelementptr inbounds %struct.stack_entry, ptr %5, i64 %557
+  %558 = getelementptr inbounds [16 x i8], ptr %5, i64 %557
   store ptr %.4.i114.i, ptr %558, align 16
   %559 = add nsw i32 %.0162.i.i.ph101, 1
   %560 = getelementptr inbounds nuw i8, ptr %558, i64 8
@@ -2263,7 +2263,7 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
 
 563:                                              ; preds = %561
   %564 = sext i32 %.0162.i.i.ph101 to i64
-  %565 = getelementptr inbounds %struct.stack_entry, ptr %5, i64 %564
+  %565 = getelementptr inbounds [16 x i8], ptr %5, i64 %564
   store ptr %.0174.i.i, ptr %565, align 16
   %566 = add nsw i32 %.0162.i.i.ph101, 1
   %567 = getelementptr inbounds nuw i8, ptr %565, i64 8

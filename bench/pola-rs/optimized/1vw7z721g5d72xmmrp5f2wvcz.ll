@@ -209,7 +209,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = add i64 %2, 1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %54, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %52, ptr %55, align 8
@@ -363,7 +363,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = add i64 %2, 1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = getelementptr inbounds nuw i64, ptr %.pre, i64 %1
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %54, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %52, ptr %55, align 8
@@ -481,7 +481,7 @@ define hidden void @"_ZN12polars_arrow5array4list18ListArray$LT$O$GT$7try_new17h
   unreachable
 
 35:                                               ; preds = %33
-  %36 = getelementptr i64, ptr %22, i64 %24
+  %36 = getelementptr [8 x i8], ptr %22, i64 %24
   %37 = getelementptr i8, ptr %36, i64 -8
   %.val.i = load i64, ptr %37, align 8, !alias.scope !45, !noalias !42, !noundef !12
   %38 = icmp ugt i64 %.val.i, %27
@@ -1489,7 +1489,7 @@ define hidden void @"_ZN12polars_arrow5array6binary20BinaryArray$LT$O$GT$7try_ne
   unreachable
 
 22:                                               ; preds = %5
-  %23 = getelementptr i64, ptr %16, i64 %18
+  %23 = getelementptr [8 x i8], ptr %16, i64 %18
   %24 = getelementptr i8, ptr %23, i64 -8
   %.val.i = load i64, ptr %24, align 8, !alias.scope !120, !noalias !117, !noundef !12
   %25 = icmp ugt i64 %.val.i, %20
@@ -5692,7 +5692,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr88drop
 "_ZN95_$LT$polars_arrow..offset..OffsetsBuffer$LT$O$GT$$u20$as$u20$polars_arrow..array..Splitable$GT$19_split_at_unchecked17h9fe583fdbdf4c389E.exit": ; preds = %30
   store i64 %36, ptr %31, align 8, !noalias !533
   %58 = sub i64 %32, %2
-  %59 = getelementptr inbounds nuw i64, ptr %33, i64 %2
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %2
   store ptr %59, ptr %34, align 8, !noalias !533
   store i64 %58, ptr %35, align 8, !noalias !533
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !530
@@ -6000,7 +6000,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr88drop
 "_ZN95_$LT$polars_arrow..offset..OffsetsBuffer$LT$O$GT$$u20$as$u20$polars_arrow..array..Splitable$GT$19_split_at_unchecked17he57aefc25d013af3E.exit": ; preds = %30
   store i64 %36, ptr %31, align 8, !noalias !551
   %58 = sub i64 %32, %2
-  %59 = getelementptr inbounds nuw i32, ptr %33, i64 %2
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %2
   store ptr %59, ptr %34, align 8, !noalias !551
   store i64 %58, ptr %35, align 8, !noalias !551
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !548

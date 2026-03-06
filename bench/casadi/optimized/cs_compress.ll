@@ -54,10 +54,10 @@ define ptr @cs_compress(ptr noundef readonly captures(address_is_null) %0) local
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !16
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %20, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %20, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !16
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !16
@@ -73,17 +73,17 @@ define ptr @cs_compress(ptr noundef readonly captures(address_is_null) %0) local
 
 .lr.ph56.split.us:                                ; preds = %.lr.ph56, %.lr.ph56.split.us
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph56.split.us ], [ 0, %.lr.ph56 ]
-  %38 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv67
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv67
   %39 = load i32, ptr %38, align 4, !tbaa !16
-  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv67
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv67
   %41 = load i32, ptr %40, align 4, !tbaa !16
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %20, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %20, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !16
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !16
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i32, ptr %27, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %27, i64 %46
   store i32 %39, ptr %47, align 4, !tbaa !16
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count71
@@ -91,21 +91,21 @@ define ptr @cs_compress(ptr noundef readonly captures(address_is_null) %0) local
 
 .lr.ph56.split:                                   ; preds = %.lr.ph56, %.lr.ph56.split
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph56.split ], [ 0, %.lr.ph56 ]
-  %48 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv62
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv62
   %49 = load i32, ptr %48, align 4, !tbaa !16
-  %50 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv62
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv62
   %51 = load i32, ptr %50, align 4, !tbaa !16
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %20, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %20, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !16
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %53, align 4, !tbaa !16
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds i32, ptr %27, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %27, i64 %56
   store i32 %49, ptr %57, align 4, !tbaa !16
-  %58 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv62
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv62
   %59 = load double, ptr %58, align 8, !tbaa !20
-  %60 = getelementptr inbounds double, ptr %29, i64 %56
+  %60 = getelementptr inbounds [8 x i8], ptr %29, i64 %56
   store double %59, ptr %60, align 8, !tbaa !20
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count71

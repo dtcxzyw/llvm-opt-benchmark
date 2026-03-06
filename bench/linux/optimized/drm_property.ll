@@ -20,9 +20,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_property
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_property_replace_blob: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_property_replace_blob ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_property_replace_blob_from_id: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_property_replace_blob_from_id ; .previous"
 
-%struct.drm_prop_enum_list = type { i32, ptr }
-%struct.drm_mode_property_enum = type { i64, [32 x i8] }
-
 @.str = private unnamed_addr constant [31 x i8] c"drivers/gpu/drm/drm_property.c\00", align 1
 @__UNIQUE_ID___addressable_drm_property_create371 = internal global ptr @drm_property_create, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_drm_property_create_enum372 = internal global ptr @drm_property_create_enum, section ".discard.addressable", align 8
@@ -188,7 +185,7 @@ define dso_local noundef ptr @drm_property_create_enum(ptr noundef %0, i32 nound
 
 16:                                               ; preds = %13, %11
   %17 = phi i64 [ 0, %11 ], [ %14, %13 ]
-  %18 = getelementptr %struct.drm_prop_enum_list, ptr %3, i64 %17
+  %18 = getelementptr [16 x i8], ptr %3, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -340,7 +337,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_property_add_enum(ptr nounde
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
   %48 = sext i32 %34 to i64
-  %49 = getelementptr i64, ptr %47, i64 %48
+  %49 = getelementptr [8 x i8], ptr %47, i64 %48
   store i64 %1, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -425,7 +422,7 @@ define dso_local noundef ptr @drm_property_create_bitmask(ptr noundef %0, i32 no
 
 16:                                               ; preds = %53, %14
   %17 = phi i64 [ 0, %14 ], [ %54, %53 ]
-  %18 = getelementptr %struct.drm_prop_enum_list, ptr %3, i64 %17
+  %18 = getelementptr [16 x i8], ptr %3, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = zext nneg i32 %19 to i64
   %21 = shl nuw i64 1, %20
@@ -643,9 +640,9 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getproperty_ioctl(ptr n
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %35, align 8
-  %44 = getelementptr i64, ptr %43, i64 %38
+  %44 = getelementptr [8 x i8], ptr %43, i64 %38
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr i64, ptr %31, i64 %38
+  %46 = getelementptr [8 x i8], ptr %31, i64 %38
   %47 = tail call i64 @llvm.read_register.i64(metadata !0)
   %48 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %46, i64 %45, i64 8, i64 %47) #9, !srcloc !43
   %49 = extractvalue { ptr, i64 } %48, 0
@@ -697,7 +694,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getproperty_ioctl(ptr n
 80:                                               ; preds = %73
   %81 = getelementptr i8, ptr %74, i64 -8
   %82 = sext i32 %76 to i64
-  %83 = getelementptr %struct.drm_mode_property_enum, ptr %60, i64 %82
+  %83 = getelementptr [40 x i8], ptr %60, i64 %82
   %84 = tail call i64 @_copy_to_user(ptr noundef %83, ptr noundef %81, i64 noundef 8) #9
   %85 = icmp eq i64 %84, 0
   br i1 %85, label %86, label %.loopexit
@@ -1431,7 +1428,7 @@ define dso_local zeroext i1 @drm_property_change_valid_get(ptr noundef readonly 
   %48 = phi i64 [ 0, %44 ], [ %54, %47 ]
   %49 = phi i32 [ 0, %44 ], [ %55, %47 ]
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i64, ptr %46, i64 %50
+  %51 = getelementptr [8 x i8], ptr %46, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = shl nuw i64 1, %52
   %54 = or i64 %53, %48
@@ -1508,7 +1505,7 @@ define dso_local zeroext i1 @drm_property_change_valid_get(ptr noundef readonly 
 99:                                               ; preds = %99, %84
   %100 = phi i32 [ 0, %84 ], [ %105, %99 ]
   %101 = sext i32 %100 to i64
-  %102 = getelementptr i64, ptr %86, i64 %101
+  %102 = getelementptr [8 x i8], ptr %86, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = icmp eq i64 %103, %1
   %105 = add nuw i32 %100, 1

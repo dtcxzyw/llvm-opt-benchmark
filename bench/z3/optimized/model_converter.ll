@@ -36,11 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.scoped_ptr.5 = type { ptr }
 %class.symbol = type { ptr }
 %class.ref = type { ptr }
-%"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry" = type { %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" }
-%"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" = type { ptr, %"struct.std::pair" }
-%"struct.std::pair" = type { i32, ptr }
-%"class.obj_map<func_decl, func_interp *>::obj_map_entry" = type { %"struct.obj_map<func_decl, func_interp *>::key_data" }
-%"struct.obj_map<func_decl, func_interp *>::key_data" = type { ptr, ptr }
 %"class.model::scoped_model_completion" = type { i8, ptr }
 %class.obj_ref = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -825,7 +820,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
 18:                                               ; preds = %.lr.ph, %_ZNK10model_core16get_const_interpEP9func_decl.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK10model_core16get_const_interpEP9func_decl.exit ]
   %19 = load ptr, ptr %4, align 8, !tbaa !102
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !103
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !105
@@ -837,7 +832,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   %.idx.i.i.i.i = mul nuw nsw i64 %28, 24
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i
   %30 = zext i32 %24 to i64
-  %31 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %30
   %.not34.i.i.i.i = icmp eq i32 %26, %24
   br i1 %.not34.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -917,7 +912,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %39, %50, %53, %.
 57:                                               ; preds = %.lr.ph55, %.loopexit.i42
   %indvars.iv66 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next67, %.loopexit.i42 ]
   %58 = load ptr, ptr %11, align 8, !tbaa !102
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv66
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv66
   %60 = load ptr, ptr %59, align 8, !tbaa !103
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !105
@@ -926,7 +921,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %39, %50, %53, %.
   %65 = and i32 %64, %62
   %66 = load ptr, ptr %16, align 8, !tbaa !117
   %67 = zext i32 %63 to i64
-  %68 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %67
   %.not34.i.i.i.i28 = icmp eq i32 %65, %63
   br i1 %.not34.i.i.i.i28, label %.lr.ph38.i.i.i.i35.preheader, label %.lr.ph.i.i.i.i29.preheader
 
@@ -2099,7 +2094,7 @@ _ZNK6vectorI6symbolLb0EjE4sizeEv.exit:            ; preds = %2
 .lr.ph.i:                                         ; preds = %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i, %.lr.ph.preheader.i
   %8 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %18, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i ]
-  %9 = getelementptr inbounds nuw %class.symbol, ptr %4, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %10 = icmp eq ptr %8, null
   br i1 %10, label %17, label %11
 
@@ -2123,7 +2118,7 @@ _ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i:  ; preds = %17, %11
   %19 = phi i32 [ %.pre2.i.i, %17 ], [ %13, %11 ]
   %20 = getelementptr inbounds i8, ptr %18, i64 -4
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %class.symbol, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   %23 = load i64, ptr %9, align 8, !tbaa !87
   store i64 %23, ptr %22, align 8, !tbaa !87
   %24 = add i32 %19, 1

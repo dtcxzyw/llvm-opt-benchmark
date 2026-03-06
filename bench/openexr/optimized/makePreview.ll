@@ -30,10 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Imf_3_4::TiledOutputFile" = type <{ %"class.Imf_3_4::GenericOutputFile", ptr, ptr, i8, [7 x i8] }>
 %"class.Imf_3_4::GenericOutputFile" = type { ptr }
 %"class.Imf_3_4::OutputFile" = type { %"class.Imf_3_4::GenericOutputFile", ptr }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
-%"struct.Imf_3_4::PreviewRgba" = type { i8, i8, i8, i8 }
-%union.imath_half_uif = type { i32 }
 
 $_ZN7Imf_3_49InputFileD2Ev = comdat any
 
@@ -147,9 +143,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %23, 
   %.neg.i.i = add nsw i64 %59, %57
   %60 = sext i32 %38 to i64
   %61 = sub nsw i64 0, %57
-  %62 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %55, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %55, i64 %61
   %.neg4.i.i = mul i64 %.neg.i.i, %60
-  %63 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %62, i64 %.neg4.i.i
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %.neg4.i.i
   invoke void @_ZN7Imf_3_413RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %63, i64 noundef 1, i64 noundef %50)
           to label %64 unwind label %_ZN7Imf_3_47Array2DINS_4RgbaEED2Ev.exit64.i
 
@@ -180,7 +176,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %23, 
   br i1 %80, label %.loopexit.i.i, label %81
 
 81:                                               ; preds = %.noexc.i
-  %82 = getelementptr inbounds %"struct.Imf_3_4::PreviewRgba", ptr %79, i64 %75
+  %82 = getelementptr inbounds [4 x i8], ptr %79, i64 %75
   br label %83
 
 83:                                               ; preds = %83, %81
@@ -229,28 +225,28 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %23, 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv82.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next83.i, %._crit_edge.us.i ]
   %109 = mul nuw nsw i64 %indvars.iv82.i, %74
-  %110 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %79, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %109
   %111 = trunc nuw nsw i64 %indvars.iv82.i to i32
   %112 = uitofp nneg i32 %111 to double
   %113 = call double @llvm.fmuladd.f64(double %112, double %101, double 5.000000e-01)
   %114 = fptosi double %113 to i32
   %115 = sext i32 %114 to i64
   %116 = mul nsw i64 %115, %50
-  %117 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %55, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %55, i64 %116
   br label %118
 
 118:                                              ; preds = %181, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %181 ]
-  %119 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %110, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i
   %120 = trunc nuw nsw i64 %indvars.iv.i to i32
   %121 = uitofp nneg i32 %120 to double
   %122 = call double @llvm.fmuladd.f64(double %121, double %95, double 5.000000e-01)
   %123 = fptosi double %122 to i32
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %117, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %117, i64 %124
   %.sroa.02.0.copyload.us.i = load i16, ptr %125, align 2, !tbaa !42
   %126 = zext i16 %.sroa.02.0.copyload.us.i to i64
-  %127 = getelementptr inbounds nuw %union.imath_half_uif, ptr %108, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %126
   %128 = load float, ptr %127, align 4, !tbaa !33
   %129 = fmul float %exp2f.i31, %128
   %130 = fcmp ogt float %129, 0.000000e+00
@@ -279,7 +275,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %23, 
   %146 = getelementptr inbounds nuw i8, ptr %125, i64 2
   %.sroa.01.0.copyload.us.i = load i16, ptr %146, align 2, !tbaa !42
   %147 = zext i16 %.sroa.01.0.copyload.us.i to i64
-  %148 = getelementptr inbounds nuw %union.imath_half_uif, ptr %108, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !33
   %150 = fmul float %exp2f.i31, %149
   %151 = fcmp ogt float %150, 0.000000e+00
@@ -309,7 +305,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %23, 
   %168 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %.sroa.0.0.copyload.us.i = load i16, ptr %168, align 2, !tbaa !42
   %169 = zext i16 %.sroa.0.0.copyload.us.i to i64
-  %170 = getelementptr inbounds nuw %union.imath_half_uif, ptr %108, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %169
   %171 = load float, ptr %170, align 4, !tbaa !33
   %172 = fmul float %exp2f.i31, %171
   %173 = fcmp ogt float %172, 0.000000e+00
@@ -339,7 +335,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %23, 
   %190 = getelementptr inbounds nuw i8, ptr %125, i64 6
   %191 = load i16, ptr %190, align 2, !tbaa !45
   %192 = zext i16 %191 to i64
-  %193 = getelementptr inbounds nuw %union.imath_half_uif, ptr %108, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %192
   %194 = load float, ptr %193, align 4, !tbaa !33
   %195 = fmul float %194, 2.550000e+02
   %196 = fcmp olt float %195, 0.000000e+00

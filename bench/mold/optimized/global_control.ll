@@ -259,7 +259,7 @@ define void @_ZN3tbb6detail2r121global_control_unlockEv() local_unnamed_addr #4 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 4, %0 ], [ %indvars.iv.next, %2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L8controlsE, i64 %indvars.iv.next
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L8controlsE, i64 %indvars.iv.next
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store atomic i8 0, ptr %5 release, align 1
@@ -278,7 +278,7 @@ define noundef i64 @_ZN3tbb6detail2r134global_control_active_value_unsafeENS0_2d
 
 4:                                                ; preds = %1, %3
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L8controlsE, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L8controlsE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i64, ptr %8, align 8, !tbaa !24
@@ -337,7 +337,7 @@ define linkonce_odr void @_ZN3tbb6detail2r119global_control_impl6createERNS0_2d1
 7:                                                ; preds = %1, %6
   %8 = phi i32 [ %4, %1 ], [ %.pre, %6 ]
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L8controlsE, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L8controlsE, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = atomicrmw xchg ptr %12, i8 1 seq_cst, align 1
@@ -451,7 +451,7 @@ define linkonce_odr void @_ZN3tbb6detail2r119global_control_impl7destroyERNS0_2d
 6:                                                ; preds = %1, %5
   %7 = phi i32 [ %3, %1 ], [ %.pre, %5 ]
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L8controlsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L8controlsE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = atomicrmw xchg ptr %11, i8 1 seq_cst, align 1
@@ -556,7 +556,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r125remove_and_check_if_emptyERNS0_2d1
 6:                                                ; preds = %5, %1
   %7 = phi i32 [ %3, %1 ], [ %.pre.i, %5 ]
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L8controlsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L8controlsE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = atomicrmw xchg ptr %11, i8 1 seq_cst, align 1
@@ -622,7 +622,7 @@ define noundef i64 @_ZN3tbb6detail2r127global_control_active_valueEi(i32 noundef
 
 4:                                                ; preds = %1, %3
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZN3tbb6detail2r1L8controlsE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN3tbb6detail2r1L8controlsE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40

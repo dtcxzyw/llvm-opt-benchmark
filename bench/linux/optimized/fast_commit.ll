@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.list_head = type { ptr, ptr }
 %struct.ext4_iloc = type { ptr, i64, i32 }
 %struct.blk_plug = type { ptr, ptr, i16, i16, i8, i8, %struct.list_head }
-%struct.ext4_fc_alloc_region = type { i32, i64, i32, i32 }
 %struct.ext4_map_blocks = type { i64, i32, i32, i32 }
 %struct.dentry_info_args = type { i32, i32, i32, i32, ptr }
 %struct.ext4_extent = type { i32, i16, i16, i32 }
@@ -28,7 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.9 = type { i64 }
 %struct.anon.21 = type { %struct.shash_desc, [4 x i8] }
 %struct.shash_desc = type { ptr, [0 x ptr] }
-%struct.ext4_ext_path = type { i64, i16, i16, ptr, ptr, ptr, ptr }
 
 @ext4_fc_init_inode.__key = internal global %struct.lock_class_key zeroinitializer, align 1
 @.str = private unnamed_addr constant [15 x i8] c"&ei->i_fc_wait\00", align 1
@@ -530,7 +528,7 @@ define dso_local void @ext4_fc_mark_ineligible(ptr noundef readonly captures(non
 48:                                               ; preds = %47, %45
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 2024
   %50 = sext i32 %1 to i64
-  %51 = getelementptr i32, ptr %49, i64 %50
+  %51 = getelementptr [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 4
@@ -2260,7 +2258,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ext4_fc_record_regions(ptr nound
   %33 = add i32 %31, 1
   store i32 %33, ptr %16, align 4
   %34 = sext i32 %31 to i64
-  %35 = getelementptr %struct.ext4_fc_alloc_region, ptr %32, i64 %34
+  %35 = getelementptr [24 x i8], ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %1, ptr %36, align 8
   store i32 %2, ptr %35, align 8
@@ -2303,7 +2301,7 @@ define dso_local zeroext i1 @ext4_fc_replay_check_excluded(ptr noundef readonly 
 12:                                               ; preds = %29, %8
   %13 = phi i64 [ 0, %8 ], [ %30, %29 ]
   %14 = phi i1 [ true, %8 ], [ %31, %29 ]
-  %15 = getelementptr %struct.ext4_fc_alloc_region, ptr %10, i64 %13
+  %15 = getelementptr [24 x i8], ptr %10, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
@@ -2560,7 +2558,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   %129 = add i32 %127, 1
   store i32 %129, ptr %111, align 4
   %130 = sext i32 %127 to i64
-  %131 = getelementptr %struct.ext4_fc_alloc_region, ptr %128, i64 %130
+  %131 = getelementptr [24 x i8], ptr %128, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store i32 %93, ptr %132, align 8
   store i32 %95, ptr %131, align 8
@@ -3073,7 +3071,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
 
 400:                                              ; preds = %397, %393
   %401 = phi i64 [ %398, %397 ], [ 0, %393 ]
-  %402 = getelementptr i32, ptr %395, i64 %401
+  %402 = getelementptr [4 x i8], ptr %395, i64 %401
   %403 = load i32, ptr %402, align 4
   %404 = icmp eq i32 %403, %388
   br i1 %404, label %.loopexit72, label %397
@@ -3108,7 +3106,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   %421 = add i32 %419, 1
   store i32 %421, ptr %390, align 8
   %422 = sext i32 %419 to i64
-  %423 = getelementptr i32, ptr %420, i64 %422
+  %423 = getelementptr [4 x i8], ptr %420, i64 %422
   store i32 %388, ptr %423, align 4
   br label %.loopexit72
 
@@ -3416,7 +3414,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
 
 590:                                              ; preds = %587, %583
   %591 = phi i64 [ %588, %587 ], [ 0, %583 ]
-  %592 = getelementptr i32, ptr %585, i64 %591
+  %592 = getelementptr [4 x i8], ptr %585, i64 %591
   %593 = load i32, ptr %592, align 4
   %594 = icmp eq i32 %593, %578
   br i1 %594, label %.loopexit76, label %587
@@ -3451,7 +3449,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   %611 = add i32 %609, 1
   store i32 %611, ptr %580, align 8
   %612 = sext i32 %609 to i64
-  %613 = getelementptr i32, ptr %610, i64 %612
+  %613 = getelementptr [4 x i8], ptr %610, i64 %612
   store i32 %578, ptr %613, align 4
   br label %.loopexit76
 
@@ -3597,7 +3595,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
 
 689:                                              ; preds = %686, %682
   %690 = phi i64 [ %687, %686 ], [ 0, %682 ]
-  %691 = getelementptr i32, ptr %684, i64 %690
+  %691 = getelementptr [4 x i8], ptr %684, i64 %690
   %692 = load i32, ptr %691, align 4
   %693 = icmp eq i32 %692, %650
   br i1 %693, label %.loopexit78, label %686
@@ -3632,7 +3630,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   %710 = add i32 %708, 1
   store i32 %710, ptr %679, align 8
   %711 = sext i32 %708 to i64
-  %712 = getelementptr i32, ptr %709, i64 %711
+  %712 = getelementptr [4 x i8], ptr %709, i64 %711
   store i32 %650, ptr %712, align 4
   br label %.loopexit78
 
@@ -4198,9 +4196,9 @@ define dso_local noundef i32 @ext4_fc_info_show(ptr noundef %0, ptr noundef read
 
 19:                                               ; preds = %19, %9
   %20 = phi i64 [ 0, %9 ], [ %25, %19 ]
-  %21 = getelementptr ptr, ptr @fc_ineligible_reasons, i64 %20
+  %21 = getelementptr [8 x i8], ptr @fc_ineligible_reasons, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr i32, ptr %7, i64 %20
+  %23 = getelementptr [4 x i8], ptr %7, i64 %20
   %24 = load i32, ptr %23, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %22, i32 noundef %24) #14
   %25 = add nuw nsw i64 %20, 1
@@ -4921,7 +4919,7 @@ define internal fastcc void @ext4_fc_set_bitmaps_and_counters(ptr noundef %0) un
 12:                                               ; preds = %61, %8
   %13 = phi i64 [ 0, %8 ], [ %62, %61 ]
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr i32, ptr %14, i64 %13
+  %15 = getelementptr [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = call ptr @__ext4_iget(ptr noundef %0, i64 noundef %17, i32 noundef 0, ptr noundef nonnull @__func__.ext4_fc_set_bitmaps_and_counters, i32 noundef 1912) #14
@@ -4967,7 +4965,7 @@ define internal fastcc void @ext4_fc_set_bitmaps_and_counters(ptr noundef %0) un
 .preheader:                                       ; preds = %38, %.preheader
   %42 = phi i64 [ %46, %.preheader ], [ 0, %38 ]
   %43 = load ptr, ptr %26, align 8
-  %44 = getelementptr %struct.ext4_ext_path, ptr %36, i64 %42
+  %44 = getelementptr [48 x i8], ptr %36, i64 %42
   %45 = load i64, ptr %44, align 8
   call void @ext4_mb_mark_bb(ptr noundef %43, i64 noundef %45, i32 noundef 1, i1 noundef zeroext true) #14
   %46 = add nuw nsw i64 %42, 1

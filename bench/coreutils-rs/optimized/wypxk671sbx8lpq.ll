@@ -341,7 +341,7 @@ define internal void @"_ZN90_$LT$fundu..standard..time_units..TimeUnits$u20$as$u
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd173260dd55dfc18E.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i
   %7 = zext nneg i8 %.val3.i.i to i64
-  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 %7
   %9 = load ptr, ptr %8, align 8, !noalias !72, !nonnull !5, !align !79, !noundef !5
   %lhsc = load i8, ptr %9, align 1
   %rhsc = load i8, ptr %2, align 1
@@ -364,7 +364,7 @@ define internal void @"_ZN90_$LT$fundu..standard..time_units..TimeUnits$u20$as$u
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd173260dd55dfc18E.exit.i.i.i.i.i.i": ; preds = %.preheader.preheader
   %15 = zext nneg i8 %.val4.i.i to i64
-  %16 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 %15
   %17 = load ptr, ptr %16, align 8, !noalias !88, !nonnull !5, !align !79, !noundef !5
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %17, ptr noundef nonnull readonly align 1 dereferenceable(2) %2, i64 2), !alias.scope !97, !noalias !88
   %18 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -926,7 +926,7 @@ define { ptr, ptr } @_ZN8uu_sleep5sleep17he4476011207b7f9cE(ptr noalias noundef 
   %.sroa.05.0.i = phi i64 [ %.pn9.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i" ], [ %.sroa.05.0.i.ph, %.outer ]
   %.sroa.6.0.i = phi i32 [ %.pn7.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i" ], [ %.sroa.6.0.i.ph, %.outer ]
   %.0.i = phi i64 [ %222, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i" ], [ %.0.i.ph, %.outer ]
-  %78 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.0.i
+  %78 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.i
   call void @llvm.experimental.noalias.scope.decl(metadata !202)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !205)

@@ -1155,7 +1155,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
 
 185:                                              ; preds = %173
   %186 = zext i32 %174 to i64
-  %187 = getelementptr inbounds nuw ptr, ptr %176, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %186
   %188 = load i64, ptr %156, align 8, !tbaa !33
   %189 = tail call i32 @H5FD_open(i1 noundef zeroext true, ptr noundef nonnull %187, ptr noundef nonnull %121, i32 noundef %7, i64 noundef %188, i64 noundef -1) #15
   %190 = icmp slt i32 %189, 0
@@ -1171,7 +1171,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %196 = load ptr, ptr %155, align 8, !tbaa !39
   %197 = load i32, ptr %153, align 8, !tbaa !37
   %198 = zext i32 %197 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %196, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !40
   %.not169 = icmp eq ptr %200, null
   br i1 %.not169, label %204, label %201
@@ -1219,7 +1219,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %224 ]
   %.0125226 = phi i32 [ 0, %.lr.ph ], [ %.1, %224 ]
   %218 = load ptr, ptr %215, align 8, !tbaa !39
-  %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %indvars.iv
   %220 = load ptr, ptr %219, align 8, !tbaa !40
   %.not176 = icmp eq ptr %220, null
   br i1 %.not176, label %224, label %221
@@ -1315,7 +1315,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_close(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.01923 = phi i32 [ 0, %.lr.ph ], [ %.120, %23 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !39
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !40
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %23, label %15
@@ -1331,7 +1331,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_close(ptr noundef %0) #0 {
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %10, align 8, !tbaa !39
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store ptr null, ptr %22, align 8, !tbaa !40
   br label %23
 
@@ -1532,7 +1532,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
 41:                                               ; preds = %39
   %42 = load ptr, ptr %15, align 8, !tbaa !39
   %43 = zext i32 %.066 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !40
   %.not78 = icmp eq ptr %45, null
   br i1 %.not78, label %46, label %61
@@ -1545,7 +1545,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   %48 = load ptr, ptr %16, align 8, !tbaa !35
   %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 4096, ptr noundef %48, i32 noundef %.066) #15
   %50 = load ptr, ptr %15, align 8, !tbaa !39
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi
   %52 = load i32, ptr %17, align 8, !tbaa !36
   %53 = or i32 %52, 16
   %54 = load i64, ptr %18, align 8, !tbaa !33
@@ -1565,7 +1565,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   %63 = icmp ugt i64 %.063, %62
   %64 = load ptr, ptr %15, align 8, !tbaa !39
   %65 = zext i32 %.066 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !40
   %68 = load i64, ptr %20, align 8, !tbaa !46
   br i1 %63, label %69, label %80
@@ -1650,7 +1650,7 @@ define internal i64 @H5FD__family_get_eof(ptr noundef readonly captures(none) %0
 16:                                               ; preds = %14
   %17 = load ptr, ptr %12, align 8, !tbaa !39
   %18 = and i64 %indvars.iv.next, 2147483647
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !40
   %21 = tail call i64 @H5FD_get_eof(ptr noundef %20, i32 noundef %1) #15
   %22 = icmp ne i64 %21, 0
@@ -1785,7 +1785,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_read(ptr noundef readonly cap
   %27 = tail call i64 @llvm.umin.i64(i64 %.03034, i64 %26)
   %28 = load ptr, ptr %17, align 8, !tbaa !39
   %29 = and i64 %24, 4294967295
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = tail call i32 @H5FD_read(ptr noundef %31, i32 noundef %1, i64 noundef %25, i64 noundef %27, ptr noundef %.03133) #15
   %33 = icmp slt i32 %32, 0
@@ -1850,7 +1850,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_write(ptr noundef readonly ca
   %27 = tail call i64 @llvm.umin.i64(i64 %.03034, i64 %26)
   %28 = load ptr, ptr %17, align 8, !tbaa !39
   %29 = and i64 %24, 4294967295
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = tail call i32 @H5FD_write(ptr noundef %31, i32 noundef %1, i64 noundef %25, i64 noundef %27, ptr noundef %.03133) #15
   %33 = icmp slt i32 %32, 0
@@ -1899,7 +1899,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_flush(ptr noundef readonly ca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.01217 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
   %15 = load ptr, ptr %12, align 8, !tbaa !39
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !40
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %21, label %18
@@ -1959,7 +1959,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_truncate(ptr noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.01217 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
   %15 = load ptr, ptr %12, align 8, !tbaa !39
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !40
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %21, label %18
@@ -2018,7 +2018,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr noundef readonly cap
   %13 = phi i32 [ %10, %.lr.ph ], [ %20, %._crit_edge38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge38 ]
   %14 = load ptr, ptr %11, align 8, !tbaa !39
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge38, label %17
@@ -2055,7 +2055,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr noundef readonly cap
 25:                                               ; preds = %.lr.ph29, %35
   %indvars.iv34 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next35, %35 ]
   %26 = load ptr, ptr %24, align 8, !tbaa !39
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv34
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv34
   %28 = load ptr, ptr %27, align 8, !tbaa !40
   %29 = tail call i32 @H5FD_unlock(ptr noundef %28) #15
   %30 = icmp slt i32 %29, 0
@@ -2107,7 +2107,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_unlock(ptr noundef readonly c
   %12 = phi i32 [ %9, %.lr.ph ], [ %24, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %23, label %16

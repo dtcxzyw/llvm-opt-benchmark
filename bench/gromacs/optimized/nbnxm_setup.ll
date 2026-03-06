@@ -162,7 +162,7 @@ define noundef nonnull ptr @_ZN3gmx21nbnxmKernelTypeToNameENS_15NbnxmKernelTypeE
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3gmx21nbnxmKernelTypeToNameENS_15NbnxmKernelTypeE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3gmx21nbnxmKernelTypeToNameENS_15NbnxmKernelTypeE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -648,7 +648,7 @@ switch.lookup:                                    ; preds = %_ZN3gmxL15sc_jClust
   %107 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 1, ptr %107, align 8, !tbaa !49
   %108 = zext nneg i32 %.sroa.09.01930.i to i64
-  %109 = getelementptr ptr, ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 %108
+  %109 = getelementptr [8 x i8], ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 %108
   %switch.gep = getelementptr i8, ptr %109, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %110 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str.14, ptr noundef nonnull %switch.load, i32 noundef %100, i32 noundef %101)
@@ -778,7 +778,7 @@ switch.lookup213:                                 ; preds = %148
   %153 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 1, ptr %153, align 8, !tbaa !49
   %154 = zext nneg i32 %.sroa.09.01930.i to i64
-  %155 = getelementptr ptr, ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 %154
+  %155 = getelementptr [8 x i8], ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 %154
   %switch.gep214 = getelementptr i8, ptr %155, i64 -8
   %switch.load215 = load ptr, ptr %switch.gep214, align 8
   %156 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull @.str.16, ptr noundef nonnull %switch.load215)

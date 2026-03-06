@@ -38,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.cv::Range" = type { i32, i32 }
-%"class.cv::Vec.25" = type { %"class.cv::Matx.26" }
-%"class.cv::Matx.26" = type { [3 x double] }
 
 $_ZN2cv5aruco13ArucoDetectorD2Ev = comdat any
 
@@ -1663,7 +1661,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco25est
 48:                                               ; preds = %43, %37
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !64
-  %51 = getelementptr inbounds %"class.cv::Vec.25", ptr %50, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds [24 x i8], ptr %50, i64 %indvars.iv.i.i.i
   br label %81
 
 52:                                               ; preds = %43
@@ -1698,7 +1696,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco25est
   %77 = sext i32 %68 to i64
   %78 = mul i64 %76, %77
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 %78
-  %80 = getelementptr inbounds %"class.cv::Vec.25", ptr %79, i64 %71
+  %80 = getelementptr inbounds [24 x i8], ptr %79, i64 %71
   br label %81
 
 81:                                               ; preds = %64, %56, %48
@@ -1723,7 +1721,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco25est
 90:                                               ; preds = %85, %81
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !64
-  %93 = getelementptr inbounds %"class.cv::Vec.25", ptr %92, i64 %indvars.iv.i.i.i
+  %93 = getelementptr inbounds [24 x i8], ptr %92, i64 %indvars.iv.i.i.i
   br label %123
 
 94:                                               ; preds = %85
@@ -1758,7 +1756,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco25est
   %119 = sext i32 %110 to i64
   %120 = mul i64 %118, %119
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 %120
-  %122 = getelementptr inbounds %"class.cv::Vec.25", ptr %121, i64 %113
+  %122 = getelementptr inbounds [24 x i8], ptr %121, i64 %113
   br label %123
 
 123:                                              ; preds = %106, %98, %90

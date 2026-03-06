@@ -4,14 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.facebook::yoga::StyleSizeLength" = type <{ %"struct.facebook::yoga::FloatOptional", i8, [3 x i8] }>
-%"struct.facebook::yoga::FloatOptional" = type { float }
-%"class.facebook::yoga::StyleValueHandle" = type { i16 }
 %"class.facebook::yoga::Node" = type { i8, ptr, ptr, ptr, ptr, %"class.facebook::yoga::Style", %"struct.facebook::yoga::LayoutResults", i64, i64, ptr, %"class.std::vector", ptr, %"struct.std::array.8" }
 %"class.facebook::yoga::Style" = type { i32, %"class.facebook::yoga::StyleValueHandle", %"class.facebook::yoga::StyleValueHandle", %"class.facebook::yoga::StyleValueHandle", %"class.facebook::yoga::StyleValueHandle", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"class.facebook::yoga::StyleValueHandle", %"class.facebook::yoga::StyleValuePool" }
 %"struct.std::array" = type { [9 x %"class.facebook::yoga::StyleValueHandle"] }
 %"struct.std::array.0" = type { [3 x %"class.facebook::yoga::StyleValueHandle"] }
 %"struct.std::array.1" = type { [2 x %"class.facebook::yoga::StyleValueHandle"] }
+%"class.facebook::yoga::StyleValueHandle" = type { i16 }
 %"class.facebook::yoga::StyleValuePool" = type { %"class.facebook::yoga::SmallValueBuffer" }
 %"class.facebook::yoga::SmallValueBuffer" = type { i16, %"struct.std::array.2", %"class.std::bitset", %"class.std::unique_ptr" }
 %"struct.std::array.2" = type { [4 x i32] }
@@ -24,6 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
 %"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i32, i8, i32, %"struct.std::array.5", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.6", %"struct.std::array.6", %"struct.std::array.7", %"struct.std::array.7", %"struct.std::array.7", %"struct.std::array.7" }
+%"struct.facebook::yoga::FloatOptional" = type { float }
 %"struct.std::array.5" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
 %"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
 %"struct.std::array.6" = type { [2 x float] }
@@ -33,6 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::array.8" = type { [2 x %"class.facebook::yoga::StyleSizeLength"] }
+%"class.facebook::yoga::StyleSizeLength" = type <{ %"struct.facebook::yoga::FloatOptional", i8, [3 x i8] }>
 
 $_ZN8facebook4yoga5StyleD2Ev = comdat any
 
@@ -272,7 +272,7 @@ define linkonce_odr void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds i64, ptr %9, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %9, i64 %14
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef %12) #24
   store ptr null, ptr %5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -483,10 +483,10 @@ define noundef float @_ZN8facebook4yoga4Node19dimensionWithMarginENS0_13FlexDire
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_13FlexDirectionE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_13FlexDirectionE, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %8 = getelementptr inbounds nuw float, ptr %7, i64 %switch.load
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %switch.load
   %9 = load float, ptr %8, align 4, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = tail call noundef float @_ZNK8facebook4yoga5Style20computeMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 noundef zeroext %1, float noundef %2)
@@ -580,10 +580,10 @@ define noundef zeroext i1 @_ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_13FlexDirectionE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_13FlexDirectionE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %7 = getelementptr inbounds nuw float, ptr %6, i64 %switch.load
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %switch.load
   %8 = load float, ptr %7, align 4, !tbaa !20
   %9 = fcmp oge float %8, 0.000000e+00
   ret i1 %9
@@ -624,7 +624,7 @@ declare void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr nounde
 define void @_ZN8facebook4yoga4Node12replaceChildEPS1_m(ptr noundef nonnull align 8 captures(none) dereferenceable(584) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8, !tbaa !66
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %2
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %2
   %7 = load ptr, ptr %6, align 8, !tbaa !94
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i32, ptr %8, align 8
@@ -728,7 +728,7 @@ define void @_ZN8facebook4yoga4Node11insertChildEPS1_m(ptr noundef nonnull align
 13:                                               ; preds = %9, %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %15 = load ptr, ptr %14, align 8, !tbaa !93
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %2
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %2
   %17 = call ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EERS8_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
@@ -773,7 +773,7 @@ define linkonce_odr ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE6insertEN9__
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds ptr, ptr %9, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %9, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %18, i64 %25, i1 false)
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !66
   br label %29
@@ -837,7 +837,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu
   %52 = getelementptr inbounds i8, ptr %47, i64 %48
   store ptr %42, ptr %0, align 8, !tbaa !66
   store ptr %52, ptr %8, align 8, !tbaa !91
-  %53 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %53, ptr %10, align 8, !tbaa !67
   br label %54
 
@@ -1123,7 +1123,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaI
 define void @_ZN8facebook4yoga4Node11removeChildEm(ptr noundef nonnull align 8 captures(none) dereferenceable(584) %0, i64 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8, !tbaa !66
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !94
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
@@ -1175,7 +1175,7 @@ define void @_ZN8facebook4yoga4Node18setLayoutDirectionENS0_9DirectionE(ptr noun
 define void @_ZN8facebook4yoga4Node15setLayoutMarginEfNS0_12PhysicalEdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(584) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw float, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store float %1, ptr %6, align 4, !tbaa !20
   ret void
 }
@@ -1184,7 +1184,7 @@ define void @_ZN8facebook4yoga4Node15setLayoutMarginEfNS0_12PhysicalEdgeE(ptr no
 define void @_ZN8facebook4yoga4Node15setLayoutBorderEfNS0_12PhysicalEdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(584) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw float, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store float %1, ptr %6, align 4, !tbaa !20
   ret void
 }
@@ -1193,7 +1193,7 @@ define void @_ZN8facebook4yoga4Node15setLayoutBorderEfNS0_12PhysicalEdgeE(ptr no
 define void @_ZN8facebook4yoga4Node16setLayoutPaddingEfNS0_12PhysicalEdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(584) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw float, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store float %1, ptr %6, align 4, !tbaa !20
   ret void
 }
@@ -1216,7 +1216,7 @@ define void @_ZN8facebook4yoga4Node26setLayoutComputedFlexBasisENS0_13FloatOptio
 define void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(584) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw float, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store float %1, ptr %6, align 4, !tbaa !20
   ret void
 }
@@ -1232,7 +1232,7 @@ define void @_ZN8facebook4yoga4Node36setLayoutComputedFlexBasisGenerationEj(ptr 
 define void @_ZN8facebook4yoga4Node26setLayoutMeasuredDimensionEfNS0_9DimensionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(584) %0, float noundef %1, i8 noundef zeroext %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %5 = zext i8 %2 to i64
-  %6 = getelementptr inbounds nuw float, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store float %1, ptr %6, align 4, !tbaa !20
   ret void
 }
@@ -1252,7 +1252,7 @@ define void @_ZN8facebook4yoga4Node20setLayoutHadOverflowEb(ptr noundef nonnull 
 define void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(584) %0, float noundef %1, i8 noundef zeroext %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %5 = zext i8 %2 to i64
-  %6 = getelementptr inbounds nuw float, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store float %1, ptr %6, align 4, !tbaa !20
   ret void
 }
@@ -1518,7 +1518,7 @@ _ZNK8facebook4yoga5Style24computeInlineStartMarginENS0_13FlexDirectionENS0_9Dire
   %42 = fadd float %19, %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %44 = zext nneg i32 %.0.i42 to i64
-  %45 = getelementptr inbounds nuw float, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   store float %42, ptr %45, align 4, !tbaa !20
   switch i32 %.0.i43, label %default.unreachable.i [
     i32 0, label %46
@@ -1566,7 +1566,7 @@ _ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9Direct
   %60 = select i1 %.inv.i50, float %.sroa.0.0.i.i49, float 0.000000e+00
   %61 = fadd float %19, %60
   %62 = zext nneg i32 %.0.i43 to i64
-  %63 = getelementptr inbounds nuw float, ptr %43, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %62
   store float %61, ptr %63, align 4, !tbaa !20
   switch i32 %.0.i44, label %default.unreachable [
     i32 0, label %64
@@ -1611,7 +1611,7 @@ _ZNK8facebook4yoga5Style24computeInlineStartMarginENS0_13FlexDirectionENS0_9Dire
   %78 = select i1 %.inv.i55, float %.sroa.0.0.i.i54, float 0.000000e+00
   %79 = fadd float %21, %78
   %80 = zext nneg i32 %.0.i44 to i64
-  %81 = getelementptr inbounds nuw float, ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %80
   store float %79, ptr %81, align 4, !tbaa !20
   switch i32 %.0.i45, label %default.unreachable.i63 [
     i32 0, label %82
@@ -1659,7 +1659,7 @@ _ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9Direct
   %96 = select i1 %.inv.i62, float %.sroa.0.0.i.i61, float 0.000000e+00
   %97 = fadd float %21, %96
   %98 = zext nneg i32 %.0.i45 to i64
-  %99 = getelementptr inbounds nuw float, ptr %43, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %98
   store float %97, ptr %99, align 4, !tbaa !20
   ret void
 }
@@ -1695,7 +1695,7 @@ define range(i64 0, 1099511627776) i64 @_ZNK8facebook4yoga4Node16processFlexBasi
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %11
   br label %_ZNK8facebook4yoga5Style4flexEv.exit
 
 16:                                               ; preds = %10
@@ -1717,7 +1717,7 @@ define range(i64 0, 1099511627776) i64 @_ZNK8facebook4yoga4Node16processFlexBasi
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i:             ; preds = %16
-  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %19
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %19
   br label %_ZNK8facebook4yoga5Style4flexEv.exit
 
 _ZNK8facebook4yoga5Style4flexEv.exit:             ; preds = %13, %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i
@@ -1733,7 +1733,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit.thread:      ; preds = %_ZNK8facebook4yoga5
 
 32:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %30
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %30
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i5
 
 35:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread
@@ -1755,7 +1755,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit.thread:      ; preds = %_ZNK8facebook4yoga5
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i4:            ; preds = %35
-  %47 = getelementptr inbounds nuw i32, ptr %41, i64 %38
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %38
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i5
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i5: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i4, %32
@@ -1829,7 +1829,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnul
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %18
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %18
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 23:                                               ; preds = %17
@@ -1851,7 +1851,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnul
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i:                 ; preds = %23
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %26
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %26
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %20, %_ZNSt6vectorIjSaIjEE2atEm.exit.i
@@ -2013,7 +2013,7 @@ _ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread: ; pred
   %.sink30 = phi i64 [ %29, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread ], [ %28, %27 ]
   %31 = trunc i64 %.sink30 to i40
   %32 = zext nneg i8 %.0.idx25.sroa.phi.sroa.speculated to i64
-  %33 = getelementptr inbounds nuw %"class.facebook::yoga::StyleSizeLength", ptr %3, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %32
   store i40 %31, ptr %33, align 8
   br i1 %.not, label %4, label %5
 }
@@ -2022,7 +2022,7 @@ _ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread: ; pred
 define linkonce_odr i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %4
   %.sroa.0.0.copyload = load i16, ptr %5, align 2, !tbaa !101
   %6 = and i16 %.sroa.0.0.copyload, 7
   switch i16 %6, label %7 [
@@ -2059,7 +2059,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 26:                                               ; preds = %20
@@ -2081,7 +2081,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i:                 ; preds = %26
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %29
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %29
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %23, %_ZNSt6vectorIjSaIjEE2atEm.exit.i
@@ -2130,7 +2130,7 @@ _ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit: ; preds
 define linkonce_odr i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 94
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %4
   %.sroa.0.0.copyload = load i16, ptr %5, align 2, !tbaa !101
   %6 = and i16 %.sroa.0.0.copyload, 7
   switch i16 %6, label %7 [
@@ -2167,7 +2167,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 26:                                               ; preds = %20
@@ -2189,7 +2189,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i:                 ; preds = %26
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %29
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %29
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %23, %_ZNSt6vectorIjSaIjEE2atEm.exit.i
@@ -2238,7 +2238,7 @@ _ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit: ; preds
 define linkonce_odr i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %4
   %.sroa.0.0.copyload = load i16, ptr %5, align 2, !tbaa !101
   %6 = and i16 %.sroa.0.0.copyload, 7
   switch i16 %6, label %7 [
@@ -2275,7 +2275,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr 
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 26:                                               ; preds = %20
@@ -2297,7 +2297,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr 
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i:                 ; preds = %26
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %29
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %29
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %23, %_ZNSt6vectorIjSaIjEE2atEm.exit.i
@@ -2453,7 +2453,7 @@ define noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr noundef non
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %12
   br label %_ZNK8facebook4yoga5Style8flexGrowEv.exit
 
 17:                                               ; preds = %11
@@ -2475,7 +2475,7 @@ define noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr noundef non
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i:             ; preds = %17
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   br label %_ZNK8facebook4yoga5Style8flexGrowEv.exit
 
 _ZNK8facebook4yoga5Style8flexGrowEv.exit:         ; preds = %14, %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i
@@ -2491,7 +2491,7 @@ _ZNK8facebook4yoga5Style8flexGrowEv.exit.thread:  ; preds = %_ZNK8facebook4yoga5
 
 33:                                               ; preds = %_ZNK8facebook4yoga5Style8flexGrowEv.exit.thread
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %31
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %31
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i6
 
 36:                                               ; preds = %_ZNK8facebook4yoga5Style8flexGrowEv.exit.thread
@@ -2513,7 +2513,7 @@ _ZNK8facebook4yoga5Style8flexGrowEv.exit.thread:  ; preds = %_ZNK8facebook4yoga5
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i5:            ; preds = %36
-  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %39
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %39
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i6
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i6: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i5, %33
@@ -2550,7 +2550,7 @@ _ZNK8facebook4yoga5Style8flexGrowEv.exit.thread46: ; preds = %5, %_ZNK8facebook4
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %61
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %61
   br label %_ZNK8facebook4yoga5Style4flexEv.exit
 
 66:                                               ; preds = %60
@@ -2572,7 +2572,7 @@ _ZNK8facebook4yoga5Style8flexGrowEv.exit.thread46: ; preds = %5, %_ZNK8facebook4
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i15:           ; preds = %66
-  %78 = getelementptr inbounds nuw i32, ptr %72, i64 %69
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %69
   br label %_ZNK8facebook4yoga5Style4flexEv.exit
 
 _ZNK8facebook4yoga5Style4flexEv.exit:             ; preds = %63, %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i15
@@ -2588,7 +2588,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit.thread:      ; preds = %_ZNK8facebook4yoga5
 
 82:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %80
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %80
   br label %_ZNK8facebook4yoga5Style4flexEv.exit30.thread
 
 85:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread
@@ -2610,7 +2610,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit.thread:      ; preds = %_ZNK8facebook4yoga5
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i24:           ; preds = %85
-  %97 = getelementptr inbounds nuw i32, ptr %91, i64 %88
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %88
   br label %_ZNK8facebook4yoga5Style4flexEv.exit30.thread
 
 _ZNK8facebook4yoga5Style4flexEv.exit30:           ; preds = %58
@@ -2633,7 +2633,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit30.thread:    ; preds = %82, %_ZNSt6vectorIj
 
 104:                                              ; preds = %.thread
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %102
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %102
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i35
 
 107:                                              ; preds = %.thread
@@ -2655,7 +2655,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit30.thread:    ; preds = %82, %_ZNSt6vectorIj
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i34:           ; preds = %107
-  %119 = getelementptr inbounds nuw i32, ptr %113, i64 %110
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %110
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i35
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i35: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i34, %104
@@ -2699,7 +2699,7 @@ define noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr noundef n
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %12
   br label %_ZNK8facebook4yoga5Style10flexShrinkEv.exit
 
 17:                                               ; preds = %11
@@ -2721,7 +2721,7 @@ define noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr noundef n
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i:             ; preds = %17
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   br label %_ZNK8facebook4yoga5Style10flexShrinkEv.exit
 
 _ZNK8facebook4yoga5Style10flexShrinkEv.exit:      ; preds = %14, %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i
@@ -2737,7 +2737,7 @@ _ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread: ; preds = %_ZNK8facebook4yog
 
 33:                                               ; preds = %_ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %31
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %31
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i6
 
 36:                                               ; preds = %_ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread
@@ -2759,7 +2759,7 @@ _ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread: ; preds = %_ZNK8facebook4yog
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i5:            ; preds = %36
-  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %39
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %39
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i6
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i6: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i5, %33
@@ -2802,7 +2802,7 @@ _ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread46: ; preds = %5, %_ZNK8facebo
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %65
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %65
   br label %_ZNK8facebook4yoga5Style4flexEv.exit
 
 70:                                               ; preds = %64
@@ -2824,7 +2824,7 @@ _ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread46: ; preds = %5, %_ZNK8facebo
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i15:           ; preds = %70
-  %82 = getelementptr inbounds nuw i32, ptr %76, i64 %73
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %73
   br label %_ZNK8facebook4yoga5Style4flexEv.exit
 
 _ZNK8facebook4yoga5Style4flexEv.exit:             ; preds = %67, %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i15
@@ -2840,7 +2840,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit.thread:      ; preds = %_ZNK8facebook4yoga5
 
 86:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %84
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %84
   br label %_ZNK8facebook4yoga5Style4flexEv.exit30.thread
 
 89:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread
@@ -2862,7 +2862,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit.thread:      ; preds = %_ZNK8facebook4yoga5
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i24:           ; preds = %89
-  %101 = getelementptr inbounds nuw i32, ptr %95, i64 %92
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %92
   br label %_ZNK8facebook4yoga5Style4flexEv.exit30.thread
 
 _ZNK8facebook4yoga5Style4flexEv.exit30:           ; preds = %62
@@ -2885,7 +2885,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit30.thread:    ; preds = %86, %_ZNSt6vectorIj
 
 108:                                              ; preds = %.thread
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %106
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %106
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i35
 
 111:                                              ; preds = %.thread
@@ -2907,7 +2907,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit30.thread:    ; preds = %86, %_ZNSt6vectorIj
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i34:           ; preds = %111
-  %123 = getelementptr inbounds nuw i32, ptr %117, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %114
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i35
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i35: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i.i34, %108
@@ -3013,7 +3013,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %16, %1
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds i64, ptr %29, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %29, i64 %34
   call void @_ZdlPvm(ptr noundef %35, i64 noundef %32) #24
   store ptr null, ptr %25, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -3080,7 +3080,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(584) ptr @_ZN8facebo
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds i64, ptr %16, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %16, i64 %21
   tail call void @_ZdlPvm(ptr noundef %22, i64 noundef %19) #24
   store ptr null, ptr %12, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -3190,7 +3190,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %12
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 17:                                               ; preds = %11
@@ -3212,7 +3212,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i:               ; preds = %17
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i, %14
@@ -3271,7 +3271,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %54
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %54
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21
 
 59:                                               ; preds = %53
@@ -3293,7 +3293,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i20:             ; preds = %59
-  %71 = getelementptr inbounds nuw i32, ptr %65, i64 %62
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %62
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i20, %56
@@ -3351,7 +3351,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21: ; preds = %_ZNSt6ve
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %95
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %95
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35
 
 100:                                              ; preds = %94
@@ -3373,7 +3373,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i34:             ; preds = %100
-  %112 = getelementptr inbounds nuw i32, ptr %106, i64 %103
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %103
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i34, %97
@@ -3432,7 +3432,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35: ; preds = %_ZNSt6ve
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %137
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %137
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49
 
 142:                                              ; preds = %136
@@ -3454,7 +3454,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i48:             ; preds = %142
-  %154 = getelementptr inbounds nuw i32, ptr %148, i64 %145
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %145
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i48, %139
@@ -3513,7 +3513,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49: ; preds = %_ZNSt6ve
 
 180:                                              ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %182 = getelementptr inbounds nuw i32, ptr %181, i64 %178
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %178
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i63
 
 183:                                              ; preds = %177
@@ -3535,7 +3535,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i62:             ; preds = %183
-  %195 = getelementptr inbounds nuw i32, ptr %189, i64 %186
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %186
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i63
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i63: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i62, %180
@@ -3603,7 +3603,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %10
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 15:                                               ; preds = %9
@@ -3625,7 +3625,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i:               ; preds = %15
-  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %18
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %18
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i, %12
@@ -3684,7 +3684,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %52
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %52
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14
 
 57:                                               ; preds = %51
@@ -3706,7 +3706,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i13:             ; preds = %57
-  %69 = getelementptr inbounds nuw i32, ptr %63, i64 %60
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %60
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i13, %54
@@ -3765,7 +3765,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14: ; preds = %_ZNSt6ve
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %93
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %93
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i28
 
 98:                                               ; preds = %92
@@ -3787,7 +3787,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i27:             ; preds = %98
-  %110 = getelementptr inbounds nuw i32, ptr %104, i64 %101
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %101
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i28
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i28: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i27, %95
@@ -3861,7 +3861,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayIN
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %12
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 17:                                               ; preds = %11
@@ -3883,7 +3883,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayIN
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i:               ; preds = %17
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i, %14
@@ -3942,7 +3942,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %54
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %54
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21
 
 59:                                               ; preds = %53
@@ -3964,7 +3964,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i20:             ; preds = %59
-  %71 = getelementptr inbounds nuw i32, ptr %65, i64 %62
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %62
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i20, %56
@@ -4023,7 +4023,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21: ; preds = %_ZNSt6ve
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %100 = getelementptr inbounds nuw i32, ptr %99, i64 %96
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %96
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35
 
 101:                                              ; preds = %95
@@ -4045,7 +4045,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i21: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i34:             ; preds = %101
-  %113 = getelementptr inbounds nuw i32, ptr %107, i64 %104
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %104
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i34, %98
@@ -4104,7 +4104,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35: ; preds = %_ZNSt6ve
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %138
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %138
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49
 
 143:                                              ; preds = %137
@@ -4126,7 +4126,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i35: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i48:             ; preds = %143
-  %155 = getelementptr inbounds nuw i32, ptr %149, i64 %146
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %146
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i48, %140
@@ -4185,7 +4185,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49: ; preds = %_ZNSt6ve
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %183 = getelementptr inbounds nuw i32, ptr %182, i64 %179
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %179
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i63
 
 184:                                              ; preds = %178
@@ -4207,7 +4207,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i49: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i62:             ; preds = %184
-  %196 = getelementptr inbounds nuw i32, ptr %190, i64 %187
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %187
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i63
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i63: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i62, %181
@@ -4275,7 +4275,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayI
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %10
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 15:                                               ; preds = %9
@@ -4297,7 +4297,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayI
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i:               ; preds = %15
-  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %18
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %18
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i, %12
@@ -4356,7 +4356,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %52
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %52
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14
 
 57:                                               ; preds = %51
@@ -4378,7 +4378,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i13:             ; preds = %57
-  %69 = getelementptr inbounds nuw i32, ptr %63, i64 %60
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %60
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i13, %54
@@ -4437,7 +4437,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14: ; preds = %_ZNSt6ve
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %93
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %93
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i28
 
 98:                                               ; preds = %92
@@ -4459,7 +4459,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i14: ; preds = %_ZNSt6ve
   unreachable
 
 _ZNSt6vectorIjSaIjEE2atEm.exit.i.i27:             ; preds = %98
-  %110 = getelementptr inbounds nuw i32, ptr %104, i64 %101
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %101
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i28
 
 _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i28: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i27, %95

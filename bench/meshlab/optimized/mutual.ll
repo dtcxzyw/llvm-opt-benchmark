@@ -190,7 +190,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   %42 = shl i32 %40, %.037.i
   %43 = add nsw i32 %42, %36
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %41, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 2
   store i32 %47, ptr %45, align 4
@@ -219,7 +219,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %52 = load i32, ptr %0, align 8
   %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv61.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv61.i
   %55 = load i32, ptr %54, align 4
   %56 = udiv i32 %55, %52
   store i32 %56, ptr %54, align 4
@@ -261,7 +261,7 @@ _ZN10MutualInfo9histogramEiiPhS0_iiii.exit:       ; preds = %.lr.ph.i, %.prehead
   %.056 = phi double [ %96, %._crit_edge ], [ 0.000000e+00, %_ZN10MutualInfo9histogramEiiPhS0_iiii.exit ]
   %.04155 = phi i32 [ %.142.lcssa, %._crit_edge ], [ 0, %_ZN10MutualInfo9histogramEiiPhS0_iiii.exit ]
   %77 = load ptr, ptr %70, align 8
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv82
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv82
   %.not72 = icmp eq i32 %76, 0
   br i1 %.not72, label %.lr.ph57.split.._crit_edge_crit_edge, label %.lr.ph.preheader
 
@@ -278,10 +278,10 @@ _ZN10MutualInfo9histogramEiiPhS0_iiii.exit:       ; preds = %.lr.ph.i, %.prehead
   %indvars.iv = phi i64 [ %79, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %80 = load ptr, ptr %10, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4
   %83 = load ptr, ptr %66, align 8
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv77
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv77
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, %82
   store i32 %86, ptr %84, align 4
@@ -325,7 +325,7 @@ _ZN10MutualInfo9histogramEiiPhS0_iiii.exit:       ; preds = %.lr.ph.i, %.prehead
   %104 = phi i32 [ %93, %.lr.ph67 ], [ %136, %.loopexit ]
   %indvars.iv91 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next92, %.loopexit ]
   %.04664 = phi double [ 0.000000e+00, %.lr.ph67 ], [ %.147, %.loopexit ]
-  %105 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv91
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv91
   %106 = load i32, ptr %105, align 4
   %107 = uitofp i32 %106 to double
   %108 = icmp ne i32 %106, 0
@@ -346,14 +346,14 @@ _ZN10MutualInfo9histogramEiiPhS0_iiii.exit:       ; preds = %.lr.ph.i, %.prehead
   %114 = trunc nuw i64 %indvars.iv88 to i32
   %115 = add i32 %113, %114
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %101, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %131, label %120
 
 120:                                              ; preds = %.lr.ph62
   %121 = uitofp i32 %118 to double
-  %122 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv88
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv88
   %123 = load i32, ptr %122, align 4
   %124 = uitofp i32 %123 to double
   %125 = fmul double %.1, %121
@@ -451,7 +451,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %41 = shl i32 %39, %.037
   %42 = add nsw i32 %41, %35
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %40, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %40, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 2
   store i32 %46, ptr %44, align 4
@@ -480,7 +480,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.lr.ph ], [ 0, %.preheader ]
   %51 = load i32, ptr %0, align 8
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv61
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv61
   %54 = load i32, ptr %53, align 4
   %55 = udiv i32 %54, %51
   store i32 %55, ptr %53, align 4

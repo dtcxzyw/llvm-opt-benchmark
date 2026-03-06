@@ -95,7 +95,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %36 = phi i32 [ %46, %45 ], [ %27, %34 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %34 ]
   %37 = load ptr, ptr %19, align 8, !tbaa !24
-  %38 = getelementptr ptr, ptr %37, i64 %indvars.iv.i
+  %38 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   %.not56.i = icmp eq ptr %39, null
   br i1 %.not56.i, label %45, label %40
@@ -104,7 +104,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %41 = call fastcc i32 @node_hash(ptr noundef nonnull %7, ptr noundef nonnull %39)
   %42 = and i32 %41, %35
   %43 = zext i32 %42 to i64
-  %44 = getelementptr ptr, ptr %32, i64 %43
+  %44 = getelementptr [8 x i8], ptr %32, i64 %43
   store ptr %39, ptr %44, align 8, !tbaa !25
   %.pre.i = load i32, ptr %26, align 4, !tbaa !23
   br label %45
@@ -129,7 +129,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %.05059.i = and i32 %51, %.pre-phi.i
   %52 = load ptr, ptr %19, align 8, !tbaa !24
   %53 = zext i32 %.05059.i to i64
-  %54 = getelementptr ptr, ptr %52, i64 %53
+  %54 = getelementptr [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !25
   %.not5760.i = icmp eq ptr %55, null
   br i1 %.not5760.i, label %._crit_edge64.thread.i, label %.lr.ph63.i.preheader
@@ -147,7 +147,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %61 = add i32 %.05061.i64, 1
   %.050.i = and i32 %61, %.pre-phi.i
   %62 = zext i32 %.050.i to i64
-  %63 = getelementptr ptr, ptr %52, i64 %62
+  %63 = getelementptr [8 x i8], ptr %52, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !25
   %.not57.i = icmp eq ptr %64, null
   br i1 %.not57.i, label %._crit_edge64.thread.i, label %.lr.ph63.i, !llvm.loop !32
@@ -160,7 +160,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
 
 ._crit_edge64.thread.i:                           ; preds = %.lr.ph, %50
   %.lcssa.ph.i = phi i64 [ %53, %50 ], [ %62, %.lr.ph ]
-  %68 = getelementptr ptr, ptr %52, i64 %.lcssa.ph.i
+  %68 = getelementptr [8 x i8], ptr %52, i64 %.lcssa.ph.i
   %69 = load i32, ptr %23, align 8, !tbaa !20
   %70 = add i32 %69, 1
   store i32 %70, ptr %23, align 8, !tbaa !20
@@ -173,7 +173,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %4, label %71, label %pm_node_hash_insert.exit
 
 71:                                               ; preds = %.loopexit
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr ptr, ptr %52, i64 %.lcssa
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr [8 x i8], ptr %52, i64 %.lcssa
   store ptr %3, ptr %.phi.trans.insert.phi.trans.insert.i, align 8, !tbaa !25
   br label %pm_node_hash_insert.exit
 
@@ -305,7 +305,7 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
   %19 = phi i32 [ %29, %28 ], [ %10, %17 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %17 ]
   %20 = load ptr, ptr %0, align 8, !tbaa !24
-  %21 = getelementptr ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %.not56 = icmp eq ptr %22, null
   br i1 %.not56, label %28, label %23
@@ -314,7 +314,7 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
   %24 = tail call fastcc i32 @node_hash(ptr noundef %1, ptr noundef nonnull %22)
   %25 = and i32 %24, %18
   %26 = zext i32 %25 to i64
-  %27 = getelementptr ptr, ptr %15, i64 %26
+  %27 = getelementptr [8 x i8], ptr %15, i64 %26
   store ptr %22, ptr %27, align 8, !tbaa !25
   %.pre = load i32, ptr %9, align 4, !tbaa !23
   br label %28
@@ -339,7 +339,7 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
   %.05059 = and i32 %34, %.pre-phi
   %35 = load ptr, ptr %0, align 8, !tbaa !24
   %36 = zext i32 %.05059 to i64
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   %.not5760 = icmp eq ptr %38, null
   br i1 %.not5760, label %._crit_edge64.thread, label %.lr.ph63.preheader
@@ -356,7 +356,7 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
   %41 = add i32 %.0506188, 1
   %.050 = and i32 %41, %.pre-phi
   %42 = zext i32 %.050 to i64
-  %43 = getelementptr ptr, ptr %.pre69.pre89, i64 %42
+  %43 = getelementptr [8 x i8], ptr %.pre69.pre89, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   %.not57 = icmp eq ptr %44, null
   br i1 %.not57, label %._crit_edge64.thread, label %.lr.ph63, !llvm.loop !32
@@ -370,15 +370,15 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
 ._crit_edge64.thread:                             ; preds = %.lr.ph90, %33
   %.ph = phi ptr [ %35, %33 ], [ %.pre69.pre89, %.lr.ph90 ]
   %.lcssa.ph = phi i64 [ %36, %33 ], [ %42, %.lr.ph90 ]
-  %47 = getelementptr ptr, ptr %.ph, i64 %.lcssa.ph
+  %47 = getelementptr [8 x i8], ptr %.ph, i64 %.lcssa.ph
   br label %50
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %.lr.ph63.preheader
   %.lcssa = phi i64 [ %36, %.lr.ph63.preheader ], [ %42, %.lr.ph63 ]
   %.pre69.pre.lcssa = phi ptr [ %.pre69.pre87, %.lr.ph63.preheader ], [ %.pre69.pre, %.lr.ph63 ]
-  %.phi.trans.insert.phi.trans.insert = getelementptr ptr, ptr %.pre69.pre.lcssa, i64 %.lcssa
+  %.phi.trans.insert.phi.trans.insert = getelementptr [8 x i8], ptr %.pre69.pre.lcssa, i64 %.lcssa
   %.pre70.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !25
-  %48 = getelementptr ptr, ptr %.pre69.pre.lcssa, i64 %.lcssa
+  %48 = getelementptr [8 x i8], ptr %.pre69.pre.lcssa, i64 %.lcssa
   %49 = icmp eq ptr %.pre70.pre, null
   br i1 %49, label %50, label %54
 

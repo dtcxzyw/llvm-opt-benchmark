@@ -549,7 +549,7 @@ declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 nound
 define dso_local ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.resource, ptr %3, i64 %4
+  %5 = getelementptr [64 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 536871424
@@ -579,7 +579,7 @@ define dso_local ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef %1) #4 align 1
 define dso_local ptr @pci_ioremap_wc_bar(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.resource, ptr %3, i64 %4
+  %5 = getelementptr [64 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 536871424
@@ -1534,7 +1534,7 @@ define dso_local noundef ptr @pci_find_resource(ptr noundef readonly captures(re
 
 9:                                                ; preds = %6, %2
   %10 = phi i64 [ 0, %2 ], [ %7, %6 ]
-  %11 = getelementptr %struct.resource, ptr %3, i64 %10
+  %11 = getelementptr [64 x i8], ptr %3, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %6, label %14
@@ -1579,7 +1579,7 @@ define dso_local ptr @pci_resource_name(ptr noundef readonly captures(none) %0, 
   %7 = icmp eq i8 %6, 2
   %8 = select i1 %7, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -1840,7 +1840,7 @@ define dso_local range(i32 -5, 2) i32 @pci_power_up(ptr noundef %0) local_unname
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr ptr, ptr @pci_power_names, i64 %24
+  %25 = getelementptr [8 x i8], ptr @pci_power_names, i64 %24
   %26 = load ptr, ptr %25, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %20, ptr noundef nonnull @.str.17, ptr noundef %26) #28
   store i32 4, ptr %21, align 8
@@ -2050,7 +2050,7 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   %66 = load i32, ptr %44, align 8
   %67 = add i32 %66, 1
   %68 = sext i32 %67 to i64
-  %69 = getelementptr ptr, ptr @pci_power_names, i64 %68
+  %69 = getelementptr [8 x i8], ptr @pci_power_names, i64 %68
   %70 = load ptr, ptr %69, align 8
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %65, ptr noundef nonnull @.str.56, ptr noundef %70) #28
   br label %.loopexit
@@ -2349,7 +2349,7 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #4 align 16 {
 
 4:                                                ; preds = %4, %1
   %5 = phi i64 [ 0, %1 ], [ %10, %4 ]
-  %6 = getelementptr i32, ptr %3, i64 %5
+  %6 = getelementptr [4 x i8], ptr %3, i64 %5
   %7 = trunc i64 %5 to i32
   %8 = shl i32 %7, 2
   %9 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %8, ptr noundef %6) #27
@@ -2813,7 +2813,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
   %160 = load i32, ptr %10, align 4
   %161 = and i32 %160, 7
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr %struct.resource, ptr %154, i64 %162
+  %163 = getelementptr [64 x i8], ptr %154, i64 %162
   %164 = load i64, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %166 = load i64, ptr %165, align 8
@@ -2847,7 +2847,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 
 .preheader37:                                     ; preds = %.loopexit42, %195
   %185 = phi i64 [ %196, %195 ], [ 15, %.loopexit42 ]
-  %186 = getelementptr i32, ptr %184, i64 %185
+  %186 = getelementptr [4 x i8], ptr %184, i64 %185
   %187 = load i32, ptr %186, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !8
@@ -2870,7 +2870,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 
 .preheader36:                                     ; preds = %195, %.loopexit35
   %198 = phi i64 [ %216, %.loopexit35 ], [ 9, %195 ]
-  %199 = getelementptr i32, ptr %184, i64 %198
+  %199 = getelementptr [4 x i8], ptr %184, i64 %198
   %200 = load i32, ptr %199, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !annotation !8
@@ -2907,7 +2907,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 
 .preheader33:                                     ; preds = %.loopexit35, %228
   %218 = phi i64 [ %229, %228 ], [ 3, %.loopexit35 ]
-  %219 = getelementptr i32, ptr %184, i64 %218
+  %219 = getelementptr [4 x i8], ptr %184, i64 %218
   %220 = load i32, ptr %219, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !8
@@ -2930,7 +2930,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 
 .preheader41:                                     ; preds = %.loopexit42, %241
   %231 = phi i64 [ %242, %241 ], [ 15, %.loopexit42 ]
-  %232 = getelementptr i32, ptr %184, i64 %231
+  %232 = getelementptr [4 x i8], ptr %184, i64 %231
   %233 = load i32, ptr %232, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !8
@@ -2953,7 +2953,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 
 .preheader40:                                     ; preds = %241, %.preheader40
   %244 = phi i64 [ %251, %.preheader40 ], [ 11, %241 ]
-  %245 = getelementptr i32, ptr %184, i64 %244
+  %245 = getelementptr [4 x i8], ptr %184, i64 %244
   %246 = load i32, ptr %245, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !8
@@ -2968,7 +2968,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 
 .preheader38:                                     ; preds = %.preheader40, %263
   %253 = phi i64 [ %264, %263 ], [ 8, %.preheader40 ]
-  %254 = getelementptr i32, ptr %184, i64 %253
+  %254 = getelementptr [4 x i8], ptr %184, i64 %253
   %255 = load i32, ptr %254, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !8
@@ -2991,7 +2991,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 
 .preheader31:                                     ; preds = %.loopexit42, %276
   %266 = phi i64 [ %277, %276 ], [ 15, %.loopexit42 ]
-  %267 = getelementptr i32, ptr %184, i64 %266
+  %267 = getelementptr [4 x i8], ptr %184, i64 %266
   %268 = load i32, ptr %267, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !8
@@ -5645,7 +5645,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   %56 = icmp ult i8 %50, 3
   %57 = and i1 %55, %56
   %58 = zext nneg i32 %43 to i64
-  %59 = getelementptr %struct.resource, ptr %27, i64 %58
+  %59 = getelementptr [64 x i8], ptr %27, i64 %58
   %60 = icmp eq i32 %43, 8
   %61 = select i1 %60, ptr %28, ptr null
   %62 = select i1 %57, ptr %59, ptr %61
@@ -5656,7 +5656,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   %65 = load i8, ptr %20, align 1
   %66 = icmp eq i8 %65, 2
   %67 = select i1 %66, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
-  %68 = getelementptr ptr, ptr %67, i64 %58
+  %68 = getelementptr [8 x i8], ptr %67, i64 %58
   %69 = load ptr, ptr %68, align 8
   br label %70
 
@@ -6806,7 +6806,7 @@ define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr noundef read
 define dso_local void @pci_release_region(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.resource, ptr %3, i64 %4
+  %5 = getelementptr [64 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
@@ -6875,7 +6875,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_region(ptr noundef %
 define internal fastcc noundef range(i32 -16, 1) i32 @__pci_request_region(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 134217729) %3) unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
-  %7 = getelementptr %struct.resource, ptr %5, i64 %6
+  %7 = getelementptr [64 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
@@ -6957,7 +6957,7 @@ define dso_local void @pci_release_selected_regions(ptr noundef %0, i32 noundef 
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr %struct.resource, ptr %3, i64 %12
+  %13 = getelementptr [64 x i8], ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
@@ -7056,7 +7056,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions(ptr
 
 26:                                               ; preds = %20
   %27 = sext i32 %22 to i64
-  %28 = getelementptr %struct.resource, ptr %14, i64 %27
+  %28 = getelementptr [64 x i8], ptr %14, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
@@ -7155,7 +7155,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions_exc
 
 26:                                               ; preds = %20
   %27 = sext i32 %22 to i64
-  %28 = getelementptr %struct.resource, ptr %14, i64 %27
+  %28 = getelementptr [64 x i8], ptr %14, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
@@ -7223,7 +7223,7 @@ define dso_local void @pci_release_regions(ptr noundef %0) #4 align 16 {
 5:                                                ; preds = %pci_release_region.exit, %1
   %6 = phi i32 [ 0, %1 ], [ %40, %pci_release_region.exit ]
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr %struct.resource, ptr %2, i64 %7
+  %8 = getelementptr [64 x i8], ptr %2, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
@@ -7311,7 +7311,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions(ptr noundef 
   %16 = phi i32 [ %17, %pci_release_region.exit ], [ %4, %.preheader ]
   %17 = add nsw i32 %16, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr %struct.resource, ptr %9, i64 %18
+  %19 = getelementptr [64 x i8], ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
@@ -7399,7 +7399,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions_exclusive(pt
   %16 = phi i32 [ %17, %pci_release_region.exit ], [ %4, %.preheader ]
   %17 = add nsw i32 %16, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr %struct.resource, ptr %9, i64 %18
+  %19 = getelementptr [64 x i8], ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
@@ -8839,7 +8839,7 @@ define dso_local noundef i32 @__pci_reset_function_locked(ptr noundef %0) #4 ali
 
 9:                                                ; preds = %4
   %10 = zext i8 %7 to i64
-  %11 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %10
+  %11 = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %10
   %12 = load ptr, ptr %11, align 16
   %13 = tail call i32 %12(ptr noundef %0, i1 noundef zeroext false) #27
   %14 = icmp eq i32 %13, -25
@@ -8864,7 +8864,7 @@ define dso_local void @pci_init_reset_methods(ptr noundef %0) local_unnamed_addr
 4:                                                ; preds = %15, %1
   %5 = phi i64 [ 1, %1 ], [ %17, %15 ]
   %6 = phi i32 [ 0, %1 ], [ %16, %15 ]
-  %7 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %5
+  %7 = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %5
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 %8(ptr noundef %0, i1 noundef zeroext true) #27
   switch i32 %9, label %19 [
@@ -8942,7 +8942,7 @@ define dso_local noundef i32 @pci_reset_function(ptr noundef %0) #4 align 16 {
 
 28:                                               ; preds = %23
   %29 = zext i8 %26 to i64
-  %30 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %29
+  %30 = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %29
   %31 = load ptr, ptr %30, align 16
   %32 = tail call i32 %31(ptr noundef %0, i1 noundef zeroext false) #27
   %33 = icmp eq i32 %32, -25
@@ -9035,7 +9035,7 @@ define dso_local noundef i32 @pci_reset_function_locked(ptr noundef %0) #4 align
 
 27:                                               ; preds = %22
   %28 = zext i8 %25 to i64
-  %29 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %28
+  %29 = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %28
   %30 = load ptr, ptr %29, align 16
   %31 = tail call i32 %30(ptr noundef %0, i1 noundef zeroext false) #27
   %32 = icmp eq i32 %31, -25
@@ -9133,7 +9133,7 @@ define dso_local noundef i32 @pci_try_reset_function(ptr noundef %0) #4 align 16
 
 33:                                               ; preds = %28
   %34 = zext i8 %31 to i64
-  %35 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %34
+  %35 = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %34
   %36 = load ptr, ptr %35, align 16
   %37 = tail call i32 %36(ptr noundef %0, i1 noundef zeroext false) #27
   %38 = icmp eq i32 %37, -25
@@ -11267,11 +11267,11 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 
 .split.us:                                        ; preds = %74, %107
   %81 = phi i64 [ %108, %107 ], [ 0, %74 ]
-  %82 = getelementptr %struct.resource, ptr %79, i64 %81
+  %82 = getelementptr [64 x i8], ptr %79, i64 %81
   %83 = load i8, ptr %64, align 1
   %84 = icmp eq i8 %83, 2
   %85 = select i1 %84, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
-  %86 = getelementptr ptr, ptr %85, i64 %81
+  %86 = getelementptr [8 x i8], ptr %85, i64 %81
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %89 = load i64, ptr %88, align 8
@@ -11315,11 +11315,11 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 
 .split:                                           ; preds = %74, %135
   %110 = phi i64 [ %136, %135 ], [ 0, %74 ]
-  %111 = getelementptr %struct.resource, ptr %79, i64 %110
+  %111 = getelementptr [64 x i8], ptr %79, i64 %110
   %112 = load i8, ptr %64, align 1
   %113 = icmp eq i8 %112, 2
   %114 = select i1 %113, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
-  %115 = getelementptr ptr, ptr %114, i64 %110
+  %115 = getelementptr [8 x i8], ptr %114, i64 %110
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %118 = load i64, ptr %117, align 8
@@ -11366,7 +11366,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 
 .preheader:                                       ; preds = %.split11.us, %152
   %140 = phi i64 [ %153, %152 ], [ 7, %.split11.us ]
-  %141 = getelementptr %struct.resource, ptr %79, i64 %140
+  %141 = getelementptr [64 x i8], ptr %79, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load i64, ptr %142, align 8
   %144 = and i64 %143, 512
@@ -11779,10 +11779,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   %33 = load i32, ptr %9, align 8
   %34 = add i32 %33, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr ptr, ptr @pci_power_names, i64 %35
+  %36 = getelementptr [8 x i8], ptr @pci_power_names, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i32 %1 to i64
-  %39 = getelementptr ptr, ptr @pci_power_names, i64 %38
+  %39 = getelementptr [8 x i8], ptr @pci_power_names, i64 %38
   %40 = getelementptr i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %32, ptr noundef nonnull @.str.57, ptr noundef %37, ptr noundef %41) #28
@@ -11850,10 +11850,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   %82 = load i32, ptr %9, align 8
   %83 = add i32 %82, 1
   %84 = sext i32 %83 to i64
-  %85 = getelementptr ptr, ptr @pci_power_names, i64 %84
+  %85 = getelementptr [8 x i8], ptr @pci_power_names, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = zext nneg i32 %1 to i64
-  %88 = getelementptr ptr, ptr @pci_power_names, i64 %87
+  %88 = getelementptr [8 x i8], ptr @pci_power_names, i64 %87
   %89 = getelementptr i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %81, ptr noundef nonnull @.str.58, ptr noundef %86, ptr noundef %90) #28
@@ -12283,7 +12283,7 @@ define internal void @pcim_release(ptr noundef %0, ptr noundef readonly captures
 
 14:                                               ; preds = %8
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr %struct.resource, ptr %6, i64 %15
+  %16 = getelementptr [64 x i8], ptr %6, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
@@ -12646,7 +12646,7 @@ define internal i64 @reset_method_show(ptr noundef readonly captures(none) %0, p
   %13 = icmp eq i64 %7, 0
   %14 = select i1 %13, ptr @.str.24, ptr @.str.87
   %15 = zext i8 %9 to i64
-  %.split = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %15
+  %.split = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %15
   %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %12, ptr noundef nonnull @.str.86, ptr noundef nonnull %14, ptr noundef %17) #27
@@ -12702,7 +12702,7 @@ define internal noundef i64 @reset_method_store(ptr noundef %0, ptr readnone cap
 16:                                               ; preds = %27, %13
   %17 = phi i64 [ 1, %13 ], [ %29, %27 ]
   %18 = phi i32 [ 0, %13 ], [ %28, %27 ]
-  %19 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %17
+  %19 = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %17
   %20 = load ptr, ptr %19, align 16
   %21 = tail call i32 %20(ptr noundef %7, i1 noundef zeroext true) #27
   switch i32 %21, label %31 [
@@ -12756,7 +12756,7 @@ define internal noundef i64 @reset_method_store(ptr noundef %0, ptr readnone cap
 
 46:                                               ; preds = %51, %44
   %47 = phi i64 [ 1, %44 ], [ %52, %51 ]
-  %.split = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %47
+  %.split = getelementptr [16 x i8], ptr @pci_reset_fn_methods, i64 %47
   %48 = getelementptr i8, ptr %.split, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = call zeroext i1 @sysfs_streq(ptr noundef %45, ptr noundef %49) #27

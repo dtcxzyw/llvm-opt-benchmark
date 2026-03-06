@@ -258,11 +258,11 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 
 select.unfold.us:                                 ; preds = %108, %95, %82, %69, %62
   %121 = zext nneg i32 %.0184.us to i64
-  %122 = getelementptr inbounds nuw i16, ptr %50, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %121
   %123 = lshr exact i32 %.0184.us, 1
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw i16, ptr %55, i64 %124
-  %126 = getelementptr inbounds nuw i16, ptr %60, i64 %124
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %124
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %124
   %127 = shl nuw i32 %63, 1
   %128 = zext i32 %127 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %122, ptr nonnull align 2 %5, i64 %128, i1 false)

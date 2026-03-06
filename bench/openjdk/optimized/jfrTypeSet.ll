@@ -1196,7 +1196,7 @@ define internal fastcc void @_ZL12write_methodP19JfrCheckpointWriterPK6Methodb(p
   %21 = load i16, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %23 = zext i16 %21 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %_ZL11mark_symbolP6Symbolb.exit, label %26
@@ -1216,7 +1216,7 @@ _ZL11mark_symbolP6Symbolb.exit:                   ; preds = %3, %26
   %34 = load i16, ptr %33, align 2
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %36 = zext i16 %34 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not.i19 = icmp eq ptr %38, null
   br i1 %.not.i19, label %_ZL11mark_symbolP6Symbolb.exit20, label %39
@@ -2027,7 +2027,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18Serial
   %354 = phi i32 [ 0, %.lr.ph.i3.i.i ], [ %391, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i ]
   %indvars.iv.i4.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i11.i.i, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i ]
   %355 = load ptr, ptr %351, align 8
-  %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %indvars.iv.i4.i.i
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %indvars.iv.i4.i.i
   %357 = load ptr, ptr %356, align 8
   %358 = load ptr, ptr %357, align 8
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 144
@@ -2118,7 +2118,7 @@ _ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTy
   %401 = phi i32 [ %394, %.lr.ph.i.i.i ], [ %438, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i ]
   %402 = load ptr, ptr %398, align 8
-  %403 = getelementptr inbounds nuw ptr, ptr %402, i64 %indvars.iv.i.i.i
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %402, i64 %indvars.iv.i.i.i
   %404 = load ptr, ptr %403, align 8
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 144
@@ -2398,7 +2398,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18Se
 537:                                              ; preds = %534, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %534 ]
   %538 = load ptr, ptr %533, align 8
-  %539 = getelementptr inbounds nuw ptr, ptr %538, i64 %indvars.iv.i.i.i.i
+  %539 = getelementptr inbounds nuw [8 x i8], ptr %538, i64 %indvars.iv.i.i.i.i
   %540 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass20KlassToFieldEnvelopeI21KlassCldFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS9_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEES3_I22ModuleCldFieldSelectorSH_EEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %539)
   br i1 %540, label %534, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
 
@@ -2423,7 +2423,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18Se
 549:                                              ; preds = %546, %.lr.ph.i3.i.i.i
   %indvars.iv.i4.i.i.i = phi i64 [ 0, %.lr.ph.i3.i.i.i ], [ %indvars.iv.next.i6.i.i.i, %546 ]
   %550 = load ptr, ptr %545, align 8
-  %551 = getelementptr inbounds nuw ptr, ptr %550, i64 %indvars.iv.i4.i.i.i
+  %551 = getelementptr inbounds nuw [8 x i8], ptr %550, i64 %indvars.iv.i4.i.i.i
   %552 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass20KlassToFieldEnvelopeI21KlassCldFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS9_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEES3_I22ModuleCldFieldSelectorSH_EEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %551)
   br i1 %552, label %546, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
 
@@ -2636,7 +2636,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePre
 653:                                              ; preds = %650, %.lr.ph.i.i.i48
   %indvars.iv.i.i.i49 = phi i64 [ 0, %.lr.ph.i.i.i48 ], [ %indvars.iv.next.i.i.i50, %650 ]
   %654 = load ptr, ptr %649, align 8
-  %655 = getelementptr inbounds nuw ptr, ptr %654, i64 %indvars.iv.i.i.i49
+  %655 = getelementptr inbounds nuw [8 x i8], ptr %654, i64 %indvars.iv.i.i.i49
   %656 = load ptr, ptr %655, align 8
   %657 = call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %656)
   br i1 %657, label %650, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
@@ -2662,7 +2662,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePre
 666:                                              ; preds = %663, %.lr.ph.i3.i.i52
   %indvars.iv.i4.i.i53 = phi i64 [ 0, %.lr.ph.i3.i.i52 ], [ %indvars.iv.next.i6.i.i, %663 ]
   %667 = load ptr, ptr %662, align 8
-  %668 = getelementptr inbounds nuw ptr, ptr %667, i64 %indvars.iv.i4.i.i53
+  %668 = getelementptr inbounds nuw [8 x i8], ptr %667, i64 %indvars.iv.i4.i.i53
   %669 = load ptr, ptr %668, align 8
   %670 = call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %669)
   br i1 %670, label %663, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
@@ -3003,7 +3003,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
 22:                                               ; preds = %19, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef zeroext i1 @_ZN18MethodIteratorHostI7WrapperIPK6Method13ClearArtifactES0_IPK5KlassS4_ELb0EEclES8_(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef %25)
   br i1 %26, label %19, label %_ZL25clear_klasses_and_methodsv.exit
@@ -3029,7 +3029,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
 35:                                               ; preds = %32, %.lr.ph.i3.i.i
   %indvars.iv.i4.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i6.i.i, %32 ]
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i4.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i4.i.i
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef zeroext i1 @_ZN18MethodIteratorHostI7WrapperIPK6Method13ClearArtifactES0_IPK5KlassS4_ELb0EEclES8_(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef %38)
   br i1 %39, label %32, label %_ZL25clear_klasses_and_methodsv.exit
@@ -5603,7 +5603,7 @@ define linkonce_odr hidden void @_ZNK14JfrArtifactSet15iterate_klassesI20KlassTo
 7:                                                ; preds = %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
@@ -5691,7 +5691,7 @@ _ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrT
 54:                                               ; preds = %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i10, %.lr.ph.i4
   %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i11, %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i10 ]
   %55 = load ptr, ptr %53, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i5
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i5
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 144
@@ -7310,7 +7310,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicat
 68:                                               ; preds = %65, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
   %69 = load ptr, ptr %64, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i.i
   %71 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS8_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EE7WrapperIS2_9EmptyStubELb1EES3_IS4_IS5_IS8_18SerializePredicateIS8_EXadL_Z13write__methodSC_SE_EEELj183EESJ_Lb0EEEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %70)
   br i1 %71, label %65, label %_ZNK14JfrArtifactSet15iterate_klassesI16CompositeFunctorIPK5Klass18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateISA_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EE7WrapperIS4_9EmptyStubELb1EES5_IS6_IS7_ISA_18SerializePredicateISA_EXadL_Z13write__methodSE_SG_EEELj183EESL_Lb0EEEEEvRT_.exit
 
@@ -7335,7 +7335,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicat
 80:                                               ; preds = %77, %.lr.ph.i3.i
   %indvars.iv.i4.i = phi i64 [ 0, %.lr.ph.i3.i ], [ %indvars.iv.next.i6.i, %77 ]
   %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv.i4.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv.i4.i
   %83 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS8_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EE7WrapperIS2_9EmptyStubELb1EES3_IS4_IS5_IS8_18SerializePredicateIS8_EXadL_Z13write__methodSC_SE_EEELj183EESJ_Lb0EEEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %82)
   br i1 %83, label %77, label %_ZNK14JfrArtifactSet15iterate_klassesI16CompositeFunctorIPK5Klass18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateISA_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EE7WrapperIS4_9EmptyStubELb1EES5_IS6_IS7_ISA_18SerializePredicateISA_EXadL_Z13write__methodSE_SG_EEELj183EESL_Lb0EEEEEvRT_.exit
 
@@ -7419,7 +7419,7 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit:         ; preds = %2
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %14, align 1
   %28 = trunc i8 %27 to i1
@@ -7553,7 +7553,7 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit.i:       ; preds = %2
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
   %22 = load ptr, ptr %18, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 54
   %27 = load i16, ptr %26, align 2
@@ -8356,7 +8356,7 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit:         ; preds = %2
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit ]
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %13, align 1
   %24 = trunc i8 %23 to i1

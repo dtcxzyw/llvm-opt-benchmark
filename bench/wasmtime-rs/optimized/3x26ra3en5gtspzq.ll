@@ -243,10 +243,10 @@ switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %switch.tableidx = xor i8 %2, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE.2", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE.2", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -281,7 +281,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: 
   tail call void @llvm.assume(i1 %16)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !12, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds i32, ptr %18, i64 %14
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %14
   %20 = load i32, ptr %19, align 4, !noalias !12, !noundef !5
   %21 = load i64, ptr %0, align 8, !noundef !5
   %22 = icmp eq i64 %21, 0
@@ -417,7 +417,7 @@ define void @_ZN14cranelift_wasm15code_translator14translate_icmp17h99826601e860
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !32, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds i32, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %17, align 4, !noalias !32, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %19 = icmp eq i64 %12, 0
@@ -432,7 +432,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: 
   store i64 %21, ptr %7, align 8, !alias.scope !36
   %22 = icmp ult i64 %21, %13
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i32, ptr %16, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %16, i64 %21
   %24 = load i32, ptr %23, align 4, !noalias !36, !noundef !5
   %25 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %26 = extractvalue { ptr, i32 } %25, 0
@@ -504,7 +504,7 @@ define void @_ZN14cranelift_wasm15code_translator21translate_vector_icmp17hf2017
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !60, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds i32, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %17, align 4, !noalias !60, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %19 = icmp eq i64 %12, 0
@@ -519,7 +519,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: 
   store i64 %21, ptr %7, align 8, !alias.scope !64
   %22 = icmp ult i64 %21, %13
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i32, ptr %16, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %16, i64 %21
   %24 = load i32, ptr %23, align 4, !noalias !64, !noundef !5
   %25 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %24, i16 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %26 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %18, i16 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -580,7 +580,7 @@ define void @_ZN14cranelift_wasm15code_translator14translate_fcmp17h27f373960033
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !82, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds i32, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %17, align 4, !noalias !82, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %19 = icmp eq i64 %12, 0
@@ -595,7 +595,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: 
   store i64 %21, ptr %7, align 8, !alias.scope !86
   %22 = icmp ult i64 %21, %13
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i32, ptr %16, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %16, i64 %21
   %24 = load i32, ptr %23, align 4, !noalias !86, !noundef !5
   %25 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %26 = extractvalue { ptr, i32 } %25, 0
@@ -667,7 +667,7 @@ define void @_ZN14cranelift_wasm15code_translator21translate_vector_fcmp17h942ca
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !110, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds i32, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %17, align 4, !noalias !110, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %19 = icmp eq i64 %12, 0
@@ -682,7 +682,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: 
   store i64 %21, ptr %7, align 8, !alias.scope !114
   %22 = icmp ult i64 %21, %13
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i32, ptr %16, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %16, i64 %21
   %24 = load i32, ptr %23, align 4, !noalias !114, !noundef !5
   %25 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %24, i16 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %26 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %18, i16 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -740,7 +740,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit: ;
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !132, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds i32, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %14 = load i32, ptr %13, align 4, !noalias !132, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -754,7 +754,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit: ;
 21:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %23 = load ptr, ptr %22, align 8, !alias.scope !133, !noalias !136, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %23, i64 %19
+  %24 = getelementptr inbounds [56 x i8], ptr %23, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %26 = load i32, ptr %25, align 4, !range !139, !noalias !140, !noundef !5
   %.not.i.i = icmp samesign ult i32 %26, 2
@@ -804,11 +804,11 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
 _ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE.exit: ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit.i
   %.not.i6.i = icmp samesign ult i32 %34, 2
   %40 = select i1 %.not.i6.i, i64 0, i64 %.pre-phi10.i
-  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %40
+  %switch.gep = getelementptr inbounds [8 x i8], ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 %switch.load
   %.0.i8.i = load i32, ptr %41, align 4, !alias.scope !150, !noalias !140, !noundef !5
-  %42 = getelementptr inbounds i32, ptr %12, i64 %36
+  %42 = getelementptr inbounds [4 x i8], ptr %12, i64 %36
   %43 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %44 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator17canonicalise_brif17h856579f4136fdc1eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %14, i32 noundef %.0.i8.i, ptr noalias noundef nonnull readonly align 4 %42, i64 noundef %.0.i, i32 noundef %43, ptr noalias noundef nonnull readonly align 4 @anon.3173fd90961c2687e753c9f58856bde0.3, i64 noundef 0)
   tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %43)
@@ -829,7 +829,7 @@ define void @_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf67
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [56 x i8], ptr %12, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %15 = load i32, ptr %14, align 4, !range !139, !noundef !5
   %.not.i = icmp samesign ult i32 %15, 2
@@ -866,7 +866,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
   %.0 = load i64, ptr %.0.in, align 8, !noundef !5
   %.not.i6 = icmp samesign ult i32 %23, 2
   %25 = select i1 %.not.i6, i64 0, i64 %.pre-phi10
-  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %25
+  %switch.gep = getelementptr inbounds [8 x i8], ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %25
   %switch.load = load i64, ptr %switch.gep, align 8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
   %.0.i8 = load i32, ptr %26, align 4, !alias.scope !159, !noundef !5
@@ -888,7 +888,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
 _ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17hf414566f25f2d02dE.exit: ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !162, !nonnull !5, !noundef !5
-  %35 = getelementptr inbounds i32, ptr %34, i64 %29
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %29
   store i32 %.0.i8, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %35, ptr %36, align 8
@@ -1319,7 +1319,7 @@ _ZN8smallvec10infallible17h17f32b0fa4ddcb30E.exit.i: ; preds = %48
   %55 = phi i64 [ %.pre.i, %_ZN8smallvec10infallible17h17f32b0fa4ddcb30E.exit.i ], [ %46, %42 ]
   %.05.i = phi ptr [ %20, %_ZN8smallvec10infallible17h17f32b0fa4ddcb30E.exit.i ], [ %.sink2.i.i, %42 ]
   %.0.i8 = phi ptr [ %54, %_ZN8smallvec10infallible17h17f32b0fa4ddcb30E.exit.i ], [ %.sink3.i.i, %42 ]
-  %56 = getelementptr inbounds i32, ptr %.0.i8, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %.0.i8, i64 %55
   store i32 %.07, ptr %56, align 4
   %57 = load i64, ptr %.05.i, align 8, !alias.scope !201, !noundef !5
   %58 = add i64 %57, 1
@@ -1651,7 +1651,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit: ;
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !275, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds i32, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %14 = load i32, ptr %13, align 4, !noalias !275, !noundef !5
   %15 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %14, i16 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   ret i32 %15
@@ -1678,7 +1678,7 @@ define { i32, i32 } @_ZN14cranelift_wasm15code_translator17pop2_with_bitcast17h5
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !282, !nonnull !5, !noundef !5
-  %14 = getelementptr inbounds i32, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %15 = load i32, ptr %14, align 4, !noalias !282, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %16 = icmp eq i64 %9, 0
@@ -1693,7 +1693,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit: ;
   store i64 %18, ptr %4, align 8, !alias.scope !286
   %19 = icmp ult i64 %18, %10
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds i32, ptr %13, i64 %18
+  %20 = getelementptr inbounds [4 x i8], ptr %13, i64 %18
   %21 = load i32, ptr %20, align 4, !noalias !286, !noundef !5
   %22 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %21, i16 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %23 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %15, i16 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -1723,7 +1723,7 @@ define void @_ZN14cranelift_wasm15code_translator17pop3_with_bitcast17h5a3186f9d
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !293, !noalias !294, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds i32, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %16 = load i32, ptr %15, align 4, !noalias !297, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %17 = icmp eq i64 %10, 0
@@ -1738,7 +1738,7 @@ define void @_ZN14cranelift_wasm15code_translator17pop3_with_bitcast17h5a3186f9d
   store i64 %20, ptr %5, align 8, !alias.scope !301, !noalias !294
   %21 = icmp ult i64 %20, %11
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds i32, ptr %14, i64 %20
+  %22 = getelementptr inbounds [4 x i8], ptr %14, i64 %20
   %23 = load i32, ptr %22, align 4, !noalias !302, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   %24 = icmp eq i64 %20, 0
@@ -1753,7 +1753,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop317h91763020486657a2E.exit: ;
   store i64 %26, ptr %5, align 8, !alias.scope !306, !noalias !294
   %27 = icmp ult i64 %26, %11
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds i32, ptr %14, i64 %26
+  %28 = getelementptr inbounds [4 x i8], ptr %14, i64 %26
   %29 = load i32, ptr %28, align 4, !noalias !307, !noundef !5
   %30 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %29, i16 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %31 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vector17h128f0e1d09190496E(i32 noundef %23, i16 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)

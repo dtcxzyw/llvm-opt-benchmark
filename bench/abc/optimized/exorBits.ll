@@ -35,7 +35,7 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %1 ]
   %6 = trunc i64 %indvars.iv14 to i8
-  %7 = getelementptr inbounds nuw i32, ptr @SparseNumbers, i64 %indvars.iv14
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @SparseNumbers, i64 %indvars.iv14
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr @BitGroupNumbers, i64 %9
@@ -58,7 +58,7 @@ define range(i32 0, 4) i32 @GetVar(ptr noundef readonly captures(none) %0, i32 n
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = ashr i32 %3, 5
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = and i32 %3, 30
   %11 = lshr i32 %9, %10
@@ -75,7 +75,7 @@ define void @ExorVar(ptr noundef readonly captures(none) %0, i32 noundef %1, i32
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = ashr i32 %4, 5
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %8, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !8
   %13 = xor i32 %12, %6
   store i32 %13, ptr %11, align 4, !tbaa !8
@@ -118,9 +118,9 @@ define range(i32 0, 6) i32 @GetDistance(ptr noundef readonly captures(none) %0, 
 17:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %18 = phi i32 [ 0, %.lr.ph ], [ %38, %9 ]
-  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !8
-  %21 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !8
   %23 = xor i32 %22, %20
   %24 = lshr i32 %23, 1
@@ -148,9 +148,9 @@ define range(i32 0, 6) i32 @GetDistance(ptr noundef readonly captures(none) %0, 
 
 41:                                               ; preds = %.lr.ph19, %40
   %indvars.iv24 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next25, %40 ]
-  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv24
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv24
   %43 = load i32, ptr %42, align 4, !tbaa !8
-  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv24
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv24
   %45 = load i32, ptr %44, align 4, !tbaa !8
   %.not = icmp eq i32 %43, %45
   br i1 %.not, label %40, label %46
@@ -202,9 +202,9 @@ define range(i32 0, 6) i32 @GetDistancePlus(ptr noundef readonly captures(none) 
   %18 = phi i32 [ -1, %.lr.ph ], [ %31, %9 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %19 = phi i32 [ 0, %.lr.ph ], [ %43, %9 ]
-  %20 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !8
-  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !8
   %24 = xor i32 %23, %21
   %25 = lshr i32 %24, 1
@@ -242,9 +242,9 @@ define range(i32 0, 6) i32 @GetDistancePlus(ptr noundef readonly captures(none) 
 
 46:                                               ; preds = %.lr.ph28, %45
   %indvars.iv39 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next40, %45 ]
-  %47 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv39
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv39
   %48 = load i32, ptr %47, align 4, !tbaa !8
-  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv39
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv39
   %50 = load i32, ptr %49, align 4, !tbaa !8
   %.not = icmp eq i32 %48, %50
   br i1 %.not, label %45, label %51
@@ -290,7 +290,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
   %68 = load ptr, ptr %67, align 8, !tbaa !11
   %69 = ashr i32 %66, 5
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %68, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %68, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !8
   %73 = and i32 %66, 30
   %74 = lshr i32 %72, %73
@@ -298,7 +298,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
   store i32 %75, ptr @s_DiffVarValueP_old, align 4, !tbaa !8
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !11
-  %78 = getelementptr inbounds i32, ptr %77, i64 %70
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %70
   %79 = load i32, ptr %78, align 4, !tbaa !8
   %80 = lshr i32 %79, %73
   %81 = and i32 %80, 3
@@ -311,7 +311,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
   %86 = shl i32 %85, 1
   %87 = ashr i32 %86, 5
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %68, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %68, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !8
   %91 = and i32 %86, 30
   %92 = lshr i32 %90, %91
@@ -345,9 +345,9 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !8
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !8
   %.not = icmp eq i32 %13, %15
   br i1 %.not, label %10, label %16
@@ -380,9 +380,9 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
 26:                                               ; preds = %.lr.ph45, %.thread83
   %indvars.iv74 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next75, %.thread83 ]
   %.lcssa374043 = phi i32 [ %DiffVarCounter.promoted39, %.lr.ph45 ], [ %.lcssa374185, %.thread83 ]
-  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv74
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv74
   %28 = load i32, ptr %27, align 4, !tbaa !8
-  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv74
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv74
   %30 = load i32, ptr %29, align 4, !tbaa !8
   %31 = xor i32 %30, %28
   %32 = lshr i32 %31, 1
@@ -417,7 +417,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %45, %49
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
-  %51 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv58
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv58
   store i32 %50, ptr %51, align 4, !tbaa !8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count63
@@ -462,7 +462,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %72 = zext i8 %71 to i32
   %73 = add nuw nsw i32 %68, %72
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
-  %74 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv67
+  %74 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv67
   store i32 %73, ptr %74, align 4, !tbaa !8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count72
@@ -491,18 +491,18 @@ define void @InsertVars(ptr noundef readonly captures(none) %0, ptr noundef read
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !8
   %11 = shl i32 %10, 1
   %12 = ashr i32 %11, 5
   %13 = and i32 %11, 30
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds i32, ptr %7, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %7, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !8
   %17 = shl nuw i32 3, %13
   %18 = xor i32 %17, -1
   %19 = and i32 %16, %18
-  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !8
   %22 = shl i32 %21, %13
   %23 = or i32 %19, %22
@@ -528,16 +528,16 @@ define void @InsertVarsWithoutClearing(ptr noundef readonly captures(none) %0, p
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !8
   %12 = shl i32 %11, 1
   %13 = ashr i32 %12, 5
   %14 = and i32 %12, 30
-  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !8
   %17 = shl i32 %16, %14
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds i32, ptr %8, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %8, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !8
   %21 = or i32 %20, %17
   store i32 %21, ptr %19, align 4, !tbaa !8
@@ -552,7 +552,7 @@ define void @InsertVarsWithoutClearing(ptr noundef readonly captures(none) %0, p
   %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = ashr i32 %4, 5
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %25, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %25, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !8
   %30 = or i32 %29, %23
   store i32 %30, ptr %28, align 4, !tbaa !8

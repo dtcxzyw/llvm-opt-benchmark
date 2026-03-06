@@ -310,11 +310,11 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %177 = sext i32 %9 to i64
   %178 = sext i32 %32 to i64
   %179 = sext i32 %75 to i64
-  %180 = getelementptr inbounds i32, ptr %164, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %164, i64 %179
   %181 = sext i32 %97 to i64
-  %182 = getelementptr inbounds i32, ptr %180, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %180, i64 %181
   %183 = sext i32 %98 to i64
-  %184 = getelementptr inbounds i32, ptr %182, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr %182, i64 %183
   %185 = zext nneg i32 %8 to i64
   %186 = getelementptr inbounds nuw i8, ptr %152, i64 %185
   br label %.preheader.us
@@ -332,18 +332,18 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %188 = getelementptr inbounds nuw i8, ptr %.0191236.us, i64 1
   %189 = load i8, ptr %.0191236.us, align 1
   %190 = zext i8 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %143, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %190
   %192 = load i32, ptr %191, align 4
   store i32 %192, ptr %.0188237.us, align 4
   %193 = add nuw nsw i32 %.0192235.us, 1
-  %194 = getelementptr inbounds i32, ptr %.0188237.us, i64 %176
+  %194 = getelementptr inbounds [4 x i8], ptr %.0188237.us, i64 %176
   %exitcond.not = icmp eq i32 %193, %4
   br i1 %exitcond.not, label %._crit_edge.us, label %187, !llvm.loop !6
 
 ._crit_edge.us:                                   ; preds = %187
   %195 = add nuw nsw i32 %.0193238.us, 1
   %196 = getelementptr inbounds i8, ptr %.0190239.us, i64 %177
-  %197 = getelementptr inbounds i32, ptr %.0189240.us, i64 %178
+  %197 = getelementptr inbounds [4 x i8], ptr %.0189240.us, i64 %178
   %exitcond243.not = icmp eq i32 %195, %5
   br i1 %exitcond243.not, label %._crit_edge241, label %.preheader.us, !llvm.loop !8
 
@@ -744,14 +744,14 @@ define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull capt
   br i1 %.not69, label %14, label %.lr.ph83._crit_edge
 
 .lr.ph83._crit_edge:                              ; preds = %.lr.ph83
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv90
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv90
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %19
 
 14:                                               ; preds = %.lr.ph83
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv90
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv90
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv90
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv90
   %18 = load i32, ptr %17, align 4
   %.not70 = icmp eq i32 %16, %18
   br i1 %.not70, label %.loopexit118, label %19
@@ -792,7 +792,7 @@ define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull capt
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %34 ]
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %20
   br i1 %33, label %findIdx.exit, label %34
@@ -839,7 +839,7 @@ findIdx.exit:                                     ; preds = %.lr.ph.i
 
 .thread:                                          ; preds = %findIdx.exit.thread, %.preheader15.i
   %.pre-phi = phi i64 [ %wide.trip.count.i, %findIdx.exit.thread ], [ 0, %.preheader15.i ]
-  %38 = getelementptr inbounds nuw i32, ptr %0, i64 %.pre-phi
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.pre-phi
   store i32 %20, ptr %38, align 4
   %39 = trunc nuw i32 %.05681 to i8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv90

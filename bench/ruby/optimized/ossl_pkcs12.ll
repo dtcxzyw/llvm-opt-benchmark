@@ -131,13 +131,13 @@ define internal i64 @ossl_pkcs12_s_create(i32 noundef %0, ptr noundef readonly c
 .preheader41:                                     ; preds = %3, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !10
   %.not109.i = icmp eq ptr %26, null
   br i1 %.not109.i, label %30, label %27
 
 27:                                               ; preds = %.preheader41
-  %28 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8, !tbaa !6
   store i64 %29, ptr %26, align 8, !tbaa !6
   br label %30
@@ -150,7 +150,7 @@ define internal i64 @ossl_pkcs12_s_create(i32 noundef %0, ptr noundef readonly c
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %43 ], [ 4, %30 ]
   %.185.i46 = phi i32 [ %.286.i, %43 ], [ 4, %30 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv54
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv54
   %32 = load ptr, ptr %31, align 8, !tbaa !10
   %33 = icmp slt i32 %.185.i46, %0
   %.not108.i = icmp eq ptr %32, null
@@ -161,7 +161,7 @@ define internal i64 @ossl_pkcs12_s_create(i32 noundef %0, ptr noundef readonly c
 
 35:                                               ; preds = %34
   %36 = sext i32 %.185.i46 to i64
-  %37 = getelementptr inbounds i64, ptr %1, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !6
   store i64 %38, ptr %32, align 8, !tbaa !6
   br label %39
@@ -508,7 +508,7 @@ define internal noundef i64 @ossl_pkcs12_initialize(i32 noundef %0, ptr noundef 
 
 16:                                               ; preds = %.preheader
   %17 = sext i32 %.185.i27 to i64
-  %18 = getelementptr inbounds i64, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !6
   store i64 %19, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %20 = add nsw i32 %.185.i27, 1
@@ -730,7 +730,7 @@ define internal noundef i64 @pkcs12_set_mac(i32 noundef %0, ptr noundef readonly
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %27 ]
   %.185.i25 = phi i32 [ 1, %.preheader ], [ %.286.i, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = icmp slt i32 %.185.i25, %0
   %.not108.i = icmp eq ptr %16, null
@@ -741,7 +741,7 @@ define internal noundef i64 @pkcs12_set_mac(i32 noundef %0, ptr noundef readonly
 
 19:                                               ; preds = %18
   %20 = sext i32 %.185.i25 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %16, align 8, !tbaa !6
   br label %23

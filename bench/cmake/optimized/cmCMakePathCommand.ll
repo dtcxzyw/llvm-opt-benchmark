@@ -18119,7 +18119,7 @@ _ZN6cmList6assignISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx111
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 5
   %36 = sub nsw i64 %35, %28
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %29, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %29, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.033.047.i, i64 32
   %.not38.i = icmp eq ptr %38, %5
   br i1 %.not38.i, label %_ZN6cmList6InsertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEESE_RSD_NS3_IPKS9_SD_EET_SK_NS_14ExpandElementsENS_13EmptyElementsE.exit, label %22, !llvm.loop !451

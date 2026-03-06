@@ -85,7 +85,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_int_ops(i32 noundef %0) #0 {
 safe_add_int.exit:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr inbounds %struct.anon, ptr @test_ints, i64 %1
+  %2 = getelementptr inbounds [48 x i8], ptr @test_ints, i64 %1
   %3 = load i32, ptr %2, align 16, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !9
@@ -401,7 +401,7 @@ safe_abs_int.exit120:                             ; preds = %131, %130
 define internal range(i32 0, 2) i32 @test_uint_ops(i32 noundef %0) #0 {
 safe_add_uint.exit:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr inbounds %struct.anon.0, ptr @test_uints, i64 %1
+  %2 = getelementptr inbounds [32 x i8], ptr @test_uints, i64 %1
   %3 = load i32, ptr %2, align 16, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !22
@@ -606,7 +606,7 @@ safe_neg_uint.exit.thread:                        ; preds = %safe_div_round_up_u
 define internal range(i32 0, 2) i32 @test_size_t_ops(i32 noundef %0) #0 {
 safe_add_size_t.exit:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr inbounds %struct.anon.1, ptr @test_size_ts, i64 %1
+  %2 = getelementptr inbounds [40 x i8], ptr @test_size_ts, i64 %1
   %3 = load i64, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !32
@@ -810,7 +810,7 @@ safe_neg_size_t.exit.thread:                      ; preds = %safe_div_round_up_s
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_int_muldiv(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.anon.2, ptr @test_muldiv_ints, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @test_muldiv_ints, i64 %2
   %4 = load i32, ptr %3, align 16, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !41
@@ -906,7 +906,7 @@ safe_muldiv_int.exit:                             ; preds = %1, %34
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_uint_muldiv(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.anon.3, ptr @test_muldiv_uints, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @test_muldiv_uints, i64 %2
   %4 = load i32, ptr %3, align 16, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !41

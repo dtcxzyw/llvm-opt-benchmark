@@ -6435,7 +6435,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
 56:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %57 = sext i32 %35 to i64
-  %58 = getelementptr inbounds i32, ptr %1, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %1, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !43
   %60 = add i32 %59, -1
   %61 = tail call ptr @getenv(ptr noundef nonnull @.str.100) #25
@@ -6558,7 +6558,7 @@ _ZNSolsEPFRSoS_E.exit60.preheader.i:              ; preds = %.noexc94.i
 
 .lr.ph.i:                                         ; preds = %_ZNSolsEPFRSoS_E.exit61.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZNSolsEPFRSoS_E.exit61.i ]
-  %111 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %112 = load i32, ptr %111, align 4, !tbaa !43
   %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %112)
           to label %114 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -6643,7 +6643,7 @@ _ZNSolsEPFRSoS_E.exit61.i:                        ; preds = %.noexc105.i
 
 .lr.ph175.i:                                      ; preds = %_ZNSolsEPFRSoS_E.exit62.i, %.lr.ph175.preheader.i
   %indvars.iv188.i = phi i64 [ 0, %.lr.ph175.preheader.i ], [ %indvars.iv.next189.i, %_ZNSolsEPFRSoS_E.exit62.i ]
-  %133 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv188.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv188.i
   %134 = load i32, ptr %133, align 4, !tbaa !43
   %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %134)
           to label %136 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit.i
@@ -6696,7 +6696,7 @@ _ZNSolsEPFRSoS_E.exit62.i:                        ; preds = %.noexc116.i
 
 .lr.ph177.i:                                      ; preds = %_ZNSolsEPFRSoS_E.exit62.i, %_ZNSolsEPFRSoS_E.exit63.i
   %indvars.iv193.i = phi i64 [ %indvars.iv.next194.i, %_ZNSolsEPFRSoS_E.exit63.i ], [ 0, %_ZNSolsEPFRSoS_E.exit62.i ]
-  %155 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv193.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv193.i
   %156 = load double, ptr %155, align 8, !tbaa !45
   %157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %156)
           to label %_ZNSolsEd.exit.i unwind label %.loopexit.split-lp155.loopexit.i
@@ -6758,7 +6758,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %.noexc127.i
 
 .lr.ph179.i:                                      ; preds = %_ZNSolsEPFRSoS_E.exit65.i, %.lr.ph179.preheader.i
   %indvars.iv198.i = phi i64 [ 0, %.lr.ph179.preheader.i ], [ %indvars.iv.next199.i, %_ZNSolsEPFRSoS_E.exit65.i ]
-  %176 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv198.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv198.i
   %177 = load double, ptr %176, align 8, !tbaa !45
   %178 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %177)
           to label %_ZNSolsEd.exit64.i unwind label %.loopexit154.i
@@ -6857,7 +6857,7 @@ _ZNSolsEPFRSoS_E.exit65.i:                        ; preds = %.noexc138.i
   %209 = phi i32 [ %.pre.i, %.lr.ph185.preheader.i ], [ %208, %.loopexit.i ]
   %indvars.iv206.i = phi i64 [ 0, %.lr.ph185.preheader.i ], [ %indvars.iv.next207.i, %.loopexit.i ]
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
-  %210 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next207.i
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next207.i
   %211 = load i32, ptr %210, align 4, !tbaa !43
   %212 = add nsw i32 %211, -1
   %213 = icmp slt i32 %209, %212
@@ -6919,7 +6919,7 @@ _ZNSolsEPFRSoS_E.exit65.i:                        ; preds = %.noexc138.i
   %.0.i68.i = phi ptr [ %236, %235 ], [ %227, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %240 = add nsw i64 %indvars.iv203.i, -1
-  %241 = getelementptr inbounds i32, ptr %2, i64 %240
+  %241 = getelementptr inbounds [4 x i8], ptr %2, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !43
   %243 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %.0.i68.i, i32 noundef %242)
           to label %244 unwind label %.loopexit152.i
@@ -6947,7 +6947,7 @@ _ZNSolsEPFRSoS_E.exit65.i:                        ; preds = %.noexc138.i
 255:                                              ; preds = %253, %251
   %.0.i73.i = phi ptr [ %252, %251 ], [ %243, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %256 = getelementptr inbounds double, ptr %52, i64 %240
+  %256 = getelementptr inbounds [8 x i8], ptr %52, i64 %240
   %257 = load double, ptr %256, align 8, !tbaa !45
   %258 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.0.i73.i, double noundef %257)
           to label %_ZNSolsEd.exit78.i unwind label %.loopexit152.i

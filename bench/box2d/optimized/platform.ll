@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GLFWlibraryGLX = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct._GLFWlibraryLinux = type { i32, i32, %struct.re_pattern_buffer, i32, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
-%struct.anon = type { i32, ptr }
 
 @.str = private unnamed_addr constant [27 x i8] c"Invalid platform ID 0x%08X\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"XDG_SESSION_TYPE\00", align 1
@@ -131,7 +130,7 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
 .preheader:                                       ; preds = %.preheader.preheader, %20
   %21 = phi i1 [ false, %20 ], [ true, %.preheader.preheader ]
   %.03646 = phi i64 [ 1, %20 ], [ 0, %.preheader.preheader ]
-  %22 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.03646
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @supportedPlatforms, i64 %.03646
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = tail call i32 %24(i32 noundef 393216, ptr noundef %1) #5
@@ -148,7 +147,7 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
 .preheader44:                                     ; preds = %.preheader44.preheader, %27
   %28 = phi i1 [ false, %27 ], [ true, %.preheader44.preheader ]
   %.145 = phi i64 [ 1, %27 ], [ 0, %.preheader44.preheader ]
-  %29 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.145
+  %29 = getelementptr inbounds nuw [16 x i8], ptr @supportedPlatforms, i64 %.145
   %30 = load i32, ptr %29, align 16, !tbaa !9
   %31 = icmp eq i32 %30, %.037
   br i1 %31, label %32, label %27
@@ -214,7 +213,7 @@ define range(i32 0, 2) i32 @glfwPlatformSupported(i32 noundef %0) local_unnamed_
 .preheader:                                       ; preds = %4, %.preheader
   %.not = phi i1 [ true, %.preheader ], [ false, %4 ]
   %.021 = phi i64 [ 1, %.preheader ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.021
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @supportedPlatforms, i64 %.021
   %7 = load i32, ptr %6, align 16, !tbaa !9
   %8 = icmp eq i32 %0, %7
   %brmerge = or i1 %8, %.not

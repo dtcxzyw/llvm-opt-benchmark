@@ -2176,7 +2176,7 @@ define hidden void @"_ZN64_$LT$$LP$T1$C$T2$C$T3$RP$$u20$as$u20$sqlez..bindable..
 _ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E.exit.i: ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !445, !noalias !446, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %30
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %30
   %36 = load ptr, ptr %35, align 8, !noalias !447, !noundef !7
   %37 = tail call noundef i64 @sqlite3_column_int64(ptr noundef %36, i32 noundef %24) #17, !noalias !440
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24

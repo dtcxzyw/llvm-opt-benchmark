@@ -1695,13 +1695,13 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %85
   %89 = zext nneg i32 %switch.tableidx206 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.be_chan_type, i64 %89
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type, i64 %89
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %91
 
 switch.lookup207:                                 ; preds = %87
   %90 = zext nneg i32 %switch.tableidx206 to i64
-  %switch.gep208 = getelementptr inbounds nuw ptr, ptr @switch.table.be_chan_type.1, i64 %90
+  %switch.gep208 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type.1, i64 %90
   %switch.load209 = load ptr, ptr %switch.gep208, align 8
   br label %91
 
@@ -2193,7 +2193,7 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
   br label %49
 
 38:                                               ; preds = %31
-  %39 = getelementptr ptr, ptr @bssmap_bss_to_bss_element_fcn, i64 %32
+  %39 = getelementptr [8 x i8], ptr @bssmap_bss_to_bss_element_fcn, i64 %32
   %40 = load ptr, ptr %39, align 8
   %41 = call zeroext i16 %40(ptr noundef %0, ptr noundef %22, ptr noundef %2, i32 noundef %.1, i32 noundef %.057, ptr noundef null, i32 noundef 0)
   %42 = zext i16 %41 to i32
@@ -4102,8 +4102,8 @@ define hidden void @proto_register_gsm_a_bssmap() local_unnamed_addr #1 {
 6:                                                ; preds = %0, %6
   %indvars.iv17 = phi i64 [ 5, %0 ], [ %indvars.iv.next18, %6 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr i32, ptr @ett_gsm_bssmap_msg, i64 %indvars.iv
-  %8 = getelementptr ptr, ptr %1, i64 %indvars.iv17
+  %7 = getelementptr [4 x i8], ptr @ett_gsm_bssmap_msg, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv17
   store ptr %7, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
@@ -4113,8 +4113,8 @@ define hidden void @proto_register_gsm_a_bssmap() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.preheader ], [ 127, %6 ]
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader ], [ 0, %6 ]
-  %9 = getelementptr i32, ptr @ett_gsm_bssmap_elem, i64 %indvars.iv22
-  %10 = getelementptr ptr, ptr %1, i64 %indvars.iv24
+  %9 = getelementptr [4 x i8], ptr @ett_gsm_bssmap_elem, i64 %indvars.iv22
+  %10 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv24
   store ptr %9, ptr %10, align 8
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
@@ -4181,7 +4181,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %spec.store.select = select i1 %15, i32 0, i32 %14
   store i32 %spec.store.select, ptr @dissect_bssmap.tap_current, align 4
   %16 = zext i32 %spec.store.select to i64
-  %17 = getelementptr %struct._gsm_a_tap_rec_t, ptr @dissect_bssmap.tap_rec, i64 %16
+  %17 = getelementptr [8 x i8], ptr @dissect_bssmap.tap_rec, i64 %16
   store ptr %17, ptr @dissect_bssmap.tap_p, align 8
   store ptr %2, ptr @g_tree, align 8
   %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -4222,7 +4222,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %39 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.1117, ptr noundef nonnull %21)
   %40 = load i32, ptr %5, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr i32, ptr @ett_gsm_bssmap_msg, i64 %41
+  %42 = getelementptr [4 x i8], ptr @ett_gsm_bssmap_msg, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %43)
   %45 = load ptr, ptr %11, align 8
@@ -4253,7 +4253,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 57:                                               ; preds = %55
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr ptr, ptr @bssmap_msg_fcn, i64 %58
+  %59 = getelementptr [8 x i8], ptr @bssmap_msg_fcn, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %65

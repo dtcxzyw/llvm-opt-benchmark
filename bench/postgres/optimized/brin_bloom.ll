@@ -180,7 +180,7 @@ bloom_init.exit:                                  ; preds = %47
   %.0 = phi ptr [ %73, %bloom_init.exit ], [ %87, %82 ]
   %89 = zext i16 %14 to i64
   %90 = getelementptr i8, ptr %4, i64 32
-  %91 = getelementptr ptr, ptr %90, i64 %89
+  %91 = getelementptr [8 x i8], ptr %90, i64 %89
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
@@ -320,7 +320,7 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr noundef readonly
 
 27:                                               ; preds = %.lr.ph, %bloom_contains_value.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %bloom_contains_value.exit ]
-  %28 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   %31 = load i16, ptr %30, align 2
@@ -333,7 +333,7 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr noundef readonly
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
-  %38 = getelementptr ptr, ptr %22, i64 %37
+  %38 = getelementptr [8 x i8], ptr %22, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8

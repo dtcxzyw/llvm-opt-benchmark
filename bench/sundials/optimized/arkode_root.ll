@@ -407,7 +407,7 @@ define range(i32 -22, 1) i32 @ARKodeRootInit(ptr noundef %0, i32 noundef %1, ptr
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next, %.lr.ph170 ]
-  %198 = getelementptr inbounds nuw i32, ptr %178, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %indvars.iv
   store i32 1, ptr %198, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -571,7 +571,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %22 = phi ptr [ %29, %.lr.ph ], [ %16, %.preheader88 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !34
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !36
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %27, i32 noundef %26) #8
@@ -601,7 +601,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %40 = phi ptr [ %47, %.lr.ph92 ], [ %34, %.preheader86 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !35
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv102
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv102
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %45 = trunc nuw nsw i64 %indvars.iv102 to i32
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %45, i32 noundef %44) #8
@@ -643,7 +643,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %70 = phi ptr [ %77, %.lr.ph94 ], [ %64, %.preheader84 ]
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 112
   %72 = load ptr, ptr %71, align 8, !tbaa !25
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv105
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv105
   %74 = load i32, ptr %73, align 4, !tbaa !36
   %75 = trunc nuw nsw i64 %indvars.iv105 to i32
   %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %75, i32 noundef %74) #8
@@ -685,7 +685,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %100 = phi ptr [ %107, %.lr.ph96 ], [ %94, %.preheader82 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %102 = load ptr, ptr %101, align 8, !tbaa !31
-  %103 = getelementptr inbounds nuw double, ptr %102, i64 %indvars.iv108
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv108
   %104 = load double, ptr %103, align 8, !tbaa !42
   %105 = trunc nuw nsw i64 %indvars.iv108 to i32
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.17, i32 noundef %105, double noundef %104) #8
@@ -715,7 +715,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %118 = phi ptr [ %125, %.lr.ph98 ], [ %112, %.preheader80 ]
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 64
   %120 = load ptr, ptr %119, align 8, !tbaa !32
-  %121 = getelementptr inbounds nuw double, ptr %120, i64 %indvars.iv111
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv111
   %122 = load double, ptr %121, align 8, !tbaa !42
   %123 = trunc nuw nsw i64 %indvars.iv111 to i32
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %123, double noundef %122) #8
@@ -745,7 +745,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %136 = phi ptr [ %143, %.lr.ph100 ], [ %130, %.preheader ]
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 72
   %138 = load ptr, ptr %137, align 8, !tbaa !33
-  %139 = getelementptr inbounds nuw double, ptr %138, i64 %indvars.iv114
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv114
   %140 = load double, ptr %139, align 8, !tbaa !42
   %141 = trunc nuw nsw i64 %indvars.iv114 to i32
   %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %141, double noundef %140) #8
@@ -800,7 +800,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 0, ptr %13, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %7, align 8, !tbaa !23
@@ -861,7 +861,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
 
 47:                                               ; preds = %.outer, %51
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %51 ], [ %indvars.iv94.ph, %.outer ]
-  %48 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv94
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv94
   %49 = load double, ptr %48, align 8, !tbaa !42
   %50 = fcmp oeq double %49, 0.000000e+00
   br i1 %50, label %.thread, label %51
@@ -873,7 +873,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
 
 .thread:                                          ; preds = %47
   %53 = load ptr, ptr %42, align 8, !tbaa !25
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv94
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv94
   store i32 0, ptr %54, align 4, !tbaa !36
   %.pre = load i32, ptr %7, align 8, !tbaa !23
   %indvars.iv.next95107 = add nuw nsw i64 %indvars.iv94, 1
@@ -957,14 +957,14 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
 100:                                              ; preds = %.lr.ph92, %112
   %101 = phi i32 [ %94, %.lr.ph92 ], [ %113, %112 ]
   %indvars.iv97 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next98, %112 ]
-  %102 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv97
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv97
   %103 = load i32, ptr %102, align 4, !tbaa !36
   %.not84 = icmp eq i32 %103, 0
   br i1 %.not84, label %104, label %112
 
 104:                                              ; preds = %100
   %105 = load ptr, ptr %88, align 8, !tbaa !32
-  %106 = getelementptr inbounds nuw double, ptr %105, i64 %indvars.iv97
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv97
   %107 = load double, ptr %106, align 8, !tbaa !42
   %108 = fcmp une double %107, 0.000000e+00
   br i1 %108, label %109, label %112
@@ -972,7 +972,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
 109:                                              ; preds = %104
   store i32 1, ptr %102, align 4, !tbaa !36
   %110 = load ptr, ptr %33, align 8, !tbaa !31
-  %111 = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv97
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv97
   store double %107, ptr %111, align 8, !tbaa !42
   %.pre100 = load i32, ptr %7, align 8, !tbaa !23
   br label %112
@@ -1062,7 +1062,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   store i32 0, ptr %39, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %27, align 8, !tbaa !23
@@ -1072,14 +1072,14 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 
 43:                                               ; preds = %.outer, %51
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %51 ], [ %indvars.iv96.ph, %.outer ]
-  %44 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv96
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv96
   %45 = load i32, ptr %44, align 4, !tbaa !36
   %.not82 = icmp eq i32 %45, 0
   br i1 %.not82, label %51, label %46
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %19, align 8, !tbaa !31
-  %48 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv96
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv96
   %49 = load double, ptr %48, align 8, !tbaa !42
   %50 = fcmp oeq double %49, 0.000000e+00
   br i1 %50, label %.thread, label %51
@@ -1091,7 +1091,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 
 .thread:                                          ; preds = %46
   %53 = load ptr, ptr %35, align 8, !tbaa !34
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv96
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv96
   store i32 1, ptr %54, align 4, !tbaa !36
   %.pre = load i32, ptr %27, align 8, !tbaa !23
   %indvars.iv.next97110 = add nuw nsw i64 %indvars.iv96, 1
@@ -1165,18 +1165,18 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
   %98 = phi i32 [ %92, %.lr.ph92 ], [ %117, %116 ]
   %indvars.iv99 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next100, %116 ]
   %.27690 = phi i32 [ 0, %.lr.ph92 ], [ %.3, %116 ]
-  %99 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv99
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv99
   %100 = load i32, ptr %99, align 4, !tbaa !36
   %.not81 = icmp eq i32 %100, 0
   br i1 %.not81, label %116, label %101
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %86, align 8, !tbaa !32
-  %103 = getelementptr inbounds nuw double, ptr %102, i64 %indvars.iv99
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv99
   %104 = load double, ptr %103, align 8, !tbaa !42
   %105 = fcmp oeq double %104, 0.000000e+00
   %106 = load ptr, ptr %96, align 8, !tbaa !34
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv99
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv99
   %108 = load i32, ptr %107, align 4, !tbaa !36
   %109 = icmp eq i32 %108, 1
   br i1 %105, label %110, label %112
@@ -1194,7 +1194,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 
 113:                                              ; preds = %112
   %114 = load ptr, ptr %19, align 8, !tbaa !31
-  %115 = getelementptr inbounds nuw double, ptr %114, i64 %indvars.iv99
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv99
   store double %104, ptr %115, align 8, !tbaa !42
   br label %116
 
@@ -1335,14 +1335,14 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
 79:                                               ; preds = %.lr.ph, %89
   %80 = phi i32 [ %71, %.lr.ph ], [ %90, %89 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !36
   %.not59 = icmp eq i32 %82, 0
   br i1 %.not59, label %83, label %89
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %78, align 8, !tbaa !33
-  %85 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %86 = load double, ptr %85, align 8, !tbaa !42
   %87 = fcmp une double %86, 0.000000e+00
   br i1 %87, label %88, label %89
@@ -1377,9 +1377,9 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
 
 101:                                              ; preds = %.lr.ph63, %101
   %indvars.iv67 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next68, %101 ]
-  %102 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv67
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv67
   %103 = load double, ptr %102, align 8, !tbaa !42
-  %104 = getelementptr inbounds nuw double, ptr %100, i64 %indvars.iv67
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv67
   store double %103, ptr %104, align 8, !tbaa !42
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
@@ -1447,25 +1447,25 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 19:                                               ; preds = %.outer444, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ %indvars.iv.ph, %.outer444 ]
   %.0223279 = phi i32 [ %.1224, %59 ], [ %.0223279.ph, %.outer444 ]
-  %20 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !36
   %.not254 = icmp eq i32 %21, 0
   br i1 %.not254, label %59, label %22
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %15, align 8, !tbaa !32
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !42
   %26 = fcmp oeq double %25, 0.000000e+00
   br i1 %26, label %27, label %38
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %17, align 8, !tbaa !35
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !36
   %31 = sitofp i32 %30 to double
   %32 = load ptr, ptr %16, align 8, !tbaa !31
-  %33 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load double, ptr %33, align 8, !tbaa !42
   %35 = fmul double %34, %31
   %36 = fcmp ugt double %35, 0.000000e+00
@@ -1476,7 +1476,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 38:                                               ; preds = %22
   %39 = load ptr, ptr %16, align 8, !tbaa !31
-  %40 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !42
   %42 = fcmp olt double %41, 0.000000e+00
   %43 = fcmp ogt double %25, 0.000000e+00
@@ -1491,7 +1491,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 47:                                               ; preds = %44, %38
   %48 = load ptr, ptr %17, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !36
   %51 = sitofp i32 %50 to double
   %52 = fmul double %41, %51
@@ -1559,9 +1559,9 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 86:                                               ; preds = %.lr.ph322, %86
   %indvars.iv357 = phi i64 [ 0, %.lr.ph322 ], [ %indvars.iv.next358, %86 ]
-  %87 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv357
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv357
   %88 = load double, ptr %87, align 8, !tbaa !42
-  %89 = getelementptr inbounds nuw double, ptr %85, i64 %indvars.iv357
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv357
   store double %88, ptr %89, align 8, !tbaa !42
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
@@ -1582,23 +1582,23 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 96:                                               ; preds = %.lr.ph325, %111
   %indvars.iv362 = phi i64 [ 0, %.lr.ph325 ], [ %indvars.iv.next363, %111 ]
-  %97 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv362
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv362
   store i32 0, ptr %97, align 4, !tbaa !36
-  %98 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv362
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv362
   %99 = load i32, ptr %98, align 4, !tbaa !36
   %.not248 = icmp eq i32 %99, 0
   br i1 %.not248, label %111, label %100
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %94, align 8, !tbaa !32
-  %102 = getelementptr inbounds nuw double, ptr %101, i64 %indvars.iv362
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv362
   %103 = load double, ptr %102, align 8, !tbaa !42
   %104 = fcmp oeq double %103, 0.000000e+00
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %95, align 8, !tbaa !31
-  %107 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv362
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv362
   %108 = load double, ptr %107, align 8, !tbaa !42
   %109 = fcmp ogt double %108, 0.000000e+00
   %110 = select i1 %109, i32 -1, i32 1
@@ -1628,11 +1628,11 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %.1 = select i1 %121, double %122, double 1.000000e+00
   %123 = load ptr, ptr %71, align 8, !tbaa !32
   %124 = sext i32 %.2231303 to i64
-  %125 = getelementptr inbounds double, ptr %123, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %123, i64 %124
   %126 = load double, ptr %125, align 8, !tbaa !42
   %127 = fmul double %118, %126
   %128 = load ptr, ptr %72, align 8, !tbaa !31
-  %129 = getelementptr inbounds double, ptr %128, i64 %124
+  %129 = getelementptr inbounds [8 x i8], ptr %128, i64 %124
   %130 = load double, ptr %129, align 8, !tbaa !42
   %131 = fneg double %.1
   %132 = tail call double @llvm.fmuladd.f64(double %131, double %130, double %126)
@@ -1707,25 +1707,25 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 168:                                              ; preds = %.outer, %208
   %indvars.iv333 = phi i64 [ %indvars.iv.next334, %208 ], [ %indvars.iv333.ph, %.outer ]
   %.2225287 = phi i32 [ %.3226, %208 ], [ %.2225287.ph, %.outer ]
-  %169 = getelementptr inbounds nuw i32, ptr %166, i64 %indvars.iv333
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %indvars.iv333
   %170 = load i32, ptr %169, align 4, !tbaa !36
   %.not252 = icmp eq i32 %170, 0
   br i1 %.not252, label %208, label %171
 
 171:                                              ; preds = %168
   %172 = load ptr, ptr %74, align 8, !tbaa !33
-  %173 = getelementptr inbounds nuw double, ptr %172, i64 %indvars.iv333
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv333
   %174 = load double, ptr %173, align 8, !tbaa !42
   %175 = fcmp oeq double %174, 0.000000e+00
   br i1 %175, label %176, label %187
 
 176:                                              ; preds = %171
   %177 = load ptr, ptr %78, align 8, !tbaa !35
-  %178 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv333
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %indvars.iv333
   %179 = load i32, ptr %178, align 4, !tbaa !36
   %180 = sitofp i32 %179 to double
   %181 = load ptr, ptr %72, align 8, !tbaa !31
-  %182 = getelementptr inbounds nuw double, ptr %181, i64 %indvars.iv333
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv333
   %183 = load double, ptr %182, align 8, !tbaa !42
   %184 = fmul double %183, %180
   %185 = fcmp ugt double %184, 0.000000e+00
@@ -1736,7 +1736,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 187:                                              ; preds = %171
   %188 = load ptr, ptr %72, align 8, !tbaa !31
-  %189 = getelementptr inbounds nuw double, ptr %188, i64 %indvars.iv333
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv333
   %190 = load double, ptr %189, align 8, !tbaa !42
   %191 = fcmp olt double %190, 0.000000e+00
   %192 = fcmp ogt double %174, 0.000000e+00
@@ -1751,7 +1751,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 196:                                              ; preds = %193, %187
   %197 = load ptr, ptr %78, align 8, !tbaa !35
-  %198 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv333
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %indvars.iv333
   %199 = load i32, ptr %198, align 4, !tbaa !36
   %200 = sitofp i32 %199 to double
   %201 = fmul double %190, %200
@@ -1790,9 +1790,9 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 212:                                              ; preds = %._crit_edge290.thread429, %212
   %indvars.iv338 = phi i64 [ 0, %._crit_edge290.thread429 ], [ %indvars.iv.next339, %212 ]
-  %213 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv338
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv338
   %214 = load double, ptr %213, align 8, !tbaa !42
-  %215 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv338
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv338
   store double %214, ptr %215, align 8, !tbaa !42
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
@@ -1832,9 +1832,9 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 229:                                              ; preds = %.lr.ph316, %229
   %indvars.iv348 = phi i64 [ 0, %.lr.ph316 ], [ %indvars.iv.next349, %229 ]
-  %230 = getelementptr inbounds nuw double, ptr %227, i64 %indvars.iv348
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv348
   %231 = load double, ptr %230, align 8, !tbaa !42
-  %232 = getelementptr inbounds nuw double, ptr %228, i64 %indvars.iv348
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %indvars.iv348
   store double %231, ptr %232, align 8, !tbaa !42
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count346
@@ -1848,9 +1848,9 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 235:                                              ; preds = %.lr.ph301, %235
   %indvars.iv343 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next344, %235 ]
-  %236 = getelementptr inbounds nuw double, ptr %233, i64 %indvars.iv343
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv343
   %237 = load double, ptr %236, align 8, !tbaa !42
-  %238 = getelementptr inbounds nuw double, ptr %234, i64 %indvars.iv343
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %indvars.iv343
   store double %237, ptr %238, align 8, !tbaa !42
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count346
@@ -1902,13 +1902,13 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 258:                                              ; preds = %.lr.ph319, %296
   %indvars.iv354 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next355, %296 ]
-  %259 = getelementptr inbounds nuw double, ptr %249, i64 %indvars.iv354
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %indvars.iv354
   %260 = load double, ptr %259, align 8, !tbaa !42
-  %261 = getelementptr inbounds nuw double, ptr %251, i64 %indvars.iv354
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv354
   store double %260, ptr %261, align 8, !tbaa !42
-  %262 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv354
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %indvars.iv354
   store i32 0, ptr %262, align 4, !tbaa !36
-  %263 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv354
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %indvars.iv354
   %264 = load i32, ptr %263, align 4, !tbaa !36
   %.not253 = icmp eq i32 %264, 0
   br i1 %.not253, label %296, label %265
@@ -1919,16 +1919,16 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   br i1 %266, label %267, label %._crit_edge368
 
 ._crit_edge368:                                   ; preds = %265
-  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %.pre367, i64 %indvars.iv354
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre367, i64 %indvars.iv354
   %.pre369 = load double, ptr %.phi.trans.insert, align 8, !tbaa !42
   br label %279
 
 267:                                              ; preds = %265
   %268 = load ptr, ptr %256, align 8, !tbaa !35
-  %269 = getelementptr inbounds nuw i32, ptr %268, i64 %indvars.iv354
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %indvars.iv354
   %270 = load i32, ptr %269, align 4, !tbaa !36
   %271 = sitofp i32 %270 to double
-  %272 = getelementptr inbounds nuw double, ptr %.pre367, i64 %indvars.iv354
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %.pre367, i64 %indvars.iv354
   %273 = load double, ptr %272, align 8, !tbaa !42
   %274 = fmul double %273, %271
   %275 = fcmp ugt double %274, 0.000000e+00
@@ -1955,7 +1955,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 286:                                              ; preds = %283, %279
   %287 = load ptr, ptr %256, align 8, !tbaa !35
-  %288 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv354
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv354
   %289 = load i32, ptr %288, align 4, !tbaa !36
   %290 = sitofp i32 %289 to double
   %291 = fmul double %280, %290

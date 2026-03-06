@@ -183,7 +183,7 @@ define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly captures(addres
   %29 = load i8, ptr %25, align 1
   %.not57 = icmp eq i8 %29, 0
   %.phi.trans.insert = zext i8 %23 to i64
-  %.phi.trans.insert88 = getelementptr i16, ptr %14, i64 %.phi.trans.insert
+  %.phi.trans.insert88 = getelementptr [2 x i8], ptr %14, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert88, align 2
   %.pre90 = and i16 %.pre, 1024
   %30 = icmp eq i16 %.pre90, 0
@@ -194,7 +194,7 @@ define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly captures(addres
 
 32:                                               ; preds = %31
   %33 = zext i8 %27 to i64
-  %34 = getelementptr i16, ptr %14, i64 %33
+  %34 = getelementptr [2 x i8], ptr %14, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 1024
   %.not59 = icmp eq i16 %36, 0
@@ -202,7 +202,7 @@ define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly captures(addres
 
 37:                                               ; preds = %32
   %38 = zext i8 %29 to i64
-  %39 = getelementptr i16, ptr %14, i64 %38
+  %39 = getelementptr [2 x i8], ptr %14, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 1024
   %.not60 = icmp eq i16 %41, 0
@@ -211,7 +211,7 @@ define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly captures(addres
 42:                                               ; preds = %37
   %43 = load i8, ptr %26, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr i16, ptr %14, i64 %44
+  %45 = getelementptr [2 x i8], ptr %14, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 1024
   %.not69 = icmp eq i16 %47, 0
@@ -264,7 +264,7 @@ is_byte_sep.exit:                                 ; preds = %48
 
 .thread:                                          ; preds = %32, %37, %60
   %61 = zext i8 %27 to i64
-  %62 = getelementptr i16, ptr %14, i64 %61
+  %62 = getelementptr [2 x i8], ptr %14, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 1024
   %.not63 = icmp eq i16 %64, 0
@@ -310,7 +310,7 @@ is_byte_sep.exit71:                               ; preds = %65
 
 is_byte_sep.exit72:                               ; preds = %22
   %76 = zext i8 %23 to i64
-  %77 = getelementptr i16, ptr %14, i64 %76
+  %77 = getelementptr [2 x i8], ptr %14, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = and i16 %78, 1024
   %.not67 = icmp eq i16 %79, 0
@@ -359,7 +359,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
 9:                                                ; preds = %7
   %10 = load ptr, ptr @g_ascii_table, align 8
   %11 = zext i8 %8 to i64
-  %12 = getelementptr i16, ptr %10, i64 %11
+  %12 = getelementptr [2 x i8], ptr %10, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 1024
   %.not41 = icmp eq i16 %14, 0
@@ -369,7 +369,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %16 = getelementptr i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %10, i64 %18
+  %19 = getelementptr [2 x i8], ptr %10, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 1024
   %.not42 = icmp eq i16 %21, 0
@@ -457,7 +457,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
 
 .lr.ph.split:                                     ; preds = %22
   %60 = zext i8 %24 to i64
-  %61 = getelementptr i16, ptr %10, i64 %60
+  %61 = getelementptr [2 x i8], ptr %10, i64 %60
   %62 = load i16, ptr %61, align 2
   %.fr93 = freeze i16 %62
   %63 = and i16 %.fr93, 1024
@@ -577,7 +577,7 @@ define noundef zeroext i1 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noun
   %.01924 = phi ptr [ %0, %.lr.ph ], [ %43, %41 ]
   %13 = load i8, ptr %.01924, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i16, ptr %10, i64 %14
+  %15 = getelementptr [2 x i8], ptr %10, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 64
   %.not21 = icmp eq i16 %17, 0
@@ -604,7 +604,7 @@ define noundef zeroext i1 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noun
   store i8 %26, ptr %8, align 1
   store i8 0, ptr %11, align 1
   %29 = zext i8 %22 to i64
-  %30 = getelementptr i16, ptr %10, i64 %29
+  %30 = getelementptr [2 x i8], ptr %10, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 1024
   %.not22 = icmp eq i16 %32, 0
@@ -612,7 +612,7 @@ define noundef zeroext i1 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noun
 
 33:                                               ; preds = %28
   %34 = zext i8 %26 to i64
-  %35 = getelementptr i16, ptr %10, i64 %34
+  %35 = getelementptr [2 x i8], ptr %10, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 1024
   %.not23 = icmp eq i16 %37, 0
@@ -694,7 +694,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %.080.us = phi ptr [ %.1.us, %._crit_edge104 ], [ null, %.lr.ph ]
   %.04979.us = phi ptr [ %19, %._crit_edge104 ], [ %0, %.lr.ph ]
   %9 = zext i8 %8 to i64
-  %10 = getelementptr i16, ptr %7, i64 %9
+  %10 = getelementptr [2 x i8], ptr %7, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 8
   %.not65.us = icmp ne i16 %12, 0
@@ -725,7 +725,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %.080 = phi ptr [ %.1, %33 ], [ null, %.lr.ph ]
   %.04979 = phi ptr [ %35, %33 ], [ %0, %.lr.ph ]
   %21 = zext i8 %20 to i64
-  %22 = getelementptr i16, ptr %7, i64 %21
+  %22 = getelementptr [2 x i8], ptr %7, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8
   %.not65 = icmp ne i16 %24, 0
@@ -786,7 +786,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %.05291 = phi i32 [ %38, %.preheader.lr.ph ], [ %82, %.thread ]
   %.05690 = phi i32 [ 0, %.preheader.lr.ph ], [ %.15775, %.thread ]
   %42 = zext i8 %41 to i64
-  %43 = getelementptr i16, ptr %39, i64 %42
+  %43 = getelementptr [2 x i8], ptr %39, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 8
   %.not6281 = icmp eq i16 %45, 0
@@ -803,7 +803,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %51 = getelementptr i8, ptr %.383, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr i16, ptr %39, i64 %53
+  %54 = getelementptr [2 x i8], ptr %39, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8
   %.not62 = icmp eq i16 %56, 0
@@ -980,7 +980,7 @@ define ptr @xml_escape(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 34:                                               ; preds = %7
   %35 = zext i8 %8 to i64
-  %36 = getelementptr i16, ptr %6, i64 %35
+  %36 = getelementptr [2 x i8], ptr %6, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 4
   %.not16 = icmp eq i16 %38, 0
@@ -1055,7 +1055,7 @@ define noalias ptr @convert_string_to_hex(ptr noundef readonly captures(none) %0
   %.04461 = phi ptr [ %.044.ph63, %.lr.ph ], [ %9, %.backedge51 ]
   %9 = getelementptr i8, ptr %.04461, i64 1
   %10 = zext i8 %8 to i64
-  %11 = getelementptr i16, ptr %5, i64 %10
+  %11 = getelementptr [2 x i8], ptr %5, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = and i32 %13, 256
@@ -1082,7 +1082,7 @@ define noalias ptr @convert_string_to_hex(ptr noundef readonly captures(none) %0
 20:                                               ; preds = %18
   %21 = load i8, ptr %9, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr i16, ptr %5, i64 %22
+  %23 = getelementptr [2 x i8], ptr %5, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 1024
   %.not48 = icmp eq i16 %25, 0
@@ -1121,7 +1121,7 @@ define noalias ptr @convert_string_to_hex(ptr noundef readonly captures(none) %0
   %.166 = phi ptr [ %.1.ph69, %.lr.ph67 ], [ %39, %.backedge ]
   %39 = getelementptr i8, ptr %.166, i64 1
   %40 = zext i8 %38 to i64
-  %41 = getelementptr i16, ptr %35, i64 %40
+  %41 = getelementptr [2 x i8], ptr %35, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 256
   %.not49 = icmp eq i16 %43, 0
@@ -1210,7 +1210,7 @@ define void @IA5_7BIT_decode(ptr noundef %0, ptr noundef readonly captures(none)
 
 8:                                                ; preds = %.lr.ph
   %9 = zext nneg i8 %6 to i64
-  %10 = getelementptr i32, ptr @IA5_default_alphabet, i64 %9
+  %10 = getelementptr [4 x i8], ptr @IA5_default_alphabet, i64 %9
   %11 = load i32, ptr %10, align 4
   br label %char_def_ia5_alphabet_decode.exit
 
@@ -1304,7 +1304,7 @@ define i64 @ws_label_strcpy(ptr noundef writeonly captures(none) %0, i64 noundef
   %15 = getelementptr i8, ptr %3, i64 %.0126137
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr i32, ptr @ws_utf8_seqlen, i64 %17
+  %18 = getelementptr [4 x i8], ptr @ws_utf8_seqlen, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i32 %19, 1
@@ -1320,7 +1320,7 @@ define i64 @ws_label_strcpy(ptr noundef writeonly captures(none) %0, i64 noundef
   br i1 %.not132, label %38, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr i16, ptr %13, i64 %17
+  %25 = getelementptr [2 x i8], ptr %13, i64 %17
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 256
   %.not133 = icmp eq i16 %27, 0
@@ -1379,7 +1379,7 @@ switch.lookup:                                    ; preds = %38
   br label %.backedge
 
 .critedge:                                        ; preds = %38
-  %50 = getelementptr i16, ptr %13, i64 %17
+  %50 = getelementptr [2 x i8], ptr %13, i64 %17
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 64
   %.not135 = icmp eq i16 %52, 0

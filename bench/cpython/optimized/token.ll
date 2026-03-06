@@ -272,7 +272,7 @@ define dso_local range(i32 27, 56) i32 @_PyToken_TwoChars(i32 noundef %0, i32 no
 
 switch.lookup:                                    ; preds = %11
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._PyToken_TwoChars, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._PyToken_TwoChars, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %20
 

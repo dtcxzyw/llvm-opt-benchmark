@@ -7624,7 +7624,7 @@ _ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit.i: ; preds 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %0, align 8
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw %"class.rc::Shrinkable.37", ptr %18, i64 %3
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %3
   store ptr %20, ptr %16, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.fr62 = freeze i8 %5
@@ -7707,7 +7707,7 @@ _ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.us: ; preds = %48, %_ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.us
   store ptr %41, ptr %0, align 8
   store ptr %47, ptr %21, align 8
-  %49 = getelementptr inbounds nuw %"class.rc::Shrinkable.37", ptr %41, i64 %39
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %49, ptr %16, align 8
   %.pr.us = load ptr, ptr %8, align 8
   %.not.i.us = icmp eq ptr %.pr.us, null
@@ -9787,7 +9787,7 @@ define linkonce_odr void @_ZN2rc3SeqISt6vectorINS_10ShrinkableIcEESaIS3_EEE7SeqI
 
 8:                                                ; preds = %.critedge.i, %.lr.ph.i
   %9 = phi i64 [ %5, %.lr.ph.i ], [ %30, %.critedge.i ]
-  %10 = getelementptr inbounds nuw %"class.rc::Seq.129", ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   %11 = load ptr, ptr %10, align 8, !noalias !372
   %.not.i.i = icmp eq ptr %11, null
@@ -9867,7 +9867,7 @@ define linkonce_odr void @_ZNK2rc3SeqISt6vectorINS_10ShrinkableIcEESaIS3_EEE7Seq
   %.idx.i.i = shl nuw nsw i64 %8, 3
   %.add4.i = add nuw nsw i64 %.idx.i.i, 8
   %.ptr7.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add4.i
-  %9 = getelementptr inbounds nuw %"class.rc::Seq.129", ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %15, label %11
@@ -10231,7 +10231,7 @@ _ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %3, align 8
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds nuw %"class.rc::Shrinkable.37", ptr %23, i64 %17
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %17
   store ptr %25, ptr %21, align 8
   br label %_ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE7reserveEm.exit
 
@@ -10240,7 +10240,7 @@ _ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vec
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.rc::Shrinkable.37", ptr %12, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %29
   invoke void @_ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEvS9_T_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %26, ptr %12, ptr %30)
           to label %31 unwind label %55
 
@@ -10248,9 +10248,9 @@ _ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vec
   %32 = load ptr, ptr %3, align 8
   %33 = load ptr, ptr %27, align 8
   %34 = load i64, ptr %28, align 8
-  %35 = getelementptr inbounds %"class.rc::Shrinkable.37", ptr %12, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %12, i64 %34
   %36 = load i64, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.rc::Shrinkable.37", ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   %38 = ptrtoint ptr %33 to i64
   %39 = ptrtoint ptr %32 to i64
   %40 = sub i64 %38, %39
@@ -10469,7 +10469,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcE
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %79 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %80 = sub nuw nsw i64 %10, %21
-  %81 = getelementptr inbounds %"class.rc::Shrinkable.37", ptr %79, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %79, i64 %80
   store ptr %81, ptr %13, align 8
   %82 = icmp eq ptr %1, %14
   br i1 %82, label %_ZSt22__uninitialized_move_aIPN2rc10ShrinkableIcEES3_SaIS2_EET0_T_S6_S5_RT1_.exit58, label %.lr.ph.i.i.i.i.i54
@@ -10663,7 +10663,7 @@ _ZSt8_DestroyIPN2rc10ShrinkableIcEES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_Des
 _ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN2rc10ShrinkableIcEES2_EvT_S4_RSaIT0_E.exit, %154
   store ptr %124, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i80, ptr %13, align 8
-  %155 = getelementptr inbounds nuw %"class.rc::Shrinkable.37", ptr %124, i64 %120
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %120
   store ptr %155, ptr %11, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -10915,7 +10915,7 @@ _ZSt10_ConstructIN2rc10ShrinkableIcEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds 
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc4.thread ], [ %33, %_ZSt10_ConstructIN2rc10ShrinkableIcEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr %"class.rc::Shrinkable.37", ptr %.sroa.0.0, i64 %36
+  %37 = getelementptr [8 x i8], ptr %.sroa.0.0, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
@@ -11085,7 +11085,7 @@ _ZN2rc5MaybeINS_10ShrinkableIcEEEC2EOS3_.exit:    ; preds = %_ZN2rc3SeqINS_10Shr
 40:                                               ; preds = %32
   %41 = add nuw i64 %33, 1
   store i64 %41, ptr %7, align 8
-  %42 = getelementptr inbounds %"class.rc::Shrinkable.37", ptr %35, i64 %33
+  %42 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   call void @llvm.experimental.noalias.scope.decl(metadata !380)
   call void @llvm.experimental.noalias.scope.decl(metadata !383)
   %43 = load ptr, ptr %42, align 8, !noalias !386
@@ -19330,7 +19330,7 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix4HashENSt7__
 
 8:                                                ; preds = %.critedge.i, %.lr.ph.i
   %9 = phi i64 [ %5, %.lr.ph.i ], [ %30, %.critedge.i ]
-  %10 = getelementptr inbounds nuw %"class.rc::Seq.305", ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
   %11 = load ptr, ptr %10, align 8, !noalias !849
   %.not.i.i = icmp eq ptr %11, null
@@ -19410,7 +19410,7 @@ define linkonce_odr void @_ZNK2rc3SeqINS_10ShrinkableISt5tupleIJN3nix4HashENSt7_
   %.idx.i.i = shl nuw nsw i64 %8, 3
   %.add4.i = add nuw nsw i64 %.idx.i.i, 8
   %.ptr7.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add4.i
-  %9 = getelementptr inbounds nuw %"class.rc::Seq.305", ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %15, label %11

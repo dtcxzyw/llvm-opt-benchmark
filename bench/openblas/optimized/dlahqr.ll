@@ -30,13 +30,13 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %24 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %24, -1
   %25 = sext i32 %narrow to i64
-  %26 = getelementptr inbounds double, ptr %5, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %5, i64 %25
   %27 = getelementptr inbounds i8, ptr %7, i64 -8
   %28 = getelementptr inbounds i8, ptr %8, i64 -8
   %29 = load i32, ptr %12, align 4, !tbaa !3
   %narrow780 = xor i32 %29, -1
   %30 = sext i32 %narrow780 to i64
-  %31 = getelementptr inbounds double, ptr %11, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %11, i64 %30
   store i32 0, ptr %13, align 4, !tbaa !3
   %32 = load i32, ptr %2, align 4, !tbaa !3
   %33 = icmp eq i32 %32, 0
@@ -52,12 +52,12 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %39 = add i32 %24, 1
   %40 = mul i32 %35, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %26, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %26, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !7
   %44 = sext i32 %35 to i64
-  %45 = getelementptr inbounds double, ptr %27, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %27, i64 %44
   store double %43, ptr %45, align 8, !tbaa !7
-  %46 = getelementptr inbounds double, ptr %28, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %44
   store double 0.000000e+00, ptr %46, align 8, !tbaa !7
   br label %.loopexit806
 
@@ -79,13 +79,13 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %49, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %52 = mul nsw i64 %indvars.iv, %50
-  %53 = getelementptr double, ptr %26, i64 %indvars.iv
+  %53 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv
   %54 = getelementptr i8, ptr %53, i64 16
-  %55 = getelementptr double, ptr %54, i64 %52
+  %55 = getelementptr [8 x i8], ptr %54, i64 %52
   store double 0.000000e+00, ptr %55, align 8, !tbaa !7
-  %56 = getelementptr double, ptr %26, i64 %indvars.iv
+  %56 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv
   %57 = getelementptr i8, ptr %56, i64 24
-  %58 = getelementptr double, ptr %57, i64 %52
+  %58 = getelementptr [8 x i8], ptr %57, i64 %52
   store double 0.000000e+00, ptr %58, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -101,7 +101,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %60 = mul nsw i32 %.pre-phi, %24
   %61 = add nsw i32 %60, %36
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds double, ptr %26, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %26, i64 %62
   store double 0.000000e+00, ptr %63, align 8, !tbaa !7
   br label %64
 
@@ -161,25 +161,25 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %94 = mul nsw i32 %93, %24
   %95 = add nsw i32 %94, %.0751865
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds double, ptr %26, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %26, i64 %96
   %98 = add i32 %.0751865, -2
   %99 = mul nsw i32 %98, %24
   %100 = add nsw i32 %99, %93
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds double, ptr %26, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %26, i64 %101
   %103 = mul i32 %.0751865, %87
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds double, ptr %26, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %26, i64 %104
   %106 = add nsw i32 %94, %93
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds double, ptr %26, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %26, i64 %107
   %109 = mul nsw i32 %.0751865, %24
   %110 = add nsw i32 %93, %109
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds double, ptr %26, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %26, i64 %111
   %113 = add nsw i32 %109, %.0751865
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds double, ptr %26, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %26, i64 %114
   %116 = sext i32 %.0751865 to i64
   %117 = sext i32 %98 to i64
   %118 = add i32 %.0751865, 1
@@ -206,8 +206,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars = trunc i64 %indvars.iv.next881 to i32
   %122 = mul nsw i32 %24, %indvars
   %123 = sext i32 %122 to i64
-  %124 = getelementptr double, ptr %26, i64 %indvars.iv880
-  %125 = getelementptr double, ptr %124, i64 %123
+  %124 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv880
+  %125 = getelementptr [8 x i8], ptr %124, i64 %123
   %126 = load double, ptr %125, align 8, !tbaa !7
   %127 = call double @llvm.fabs.f64(double %126)
   %128 = fcmp ugt double %127, %77
@@ -215,7 +215,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 129:                                              ; preds = %.lr.ph817
   %130 = mul i64 %indvars.iv.next881, %indvars.iv.next881949
-  %131 = getelementptr inbounds double, ptr %26, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %26, i64 %130
   %132 = load double, ptr %131, align 8, !tbaa !7
   %133 = fcmp oge double %132, 0.000000e+00
   %134 = fneg double %132
@@ -223,8 +223,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %136 = mul nsw i64 %indvars.iv880, %90
   %137 = mul nsw i32 %24, %indvars882
   %138 = sext i32 %137 to i64
-  %139 = getelementptr double, ptr %26, i64 %indvars.iv880
-  %140 = getelementptr double, ptr %139, i64 %138
+  %139 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv880
+  %140 = getelementptr [8 x i8], ptr %139, i64 %138
   %141 = load double, ptr %140, align 8, !tbaa !7
   %142 = fcmp oge double %141, 0.000000e+00
   %143 = fneg double %141
@@ -242,8 +242,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 151:                                              ; preds = %147
   %152 = mul nsw i64 %148, %90
-  %153 = getelementptr double, ptr %26, i64 %152
-  %154 = getelementptr double, ptr %153, i64 %indvars.iv.next881
+  %153 = getelementptr [8 x i8], ptr %26, i64 %152
+  %154 = getelementptr [8 x i8], ptr %153, i64 %indvars.iv.next881
   %155 = load double, ptr %154, align 8, !tbaa !7
   %156 = fcmp oge double %155, 0.000000e+00
   %157 = fneg double %155
@@ -259,9 +259,9 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not786.not, label %163, label %172
 
 163:                                              ; preds = %160
-  %164 = getelementptr double, ptr %26, i64 %indvars.iv880
+  %164 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv880
   %165 = getelementptr i8, ptr %164, i64 8
-  %166 = getelementptr double, ptr %165, i64 %136
+  %166 = getelementptr [8 x i8], ptr %165, i64 %136
   %167 = load double, ptr %166, align 8, !tbaa !7
   %168 = fcmp oge double %167, 0.000000e+00
   %169 = fneg double %167
@@ -279,8 +279,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %177, label %206, label %178
 
 178:                                              ; preds = %172
-  %179 = getelementptr double, ptr %26, i64 %indvars.iv.next881
-  %180 = getelementptr double, ptr %179, i64 %136
+  %179 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv.next881
+  %180 = getelementptr [8 x i8], ptr %179, i64 %136
   %181 = load double, ptr %180, align 8, !tbaa !7
   %182 = fcmp oge double %181, 0.000000e+00
   %183 = fneg double %181
@@ -323,7 +323,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %211 = mul nsw i32 %210, %24
   %212 = add nsw i32 %211, %.0754.lcssa
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds double, ptr %26, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %26, i64 %213
   store double 0.000000e+00, ptr %214, align 8, !tbaa !7
   br label %215
 
@@ -346,7 +346,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %220 = mul nsw i32 %.0754.lcssa, %24
   %221 = add nsw i32 %219, %220
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds double, ptr %26, i64 %222
+  %223 = getelementptr inbounds [8 x i8], ptr %26, i64 %222
   %224 = load double, ptr %223, align 8, !tbaa !7
   %225 = fcmp oge double %224, 0.000000e+00
   %226 = fneg double %224
@@ -355,7 +355,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %229 = mul nsw i32 %219, %24
   %230 = add nsw i32 %228, %229
   %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds double, ptr %26, i64 %231
+  %232 = getelementptr inbounds [8 x i8], ptr %26, i64 %231
   %233 = load double, ptr %232, align 8, !tbaa !7
   %234 = fcmp oge double %233, 0.000000e+00
   %235 = fneg double %233
@@ -363,7 +363,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %237 = fadd double %227, %236
   %238 = add nsw i32 %220, %.0754.lcssa
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds double, ptr %26, i64 %239
+  %240 = getelementptr inbounds [8 x i8], ptr %26, i64 %239
   %241 = load double, ptr %240, align 8, !tbaa !7
   %242 = call double @llvm.fmuladd.f64(double %237, double 7.500000e-01, double %241)
   %243 = fmul double %237, -4.375000e-01
@@ -470,11 +470,11 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %314 = add nsw i64 %indvars.iv883, 1
   %315 = add nsw i32 %indvars886, 1
   %316 = mul nsw i64 %indvars.iv883, %90
-  %317 = getelementptr double, ptr %26, i64 %314
-  %318 = getelementptr double, ptr %317, i64 %316
+  %317 = getelementptr [8 x i8], ptr %26, i64 %314
+  %318 = getelementptr [8 x i8], ptr %317, i64 %316
   %319 = load double, ptr %318, align 8, !tbaa !7
-  %320 = getelementptr double, ptr %26, i64 %316
-  %321 = getelementptr double, ptr %320, i64 %indvars.iv883
+  %320 = getelementptr [8 x i8], ptr %26, i64 %316
+  %321 = getelementptr [8 x i8], ptr %320, i64 %indvars.iv883
   %322 = load double, ptr %321, align 8, !tbaa !7
   %323 = fsub double %322, %.0
   %324 = fcmp oge double %323, 0.000000e+00
@@ -488,8 +488,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %332 = fdiv double %319, %331
   %333 = mul nsw i64 %314, %90
   %334 = mul nsw i32 %315, %24
-  %335 = getelementptr double, ptr %26, i64 %333
-  %336 = getelementptr double, ptr %335, i64 %indvars.iv883
+  %335 = getelementptr [8 x i8], ptr %26, i64 %333
+  %336 = getelementptr [8 x i8], ptr %335, i64 %indvars.iv883
   %337 = load double, ptr %336, align 8, !tbaa !7
   %338 = fdiv double %323, %331
   %339 = fmul double %323, %338
@@ -497,16 +497,16 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %341 = fdiv double %.0742, %331
   %342 = call double @llvm.fmuladd.f64(double %310, double %341, double %340)
   %343 = sext i32 %334 to i64
-  %344 = getelementptr double, ptr %26, i64 %314
-  %345 = getelementptr double, ptr %344, i64 %343
+  %344 = getelementptr [8 x i8], ptr %26, i64 %314
+  %345 = getelementptr [8 x i8], ptr %344, i64 %343
   %346 = load double, ptr %345, align 8, !tbaa !7
   %347 = fadd double %322, %346
   %348 = fsub double %347, %.0
   %349 = fsub double %348, %.0
   %350 = fmul double %332, %349
-  %351 = getelementptr double, ptr %26, i64 %indvars.iv883
+  %351 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv883
   %352 = getelementptr i8, ptr %351, i64 16
-  %353 = getelementptr double, ptr %352, i64 %333
+  %353 = getelementptr [8 x i8], ptr %352, i64 %333
   %354 = load double, ptr %353, align 8, !tbaa !7
   %355 = fmul double %354, %332
   %356 = fcmp oge double %342, 0.000000e+00
@@ -532,8 +532,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 371:                                              ; preds = %313
   %indvars.iv.next884 = add nsw i64 %indvars.iv883, -1
   %372 = mul nsw i64 %indvars.iv.next884, %90
-  %373 = getelementptr double, ptr %26, i64 %372
-  %374 = getelementptr double, ptr %373, i64 %indvars.iv883
+  %373 = getelementptr [8 x i8], ptr %26, i64 %372
+  %374 = getelementptr [8 x i8], ptr %373, i64 %indvars.iv883
   %375 = load double, ptr %374, align 8, !tbaa !7
   %376 = fcmp oge double %375, 0.000000e+00
   %377 = fneg double %375
@@ -550,8 +550,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %388 = fneg double %367
   %389 = select i1 %387, double %367, double %388
   %390 = fmul double %73, %389
-  %391 = getelementptr double, ptr %26, i64 %372
-  %392 = getelementptr double, ptr %391, i64 %indvars.iv.next884
+  %391 = getelementptr [8 x i8], ptr %26, i64 %372
+  %392 = getelementptr [8 x i8], ptr %391, i64 %indvars.iv.next884
   %393 = load double, ptr %392, align 8, !tbaa !7
   %394 = fcmp oge double %393, 0.000000e+00
   %395 = fneg double %393
@@ -606,25 +606,25 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %426 = add nsw i32 %indvars924, -1
   %427 = mul nsw i32 %426, %24
   %428 = sext i32 %427 to i64
-  %429 = getelementptr double, ptr %26, i64 %indvars.iv887
-  %430 = getelementptr double, ptr %429, i64 %428
+  %429 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
+  %430 = getelementptr [8 x i8], ptr %429, i64 %428
   call void @dcopy_(ptr noundef nonnull %20, ptr noundef %430, ptr noundef nonnull @c__1, ptr noundef nonnull %16, ptr noundef nonnull @c__1) #6
   call void @dlarfg_(ptr noundef nonnull %20, ptr noundef nonnull %16, ptr noundef nonnull %88, ptr noundef nonnull @c__1, ptr noundef nonnull %17) #6
   %431 = load double, ptr %16, align 16, !tbaa !7
   %432 = add nsw i64 %indvars.iv887, -1
   %433 = mul nsw i64 %432, %90
   store double %431, ptr %430, align 8, !tbaa !7
-  %434 = getelementptr double, ptr %26, i64 %indvars.iv887
+  %434 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
   %435 = getelementptr i8, ptr %434, i64 8
-  %436 = getelementptr double, ptr %435, i64 %433
+  %436 = getelementptr [8 x i8], ptr %435, i64 %433
   store double 0.000000e+00, ptr %436, align 8, !tbaa !7
   %437 = icmp slt i64 %indvars.iv887, %119
   br i1 %437, label %438, label %453
 
 438:                                              ; preds = %425
-  %439 = getelementptr double, ptr %26, i64 %indvars.iv887
+  %439 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
   %440 = getelementptr i8, ptr %439, i64 16
-  %441 = getelementptr double, ptr %440, i64 %433
+  %441 = getelementptr [8 x i8], ptr %440, i64 %433
   store double 0.000000e+00, ptr %441, align 8, !tbaa !7
   br label %453
 
@@ -638,8 +638,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %446 = add nsw i32 %indvars924, -1
   %447 = mul nsw i32 %446, %24
   %448 = sext i32 %447 to i64
-  %449 = getelementptr double, ptr %26, i64 %indvars.iv887
-  %450 = getelementptr double, ptr %449, i64 %448
+  %449 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
+  %450 = getelementptr [8 x i8], ptr %449, i64 %448
   %451 = load double, ptr %450, align 8, !tbaa !7
   %452 = fmul double %451, %445
   store double %452, ptr %450, align 8, !tbaa !7
@@ -660,17 +660,17 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not791823, label %.preheader, label %.lver.check
 
 .lver.check:                                      ; preds = %.preheader804
-  %invariant.gep = getelementptr double, ptr %26, i64 %indvars.iv887
-  %458 = getelementptr double, ptr %26, i64 %indvars.iv887
+  %invariant.gep = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
+  %458 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
   %459 = getelementptr i8, ptr %458, i64 8
   br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %indvars.iv889.lver.orig = phi i64 [ %indvars.iv.next890.lver.orig, %.ph.lver.orig ], [ %indvars.iv887, %.lver.check ]
   %460 = mul nsw i64 %indvars.iv889.lver.orig, %90
-  %gep.lver.orig = getelementptr double, ptr %invariant.gep, i64 %460
+  %gep.lver.orig = getelementptr [8 x i8], ptr %invariant.gep, i64 %460
   %461 = load double, ptr %gep.lver.orig, align 8, !tbaa !7
-  %462 = getelementptr double, ptr %459, i64 %460
+  %462 = getelementptr [8 x i8], ptr %459, i64 %460
   %463 = load double, ptr %462, align 8, !tbaa !7
   %464 = call double @llvm.fmuladd.f64(double %454, double %463, double %461)
   %465 = fneg double %464
@@ -694,22 +694,22 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not795834, label %._crit_edge838, label %.lver.check986
 
 .lver.check986:                                   ; preds = %468
-  %invariant.gep965 = getelementptr double, ptr %26, i64 %indvars.iv887
-  %471 = getelementptr double, ptr %26, i64 %indvars.iv887
+  %invariant.gep965 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
+  %471 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
   %472 = getelementptr i8, ptr %471, i64 8
-  %473 = getelementptr double, ptr %26, i64 %indvars.iv887
+  %473 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv887
   %474 = getelementptr i8, ptr %473, i64 16
   br i1 %ident.check985.not, label %.ph987, label %.ph987.lver.orig
 
 .ph987.lver.orig:                                 ; preds = %.lver.check986, %.ph987.lver.orig
   %indvars.iv907.lver.orig = phi i64 [ %indvars.iv.next908.lver.orig, %.ph987.lver.orig ], [ %indvars.iv887, %.lver.check986 ]
   %475 = mul nsw i64 %indvars.iv907.lver.orig, %90
-  %gep966.lver.orig = getelementptr double, ptr %invariant.gep965, i64 %475
+  %gep966.lver.orig = getelementptr [8 x i8], ptr %invariant.gep965, i64 %475
   %476 = load double, ptr %gep966.lver.orig, align 8, !tbaa !7
-  %477 = getelementptr double, ptr %472, i64 %475
+  %477 = getelementptr [8 x i8], ptr %472, i64 %475
   %478 = load double, ptr %477, align 8, !tbaa !7
   %479 = call double @llvm.fmuladd.f64(double %454, double %478, double %476)
-  %480 = getelementptr double, ptr %474, i64 %475
+  %480 = getelementptr [8 x i8], ptr %474, i64 %475
   %481 = load double, ptr %480, align 8, !tbaa !7
   %482 = call double @llvm.fmuladd.f64(double %469, double %481, double %479)
   %483 = fneg double %482
@@ -732,11 +732,11 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %store_forwarded991 = phi double [ %load_initial990, %.ph987 ], [ %498, %487 ]
   %indvars.iv907 = phi i64 [ %indvars.iv887, %.ph987 ], [ %indvars.iv.next908, %487 ]
   %488 = mul nuw nsw i64 %indvars.iv907, %90
-  %gep966 = getelementptr double, ptr %invariant.gep965, i64 %488
+  %gep966 = getelementptr [8 x i8], ptr %invariant.gep965, i64 %488
   %489 = load double, ptr %gep966, align 8, !tbaa !7
-  %490 = getelementptr double, ptr %472, i64 %488
+  %490 = getelementptr [8 x i8], ptr %472, i64 %488
   %491 = call double @llvm.fmuladd.f64(double %454, double %store_forwarded991, double %489)
-  %492 = getelementptr double, ptr %474, i64 %488
+  %492 = getelementptr [8 x i8], ptr %474, i64 %488
   %493 = load double, ptr %492, align 8, !tbaa !7
   %494 = call double @llvm.fmuladd.f64(double %469, double %493, double %491)
   %495 = fneg double %494
@@ -765,19 +765,19 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %505 = add nsw i64 %indvars.iv887, 2
   %506 = mul nsw i64 %505, %90
   %507 = sext i32 %501 to i64
-  %invariant.gep967 = getelementptr double, ptr %26, i64 %502
-  %invariant.gep969 = getelementptr double, ptr %26, i64 %504
-  %invariant.gep971 = getelementptr double, ptr %26, i64 %506
+  %invariant.gep967 = getelementptr [8 x i8], ptr %26, i64 %502
+  %invariant.gep969 = getelementptr [8 x i8], ptr %26, i64 %504
+  %invariant.gep971 = getelementptr [8 x i8], ptr %26, i64 %506
   br label %508
 
 508:                                              ; preds = %.lr.ph842, %508
   %indvars.iv913 = phi i64 [ %411, %.lr.ph842 ], [ %indvars.iv.next914, %508 ]
-  %gep968 = getelementptr double, ptr %invariant.gep967, i64 %indvars.iv913
+  %gep968 = getelementptr [8 x i8], ptr %invariant.gep967, i64 %indvars.iv913
   %509 = load double, ptr %gep968, align 8, !tbaa !7
-  %gep970 = getelementptr double, ptr %invariant.gep969, i64 %indvars.iv913
+  %gep970 = getelementptr [8 x i8], ptr %invariant.gep969, i64 %indvars.iv913
   %510 = load double, ptr %gep970, align 8, !tbaa !7
   %511 = call double @llvm.fmuladd.f64(double %454, double %510, double %509)
-  %gep972 = getelementptr double, ptr %invariant.gep971, i64 %indvars.iv913
+  %gep972 = getelementptr [8 x i8], ptr %invariant.gep971, i64 %indvars.iv913
   %512 = load double, ptr %gep972, align 8, !tbaa !7
   %513 = call double @llvm.fmuladd.f64(double %469, double %512, double %511)
   %514 = fneg double %513
@@ -812,19 +812,19 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %528 = mul nsw i64 %527, %91
   %529 = sext i32 %523 to i64
   %530 = add i32 %522, 1
-  %invariant.gep973 = getelementptr double, ptr %31, i64 %524
-  %invariant.gep975 = getelementptr double, ptr %31, i64 %526
-  %invariant.gep977 = getelementptr double, ptr %31, i64 %528
+  %invariant.gep973 = getelementptr [8 x i8], ptr %31, i64 %524
+  %invariant.gep975 = getelementptr [8 x i8], ptr %31, i64 %526
+  %invariant.gep977 = getelementptr [8 x i8], ptr %31, i64 %528
   br label %531
 
 531:                                              ; preds = %.lr.ph847, %531
   %indvars.iv917 = phi i64 [ %529, %.lr.ph847 ], [ %indvars.iv.next918, %531 ]
-  %gep974 = getelementptr double, ptr %invariant.gep973, i64 %indvars.iv917
+  %gep974 = getelementptr [8 x i8], ptr %invariant.gep973, i64 %indvars.iv917
   %532 = load double, ptr %gep974, align 8, !tbaa !7
-  %gep976 = getelementptr double, ptr %invariant.gep975, i64 %indvars.iv917
+  %gep976 = getelementptr [8 x i8], ptr %invariant.gep975, i64 %indvars.iv917
   %533 = load double, ptr %gep976, align 8, !tbaa !7
   %534 = call double @llvm.fmuladd.f64(double %454, double %533, double %532)
-  %gep978 = getelementptr double, ptr %invariant.gep977, i64 %indvars.iv917
+  %gep978 = getelementptr [8 x i8], ptr %invariant.gep977, i64 %indvars.iv917
   %535 = load double, ptr %gep978, align 8, !tbaa !7
   %536 = call double @llvm.fmuladd.f64(double %469, double %535, double %534)
   %537 = fneg double %536
@@ -848,16 +848,16 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %543 = mul nsw i64 %indvars.iv887, %90
   %544 = add nsw i64 %indvars.iv887, 1
   %545 = mul nsw i64 %544, %90
-  %invariant.gep957 = getelementptr double, ptr %26, i64 %543
-  %invariant.gep959 = getelementptr double, ptr %26, i64 %545
+  %invariant.gep957 = getelementptr [8 x i8], ptr %26, i64 %543
+  %invariant.gep959 = getelementptr [8 x i8], ptr %26, i64 %545
   br label %554
 
 546:                                              ; preds = %.ph, %546
   %store_forwarded = phi double [ %load_initial, %.ph ], [ %553, %546 ]
   %indvars.iv889 = phi i64 [ %indvars.iv887, %.ph ], [ %indvars.iv.next890, %546 ]
   %547 = mul nuw nsw i64 %indvars.iv889, %90
-  %gep = getelementptr double, ptr %invariant.gep, i64 %547
-  %548 = getelementptr double, ptr %459, i64 %547
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %547
+  %548 = getelementptr [8 x i8], ptr %459, i64 %547
   %549 = load double, ptr %548, align 8, !tbaa !7
   %550 = call double @llvm.fmuladd.f64(double %454, double %549, double %store_forwarded)
   %551 = fneg double %550
@@ -872,9 +872,9 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 554:                                              ; preds = %.lr.ph828, %554
   %indvars.iv895 = phi i64 [ %411, %.lr.ph828 ], [ %indvars.iv.next896, %554 ]
-  %gep958 = getelementptr double, ptr %invariant.gep957, i64 %indvars.iv895
+  %gep958 = getelementptr [8 x i8], ptr %invariant.gep957, i64 %indvars.iv895
   %555 = load double, ptr %gep958, align 8, !tbaa !7
-  %gep960 = getelementptr double, ptr %invariant.gep959, i64 %indvars.iv895
+  %gep960 = getelementptr [8 x i8], ptr %invariant.gep959, i64 %indvars.iv895
   %556 = load double, ptr %gep960, align 8, !tbaa !7
   %557 = call double @llvm.fmuladd.f64(double %454, double %556, double %555)
   %558 = fneg double %557
@@ -905,15 +905,15 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %568 = mul nsw i64 %567, %91
   %569 = sext i32 %565 to i64
   %570 = add i32 %564, 1
-  %invariant.gep961 = getelementptr double, ptr %31, i64 %566
-  %invariant.gep963 = getelementptr double, ptr %31, i64 %568
+  %invariant.gep961 = getelementptr [8 x i8], ptr %31, i64 %566
+  %invariant.gep963 = getelementptr [8 x i8], ptr %31, i64 %568
   br label %571
 
 571:                                              ; preds = %.lr.ph833, %571
   %indvars.iv901 = phi i64 [ %569, %.lr.ph833 ], [ %indvars.iv.next902, %571 ]
-  %gep962 = getelementptr double, ptr %invariant.gep961, i64 %indvars.iv901
+  %gep962 = getelementptr [8 x i8], ptr %invariant.gep961, i64 %indvars.iv901
   %572 = load double, ptr %gep962, align 8, !tbaa !7
-  %gep964 = getelementptr double, ptr %invariant.gep963, i64 %indvars.iv901
+  %gep964 = getelementptr [8 x i8], ptr %invariant.gep963, i64 %indvars.iv901
   %573 = load double, ptr %gep964, align 8, !tbaa !7
   %574 = call double @llvm.fmuladd.f64(double %454, double %573, double %572)
   %575 = fneg double %574
@@ -954,9 +954,9 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 583:                                              ; preds = %581
   %584 = load double, ptr %105, align 8, !tbaa !7
-  %585 = getelementptr inbounds double, ptr %27, i64 %116
+  %585 = getelementptr inbounds [8 x i8], ptr %27, i64 %116
   store double %584, ptr %585, align 8, !tbaa !7
-  %586 = getelementptr inbounds double, ptr %28, i64 %116
+  %586 = getelementptr inbounds [8 x i8], ptr %28, i64 %116
   store double 0.000000e+00, ptr %586, align 8, !tbaa !7
   br label %627
 
@@ -965,10 +965,10 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %588, label %589, label %627
 
 589:                                              ; preds = %587
-  %590 = getelementptr inbounds double, ptr %27, i64 %119
-  %591 = getelementptr inbounds double, ptr %28, i64 %119
-  %592 = getelementptr inbounds double, ptr %27, i64 %116
-  %593 = getelementptr inbounds double, ptr %28, i64 %116
+  %590 = getelementptr inbounds [8 x i8], ptr %27, i64 %119
+  %591 = getelementptr inbounds [8 x i8], ptr %28, i64 %119
+  %592 = getelementptr inbounds [8 x i8], ptr %27, i64 %116
+  %593 = getelementptr inbounds [8 x i8], ptr %28, i64 %116
   call void @dlanv2_(ptr noundef %108, ptr noundef %112, ptr noundef %97, ptr noundef %115, ptr noundef nonnull %590, ptr noundef nonnull %591, ptr noundef nonnull %592, ptr noundef nonnull %593, ptr noundef nonnull %18, ptr noundef nonnull %19) #6
   %594 = load i32, ptr %0, align 4, !tbaa !3
   %.not800 = icmp eq i32 %594, 0
@@ -984,10 +984,10 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %599 = mul nsw i32 %118, %24
   %600 = add nsw i32 %599, %93
   %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds double, ptr %26, i64 %601
+  %602 = getelementptr inbounds [8 x i8], ptr %26, i64 %601
   %603 = add nsw i32 %599, %.0751865
   %604 = sext i32 %603 to i64
-  %605 = getelementptr inbounds double, ptr %26, i64 %604
+  %605 = getelementptr inbounds [8 x i8], ptr %26, i64 %604
   call void @drot_(ptr noundef nonnull %15, ptr noundef %602, ptr noundef nonnull %6, ptr noundef %605, ptr noundef nonnull %6, ptr noundef nonnull %18, ptr noundef nonnull %19) #6
   br label %606
 
@@ -997,10 +997,10 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %608, ptr %15, align 4, !tbaa !3
   %609 = add nsw i32 %.2763855, %94
   %610 = sext i32 %609 to i64
-  %611 = getelementptr inbounds double, ptr %26, i64 %610
+  %611 = getelementptr inbounds [8 x i8], ptr %26, i64 %610
   %612 = add nsw i32 %.2763855, %109
   %613 = sext i32 %612 to i64
-  %614 = getelementptr inbounds double, ptr %26, i64 %613
+  %614 = getelementptr inbounds [8 x i8], ptr %26, i64 %613
   call void @drot_(ptr noundef nonnull %15, ptr noundef %611, ptr noundef nonnull @c__1, ptr noundef %614, ptr noundef nonnull @c__1, ptr noundef nonnull %18, ptr noundef nonnull %19) #6
   br label %615
 
@@ -1014,11 +1014,11 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %619 = mul nsw i32 %93, %29
   %620 = add nsw i32 %618, %619
   %621 = sext i32 %620 to i64
-  %622 = getelementptr inbounds double, ptr %31, i64 %621
+  %622 = getelementptr inbounds [8 x i8], ptr %31, i64 %621
   %623 = mul nsw i32 %.0751865, %29
   %624 = add nsw i32 %618, %623
   %625 = sext i32 %624 to i64
-  %626 = getelementptr inbounds double, ptr %31, i64 %625
+  %626 = getelementptr inbounds [8 x i8], ptr %31, i64 %625
   call void @drot_(ptr noundef nonnull %21, ptr noundef %622, ptr noundef nonnull @c__1, ptr noundef %626, ptr noundef nonnull @c__1, ptr noundef nonnull %18, ptr noundef nonnull %19) #6
   br label %627
 

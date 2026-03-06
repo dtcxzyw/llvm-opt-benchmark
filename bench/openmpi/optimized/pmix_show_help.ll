@@ -530,7 +530,7 @@ define ptr @pmix_show_help_vstring(ptr noundef %0, ptr noundef %1, i32 noundef %
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %15 ]
   %.037.i = phi i64 [ %spec.select.i, %.lr.ph.preheader.i ], [ %18, %15 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = icmp eq ptr %13, null
   br i1 %14, label %._crit_edge.i, label %15
@@ -569,7 +569,7 @@ define ptr @pmix_show_help_vstring(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .lr.ph42.i:                                       ; preds = %28, %.lr.ph42.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvars.iv.next47.i, %28 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv46.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv46.i
   %26 = load ptr, ptr %25, align 8, !tbaa !56
   %27 = icmp eq ptr %26, null
   br i1 %27, label %._crit_edge43.i, label %28
@@ -700,7 +700,7 @@ define internal fastcc i32 @load_array(ptr noundef nonnull %0, ptr noundef %1, p
   %39 = load ptr, ptr %7, align 8, !tbaa !56
   call void @free(ptr noundef %39) #18
   %40 = load ptr, ptr @search_dirs, align 8, !tbaa !62
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !56
   %43 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.14, ptr noundef %42, ptr noundef nonnull @.str.15, ptr noundef nonnull %spec.select.i) #18
   %44 = icmp slt i32 %43, 0
@@ -722,7 +722,7 @@ define internal fastcc i32 @load_array(ptr noundef nonnull %0, ptr noundef %1, p
 51:                                               ; preds = %47, %.thread.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = load ptr, ptr @search_dirs, align 8, !tbaa !62
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.next.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.next.i
   %54 = load ptr, ptr %53, align 8, !tbaa !56
   %.not28.i = icmp eq ptr %54, null
   br i1 %.not28.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !72
@@ -938,7 +938,7 @@ localgetline.exit:                                ; preds = %.lr.ph, %83
   %.2.i = select i1 %117, i32 %.037.i63, i32 %118
   %.1.i = select i1 %.not54.i, i32 %.036.i64, i32 %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %119 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.next
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.next
   %120 = load ptr, ptr %119, align 8, !tbaa !56
   %.not52.i = icmp eq ptr %120, null
   br i1 %.not52.i, label %._crit_edge, label %.lr.ph66, !llvm.loop !75
@@ -950,7 +950,7 @@ localgetline.exit:                                ; preds = %.lr.ph, %83
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
   %indvars.iv90 = phi i64 [ %112, %.lr.ph71.preheader ], [ %indvars.iv.next91, %.lr.ph71 ]
   %121 = load ptr, ptr %5, align 8, !tbaa !62
-  %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv90
+  %122 = getelementptr inbounds [8 x i8], ptr %121, i64 %indvars.iv90
   %123 = load ptr, ptr %122, align 8, !tbaa !56
   %124 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef %123) #18
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1

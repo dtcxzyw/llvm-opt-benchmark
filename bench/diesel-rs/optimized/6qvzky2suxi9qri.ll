@@ -517,7 +517,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
 199:                                              ; preds = %158
   %200 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %201 = load ptr, ptr %200, align 8, !nonnull !4, !noundef !4
-  %202 = getelementptr { i64, [44 x i64] }, ptr %201, i64 %162
+  %202 = getelementptr [360 x i8], ptr %201, i64 %162
   %203 = getelementptr i8, ptr %202, i64 -360
   %204 = icmp eq ptr %203, null
   br i1 %204, label %.thread304, label %.thread306
@@ -697,7 +697,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
 260:                                              ; preds = %254
   %261 = extractvalue { ptr, i64 } %259, 0
   %262 = extractvalue { ptr, i64 } %259, 1
-  %263 = getelementptr inbounds { i64, [44 x i64] }, ptr %261, i64 %262
+  %263 = getelementptr inbounds [360 x i8], ptr %261, i64 %262
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %261) ]
   store ptr %261, ptr %57, align 8
   %264 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1601,7 +1601,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.245.0..sroa_idx, align 8
   %.sroa.346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 0, ptr %.sroa.346.0..sroa_idx, align 8
-  %48 = getelementptr inbounds { i64, [28 x i64] }, ptr %1, i64 %2
+  %48 = getelementptr inbounds [232 x i8], ptr %1, i64 %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %40, align 8
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 8

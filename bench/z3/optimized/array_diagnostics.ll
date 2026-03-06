@@ -121,13 +121,13 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit17:   ; preds = %_ZNK3euf13th_euf_so
 
 18:                                               ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit17
   %19 = load ptr, ptr %11, align 8, !tbaa !12
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1, i64 noundef 1)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %indvars.iv)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.2, i64 noundef 2)
   %25 = load ptr, ptr %3, align 8, !tbaa !3
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   %28 = load ptr, ptr %27, align 8, !tbaa !19
   %29 = load i32, ptr %28, align 4, !tbaa !32
@@ -140,7 +140,7 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit17:   ; preds = %_ZNK3euf13th_euf_so
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %.str.4..str.5, i64 noundef 2)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.3, i64 noundef 1)
   %37 = load ptr, ptr %3, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !17
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   %41 = load ptr, ptr %12, align 8, !tbaa !38
@@ -792,7 +792,7 @@ _ZNK17array_recognizers8is_arrayEP4expr.exit:     ; preds = %_ZNK4decl13get_fami
   %154 = shl i32 %152, 1
   %155 = load ptr, ptr %153, align 8, !tbaa !237
   %156 = zext i32 %154 to i64
-  %157 = getelementptr inbounds nuw i32, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !239
   %159 = icmp eq i32 %158, -1
   br i1 %159, label %160, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
@@ -827,13 +827,13 @@ define hidden void @_ZNK5array6solver21validate_select_storeEPN3euf5enodeE(ptr n
   br i1 %exitcond.not, label %.critedge, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !232
   %15 = load ptr, ptr %8, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !232
@@ -845,7 +845,7 @@ define hidden void @_ZNK5array6solver21validate_select_storeEPN3euf5enodeE(ptr n
   %22 = load ptr, ptr %8, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %24 = zext i32 %7 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !232
@@ -873,7 +873,7 @@ define hidden void @_ZNK5array6solver21validate_select_storeEPN3euf5enodeE(ptr n
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !10
   %36 = zext i32 %.pre2.i to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %36
   store ptr %34, ptr %37, align 8, !tbaa !17
   %38 = add i32 %.pre2.i, 1
   store i32 %38, ptr %.phi.trans.insert.i, align 4, !tbaa !10
@@ -900,7 +900,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit:        ; preds = %56, %35
   %48 = phi i32 [ %62, %56 ], [ %38, %35 ]
   %49 = phi ptr [ %57, %56 ], [ %.pre.i, %35 ]
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %56 ], [ 1, %35 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv112
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv112
   %51 = load ptr, ptr %50, align 8, !tbaa !17
   %52 = getelementptr inbounds i8, ptr %49, i64 -8
   %53 = load i32, ptr %52, align 4, !tbaa !10
@@ -922,7 +922,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit:        ; preds = %56, %35
   %58 = phi i32 [ %.pre2.i52, %.noexc53 ], [ %48, %.lr.ph.preheader ]
   %59 = getelementptr inbounds i8, ptr %57, i64 -4
   %60 = zext i32 %58 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   store ptr %51, ptr %61, align 8, !tbaa !17
   %62 = add i32 %58, 1
   store i32 %62, ptr %59, align 4, !tbaa !10
@@ -991,7 +991,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %._crit_edge110, %70
   %94 = phi i32 [ %.pre2.i58, %.noexc59 ], [ %87, %85 ]
   %95 = getelementptr inbounds i8, ptr %93, i64 -4
   %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %93, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %96
   store ptr %83, ptr %97, align 8, !tbaa !234
   %98 = add i32 %94, 1
   store i32 %98, ptr %95, align 4, !tbaa !10

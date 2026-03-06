@@ -17,8 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
-%struct.anon = type { ptr, i8 }
 %struct.object_id = type { [32 x i8], i32 }
 
 @empty_strvec = external global [0 x ptr], align 8
@@ -1035,7 +1033,7 @@ _.exit:                                           ; preds = %371, %373
   %401 = getelementptr inbounds nuw i8, ptr %.013.i310, i64 16
   %402 = load ptr, ptr %385, align 8, !tbaa !42
   %403 = load i64, ptr %395, align 8, !tbaa !45
-  %404 = getelementptr inbounds nuw %struct.string_list_item, ptr %402, i64 %403
+  %404 = getelementptr inbounds nuw [16 x i8], ptr %402, i64 %403
   %405 = icmp ult ptr %401, %404
   br i1 %405, label %.lr.ph, label %.critedge.i
 
@@ -1118,7 +1116,7 @@ midx_snapshot_refs.exit:                          ; preds = %406
 .lr.ph.i181:                                      ; preds = %434, %437
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %437 ], [ 0, %434 ]
   %440 = load ptr, ptr %21, align 8, !tbaa !42
-  %441 = getelementptr inbounds nuw %struct.string_list_item, ptr %440, i64 %indvars.iv.i
+  %441 = getelementptr inbounds nuw [16 x i8], ptr %440, i64 %indvars.iv.i
   %442 = load ptr, ptr %441, align 8, !tbaa !46
   %443 = call i32 @git_fspathcmp(ptr noundef %435, ptr noundef %442) #16
   %.not25.i = icmp eq i32 %443, 0
@@ -1355,7 +1353,7 @@ strbuf_strip_suffix.exit.i192:                    ; preds = %517, %516, %509, %s
   %536 = phi i32 [ %.pre37.i, %528 ], [ %524, %523 ]
   %537 = phi ptr [ %534, %528 ], [ %.pre36.i, %523 ]
   %538 = zext i32 %536 to i64
-  %539 = getelementptr inbounds nuw ptr, ptr %537, i64 %538
+  %539 = getelementptr inbounds nuw [8 x i8], ptr %537, i64 %538
   store ptr %.035.i, ptr %539, align 8, !tbaa !54
   store i32 %.pre-phi.i, ptr %487, align 8, !tbaa !61
   br label %540
@@ -1397,11 +1395,11 @@ init_pack_geometry.exit:                          ; preds = %._crit_edge.i187, %
 
 553:                                              ; preds = %551
   %554 = load ptr, ptr %17, align 8, !tbaa !63
-  %555 = getelementptr inbounds nuw ptr, ptr %554, i64 %552
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %554, i64 %552
   %556 = load ptr, ptr %555, align 8, !tbaa !54
   %557 = add nuw nsw i64 %indvars.iv.i196, 4294967294
   %558 = and i64 %557, 4294967295
-  %559 = getelementptr inbounds nuw ptr, ptr %554, i64 %558
+  %559 = getelementptr inbounds nuw [8 x i8], ptr %554, i64 %558
   %560 = load ptr, ptr %559, align 8, !tbaa !54
   %561 = load i32, ptr %268, align 4, !tbaa !57
   %.not64.i = icmp eq i32 %561, 0
@@ -1485,7 +1483,7 @@ geometry_pack_weight.exit70.i:                    ; preds = %geometry_pack_weigh
   %indvars.iv133.i = phi i64 [ 0, %593 ], [ %indvars.iv.next134.i, %geometry_pack_weight.exit74.i ]
   %.055106.i = phi i64 [ 0, %593 ], [ %612, %geometry_pack_weight.exit74.i ]
   %598 = load ptr, ptr %17, align 8, !tbaa !63
-  %599 = getelementptr inbounds nuw ptr, ptr %598, i64 %indvars.iv133.i
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %598, i64 %indvars.iv133.i
   %600 = load ptr, ptr %599, align 8, !tbaa !54
   %601 = call i32 @open_pack_index(ptr noundef %600) #16
   %.not.i71.i = icmp eq i32 %601, 0
@@ -1521,7 +1519,7 @@ geometry_pack_weight.exit74.i:                    ; preds = %geometry_pack_weigh
   %indvars.iv136.i = phi i64 [ %597, %.lr.ph111.i ], [ %indvars.iv.next137.i, %646 ]
   %.156108.i = phi i64 [ %.055.lcssa.i, %.lr.ph111.i ], [ %649, %646 ]
   %614 = load ptr, ptr %17, align 8, !tbaa !63
-  %615 = getelementptr inbounds nuw ptr, ptr %614, i64 %indvars.iv136.i
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %indvars.iv136.i
   %616 = load ptr, ptr %615, align 8, !tbaa !54
   %617 = load i32, ptr %268, align 4, !tbaa !57
   %.not66.i = icmp eq i32 %617, 0
@@ -1635,7 +1633,7 @@ split_pack_geometry.exit:                         ; preds = %init_pack_geometry.
 .lr.ph312:                                        ; preds = %666, %.lr.ph312
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph312 ], [ 0, %666 ]
   %669 = load ptr, ptr %21, align 8, !tbaa !42
-  %670 = getelementptr inbounds nuw %struct.string_list_item, ptr %669, i64 %indvars.iv
+  %670 = getelementptr inbounds nuw [16 x i8], ptr %669, i64 %indvars.iv
   %671 = load ptr, ptr %670, align 8, !tbaa !46
   %672 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %14, ptr noundef nonnull @.str.69, ptr noundef %671) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1808,7 +1806,7 @@ repack_promisor_objects.exit:                     ; preds = %708, %740
   %751 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %752 = load ptr, ptr %15, align 8, !tbaa !42
   %753 = load i64, ptr %751, align 8, !tbaa !45
-  %754 = getelementptr inbounds nuw %struct.string_list_item, ptr %752, i64 %753
+  %754 = getelementptr inbounds nuw [16 x i8], ptr %752, i64 %753
   %755 = icmp ult ptr %750, %754
   br i1 %755, label %.lr.ph604, label %.critedge
 
@@ -1820,7 +1818,7 @@ repack_promisor_objects.exit:                     ; preds = %708, %740
   %759 = getelementptr inbounds nuw i8, ptr %.089314603, i64 16
   %760 = load ptr, ptr %15, align 8, !tbaa !42
   %761 = load i64, ptr %751, align 8, !tbaa !45
-  %762 = getelementptr inbounds nuw %struct.string_list_item, ptr %760, i64 %761
+  %762 = getelementptr inbounds nuw [16 x i8], ptr %760, i64 %761
   %763 = icmp ult ptr %759, %762
   br i1 %763, label %.lr.ph604, label %.critedge
 
@@ -1939,7 +1937,7 @@ repack_promisor_objects.exit:                     ; preds = %708, %740
 .lr.ph320:                                        ; preds = %807, %.lr.ph320
   %indvars.iv399 = phi i64 [ %indvars.iv.next400, %.lr.ph320 ], [ 0, %807 ]
   %817 = load ptr, ptr %17, align 8, !tbaa !63
-  %818 = getelementptr inbounds nuw ptr, ptr %817, i64 %indvars.iv399
+  %818 = getelementptr inbounds nuw [8 x i8], ptr %817, i64 %indvars.iv399
   %819 = load ptr, ptr %818, align 8, !tbaa !54
   %820 = call ptr @pack_basename(ptr noundef %819) #16
   %821 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %810, ptr noundef nonnull @.str.91, ptr noundef %820) #16
@@ -1952,7 +1950,7 @@ repack_promisor_objects.exit:                     ; preds = %708, %740
 .lr.ph322:                                        ; preds = %.lr.ph322.preheader, %.lr.ph322
   %indvars.iv402 = phi i64 [ %816, %.lr.ph322.preheader ], [ %indvars.iv.next403, %.lr.ph322 ]
   %825 = load ptr, ptr %17, align 8, !tbaa !63
-  %826 = getelementptr inbounds ptr, ptr %825, i64 %indvars.iv402
+  %826 = getelementptr inbounds [8 x i8], ptr %825, i64 %indvars.iv402
   %827 = load ptr, ptr %826, align 8, !tbaa !54
   %828 = call ptr @pack_basename(ptr noundef %827) #16
   %829 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %810, ptr noundef nonnull @.str.92, ptr noundef %828) #16
@@ -2235,7 +2233,7 @@ skip_prefix.exit.i225:                            ; preds = %932, %930
   %948 = getelementptr inbounds nuw i8, ptr %.05767.i324, i64 16
   %949 = load ptr, ptr %16, align 8, !tbaa !104
   %950 = load i64, ptr %944, align 8, !tbaa !105
-  %951 = getelementptr inbounds nuw %struct.string_list_item, ptr %949, i64 %950
+  %951 = getelementptr inbounds nuw [16 x i8], ptr %949, i64 %950
   %952 = icmp ult ptr %948, %951
   br i1 %952, label %.lr.ph325, label %.critedge.i228
 
@@ -2267,7 +2265,7 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
   %962 = getelementptr inbounds nuw i8, ptr %.170.i326, i64 16
   %963 = load ptr, ptr %15, align 8, !tbaa !42
   %964 = load i64, ptr %837, align 8, !tbaa !45
-  %965 = getelementptr inbounds nuw %struct.string_list_item, ptr %963, i64 %964
+  %965 = getelementptr inbounds nuw [16 x i8], ptr %963, i64 %964
   %966 = icmp ult ptr %962, %965
   br i1 %966, label %.lr.ph71.i, label %.critedge2.i
 
@@ -2289,7 +2287,7 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
   %972 = getelementptr inbounds nuw i8, ptr %.274.i328, i64 16
   %973 = load ptr, ptr %475, align 8, !tbaa !106
   %974 = load i64, ptr %968, align 8, !tbaa !97
-  %975 = getelementptr inbounds nuw %struct.string_list_item, ptr %973, i64 %974
+  %975 = getelementptr inbounds nuw [16 x i8], ptr %973, i64 %974
   %976 = icmp ult ptr %972, %975
   br i1 %976, label %.lr.ph329, label %.critedge4.i
 
@@ -2311,7 +2309,7 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
   %982 = getelementptr inbounds nuw i8, ptr %.378.i330, i64 16
   %983 = load ptr, ptr %476, align 8, !tbaa !107
   %984 = load i64, ptr %978, align 8, !tbaa !108
-  %985 = getelementptr inbounds nuw %struct.string_list_item, ptr %983, i64 %984
+  %985 = getelementptr inbounds nuw [16 x i8], ptr %983, i64 %984
   %986 = icmp ult ptr %982, %985
   br i1 %986, label %.lr.ph331, label %.critedge6.i
 
@@ -2336,7 +2334,7 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
   %994 = getelementptr inbounds nuw i8, ptr %.482.i332, i64 16
   %995 = load ptr, ptr %16, align 8, !tbaa !104
   %996 = load i64, ptr %990, align 8, !tbaa !105
-  %997 = getelementptr inbounds nuw %struct.string_list_item, ptr %995, i64 %996
+  %997 = getelementptr inbounds nuw [16 x i8], ptr %995, i64 %996
   %998 = icmp ult ptr %994, %997
   br i1 %998, label %.lr.ph333, label %write_filtered_pack.exit
 
@@ -2361,7 +2359,7 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph333, %.lr.ph8
   %1006 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %1007 = load ptr, ptr %15, align 8, !tbaa !42
   %1008 = load i64, ptr %837, align 8, !tbaa !45
-  %1009 = getelementptr inbounds nuw %struct.string_list_item, ptr %1007, i64 %1008
+  %1009 = getelementptr inbounds nuw [16 x i8], ptr %1007, i64 %1008
   %1010 = icmp ult ptr %1005, %1009
   br i1 %1010, label %.lr.ph606, label %.critedge17
 
@@ -2375,10 +2373,10 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph333, %.lr.ph8
   %indvars.iv405 = phi i64 [ 0, %.lr.ph606 ], [ %indvars.iv.next406, %1047 ]
   %1014 = load ptr, ptr @packdir, align 8, !tbaa !8
   %1015 = load ptr, ptr %.1336605, align 8, !tbaa !46
-  %1016 = getelementptr inbounds nuw %struct.anon, ptr @exts, i64 %indvars.iv405
+  %1016 = getelementptr inbounds nuw [16 x i8], ptr @exts, i64 %indvars.iv405
   %1017 = load ptr, ptr %1016, align 16, !tbaa !110
   %1018 = call ptr (ptr, ...) @mkpathdup(ptr noundef nonnull @.str.94, ptr noundef %1014, ptr noundef %1015, ptr noundef %1017) #16
-  %1019 = getelementptr inbounds nuw ptr, ptr %1012, i64 %indvars.iv405
+  %1019 = getelementptr inbounds nuw [8 x i8], ptr %1012, i64 %indvars.iv405
   %1020 = load ptr, ptr %1019, align 8, !tbaa !33
   %.not165 = icmp eq ptr %1020, null
   br i1 %.not165, label %1033, label %1021
@@ -2450,7 +2448,7 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph333, %.lr.ph8
   %1049 = getelementptr inbounds nuw i8, ptr %.1336605, i64 16
   %1050 = load ptr, ptr %15, align 8, !tbaa !42
   %1051 = load i64, ptr %837, align 8, !tbaa !45
-  %1052 = getelementptr inbounds nuw %struct.string_list_item, ptr %1050, i64 %1051
+  %1052 = getelementptr inbounds nuw [16 x i8], ptr %1050, i64 %1051
   %1053 = icmp ult ptr %1049, %1052
   br i1 %1053, label %.lr.ph606, label %.critedge17
 
@@ -2512,7 +2510,7 @@ strbuf_setlen.exit.i246:                          ; preds = %1069, %.lr.ph341
   %1073 = getelementptr inbounds nuw i8, ptr %.071.i340, i64 16
   %1074 = load ptr, ptr %16, align 8, !tbaa !104
   %1075 = load i64, ptr %1064, align 8, !tbaa !105
-  %1076 = getelementptr inbounds nuw %struct.string_list_item, ptr %1074, i64 %1075
+  %1076 = getelementptr inbounds nuw [16 x i8], ptr %1074, i64 %1075
   %1077 = icmp ult ptr %1073, %1076
   br i1 %1077, label %.lr.ph341, label %.critedge.i232
 
@@ -2547,7 +2545,7 @@ strbuf_setlen.exit59.i:                           ; preds = %1083, %.lr.ph343
   %1087 = getelementptr inbounds nuw i8, ptr %.174.i342, i64 16
   %1088 = load ptr, ptr %15, align 8, !tbaa !42
   %1089 = load i64, ptr %837, align 8, !tbaa !45
-  %1090 = getelementptr inbounds nuw %struct.string_list_item, ptr %1088, i64 %1089
+  %1090 = getelementptr inbounds nuw [16 x i8], ptr %1088, i64 %1089
   %1091 = icmp ult ptr %1087, %1090
   br i1 %1091, label %.lr.ph343, label %.critedge2.i234
 
@@ -2574,7 +2572,7 @@ strbuf_setlen.exit59.i:                           ; preds = %1083, %.lr.ph343
   %1103 = phi i32 [ %1097, %.lr.ph78.i ], [ %1130, %1129 ]
   %indvars.iv.i237 = phi i64 [ %1101, %.lr.ph78.i ], [ %indvars.iv.next.i242, %1129 ]
   %1104 = load ptr, ptr %17, align 8, !tbaa !63
-  %1105 = getelementptr inbounds nuw ptr, ptr %1104, i64 %indvars.iv.i237
+  %1105 = getelementptr inbounds nuw [8 x i8], ptr %1104, i64 %indvars.iv.i237
   %1106 = load ptr, ptr %1105, align 8, !tbaa !54
   %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 152
   %1108 = load i8, ptr %1107, align 8
@@ -2688,7 +2686,7 @@ strbuf_setlen.exit65.i:                           ; preds = %1146, %1144
   %1151 = phi i64 [ %.pre413, %strbuf_setlen.exit65.i ], [ %1139, %.lr.ph345 ]
   %1152 = phi ptr [ %.pre412, %strbuf_setlen.exit65.i ], [ %1140, %.lr.ph345 ]
   %1153 = getelementptr inbounds nuw i8, ptr %.280.i344, i64 16
-  %1154 = getelementptr inbounds nuw %struct.string_list_item, ptr %1152, i64 %1151
+  %1154 = getelementptr inbounds nuw [16 x i8], ptr %1152, i64 %1151
   %1155 = icmp ult ptr %1153, %1154
   br i1 %1155, label %.lr.ph345, label %.critedge4.i235
 
@@ -2739,7 +2737,7 @@ strbuf_setlen.exit68.i:                           ; preds = %1168, %1166
   %1173 = phi i64 [ %.pre415, %strbuf_setlen.exit68.i ], [ %1161, %.lr.ph347 ]
   %1174 = phi ptr [ %.pre414, %strbuf_setlen.exit68.i ], [ %1162, %.lr.ph347 ]
   %1175 = getelementptr inbounds nuw i8, ptr %.384.i346, i64 16
-  %1176 = getelementptr inbounds nuw %struct.string_list_item, ptr %1174, i64 %1173
+  %1176 = getelementptr inbounds nuw [16 x i8], ptr %1174, i64 %1173
   %1177 = icmp ult ptr %1175, %1176
   br i1 %1177, label %.lr.ph347, label %midx_included_packs.exit
 
@@ -2779,7 +2777,7 @@ midx_included_packs.exit:                         ; preds = %1172, %.lr.ph85.i, 
 
 1193:                                             ; preds = %.preheader.i.i
   %1194 = add nsw i64 %indvars.iv.i.i, -1
-  %1195 = getelementptr inbounds nuw ptr, ptr %1191, i64 %1194
+  %1195 = getelementptr inbounds nuw [8 x i8], ptr %1191, i64 %1194
   %1196 = load ptr, ptr %1195, align 8, !tbaa !54
   %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 152
   %1198 = load i8, ptr %1197, align 8
@@ -2846,7 +2844,7 @@ get_preferred_pack.exit.i:                        ; preds = %1193, %.preheader.i
 
 1221:                                             ; preds = %1220, %.lr.ph349
   %indvars.iv.i46.i = phi i64 [ 0, %.lr.ph349 ], [ %indvars.iv.next.i.i, %1220 ]
-  %1222 = getelementptr inbounds nuw %struct.anon, ptr @exts, i64 %indvars.iv.i46.i
+  %1222 = getelementptr inbounds nuw [16 x i8], ptr @exts, i64 %indvars.iv.i46.i
   %1223 = load ptr, ptr %1222, align 16, !tbaa !110
   %1224 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1223, ptr noundef nonnull dereferenceable(8) @.str.156) #19
   %.not.i47.i = icmp eq i32 %1224, 0
@@ -2857,7 +2855,7 @@ get_preferred_pack.exit.i:                        ; preds = %1193, %.preheader.i
   unreachable
 
 has_pack_ext.exit.i:                              ; preds = %1221
-  %1226 = getelementptr inbounds nuw ptr, ptr %1219, i64 %indvars.iv.i46.i
+  %1226 = getelementptr inbounds nuw [8 x i8], ptr %1219, i64 %indvars.iv.i46.i
   %1227 = load ptr, ptr %1226, align 8, !tbaa !33
   %.not49.i = icmp eq ptr %1227, null
   br i1 %.not49.i, label %1228, label %1231
@@ -2908,7 +2906,7 @@ has_pack_ext.exit.i:                              ; preds = %1221
   %1245 = getelementptr inbounds nuw i8, ptr %.157.i350, i64 16
   %1246 = load ptr, ptr %35, align 8, !tbaa !42
   %1247 = load i64, ptr %1200, align 8, !tbaa !45
-  %1248 = getelementptr inbounds nuw %struct.string_list_item, ptr %1246, i64 %1247
+  %1248 = getelementptr inbounds nuw [16 x i8], ptr %1246, i64 %1247
   %1249 = icmp ult ptr %1245, %1248
   br i1 %1249, label %.lr.ph58.i, label %.critedge2.i251
 
@@ -2980,7 +2978,7 @@ write_midx_included_packs.exit:                   ; preds = %get_preferred_pack.
   %1274 = phi i64 [ %.pre11.i, %1270 ], [ %1265, %.lr.ph.i256 ]
   %1275 = phi ptr [ %.pre.i257, %1270 ], [ %1266, %.lr.ph.i256 ]
   %1276 = getelementptr inbounds nuw i8, ptr %.010.i8.i, i64 16
-  %1277 = getelementptr inbounds nuw %struct.string_list_item, ptr %1275, i64 %1274
+  %1277 = getelementptr inbounds nuw [16 x i8], ptr %1275, i64 %1274
   %1278 = icmp ult ptr %1276, %1277
   br i1 %1278, label %.lr.ph.i256, label %remove_redundant_packs_1.exit.i
 
@@ -3018,7 +3016,7 @@ remove_redundant_packs_1.exit.i:                  ; preds = %1273, %.lr.ph.i.i, 
   %1291 = phi i64 [ %.pre13.i, %1287 ], [ %1282, %.lr.ph10.i ]
   %1292 = phi ptr [ %.pre12.i, %1287 ], [ %1283, %.lr.ph10.i ]
   %1293 = getelementptr inbounds nuw i8, ptr %.010.i49.i, i64 16
-  %1294 = getelementptr inbounds nuw %struct.string_list_item, ptr %1292, i64 %1291
+  %1294 = getelementptr inbounds nuw [16 x i8], ptr %1292, i64 %1291
   %1295 = icmp ult ptr %1293, %1294
   br i1 %1295, label %.lr.ph10.i, label %remove_redundant_existing_packs.exit
 
@@ -3560,7 +3558,7 @@ skip_prefix.exit:                                 ; preds = %11, %13
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load ptr, ptr %4, align 8, !tbaa !42
   %34 = load i64, ptr %32, align 8, !tbaa !45
-  %35 = getelementptr inbounds nuw %struct.string_list_item, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %34
   %36 = icmp ult ptr %31, %35
   br i1 %36, label %.lr.ph152, label %.critedge
 
@@ -3571,7 +3569,7 @@ skip_prefix.exit:                                 ; preds = %11, %13
   %39 = getelementptr inbounds nuw i8, ptr %.05578151, i64 16
   %40 = load ptr, ptr %4, align 8, !tbaa !42
   %41 = load i64, ptr %32, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw %struct.string_list_item, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %41
   %43 = icmp ult ptr %39, %42
   br i1 %43, label %.lr.ph152, label %.critedge
 
@@ -3680,7 +3678,7 @@ strbuf_strip_suffix.exit.i:                       ; preds = %79, %78, %71, %strb
   unreachable
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw ptr, ptr %54, i64 %.03962.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.03962.i
   store ptr %.063.i, ptr %87, align 8, !tbaa !54
   br label %88
 
@@ -3721,7 +3719,7 @@ sane_qsort.exit.i:                                ; preds = %._crit_edge.i
 97:                                               ; preds = %130, %.lr.ph66.i
   %.03865.i = phi i64 [ 0, %.lr.ph66.i ], [ %133, %130 ]
   %.04164.i = phi i64 [ 0, %.lr.ph66.i ], [ %.142.i, %130 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %54, i64 %.03865.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.03865.i
   %99 = load ptr, ptr %98, align 8, !tbaa !54
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %101 = load i64, ptr %100, align 8, !tbaa !52
@@ -3810,7 +3808,7 @@ retain_cruft_pack.exit.i:                         ; preds = %strbuf_strip_suffix
 134:                                              ; preds = %134, %.lr.ph68.i
   %.167.i = phi i64 [ 0, %.lr.ph68.i ], [ %139, %134 ]
   %135 = load ptr, ptr %96, align 8, !tbaa !106
-  %136 = getelementptr inbounds nuw %struct.string_list_item, ptr %135, i64 %.167.i
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %.167.i
   %137 = load ptr, ptr %136, align 8, !tbaa !46
   %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.145, ptr noundef %137) #16
   %139 = add nuw i64 %.167.i, 1
@@ -3834,7 +3832,7 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %146 = load ptr, ptr %143, align 8, !tbaa !106
   %147 = load i64, ptr %145, align 8, !tbaa !97
-  %148 = getelementptr inbounds nuw %struct.string_list_item, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %147
   %149 = icmp ult ptr %144, %148
   br i1 %149, label %.lr.ph154, label %.critedge3
 
@@ -3845,7 +3843,7 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %152 = getelementptr inbounds nuw i8, ptr %.181153, i64 16
   %153 = load ptr, ptr %143, align 8, !tbaa !106
   %154 = load i64, ptr %145, align 8, !tbaa !97
-  %155 = getelementptr inbounds nuw %struct.string_list_item, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %154
   %156 = icmp ult ptr %152, %155
   br i1 %156, label %.lr.ph154, label %.critedge3
 
@@ -3859,7 +3857,7 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %160 = load ptr, ptr %157, align 8, !tbaa !107
   %161 = load i64, ptr %159, align 8, !tbaa !108
-  %162 = getelementptr inbounds nuw %struct.string_list_item, ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %161
   %163 = icmp ult ptr %158, %162
   br i1 %163, label %.lr.ph156, label %.critedge5
 
@@ -3870,7 +3868,7 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %166 = getelementptr inbounds nuw i8, ptr %.285155, i64 16
   %167 = load ptr, ptr %157, align 8, !tbaa !107
   %168 = load i64, ptr %159, align 8, !tbaa !108
-  %169 = getelementptr inbounds nuw %struct.string_list_item, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %167, i64 %168
   %170 = icmp ult ptr %166, %169
   br i1 %170, label %.lr.ph156, label %.critedge5
 
@@ -3883,7 +3881,7 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %172 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %173 = load ptr, ptr %5, align 8, !tbaa !104
   %174 = load i64, ptr %172, align 8, !tbaa !105
-  %175 = getelementptr inbounds nuw %struct.string_list_item, ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %174
   %176 = icmp ult ptr %171, %175
   br i1 %176, label %.lr.ph158, label %.critedge7
 
@@ -3894,7 +3892,7 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %179 = getelementptr inbounds nuw i8, ptr %.389157, i64 16
   %180 = load ptr, ptr %5, align 8, !tbaa !104
   %181 = load i64, ptr %172, align 8, !tbaa !105
-  %182 = getelementptr inbounds nuw %struct.string_list_item, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %181
   %183 = icmp ult ptr %179, %182
   br i1 %183, label %.lr.ph158, label %.critedge7
 
@@ -3998,7 +3996,7 @@ define internal fastcc void @mark_packs_for_deletion(ptr noundef nonnull readonl
   %33 = getelementptr inbounds nuw i8, ptr %.021.i14, i64 16
   %34 = load ptr, ptr %3, align 8, !tbaa !42
   %35 = load i64, ptr %10, align 8, !tbaa !45
-  %36 = getelementptr inbounds nuw %struct.string_list_item, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   %37 = icmp ult ptr %33, %36
   br i1 %37, label %.lr.ph, label %mark_packs_for_deletion_1.exit
 
@@ -4064,7 +4062,7 @@ mark_packs_for_deletion_1.exit:                   ; preds = %32, %.lr.ph.i, %2
   %68 = getelementptr inbounds nuw i8, ptr %.021.i715, i64 16
   %69 = load ptr, ptr %38, align 8, !tbaa !42
   %70 = load i64, ptr %45, align 8, !tbaa !45
-  %71 = getelementptr inbounds nuw %struct.string_list_item, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %70
   %72 = icmp ult ptr %68, %71
   br i1 %72, label %.lr.ph16, label %mark_packs_for_deletion_1.exit13
 
@@ -4119,7 +4117,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %0, align 8, !tbaa !42
   %20 = load i64, ptr %18, align 8, !tbaa !45
-  %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = icmp ult ptr %17, %21
   br i1 %22, label %.lr.ph20, label %.critedge
 
@@ -4212,7 +4210,7 @@ strbuf_setlen.exit:                               ; preds = %51, %53
   %55 = getelementptr inbounds nuw i8, ptr %.01319, i64 16
   %56 = load ptr, ptr %0, align 8, !tbaa !42
   %57 = load i64, ptr %18, align 8, !tbaa !45
-  %58 = getelementptr inbounds nuw %struct.string_list_item, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %57
   %59 = icmp ult ptr %55, %58
   br i1 %59, label %.lr.ph20, label %.critedge
 
@@ -4244,7 +4242,7 @@ define internal fastcc void @geometry_remove_redundant_packs(ptr noundef nonnull
 9:                                                ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !63
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 153
   %14 = call ptr @hash_to_hex(ptr noundef nonnull %13) #16
@@ -4563,7 +4561,7 @@ define internal fastcc ptr @populate_pack_exts(ptr noundef %0) unnamed_addr #0 {
 
 strbuf_setlen.exit:                               ; preds = %7, %9
   %10 = load ptr, ptr @packtmp, align 8, !tbaa !8
-  %11 = getelementptr inbounds nuw %struct.anon, ptr @exts, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @exts, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 16, !tbaa !110
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.141, ptr noundef %10, ptr noundef %0, ptr noundef %12) #16
   %13 = load ptr, ptr %6, align 8, !tbaa !32
@@ -4574,7 +4572,7 @@ strbuf_setlen.exit:                               ; preds = %7, %9
 15:                                               ; preds = %strbuf_setlen.exit
   %16 = load ptr, ptr %6, align 8, !tbaa !32
   %17 = call ptr @register_tempfile(ptr noundef %16) #16
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %17, ptr %18, align 8, !tbaa !33
   br label %19
 

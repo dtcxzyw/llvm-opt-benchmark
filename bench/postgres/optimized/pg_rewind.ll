@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ControlFileData = type { i64, i32, i32, i32, i64, i64, %struct.CheckPoint, i64, i64, i32, i64, i64, i8, i32, i8, i32, i32, i32, i32, i32, i8, i32, double, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, [32 x i8], i32 }
 %struct.CheckPoint = type { i64, i32, i32, i8, i32, %struct.FullTransactionId, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32 }
 %struct.FullTransactionId = type { i64 }
-%struct.TimeLineHistoryEntry = type { i32, i64, i64 }
 
 @datadir_target = dso_local local_unnamed_addr global ptr null, align 8
 @showprogress = dso_local local_unnamed_addr global i8 0, align 1
@@ -388,7 +387,7 @@ sub_186:                                          ; preds = %.tail.thread, %.thr
 
 98:                                               ; preds = %95
   %99 = sext i32 %96 to i64
-  %100 = getelementptr inbounds ptr, ptr %1, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %1, i64 %99
   %101 = load ptr, ptr %100, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %101) #12
   %102 = load ptr, ptr @progname, align 8
@@ -757,9 +756,9 @@ sanityChecks.exit:                                ; preds = %241
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %272
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next, %272 ]
-  %263 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %256, i64 %indvars.iv
+  %263 = getelementptr inbounds nuw [24 x i8], ptr %256, i64 %indvars.iv
   %264 = load i32, ptr %263, align 8
-  %265 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %257, i64 %indvars.iv
+  %265 = getelementptr inbounds nuw [24 x i8], ptr %257, i64 %indvars.iv
   %266 = load i32, ptr %265, align 8
   %.not.i75 = icmp eq i32 %264, %266
   br i1 %.not.i75, label %267, label %._crit_edge.i.split.loop.exit126
@@ -793,10 +792,10 @@ sanityChecks.exit:                                ; preds = %241
 276:                                              ; preds = %._crit_edge.i
   %277 = add nsw i32 %.0.lcssa.i, -1
   %278 = zext nneg i32 %277 to i64
-  %279 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %256, i64 %278
+  %279 = getelementptr inbounds nuw [24 x i8], ptr %256, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %281 = load i64, ptr %280, align 8
-  %282 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %257, i64 %278
+  %282 = getelementptr inbounds nuw [24 x i8], ptr %257, i64 %278
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
   %284 = load i64, ptr %283, align 8
   %285 = icmp eq i64 %281, 0
@@ -972,7 +971,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %286, %288
 
 370:                                              ; preds = %416, %.lr.ph55.i
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %416 ], [ 0, %.lr.ph55.i ]
-  %371 = getelementptr inbounds nuw ptr, ptr %360, i64 %indvars.iv104
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %indvars.iv104
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 48
   %374 = load i32, ptr %373, align 8
@@ -1455,7 +1454,7 @@ define internal fastcc ptr @getTimelineHistory(i32 noundef %0, i1 noundef zeroex
   br i1 %32, label %33, label %46, !prof !6
 
 33:                                               ; preds = %.lr.ph.split
-  %34 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %.0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %.0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i64, ptr %36, align 8

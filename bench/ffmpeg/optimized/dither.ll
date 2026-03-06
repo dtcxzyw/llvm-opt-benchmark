@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/dither.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.filter_t = type { i32, i32, i64, i32, ptr, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"s->dither.method < SWR_DITHER_NB\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"libswresample/dither.c\00", align 1
@@ -60,7 +58,7 @@ define range(i32 -12, 1) i32 @swri_get_dither(ptr noundef readonly captures(none
   %17 = uitofp i32 %16 to double
   %18 = fdiv nsz double %17, 0x41EFFFFFFFE00000
   %19 = fadd nsz double %18, -5.000000e-01
-  %20 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv62
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv62
   store double %19, ptr %20, align 8, !tbaa !23
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
@@ -94,7 +92,7 @@ define range(i32 -12, 1) i32 @swri_get_dither(ptr noundef readonly captures(none
   %29 = uitofp i32 %28 to double
   %30 = fdiv nsz double %29, 0x41EFFFFFFFE00000
   %31 = fsub nsz double %26, %30
-  %32 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store double %31, ptr %32, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -121,12 +119,12 @@ define range(i32 -12, 1) i32 @swri_get_dither(ptr noundef readonly captures(none
   unreachable
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv67
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv67
   %40 = load double, ptr %39, align 8, !tbaa !23
   br label %52
 
 41:                                               ; preds = %.lr.ph59
-  %42 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv67
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv67
   %43 = load double, ptr %42, align 8, !tbaa !23
   %44 = fneg nsz double %43
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -150,24 +148,24 @@ define range(i32 -12, 1) i32 @swri_get_dither(ptr noundef readonly captures(none
 
 54:                                               ; preds = %52
   %55 = fptosi double %53 to i16
-  %56 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv67
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv67
   store i16 %55, ptr %56, align 2, !tbaa !26
   br label %66
 
 57:                                               ; preds = %52
   %58 = fptosi double %53 to i32
-  %59 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv67
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv67
   store i32 %58, ptr %59, align 4, !tbaa !28
   br label %66
 
 60:                                               ; preds = %52
   %61 = fptrunc nsz double %53 to float
-  %62 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv67
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv67
   store float %61, ptr %62, align 4, !tbaa !29
   br label %66
 
 63:                                               ; preds = %52
-  %64 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv67
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv67
   store double %53, ptr %64, align 8, !tbaa !23
   br label %66
 
@@ -303,7 +301,7 @@ define range(i32 -22, 1) i32 @swri_dither_init(ptr noundef %0, i32 noundef %1, i
 
 54:                                               ; preds = %43, %80
   %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %80 ]
-  %55 = getelementptr inbounds nuw %struct.filter_t, ptr @filters, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [40 x i8], ptr @filters, i64 %indvars.iv
   %56 = load i32, ptr %55, align 8, !tbaa !37
   %57 = sub nsw i32 %53, %56
   %58 = tail call i32 @llvm.abs.i32(i32 %57, i1 false)
@@ -337,10 +335,10 @@ define range(i32 -22, 1) i32 @swri_dither_init(ptr noundef %0, i32 noundef %1, i
 
 75:                                               ; preds = %.lr.ph, %75
   %indvars.iv94 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next95, %75 ]
-  %76 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv94
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv94
   %77 = load double, ptr %76, align 8, !tbaa !23
   %78 = fptrunc nsz double %77 to float
-  %79 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv94
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv94
   store float %78, ptr %79, align 4, !tbaa !29
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next95, %69
@@ -432,20 +430,20 @@ define void @swri_noise_shaping_int16(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph91.us:                                      ; preds = %.lr.ph91.us.preheader, %._crit_edge92.us
   %indvars.iv106 = phi i64 [ 0, %.lr.ph91.us.preheader ], [ %indvars.iv.next107, %._crit_edge92.us ]
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv106
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv106
   %28 = load ptr, ptr %27, align 8, !tbaa !49
-  %29 = getelementptr inbounds float, ptr %28, i64 %19
-  %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv106
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %19
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv106
   %31 = load ptr, ptr %30, align 8, !tbaa !49
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv106
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv106
   %33 = load ptr, ptr %32, align 8, !tbaa !49
-  %34 = getelementptr inbounds nuw [40 x float], ptr %20, i64 %indvars.iv106
+  %34 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %indvars.iv106
   br label %35
 
 35:                                               ; preds = %.lr.ph91.us, %55
   %indvars.iv103 = phi i64 [ 0, %.lr.ph91.us ], [ %indvars.iv.next104, %55 ]
   %.18089.us = phi i32 [ %7, %.lr.ph91.us ], [ %56, %55 ]
-  %36 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv103
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv103
   %37 = load i16, ptr %36, align 2, !tbaa !26
   %38 = sitofp i16 %37 to float
   %39 = fmul nsz float %11, %38
@@ -454,7 +452,7 @@ define void @swri_noise_shaping_int16(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph.us.preheader:                              ; preds = %35
   %41 = sext i32 %.18089.us to i64
-  %invariant.gep = getelementptr float, ptr %34, i64 %41
+  %invariant.gep = getelementptr [4 x i8], ptr %34, i64 %41
   br label %.lr.ph.us
 
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
@@ -469,11 +467,11 @@ define void @swri_noise_shaping_int16(ptr noundef captures(none) %0, ptr noundef
 
 44:                                               ; preds = %._crit_edge.us
   %45 = zext nneg i32 %.082.lcssa.us to i64
-  %46 = getelementptr inbounds nuw float, ptr %21, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !29
   %48 = add nsw i32 %.082.lcssa.us, %.18089.us
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds float, ptr %34, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %34, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !29
   %52 = fmul nsz float %47, %51
   %53 = fpext nsz float %52 to double
@@ -485,7 +483,7 @@ define void @swri_noise_shaping_int16(ptr noundef captures(none) %0, ptr noundef
   %.not.us = icmp eq i32 %.18089.us, 0
   %.v.us = select i1 %.not.us, i32 %9, i32 %.18089.us
   %56 = add nsw i32 %.v.us, -1
-  %57 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv103
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv103
   %58 = load float, ptr %57, align 4, !tbaa !29
   %59 = fpext nsz float %58 to double
   %60 = fadd nsz double %.1.us, %59
@@ -493,11 +491,11 @@ define void @swri_noise_shaping_int16(ptr noundef captures(none) %0, ptr noundef
   %62 = fsub nsz double %61, %.1.us
   %63 = fptrunc nsz double %62 to float
   %64 = sext i32 %56 to i64
-  %65 = getelementptr inbounds float, ptr %34, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %34, i64 %64
   store float %63, ptr %65, align 4, !tbaa !29
   %66 = add nsw i32 %56, %9
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds float, ptr %34, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %34, i64 %67
   store float %63, ptr %68, align 4, !tbaa !29
   %69 = fmul nsz double %61, %24
   %70 = fcmp nsz ogt double %69, 3.276700e+04
@@ -505,7 +503,7 @@ define void @swri_noise_shaping_int16(ptr noundef captures(none) %0, ptr noundef
   %72 = fcmp nsz ogt double %71, -3.276800e+04
   %73 = select i1 %72, double %71, double -3.276800e+04
   %74 = fptosi double %73 to i16
-  %75 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv103
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv103
   store i16 %74, ptr %75, align 2, !tbaa !26
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -514,9 +512,9 @@ define void @swri_noise_shaping_int16(ptr noundef captures(none) %0, ptr noundef
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.086.us = phi double [ %40, %.lr.ph.us.preheader ], [ %96, %.lr.ph.us ]
-  %76 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %77 = load float, ptr %76, align 4, !tbaa !29
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %78 = load float, ptr %gep, align 4, !tbaa !29
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %80 = load float, ptr %79, align 4, !tbaa !29
@@ -589,23 +587,23 @@ define void @swri_noise_shaping_int32(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph91.us:                                      ; preds = %.lr.ph91.us.preheader, %._crit_edge92.us
   %indvars.iv105 = phi i64 [ 0, %.lr.ph91.us.preheader ], [ %indvars.iv.next106, %._crit_edge92.us ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv105
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv105
   %26 = load ptr, ptr %25, align 8, !tbaa !49
   %27 = load i32, ptr %17, align 4, !tbaa !48
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds float, ptr %26, i64 %28
-  %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv105
+  %29 = getelementptr inbounds [4 x i8], ptr %26, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv105
   %31 = load ptr, ptr %30, align 8, !tbaa !49
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv105
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv105
   %33 = load ptr, ptr %32, align 8, !tbaa !49
-  %34 = getelementptr inbounds nuw [40 x float], ptr %18, i64 %indvars.iv105
+  %34 = getelementptr inbounds nuw [160 x i8], ptr %18, i64 %indvars.iv105
   %35 = load i32, ptr %6, align 4, !tbaa !33
   br label %36
 
 36:                                               ; preds = %.lr.ph91.us, %56
   %indvars.iv102 = phi i64 [ 0, %.lr.ph91.us ], [ %indvars.iv.next103, %56 ]
   %.18089.us = phi i32 [ %35, %.lr.ph91.us ], [ %57, %56 ]
-  %37 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv102
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv102
   %38 = load i32, ptr %37, align 4, !tbaa !28
   %39 = sitofp i32 %38 to float
   %40 = fmul nsz float %11, %39
@@ -614,7 +612,7 @@ define void @swri_noise_shaping_int32(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph.us.preheader:                              ; preds = %36
   %42 = sext i32 %.18089.us to i64
-  %invariant.gep = getelementptr float, ptr %34, i64 %42
+  %invariant.gep = getelementptr [4 x i8], ptr %34, i64 %42
   br label %.lr.ph.us
 
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
@@ -629,11 +627,11 @@ define void @swri_noise_shaping_int32(ptr noundef captures(none) %0, ptr noundef
 
 45:                                               ; preds = %._crit_edge.us
   %46 = zext nneg i32 %.082.lcssa.us to i64
-  %47 = getelementptr inbounds nuw float, ptr %19, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !29
   %49 = add nsw i32 %.082.lcssa.us, %.18089.us
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds float, ptr %34, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %34, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !29
   %53 = fmul nsz float %48, %52
   %54 = fpext nsz float %53 to double
@@ -645,7 +643,7 @@ define void @swri_noise_shaping_int32(ptr noundef captures(none) %0, ptr noundef
   %.not.us = icmp eq i32 %.18089.us, 0
   %.v.us = select i1 %.not.us, i32 %9, i32 %.18089.us
   %57 = add nsw i32 %.v.us, -1
-  %58 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv102
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv102
   %59 = load float, ptr %58, align 4, !tbaa !29
   %60 = fpext nsz float %59 to double
   %61 = fadd nsz double %.1.us, %60
@@ -653,11 +651,11 @@ define void @swri_noise_shaping_int32(ptr noundef captures(none) %0, ptr noundef
   %63 = fsub nsz double %62, %.1.us
   %64 = fptrunc nsz double %63 to float
   %65 = sext i32 %57 to i64
-  %66 = getelementptr inbounds float, ptr %34, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %34, i64 %65
   store float %64, ptr %66, align 4, !tbaa !29
   %67 = add nsw i32 %57, %9
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds float, ptr %34, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %34, i64 %68
   store float %64, ptr %69, align 4, !tbaa !29
   %70 = fmul nsz double %62, %22
   %71 = fcmp nsz ogt double %70, 0x41DFFFFFFFC00000
@@ -665,7 +663,7 @@ define void @swri_noise_shaping_int32(ptr noundef captures(none) %0, ptr noundef
   %73 = fcmp nsz ogt double %72, 0xC1E0000000000000
   %74 = select i1 %73, double %72, double 0xC1E0000000000000
   %75 = fptosi double %74 to i32
-  %76 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv102
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv102
   store i32 %75, ptr %76, align 4, !tbaa !28
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
@@ -674,9 +672,9 @@ define void @swri_noise_shaping_int32(ptr noundef captures(none) %0, ptr noundef
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.086.us = phi double [ %41, %.lr.ph.us.preheader ], [ %97, %.lr.ph.us ]
-  %77 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %78 = load float, ptr %77, align 4, !tbaa !29
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %79 = load float, ptr %gep, align 4, !tbaa !29
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %81 = load float, ptr %80, align 4, !tbaa !29
@@ -757,34 +755,34 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph86.us.us:                                   ; preds = %.lr.ph86.us.us.preheader, %._crit_edge87.split.us.us.us
   %indvars.iv119 = phi i64 [ 0, %.lr.ph86.us.us.preheader ], [ %indvars.iv.next120, %._crit_edge87.split.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv119
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv119
   %29 = load ptr, ptr %28, align 8, !tbaa !49
-  %30 = getelementptr inbounds float, ptr %29, i64 %19
-  %31 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv119
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %19
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv119
   %32 = load ptr, ptr %31, align 8, !tbaa !49
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv119
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv119
   %34 = load ptr, ptr %33, align 8, !tbaa !49
-  %35 = getelementptr inbounds nuw [40 x float], ptr %20, i64 %indvars.iv119
+  %35 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %indvars.iv119
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %52, %.lr.ph86.us.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %52 ], [ 0, %.lr.ph86.us.us ]
   %.17684.us.us.us = phi i32 [ %53, %52 ], [ %7, %.lr.ph86.us.us ]
-  %36 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv114
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv114
   %37 = load float, ptr %36, align 4, !tbaa !29
   %38 = fmul nsz float %11, %37
   %39 = fpext nsz float %38 to double
   %40 = sext i32 %.17684.us.us.us to i64
-  %invariant.gep = getelementptr float, ptr %35, i64 %40
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %40
   br label %69
 
 41:                                               ; preds = %._crit_edge.us.us.us
   %42 = and i64 %indvars.iv.next112, 4294967292
-  %43 = getelementptr inbounds nuw float, ptr %21, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !29
   %45 = add nsw i32 %.17684.us.us.us, %92
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds float, ptr %35, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %35, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !29
   %49 = fmul nsz float %44, %48
   %50 = fpext nsz float %49 to double
@@ -796,7 +794,7 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
   %.not.us.us.us = icmp eq i32 %.17684.us.us.us, 0
   %.v.us.us.us = select i1 %.not.us.us.us, i32 %9, i32 %.17684.us.us.us
   %53 = add nsw i32 %.v.us.us.us, -1
-  %54 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv114
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv114
   %55 = load float, ptr %54, align 4, !tbaa !29
   %56 = fpext nsz float %55 to double
   %57 = fadd nsz double %.1.us.us.us, %56
@@ -804,15 +802,15 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
   %59 = fsub nsz double %58, %.1.us.us.us
   %60 = fptrunc nsz double %59 to float
   %61 = sext i32 %53 to i64
-  %62 = getelementptr inbounds float, ptr %35, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %35, i64 %61
   store float %60, ptr %62, align 4, !tbaa !29
   %63 = add nsw i32 %53, %9
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds float, ptr %35, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %35, i64 %64
   store float %60, ptr %65, align 4, !tbaa !29
   %66 = fmul nsz double %58, %24
   %67 = fptrunc nsz double %66 to float
-  %68 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv114
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv114
   store float %67, ptr %68, align 4, !tbaa !29
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -821,9 +819,9 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
 69:                                               ; preds = %69, %.lr.ph.us.us.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %69 ], [ 0, %.lr.ph.us.us.us ]
   %.081.us.us.us = phi double [ %90, %69 ], [ %39, %.lr.ph.us.us.us ]
-  %70 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv111
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv111
   %71 = load float, ptr %70, align 4, !tbaa !29
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv111
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv111
   %72 = load float, ptr %gep, align 4, !tbaa !29
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %74 = load float, ptr %73, align 4, !tbaa !29
@@ -859,20 +857,20 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph86.us:                                      ; preds = %.lr.ph86.us.preheader, %._crit_edge87.split.us95
   %indvars.iv106 = phi i64 [ 0, %.lr.ph86.us.preheader ], [ %indvars.iv.next107, %._crit_edge87.split.us95 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv106
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv106
   %95 = load ptr, ptr %94, align 8, !tbaa !49
-  %96 = getelementptr inbounds float, ptr %95, i64 %19
-  %97 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv106
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %19
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv106
   %98 = load ptr, ptr %97, align 8, !tbaa !49
-  %99 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv106
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv106
   %100 = load ptr, ptr %99, align 8, !tbaa !49
-  %101 = getelementptr inbounds nuw [40 x float], ptr %20, i64 %indvars.iv106
+  %101 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %indvars.iv106
   br label %102
 
 102:                                              ; preds = %.lr.ph86.us, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph86.us ], [ %indvars.iv.next, %115 ]
   %.17684.us90 = phi i32 [ %7, %.lr.ph86.us ], [ %116, %115 ]
-  %103 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv
   %104 = load float, ptr %103, align 4, !tbaa !29
   %105 = fmul nsz float %11, %104
   %106 = fpext nsz float %105 to double
@@ -881,7 +879,7 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
 107:                                              ; preds = %102
   %108 = load float, ptr %21, align 4, !tbaa !29
   %109 = sext i32 %.17684.us90 to i64
-  %110 = getelementptr inbounds float, ptr %101, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %101, i64 %109
   %111 = load float, ptr %110, align 4, !tbaa !29
   %112 = fmul nsz float %108, %111
   %113 = fpext nsz float %112 to double
@@ -893,7 +891,7 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
   %.not.us93 = icmp eq i32 %.17684.us90, 0
   %.v.us94 = select i1 %.not.us93, i32 %9, i32 %.17684.us90
   %116 = add nsw i32 %.v.us94, -1
-  %117 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %118 = load float, ptr %117, align 4, !tbaa !29
   %119 = fpext nsz float %118 to double
   %120 = fadd nsz double %.1.us92, %119
@@ -901,15 +899,15 @@ define void @swri_noise_shaping_float(ptr noundef captures(none) %0, ptr noundef
   %122 = fsub nsz double %121, %.1.us92
   %123 = fptrunc nsz double %122 to float
   %124 = sext i32 %116 to i64
-  %125 = getelementptr inbounds float, ptr %101, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %101, i64 %124
   store float %123, ptr %125, align 4, !tbaa !29
   %126 = add nsw i32 %116, %9
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds float, ptr %101, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %101, i64 %127
   store float %123, ptr %128, align 4, !tbaa !29
   %129 = fmul nsz double %121, %24
   %130 = fptrunc nsz double %129 to float
-  %131 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv
   store float %130, ptr %131, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -971,33 +969,33 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
 
 .lr.ph86.us.us:                                   ; preds = %.lr.ph86.us.us.preheader, %._crit_edge87.split.us.us.us
   %indvars.iv119 = phi i64 [ 0, %.lr.ph86.us.us.preheader ], [ %indvars.iv.next120, %._crit_edge87.split.us.us.us ]
-  %29 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv119
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv119
   %30 = load ptr, ptr %29, align 8, !tbaa !49
-  %31 = getelementptr inbounds float, ptr %30, i64 %19
-  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv119
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %19
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv119
   %33 = load ptr, ptr %32, align 8, !tbaa !49
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv119
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv119
   %35 = load ptr, ptr %34, align 8, !tbaa !49
-  %36 = getelementptr inbounds nuw [40 x float], ptr %20, i64 %indvars.iv119
+  %36 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %indvars.iv119
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %52, %.lr.ph86.us.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %52 ], [ 0, %.lr.ph86.us.us ]
   %.17684.us.us.us = phi i32 [ %53, %52 ], [ %7, %.lr.ph86.us.us ]
-  %37 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv114
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv114
   %38 = load double, ptr %37, align 8, !tbaa !23
   %39 = fmul nsz double %38, %23
   %40 = sext i32 %.17684.us.us.us to i64
-  %invariant.gep = getelementptr float, ptr %36, i64 %40
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %40
   br label %68
 
 41:                                               ; preds = %._crit_edge.us.us.us
   %42 = and i64 %indvars.iv.next112, 4294967292
-  %43 = getelementptr inbounds nuw float, ptr %21, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !29
   %45 = add nsw i32 %.17684.us.us.us, %91
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds float, ptr %36, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %36, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !29
   %49 = fmul nsz float %44, %48
   %50 = fpext nsz float %49 to double
@@ -1009,7 +1007,7 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
   %.not.us.us.us = icmp eq i32 %.17684.us.us.us, 0
   %.v.us.us.us = select i1 %.not.us.us.us, i32 %9, i32 %.17684.us.us.us
   %53 = add nsw i32 %.v.us.us.us, -1
-  %54 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv114
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv114
   %55 = load float, ptr %54, align 4, !tbaa !29
   %56 = fpext nsz float %55 to double
   %57 = fadd nsz double %.1.us.us.us, %56
@@ -1017,14 +1015,14 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
   %59 = fsub nsz double %58, %.1.us.us.us
   %60 = fptrunc nsz double %59 to float
   %61 = sext i32 %53 to i64
-  %62 = getelementptr inbounds float, ptr %36, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %36, i64 %61
   store float %60, ptr %62, align 4, !tbaa !29
   %63 = add nsw i32 %53, %9
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds float, ptr %36, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %36, i64 %64
   store float %60, ptr %65, align 4, !tbaa !29
   %66 = fmul nsz double %58, %25
-  %67 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv114
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv114
   store double %66, ptr %67, align 8, !tbaa !23
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -1033,9 +1031,9 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
 68:                                               ; preds = %68, %.lr.ph.us.us.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %68 ], [ 0, %.lr.ph.us.us.us ]
   %.081.us.us.us = phi double [ %89, %68 ], [ %39, %.lr.ph.us.us.us ]
-  %69 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv111
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv111
   %70 = load float, ptr %69, align 4, !tbaa !29
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv111
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv111
   %71 = load float, ptr %gep, align 4, !tbaa !29
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %73 = load float, ptr %72, align 4, !tbaa !29
@@ -1071,20 +1069,20 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
 
 .lr.ph86.us:                                      ; preds = %.lr.ph86.us.preheader, %._crit_edge87.split.us95
   %indvars.iv106 = phi i64 [ 0, %.lr.ph86.us.preheader ], [ %indvars.iv.next107, %._crit_edge87.split.us95 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv106
   %94 = load ptr, ptr %93, align 8, !tbaa !49
-  %95 = getelementptr inbounds float, ptr %94, i64 %19
-  %96 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv106
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %19
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv106
   %97 = load ptr, ptr %96, align 8, !tbaa !49
-  %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv106
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv106
   %99 = load ptr, ptr %98, align 8, !tbaa !49
-  %100 = getelementptr inbounds nuw [40 x float], ptr %20, i64 %indvars.iv106
+  %100 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %indvars.iv106
   br label %101
 
 101:                                              ; preds = %.lr.ph86.us, %113
   %indvars.iv = phi i64 [ 0, %.lr.ph86.us ], [ %indvars.iv.next, %113 ]
   %.17684.us90 = phi i32 [ %7, %.lr.ph86.us ], [ %114, %113 ]
-  %102 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %103 = load double, ptr %102, align 8, !tbaa !23
   %104 = fmul nsz double %103, %23
   br i1 %26, label %105, label %113
@@ -1092,7 +1090,7 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
 105:                                              ; preds = %101
   %106 = load float, ptr %21, align 4, !tbaa !29
   %107 = sext i32 %.17684.us90 to i64
-  %108 = getelementptr inbounds float, ptr %100, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %100, i64 %107
   %109 = load float, ptr %108, align 4, !tbaa !29
   %110 = fmul nsz float %106, %109
   %111 = fpext nsz float %110 to double
@@ -1104,7 +1102,7 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
   %.not.us93 = icmp eq i32 %.17684.us90, 0
   %.v.us94 = select i1 %.not.us93, i32 %9, i32 %.17684.us90
   %114 = add nsw i32 %.v.us94, -1
-  %115 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv
   %116 = load float, ptr %115, align 4, !tbaa !29
   %117 = fpext nsz float %116 to double
   %118 = fadd nsz double %.1.us92, %117
@@ -1112,14 +1110,14 @@ define void @swri_noise_shaping_double(ptr noundef captures(none) %0, ptr nounde
   %120 = fsub nsz double %119, %.1.us92
   %121 = fptrunc nsz double %120 to float
   %122 = sext i32 %114 to i64
-  %123 = getelementptr inbounds float, ptr %100, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %100, i64 %122
   store float %121, ptr %123, align 4, !tbaa !29
   %124 = add nsw i32 %114, %9
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds float, ptr %100, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %100, i64 %125
   store float %121, ptr %126, align 4, !tbaa !29
   %127 = fmul nsz double %119, %25
-  %128 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   store double %127, ptr %128, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

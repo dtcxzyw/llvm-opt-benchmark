@@ -271,9 +271,9 @@ define hidden void @_ZN6google8protobuf18StringPrintfVectorEPKcRKSt6vectorINSt7_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %37, ptr %38, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
@@ -349,7 +349,7 @@ define hidden void @_ZN6google8protobuf18StringPrintfVectorEPKcRKSt6vectorINSt7_
 
 .lr.ph30:                                         ; preds = %._crit_edge, %.lr.ph30
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.lr.ph30 ], [ %29, %._crit_edge ]
-  %102 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv33
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv33
   store ptr @_ZN6google8protobufL25string_printf_empty_blockE, ptr %102, align 8, !tbaa !18
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %103 = and i64 %indvars.iv.next34, 4294967295

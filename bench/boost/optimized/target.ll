@@ -58,7 +58,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.epoll_event = type <{ i32, %union.epoll_data }>
 %union.epoll_data = type { ptr }
 %"class.boost::asio::detail::op_queue.12" = type { ptr, ptr }
-%"class.boost::asio::detail::op_queue.20" = type { ptr, ptr }
 %struct.itimerspec = type { %struct.timespec, %struct.timespec }
 %union.pthread_condattr_t = type { i32 }
 %"struct.boost::asio::detail::scheduler_thread_info" = type { %"class.boost::asio::detail::thread_info_base", %"class.boost::asio::detail::op_queue.12", i64 }
@@ -1382,7 +1381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %_ZZ
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %173
   %indvars.iv = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next, %173 ]
-  %174 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %175 = load ptr, ptr %174, align 8, !tbaa !4
   %.not.i = icmp eq ptr %175, null
   br i1 %.not.i, label %176, label %184
@@ -2139,7 +2138,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader53.i.i.i.i.i.i.i:                       ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
   %.not61.i.i.i.i.i.i.i = phi i1 [ false, %.thread.i.i.i.i.i.i.i ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 1, %.thread.i.i.i.i.i.i.i ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %.not46.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not46.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i, label %15
@@ -2154,7 +2153,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %.thread51.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i
 
 .thread51.i.i.i.i.i.i.i:                          ; preds = %15
-  %20 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !4
   %21 = load i8, ptr %14, align 1, !tbaa !14
   br label %33
@@ -2168,13 +2167,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader.i.i.i.i.i.i.i:                         ; preds = %.thread.i.i.i.i.i.i.i, %22
   %23 = phi i1 [ false, %22 ], [ true, %.thread.i.i.i.i.i.i.i ]
   %indvars.iv70.i.i.i.i.i.i.i = phi i64 [ 1, %22 ], [ 0, %.thread.i.i.i.i.i.i.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %.not48.i.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not48.i.i.i.i.i.i.i, label %22, label %26
 
 26:                                               ; preds = %.preheader.i.i.i.i.i.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
   store ptr null, ptr %27, align 8, !tbaa !4
   tail call void @free(ptr noundef nonnull %25) #38
   br label %.loopexit.i.i.i.i.i.i.i
@@ -2384,7 +2383,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader53.i.i.i.i.i.i.i:                       ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
   %.not61.i.i.i.i.i.i.i = phi i1 [ false, %.thread.i.i.i.i.i.i.i ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 1, %.thread.i.i.i.i.i.i.i ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %.not46.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not46.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i, label %15
@@ -2399,7 +2398,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %.thread51.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i
 
 .thread51.i.i.i.i.i.i.i:                          ; preds = %15
-  %20 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !4
   %21 = load i8, ptr %14, align 1, !tbaa !14
   br label %33
@@ -2413,13 +2412,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader.i.i.i.i.i.i.i:                         ; preds = %.thread.i.i.i.i.i.i.i, %22
   %23 = phi i1 [ false, %22 ], [ true, %.thread.i.i.i.i.i.i.i ]
   %indvars.iv70.i.i.i.i.i.i.i = phi i64 [ 1, %22 ], [ 0, %.thread.i.i.i.i.i.i.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %.not48.i.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not48.i.i.i.i.i.i.i, label %22, label %26
 
 26:                                               ; preds = %.preheader.i.i.i.i.i.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv70.i.i.i.i.i.i.i
   store ptr null, ptr %27, align 8, !tbaa !4
   tail call void @free(ptr noundef nonnull %25) #38
   br label %.loopexit.i.i.i.i.i.i.i
@@ -6543,7 +6542,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ;
 38:                                               ; preds = %.preheader, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit
   %39 = phi ptr [ %21, %.preheader ], [ %45, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit ]
-  %40 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.20", ptr %23, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   %.not.i19 = icmp eq ptr %41, null
   br i1 %.not.i19, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit, label %42
@@ -7098,7 +7097,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
 53:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %.02960 = phi i1 [ %49, %.lr.ph ], [ %.130, %72 ]
-  %54 = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load ptr, ptr %55, align 4, !tbaa !14
   %57 = icmp eq ptr %56, %51
@@ -8361,7 +8360,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader:
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i: ; preds = %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader, %108
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %108 ], [ 0, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader ]
-  %105 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   %106 = load ptr, ptr %105, align 8, !tbaa !4
   %.not.i1.i = icmp eq ptr %106, null
   br i1 %.not.i1.i, label %108, label %107
@@ -8862,7 +8861,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader: ;
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit: ; preds = %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader ]
-  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %.not.i1 = icmp eq ptr %24, null
   br i1 %.not.i1, label %26, label %25
@@ -9554,20 +9553,20 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_18chrono
 
 24:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %25 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %9, i64 %7
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !254
-  %26 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %9, i64 %20
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !254
   %27 = load ptr, ptr %8, align 8, !tbaa !255
-  %28 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %27, i64 %20
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !254
   %29 = load ptr, ptr %8, align 8, !tbaa !255
-  %30 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %29, i64 %7
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %7
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !256
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 %7, ptr %33, align 8, !tbaa !78
-  %34 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %29, i64 %20
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %20
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !256
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -9583,7 +9582,7 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_18chrono
 40:                                               ; preds = %24
   %41 = add i64 %7, -1
   %42 = lshr i64 %41, 1
-  %43 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %29, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %42
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %30, align 8, !tbaa !10
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %43, align 8, !tbaa !10
   %44 = icmp slt i64 %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i2.i.i
@@ -9594,8 +9593,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_18chrono
   %.0812.i = phi i64 [ %47, %51 ], [ %7, %40 ]
   %46 = add i64 %.0812.i, -1
   %47 = lshr i64 %46, 1
-  %48 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %45, i64 %.0812.i
-  %49 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %.0812.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %47
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %48, align 8, !tbaa !10
   %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %49, align 8, !tbaa !10
   %50 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i
@@ -9606,15 +9605,15 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_18chrono
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !254
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !254
   %52 = load ptr, ptr %8, align 8, !tbaa !255
-  %53 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %52, i64 %47
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !254
   %54 = load ptr, ptr %8, align 8, !tbaa !255
-  %55 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %54, i64 %.0812.i
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %.0812.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !256
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 %.0812.i, ptr %58, align 8, !tbaa !78
-  %59 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %54, i64 %47
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %47
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !256
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -9644,8 +9643,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_18chrono
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %.lr.ph.i26
-  %74 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %70, i64 %.01527.i
-  %75 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %70, i64 %71
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %.01527.i
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %71
   %.sroa.0.0.copyload.i.i.i.i27 = load i64, ptr %74, align 8, !tbaa !10
   %.sroa.0.0.copyload.i2.i.i.i28 = load i64, ptr %75, align 8, !tbaa !10
   %76 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i27, %.sroa.0.0.copyload.i2.i.i.i28
@@ -9654,8 +9653,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_18chrono
 
 77:                                               ; preds = %73, %.lr.ph.i26
   %78 = phi i64 [ %.01527.i, %.lr.ph.i26 ], [ %spec.select.i, %73 ]
-  %79 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %70, i64 %.01425.i
-  %80 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %70, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %.01425.i
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %78
   %.sroa.0.0.copyload.i.i.i18.i = load i64, ptr %79, align 8, !tbaa !10
   %.sroa.0.0.copyload.i2.i.i19.i = load i64, ptr %80, align 8, !tbaa !10
   %81 = icmp slt i64 %.sroa.0.0.copyload.i.i.i18.i, %.sroa.0.0.copyload.i2.i.i19.i
@@ -9666,15 +9665,15 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_18chrono
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !254
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !254
   %83 = load ptr, ptr %8, align 8, !tbaa !255
-  %84 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %83, i64 %78
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !254
   %85 = load ptr, ptr %8, align 8, !tbaa !255
-  %86 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %85, i64 %.01425.i
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %.01425.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !256
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i64 %.01425.i, ptr %89, align 8, !tbaa !78
-  %90 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %85, i64 %78
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %78
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !256
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -10934,7 +10933,7 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 .preheader53.i:                                   ; preds = %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit, %.thread.i
   %.not61.i = phi i1 [ false, %.thread.i ], [ true, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit ]
   %indvars.iv.i = phi i64 [ 1, %.thread.i ], [ 0, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %.not46.i = icmp eq ptr %8, null
   br i1 %.not46.i, label %.thread.i, label %9
@@ -10949,7 +10948,7 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
   br i1 %or.cond, label %.thread51.i, label %.thread.i
 
 .thread51.i:                                      ; preds = %9
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8, !tbaa !4
   %15 = load i8, ptr %8, align 1, !tbaa !14
   br label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
@@ -10963,13 +10962,13 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 .preheader.i:                                     ; preds = %.thread.i, %16
   %17 = phi i1 [ false, %16 ], [ true, %.thread.i ]
   %indvars.iv70.i = phi i64 [ 1, %16 ], [ 0, %.thread.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv70.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv70.i
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %.not48.i = icmp eq ptr %19, null
   br i1 %.not48.i, label %16, label %20
 
 20:                                               ; preds = %.preheader.i
-  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv70.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv70.i
   store ptr null, ptr %21, align 8, !tbaa !4
   tail call void @free(ptr noundef nonnull %19) #38
   br label %.loopexit.i
@@ -11198,13 +11197,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %20
   %21 = phi i1 [ false, %20 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %20 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %20
 
 25:                                               ; preds = %.preheader.i.i.i
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %28 = load i8, ptr %27, align 1, !tbaa !14
   store i8 %28, ptr %14, align 1, !tbaa !14
@@ -11801,13 +11800,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %15
   %16 = phi i1 [ false, %15 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %15 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %15
 
 20:                                               ; preds = %.preheader.i.i.i
-  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i8, ptr %22, align 1, !tbaa !14
   store i8 %23, ptr %1, align 1, !tbaa !14
@@ -13929,13 +13928,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %24
   %25 = phi i1 [ false, %24 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %24 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %24
 
 29:                                               ; preds = %.preheader.i.i.i
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %32 = load i8, ptr %31, align 1, !tbaa !14
   store i8 %32, ptr %18, align 1, !tbaa !14
@@ -14037,13 +14036,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %41
   %42 = phi i1 [ false, %41 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %41 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !4
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %41
 
 46:                                               ; preds = %.preheader.i.i.i
-  %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %49 = load i8, ptr %48, align 1, !tbaa !14
   store i8 %49, ptr %1, align 1, !tbaa !14
@@ -14102,7 +14101,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader53.i.i.i.i.i.i.i:                       ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
   %exitcond.i.i.i.i.i.i.i = phi i1 [ true, %.thread.i.i.i.i.i.i.i ], [ false, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 5, %.thread.i.i.i.i.i.i.i ], [ 4, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !4
   %.not46.i.i.i.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not46.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i, label %70
@@ -14117,7 +14116,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %.thread51.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i
 
 .thread51.i.i.i.i.i.i.i:                          ; preds = %70
-  %75 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
   store ptr null, ptr %75, align 8, !tbaa !4
   %76 = load i8, ptr %69, align 1, !tbaa !14
   br label %"_ZN5boost4asio6detail17executor_functionC2INS1_7binder1IZ4mainE3$_1NS_6system10error_codeEEESaIvEEET_RKT0_.exit.i.i.i"
@@ -14131,13 +14130,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader.i.i.i.i.i.i.i:                         ; preds = %.thread.i.i.i.i.i.i.i, %77
   %exitcond72.not.i.i.i.i.i.i.i = phi i1 [ true, %77 ], [ false, %.thread.i.i.i.i.i.i.i ]
   %indvars.iv69.i.i.i.i.i.i.i = phi i64 [ 5, %77 ], [ 4, %.thread.i.i.i.i.i.i.i ]
-  %78 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
   %79 = load ptr, ptr %78, align 8, !tbaa !4
   %.not48.i.i.i.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not48.i.i.i.i.i.i.i, label %77, label %80
 
 80:                                               ; preds = %.preheader.i.i.i.i.i.i.i
-  %81 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
   store ptr null, ptr %81, align 8, !tbaa !4
   call void @free(ptr noundef nonnull %79) #38
   br label %.loopexit.i.i.i.i.i.i.i
@@ -14323,13 +14322,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %11
   %exitcond.not.i.i.i = phi i1 [ true, %11 ], [ false, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 5, %11 ], [ 4, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %11
 
 15:                                               ; preds = %.preheader.i.i.i
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i8, ptr %17, align 1, !tbaa !14
   store i8 %18, ptr %0, align 1, !tbaa !14
@@ -14580,7 +14579,7 @@ _ZNSt6vectorIN5boost4asio6detail11timer_queueINS2_18chrono_time_traitsINSt6chron
 _ZNSt6vectorIN5boost4asio6detail11timer_queueINS2_18chrono_time_traitsINSt6chrono3_V212steady_clockENS1_11wait_traitsIS7_EEEEE10heap_entryESaISC_EE17_M_realloc_insertIJRKSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIN5boost4asio6detail11timer_queueINS2_18chrono_time_traitsINSt6chrono3_V212steady_clockENS1_11wait_traitsIS7_EEEEE10heap_entryESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i
   store ptr %36, ptr %13, align 8, !tbaa !255
   store ptr %40, ptr %14, align 8, !tbaa !253
-  %42 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %34
   store ptr %42, ptr %23, align 8, !tbaa !263
   br label %_ZNSt6vectorIN5boost4asio6detail11timer_queueINS2_18chrono_time_traitsINSt6chrono3_V212steady_clockENS1_11wait_traitsIS7_EEEEE10heap_entryESaISC_EE9push_backERKSC_.exit
 
@@ -14600,8 +14599,8 @@ _ZNSt6vectorIN5boost4asio6detail11timer_queueINS2_18chrono_time_traitsINSt6chron
   %.0812.i = phi i64 [ %52, %56 ], [ %49, %_ZNSt6vectorIN5boost4asio6detail11timer_queueINS2_18chrono_time_traitsINSt6chrono3_V212steady_clockENS1_11wait_traitsIS7_EEEEE10heap_entryESaISC_EE9push_backERKSC_.exit ]
   %51 = add nsw i64 %.0812.i, -1
   %52 = lshr i64 %51, 1
-  %53 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %50, i64 %.0812.i
-  %54 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %.0812.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %52
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %53, align 8, !tbaa !10
   %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %54, align 8, !tbaa !10
   %55 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i
@@ -14612,15 +14611,15 @@ _ZNSt6vectorIN5boost4asio6detail11timer_queueINS2_18chrono_time_traitsINSt6chron
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !254
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !254
   %57 = load ptr, ptr %13, align 8, !tbaa !255
-  %58 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %57, i64 %52
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !254
   %59 = load ptr, ptr %13, align 8, !tbaa !255
-  %60 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %59, i64 %.0812.i
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %.0812.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !256
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i64 %.0812.i, ptr %63, align 8, !tbaa !78
-  %64 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, boost::asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %59, i64 %52
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %52
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !256
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -14719,13 +14718,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %24
   %25 = phi i1 [ false, %24 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %24 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %24
 
 29:                                               ; preds = %.preheader.i.i.i
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %32 = load i8, ptr %31, align 1, !tbaa !14
   store i8 %32, ptr %18, align 1, !tbaa !14
@@ -14827,13 +14826,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %41
   %42 = phi i1 [ false, %41 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %41 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !4
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %41
 
 46:                                               ; preds = %.preheader.i.i.i
-  %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %49 = load i8, ptr %48, align 1, !tbaa !14
   store i8 %49, ptr %1, align 1, !tbaa !14
@@ -14892,7 +14891,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader53.i.i.i.i.i.i.i:                       ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
   %exitcond.i.i.i.i.i.i.i = phi i1 [ true, %.thread.i.i.i.i.i.i.i ], [ false, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 5, %.thread.i.i.i.i.i.i.i ], [ 4, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i ]
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !4
   %.not46.i.i.i.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not46.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i, label %70
@@ -14907,7 +14906,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %.thread51.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i
 
 .thread51.i.i.i.i.i.i.i:                          ; preds = %70
-  %75 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i
   store ptr null, ptr %75, align 8, !tbaa !4
   %76 = load i8, ptr %69, align 1, !tbaa !14
   br label %"_ZN5boost4asio6detail17executor_functionC2INS1_7binder1IZ4mainE3$_3NS_6system10error_codeEEESaIvEEET_RKT0_.exit.i.i.i"
@@ -14921,13 +14920,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 .preheader.i.i.i.i.i.i.i:                         ; preds = %.thread.i.i.i.i.i.i.i, %77
   %exitcond72.not.i.i.i.i.i.i.i = phi i1 [ true, %77 ], [ false, %.thread.i.i.i.i.i.i.i ]
   %indvars.iv69.i.i.i.i.i.i.i = phi i64 [ 5, %77 ], [ 4, %.thread.i.i.i.i.i.i.i ]
-  %78 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
   %79 = load ptr, ptr %78, align 8, !tbaa !4
   %.not48.i.i.i.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not48.i.i.i.i.i.i.i, label %77, label %80
 
 80:                                               ; preds = %.preheader.i.i.i.i.i.i.i
-  %81 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv69.i.i.i.i.i.i.i
   store ptr null, ptr %81, align 8, !tbaa !4
   call void @free(ptr noundef nonnull %79) #38
   br label %.loopexit.i.i.i.i.i.i.i
@@ -15113,13 +15112,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %11
   %exitcond.not.i.i.i = phi i1 [ true, %11 ], [ false, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 5, %11 ], [ 4, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %11
 
 15:                                               ; preds = %.preheader.i.i.i
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i8, ptr %17, align 1, !tbaa !14
   store i8 %18, ptr %0, align 1, !tbaa !14

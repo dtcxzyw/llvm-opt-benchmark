@@ -84,7 +84,7 @@ xmalloc.exit.i:                                   ; preds = %countOccurrences.ex
   %24 = getelementptr inbounds i8, ptr %.02733.i, i64 %23
   %25 = icmp eq i64 %23, 0
   %26 = select i1 %25, ptr @.str.8, ptr %.02733.i
-  %27 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   store ptr %26, ptr %27, align 8
   store i8 0, ptr %24, align 1
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
@@ -94,7 +94,7 @@ xmalloc.exit.i:                                   ; preds = %countOccurrences.ex
 
 29:                                               ; preds = %22
   %30 = sext i32 %.0.lcssa.i.i to i64
-  %31 = getelementptr ptr, ptr %18, i64 %30
+  %31 = getelementptr [8 x i8], ptr %18, i64 %30
   %32 = getelementptr i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8
   store ptr %18, ptr @parentPathv, align 8
@@ -833,7 +833,7 @@ arraysize.exit89.i:                               ; preds = %._crit_edge.i86.i, 
 
 91:                                               ; preds = %101, %arraysize.exit89.i
   %indvars.iv.i = phi i64 [ 0, %arraysize.exit89.i ], [ %indvars.iv.next.i, %101 ]
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i
   %93 = load i32, ptr %92, align 4
   %.not64.i = icmp eq i32 %93, -1
   br i1 %.not64.i, label %101, label %94

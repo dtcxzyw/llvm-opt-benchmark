@@ -42,12 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::WideColumn, std::allocator<rocksdb::WideColumn>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.44" = type { %"struct.std::__uniq_ptr_data.45" }
-%"struct.std::__uniq_ptr_data.45" = type { %"class.std::__uniq_ptr_impl.46" }
-%"class.std::__uniq_ptr_impl.46" = type { %"class.std::tuple.47" }
-%"class.std::tuple.47" = type { %"struct.std::_Tuple_impl.48" }
-%"struct.std::_Tuple_impl.48" = type { %"struct.std::_Head_base.51" }
-%"struct.std::_Head_base.51" = type { ptr }
 %"struct.rocksdb::ParsedInternalKey" = type <{ %"class.rocksdb::Slice", i64, i8, [7 x i8] }>
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
@@ -3288,7 +3282,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %42, ptr %21, align 8, !tbaa !4
   store ptr %46, ptr %22, align 8, !tbaa !202
-  %48 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %48, ptr %24, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 
@@ -3420,7 +3414,7 @@ _ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE17_M_realloc_insertIJPS6_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %97, %_ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i
   store ptr %91, ptr %51, align 8, !tbaa !214
   store ptr %96, ptr %73, align 8, !tbaa !209
-  %98 = getelementptr inbounds nuw %"class.std::unique_ptr.44", ptr %91, i64 %89
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %98, ptr %75, align 8, !tbaa !212
   br label %_ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJPS6_EEERS9_DpOT_.exit
 
@@ -3502,7 +3496,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %133, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %128, ptr %100, align 8, !tbaa !4
   store ptr %132, ptr %109, align 8, !tbaa !202
-  %134 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %128, i64 %126
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %126
   store ptr %134, ptr %111, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 

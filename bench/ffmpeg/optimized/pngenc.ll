@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
-%struct.AVRational = type { i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"png\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"PNG (Portable Network Graphics) image\00", align 1
@@ -820,7 +819,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
 
 239:                                              ; preds = %243, %237
   %.1136200.i.i = phi i64 [ 0, %237 ], [ %244, %243 ]
-  %240 = getelementptr inbounds nuw i32, ptr %238, i64 %.1136200.i.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %.1136200.i.i
   %241 = load i32, ptr %240, align 4, !tbaa !60
   %242 = icmp ult i32 %241, 16777216
   br i1 %242, label %.loopexit175.i.i, label %243
@@ -886,7 +885,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
 265:                                              ; preds = %264
   %266 = load i8, ptr %.0132204.us.i.i, align 1, !tbaa !57
   %267 = zext i8 %266 to i64
-  %268 = getelementptr inbounds nuw i32, ptr %.0134.i.i, i64 %267
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %.0134.i.i, i64 %267
   %269 = load i32, ptr %268, align 4, !tbaa !60
   %270 = icmp ugt i32 %269, -16777217
   br i1 %270, label %309, label %271
@@ -894,7 +893,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
 271:                                              ; preds = %265
   %272 = load i8, ptr %.0206.us.i.i, align 1, !tbaa !57
   %273 = zext i8 %272 to i64
-  %274 = getelementptr inbounds nuw i32, ptr %.0134.i.i, i64 %273
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %.0134.i.i, i64 %273
   %275 = load i32, ptr %274, align 4, !tbaa !60
   %276 = icmp ult i32 %275, 16777216
   br i1 %276, label %309, label %apng_do_inverse_blend.exit.thread.i
@@ -1960,7 +1959,7 @@ png_write_chunk.exit184:                          ; preds = %271, %319
 
 .preheader:                                       ; preds = %268, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %268 ]
-  %326 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %265, i64 %indvars.iv
+  %326 = getelementptr inbounds nuw [16 x i8], ptr %265, i64 %indvars.iv
   %327 = load i64, ptr %326, align 4
   %.sroa.0.0.extract.trunc.i185 = trunc i64 %327 to i32
   %.sroa.2.0.extract.shift.i186 = lshr i64 %327, 32
@@ -2287,7 +2286,7 @@ thread-pre-split:                                 ; preds = %png_write_chunk.exi
   %.0231 = phi ptr [ %508, %505 ], [ %514, %509 ]
   %.0132229 = phi i32 [ 0, %505 ], [ %spec.select, %509 ]
   %.0217228 = phi ptr [ %21, %505 ], [ %522, %509 ]
-  %510 = getelementptr inbounds nuw i32, ptr %507, i64 %indvars.iv235
+  %510 = getelementptr inbounds nuw [4 x i8], ptr %507, i64 %indvars.iv235
   %511 = load i32, ptr %510, align 4, !tbaa !60
   %512 = lshr i32 %511, 24
   %.not152 = icmp eq i32 %512, 255
@@ -2507,7 +2506,7 @@ define internal fastcc range(i32 -12, 1) i32 @encode_frame(ptr noundef readonly 
   %71 = getelementptr inbounds nuw i8, ptr @ff_png_pass_ymask, i64 %indvars.iv
   %72 = load i8, ptr %71, align 1, !tbaa !57
   %73 = zext i8 %72 to i32
-  %74 = getelementptr inbounds nuw i32, ptr @png_get_interlaced_row.masks, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @png_get_interlaced_row.masks, i64 %indvars.iv
   %75 = zext nneg i32 %67 to i64
   %76 = getelementptr inbounds nuw i8, ptr %26, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16

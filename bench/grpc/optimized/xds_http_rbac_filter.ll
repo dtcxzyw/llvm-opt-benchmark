@@ -59,8 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %struct.upb_strtable_iter = type { ptr, i64 }
-%struct._upb_tabent = type { i64, %struct.upb_tabval, ptr }
-%struct.upb_tabval = type { i64 }
 %class.anon.305 = type { ptr }
 %"class.absl::lts_20240722::Status" = type { i64 }
 %"class.absl::lts_20240722::StatusOr.320" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.321" }
@@ -84,7 +82,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union.343" = type { %"struct.std::__detail::__variant::_Uninitialized.344" }
 %"struct.std::__detail::__variant::_Uninitialized.344" = type { %"struct.grpc_core::FilterArgs::ChannelStackBased" }
 %"struct.grpc_core::FilterArgs::ChannelStackBased" = type { ptr, ptr, ptr }
-%"struct.grpc_core::filters_detail::ChannelDataDestructor" = type { ptr, ptr }
 %"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
 %"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr" }
 %"class.grpc_core::RefCountedPtr" = type { ptr }
@@ -108,7 +105,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base" = type { ptr }
 %"class.std::tuple.181" = type { i8 }
 %"struct.std::integral_constant.151" = type { i8 }
-%"struct.grpc_core::filters_detail::Operator" = type { ptr, i64, ptr, ptr, ptr }
 %"class.grpc_core::Poll" = type { i8, %union.anon.384 }
 %union.anon.384 = type { %"struct.grpc_core::filters_detail::ResultOr" }
 %"struct.grpc_core::filters_detail::ResultOr" = type { %"class.std::unique_ptr.385", %"class.std::unique_ptr.385" }
@@ -131,7 +127,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.437" = type { %"struct.std::_Tuple_impl.438" }
 %"struct.std::_Tuple_impl.438" = type { %"struct.std::_Head_base.441" }
 %"struct.std::_Head_base.441" = type { ptr }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 
 $_ZN9grpc_core12experimental4JsonD2Ev = comdat any
 
@@ -1050,7 +1045,7 @@ envoy_config_rbac_v3_RBAC_policies_next.exit:     ; preds = %.noexc96
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8, !tbaa !78
   %166 = load i64, ptr %122, align 8, !tbaa !77
-  %167 = getelementptr inbounds nuw %struct._upb_tabent, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %165, i64 %166
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %168 = icmp eq ptr %165, null
   br i1 %168, label %envoy_config_rbac_v3_RBAC_policies_next.exit.thread, label %178
@@ -1206,7 +1201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !83
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !83
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !83
-  %215 = getelementptr inbounds nuw ptr, ptr %201, i64 %.042125.i
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %.042125.i
   %216 = load ptr, ptr %215, align 8, !tbaa !92, !noalias !83
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef %216, ptr noundef nonnull %3)
           to label %217 unwind label %241, !noalias !83
@@ -1412,7 +1407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !83
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !83
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !83
-  %275 = getelementptr inbounds nuw ptr, ptr %259, i64 %.043126.i
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %.043126.i
   %276 = load ptr, ptr %275, align 8, !tbaa !99, !noalias !83
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %276, ptr noundef nonnull %3)
           to label %277 unwind label %301, !noalias !83
@@ -2301,7 +2296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i149: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !111
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !111
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !111
-  %543 = getelementptr inbounds nuw ptr, ptr %517, i64 %.01937.i
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %517, i64 %.01937.i
   %544 = load ptr, ptr %543, align 8, !tbaa !124, !noalias !111
   invoke void @_ZNK9grpc_core22XdsAuditLoggerRegistry27ConvertXdsAuditLoggerConfigERKNS_15XdsResourceType13DecodeContextEPK63envoy_config_rbac_v3_RBAC_AuditLoggingOptions_AuditLoggerConfigPNS_16ValidationErrorsE(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::experimental::Json") align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %510, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %544, ptr noundef nonnull %3)
           to label %545 unwind label %569, !noalias !111
@@ -3691,7 +3686,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %111, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %106, ptr %85, align 8, !tbaa !234
   store ptr %110, ptr %86, align 8, !tbaa !231
-  %112 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %104
   store ptr %112, ptr %88, align 8, !tbaa !232
   br label %_ZN4absl12lts_202407226StatusaSERKS1_.exit
 
@@ -4021,7 +4016,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !241
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !238
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !242
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -7073,7 +7068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN9g
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %51 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02145
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.02145
   %52 = load ptr, ptr %51, align 8, !tbaa !92
   %53 = load ptr, ptr %1, align 8, !tbaa !257
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %52, ptr noundef %53)
@@ -13437,7 +13432,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EE
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit, %40
   store ptr %24, ptr %0, align 8, !tbaa !56
   store ptr %38, ptr %6, align 8, !tbaa !59
-  %44 = getelementptr inbounds nuw %"class.grpc_core::experimental::Json", ptr %24, i64 %18
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %44, ptr %39, align 8, !tbaa !60
   ret void
 }
@@ -13981,7 +13976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN9g
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %51 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02145
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.02145
   %52 = load ptr, ptr %51, align 8, !tbaa !99
   %53 = load ptr, ptr %1, align 8, !tbaa !267
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %52, ptr noundef %53)
@@ -16853,7 +16848,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !426
   store ptr %29, ptr %5, align 8, !tbaa !424
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !425
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientInitialMetadataOpINS_10RbacFilterEEEvPT_m.exit
 
@@ -17979,7 +17974,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -18031,7 +18026,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11

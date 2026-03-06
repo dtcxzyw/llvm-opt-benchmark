@@ -865,7 +865,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #18
   store ptr null, ptr %constantArguments_, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1821,7 +1821,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %rowNumber_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %7 = sext i32 %resultOffset to i64
   %wide.trip.count.i = and i64 %div3.i, 2147483647
-  %invariant.gep.i = getelementptr i32, ptr %call5.i, i64 %7
+  %invariant.gep.i = getelementptr [4 x i8], ptr %call5.i, i64 %7
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1830,7 +1830,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc.i = add nsw i64 %8, 1
   store i64 %inc.i, ptr %rowNumber_.i, align 8
   %conv6.i = trunc i64 %8 to i32
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store i32 %conv6.i, ptr %gep.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1845,7 +1845,7 @@ for.body.lr.ph.i10:                               ; preds = %if.else
   %rowNumber_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %10 = sext i32 %resultOffset to i64
   %wide.trip.count.i12 = and i64 %div3.i, 2147483647
-  %invariant.gep.i13 = getelementptr i64, ptr %call5.i8, i64 %10
+  %invariant.gep.i13 = getelementptr [8 x i8], ptr %call5.i8, i64 %10
   br label %for.body.i14
 
 for.body.i14:                                     ; preds = %for.body.i14, %for.body.lr.ph.i10
@@ -1853,7 +1853,7 @@ for.body.i14:                                     ; preds = %for.body.i14, %for.
   %11 = load i64, ptr %rowNumber_.i11, align 8
   %inc.i16 = add nsw i64 %11, 1
   store i64 %inc.i16, ptr %rowNumber_.i11, align 8
-  %gep.i17 = getelementptr i64, ptr %invariant.gep.i13, i64 %indvars.iv.i15
+  %gep.i17 = getelementptr [8 x i8], ptr %invariant.gep.i13, i64 %indvars.iv.i15
   store i64 %11, ptr %gep.i17, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i12

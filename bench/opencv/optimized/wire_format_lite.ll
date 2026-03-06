@@ -1443,7 +1443,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit18.thread.us: ; pr
 48:                                               ; preds = %44
   %49 = load ptr, ptr %32, align 8, !tbaa !44
   %50 = zext i32 %45 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %.1.ph.us, ptr %51, align 4, !tbaa !36
   %.pre.i.us = add i32 %45, 1
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit.us
@@ -1453,7 +1453,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit18.thread.us: ; pr
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %53)
   %54 = load ptr, ptr %32, align 8, !tbaa !44
   %55 = zext i32 %45 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %55
   store i32 %.1.ph.us, ptr %56, align 4, !tbaa !36
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit.us
 
@@ -1504,14 +1504,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit18: ; preds = %.lr
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %77)
   %78 = load ptr, ptr %32, align 8, !tbaa !44
   %79 = zext i32 %73 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   store i32 %.1.ph, ptr %80, align 4, !tbaa !36
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %32, align 8, !tbaa !44
   %83 = zext i32 %73 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %83
   store i32 %.1.ph, ptr %84, align 4, !tbaa !36
   %.pre.i = add i32 %73, 1
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit
@@ -4845,7 +4845,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.022.i = phi i32 [ %4, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
   %.01920.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !36
   %9 = lshr i32 %8, 31
   %10 = add i32 %9, %.01920.i
@@ -4888,7 +4888,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.016.i = phi i32 [ %4, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !36
   %8 = icmp ugt i32 %7, 127
   %9 = zext i1 %8 to i32
@@ -4927,7 +4927,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01516.i = phi i32 [ %4, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !36
   %8 = shl i32 %7, 1
   %9 = ashr i32 %7, 31
@@ -4974,7 +4974,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.022.i = phi i32 [ %4, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
   %.01920.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !36
   %9 = lshr i32 %8, 31
   %10 = add i32 %9, %.01920.i
@@ -5021,7 +5021,7 @@ define hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int64Siz
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.078 = phi i64 [ 0, %.lr.ph ], [ %15, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !29
   %9 = or i64 %8, 1
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
@@ -5054,7 +5054,7 @@ define hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64S
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.078 = phi i64 [ 0, %.lr.ph ], [ %15, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !29
   %9 = or i64 %8, 1
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
@@ -5087,7 +5087,7 @@ define hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt64S
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.078 = phi i64 [ 0, %.lr.ph ], [ %18, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !29
   %9 = shl i64 %8, 1
   %10 = ashr i64 %8, 63

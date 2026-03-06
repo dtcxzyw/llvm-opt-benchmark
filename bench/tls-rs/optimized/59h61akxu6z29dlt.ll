@@ -3517,10 +3517,10 @@ define { ptr, ptr } @"_ZN77_$LT$rustls..error..other_error..OtherError$u20$as$u2
 define hidden { ptr, i64 } @_ZN6rustls5tls1312key_schedule10SecretKind8to_bytes17h6907f9723add07d8E.llvm.3875224068774112026(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -3535,10 +3535,10 @@ define hidden { ptr, i64 } @_ZN6rustls5tls1312key_schedule10SecretKind9log_label
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.49, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.49, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.50, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.50, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %5
 
@@ -6705,10 +6705,10 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %12 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %13
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %13
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1771)
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -6775,10 +6775,10 @@ switch.lookup:
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1793, !noalias !1796, !nonnull !4, !align !5, !noundef !4
   %16 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %2 to i64
-  %switch.gep7 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %17
+  %switch.gep7 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %17
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1799)
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -6852,10 +6852,10 @@ switch.lookup:
 
 switch.lookup9:                                   ; preds = %switch.lookup
   %44 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.49, i64 %44
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.49, i64 %44
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %45 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.50, i64 %45
+  %switch.gep12 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule20derive_logged_secret17hf6fc8770a06b2e99E.llvm.3875224068774112026.50, i64 %45
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %47 = load ptr, ptr %46, align 8, !invariant.load !4, !nonnull !4
@@ -6934,10 +6934,10 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empt
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !1843, !noalias !1846, !nonnull !4, !align !5, !noundef !4
   %29 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %29
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
   %30 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %30
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 %30
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1849)
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -7956,7 +7956,7 @@ define void @_ZN6rustls6webpki15client_verifier25ClientCertVerifierBuilder5build
   %17 = load ptr, ptr %16, align 8, !alias.scope !2101, !noalias !2106, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !2101, !noalias !2106, !noundef !4
-  %20 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %17, i64 %19
+  %20 = getelementptr inbounds [24 x i8], ptr %17, i64 %19
   invoke void @_ZN4core4iter8adapters11try_process17h27b824f16cf08698E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %17, ptr noundef nonnull %20)
           to label %23 unwind label %21, !noalias !2104
 
@@ -8248,7 +8248,7 @@ define void @_ZN6rustls6webpki15client_verifier20WebPkiClientVerifier21builder_w
   %10 = load ptr, ptr %9, align 8, !alias.scope !2167, !noalias !2170, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8, !alias.scope !2167, !noalias !2170, !noundef !4
-  %13 = getelementptr inbounds { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { i64, [2 x i64] } }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [72 x i8], ptr %10, i64 %12
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h0a3bd5dbb3fab6c1E.llvm.9964311202002838858"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %10, ptr noundef nonnull %13)
           to label %25 unwind label %14, !noalias !2166
 
@@ -8418,7 +8418,7 @@ define void @"_ZN108_$LT$rustls..webpki..client_verifier..WebPkiClientVerifier$u
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %27 = getelementptr inbounds { i64, [17 x i64] }, ptr %24, i64 %26
+  %27 = getelementptr inbounds [144 x i8], ptr %24, i64 %26
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h770a56c25a85294cE.llvm.9964311202002838858"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %17, ptr noundef nonnull %24, ptr noundef nonnull %27)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8a162f90b6feb51dE.exit" unwind label %31
 
@@ -8550,7 +8550,7 @@ define void @"_ZN108_$LT$rustls..webpki..client_verifier..WebPkiClientVerifier$u
 
 69:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i.i.i", %66
   %.07.i.i.i.i.i = phi i64 [ 0, %66 ], [ %71, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i.i.i" ]
-  %70 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %11, i64 %.07.i.i.i.i.i
+  %70 = getelementptr inbounds nuw [248 x i8], ptr %11, i64 %.07.i.i.i.i.i
   %71 = add nuw nsw i64 %.07.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2234)
   %72 = load i64, ptr %70, align 8, !range !253, !alias.scope !2237, !noalias !2216, !noundef !4
@@ -8593,7 +8593,7 @@ define void @"_ZN108_$LT$rustls..webpki..client_verifier..WebPkiClientVerifier$u
   br label %80
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %11, i64 %.1.i.i.i.i.i
+  %85 = getelementptr inbounds nuw [248 x i8], ptr %11, i64 %.1.i.i.i.i.i
   %86 = add nuw nsw i64 %.1.i.i.i.i.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(248) %85) #38
           to label %80 unwind label %87, !noalias !2216
@@ -8704,7 +8704,7 @@ define void @"_ZN108_$LT$rustls..webpki..client_verifier..WebPkiClientVerifier$u
   %4 = load ptr, ptr %3, align 8, !alias.scope !2286, !noalias !2289, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load i64, ptr %5, align 8, !alias.scope !2286, !noalias !2289, !noundef !4
-  %7 = getelementptr inbounds { { i16, i16 }, [2 x i16], { ptr, i64 } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %4, i64 %6
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf9494bb0dfbdf927E.llvm.9964311202002838858"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %4, ptr noundef nonnull %7), !noalias !2286
   ret void
 }
@@ -8753,7 +8753,7 @@ define void @_ZN6rustls6webpki15server_verifier25ServerCertVerifierBuilder5build
   %15 = load ptr, ptr %14, align 8, !alias.scope !2296, !noalias !2301, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !2296, !noalias !2301, !noundef !4
-  %18 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %15, i64 %17
   invoke void @_ZN4core4iter8adapters11try_process17h27b824f16cf08698E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %15, ptr noundef nonnull %18)
           to label %21 unwind label %19, !noalias !2299
 
@@ -9086,7 +9086,7 @@ define void @"_ZN108_$LT$rustls..webpki..server_verifier..WebPkiServerVerifier$u
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !4
-  %33 = getelementptr inbounds { i64, [17 x i64] }, ptr %30, i64 %32
+  %33 = getelementptr inbounds [144 x i8], ptr %30, i64 %32
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h770a56c25a85294cE.llvm.9964311202002838858"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %23, ptr noundef nonnull %30, ptr noundef nonnull %33)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8a162f90b6feb51dE.exit" unwind label %37
 
@@ -9427,7 +9427,7 @@ define void @"_ZN108_$LT$rustls..webpki..server_verifier..WebPkiServerVerifier$u
   %4 = load ptr, ptr %3, align 8, !alias.scope !2474, !noalias !2477, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !2474, !noalias !2477, !noundef !4
-  %7 = getelementptr inbounds { { i16, i16 }, [2 x i16], { ptr, i64 } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %4, i64 %6
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf9494bb0dfbdf927E.llvm.9964311202002838858"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %4, ptr noundef nonnull %7), !noalias !2474
   ret void
 }
@@ -9651,7 +9651,7 @@ _ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit: ; preds 
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds { i64, ptr }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [16 x i8], ptr %13, i64 %15
   br label %17
 
 17:                                               ; preds = %19, %9
@@ -9768,7 +9768,7 @@ define hidden { i64, ptr } @_ZN6rustls6client11client_conn12ClientConfig17find_c
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds { i64, ptr }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %10, i64 %12
   store ptr %10, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %14, align 8
@@ -9796,7 +9796,7 @@ define hidden { ptr, ptr } @_ZN6rustls6client11client_conn12ClientConfig13find_k
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %10, i64 %12
   store ptr %10, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %14, align 8
@@ -11052,7 +11052,7 @@ define hidden void @_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHa
   %86 = load ptr, ptr %85, align 8, !alias.scope !2708, !nonnull !4, !noundef !4
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %88 = load i64, ptr %87, align 8, !alias.scope !2708, !noundef !4
-  %89 = getelementptr { i64, [6 x i64] }, ptr %86, i64 %88
+  %89 = getelementptr [56 x i8], ptr %86, i64 %88
   store ptr %86, ptr %39, align 8, !noalias !2708
   %90 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %89, ptr %90, align 8, !noalias !2708
@@ -12016,7 +12016,7 @@ _ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls1
   %436 = load i64, ptr %435, align 8, !noundef !4
   %437 = load ptr, ptr %.sroa.4499.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %438 = load ptr, ptr %297, align 8, !nonnull !4, !align !5, !noundef !4
-  %439 = getelementptr inbounds nuw { { { { i64, ptr }, i64 } } }, ptr %.val340, i64 %.sroa.8480.0696
+  %439 = getelementptr inbounds nuw [24 x i8], ptr %.val340, i64 %.sroa.8480.0696
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
   %441 = load ptr, ptr %440, align 8, !alias.scope !2907, !nonnull !4, !noundef !4
   %442 = getelementptr inbounds nuw i8, ptr %439, i64 16
@@ -13065,7 +13065,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
   %81 = phi i64 [ %.pre, %._crit_edge.i ], [ %73, %67 ]
   %82 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %67 ]
   %83 = load ptr, ptr %36, align 8, !alias.scope !3007, !noalias !3010, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds { i16, [19 x i16] }, ptr %83, i64 %82
+  %84 = getelementptr inbounds [40 x i8], ptr %83, i64 %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(40) %33, i64 40, i1 false)
   %85 = add i64 %82, 1
   store i64 %85, ptr %37, align 8, !alias.scope !3007, !noalias !3010
@@ -13101,7 +13101,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
 93:                                               ; preds = %._crit_edge.i126, %80
   %94 = phi ptr [ %.pre286, %._crit_edge.i126 ], [ %83, %80 ]
   %95 = phi i64 [ %.pre.i127, %._crit_edge.i126 ], [ %85, %80 ]
-  %96 = getelementptr inbounds { i16, [19 x i16] }, ptr %94, i64 %95
+  %96 = getelementptr inbounds [40 x i8], ptr %94, i64 %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %96, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
   %97 = add i64 %95, 1
   store i64 %97, ptr %37, align 8, !alias.scope !3012, !noalias !3015
@@ -13203,7 +13203,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
 124:                                              ; preds = %._crit_edge.i133, %98
   %125 = phi ptr [ %.pre287, %._crit_edge.i133 ], [ %94, %98 ]
   %126 = phi i64 [ %.pre.i134, %._crit_edge.i133 ], [ %97, %98 ]
-  %127 = getelementptr inbounds { i16, [19 x i16] }, ptr %125, i64 %126
+  %127 = getelementptr inbounds [40 x i8], ptr %125, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(40) %31, i64 40, i1 false)
   %128 = add i64 %126, 1
   store i64 %128, ptr %37, align 8, !alias.scope !3017, !noalias !3020
@@ -13687,7 +13687,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello24emit_hello_r
 26:                                               ; preds = %5
   %.pre.i = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3132, !noalias !3129
   %27 = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !alias.scope !3132, !noalias !3129, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds { i64, [3 x i64] }, ptr %27, i64 %.pre.i
+  %28 = getelementptr inbounds [32 x i8], ptr %27, i64 %.pre.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %29 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3132, !noalias !3129, !noundef !4
   %30 = add i64 %29, 1
@@ -13724,7 +13724,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello24emit_hello_r
 39:                                               ; preds = %._crit_edge.i31, %26
   %40 = phi i64 [ %.pre.i32, %._crit_edge.i31 ], [ %30, %26 ]
   %41 = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !alias.scope !3134, !noalias !3137, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds { i64, [3 x i64] }, ptr %41, i64 %40
+  %42 = getelementptr inbounds [32 x i8], ptr %41, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %43 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3134, !noalias !3137, !noundef !4
   %44 = add i64 %43, 1
@@ -13956,7 +13956,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !3194
   store i16 22, ptr %11, align 2, !noalias !3197
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3197
-  %31 = getelementptr inbounds { i64, [6 x i64] }, ptr %.val42, i64 %.val43
+  %31 = getelementptr inbounds [56 x i8], ptr %.val42, i64 %.val43
   store ptr %.val42, ptr %10, align 8, !noalias !3197
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %31, ptr %32, align 8, !noalias !3197
@@ -14155,7 +14155,7 @@ _ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b
 117:                                              ; preds = %._crit_edge.i, %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit
   %118 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %109, %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit ]
   %119 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3230, !noalias !3233, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds { i16, [19 x i16] }, ptr %119, i64 %118
+  %120 = getelementptr inbounds [40 x i8], ptr %119, i64 %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false)
   %121 = add i64 %118, 1
   store i64 %121, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3230, !noalias !3233
@@ -14462,7 +14462,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello26emit_certifi
 56:                                               ; preds = %._crit_edge.i, %43
   %57 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %48, %43 ]
   %58 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3280, !noalias !3283, !nonnull !4, !noundef !4
-  %59 = getelementptr inbounds { i64, [3 x i64] }, ptr %58, i64 %57
+  %59 = getelementptr inbounds [32 x i8], ptr %58, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %60 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3280, !noalias !3283, !noundef !4
   %61 = add i64 %60, 1
@@ -14493,7 +14493,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello26emit_certifi
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %72, ptr %73, align 8, !noalias !3288
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %75 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %70, i64 %66
+  %75 = getelementptr inbounds [24 x i8], ptr %70, i64 %66
   %76 = icmp eq i64 %71, 0
   br i1 %76, label %.loopexit, label %.lr.ph.i
 
@@ -14520,7 +14520,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello26emit_certifi
   %87 = extractvalue { i64, ptr } %82, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull readonly align 1 %.sroa.54.0.val.i, i64 %.sroa.54.0.val13.i, i1 false), !noalias !3295
-  %88 = getelementptr inbounds nuw { [3 x i64] }, ptr %72, i64 %.sroa.7.031.i
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %.sroa.7.031.i
   store i64 %86, ptr %88, align 8, !noalias !3288
   %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %87, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 8, !noalias !3288
@@ -14618,7 +14618,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello26emit_certifi
 112:                                              ; preds = %._crit_edge.i41, %.loopexit
   %113 = phi i64 [ %.pre.i42, %._crit_edge.i41 ], [ %104, %.loopexit ]
   %114 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3313, !noalias !3316, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds { i64, [3 x i64] }, ptr %114, i64 %113
+  %115 = getelementptr inbounds [32 x i8], ptr %114, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %116 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3313, !noalias !3316, !noundef !4
   %117 = add i64 %116, 1
@@ -14908,7 +14908,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello22emit_certifi
   %57 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %48, %43 ]
   %58 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !3379, !noalias !3382, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds { i64, [3 x i64] }, ptr %59, i64 %57
+  %60 = getelementptr inbounds [32 x i8], ptr %59, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %61 = load i64, ptr %47, align 8, !alias.scope !3379, !noalias !3382, !noundef !4
   %62 = add i64 %61, 1
@@ -15118,7 +15118,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd9153db083780c52E.exit": ; preds = %"_ZN71_$LT$rustls_pki_types..CertificateDer$u20$as$u20$core..clone..Clone$GT$5clone17h0b486a8dc6efeac4E.exit", %._crit_edge.i53
   %121 = phi i64 [ %.pre.i54, %._crit_edge.i53 ], [ %113, %"_ZN71_$LT$rustls_pki_types..CertificateDer$u20$as$u20$core..clone..Clone$GT$5clone17h0b486a8dc6efeac4E.exit" ]
   %122 = load ptr, ptr %17, align 8, !alias.scope !3371, !noalias !3374, !nonnull !4, !noundef !4
-  %123 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %122, i64 %121
+  %123 = getelementptr inbounds [48 x i8], ptr %122, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %123, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   %124 = add i64 %121, 1
   store i64 %124, ptr %18, align 8, !alias.scope !3371, !noalias !3374
@@ -16078,7 +16078,7 @@ define void @_ZN6rustls4quic4Quic8write_hs17h6e7523eb0d69c6f3E(ptr noalias nound
   store i64 %.0.i.i, ptr %18, align 8, !alias.scope !3690, !noalias !3693
   %35 = add i64 %31, -1
   store i64 %35, ptr %17, align 8, !alias.scope !3690, !noalias !3693
-  %36 = getelementptr inbounds { i8, [7 x i8], { { i64, ptr }, i64 } }, ptr %21, i64 %32
+  %36 = getelementptr inbounds [32 x i8], ptr %21, i64 %32
   %.sroa.6113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.6113.0.copyload = load i64, ptr %.sroa.6113.0..sroa_idx, align 8, !noalias !3690
   %37 = icmp eq i64 %.sroa.6113.0.copyload, -9223372036854775808
@@ -16125,7 +16125,7 @@ define void @_ZN6rustls4quic4Quic8write_hs17h6e7523eb0d69c6f3E(ptr noalias nound
   %.not.i.i27 = icmp ult i64 %.0.i.i, %19
   %56 = select i1 %.not.i.i27, i64 0, i64 %19
   %.0.i.i28 = sub nuw i64 %.0.i.i, %56
-  %57 = getelementptr inbounds { i8, [7 x i8], { { i64, ptr }, i64 } }, ptr %21, i64 %.0.i.i28
+  %57 = getelementptr inbounds [32 x i8], ptr %21, i64 %.0.i.i28
   %58 = load i8, ptr %57, align 8, !range !334, !noundef !4
   %59 = trunc nuw i8 %58 to i1
   %or.cond26.not = select i1 %59, i1 %.not18, i1 false
@@ -17282,7 +17282,7 @@ switch.lookup:
   %20 = alloca { { ptr, ptr }, { [64 x i8], i64 }, { [64 x i8], i64 }, ptr, i8, i8, [6 x i8] }, align 8
   %21 = alloca { ptr, ptr }, align 8
   %22 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls4quic4Keys7initial17h883688817a2eafd3E, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls4quic4Keys7initial17h883688817a2eafd3E, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -17915,10 +17915,10 @@ define { ptr, i64 } @_ZN6rustls5enums16AlertDescription6as_str17h1f692c76b2b0c10
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !4151, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5enums16AlertDescription6as_str17h1f692c76b2b0c109E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums16AlertDescription6as_str17h1f692c76b2b0c109E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5enums16AlertDescription6as_str17h1f692c76b2b0c109E.52, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums16AlertDescription6as_str17h1f692c76b2b0c109E.52, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -18528,10 +18528,10 @@ define { ptr, i64 } @_ZN6rustls5enums13HandshakeType6as_str17hb2d1ca1da6708beaE(
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5enums13HandshakeType6as_str17hb2d1ca1da6708beaE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums13HandshakeType6as_str17hb2d1ca1da6708beaE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5enums13HandshakeType6as_str17hb2d1ca1da6708beaE.53, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums13HandshakeType6as_str17hb2d1ca1da6708beaE.53, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -18827,10 +18827,10 @@ define { ptr, i64 } @_ZN6rustls5enums11ContentType6as_str17h990462d460483d92E(pt
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !4198, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5enums11ContentType6as_str17h990462d460483d92E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums11ContentType6as_str17h990462d460483d92E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5enums11ContentType6as_str17h990462d460483d92E.54, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums11ContentType6as_str17h990462d460483d92E.54, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19048,10 +19048,10 @@ define { ptr, i64 } @_ZN6rustls5enums15ProtocolVersion6as_str17hbb52c44839346a12
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !range !362, !noundef !4
   %2 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5enums15ProtocolVersion6as_str17hbb52c44839346a12E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums15ProtocolVersion6as_str17hbb52c44839346a12E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i16 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5enums15ProtocolVersion6as_str17hbb52c44839346a12E.55, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums15ProtocolVersion6as_str17hbb52c44839346a12E.55, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19407,10 +19407,10 @@ define { ptr, i64 } @_ZN6rustls5enums11CipherSuite6as_str17haa2bbf9b3a913d25E(pt
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !range !2794, !noundef !4
   %2 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5enums11CipherSuite6as_str17haa2bbf9b3a913d25E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums11CipherSuite6as_str17haa2bbf9b3a913d25E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i16 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5enums11CipherSuite6as_str17haa2bbf9b3a913d25E.56, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums11CipherSuite6as_str17haa2bbf9b3a913d25E.56, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -22059,10 +22059,10 @@ define { ptr, i64 } @_ZN6rustls5enums15SignatureScheme6as_str17h12a7096955e5dacd
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !range !120, !noundef !4
   %2 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5enums15SignatureScheme6as_str17h12a7096955e5dacdE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums15SignatureScheme6as_str17h12a7096955e5dacdE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i16 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5enums15SignatureScheme6as_str17h12a7096955e5dacdE.57, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums15SignatureScheme6as_str17h12a7096955e5dacdE.57, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -22435,10 +22435,10 @@ define { ptr, i64 } @_ZN6rustls5enums18SignatureAlgorithm6as_str17h0d3e032256691
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !4312, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls5enums18SignatureAlgorithm6as_str17h0d3e032256691558E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums18SignatureAlgorithm6as_str17h0d3e032256691558E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls5enums18SignatureAlgorithm6as_str17h0d3e032256691558E.58, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls5enums18SignatureAlgorithm6as_str17h0d3e032256691558E.58, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

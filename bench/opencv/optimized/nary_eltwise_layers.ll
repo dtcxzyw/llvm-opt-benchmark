@@ -18,9 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"struct.cv::MatSize" = type { ptr }
-%"struct.cv::MatStep" = type { ptr, [2 x i64] }
 %"class.cv::utils::trace::details::Region" = type <{ ptr, i32, [4 x i8] }>
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
@@ -3279,7 +3276,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20NaryEltwiseLayerImpl8finalizeERKNS_
 
 22:                                               ; preds = %.lr.ph, %39
   %.026 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %23 = getelementptr inbounds nuw %"class.cv::Mat", ptr %13, i64 %.026
+  %23 = getelementptr inbounds nuw [96 x i8], ptr %13, i64 %.026
   %24 = load i32, ptr %23, align 8, !tbaa !77
   %25 = xor i32 %19, %24
   %26 = and i32 %25, 7
@@ -3904,7 +3901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %30, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !96
   %30 = mul nsw i32 %29, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4065,7 +4062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %42,
   %49 = phi i32 [ %2, %31 ], [ 0, %23 ]
   %50 = zext nneg i32 %49 to i64
   %51 = load ptr, ptr %48, align 8, !tbaa !104
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %53, ptr %0, align 8, !tbaa !13
   %54 = load ptr, ptr %52, align 8, !tbaa !20
@@ -4390,7 +4387,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %78, 
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i: ; preds = %79, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i
-  %80 = getelementptr inbounds nuw i32, ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %73
   br label %_ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSEOi.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSEOi.exit.i: ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i, %62
@@ -4424,7 +4421,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv3MatESt6vectorIS3_SaIS3_EEEE
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %90 = phi i32 [ %88, %.lr.ph.preheader ], [ %., %.lr.ph ]
-  %91 = getelementptr inbounds nuw i32, ptr %.sroa.0247.3, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0247.3, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !96
   %. = tail call i32 @llvm.smax.i32(i32 %90, i32 %92)
   store i32 %., ptr %9, align 8, !tbaa !106
@@ -4453,7 +4450,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv3MatESt6vectorIS3_SaIS3_EEEE
 
 .loopexit279:                                     ; preds = %.loopexit401
   store ptr %97, ptr %4, align 8, !tbaa !73
-  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %95
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %95
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %98, ptr %99, align 8, !tbaa !113
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %97, i8 0, i64 %96, i1 false), !tbaa !96
@@ -4496,7 +4493,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   br label %.body
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %112 = getelementptr inbounds nuw %"class.std::vector.3", ptr %107, i64 %102
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %102
   %113 = load ptr, ptr %29, align 8, !tbaa !71
   %114 = load ptr, ptr %31, align 8, !tbaa !72
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4569,7 +4566,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
 
 .noexc112:                                        ; preds = %127
   store ptr %129, ptr %5, align 8, !tbaa !67
-  %130 = getelementptr inbounds nuw i64, ptr %129, i64 %124
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %124
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %130, ptr %131, align 8, !tbaa !114
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %129, i8 0, i64 %128, i1 false), !tbaa !24
@@ -4616,7 +4613,7 @@ _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   br label %.body117
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EEC2EmRKS3_.exit.i
-  %144 = getelementptr inbounds nuw %"class.std::vector.18", ptr %139, i64 %134
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %134
   %145 = load ptr, ptr %36, align 8, !tbaa !68
   %146 = load ptr, ptr %38, align 8, !tbaa !69
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4679,7 +4676,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_ImSa
   %indvars.iv297 = phi i64 [ 0, %.lr.ph291 ], [ %indvars.iv.next298, %_ZNSt6vectorIiSaIiEED2Ev.exit218 ]
   %164 = icmp eq i64 %indvars.iv297, 0
   %165 = add nsw i64 %indvars.iv297, -1
-  %166 = getelementptr inbounds i32, ptr %.sroa.0247.3, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %.sroa.0247.3, i64 %165
   %167 = load ptr, ptr %12, align 8, !tbaa !107
   %168 = load ptr, ptr %155, align 8, !tbaa !113
   %.not.i134 = icmp eq ptr %167, %168
@@ -4757,7 +4754,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %189, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %191, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %185, ptr %10, align 8, !tbaa !73
   store ptr %190, ptr %12, align 8, !tbaa !107
-  %192 = getelementptr inbounds nuw i32, ptr %185, i64 %183
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %183
   store ptr %192, ptr %155, align 8, !tbaa !113
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -4844,7 +4841,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i146: ; preds = %2
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i148: ; preds = %223, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i146
   store ptr %218, ptr %6, align 8, !tbaa !73
   store ptr %222, ptr %156, align 8, !tbaa !107
-  %224 = getelementptr inbounds nuw i32, ptr %218, i64 %216
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %216
   store ptr %224, ptr %157, align 8, !tbaa !113
   br label %_ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSEOi.exit.i141
 
@@ -4930,7 +4927,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %254,
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %256, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %251, ptr %7, align 8, !tbaa !67
   store ptr %255, ptr %158, align 8, !tbaa !108
-  %257 = getelementptr inbounds nuw i64, ptr %251, i64 %249
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %249
   store ptr %257, ptr %159, align 8, !tbaa !114
   br label %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i
 
@@ -5033,7 +5030,7 @@ _ZNSt6vectorImSaImEED2Ev.exit166:                 ; preds = %272, %.body117, %26
 
 273:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %274 = load ptr, ptr %1, align 8, !tbaa !76
-  %275 = getelementptr inbounds nuw %"class.cv::Mat", ptr %274, i64 %165
+  %275 = getelementptr inbounds nuw [96 x i8], ptr %274, i64 %165
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 64
   %277 = load ptr, ptr %276, align 8, !tbaa !116
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 4
@@ -5101,7 +5098,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i178: ; preds = %3
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i180: ; preds = %304, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i178
   store ptr %299, ptr %6, align 8, !tbaa !73
   store ptr %303, ptr %156, align 8, !tbaa !107
-  %305 = getelementptr inbounds nuw i32, ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %299, i64 %297
   store ptr %305, ptr %157, align 8, !tbaa !113
   br label %_ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSEOi.exit.i173
 
@@ -5115,10 +5112,10 @@ _ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSEOi.exit.i173: ; preds = %_ZNSt6
 
 .loopexit265:                                     ; preds = %_ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSEOi.exit.i173
   %.pre300 = load ptr, ptr %1, align 8, !tbaa !76
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pre300, i64 %165
+  %.phi.trans.insert = getelementptr inbounds nuw [96 x i8], ptr %.pre300, i64 %165
   %.phi.trans.insert301 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.pre302 = load i32, ptr %.phi.trans.insert301, align 4, !tbaa !110
-  %310 = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pre300, i64 %165
+  %310 = getelementptr inbounds nuw [96 x i8], ptr %.pre300, i64 %165
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 72
   %312 = load ptr, ptr %311, align 8, !tbaa !118
   %313 = sext i32 %.pre302 to i64
@@ -5189,7 +5186,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i194: ; preds = %3
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i196: ; preds = %338, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i194
   store ptr %333, ptr %7, align 8, !tbaa !67
   store ptr %337, ptr %158, align 8, !tbaa !108
-  %339 = getelementptr inbounds nuw i64, ptr %333, i64 %331
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %331
   store ptr %339, ptr %159, align 8, !tbaa !114
   br label %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i189
 
@@ -5331,7 +5328,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocato
 
 398:                                              ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE9push_backERKS1_.exit
   %399 = load ptr, ptr %1, align 8, !tbaa !76
-  %400 = getelementptr inbounds nuw %"class.cv::Mat", ptr %399, i64 %165
+  %400 = getelementptr inbounds nuw [96 x i8], ptr %399, i64 %165
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 4
   %402 = load i32, ptr %401, align 4, !tbaa !110
   %403 = icmp sgt i32 %402, 0
@@ -5343,7 +5340,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.sink.split:           ; preds = %398, %393
   %404 = getelementptr inbounds nuw i8, ptr %.sink, i64 72
   %405 = load ptr, ptr %404, align 8, !tbaa !118
   %406 = zext nneg i32 %.sink407 to i64
-  %407 = getelementptr i64, ptr %405, i64 %406
+  %407 = getelementptr [8 x i8], ptr %405, i64 %406
   %408 = getelementptr i8, ptr %407, i64 -8
   %409 = load i64, ptr %408, align 8, !tbaa !24
   %410 = shl i64 %409, 32
@@ -5413,7 +5410,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %432, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %434, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %429, ptr %43, align 8, !tbaa !67
   store ptr %433, ptr %45, align 8, !tbaa !108
-  %435 = getelementptr inbounds nuw i64, ptr %429, i64 %427
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %429, i64 %427
   store ptr %435, ptr %162, align 8, !tbaa !114
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -5567,7 +5564,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 
 34:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %35 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !96
   %37 = load i32, ptr %2, align 8, !tbaa !106
   %.neg = sub i32 %29, %37
@@ -5576,14 +5573,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw %"class.std::vector.3", ptr %24, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
   %42 = zext nneg i32 %38 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !73
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %42
   %45 = load i32, ptr %44, align 4, !tbaa !96
-  %46 = getelementptr inbounds nuw %"class.std::vector.18", ptr %25, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !67
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %42
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %42
   %49 = load i64, ptr %48, align 8, !tbaa !24
   %.not = icmp eq i64 %49, 0
   br i1 %.not, label %50, label %68
@@ -5595,18 +5592,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %56 = load i64, ptr %55, align 8, !tbaa !24
   br label %68
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds nuw %"class.std::vector.18", ptr %26, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !67
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %indvars.iv173
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv173
   %61 = load i64, ptr %60, align 8, !tbaa !24
-  %62 = getelementptr inbounds nuw %"class.std::vector.3", ptr %27, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !73
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv173
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv173
   %65 = load i32, ptr %64, align 4, !tbaa !96
   %66 = sext i32 %65 to i64
   %67 = mul i64 %61, %66
@@ -5615,13 +5612,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 68:                                               ; preds = %40, %54, %57
   %69 = phi i32 [ %51, %57 ], [ %51, %54 ], [ %45, %40 ]
   %70 = phi i64 [ %67, %57 ], [ %56, %54 ], [ %49, %40 ]
-  %71 = getelementptr inbounds nuw %"class.std::vector.3", ptr %14, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !73
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv171
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv171
   store i32 %69, ptr %73, align 4, !tbaa !96
-  %74 = getelementptr inbounds nuw %"class.std::vector.18", ptr %15, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !67
-  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv171
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv171
   store i64 %70, ptr %76, align 8, !tbaa !24
   %.not112 = icmp eq i32 %69, 0
   br i1 %.not112, label %.loopexit, label %30
@@ -5666,23 +5663,23 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   %.0100134 = phi i1 [ true, %.lr.ph135 ], [ %117, %116 ]
   %.0101133 = phi i1 [ true, %.lr.ph135 ], [ %112, %116 ]
   %.0102132 = phi i1 [ true, %.lr.ph135 ], [ %111, %116 ]
-  %93 = getelementptr inbounds nuw %"class.std::vector.3", ptr %83, i64 %indvars.iv178
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %indvars.iv178
   %94 = load ptr, ptr %93, align 8, !tbaa !73
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %90
   %96 = load i32, ptr %95, align 4, !tbaa !96
-  %97 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv186
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv186
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = icmp eq i32 %98, 1
   br i1 %.0102132, label %100, label %110
 
 100:                                              ; preds = %92
-  %101 = getelementptr inbounds nuw %"class.std::vector.18", ptr %91, i64 %indvars.iv178
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv178
   %102 = load ptr, ptr %101, align 8, !tbaa !67
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %90
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %90
   %104 = load i64, ptr %103, align 8, !tbaa !24
   %105 = sext i32 %96 to i64
   %106 = mul i64 %104, %105
-  %107 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv186
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv186
   %108 = load i64, ptr %107, align 8, !tbaa !24
   %109 = icmp eq i64 %106, %108
   br label %110
@@ -5718,11 +5715,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 
 122:                                              ; preds = %.lr.ph143, %122
   %indvars.iv183 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next184, %122 ]
-  %123 = getelementptr inbounds nuw %"class.std::vector.3", ptr %83, i64 %indvars.iv183
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %indvars.iv183
   %124 = load ptr, ptr %123, align 8, !tbaa !73
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv186
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv186
   %126 = load i32, ptr %125, align 4, !tbaa !96
-  %127 = getelementptr inbounds nuw i32, ptr %124, i64 %121
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %121
   %128 = load i32, ptr %127, align 4, !tbaa !96
   %129 = mul nsw i32 %128, %126
   store i32 %129, ptr %127, align 4, !tbaa !96
@@ -5744,17 +5741,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 
 138:                                              ; preds = %.lr.ph141, %138
   %indvars.iv180 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next181, %138 ]
-  %139 = getelementptr inbounds nuw %"class.std::vector.3", ptr %83, i64 %indvars.iv180
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %indvars.iv180
   %140 = load ptr, ptr %139, align 8, !tbaa !73
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv186
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv186
   %142 = load i32, ptr %141, align 4, !tbaa !96
-  %143 = getelementptr inbounds nuw i32, ptr %140, i64 %137
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %137
   store i32 %142, ptr %143, align 4, !tbaa !96
-  %144 = getelementptr inbounds nuw %"class.std::vector.18", ptr %85, i64 %indvars.iv180
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %indvars.iv180
   %145 = load ptr, ptr %144, align 8, !tbaa !67
-  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %indvars.iv186
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv186
   %147 = load i64, ptr %146, align 8, !tbaa !24
-  %148 = getelementptr inbounds nuw i64, ptr %145, i64 %137
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %137
   store i64 %147, ptr %148, align 8, !tbaa !24
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %149 = load i32, ptr %81, align 4, !tbaa !105
@@ -5806,25 +5803,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 
 168:                                              ; preds = %.preheader115.us, %179
   %indvars.iv189 = phi i64 [ 0, %.preheader115.us ], [ %indvars.iv.next190, %179 ]
-  %169 = getelementptr inbounds nuw %"class.std::vector.3", ptr %160, i64 %indvars.iv189
+  %169 = getelementptr inbounds nuw [24 x i8], ptr %160, i64 %indvars.iv189
   %170 = load ptr, ptr %169, align 8, !tbaa !73
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv194
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv194
   %172 = load i32, ptr %171, align 4, !tbaa !96
   %173 = icmp eq i32 %172, 1
   br i1 %173, label %179, label %174
 
 174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw %"class.std::vector.18", ptr %167, i64 %indvars.iv189
+  %175 = getelementptr inbounds nuw [24 x i8], ptr %167, i64 %indvars.iv189
   %176 = load ptr, ptr %175, align 8, !tbaa !67
-  %177 = getelementptr inbounds nuw i64, ptr %176, i64 %indvars.iv194
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv194
   %178 = load i64, ptr %177, align 8, !tbaa !24
   br label %179
 
 179:                                              ; preds = %174, %168
   %180 = phi i64 [ %178, %174 ], [ 0, %168 ]
-  %181 = getelementptr inbounds nuw %"class.std::vector.18", ptr %162, i64 %indvars.iv189
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %indvars.iv189
   %182 = load ptr, ptr %181, align 8, !tbaa !67
-  %183 = getelementptr inbounds nuw i64, ptr %182, i64 %indvars.iv194
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv194
   store i64 %180, ptr %183, align 8, !tbaa !24
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
@@ -5866,13 +5863,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 
 .lr.ph157:                                        ; preds = %.preheader, %.lr.ph157
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %.lr.ph157 ], [ 0, %.preheader ]
-  %196 = getelementptr inbounds nuw %"class.std::vector.18", ptr %188, i64 %indvars.iv197
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %188, i64 %indvars.iv197
   %197 = load ptr, ptr %196, align 8, !tbaa !67
-  %198 = getelementptr inbounds nuw i64, ptr %197, i64 %indvars.iv200
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv200
   store i64 0, ptr %198, align 8, !tbaa !24
-  %199 = getelementptr inbounds nuw %"class.std::vector.3", ptr %190, i64 %indvars.iv197
+  %199 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %indvars.iv197
   %200 = load ptr, ptr %199, align 8, !tbaa !73
-  %201 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv200
   store i32 1, ptr %201, align 4, !tbaa !96
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %202 = load i32, ptr %186, align 4, !tbaa !105
@@ -6326,7 +6323,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !71
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !72
-  %62 = getelementptr inbounds nuw %"class.std::vector.3", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !94
   ret void
 
@@ -6499,7 +6496,7 @@ _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !69
-  %62 = getelementptr inbounds nuw %"class.std::vector.18", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !115
   ret void
 
@@ -6600,9 +6597,9 @@ _ZNSt6vectorImSaImEEC2ERKS1_.exit:                ; preds = %_ZNSt6vectorImSaImE
 
 24:                                               ; preds = %._crit_edge.i, %.lr.ph21.i
   %.01619.i = phi i64 [ 0, %.lr.ph21.i ], [ %38, %._crit_edge.i ]
-  %25 = getelementptr inbounds nuw %"class.std::vector.18", ptr %19, i64 %.01619.i
-  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %.01619.i
-  %27 = getelementptr inbounds nuw i64, ptr %15, i64 %.01619.i
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.01619.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01619.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01619.i
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !108
   %30 = load ptr, ptr %25, align 8, !tbaa !67
@@ -6634,7 +6631,7 @@ _ZN2cv3dnn17NaryEltwiseHelper6reInitESt6vectorImSaImEE.exit.thread: ; preds = %.
 
 40:                                               ; preds = %40, %.lr.ph.i
   %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %45, %40 ]
-  %41 = getelementptr inbounds nuw i64, ptr %30, i64 %.018.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.018.i
   %42 = load i64, ptr %41, align 8, !tbaa !24
   %43 = udiv i64 %42, %36
   %44 = mul i64 %43, %37
@@ -9180,7 +9177,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -9315,7 +9312,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -9450,7 +9447,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -9585,7 +9582,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -10515,7 +10512,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -10524,15 +10521,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -11295,7 +11292,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -11304,15 +11301,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -12079,7 +12076,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -12088,15 +12085,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -12863,7 +12860,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -12872,15 +12869,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -13647,7 +13644,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -13656,15 +13653,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -14431,7 +14428,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -14440,15 +14437,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -15211,7 +15208,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -15220,15 +15217,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -16002,7 +15999,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -16011,15 +16008,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -16796,7 +16793,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -16805,15 +16802,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -17584,7 +17581,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -17593,15 +17590,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -18378,7 +18375,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -18387,15 +18384,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -19170,7 +19167,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -19179,15 +19176,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -19968,7 +19965,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -19977,15 +19974,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -20744,7 +20741,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -20753,15 +20750,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -21535,7 +21532,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -21544,15 +21541,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -22329,7 +22326,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -22338,15 +22335,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -23105,7 +23102,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -23114,15 +23111,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -23881,7 +23878,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -23890,15 +23887,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -24657,7 +24654,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %25, %.lr.ph ], [ %61, %41 ]
   %.06574 = phi ptr [ %23, %.lr.ph ], [ %57, %41 ]
   %.06673 = phi ptr [ %21, %.lr.ph ], [ %53, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %.06376, %44
@@ -24666,15 +24663,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %48 = sub i64 %.06376, %47
   %sext = shl i64 %48, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !24
   %52 = mul i64 %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %.06673, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = mul i64 %55, %49
   %57 = getelementptr inbounds nuw i8, ptr %.06574, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = mul i64 %59, %49
   %61 = getelementptr inbounds nuw i8, ptr %.06475, i64 %60
@@ -25632,7 +25629,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %.088115 = phi ptr [ %28, %.lr.ph ], [ %68, %48 ]
   %.089114 = phi ptr [ %26, %.lr.ph ], [ %64, %48 ]
   %.090113 = phi ptr [ %24, %.lr.ph ], [ %60, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !96
   %51 = sext i32 %50 to i64
   %52 = udiv i64 %.086117, %51
@@ -25641,19 +25638,19 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %55 = sub i64 %.086117, %54
   %sext = shl i64 %55, 32
   %56 = ashr exact i64 %sext, 32
-  %57 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %56, %58
   %60 = getelementptr inbounds nuw i8, ptr %.090113, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %56
   %64 = getelementptr inbounds nuw i8, ptr %.089114, i64 %63
-  %65 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !24
   %67 = mul i64 %66, %56
   %68 = getelementptr inbounds nuw i8, ptr %.088115, i64 %67
-  %69 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8, !tbaa !24
   %71 = mul i64 %70, %56
   %72 = getelementptr inbounds nuw i8, ptr %.087116, i64 %71
@@ -26030,10 +26027,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %84 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.next
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.next
   store ptr %85, ptr %86, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !801
@@ -26385,14 +26382,14 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %53 = load ptr, ptr %30, align 8, !tbaa !817
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %54 = load ptr, ptr %53, align 8, !tbaa !68
-  %55 = getelementptr inbounds nuw %"class.std::vector.18", ptr %54, i64 %indvars.iv.next94
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %indvars.iv.next94
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !122
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = load ptr, ptr %31, align 8, !tbaa !818
   %61 = load ptr, ptr %60, align 8, !tbaa !175
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.next94
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.next94
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %64 = and i64 %59, 4294967295
   %65 = icmp eq i64 %64, 1
@@ -26571,11 +26568,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 .lr.ph64:                                         ; preds = %.lr.ph67.split
   %175 = load ptr, ptr %134, align 8, !tbaa !818
   %176 = load ptr, ptr %175, align 8, !tbaa !175
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv.next
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv.next
   %178 = load ptr, ptr %177, align 8, !tbaa !165
   %179 = load ptr, ptr %133, align 8, !tbaa !817
   %180 = load ptr, ptr %179, align 8, !tbaa !68
-  %181 = getelementptr inbounds nuw %"class.std::vector.18", ptr %180, i64 %indvars.iv.next
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %180, i64 %indvars.iv.next
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !122
   %184 = getelementptr inbounds i8, ptr %183, i64 -8
@@ -26765,10 +26762,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %57, ptr %58, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !834
@@ -26789,7 +26786,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 65:                                               ; preds = %.lr.ph125, %._crit_edge121
   %indvars.iv162 = phi i64 [ %54, %.lr.ph125 ], [ %indvars.iv.next163, %._crit_edge121 ]
   %.097123 = phi i64 [ %indvars.iv180, %.lr.ph125 ], [ %69, %._crit_edge121 ]
-  %66 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv162
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv162
   %67 = load i32, ptr %66, align 4, !tbaa !96
   %68 = sext i32 %67 to i64
   %69 = udiv i64 %.097123, %68
@@ -26811,12 +26808,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 76:                                               ; preds = %.lr.ph120, %76
   %indvars.iv157 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next158, %76 ]
-  %77 = getelementptr inbounds nuw %"class.std::vector.18", ptr %74, i64 %indvars.iv157
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv157
   %78 = load ptr, ptr %77, align 8, !tbaa !67
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv162
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv162
   %80 = load i64, ptr %79, align 8, !tbaa !24
   %81 = mul i64 %80, %73
-  %82 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv157
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv157
   %83 = load ptr, ptr %82, align 8, !tbaa !165
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %81
   store ptr %84, ptr %82, align 8, !tbaa !165
@@ -26883,12 +26880,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   %118 = load ptr, ptr %0, align 8, !tbaa !827
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %119 = load ptr, ptr %118, align 8, !tbaa !68
-  %120 = getelementptr inbounds nuw %"class.std::vector.18", ptr %119, i64 %indvars.iv.next178
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %indvars.iv.next178
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !122
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   %124 = load i64, ptr %123, align 8, !tbaa !24
-  %125 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next178
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next178
   %126 = load ptr, ptr %125, align 8, !tbaa !165
   %127 = and i64 %124, 4294967295
   %128 = icmp eq i64 %127, 1
@@ -27036,11 +27033,11 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %211, label %.lr.ph137, label %.loopexit107
 
 .lr.ph137:                                        ; preds = %.lr.ph141
-  %212 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next166
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next166
   %213 = load ptr, ptr %212, align 8, !tbaa !165
   %214 = load ptr, ptr %0, align 8, !tbaa !827
   %215 = load ptr, ptr %214, align 8, !tbaa !68
-  %216 = getelementptr inbounds nuw %"class.std::vector.18", ptr %215, i64 %indvars.iv.next166
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %215, i64 %indvars.iv.next166
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !122
   %219 = getelementptr inbounds i8, ptr %218, i64 -8
@@ -27248,10 +27245,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %84 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.next
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.next
   store ptr %85, ptr %86, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !850
@@ -27597,14 +27594,14 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %53 = load ptr, ptr %30, align 8, !tbaa !860
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %54 = load ptr, ptr %53, align 8, !tbaa !68
-  %55 = getelementptr inbounds nuw %"class.std::vector.18", ptr %54, i64 %indvars.iv.next94
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %indvars.iv.next94
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !122
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = load ptr, ptr %31, align 8, !tbaa !861
   %61 = load ptr, ptr %60, align 8, !tbaa !175
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.next94
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.next94
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %64 = and i64 %59, 4294967295
   %65 = icmp eq i64 %64, 1
@@ -27785,11 +27782,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 .lr.ph64:                                         ; preds = %.lr.ph67.split
   %177 = load ptr, ptr %136, align 8, !tbaa !861
   %178 = load ptr, ptr %177, align 8, !tbaa !175
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv.next
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv.next
   %180 = load ptr, ptr %179, align 8, !tbaa !165
   %181 = load ptr, ptr %135, align 8, !tbaa !860
   %182 = load ptr, ptr %181, align 8, !tbaa !68
-  %183 = getelementptr inbounds nuw %"class.std::vector.18", ptr %182, i64 %indvars.iv.next
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %182, i64 %indvars.iv.next
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !122
   %186 = getelementptr inbounds i8, ptr %185, i64 -8
@@ -27980,10 +27977,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %57, ptr %58, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !876
@@ -28004,7 +28001,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 65:                                               ; preds = %.lr.ph125, %._crit_edge121
   %indvars.iv162 = phi i64 [ %54, %.lr.ph125 ], [ %indvars.iv.next163, %._crit_edge121 ]
   %.097123 = phi i64 [ %indvars.iv180, %.lr.ph125 ], [ %69, %._crit_edge121 ]
-  %66 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv162
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv162
   %67 = load i32, ptr %66, align 4, !tbaa !96
   %68 = sext i32 %67 to i64
   %69 = udiv i64 %.097123, %68
@@ -28026,12 +28023,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 76:                                               ; preds = %.lr.ph120, %76
   %indvars.iv157 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next158, %76 ]
-  %77 = getelementptr inbounds nuw %"class.std::vector.18", ptr %74, i64 %indvars.iv157
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv157
   %78 = load ptr, ptr %77, align 8, !tbaa !67
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv162
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv162
   %80 = load i64, ptr %79, align 8, !tbaa !24
   %81 = mul i64 %80, %73
-  %82 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv157
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv157
   %83 = load ptr, ptr %82, align 8, !tbaa !165
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %81
   store ptr %84, ptr %82, align 8, !tbaa !165
@@ -28099,12 +28096,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   %119 = load ptr, ptr %0, align 8, !tbaa !869
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %120 = load ptr, ptr %119, align 8, !tbaa !68
-  %121 = getelementptr inbounds nuw %"class.std::vector.18", ptr %120, i64 %indvars.iv.next178
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %indvars.iv.next178
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !122
   %124 = getelementptr inbounds i8, ptr %123, i64 -8
   %125 = load i64, ptr %124, align 8, !tbaa !24
-  %126 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next178
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next178
   %127 = load ptr, ptr %126, align 8, !tbaa !165
   %128 = and i64 %125, 4294967295
   %129 = icmp eq i64 %128, 1
@@ -28253,11 +28250,11 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %213, label %.lr.ph137, label %.loopexit107
 
 .lr.ph137:                                        ; preds = %.lr.ph141
-  %214 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next166
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next166
   %215 = load ptr, ptr %214, align 8, !tbaa !165
   %216 = load ptr, ptr %0, align 8, !tbaa !869
   %217 = load ptr, ptr %216, align 8, !tbaa !68
-  %218 = getelementptr inbounds nuw %"class.std::vector.18", ptr %217, i64 %indvars.iv.next166
+  %218 = getelementptr inbounds nuw [24 x i8], ptr %217, i64 %indvars.iv.next166
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load ptr, ptr %219, align 8, !tbaa !122
   %221 = getelementptr inbounds i8, ptr %220, i64 -8
@@ -28465,10 +28462,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %84 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.next
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.next
   store ptr %85, ptr %86, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !892
@@ -28814,14 +28811,14 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %53 = load ptr, ptr %30, align 8, !tbaa !902
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %54 = load ptr, ptr %53, align 8, !tbaa !68
-  %55 = getelementptr inbounds nuw %"class.std::vector.18", ptr %54, i64 %indvars.iv.next94
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %indvars.iv.next94
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !122
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = load ptr, ptr %31, align 8, !tbaa !903
   %61 = load ptr, ptr %60, align 8, !tbaa !175
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.next94
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.next94
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %64 = and i64 %59, 4294967295
   %65 = icmp eq i64 %64, 1
@@ -29000,11 +28997,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 .lr.ph64:                                         ; preds = %.lr.ph67.split
   %175 = load ptr, ptr %134, align 8, !tbaa !903
   %176 = load ptr, ptr %175, align 8, !tbaa !175
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv.next
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv.next
   %178 = load ptr, ptr %177, align 8, !tbaa !165
   %179 = load ptr, ptr %133, align 8, !tbaa !902
   %180 = load ptr, ptr %179, align 8, !tbaa !68
-  %181 = getelementptr inbounds nuw %"class.std::vector.18", ptr %180, i64 %indvars.iv.next
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %180, i64 %indvars.iv.next
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !122
   %184 = getelementptr inbounds i8, ptr %183, i64 -8
@@ -29194,10 +29191,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %57, ptr %58, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !918
@@ -29218,7 +29215,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 65:                                               ; preds = %.lr.ph125, %._crit_edge121
   %indvars.iv162 = phi i64 [ %54, %.lr.ph125 ], [ %indvars.iv.next163, %._crit_edge121 ]
   %.097123 = phi i64 [ %indvars.iv180, %.lr.ph125 ], [ %69, %._crit_edge121 ]
-  %66 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv162
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv162
   %67 = load i32, ptr %66, align 4, !tbaa !96
   %68 = sext i32 %67 to i64
   %69 = udiv i64 %.097123, %68
@@ -29240,12 +29237,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 76:                                               ; preds = %.lr.ph120, %76
   %indvars.iv157 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next158, %76 ]
-  %77 = getelementptr inbounds nuw %"class.std::vector.18", ptr %74, i64 %indvars.iv157
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv157
   %78 = load ptr, ptr %77, align 8, !tbaa !67
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv162
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv162
   %80 = load i64, ptr %79, align 8, !tbaa !24
   %81 = mul i64 %80, %73
-  %82 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv157
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv157
   %83 = load ptr, ptr %82, align 8, !tbaa !165
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %81
   store ptr %84, ptr %82, align 8, !tbaa !165
@@ -29312,12 +29309,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   %118 = load ptr, ptr %0, align 8, !tbaa !911
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %119 = load ptr, ptr %118, align 8, !tbaa !68
-  %120 = getelementptr inbounds nuw %"class.std::vector.18", ptr %119, i64 %indvars.iv.next178
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %indvars.iv.next178
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !122
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   %124 = load i64, ptr %123, align 8, !tbaa !24
-  %125 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next178
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next178
   %126 = load ptr, ptr %125, align 8, !tbaa !165
   %127 = and i64 %124, 4294967295
   %128 = icmp eq i64 %127, 1
@@ -29465,11 +29462,11 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %211, label %.lr.ph137, label %.loopexit107
 
 .lr.ph137:                                        ; preds = %.lr.ph141
-  %212 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next166
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next166
   %213 = load ptr, ptr %212, align 8, !tbaa !165
   %214 = load ptr, ptr %0, align 8, !tbaa !911
   %215 = load ptr, ptr %214, align 8, !tbaa !68
-  %216 = getelementptr inbounds nuw %"class.std::vector.18", ptr %215, i64 %indvars.iv.next166
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %215, i64 %indvars.iv.next166
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !122
   %219 = getelementptr inbounds i8, ptr %218, i64 -8
@@ -29677,10 +29674,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %84 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.next
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.next
   store ptr %85, ptr %86, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !934
@@ -30026,14 +30023,14 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %53 = load ptr, ptr %30, align 8, !tbaa !944
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %54 = load ptr, ptr %53, align 8, !tbaa !68
-  %55 = getelementptr inbounds nuw %"class.std::vector.18", ptr %54, i64 %indvars.iv.next94
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %indvars.iv.next94
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !122
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = load ptr, ptr %31, align 8, !tbaa !945
   %61 = load ptr, ptr %60, align 8, !tbaa !175
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.next94
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.next94
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %64 = and i64 %59, 4294967295
   %65 = icmp eq i64 %64, 1
@@ -30214,11 +30211,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 .lr.ph64:                                         ; preds = %.lr.ph67.split
   %177 = load ptr, ptr %136, align 8, !tbaa !945
   %178 = load ptr, ptr %177, align 8, !tbaa !175
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv.next
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv.next
   %180 = load ptr, ptr %179, align 8, !tbaa !165
   %181 = load ptr, ptr %135, align 8, !tbaa !944
   %182 = load ptr, ptr %181, align 8, !tbaa !68
-  %183 = getelementptr inbounds nuw %"class.std::vector.18", ptr %182, i64 %indvars.iv.next
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %182, i64 %indvars.iv.next
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !122
   %186 = getelementptr inbounds i8, ptr %185, i64 -8
@@ -30409,10 +30406,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %57, ptr %58, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !960
@@ -30433,7 +30430,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 65:                                               ; preds = %.lr.ph125, %._crit_edge121
   %indvars.iv162 = phi i64 [ %54, %.lr.ph125 ], [ %indvars.iv.next163, %._crit_edge121 ]
   %.097123 = phi i64 [ %indvars.iv180, %.lr.ph125 ], [ %69, %._crit_edge121 ]
-  %66 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv162
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv162
   %67 = load i32, ptr %66, align 4, !tbaa !96
   %68 = sext i32 %67 to i64
   %69 = udiv i64 %.097123, %68
@@ -30455,12 +30452,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
 
 76:                                               ; preds = %.lr.ph120, %76
   %indvars.iv157 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next158, %76 ]
-  %77 = getelementptr inbounds nuw %"class.std::vector.18", ptr %74, i64 %indvars.iv157
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv157
   %78 = load ptr, ptr %77, align 8, !tbaa !67
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv162
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv162
   %80 = load i64, ptr %79, align 8, !tbaa !24
   %81 = mul i64 %80, %73
-  %82 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv157
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv157
   %83 = load ptr, ptr %82, align 8, !tbaa !165
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %81
   store ptr %84, ptr %82, align 8, !tbaa !165
@@ -30528,12 +30525,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   %119 = load ptr, ptr %0, align 8, !tbaa !953
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %120 = load ptr, ptr %119, align 8, !tbaa !68
-  %121 = getelementptr inbounds nuw %"class.std::vector.18", ptr %120, i64 %indvars.iv.next178
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %indvars.iv.next178
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !122
   %124 = getelementptr inbounds i8, ptr %123, i64 -8
   %125 = load i64, ptr %124, align 8, !tbaa !24
-  %126 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next178
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next178
   %127 = load ptr, ptr %126, align 8, !tbaa !165
   %128 = and i64 %125, 4294967295
   %129 = icmp eq i64 %128, 1
@@ -30682,11 +30679,11 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %213, label %.lr.ph137, label %.loopexit107
 
 .lr.ph137:                                        ; preds = %.lr.ph141
-  %214 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next166
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next166
   %215 = load ptr, ptr %214, align 8, !tbaa !165
   %216 = load ptr, ptr %0, align 8, !tbaa !953
   %217 = load ptr, ptr %216, align 8, !tbaa !68
-  %218 = getelementptr inbounds nuw %"class.std::vector.18", ptr %217, i64 %indvars.iv.next166
+  %218 = getelementptr inbounds nuw [24 x i8], ptr %217, i64 %indvars.iv.next166
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load ptr, ptr %219, align 8, !tbaa !122
   %221 = getelementptr inbounds i8, ptr %220, i64 -8
@@ -32182,7 +32179,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -32317,7 +32314,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -32452,7 +32449,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -32587,7 +32584,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -33001,13 +32998,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv54 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next55, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv54
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv54
   %31 = load i32, ptr %30, align 4, !tbaa !96
-  %32 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv54
+  %32 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv54
   %33 = load i32, ptr %32, align 4, !tbaa !96
   %34 = and i32 %31, 255
   %35 = and i32 %34, %33
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv54
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv54
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -33046,10 +33043,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 62:                                               ; preds = %.lr.ph42, %62
   %indvars.iv51 = phi i64 [ %61, %.lr.ph42 ], [ %indvars.iv.next52, %62 ]
-  %63 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv51
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv51
   %64 = load i32, ptr %63, align 4, !tbaa !96
   %65 = and i32 %57, %64
-  %66 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv51
+  %66 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv51
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %67 = load i32, ptr %47, align 4, !tbaa !174
@@ -33095,10 +33092,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 97:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ %96, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4, !tbaa !96
   %100 = and i32 %92, %99
-  %101 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %95, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %82, align 4, !tbaa !174
@@ -33140,13 +33137,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = and i32 %127, %126
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.045, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -33273,7 +33270,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv120, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -33282,15 +33279,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -33317,13 +33314,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph95 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv117
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv117
   %73 = load i32, ptr %72, align 4, !tbaa !96
-  %74 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv117
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv117
   %75 = load i32, ptr %74, align 4, !tbaa !96
   %76 = and i32 %73, 255
   %77 = and i32 %76, %75
-  %78 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv117
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv117
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -33348,10 +33345,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph93, %90
   %indvars.iv114 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next115, %90 ]
-  %91 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv114
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %92 = load i32, ptr %91, align 4, !tbaa !96
   %93 = and i32 %89, %92
-  %94 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv114
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store i32 %93, ptr %94, align 4, !tbaa !96
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %95 = load i32, ptr %33, align 4, !tbaa !96
@@ -33381,10 +33378,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 109:                                              ; preds = %.lr.ph90, %109
   %indvars.iv111 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next112, %109 ]
-  %110 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv111
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %111 = load i32, ptr %110, align 4, !tbaa !96
   %112 = and i32 %108, %111
-  %113 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv111
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store i32 %112, ptr %113, align 4, !tbaa !96
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %114 = load i32, ptr %33, align 4, !tbaa !96
@@ -33413,9 +33410,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %125 = and i32 %124, %123
   store i32 %125, ptr %.06198, align 4, !tbaa !96
   %126 = add nuw nsw i32 %.099, 1
-  %127 = getelementptr inbounds nuw i32, ptr %.06396, i64 %27
-  %128 = getelementptr inbounds nuw i32, ptr %.06297, i64 %119
-  %129 = getelementptr inbounds nuw i32, ptr %.06198, i64 %120
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %27
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %119
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %120
   %130 = load i32, ptr %33, align 4, !tbaa !96
   %131 = icmp slt i32 %126, %130
   br i1 %131, label %121, label %.loopexit, !llvm.loop !1004
@@ -33775,13 +33772,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = icmp eq i32 %32, %33
   %35 = zext i1 %34 to i32
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -33819,11 +33816,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph34, %61
   %indvars.iv43 = phi i64 [ %60, %.lr.ph34 ], [ %indvars.iv.next44, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv43
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = icmp eq i32 %63, %49
   %65 = zext i1 %64 to i32
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv43
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv43
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -33868,11 +33865,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = icmp eq i32 %84, %98
   %100 = zext i1 %99 to i32
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -33914,13 +33911,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = zext i1 %127 to i32
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.037, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -34047,7 +34044,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -34056,15 +34053,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -34091,13 +34088,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = icmp eq i32 %74, %75
   %77 = zext i1 %76 to i32
-  %78 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -34118,11 +34115,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %85, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = icmp eq i32 %90, %86
   %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -34148,11 +34145,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %103, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = icmp eq i32 %104, %108
   %110 = zext i1 %109 to i32
-  %111 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -34181,9 +34178,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = zext i1 %122 to i32
   store i32 %123, ptr %.05890, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.091, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.05989, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.05890, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1027
@@ -34543,13 +34540,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = icmp sgt i32 %32, %33
   %35 = zext i1 %34 to i32
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -34587,11 +34584,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph34, %61
   %indvars.iv43 = phi i64 [ %60, %.lr.ph34 ], [ %indvars.iv.next44, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv43
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = icmp sgt i32 %63, %49
   %65 = zext i1 %64 to i32
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv43
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv43
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -34636,11 +34633,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = icmp sgt i32 %84, %98
   %100 = zext i1 %99 to i32
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -34682,13 +34679,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = zext i1 %127 to i32
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.037, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -34815,7 +34812,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -34824,15 +34821,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -34859,13 +34856,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = icmp sgt i32 %74, %75
   %77 = zext i1 %76 to i32
-  %78 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -34886,11 +34883,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %85, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = icmp sgt i32 %90, %86
   %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -34916,11 +34913,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %103, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = icmp sgt i32 %104, %108
   %110 = zext i1 %109 to i32
-  %111 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -34949,9 +34946,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = zext i1 %122 to i32
   store i32 %123, ptr %.05890, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.091, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.05989, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.05890, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1050
@@ -35311,13 +35308,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = icmp sge i32 %32, %33
   %35 = zext i1 %34 to i32
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -35355,11 +35352,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph34, %61
   %indvars.iv43 = phi i64 [ %60, %.lr.ph34 ], [ %indvars.iv.next44, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv43
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = icmp sge i32 %63, %49
   %65 = zext i1 %64 to i32
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv43
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv43
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -35404,11 +35401,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = icmp sge i32 %84, %98
   %100 = zext i1 %99 to i32
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -35450,13 +35447,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = zext i1 %127 to i32
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.037, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -35583,7 +35580,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -35592,15 +35589,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -35627,13 +35624,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = icmp sge i32 %74, %75
   %77 = zext i1 %76 to i32
-  %78 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -35654,11 +35651,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %85, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = icmp sge i32 %90, %86
   %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -35684,11 +35681,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %103, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = icmp sge i32 %104, %108
   %110 = zext i1 %109 to i32
-  %111 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -35717,9 +35714,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = zext i1 %122 to i32
   store i32 %123, ptr %.05890, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.091, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.05989, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.05890, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1073
@@ -36079,13 +36076,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = icmp slt i32 %32, %33
   %35 = zext i1 %34 to i32
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -36123,11 +36120,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph34, %61
   %indvars.iv43 = phi i64 [ %60, %.lr.ph34 ], [ %indvars.iv.next44, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv43
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = icmp slt i32 %63, %49
   %65 = zext i1 %64 to i32
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv43
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv43
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -36172,11 +36169,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = icmp slt i32 %84, %98
   %100 = zext i1 %99 to i32
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -36218,13 +36215,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = zext i1 %127 to i32
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.037, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -36351,7 +36348,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -36360,15 +36357,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -36395,13 +36392,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = icmp slt i32 %74, %75
   %77 = zext i1 %76 to i32
-  %78 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -36422,11 +36419,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %85, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = icmp slt i32 %90, %86
   %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -36452,11 +36449,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %103, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = icmp slt i32 %104, %108
   %110 = zext i1 %109 to i32
-  %111 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -36485,9 +36482,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = zext i1 %122 to i32
   store i32 %123, ptr %.05890, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.091, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.05989, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.05890, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1096
@@ -36847,13 +36844,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = icmp sle i32 %32, %33
   %35 = zext i1 %34 to i32
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -36891,11 +36888,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph34, %61
   %indvars.iv43 = phi i64 [ %60, %.lr.ph34 ], [ %indvars.iv.next44, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv43
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = icmp sle i32 %63, %49
   %65 = zext i1 %64 to i32
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv43
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv43
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -36940,11 +36937,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = icmp sle i32 %84, %98
   %100 = zext i1 %99 to i32
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -36986,13 +36983,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = zext i1 %127 to i32
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.037, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -37119,7 +37116,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -37128,15 +37125,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -37163,13 +37160,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = icmp sle i32 %74, %75
   %77 = zext i1 %76 to i32
-  %78 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -37190,11 +37187,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %85, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = icmp sle i32 %90, %86
   %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -37220,11 +37217,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %103, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = icmp sle i32 %104, %108
   %110 = zext i1 %109 to i32
-  %111 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -37253,9 +37250,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = zext i1 %122 to i32
   store i32 %123, ptr %.05890, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.091, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.05989, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.05890, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1119
@@ -37615,13 +37612,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv54 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next55, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv54
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv54
   %31 = load i32, ptr %30, align 4, !tbaa !96
-  %32 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv54
+  %32 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv54
   %33 = load i32, ptr %32, align 4, !tbaa !96
   %34 = or i32 %33, %31
   %35 = and i32 %34, 255
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv54
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv54
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -37659,11 +37656,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph42, %61
   %indvars.iv51 = phi i64 [ %60, %.lr.ph42 ], [ %indvars.iv.next52, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv51
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv51
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = or i32 %63, %49
   %65 = and i32 %64, 255
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv51
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv51
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -37708,11 +37705,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = or i32 %98, %84
   %100 = and i32 %99, 255
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -37754,13 +37751,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = and i32 %127, 255
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.045, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -37887,7 +37884,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv120, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -37896,15 +37893,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -37931,13 +37928,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph95 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv117
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv117
   %73 = load i32, ptr %72, align 4, !tbaa !96
-  %74 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv117
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv117
   %75 = load i32, ptr %74, align 4, !tbaa !96
   %76 = or i32 %75, %73
   %77 = and i32 %76, 255
-  %78 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv117
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv117
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -37958,11 +37955,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph93:                                         ; preds = %85, %.lr.ph93
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph93 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv114
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = or i32 %90, %86
   %92 = and i32 %91, 255
-  %93 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv114
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -37988,11 +37985,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph90:                                         ; preds = %103, %.lr.ph90
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph90 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv111
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = or i32 %108, %104
   %110 = and i32 %109, 255
-  %111 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv111
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -38021,9 +38018,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = and i32 %122, 255
   store i32 %123, ptr %.06198, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.099, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06396, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.06297, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.06198, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1142
@@ -38383,15 +38380,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = sitofp i32 %32 to double
   %35 = sitofp i32 %33 to double
   %36 = tail call noundef double @pow(double noundef %34, double noundef %35) #25, !tbaa !96
   %37 = fptosi double %36 to i32
-  %38 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %38 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %37, ptr %38, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %39 = load i32, ptr %16, align 4, !tbaa !174
@@ -38430,12 +38427,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 64:                                               ; preds = %.lr.ph34, %64
   %indvars.iv43 = phi i64 [ %63, %.lr.ph34 ], [ %indvars.iv.next44, %64 ]
-  %65 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %65 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   %66 = load i32, ptr %65, align 4, !tbaa !96
   %67 = sitofp i32 %66 to double
   %68 = tail call noundef double @pow(double noundef %67, double noundef %59) #25, !tbaa !96
   %69 = fptosi double %68 to i32
-  %70 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv43
+  %70 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv43
   store i32 %69, ptr %70, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %71 = load i32, ptr %49, align 4, !tbaa !174
@@ -38481,12 +38478,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 101:                                              ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ %100, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv
+  %102 = getelementptr inbounds [4 x i8], ptr %95, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !96
   %104 = sitofp i32 %103 to double
   %105 = tail call noundef double @pow(double noundef %96, double noundef %104) #25, !tbaa !96
   %106 = fptosi double %105 to i32
-  %107 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv
+  %107 = getelementptr inbounds [4 x i8], ptr %99, i64 %indvars.iv
   store i32 %106, ptr %107, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %108 = load i32, ptr %86, align 4, !tbaa !174
@@ -38530,13 +38527,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %136 = fptosi double %135 to i32
   store i32 %136, ptr %128, align 4, !tbaa !96
   %137 = add nsw i32 %.037, 1
-  %138 = getelementptr inbounds nuw i32, ptr %129, i64 %4
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %4
   store ptr %138, ptr %116, align 8, !tbaa !95
   %139 = load ptr, ptr %118, align 8, !tbaa !95
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %123
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %123
   store ptr %140, ptr %118, align 8, !tbaa !95
   %141 = load ptr, ptr %120, align 8, !tbaa !95
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %126
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %126
   store ptr %142, ptr %120, align 8, !tbaa !95
   %143 = load i32, ptr %112, align 4, !tbaa !174
   %144 = icmp slt i32 %137, %143
@@ -38663,7 +38660,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -38672,15 +38669,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -38707,15 +38704,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = sitofp i32 %74 to double
   %77 = sitofp i32 %75 to double
   %78 = tail call noundef double @pow(double noundef %76, double noundef %77) #25, !tbaa !96
   %79 = fptosi double %78 to i32
-  %80 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %79, ptr %80, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %81 = load i32, ptr %33, align 4, !tbaa !96
@@ -38740,12 +38737,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 92:                                               ; preds = %.lr.ph85, %92
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next107, %92 ]
-  %93 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %94 = load i32, ptr %93, align 4, !tbaa !96
   %95 = sitofp i32 %94 to double
   %96 = tail call noundef double @pow(double noundef %95, double noundef %91) #25, !tbaa !96
   %97 = fptosi double %96 to i32
-  %98 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %99 = load i32, ptr %33, align 4, !tbaa !96
@@ -38775,12 +38772,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 113:                                              ; preds = %.lr.ph82, %113
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next104, %113 ]
-  %114 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %115 = load i32, ptr %114, align 4, !tbaa !96
   %116 = sitofp i32 %115 to double
   %117 = tail call noundef double @pow(double noundef %112, double noundef %116) #25, !tbaa !96
   %118 = fptosi double %117 to i32
-  %119 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %118, ptr %119, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %120 = load i32, ptr %33, align 4, !tbaa !96
@@ -38811,9 +38808,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %133 = fptosi double %132 to i32
   store i32 %133, ptr %.05890, align 4, !tbaa !96
   %134 = add nuw nsw i32 %.091, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %136 = getelementptr inbounds nuw i32, ptr %.05989, i64 %125
-  %137 = getelementptr inbounds nuw i32, ptr %.05890, i64 %126
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %125
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %126
   %138 = load i32, ptr %33, align 4, !tbaa !96
   %139 = icmp slt i32 %134, %138
   br i1 %139, label %127, label %.loopexit, !llvm.loop !1165
@@ -39173,13 +39170,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv54 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next55, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv54
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv54
   %31 = load i32, ptr %30, align 4, !tbaa !96
-  %32 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv54
+  %32 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv54
   %33 = load i32, ptr %32, align 4, !tbaa !96
   %34 = xor i32 %33, %31
   %35 = and i32 %34, 255
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv54
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv54
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -39217,11 +39214,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph42, %61
   %indvars.iv51 = phi i64 [ %60, %.lr.ph42 ], [ %indvars.iv.next52, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv51
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv51
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = xor i32 %63, %49
   %65 = and i32 %64, 255
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv51
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv51
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -39266,11 +39263,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = xor i32 %98, %84
   %100 = and i32 %99, 255
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -39312,13 +39309,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = and i32 %127, 255
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.045, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -39445,7 +39442,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv120, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -39454,15 +39451,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -39489,13 +39486,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph95 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv117
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv117
   %73 = load i32, ptr %72, align 4, !tbaa !96
-  %74 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv117
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv117
   %75 = load i32, ptr %74, align 4, !tbaa !96
   %76 = xor i32 %75, %73
   %77 = and i32 %76, 255
-  %78 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv117
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv117
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -39516,11 +39513,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph93:                                         ; preds = %85, %.lr.ph93
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph93 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv114
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = xor i32 %90, %86
   %92 = and i32 %91, 255
-  %93 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv114
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -39546,11 +39543,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph90:                                         ; preds = %103, %.lr.ph90
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph90 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv111
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = xor i32 %108, %104
   %110 = and i32 %109, 255
-  %111 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv111
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -39579,9 +39576,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = and i32 %122, 255
   store i32 %123, ptr %.06198, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.099, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06396, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.06297, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.06198, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1188
@@ -39941,14 +39938,14 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv54 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next55, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv54
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv54
   %31 = load i32, ptr %30, align 4, !tbaa !96
-  %32 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv54
+  %32 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv54
   %33 = load i32, ptr %32, align 4, !tbaa !96
   %34 = and i32 %31, 255
   %35 = and i32 %33, 255
   %36 = shl i32 %34, %35
-  %37 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv54
+  %37 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv54
   store i32 %36, ptr %37, align 4, !tbaa !96
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %38 = load i32, ptr %16, align 4, !tbaa !174
@@ -39987,11 +39984,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 63:                                               ; preds = %.lr.ph42, %63
   %indvars.iv51 = phi i64 [ %62, %.lr.ph42 ], [ %indvars.iv.next52, %63 ]
-  %64 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv51
+  %64 = getelementptr inbounds [4 x i8], ptr %57, i64 %indvars.iv51
   %65 = load i32, ptr %64, align 4, !tbaa !96
   %66 = and i32 %65, 255
   %67 = shl i32 %66, %58
-  %68 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv51
+  %68 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv51
   store i32 %67, ptr %68, align 4, !tbaa !96
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %69 = load i32, ptr %48, align 4, !tbaa !174
@@ -40037,11 +40034,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 99:                                               ; preds = %.lr.ph, %99
   %indvars.iv = phi i64 [ %98, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %100 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv
+  %100 = getelementptr inbounds [4 x i8], ptr %93, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4, !tbaa !96
   %102 = and i32 %101, 255
   %103 = shl i32 %94, %102
-  %104 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv
+  %104 = getelementptr inbounds [4 x i8], ptr %97, i64 %indvars.iv
   store i32 %103, ptr %104, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %84, align 4, !tbaa !174
@@ -40084,13 +40081,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %132 = shl i32 %130, %131
   store i32 %132, ptr %125, align 4, !tbaa !96
   %133 = add nsw i32 %.045, 1
-  %134 = getelementptr inbounds nuw i32, ptr %126, i64 %4
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %4
   store ptr %134, ptr %113, align 8, !tbaa !95
   %135 = load ptr, ptr %115, align 8, !tbaa !95
-  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %120
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %120
   store ptr %136, ptr %115, align 8, !tbaa !95
   %137 = load ptr, ptr %117, align 8, !tbaa !95
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %123
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %123
   store ptr %138, ptr %117, align 8, !tbaa !95
   %139 = load i32, ptr %109, align 4, !tbaa !174
   %140 = icmp slt i32 %133, %139
@@ -40217,7 +40214,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv120, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -40226,15 +40223,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -40261,14 +40258,14 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph95 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv117
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv117
   %73 = load i32, ptr %72, align 4, !tbaa !96
-  %74 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv117
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv117
   %75 = load i32, ptr %74, align 4, !tbaa !96
   %76 = and i32 %73, 255
   %77 = and i32 %75, 255
   %78 = shl i32 %76, %77
-  %79 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv117
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv117
   store i32 %78, ptr %79, align 4, !tbaa !96
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %80 = load i32, ptr %33, align 4, !tbaa !96
@@ -40293,11 +40290,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 91:                                               ; preds = %.lr.ph93, %91
   %indvars.iv114 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next115, %91 ]
-  %92 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv114
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %93 = load i32, ptr %92, align 4, !tbaa !96
   %94 = and i32 %93, 255
   %95 = shl i32 %94, %90
-  %96 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv114
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store i32 %95, ptr %96, align 4, !tbaa !96
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %97 = load i32, ptr %33, align 4, !tbaa !96
@@ -40327,11 +40324,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 111:                                              ; preds = %.lr.ph90, %111
   %indvars.iv111 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next112, %111 ]
-  %112 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %113 = load i32, ptr %112, align 4, !tbaa !96
   %114 = and i32 %113, 255
   %115 = shl i32 %110, %114
-  %116 = getelementptr inbounds nuw i32, ptr %.068.lcssa, i64 %indvars.iv111
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store i32 %115, ptr %116, align 4, !tbaa !96
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %117 = load i32, ptr %33, align 4, !tbaa !96
@@ -40361,9 +40358,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %129 = shl i32 %127, %128
   store i32 %129, ptr %.06198, align 4, !tbaa !96
   %130 = add nuw nsw i32 %.099, 1
-  %131 = getelementptr inbounds nuw i32, ptr %.06396, i64 %27
-  %132 = getelementptr inbounds nuw i32, ptr %.06297, i64 %122
-  %133 = getelementptr inbounds nuw i32, ptr %.06198, i64 %123
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %27
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %122
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %123
   %134 = load i32, ptr %33, align 4, !tbaa !96
   %135 = icmp slt i32 %130, %134
   br i1 %135, label %124, label %.loopexit, !llvm.loop !1211
@@ -40723,12 +40720,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = tail call noundef i32 @llvm.smax.i32(i32 %32, i32 %33)
-  %35 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %34, ptr %35, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -40766,10 +40763,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = tail call noundef i32 @llvm.smax.i32(i32 %62, i32 %48)
-  %64 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -40814,10 +40811,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !96
   %97 = tail call noundef i32 @llvm.smax.i32(i32 %82, i32 %96)
-  %98 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -40858,13 +40855,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = tail call noundef i32 @llvm.smax.i32(i32 %122, i32 %123)
   store i32 %124, ptr %119, align 4, !tbaa !96
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !95
   %127 = load ptr, ptr %109, align 8, !tbaa !95
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !95
   %129 = load ptr, ptr %111, align 8, !tbaa !95
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !95
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -40991,7 +40988,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -41000,15 +40997,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -41035,12 +41032,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = tail call noundef i32 @llvm.smax.i32(i32 %74, i32 %75)
-  %77 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %76, ptr %77, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -41061,10 +41058,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load i32, ptr %88, align 4, !tbaa !96
   %90 = tail call noundef i32 @llvm.smax.i32(i32 %89, i32 %85)
-  %91 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %90, ptr %91, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -41090,10 +41087,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load i32, ptr %105, align 4, !tbaa !96
   %107 = tail call noundef i32 @llvm.smax.i32(i32 %102, i32 %106)
-  %108 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %107, ptr %108, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -41121,9 +41118,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = tail call noundef i32 @llvm.smax.i32(i32 %117, i32 %118)
   store i32 %119, ptr %.05890, align 4, !tbaa !96
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw i32, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw i32, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1234
@@ -41483,13 +41480,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = add nsw i32 %33, %32
   %35 = sdiv i32 %34, 2
-  %36 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %37 = load i32, ptr %16, align 4, !tbaa !174
@@ -41527,11 +41524,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph34, %61
   %indvars.iv43 = phi i64 [ %60, %.lr.ph34 ], [ %indvars.iv.next44, %61 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv43
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   %63 = load i32, ptr %62, align 4, !tbaa !96
   %64 = add nsw i32 %63, %49
   %65 = sdiv i32 %64, 2
-  %66 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv43
+  %66 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv43
   store i32 %65, ptr %66, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %67 = load i32, ptr %51, align 4, !tbaa !174
@@ -41576,11 +41573,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = add nsw i32 %98, %84
   %100 = sdiv i32 %99, 2
-  %101 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %86, align 4, !tbaa !174
@@ -41622,13 +41619,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %128 = sdiv i32 %127, 2
   store i32 %128, ptr %122, align 4, !tbaa !96
   %129 = add nsw i32 %.037, 1
-  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %4
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %4
   store ptr %130, ptr %110, align 8, !tbaa !95
   %131 = load ptr, ptr %112, align 8, !tbaa !95
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %117
   store ptr %132, ptr %112, align 8, !tbaa !95
   %133 = load ptr, ptr %114, align 8, !tbaa !95
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %120
   store ptr %134, ptr %114, align 8, !tbaa !95
   %135 = load i32, ptr %106, align 4, !tbaa !174
   %136 = icmp slt i32 %129, %135
@@ -41755,7 +41752,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -41764,15 +41761,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -41799,13 +41796,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = add nsw i32 %75, %74
   %77 = sdiv i32 %76, 2
-  %78 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %77, ptr %78, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %79 = load i32, ptr %33, align 4, !tbaa !96
@@ -41826,11 +41823,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %85, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %85 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = add nsw i32 %90, %86
   %92 = sdiv i32 %91, 2
-  %93 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %92, ptr %93, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %94 = load i32, ptr %33, align 4, !tbaa !96
@@ -41856,11 +41853,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %103, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %108 = load i32, ptr %107, align 4, !tbaa !96
   %109 = add nsw i32 %108, %104
   %110 = sdiv i32 %109, 2
-  %111 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %110, ptr %111, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %112 = load i32, ptr %33, align 4, !tbaa !96
@@ -41889,9 +41886,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %123 = sdiv i32 %122, 2
   store i32 %123, ptr %.05890, align 4, !tbaa !96
   %124 = add nuw nsw i32 %.091, 1
-  %125 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %126 = getelementptr inbounds nuw i32, ptr %.05989, i64 %117
-  %127 = getelementptr inbounds nuw i32, ptr %.05890, i64 %118
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %117
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %118
   %128 = load i32, ptr %33, align 4, !tbaa !96
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %119, label %.loopexit, !llvm.loop !1257
@@ -42251,12 +42248,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %31, align 4, !tbaa !96
   %33 = load i32, ptr %30, align 4, !tbaa !96
   %34 = tail call noundef i32 @llvm.smin.i32(i32 %32, i32 %33)
-  %35 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %34, ptr %35, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -42294,10 +42291,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = tail call noundef i32 @llvm.smin.i32(i32 %48, i32 %62)
-  %64 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -42342,10 +42339,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !96
   %97 = tail call noundef i32 @llvm.smin.i32(i32 %96, i32 %82)
-  %98 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -42386,13 +42383,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = tail call noundef i32 @llvm.smin.i32(i32 %122, i32 %123)
   store i32 %124, ptr %119, align 4, !tbaa !96
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !95
   %127 = load ptr, ptr %109, align 8, !tbaa !95
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !95
   %129 = load ptr, ptr %111, align 8, !tbaa !95
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !95
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -42519,7 +42516,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -42528,15 +42525,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -42563,12 +42560,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %73, align 4, !tbaa !96
   %75 = load i32, ptr %72, align 4, !tbaa !96
   %76 = tail call noundef i32 @llvm.smin.i32(i32 %74, i32 %75)
-  %77 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %76, ptr %77, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -42589,10 +42586,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load i32, ptr %88, align 4, !tbaa !96
   %90 = tail call noundef i32 @llvm.smin.i32(i32 %85, i32 %89)
-  %91 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %90, ptr %91, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -42618,10 +42615,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load i32, ptr %105, align 4, !tbaa !96
   %107 = tail call noundef i32 @llvm.smin.i32(i32 %106, i32 %102)
-  %108 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %107, ptr %108, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -42649,9 +42646,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = tail call noundef i32 @llvm.smin.i32(i32 %117, i32 %118)
   store i32 %119, ptr %.05890, align 4, !tbaa !96
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw i32, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw i32, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1280
@@ -43011,8 +43008,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph54, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit
   %indvars.iv77 = phi i64 [ %28, %.lr.ph54 ], [ %indvars.iv.next78, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv77
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv77
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv77
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv77
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = srem i32 %32, %33
@@ -43033,7 +43030,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit: ; preds = %37, %40
   %.0.i.i = phi i32 [ %41, %40 ], [ %34, %37 ]
-  %42 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv77
+  %42 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv77
   store i32 %.0.i.i, ptr %42, align 4, !tbaa !96
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %43 = load i32, ptr %16, align 4, !tbaa !174
@@ -43077,10 +43074,10 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit29.us.us: ; preds = %.lr.ph46.split.us, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit29.us.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit29.us.us ], [ %67, %.lr.ph46.split.us ]
-  %69 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv65
+  %69 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv65
   %70 = load i32, ptr %69, align 4, !tbaa !96
   %71 = srem i32 %70, %.fr57
-  %72 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv65
+  %72 = getelementptr inbounds [4 x i8], ptr %66, i64 %indvars.iv65
   store i32 %71, ptr %72, align 4, !tbaa !96
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
   %73 = load i32, ptr %57, align 4, !tbaa !174
@@ -43090,13 +43087,13 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 .lr.ph46.split.us.split:                          ; preds = %.lr.ph46.split.us, %.lr.ph46.split.us.split
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph46.split.us.split ], [ %67, %.lr.ph46.split.us ]
-  %76 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv68
+  %76 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv68
   %77 = load i32, ptr %76, align 4, !tbaa !96
   %78 = srem i32 %77, %.fr57
   %79 = icmp sgt i32 %78, 0
   %80 = select i1 %79, i32 %.fr57, i32 0
   %spec.select = add nsw i32 %78, %80
-  %81 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv68
+  %81 = getelementptr inbounds [4 x i8], ptr %66, i64 %indvars.iv68
   store i32 %spec.select, ptr %81, align 4, !tbaa !96
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
   %82 = load i32, ptr %57, align 4, !tbaa !174
@@ -43106,13 +43103,13 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 .lr.ph46.split.split.us:                          ; preds = %.lr.ph46, %.lr.ph46.split.split.us
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.lr.ph46.split.split.us ], [ %67, %.lr.ph46 ]
-  %85 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv71
+  %85 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv71
   %86 = load i32, ptr %85, align 4, !tbaa !96
   %87 = srem i32 %86, %.fr57
   %88 = icmp slt i32 %87, 0
   %89 = select i1 %88, i32 %.fr57, i32 0
   %.0.i.i28.us50 = add nsw i32 %87, %89
-  %90 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv71
+  %90 = getelementptr inbounds [4 x i8], ptr %66, i64 %indvars.iv71
   store i32 %.0.i.i28.us50, ptr %90, align 4, !tbaa !96
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
   %91 = load i32, ptr %57, align 4, !tbaa !174
@@ -43157,7 +43154,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 120:                                              ; preds = %.lr.ph, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit33
   %indvars.iv = phi i64 [ %119, %.lr.ph ], [ %indvars.iv.next, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit33 ]
-  %121 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv
+  %121 = getelementptr inbounds [4 x i8], ptr %115, i64 %indvars.iv
   %122 = load i32, ptr %121, align 4, !tbaa !96
   %123 = srem i32 %108, %122
   %124 = icmp slt i32 %123, 0
@@ -43177,7 +43174,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit33: ; preds = %126, %129
   %.0.i.i32 = phi i32 [ %130, %129 ], [ %123, %126 ]
-  %131 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv
+  %131 = getelementptr inbounds [4 x i8], ptr %118, i64 %indvars.iv
   store i32 %.0.i.i32, ptr %131, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %110, align 4, !tbaa !174
@@ -43234,13 +43231,13 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
   %164 = load ptr, ptr %144, align 8, !tbaa !95
   store i32 %.0.i.i36, ptr %164, align 4, !tbaa !96
   %165 = add nsw i32 %.055, 1
-  %166 = getelementptr inbounds nuw i32, ptr %152, i64 %4
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %4
   store ptr %166, ptr %140, align 8, !tbaa !95
   %167 = load ptr, ptr %142, align 8, !tbaa !95
-  %168 = getelementptr inbounds nuw i32, ptr %167, i64 %147
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %147
   store ptr %168, ptr %142, align 8, !tbaa !95
   %169 = load ptr, ptr %144, align 8, !tbaa !95
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %150
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %150
   store ptr %170, ptr %144, align 8, !tbaa !95
   %171 = load i32, ptr %136, align 4, !tbaa !174
   %172 = icmp slt i32 %165, %171
@@ -43367,7 +43364,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06487 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06586 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06685 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06388, %47
@@ -43376,15 +43373,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06388, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06685, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06586, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06487, i64 %63
@@ -43411,8 +43408,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph99:                                         ; preds = %.preheader, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv121
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv121
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv121
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv121
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = srem i32 %74, %75
@@ -43433,7 +43430,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit: ; preds = %79, %82
   %.0.i.i = phi i32 [ %83, %82 ], [ %76, %79 ]
-  %84 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv121
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv121
   store i32 %.0.i.i, ptr %84, align 4, !tbaa !96
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %85 = load i32, ptr %33, align 4, !tbaa !96
@@ -43459,7 +43456,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit70: ; preds = %.lr.ph97, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit70
   %indvars.iv118 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next119, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit70 ]
-  %97 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv118
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv118
   %98 = load i32, ptr %97, align 4, !tbaa !96
   %99 = srem i32 %98, %92
   %100 = icmp slt i32 %99, 0
@@ -43469,7 +43466,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
   %or.cond = or i1 %or.cond.i.i67, %or.cond3.i.i68
   %102 = select i1 %or.cond, i32 %92, i32 0
   %.0.i.i69 = add nsw i32 %99, %102
-  %103 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv118
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv118
   store i32 %.0.i.i69, ptr %103, align 4, !tbaa !96
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %104 = load i32, ptr %33, align 4, !tbaa !96
@@ -43495,7 +43492,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 .lr.ph94:                                         ; preds = %113, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit74
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit74 ], [ 0, %113 ]
-  %117 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv115
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv115
   %118 = load i32, ptr %117, align 4, !tbaa !96
   %119 = srem i32 %114, %118
   %120 = icmp slt i32 %119, 0
@@ -43515,7 +43512,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKiSC_E8_clESC_SC_.exit74: ; preds = %122, %125
   %.0.i.i73 = phi i32 [ %126, %125 ], [ %119, %122 ]
-  %127 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv115
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv115
   store i32 %.0.i.i73, ptr %127, align 4, !tbaa !96
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %128 = load i32, ptr %33, align 4, !tbaa !96
@@ -43560,9 +43557,9 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIiJRSt6vectorINS_3MatESaIS4_EES7_EE
   %.0.i.i77 = phi i32 [ %145, %144 ], [ %138, %141 ]
   store i32 %.0.i.i77, ptr %.058102, align 4, !tbaa !96
   %146 = add nuw nsw i32 %.0103, 1
-  %147 = getelementptr inbounds nuw i32, ptr %.060100, i64 %27
-  %148 = getelementptr inbounds nuw i32, ptr %.059101, i64 %133
-  %149 = getelementptr inbounds nuw i32, ptr %.058102, i64 %134
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %.060100, i64 %27
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %.059101, i64 %133
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %.058102, i64 %134
   %150 = load i32, ptr %33, align 4, !tbaa !96
   %151 = icmp slt i32 %146, %150
   br i1 %151, label %135, label %.loopexit, !llvm.loop !1303
@@ -43922,15 +43919,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = sitofp i32 %32 to double
   %35 = sitofp i32 %33 to double
   %36 = tail call noundef double @fmod(double noundef %34, double noundef %35) #25, !tbaa !96
   %37 = fptosi double %36 to i32
-  %38 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %38 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %37, ptr %38, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %39 = load i32, ptr %16, align 4, !tbaa !174
@@ -43969,12 +43966,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 64:                                               ; preds = %.lr.ph34, %64
   %indvars.iv43 = phi i64 [ %63, %.lr.ph34 ], [ %indvars.iv.next44, %64 ]
-  %65 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %65 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   %66 = load i32, ptr %65, align 4, !tbaa !96
   %67 = sitofp i32 %66 to double
   %68 = tail call noundef double @fmod(double noundef %67, double noundef %59) #25, !tbaa !96
   %69 = fptosi double %68 to i32
-  %70 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv43
+  %70 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv43
   store i32 %69, ptr %70, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %71 = load i32, ptr %49, align 4, !tbaa !174
@@ -44020,12 +44017,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 101:                                              ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ %100, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv
+  %102 = getelementptr inbounds [4 x i8], ptr %95, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !96
   %104 = sitofp i32 %103 to double
   %105 = tail call noundef double @fmod(double noundef %96, double noundef %104) #25, !tbaa !96
   %106 = fptosi double %105 to i32
-  %107 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv
+  %107 = getelementptr inbounds [4 x i8], ptr %99, i64 %indvars.iv
   store i32 %106, ptr %107, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %108 = load i32, ptr %86, align 4, !tbaa !174
@@ -44069,13 +44066,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %136 = fptosi double %135 to i32
   store i32 %136, ptr %128, align 4, !tbaa !96
   %137 = add nsw i32 %.037, 1
-  %138 = getelementptr inbounds nuw i32, ptr %129, i64 %4
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %4
   store ptr %138, ptr %116, align 8, !tbaa !95
   %139 = load ptr, ptr %118, align 8, !tbaa !95
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %123
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %123
   store ptr %140, ptr %118, align 8, !tbaa !95
   %141 = load ptr, ptr %120, align 8, !tbaa !95
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %126
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %126
   store ptr %142, ptr %120, align 8, !tbaa !95
   %143 = load i32, ptr %112, align 4, !tbaa !174
   %144 = icmp slt i32 %137, %143
@@ -44202,7 +44199,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -44211,15 +44208,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -44246,15 +44243,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = sitofp i32 %74 to double
   %77 = sitofp i32 %75 to double
   %78 = tail call noundef double @fmod(double noundef %76, double noundef %77) #25, !tbaa !96
   %79 = fptosi double %78 to i32
-  %80 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %79, ptr %80, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %81 = load i32, ptr %33, align 4, !tbaa !96
@@ -44279,12 +44276,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 92:                                               ; preds = %.lr.ph85, %92
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next107, %92 ]
-  %93 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %94 = load i32, ptr %93, align 4, !tbaa !96
   %95 = sitofp i32 %94 to double
   %96 = tail call noundef double @fmod(double noundef %95, double noundef %91) #25, !tbaa !96
   %97 = fptosi double %96 to i32
-  %98 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %99 = load i32, ptr %33, align 4, !tbaa !96
@@ -44314,12 +44311,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 113:                                              ; preds = %.lr.ph82, %113
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next104, %113 ]
-  %114 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %115 = load i32, ptr %114, align 4, !tbaa !96
   %116 = sitofp i32 %115 to double
   %117 = tail call noundef double @fmod(double noundef %112, double noundef %116) #25, !tbaa !96
   %118 = fptosi double %117 to i32
-  %119 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %118, ptr %119, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %120 = load i32, ptr %33, align 4, !tbaa !96
@@ -44350,9 +44347,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %133 = fptosi double %132 to i32
   store i32 %133, ptr %.05890, align 4, !tbaa !96
   %134 = add nuw nsw i32 %.091, 1
-  %135 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %136 = getelementptr inbounds nuw i32, ptr %.05989, i64 %125
-  %137 = getelementptr inbounds nuw i32, ptr %.05890, i64 %126
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %125
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %126
   %138 = load i32, ptr %33, align 4, !tbaa !96
   %139 = icmp slt i32 %134, %138
   br i1 %139, label %127, label %.loopexit, !llvm.loop !1326
@@ -44712,12 +44709,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = mul nsw i32 %33, %32
-  %35 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %34, ptr %35, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -44755,10 +44752,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = mul nsw i32 %62, %48
-  %64 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -44803,10 +44800,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !96
   %97 = mul nsw i32 %96, %82
-  %98 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -44847,13 +44844,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = mul nsw i32 %123, %122
   store i32 %124, ptr %119, align 4, !tbaa !96
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !95
   %127 = load ptr, ptr %109, align 8, !tbaa !95
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !95
   %129 = load ptr, ptr %111, align 8, !tbaa !95
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !95
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -44980,7 +44977,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -44989,15 +44986,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -45024,12 +45021,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = mul nsw i32 %75, %74
-  %77 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %76, ptr %77, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -45050,10 +45047,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load i32, ptr %88, align 4, !tbaa !96
   %90 = mul nsw i32 %89, %85
-  %91 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %90, ptr %91, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -45079,10 +45076,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load i32, ptr %105, align 4, !tbaa !96
   %107 = mul nsw i32 %106, %102
-  %108 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %107, ptr %108, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -45110,9 +45107,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = mul nsw i32 %118, %117
   store i32 %119, ptr %.05890, align 4, !tbaa !96
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw i32, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw i32, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1349
@@ -45472,12 +45469,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = sub nsw i32 %32, %33
-  %35 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %34, ptr %35, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -45515,10 +45512,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = sub nsw i32 %62, %48
-  %64 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -45563,10 +45560,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !96
   %97 = sub nsw i32 %82, %96
-  %98 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -45607,13 +45604,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = sub nsw i32 %122, %123
   store i32 %124, ptr %119, align 4, !tbaa !96
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !95
   %127 = load ptr, ptr %109, align 8, !tbaa !95
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !95
   %129 = load ptr, ptr %111, align 8, !tbaa !95
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !95
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -45740,7 +45737,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -45749,15 +45746,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -45784,12 +45781,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = sub nsw i32 %74, %75
-  %77 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %76, ptr %77, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -45810,10 +45807,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load i32, ptr %88, align 4, !tbaa !96
   %90 = sub nsw i32 %89, %85
-  %91 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %90, ptr %91, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -45839,10 +45836,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load i32, ptr %105, align 4, !tbaa !96
   %107 = sub nsw i32 %102, %106
-  %108 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %107, ptr %108, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -45870,9 +45867,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = sub nsw i32 %117, %118
   store i32 %119, ptr %.05890, align 4, !tbaa !96
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw i32, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw i32, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1372
@@ -46232,12 +46229,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = add nsw i32 %33, %32
-  %35 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %34, ptr %35, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -46275,10 +46272,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = add nsw i32 %62, %48
-  %64 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -46323,10 +46320,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !96
   %97 = add nsw i32 %96, %82
-  %98 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -46367,13 +46364,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = add nsw i32 %123, %122
   store i32 %124, ptr %119, align 4, !tbaa !96
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !95
   %127 = load ptr, ptr %109, align 8, !tbaa !95
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !95
   %129 = load ptr, ptr %111, align 8, !tbaa !95
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !95
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -46500,7 +46497,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -46509,15 +46506,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -46544,12 +46541,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = add nsw i32 %75, %74
-  %77 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %76, ptr %77, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -46570,10 +46567,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load i32, ptr %88, align 4, !tbaa !96
   %90 = add nsw i32 %89, %85
-  %91 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %90, ptr %91, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -46599,10 +46596,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load i32, ptr %105, align 4, !tbaa !96
   %107 = add nsw i32 %106, %102
-  %108 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %107, ptr %108, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -46630,9 +46627,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = add nsw i32 %118, %117
   store i32 %119, ptr %.05890, align 4, !tbaa !96
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw i32, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw i32, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1395
@@ -46992,12 +46989,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load i32, ptr %30, align 4, !tbaa !96
   %33 = load i32, ptr %31, align 4, !tbaa !96
   %34 = sdiv i32 %32, %33
-  %35 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store i32 %34, ptr %35, align 4, !tbaa !96
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -47035,10 +47032,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = sdiv i32 %62, %48
-  %64 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store i32 %63, ptr %64, align 4, !tbaa !96
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -47083,10 +47080,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !96
   %97 = sdiv i32 %82, %96
-  %98 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store i32 %97, ptr %98, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -47127,13 +47124,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = sdiv i32 %122, %123
   store i32 %124, ptr %119, align 4, !tbaa !96
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !95
   %127 = load ptr, ptr %109, align 8, !tbaa !95
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !95
   %129 = load ptr, ptr %111, align 8, !tbaa !95
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !95
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -47260,7 +47257,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -47269,15 +47266,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -47304,12 +47301,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load i32, ptr %72, align 4, !tbaa !96
   %75 = load i32, ptr %73, align 4, !tbaa !96
   %76 = sdiv i32 %74, %75
-  %77 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store i32 %76, ptr %77, align 4, !tbaa !96
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -47330,10 +47327,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw i32, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load i32, ptr %88, align 4, !tbaa !96
   %90 = sdiv i32 %89, %85
-  %91 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store i32 %90, ptr %91, align 4, !tbaa !96
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -47359,10 +47356,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load i32, ptr %105, align 4, !tbaa !96
   %107 = sdiv i32 %102, %106
-  %108 = getelementptr inbounds nuw i32, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store i32 %107, ptr %108, align 4, !tbaa !96
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -47390,9 +47387,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = sdiv i32 %117, %118
   store i32 %119, ptr %.05890, align 4, !tbaa !96
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw i32, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw i32, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1418
@@ -47835,15 +47832,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 37:                                               ; preds = %.lr.ph65, %37
   %indvars.iv83 = phi i64 [ %36, %.lr.ph65 ], [ %indvars.iv.next84, %37 ]
-  %38 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv83
-  %39 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv83
-  %40 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv83
+  %38 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv83
+  %39 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv83
+  %40 = getelementptr inbounds [4 x i8], ptr %32, i64 %indvars.iv83
   %41 = load i32, ptr %38, align 4, !tbaa !96
   %.not.i = icmp eq i32 %41, 0
   %.val.i = load i32, ptr %40, align 4
   %.val3.i = load i32, ptr %39, align 4
   %42 = select i1 %.not.i, i32 %.val.i, i32 %.val3.i
-  %43 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv83
+  %43 = getelementptr inbounds [4 x i8], ptr %35, i64 %indvars.iv83
   store i32 %42, ptr %43, align 4, !tbaa !96
   %indvars.iv.next84 = add nsw i64 %indvars.iv83, 1
   %44 = load i32, ptr %21, align 4, !tbaa !174
@@ -47900,9 +47897,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph.split.us ], [ %80, %.lr.ph ]
-  %81 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv74
+  %81 = getelementptr inbounds [4 x i8], ptr %76, i64 %indvars.iv74
   %.val.i38.us = load i32, ptr %81, align 4
-  %82 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv74
+  %82 = getelementptr inbounds [4 x i8], ptr %79, i64 %indvars.iv74
   store i32 %.val.i38.us, ptr %82, align 4, !tbaa !96
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
   %83 = load i32, ptr %64, align 4, !tbaa !174
@@ -47912,9 +47909,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %80, %.lr.ph ]
-  %86 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv
+  %86 = getelementptr inbounds [4 x i8], ptr %73, i64 %indvars.iv
   %.val3.i39 = load i32, ptr %86, align 4
-  %87 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv
+  %87 = getelementptr inbounds [4 x i8], ptr %79, i64 %indvars.iv
   store i32 %.val3.i39, ptr %87, align 4, !tbaa !96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %88 = load i32, ptr %64, align 4, !tbaa !174
@@ -47962,13 +47959,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 120:                                              ; preds = %.lr.ph63, %120
   %indvars.iv80 = phi i64 [ %119, %.lr.ph63 ], [ %indvars.iv.next81, %120 ]
-  %121 = getelementptr inbounds i32, ptr %112, i64 %indvars.iv80
-  %122 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv80
+  %121 = getelementptr inbounds [4 x i8], ptr %112, i64 %indvars.iv80
+  %122 = getelementptr inbounds [4 x i8], ptr %115, i64 %indvars.iv80
   %123 = load i32, ptr %121, align 4, !tbaa !96
   %.not.i40 = icmp eq i32 %123, 0
   %.val.i41 = load i32, ptr %122, align 4
   %124 = select i1 %.not.i40, i32 %.val.i41, i32 %105
-  %125 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv80
+  %125 = getelementptr inbounds [4 x i8], ptr %118, i64 %indvars.iv80
   store i32 %124, ptr %125, align 4, !tbaa !96
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, 1
   %126 = load i32, ptr %107, align 4, !tbaa !174
@@ -48016,13 +48013,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 158:                                              ; preds = %.lr.ph61, %158
   %indvars.iv77 = phi i64 [ %157, %.lr.ph61 ], [ %indvars.iv.next78, %158 ]
-  %159 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv77
-  %160 = getelementptr inbounds i32, ptr %153, i64 %indvars.iv77
+  %159 = getelementptr inbounds [4 x i8], ptr %150, i64 %indvars.iv77
+  %160 = getelementptr inbounds [4 x i8], ptr %153, i64 %indvars.iv77
   %161 = load i32, ptr %159, align 4, !tbaa !96
   %.not.i43 = icmp eq i32 %161, 0
   %.val3.i45 = load i32, ptr %160, align 4
   %162 = select i1 %.not.i43, i32 %143, i32 %.val3.i45
-  %163 = getelementptr inbounds i32, ptr %156, i64 %indvars.iv77
+  %163 = getelementptr inbounds [4 x i8], ptr %156, i64 %indvars.iv77
   store i32 %162, ptr %163, align 4, !tbaa !96
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %164 = load i32, ptr %145, align 4, !tbaa !174
@@ -48071,16 +48068,16 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %194 = select i1 %.not.i46, i32 %.val.i47, i32 %.val3.i48
   store i32 %194, ptr %189, align 4, !tbaa !96
   %195 = add nsw i32 %.066, 1
-  %196 = getelementptr inbounds nuw i32, ptr %190, i64 %4
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %4
   store ptr %196, ptr %172, align 8, !tbaa !95
   %197 = load ptr, ptr %174, align 8, !tbaa !95
-  %198 = getelementptr inbounds nuw i32, ptr %197, i64 %181
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %181
   store ptr %198, ptr %174, align 8, !tbaa !95
   %199 = load ptr, ptr %176, align 8, !tbaa !95
-  %200 = getelementptr inbounds nuw i32, ptr %199, i64 %184
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %184
   store ptr %200, ptr %176, align 8, !tbaa !95
   %201 = load ptr, ptr %178, align 8, !tbaa !95
-  %202 = getelementptr inbounds nuw i32, ptr %201, i64 %187
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %187
   store ptr %202, ptr %178, align 8, !tbaa !95
   %203 = load i32, ptr %168, align 4, !tbaa !174
   %204 = icmp slt i32 %195, %203
@@ -48217,7 +48214,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %.088115 = phi ptr [ %14, %.lr.ph ], [ %72, %52 ]
   %.089114 = phi ptr [ %11, %.lr.ph ], [ %68, %52 ]
   %.090113 = phi ptr [ %8, %.lr.ph ], [ %64, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !96
   %55 = sext i32 %54 to i64
   %56 = udiv i64 %.086117, %55
@@ -48226,19 +48223,19 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %59 = sub i64 %.086117, %58
   %sext = shl i64 %59, 32
   %60 = ashr exact i64 %sext, 32
-  %61 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %60, %62
   %64 = getelementptr inbounds nuw i8, ptr %.090113, i64 %63
-  %65 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !24
   %67 = mul i64 %66, %60
   %68 = getelementptr inbounds nuw i8, ptr %.089114, i64 %67
-  %69 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8, !tbaa !24
   %71 = mul i64 %70, %60
   %72 = getelementptr inbounds nuw i8, ptr %.088115, i64 %71
-  %73 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %74 = load i64, ptr %73, align 8, !tbaa !24
   %75 = mul i64 %74, %60
   %76 = getelementptr inbounds nuw i8, ptr %.087116, i64 %75
@@ -48270,15 +48267,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph132:                                        ; preds = %.preheader, %.lr.ph132
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.lr.ph132 ], [ 0, %.preheader ]
-  %87 = getelementptr inbounds nuw i32, ptr %.090.lcssa, i64 %indvars.iv161
-  %88 = getelementptr inbounds nuw i32, ptr %.089.lcssa, i64 %indvars.iv161
-  %89 = getelementptr inbounds nuw i32, ptr %.088.lcssa, i64 %indvars.iv161
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %.090.lcssa, i64 %indvars.iv161
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.089.lcssa, i64 %indvars.iv161
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.088.lcssa, i64 %indvars.iv161
   %90 = load i32, ptr %87, align 4, !tbaa !96
   %.not.i = icmp eq i32 %90, 0
   %.val.i = load i32, ptr %89, align 4
   %.val3.i = load i32, ptr %88, align 4
   %91 = select i1 %.not.i, i32 %.val.i, i32 %.val3.i
-  %92 = getelementptr inbounds nuw i32, ptr %.087.lcssa, i64 %indvars.iv161
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv161
   store i32 %91, ptr %92, align 4, !tbaa !96
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %93 = load i32, ptr %40, align 4, !tbaa !96
@@ -48313,12 +48310,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 109:                                              ; preds = %.lr.ph124, %109
   %indvars.iv152 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next153, %109 ]
-  %110 = getelementptr inbounds nuw i32, ptr %.089.lcssa, i64 %indvars.iv152
-  %111 = getelementptr inbounds nuw i32, ptr %.088.lcssa, i64 %indvars.iv152
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %.089.lcssa, i64 %indvars.iv152
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.088.lcssa, i64 %indvars.iv152
   %.val.i92 = load i32, ptr %111, align 4
   %.val3.i93 = load i32, ptr %110, align 4
   %112 = select i1 %.not.i91, i32 %.val.i92, i32 %.val3.i93
-  %113 = getelementptr inbounds nuw i32, ptr %.087.lcssa, i64 %indvars.iv152
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv152
   store i32 %112, ptr %113, align 4, !tbaa !96
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %114 = load i32, ptr %40, align 4, !tbaa !96
@@ -48344,13 +48341,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph130:                                        ; preds = %123, %.lr.ph130
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.lr.ph130 ], [ 0, %123 ]
-  %127 = getelementptr inbounds nuw i32, ptr %.090.lcssa, i64 %indvars.iv158
-  %128 = getelementptr inbounds nuw i32, ptr %.088.lcssa, i64 %indvars.iv158
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.090.lcssa, i64 %indvars.iv158
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.088.lcssa, i64 %indvars.iv158
   %129 = load i32, ptr %127, align 4, !tbaa !96
   %.not.i94 = icmp eq i32 %129, 0
   %.val.i95 = load i32, ptr %128, align 4
   %130 = select i1 %.not.i94, i32 %.val.i95, i32 %124
-  %131 = getelementptr inbounds nuw i32, ptr %.087.lcssa, i64 %indvars.iv158
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv158
   store i32 %130, ptr %131, align 4, !tbaa !96
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %132 = load i32, ptr %40, align 4, !tbaa !96
@@ -48371,13 +48368,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph127:                                        ; preds = %138, %.lr.ph127
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.lr.ph127 ], [ 0, %138 ]
-  %142 = getelementptr inbounds nuw i32, ptr %.090.lcssa, i64 %indvars.iv155
-  %143 = getelementptr inbounds nuw i32, ptr %.089.lcssa, i64 %indvars.iv155
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %.090.lcssa, i64 %indvars.iv155
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.089.lcssa, i64 %indvars.iv155
   %144 = load i32, ptr %142, align 4, !tbaa !96
   %.not.i97 = icmp eq i32 %144, 0
   %.val3.i99 = load i32, ptr %143, align 4
   %145 = select i1 %.not.i97, i32 %139, i32 %.val3.i99
-  %146 = getelementptr inbounds nuw i32, ptr %.087.lcssa, i64 %indvars.iv155
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv155
   store i32 %145, ptr %146, align 4, !tbaa !96
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %147 = load i32, ptr %40, align 4, !tbaa !96
@@ -48409,10 +48406,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %157 = select i1 %.not.i100, i32 %.val.i101, i32 %.val3.i102
   store i32 %157, ptr %.080136, align 4, !tbaa !96
   %158 = add nuw nsw i32 %.0137, 1
-  %159 = getelementptr inbounds nuw i32, ptr %.083133, i64 %32
-  %160 = getelementptr inbounds nuw i32, ptr %.082134, i64 %152
-  %161 = getelementptr inbounds nuw i32, ptr %.081135, i64 %153
-  %162 = getelementptr inbounds nuw i32, ptr %.080136, i64 %154
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %.083133, i64 %32
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.082134, i64 %152
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.081135, i64 %153
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.080136, i64 %154
   %163 = load i32, ptr %40, align 4, !tbaa !96
   %164 = icmp slt i32 %158, %163
   br i1 %164, label %155, label %.loopexit, !llvm.loop !1447
@@ -48591,10 +48588,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1449
@@ -48926,12 +48923,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph70, %46
   %indvars.iv84 = phi i64 [ %30, %.lr.ph70 ], [ %indvars.iv.next85, %46 ]
-  %47 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv84
-  %48 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv84
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv84
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv84
   %49 = load i32, ptr %47, align 4, !tbaa !96
   %50 = load i32, ptr %48, align 4, !tbaa !96
   %51 = tail call noundef i32 @llvm.smax.i32(i32 %49, i32 %50)
-  %52 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv84
+  %52 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv84
   store i32 %51, ptr %52, align 4, !tbaa !96
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %53 = load i32, ptr %18, align 4, !tbaa !174
@@ -48944,12 +48941,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %58 = phi i32 [ %31, %.lr.ph79 ], [ %101, %.loopexit ]
   %indvars.iv93 = phi i64 [ 2, %.lr.ph79 ], [ %indvars.iv.next94, %.loopexit ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %59 = getelementptr inbounds nuw %"class.std::vector.18", ptr %38, i64 %indvars.iv.next94
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv.next94
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !122
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8, !tbaa !24
-  %64 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next94
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.next94
   %65 = load ptr, ptr %64, align 8, !tbaa !165
   %66 = and i64 %63, 4294967295
   %67 = icmp eq i64 %66, 1
@@ -48967,8 +48964,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 73:                                               ; preds = %.lr.ph77, %73
   %indvars.iv90 = phi i64 [ %72, %.lr.ph77 ], [ %indvars.iv.next91, %73 ]
-  %74 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv90
-  %75 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv90
+  %74 = getelementptr inbounds [4 x i8], ptr %71, i64 %indvars.iv90
+  %75 = getelementptr inbounds [4 x i8], ptr %65, i64 %indvars.iv90
   %76 = load i32, ptr %74, align 4, !tbaa !96
   %77 = load i32, ptr %75, align 4, !tbaa !96
   %78 = tail call noundef i32 @llvm.smax.i32(i32 %76, i32 %77)
@@ -48995,7 +48992,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 89:                                               ; preds = %.lr.ph74, %89
   %indvars.iv87 = phi i64 [ %88, %.lr.ph74 ], [ %indvars.iv.next88, %89 ]
   %.05271 = phi ptr [ %65, %.lr.ph74 ], [ %96, %89 ]
-  %90 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv87
+  %90 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv87
   %91 = load i32, ptr %90, align 4, !tbaa !96
   %92 = load i32, ptr %.05271, align 4, !tbaa !96
   %93 = tail call noundef i32 @llvm.smax.i32(i32 %91, i32 %92)
@@ -49072,13 +49069,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %143 = load ptr, ptr %107, align 8, !tbaa !95
   store i32 %142, ptr %143, align 4, !tbaa !96
   %144 = add nsw i32 %.04860, 1
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %4
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %4
   store ptr %145, ptr %107, align 8, !tbaa !95
   %146 = load ptr, ptr %114, align 8, !tbaa !95
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %119
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %119
   store ptr %147, ptr %114, align 8, !tbaa !95
   %148 = load ptr, ptr %116, align 8, !tbaa !95
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %122
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %122
   store ptr %149, ptr %116, align 8, !tbaa !95
   %150 = load i32, ptr %110, align 4, !tbaa !174
   %151 = icmp slt i32 %144, %150
@@ -49108,9 +49105,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %161, label %.lr.ph64, label %.loopexit57
 
 .lr.ph64:                                         ; preds = %.lr.ph67.split
-  %162 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv.next
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.next
   %163 = load ptr, ptr %162, align 8, !tbaa !165
-  %164 = getelementptr inbounds nuw %"class.std::vector.18", ptr %130, i64 %indvars.iv.next
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %indvars.iv.next
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !122
   %167 = getelementptr inbounds i8, ptr %166, i64 -8
@@ -49131,7 +49128,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %177 = mul nsw i32 %176, %174
   store i32 %177, ptr %171, align 4, !tbaa !96
   %178 = add nsw i32 %.062, 1
-  %179 = getelementptr inbounds nuw i32, ptr %171, i64 %4
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %4
   store ptr %179, ptr %107, align 8, !tbaa !95
   %180 = getelementptr inbounds i8, ptr %.04561, i64 %169
   %181 = load i32, ptr %110, align 4, !tbaa !174
@@ -49298,10 +49295,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %64, ptr %65, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !1476
@@ -49319,7 +49316,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 69:                                               ; preds = %.lr.ph126, %._crit_edge122
   %indvars.iv165 = phi i64 [ %61, %.lr.ph126 ], [ %indvars.iv.next166, %._crit_edge122 ]
   %.097124 = phi i64 [ %indvars.iv183, %.lr.ph126 ], [ %73, %._crit_edge122 ]
-  %70 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv165
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv165
   %71 = load i32, ptr %70, align 4, !tbaa !96
   %72 = sext i32 %71 to i64
   %73 = udiv i64 %.097124, %72
@@ -49340,12 +49337,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 79:                                               ; preds = %.lr.ph121, %79
   %indvars.iv160 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next161, %79 ]
-  %80 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv160
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv160
   %81 = load ptr, ptr %80, align 8, !tbaa !67
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv165
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv165
   %83 = load i64, ptr %82, align 8, !tbaa !24
   %84 = mul i64 %83, %77
-  %85 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv160
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv160
   %86 = load ptr, ptr %85, align 8, !tbaa !165
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %84
   store ptr %87, ptr %85, align 8, !tbaa !165
@@ -49384,14 +49381,14 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph145:                                        ; preds = %.preheader110, %.lr.ph145
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.lr.ph145 ], [ 0, %.preheader110 ]
-  %100 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv171
-  %101 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv171
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv171
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv171
   %102 = load i32, ptr %100, align 4, !tbaa !96
   %103 = load i32, ptr %101, align 4, !tbaa !96
   %104 = call noundef i32 @llvm.smax.i32(i32 %102, i32 %103)
   %105 = load i32, ptr %44, align 4, !tbaa !96
   %106 = mul nsw i32 %105, %104
-  %107 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv171
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv171
   store i32 %106, ptr %107, align 4, !tbaa !96
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %108 = load i32, ptr %42, align 4, !tbaa !96
@@ -49404,12 +49401,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %113 = phi i32 [ %96, %.lr.ph153 ], [ %148, %.loopexit ]
   %indvars.iv180 = phi i64 [ 2, %.lr.ph153 ], [ %indvars.iv.next181, %.loopexit ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %114 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next181
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next181
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !122
   %117 = getelementptr inbounds i8, ptr %116, i64 -8
   %118 = load i64, ptr %117, align 8, !tbaa !24
-  %119 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next181
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next181
   %120 = load ptr, ptr %119, align 8, !tbaa !165
   %121 = and i64 %118, 4294967295
   %122 = icmp eq i64 %121, 1
@@ -49430,8 +49427,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph151:                                        ; preds = %.preheader, %.lr.ph151
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph151 ], [ 0, %.preheader ]
-  %126 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv177
-  %127 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv177
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv177
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv177
   %128 = load i32, ptr %127, align 4, !tbaa !96
   %129 = load i32, ptr %99, align 4, !tbaa !96
   %130 = mul nsw i32 %129, %128
@@ -49447,7 +49444,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 136:                                              ; preds = %.lr.ph149, %136
   %indvars.iv174 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next175, %136 ]
   %.089147 = phi ptr [ %120, %.lr.ph149 ], [ %143, %136 ]
-  %137 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv174
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
   %138 = load i32, ptr %.089147, align 4, !tbaa !96
   %139 = load i32, ptr %99, align 4, !tbaa !96
   %140 = mul nsw i32 %139, %138
@@ -49507,9 +49504,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %168 = mul nsw i32 %167, %166
   store i32 %168, ptr %.093130, align 4, !tbaa !96
   %169 = add nuw nsw i32 %.086131, 1
-  %170 = getelementptr inbounds nuw i32, ptr %.093130, i64 %35
-  %171 = getelementptr inbounds nuw i32, ptr %.095128, i64 %155
-  %172 = getelementptr inbounds nuw i32, ptr %.094129, i64 %156
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.093130, i64 %35
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.095128, i64 %155
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.094129, i64 %156
   %173 = load i32, ptr %42, align 4, !tbaa !96
   %174 = icmp slt i32 %169, %173
   br i1 %174, label %163, label %.preheader111.loopexit, !llvm.loop !1483
@@ -49538,9 +49535,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %184, label %.lr.ph139, label %.loopexit107
 
 .lr.ph139:                                        ; preds = %180
-  %185 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next169
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next169
   %186 = load ptr, ptr %185, align 8, !tbaa !165
-  %187 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next169
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next169
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !122
   %190 = getelementptr inbounds i8, ptr %189, i64 -8
@@ -49560,7 +49557,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %198 = call noundef i32 @llvm.smax.i32(i32 %197, i32 %196)
   store i32 %198, ptr %.2135, align 4, !tbaa !96
   %199 = add nuw nsw i32 %.0137, 1
-  %200 = getelementptr inbounds nuw i32, ptr %.2135, i64 %35
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %.2135, i64 %35
   %201 = getelementptr inbounds i8, ptr %.083136, i64 %192
   %202 = load i32, ptr %42, align 4, !tbaa !96
   %203 = icmp slt i32 %199, %202
@@ -49743,10 +49740,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1487
@@ -50078,12 +50075,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph70, %46
   %indvars.iv84 = phi i64 [ %30, %.lr.ph70 ], [ %indvars.iv.next85, %46 ]
-  %47 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv84
-  %48 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv84
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv84
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv84
   %49 = load i32, ptr %47, align 4, !tbaa !96
   %50 = load i32, ptr %48, align 4, !tbaa !96
   %51 = add nsw i32 %50, %49
-  %52 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv84
+  %52 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv84
   store i32 %51, ptr %52, align 4, !tbaa !96
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %53 = load i32, ptr %18, align 4, !tbaa !174
@@ -50096,12 +50093,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %58 = phi i32 [ %31, %.lr.ph79 ], [ %101, %.loopexit ]
   %indvars.iv93 = phi i64 [ 2, %.lr.ph79 ], [ %indvars.iv.next94, %.loopexit ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %59 = getelementptr inbounds nuw %"class.std::vector.18", ptr %38, i64 %indvars.iv.next94
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv.next94
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !122
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8, !tbaa !24
-  %64 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next94
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.next94
   %65 = load ptr, ptr %64, align 8, !tbaa !165
   %66 = and i64 %63, 4294967295
   %67 = icmp eq i64 %66, 1
@@ -50119,8 +50116,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 73:                                               ; preds = %.lr.ph77, %73
   %indvars.iv90 = phi i64 [ %72, %.lr.ph77 ], [ %indvars.iv.next91, %73 ]
-  %74 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv90
-  %75 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv90
+  %74 = getelementptr inbounds [4 x i8], ptr %71, i64 %indvars.iv90
+  %75 = getelementptr inbounds [4 x i8], ptr %65, i64 %indvars.iv90
   %76 = load i32, ptr %74, align 4, !tbaa !96
   %77 = load i32, ptr %75, align 4, !tbaa !96
   %78 = add nsw i32 %77, %76
@@ -50147,7 +50144,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 89:                                               ; preds = %.lr.ph74, %89
   %indvars.iv87 = phi i64 [ %88, %.lr.ph74 ], [ %indvars.iv.next88, %89 ]
   %.05271 = phi ptr [ %65, %.lr.ph74 ], [ %96, %89 ]
-  %90 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv87
+  %90 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv87
   %91 = load i32, ptr %90, align 4, !tbaa !96
   %92 = load i32, ptr %.05271, align 4, !tbaa !96
   %93 = add nsw i32 %92, %91
@@ -50224,13 +50221,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %143 = load ptr, ptr %107, align 8, !tbaa !95
   store i32 %142, ptr %143, align 4, !tbaa !96
   %144 = add nsw i32 %.04860, 1
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %4
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %4
   store ptr %145, ptr %107, align 8, !tbaa !95
   %146 = load ptr, ptr %114, align 8, !tbaa !95
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %119
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %119
   store ptr %147, ptr %114, align 8, !tbaa !95
   %148 = load ptr, ptr %116, align 8, !tbaa !95
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %122
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %122
   store ptr %149, ptr %116, align 8, !tbaa !95
   %150 = load i32, ptr %110, align 4, !tbaa !174
   %151 = icmp slt i32 %144, %150
@@ -50260,9 +50257,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %161, label %.lr.ph64, label %.loopexit57
 
 .lr.ph64:                                         ; preds = %.lr.ph67.split
-  %162 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv.next
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.next
   %163 = load ptr, ptr %162, align 8, !tbaa !165
-  %164 = getelementptr inbounds nuw %"class.std::vector.18", ptr %130, i64 %indvars.iv.next
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %indvars.iv.next
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !122
   %167 = getelementptr inbounds i8, ptr %166, i64 -8
@@ -50283,7 +50280,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %177 = mul nsw i32 %176, %174
   store i32 %177, ptr %171, align 4, !tbaa !96
   %178 = add nsw i32 %.062, 1
-  %179 = getelementptr inbounds nuw i32, ptr %171, i64 %4
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %4
   store ptr %179, ptr %107, align 8, !tbaa !95
   %180 = getelementptr inbounds i8, ptr %.04561, i64 %169
   %181 = load i32, ptr %110, align 4, !tbaa !174
@@ -50450,10 +50447,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %64, ptr %65, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !1512
@@ -50471,7 +50468,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 69:                                               ; preds = %.lr.ph126, %._crit_edge122
   %indvars.iv165 = phi i64 [ %61, %.lr.ph126 ], [ %indvars.iv.next166, %._crit_edge122 ]
   %.097124 = phi i64 [ %indvars.iv183, %.lr.ph126 ], [ %73, %._crit_edge122 ]
-  %70 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv165
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv165
   %71 = load i32, ptr %70, align 4, !tbaa !96
   %72 = sext i32 %71 to i64
   %73 = udiv i64 %.097124, %72
@@ -50492,12 +50489,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 79:                                               ; preds = %.lr.ph121, %79
   %indvars.iv160 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next161, %79 ]
-  %80 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv160
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv160
   %81 = load ptr, ptr %80, align 8, !tbaa !67
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv165
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv165
   %83 = load i64, ptr %82, align 8, !tbaa !24
   %84 = mul i64 %83, %77
-  %85 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv160
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv160
   %86 = load ptr, ptr %85, align 8, !tbaa !165
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %84
   store ptr %87, ptr %85, align 8, !tbaa !165
@@ -50536,14 +50533,14 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph145:                                        ; preds = %.preheader110, %.lr.ph145
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.lr.ph145 ], [ 0, %.preheader110 ]
-  %100 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv171
-  %101 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv171
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv171
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv171
   %102 = load i32, ptr %100, align 4, !tbaa !96
   %103 = load i32, ptr %101, align 4, !tbaa !96
   %104 = add nsw i32 %103, %102
   %105 = load i32, ptr %44, align 4, !tbaa !96
   %106 = mul nsw i32 %105, %104
-  %107 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv171
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv171
   store i32 %106, ptr %107, align 4, !tbaa !96
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %108 = load i32, ptr %42, align 4, !tbaa !96
@@ -50556,12 +50553,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %113 = phi i32 [ %96, %.lr.ph153 ], [ %148, %.loopexit ]
   %indvars.iv180 = phi i64 [ 2, %.lr.ph153 ], [ %indvars.iv.next181, %.loopexit ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %114 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next181
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next181
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !122
   %117 = getelementptr inbounds i8, ptr %116, i64 -8
   %118 = load i64, ptr %117, align 8, !tbaa !24
-  %119 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next181
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next181
   %120 = load ptr, ptr %119, align 8, !tbaa !165
   %121 = and i64 %118, 4294967295
   %122 = icmp eq i64 %121, 1
@@ -50582,8 +50579,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph151:                                        ; preds = %.preheader, %.lr.ph151
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph151 ], [ 0, %.preheader ]
-  %126 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv177
-  %127 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv177
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv177
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv177
   %128 = load i32, ptr %127, align 4, !tbaa !96
   %129 = load i32, ptr %99, align 4, !tbaa !96
   %130 = mul nsw i32 %129, %128
@@ -50599,7 +50596,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 136:                                              ; preds = %.lr.ph149, %136
   %indvars.iv174 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next175, %136 ]
   %.089147 = phi ptr [ %120, %.lr.ph149 ], [ %143, %136 ]
-  %137 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv174
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
   %138 = load i32, ptr %.089147, align 4, !tbaa !96
   %139 = load i32, ptr %99, align 4, !tbaa !96
   %140 = mul nsw i32 %139, %138
@@ -50659,9 +50656,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %168 = mul nsw i32 %167, %166
   store i32 %168, ptr %.093130, align 4, !tbaa !96
   %169 = add nuw nsw i32 %.086131, 1
-  %170 = getelementptr inbounds nuw i32, ptr %.093130, i64 %35
-  %171 = getelementptr inbounds nuw i32, ptr %.095128, i64 %155
-  %172 = getelementptr inbounds nuw i32, ptr %.094129, i64 %156
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.093130, i64 %35
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.095128, i64 %155
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.094129, i64 %156
   %173 = load i32, ptr %42, align 4, !tbaa !96
   %174 = icmp slt i32 %169, %173
   br i1 %174, label %163, label %.preheader111.loopexit, !llvm.loop !1519
@@ -50690,9 +50687,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %184, label %.lr.ph139, label %.loopexit107
 
 .lr.ph139:                                        ; preds = %180
-  %185 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next169
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next169
   %186 = load ptr, ptr %185, align 8, !tbaa !165
-  %187 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next169
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next169
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !122
   %190 = getelementptr inbounds i8, ptr %189, i64 -8
@@ -50712,7 +50709,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %198 = add nsw i32 %196, %197
   store i32 %198, ptr %.2135, align 4, !tbaa !96
   %199 = add nuw nsw i32 %.0137, 1
-  %200 = getelementptr inbounds nuw i32, ptr %.2135, i64 %35
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %.2135, i64 %35
   %201 = getelementptr inbounds i8, ptr %.083136, i64 %192
   %202 = load i32, ptr %42, align 4, !tbaa !96
   %203 = icmp slt i32 %199, %202
@@ -50895,10 +50892,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1523
@@ -51230,12 +51227,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph70, %46
   %indvars.iv84 = phi i64 [ %30, %.lr.ph70 ], [ %indvars.iv.next85, %46 ]
-  %47 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv84
-  %48 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv84
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv84
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv84
   %49 = load i32, ptr %48, align 4, !tbaa !96
   %50 = load i32, ptr %47, align 4, !tbaa !96
   %51 = tail call noundef i32 @llvm.smin.i32(i32 %49, i32 %50)
-  %52 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv84
+  %52 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv84
   store i32 %51, ptr %52, align 4, !tbaa !96
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %53 = load i32, ptr %18, align 4, !tbaa !174
@@ -51248,12 +51245,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %58 = phi i32 [ %31, %.lr.ph79 ], [ %101, %.loopexit ]
   %indvars.iv93 = phi i64 [ 2, %.lr.ph79 ], [ %indvars.iv.next94, %.loopexit ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %59 = getelementptr inbounds nuw %"class.std::vector.18", ptr %38, i64 %indvars.iv.next94
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv.next94
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !122
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8, !tbaa !24
-  %64 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next94
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.next94
   %65 = load ptr, ptr %64, align 8, !tbaa !165
   %66 = and i64 %63, 4294967295
   %67 = icmp eq i64 %66, 1
@@ -51271,8 +51268,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 73:                                               ; preds = %.lr.ph77, %73
   %indvars.iv90 = phi i64 [ %72, %.lr.ph77 ], [ %indvars.iv.next91, %73 ]
-  %74 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv90
-  %75 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv90
+  %74 = getelementptr inbounds [4 x i8], ptr %71, i64 %indvars.iv90
+  %75 = getelementptr inbounds [4 x i8], ptr %65, i64 %indvars.iv90
   %76 = load i32, ptr %75, align 4, !tbaa !96
   %77 = load i32, ptr %74, align 4, !tbaa !96
   %78 = tail call noundef i32 @llvm.smin.i32(i32 %76, i32 %77)
@@ -51299,7 +51296,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 89:                                               ; preds = %.lr.ph74, %89
   %indvars.iv87 = phi i64 [ %88, %.lr.ph74 ], [ %indvars.iv.next88, %89 ]
   %.05271 = phi ptr [ %65, %.lr.ph74 ], [ %96, %89 ]
-  %90 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv87
+  %90 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv87
   %91 = load i32, ptr %.05271, align 4, !tbaa !96
   %92 = load i32, ptr %90, align 4, !tbaa !96
   %93 = tail call noundef i32 @llvm.smin.i32(i32 %91, i32 %92)
@@ -51376,13 +51373,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %143 = load ptr, ptr %107, align 8, !tbaa !95
   store i32 %142, ptr %143, align 4, !tbaa !96
   %144 = add nsw i32 %.04860, 1
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %4
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %4
   store ptr %145, ptr %107, align 8, !tbaa !95
   %146 = load ptr, ptr %114, align 8, !tbaa !95
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %119
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %119
   store ptr %147, ptr %114, align 8, !tbaa !95
   %148 = load ptr, ptr %116, align 8, !tbaa !95
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %122
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %122
   store ptr %149, ptr %116, align 8, !tbaa !95
   %150 = load i32, ptr %110, align 4, !tbaa !174
   %151 = icmp slt i32 %144, %150
@@ -51412,9 +51409,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %161, label %.lr.ph64, label %.loopexit57
 
 .lr.ph64:                                         ; preds = %.lr.ph67.split
-  %162 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv.next
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.next
   %163 = load ptr, ptr %162, align 8, !tbaa !165
-  %164 = getelementptr inbounds nuw %"class.std::vector.18", ptr %130, i64 %indvars.iv.next
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %indvars.iv.next
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !122
   %167 = getelementptr inbounds i8, ptr %166, i64 -8
@@ -51435,7 +51432,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %177 = mul nsw i32 %176, %174
   store i32 %177, ptr %171, align 4, !tbaa !96
   %178 = add nsw i32 %.062, 1
-  %179 = getelementptr inbounds nuw i32, ptr %171, i64 %4
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %4
   store ptr %179, ptr %107, align 8, !tbaa !95
   %180 = getelementptr inbounds i8, ptr %.04561, i64 %169
   %181 = load i32, ptr %110, align 4, !tbaa !174
@@ -51602,10 +51599,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %64, ptr %65, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !1548
@@ -51623,7 +51620,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 69:                                               ; preds = %.lr.ph126, %._crit_edge122
   %indvars.iv165 = phi i64 [ %61, %.lr.ph126 ], [ %indvars.iv.next166, %._crit_edge122 ]
   %.097124 = phi i64 [ %indvars.iv183, %.lr.ph126 ], [ %73, %._crit_edge122 ]
-  %70 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv165
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv165
   %71 = load i32, ptr %70, align 4, !tbaa !96
   %72 = sext i32 %71 to i64
   %73 = udiv i64 %.097124, %72
@@ -51644,12 +51641,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 79:                                               ; preds = %.lr.ph121, %79
   %indvars.iv160 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next161, %79 ]
-  %80 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv160
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv160
   %81 = load ptr, ptr %80, align 8, !tbaa !67
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv165
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv165
   %83 = load i64, ptr %82, align 8, !tbaa !24
   %84 = mul i64 %83, %77
-  %85 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv160
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv160
   %86 = load ptr, ptr %85, align 8, !tbaa !165
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %84
   store ptr %87, ptr %85, align 8, !tbaa !165
@@ -51688,14 +51685,14 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph145:                                        ; preds = %.preheader110, %.lr.ph145
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.lr.ph145 ], [ 0, %.preheader110 ]
-  %100 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv171
-  %101 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv171
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv171
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv171
   %102 = load i32, ptr %101, align 4, !tbaa !96
   %103 = load i32, ptr %100, align 4, !tbaa !96
   %104 = call noundef i32 @llvm.smin.i32(i32 %102, i32 %103)
   %105 = load i32, ptr %44, align 4, !tbaa !96
   %106 = mul nsw i32 %105, %104
-  %107 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv171
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv171
   store i32 %106, ptr %107, align 4, !tbaa !96
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %108 = load i32, ptr %42, align 4, !tbaa !96
@@ -51708,12 +51705,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %113 = phi i32 [ %96, %.lr.ph153 ], [ %148, %.loopexit ]
   %indvars.iv180 = phi i64 [ 2, %.lr.ph153 ], [ %indvars.iv.next181, %.loopexit ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %114 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next181
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next181
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !122
   %117 = getelementptr inbounds i8, ptr %116, i64 -8
   %118 = load i64, ptr %117, align 8, !tbaa !24
-  %119 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next181
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next181
   %120 = load ptr, ptr %119, align 8, !tbaa !165
   %121 = and i64 %118, 4294967295
   %122 = icmp eq i64 %121, 1
@@ -51734,8 +51731,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph151:                                        ; preds = %.preheader, %.lr.ph151
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph151 ], [ 0, %.preheader ]
-  %126 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv177
-  %127 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv177
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv177
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv177
   %128 = load i32, ptr %127, align 4, !tbaa !96
   %129 = load i32, ptr %99, align 4, !tbaa !96
   %130 = mul nsw i32 %129, %128
@@ -51751,7 +51748,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 136:                                              ; preds = %.lr.ph149, %136
   %indvars.iv174 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next175, %136 ]
   %.089147 = phi ptr [ %120, %.lr.ph149 ], [ %143, %136 ]
-  %137 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv174
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
   %138 = load i32, ptr %.089147, align 4, !tbaa !96
   %139 = load i32, ptr %99, align 4, !tbaa !96
   %140 = mul nsw i32 %139, %138
@@ -51811,9 +51808,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %168 = mul nsw i32 %167, %166
   store i32 %168, ptr %.093130, align 4, !tbaa !96
   %169 = add nuw nsw i32 %.086131, 1
-  %170 = getelementptr inbounds nuw i32, ptr %.093130, i64 %35
-  %171 = getelementptr inbounds nuw i32, ptr %.095128, i64 %155
-  %172 = getelementptr inbounds nuw i32, ptr %.094129, i64 %156
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.093130, i64 %35
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.095128, i64 %155
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.094129, i64 %156
   %173 = load i32, ptr %42, align 4, !tbaa !96
   %174 = icmp slt i32 %169, %173
   br i1 %174, label %163, label %.preheader111.loopexit, !llvm.loop !1555
@@ -51842,9 +51839,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %184, label %.lr.ph139, label %.loopexit107
 
 .lr.ph139:                                        ; preds = %180
-  %185 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next169
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next169
   %186 = load ptr, ptr %185, align 8, !tbaa !165
-  %187 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next169
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next169
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !122
   %190 = getelementptr inbounds i8, ptr %189, i64 -8
@@ -51864,7 +51861,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %198 = call noundef i32 @llvm.smin.i32(i32 %196, i32 %197)
   store i32 %198, ptr %.2135, align 4, !tbaa !96
   %199 = add nuw nsw i32 %.0137, 1
-  %200 = getelementptr inbounds nuw i32, ptr %.2135, i64 %35
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %.2135, i64 %35
   %201 = getelementptr inbounds i8, ptr %.083136, i64 %192
   %202 = load i32, ptr %42, align 4, !tbaa !96
   %203 = icmp slt i32 %199, %202
@@ -52047,10 +52044,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1559
@@ -52382,12 +52379,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph70, %46
   %indvars.iv84 = phi i64 [ %30, %.lr.ph70 ], [ %indvars.iv.next85, %46 ]
-  %47 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv84
-  %48 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv84
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv84
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv84
   %49 = load i32, ptr %47, align 4, !tbaa !96
   %50 = load i32, ptr %48, align 4, !tbaa !96
   %51 = add nsw i32 %50, %49
-  %52 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv84
+  %52 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv84
   store i32 %51, ptr %52, align 4, !tbaa !96
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %53 = load i32, ptr %18, align 4, !tbaa !174
@@ -52400,12 +52397,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %58 = phi i32 [ %31, %.lr.ph79 ], [ %101, %.loopexit ]
   %indvars.iv93 = phi i64 [ 2, %.lr.ph79 ], [ %indvars.iv.next94, %.loopexit ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %59 = getelementptr inbounds nuw %"class.std::vector.18", ptr %38, i64 %indvars.iv.next94
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv.next94
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !122
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8, !tbaa !24
-  %64 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next94
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.next94
   %65 = load ptr, ptr %64, align 8, !tbaa !165
   %66 = and i64 %63, 4294967295
   %67 = icmp eq i64 %66, 1
@@ -52423,8 +52420,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 73:                                               ; preds = %.lr.ph77, %73
   %indvars.iv90 = phi i64 [ %72, %.lr.ph77 ], [ %indvars.iv.next91, %73 ]
-  %74 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv90
-  %75 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv90
+  %74 = getelementptr inbounds [4 x i8], ptr %71, i64 %indvars.iv90
+  %75 = getelementptr inbounds [4 x i8], ptr %65, i64 %indvars.iv90
   %76 = load i32, ptr %74, align 4, !tbaa !96
   %77 = load i32, ptr %75, align 4, !tbaa !96
   %78 = add nsw i32 %77, %76
@@ -52451,7 +52448,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 89:                                               ; preds = %.lr.ph74, %89
   %indvars.iv87 = phi i64 [ %88, %.lr.ph74 ], [ %indvars.iv.next88, %89 ]
   %.05271 = phi ptr [ %65, %.lr.ph74 ], [ %96, %89 ]
-  %90 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv87
+  %90 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv87
   %91 = load i32, ptr %90, align 4, !tbaa !96
   %92 = load i32, ptr %.05271, align 4, !tbaa !96
   %93 = add nsw i32 %92, %91
@@ -52528,13 +52525,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %143 = load ptr, ptr %107, align 8, !tbaa !95
   store i32 %142, ptr %143, align 4, !tbaa !96
   %144 = add nsw i32 %.04860, 1
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %4
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %4
   store ptr %145, ptr %107, align 8, !tbaa !95
   %146 = load ptr, ptr %114, align 8, !tbaa !95
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %119
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %119
   store ptr %147, ptr %114, align 8, !tbaa !95
   %148 = load ptr, ptr %116, align 8, !tbaa !95
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %122
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %122
   store ptr %149, ptr %116, align 8, !tbaa !95
   %150 = load i32, ptr %110, align 4, !tbaa !174
   %151 = icmp slt i32 %144, %150
@@ -52564,9 +52561,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %161, label %.lr.ph64, label %.loopexit57
 
 .lr.ph64:                                         ; preds = %.lr.ph67.split
-  %162 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv.next
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.next
   %163 = load ptr, ptr %162, align 8, !tbaa !165
-  %164 = getelementptr inbounds nuw %"class.std::vector.18", ptr %130, i64 %indvars.iv.next
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %indvars.iv.next
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !122
   %167 = getelementptr inbounds i8, ptr %166, i64 -8
@@ -52587,7 +52584,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %177 = mul nsw i32 %176, %174
   store i32 %177, ptr %171, align 4, !tbaa !96
   %178 = add nsw i32 %.062, 1
-  %179 = getelementptr inbounds nuw i32, ptr %171, i64 %4
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %4
   store ptr %179, ptr %107, align 8, !tbaa !95
   %180 = getelementptr inbounds i8, ptr %.04561, i64 %169
   %181 = load i32, ptr %110, align 4, !tbaa !174
@@ -52754,10 +52751,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %64, ptr %65, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !1584
@@ -52775,7 +52772,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 69:                                               ; preds = %.lr.ph126, %._crit_edge122
   %indvars.iv165 = phi i64 [ %61, %.lr.ph126 ], [ %indvars.iv.next166, %._crit_edge122 ]
   %.097124 = phi i64 [ %indvars.iv183, %.lr.ph126 ], [ %73, %._crit_edge122 ]
-  %70 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv165
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv165
   %71 = load i32, ptr %70, align 4, !tbaa !96
   %72 = sext i32 %71 to i64
   %73 = udiv i64 %.097124, %72
@@ -52796,12 +52793,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 79:                                               ; preds = %.lr.ph121, %79
   %indvars.iv160 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next161, %79 ]
-  %80 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv160
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv160
   %81 = load ptr, ptr %80, align 8, !tbaa !67
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv165
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv165
   %83 = load i64, ptr %82, align 8, !tbaa !24
   %84 = mul i64 %83, %77
-  %85 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv160
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv160
   %86 = load ptr, ptr %85, align 8, !tbaa !165
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %84
   store ptr %87, ptr %85, align 8, !tbaa !165
@@ -52840,14 +52837,14 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph145:                                        ; preds = %.preheader110, %.lr.ph145
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.lr.ph145 ], [ 0, %.preheader110 ]
-  %100 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv171
-  %101 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv171
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv171
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv171
   %102 = load i32, ptr %100, align 4, !tbaa !96
   %103 = load i32, ptr %101, align 4, !tbaa !96
   %104 = add nsw i32 %103, %102
   %105 = load i32, ptr %44, align 4, !tbaa !96
   %106 = mul nsw i32 %105, %104
-  %107 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv171
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv171
   store i32 %106, ptr %107, align 4, !tbaa !96
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %108 = load i32, ptr %42, align 4, !tbaa !96
@@ -52860,12 +52857,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %113 = phi i32 [ %96, %.lr.ph153 ], [ %148, %.loopexit ]
   %indvars.iv180 = phi i64 [ 2, %.lr.ph153 ], [ %indvars.iv.next181, %.loopexit ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %114 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next181
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next181
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !122
   %117 = getelementptr inbounds i8, ptr %116, i64 -8
   %118 = load i64, ptr %117, align 8, !tbaa !24
-  %119 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next181
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next181
   %120 = load ptr, ptr %119, align 8, !tbaa !165
   %121 = and i64 %118, 4294967295
   %122 = icmp eq i64 %121, 1
@@ -52886,8 +52883,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 
 .lr.ph151:                                        ; preds = %.preheader, %.lr.ph151
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph151 ], [ 0, %.preheader ]
-  %126 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv177
-  %127 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv177
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv177
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv177
   %128 = load i32, ptr %127, align 4, !tbaa !96
   %129 = load i32, ptr %99, align 4, !tbaa !96
   %130 = mul nsw i32 %129, %128
@@ -52903,7 +52900,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
 136:                                              ; preds = %.lr.ph149, %136
   %indvars.iv174 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next175, %136 ]
   %.089147 = phi ptr [ %120, %.lr.ph149 ], [ %143, %136 ]
-  %137 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv174
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
   %138 = load i32, ptr %.089147, align 4, !tbaa !96
   %139 = load i32, ptr %99, align 4, !tbaa !96
   %140 = mul nsw i32 %139, %138
@@ -52963,9 +52960,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %168 = mul nsw i32 %167, %166
   store i32 %168, ptr %.093130, align 4, !tbaa !96
   %169 = add nuw nsw i32 %.086131, 1
-  %170 = getelementptr inbounds nuw i32, ptr %.093130, i64 %35
-  %171 = getelementptr inbounds nuw i32, ptr %.095128, i64 %155
-  %172 = getelementptr inbounds nuw i32, ptr %.094129, i64 %156
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.093130, i64 %35
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.095128, i64 %155
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.094129, i64 %156
   %173 = load i32, ptr %42, align 4, !tbaa !96
   %174 = icmp slt i32 %169, %173
   br i1 %174, label %163, label %.preheader111.loopexit, !llvm.loop !1591
@@ -52994,9 +52991,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %184, label %.lr.ph139, label %.loopexit107
 
 .lr.ph139:                                        ; preds = %180
-  %185 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next169
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next169
   %186 = load ptr, ptr %185, align 8, !tbaa !165
-  %187 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next169
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next169
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !122
   %190 = getelementptr inbounds i8, ptr %189, i64 -8
@@ -53016,7 +53013,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   %198 = add nsw i32 %196, %197
   store i32 %198, ptr %.2135, align 4, !tbaa !96
   %199 = add nuw nsw i32 %.0137, 1
-  %200 = getelementptr inbounds nuw i32, ptr %.2135, i64 %35
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %.2135, i64 %35
   %201 = getelementptr inbounds i8, ptr %.083136, i64 %192
   %202 = load i32, ptr %42, align 4, !tbaa !96
   %203 = icmp slt i32 %199, %202
@@ -54484,7 +54481,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -54619,7 +54616,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -54754,7 +54751,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -54889,7 +54886,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i: ; preds =
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIPKcSaIS2_EEEaSEOS2_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %14
@@ -55304,15 +55301,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv56 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next57, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv56
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv56
   %31 = load float, ptr %30, align 4, !tbaa !1611
   %32 = fptoui float %31 to i8
-  %33 = getelementptr inbounds float, ptr %24, i64 %indvars.iv56
+  %33 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv56
   %34 = load float, ptr %33, align 4, !tbaa !1611
   %35 = fptoui float %34 to i8
   %36 = and i8 %35, %32
   %37 = uitofp i8 %36 to float
-  %38 = getelementptr inbounds float, ptr %27, i64 %indvars.iv56
+  %38 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv56
   store float %37, ptr %38, align 4, !tbaa !1611
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
@@ -55350,12 +55347,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph42, %61
   %indvars.iv51 = phi i64 [ %60, %.lr.ph42 ], [ %indvars.iv.next52, %61 ]
-  %62 = getelementptr inbounds float, ptr %55, i64 %indvars.iv51
+  %62 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv51
   %63 = load float, ptr %62, align 4, !tbaa !1611
   %64 = fptoui float %63 to i8
   %65 = and i8 %64, %56
   %66 = uitofp i8 %65 to float
-  %67 = getelementptr inbounds float, ptr %59, i64 %indvars.iv51
+  %67 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv51
   store float %66, ptr %67, align 4, !tbaa !1611
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
@@ -55400,12 +55397,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %96 = getelementptr inbounds float, ptr %90, i64 %indvars.iv
+  %96 = getelementptr inbounds [4 x i8], ptr %90, i64 %indvars.iv
   %97 = load float, ptr %96, align 4, !tbaa !1611
   %98 = fptoui float %97 to i8
   %99 = and i8 %98, %87
   %100 = uitofp i8 %99 to float
-  %101 = getelementptr inbounds float, ptr %93, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %93, i64 %indvars.iv
   store float %100, ptr %101, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -55447,13 +55444,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %127 = uitofp i8 %126 to float
   store float %127, ptr %119, align 4, !tbaa !1611
   %128 = add nsw i32 %.045, 1
-  %129 = getelementptr inbounds nuw float, ptr %120, i64 %4
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %129, ptr %107, align 8, !tbaa !1599
   %130 = load ptr, ptr %109, align 8, !tbaa !1599
-  %131 = getelementptr inbounds nuw float, ptr %130, i64 %114
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %114
   store ptr %131, ptr %109, align 8, !tbaa !1599
   %132 = load ptr, ptr %111, align 8, !tbaa !1599
-  %133 = getelementptr inbounds nuw float, ptr %132, i64 %117
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %117
   store ptr %133, ptr %111, align 8, !tbaa !1599
   %exitcond61.not = icmp eq i32 %128, %104
   br i1 %exitcond61.not, label %.loopexit, label %118, !llvm.loop !1616
@@ -55580,7 +55577,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv125, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -55589,15 +55586,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -55628,15 +55625,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv119 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next120, %.lr.ph95 ]
-  %72 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv119
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv119
   %73 = load float, ptr %72, align 4, !tbaa !1611
   %74 = fptoui float %73 to i8
-  %75 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv119
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv119
   %76 = load float, ptr %75, align 4, !tbaa !1611
   %77 = fptoui float %76 to i8
   %78 = and i8 %77, %74
   %79 = uitofp i8 %78 to float
-  %80 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv119
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv119
   store float %79, ptr %80, align 4, !tbaa !1611
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
@@ -55660,12 +55657,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 89:                                               ; preds = %.lr.ph93, %89
   %indvars.iv114 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next115, %89 ]
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv114
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %91 = load float, ptr %90, align 4, !tbaa !1611
   %92 = fptoui float %91 to i8
   %93 = and i8 %92, %88
   %94 = uitofp i8 %93 to float
-  %95 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv114
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -55694,12 +55691,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 107:                                              ; preds = %.lr.ph90, %107
   %indvars.iv111 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next112, %107 ]
-  %108 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %109 = load float, ptr %108, align 4, !tbaa !1611
   %110 = fptoui float %109 to i8
   %111 = and i8 %110, %106
   %112 = uitofp i8 %111 to float
-  %113 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv111
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store float %112, ptr %113, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
@@ -55728,9 +55725,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = uitofp i8 %123 to float
   store float %124, ptr %.06198, align 4, !tbaa !1611
   %125 = add nuw nsw i32 %.099, 1
-  %126 = getelementptr inbounds nuw float, ptr %.06396, i64 %30
-  %127 = getelementptr inbounds nuw float, ptr %.06297, i64 %116
-  %128 = getelementptr inbounds nuw float, ptr %.06198, i64 %117
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %30
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %116
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %117
   %exitcond124.not = icmp eq i32 %125, %114
   br i1 %exitcond124.not, label %.loopexit, label %118, !llvm.loop !1627
 
@@ -56088,13 +56085,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fcmp oeq float %32, %33
   %35 = uitofp i1 %34 to float
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -56131,11 +56128,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fcmp oeq float %60, %46
   %62 = uitofp i1 %61 to float
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -56179,11 +56176,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fcmp oeq float %78, %92
   %94 = uitofp i1 %93 to float
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -56223,13 +56220,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = uitofp i1 %118 to float
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1639
@@ -56356,7 +56353,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -56365,15 +56362,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -56404,13 +56401,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fcmp oeq float %74, %75
   %77 = uitofp i1 %76 to float
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -56433,11 +56430,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fcmp oeq float %87, %83
   %89 = uitofp i1 %88 to float
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -56465,11 +56462,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fcmp oeq float %98, %102
   %104 = uitofp i1 %103 to float
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -56496,9 +56493,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = uitofp i1 %113 to float
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1650
 
@@ -56856,13 +56853,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fcmp ogt float %32, %33
   %35 = uitofp i1 %34 to float
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -56899,11 +56896,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fcmp ogt float %60, %46
   %62 = uitofp i1 %61 to float
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -56947,11 +56944,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fcmp ogt float %78, %92
   %94 = uitofp i1 %93 to float
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -56991,13 +56988,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = uitofp i1 %118 to float
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1662
@@ -57124,7 +57121,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -57133,15 +57130,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -57172,13 +57169,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fcmp ogt float %74, %75
   %77 = uitofp i1 %76 to float
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -57201,11 +57198,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fcmp ogt float %87, %83
   %89 = uitofp i1 %88 to float
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -57233,11 +57230,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fcmp ogt float %98, %102
   %104 = uitofp i1 %103 to float
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -57264,9 +57261,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = uitofp i1 %113 to float
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1673
 
@@ -57624,13 +57621,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fcmp oge float %32, %33
   %35 = uitofp i1 %34 to float
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -57667,11 +57664,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fcmp oge float %60, %46
   %62 = uitofp i1 %61 to float
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -57715,11 +57712,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fcmp oge float %78, %92
   %94 = uitofp i1 %93 to float
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -57759,13 +57756,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = uitofp i1 %118 to float
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1685
@@ -57892,7 +57889,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -57901,15 +57898,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -57940,13 +57937,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fcmp oge float %74, %75
   %77 = uitofp i1 %76 to float
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -57969,11 +57966,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fcmp oge float %87, %83
   %89 = uitofp i1 %88 to float
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -58001,11 +57998,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fcmp oge float %98, %102
   %104 = uitofp i1 %103 to float
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -58032,9 +58029,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = uitofp i1 %113 to float
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1696
 
@@ -58392,13 +58389,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fcmp olt float %32, %33
   %35 = uitofp i1 %34 to float
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -58435,11 +58432,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fcmp olt float %60, %46
   %62 = uitofp i1 %61 to float
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -58483,11 +58480,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fcmp olt float %78, %92
   %94 = uitofp i1 %93 to float
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -58527,13 +58524,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = uitofp i1 %118 to float
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1708
@@ -58660,7 +58657,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -58669,15 +58666,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -58708,13 +58705,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fcmp olt float %74, %75
   %77 = uitofp i1 %76 to float
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -58737,11 +58734,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fcmp olt float %87, %83
   %89 = uitofp i1 %88 to float
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -58769,11 +58766,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fcmp olt float %98, %102
   %104 = uitofp i1 %103 to float
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -58800,9 +58797,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = uitofp i1 %113 to float
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1719
 
@@ -59160,13 +59157,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fcmp ole float %32, %33
   %35 = uitofp i1 %34 to float
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -59203,11 +59200,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fcmp ole float %60, %46
   %62 = uitofp i1 %61 to float
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -59251,11 +59248,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fcmp ole float %78, %92
   %94 = uitofp i1 %93 to float
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -59295,13 +59292,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = uitofp i1 %118 to float
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1731
@@ -59428,7 +59425,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -59437,15 +59434,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -59476,13 +59473,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fcmp ole float %74, %75
   %77 = uitofp i1 %76 to float
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -59505,11 +59502,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fcmp ole float %87, %83
   %89 = uitofp i1 %88 to float
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -59537,11 +59534,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fcmp ole float %98, %102
   %104 = uitofp i1 %103 to float
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -59568,9 +59565,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = uitofp i1 %113 to float
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1742
 
@@ -59928,15 +59925,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv56 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next57, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv56
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv56
   %31 = load float, ptr %30, align 4, !tbaa !1611
   %32 = fptoui float %31 to i8
-  %33 = getelementptr inbounds float, ptr %24, i64 %indvars.iv56
+  %33 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv56
   %34 = load float, ptr %33, align 4, !tbaa !1611
   %35 = fptoui float %34 to i8
   %36 = or i8 %35, %32
   %37 = uitofp i8 %36 to float
-  %38 = getelementptr inbounds float, ptr %27, i64 %indvars.iv56
+  %38 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv56
   store float %37, ptr %38, align 4, !tbaa !1611
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
@@ -59974,12 +59971,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph42, %61
   %indvars.iv51 = phi i64 [ %60, %.lr.ph42 ], [ %indvars.iv.next52, %61 ]
-  %62 = getelementptr inbounds float, ptr %55, i64 %indvars.iv51
+  %62 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv51
   %63 = load float, ptr %62, align 4, !tbaa !1611
   %64 = fptoui float %63 to i8
   %65 = or i8 %64, %56
   %66 = uitofp i8 %65 to float
-  %67 = getelementptr inbounds float, ptr %59, i64 %indvars.iv51
+  %67 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv51
   store float %66, ptr %67, align 4, !tbaa !1611
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
@@ -60024,12 +60021,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %96 = getelementptr inbounds float, ptr %90, i64 %indvars.iv
+  %96 = getelementptr inbounds [4 x i8], ptr %90, i64 %indvars.iv
   %97 = load float, ptr %96, align 4, !tbaa !1611
   %98 = fptoui float %97 to i8
   %99 = or i8 %98, %87
   %100 = uitofp i8 %99 to float
-  %101 = getelementptr inbounds float, ptr %93, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %93, i64 %indvars.iv
   store float %100, ptr %101, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -60071,13 +60068,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %127 = uitofp i8 %126 to float
   store float %127, ptr %119, align 4, !tbaa !1611
   %128 = add nsw i32 %.045, 1
-  %129 = getelementptr inbounds nuw float, ptr %120, i64 %4
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %129, ptr %107, align 8, !tbaa !1599
   %130 = load ptr, ptr %109, align 8, !tbaa !1599
-  %131 = getelementptr inbounds nuw float, ptr %130, i64 %114
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %114
   store ptr %131, ptr %109, align 8, !tbaa !1599
   %132 = load ptr, ptr %111, align 8, !tbaa !1599
-  %133 = getelementptr inbounds nuw float, ptr %132, i64 %117
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %117
   store ptr %133, ptr %111, align 8, !tbaa !1599
   %exitcond61.not = icmp eq i32 %128, %104
   br i1 %exitcond61.not, label %.loopexit, label %118, !llvm.loop !1754
@@ -60204,7 +60201,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv125, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -60213,15 +60210,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -60252,15 +60249,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv119 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next120, %.lr.ph95 ]
-  %72 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv119
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv119
   %73 = load float, ptr %72, align 4, !tbaa !1611
   %74 = fptoui float %73 to i8
-  %75 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv119
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv119
   %76 = load float, ptr %75, align 4, !tbaa !1611
   %77 = fptoui float %76 to i8
   %78 = or i8 %77, %74
   %79 = uitofp i8 %78 to float
-  %80 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv119
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv119
   store float %79, ptr %80, align 4, !tbaa !1611
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
@@ -60284,12 +60281,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 89:                                               ; preds = %.lr.ph93, %89
   %indvars.iv114 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next115, %89 ]
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv114
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %91 = load float, ptr %90, align 4, !tbaa !1611
   %92 = fptoui float %91 to i8
   %93 = or i8 %92, %88
   %94 = uitofp i8 %93 to float
-  %95 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv114
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -60318,12 +60315,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 107:                                              ; preds = %.lr.ph90, %107
   %indvars.iv111 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next112, %107 ]
-  %108 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %109 = load float, ptr %108, align 4, !tbaa !1611
   %110 = fptoui float %109 to i8
   %111 = or i8 %110, %106
   %112 = uitofp i8 %111 to float
-  %113 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv111
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store float %112, ptr %113, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
@@ -60352,9 +60349,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = uitofp i8 %123 to float
   store float %124, ptr %.06198, align 4, !tbaa !1611
   %125 = add nuw nsw i32 %.099, 1
-  %126 = getelementptr inbounds nuw float, ptr %.06396, i64 %30
-  %127 = getelementptr inbounds nuw float, ptr %.06297, i64 %116
-  %128 = getelementptr inbounds nuw float, ptr %.06198, i64 %117
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %30
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %116
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %117
   %exitcond124.not = icmp eq i32 %125, %114
   br i1 %exitcond124.not, label %.loopexit, label %118, !llvm.loop !1765
 
@@ -60711,12 +60708,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = tail call noundef float @powf(float noundef %32, float noundef %33) #25, !tbaa !96
-  %35 = getelementptr inbounds float, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store float %34, ptr %35, align 4, !tbaa !1611
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -60754,10 +60751,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds float, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load float, ptr %61, align 4, !tbaa !1611
   %63 = tail call noundef float @powf(float noundef %62, float noundef %48) #25, !tbaa !96
-  %64 = getelementptr inbounds float, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store float %63, ptr %64, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -60802,10 +60799,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds float, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load float, ptr %95, align 4, !tbaa !1611
   %97 = tail call noundef float @powf(float noundef %82, float noundef %96) #25, !tbaa !96
-  %98 = getelementptr inbounds float, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store float %97, ptr %98, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -60846,13 +60843,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = tail call noundef float @powf(float noundef %122, float noundef %123) #25, !tbaa !96
   store float %124, ptr %119, align 4, !tbaa !1611
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw float, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !1599
   %127 = load ptr, ptr %109, align 8, !tbaa !1599
-  %128 = getelementptr inbounds nuw float, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !1599
   %129 = load ptr, ptr %111, align 8, !tbaa !1599
-  %130 = getelementptr inbounds nuw float, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !1599
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -60982,7 +60979,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -60991,15 +60988,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -61026,12 +61023,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = tail call noundef float @powf(float noundef %74, float noundef %75) #25, !tbaa !96
-  %77 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store float %76, ptr %77, align 4, !tbaa !1611
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -61052,10 +61049,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load float, ptr %88, align 4, !tbaa !1611
   %90 = tail call noundef float @powf(float noundef %89, float noundef %85) #25, !tbaa !96
-  %91 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %90, ptr %91, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -61081,10 +61078,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load float, ptr %105, align 4, !tbaa !1611
   %107 = tail call noundef float @powf(float noundef %102, float noundef %106) #25, !tbaa !96
-  %108 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %107, ptr %108, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -61112,9 +61109,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = tail call noundef float @powf(float noundef %117, float noundef %118) #25, !tbaa !96
   store float %119, ptr %.05890, align 4, !tbaa !1611
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw float, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw float, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw float, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1788
@@ -61475,15 +61472,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv56 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next57, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv56
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv56
   %31 = load float, ptr %30, align 4, !tbaa !1611
   %32 = fptoui float %31 to i8
-  %33 = getelementptr inbounds float, ptr %24, i64 %indvars.iv56
+  %33 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv56
   %34 = load float, ptr %33, align 4, !tbaa !1611
   %35 = fptoui float %34 to i8
   %36 = xor i8 %35, %32
   %37 = uitofp i8 %36 to float
-  %38 = getelementptr inbounds float, ptr %27, i64 %indvars.iv56
+  %38 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv56
   store float %37, ptr %38, align 4, !tbaa !1611
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
@@ -61521,12 +61518,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 61:                                               ; preds = %.lr.ph42, %61
   %indvars.iv51 = phi i64 [ %60, %.lr.ph42 ], [ %indvars.iv.next52, %61 ]
-  %62 = getelementptr inbounds float, ptr %55, i64 %indvars.iv51
+  %62 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv51
   %63 = load float, ptr %62, align 4, !tbaa !1611
   %64 = fptoui float %63 to i8
   %65 = xor i8 %64, %56
   %66 = uitofp i8 %65 to float
-  %67 = getelementptr inbounds float, ptr %59, i64 %indvars.iv51
+  %67 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv51
   store float %66, ptr %67, align 4, !tbaa !1611
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
@@ -61571,12 +61568,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %96 = getelementptr inbounds float, ptr %90, i64 %indvars.iv
+  %96 = getelementptr inbounds [4 x i8], ptr %90, i64 %indvars.iv
   %97 = load float, ptr %96, align 4, !tbaa !1611
   %98 = fptoui float %97 to i8
   %99 = xor i8 %98, %87
   %100 = uitofp i8 %99 to float
-  %101 = getelementptr inbounds float, ptr %93, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %93, i64 %indvars.iv
   store float %100, ptr %101, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -61618,13 +61615,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %127 = uitofp i8 %126 to float
   store float %127, ptr %119, align 4, !tbaa !1611
   %128 = add nsw i32 %.045, 1
-  %129 = getelementptr inbounds nuw float, ptr %120, i64 %4
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %129, ptr %107, align 8, !tbaa !1599
   %130 = load ptr, ptr %109, align 8, !tbaa !1599
-  %131 = getelementptr inbounds nuw float, ptr %130, i64 %114
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %114
   store ptr %131, ptr %109, align 8, !tbaa !1599
   %132 = load ptr, ptr %111, align 8, !tbaa !1599
-  %133 = getelementptr inbounds nuw float, ptr %132, i64 %117
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %117
   store ptr %133, ptr %111, align 8, !tbaa !1599
   %exitcond61.not = icmp eq i32 %128, %104
   br i1 %exitcond61.not, label %.loopexit, label %118, !llvm.loop !1800
@@ -61751,7 +61748,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv125, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -61760,15 +61757,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -61799,15 +61796,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv119 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next120, %.lr.ph95 ]
-  %72 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv119
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv119
   %73 = load float, ptr %72, align 4, !tbaa !1611
   %74 = fptoui float %73 to i8
-  %75 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv119
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv119
   %76 = load float, ptr %75, align 4, !tbaa !1611
   %77 = fptoui float %76 to i8
   %78 = xor i8 %77, %74
   %79 = uitofp i8 %78 to float
-  %80 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv119
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv119
   store float %79, ptr %80, align 4, !tbaa !1611
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
@@ -61831,12 +61828,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 89:                                               ; preds = %.lr.ph93, %89
   %indvars.iv114 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next115, %89 ]
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv114
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %91 = load float, ptr %90, align 4, !tbaa !1611
   %92 = fptoui float %91 to i8
   %93 = xor i8 %92, %88
   %94 = uitofp i8 %93 to float
-  %95 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv114
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -61865,12 +61862,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 107:                                              ; preds = %.lr.ph90, %107
   %indvars.iv111 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next112, %107 ]
-  %108 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %109 = load float, ptr %108, align 4, !tbaa !1611
   %110 = fptoui float %109 to i8
   %111 = xor i8 %110, %106
   %112 = uitofp i8 %111 to float
-  %113 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv111
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store float %112, ptr %113, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
@@ -61899,9 +61896,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = uitofp i8 %123 to float
   store float %124, ptr %.06198, align 4, !tbaa !1611
   %125 = add nuw nsw i32 %.099, 1
-  %126 = getelementptr inbounds nuw float, ptr %.06396, i64 %30
-  %127 = getelementptr inbounds nuw float, ptr %.06297, i64 %116
-  %128 = getelementptr inbounds nuw float, ptr %.06198, i64 %117
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %30
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %116
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %117
   %exitcond124.not = icmp eq i32 %125, %114
   br i1 %exitcond124.not, label %.loopexit, label %118, !llvm.loop !1811
 
@@ -62259,17 +62256,17 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph44, %29
   %indvars.iv56 = phi i64 [ %28, %.lr.ph44 ], [ %indvars.iv.next57, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv56
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv56
   %31 = load float, ptr %30, align 4, !tbaa !1611
   %32 = fptoui float %31 to i8
-  %33 = getelementptr inbounds float, ptr %24, i64 %indvars.iv56
+  %33 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv56
   %34 = load float, ptr %33, align 4, !tbaa !1611
   %35 = fptoui float %34 to i8
   %36 = zext i8 %32 to i32
   %37 = zext nneg i8 %35 to i32
   %38 = shl i32 %36, %37
   %39 = sitofp i32 %38 to float
-  %40 = getelementptr inbounds float, ptr %27, i64 %indvars.iv56
+  %40 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv56
   store float %39, ptr %40, align 4, !tbaa !1611
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
@@ -62308,13 +62305,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 64:                                               ; preds = %.lr.ph42, %64
   %indvars.iv51 = phi i64 [ %63, %.lr.ph42 ], [ %indvars.iv.next52, %64 ]
-  %65 = getelementptr inbounds float, ptr %57, i64 %indvars.iv51
+  %65 = getelementptr inbounds [4 x i8], ptr %57, i64 %indvars.iv51
   %66 = load float, ptr %65, align 4, !tbaa !1611
   %67 = fptoui float %66 to i8
   %68 = zext i8 %67 to i32
   %69 = shl i32 %68, %59
   %70 = sitofp i32 %69 to float
-  %71 = getelementptr inbounds float, ptr %62, i64 %indvars.iv51
+  %71 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv51
   store float %70, ptr %71, align 4, !tbaa !1611
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
@@ -62360,13 +62357,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 100:                                              ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %100 ]
-  %101 = getelementptr inbounds float, ptr %94, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fptoui float %102 to i8
   %104 = zext nneg i8 %103 to i32
   %105 = shl i32 %95, %104
   %106 = sitofp i32 %105 to float
-  %107 = getelementptr inbounds float, ptr %98, i64 %indvars.iv
+  %107 = getelementptr inbounds [4 x i8], ptr %98, i64 %indvars.iv
   store float %106, ptr %107, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -62410,13 +62407,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %135 = sitofp i32 %134 to float
   store float %135, ptr %125, align 4, !tbaa !1611
   %136 = add nsw i32 %.045, 1
-  %137 = getelementptr inbounds nuw float, ptr %126, i64 %4
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %4
   store ptr %137, ptr %113, align 8, !tbaa !1599
   %138 = load ptr, ptr %115, align 8, !tbaa !1599
-  %139 = getelementptr inbounds nuw float, ptr %138, i64 %120
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %120
   store ptr %139, ptr %115, align 8, !tbaa !1599
   %140 = load ptr, ptr %117, align 8, !tbaa !1599
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %123
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %123
   store ptr %141, ptr %117, align 8, !tbaa !1599
   %exitcond61.not = icmp eq i32 %136, %110
   br i1 %exitcond61.not, label %.loopexit, label %124, !llvm.loop !1823
@@ -62543,7 +62540,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06584 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06782 = phi i64 [ %indvars.iv125, %.lr.ph ], [ %48, %44 ]
   %.06881 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06782, %47
@@ -62552,15 +62549,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06782, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06485, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06584, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06881, i64 %63
@@ -62591,17 +62588,17 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv119 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next120, %.lr.ph95 ]
-  %72 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv119
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv119
   %73 = load float, ptr %72, align 4, !tbaa !1611
   %74 = fptoui float %73 to i8
-  %75 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv119
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv119
   %76 = load float, ptr %75, align 4, !tbaa !1611
   %77 = fptoui float %76 to i8
   %78 = zext i8 %74 to i32
   %79 = zext nneg i8 %77 to i32
   %80 = shl i32 %78, %79
   %81 = sitofp i32 %80 to float
-  %82 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv119
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv119
   store float %81, ptr %82, align 4, !tbaa !1611
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
@@ -62626,13 +62623,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 92:                                               ; preds = %.lr.ph93, %92
   %indvars.iv114 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next115, %92 ]
-  %93 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv114
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv114
   %94 = load float, ptr %93, align 4, !tbaa !1611
   %95 = fptoui float %94 to i8
   %96 = zext i8 %95 to i32
   %97 = shl i32 %96, %91
   %98 = sitofp i32 %97 to float
-  %99 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv114
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv114
   store float %98, ptr %99, align 4, !tbaa !1611
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -62662,13 +62659,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 112:                                              ; preds = %.lr.ph90, %112
   %indvars.iv111 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next112, %112 ]
-  %113 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %114 = load float, ptr %113, align 4, !tbaa !1611
   %115 = fptoui float %114 to i8
   %116 = zext nneg i8 %115 to i32
   %117 = shl i32 %111, %116
   %118 = sitofp i32 %117 to float
-  %119 = getelementptr inbounds nuw float, ptr %.068.lcssa, i64 %indvars.iv111
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.068.lcssa, i64 %indvars.iv111
   store float %118, ptr %119, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
@@ -62699,9 +62696,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %132 = sitofp i32 %131 to float
   store float %132, ptr %.06198, align 4, !tbaa !1611
   %133 = add nuw nsw i32 %.099, 1
-  %134 = getelementptr inbounds nuw float, ptr %.06396, i64 %30
-  %135 = getelementptr inbounds nuw float, ptr %.06297, i64 %122
-  %136 = getelementptr inbounds nuw float, ptr %.06198, i64 %123
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.06396, i64 %30
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.06297, i64 %122
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.06198, i64 %123
   %exitcond124.not = icmp eq i32 %133, %120
   br i1 %exitcond124.not, label %.loopexit, label %124, !llvm.loop !1834
 
@@ -63059,13 +63056,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fcmp olt float %32, %33
   %35 = select i1 %34, float %33, float %32
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -63102,11 +63099,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fcmp olt float %60, %46
   %62 = select i1 %61, float %46, float %60
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -63150,11 +63147,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fcmp olt float %78, %92
   %94 = select i1 %93, float %92, float %78
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -63194,13 +63191,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = select i1 %118, float %117, float %116
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1846
@@ -63327,7 +63324,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -63336,15 +63333,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -63375,13 +63372,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fcmp olt float %74, %75
   %77 = select i1 %76, float %75, float %74
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -63404,11 +63401,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fcmp olt float %87, %83
   %89 = select i1 %88, float %83, float %87
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -63436,11 +63433,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fcmp olt float %98, %102
   %104 = select i1 %103, float %102, float %98
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -63467,9 +63464,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = select i1 %113, float %112, float %111
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1857
 
@@ -63827,13 +63824,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fadd float %32, %33
   %35 = fmul float %34, 5.000000e-01
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -63870,11 +63867,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fadd float %46, %60
   %62 = fmul float %61, 5.000000e-01
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -63918,11 +63915,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fadd float %78, %92
   %94 = fmul float %93, 5.000000e-01
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -63962,13 +63959,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = fmul float %118, 5.000000e-01
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1869
@@ -64095,7 +64092,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -64104,15 +64101,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -64143,13 +64140,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fadd float %74, %75
   %77 = fmul float %76, 5.000000e-01
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -64172,11 +64169,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fadd float %83, %87
   %89 = fmul float %88, 5.000000e-01
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -64204,11 +64201,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fadd float %98, %102
   %104 = fmul float %103, 5.000000e-01
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -64235,9 +64232,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = fmul float %113, 5.000000e-01
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1880
 
@@ -64595,13 +64592,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %31, align 4, !tbaa !1611
   %33 = load float, ptr %30, align 4, !tbaa !1611
   %34 = fcmp olt float %32, %33
   %35 = select i1 %34, float %32, float %33
-  %36 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %36 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %35, ptr %36, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -64638,11 +64635,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 58:                                               ; preds = %.lr.ph34, %58
   %indvars.iv43 = phi i64 [ %57, %.lr.ph34 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds float, ptr %53, i64 %indvars.iv43
+  %59 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv43
   %60 = load float, ptr %59, align 4, !tbaa !1611
   %61 = fcmp olt float %46, %60
   %62 = select i1 %61, float %46, float %60
-  %63 = getelementptr inbounds float, ptr %56, i64 %indvars.iv43
+  %63 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv43
   store float %62, ptr %63, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -64686,11 +64683,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %91 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   %92 = load float, ptr %91, align 4, !tbaa !1611
   %93 = fcmp olt float %92, %78
   %94 = select i1 %93, float %92, float %78
-  %95 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -64730,13 +64727,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = select i1 %118, float %116, float %117
   store float %119, ptr %113, align 4, !tbaa !1611
   %120 = add nsw i32 %.037, 1
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %4
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %4
   store ptr %121, ptr %101, align 8, !tbaa !1599
   %122 = load ptr, ptr %103, align 8, !tbaa !1599
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %108
   store ptr %123, ptr %103, align 8, !tbaa !1599
   %124 = load ptr, ptr %105, align 8, !tbaa !1599
-  %125 = getelementptr inbounds nuw float, ptr %124, i64 %111
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %111
   store ptr %125, ptr %105, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %120, %98
   br i1 %exitcond53.not, label %.loopexit, label %112, !llvm.loop !1892
@@ -64863,7 +64860,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -64872,15 +64869,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -64911,13 +64908,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %73, align 4, !tbaa !1611
   %75 = load float, ptr %72, align 4, !tbaa !1611
   %76 = fcmp olt float %74, %75
   %77 = select i1 %76, float %74, float %75
-  %78 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %77, ptr %78, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -64940,11 +64937,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %86 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %87 = load float, ptr %86, align 4, !tbaa !1611
   %88 = fcmp olt float %83, %87
   %89 = select i1 %88, float %83, float %87
-  %90 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %89, ptr %90, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -64972,11 +64969,11 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %101 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %102 = load float, ptr %101, align 4, !tbaa !1611
   %103 = fcmp olt float %102, %98
   %104 = select i1 %103, float %102, float %98
-  %105 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %104, ptr %105, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -65003,9 +65000,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %114 = select i1 %113, float %111, float %112
   store float %114, ptr %.05890, align 4, !tbaa !1611
   %115 = add nuw nsw i32 %.091, 1
-  %116 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %117 = getelementptr inbounds nuw float, ptr %.05989, i64 %108
-  %118 = getelementptr inbounds nuw float, ptr %.05890, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %109
   %exitcond116.not = icmp eq i32 %115, %106
   br i1 %exitcond116.not, label %.loopexit, label %110, !llvm.loop !1903
 
@@ -65363,8 +65360,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph54, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit
   %indvars.iv85 = phi i64 [ %28, %.lr.ph54 ], [ %indvars.iv.next86, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv85
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv85
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv85
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv85
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = fptosi float %32 to i32
   %34 = load float, ptr %31, align 4, !tbaa !1611
@@ -65388,7 +65385,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit: ; preds = %39, %42
   %.0.i.i = phi i32 [ %43, %42 ], [ %36, %39 ]
   %44 = sitofp i32 %.0.i.i to float
-  %45 = getelementptr inbounds float, ptr %27, i64 %indvars.iv85
+  %45 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv85
   store float %44, ptr %45, align 4, !tbaa !1611
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -65432,12 +65429,12 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit29.us.us: ; preds = %.lr.ph46.split.us, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit29.us.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit29.us.us ], [ %68, %.lr.ph46.split.us ]
-  %70 = getelementptr inbounds float, ptr %62, i64 %indvars.iv65
+  %70 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv65
   %71 = load float, ptr %70, align 4, !tbaa !1611
   %72 = fptosi float %71 to i32
   %73 = srem i32 %72, %.fr57
   %74 = uitofp nneg i32 %73 to float
-  %75 = getelementptr inbounds float, ptr %67, i64 %indvars.iv65
+  %75 = getelementptr inbounds [4 x i8], ptr %67, i64 %indvars.iv65
   store float %74, ptr %75, align 4, !tbaa !1611
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count78
@@ -65445,7 +65442,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 .lr.ph46.split.us.split:                          ; preds = %.lr.ph46.split.us, %.lr.ph46.split.us.split
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph46.split.us.split ], [ %68, %.lr.ph46.split.us ]
-  %76 = getelementptr inbounds float, ptr %62, i64 %indvars.iv70
+  %76 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv70
   %77 = load float, ptr %76, align 4, !tbaa !1611
   %78 = fptosi float %77 to i32
   %79 = srem i32 %78, %.fr57
@@ -65453,7 +65450,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
   %81 = select i1 %80, i32 %.fr57, i32 0
   %spec.select = add nsw i32 %79, %81
   %82 = sitofp i32 %spec.select to float
-  %83 = getelementptr inbounds float, ptr %67, i64 %indvars.iv70
+  %83 = getelementptr inbounds [4 x i8], ptr %67, i64 %indvars.iv70
   store float %82, ptr %83, align 4, !tbaa !1611
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count78
@@ -65461,7 +65458,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 .lr.ph46.split.split.us:                          ; preds = %.lr.ph46, %.lr.ph46.split.split.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph46.split.split.us ], [ %68, %.lr.ph46 ]
-  %84 = getelementptr inbounds float, ptr %62, i64 %indvars.iv75
+  %84 = getelementptr inbounds [4 x i8], ptr %62, i64 %indvars.iv75
   %85 = load float, ptr %84, align 4, !tbaa !1611
   %86 = fptosi float %85 to i32
   %87 = srem i32 %86, %.fr57
@@ -65469,7 +65466,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
   %89 = select i1 %88, i32 %.fr57, i32 0
   %.0.i.i28.us50 = add nsw i32 %87, %89
   %90 = sitofp i32 %.0.i.i28.us50 to float
-  %91 = getelementptr inbounds float, ptr %67, i64 %indvars.iv75
+  %91 = getelementptr inbounds [4 x i8], ptr %67, i64 %indvars.iv75
   store float %90, ptr %91, align 4, !tbaa !1611
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
@@ -65514,7 +65511,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 119:                                              ; preds = %.lr.ph, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit33
   %indvars.iv = phi i64 [ %118, %.lr.ph ], [ %indvars.iv.next, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit33 ]
-  %120 = getelementptr inbounds float, ptr %113, i64 %indvars.iv
+  %120 = getelementptr inbounds [4 x i8], ptr %113, i64 %indvars.iv
   %121 = load float, ptr %120, align 4, !tbaa !1611
   %122 = fptosi float %121 to i32
   %123 = srem i32 %114, %122
@@ -65536,7 +65533,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit33: ; preds = %126, %129
   %.0.i.i32 = phi i32 [ %130, %129 ], [ %123, %126 ]
   %131 = sitofp i32 %.0.i.i32 to float
-  %132 = getelementptr inbounds float, ptr %117, i64 %indvars.iv
+  %132 = getelementptr inbounds [4 x i8], ptr %117, i64 %indvars.iv
   store float %131, ptr %132, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -65594,13 +65591,13 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
   %165 = load ptr, ptr %142, align 8, !tbaa !1599
   store float %164, ptr %165, align 4, !tbaa !1611
   %166 = add nsw i32 %.055, 1
-  %167 = getelementptr inbounds nuw float, ptr %150, i64 %4
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %4
   store ptr %167, ptr %138, align 8, !tbaa !1599
   %168 = load ptr, ptr %140, align 8, !tbaa !1599
-  %169 = getelementptr inbounds nuw float, ptr %168, i64 %145
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %145
   store ptr %169, ptr %140, align 8, !tbaa !1599
   %170 = load ptr, ptr %142, align 8, !tbaa !1599
-  %171 = getelementptr inbounds nuw float, ptr %170, i64 %148
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %148
   store ptr %171, ptr %142, align 8, !tbaa !1599
   %exitcond90.not = icmp eq i32 %166, %135
   br i1 %exitcond90.not, label %.loopexit, label %149, !llvm.loop !1915
@@ -65727,7 +65724,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06487 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06586 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06685 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06388, %47
@@ -65736,15 +65733,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06388, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06685, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06586, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06487, i64 %63
@@ -65775,8 +65772,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit
   %indvars.iv123 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next124, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv123
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv123
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv123
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv123
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = fptosi float %74 to i32
   %76 = load float, ptr %73, align 4, !tbaa !1611
@@ -65800,7 +65797,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit: ; preds = %81, %84
   %.0.i.i = phi i32 [ %85, %84 ], [ %78, %81 ]
   %86 = sitofp i32 %.0.i.i to float
-  %87 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv123
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv123
   store float %86, ptr %87, align 4, !tbaa !1611
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
@@ -65826,7 +65823,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit70: ; preds = %.lr.ph97, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit70
   %indvars.iv118 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next119, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit70 ]
-  %98 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv118
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv118
   %99 = load float, ptr %98, align 4, !tbaa !1611
   %100 = fptosi float %99 to i32
   %101 = srem i32 %100, %95
@@ -65838,7 +65835,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
   %104 = select i1 %or.cond, i32 %95, i32 0
   %.0.i.i69 = add nsw i32 %101, %104
   %105 = sitofp i32 %.0.i.i69 to float
-  %106 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv118
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv118
   store float %105, ptr %106, align 4, !tbaa !1611
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
@@ -65867,7 +65864,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 
 118:                                              ; preds = %.lr.ph94, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit74
   %indvars.iv115 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next116, %_ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit74 ]
-  %119 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv115
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv115
   %120 = load float, ptr %119, align 4, !tbaa !1611
   %121 = fptosi float %120 to i32
   %122 = srem i32 %117, %121
@@ -65889,7 +65886,7 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
 _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EEEvmDpOT0_ENKUlRKfSC_E8_clESC_SC_.exit74: ; preds = %125, %128
   %.0.i.i73 = phi i32 [ %129, %128 ], [ %122, %125 ]
   %130 = sitofp i32 %.0.i.i73 to float
-  %131 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv115
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv115
   store float %130, ptr %131, align 4, !tbaa !1611
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count
@@ -65935,9 +65932,9 @@ _ZZN2cv3dnn20NaryEltwiseLayerImpl10opDispatchIfJRSt6vectorINS_3MatESaIS4_EES7_EE
   %149 = sitofp i32 %.0.i.i77 to float
   store float %149, ptr %.058102, align 4, !tbaa !1611
   %150 = add nuw nsw i32 %.0103, 1
-  %151 = getelementptr inbounds nuw float, ptr %.060100, i64 %30
-  %152 = getelementptr inbounds nuw float, ptr %.059101, i64 %134
-  %153 = getelementptr inbounds nuw float, ptr %.058102, i64 %135
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %.060100, i64 %30
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.059101, i64 %134
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %.058102, i64 %135
   %exitcond128.not = icmp eq i32 %150, %132
   br i1 %exitcond128.not, label %.loopexit, label %136, !llvm.loop !1926
 
@@ -66294,12 +66291,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv46 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next47, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv46
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv46
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv46
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv46
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = tail call noundef float @fmodf(float noundef %32, float noundef %33) #25, !tbaa !96
-  %35 = getelementptr inbounds float, ptr %27, i64 %indvars.iv46
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv46
   store float %34, ptr %35, align 4, !tbaa !1611
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %36 = load i32, ptr %16, align 4, !tbaa !174
@@ -66337,10 +66334,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 60:                                               ; preds = %.lr.ph34, %60
   %indvars.iv43 = phi i64 [ %59, %.lr.ph34 ], [ %indvars.iv.next44, %60 ]
-  %61 = getelementptr inbounds float, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   %62 = load float, ptr %61, align 4, !tbaa !1611
   %63 = tail call noundef float @fmodf(float noundef %62, float noundef %48) #25, !tbaa !96
-  %64 = getelementptr inbounds float, ptr %58, i64 %indvars.iv43
+  %64 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv43
   store float %63, ptr %64, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %65 = load i32, ptr %50, align 4, !tbaa !174
@@ -66385,10 +66382,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds float, ptr %89, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %96 = load float, ptr %95, align 4, !tbaa !1611
   %97 = tail call noundef float @fmodf(float noundef %82, float noundef %96) #25, !tbaa !96
-  %98 = getelementptr inbounds float, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv
   store float %97, ptr %98, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %84, align 4, !tbaa !174
@@ -66429,13 +66426,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %124 = tail call noundef float @fmodf(float noundef %122, float noundef %123) #25, !tbaa !96
   store float %124, ptr %119, align 4, !tbaa !1611
   %125 = add nsw i32 %.037, 1
-  %126 = getelementptr inbounds nuw float, ptr %120, i64 %4
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %4
   store ptr %126, ptr %107, align 8, !tbaa !1599
   %127 = load ptr, ptr %109, align 8, !tbaa !1599
-  %128 = getelementptr inbounds nuw float, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %114
   store ptr %128, ptr %109, align 8, !tbaa !1599
   %129 = load ptr, ptr %111, align 8, !tbaa !1599
-  %130 = getelementptr inbounds nuw float, ptr %129, i64 %117
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %117
   store ptr %130, ptr %111, align 8, !tbaa !1599
   %131 = load i32, ptr %103, align 4, !tbaa !174
   %132 = icmp slt i32 %125, %131
@@ -66565,7 +66562,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -66574,15 +66571,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -66609,12 +66606,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph87 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv109
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv109
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv109
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = tail call noundef float @fmodf(float noundef %74, float noundef %75) #25, !tbaa !96
-  %77 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv109
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv109
   store float %76, ptr %77, align 4, !tbaa !1611
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %78 = load i32, ptr %33, align 4, !tbaa !96
@@ -66635,10 +66632,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %84, %.lr.ph85
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph85 ], [ 0, %84 ]
-  %88 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %89 = load float, ptr %88, align 4, !tbaa !1611
   %90 = tail call noundef float @fmodf(float noundef %89, float noundef %85) #25, !tbaa !96
-  %91 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %90, ptr %91, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %92 = load i32, ptr %33, align 4, !tbaa !96
@@ -66664,10 +66661,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %101, %.lr.ph82
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph82 ], [ 0, %101 ]
-  %105 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %106 = load float, ptr %105, align 4, !tbaa !1611
   %107 = tail call noundef float @fmodf(float noundef %102, float noundef %106) #25, !tbaa !96
-  %108 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %107, ptr %108, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %109 = load i32, ptr %33, align 4, !tbaa !96
@@ -66695,9 +66692,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %119 = tail call noundef float @fmodf(float noundef %117, float noundef %118) #25, !tbaa !96
   store float %119, ptr %.05890, align 4, !tbaa !1611
   %120 = add nuw nsw i32 %.091, 1
-  %121 = getelementptr inbounds nuw float, ptr %.06088, i64 %27
-  %122 = getelementptr inbounds nuw float, ptr %.05989, i64 %114
-  %123 = getelementptr inbounds nuw float, ptr %.05890, i64 %115
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %27
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %114
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %115
   %124 = load i32, ptr %33, align 4, !tbaa !96
   %125 = icmp slt i32 %120, %124
   br i1 %125, label %116, label %.loopexit, !llvm.loop !1949
@@ -67058,12 +67055,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fmul float %32, %33
-  %35 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %34, ptr %35, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -67100,10 +67097,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 57:                                               ; preds = %.lr.ph34, %57
   %indvars.iv43 = phi i64 [ %56, %.lr.ph34 ], [ %indvars.iv.next44, %57 ]
-  %58 = getelementptr inbounds float, ptr %52, i64 %indvars.iv43
+  %58 = getelementptr inbounds [4 x i8], ptr %52, i64 %indvars.iv43
   %59 = load float, ptr %58, align 4, !tbaa !1611
   %60 = fmul float %45, %59
-  %61 = getelementptr inbounds float, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   store float %60, ptr %61, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -67147,10 +67144,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 88:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds float, ptr %83, i64 %indvars.iv
+  %89 = getelementptr inbounds [4 x i8], ptr %83, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !1611
   %91 = fmul float %76, %90
-  %92 = getelementptr inbounds float, ptr %86, i64 %indvars.iv
+  %92 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv
   store float %91, ptr %92, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -67189,13 +67186,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %115 = fmul float %113, %114
   store float %115, ptr %110, align 4, !tbaa !1611
   %116 = add nsw i32 %.037, 1
-  %117 = getelementptr inbounds nuw float, ptr %111, i64 %4
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %4
   store ptr %117, ptr %98, align 8, !tbaa !1599
   %118 = load ptr, ptr %100, align 8, !tbaa !1599
-  %119 = getelementptr inbounds nuw float, ptr %118, i64 %105
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %105
   store ptr %119, ptr %100, align 8, !tbaa !1599
   %120 = load ptr, ptr %102, align 8, !tbaa !1599
-  %121 = getelementptr inbounds nuw float, ptr %120, i64 %108
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %108
   store ptr %121, ptr %102, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %116, %95
   br i1 %exitcond53.not, label %.loopexit, label %109, !llvm.loop !1961
@@ -67322,7 +67319,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -67331,15 +67328,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -67370,12 +67367,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fmul float %74, %75
-  %77 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -67398,10 +67395,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %85 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %86 = load float, ptr %85, align 4, !tbaa !1611
   %87 = fmul float %82, %86
-  %88 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %87, ptr %88, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -67429,10 +67426,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %99 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %100 = load float, ptr %99, align 4, !tbaa !1611
   %101 = fmul float %96, %100
-  %102 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %101, ptr %102, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -67458,9 +67455,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %110 = fmul float %108, %109
   store float %110, ptr %.05890, align 4, !tbaa !1611
   %111 = add nuw nsw i32 %.091, 1
-  %112 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %113 = getelementptr inbounds nuw float, ptr %.05989, i64 %105
-  %114 = getelementptr inbounds nuw float, ptr %.05890, i64 %106
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %105
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %106
   %exitcond116.not = icmp eq i32 %111, %103
   br i1 %exitcond116.not, label %.loopexit, label %107, !llvm.loop !1972
 
@@ -67818,12 +67815,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fsub float %32, %33
-  %35 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %34, ptr %35, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -67860,10 +67857,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 57:                                               ; preds = %.lr.ph34, %57
   %indvars.iv43 = phi i64 [ %56, %.lr.ph34 ], [ %indvars.iv.next44, %57 ]
-  %58 = getelementptr inbounds float, ptr %52, i64 %indvars.iv43
+  %58 = getelementptr inbounds [4 x i8], ptr %52, i64 %indvars.iv43
   %59 = load float, ptr %58, align 4, !tbaa !1611
   %60 = fsub float %59, %45
-  %61 = getelementptr inbounds float, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   store float %60, ptr %61, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -67907,10 +67904,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 88:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds float, ptr %83, i64 %indvars.iv
+  %89 = getelementptr inbounds [4 x i8], ptr %83, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !1611
   %91 = fsub float %76, %90
-  %92 = getelementptr inbounds float, ptr %86, i64 %indvars.iv
+  %92 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv
   store float %91, ptr %92, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -67949,13 +67946,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %115 = fsub float %113, %114
   store float %115, ptr %110, align 4, !tbaa !1611
   %116 = add nsw i32 %.037, 1
-  %117 = getelementptr inbounds nuw float, ptr %111, i64 %4
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %4
   store ptr %117, ptr %98, align 8, !tbaa !1599
   %118 = load ptr, ptr %100, align 8, !tbaa !1599
-  %119 = getelementptr inbounds nuw float, ptr %118, i64 %105
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %105
   store ptr %119, ptr %100, align 8, !tbaa !1599
   %120 = load ptr, ptr %102, align 8, !tbaa !1599
-  %121 = getelementptr inbounds nuw float, ptr %120, i64 %108
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %108
   store ptr %121, ptr %102, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %116, %95
   br i1 %exitcond53.not, label %.loopexit, label %109, !llvm.loop !1984
@@ -68082,7 +68079,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -68091,15 +68088,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -68130,12 +68127,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fsub float %74, %75
-  %77 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -68158,10 +68155,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %85 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %86 = load float, ptr %85, align 4, !tbaa !1611
   %87 = fsub float %86, %82
-  %88 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %87, ptr %88, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -68189,10 +68186,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %99 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %100 = load float, ptr %99, align 4, !tbaa !1611
   %101 = fsub float %96, %100
-  %102 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %101, ptr %102, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -68218,9 +68215,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %110 = fsub float %108, %109
   store float %110, ptr %.05890, align 4, !tbaa !1611
   %111 = add nuw nsw i32 %.091, 1
-  %112 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %113 = getelementptr inbounds nuw float, ptr %.05989, i64 %105
-  %114 = getelementptr inbounds nuw float, ptr %.05890, i64 %106
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %105
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %106
   %exitcond116.not = icmp eq i32 %111, %103
   br i1 %exitcond116.not, label %.loopexit, label %107, !llvm.loop !1995
 
@@ -68578,12 +68575,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fadd float %32, %33
-  %35 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %34, ptr %35, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -68620,10 +68617,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 57:                                               ; preds = %.lr.ph34, %57
   %indvars.iv43 = phi i64 [ %56, %.lr.ph34 ], [ %indvars.iv.next44, %57 ]
-  %58 = getelementptr inbounds float, ptr %52, i64 %indvars.iv43
+  %58 = getelementptr inbounds [4 x i8], ptr %52, i64 %indvars.iv43
   %59 = load float, ptr %58, align 4, !tbaa !1611
   %60 = fadd float %45, %59
-  %61 = getelementptr inbounds float, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   store float %60, ptr %61, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -68667,10 +68664,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 88:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds float, ptr %83, i64 %indvars.iv
+  %89 = getelementptr inbounds [4 x i8], ptr %83, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !1611
   %91 = fadd float %76, %90
-  %92 = getelementptr inbounds float, ptr %86, i64 %indvars.iv
+  %92 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv
   store float %91, ptr %92, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -68709,13 +68706,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %115 = fadd float %113, %114
   store float %115, ptr %110, align 4, !tbaa !1611
   %116 = add nsw i32 %.037, 1
-  %117 = getelementptr inbounds nuw float, ptr %111, i64 %4
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %4
   store ptr %117, ptr %98, align 8, !tbaa !1599
   %118 = load ptr, ptr %100, align 8, !tbaa !1599
-  %119 = getelementptr inbounds nuw float, ptr %118, i64 %105
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %105
   store ptr %119, ptr %100, align 8, !tbaa !1599
   %120 = load ptr, ptr %102, align 8, !tbaa !1599
-  %121 = getelementptr inbounds nuw float, ptr %120, i64 %108
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %108
   store ptr %121, ptr %102, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %116, %95
   br i1 %exitcond53.not, label %.loopexit, label %109, !llvm.loop !2007
@@ -68842,7 +68839,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -68851,15 +68848,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -68890,12 +68887,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fadd float %74, %75
-  %77 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -68918,10 +68915,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %85 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %86 = load float, ptr %85, align 4, !tbaa !1611
   %87 = fadd float %82, %86
-  %88 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %87, ptr %88, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -68949,10 +68946,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %99 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %100 = load float, ptr %99, align 4, !tbaa !1611
   %101 = fadd float %96, %100
-  %102 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %101, ptr %102, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -68978,9 +68975,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %110 = fadd float %108, %109
   store float %110, ptr %.05890, align 4, !tbaa !1611
   %111 = add nuw nsw i32 %.091, 1
-  %112 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %113 = getelementptr inbounds nuw float, ptr %.05989, i64 %105
-  %114 = getelementptr inbounds nuw float, ptr %.05890, i64 %106
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %105
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %106
   %exitcond116.not = icmp eq i32 %111, %103
   br i1 %exitcond116.not, label %.loopexit, label %107, !llvm.loop !2018
 
@@ -69338,12 +69335,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 29:                                               ; preds = %.lr.ph36, %29
   %indvars.iv48 = phi i64 [ %28, %.lr.ph36 ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv48
-  %31 = getelementptr inbounds float, ptr %24, i64 %indvars.iv48
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv48
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv48
   %32 = load float, ptr %30, align 4, !tbaa !1611
   %33 = load float, ptr %31, align 4, !tbaa !1611
   %34 = fdiv float %32, %33
-  %35 = getelementptr inbounds float, ptr %27, i64 %indvars.iv48
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv48
   store float %34, ptr %35, align 4, !tbaa !1611
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -69380,10 +69377,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 57:                                               ; preds = %.lr.ph34, %57
   %indvars.iv43 = phi i64 [ %56, %.lr.ph34 ], [ %indvars.iv.next44, %57 ]
-  %58 = getelementptr inbounds float, ptr %52, i64 %indvars.iv43
+  %58 = getelementptr inbounds [4 x i8], ptr %52, i64 %indvars.iv43
   %59 = load float, ptr %58, align 4, !tbaa !1611
   %60 = fdiv float %59, %45
-  %61 = getelementptr inbounds float, ptr %55, i64 %indvars.iv43
+  %61 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv43
   store float %60, ptr %61, align 4, !tbaa !1611
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -69427,10 +69424,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 88:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds float, ptr %83, i64 %indvars.iv
+  %89 = getelementptr inbounds [4 x i8], ptr %83, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !1611
   %91 = fdiv float %76, %90
-  %92 = getelementptr inbounds float, ptr %86, i64 %indvars.iv
+  %92 = getelementptr inbounds [4 x i8], ptr %86, i64 %indvars.iv
   store float %91, ptr %92, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -69469,13 +69466,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %115 = fdiv float %113, %114
   store float %115, ptr %110, align 4, !tbaa !1611
   %116 = add nsw i32 %.037, 1
-  %117 = getelementptr inbounds nuw float, ptr %111, i64 %4
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %4
   store ptr %117, ptr %98, align 8, !tbaa !1599
   %118 = load ptr, ptr %100, align 8, !tbaa !1599
-  %119 = getelementptr inbounds nuw float, ptr %118, i64 %105
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %105
   store ptr %119, ptr %100, align 8, !tbaa !1599
   %120 = load ptr, ptr %102, align 8, !tbaa !1599
-  %121 = getelementptr inbounds nuw float, ptr %120, i64 %108
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %108
   store ptr %121, ptr %102, align 8, !tbaa !1599
   %exitcond53.not = icmp eq i32 %116, %95
   br i1 %exitcond53.not, label %.loopexit, label %109, !llvm.loop !2030
@@ -69602,7 +69599,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %.06475 = phi ptr [ %14, %.lr.ph ], [ %64, %44 ]
   %.06574 = phi ptr [ %11, %.lr.ph ], [ %60, %44 ]
   %.06673 = phi ptr [ %8, %.lr.ph ], [ %56, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !96
   %47 = sext i32 %46 to i64
   %48 = udiv i64 %.06376, %47
@@ -69611,15 +69608,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %51 = sub i64 %.06376, %50
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = mul i64 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %.06673, i64 %55
-  %57 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = mul i64 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %.06574, i64 %59
-  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %62, %52
   %64 = getelementptr inbounds nuw i8, ptr %.06475, i64 %63
@@ -69650,12 +69647,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next112, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv111
-  %73 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv111
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv111
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv111
   %74 = load float, ptr %72, align 4, !tbaa !1611
   %75 = load float, ptr %73, align 4, !tbaa !1611
   %76 = fdiv float %74, %75
-  %77 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !1611
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -69678,10 +69675,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next107, %.lr.ph85 ]
-  %85 = getelementptr inbounds nuw float, ptr %.066.lcssa, i64 %indvars.iv106
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.066.lcssa, i64 %indvars.iv106
   %86 = load float, ptr %85, align 4, !tbaa !1611
   %87 = fdiv float %86, %82
-  %88 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv106
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv106
   store float %87, ptr %88, align 4, !tbaa !1611
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -69709,10 +69706,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv103 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next104, %.lr.ph82 ]
-  %99 = getelementptr inbounds nuw float, ptr %.065.lcssa, i64 %indvars.iv103
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.065.lcssa, i64 %indvars.iv103
   %100 = load float, ptr %99, align 4, !tbaa !1611
   %101 = fdiv float %96, %100
-  %102 = getelementptr inbounds nuw float, ptr %.064.lcssa, i64 %indvars.iv103
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.064.lcssa, i64 %indvars.iv103
   store float %101, ptr %102, align 4, !tbaa !1611
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
@@ -69738,9 +69735,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl19binary_forwa
   %110 = fdiv float %108, %109
   store float %110, ptr %.05890, align 4, !tbaa !1611
   %111 = add nuw nsw i32 %.091, 1
-  %112 = getelementptr inbounds nuw float, ptr %.06088, i64 %30
-  %113 = getelementptr inbounds nuw float, ptr %.05989, i64 %105
-  %114 = getelementptr inbounds nuw float, ptr %.05890, i64 %106
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.06088, i64 %30
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.05989, i64 %105
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.05890, i64 %106
   %exitcond116.not = icmp eq i32 %111, %103
   br i1 %exitcond116.not, label %.loopexit, label %107, !llvm.loop !2041
 
@@ -70181,15 +70178,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 37:                                               ; preds = %.lr.ph59, %37
   %indvars.iv86 = phi i64 [ %36, %.lr.ph59 ], [ %indvars.iv.next87, %37 ]
-  %38 = getelementptr inbounds float, ptr %26, i64 %indvars.iv86
-  %39 = getelementptr inbounds float, ptr %29, i64 %indvars.iv86
-  %40 = getelementptr inbounds float, ptr %32, i64 %indvars.iv86
+  %38 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv86
+  %39 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv86
+  %40 = getelementptr inbounds [4 x i8], ptr %32, i64 %indvars.iv86
   %41 = load float, ptr %38, align 4, !tbaa !1611
   %42 = fcmp une float %41, 0.000000e+00
   %.val.i = load float, ptr %39, align 4
   %.val3.i = load float, ptr %40, align 4
   %43 = select i1 %42, float %.val.i, float %.val3.i
-  %44 = getelementptr inbounds float, ptr %35, i64 %indvars.iv86
+  %44 = getelementptr inbounds [4 x i8], ptr %35, i64 %indvars.iv86
   store float %43, ptr %44, align 4, !tbaa !1611
   %indvars.iv.next87 = add nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
@@ -70245,9 +70242,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.lr.ph.split.us ], [ %79, %.lr.ph ]
-  %80 = getelementptr inbounds float, ptr %71, i64 %indvars.iv71
+  %80 = getelementptr inbounds [4 x i8], ptr %71, i64 %indvars.iv71
   %.val.i37.us = load float, ptr %80, align 4
-  %81 = getelementptr inbounds float, ptr %78, i64 %indvars.iv71
+  %81 = getelementptr inbounds [4 x i8], ptr %78, i64 %indvars.iv71
   store float %.val.i37.us, ptr %81, align 4, !tbaa !1611
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
@@ -70255,9 +70252,9 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %79, %.lr.ph ]
-  %82 = getelementptr inbounds float, ptr %74, i64 %indvars.iv
+  %82 = getelementptr inbounds [4 x i8], ptr %74, i64 %indvars.iv
   %.val3.i38 = load float, ptr %82, align 4
-  %83 = getelementptr inbounds float, ptr %78, i64 %indvars.iv
+  %83 = getelementptr inbounds [4 x i8], ptr %78, i64 %indvars.iv
   store float %.val3.i38, ptr %83, align 4, !tbaa !1611
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count74
@@ -70304,13 +70301,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 113:                                              ; preds = %.lr.ph57, %113
   %indvars.iv81 = phi i64 [ %112, %.lr.ph57 ], [ %indvars.iv.next82, %113 ]
-  %114 = getelementptr inbounds float, ptr %105, i64 %indvars.iv81
-  %115 = getelementptr inbounds float, ptr %108, i64 %indvars.iv81
+  %114 = getelementptr inbounds [4 x i8], ptr %105, i64 %indvars.iv81
+  %115 = getelementptr inbounds [4 x i8], ptr %108, i64 %indvars.iv81
   %116 = load float, ptr %114, align 4, !tbaa !1611
   %117 = fcmp une float %116, 0.000000e+00
   %.val3.i40 = load float, ptr %115, align 4
   %118 = select i1 %117, float %98, float %.val3.i40
-  %119 = getelementptr inbounds float, ptr %111, i64 %indvars.iv81
+  %119 = getelementptr inbounds [4 x i8], ptr %111, i64 %indvars.iv81
   store float %118, ptr %119, align 4, !tbaa !1611
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
@@ -70357,13 +70354,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 149:                                              ; preds = %.lr.ph55, %149
   %indvars.iv76 = phi i64 [ %148, %.lr.ph55 ], [ %indvars.iv.next77, %149 ]
-  %150 = getelementptr inbounds float, ptr %141, i64 %indvars.iv76
-  %151 = getelementptr inbounds float, ptr %144, i64 %indvars.iv76
+  %150 = getelementptr inbounds [4 x i8], ptr %141, i64 %indvars.iv76
+  %151 = getelementptr inbounds [4 x i8], ptr %144, i64 %indvars.iv76
   %152 = load float, ptr %150, align 4, !tbaa !1611
   %153 = fcmp une float %152, 0.000000e+00
   %.val.i41 = load float, ptr %151, align 4
   %154 = select i1 %153, float %.val.i41, float %134
-  %155 = getelementptr inbounds float, ptr %147, i64 %indvars.iv76
+  %155 = getelementptr inbounds [4 x i8], ptr %147, i64 %indvars.iv76
   store float %154, ptr %155, align 4, !tbaa !1611
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
@@ -70410,16 +70407,16 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %184 = select i1 %183, float %.val.i43, float %.val3.i44
   store float %184, ptr %178, align 4, !tbaa !1611
   %185 = add nsw i32 %.060, 1
-  %186 = getelementptr inbounds nuw float, ptr %179, i64 %4
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %4
   store ptr %186, ptr %161, align 8, !tbaa !1599
   %187 = load ptr, ptr %163, align 8, !tbaa !1599
-  %188 = getelementptr inbounds nuw float, ptr %187, i64 %170
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %170
   store ptr %188, ptr %163, align 8, !tbaa !1599
   %189 = load ptr, ptr %165, align 8, !tbaa !1599
-  %190 = getelementptr inbounds nuw float, ptr %189, i64 %173
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %173
   store ptr %190, ptr %165, align 8, !tbaa !1599
   %191 = load ptr, ptr %167, align 8, !tbaa !1599
-  %192 = getelementptr inbounds nuw float, ptr %191, i64 %176
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %176
   store ptr %192, ptr %167, align 8, !tbaa !1599
   %exitcond91.not = icmp eq i32 %185, %158
   br i1 %exitcond91.not, label %.loopexit, label %177, !llvm.loop !2057
@@ -70556,7 +70553,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %.088109 = phi ptr [ %14, %.lr.ph ], [ %72, %52 ]
   %.089108 = phi ptr [ %11, %.lr.ph ], [ %68, %52 ]
   %.090107 = phi ptr [ %8, %.lr.ph ], [ %64, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !96
   %55 = sext i32 %54 to i64
   %56 = udiv i64 %.086111, %55
@@ -70565,19 +70562,19 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %59 = sub i64 %.086111, %58
   %sext = shl i64 %59, 32
   %60 = ashr exact i64 %sext, 32
-  %61 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = mul i64 %60, %62
   %64 = getelementptr inbounds nuw i8, ptr %.090107, i64 %63
-  %65 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !24
   %67 = mul i64 %66, %60
   %68 = getelementptr inbounds nuw i8, ptr %.089108, i64 %67
-  %69 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8, !tbaa !24
   %71 = mul i64 %70, %60
   %72 = getelementptr inbounds nuw i8, ptr %.088109, i64 %71
-  %73 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %74 = load i64, ptr %73, align 8, !tbaa !24
   %75 = mul i64 %74, %60
   %76 = getelementptr inbounds nuw i8, ptr %.087110, i64 %75
@@ -70613,15 +70610,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %indvars.iv159 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next160, %.lr.ph126 ]
-  %87 = getelementptr inbounds nuw float, ptr %.090.lcssa, i64 %indvars.iv159
-  %88 = getelementptr inbounds nuw float, ptr %.089.lcssa, i64 %indvars.iv159
-  %89 = getelementptr inbounds nuw float, ptr %.088.lcssa, i64 %indvars.iv159
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %.090.lcssa, i64 %indvars.iv159
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.089.lcssa, i64 %indvars.iv159
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.088.lcssa, i64 %indvars.iv159
   %90 = load float, ptr %87, align 4, !tbaa !1611
   %91 = fcmp une float %90, 0.000000e+00
   %.val.i = load float, ptr %88, align 4
   %.val3.i = load float, ptr %89, align 4
   %92 = select i1 %91, float %.val.i, float %.val3.i
-  %93 = getelementptr inbounds nuw float, ptr %.087.lcssa, i64 %indvars.iv159
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv159
   store float %92, ptr %93, align 4, !tbaa !1611
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
@@ -70655,12 +70652,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 108:                                              ; preds = %.lr.ph118, %108
   %indvars.iv146 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next147, %108 ]
-  %109 = getelementptr inbounds nuw float, ptr %.089.lcssa, i64 %indvars.iv146
-  %110 = getelementptr inbounds nuw float, ptr %.088.lcssa, i64 %indvars.iv146
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.089.lcssa, i64 %indvars.iv146
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %.088.lcssa, i64 %indvars.iv146
   %.val.i91 = load float, ptr %109, align 4
   %.val3.i92 = load float, ptr %110, align 4
   %111 = select i1 %107, float %.val.i91, float %.val3.i92
-  %112 = getelementptr inbounds nuw float, ptr %.087.lcssa, i64 %indvars.iv146
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv146
   store float %111, ptr %112, align 4, !tbaa !1611
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count
@@ -70688,13 +70685,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph124:                                        ; preds = %.lr.ph124.preheader, %.lr.ph124
   %indvars.iv154 = phi i64 [ 0, %.lr.ph124.preheader ], [ %indvars.iv.next155, %.lr.ph124 ]
-  %123 = getelementptr inbounds nuw float, ptr %.090.lcssa, i64 %indvars.iv154
-  %124 = getelementptr inbounds nuw float, ptr %.088.lcssa, i64 %indvars.iv154
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.090.lcssa, i64 %indvars.iv154
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %.088.lcssa, i64 %indvars.iv154
   %125 = load float, ptr %123, align 4, !tbaa !1611
   %126 = fcmp une float %125, 0.000000e+00
   %.val3.i94 = load float, ptr %124, align 4
   %127 = select i1 %126, float %120, float %.val3.i94
-  %128 = getelementptr inbounds nuw float, ptr %.087.lcssa, i64 %indvars.iv154
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv154
   store float %127, ptr %128, align 4, !tbaa !1611
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
@@ -70717,13 +70714,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
   %indvars.iv149 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next150, %.lr.ph121 ]
-  %136 = getelementptr inbounds nuw float, ptr %.090.lcssa, i64 %indvars.iv149
-  %137 = getelementptr inbounds nuw float, ptr %.089.lcssa, i64 %indvars.iv149
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.090.lcssa, i64 %indvars.iv149
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.089.lcssa, i64 %indvars.iv149
   %138 = load float, ptr %136, align 4, !tbaa !1611
   %139 = fcmp une float %138, 0.000000e+00
   %.val.i95 = load float, ptr %137, align 4
   %140 = select i1 %139, float %.val.i95, float %133
-  %141 = getelementptr inbounds nuw float, ptr %.087.lcssa, i64 %indvars.iv149
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %.087.lcssa, i64 %indvars.iv149
   store float %140, ptr %141, align 4, !tbaa !1611
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
@@ -70753,10 +70750,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl20ternary_forw
   %150 = select i1 %149, float %.val.i97, float %.val3.i98
   store float %150, ptr %.080130, align 4, !tbaa !1611
   %151 = add nuw nsw i32 %.0131, 1
-  %152 = getelementptr inbounds nuw float, ptr %.083127, i64 %35
-  %153 = getelementptr inbounds nuw float, ptr %.082128, i64 %144
-  %154 = getelementptr inbounds nuw float, ptr %.081129, i64 %145
-  %155 = getelementptr inbounds nuw float, ptr %.080130, i64 %146
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.083127, i64 %35
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %.082128, i64 %144
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %.081129, i64 %145
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.080130, i64 %146
   %exitcond164.not = icmp eq i32 %151, %142
   br i1 %exitcond164.not, label %.loopexit, label %147, !llvm.loop !2070
 
@@ -70932,10 +70929,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2072
@@ -71271,13 +71268,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph72, %46
   %indvars.iv87 = phi i64 [ %30, %.lr.ph72 ], [ %indvars.iv.next88, %46 ]
-  %47 = getelementptr inbounds float, ptr %23, i64 %indvars.iv87
-  %48 = getelementptr inbounds float, ptr %26, i64 %indvars.iv87
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv87
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv87
   %49 = load float, ptr %47, align 4, !tbaa !1611
   %50 = load float, ptr %48, align 4, !tbaa !1611
   %51 = fcmp olt float %49, %50
   %52 = select i1 %51, float %50, float %49
-  %53 = getelementptr inbounds float, ptr %29, i64 %indvars.iv87
+  %53 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv87
   store float %52, ptr %53, align 4, !tbaa !1611
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
@@ -71286,12 +71283,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 54:                                               ; preds = %.lr.ph80, %.loopexit
   %indvars.iv102 = phi i64 [ 2, %.lr.ph80 ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %55 = getelementptr inbounds nuw %"class.std::vector.18", ptr %37, i64 %indvars.iv.next103
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv.next103
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !122
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load i64, ptr %58, align 8, !tbaa !24
-  %60 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next103
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next103
   %61 = load ptr, ptr %60, align 8, !tbaa !165
   %62 = and i64 %59, 4294967295
   %63 = icmp eq i64 %62, 1
@@ -71315,8 +71312,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 67:                                               ; preds = %.lr.ph78, %67
   %indvars.iv97 = phi i64 [ %45, %.lr.ph78 ], [ %indvars.iv.next98, %67 ]
-  %68 = getelementptr inbounds float, ptr %66, i64 %indvars.iv97
-  %69 = getelementptr inbounds float, ptr %61, i64 %indvars.iv97
+  %68 = getelementptr inbounds [4 x i8], ptr %66, i64 %indvars.iv97
+  %69 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv97
   %70 = load float, ptr %68, align 4, !tbaa !1611
   %71 = load float, ptr %69, align 4, !tbaa !1611
   %72 = fcmp olt float %70, %71
@@ -71331,7 +71328,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 76:                                               ; preds = %.lr.ph76, %76
   %indvars.iv92 = phi i64 [ %45, %.lr.ph76 ], [ %indvars.iv.next93, %76 ]
   %.05274 = phi ptr [ %61, %.lr.ph76 ], [ %84, %76 ]
-  %77 = getelementptr inbounds float, ptr %64, i64 %indvars.iv92
+  %77 = getelementptr inbounds [4 x i8], ptr %64, i64 %indvars.iv92
   %78 = load float, ptr %77, align 4, !tbaa !1611
   %79 = load float, ptr %.05274, align 4, !tbaa !1611
   %80 = fcmp olt float %78, %79
@@ -71398,12 +71395,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %114 = phi ptr [ %88, %.lr.ph66.us.preheader ], [ %133, %..loopexit59_crit_edge.us ]
   %indvars.iv = phi i64 [ 2, %.lr.ph66.us.preheader ], [ %indvars.iv.next, %..loopexit59_crit_edge.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %115 = getelementptr inbounds nuw %"class.std::vector.18", ptr %109, i64 %indvars.iv.next
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %indvars.iv.next
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !122
   %118 = getelementptr inbounds i8, ptr %117, i64 -8
   %119 = load i64, ptr %118, align 8, !tbaa !24
-  %120 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.next
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.next
   %121 = load ptr, ptr %120, align 8, !tbaa !165
   %sext.us = shl i64 %119, 32
   %122 = ashr exact i64 %sext.us, 30
@@ -71422,7 +71419,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %131 = fmul float %128, %130
   store float %131, ptr %124, align 4, !tbaa !1611
   %132 = add nsw i32 %.064.us, 1
-  %133 = getelementptr inbounds nuw float, ptr %124, i64 %4
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %4
   store ptr %133, ptr %87, align 8, !tbaa !1599
   %134 = getelementptr inbounds i8, ptr %.04563.us, i64 %122
   %exitcond84.not = icmp eq i32 %132, %91
@@ -71443,13 +71440,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %142 = load ptr, ptr %87, align 8, !tbaa !1599
   store float %141, ptr %142, align 4, !tbaa !1611
   %143 = add nsw i32 %.04862, 1
-  %144 = getelementptr inbounds nuw float, ptr %142, i64 %4
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %4
   store ptr %144, ptr %87, align 8, !tbaa !1599
   %145 = load ptr, ptr %94, align 8, !tbaa !1599
-  %146 = getelementptr inbounds nuw float, ptr %145, i64 %99
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %99
   store ptr %146, ptr %94, align 8, !tbaa !1599
   %147 = load ptr, ptr %96, align 8, !tbaa !1599
-  %148 = getelementptr inbounds nuw float, ptr %147, i64 %102
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %102
   store ptr %148, ptr %96, align 8, !tbaa !1599
   %exitcond.not = icmp eq i32 %143, %91
   br i1 %exitcond.not, label %._crit_edge, label %135, !llvm.loop !2091
@@ -71615,10 +71612,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %63, ptr %64, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !2099
@@ -71636,7 +71633,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 68:                                               ; preds = %.lr.ph124, %._crit_edge120
   %indvars.iv164 = phi i64 [ %52, %.lr.ph124 ], [ %indvars.iv.next165, %._crit_edge120 ]
   %.097122 = phi i64 [ %indvars.iv194, %.lr.ph124 ], [ %72, %._crit_edge120 ]
-  %69 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv164
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv164
   %70 = load i32, ptr %69, align 4, !tbaa !96
   %71 = sext i32 %70 to i64
   %72 = udiv i64 %.097122, %71
@@ -71657,12 +71654,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 78:                                               ; preds = %.lr.ph119, %78
   %indvars.iv159 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next160, %78 ]
-  %79 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv159
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv159
   %80 = load ptr, ptr %79, align 8, !tbaa !67
-  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv164
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv164
   %82 = load i64, ptr %81, align 8, !tbaa !24
   %83 = mul i64 %82, %76
-  %84 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv159
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv159
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %83
   store ptr %86, ptr %84, align 8, !tbaa !165
@@ -71700,15 +71697,15 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
-  %96 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv174
-  %97 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv174
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv174
   %98 = load float, ptr %96, align 4, !tbaa !1611
   %99 = load float, ptr %97, align 4, !tbaa !1611
   %100 = fcmp olt float %98, %99
   %101 = select i1 %100, float %99, float %98
   %102 = load float, ptr %49, align 4, !tbaa !1611
   %103 = fmul float %101, %102
-  %104 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv174
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv174
   store float %103, ptr %104, align 4, !tbaa !1611
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
@@ -71717,12 +71714,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 105:                                              ; preds = %.lr.ph151, %.loopexit
   %indvars.iv189 = phi i64 [ 2, %.lr.ph151 ], [ %indvars.iv.next190, %.loopexit ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %106 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next190
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next190
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !122
   %109 = getelementptr inbounds i8, ptr %108, i64 -8
   %110 = load i64, ptr %109, align 8, !tbaa !24
-  %111 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next190
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next190
   %112 = load ptr, ptr %111, align 8, !tbaa !165
   %113 = and i64 %110, 4294967295
   %114 = icmp eq i64 %113, 1
@@ -71741,8 +71738,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph149:                                        ; preds = %.preheader, %.lr.ph149
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph149 ], [ 0, %.preheader ]
-  %116 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv184
-  %117 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv184
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv184
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv184
   %118 = load float, ptr %117, align 4, !tbaa !1611
   %119 = load float, ptr %95, align 4, !tbaa !1611
   %120 = fmul float %118, %119
@@ -71757,7 +71754,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 124:                                              ; preds = %.lr.ph147, %124
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next180, %124 ]
   %.089145 = phi ptr [ %112, %.lr.ph147 ], [ %132, %124 ]
-  %125 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv179
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv179
   %126 = load float, ptr %.089145, align 4, !tbaa !1611
   %127 = load float, ptr %95, align 4, !tbaa !1611
   %128 = fmul float %126, %127
@@ -71795,12 +71792,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %..loopexit107_crit_edge.us ], [ 2, %.lr.ph141 ]
   %.1139.us = phi ptr [ %155, %..loopexit107_crit_edge.us ], [ %65, %.lr.ph141 ]
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %139 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next170
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next170
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8, !tbaa !122
   %142 = getelementptr inbounds i8, ptr %141, i64 -8
   %143 = load i64, ptr %142, align 8, !tbaa !24
-  %144 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next170
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next170
   %145 = load ptr, ptr %144, align 8, !tbaa !165
   %sext.us = shl i64 %143, 32
   %146 = ashr exact i64 %sext.us, 30
@@ -71818,7 +71815,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %153 = select i1 %152, float %150, float %151
   store float %153, ptr %.2133.us, align 4, !tbaa !1611
   %154 = add nuw nsw i32 %.0135.us, 1
-  %155 = getelementptr inbounds nuw float, ptr %.2133.us, i64 %40
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.2133.us, i64 %40
   %156 = getelementptr inbounds i8, ptr %.083134.us, i64 %146
   %exitcond168.not = icmp eq i32 %154, %134
   br i1 %exitcond168.not, label %..loopexit107_crit_edge.us, label %147, !llvm.loop !2106
@@ -71840,9 +71837,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %163 = fmul float %161, %162
   store float %163, ptr %.093128, align 4, !tbaa !1611
   %164 = add nuw nsw i32 %.086129, 1
-  %165 = getelementptr inbounds nuw float, ptr %.093128, i64 %40
-  %166 = getelementptr inbounds nuw float, ptr %.095126, i64 %136
-  %167 = getelementptr inbounds nuw float, ptr %.094127, i64 %137
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %.093128, i64 %40
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.095126, i64 %136
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.094127, i64 %137
   %exitcond167.not = icmp eq i32 %164, %134
   br i1 %exitcond167.not, label %.preheader111, label %157, !llvm.loop !2108
 
@@ -72018,10 +72015,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2110
@@ -72357,12 +72354,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph72, %46
   %indvars.iv87 = phi i64 [ %30, %.lr.ph72 ], [ %indvars.iv.next88, %46 ]
-  %47 = getelementptr inbounds float, ptr %23, i64 %indvars.iv87
-  %48 = getelementptr inbounds float, ptr %26, i64 %indvars.iv87
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv87
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv87
   %49 = load float, ptr %47, align 4, !tbaa !1611
   %50 = load float, ptr %48, align 4, !tbaa !1611
   %51 = fadd float %49, %50
-  %52 = getelementptr inbounds float, ptr %29, i64 %indvars.iv87
+  %52 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv87
   store float %51, ptr %52, align 4, !tbaa !1611
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
@@ -72371,12 +72368,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 53:                                               ; preds = %.lr.ph80, %.loopexit
   %indvars.iv102 = phi i64 [ 2, %.lr.ph80 ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %54 = getelementptr inbounds nuw %"class.std::vector.18", ptr %37, i64 %indvars.iv.next103
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv.next103
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !122
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   %58 = load i64, ptr %57, align 8, !tbaa !24
-  %59 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next103
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next103
   %60 = load ptr, ptr %59, align 8, !tbaa !165
   %61 = and i64 %58, 4294967295
   %62 = icmp eq i64 %61, 1
@@ -72400,8 +72397,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 66:                                               ; preds = %.lr.ph78, %66
   %indvars.iv97 = phi i64 [ %45, %.lr.ph78 ], [ %indvars.iv.next98, %66 ]
-  %67 = getelementptr inbounds float, ptr %65, i64 %indvars.iv97
-  %68 = getelementptr inbounds float, ptr %60, i64 %indvars.iv97
+  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 %indvars.iv97
+  %68 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv97
   %69 = load float, ptr %67, align 4, !tbaa !1611
   %70 = load float, ptr %68, align 4, !tbaa !1611
   %71 = fadd float %69, %70
@@ -72415,7 +72412,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 74:                                               ; preds = %.lr.ph76, %74
   %indvars.iv92 = phi i64 [ %45, %.lr.ph76 ], [ %indvars.iv.next93, %74 ]
   %.05274 = phi ptr [ %60, %.lr.ph76 ], [ %81, %74 ]
-  %75 = getelementptr inbounds float, ptr %63, i64 %indvars.iv92
+  %75 = getelementptr inbounds [4 x i8], ptr %63, i64 %indvars.iv92
   %76 = load float, ptr %75, align 4, !tbaa !1611
   %77 = load float, ptr %.05274, align 4, !tbaa !1611
   %78 = fadd float %76, %77
@@ -72481,12 +72478,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %111 = phi ptr [ %85, %.lr.ph66.us.preheader ], [ %129, %..loopexit59_crit_edge.us ]
   %indvars.iv = phi i64 [ 2, %.lr.ph66.us.preheader ], [ %indvars.iv.next, %..loopexit59_crit_edge.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %112 = getelementptr inbounds nuw %"class.std::vector.18", ptr %106, i64 %indvars.iv.next
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %indvars.iv.next
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !122
   %115 = getelementptr inbounds i8, ptr %114, i64 -8
   %116 = load i64, ptr %115, align 8, !tbaa !24
-  %117 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.next
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.next
   %118 = load ptr, ptr %117, align 8, !tbaa !165
   %sext.us = shl i64 %116, 32
   %119 = ashr exact i64 %sext.us, 30
@@ -72504,7 +72501,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %127 = fmul float %124, %126
   store float %127, ptr %121, align 4, !tbaa !1611
   %128 = add nsw i32 %.064.us, 1
-  %129 = getelementptr inbounds nuw float, ptr %121, i64 %4
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %4
   store ptr %129, ptr %84, align 8, !tbaa !1599
   %130 = getelementptr inbounds i8, ptr %.04563.us, i64 %119
   %exitcond84.not = icmp eq i32 %128, %88
@@ -72524,13 +72521,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %137 = load ptr, ptr %84, align 8, !tbaa !1599
   store float %136, ptr %137, align 4, !tbaa !1611
   %138 = add nsw i32 %.04862, 1
-  %139 = getelementptr inbounds nuw float, ptr %137, i64 %4
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %4
   store ptr %139, ptr %84, align 8, !tbaa !1599
   %140 = load ptr, ptr %91, align 8, !tbaa !1599
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %96
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %96
   store ptr %141, ptr %91, align 8, !tbaa !1599
   %142 = load ptr, ptr %93, align 8, !tbaa !1599
-  %143 = getelementptr inbounds nuw float, ptr %142, i64 %99
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %99
   store ptr %143, ptr %93, align 8, !tbaa !1599
   %exitcond.not = icmp eq i32 %138, %88
   br i1 %exitcond.not, label %._crit_edge, label %131, !llvm.loop !2128
@@ -72696,10 +72693,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %63, ptr %64, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !2135
@@ -72717,7 +72714,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 68:                                               ; preds = %.lr.ph124, %._crit_edge120
   %indvars.iv164 = phi i64 [ %52, %.lr.ph124 ], [ %indvars.iv.next165, %._crit_edge120 ]
   %.097122 = phi i64 [ %indvars.iv194, %.lr.ph124 ], [ %72, %._crit_edge120 ]
-  %69 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv164
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv164
   %70 = load i32, ptr %69, align 4, !tbaa !96
   %71 = sext i32 %70 to i64
   %72 = udiv i64 %.097122, %71
@@ -72738,12 +72735,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 78:                                               ; preds = %.lr.ph119, %78
   %indvars.iv159 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next160, %78 ]
-  %79 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv159
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv159
   %80 = load ptr, ptr %79, align 8, !tbaa !67
-  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv164
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv164
   %82 = load i64, ptr %81, align 8, !tbaa !24
   %83 = mul i64 %82, %76
-  %84 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv159
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv159
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %83
   store ptr %86, ptr %84, align 8, !tbaa !165
@@ -72781,14 +72778,14 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
-  %96 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv174
-  %97 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv174
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv174
   %98 = load float, ptr %96, align 4, !tbaa !1611
   %99 = load float, ptr %97, align 4, !tbaa !1611
   %100 = fadd float %98, %99
   %101 = load float, ptr %49, align 4, !tbaa !1611
   %102 = fmul float %100, %101
-  %103 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv174
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv174
   store float %102, ptr %103, align 4, !tbaa !1611
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
@@ -72797,12 +72794,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 104:                                              ; preds = %.lr.ph151, %.loopexit
   %indvars.iv189 = phi i64 [ 2, %.lr.ph151 ], [ %indvars.iv.next190, %.loopexit ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %105 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next190
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next190
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !122
   %108 = getelementptr inbounds i8, ptr %107, i64 -8
   %109 = load i64, ptr %108, align 8, !tbaa !24
-  %110 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next190
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next190
   %111 = load ptr, ptr %110, align 8, !tbaa !165
   %112 = and i64 %109, 4294967295
   %113 = icmp eq i64 %112, 1
@@ -72821,8 +72818,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph149:                                        ; preds = %.preheader, %.lr.ph149
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph149 ], [ 0, %.preheader ]
-  %115 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv184
-  %116 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv184
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv184
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv184
   %117 = load float, ptr %116, align 4, !tbaa !1611
   %118 = load float, ptr %95, align 4, !tbaa !1611
   %119 = fmul float %117, %118
@@ -72836,7 +72833,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 122:                                              ; preds = %.lr.ph147, %122
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next180, %122 ]
   %.089145 = phi ptr [ %111, %.lr.ph147 ], [ %129, %122 ]
-  %123 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv179
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv179
   %124 = load float, ptr %.089145, align 4, !tbaa !1611
   %125 = load float, ptr %95, align 4, !tbaa !1611
   %126 = fmul float %124, %125
@@ -72873,12 +72870,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %..loopexit107_crit_edge.us ], [ 2, %.lr.ph141 ]
   %.1139.us = phi ptr [ %151, %..loopexit107_crit_edge.us ], [ %65, %.lr.ph141 ]
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %136 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next170
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next170
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !122
   %139 = getelementptr inbounds i8, ptr %138, i64 -8
   %140 = load i64, ptr %139, align 8, !tbaa !24
-  %141 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next170
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next170
   %142 = load ptr, ptr %141, align 8, !tbaa !165
   %sext.us = shl i64 %140, 32
   %143 = ashr exact i64 %sext.us, 30
@@ -72895,7 +72892,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %149 = fadd float %148, %147
   store float %149, ptr %.2133.us, align 4, !tbaa !1611
   %150 = add nuw nsw i32 %.0135.us, 1
-  %151 = getelementptr inbounds nuw float, ptr %.2133.us, i64 %40
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %.2133.us, i64 %40
   %152 = getelementptr inbounds i8, ptr %.083134.us, i64 %143
   %exitcond168.not = icmp eq i32 %150, %131
   br i1 %exitcond168.not, label %..loopexit107_crit_edge.us, label %144, !llvm.loop !2142
@@ -72916,9 +72913,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %158 = fmul float %156, %157
   store float %158, ptr %.093128, align 4, !tbaa !1611
   %159 = add nuw nsw i32 %.086129, 1
-  %160 = getelementptr inbounds nuw float, ptr %.093128, i64 %40
-  %161 = getelementptr inbounds nuw float, ptr %.095126, i64 %133
-  %162 = getelementptr inbounds nuw float, ptr %.094127, i64 %134
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.093128, i64 %40
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.095126, i64 %133
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.094127, i64 %134
   %exitcond167.not = icmp eq i32 %159, %131
   br i1 %exitcond167.not, label %.preheader111, label %153, !llvm.loop !2144
 
@@ -73094,10 +73091,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2146
@@ -73433,13 +73430,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph72, %46
   %indvars.iv87 = phi i64 [ %30, %.lr.ph72 ], [ %indvars.iv.next88, %46 ]
-  %47 = getelementptr inbounds float, ptr %23, i64 %indvars.iv87
-  %48 = getelementptr inbounds float, ptr %26, i64 %indvars.iv87
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv87
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv87
   %49 = load float, ptr %48, align 4, !tbaa !1611
   %50 = load float, ptr %47, align 4, !tbaa !1611
   %51 = fcmp olt float %49, %50
   %52 = select i1 %51, float %49, float %50
-  %53 = getelementptr inbounds float, ptr %29, i64 %indvars.iv87
+  %53 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv87
   store float %52, ptr %53, align 4, !tbaa !1611
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
@@ -73448,12 +73445,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 54:                                               ; preds = %.lr.ph80, %.loopexit
   %indvars.iv102 = phi i64 [ 2, %.lr.ph80 ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %55 = getelementptr inbounds nuw %"class.std::vector.18", ptr %37, i64 %indvars.iv.next103
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv.next103
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !122
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load i64, ptr %58, align 8, !tbaa !24
-  %60 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next103
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next103
   %61 = load ptr, ptr %60, align 8, !tbaa !165
   %62 = and i64 %59, 4294967295
   %63 = icmp eq i64 %62, 1
@@ -73477,8 +73474,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 67:                                               ; preds = %.lr.ph78, %67
   %indvars.iv97 = phi i64 [ %45, %.lr.ph78 ], [ %indvars.iv.next98, %67 ]
-  %68 = getelementptr inbounds float, ptr %66, i64 %indvars.iv97
-  %69 = getelementptr inbounds float, ptr %61, i64 %indvars.iv97
+  %68 = getelementptr inbounds [4 x i8], ptr %66, i64 %indvars.iv97
+  %69 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv97
   %70 = load float, ptr %69, align 4, !tbaa !1611
   %71 = load float, ptr %68, align 4, !tbaa !1611
   %72 = fcmp olt float %70, %71
@@ -73493,7 +73490,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 76:                                               ; preds = %.lr.ph76, %76
   %indvars.iv92 = phi i64 [ %45, %.lr.ph76 ], [ %indvars.iv.next93, %76 ]
   %.05274 = phi ptr [ %61, %.lr.ph76 ], [ %84, %76 ]
-  %77 = getelementptr inbounds float, ptr %64, i64 %indvars.iv92
+  %77 = getelementptr inbounds [4 x i8], ptr %64, i64 %indvars.iv92
   %78 = load float, ptr %.05274, align 4, !tbaa !1611
   %79 = load float, ptr %77, align 4, !tbaa !1611
   %80 = fcmp olt float %78, %79
@@ -73560,12 +73557,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %114 = phi ptr [ %88, %.lr.ph66.us.preheader ], [ %133, %..loopexit59_crit_edge.us ]
   %indvars.iv = phi i64 [ 2, %.lr.ph66.us.preheader ], [ %indvars.iv.next, %..loopexit59_crit_edge.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %115 = getelementptr inbounds nuw %"class.std::vector.18", ptr %109, i64 %indvars.iv.next
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %indvars.iv.next
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !122
   %118 = getelementptr inbounds i8, ptr %117, i64 -8
   %119 = load i64, ptr %118, align 8, !tbaa !24
-  %120 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.next
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.next
   %121 = load ptr, ptr %120, align 8, !tbaa !165
   %sext.us = shl i64 %119, 32
   %122 = ashr exact i64 %sext.us, 30
@@ -73584,7 +73581,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %131 = fmul float %128, %130
   store float %131, ptr %124, align 4, !tbaa !1611
   %132 = add nsw i32 %.064.us, 1
-  %133 = getelementptr inbounds nuw float, ptr %124, i64 %4
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %4
   store ptr %133, ptr %87, align 8, !tbaa !1599
   %134 = getelementptr inbounds i8, ptr %.04563.us, i64 %122
   %exitcond84.not = icmp eq i32 %132, %91
@@ -73605,13 +73602,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %142 = load ptr, ptr %87, align 8, !tbaa !1599
   store float %141, ptr %142, align 4, !tbaa !1611
   %143 = add nsw i32 %.04862, 1
-  %144 = getelementptr inbounds nuw float, ptr %142, i64 %4
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %4
   store ptr %144, ptr %87, align 8, !tbaa !1599
   %145 = load ptr, ptr %94, align 8, !tbaa !1599
-  %146 = getelementptr inbounds nuw float, ptr %145, i64 %99
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %99
   store ptr %146, ptr %94, align 8, !tbaa !1599
   %147 = load ptr, ptr %96, align 8, !tbaa !1599
-  %148 = getelementptr inbounds nuw float, ptr %147, i64 %102
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %102
   store ptr %148, ptr %96, align 8, !tbaa !1599
   %exitcond.not = icmp eq i32 %143, %91
   br i1 %exitcond.not, label %._crit_edge, label %135, !llvm.loop !2164
@@ -73777,10 +73774,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %63, ptr %64, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !2171
@@ -73798,7 +73795,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 68:                                               ; preds = %.lr.ph124, %._crit_edge120
   %indvars.iv164 = phi i64 [ %52, %.lr.ph124 ], [ %indvars.iv.next165, %._crit_edge120 ]
   %.097122 = phi i64 [ %indvars.iv194, %.lr.ph124 ], [ %72, %._crit_edge120 ]
-  %69 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv164
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv164
   %70 = load i32, ptr %69, align 4, !tbaa !96
   %71 = sext i32 %70 to i64
   %72 = udiv i64 %.097122, %71
@@ -73819,12 +73816,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 78:                                               ; preds = %.lr.ph119, %78
   %indvars.iv159 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next160, %78 ]
-  %79 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv159
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv159
   %80 = load ptr, ptr %79, align 8, !tbaa !67
-  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv164
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv164
   %82 = load i64, ptr %81, align 8, !tbaa !24
   %83 = mul i64 %82, %76
-  %84 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv159
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv159
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %83
   store ptr %86, ptr %84, align 8, !tbaa !165
@@ -73862,15 +73859,15 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
-  %96 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv174
-  %97 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv174
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv174
   %98 = load float, ptr %97, align 4, !tbaa !1611
   %99 = load float, ptr %96, align 4, !tbaa !1611
   %100 = fcmp olt float %98, %99
   %101 = select i1 %100, float %98, float %99
   %102 = load float, ptr %49, align 4, !tbaa !1611
   %103 = fmul float %101, %102
-  %104 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv174
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv174
   store float %103, ptr %104, align 4, !tbaa !1611
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
@@ -73879,12 +73876,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 105:                                              ; preds = %.lr.ph151, %.loopexit
   %indvars.iv189 = phi i64 [ 2, %.lr.ph151 ], [ %indvars.iv.next190, %.loopexit ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %106 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next190
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next190
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !122
   %109 = getelementptr inbounds i8, ptr %108, i64 -8
   %110 = load i64, ptr %109, align 8, !tbaa !24
-  %111 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next190
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next190
   %112 = load ptr, ptr %111, align 8, !tbaa !165
   %113 = and i64 %110, 4294967295
   %114 = icmp eq i64 %113, 1
@@ -73903,8 +73900,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph149:                                        ; preds = %.preheader, %.lr.ph149
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph149 ], [ 0, %.preheader ]
-  %116 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv184
-  %117 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv184
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv184
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv184
   %118 = load float, ptr %117, align 4, !tbaa !1611
   %119 = load float, ptr %95, align 4, !tbaa !1611
   %120 = fmul float %118, %119
@@ -73919,7 +73916,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 124:                                              ; preds = %.lr.ph147, %124
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next180, %124 ]
   %.089145 = phi ptr [ %112, %.lr.ph147 ], [ %132, %124 ]
-  %125 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv179
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv179
   %126 = load float, ptr %.089145, align 4, !tbaa !1611
   %127 = load float, ptr %95, align 4, !tbaa !1611
   %128 = fmul float %126, %127
@@ -73957,12 +73954,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %..loopexit107_crit_edge.us ], [ 2, %.lr.ph141 ]
   %.1139.us = phi ptr [ %155, %..loopexit107_crit_edge.us ], [ %65, %.lr.ph141 ]
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %139 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next170
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next170
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8, !tbaa !122
   %142 = getelementptr inbounds i8, ptr %141, i64 -8
   %143 = load i64, ptr %142, align 8, !tbaa !24
-  %144 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next170
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next170
   %145 = load ptr, ptr %144, align 8, !tbaa !165
   %sext.us = shl i64 %143, 32
   %146 = ashr exact i64 %sext.us, 30
@@ -73980,7 +73977,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %153 = select i1 %152, float %150, float %151
   store float %153, ptr %.2133.us, align 4, !tbaa !1611
   %154 = add nuw nsw i32 %.0135.us, 1
-  %155 = getelementptr inbounds nuw float, ptr %.2133.us, i64 %40
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.2133.us, i64 %40
   %156 = getelementptr inbounds i8, ptr %.083134.us, i64 %146
   %exitcond168.not = icmp eq i32 %154, %134
   br i1 %exitcond168.not, label %..loopexit107_crit_edge.us, label %147, !llvm.loop !2178
@@ -74002,9 +73999,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %163 = fmul float %161, %162
   store float %163, ptr %.093128, align 4, !tbaa !1611
   %164 = add nuw nsw i32 %.086129, 1
-  %165 = getelementptr inbounds nuw float, ptr %.093128, i64 %40
-  %166 = getelementptr inbounds nuw float, ptr %.095126, i64 %136
-  %167 = getelementptr inbounds nuw float, ptr %.094127, i64 %137
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %.093128, i64 %40
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.095126, i64 %136
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.094127, i64 %137
   %exitcond167.not = icmp eq i32 %164, %134
   br i1 %exitcond167.not, label %.preheader111, label %157, !llvm.loop !2180
 
@@ -74180,10 +74177,10 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next
   store ptr %88, ptr %89, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2182
@@ -74519,12 +74516,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 46:                                               ; preds = %.lr.ph72, %46
   %indvars.iv87 = phi i64 [ %30, %.lr.ph72 ], [ %indvars.iv.next88, %46 ]
-  %47 = getelementptr inbounds float, ptr %23, i64 %indvars.iv87
-  %48 = getelementptr inbounds float, ptr %26, i64 %indvars.iv87
+  %47 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv87
+  %48 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv87
   %49 = load float, ptr %47, align 4, !tbaa !1611
   %50 = load float, ptr %48, align 4, !tbaa !1611
   %51 = fadd float %49, %50
-  %52 = getelementptr inbounds float, ptr %29, i64 %indvars.iv87
+  %52 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv87
   store float %51, ptr %52, align 4, !tbaa !1611
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
@@ -74533,12 +74530,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 53:                                               ; preds = %.lr.ph80, %.loopexit
   %indvars.iv102 = phi i64 [ 2, %.lr.ph80 ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %54 = getelementptr inbounds nuw %"class.std::vector.18", ptr %37, i64 %indvars.iv.next103
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv.next103
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !122
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   %58 = load i64, ptr %57, align 8, !tbaa !24
-  %59 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next103
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next103
   %60 = load ptr, ptr %59, align 8, !tbaa !165
   %61 = and i64 %58, 4294967295
   %62 = icmp eq i64 %61, 1
@@ -74562,8 +74559,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 
 66:                                               ; preds = %.lr.ph78, %66
   %indvars.iv97 = phi i64 [ %45, %.lr.ph78 ], [ %indvars.iv.next98, %66 ]
-  %67 = getelementptr inbounds float, ptr %65, i64 %indvars.iv97
-  %68 = getelementptr inbounds float, ptr %60, i64 %indvars.iv97
+  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 %indvars.iv97
+  %68 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv97
   %69 = load float, ptr %67, align 4, !tbaa !1611
   %70 = load float, ptr %68, align 4, !tbaa !1611
   %71 = fadd float %69, %70
@@ -74577,7 +74574,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
 74:                                               ; preds = %.lr.ph76, %74
   %indvars.iv92 = phi i64 [ %45, %.lr.ph76 ], [ %indvars.iv.next93, %74 ]
   %.05274 = phi ptr [ %60, %.lr.ph76 ], [ %81, %74 ]
-  %75 = getelementptr inbounds float, ptr %63, i64 %indvars.iv92
+  %75 = getelementptr inbounds [4 x i8], ptr %63, i64 %indvars.iv92
   %76 = load float, ptr %75, align 4, !tbaa !1611
   %77 = load float, ptr %.05274, align 4, !tbaa !1611
   %78 = fadd float %76, %77
@@ -74643,12 +74640,12 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %111 = phi ptr [ %85, %.lr.ph66.us.preheader ], [ %129, %..loopexit59_crit_edge.us ]
   %indvars.iv = phi i64 [ 2, %.lr.ph66.us.preheader ], [ %indvars.iv.next, %..loopexit59_crit_edge.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %112 = getelementptr inbounds nuw %"class.std::vector.18", ptr %106, i64 %indvars.iv.next
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %indvars.iv.next
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !122
   %115 = getelementptr inbounds i8, ptr %114, i64 -8
   %116 = load i64, ptr %115, align 8, !tbaa !24
-  %117 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.next
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.next
   %118 = load ptr, ptr %117, align 8, !tbaa !165
   %sext.us = shl i64 %116, 32
   %119 = ashr exact i64 %sext.us, 30
@@ -74666,7 +74663,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %127 = fmul float %124, %126
   store float %127, ptr %121, align 4, !tbaa !1611
   %128 = add nsw i32 %.064.us, 1
-  %129 = getelementptr inbounds nuw float, ptr %121, i64 %4
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %4
   store ptr %129, ptr %84, align 8, !tbaa !1599
   %130 = getelementptr inbounds i8, ptr %.04563.us, i64 %119
   %exitcond84.not = icmp eq i32 %128, %88
@@ -74686,13 +74683,13 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   %137 = load ptr, ptr %84, align 8, !tbaa !1599
   store float %136, ptr %137, align 4, !tbaa !1611
   %138 = add nsw i32 %.04862, 1
-  %139 = getelementptr inbounds nuw float, ptr %137, i64 %4
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %4
   store ptr %139, ptr %84, align 8, !tbaa !1599
   %140 = load ptr, ptr %91, align 8, !tbaa !1599
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %96
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %96
   store ptr %141, ptr %91, align 8, !tbaa !1599
   %142 = load ptr, ptr %93, align 8, !tbaa !1599
-  %143 = getelementptr inbounds nuw float, ptr %142, i64 %99
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %99
   store ptr %143, ptr %93, align 8, !tbaa !1599
   %exitcond.not = icmp eq i32 %138, %88
   br i1 %exitcond.not, label %._crit_edge, label %131, !llvm.loop !2200
@@ -74858,10 +74855,10 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   store ptr %63, ptr %64, align 8, !tbaa !165
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !2207
@@ -74879,7 +74876,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 68:                                               ; preds = %.lr.ph124, %._crit_edge120
   %indvars.iv164 = phi i64 [ %52, %.lr.ph124 ], [ %indvars.iv.next165, %._crit_edge120 ]
   %.097122 = phi i64 [ %indvars.iv194, %.lr.ph124 ], [ %72, %._crit_edge120 ]
-  %69 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv164
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv164
   %70 = load i32, ptr %69, align 4, !tbaa !96
   %71 = sext i32 %70 to i64
   %72 = udiv i64 %.097122, %71
@@ -74900,12 +74897,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 78:                                               ; preds = %.lr.ph119, %78
   %indvars.iv159 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next160, %78 ]
-  %79 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv159
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv159
   %80 = load ptr, ptr %79, align 8, !tbaa !67
-  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv164
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv164
   %82 = load i64, ptr %81, align 8, !tbaa !24
   %83 = mul i64 %82, %76
-  %84 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv159
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv159
   %85 = load ptr, ptr %84, align 8, !tbaa !165
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %83
   store ptr %86, ptr %84, align 8, !tbaa !165
@@ -74943,14 +74940,14 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
-  %96 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv174
-  %97 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv174
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv174
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv174
   %98 = load float, ptr %96, align 4, !tbaa !1611
   %99 = load float, ptr %97, align 4, !tbaa !1611
   %100 = fadd float %98, %99
   %101 = load float, ptr %49, align 4, !tbaa !1611
   %102 = fmul float %100, %101
-  %103 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv174
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv174
   store float %102, ptr %103, align 4, !tbaa !1611
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
@@ -74959,12 +74956,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 104:                                              ; preds = %.lr.ph151, %.loopexit
   %indvars.iv189 = phi i64 [ 2, %.lr.ph151 ], [ %indvars.iv.next190, %.loopexit ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %105 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next190
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next190
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !122
   %108 = getelementptr inbounds i8, ptr %107, i64 -8
   %109 = load i64, ptr %108, align 8, !tbaa !24
-  %110 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next190
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next190
   %111 = load ptr, ptr %110, align 8, !tbaa !165
   %112 = and i64 %109, 4294967295
   %113 = icmp eq i64 %112, 1
@@ -74983,8 +74980,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 
 .lr.ph149:                                        ; preds = %.preheader, %.lr.ph149
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph149 ], [ 0, %.preheader ]
-  %115 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv184
-  %116 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv184
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv184
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv184
   %117 = load float, ptr %116, align 4, !tbaa !1611
   %118 = load float, ptr %95, align 4, !tbaa !1611
   %119 = fmul float %117, %118
@@ -74998,7 +74995,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
 122:                                              ; preds = %.lr.ph147, %122
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next180, %122 ]
   %.089145 = phi ptr [ %111, %.lr.ph147 ], [ %129, %122 ]
-  %123 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv179
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv179
   %124 = load float, ptr %.089145, align 4, !tbaa !1611
   %125 = load float, ptr %95, align 4, !tbaa !1611
   %126 = fmul float %124, %125
@@ -75035,12 +75032,12 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %..loopexit107_crit_edge.us ], [ 2, %.lr.ph141 ]
   %.1139.us = phi ptr [ %151, %..loopexit107_crit_edge.us ], [ %65, %.lr.ph141 ]
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %136 = getelementptr inbounds nuw %"class.std::vector.18", ptr %7, i64 %indvars.iv.next170
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.next170
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !122
   %139 = getelementptr inbounds i8, ptr %138, i64 -8
   %140 = load i64, ptr %139, align 8, !tbaa !24
-  %141 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next170
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next170
   %142 = load ptr, ptr %141, align 8, !tbaa !165
   %sext.us = shl i64 %140, 32
   %143 = ashr exact i64 %sext.us, 30
@@ -75057,7 +75054,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %149 = fadd float %148, %147
   store float %149, ptr %.2133.us, align 4, !tbaa !1611
   %150 = add nuw nsw i32 %.0135.us, 1
-  %151 = getelementptr inbounds nuw float, ptr %.2133.us, i64 %40
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %.2133.us, i64 %40
   %152 = getelementptr inbounds i8, ptr %.083134.us, i64 %143
   %exitcond168.not = icmp eq i32 %150, %131
   br i1 %exitcond168.not, label %..loopexit107_crit_edge.us, label %144, !llvm.loop !2214
@@ -75078,9 +75075,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %56, %._crit_edge154
   %158 = fmul float %156, %157
   store float %158, ptr %.093128, align 4, !tbaa !1611
   %159 = add nuw nsw i32 %.086129, 1
-  %160 = getelementptr inbounds nuw float, ptr %.093128, i64 %40
-  %161 = getelementptr inbounds nuw float, ptr %.095126, i64 %133
-  %162 = getelementptr inbounds nuw float, ptr %.094127, i64 %134
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.093128, i64 %40
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.095126, i64 %133
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.094127, i64 %134
   %exitcond167.not = icmp eq i32 %159, %131
   br i1 %exitcond167.not, label %.preheader111, label %153, !llvm.loop !2216
 
@@ -75243,7 +75240,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
 
 .lr.ph58:                                         ; preds = %.lr.ph62, %._crit_edge59
   %.03060 = phi i64 [ %65, %._crit_edge59 ], [ 0, %.lr.ph62 ]
-  %64 = getelementptr inbounds nuw i32, ptr %48, i64 %.03060
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.03060
   %.promoted = load i32, ptr %64, align 4, !tbaa !96
   br label %66
 
@@ -75256,7 +75253,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   %67 = phi i32 [ %.promoted, %.lr.ph58 ], [ %88, %87 ]
   %.sroa.040.056 = phi ptr [ %62, %.lr.ph58 ], [ %89, %87 ]
   %68 = load ptr, ptr %.sroa.040.056, align 8, !tbaa !73
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %.03060
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %.03060
   %70 = load i32, ptr %69, align 4, !tbaa !96
   %.not = icmp eq i32 %70, %67
   br i1 %.not, label %87, label %71
@@ -75358,7 +75355,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.3", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !71
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !72
@@ -75627,7 +75624,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !107
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -75636,7 +75633,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -75747,7 +75744,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -75768,7 +75765,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !73
   store ptr %72, ptr %8, align 8, !tbaa !107
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !113
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 

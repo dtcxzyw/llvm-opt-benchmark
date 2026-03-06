@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/mapperCutUtils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
-%struct.Map_TimeStruct_t_ = type { float, float, float }
-
 @.str = private unnamed_addr constant [60 x i8] c"CUT:  Delay = (%4.2f, %4.2f). Area = %4.2f. Nodes = %d -> {\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c" %d\00", align 1
 @str = private unnamed_addr constant [4 x i8] c" } \00", align 1
@@ -61,7 +58,7 @@ declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_
 define void @Map_CutPrint(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load float, ptr %8, align 8, !tbaa !26
   %10 = fpext float %9 to double
@@ -85,7 +82,7 @@ define void @Map_CutPrint(ptr noundef readnone captures(none) %0, ptr noundef re
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !29
@@ -107,7 +104,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @Map_CutGetRootArea(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %3
+  %4 = getelementptr [40 x i8], ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 236
@@ -118,7 +115,7 @@ define float @Map_CutGetRootArea(ptr noundef readonly captures(none) %0, i32 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %4
+  %5 = getelementptr [40 x i8], ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 92
   %7 = load i32, ptr %6, align 4, !tbaa !42
   %8 = xor i32 %7, -1
@@ -131,9 +128,9 @@ define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr noundef readonly captures(no
 define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !43
-  %8 = getelementptr %struct.Map_MatchStruct_t_, ptr %7, i64 %5
+  %8 = getelementptr [40 x i8], ptr %7, i64 %5
   %9 = getelementptr i8, ptr %8, i64 92
   %10 = load i32, ptr %9, align 4, !tbaa !42
   %11 = xor i32 %10, -1
@@ -300,7 +297,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %20, align 4, !tbaa !53
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %0, ptr %50, align 8, !tbaa !57
   br label %51
 
@@ -334,7 +331,7 @@ define noundef ptr @Map_CutInternalNodes(ptr noundef %0, ptr noundef readonly ca
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 %10, ptr %18, align 4, !tbaa !48

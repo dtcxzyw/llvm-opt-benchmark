@@ -71,7 +71,7 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !17
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %16, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !18
   %28 = and i16 %27, 2048
   %.not = icmp eq i16 %28, 0

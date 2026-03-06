@@ -698,7 +698,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds { i32, i32 }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %11, i64 %13
   store ptr %11, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %15, align 8

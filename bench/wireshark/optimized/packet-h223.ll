@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.except_id_t = type { i64, i64 }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.h223_call_direction_data = type { [16 x ptr] }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
 %struct.except_catch = type { ptr, i64, %struct.except_t, [1 x %struct.__jmp_buf_tag] }
@@ -389,11 +388,11 @@ define internal void @h223_set_mc(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %18 = load i32, ptr %17, align 4
   %.not10 = icmp eq i32 %18, 0
   %19 = zext i1 %.not10 to i64
-  %20 = getelementptr %struct.h223_call_direction_data, ptr %16, i64 %19
+  %20 = getelementptr [128 x i8], ptr %16, i64 %19
   %21 = tail call ptr @wmem_file_scope()
   %22 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %21, i64 noundef 24) #15
   %23 = zext nneg i8 %1 to i64
-  %24 = getelementptr ptr, ptr %20, i64 %23
+  %24 = getelementptr [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %.preheader.i
@@ -854,7 +853,7 @@ define internal fastcc i32 @dissect_mux_pdu_fragment(ptr noundef %0, i32 noundef
 26:                                               ; preds = %.lr.ph
   %27 = load i32, ptr %4, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr @attempt_mux_header_parse, i64 %28
+  %29 = getelementptr [8 x i8], ptr @attempt_mux_header_parse, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.0..0..0..0.32 = load volatile i32, ptr %9, align 4
   %31 = sub i32 %.0..0..0..0.32, %1
@@ -1138,11 +1137,11 @@ proto_item_set_generated.exit.i:                  ; preds = %128, %125, %122
   %147 = load i32, ptr %146, align 4
   %.not.i128.i = icmp eq i32 %147, 0
   %148 = zext i1 %.not.i128.i to i64
-  %149 = getelementptr %struct.h223_call_direction_data, ptr %145, i64 %148
+  %149 = getelementptr [128 x i8], ptr %145, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %151 = load i32, ptr %150, align 4
   %152 = zext nneg i8 %.0114.i to i64
-  %153 = getelementptr ptr, ptr %149, i64 %152
+  %153 = getelementptr [8 x i8], ptr %149, i64 %152
   %154 = load ptr, ptr %153, align 8
   br label %155
 
@@ -1502,7 +1501,7 @@ circuit_chain_lookup.exit:                        ; preds = %5, %13
   %35 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %34, i64 noundef 24) #15
   %.not.i = icmp eq i32 %3, 0
   %36 = zext i1 %.not.i to i64
-  %37 = getelementptr ptr, ptr %.0, i64 %36
+  %37 = getelementptr [8 x i8], ptr %.0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not30.i = icmp eq ptr %38, null
   br i1 %.not30.i, label %39, label %.preheader.i
@@ -1913,7 +1912,7 @@ circuit_chain_lookup.exit:                        ; preds = %27, %35
   %61 = load i32, ptr %44, align 4
   %.not.i = icmp eq i32 %60, 0
   %62 = zext i1 %.not.i to i64
-  %63 = getelementptr ptr, ptr %57, i64 %62
+  %63 = getelementptr [8 x i8], ptr %57, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %65
 

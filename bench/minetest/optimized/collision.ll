@@ -51,34 +51,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::function.264" = type { %"class.std::_Function_base", ptr }
 %"class.irr::core::aabbox3d" = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d" }
 %"class.irr::core::vector3d" = type { float, float, float }
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.83", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.99", %"class.std::vector.104", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.83" = type { %"class.std::_Hashtable.84" }
-%"class.std::_Hashtable.84" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.97 }
-%union.anon.97 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.99" = type { %"struct.std::_Vector_base.100" }
-%"struct.std::_Vector_base.100" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.104" = type { %"struct.std::_Vector_base.105" }
-%"struct.std::_Vector_base.105" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::video::SColor" = type { i32 }
-%struct.NodeBox = type { i8, %"class.std::vector.109", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
-%struct.NearbyCollisionInfo = type <{ i8, i8, [6 x i8], ptr, i32, %"class.irr::core::vector3d.3", [2 x i8], %"class.irr::core::aabbox3d", [4 x i8] }>
-%"class.irr::core::vector3d.3" = type { i16, i16, i16 }
-%struct.CollisionInfo = type <{ i32, i32, %"class.irr::core::vector3d.3", [2 x i8], ptr, %"class.irr::core::vector3d", %"class.irr::core::vector3d", i32, [4 x i8] }>
 
 $_ZN17ServerEnvironment22getObjectsInsideRadiusERSt6vectorIP18ServerActiveObjectSaIS2_EERKN3irr4core8vector3dIfEEfSt8functionIFbS2_EE = comdat any
 
@@ -1102,7 +1074,7 @@ invoke.cont242:                                   ; preds = %if.then238
   br i1 %cmp.i.i1330, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont242
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %101, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %101, i64 %conv.i.i
   %_M_string_length.i.i.i.i1331 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %102 = load i64, ptr %_M_string_length.i.i.i.i1331, align 8, !tbaa !27
   %cmp.i.i.i1332 = icmp eq i64 %102, 0
@@ -1203,7 +1175,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %115 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i = urem i64 %call.i5.i.i.i, %115
   %116 = load ptr, ptr %groups, align 8, !tbaa !106
-  %arrayidx.i.i.i1739 = getelementptr inbounds ptr, ptr %116, i64 %rem.i.i.i.i
+  %arrayidx.i.i.i1739 = getelementptr inbounds [8 x i8], ptr %116, i64 %rem.i.i.i.i
   %117 = load ptr, ptr %arrayidx.i.i.i1739, align 8, !tbaa !21
   %tobool.not.i.i.i1740 = icmp eq ptr %117, null
   %.pre = load ptr, ptr %ref.tmp250, align 8
@@ -1546,7 +1518,7 @@ if.then.i63.i:                                    ; preds = %_ZNSt6vectorI19Near
 .noexc:                                           ; preds = %if.then.i63.i, %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit62.i
   store ptr %call5.i.i.i.i1763, ptr %cinfo, align 8, !tbaa !132
   store ptr %incdec.ptr.i1758, ptr %_M_finish.i1436, align 8, !tbaa !124
-  %add.ptr32.i = getelementptr inbounds nuw %struct.NearbyCollisionInfo, ptr %call5.i.i.i.i1763, i64 %cond.i.i
+  %add.ptr32.i = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i.i1763, i64 %cond.i.i
   store ptr %add.ptr32.i, ptr %_M_end_of_storage.i, align 8, !tbaa !115
   br label %invoke.cont318
 
@@ -1700,7 +1672,7 @@ if.then.i63.i1809:                                ; preds = %_ZNSt6vectorI19Near
 .noexc1462:                                       ; preds = %if.then.i63.i1809, %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit62.i1806
   store ptr %call5.i.i.i.i1815, ptr %cinfo, align 8, !tbaa !132
   store ptr %incdec.ptr.i1798, ptr %_M_finish.i1436, align 8, !tbaa !124
-  %add.ptr32.i1811 = getelementptr inbounds nuw %struct.NearbyCollisionInfo, ptr %call5.i.i.i.i1815, i64 %cond.i.i1774
+  %add.ptr32.i1811 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i.i1815, i64 %cond.i.i1774
   store ptr %add.ptr32.i1811, ptr %_M_end_of_storage.i, align 8, !tbaa !115
   br label %cleanup348
 
@@ -1915,7 +1887,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP12Act
 _ZNSt6vectorIP12ActiveObjectSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP12ActiveObjectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i1482, ptr %objects, align 8, !tbaa !147
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !146
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i1482, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i1482, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !144
   br label %if.end437
 
@@ -2180,7 +2152,7 @@ if.then.i61.i:                                    ; preds = %_ZNSt6vectorI19Near
 .noexc1538:                                       ; preds = %if.then.i61.i, %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit60.i
   store ptr %call5.i.i.i.i1857, ptr %cinfo, align 8, !tbaa !132
   store ptr %incdec.ptr.i1851, ptr %_M_finish.i1436, align 8, !tbaa !124
-  %add.ptr30.i = getelementptr inbounds nuw %struct.NearbyCollisionInfo, ptr %call5.i.i.i.i1857, i64 %cond.i.i1826
+  %add.ptr30.i = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i.i1857, i64 %cond.i.i1826
   store ptr %add.ptr30.i, ptr %_M_end_of_storage.i, align 8, !tbaa !115
   br label %if.end508
 
@@ -2454,7 +2426,7 @@ for.body582:                                      ; preds = %if.end569, %cleanup
   %nearest_dtime.02192 = phi float [ %nearest_dtime.2, %cleanup602 ], [ %dtime.addr.12209, %if.end569 ]
   %nearest_boxindex.02191 = phi i32 [ %nearest_boxindex.2, %cleanup602 ], [ -1, %if.end569 ]
   %boxindex.02189 = phi i32 [ %inc607, %cleanup602 ], [ 0, %if.end569 ]
-  %add.ptr.i = getelementptr inbounds nuw %struct.NearbyCollisionInfo, ptr %270, i64 %conv5782194
+  %add.ptr.i = getelementptr inbounds nuw [56 x i8], ptr %270, i64 %conv5782194
   %is_step_up = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %271 = load i8, ptr %is_step_up, align 1, !tbaa !121, !range !63, !noundef !64
   %tobool585.not = icmp eq i8 %271, 0
@@ -2516,7 +2488,7 @@ if.end775.thread:                                 ; preds = %for.cond.cleanup581
 
 if.else626:                                       ; preds = %for.cond.cleanup581
   %conv627 = sext i32 %nearest_boxindex.2 to i64
-  %add.ptr.i1621 = getelementptr inbounds %struct.NearbyCollisionInfo, ptr %270, i64 %conv627
+  %add.ptr.i1621 = getelementptr inbounds [56 x i8], ptr %270, i64 %conv627
   %283 = load float, ptr %speed_f, align 4, !tbaa !58
   %284 = extractelement <4 x float> %266, i64 0
   %285 = call nsz float @llvm.fmuladd.f32(float %283, float %dtime.addr.12209, float %284)
@@ -2856,7 +2828,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorI13Coll
 
 _ZNSt6vectorI13CollisionInfoSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorI13CollisionInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit40.i.i
   store ptr %incdec.ptr.i.i1674, ptr %_M_finish.i1666, align 8, !tbaa !220
-  %add.ptr19.i.i = getelementptr inbounds nuw %struct.CollisionInfo, ptr %call5.i.i.i.i.i1678, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i.i.i1678, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i1667, align 8, !tbaa !215
   br label %if.end775
 
@@ -3229,7 +3201,7 @@ if.then.i61.i:                                    ; preds = %_ZNSt6vectorI19Near
 _ZNSt6vectorI19NearbyCollisionInfoSaIS0_EE17_M_realloc_insertIJRP12ActiveObjectiRN3irr4core8aabbox3dIfEEEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit60.i, %if.then.i61.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !132
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8, !tbaa !124
-  %add.ptr30.i = getelementptr inbounds nuw %struct.NearbyCollisionInfo, ptr %call5.i.i.i.i, i64 %cond.i.i
+  %add.ptr30.i = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr30.i, ptr %_M_end_of_storage, align 8, !tbaa !115
   br label %if.end
 
@@ -3458,7 +3430,7 @@ if.then.i39.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIP12Act
 _ZNSt6vectorIP12ActiveObjectSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i39.i.i.i.i.i.i, %_ZNSt6vectorIP12ActiveObjectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %6, align 8, !tbaa !147
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !146
-  %add.ptr19.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !144
   br label %"_ZSt10__invoke_rIbRZ19collisionMoveSimpleP11EnvironmentP8IGameDeffRKN3irr4core8aabbox3dIfEEffPNS5_8vector3dIfEESC_SB_P12ActiveObjectbE3$_0JP18ServerActiveObjectEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 

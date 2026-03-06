@@ -29,9 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.pollset_neighborhood = type { %union.anon.13 }
-%union.anon.13 = type { %struct.anon, [48 x i8] }
-%struct.anon = type { i64, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
 %"class.grpc_core::Timestamp" = type { i64 }
 %struct.grpc_pollset_worker = type { i32, i32, i8, ptr, ptr, i64, %struct.grpc_closure_list }
@@ -732,7 +729,7 @@ define internal void @_ZL12pollset_initP12grpc_pollsetPPl(ptr noundef %0, ptr no
   %5 = zext i32 %4 to i64
   %6 = load i64, ptr @_ZL19g_num_neighborhoods, align 8, !tbaa !51
   %7 = urem i64 %5, %6
-  %8 = getelementptr inbounds nuw %struct.pollset_neighborhood, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1178,7 +1175,7 @@ define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9g
   %45 = zext i32 %44 to i64
   %46 = load i64, ptr @_ZL19g_num_neighborhoods, align 8, !tbaa !51
   %47 = urem i64 %45, %46
-  %48 = getelementptr inbounds nuw %struct.pollset_neighborhood, ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %43, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %48, ptr %49, align 8, !tbaa !52
   br label %50
@@ -1702,7 +1699,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %230, %228, %160
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %239 = add i64 %238, 1
-  %240 = getelementptr inbounds %struct.epoll_event, ptr getelementptr inbounds nuw (i8, ptr @_ZL11g_epoll_set, i64 4), i64 %238
+  %240 = getelementptr inbounds [12 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL11g_epoll_set, i64 4), i64 %238
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %242 = load ptr, ptr %241, align 4, !tbaa !32, !noalias !112
   %243 = icmp eq ptr %242, @_ZL16global_wakeup_fd
@@ -1994,7 +1991,7 @@ _ZN9grpc_core7ExecCtx3GetEv.exit73.i.invoke:      ; preds = %.invoke, %.noexc77,
   %350 = load ptr, ptr @_ZL15g_neighborhoods, align 8, !tbaa !49
   %351 = add i64 %.05888.i, %345
   %352 = urem i64 %351, %349
-  %353 = getelementptr inbounds nuw %struct.pollset_neighborhood, ptr %350, i64 %352
+  %353 = getelementptr inbounds nuw [64 x i8], ptr %350, i64 %352
   %354 = invoke i32 @gpr_mu_trylock(ptr noundef %353)
           to label %.noexc82 unwind label %.loopexit.split-lp.loopexit
 
@@ -2053,7 +2050,7 @@ _ZN9grpc_core7ExecCtx3GetEv.exit75.i:             ; preds = %361, %._crit_edge.i
   %369 = load ptr, ptr @_ZL15g_neighborhoods, align 8, !tbaa !49
   %370 = add i64 %.05690.i, %345
   %371 = urem i64 %370, %364
-  %372 = getelementptr inbounds nuw %struct.pollset_neighborhood, ptr %369, i64 %371
+  %372 = getelementptr inbounds nuw [64 x i8], ptr %369, i64 %371
   invoke void @gpr_mu_lock(ptr noundef %372)
           to label %.noexc88 unwind label %.loopexit
 
@@ -3651,7 +3648,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %32
 .lr.ph.i:                                         ; preds = %48, %54
   %.011.i = phi i64 [ %55, %54 ], [ 0, %48 ]
   %52 = load ptr, ptr @_ZL15g_neighborhoods, align 8, !tbaa !49, !noalias !145
-  %53 = getelementptr inbounds nuw %struct.pollset_neighborhood, ptr %52, i64 %.011.i
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %52, i64 %.011.i
   invoke void @gpr_mu_init(ptr noundef %53)
           to label %54 unwind label %58, !noalias !145
 
@@ -3895,7 +3892,7 @@ _ZL18fd_global_shutdownv.exit:                    ; preds = %.lr.ph.i, %0
 .lr.ph.i2:                                        ; preds = %8, %.lr.ph.i2
   %.03.i = phi i64 [ %12, %.lr.ph.i2 ], [ 0, %8 ]
   %10 = load ptr, ptr @_ZL15g_neighborhoods, align 8, !tbaa !49
-  %11 = getelementptr inbounds nuw %struct.pollset_neighborhood, ptr %10, i64 %.03.i
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %.03.i
   tail call void @gpr_mu_destroy(ptr noundef %11)
   %12 = add nuw nsw i64 %.03.i, 1
   %13 = load i64, ptr @_ZL19g_num_neighborhoods, align 8, !tbaa !51

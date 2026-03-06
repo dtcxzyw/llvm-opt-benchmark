@@ -566,7 +566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %54,
 
 86:                                               ; preds = %.lr.ph31, %86
   %.030 = phi i64 [ 0, %.lr.ph31 ], [ %90, %86 ]
-  %87 = getelementptr inbounds nuw float, ptr %81, i64 %.030
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.030
   %88 = load float, ptr %87, align 4, !tbaa !57
   %89 = fneg float %88
   store float %89, ptr %87, align 4, !tbaa !57
@@ -913,7 +913,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   %68 = load i32, ptr %60, align 8, !tbaa !54
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %63, %69
-  %71 = getelementptr inbounds float, ptr %67, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %67, i64 %70
   %72 = load ptr, ptr %.0.i, align 8, !tbaa !34
   %73 = load ptr, ptr %72, align 8
   invoke void %73(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef %71)
@@ -921,8 +921,8 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
 
 74:                                               ; preds = %62
   %75 = mul nsw i64 %65, %63
-  %76 = getelementptr inbounds float, ptr %66, i64 %75
-  %77 = getelementptr inbounds i64, ptr %64, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %66, i64 %75
+  %77 = getelementptr inbounds [8 x i8], ptr %64, i64 %75
   %78 = load i64, ptr %6, align 8, !tbaa !50
   %79 = trunc i64 %78 to i32
   invoke void @_ZNK5faiss9NNDescent6searchERNS_16DistanceComputerEiPlPfRNS_12VisitedTableE(ptr noundef nonnull align 8 dereferenceable(88) %61, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, i32 noundef %79, ptr noundef %77, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(25) %10)

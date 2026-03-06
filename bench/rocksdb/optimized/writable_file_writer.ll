@@ -65,8 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.rocksdb::DataVerificationInfo" = type { %"class.rocksdb::Slice" }
 %"class.rocksdb::Slice" = type { ptr, i64 }
 %"struct.rocksdb::FileOperationInfo" = type { i32, ptr, i8, i64, i64, %"class.std::chrono::duration.65", ptr, %"class.rocksdb::Status" }
-%"class.std::shared_ptr.77" = type { %"class.std::__shared_ptr.78" }
-%"class.std::__shared_ptr.78" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
 
@@ -12242,7 +12240,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !51
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !54
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.77", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !64
   ret void
 }
@@ -12772,7 +12770,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !208
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !389
   %.02837 = load ptr, ptr %19, align 8, !tbaa !205
   %.not3038 = icmp eq ptr %.02837, null
@@ -12825,7 +12823,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !208
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !207
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !389
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70

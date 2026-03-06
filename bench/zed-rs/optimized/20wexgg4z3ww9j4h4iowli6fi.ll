@@ -173,7 +173,7 @@ common.resume:                                    ; preds = %37, %29, %110
   %47 = urem i64 %2, %16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [64 x i8], ptr %49, i64 %47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %51 = cmpxchg ptr %50, i32 0, i32 1 acquire monotonic, align 4, !noalias !17
   %52 = extractvalue { i32, i1 } %51, 1
@@ -223,7 +223,7 @@ common.resume:                                    ; preds = %37, %29, %110
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %73 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %69
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %69
   %75 = load ptr, ptr %74, align 8, !nonnull !4, !align !11, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %76, align 8
@@ -3668,7 +3668,7 @@ define hidden void @_ZN6atomic8fallback12atomic_store17h907d72df1574c48fE.llvm.1
   %5 = lshr i64 %3, 4
   %6 = xor i64 %4, %5
   %7 = and i64 %6, 63
-  %8 = getelementptr inbounds nuw { { i64 }, [7 x i64] }, ptr @_ZN6atomic8fallback9SPINLOCKS17h8a17b95bfe3d0c9fE, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr @_ZN6atomic8fallback9SPINLOCKS17h8a17b95bfe3d0c9fE, i64 %7
   tail call void @_ZN6atomic8fallback8SpinLock4lock17hc195ec82da752946E(ptr noundef nonnull align 64 %8)
   store i8 %1, ptr %0, align 1
   tail call void @_ZN6atomic8fallback8SpinLock6unlock17h603c9798a17f8245E(ptr noundef nonnull align 64 %8)
@@ -3682,7 +3682,7 @@ define hidden void @_ZN6atomic8fallback12atomic_store17hf70748640d78245dE.llvm.1
   %5 = lshr i64 %3, 4
   %6 = xor i64 %4, %5
   %7 = and i64 %6, 63
-  %8 = getelementptr inbounds nuw { { i64 }, [7 x i64] }, ptr @_ZN6atomic8fallback9SPINLOCKS17h8a17b95bfe3d0c9fE, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr @_ZN6atomic8fallback9SPINLOCKS17h8a17b95bfe3d0c9fE, i64 %7
   tail call void @_ZN6atomic8fallback8SpinLock4lock17hc195ec82da752946E(ptr noundef nonnull align 64 %8)
   %9 = zext i1 %1 to i8
   store i8 %9, ptr %0, align 1

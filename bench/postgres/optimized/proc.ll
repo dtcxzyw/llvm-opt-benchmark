@@ -3,19 +3,6 @@ source_filename = "bench/postgres/original/proc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
-%union.LWLockPadded = type { %struct.LWLock, [112 x i8] }
 %struct.DisableTimeoutParams = type { i32, i8 }
 %struct.EnableTimeoutParams = type { i32, i32, i32, i64 }
 %struct.LOCKTAG = type { i32, i32, i32, i16, i8, i8 }
@@ -349,7 +336,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %.0176 = phi i32 [ %194, %188 ], [ 0, %.loopexit ]
   %.0145175 = phi ptr [ %116, %188 ], [ %99, %.loopexit ]
   %111 = sext i32 %.0176 to i64
-  %112 = getelementptr inbounds %struct.PGPROC, ptr %23, i64 %111
+  %112 = getelementptr inbounds [832 x i8], ptr %23, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 768
   store ptr %.0145175, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.0145175, i64 %95
@@ -500,7 +487,7 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
 
 185:                                              ; preds = %183, %185
   %indvars.iv = phi i64 [ 0, %183 ], [ %indvars.iv.next, %185 ]
-  %186 = getelementptr inbounds nuw %struct.dlist_head, ptr %184, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %184, i64 %indvars.iv
   store ptr %186, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store ptr %186, ptr %187, align 8
@@ -526,11 +513,11 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
 ._crit_edge:                                      ; preds = %188, %.loopexit
   %195 = load i32, ptr @MaxBackends, align 4
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %struct.PGPROC, ptr %23, i64 %196
+  %197 = getelementptr inbounds [832 x i8], ptr %23, i64 %196
   store ptr %197, ptr @AuxiliaryProcs, align 8
   %198 = add i32 %195, 6
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds %struct.PGPROC, ptr %23, i64 %199
+  %200 = getelementptr inbounds [832 x i8], ptr %23, i64 %199
   store ptr %200, ptr @PreparedXactProcs, align 8
   %201 = call ptr @ShmemAlloc(i64 noundef 1) #13
   store ptr %201, ptr @ProcStructLock, align 8
@@ -595,7 +582,7 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %15
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.InitProcess, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.InitProcess, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %20
 
@@ -803,7 +790,7 @@ define internal void @ProcKill(i32 %0, i64 %1) #0 {
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 832
   %23 = srem i64 %22, 16
-  %24 = getelementptr %union.LWLockPadded, ptr %16, i64 %23
+  %24 = getelementptr [128 x i8], ptr %16, i64 %23
   %25 = getelementptr i8, ptr %24, i64 23168
   %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #13
   %27 = load ptr, ptr @MyProc, align 8
@@ -1032,7 +1019,7 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw %struct.PGPROC, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [832 x i8], ptr %27, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 60
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
@@ -1254,7 +1241,7 @@ define dso_local void @LockErrorCleanup() local_unnamed_addr #0 {
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 15
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw %union.LWLockPadded, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 23168
   %17 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef 0) #13
   %18 = load ptr, ptr @MyProc, align 8
@@ -1339,7 +1326,7 @@ define dso_local ptr @AuxiliaryPidGetProc(i32 noundef %0) local_unnamed_addr #7 
 
 5:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw %struct.PGPROC, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [832 x i8], ptr %3, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %0
@@ -1432,7 +1419,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0130.us, i64 128
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %38, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %38, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, %.076
   %.not95.us = icmp eq i32 %45, 0
@@ -1459,7 +1446,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0130, i64 128
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %55, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, %.076
   %.not95 = icmp eq i32 %61, 0
@@ -1470,7 +1457,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %.us-phi132 = phi i32 [ %.084129.us, %39 ], [ %.084129, %54 ]
   %.us-phi133 = phi ptr [ %.sroa.0.0130.us, %39 ], [ %.sroa.0.0130, %54 ]
   %62 = sext i32 %5 to i64
-  %63 = getelementptr inbounds i32, ptr %.us-phi, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %.us-phi, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds nuw i8, ptr %.us-phi133, i64 132
   %66 = load i32, ptr %65, align 4
@@ -1606,7 +1593,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = and i32 %18, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %union.LWLockPadded, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 23168
   %24 = tail call zeroext i1 @RecoveryInProgress() #13
   %.not = xor i1 %24, true
@@ -1728,7 +1715,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
 .preheader:                                       ; preds = %78, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %78 ]
   %86 = load ptr, ptr @MainLWLockArray, align 8
-  %87 = getelementptr inbounds nuw %union.LWLockPadded, ptr %86, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [128 x i8], ptr %86, i64 %indvars.iv.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 23168
   %89 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %88, i32 noundef 0) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1768,7 +1755,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %106 ], [ 16, %.preheader114 ]
   %indvars.iv.next10.i = add nsw i64 %indvars.iv9.i, -1
   %107 = load ptr, ptr @MainLWLockArray, align 8
-  %108 = getelementptr %union.LWLockPadded, ptr %107, i64 %indvars.iv9.i
+  %108 = getelementptr [128 x i8], ptr %107, i64 %indvars.iv9.i
   %109 = getelementptr i8, ptr %108, i64 23040
   call void @LWLockRelease(ptr noundef nonnull %109) #13
   %110 = icmp samesign ugt i64 %indvars.iv9.i, 1
@@ -2235,7 +2222,7 @@ define dso_local void @ProcLockWakeup(ptr noundef %0, ptr noundef %1) local_unna
   %12 = load i32, ptr %11, align 8
   %13 = load ptr, ptr %9, align 8
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, %.028
   %18 = icmp eq i32 %17, 0
@@ -2341,7 +2328,7 @@ define dso_local void @ProcSendSignal(i32 noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %3
   %11 = load ptr, ptr %4, align 8
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds nuw %struct.PGPROC, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [832 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
   tail call void @SetLatch(ptr noundef nonnull %14) #13
   ret void
@@ -2364,7 +2351,7 @@ define dso_local void @BecomeLockGroupLeader() local_unnamed_addr #0 {
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 832
   %13 = srem i64 %12, 16
-  %14 = getelementptr %union.LWLockPadded, ptr %6, i64 %13
+  %14 = getelementptr [128 x i8], ptr %6, i64 %13
   %15 = getelementptr i8, ptr %14, i64 23168
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #13
   %17 = load ptr, ptr @MyProc, align 8
@@ -2405,7 +2392,7 @@ define dso_local noundef zeroext i1 @BecomeLockGroupMember(ptr noundef %0, i32 n
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 832
   %10 = srem i64 %9, 16
-  %11 = getelementptr %union.LWLockPadded, ptr %3, i64 %10
+  %11 = getelementptr [128 x i8], ptr %3, i64 %10
   %12 = getelementptr i8, ptr %11, i64 23168
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60

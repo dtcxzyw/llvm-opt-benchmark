@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.RegisterMap = type <{ [609 x ptr], [10 x i64], i8, [7 x i8], ptr, %class.stackChunkHandle, i32, i8, i8, i8, i8 }>
 %class.stackChunkHandle = type { %class.Handle }
 %class.Handle = type { ptr }
-%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_Z28maybe_flush_stack_processingP10JavaThreadPl = comdat any
 
@@ -508,7 +507,7 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -563,7 +562,7 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   %45 = lshr i32 %44, 24
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4

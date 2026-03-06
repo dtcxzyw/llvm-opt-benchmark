@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/packet_list_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.col_item_t = type { i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i8, i32 }
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden zeroext i1 @right_justify_column(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
@@ -14,7 +12,7 @@ define hidden zeroext i1 @right_justify_column(i32 noundef %0, ptr noundef reado
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %0 to i64
-  %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6
+  %7 = getelementptr [88 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %.loopexit [
     i32 32, label %9
@@ -45,7 +43,7 @@ define hidden zeroext i1 @right_justify_column(i32 noundef %0, ptr noundef reado
   %.062 = phi i32 [ %.1, %42 ], [ 0, %10 ]
   %.04861 = phi i32 [ %43, %42 ], [ 0, %10 ]
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr %struct.col_item_t, ptr %14, i64 %6
+  %15 = getelementptr [88 x i8], ptr %14, i64 %6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @g_slist_nth_data(ptr noundef %17, i32 noundef %.04861)
@@ -163,7 +161,7 @@ define hidden noundef zeroext i1 @display_column_strings(i32 noundef %0, ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %0 to i64
-  %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6
+  %7 = getelementptr [88 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %cond = icmp eq i32 %8, 4
   br i1 %cond, label %9, label %.loopexit
@@ -178,7 +176,7 @@ define hidden noundef zeroext i1 @display_column_strings(i32 noundef %0, ptr nou
 .lr.ph:                                           ; preds = %9, %31
   %.04147 = phi i32 [ %32, %31 ], [ 0, %9 ]
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr %struct.col_item_t, ptr %13, i64 %6
+  %14 = getelementptr [88 x i8], ptr %13, i64 %6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @g_slist_nth_data(ptr noundef %16, i32 noundef %.04147)
@@ -233,7 +231,7 @@ define hidden noundef zeroext i1 @display_column_details(i32 noundef %0, ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %0 to i64
-  %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6
+  %7 = getelementptr [88 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %cond = icmp eq i32 %8, 4
   br i1 %cond, label %9, label %.loopexit
@@ -248,7 +246,7 @@ define hidden noundef zeroext i1 @display_column_details(i32 noundef %0, ptr nou
 .lr.ph:                                           ; preds = %9, %27
   %.01623 = phi i32 [ %28, %27 ], [ 0, %9 ]
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr %struct.col_item_t, ptr %13, i64 %6
+  %14 = getelementptr [88 x i8], ptr %13, i64 %6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @g_slist_nth_data(ptr noundef %16, i32 noundef %.01623)

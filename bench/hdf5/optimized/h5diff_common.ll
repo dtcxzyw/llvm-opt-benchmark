@@ -336,7 +336,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1, ptr no
 
 sub_0:                                            ; preds = %53, %84
   %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 1, %53 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !18
   %56 = load i8, ptr %55, align 1
   %.not185 = icmp eq i8 %56, 45
@@ -889,7 +889,7 @@ check_options.exit:                               ; preds = %253, %263
 
 277:                                              ; preds = %275
   %278 = sext i32 %276 to i64
-  %279 = getelementptr ptr, ptr %1, i64 %278
+  %279 = getelementptr [8 x i8], ptr %1, i64 %278
   %280 = getelementptr i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8, !tbaa !18
   %282 = icmp eq ptr %281, null
@@ -905,7 +905,7 @@ check_options.exit:                               ; preds = %253, %263
 
 284:                                              ; preds = %283, %277
   %.pre-phi = phi i64 [ %.pre194, %283 ], [ %278, %277 ]
-  %285 = getelementptr inbounds ptr, ptr %1, i64 %.pre-phi
+  %285 = getelementptr inbounds [8 x i8], ptr %1, i64 %.pre-phi
   %286 = load ptr, ptr %285, align 8, !tbaa !18
   store ptr %286, ptr %2, align 8, !tbaa !18
   %287 = getelementptr i8, ptr %285, i64 8

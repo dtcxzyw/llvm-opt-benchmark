@@ -1049,7 +1049,7 @@ tailrecurse:                                      ; preds = %63, %4
   %290 = load ptr, ptr %289, align 8, !nonnull !4, !noundef !4
   %291 = getelementptr inbounds nuw i8, ptr %282, i64 248
   %292 = load i64, ptr %291, align 8, !noundef !4
-  %293 = getelementptr inbounds ptr, ptr %290, i64 %292
+  %293 = getelementptr inbounds [8 x i8], ptr %290, i64 %292
   invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h9ac3e1b4a74a9b47E"(ptr nonnull align 8 %.fca.0.extract129, ptr nonnull %290, ptr nonnull %293)
           to label %297 unwind label %295
 

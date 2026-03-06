@@ -1758,7 +1758,7 @@ define internal noundef zeroext i1 @heur_dissect_at(ptr noundef %0, ptr noundef 
   %.01518.i = phi i32 [ 0, %.lr.ph.i ], [ %24, %23 ]
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.01518.i)
   %19 = zext i8 %18 to i64
-  %20 = getelementptr i16, ptr %16, i64 %19
+  %20 = getelementptr [2 x i8], ptr %16, i64 %19
   %21 = load i16, ptr %20, align 2
   %.fr17.i = freeze i16 %21
   %22 = and i16 %.fr17.i, 64
@@ -2659,7 +2659,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
 
 40:                                               ; preds = %33
   %41 = zext nneg i32 %36 to i64
-  %42 = getelementptr i32, ptr @hf_indicator, i64 %41
+  %42 = getelementptr [4 x i8], ptr @hf_indicator, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
   br label %45
@@ -2779,7 +2779,7 @@ check_cind.exit:                                  ; preds = %13, %13, %14
 
 18:                                               ; preds = %check_cind.exit
   %19 = zext nneg i32 %7 to i64
-  %20 = getelementptr i32, ptr @hf_indicator, i64 %19
+  %20 = getelementptr [4 x i8], ptr @hf_indicator, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
   br label %23
@@ -3199,7 +3199,7 @@ define internal noundef zeroext i1 @dissect_cme_error_parameter(ptr noundef %0, 
   %18 = getelementptr i8, ptr %6, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr i16, ptr %15, i64 %20
+  %21 = getelementptr [2 x i8], ptr %15, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %24 = icmp eq i16 %23, 0
@@ -4398,7 +4398,7 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
   %.075 = phi ptr [ %51, %.lr.ph ], [ %71, %68 ]
   %54 = load i8, ptr %.075, align 1
   %55 = zext i8 %54 to i64
-  %56 = getelementptr i16, ptr %52, i64 %55
+  %56 = getelementptr [2 x i8], ptr %52, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = and i16 %57, 1024
   %.not = icmp eq i16 %58, 0
@@ -4408,7 +4408,7 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
   %60 = getelementptr i8, ptr %.075, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
-  %63 = getelementptr i16, ptr %52, i64 %62
+  %63 = getelementptr [2 x i8], ptr %52, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 1024
   %.not71 = icmp eq i16 %65, 0
@@ -4922,7 +4922,7 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
   %.04653 = phi ptr [ %32, %.lr.ph ], [ %53, %49 ]
   %35 = load i8, ptr %.04653, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr i16, ptr %33, i64 %36
+  %37 = getelementptr [2 x i8], ptr %33, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 1024
   %.not = icmp eq i16 %39, 0
@@ -4932,7 +4932,7 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
   %41 = getelementptr i8, ptr %.04653, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr i16, ptr %33, i64 %43
+  %44 = getelementptr [2 x i8], ptr %33, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 1024
   %.not51 = icmp eq i16 %46, 0
@@ -5025,7 +5025,7 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
   %.04653 = phi ptr [ %32, %.lr.ph ], [ %53, %49 ]
   %35 = load i8, ptr %.04653, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr i16, ptr %33, i64 %36
+  %37 = getelementptr [2 x i8], ptr %33, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 1024
   %.not = icmp eq i16 %39, 0
@@ -5035,7 +5035,7 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
   %41 = getelementptr i8, ptr %.04653, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr i16, ptr %33, i64 %43
+  %44 = getelementptr [2 x i8], ptr %33, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 1024
   %.not51 = icmp eq i16 %46, 0

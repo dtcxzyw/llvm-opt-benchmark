@@ -22,7 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.intel_step_info = type { i8, i8, i8, i8 }
 %struct.intel_gt_definition = type { i32, ptr, i32, i32, i32 }
 %struct.i915_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, i8, i32, i32, i32, ptr, i32, i32, i32, i8, i8, i8 }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 
 @i915_pci_driver = internal global %struct.pci_driver { ptr @.str, ptr @pciidlist, ptr @i915_pci_probe, ptr @i915_pci_remove, ptr null, ptr null, ptr @i915_pci_shutdown, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, %struct.device_driver { ptr null, ptr null, ptr null, ptr null, i8 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i915_pm_ops, ptr null, ptr null }, %struct.pci_dynids zeroinitializer, i8 0 }, align 8
 @.str = private unnamed_addr constant [5 x i8] c"i915\00", align 1
@@ -100,7 +99,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local zeroext i1 @i915_pci_resource_valid(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.resource, ptr %3, i64 %4
+  %5 = getelementptr [64 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp ne i64 %7, 0
@@ -210,7 +209,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   %44 = icmp eq i8 %43, 2
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %46 = zext i1 %44 to i64
-  %47 = getelementptr %struct.resource, ptr %45, i64 %46
+  %47 = getelementptr [64 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp ne i64 %49, 0

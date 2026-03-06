@@ -86,8 +86,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::PTCouplingArrays" = type { ptr, %"class.gmx::ArrayRef.445", %"class.gmx::ArrayRef.445", %"class.gmx::ArrayRef.445", %"class.gmx::ArrayRef.445" }
 %"class.gmx::ArrayRef.445" = type { %"struct.gmx::ArrayRefIter.446", %"struct.gmx::ArrayRefIter.446" }
 %"struct.gmx::ArrayRefIter.446" = type { ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
-%"class.gmx::BasicVector.240" = type { [3 x float] }
 
 $_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev = comdat any
 
@@ -1484,7 +1482,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit254:              ; preds = %577, %_ZNKSt7__cxx1
   %691 = load i32, ptr %690, align 4, !tbaa !340
   %692 = mul nsw i32 %691, 60
   %693 = sext i32 %692 to i64
-  %694 = getelementptr %struct.wallcc_t, ptr %680, i64 %693
+  %694 = getelementptr [24 x i8], ptr %680, i64 %693
   %695 = getelementptr i8, ptr %694, i64 24
   %696 = load i32, ptr %695, align 8, !tbaa !360
   %697 = add nsw i32 %696, 1
@@ -1681,7 +1679,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit256: ; preds = %689, %
   %794 = load i32, ptr %793, align 4, !tbaa !340
   %795 = mul nsw i32 %794, 60
   %796 = sext i32 %795 to i64
-  %797 = getelementptr %struct.wallcc_t, ptr %783, i64 %796
+  %797 = getelementptr [24 x i8], ptr %783, i64 %796
   %798 = getelementptr i8, ptr %797, i64 144
   %799 = load i32, ptr %798, align 8, !tbaa !360
   %800 = add nsw i32 %799, 1
@@ -2229,7 +2227,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   %.pre-phi.i = phi i64 [ %1114, %1113 ], [ 0, %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i ]
   %1120 = phi ptr [ %1115, %1113 ], [ null, %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i ]
   store ptr %1120, ptr %647, align 8, !tbaa !199
-  %1121 = getelementptr inbounds nuw %"class.gmx::BasicVector.240", ptr %1120, i64 %1109
+  %1121 = getelementptr inbounds nuw [12 x i8], ptr %1120, i64 %1109
   store ptr %1121, ptr %649, align 8, !tbaa !436
   %scevgep.i.i.i = getelementptr i8, ptr %1120, i64 %.pre-phi.i
   store ptr %scevgep.i.i.i, ptr %648, align 8, !tbaa !402

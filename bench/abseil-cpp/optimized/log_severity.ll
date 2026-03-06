@@ -22,7 +22,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoN
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #3
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load, i64 noundef %5)
@@ -54,7 +54,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoN
 switch.lookup:                                    ; preds = %2, %2, %2, %2
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2, i64 noundef 2)
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #3
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load, i64 noundef %5)
@@ -81,7 +81,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoN
 switch.lookup:                                    ; preds = %2, %2, %2, %2
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.4, i64 noundef 2)
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #3
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load, i64 noundef %5)

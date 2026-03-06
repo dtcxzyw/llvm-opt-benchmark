@@ -682,7 +682,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %67 = phi i32 [ %74, %73 ], [ %65, %.preheader119 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.preheader119 ]
   %68 = load ptr, ptr %62, align 8
-  %69 = getelementptr inbounds nuw %struct.ListDictionary, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not116 = icmp eq ptr %71, null
@@ -785,7 +785,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 
 114:                                              ; preds = %112
   %115 = zext nneg i32 %.0100132 to i64
-  %116 = getelementptr inbounds nuw %struct.ListDictionary, ptr %5, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %115
   store i32 %.0102131, ptr %116, align 16
   %117 = load ptr, ptr @CacheMemoryContext, align 8
   %118 = zext nneg i32 %.0102131 to i64
@@ -817,7 +817,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %132 = load i32, ptr %131, align 4
   %133 = add nsw i32 %.0102131, 1
   %134 = sext i32 %.0102131 to i64
-  %135 = getelementptr inbounds i32, ptr %6, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %6, i64 %134
   store i32 %132, ptr %135, align 4
   br label %136
 
@@ -839,7 +839,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 
 139:                                              ; preds = %._crit_edge135
   %140 = zext nneg i32 %.0100.lcssa to i64
-  %141 = getelementptr inbounds nuw %struct.ListDictionary, ptr %5, i64 %140
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %140
   store i32 %.0102.lcssa, ptr %141, align 16
   %142 = load ptr, ptr @CacheMemoryContext, align 8
   %143 = zext nneg i32 %.0102.lcssa to i64

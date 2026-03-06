@@ -81,7 +81,7 @@ define internal range(i32 0, 2) i32 @test_fizzbuzz() #0 {
   %.sroa.22.097 = phi i64 [ %.sroa.22.1, %26 ], [ 0, %0 ]
   %.sroa.14.096 = phi ptr [ %.sroa.14.1, %26 ], [ null, %0 ]
   %.sroa.082.095 = phi ptr [ %.sroa.082.1, %26 ], [ null, %0 ]
-  %3 = getelementptr inbounds nuw %struct.testl_st, ptr %1, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = trunc nuw nsw i64 %indvars.iv to i32
@@ -342,7 +342,7 @@ define internal range(i32 0, 2) i32 @test_insert() #0 {
 
 2:                                                ; preds = %0, %2
   %.027168 = phi i64 [ 0, %0 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw %struct.int_st, ptr %1, i64 %.027168
+  %3 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.027168
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = trunc nuw nsw i64 %.027168 to i32

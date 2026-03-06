@@ -1392,7 +1392,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
 
 "_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us.sink.split": ; preds = %133, %130
   %135 = load ptr, ptr %112, align 8, !alias.scope !197, !noalias !200, !nonnull !10, !noundef !10
-  %136 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %135, i64 %119
+  %136 = getelementptr inbounds [184 x i8], ptr %135, i64 %119
   br label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us"
 
 "_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us": ; preds = %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us.sink.split", %132, %121, %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h6144985eb15e3c0bE.exit.us"
@@ -1437,7 +1437,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
 
 .split.split.us.split.us.preheader:               ; preds = %.split.split.us
   %151 = icmp ult i64 %149, %146
-  %152 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %150, i64 %149
+  %152 = getelementptr inbounds [240 x i8], ptr %150, i64 %149
   %brmerge = select i1 %.not.i, i1 true, i1 %151, !prof !203
   %.mux = select i1 %.not.i, ptr %147, ptr %152, !prof !203
   br label %.split.split.us.split.us
@@ -1469,7 +1469,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %164, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us.us", label %.split118.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us.us": ; preds = %163
-  %165 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %150, i64 %160
+  %165 = getelementptr inbounds [240 x i8], ptr %150, i64 %160
   br label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h6144985eb15e3c0bE.exit.us111.us"
 
 166:                                              ; preds = %159
@@ -1549,9 +1549,9 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
 
 .split.split.split.us.preheader:                  ; preds = %.split.split
   %190 = icmp ult i64 %149, %146
-  %191 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %150, i64 %149
+  %191 = getelementptr inbounds [240 x i8], ptr %150, i64 %149
   %192 = icmp ult i64 %188, %185
-  %193 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %189, i64 %188
+  %193 = getelementptr inbounds [184 x i8], ptr %189, i64 %188
   %brmerge308 = select i1 %.not.i, i1 true, i1 %190, !prof !203
   %.mux309 = select i1 %.not.i, ptr %147, ptr %191, !prof !203
   %brmerge310 = select i1 %.not.i69, i1 true, i1 %192, !prof !203
@@ -1585,7 +1585,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %205, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us128", label %.split118.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us128": ; preds = %204
-  %206 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %150, i64 %201
+  %206 = getelementptr inbounds [240 x i8], ptr %150, i64 %201
   br label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h6144985eb15e3c0bE.exit.us130"
 
 207:                                              ; preds = %200
@@ -1604,7 +1604,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %211, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us132", label %.split118.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us132": ; preds = %210
-  %212 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %189, i64 %201
+  %212 = getelementptr inbounds [184 x i8], ptr %189, i64 %201
   br label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us134"
 
 213:                                              ; preds = %208
@@ -1636,7 +1636,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
 
 .split.split.split.split.us.preheader:            ; preds = %.split.split.split
   %218 = icmp ult i64 %188, %185
-  %219 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %189, i64 %188
+  %219 = getelementptr inbounds [184 x i8], ptr %189, i64 %188
   %brmerge312 = select i1 %.not.i69, i1 true, i1 %218, !prof !203
   %.mux313 = select i1 %.not.i69, ptr %186, ptr %219, !prof !203
   br label %.split.split.split.split.us
@@ -1668,7 +1668,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %230, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us158", label %.split118.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us158": ; preds = %229
-  %231 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %189, i64 %226
+  %231 = getelementptr inbounds [184 x i8], ptr %189, i64 %226
   br label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us160"
 
 232:                                              ; preds = %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h6144985eb15e3c0bE.exit.us157"

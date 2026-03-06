@@ -21,7 +21,7 @@ define hidden noundef i32 @_sodium_blake2b_init_param(ptr noundef initializes((0
   %5 = shl nuw nsw i64 %.07, 3
   %6 = getelementptr i8, ptr %1, i64 %5
   %7 = load i64, ptr %6, align 1
-  %8 = getelementptr i64, ptr %0, i64 %.07
+  %8 = getelementptr [8 x i8], ptr %0, i64 %.07
   %9 = load i64, ptr %8, align 1
   %10 = xor i64 %9, %7
   store i64 %10, ptr %8, align 1
@@ -65,7 +65,7 @@ define hidden noundef i32 @_sodium_blake2b_init(ptr noundef %0, i8 noundef zeroe
   %13 = shl nuw nsw i64 %.07.i, 3
   %14 = getelementptr i8, ptr %3, i64 %13
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr i64, ptr %0, i64 %.07.i
+  %16 = getelementptr [8 x i8], ptr %0, i64 %.07.i
   %17 = load i64, ptr %16, align 1
   %18 = xor i64 %17, %15
   store i64 %18, ptr %16, align 1
@@ -139,7 +139,7 @@ define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr noundef %0, i8
   %23 = shl nuw nsw i64 %.07.i, 3
   %24 = getelementptr i8, ptr %5, i64 %23
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr i64, ptr %0, i64 %.07.i
+  %26 = getelementptr [8 x i8], ptr %0, i64 %.07.i
   %27 = load i64, ptr %26, align 1
   %28 = xor i64 %27, %25
   store i64 %28, ptr %26, align 1
@@ -196,7 +196,7 @@ define hidden noundef i32 @_sodium_blake2b_init_key(ptr noundef %0, i8 noundef z
   %21 = shl nuw nsw i64 %.07.i, 3
   %22 = getelementptr i8, ptr %5, i64 %21
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr i64, ptr %0, i64 %.07.i
+  %24 = getelementptr [8 x i8], ptr %0, i64 %.07.i
   %25 = load i64, ptr %24, align 1
   %26 = xor i64 %25, %23
   store i64 %26, ptr %24, align 1
@@ -350,7 +350,7 @@ define hidden noundef i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef %0
   %31 = shl nuw nsw i64 %.07.i, 3
   %32 = getelementptr i8, ptr %7, i64 %31
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr i64, ptr %0, i64 %.07.i
+  %34 = getelementptr [8 x i8], ptr %0, i64 %.07.i
   %35 = load i64, ptr %34, align 1
   %36 = xor i64 %35, %33
   store i64 %36, ptr %34, align 1
@@ -574,7 +574,7 @@ define hidden noundef i32 @_sodium_blake2b(ptr noundef %0, ptr noundef readonly 
   %35 = shl nuw nsw i64 %.07.i.i, 3
   %36 = getelementptr i8, ptr %7, i64 %35
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr i64, ptr %8, i64 %.07.i.i
+  %38 = getelementptr [8 x i8], ptr %8, i64 %.07.i.i
   %39 = load i64, ptr %38, align 8
   %40 = xor i64 %39, %37
   store i64 %40, ptr %38, align 8
@@ -696,7 +696,7 @@ define hidden noundef i32 @_sodium_blake2b_salt_personal(ptr noundef %0, ptr nou
   %45 = shl nuw nsw i64 %.07.i.i, 3
   %46 = getelementptr i8, ptr %9, i64 %45
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr i64, ptr %10, i64 %.07.i.i
+  %48 = getelementptr [8 x i8], ptr %10, i64 %.07.i.i
   %49 = load i64, ptr %48, align 8
   %50 = xor i64 %49, %47
   store i64 %50, ptr %48, align 8

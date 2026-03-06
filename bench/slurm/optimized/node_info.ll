@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sview_config_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i32, i32, i32, i8, i32, i32, i32, i32, [10 x ptr], [10 x %struct.page_opts_t], [10 x i8], i16, i8, i8, i8, i8, i16, i32 }
 %struct.page_opts_t = type { ptr, i8, ptr, ptr }
 %struct._GtkTreeIter = type { i32, ptr, ptr, ptr }
-%struct.node_info = type { ptr, ptr, i16, i64, ptr, i16, i16, i32, i32, i64, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i16, i64, i16, ptr, ptr, ptr, i64, i32, i64, ptr, ptr, i64, i16, i16, i32, i32, ptr, ptr }
 %struct.process_node_t = type { i32, ptr }
 
 @create_node_info_list.info_list = internal unnamed_addr global ptr null, align 8
@@ -900,7 +899,7 @@ thread-pre-split:                                 ; preds = %2
 19:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds nuw %struct.node_info, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [368 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
   %23 = load ptr, ptr %22, align 8
   %.not58 = icmp eq ptr %23, null
@@ -2146,7 +2145,7 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread83 ]
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv
   store i8 1, ptr %76, align 1
-  %77 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %78 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %78, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3241,7 +3240,7 @@ define internal fastcc void @_update_node_record(ptr noundef nonnull %0, ptr nou
   %116 = load i32, ptr @sview_colors_cnt, align 4
   %117 = srem i32 %115, %116
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr @sview_colors, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr @sview_colors, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %22, i64 272
   %122 = load ptr, ptr %121, align 8

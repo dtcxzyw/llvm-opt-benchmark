@@ -12573,7 +12573,7 @@ _ZN9rmp_serde6decode13read_str_data17he683e6d71f1116f6E.exit: ; preds = %191, %2
 
 516:                                              ; preds = %510, %506
   %517 = load ptr, ptr %299, align 8, !alias.scope !4540, !noalias !4543, !nonnull !4, !noundef !4
-  %518 = getelementptr inbounds { i8, [63 x i8] }, ptr %517, i64 %507
+  %518 = getelementptr inbounds [64 x i8], ptr %517, i64 %507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %518, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !4198
   %519 = add i64 %507, 1
   store i64 %519, ptr %300, align 8, !alias.scope !4540, !noalias !4543

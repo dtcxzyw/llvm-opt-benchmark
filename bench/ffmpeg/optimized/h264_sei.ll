@@ -3,7 +3,6 @@ source_filename = "bench/ffmpeg/original/h264_sei.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H264SEITimeCode = type { i32, i32, i32, i32, i32, i32 }
 %struct.GetByteContext = type { ptr, ptr, ptr }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 
@@ -230,7 +229,7 @@ get_bits_long.exit58:                             ; preds = %get_bits_long.exit,
   %115 = add nsw i32 %104, 1
   store i32 %115, ptr %96, align 4, !tbaa !55
   %116 = sext i32 %104 to i64
-  %117 = getelementptr inbounds %struct.H264SEITimeCode, ptr %99, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %99, i64 %116
   %118 = lshr i32 %113, 3
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 %119
@@ -734,7 +733,7 @@ get_ue_golomb_long.exit.thread.i:                 ; preds = %get_ue_golomb_long.
 
 161:                                              ; preds = %149
   %162 = zext nneg i8 %158 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %2, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !81
   %.not.i = icmp eq ptr %164, null
   br i1 %.not.i, label %165, label %167
@@ -810,7 +809,7 @@ get_ue_golomb_long.exit.thread.i:                 ; preds = %get_ue_golomb_long.
 get_bits_long.exit.i:                             ; preds = %191, %186, %174
   %209 = phi i32 [ %190, %186 ], [ %207, %191 ], [ %175, %174 ]
   %.0.i.i61 = phi i32 [ %188, %186 ], [ %208, %191 ], [ 0, %174 ]
-  %210 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   store i32 %.0.i.i61, ptr %210, align 4, !tbaa !85
   %211 = load i32, ptr %173, align 8, !tbaa !84
   %212 = add i32 %209, %211
@@ -889,7 +888,7 @@ get_bits_long.exit.i:                             ; preds = %191, %186, %174
 get_bits_long.exit37.i:                           ; preds = %240, %235, %223
   %258 = phi i32 [ %239, %235 ], [ %256, %240 ], [ %224, %223 ]
   %.0.i36.i = phi i32 [ %237, %235 ], [ %257, %240 ], [ 0, %223 ]
-  %259 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv44.i
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv44.i
   store i32 %.0.i36.i, ptr %259, align 4, !tbaa !85
   %260 = load i32, ptr %222, align 8, !tbaa !84
   %261 = add i32 %258, %260

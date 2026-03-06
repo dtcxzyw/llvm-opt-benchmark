@@ -3,8 +3,6 @@ source_filename = "bench/opencv/original/pattern_result.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.zxing::Ref.0" = type { ptr }
-
 $_ZN5zxing6qrcode13PatternResultD2Ev = comdat any
 
 $_ZN5zxing6qrcode13PatternResultD0Ev = comdat any
@@ -70,7 +68,7 @@ define hidden void @_ZN5zxing6qrcode13PatternResult28setConfirmedAlignmentPatter
 
 12:                                               ; preds = %2
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"class.zxing::Ref.0", ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %14, align 8, !tbaa !18
   %.not.i.i = icmp eq ptr %16, null

@@ -160,7 +160,7 @@ _ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br label %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   br label %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %13, %10, %.lr.ph

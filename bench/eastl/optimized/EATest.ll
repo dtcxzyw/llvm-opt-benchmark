@@ -14,14 +14,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
 %struct.timespec = type { i64, i64 }
-%"struct.EA::UnitTest::TestCollection::TestInfo" = type { ptr, i8 }
 %"class.eastl::basic_string" = type { %"class.eastl::compressed_pair" }
 %"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
 %"class.eastl::compressed_pair_imp" = type { %"struct.eastl::basic_string<char>::Layout" }
 %"struct.eastl::basic_string<char>::Layout" = type { %union.anon }
 %union.anon = type { %"struct.eastl::basic_string<char>::HeapLayout" }
 %"struct.eastl::basic_string<char>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.EA::UnitTest::TestSuite::ResultInfo" = type { ptr, i32 }
 %"class.EA::EAMain::CommandLine" = type { i32, ptr, ptr }
 
 $__clang_call_terminate = comdat any
@@ -1325,7 +1323,7 @@ _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInser
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 16
   store ptr %retval.0.i.i.i, ptr %mTests, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [16 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %return
 
@@ -1424,7 +1422,7 @@ _ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEEC2EmRKS5_.exit: ; preds = %e
 
 for.body:                                         ; preds = %_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEEC2EmRKS5_.exit, %for.inc
   %i.015 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEEC2EmRKS5_.exit ]
-  %add.ptr.i7 = getelementptr inbounds ptr, ptr %call.i.i.i.i.i, i64 %i.015
+  %add.ptr.i7 = getelementptr inbounds [8 x i8], ptr %call.i.i.i.i.i, i64 %i.015
   %2 = load ptr, ptr %add.ptr.i7, align 8
   %vtable8 = load ptr, ptr %this, align 8
   %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 16
@@ -1922,9 +1920,9 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.body
   %i.019 = phi i64 [ %inc, %for.body ], [ 0, %if.then ]
   %2 = load ptr, ptr %mTests, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %2, i64 %i.019
+  %add.ptr.i = getelementptr inbounds [16 x i8], ptr %2, i64 %i.019
   %3 = load ptr, ptr %add.ptr.i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %pTestArray, i64 %i.019
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %pTestArray, i64 %i.019
   store ptr %3, ptr %arrayidx, align 8
   %inc = add nuw i64 %i.019, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select
@@ -2577,7 +2575,7 @@ _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInser
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i.i, i64 16
   store ptr %retval.0.i.i.i.i, ptr %mTests.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %mpEnd.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %retval.0.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [16 x i8], ptr %retval.0.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr.i.i.i, ptr %mCapacityAllocator.i.i.i, align 8
   br label %if.end
 
@@ -2650,7 +2648,7 @@ _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE16DoInsertVa
   %incdec.ptr.i.i3 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 16
   store ptr %retval.0.i.i.i, ptr %mResults, align 8
   store ptr %incdec.ptr.i.i3, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [16 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %return
 
@@ -4373,7 +4371,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %3 = load ptr, ptr %mTests, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %3, i64 %i.012
+  %add.ptr.i = getelementptr inbounds [16 x i8], ptr %3, i64 %i.012
   %4 = load ptr, ptr %add.ptr.i, align 8
   %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32

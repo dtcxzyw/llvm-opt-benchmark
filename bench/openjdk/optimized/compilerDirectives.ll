@@ -356,7 +356,7 @@ define hidden void @_ZN12DirectiveSet22init_control_intrinsicEv(ptr noundef nonn
   %22 = load i8, ptr %2, align 8
   %23 = sext i32 %20 to i64
   %24 = lshr i64 %23, 4
-  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %24
   %26 = shl i32 %20, 1
   %27 = and i32 %26, 30
   %28 = load i32, ptr %25, align 4, !noalias !6
@@ -421,7 +421,7 @@ _ZN20ControlIntrinsicIterppEv.exit:               ; preds = %38, %44, %45
 55:                                               ; preds = %52
   %56 = sext i32 %54 to i64
   %57 = lshr i64 %56, 4
-  %58 = getelementptr inbounds nuw i32, ptr %15, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %57
   %59 = shl i32 %54, 1
   %60 = and i32 %59, 30
   %61 = load i32, ptr %58, align 4, !noalias !11
@@ -2405,7 +2405,7 @@ _ZN15DirectiveSetPtr6clonedEv.exit108:            ; preds = %502, %505
   %507 = getelementptr inbounds nuw i8, ptr %.sroa.36.64, i64 16
   %508 = sext i32 %501 to i64
   %509 = lshr i64 %508, 4
-  %510 = getelementptr inbounds nuw i32, ptr %507, i64 %509
+  %510 = getelementptr inbounds nuw [4 x i8], ptr %507, i64 %509
   %511 = shl i32 %501, 1
   %512 = and i32 %511, 30
   %513 = load i32, ptr %510, align 4, !noalias !20
@@ -2525,7 +2525,7 @@ _ZN15DirectiveSetPtr6clonedEv.exit117:            ; preds = %557, %559
   %561 = getelementptr inbounds nuw i8, ptr %.sroa.36.66, i64 16
   %562 = sext i32 %556 to i64
   %563 = lshr i64 %562, 4
-  %564 = getelementptr inbounds nuw i32, ptr %561, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %561, i64 %563
   %565 = shl i32 %556, 1
   %566 = and i32 %565, 30
   %567 = load i32, ptr %564, align 4, !noalias !24
@@ -2710,7 +2710,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   store ptr %20, ptr %42, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -2855,7 +2855,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   store ptr %20, ptr %42, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -3022,7 +3022,7 @@ define hidden noundef zeroext i1 @_ZN12DirectiveSet21is_intrinsic_disabledE13vmI
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
   %5 = lshr i64 %4, 4
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   %7 = shl i32 %1, 1
   %8 = and i32 %7, 30
   %9 = load i32, ptr %6, align 4, !noalias !32
@@ -4067,9 +4067,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4086,7 +4086,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

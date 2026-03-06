@@ -174,7 +174,7 @@ define internal fastcc i32 @__drm_encoder_init(ptr noundef %0, ptr noundef %1, p
 
 21:                                               ; preds = %15
   %22 = sext i32 %3 to i64
-  %.split = getelementptr %struct.drm_prop_enum_list, ptr @drm_encoder_enum_list, i64 %22
+  %.split = getelementptr [16 x i8], ptr @drm_encoder_enum_list, i64 %22
   %23 = getelementptr i8, ptr %.split, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %12, align 8

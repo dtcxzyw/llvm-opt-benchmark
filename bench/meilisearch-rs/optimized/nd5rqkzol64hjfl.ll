@@ -256,7 +256,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hd8c38152741f4af7E.exit.i: ; preds =
   %45 = add nuw nsw i64 %.sroa.12.040.i, 1
   %46 = shl nuw nsw i64 %.sroa.12.040.i, 2
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 %46
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.12.040.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.12.040.i
   %49 = load i32, ptr %48, align 4, !alias.scope !13, !noalias !21, !noundef !4
   %50 = call i32 @llvm.bswap.i32(i32 %49)
   store i32 %50, ptr %47, align 1, !alias.scope !48, !noalias !52
@@ -586,7 +586,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
 15:                                               ; preds = %24, %3
   %.sroa.02.033 = phi i64 [ 0, %3 ], [ %26, %24 ]
   %.sroa.09.032 = phi i64 [ 0, %3 ], [ %.sroa.09.1.lcssa, %24 ]
-  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i64 %.sroa.02.033
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.sroa.02.033
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4
@@ -2250,7 +2250,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   %93 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %95 = load i64, ptr %94, align 8, !noundef !4
-  %96 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %93, i64 %95
+  %96 = getelementptr inbounds [24 x i8], ptr %93, i64 %95
   br label %97
 
 97:                                               ; preds = %.noexc55, %._crit_edge
@@ -4426,7 +4426,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys17hb34195a
 
 117:                                              ; preds = %103, %99
   %118 = load ptr, ptr %16, align 8, !alias.scope !968, !noalias !971, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %118, i64 %100
+  %119 = getelementptr inbounds [160 x i8], ptr %118, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %119, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false)
   %120 = add i64 %100, 1
   store i64 %120, ptr %17, align 8, !alias.scope !968, !noalias !971

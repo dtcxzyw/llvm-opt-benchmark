@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Vec<int, 4>, std::allocator<cv::Vec<int, 4>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"class.cv::Vec.8" = type { %"class.cv::Matx.9" }
-%"class.cv::Matx.9" = type { [4 x i32] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -371,7 +369,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %127 = zext nneg i32 %.0139 to i64
   %128 = load ptr, ptr %14, align 8, !tbaa !47
-  %129 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %127
   %130 = load i32, ptr %129, align 4, !tbaa !50
   %131 = icmp sgt i32 %130, -1
   br i1 %131, label %116, label %._crit_edge.i.i109, !llvm.loop !51

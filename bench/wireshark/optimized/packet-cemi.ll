@@ -2192,7 +2192,7 @@ switch.hole_check:                                ; preds = %520
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %522 = zext nneg i16 %.074.i.i.i.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pid_ext, i64 %522
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_pid_ext, i64 %522
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_pid_name.exit.i.i.i.i
 
@@ -2856,7 +2856,7 @@ define internal fastcc zeroext i8 @dissect_pid(ptr noundef %0, ptr noundef %1, p
 
 switch.lookup:                                    ; preds = %24
   %26 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pid_ext, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_pid_ext, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_pid_name.exit
 
@@ -3125,7 +3125,7 @@ switch.hole_check:                                ; preds = %36
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %38 = zext nneg i16 %13 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pid_ext, i64 %38
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_pid_ext, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_pid_name.exit
 

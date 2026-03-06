@@ -188,16 +188,16 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.preheader348
   %71 = load i32, ptr %52, align 4, !tbaa !59
   %72 = sext i32 %71 to i64
-  %invariant.gep = getelementptr double, ptr %19, i64 %72
+  %invariant.gep = getelementptr [8 x i8], ptr %19, i64 %72
   br label %73
 
 73:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
   %.0293354 = phi double [ 0.000000e+00, %.lr.ph ], [ %79, %73 ]
-  %74 = getelementptr inbounds nuw double, ptr %.0285385, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.0285385, i64 %indvars.iv
   %75 = load double, ptr %74, align 8, !tbaa !60
   %76 = fmul nsz double %33, %75
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store double %76, ptr %gep, align 8, !tbaa !60
   %77 = tail call nsz double @llvm.fabs.f64(double %76)
   %78 = fcmp nsz ogt double %.0293354, %77
@@ -269,7 +269,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.0289361 = phi i32 [ %106, %.lr.ph363 ], [ %131, %130 ]
   %112 = srem i32 %.0289361, %17
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i32, ptr %35, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %35, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !68
   %116 = icmp slt i32 %115, 0
   %brmerge = select i1 %116, i1 true, i1 %63
@@ -277,13 +277,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph358.preheader:                              ; preds = %111
   %117 = zext nneg i32 %115 to i64
-  %invariant.gep460 = getelementptr inbounds nuw double, ptr %19, i64 %117
+  %invariant.gep460 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %117
   br label %.lr.ph358
 
 .lr.ph358:                                        ; preds = %.lr.ph358.preheader, %.lr.ph358
   %indvars.iv400 = phi i64 [ 0, %.lr.ph358.preheader ], [ %indvars.iv.next401, %.lr.ph358 ]
   %.1299356 = phi double [ 0.000000e+00, %.lr.ph358.preheader ], [ %.1299., %.lr.ph358 ]
-  %gep461 = getelementptr inbounds nuw double, ptr %invariant.gep460, i64 %indvars.iv400
+  %gep461 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep460, i64 %indvars.iv400
   %118 = load double, ptr %gep461, align 8, !tbaa !60
   %119 = tail call nsz double @llvm.fabs.f64(double %118)
   %120 = fcmp nsz ogt double %.1299356, %119
@@ -301,7 +301,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %124 = sdiv i32 %123, %15
   %125 = sitofp i32 %124 to double
   %126 = fdiv nsz double %122, %125
-  %127 = getelementptr inbounds double, ptr %25, i64 %113
+  %127 = getelementptr inbounds [8 x i8], ptr %25, i64 %113
   %128 = load double, ptr %127, align 8, !tbaa !60
   %129 = fcmp nsz olt double %126, %128
   br i1 %129, label %133, label %130
@@ -312,7 +312,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %132, label %111, label %.thread343, !llvm.loop !72
 
 133:                                              ; preds = %.loopexit
-  %134 = getelementptr inbounds double, ptr %25, i64 %113
+  %134 = getelementptr inbounds [8 x i8], ptr %25, i64 %113
   store double %126, ptr %134, align 8, !tbaa !60
   %reass.sub = sub i32 %.0289361, %106
   %135 = add i32 %reass.sub, 1
@@ -320,19 +320,19 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %136 = add i32 %.0289361, 1
   %137 = srem i32 %136, %17
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %35, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %35, i64 %138
   store i32 %110, ptr %139, align 4, !tbaa !68
   %140 = load i32, ptr %61, align 8, !tbaa !70
   %141 = load i32, ptr %62, align 4, !tbaa !69
   %142 = add nsw i32 %141, %140
   %143 = srem i32 %142, %17
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds double, ptr %25, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %25, i64 %144
   store double %96, ptr %145, align 8, !tbaa !60
   %146 = add nsw i32 %142, 1
   %147 = srem i32 %146, %17
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i32, ptr %35, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %35, i64 %148
   store i32 -1, ptr %149, align 4, !tbaa !68
   %150 = load i32, ptr %62, align 4, !tbaa !69
   %151 = add nsw i32 %150, 1
@@ -344,13 +344,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %153 = add nsw i32 %152, %15
   %154 = srem i32 %153, %17
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds double, ptr %65, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %65, i64 %155
   br i1 %51, label %.lr.ph366, label %._crit_edge367
 
 .lr.ph366:                                        ; preds = %.thread343, %.lr.ph366
   %indvars.iv405 = phi i64 [ %indvars.iv.next406, %.lr.ph366 ], [ 0, %.thread343 ]
   %.1294364 = phi double [ %161, %.lr.ph366 ], [ 0.000000e+00, %.thread343 ]
-  %157 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv405
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv405
   %158 = load double, ptr %157, align 8, !tbaa !60
   %159 = tail call nsz double @llvm.fabs.f64(double %158)
   %160 = fcmp nsz ogt double %.1294364, %159
@@ -404,11 +404,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph371:                                        ; preds = %178, %.lr.ph371
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %.lr.ph371 ], [ 0, %178 ]
-  %182 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv410
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv410
   %183 = load double, ptr %182, align 8, !tbaa !60
   %184 = load double, ptr %57, align 8, !tbaa !27
   %185 = fmul nsz double %183, %184
-  %186 = getelementptr inbounds nuw double, ptr %.0286384, i64 %indvars.iv410
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %.0286384, i64 %indvars.iv410
   store double %185, ptr %186, align 8, !tbaa !60
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond414.not = icmp eq i64 %indvars.iv.next411, %wide.trip.count413
@@ -417,7 +417,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ._crit_edge372:                                   ; preds = %.lr.ph371, %178
   %187 = load i32, ptr %61, align 8, !tbaa !70
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %35, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %35, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !68
   %191 = icmp eq i32 %154, %190
   br i1 %191, label %192, label %._crit_edge372._crit_edge
@@ -471,19 +471,19 @@ get_rdelta.exit:                                  ; preds = %193, %202, %210
   %219 = add nsw i32 %187, 1
   %220 = srem i32 %219, %17
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds i32, ptr %35, i64 %221
+  %222 = getelementptr inbounds [4 x i8], ptr %35, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !68
   br i1 %51, label %.lr.ph376.preheader, label %._crit_edge377
 
 .lr.ph376.preheader:                              ; preds = %218
   %224 = sext i32 %223 to i64
-  %invariant.gep463 = getelementptr double, ptr %19, i64 %224
+  %invariant.gep463 = getelementptr [8 x i8], ptr %19, i64 %224
   br label %.lr.ph376
 
 .lr.ph376:                                        ; preds = %.lr.ph376.preheader, %.lr.ph376
   %indvars.iv415 = phi i64 [ 0, %.lr.ph376.preheader ], [ %indvars.iv.next416, %.lr.ph376 ]
   %.0292373 = phi double [ 0.000000e+00, %.lr.ph376.preheader ], [ %.0292., %.lr.ph376 ]
-  %gep464 = getelementptr double, ptr %invariant.gep463, i64 %indvars.iv415
+  %gep464 = getelementptr [8 x i8], ptr %invariant.gep463, i64 %indvars.iv415
   %225 = load double, ptr %gep464, align 8, !tbaa !60
   %226 = tail call nsz double @llvm.fabs.f64(double %225)
   %227 = fcmp nsz ogt double %.0292373, %226
@@ -510,7 +510,7 @@ get_rdelta.exit:                                  ; preds = %193, %202, %210
   br label %242
 
 238:                                              ; preds = %192
-  %239 = getelementptr inbounds double, ptr %25, i64 %188
+  %239 = getelementptr inbounds [8 x i8], ptr %25, i64 %188
   %240 = load double, ptr %239, align 8, !tbaa !60
   store double %240, ptr %60, align 8, !tbaa !67
   %241 = fdiv nsz double %23, %.1294.lcssa
@@ -583,7 +583,7 @@ get_rdelta.exit:                                  ; preds = %193, %202, %210
 
 .lr.ph381:                                        ; preds = %271, %.lr.ph381
   %indvars.iv420 = phi i64 [ %indvars.iv.next421, %.lr.ph381 ], [ 0, %271 ]
-  %272 = getelementptr inbounds nuw double, ptr %.0286384, i64 %indvars.iv420
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %.0286384, i64 %indvars.iv420
   %273 = load double, ptr %272, align 8, !tbaa !60
   %274 = fcmp nsz ogt double %273, %69
   %275 = select nsz i1 %274, double %273, double %69
@@ -601,8 +601,8 @@ get_rdelta.exit:                                  ; preds = %193, %202, %210
   %280 = add nsw i32 %279, %15
   %281 = srem i32 %280, %17
   store i32 %281, ptr %52, align 4, !tbaa !59
-  %282 = getelementptr inbounds double, ptr %.0285385, i64 %70
-  %283 = getelementptr inbounds double, ptr %.0286384, i64 %70
+  %282 = getelementptr inbounds [8 x i8], ptr %.0285385, i64 %70
+  %283 = getelementptr inbounds [8 x i8], ptr %.0286384, i64 %70
   %284 = add nuw nsw i32 %.0287383, 1
   %285 = load i32, ptr %47, align 8, !tbaa !54
   %286 = icmp slt i32 %284, %285

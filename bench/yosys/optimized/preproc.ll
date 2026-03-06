@@ -73,8 +73,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.46" = type { %"class.std::__cxx11::basic_string", %"struct.Yosys::define_body_t" }
 %"struct.Yosys::define_body_t" = type { %"class.std::__cxx11::basic_string", i8, %"struct.Yosys::arg_map_t" }
 %"struct.std::pair.44" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.Yosys::macro_arg_t" = type { %"class.std::__cxx11::basic_string", i8, %"class.std::__cxx11::basic_string" }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
+%"struct.Yosys::macro_arg_t" = type { %"class.std::__cxx11::basic_string", i8, %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<Yosys::define_body_t>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<Yosys::define_body_t>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
@@ -11828,7 +11828,7 @@ define linkonce_odr void @_ZNK5Yosys9arg_map_t8get_valsERKNSt7__cxx1112basic_str
 27:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %28 = phi ptr [ %10, %.lr.ph ], [ %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %29 = getelementptr inbounds nuw %"struct.Yosys::macro_arg_t", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i8, ptr %30, align 8, !tbaa !191, !range !58, !noundef !59
   %32 = trunc nuw i8 %31 to i1
@@ -11844,7 +11844,7 @@ define linkonce_odr void @_ZNK5Yosys9arg_map_t8get_valsERKNSt7__cxx1112basic_str
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %27
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %35, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %indvars.iv
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.thread, label %43
 
@@ -12539,7 +12539,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !213
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !209
-  %118 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !211
   ret void
 }
@@ -13030,9 +13030,9 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   %19 = load ptr, ptr %0, align 8, !tbaa !231
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -13051,12 +13051,12 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESB_ET0_T_SD_SC_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESB_ET0_T_SD_SC_.exit
 
@@ -13084,9 +13084,9 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESB_ET0_T_SD_SC_.exit26, label %53
@@ -13114,7 +13114,7 @@ _ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys1
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 432
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !229
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !186
   %64 = load ptr, ptr %63, align 8, !tbaa !187
@@ -14441,7 +14441,7 @@ _ZNSt6vectorIN5Yosys11macro_arg_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30: ;
 _ZNSt12_Vector_baseIN5Yosys11macro_arg_tESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5Yosys11macro_arg_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, %123
   store ptr %22, ptr %0, align 8, !tbaa !127
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !128
-  %127 = getelementptr inbounds nuw %"struct.Yosys::macro_arg_t", ptr %22, i64 %16
+  %127 = getelementptr inbounds nuw [72 x i8], ptr %22, i64 %16
   store ptr %127, ptr %122, align 8, !tbaa !130
   ret void
 }
@@ -16469,7 +16469,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !143
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !114
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !116
   ret void
 
@@ -16533,7 +16533,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN
   store ptr %12, ptr %0, align 8, !tbaa !231
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %.idx = shl nuw nsw i64 %10, 3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   br label %.lr.ph.i
@@ -16626,7 +16626,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %53, ptr %54, align 8, !tbaa !229
   store ptr %44, ptr %42, align 8, !tbaa !298
-  %55 = getelementptr inbounds nuw %"struct.std::pair.46", ptr %51, i64 %4
+  %55 = getelementptr inbounds nuw [144 x i8], ptr %51, i64 %4
   store ptr %55, ptr %48, align 8, !tbaa !170
   ret void
 

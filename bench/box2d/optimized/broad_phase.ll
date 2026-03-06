@@ -4,16 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.b2DynamicTree = type { ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32 }
-%struct.b2MoveResult = type { ptr }
-%struct.b2Shape = type { i32, i32, i32, i32, i32, i32, float, float, float, float, float, i32, %struct.b2AABB, %struct.b2AABB, %struct.b2Vec2, i32, %struct.b2Filter, ptr, i32, %union.anon.0, i16, i8, i8, i8, i8 }
-%struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2Vec2 = type { float, float }
-%struct.b2Filter = type { i64, i64, i32 }
-%union.anon.0 = type { %struct.b2Polygon }
-%struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
 %struct.b2QueryPairContext = type { ptr, ptr, i32, i32, i32 }
-%struct.b2Body = type { [32 x i8], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, i32, i32, i16, i8, i8, i8, i8 }
-%struct.b2MovePair = type { i32, i32, ptr, i8 }
+%struct.b2Filter = type { i64, i64, i32 }
 
 @.str = private unnamed_addr constant [13 x i8] c"move results\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"move pairs\00", align 1
@@ -55,7 +47,7 @@ define hidden void @b2CreateBroadPhase(ptr noundef writeonly captures(none) init
 
 19:                                               ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DynamicTree_Create(ptr dead_on_unwind nonnull writable sret(%struct.b2DynamicTree) align 8 %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false), !tbaa.struct !18
@@ -90,7 +82,7 @@ define hidden void @b2DestroyBroadPhase(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv
   tail call void @b2DynamicTree_Destroy(ptr noundef %7) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -109,7 +101,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define hidden i32 @b2BroadPhase_CreateProxy(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, i64 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #4 {
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %8
   %10 = tail call i32 @b2DynamicTree_CreateProxy(ptr noundef %9, <2 x float> %2, <2 x float> %3, i64 noundef %4, i32 noundef %5) #8
   %11 = shl i32 %10, 2
   %12 = or i32 %11, %1
@@ -146,7 +138,7 @@ b2IntArray_Push.exit.i:                           ; preds = %26, %19
   %31 = phi i32 [ %.pre.i.i, %26 ], [ %22, %19 ]
   %32 = load ptr, ptr %20, align 8, !tbaa !31
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %32, i64 %33
   store i32 %12, ptr %34, align 4, !tbaa !21
   %35 = load i32, ptr %21, align 8, !tbaa !29
   %36 = add nsw i32 %35, 1
@@ -181,7 +173,7 @@ define hidden void @b2BroadPhase_DestroyProxy(ptr noundef %0, i32 noundef %1) lo
 
 13:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %17, label %26
@@ -194,10 +186,10 @@ define hidden void @b2BroadPhase_DestroyProxy(ptr noundef %0, i32 noundef %1) lo
 
 20:                                               ; preds = %17
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = and i64 %indvars.iv.i, 4294967295
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %24
   store i32 %23, ptr %25, align 4, !tbaa !21
   %.pre.i.i = load i32, ptr %8, align 8, !tbaa !29
   %.pre10.i.i = add nsw i32 %.pre.i.i, -1
@@ -221,7 +213,7 @@ b2UnBufferMove.exit:                              ; preds = %26, %2, %7, %b2IntA
   %30 = and i32 %1, 3
   %31 = ashr i32 %1, 2
   %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %32
   tail call void @b2DynamicTree_DestroyProxy(ptr noundef %33, i32 noundef %31) #8
   ret void
 }
@@ -233,7 +225,7 @@ define hidden void @b2BroadPhase_MoveProxy(ptr noundef %0, i32 noundef %1, <2 x 
   %5 = and i32 %1, 3
   %6 = ashr i32 %1, 2
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %7
   tail call void @b2DynamicTree_MoveProxy(ptr noundef %8, i32 noundef %6, <2 x float> %2, <2 x float> %3) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = add nsw i32 %1, 1
@@ -263,7 +255,7 @@ b2IntArray_Push.exit.i:                           ; preds = %20, %13
   %25 = phi i32 [ %.pre.i.i, %20 ], [ %16, %13 ]
   %26 = load ptr, ptr %14, align 8, !tbaa !31
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   store i32 %1, ptr %28, align 4, !tbaa !21
   %29 = load i32, ptr %15, align 8, !tbaa !29
   %30 = add nsw i32 %29, 1
@@ -281,7 +273,7 @@ define hidden void @b2BroadPhase_EnlargeProxy(ptr noundef %0, i32 noundef %1, <2
   %5 = and i32 %1, 3
   %6 = ashr i32 %1, 2
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %7
   tail call void @b2DynamicTree_EnlargeProxy(ptr noundef %8, i32 noundef %6, <2 x float> %2, <2 x float> %3) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = add nsw i32 %1, 1
@@ -311,7 +303,7 @@ b2IntArray_Push.exit.i:                           ; preds = %20, %13
   %25 = phi i32 [ %.pre.i.i, %20 ], [ %16, %13 ]
   %26 = load ptr, ptr %14, align 8, !tbaa !31
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   store i32 %1, ptr %28, align 4, !tbaa !21
   %29 = load i32, ptr %15, align 8, !tbaa !29
   %30 = add nsw i32 %29, 1
@@ -389,7 +381,7 @@ define hidden void @b2UpdateBroadPhasePairs(ptr noundef %0) local_unnamed_addr #
 33:                                               ; preds = %.lr.ph61, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next, %._crit_edge ]
   %34 = load ptr, ptr %8, align 8, !tbaa !35
-  %35 = getelementptr inbounds nuw %struct.b2MoveResult, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !85
   %.not5557 = icmp eq ptr %36, null
   br i1 %.not5557, label %._crit_edge, label %.lr.ph
@@ -401,9 +393,9 @@ define hidden void @b2UpdateBroadPhasePairs(ptr noundef %0) local_unnamed_addr #
   %39 = load i32, ptr %38, align 4, !tbaa !89
   %.val = load ptr, ptr %29, align 8, !tbaa !90
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %40
+  %41 = getelementptr inbounds [288 x i8], ptr %.val, i64 %40
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %42
+  %43 = getelementptr inbounds [288 x i8], ptr %.val, i64 %42
   tail call void @b2CreateContact(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %43) #8
   %44 = getelementptr inbounds nuw i8, ptr %.05258, i64 16
   %45 = load i8, ptr %44, align 8, !tbaa !91, !range !92, !noundef !93
@@ -459,11 +451,11 @@ define internal void @b2FindPairsTask(i32 noundef %0, i32 noundef %1, i32 %2, pt
 17:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !35
-  %19 = getelementptr inbounds %struct.b2MoveResult, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv
   store ptr %19, ptr %9, align 8, !tbaa !100
   store ptr null, ptr %19, align 8, !tbaa !85
   %20 = load ptr, ptr %10, align 8, !tbaa !33
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !21
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %39, label %24
@@ -473,7 +465,7 @@ define internal void @b2FindPairsTask(i32 noundef %0, i32 noundef %1, i32 %2, pt
   %26 = ashr i32 %22, 2
   store i32 %22, ptr %11, align 4, !tbaa !101
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %6, i64 %27
+  %28 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %27
   %29 = call { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef nonnull %28, i32 noundef %26) #8
   %30 = extractvalue { <2 x float>, <2 x float> } %29, 0
   %31 = extractvalue { <2 x float>, <2 x float> } %29, 1
@@ -518,12 +510,12 @@ define hidden zeroext i1 @b2BroadPhase_TestOverlap(ptr noundef %0, i32 noundef %
   %6 = and i32 %2, 3
   %7 = ashr i32 %2, 2
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %8
   %10 = tail call { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef %9, i32 noundef %5) #8
   %11 = extractvalue { <2 x float>, <2 x float> } %10, 0
   %12 = extractvalue { <2 x float>, <2 x float> } %10, 1
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = tail call { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef %14, i32 noundef %7) #8
   %16 = extractvalue { <2 x float>, <2 x float> } %15, 0
   %17 = extractvalue { <2 x float>, <2 x float> } %15, 1
@@ -567,7 +559,7 @@ define hidden i32 @b2BroadPhase_GetShapeIndex(ptr noundef %0, i32 noundef %1) lo
   %3 = and i32 %1, 3
   %4 = ashr i32 %1, 2
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %5
   %7 = tail call i32 @b2DynamicTree_GetUserData(ptr noundef %6, i32 noundef %4) #8
   ret i32 %7
 }
@@ -657,9 +649,9 @@ define internal noundef zeroext i1 @b2PairQueryCallback(i32 noundef %0, i32 noun
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1256
   %.val105 = load ptr, ptr %41, align 8, !tbaa !90
   %42 = sext i32 %.104 to i64
-  %43 = getelementptr inbounds %struct.b2Shape, ptr %.val105, i64 %42
+  %43 = getelementptr inbounds [288 x i8], ptr %.val105, i64 %42
   %44 = sext i32 %. to i64
-  %45 = getelementptr inbounds %struct.b2Shape, ptr %.val105, i64 %44
+  %45 = getelementptr inbounds [288 x i8], ptr %.val105, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !105
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -689,9 +681,9 @@ define internal noundef zeroext i1 @b2PairQueryCallback(i32 noundef %0, i32 noun
   %62 = getelementptr inbounds nuw i8, ptr %40, i64 1032
   %.val106 = load ptr, ptr %62, align 8, !tbaa !110
   %63 = sext i32 %47 to i64
-  %64 = getelementptr inbounds %struct.b2Body, ptr %.val106, i64 %63
+  %64 = getelementptr inbounds [128 x i8], ptr %.val106, i64 %63
   %65 = sext i32 %49 to i64
-  %66 = getelementptr inbounds %struct.b2Body, ptr %.val106, i64 %65
+  %66 = getelementptr inbounds [128 x i8], ptr %.val106, i64 %65
   %67 = tail call zeroext i1 @b2ShouldBodiesCollide(ptr noundef nonnull %40, ptr noundef %64, ptr noundef %66) #8
   br i1 %67, label %68, label %106
 
@@ -740,7 +732,7 @@ define internal noundef zeroext i1 @b2PairQueryCallback(i32 noundef %0, i32 noun
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %94 = load ptr, ptr %93, align 8, !tbaa !37
   %95 = sext i32 %88 to i64
-  %96 = getelementptr inbounds %struct.b2MovePair, ptr %94, i64 %95
+  %96 = getelementptr inbounds [24 x i8], ptr %94, i64 %95
   br label %99
 
 97:                                               ; preds = %86

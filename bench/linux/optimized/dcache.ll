@@ -298,7 +298,7 @@ define internal fastcc void @___d_drop(ptr noundef readonly captures(address) %0
   %13 = load i32, ptr @d_hash_shift, align 4
   %14 = lshr i32 %11, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr %struct.hlist_bl_head, ptr %12, i64 %15
+  %16 = getelementptr [8 x i8], ptr %12, i64 %15
   br label %17
 
 17:                                               ; preds = %9, %5
@@ -3822,7 +3822,7 @@ define dso_local ptr @d_alloc_parallel(ptr noundef %0, ptr noundef %1, ptr nound
   %11 = mul i32 %10, 1640531527
   %12 = lshr i32 %11, 22
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.hlist_bl_head, ptr @in_lookup_hashtable, i64 %13
+  %14 = getelementptr [8 x i8], ptr @in_lookup_hashtable, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @__d_alloc(ptr noundef %16, ptr noundef %1)
@@ -3908,7 +3908,7 @@ define dso_local ptr @d_alloc_parallel(ptr noundef %0, ptr noundef %1, ptr nound
   %61 = load i32, ptr @d_hash_shift, align 4
   %62 = lshr i32 %60, %61
   %63 = zext i32 %62 to i64
-  %64 = getelementptr %struct.hlist_bl_head, ptr %59, i64 %63
+  %64 = getelementptr [8 x i8], ptr %59, i64 %63
   %65 = load volatile ptr, ptr %64, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %66, -2
@@ -4634,7 +4634,7 @@ define dso_local ptr @__d_lookup_rcu(ptr noundef readonly captures(address) %0, 
   %15 = load i32, ptr @d_hash_shift, align 4
   %16 = lshr i32 %14, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.hlist_bl_head, ptr %13, i64 %17
+  %18 = getelementptr [8 x i8], ptr %13, i64 %17
   %19 = load volatile ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
@@ -4728,7 +4728,7 @@ define internal fastcc ptr @__d_lookup_rcu_op_compare(ptr noundef readonly captu
   %7 = load i32, ptr @d_hash_shift, align 4
   %8 = lshr i32 %5, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.hlist_bl_head, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -4849,7 +4849,7 @@ define dso_local ptr @__d_lookup(ptr noundef readonly captures(address) %0, ptr 
   %5 = load i32, ptr @d_hash_shift, align 4
   %6 = lshr i32 %3, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.hlist_bl_head, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   tail call void @__rcu_read_lock() #17
   %9 = load volatile ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
@@ -5137,7 +5137,7 @@ define internal fastcc void @__d_rehash(ptr noundef %0) unnamed_addr #1 align 16
   %5 = load i32, ptr @d_hash_shift, align 4
   %6 = lshr i32 %3, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.hlist_bl_head, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   %9 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 0, ptr elementtype(i64) %8) #17, !srcloc !13
@@ -5249,7 +5249,7 @@ define internal fastcc ptr @__d_lookup_unhash(ptr noundef %0) unnamed_addr #1 al
   %10 = mul i32 %9, 1640531527
   %11 = lshr i32 %10, 22
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr %struct.hlist_bl_head, ptr @in_lookup_hashtable, i64 %12
+  %13 = getelementptr [8 x i8], ptr @in_lookup_hashtable, i64 %12
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   %14 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, i64 0, ptr elementtype(i64) %13) #17, !srcloc !13
@@ -6067,9 +6067,9 @@ define internal fastcc void @__d_move(ptr noundef %0, ptr noundef %1, i1 noundef
 
 .preheader:                                       ; preds = %160, %.preheader
   %166 = phi i64 [ %171, %.preheader ], [ 0, %160 ]
-  %167 = getelementptr i64, ptr %151, i64 %166
+  %167 = getelementptr [8 x i8], ptr %151, i64 %166
   %168 = load i64, ptr %167, align 8
-  %169 = getelementptr i64, ptr %147, i64 %166
+  %169 = getelementptr [8 x i8], ptr %147, i64 %166
   %170 = load i64, ptr %169, align 8
   store i64 %170, ptr %167, align 8
   store i64 %168, ptr %169, align 8
@@ -6702,7 +6702,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 63
-  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
+  %19 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, ptrtoint (ptr @nr_dentry to i64)
   %22 = inttoptr i64 %21 to ptr
@@ -6735,7 +6735,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 39:                                               ; preds = %35
   %40 = and i64 %36, 63
-  %41 = getelementptr i64, ptr @__per_cpu_offset, i64 %40
+  %41 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @nr_dentry_unused to i64)
   %44 = inttoptr i64 %43 to ptr
@@ -6768,7 +6768,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 61:                                               ; preds = %57
   %62 = and i64 %58, 63
-  %63 = getelementptr i64, ptr @__per_cpu_offset, i64 %62
+  %63 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, ptrtoint (ptr @nr_dentry_negative to i64)
   %66 = inttoptr i64 %65 to ptr

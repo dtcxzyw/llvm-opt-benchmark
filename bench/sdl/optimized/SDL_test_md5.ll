@@ -100,7 +100,7 @@ define dso_local void @SDLTest_Md5Update(ptr noundef captures(address_is_null) %
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv44
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv44
   store i32 %52, ptr %53, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -790,7 +790,7 @@ SDLTest_Md5Update.exit:                           ; preds = %33, %4
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = or disjoint i32 %52, %55
-  %57 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %56, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 4
@@ -806,7 +806,7 @@ SDLTest_Md5Update.exit:                           ; preds = %33, %4
 61:                                               ; preds = %58, %61
   %indvars.iv54 = phi i64 [ 0, %58 ], [ %indvars.iv.next55, %61 ]
   %indvars.iv52 = phi i64 [ 0, %58 ], [ %indvars.iv.next53, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv52
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv52
   %63 = load i32, ptr %62, align 4
   %64 = trunc i32 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv54

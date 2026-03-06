@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"struct.obj_map<expr, unsigned int>::key_data" = type <{ ptr, i32, [4 x i8] }>
-%"struct.q::quantifier_stat_gen::entry" = type <{ ptr, i32, [4 x i8] }>
-%"class.obj_map<expr, unsigned int>::obj_map_entry" = type { %"struct.obj_map<expr, unsigned int>::key_data" }
 
 $_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE13expand_vectorEv = comdat any
 
@@ -249,7 +247,7 @@ _ZNK6vectorIN1q19quantifier_stat_gen5entryELb0EjE5emptyEv.exit.lr.ph: ; preds = 
   %26 = phi i32 [ %.pre2.i, %25 ], [ %21, %19 ]
   %27 = phi ptr [ %.pre.i, %25 ], [ %17, %19 ]
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"struct.q::quantifier_stat_gen::entry", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %28
   store ptr %16, ptr %29, align 8, !tbaa !51
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 0, ptr %.sroa.452.0..sroa_idx, align 8, !tbaa !52
@@ -274,7 +272,7 @@ _ZNK6vectorIN1q19quantifier_stat_gen5entryELb0EjE5emptyEv.exit: ; preds = %_ZNK6
 _ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIN1q19quantifier_stat_gen5entryELb0EjE5emptyEv.exit
   %41 = add i32 %39, -1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"struct.q::quantifier_stat_gen::entry", ptr %.pr75, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.pr75, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !53
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8
@@ -291,7 +289,7 @@ _ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE4backEv.exit: ; preds = %_ZNK6ve
   %.idx.i.i.i = shl nuw nsw i64 %55, 4
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i
   %57 = zext i32 %51 to i64
-  %58 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %57
   %.not34.i.i.i = icmp eq i32 %53, %51
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -492,7 +490,7 @@ _ZNK3app13get_family_idEv.exit.thread..loopexit_crit_edge: ; preds = %_ZNK3app13
   %141 = phi ptr [ %.pr.pre74, %.lr.ph ], [ %198, %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit40 ]
   %indvars.iv = phi i64 [ %139, %.lr.ph ], [ %142, %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit40 ]
   %142 = add nsw i64 %indvars.iv, -1
-  %143 = getelementptr inbounds nuw ptr, ptr %134, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !51
   %145 = icmp eq ptr %141, null
   br i1 %145, label %152, label %146
@@ -622,7 +620,7 @@ _ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit40: ; preds 
   %194 = phi i32 [ %.pre2.i39, %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE13expand_vectorEv.exit ], [ %148, %146 ]
   %195 = phi ptr [ %.pre.i37, %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE13expand_vectorEv.exit ], [ %141, %146 ]
   %196 = zext i32 %194 to i64
-  %197 = getelementptr inbounds nuw %"struct.q::quantifier_stat_gen::entry", ptr %195, i64 %196
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %196
   store ptr %144, ptr %197, align 8, !tbaa !51
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i32 %138, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !52
@@ -924,7 +922,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_
   %.idx = shl nuw nsw i64 %22, 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -1065,7 +1063,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   %14 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %14, 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE10move_tableEPS3_jSA_j.exit, label %.lr.ph41.i
 

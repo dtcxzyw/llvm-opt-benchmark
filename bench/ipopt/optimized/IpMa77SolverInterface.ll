@@ -4043,7 +4043,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %16, %12, %5
   %29 = select i1 %27, i64 -1, i64 %28
   %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #19
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds i32, ptr %3, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %3, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !68
   %34 = add nsw i32 %33, -1
   %35 = sext i32 %34 to i64
@@ -4070,7 +4070,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %16, %12, %5
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5Ipopt9TimedTask5StartEv.exit
   %.065.lcssa = phi i32 [ 1, %_ZN5Ipopt9TimedTask5StartEv.exit ], [ %41, %._crit_edge.loopexit ]
-  %42 = getelementptr inbounds i32, ptr %30, i64 %31
+  %42 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %.065.lcssa, ptr %42, align 4, !tbaa !68
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %44 = load ptr, ptr %43, align 8, !tbaa !64
@@ -4092,10 +4092,10 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %16, %12, %5
   %indvars.iv82 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next83, %.loopexit ]
   %.06577 = phi i32 [ 0, %.lr.ph79.preheader ], [ %.166.lcssa, %.loopexit ]
   %54 = add nsw i32 %.06577, 1
-  %55 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv82
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv82
   store i32 %54, ptr %55, align 4, !tbaa !68
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %56 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next83
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next83
   %57 = load i32, ptr %56, align 4, !tbaa !68
   %58 = add i32 %57, -1
   %59 = icmp slt i32 %53, %57
@@ -4109,7 +4109,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %16, %12, %5
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
   %indvars.iv = phi i64 [ %61, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
   %.16674 = phi i32 [ %.06577, %.lr.ph.preheader ], [ %.2, %69 ]
-  %62 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %62 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !68
   %64 = sext i32 %63 to i64
   %.not71.not = icmp slt i64 %indvars.iv82, %64
@@ -4118,7 +4118,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %16, %12, %5
 65:                                               ; preds = %.lr.ph
   %66 = add nsw i32 %.16674, 1
   %67 = sext i32 %.16674 to i64
-  %68 = getelementptr inbounds i32, ptr %39, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %39, i64 %67
   store i32 %63, ptr %68, align 4, !tbaa !68
   br label %69
 
@@ -4206,13 +4206,13 @@ thread-pre-split:                                 ; preds = %75
 99:                                               ; preds = %98
   %100 = load ptr, ptr %96, align 8, !tbaa !52
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %101 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next87
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next87
   %102 = load i32, ptr %101, align 4, !tbaa !68
-  %103 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv86
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv86
   %104 = load i32, ptr %103, align 4, !tbaa !68
   %105 = sub nsw i32 %102, %104
   %106 = sext i32 %104 to i64
-  %107 = getelementptr i32, ptr %4, i64 %106
+  %107 = getelementptr [4 x i8], ptr %4, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -4
   %109 = trunc nuw i64 %indvars.iv.next87 to i32
   call void %100(i32 noundef %109, i32 noundef %105, ptr noundef %108, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %6)
@@ -4332,14 +4332,14 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt19Ma77SolverInterface10MultiSolveEb
 22:                                               ; preds = %19
   %23 = load ptr, ptr %14, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %25 = load i32, ptr %24, align 4, !tbaa !68
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !68
   %28 = sub nsw i32 %25, %27
   %29 = load ptr, ptr %15, align 8, !tbaa !6
   %30 = sext i32 %27 to i64
-  %31 = getelementptr double, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = trunc nuw i64 %indvars.iv.next to i32
   call void %23(i32 noundef %33, i32 noundef %28, ptr noundef %32, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %9)

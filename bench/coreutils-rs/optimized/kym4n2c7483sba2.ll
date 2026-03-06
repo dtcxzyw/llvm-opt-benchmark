@@ -396,7 +396,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   %21 = extractvalue { i64, i64 } %.lcssa.i.i, 1
   %22 = load ptr, ptr %0, align 8, !alias.scope !131, !nonnull !9, !noundef !9
   %23 = sub nsw i64 0, %21
-  %24 = getelementptr inbounds { i8, i8 }, ptr %22, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %2, align 8, !alias.scope !119, !noundef !9
   %26 = add i64 %25, -1
   store i64 %26, ptr %2, align 8, !alias.scope !119
@@ -843,7 +843,7 @@ define hidden { i1, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inser
   %57 = add i64 %.sroa.0.038.i.i, %54
   %58 = and i64 %57, %44
   %59 = sub nsw i64 0, %58
-  %60 = getelementptr inbounds { i8, i8 }, ptr %45, i64 %59
+  %60 = getelementptr inbounds [2 x i8], ptr %45, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 -2
   %.val4.i.i = load i8, ptr %61, align 1, !alias.scope !293, !noalias !298, !noundef !9
   %62 = icmp eq i8 %1, %.val4.i.i
@@ -920,7 +920,7 @@ define hidden { i1, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inser
   %103 = add i64 %102, 1
   store i64 %103, ptr %101, align 8, !alias.scope !307
   %104 = sub nsw i64 0, %.sroa.4.0.ph
-  %105 = getelementptr inbounds { i8, i8 }, ptr %45, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %45, i64 %104
   %106 = getelementptr inbounds i8, ptr %105, i64 -2
   store i8 %1, ptr %106, align 1, !noalias !307
   %107 = getelementptr inbounds i8, ptr %105, i64 -1
@@ -1233,7 +1233,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_bas
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hef68ffcbafd6593dE.llvm.8540188362525860381"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = sub nsw i64 0, %1
-  %4 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %3
+  %4 = getelementptr inbounds [2 x i8], ptr %0, i64 %3
   ret ptr %4
 }
 

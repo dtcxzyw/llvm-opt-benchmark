@@ -37,13 +37,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 %"class.llvm::MachineInstrBundleIterator" = type { %"class.llvm::ilist_iterator.231" }
 %"class.llvm::ilist_iterator.231" = type { ptr }
 %"class.llvm::MachineInstrBuilder" = type { ptr, ptr }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
-%"struct.llvm::TargetRegisterInfo::RegClassInfo" = type { i32, i32, i32, i32 }
 %"class.llvm::ilist_iterator" = type { ptr }
 %"class.std::vector.369" = type { %"struct.std::_Vector_base.370" }
 %"struct.std::_Vector_base.370" = type { %"struct.std::_Vector_base<std::pair<llvm::MachineBasicBlock *, unsigned int>, std::allocator<std::pair<llvm::MachineBasicBlock *, unsigned int>>>::_Vector_impl" }
@@ -58,9 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::pair.379" = type <{ ptr, i32, [4 x i8] }>
-%"struct.llvm::MachineBasicBlock::RegisterMaskPair" = type { %"class.llvm::MCRegister", %"struct.llvm::LaneBitmask" }
-%"class.llvm::MCRegister" = type { i32 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -559,7 +554,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i.i: ; preds
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
   %147 = load ptr, ptr %126, align 8, !tbaa !383
-  %148 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %147, i64 %.neg.i.i
+  %148 = getelementptr inbounds [32 x i8], ptr %147, i64 %.neg.i.i
   %149 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %68, ptr nonnull %127, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(32) %148)
   %150 = extractvalue { ptr, ptr } %149, 0
   %151 = extractvalue { ptr, ptr } %149, 1
@@ -588,7 +583,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %155, %_ZN4llvm10MIM
 
 158:                                              ; preds = %177
   %159 = load ptr, ptr %39, align 8, !tbaa !219
-  %160 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %159, i64 %.073137.i.i
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %159, i64 %.073137.i.i
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i32, ptr %161, align 4, !tbaa !220
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -623,7 +618,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %155, %_ZN4llvm10MIM
 
 173:                                              ; preds = %170
   %174 = load ptr, ptr %39, align 8, !tbaa !219
-  %175 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %174, i64 %indvars.iv.i.i
+  %175 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %indvars.iv.i.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 32
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %151, ptr noundef nonnull align 8 dereferenceable(1065) %150, ptr noundef nonnull align 8 dereferenceable(32) %176) #16
   br label %177
@@ -1027,7 +1022,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; 
 _ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, %47
   %.pre-phi = phi i64 [ %7, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre17, %47 ]
   %50 = phi ptr [ %4, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre, %47 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi
   %52 = ptrtoint ptr %2 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %5, align 8, !tbaa !260
@@ -1421,7 +1416,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86ExpandPseudo8ex
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !219
   %99 = select i1 %96, i64 5, i64 1
-  %100 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load i64, ptr %101, align 8, !tbaa !220
   %103 = trunc i64 %102 to i32
@@ -1505,7 +1500,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %137 = load ptr, ptr %136, align 8, !tbaa !153
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8, !tbaa !383
-  %140 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %139, i64 %.0372.neg
+  %140 = getelementptr inbounds [32 x i8], ptr %139, i64 %.0372.neg
   %141 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %.sroa.0223.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(32) %140)
   %142 = extractvalue { ptr, ptr } %141, 0
   %143 = extractvalue { ptr, ptr } %141, 1
@@ -1629,7 +1624,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit411: ; preds = %_ZN4llvm
   %191 = load ptr, ptr %190, align 8, !tbaa !383
   %.neg789 = select i1 %125, i64 -4965, i64 -4964
   %.neg790 = select i1 %94, i64 -4963, i64 %.neg789
-  %192 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %191, i64 %.neg790
+  %192 = getelementptr inbounds [32 x i8], ptr %191, i64 %.neg790
   %193 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %.sroa.0221.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %192)
   %194 = extractvalue { ptr, ptr } %193, 0
   %195 = extractvalue { ptr, ptr } %193, 1
@@ -1659,7 +1654,7 @@ _ZN4llvm8DebugLocD2Ev.exit415:                    ; preds = %_ZN4llvm10MIMetadat
   %201 = load ptr, ptr %27, align 8, !tbaa !459
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %203 = load ptr, ptr %202, align 8, !tbaa !219
-  %204 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %203, i64 %indvars.iv840
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %203, i64 %indvars.iv840
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %195, ptr noundef nonnull align 8 dereferenceable(1065) %194, ptr noundef nonnull align 8 dereferenceable(32) %204) #16
   %indvars.iv.next841 = add nuw nsw i64 %indvars.iv840, 1
   %.not404 = icmp eq i64 %indvars.iv.next841, 5
@@ -1704,7 +1699,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit419: ; preds = %_ZN4llvm
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !383
   %.neg788 = select i1 %125, i64 -4968, i64 -4967
-  %219 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %218, i64 %.neg788
+  %219 = getelementptr inbounds [32 x i8], ptr %218, i64 %.neg788
   %220 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %.sroa.0217.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(32) %219)
   %221 = extractvalue { ptr, ptr } %220, 0
   %222 = extractvalue { ptr, ptr } %220, 1
@@ -1846,21 +1841,21 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i: ; p
   %274 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %275 = load i32, ptr %268, align 8, !tbaa !470
   %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds nuw ptr, ptr %274, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %276
   %278 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %279 = load i8, ptr %278, align 4, !tbaa !471, !range !417, !noundef !418
   %280 = getelementptr inbounds nuw i8, ptr %268, i64 5
   %281 = load i8, ptr %280, align 1, !tbaa !472, !range !417, !noundef !418
   %narrow.i.i.i.i.i.i.i = add nuw nsw i8 %281, %279
   %282 = zext nneg i8 %narrow.i.i.i.i.i.i.i to i64
-  %283 = getelementptr inbounds nuw ptr, ptr %277, i64 %282
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %268, i64 6
   %285 = load i8, ptr %284, align 2, !tbaa !473, !range !417, !noundef !418
   %286 = getelementptr inbounds nuw i8, ptr %268, i64 7
   %287 = load i8, ptr %286, align 1, !tbaa !474, !range !417, !noundef !418
   %narrow.i.i.i.i.i.i = add nuw nsw i8 %287, %285
   %288 = zext nneg i8 %narrow.i.i.i.i.i.i to i64
-  %289 = getelementptr inbounds nuw ptr, ptr %283, i64 %288
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %288
   %290 = load i32, ptr %289, align 8, !tbaa !475
   br label %_ZNK4llvm12MachineInstr10getCFITypeEv.exit
 
@@ -1999,7 +1994,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit437: ; preds = %_ZN4llvm
   %346 = load ptr, ptr %345, align 8, !tbaa !153
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = load ptr, ptr %347, align 8, !tbaa !383
-  %349 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %348, i64 %.neg787
+  %349 = getelementptr inbounds [32 x i8], ptr %348, i64 %.neg787
   %350 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(32) %349, i32 %339)
   %351 = extractvalue { ptr, ptr } %350, 0
   %352 = extractvalue { ptr, ptr } %350, 1
@@ -2100,7 +2095,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit445: ; preds = %_ZN4llvm
   %392 = load ptr, ptr %391, align 8, !tbaa !153
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 8
   %394 = load ptr, ptr %393, align 8, !tbaa !383
-  %395 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %394, i64 %.0376.neg
+  %395 = getelementptr inbounds [32 x i8], ptr %394, i64 %.0376.neg
   %396 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %.sroa.0201.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %395)
   %397 = load ptr, ptr %38, align 8, !tbaa !382
   %.not.i.i.i.i.i446 = icmp eq ptr %397, null
@@ -2169,7 +2164,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit453: ; preds = %_ZN4llvm
   %421 = trunc nuw i8 %420 to i1
   %422 = load ptr, ptr %416, align 8, !tbaa !383
   %.neg784 = select i1 %421, i64 -3739, i64 -3738
-  %423 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %422, i64 %.neg784
+  %423 = getelementptr inbounds [32 x i8], ptr %422, i64 %.neg784
   %424 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(32) %423)
   %425 = extractvalue { ptr, ptr } %424, 0
   %426 = extractvalue { ptr, ptr } %424, 1
@@ -2234,7 +2229,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit461: ; preds = %_ZN4llvm
   %446 = trunc nuw i8 %445 to i1
   %447 = load ptr, ptr %441, align 8, !tbaa !383
   %.neg783 = select i1 %446, i64 -3742, i64 -3741
-  %448 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %447, i64 %.neg783
+  %448 = getelementptr inbounds [32 x i8], ptr %447, i64 %.neg783
   %449 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(32) %448)
   %450 = extractvalue { ptr, ptr } %449, 0
   %451 = extractvalue { ptr, ptr } %449, 1
@@ -2473,7 +2468,7 @@ _ZN4llvm8DebugLocD2Ev.exit489:                    ; preds = %_ZN4llvm10MIMetadat
   %522 = load ptr, ptr %27, align 8, !tbaa !459
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 32
   %524 = load ptr, ptr %523, align 8, !tbaa !219
-  %525 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %524, i64 %indvars.iv836
+  %525 = getelementptr inbounds nuw [32 x i8], ptr %524, i64 %indvars.iv836
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.7.0, ptr noundef nonnull align 8 dereferenceable(1065) %.sroa.0695.0, ptr noundef nonnull align 8 dereferenceable(32) %525) #16
   %indvars.iv.next837 = add nuw nsw i64 %indvars.iv836, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next837 to i32
@@ -2555,7 +2550,7 @@ _ZN4llvm8DebugLocD2Ev.exit497:                    ; preds = %_ZN4llvm10MIMetadat
   %554 = load ptr, ptr %27, align 8, !tbaa !459
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 32
   %556 = load ptr, ptr %555, align 8, !tbaa !219
-  %557 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %556, i64 %indvars.iv832
+  %557 = getelementptr inbounds nuw [32 x i8], ptr %556, i64 %indvars.iv832
   call void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %545, ptr noundef nonnull align 8 dereferenceable(32) %557) #16
   %indvars.iv.next833 = add nuw nsw i64 %indvars.iv832, 1
   %exitcond835.not = icmp eq i64 %indvars.iv.next833, 6
@@ -2612,7 +2607,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit501: ; preds = %_ZN4llvm
   %585 = trunc nuw i8 %584 to i1
   %586 = load ptr, ptr %580, align 8, !tbaa !383
   %.neg781 = select i1 %585, i64 -2037, i64 -2036
-  %587 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %586, i64 %.neg781
+  %587 = getelementptr inbounds [32 x i8], ptr %586, i64 %.neg781
   %588 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(32) %587)
   %589 = extractvalue { ptr, ptr } %588, 0
   store ptr %589, ptr %52, align 8
@@ -2679,7 +2674,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit509: ; preds = %_ZN4llvm
   %608 = trunc nuw i8 %607 to i1
   %609 = load ptr, ptr %604, align 8, !tbaa !383
   %.neg782 = select i1 %608, i64 -2037, i64 -2036
-  %610 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %609, i64 %.neg782
+  %610 = getelementptr inbounds [32 x i8], ptr %609, i64 %.neg782
   %611 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %.sroa.0159.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(32) %610)
   %612 = extractvalue { ptr, ptr } %611, 0
   store ptr %612, ptr %55, align 8
@@ -2761,7 +2756,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %630, %632
   %indvars.iv.next829 = add nuw nsw i64 %indvars.iv828, 1
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 32
   %645 = load ptr, ptr %644, align 8, !tbaa !219
-  %646 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %645, i64 %indvars.iv.next829
+  %646 = getelementptr inbounds nuw [32 x i8], ptr %645, i64 %indvars.iv.next829
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.5676.0.copyload, ptr noundef nonnull align 8 dereferenceable(1065) %.sroa.0674.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %646) #16
   %647 = icmp eq i64 %indvars.iv828, 3
   br i1 %647, label %648, label %649
@@ -2779,7 +2774,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %630, %632
   %650 = load ptr, ptr %27, align 8, !tbaa !459
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 32
   %652 = load ptr, ptr %651, align 8, !tbaa !219
-  %653 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %652, i64 %indvars.iv.next829
+  %653 = getelementptr inbounds nuw [32 x i8], ptr %652, i64 %indvars.iv.next829
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.6671.0.copyload, ptr noundef nonnull align 8 dereferenceable(1065) %.sroa.0668.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %653) #16
   br label %654
 
@@ -2843,7 +2838,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit517: ; preds = %_ZN4llvm
   %685 = trunc nuw i8 %684 to i1
   %686 = load ptr, ptr %680, align 8, !tbaa !383
   %.neg779 = select i1 %685, i64 -2041, i64 -2040
-  %687 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %686, i64 %.neg779
+  %687 = getelementptr inbounds [32 x i8], ptr %686, i64 %.neg779
   %688 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(32) %687)
   %689 = extractvalue { ptr, ptr } %688, 0
   store ptr %689, ptr %60, align 8
@@ -2904,7 +2899,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit525: ; preds = %_ZN4llvm
   %706 = trunc nuw i8 %705 to i1
   %707 = load ptr, ptr %702, align 8, !tbaa !383
   %.neg780 = select i1 %706, i64 -2041, i64 -2040
-  %708 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %707, i64 %.neg780
+  %708 = getelementptr inbounds [32 x i8], ptr %707, i64 %.neg780
   %709 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %.sroa.0138.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(32) %708)
   %710 = extractvalue { ptr, ptr } %709, 0
   store ptr %710, ptr %63, align 8
@@ -2989,7 +2984,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit534:   ; preds = %730, %732
   %747 = load ptr, ptr %27, align 8, !tbaa !459
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 32
   %749 = load ptr, ptr %748, align 8, !tbaa !219
-  %750 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %749, i64 %indvars.iv824
+  %750 = getelementptr inbounds nuw [32 x i8], ptr %749, i64 %indvars.iv824
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %691, ptr noundef nonnull align 8 dereferenceable(1065) %689, ptr noundef nonnull align 8 dereferenceable(32) %750) #16
   %751 = icmp eq i64 %indvars.iv824, 3
   br i1 %751, label %752, label %754
@@ -3008,7 +3003,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit534:   ; preds = %730, %732
   %755 = load ptr, ptr %27, align 8, !tbaa !459
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 32
   %757 = load ptr, ptr %756, align 8, !tbaa !219
-  %758 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %757, i64 %indvars.iv824
+  %758 = getelementptr inbounds nuw [32 x i8], ptr %757, i64 %indvars.iv824
   %759 = load ptr, ptr %63, align 8, !tbaa !412
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %712, ptr noundef nonnull align 8 dereferenceable(1065) %759, ptr noundef nonnull align 8 dereferenceable(32) %758) #16
   br label %760
@@ -3109,7 +3104,7 @@ _ZN4llvm8DebugLocD2Ev.exit543:                    ; preds = %_ZN4llvm10MIMetadat
   %805 = trunc nuw i8 %804 to i1
   %806 = load ptr, ptr %800, align 8, !tbaa !383
   %.neg777 = select i1 %805, i64 -2097, i64 -2096
-  %807 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %806, i64 %.neg777
+  %807 = getelementptr inbounds [32 x i8], ptr %806, i64 %.neg777
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %807) #16
   br label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
@@ -3218,7 +3213,7 @@ _ZN4llvm8DebugLocD2Ev.exit543:                    ; preds = %_ZN4llvm10MIMetadat
   %849 = load ptr, ptr %848, align 8, !tbaa !153
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 8
   %851 = load ptr, ptr %850, align 8, !tbaa !383
-  %852 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %851, i64 %.0384.neg
+  %852 = getelementptr inbounds [32 x i8], ptr %851, i64 %.0384.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %852) #16
   br label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
@@ -3259,7 +3254,7 @@ _ZN4llvm8DebugLocD2Ev.exit543:                    ; preds = %_ZN4llvm10MIMetadat
   %886 = zext i16 %885 to i32
   %887 = add i32 %882, %886
   %888 = zext i32 %887 to i64
-  %889 = getelementptr inbounds nuw %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %870, i64 %888
+  %889 = getelementptr inbounds nuw [16 x i8], ptr %870, i64 %888
   %890 = load i32, ptr %889, align 4, !tbaa !609
   %891 = zext i32 %890 to i64
   store i64 %891, ptr %70, align 8
@@ -3452,7 +3447,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit564:   ; preds = %948, %950
   %indvars.iv.next821 = add nuw nsw i64 %indvars.iv820, 1
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 32
   %964 = load ptr, ptr %963, align 8, !tbaa !219
-  %965 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %964, i64 %indvars.iv.next821
+  %965 = getelementptr inbounds nuw [32 x i8], ptr %964, i64 %indvars.iv.next821
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.5641.0.copyload, ptr noundef nonnull align 8 dereferenceable(1065) %.sroa.0639.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %965) #16
   %966 = icmp eq i64 %indvars.iv820, 3
   br i1 %966, label %967, label %968
@@ -3470,7 +3465,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit564:   ; preds = %948, %950
   %969 = load ptr, ptr %27, align 8, !tbaa !459
   %970 = getelementptr inbounds nuw i8, ptr %969, i64 32
   %971 = load ptr, ptr %970, align 8, !tbaa !219
-  %972 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %971, i64 %indvars.iv.next821
+  %972 = getelementptr inbounds nuw [32 x i8], ptr %971, i64 %indvars.iv.next821
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.6.0.copyload, ptr noundef nonnull align 8 dereferenceable(1065) %.sroa.0634.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %972) #16
   br label %973
 
@@ -3520,7 +3515,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit564:   ; preds = %948, %950
   %1010 = zext i16 %1009 to i32
   %1011 = add i32 %1006, %1010
   %1012 = zext i32 %1011 to i64
-  %1013 = getelementptr inbounds nuw %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %994, i64 %1012
+  %1013 = getelementptr inbounds nuw [16 x i8], ptr %994, i64 %1012
   %1014 = load i32, ptr %1013, align 4, !tbaa !609
   %1015 = zext i32 %1014 to i64
   store i64 %1015, ptr %79, align 8
@@ -3711,7 +3706,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit589:   ; preds = %1073, %1075
   %1091 = load ptr, ptr %27, align 8, !tbaa !459
   %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 32
   %1093 = load ptr, ptr %1092, align 8, !tbaa !219
-  %1094 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1093, i64 %indvars.iv
+  %1094 = getelementptr inbounds nuw [32 x i8], ptr %1093, i64 %indvars.iv
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1031, ptr noundef nonnull align 8 dereferenceable(1065) %1029, ptr noundef nonnull align 8 dereferenceable(32) %1094) #16
   %1095 = icmp eq i64 %indvars.iv, 3
   br i1 %1095, label %1096, label %1098
@@ -3730,7 +3725,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit589:   ; preds = %1073, %1075
   %1099 = load ptr, ptr %27, align 8, !tbaa !459
   %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 32
   %1101 = load ptr, ptr %1100, align 8, !tbaa !219
-  %1102 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1101, i64 %indvars.iv
+  %1102 = getelementptr inbounds nuw [32 x i8], ptr %1101, i64 %indvars.iv
   %1103 = load ptr, ptr %83, align 8, !tbaa !412
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1048, ptr noundef nonnull align 8 dereferenceable(1065) %1103, ptr noundef nonnull align 8 dereferenceable(32) %1102) #16
   br label %1104
@@ -3805,7 +3800,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit589:   ; preds = %1073, %1075
   %1124 = load ptr, ptr %1123, align 8, !tbaa !153
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   %1126 = load ptr, ptr %1125, align 8, !tbaa !383
-  %1127 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1126, i64 %.0391.neg
+  %1127 = getelementptr inbounds [32 x i8], ptr %1126, i64 %.0391.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %1127) #16
   br label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
@@ -3816,7 +3811,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit589:   ; preds = %1073, %1075
   %1132 = icmp eq i16 %91, 3483
   %1133 = load ptr, ptr %1131, align 8, !tbaa !383
   %.neg763 = select i1 %1132, i64 -5060, i64 -4972
-  %1134 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1133, i64 %.neg763
+  %1134 = getelementptr inbounds [32 x i8], ptr %1133, i64 %.neg763
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %1134) #16
   br label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
@@ -3843,7 +3838,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit589:   ; preds = %1073, %1075
   %1148 = tail call noundef i32 @_ZNK4llvm12MachineInstr18findTiedOperandIdxEj(ptr noundef nonnull align 8 dereferenceable(70) %2, i32 noundef 4) #16
   %1149 = load ptr, ptr %1139, align 8, !tbaa !219
   %1150 = zext i32 %1148 to i64
-  %1151 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1149, i64 %1150
+  %1151 = getelementptr inbounds nuw [32 x i8], ptr %1149, i64 %1150
   %1152 = load i32, ptr %1151, align 8
   %1153 = and i32 %1152, -15728641
   store i32 %1153, ptr %1151, align 8
@@ -3948,7 +3943,7 @@ _ZN4llvm12MachineInstr15untieRegOperandEj.exit:   ; preds = %_ZN4llvm12MachineIn
   %1179 = load ptr, ptr %1178, align 8, !tbaa !153
   %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 8
   %1181 = load ptr, ptr %1180, align 8, !tbaa !383
-  %1182 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1181, i64 %.0388.neg
+  %1182 = getelementptr inbounds [32 x i8], ptr %1181, i64 %.0388.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %1182) #16
   tail call void @_ZN4llvm12MachineInstr11tieOperandsEjj(ptr noundef nonnull align 8 dereferenceable(70) %2, i32 noundef 0, i32 noundef 1) #16
   br label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
@@ -3964,7 +3959,7 @@ _ZN4llvm12MachineInstr15untieRegOperandEj.exit:   ; preds = %_ZN4llvm12MachineIn
   %1191 = trunc nuw i8 %1190 to i1
   %1192 = load ptr, ptr %1186, align 8, !tbaa !383
   %.neg = select i1 %1191, i64 -5035, i64 -5034
-  %1193 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1192, i64 %.neg
+  %1193 = getelementptr inbounds [32 x i8], ptr %1192, i64 %.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %1193) #16
   br label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
@@ -4039,7 +4034,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i: ; preds = %_ZN4llvm1
   %1213 = load ptr, ptr %1212, align 8, !tbaa !153
   %1214 = getelementptr inbounds nuw i8, ptr %1213, i64 8
   %1215 = load ptr, ptr %1214, align 8, !tbaa !383
-  %1216 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1215, i64 %.0.neg.i
+  %1216 = getelementptr inbounds [32 x i8], ptr %1215, i64 %.0.neg.i
   %1217 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %1216)
   %1218 = extractvalue { ptr, ptr } %1217, 1
   %1219 = load ptr, ptr %10, align 8, !tbaa !382
@@ -4340,7 +4335,7 @@ _ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlo
   %1325 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1326 = load ptr, ptr %1325, align 8, !tbaa !219
   %1327 = zext i32 %1324 to i64
-  %1328 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1326, i64 %1327
+  %1328 = getelementptr inbounds nuw [32 x i8], ptr %1326, i64 %1327
   %1329 = load i32, ptr %1328, align 8
   %1330 = and i32 %1329, 255
   %1331 = icmp eq i32 %1330, 1
@@ -4358,9 +4353,9 @@ _ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlo
   %1339 = add nsw i32 %1338, 3
   %1340 = load ptr, ptr %1325, align 8, !tbaa !219
   %1341 = zext i32 %1339 to i64
-  %1342 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1340, i64 %1341
+  %1342 = getelementptr inbounds nuw [32 x i8], ptr %1340, i64 %1341
   %1343 = zext i32 %1338 to i64
-  %1344 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1340, i64 %1343
+  %1344 = getelementptr inbounds nuw [32 x i8], ptr %1340, i64 %1343
   %1345 = getelementptr inbounds nuw i8, ptr %1344, i64 4
   %1346 = load i32, ptr %1345, align 4, !tbaa !220
   %.not = icmp eq i32 %1346, 0
@@ -4382,12 +4377,12 @@ _ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlo
 1356:                                             ; preds = %1351, %1347, %1337
   %1357 = add nsw i32 %1338, 2
   %1358 = zext i32 %1357 to i64
-  %1359 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1340, i64 %1358
+  %1359 = getelementptr inbounds nuw [32 x i8], ptr %1340, i64 %1358
   %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 4
   %1361 = load i32, ptr %1360, align 4, !tbaa !220
   %1362 = add nsw i32 %1338, 4
   %1363 = zext i32 %1362 to i64
-  %1364 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1340, i64 %1363
+  %1364 = getelementptr inbounds nuw [32 x i8], ptr %1340, i64 %1363
   %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 4
   %1366 = load i32, ptr %1365, align 4, !tbaa !220
   %1367 = icmp ne i32 %1366, 0
@@ -4582,7 +4577,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit606: ; preds = %_ZN4llvm
   %1431 = load ptr, ptr %1430, align 8, !tbaa !153
   %1432 = getelementptr inbounds nuw i8, ptr %1431, i64 8
   %1433 = load ptr, ptr %1432, align 8, !tbaa !383
-  %1434 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1433, i64 %.0375.neg
+  %1434 = getelementptr inbounds [32 x i8], ptr %1433, i64 %.0375.neg
   %1435 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %1424, ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(32) %1434, i32 %1413)
   %1436 = extractvalue { ptr, ptr } %1435, 0
   %1437 = extractvalue { ptr, ptr } %1435, 1
@@ -4629,7 +4624,7 @@ _ZN4llvm8DebugLocD2Ev.exit611:                    ; preds = %_ZN4llvm10MIMetadat
   %1450 = load ptr, ptr %1430, align 8, !tbaa !153
   %1451 = getelementptr inbounds nuw i8, ptr %1450, i64 8
   %1452 = load ptr, ptr %1451, align 8, !tbaa !383
-  %1453 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1452, i64 %.0374.neg
+  %1453 = getelementptr inbounds [32 x i8], ptr %1452, i64 %.0374.neg
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %1453) #16
   br label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
@@ -5101,7 +5096,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %121 = load ptr, ptr %120, align 8, !tbaa !219
   %122 = zext i32 %119 to i64
-  %123 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %122
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %116, ptr noundef nonnull align 8 dereferenceable(1065) %115, ptr noundef nonnull align 8 dereferenceable(32) %123) #16
   %124 = load ptr, ptr %20, align 8, !tbaa !382
   %.not.i.i.i.i.i12 = icmp eq ptr %124, null
@@ -5249,7 +5244,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %47, %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i.i.i.i
   store ptr %42, ptr %21, align 8, !tbaa !688
   store ptr %46, ptr %22, align 8, !tbaa !698
-  %48 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %48, ptr %24, align 8, !tbaa !690
   br label %"_ZZN12_GLOBAL__N_115X86ExpandPseudo23expandICallBranchFunnelEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_4clEjj.exit.i.i.i"
 
@@ -5344,7 +5339,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i40.i.i.i: ; preds = %89, %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i37.i.i.i
   store ptr %84, ptr %63, align 8, !tbaa !688
   store ptr %88, ptr %64, align 8, !tbaa !698
-  %90 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %82
   store ptr %90, ptr %66, align 8, !tbaa !690
   br label %"_ZZN12_GLOBAL__N_115X86ExpandPseudo23expandICallBranchFunnelEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_4clEjj.exit41.i.i.i"
 
@@ -5425,7 +5420,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i56.i.i.i: ; preds = %123, %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i53.i.i.i
   store ptr %118, ptr %97, align 8, !tbaa !688
   store ptr %122, ptr %98, align 8, !tbaa !698
-  %124 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %118, i64 %116
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %116
   store ptr %124, ptr %100, align 8, !tbaa !690
   br label %"_ZZN12_GLOBAL__N_115X86ExpandPseudo23expandICallBranchFunnelEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_4clEjj.exit57.i.i.i"
 
@@ -5544,7 +5539,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i72.i.i.i: ; preds = %177, %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockEjESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i69.i.i.i
   store ptr %172, ptr %151, align 8, !tbaa !688
   store ptr %176, ptr %152, align 8, !tbaa !698
-  %178 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %172, i64 %170
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %170
   store ptr %178, ptr %154, align 8, !tbaa !690
   br label %"_ZZN12_GLOBAL__N_115X86ExpandPseudo23expandICallBranchFunnelEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_4clEjj.exit73.i.i.i"
 
@@ -5716,7 +5711,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !219
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %33
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %25, ptr noundef nonnull align 8 dereferenceable(1065) %24, ptr noundef nonnull align 8 dereferenceable(32) %34) #16
   %35 = load ptr, ptr %3, align 8, !tbaa !382
   %.not.i.i.i.i.i1 = icmp eq ptr %35, null
@@ -5835,7 +5830,7 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %51, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
   store ptr %46, ptr %25, align 8, !tbaa !735
   store ptr %50, ptr %27, align 8, !tbaa !733
-  %52 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %46, i64 %44
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %44
   store ptr %52, ptr %29, align 8, !tbaa !734
   br label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit
 
@@ -5914,7 +5909,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %87 = load ptr, ptr %86, align 8, !tbaa !219
   %88 = zext i32 %85 to i64
-  %89 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i64, ptr %90, align 8, !tbaa !220
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6114,7 +6109,7 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %42, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
   store ptr %37, ptr %17, align 8, !tbaa !735
   store ptr %41, ptr %18, align 8, !tbaa !733
-  %43 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !734
   br label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit
 

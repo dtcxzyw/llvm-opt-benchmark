@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5B2_node_info_t = type { i32, i32, i32, i64, i8, ptr, ptr }
 %struct.H5B2_hdr_cache_ud_t = type { ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [21 x i8] c"H5B2_node_info_t_seq\00", align 1
@@ -210,7 +209,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_init(ptr noundef %0, ptr noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
   %94 = load i64, ptr %88, align 8, !tbaa !49
   %95 = mul i64 %94, %indvars.iv
-  %96 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   store i64 %95, ptr %96, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -288,7 +287,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %100, %105, %112, %.
   %132 = load i8, ptr %123, align 2, !tbaa !57
   %133 = zext i8 %132 to i32
   %134 = add nuw nsw i32 %133, %131
-  %135 = getelementptr %struct.H5B2_node_info_t, ptr %128, i64 %indvars.iv141
+  %135 = getelementptr [48 x i8], ptr %128, i64 %indvars.iv141
   %136 = getelementptr i8, ptr %135, i64 -24
   %137 = load i8, ptr %136, align 8, !tbaa !48
   %138 = zext i8 %137 to i32
@@ -298,7 +297,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %100, %105, %112, %.
   %141 = load i32, ptr %24, align 8, !tbaa !36
   %142 = add i32 %139, %141
   %143 = udiv i32 %140, %142
-  %144 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %128, i64 %indvars.iv141
+  %144 = getelementptr inbounds nuw [48 x i8], ptr %128, i64 %indvars.iv141
   store i32 %143, ptr %144, align 8, !tbaa !42
   %145 = load i8, ptr %15, align 8, !tbaa !30
   %146 = zext i8 %145 to i32
@@ -423,7 +422,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %168, %173, %180, %1
   %222 = mul i64 %221, %160
   %223 = tail call ptr @H5FL_fac_init(i64 noundef %222) #5
   %224 = load ptr, ptr %42, align 8, !tbaa !41
-  %225 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %224, i64 %indvars.iv141
+  %225 = getelementptr inbounds nuw [48 x i8], ptr %224, i64 %indvars.iv141
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 32
   store ptr %223, ptr %226, align 8, !tbaa !51
   %227 = icmp eq ptr %223, null
@@ -442,7 +441,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %168, %173, %180, %1
   %236 = mul nuw nsw i64 %235, 24
   %237 = tail call ptr @H5FL_fac_init(i64 noundef %236) #5
   %238 = load ptr, ptr %42, align 8, !tbaa !41
-  %239 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %238, i64 %indvars.iv141
+  %239 = getelementptr inbounds nuw [48 x i8], ptr %238, i64 %indvars.iv141
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 40
   store ptr %237, ptr %240, align 8, !tbaa !52
   %241 = icmp eq ptr %237, null
@@ -596,7 +595,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_free(ptr noundef %0) local_unnamed_addr #
 37:                                               ; preds = %.preheader, %61
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %61 ]
   %38 = load ptr, ptr %34, align 8, !tbaa !41
-  %39 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !51
   %.not55 = icmp eq ptr %41, null
@@ -619,7 +618,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_free(ptr noundef %0) local_unnamed_addr #
 
 49:                                               ; preds = %._crit_edge, %37
   %50 = phi ptr [ %.pre, %._crit_edge ], [ %38, %37 ]
-  %51 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !52
   %.not56 = icmp eq ptr %53, null

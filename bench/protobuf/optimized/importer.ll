@@ -1127,7 +1127,7 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt17ba
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %call5.i.i.i.i.i30, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i30, i64 %cond.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -1381,13 +1381,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = extractvalue { i64, ptr } %call3, 0
   %3 = extractvalue { i64, ptr } %call3, 1
   %4 = load ptr, ptr %mappings_, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %4, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv
   %disk_path = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %call8 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %disk_path) #27
   %5 = extractvalue { i64, ptr } %call8, 0
   %6 = extractvalue { i64, ptr } %call8, 1
   %7 = load ptr, ptr %mappings_, align 8
-  %add.ptr.i13 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %7, i64 %indvars.iv
+  %add.ptr.i13 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %indvars.iv
   %call13 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i13) #27
   %8 = extractvalue { i64, ptr } %call13, 0
   %9 = extractvalue { i64, ptr } %call13, 1
@@ -1443,12 +1443,12 @@ for.body21:                                       ; preds = %for.body21.preheade
   %12 = extractvalue { i64, ptr } %call23, 0
   %13 = extractvalue { i64, ptr } %call23, 1
   %14 = load ptr, ptr %mappings_, align 8
-  %add.ptr.i14 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %14, i64 %indvars.iv42
+  %add.ptr.i14 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %indvars.iv42
   %call29 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i14) #27
   %15 = extractvalue { i64, ptr } %call29, 0
   %16 = extractvalue { i64, ptr } %call29, 1
   %17 = load ptr, ptr %mappings_, align 8
-  %add.ptr.i15 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %17, i64 %indvars.iv42
+  %add.ptr.i15 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %indvars.iv42
   %disk_path34 = getelementptr inbounds nuw i8, ptr %add.ptr.i15, i64 32
   %call35 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %disk_path34) #27
   %18 = extractvalue { i64, ptr } %call35, 0
@@ -2452,7 +2452,7 @@ _ZNSt12_Vector_baseIN6google8protobuf8compiler14DiskSourceTree7MappingESaIS4_EE1
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

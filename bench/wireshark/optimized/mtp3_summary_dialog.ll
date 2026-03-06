@@ -4237,9 +4237,9 @@ _ZN7QStringC2ERKS_.exit874:                       ; preds = %_ZN7QStringC2ERKS_.
   %.01590 = phi i64 [ %1167, %.lr.ph ], [ 0, %_ZN7QStringC2ERKS_.exit874 ]
   %.0471589 = phi i32 [ %1166, %.lr.ph ], [ 0, %_ZN7QStringC2ERKS_.exit874 ]
   %.0481588 = phi i32 [ %1163, %.lr.ph ], [ 0, %_ZN7QStringC2ERKS_.exit874 ]
-  %1159 = getelementptr %struct._mtp3_stat_t, ptr @_ZL9mtp3_stat, i64 %.01590
+  %1159 = getelementptr [96 x i8], ptr @_ZL9mtp3_stat, i64 %.01590
   %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 24
-  %1161 = getelementptr %struct._mtp3_stat_si_code_t, ptr %1160, i64 %.0491594
+  %1161 = getelementptr [8 x i8], ptr %1160, i64 %.0491594
   %1162 = load i32, ptr %1161, align 8
   %1163 = add i32 %1162, %.0481588
   %1164 = getelementptr inbounds nuw i8, ptr %1161, i64 4
@@ -4495,7 +4495,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit934:           ; preds = %1237, %_ZN17QArrayD
 1241:                                             ; preds = %1239
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
-  %1242 = getelementptr %struct._value_string, ptr @mtp3_service_indicator_code_short_vals, i64 %.0491594
+  %1242 = getelementptr [16 x i8], ptr @mtp3_service_indicator_code_short_vals, i64 %.0491594
   %1243 = getelementptr inbounds nuw i8, ptr %1242, i64 8
   %1244 = load ptr, ptr %1243, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6845,7 +6845,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.028 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %11 = getelementptr %struct._mtp3_stat_t, ptr %0, i64 %.028
+  %11 = getelementptr [96 x i8], ptr %0, i64 %.028
   %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(12) %3, ptr noundef dereferenceable(12) %11, i64 12)
   %12 = icmp eq i32 %bcmp, 0
   br i1 %12, label %13, label %16
@@ -6878,14 +6878,14 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
 
 22:                                               ; preds = %20, %._crit_edge
   %.0.lcssa35 = phi i64 [ %.0.lcssa36, %20 ], [ %.0.lcssa, %._crit_edge ]
-  %23 = getelementptr %struct._mtp3_stat_t, ptr %0, i64 %.0.lcssa35
+  %23 = getelementptr [96 x i8], ptr %0, i64 %.0.lcssa35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(12) %23, ptr noundef align 4 dereferenceable(12) %3, i64 12, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load i8, ptr %6, align 4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr %struct._mtp3_stat_si_code_t, ptr %25, i64 %27
+  %28 = getelementptr [8 x i8], ptr %25, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4
@@ -6894,7 +6894,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
   %33 = zext i16 %32 to i32
   %34 = load i8, ptr %6, align 4
   %35 = zext i8 %34 to i64
-  %36 = getelementptr %struct._mtp3_stat_si_code_t, ptr %25, i64 %35
+  %36 = getelementptr [8 x i8], ptr %25, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, %33

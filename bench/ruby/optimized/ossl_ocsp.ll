@@ -772,7 +772,7 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
   br i1 %.not109.i, label %19, label %16
 
 16:                                               ; preds = %.preheader18
-  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !6
   store i64 %18, ptr %15, align 8, !tbaa !6
   br label %19
@@ -784,7 +784,7 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %32 ], [ 2, %19 ]
   %.185.i23 = phi i32 [ %.286.i, %32 ], [ 2, %19 ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv31
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv31
   %21 = load ptr, ptr %20, align 8, !tbaa !31
   %22 = icmp slt i32 %.185.i23, %0
   %.not108.i = icmp eq ptr %21, null
@@ -795,7 +795,7 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
 
 24:                                               ; preds = %23
   %25 = sext i32 %.185.i23 to i64
-  %26 = getelementptr inbounds i64, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !6
   store i64 %27, ptr %21, align 8, !tbaa !6
   br label %28
@@ -920,7 +920,7 @@ define internal range(i64 0, 21) i64 @ossl_ocspreq_verify(i32 noundef %0, ptr no
   %exitcond.not = phi i1 [ true, %.preheader11 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader11 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader11 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !6
   store i64 %8, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %.preheader, label %.preheader11, !llvm.loop !33
@@ -1791,7 +1791,7 @@ rb_array_len.exit.thread:                         ; preds = %30
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %38
   %.0.i70 = phi ptr [ %39, %38 ], [ %28, %rb_array_len.exit.thread ]
-  %40 = getelementptr inbounds nuw i64, ptr %.0.i70, i64 %.045
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.0.i70, i64 %.045
   %41 = load i64, ptr %40, align 8, !tbaa !6
   %42 = load i64, ptr @cX509Ext, align 8, !tbaa !6
   %43 = tail call i64 @rb_obj_is_kind_of(i64 noundef %41, i64 noundef %42) #5
@@ -1811,7 +1811,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
 
 rb_array_const_ptr.exit73:                        ; preds = %44, %48
   %.0.i72 = phi ptr [ %49, %48 ], [ %28, %44 ]
-  %50 = getelementptr inbounds nuw i64, ptr %.0.i72, i64 %.045
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.0.i72, i64 %.045
   %51 = load i64, ptr %50, align 8, !tbaa !6
   %52 = tail call i64 @rb_obj_class(i64 noundef %51) #5
   %53 = load i64, ptr @cX509Ext, align 8, !tbaa !6
@@ -1914,7 +1914,7 @@ rb_array_len.exit78.thread:                       ; preds = %86
 
 rb_array_const_ptr.exit81:                        ; preds = %rb_array_len.exit78.thread, %94
   %.0.i80 = phi ptr [ %95, %94 ], [ %84, %rb_array_len.exit78.thread ]
-  %96 = getelementptr inbounds nuw i64, ptr %.0.i80, i64 %.1
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %.0.i80, i64 %.1
   %97 = load i64, ptr %96, align 8, !tbaa !6
   %98 = call ptr @GetX509ExtPtr(i64 noundef %97) #5
   %99 = call i32 @OCSP_SINGLERESP_add_ext(ptr noundef nonnull %80, ptr noundef %98, i32 noundef -1) #5
@@ -2214,7 +2214,7 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
   br i1 %.not109.i, label %19, label %16
 
 16:                                               ; preds = %.preheader18
-  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !6
   store i64 %18, ptr %15, align 8, !tbaa !6
   br label %19
@@ -2226,7 +2226,7 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %32 ], [ 2, %19 ]
   %.185.i23 = phi i32 [ %.286.i, %32 ], [ 2, %19 ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv31
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv31
   %21 = load ptr, ptr %20, align 8, !tbaa !31
   %22 = icmp slt i32 %.185.i23, %0
   %.not108.i = icmp eq ptr %21, null
@@ -2237,7 +2237,7 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
 
 24:                                               ; preds = %23
   %25 = sext i32 %.185.i23 to i64
-  %26 = getelementptr inbounds i64, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !6
   store i64 %27, ptr %21, align 8, !tbaa !6
   br label %28
@@ -2362,7 +2362,7 @@ define internal range(i64 0, 21) i64 @ossl_ocspbres_verify(i32 noundef %0, ptr n
   %exitcond.not = phi i1 [ true, %.preheader11 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader11 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader11 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !6
   store i64 %8, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %.preheader, label %.preheader11, !llvm.loop !33
@@ -2672,7 +2672,7 @@ define internal range(i64 0, 21) i64 @ossl_ocspsres_check_validity(i32 noundef %
 
 10:                                               ; preds = %.preheader
   %11 = sext i32 %.185.i16 to i64
-  %12 = getelementptr inbounds i64, ptr %1, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !6
   store i64 %13, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %14 = add nsw i32 %.185.i16, 1
@@ -3230,7 +3230,7 @@ define internal noundef i64 @ossl_ocspcid_initialize(i32 noundef %0, ptr noundef
   %18 = phi i1 [ true, %.preheader ], [ false, %31 ]
   %.185.i22 = phi i32 [ 1, %.preheader ], [ %.286.i, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = icmp slt i32 %.185.i22, %0
   %.not108.i = icmp eq ptr %20, null
@@ -3241,7 +3241,7 @@ define internal noundef i64 @ossl_ocspcid_initialize(i32 noundef %0, ptr noundef
 
 23:                                               ; preds = %22
   %24 = sext i32 %.185.i22 to i64
-  %25 = getelementptr inbounds i64, ptr %1, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %1, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !6
   store i64 %26, ptr %20, align 8, !tbaa !6
   br label %27

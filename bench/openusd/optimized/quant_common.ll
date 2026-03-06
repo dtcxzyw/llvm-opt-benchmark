@@ -3,9 +3,6 @@ source_filename = "bench/openusd/original/quant_common.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.macroblockd_plane = type { i8, i32, i32, %struct.buf_2d, [2 x %struct.buf_2d], ptr, ptr, [8 x [2 x i16]], ptr, i8, i8, [8 x [19 x ptr]], [8 x [19 x ptr]] }
-%struct.buf_2d = type { ptr, ptr, i32, i32, i32 }
-
 @dc_qlookup_QTX = internal unnamed_addr constant [256 x i16] [i16 4, i16 8, i16 8, i16 9, i16 10, i16 11, i16 12, i16 12, i16 13, i16 14, i16 15, i16 16, i16 17, i16 18, i16 19, i16 19, i16 20, i16 21, i16 22, i16 23, i16 24, i16 25, i16 26, i16 26, i16 27, i16 28, i16 29, i16 30, i16 31, i16 32, i16 32, i16 33, i16 34, i16 35, i16 36, i16 37, i16 38, i16 38, i16 39, i16 40, i16 41, i16 42, i16 43, i16 43, i16 44, i16 45, i16 46, i16 47, i16 48, i16 48, i16 49, i16 50, i16 51, i16 52, i16 53, i16 53, i16 54, i16 55, i16 56, i16 57, i16 57, i16 58, i16 59, i16 60, i16 61, i16 62, i16 62, i16 63, i16 64, i16 65, i16 66, i16 66, i16 67, i16 68, i16 69, i16 70, i16 70, i16 71, i16 72, i16 73, i16 74, i16 74, i16 75, i16 76, i16 77, i16 78, i16 78, i16 79, i16 80, i16 81, i16 81, i16 82, i16 83, i16 84, i16 85, i16 85, i16 87, i16 88, i16 90, i16 92, i16 93, i16 95, i16 96, i16 98, i16 99, i16 101, i16 102, i16 104, i16 105, i16 107, i16 108, i16 110, i16 111, i16 113, i16 114, i16 116, i16 117, i16 118, i16 120, i16 121, i16 123, i16 125, i16 127, i16 129, i16 131, i16 134, i16 136, i16 138, i16 140, i16 142, i16 144, i16 146, i16 148, i16 150, i16 152, i16 154, i16 156, i16 158, i16 161, i16 164, i16 166, i16 169, i16 172, i16 174, i16 177, i16 180, i16 182, i16 185, i16 187, i16 190, i16 192, i16 195, i16 199, i16 202, i16 205, i16 208, i16 211, i16 214, i16 217, i16 220, i16 223, i16 226, i16 230, i16 233, i16 237, i16 240, i16 243, i16 247, i16 250, i16 253, i16 257, i16 261, i16 265, i16 269, i16 272, i16 276, i16 280, i16 284, i16 288, i16 292, i16 296, i16 300, i16 304, i16 309, i16 313, i16 317, i16 322, i16 326, i16 330, i16 335, i16 340, i16 344, i16 349, i16 354, i16 359, i16 364, i16 369, i16 374, i16 379, i16 384, i16 389, i16 395, i16 400, i16 406, i16 411, i16 417, i16 423, i16 429, i16 435, i16 441, i16 447, i16 454, i16 461, i16 467, i16 475, i16 482, i16 489, i16 497, i16 505, i16 513, i16 522, i16 530, i16 539, i16 549, i16 559, i16 569, i16 579, i16 590, i16 602, i16 614, i16 626, i16 640, i16 654, i16 668, i16 684, i16 700, i16 717, i16 736, i16 755, i16 775, i16 796, i16 819, i16 843, i16 869, i16 896, i16 925, i16 955, i16 988, i16 1022, i16 1058, i16 1098, i16 1139, i16 1184, i16 1232, i16 1282, i16 1336], align 16
 @dc_qlookup_10_QTX = internal unnamed_addr constant [256 x i16] [i16 4, i16 9, i16 10, i16 13, i16 15, i16 17, i16 20, i16 22, i16 25, i16 28, i16 31, i16 34, i16 37, i16 40, i16 43, i16 47, i16 50, i16 53, i16 57, i16 60, i16 64, i16 68, i16 71, i16 75, i16 78, i16 82, i16 86, i16 90, i16 93, i16 97, i16 101, i16 105, i16 109, i16 113, i16 116, i16 120, i16 124, i16 128, i16 132, i16 136, i16 140, i16 143, i16 147, i16 151, i16 155, i16 159, i16 163, i16 166, i16 170, i16 174, i16 178, i16 182, i16 185, i16 189, i16 193, i16 197, i16 200, i16 204, i16 208, i16 212, i16 215, i16 219, i16 223, i16 226, i16 230, i16 233, i16 237, i16 241, i16 244, i16 248, i16 251, i16 255, i16 259, i16 262, i16 266, i16 269, i16 273, i16 276, i16 280, i16 283, i16 287, i16 290, i16 293, i16 297, i16 300, i16 304, i16 307, i16 310, i16 314, i16 317, i16 321, i16 324, i16 327, i16 331, i16 334, i16 337, i16 343, i16 350, i16 356, i16 362, i16 369, i16 375, i16 381, i16 387, i16 394, i16 400, i16 406, i16 412, i16 418, i16 424, i16 430, i16 436, i16 442, i16 448, i16 454, i16 460, i16 466, i16 472, i16 478, i16 484, i16 490, i16 499, i16 507, i16 516, i16 525, i16 533, i16 542, i16 550, i16 559, i16 567, i16 576, i16 584, i16 592, i16 601, i16 609, i16 617, i16 625, i16 634, i16 644, i16 655, i16 666, i16 676, i16 687, i16 698, i16 708, i16 718, i16 729, i16 739, i16 749, i16 759, i16 770, i16 782, i16 795, i16 807, i16 819, i16 831, i16 844, i16 856, i16 868, i16 880, i16 891, i16 906, i16 920, i16 933, i16 947, i16 961, i16 975, i16 988, i16 1001, i16 1015, i16 1030, i16 1045, i16 1061, i16 1076, i16 1090, i16 1105, i16 1120, i16 1137, i16 1153, i16 1170, i16 1186, i16 1202, i16 1218, i16 1236, i16 1253, i16 1271, i16 1288, i16 1306, i16 1323, i16 1342, i16 1361, i16 1379, i16 1398, i16 1416, i16 1436, i16 1456, i16 1476, i16 1496, i16 1516, i16 1537, i16 1559, i16 1580, i16 1601, i16 1624, i16 1647, i16 1670, i16 1692, i16 1717, i16 1741, i16 1766, i16 1791, i16 1817, i16 1844, i16 1871, i16 1900, i16 1929, i16 1958, i16 1990, i16 2021, i16 2054, i16 2088, i16 2123, i16 2159, i16 2197, i16 2236, i16 2276, i16 2319, i16 2363, i16 2410, i16 2458, i16 2508, i16 2561, i16 2616, i16 2675, i16 2737, i16 2802, i16 2871, i16 2944, i16 3020, i16 3102, i16 3188, i16 3280, i16 3375, i16 3478, i16 3586, i16 3702, i16 3823, i16 3953, i16 4089, i16 4236, i16 4394, i16 4559, i16 4737, i16 4929, i16 5130, i16 5347], align 16
 @dc_qlookup_12_QTX = internal unnamed_addr constant [256 x i16] [i16 4, i16 12, i16 18, i16 25, i16 33, i16 41, i16 50, i16 60, i16 70, i16 80, i16 91, i16 103, i16 115, i16 127, i16 140, i16 153, i16 166, i16 180, i16 194, i16 208, i16 222, i16 237, i16 251, i16 266, i16 281, i16 296, i16 312, i16 327, i16 343, i16 358, i16 374, i16 390, i16 405, i16 421, i16 437, i16 453, i16 469, i16 484, i16 500, i16 516, i16 532, i16 548, i16 564, i16 580, i16 596, i16 611, i16 627, i16 643, i16 659, i16 674, i16 690, i16 706, i16 721, i16 737, i16 752, i16 768, i16 783, i16 798, i16 814, i16 829, i16 844, i16 859, i16 874, i16 889, i16 904, i16 919, i16 934, i16 949, i16 964, i16 978, i16 993, i16 1008, i16 1022, i16 1037, i16 1051, i16 1065, i16 1080, i16 1094, i16 1108, i16 1122, i16 1136, i16 1151, i16 1165, i16 1179, i16 1192, i16 1206, i16 1220, i16 1234, i16 1248, i16 1261, i16 1275, i16 1288, i16 1302, i16 1315, i16 1329, i16 1342, i16 1368, i16 1393, i16 1419, i16 1444, i16 1469, i16 1494, i16 1519, i16 1544, i16 1569, i16 1594, i16 1618, i16 1643, i16 1668, i16 1692, i16 1717, i16 1741, i16 1765, i16 1789, i16 1814, i16 1838, i16 1862, i16 1885, i16 1909, i16 1933, i16 1957, i16 1992, i16 2027, i16 2061, i16 2096, i16 2130, i16 2165, i16 2199, i16 2233, i16 2267, i16 2300, i16 2334, i16 2367, i16 2400, i16 2434, i16 2467, i16 2499, i16 2532, i16 2575, i16 2618, i16 2661, i16 2704, i16 2746, i16 2788, i16 2830, i16 2872, i16 2913, i16 2954, i16 2995, i16 3036, i16 3076, i16 3127, i16 3177, i16 3226, i16 3275, i16 3324, i16 3373, i16 3421, i16 3469, i16 3517, i16 3565, i16 3621, i16 3677, i16 3733, i16 3788, i16 3843, i16 3897, i16 3951, i16 4005, i16 4058, i16 4119, i16 4181, i16 4241, i16 4301, i16 4361, i16 4420, i16 4479, i16 4546, i16 4612, i16 4677, i16 4742, i16 4807, i16 4871, i16 4942, i16 5013, i16 5083, i16 5153, i16 5222, i16 5291, i16 5367, i16 5442, i16 5517, i16 5591, i16 5665, i16 5745, i16 5825, i16 5905, i16 5984, i16 6063, i16 6149, i16 6234, i16 6319, i16 6404, i16 6495, i16 6587, i16 6678, i16 6769, i16 6867, i16 6966, i16 7064, i16 7163, i16 7269, i16 7376, i16 7483, i16 7599, i16 7715, i16 7832, i16 7958, i16 8085, i16 8214, i16 8352, i16 8492, i16 8635, i16 8788, i16 8945, i16 9104, i16 9275, i16 9450, i16 9639, i16 9832, i16 10031, i16 10245, i16 10465, i16 10702, i16 10946, i16 11210, i16 11482, i16 11776, i16 12081, i16 12409, i16 12750, i16 13118, i16 13501, i16 13913, i16 14343, i16 14807, i16 15290, i16 15812, i16 16356, i16 16943, i16 17575, i16 18237, i16 18949, i16 19718, i16 20521, i16 21387], align 16
@@ -36,7 +33,7 @@ define hidden signext i16 @av1_dc_quant_QTX(i32 noundef %0, i32 noundef %1, i32 
 .sink.split:                                      ; preds = %3, %7, %8
   %dc_qlookup_12_QTX.sink = phi ptr [ @dc_qlookup_12_QTX, %8 ], [ @dc_qlookup_10_QTX, %7 ], [ @dc_qlookup_QTX, %3 ]
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %dc_qlookup_12_QTX.sink, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %dc_qlookup_12_QTX.sink, i64 %9
   %11 = load i16, ptr %10, align 2
   br label %12
 
@@ -65,7 +62,7 @@ define hidden signext i16 @av1_ac_quant_QTX(i32 noundef %0, i32 noundef %1, i32 
 .sink.split:                                      ; preds = %3, %7, %8
   %ac_qlookup_12_QTX.sink = phi ptr [ @ac_qlookup_12_QTX, %8 ], [ @ac_qlookup_10_QTX, %7 ], [ @ac_qlookup_QTX, %3 ]
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %ac_qlookup_12_QTX.sink, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %ac_qlookup_12_QTX.sink, i64 %9
   %11 = load i16, ptr %10, align 2
   br label %12
 
@@ -83,7 +80,7 @@ define hidden noundef i32 @av1_get_qindex(ptr noundef readonly captures(none) %0
 segfeature_active.exit:                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
@@ -91,7 +88,7 @@ segfeature_active.exit:                           ; preds = %3
 
 10:                                               ; preds = %segfeature_active.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = getelementptr inbounds [8 x i16], ptr %11, i64 %6
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %6
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   %15 = add nsw i32 %2, %14
@@ -114,7 +111,7 @@ define hidden zeroext i1 @av1_use_qmatrix(ptr noundef readonly captures(none) %0
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10692
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br label %12
@@ -128,11 +125,11 @@ define hidden zeroext i1 @av1_use_qmatrix(ptr noundef readonly captures(none) %0
 define hidden ptr @av1_iqmatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [3 x [19 x ptr]], ptr %5, i64 %6
+  %7 = getelementptr inbounds [456 x i8], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [19 x ptr], ptr %7, i64 %8
+  %9 = getelementptr inbounds [152 x i8], ptr %7, i64 %8
   %10 = zext i8 %3 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
 }
@@ -141,11 +138,11 @@ define hidden ptr @av1_iqmatrix(ptr noundef readonly captures(none) %0, i32 noun
 define hidden ptr @av1_qmatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7416
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [3 x [19 x ptr]], ptr %5, i64 %6
+  %7 = getelementptr inbounds [456 x i8], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [19 x ptr], ptr %7, i64 %8
+  %9 = getelementptr inbounds [152 x i8], ptr %7, i64 %8
   %10 = zext i8 %3 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
 }
@@ -183,10 +180,10 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 16:                                               ; preds = %av1_get_adjusted_tx_size.exit
   %17 = and i16 %10, 7
   %18 = sext i32 %2 to i64
-  %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18
+  %19 = getelementptr [2608 x i8], ptr %1, i64 %18
   %20 = getelementptr i8, ptr %19, i64 192
   %21 = zext nneg i16 %17 to i64
-  %22 = getelementptr inbounds nuw [19 x ptr], ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [152 x i8], ptr %20, i64 %21
   br label %25
 
 23:                                               ; preds = %av1_get_adjusted_tx_size.exit
@@ -195,7 +192,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 
 25:                                               ; preds = %23, %16
   %.pn = phi ptr [ %22, %16 ], [ %24, %23 ]
-  %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
+  %.in = getelementptr inbounds nuw [8 x i8], ptr %.pn, i64 %.0.i
   %26 = load ptr, ptr %.in, align 8
   ret ptr %26
 }
@@ -233,10 +230,10 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 16:                                               ; preds = %av1_get_adjusted_tx_size.exit
   %17 = and i16 %10, 7
   %18 = sext i32 %2 to i64
-  %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18
+  %19 = getelementptr [2608 x i8], ptr %1, i64 %18
   %20 = getelementptr i8, ptr %19, i64 1408
   %21 = zext nneg i16 %17 to i64
-  %22 = getelementptr inbounds nuw [19 x ptr], ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [152 x i8], ptr %20, i64 %21
   br label %25
 
 23:                                               ; preds = %av1_get_adjusted_tx_size.exit
@@ -245,7 +242,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 
 25:                                               ; preds = %23, %16
   %.pn = phi ptr [ %22, %16 ], [ %24, %23 ]
-  %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
+  %.in = getelementptr inbounds nuw [8 x i8], ptr %.pn, i64 %.0.i
   %26 = load ptr, ptr %.in, align 8
   ret ptr %26
 }
@@ -267,10 +264,10 @@ define hidden void @av1_qm_init(ptr noundef captures(none) %0, i32 noundef %1) l
 .preheader55.us:                                  ; preds = %.preheader55.us.preheader, %._crit_edge.us
   %indvars.iv83 = phi i64 [ 0, %.preheader55.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us ]
   %8 = icmp eq i64 %indvars.iv83, 15
-  %9 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %4, i64 %indvars.iv83
-  %10 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %5, i64 %indvars.iv83
-  %11 = getelementptr inbounds nuw [2 x [3344 x i8]], ptr @wt_matrix_ref, i64 %indvars.iv83
-  %12 = getelementptr inbounds nuw [2 x [3344 x i8]], ptr @iwt_matrix_ref, i64 %indvars.iv83
+  %9 = getelementptr inbounds nuw [456 x i8], ptr %4, i64 %indvars.iv83
+  %10 = getelementptr inbounds nuw [456 x i8], ptr %5, i64 %indvars.iv83
+  %11 = getelementptr inbounds nuw [6688 x i8], ptr @wt_matrix_ref, i64 %indvars.iv83
+  %12 = getelementptr inbounds nuw [6688 x i8], ptr @iwt_matrix_ref, i64 %indvars.iv83
   br i1 %8, label %.preheader.us.us, label %.preheader.us61
 
 .split.us:                                        ; preds = %36
@@ -281,7 +278,7 @@ define hidden void @av1_qm_init(ptr noundef captures(none) %0, i32 noundef %1) l
 13:                                               ; preds = %.preheader.us61, %36
   %indvars.iv = phi i64 [ 0, %.preheader.us61 ], [ %indvars.iv.next, %36 ]
   %.05356.us = phi i32 [ 0, %.preheader.us61 ], [ %.1.us, %36 ]
-  %14 = getelementptr inbounds nuw i32, ptr @tx_size_2d, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_2d, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = trunc i64 %indvars.iv to i8
   switch i8 %16, label %19 [
@@ -309,23 +306,23 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
 
 21:                                               ; preds = %av1_get_adjusted_tx_size.exit.us
   %22 = zext nneg i8 %.0.i.us to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %37, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %38, i64 %22
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %22
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   store ptr %27, ptr %28, align 8
   br label %36
 
 29:                                               ; preds = %av1_get_adjusted_tx_size.exit.us
   %30 = sext i32 %.05356.us to i64
   %31 = getelementptr inbounds i8, ptr %41, i64 %30
-  %32 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %42, i64 %30
-  %34 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   store ptr %33, ptr %34, align 8
   %35 = add nsw i32 %15, %.05356.us
   br label %36
@@ -338,8 +335,8 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
 
 .preheader.us61:                                  ; preds = %.preheader55.us, %.split.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.split.us ], [ 0, %.preheader55.us ]
-  %37 = getelementptr inbounds nuw [19 x ptr], ptr %9, i64 %indvars.iv70
-  %38 = getelementptr inbounds nuw [19 x ptr], ptr %10, i64 %indvars.iv70
+  %37 = getelementptr inbounds nuw [152 x i8], ptr %9, i64 %indvars.iv70
+  %38 = getelementptr inbounds nuw [152 x i8], ptr %10, i64 %indvars.iv70
   %39 = icmp ne i64 %indvars.iv70, 0
   %40 = zext i1 %39 to i64
   %41 = getelementptr inbounds nuw [3344 x i8], ptr %11, i64 %40
@@ -353,15 +350,15 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
 
 .preheader.us.us:                                 ; preds = %.preheader55.us, %.split.us.us.us
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.split.us.us.us ], [ 0, %.preheader55.us ]
-  %43 = getelementptr inbounds nuw [19 x ptr], ptr %6, i64 %indvars.iv78
-  %44 = getelementptr inbounds nuw [19 x ptr], ptr %7, i64 %indvars.iv78
+  %43 = getelementptr inbounds nuw [152 x i8], ptr %6, i64 %indvars.iv78
+  %44 = getelementptr inbounds nuw [152 x i8], ptr %7, i64 %indvars.iv78
   br label %av1_get_adjusted_tx_size.exit.us.us.us
 
 av1_get_adjusted_tx_size.exit.us.us.us:           ; preds = %av1_get_adjusted_tx_size.exit.us.us.us, %.preheader.us.us
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %av1_get_adjusted_tx_size.exit.us.us.us ], [ 0, %.preheader.us.us ]
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv74
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv74
   store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv74
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv74
   store ptr null, ptr %46, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 19

@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/dlp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.iin_map_struct = type { i32, i32, i8, i8, i8, i8, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"Luhn algorithm successful for %s\0A\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"%3d-%2d-%4d\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"%3d%2d%4d\00", align 1
@@ -42,7 +40,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = load i8, ptr %0, align 1, !tbaa !8
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !9
   %14 = and i16 %13, 2048
   %.not = icmp eq i16 %14, 0
@@ -64,7 +62,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.069102
   %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !9
   %23 = and i16 %22, 2048
   %24 = icmp eq i16 %23, 0
@@ -115,7 +113,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %45
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %45 ], [ 0, %.lr.ph.i ]
-  %42 = getelementptr inbounds nuw %struct.iin_map_struct, ptr @iin_map, i64 %indvars.iv27.i
+  %42 = getelementptr inbounds nuw [24 x i8], ptr @iin_map, i64 %indvars.iv27.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !11
   %.not16.us.i = icmp ult i32 %44, %40
@@ -123,7 +121,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
 
 45:                                               ; preds = %.lr.ph.split.us.i
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %46 = getelementptr inbounds nuw %struct.iin_map_struct, ptr @iin_map, i64 %indvars.iv.next28.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr @iin_map, i64 %indvars.iv.next28.i
   %47 = load i32, ptr %46, align 8, !tbaa !15
   %48 = add i32 %47, -1
   %or.cond.not.us.i = icmp ult i32 %48, %40
@@ -131,7 +129,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %55
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %.lr.ph.i ]
-  %49 = getelementptr inbounds nuw %struct.iin_map_struct, ptr @iin_map, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [24 x i8], ptr @iin_map, i64 %indvars.iv.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %.not16.i = icmp ult i32 %51, %40
@@ -145,7 +143,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
 
 55:                                               ; preds = %52, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %56 = getelementptr inbounds nuw %struct.iin_map_struct, ptr @iin_map, i64 %indvars.iv.next.i
+  %56 = getelementptr inbounds nuw [24 x i8], ptr @iin_map, i64 %indvars.iv.next.i
   %57 = load i32, ptr %56, align 8, !tbaa !15
   %58 = add i32 %57, -1
   %or.cond.not.i = icmp ult i32 %58, %40
@@ -177,7 +175,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.170111
   %69 = load i8, ptr %68, align 1, !tbaa !8
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !9
   %73 = and i16 %72, 2048
   %74 = icmp eq i16 %73, 0
@@ -227,7 +225,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.170111
   %94 = load i8, ptr %93, align 1, !tbaa !8
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !9
   %98 = and i16 %97, 2048
   %.not83 = icmp eq i16 %98, 0
@@ -301,7 +299,7 @@ define i32 @dlp_get_cc_count(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %10 = load ptr, ptr %7, align 8, !tbaa !3
   %11 = load i8, ptr %.02532.i, align 1, !tbaa !8
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !9
   %15 = and i16 %14, 2048
   %.not.i = icmp eq i16 %15, 0
@@ -315,7 +313,7 @@ define i32 @dlp_get_cc_count(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %19 = getelementptr inbounds i8, ptr %.02532.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !9
   %24 = and i16 %23, 2048
   %.not29.i = icmp eq i16 %24, 0
@@ -365,7 +363,7 @@ define range(i32 0, 2) i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 nound
   %9 = load ptr, ptr %7, align 8, !tbaa !3
   %10 = load i8, ptr %.02532.us.i, align 1, !tbaa !8
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !9
   %14 = and i16 %13, 2048
   %.not.us.i = icmp eq i16 %14, 0
@@ -379,7 +377,7 @@ define range(i32 0, 2) i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 nound
   %18 = getelementptr inbounds i8, ptr %.02532.us.i, i64 -1
   %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %9, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !9
   %23 = and i16 %22, 2048
   %.not29.us.i = icmp eq i16 %23, 0
@@ -431,7 +429,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly captures(addre
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !9
   %23 = and i16 %22, 2048
   %.not = icmp eq i16 %23, 0
@@ -541,7 +539,7 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
   %8 = load ptr, ptr %6, align 8, !tbaa !3
   %9 = load i8, ptr %.02432.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 2048
   %.not.i = icmp eq i16 %13, 0
@@ -555,7 +553,7 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
   %17 = getelementptr inbounds i8, ptr %.02432.i, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !9
   %22 = and i16 %21, 2048
   %.not28.i = icmp eq i16 %22, 0
@@ -605,7 +603,7 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
   %8 = load ptr, ptr %6, align 8, !tbaa !3
   %9 = load i8, ptr %.02432.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 2048
   %.not.i = icmp eq i16 %13, 0
@@ -619,7 +617,7 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
   %17 = getelementptr inbounds i8, ptr %.02432.i, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !9
   %22 = and i16 %21, 2048
   %.not28.i = icmp eq i16 %22, 0
@@ -669,7 +667,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %8 = load ptr, ptr %6, align 8, !tbaa !3
   %9 = load i8, ptr %.02432.i.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 2048
   %.not.i.i = icmp eq i16 %13, 0
@@ -683,7 +681,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %17 = getelementptr inbounds i8, ptr %.02432.i.i, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !9
   %22 = and i16 %21, 2048
   %.not28.i.i = icmp eq i16 %22, 0
@@ -714,7 +712,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %33 = load ptr, ptr %6, align 8, !tbaa !3
   %34 = load i8, ptr %.02432.i.i8, align 1, !tbaa !8
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !9
   %38 = and i16 %37, 2048
   %.not.i.i9 = icmp eq i16 %38, 0
@@ -728,7 +726,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %42 = getelementptr inbounds i8, ptr %.02432.i.i8, i64 -1
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %33, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !9
   %47 = and i16 %46, 2048
   %.not28.i.i10 = icmp eq i16 %47, 0
@@ -781,7 +779,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %8 = load ptr, ptr %6, align 8, !tbaa !3
   %9 = load i8, ptr %.02432.us.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 2048
   %.not.us.i = icmp eq i16 %13, 0
@@ -795,7 +793,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %17 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !9
   %22 = and i16 %21, 2048
   %.not28.us.i = icmp eq i16 %22, 0
@@ -822,7 +820,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %30 = load ptr, ptr %6, align 8, !tbaa !3
   %31 = load i8, ptr %.02432.us.i7, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !9
   %35 = and i16 %34, 2048
   %.not.us.i8 = icmp eq i16 %35, 0
@@ -836,7 +834,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %39 = getelementptr inbounds i8, ptr %.02432.us.i7, i64 -1
   %40 = load i8, ptr %39, align 1, !tbaa !8
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i16, ptr %30, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !9
   %44 = and i16 %43, 2048
   %.not28.us.i9 = icmp eq i16 %44, 0
@@ -878,7 +876,7 @@ define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1)
   %8 = load ptr, ptr %6, align 8, !tbaa !3
   %9 = load i8, ptr %.02432.us.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 2048
   %.not.us.i = icmp eq i16 %13, 0
@@ -892,7 +890,7 @@ define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1)
   %17 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !9
   %22 = and i16 %21, 2048
   %.not28.us.i = icmp eq i16 %22, 0
@@ -934,7 +932,7 @@ define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) l
   %8 = load ptr, ptr %6, align 8, !tbaa !3
   %9 = load i8, ptr %.02432.us.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 2048
   %.not.us.i = icmp eq i16 %13, 0
@@ -948,7 +946,7 @@ define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) l
   %17 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !9
   %22 = and i16 %21, 2048
   %.not28.us.i = icmp eq i16 %22, 0
@@ -1047,7 +1045,7 @@ define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly captures(addre
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !8
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %9, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %9, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !9
   %17 = and i16 %16, 2048
   %18 = icmp eq i16 %17, 0
@@ -1059,7 +1057,7 @@ define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly captures(addre
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv27
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %9, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %9, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !9
   %24 = and i16 %23, 2048
   %25 = icmp eq i16 %24, 0
@@ -1106,7 +1104,7 @@ define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly captures(addre
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = sext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %8, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !9
   %15 = and i16 %14, 2048
   %16 = icmp eq i16 %15, 0
@@ -1136,7 +1134,7 @@ define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly captures(addre
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv28
   %26 = load i8, ptr %25, align 1, !tbaa !8
   %27 = sext i8 %26 to i64
-  %28 = getelementptr inbounds i16, ptr %8, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %8, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !9
   %30 = and i16 %29, 2048
   %31 = icmp eq i16 %30, 0
@@ -1166,7 +1164,7 @@ define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly captures(addre
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !8
   %11 = sext i8 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %7, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %7, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !9
   %14 = and i16 %13, 2048
   %15 = icmp eq i16 %14, 0

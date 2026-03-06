@@ -1526,7 +1526,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %_ZNSt12_Vector
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i6, ptr %agg.result, align 8, !tbaa !30
   store ptr %call5.i.i.i.i6, ptr %_M_finish.i.i, align 8, !tbaa !28
-  %add.ptr21.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i6, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i6, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !46
   br label %invoke.cont6
 
@@ -1622,7 +1622,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i12, ptr %agg.result, align 8, !tbaa !30
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i8, align 8, !tbaa !28
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i12, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i12, i64 %cond.i.i.i.i
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %if.then.i.i10
@@ -1809,7 +1809,7 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; pred
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i1, ptr %agg.result, align 8, !tbaa !27
   store ptr %call5.i.i.i.i1, ptr %_M_finish.i.i, align 8, !tbaa !25
-  %add.ptr21.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i1, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i1, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !48
   br label %invoke.cont7
 
@@ -1899,7 +1899,7 @@ if.then.i20.i.i.i.i:                              ; preds = %_ZNSt6vectorIN8Quan
   br label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %if.then.i20.i.i.i.i, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i.i
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i.i.i4, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4, i64 %cond.i.i.i.i.i
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit.i: ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %if.then.i.i.i

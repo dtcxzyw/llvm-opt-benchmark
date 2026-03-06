@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @MaxConnections = external local_unnamed_addr global i32, align 4
 @autovacuum_worker_slots = external local_unnamed_addr global i32, align 4
@@ -119,7 +118,7 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   %.116 = phi ptr [ %.01531, %.lr.ph33 ], [ %14, %8 ]
   %9 = load i8, ptr %.116, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %.not18 = icmp eq i16 %13, 0
@@ -136,7 +135,7 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   %.326 = phi ptr [ %28, %27 ], [ %.116, %15 ]
   %18 = load ptr, ptr %6, align 8
   %19 = zext i8 %17 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 8192
   %23 = icmp eq i16 %22, 0
@@ -167,7 +166,7 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   %33 = add i32 %32, 1
   store i32 %33, ptr %1, align 4
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %0, i64 %34
   store ptr %31, ptr %35, align 8
   %36 = load i8, ptr %.3.lcssa.ph, align 1
   %.not = icmp eq i8 %36, 0
@@ -1266,7 +1265,7 @@ define internal fastcc void @process_startup_options(ptr noundef nonnull readonl
   call void @pg_split_opts(ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef %13)
   %14 = load i32, ptr %3, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   store ptr null, ptr %16, align 8
   tail call void @process_postgres_switches(i32 noundef %14, ptr noundef nonnull %12, i32 noundef %4, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1294,7 +1293,7 @@ select.unfold:                                    ; preds = %list_head.exit, %se
   %.val21 = load ptr, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %27 = sext i32 %.val to i64
-  %28 = getelementptr inbounds %union.ListCell, ptr %.val21, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.val21, i64 %27
   %29 = icmp ult ptr %26, %28
   %..i = select i1 %29, ptr %26, ptr null
   %30 = load ptr, ptr %26, align 8

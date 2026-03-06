@@ -944,7 +944,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
   %103 = load i64, ptr %7, align 8, !tbaa !21
   %104 = urem i64 %102, %103
   %105 = load ptr, ptr %2, align 8, !tbaa !13
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %104
   %107 = load ptr, ptr %106, align 8, !tbaa !46
   %.not.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i, label %.loopexit388, label %108
@@ -1114,7 +1114,7 @@ _ZNKSt6vectorIPKN4cvc58internal6theory11quantifiers15RConsObligationESaIS6_EE12_
 _ZNSt6vectorIPKN4cvc58internal6theory11quantifiers15RConsObligationESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %183, %.noexc170
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0358.7488, i64 noundef %171) #24
-  %185 = getelementptr inbounds nuw ptr, ptr %180, i64 %178
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %178
   br label %_ZNSt6vectorIPKN4cvc58internal6theory11quantifiers15RConsObligationESaIS6_EE9push_backEOS6_.exit
 
 186:                                              ; preds = %148
@@ -1843,7 +1843,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %.critedge, label %25
@@ -1970,7 +1970,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !47
   %33 = load ptr, ptr %0, align 8, !tbaa !13
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -1996,7 +1996,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !47
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !46
   br label %49
 
@@ -2174,7 +2174,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !47
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !46
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2189,7 +2189,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !46
   br label %28
 
@@ -2361,7 +2361,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %0, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %21
   %26 = load ptr, ptr %25, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %.critedge27, label %27
@@ -2583,7 +2583,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %0, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %21
   %26 = load ptr, ptr %25, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %.critedge27, label %27

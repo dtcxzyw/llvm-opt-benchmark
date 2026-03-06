@@ -684,7 +684,7 @@ define void @_ZNK7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcS
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %15 = load ptr, ptr %5, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = trunc i64 %18 to i32
@@ -696,7 +696,7 @@ define void @_ZNK7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcS
   call void %22(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = load ptr, ptr %5, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !15
   %26 = load ptr, ptr %1, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1084,7 +1084,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !11
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !6
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !13
   ret void
 

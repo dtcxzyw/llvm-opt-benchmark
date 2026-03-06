@@ -7,13 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pointf_s = type { double, double }
 %struct.Agiodisc_s = type { ptr, ptr, ptr }
 %struct.state_t = type { i32, i8, i8 }
-%struct._xdot_op = type { i32, %union.anon.3, ptr }
-%union.anon.3 = type { %struct.xdot_color }
-%struct.xdot_color = type { i32, %union.anon.4 }
-%union.anon.4 = type { %struct.xdot_radial_grad }
-%struct.xdot_radial_grad = type { double, double, double, double, double, double, i32, ptr }
-%struct.xdot_point = type { double, double, double }
-%struct.xdot_color_stop = type { float, ptr }
 
 @json_engine = global %struct.gvrender_engine_s { ptr null, ptr null, ptr @json_begin_graph, ptr @json_end_graph, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @render_features_json1 = local_unnamed_addr global { i32, [4 x i8], double, ptr, i32, i32 } { i32 8192, [4 x i8] zeroinitializer, double 0.000000e+00, ptr null, i32 0, i32 4 }, align 8
@@ -868,7 +861,7 @@ indent.exit66.i.preheader:                        ; preds = %.lr.ph.i64.i, %258,
 .lr.ph85.i:                                       ; preds = %.lr.ph91.i, %.lr.ph85.i
   %.05283.i = phi ptr [ %257, %.lr.ph85.i ], [ %253, %.lr.ph91.i ]
   %.182.i = phi i64 [ %256, %.lr.ph85.i ], [ %.05489.i, %.lr.ph91.i ]
-  %255 = getelementptr inbounds nuw ptr, ptr %238, i64 %.182.i
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %.182.i
   store ptr %.05283.i, ptr %255, align 8, !tbaa !119
   %256 = add i64 %.182.i, 1
   %257 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.05283.i) #15
@@ -914,7 +907,7 @@ indent.exit66.i:                                  ; preds = %indent.exit66.i.pre
   br i1 %.not61.i, label %280, label %274
 
 274:                                              ; preds = %indent.exit66.i
-  %275 = getelementptr inbounds nuw ptr, ptr %238, i64 %.093.i
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %.093.i
   br i1 %2, label %.thread.i, label %.thread70.i
 
 .thread.i:                                        ; preds = %274
@@ -1331,7 +1324,7 @@ indent.exit29.i:                                  ; preds = %.lr.ph.i27.i, %._cr
 
 79:                                               ; preds = %77, %76
   %80 = load ptr, ptr %66, align 8, !tbaa !131
-  %81 = getelementptr inbounds nuw %struct._xdot_op, ptr %80, i64 %.030.i
+  %81 = getelementptr inbounds nuw [88 x i8], ptr %80, i64 %.030.i
   %82 = load i32, ptr %2, align 4, !tbaa !69
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %2, align 4, !tbaa !69
@@ -1440,7 +1433,7 @@ indent.exit135.i.i:                               ; preds = %.lr.ph.i133.i.i, %1
   br label %122
 
 122:                                              ; preds = %121, %.lr.ph.i136.i.i
-  %123 = getelementptr inbounds nuw %struct.xdot_point, ptr %.val122.i.i, i64 %.01.i.i.i
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %.val122.i.i, i64 %.01.i.i.i
   %124 = load double, ptr %123, align 8, !tbaa !137
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %126 = load double, ptr %125, align 8, !tbaa !139
@@ -1487,7 +1480,7 @@ indent.exit139.i.i:                               ; preds = %.lr.ph.i137.i.i, %1
   br label %139
 
 139:                                              ; preds = %138, %.lr.ph.i141.i.i
-  %140 = getelementptr inbounds nuw %struct.xdot_point, ptr %.val124.i.i, i64 %.01.i142.i.i
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %.val124.i.i, i64 %.01.i142.i.i
   %141 = load double, ptr %140, align 8, !tbaa !137
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %143 = load double, ptr %142, align 8, !tbaa !139
@@ -1532,7 +1525,7 @@ indent.exit148.i.i:                               ; preds = %.lr.ph.i146.i.i, %1
   br label %154
 
 154:                                              ; preds = %153, %.lr.ph.i150.i.i
-  %155 = getelementptr inbounds nuw %struct.xdot_point, ptr %.val126.i.i, i64 %.01.i151.i.i
+  %155 = getelementptr inbounds nuw [24 x i8], ptr %.val126.i.i, i64 %.01.i151.i.i
   %156 = load double, ptr %155, align 8, !tbaa !137
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %158 = load double, ptr %157, align 8, !tbaa !139
@@ -2122,7 +2115,7 @@ define internal fastcc void @write_stops(ptr noundef %0, i32 noundef %1, ptr nou
   br label %7
 
 7:                                                ; preds = %6, %.lr.ph
-  %8 = getelementptr inbounds nuw %struct.xdot_color_stop, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 8, !tbaa !160
   %10 = fpext float %9 to double
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.75, double noundef %10) #15

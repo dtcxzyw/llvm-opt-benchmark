@@ -341,7 +341,7 @@ define dso_local range(i32 -30, 1) i32 @archive_utility_string_sort(ptr noundef 
 2:                                                ; preds = %2, %1
   %.0 = phi i32 [ 0, %1 ], [ %6, %2 ]
   %3 = zext i32 %.0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %.not = icmp eq ptr %5, null
   %6 = add i32 %.0, 1
@@ -368,7 +368,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   %.06181 = phi ptr [ null, %4 ], [ %.162, %23 ]
   %.06380 = phi ptr [ null, %4 ], [ %.164, %23 ]
   %.06579 = phi i32 [ 0, %4 ], [ %.166, %23 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %5) #20
   %10 = icmp slt i32 %9, 0
@@ -409,7 +409,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   %.160 = phi i32 [ %12, %11 ], [ %.05982, %17 ]
   %24 = load ptr, ptr %7, align 8, !tbaa !24
   %25 = zext i32 %.05982.sink to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %.sink117, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.sink117, i64 %25
   store ptr %24, ptr %26, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -426,9 +426,9 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv97 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next98, %.lr.ph ]
-  %29 = getelementptr inbounds nuw ptr, ptr %.164, i64 %indvars.iv97
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.164, i64 %indvars.iv97
   %30 = load ptr, ptr %29, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv97
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv97
   store ptr %30, ptr %31, align 8, !tbaa !24
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count101
@@ -437,7 +437,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.pre-phi = phi i64 [ 0, %27 ], [ %wide.trip.count101, %.lr.ph ]
   tail call void @free(ptr noundef %.164) #19
-  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %.pre-phi
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi
   store ptr %5, ptr %32, align 8, !tbaa !24
   %33 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.162, i32 noundef %.166)
   %.not90 = icmp eq i32 %.166, 0
@@ -450,12 +450,12 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 35:                                               ; preds = %.lr.ph87, %35
   %indvars.iv103 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next104, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.162, i64 %indvars.iv103
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.162, i64 %indvars.iv103
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = trunc nuw i64 %indvars.iv103 to i32
   %39 = add i32 %34, %38
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %40
   store ptr %37, ptr %41, align 8, !tbaa !24
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count107

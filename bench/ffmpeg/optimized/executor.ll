@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/executor.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ThreadInfo = type { ptr, i64 }
-
 ; Function Attrs: nounwind uwtable
 define ptr @av_executor_alloc(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
@@ -82,7 +80,7 @@ define ptr @av_executor_alloc(ptr noundef readonly captures(address_is_null) %0,
   %36 = phi i32 [ %44, %42 ], [ %34, %.preheader ]
   %37 = load ptr, ptr %26, align 8, !tbaa !23
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds %struct.ThreadInfo, ptr %37, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %37, i64 %38
   store ptr %15, ptr %39, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = tail call i32 @pthread_create(ptr noundef nonnull %40, ptr noundef null, ptr noundef nonnull @executor_worker_task, ptr noundef nonnull %39) #5
@@ -244,7 +242,7 @@ define internal fastcc void @executor_free(ptr noundef nonnull %0, i32 noundef %
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr %15, align 8, !tbaa !23
-  %18 = getelementptr inbounds nuw %struct.ThreadInfo, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !36
   %21 = tail call i32 @pthread_join(i64 noundef %20, ptr noundef null) #5

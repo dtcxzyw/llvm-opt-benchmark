@@ -690,7 +690,7 @@ define internal noundef zeroext i1 @dissect_osc_heur_udp(ptr noundef %0, ptr nou
   br i1 %.not9.i, label %is_valid_path.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr i16, ptr %30, i64 %33
+  %35 = getelementptr [2 x i8], ptr %30, i64 %33
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 64
   %.not10.i = icmp eq i16 %37, 0
@@ -1010,7 +1010,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_osc_message(ptr noundef %0,
   br i1 %.not9.i, label %is_valid_path.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr i16, ptr %20, i64 %23
+  %25 = getelementptr [2 x i8], ptr %20, i64 %23
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 64
   %.not10.i = icmp eq i16 %27, 0

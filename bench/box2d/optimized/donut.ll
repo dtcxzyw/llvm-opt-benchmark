@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2Filter = type { i64, i64, i32 }
 %struct.b2WeldJointDef = type { %struct.b2BodyId, %struct.b2BodyId, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i8, ptr, i32 }
 %struct.b2BodyId = type { i32, i16, i16 }
-%struct.b2JointId = type { i32, i16, i16 }
 
 @_ZN5DonutC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN5DonutC2Ev
 
@@ -99,7 +98,7 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   %43 = call <2 x float> @b2ComputeCosSin(float noundef %.05256)
   store <2 x float> %43, ptr %26, align 4
   %44 = call i64 @b2CreateBody(i32 %1, ptr noundef nonnull %8)
-  %45 = getelementptr inbounds nuw %struct.b2BodyId, ptr %0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %44, ptr %45, align 4
   %46 = call i64 @b2CreateCapsuleShape(i64 %44, ptr noundef nonnull %9, ptr noundef nonnull %7)
   %47 = fadd float %.05256, 0x3FECB91F40000000
@@ -120,7 +119,7 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   %indvars.iv60 = phi i64 [ 0, %27 ], [ %indvars.iv.next61, %50 ]
   %.sroa.012.058 = phi i64 [ %.sroa.012.0.copyload, %27 ], [ %.sroa.012.0.copyload14, %50 ]
   store i64 %.sroa.012.058, ptr %10, align 8
-  %51 = getelementptr inbounds nuw %struct.b2BodyId, ptr %0, i64 %indvars.iv60
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv60
   %52 = load i64, ptr %51, align 4
   store i64 %52, ptr %33, align 8
   %53 = call <2 x float> @b2Body_GetRotation(i64 %.sroa.012.058)
@@ -140,7 +139,7 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   %61 = call noundef float @b2Atan2(float noundef %57, float noundef %60)
   store float %61, ptr %34, align 8, !tbaa !38
   %62 = call i64 @b2CreateWeldJoint(i32 %1, ptr noundef nonnull %10)
-  %63 = getelementptr inbounds nuw %struct.b2JointId, ptr %35, i64 %indvars.iv60
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv60
   store i64 %62, ptr %63, align 4
   %.sroa.012.0.copyload14 = load i64, ptr %33, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -180,11 +179,11 @@ define dso_local void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 captures(
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.b2BodyId, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %6, align 4
   tail call void @b2DestroyBody(i64 %.sroa.0.0.copyload)
   store i64 0, ptr %6, align 4
-  %7 = getelementptr inbounds nuw %struct.b2JointId, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 0, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7

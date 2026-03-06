@@ -3,22 +3,6 @@ source_filename = "bench/gromacs/original/loggerbuilder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
-%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
-%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
-%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
-%"struct.std::_Head_base.25" = type { ptr }
-%"class.std::vector.46" = type { %"struct.std::_Vector_base.47" }
-%"struct.std::_Vector_base.47" = type { %"struct.std::_Vector_base<gmx::ILogTarget *, std::allocator<gmx::ILogTarget *>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::ILogTarget *, std::allocator<gmx::ILogTarget *>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::ILogTarget *, std::allocator<gmx::ILogTarget *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::ILogTarget *, std::allocator<gmx::ILogTarget *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.28" = type { %"struct.std::__uniq_ptr_data.29" }
-%"struct.std::__uniq_ptr_data.29" = type { %"class.std::__uniq_ptr_impl.30" }
-%"class.std::__uniq_ptr_impl.30" = type { %"class.std::tuple.31" }
-%"class.std::tuple.31" = type { %"struct.std::_Tuple_impl.32" }
-%"struct.std::_Tuple_impl.32" = type { %"struct.std::_Head_base.35" }
-%"struct.std::_Head_base.35" = type { ptr }
 %"class.gmx::LoggerOwner" = type { %"class.std::unique_ptr.2", ptr }
 %"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
 %"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
@@ -520,7 +504,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11
 .noexc:                                           ; preds = %36, %_ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %29, ptr %8, align 8, !tbaa !29
   store ptr %35, ptr %9, align 8, !tbaa !32
-  %37 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %37, ptr %11, align 8, !tbaa !37
   br label %_ZNSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS1_EED2Ev.exit
 
@@ -558,7 +542,7 @@ _ZNSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS1_EED2Ev.exit12: ; preds
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE9push_backERKS2_.exit ]
   %49 = load ptr, ptr %0, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = getelementptr inbounds nuw %"class.std::vector.46", ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !60
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -616,7 +600,7 @@ _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i:
 _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %76, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %71, ptr %51, align 8, !tbaa !48
   store ptr %75, ptr %52, align 8, !tbaa !60
-  %77 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr %54, align 8, !tbaa !52
   br label %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE9push_backERKS2_.exit
 
@@ -724,7 +708,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS
 .noexc:                                           ; preds = %35, %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %28, ptr %7, align 8, !tbaa !38
   store ptr %34, ptr %8, align 8, !tbaa !41
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.28", ptr %28, i64 %26
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %36, ptr %10, align 8, !tbaa !45
   br label %_ZNSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS1_EED2Ev.exit
 
@@ -771,8 +755,8 @@ define void @_ZN3gmx13LoggerBuilder5buildEv(ptr dead_on_unwind noalias writable 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit ]
   %9 = load ptr, ptr %1, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = getelementptr inbounds nuw %"class.std::vector.46", ptr %10, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !33
   %13 = load ptr, ptr %11, align 8, !tbaa !68
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -893,7 +877,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11
 .noexc:                                           ; preds = %60, %_ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %53, ptr %32, align 8, !tbaa !29
   store ptr %59, ptr %33, align 8, !tbaa !32
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %53, i64 %51
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %64, ptr %35, align 8, !tbaa !37
   br label %_ZNSt10unique_ptrIN3gmx19LogTargetCollectionESt14default_deleteIS1_EED2Ev.exit
 
@@ -961,7 +945,7 @@ _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.
 _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %84, ptr %26, align 8, !tbaa !48
   store ptr %88, ptr %29, align 8, !tbaa !60
-  %90 = getelementptr inbounds nuw ptr, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %30, align 8, !tbaa !52
   br label %_ZN3gmx19LogTargetCollection9addTargetEPNS_10ILogTargetE.exit
 

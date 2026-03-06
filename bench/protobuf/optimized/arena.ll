@@ -15,10 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.16" }
 %"struct.std::_Head_base.16" = type { ptr }
-%"struct.std::atomic.23" = type { %"struct.std::__atomic_base.24" }
-%"struct.std::__atomic_base.24" = type { ptr }
-%"struct.std::atomic.25" = type { %"struct.std::__atomic_base.26" }
-%"struct.std::__atomic_base.26" = type { ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" }
 %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data" }
@@ -120,7 +116,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.i.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.i.preheader.i ], [ %indvars.iv.next.i, %for.cond.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.std::atomic.23", ptr %add.ptr.i.i.i.i.i, i64 %indvars.iv.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i.i, i64 %indvars.iv.i
   %7 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %7 to ptr
   %cmp6.i.i = icmp eq ptr %0, %atomic-temp.i.0.i.i.i
@@ -131,7 +127,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %8 = getelementptr i8, ptr %chunk.06.i, i64 %mul.i.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %8, i64 16
-  %arrayidx.i6.i.i = getelementptr inbounds nuw %"struct.std::atomic.25", ptr %add.ptr.i.i.i.i, i64 %indvars.iv.i
+  %arrayidx.i6.i.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i.i, i64 %indvars.iv.i
   %9 = load atomic i64, ptr %arrayidx.i6.i.i monotonic, align 8
   %atomic-temp.i.0.i7.i.i = inttoptr i64 %9 to ptr
   br label %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i"
@@ -413,7 +409,7 @@ if.end.i:                                         ; preds = %entry
 if.end7.i:                                        ; preds = %if.end.i
   %cached_blocks_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %2 = load ptr, ptr %cached_blocks_.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %sub2.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %sub2.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp8.i = icmp eq ptr %3, null
   br i1 %cmp8.i, label %if.end, label %_ZN6google8protobuf8internal11SerialArena26TryAllocateFromCachedBlockEm.exit
@@ -689,7 +685,7 @@ if.then.i18.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIPvSaIS
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i9, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i.i9, i64 %cond.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i9, i64 %cond.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i
 
@@ -793,7 +789,7 @@ if.then.i18.i.i.i.i.i50:                          ; preds = %_ZNSt6vectorIPvSaIS
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i51: ; preds = %if.then.i18.i.i.i.i.i50, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i47
   store ptr %call5.i.i.i.i.i.i.i.i57, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i.i48, ptr %_M_finish.i.i.i.i15, align 8
-  %add.ptr19.i.i.i.i.i52 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i.i57, i64 %cond.i.i.i.i.i.i42
+  %add.ptr19.i.i.i.i.i52 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i57, i64 %cond.i.i.i.i.i.i42
   store ptr %add.ptr19.i.i.i.i.i52, ptr %_M_end_of_storage.i.i.i.i16, align 8
   br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25
 
@@ -2416,14 +2412,14 @@ land.lhs.true:                                    ; preds = %entry
 _ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11SerialArenaE.exit.thread: ; preds = %land.lhs.true
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 16
   %idxprom.i.i = zext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::atomic.23", ptr %add.ptr.i.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i.i
   %3 = ptrtoint ptr %id to i64
   store atomic i64 %3, ptr %arrayidx.i.i monotonic, align 8
   %conv.i.i = zext i32 %1 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i, 3
   %4 = getelementptr i8, ptr %atomic-temp.i.0.i, i64 %mul.i.i.i.i
   %add.ptr.i.i12.i = getelementptr i8, ptr %4, i64 16
-  %arrayidx.i14.i = getelementptr inbounds nuw %"struct.std::atomic.25", ptr %add.ptr.i.i12.i, i64 %idxprom.i.i
+  %arrayidx.i14.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i12.i, i64 %idxprom.i.i
   %5 = ptrtoint ptr %serial to i64
   store atomic i64 %5, ptr %arrayidx.i14.i release, align 8
   br label %cleanup.cont
@@ -2455,14 +2451,14 @@ if.then6:                                         ; preds = %if.end
 invoke.cont.thread:                               ; preds = %if.then6
   %add.ptr.i.i.i20 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i14, i64 16
   %idxprom.i.i21 = zext i32 %7 to i64
-  %arrayidx.i.i22 = getelementptr inbounds nuw %"struct.std::atomic.23", ptr %add.ptr.i.i.i20, i64 %idxprom.i.i21
+  %arrayidx.i.i22 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i20, i64 %idxprom.i.i21
   %9 = ptrtoint ptr %id to i64
   store atomic i64 %9, ptr %arrayidx.i.i22 monotonic, align 8
   %conv.i.i23 = zext i32 %8 to i64
   %mul.i.i.i.i24 = shl nuw nsw i64 %conv.i.i23, 3
   %10 = getelementptr i8, ptr %atomic-temp.i.0.i14, i64 %mul.i.i.i.i24
   %add.ptr.i.i12.i25 = getelementptr i8, ptr %10, i64 16
-  %arrayidx.i14.i26 = getelementptr inbounds nuw %"struct.std::atomic.25", ptr %add.ptr.i.i12.i25, i64 %idxprom.i.i21
+  %arrayidx.i14.i26 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i12.i25, i64 %idxprom.i.i21
   %11 = ptrtoint ptr %serial to i64
   store atomic i64 %11, ptr %arrayidx.i14.i26 release, align 8
   br label %cleanup

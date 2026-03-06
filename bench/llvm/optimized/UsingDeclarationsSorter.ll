@@ -51,12 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.clang::format::UnwrappedLine" = type <{ %"class.std::__cxx11::list", i32, i32, i8, i8, i8, i8, i32, i8, i8, i8, [5 x i8], i64, i64, i32, [4 x i8] }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallVector.175" = type { %"class.llvm::SmallVectorImpl.176", %"struct.llvm::SmallVectorStorage.179" }
 %"class.llvm::SmallVectorImpl.176" = type { %"class.llvm::SmallVectorTemplateBase.177" }
@@ -620,7 +614,7 @@ _ZN5clang6format12_GLOBAL__N_116UsingDeclarationC2EPKNS0_13AnnotatedLineERKNSt7_
   br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116UsingDeclarationELb0EE28reserveForParamAndGetAddressERS4_m.exit.i, label %205, !prof !248
 
 205:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_116UsingDeclarationC2EPKNS0_13AnnotatedLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %206 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.val.pre4.i, i64 %202
+  %206 = getelementptr inbounds nuw [40 x i8], ptr %.val.pre4.i, i64 %202
   %207 = icmp uge ptr %14, %.val.pre4.i
   %208 = icmp ult ptr %14, %206
   %spec.select.i.i.i.i.i = and i1 %207, %208
@@ -644,7 +638,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116UsingDeclaration
   %.016.i.i.i = phi ptr [ %14, %_ZN5clang6format12_GLOBAL__N_116UsingDeclarationC2EPKNS0_13AnnotatedLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %212, %209 ], [ %14, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %27, align 8, !tbaa !170
   %213 = zext i32 %.val3.i to i64
-  %214 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.val.i29, i64 %213
+  %214 = getelementptr inbounds nuw [40 x i8], ptr %.val.i29, i64 %213
   %215 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !246
   store ptr %215, ptr %214, align 8, !tbaa !246
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
@@ -800,7 +794,7 @@ _ZN4llvm15SmallVectorImplIN5clang6format12_GLOBAL__N_116UsingDeclarationEE5clear
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %35, %40
   %.pre-phi.i.i = phi i64 [ 0, %35 ], [ %.pre11.i.i, %40 ]
   %.val.i.i = load ptr, ptr %6, align 8, !tbaa !169
-  %41 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.val.i.i, i64 %.pre-phi.i.i
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %.val.i.i, i64 %.pre-phi.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN5clang6format12_GLOBAL__N_116UsingDeclarationEJRS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -1242,7 +1236,7 @@ _ZN5clang6format12_GLOBAL__N_116UsingDeclarationaSEOS2_.exit.i.i: ; preds = %185
   %.pre-phi = phi i64 [ 0, %_ZN4llvm11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EEC2IPS4_vEET_S8_.exit ], [ %134, %"_ZN4llvm11stable_sortIRNS_11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EEEZNS4_24endUsingDeclarationBlockEPNS_15SmallVectorImplIS5_EERKNS2_13SourceManagerEPNS2_7tooling12ReplacementsENS3_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEvOT_T0_.exit" ], [ %134, %"_ZSt15__adjacent_findIPN5clang6format12_GLOBAL__N_116UsingDeclarationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_1EEET_SM_SM_T0_.exit.i.i" ], [ %.pre.pre-phi, %._crit_edge.i.i ], [ %134, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS4_16UsingDeclarationEEERKNS2_13SourceManagerEPNS2_7tooling12ReplacementsENS3_11FormatStyle28SortUsingDeclarationsOptionsEE3$_1EclIPS7_SL_EEbT_T0_.exit.backedge.i.i.i" ]
   %.val73 = phi ptr [ %.val75, %_ZN4llvm11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EEC2IPS4_vEET_S8_.exit ], [ %.val66.pre, %"_ZN4llvm11stable_sortIRNS_11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EEEZNS4_24endUsingDeclarationBlockEPNS_15SmallVectorImplIS5_EERKNS2_13SourceManagerEPNS2_7tooling12ReplacementsENS3_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEvOT_T0_.exit" ], [ %.val66.pre, %"_ZSt15__adjacent_findIPN5clang6format12_GLOBAL__N_116UsingDeclarationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_1EEET_SM_SM_T0_.exit.i.i" ], [ %.val73.pre, %._crit_edge.i.i ], [ %.val66.pre, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS4_16UsingDeclarationEEERKNS2_13SourceManagerEPNS2_7tooling12ReplacementsENS3_11FormatStyle28SortUsingDeclarationsOptionsEE3$_1EclIPS7_SL_EEbT_T0_.exit.backedge.i.i.i" ]
   %.015.i.i = phi ptr [ %.val75, %_ZN4llvm11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EEC2IPS4_vEET_S8_.exit ], [ %135, %"_ZN4llvm11stable_sortIRNS_11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EEEZNS4_24endUsingDeclarationBlockEPNS_15SmallVectorImplIS5_EERKNS2_13SourceManagerEPNS2_7tooling12ReplacementsENS3_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEvOT_T0_.exit" ], [ %135, %"_ZSt15__adjacent_findIPN5clang6format12_GLOBAL__N_116UsingDeclarationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_1EEET_SM_SM_T0_.exit.i.i" ], [ %188, %._crit_edge.i.i ], [ %135, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS4_16UsingDeclarationEEERKNS2_13SourceManagerEPNS2_7tooling12ReplacementsENS3_11FormatStyle28SortUsingDeclarationsOptionsEE3$_1EclIPS7_SL_EEbT_T0_.exit.backedge.i.i.i" ]
-  %189 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.val73, i64 %.pre-phi
+  %189 = getelementptr inbounds nuw [40 x i8], ptr %.val73, i64 %.pre-phi
   %.not4.i.i92 = icmp eq ptr %.015.i.i, %189
   br i1 %.not4.i.i92, label %_ZN4llvm15SmallVectorImplIN5clang6format12_GLOBAL__N_116UsingDeclarationEE5eraseEPKS4_S7_.exit, label %.lr.ph.i.i93
 
@@ -1387,7 +1381,7 @@ _ZN4llvm11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EED2Ev.e
   %237 = zext i32 %236 to i64
   %.not64 = icmp samesign ult i64 %.063181, %237
   %.val79 = load ptr, ptr %0, align 8, !tbaa !169
-  %238 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.val79, i64 %.063181
+  %238 = getelementptr inbounds nuw [40 x i8], ptr %.val79, i64 %.063181
   %239 = load ptr, ptr %238, align 8, !tbaa !246
   br i1 %.not64, label %312, label %240
 
@@ -1555,7 +1549,7 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %_ZN5clang7tooling11
 
 312:                                              ; preds = %235
   %.val80 = load ptr, ptr %6, align 8, !tbaa !169
-  %313 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.val80, i64 %.063181
+  %313 = getelementptr inbounds nuw [40 x i8], ptr %.val80, i64 %.063181
   %314 = load ptr, ptr %313, align 8, !tbaa !246
   %315 = icmp eq ptr %239, %314
   br i1 %315, label %413, label %316
@@ -1588,7 +1582,7 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %_ZN5clang7tooling11
 _ZNK5clang5Token9getEndLocEv.exit137:             ; preds = %324, %329
   %.sroa.0.0.i135 = phi i32 [ %328, %324 ], [ %333, %329 ]
   %.val83 = load ptr, ptr %6, align 8, !tbaa !169
-  %334 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.val83, i64 %.063181
+  %334 = getelementptr inbounds nuw [40 x i8], ptr %.val83, i64 %.063181
   %335 = load ptr, ptr %334, align 8, !tbaa !246
   %336 = load ptr, ptr %335, align 8, !tbaa !194
   %337 = load i32, ptr %336, align 8, !tbaa !260
@@ -1788,7 +1782,7 @@ define linkonce_odr hidden void @_ZN5clang6format13TokenAnalyzerD2Ev(ptr noundef
   %10 = getelementptr inbounds i8, ptr %.05.i.i, i64 -1160
   %11 = load i32, ptr %10, align 8, !tbaa !170
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %12
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %9, ptr noundef %13)
   %14 = load ptr, ptr %8, align 8, !tbaa !169
   %15 = getelementptr inbounds i8, ptr %.05.i.i, i64 -1152
@@ -1859,7 +1853,7 @@ define linkonce_odr hidden void @_ZN5clang6format23UsingDeclarationsSorterD0Ev(p
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1160
   %11 = load i32, ptr %10, align 8, !tbaa !170
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %12
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %9, ptr noundef %13)
   %14 = load ptr, ptr %8, align 8, !tbaa !169
   %15 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1152
@@ -2619,7 +2613,7 @@ common.ret25:                                     ; preds = %8, %common.ret
 8:                                                ; preds = %3
   %9 = udiv exact i64 %6, 40
   %10 = lshr i64 %9, 1
-  %11 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %10
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPN5clang6format12_GLOBAL__N_116UsingDeclarationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_"(ptr noundef %0, ptr noundef %11, i8 %2)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPN5clang6format12_GLOBAL__N_116UsingDeclarationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_"(ptr noundef %11, ptr noundef %1, i8 %2)
   %12 = ptrtoint ptr %11 to i64
@@ -2637,7 +2631,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN5clang6format12_GLO
   %9 = sdiv exact i64 %8, 40
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %0, i64 %11
+  %12 = getelementptr inbounds [40 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -3206,7 +3200,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN5clang6format12_GLO
 
 _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit: ; preds = %20
   %23 = sdiv i64 %.tr8189, 2
-  %24 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.tr87, i64 %23
+  %24 = getelementptr inbounds [40 x i8], ptr %.tr87, i64 %23
   %25 = sub i64 %9, %22
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit"
@@ -3221,7 +3215,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i: ;
   %.021.i = phi ptr [ %.tr7988, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i ]
   %.01120.i = phi i64 [ %27, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i ]
   %30 = lshr i64 %.01120.i, 1
-  %31 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.021.i, i64 %30
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %.021.i, i64 %30
   %32 = getelementptr i8, ptr %31, i64 8
   %.val13.i = load ptr, ptr %32, align 8, !tbaa !189
   %33 = getelementptr i8, ptr %31, i64 16
@@ -3250,7 +3244,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i: ;
 
 _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit48: ; preds = %20
   %41 = sdiv i64 %.tr8290, 2
-  %42 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.tr7988, i64 %41
+  %42 = getelementptr inbounds [40 x i8], ptr %.tr7988, i64 %41
   %43 = ptrtoint ptr %.tr87 to i64
   %44 = sub i64 %22, %43
   %45 = icmp sgt i64 %44, 0
@@ -3266,7 +3260,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i51:
   %.021.i52 = phi ptr [ %.tr87, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i50 ], [ %.1.i61, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i51 ]
   %.01120.i53 = phi i64 [ %46, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i50 ], [ %.112.i60, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i51 ]
   %49 = lshr i64 %.01120.i53, 1
-  %50 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.021.i52, i64 %49
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %.021.i52, i64 %49
   %.val13.i56 = load ptr, ptr %47, align 8, !tbaa !189
   %.val14.i57 = load i64, ptr %48, align 8, !tbaa !237
   %51 = getelementptr i8, ptr %50, i64 8
@@ -3372,9 +3366,9 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6format12_GLOBAL__N_124end
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %7, align 8, !tbaa !169
-  %31 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %30, i64 %.017.i.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.017.i.i
   %32 = load ptr, ptr %8, align 8, !tbaa !169
-  %33 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %32, i64 %.017.i.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.017.i.i
   %.sroa.03.0.copyload.i.i = load ptr, ptr %33, align 8, !tbaa !285
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.24.0.copyload.i.i = load i64, ptr %.sroa.24.0..sroa_idx.i.i, align 8, !tbaa !245
@@ -3387,9 +3381,9 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6format12_GLOBAL__N_124end
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %7, align 8, !tbaa !169
-  %39 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %38, i64 %.017.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %.017.i.i
   %40 = load ptr, ptr %8, align 8, !tbaa !169
-  %41 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %40, i64 %.017.i.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.017.i.i
   %.sroa.0.0.copyload.i.i = load ptr, ptr %41, align 8, !tbaa !285
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !245
@@ -3463,9 +3457,9 @@ _ZN5clang6format12_GLOBAL__N_133compareLabelsLexicographicNumericEN4llvm9StringR
 .lr.ph.i.i:                                       ; preds = %49, %61
   %.01130.i.i = phi i64 [ %62, %61 ], [ 0, %49 ]
   %63 = load ptr, ptr %3, align 8, !tbaa !169
-  %64 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %63, i64 %.01130.i.i
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %.01130.i.i
   %65 = load ptr, ptr %4, align 8, !tbaa !169
-  %66 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %65, i64 %.01130.i.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.01130.i.i
   %.sroa.0.0.copyload.i14.i = load ptr, ptr %66, align 8, !tbaa !285
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !tbaa !245
@@ -3759,7 +3753,7 @@ define internal fastcc noundef ptr @_ZNSt3_V26rotateIPN5clang6format12_GLOBAL__N
   br i1 %34, label %.lr.ph110.preheader.i, label %._crit_edge111.i
 
 .lr.ph110.preheader.i:                            ; preds = %33
-  %35 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.042.i, i64 %.086.i
+  %35 = getelementptr inbounds [40 x i8], ptr %.042.i, i64 %.086.i
   br label %.lr.ph110.i
 
 ._crit_edge111.i:                                 ; preds = %_ZSt9iter_swapIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_EvT_T0_.exit.i, %33
@@ -3959,9 +3953,9 @@ _ZSt9iter_swapIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_EvT_T0_.exit.i
   br label %.backedge
 
 103:                                              ; preds = %30
-  %104 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.042.i, i64 %.090.i
+  %104 = getelementptr inbounds [40 x i8], ptr %.042.i, i64 %.090.i
   %105 = sub i64 0, %31
-  %106 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %104, i64 %105
+  %106 = getelementptr inbounds [40 x i8], ptr %104, i64 %105
   %107 = icmp sgt i64 %.086.i, 0
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
@@ -4210,8 +4204,8 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN5clang6format12_G
 .lr.ph.i23:                                       ; preds = %18, %.lr.ph.i23
   %.029.i = phi ptr [ %21, %.lr.ph.i23 ], [ %0, %18 ]
   %.02028.i = phi ptr [ %22, %.lr.ph.i23 ], [ %2, %18 ]
-  %20 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.029.i, i64 %.041
-  %21 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.029.i, i64 %19
+  %20 = getelementptr inbounds [40 x i8], ptr %.029.i, i64 %.041
+  %21 = getelementptr inbounds [40 x i8], ptr %.029.i, i64 %19
   %22 = tail call fastcc noundef ptr @"_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_"(ptr noundef %.029.i, ptr noundef nonnull %20, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %.02028.i, i8 %3)
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %5, %23
@@ -4224,7 +4218,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN5clang6format12_G
   %.0.lcssa.i24 = phi ptr [ %0, %18 ], [ %21, %.lr.ph.i23 ]
   %.lcssa.i = phi i64 [ %8, %18 ], [ %25, %.lr.ph.i23 ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 461168601842738789) %.041, i64 %.lcssa.i)
-  %26 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.0.lcssa.i24, i64 %.sroa.speculated.i
+  %26 = getelementptr inbounds [40 x i8], ptr %.0.lcssa.i24, i64 %.sroa.speculated.i
   %27 = tail call fastcc noundef ptr @"_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_"(ptr noundef %.0.lcssa.i24, ptr noundef %26, ptr noundef %26, ptr noundef %1, ptr noundef %.020.lcssa.i, i8 %3)
   %28 = shl nsw i64 %.041, 2
   %.not27.i25 = icmp slt i64 %17, %28
@@ -4233,8 +4227,8 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN5clang6format12_G
 .lr.ph.i26:                                       ; preds = %"_ZSt17__merge_sort_loopIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_T1_T2_.exit", %.lr.ph.i26
   %.029.i27 = phi ptr [ %30, %.lr.ph.i26 ], [ %2, %"_ZSt17__merge_sort_loopIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_T1_T2_.exit" ]
   %.02028.i28 = phi ptr [ %31, %.lr.ph.i26 ], [ %0, %"_ZSt17__merge_sort_loopIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_T1_T2_.exit" ]
-  %29 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.029.i27, i64 %19
-  %30 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.029.i27, i64 %28
+  %29 = getelementptr inbounds [40 x i8], ptr %.029.i27, i64 %19
+  %30 = getelementptr inbounds [40 x i8], ptr %.029.i27, i64 %28
   %31 = tail call fastcc noundef ptr @"_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_"(ptr noundef %.029.i27, ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef %.02028.i28, i8 %3)
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %16, %32
@@ -4247,7 +4241,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN5clang6format12_G
   %.0.lcssa.i31 = phi ptr [ %2, %"_ZSt17__merge_sort_loopIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_T1_T2_.exit" ], [ %30, %.lr.ph.i26 ]
   %.lcssa.i32 = phi i64 [ %17, %"_ZSt17__merge_sort_loopIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_T1_T2_.exit" ], [ %34, %.lr.ph.i26 ]
   %.sroa.speculated.i33 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 461168601842738789) %19, i64 %.lcssa.i32)
-  %35 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.0.lcssa.i31, i64 %.sroa.speculated.i33
+  %35 = getelementptr inbounds [40 x i8], ptr %.0.lcssa.i31, i64 %.sroa.speculated.i33
   %36 = tail call fastcc noundef ptr @"_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_"(ptr noundef %.0.lcssa.i31, ptr noundef %35, ptr noundef %35, ptr noundef nonnull %9, ptr noundef %.020.lcssa.i30, i8 %3)
   %37 = icmp slt i64 %28, %8
   br i1 %37, label %18, label %._crit_edge, !llvm.loop !294
@@ -5236,7 +5230,7 @@ _ZN5clang6format12_GLOBAL__N_116UsingDeclarationaSEOS2_.exit58.i: ; preds = %369
 
 _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit: ; preds = %374
   %375 = sdiv i64 %.tr171197, 2
-  %376 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.tr194, i64 %375
+  %376 = getelementptr inbounds [40 x i8], ptr %.tr194, i64 %375
   %377 = sub i64 %9, %168
   %378 = icmp sgt i64 %377, 0
   br i1 %378, label %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit"
@@ -5251,7 +5245,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i: ;
   %.021.i = phi ptr [ %.tr169195, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i ], [ %.1.i112, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i ]
   %.01120.i = phi i64 [ %379, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i ]
   %382 = lshr i64 %.01120.i, 1
-  %383 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.021.i, i64 %382
+  %383 = getelementptr inbounds nuw [40 x i8], ptr %.021.i, i64 %382
   %384 = getelementptr i8, ptr %383, i64 8
   %.val13.i = load ptr, ptr %384, align 8, !tbaa !189
   %385 = getelementptr i8, ptr %383, i64 16
@@ -5280,7 +5274,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i: ;
 
 _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit116: ; preds = %374
   %393 = sdiv i64 %.tr172198, 2
-  %394 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.tr169195, i64 %393
+  %394 = getelementptr inbounds [40 x i8], ptr %.tr169195, i64 %393
   %395 = ptrtoint ptr %.tr194 to i64
   %396 = sub i64 %168, %395
   %397 = icmp sgt i64 %396, 0
@@ -5296,7 +5290,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i120
   %.021.i121 = phi ptr [ %.tr194, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i119 ], [ %.1.i130, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i120 ]
   %.01120.i122 = phi i64 [ %398, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.lr.ph.i119 ], [ %.112.i129, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i120 ]
   %401 = lshr i64 %.01120.i122, 1
-  %402 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.021.i121, i64 %401
+  %402 = getelementptr inbounds nuw [40 x i8], ptr %.021.i121, i64 %401
   %.val13.i125 = load ptr, ptr %399, align 8, !tbaa !189
   %.val14.i126 = load i64, ptr %400, align 8, !tbaa !237
   %403 = getelementptr i8, ptr %402, i64 8
@@ -7626,7 +7620,7 @@ _ZNSt7__cxx1110_List_baseIN5clang6format17UnwrappedLineNodeESaIS3_EED2Ev.exit.lo
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !170
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %7, ptr noundef %11)
   %12 = load ptr, ptr %6, align 8, !tbaa !169
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 40

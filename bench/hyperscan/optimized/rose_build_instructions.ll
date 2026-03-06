@@ -11,9 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.121" = type { %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl" }
 %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl" = type { %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
-%"class.ue2::bitfield" = type { %"struct.std::array" }
-%"struct.std::array" = type { [4 x i64] }
 %"class.std::vector.204" = type { %"struct.std::_Vector_base.205" }
 %"struct.std::_Vector_base.205" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
@@ -2259,7 +2256,7 @@ define internal fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %21
@@ -2335,7 +2332,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %48 = phi i32 [ %27, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.thread ], [ %37, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit._crit_edge ]
   %49 = ptrtoint ptr %2 to i64
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i4 = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i4, label %.loopexit.i.i10, label %53
@@ -2688,7 +2685,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %69, %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %64, ptr %6, align 8
   store ptr %68, ptr %13, align 8
-  %70 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %62
   store ptr %70, ptr %14, align 8
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE9push_backERKS1_.exit
 
@@ -3618,7 +3615,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %42, ptr %6, align 8
   store ptr %47, ptr %16, align 8
-  %49 = getelementptr inbounds nuw i32, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %40
   store ptr %49, ptr %17, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -3646,7 +3643,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %59 = load i64, ptr %19, align 8
   %60 = urem i64 %58, %59
   %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %64
@@ -3737,7 +3734,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i33: ; preds = %95, %.no
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35: ; preds = %96, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i33
-  %97 = getelementptr inbounds nuw i32, ptr %91, i64 %89
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %89
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit38:        ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35, %78
@@ -3974,7 +3971,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKS
   %17 = load i64, ptr %16, align 8
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %.loopexit.i, label %22
@@ -4837,7 +4834,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %69, %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %64, ptr %43, align 8
   store ptr %68, ptr %45, align 8
-  %70 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %62
   store ptr %70, ptr %47, align 8
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE9push_backERKS1_.exit
 
@@ -10753,7 +10750,7 @@ _ZNKSt8__detail15_Hash_code_baseISt6vectorI17mmbit_sparse_iterSaIS2_EESt4pairIKS
   %59 = load i64, ptr %58, align 8
   %60 = urem i64 %.0.lcssa.i.i.i, %59
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8
   %.not.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit, label %64
@@ -10986,7 +10983,7 @@ _ZNKSt8__detail15_Hashtable_baseISt6vectorI17mmbit_sparse_iterSaIS2_EESt4pairIKS
 
 64:                                               ; preds = %.loopexit
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   %67 = load ptr, ptr %66, align 8
   %.not.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i, label %.critedge28, label %68
@@ -11177,7 +11174,7 @@ _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -11186,7 +11183,7 @@ _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb1EEE.exit
@@ -11206,13 +11203,13 @@ _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb1EEE.exit
 
@@ -11399,7 +11396,7 @@ _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -11414,7 +11411,7 @@ _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -11909,7 +11906,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %50 = getelementptr inbounds nuw %"class.std::vector.108", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8
   ret void
 }
@@ -11965,7 +11962,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrAnchoredDelay8
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %37
@@ -12036,7 +12033,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %65, %67
   %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %72
@@ -12125,7 +12122,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrCheckLitEarly8
   %26 = load i64, ptr %25, align 8
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %31
@@ -12196,7 +12193,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %61 = load i64, ptr %60, align 8
   %62 = urem i64 %59, %61
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
@@ -12277,7 +12274,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue221RoseInstrCheckOnlyEod8e
   %20 = load i64, ptr %19, align 8
   %21 = urem i64 %18, %20
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %25
@@ -12348,7 +12345,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %55 = load i64, ptr %54, align 8
   %56 = urem i64 %53, %55
   %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i.i.i5 = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i.i5, label %.loopexit.i.i11, label %60
@@ -12441,7 +12438,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckBounds8eq
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %37
@@ -12512,7 +12509,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %65, %67
   %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %72
@@ -12601,7 +12598,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckNotHandle
   %26 = load i64, ptr %25, align 8
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %31
@@ -12672,7 +12669,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %61 = load i64, ptr %60, align 8
   %62 = urem i64 %59, %61
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
@@ -12768,7 +12765,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue230RoseInstrCheckSingleLoo
   %29 = load i64, ptr %28, align 8
   %30 = urem i64 %27, %29
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %34
@@ -12839,7 +12836,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %64 = load i64, ptr %63, align 8
   %65 = urem i64 %62, %64
   %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
   %68 = load ptr, ptr %67, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %68, null
   br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %69
@@ -12963,7 +12960,7 @@ _ZSteqIN3ue29LookEntryESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %26, %20
   %44 = load i64, ptr %43, align 8
   %45 = urem i64 %42, %44
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i5 = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i5, label %.loopexit.i.i, label %49
@@ -13034,7 +13031,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %79 = load i64, ptr %78, align 8
   %80 = urem i64 %77, %79
   %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %84
@@ -13147,7 +13144,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrCheckMask8equi
   %44 = load i64, ptr %43, align 8
   %45 = urem i64 %42, %44
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %49
@@ -13218,7 +13215,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %79 = load i64, ptr %78, align 8
   %80 = urem i64 %77, %79
   %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %84
@@ -13329,7 +13326,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask328eq
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %43
@@ -13400,7 +13397,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %73 = load i64, ptr %72, align 8
   %74 = urem i64 %71, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i11 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i17, label %78
@@ -13511,7 +13508,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask648eq
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %43
@@ -13582,7 +13579,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %73 = load i64, ptr %72, align 8
   %74 = urem i64 %71, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i11 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i17, label %78
@@ -13695,7 +13692,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrCheckByte8equi
   %44 = load i64, ptr %43, align 8
   %45 = urem i64 %42, %44
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %49
@@ -13766,7 +13763,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %79 = load i64, ptr %78, align 8
   %80 = urem i64 %77, %79
   %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %84
@@ -13877,7 +13874,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti16x
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %43
@@ -13948,7 +13945,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %73 = load i64, ptr %72, align 8
   %74 = urem i64 %71, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i11 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i17, label %78
@@ -14066,7 +14063,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti32x
   %41 = load i64, ptr %40, align 8
   %42 = urem i64 %39, %41
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
   %.not.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %46
@@ -14137,7 +14134,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = load i64, ptr %75, align 8
   %77 = urem i64 %74, %76
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i14 = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i20, label %81
@@ -14255,7 +14252,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti16x
   %41 = load i64, ptr %40, align 8
   %42 = urem i64 %39, %41
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
   %.not.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %46
@@ -14326,7 +14323,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = load i64, ptr %75, align 8
   %77 = urem i64 %74, %76
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i14 = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i20, label %81
@@ -14504,7 +14501,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti64x
   %41 = load i64, ptr %40, align 8
   %42 = urem i64 %39, %41
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
   %.not.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %46
@@ -14575,7 +14572,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = load i64, ptr %75, align 8
   %77 = urem i64 %74, %76
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i14 = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i20, label %81
@@ -14754,7 +14751,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue219RoseInstrCheckInfix8equ
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %43
@@ -14825,7 +14822,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %73 = load i64, ptr %72, align 8
   %74 = urem i64 %71, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
@@ -14930,7 +14927,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckPrefix8eq
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %43
@@ -15001,7 +14998,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %73 = load i64, ptr %72, align 8
   %74 = urem i64 %71, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
@@ -15106,7 +15103,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue215RoseInstrDedupe8equiv_t
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %43
@@ -15177,7 +15174,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %73 = load i64, ptr %72, align 8
   %74 = urem i64 %71, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
@@ -15282,7 +15279,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrDedupeSom8equi
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %43
@@ -15353,7 +15350,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %73 = load i64, ptr %72, align 8
   %74 = urem i64 %71, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
@@ -15466,7 +15463,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrDedupeAndRepor
   %44 = load i64, ptr %43, align 8
   %45 = urem i64 %42, %44
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %49
@@ -15537,7 +15534,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %79 = load i64, ptr %78, align 8
   %80 = urem i64 %77, %79
   %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %84
@@ -15626,7 +15623,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrCheckExhausted
   %26 = load i64, ptr %25, align 8
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %31
@@ -15697,7 +15694,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %61 = load i64, ptr %60, align 8
   %62 = urem i64 %59, %61
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
@@ -15794,7 +15791,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrCheckMinLength
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %37
@@ -15865,7 +15862,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %65, %67
   %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %72
@@ -15954,7 +15951,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue219RoseInstrCheckState8equ
   %26 = load i64, ptr %25, align 8
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %31
@@ -16025,7 +16022,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %61 = load i64, ptr %60, align 8
   %62 = urem i64 %59, %61
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
@@ -16114,7 +16111,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrSparseIterBegi
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %30
@@ -16185,7 +16182,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %60 = load i64, ptr %59, align 8
   %61 = urem i64 %58, %60
   %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8
   %.not.i.i.i.i.i15 = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i15, label %.loopexit.i.i21, label %65
@@ -16290,7 +16287,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
 113:                                              ; preds = %106
   %114 = ptrtoint ptr %108 to i64
   %115 = urem i64 %114, %96
-  %116 = getelementptr inbounds nuw ptr, ptr %97, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %115
   %117 = load ptr, ptr %116, align 8
   %.not.i.i.i.i.i28 = icmp eq ptr %117, null
   br i1 %.not.i.i.i.i.i28, label %.loopexit.i.i34, label %118
@@ -16350,7 +16347,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
 139:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39
   %140 = ptrtoint ptr %134 to i64
   %141 = urem i64 %140, %100
-  %142 = getelementptr inbounds nuw ptr, ptr %101, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %141
   %143 = load ptr, ptr %142, align 8
   %.not.i.i.i.i.i41 = icmp eq ptr %143, null
   br i1 %.not.i.i.i.i.i41, label %.loopexit.i.i47, label %144
@@ -16444,7 +16441,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrSparseIterNext
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %30
@@ -16514,7 +16511,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %59 = load i64, ptr %58, align 8
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %64
@@ -16586,7 +16583,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %94 = load i64, ptr %93, align 8
   %95 = urem i64 %92, %94
   %96 = load ptr, ptr %2, align 8
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %95
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %95
   %98 = load ptr, ptr %97, align 8
   %.not.i.i.i.i.i22 = icmp eq ptr %98, null
   br i1 %.not.i.i.i.i.i22, label %.loopexit.i.i28, label %99
@@ -16654,7 +16651,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %127 = load i64, ptr %126, align 8
   %128 = urem i64 %125, %127
   %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %128
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %128
   %131 = load ptr, ptr %130, align 8
   %.not.i.i.i.i.i35 = icmp eq ptr %131, null
   br i1 %.not.i.i.i.i.i35, label %.loopexit.i.i41, label %132
@@ -16770,7 +16767,7 @@ _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %26, %_ZSteqIjSaIjEE
   %42 = load i64, ptr %41, align 8
   %43 = urem i64 %40, %42
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %47
@@ -16841,7 +16838,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %77 = load i64, ptr %76, align 8
   %78 = urem i64 %75, %77
   %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %82
@@ -16943,7 +16940,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %37
@@ -17014,7 +17011,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %65, %67
   %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
@@ -17116,7 +17113,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %37
@@ -17187,7 +17184,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %65, %67
   %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
@@ -17289,7 +17286,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %37
@@ -17360,7 +17357,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %65, %67
   %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
@@ -17462,7 +17459,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %37
@@ -17533,7 +17530,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %65, %67
   %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
@@ -17700,7 +17697,7 @@ _ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit: ; preds 
   %69 = load i64, ptr %68, align 8
   %70 = urem i64 %67, %69
   %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i, label %74
@@ -17771,7 +17768,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %104 = load i64, ptr %103, align 8
   %105 = urem i64 %102, %104
   %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8
   %.not.i.i.i.i.i10 = icmp eq ptr %108, null
   br i1 %.not.i.i.i.i.i10, label %.loopexit.i.i16, label %109

@@ -54,7 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.cv::Point_" = type { i32, i32 }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -480,7 +479,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %168, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %169, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %170 = getelementptr inbounds nuw i32, ptr %165, i64 %163
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %163
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %152
@@ -771,7 +770,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %259
   %285 = load i32, ptr %284, align 4, !tbaa !43
   %286 = sub nsw i32 %285, %225
   %287 = load ptr, ptr %18, align 8, !tbaa !62
-  %288 = getelementptr inbounds nuw %"class.cv::Point_", ptr %287, i64 %indvars.iv
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv
   %.sroa.4.0.insert.ext = zext i32 %286 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0279.0.insert.ext = zext i32 %283 to i64

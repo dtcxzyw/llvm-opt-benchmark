@@ -445,7 +445,7 @@ define dso_local void @uid_cache_clear() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load ptr, ptr @uid_cache, align 8
-  %7 = getelementptr inbounds nuw %struct.uid_cache_entry_t, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %8) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -545,7 +545,7 @@ define dso_local ptr @uid_to_string_cached(i32 noundef %0) local_unnamed_addr #0
   store ptr %28, ptr @uid_cache, align 8
   %29 = load i32, ptr @uid_cache_used, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.uid_cache_entry_t, ptr %28, i64 %30
+  %31 = getelementptr [16 x i8], ptr %28, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -16
   store i32 %0, ptr %32, align 8
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %31, i64 -12

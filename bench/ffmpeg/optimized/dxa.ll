@@ -140,7 +140,7 @@ bytestream2_peek_le32.exit:                       ; preds = %bytestream2_init.ex
 bytestream2_get_be24.exit:                        ; preds = %24, %28
   %.sroa.0.3 = phi ptr [ %29, %28 ], [ %15, %24 ]
   %.0.i117 = phi i32 [ %42, %28 ], [ -16777216, %24 ]
-  %43 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   store i32 %.0.i117, ptr %43, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

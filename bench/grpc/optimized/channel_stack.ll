@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
 %"struct.std::array" = type { [7 x i8] }
 %"class.grpc_core::NoDestruct.26" = type { [24 x i8] }
-%struct.grpc_channel_element = type { ptr, ptr }
-%struct.grpc_call_element = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::Status" = type { i64 }
 %"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
@@ -109,7 +107,7 @@ define noundef i64 @_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm(ptr nou
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
   %.078 = phi i64 [ %12, %.lr.ph ], [ %5, %2 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %.09
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.09
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i64, ptr %8, align 8, !tbaa !8
@@ -128,7 +126,7 @@ define noundef i64 @_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_Z26grpc_channel_stack_elementP18grpc_channel_stackm(ptr noundef readnone captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = getelementptr inbounds nuw %struct.grpc_channel_element, ptr %3, i64 %1
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -137,7 +135,7 @@ define noundef ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !tbaa !16
   %4 = getelementptr i8, ptr %0, i64 112
-  %5 = getelementptr %struct.grpc_channel_element, ptr %4, i64 %3
+  %5 = getelementptr [16 x i8], ptr %4, i64 %3
   ret ptr %5
 }
 
@@ -152,7 +150,7 @@ define noundef i64 @_Z41grpc_channel_stack_filter_instance_numberP18grpc_channel
 .lr.ph:                                           ; preds = %2, %7
   %.017 = phi i64 [ %spec.select, %7 ], [ 0, %2 ]
   %.01216 = phi i64 [ %12, %7 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %struct.grpc_channel_element, ptr %3, i64 %.01216
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.01216
   %.not = icmp eq ptr %6, %1
   br i1 %.not, label %.thread, label %7
 
@@ -174,7 +172,7 @@ define noundef i64 @_Z41grpc_channel_stack_filter_instance_numberP18grpc_channel
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_Z23grpc_call_stack_elementP15grpc_call_stackm(ptr noundef readnone captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = getelementptr inbounds nuw %struct.grpc_call_element, ptr %3, i64 %1
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -223,7 +221,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; pr
           to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit unwind label %32
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit: ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw ptr, ptr %4, i64 %.06999
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.06999
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIN9grpc_core14UniqueTypeNameETnNSt9enable_ifIXsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %28)
@@ -333,9 +331,9 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   %76 = icmp eq i64 %.065102, %68
   %77 = zext i1 %76 to i32
   store i32 %77, ptr %69, align 4, !tbaa !64
-  %78 = getelementptr inbounds nuw ptr, ptr %4, i64 %.065102
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.065102
   %79 = load ptr, ptr %78, align 8, !tbaa !3
-  %80 = getelementptr inbounds nuw %struct.grpc_channel_element, ptr %61, i64 %.065102
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %.065102
   store ptr %79, ptr %80, align 8, !tbaa !26
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %.066101, ptr %81, align 8, !tbaa !65
@@ -447,7 +445,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.09.i = phi i64 [ %135, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.078.i = phi i64 [ %134, %.lr.ph.i ], [ %127, %.lr.ph.i.preheader ]
-  %128 = getelementptr inbounds nuw ptr, ptr %4, i64 %.09.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i
   %129 = load ptr, ptr %128, align 8, !tbaa !3
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 48
   %131 = load i64, ptr %130, align 8, !tbaa !8
@@ -595,7 +593,7 @@ define void @_Z26grpc_channel_stack_destroyP18grpc_channel_stack(ptr noundef %0)
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.013 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.grpc_channel_element, ptr %2, i64 %.013
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.013
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !74
@@ -743,9 +741,9 @@ define void @_Z20grpc_call_stack_initP18grpc_channel_stackiPFvPvN4absl12lts_2024
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.04046 = phi i64 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.04145 = phi ptr [ %30, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %19 = getelementptr inbounds nuw %struct.grpc_channel_element, ptr %8, i64 %.04046
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.04046
   %20 = load ptr, ptr %19, align 8, !tbaa !26
-  %21 = getelementptr inbounds nuw %struct.grpc_call_element, ptr %14, i64 %.04046
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.04046
   store ptr %20, ptr %21, align 8, !tbaa !96
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !65
@@ -766,7 +764,7 @@ define void @_Z20grpc_call_stack_initP18grpc_channel_stackiPFvPvN4absl12lts_2024
   %32 = phi i64 [ %48, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 1, %.lr.ph ]
   %.03947 = phi i64 [ %55, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %33 = getelementptr inbounds nuw %struct.grpc_call_element, ptr %14, i64 %.03947
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.03947
   %34 = load ptr, ptr %33, align 8, !tbaa !96
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !101
@@ -840,7 +838,7 @@ define void @_Z42grpc_call_stack_set_pollset_or_pollset_setP15grpc_call_stackP19
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %struct.grpc_call_element, ptr %5, i64 %.09
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.09
   %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !103
@@ -872,7 +870,7 @@ define void @_Z23grpc_call_stack_destroyP15grpc_call_stackPK20grpc_call_final_in
 
 8:                                                ; preds = %.lr.ph, %8
   %.013 = phi i64 [ 0, %.lr.ph ], [ %15, %8 ]
-  %9 = getelementptr inbounds nuw %struct.grpc_call_element, ptr %4, i64 %.013
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %.013
   %10 = load ptr, ptr %9, align 8, !tbaa !96
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !105
@@ -1165,7 +1163,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !121
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !118
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !122
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

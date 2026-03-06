@@ -613,7 +613,7 @@ jpeg_core_output_dimensions.exit:                 ; preds = %303, %296, %307
   %399 = icmp ult i32 %switch.tableidx, 16
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %401 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.jpeg_calc_output_dimensions, i64 %401
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.jpeg_calc_output_dimensions, i64 %401
   %.sink.in = select i1 %399, ptr %switch.gep, ptr %400
   %.sink = load i32, ptr %.sink.in, align 4
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -676,7 +676,7 @@ jpeg_core_output_dimensions.exit:                 ; preds = %303, %296, %307
 
 424:                                              ; preds = %422, %422, %422, %422, %422, %422, %422, %422, %422, %422, %422
   %425 = zext nneg i32 %398 to i64
-  %426 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %425
+  %426 = getelementptr inbounds nuw [4 x i8], ptr @rgb_pixelsize, i64 %425
   %427 = load i32, ptr %426, align 4, !tbaa !68
   %.not55.i = icmp eq i32 %.sink, %427
   br i1 %.not55.i, label %.thread.i, label %use_merged_upsample.exit.thread
@@ -895,7 +895,7 @@ define void @jinit_master_decompress(ptr noundef %0) local_unnamed_addr #0 {
 40:                                               ; preds = %40, %37
   %indvars.iv69.i.i = phi i64 [ 0, %37 ], [ %indvars.iv.next70.i.i, %40 ]
   %41 = trunc i64 %indvars.iv69.i.i to i16
-  %42 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv69.i.i
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv69.i.i
   store i16 %41, ptr %42, align 2, !tbaa !88
   %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
   %exitcond72.not.i.i = icmp eq i64 %indvars.iv.next70.i.i, 4096
@@ -907,7 +907,7 @@ define void @jinit_master_decompress(ptr noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %45, %43
   %indvars.iv73.i.i = phi i64 [ 2048, %43 ], [ %indvars.iv.next74.i.i, %45 ]
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv73.i.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv73.i.i
   store i16 4095, ptr %46, align 2, !tbaa !88
   %indvars.iv.next74.i.i = add nuw nsw i64 %indvars.iv73.i.i, 1
   %exitcond76.not.i.i = icmp eq i64 %indvars.iv.next74.i.i, 8192
@@ -931,7 +931,7 @@ define void @jinit_master_decompress(ptr noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %54, %51
   %indvars.iv.i.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.i, %54 ]
   %55 = trunc i64 %indvars.iv.i.i to i16
-  %56 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv.i.i
   store i16 %55, ptr %56, align 2, !tbaa !88
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 65536
@@ -1025,7 +1025,7 @@ prepare_range_limit_table.exit.i:                 ; preds = %57, %47, %27
 94:                                               ; preds = %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89
   %95 = load i32, ptr %64, align 8, !tbaa !62
   %96 = zext nneg i32 %91 to i64
-  %97 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr @rgb_pixelsize, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !68
   %.not55.i.i = icmp eq i32 %95, %98
   br i1 %.not55.i.i, label %.thread.i.i, label %use_merged_upsample.exit.i

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/mlz.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.MLZDict = type { i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [45 x i8] c"String code %d exceeds maximum value of %d.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"output chars overflow\0A\00", align 1
 @.str.2 = private unnamed_addr constant [20 x i8] c"Too many MLZ codes\0A\00", align 1
@@ -51,7 +49,7 @@ define void @ff_mlz_flush_dict(ptr noundef captures(none) %0) local_unnamed_addr
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.MLZDict, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   store i32 -1, ptr %5, align 4, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %6, align 4, !tbaa !20
@@ -143,7 +141,7 @@ input_code.exit:                                  ; preds = %20
 
 37:                                               ; preds = %37, %35
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %37 ]
-  %38 = getelementptr inbounds nuw %struct.MLZDict, ptr %36, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i
   store i32 -1, ptr %38, align 4, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 -1, ptr %39, align 4, !tbaa !20
@@ -240,7 +238,7 @@ input_code.exit.thread:                           ; preds = %15, %input_code.exi
   %82 = load i32, ptr %14, align 8, !tbaa !15
   %83 = load i32, ptr %5, align 4, !tbaa !24
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds %struct.MLZDict, ptr %7, i64 %84
+  %85 = getelementptr inbounds [16 x i8], ptr %7, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %.087152, ptr %86, align 4, !tbaa !20
   store i32 %82, ptr %85, align 4, !tbaa !18
@@ -251,7 +249,7 @@ input_code.exit.thread:                           ; preds = %15, %input_code.exi
 
 89:                                               ; preds = %80
   %90 = zext nneg i32 %.087152 to i64
-  %91 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %93 = load i32, ptr %92, align 4, !tbaa !21
   %94 = add nsw i32 %93, 1
@@ -309,7 +307,7 @@ set_new_entry_dict.exit:                          ; preds = %80, %89
   %117 = load i32, ptr %14, align 8, !tbaa !15
   %118 = load i32, ptr %5, align 4, !tbaa !24
   %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds %struct.MLZDict, ptr %7, i64 %119
+  %120 = getelementptr inbounds [16 x i8], ptr %7, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 %.087152, ptr %121, align 4, !tbaa !20
   store i32 %117, ptr %120, align 4, !tbaa !18
@@ -320,7 +318,7 @@ set_new_entry_dict.exit:                          ; preds = %80, %89
 
 124:                                              ; preds = %116
   %125 = zext nneg i32 %.087152 to i64
-  %126 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %125
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 12
   %128 = load i32, ptr %127, align 4, !tbaa !21
   %129 = add nsw i32 %128, 1
@@ -391,7 +389,7 @@ define internal fastcc i32 @decode_string(ptr noundef readonly captures(none) %0
 
 16:                                               ; preds = %10
   %17 = zext nneg i32 %.04967 to i64
-  %18 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !21
   %21 = add nsw i32 %20, -1
@@ -431,7 +429,7 @@ define internal fastcc i32 @decode_string(ptr noundef readonly captures(none) %0
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %34 to i64
-  %43 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !20
   %or.cond3 = icmp ugt i32 %45, 32767

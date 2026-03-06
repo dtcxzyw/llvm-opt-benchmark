@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.TTAChannel = type { i32, %struct.TTAFilter, %struct.TTARice }
-%struct.TTAFilter = type { i32, i32, i32, [16 x i32], [16 x i32], [16 x i32] }
-%struct.TTARice = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"tta\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"TTA (True Audio)\00", align 1
@@ -150,7 +147,7 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
   %41 = load ptr, ptr %24, align 8, !tbaa !37
-  %42 = getelementptr inbounds nuw %struct.TTAChannel, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [224 x i8], ptr %41, i64 %indvars.iv
   store i32 0, ptr %42, align 4, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %16, align 8, !tbaa !33
@@ -161,7 +158,7 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
   %49 = zext i8 %48 to i32
   call void @ff_tta_filter_init(ptr noundef nonnull %43, i32 noundef %49) #7
   %50 = load ptr, ptr %24, align 8, !tbaa !37
-  %51 = getelementptr inbounds nuw %struct.TTAChannel, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [224 x i8], ptr %50, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 208
   call void @ff_tta_rice_init(ptr noundef nonnull %52, i32 noundef 10, i32 noundef 10) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -180,7 +177,7 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
   %.sroa.43.0233 = phi ptr [ %spec.select.i, %.lr.ph240 ], [ %.sroa.43.5, %252 ]
   %58 = load ptr, ptr %24, align 8, !tbaa !37
   %59 = sext i32 %.0109238 to i64
-  %60 = getelementptr inbounds %struct.TTAChannel, ptr %58, i64 %59
+  %60 = getelementptr inbounds [224 x i8], ptr %58, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 208
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -201,13 +198,13 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
   br label %get_sample.exit
 
 70:                                               ; preds = %56
-  %71 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv272
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv272
   %72 = load i16, ptr %71, align 2, !tbaa !54
   %73 = sext i16 %72 to i32
   br label %get_sample.exit
 
 74:                                               ; preds = %56
-  %75 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv272
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv272
   %76 = load i32, ptr %75, align 4, !tbaa !56
   %77 = ashr i32 %76, 8
   br label %get_sample.exit
@@ -237,13 +234,13 @@ get_sample.exit:                                  ; preds = %65, %70, %74
   br label %get_sample.exit135
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv.next273
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv.next273
   %90 = load i16, ptr %89, align 2, !tbaa !54
   %91 = sext i16 %90 to i32
   br label %get_sample.exit135
 
 92:                                               ; preds = %82
-  %93 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.next273
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.next273
   %94 = load i32, ptr %93, align 4, !tbaa !56
   %95 = ashr i32 %94, 8
   br label %get_sample.exit135
@@ -274,10 +271,10 @@ get_sample.exit135:                               ; preds = %83, %88, %92
 
 switch.lookup:                                    ; preds = %99
   %103 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.tta_encode_frame, i64 %103
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tta_encode_frame, i64 %103
   %switch.load = load i64, ptr %switch.gep, align 8
   %104 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep333 = getelementptr inbounds nuw i64, ptr @switch.table.tta_encode_frame.2, i64 %104
+  %switch.gep333 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tta_encode_frame.2, i64 %104
   %switch.load334 = load i64, ptr %switch.gep333, align 8
   %105 = load i32, ptr %60, align 4, !tbaa !46
   %106 = sext i32 %105 to i64
@@ -317,7 +314,7 @@ switch.lookup:                                    ; preds = %99
 
 131:                                              ; preds = %111
   %132 = zext i32 %125 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %27, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !56
   %135 = icmp ult i32 %130, %134
   br i1 %135, label %136, label %138
@@ -329,7 +326,7 @@ switch.lookup:                                    ; preds = %99
 138:                                              ; preds = %131, %111
   %139 = add i32 %125, 1
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %27, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !56
   %143 = icmp ugt i32 %130, %142
   br i1 %143, label %.sink.split316, label %144
@@ -341,7 +338,7 @@ switch.lookup:                                    ; preds = %99
 
 144:                                              ; preds = %.sink.split316, %138
   %145 = zext i32 %125 to i64
-  %146 = getelementptr inbounds nuw i32, ptr @ff_tta_shift_1, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr @ff_tta_shift_1, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !56
   %.not129 = icmp ult i32 %124, %147
   br i1 %.not129, label %217, label %148
@@ -361,7 +358,7 @@ switch.lookup:                                    ; preds = %99
 
 157:                                              ; preds = %148
   %158 = zext i32 %151 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %27, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !56
   %161 = icmp ult i32 %156, %160
   br i1 %161, label %162, label %164
@@ -373,7 +370,7 @@ switch.lookup:                                    ; preds = %99
 164:                                              ; preds = %157, %148
   %165 = add i32 %151, 1
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i32, ptr %27, i64 %166
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !56
   %169 = icmp ugt i32 %156, %168
   br i1 %169, label %.sink.split318, label %170
@@ -531,7 +528,7 @@ put_bits.exit143:                                 ; preds = %217, %225
 
 228:                                              ; preds = %put_bits.exit143
   %229 = zext i32 %.0106 to i64
-  %230 = getelementptr inbounds nuw i32, ptr @ff_tta_shift_1, i64 %229
+  %230 = getelementptr inbounds nuw [4 x i8], ptr @ff_tta_shift_1, i64 %229
   %231 = load i32, ptr %230, align 4, !tbaa !56
   %232 = add i32 %231, -1
   %233 = and i32 %232, %.0103

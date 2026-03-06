@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, i64 }
 %"class.llvm::InsertPosition" = type { %"class.llvm::ilist_iterator_w_bits" }
 %"class.llvm::ilist_iterator_w_bits" = type <{ ptr, i8, i8, [6 x i8] }>
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -122,7 +121,7 @@ _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br label %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %47, %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   br label %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backEOS2_.exit.i
 
 _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %28, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i
@@ -274,7 +273,7 @@ _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br label %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i16
 
 _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i16: ; preds = %106, %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i14
-  %107 = getelementptr inbounds nuw ptr, ptr %101, i64 %99
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %99
   br label %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backEOS2_.exit.i5
 
 _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backEOS2_.exit.i5: ; preds = %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i16, %87, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i4
@@ -406,7 +405,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit35.i:   ; preds = %159, %.lr.ph.split.
   %171 = and i32 %165, 134217727
   %172 = zext nneg i32 %171 to i64
   %173 = sub nsw i64 0, %172
-  %174 = getelementptr inbounds %"class.llvm::Use", ptr %.0.i.i34.i, i64 %173
+  %174 = getelementptr inbounds [32 x i8], ptr %.0.i.i34.i, i64 %173
   br label %_ZNK4llvm4User10getOperandEj.exit.i
 
 _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %170, %167
@@ -433,7 +432,7 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %170, %167
   %188 = add nsw i32 %185, -1
   %189 = load ptr, ptr %143, align 8, !tbaa !49
   %190 = zext i32 %188 to i64
-  %191 = getelementptr inbounds nuw %"class.llvm::Use", ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw [32 x i8], ptr %189, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !50
   %.not.i.i.i.i.i.i = icmp eq ptr %192, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i, label %193
@@ -483,9 +482,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i: ; preds = %_Z
   %210 = load ptr, ptr %143, align 8, !tbaa !49
   %211 = load i32, ptr %128, align 8, !tbaa !36
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %"class.llvm::Use", ptr %210, i64 %212
+  %213 = getelementptr inbounds nuw [32 x i8], ptr %210, i64 %212
   %214 = zext i32 %209 to i64
-  %215 = getelementptr inbounds nuw ptr, ptr %213, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %214
   store ptr %155, ptr %215, align 8, !tbaa !18
   %216 = load ptr, ptr %156, align 8, !tbaa !9
   %217 = getelementptr inbounds i8, ptr %216, i64 -24

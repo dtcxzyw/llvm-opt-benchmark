@@ -33,8 +33,8 @@ define void @"_ZN150_$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$co
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %18, i64 %11
-  %20 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %18, i64 %9
+  %19 = getelementptr inbounds nuw [112 x i8], ptr %18, i64 %11
+  %20 = getelementptr inbounds nuw [112 x i8], ptr %18, i64 %9
   %21 = mul i64 %4, 112
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %20, ptr align 8 %19, i64 %21, i1 false)
   %.pre = load ptr, ptr %0, align 8
@@ -527,8 +527,8 @@ define void @"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %17, i64 %11
-  %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %17, i64 %9
+  %18 = getelementptr inbounds nuw [112 x i8], ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw [112 x i8], ptr %17, i64 %9
   %20 = mul i64 %4, 112
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 %20, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
@@ -980,7 +980,7 @@ define void @"_ZN4core3ptr59drop_in_place$LT$$u5b$yara_x_proto..yara..AclEntry$u
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %0, i64 %.sroa.0.0
+  %6 = getelementptr inbounds nuw [112 x i8], ptr %0, i64 %.sroa.0.0
   %7 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %6)
           to label %3 unwind label %11
@@ -999,7 +999,7 @@ define void @"_ZN4core3ptr59drop_in_place$LT$$u5b$yara_x_proto..yara..AclEntry$u
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %0, i64 %.sroa.0.1
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %0, i64 %.sroa.0.1
   %15 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %14) #8
           to label %9 unwind label %17
@@ -1028,7 +1028,7 @@ define void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$yara_x_proto..ya
   br i1 %7, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67504feeb1f43a72E.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %3, i64 %.sroa.0.0.i.i
+  %9 = getelementptr inbounds nuw [112 x i8], ptr %3, i64 %.sroa.0.0.i.i
   %10 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %9)
           to label %6 unwind label %13
@@ -1044,7 +1044,7 @@ define void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$yara_x_proto..ya
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %3, i64 %.sroa.0.1.i.i
+  %16 = getelementptr inbounds nuw [112 x i8], ptr %3, i64 %.sroa.0.1.i.i
   %17 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %16) #8
           to label %11 unwind label %18
@@ -1113,7 +1113,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   br i1 %7, label %"_ZN4core3ptr59drop_in_place$LT$$u5b$yara_x_proto..yara..AclEntry$u5d$$GT$17h7f0a99f7bd32b0aeE.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %3, i64 %.sroa.0.0.i
+  %9 = getelementptr inbounds nuw [112 x i8], ptr %3, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %9)
           to label %6 unwind label %13
@@ -1129,7 +1129,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %3, i64 %.sroa.0.1.i
+  %16 = getelementptr inbounds nuw [112 x i8], ptr %3, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %16) #8
           to label %11 unwind label %19
@@ -1233,8 +1233,8 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %23, i64 %17
-  %25 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [112 x i8], ptr %23, i64 %17
+  %25 = getelementptr inbounds nuw [112 x i8], ptr %23, i64 %15
   %26 = mul i64 %12, 112
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %25, ptr align 8 %24, i64 %26, i1 false)
   %.pre4.i.i = load i64, ptr %11, align 8
@@ -1272,7 +1272,7 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %39, label %"_ZN4core3ptr59drop_in_place$LT$$u5b$yara_x_proto..yara..AclEntry$u5d$$GT$17h7f0a99f7bd32b0aeE.exit", label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %37, i64 %.sroa.0.0.i
+  %41 = getelementptr inbounds nuw [112 x i8], ptr %37, i64 %.sroa.0.0.i
   %42 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %41)
           to label %38 unwind label %45
@@ -1288,7 +1288,7 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   br label %43
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %37, i64 %.sroa.0.1.i
+  %48 = getelementptr inbounds nuw [112 x i8], ptr %37, i64 %.sroa.0.1.i
   %49 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$yara_x_proto..yara..AclEntry$GT$17h883519f49f8d9690E"(ptr align 8 %48) #8
           to label %43 unwind label %50
@@ -1323,8 +1323,8 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
 63:                                               ; preds = %54
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %65, i64 %59
-  %67 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %65, i64 %57
+  %66 = getelementptr inbounds nuw [112 x i8], ptr %65, i64 %59
+  %67 = getelementptr inbounds nuw [112 x i8], ptr %65, i64 %57
   %68 = mul i64 %53, 112
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %67, ptr align 8 %66, i64 %68, i1 false)
   %.pre4.i.i18 = load i64, ptr %52, align 8

@@ -292,7 +292,7 @@ _ZNK2cv11_InputArray6getMatEi.exit69:             ; preds = %82, %85
 
 _ZN2cv12getAccTabIdxEii.exit:                     ; preds = %96, %95, %93, %92, %90, %88, %_ZNK2cv11_InputArray6getMatEi.exit69
   %.ph = phi i64 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit69 ], [ 5, %95 ], [ 4, %93 ], [ 3, %92 ], [ 2, %90 ], [ 1, %88 ], [ 6, %96 ]
-  %99 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL6accTabE, i64 %.ph
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL6accTabE, i64 %.ph
   %100 = load ptr, ptr %99, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %9, ptr %14, align 16, !tbaa !25
@@ -752,7 +752,7 @@ _ZNK2cv11_InputArray6getMatEi.exit69:             ; preds = %82, %85
 
 _ZN2cv12getAccTabIdxEii.exit:                     ; preds = %96, %95, %93, %92, %90, %88, %_ZNK2cv11_InputArray6getMatEi.exit69
   %.ph = phi i64 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit69 ], [ 5, %95 ], [ 4, %93 ], [ 3, %92 ], [ 2, %90 ], [ 1, %88 ], [ 6, %96 ]
-  %99 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL9accSqrTabE, i64 %.ph
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL9accSqrTabE, i64 %.ph
   %100 = load ptr, ptr %99, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %9, ptr %14, align 16, !tbaa !25
@@ -1237,7 +1237,7 @@ _ZNK2cv11_InputArray6getMatEi.exit86:             ; preds = %109, %112
 
 _ZN2cv12getAccTabIdxEii.exit:                     ; preds = %123, %122, %120, %119, %117, %115, %_ZNK2cv11_InputArray6getMatEi.exit86
   %.ph = phi i64 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit86 ], [ 5, %122 ], [ 4, %120 ], [ 3, %119 ], [ 2, %117 ], [ 1, %115 ], [ 6, %123 ]
-  %126 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL10accProdTabE, i64 %.ph
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL10accProdTabE, i64 %.ph
   %127 = load ptr, ptr %126, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %12, ptr %18, align 16, !tbaa !25
@@ -1666,7 +1666,7 @@ _ZNK2cv11_InputArray6getMatEi.exit70:             ; preds = %83, %86
 
 _ZN2cv12getAccTabIdxEii.exit:                     ; preds = %97, %96, %94, %93, %91, %89, %_ZNK2cv11_InputArray6getMatEi.exit70
   %.ph = phi i64 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit70 ], [ 5, %96 ], [ 4, %94 ], [ 3, %93 ], [ 2, %91 ], [ 1, %89 ], [ 6, %97 ]
-  %100 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL7accWTabE, i64 %.ph
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL7accWTabE, i64 %.ph
   %101 = load ptr, ptr %100, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %10, ptr %15, align 16, !tbaa !25

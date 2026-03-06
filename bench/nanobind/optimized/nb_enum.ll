@@ -2635,7 +2635,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %54 = load ptr, ptr %53, align 8
   %.0813.i.i.i.i.i = and i64 %52, %51
-  %55 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %54, i64 %.0813.i.i.i.i.i
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %.0813.i.i.i.i.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i16, ptr %56, align 4
   %.not14.i.i.i.i.i = icmp slt i16 %57, 0
@@ -2654,7 +2654,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   %63 = add i64 %.0816.i.i.i.i.i, 1
   %64 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %63, %52
-  %65 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %54, i64 %.08.i.i.i.i.i
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %.08.i.i.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i16, ptr %66, align 4
   %.not.i.i.i.i.i = icmp sgt i16 %64, %67
@@ -2663,7 +2663,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
 ._crit_edge.i.i.i.i.i:                            ; preds = %62, %39
   %68 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %54, i64 %69
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %69
   br label %.loopexit100
 
 .loopexit100.loopexit:                            ; preds = %.lr.ph.i.i.i.i.i
@@ -2674,7 +2674,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
 .loopexit100:                                     ; preds = %.loopexit100.loopexit, %._crit_edge.i.i.i.i.i
   %71 = phi i64 [ %69, %._crit_edge.i.i.i.i.i ], [ %.pre, %.loopexit100.loopexit ]
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %70, %._crit_edge.i.i.i.i.i ], [ %58, %.loopexit100.loopexit ]
-  %72 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %54, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %71
   %.not96 = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %72
   br i1 %.not96, label %76, label %73
 
@@ -2723,7 +2723,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   %98 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %99 = load ptr, ptr %98, align 8
   %.0813.i.i.i.i.i58 = and i64 %97, %96
-  %100 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %99, i64 %.0813.i.i.i.i.i58
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %.0813.i.i.i.i.i58
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i16, ptr %101, align 4
   %.not14.i.i.i.i.i59 = icmp slt i16 %102, 0
@@ -2742,7 +2742,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   %108 = add i64 %.0816.i.i.i.i.i61, 1
   %109 = add i16 %.015.i.i.i.i.i62, 1
   %.08.i.i.i.i.i63 = and i64 %108, %97
-  %110 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %99, i64 %.08.i.i.i.i.i63
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %.08.i.i.i.i.i63
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load i16, ptr %111, align 4
   %.not.i.i.i.i.i64 = icmp sgt i16 %109, %112
@@ -2751,7 +2751,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
 ._crit_edge.i.i.i.i.i65:                          ; preds = %107, %88
   %113 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %99, i64 %114
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %114
   br label %.loopexit99
 
 .loopexit99.loopexit:                             ; preds = %.lr.ph.i.i.i.i.i60
@@ -2762,7 +2762,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
 .loopexit99:                                      ; preds = %.loopexit99.loopexit, %._crit_edge.i.i.i.i.i65
   %116 = phi i64 [ %114, %._crit_edge.i.i.i.i.i65 ], [ %.pre112, %.loopexit99.loopexit ]
   %.sroa.09.0.i.i.i.i.i66 = phi ptr [ %115, %._crit_edge.i.i.i.i.i65 ], [ %103, %.loopexit99.loopexit ]
-  %117 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %99, i64 %116
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %116
   %.not97 = icmp eq ptr %.sroa.09.0.i.i.i.i.i66, %117
   br i1 %.not97, label %.thread88, label %.thread88.sink.split
 
@@ -2799,7 +2799,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   %135 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %136 = load ptr, ptr %135, align 8
   %.0813.i.i.i.i.i68 = and i64 %134, %133
-  %137 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %136, i64 %.0813.i.i.i.i.i68
+  %137 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %.0813.i.i.i.i.i68
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %139 = load i16, ptr %138, align 4
   %.not14.i.i.i.i.i69 = icmp slt i16 %139, 0
@@ -2818,7 +2818,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   %145 = add i64 %.0816.i.i.i.i.i71, 1
   %146 = add i16 %.015.i.i.i.i.i72, 1
   %.08.i.i.i.i.i73 = and i64 %145, %134
-  %147 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %136, i64 %.08.i.i.i.i.i73
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %.08.i.i.i.i.i73
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
   %149 = load i16, ptr %148, align 4
   %.not.i.i.i.i.i74 = icmp sgt i16 %146, %149
@@ -2827,7 +2827,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
 ._crit_edge.i.i.i.i.i75:                          ; preds = %144, %125
   %150 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %136, i64 %151
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %151
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i.i.i70
@@ -2838,7 +2838,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i.i.i75
   %153 = phi i64 [ %151, %._crit_edge.i.i.i.i.i75 ], [ %.pre114, %.loopexit.loopexit ]
   %.sroa.09.0.i.i.i.i.i76 = phi ptr [ %152, %._crit_edge.i.i.i.i.i75 ], [ %140, %.loopexit.loopexit ]
-  %154 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %136, i64 %153
+  %154 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %153
   %.not98 = icmp eq ptr %.sroa.09.0.i.i.i.i.i76, %154
   br i1 %.not98, label %.thread88, label %.thread88.sink.split
 
@@ -2897,7 +2897,7 @@ define noundef ptr @_ZN8nanobind6detail13enum_from_cppEPKSt9type_infol(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %20 = load ptr, ptr %19, align 8
   %.0813.i.i.i.i.i = and i64 %18, %17
-  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %20, i64 %.0813.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.0813.i.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i16, ptr %22, align 4
   %.not14.i.i.i.i.i = icmp slt i16 %23, 0
@@ -2916,7 +2916,7 @@ define noundef ptr @_ZN8nanobind6detail13enum_from_cppEPKSt9type_infol(ptr nound
   %29 = add i64 %.0816.i.i.i.i.i, 1
   %30 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %29, %18
-  %31 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %20, i64 %.08.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.08.i.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i16, ptr %32, align 4
   %.not.i.i.i.i.i = icmp sgt i16 %30, %33
@@ -2925,7 +2925,7 @@ define noundef ptr @_ZN8nanobind6detail13enum_from_cppEPKSt9type_infol(ptr nound
 ._crit_edge.i.i.i.i.i:                            ; preds = %28, %7
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %20, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %35
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i.i.i
@@ -2936,7 +2936,7 @@ define noundef ptr @_ZN8nanobind6detail13enum_from_cppEPKSt9type_infol(ptr nound
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i.i.i
   %37 = phi i64 [ %35, %._crit_edge.i.i.i.i.i ], [ %.pre, %.loopexit.loopexit ]
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i.i.i ], [ %24, %.loopexit.loopexit ]
-  %38 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %20, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %37
   %.not57 = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %38
   br i1 %.not57, label %45, label %39
 
@@ -3747,7 +3747,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %.057 = and i64 %13, %17
-  %20 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %19, i64 %.057
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.057
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i16, ptr %21, align 4
   %.not58 = icmp slt i16 %22, 0
@@ -3793,7 +3793,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %43 = add i64 %.060, 1
   %44 = add i16 %.03459, 1
   %.0 = and i64 %43, %17
-  %45 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %19, i64 %.0
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.0
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i16, ptr %46, align 4
   %.not = icmp sgt i16 %44, %47
@@ -3809,7 +3809,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %49 = load i64, ptr %0, align 8
   %50 = load ptr, ptr %18, align 8
   %.262 = and i64 %13, %49
-  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %50, i64 %.262
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.262
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i16, ptr %52, align 4
   %.not3763 = icmp slt i16 %53, 0
@@ -3821,7 +3821,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %54 = add i64 %.265, 1
   %55 = add i16 %.23664, 1
   %.2 = and i64 %54, %49
-  %56 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %50, i64 %.2
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.2
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i16, ptr %57, align 4
   %.not37 = icmp sgt i16 %55, %58
@@ -3831,7 +3831,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
   %59 = load ptr, ptr %18, align 8
-  %60 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %59, i64 %.1.lcssa
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %.1.lcssa
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i16, ptr %61, align 4
   %63 = icmp eq i16 %62, -1
@@ -3868,7 +3868,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %82 = and i64 %81, %80
   %storemerge22.i.i = add nuw i16 %62, 1
   %83 = load ptr, ptr %18, align 8
-  %84 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i16, ptr %85, align 4
   %87 = icmp eq i16 %86, -1
@@ -3925,7 +3925,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %109 = add i64 %.024.i.i, 1
   %110 = and i64 %108, %109
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %111 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %107, i64 %110
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i16, ptr %112, align 4
   %114 = icmp eq i16 %113, -1
@@ -3952,7 +3952,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %119 = add i64 %118, 1
   store i64 %119, ptr %117, align 8
   %120 = load ptr, ptr %18, align 8
-  %121 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %120, i64 %.1.lcssa
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %.1.lcssa
   br label %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread
 
 _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit, %30, %116
@@ -4109,7 +4109,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %.012.i.us = phi i32 [ %20, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit.us ], [ %.1.i.us, %44 ]
   %.0.i.us = phi i64 [ %23, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit.us ], [ %48, %44 ]
   %28 = load ptr, ptr %16, align 8
-  %29 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %28, i64 %.0.i.us
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.0.i.us
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i16, ptr %30, align 4
   %32 = icmp sgt i16 %.013.i.us, %31
@@ -4301,7 +4301,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %.012.i = phi i32 [ %119, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit ], [ %.1.i, %139 ]
   %.0.i = phi i64 [ %118, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit ], [ %143, %139 ]
   %123 = load ptr, ptr %16, align 8
-  %124 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %123, i64 %.0.i
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %.0.i
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i16, ptr %125, align 4
   %127 = icmp sgt i16 %.013.i, %126
@@ -4413,7 +4413,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
   %28 = mul nuw nsw i64 %.012.i.i, 24
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #23
   store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %29, i64 %.012.i.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.012.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -4618,7 +4618,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIllELb1EEESaIS
   %28 = mul nuw nsw i64 %.012.i.i, 24
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #23
   store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %29, i64 %.012.i.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.012.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -4732,7 +4732,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %.057 = and i64 %13, %17
-  %20 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %19, i64 %.057
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.057
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i16, ptr %21, align 4
   %.not58 = icmp slt i16 %22, 0
@@ -4778,7 +4778,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %43 = add i64 %.060, 1
   %44 = add i16 %.03459, 1
   %.0 = and i64 %43, %17
-  %45 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %19, i64 %.0
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.0
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i16, ptr %46, align 4
   %.not = icmp sgt i16 %44, %47
@@ -4794,7 +4794,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %49 = load i64, ptr %0, align 8
   %50 = load ptr, ptr %18, align 8
   %.262 = and i64 %13, %49
-  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %50, i64 %.262
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.262
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i16, ptr %52, align 4
   %.not3763 = icmp slt i16 %53, 0
@@ -4806,7 +4806,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %54 = add i64 %.265, 1
   %55 = add i16 %.23664, 1
   %.2 = and i64 %54, %49
-  %56 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %50, i64 %.2
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.2
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i16, ptr %57, align 4
   %.not37 = icmp sgt i16 %55, %58
@@ -4816,7 +4816,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
   %59 = load ptr, ptr %18, align 8
-  %60 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %59, i64 %.1.lcssa
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %.1.lcssa
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i16, ptr %61, align 4
   %63 = icmp eq i16 %62, -1
@@ -4853,7 +4853,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %82 = and i64 %81, %80
   %storemerge22.i.i = add nuw i16 %62, 1
   %83 = load ptr, ptr %18, align 8
-  %84 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i16, ptr %85, align 4
   %87 = icmp eq i16 %86, -1
@@ -4910,7 +4910,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %109 = add i64 %.024.i.i, 1
   %110 = and i64 %108, %109
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %111 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %107, i64 %110
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i16, ptr %112, align 4
   %114 = icmp eq i16 %113, -1
@@ -4937,7 +4937,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %119 = add i64 %118, 1
   store i64 %119, ptr %117, align 8
   %120 = load ptr, ptr %18, align 8
-  %121 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %120, i64 %.1.lcssa
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %.1.lcssa
   br label %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread
 
 _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit, %30, %116
@@ -4964,7 +4964,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %.057 = and i64 %15, %16
-  %19 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %18, i64 %.057
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.057
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i16, ptr %20, align 4
   %.not58 = icmp slt i16 %21, 0
@@ -4989,7 +4989,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %28 = add i64 %.060, 1
   %29 = add i16 %.03459, 1
   %.0 = and i64 %28, %16
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %18, i64 %.0
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.0
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i16, ptr %31, align 4
   %.not = icmp sgt i16 %29, %32
@@ -5005,7 +5005,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %34 = load i64, ptr %0, align 8
   %35 = load ptr, ptr %17, align 8
   %.262 = and i64 %15, %34
-  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %35, i64 %.262
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.262
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i16, ptr %37, align 4
   %.not3763 = icmp slt i16 %38, 0
@@ -5017,7 +5017,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %39 = add i64 %.265, 1
   %40 = add i16 %.23664, 1
   %.2 = and i64 %39, %34
-  %41 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %35, i64 %.2
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.2
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i16, ptr %42, align 4
   %.not37 = icmp sgt i16 %40, %43
@@ -5027,7 +5027,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
   %44 = load ptr, ptr %17, align 8
-  %45 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %44, i64 %.1.lcssa
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.1.lcssa
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i16, ptr %46, align 4
   %48 = icmp eq i16 %47, -1
@@ -5064,7 +5064,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %67 = and i64 %66, %65
   %storemerge22.i.i = add nuw i16 %47, 1
   %68 = load ptr, ptr %17, align 8
-  %69 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %67
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i16, ptr %70, align 4
   %72 = icmp eq i16 %71, -1
@@ -5121,7 +5121,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %94 = add i64 %.024.i.i, 1
   %95 = and i64 %93, %94
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %96 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i16, ptr %97, align 4
   %99 = icmp eq i16 %98, -1
@@ -5148,7 +5148,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %104 = add i64 %103, 1
   store i64 %104, ptr %102, align 8
   %105 = load ptr, ptr %17, align 8
-  %106 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %105, i64 %.1.lcssa
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %.1.lcssa
   br label %.loopexit49
 
 .loopexit49:                                      ; preds = %.lr.ph, %101
@@ -5297,7 +5297,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %.012.i.us = phi i32 [ %21, %20 ], [ %.1.i.us, %45 ]
   %.0.i.us = phi i64 [ %24, %20 ], [ %49, %45 ]
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %29, i64 %.0.i.us
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.0.i.us
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i16, ptr %31, align 4
   %33 = icmp sgt i16 %.013.i.us, %32
@@ -5480,7 +5480,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %.012.i = phi i32 [ %119, %105 ], [ %.1.i, %139 ]
   %.0.i = phi i64 [ %118, %105 ], [ %143, %139 ]
   %123 = load ptr, ptr %16, align 8
-  %124 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %123, i64 %.0.i
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %.0.i
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i16, ptr %125, align 4
   %127 = icmp sgt i16 %.013.i, %126
@@ -5592,7 +5592,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
   %28 = mul nuw nsw i64 %.012.i.i, 24
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #23
   store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.44", ptr %29, i64 %.012.i.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.012.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -5707,7 +5707,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %.053 = and i64 %12, %13
-  %16 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %15, i64 %.053
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %.053
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i16, ptr %17, align 4
   %.not54 = icmp slt i16 %18, 0
@@ -5732,7 +5732,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %25 = add i64 %.056, 1
   %26 = add i16 %.03055, 1
   %.0 = and i64 %25, %13
-  %27 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %15, i64 %.0
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %.0
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i16, ptr %28, align 4
   %.not = icmp sgt i16 %26, %29
@@ -5748,7 +5748,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %31 = load i64, ptr %0, align 8
   %32 = load ptr, ptr %14, align 8
   %.258 = and i64 %12, %31
-  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %32, i64 %.258
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.258
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i16, ptr %34, align 4
   %.not3359 = icmp slt i16 %35, 0
@@ -5760,7 +5760,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %36 = add i64 %.261, 1
   %37 = add i16 %.23260, 1
   %.2 = and i64 %36, %31
-  %38 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %32, i64 %.2
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.2
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i16, ptr %39, align 4
   %.not33 = icmp sgt i16 %37, %40
@@ -5770,7 +5770,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %.131.lcssa = phi i16 [ %.030.lcssa, %.preheader ], [ %.232.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
   %41 = load ptr, ptr %14, align 8
-  %42 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %41, i64 %.1.lcssa
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.1.lcssa
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i16, ptr %43, align 4
   %45 = icmp eq i16 %44, -1
@@ -5804,7 +5804,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %60 = and i64 %59, %58
   %storemerge22.i.i = add i16 %56, 1
   %61 = load ptr, ptr %14, align 8
-  %62 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i16, ptr %63, align 4
   %65 = icmp eq i16 %64, -1
@@ -5861,7 +5861,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %89 = add i64 %.024.i.i, 1
   %90 = and i64 %88, %89
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %91 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %87, i64 %90
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i16, ptr %92, align 4
   %94 = icmp eq i16 %93, -1
@@ -5884,7 +5884,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIllENS_9robin_mapIllN8nanobind6det
   %99 = add i64 %98, 1
   store i64 %99, ptr %97, align 8
   %100 = load ptr, ptr %14, align 8
-  %101 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %100, i64 %.1.lcssa
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %.1.lcssa
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %.lr.ph, %96
@@ -6033,7 +6033,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %.012.i.us = phi i32 [ %21, %20 ], [ %.1.i.us, %45 ]
   %.0.i.us = phi i64 [ %24, %20 ], [ %49, %45 ]
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %29, i64 %.0.i.us
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.0.i.us
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i16, ptr %31, align 4
   %33 = icmp sgt i16 %.013.i.us, %32
@@ -6215,7 +6215,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIllENS_9robin_mapIllN8nanobind6det
   %.012.i = phi i32 [ %118, %105 ], [ %.1.i, %138 ]
   %.0.i = phi i64 [ %117, %105 ], [ %142, %138 ]
   %122 = load ptr, ptr %16, align 8
-  %123 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %122, i64 %.0.i
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %122, i64 %.0.i
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i16, ptr %124, align 4
   %126 = icmp sgt i16 %.013.i, %125

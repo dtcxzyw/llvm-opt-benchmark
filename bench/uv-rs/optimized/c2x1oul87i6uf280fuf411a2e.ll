@@ -1048,7 +1048,7 @@ _ZN6digest11FixedOutput14finalize_fixed17h1aa087cdf57cd9f9E.exit: ; preds = %._c
   %140 = add nuw nsw i64 %.sroa.12.034.i.i.i.i, 1
   %141 = shl nuw nsw i64 %.sroa.12.034.i.i.i.i, 2
   %142 = getelementptr inbounds nuw i8, ptr %49, i64 %141
-  %143 = getelementptr inbounds nuw i32, ptr %53, i64 %.sroa.12.034.i.i.i.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %.sroa.12.034.i.i.i.i
   %144 = load i32, ptr %143, align 4, !alias.scope !130, !noalias !131, !noundef !12
   %145 = call i32 @llvm.bswap.i32(i32 %144)
   store i32 %145, ptr %142, align 1, !alias.scope !159, !noalias !163
@@ -1192,7 +1192,7 @@ _ZN6digest11FixedOutput14finalize_fixed17hb57911d1ba393e91E.exit: ; preds = %"_Z
   %178 = add nuw nsw i64 %.sroa.12.034.i.i.i.i26, 1
   %179 = shl nuw nsw i64 %.sroa.12.034.i.i.i.i26, 3
   %180 = getelementptr inbounds nuw i8, ptr %35, i64 %179
-  %181 = getelementptr inbounds nuw i64, ptr %39, i64 %.sroa.12.034.i.i.i.i26
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.sroa.12.034.i.i.i.i26
   %182 = load i64, ptr %181, align 8, !alias.scope !211, !noalias !212, !noundef !12
   %183 = call i64 @llvm.bswap.i64(i64 %182)
   store i64 %183, ptr %180, align 1, !alias.scope !240, !noalias !244
@@ -1336,7 +1336,7 @@ _ZN6digest11FixedOutput14finalize_fixed17h2fda40528ef465e3E.exit: ; preds = %"_Z
   %216 = add nuw nsw i64 %.sroa.12.034.i.i.i.i32, 1
   %217 = shl nuw nsw i64 %.sroa.12.034.i.i.i.i32, 3
   %218 = getelementptr inbounds nuw i8, ptr %21, i64 %217
-  %219 = getelementptr inbounds nuw i64, ptr %25, i64 %.sroa.12.034.i.i.i.i32
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.sroa.12.034.i.i.i.i32
   %220 = load i64, ptr %219, align 8, !alias.scope !292, !noalias !293, !noundef !12
   %221 = call i64 @llvm.bswap.i64(i64 %220)
   store i64 %221, ptr %218, align 1, !alias.scope !321, !noalias !325

@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.PACKET = type { ptr, i64 }
-%struct.ack_test_case = type { ptr, i64, ptr, i32 }
-%struct.pn_test = type { i64, i64, i64, i8, [4 x i8] }
 %struct.quic_pkt_hdr_st = type { i32, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
 %struct.ossl_quic_frame_ack_st = type { ptr, i64, %struct.OSSL_TIME, i64, i64, i64, i8 }
@@ -285,7 +283,7 @@ define internal range(i32 0, 2) i32 @test_wire_encode(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.encode_test_case, ptr @encode_cases, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @encode_cases, i64 %6
   %8 = tail call ptr @BUF_MEM_new() #5
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 1236, ptr noundef nonnull @.str.6, ptr noundef %8) #5
   %.not = icmp eq i32 %9, 0
@@ -415,7 +413,7 @@ PACKET_buf_init.exit:
   %1 = alloca %struct.PACKET, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.ack_test_case, ptr @ack_cases, i64 %2
+  %3 = getelementptr inbounds [32 x i8], ptr @ack_cases, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !22
   %6 = load ptr, ptr %3, align 16, !tbaa !25
@@ -465,7 +463,7 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr_pn(i32 noundef %0) #0 {
   %2 = alloca [4 x i8], align 1
   %3 = alloca i64, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.pn_test, ptr @pn_tests, i64 %4
+  %5 = getelementptr inbounds [32 x i8], ptr @pn_tests, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i64, ptr %5, align 16, !tbaa !26
@@ -593,9 +591,9 @@ PACKET_buf_init.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i64, ptr @non_minimal_len, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @non_minimal_len, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !13
-  %7 = getelementptr inbounds ptr, ptr @non_minimal, i64 %4
+  %7 = getelementptr inbounds [8 x i8], ptr @non_minimal, i64 %4
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   store ptr %8, ptr %3, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2283,7 +2281,7 @@ define internal range(i32 0, 2) i32 @ack_generic_decode(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %18
   %.012 = phi i64 [ %19, %18 ], [ 0, %.preheader ]
   %22 = load ptr, ptr %3, align 8, !tbaa !33
-  %23 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %22, i64 %.012
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.012
   %24 = load i64, ptr %23, align 8, !tbaa !63
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !65
@@ -2293,7 +2291,7 @@ define internal range(i32 0, 2) i32 @ack_generic_decode(ptr noundef %0) #0 {
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %3, align 8, !tbaa !33
-  %30 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %29, i64 %.012
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %.012
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !65
   %33 = call i32 @test_uint64_t_lt(ptr noundef nonnull @.str.5, i32 noundef 1402, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i64 noundef %32, i64 noundef 1000) #5

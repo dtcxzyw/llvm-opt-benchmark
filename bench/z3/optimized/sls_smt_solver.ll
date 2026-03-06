@@ -5,11 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %class.ref = type { ptr }
-%"struct.sat::clause_info" = type { double, i32, i32, %class.svector.2 }
-%class.svector.2 = type { %class.vector.3 }
-%class.vector.3 = type { ptr }
-%"struct.sat::ddfw::var_info" = type { i8, double, double, i32, i32, %class.ema }
-%class.ema = type { double, double, double, i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -734,7 +729,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %40 = phi ptr [ %.pre.i.i, %38 ], [ %30, %32 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 -4
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   store ptr %1, ptr %43, align 8, !tbaa !152
   %44 = add i32 %39, 1
   store i32 %44, ptr %41, align 4, !tbaa !151
@@ -2191,7 +2186,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !191
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::clause_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %7
   ret ptr %8
 }
 
@@ -2205,16 +2200,16 @@ define linkonce_odr hidden { ptr, ptr } @_ZN3sls10smt_solver10solver_ctx12get_us
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !128
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !151
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %13
   %15 = add i32 %1, 1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !151
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %19
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %14, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %20, 1
   ret { ptr, ptr } %.fca.1.insert.i
@@ -2290,7 +2285,7 @@ define linkonce_odr hidden noundef double @_ZN3sls10smt_solver10solver_ctx6rewar
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !189
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load double, ptr %9, align 8, !tbaa !207
   ret double %10
@@ -2303,7 +2298,7 @@ define linkonce_odr hidden noundef double @_ZN3sls10smt_solver10solver_ctx10get_
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !191
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::clause_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %7
   %9 = load double, ptr %8, align 8, !tbaa !210
   ret double %9
 }
@@ -2316,7 +2311,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3sls10smt_solver10solver_ctx7i
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !189
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %8
   %10 = load i8, ptr %9, align 8, !tbaa !212, !range !203, !noundef !204
   %11 = trunc nuw i8 %10 to i1
   %12 = trunc i32 %1 to i1
@@ -2445,7 +2440,7 @@ define linkonce_odr hidden noundef ptr @_ZThn8_NK3sls10smt_solver10solver_ctx10g
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !191
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::clause_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %7
   ret ptr %8
 }
 
@@ -2459,16 +2454,16 @@ define linkonce_odr hidden { ptr, ptr } @_ZThn8_N3sls10smt_solver10solver_ctx12g
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !128
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !151
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %13
   %15 = add i32 %1, 1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !151
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %19
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %14, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %20, 1
   ret { ptr, ptr } %.fca.1.insert.i.i
@@ -2544,7 +2539,7 @@ define linkonce_odr hidden noundef double @_ZThn8_N3sls10smt_solver10solver_ctx6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !189
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load double, ptr %9, align 8, !tbaa !207
   ret double %10
@@ -2557,7 +2552,7 @@ define linkonce_odr hidden noundef double @_ZThn8_N3sls10smt_solver10solver_ctx1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !191
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::clause_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %7
   %9 = load double, ptr %8, align 8, !tbaa !210
   ret double %9
 }
@@ -2570,7 +2565,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn8_N3sls10smt_solver10solver_
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !189
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %8
   %10 = load i8, ptr %9, align 8, !tbaa !212, !range !203, !noundef !204
   %11 = trunc nuw i8 %10 to i1
   %12 = trunc i32 %1 to i1

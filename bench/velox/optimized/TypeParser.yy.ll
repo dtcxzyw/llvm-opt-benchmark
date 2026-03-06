@@ -1435,7 +1435,7 @@ invoke.cont67:                                    ; preds = %yyreduce
   %34 = xor i8 %31, -1
   %35 = sext i8 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %sub.ptr.sub.i.i.i61
-  %add.ptr.i.i62 = getelementptr %"struct.facebook::velox::type::Parser::stack_symbol_type", ptr %36, i64 %35
+  %add.ptr.i.i62 = getelementptr [64 x i8], ptr %36, i64 %35
   %37 = load i8, ptr %add.ptr.i.i62, align 16
   %arrayidx75 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser5yyr1_E, i64 %idxprom64
   %38 = load i8, ptr %arrayidx75, align 1
@@ -5057,7 +5057,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN8facebook5velox4type6Parser11symbol_nameB5cxx11ENS2_11symbol_kind16symbol_kind_typeE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %yysymbol) local_unnamed_addr #9 align 2 {
 entry:
   %idxprom = sext i32 %yysymbol to i64
-  %arrayidx = getelementptr inbounds ptr, ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @_ZN8facebook5velox4type6Parser10yytnamerr_B5cxx11EPKc(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0)
   ret void
@@ -5144,7 +5144,7 @@ if.then23:                                        ; preds = %for.body
 if.else27:                                        ; preds = %if.then23
   %inc28 = add nsw i32 %yycount.126, 1
   %idxprom29 = sext i32 %yycount.126 to i64
-  %arrayidx30 = getelementptr inbounds i32, ptr %yyarg, i64 %idxprom29
+  %arrayidx30 = getelementptr inbounds [4 x i8], ptr %yyarg, i64 %idxprom29
   store i32 %conv14, ptr %arrayidx30, align 4
   br label %for.inc
 
@@ -5260,7 +5260,7 @@ if.then23.i:                                      ; preds = %for.body.i
 if.else27.i:                                      ; preds = %if.then23.i
   %inc28.i = add nsw i32 %yycount.126.i, 1
   %idxprom29.i = sext i32 %yycount.126.i to i64
-  %arrayidx30.i = getelementptr inbounds i32, ptr %add.ptr, i64 %idxprom29.i
+  %arrayidx30.i = getelementptr inbounds [4 x i8], ptr %add.ptr, i64 %idxprom29.i
   store i32 %conv14.i, ptr %arrayidx30.i, align 4
   br label %for.inc.i
 
@@ -5359,7 +5359,7 @@ if.then23.i.i:                                    ; preds = %for.body.i.i
 if.else27.i.i:                                    ; preds = %if.then23.i.i
   %inc28.i.i = add nsw i32 %yycount.126.i.i, 1
   %idxprom29.i.i = sext i32 %yycount.126.i.i to i64
-  %arrayidx30.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idxprom29.i.i
+  %arrayidx30.i.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i, i64 %idxprom29.i.i
   store i32 %conv14.i.i, ptr %arrayidx30.i.i, align 4
   br label %for.inc.i.i
 
@@ -5385,7 +5385,7 @@ _ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_
 switch.lookup:                                    ; preds = %_ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit
   %switch.offset = add nuw nsw i32 %yycount.2.i.i, 1
   %15 = zext nneg i32 %yycount.2.i.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK8facebook5velox4type6Parser15yysyntax_error_B5cxx11ERKNS2_7contextE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK8facebook5velox4type6Parser15yysyntax_error_B5cxx11ERKNS2_7contextE, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
 
@@ -5415,10 +5415,10 @@ land.lhs.true:                                    ; preds = %for.cond
 
 if.then:                                          ; preds = %land.lhs.true
   %inc = add nsw i64 %yyi.0, 1
-  %arrayidx13 = getelementptr inbounds i32, ptr %yyarg, i64 %yyi.0
+  %arrayidx13 = getelementptr inbounds [4 x i8], ptr %yyarg, i64 %yyi.0
   %18 = load i32, ptr %arrayidx13, align 4
   %idxprom.i = sext i32 %18 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 %idxprom.i
   %19 = load ptr, ptr %arrayidx.i, align 8, !noalias !14
   invoke void @_ZN8facebook5velox4type6Parser10yytnamerr_B5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %19)
           to label %invoke.cont unwind label %lpad
@@ -5694,7 +5694,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE13_M_dealloca
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -5731,7 +5731,7 @@ _ZNSt12_Vector_baseIN8facebook5velox4type6Parser17stack_symbol_typeESaIS4_EEC2Em
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.facebook::velox::type::Parser::stack_symbol_type", ptr %call5.i.i.i.i2.i, i64 %__n
+  %add.ptr.i.i = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i.i2.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i
@@ -6634,7 +6634,7 @@ _ZNSt12_Vector_baseIN8facebook5velox4type6Parser17stack_symbol_typeESaIS4_EE13_M
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i39, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds nuw %"struct.facebook::velox::type::Parser::stack_symbol_type", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -6768,7 +6768,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -6985,7 +6985,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

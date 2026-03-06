@@ -3,11 +3,6 @@ source_filename = "bench/openusd/original/bigRWMutex.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfSpinRWMutex", [60 x i8] }
-%"class.pxrInternal_v0_24__pxrReserved__::TfSpinRWMutex" = type { %"struct.std::atomic.2" }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { i32 }
-
 @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutexC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutexC2Ev
 
 ; Function Attrs: mustprogress uwtable
@@ -39,7 +34,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex21_AcquireReadCo
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %11, i64 %3
+  %12 = getelementptr inbounds [64 x i8], ptr %11, i64 %3
   %13 = atomicrmw add ptr %12, i32 2 seq_cst, align 4
   %14 = and i32 %13, 1
   %.not.i = icmp eq i32 %14, 0
@@ -86,8 +81,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_AcquireWriteE
   %indvars.iv = phi i64 [ %indvars.iv.next.mux, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit ], [ 0, %._crit_edge ]
   %.089 = phi i1 [ %.mux, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit ], [ true, %._crit_edge ]
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %13, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit [
     i32 0, label %17

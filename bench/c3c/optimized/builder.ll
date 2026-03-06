@@ -275,7 +275,7 @@ define internal fastcc void @update_build_target_from_options(ptr noundef initia
 
 35:                                               ; preds = %.lr.ph498, %.loopexit494
   %indvars.iv527 = phi i64 [ 0, %.lr.ph498 ], [ %indvars.iv.next528, %.loopexit494 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv527
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv527
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %34, align 8
   %.not451 = icmp eq ptr %38, null
@@ -293,7 +293,7 @@ define internal fastcc void @update_build_target_from_options(ptr noundef initia
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @str_eq(ptr noundef %43, ptr noundef %37) #7
   br i1 %44, label %45, label %60
@@ -315,10 +315,10 @@ define internal fastcc void @update_build_target_from_options(ptr noundef initia
   %.01519.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %.01517.i, %47 ]
   %.015.in18.i = phi i32 [ %.01519.i, %.lr.ph.i ], [ %48, %47 ]
   %52 = sext i32 %.01519.i to i64
-  %53 = getelementptr inbounds ptr, ptr %46, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %46, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %.015.in18.i to i64
-  %56 = getelementptr inbounds ptr, ptr %46, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %46, i64 %55
   store ptr %54, ptr %56, align 8
   %.015.i = add nuw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %50
@@ -360,7 +360,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
 
 67:                                               ; preds = %.lr.ph505, %.loopexit
   %indvars.iv537 = phi i64 [ 0, %.lr.ph505 ], [ %indvars.iv.next538, %.loopexit ]
-  %68 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv537
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv537
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %66, align 8
   %.not449 = icmp eq ptr %70, null
@@ -383,7 +383,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
 
 .lr.ph501:                                        ; preds = %.lr.ph501.preheader, %74
   %indvars.iv532 = phi i64 [ 0, %.lr.ph501.preheader ], [ %indvars.iv.next533, %74 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv532
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv532
   %76 = load ptr, ptr %75, align 8
   %77 = tail call zeroext i1 @str_eq(ptr noundef %76, ptr noundef %69) #7
   br i1 %77, label %.loopexit, label %74
@@ -443,7 +443,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   %104 = load i32, ptr %.1.i, align 4
   %105 = add i32 %104, -1
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %103, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %106
   store ptr %69, ptr %107, align 8
   br label %.loopexit
 
@@ -657,12 +657,12 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   store i32 %208, ptr %.1.i458, align 4
   %209 = getelementptr inbounds nuw i8, ptr %.1.i458, i64 8
   store ptr %209, ptr %174, align 8
-  %210 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv542
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv542
   %211 = load ptr, ptr %210, align 8
   %212 = load i32, ptr %.1.i458, align 4
   %213 = add i32 %212, -1
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw ptr, ptr %209, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %214
   store ptr %211, ptr %215, align 8
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %216 = load i32, ptr %171, align 8
@@ -733,12 +733,12 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   store i32 %251, ptr %.1.i465, align 4
   %252 = getelementptr inbounds nuw i8, ptr %.1.i465, i64 8
   store ptr %252, ptr %179, align 8
-  %253 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv545
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv545
   %254 = load ptr, ptr %253, align 8
   %255 = load i32, ptr %.1.i465, align 4
   %256 = add i32 %255, -1
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr %252, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %257
   store ptr %254, ptr %258, align 8
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
   %259 = load i32, ptr %176, align 8
@@ -798,12 +798,12 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   store i32 %289, ptr %.1.i472, align 4
   %290 = getelementptr inbounds nuw i8, ptr %.1.i472, i64 8
   store ptr %290, ptr %222, align 8
-  %291 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv548
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %indvars.iv548
   %292 = load ptr, ptr %291, align 8
   %293 = load i32, ptr %.1.i472, align 4
   %294 = add i32 %293, -1
   %295 = zext i32 %294 to i64
-  %296 = getelementptr inbounds nuw ptr, ptr %290, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %295
   store ptr %292, ptr %296, align 8
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
   %297 = load i32, ptr %219, align 8
@@ -1385,12 +1385,12 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   store i32 %581, ptr %.1.i480, align 4
   %582 = getelementptr inbounds nuw i8, ptr %.1.i480, i64 8
   store ptr %582, ptr %548, align 8
-  %583 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv551
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv551
   %584 = load ptr, ptr %583, align 8
   %585 = load i32, ptr %.1.i480, align 4
   %586 = add i32 %585, -1
   %587 = zext i32 %586 to i64
-  %588 = getelementptr inbounds nuw ptr, ptr %582, i64 %587
+  %588 = getelementptr inbounds nuw [8 x i8], ptr %582, i64 %587
   store ptr %584, ptr %588, align 8
   %indvars.iv.next552 = add nuw nsw i64 %indvars.iv551, 1
   %589 = load i32, ptr %545, align 8
@@ -1450,12 +1450,12 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   store i32 %619, ptr %.1.i487, align 4
   %620 = getelementptr inbounds nuw i8, ptr %.1.i487, i64 8
   store ptr %620, ptr %552, align 8
-  %621 = getelementptr inbounds nuw ptr, ptr %553, i64 %indvars.iv554
+  %621 = getelementptr inbounds nuw [8 x i8], ptr %553, i64 %indvars.iv554
   %622 = load ptr, ptr %621, align 8
   %623 = load i32, ptr %.1.i487, align 4
   %624 = add i32 %623, -1
   %625 = zext i32 %624 to i64
-  %626 = getelementptr inbounds nuw ptr, ptr %620, i64 %625
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %620, i64 %625
   store ptr %622, ptr %626, align 8
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
   %627 = load i32, ptr %549, align 8

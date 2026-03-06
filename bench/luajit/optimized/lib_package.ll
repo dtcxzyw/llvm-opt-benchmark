@@ -75,7 +75,7 @@ define dso_local noundef i32 @luaopen_package(ptr noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @package_loaders, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @package_loaders, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = tail call ptr @lj_lib_pushcc(ptr noundef %0, ptr noundef %6, i32 noundef 1, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

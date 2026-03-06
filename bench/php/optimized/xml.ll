@@ -387,7 +387,7 @@ define internal void @xml_parser_free_obj(ptr noundef %0) #0 {
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %13 = load ptr, ptr %8, align 8, !tbaa !81
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !83
   tail call void @_efree(ptr noundef %15) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2247,7 +2247,7 @@ zend_call_known_fcc.exit:                         ; preds = %124, %116, %.crited
   %159 = load ptr, ptr %158, align 8, !tbaa !81
   %160 = load i32, ptr %12, align 8, !tbaa !82
   %161 = sext i32 %160 to i64
-  %162 = getelementptr ptr, ptr %159, i64 %161
+  %162 = getelementptr [8 x i8], ptr %159, i64 %161
   %163 = getelementptr i8, ptr %162, i64 -8
   store ptr %157, ptr %163, align 8, !tbaa !83
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -2954,7 +2954,7 @@ zend_string_release_ex.exit:                      ; preds = %118, %122, %127
 
 134:                                              ; preds = %130
   %135 = sext i32 %132 to i64
-  %136 = getelementptr ptr, ptr %129, i64 %135
+  %136 = getelementptr [8 x i8], ptr %129, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !83
   call void @_efree(ptr noundef %138) #16
@@ -3650,7 +3650,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %313, %222, %204, %2
   %326 = load ptr, ptr %325, align 8, !tbaa !81
   %327 = load i32, ptr %315, align 8, !tbaa !82
   %328 = sext i32 %327 to i64
-  %329 = getelementptr ptr, ptr %326, i64 %328
+  %329 = getelementptr [8 x i8], ptr %326, i64 %328
   %330 = getelementptr i8, ptr %329, i64 -8
   %331 = load ptr, ptr %330, align 8, !tbaa !83
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 476
@@ -3663,7 +3663,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %313, %222, %204, %2
   %337 = load ptr, ptr %325, align 8, !tbaa !81
   %338 = load i32, ptr %315, align 8, !tbaa !82
   %339 = sext i32 %338 to i64
-  %340 = getelementptr ptr, ptr %337, i64 %339
+  %340 = getelementptr [8 x i8], ptr %337, i64 %339
   %341 = getelementptr i8, ptr %340, i64 -8
   %342 = load ptr, ptr %341, align 8, !tbaa !83
   %343 = load i32, ptr %332, align 4, !tbaa !108

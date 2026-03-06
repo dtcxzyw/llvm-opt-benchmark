@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
 %"class.std::allocator.41" = type { i8 }
-%"class.cv::hfloat" = type { i16 }
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv16DefaultFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -369,10 +368,10 @@ define void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind noalias w
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE.3, i64 %8
+  %switch.gep46 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE.3, i64 %8
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %_ZNSt12__shared_ptrIN2cv15MatlabFormatterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -1084,7 +1083,7 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImpl13valueToStr16uEv(ptr noun
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %21 = load i32, ptr %20, align 4, !tbaa !65
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %19, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %19, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !71
   %25 = zext i16 %24 to i32
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.8, i32 noundef %25) #21
@@ -1114,7 +1113,7 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImpl13valueToStr16sEv(ptr noun
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %21 = load i32, ptr %20, align 4, !tbaa !65
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %19, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %19, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !71
   %25 = sext i16 %24 to i32
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.8, i32 noundef %25) #21
@@ -1144,7 +1143,7 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImpl13valueToStr32sEv(ptr noun
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %21 = load i32, ptr %20, align 4, !tbaa !65
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %19, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !57
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.8, i32 noundef %24) #21
   ret void
@@ -1174,7 +1173,7 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImpl13valueToStr32fEv(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %22 = load i32, ptr %21, align 4, !tbaa !65
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds float, ptr %20, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %20, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !73
   %26 = fpext float %25 to double
   %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %3, double noundef %26) #21
@@ -1205,7 +1204,7 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImpl13valueToStr64fEv(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %22 = load i32, ptr %21, align 4, !tbaa !65
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds double, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load double, ptr %24, align 8, !tbaa !75
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %3, double noundef %25) #21
   ret void
@@ -1233,7 +1232,7 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImpl13valueToStr16fEv(ptr noun
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %20 = load i32, ptr %19, align 4, !tbaa !65
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %"class.cv::hfloat", ptr %18, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !77
   %24 = zext i16 %23 to i32
   %25 = shl nuw nsw i32 %24, 13
@@ -2706,7 +2705,7 @@ define linkonce_odr hidden void @_ZNK2cv14NumpyFormatter6formatERKNS_3MatE(ptr d
   %15 = load i32, ptr %2, align 8, !tbaa !40
   %16 = and i32 %15, 7
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZZNK2cv14NumpyFormatter6formatERKNS_3MatEE10numpyTypes, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK2cv14NumpyFormatter6formatERKNS_3MatEE10numpyTypes, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.22, ptr noundef %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

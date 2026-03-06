@@ -1006,7 +1006,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   %35 = phi i8 [ %31, %.lr.ph ], [ %42, %40 ]
   %.23245 = phi ptr [ %.030, %.lr.ph ], [ %41, %40 ]
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !47
   %39 = and i16 %38, 8192
   %.not38.not.not.not = icmp ne i16 %39, 0
@@ -1054,7 +1054,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   %.2 = getelementptr inbounds i8, ptr %.2.pn, i64 -1
   %55 = load i8, ptr %.2, align 1, !tbaa !37
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !47
   %59 = and i16 %58, 8192
   %.not40 = icmp eq i16 %59, 0

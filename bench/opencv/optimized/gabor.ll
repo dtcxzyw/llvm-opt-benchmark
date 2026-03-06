@@ -165,7 +165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %47, %
   %96 = fmul double %93, %95
   %97 = fptrunc double %96 to float
   %98 = sub nsw i64 %66, %indvars.iv102
-  %99 = getelementptr inbounds float, ptr %80, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %80, i64 %98
   store float %97, ptr %99, align 4, !tbaa !14
   %indvars.iv.next103 = add nsw i64 %indvars.iv102, 1
   %lftr.wideiv105 = trunc i64 %indvars.iv.next103 to i32
@@ -216,7 +216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %47, %
   %124 = tail call double @cos(double noundef %123) #9, !tbaa !3
   %125 = fmul double %122, %124
   %126 = sub nsw i64 %66, %indvars.iv
-  %127 = getelementptr inbounds double, ptr %109, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %109, i64 %126
   store double %125, ptr %127, align 8, !tbaa !19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

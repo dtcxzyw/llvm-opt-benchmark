@@ -16025,7 +16025,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
-  %63 = getelementptr inbounds nuw float, ptr @dt_gui_presets_exposure_value, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_exposure_value, i64 %indvars.iv
   %64 = load float, ptr %63, align 4, !tbaa !111
   %65 = fcmp reassoc nsz arcp contract afn olt float %64, %18
   br i1 %65, label %66, label %.critedge.split.loop.exit
@@ -16046,7 +16046,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %71
   %indvars.iv134 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next135, %71 ]
-  %68 = getelementptr inbounds nuw float, ptr @dt_gui_presets_exposure_value, i64 %indvars.iv134
+  %68 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_exposure_value, i64 %indvars.iv134
   %69 = load float, ptr %68, align 4, !tbaa !111
   %70 = fcmp reassoc nsz arcp contract afn olt float %69, %20
   br i1 %70, label %71, label %.critedge3.loopexit
@@ -16077,10 +16077,10 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   %.087.lcssa160 = phi i32 [ %.087.lcssa, %.critedge3 ], [ %61, %71 ]
   %.089.lcssa155159 = phi i32 [ %.089.lcssa155, %.critedge3 ], [ %.089.lcssa, %71 ]
   %78 = zext nneg i32 %.089.lcssa155159 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_exposure_value_str, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_exposure_value_str, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !75
   %81 = zext nneg i32 %.087.lcssa160 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_exposure_value_str, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_exposure_value_str, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !75
   %84 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.481, ptr noundef %80, ptr noundef %83) #13
   br label %85
@@ -16097,7 +16097,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %91
   %indvars.iv139 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next140, %91 ]
-  %88 = getelementptr inbounds nuw float, ptr @dt_gui_presets_aperture_value, i64 %indvars.iv139
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_aperture_value, i64 %indvars.iv139
   %89 = load float, ptr %88, align 4, !tbaa !111
   %90 = fcmp reassoc nsz arcp contract afn olt float %89, %22
   br i1 %90, label %91, label %.critedge5.split.loop.exit
@@ -16118,7 +16118,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %96
   %indvars.iv144 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next145, %96 ]
-  %93 = getelementptr inbounds nuw float, ptr @dt_gui_presets_aperture_value, i64 %indvars.iv144
+  %93 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_aperture_value, i64 %indvars.iv144
   %94 = load float, ptr %93, align 4, !tbaa !111
   %95 = fcmp reassoc nsz arcp contract afn olt float %94, %24
   br i1 %95, label %96, label %.critedge7.loopexit
@@ -16149,10 +16149,10 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   %.188.lcssa167 = phi i32 [ %.188.lcssa, %.critedge7 ], [ %86, %96 ]
   %.190.lcssa162166 = phi i32 [ %.190.lcssa162, %.critedge7 ], [ %.190.lcssa, %96 ]
   %103 = zext nneg i32 %.190.lcssa162166 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_aperture_value_str, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_aperture_value_str, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !75
   %106 = zext nneg i32 %.188.lcssa167 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_aperture_value_str, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_aperture_value_str, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !75
   %109 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.481, ptr noundef %105, ptr noundef %108) #13
   br label %110

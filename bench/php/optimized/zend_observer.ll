@@ -246,8 +246,8 @@ define dso_local void @zend_observer_add_begin_handler(ptr noundef readonly capt
   %16 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %17 = select i1 %.not19, i32 %16, i32 %15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %13, i64 %18
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %3
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %3
   %21 = getelementptr inbounds i8, ptr %20, i64 -8
   %22 = load ptr, ptr %19, align 8, !tbaa !4
   %magicptr = ptrtoint ptr %22 to i64
@@ -301,7 +301,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noun
   %16 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %17 = select i1 %.not11, i32 %16, i32 %15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %13, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8, !tbaa !10
   %.idx.i = shl nuw nsw i64 %20, 3
   %21 = getelementptr i8, ptr %19, i64 %.idx.i
@@ -364,7 +364,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noun
 
 47:                                               ; preds = %44
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8, !tbaa !10
-  %49 = getelementptr inbounds nuw ptr, ptr %19, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !4
   %51 = icmp eq ptr %50, inttoptr (i64 2 to ptr)
   br i1 %51, label %52, label %zend_observer_remove_handler.exit.thread
@@ -402,8 +402,8 @@ define dso_local void @zend_observer_add_end_handler(ptr noundef readonly captur
   %16 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %17 = select i1 %.not15, i32 %16, i32 %15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %13, i64 %18
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %3
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %3
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %.not16 = icmp eq ptr %21, inttoptr (i64 2 to ptr)
   br i1 %.not16, label %26, label %22
@@ -456,8 +456,8 @@ define dso_local noundef zeroext i1 @zend_observer_remove_end_handler(ptr nounde
   %17 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %18 = select i1 %.not12, i32 %17, i32 %16
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %19
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %4
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %4
   %.idx.i = shl nuw nsw i64 %4, 3
   %22 = getelementptr i8, ptr %21, i64 %.idx.i
   %23 = getelementptr i8, ptr %22, i64 -8
@@ -534,7 +534,7 @@ zend_observer_remove_handler.exit.thread:         ; preds = %43, %13, %45, %48, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_observer_fcall_begin_prechecked(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8, !tbaa !10
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %5 = load ptr, ptr %1, align 8, !tbaa !4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %44
@@ -567,8 +567,8 @@ define dso_local void @zend_observer_fcall_begin_prechecked(ptr noundef %0, ptr 
   %21 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %22 = select i1 %.not45.i, i32 %21, i32 %20
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %18, i64 %23
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %3
+  %24 = getelementptr inbounds [8 x i8], ptr %18, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %3
   store ptr inttoptr (i64 2 to ptr), ptr %24, align 8, !tbaa !4
   store ptr inttoptr (i64 2 to ptr), ptr %25, align 8, !tbaa !4
   %.04149.i = load ptr, ptr @zend_observers_fcall_list, align 8, !tbaa !71
@@ -663,7 +663,7 @@ zend_observer_fcall_install.exit:                 ; preds = %._crit_edge.i, %41
   %57 = add i32 %54, 4
   %58 = add i32 %57, %56
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct._zval_struct, ptr %0, i64 %59
+  %60 = getelementptr inbounds [16 x i8], ptr %0, i64 %59
   store ptr %48, ptr %60, align 8, !tbaa !73
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   %61 = load ptr, ptr %1, align 8, !tbaa !4
@@ -729,7 +729,7 @@ zend_observer_fcall_has_no_observers.exit.i:      ; preds = %14, %11
   %20 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %21 = select i1 %.not14.i.i, i32 %20, i32 %2
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %18, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %18, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = icmp eq ptr %24, inttoptr (i64 3 to ptr)
   br i1 %25, label %_zend_observe_fcall_begin.exit, label %26
@@ -785,7 +785,7 @@ zend_observer_fcall_has_no_observers.exit.i:      ; preds = %16, %13
   %22 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %23 = select i1 %.not14.i.i, i32 %22, i32 %8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %20, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %20, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = icmp eq ptr %26, inttoptr (i64 3 to ptr)
   br i1 %27, label %_zend_observe_fcall_begin.exit, label %28
@@ -823,9 +823,9 @@ define dso_local void @zend_observer_fcall_end_prechecked(ptr noundef %0, ptr no
   %17 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %18 = select i1 %.not17.i, i32 %17, i32 %16
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
   %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8, !tbaa !10
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %magicptr.i = ptrtoint ptr %23 to i64
   switch i64 %magicptr.i, label %24 [
@@ -834,7 +834,7 @@ define dso_local void @zend_observer_fcall_end_prechecked(ptr noundef %0, ptr no
   ]
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -868,7 +868,7 @@ call_end_observers.exit:                          ; preds = %call_end_observers.
   %38 = add i32 %35, 4
   %39 = add i32 %38, %37
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct._zval_struct, ptr %0, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %0, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !73
   store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   ret void
@@ -908,9 +908,9 @@ define dso_local void @zend_observer_fcall_end_all() local_unnamed_addr #0 {
   %17 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %18 = select i1 %.not17.i, i32 %17, i32 %16
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
   %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8, !tbaa !10
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %magicptr.i = ptrtoint ptr %23 to i64
   switch i64 %magicptr.i, label %24 [
@@ -919,7 +919,7 @@ define dso_local void @zend_observer_fcall_end_all() local_unnamed_addr #0 {
   ]
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -953,7 +953,7 @@ call_end_observers.exit:                          ; preds = %call_end_observers.
   %38 = add i32 %35, 4
   %39 = add i32 %38, %37
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct._zval_struct, ptr %.07, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %.07, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !73
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1140,9 +1140,9 @@ define dso_local void @zend_observer_fiber_switch_notify(ptr noundef %0, ptr nou
   %23 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
   %24 = select i1 %.not17.i.i, i32 %23, i32 %22
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %20, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %20, i64 %25
   %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %magicptr.i.i = ptrtoint ptr %29 to i64
   switch i64 %magicptr.i.i, label %30 [
@@ -1151,7 +1151,7 @@ define dso_local void @zend_observer_fiber_switch_notify(ptr noundef %0, ptr nou
   ]
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   br label %32
 
 32:                                               ; preds = %35, %30
@@ -1185,7 +1185,7 @@ call_end_observers.exit.i:                        ; preds = %call_end_observers.
   %44 = add i32 %41, 4
   %45 = add i32 %44, %43
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct._zval_struct, ptr %.07.i, i64 %46
+  %47 = getelementptr inbounds [16 x i8], ptr %.07.i, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !73
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %zend_observer_fcall_end_all.exit, label %.lr.ph.i

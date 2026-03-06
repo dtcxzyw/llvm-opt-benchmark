@@ -156,7 +156,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %36, align 8
-  %49 = getelementptr i32, ptr @jack_switch_types, i64 %42
+  %49 = getelementptr [4 x i8], ptr @jack_switch_types, i64 %42
   %50 = load i32, ptr %49, align 4
   tail call void @input_set_capability(ptr noundef %48, i32 noundef 5, i32 noundef %50) #4
   br label %51
@@ -334,7 +334,7 @@ define internal i32 @snd_jack_dev_register(ptr noundef readonly captures(none) %
   br i1 %33, label %43, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr i32, ptr %26, i64 %28
+  %35 = getelementptr [4 x i8], ptr %26, i64 %28
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %40
@@ -492,7 +492,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_jack_set_key(ptr noundef cap
   %18 = or i32 %17, %1
   store i32 %18, ptr %16, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %20 = getelementptr i32, ptr %19, i64 %15
+  %20 = getelementptr [4 x i8], ptr %19, i64 %15
   store i32 %2, ptr %20, align 4
   br label %21
 
@@ -582,7 +582,7 @@ define dso_local void @snd_jack_report(ptr noundef captures(address) %0, i32 nou
   br i1 %54, label %61, label %55
 
 55:                                               ; preds = %47
-  %56 = getelementptr i32, ptr %46, i64 %48
+  %56 = getelementptr [4 x i8], ptr %46, i64 %48
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %51, %1
   %59 = icmp ne i32 %58, 0
@@ -606,7 +606,7 @@ define dso_local void @snd_jack_report(ptr noundef captures(address) %0, i32 nou
   br i1 %70, label %77, label %71
 
 71:                                               ; preds = %.preheader
-  %72 = getelementptr i32, ptr @jack_switch_types, i64 %64
+  %72 = getelementptr [4 x i8], ptr @jack_switch_types, i64 %64
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %67, %1
   %75 = icmp ne i32 %74, 0

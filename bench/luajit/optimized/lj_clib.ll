@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/lj_clib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
-
 @.str.1 = private unnamed_addr constant [14 x i8] c"dlopen failed\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"%s.so\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"lib%s\00", align 1
@@ -54,7 +51,7 @@ define hidden noundef ptr @lj_clib_index(ptr noundef %0, ptr noundef readonly ca
   %26 = and i32 %23, 65535
   %27 = load ptr, ptr %16, align 8, !tbaa !42
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw %struct.CType, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 8, !tbaa !39
   %31 = and i32 %30, 8388608
   %.not34 = icmp ne i32 %31, 0
@@ -83,7 +80,7 @@ define hidden noundef ptr @lj_clib_index(ptr noundef %0, ptr noundef readonly ca
 38:                                               ; preds = %36
   %39 = load ptr, ptr %16, align 8, !tbaa !42
   %40 = zext i16 %.val to i64
-  %41 = getelementptr inbounds nuw %struct.CType, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 8, !tbaa !39
   %43 = and i32 %42, -251723776
   %44 = icmp eq i32 %43, -2147221504

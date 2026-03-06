@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.cv::PaletteEntry" = type { i8, i8, i8, i8 }
 %"class.cv::AutoBuffer" = type { ptr, i64, [1032 x i8] }
 %"struct.cv::Ptr.20" = type { %"class.std::shared_ptr.21" }
 %"class.std::shared_ptr.21" = type { %"class.std::__shared_ptr.22" }
@@ -459,7 +458,7 @@ define hidden noundef zeroext i1 @_ZN2cv16SunRasterDecoder10readHeaderEv(ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %77 = load i8, ptr %gep, align 1, !tbaa !89
-  %78 = getelementptr inbounds nuw %"struct.cv::PaletteEntry", ptr %65, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   store i8 %77, ptr %78, align 4, !tbaa !90
   %gep57 = getelementptr inbounds nuw i8, ptr %invariant.gep56, i64 %indvars.iv
   %79 = load i8, ptr %gep57, align 1, !tbaa !89
@@ -1191,7 +1190,7 @@ select.unfold197:                                 ; preds = %select.unfold197.ba
 222:                                              ; preds = %220
   %223 = load i32, ptr %179, align 4, !tbaa !87
   %224 = sext i32 %218 to i64
-  %225 = getelementptr inbounds %"struct.cv::PaletteEntry", ptr %178, i64 %224
+  %225 = getelementptr inbounds [4 x i8], ptr %178, i64 %224
   %.sroa.0.0.copyload = load i32, ptr %225, align 4
   %226 = invoke noundef ptr @_ZN2cv12FillUniColorEPhRS0_iiRiiiNS_12PaletteEntryE(ptr noundef %.6, ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %221, i32 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %223, i32 noundef %217, i32 %.sroa.0.0.copyload)
           to label %235 unwind label %.loopexit.split-lp212

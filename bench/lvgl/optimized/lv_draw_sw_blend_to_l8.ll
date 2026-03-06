@@ -3,10 +3,6 @@ source_filename = "bench/lvgl/original/lv_draw_sw_blend_to_l8.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lv_color16_t = type { i16 }
-%struct.lv_color32_t = type { i8, i8, i8, i8 }
-%struct.lv_color16a_t = type { i8, i8 }
-
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -345,7 +341,7 @@ define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed
 
 32:                                               ; preds = %blend_non_normal_pixel.exit.us.i, %.preheader164.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader164.us.i ], [ %indvars.iv.next.i, %blend_non_normal_pixel.exit.us.i ]
-  %33 = getelementptr inbounds nuw %struct.lv_color16_t, ptr %.4125171.us.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %.4125171.us.i, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = lshr i16 %34, 11
   %narrow.us.i = mul nuw i16 %35, 2106
@@ -480,7 +476,7 @@ blend_non_normal_pixel.exit.us.i:                 ; preds = %.sink.split.i.i.us.
 
 96:                                               ; preds = %96, %.preheader.us.i
   %indvars.iv249.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next250.i, %96 ]
-  %97 = getelementptr inbounds nuw %struct.lv_color16_t, ptr %.0121201.us.i, i64 %indvars.iv249.i
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %.0121201.us.i, i64 %indvars.iv249.i
   %98 = load i16, ptr %97, align 2
   %99 = tail call zeroext i8 @lv_color16_luminance(i16 %98) #4
   %100 = getelementptr inbounds nuw i8, ptr %.0202.us.i, i64 %indvars.iv249.i
@@ -525,7 +521,7 @@ blend_non_normal_pixel.exit.us.i:                 ; preds = %.sink.split.i.i.us.
 
 lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.exit.us.us.us.i, %.preheader155.us.us.i
   %indvars.iv243.i = phi i64 [ %indvars.iv.next244.i, %lv_color_8_8_mix.exit.us.us.us.i ], [ 0, %.preheader155.us.us.i ]
-  %113 = getelementptr inbounds nuw %struct.lv_color16_t, ptr %.1122190.us.us.i, i64 %indvars.iv243.i
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %.1122190.us.us.i, i64 %indvars.iv243.i
   %114 = load i16, ptr %113, align 2
   %115 = tail call zeroext i8 @lv_color16_luminance(i16 %114) #4
   %indvars.iv.next244.i = add nuw nsw i64 %indvars.iv243.i, 1
@@ -546,7 +542,7 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
 
 .sink.split.i.us.i:                               ; preds = %.sink.split.i.us.i, %.preheader155.us.i
   %indvars.iv235.i = phi i64 [ 0, %.preheader155.us.i ], [ %indvars.iv.next236.i, %.sink.split.i.us.i ]
-  %118 = getelementptr inbounds nuw %struct.lv_color16_t, ptr %.1122190.us.i, i64 %indvars.iv235.i
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %.1122190.us.i, i64 %indvars.iv235.i
   %119 = load i16, ptr %118, align 2
   %120 = tail call zeroext i8 @lv_color16_luminance(i16 %119) #4
   %121 = getelementptr inbounds nuw i8, ptr %.1192.us.i, i64 %indvars.iv235.i
@@ -599,7 +595,7 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
 
 140:                                              ; preds = %lv_color_8_8_mix.exit153.us.i, %.preheader161.us.i
   %indvars.iv219.i = phi i64 [ 0, %.preheader161.us.i ], [ %indvars.iv.next220.i, %lv_color_8_8_mix.exit153.us.i ]
-  %141 = getelementptr inbounds nuw %struct.lv_color16_t, ptr %.3124177.us.i, i64 %indvars.iv219.i
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %.3124177.us.i, i64 %indvars.iv219.i
   %142 = load i16, ptr %141, align 2
   %143 = tail call zeroext i8 @lv_color16_luminance(i16 %142) #4
   %144 = getelementptr inbounds nuw i8, ptr %.3178.us.i, i64 %indvars.iv219.i
@@ -668,7 +664,7 @@ lv_color_8_8_mix.exit153.us.i:                    ; preds = %.sink.split.i151.us
 
 171:                                              ; preds = %lv_color_8_8_mix.exit150.us.i, %.preheader158.us.i
   %indvars.iv227.i = phi i64 [ 0, %.preheader158.us.i ], [ %indvars.iv.next228.i, %lv_color_8_8_mix.exit150.us.i ]
-  %172 = getelementptr inbounds nuw %struct.lv_color16_t, ptr %.2123184.us.i, i64 %indvars.iv227.i
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %.2123184.us.i, i64 %indvars.iv227.i
   %173 = load i16, ptr %172, align 2
   %174 = tail call zeroext i8 @lv_color16_luminance(i16 %173) #4
   %175 = getelementptr inbounds nuw i8, ptr %.2185.us.i, i64 %indvars.iv227.i
@@ -765,7 +761,7 @@ lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us
 
 .lr.ph.split.us194.i:                             ; preds = %.preheader168.us.i, %blend_non_normal_pixel.exit.us192.i
   %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %blend_non_normal_pixel.exit.us192.i ], [ 0, %.preheader168.us.i ]
-  %226 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.4140173.us.i, i64 %indvars.iv.i10
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %.4140173.us.i, i64 %indvars.iv.i10
   %.sroa.0.sroa.0.0.copyload.us179.i = load i24, ptr %226, align 1
   %.sroa.4.0..sroa_idx.us180.i = getelementptr inbounds nuw i8, ptr %226, i64 3
   %.sroa.4.0.copyload.us181.i = load i8, ptr %.sroa.4.0..sroa_idx.us180.i, align 1, !tbaa !18
@@ -854,7 +850,7 @@ blend_non_normal_pixel.exit.us192.i:              ; preds = %.sink.split.i.i.us1
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader168.us.i, %blend_non_normal_pixel.exit.us.us.i
   %indvars.iv229.i = phi i64 [ %indvars.iv.next230.i, %blend_non_normal_pixel.exit.us.us.i ], [ 0, %.preheader168.us.i ]
-  %269 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.4140173.us.i, i64 %indvars.iv229.i
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %.4140173.us.i, i64 %indvars.iv229.i
   %.sroa.0.sroa.0.0.copyload.us.us.i = load i24, ptr %269, align 1
   %.sroa.4.0..sroa_idx.us.us.i = getelementptr inbounds nuw i8, ptr %269, i64 3
   %.sroa.4.0.copyload.us.us.i = load i8, ptr %.sroa.4.0..sroa_idx.us.us.i, align 1, !tbaa !18
@@ -957,7 +953,7 @@ blend_non_normal_pixel.exit.us.us.i:              ; preds = %.sink.split.i.i.us.
 
 312:                                              ; preds = %lv_color_8_8_mix.exit.us.i, %.preheader.us.i23
   %indvars.iv253.i = phi i64 [ 0, %.preheader.us.i23 ], [ %indvars.iv.next254.i, %lv_color_8_8_mix.exit.us.i ]
-  %313 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.0136213.us.i, i64 %indvars.iv253.i
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %.0136213.us.i, i64 %indvars.iv253.i
   %314 = load i32, ptr %313, align 1
   %315 = tail call zeroext i8 @lv_color32_luminance(i32 %314) #4
   %316 = getelementptr inbounds nuw i8, ptr %.0215.us.i, i64 %indvars.iv253.i
@@ -1028,7 +1024,7 @@ lv_color_8_8_mix.exit.us.i:                       ; preds = %.sink.split.i.us.i2
 
 343:                                              ; preds = %lv_color_8_8_mix.exit151.us.i, %.preheader159.us.i
   %indvars.iv247.i = phi i64 [ 0, %.preheader159.us.i ], [ %indvars.iv.next248.i, %lv_color_8_8_mix.exit151.us.i ]
-  %344 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.1137208.us.i, i64 %indvars.iv247.i
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %.1137208.us.i, i64 %indvars.iv247.i
   %345 = load i32, ptr %344, align 1
   %346 = tail call zeroext i8 @lv_color32_luminance(i32 %345) #4
   %347 = getelementptr inbounds nuw i8, ptr %.1210.us.i, i64 %indvars.iv247.i
@@ -1103,7 +1099,7 @@ lv_color_8_8_mix.exit151.us.i:                    ; preds = %.sink.split.i149.us
 
 377:                                              ; preds = %lv_color_8_8_mix.exit154.us.i, %.preheader162.us.i
   %indvars.iv241.i = phi i64 [ 0, %.preheader162.us.i ], [ %indvars.iv.next242.i, %lv_color_8_8_mix.exit154.us.i ]
-  %378 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.2138203.us.i, i64 %indvars.iv241.i
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %.2138203.us.i, i64 %indvars.iv241.i
   %379 = load i32, ptr %378, align 1
   %380 = tail call zeroext i8 @lv_color32_luminance(i32 %379) #4
   %381 = getelementptr inbounds nuw i8, ptr %.2205.us.i, i64 %indvars.iv241.i
@@ -1178,7 +1174,7 @@ lv_color_8_8_mix.exit154.us.i:                    ; preds = %.sink.split.i152.us
 
 413:                                              ; preds = %lv_color_8_8_mix.exit157.us.i, %.preheader165.us.i
   %indvars.iv235.i19 = phi i64 [ 0, %.preheader165.us.i ], [ %indvars.iv.next236.i20, %lv_color_8_8_mix.exit157.us.i ]
-  %414 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.3139197.us.i, i64 %indvars.iv235.i19
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %.3139197.us.i, i64 %indvars.iv235.i19
   %415 = load i32, ptr %414, align 1
   %416 = tail call zeroext i8 @lv_color32_luminance(i32 %415) #4
   %417 = getelementptr inbounds nuw i8, ptr %.3199.us.i, i64 %indvars.iv235.i19
@@ -1720,7 +1716,7 @@ lv_color_8_8_mix.exit151.us.i57:                  ; preds = %.sink.split.i149.us
 
 .lr.ph.split.us210.i:                             ; preds = %.preheader181.us.i, %blend_non_normal_pixel.exit.us208.i
   %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %blend_non_normal_pixel.exit.us208.i ], [ 0, %.preheader181.us.i ]
-  %682 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.4138188.us.i, i64 %indvars.iv.i69
+  %682 = getelementptr inbounds nuw [2 x i8], ptr %.4138188.us.i, i64 %indvars.iv.i69
   %683 = load i8, ptr %682, align 1, !tbaa !71
   %684 = getelementptr inbounds nuw i8, ptr %.2141187.us.i, i64 %indvars.iv.i69
   %685 = load i8, ptr %684, align 1, !tbaa !18
@@ -1809,7 +1805,7 @@ blend_non_normal_pixel.exit.us208.i:              ; preds = %.sink.split.i.i.us2
 
 .lr.ph.split.us.us.i74:                           ; preds = %.preheader181.us.i, %blend_non_normal_pixel.exit.us.us.i84
   %indvars.iv251.i = phi i64 [ %indvars.iv.next252.i, %blend_non_normal_pixel.exit.us.us.i84 ], [ 0, %.preheader181.us.i ]
-  %725 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.4138188.us.i, i64 %indvars.iv251.i
+  %725 = getelementptr inbounds nuw [2 x i8], ptr %.4138188.us.i, i64 %indvars.iv251.i
   %726 = load i8, ptr %725, align 1, !tbaa !71
   %727 = getelementptr inbounds nuw i8, ptr %.4190.us.i, i64 %indvars.iv251.i
   %728 = load i32, ptr %669, align 4, !tbaa !39
@@ -1906,7 +1902,7 @@ blend_non_normal_pixel.exit.us.us.i84:            ; preds = %.sink.split.i.i.us.
 
 765:                                              ; preds = %lv_color_8_8_mix.exit.us.i99, %.preheader.us.i96
   %indvars.iv283.i = phi i64 [ 0, %.preheader.us.i96 ], [ %indvars.iv.next284.i, %lv_color_8_8_mix.exit.us.i99 ]
-  %766 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.0134234.us.i, i64 %indvars.iv283.i
+  %766 = getelementptr inbounds nuw [2 x i8], ptr %.0134234.us.i, i64 %indvars.iv283.i
   %767 = load i8, ptr %766, align 1, !tbaa !71
   %768 = getelementptr inbounds nuw i8, ptr %.0235.us.i, i64 %indvars.iv283.i
   %769 = getelementptr inbounds nuw i8, ptr %766, i64 1
@@ -1976,7 +1972,7 @@ lv_color_8_8_mix.exit.us.i99:                     ; preds = %.sink.split.i.us.i9
 
 795:                                              ; preds = %lv_color_8_8_mix.exit164.us.i, %.preheader172.us.i
   %indvars.iv275.i = phi i64 [ 0, %.preheader172.us.i ], [ %indvars.iv.next276.i, %lv_color_8_8_mix.exit164.us.i ]
-  %796 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.1135228.us.i, i64 %indvars.iv275.i
+  %796 = getelementptr inbounds nuw [2 x i8], ptr %.1135228.us.i, i64 %indvars.iv275.i
   %797 = load i8, ptr %796, align 1, !tbaa !71
   %798 = getelementptr inbounds nuw i8, ptr %.1229.us.i, i64 %indvars.iv275.i
   %799 = getelementptr inbounds nuw i8, ptr %796, i64 1
@@ -2050,7 +2046,7 @@ lv_color_8_8_mix.exit164.us.i:                    ; preds = %.sink.split.i162.us
 
 828:                                              ; preds = %lv_color_8_8_mix.exit167.us.i, %.preheader175.us.i
   %indvars.iv267.i = phi i64 [ 0, %.preheader175.us.i ], [ %indvars.iv.next268.i, %lv_color_8_8_mix.exit167.us.i ]
-  %829 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.2136222.us.i, i64 %indvars.iv267.i
+  %829 = getelementptr inbounds nuw [2 x i8], ptr %.2136222.us.i, i64 %indvars.iv267.i
   %830 = load i8, ptr %829, align 1, !tbaa !71
   %831 = getelementptr inbounds nuw i8, ptr %.2223.us.i, i64 %indvars.iv267.i
   %832 = getelementptr inbounds nuw i8, ptr %829, i64 1
@@ -2124,7 +2120,7 @@ lv_color_8_8_mix.exit167.us.i:                    ; preds = %.sink.split.i165.us
 
 863:                                              ; preds = %lv_color_8_8_mix.exit170.us.i, %.preheader178.us.i
   %indvars.iv259.i = phi i64 [ 0, %.preheader178.us.i ], [ %indvars.iv.next260.i, %lv_color_8_8_mix.exit170.us.i ]
-  %864 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.3137215.us.i, i64 %indvars.iv259.i
+  %864 = getelementptr inbounds nuw [2 x i8], ptr %.3137215.us.i, i64 %indvars.iv259.i
   %865 = load i8, ptr %864, align 1, !tbaa !71
   %866 = getelementptr inbounds nuw i8, ptr %.3216.us.i, i64 %indvars.iv259.i
   %867 = getelementptr inbounds nuw i8, ptr %864, i64 1

@@ -19,12 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.4 = type { i32, i8, ptr, i32, i32, ptr, ptr, ptr, %union.anon.5 }
 %union.anon.5 = type { %struct.anon.6 }
 %struct.anon.6 = type { ptr }
-%struct._value_string = type { i32, ptr }
-%struct._snmp_ue_assoc_t = type { %struct._snmp_user_t, %struct.snmp_engine_id_t, i32, i32, i32, ptr }
-%struct._snmp_user_t = type { %struct._snmp_usm_key, i32, %struct._snmp_usm_key, %struct._snmp_usm_key, ptr, %struct._snmp_usm_key, %struct._snmp_usm_key }
-%struct._snmp_usm_key = type { ptr, i32 }
-%struct.snmp_engine_id_t = type { ptr, i32 }
-%struct._snmp_st_assoc_t = type { ptr, i32, ptr }
 
 @oid_tvb = hidden local_unnamed_addr global ptr null, align 8
 @value_tvb = hidden local_unnamed_addr global ptr null, align 8
@@ -1156,7 +1150,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 84:                                               ; preds = %79
   %85 = call i32 @tvb_captured_length(ptr noundef nonnull %78)
   %86 = zext i32 %77 to i64
-  %87 = getelementptr i32, ptr @auth_tag_len, i64 %86
+  %87 = getelementptr [4 x i8], ptr @auth_tag_len, i64 %86
   %88 = load i32, ptr %87, align 4
   %.not54.i.i = icmp eq i32 %85, %88
   br i1 %.not54.i.i, label %89, label %122
@@ -1195,11 +1189,11 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %93
   %112 = load ptr, ptr %94, align 8
-  %113 = getelementptr i32, ptr @auth_hash_len, i64 %86
+  %113 = getelementptr [4 x i8], ptr @auth_hash_len, i64 %86
   %114 = load i32, ptr %113, align 4
   %115 = zext i32 %114 to i64
   %116 = call noalias ptr @wmem_alloc(ptr noundef %112, i64 noundef %115) #11
-  %117 = getelementptr i32, ptr @auth_hash_algo, i64 %86
+  %117 = getelementptr [4 x i8], ptr @auth_hash_algo, i64 %86
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %83 to i64
   %120 = call i32 @ws_hmac_buffer(i32 noundef %118, ptr noundef %116, ptr noundef %98, i64 noundef %97, ptr noundef nonnull %81, i64 noundef %119)
@@ -1572,7 +1566,7 @@ define internal void @snmp_users_auth_model_set_cb(ptr noundef writeonly capture
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1612,7 +1606,7 @@ define internal void @snmp_users_auth_model_tostr_cb(ptr noundef readonly captur
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1700,7 +1694,7 @@ define internal void @snmp_users_priv_proto_set_cb(ptr noundef writeonly capture
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1740,7 +1734,7 @@ define internal void @snmp_users_priv_proto_tostr_cb(ptr noundef readonly captur
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1828,7 +1822,7 @@ define internal void @snmp_users_priv_key_exp_set_cb(ptr noundef writeonly captu
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1868,7 +1862,7 @@ define internal void @snmp_users_priv_key_exp_tostr_cb(ptr noundef readonly capt
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1914,7 +1908,7 @@ define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly c
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %9, ptr %10, align 4
   %11 = zext i32 %9 to i64
-  %12 = getelementptr ptr, ptr @priv_protos, i64 %11
+  %12 = getelementptr [8 x i8], ptr @priv_protos, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %14, align 8
@@ -2074,7 +2068,7 @@ define internal noundef zeroext i1 @snmp_users_update_cb(ptr noundef readonly ca
 
 19:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %20 = getelementptr %struct._snmp_ue_assoc_t, ptr %16, i64 %indvars.iv
+  %20 = getelementptr [136 x i8], ptr %16, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, %5
@@ -2497,7 +2491,7 @@ define internal void @init_ue_cache() #0 {
 .lr.ph:                                           ; preds = %0, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %0 ]
   %2 = load ptr, ptr @ueas, align 8
-  %3 = getelementptr %struct._snmp_ue_assoc_t, ptr %2, i64 %indvars.iv
+  %3 = getelementptr [136 x i8], ptr %2, i64 %indvars.iv
   %4 = tail call dereferenceable_or_null(136) ptr @g_memdup2(ptr noundef %3, i64 noundef 136) #11
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
@@ -2836,7 +2830,7 @@ define internal i32 @dissect_snmp_PDUs(i1 zeroext %0, ptr noundef %1, i32 nounde
 
 19:                                               ; preds = %6
   %20 = sext i32 %18 to i64
-  %21 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %20
+  %21 = getelementptr [16 x i8], ptr @snmp_PDUs_vals, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %12, align 8
@@ -2845,7 +2839,7 @@ define internal i32 @dissect_snmp_PDUs(i1 zeroext %0, ptr noundef %1, i32 nounde
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.4, ptr noundef %23)
   %27 = load i32, ptr %9, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %28
+  %29 = getelementptr [16 x i8], ptr @snmp_PDUs_vals, i64 %28
   %30 = load i32, ptr %29, align 16
   store i32 %30, ptr %9, align 4
   %31 = load ptr, ptr %12, align 8
@@ -3352,10 +3346,10 @@ switch.lookup:                                    ; preds = %164
   %.not528 = icmp ne i32 %167, 0
   %spec.select = zext i1 %.not528 to i32
   %168 = zext nneg i32 %165 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_snmp_VarBind, i64 %168
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_snmp_VarBind, i64 %168
   %switch.load = load ptr, ptr %switch.gep, align 8
   %169 = zext nneg i32 %165 to i64
-  %switch.gep684 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_snmp_VarBind.3, i64 %169
+  %switch.gep684 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_snmp_VarBind.3, i64 %169
   %switch.load685 = load ptr, ptr %switch.gep684, align 8
   %.0436 = load i32, ptr %switch.load685, align 4
   %170 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %.0436, ptr noundef %1, i32 noundef %114, i32 noundef %167, i32 noundef 0)
@@ -3397,7 +3391,7 @@ switch.lookup:                                    ; preds = %164
   %189 = load ptr, ptr %14, align 8
   %190 = load i32, ptr %15, align 4
   %191 = zext i32 %190 to i64
-  %192 = getelementptr i32, ptr %189, i64 %191
+  %192 = getelementptr [4 x i8], ptr %189, i64 %191
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
   %195 = call ptr @proto_tree_add_uint64(ptr noundef %108, i32 noundef %187, ptr noundef %1, i32 noundef %75, i32 noundef %188, i64 noundef %194)
@@ -3502,7 +3496,7 @@ switch.lookup:                                    ; preds = %164
   %243 = load i32, ptr %8, align 4
   %244 = load ptr, ptr %14, align 8
   %245 = zext i32 %.0445641 to i64
-  %246 = getelementptr i32, ptr %244, i64 %245
+  %246 = getelementptr [4 x i8], ptr %244, i64 %245
   %247 = load i32, ptr %246, align 4
   br i1 %switch, label %248, label %250
 
@@ -3524,7 +3518,7 @@ switch.lookup:                                    ; preds = %164
   %257 = load ptr, ptr %14, align 8
   %258 = add nuw i32 %.0445641, 1
   %259 = zext i32 %.0445641 to i64
-  %260 = getelementptr i32, ptr %257, i64 %259
+  %260 = getelementptr [4 x i8], ptr %257, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = add i32 %.0440642, -1
   br label %263
@@ -3535,7 +3529,7 @@ switch.lookup:                                    ; preds = %164
   %.2442 = phi i32 [ %262, %256 ], [ %.0440642, %._crit_edge657 ]
   %.0439 = phi i32 [ %261, %256 ], [ %.0440642, %._crit_edge657 ]
   %265 = zext i32 %.2447 to i64
-  %266 = getelementptr i32, ptr %264, i64 %265
+  %266 = getelementptr [4 x i8], ptr %264, i64 %265
   %267 = icmp eq i32 %.0439, 0
   br i1 %267, label %268, label %271
 
@@ -3577,13 +3571,13 @@ switch.lookup:                                    ; preds = %164
 288:                                              ; preds = %232
   %289 = load ptr, ptr %14, align 8
   %290 = zext i32 %.0445641 to i64
-  %291 = getelementptr i32, ptr %289, i64 %290
+  %291 = getelementptr [4 x i8], ptr %289, i64 %290
   br label %306
 
 .thread553:                                       ; preds = %232, %232, %232
   %292 = load ptr, ptr %14, align 8
   %293 = zext i32 %.0445641 to i64
-  %294 = getelementptr i32, ptr %292, i64 %293
+  %294 = getelementptr [4 x i8], ptr %292, i64 %293
   br label %311
 
 295:                                              ; preds = %232
@@ -3591,7 +3585,7 @@ switch.lookup:                                    ; preds = %164
   %297 = load i32, ptr %296, align 8
   %298 = load ptr, ptr %14, align 8
   %299 = zext i32 %.0445641 to i64
-  %300 = getelementptr i32, ptr %298, i64 %299
+  %300 = getelementptr [4 x i8], ptr %298, i64 %299
   %.not516 = icmp eq i32 %297, 0
   br i1 %.not516, label %301, label %306
 
@@ -3635,7 +3629,7 @@ switch.lookup:                                    ; preds = %164
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %318 = getelementptr i32, ptr %.0432561, i64 %indvars.iv
+  %318 = getelementptr [4 x i8], ptr %.0432561, i64 %indvars.iv
   %319 = load i32, ptr %318, align 4
   %320 = trunc i32 %319 to i8
   %321 = getelementptr i8, ptr %317, i64 %indvars.iv
@@ -4104,7 +4098,7 @@ thread-pre-split:                                 ; preds = %439, %441, %443, %4
 
 531:                                              ; preds = %524
   %532 = zext i32 %530 to i64
-  %533 = getelementptr i32, ptr %529, i64 %532
+  %533 = getelementptr [4 x i8], ptr %529, i64 %532
   %534 = call ptr @oid_subid2string(ptr noundef %528, ptr noundef %533, i32 noundef %525)
   %535 = load ptr, ptr %29, align 8
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 408
@@ -4122,7 +4116,7 @@ thread-pre-split:                                 ; preds = %439, %441, %443, %4
   %548 = load ptr, ptr %14, align 8
   %549 = load i32, ptr %15, align 4
   %550 = zext i32 %549 to i64
-  %551 = getelementptr i32, ptr %548, i64 %550
+  %551 = getelementptr [4 x i8], ptr %548, i64 %550
   %552 = load i32, ptr %16, align 4
   %553 = call ptr @oid_subid2string(ptr noundef %546, ptr noundef %551, i32 noundef %552)
   %554 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %546, ptr noundef nonnull @.str.408, ptr noundef %547, ptr noundef %553)
@@ -4485,7 +4479,7 @@ define internal i32 @dissect_snmp_SpecificTrap(i1 noundef zeroext %0, ptr nounde
 
 16:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %17 = getelementptr %struct._snmp_st_assoc_t, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr [24 x i8], ptr %14, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %12
@@ -4948,7 +4942,7 @@ define internal fastcc void @set_ue_keys(ptr noundef captures(none) initializes(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr i32, ptr @auth_hash_len, i64 %5
+  %6 = getelementptr [4 x i8], ptr @auth_hash_len, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = tail call noalias ptr @g_malloc(i64 noundef %8) #14
@@ -5030,7 +5024,7 @@ switch.lookup:                                    ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %52 = load i32, ptr %3, align 8
   %53 = zext i32 %52 to i64
-  %54 = getelementptr i32, ptr @auth_hash_algo, i64 %53
+  %54 = getelementptr [4 x i8], ptr @auth_hash_algo, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %55, i32 noundef 0)
   %.not = icmp eq i32 %56, 0
@@ -5090,14 +5084,14 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = zext i32 %0 to i64
-  %10 = getelementptr i32, ptr @auth_hash_algo, i64 %9
+  %10 = getelementptr [4 x i8], ptr @auth_hash_algo, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = call i32 @gcry_md_open(ptr noundef nonnull %7, i32 noundef %11, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %42
 
 13:                                               ; preds = %6
-  %14 = getelementptr i32, ptr @auth_hash_len, i64 %9
+  %14 = getelementptr [4 x i8], ptr @auth_hash_len, i64 %9
   %15 = load i32, ptr %14, align 4
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %.split.us, label %.preheader.preheader

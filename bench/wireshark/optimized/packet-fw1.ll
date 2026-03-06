@@ -138,7 +138,7 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr ptr, ptr @p_interfaces, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr @p_interfaces, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strcmp(ptr noundef %26, ptr noundef %22) #6
   %28 = icmp eq i32 %27, 0
@@ -153,7 +153,7 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %31 = tail call noalias ptr @wmem_strdup(ptr noundef %30, ptr noundef %22)
   %32 = load i32, ptr @interface_anzahl, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr ptr, ptr @p_interfaces, i64 %33
+  %34 = getelementptr [8 x i8], ptr @p_interfaces, i64 %33
   store ptr %31, ptr %34, align 8
   %35 = add i32 %32, 1
   store i32 %35, ptr @interface_anzahl, align 4
@@ -183,7 +183,7 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 53:                                               ; preds = %.lr.ph89, %60
   %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %60 ]
-  %54 = getelementptr ptr, ptr @p_interfaces, i64 %indvars.iv92
+  %54 = getelementptr [8 x i8], ptr @p_interfaces, i64 %indvars.iv92
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @strcmp(ptr noundef %55, ptr noundef %22) #6
   %57 = icmp eq i32 %56, 0

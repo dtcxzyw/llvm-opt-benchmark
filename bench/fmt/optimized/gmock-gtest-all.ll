@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.testing::internal::GTestLog" = type { i32 }
 %"class.testing::TestPartResult" = type { i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.testing::internal::TraceInfo" = type { ptr, i32, %"class.std::__cxx11::basic_string" }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %class.anon = type { %"class.std::__cxx11::basic_string", %"struct.testing::internal::CodeLocation" }
 %"struct.testing::internal::TypeParameterizedTestSuiteRegistry::TypeParameterizedTestSuiteInfo" = type { %"struct.testing::internal::CodeLocation", i8, [7 x i8] }
@@ -102,9 +101,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::_List_base<std::pair<char, const char *>, std::allocator<std::pair<char, const char *>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.testing::TestProperty" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.testing::internal::TestPropertyKeyIs" = type { %"class.std::__cxx11::basic_string" }
 %"struct.__gnu_cxx::__ops::_Iter_pred" = type { %"class.testing::internal::TestPropertyKeyIs" }
+%"class.testing::TestProperty" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
@@ -117,6 +116,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.testing::EmptyTestEventListener" = type { %"class.testing::TestEventListener" }
 %"class.testing::TestEventListener" = type { ptr }
 %"class.testing::internal::JsonUnitTestResultPrinter" = type { %"class.testing::EmptyTestEventListener", %"class.std::__cxx11::basic_string" }
+%"struct.testing::internal::TraceInfo" = type { ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.testing::Matcher" = type { %"class.testing::internal::MatcherBase" }
 %"class.testing::internal::MatcherBase" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const std::__cxx11::basic_string<char> &>::Buffer" }
 %"class.testing::MatcherDescriberInterface" = type { ptr }
@@ -166,7 +166,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.220" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.226" = type { i64, i64 }
 %class.anon.268 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.testing::Expectation" = type { %"class.std::shared_ptr.245" }
 %"class.std::shared_ptr.245" = type { %"class.std::__shared_ptr.246" }
@@ -2880,7 +2879,7 @@ _ZN7testing8internal12UnitTestImpl17gtest_trace_stackEv.exit41: ; preds = %_ZN7t
 _ZN7testing8internal12UnitTestImpl17gtest_trace_stackEv.exit42: ; preds = %55
   %59 = add i64 %.01876, -1
   %60 = load ptr, ptr %58, align 8, !tbaa !57
-  %61 = getelementptr inbounds nuw %"struct.testing::internal::TraceInfo", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %59
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.95, i64 noundef 1)
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit43 unwind label %80
 
@@ -11733,7 +11732,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit45.i:    ; preds = %.lr.ph.i
   unreachable
 
 98:                                               ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit45.i
-  %99 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %89, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [112 x i8], ptr %89, i64 %indvars.iv.i
   %100 = load ptr, ptr %7, align 8, !tbaa !21, !noalias !262
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testinglsERSoRKNS_14TestPartResultE(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(112) %99)
@@ -12643,7 +12642,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl21successful_te
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZNK7testing9TestSuite21successful_test_countEv.exit
   %.014.us.i = phi i64 [ %49, %_ZNK7testing9TestSuite21successful_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %48, %_ZNK7testing9TestSuite21successful_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !311
@@ -12693,7 +12692,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl21successful_te
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %33 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %24, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %indvars.iv.i.i.i
   %34 = load i32, ptr %33, align 8, !tbaa !280
   %35 = add i32 %34, -1
   %spec.select.i.i.i.i = icmp ult i32 %35, 2
@@ -12737,7 +12736,7 @@ _ZNK7testing10TestResult7SkippedEv.exit.thread.i: ; preds = %_ZNK7testing10TestR
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i1
-  %41 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %24, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %indvars.iv.i.i
   %42 = load i32, ptr %41, align 8, !tbaa !280
   %43 = add i32 %42, -3
   %spec.select.i.i1.i = icmp ult i32 %43, -2
@@ -12828,7 +12827,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl18skipped_test_
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZNK7testing9TestSuite18skipped_test_countEv.exit
   %.014.us.i = phi i64 [ %45, %_ZNK7testing9TestSuite18skipped_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %44, %_ZNK7testing9TestSuite18skipped_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !311
@@ -12878,7 +12877,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl18skipped_test_
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %33 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %24, i64 %indvars.iv.i.i.i.i
+  %33 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %indvars.iv.i.i.i.i
   %34 = load i32, ptr %33, align 8, !tbaa !280
   %35 = add i32 %34, -1
   %spec.select.i.i.i.i.i = icmp ult i32 %35, 2
@@ -12973,7 +12972,7 @@ define dso_local noundef i32 @_ZNK7testing9TestSuite18skipped_test_countEv(ptr n
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %23 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %14, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 8, !tbaa !280
   %25 = add i32 %24, -1
   %spec.select.i.i.i.i = icmp ult i32 %25, 2
@@ -13030,7 +13029,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl17failed_test_c
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZNK7testing9TestSuite17failed_test_countEv.exit
   %.014.us.i = phi i64 [ %39, %_ZNK7testing9TestSuite17failed_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %38, %_ZNK7testing9TestSuite17failed_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !311
@@ -13080,7 +13079,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl17failed_test_c
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %33 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %24, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %indvars.iv.i.i.i
   %34 = load i32, ptr %33, align 8, !tbaa !280
   %35 = add i32 %34, -1
   %spec.select.i.i.i.i = icmp ult i32 %35, 2
@@ -13155,7 +13154,7 @@ define dso_local noundef i32 @_ZNK7testing9TestSuite17failed_test_countEv(ptr no
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %14, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %14, i64 %indvars.iv.i.i
   %24 = load i32, ptr %23, align 8, !tbaa !280
   %25 = add i32 %24, -1
   %spec.select.i.i.i = icmp ult i32 %25, 2
@@ -13192,7 +13191,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl30reportable_di
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit
   %.014.us.i = phi i64 [ %31, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %30, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !311
@@ -13300,7 +13299,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl19disabled_test
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZNK7testing9TestSuite19disabled_test_countEv.exit
   %.014.us.i = phi i64 [ %22, %_ZNK7testing9TestSuite19disabled_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %21, %_ZNK7testing9TestSuite19disabled_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !311
@@ -13378,7 +13377,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl21reportable_te
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZNK7testing9TestSuite21reportable_test_countEv.exit
   %.014.us.i = phi i64 [ %27, %_ZNK7testing9TestSuite21reportable_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %26, %_ZNK7testing9TestSuite21reportable_test_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !311
@@ -13466,7 +13465,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl16total_test_co
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
   %.014.us.i = phi i64 [ %22, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %21, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -13520,7 +13519,7 @@ define dso_local noundef i32 @_ZNK7testing8internal12UnitTestImpl17test_to_run_c
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZNK7testing9TestSuite17test_to_run_countEv.exit
   %.014.us.i = phi i64 [ %22, %_ZNK7testing9TestSuite17test_to_run_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.01213.us.i = phi i32 [ %21, %_ZNK7testing9TestSuite17test_to_run_countEv.exit ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.014.us.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014.us.i
   %11 = load ptr, ptr %10, align 8, !tbaa !294
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !311
@@ -14216,7 +14215,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7Mes
 
 10:                                               ; preds = %.critedge.i, %.lr.ph30.i
   %.029.i = phi i64 [ 0, %.lr.ph30.i ], [ %.2.i, %.critedge.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %.029.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.029.i
   %12 = load i32, ptr %11, align 4, !tbaa !343
   %.not18.i = icmp eq i32 %12, 0
   br i1 %.not18.i, label %35, label %13
@@ -14251,7 +14250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 .lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %27
   %.125.i = phi i64 [ %28, %27 ], [ %.029.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %.125.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.125.i
   %26 = load i32, ptr %25, align 4, !tbaa !343
   %.not20.i = icmp eq i32 %26, 0
   br i1 %.not20.i, label %.critedge.i, label %27
@@ -14989,7 +14988,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 
 .noexc92:                                         ; preds = %25
   store ptr %27, ptr %5, align 8, !tbaa !369
-  %28 = getelementptr inbounds nuw double, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %22
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %28, ptr %29, align 8, !tbaa !372
   store double 0.000000e+00, ptr %27, align 8, !tbaa !373
@@ -15030,7 +15029,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   %40 = phi ptr [ null, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %39, %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %40, ptr %4, align 8, !tbaa !376
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = getelementptr inbounds nuw %"class.std::vector.110", ptr %40, i64 %35
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %35
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %42, ptr %43, align 8, !tbaa !379
   %44 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RKT1_(ptr noundef %40, i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -15104,7 +15103,7 @@ _ZNSt12_Vector_baseIN7testing8internal13edit_distance8EditTypeESaIS3_EEC2EmRKS4_
 
 .noexc100:                                        ; preds = %71
   store ptr %73, ptr %7, align 8, !tbaa !381
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %68
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %68
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %74, ptr %75, align 8, !tbaa !383
   store i32 0, ptr %73, align 4, !tbaa !384
@@ -15146,7 +15145,7 @@ _ZNSt12_Vector_baseISt6vectorIN7testing8internal13edit_distance8EditTypeESaIS4_E
   %86 = phi ptr [ null, %_ZNSt6vectorIS_IN7testing8internal13edit_distance8EditTypeESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ], [ %85, %_ZNSt16allocator_traitsISaISt6vectorIN7testing8internal13edit_distance8EditTypeESaIS4_EEEE8allocateERS7_m.exit.i.i.i.i ]
   store ptr %86, ptr %6, align 8, !tbaa !387
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %88 = getelementptr inbounds nuw %"class.std::vector.95", ptr %86, i64 %81
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %81
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %88, ptr %89, align 8, !tbaa !390
   %90 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS4_EEmS6_ET_S8_T0_RKT1_(ptr noundef %86, i64 noundef %81, ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -15268,10 +15267,10 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit111: ; 
 137:                                              ; preds = %.lr.ph, %137
   %.077142 = phi i64 [ 0, %.lr.ph ], [ %143, %137 ]
   %138 = uitofp i64 %.077142 to double
-  %139 = getelementptr inbounds nuw %"class.std::vector.110", ptr %40, i64 %.077142
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %.077142
   %140 = load ptr, ptr %139, align 8, !tbaa !369
   store double %138, ptr %140, align 8, !tbaa !373
-  %141 = getelementptr inbounds nuw %"class.std::vector.95", ptr %86, i64 %.077142
+  %141 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %.077142
   %142 = load ptr, ptr %141, align 8, !tbaa !381
   store i32 2, ptr %142, align 4, !tbaa !384
   %143 = add nuw i64 %.077142, 1
@@ -15301,18 +15300,18 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit111: ; 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.079147.us = phi i64 [ %156, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %154 = getelementptr inbounds nuw i64, ptr %145, i64 %.079147.us
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %.079147.us
   %155 = load i64, ptr %154, align 8, !tbaa !43
   %156 = add nuw i64 %.079147.us, 1
-  %157 = getelementptr inbounds nuw %"class.std::vector.110", ptr %40, i64 %156
-  %158 = getelementptr inbounds nuw %"class.std::vector.110", ptr %40, i64 %.079147.us
-  %159 = getelementptr inbounds nuw %"class.std::vector.95", ptr %86, i64 %156
+  %157 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %156
+  %158 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %.079147.us
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %156
   %160 = load ptr, ptr %159, align 8, !tbaa !381
   br label %161
 
 161:                                              ; preds = %.preheader.us, %194
   %.080145.us = phi i64 [ 0, %.preheader.us ], [ %165, %194 ]
-  %162 = getelementptr inbounds nuw i64, ptr %.pre173, i64 %.080145.us
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %.pre173, i64 %.080145.us
   %163 = load i64, ptr %162, align 8, !tbaa !43
   %164 = icmp eq i64 %155, %163
   %165 = add nuw i64 %.080145.us, 1
@@ -15320,12 +15319,12 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit111: ; 
 
 166:                                              ; preds = %161
   %167 = load ptr, ptr %157, align 8, !tbaa !369
-  %168 = getelementptr inbounds nuw double, ptr %167, i64 %.080145.us
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %.080145.us
   %169 = load double, ptr %168, align 8, !tbaa !373
   %170 = load ptr, ptr %158, align 8, !tbaa !369
-  %171 = getelementptr inbounds nuw double, ptr %170, i64 %165
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %165
   %172 = load double, ptr %171, align 8, !tbaa !373
-  %173 = getelementptr inbounds nuw double, ptr %170, i64 %.080145.us
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %.080145.us
   %174 = load double, ptr %173, align 8, !tbaa !373
   %175 = fcmp olt double %169, %172
   %176 = fcmp olt double %169, %174
@@ -15336,7 +15335,7 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit111: ; 
   %178 = fcmp olt double %172, %169
   %179 = fcmp olt double %172, %174
   %or.cond91.us = select i1 %178, i1 %179, i1 false
-  %180 = getelementptr inbounds nuw double, ptr %167, i64 %165
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %165
   br i1 %or.cond91.us, label %183, label %181
 
 181:                                              ; preds = %177
@@ -15351,22 +15350,22 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit111: ; 
 
 185:                                              ; preds = %166
   %186 = fadd double %169, 1.000000e+00
-  %187 = getelementptr inbounds nuw double, ptr %167, i64 %165
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %165
   store double %186, ptr %187, align 8, !tbaa !373
   br label %194
 
 188:                                              ; preds = %161
   %189 = load ptr, ptr %158, align 8, !tbaa !369
-  %190 = getelementptr inbounds nuw double, ptr %189, i64 %.080145.us
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.080145.us
   %191 = load double, ptr %190, align 8, !tbaa !373
   %192 = load ptr, ptr %157, align 8, !tbaa !369
-  %193 = getelementptr inbounds nuw double, ptr %192, i64 %165
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %165
   store double %191, ptr %193, align 8, !tbaa !373
   br label %194
 
 194:                                              ; preds = %188, %185, %183, %181
   %.sink = phi i32 [ 0, %188 ], [ 1, %185 ], [ 2, %183 ], [ 3, %181 ]
-  %195 = getelementptr inbounds nuw i32, ptr %160, i64 %165
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %165
   store i32 %.sink, ptr %195, align 4, !tbaa !384
   %exitcond170.not = icmp eq i64 %165, %153
   br i1 %exitcond170.not, label %._crit_edge.us, label %161, !llvm.loop !393
@@ -15378,9 +15377,9 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit111: ; 
 196:                                              ; preds = %.lr.ph144, %196
   %.078143 = phi i64 [ 1, %.lr.ph144 ], [ %200, %196 ]
   %197 = uitofp i64 %.078143 to double
-  %198 = getelementptr inbounds nuw double, ptr %108, i64 %.078143
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %.078143
   store double %197, ptr %198, align 8, !tbaa !373
-  %199 = getelementptr inbounds nuw i32, ptr %114, i64 %.078143
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %.078143
   store i32 1, ptr %199, align 4, !tbaa !384
   %200 = add nuw i64 %.078143, 1
   %exitcond168.not = icmp eq i64 %200, %112
@@ -15429,9 +15428,9 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit111: ; 
   %.076153 = phi i64 [ %149, %.lr.ph155 ], [ %250, %_ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EE9push_backERKS3_.exit ]
   %219 = phi ptr [ null, %.lr.ph155 ], [ %248, %_ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EE9push_backERKS3_.exit ]
   %220 = load ptr, ptr %6, align 8, !tbaa !387
-  %221 = getelementptr inbounds nuw %"class.std::vector.95", ptr %220, i64 %.076153
+  %221 = getelementptr inbounds nuw [24 x i8], ptr %220, i64 %.076153
   %222 = load ptr, ptr %221, align 8, !tbaa !381
-  %223 = getelementptr inbounds nuw i32, ptr %222, i64 %.075154
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %.075154
   %224 = load i32, ptr %223, align 4, !tbaa !384
   %.not.i = icmp eq ptr %218, %217
   br i1 %.not.i, label %227, label %225
@@ -15491,7 +15490,7 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EE11_S_relocateEPS
 
 _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %244, %_ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %243, ptr %208, align 8, !tbaa !386
-  %245 = getelementptr inbounds nuw i32, ptr %239, i64 %237
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %237
   store ptr %245, ptr %209, align 8, !tbaa !383
   br label %_ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EE9push_backERKS3_.exit
 
@@ -15783,7 +15782,7 @@ define dso_local void @_ZN7testing8internal13edit_distance21CalculateOptimalEdit
   %25 = phi ptr [ %14, %.lr.ph ], [ %56, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
   %.01444 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
   %26 = phi ptr [ null, %.lr.ph ], [ %53, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %.01444
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %.01444
   %28 = invoke fastcc noundef i64 @_ZN7testing8internal13edit_distance12_GLOBAL__N_115InternalStrings5GetIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %29 unwind label %.loopexit37
 
@@ -15846,7 +15845,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %47, %.no
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %48, ptr %15, align 8, !tbaa !365
-  %50 = getelementptr inbounds nuw i64, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   store ptr %50, ptr %16, align 8, !tbaa !402
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -15898,7 +15897,7 @@ _ZN7testing8internal13edit_distance12_GLOBAL__N_115InternalStringsD2Ev.exit: ; p
   %68 = phi ptr [ %19, %.lr.ph50 ], [ %99, %_ZNSt6vectorImSaImEE9push_backEOm.exit27 ]
   %.049 = phi i64 [ 0, %.lr.ph50 ], [ %97, %_ZNSt6vectorImSaImEE9push_backEOm.exit27 ]
   %69 = phi ptr [ %.promoted45, %.lr.ph50 ], [ %96, %_ZNSt6vectorImSaImEE9push_backEOm.exit27 ]
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %68, i64 %.049
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %.049
   %71 = invoke fastcc noundef i64 @_ZN7testing8internal13edit_distance12_GLOBAL__N_115InternalStrings5GetIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %70)
           to label %72 unwind label %.loopexit
 
@@ -15963,7 +15962,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i22: ; preds = %92, %.
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i24: ; preds = %94, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i22
   store ptr %93, ptr %20, align 8, !tbaa !365
-  %95 = getelementptr inbounds nuw i64, ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %87
   store ptr %95, ptr %21, align 8, !tbaa !402
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit27
 
@@ -16235,7 +16234,7 @@ define dso_local void @_ZN7testing8internal13edit_distance17CreateUnifiedDiffERK
   %.1140 = phi i64 [ %38, %36 ], [ %.0, %.preheader133.preheader ]
   %.152139 = phi i64 [ %39, %36 ], [ %.051, %.preheader133.preheader ]
   %.1129138 = phi i64 [ %37, %36 ], [ %.0128, %.preheader133.preheader ]
-  %33 = getelementptr inbounds nuw i32, ptr %24, i64 %.152139
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.152139
   %34 = load i32, ptr %33, align 4, !tbaa !384
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.critedge
@@ -16285,7 +16284,7 @@ define dso_local void @_ZN7testing8internal13edit_distance17CreateUnifiedDiffERK
   %.050142 = phi i64 [ %69, %65 ], [ %.sroa.speculated, %.critedge ]
   %46 = sub i64 %.1129.lcssa, %.050142
   %47 = load ptr, ptr %1, align 8, !tbaa !206
-  %48 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !4
   %50 = load i64, ptr %20, align 8, !tbaa !421
   %51 = add i64 %50, 1
@@ -16378,7 +16377,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6
   br i1 %.not62, label %.critedge4, label %.critedge4.thread
 
 .critedge4:                                       ; preds = %80, %.lr.ph152
-  %85 = getelementptr inbounds nuw i32, ptr %24, i64 %.253149
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.253149
   %86 = load i32, ptr %85, align 4, !tbaa !384
   %87 = icmp eq i32 %86, 0
   %88 = add i64 %.049150, 1
@@ -16392,7 +16391,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6
 90:                                               ; preds = %.critedge4, %.critedge4, %.critedge4
   %91 = select i1 %87, i8 32, i8 45
   %92 = load ptr, ptr %1, align 8, !tbaa !206
-  %93 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %92, i64 %.2130148
+  %93 = getelementptr inbounds nuw [32 x i8], ptr %92, i64 %.2130148
   %94 = load ptr, ptr %93, align 8, !tbaa !4
   br i1 %87, label %95, label %110
 
@@ -16462,7 +16461,7 @@ _ZN7testing8internal13edit_distance12_GLOBAL__N_14Hunk8PushLineEcPKc.exit73: ; p
 
 120:                                              ; preds = %_ZN7testing8internal13edit_distance12_GLOBAL__N_14Hunk8PushLineEcPKc.exit73
   %121 = load ptr, ptr %2, align 8, !tbaa !206
-  %122 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %121, i64 %.2151
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %.2151
   %123 = load ptr, ptr %122, align 8, !tbaa !4
   %124 = load i64, ptr %13, align 8, !tbaa !426
   %125 = add i64 %124, 1
@@ -22486,7 +22485,7 @@ define dso_local void @_ZN7testing8internal16WideStringToUtf8B5cxx11EPKwi(ptr de
 
 15:                                               ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !343
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.critedge, label %18
@@ -23790,7 +23789,7 @@ define dso_local noundef nonnull align 8 dereferenceable(112) ptr @_ZNK7testing1
   unreachable
 
 _ZNKSt6vectorIN7testing14TestPartResultESaIS1_EE2atEm.exit: ; preds = %15
-  %18 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %8, i64 %16
+  %18 = getelementptr inbounds nuw [112 x i8], ptr %8, i64 %16
   ret ptr %18
 }
 
@@ -23847,7 +23846,7 @@ define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZNK7testing10
   unreachable
 
 _ZNKSt6vectorIN7testing12TestPropertyESaIS1_EE2atEm.exit: ; preds = %15
-  %19 = getelementptr inbounds nuw %"class.testing::TestProperty", ptr %8, i64 %16
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %16
   ret ptr %19
 }
 
@@ -24561,7 +24560,7 @@ _ZN7testing7MessagelsIA5_cEERS0_RKT_.exit.i.i:    ; preds = %104, %_ZN7testing7M
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit.i.i unwind label %101, !noalias !613
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit.i.i:    ; preds = %_ZN7testing7MessagelsIA5_cEERS0_RKT_.exit.i.i
-  %107 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pr.i, i64 %.01124.i.i
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %.pr.i, i64 %.01124.i.i
   %108 = load ptr, ptr %107, align 8, !tbaa !4, !noalias !613
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !14, !noalias !613
@@ -25173,7 +25172,7 @@ define dso_local noundef zeroext i1 @_ZNK7testing10TestResult7SkippedEv(ptr noun
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %5, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %5, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 8, !tbaa !280
   %16 = add i32 %15, -1
   %spec.select.i.i = icmp ult i32 %16, 2
@@ -25231,7 +25230,7 @@ define dso_local noundef zeroext i1 @_ZNK7testing10TestResult6FailedEv(ptr nound
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit: ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [112 x i8], ptr %5, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8, !tbaa !280
   %15 = add i32 %14, -1
   %spec.select.i = icmp ult i32 %15, 2
@@ -26444,7 +26443,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %_ZN7testing7Message
 
 switch.lookup:                                    ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit
   %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i
 
@@ -27055,7 +27054,7 @@ _ZN7testing8internal12UnitTestImpl19current_test_resultEv.exit: ; preds = %13, %
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %34 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %25, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %indvars.iv.i.i
   %35 = load i32, ptr %34, align 8, !tbaa !280
   %36 = add i32 %35, -1
   %spec.select.i.i.i = icmp ult i32 %36, 2
@@ -29950,7 +29949,7 @@ define dso_local noundef ptr @_ZNK7testing9TestSuite11GetTestInfoEi(ptr noundef 
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit: ; preds = %4
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !19
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.thread, label %18
@@ -29959,7 +29958,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit: ; pred
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = zext nneg i32 %16 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !323
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !312
   br label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.thread
 
@@ -29988,7 +29987,7 @@ define dso_local noundef ptr @_ZN7testing9TestSuite18GetMutableTestInfoEi(ptr no
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit: ; preds = %4
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !19
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.thread, label %18
@@ -29997,7 +29996,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit: ; pred
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = zext nneg i32 %16 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !323
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !312
   br label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.thread
 
@@ -30066,7 +30065,7 @@ _ZNSt6vectorIPN7testing8TestInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 _ZNSt6vectorIPN7testing8TestInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIPN7testing8TestInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !323
   store ptr %27, ptr %4, align 8, !tbaa !322
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !669
   br label %_ZNSt6vectorIPN7testing8TestInfoESaIS2_EE9push_backERKS2_.exit
 
@@ -30130,7 +30129,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %54, %_ZN
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %56, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %51, ptr %30, align 8, !tbaa !667
   store ptr %55, ptr %31, align 8, !tbaa !671
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %49
   store ptr %57, ptr %39, align 8, !tbaa !668
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -30270,12 +30269,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; pr
   %66 = ashr i64 %sext, 32
   %.not.i.i19 = icmp slt i64 %indvars.iv, %66
   tail call void @llvm.assume(i1 %.not.i.i19)
-  %67 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !19
   %69 = icmp sgt i32 %68, -1
   tail call void @llvm.assume(i1 %69)
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %60, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !312
   tail call void @_ZN7testing8TestInfo3RunEv(ptr noundef nonnull align 8 dereferenceable(272) %72)
   %73 = load i8, ptr @_ZN7testing21FLAGS_gtest_fail_fastE, align 1, !tbaa !65, !range !66, !noundef !67
@@ -30293,12 +30292,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i21: ; 
   %80 = ashr i64 %sext61, 32
   %.not.i.i20 = icmp slt i64 %indvars.iv, %80
   tail call void @llvm.assume(i1 %.not.i.i20)
-  %81 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !19
   %83 = icmp sgt i32 %82, -1
   tail call void @llvm.assume(i1 %83)
   %84 = zext nneg i32 %82 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %.pre57, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.pre57, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !312
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 200
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 208
@@ -30331,7 +30330,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i21: ; 
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %99 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %90, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [112 x i8], ptr %90, i64 %indvars.iv.i
   %100 = load i32, ptr %99, align 8, !tbaa !280
   %101 = add i32 %100, -1
   %spec.select.i.i = icmp ult i32 %101, 2
@@ -30361,12 +30360,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i24: ; 
   %116 = ashr i64 %sext63, 32
   %.not.i.i23 = icmp slt i64 %indvars.iv54, %116
   tail call void @llvm.assume(i1 %.not.i.i23)
-  %117 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv54
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv54
   %118 = load i32, ptr %117, align 4, !tbaa !19
   %119 = icmp sgt i32 %118, -1
   tail call void @llvm.assume(i1 %119)
   %120 = zext nneg i32 %118 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %110, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !312
   tail call void @_ZN7testing8TestInfo4SkipEv(ptr noundef nonnull align 8 dereferenceable(272) %122)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
@@ -30820,12 +30819,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; pr
   %59 = ashr i64 %sext, 32
   %.not.i.i9 = icmp slt i64 %indvars.iv, %59
   tail call void @llvm.assume(i1 %.not.i.i9)
-  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4, !tbaa !19
   %62 = icmp sgt i32 %61, -1
   tail call void @llvm.assume(i1 %62)
   %63 = zext nneg i32 %61 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %53, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !312
   tail call void @_ZN7testing8TestInfo4SkipEv(ptr noundef nonnull align 8 dereferenceable(272) %65)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -30904,7 +30903,7 @@ define dso_local void @_ZN7testing9TestSuite14UnshuffleTestsEv(ptr noundef nonnu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.04 = phi i64 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %10 = trunc i64 %.04 to i32
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %.04
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.04
   store i32 %10, ptr %11, align 4, !tbaa !19
   %12 = add nuw i64 %.04, 1
   %exitcond.not = icmp eq i64 %12, %9
@@ -31093,7 +31092,7 @@ _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.thread: ; preds = %sub_0,
 .lr.ph.split.us.i.i.i:                            ; preds = %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i
   %.014.us.i.i.i = phi i64 [ %54, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
   %.01213.us.i.i.i = phi i32 [ %53, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %.014.us.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.014.us.i.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !294
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !311
@@ -31250,7 +31249,7 @@ define internal void @_ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110G
 
 switch.lookup:                                    ; preds = %18
   %26 = zext nneg i32 %0 to i64
-  %27 = getelementptr ptr, ptr @switch.table._ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110GTestColorEPKcz, i64 %26
+  %27 = getelementptr [8 x i8], ptr @switch.table._ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110GTestColorEPKcz, i64 %26
   %switch.gep = getelementptr i8, ptr %27, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.484, ptr noundef nonnull %switch.load)
@@ -31770,7 +31769,7 @@ define dso_local noundef i32 @_ZNK7testing8UnitTest17test_to_run_countEv(ptr nou
 .lr.ph.split.us.i.i:                              ; preds = %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i, %.lr.ph.split.us.i.preheader.i
   %.014.us.i.i = phi i64 [ %24, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
   %.01213.us.i.i = phi i32 [ %23, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.014.us.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014.us.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !294
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !311
@@ -32217,7 +32216,7 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter9OnTestEndE
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %20 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %11, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [112 x i8], ptr %11, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 8, !tbaa !280
   %22 = add i32 %21, -1
   %spec.select.i.i.i = icmp ult i32 %22, 2
@@ -32286,7 +32285,7 @@ _ZNK7testing10TestResult7SkippedEv.exit.thread:   ; preds = %_ZNK7testing10TestR
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %36, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [112 x i8], ptr %36, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 8, !tbaa !280
   %47 = add i32 %46, -1
   %spec.select.i.i8 = icmp ult i32 %47, 2
@@ -32451,7 +32450,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7testing10TestResult6PassedEv
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %5, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %5, i64 %indvars.iv.i.i
   %15 = load i32, ptr %14, align 8, !tbaa !280
   %16 = add i32 %15, -1
   %spec.select.i.i.i = icmp ult i32 %16, 2
@@ -32495,7 +32494,7 @@ _ZNK7testing10TestResult7SkippedEv.exit.thread:   ; preds = %_ZNK7testing10TestR
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %5, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %5, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 8, !tbaa !280
   %24 = add i32 %23, -3
   %spec.select.i.i1 = icmp ult i32 %24, -2
@@ -32680,7 +32679,7 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter16PrintFail
 .lr.ph.split.us.i.i.i:                            ; preds = %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i
   %.014.us.i.i.i = phi i64 [ %42, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
   %.01213.us.i.i.i = phi i32 [ %41, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %.014.us.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.014.us.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !294
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !311
@@ -32730,7 +32729,7 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter16PrintFail
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %36 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %27, i64 %indvars.iv.i.i.i.i.i
+  %36 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %indvars.iv.i.i.i.i.i
   %37 = load i32, ptr %36, align 8, !tbaa !280
   %38 = add i32 %37, -1
   %spec.select.i.i.i.i.i.i = icmp ult i32 %38, 2
@@ -32806,13 +32805,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK7
   br i1 %.not.i.i.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i, label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i: ; preds = %.lr.ph34
-  %74 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv40
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv40
   %75 = load i32, ptr %74, align 4, !tbaa !19
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit, label %77
 
 77:                                               ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i
-  %78 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv40
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv40
   %79 = load ptr, ptr %78, align 8, !tbaa !294
   br label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit
 
@@ -32872,7 +32871,7 @@ _ZNK7testing8UnitTest12GetTestSuiteEi.exit:       ; preds = %.lr.ph34, %_ZN7test
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %106 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %97, i64 %indvars.iv.i.i.i
+  %106 = getelementptr inbounds nuw [112 x i8], ptr %97, i64 %indvars.iv.i.i.i
   %107 = load i32, ptr %106, align 8, !tbaa !280
   %108 = add i32 %107, -1
   %spec.select.i.i.i.i22 = icmp ult i32 %108, 2
@@ -32919,14 +32918,14 @@ _ZNK7testing9TestSuite17failed_test_countEv.exit: ; preds = %_ZN7testing9TestSui
   br i1 %.not.i.i23, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, label %_ZNK7testing9TestSuite11GetTestInfoEi.exit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %121
-  %130 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv
   %131 = load i32, ptr %130, align 4, !tbaa !19
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %_ZNK7testing9TestSuite11GetTestInfoEi.exit, label %133
 
 133:                                              ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i
   %134 = zext nneg i32 %131 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %122, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !312
   br label %_ZNK7testing9TestSuite11GetTestInfoEi.exit
 
@@ -32969,7 +32968,7 @@ _ZNK7testing9TestSuite11GetTestInfoEi.exit:       ; preds = %121, %_ZN7testing8i
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %154 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %145, i64 %indvars.iv.i
+  %154 = getelementptr inbounds nuw [112 x i8], ptr %145, i64 %indvars.iv.i
   %155 = load i32, ptr %154, align 8, !tbaa !280
   %156 = add i32 %155, -1
   %spec.select.i.i24 = icmp ult i32 %156, 2
@@ -33086,7 +33085,7 @@ define dso_local noundef i32 @_ZNK7testing8UnitTest17failed_test_countEv(ptr nou
 .lr.ph.split.us.i.i:                              ; preds = %_ZNK7testing9TestSuite17failed_test_countEv.exit.i, %.lr.ph.split.us.i.preheader.i
   %.014.us.i.i = phi i64 [ %41, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
   %.01213.us.i.i = phi i32 [ %40, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.014.us.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014.us.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !294
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !311
@@ -33136,7 +33135,7 @@ define dso_local noundef i32 @_ZNK7testing8UnitTest17failed_test_countEv(ptr nou
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %35 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %26, i64 %indvars.iv.i.i.i.i
+  %35 = getelementptr inbounds nuw [112 x i8], ptr %26, i64 %indvars.iv.i.i.i.i
   %36 = load i32, ptr %35, align 8, !tbaa !280
   %37 = add i32 %36, -1
   %spec.select.i.i.i.i.i = icmp ult i32 %37, 2
@@ -33199,7 +33198,7 @@ define dso_local noundef ptr @_ZNK7testing8UnitTest12GetTestSuiteEi(ptr noundef 
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %6
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %_ZNK7testing8internal12UnitTestImpl12GetTestSuiteEi.exit, label %20
@@ -33207,7 +33206,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; pr
 20:                                               ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %22 = load ptr, ptr %21, align 8, !tbaa !310
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   %24 = load ptr, ptr %23, align 8, !tbaa !294
   br label %_ZNK7testing8internal12UnitTestImpl12GetTestSuiteEi.exit
 
@@ -33254,13 +33253,13 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter21PrintFail
   br i1 %.not.i.i.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i, label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i: ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !19
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit, label %28
 
 28:                                               ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !294
   br label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit
 
@@ -33303,7 +33302,7 @@ _ZNK7testing8UnitTest12GetTestSuiteEi.exit:       ; preds = %.lr.ph, %_ZN7testin
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %39, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [112 x i8], ptr %39, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 8, !tbaa !280
   %50 = add i32 %49, -1
   %spec.select.i.i = icmp ult i32 %50, 2
@@ -33383,13 +33382,13 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter17PrintSkip
   br i1 %.not.i.i.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i, label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i: ; preds = %.lr.ph30
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv33
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv33
   %28 = load i32, ptr %27, align 4, !tbaa !19
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit, label %30
 
 30:                                               ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i
-  %31 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv33
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv33
   %32 = load ptr, ptr %31, align 8, !tbaa !294
   br label %_ZNK7testing8UnitTest12GetTestSuiteEi.exit
 
@@ -33449,7 +33448,7 @@ _ZNK7testing8UnitTest12GetTestSuiteEi.exit:       ; preds = %.lr.ph30, %_ZN7test
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %59 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %50, i64 %indvars.iv.i.i.i.i
+  %59 = getelementptr inbounds nuw [112 x i8], ptr %50, i64 %indvars.iv.i.i.i.i
   %60 = load i32, ptr %59, align 8, !tbaa !280
   %61 = add i32 %60, -1
   %spec.select.i.i.i.i.i = icmp ult i32 %61, 2
@@ -33516,14 +33515,14 @@ _ZNK7testing9TestSuite18skipped_test_countEv.exit: ; preds = %_ZN7testing9TestSu
   br i1 %.not.i.i18, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, label %_ZNK7testing9TestSuite11GetTestInfoEi.exit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %80
-  %89 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4, !tbaa !19
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %_ZNK7testing9TestSuite11GetTestInfoEi.exit, label %92
 
 92:                                               ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %81, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !312
   br label %_ZNK7testing9TestSuite11GetTestInfoEi.exit
 
@@ -33566,7 +33565,7 @@ _ZNK7testing9TestSuite11GetTestInfoEi.exit:       ; preds = %80, %_ZN7testing8in
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i24
-  %113 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %104, i64 %indvars.iv.i.i
+  %113 = getelementptr inbounds nuw [112 x i8], ptr %104, i64 %indvars.iv.i.i
   %114 = load i32, ptr %113, align 8, !tbaa !280
   %115 = add i32 %114, -1
   %spec.select.i.i.i = icmp ult i32 %115, 2
@@ -33673,7 +33672,7 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter18OnTestIte
 .lr.ph.split.us.i.i.i:                            ; preds = %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i
   %.014.us.i.i.i = phi i64 [ %31, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
   %.01213.us.i.i.i = phi i32 [ %30, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %.014.us.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.014.us.i.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !294
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !311
@@ -33966,7 +33965,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i.i.i
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i36
-  %142 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %133, i64 %indvars.iv.i.i.i.i
+  %142 = getelementptr inbounds nuw [112 x i8], ptr %133, i64 %indvars.iv.i.i.i.i
   %143 = load i32, ptr %142, align 8, !tbaa !280
   %144 = add i32 %143, -3
   %spec.select.i.i1.i.i.i = icmp ult i32 %144, -2
@@ -33996,7 +33995,7 @@ _ZNK7testing8UnitTest6PassedEv.exit.thread:       ; preds = %140, %_ZNK7testing8
 .lr.ph.split.us.i.i.i39:                          ; preds = %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i38
   %.014.us.i.i.i40 = phi i64 [ %175, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i38 ]
   %.01213.us.i.i.i41 = phi i32 [ %174, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i38 ]
-  %154 = getelementptr inbounds nuw ptr, ptr %149, i64 %.014.us.i.i.i40
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %.014.us.i.i.i40
   %155 = load ptr, ptr %154, align 8, !tbaa !294
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %157 = load ptr, ptr %156, align 8, !tbaa !311
@@ -34106,7 +34105,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i.i.i
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i66: ; preds = %.lr.ph.i.i.i.i63
-  %202 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %193, i64 %indvars.iv.i.i.i.i64
+  %202 = getelementptr inbounds nuw [112 x i8], ptr %193, i64 %indvars.iv.i.i.i.i64
   %203 = load i32, ptr %202, align 8, !tbaa !280
   %204 = add i32 %203, -3
   %spec.select.i.i1.i.i.i67 = icmp ult i32 %204, -2
@@ -34211,7 +34210,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i.i: 
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %30 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %22, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %indvars.iv.i.i.i
   %31 = load i32, ptr %30, align 8, !tbaa !280
   %32 = add i32 %31, -3
   %spec.select.i.i1.i.i = icmp ult i32 %32, -2
@@ -34246,7 +34245,7 @@ define dso_local noundef i32 @_ZNK7testing8UnitTest30reportable_disabled_test_co
 .lr.ph.split.us.i.i:                              ; preds = %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i, %.lr.ph.split.us.i.preheader.i
   %.014.us.i.i = phi i64 [ %33, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
   %.01213.us.i.i = phi i32 [ %32, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.014.us.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014.us.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !294
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !311
@@ -34363,7 +34362,7 @@ define hidden void @_ZN7testing8internal26BriefUnitTestResultPrinter9OnTestEndER
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %7, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [112 x i8], ptr %7, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 8, !tbaa !280
   %18 = add i32 %17, -1
   %spec.select.i.i = icmp ult i32 %18, 2
@@ -34531,7 +34530,7 @@ define hidden void @_ZN7testing8internal26BriefUnitTestResultPrinter18OnTestIter
 .lr.ph.split.us.i.i.i:                            ; preds = %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i
   %.014.us.i.i.i = phi i64 [ %31, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
   %.01213.us.i.i.i = phi i32 [ %30, %_ZNK7testing9TestSuite17test_to_run_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %.014.us.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.014.us.i.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !294
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !311
@@ -34773,7 +34772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %105
 .lr.ph.split.us.i.i.i33:                          ; preds = %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i32
   %.014.us.i.i.i34 = phi i64 [ %144, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i32 ]
   %.01213.us.i.i.i35 = phi i32 [ %143, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i32 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %118, i64 %.014.us.i.i.i34
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.014.us.i.i.i34
   %124 = load ptr, ptr %123, align 8, !tbaa !294
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 48
   %126 = load ptr, ptr %125, align 8, !tbaa !311
@@ -34883,7 +34882,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i.i.i
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i46
-  %171 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %162, i64 %indvars.iv.i.i.i.i
+  %171 = getelementptr inbounds nuw [112 x i8], ptr %162, i64 %indvars.iv.i.i.i.i
   %172 = load i32, ptr %171, align 8, !tbaa !280
   %173 = add i32 %172, -3
   %spec.select.i.i1.i.i.i = icmp ult i32 %173, -2
@@ -35066,7 +35065,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !728
   store ptr %27, ptr %4, align 8, !tbaa !731
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !730
   br label %_ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE9push_backERKS2_.exit
 
@@ -35092,7 +35091,7 @@ define hidden noundef ptr @_ZN7testing8internal17TestEventRepeater7ReleaseEPNS_1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %.0921 = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %.0921
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0921
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %20
@@ -35146,7 +35145,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater18OnTestProgramStartE
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi ptr [ %18, %.lr.ph ], [ %9, %.preheader ]
   %.04 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -35184,7 +35183,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater24OnEnvironmentsSetUp
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi ptr [ %18, %.lr.ph ], [ %9, %.preheader ]
   %.04 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -35222,7 +35221,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater15OnTestCaseStartERKN
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi ptr [ %18, %.lr.ph ], [ %9, %.preheader ]
   %.04 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -35260,7 +35259,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater16OnTestSuiteStartERK
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi ptr [ %18, %.lr.ph ], [ %9, %.preheader ]
   %.04 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -35298,7 +35297,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater11OnTestStartERKNS_8T
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi ptr [ %18, %.lr.ph ], [ %9, %.preheader ]
   %.04 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -35336,7 +35335,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater16OnTestPartResultERK
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi ptr [ %18, %.lr.ph ], [ %9, %.preheader ]
   %.04 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
@@ -35374,7 +35373,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater27OnEnvironmentsTearD
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi ptr [ %18, %.lr.ph ], [ %9, %.preheader ]
   %.04 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %12 = load ptr, ptr %11, align 8, !tbaa !726
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -35420,7 +35419,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater22OnEnvironmentsSetUp
   %.05 = phi i64 [ %15, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %15 = add i64 %.05, -1
   %16 = load ptr, ptr %7, align 8, !tbaa !728
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !726
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -35459,7 +35458,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater25OnEnvironmentsTearD
   %.05 = phi i64 [ %15, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %15 = add i64 %.05, -1
   %16 = load ptr, ptr %7, align 8, !tbaa !728
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !726
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
@@ -35498,7 +35497,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater9OnTestEndERKNS_8Test
   %.05 = phi i64 [ %15, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %15 = add i64 %.05, -1
   %16 = load ptr, ptr %7, align 8, !tbaa !728
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !726
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
@@ -35537,7 +35536,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater13OnTestCaseEndERKNS_
   %.05 = phi i64 [ %15, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %15 = add i64 %.05, -1
   %16 = load ptr, ptr %7, align 8, !tbaa !728
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !726
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -35576,7 +35575,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater14OnTestSuiteEndERKNS
   %.05 = phi i64 [ %15, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %15 = add i64 %.05, -1
   %16 = load ptr, ptr %7, align 8, !tbaa !728
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !726
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 88
@@ -35615,7 +35614,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater16OnTestProgramEndERK
   %.05 = phi i64 [ %15, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %15 = add i64 %.05, -1
   %16 = load ptr, ptr %7, align 8, !tbaa !728
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !726
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
@@ -35646,7 +35645,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater20OnTestIterationStar
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %11 = phi ptr [ %19, %.lr.ph ], [ %10, %.preheader ]
   %.05 = phi i64 [ %17, %.lr.ph ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.05
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.05
   %13 = load ptr, ptr %12, align 8, !tbaa !726
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -35692,7 +35691,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater18OnTestIterationEndE
   %.06 = phi i64 [ %16, %.lr.ph ], [ %15, %.lr.ph.preheader ]
   %16 = add i64 %.06, -1
   %17 = load ptr, ptr %8, align 8, !tbaa !728
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !726
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
@@ -36192,7 +36191,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 .lr.ph.split.us.i.i.i:                            ; preds = %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i
   %.014.us.i.i.i = phi i64 [ %58, %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
   %.01213.us.i.i.i = phi i32 [ %57, %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
-  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %.014.us.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.014.us.i.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !294
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !311
@@ -36325,7 +36324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
 .lr.ph.split.us.i.i.i98:                          ; preds = %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i97
   %.014.us.i.i.i99 = phi i64 [ %128, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i97 ]
   %.01213.us.i.i.i100 = phi i32 [ %127, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i97 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %94, i64 %.014.us.i.i.i99
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.014.us.i.i.i99
   %100 = load ptr, ptr %99, align 8, !tbaa !294
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %102 = load ptr, ptr %101, align 8, !tbaa !311
@@ -36378,7 +36377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %122 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %113, i64 %indvars.iv.i.i.i.i.i
+  %122 = getelementptr inbounds nuw [112 x i8], ptr %113, i64 %indvars.iv.i.i.i.i.i
   %123 = load i32, ptr %122, align 8, !tbaa !280
   %124 = add i32 %123, -1
   %spec.select.i.i.i.i.i.i = icmp ult i32 %124, 2
@@ -36498,7 +36497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
 .lr.ph.split.us.i.i.i132:                         ; preds = %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i131
   %.014.us.i.i.i133 = phi i64 [ %190, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i131 ]
   %.01213.us.i.i.i134 = phi i32 [ %189, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i131 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %164, i64 %.014.us.i.i.i133
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %.014.us.i.i.i133
   %170 = load ptr, ptr %169, align 8, !tbaa !294
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 48
   %172 = load ptr, ptr %171, align 8, !tbaa !311
@@ -37250,7 +37249,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i: ; 
   %464 = ashr i64 %sext, 32
   %.not.i.i.i = icmp slt i64 %indvars.iv, %464
   call void @llvm.assume(i1 %.not.i.i.i)
-  %465 = getelementptr inbounds nuw ptr, ptr %456, i64 %indvars.iv
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %indvars.iv
   %466 = load ptr, ptr %465, align 8, !tbaa !294
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 48
   %468 = load ptr, ptr %467, align 8, !tbaa !311
@@ -37340,7 +37339,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit274._crit_edge: ; pr
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %504 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %495, i64 %indvars.iv.i
+  %504 = getelementptr inbounds nuw [112 x i8], ptr %495, i64 %indvars.iv.i
   %505 = load i32, ptr %504, align 8, !tbaa !280
   %506 = add i32 %505, -1
   %spec.select.i.i287 = icmp ult i32 %506, 2
@@ -42077,7 +42076,7 @@ define hidden void @_ZN7testing8internal24XmlUnitTestResultPrinter19OutputXmlTes
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit: ; preds = %64
-  %68 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %66, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [112 x i8], ptr %66, i64 %indvars.iv
   %69 = load i32, ptr %68, align 8, !tbaa !280
   %70 = add i32 %69, -1
   %spec.select.i = icmp ult i32 %70, 2
@@ -44182,7 +44181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209: ; preds = %_Z
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %303 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %294, i64 %indvars.iv.i.i
+  %303 = getelementptr inbounds nuw [112 x i8], ptr %294, i64 %indvars.iv.i.i
   %304 = load i32, ptr %303, align 8, !tbaa !280
   %305 = add i32 %304, -1
   %spec.select.i.i.i = icmp ult i32 %305, 2
@@ -45097,7 +45096,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41._crit_edge: ; pre
   unreachable
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw %"class.testing::TestProperty", ptr %53, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %indvars.iv
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.236, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 unwind label %.loopexit
 
@@ -45785,7 +45784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %128 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %119, i64 %indvars.iv.i.i.i
+  %128 = getelementptr inbounds nuw [112 x i8], ptr %119, i64 %indvars.iv.i.i.i
   %129 = load i32, ptr %128, align 8, !tbaa !280
   %130 = add i32 %129, -1
   %spec.select.i.i.i.i = icmp ult i32 %130, 2
@@ -46043,7 +46042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %230 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %221, i64 %indvars.iv.i.i.i.i
+  %230 = getelementptr inbounds nuw [112 x i8], ptr %221, i64 %indvars.iv.i.i.i.i
   %231 = load i32, ptr %230, align 8, !tbaa !280
   %232 = add i32 %231, -1
   %spec.select.i.i.i.i.i = icmp ult i32 %232, 2
@@ -46657,12 +46656,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit275._crit_edge: ; pr
   br i1 %.not.i.i278, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit275
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %451
-  %460 = getelementptr inbounds nuw i32, ptr %455, i64 %indvars.iv
+  %460 = getelementptr inbounds nuw [4 x i8], ptr %455, i64 %indvars.iv
   %461 = load i32, ptr %460, align 4, !tbaa !19
   %462 = icmp sgt i32 %461, -1
   call void @llvm.assume(i1 %462)
   %463 = zext nneg i32 %461 to i64
-  %464 = getelementptr inbounds nuw ptr, ptr %452, i64 %463
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %463
   %465 = load ptr, ptr %464, align 8, !tbaa !312
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 130
   %467 = load i8, ptr %466, align 2, !tbaa !320, !range !66, !noundef !67
@@ -46809,7 +46808,7 @@ _ZN7testing7MessageC2Ev.exit:                     ; preds = %2
   unreachable
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw %"class.testing::TestProperty", ptr %31, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 %indvars.iv
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.123, i64 noundef 1)
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %.loopexit
 
@@ -47044,7 +47043,7 @@ define dso_local noundef i32 @_ZNK7testing8UnitTest21reportable_test_countEv(ptr
 .lr.ph.split.us.i.i:                              ; preds = %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i, %.lr.ph.split.us.i.preheader.i
   %.014.us.i.i = phi i64 [ %29, %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
   %.01213.us.i.i = phi i32 [ %28, %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.014.us.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014.us.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !294
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !311
@@ -47357,7 +47356,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN7tes
 .lr.ph.split.us.i.i.i:                            ; preds = %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i
   %.014.us.i.i.i = phi i64 [ %51, %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
   %.01213.us.i.i.i = phi i32 [ %50, %_ZNK7testing9TestSuite21reportable_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %29, i64 %.014.us.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.014.us.i.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !294
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !311
@@ -47434,7 +47433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %52, %
 .lr.ph.split.us.i.i.i90:                          ; preds = %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i89
   %.014.us.i.i.i91 = phi i64 [ %98, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i89 ]
   %.01213.us.i.i.i92 = phi i32 [ %97, %_ZNK7testing9TestSuite17failed_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i89 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %.014.us.i.i.i91
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.014.us.i.i.i91
   %70 = load ptr, ptr %69, align 8, !tbaa !294
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8, !tbaa !311
@@ -47487,7 +47486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %52, %
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %92 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %83, i64 %indvars.iv.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [112 x i8], ptr %83, i64 %indvars.iv.i.i.i.i.i
   %93 = load i32, ptr %92, align 8, !tbaa !280
   %94 = add i32 %93, -1
   %spec.select.i.i.i.i.i.i = icmp ult i32 %94, 2
@@ -47551,7 +47550,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %99
 .lr.ph.split.us.i.i.i112:                         ; preds = %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i, %.lr.ph.split.us.i.preheader.i.i111
   %.014.us.i.i.i113 = phi i64 [ %137, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i111 ]
   %.01213.us.i.i.i114 = phi i32 [ %136, %_ZNK7testing9TestSuite30reportable_disabled_test_countEv.exit.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i.i111 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %111, i64 %.014.us.i.i.i113
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.014.us.i.i.i113
   %117 = load ptr, ptr %116, align 8, !tbaa !294
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 48
   %119 = load ptr, ptr %118, align 8, !tbaa !311
@@ -48111,7 +48110,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i: ; 
   %336 = ashr i64 %sext, 32
   %.not.i.i.i = icmp slt i64 %indvars.iv, %336
   call void @llvm.assume(i1 %.not.i.i.i)
-  %337 = getelementptr inbounds nuw ptr, ptr %328, i64 %indvars.iv
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %indvars.iv
   %338 = load ptr, ptr %337, align 8, !tbaa !294
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 48
   %340 = load ptr, ptr %339, align 8, !tbaa !311
@@ -48156,7 +48155,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit226: ; preds = %._ZS
   %356 = phi ptr [ %.pre, %._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit226_crit_edge ], [ %327, %353 ]
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 184
   %358 = load ptr, ptr %357, align 8, !tbaa !310
-  %359 = getelementptr inbounds nuw ptr, ptr %358, i64 %indvars.iv
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %358, i64 %indvars.iv
   %360 = load ptr, ptr %359, align 8, !tbaa !294
   invoke void @_ZN7testing8internal25JsonUnitTestResultPrinter18PrintJsonTestSuiteEPSoRKNS_9TestSuiteE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(264) %360)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit226._ZNK7testing9TestSuite21reportable_test_countEv.exit.thread_crit_edge unwind label %325
@@ -48218,7 +48217,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit203._crit_edge: ; pr
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %384 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %375, i64 %indvars.iv.i
+  %384 = getelementptr inbounds nuw [112 x i8], ptr %375, i64 %indvars.iv.i
   %385 = load i32, ptr %384, align 8, !tbaa !280
   %386 = add i32 %385, -1
   %spec.select.i.i230 = icmp ult i32 %386, 2
@@ -53005,7 +53004,7 @@ _ZN7testing7MessageC2Ev.exit:                     ; preds = %3
   unreachable
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw %"class.testing::TestProperty", ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %indvars.iv
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.78, i64 noundef 2)
           to label %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit unwind label %.loopexit
 
@@ -53287,7 +53286,7 @@ define hidden void @_ZN7testing8internal25JsonUnitTestResultPrinter20OutputJsonT
   unreachable
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %32, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [112 x i8], ptr %32, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8, !tbaa !280
   %39 = add i32 %38, -1
   %spec.select.i = icmp ult i32 %39, 2
@@ -54641,7 +54640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %_Z
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %310 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %301, i64 %indvars.iv.i.i
+  %310 = getelementptr inbounds nuw [112 x i8], ptr %301, i64 %indvars.iv.i.i
   %311 = load i32, ptr %310, align 8, !tbaa !280
   %312 = add i32 %311, -1
   %spec.select.i.i.i = icmp ult i32 %312, 2
@@ -55471,7 +55470,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %80
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %109 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %100, i64 %indvars.iv.i.i.i
+  %109 = getelementptr inbounds nuw [112 x i8], ptr %100, i64 %indvars.iv.i.i.i
   %110 = load i32, ptr %109, align 8, !tbaa !280
   %111 = add i32 %110, -1
   %spec.select.i.i.i.i = icmp ult i32 %111, 2
@@ -55991,12 +55990,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; pr
   %306 = ashr i64 %sext, 32
   %.not.i.i214 = icmp slt i64 %indvars.iv, %306
   call void @llvm.assume(i1 %.not.i.i214)
-  %307 = getelementptr inbounds nuw i32, ptr %302, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %302, i64 %indvars.iv
   %308 = load i32, ptr %307, align 4, !tbaa !19
   %309 = icmp sgt i32 %308, -1
   call void @llvm.assume(i1 %309)
   %310 = zext nneg i32 %308 to i64
-  %311 = getelementptr inbounds nuw ptr, ptr %299, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %310
   %312 = load ptr, ptr %311, align 8, !tbaa !312
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 130
   %314 = load i8, ptr %313, align 2, !tbaa !320, !range !66, !noundef !67
@@ -56017,11 +56016,11 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; pr
 
 ._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit216_crit_edge: ; preds = %321
   %.pre258 = load ptr, ptr %294, align 8, !tbaa !667
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre258, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre258, i64 %indvars.iv
   %.pre259 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
   %.pre260 = load ptr, ptr %66, align 8, !tbaa !323
   %.phi.trans.insert261 = zext i32 %.pre259 to i64
-  %.phi.trans.insert262 = getelementptr inbounds nuw ptr, ptr %.pre260, i64 %.phi.trans.insert261
+  %.phi.trans.insert262 = getelementptr inbounds nuw [8 x i8], ptr %.pre260, i64 %.phi.trans.insert261
   %.pre263 = load ptr, ptr %.phi.trans.insert262, align 8, !tbaa !312
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit216
 
@@ -56403,7 +56402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZN
 
 .split29:                                         ; preds = %85
   %87 = load ptr, ptr %1, align 8, !tbaa !310
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %.0108
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.0108
   br label %.split
 
 89:                                               ; preds = %85, %.split
@@ -57057,7 +57056,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %24, ptr %4, align 8, !tbaa !728
   store ptr %28, ptr %5, align 8, !tbaa !731
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !730
   br label %_ZN7testing8internal17TestEventRepeater6AppendEPNS_17TestEventListenerE.exit
 
@@ -57104,7 +57103,7 @@ define dso_local noundef ptr @_ZN7testing18TestEventListeners7ReleaseEPNS_17Test
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.preheader.i
   %.0921.i = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %.0921.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0921.i
   %23 = load ptr, ptr %22, align 8, !tbaa !726
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %25, label %31
@@ -57166,7 +57165,7 @@ define dso_local void @_ZN7testing18TestEventListeners23SetDefaultResultPrinterE
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.preheader.i.i
   %.0921.i.i = phi i64 [ %25, %24 ], [ 0, %.lr.ph.preheader.i.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0921.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0921.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !726
   %17 = icmp eq ptr %16, %4
   br i1 %17, label %18, label %24
@@ -57270,7 +57269,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %60, %_ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
   store ptr %55, ptr %35, align 8, !tbaa !728
   store ptr %59, ptr %36, align 8, !tbaa !731
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %38, align 8, !tbaa !730
   br label %_ZN7testing18TestEventListeners6AppendEPNS_17TestEventListenerE.exit
 
@@ -57317,7 +57316,7 @@ define dso_local void @_ZN7testing18TestEventListeners22SetDefaultXmlGeneratorEP
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %.0921.i.i = phi i64 [ %31, %30 ], [ 0, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %.0921.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0921.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !726
   %23 = icmp eq ptr %22, %4
   br i1 %23, label %24, label %30
@@ -57421,7 +57420,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %66, %_ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
   store ptr %61, ptr %41, align 8, !tbaa !728
   store ptr %65, ptr %42, align 8, !tbaa !731
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %67, ptr %44, align 8, !tbaa !730
   br label %_ZN7testing18TestEventListeners6AppendEPNS_17TestEventListenerE.exit
 
@@ -57682,7 +57681,7 @@ define dso_local noundef i32 @_ZNK7testing8UnitTest19disabled_test_countEv(ptr n
 .lr.ph.split.us.i.i:                              ; preds = %_ZNK7testing9TestSuite19disabled_test_countEv.exit.i, %.lr.ph.split.us.i.preheader.i
   %.014.us.i.i = phi i64 [ %24, %_ZNK7testing9TestSuite19disabled_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
   %.01213.us.i.i = phi i32 [ %23, %_ZNK7testing9TestSuite19disabled_test_countEv.exit.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.014.us.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014.us.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !294
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !311
@@ -57736,7 +57735,7 @@ define dso_local noundef i32 @_ZNK7testing8UnitTest16total_test_countEv(ptr noun
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.preheader.i
   %.014.us.i.i = phi i64 [ %24, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
   %.01213.us.i.i = phi i32 [ %23, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.014.us.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014.us.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !294
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -57823,7 +57822,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i: ; 
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %30 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %22, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %indvars.iv.i.i
   %31 = load i32, ptr %30, align 8, !tbaa !280
   %32 = add i32 %31, -1
   %spec.select.i.i1.i = icmp ult i32 %32, 2
@@ -57859,7 +57858,7 @@ define dso_local noundef ptr @_ZNK7testing8UnitTest11GetTestCaseEi(ptr noundef n
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i: ; preds = %6
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %_ZNK7testing8internal12UnitTestImpl11GetTestCaseEi.exit, label %20
@@ -57867,7 +57866,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i: ; 
 20:                                               ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %22 = load ptr, ptr %21, align 8, !tbaa !310
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   %24 = load ptr, ptr %23, align 8, !tbaa !294
   br label %_ZNK7testing8internal12UnitTestImpl11GetTestCaseEi.exit
 
@@ -57898,7 +57897,7 @@ define dso_local noundef ptr @_ZN7testing8UnitTest19GetMutableTestSuiteEi(ptr no
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %6
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %_ZN7testing8internal12UnitTestImpl19GetMutableSuiteCaseEi.exit, label %20
@@ -57907,7 +57906,7 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; pr
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %22 = zext nneg i32 %18 to i64
   %23 = load ptr, ptr %21, align 8, !tbaa !310
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !294
   br label %_ZN7testing8internal12UnitTestImpl19GetMutableSuiteCaseEi.exit
 
@@ -57982,7 +57981,7 @@ _ZNSt6vectorIPN7testing11EnvironmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIPN7testing11EnvironmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIPN7testing11EnvironmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %27, ptr %7, align 8, !tbaa !1053
   store ptr %31, ptr %8, align 8, !tbaa !1049
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !1050
   br label %_ZNSt6vectorIPN7testing11EnvironmentESaIS2_EE9push_backERKS2_.exit
 
@@ -58850,7 +58849,7 @@ _ZN7testing8internal12UnitTestImpl19current_test_resultEv.exit: ; preds = %138, 
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit: ; preds = %.lr.ph
-  %163 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %159, i64 %indvars.iv143
+  %163 = getelementptr inbounds nuw [112 x i8], ptr %159, i64 %indvars.iv143
   %164 = load i32, ptr %163, align 8, !tbaa !280
   %165 = icmp eq i32 %164, 3
   br i1 %165, label %166, label %188
@@ -58963,12 +58962,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; pr
   %213 = ashr i64 %sext, 32
   %.not.i.i57 = icmp slt i64 %indvars.iv, %213
   call void @llvm.assume(i1 %.not.i.i57)
-  %214 = getelementptr inbounds nuw i32, ptr %209, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %indvars.iv
   %215 = load i32, ptr %214, align 4, !tbaa !19
   %216 = icmp sgt i32 %215, -1
   call void @llvm.assume(i1 %216)
   %217 = zext nneg i32 %215 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %207, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !294
   call void @_ZN7testing9TestSuite3RunEv(ptr noundef nonnull align 8 dereferenceable(264) %219)
   %220 = load i8, ptr @_ZN7testing21FLAGS_gtest_fail_fastE, align 1, !tbaa !65, !range !66, !noundef !67
@@ -58985,13 +58984,13 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i59: ; 
   %227 = ashr i64 %sext175, 32
   %.not.i.i58 = icmp slt i64 %indvars.iv, %227
   call void @llvm.assume(i1 %.not.i.i58)
-  %228 = getelementptr inbounds nuw i32, ptr %223, i64 %indvars.iv
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %indvars.iv
   %229 = load i32, ptr %228, align 4, !tbaa !19
   %230 = icmp sgt i32 %229, -1
   call void @llvm.assume(i1 %230)
   %231 = zext nneg i32 %229 to i64
   %232 = load ptr, ptr %60, align 8, !tbaa !310
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %231
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %231
   %234 = load ptr, ptr %233, align 8, !tbaa !294
   %235 = call noundef zeroext i1 @_ZNK7testing9TestSuite6FailedEv(ptr noundef nonnull align 8 dereferenceable(264) %234)
   br i1 %235, label %.preheader87, label %267
@@ -59021,12 +59020,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i62: ; 
   %251 = ashr i64 %sext177, 32
   %.not.i.i61 = icmp slt i64 %indvars.iv137, %251
   call void @llvm.assume(i1 %.not.i.i61)
-  %252 = getelementptr inbounds nuw i32, ptr %247, i64 %indvars.iv137
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %247, i64 %indvars.iv137
   %253 = load i32, ptr %252, align 4, !tbaa !19
   %254 = icmp sgt i32 %253, -1
   call void @llvm.assume(i1 %254)
   %255 = zext nneg i32 %253 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr %245, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !294
   call void @_ZN7testing9TestSuite4SkipEv(ptr noundef nonnull align 8 dereferenceable(264) %257)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
@@ -59081,12 +59080,12 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i65: ; 
   %291 = ashr i64 %sext178, 32
   %.not.i.i64 = icmp slt i64 %indvars.iv140, %291
   call void @llvm.assume(i1 %.not.i.i64)
-  %292 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv140
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv140
   %293 = load i32, ptr %292, align 4, !tbaa !19
   %294 = icmp sgt i32 %293, -1
   call void @llvm.assume(i1 %294)
   %295 = zext nneg i32 %293 to i64
-  %296 = getelementptr inbounds nuw ptr, ptr %285, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %295
   %297 = load ptr, ptr %296, align 8, !tbaa !294
   call void @_ZN7testing9TestSuite4SkipEv(ptr noundef nonnull align 8 dereferenceable(264) %297)
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
@@ -59203,7 +59202,7 @@ _ZSt8for_eachISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing11E
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i81
-  %356 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %347, i64 %indvars.iv.i.i.i.i
+  %356 = getelementptr inbounds nuw [112 x i8], ptr %347, i64 %indvars.iv.i.i.i.i
   %357 = load i32, ptr %356, align 8, !tbaa !280
   %358 = add i32 %357, -1
   %spec.select.i.i.i.i.i = icmp ult i32 %358, 2
@@ -59252,7 +59251,7 @@ _ZNK7testing9TestSuite17failed_test_countEv.exit.thread.i: ; preds = %_ZNK7testi
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i79
-  %373 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %364, i64 %indvars.iv.i.i
+  %373 = getelementptr inbounds nuw [112 x i8], ptr %364, i64 %indvars.iv.i.i
   %374 = load i32, ptr %373, align 8, !tbaa !280
   %375 = add i32 %374, -1
   %spec.select.i.i1.i = icmp ult i32 %375, 2
@@ -59299,7 +59298,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i.i: 
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %388 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %379, i64 %indvars.iv.i.i.i
+  %388 = getelementptr inbounds nuw [112 x i8], ptr %379, i64 %indvars.iv.i.i.i
   %389 = load i32, ptr %388, align 8, !tbaa !280
   %390 = add i32 %389, -3
   %spec.select.i.i1.i.i = icmp ult i32 %390, -2
@@ -59319,7 +59318,7 @@ _ZNK7testing8internal12UnitTestImpl6PassedEv.exit: ; preds = %386, %_ZNK7testing
 
 397:                                              ; preds = %_ZN7testing9TestSuite14UnshuffleTestsEv.exit.i, %.lr.ph.i72
   %.05.i = phi i64 [ 0, %.lr.ph.i72 ], [ %413, %_ZN7testing9TestSuite14UnshuffleTestsEv.exit.i ]
-  %398 = getelementptr inbounds nuw ptr, ptr %328, i64 %.05.i
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %.05.i
   %399 = load ptr, ptr %398, align 8, !tbaa !294
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 72
   %401 = getelementptr inbounds nuw i8, ptr %399, i64 80
@@ -59338,7 +59337,7 @@ _ZNK7testing8internal12UnitTestImpl6PassedEv.exit: ; preds = %386, %_ZNK7testing
 .lr.ph.i.i74:                                     ; preds = %.lr.ph.i.i74, %.lr.ph.preheader.i.i
   %.04.i.i = phi i64 [ %410, %.lr.ph.i.i74 ], [ 0, %.lr.ph.preheader.i.i ]
   %408 = trunc i64 %.04.i.i to i32
-  %409 = getelementptr inbounds nuw i32, ptr %403, i64 %.04.i.i
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %403, i64 %.04.i.i
   store i32 %408, ptr %409, align 4, !tbaa !19
   %410 = add nuw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %410, %407
@@ -59346,7 +59345,7 @@ _ZNK7testing8internal12UnitTestImpl6PassedEv.exit: ; preds = %386, %_ZNK7testing
 
 _ZN7testing9TestSuite14UnshuffleTestsEv.exit.i:   ; preds = %.lr.ph.i.i74, %397
   %411 = trunc i64 %.05.i to i32
-  %412 = getelementptr inbounds nuw i32, ptr %396, i64 %.05.i
+  %412 = getelementptr inbounds nuw [4 x i8], ptr %396, i64 %.05.i
   store i32 %411, ptr %412, align 4, !tbaa !19
   %413 = add nuw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %413, %395
@@ -61033,7 +61032,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %75, %_ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
   store ptr %70, ptr %50, align 8, !tbaa !728
   store ptr %74, ptr %51, align 8, !tbaa !731
-  %76 = getelementptr inbounds nuw ptr, ptr %70, i64 %68
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   store ptr %76, ptr %53, align 8, !tbaa !730
   br label %_ZN7testing18TestEventListeners6AppendEPNS_17TestEventListenerE.exit
 
@@ -61641,7 +61640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %91,
   store i32 %104, ptr %102, align 4, !tbaa !1056
   %105 = load ptr, ptr %16, align 8, !tbaa !293
   %106 = sext i32 %104 to i64
-  %107 = getelementptr inbounds ptr, ptr %105, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %105, i64 %106
   %108 = call ptr @_ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EERS7_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %107, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br label %_ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE9push_backERKS2_.exit
 
@@ -61714,7 +61713,7 @@ _ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %136, %_ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %131, ptr %16, align 8, !tbaa !310
   store ptr %135, ptr %17, align 8, !tbaa !309
-  %137 = getelementptr inbounds nuw ptr, ptr %131, i64 %129
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %129
   store ptr %137, ptr %114, align 8, !tbaa !1081
   br label %_ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE9push_backERKS2_.exit
 
@@ -61778,7 +61777,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %162, %_Z
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %164, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %159, ptr %138, align 8, !tbaa !667
   store ptr %163, ptr %139, align 8, !tbaa !671
-  %165 = getelementptr inbounds nuw i32, ptr %159, i64 %157
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %157
   store ptr %165, ptr %147, align 8, !tbaa !668
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -62059,7 +62058,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE6in
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds ptr, ptr %9, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %9, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %18, i64 %25, i1 false)
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !310
   br label %29
@@ -62123,7 +62122,7 @@ _ZNSt6vectorIPN7testing9TestSuiteESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_
   %52 = getelementptr inbounds i8, ptr %47, i64 %48
   store ptr %42, ptr %0, align 8, !tbaa !310
   store ptr %52, ptr %8, align 8, !tbaa !309
-  %53 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %53, ptr %10, align 8, !tbaa !1081
   br label %54
 
@@ -62356,7 +62355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %.1292 = phi i32 [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148 ], [ %.0297, %36 ]
   %.142291 = phi i32 [ %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148 ], [ %.041296, %36 ]
   %.048290 = phi i64 [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148 ], [ 0, %36 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.048290
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.048290
   %52 = load ptr, ptr %51, align 8, !tbaa !312
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -62872,7 +62871,7 @@ define dso_local void @_ZN7testing8internal12UnitTestImpl23ListTestsMatchingFilt
   %30 = phi ptr [ %23, %.lr.ph ], [ %89, %87 ]
   %.033123 = phi i1 [ false, %.lr.ph ], [ %.134, %87 ]
   %.036122 = phi i64 [ 0, %.lr.ph ], [ %90, %87 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %.036122
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.036122
   %32 = load ptr, ptr %31, align 8, !tbaa !312
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 130
   %34 = load i8, ptr %33, align 2, !tbaa !320, !range !66, !noundef !67
@@ -63711,7 +63710,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7testing9TestSuite6FailedEv(p
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %23 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %14, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 8, !tbaa !280
   %25 = add i32 %24, -1
   %spec.select.i.i.i.i = icmp ult i32 %25, 2
@@ -63755,7 +63754,7 @@ _ZNK7testing9TestSuite17failed_test_countEv.exit.thread: ; preds = %1, %_ZNK7tes
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %31, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [112 x i8], ptr %31, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 8, !tbaa !280
   %41 = add i32 %40, -1
   %spec.select.i.i1 = icmp ult i32 %41, 2
@@ -63792,7 +63791,7 @@ define dso_local void @_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv(ptr 
 
 12:                                               ; preds = %.lr.ph, %_ZN7testing9TestSuite14UnshuffleTestsEv.exit
   %.05 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZN7testing9TestSuite14UnshuffleTestsEv.exit ]
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %.05
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05
   %14 = load ptr, ptr %13, align 8, !tbaa !294
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 80
@@ -63811,7 +63810,7 @@ define dso_local void @_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv(ptr 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.04.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %23 = trunc i64 %.04.i to i32
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %.04.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.04.i
   store i32 %23, ptr %24, align 4, !tbaa !19
   %25 = add nuw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %25, %22
@@ -63819,7 +63818,7 @@ define dso_local void @_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv(ptr 
 
 _ZN7testing9TestSuite14UnshuffleTestsEv.exit:     ; preds = %.lr.ph.i, %12
   %26 = trunc i64 %.05 to i32
-  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %.05
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05
   store i32 %26, ptr %27, align 4, !tbaa !19
   %28 = add nuw i64 %.05, 1
   %exitcond.not = icmp eq i64 %28, %9
@@ -64474,9 +64473,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %43
   %54 = add nsw i32 %53, %1
   %55 = sext i32 %54 to i64
   %56 = load ptr, ptr %3, align 8, !tbaa !667
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %55
-  %58 = getelementptr i32, ptr %56, i64 %indvars.iv
-  %59 = getelementptr i32, ptr %58, i64 %51
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %55
+  %58 = getelementptr [4 x i8], ptr %56, i64 %indvars.iv
+  %59 = getelementptr [4 x i8], ptr %58, i64 %51
   %60 = getelementptr i8, ptr %59, i64 -4
   %61 = load i32, ptr %57, align 4, !tbaa !19
   %62 = load i32, ptr %60, align 4, !tbaa !19
@@ -64858,7 +64857,7 @@ define linkonce_odr hidden void @_ZN7testing8internal28ParseGoogleTestFlagsOnlyI
   %.02031 = phi i32 [ 1, %.lr.ph33 ], [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = sext i32 %.02031 to i64
-  %11 = getelementptr inbounds ptr, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   call void @_ZN7testing8internal18StreamableToStringIPcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %12 = load ptr, ptr %3, align 8, !tbaa !4
   %13 = invoke fastcc noundef zeroext i1 @_ZN7testing8internalL19ParseGoogleTestFlagEPKc(ptr noundef %12)
@@ -64971,9 +64970,9 @@ _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit.thread27: ; preds = %_ZN
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %10, %51 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %55 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8, !tbaa !453
-  %57 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %56, ptr %57, align 8, !tbaa !453
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %52, %lftr.wideiv
@@ -65032,7 +65031,7 @@ define linkonce_odr hidden void @_ZN7testing8internal28ParseGoogleTestFlagsOnlyI
   %.02031 = phi i32 [ 1, %.lr.ph33 ], [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = sext i32 %.02031 to i64
-  %11 = getelementptr inbounds ptr, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   call void @_ZN7testing8internal18StreamableToStringIPwEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %12 = load ptr, ptr %3, align 8, !tbaa !4
   %13 = invoke fastcc noundef zeroext i1 @_ZN7testing8internalL19ParseGoogleTestFlagEPKc(ptr noundef %12)
@@ -65145,9 +65144,9 @@ _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit.thread27: ; preds = %_ZN
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %10, %51 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %55 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8, !tbaa !512
-  %57 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %56, ptr %57, align 8, !tbaa !512
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %52, %lftr.wideiv
@@ -65270,7 +65269,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %._crit_edge, %22, %
 30:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @_ZN7testing8internal18StreamableToStringIPcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %31)
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7testing8internalL7g_argvsB5cxx11E, i64 8), align 8, !tbaa !209
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7testing8internalL7g_argvsB5cxx11E, i64 16), align 8, !tbaa !211
@@ -65443,7 +65442,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %._crit_edge, %22, %
 30:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @_ZN7testing8internal18StreamableToStringIPwEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %31)
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7testing8internalL7g_argvsB5cxx11E, i64 8), align 8, !tbaa !209
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7testing8internalL7g_argvsB5cxx11E, i64 16), align 8, !tbaa !211
@@ -75437,7 +75436,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   %1112 = getelementptr inbounds nuw i8, ptr %1107, i64 16
   store ptr %1106, ptr %96, align 8, !tbaa !1439
   store ptr %1112, ptr %1078, align 8, !tbaa !1442
-  %1113 = getelementptr inbounds nuw ptr, ptr %1106, i64 %1104
+  %1113 = getelementptr inbounds nuw [8 x i8], ptr %1106, i64 %1104
   store ptr %1113, ptr %1076, align 8, !tbaa !1443
   %.pre = load ptr, ptr %1080, align 8, !tbaa !279
   br label %.noexc531
@@ -75548,7 +75547,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   %1159 = getelementptr inbounds nuw i8, ptr %1154, i64 16
   store ptr %1153, ptr %96, align 8, !tbaa !1439
   store ptr %1159, ptr %1078, align 8, !tbaa !1442
-  %1160 = getelementptr inbounds nuw ptr, ptr %1153, i64 %1151
+  %1160 = getelementptr inbounds nuw [8 x i8], ptr %1153, i64 %1151
   store ptr %1160, ptr %1076, align 8, !tbaa !1443
   %.pre797 = ptrtoint ptr %1153 to i64
   br label %_ZN7testing8internal9Arguments11AddArgumentEPKc.exit
@@ -75619,7 +75618,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   %1188 = getelementptr inbounds nuw i8, ptr %1183, i64 16
   store ptr %1182, ptr %96, align 8, !tbaa !1439
   store ptr %1188, ptr %1078, align 8, !tbaa !1442
-  %1189 = getelementptr inbounds nuw ptr, ptr %1182, i64 %1180
+  %1189 = getelementptr inbounds nuw [8 x i8], ptr %1182, i64 %1180
   store ptr %1189, ptr %1076, align 8, !tbaa !1443
   br label %_ZN7testing8internal9Arguments11AddArgumentEPKc.exit534
 
@@ -87648,7 +87647,7 @@ define dso_local void @_ZN7testing8internal19UniversalPrintArrayEPKDsmPSo(ptr no
 
 4:                                                ; preds = %3
   %5 = add i64 %1, -1
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !1689
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %9, label %10
@@ -87673,7 +87672,7 @@ define dso_local void @_ZN7testing8internal19UniversalPrintArrayEPKDimPSo(ptr no
 
 4:                                                ; preds = %3
   %5 = add i64 %1, -1
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !1691
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -87698,7 +87697,7 @@ define dso_local void @_ZN7testing8internal19UniversalPrintArrayEPKwmPSo(ptr nou
 
 4:                                                ; preds = %3
   %5 = add i64 %1, -1
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !343
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -87752,7 +87751,7 @@ define hidden void @_ZN7testing8internal7PrintToEPKDsPSo(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %9, %6
   %.0.i.i = phi i64 [ 0, %6 ], [ %13, %9 ]
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %.0.i.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.0.i.i
   %11 = load i16, ptr %10, align 2, !tbaa !1689
   %12 = icmp eq i16 %11, 0
   %13 = add i64 %.0.i.i, 1
@@ -88054,7 +88053,7 @@ define internal fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIDsEENS0
   %.020 = phi i1 [ %17, %_ZN7testing8internal8IsXDigitEDs.exit.thread ], [ false, %3 ]
   %.01619 = phi i64 [ %18, %_ZN7testing8internal8IsXDigitEDs.exit.thread ], [ 0, %3 ]
   %.01718 = phi i32 [ %spec.select, %_ZN7testing8internal8IsXDigitEDs.exit.thread ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %.01619
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.01619
   %8 = load i16, ptr %7, align 2, !tbaa !1689
   %9 = icmp ult i16 %8, 256
   %or.cond = select i1 %.020, i1 %9, i1 false
@@ -88105,7 +88104,7 @@ define internal fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIDiEENS0
   %.020 = phi i1 [ %16, %_ZN7testing8internal8IsXDigitEDi.exit.thread ], [ false, %3 ]
   %.01619 = phi i64 [ %17, %_ZN7testing8internal8IsXDigitEDi.exit.thread ], [ 0, %3 ]
   %.01718 = phi i32 [ %spec.select, %_ZN7testing8internal8IsXDigitEDi.exit.thread ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.01619
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01619
   %8 = load i32, ptr %7, align 4, !tbaa !1691
   %9 = icmp ult i32 %8, 256
   %or.cond = select i1 %.020, i1 %9, i1 false
@@ -88155,7 +88154,7 @@ define internal fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_
   %.020 = phi i1 [ %16, %_ZN7testing8internal8IsXDigitEw.exit.thread ], [ false, %3 ]
   %.01619 = phi i64 [ %17, %_ZN7testing8internal8IsXDigitEw.exit.thread ], [ 0, %3 ]
   %.01718 = phi i32 [ %spec.select, %_ZN7testing8internal8IsXDigitEw.exit.thread ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.01619
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01619
   %8 = load i32, ptr %7, align 4, !tbaa !343
   %9 = icmp ult i32 %8, 256
   %or.cond = select i1 %.020, i1 %9, i1 false
@@ -88308,7 +88307,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZStlsI
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testinglsERSoRKNS_14TestPartResultE, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7testinglsERSoRKNS_14TestPartResultE, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %19
 
@@ -88451,7 +88450,7 @@ define dso_local noundef nonnull align 8 dereferenceable(112) ptr @_ZNK7testing1
 
 15:                                               ; preds = %4
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw [112 x i8], ptr %7, i64 %16
   ret ptr %17
 }
 
@@ -90391,7 +90390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i19: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit22: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i19
   %47 = load ptr, ptr %1, align 8, !tbaa !206
-  %48 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %47, i64 %.025
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %.025
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = load i64, ptr %36, align 8, !tbaa !14
@@ -91341,7 +91340,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
   %7 = shl nuw nsw i64 %5, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #64
   store ptr %8, ptr %4, align 8, !tbaa !368
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %9, ptr %10, align 8, !tbaa !402
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 -1, i64 %7, i1 false), !tbaa !43
@@ -91380,7 +91379,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i6.i: ; preds = %.loopexit17
 
 .noexc14.i:                                       ; preds = %21
   store ptr %23, ptr %16, align 8, !tbaa !368
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %18
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %24, ptr %25, align 8, !tbaa !402
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 -1, i64 %22, i1 false), !tbaa !43
@@ -91490,7 +91489,7 @@ define linkonce_odr hidden void @_ZN7testing8internal22MaxBipartiteMatchState7Co
   %19 = phi ptr [ %5, %.lr.ph ], [ %76, %74 ]
   %.01249 = phi i64 [ 0, %.lr.ph ], [ %75, %74 ]
   %20 = load ptr, ptr %7, align 8, !tbaa !368
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %.01249
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01249
   %22 = load i64, ptr %21, align 8, !tbaa !43
   %23 = icmp eq i64 %22, -1
   br i1 %23, label %39, label %24
@@ -91518,7 +91517,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %_ZNSolsEm.exit
   %30 = load ptr, ptr %7, align 8, !tbaa !368
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %.01249
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.01249
   %32 = load i64, ptr %31, align 8, !tbaa !43
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %32)
           to label %_ZNSolsEm.exit19 unwind label %36
@@ -91689,7 +91688,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %._crit_edge56, %80
   %88 = phi ptr [ %13, %.lr.ph55 ], [ %120, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit ]
   %storemerge53 = phi i64 [ 0, %.lr.ph55 ], [ %118, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit ]
   %89 = phi ptr [ null, %.lr.ph55 ], [ %117, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit ]
-  %90 = getelementptr inbounds nuw i64, ptr %88, i64 %storemerge53
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %storemerge53
   %91 = load i64, ptr %90, align 8, !tbaa !43
   %92 = icmp eq i64 %91, -1
   br i1 %92, label %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit, label %93
@@ -91764,7 +91763,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %114, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %113, ptr %14, align 8, !tbaa !1811
-  %115 = getelementptr inbounds nuw %"struct.std::pair.226", ptr %109, i64 %107
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %107
   store ptr %115, ptr %15, align 8, !tbaa !1808
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit
 
@@ -92380,7 +92379,7 @@ _ZN7testing7MessageD2Ev.exit42:                   ; preds = %.body32, %_ZNKSt14d
 
 110:                                              ; preds = %108, %104
   %111 = load ptr, ptr %96, align 8, !tbaa !1844
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %.045
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.045
   %113 = load ptr, ptr %112, align 8, !tbaa !1845
   %114 = load ptr, ptr %113, align 8, !tbaa !23
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -92849,7 +92848,7 @@ _ZN7testing7MessageD2Ev.exit65:                   ; preds = %.body55, %_ZNKSt14d
 
 143:                                              ; preds = %141, %137
   %144 = load ptr, ptr %129, align 8, !tbaa !1844
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %.068
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %.068
   %146 = load ptr, ptr %145, align 8, !tbaa !1845
   %147 = load ptr, ptr %146, align 8, !tbaa !23
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
@@ -93053,7 +93052,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %63
 _ZN7testing19MatchResultListenerlsIA3_cEERS0_RKT_.exit: ; preds = %._ZN7testing19MatchResultListenerlsIA3_cEERS0_RKT_.exit_crit_edge, %_ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA10_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit
   %67 = phi ptr [ %.pre, %._ZN7testing19MatchResultListenerlsIA3_cEERS0_RKT_.exit_crit_edge ], [ null, %_ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit ], [ null, %_ZN7testing19MatchResultListenerlsIA10_cEERS0_RKT_.exit ], [ null, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ]
   %68 = load ptr, ptr %40, align 8, !tbaa !1844
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %storemerge148
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %storemerge148
   %70 = load ptr, ptr %69, align 8, !tbaa !1845
   %71 = load ptr, ptr %70, align 8, !tbaa !23
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -93190,7 +93189,7 @@ _ZN7testing19MatchResultListenerlsIA3_cEERS0_RKT_.exit74: ; preds = %118
 
 120:                                              ; preds = %_ZN7testing19MatchResultListenerlsIA3_cEERS0_RKT_.exit74
   %121 = load ptr, ptr %1, align 8, !tbaa !206
-  %122 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %121, i64 %storemerge34152
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %storemerge34152
   %123 = load ptr, ptr %122, align 8, !tbaa !4
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %125 = load i64, ptr %124, align 8, !tbaa !14
@@ -93427,7 +93426,7 @@ _ZN7testing19MatchResultListenerlsIA13_cEERS0_RKT_.exit: ; preds = %61
 
 63:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA13_cEERS0_RKT_.exit
   %64 = load ptr, ptr %4, align 8, !tbaa !1866
-  %65 = getelementptr inbounds nuw %"struct.std::pair.226", ptr %64, i64 %.0105
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %.0105
   %66 = load i64, ptr %65, align 8, !tbaa !43
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr82, i64 noundef %66)
           to label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit55 unwind label %84
@@ -93448,7 +93447,7 @@ _ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit: ; preds = %68
 
 70:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit
   %71 = load ptr, ptr %4, align 8, !tbaa !1866
-  %72 = getelementptr inbounds nuw %"struct.std::pair.226", ptr %71, i64 %.0105
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %.0105
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !43
   %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr86, i64 noundef %74)
@@ -94495,7 +94494,7 @@ _ZNKSt6vectorIPN7testing8internal15ExpectationBaseESaIS3_EE12_M_check_lenEmPKc.e
 _ZNSt6vectorIPN7testing8internal15ExpectationBaseESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %114, %.noexc9
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.1116, i64 noundef %102) #62
-  %116 = getelementptr inbounds nuw ptr, ptr %111, i64 %109
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %109
   br label %_ZNSt6vectorIPN7testing8internal15ExpectationBaseESaIS3_EE9push_backERKS3_.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7testing8internal15ExpectationBaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.thread.i, %.thread.i14
@@ -94758,7 +94757,7 @@ _ZNKSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE12_M_check_lenEmPKc.
 
 _ZNSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %74, %.noexc21
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.031.196, i64 noundef %62) #62
-  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   br label %_ZNSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE9push_backERKS4_.exit: ; preds = %58, %_ZNSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
@@ -95056,7 +95055,7 @@ _ZNKSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE12_M_check_lenEmPKc.
 _ZNSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %84, %.noexc10
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.178, i64 noundef %72) #62
-  %86 = getelementptr inbounds nuw ptr, ptr %81, i64 %79
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %79
   br label %_ZNSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE9push_backERKS4_.exit
 
 .loopexit:                                        ; preds = %.noexc7, %_ZNKSt6vectorIPKN7testing8internal15ExpectationBaseESaIS4_EE12_M_check_lenEmPKc.exit.i.i, %.thread.i, %103
@@ -97789,7 +97788,7 @@ define dso_local noundef i32 @_ZN7testing4Mock31GetReactionOnUninterestingCallsE
   %30 = load i64, ptr %29, align 8, !tbaa !1988
   %31 = urem i64 %18, %30
   %32 = load ptr, ptr %17, align 8, !tbaa !1981
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !1995
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %.loopexit20, label %35
@@ -97868,7 +97867,7 @@ define dso_local noundef i32 @_ZN7testing4Mock31GetReactionOnUninterestingCallsE
   %65 = load i64, ptr %64, align 8, !tbaa !1988
   %66 = urem i64 %18, %65
   %67 = load ptr, ptr %63, align 8, !tbaa !1981
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8, !tbaa !1995
   %.not.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %70
@@ -99546,7 +99545,7 @@ define internal fastcc void @_ZN7testing12_GLOBAL__N_131SetReactionOnUninteresti
   %20 = load i64, ptr %19, align 8, !tbaa !1988
   %21 = urem i64 %0, %20
   %22 = load ptr, ptr %18, align 8, !tbaa !1981
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !1995
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %25
@@ -100996,7 +100995,7 @@ define linkonce_odr hidden void @_ZN7testing8internal18InitGoogleMockImplIcEEvPi
   %.02235 = phi i32 [ 1, %.lr.ph36 ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = sext i32 %.02235 to i64
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   call void @_ZN7testing8internal18StreamableToStringIPcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %9 = load ptr, ptr %3, align 8, !tbaa !4
   %10 = invoke fastcc noundef ptr @_ZN7testing8internalL24ParseGoogleMockFlagValueEPKcS2_b(ptr noundef %9, ptr noundef nonnull @.str.643, i1 noundef zeroext true)
@@ -101075,9 +101074,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
 .lr.ph:                                           ; preds = %_ZN7testing8internalL25ParseGoogleMockStringFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcS9_PT_.exit.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %7, %_ZN7testing8internalL25ParseGoogleMockStringFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcS9_PT_.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %33 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %34 = load ptr, ptr %33, align 8, !tbaa !453
-  %35 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %34, ptr %35, align 8, !tbaa !453
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %24, %lftr.wideiv
@@ -101128,7 +101127,7 @@ define linkonce_odr hidden void @_ZN7testing8internal18InitGoogleMockImplIwEEvPi
   %.02235 = phi i32 [ 1, %.lr.ph36 ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = sext i32 %.02235 to i64
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   call void @_ZN7testing8internal18StreamableToStringIPwEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %9 = load ptr, ptr %3, align 8, !tbaa !4
   %10 = invoke fastcc noundef ptr @_ZN7testing8internalL24ParseGoogleMockFlagValueEPKcS2_b(ptr noundef %9, ptr noundef nonnull @.str.643, i1 noundef zeroext true)
@@ -101207,9 +101206,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
 .lr.ph:                                           ; preds = %_ZN7testing8internalL25ParseGoogleMockStringFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcS9_PT_.exit.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %7, %_ZN7testing8internalL25ParseGoogleMockStringFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcS9_PT_.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %33 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %34 = load ptr, ptr %33, align 8, !tbaa !512
-  %35 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %34, ptr %35, align 8, !tbaa !512
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %24, %lftr.wideiv
@@ -106241,7 +106240,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i.i.i
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %39 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %30, i64 %indvars.iv.i.i.i.i
+  %39 = getelementptr inbounds nuw [112 x i8], ptr %30, i64 %indvars.iv.i.i.i.i
   %40 = load i32, ptr %39, align 8, !tbaa !280
   %41 = add i32 %40, -3
   %spec.select.i.i1.i.i.i = icmp ult i32 %41, -2
@@ -106831,7 +106830,7 @@ _ZNK7testing8internal12UnitTestImpl23failed_test_suite_countEv.exit.thread.i.i.i
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %34 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %25, i64 %indvars.iv.i.i.i.i
+  %34 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %indvars.iv.i.i.i.i
   %35 = load i32, ptr %34, align 8, !tbaa !280
   %36 = add i32 %35, -3
   %spec.select.i.i1.i.i.i = icmp ult i32 %36, -2
@@ -109695,7 +109694,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7testing8internal22MaxBipartit
 22:                                               ; preds = %14
   store i8 1, ptr %12, align 1, !tbaa !12
   %23 = load ptr, ptr %7, align 8, !tbaa !368
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %.01723
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.01723
   %25 = load i64, ptr %24, align 8, !tbaa !43
   %26 = icmp eq i64 %25, -1
   br i1 %26, label %split, label %27
@@ -109724,9 +109723,9 @@ split:                                            ; preds = %22, %._crit_edge26
   %35 = phi ptr [ %.pre27, %._crit_edge26 ], [ %23, %22 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !368
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %1
   store i64 %.01723, ptr %38, align 8, !tbaa !43
-  %39 = getelementptr inbounds nuw i64, ptr %35, i64 %.01723
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01723
   store i64 %1, ptr %39, align 8, !tbaa !43
   br label %.loopexit
 
@@ -110091,7 +110090,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !1981
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !1995
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -110117,7 +110116,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   %44 = load i64, ptr %9, align 8, !tbaa !1988
   %45 = load i64, ptr %43, align 8, !tbaa !43
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !1995
   br label %48
 
@@ -110181,7 +110180,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !43
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !1995
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -110196,7 +110195,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !1995
   br label %28
 
@@ -110536,7 +110535,7 @@ define linkonce_odr hidden void @_ZN7testing8internal21UniversalTersePrinterIPKw
   %22 = phi i64 [ %14, %._crit_edge.i.i ], [ %14, %16 ], [ %.pre6.i.i, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %22, ptr %23, align 8, !tbaa !342
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 0, ptr %24, align 4, !tbaa !343
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo(ptr noundef nonnull %21, i64 noundef %22, ptr noundef nonnull %1)
@@ -112543,7 +112542,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !206
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !209
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !211
   ret void
 }
@@ -113404,7 +113403,7 @@ _ZNSt6vectorIN7testing14TestPartResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 _ZNSt12_Vector_baseIN7testing14TestPartResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7testing14TestPartResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit44, %126
   store ptr %20, ptr %0, align 8, !tbaa !265
   store ptr %.0.lcssa.i.i.i43, ptr %4, align 8, !tbaa !257
-  %130 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %20, i64 %16
+  %130 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %130, ptr %125, align 8, !tbaa !258
   ret void
 
@@ -113937,7 +113936,7 @@ _ZNSt6vectorIN7testing12TestPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40
 _ZNSt12_Vector_baseIN7testing12TestPropertyESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7testing12TestPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %84
   store ptr %20, ptr %0, align 8, !tbaa !592
   store ptr %.0.lcssa.i.i.i39, ptr %4, align 8, !tbaa !593
-  %88 = getelementptr inbounds nuw %"class.testing::TestProperty", ptr %20, i64 %16
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %88, ptr %83, align 8, !tbaa !595
   ret void
 
@@ -114708,7 +114707,7 @@ _ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt12_Vector_baseIN7testing8internal9TraceInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %77
   store ptr %21, ptr %0, align 8, !tbaa !57
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !54
-  %81 = getelementptr inbounds nuw %"struct.testing::internal::TraceInfo", ptr %21, i64 %17
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %17
   store ptr %81, ptr %76, align 8, !tbaa !1072
   ret void
 
@@ -115554,7 +115553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %.04 = phi i64 [ %52, %51 ], [ 0, %.lr.ph.preheader ]
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %.04
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %.04
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !14
   %43 = icmp eq i64 %42, 0
@@ -116513,7 +116512,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   %19 = load i64, ptr %18, align 8, !tbaa !1988
   %20 = urem i64 %8, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !1981
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %20
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %20
   %.pre41 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1995
   br label %_ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
 
@@ -116523,7 +116522,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   %24 = load i64, ptr %23, align 8, !tbaa !1988
   %25 = urem i64 %22, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !1981
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !1995
   %.not.i25 = icmp eq ptr %28, null
   br i1 %.not.i25, label %.critedge, label %29
@@ -116536,7 +116535,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   br i1 %33, label %_ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, label %.lr.ph.i
 
 _ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread: ; preds = %29
-  %34 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %35 = load ptr, ptr %30, align 8, !tbaa !1993
   %.not18.i2756 = icmp eq ptr %35, null
   br i1 %.not18.i2756, label %._crit_edge.i.i, label %50
@@ -116574,7 +116573,7 @@ _ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__det
   br i1 %46, label %48, label %68
 
 48:                                               ; preds = %_ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %.018
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.018
   br i1 %.not18.i27, label %._crit_edge.i.i, label %50
 
 50:                                               ; preds = %_ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, %48
@@ -116593,7 +116592,7 @@ _ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__det
   br i1 %.not9.i.i, label %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit, label %59
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %58
   store ptr %52, ptr %60, align 8, !tbaa !1995
   br label %._crit_edge.i.i
 
@@ -116626,7 +116625,7 @@ _ZNKSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__det
   br i1 %.not17.i, label %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw ptr, ptr %45, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %72
   store ptr %.016, ptr %74, align 8, !tbaa !1995
   br label %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit
 

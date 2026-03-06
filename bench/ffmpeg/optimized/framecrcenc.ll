@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FFOutputFormat = type { %struct.AVOutputFormat, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
-%struct.AVPacketSideData = type { ptr, i64, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"framecrc\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"framecrc testing\00", align 1
@@ -33,7 +32,7 @@ define internal i32 @framecrc_write_header(ptr noundef %0) #0 {
   %7 = phi i32 [ %3, %.lr.ph ], [ %24, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !24
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !27
@@ -112,7 +111,7 @@ define internal noundef i32 @framecrc_write_packet(ptr noundef readonly captures
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = load ptr, ptr %30, align 8, !tbaa !49
-  %33 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !50
   %36 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.6, i64 noundef %35) #7

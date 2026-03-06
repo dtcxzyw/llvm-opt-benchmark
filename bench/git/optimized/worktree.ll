@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.add_opts = type { i32, i32, i32, i32, i32, i32, ptr }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.index_state = type { ptr, i32, i32, i32, i32, ptr, ptr, ptr, %struct.cache_time, i8, i32, %struct.hashmap, %struct.hashmap, %struct.object_id, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.cache_time = type { i32, i32 }
@@ -2016,7 +2015,7 @@ sane_qsort.exit.i.i:                              ; preds = %strbuf_strip_suffix
 .lr.ph.i.i:                                       ; preds = %sane_qsort.exit.i.i, %prune_worktree.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %prune_worktree.exit.i.i ], [ 1, %sane_qsort.exit.i.i ]
   %72 = load ptr, ptr %7, align 8, !tbaa !77
-  %73 = getelementptr inbounds nuw %struct.string_list_item, ptr %72, i64 %indvars.iv.i.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %indvars.iv.i.i
   %74 = load ptr, ptr %73, align 8, !tbaa !78
   %75 = getelementptr i8, ptr %73, i64 -16
   %76 = load ptr, ptr %75, align 8, !tbaa !78
@@ -2026,7 +2025,7 @@ sane_qsort.exit.i.i:                              ; preds = %strbuf_strip_suffix
 
 78:                                               ; preds = %.lr.ph.i.i
   %79 = load ptr, ptr %7, align 8, !tbaa !77
-  %80 = getelementptr inbounds nuw %struct.string_list_item, ptr %79, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %indvars.iv.i.i
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !71
   %83 = load i32, ptr @show_only, align 4, !tbaa !38
@@ -2256,7 +2255,7 @@ pathsort.exit:                                    ; preds = %59, %._crit_edge.i,
   %80 = trunc i64 %79 to i32
   %.2 = call i32 @llvm.smax.i32(i32 %.1, i32 %80)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.next.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.next.i
   %82 = load ptr, ptr %81, align 8, !tbaa !80
   %.not.i21 = icmp eq ptr %82, null
   br i1 %.not.i21, label %measure_widths.exit.loopexit, label %.lr.ph.i20, !llvm.loop !86
@@ -2467,7 +2466,7 @@ show_worktree.exit:                               ; preds = %174, %175, %176
 
 178:                                              ; preds = %show_worktree_porcelain.exit, %show_worktree.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %179 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.next
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.next
   %180 = load ptr, ptr %179, align 8, !tbaa !80
   %.not18 = icmp eq ptr %180, null
   br i1 %.not18, label %._crit_edge, label %86, !llvm.loop !90
@@ -3944,7 +3943,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %21 = phi i32 [ %16, %.lr.ph ], [ %37, %select.unfold ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %22 = load ptr, ptr %2, align 8, !tbaa !108
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 52

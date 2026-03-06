@@ -120,10 +120,10 @@ define range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) local_unn
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = add nsw i32 %7, -1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i64, ptr %8, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %8, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !12
   %23 = lshr i64 %22, 1
-  %24 = getelementptr inbounds i64, ptr %17, i64 %20
+  %24 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   store i64 %23, ptr %24, align 8, !tbaa !12
   %25 = icmp eq i64 %22, 1
   %.neg = sext i1 %25 to i32
@@ -140,10 +140,10 @@ define range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) local_unn
   %indvars.iv = phi i64 [ %28, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.031.in37 = phi i64 [ %22, %.lr.ph.preheader ], [ %30, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %29 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %30 = load i64, ptr %29, align 8, !tbaa !12
   %31 = tail call i64 @llvm.fshl.i64(i64 %.031.in37, i64 %30, i64 63)
-  %32 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next
   store i64 %31, ptr %32, align 8, !tbaa !12
   %33 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
@@ -203,14 +203,14 @@ define range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonly captu
   %24 = load ptr, ptr %1, align 8, !tbaa !11
   %25 = load ptr, ptr %0, align 8, !tbaa !11
   %26 = zext nneg i32 %7 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = sext i32 %15 to i64
-  %29 = getelementptr i64, ptr %24, i64 %28
+  %29 = getelementptr [8 x i8], ptr %24, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load i64, ptr %30, align 8, !tbaa !12
   %32 = lshr i64 %31, %20
   %33 = and i64 %32, %23
-  %34 = getelementptr inbounds i64, ptr %27, i64 %28
+  %34 = getelementptr inbounds [8 x i8], ptr %27, i64 %28
   store i64 %33, ptr %34, align 8, !tbaa !12
   %35 = icmp sgt i32 %15, 1
   %36 = zext nneg i32 %17 to i64
@@ -225,13 +225,13 @@ define range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonly captu
   %.04854.i = phi i64 [ %31, %.lr.ph.i ], [ %42, %38 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %39 = shl i64 %.04854.i, %36
-  %40 = getelementptr i64, ptr %24, i64 %indvars.iv.i
+  %40 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv.i
   %41 = getelementptr i8, ptr %40, i64 -16
   %42 = load i64, ptr %41, align 8, !tbaa !12
   %43 = lshr i64 %42, %20
   %44 = and i64 %43, %23
   %45 = or i64 %44, %39
-  %46 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv.next.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.next.i
   store i64 %45, ptr %46, align 8, !tbaa !12
   %47 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %47, label %38, label %._crit_edge.i, !llvm.loop !17
@@ -245,7 +245,7 @@ define range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonly captu
 49:                                               ; preds = %14
   %50 = load ptr, ptr %0, align 8, !tbaa !11
   %51 = zext nneg i32 %7 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   store i64 0, ptr %52, align 8, !tbaa !12
   br label %53
 
@@ -315,14 +315,14 @@ define range(i32 0, 2) i32 @bn_lshift_fixed_top(ptr noundef %0, ptr noundef read
   %21 = load ptr, ptr %1, align 8, !tbaa !11
   %22 = load ptr, ptr %0, align 8, !tbaa !11
   %23 = sext i32 %4 to i64
-  %24 = getelementptr inbounds i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = sext i32 %12 to i64
-  %26 = getelementptr i64, ptr %21, i64 %25
+  %26 = getelementptr [8 x i8], ptr %21, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -8
   %28 = load i64, ptr %27, align 8, !tbaa !12
   %29 = lshr i64 %28, %17
   %30 = and i64 %29, %20
-  %31 = getelementptr inbounds i64, ptr %24, i64 %25
+  %31 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   store i64 %30, ptr %31, align 8, !tbaa !12
   %32 = icmp sgt i32 %12, 1
   %33 = zext nneg i32 %14 to i64
@@ -337,13 +337,13 @@ define range(i32 0, 2) i32 @bn_lshift_fixed_top(ptr noundef %0, ptr noundef read
   %.04854 = phi i64 [ %28, %.lr.ph ], [ %39, %35 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %36 = shl i64 %.04854, %33
-  %37 = getelementptr i64, ptr %21, i64 %indvars.iv
+  %37 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv
   %38 = getelementptr i8, ptr %37, i64 -16
   %39 = load i64, ptr %38, align 8, !tbaa !12
   %40 = lshr i64 %39, %17
   %41 = and i64 %40, %20
   %42 = or i64 %41, %36
-  %43 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next
   store i64 %42, ptr %43, align 8, !tbaa !12
   %44 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %44, label %35, label %._crit_edge, !llvm.loop !17
@@ -357,7 +357,7 @@ define range(i32 0, 2) i32 @bn_lshift_fixed_top(ptr noundef %0, ptr noundef read
 46:                                               ; preds = %11
   %47 = load ptr, ptr %0, align 8, !tbaa !11
   %48 = sext i32 %4 to i64
-  %49 = getelementptr inbounds i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   store i64 0, ptr %49, align 8, !tbaa !12
   br label %50
 
@@ -438,7 +438,7 @@ define range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef readonly captu
   %24 = load ptr, ptr %0, align 8, !tbaa !11
   %25 = load ptr, ptr %1, align 8, !tbaa !11
   %26 = zext nneg i32 %7 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !12
   %29 = icmp sgt i32 %19, 1
   %30 = zext nneg i32 %12 to i64
@@ -453,13 +453,13 @@ define range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef readonly captu
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %.04249.i = phi i64 [ %28, %.lr.ph.i ], [ %34, %32 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.next.i
   %34 = load i64, ptr %33, align 8, !tbaa !12
   %35 = lshr i64 %.04249.i, %30
   %36 = shl i64 %34, %15
   %37 = and i64 %36, %18
   %38 = or i64 %37, %35
-  %39 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   store i64 %38, ptr %39, align 8, !tbaa !12
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !18
@@ -468,7 +468,7 @@ define range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef readonly captu
   %.043.lcssa.i = phi i64 [ 0, %23 ], [ %wide.trip.count.i, %32 ]
   %.042.lcssa.i = phi i64 [ %28, %23 ], [ %34, %32 ]
   %40 = lshr i64 %.042.lcssa.i, %30
-  %41 = getelementptr inbounds nuw i64, ptr %24, i64 %.043.lcssa.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.043.lcssa.i
   store i64 %40, ptr %41, align 8, !tbaa !12
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !3
@@ -521,7 +521,7 @@ define range(i32 0, 2) i32 @bn_rshift_fixed_top(ptr noundef %0, ptr noundef read
   %21 = load ptr, ptr %0, align 8, !tbaa !11
   %22 = load ptr, ptr %1, align 8, !tbaa !11
   %23 = sext i32 %4 to i64
-  %24 = getelementptr inbounds i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !12
   %26 = add i32 %16, -1
   %27 = icmp sgt i32 %16, 1
@@ -536,13 +536,13 @@ define range(i32 0, 2) i32 @bn_rshift_fixed_top(ptr noundef %0, ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %.04249 = phi i64 [ %25, %.lr.ph ], [ %31, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8, !tbaa !12
   %32 = lshr i64 %.04249, %28
   %33 = shl i64 %31, %12
   %34 = and i64 %33, %15
   %35 = or i64 %34, %32
-  %36 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store i64 %35, ptr %36, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %29, !llvm.loop !18
@@ -555,7 +555,7 @@ define range(i32 0, 2) i32 @bn_rshift_fixed_top(ptr noundef %0, ptr noundef read
   %.043.lcssa = phi i64 [ %37, %._crit_edge.loopexit ], [ 0, %20 ]
   %.042.lcssa = phi i64 [ %31, %._crit_edge.loopexit ], [ %25, %20 ]
   %38 = lshr i64 %.042.lcssa, %28
-  %39 = getelementptr inbounds nuw i64, ptr %21, i64 %.043.lcssa
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.043.lcssa
   store i64 %38, ptr %39, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load i32, ptr %40, align 8, !tbaa !3

@@ -63,7 +63,7 @@ pbl_free_pool.exit:                               ; preds = %3, %6
   tail call void @g_queue_push_tail(ptr noundef %15, ptr noundef %18)
   %19 = add i32 %.031, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %1, i64 %20
+  %21 = getelementptr [8 x i8], ptr %1, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

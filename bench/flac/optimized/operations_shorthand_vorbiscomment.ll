@@ -166,7 +166,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
 
 61:                                               ; preds = %67, %55
   %indvars.iv.i = phi i64 [ 1, %55 ], [ %indvars.iv.next.i, %67 ]
-  %62 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %62 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i
   %63 = getelementptr i8, ptr %62, i64 -8
   %64 = load ptr, ptr %63, align 8, !tbaa !19
   %65 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %64, i32 noundef 61) #12
@@ -199,7 +199,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   %75 = getelementptr inbounds nuw i8, ptr %.060, i64 40
   %76 = zext nneg i32 %74 to i64
   %wide.trip.count.i = zext nneg i32 %.039.lcssa60.i to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %76
   br label %.preheader.i
 
 78:                                               ; preds = %69
@@ -228,7 +228,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   br label %95
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv53.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv53.i
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %90, i32 noundef 61) #12
   %92 = ptrtoint ptr %91 to i64
@@ -241,7 +241,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   %.in.i = phi i64 [ %87, %85 ], [ %94, %88 ]
   %97 = trunc i64 %.in.i to i32
   %98 = load ptr, ptr %75, align 8, !tbaa !17
-  %99 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %98, i64 %81
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %81
   %100 = load i32, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load ptr, ptr %101, align 8

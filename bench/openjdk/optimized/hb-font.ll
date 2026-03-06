@@ -121,28 +121,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hb_atomic_ptr_t.5 = type { ptr }
 %struct.hb_draw_funcs_t = type { %struct.hb_object_header_t, %struct.anon.156, ptr, ptr }
 %struct.anon.156 = type { ptr, ptr, ptr, ptr, ptr }
-%"struct.hb_user_data_array_t::hb_user_data_item_t" = type { ptr, ptr, ptr }
 %struct.hb_font_draw_glyph_default_adaptor_t = type { ptr, ptr, float, float, float }
-%"struct.OT::AxisRecord" = type { %"struct.OT::Tag", %"struct.OT::HBFixed", %"struct.OT::HBFixed", %"struct.OT::HBFixed", %"struct.OT::IntType", %"struct.OT::Index" }
-%"struct.OT::Tag" = type { %"struct.OT::IntType.149" }
-%"struct.OT::IntType.149" = type { %struct.BEInt.150 }
-%struct.BEInt.150 = type { [4 x i8] }
-%"struct.OT::HBFixed" = type { %"struct.OT::IntType.151" }
-%"struct.OT::IntType.151" = type { %struct.BEInt.152 }
-%struct.BEInt.152 = type { [4 x i8] }
-%"struct.OT::IntType" = type { %struct.BEInt }
-%struct.BEInt = type { [2 x i8] }
-%"struct.OT::Index" = type { %"struct.OT::IntType" }
-%struct.hb_variation_t = type { i32, float }
 %struct.hb_font_extents_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"struct.OT::HBFixed.153" = type { %"struct.OT::IntType.154" }
-%"struct.OT::IntType.154" = type { %struct.BEInt.155 }
-%struct.BEInt.155 = type { [2 x i8] }
-%"struct.OT::AxisValueMap" = type { [2 x %"struct.OT::HBFixed.153"] }
+%"struct.hb_user_data_array_t::hb_user_data_item_t" = type { ptr, ptr, ptr }
 %struct.hb_sanitize_context_t = type <{ %struct.hb_dispatch_context_t, [4 x i8], ptr, ptr, i32, i32, i32, i32, i8, [3 x i8], i32, ptr, i32, i8, i8, [2 x i8] }>
 %struct.hb_dispatch_context_t = type { i32 }
-%"struct.OT::OffsetTo.197" = type { %"struct.OT::Offset.189" }
-%"struct.OT::Offset.189" = type { %"struct.OT::IntType.149" }
 
 $_ZN9hb_font_t17glyph_from_stringEPKciPj = comdat any
 
@@ -1248,7 +1231,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly captures(add
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -1260,7 +1243,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly captures(add
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %20 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -4859,9 +4842,9 @@ define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr noundef nonn
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %8, %10
   ret i1 %11
@@ -4870,7 +4853,7 @@ define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9hb_font_t8has_funcEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %tailrecurse
 
@@ -4879,7 +4862,7 @@ tailrecurse:                                      ; preds = %11, %2
   %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %3
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %3
   %10 = load ptr, ptr %9, align 8
   %.not3.not.not.not.not = icmp ne ptr %10, %5
   br i1 %.not3.not.not.not.not, label %14, label %11
@@ -6682,7 +6665,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly captures(address_i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -6694,7 +6677,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly captures(address_i
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %20 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -7333,7 +7316,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %64 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [20 x i8], ptr %.0.i.i.i, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
@@ -7354,7 +7337,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr noundef readonly 
   %82 = or disjoint i32 %78, %81
   %83 = sitofp i32 %82 to float
   %84 = fmul nnan float %83, 0x3EF0000000000000
-  %85 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   store float %84, ptr %85, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7385,7 +7368,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph66.us:                                      ; preds = %.lr.ph66.us.preheader, %._crit_edge67.us
   %indvars.iv82 = phi i64 [ 0, %.lr.ph66.us.preheader ], [ %indvars.iv.next83, %._crit_edge67.us ]
-  %94 = getelementptr inbounds nuw %struct.hb_variation_t, ptr %1, i64 %indvars.iv82
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv82
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %97 = load float, ptr %96, align 4
@@ -7393,7 +7376,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr noundef readonly 
 
 98:                                               ; preds = %.lr.ph66.us, %120
   %indvars.iv77 = phi i64 [ 0, %.lr.ph66.us ], [ %indvars.iv.next78, %120 ]
-  %99 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
+  %99 = getelementptr inbounds nuw [20 x i8], ptr %.0.i.i.i, i64 %indvars.iv77
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = shl nuw i32 %101, 24
@@ -7415,7 +7398,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr noundef readonly 
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %98
-  %119 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv77
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv77
   store float %97, ptr %119, align 4
   br label %120
 
@@ -7518,7 +7501,7 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0912.i = phi ptr [ %36, %.lr.ph.preheader.i ], [ %49, %.lr.ph.i ]
-  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4
   %39 = tail call noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef nonnull align 1 dereferenceable(6) %.0912.i, i32 noundef %38, i32 noundef 1, i32 noundef 0)
   store i32 %39, ptr %37, align 4
@@ -7558,11 +7541,11 @@ _ZNK2OT4avar12unmap_coordsEPij.exit:              ; preds = %6
   %60 = load i32, ptr %59, align 8
   %61 = icmp ult i32 %60, 16
   %spec.select.i.i.i.i.i50 = select i1 %61, ptr @_hb_NullPool, ptr %58
-  %62 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = trunc nuw i64 %indvars.iv to i32
   %65 = tail call noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEji(ptr noundef nonnull align 1 dereferenceable(16) %spec.select.i.i.i.i.i50, i32 noundef %64, i32 noundef %63)
-  %66 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store float %65, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7671,9 +7654,9 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 .lr.ph:                                           ; preds = %.thread59.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread59.thread ]
-  %50 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store float %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count75
@@ -7681,7 +7664,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 .lr.ph63:                                         ; preds = %.thread59.thread, %.lr.ph63
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph63 ], [ 0, %.thread59.thread ]
-  %53 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv72
+  %53 = getelementptr inbounds nuw [20 x i8], ptr %.0.i.i.i, i64 %indvars.iv72
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
@@ -7702,7 +7685,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   %71 = or disjoint i32 %67, %70
   %72 = sitofp i32 %71 to float
   %73 = fmul nnan float %72, 0x3EF0000000000000
-  %74 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv72
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv72
   store float %73, ptr %74, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
@@ -7738,7 +7721,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %110
   %indvars.iv77 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next78, %110 ]
-  %89 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
+  %89 = getelementptr inbounds nuw [20 x i8], ptr %.0.i.i.i, i64 %indvars.iv77
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = shl nuw i32 %91, 24
@@ -7760,7 +7743,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %.lr.ph66
-  %109 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv77
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv77
   store float %2, ptr %109, align 4
   br label %110
 
@@ -7881,7 +7864,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
   %.sroa.2.8.insert.ext.i.i = or disjoint i32 %18, %21
   %.not.i.i = icmp ult i32 %1, %.sroa.2.8.insert.ext.i.i
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.0.i.i.i, i64 %22
   %.0.i.i = select i1 %.not.i.i, ptr %23, ptr @_hb_NullPool
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %25 = load i8, ptr %24, align 1
@@ -8770,7 +8753,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = zext i32 %2 to i64
-  %17 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = shl nuw i16 %19, 8
@@ -8781,7 +8764,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %25 = sext i16 %24 to i32
   %26 = sub i32 %1, %25
   %27 = zext i32 %3 to i64
-  %28 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %15, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i16
   %31 = shl nuw i16 %30, 8
@@ -8796,7 +8779,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 38:                                               ; preds = %4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %40 = zext i32 %2 to i64
-  %41 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i16
   %44 = shl nuw i16 %43, 8
@@ -8811,7 +8794,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 50:                                               ; preds = %38
   %51 = sub i32 %1, %49
   %52 = zext i32 %3 to i64
-  %53 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %39, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i16
   %56 = shl nuw i16 %55, 8
@@ -8834,7 +8817,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
-  %gep = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %41, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %65 = load i8, ptr %gep, align 1
   %66 = zext i8 %65 to i16
   %67 = shl nuw i16 %66, 8
@@ -8858,8 +8841,8 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 .critedge:                                        ; preds = %74, %.critedge.loopexit.split.loop.exit61, %63
   %.044.lcssa = phi i32 [ 1, %63 ], [ %75, %.critedge.loopexit.split.loop.exit61 ], [ %64, %74 ]
   %76 = zext i32 %.044.lcssa to i64
-  %77 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %76
-  %78 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %77, i64 %40
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %76
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %40
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i16
   %81 = shl nuw i16 %80, 8
@@ -8874,7 +8857,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 87:                                               ; preds = %.critedge
   %88 = sub i32 %1, %86
   %89 = zext i32 %3 to i64
-  %90 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %77, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i16
   %93 = shl nuw i16 %92, 8
@@ -8889,8 +8872,8 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 100:                                              ; preds = %.critedge
   %101 = add i32 %.044.lcssa, -1
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %102
-  %104 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %103, i64 %40
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %102
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %40
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i16
   %107 = shl nuw i16 %106, 8
@@ -8903,7 +8886,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 113:                                              ; preds = %100
   %114 = zext i32 %3 to i64
-  %115 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %103, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i16
   %118 = shl nuw i16 %117, 8
@@ -8918,7 +8901,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %125 = sext i16 %111 to i32
   %126 = sub nsw i32 %86, %125
   %127 = zext i32 %3 to i64
-  %128 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %103, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i16
   %131 = shl nuw i16 %130, 8
@@ -8927,7 +8910,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %134 = zext i8 %133 to i16
   %135 = or disjoint i16 %131, %134
   %136 = sitofp i16 %135 to float
-  %137 = getelementptr inbounds nuw %"struct.OT::HBFixed.153", ptr %77, i64 %127
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %127
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i16
   %140 = shl nuw i16 %139, 8
@@ -8997,7 +8980,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %15 = add i32 %14, -1
   %16 = load ptr, ptr %13, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %17
   %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -9075,7 +9058,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %20
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %20 ], [ 0, %12 ]
-  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv.i.i.i.i
   %.val17.i.i.i.i = load ptr, ptr %18, align 8
   %19 = icmp eq ptr %.val17.i.i.i.i, %1
   br i1 %19, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i, label %20
@@ -9087,14 +9070,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
-  %22 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %21
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %26 = load i32, ptr %16, align 4, !noalias !46
   %.not.i.i = icmp eq i32 %26, 0
@@ -9154,7 +9137,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 10:                                               ; preds = %13, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %13 ]
-  %11 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %.val17.i.i.i = load ptr, ptr %11, align 8
   %12 = icmp eq ptr %.val.i.i.i, %.val17.i.i.i
   br i1 %12, label %14, label %13
@@ -9166,7 +9149,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
-  %16 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   br i1 %3, label %17, label %20
 
 17:                                               ; preds = %14
@@ -9250,7 +9233,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
   %39 = add i32 %38, 1
   store i32 %39, ptr %8, align 4
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 
@@ -10443,7 +10426,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %116 = getelementptr inbounds nuw %"struct.OT::OffsetTo.197", ptr %4, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %117 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count

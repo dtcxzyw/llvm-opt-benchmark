@@ -9789,7 +9789,7 @@ define hidden i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr nou
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8
@@ -13089,7 +13089,7 @@ define internal i32 @dissect_gsm_map_lcs_NameString(i1 noundef zeroext %0, ptr n
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8
@@ -13129,7 +13129,7 @@ define internal i32 @dissect_gsm_map_lcs_RequestorIDString(i1 noundef zeroext %0
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8
@@ -13241,7 +13241,7 @@ define internal i32 @dissect_gsm_map_lcs_LCSCodewordString(i1 noundef zeroext %0
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8

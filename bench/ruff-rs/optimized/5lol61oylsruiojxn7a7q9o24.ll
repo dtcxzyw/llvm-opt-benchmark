@@ -829,7 +829,7 @@ define internal fastcc noundef nonnull align 16 dereferenceable(64) ptr @"_ZN5sa
   %42 = call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 %41, i1 true)
   %43 = sub nuw nsw i64 58, %42
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 136
-  %45 = getelementptr inbounds nuw { { ptr } }, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load atomic ptr, ptr %45 acquire, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h37da9cdff4565784E.exit.thread.i.i", label %48
@@ -837,8 +837,8 @@ define internal fastcc noundef nonnull align 16 dereferenceable(64) ptr @"_ZN5sa
 48:                                               ; preds = %3
   %49 = xor i64 %42, 63
   %.neg.i.i.i = shl nsw i64 -1, %49
-  %50 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %46, i64 %.neg.i.i.i
-  %51 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %50, i64 %41
+  %50 = getelementptr [80 x i8], ptr %46, i64 %.neg.i.i.i
+  %51 = getelementptr [80 x i8], ptr %50, i64 %41
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %53 = load atomic i8, ptr %52 acquire, align 1
   %54 = icmp eq i8 %53, 0
@@ -921,9 +921,9 @@ _ZN5salsa5table4Page11assert_type17hfa6c58ef824c1677E.exit.i: ; preds = %63
 
 _ZN5salsa5table5Table3get17hc4d022d764fb9ef8E.exit: ; preds = %_ZN5salsa5table4Page11assert_type17hfa6c58ef824c1677E.exit.i
   %75 = load ptr, ptr %51, align 8, !nonnull !16, !noundef !16
-  %76 = getelementptr inbounds nuw { { { i64, [3 x i64] }, i128, { i32, [1 x i32] }, i8, { {} }, [7 x i8] }, [5 x { i64, i8, {}, [7 x i8] }], { { { { i64 } }, { { ptr, {} } } } } }, ptr %75, i64 %39
+  %76 = getelementptr inbounds nuw [160 x i8], ptr %75, i64 %39
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
-  %78 = getelementptr inbounds nuw { i64, i8, {}, [7 x i8] }, ptr %77, i64 %2
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %2
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i8, ptr %79, align 8, !range !75, !noundef !16
   %81 = load i64, ptr %78, align 8, !range !76, !noundef !16
@@ -1119,7 +1119,7 @@ _ZN5salsa5table5Table3get17hc4d022d764fb9ef8E.exit: ; preds = %_ZN5salsa5table4P
   br i1 %.not.i, label %_ZN5salsa11zalsa_local10ZalsaLocal26report_tracked_read_simple17h3e39965a116d9859E.exit, label %159
 
 159:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0f63a7dff11d928eE.exit.i"
-  %160 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %154, i64 %152
+  %160 = getelementptr [184 x i8], ptr %154, i64 %152
   %161 = getelementptr i8, ptr %160, i64 -184
   %162 = load i32, ptr %28, align 4, !range !86, !noalias !87, !noundef !16
   %163 = load i32, ptr %82, align 4, !noalias !87, !noundef !16
@@ -1558,7 +1558,7 @@ define hidden void @_ZN5salsa8database8Database21ingredient_debug_name17h746b979
   %10 = tail call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
   %11 = sub nuw nsw i64 58, %10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 1304
-  %13 = getelementptr inbounds nuw { { ptr } }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load atomic ptr, ptr %13 acquire, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h130b1c4a26b50a1bE.exit.thread.i", label %16
@@ -1566,8 +1566,8 @@ define hidden void @_ZN5salsa8database8Database21ingredient_debug_name17h746b979
 16:                                               ; preds = %3
   %17 = xor i64 %10, 63
   %.neg.i.i = shl nsw i64 -1, %17
-  %18 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %14, i64 %.neg.i.i
-  %19 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %18, i64 %9
+  %18 = getelementptr [24 x i8], ptr %14, i64 %.neg.i.i
+  %19 = getelementptr [24 x i8], ptr %18, i64 %9
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load atomic i8, ptr %20 acquire, align 1
   %22 = icmp eq i8 %21, 0
@@ -1651,7 +1651,7 @@ define hidden void @_ZN5salsa8database8Database21report_untracked_read17h57f761b
   br i1 %.not.i, label %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h2e5515dc6f692d12E.exit, label %20
 
 20:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0f63a7dff11d928eE.exit.i"
-  %21 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %15, i64 %13
+  %21 = getelementptr [184 x i8], ptr %15, i64 %13
   %22 = getelementptr i8, ptr %21, i64 -4
   store i8 1, ptr %22, align 4, !noalias !110
   %23 = getelementptr i8, ptr %21, i64 -2

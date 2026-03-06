@@ -161,7 +161,7 @@ define void @Io_WriteBlif(ptr noundef %0, ptr noundef readonly captures(none) %1
   %29 = phi ptr [ %39, %36 ], [ %25, %21 ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val26 = load ptr, ptr %30, align 8, !tbaa !33
-  %31 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val26, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !34
   %33 = icmp eq ptr %32, %0
   br i1 %33, label %36, label %34
@@ -255,7 +255,7 @@ define void @Io_NtkWriteConvertedBox(ptr noundef captures(none) %0, ptr noundef 
   %.val2642 = phi ptr [ %.val2639, %.lr.ph44 ], [ %.val26, %48 ]
   %15 = getelementptr i8, ptr %.val2642, i64 8
   %.val27.val = load ptr, ptr %15, align 8, !tbaa !33
-  %16 = getelementptr inbounds nuw ptr, ptr %.val27.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val27.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   %18 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
   tail call fastcc void @Io_NtkWritePis(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1)
@@ -268,7 +268,7 @@ define void @Io_NtkWriteConvertedBox(ptr noundef captures(none) %0, ptr noundef 
   %21 = getelementptr i8, ptr %.val30.val, i64 8
   %.val30.val.val = load ptr, ptr %21, align 8, !tbaa !33
   %22 = sext i32 %.val31.val to i64
-  %23 = getelementptr inbounds ptr, ptr %.val30.val.val, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %.val30.val.val, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = tail call ptr @Abc_ObjName(ptr noundef %24) #10
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.10..str.9, ptr noundef %25) #10
@@ -302,7 +302,7 @@ define void @Io_NtkWriteConvertedBox(ptr noundef captures(none) %0, ptr noundef 
   %36 = getelementptr i8, ptr %.val32.val, i64 8
   %.val32.val.val = load ptr, ptr %36, align 8, !tbaa !33
   %37 = sext i32 %.val33.val to i64
-  %38 = getelementptr inbounds ptr, ptr %.val32.val.val, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val32.val.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = tail call ptr @Abc_ObjName(ptr noundef %39) #10
   %.val34 = load ptr, ptr %17, align 8, !tbaa !39
@@ -313,7 +313,7 @@ define void @Io_NtkWriteConvertedBox(ptr noundef captures(none) %0, ptr noundef 
   %42 = getelementptr i8, ptr %.val34.val, i64 8
   %.val34.val.val = load ptr, ptr %42, align 8, !tbaa !33
   %43 = sext i32 %.val35.val to i64
-  %44 = getelementptr inbounds ptr, ptr %.val34.val.val, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %.val34.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %46 = tail call ptr @Abc_ObjName(ptr noundef %45) #10
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %40, ptr noundef %46) #10
@@ -360,7 +360,7 @@ define internal fastcc void @Io_NtkWritePis(ptr noundef captures(none) %0, ptr n
   %.03653 = phi i32 [ %31, %28 ], [ 7, %.preheader49 ]
   %10 = getelementptr i8, ptr %.val56, i64 8
   %.val42.val = load ptr, ptr %10, align 8, !tbaa !33
-  %11 = getelementptr inbounds nuw ptr, ptr %.val42.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val42.val, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !34
   %.val43 = load ptr, ptr %12, align 8, !tbaa !39
   %13 = getelementptr i8, ptr %12, i64 48
@@ -371,7 +371,7 @@ define internal fastcc void @Io_NtkWritePis(ptr noundef captures(none) %0, ptr n
   %15 = getelementptr i8, ptr %.val43.val, i64 8
   %.val43.val.val = load ptr, ptr %15, align 8, !tbaa !33
   %16 = sext i32 %.val44.val to i64
-  %17 = getelementptr inbounds ptr, ptr %.val43.val.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val43.val.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !34
   %19 = tail call ptr @Abc_ObjName(ptr noundef %18) #10
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #11
@@ -411,7 +411,7 @@ define internal fastcc void @Io_NtkWritePis(ptr noundef captures(none) %0, ptr n
   %.23859 = phi i32 [ %57, %54 ], [ 7, %.preheader ]
   %36 = getelementptr i8, ptr %.val4762, i64 8
   %.val48.val = load ptr, ptr %36, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw ptr, ptr %.val48.val, i64 %indvars.iv66
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val48.val, i64 %indvars.iv66
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   %.val45 = load ptr, ptr %38, align 8, !tbaa !39
   %39 = getelementptr i8, ptr %38, i64 48
@@ -422,7 +422,7 @@ define internal fastcc void @Io_NtkWritePis(ptr noundef captures(none) %0, ptr n
   %41 = getelementptr i8, ptr %.val45.val, i64 8
   %.val45.val.val = load ptr, ptr %41, align 8, !tbaa !33
   %42 = sext i32 %.val46.val to i64
-  %43 = getelementptr inbounds ptr, ptr %.val45.val.val, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %.val45.val.val, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   %45 = tail call ptr @Abc_ObjName(ptr noundef %44) #10
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #11
@@ -472,7 +472,7 @@ define void @Io_NtkWriteSubcktFanins(ptr noundef captures(none) %0, ptr noundef 
   %5 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %5, align 8, !tbaa !33
   %6 = sext i32 %.val32.val to i64
-  %7 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = tail call ptr @Abc_ObjName(ptr noundef %8) #10
   %10 = getelementptr i8, ptr %1, i64 16
@@ -497,10 +497,10 @@ define void @Io_NtkWriteSubcktFanins(ptr noundef captures(none) %0, ptr noundef 
   %.val35.val = load ptr, ptr %16, align 8, !tbaa !43
   %17 = getelementptr i8, ptr %.val35.val, i64 8
   %.val35.val.val = load ptr, ptr %17, align 8, !tbaa !33
-  %18 = getelementptr inbounds nuw i32, ptr %.val36, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.val36, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %.val35.val.val, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.val35.val.val, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !34
   %23 = tail call ptr @Abc_ObjName(ptr noundef %22) #10
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #11
@@ -548,7 +548,7 @@ define void @Io_NtkWriteSubcktFanins(ptr noundef captures(none) %0, ptr noundef 
   %43 = getelementptr i8, ptr %.val33.val, i64 8
   %.val33.val.val = load ptr, ptr %43, align 8, !tbaa !33
   %44 = sext i32 %.val34.val to i64
-  %45 = getelementptr inbounds ptr, ptr %.val33.val.val, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.val33.val.val, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !34
   %47 = tail call ptr @Abc_ObjName(ptr noundef %46) #10
   br i1 %.028.lcssa, label %55, label %48
@@ -596,10 +596,10 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr noundef captures(none) %0, p
   %.val28.val = load ptr, ptr %12, align 8, !tbaa !43
   %13 = getelementptr i8, ptr %.val28.val, i64 8
   %.val28.val.val = load ptr, ptr %13, align 8, !tbaa !33
-  %14 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.val29, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !26
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %.val28.val.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val28.val.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !34
   %19 = tail call ptr @Abc_ObjName(ptr noundef %18) #10
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %11, ptr noundef %19) #10
@@ -619,7 +619,7 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr noundef captures(none) %0, p
   %25 = getelementptr i8, ptr %.val26.val, i64 8
   %.val26.val.val = load ptr, ptr %25, align 8, !tbaa !33
   %26 = sext i32 %.val27.val to i64
-  %27 = getelementptr inbounds ptr, ptr %.val26.val.val, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %.val26.val.val, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = tail call ptr @Abc_ObjName(ptr noundef %28) #10
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %22, ptr noundef %29) #10
@@ -655,7 +655,7 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr noundef captures(none) %0, p
   %46 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %46, align 8, !tbaa !33
   %47 = sext i32 %.val25.val to i64
-  %48 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = tail call ptr @Abc_ObjName(ptr noundef %49) #10
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %43, ptr noundef %50) #10
@@ -746,7 +746,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %.val98118 = phi ptr [ %.val98, %60 ], [ %.val98115, %13 ]
   %34 = getelementptr i8, ptr %.val98118, i64 8
   %.val99.val = load ptr, ptr %34, align 8, !tbaa !33
-  %35 = getelementptr inbounds nuw ptr, ptr %.val99.val, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val99.val, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !34
   %37 = tail call ptr @Abc_NodeReadArrival(ptr noundef %36) #10
   %38 = load float, ptr %37, align 4, !tbaa !58
@@ -771,7 +771,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %49 = getelementptr i8, ptr %.val103.val, i64 8
   %.val103.val.val = load ptr, ptr %49, align 8, !tbaa !33
   %50 = sext i32 %.val104.val to i64
-  %51 = getelementptr inbounds ptr, ptr %.val103.val.val, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.val103.val.val, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !34
   %53 = tail call ptr @Abc_ObjName(ptr noundef %52) #10
   %54 = load float, ptr %37, align 4, !tbaa !58
@@ -796,7 +796,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %.val106122 = phi ptr [ %.val106, %.critedge ], [ %.val106119, %.critedge.preheader ]
   %64 = getelementptr i8, ptr %.val106122, i64 8
   %.val108.val = load ptr, ptr %64, align 8, !tbaa !33
-  %65 = getelementptr inbounds nuw ptr, ptr %.val108.val, i64 %indvars.iv135
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.val108.val, i64 %indvars.iv135
   %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = tail call ptr @Abc_NodeReadRequired(ptr noundef %66) #10
   %68 = load float, ptr %67, align 4, !tbaa !58
@@ -821,7 +821,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %79 = getelementptr i8, ptr %.val111.val, i64 8
   %.val111.val.val = load ptr, ptr %79, align 8, !tbaa !33
   %80 = sext i32 %.val112.val to i64
-  %81 = getelementptr inbounds ptr, ptr %.val111.val.val, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.val111.val.val, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !34
   %83 = tail call ptr @Abc_ObjName(ptr noundef %82) #10
   %84 = load float, ptr %67, align 4, !tbaa !58
@@ -879,7 +879,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %.val127 = phi ptr [ %.val124, %.lr.ph128 ], [ %.val, %133 ]
   %106 = getelementptr i8, ptr %.val127, i64 8
   %.val100.val = load ptr, ptr %106, align 8, !tbaa !33
-  %107 = getelementptr inbounds nuw ptr, ptr %.val100.val, i64 %indvars.iv138
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.val100.val, i64 %indvars.iv138
   %108 = load ptr, ptr %107, align 8, !tbaa !34
   %109 = trunc nuw nsw i64 %indvars.iv138 to i32
   %110 = tail call ptr @Abc_NodeReadInputDrive(ptr noundef nonnull %1, i32 noundef %109) #10
@@ -905,7 +905,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %122 = getelementptr i8, ptr %.val101.val, i64 8
   %.val101.val.val = load ptr, ptr %122, align 8, !tbaa !33
   %123 = sext i32 %.val102.val to i64
-  %124 = getelementptr inbounds ptr, ptr %.val101.val.val, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %.val101.val.val, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !34
   %126 = tail call ptr @Abc_ObjName(ptr noundef %125) #10
   %127 = load float, ptr %110, align 4, !tbaa !58
@@ -962,7 +962,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %.val105132 = phi ptr [ %.val105129, %.lr.ph133 ], [ %.val105, %177 ]
   %150 = getelementptr i8, ptr %.val105132, i64 8
   %.val107.val = load ptr, ptr %150, align 8, !tbaa !33
-  %151 = getelementptr inbounds nuw ptr, ptr %.val107.val, i64 %indvars.iv141
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %.val107.val, i64 %indvars.iv141
   %152 = load ptr, ptr %151, align 8, !tbaa !34
   %153 = trunc nuw nsw i64 %indvars.iv141 to i32
   %154 = tail call ptr @Abc_NodeReadOutputLoad(ptr noundef nonnull %1, i32 noundef %153) #10
@@ -988,7 +988,7 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %166 = getelementptr i8, ptr %.val109.val, i64 8
   %.val109.val.val = load ptr, ptr %166, align 8, !tbaa !33
   %167 = sext i32 %.val110.val to i64
-  %168 = getelementptr inbounds ptr, ptr %.val109.val.val, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %.val109.val.val, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !34
   %170 = tail call ptr @Abc_ObjName(ptr noundef %169) #10
   %171 = load float, ptr %154, align 4, !tbaa !58
@@ -1143,7 +1143,7 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %16 = getelementptr i8, ptr %.val144.val, i64 8
   %.val144.val.val = load ptr, ptr %16, align 8, !tbaa !33
   %17 = sext i32 %.val145.val to i64
-  %18 = getelementptr inbounds ptr, ptr %.val144.val.val, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val144.val.val, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = tail call ptr @Abc_ObjName(ptr noundef %19) #10
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %20)
@@ -1172,10 +1172,10 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %.val157.val = load ptr, ptr %29, align 8, !tbaa !43
   %30 = getelementptr i8, ptr %.val157.val, i64 8
   %.val157.val.val = load ptr, ptr %30, align 8, !tbaa !33
-  %31 = getelementptr inbounds nuw i32, ptr %.val158, i64 %indvars.iv213
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val158, i64 %indvars.iv213
   %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %.val157.val.val, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %.val157.val.val, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !34
   %36 = tail call ptr @Abc_ObjName(ptr noundef %35) #10
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %36) #10
@@ -1195,7 +1195,7 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %42 = getelementptr i8, ptr %.val142.val, i64 8
   %.val142.val.val = load ptr, ptr %42, align 8, !tbaa !33
   %43 = sext i32 %.val143.val to i64
-  %44 = getelementptr inbounds ptr, ptr %.val142.val.val, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %.val142.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %46 = tail call ptr @Abc_ObjName(ptr noundef %45) #10
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %46) #10
@@ -1221,10 +1221,10 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   %54 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %54, ptr %53, align 4, !tbaa !26
-  %55 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %54, ptr %55, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1279,10 +1279,10 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %79 = getelementptr i8, ptr %.val153.val, i64 8
   %.val153.val.val = load ptr, ptr %79, align 8, !tbaa !33
   %80 = zext nneg i32 %.0173176 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %.val154, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.val154, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !26
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %.val153.val.val, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %.val153.val.val, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !34
   %86 = call ptr @Abc_ObjName(ptr noundef %85) #10
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %86) #10
@@ -1295,7 +1295,7 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %90 = getelementptr i8, ptr %.val140.val, i64 8
   %.val140.val.val = load ptr, ptr %90, align 8, !tbaa !33
   %91 = sext i32 %.val141.val to i64
-  %92 = getelementptr inbounds ptr, ptr %.val140.val.val, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.val140.val.val, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !34
   %94 = call ptr @Abc_ObjName(ptr noundef %93) #10
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %94) #10
@@ -1307,7 +1307,7 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %97 = getelementptr i8, ptr %.val138.val, i64 8
   %.val138.val.val = load ptr, ptr %97, align 8, !tbaa !33
   %98 = sext i32 %.val139.val to i64
-  %99 = getelementptr inbounds ptr, ptr %.val138.val.val, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.val138.val.val, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !34
   %101 = call ptr @Abc_ObjName(ptr noundef %100) #10
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, ptr noundef %101) #10
@@ -1319,7 +1319,7 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %104 = getelementptr i8, ptr %.val136.val, i64 8
   %.val136.val.val = load ptr, ptr %104, align 8, !tbaa !33
   %105 = sext i32 %.val137.val to i64
-  %106 = getelementptr inbounds ptr, ptr %.val136.val.val, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %.val136.val.val, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !34
   %108 = call ptr @Abc_ObjName(ptr noundef %107) #10
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %108) #10
@@ -1375,7 +1375,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
 
 .lr.ph187:                                        ; preds = %Io_NtkDeriveSop.exit, %.lr.ph187
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.lr.ph187 ], [ 0, %Io_NtkDeriveSop.exit ]
-  %128 = getelementptr inbounds nuw i32, ptr %indvars.iv210.sroa.phi, i64 %indvars.iv207
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv210.sroa.phi, i64 %indvars.iv207
   %129 = load i32, ptr %128, align 4, !tbaa !26
   %.val151 = load ptr, ptr %1, align 8, !tbaa !39
   %.val152 = load ptr, ptr %77, align 8, !tbaa !42
@@ -1384,10 +1384,10 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %131 = getelementptr i8, ptr %.val151.val, i64 8
   %.val151.val.val = load ptr, ptr %131, align 8, !tbaa !33
   %132 = sext i32 %129 to i64
-  %133 = getelementptr inbounds i32, ptr %.val152, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr %.val152, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !26
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds ptr, ptr %.val151.val.val, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %.val151.val.val, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !34
   %138 = call ptr @Abc_ObjName(ptr noundef %137) #10
   %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %138) #10
@@ -1406,7 +1406,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %144 = getelementptr i8, ptr %.val134.val, i64 8
   %.val134.val.val = load ptr, ptr %144, align 8, !tbaa !33
   %145 = sext i32 %.val135.val to i64
-  %146 = getelementptr inbounds ptr, ptr %.val134.val.val, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %.val134.val.val, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !34
   %148 = call ptr @Abc_ObjName(ptr noundef %147) #10
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef %148, i32 noundef %indvars.iv210) #10
@@ -1444,7 +1444,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %163 = getelementptr i8, ptr %.val132.val, i64 8
   %.val132.val.val = load ptr, ptr %163, align 8, !tbaa !33
   %164 = sext i32 %.val133.val to i64
-  %165 = getelementptr inbounds ptr, ptr %.val132.val.val, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %.val132.val.val, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !34
   %167 = call ptr @Abc_ObjName(ptr noundef %166) #10
   %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %167)
@@ -1455,12 +1455,12 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %.not = icmp eq i64 %indvars.iv203, 0
   %170 = select i1 %.not, i64 %.0119, i64 %155
   %171 = and i64 %170, 65535
-  %172 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv203
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv203
   %173 = mul nuw i64 %171, 281479271743489
   store i64 %173, ptr %172, align 8, !tbaa !65
   %174 = shl nuw nsw i64 %indvars.iv203, 5
   %175 = or disjoint i64 %174, 16
-  %176 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 %indvars.iv203
+  %176 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv203
   br label %177
 
 177:                                              ; preds = %169, %177
@@ -1470,16 +1470,16 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %180 = lshr i64 %.0119, %179
   %181 = trunc i64 %180 to i32
   %182 = and i32 %181, 7
-  %183 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv195
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv195
   store i32 %182, ptr %183, align 4, !tbaa !26
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, 4
   br i1 %exitcond199.not, label %184, label %177, !llvm.loop !74
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv203
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv203
   %186 = call i64 @If_Dec6MinimumBase(i64 noundef %173, ptr noundef nonnull %176, i32 noundef 4, ptr noundef nonnull %185) #10
-  %187 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv203
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv203
   store i64 %186, ptr %187, align 8, !tbaa !65
   %188 = call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
   %189 = load i32, ptr %185, align 4, !tbaa !26
@@ -1488,7 +1488,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
 
 .lr.ph184:                                        ; preds = %184, %199
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %199 ], [ 0, %184 ]
-  %191 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv200
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv200
   %192 = load i32, ptr %191, align 4, !tbaa !26
   %193 = icmp eq i32 %192, 7
   %.val130 = load ptr, ptr %1, align 8, !tbaa !39
@@ -1503,7 +1503,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
 196:                                              ; preds = %.lr.ph184
   %.val150 = load ptr, ptr %156, align 8, !tbaa !42
   %197 = sext i32 %192 to i64
-  %198 = getelementptr inbounds i32, ptr %.val150, i64 %197
+  %198 = getelementptr inbounds [4 x i8], ptr %.val150, i64 %197
   br label %199
 
 199:                                              ; preds = %195, %196
@@ -1513,7 +1513,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %.val130.val.val.sink = load ptr, ptr %.val130.val.val.sink.in, align 8, !tbaa !33
   %.val131.val.sink = load i32, ptr %.val131.val.sink.in, align 4, !tbaa !26
   %200 = sext i32 %.val131.val.sink to i64
-  %201 = getelementptr inbounds ptr, ptr %.val130.val.val.sink, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %.val130.val.val.sink, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !34
   %203 = call ptr @Abc_ObjName(ptr noundef %202) #10
   %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.47.sink, ptr noundef %203) #10
@@ -1532,7 +1532,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %209 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %209, align 8, !tbaa !33
   %210 = sext i32 %.val129.val to i64
-  %211 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !34
   %213 = call ptr @Abc_ObjName(ptr noundef %212) #10
   %214 = select i1 %.not, ptr @.str.50, ptr @.str.49
@@ -1713,10 +1713,10 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
   %.val190.val = load ptr, ptr %59, align 8, !tbaa !43
   %60 = getelementptr i8, ptr %.val190.val, i64 8
   %.val190.val.val = load ptr, ptr %60, align 8, !tbaa !33
-  %61 = getelementptr inbounds nuw i32, ptr %.val191, i64 %indvars.iv243
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.val191, i64 %indvars.iv243
   %62 = load i32, ptr %61, align 4, !tbaa !26
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %.val190.val.val, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %.val190.val.val, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !34
   %66 = tail call ptr @Abc_ObjName(ptr noundef %65) #10
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %66) #10
@@ -1736,7 +1736,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
   %72 = getelementptr i8, ptr %.val180.val, i64 8
   %.val180.val.val = load ptr, ptr %72, align 8, !tbaa !33
   %73 = sext i32 %.val181.val to i64
-  %74 = getelementptr inbounds ptr, ptr %.val180.val.val, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %.val180.val.val, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !34
   %76 = tail call ptr @Abc_ObjName(ptr noundef %75) #10
   %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %76) #10
@@ -1761,8 +1761,8 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
 
 .preheader216:                                    ; preds = %79, %.preheader216
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %.preheader216 ], [ 0, %79 ]
-  %82 = getelementptr inbounds nuw [1024 x i64], ptr @Io_NtkWriteNodeIntStruct.TruthStore, i64 %indvars.iv246
-  %83 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv246
+  %82 = getelementptr inbounds nuw [8192 x i8], ptr @Io_NtkWriteNodeIntStruct.TruthStore, i64 %indvars.iv246
+  %83 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv246
   store ptr %82, ptr %83, align 8, !tbaa !79
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next247, 16
@@ -1770,15 +1770,15 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
 
 .preheader214:                                    ; preds = %.preheader216, %90
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %90 ], [ 0, %.preheader216 ]
-  %84 = getelementptr inbounds nuw i64, ptr @Io_NtkWriteModelIntStruct.Truth6, i64 %indvars.iv254
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 %indvars.iv254
   %85 = load i64, ptr %84, align 8, !tbaa !65
-  %86 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv254
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv254
   %87 = load ptr, ptr %86, align 8, !tbaa !79
   br label %88
 
 88:                                               ; preds = %.preheader214, %88
   %indvars.iv250 = phi i64 [ 0, %.preheader214 ], [ %indvars.iv.next251, %88 ]
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %indvars.iv250
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv250
   store i64 %85, ptr %89, align 8, !tbaa !65
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next251, 1024
@@ -1794,7 +1794,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
   %91 = trunc i64 %indvars.iv262 to i32
   %92 = add i32 %91, -6
   %93 = shl nuw i32 1, %92
-  %94 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv262
+  %94 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv262
   %95 = load ptr, ptr %94, align 8, !tbaa !79
   br label %96
 
@@ -1804,7 +1804,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
   %98 = and i32 %93, %97
   %.not160 = icmp ne i32 %98, 0
   %99 = sext i1 %.not160 to i64
-  %100 = getelementptr inbounds nuw i64, ptr %95, i64 %indvars.iv258
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv258
   store i64 %99, ptr %100, align 8, !tbaa !65
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next259, 1024
@@ -1834,7 +1834,7 @@ select.unfold.i:                                  ; preds = %109, %.loopexit
 
 109:                                              ; preds = %select.unfold.i
   %110 = add nsw i64 %indvars.iv.i, -1
-  %111 = getelementptr inbounds nuw i32, ptr %6, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !26
   %.not.i = icmp eq i32 %112, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i198, !llvm.loop !86
@@ -1847,7 +1847,7 @@ select.unfold.i198:                               ; preds = %109, %115
 
 115:                                              ; preds = %select.unfold.i198
   %116 = add nsw i64 %indvars.iv.i199, -1
-  %117 = getelementptr inbounds nuw i32, ptr %6, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !26
   %.not.i201 = icmp eq i32 %118, -1
   br i1 %.not.i201, label %select.unfold.i198, label %133, !llvm.loop !87
@@ -1862,7 +1862,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i, %s
   %121 = getelementptr i8, ptr %.val178.val, i64 8
   %.val178.val.val = load ptr, ptr %121, align 8, !tbaa !33
   %122 = sext i32 %.val179.val to i64
-  %123 = getelementptr inbounds ptr, ptr %.val178.val.val, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %.val178.val.val, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !34
   %125 = call ptr @Abc_ObjName(ptr noundef %124) #10
   br label %select.unfold.i203
@@ -1875,7 +1875,7 @@ select.unfold.i203:                               ; preds = %128, %Kit_TruthIsCo
 
 128:                                              ; preds = %select.unfold.i203
   %129 = add nsw i64 %indvars.iv.i204, -1
-  %130 = getelementptr inbounds nuw i32, ptr %6, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !26
   %.not.i206 = icmp eq i32 %131, -1
   br i1 %.not.i206, label %select.unfold.i203, label %Kit_TruthIsConst1.exit207, !llvm.loop !87
@@ -1909,7 +1909,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %142 = getelementptr i8, ptr %.val176.val, i64 8
   %.val176.val.val = load ptr, ptr %142, align 8, !tbaa !33
   %143 = sext i32 %.val177.val to i64
-  %144 = getelementptr inbounds ptr, ptr %.val176.val.val, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %.val176.val.val, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !34
   %146 = call ptr @Abc_ObjName(ptr noundef %145) #10
   %147 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %146)
@@ -1935,7 +1935,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %155 = getelementptr i8, ptr %.val174.val, i64 8
   %.val174.val.val = load ptr, ptr %155, align 8, !tbaa !33
   %156 = sext i32 %.val175.val to i64
-  %157 = getelementptr inbounds ptr, ptr %.val174.val.val, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %.val174.val.val, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !34
   %159 = call ptr @Abc_ObjName(ptr noundef %158) #10
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %159)
@@ -1963,10 +1963,10 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %171 = getelementptr i8, ptr %.val188.val, i64 8
   %.val188.val.val = load ptr, ptr %171, align 8, !tbaa !33
   %172 = sext i8 %169 to i64
-  %173 = getelementptr inbounds i32, ptr %.val189, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %.val189, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !26
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds ptr, ptr %.val188.val.val, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %.val188.val.val, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !34
   %178 = call ptr @Abc_ObjName(ptr noundef %177) #10
   %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %178) #10
@@ -1986,7 +1986,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %185 = getelementptr i8, ptr %.val172.val, i64 8
   %.val172.val.val = load ptr, ptr %185, align 8, !tbaa !33
   %186 = sext i32 %.val173.val to i64
-  %187 = getelementptr inbounds ptr, ptr %.val172.val.val, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %.val172.val.val, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !34
   %189 = call ptr @Abc_ObjName(ptr noundef %188) #10
   %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %189) #10
@@ -2032,7 +2032,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
 212:                                              ; preds = %204
   %.val187 = load ptr, ptr %203, align 8, !tbaa !42
   %213 = sext i8 %207 to i64
-  %214 = getelementptr inbounds i32, ptr %.val187, i64 %213
+  %214 = getelementptr inbounds [4 x i8], ptr %.val187, i64 %213
   br label %215
 
 215:                                              ; preds = %211, %212
@@ -2042,7 +2042,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %.val170.val.val.sink = load ptr, ptr %.val170.val.val.sink.in, align 8, !tbaa !33
   %.val171.val.sink = load i32, ptr %.val171.val.sink.in, align 4, !tbaa !26
   %216 = sext i32 %.val171.val.sink to i64
-  %217 = getelementptr inbounds ptr, ptr %.val170.val.val.sink, i64 %216
+  %217 = getelementptr inbounds [8 x i8], ptr %.val170.val.val.sink, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !34
   %219 = call ptr @Abc_ObjName(ptr noundef %218) #10
   %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.57.sink, ptr noundef %219) #10
@@ -2061,7 +2061,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %225 = getelementptr i8, ptr %.val168.val, i64 8
   %.val168.val.val = load ptr, ptr %225, align 8, !tbaa !33
   %226 = sext i32 %.val169.val to i64
-  %227 = getelementptr inbounds ptr, ptr %.val168.val.val, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %.val168.val.val, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !34
   %229 = call ptr @Abc_ObjName(ptr noundef %228) #10
   %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef %229) #10
@@ -2118,7 +2118,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
 257:                                              ; preds = %252
   %.val185 = load ptr, ptr %242, align 8, !tbaa !42
   %258 = sext i8 %246 to i64
-  %259 = getelementptr inbounds i32, ptr %.val185, i64 %258
+  %259 = getelementptr inbounds [4 x i8], ptr %.val185, i64 %258
   br label %260
 
 260:                                              ; preds = %249, %257, %256
@@ -2128,7 +2128,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %.val166.val.val.sink = load ptr, ptr %.val166.val.val.sink.in, align 8, !tbaa !33
   %.val167.val.sink = load i32, ptr %.val167.val.sink.in, align 4, !tbaa !26
   %261 = sext i32 %.val167.val.sink to i64
-  %262 = getelementptr inbounds ptr, ptr %.val166.val.val.sink, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %.val166.val.val.sink, i64 %261
   %263 = load ptr, ptr %262, align 8, !tbaa !34
   %264 = call ptr @Abc_ObjName(ptr noundef %263) #10
   %265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.57.sink279, ptr noundef %264) #10
@@ -2147,7 +2147,7 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
   %270 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %270, align 8, !tbaa !33
   %271 = sext i32 %.val163.val to i64
-  %272 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %271
+  %272 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %271
   %273 = load ptr, ptr %272, align 8, !tbaa !34
   %274 = call ptr @Abc_ObjName(ptr noundef %273) #10
   %275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %274) #10
@@ -2333,8 +2333,8 @@ define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr nounde
 
 .preheader199:                                    ; preds = %73, %.preheader199
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %.preheader199 ], [ 0, %73 ]
-  %76 = getelementptr inbounds nuw [1024 x i64], ptr @Io_NtkWriteModelIntStruct.TruthStore, i64 %indvars.iv230
-  %77 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv230
+  %76 = getelementptr inbounds nuw [8192 x i8], ptr @Io_NtkWriteModelIntStruct.TruthStore, i64 %indvars.iv230
+  %77 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv230
   store ptr %76, ptr %77, align 8, !tbaa !79
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next231, 16
@@ -2342,15 +2342,15 @@ define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr nounde
 
 .preheader197:                                    ; preds = %.preheader199, %84
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %84 ], [ 0, %.preheader199 ]
-  %78 = getelementptr inbounds nuw i64, ptr @Io_NtkWriteModelIntStruct.Truth6, i64 %indvars.iv238
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 %indvars.iv238
   %79 = load i64, ptr %78, align 8, !tbaa !65
-  %80 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv238
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv238
   %81 = load ptr, ptr %80, align 8, !tbaa !79
   br label %82
 
 82:                                               ; preds = %.preheader197, %82
   %indvars.iv234 = phi i64 [ 0, %.preheader197 ], [ %indvars.iv.next235, %82 ]
-  %83 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv234
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv234
   store i64 %79, ptr %83, align 8, !tbaa !65
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next235, 1024
@@ -2366,7 +2366,7 @@ define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr nounde
   %85 = trunc i64 %indvars.iv246 to i32
   %86 = add i32 %85, -6
   %87 = shl nuw i32 1, %86
-  %88 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv246
+  %88 = getelementptr inbounds nuw [8 x i8], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv246
   %89 = load ptr, ptr %88, align 8, !tbaa !79
   br label %90
 
@@ -2376,7 +2376,7 @@ define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr nounde
   %92 = and i32 %87, %91
   %.not163 = icmp ne i32 %92, 0
   %93 = sext i1 %.not163 to i64
-  %94 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv242
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv242
   store i64 %93, ptr %94, align 8, !tbaa !65
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 1024
@@ -2406,7 +2406,7 @@ select.unfold.i:                                  ; preds = %103, %.loopexit
 
 103:                                              ; preds = %select.unfold.i
   %104 = add nsw i64 %indvars.iv.i, -1
-  %105 = getelementptr inbounds nuw i32, ptr %6, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !26
   %.not.i = icmp eq i32 %106, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i181, !llvm.loop !86
@@ -2422,7 +2422,7 @@ select.unfold.i186.preheader:                     ; preds = %select.unfold.i, %s
 
 109:                                              ; preds = %select.unfold.i181
   %110 = add nsw i64 %indvars.iv.i182, -1
-  %111 = getelementptr inbounds nuw i32, ptr %6, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !26
   %.not.i184 = icmp eq i32 %112, -1
   br i1 %.not.i184, label %select.unfold.i181, label %121, !llvm.loop !87
@@ -2435,7 +2435,7 @@ select.unfold.i186:                               ; preds = %select.unfold.i186.
 
 115:                                              ; preds = %select.unfold.i186
   %116 = add nsw i64 %indvars.iv.i187, -1
-  %117 = getelementptr inbounds nuw i32, ptr %6, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !26
   %.not.i189 = icmp eq i32 %118, -1
   br i1 %.not.i189, label %select.unfold.i186, label %Kit_TruthIsConst1.exit190, !llvm.loop !87
@@ -2470,7 +2470,7 @@ Kit_TruthIsConst1.exit190:                        ; preds = %select.unfold.i186,
   %130 = getelementptr i8, ptr %.val167.val, i64 8
   %.val167.val.val = load ptr, ptr %130, align 8, !tbaa !33
   %131 = sext i32 %.val168.val to i64
-  %132 = getelementptr inbounds ptr, ptr %.val167.val.val, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %.val167.val.val, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !34
   %134 = call ptr @Abc_ObjName(ptr noundef %133) #10
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %134)
@@ -2496,7 +2496,7 @@ Kit_TruthIsConst1.exit190:                        ; preds = %select.unfold.i186,
   %143 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %143, align 8, !tbaa !33
   %144 = sext i32 %.val166.val to i64
-  %145 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !34
   %147 = call ptr @Abc_ObjName(ptr noundef %146) #10
   %148 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %147)
@@ -2697,7 +2697,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %20 ]
   %26 = getelementptr i8, ptr %25, i64 8
   %.val96.val = load ptr, ptr %26, align 8, !tbaa !33
-  %27 = getelementptr inbounds nuw ptr, ptr %.val96.val, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val96.val, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = getelementptr i8, ptr %28, i64 20
   %.val97 = load i32, ptr %29, align 4
@@ -2715,7 +2715,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %34 = getelementptr i8, ptr %.val14.val.i, i64 8
   %.val14.val.val.i = load ptr, ptr %34, align 8, !tbaa !33
   %35 = sext i32 %.val15.val.i to i64
-  %36 = getelementptr inbounds ptr, ptr %.val14.val.val.i, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.val14.val.val.i, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !34
   %.val12.i = load ptr, ptr %37, align 8, !tbaa !39
   %38 = getelementptr i8, ptr %37, i64 32
@@ -2726,13 +2726,13 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %40 = getelementptr i8, ptr %.val12.val.i, i64 8
   %.val12.val.val.i = load ptr, ptr %40, align 8, !tbaa !33
   %41 = sext i32 %.val13.val.i to i64
-  %42 = getelementptr inbounds ptr, ptr %.val12.val.val.i, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.val12.val.val.i, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !34
   %44 = getelementptr i8, ptr %28, i64 48
   %.val11.i = load ptr, ptr %44, align 8, !tbaa !48
   %.val11.val.i = load i32, ptr %.val11.i, align 4, !tbaa !26
   %45 = sext i32 %.val11.val.i to i64
-  %46 = getelementptr inbounds ptr, ptr %.val14.val.val.i, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.val14.val.val.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !34
   %.val.i = load ptr, ptr %47, align 8, !tbaa !39
   %48 = getelementptr i8, ptr %47, i64 48
@@ -2743,7 +2743,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %50 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %50, align 8, !tbaa !33
   %51 = sext i32 %.val9.val.i to i64
-  %52 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !34
   %54 = getelementptr i8, ptr %28, i64 56
   %.val16.i = load ptr, ptr %54, align 8, !tbaa !54
@@ -2805,7 +2805,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %88 ], [ 0, %.lr.ph118 ]
   %80 = getelementptr i8, ptr %79, i64 8
   %.val100.val.us = load ptr, ptr %80, align 8, !tbaa !33
-  %81 = getelementptr inbounds nuw ptr, ptr %.val100.val.us, i64 %indvars.iv130
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.val100.val.us, i64 %indvars.iv130
   %82 = load ptr, ptr %81, align 8, !tbaa !34
   %83 = icmp eq ptr %82, null
   br i1 %83, label %88, label %84
@@ -2845,7 +2845,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %108 ], [ 0, %93 ]
   %99 = getelementptr i8, ptr %98, i64 8
   %.val98.val = load ptr, ptr %99, align 8, !tbaa !33
-  %100 = getelementptr inbounds nuw ptr, ptr %.val98.val, i64 %indvars.iv121
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.val98.val, i64 %indvars.iv121
   %101 = load ptr, ptr %100, align 8, !tbaa !34
   %102 = icmp eq ptr %101, null
   br i1 %102, label %108, label %103
@@ -2886,7 +2886,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %126 ], [ 0, %.critedge2 ]
   %118 = getelementptr i8, ptr %117, i64 8
   %.val99.val = load ptr, ptr %118, align 8, !tbaa !33
-  %119 = getelementptr inbounds nuw ptr, ptr %.val99.val, i64 %indvars.iv124
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.val99.val, i64 %indvars.iv124
   %120 = load ptr, ptr %119, align 8, !tbaa !34
   %121 = icmp eq ptr %120, null
   br i1 %121, label %126, label %122
@@ -2921,7 +2921,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %140 ], [ 0, %.lr.ph118 ]
   %132 = getelementptr i8, ptr %131, i64 8
   %.val100.val = load ptr, ptr %132, align 8, !tbaa !33
-  %133 = getelementptr inbounds nuw ptr, ptr %.val100.val, i64 %indvars.iv127
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.val100.val, i64 %indvars.iv127
   %134 = load ptr, ptr %133, align 8, !tbaa !34
   %135 = icmp eq ptr %134, null
   br i1 %135, label %140, label %136
@@ -2997,7 +2997,7 @@ define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %
   %.03653 = phi i32 [ %31, %28 ], [ 8, %.preheader49 ]
   %10 = getelementptr i8, ptr %.val56, i64 8
   %.val42.val = load ptr, ptr %10, align 8, !tbaa !33
-  %11 = getelementptr inbounds nuw ptr, ptr %.val42.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val42.val, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !34
   %.val45 = load ptr, ptr %12, align 8, !tbaa !39
   %13 = getelementptr i8, ptr %12, i64 32
@@ -3008,7 +3008,7 @@ define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %
   %15 = getelementptr i8, ptr %.val45.val, i64 8
   %.val45.val.val = load ptr, ptr %15, align 8, !tbaa !33
   %16 = sext i32 %.val46.val to i64
-  %17 = getelementptr inbounds ptr, ptr %.val45.val.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val45.val.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !34
   %19 = tail call ptr @Abc_ObjName(ptr noundef %18) #10
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #11
@@ -3048,7 +3048,7 @@ define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %
   %.23859 = phi i32 [ %57, %54 ], [ 8, %.preheader ]
   %36 = getelementptr i8, ptr %.val4762, i64 8
   %.val48.val = load ptr, ptr %36, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw ptr, ptr %.val48.val, i64 %indvars.iv66
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val48.val, i64 %indvars.iv66
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   %.val43 = load ptr, ptr %38, align 8, !tbaa !39
   %39 = getelementptr i8, ptr %38, i64 32
@@ -3059,7 +3059,7 @@ define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %
   %41 = getelementptr i8, ptr %.val43.val, i64 8
   %.val43.val.val = load ptr, ptr %41, align 8, !tbaa !33
   %42 = sext i32 %.val44.val to i64
-  %43 = getelementptr inbounds ptr, ptr %.val43.val.val, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %.val43.val.val, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   %45 = tail call ptr @Abc_ObjName(ptr noundef %44) #10
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #11
@@ -3173,7 +3173,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %16 ]
   %22 = getelementptr i8, ptr %21, i64 8
   %.val96.val = load ptr, ptr %22, align 8, !tbaa !33
-  %23 = getelementptr inbounds nuw ptr, ptr %.val96.val, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val96.val, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = getelementptr i8, ptr %24, i64 20
   %.val97 = load i32, ptr %25, align 4
@@ -3191,7 +3191,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %30 = getelementptr i8, ptr %.val14.val.i, i64 8
   %.val14.val.val.i = load ptr, ptr %30, align 8, !tbaa !33
   %31 = sext i32 %.val15.val.i to i64
-  %32 = getelementptr inbounds ptr, ptr %.val14.val.val.i, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val14.val.val.i, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %.val12.i = load ptr, ptr %33, align 8, !tbaa !39
   %34 = getelementptr i8, ptr %33, i64 32
@@ -3202,13 +3202,13 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %36 = getelementptr i8, ptr %.val12.val.i, i64 8
   %.val12.val.val.i = load ptr, ptr %36, align 8, !tbaa !33
   %37 = sext i32 %.val13.val.i to i64
-  %38 = getelementptr inbounds ptr, ptr %.val12.val.val.i, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val12.val.val.i, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = getelementptr i8, ptr %24, i64 48
   %.val11.i = load ptr, ptr %40, align 8, !tbaa !48
   %.val11.val.i = load i32, ptr %.val11.i, align 4, !tbaa !26
   %41 = sext i32 %.val11.val.i to i64
-  %42 = getelementptr inbounds ptr, ptr %.val14.val.val.i, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.val14.val.val.i, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !34
   %.val.i = load ptr, ptr %43, align 8, !tbaa !39
   %44 = getelementptr i8, ptr %43, i64 48
@@ -3219,7 +3219,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %46 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %46, align 8, !tbaa !33
   %47 = sext i32 %.val9.val.i to i64
-  %48 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = getelementptr i8, ptr %24, i64 56
   %.val16.i = load ptr, ptr %50, align 8, !tbaa !54
@@ -3274,7 +3274,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %83 ], [ 0, %71 ]
   %77 = getelementptr i8, ptr %76, i64 8
   %.val95.val = load ptr, ptr %77, align 8, !tbaa !33
-  %78 = getelementptr inbounds nuw ptr, ptr %.val95.val, i64 %indvars.iv134
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.val95.val, i64 %indvars.iv134
   %79 = load ptr, ptr %78, align 8, !tbaa !34
   %80 = getelementptr i8, ptr %79, i64 20
   %.val100 = load i32, ptr %80, align 4
@@ -3309,7 +3309,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %98 ], [ 0, %.critedge2 ]
   %92 = getelementptr i8, ptr %91, i64 8
   %.val94.val = load ptr, ptr %92, align 8, !tbaa !33
-  %93 = getelementptr inbounds nuw ptr, ptr %.val94.val, i64 %indvars.iv137
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.val94.val, i64 %indvars.iv137
   %94 = load ptr, ptr %93, align 8, !tbaa !34
   %95 = getelementptr i8, ptr %94, i64 20
   %.val101 = load i32, ptr %95, align 4
@@ -3370,7 +3370,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %119 = getelementptr i8, ptr %118, i64 8
   %.val104.val = load ptr, ptr %119, align 8, !tbaa !33
   %120 = sext i32 %.3130 to i64
-  %121 = getelementptr inbounds ptr, ptr %.val104.val, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %.val104.val, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !34
   %123 = icmp eq ptr %122, null
   br i1 %123, label %207, label %124
@@ -3430,7 +3430,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
   %145 = getelementptr i8, ptr %.val22.val.i, i64 8
   %.val22.val.val.i = load ptr, ptr %145, align 8, !tbaa !33
   %146 = sext i32 %.val23.val.i to i64
-  %147 = getelementptr inbounds ptr, ptr %.val22.val.val.i, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %.val22.val.val.i, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !34
   %149 = tail call ptr @Abc_ObjName(ptr noundef %148) #10
   %.val.i107 = load ptr, ptr %122, align 8, !tbaa !39
@@ -3442,7 +3442,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
   %152 = getelementptr i8, ptr %.val.val.i108, i64 8
   %.val.val.val.i109 = load ptr, ptr %152, align 8, !tbaa !33
   %153 = sext i32 %.val21.val.i to i64
-  %154 = getelementptr inbounds ptr, ptr %.val.val.val.i109, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i109, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !34
   %156 = tail call ptr @Abc_ObjName(ptr noundef %155) #10
   %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, ptr noundef %149, ptr noundef %156) #10
@@ -3470,10 +3470,10 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
   %.val28.val.i.i = load ptr, ptr %164, align 8, !tbaa !43
   %165 = getelementptr i8, ptr %.val28.val.i.i, i64 8
   %.val28.val.val.i.i = load ptr, ptr %165, align 8, !tbaa !33
-  %166 = getelementptr inbounds nuw i32, ptr %.val29.i.i, i64 %indvars.iv.i.i
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.val29.i.i, i64 %indvars.iv.i.i
   %167 = load i32, ptr %166, align 4, !tbaa !26
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %.val28.val.val.i.i, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.val28.val.val.i.i, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !34
   %171 = tail call ptr @Abc_ObjName(ptr noundef %170) #10
   %172 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #11
@@ -3520,7 +3520,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
   %190 = getelementptr i8, ptr %.val.val.i.i, i64 8
   %.val.val.val.i.i = load ptr, ptr %190, align 8, !tbaa !33
   %191 = sext i32 %.val27.val.i.i to i64
-  %192 = getelementptr inbounds ptr, ptr %.val.val.val.i.i, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i.i, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !34
   %194 = tail call ptr @Abc_ObjName(ptr noundef %193) #10
   br i1 %.023.lcssa.i.i, label %Io_NtkWriteNodeFanins.exit.i, label %195
@@ -3608,7 +3608,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %.val2746 = phi ptr [ %.val2743, %.lr.ph ], [ %.val27, %15 ]
   %16 = getelementptr i8, ptr %.val2746, i64 8
   %.val28.val = load ptr, ptr %16, align 8, !tbaa !33
-  %17 = getelementptr inbounds nuw ptr, ptr %.val28.val, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val28.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !34
   %.val31 = load ptr, ptr %18, align 8, !tbaa !39
   %19 = getelementptr i8, ptr %18, i64 48
@@ -3619,7 +3619,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %21 = getelementptr i8, ptr %.val31.val, i64 8
   %.val31.val.val = load ptr, ptr %21, align 8, !tbaa !33
   %22 = sext i32 %.val32.val to i64
-  %23 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %.val31.val.val, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = tail call ptr @Abc_ObjName(ptr noundef %24) #10
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef %25) #10
@@ -3629,10 +3629,10 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %.val39.val = load ptr, ptr %27, align 8, !tbaa !43
   %28 = getelementptr i8, ptr %.val39.val, i64 8
   %.val39.val.val = load ptr, ptr %28, align 8, !tbaa !33
-  %29 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.val40, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val39.val.val, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %.val37 = load ptr, ptr %33, align 8, !tbaa !39
   %34 = getelementptr i8, ptr %33, i64 32
@@ -3643,7 +3643,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %36 = getelementptr i8, ptr %.val37.val, i64 8
   %.val37.val.val = load ptr, ptr %36, align 8, !tbaa !33
   %37 = sext i32 %.val38.val to i64
-  %38 = getelementptr inbounds ptr, ptr %.val37.val.val, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val37.val.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = tail call ptr @Abc_ObjName(ptr noundef %39) #10
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, ptr noundef %40) #10
@@ -3660,7 +3660,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %.val3350 = phi ptr [ %.val3347, %.lr.ph51 ], [ %.val33, %.critedge ]
   %45 = getelementptr i8, ptr %.val3350, i64 8
   %.val34.val = load ptr, ptr %45, align 8, !tbaa !33
-  %46 = getelementptr inbounds nuw ptr, ptr %.val34.val, i64 %indvars.iv53
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val34.val, i64 %indvars.iv53
   %47 = load ptr, ptr %46, align 8, !tbaa !34
   %.val35 = load ptr, ptr %47, align 8, !tbaa !39
   %48 = getelementptr i8, ptr %47, i64 32
@@ -3671,7 +3671,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %50 = getelementptr i8, ptr %.val35.val, i64 8
   %.val35.val.val = load ptr, ptr %50, align 8, !tbaa !33
   %51 = sext i32 %.val36.val to i64
-  %52 = getelementptr inbounds ptr, ptr %.val35.val.val, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.val35.val.val, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !34
   %54 = tail call ptr @Abc_ObjName(ptr noundef %53) #10
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef %54) #10
@@ -3681,10 +3681,10 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %.val41.val = load ptr, ptr %56, align 8, !tbaa !43
   %57 = getelementptr i8, ptr %.val41.val, i64 8
   %.val41.val.val = load ptr, ptr %57, align 8, !tbaa !33
-  %58 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv53
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.val42, i64 %indvars.iv53
   %59 = load i32, ptr %58, align 4, !tbaa !26
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %.val41.val.val, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.val41.val.val, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !34
   %.val29 = load ptr, ptr %62, align 8, !tbaa !39
   %63 = getelementptr i8, ptr %62, i64 48
@@ -3695,7 +3695,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %65 = getelementptr i8, ptr %.val29.val, i64 8
   %.val29.val.val = load ptr, ptr %65, align 8, !tbaa !33
   %66 = sext i32 %.val30.val to i64
-  %67 = getelementptr inbounds ptr, ptr %.val29.val.val, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %.val29.val.val, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !34
   %69 = tail call ptr @Abc_ObjName(ptr noundef %68) #10
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, ptr noundef %69) #10

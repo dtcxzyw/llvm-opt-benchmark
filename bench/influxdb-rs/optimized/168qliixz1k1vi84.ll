@@ -4692,9 +4692,9 @@ switch.lookup:
   %2 = add nsw i64 %1, -6
   %3 = icmp ult i64 %2, 10
   %4 = select i1 %3, i64 %2, i64 2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.16", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.16", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %switch.load, 1
@@ -5412,7 +5412,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17he9c90ee80
 
 24:                                               ; preds = %.noexc2
   %25 = getelementptr i8, ptr %15, i64 640
-  %26 = getelementptr ptr, ptr %25, i64 %19
+  %26 = getelementptr [8 x i8], ptr %25, i64 %19
   %27 = load ptr, ptr %26, align 8, !noalias !1076, !nonnull !4, !noundef !4
   %28 = add i64 %17, -1
   invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hd266393bc9f4628dE.llvm.14431222152625912608"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %27, i64 noundef %28)
@@ -5428,8 +5428,8 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17he9c90ee80
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1076
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1069
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 360
-  %33 = getelementptr inbounds { [3 x i64] }, ptr %32, i64 %.sroa.4.sroa.4.0.copyload.i
-  %34 = getelementptr inbounds { [4 x i64] }, ptr %9, i64 %.sroa.4.sroa.4.0.copyload.i
+  %33 = getelementptr inbounds [24 x i8], ptr %32, i64 %.sroa.4.sroa.4.0.copyload.i
+  %34 = getelementptr inbounds [32 x i8], ptr %9, i64 %.sroa.4.sroa.4.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1069
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5559,7 +5559,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 
 22:                                               ; preds = %10
   %23 = getelementptr i8, ptr %13, i64 640
-  %24 = getelementptr ptr, ptr %23, i64 %17
+  %24 = getelementptr [8 x i8], ptr %23, i64 %17
   %25 = load ptr, ptr %24, align 8, !noalias !1082, !nonnull !4, !noundef !4
   %26 = add i64 %15, -1
   call void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hd266393bc9f4628dE.llvm.14431222152625912608"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %25, i64 noundef %26), !noalias !1084
@@ -5569,8 +5569,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 360
-  %28 = getelementptr inbounds { [3 x i64] }, ptr %27, i64 %.sroa.4.sroa.4.0.copyload
-  %29 = getelementptr inbounds { [4 x i64] }, ptr %7, i64 %.sroa.4.sroa.4.0.copyload
+  %28 = getelementptr inbounds [24 x i8], ptr %27, i64 %.sroa.4.sroa.4.0.copyload
+  %29 = getelementptr inbounds [32 x i8], ptr %7, i64 %.sroa.4.sroa.4.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %28, ptr %30, align 8
@@ -6180,9 +6180,9 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 define internal { ptr, i64 } @"_ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !160, !noundef !4
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.17", i64 %1
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.17", i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1

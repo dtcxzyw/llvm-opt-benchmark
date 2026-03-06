@@ -35,10 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.witness_list_t = type { ptr }
 %struct.atomic_p_t = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.background_thread_info_s = type { i64, %union.pthread_cond_t, %struct.malloc_mutex_s, i32, %struct.atomic_b_t, %struct.nstime_t, i64, i64, %struct.nstime_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.cpu_set_t = type { [16 x i64] }
 %struct.timeval = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
@@ -155,7 +151,7 @@ define internal fastcc noundef zeroext i1 @background_thread_create_locked(ptr n
   %6 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %7 = urem i64 %5, %6
   %8 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %9 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [208 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %11) #12
@@ -403,7 +399,7 @@ define hidden noundef zeroext i1 @je_background_threads_enable(ptr noundef %0) l
   br i1 %10, label %48, label %11
 
 11:                                               ; preds = %.lr.ph43
-  %12 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @je_arenas, i64 %indvars.iv
   %13 = load atomic i64, ptr %12 acquire, align 8
   %14 = icmp eq i64 %13, 0
   %.pre = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
@@ -412,7 +408,7 @@ define hidden noundef zeroext i1 @je_background_threads_enable(ptr noundef %0) l
 15:                                               ; preds = %11
   %16 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
   %17 = urem i64 %indvars.iv, %.pre
-  %18 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [208 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %19) #12
   %.not.i = icmp eq i32 %20, 0
@@ -491,7 +487,7 @@ malloc_mutex_lock.exit:                           ; preds = %24, %30
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %56
   %indvars.iv51 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next52, %56 ]
-  %52 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %indvars.iv51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @je_arenas, i64 %indvars.iv51
   %53 = load atomic i64, ptr %52 acquire, align 8
   %.not37 = icmp eq i64 %53, 0
   br i1 %.not37, label %56, label %54
@@ -532,7 +528,7 @@ define hidden noundef zeroext i1 @je_background_threads_disable(ptr noundef %0) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %6 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @je_arenas, i64 %indvars.iv
   %7 = load atomic i64, ptr %6 acquire, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %10, label %8
@@ -721,7 +717,7 @@ define hidden void @je_background_thread_prefork1(ptr noundef %0) local_unnamed_
   %3 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
   %.04 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [208 x i8], ptr %4, i64 %3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %6) #12
   %7 = add i32 %.04, 1
@@ -745,7 +741,7 @@ define hidden void @je_background_thread_postfork_parent(ptr noundef %0) local_u
   %3 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
   %.05 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [208 x i8], ptr %4, i64 %3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %6) #12
   %7 = add i32 %.05, 1
@@ -773,7 +769,7 @@ define hidden void @je_background_thread_postfork_child(ptr noundef %0) local_un
   %5 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
   %.025 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %7 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [208 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   tail call void @je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef nonnull %8) #12
   %9 = add i32 %.025, 1
@@ -826,7 +822,7 @@ atomic_store_b.exit:                              ; preds = %16, %20
   %25 = phi i64 [ %53, %malloc_mutex_lock.exit24 ], [ 0, %atomic_store_b.exit ]
   %.01826 = phi i32 [ %52, %malloc_mutex_lock.exit24 ], [ 0, %atomic_store_b.exit ]
   %26 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [208 x i8], ptr %26, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %29 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %28) #12
   %.not.i21 = icmp eq i32 %29, 0
@@ -961,7 +957,7 @@ malloc_mutex_lock.exit:                           ; preds = %5, %9
   %.02633 = phi i32 [ 0, %.lr.ph ], [ %91, %malloc_mutex_trylock.exit ]
   %.02732 = phi i64 [ 0, %.lr.ph ], [ %.1, %malloc_mutex_trylock.exit ]
   %29 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [208 x i8], ptr %29, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %32) #12
@@ -1174,7 +1170,7 @@ define hidden noundef zeroext i1 @je_background_thread_boot1(ptr noundef %0, ptr
   %15 = phi i64 [ %45, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
   %.01821 = phi i32 [ %44, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
   %16 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [208 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull %18, ptr noundef nonnull @.str.1, i32 noundef 13, i32 noundef 1) #12
   br i1 %19, label %.thread, label %20
@@ -1314,7 +1310,7 @@ define internal noalias noundef ptr @background_thread_entry(ptr noundef %0) #0 
   %12 = shl nuw i64 1, %11
   %13 = lshr i64 %3, 6
   %14 = and i64 %13, 15
-  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !17
   %17 = or i64 %16, %12
   store i64 %17, ptr %15, align 8, !tbaa !17
@@ -1341,7 +1337,7 @@ tsd_fetch_impl.exit:                              ; preds = %19, %23
   call void @je_tsd_state_set(ptr noundef %.0.i, i8 noundef zeroext 5) #12
   %25 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
   %26 = and i64 %3, 4294967295
-  %27 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [208 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %30 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %29) #12
@@ -1602,7 +1598,7 @@ background_thread_pause_check.exit.us:            ; preds = %.backedge.us
 
 64:                                               ; preds = %.lr.ph.i.us
   %65 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %66 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [208 x i8], ptr %65, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 128
   %68 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %67) #12
   %.not.i27.us = icmp eq i32 %68, 0
@@ -1686,7 +1682,7 @@ check_background_thread_creation.exit.thread:     ; preds = %21, %check_backgrou
   %96 = phi i64 [ %130, %128 ], [ 1, %.preheader ]
   %.151 = phi i32 [ %129, %128 ], [ 1, %.preheader ]
   %97 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %98 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [208 x i8], ptr %97, i64 %96
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 %96
   %100 = load i8, ptr %99, align 1, !tbaa !30, !range !31, !noundef !32
   %101 = trunc nuw i8 %100 to i1
@@ -1789,7 +1785,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %.02227.us = phi i64 [ %.1.us, %22 ], [ -1, %.lr.ph ]
   %.02326.us = phi i32 [ %25, %22 ], [ %2, %.lr.ph ]
   %15 = zext i32 %.02326.us to i64
-  %16 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @je_arenas, i64 %15
   %17 = load atomic i64, ptr %16 acquire, align 8
   %.not.us = icmp eq i64 %17, 0
   %18 = icmp ult i64 %.02227.us, 100000001
@@ -1900,7 +1896,7 @@ background_thread_sleep.exit:                     ; preds = %56, %63
   %.02227 = phi i64 [ %.1, %73 ], [ -1, %.lr.ph ]
   %.02326 = phi i32 [ %76, %73 ], [ %2, %.lr.ph ]
   %65 = zext i32 %.02326 to i64
-  %66 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @je_arenas, i64 %65
   %67 = load atomic i64, ptr %66 acquire, align 8
   %.0.i.i = inttoptr i64 %67 to ptr
   %.not = icmp eq i64 %67, 0

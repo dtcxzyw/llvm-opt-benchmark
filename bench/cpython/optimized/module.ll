@@ -262,7 +262,7 @@ define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1, %3
   %.0611 = phi i32 [ 0, %1 ], [ %4, %3 ]
   %6 = zext nneg i32 %.0611 to i64
-  %7 = getelementptr %struct.anon, ptr @error_codes, i64 %6
+  %7 = getelementptr [16 x i8], ptr @error_codes, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !5
   %10 = icmp eq i64 %9, %2
@@ -1267,15 +1267,15 @@ define internal ptr @pysqlite_connect(ptr noundef %0, ptr noundef %1, i64 nounde
 
 22:                                               ; preds = %.lr.ph, %29
   %.02333 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %23 = getelementptr ptr, ptr %21, i64 %.02333
+  %23 = getelementptr [8 x i8], ptr %21, i64 %.02333
   %24 = load ptr, ptr %23, align 8, !tbaa !36
   %25 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %24, ptr noundef nonnull @.str.118) #5
   %.not29 = icmp eq i32 %25, 0
   br i1 %.not29, label %.thread, label %29
 
 .thread:                                          ; preds = %22
-  %26 = getelementptr ptr, ptr %1, i64 %8
-  %27 = getelementptr ptr, ptr %26, i64 %.02333
+  %26 = getelementptr [8 x i8], ptr %1, i64 %8
+  %27 = getelementptr [8 x i8], ptr %26, i64 %.02333
   %28 = load ptr, ptr %27, align 8, !tbaa !36
   br label %.loopexit
 
@@ -1838,7 +1838,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_error_constants(ptr noundef %0)
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr %struct.anon, ptr @error_codes, i64 %indvars.iv
+  %4 = getelementptr [16 x i8], ptr @error_codes, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !5
@@ -2202,7 +2202,7 @@ define internal fastcc range(i32 -1, 4) i32 @get_threadsafety(ptr noundef readon
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_threadsafety, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_threadsafety, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %9
 

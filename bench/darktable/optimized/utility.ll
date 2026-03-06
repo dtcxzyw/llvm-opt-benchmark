@@ -141,7 +141,7 @@ dt_util_localize_string.exit46:                   ; preds = %.lr.ph, %18
   %22 = add i64 %.03655, 3
   %23 = add i64 %22, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !6
   %.not42 = icmp eq ptr %25, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph
@@ -193,7 +193,7 @@ dt_util_localize_string.exit52:                   ; preds = %.lr.ph59, %39, %42
   %.0.i51 = phi ptr [ %44, %42 ], [ %38, %39 ], [ null, %.lr.ph59 ]
   %45 = tail call ptr @g_stpcpy(ptr noundef %37, ptr noundef %.0.i51) #28
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next62
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next62
   %47 = load ptr, ptr %46, align 8, !tbaa !6
   %.not43 = icmp eq ptr %47, null
   br i1 %.not43, label %.loopexit, label %.lr.ph59
@@ -433,7 +433,7 @@ define noalias ptr @dt_util_glist_to_str(ptr noundef %0, ptr noundef %1) local_u
   %.01517 = phi ptr [ %1, %4 ], [ %13, %9 ]
   %10 = load ptr, ptr %.01517, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %.01517, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !15
@@ -1223,7 +1223,7 @@ define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #
   %6 = getelementptr i8, ptr %5, i64 -1
   %7 = load i8, ptr %6, align 1, !tbaa !11
   %8 = sext i8 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %3, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !25
   %11 = tail call ptr @g_strsplit(ptr noundef nonnull %0, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter, i32 noundef 0) #28
   %.not = icmp eq ptr %11, null

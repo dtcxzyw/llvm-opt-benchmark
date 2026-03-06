@@ -660,7 +660,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   %19 = zext nneg i32 %18 to i64
   %20 = sext i32 %1 to i64
   %21 = mul nsw i64 %19, %20
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %0, i64 %21
   %23 = sub nsw i32 0, %1
   br label %24
 
@@ -769,7 +769,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   %72 = ashr i32 %71, 16
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, %67
-  %75 = getelementptr inbounds i16, ptr %.0120, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %.0120, i64 %74
   %76 = load i32, ptr %13, align 4
   %77 = add nsw i32 %76, %71
   %spec.select.i = call i32 @llvm.smin.i32(i32 %77, i32 %52)
@@ -784,7 +784,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   %.047.i = phi ptr [ %75, %70 ], [ %81, %80 ]
   %.04146.i = phi i32 [ 0, %70 ], [ %82, %80 ]
   call void @ScaleAddRow_16_C(ptr noundef %.047.i, ptr noundef nonnull %61, i32 noundef %53) #9
-  %81 = getelementptr inbounds i16, ptr %.047.i, i64 %67
+  %81 = getelementptr inbounds [2 x i8], ptr %.047.i, i64 %67
   %82 = add nuw nsw i32 %.04146.i, 1
   %exitcond.not.i = icmp eq i32 %82, %smax.i
   br i1 %exitcond.not.i, label %83, label %80, !llvm.loop !15
@@ -793,7 +793,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   %84 = load i32, ptr %10, align 4
   %85 = load i32, ptr %12, align 4
   call void %65(i32 noundef %6, i32 noundef %smax.i, i32 noundef %84, i32 noundef %85, ptr noundef nonnull %61, ptr noundef %.03949.i) #9, !callees !16
-  %86 = getelementptr inbounds i16, ptr %.03949.i, i64 %69
+  %86 = getelementptr inbounds [2 x i8], ptr %.03949.i, i64 %69
   %87 = add nuw nsw i32 %.04048.i, 1
   %exitcond50.not.i = icmp eq i32 %87, %7
   br i1 %exitcond50.not.i, label %._crit_edge.i, label %70, !llvm.loop !17
@@ -828,7 +828,7 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
   %98 = zext nneg i32 %97 to i64
   %99 = sext i32 %.0121 to i64
   %100 = mul nsw i64 %98, %99
-  %101 = getelementptr inbounds i16, ptr %.0120, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %.0120, i64 %100
   tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %101, ptr noundef %4, i32 noundef %6) #9
   br label %ScalePlaneUp2_16_Linear.exit
 
@@ -850,9 +850,9 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
   %109 = ashr i32 %.02125.i, 16
   %110 = sext i32 %109 to i64
   %111 = mul nsw i64 %110, %106
-  %112 = getelementptr inbounds i16, ptr %.0120, i64 %111
+  %112 = getelementptr inbounds [2 x i8], ptr %.0120, i64 %111
   tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %112, ptr noundef %.026.i, i32 noundef %6) #9
-  %113 = getelementptr inbounds i16, ptr %.026.i, i64 %107
+  %113 = getelementptr inbounds [2 x i8], ptr %.026.i, i64 %107
   %114 = add nsw i32 %.02125.i, %104
   %115 = add nuw nsw i32 %.02224.i, 1
   %exitcond.not.i144 = icmp eq i32 %115, %7
@@ -871,7 +871,7 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
 121:                                              ; preds = %116
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.0120, i64 noundef 0, ptr noundef %4, i64 noundef 0, i32 noundef %6) #9
   %122 = sext i32 %5 to i64
-  %123 = getelementptr inbounds i16, ptr %4, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %4, i64 %122
   %124 = icmp samesign ugt i32 %.0122, 1
   br i1 %124, label %.lr.ph.i147, label %._crit_edge.i145
 
@@ -887,8 +887,8 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
   %.02326.i = phi ptr [ %.0120, %.lr.ph.i147 ], [ %130, %129 ]
   %.02425.i = phi ptr [ %123, %.lr.ph.i147 ], [ %131, %129 ]
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.02326.i, i64 noundef %125, ptr noundef %.02425.i, i64 noundef %122, i32 noundef %6) #9
-  %130 = getelementptr inbounds i16, ptr %.02326.i, i64 %125
-  %131 = getelementptr inbounds i16, ptr %.02425.i, i64 %127
+  %130 = getelementptr inbounds [2 x i8], ptr %.02326.i, i64 %125
+  %131 = getelementptr inbounds [2 x i8], ptr %.02425.i, i64 %127
   %132 = add nuw nsw i32 %.027.i, 1
   %exitcond.not.i148 = icmp eq i32 %.027.i, %128
   br i1 %exitcond.not.i148, label %._crit_edge.i145, label %129, !llvm.loop !19
@@ -978,25 +978,25 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %35 = ashr i32 %22, 16
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %36, %23
-  %38 = getelementptr inbounds i16, ptr %6, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %6, i64 %37
   %39 = load i32, ptr %10, align 4
   %40 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %34, ptr noundef %38, i32 noundef %2, i32 noundef %39, i32 noundef %40) #9, !callees !20
   %41 = icmp samesign ugt i32 %1, 1
   %spec.select98.idx = select i1 %41, i64 %23, i64 0
-  %spec.select98 = getelementptr inbounds i16, ptr %38, i64 %spec.select98.idx
+  %spec.select98 = getelementptr inbounds [2 x i8], ptr %38, i64 %spec.select98.idx
   %42 = sext i32 %25 to i64
-  %43 = getelementptr inbounds i16, ptr %34, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %34, i64 %42
   %44 = load i32, ptr %10, align 4
   %45 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %43, ptr noundef %spec.select98, i32 noundef %2, i32 noundef %44, i32 noundef %45) #9, !callees !20
   %46 = icmp samesign ugt i32 %1, 2
   %.187.idx = select i1 %46, i64 %23, i64 0
-  %.187 = getelementptr inbounds i16, ptr %spec.select98, i64 %.187.idx
+  %.187 = getelementptr inbounds [2 x i8], ptr %spec.select98, i64 %.187.idx
   %47 = ashr exact i32 %15, 16
   %48 = sext i32 %47 to i64
   %49 = mul nsw i64 %48, %23
-  %50 = getelementptr inbounds i16, ptr %6, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %6, i64 %49
   %51 = icmp eq i32 %8, 1
   %52 = sext i32 %5 to i64
   %.pre110 = load i32, ptr %11, align 4
@@ -1033,13 +1033,13 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %61 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef %.083103.us, ptr noundef %.4.us, i32 noundef %2, i32 noundef %60, i32 noundef %61) #9, !callees !20
   %62 = sext i32 %.081104.us to i64
-  %63 = getelementptr inbounds i16, ptr %.083103.us, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %.083103.us, i64 %62
   %64 = sub nsw i32 0, %.081104.us
   %65 = load i32, ptr %11, align 4
   %66 = add nsw i32 %65, 65536
   %67 = icmp slt i32 %66, %15
   %spec.select99.idx.us = select i1 %67, i64 %23, i64 0
-  %spec.select99.us = getelementptr inbounds i16, ptr %.4.us, i64 %spec.select99.idx.us
+  %spec.select99.us = getelementptr inbounds [2 x i8], ptr %.4.us, i64 %spec.select99.idx.us
   br label %68
 
 68:                                               ; preds = %59, %58, %.split.us
@@ -1048,7 +1048,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %.182.us = phi i32 [ %.081104.us, %.split.us ], [ %64, %59 ], [ %.081104.us, %58 ]
   %.1.us = phi i32 [ %.080105.us, %.split.us ], [ %.088.us, %59 ], [ %.080105.us, %58 ]
   call void @InterpolateRow_16_C(ptr noundef %.085102.us, ptr noundef %.184.us, i64 noundef 0, i32 noundef %2, i32 noundef 0) #9
-  %69 = getelementptr inbounds i16, ptr %.085102.us, i64 %52
+  %69 = getelementptr inbounds [2 x i8], ptr %.085102.us, i64 %52
   %70 = load i32, ptr %13, align 4
   %71 = load i32, ptr %11, align 4
   %72 = add nsw i32 %71, %70
@@ -1089,13 +1089,13 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %83 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef %.083103, ptr noundef %.4, i32 noundef %2, i32 noundef %82, i32 noundef %83) #9, !callees !20
   %84 = sext i32 %.081104 to i64
-  %85 = getelementptr inbounds i16, ptr %.083103, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %.083103, i64 %84
   %86 = sub nsw i32 0, %.081104
   %87 = load i32, ptr %11, align 4
   %88 = add nsw i32 %87, 65536
   %89 = icmp slt i32 %88, %15
   %spec.select99.idx = select i1 %89, i64 %23, i64 0
-  %spec.select99 = getelementptr inbounds i16, ptr %.4, i64 %spec.select99.idx
+  %spec.select99 = getelementptr inbounds [2 x i8], ptr %.4, i64 %spec.select99.idx
   br label %90
 
 90:                                               ; preds = %81, %79, %.split
@@ -1108,7 +1108,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %93 = and i32 %92, 255
   %94 = sext i32 %.182 to i64
   call void @InterpolateRow_16_C(ptr noundef %.085102, ptr noundef %.184, i64 noundef %94, i32 noundef %2, i32 noundef %93) #9
-  %95 = getelementptr inbounds i16, ptr %.085102, i64 %52
+  %95 = getelementptr inbounds [2 x i8], ptr %.085102, i64 %52
   %96 = load i32, ptr %13, align 4
   %97 = load i32, ptr %11, align 4
   %98 = add nsw i32 %97, %96
@@ -1180,11 +1180,11 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown_16(i32 nounde
   %38 = ashr i32 %37, 16
   %39 = sext i32 %38 to i64
   %40 = mul nsw i64 %39, %34
-  %41 = getelementptr inbounds i16, ptr %6, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %6, i64 %40
   %42 = load i32, ptr %10, align 4
   %43 = load i32, ptr %12, align 4
   call void %26(ptr noundef %.03944.us, ptr noundef %41, i32 noundef %2, i32 noundef %42, i32 noundef %43) #9, !callees !20
-  %44 = getelementptr inbounds i16, ptr %.03944.us, i64 %36
+  %44 = getelementptr inbounds [2 x i8], ptr %.03944.us, i64 %36
   %45 = load i32, ptr %13, align 4
   %46 = load i32, ptr %11, align 4
   %47 = add nsw i32 %46, %45
@@ -1201,14 +1201,14 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown_16(i32 nounde
   %50 = ashr i32 %49, 16
   %51 = sext i32 %50 to i64
   %52 = mul nsw i64 %51, %34
-  %53 = getelementptr inbounds i16, ptr %6, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %6, i64 %52
   %54 = lshr i32 %49, 8
   %55 = and i32 %54, 255
   call void @InterpolateRow_16_C(ptr noundef nonnull %21, ptr noundef %53, i64 noundef %34, i32 noundef %27, i32 noundef %55) #9
   %56 = load i32, ptr %10, align 4
   %57 = load i32, ptr %12, align 4
   call void %26(ptr noundef %.03944, ptr noundef nonnull %21, i32 noundef %2, i32 noundef %56, i32 noundef %57) #9, !callees !20
-  %58 = getelementptr inbounds i16, ptr %.03944, i64 %36
+  %58 = getelementptr inbounds [2 x i8], ptr %.03944, i64 %36
   %59 = load i32, ptr %13, align 4
   %60 = load i32, ptr %11, align 4
   %61 = add nsw i32 %60, %59
@@ -1261,11 +1261,11 @@ define internal fastcc void @ScalePlaneSimple_16(i32 noundef %0, i32 noundef ran
   %23 = ashr i32 %22, 16
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %24, %19
-  %26 = getelementptr inbounds i16, ptr %6, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %6, i64 %25
   %27 = load i32, ptr %9, align 4
   %28 = load i32, ptr %11, align 4
   call void %spec.select(ptr noundef %.01819, ptr noundef %26, i32 noundef %2, i32 noundef %27, i32 noundef %28) #9, !callees !23
-  %29 = getelementptr inbounds i16, ptr %.01819, i64 %20
+  %29 = getelementptr inbounds [2 x i8], ptr %.01819, i64 %20
   %30 = load i32, ptr %12, align 4
   %31 = load i32, ptr %10, align 4
   %32 = add nsw i32 %31, %30
@@ -1290,7 +1290,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_12(ptr noundef %0, i32 noundef %1,
   %15 = zext nneg i32 %14 to i64
   %16 = sext i32 %1 to i64
   %17 = mul nsw i64 %15, %16
-  %18 = getelementptr inbounds i16, ptr %0, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %0, i64 %17
   %19 = sub nsw i32 0, %1
   br label %20
 
@@ -1315,7 +1315,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_12(ptr noundef %0, i32 noundef %1,
   %30 = zext nneg i32 %29 to i64
   %31 = sext i32 %.049 to i64
   %32 = mul nsw i64 %30, %31
-  %33 = getelementptr inbounds i16, ptr %.048, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %.048, i64 %32
   tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %33, ptr noundef %4, i32 noundef %6) #9
   br label %ScalePlaneUp2_12_Linear.exit
 
@@ -1337,9 +1337,9 @@ define hidden range(i32 0, 2) i32 @ScalePlane_12(ptr noundef %0, i32 noundef %1,
   %41 = ashr i32 %.02125.i, 16
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, %38
-  %44 = getelementptr inbounds i16, ptr %.048, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.048, i64 %43
   tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %44, ptr noundef %.026.i, i32 noundef %6) #9
-  %45 = getelementptr inbounds i16, ptr %.026.i, i64 %39
+  %45 = getelementptr inbounds [2 x i8], ptr %.026.i, i64 %39
   %46 = add nsw i32 %.02125.i, %36
   %47 = add nuw nsw i32 %.02224.i, 1
   %exitcond.not.i = icmp eq i32 %47, %7
@@ -1358,7 +1358,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_12(ptr noundef %0, i32 noundef %1,
 53:                                               ; preds = %48
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.048, i64 noundef 0, ptr noundef %4, i64 noundef 0, i32 noundef %6) #9
   %54 = sext i32 %5 to i64
-  %55 = getelementptr inbounds i16, ptr %4, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %4, i64 %54
   %56 = icmp samesign ugt i32 %.050, 1
   br i1 %56, label %.lr.ph.i56, label %._crit_edge.i
 
@@ -1374,8 +1374,8 @@ define hidden range(i32 0, 2) i32 @ScalePlane_12(ptr noundef %0, i32 noundef %1,
   %.02326.i = phi ptr [ %.048, %.lr.ph.i56 ], [ %62, %61 ]
   %.02425.i = phi ptr [ %55, %.lr.ph.i56 ], [ %63, %61 ]
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.02326.i, i64 noundef %57, ptr noundef %.02425.i, i64 noundef %54, i32 noundef %6) #9
-  %62 = getelementptr inbounds i16, ptr %.02326.i, i64 %57
-  %63 = getelementptr inbounds i16, ptr %.02425.i, i64 %59
+  %62 = getelementptr inbounds [2 x i8], ptr %.02326.i, i64 %57
+  %63 = getelementptr inbounds [2 x i8], ptr %.02425.i, i64 %59
   %64 = add nuw nsw i32 %.027.i, 1
   %exitcond.not.i57 = icmp eq i32 %.027.i, %60
   br i1 %exitcond.not.i57, label %._crit_edge.i, label %61, !llvm.loop !26
@@ -1432,14 +1432,14 @@ define internal void @ScaleAddCols2_C(i32 noundef %0, i32 noundef %1, i32 nounde
   %21 = sub nsw i32 %20, %18
   %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %23 = sext i32 %18 to i64
-  %24 = getelementptr inbounds i16, ptr %4, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %4, i64 %23
   %wide.trip.count.i = zext nneg i32 %22 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %.lr.ph ], [ %28, %.lr.ph.i ]
-  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = add i32 %.067.i, %27
@@ -1450,7 +1450,7 @@ define internal void @ScaleAddCols2_C(i32 noundef %0, i32 noundef %1, i32 nounde
 SumPixels.exit:                                   ; preds = %.lr.ph.i
   %29 = sub nsw i32 %22, %8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %7, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %7, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = mul i32 %32, %28
   %34 = lshr i32 %33, 16
@@ -1484,13 +1484,13 @@ define internal void @ScaleAddCols1_C(i32 noundef %0, i32 noundef %1, i32 nounde
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %SumPixels.exit ]
   %.018 = phi i32 [ 0, %.lr.ph ], [ %24, %SumPixels.exit ]
   %.01516 = phi ptr [ %5, %.lr.ph ], [ %23, %SumPixels.exit ]
-  %15 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds [2 x i8], ptr %4, i64 %indvars.iv
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %14 ], [ %19, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = add i32 %.067.i, %18
@@ -1518,7 +1518,7 @@ define internal void @ScaleAddCols0_C(i32 noundef %0, i32 noundef %1, i32 nounde
   %7 = sdiv i32 65536, %1
   %8 = ashr i32 %2, 16
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %4, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %4, i64 %9
   %11 = icmp sgt i32 %0, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1529,7 +1529,7 @@ define internal void @ScaleAddCols0_C(i32 noundef %0, i32 noundef %1, i32 nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0910 = phi ptr [ %5, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = mul nsw i32 %7, %14
@@ -1594,14 +1594,14 @@ define internal void @ScaleAddCols2_16_C(i32 noundef %0, i32 noundef %1, i32 nou
   %21 = sub nsw i32 %20, %18
   %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %23 = sext i32 %18 to i64
-  %24 = getelementptr inbounds i32, ptr %4, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %4, i64 %23
   %wide.trip.count.i = zext nneg i32 %22 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %.lr.ph ], [ %27, %.lr.ph.i ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1611,7 +1611,7 @@ define internal void @ScaleAddCols2_16_C(i32 noundef %0, i32 noundef %1, i32 nou
 SumPixels_16.exit:                                ; preds = %.lr.ph.i
   %28 = sub nsw i32 %22, %8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %7, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = mul i32 %31, %27
   %33 = lshr i32 %32, 16
@@ -1644,13 +1644,13 @@ define internal void @ScaleAddCols1_16_C(i32 noundef %0, i32 noundef %1, i32 nou
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %SumPixels_16.exit ]
   %.017 = phi i32 [ 0, %.lr.ph ], [ %22, %SumPixels_16.exit ]
   %.01415 = phi ptr [ %5, %.lr.ph ], [ %21, %SumPixels_16.exit ]
-  %14 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %13
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %13 ], [ %17, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

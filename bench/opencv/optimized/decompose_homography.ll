@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point3_" = type { float, float, float }
 %"struct.cv::Ptr.13" = type { %"class.std::shared_ptr.14" }
 %"class.std::shared_ptr.14" = type { %"class.std::__shared_ptr.15" }
 %"class.std::__shared_ptr.15" = type { ptr, %"class.std::__shared_count" }
@@ -1100,7 +1099,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.u
 _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.us.i: ; preds = %230, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.us.i
   store ptr %225, ptr %32, align 8, !tbaa !71
   store ptr %229, ptr %198, align 8, !tbaa !61
-  %231 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %225, i64 %223
+  %231 = getelementptr inbounds nuw [12 x i8], ptr %225, i64 %223
   store ptr %231, ptr %201, align 8, !tbaa !72
   br label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i
 
@@ -2409,7 +2408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit337: ; preds = %_Z
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %92) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %653 = load ptr, ptr %84, align 8, !tbaa !118
-  %654 = getelementptr inbounds nuw %"class.cv::Mat", ptr %653, i64 %indvars.iv
+  %654 = getelementptr inbounds nuw [96 x i8], ptr %653, i64 %indvars.iv
   store i32 0, ptr %563, align 8, !tbaa !18
   store i32 0, ptr %564, align 4, !tbaa !20
   store i32 16842752, ptr %93, align 8, !tbaa !32
@@ -2660,7 +2659,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit359: ; preds = %_ZNS
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %741 = load ptr, ptr %85, align 8, !tbaa !118
-  %742 = getelementptr inbounds nuw %"class.cv::Mat", ptr %741, i64 %indvars.iv
+  %742 = getelementptr inbounds nuw [96 x i8], ptr %741, i64 %indvars.iv
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %100, ptr noundef nonnull align 8 dereferenceable(96) %742)
           to label %743 unwind label %898
 
@@ -2691,7 +2690,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit364: ; preds = %751
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %753 = load ptr, ptr %85, align 8, !tbaa !118
-  %754 = getelementptr inbounds nuw %"class.cv::Mat", ptr %753, i64 %indvars.iv
+  %754 = getelementptr inbounds nuw [96 x i8], ptr %753, i64 %indvars.iv
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %103, ptr noundef nonnull align 8 dereferenceable(96) %754)
           to label %755 unwind label %902
 
@@ -2871,7 +2870,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit378: ; preds = %_ZNS
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %814 = load ptr, ptr %86, align 8, !tbaa !118
-  %815 = getelementptr inbounds nuw %"class.cv::Mat", ptr %814, i64 %indvars.iv
+  %815 = getelementptr inbounds nuw [96 x i8], ptr %814, i64 %indvars.iv
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %107, ptr noundef nonnull align 8 dereferenceable(96) %815)
           to label %816 unwind label %912
 
@@ -3659,7 +3658,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN2cv3M
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %118) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
   %1037 = load ptr, ptr %84, align 8, !tbaa !118
-  %1038 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1037, i64 %indvars.iv788
+  %1038 = getelementptr inbounds nuw [96 x i8], ptr %1037, i64 %indvars.iv788
   store i32 0, ptr %981, align 8, !tbaa !18
   store i32 0, ptr %982, align 4, !tbaa !20
   store i32 16842752, ptr %119, align 8, !tbaa !32
@@ -3910,7 +3909,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit441: ; preds = %_ZNS
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
   %1125 = load ptr, ptr %85, align 8, !tbaa !118
-  %1126 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1125, i64 %indvars.iv788
+  %1126 = getelementptr inbounds nuw [96 x i8], ptr %1125, i64 %indvars.iv788
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %126, ptr noundef nonnull align 8 dereferenceable(96) %1126)
           to label %1127 unwind label %1282
 
@@ -3941,7 +3940,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit446: ; preds = %1135
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %1137 = load ptr, ptr %85, align 8, !tbaa !118
-  %1138 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1137, i64 %indvars.iv788
+  %1138 = getelementptr inbounds nuw [96 x i8], ptr %1137, i64 %indvars.iv788
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %129, ptr noundef nonnull align 8 dereferenceable(96) %1138)
           to label %1139 unwind label %1286
 
@@ -4121,7 +4120,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit460: ; preds = %_ZNS
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
   %1198 = load ptr, ptr %86, align 8, !tbaa !118
-  %1199 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1198, i64 %indvars.iv788
+  %1199 = getelementptr inbounds nuw [96 x i8], ptr %1198, i64 %indvars.iv788
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %133, ptr noundef nonnull align 8 dereferenceable(96) %1199)
           to label %1200 unwind label %1296
 
@@ -5070,7 +5069,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !117
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !10
   br label %16

@@ -414,10 +414,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %3 = load i8, ptr %2, align 1, !range !39, !alias.scope !36, !noalias !40, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988.29", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988.29", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !36
   ret i1 %6
@@ -1255,8 +1255,8 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17hd0e2ee8ef18c4833E"(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #9 {
   %5 = alloca [176 x i8], align 8
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %0, i64 %2
-  %7 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %0, i64 %3
+  %6 = getelementptr inbounds [176 x i8], ptr %0, i64 %2
+  %7 = getelementptr inbounds [176 x i8], ptr %0, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(176) %6, i64 176, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
@@ -1580,10 +1580,10 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$url..parser..ParseError$u20$as$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !39, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988.29", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.3116206040693253988.29", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -1979,7 +1979,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h8463
   %28 = zext nneg i16 %27 to i64
   %29 = and i16 %26, %.lcssa.i
   %30 = sub nsw i64 0, %28
-  %31 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %.sroa.05.1, i64 %30
+  %31 = getelementptr inbounds [128 x i8], ptr %.sroa.05.1, i64 %30
   %32 = add i64 %.sroa.107.016, -1
   %33 = getelementptr inbounds i8, ptr %31, i64 -128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
@@ -4618,7 +4618,7 @@ define void @_ZN9uv_client4html10SimpleHtml5parse17h7e6cda729b6336feE(ptr dead_o
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %172 = load ptr, ptr %73, align 8, !nonnull !4, !noundef !4
   %173 = load i64, ptr %75, align 8, !noundef !4
-  %174 = getelementptr inbounds { i64, [20 x i64] }, ptr %172, i64 %173
+  %174 = getelementptr inbounds [168 x i8], ptr %172, i64 %173
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !494
   store i64 -9223372036854775798, ptr %10, align 8, !noalias !494
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !494
@@ -4698,7 +4698,7 @@ define void @_ZN9uv_client4html10SimpleHtml5parse17h7e6cda729b6336feE(ptr dead_o
           to label %.loopexit319 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %192
-  %195 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %188, i64 %190
+  %195 = getelementptr inbounds nuw [176 x i8], ptr %188, i64 %190
   %196 = getelementptr inbounds nuw i8, ptr %188, i64 176
   br label %.lr.ph.i.i
 

@@ -730,9 +730,9 @@ define linkonce_odr hidden void @_ZNK2cv18BlendLinearInvokerIhEclERKNS_5RangeE(p
   %63 = trunc nuw nsw i64 %indvars.iv to i32
   %64 = udiv i32 %63, %8
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw float, ptr %29, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !65
-  %68 = getelementptr inbounds nuw float, ptr %37, i64 %65
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %65
   %69 = load float, ptr %68, align 4, !tbaa !65
   %70 = fadd float %67, %69
   %71 = fadd float %70, 0x3EE4F8B580000000
@@ -859,20 +859,20 @@ define linkonce_odr hidden void @_ZNK2cv18BlendLinearInvokerIfEclERKNS_5RangeE(p
   %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = udiv i32 %62, %8
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr %52, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !65
-  %67 = getelementptr inbounds nuw float, ptr %54, i64 %64
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %64
   %68 = load float, ptr %67, align 4, !tbaa !65
   %69 = fadd float %66, %68
   %70 = fadd float %69, 0x3EE4F8B580000000
-  %71 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %72 = load float, ptr %71, align 4, !tbaa !65
-  %73 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %74 = load float, ptr %73, align 4, !tbaa !65
   %75 = fmul float %68, %74
   %76 = tail call float @llvm.fmuladd.f32(float %72, float %66, float %75)
   %77 = fdiv float %76, %70
-  %78 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   store float %77, ptr %78, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

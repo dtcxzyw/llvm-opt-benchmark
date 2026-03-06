@@ -2105,7 +2105,7 @@ define dso_local i32 @PyErr_GivenExceptionMatches(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %9, %13
   %.02141 = phi i64 [ %14, %13 ], [ 0, %9 ]
-  %15 = getelementptr ptr, ptr %11, i64 %.02141
+  %15 = getelementptr [8 x i8], ptr %11, i64 %.02141
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = tail call i32 @PyErr_GivenExceptionMatches(ptr noundef %0, ptr noundef %16)
   %.not30 = icmp eq i32 %17, 0

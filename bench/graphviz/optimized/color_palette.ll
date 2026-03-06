@@ -560,7 +560,7 @@ define ptr @color_palettes_get(ptr noundef readonly captures(none) %0) local_unn
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [2 x ptr], ptr @color_palettes, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @color_palettes, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !5
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #5
   %7 = icmp eq i32 %6, 0
@@ -603,7 +603,7 @@ define noundef zeroext i1 @knownColorScheme(ptr noundef readonly captures(none) 
 
 .preheader:                                       ; preds = %10, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw [2 x ptr], ptr @color_palettes, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @color_palettes, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 16, !tbaa !5
   %15 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %14) #5
   %16 = icmp eq i32 %15, 0

@@ -111,11 +111,11 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   %28 = trunc i64 %indvars.iv to i32
   %29 = sub i32 %28, %.neg76
   %30 = sitofp i32 %29 to double
-  %31 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store double %30, ptr %31, align 8, !tbaa !18
   %32 = fmul nnan double %30, %30
   %33 = fmul double %32, %30
-  %34 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store double %33, ptr %34, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -158,7 +158,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h1b3e
   %25 = zext nneg i16 %24 to i64
   %26 = and i16 %23, %.lcssa.i
   %27 = sub nsw i64 0, %25
-  %28 = getelementptr inbounds { { i64, [10 x i64] }, { { { i64, [1 x i64] } } } }, ptr %.sroa.05.1, i64 %27
+  %28 = getelementptr inbounds [104 x i8], ptr %.sroa.05.1, i64 %27
   %29 = add i64 %.sroa.107.016, -1
   %30 = getelementptr inbounds i8, ptr %28, i64 -104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -352,7 +352,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h272b
   %22 = zext nneg i16 %21 to i64
   %23 = and i16 %20, %.lcssa.i
   %24 = sub nsw i64 0, %22
-  %25 = getelementptr inbounds { ptr, { { { i64, [1 x i64] } } } }, ptr %.sroa.05.1, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %.sroa.05.1, i64 %24
   %26 = add i64 %.sroa.107.015, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -24
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
@@ -464,7 +464,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h52f9
   %25 = zext nneg i16 %24 to i64
   %26 = and i16 %23, %.lcssa.i
   %27 = sub nsw i64 0, %25
-  %28 = getelementptr inbounds { { { i64, [3 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } } }, { { { i64, [40 x i8] } } } }, ptr %.sroa.05.1, i64 %27
+  %28 = getelementptr inbounds [168 x i8], ptr %.sroa.05.1, i64 %27
   %29 = add i64 %.sroa.107.015, -1
   %30 = getelementptr inbounds i8, ptr %28, i64 -168
   %31 = getelementptr inbounds i8, ptr %28, i64 -136
@@ -552,7 +552,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h654d
   %22 = zext nneg i16 %21 to i64
   %23 = and i16 %20, %.lcssa.i
   %24 = sub nsw i64 0, %22
-  %25 = getelementptr inbounds { { ptr, { i64, [1 x i64] } }, { { { i64, [1 x i64] } } } }, ptr %.sroa.05.1, i64 %24
+  %25 = getelementptr inbounds [40 x i8], ptr %.sroa.05.1, i64 %24
   %26 = add i64 %.sroa.107.016, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -40
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3139557602157141465"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27)
@@ -732,7 +732,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hf3e6
   %37 = zext nneg i16 %36 to i64
   %38 = and i16 %35, %.lcssa.i
   %39 = sub nsw i64 0, %37
-  %40 = getelementptr inbounds { { i64, [10 x i64] }, { { { i64, [60 x i64] } } } }, ptr %.sroa.05.1, i64 %39
+  %40 = getelementptr inbounds [576 x i8], ptr %.sroa.05.1, i64 %39
   %41 = add i64 %.sroa.107.016, -1
   %42 = getelementptr inbounds i8, ptr %40, i64 -576
   tail call void @llvm.experimental.noalias.scope.decl(metadata !262)

@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.12 = type { i64 }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.ItemIdData = type { i32 }
 
 @pgWalUsage = external global %struct.WalUsage, align 8
 @pgBufferUsage = external global %struct.BufferUsage, align 8
@@ -257,13 +256,13 @@ define dso_local void @heap_vacuum_rel(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph:                                           ; preds = %84, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %84 ]
   %90 = load ptr, ptr %79, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = call ptr @pstrdup(ptr noundef nonnull %95) #9
-  %97 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv
   store ptr %96, ptr %97, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %78, align 8
@@ -668,7 +667,7 @@ lazy_scan_new_or_empty.exit.thread.i:             ; preds = %lazy_scan_new_or_em
   %324 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %325 = xor i32 %318, -1
   %326 = zext nneg i32 %325 to i64
-  %327 = getelementptr inbounds nuw ptr, ptr %324, i64 %326
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %324, i64 %326
   %328 = load ptr, ptr %327, align 8
   br label %BufferGetPage.exit.i
 
@@ -871,7 +870,7 @@ lazy_scan_new_or_empty.exit.thread176.i:          ; preds = %lazy_scan_new_or_em
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i16 %.061120.i.i, ptr %283, align 4
   %425 = zext i16 %.061120.i.i to i64
-  %426 = getelementptr %struct.ItemIdData, ptr %420, i64 %425
+  %426 = getelementptr [4 x i8], ptr %420, i64 %425
   %427 = load i32, ptr %426, align 4
   %428 = lshr i32 %427, 15
   %429 = and i32 %428, 3
@@ -888,7 +887,7 @@ lazy_scan_new_or_empty.exit.thread176.i:          ; preds = %lazy_scan_new_or_em
 431:                                              ; preds = %424
   %432 = add i32 %.074115.i.i, 1
   %433 = sext i32 %.074115.i.i to i64
-  %434 = getelementptr inbounds i16, ptr %19, i64 %433
+  %434 = getelementptr inbounds [2 x i8], ptr %19, i64 %433
   store i16 %.061120.i.i, ptr %434, align 2
   br label %462
 
@@ -1524,10 +1523,10 @@ lazy_scan_new_or_empty.exit.thread.i.backedge:    ; preds = %689, %687, %682, %6
 741:                                              ; preds = %741, %.lr.ph.i138.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i138.i ], [ %indvars.iv.next.i.i, %741 ]
   %742 = load ptr, ptr %79, align 8
-  %743 = getelementptr inbounds nuw ptr, ptr %742, i64 %indvars.iv.i.i
+  %743 = getelementptr inbounds nuw [8 x i8], ptr %742, i64 %indvars.iv.i.i
   %744 = load ptr, ptr %743, align 8
   %745 = load ptr, ptr %127, align 8
-  %746 = getelementptr inbounds nuw ptr, ptr %745, i64 %indvars.iv.i.i
+  %746 = getelementptr inbounds nuw [8 x i8], ptr %745, i64 %indvars.iv.i.i
   %747 = load ptr, ptr %746, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %744, ptr %6, align 8
@@ -1560,7 +1559,7 @@ lazy_scan_new_or_empty.exit.thread.i.backedge:    ; preds = %689, %687, %682, %6
   store ptr null, ptr %72, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %759 = load ptr, ptr %127, align 8
-  %760 = getelementptr inbounds nuw ptr, ptr %759, i64 %indvars.iv.i.i
+  %760 = getelementptr inbounds nuw [8 x i8], ptr %759, i64 %indvars.iv.i.i
   store ptr %757, ptr %760, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef %indvars.iv.next.i.i) #9
@@ -1617,9 +1616,9 @@ dead_items_cleanup.exit:                          ; preds = %lazy_scan_heap.exit
 
 .lr.ph.i:                                         ; preds = %789, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %789 ]
-  %776 = getelementptr inbounds nuw ptr, ptr %.pre293, i64 %indvars.iv.i
+  %776 = getelementptr inbounds nuw [8 x i8], ptr %.pre293, i64 %indvars.iv.i
   %777 = load ptr, ptr %776, align 8
-  %778 = getelementptr inbounds nuw ptr, ptr %774, i64 %indvars.iv.i
+  %778 = getelementptr inbounds nuw [8 x i8], ptr %774, i64 %indvars.iv.i
   %779 = load ptr, ptr %778, align 8
   %780 = icmp eq ptr %779, null
   br i1 %780, label %789, label %781
@@ -1840,7 +1839,7 @@ should_attempt_truncation.exit:                   ; preds = %799
   %881 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %882 = xor i32 %878, -1
   %883 = zext nneg i32 %882 to i64
-  %884 = getelementptr inbounds nuw ptr, ptr %881, i64 %883
+  %884 = getelementptr inbounds nuw [8 x i8], ptr %881, i64 %883
   %885 = load ptr, ptr %884, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -1885,7 +1884,7 @@ BufferGetPage.exit.i.i:                           ; preds = %886, %880
 905:                                              ; preds = %903, %.lr.ph.i.i253
   %.06289.i.i = phi i16 [ 1, %.lr.ph.i.i253 ], [ %904, %903 ]
   %906 = zext i16 %.06289.i.i to i64
-  %907 = getelementptr %struct.ItemIdData, ptr %902, i64 %906
+  %907 = getelementptr [4 x i8], ptr %902, i64 %906
   %908 = load i32, ptr %907, align 4
   %909 = and i32 %908, 98304
   %.not71.i.i = icmp eq i32 %909, 0
@@ -2165,13 +2164,13 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
   %1063 = phi i32 [ %1078, %1077 ], [ %1059, %1052 ]
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %1077 ], [ 0, %1052 ]
   %1064 = load ptr, ptr %127, align 8
-  %1065 = getelementptr inbounds nuw ptr, ptr %1064, i64 %indvars.iv281
+  %1065 = getelementptr inbounds nuw [8 x i8], ptr %1064, i64 %indvars.iv281
   %1066 = load ptr, ptr %1065, align 8
   %.not240 = icmp eq ptr %1066, null
   br i1 %.not240, label %1077, label %1067
 
 1067:                                             ; preds = %.lr.ph266
-  %1068 = getelementptr inbounds nuw ptr, ptr %.0223, i64 %indvars.iv281
+  %1068 = getelementptr inbounds nuw [8 x i8], ptr %.0223, i64 %indvars.iv281
   %1069 = load ptr, ptr %1068, align 8
   %1070 = load i32, ptr %1066, align 8
   %1071 = getelementptr inbounds nuw i8, ptr %1066, i64 24
@@ -2293,7 +2292,7 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
 .lr.ph269.split.us:                               ; preds = %.lr.ph269.split.us.preheader, %1143
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %1143 ], [ 0, %.lr.ph269.split.us.preheader ]
   %1139 = load ptr, ptr %127, align 8
-  %1140 = getelementptr inbounds nuw ptr, ptr %1139, i64 %indvars.iv287
+  %1140 = getelementptr inbounds nuw [8 x i8], ptr %1139, i64 %indvars.iv287
   %1141 = load ptr, ptr %1140, align 8
   %.not239.us = icmp eq ptr %1141, null
   br i1 %.not239.us, label %1143, label %1142
@@ -2303,7 +2302,7 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
   br label %1143
 
 1143:                                             ; preds = %1142, %.lr.ph269.split.us
-  %1144 = getelementptr inbounds nuw ptr, ptr %.0223, i64 %indvars.iv287
+  %1144 = getelementptr inbounds nuw [8 x i8], ptr %.0223, i64 %indvars.iv287
   %1145 = load ptr, ptr %1144, align 8
   call void @pfree(ptr noundef %1145) #9
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
@@ -2326,7 +2325,7 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
   %1149 = phi i32 [ %1155, %1154 ], [ %1137, %.thread333 ]
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %1154 ], [ 0, %.thread333 ]
   %1150 = load ptr, ptr %127, align 8
-  %1151 = getelementptr inbounds nuw ptr, ptr %1150, i64 %indvars.iv284
+  %1151 = getelementptr inbounds nuw [8 x i8], ptr %1150, i64 %indvars.iv284
   %1152 = load ptr, ptr %1151, align 8
   %.not239 = icmp eq ptr %1152, null
   br i1 %.not239, label %1154, label %1153
@@ -2908,10 +2907,10 @@ lazy_vacuum_all_indexes.exit.thread:              ; preds = %.critedge
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %62, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv.i
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %63, align 8
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i
   %87 = load ptr, ptr %86, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %84, ptr %7, align 8
@@ -2946,7 +2945,7 @@ lazy_vacuum_all_indexes.exit.thread:              ; preds = %.critedge
   store ptr null, ptr %72, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %101 = load ptr, ptr %63, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i
   store ptr %99, ptr %102, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef %indvars.iv.next.i) #9
@@ -3036,7 +3035,7 @@ lazy_vacuum_all_indexes.exit:                     ; preds = %78, %81, %104
   %147 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %148 = xor i32 %139, -1
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw ptr, ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %149
   %151 = load ptr, ptr %150, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -3084,13 +3083,13 @@ BufferGetPage.exit.i.i:                           ; preds = %152, %146
 
 172:                                              ; preds = %172, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %172 ]
-  %173 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i.i
+  %173 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i.i
   %174 = load i16, ptr %173, align 2
   %175 = zext i16 %174 to i64
-  %176 = getelementptr %struct.ItemIdData, ptr %165, i64 %175
+  %176 = getelementptr [4 x i8], ptr %165, i64 %175
   store i32 0, ptr %176, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %177 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i.i
   store i16 %174, ptr %177, align 2
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %172, !llvm.loop !20
@@ -3126,7 +3125,7 @@ BufferGetPage.exit.i.i:                           ; preds = %152, %146
   %194 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %195 = xor i32 %139, -1
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr %194, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %196
   %198 = load ptr, ptr %197, align 8
   br label %BufferGetPage.exit.i.i.i
 
@@ -3170,7 +3169,7 @@ BufferGetPage.exit.i.i.i:                         ; preds = %199, %193
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 %.053.i.i.i, ptr %115, align 4
   %217 = zext i16 %.053.i.i.i to i64
-  %218 = getelementptr %struct.ItemIdData, ptr %212, i64 %217
+  %218 = getelementptr [4 x i8], ptr %212, i64 %217
   %219 = load i32, ptr %218, align 4
   %220 = lshr i32 %219, 15
   %221 = and i32 %220, 3
@@ -3321,7 +3320,7 @@ lazy_vacuum_heap_page.exit.i:                     ; preds = %278, %275, %272, %2
   %282 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %283 = xor i32 %139, -1
   %284 = zext nneg i32 %283 to i64
-  %285 = getelementptr inbounds nuw ptr, ptr %282, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %284
   %286 = load ptr, ptr %285, align 8
   br label %293
 

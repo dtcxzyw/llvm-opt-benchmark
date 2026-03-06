@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lj_dispatch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-%struct.GCRef = type { i64 }
 %struct.lua_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32 }
 
 @lj_vm_asm_begin = external hidden global [0 x i8], align 1
@@ -17,11 +15,11 @@ define hidden void @lj_dispatch_init(ptr noundef captures(none) %0) local_unname
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_ofs, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !4
   %6 = zext i16 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %6
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %7, ptr %8, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1232
   store ptr %7, ptr %9, align 8, !tbaa !8
@@ -31,11 +29,11 @@ define hidden void @lj_dispatch_init(ptr noundef captures(none) %0) local_unname
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader ], [ 89, %3 ]
-  %10 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv34
+  %10 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_ofs, i64 %indvars.iv34
   %11 = load i16, ptr %10, align 2, !tbaa !4
   %12 = zext i16 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %12
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv34
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv34
   store ptr %13, ptr %14, align 8, !tbaa !8
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 154
@@ -73,7 +71,7 @@ define hidden void @lj_dispatch_init(ptr noundef captures(none) %0) local_unname
 
 35:                                               ; preds = %15, %35
   %indvars.iv38 = phi i64 [ 0, %15 ], [ %indvars.iv.next39, %35 ]
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv38
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv38
   %37 = trunc i64 %indvars.iv38 to i32
   %38 = add i32 %37, 97
   store i32 %38, ptr %36, align 4, !tbaa !44
@@ -99,7 +97,7 @@ define hidden void @lj_dispatch_init_hotcount(ptr noundef captures(none) %0) loc
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %5, ptr %8, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -226,7 +224,7 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
 
 68:                                               ; preds = %64, %68
   %indvars.iv = phi i64 [ 0, %64 ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store ptr %67, ptr %69, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
@@ -292,11 +290,11 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
 
 .preheader:                                       ; preds = %96, %.preheader
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.preheader ], [ 89, %96 ]
-  %97 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv126
+  %97 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_ofs, i64 %indvars.iv126
   %98 = load i16, ptr %97, align 2, !tbaa !4
   %99 = zext i16 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %99
-  %101 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv126
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv126
   store ptr %100, ptr %101, align 8, !tbaa !8
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 154
@@ -304,7 +302,7 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
 
 .preheader114:                                    ; preds = %96, %.preheader114
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.preheader114 ], [ 89, %96 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv122
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv122
   store ptr @lj_vm_callhook, ptr %102, align 8, !tbaa !8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 154
@@ -339,7 +337,7 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
 
 113:                                              ; preds = %113, %107
   %indvars.iv.i = phi i64 [ 0, %107 ], [ %indvars.iv.next.i, %113 ]
-  %114 = getelementptr inbounds nuw i16, ptr %112, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %indvars.iv.i
   store i16 %111, ptr %114, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -436,7 +434,7 @@ define dso_local range(i32 0, 2) i32 @luaJIT_setmode(ptr noundef %0, i32 noundef
   %41 = add nuw nsw i32 %40, 2
   %42 = zext nneg i32 %41 to i64
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds %union.TValue, ptr %31, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %43
   br label %62
 
 45:                                               ; preds = %28
@@ -453,7 +451,7 @@ define dso_local range(i32 0, 2) i32 @luaJIT_setmode(ptr noundef %0, i32 noundef
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !55
   %54 = zext nneg i32 %1 to i64
-  %55 = getelementptr %union.TValue, ptr %53, i64 %54
+  %55 = getelementptr [8 x i8], ptr %53, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -8
   br label %65
 
@@ -461,7 +459,7 @@ define dso_local range(i32 0, 2) i32 @luaJIT_setmode(ptr noundef %0, i32 noundef
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !57
   %60 = sext i32 %1 to i64
-  %61 = getelementptr inbounds %union.TValue, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   br label %65
 
 62:                                               ; preds = %35, %45
@@ -572,7 +570,7 @@ setptmode.exit:                                   ; preds = %89, %99
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %111 = load ptr, ptr %110, align 8, !tbaa !55
   %112 = zext nneg i32 %1 to i64
-  %113 = getelementptr %union.TValue, ptr %111, i64 %112
+  %113 = getelementptr [8 x i8], ptr %111, i64 %112
   %114 = getelementptr i8, ptr %113, i64 -8
   br label %120
 
@@ -580,7 +578,7 @@ setptmode.exit:                                   ; preds = %89, %99
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %117 = load ptr, ptr %116, align 8, !tbaa !57
   %118 = sext i32 %1 to i64
-  %119 = getelementptr inbounds %union.TValue, ptr %117, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %117, i64 %118
   br label %120
 
 120:                                              ; preds = %115, %109
@@ -600,7 +598,7 @@ setptmode.exit:                                   ; preds = %89, %99
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %130 = load i64, ptr %129, align 8, !tbaa !60
   %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %126
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %126
   %133 = load i32, ptr %132, align 4, !tbaa !44
   %134 = zext i32 %133 to i64
   %135 = shl nuw i64 %134, 32
@@ -663,7 +661,7 @@ define internal fastcc void @setptmode_all(ptr noundef %0, ptr noundef readonly 
   %.012.us.us = phi i64 [ %27, %26 ], [ %11, %.lr.ph.split.us ]
   %15 = load i64, ptr %12, align 8, !tbaa !63
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds %struct.GCRef, ptr %16, i64 %.012.us.us
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %.012.us.us
   %18 = load i64, ptr %17, align 8, !tbaa !64
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -689,7 +687,7 @@ setptmode.exit.us.us:                             ; preds = %.lr.ph.split.us.spl
   %.012.us = phi i64 [ %37, %36 ], [ %11, %.lr.ph.split.us ]
   %28 = load i64, ptr %12, align 8, !tbaa !63
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds %struct.GCRef, ptr %29, i64 %.012.us
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %.012.us
   %31 = load i64, ptr %30, align 8, !tbaa !64
   %32 = inttoptr i64 %31 to ptr
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 9
@@ -711,7 +709,7 @@ setptmode.exit.us:                                ; preds = %.lr.ph.split.us.spl
   %.012 = phi i64 [ %50, %49 ], [ %11, %.lr.ph ]
   %38 = load i64, ptr %12, align 8, !tbaa !63
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds %struct.GCRef, ptr %39, i64 %.012
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %.012
   %41 = load i64, ptr %40, align 8, !tbaa !64
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 9
@@ -846,7 +844,7 @@ define hidden void @lj_dispatch_ins(ptr noundef initializes((40, 48)) %0, ptr no
 35:                                               ; preds = %2
   %36 = lshr i32 %32, 16
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr i32, ptr %1, i64 %37
+  %38 = getelementptr [4 x i8], ptr %1, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -131072
   %40 = load i32, ptr %39, align 4, !tbaa !44
   %.pre.i = and i32 %40, 255
@@ -899,7 +897,7 @@ define hidden void @lj_dispatch_ins(ptr noundef initializes((40, 48)) %0, ptr no
 cur_topslot.exit:                                 ; preds = %44, %52, %59, %64
   %.014.i = phi i32 [ %67, %64 ], [ %51, %44 ], [ %58, %52 ], [ %63, %59 ]
   %68 = zext i32 %.014.i to i64
-  %69 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %69, ptr %70, align 8, !tbaa !57
   %71 = getelementptr inbounds nuw i8, ptr %28, i64 972
@@ -995,7 +993,7 @@ lj_state_checkstack.exit.i:                       ; preds = %114, %95
 callhook.exit:                                    ; preds = %84, %91, %lj_state_checkstack.exit.i
   %.pre = phi i8 [ %78, %84 ], [ %78, %91 ], [ %.pre.pre, %lj_state_checkstack.exit.i ]
   %121 = load ptr, ptr %8, align 8, !tbaa !55
-  %122 = getelementptr inbounds nuw %union.TValue, ptr %121, i64 %68
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %68
   store ptr %122, ptr %70, align 8, !tbaa !57
   br label %123
 
@@ -1092,7 +1090,7 @@ lj_state_checkstack.exit.i61:                     ; preds = %169, %150
 
 callhook.exit62:                                  ; preds = %141, %146, %lj_state_checkstack.exit.i61
   %176 = load ptr, ptr %8, align 8, !tbaa !55
-  %177 = getelementptr inbounds nuw %union.TValue, ptr %176, i64 %68
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %68
   store ptr %177, ptr %70, align 8, !tbaa !57
   br label %178
 
@@ -1431,7 +1429,7 @@ callhook.exit:                                    ; preds = %._crit_edge, %85, %
   %.034 = phi i32 [ %136, %135 ], [ %127, %134 ], [ %127, %131 ]
   store i32 %5, ptr %4, align 4, !tbaa !44
   %138 = zext nneg i32 %.034 to i64
-  %139 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_ofs, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !4
   %141 = zext i16 %140 to i64
   %142 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %141
@@ -1473,7 +1471,7 @@ define hidden void @lj_dispatch_stitch(ptr noundef %0, ptr noundef %1) local_unn
 28:                                               ; preds = %2
   %29 = lshr i32 %25, 16
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr i32, ptr %1, i64 %30
+  %31 = getelementptr [4 x i8], ptr %1, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -131068
   %33 = load i32, ptr %32, align 4, !tbaa !44
   %.pre.i = and i32 %33, 255
@@ -1526,7 +1524,7 @@ define hidden void @lj_dispatch_stitch(ptr noundef %0, ptr noundef %1) local_unn
 cur_topslot.exit:                                 ; preds = %37, %45, %52, %57
   %.014.i = phi i32 [ %60, %57 ], [ %44, %37 ], [ %51, %45 ], [ %56, %52 ]
   %61 = zext i32 %.014.i to i64
-  %62 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %62, ptr %63, align 8, !tbaa !57
   %64 = getelementptr inbounds i8, ptr %1, i64 -4
@@ -1570,7 +1568,7 @@ define hidden void @lj_dispatch_profile(ptr noundef initializes((40, 48)) %0, pt
 27:                                               ; preds = %2
   %28 = lshr i32 %24, 16
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr i32, ptr %1, i64 %29
+  %30 = getelementptr [4 x i8], ptr %1, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -131072
   %32 = load i32, ptr %31, align 4, !tbaa !44
   %.pre.i = and i32 %32, 255
@@ -1623,7 +1621,7 @@ define hidden void @lj_dispatch_profile(ptr noundef initializes((40, 48)) %0, pt
 cur_topslot.exit:                                 ; preds = %36, %44, %51, %56
   %.014.i = phi i32 [ %59, %56 ], [ %43, %36 ], [ %50, %44 ], [ %55, %51 ]
   %60 = zext i32 %.014.i to i64
-  %61 = getelementptr inbounds nuw %union.TValue, ptr %6, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %61, ptr %62, align 8, !tbaa !57
   tail call void @lj_profile_interpreter(ptr noundef nonnull %0) #12

@@ -792,7 +792,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test10SubMessage33generated_message_d
 
 51:                                               ; preds = %46, %40
   %52 = load ptr, ptr %17, align 8, !alias.scope !55, !noalias !58, !nonnull !9, !noundef !9
-  %53 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %54 = add i64 %43, 1
   store i64 %54, ptr %18, align 8, !alias.scope !55, !noalias !58
@@ -847,7 +847,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test10SubMessage33generated_message_d
 
 70:                                               ; preds = %65, %58
   %71 = load ptr, ptr %17, align 8, !alias.scope !63, !noalias !66, !nonnull !9, !noundef !9
-  %72 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %71, i64 %62
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   %73 = add i64 %62, 1
   store i64 %73, ptr %18, align 8, !alias.scope !63, !noalias !66
@@ -2003,7 +2003,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
 
 52:                                               ; preds = %47, %41
   %53 = load ptr, ptr %21, align 8, !alias.scope !116, !noalias !119, !nonnull !9, !noundef !9
-  %54 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %53, i64 %44
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   %55 = add i64 %44, 1
   store i64 %55, ptr %22, align 8, !alias.scope !116, !noalias !119
@@ -2052,7 +2052,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
 
 69:                                               ; preds = %64, %58
   %70 = load ptr, ptr %21, align 8, !alias.scope !123, !noalias !126, !nonnull !9, !noundef !9
-  %71 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %70, i64 %61
+  %71 = getelementptr inbounds nuw [40 x i8], ptr %70, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %72 = add i64 %61, 1
   store i64 %72, ptr %22, align 8, !alias.scope !123, !noalias !126
@@ -2101,7 +2101,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
 
 86:                                               ; preds = %81, %75
   %87 = load ptr, ptr %21, align 8, !alias.scope !130, !noalias !133, !nonnull !9, !noundef !9
-  %88 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %87, i64 %78
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %87, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %89 = add i64 %78, 1
   store i64 %89, ptr %22, align 8, !alias.scope !130, !noalias !133
@@ -2150,7 +2150,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
 
 103:                                              ; preds = %98, %92
   %104 = load ptr, ptr %21, align 8, !alias.scope !137, !noalias !140, !nonnull !9, !noundef !9
-  %105 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %104, i64 %95
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   %106 = add i64 %95, 1
   store i64 %106, ptr %22, align 8, !alias.scope !137, !noalias !140
@@ -2183,7 +2183,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
 
 116:                                              ; preds = %111, %107
   %117 = load ptr, ptr %21, align 8, !alias.scope !144, !noalias !147, !nonnull !9, !noundef !9
-  %118 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %117, i64 %108
+  %118 = getelementptr inbounds nuw [40 x i8], ptr %117, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %118, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %119 = add i64 %108, 1
   store i64 %119, ptr %22, align 8, !alias.scope !144, !noalias !147
@@ -2242,7 +2242,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
 
 134:                                              ; preds = %129, %123
   %135 = load ptr, ptr %21, align 8, !alias.scope !151, !noalias !154, !nonnull !9, !noundef !9
-  %136 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { ptr, i64 } }, ptr %135, i64 %126
+  %136 = getelementptr inbounds nuw [40 x i8], ptr %135, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %136, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   %137 = add i64 %126, 1
   store i64 %137, ptr %22, align 8, !alias.scope !151, !noalias !154
@@ -2483,7 +2483,7 @@ common.resume:                                    ; preds = %83, %75
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcdf8c04d8df89d17E.exit": ; preds = %78, %82
   %87 = load ptr, ptr %16, align 8, !alias.scope !162, !noalias !165, !nonnull !9, !noundef !9
-  %88 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { ptr, { { i64 } } } }, ptr %87, i64 %79
+  %88 = getelementptr inbounds nuw [96 x i8], ptr %87, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %88, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   %89 = add i64 %79, 1
   store i64 %89, ptr %15, align 8, !alias.scope !162, !noalias !165
@@ -2678,7 +2678,7 @@ define noundef align 8 ptr @"_ZN79_$LT$yara_x_proto_yaml..test..Message$u20$as$u
   %36 = load ptr, ptr %35, align 8, !nonnull !9, !noundef !9
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i64, ptr %37, align 8, !noundef !9
-  %39 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { ptr, { { i64 } } } }, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [96 x i8], ptr %36, i64 %38
   br label %40
 
 40:                                               ; preds = %42, %34
@@ -2782,7 +2782,7 @@ common.resume6:                                   ; preds = %19, %8, %.body
   br i1 %15, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$yara_x_proto_yaml..test..SubMessage$u5d$$GT$17h54e714f2c47851a9E.exit", label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { ptr, { { i64 } } } }, ptr %11, i64 %.sroa.0.0.i
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %.sroa.0.0.i
   %18 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr56drop_in_place$LT$yara_x_proto_yaml..test..SubMessage$GT$17hea8407575b895b48E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %17)
           to label %14 unwind label %21
@@ -2798,7 +2798,7 @@ common.resume6:                                   ; preds = %19, %8, %.body
   br label %19
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { ptr, { { i64 } } } }, ptr %11, i64 %.sroa.0.1.i
+  %24 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %.sroa.0.1.i
   %25 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr56drop_in_place$LT$yara_x_proto_yaml..test..SubMessage$GT$17hea8407575b895b48E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24) #22
           to label %19 unwind label %26

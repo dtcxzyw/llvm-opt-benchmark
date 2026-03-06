@@ -108,18 +108,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.25" = type { %"struct.std::_Tuple_impl.26" }
 %"struct.std::_Tuple_impl.26" = type { %"struct.std::_Head_base.29" }
 %"struct.std::_Head_base.29" = type { ptr }
-%"class.std::unique_ptr.198" = type { %"struct.std::__uniq_ptr_data.199" }
-%"struct.std::__uniq_ptr_data.199" = type { %"class.std::__uniq_ptr_impl.200" }
-%"class.std::__uniq_ptr_impl.200" = type { %"class.std::tuple.201" }
-%"class.std::tuple.201" = type { %"struct.std::_Tuple_impl.202" }
-%"struct.std::_Tuple_impl.202" = type { %"struct.std::_Head_base.205" }
-%"struct.std::_Head_base.205" = type { ptr }
-%"class.std::unique_ptr.186" = type { %"struct.std::__uniq_ptr_data.187" }
-%"struct.std::__uniq_ptr_data.187" = type { %"class.std::__uniq_ptr_impl.188" }
-%"class.std::__uniq_ptr_impl.188" = type { %"class.std::tuple.189" }
-%"class.std::tuple.189" = type { %"struct.std::_Tuple_impl.190" }
-%"struct.std::_Tuple_impl.190" = type { %"struct.std::_Head_base.193" }
-%"struct.std::_Head_base.193" = type { ptr }
 %"class.std::unique_ptr.76" = type { %"struct.std::__uniq_ptr_data.77" }
 %"struct.std::__uniq_ptr_data.77" = type { %"class.std::__uniq_ptr_impl.78" }
 %"class.std::__uniq_ptr_impl.78" = type { %"class.std::tuple.79" }
@@ -171,6 +159,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.343" = type { %"union.std::_Optional_payload_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::CidrRange>::_Storage", i8 }
 %"union.std::_Optional_payload_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::CidrRange>::_Storage" = type { %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::CidrRange" }
 %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::CidrRange" = type { %"struct.grpc_core::Rbac::CidrRange" }
+%"class.std::unique_ptr.198" = type { %"struct.std::__uniq_ptr_data.199" }
+%"struct.std::__uniq_ptr_data.199" = type { %"class.std::__uniq_ptr_impl.200" }
+%"class.std::__uniq_ptr_impl.200" = type { %"class.std::tuple.201" }
+%"class.std::tuple.201" = type { %"struct.std::_Tuple_impl.202" }
+%"struct.std::_Tuple_impl.202" = type { %"struct.std::_Head_base.205" }
+%"struct.std::_Head_base.205" = type { ptr }
 %"class.std::optional.361" = type { %"struct.std::_Optional_base.362" }
 %"struct.std::_Optional_base.362" = type { %"struct.std::_Optional_payload.364" }
 %"struct.std::_Optional_payload.364" = type { %"struct.std::_Optional_payload.base.368", [7 x i8] }
@@ -211,6 +205,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base.438" = type { %"struct.std::_Optional_payload_base.base.437" }
 %"struct.std::_Optional_payload_base.base.437" = type { %"union.std::_Optional_payload_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal::Authenticated>::_Storage", i8 }
 %"union.std::_Optional_payload_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal::Authenticated>::_Storage" = type { %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal::Authenticated" }
+%"class.std::unique_ptr.186" = type { %"struct.std::__uniq_ptr_data.187" }
+%"struct.std::__uniq_ptr_data.187" = type { %"class.std::__uniq_ptr_impl.188" }
+%"class.std::__uniq_ptr_impl.188" = type { %"class.std::tuple.189" }
+%"class.std::tuple.189" = type { %"struct.std::_Tuple_impl.190" }
+%"struct.std::_Tuple_impl.190" = type { %"struct.std::_Head_base.193" }
+%"struct.std::_Head_base.193" = type { ptr }
 %"class.std::optional.441" = type { %"struct.std::_Optional_base.442" }
 %"struct.std::_Optional_base.442" = type { %"struct.std::_Optional_payload.444" }
 %"struct.std::_Optional_payload.444" = type { %"struct.std::_Optional_payload.base.448", [7 x i8] }
@@ -236,7 +236,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.277" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %class.anon.506 = type { i8 }
-%"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger" = type { %"class.std::__cxx11::basic_string", %"class.std::map.276" }
 %"class.std::vector.515" = type { %"struct.std::_Vector_base.516" }
 %"struct.std::_Vector_base.516" = type { %"struct.std::_Vector_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger, std::allocator<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger, std::allocator<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger, std::allocator<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger>>::_Vector_impl_data" }
@@ -272,32 +271,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union.9" = type { %"struct.std::__detail::__variant::_Uninitialized.10" }
 %"struct.std::__detail::__variant::_Uninitialized.10" = type { %"struct.__gnu_cxx::__aligned_membuf.11" }
 %"struct.__gnu_cxx::__aligned_membuf.11" = type { [48 x i8] }
-%"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy" = type { %"class.std::optional.132" }
-%"class.std::optional.132" = type { %"struct.std::_Optional_base.133" }
-%"struct.std::_Optional_base.133" = type { %"struct.std::_Optional_payload.135" }
-%"struct.std::_Optional_payload.135" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules>::_Storage" = type { %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules" }
-%"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules" = type { i32, %"class.std::map.138", i32, %"class.std::vector.144" }
-%"class.std::map.138" = type { %"class.std::_Rb_tree.139" }
-%"class.std::_Rb_tree.139" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.grpc_core::GrpcAuthorizationEngine" = type { %"class.grpc_core::AuthorizationEngine", %"class.std::__cxx11::basic_string", i32, %"class.std::vector.571", i32, %"class.std::vector.576" }
-%"class.grpc_core::AuthorizationEngine" = type { %"class.grpc_core::RefCounted" }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic.569" }
-%"struct.std::atomic.569" = type { %"struct.std::__atomic_base.570" }
-%"struct.std::__atomic_base.570" = type { i64 }
-%"class.std::vector.571" = type { %"struct.std::_Vector_base.572" }
-%"struct.std::_Vector_base.572" = type { %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.576" = type { %"struct.std::_Vector_base.577" }
-%"struct.std::_Vector_base.577" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN9grpc_core8JsonArgsD2Ev = comdat any
 
@@ -937,7 +910,7 @@ _ZNSt6vectorIN9grpc_core4RbacESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vect
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %39, ptr %20, align 8, !tbaa !21, !alias.scope !14
   store ptr %39, ptr %40, align 8, !tbaa !24, !alias.scope !14
-  %41 = getelementptr inbounds nuw %"struct.grpc_core::Rbac", ptr %39, i64 %33
+  %41 = getelementptr inbounds nuw [120 x i8], ptr %39, i64 %33
   store ptr %41, ptr %37, align 8, !tbaa !25, !alias.scope !14
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1317,7 +1290,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_E
   call void @_ZdlPvm(ptr noundef nonnull %168, i64 noundef %177) #30
   store ptr %186, ptr %9, align 8, !tbaa !137, !noalias !128
   store ptr %192, ptr %100, align 8, !tbaa !138, !noalias !128
-  %193 = getelementptr inbounds nuw %"class.std::unique_ptr.198", ptr %186, i64 %184
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %184
   store ptr %193, ptr %99, align 8, !tbaa !139, !noalias !128
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit.i.i.i.i.i
 
@@ -1538,7 +1511,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EES
   call void @_ZdlPvm(ptr noundef nonnull %230, i64 noundef %239) #30
   store ptr %248, ptr %12, align 8, !tbaa !158, !noalias !128
   store ptr %254, ptr %104, align 8, !tbaa !159, !noalias !128
-  %255 = getelementptr inbounds nuw %"class.std::unique_ptr.186", ptr %248, i64 %246
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %246
   store ptr %255, ptr %103, align 8, !tbaa !160, !noalias !128
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit.i.i.i.i.i
 
@@ -2604,7 +2577,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !201
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !198
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !202
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -3106,7 +3079,7 @@ _ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 _ZNSt12_Vector_baseIN9grpc_core4RbacESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit, %26
   store ptr %20, ptr %0, align 8, !tbaa !21
   store ptr %24, ptr %4, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw %"struct.grpc_core::Rbac", ptr %20, i64 %16
+  %30 = getelementptr inbounds nuw [120 x i8], ptr %20, i64 %16
   store ptr %30, ptr %25, align 8, !tbaa !25
   ret void
 }
@@ -4373,7 +4346,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_E
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !137
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !138
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.198", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !139
   ret void
 }
@@ -4477,7 +4450,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EES
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !158
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !159
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.186", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !160
   ret void
 }
@@ -9030,7 +9003,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Per
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25.i.i
   store ptr %22, ptr %1, align 8, !tbaa !129
   store ptr %27, ptr %3, align 8, !tbaa !132
-  %29 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Permission", ptr %22, i64 %20
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr %29, ptr %5, align 8, !tbaa !133
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12emplace_backIJEEERS6_DpOT_.exit
 
@@ -12896,7 +12869,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Prin
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25.i.i
   store ptr %22, ptr %1, align 8, !tbaa !150
   store ptr %27, ptr %3, align 8, !tbaa !153
-  %29 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal", ptr %22, i64 %20
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr %29, ptr %5, align 8, !tbaa !154
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12emplace_backIJEEERS6_DpOT_.exit
 
@@ -14527,7 +14500,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLogge
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit35.i.i
   store ptr %30, ptr %1, align 8, !tbaa !442
   store ptr %73, ptr %3, align 8, !tbaa !438
-  %78 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %30, i64 %28
+  %78 = getelementptr inbounds nuw [80 x i8], ptr %30, i64 %28
   store ptr %78, ptr %5, align 8, !tbaa !441
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit
 
@@ -15046,7 +15019,7 @@ _ZN9grpc_core19LoadJsonObjectFieldISt6vectorINS_12_GLOBAL__N_110RbacConfig10Rbac
 
 170:                                              ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit.i, %.lr.ph.i
   %.040101.i = phi i64 [ 0, %.lr.ph.i ], [ %270, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit.i ]
-  %171 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %.val55.i, i64 %.040101.i
+  %171 = getelementptr inbounds nuw [80 x i8], ptr %.val55.i, i64 %.040101.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %172 = load ptr, ptr %171, align 8, !tbaa !50
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
@@ -15308,7 +15281,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6Config
 .noexc82.i:                                       ; preds = %255, %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
   store ptr %248, ptr %167, align 8, !tbaa !78
   store ptr %254, ptr %168, align 8, !tbaa !79
-  %256 = getelementptr inbounds nuw %"class.std::unique_ptr.234", ptr %248, i64 %246
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %246
   store ptr %256, ptr %169, align 8, !tbaa !80
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.i
 
@@ -16279,7 +16252,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relo
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i
   store ptr %23, ptr %1, align 8, !tbaa !17
   store ptr %62, ptr %3, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy", ptr %23, i64 %21
+  %67 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %21
   store ptr %67, ptr %5, align 8, !tbaa !183
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
@@ -16555,7 +16528,7 @@ _ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_S_relocateEPS1_S4_S
 _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %34
   store ptr %22, ptr %0, align 8, !tbaa !483
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !184
-  %38 = getelementptr inbounds nuw %"class.grpc_core::GrpcAuthorizationEngine", ptr %22, i64 %16
+  %38 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %16
   store ptr %38, ptr %33, align 8, !tbaa !187
   ret void
 

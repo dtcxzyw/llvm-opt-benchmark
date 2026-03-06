@@ -31,19 +31,19 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
   %.06184 = phi i32 [ 0, %13 ], [ %.2, %69 ]
   %.06283 = phi i32 [ %2, %13 ], [ %.163, %69 ]
   %19 = zext nneg i32 %.06184 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !13
   %.pre = sext i32 %21 to i64
   br i1 %.not77, label %._crit_edge88, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i32, ptr %5, i64 %.pre
+  %23 = getelementptr inbounds [4 x i8], ptr %5, i64 %.pre
   %24 = load i32, ptr %23, align 4, !tbaa !13
   br label %._crit_edge88
 
 ._crit_edge88:                                    ; preds = %18, %22
   %25 = phi i32 [ %24, %22 ], [ %21, %18 ]
-  %26 = getelementptr inbounds i32, ptr %15, i64 %.pre
+  %26 = getelementptr inbounds [4 x i8], ptr %15, i64 %.pre
   %27 = load i32, ptr %26, align 4, !tbaa !13
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %41, label %29
@@ -56,7 +56,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
 
 32:                                               ; preds = %29
   %33 = zext nneg i32 %25 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %15, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = icmp slt i32 %35, 0
   %37 = sub nsw i32 -2, %35
@@ -65,7 +65,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
 
 38:                                               ; preds = %32, %29
   %39 = phi i32 [ 0, %29 ], [ %spec.select, %32 ]
-  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %19
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %19
   store i32 %39, ptr %40, align 4, !tbaa !13
   br label %41
 
@@ -75,7 +75,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %25 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %15, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !13
   %48 = icmp slt i32 %47, 0
@@ -85,7 +85,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
 
 50:                                               ; preds = %43, %41
   %51 = phi i32 [ 0, %41 ], [ %spec.select79, %43 ]
-  %52 = getelementptr inbounds nuw i32, ptr %4, i64 %19
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %19
   %53 = load i32, ptr %52, align 4, !tbaa !13
   %54 = icmp slt i32 %53, %51
   br i1 %54, label %.lr.ph.preheader, label %._crit_edge
@@ -97,10 +97,10 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ %55, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
-  %56 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %56 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !13
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %15, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %15, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !13
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %65, label %.thread
@@ -128,7 +128,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
   %.lcssa.sink = phi i32 [ %57, %.thread ], [ %21, %._crit_edge ]
   %.163 = phi i32 [ %.06283, %.thread ], [ %67, %._crit_edge ]
   %.2 = phi i32 [ %63, %.thread ], [ %66, %._crit_edge ]
-  %70 = getelementptr inbounds i32, ptr %3, i64 %.sink99
+  %70 = getelementptr inbounds [4 x i8], ptr %3, i64 %.sink99
   store i32 %.lcssa.sink, ptr %70, align 4, !tbaa !13
   %71 = icmp sgt i32 %.2, -1
   br i1 %71, label %18, label %.loopexit, !llvm.loop !16

@@ -1531,7 +1531,7 @@ define internal fastcc void @_ZN4core3ops8function6FnOnce9call_once17h002fa42167
   %.010.i = shl i64 %6, %7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !292, !noalias !295, !nonnull !37, !noundef !37
-  %10 = getelementptr inbounds double, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   store ptr %9, ptr %4, align 8, !noalias !297
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !297
@@ -2040,7 +2040,7 @@ define void @_ZN12typst_render13render_merged17h2fe5bef395a54505E(ptr noalias no
   %23 = load ptr, ptr %22, align 8, !nonnull !37, !noundef !37
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i64, ptr %24, align 8, !noundef !37
-  %26 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %23, i64 %25
+  %26 = getelementptr inbounds [96 x i8], ptr %23, i64 %25
   store ptr %23, ptr %19, align 8
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %26, ptr %27, align 8
@@ -2086,7 +2086,7 @@ define void @_ZN12typst_render13render_merged17h2fe5bef395a54505E(ptr noalias no
 .preheader:                                       ; preds = %44, %.preheader
   %.018.i = phi i32 [ %53, %.preheader ], [ 0, %44 ]
   %.017.i = phi i64 [ %54, %.preheader ], [ 0, %44 ]
-  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i32, i32 } }, ptr %.pre, i64 %.017.i
+  %50 = getelementptr inbounds [32 x i8], ptr %.pre, i64 %.017.i
   %51 = getelementptr i8, ptr %50, i64 28
   %.val22.i = load i32, ptr %51, align 4, !range !425, !noalias !436, !noundef !37
   %52 = add i32 %.018.i, %38
@@ -5824,7 +5824,7 @@ define internal fastcc void @_ZN12typst_render12render_shape17h6aacd3a315c9b478E
   %.010.i.i = shl i64 %123, %124
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %126 = load ptr, ptr %125, align 8, !alias.scope !1035, !noalias !1036, !nonnull !37, !noundef !37
-  %127 = getelementptr inbounds double, ptr %126, i64 %123
+  %127 = getelementptr inbounds [8 x i8], ptr %126, i64 %123
   store ptr %126, ptr %6, align 8, !noalias !1038
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %127, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !1038

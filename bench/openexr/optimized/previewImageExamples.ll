@@ -9,10 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"struct.Imf_3_4::PreviewRgba" = type { i8, i8, i8, i8 }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
-%union.imath_half_uif = type { i32 }
 %"class.Imf_3_4::Array2D" = type { i64, i64, ptr }
 %"class.Imf_3_4::Header" = type <{ %"class.std::map", i8, [7 x i8] }>
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -78,7 +74,7 @@ define dso_local void @_Z16makePreviewImageRKN7Imf_3_47Array2DINS_4RgbaEEEiiRNS0
   br i1 %17, label %.loopexit.i, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds %"struct.Imf_3_4::PreviewRgba", ptr %16, i64 %12
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   br label %20
 
 20:                                               ; preds = %20, %18
@@ -134,9 +130,9 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEE11resizeEraseEll.exit: ; preds = %.loopexi
 .lr.ph:                                           ; preds = %.preheader
   %44 = shl nsw i64 %indvars.iv34, 3
   %45 = mul nsw i64 %37, %44
-  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %35, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %35, i64 %45
   %47 = mul nsw i64 %indvars.iv34, %11
-  %48 = getelementptr inbounds %"struct.Imf_3_4::PreviewRgba", ptr %16, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %16, i64 %47
   br label %53
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %_ZN7Imf_3_47Array2DINS_11PreviewRgbaEE11resizeEraseEll.exit
@@ -158,10 +154,10 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEE11resizeEraseEll.exit: ; preds = %.loopexi
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %.idx = shl nsw i64 %indvars.iv, 6
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
-  %55 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %48, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %56 = load i16, ptr %54, align 2, !tbaa !23
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw %union.imath_half_uif, ptr %38, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !26
   %60 = fcmp ogt float %59, 0.000000e+00
   %.sroa.speculated.i = select i1 %60, float %59, float 0.000000e+00
@@ -177,7 +173,7 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEE11resizeEraseEll.exit: ; preds = %.loopexi
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %70 = load i16, ptr %69, align 2, !tbaa !23
   %71 = zext i16 %70 to i64
-  %72 = getelementptr inbounds nuw %union.imath_half_uif, ptr %38, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !26
   %74 = fcmp ogt float %73, 0.000000e+00
   %.sroa.speculated.i27 = select i1 %74, float %73, float 0.000000e+00
@@ -194,7 +190,7 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEE11resizeEraseEll.exit: ; preds = %.loopexi
   %84 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %85 = load i16, ptr %84, align 2, !tbaa !23
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw %union.imath_half_uif, ptr %38, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !26
   %89 = fcmp ogt float %88, 0.000000e+00
   %.sroa.speculated.i28 = select i1 %89, float %88, float 0.000000e+00
@@ -211,7 +207,7 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEE11resizeEraseEll.exit: ; preds = %.loopexi
   %99 = getelementptr inbounds nuw i8, ptr %54, i64 6
   %100 = load i16, ptr %99, align 2, !tbaa !23
   %101 = zext i16 %100 to i64
-  %102 = getelementptr inbounds nuw %union.imath_half_uif, ptr %38, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %101
   %103 = load float, ptr %102, align 4, !tbaa !26
   %104 = fmul float %103, 2.550000e+02
   %105 = fcmp olt float %104, 0.000000e+00
@@ -437,7 +433,7 @@ define dso_local void @_Z21writeRgbaWithPreview2PKcii(ptr noundef %0, i32 nounde
   br i1 %24, label %_ZN7Imf_3_47Array2DINS_11PreviewRgbaEEC2Ell.exit, label %25
 
 25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds %"struct.Imf_3_4::PreviewRgba", ptr %23, i64 %19
+  %26 = getelementptr inbounds [4 x i8], ptr %23, i64 %19
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -516,12 +512,12 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEEC2Ell.exit: ; preds = %27, %.noexc
 
 48:                                               ; preds = %.preheader.us, %48
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %110, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv
   %50 = lshr exact i64 %indvars.iv, 1
   %51 = getelementptr inbounds nuw i8, ptr %114, i64 %50
   %52 = load i16, ptr %49, align 2, !tbaa !23
   %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds nuw %union.imath_half_uif, ptr %115, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !26
   %56 = fcmp ogt float %55, 0.000000e+00
   %.sroa.speculated.i.us = select i1 %56, float %55, float 0.000000e+00
@@ -537,7 +533,7 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEEC2Ell.exit: ; preds = %27, %.noexc
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %66 = load i16, ptr %65, align 2, !tbaa !23
   %67 = zext i16 %66 to i64
-  %68 = getelementptr inbounds nuw %union.imath_half_uif, ptr %115, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !26
   %70 = fcmp ogt float %69, 0.000000e+00
   %.sroa.speculated.i50.us = select i1 %70, float %69, float 0.000000e+00
@@ -554,7 +550,7 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEEC2Ell.exit: ; preds = %27, %.noexc
   %80 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %81 = load i16, ptr %80, align 2, !tbaa !23
   %82 = zext i16 %81 to i64
-  %83 = getelementptr inbounds nuw %union.imath_half_uif, ptr %115, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !26
   %85 = fcmp ogt float %84, 0.000000e+00
   %.sroa.speculated.i51.us = select i1 %85, float %84, float 0.000000e+00
@@ -571,7 +567,7 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEEC2Ell.exit: ; preds = %27, %.noexc
   %95 = getelementptr inbounds nuw i8, ptr %49, i64 6
   %96 = load i16, ptr %95, align 2, !tbaa !23
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw %union.imath_half_uif, ptr %115, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !26
   %100 = fmul float %99, 2.550000e+02
   %101 = fcmp olt float %100, 0.000000e+00
@@ -592,7 +588,7 @@ _ZN7Imf_3_47Array2DINS_11PreviewRgbaEEC2Ell.exit: ; preds = %27, %.noexc
   %111 = lshr exact i32 %.04060.us, 3
   %112 = zext nneg i32 %111 to i64
   %113 = mul nuw nsw i64 %112, %18
-  %114 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %23, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %113
   %115 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !40
   br label %48
 

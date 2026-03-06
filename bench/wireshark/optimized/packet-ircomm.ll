@@ -88,7 +88,7 @@ define internal noundef zeroext i1 @dissect_ircomm_parameters(ptr noundef %0, i3
   %25 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %22, ptr noundef %0, i32 noundef %.04858, i32 noundef %24, i32 noundef 0)
   %26 = add i32 %.04957, %16
   %27 = zext i32 %26 to i64
-  %28 = getelementptr i32, ptr @ett_param, i64 %27
+  %28 = getelementptr [4 x i8], ptr @ett_param, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %29)
   store i8 0, ptr %8, align 16
@@ -259,8 +259,8 @@ define hidden void @proto_register_ircomm() local_unnamed_addr #0 {
 
 7:                                                ; preds = %0, %7
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr i32, ptr @ett_param, i64 %indvars.iv
-  %9 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr [4 x i8], ptr @ett_param, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %8, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024

@@ -9,11 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.OSInfo = type { ptr, ptr, i8, ptr, i32, ptr, i32, ptr }
 %struct.LogOpts = type { ptr, i8, i8, ptr, ptr, ptr, ptr, i8 }
 %struct.loadable_libraries_state = type { ptr, i32 }
-%struct.DbInfo = type { i32, ptr, [1024 x i8], %struct.RelInfoArr, %struct.LogicalSlotInfoArr }
-%struct.RelInfoArr = type { ptr, i32 }
-%struct.LogicalSlotInfoArr = type { i32, ptr }
-%struct.LibraryInfo = type { ptr, i32 }
-%struct.LogicalSlotInfo = type { ptr, ptr, i8, i8, i8, i8 }
 
 @old_cluster = external global %struct.ClusterInfo, align 8
 @.str = private unnamed_addr constant [103 x i8] c"SELECT DISTINCT probin FROM pg_catalog.pg_proc WHERE prolang = %u AND probin IS NOT NULL AND oid >= %u\00", align 1
@@ -63,10 +58,10 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %._crit_edge42 ], [ 0, %0 ]
   %.03345 = phi i32 [ %.2.lcssa, %._crit_edge42 ], [ 0, %0 ]
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv51
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv51
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  %21 = getelementptr inbounds nuw %struct.DbInfo, ptr %20, i64 %indvars.iv51
+  %21 = getelementptr inbounds nuw [1072 x i8], ptr %20, i64 %indvars.iv51
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1056
   %23 = call i32 @PQntuples(ptr noundef %19) #9
   %24 = icmp sgt i32 %23, 0
@@ -83,10 +78,10 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %27 = call ptr @pg_strdup(ptr noundef %26) #9
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %29 = sext i32 %.137 to i64
-  %30 = getelementptr inbounds %struct.LibraryInfo, ptr %28, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %29
   store ptr %27, ptr %30, align 8
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %32 = getelementptr inbounds %struct.LibraryInfo, ptr %31, i64 %29
+  %32 = getelementptr inbounds [16 x i8], ptr %31, i64 %29
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %25, ptr %33, align 8
   %34 = add i32 %.137, 1
@@ -119,7 +114,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %61 ]
   %.238 = phi i32 [ %.1.lcssa, %.lr.ph41 ], [ %.3, %61 ]
   %45 = load ptr, ptr %38, align 8
-  %46 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 18
   %48 = load i8, ptr %47, align 2, !range !7, !noundef !8
   %49 = trunc nuw i8 %48 to i1
@@ -131,10 +126,10 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %53 = call ptr @pg_strdup(ptr noundef %52) #9
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %55 = sext i32 %.238 to i64
-  %56 = getelementptr inbounds %struct.LibraryInfo, ptr %54, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %54, i64 %55
   store ptr %53, ptr %56, align 8
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %58 = getelementptr inbounds %struct.LibraryInfo, ptr %57, i64 %55
+  %58 = getelementptr inbounds [16 x i8], ptr %57, i64 %55
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 %39, ptr %59, align 8
   %60 = add i32 %.238, 1
@@ -227,7 +222,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %.02232 = phi i32 [ %.1, %49 ], [ 0, %0 ]
   %.02331 = phi ptr [ %.124, %49 ], [ null, %0 ]
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %12 = getelementptr %struct.LibraryInfo, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [16 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -290,11 +285,11 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
 38:                                               ; preds = %37
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %41 = getelementptr inbounds nuw %struct.LibraryInfo, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.DbInfo, ptr %39, i64 %44
+  %45 = getelementptr inbounds [1072 x i8], ptr %39, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.124, ptr noundef nonnull @.str.10, ptr noundef %47) #9

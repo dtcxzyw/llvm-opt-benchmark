@@ -221,7 +221,7 @@ define dso_local ptr @zend_get_opcode_name(i8 noundef zeroext %0) local_unnamed_
 
 3:                                                ; preds = %1
   %4 = zext i8 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @zend_vm_opcodes_names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @zend_vm_opcodes_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   br label %7
 
@@ -241,7 +241,7 @@ define dso_local i32 @zend_get_opcode_flags(i8 noundef zeroext %0) local_unnamed
 4:                                                ; preds = %3, %1
   %.0 = phi i8 [ 0, %3 ], [ %0, %1 ]
   %5 = zext i8 %.0 to i64
-  %6 = getelementptr inbounds nuw i32, ptr @zend_vm_opcodes_flags, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @zend_vm_opcodes_flags, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !10
   ret i32 %7
 }
@@ -259,7 +259,7 @@ define dso_local zeroext range(i8 0, -45) i8 @zend_get_opcode_id(ptr noundef rea
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw ptr, ptr @zend_vm_opcodes_names, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @zend_vm_opcodes_names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = tail call i32 @strncmp(ptr noundef %7, ptr noundef %0, i64 noundef %1) #3
   %9 = icmp eq i32 %8, 0

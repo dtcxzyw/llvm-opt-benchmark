@@ -479,7 +479,7 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %222 = or disjoint i32 %220, %221
   %223 = or disjoint i32 %222, %218
   %224 = or disjoint i32 %223, -16777216
-  %225 = getelementptr inbounds nuw i32, ptr %209, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %indvars.iv
   store i32 %224, ptr %225, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

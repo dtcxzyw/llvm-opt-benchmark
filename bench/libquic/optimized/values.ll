@@ -168,7 +168,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4base5Value11GetTypeNameENS0_4TypeE(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_110kTypeNamesE, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4base12_GLOBAL__N_110kTypeNamesE, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   ret ptr %4
 }
@@ -5325,7 +5325,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %46, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i
   store ptr %39, ptr %8, align 8, !tbaa !184
   store ptr %45, ptr %9, align 8, !tbaa !187
-  %47 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %39, i64 %37
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %47, ptr %17, align 8, !tbaa !192
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
 
@@ -5438,7 +5438,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i26: ; preds = %83, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i23
   store ptr %77, ptr %8, align 8, !tbaa !184
   store ptr %82, ptr %9, align 8, !tbaa !187
-  %84 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %77, i64 %75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %84, ptr %63, align 8, !tbaa !192
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit32
 
@@ -5456,7 +5456,7 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i34: ; preds = %85
   br label %common.resume
 
 90:                                               ; preds = %7
-  %91 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %11, i64 %1
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %1
   store ptr null, ptr %2, align 8, !tbaa !3
   %92 = load ptr, ptr %91, align 8, !tbaa !3
   store ptr %4, ptr %91, align 8, !tbaa !3
@@ -5548,7 +5548,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %24, ptr %3, align 8, !tbaa !184
   store ptr %30, ptr %4, align 8, !tbaa !187
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %24, i64 %22
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %32, ptr %6, align 8, !tbaa !192
   br label %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
@@ -5572,7 +5572,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue3GetEmPPKNS_5ValueE(ptr noundef no
   br i1 %or.cond.not, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   store ptr %14, ptr %2, align 8, !tbaa !3
   br label %15
@@ -5597,7 +5597,7 @@ define noundef zeroext i1 @_ZN4base9ListValue3GetEmPPNS_5ValueE(ptr noundef nonn
   br i1 %or.cond.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   store ptr %14, ptr %2, align 8, !tbaa !3
   br label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
@@ -5620,7 +5620,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue10GetBooleanEmPb(ptr noundef nonnu
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -5647,7 +5647,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue10GetIntegerEmPi(ptr noundef nonnu
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -5674,7 +5674,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue9GetDoubleEmPd(ptr noundef nonnull
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -5701,7 +5701,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue9GetStringEmPNSt7__cxx1112basic_st
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -5728,7 +5728,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue9GetStringEmPNSt7__cxx1112basic_st
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -5755,7 +5755,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue9GetBinaryEmPPKNS_11BinaryValueE(p
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !21
@@ -5789,7 +5789,7 @@ define noundef zeroext i1 @_ZN4base9ListValue9GetBinaryEmPPNS_11BinaryValueE(ptr
   br i1 %.not.i.i, label %12, label %_ZNK4base9ListValue9GetBinaryEmPPKNS_11BinaryValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !21
@@ -5823,7 +5823,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue13GetDictionaryEmPPKNS_15Dictionar
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !21
@@ -5857,7 +5857,7 @@ define noundef zeroext i1 @_ZN4base9ListValue13GetDictionaryEmPPNS_15DictionaryV
   br i1 %.not.i.i, label %12, label %_ZNK4base9ListValue13GetDictionaryEmPPKNS_15DictionaryValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !21
@@ -5891,7 +5891,7 @@ define noundef zeroext i1 @_ZNK4base9ListValue7GetListEmPPKS0_(ptr noundef nonnu
   br i1 %.not.i, label %12, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !21
@@ -5925,7 +5925,7 @@ define noundef zeroext i1 @_ZN4base9ListValue7GetListEmPPS0_(ptr noundef nonnull
   br i1 %.not.i.i, label %12, label %_ZNK4base9ListValue7GetListEmPPKS0_.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !21
@@ -5963,7 +5963,7 @@ define noundef zeroext i1 @_ZN4base9ListValue6RemoveEmPSt10unique_ptrINS_5ValueE
   br i1 %.not8, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %1
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   store ptr null, ptr %14, align 8, !tbaa !3
   %16 = load ptr, ptr %2, align 8, !tbaa !3
@@ -5983,7 +5983,7 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i.i.i.i: ; preds = %13
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i.i.i.i, %13, %12
   %20 = phi ptr [ %.pre11, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i.i.i.i ], [ %6, %13 ], [ %6, %12 ]
   %21 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i.i.i.i ], [ %7, %13 ], [ %7, %12 ]
-  %22 = getelementptr inbounds %"class.std::unique_ptr", ptr %21, i64 %1
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %1
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.not.i.i = icmp eq ptr %23, %20
   br i1 %.not.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4base5ValueESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i, label %24
@@ -6318,7 +6318,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %31, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i
   store ptr %24, ptr %3, align 8, !tbaa !184
   store ptr %30, ptr %4, align 8, !tbaa !187
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %24, i64 %22
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %32, ptr %6, align 8, !tbaa !192
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
 
@@ -6425,7 +6425,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i: ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %26, ptr %5, align 8, !tbaa !184
   store ptr %32, ptr %6, align 8, !tbaa !187
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %34, ptr %8, align 8, !tbaa !192
   br label %_ZN4base9ListValue6AppendEPNS_5ValueE.exit
 
@@ -6535,7 +6535,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i: ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %26, ptr %5, align 8, !tbaa !184
   store ptr %32, ptr %6, align 8, !tbaa !187
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %34, ptr %8, align 8, !tbaa !192
   br label %_ZN4base9ListValue6AppendEPNS_5ValueE.exit
 
@@ -6645,7 +6645,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i: ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %26, ptr %5, align 8, !tbaa !184
   store ptr %32, ptr %6, align 8, !tbaa !187
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %34, ptr %8, align 8, !tbaa !192
   br label %_ZN4base9ListValue6AppendEPNS_5ValueE.exit
 
@@ -6828,7 +6828,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i: ; preds = %56, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %49, ptr %28, align 8, !tbaa !184
   store ptr %55, ptr %29, align 8, !tbaa !187
-  %57 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %49, i64 %47
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %57, ptr %31, align 8, !tbaa !192
   br label %_ZN4base9ListValue6AppendEPNS_5ValueE.exit
 
@@ -6978,7 +6978,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i: ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %26, ptr %5, align 8, !tbaa !184
   store ptr %32, ptr %6, align 8, !tbaa !187
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %34, ptr %8, align 8, !tbaa !192
   br label %_ZN4base9ListValue6AppendEPNS_5ValueE.exit
 
@@ -7147,7 +7147,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %41, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %34, ptr %3, align 8, !tbaa !184
   store ptr %40, ptr %5, align 8, !tbaa !187
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %34, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %42, ptr %16, align 8, !tbaa !192
   br label %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
@@ -7170,7 +7170,7 @@ define noundef zeroext i1 @_ZN4base9ListValue6InsertEmSt10unique_ptrINS_5ValueES
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %7, i64 %1
+  %14 = getelementptr inbounds [8 x i8], ptr %7, i64 %1
   %15 = tail call ptr @_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %14, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %16
 
@@ -7459,7 +7459,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %44, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i
   store ptr %37, ptr %8, align 8, !tbaa !184
   store ptr %43, ptr %9, align 8, !tbaa !187
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %37, i64 %35
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %45, ptr %10, align 8, !tbaa !192
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
 
@@ -7824,7 +7824,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %52, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i
   store ptr %46, ptr %26, align 8, !tbaa !184
   store ptr %51, ptr %27, align 8, !tbaa !187
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %46, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   store ptr %53, ptr %29, align 8, !tbaa !192
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit11
 
@@ -8561,7 +8561,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_re
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %62
   store ptr %52, ptr %0, align 8, !tbaa !184
   store ptr %.0.lcssa.i.i.i.i21.i, ptr %8, align 8, !tbaa !187
-  %63 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %52, i64 %50
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %63, ptr %10, align 8, !tbaa !192
   br label %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit
 

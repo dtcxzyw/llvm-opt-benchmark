@@ -14,21 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl" }
 %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint" = type { ptr, i16 }
-%"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
-%"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::animation::offline::RawSkeleton::Joint" = type { %"class.std::vector", %"class.std::__cxx11::basic_string", %"struct.ozz::math::Transform" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::math::Float3" = type { float, float, float }
 
 $_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev = comdat any
 
@@ -104,7 +89,7 @@ define dso_local void @_ZNK3ozz9animation7offline15SkeletonBuilderclERKNS1_11Raw
 _ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE13_M_deallocateEPS5_m.exit.i.i: ; preds = %26
   store ptr %31, ptr %4, align 8, !tbaa !16
   store ptr %31, ptr %24, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %31, i64 %18
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %18
   store ptr %35, ptr %22, align 8, !tbaa !20
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerC2Ei.exit
 
@@ -153,7 +138,7 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit: ; preds = %.lr.ph, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit ]
   %.06487 = phi i64 [ 0, %.lr.ph ], [ %49, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit ]
-  %44 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.val, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !25
@@ -177,10 +162,10 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 54:                                               ; preds = %.lr.ph90, %54
   %indvars.iv99 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next100, %54 ]
   %.06888 = phi ptr [ %38, %.lr.ph90 ], [ %65, %54 ]
-  %55 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val82.pre.pre.pre, i64 %indvars.iv99
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %.val82.pre.pre.pre, i64 %indvars.iv99
   %56 = load ptr, ptr %55, align 8, !tbaa !21
   %57 = load ptr, ptr %39, align 8, !tbaa !35
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv99
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv99
   store ptr %.06888, ptr %58, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !40
@@ -215,10 +200,10 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 
 80:                                               ; preds = %.lr.ph92, %80
   %indvars.iv105 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next106, %80 ]
-  %81 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val82.pre.pre.pre, i64 %indvars.iv105
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %.val82.pre.pre.pre, i64 %indvars.iv105
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i16, ptr %82, align 8, !tbaa !43
-  %84 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv105
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv105
   store i16 %83, ptr %84, align 2, !tbaa !44
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count109
@@ -265,7 +250,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   br i1 %98, label %99, label %136
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val82.pre.pre.pre, i64 %97
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %.val82.pre.pre.pre, i64 %97
   %101 = load ptr, ptr %100, align 8, !tbaa !21
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
   %103 = load float, ptr %102, align 1, !tbaa !46
@@ -310,11 +295,11 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   %.sink119 = phi <4 x float> [ %111, %99 ], [ zeroinitializer, %96 ]
   %.sink118 = phi <4 x float> [ %125, %99 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %96 ]
   %.sink = phi <4 x float> [ %135, %99 ], [ splat (float 1.000000e+00), %96 ]
-  %137 = getelementptr inbounds nuw <4 x float>, ptr %5, i64 %indvars.iv111
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv111
   store <4 x float> %.sink119, ptr %137, align 16, !tbaa !46
-  %138 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %indvars.iv111
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv111
   store <4 x float> %.sink118, ptr %138, align 16, !tbaa !46
-  %139 = getelementptr inbounds nuw <4 x float>, ptr %6, i64 %indvars.iv111
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv111
   store <4 x float> %.sink, ptr %139, align 16, !tbaa !46
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 4
@@ -322,7 +307,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr %70, align 8, !tbaa !48
-  %142 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %141, i64 %indvars.iv115
+  %142 = getelementptr inbounds nuw [160 x i8], ptr %141, i64 %indvars.iv115
   %143 = load <4 x float>, ptr %5, align 16, !tbaa !46
   %144 = load <4 x float>, ptr %71, align 16, !tbaa !46
   %145 = shufflevector <4 x float> %143, <4 x float> %144, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -340,7 +325,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   %155 = getelementptr inbounds nuw i8, ptr %142, i64 32
   store <4 x float> %154, ptr %155, align 16, !tbaa !46
   %156 = load ptr, ptr %70, align 8, !tbaa !48
-  %157 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %156, i64 %indvars.iv115
+  %157 = getelementptr inbounds nuw [160 x i8], ptr %156, i64 %indvars.iv115
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %159 = load <4 x float>, ptr %7, align 16, !tbaa !46
   %160 = load <4 x float>, ptr %74, align 16, !tbaa !46
@@ -362,7 +347,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   %173 = getelementptr inbounds nuw i8, ptr %157, i64 96
   store <4 x float> %172, ptr %173, align 16, !tbaa !46
   %174 = load ptr, ptr %70, align 8, !tbaa !48
-  %175 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %174, i64 %indvars.iv115
+  %175 = getelementptr inbounds nuw [160 x i8], ptr %174, i64 %indvars.iv115
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 112
   %177 = load <4 x float>, ptr %6, align 16, !tbaa !46
   %178 = load <4 x float>, ptr %77, align 16, !tbaa !46
@@ -557,7 +542,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
 9:                                                ; preds = %.lr.ph, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit
   %10 = phi ptr [ %6, %.lr.ph ], [ %67, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit ]
   %.010 = phi i64 [ 0, %.lr.ph ], [ %65, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit ]
-  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %10, i64 %.010
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %.010
   br i1 %.not.i, label %..loopexit_crit_edge.i, label %12
 
 ..loopexit_crit_edge.i:                           ; preds = %9
@@ -582,7 +567,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
 
 19:                                               ; preds = %17
   %20 = and i64 %indvars.iv.next.i, 32767
-  %21 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val.i, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = icmp eq ptr %22, %1
   br i1 %23, label %.loopexit.i, label %17, !llvm.loop !55
@@ -685,7 +670,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_11
 _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i: ; preds = %57, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i
   store ptr %46, ptr %2, align 8, !tbaa !16
   store ptr %54, ptr %7, align 8, !tbaa !19
-  %64 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %46, i64 %39
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %39
   store ptr %64, ptr %8, align 8, !tbaa !20
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit
 

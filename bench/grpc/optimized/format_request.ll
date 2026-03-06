@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.grpc_http_header = type { ptr, ptr }
 %"class.absl::lts_20240722::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20240722::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20240722::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
@@ -1086,7 +1085,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %25
   %.0263 = phi i64 [ 0, %.lr.ph ], [ %370, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %265 = load ptr, ptr %245, align 8, !tbaa !44
-  %266 = getelementptr inbounds nuw %struct.grpc_http_header, ptr %265, i64 %.0263
+  %266 = getelementptr inbounds nuw [16 x i8], ptr %265, i64 %.0263
   %267 = load ptr, ptr %266, align 8, !tbaa !45
   store ptr %246, ptr %19, align 8, !tbaa !3
   %268 = icmp eq ptr %267, null
@@ -1250,7 +1249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %317 = load ptr, ptr %245, align 8, !tbaa !44
-  %318 = getelementptr inbounds nuw %struct.grpc_http_header, ptr %317, i64 %.0263
+  %318 = getelementptr inbounds nuw [16 x i8], ptr %317, i64 %.0263
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %320 = load ptr, ptr %319, align 8, !tbaa !47
   store ptr %250, ptr %21, align 8, !tbaa !3
@@ -1651,7 +1650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %31,
 
 39:                                               ; preds = %.lr.ph, %29
   %.0100 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %40 = getelementptr inbounds nuw %struct.grpc_http_header, ptr %28, i64 %.0100
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0100
   %41 = load ptr, ptr %40, align 8, !tbaa !45
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(13) @.str.4) #20
   %43 = icmp eq i32 %42, 0
@@ -2216,7 +2215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %31,
 
 39:                                               ; preds = %.lr.ph, %29
   %.0100 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %40 = getelementptr inbounds nuw %struct.grpc_http_header, ptr %28, i64 %.0100
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0100
   %41 = load ptr, ptr %40, align 8, !tbaa !45
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(13) @.str.4) #20
   %43 = icmp eq i32 %42, 0
@@ -3194,7 +3193,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !37
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !14
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !17
   ret void
 }

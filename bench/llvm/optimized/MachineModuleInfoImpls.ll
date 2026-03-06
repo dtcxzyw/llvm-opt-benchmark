@@ -7,16 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>, std::allocator<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>, std::allocator<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>, std::allocator<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>, std::allocator<std::pair<llvm::MCSymbol *, llvm::PointerIntPair<llvm::MCSymbol *, 1, bool>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair.219" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>, std::allocator<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>, std::allocator<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>, std::allocator<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>, std::allocator<std::pair<llvm::MCSymbol *, const llvm::MCExpr *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.217" }
-%"struct.std::pair.217" = type { ptr, ptr }
 
 $_ZN4llvm22MachineModuleInfoMachOD2Ev = comdat any
 
@@ -81,7 +75,7 @@ define dso_local void @_ZN4llvm21MachineModuleInfoImpl14getSortedStubsERNS_8Dens
   br i1 %5, label %10, label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.219", ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_14PointerIntPairIS3_Lj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES6_EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E5beginEv.exit
 
 12:                                               ; preds = %2
@@ -107,7 +101,7 @@ define dso_local void @_ZN4llvm21MachineModuleInfoImpl14getSortedStubsERNS_8Dens
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_14PointerIntPairIS3_Lj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES6_EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %10, %12
   %.pn14.i = phi ptr [ %11, %10 ], [ %6, %12 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %13, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %13, %.critedge2.i8.i14.i6.i ], [ %13, %.lr.ph.i6.i12.i3.i ]
-  %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.219", ptr %6, i64 %9
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not4.i.i.i.i = icmp eq ptr %.pn14.i, %16
   br i1 %.not4.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm8MCSymbolENS1_14PointerIntPairIS3_Lj1EbNS1_21PointerLikeTypeTraitsIS3_EENS1_18PointerIntPairInfoIS3_Lj1ES6_EEEEESaISA_EEC2INS1_16DenseMapIteratorIS3_S9_NS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_S9_EELb0EEEvEET_SL_RKSB_.exit, label %.lr.ph.i.i.i.i
@@ -151,7 +145,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm8MCSymbolENS1_14PointerIntPairIS3_Lj1EbNS1_21
   %23 = shl nuw nsw i64 %20, 4
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #17
   store ptr %24, ptr %0, align 8, !tbaa !17
-  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !20
   br label %.lr.ph.i.i.i.i.i.i
@@ -320,7 +314,7 @@ define dso_local void @_ZN4llvm21MachineModuleInfoImpl18getSortedExprStubsERNS_8
   br i1 %5, label %10, label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEPKNS_6MCExprENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit
 
 12:                                               ; preds = %2
@@ -346,7 +340,7 @@ define dso_local void @_ZN4llvm21MachineModuleInfoImpl18getSortedExprStubsERNS_8
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEPKNS_6MCExprENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %10, %12
   %.pn14.i = phi ptr [ %11, %10 ], [ %6, %12 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %13, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %13, %.critedge2.i8.i14.i6.i ], [ %13, %.lr.ph.i6.i12.i3.i ]
-  %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not4.i.i.i.i = icmp eq ptr %.pn14.i, %16
   br i1 %.not4.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm8MCSymbolEPKNS1_6MCExprEESaIS7_EEC2INS1_16DenseMapIteratorIS3_S6_NS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_S6_EELb0EEEvEET_SI_RKS8_.exit, label %.lr.ph.i.i.i.i
@@ -390,7 +384,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm8MCSymbolEPKNS1_6MCExprEESaIS7_EE11_M_allocat
   %23 = shl nuw nsw i64 %20, 4
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #17
   store ptr %24, ptr %0, align 8, !tbaa !41
-  %25 = getelementptr inbounds nuw %"struct.std::pair.217", ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !44
   br label %.lr.ph.i.i.i.i.i.i

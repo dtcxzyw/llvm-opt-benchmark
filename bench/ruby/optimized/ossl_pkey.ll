@@ -200,7 +200,7 @@ define ptr @ossl_pkey_read_generic(ptr noundef %0, i64 noundef %1) local_unnamed
 .preheader:                                       ; preds = %2, %28
   %5 = phi i1 [ true, %2 ], [ false, %28 ]
   %indvars.iv21 = phi i64 [ 0, %2 ], [ 1, %28 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @__const.ossl_pkey_read_generic.input_types, i64 %indvars.iv21
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @__const.ossl_pkey_read_generic.input_types, i64 %indvars.iv21
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   br label %9
 
@@ -211,7 +211,7 @@ define ptr @ossl_pkey_read_generic(ptr noundef %0, i64 noundef %1) local_unnamed
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw i32, ptr @__const.ossl_pkey_read_generic.selections, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @__const.ossl_pkey_read_generic.selections, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21
@@ -408,7 +408,7 @@ define i64 @ossl_pkey_export_traditional(i32 noundef %0, ptr noundef readonly ca
 
 13:                                               ; preds = %.preheader
   %14 = sext i32 %.185.i20 to i64
-  %15 = getelementptr inbounds i64, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !10
   store i64 %16, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   %17 = add nsw i32 %.185.i20, 1
@@ -1313,7 +1313,7 @@ define internal i64 @ossl_pkey_sign(i32 noundef %0, ptr noundef readonly capture
   %exitcond.not = phi i1 [ true, %.preheader30 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %6, %.preheader30 ], [ %5, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader30 ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !10
   store i64 %13, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   br i1 %exitcond.not, label %.preheader, label %.preheader30, !llvm.loop !48
@@ -1529,13 +1529,13 @@ define internal range(i64 0, 21) i64 @ossl_pkey_verify(i32 noundef %0, ptr nound
 .preheader27:                                     ; preds = %15, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !60
   %.not109.i = icmp eq ptr %21, null
   br i1 %.not109.i, label %25, label %22
 
 22:                                               ; preds = %.preheader27
-  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !10
   store i64 %24, ptr %21, align 8, !tbaa !10
   br label %25
@@ -1721,7 +1721,7 @@ define internal i64 @ossl_pkey_sign_raw(i32 noundef %0, ptr noundef readonly cap
   %exitcond.not = phi i1 [ true, %.preheader38 ], [ false, %12 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %6, %.preheader38 ], [ %5, %12 ]
   %indvars.iv = phi i64 [ 1, %.preheader38 ], [ 0, %12 ]
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !10
   store i64 %15, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   br i1 %exitcond.not, label %.preheader, label %.preheader38, !llvm.loop !48
@@ -1948,13 +1948,13 @@ define internal range(i64 0, 21) i64 @ossl_pkey_verify_raw(i32 noundef %0, ptr n
 .preheader32:                                     ; preds = %14, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !60
   %.not109.i = icmp eq ptr %20, null
   br i1 %.not109.i, label %24, label %21
 
 21:                                               ; preds = %.preheader32
-  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !10
   store i64 %23, ptr %20, align 8, !tbaa !10
   br label %24
@@ -2153,7 +2153,7 @@ define internal i64 @ossl_pkey_verify_recover(i32 noundef %0, ptr noundef readon
   %exitcond.not = phi i1 [ true, %.preheader38 ], [ false, %12 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %6, %.preheader38 ], [ %5, %12 ]
   %indvars.iv = phi i64 [ 1, %.preheader38 ], [ 0, %12 ]
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !10
   store i64 %15, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   br i1 %exitcond.not, label %.preheader, label %.preheader38, !llvm.loop !48
@@ -3365,7 +3365,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 1
   %13 = or disjoint i64 %12, 1
-  %14 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store i64 %13, ptr %14, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3473,7 +3473,7 @@ define internal fastcc i64 @do_pkcs8_export(i32 noundef %0, ptr noundef readonly
 
 14:                                               ; preds = %.preheader
   %15 = sext i32 %.185.i22 to i64
-  %16 = getelementptr inbounds i64, ptr %1, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !10
   store i64 %17, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   %18 = add nsw i32 %.185.i22, 1

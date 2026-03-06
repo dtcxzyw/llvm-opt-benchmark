@@ -8,11 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.H5_flexible_const_ptr_t = type { ptr }
 %union.H5D_storage_t = type { %struct.H5O_efl_t }
 %struct.H5O_efl_t = type { i64, i64, i64, ptr }
-%struct.H5D_dset_io_info_t = type { ptr, ptr, %struct.H5D_layout_ops_t, %union.H5_flexible_const_ptr_t, %struct.H5D_io_ops_t, ptr, i64, ptr, ptr, %union.anon, ptr, %struct.H5D_type_info_t, i8 }
-%struct.H5D_layout_ops_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5D_io_ops_t = type { ptr, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.H5D_type_info_t = type { ptr, ptr, ptr, ptr, ptr, i64, i64, i8, i8, ptr, i32, i64 }
 
 @.str = private unnamed_addr constant [14 x i8] c"type_conv_blk\00", align 1
 @H5_type_conv_blk_free_list = global { i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr } { i8 0, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, i64 0, ptr @.str, ptr null }, align 8
@@ -178,7 +173,7 @@ H5D__ioinfo_init.exit:                            ; preds = %24, %32
   %.1239352 = phi ptr [ null, %.lr.ph ], [ %.3241, %262 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !47
-  %48 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.0224355
+  %48 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.0224355
   %49 = load ptr, ptr %48, align 8, !tbaa !10
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %55
@@ -319,7 +314,7 @@ H5D__ioinfo_init.exit:                            ; preds = %24, %32
 130:                                              ; preds = %122, %123
   %.4242 = phi ptr [ %.1239.mux, %122 ], [ %124, %123 ]
   %131 = load ptr, ptr %74, align 8, !tbaa !50
-  %132 = getelementptr inbounds nuw ptr, ptr %.4242, i64 %.0224355
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.4242, i64 %.0224355
   store ptr %131, ptr %132, align 8, !tbaa !54
   store ptr null, ptr %74, align 8, !tbaa !50
   %133 = load ptr, ptr %132, align 8, !tbaa !54
@@ -367,7 +362,7 @@ H5D__ioinfo_init.exit:                            ; preds = %24, %32
   br label %H5D__dset_ioinfo_init.exit
 
 155:                                              ; preds = %148
-  %156 = getelementptr inbounds nuw %union.H5D_storage_t, ptr %.1237450, i64 %.0224355
+  %156 = getelementptr inbounds nuw [32 x i8], ptr %.1237450, i64 %.0224355
   %157 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %156, ptr %157, align 8, !tbaa !57
   %158 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -631,7 +626,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
 
 .lr.ph360:                                        ; preds = %.lr.ph360.preheader, %316
   %.1225358 = phi i64 [ %317, %316 ], [ 0, %.lr.ph360.preheader ]
-  %297 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.1225358
+  %297 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.1225358
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 296
   %299 = load i8, ptr %298, align 8, !tbaa !100, !range !7, !noundef !8
   %300 = trunc nuw i8 %299 to i1
@@ -793,7 +788,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
 
 .lr.ph364:                                        ; preds = %.lr.ph364.preheader, %403
   %.2226362 = phi i64 [ %404, %403 ], [ 0, %.lr.ph364.preheader ]
-  %386 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.2226362
+  %386 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.2226362
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 296
   %388 = load i8, ptr %387, align 8, !tbaa !100, !range !7, !noundef !8
   %389 = trunc nuw i8 %388 to i1
@@ -897,7 +892,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
 .lr.ph369:                                        ; preds = %.lr.ph369.preheader, %453
   %.12367 = phi i32 [ %.13, %453 ], [ %.1220468, %.lr.ph369.preheader ]
   %.3227366 = phi i64 [ %454, %453 ], [ 0, %.lr.ph369.preheader ]
-  %443 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.3227366
+  %443 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.3227366
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 104
   %445 = load ptr, ptr %444, align 8, !tbaa !116
   %.not280 = icmp eq ptr %445, null
@@ -966,13 +961,13 @@ H5D__typeinfo_term.exit:                          ; preds = %._crit_edge370, %46
 .lr.ph374:                                        ; preds = %.preheader, %491
   %.16373 = phi i32 [ %.18, %491 ], [ %.12.lcssa, %.preheader ]
   %.4228372 = phi i64 [ %492, %491 ], [ 0, %.preheader ]
-  %477 = getelementptr inbounds nuw ptr, ptr %.0238464, i64 %.4228372
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %.0238464, i64 %.4228372
   %478 = load ptr, ptr %477, align 8, !tbaa !54
   %.not279 = icmp eq ptr %478, null
   br i1 %.not279, label %491, label %479
 
 479:                                              ; preds = %.lr.ph374
-  %480 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.4228372
+  %480 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.4228372
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 184
   %482 = load ptr, ptr %481, align 8, !tbaa !50
   %483 = call i32 @H5S_close(ptr noundef %482) #9
@@ -1310,7 +1305,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase2(ptr nound
 
 38:                                               ; preds = %.lr.ph, %52
   %.03640 = phi i64 [ 0, %.lr.ph ], [ %53, %52 ]
-  %39 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %35, i64 %.03640
+  %39 = getelementptr inbounds nuw [304 x i8], ptr %35, i64 %.03640
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 280
   %41 = load i32, ptr %40, align 8, !tbaa !136
   %.not39 = icmp eq i32 %41, 0
@@ -1575,7 +1570,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase3(ptr nound
   %97 = phi i64 [ %92, %.lr.ph ], [ %123, %122 ]
   %.05677 = phi i64 [ 0, %.lr.ph ], [ %124, %122 ]
   %98 = load ptr, ptr %93, align 8, !tbaa !42
-  %99 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %98, i64 %.05677
+  %99 = getelementptr inbounds nuw [304 x i8], ptr %98, i64 %.05677
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 248
   %101 = load i64, ptr %100, align 8, !tbaa !129
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 256
@@ -1741,7 +1736,7 @@ H5D__ioinfo_init.exit:                            ; preds = %24, %32
   %.1227325 = phi ptr [ null, %.lr.ph ], [ %.3229, %276 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !47
-  %48 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.0216327
+  %48 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.0216327
   %49 = load ptr, ptr %48, align 8, !tbaa !10
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %55
@@ -1928,7 +1923,7 @@ H5D__ioinfo_init.exit:                            ; preds = %24, %32
 163:                                              ; preds = %155, %156
   %.4230 = phi ptr [ %.1227.mux, %155 ], [ %157, %156 ]
   %164 = load ptr, ptr %107, align 8, !tbaa !50
-  %165 = getelementptr inbounds nuw ptr, ptr %.4230, i64 %.0216327
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %.4230, i64 %.0216327
   store ptr %164, ptr %165, align 8, !tbaa !54
   store ptr null, ptr %107, align 8, !tbaa !50
   %166 = load ptr, ptr %165, align 8, !tbaa !54
@@ -1976,7 +1971,7 @@ H5D__ioinfo_init.exit:                            ; preds = %24, %32
   br label %H5D__dset_ioinfo_init.exit
 
 188:                                              ; preds = %181
-  %189 = getelementptr inbounds nuw %union.H5D_storage_t, ptr %.1225410, i64 %.0216327
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %.1225410, i64 %.0216327
   %190 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %189, ptr %190, align 8, !tbaa !57
   %191 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -2196,7 +2191,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
 
 .lr.ph331:                                        ; preds = %310, %326
   %.1217329 = phi i64 [ %327, %326 ], [ 0, %310 ]
-  %311 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.1217329
+  %311 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.1217329
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 56
   %313 = load ptr, ptr %312, align 8, !tbaa !107
   %.not251 = icmp eq ptr %313, null
@@ -2360,7 +2355,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %400 = load i64, ptr %399, align 8, !tbaa !48
   call void @H5AC_tag(i64 noundef %400, ptr noundef nonnull %11) #9
-  %401 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.2218333
+  %401 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.2218333
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 136
   %403 = load ptr, ptr %402, align 8, !tbaa !86
   %404 = call i32 %403(ptr noundef nonnull %4, ptr noundef nonnull %401) #9
@@ -2453,7 +2448,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
 .lr.ph340:                                        ; preds = %451, %462
   %.12338 = phi i32 [ %.13, %462 ], [ %.1212, %451 ]
   %.3219337 = phi i64 [ %463, %462 ], [ 0, %451 ]
-  %452 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.3219337
+  %452 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.3219337
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 104
   %454 = load ptr, ptr %453, align 8, !tbaa !116
   %.not264 = icmp eq ptr %454, null
@@ -2522,13 +2517,13 @@ H5D__typeinfo_term.exit:                          ; preds = %._crit_edge341, %47
 .lr.ph345:                                        ; preds = %.preheader, %500
   %.16344 = phi i32 [ %.18, %500 ], [ %.12.lcssa, %.preheader ]
   %.4220343 = phi i64 [ %501, %500 ], [ 0, %.preheader ]
-  %486 = getelementptr inbounds nuw ptr, ptr %.0226419, i64 %.4220343
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %.0226419, i64 %.4220343
   %487 = load ptr, ptr %486, align 8, !tbaa !54
   %.not263 = icmp eq ptr %487, null
   br i1 %.not263, label %500, label %488
 
 488:                                              ; preds = %.lr.ph345
-  %489 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %1, i64 %.4220343
+  %489 = getelementptr inbounds nuw [304 x i8], ptr %1, i64 %.4220343
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 184
   %491 = load ptr, ptr %490, align 8, !tbaa !50
   %492 = call i32 @H5S_close(ptr noundef %491) #9

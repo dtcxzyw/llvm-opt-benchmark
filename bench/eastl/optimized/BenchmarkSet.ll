@@ -133,7 +133,7 @@ invoke.cont6:                                     ; preds = %entry, %invoke.cont
   %mul.i = mul nuw nsw i64 %conv.i, 5000
   %shr.i = lshr i64 %mul.i, 32
   %conv3.i = trunc nuw nsw i64 %shr.i to i32
-  %add.ptr.i25 = getelementptr inbounds nuw i32, ptr %call.i.i.i.i.i24, i64 %i.0909
+  %add.ptr.i25 = getelementptr inbounds nuw [4 x i8], ptr %call.i.i.i.i.i24, i64 %i.0909
   store i32 %conv3.i, ptr %add.ptr.i25, align 4
   %inc = add nuw nsw i64 %i.0909, 1
   %exitcond.not = icmp eq i64 %inc, 10000

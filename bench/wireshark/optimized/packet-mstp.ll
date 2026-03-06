@@ -210,7 +210,7 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %crc.indexer.cast.i.i = trunc i32 %.02562.i to i8
   %crc.data.indexer.i.i = xor i8 %78, %crc.indexer.cast.i.i
   %indexer.ext.i.i = zext i8 %crc.data.indexer.i.i to i64
-  %tbl.ptradd.i.i = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indexer.ext.i.i
+  %tbl.ptradd.i.i = getelementptr inbounds nuw [4 x i8], ptr @.crctable, i64 %indexer.ext.i.i
   %tbl.ld.i.i = load i32, ptr %tbl.ptradd.i.i, align 4
   %crc.next.i.i = xor i32 %tbl.ld.i.i, %crc.le.shift.i.i
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
@@ -346,7 +346,7 @@ cobs_decode.exit51.i:                             ; preds = %123
   %crc.indexer.cast.i53.i = trunc i32 %.12664.i to i8
   %crc.data.indexer.i54.i = xor i8 %125, %crc.indexer.cast.i53.i
   %indexer.ext.i55.i = zext i8 %crc.data.indexer.i54.i to i64
-  %tbl.ptradd.i56.i = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indexer.ext.i55.i
+  %tbl.ptradd.i56.i = getelementptr inbounds nuw [4 x i8], ptr @.crctable, i64 %indexer.ext.i55.i
   %tbl.ld.i57.i = load i32, ptr %tbl.ptradd.i56.i, align 4
   %crc.next.i58.i = xor i32 %tbl.ld.i57.i, %crc.le.shift.i52.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

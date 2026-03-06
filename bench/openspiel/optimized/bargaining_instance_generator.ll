@@ -431,7 +431,7 @@ _ZNK4absl7debian214flags_internal9FlagValueIiLNS1_20FlagValueStorageKindE1EE3Get
 37:                                               ; preds = %37, %34
   %store_forwarded = phi i64 [ %36, %34 ], [ %43, %37 ]
   %.011.i.i.i = phi i64 [ 1, %34 ], [ %44, %37 ]
-  %38 = getelementptr i64, ptr %10, i64 %.011.i.i.i
+  %38 = getelementptr [8 x i8], ptr %10, i64 %.011.i.i.i
   %39 = lshr i64 %store_forwarded, 30
   %40 = xor i64 %39, %store_forwarded
   %41 = mul nuw nsw i64 %40, 1812433253
@@ -543,10 +543,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 79:                                               ; preds = %79, %78
   %80 = phi i64 [ %.pre.i.i56.i.i, %78 ], [ %85, %79 ]
   %.021.i.i57.i.i = phi i64 [ 0, %78 ], [ %83, %79 ]
-  %81 = getelementptr inbounds nuw i64, ptr %10, i64 %.021.i.i57.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.021.i.i57.i.i
   %82 = and i64 %80, -2147483648
   %83 = add nuw nsw i64 %.021.i.i57.i.i, 1
-  %84 = getelementptr inbounds nuw i64, ptr %10, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %83
   %85 = load i64, ptr %84, align 8, !noalias !23
   %86 = and i64 %85, 2147483646
   %87 = or disjoint i64 %86, %82
@@ -569,10 +569,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 .preheader.i.i63.i.i:                             ; preds = %.preheader.i.i63.i.i, %.preheader.preheader.i.i60.i.i
   %95 = phi i64 [ %100, %.preheader.i.i63.i.i ], [ %.pre24.i.i62.i.i, %.preheader.preheader.i.i60.i.i ]
   %.01822.i.i64.i.i = phi i64 [ %98, %.preheader.i.i63.i.i ], [ 227, %.preheader.preheader.i.i60.i.i ]
-  %96 = getelementptr inbounds nuw i64, ptr %10, i64 %.01822.i.i64.i.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01822.i.i64.i.i
   %97 = and i64 %95, -2147483648
   %98 = add nuw nsw i64 %.01822.i.i64.i.i, 1
-  %99 = getelementptr inbounds nuw i64, ptr %10, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %98
   %100 = load i64, ptr %99, align 8, !noalias !23
   %101 = and i64 %100, 2147483646
   %102 = or disjoint i64 %101, %97
@@ -608,7 +608,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %121 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i67.i.i ], [ %76, %.preheader.i.i ]
   %122 = add nuw nsw i64 %121, 1
   store i64 %122, ptr %46, align 8, !noalias !23
-  %123 = getelementptr inbounds nuw i64, ptr %10, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %121
   %124 = load i64, ptr %123, align 8, !noalias !23
   %125 = lshr i64 %124, 11
   %126 = and i64 %125, 4294967295
@@ -639,10 +639,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 142:                                              ; preds = %142, %141
   %143 = phi i64 [ %.pre.i.i.i18.i, %141 ], [ %148, %142 ]
   %.021.i.i.i.i = phi i64 [ 0, %141 ], [ %146, %142 ]
-  %144 = getelementptr inbounds nuw i64, ptr %10, i64 %.021.i.i.i.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.021.i.i.i.i
   %145 = and i64 %143, -2147483648
   %146 = add nuw nsw i64 %.021.i.i.i.i, 1
-  %147 = getelementptr inbounds nuw i64, ptr %10, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %146
   %148 = load i64, ptr %147, align 8, !noalias !23
   %149 = and i64 %148, 2147483646
   %150 = or disjoint i64 %149, %145
@@ -665,10 +665,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i, %.preheader.preheader.i.i.i.i
   %158 = phi i64 [ %163, %.preheader.i.i.i.i ], [ %.pre24.i.i.i.i, %.preheader.preheader.i.i.i.i ]
   %.01822.i.i.i.i = phi i64 [ %161, %.preheader.i.i.i.i ], [ 227, %.preheader.preheader.i.i.i.i ]
-  %159 = getelementptr inbounds nuw i64, ptr %10, i64 %.01822.i.i.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01822.i.i.i.i
   %160 = and i64 %158, -2147483648
   %161 = add nuw nsw i64 %.01822.i.i.i.i, 1
-  %162 = getelementptr inbounds nuw i64, ptr %10, i64 %161
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %161
   %163 = load i64, ptr %162, align 8, !noalias !23
   %164 = and i64 %163, 2147483646
   %165 = or disjoint i64 %164, %160
@@ -704,7 +704,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %184 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i.i.i.i ]
   %185 = add nuw nsw i64 %184, 1
   store i64 %185, ptr %46, align 8, !noalias !23
-  %186 = getelementptr inbounds nuw i64, ptr %10, i64 %184
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %184
   %187 = load i64, ptr %186, align 8, !noalias !23
   %188 = lshr i64 %187, 11
   %189 = and i64 %188, 4294967295
@@ -730,7 +730,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %.0.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %204 to i32
   %205 = add nuw nsw i32 %.0.i.i.i.i.i.i.i.i, 1
   %206 = load ptr, ptr %64, align 8, !alias.scope !23
-  %207 = getelementptr inbounds nuw i32, ptr %206, i64 %indvars.iv.i.i
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %indvars.iv.i.i
   store i32 %205, ptr %207, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -788,10 +788,10 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S
 224:                                              ; preds = %224, %223
   %225 = phi i64 [ %.pre.i.i84.i.i, %223 ], [ %230, %224 ]
   %.021.i.i85.i.i = phi i64 [ 0, %223 ], [ %228, %224 ]
-  %226 = getelementptr inbounds nuw i64, ptr %10, i64 %.021.i.i85.i.i
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.021.i.i85.i.i
   %227 = and i64 %225, -2147483648
   %228 = add nuw nsw i64 %.021.i.i85.i.i, 1
-  %229 = getelementptr inbounds nuw i64, ptr %10, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %228
   %230 = load i64, ptr %229, align 8, !noalias !23
   %231 = and i64 %230, 2147483646
   %232 = or disjoint i64 %231, %227
@@ -814,10 +814,10 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S
 .preheader.i.i91.i.i:                             ; preds = %.preheader.i.i91.i.i, %.preheader.preheader.i.i88.i.i
   %240 = phi i64 [ %245, %.preheader.i.i91.i.i ], [ %.pre24.i.i90.i.i, %.preheader.preheader.i.i88.i.i ]
   %.01822.i.i92.i.i = phi i64 [ %243, %.preheader.i.i91.i.i ], [ 227, %.preheader.preheader.i.i88.i.i ]
-  %241 = getelementptr inbounds nuw i64, ptr %10, i64 %.01822.i.i92.i.i
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01822.i.i92.i.i
   %242 = and i64 %240, -2147483648
   %243 = add nuw nsw i64 %.01822.i.i92.i.i, 1
-  %244 = getelementptr inbounds nuw i64, ptr %10, i64 %243
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %243
   %245 = load i64, ptr %244, align 8, !noalias !23
   %246 = and i64 %245, 2147483646
   %247 = or disjoint i64 %246, %242
@@ -853,7 +853,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %266 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i95.i.i ], [ %220, %219 ]
   %267 = add nuw nsw i64 %266, 1
   store i64 %267, ptr %46, align 8, !noalias !23
-  %268 = getelementptr inbounds nuw i64, ptr %10, i64 %266
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %266
   %269 = load i64, ptr %268, align 8, !noalias !23
   %270 = lshr i64 %269, 11
   %271 = and i64 %270, 4294967295
@@ -884,10 +884,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 287:                                              ; preds = %287, %286
   %288 = phi i64 [ %.pre.i.i70.i.i, %286 ], [ %293, %287 ]
   %.021.i.i71.i.i = phi i64 [ 0, %286 ], [ %291, %287 ]
-  %289 = getelementptr inbounds nuw i64, ptr %10, i64 %.021.i.i71.i.i
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.021.i.i71.i.i
   %290 = and i64 %288, -2147483648
   %291 = add nuw nsw i64 %.021.i.i71.i.i, 1
-  %292 = getelementptr inbounds nuw i64, ptr %10, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %291
   %293 = load i64, ptr %292, align 8, !noalias !23
   %294 = and i64 %293, 2147483646
   %295 = or disjoint i64 %294, %290
@@ -910,10 +910,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .preheader.i.i77.i.i:                             ; preds = %.preheader.i.i77.i.i, %.preheader.preheader.i.i74.i.i
   %303 = phi i64 [ %308, %.preheader.i.i77.i.i ], [ %.pre24.i.i76.i.i, %.preheader.preheader.i.i74.i.i ]
   %.01822.i.i78.i.i = phi i64 [ %306, %.preheader.i.i77.i.i ], [ 227, %.preheader.preheader.i.i74.i.i ]
-  %304 = getelementptr inbounds nuw i64, ptr %10, i64 %.01822.i.i78.i.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01822.i.i78.i.i
   %305 = and i64 %303, -2147483648
   %306 = add nuw nsw i64 %.01822.i.i78.i.i, 1
-  %307 = getelementptr inbounds nuw i64, ptr %10, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %306
   %308 = load i64, ptr %307, align 8, !noalias !23
   %309 = and i64 %308, 2147483646
   %310 = or disjoint i64 %309, %305
@@ -949,7 +949,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %329 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i81.i.i ], [ %284, %.lr.ph.i.i.i.i.i.i52.i.i ]
   %330 = add nuw nsw i64 %329, 1
   store i64 %330, ptr %46, align 8, !noalias !23
-  %331 = getelementptr inbounds nuw i64, ptr %10, i64 %329
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %329
   %332 = load i64, ptr %331, align 8, !noalias !23
   %333 = lshr i64 %332, 11
   %334 = and i64 %333, 4294967295
@@ -975,9 +975,9 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %.0.i.i.i.i.i.i51.i.i = trunc nuw nsw i64 %349 to i32
   %350 = sext i32 %221 to i64
   %351 = load ptr, ptr %14, align 8, !alias.scope !23
-  %352 = getelementptr inbounds %"class.std::vector.17", ptr %351, i64 %350
+  %352 = getelementptr inbounds [24 x i8], ptr %351, i64 %350
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds nuw i32, ptr %353, i64 %indvars.iv118.i.i
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %353, i64 %indvars.iv118.i.i
   store i32 %.0.i.i.i.i.i.i51.i.i, ptr %354, align 4
   %.047.add.i.i = add nuw nsw i64 %.047.idx108.i.i, 4
   %.not.i.i = icmp eq i64 %.047.add.i.i, 8
@@ -986,7 +986,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 355:                                              ; preds = %.loopexit.i.i
   %356 = load ptr, ptr %14, align 8, !alias.scope !23
   %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds nuw i32, ptr %357, i64 %indvars.iv118.i.i
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %357, i64 %indvars.iv118.i.i
   %359 = load i32, ptr %358, align 4
   %360 = icmp eq i32 %359, 0
   br i1 %360, label %361, label %367
@@ -994,7 +994,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 361:                                              ; preds = %355
   %362 = getelementptr inbounds nuw i8, ptr %356, i64 24
   %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv118.i.i
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %363, i64 %indvars.iv118.i.i
   %365 = load i32, ptr %364, align 4
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %.preheader.i.i.backedge, label %.thread.i.i
@@ -1006,7 +1006,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 369:                                              ; preds = %367
   %370 = getelementptr inbounds nuw i8, ptr %356, i64 24
   %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds nuw i32, ptr %371, i64 %indvars.iv118.i.i
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %371, i64 %indvars.iv118.i.i
   %373 = load i32, ptr %372, align 4
   %374 = icmp sgt i32 %373, 0
   %spec.select.i.i = select i1 %374, i1 true, i1 %.044111.i.i
@@ -1017,7 +1017,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   store i32 0, ptr %6, align 4, !noalias !23
   store i32 1, ptr %69, align 4, !noalias !23
   %375 = load ptr, ptr %64, align 8, !alias.scope !23
-  %376 = getelementptr inbounds nuw i32, ptr %375, i64 %indvars.iv118.i.i
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %375, i64 %indvars.iv118.i.i
   %377 = load i32, ptr %376, align 4
   br label %379
 
@@ -1031,12 +1031,12 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %.042.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.042.idx109.i.i
   %380 = load i32, ptr %.042.ptr.i.i, align 4, !noalias !23
   %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds %"class.std::vector.17", ptr %356, i64 %381
+  %382 = getelementptr inbounds [24 x i8], ptr %356, i64 %381
   %383 = load ptr, ptr %382, align 8
-  %384 = getelementptr inbounds nuw i32, ptr %383, i64 %indvars.iv118.i.i
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %383, i64 %indvars.iv118.i.i
   %385 = load i32, ptr %384, align 4
   %386 = mul nsw i32 %385, %377
-  %387 = getelementptr inbounds i32, ptr %4, i64 %381
+  %387 = getelementptr inbounds [4 x i8], ptr %4, i64 %381
   %388 = load i32, ptr %387, align 4, !noalias !23
   %389 = add nsw i32 %388, %386
   store i32 %389, ptr %387, align 4, !noalias !23

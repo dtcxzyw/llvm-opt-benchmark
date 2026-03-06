@@ -167,13 +167,13 @@ define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly
   %53 = add nuw nsw i32 %.0124171, 1
   %54 = select i1 %52, i32 %53, i32 %.0124171
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.min, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ossl_asn1_time_to_tm.min, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !16
   %58 = icmp slt i32 %48, %57
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.max, i64 %55
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @ossl_asn1_time_to_tm.max, i64 %55
   %61 = load i32, ptr %60, align 4, !tbaa !16
   %62 = icmp sgt i32 %48, %61
   br i1 %62, label %.thread, label %63
@@ -237,7 +237,7 @@ define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly
 
 87:                                               ; preds = %76
   %88 = sext i32 %24 to i64
-  %89 = getelementptr inbounds i32, ptr @ossl_asn1_time_to_tm.mdays, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr @ossl_asn1_time_to_tm.mdays, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !16
   br label %leap_year.exit
 
@@ -249,7 +249,7 @@ leap_year.exit:                                   ; preds = %82, %78, %87
 92:                                               ; preds = %leap_year.exit
   store i32 %48, ptr %16, align 4, !tbaa !20
   %93 = sext i32 %24 to i64
-  %94 = getelementptr inbounds i32, ptr @determine_days.ydays, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr @determine_days.ydays, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !16
   %96 = add nsw i32 %47, -49
   %97 = add i32 %96, %95
@@ -440,13 +440,13 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %188 = add nuw nsw i32 %.1125177.us, 1
   %189 = select i1 %187, i32 %188, i32 %.1125177.us
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.min, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr @ossl_asn1_time_to_tm.min, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !16
   %193 = icmp slt i32 %185, %192
   br i1 %193, label %.thread, label %194
 
 194:                                              ; preds = %179
-  %195 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.max, i64 %190
+  %195 = getelementptr inbounds nuw [4 x i8], ptr @ossl_asn1_time_to_tm.max, i64 %190
   %196 = load i32, ptr %195, align 4, !tbaa !16
   %197 = icmp sgt i32 %185, %196
   br i1 %197, label %.thread, label %198
@@ -492,13 +492,13 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %218 = add nuw nsw i32 %.1125177, 1
   %219 = select i1 %217, i32 %218, i32 %.1125177
   %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.min, i64 %220
+  %221 = getelementptr inbounds nuw [4 x i8], ptr @ossl_asn1_time_to_tm.min, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !16
   %223 = icmp slt i32 %215, %222
   br i1 %223, label %.thread, label %224
 
 224:                                              ; preds = %209
-  %225 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.max, i64 %220
+  %225 = getelementptr inbounds nuw [4 x i8], ptr @ossl_asn1_time_to_tm.max, i64 %220
   %226 = load i32, ptr %225, align 4, !tbaa !16
   %227 = icmp sgt i32 %215, %226
   br i1 %227, label %.thread, label %228

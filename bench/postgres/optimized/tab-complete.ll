@@ -8,12 +8,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.printTableOpt = type { i32, i16, i32, i32, i16, i16, i32, i8, i8, i8, i8, i64, ptr, %struct.separator, %struct.separator, [2 x i8], i8, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.separator = type { ptr, i8 }
 %struct.ScanKeywordList = type { ptr, ptr, ptr, i32, i32 }
-%struct.TCPattern = type { i32, i32, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.pgsql_thing_t = type { ptr, ptr, ptr, ptr, ptr, i32 }
 
 @tab_completion_query_buf = dso_local local_unnamed_addr global ptr null, align 8
 @pset = external local_unnamed_addr global %struct._psqlSettings, align 8
@@ -2904,7 +2902,7 @@ define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef
   %59 = getelementptr inbounds nuw i8, ptr %.076.i, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %56, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 8192
   %.not86.i = icmp eq i16 %64, 0
@@ -2982,7 +2980,7 @@ define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef
   %.069.lcssa.i = phi i32 [ %.069.lcssa.ph.i, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ]
   %88 = add i32 %.072112.i, 1
   %89 = sext i32 %.072112.i to i64
-  %90 = getelementptr inbounds ptr, ptr %43, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %43, i64 %89
   store ptr %.074111.i, ptr %90, align 8
   %91 = add i32 %.171102.i, 1
   %92 = sub i32 %91, %.069.lcssa.i
@@ -3062,7 +3060,7 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
 
 .preheader151:                                    ; preds = %119, %.critedge.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.thread ], [ 0, %119 ]
-  %122 = getelementptr inbounds nuw %struct.TCPattern, ptr @tcpatterns, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [24 x i8], ptr @tcpatterns, i64 %indvars.iv
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
   switch i32 %124, label %.critedge.thread [
@@ -3101,13 +3099,13 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
 
 .lr.ph.i95:                                       ; preds = %137, %.lr.ph.preheader.i
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i97, %137 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i96
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv.i96
   %139 = load ptr, ptr %138, align 8
   %140 = trunc i64 %indvars.iv.i96 to i32
   %141 = xor i32 %140, -1
   %142 = add i32 %.072101.i, %141
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds ptr, ptr %43, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %43, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = tail call fastcc zeroext i1 @word_matches(ptr noundef %139, ptr noundef %145, i1 noundef zeroext false)
   br i1 %146, label %137, label %.critedge.thread
@@ -3131,13 +3129,13 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
 
 .lr.ph.i101:                                      ; preds = %153, %.lr.ph.preheader.i99
   %indvars.iv.i102 = phi i64 [ 0, %.lr.ph.preheader.i99 ], [ %indvars.iv.next.i104, %153 ]
-  %154 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i102
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i102
   %155 = load ptr, ptr %154, align 8
   %156 = trunc i64 %indvars.iv.i102 to i32
   %157 = xor i32 %156, -1
   %158 = add i32 %.072101.i, %157
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr %43, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %43, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = tail call fastcc zeroext i1 @word_matches(ptr noundef %155, ptr noundef %161, i1 noundef zeroext true)
   br i1 %162, label %153, label %.critedge.thread
@@ -3161,13 +3159,13 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
 
 .lr.ph.i110:                                      ; preds = %169, %.lr.ph.preheader.i108
   %indvars.iv.i111 = phi i64 [ 0, %.lr.ph.preheader.i108 ], [ %indvars.iv.next.i113, %169 ]
-  %170 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv.i111
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv.i111
   %171 = load ptr, ptr %170, align 8
   %172 = trunc i64 %indvars.iv.i111 to i32
   %173 = xor i32 %172, -1
   %174 = add i32 %165, %173
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds ptr, ptr %43, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %43, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = tail call fastcc zeroext i1 @word_matches(ptr noundef %171, ptr noundef %177, i1 noundef zeroext false)
   br i1 %178, label %169, label %.critedge.thread
@@ -3191,13 +3189,13 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
 
 .lr.ph.i118:                                      ; preds = %185, %.lr.ph.preheader.i116
   %indvars.iv.i119 = phi i64 [ 0, %.lr.ph.preheader.i116 ], [ %indvars.iv.next.i121, %185 ]
-  %186 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv.i119
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv.i119
   %187 = load ptr, ptr %186, align 8
   %188 = trunc i64 %indvars.iv.i119 to i32
   %189 = xor i32 %188, -1
   %190 = add i32 %181, %189
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds ptr, ptr %43, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %43, i64 %191
   %193 = load ptr, ptr %192, align 8
   %194 = tail call fastcc zeroext i1 @word_matches(ptr noundef %187, ptr noundef %193, i1 noundef zeroext true)
   br i1 %194, label %185, label %.critedge.thread
@@ -3463,7 +3461,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %11 = add i32 %9, 1
   store i32 %11, ptr @complete_from_list.list_index, align 4
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -3488,7 +3486,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %23 = add i32 %19, 1
   store i32 %23, ptr @complete_from_list.list_index, align 4
   %24 = sext i32 %19 to i64
-  %25 = getelementptr inbounds ptr, ptr %10, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %10, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not.us = icmp eq ptr %26, null
   br i1 %.not.us, label %._crit_edge, label %18, !llvm.loop !14
@@ -3546,7 +3544,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %50 = tail call ptr @__ctype_b_loc() #12
   %51 = load ptr, ptr %50, align 8
   %52 = zext i8 %.val to i64
-  %53 = getelementptr inbounds nuw i16, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 512
   %.not.i = icmp eq i16 %55, 0
@@ -3597,7 +3595,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %74 = add i32 %71, 1
   store i32 %74, ptr @complete_from_list.list_index, align 4
   %75 = sext i32 %71 to i64
-  %76 = getelementptr inbounds ptr, ptr %72, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %72, i64 %75
   %77 = load ptr, ptr %76, align 8
   %.not = icmp eq ptr %77, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
@@ -3667,7 +3665,7 @@ append_variable_names.exit.us:                    ; preds = %11, %9
   %17 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.120, ptr noundef %1, ptr noundef %10, ptr noundef %2) #11
   %18 = add i32 %.02332.us, 1
   %19 = sext i32 %.02332.us to i64
-  %20 = getelementptr inbounds ptr, ptr %.227.us, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.227.us, i64 %19
   store ptr %17, ptr %20, align 8
   br label %21
 
@@ -3703,7 +3701,7 @@ append_variable_names.exit:                       ; preds = %.lr.ph.split, %23
   %29 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.120, ptr noundef %1, ptr noundef %22, ptr noundef %2) #11
   %30 = add i32 %.02332, 1
   %31 = sext i32 %.02332 to i64
-  %32 = getelementptr inbounds ptr, ptr %.227, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.227, i64 %31
   store ptr %29, ptr %32, align 8
   %.0.in = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
@@ -3714,7 +3712,7 @@ append_variable_names.exit:                       ; preds = %.lr.ph.split, %23
   %.025.lcssa = phi ptr [ %5, %4 ], [ %.126.us, %21 ], [ %.227, %append_variable_names.exit ]
   %.023.lcssa = phi i32 [ 0, %4 ], [ %.124.us, %21 ], [ %30, %append_variable_names.exit ]
   %33 = sext i32 %.023.lcssa to i64
-  %34 = getelementptr inbounds ptr, ptr %.025.lcssa, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %.025.lcssa, i64 %33
   store ptr null, ptr %34, align 8
   store i1 true, ptr @completion_case_sensitive, align 1
   store ptr %.025.lcssa, ptr @completion_charpp, align 8
@@ -3728,7 +3726,7 @@ append_variable_names.exit:                       ; preds = %.lr.ph.split, %23
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
   %indvars.iv = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next, %.lr.ph39 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %.025.lcssa, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.025.lcssa, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   tail call void @free(ptr noundef %38) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3756,7 +3754,7 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
@@ -3785,13 +3783,13 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = trunc i64 %indvars.iv.i to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %3, %19
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call fastcc zeroext i1 @word_matches(ptr noundef %17, ptr noundef %23, i1 noundef zeroext %0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3819,13 +3817,13 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
 
 .lr.ph.i41:                                       ; preds = %29, %.lr.ph.preheader.i39
   %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.preheader.i39 ], [ %indvars.iv.next.i44, %29 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i42
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i42
   %31 = load ptr, ptr %30, align 8
   %32 = trunc i64 %indvars.iv.i42 to i32
   %33 = xor i32 %32, -1
   %34 = add i32 %1, %33
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = tail call fastcc zeroext i1 @word_matches(ptr noundef %31, ptr noundef %37, i1 noundef zeroext %0)
   br i1 %38, label %29, label %HeadMatchesArray.exit
@@ -3834,7 +3832,7 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
   %.pre-phi = phi i64 [ 0, %.preheader.i38 ], [ %wide.trip.count.i40, %29 ]
   %39 = xor i32 %26, -1
   %40 = add nsw i32 %3, %39
-  %41 = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre-phi
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.pre-phi
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = icmp slt i32 %1, %40
   br i1 %43, label %HeadMatchesArray.exit, label %.preheader.i47
@@ -3849,13 +3847,13 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50, %.lr.ph.preheader.i48
   %indvars.iv.i51 = phi i64 [ 0, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i53, %.lr.ph.i50 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i51
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i51
   %46 = load ptr, ptr %45, align 8
   %47 = trunc i64 %indvars.iv.i51 to i32
   %48 = xor i32 %47, -1
   %49 = add i32 %40, %48
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %2, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %2, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call fastcc zeroext i1 @word_matches(ptr noundef %46, ptr noundef %52, i1 noundef zeroext %0)
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 1
@@ -10949,7 +10947,7 @@ define internal ptr @complete_from_const(ptr noundef readonly captures(none) %0,
   %14 = tail call ptr @__ctype_b_loc() #12
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %.val to i64
-  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 512
   %.not.i = icmp eq i16 %19, 0
@@ -11215,13 +11213,13 @@ define internal noundef zeroext i1 @HeadMatchesImpl(i1 zeroext %0, i32 noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = trunc i64 %indvars.iv.i to i32
   %15 = xor i32 %14, -1
   %16 = add i32 %1, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = call fastcc zeroext i1 @word_matches(ptr noundef %13, ptr noundef %19, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -11253,7 +11251,7 @@ define internal noundef zeroext i1 @HeadMatchesImpl(i1 zeroext %0, i32 noundef %
   %33 = phi i32 [ %28, %25 ], [ %23, %29 ]
   %34 = phi ptr [ %27, %25 ], [ %22, %29 ]
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -11318,13 +11316,13 @@ define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = trunc i64 %indvars.iv.i to i32
   %15 = xor i32 %14, -1
   %16 = add i32 %3, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = call fastcc zeroext i1 @word_matches(ptr noundef %13, ptr noundef %19, i1 noundef zeroext %0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -11356,7 +11354,7 @@ define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 n
   %33 = phi i32 [ %28, %25 ], [ %23, %29 ]
   %34 = phi ptr [ %27, %25 ], [ %22, %29 ]
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -11495,7 +11493,7 @@ define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, p
   %26 = phi i32 [ %21, %18 ], [ %16, %22 ]
   %27 = phi ptr [ %20, %18 ], [ %15, %22 ]
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %28, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -11542,7 +11540,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %.pn.in = phi i32 [ %.pre16, %47 ], [ %.pn.in.ph, %.lr.ph.preheader ]
   %.pn = sext i32 %.pn.in to i64
-  %.in = getelementptr inbounds %struct.pgsql_thing_t, ptr @words_after_create, i64 %.pn
+  %.in = getelementptr inbounds [48 x i8], ptr @words_after_create, i64 %.pn
   %9 = load ptr, ptr %.in, align 16
   %10 = load i32, ptr @create_or_drop_command_generator.string_length, align 4
   %11 = sext i32 %10 to i64
@@ -11554,7 +11552,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
 14:                                               ; preds = %.lr.ph
   %15 = add i32 %.pre16, -1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.pgsql_thing_t, ptr @words_after_create, i64 %16
+  %17 = getelementptr inbounds [48 x i8], ptr @words_after_create, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, %2
@@ -11576,7 +11574,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   %27 = tail call ptr @__ctype_b_loc() #12
   %28 = load ptr, ptr %27, align 8
   %29 = zext i8 %.val to i64
-  %30 = getelementptr inbounds nuw i16, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 512
   %.not.i = icmp eq i16 %32, 0
@@ -12544,7 +12542,7 @@ identifier_needs_quotes.exit.thread:              ; preds = %281, %275, %271, %2
   %418 = tail call ptr @__ctype_b_loc() #12
   %419 = load ptr, ptr %418, align 8
   %420 = zext i8 %.val166 to i64
-  %421 = getelementptr inbounds nuw i16, ptr %419, i64 %420
+  %421 = getelementptr inbounds nuw [2 x i8], ptr %419, i64 %420
   %422 = load i16, ptr %421, align 2
   %423 = and i16 %422, 512
   %.not.i185 = icmp eq i16 %423, 0
@@ -12638,7 +12636,7 @@ pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph251
   %458 = tail call ptr @__ctype_b_loc() #12
   %459 = load ptr, ptr %458, align 8
   %460 = zext i8 %.val to i64
-  %461 = getelementptr inbounds nuw i16, ptr %459, i64 %460
+  %461 = getelementptr inbounds nuw [2 x i8], ptr %459, i64 %460
   %462 = load i16, ptr %461, align 2
   %463 = and i16 %462, 512
   %.not.i194 = icmp eq i16 %463, 0
@@ -12824,7 +12822,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
   %51 = tail call ptr @__ctype_b_loc() #12
   %52 = load ptr, ptr %51, align 8
   %53 = zext i8 %14 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 256
   %.not68 = icmp eq i16 %56, 0
@@ -12833,7 +12831,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
 57:                                               ; preds = %50
   %58 = tail call ptr @__ctype_tolower_loc() #12
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %53
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %53
   %61 = load i32, ptr %60, align 4
   %62 = trunc i32 %61 to i8
   br label %63

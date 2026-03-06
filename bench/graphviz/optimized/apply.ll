@@ -11,7 +11,7 @@ switch.lookup:
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 3
   %7 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.agapply, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.agapply, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = tail call ptr %switch.load(ptr noundef %0, ptr noundef nonnull %1) #3, !callees !3
   %.not = icmp eq ptr %8, null

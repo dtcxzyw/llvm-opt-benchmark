@@ -1107,13 +1107,13 @@ vmnc_get_pixel.exit.us:                           ; preds = %497, %493, %485, %4
   ]
 
 498:                                              ; preds = %vmnc_get_pixel.exit.us
-  %499 = getelementptr inbounds nuw i32, ptr %.0.i309405.us, i64 %indvars.iv
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %.0.i309405.us, i64 %indvars.iv
   store i32 %.0.i310.us, ptr %499, align 4, !tbaa !60
   br label %506
 
 500:                                              ; preds = %vmnc_get_pixel.exit.us
   %501 = trunc i32 %.0.i310.us to i16
-  %502 = getelementptr inbounds nuw i16, ptr %.0.i309405.us, i64 %indvars.iv
+  %502 = getelementptr inbounds nuw [2 x i8], ptr %.0.i309405.us, i64 %indvars.iv
   store i16 %501, ptr %502, align 2, !tbaa !67
   br label %506
 
@@ -1675,7 +1675,7 @@ bytestream2_get_byte.exit.us.i:                   ; preds = %750, %746
 
 767:                                              ; preds = %.preheader198.us.i, %767
   %indvars.iv316.i = phi i64 [ 0, %.preheader198.us.i ], [ %indvars.iv.next317.i, %767 ]
-  %768 = getelementptr inbounds nuw i32, ptr %.2.i165239.us.i, i64 %indvars.iv316.i
+  %768 = getelementptr inbounds nuw [4 x i8], ptr %.2.i165239.us.i, i64 %indvars.iv316.i
   store i32 %.4107.us.i, ptr %768, align 4, !tbaa !60
   %indvars.iv.next317.i = add nuw nsw i64 %indvars.iv316.i, 1
   %exitcond320.not.i = icmp eq i64 %indvars.iv.next317.i, %wide.trip.count319.i
@@ -1885,13 +1885,13 @@ vmnc_get_pixel.exit.us.us.i:                      ; preds = %849, %845, %837, %8
   ]
 
 850:                                              ; preds = %vmnc_get_pixel.exit.us.us.i
-  %851 = getelementptr inbounds nuw i32, ptr %.0.i123225.us.us.i, i64 %indvars.iv.i
+  %851 = getelementptr inbounds nuw [4 x i8], ptr %.0.i123225.us.us.i, i64 %indvars.iv.i
   store i32 %.0.i124.us.us.i, ptr %851, align 4, !tbaa !60
   br label %858
 
 852:                                              ; preds = %vmnc_get_pixel.exit.us.us.i
   %853 = trunc i32 %.0.i124.us.us.i to i16
-  %854 = getelementptr inbounds nuw i16, ptr %.0.i123225.us.us.i, i64 %indvars.iv.i
+  %854 = getelementptr inbounds nuw [2 x i8], ptr %.0.i123225.us.us.i, i64 %indvars.iv.i
   store i16 %853, ptr %854, align 2, !tbaa !67
   br label %858
 
@@ -1923,7 +1923,7 @@ vmnc_get_pixel.exit.us.us.i:                      ; preds = %849, %845, %837, %8
 
 861:                                              ; preds = %861, %.preheader205.us.us.i
   %indvars.iv307.i = phi i64 [ %indvars.iv.next308.i, %861 ], [ 0, %.preheader205.us.us.i ]
-  %862 = getelementptr inbounds nuw i32, ptr %.2.i228.us.us.i, i64 %indvars.iv307.i
+  %862 = getelementptr inbounds nuw [4 x i8], ptr %.2.i228.us.us.i, i64 %indvars.iv307.i
   store i32 %.2101184189.us.i, ptr %862, align 4, !tbaa !60
   %indvars.iv.next308.i = add nuw nsw i64 %indvars.iv307.i, 1
   %exitcond311.not.i = icmp eq i64 %indvars.iv.next308.i, %wide.trip.count310.i
@@ -2156,12 +2156,12 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
 
 983:                                              ; preds = %983, %.preheader123.us.i
   %indvars.iv150.i = phi i64 [ 0, %.preheader123.us.i ], [ %indvars.iv.next151.i, %983 ]
-  %984 = getelementptr inbounds nuw i16, ptr %.1136.us.i, i64 %indvars.iv150.i
+  %984 = getelementptr inbounds nuw [2 x i8], ptr %.1136.us.i, i64 %indvars.iv150.i
   %985 = load i16, ptr %984, align 2, !tbaa !67
-  %986 = getelementptr inbounds nuw i16, ptr %.0104134.us.i, i64 %indvars.iv150.i
+  %986 = getelementptr inbounds nuw [2 x i8], ptr %.0104134.us.i, i64 %indvars.iv150.i
   %987 = load i16, ptr %986, align 2, !tbaa !67
   %988 = and i16 %987, %985
-  %989 = getelementptr inbounds nuw i16, ptr %.0103135.us.i, i64 %indvars.iv150.i
+  %989 = getelementptr inbounds nuw [2 x i8], ptr %.0103135.us.i, i64 %indvars.iv150.i
   %990 = load i16, ptr %989, align 2, !tbaa !67
   %991 = xor i16 %988, %990
   store i16 %991, ptr %984, align 2, !tbaa !67
@@ -2170,8 +2170,8 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   br i1 %exitcond487.not, label %._crit_edge.us137.i, label %983, !llvm.loop !89
 
 ._crit_edge.us137.i:                              ; preds = %983
-  %992 = getelementptr inbounds i16, ptr %.0103135.us.i, i64 %977
-  %993 = getelementptr inbounds i16, ptr %.0104134.us.i, i64 %977
+  %992 = getelementptr inbounds [2 x i8], ptr %.0103135.us.i, i64 %977
+  %993 = getelementptr inbounds [2 x i8], ptr %.0104134.us.i, i64 %977
   %994 = getelementptr inbounds i8, ptr %.1136.us.i, i64 %927
   %995 = add nuw nsw i32 %.1114133.us.i, 1
   %996 = icmp slt i32 %995, %.1110.i
@@ -2194,12 +2194,12 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
 
 1002:                                             ; preds = %1002, %.preheader125.us.i
   %indvars.iv.i317 = phi i64 [ 0, %.preheader125.us.i ], [ %indvars.iv.next.i318, %1002 ]
-  %1003 = getelementptr inbounds nuw i32, ptr %.2131.us.i, i64 %indvars.iv.i317
+  %1003 = getelementptr inbounds nuw [4 x i8], ptr %.2131.us.i, i64 %indvars.iv.i317
   %1004 = load i32, ptr %1003, align 4, !tbaa !60
-  %1005 = getelementptr inbounds nuw i32, ptr %.099129.us.i, i64 %indvars.iv.i317
+  %1005 = getelementptr inbounds nuw [4 x i8], ptr %.099129.us.i, i64 %indvars.iv.i317
   %1006 = load i32, ptr %1005, align 4, !tbaa !60
   %1007 = and i32 %1006, %1004
-  %1008 = getelementptr inbounds nuw i32, ptr %.098130.us.i, i64 %indvars.iv.i317
+  %1008 = getelementptr inbounds nuw [4 x i8], ptr %.098130.us.i, i64 %indvars.iv.i317
   %1009 = load i32, ptr %1008, align 4, !tbaa !60
   %1010 = xor i32 %1007, %1009
   store i32 %1010, ptr %1003, align 4, !tbaa !60
@@ -2210,8 +2210,8 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
 ._crit_edge.us.i:                                 ; preds = %1002
   %1011 = load i32, ptr %879, align 8, !tbaa !56
   %1012 = sext i32 %1011 to i64
-  %1013 = getelementptr inbounds i32, ptr %.098130.us.i, i64 %1012
-  %1014 = getelementptr inbounds i32, ptr %.099129.us.i, i64 %1012
+  %1013 = getelementptr inbounds [4 x i8], ptr %.098130.us.i, i64 %1012
+  %1014 = getelementptr inbounds [4 x i8], ptr %.099129.us.i, i64 %1012
   %1015 = getelementptr inbounds i8, ptr %.2131.us.i, i64 %927
   %1016 = add nuw nsw i32 %.2115128.us.i, 1
   %1017 = icmp slt i32 %1016, %.1110.i

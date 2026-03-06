@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.LexizeData = type { ptr, i32, i32, %struct.DictSubState, ptr, %struct.ListParsedLex, %struct.ListParsedLex, ptr, ptr }
 %struct.DictSubState = type { i8, i8, ptr }
 %struct.ListParsedLex = type { ptr, ptr }
-%struct.ParsedWord = type { i16, i16, i16, i16, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.ListDictionary = type { i32, ptr }
-%struct.HeadlineWordEntry = type { i32, i16, ptr, ptr }
 
 @.str = private unnamed_addr constant [31 x i8] c"word is too long to be indexed\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"Words longer than %d characters are ignored.\00", align 1
@@ -155,21 +151,21 @@ LexizeAddLemm.exit:                               ; preds = %45, %47
   %77 = load ptr, ptr %1, align 8
   %78 = load i32, ptr %25, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.ParsedWord, ptr %77, i64 %79
+  %80 = getelementptr inbounds [24 x i8], ptr %77, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 2
   store i16 %76, ptr %81, align 2
   %82 = load ptr, ptr %57, align 8
   %83 = load ptr, ptr %1, align 8
   %84 = load i32, ptr %25, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.ParsedWord, ptr %83, i64 %85
+  %86 = getelementptr inbounds [24 x i8], ptr %83, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %82, ptr %87, align 8
   %88 = load i16, ptr %.052, align 8
   %89 = load ptr, ptr %1, align 8
   %90 = load i32, ptr %25, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.ParsedWord, ptr %89, i64 %91
+  %92 = getelementptr inbounds [24 x i8], ptr %89, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i16 %88, ptr %93, align 4
   %94 = load i16, ptr %67, align 2
@@ -177,12 +173,12 @@ LexizeAddLemm.exit:                               ; preds = %45, %47
   %96 = load ptr, ptr %1, align 8
   %97 = load i32, ptr %25, align 4
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.ParsedWord, ptr %96, i64 %98
+  %99 = getelementptr inbounds [24 x i8], ptr %96, i64 %98
   store i16 %95, ptr %99, align 8
   %100 = load ptr, ptr %1, align 8
   %101 = load i32, ptr %25, align 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.ParsedWord, ptr %100, i64 %102
+  %103 = getelementptr inbounds [24 x i8], ptr %100, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 6
   store i16 0, ptr %104, align 2
   %105 = load i32, ptr %24, align 8
@@ -191,7 +187,7 @@ LexizeAddLemm.exit:                               ; preds = %45, %47
   %106 = load ptr, ptr %1, align 8
   %107 = load i32, ptr %25, align 4
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.ParsedWord, ptr %106, i64 %108
+  %109 = getelementptr inbounds [24 x i8], ptr %106, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i16 %spec.select, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.052, i64 16
@@ -277,7 +273,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %19, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.ListDictionary, ptr %26, i64 %28
+  %29 = getelementptr inbounds [16 x i8], ptr %26, i64 %28
   %30 = icmp eq i32 %27, 0
   br i1 %30, label %37, label %31
 
@@ -337,7 +333,7 @@ RemoveHead.exit:                                  ; preds = %42, %44
   %.0115245 = phi i32 [ %23, %.lr.ph247 ], [ %.1116, %107 ]
   %.0117244 = phi ptr [ %21, %.lr.ph247 ], [ %.1118, %107 ]
   %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv274
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv274
   %53 = load i32, ptr %52, align 4
   %54 = tail call ptr @lookup_ts_dictionary_cache(i32 noundef %53) #7
   store i8 0, ptr %6, align 1
@@ -358,7 +354,7 @@ RemoveHead.exit:                                  ; preds = %42, %44
 65:                                               ; preds = %50
   %66 = trunc nsw i64 %indvars.iv274 to i32
   %67 = load ptr, ptr %48, align 8
-  %68 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv274
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %indvars.iv274
   %69 = load i32, ptr %68, align 4
   store i32 %69, ptr %3, align 8
   %70 = add nsw i32 %66, 1
@@ -548,7 +544,7 @@ RemoveHead.exit154:                               ; preds = %118, %120
   %133 = load ptr, ptr %132, align 8
   %134 = load i32, ptr %130, align 8
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds %struct.ListDictionary, ptr %133, i64 %135
+  %136 = getelementptr inbounds [16 x i8], ptr %133, i64 %135
   %.not131 = icmp eq i32 %134, 0
   br i1 %.not131, label %156, label %137
 
@@ -582,7 +578,7 @@ RemoveHead.exit154:                               ; preds = %118, %120
 
 151:                                              ; preds = %.lr.ph, %151
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
-  %152 = getelementptr inbounds nuw i32, ptr %146, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %144, %153
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -979,12 +975,12 @@ hladdword.exit.i:                                 ; preds = %69, %62
   %74 = phi i32 [ %.pre21.i.i, %69 ], [ %67, %62 ]
   %75 = phi ptr [ %73, %69 ], [ %.pre.i.i, %62 ]
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %75, i64 %76
+  %77 = getelementptr inbounds [24 x i8], ptr %75, i64 %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   %78 = load ptr, ptr %1, align 8
   %79 = load i32, ptr %27, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %78, i64 %80
+  %81 = getelementptr inbounds [24 x i8], ptr %78, i64 %80
   %82 = load i32, ptr %81, align 8
   %83 = shl i32 %60, 8
   %84 = and i32 %83, 65280
@@ -994,7 +990,7 @@ hladdword.exit.i:                                 ; preds = %69, %62
   %87 = load ptr, ptr %1, align 8
   %88 = load i32, ptr %27, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %87, i64 %89
+  %90 = getelementptr inbounds [24 x i8], ptr %87, i64 %89
   %91 = load i32, ptr %90, align 8
   %92 = shl i32 %66, 16
   %93 = and i32 %91, 65535
@@ -1005,13 +1001,13 @@ hladdword.exit.i:                                 ; preds = %69, %62
   %97 = load ptr, ptr %1, align 8
   %98 = load i32, ptr %27, align 4
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %97, i64 %99
+  %100 = getelementptr inbounds [24 x i8], ptr %97, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %96, ptr %101, align 8
   %102 = load ptr, ptr %1, align 8
   %103 = load i32, ptr %27, align 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %102, i64 %104
+  %105 = getelementptr inbounds [24 x i8], ptr %102, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr readonly align 1 %64, i64 %95, i1 false)
@@ -1089,12 +1085,12 @@ hladdword.exit:                                   ; preds = %14, %21
   %26 = phi i32 [ %.pre21.i, %21 ], [ %19, %14 ]
   %27 = phi ptr [ %25, %21 ], [ %.pre.i, %14 ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %27, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %27, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = load ptr, ptr %0, align 8
   %31 = load i32, ptr %5, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %30, i64 %32
+  %33 = getelementptr inbounds [24 x i8], ptr %30, i64 %32
   %34 = load i32, ptr %33, align 8
   %35 = shl i32 %12, 8
   %36 = and i32 %35, 65280
@@ -1104,7 +1100,7 @@ hladdword.exit:                                   ; preds = %14, %21
   %39 = load ptr, ptr %0, align 8
   %40 = load i32, ptr %5, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %39, i64 %41
+  %42 = getelementptr inbounds [24 x i8], ptr %39, i64 %41
   %43 = load i32, ptr %42, align 8
   %44 = shl i32 %18, 16
   %45 = and i32 %43, 65535
@@ -1115,13 +1111,13 @@ hladdword.exit:                                   ; preds = %14, %21
   %49 = load ptr, ptr %0, align 8
   %50 = load i32, ptr %5, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %49, i64 %51
+  %52 = getelementptr inbounds [24 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %48, ptr %53, align 8
   %54 = load ptr, ptr %0, align 8
   %55 = load i32, ptr %5, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %54, i64 %56
+  %57 = getelementptr inbounds [24 x i8], ptr %54, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr readonly align 1 %16, i64 %47, i1 false)
@@ -1182,7 +1178,7 @@ hladdword.exit:                                   ; preds = %14, %21
   %.lcssa40.i = phi i32 [ %73, %65 ], [ %83, %.lr.ph.i ]
   %88 = add i32 %.lcssa40.i, -1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %87, i64 %89
+  %90 = getelementptr inbounds [24 x i8], ptr %87, i64 %89
   %91 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 16383)
   %92 = trunc i32 %91 to i16
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
@@ -1229,18 +1225,18 @@ hladdword.exit:                                   ; preds = %14, %21
   %119 = load ptr, ptr %0, align 8
   %120 = load i32, ptr %5, align 4
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %119, i64 %121
+  %122 = getelementptr inbounds [24 x i8], ptr %119, i64 %121
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false)
   %123 = load ptr, ptr %0, align 8
   %124 = load i32, ptr %5, align 4
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %123, i64 %125
+  %126 = getelementptr inbounds [24 x i8], ptr %123, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %.03643.i, ptr %127, align 8
   %128 = load ptr, ptr %0, align 8
   %129 = load i32, ptr %5, align 4
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %128, i64 %130
+  %131 = getelementptr inbounds [24 x i8], ptr %128, i64 %130
   %132 = load i32, ptr %131, align 8
   %133 = or i32 %132, 8
   store i32 %133, ptr %131, align 8

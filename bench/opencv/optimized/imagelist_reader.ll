@@ -615,7 +615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i: ; preds = %1
   %166 = phi ptr [ %155, %._crit_edge.i.i22.lr.ph.i ], [ %195, %192 ]
   %.045.i = phi i64 [ 0, %._crit_edge.i.i22.lr.ph.i ], [ %193, %192 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %167 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %166, i64 %.045.i
+  %167 = getelementptr inbounds nuw [32 x i8], ptr %166, i64 %.045.i
   invoke void @_ZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %167, i32 noundef 0)
           to label %.noexc66 unwind label %.loopexit
 
@@ -1157,7 +1157,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !19
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !22
   ret void
 }

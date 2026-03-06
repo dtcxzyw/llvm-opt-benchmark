@@ -123,7 +123,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
 %"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
 %"class.Eigen::DenseStorage" = type { ptr, i64 }
-%"struct.ceres::IterationSummary" = type { i32, i8, i8, i8, double, double, double, double, double, double, double, double, double, i32, i32, i32, i32, double, double, double }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"class.absl::lts_20240116::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20240116::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20240116::str_format_internal::FormatArgImpl::Data" = type { ptr }
@@ -10897,7 +10896,7 @@ _ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %198, %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %193, ptr %173, align 8, !tbaa !282
   store ptr %197, ptr %174, align 8, !tbaa !278
-  %199 = getelementptr inbounds nuw ptr, ptr %193, i64 %191
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %191
   store ptr %199, ptr %176, align 8, !tbaa !279
   br label %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE9push_backEOS2_.exit
 
@@ -11585,7 +11584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %4
 471:                                              ; preds = %471, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %471 ]
   %472 = phi double [ %461, %.lr.ph.i.i ], [ %477, %471 ]
-  %473 = getelementptr inbounds nuw %"struct.ceres::IterationSummary", ptr %466, i64 %indvars.iv.i.i
+  %473 = getelementptr inbounds nuw [120 x i8], ptr %466, i64 %indvars.iv.i.i
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
   %475 = load double, ptr %474, align 8, !tbaa !211
   %476 = fcmp olt double %472, %475
@@ -14816,7 +14815,7 @@ _ZN4absl12lts_2024011615StrAppendFormatIJEEERNSt7__cxx1112basic_stringIcSt11char
 366:                                              ; preds = %.noexc180, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc180 ]
   %367 = phi ptr [ %352, %.lr.ph.i ], [ %372, %.noexc180 ]
-  %368 = getelementptr inbounds nuw i32, ptr %367, i64 %indvars.iv.i
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %367, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %.sroa.0.0.copyload.i.i.i.i13.i = load i32, ptr %368, align 4
   %.sroa.0.0.insert.ext.i.i.i.i14.i = zext i32 %.sroa.0.0.copyload.i.i.i.i13.i to i64
@@ -14888,7 +14887,7 @@ _ZN5ceres12_GLOBAL__N_117StringifyOrderingERKSt6vectorIiSaIiEEPNSt7__cxx1112basi
 396:                                              ; preds = %.noexc194, %.lr.ph.i183
   %indvars.iv.i184 = phi i64 [ 0, %.lr.ph.i183 ], [ %indvars.iv.next.i187, %.noexc194 ]
   %397 = phi ptr [ %382, %.lr.ph.i183 ], [ %402, %.noexc194 ]
-  %398 = getelementptr inbounds nuw i32, ptr %397, i64 %indvars.iv.i184
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %397, i64 %indvars.iv.i184
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %.sroa.0.0.copyload.i.i.i.i13.i185 = load i32, ptr %398, align 4
   %.sroa.0.0.insert.ext.i.i.i.i14.i186 = zext i32 %.sroa.0.0.copyload.i.i.i.i13.i185 to i64
@@ -15071,7 +15070,7 @@ _ZN5ceres12_GLOBAL__N_117StringifyOrderingERKSt6vectorIiSaIiEEPNSt7__cxx1112basi
 470:                                              ; preds = %.noexc223, %.lr.ph.i212
   %indvars.iv.i213 = phi i64 [ 0, %.lr.ph.i212 ], [ %indvars.iv.next.i216, %.noexc223 ]
   %471 = phi ptr [ %456, %.lr.ph.i212 ], [ %476, %.noexc223 ]
-  %472 = getelementptr inbounds nuw i32, ptr %471, i64 %indvars.iv.i213
+  %472 = getelementptr inbounds nuw [4 x i8], ptr %471, i64 %indvars.iv.i213
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %.sroa.0.0.copyload.i.i.i.i13.i214 = load i32, ptr %472, align 4
   %.sroa.0.0.insert.ext.i.i.i.i14.i215 = zext i32 %.sroa.0.0.copyload.i.i.i.i13.i214 to i64
@@ -15143,7 +15142,7 @@ _ZN5ceres12_GLOBAL__N_117StringifyOrderingERKSt6vectorIiSaIiEEPNSt7__cxx1112basi
 500:                                              ; preds = %.noexc238, %.lr.ph.i227
   %indvars.iv.i228 = phi i64 [ 0, %.lr.ph.i227 ], [ %indvars.iv.next.i231, %.noexc238 ]
   %501 = phi ptr [ %486, %.lr.ph.i227 ], [ %506, %.noexc238 ]
-  %502 = getelementptr inbounds nuw i32, ptr %501, i64 %indvars.iv.i228
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %501, i64 %indvars.iv.i228
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %.sroa.0.0.copyload.i.i.i.i13.i229 = load i32, ptr %502, align 4
   %.sroa.0.0.insert.ext.i.i.i.i14.i230 = zext i32 %.sroa.0.0.copyload.i.i.i.i13.i229 to i64
@@ -18511,7 +18510,7 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
   %29 = load i64, ptr %28, align 8, !tbaa !425
   %30 = ptrtoint ptr %26 to i64
   %31 = urem i64 %30, %29
-  %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !552
   %.02834 = load ptr, ptr %20, align 8, !tbaa !426
   %.not3035 = icmp eq ptr %.02834, null
@@ -18532,7 +18531,7 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
   store ptr %33, ptr %.02636, align 8, !tbaa !426
   %38 = ptrtoint ptr %37 to i64
   %39 = urem i64 %38, %29
-  %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !552
   %.not32 = icmp eq ptr %41, null
   br i1 %.not32, label %42, label %47

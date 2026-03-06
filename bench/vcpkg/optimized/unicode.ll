@@ -1236,7 +1236,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit175:          ; preds = %360, %363
 
 381:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit175
   store i32 %373, ptr %48, align 4, !tbaa !25
-  %382 = getelementptr inbounds nuw i32, ptr %spec.select122, i64 %.036217
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %spec.select122, i64 %.036217
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %383 = load i32, ptr %382, align 4, !tbaa !25, !noalias !63
@@ -4734,7 +4734,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5Catch10Generators10Generat
   br i1 %.not, label %12, label %30
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper", ptr %7, i64 %3
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %3
   %14 = load ptr, ptr %13, align 8, !tbaa !123
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -4770,7 +4770,7 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(16) ptr @_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !112
   %5 = load ptr, ptr %2, align 8, !tbaa !107
-  %6 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !123
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5015,7 +5015,7 @@ _ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA16_KcEESaIS6_EE11_S_relocat
 _ZNSt12_Vector_baseIN5Catch10Generators16GeneratorWrapperIRA16_KcEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA16_KcEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !107
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !110
-  %35 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !111
   ret void
 }
@@ -5101,7 +5101,7 @@ _ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA16_KcEESaIS6_EE11_S_relocat
 .noexc:                                           ; preds = %32, %_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA16_KcEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %26, ptr %3, align 8, !tbaa !107
   store ptr %31, ptr %7, align 8, !tbaa !110
-  %33 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %9, align 8, !tbaa !111
   br label %_ZN5Catch10Generators16GeneratorWrapperIRA16_KcED2Ev.exit
 
@@ -5453,7 +5453,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5Catch10Generators10Generat
   br i1 %.not, label %12, label %30
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper.63", ptr %7, i64 %3
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %3
   %14 = load ptr, ptr %13, align 8, !tbaa !162
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -5489,7 +5489,7 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(2) ptr @_Z
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !156
   %5 = load ptr, ptr %2, align 8, !tbaa !151
-  %6 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper.63", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !162
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5731,7 +5731,7 @@ _ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA2_KcEESaIS6_EE11_S_relocate
 _ZNSt12_Vector_baseIN5Catch10Generators16GeneratorWrapperIRA2_KcEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA2_KcEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !151
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !154
-  %35 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper.63", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !155
   ret void
 }
@@ -5817,7 +5817,7 @@ _ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA2_KcEESaIS6_EE11_S_relocate
 .noexc:                                           ; preds = %32, %_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA2_KcEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %26, ptr %3, align 8, !tbaa !151
   store ptr %31, ptr %7, align 8, !tbaa !154
-  %33 = getelementptr inbounds nuw %"class.Catch::Generators::GeneratorWrapper.63", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %9, align 8, !tbaa !155
   br label %_ZN5Catch10Generators16GeneratorWrapperIRA2_KcED2Ev.exit
 

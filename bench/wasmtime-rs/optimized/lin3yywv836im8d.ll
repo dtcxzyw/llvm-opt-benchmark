@@ -9375,7 +9375,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h031799cd30625d
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !1720, !noalias !1723, !noundef !5
@@ -9483,7 +9483,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h0a5aa03a743b2a
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.28.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.28.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !alias.scope !1762, !noalias !1765, !noundef !5
@@ -9593,7 +9593,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h15e64a5a35c8fd
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.36.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.36.llvm.11423182251827145186, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !alias.scope !1804, !noalias !1807, !noundef !5
@@ -9701,7 +9701,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h22d6848ddf7162
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.9.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.9.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !1846, !noalias !1849, !noundef !5
@@ -9811,7 +9811,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h272c669e3aad15
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.72.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.72.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !1888, !noalias !1891, !noundef !5
@@ -10018,7 +10018,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3c37a078f0f812
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.16.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.16.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !1962, !noalias !1965, !noundef !5
@@ -10322,7 +10322,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h40b9a7e0c658a9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !2068, !noalias !2071, !noundef !5
@@ -10527,7 +10527,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h50f3d755f7509d
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.76.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.76.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !2142, !noalias !2145, !noundef !5
@@ -10637,7 +10637,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h552d6650eef8d5
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2184, !noalias !2187, !noundef !5
@@ -10892,7 +10892,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9a1b1c16ac4546
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2284, !noalias !2287, !noundef !5
@@ -11002,7 +11002,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha1e62d4f5f706a
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.16.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.16.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2326, !noalias !2329, !noundef !5
@@ -11112,7 +11112,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha2f56fa2b4f817
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.33.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.33.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !alias.scope !2368, !noalias !2371, !noundef !5
@@ -11222,7 +11222,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha474e3be61ff0a
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.37.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.37.llvm.11423182251827145186, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !alias.scope !2410, !noalias !2413, !noundef !5
@@ -11526,7 +11526,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb945fe5bcd0ff4
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.21.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.21.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2516, !noalias !2519, !noundef !5
@@ -11636,7 +11636,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hcb514d2090f45a
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.40.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.40.llvm.11423182251827145186, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !alias.scope !2558, !noalias !2561, !noundef !5
@@ -11843,7 +11843,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hd8b16bdff1a66a
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.9.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.9.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2632, !noalias !2635, !noundef !5
@@ -11953,7 +11953,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hdfc6a1d8f284ee
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.21.llvm.11423182251827145186, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.21.llvm.11423182251827145186, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2674, !noalias !2677, !noundef !5

@@ -827,7 +827,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   store i64 %10, ptr %3, align 8
   %11 = icmp ult i64 %6, 2
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { [5 x i64] }, ptr %1, i64 %6
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   br label %13
 

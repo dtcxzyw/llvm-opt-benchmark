@@ -3,11 +3,6 @@ source_filename = "bench/llvm/original/NoInferenceModelRunner.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" }
-%"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 $_ZN4llvm13MLModelRunnerD2Ev = comdat any
 
 $_ZN4llvm22NoInferenceModelRunnerD0Ev = comdat any
@@ -68,7 +63,7 @@ _ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i: ; preds = %_ZNSt6vector
   %18 = shl nuw nsw i64 %11, 3
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #11
   store ptr %19, ptr %14, align 8, !tbaa !26
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %11
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %20, ptr %21, align 8, !tbaa !27
   store ptr null, ptr %19, align 8, !tbaa !28
@@ -140,7 +135,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6
   %45 = shl nuw nsw i64 %38, 3
   %46 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #11
   store ptr %46, ptr %39, align 8, !tbaa !48
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %38
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %47, ptr %48, align 8, !tbaa !51
   store ptr null, ptr %46, align 8, !tbaa !52
@@ -175,7 +170,7 @@ _ZN4llvm13MLModelRunner20setUpBufferForTensorEmRKNS_10TensorSpecEPv.exit: ; pred
   %58 = getelementptr inbounds i8, ptr %57, i64 -24
   %59 = load ptr, ptr %58, align 8, !tbaa !48
   %60 = load ptr, ptr %14, align 8, !tbaa !26
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %.012
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.012
   store ptr %59, ptr %61, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 80
   %.not = icmp eq ptr %62, %29
@@ -402,7 +397,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread.i.i.i: ; preds = %_ZNSt6vect
   %28 = shl nuw nsw i64 %24, 3
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #11
   store ptr %29, ptr %23, align 8, !tbaa !48
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !51
   store ptr null, ptr %29, align 8, !tbaa !52
@@ -488,7 +483,7 @@ _ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds =
 _ZNSt12_Vector_baseISt6vectorIPcSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %57
   store ptr %22, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !46
-  %61 = getelementptr inbounds nuw %"class.std::vector.18", ptr %22, i64 %16
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %16
   store ptr %61, ptr %56, align 8, !tbaa !47
   ret void
 }

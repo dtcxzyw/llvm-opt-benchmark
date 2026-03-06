@@ -618,7 +618,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
   store i64 %19, ptr %2, align 8, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = and i64 %17, 4294967295
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !33
   %24 = icmp eq ptr %23, null
   br i1 %24, label %27, label %25
@@ -662,7 +662,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
   %49 = add nuw nsw i64 %48, 137438953440
   %50 = lshr i64 %49, 5
   %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds nuw ptr, ptr %20, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !33
   store ptr %53, ptr %47, align 8, !tbaa !34
   store ptr %47, ptr %52, align 8, !tbaa !33

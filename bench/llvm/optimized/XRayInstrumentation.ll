@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 %"class.llvm::MachineOperand" = type { i32, %union.anon.305, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
 %union.anon.305 = type { i32 }
 %"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.306" }
@@ -883,7 +882,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i: ; preds = %_ZN4llvm1
   %251 = load ptr, ptr %218, align 8, !tbaa !239
   %252 = zext nneg i32 %.1.i to i64
   %253 = sub nsw i64 0, %252
-  %254 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %251, i64 %253
+  %254 = getelementptr inbounds [32 x i8], ptr %251, i64 %253
   %255 = load i32, ptr %226, align 4
   %256 = and i32 %255, 4
   %.not.i.i = icmp eq i32 %256, 0
@@ -1207,7 +1206,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; 
 _ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, %47
   %.pre-phi = phi i64 [ %7, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre17, %47 ]
   %50 = phi ptr [ %4, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre, %47 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi
   %52 = ptrtoint ptr %2 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %5, align 8, !tbaa !153
@@ -1445,7 +1444,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %63 = load ptr, ptr %19, align 8, !tbaa !239
   %64 = zext nneg i32 %spec.select to i64
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %63, i64 %65
+  %66 = getelementptr inbounds [32 x i8], ptr %63, i64 %65
   %67 = load i32, ptr %31, align 4
   %68 = and i32 %67, 4
   %.not.i = icmp eq i32 %68, 0
@@ -1615,7 +1614,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   %121 = phi i32 [ %116, %._crit_edge ], [ %.pre.i, %118 ]
   %122 = load ptr, ptr %7, align 8, !tbaa !152
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw ptr, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %123
   %125 = ptrtoint ptr %.sroa.05.022 to i64
   store i64 %125, ptr %124, align 1
   %126 = load i32, ptr %11, align 8, !tbaa !153

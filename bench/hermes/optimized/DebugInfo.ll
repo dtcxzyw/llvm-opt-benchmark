@@ -3,9 +3,6 @@ source_filename = "bench/hermes/original/DebugInfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair.base.8", [4 x i8] }
-%"struct.std::pair.base.8" = type <{ ptr, i32 }>
-%"struct.hermes::hbc::DebugFileRegion" = type { i32, i32, i32 }
 %"class.hermes::OptValue.9" = type <{ %"struct.hermes::hbc::DebugSourceLocation", i8, [3 x i8] }>
 %"struct.hermes::hbc::DebugSourceLocation" = type { i32, i32, i32, i32, i32, i32, i32, i32 }
 %"struct.(anonymous namespace)::FunctionDebugInfoDeserializer" = type { %"class.llvh::ArrayRef", i32, i32, %"struct.hermes::hbc::DebugSourceLocation" }
@@ -29,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.22" = type { i8 }
-%"class.hermes::StringTableEntry" = type { i32, i32 }
 %"class.llvh::FormattedNumber" = type <{ i64, i64, i32, i8, i8, i8, i8 }>
 %"struct.hermes::hbc::UniquingFilenameTable" = type { %"struct.hermes::StringSetVector" }
 %"struct.hermes::StringSetVector" = type { %"class.std::deque", %"class.llvh::DenseMap.30" }
@@ -170,7 +166,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %sub.i.i.i = add i32 %3, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext20.i.i.i
   %5 = load ptr, ptr %add.ptr21.i.i.i, align 8, !noalias !4
   %cmp.i22.i.i.i = icmp eq ptr %str.coerce, %5
   br i1 %cmp.i22.i.i.i, label %if.end, label %if.end9.i.i.i
@@ -198,7 +194,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i.i
   %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !noalias !4
   %cmp.i.i.i.i = icmp eq ptr %str.coerce, %7
   br i1 %cmp.i.i.i.i, label %if.end, label %if.end9.i.i.i, !llvm.loop !7
@@ -292,7 +288,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp5.not13, label %for.end.loopexit, label %if.then
 
 for.body:                                         ; preds = %if.then
-  %arrayidx.i13 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv.next
+  %arrayidx.i13 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv.next
   %3 = load i32, ptr %arrayidx.i13, align 1
   %cmp5.not = icmp ugt i32 %3, %debugOffset
   br i1 %cmp5.not, label %for.end.loopexit.loopexit, label %if.then, !llvm.loop !9
@@ -304,13 +300,13 @@ if.then:                                          ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %if.then.for.end.loopexit_crit_edge, label %for.body, !llvm.loop !9
 
 if.then.for.end.loopexit_crit_edge:               ; preds = %if.then
-  %arrayidx.i1315.le24 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14
+  %arrayidx.i1315.le24 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv14
   %filenameId.le = getelementptr inbounds nuw i8, ptr %arrayidx.i1315.le24, i64 4
   %4 = load i32, ptr %filenameId.le, align 4
   br label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit.loopexit:                        ; preds = %for.body
-  %arrayidx.i1315.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14
+  %arrayidx.i1315.le = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv14
   %filenameId.le22 = getelementptr inbounds nuw i8, ptr %arrayidx.i1315.le, i64 4
   %5 = load i32, ptr %filenameId.le22, align 4
   br label %for.end.loopexit
@@ -416,7 +412,7 @@ for.body.lr.ph.i:                                 ; preds = %while.end
   br i1 %cmp5.not.i24, label %if.end13, label %if.then.i
 
 for.body.i:                                       ; preds = %if.then.i
-  %arrayidx.i13.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.next.i
+  %arrayidx.i13.i = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %indvars.iv.next.i
   %10 = load i32, ptr %arrayidx.i13.i, align 1
   %cmp5.not.i = icmp ugt i32 %10, %lastLocationOffset.0.lcssa
   br i1 %cmp5.not.i, label %if.then10, label %if.then.i, !llvm.loop !9
@@ -431,7 +427,7 @@ if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge: ; p
   br label %if.then10, !llvm.loop !9
 
 if.then10:                                        ; preds = %for.body.i, %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge
-  %arrayidx.i13.i26.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.i25
+  %arrayidx.i13.i26.le = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %indvars.iv.i25
   %filenameId.i.le35 = getelementptr inbounds nuw i8, ptr %arrayidx.i13.i26.le, i64 4
   %11 = load i32, ptr %filenameId.i.le35, align 4
   store i32 %offsetInFunction, ptr %agg.result, align 4
@@ -1033,7 +1029,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
   %14 = phi i32 [ %.pre.i, %if.then.i14 ], [ %12, %for.body ]
   %15 = load ptr, ptr %names.i, align 8
   %conv.i3.i = zext i32 %14 to i64
-  %add.ptr.i.i16 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %conv.i3.i
+  %add.ptr.i.i16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %conv.i3.i
   store ptr %add.ptr.i.i10, ptr %add.ptr.i.i16, align 1
   %name.sroa.2.0.add.ptr.i.i16.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i16, i64 8
   store i64 %11, ptr %name.sroa.2.0.add.ptr.i.i16.sroa_idx, align 1
@@ -1224,7 +1220,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #16
   %conv = zext i32 %id to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv
   %filenameStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %filenameStorage_, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1335,7 +1331,7 @@ if.then4.i.i31:                                   ; preds = %for.body
 _ZN4llvh11raw_ostreamlsEPKc.exit36:               ; preds = %if.then.i.i34, %if.then4.i.i31
   %phi.call.i33 = phi ptr [ %OS, %if.then4.i.i31 ], [ %call3.i.i35, %if.then.i.i34 ]
   %7 = load ptr, ptr %files_, align 8
-  %arrayidx.i84 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %7, i64 %indvars.iv
+  %arrayidx.i84 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx.i84, align 1
   %conv7 = zext i32 %8 to i64
   store i64 %conv7, ptr %ref.tmp, align 8, !alias.scope !19
@@ -1369,7 +1365,7 @@ if.then4.i.i46:                                   ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit51:               ; preds = %if.then.i.i49, %if.then4.i.i46
   %phi.call.i48 = phi ptr [ %call8, %if.then4.i.i46 ], [ %call3.i.i50, %if.then.i.i49 ]
   %12 = load ptr, ptr %files_, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %12, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv
   %filenameId = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %13 = load i32, ptr %filenameId, align 1
   %conv.i52 = zext i32 %13 to i64
@@ -2892,7 +2888,7 @@ if.end.if.then7_crit_edge:                        ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end
   %3 = load ptr, ptr %files_, align 8
   %conv.i.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %3, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %conv.i.i
   %filenameId = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
   %4 = load i32, ptr %filenameId, align 1
   %filenameId6 = getelementptr inbounds nuw i8, ptr %start, i64 4
@@ -2919,7 +2915,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backE
   %9 = phi i32 [ %.pre.i, %if.then.i ], [ %2, %if.then7 ]
   %10 = load ptr, ptr %files_, align 8
   %conv.i3.i = zext i32 %9 to i64
-  %add.ptr.i.i27 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %10, i64 %conv.i3.i
+  %add.ptr.i.i27 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %conv.i3.i
   store i32 %conv, ptr %add.ptr.i.i27, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i27.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i27, i64 4
   store i32 %6, ptr %ref.tmp.sroa.2.0.add.ptr.i.i27.sroa_idx, align 1
@@ -2980,7 +2976,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backE
   %21 = phi i32 [ %.pre.i38, %if.then.i36 ], [ %19, %if.then25 ]
   %22 = load ptr, ptr %files_, align 8
   %conv.i3.i39 = zext i32 %21 to i64
-  %add.ptr.i.i40 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %22, i64 %conv.i3.i39
+  %add.ptr.i.i40 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %conv.i3.i39
   store i32 %conv31, ptr %add.ptr.i.i40, align 1
   %ref.tmp27.sroa.2.0.add.ptr.i.i40.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i40, i64 4
   store i32 %14, ptr %ref.tmp27.sroa.2.0.add.ptr.i.i40.sroa_idx, align 1
@@ -3694,7 +3690,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39.idx = mul nuw nsw i64 %CurSize.0, 12
   %add.ptr39 = getelementptr inbounds nuw i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
-  %add.ptr42 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %12, i64 %CurSize.0
+  %add.ptr42 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %CurSize.0
   %add.ptr.i.idx57 = sub nsw i64 %conv.i51, %CurSize.0
   %gepdiff = mul nsw i64 %add.ptr.i.idx57, 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %gepdiff, i1 false)
@@ -3745,7 +3741,7 @@ if.end.i.i:                                       ; preds = %if.then
   %sub.i.i = add i32 %3, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i, %sub.i.i
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext20.i.i
   %6 = load ptr, ptr %add.ptr21.i.i, align 8
   %cmp.i22.i.i = icmp eq ptr %4, %6
   br i1 %cmp.i22.i.i, label %if.end12, label %if.end9.i.i
@@ -3773,7 +3769,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.025.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %8
   br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !7
@@ -3805,7 +3801,7 @@ if.end.i.i11:                                     ; preds = %if.then10
   %sub.i.i16 = add i32 %11, -1
   %BucketNo.019.i.i17 = and i32 %xor.i.i.i.i15, %sub.i.i16
   %idx.ext20.i.i18 = zext nneg i32 %BucketNo.019.i.i17 to i64
-  %add.ptr21.i.i19 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %10, i64 %idx.ext20.i.i18
+  %add.ptr21.i.i19 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext20.i.i18
   %14 = load ptr, ptr %add.ptr21.i.i19, align 8
   %cmp.i22.i.i20 = icmp eq ptr %12, %14
   br i1 %cmp.i22.i.i20, label %if.end12, label %if.end9.i.i21
@@ -3833,7 +3829,7 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   %add.i.i33 = add i32 %ProbeAmt.024.i.i24, %BucketNo.025.i.i23
   %BucketNo.0.i.i34 = and i32 %add.i.i33, %sub.i.i16
   %idx.ext.i.i35 = zext i32 %BucketNo.0.i.i34 to i64
-  %add.ptr.i.i36 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %10, i64 %idx.ext.i.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext.i.i35
   %16 = load ptr, ptr %add.ptr.i.i36, align 8
   %cmp.i.i.i37 = icmp eq ptr %12, %16
   br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !7
@@ -3953,7 +3949,7 @@ if.then.i:                                        ; preds = %for.body.i5
   %sub.i.i.i = add i32 %7, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %6, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext20.i.i.i
   %8 = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i22.i.i.i = icmp eq ptr %5, %8
   br i1 %cmp.i22.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %if.end9.i.i.i
@@ -3981,7 +3977,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i11.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i12.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %6, i64 %idx.ext.i.i11.i
+  %add.ptr.i.i12.i = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext.i.i11.i
   %10 = load ptr, ptr %add.ptr.i.i12.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %10
   br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %if.end9.i.i.i, !llvm.loop !7

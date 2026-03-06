@@ -75,7 +75,7 @@ define void @cvSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 25:                                               ; preds = %5, %25
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %25 ]
   %.043105 = phi i32 [ 0, %5 ], [ %30, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = icmp ne ptr %27, null
   %29 = zext i1 %28 to i32
@@ -135,7 +135,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
   store ptr %44, ptr %10, align 8, !tbaa !14
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !17
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %44, i64 %42
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %44, i64 %42
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !18
   br label %.lr.ph.i.i.i.i.i
@@ -168,7 +168,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
 58:                                               ; preds = %55, %153
   %indvars.iv110 = phi i64 [ 0, %55 ], [ %indvars.iv.next111, %153 ]
   %.044107 = phi i32 [ 0, %55 ], [ %.145, %153 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv110
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv110
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %.not52 = icmp eq ptr %60, null
   br i1 %.not52, label %153, label %61
@@ -181,7 +181,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
 62:                                               ; preds = %61
   %63 = sext i32 %.044107 to i64
   %64 = load ptr, ptr %10, align 8, !tbaa !14
-  %65 = getelementptr inbounds nuw %"class.cv::Mat", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [96 x i8], ptr %64, i64 %63
   %66 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %65, ptr noundef nonnull align 8 dereferenceable(96) %11)
           to label %67 unwind label %88
 
@@ -189,7 +189,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %68 = load ptr, ptr %10, align 8, !tbaa !14
-  %69 = getelementptr inbounds nuw %"class.cv::Mat", ptr %68, i64 %63
+  %69 = getelementptr inbounds nuw [96 x i8], ptr %68, i64 %63
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %71 = load ptr, ptr %70, align 8, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -402,7 +402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %141
 146:                                              ; preds = %132
   %147 = shl nsw i32 %.044107, 1
   %148 = sext i32 %147 to i64
-  %149 = getelementptr i32, ptr %54, i64 %148
+  %149 = getelementptr [4 x i8], ptr %54, i64 %148
   %150 = trunc nuw nsw i64 %indvars.iv110 to i32
   store i32 %150, ptr %149, align 4, !tbaa !20
   %151 = getelementptr i8, ptr %149, i64 4
@@ -594,7 +594,7 @@ define void @cvMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 19:                                               ; preds = %5, %19
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %19 ]
   %.03975 = phi i32 [ 0, %5 ], [ %24, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = icmp ne ptr %21, null
   %23 = zext i1 %22 to i32
@@ -654,7 +654,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
   store ptr %38, ptr %10, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %38, ptr %39, align 8, !tbaa !17
-  %40 = getelementptr inbounds nuw %"class.cv::Mat", ptr %38, i64 %36
+  %40 = getelementptr inbounds nuw [96 x i8], ptr %38, i64 %36
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %40, ptr %41, align 8, !tbaa !18
   br label %.lr.ph.i.i.i.i.i
@@ -687,7 +687,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
 52:                                               ; preds = %49, %107
   %indvars.iv80 = phi i64 [ 0, %49 ], [ %indvars.iv.next81, %107 ]
   %.04077 = phi i32 [ 0, %49 ], [ %.141, %107 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv80
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   %.not48 = icmp eq ptr %54, null
   br i1 %.not48, label %107, label %55
@@ -700,7 +700,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
 56:                                               ; preds = %55
   %57 = sext i32 %.04077 to i64
   %58 = load ptr, ptr %10, align 8, !tbaa !14
-  %59 = getelementptr inbounds nuw %"class.cv::Mat", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [96 x i8], ptr %58, i64 %57
   %60 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %59, ptr noundef nonnull align 8 dereferenceable(96) %11)
           to label %61 unwind label %85
 
@@ -708,14 +708,14 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %62 = load ptr, ptr %10, align 8, !tbaa !14
-  %63 = getelementptr inbounds nuw %"class.cv::Mat", ptr %62, i64 %57
+  %63 = getelementptr inbounds nuw [96 x i8], ptr %62, i64 %57
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %65 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(8) %51) #14
   br i1 %65, label %66, label %90
 
 66:                                               ; preds = %61
   %67 = load ptr, ptr %10, align 8, !tbaa !14
-  %68 = getelementptr inbounds nuw %"class.cv::Mat", ptr %67, i64 %57
+  %68 = getelementptr inbounds nuw [96 x i8], ptr %67, i64 %57
   %69 = load i32, ptr %68, align 8, !tbaa !25
   %70 = load i32, ptr %7, align 8, !tbaa !25
   %71 = xor i32 %70, %69
@@ -802,7 +802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %95,
 100:                                              ; preds = %75
   %101 = shl nsw i32 %.04077, 1
   %102 = sext i32 %101 to i64
-  %103 = getelementptr i32, ptr %48, i64 %102
+  %103 = getelementptr [4 x i8], ptr %48, i64 %102
   store i32 %.04077, ptr %103, align 4, !tbaa !20
   %104 = getelementptr i8, ptr %103, i64 4
   %105 = trunc nuw nsw i64 %indvars.iv80 to i32
@@ -959,7 +959,7 @@ define void @cvMixChannels(ptr noundef readonly captures(none) %0, i32 noundef %
 .noexc.i:                                         ; preds = %16
   store i64 %14, ptr %22, align 16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = getelementptr inbounds %"class.cv::Mat", ptr %23, i64 %14
+  %24 = getelementptr inbounds [96 x i8], ptr %23, i64 %14
   br label %25
 
 25:                                               ; preds = %25, %.noexc.i
@@ -1010,14 +1010,14 @@ _ZN2cv10AutoBufferINS_3MatELm18EEC2Em.exit:       ; preds = %12, %29
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %8, ptr noundef %38, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
           to label %39 unwind label %44
 
 39:                                               ; preds = %.lr.ph
   %40 = load ptr, ptr %7, align 8, !tbaa !41
-  %41 = getelementptr inbounds nuw %"class.cv::Mat", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [96 x i8], ptr %40, i64 %indvars.iv
   %42 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %43 unwind label %46
 
@@ -1047,15 +1047,15 @@ _ZN2cv10AutoBufferINS_3MatELm18EEC2Em.exit:       ; preds = %12, %29
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %56
   %indvars.iv39 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next40, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv39
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv39
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %9, ptr noundef %50, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
           to label %51 unwind label %57
 
 51:                                               ; preds = %.lr.ph37
   %52 = load ptr, ptr %7, align 8, !tbaa !41
-  %53 = getelementptr %"class.cv::Mat", ptr %52, i64 %indvars.iv39
-  %54 = getelementptr %"class.cv::Mat", ptr %53, i64 %36
+  %53 = getelementptr [96 x i8], ptr %52, i64 %indvars.iv39
+  %54 = getelementptr [96 x i8], ptr %53, i64 %36
   %55 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %54, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %56 unwind label %59
 
@@ -1084,7 +1084,7 @@ _ZN2cv10AutoBufferINS_3MatELm18EEC2Em.exit:       ; preds = %12, %29
 
 ._crit_edge:                                      ; preds = %56, %.preheader
   %62 = load ptr, ptr %7, align 8, !tbaa !41
-  %63 = getelementptr inbounds nuw %"class.cv::Mat", ptr %62, i64 %36
+  %63 = getelementptr inbounds nuw [96 x i8], ptr %62, i64 %36
   %64 = sext i32 %3 to i64
   %65 = sext i32 %5 to i64
   invoke void @_ZN2cv11mixChannelsEPKNS_3MatEmPS0_mPKim(ptr noundef nonnull %62, i64 noundef %36, ptr noundef nonnull %63, i64 noundef %64, ptr noundef %4, i64 noundef %65)

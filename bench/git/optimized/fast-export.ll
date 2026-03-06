@@ -29,9 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.string_list_item = type { ptr, ptr }
-%struct.rev_cmdline_entry = type { ptr, ptr, i32, i32 }
-%struct.refspec_item = type { i8, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -632,7 +629,7 @@ define dso_local noundef i32 @cmd_fast_export(i32 noundef %0, ptr noundef %1, pt
 .lr.ph:                                           ; preds = %206, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %206 ]
   %209 = load ptr, ptr %17, align 8, !tbaa !74
-  %210 = getelementptr inbounds nuw %struct.string_list_item, ptr %209, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %209, i64 %indvars.iv
   %211 = load ptr, ptr %210, align 8, !tbaa !75
   call void @refspec_append(ptr noundef nonnull @refspecs, ptr noundef %211) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -707,7 +704,7 @@ define dso_local noundef i32 @cmd_fast_export(i32 noundef %0, ptr noundef %1, pt
 240:                                              ; preds = %303, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %303 ]
   %241 = load ptr, ptr %239, align 8, !tbaa !81
-  %242 = getelementptr inbounds nuw %struct.rev_cmdline_entry, ptr %241, i64 %indvars.iv.i
+  %242 = getelementptr inbounds nuw [24 x i8], ptr %241, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !4
@@ -1012,7 +1009,7 @@ find_encoding.exit.i:                             ; preds = %352, %349
   %380 = phi i32 [ %378, %.lr.ph.preheader.i ], [ %392, %391 ]
   %381 = phi ptr [ %.pre115.i, %.lr.ph.preheader.i ], [ %393, %391 ]
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i38, %391 ]
-  %382 = getelementptr inbounds nuw ptr, ptr %381, i64 %indvars.iv.i36
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %indvars.iv.i36
   %383 = load ptr, ptr %382, align 8, !tbaa !113
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %385 = load ptr, ptr %384, align 8, !tbaa !115
@@ -1059,7 +1056,7 @@ strbuf_setlen.exit.i.i.preheader:                 ; preds = %401, %399
 
 strbuf_setlen.exit.i.i:                           ; preds = %strbuf_setlen.exit.i.i.preheader, %skip_prefix.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %skip_prefix.exit.i.i ], [ 0, %strbuf_setlen.exit.i.i.preheader ]
-  %402 = getelementptr inbounds nuw ptr, ptr @anonymize_refname.prefixes, i64 %indvars.iv.i.i
+  %402 = getelementptr inbounds nuw [8 x i8], ptr @anonymize_refname.prefixes, i64 %indvars.iv.i.i
   %403 = load ptr, ptr %402, align 8, !tbaa !4
   br label %404
 
@@ -1269,7 +1266,7 @@ anonymize_refname.exit.i:                         ; preds = %skip_prefix.exit.i.
 
 505:                                              ; preds = %507, %494
   %.0811.i.i.i.i = phi i64 [ 0, %494 ], [ %508, %507 ]
-  %506 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %506 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %504, %506
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %507
 
@@ -1389,7 +1386,7 @@ handle_commit.exit:                               ; preds = %537, %542, %547
   %552 = phi i32 [ %550, %.lr.ph.preheader.i40 ], [ %565, %564 ]
   %553 = phi ptr [ %.pre6.i, %.lr.ph.preheader.i40 ], [ %566, %564 ]
   %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.preheader.i40 ], [ %indvars.iv.next.i44, %564 ]
-  %554 = getelementptr inbounds nuw %struct.refspec_item, ptr %553, i64 %indvars.iv.i42
+  %554 = getelementptr inbounds nuw [32 x i8], ptr %553, i64 %indvars.iv.i42
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %556 = load ptr, ptr %555, align 8, !tbaa !160
   %557 = load i8, ptr %556, align 1, !tbaa !102
@@ -1933,7 +1930,7 @@ sane_qsort.exit:                                  ; preds = %3, %7
 .lr.ph:                                           ; preds = %sane_qsort.exit, %85
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %sane_qsort.exit ]
   %12 = load ptr, ptr %0, align 8, !tbaa !112
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !113
   %15 = load ptr, ptr %14, align 8, !tbaa !171
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1962,7 +1959,7 @@ sane_qsort.exit:                                  ; preds = %3, %7
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %0, align 8, !tbaa !112
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !113
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 18
   %31 = load i8, ptr %30, align 2, !tbaa !172
@@ -2089,7 +2086,7 @@ define internal fastcc void @handle_tags_and_duplicates(ptr noundef readonly cap
 16:                                               ; preds = %.lr.ph, %show_progress.exit
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %show_progress.exit ]
   %17 = load ptr, ptr %0, align 8, !tbaa !74
-  %18 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !75
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !90
@@ -2208,7 +2205,7 @@ strbuf_setlen.exit.i.i.preheader:                 ; preds = %66, %64
 
 strbuf_setlen.exit.i.i:                           ; preds = %strbuf_setlen.exit.i.i.preheader, %skip_prefix.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %skip_prefix.exit.i.i ], [ 0, %strbuf_setlen.exit.i.i.preheader ]
-  %67 = getelementptr inbounds nuw ptr, ptr @anonymize_refname.prefixes, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @anonymize_refname.prefixes, i64 %indvars.iv.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !4
   br label %69
 
@@ -2535,7 +2532,7 @@ strbuf_setlen.exit.i.preheader:                   ; preds = %200, %198
 
 strbuf_setlen.exit.i:                             ; preds = %strbuf_setlen.exit.i.preheader, %skip_prefix.exit.i28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %skip_prefix.exit.i28 ], [ 0, %strbuf_setlen.exit.i.preheader ]
-  %201 = getelementptr inbounds nuw ptr, ptr @anonymize_refname.prefixes, i64 %indvars.iv.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @anonymize_refname.prefixes, i64 %indvars.iv.i
   %202 = load ptr, ptr %201, align 8, !tbaa !4
   br label %203
 
@@ -3195,7 +3192,7 @@ define internal fastcc ptr @anonymize_oid(ptr noundef %0) unnamed_addr #0 {
 
 23:                                               ; preds = %25, %12
   %.0811.i.i.i = phi i64 [ 0, %12 ], [ %26, %25 ]
-  %24 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %24 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %25
 
@@ -3395,7 +3392,7 @@ define internal fastcc void @anonymize_ident_line(ptr noundef nonnull captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @anonymize_ident_line.which_buffer, align 4, !tbaa !79
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.strbuf, ptr @anonymize_ident_line.buffers, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr @anonymize_ident_line.buffers, i64 %7
   %9 = and i32 %6, 1
   %10 = xor i32 %9, 1
   store i32 %10, ptr @anonymize_ident_line.which_buffer, align 4, !tbaa !79

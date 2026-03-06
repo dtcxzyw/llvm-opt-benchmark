@@ -8876,7 +8876,7 @@ cipher_to_dict.exit.i:                            ; preds = %61, %58
 
 75:                                               ; preds = %cipher_to_dict.exit.i
   %.val.i = load ptr, ptr %24, align 8, !tbaa !116
-  %76 = getelementptr ptr, ptr %.val.i, i64 %indvars.iv.i
+  %76 = getelementptr [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   store ptr %67, ptr %76, align 8, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %77 = call i32 @OPENSSL_sk_num(ptr noundef %17) #11
@@ -14098,7 +14098,7 @@ Py_DECREF.exit.i:                                 ; preds = %20
   %28 = add i32 %.02537.i, 1
   %29 = sext i32 %.02537.i to i64
   %.val.i = load ptr, ptr %15, align 8, !tbaa !116
-  %30 = getelementptr ptr, ptr %.val.i, i64 %29
+  %30 = getelementptr [8 x i8], ptr %.val.i, i64 %29
   store ptr %21, ptr %30, align 8, !tbaa !26
   br label %31
 

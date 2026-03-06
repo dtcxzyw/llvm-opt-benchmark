@@ -512,7 +512,7 @@ define i32 @EVP_PKEY_CTX_get_keygen_info(ptr noundef readonly captures(none) %0,
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !49
   br label %19
 

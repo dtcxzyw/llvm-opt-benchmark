@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.trace_key = type { ptr, i32, i8 }
-%struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"blob:none\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"blob:limit\00", align 1
@@ -62,7 +61,7 @@ define dso_local noundef nonnull ptr @list_object_filter_config_name(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.list_object_filter_config_name, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.list_object_filter_config_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -379,13 +378,13 @@ define internal fastcc range(i32 0, 2) i32 @parse_combine_filter(ptr noundef %0,
   %16 = phi ptr [ %6, %.lr.ph ], [ %70, %parse_combine_subfilter.exit ]
   %.038 = phi i64 [ 0, %.lr.ph ], [ %17, %parse_combine_subfilter.exit ]
   %17 = add i64 %.038, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %.not26 = icmp eq ptr %19, null
   br i1 %.not26, label %25, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw ptr, ptr %5, i64 %.038
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.038
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !22
   %24 = add i64 %23, -1
@@ -437,11 +436,11 @@ st_mult.exit:                                     ; preds = %34
 43:                                               ; preds = %._crit_edge43, %st_mult.exit
   %44 = phi i64 [ %27, %._crit_edge43 ], [ %.pre45, %st_mult.exit ]
   %45 = phi ptr [ %.pre44, %._crit_edge43 ], [ %42, %st_mult.exit ]
-  %46 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %45, i64 %44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %46, i8 0, i64 88, i1 false)
   store i64 %28, ptr %7, align 8, !tbaa !23
   %47 = load ptr, ptr %9, align 8, !tbaa !25
-  %48 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %47, i64 %27
+  %48 = getelementptr inbounds nuw [88 x i8], ptr %47, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %48, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !26
@@ -488,7 +487,7 @@ has_reserved_character.exit:                      ; preds = %57, %59
 
 .loopexit:                                        ; preds = %61, %43
   %66 = load ptr, ptr %9, align 8, !tbaa !25
-  %67 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %66, i64 %27
+  %67 = getelementptr inbounds nuw [88 x i8], ptr %66, i64 %27
   %68 = tail call i32 @gently_parse_list_objects_filter(ptr noundef %67, ptr noundef %51, ptr noundef %2)
   %69 = icmp eq i32 %68, 0
   br label %parse_combine_subfilter.exit
@@ -673,11 +672,11 @@ st_mult.exit:                                     ; preds = %45
   %56 = phi i64 [ %37, %._crit_edge ], [ %.pre41, %st_mult.exit ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %54, %st_mult.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %59 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [88 x i8], ptr %57, i64 %56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %59, i8 0, i64 88, i1 false)
   store i64 %38, ptr %36, align 8, !tbaa !23
   %60 = load ptr, ptr %58, align 8, !tbaa !25
-  %61 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %60, i64 %37
+  %61 = getelementptr inbounds nuw [88 x i8], ptr %60, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %61, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   %62 = call i32 @gently_parse_list_objects_filter(ptr noundef nonnull %61, ptr noundef %1, ptr noundef nonnull %3)
   %.not37 = icmp eq i32 %62, 0
@@ -844,7 +843,7 @@ define dso_local void @list_objects_filter_release(ptr noundef %0) local_unnamed
 8:                                                ; preds = %.lr.ph, %8
   %.010 = phi i64 [ 0, %.lr.ph ], [ %11, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !25
-  %10 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %9, i64 %.010
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %9, i64 %.010
   tail call void @list_objects_filter_release(ptr noundef %10)
   %11 = add nuw i64 %.010, 1
   %12 = load i64, ptr %5, align 8, !tbaa !23
@@ -1017,9 +1016,9 @@ st_mult.exit:                                     ; preds = %xstrdup_or_null.exi
 19:                                               ; preds = %.lr.ph, %19
   %.015 = phi i64 [ 0, %.lr.ph ], [ %24, %19 ]
   %20 = load ptr, ptr %15, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %20, i64 %.015
+  %21 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %.015
   %22 = load ptr, ptr %18, align 8, !tbaa !25
-  %23 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %22, i64 %.015
+  %23 = getelementptr inbounds nuw [88 x i8], ptr %22, i64 %.015
   tail call void @list_objects_filter_copy(ptr noundef %21, ptr noundef %23)
   %24 = add nuw i64 %.015, 1
   %25 = load i64, ptr %16, align 8, !tbaa !23

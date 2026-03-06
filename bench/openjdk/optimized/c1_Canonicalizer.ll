@@ -3445,7 +3445,7 @@ switch.lookup82:                                  ; preds = %257
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %269 = load i32, ptr %268, align 8
   %270 = zext nneg i32 %switch.tableidx81 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13Canonicalizer10do_ConvertEP7Convert, i64 %270
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN13Canonicalizer10do_ConvertEP7Convert, i64 %270
   %switch.load = load i32, ptr %switch.gep, align 4
   %271 = and i32 %switch.load, %269
   %272 = icmp eq i32 %271, 0
@@ -4181,10 +4181,10 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8
   %216 = zext i1 %211 to i64
-  %217 = getelementptr inbounds nuw ptr, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %216
   %218 = icmp ne i32 %193, 0
   %219 = zext i1 %218 to i64
-  %220 = getelementptr inbounds nuw ptr, ptr %215, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %219
   %221 = icmp eq i32 %193, 1
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
@@ -4195,10 +4195,10 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = zext i1 %.not198 to i64
-  %228 = getelementptr inbounds nuw ptr, ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %227
   %.not199 = icmp eq i32 %193, 0
   %229 = zext i1 %.not199 to i64
-  %230 = getelementptr inbounds nuw ptr, ptr %226, i64 %229
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %229
   %231 = icmp ne i32 %193, 1
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
@@ -4209,10 +4209,10 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %236 = load ptr, ptr %235, align 8
   %.lobit197 = lshr i32 %193, 31
   %237 = zext nneg i32 %.lobit197 to i64
-  %238 = getelementptr inbounds nuw ptr, ptr %236, i64 %237
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %237
   %239 = icmp slt i32 %193, 1
   %240 = zext i1 %239 to i64
-  %241 = getelementptr inbounds nuw ptr, ptr %236, i64 %240
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %240
   %242 = icmp sgt i32 %193, 1
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
@@ -4223,10 +4223,10 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load ptr, ptr %247, align 8
   %249 = zext i1 %244 to i64
-  %250 = getelementptr inbounds nuw ptr, ptr %248, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %249
   %.lobit = lshr i32 %193, 31
   %251 = zext nneg i32 %.lobit to i64
-  %252 = getelementptr inbounds nuw ptr, ptr %248, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %251
   %253 = icmp sgt i32 %193, 0
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
@@ -4237,10 +4237,10 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8
   %260 = zext i1 %255 to i64
-  %261 = getelementptr inbounds nuw ptr, ptr %259, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %260
   %262 = icmp sgt i32 %193, -1
   %263 = zext i1 %262 to i64
-  %264 = getelementptr inbounds nuw ptr, ptr %259, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %263
   %265 = icmp slt i32 %193, 1
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
@@ -4251,10 +4251,10 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load ptr, ptr %270, align 8
   %272 = zext i1 %267 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr %271, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %272
   %274 = icmp sgt i32 %193, 0
   %275 = zext i1 %274 to i64
-  %276 = getelementptr inbounds nuw ptr, ptr %271, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %275
   %277 = icmp slt i32 %193, 2
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
@@ -4267,7 +4267,7 @@ _ZL7is_truelN11Instruction9ConditionEl.exit135:   ; preds = %210, %222, %232, %2
   %280 = load ptr, ptr %.in, align 8
   %not..i136 = xor i1 %.0.i134, true
   %281 = zext i1 %not..i136 to i64
-  %282 = getelementptr inbounds nuw ptr, ptr %278, i64 %281
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %281
   %283 = load ptr, ptr %282, align 8
   %284 = select i1 %spec.select, ptr %279, ptr %283
   %285 = icmp eq ptr %279, %280
@@ -4738,7 +4738,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   store i32 %50, ptr %33, align 8
   %51 = load ptr, ptr %36, align 8
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   store ptr %1, ptr %53, align 8
   store ptr %33, ptr %28, align 8
   ret void
@@ -4840,7 +4840,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   store i32 %61, ptr %44, align 8
   %62 = load ptr, ptr %47, align 8
   %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   store ptr %5, ptr %64, align 8
   %65 = load i32, ptr %44, align 8
   %66 = load i32, ptr %46, align 4
@@ -4867,7 +4867,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   store i32 %77, ptr %44, align 8
   %78 = load ptr, ptr %47, align 8
   %79 = sext i32 %76 to i64
-  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %78, i64 %79
   store ptr %6, ptr %80, align 8
   store ptr %44, ptr %33, align 8
   ret void
@@ -4910,7 +4910,7 @@ _ZNK8BlockEnd11default_suxEv.exit:                ; preds = %11, %23
   %27 = phi i64 [ %26, %23 ], [ -1, %11 ]
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %27
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %33 = load i32, ptr %32, align 8
@@ -4927,7 +4927,7 @@ _ZNK11TableSwitch6hi_keyEv.exit:                  ; preds = %_ZNK8BlockEnd11defa
 37:                                               ; preds = %_ZNK11TableSwitch6hi_keyEv.exit
   %38 = sub nsw i32 %20, %33
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %29, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %29, i64 %39
   %41 = load ptr, ptr %40, align 8
   br label %42
 
@@ -5028,7 +5028,7 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %.pre to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load ptr, ptr %26, align 8
   %.not31 = icmp slt i32 %.pre, 2
@@ -5049,13 +5049,13 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %2
   %35 = lshr i32 %34, 1
   %36 = add nsw i32 %35, %.02333
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %32, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %32, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, %19
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds ptr, ptr %23, i64 %37
+  %42 = getelementptr inbounds [8 x i8], ptr %23, i64 %37
   %43 = load ptr, ptr %42, align 8
   br label %.loopexit
 
@@ -6052,9 +6052,9 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6071,7 +6071,7 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

@@ -178,7 +178,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
 18:                                               ; preds = %.lr.ph, %16
   %.02128 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
   %19 = load ptr, ptr %6, align 8, !tbaa !224
-  %20 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %19, i64 %.02128
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02128
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load ptr, ptr %20, align 8, !tbaa !227
   store ptr %21, ptr %4, align 8, !tbaa !230

@@ -248,7 +248,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he53f6f1029a0c997E.ll
   %12 = phi i64 [ %.pre, %._crit_edge ], [ %7, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %14, i64 %12
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %12
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %16, align 8
@@ -489,7 +489,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.14096182879495530979.e
   %36 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %27, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.14096182879495530979.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !43, !noalias !48, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 %36
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %36
   store ptr %22, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @anon.f36adec41952fde5a13097aa67cb98f8.6.llvm.14096182879495530979, ptr %40, align 8

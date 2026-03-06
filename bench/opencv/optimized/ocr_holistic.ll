@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -1774,7 +1773,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !28
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !67
   ret void
 
@@ -2214,7 +2213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %131
 
 136:                                              ; preds = %113
   %137 = zext nneg i32 %111 to i64
-  %138 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %117, i64 %137
+  %138 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %139, ptr %0, align 8, !tbaa !51
   %140 = load ptr, ptr %138, align 8, !tbaa !29
@@ -2382,9 +2381,9 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds 
 
 _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; preds = %33, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !88
-  %34 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %29, i64 %12
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %12
   store ptr %34, ptr %3, align 8, !tbaa !120
-  %35 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %35, ptr %13, align 8, !tbaa !121
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit
 
@@ -2393,7 +2392,7 @@ _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pred
   br i1 %37, label %38, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %5, i64 %1
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %39
   br i1 %.not.i4, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit, label %40
 
@@ -2561,9 +2560,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit38: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %51, ptr %4, align 8, !tbaa !28
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %52, ptr %11, align 8, !tbaa !67
   br label %53
 
@@ -2661,9 +2660,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !94
-  %38 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !91
-  %39 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !135
   br label %40
 

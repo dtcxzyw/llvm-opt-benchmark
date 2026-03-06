@@ -95,7 +95,7 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
   %38 = phi i32 [ %41, %.lr.ph ], [ %36, %30 ]
   %39 = call ptr @xsignal(i32 noundef %38, ptr noundef nonnull @_signal_while_allocating) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw i32, ptr @step_signals, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @step_signals, i64 %indvars.iv.next
   %41 = load i32, ptr %40, align 4
   %.not47 = icmp eq i32 %41, 0
   br i1 %.not47, label %.preheader, label %.lr.ph, !llvm.loop !8

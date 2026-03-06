@@ -663,7 +663,7 @@ define ptr @wtap_file_get_shb(ptr noundef readonly captures(address_is_null) %0,
 11:                                               ; preds = %8
   %12 = load ptr, ptr %6, align 8
   %13 = zext i32 %1 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -698,7 +698,7 @@ define i32 @wtap_file_get_shb_global_interface_id(ptr noundef readonly captures(
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %1 to i64
-  %18 = getelementptr i32, ptr %16, i64 %17
+  %18 = getelementptr [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, %2
   br label %21
@@ -742,7 +742,7 @@ define hidden ptr @wtap_file_get_shb_for_new_file(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %17 = phi ptr [ %23, %.lr.ph ], [ %14, %12 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @wtap_block_make_copy(ptr noundef %20)
   store ptr %21, ptr %2, align 8
@@ -838,7 +838,7 @@ define ptr @wtap_get_next_interface_description(ptr noundef captures(none) %0) l
 9:                                                ; preds = %1
   %10 = load ptr, ptr %5, align 8
   %11 = zext i32 %3 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = add nuw i32 %3, 1
   store i32 %14, ptr %2, align 8
@@ -886,7 +886,7 @@ define ptr @wtap_file_get_dsb(ptr noundef readonly captures(address_is_null) %0,
 11:                                               ; preds = %8
   %12 = load ptr, ptr %6, align 8
   %13 = zext i32 %1 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -1131,7 +1131,7 @@ define ptr @wtap_get_debug_if_descr(ptr noundef %0, i32 noundef %1, ptr noundef 
   %28 = load ptr, ptr @encap_table_arr, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %23 to i64
-  %31 = getelementptr %struct.encap_type_info, ptr %29, i64 %30
+  %31 = getelementptr [16 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
@@ -1188,7 +1188,7 @@ wtap_encap_name.exit:                             ; preds = %26, %.thread83, %22
 
 58:                                               ; preds = %57
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr ptr, ptr @precnames, i64 %59
+  %60 = getelementptr [8 x i8], ptr @precnames, i64 %59
   %61 = load ptr, ptr %60, align 8
   br label %wtap_tsprec_string.exit
 
@@ -1325,7 +1325,7 @@ define ptr @wtap_encap_description(i32 noundef %0) local_unnamed_addr #3 {
   %7 = load ptr, ptr @encap_table_arr, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.encap_type_info, ptr %8, i64 %9
+  %10 = getelementptr [16 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
@@ -1356,7 +1356,7 @@ define ptr @wtap_encap_name(i32 noundef %0) local_unnamed_addr #3 {
   %7 = load ptr, ptr @encap_table_arr, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.encap_type_info, ptr %8, i64 %9
+  %10 = getelementptr [16 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -1382,7 +1382,7 @@ define ptr @wtap_tsprec_string(i32 noundef %0) local_unnamed_addr #7 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @precnames, i64 %5
+  %6 = getelementptr [8 x i8], ptr @precnames, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %10
 
@@ -1466,7 +1466,7 @@ define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %17 = phi ptr [ %23, %.lr.ph ], [ %14, %12 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @wtap_block_make_copy(ptr noundef %20)
   store ptr %21, ptr %2, align 8
@@ -1528,7 +1528,7 @@ define void @wtap_dump_params_init(ptr noundef %0, ptr noundef readonly captures
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %21 ]
   %26 = phi ptr [ %32, %.lr.ph.i ], [ %23, %21 ]
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @wtap_block_make_copy(ptr noundef %29)
   store ptr %30, ptr %3, align 8
@@ -1619,7 +1619,7 @@ define void @wtap_dump_params_init_no_idbs(ptr noundef %0, ptr noundef readonly 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %21 ]
   %26 = phi ptr [ %32, %.lr.ph.i ], [ %23, %21 ]
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @wtap_block_make_copy(ptr noundef %29)
   store ptr %30, ptr %3, align 8
@@ -1787,7 +1787,7 @@ define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_encap(ptr noundef re
 
 6:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %7 = getelementptr %struct.encap_type_info, ptr %5, i64 %indvars.iv
+  %7 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -1836,7 +1836,7 @@ define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #11 {
   br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %7
-  %13 = getelementptr ptr, ptr @wtap_errlist, i64 %9
+  %13 = getelementptr [8 x i8], ptr @wtap_errlist, i64 %9
   %14 = load ptr, ptr %13, align 8
   br label %17
 
@@ -2050,7 +2050,7 @@ define void @wtap_set_cb_new_ipv4(ptr noundef captures(address_is_null) %0, ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %wtapng_process_nrb_ipv4.exit ], [ 0, %.preheader ]
   %9 = phi ptr [ %20, %wtapng_process_nrb_ipv4.exit ], [ %6, %.preheader ]
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %12)
   %14 = load ptr, ptr %4, align 8
@@ -2110,7 +2110,7 @@ define void @wtap_set_cb_new_ipv6(ptr noundef captures(address_is_null) %0, ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %wtapng_process_nrb_ipv6.exit ], [ 0, %.preheader ]
   %9 = phi ptr [ %18, %wtapng_process_nrb_ipv6.exit ], [ %6, %.preheader ]
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %12)
   %14 = load ptr, ptr %4, align 8
@@ -2223,7 +2223,7 @@ define void @wtap_set_cb_new_secrets(ptr noundef captures(address_is_null) %0, p
   %indvars.iv = phi i64 [ %indvars.iv.next, %wtapng_process_dsb.exit ], [ 0, %6 ]
   %10 = phi ptr [ %22, %wtapng_process_dsb.exit ], [ %5, %6 ]
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %13)
   %15 = load ptr, ptr %7, align 8
@@ -2669,7 +2669,7 @@ wtap_file_size.exit:                              ; preds = %5, %9
   %29 = load ptr, ptr @encap_table_arr, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %23 to i64
-  %32 = getelementptr %struct.encap_type_info, ptr %30, i64 %31
+  %32 = getelementptr [16 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   br label %wtap_encap_name.exit
 
@@ -2717,7 +2717,7 @@ wtap_encap_name.exit:                             ; preds = %21, %26, %27, %28
   %51 = load ptr, ptr @encap_table_arr, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = zext nneg i32 %45 to i64
-  %54 = getelementptr %struct.encap_type_info, ptr %52, i64 %53
+  %54 = getelementptr [16 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8
   br label %wtap_encap_name.exit55
 

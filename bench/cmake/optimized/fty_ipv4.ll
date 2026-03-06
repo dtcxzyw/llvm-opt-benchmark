@@ -28,7 +28,7 @@ define internal zeroext i1 @Check_IPV4_Field(ptr noundef %0, ptr readnone captur
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = load i8, ptr %8, align 1, !tbaa !11
   %12 = sext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !12
   %15 = and i16 %14, 2048
   %.not = icmp eq i16 %15, 0
@@ -61,7 +61,7 @@ define internal zeroext i1 @Check_IPV4_Field(ptr noundef %0, ptr readnone captur
   %29 = phi i8 [ %23, %.lr.ph ], [ %27, %25 ]
   %.123 = phi ptr [ %22, %.lr.ph ], [ %26, %25 ]
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %24, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %24, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !12
   %33 = and i16 %32, 8192
   %.not19 = icmp eq i16 %33, 0
@@ -100,7 +100,7 @@ define internal zeroext i1 @Check_IPV4_Character(i32 noundef %0, ptr readnone ca
   %3 = tail call ptr @__ctype_b_loc() #7
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !12
   %8 = and i16 %7, 2048
   %9 = icmp ne i16 %8, 0

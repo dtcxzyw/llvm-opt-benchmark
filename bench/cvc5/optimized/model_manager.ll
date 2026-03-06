@@ -458,7 +458,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16: ; preds = %_ZStl
   %35 = load ptr, ptr %27, align 8, !tbaa !252
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !421
   %40 = icmp eq ptr %39, null
   br i1 %40, label %46, label %41

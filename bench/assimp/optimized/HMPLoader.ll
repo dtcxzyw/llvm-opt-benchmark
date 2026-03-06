@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %struct.aiColor3D = type { float, float, float }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.aiFace = type { i32, ptr }
-%class.aiVector3t = type { float, float, float }
 %"class.std::unique_ptr.14" = type { %"struct.std::__uniq_ptr_data.15" }
 %"struct.std::__uniq_ptr_data.15" = type { %"class.std::__uniq_ptr_impl.16" }
 %"class.std::__uniq_ptr_impl.16" = type { %"class.std::tuple.17" }
@@ -1702,7 +1700,7 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
   br i1 %18, label %.loopexit133, label %19
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds nuw %struct.aiFace, ptr %17, i64 %13
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %13
   br label %21
 
 21:                                               ; preds = %21, %19
@@ -1821,35 +1819,35 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %57, align 8
-  %75 = getelementptr inbounds nuw %class.aiVector3t, ptr %74, i64 %68
+  %75 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %68
   %76 = getelementptr inbounds nuw i8, ptr %.1102139.us, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1102139.us, ptr noundef nonnull align 4 dereferenceable(12) %75, i64 12, i1 false)
   %77 = load ptr, ptr %57, align 8
-  %78 = getelementptr inbounds nuw %class.aiVector3t, ptr %77, i64 %71
+  %78 = getelementptr inbounds nuw [12 x i8], ptr %77, i64 %71
   %79 = getelementptr inbounds nuw i8, ptr %.1102139.us, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %76, ptr noundef nonnull align 4 dereferenceable(12) %78, i64 12, i1 false)
   %80 = load ptr, ptr %57, align 8
-  %81 = getelementptr inbounds nuw %class.aiVector3t, ptr %80, i64 %72
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %72
   %82 = getelementptr inbounds nuw i8, ptr %.1102139.us, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %79, ptr noundef nonnull align 4 dereferenceable(12) %81, i64 12, i1 false)
   %83 = load ptr, ptr %57, align 8
-  %84 = getelementptr inbounds nuw %class.aiVector3t, ptr %83, i64 %69
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %83, i64 %69
   %85 = getelementptr inbounds nuw i8, ptr %.1102139.us, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %82, ptr noundef nonnull align 4 dereferenceable(12) %84, i64 12, i1 false)
   %86 = load ptr, ptr %58, align 8
-  %87 = getelementptr inbounds nuw %class.aiVector3t, ptr %86, i64 %68
+  %87 = getelementptr inbounds nuw [12 x i8], ptr %86, i64 %68
   %88 = getelementptr inbounds nuw i8, ptr %.1108137.us, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1108137.us, ptr noundef nonnull align 4 dereferenceable(12) %87, i64 12, i1 false)
   %89 = load ptr, ptr %58, align 8
-  %90 = getelementptr inbounds nuw %class.aiVector3t, ptr %89, i64 %71
+  %90 = getelementptr inbounds nuw [12 x i8], ptr %89, i64 %71
   %91 = getelementptr inbounds nuw i8, ptr %.1108137.us, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %88, ptr noundef nonnull align 4 dereferenceable(12) %90, i64 12, i1 false)
   %92 = load ptr, ptr %58, align 8
-  %93 = getelementptr inbounds nuw %class.aiVector3t, ptr %92, i64 %72
+  %93 = getelementptr inbounds nuw [12 x i8], ptr %92, i64 %72
   %94 = getelementptr inbounds nuw i8, ptr %.1108137.us, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %91, ptr noundef nonnull align 4 dereferenceable(12) %93, i64 12, i1 false)
   %95 = load ptr, ptr %58, align 8
-  %96 = getelementptr inbounds nuw %class.aiVector3t, ptr %95, i64 %69
+  %96 = getelementptr inbounds nuw [12 x i8], ptr %95, i64 %69
   %97 = getelementptr inbounds nuw i8, ptr %.1108137.us, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %94, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false)
   %98 = load ptr, ptr %54, align 8
@@ -1857,19 +1855,19 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
   br i1 %.not128.us, label %111, label %99
 
 99:                                               ; preds = %73
-  %100 = getelementptr inbounds nuw %class.aiVector3t, ptr %98, i64 %68
+  %100 = getelementptr inbounds nuw [12 x i8], ptr %98, i64 %68
   %101 = getelementptr inbounds nuw i8, ptr %.1111136.us, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1111136.us, ptr noundef nonnull align 4 dereferenceable(12) %100, i64 12, i1 false)
   %102 = load ptr, ptr %54, align 8
-  %103 = getelementptr inbounds nuw %class.aiVector3t, ptr %102, i64 %71
+  %103 = getelementptr inbounds nuw [12 x i8], ptr %102, i64 %71
   %104 = getelementptr inbounds nuw i8, ptr %.1111136.us, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull align 4 dereferenceable(12) %103, i64 12, i1 false)
   %105 = load ptr, ptr %54, align 8
-  %106 = getelementptr inbounds nuw %class.aiVector3t, ptr %105, i64 %72
+  %106 = getelementptr inbounds nuw [12 x i8], ptr %105, i64 %72
   %107 = getelementptr inbounds nuw i8, ptr %.1111136.us, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %104, ptr noundef nonnull align 4 dereferenceable(12) %106, i64 12, i1 false)
   %108 = load ptr, ptr %54, align 8
-  %109 = getelementptr inbounds nuw %class.aiVector3t, ptr %108, i64 %69
+  %109 = getelementptr inbounds nuw [12 x i8], ptr %108, i64 %69
   %110 = getelementptr inbounds nuw i8, ptr %.1111136.us, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %107, ptr noundef nonnull align 4 dereferenceable(12) %109, i64 12, i1 false)
   br label %111
@@ -1893,7 +1891,7 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
   %.3134.us = phi i32 [ %114, %113 ], [ %.1105138.us, %111 ]
   %114 = add i32 %.3134.us, 1
   %115 = load ptr, ptr %67, align 8
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv
   store i32 %.3134.us, ptr %116, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

@@ -948,7 +948,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.808
 15:                                               ; preds = %24, %3
   %.sroa.02.033 = phi i64 [ 0, %3 ], [ %26, %24 ]
   %.sroa.09.032 = phi i64 [ 0, %3 ], [ %.sroa.09.1.lcssa, %24 ]
-  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i64 %.sroa.02.033
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.sroa.02.033
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4

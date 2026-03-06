@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.cmsys::SystemToolsManager" = type { i8 }
-%"struct.cmsys::DirectoryInternals::FileData" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -158,7 +157,7 @@ define dso_local noundef range(i64 -288230376151711744, 288230376151711744) i64 
 define dso_local noundef ptr @_ZNK5cmsys9Directory7GetFileEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !14
   %4 = load ptr, ptr %3, align 8, !tbaa !19
-  %5 = getelementptr inbounds nuw %"struct.cmsys::DirectoryInternals::FileData", ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   ret ptr %6
 }
@@ -167,7 +166,7 @@ define dso_local noundef ptr @_ZNK5cmsys9Directory7GetFileEm(ptr noundef nonnull
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5cmsys9Directory11GetFileNameB5cxx11Em(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !14
   %4 = load ptr, ptr %3, align 8, !tbaa !19
-  %5 = getelementptr inbounds nuw %"struct.cmsys::DirectoryInternals::FileData", ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %1
   ret ptr %5
 }
 
@@ -284,7 +283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %49 = phi i64 [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %22, %24 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ]
   %50 = load ptr, ptr %1, align 8, !tbaa !14
   %51 = load ptr, ptr %50, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw %"struct.cmsys::DirectoryInternals::FileData", ptr %51, i64 %2
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %2
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !10
   %55 = sub i64 4611686018427387903, %49
@@ -1517,7 +1516,7 @@ _ZNSt6vectorIN5cmsys18DirectoryInternals8FileDataESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt12_Vector_baseIN5cmsys18DirectoryInternals8FileDataESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5cmsys18DirectoryInternals8FileDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %83
   store ptr %24, ptr %0, align 8, !tbaa !19
   store ptr %.0.lcssa.i.i.i35, ptr %6, align 8, !tbaa !22
-  %87 = getelementptr inbounds nuw %"struct.cmsys::DirectoryInternals::FileData", ptr %24, i64 %18
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %87, ptr %82, align 8, !tbaa !25
   ret void
 

@@ -33,8 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.cv::stereo::MatchQuasiDense" = type { %"class.cv::Point_", %"class.cv::Point_", float }
-%"class.cv::Point_" = type { i32, i32 }
 
 $_ZNSt12__shared_ptrIN2cv6stereo16QuasiDenseStereoELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -582,7 +580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %16
   %174 = phi ptr [ %218, %_ZNSolsEPFRSoS_E.exit ], [ %110, %.preheader ]
   %175 = phi i64 [ %216, %_ZNSolsEPFRSoS_E.exit ], [ 0, %.preheader ]
   %.0172 = phi i32 [ %215, %_ZNSolsEPFRSoS_E.exit ], [ 0, %.preheader ]
-  %176 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [20 x i8], ptr %174, i64 %175
   %177 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.7, i64 noundef 1)
           to label %.noexc144 unwind label %.loopexit
 
@@ -607,7 +605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %16
 
 _ZN2cvlsIiEERSoS1_RKNS_6Point_IT_EE.exit:         ; preds = %.noexc147
   %185 = load ptr, ptr %19, align 8, !tbaa !36
-  %186 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %185, i64 %175
+  %186 = getelementptr inbounds nuw [20 x i8], ptr %185, i64 %175
   %187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.7, i64 noundef 1)
           to label %.noexc149 unwind label %.loopexit
 

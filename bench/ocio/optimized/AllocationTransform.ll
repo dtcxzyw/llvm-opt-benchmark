@@ -654,7 +654,7 @@ define void @_ZN19OpenColorIO_v2_5dev19AllocationTransform7setVarsEiPKf(ptr noun
   br i1 %19, label %20, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw float, ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %22
 
@@ -708,7 +708,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 .noexc26:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %18 = shl nuw nsw i64 %16, 2
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #21
-  %20 = getelementptr inbounds nuw float, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %16
   store float 0.000000e+00, ptr %19, align 4, !tbaa !51
   %21 = add nsw i64 %16, -1
   %22 = icmp eq i64 %21, 0
@@ -832,7 +832,7 @@ _ZNSolsEf.exit.preheader:                         ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45 unwind label %73
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45: ; preds = %.lr.ph
-  %69 = getelementptr inbounds nuw float, ptr %.sroa.052.0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.052.0, i64 %indvars.iv
   %70 = load float, ptr %69, align 4, !tbaa !51
   %71 = fpext float %70 to double
   %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %71)
@@ -1326,9 +1326,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !42
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !49
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !43
   br label %41
 

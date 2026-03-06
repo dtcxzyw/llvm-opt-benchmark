@@ -67,7 +67,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.3 = type {}
 %struct.bio_vec = type { ptr, i32, i32 }
 %struct.clone_info = type { ptr, ptr, ptr, i64, i32, i8 }
-%struct.dm_target = type { ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, ptr, ptr, i16 }
 %struct.dm_pr = type { i64, i64, i32, i8, i8, i32, i32, ptr, ptr }
 
 @dm_global_event_nr = dso_local global %struct.atomic_t zeroinitializer, align 4
@@ -293,7 +292,7 @@ define internal void @dm_exit() #3 section ".exit.text" align 16 {
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 8, %0 ], [ %3, %1 ]
   %3 = add nsw i64 %2, -1
-  %4 = getelementptr ptr, ptr @_exits, i64 %3
+  %4 = getelementptr [8 x i8], ptr @_exits, i64 %3
   %5 = load ptr, ptr %4, align 8
   tail call void %5() #23
   %6 = icmp eq i64 %3, 0
@@ -2361,7 +2360,7 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
   %53 = load ptr, ptr %35, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %49, 63
-  %56 = getelementptr i64, ptr @__per_cpu_offset, i64 %55
+  %56 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, %54
   %59 = inttoptr i64 %58 to ptr
@@ -2713,7 +2712,7 @@ define internal i32 @dm_init() #3 section ".init.text" align 16 {
 
 1:                                                ; preds = %10, %0
   %2 = phi i64 [ 0, %0 ], [ %11, %10 ]
-  %3 = getelementptr ptr, ptr @_inits, i64 %2
+  %3 = getelementptr [8 x i8], ptr @_inits, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4() #23
   %6 = icmp eq i32 %5, 0
@@ -2732,7 +2731,7 @@ define internal i32 @dm_init() #3 section ".init.text" align 16 {
 .preheader:                                       ; preds = %7, %.preheader
   %13 = phi i64 [ %14, %.preheader ], [ %2, %7 ]
   %14 = add nsw i64 %13, -1
-  %15 = getelementptr ptr, ptr @_exits, i64 %14
+  %15 = getelementptr [8 x i8], ptr @_exits, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void %16() #23
   %17 = icmp eq i64 %14, 0
@@ -3654,7 +3653,7 @@ alloc_io.exit:                                    ; preds = %97, %93, %89, %88, 
   %144 = phi ptr [ %135, %140 ], [ %161, %159 ]
   %145 = phi i64 [ 0, %140 ], [ %162, %159 ]
   %146 = load ptr, ptr %141, align 8
-  %147 = getelementptr %struct.dm_target, ptr %146, i64 %145
+  %147 = getelementptr [80 x i8], ptr %146, i64 %145
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 36
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %149, 0

@@ -6360,7 +6360,7 @@ define internal fastcc noundef i32 @_ZL11LoadPluginsR9QComboBoxP5GVC_sPKcRK5QLis
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !171
   call void @free(ptr noundef %19) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6380,7 +6380,7 @@ _ZL8freeListPPci.exit:                            ; preds = %.lr.ph.i, %6, %._cr
   %.sroa.6.034 = phi i8 [ 0, %.lr.ph ], [ %.sroa.6.1, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ]
   %.sroa.024.033 = phi i32 [ undef, %.lr.ph ], [ %.sroa.024.1, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !171
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_ZN14QByteArrayViewC2IPcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS3_.exit, label %.split.i
@@ -7442,7 +7442,7 @@ define void @_ZN11CMainWindow8slotOpenEv(ptr noundef nonnull align 8 dereference
   %24 = phi i64 [ %36, %_ZN7QStringC2ERKS_.exit.i.i ], [ 0, %1 ]
   %.010.i.i.idx = phi i64 [ %.010.i.i.add, %_ZN7QStringC2ERKS_.exit.i.i ], [ 0, %1 ]
   %.010.i.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.010.i.i.idx
-  %25 = getelementptr inbounds %class.QString, ptr %21, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %21, i64 %24
   %26 = load ptr, ptr %.010.i.i.ptr, align 8, !tbaa !11
   store ptr %26, ptr %25, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -9202,7 +9202,7 @@ _ZN5QListIP13QMdiSubWindowED2Ev.exit:             ; preds = %._crit_edge, %_ZN17
 62:                                               ; preds = %.lr.ph, %209
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %209 ]
   %63 = load ptr, ptr %49, align 8, !tbaa !214
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !215
   %66 = invoke noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %65)
           to label %67 unwind label %103

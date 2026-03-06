@@ -14,17 +14,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sensor_device_attribute = type { %struct.device_attribute, i32 }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.hwm_drvdata = type { ptr, ptr, ptr, %struct.hwm_energy_info, [12 x i8], i32, i8, %struct.wait_queue_head }
-%struct.hwm_energy_info = type { i32, i64 }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.list_head = type { ptr, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
+%struct.list_head = type { ptr, ptr }
 
 @i915_hwmon_register.__key = internal global %struct.lock_class_key zeroinitializer, align 1
 @.str = private unnamed_addr constant [19 x i8] c"&hwmon->hwmon_lock\00", align 1
@@ -182,13 +173,13 @@ define dso_local void @i915_hwmon_register(ptr noundef %0) local_unnamed_addr #0
 23:                                               ; preds = %38, %13
   %24 = phi i1 [ true, %13 ], [ false, %38 ]
   %25 = phi i64 [ 0, %13 ], [ 1, %38 ]
-  %26 = getelementptr ptr, ptr %21, i64 %25
+  %26 = getelementptr [8 x i8], ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %38, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr %struct.hwm_drvdata, ptr %22, i64 %25
+  %30 = getelementptr [88 x i8], ptr %22, i64 %25
   store ptr %11, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %32 = load ptr, ptr %31, align 8
@@ -350,13 +341,13 @@ hwm_energy.exit:                                  ; preds = %92, %107
 130:                                              ; preds = %169, %128
   %131 = phi i1 [ true, %128 ], [ false, %169 ]
   %132 = phi i64 [ 0, %128 ], [ 1, %169 ]
-  %133 = getelementptr ptr, ptr %21, i64 %132
+  %133 = getelementptr [8 x i8], ptr %21, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %169, label %136
 
 136:                                              ; preds = %130
-  %137 = getelementptr %struct.hwm_drvdata, ptr %129, i64 %132
+  %137 = getelementptr [88 x i8], ptr %129, i64 %132
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %137, align 8
@@ -420,13 +411,13 @@ hwm_energy.exit5:                                 ; preds = %136, %152
 175:                                              ; preds = %197, %173
   %176 = phi i1 [ true, %173 ], [ false, %197 ]
   %177 = phi i64 [ 0, %173 ], [ 1, %197 ]
-  %178 = getelementptr ptr, ptr %21, i64 %177
+  %178 = getelementptr [8 x i8], ptr %21, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
   br i1 %180, label %197, label %181
 
 181:                                              ; preds = %175
-  %182 = getelementptr %struct.hwm_drvdata, ptr %22, i64 %177
+  %182 = getelementptr [88 x i8], ptr %22, i64 %177
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 52
   %185 = load i32, ptr %184, align 4

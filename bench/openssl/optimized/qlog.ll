@@ -993,7 +993,7 @@ define range(i32 0, 2) i32 @ossl_qlog_enabled(ptr noundef readonly captures(addr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = zext i32 %1 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !43
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
@@ -1024,7 +1024,7 @@ ossl_qlog_enabled.exit:                           ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = zext i32 %1 to i64
   %14 = lshr i64 %13, 6
-  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !43
   %17 = and i64 %13, 63
   %18 = shl nuw i64 1, %17

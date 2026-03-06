@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.boost::locale::boundary::break_info" = type <{ i64, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.10 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.10 = type { i64, [8 x i8] }
@@ -310,7 +309,7 @@ _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE11_S_relocateEPS3_S6_S6
   br label %_ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i102
 
 _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i102: ; preds = %56, %_ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i99
-  %57 = getelementptr inbounds nuw %"struct.boost::locale::boundary::break_info", ptr %52, i64 %50
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %50
   br label %_ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE9push_backEOS3_.exit105
 
 _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE9push_backEOS3_.exit105: ; preds = %_ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i102, %39
@@ -367,7 +366,7 @@ _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE9push_backEOS3_.exit105
   br i1 %81, label %82, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i32, ptr %72, i64 %70
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %70
   %.not.i.i106 = icmp eq ptr %71, %83
   br i1 %.not.i.i106, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %84
 
@@ -475,7 +474,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %120
   %indvars.iv185 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next186, %120 ]
-  %108 = getelementptr inbounds nuw i32, ptr %.056, i64 %indvars.iv185
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.056, i64 %indvars.iv185
   %109 = load i32, ptr %108, align 4, !tbaa !12
   %or.cond.us = icmp ult i32 %109, 100
   br i1 %or.cond.us, label %.sink.split, label %110
@@ -513,7 +512,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph.split.us127:                               ; preds = %.lr.ph.split.us127.preheader, %127
   %indvars.iv180 = phi i64 [ 0, %.lr.ph.split.us127.preheader ], [ %indvars.iv.next181, %127 ]
-  %121 = getelementptr inbounds nuw i32, ptr %.056, i64 %indvars.iv180
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.056, i64 %indvars.iv180
   %122 = load i32, ptr %121, align 4, !tbaa !12
   %or.cond82.us = icmp ult i32 %122, 100
   br i1 %or.cond82.us, label %.sink.split257, label %123
@@ -536,7 +535,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph.split.us129:                               ; preds = %.lr.ph.split.us129.preheader, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us129.preheader ], [ %indvars.iv.next, %134 ]
-  %128 = getelementptr inbounds nuw i32, ptr %.056, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.056, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4, !tbaa !12
   %or.cond84.us = icmp ult i32 %129, 100
   br i1 %or.cond84.us, label %.sink.split260, label %130
@@ -1417,7 +1416,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -1426,7 +1425,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -1537,7 +1536,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -1559,7 +1558,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !27
   store ptr %72, ptr %8, align 8, !tbaa !25
-  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !31
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
@@ -1921,10 +1920,10 @@ _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit: ; preds 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %120 = phi i64 [ %148, %.loopexit ], [ %.pre, %.lr.ph.preheader ]
   %.03564 = phi i64 [ %150, %.loopexit ], [ 1, %.lr.ph.preheader ]
-  %121 = getelementptr %"struct.boost::locale::boundary::break_info", ptr %93, i64 %.03564
+  %121 = getelementptr [16 x i8], ptr %93, i64 %.03564
   %122 = getelementptr i8, ptr %121, i64 -16
   %123 = load i64, ptr %122, align 8, !tbaa !64
-  %124 = getelementptr inbounds nuw %"struct.boost::locale::boundary::break_info", ptr %93, i64 %.03564
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %.03564
   %125 = load i64, ptr %124, align 8, !tbaa !64
   %126 = sub i64 %125, %123
   %127 = trunc i64 %123 to i32
@@ -1976,7 +1975,7 @@ _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit: ; preds 
   %.2.i.i = phi i64 [ %147, %144 ], [ 0, %.noexc50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %148 = add i64 %.2.i.i, %120
-  %149 = getelementptr inbounds nuw %"struct.boost::locale::boundary::break_info", ptr %102, i64 %.03564
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.03564
   store i64 %148, ptr %149, align 8, !tbaa !64
   %150 = add nuw i64 %.03564, 1
   %exitcond.not = icmp eq i64 %150, %108
@@ -2718,10 +2717,10 @@ _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit: ; preds 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %94
   %84 = phi i64 [ %96, %94 ], [ %.pre, %.lr.ph.preheader ]
   %.02648 = phi i64 [ %98, %94 ], [ 1, %.lr.ph.preheader ]
-  %85 = getelementptr %"struct.boost::locale::boundary::break_info", ptr %59, i64 %.02648
+  %85 = getelementptr [16 x i8], ptr %59, i64 %.02648
   %86 = getelementptr i8, ptr %85, i64 -16
   %87 = load i64, ptr %86, align 8, !tbaa !64
-  %88 = getelementptr inbounds nuw %"struct.boost::locale::boundary::break_info", ptr %59, i64 %.02648
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %.02648
   %89 = load i64, ptr %88, align 8, !tbaa !64
   %90 = sub i64 %89, %87
   %91 = trunc i64 %87 to i32
@@ -2732,7 +2731,7 @@ _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit: ; preds 
 94:                                               ; preds = %.lr.ph
   %95 = sext i32 %93 to i64
   %96 = add i64 %84, %95
-  %97 = getelementptr inbounds nuw %"struct.boost::locale::boundary::break_info", ptr %68, i64 %.02648
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %.02648
   store i64 %96, ptr %97, align 8, !tbaa !64
   %98 = add nuw i64 %.02648, 1
   %exitcond.not = icmp eq i64 %98, %74

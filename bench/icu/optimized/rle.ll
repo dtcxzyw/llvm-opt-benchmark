@@ -36,7 +36,7 @@ define dso_local i32 @usArrayToRLEString(ptr noundef readonly captures(none) %0,
   %.071 = phi ptr [ %16, %.lr.ph.preheader ], [ %.1, %encodeRunShort.exit ]
   %.03769 = phi i32 [ 1, %.lr.ph.preheader ], [ %.138, %encodeRunShort.exit ]
   %.03968 = phi i16 [ %14, %.lr.ph.preheader ], [ %.140, %encodeRunShort.exit ]
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !4
   %20 = icmp eq i16 %19, %.03968
   %21 = icmp slt i32 %.03769, 65535
@@ -873,7 +873,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
   %.04355 = phi i32 [ %54, %.loopexit ], [ 2, %24 ]
   %.04454 = phi i32 [ %.2, %.loopexit ], [ 0, %24 ]
   %26 = sext i32 %.04355 to i64
-  %27 = getelementptr inbounds i16, ptr %0, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %0, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !4
   %29 = icmp eq i16 %28, -23131
   br i1 %29, label %30, label %49
@@ -881,7 +881,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
 30:                                               ; preds = %.lr.ph56
   %31 = add nsw i32 %.04355, 1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %0, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %0, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !4
   %35 = zext i16 %34 to i32
   %36 = icmp eq i16 %34, -23131
@@ -890,14 +890,14 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
 37:                                               ; preds = %30
   %38 = add nsw i32 %.04454, 1
   %39 = sext i32 %.04454 to i64
-  %40 = getelementptr inbounds i16, ptr %2, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %2, i64 %39
   store i16 -23131, ptr %40, align 2, !tbaa !4
   br label %.loopexit
 
 41:                                               ; preds = %30
   %42 = add nsw i32 %.04355, 2
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %0, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %0, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !4
   %.not58 = icmp eq i16 %34, 0
   br i1 %.not58, label %.loopexit, label %.lr.ph.preheader
@@ -910,7 +910,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.053 = phi i32 [ 0, %.lr.ph.preheader ], [ %48, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %47 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %47 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %45, ptr %47, align 2, !tbaa !4
   %48 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %48, %35
@@ -919,7 +919,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
 49:                                               ; preds = %.lr.ph56
   %50 = add nsw i32 %.04454, 1
   %51 = sext i32 %.04454 to i64
-  %52 = getelementptr inbounds i16, ptr %2, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %2, i64 %51
   store i16 %28, ptr %52, align 2, !tbaa !4
   br label %.loopexit
 
@@ -999,7 +999,7 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
 28:                                               ; preds = %.lr.ph125.split.split
   %29 = add nsw i32 %.053.ph191, 1
   %30 = sext i32 %.053.ph191 to i64
-  %31 = getelementptr inbounds i16, ptr %0, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %0, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !4
   %33 = lshr i16 %32, 8
   br label %34
@@ -1102,7 +1102,7 @@ default.unreachable:                              ; preds = %55
 49:                                               ; preds = %.lr.ph125.split.us
   %50 = add nsw i32 %.053123.us, 1
   %51 = sext i32 %.053123.us to i64
-  %52 = getelementptr inbounds i16, ptr %0, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %0, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !4
   %54 = lshr i16 %53, 8
   br label %55
@@ -1161,7 +1161,7 @@ default.unreachable:                              ; preds = %55
 65:                                               ; preds = %.lr.ph125.split.split.us
   %66 = add nsw i32 %.053123.us148, 1
   %67 = sext i32 %.053123.us148 to i64
-  %68 = getelementptr inbounds i16, ptr %0, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %0, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !4
   %70 = lshr i16 %69, 8
   br label %71

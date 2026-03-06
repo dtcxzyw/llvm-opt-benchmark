@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.YYSTYPE = type { %struct.JsonPathString }
 %struct.JsonPathString = type { ptr, i32, i32 }
-%union.yyalloc = type { %union.YYSTYPE }
-%union.ListCell = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
 %struct.pg_regex_t = type { i32, i64, i64, i32, ptr, i32, ptr, ptr }
 
 @yypact = internal unnamed_addr constant [180 x i16] [i16 64, i16 -47, i16 -47, i16 11, i16 26, i16 -47, i16 -47, i16 -47, i16 -47, i16 -37, i16 -47, i16 -47, i16 -47, i16 -47, i16 -3, i16 -47, i16 88, i16 88, i16 26, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 109, i16 -47, i16 42, i16 176, i16 88, i16 26, i16 -47, i16 26, i16 -47, i16 -47, i16 29, i16 163, i16 26, i16 26, i16 54, i16 125, i16 -31, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 0, i16 22, i16 88, i16 88, i16 88, i16 88, i16 88, i16 88, i16 181, i16 40, i16 176, i16 59, i16 -5, i16 42, i16 20, i16 -47, i16 13, i16 18, i16 -47, i16 -45, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 15, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 23, i16 25, i16 27, i16 31, i16 34, i16 38, i16 46, i16 53, i16 55, i16 69, i16 70, i16 84, i16 85, i16 86, i16 87, i16 89, i16 119, i16 120, i16 130, i16 -47, i16 -47, i16 -47, i16 -47, i16 131, i16 26, i16 14, i16 66, i16 -46, i16 -46, i16 -47, i16 -47, i16 -47, i16 156, i16 -47, i16 -47, i16 42, i16 108, i16 -47, i16 -47, i16 -47, i16 88, i16 88, i16 -47, i16 -8, i16 110, i16 -10, i16 166, i16 166, i16 166, i16 166, i16 132, i16 122, i16 -47, i16 -47, i16 -47, i16 178, i16 -47, i16 156, i16 -47, i16 -47, i16 -47, i16 -2, i16 -47, i16 -47, i16 134, i16 -47, i16 187, i16 188, i16 -47, i16 141, i16 145, i16 -47, i16 -47, i16 147, i16 154, i16 155, i16 161, i16 -47, i16 -47, i16 -47, i16 -8, i16 -47, i16 -47, i16 -47, i16 -47, i16 -10, i16 -47, i16 -47, i16 -47, i16 -47, i16 -47, i16 157, i16 -47, i16 -47], align 16
@@ -90,7 +87,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %.0354, i64 %19, i1 false)
   %27 = add nsw i64 %spec.store.select, 15
   %28 = sdiv i64 %27, 16
-  %29 = getelementptr inbounds %union.yyalloc, ptr %25, i64 %28
+  %29 = getelementptr inbounds [16 x i8], ptr %25, i64 %28
   %30 = shl i64 %19, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %.0368, i64 %30, i1 false)
   %.not404 = icmp eq ptr %.0354, %5
@@ -102,7 +99,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 32:                                               ; preds = %26, %31
   %33 = getelementptr inbounds i8, ptr %25, i64 %18
-  %34 = getelementptr inbounds %union.YYSTYPE, ptr %29, i64 %19
+  %34 = getelementptr inbounds [16 x i8], ptr %29, i64 %19
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %36 = add nsw i64 %spec.store.select, -1
   %.not405 = icmp sgt i64 %36, %18
@@ -119,7 +116,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 38:                                               ; preds = %.thread551
   %39 = sext i32 %.0345 to i64
-  %40 = getelementptr inbounds i16, ptr @yypact, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = sext i16 %41 to i32
   %43 = icmp eq i16 %41, -47
@@ -162,14 +159,14 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 61:                                               ; preds = %59
   %62 = zext nneg i32 %60 to i64
-  %63 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %64 to i32
   %.not406 = icmp eq i32 %.0386, %65
   br i1 %.not406, label %66, label %75
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i16, ptr @yytable, i64 %62
+  %67 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %62
   %68 = load i16, ptr %67, align 2
   %69 = sext i16 %68 to i32
   %70 = icmp slt i16 %68, 1
@@ -200,7 +197,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i64
   %85 = sub nsw i64 1, %84
-  %86 = getelementptr inbounds %union.YYSTYPE, ptr %.2374, i64 %85
+  %86 = getelementptr inbounds [16 x i8], ptr %.2374, i64 %85
   %.sroa.048.0.copyload = load ptr, ptr %86, align 8
   %.sroa.104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
   %87 = load i64, ptr %.sroa.104.0..sroa_idx, align 8
@@ -867,7 +864,7 @@ makeItemType.exit441:                             ; preds = %299, %302
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.preheader.i ]
   %.123.i = phi ptr [ %334, %.lr.ph.i ], [ %.016.i, %.preheader.i ]
   %332 = load ptr, ptr %324, align 8
-  %333 = getelementptr inbounds nuw %union.ListCell, ptr %332, i64 %indvars.iv.i
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %indvars.iv.i
   %334 = load ptr, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %.123.i, i64 8
   store ptr %334, ptr %335, align 8
@@ -1141,18 +1138,18 @@ list_length.exit.i:                               ; preds = %makeItemType.exit.i
 .lr.ph25.i:                                       ; preds = %list_length.exit.i, %.lr.ph25.i
   %indvars.iv.i463 = phi i64 [ %indvars.iv.next.i464, %.lr.ph25.i ], [ 0, %list_length.exit.i ]
   %456 = load ptr, ptr %453, align 8
-  %457 = getelementptr inbounds nuw %union.ListCell, ptr %456, i64 %indvars.iv.i463
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %indvars.iv.i463
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %460 = load ptr, ptr %459, align 8
   %461 = load ptr, ptr %452, align 8
-  %462 = getelementptr inbounds nuw %struct.anon.4, ptr %461, i64 %indvars.iv.i463
+  %462 = getelementptr inbounds nuw [16 x i8], ptr %461, i64 %indvars.iv.i463
   store ptr %460, ptr %462, align 8
   %463 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %464 = load ptr, ptr %463, align 8
   %465 = load ptr, ptr %452, align 8
   %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i463, 1
-  %466 = getelementptr inbounds nuw %struct.anon.4, ptr %465, i64 %indvars.iv.i463
+  %466 = getelementptr inbounds nuw [16 x i8], ptr %465, i64 %indvars.iv.i463
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   store ptr %464, ptr %467, align 8
   %468 = load i32, ptr %446, align 4
@@ -1796,7 +1793,7 @@ makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph
   %.sroa.048.0 = phi ptr [ %.sroa.048.0.copyload, %80 ], [ %.sroa.048.0.copyload, %88 ], [ %.sroa.048.0.copyload, %95 ], [ %97, %96 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %110, %makeItemString.exit ], [ %120, %makeItemString.exit415 ], [ %125, %makeItemBool.exit ], [ %131, %makeItemBool.exit418 ], [ %137, %makeItemNumeric.exit ], [ %148, %makeItemNumeric.exit421 ], [ %159, %makeItemVariable.exit ], [ %170, %168 ], [ %173, %171 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %192, %makeItemUnary.exit ], [ %198, %197 ], [ %205, %makeItemBinary.exit ], [ %215, %makeItemBinary.exit425 ], [ %225, %makeItemBinary.exit427 ], [ %233, %makeItemUnary.exit429 ], [ %241, %makeItemUnary.exit431 ], [ %250, %makeItemBinary.exit433 ], [ %260, %256 ], [ %266, %261 ], [ %268, %makeItemString.exit435 ], [ %278, %makeItemVariable.exit437 ], [ %288, %287 ], [ %290, %makeItemType.exit ], [ %295, %makeItemType.exit439 ], [ %300, %makeItemType.exit441 ], [ %306, %304 ], [ %311, %307 ], [ %316, %312 ], [ %321, %317 ], [ %735, %733 ], [ %341, %339 ], [ %640, %makeItemType.exit16.i522 ], [ %357, %355 ], [ %362, %makeItemBinary.exit447 ], [ %372, %makeItemBinary.exit449 ], [ %382, %makeItemBinary.exit451 ], [ %392, %makeItemBinary.exit453 ], [ %402, %makeItemBinary.exit455 ], [ %410, %makeItemBinary.exit457 ], [ %420, %makeItemBinary.exit459 ], [ %428, %426 ], [ %433, %429 ], [ %435, %makeItemType.exit461 ], [ %350, %makeItemType.exit16.i ], [ %478, %474 ], [ %481, %479 ], [ %483, %makeAny.exit ], [ %492, %makeAny.exit469 ], [ %504, %makeAny.exit472 ], [ %513, %512 ], [ %515, %makeItemType.exit474 ], [ %520, %519 ], [ %522, %521 ], [ %526, %makeItemType.exit476 ], [ %533, %makeItemUnary.exit480 ], [ %543, %makeItemBinary.exit484 ], [ %550, %makeItemBinary.exit489 ], [ %561, %makeItemBinary.exit494 ], [ %576, %makeItemUnary.exit498 ], [ %584, %makeItemUnary.exit502 ], [ %592, %makeItemUnary.exit506 ], [ %600, %makeItemUnary.exit510 ], [ %608, %makeItemUnary.exit514 ], [ %614, %makeItemNumeric.exit517 ], [ %442, %.critedge.critedge.i ], [ %656, %makeItemNumeric.exit528 ], [ %659, %657 ], [ %664, %660 ], [ %666, %665 ], [ null, %667 ], [ %669, %makeItemNumeric.exit531 ], [ %680, %679 ], [ %741, %739 ], [ %682, %makeItemString.exit534 ], [ %692, %691 ], [ %738, %736 ], [ %694, %makeItemKey.exit ], [ %705, %703 ], [ %708, %706 ], [ %711, %709 ], [ %714, %712 ], [ %717, %715 ], [ %720, %718 ], [ %723, %721 ], [ %726, %724 ], [ %729, %727 ], [ %732, %730 ], [ %325, %322 ], [ %325, %.preheader.i ], [ %343, %346 ], [ %442, %list_length.exit.i ], [ %325, %.lr.ph.i ], [ %625, %637 ], [ %442, %.lr.ph25.i ]
   %742 = sext i8 %83 to i64
   %743 = sub nsw i64 0, %742
-  %744 = getelementptr inbounds %union.YYSTYPE, ptr %.2374, i64 %743
+  %744 = getelementptr inbounds [16 x i8], ptr %.2374, i64 %743
   %745 = getelementptr inbounds i8, ptr %.2362, i64 %743
   %746 = getelementptr inbounds nuw i8, ptr %744, i64 16
   store ptr %.sroa.048.0, ptr %746, align 8
@@ -1806,7 +1803,7 @@ makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph
   %748 = load i8, ptr %747, align 1
   %749 = sext i8 %748 to i64
   %750 = add nsw i64 %749, -68
-  %751 = getelementptr inbounds i16, ptr @yypgoto, i64 %750
+  %751 = getelementptr inbounds [2 x i8], ptr @yypgoto, i64 %750
   %752 = load i16, ptr %751, align 2
   %753 = sext i16 %752 to i32
   %754 = load i8, ptr %745, align 1
@@ -1817,14 +1814,14 @@ makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph
 
 757:                                              ; preds = %makeItemList.exit
   %758 = zext nneg i32 %756 to i64
-  %759 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %758
+  %759 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %758
   %760 = load i16, ptr %759, align 2
   %761 = sext i16 %760 to i32
   %762 = icmp eq i32 %761, %755
   br i1 %762, label %763, label %767
 
 763:                                              ; preds = %757
-  %764 = getelementptr inbounds nuw i16, ptr @yytable, i64 %758
+  %764 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %758
   %765 = load i16, ptr %764, align 2
   %766 = sext i16 %765 to i32
   br label %9

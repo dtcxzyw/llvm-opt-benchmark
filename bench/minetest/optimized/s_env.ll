@@ -1285,7 +1285,7 @@ if.then.i52.i:                                    ; preds = %_ZNSt6vectorINSt7__
 invoke.cont79:                                    ; preds = %if.then.i52.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit51.i
   store ptr %cond.i31.i, ptr %trigger_contents, align 8, !tbaa !61
   store ptr %incdec.ptr.i703, ptr %_M_finish.i461, align 8, !tbaa !53
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i31.i, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [32 x i8], ptr %cond.i31.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i462, align 8, !tbaa !51
   %.pre913 = load ptr, ptr %ref.tmp75, align 8, !tbaa !11
   %cmp.i.i.i449 = icmp eq ptr %.pre913, %19
@@ -1640,7 +1640,7 @@ if.then.i52.i774:                                 ; preds = %_ZNSt6vectorINSt7__
 invoke.cont121:                                   ; preds = %if.then.i52.i774, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit51.i771
   store ptr %cond.i31.i731, ptr %required_neighbors, align 8, !tbaa !61
   store ptr %incdec.ptr.i756, ptr %_M_finish.i523, align 8, !tbaa !53
-  %add.ptr19.i776 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i31.i731, i64 %cond.i.i723
+  %add.ptr19.i776 = getelementptr inbounds nuw [32 x i8], ptr %cond.i31.i731, i64 %cond.i.i723
   store ptr %add.ptr19.i776, ptr %_M_end_of_storage.i524, align 8, !tbaa !51
   %.pre917 = load ptr, ptr %ref.tmp117, align 8, !tbaa !11
   %cmp.i.i.i511 = icmp eq ptr %.pre917, %21
@@ -5093,7 +5093,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i31, ptr %this, align 8, !tbaa !61
   store ptr %__cur.0.lcssa.i.i.i46, ptr %_M_finish.i.i, align 8, !tbaa !53
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i31, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %cond.i31, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !51
   ret void
 }

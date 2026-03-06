@@ -16,7 +16,6 @@ module asm ".previous"
 %class.QString = type { %struct.QArrayDataPointer }
 %struct.QArrayDataPointer = type { ptr, ptr, i64 }
 %"class.QMetaObject::Connection" = type { ptr }
-%class.QChar = type { i16 }
 %class.QFile = type { %class.QFileDevice }
 %class.QFileDevice = type { %class.QIODevice }
 %class.QIODevice = type { %class.QObject }
@@ -226,7 +225,7 @@ _ZN7QStringD2Ev.exit9:                            ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZNK14QStringBuilderI7QString13QLatin1StringEcvS0_Ev.exit
 
 _ZNK14QStringBuilderI7QString13QLatin1StringEcvS0_Ev.exit: ; preds = %_ZN7QStringD2Ev.exit9, %35
-  %38 = getelementptr inbounds %class.QChar, ptr %spec.select.i.i.i.i, i64 %34
+  %38 = getelementptr inbounds [2 x i8], ptr %spec.select.i.i.i.i, i64 %34
   call void @_ZN21QAbstractConcatenable14appendLatin1ToE13QLatin1StringP5QChar(i64 3, ptr nonnull @.str.1, ptr noundef nonnull %38) #11
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %39 unwind label %54
@@ -875,7 +874,7 @@ common.resume:                                    ; preds = %49, %_ZN7QStringD2E
   br label %38
 
 38:                                               ; preds = %34, %.noexc
-  %39 = getelementptr inbounds %class.QChar, ptr %spec.select.i.i.i.i, i64 %33
+  %39 = getelementptr inbounds [2 x i8], ptr %spec.select.i.i.i.i, i64 %33
   call void @_ZN21QAbstractConcatenable14appendLatin1ToE13QLatin1StringP5QChar(i64 3, ptr nonnull @.str.1, ptr noundef nonnull %39) #11
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %40 unwind label %53

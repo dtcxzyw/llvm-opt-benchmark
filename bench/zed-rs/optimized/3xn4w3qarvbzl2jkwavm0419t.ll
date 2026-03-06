@@ -2088,7 +2088,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h468fbf7a1628b4fdE.ll
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds i64, ptr %10, i64 %4
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %4
   store i64 %1, ptr %11, align 8
   %12 = add i64 %4, 1
   store i64 %12, ptr %3, align 8
@@ -3425,7 +3425,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %25
 45:                                               ; preds = %32, %27
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !569, !noalias !572, !nonnull !5, !noundef !5
-  %48 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %47, i64 %29
+  %48 = getelementptr inbounds [24 x i8], ptr %47, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %49 = add i64 %29, 1
   store i64 %49, ptr %28, align 8, !alias.scope !569, !noalias !572
@@ -3927,7 +3927,7 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.16598411116039850189.exi
 37:                                               ; preds = %37, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.16598411116039850189.exit
   %.sroa.07.0.i = phi i64 [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.16598411116039850189.exit ], [ %45, %37 ]
   %.sroa.09.0.i = phi i64 [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.16598411116039850189.exit ], [ %46, %37 ]
-  %38 = getelementptr inbounds i64, ptr %1, i64 %.sroa.09.0.i
+  %38 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.09.0.i
   %.val.i = load i64, ptr %38, align 8, !noundef !5
   %39 = or i64 %.val.i, 1
   %40 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %39, i1 true)
@@ -4141,7 +4141,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %16
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h468fbf7a1628b4fdE.llvm.16598411116039850189.exit": ; preds = %23, %28
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !852, !nonnull !5, !noundef !5
-  %31 = getelementptr inbounds i64, ptr %30, i64 %25
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %25
   store i64 %.sroa.0.018, ptr %31, align 8
   %32 = add i64 %25, 1
   store i64 %32, ptr %24, align 8, !alias.scope !852
@@ -6217,10 +6217,10 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$prost..encoding..WireType$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1281, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.16598411116039850189", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.16598411116039850189", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.16598411116039850189.68", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.16598411116039850189.68", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -7840,7 +7840,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 10:                                               ; preds = %10, %5
   %.sroa.07.0 = phi i64 [ %2, %5 ], [ %18, %10 ]
   %.sroa.09.0 = phi i64 [ 0, %5 ], [ %19, %10 ]
-  %11 = getelementptr inbounds i64, ptr %0, i64 %.sroa.09.0
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.09.0
   %.val = load i64, ptr %11, align 8, !noundef !5
   %12 = or i64 %.val, 1
   %13 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)

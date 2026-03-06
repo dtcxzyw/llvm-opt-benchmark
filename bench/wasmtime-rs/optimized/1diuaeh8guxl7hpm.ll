@@ -1969,7 +1969,7 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !3
-  %10 = getelementptr inbounds { i64, [1 x i64] }, ptr %7, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr %7, i64 %9
   store ptr %7, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8
@@ -2241,7 +2241,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
   %85 = load ptr, ptr %72, align 8, !nonnull !3, !noundef !3
   %86 = load i64, ptr %73, align 8, !noundef !3
-  %87 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %85, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr %85, i64 %86
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hfcf1bd52a49e2f86E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %15, ptr nonnull %85, ptr nonnull %87)
           to label %102 unwind label %100
 
@@ -3159,7 +3159,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
   %93 = load ptr, ptr %80, align 8, !nonnull !3, !noundef !3
   %94 = load i64, ptr %81, align 8, !noundef !3
-  %95 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %93, i64 %94
+  %95 = getelementptr inbounds [32 x i8], ptr %93, i64 %94
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h854530c050ae143eE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %12, ptr nonnull %93, ptr nonnull %95)
           to label %101 unwind label %99
 

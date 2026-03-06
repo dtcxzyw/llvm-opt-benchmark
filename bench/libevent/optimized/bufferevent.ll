@@ -627,14 +627,14 @@ define range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef %0) local
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %.029 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %34
   %36 = sub nuw nsw i32 16, %.029
   %37 = call i32 @evbuffer_get_callbacks_(ptr noundef %33, ptr noundef nonnull %35, i32 noundef %36) #7
   %38 = add nsw i32 %37, %.029
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds ptr, ptr %2, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %2, i64 %41
   %43 = sub nsw i32 16, %38
   %44 = call i32 @evbuffer_get_callbacks_(ptr noundef %40, ptr noundef nonnull %42, i32 noundef %43) #7
   %45 = add nsw i32 %44, %38

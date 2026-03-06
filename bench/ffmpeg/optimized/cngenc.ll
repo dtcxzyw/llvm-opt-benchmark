@@ -80,10 +80,10 @@ define internal i32 @cng_encode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.04044 = phi double [ 0.000000e+00, %.lr.ph ], [ %26, %19 ]
-  %20 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !40
   %22 = sext i16 %21 to i32
-  %23 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !42
   %24 = mul nsw i32 %22, %22
   %25 = uitofp nneg i32 %24 to double
@@ -132,7 +132,7 @@ define internal i32 @cng_encode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 .lr.ph49:                                         ; preds = %43, %.lr.ph49
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph49 ], [ 0, %43 ]
   %54 = load ptr, ptr %47, align 16, !tbaa !33
-  %55 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv54
   %56 = load double, ptr %55, align 8, !tbaa !48
   %57 = tail call nsz double @llvm.fmuladd.f64(double %56, double 1.270000e+02, double 1.270000e+02)
   %58 = fptoui double %57 to i8

@@ -3,10 +3,6 @@ source_filename = "bench/luajit/original/lj_cconv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
-%union.TValue = type { i64 }
-
 @lj_obj_typename = external hidden local_unnamed_addr constant [12 x ptr], align 16
 @lj_obj_itypename = external hidden local_unnamed_addr constant [14 x ptr], align 16
 
@@ -31,7 +27,7 @@ define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr noundef readonly captu
   %.pn.in.in.i = phi i32 [ %.pn.in.in.i.ph, %.outer ], [ %8, %.backedge ]
   %.pn.in.i = and i32 %.pn.in.in.i, 65535
   %.pn.i = zext nneg i32 %.pn.in.i to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %.val, i64 %.pn.i
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.pn.i
   %8 = load i32, ptr %.0.i, align 8, !tbaa !17
   %9 = lshr i32 %8, 28
   switch i32 %9, label %cconv_childqual.exit [
@@ -70,7 +66,7 @@ cconv_childqual.exit:                             ; preds = %7
   %.pn.in.in.i49 = phi i32 [ %.pn.in.in.i49.ph, %.preheader.outer ], [ %21, %.preheader.backedge ]
   %.pn.in.i50 = and i32 %.pn.in.in.i49, 65535
   %.pn.i51 = zext nneg i32 %.pn.in.i50 to i64
-  %.0.i52 = getelementptr inbounds nuw %struct.CType, ptr %.val, i64 %.pn.i51
+  %.0.i52 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.pn.i51
   %21 = load i32, ptr %.0.i52, align 8, !tbaa !17
   %22 = lshr i32 %21, 28
   switch i32 %22, label %cconv_childqual.exit54 [
@@ -437,7 +433,7 @@ define hidden void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %1, ptr noundef %
   %105 = and i32 %13, 65535
   %106 = load ptr, ptr %0, align 8, !tbaa !4
   %107 = zext nneg i32 %105 to i64
-  %108 = getelementptr inbounds nuw %struct.CType, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !22
   br label %74
@@ -593,7 +589,7 @@ define hidden void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %1, ptr noundef %
   %171 = and i32 %13, 65535
   %172 = load ptr, ptr %0, align 8, !tbaa !4
   %173 = zext nneg i32 %171 to i64
-  %174 = getelementptr inbounds nuw %struct.CType, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw [24 x i8], ptr %172, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %176 = load i32, ptr %175, align 4, !tbaa !22
   br label %158
@@ -602,7 +598,7 @@ define hidden void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %1, ptr noundef %
   %178 = and i32 %12, 65535
   %179 = load ptr, ptr %0, align 8, !tbaa !4
   %180 = zext nneg i32 %178 to i64
-  %181 = getelementptr inbounds nuw %struct.CType, ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %183 = load i32, ptr %182, align 4, !tbaa !22
   %184 = zext i32 %183 to i64
@@ -614,7 +610,7 @@ define hidden void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %1, ptr noundef %
   %187 = and i32 %12, 65535
   %188 = load ptr, ptr %0, align 8, !tbaa !4
   %189 = zext nneg i32 %187 to i64
-  %190 = getelementptr inbounds nuw %struct.CType, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [24 x i8], ptr %188, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %192 = load i32, ptr %191, align 4, !tbaa !22
   %193 = zext i32 %192 to i64
@@ -630,10 +626,10 @@ define hidden void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %1, ptr noundef %
   %197 = and i32 %12, 65535
   %198 = load ptr, ptr %0, align 8, !tbaa !4
   %199 = zext nneg i32 %197 to i64
-  %200 = getelementptr inbounds nuw %struct.CType, ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %199
   %201 = and i32 %13, 65535
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw %struct.CType, ptr %198, i64 %202
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %202
   tail call void @lj_cconv_ct_ct(ptr noundef nonnull %0, ptr noundef %200, ptr noundef %203, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %205 = load i32, ptr %204, align 4, !tbaa !22
@@ -650,7 +646,7 @@ define hidden void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %1, ptr noundef %
   %213 = and i32 %12, 65535
   %214 = load ptr, ptr %0, align 8, !tbaa !4
   %215 = zext nneg i32 %213 to i64
-  %216 = getelementptr inbounds nuw %struct.CType, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %215
   tail call void @lj_cconv_ct_ct(ptr noundef nonnull %0, ptr noundef %216, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %218 = load i32, ptr %217, align 4, !tbaa !22
@@ -819,7 +815,7 @@ define internal fastcc void @cconv_err_conv(ptr noundef readonly captures(none) 
   %20 = icmp eq i32 %18, 3
   %21 = select i1 %20, i64 5, i64 1
   %22 = select i1 %19, i64 4, i64 %21
-  %23 = getelementptr inbounds nuw ptr, ptr @lj_obj_typename, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_typename, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !36
   br label %35
 
@@ -1076,7 +1072,7 @@ define hidden void @lj_cconv_ct_tv(ptr noundef %0, ptr noundef %1, ptr noundef %
   %22 = zext i16 %21 to i32
   %23 = load ptr, ptr %0, align 8, !tbaa !4
   %24 = zext i16 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 8, !tbaa !17
   %27 = and i32 %26, -260046848
   %28 = icmp eq i32 %27, 545259520
@@ -1095,7 +1091,7 @@ define hidden void @lj_cconv_ct_tv(ptr noundef %0, ptr noundef %1, ptr noundef %
 33:                                               ; preds = %33, %32
   %.pn.in = phi i32 [ %.1104, %32 ], [ %36, %33 ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.pn
   %34 = load i32, ptr %.0.i, align 8, !tbaa !17
   %35 = icmp slt i32 %34, -1879048192
   %36 = and i32 %34, 65535
@@ -1117,12 +1113,12 @@ ctype_raw.exit:                                   ; preds = %33
   %44 = tail call i32 @lj_ctype_intern(ptr noundef nonnull %0, i32 noundef %43, i32 noundef 8) #10
   %45 = load ptr, ptr %0, align 8, !tbaa !4
   %46 = and i64 %42, 4294967295
-  %47 = getelementptr inbounds nuw %struct.CType, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %46
   br label %.thread147
 
 48:                                               ; preds = %ctype_raw.exit
   %49 = zext nneg i32 %36 to i64
-  %50 = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %49
   br label %148
 
 51:                                               ; preds = %15
@@ -1168,7 +1164,7 @@ ctype_raw.exit:                                   ; preds = %33
   %69 = phi i32 [ %73, %68 ], [ %54, %.preheader ]
   %70 = and i32 %69, 65535
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct.CType, ptr %67, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %71
   %73 = load i32, ptr %72, align 8, !tbaa !17
   %74 = icmp slt i32 %73, -1879048192
   br i1 %74, label %68, label %ctype_rawchild.exit, !llvm.loop !44
@@ -1287,7 +1283,7 @@ ctype_rawchild.exit:                              ; preds = %68
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 112
   %131 = load i64, ptr %130, align 8, !tbaa !52
   %132 = inttoptr i64 %131 to ptr
-  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %125
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %125
   %134 = load i32, ptr %133, align 4, !tbaa !24
   %135 = zext i32 %134 to i64
   %136 = shl nuw i64 %135, 32
@@ -1323,7 +1319,7 @@ lightudV.exit:                                    ; preds = %123, %127
   %.0 = phi ptr [ %1, %13 ], [ %47, %38 ], [ %1, %118 ], [ %1, %103 ], [ %1, %109 ], [ %1, %lightudV.exit ], [ %1, %112 ], [ %1, %120 ], [ %1, %61 ], [ %1, %82 ]
   %145 = load ptr, ptr %0, align 8, !tbaa !4
   %146 = zext i32 %.0103 to i64
-  %147 = getelementptr inbounds nuw %struct.CType, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %146
   br label %148
 
 148:                                              ; preds = %ctype_raw.exit, %48, %.thread147
@@ -1337,7 +1333,7 @@ lightudV.exit:                                    ; preds = %123, %127
   %151 = icmp eq i32 %.mask131, 1342177280
   %152 = and i32 %150, 65535
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw %struct.CType, ptr %149, i64 %153
+  %154 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %153
   %.2 = select i1 %151, ptr %154, ptr %.1
   call void @lj_cconv_ct_ct(ptr noundef nonnull %0, ptr noundef %.2, ptr noundef %.0112, ptr noundef %2, ptr noundef %.2115, i32 noundef %.1100)
   br label %155
@@ -1362,7 +1358,7 @@ define internal fastcc void @cconv_array_tab(ptr noundef %0, ptr noundef %1, ptr
   %8 = phi i32 [ %.pre, %5 ], [ %12, %7 ]
   %9 = and i32 %8, 65535
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.CType, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !17
   %13 = icmp slt i32 %12, -1879048192
   br i1 %13, label %7, label %ctype_rawchild.exit, !llvm.loop !44
@@ -1387,7 +1383,7 @@ ctype_rawchild.exit:                              ; preds = %7
 24:                                               ; preds = %20
   %25 = load i64, ptr %19, align 8, !tbaa !63
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds nuw %union.TValue, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %31
 
 28:                                               ; preds = %20
@@ -1484,7 +1480,7 @@ define internal fastcc void @cconv_err_convtv(ptr noundef readonly captures(none
   %16 = ashr i64 %15, 47
   %17 = tail call i64 @llvm.umax.i64(i64 %16, i64 -14)
   %spec.select = xor i64 %17, -1
-  %18 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %spec.select
   %19 = load ptr, ptr %18, align 8, !tbaa !36
   %20 = lshr i32 %3, 8
   %.not = icmp eq i32 %20, 0
@@ -1526,7 +1522,7 @@ define hidden void @lj_cconv_bf_tv(ptr noundef %0, ptr noundef readonly captures
   %.not29 = icmp eq i32 %15, 0
   %16 = select i1 %.not29, i64 9, i64 10
   %17 = load ptr, ptr %0, align 8, !tbaa !4
-  %18 = getelementptr inbounds nuw %struct.CType, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %16
   call void @lj_cconv_ct_tv(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %5, ptr noundef %3, i32 noundef 0)
   br label %19
 
@@ -1707,7 +1703,7 @@ lj_cconv_multi_init.exit:                         ; preds = %21, %19, %6
   %35 = phi i32 [ %30, %32 ], [ %39, %34 ]
   %36 = and i32 %35, 65535
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.CType, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %37
   %39 = load i32, ptr %38, align 8, !tbaa !17
   %40 = icmp slt i32 %39, -1879048192
   br i1 %40, label %34, label %ctype_rawchild.exit.i, !llvm.loop !44
@@ -1732,7 +1728,7 @@ ctype_rawchild.exit.i:                            ; preds = %34
   %.03235.i = phi i32 [ 0, %.preheader34.preheader.i ], [ %49, %.preheader34.i ]
   %46 = zext i32 %.03235.i to i64
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 %46
-  %48 = getelementptr inbounds nuw %union.TValue, ptr %4, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   tail call void @lj_cconv_ct_tv(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef %47, ptr noundef %48, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = add i32 %.03235.i, %42
@@ -1846,7 +1842,7 @@ define internal fastcc void @cconv_substruct_tab(ptr noundef %0, ptr noundef rea
   %.052.in76 = phi i16 [ %8, %.lr.ph ], [ %15, %.backedge.backedge ]
   %11 = load ptr, ptr %0, align 8, !tbaa !4
   %12 = zext i16 %.052.in76 to i64
-  %13 = getelementptr inbounds nuw %struct.CType, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i16, ptr %14, align 8, !tbaa !67
   %16 = load i32, ptr %13, align 8, !tbaa !17
@@ -1876,7 +1872,7 @@ define internal fastcc void @cconv_substruct_tab(ptr noundef %0, ptr noundef rea
   %27 = load i64, ptr %10, align 8, !tbaa !63
   %28 = inttoptr i64 %27 to ptr
   %29 = zext nneg i32 %.053 to i64
-  %30 = getelementptr inbounds nuw %union.TValue, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   br label %33
 
 31:                                               ; preds = %.preheader69
@@ -1938,7 +1934,7 @@ define internal fastcc void @cconv_substruct_tab(ptr noundef %0, ptr noundef rea
   %57 = phi i32 [ %61, %56 ], [ %53, %.preheader ]
   %58 = and i32 %57, 65535
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.CType, ptr %55, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %59
   %61 = load i32, ptr %60, align 8, !tbaa !17
   %62 = icmp slt i32 %61, -1879048192
   br i1 %62, label %56, label %ctype_rawchild.exit65, !llvm.loop !44
@@ -1976,7 +1972,7 @@ ctype_rawchild.exit65:                            ; preds = %56
   %78 = phi i32 [ %82, %.preheader70 ], [ %16, %75 ]
   %79 = and i32 %78, 65535
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw %struct.CType, ptr %11, i64 %80
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %80
   %82 = load i32, ptr %81, align 8, !tbaa !17
   %83 = icmp slt i32 %82, -1879048192
   br i1 %83, label %.preheader70, label %ctype_rawchild.exit, !llvm.loop !44
@@ -2013,7 +2009,7 @@ define internal fastcc void @cconv_substruct_init(ptr noundef %0, ptr noundef re
   %.039.in57 = phi i16 [ %13, %.lr.ph.backedge ], [ %8, %6 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !4
   %10 = zext i16 %.039.in57 to i64
-  %11 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i16, ptr %12, align 8, !tbaa !67
   %14 = load i32, ptr %11, align 8, !tbaa !17
@@ -2045,7 +2041,7 @@ define internal fastcc void @cconv_substruct_init(ptr noundef %0, ptr noundef re
   %25 = phi i32 [ %29, %.preheader ], [ %23, %21 ]
   %26 = and i32 %25, 65535
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %27
   %29 = load i32, ptr %28, align 8, !tbaa !17
   %30 = icmp slt i32 %29, -1879048192
   br i1 %30, label %.preheader, label %ctype_rawchild.exit48, !llvm.loop !44
@@ -2056,7 +2052,7 @@ ctype_rawchild.exit48:                            ; preds = %.preheader
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 %33
   %35 = zext i32 %17 to i64
-  %36 = getelementptr inbounds nuw %union.TValue, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %35
   tail call void @lj_cconv_ct_tv(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %34, ptr noundef %36, i32 noundef 0)
   br label %44
 
@@ -2066,7 +2062,7 @@ ctype_rawchild.exit48:                            ; preds = %.preheader
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 %40
   %42 = zext i32 %17 to i64
-  %43 = getelementptr inbounds nuw %union.TValue, ptr %3, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %42
   tail call void @lj_cconv_bf_tv(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %41, ptr noundef %43)
   br label %44
 
@@ -2087,7 +2083,7 @@ ctype_rawchild.exit48:                            ; preds = %.preheader
   %50 = phi i32 [ %54, %.preheader54 ], [ %14, %47 ]
   %51 = and i32 %50, 65535
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %52
   %54 = load i32, ptr %53, align 8, !tbaa !17
   %55 = icmp slt i32 %54, -1879048192
   br i1 %55, label %.preheader54, label %ctype_rawchild.exit, !llvm.loop !44

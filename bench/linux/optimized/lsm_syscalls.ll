@@ -183,7 +183,7 @@ define dso_local range(i64 -22, 4294967296) i64 @__x64_sys_lsm_list_modules(ptr 
   %37 = phi ptr [ %52, %51 ], [ %8, %34 ]
   %38 = phi i32 [ %53, %51 ], [ 0, %34 ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr ptr, ptr @lsm_idlist, i64 %39
+  %40 = getelementptr [8 x i8], ptr @lsm_idlist, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
@@ -268,7 +268,7 @@ define dso_local range(i64 -22, 4294967296) i64 @__ia32_sys_lsm_list_modules(ptr
   %39 = phi ptr [ %54, %53 ], [ %11, %36 ]
   %40 = phi i32 [ %55, %53 ], [ 0, %36 ]
   %41 = sext i32 %40 to i64
-  %42 = getelementptr ptr, ptr @lsm_idlist, i64 %41
+  %42 = getelementptr [8 x i8], ptr @lsm_idlist, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %44, align 8

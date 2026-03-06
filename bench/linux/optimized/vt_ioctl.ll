@@ -742,7 +742,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %253 = phi i64 [ 0, %251 ], [ %275, %.thread28 ]
   %254 = phi i16 [ 1, %251 ], [ %274, %.thread28 ]
   %255 = phi i16 [ 2, %251 ], [ %276, %.thread28 ]
-  %256 = getelementptr %struct.vc, ptr @vc_cons, i64 %253
+  %256 = getelementptr [40 x i8], ptr @vc_cons, i64 %253
   %257 = load ptr, ptr %256, align 8
   %258 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %259 = icmp eq i32 %258, 0
@@ -801,7 +801,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 287:                                              ; preds = %307, %286
   %288 = phi i64 [ 0, %286 ], [ %308, %307 ]
   %289 = phi i1 [ true, %286 ], [ %309, %307 ]
-  %290 = getelementptr %struct.vc, ptr @vc_cons, i64 %288
+  %290 = getelementptr [40 x i8], ptr @vc_cons, i64 %288
   %291 = load ptr, ptr %290, align 8
   %292 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %293 = icmp eq i32 %292, 0
@@ -969,7 +969,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 386:                                              ; preds = %395, %385
   %387 = phi i64 [ 0, %385 ], [ %396, %395 ]
-  %388 = getelementptr %struct.vc, ptr @vc_cons, i64 %387
+  %388 = getelementptr [40 x i8], ptr @vc_cons, i64 %387
   %389 = load ptr, ptr %388, align 8
   %390 = icmp eq ptr %389, null
   br i1 %390, label %395, label %391
@@ -1128,7 +1128,7 @@ define internal fastcc i32 @vt_setactivate(ptr noundef %0) unnamed_addr #0 align
 19:                                               ; preds = %9
   %20 = load i32, ptr %2, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr %struct.vc, ptr @vc_cons, i64 %21
+  %22 = getelementptr [40 x i8], ptr @vc_cons, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 628
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1205,7 +1205,7 @@ define internal fastcc i32 @vt_reldisp(ptr noundef captures(none) %0, i32 nounde
 
 18:                                               ; preds = %15
   %19 = zext nneg i32 %8 to i64
-  %20 = getelementptr %struct.vc, ptr @vc_cons, i64 %19
+  %20 = getelementptr [40 x i8], ptr @vc_cons, i64 %19
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @complete_change_console(ptr noundef %21)
   br label %22
@@ -1225,7 +1225,7 @@ define internal fastcc void @vt_disallocate_all() unnamed_addr #0 align 16 {
 
 2:                                                ; preds = %33, %0
   %3 = phi i64 [ 1, %0 ], [ %36, %33 ]
-  %4 = getelementptr %struct.vc, ptr @vc_cons, i64 %3
+  %4 = getelementptr [40 x i8], ptr @vc_cons, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %7 = icmp eq i32 %6, 0
@@ -1275,7 +1275,7 @@ define internal fastcc void @vt_disallocate_all() unnamed_addr #0 align 16 {
 
 33:                                               ; preds = %30, %27, %21
   %34 = phi ptr [ %32, %30 ], [ null, %21 ], [ null, %27 ]
-  %35 = getelementptr ptr, ptr %1, i64 %3
+  %35 = getelementptr [8 x i8], ptr %1, i64 %3
   store ptr %34, ptr %35, align 8
   %36 = add nuw nsw i64 %3, 1
   %37 = icmp eq i64 %36, 63
@@ -1287,7 +1287,7 @@ define internal fastcc void @vt_disallocate_all() unnamed_addr #0 align 16 {
 
 39:                                               ; preds = %45, %38
   %40 = phi i64 [ 1, %38 ], [ %46, %45 ]
-  %41 = getelementptr ptr, ptr %1, i64 %40
+  %41 = getelementptr [8 x i8], ptr %1, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %45, label %44
@@ -1310,7 +1310,7 @@ define internal fastcc void @vt_disallocate_all() unnamed_addr #0 align 16 {
 define internal fastcc noundef range(i32 -16, 1) i32 @vt_disallocate(i32 noundef range(i32 0, 63) %0) unnamed_addr #0 align 16 {
   tail call void @console_lock() #7
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr %struct.vc, ptr @vc_cons, i64 %2
+  %3 = getelementptr [40 x i8], ptr @vc_cons, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %6 = icmp eq i32 %5, 0
@@ -1458,7 +1458,7 @@ define internal fastcc i32 @vt_resizex(ptr noundef readonly captures(none) %0, p
 
 46:                                               ; preds = %77, %44
   %47 = phi i64 [ 0, %44 ], [ %78, %77 ]
-  %48 = getelementptr %struct.vc, ptr @vc_cons, i64 %47
+  %48 = getelementptr [40 x i8], ptr @vc_cons, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %77, label %51
@@ -1847,7 +1847,7 @@ define dso_local void @change_console(ptr noundef %0) local_unnamed_addr #0 alig
 
 12:                                               ; preds = %3
   %13 = sext i32 %7 to i64
-  %14 = getelementptr %struct.vc, ptr @vc_cons, i64 %13
+  %14 = getelementptr [40 x i8], ptr @vc_cons, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 628
   %17 = load i8, ptr %16, align 4
@@ -1903,7 +1903,7 @@ define internal fastcc void @complete_change_console(ptr noundef %0) unnamed_add
   %2 = load i32, ptr @fg_console, align 4
   store i32 %2, ptr @last_console, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.vc, ptr @vc_cons, i64 %3
+  %4 = getelementptr [40 x i8], ptr @vc_cons, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 492
   %7 = load i8, ptr %6, align 4

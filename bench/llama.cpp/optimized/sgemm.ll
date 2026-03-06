@@ -12,11 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.(anonymous namespace)::tinyBLAS_Q0_AVX.2" = type { ptr, ptr, ptr, i64, i64, i64, i64, i32, i32, <2 x i64> }
 %"class.(anonymous namespace)::tinyBLAS_Q0_AVX.3" = type { ptr, ptr, ptr, i64, i64, i64, i64, i32, i32, <2 x i64> }
 %"class.(anonymous namespace)::tinyBLAS_Q0_AVX.4" = type { ptr, ptr, ptr, i64, i64, i64, i64, i32, i32, <2 x i64> }
-%struct.ggml_bf16_t = type { i16 }
-%struct.block_q8_0 = type { i16, [32 x i8] }
-%struct.block_q4_0 = type { i16, [16 x i8] }
-%struct.block_q5_0 = type { i16, [4 x i8], [16 x i8] }
-%struct.block_iq4_nl = type { i16, [16 x i8] }
 
 @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi4EEEvlllE13current_chunk = internal global %"struct.std::atomic" zeroinitializer, align 8
 @.str = private unnamed_addr constant [135 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/llama.cpp/llama.cpp/ggml/src/ggml-cpu/llamafile/sgemm.cpp\00", align 1
@@ -997,7 +992,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %110 = load i64, ptr %57, align 8
   %111 = load ptr, ptr %58, align 8
   %112 = load i64, ptr %59, align 8
-  %invariant.gep46.i = getelementptr float, ptr %103, i64 %108
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %103, i64 %108
   br label %122
 
 113:                                              ; preds = %105
@@ -1016,7 +1011,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %119 = load i64, ptr %57, align 8
   %120 = load ptr, ptr %58, align 8
   %121 = load i64, ptr %59, align 8
-  %invariant.gep46.i76 = getelementptr float, ptr %103, i64 %117
+  %invariant.gep46.i76 = getelementptr [4 x i8], ptr %103, i64 %117
   br label %157
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit
@@ -1031,20 +1026,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %122, %128
   %.03344.i = phi i64 [ %129, %128 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %109, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %109, i64 %.03344.i
   br label %123
 
 .preheader38.i:                                   ; preds = %123
-  %invariant.gep41.i = getelementptr float, ptr %111, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %111, i64 %.03344.i
   br label %131
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %127, %123 ]
   %124 = add nuw nsw i64 %.03539.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %125
   %.val.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %126 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val.i, ptr %126, align 64, !tbaa !53
   %127 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %127, 4
@@ -1060,9 +1055,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %136, %135 ]
   %132 = add nsw i64 %.03443.i, %.099
   %133 = mul nsw i64 %132, %112
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %133
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %133
   %.val36.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %134 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %134 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %137
 
 135:                                              ; preds = %137
@@ -1072,9 +1067,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 137:                                              ; preds = %137, %131
   %.03240.i = phi i64 [ 0, %131 ], [ %143, %137 ]
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %134, i64 %.03240.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %134, i64 %.03240.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
   %142 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %139, <16 x float> %.val36.i, <16 x float> %141)
   store <16 x float> %142, ptr %140, align 64, !tbaa !53
@@ -1084,10 +1079,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %147
   %.03148.i = phi i64 [ %148, %147 ], [ 0, %.preheader.i.preheader ]
-  %144 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %144 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %145 = add nsw i64 %.03148.i, %.099
   %146 = mul nsw i64 %145, %104
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %146
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %146
   br label %149
 
 147:                                              ; preds = %149
@@ -1097,10 +1092,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 149:                                              ; preds = %149, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %154, %149 ]
-  %150 = getelementptr inbounds nuw <16 x float>, ptr %144, i64 %.045.i
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %144, i64 %.045.i
   %151 = load <16 x float>, ptr %150, align 64, !tbaa !53
   %152 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %151)
-  %153 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %153 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %152, ptr %153, align 4, !tbaa !93
   %154 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %154, 4
@@ -1124,20 +1119,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %157, %163
   %.03344.i84 = phi i64 [ %164, %163 ], [ 0, %157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr float, ptr %118, i64 %.03344.i84
+  %invariant.gep.i85 = getelementptr [4 x i8], ptr %118, i64 %.03344.i84
   br label %158
 
 .preheader38.i90:                                 ; preds = %158
-  %invariant.gep41.i91 = getelementptr float, ptr %120, i64 %.03344.i84
+  %invariant.gep41.i91 = getelementptr [4 x i8], ptr %120, i64 %.03344.i84
   br label %166
 
 158:                                              ; preds = %158, %.lr.ph.i83
   %.03539.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %162, %158 ]
   %159 = add nuw nsw i64 %.03539.i86, %117
   %160 = mul nsw i64 %159, %119
-  %gep.i87 = getelementptr float, ptr %invariant.gep.i85, i64 %160
+  %gep.i87 = getelementptr [4 x i8], ptr %invariant.gep.i85, i64 %160
   %.val.i88 = load <16 x float>, ptr %gep.i87, align 1, !tbaa !53
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i86
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i86
   store <16 x float> %.val.i88, ptr %161, align 64, !tbaa !53
   %162 = add nuw nsw i64 %.03539.i86, 1
   %exitcond.not.i89 = icmp eq i64 %162, 4
@@ -1153,9 +1148,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   %.03443.i92 = phi i64 [ 0, %.preheader38.i90 ], [ %171, %170 ]
   %167 = add nsw i64 %.03443.i92, %.1100
   %168 = mul nsw i64 %167, %121
-  %gep42.i93 = getelementptr float, ptr %invariant.gep41.i91, i64 %168
+  %gep42.i93 = getelementptr [4 x i8], ptr %invariant.gep41.i91, i64 %168
   %.val36.i94 = load <16 x float>, ptr %gep42.i93, align 1, !tbaa !53
-  %169 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03443.i92
+  %169 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03443.i92
   br label %172
 
 170:                                              ; preds = %172
@@ -1165,9 +1160,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 172:                                              ; preds = %172, %166
   %.03240.i95 = phi i64 [ 0, %166 ], [ %178, %172 ]
-  %173 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03240.i95
+  %173 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03240.i95
   %174 = load <16 x float>, ptr %173, align 64, !tbaa !53
-  %175 = getelementptr inbounds nuw <16 x float>, ptr %169, i64 %.03240.i95
+  %175 = getelementptr inbounds nuw [64 x i8], ptr %169, i64 %.03240.i95
   %176 = load <16 x float>, ptr %175, align 64, !tbaa !53
   %177 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %174, <16 x float> %.val36.i94, <16 x float> %176)
   store <16 x float> %177, ptr %175, align 64, !tbaa !53
@@ -1177,10 +1172,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %182
   %.03148.i78 = phi i64 [ %183, %182 ], [ 0, %.preheader.i77.preheader ]
-  %179 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03148.i78
+  %179 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03148.i78
   %180 = add nsw i64 %.03148.i78, %.1100
   %181 = mul nsw i64 %180, %104
-  %gep47.i79 = getelementptr float, ptr %invariant.gep46.i76, i64 %181
+  %gep47.i79 = getelementptr [4 x i8], ptr %invariant.gep46.i76, i64 %181
   br label %184
 
 182:                                              ; preds = %184
@@ -1190,10 +1185,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 184:                                              ; preds = %184, %.preheader.i77
   %.045.i80 = phi i64 [ 0, %.preheader.i77 ], [ %189, %184 ]
-  %185 = getelementptr inbounds nuw <16 x float>, ptr %179, i64 %.045.i80
+  %185 = getelementptr inbounds nuw [64 x i8], ptr %179, i64 %.045.i80
   %186 = load <16 x float>, ptr %185, align 64, !tbaa !53
   %187 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %186)
-  %188 = getelementptr float, ptr %gep47.i79, i64 %.045.i80
+  %188 = getelementptr [4 x i8], ptr %gep47.i79, i64 %.045.i80
   store float %187, ptr %188, align 4, !tbaa !93
   %189 = add nuw nsw i64 %.045.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %189, 4
@@ -1413,7 +1408,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %110 = load i64, ptr %57, align 8
   %111 = load ptr, ptr %58, align 8
   %112 = load i64, ptr %59, align 8
-  %invariant.gep46.i = getelementptr float, ptr %103, i64 %108
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %103, i64 %108
   br label %122
 
 113:                                              ; preds = %105
@@ -1432,7 +1427,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %119 = load i64, ptr %57, align 8
   %120 = load ptr, ptr %58, align 8
   %121 = load i64, ptr %59, align 8
-  %invariant.gep46.i76 = getelementptr float, ptr %103, i64 %117
+  %invariant.gep46.i76 = getelementptr [4 x i8], ptr %103, i64 %117
   br label %157
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
@@ -1447,20 +1442,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %122, %128
   %.03344.i = phi i64 [ %129, %128 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %109, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %109, i64 %.03344.i
   br label %123
 
 .preheader38.i:                                   ; preds = %123
-  %invariant.gep41.i = getelementptr float, ptr %111, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %111, i64 %.03344.i
   br label %131
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %127, %123 ]
   %124 = add nuw nsw i64 %.03539.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %125
   %.val.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %126 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val.i, ptr %126, align 64, !tbaa !53
   %127 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %127, 4
@@ -1476,9 +1471,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %136, %135 ]
   %132 = add nsw i64 %.03443.i, %.099
   %133 = mul nsw i64 %132, %112
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %133
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %133
   %.val36.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %134 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %134 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %137
 
 135:                                              ; preds = %137
@@ -1488,9 +1483,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 137:                                              ; preds = %137, %131
   %.03240.i = phi i64 [ 0, %131 ], [ %143, %137 ]
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %134, i64 %.03240.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %134, i64 %.03240.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
   %142 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %139, <16 x float> %.val36.i, <16 x float> %141)
   store <16 x float> %142, ptr %140, align 64, !tbaa !53
@@ -1500,10 +1495,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %147
   %.03148.i = phi i64 [ %148, %147 ], [ 0, %.preheader.i.preheader ]
-  %144 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %144 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %145 = add nsw i64 %.03148.i, %.099
   %146 = mul nsw i64 %145, %104
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %146
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %146
   br label %149
 
 147:                                              ; preds = %149
@@ -1513,10 +1508,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 149:                                              ; preds = %149, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %154, %149 ]
-  %150 = getelementptr inbounds nuw <16 x float>, ptr %144, i64 %.045.i
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %144, i64 %.045.i
   %151 = load <16 x float>, ptr %150, align 64, !tbaa !53
   %152 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %151)
-  %153 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %153 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %152, ptr %153, align 4, !tbaa !93
   %154 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %154, 4
@@ -1540,20 +1535,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %157, %163
   %.03344.i84 = phi i64 [ %164, %163 ], [ 0, %157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr float, ptr %118, i64 %.03344.i84
+  %invariant.gep.i85 = getelementptr [4 x i8], ptr %118, i64 %.03344.i84
   br label %158
 
 .preheader38.i90:                                 ; preds = %158
-  %invariant.gep41.i91 = getelementptr float, ptr %120, i64 %.03344.i84
+  %invariant.gep41.i91 = getelementptr [4 x i8], ptr %120, i64 %.03344.i84
   br label %166
 
 158:                                              ; preds = %158, %.lr.ph.i83
   %.03539.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %162, %158 ]
   %159 = add nuw nsw i64 %.03539.i86, %117
   %160 = mul nsw i64 %159, %119
-  %gep.i87 = getelementptr float, ptr %invariant.gep.i85, i64 %160
+  %gep.i87 = getelementptr [4 x i8], ptr %invariant.gep.i85, i64 %160
   %.val36.i88 = load <16 x float>, ptr %gep.i87, align 1, !tbaa !53
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i86
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i86
   store <16 x float> %.val36.i88, ptr %161, align 64, !tbaa !53
   %162 = add nuw nsw i64 %.03539.i86, 1
   %exitcond.not.i89 = icmp eq i64 %162, 4
@@ -1569,9 +1564,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   %.03443.i92 = phi i64 [ 0, %.preheader38.i90 ], [ %171, %170 ]
   %167 = add nsw i64 %.03443.i92, %.1100
   %168 = mul nsw i64 %167, %121
-  %gep42.i93 = getelementptr float, ptr %invariant.gep41.i91, i64 %168
+  %gep42.i93 = getelementptr [4 x i8], ptr %invariant.gep41.i91, i64 %168
   %.val.i94 = load <16 x float>, ptr %gep42.i93, align 1, !tbaa !53
-  %169 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03443.i92
+  %169 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03443.i92
   br label %172
 
 170:                                              ; preds = %172
@@ -1581,9 +1576,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 172:                                              ; preds = %172, %166
   %.03240.i95 = phi i64 [ 0, %166 ], [ %178, %172 ]
-  %173 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03240.i95
+  %173 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03240.i95
   %174 = load <16 x float>, ptr %173, align 64, !tbaa !53
-  %175 = getelementptr inbounds nuw <16 x float>, ptr %169, i64 %.03240.i95
+  %175 = getelementptr inbounds nuw [64 x i8], ptr %169, i64 %.03240.i95
   %176 = load <16 x float>, ptr %175, align 64, !tbaa !53
   %177 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %174, <16 x float> %.val.i94, <16 x float> %176)
   store <16 x float> %177, ptr %175, align 64, !tbaa !53
@@ -1593,10 +1588,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %182
   %.03148.i78 = phi i64 [ %183, %182 ], [ 0, %.preheader.i77.preheader ]
-  %179 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03148.i78
+  %179 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03148.i78
   %180 = add nsw i64 %.03148.i78, %.1100
   %181 = mul nsw i64 %180, %104
-  %gep47.i79 = getelementptr float, ptr %invariant.gep46.i76, i64 %181
+  %gep47.i79 = getelementptr [4 x i8], ptr %invariant.gep46.i76, i64 %181
   br label %184
 
 182:                                              ; preds = %184
@@ -1606,10 +1601,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 184:                                              ; preds = %184, %.preheader.i77
   %.045.i80 = phi i64 [ 0, %.preheader.i77 ], [ %189, %184 ]
-  %185 = getelementptr inbounds nuw <16 x float>, ptr %179, i64 %.045.i80
+  %185 = getelementptr inbounds nuw [64 x i8], ptr %179, i64 %.045.i80
   %186 = load <16 x float>, ptr %185, align 64, !tbaa !53
   %187 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %186)
-  %188 = getelementptr float, ptr %gep47.i79, i64 %.045.i80
+  %188 = getelementptr [4 x i8], ptr %gep47.i79, i64 %.045.i80
   store float %187, ptr %188, align 4, !tbaa !93
   %189 = add nuw nsw i64 %.045.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %189, 4
@@ -1813,7 +1808,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %111 = load i64, ptr %58, align 8
   %112 = load ptr, ptr %59, align 8
   %113 = load i64, ptr %60, align 8
-  %invariant.gep46.i = getelementptr float, ptr %104, i64 %109
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %104, i64 %109
   br label %123
 
 114:                                              ; preds = %106
@@ -1832,7 +1827,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %120 = load i64, ptr %60, align 8
   %121 = load ptr, ptr %57, align 8
   %122 = load i64, ptr %58, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %118
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %118
   br label %158
 
 123:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
@@ -1847,20 +1842,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %123, %129
   %.03344.i = phi i64 [ %130, %129 ], [ 0, %123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %110, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %110, i64 %.03344.i
   br label %124
 
 .preheader38.i:                                   ; preds = %124
-  %invariant.gep41.i = getelementptr float, ptr %112, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %112, i64 %.03344.i
   br label %132
 
 124:                                              ; preds = %124, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %128, %124 ]
   %125 = add nuw nsw i64 %.03539.i, %109
   %126 = mul nsw i64 %125, %111
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %126
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %126
   %.val36.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %127 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val36.i, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
@@ -1876,9 +1871,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %137, %136 ]
   %133 = add nsw i64 %.03443.i, %.087
   %134 = mul nsw i64 %133, %113
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %134
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %134
   %.val.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %135 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %135 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %138
 
 136:                                              ; preds = %138
@@ -1888,9 +1883,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 138:                                              ; preds = %138, %132
   %.03240.i = phi i64 [ 0, %132 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %140 = load <16 x float>, ptr %139, align 64, !tbaa !53
-  %141 = getelementptr inbounds nuw <16 x float>, ptr %135, i64 %.03240.i
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %.03240.i
   %142 = load <16 x float>, ptr %141, align 64, !tbaa !53
   %143 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %140, <16 x float> %.val.i, <16 x float> %142)
   store <16 x float> %143, ptr %141, align 64, !tbaa !53
@@ -1900,10 +1895,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %148
   %.03148.i = phi i64 [ %149, %148 ], [ 0, %.preheader.i.preheader ]
-  %145 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %145 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %146 = add nsw i64 %.03148.i, %.087
   %147 = mul nsw i64 %146, %105
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %147
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %147
   br label %150
 
 148:                                              ; preds = %150
@@ -1913,10 +1908,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 150:                                              ; preds = %150, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
-  %151 = getelementptr inbounds nuw <16 x float>, ptr %145, i64 %.045.i
+  %151 = getelementptr inbounds nuw [64 x i8], ptr %145, i64 %.045.i
   %152 = load <16 x float>, ptr %151, align 64, !tbaa !53
   %153 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %152)
-  %154 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %154 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %155, 4
@@ -1940,20 +1935,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 .lr.ph.i76:                                       ; preds = %158, %164
   %.03346.i = phi i64 [ %165, %164 ], [ 0, %158 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr float, ptr %119, i64 %.03346.i
+  %invariant.gep.i77 = getelementptr [4 x i8], ptr %119, i64 %.03346.i
   br label %159
 
 .preheader38.i82:                                 ; preds = %159
-  %invariant.gep43.i = getelementptr float, ptr %121, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [4 x i8], ptr %121, i64 %.03346.i
   br label %167
 
 159:                                              ; preds = %159, %.lr.ph.i76
   %.03539.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %163, %159 ]
   %160 = add nsw i64 %.03539.i78, %.188
   %161 = mul nsw i64 %160, %120
-  %gep.i79 = getelementptr float, ptr %invariant.gep.i77, i64 %161
+  %gep.i79 = getelementptr [4 x i8], ptr %invariant.gep.i77, i64 %161
   %.val36.i80 = load <16 x float>, ptr %gep.i79, align 1, !tbaa !53
-  %162 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i78
+  %162 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i78
   store <16 x float> %.val36.i80, ptr %162, align 64, !tbaa !53
   %163 = add nuw nsw i64 %.03539.i78, 1
   %exitcond.not.i81 = icmp eq i64 %163, 3
@@ -1969,9 +1964,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   %.03445.i = phi i64 [ 0, %.preheader38.i82 ], [ %171, %170 ]
   %168 = add nuw nsw i64 %.03445.i, %118
   %169 = mul nsw i64 %168, %122
-  %gep44.i = getelementptr float, ptr %invariant.gep43.i, i64 %169
+  %gep44.i = getelementptr [4 x i8], ptr %invariant.gep43.i, i64 %169
   %.val.i83 = load <16 x float>, ptr %gep44.i, align 1, !tbaa !53
-  %invariant.gep40.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i
+  %invariant.gep40.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i
   br label %172
 
 170:                                              ; preds = %172
@@ -1981,9 +1976,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 172:                                              ; preds = %172, %167
   %.03242.i = phi i64 [ 0, %167 ], [ %177, %172 ]
-  %173 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i
+  %173 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i
   %174 = load <16 x float>, ptr %173, align 64, !tbaa !53
-  %gep41.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep40.i, i64 %.03242.i
+  %gep41.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep40.i, i64 %.03242.i
   %175 = load <16 x float>, ptr %gep41.i, align 64, !tbaa !53
   %176 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i83, <16 x float> %174, <16 x float> %175)
   store <16 x float> %176, ptr %gep41.i, align 64, !tbaa !53
@@ -1993,10 +1988,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %181
   %.03150.i = phi i64 [ %182, %181 ], [ 0, %.preheader.i75.preheader ]
-  %178 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i
+  %178 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i
   %179 = add nsw i64 %.03150.i, %.188
   %180 = mul nsw i64 %179, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %180
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %180
   br label %183
 
 181:                                              ; preds = %183
@@ -2006,10 +2001,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 183:                                              ; preds = %183, %.preheader.i75
   %.047.i = phi i64 [ 0, %.preheader.i75 ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %178, i64 %.047.i
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %.047.i
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %185)
-  %187 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %187 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %188, 4
@@ -2213,7 +2208,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %109 = load i64, ptr %56, align 8
   %110 = load ptr, ptr %57, align 8
   %111 = load i64, ptr %58, align 8
-  %invariant.gep48.i = getelementptr float, ptr %102, i64 %107
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %102, i64 %107
   br label %146
 
 112:                                              ; preds = %104
@@ -2232,7 +2227,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %118 = load i64, ptr %56, align 8
   %119 = load ptr, ptr %57, align 8
   %120 = load i64, ptr %58, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %102, i64 %116
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %102, i64 %116
   br i1 %101, label %.lr.ph.i82.us, label %.preheader37.i75
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -2246,21 +2241,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader38.i88.us.critedge:                     ; preds = %131, %.lr.ph.i82.us
   %.03346.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %132, %131 ]
-  %invariant.gep.i84.us = getelementptr float, ptr %117, i64 %.03346.i83.us
-  %gep.i86.us = getelementptr float, ptr %invariant.gep.i84.us, i64 %121
+  %invariant.gep.i84.us = getelementptr [4 x i8], ptr %117, i64 %.03346.i83.us
+  %gep.i86.us = getelementptr [4 x i8], ptr %invariant.gep.i84.us, i64 %121
   %.val36.i87.us = load <16 x float>, ptr %gep.i86.us, align 1, !tbaa !53
-  %gep.i86.us.c = getelementptr float, ptr %invariant.gep.i84.us, i64 %123
+  %gep.i86.us.c = getelementptr [4 x i8], ptr %invariant.gep.i84.us, i64 %123
   %.val36.i87.us.c = load <16 x float>, ptr %gep.i86.us.c, align 1, !tbaa !53
-  %invariant.gep43.i89.us = getelementptr float, ptr %119, i64 %.03346.i83.us
+  %invariant.gep43.i89.us = getelementptr [4 x i8], ptr %119, i64 %.03346.i83.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader38.i88.us.critedge
   %.03445.i90.us = phi i64 [ 0, %.preheader38.i88.us.critedge ], [ %130, %.critedge ]
   %124 = add nuw nsw i64 %.03445.i90.us, %116
   %125 = mul nsw i64 %124, %120
-  %gep44.i91.us = getelementptr float, ptr %invariant.gep43.i89.us, i64 %125
+  %gep44.i91.us = getelementptr [4 x i8], ptr %invariant.gep43.i89.us, i64 %125
   %.val.i92.us = load <16 x float>, ptr %gep44.i91.us, align 1, !tbaa !53
-  %invariant.gep40.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i90.us
+  %invariant.gep40.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i90.us
   %126 = load <16 x float>, ptr %invariant.gep40.i93.us, align 64, !tbaa !53
   %127 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i92.us, <16 x float> %.val36.i87.us, <16 x float> %126)
   store <16 x float> %127, ptr %invariant.gep40.i93.us, align 64, !tbaa !53
@@ -2283,15 +2278,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03150.i78.us = phi i64 [ 1, %143 ], [ 0, %131 ]
   %135 = add nsw i64 %.03150.i78.us, %.1102.us
   %136 = mul nsw i64 %135, %103
-  %gep49.i79.us = getelementptr float, ptr %invariant.gep48.i76, i64 %136
+  %gep49.i79.us = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %136
   br label %137
 
 137:                                              ; preds = %137, %.preheader.i77.us
   %.047.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %142, %137 ]
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i78.sroa.phi.us, i64 %.047.i80.us
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i78.sroa.phi.us, i64 %.047.i80.us
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
   %140 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %139)
-  %141 = getelementptr float, ptr %gep49.i79.us, i64 %.047.i80.us
+  %141 = getelementptr [4 x i8], ptr %gep49.i79.us, i64 %.047.i80.us
   store float %140, ptr %141, align 4, !tbaa !93
   %142 = add nuw nsw i64 %.047.i80.us, 1
   %exitcond51.not.i81.us = icmp eq i64 %142, 4
@@ -2318,20 +2313,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 .lr.ph.i:                                         ; preds = %146, %152
   %.03346.i = phi i64 [ %153, %152 ], [ 0, %146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr float, ptr %108, i64 %.03346.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %108, i64 %.03346.i
   br label %147
 
 .preheader38.i:                                   ; preds = %147
-  %invariant.gep43.i = getelementptr float, ptr %110, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [4 x i8], ptr %110, i64 %.03346.i
   br label %155
 
 147:                                              ; preds = %147, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %151, %147 ]
   %148 = add nsw i64 %.03539.i, %.0101
   %149 = mul nsw i64 %148, %109
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %149
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %149
   %.val36.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %150 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03539.i
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03539.i
   store <16 x float> %.val36.i, ptr %150, align 64, !tbaa !53
   %151 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %151, 3
@@ -2347,9 +2342,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03445.i = phi i64 [ 0, %.preheader38.i ], [ %159, %158 ]
   %156 = add nuw nsw i64 %.03445.i, %107
   %157 = mul nsw i64 %156, %111
-  %gep44.i = getelementptr float, ptr %invariant.gep43.i, i64 %157
+  %gep44.i = getelementptr [4 x i8], ptr %invariant.gep43.i, i64 %157
   %.val.i = load <16 x float>, ptr %gep44.i, align 1, !tbaa !53
-  %invariant.gep40.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03445.i
+  %invariant.gep40.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03445.i
   br label %160
 
 158:                                              ; preds = %160
@@ -2359,9 +2354,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 160:                                              ; preds = %160, %155
   %.03242.i = phi i64 [ 0, %155 ], [ %165, %160 ]
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03242.i
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03242.i
   %162 = load <16 x float>, ptr %161, align 64, !tbaa !53
-  %gep41.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep40.i, i64 %.03242.i
+  %gep41.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep40.i, i64 %.03242.i
   %163 = load <16 x float>, ptr %gep41.i, align 64, !tbaa !53
   %164 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i, <16 x float> %162, <16 x float> %163)
   store <16 x float> %164, ptr %gep41.i, align 64, !tbaa !53
@@ -2371,10 +2366,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %169
   %.03150.i = phi i64 [ %170, %169 ], [ 0, %.preheader.i.preheader ]
-  %166 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03150.i
+  %166 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03150.i
   %167 = add nsw i64 %.03150.i, %.0101
   %168 = mul nsw i64 %167, %103
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %168
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %168
   br label %171
 
 169:                                              ; preds = %171
@@ -2384,10 +2379,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 171:                                              ; preds = %171, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %176, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %166, i64 %.047.i
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %166, i64 %.047.i
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
   %174 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %173)
-  %175 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %175 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %174, ptr %175, align 4, !tbaa !93
   %176 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %176, 4
@@ -2411,7 +2406,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   %.03150.i78 = phi i64 [ 0, %.preheader37.i75 ], [ 1, %182 ]
   %180 = add nsw i64 %.03150.i78, %.1102
   %181 = mul nsw i64 %180, %103
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %181
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %181
   br label %183
 
 182:                                              ; preds = %183
@@ -2419,10 +2414,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 
 183:                                              ; preds = %183, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i78.sroa.phi, i64 %.047.i80
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i78.sroa.phi, i64 %.047.i80
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %185)
-  %187 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %187 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.047.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %188, 4
@@ -2603,7 +2598,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %101 = load i64, ptr %56, align 8
   %102 = load ptr, ptr %57, align 8
   %103 = load i64, ptr %58, align 8
-  %invariant.gep48.i = getelementptr float, ptr %94, i64 %99
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %94, i64 %99
   br i1 %93, label %.lr.ph.i.us, label %.preheader37.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -2617,21 +2612,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader38.i.us.critedge:                       ; preds = %114, %.lr.ph.i.us
   %.03346.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %115, %114 ]
-  %invariant.gep.i.us = getelementptr float, ptr %100, i64 %.03346.i.us
-  %gep.i.us = getelementptr float, ptr %invariant.gep.i.us, i64 %104
+  %invariant.gep.i.us = getelementptr [4 x i8], ptr %100, i64 %.03346.i.us
+  %gep.i.us = getelementptr [4 x i8], ptr %invariant.gep.i.us, i64 %104
   %.val36.i.us = load <16 x float>, ptr %gep.i.us, align 1, !tbaa !53
-  %gep.i.us.c = getelementptr float, ptr %invariant.gep.i.us, i64 %106
+  %gep.i.us.c = getelementptr [4 x i8], ptr %invariant.gep.i.us, i64 %106
   %.val36.i.us.c = load <16 x float>, ptr %gep.i.us.c, align 1, !tbaa !53
-  %invariant.gep43.i.us = getelementptr float, ptr %102, i64 %.03346.i.us
+  %invariant.gep43.i.us = getelementptr [4 x i8], ptr %102, i64 %.03346.i.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader38.i.us.critedge
   %.03445.i.us = phi i64 [ 0, %.preheader38.i.us.critedge ], [ %113, %.critedge ]
   %107 = add nuw nsw i64 %.03445.i.us, %99
   %108 = mul nsw i64 %107, %103
-  %gep44.i.us = getelementptr float, ptr %invariant.gep43.i.us, i64 %108
+  %gep44.i.us = getelementptr [4 x i8], ptr %invariant.gep43.i.us, i64 %108
   %.val.i.us = load <16 x float>, ptr %gep44.i.us, align 1, !tbaa !53
-  %invariant.gep40.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03445.i.us
+  %invariant.gep40.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03445.i.us
   %109 = load <16 x float>, ptr %invariant.gep40.i.us, align 64, !tbaa !53
   %110 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us, <16 x float> %.val36.i.us, <16 x float> %109)
   store <16 x float> %110, ptr %invariant.gep40.i.us, align 64, !tbaa !53
@@ -2654,15 +2649,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03150.i.us = phi i64 [ 1, %126 ], [ 0, %114 ]
   %118 = add nsw i64 %.03150.i.us, %.087.us
   %119 = mul nsw i64 %118, %95
-  %gep49.i.us = getelementptr float, ptr %invariant.gep48.i, i64 %119
+  %gep49.i.us = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %119
   br label %120
 
 120:                                              ; preds = %120, %.preheader.i.us
   %.047.i.us = phi i64 [ 0, %.preheader.i.us ], [ %125, %120 ]
-  %121 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i.sroa.phi.us, i64 %.047.i.us
+  %121 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i.sroa.phi.us, i64 %.047.i.us
   %122 = load <16 x float>, ptr %121, align 64, !tbaa !53
   %123 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %122)
-  %124 = getelementptr float, ptr %gep49.i.us, i64 %.047.i.us
+  %124 = getelementptr [4 x i8], ptr %gep49.i.us, i64 %.047.i.us
   store float %123, ptr %124, align 4, !tbaa !93
   %125 = add nuw nsw i64 %.047.i.us, 1
   %exitcond51.not.i.us = icmp eq i64 %125, 4
@@ -2693,7 +2688,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %135 = load i64, ptr %56, align 8
   %136 = load ptr, ptr %57, align 8
   %137 = load i64, ptr %58, align 8
-  %invariant.gep = getelementptr float, ptr %94, i64 %133
+  %invariant.gep = getelementptr [4 x i8], ptr %94, i64 %133
   br label %150
 
 .preheader37.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
@@ -2708,7 +2703,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03150.i = phi i64 [ 0, %.preheader37.i ], [ 1, %141 ]
   %139 = add nsw i64 %.03150.i, %.087
   %140 = mul nsw i64 %139, %95
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %140
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %140
   br label %142
 
 141:                                              ; preds = %142
@@ -2716,10 +2711,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 142:                                              ; preds = %142, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %147, %142 ]
-  %143 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i.sroa.phi, i64 %.047.i
+  %143 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i.sroa.phi, i64 %.047.i
   %144 = load <16 x float>, ptr %143, align 64, !tbaa !53
   %145 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %144)
-  %146 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %146 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %145, ptr %146, align 4, !tbaa !93
   %147 = add nuw nsw i64 %.047.i, 1
   %exitcond51.not.i = icmp eq i64 %147, 4
@@ -2739,19 +2734,19 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 .preheader39.lr.ph.i:                             ; preds = %150
   %151 = mul nsw i64 %135, %.188
-  %152 = getelementptr inbounds float, ptr %134, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %134, i64 %151
   br label %.preheader39.i
 
 .preheader39.i:                                   ; preds = %155, %.preheader39.lr.ph.i
   %.03346.i76 = phi i64 [ 0, %.preheader39.lr.ph.i ], [ %156, %155 ]
-  %153 = getelementptr inbounds nuw float, ptr %152, i64 %.03346.i76
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %.03346.i76
   %.val36.le.i = load <16 x float>, ptr %153, align 1, !tbaa !53
-  %invariant.gep.i77 = getelementptr float, ptr %136, i64 %.03346.i76
+  %invariant.gep.i77 = getelementptr [4 x i8], ptr %136, i64 %.03346.i76
   br label %158
 
 .preheader37.i74:                                 ; preds = %155, %150
   %154 = mul nsw i64 %95, %.188
-  %gep = getelementptr float, ptr %invariant.gep, i64 %154
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %154
   br label %164
 
 155:                                              ; preds = %158
@@ -2763,9 +2758,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   %.03445.i78 = phi i64 [ 0, %.preheader39.i ], [ %163, %158 ]
   %159 = add nuw nsw i64 %.03445.i78, %133
   %160 = mul nsw i64 %159, %137
-  %gep.i79 = getelementptr float, ptr %invariant.gep.i77, i64 %160
+  %gep.i79 = getelementptr [4 x i8], ptr %invariant.gep.i77, i64 %160
   %.val.i80 = load <16 x float>, ptr %gep.i79, align 1, !tbaa !53
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i78
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i78
   %.promoted.i = load <16 x float>, ptr %161, align 64, !tbaa !53
   %162 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i80, <16 x float> %.val36.le.i, <16 x float> %.promoted.i)
   store <16 x float> %162, ptr %161, align 64, !tbaa !53
@@ -2775,10 +2770,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 164:                                              ; preds = %164, %.preheader37.i74
   %.047.i75 = phi i64 [ 0, %.preheader37.i74 ], [ %169, %164 ]
-  %165 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i75
+  %165 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i75
   %166 = load <16 x float>, ptr %165, align 64, !tbaa !53
   %167 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %166)
-  %168 = getelementptr float, ptr %gep, i64 %.047.i75
+  %168 = getelementptr [4 x i8], ptr %gep, i64 %.047.i75
   store float %167, ptr %168, align 4, !tbaa !93
   %169 = add nuw nsw i64 %.047.i75, 1
   %exitcond48.not.i = icmp eq i64 %169, 4
@@ -2933,7 +2928,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   br label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %87
@@ -2943,7 +2938,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   %84 = load i64, ptr %50, align 8
   %85 = load ptr, ptr %51, align 8
   %86 = load i64, ptr %52, align 8
-  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %82
+  %invariant.gep.us.us = getelementptr [4 x i8], ptr %79, i64 %82
   br label %.preheader39.lr.ph.i.us.us.us
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -2956,23 +2951,23 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %90 = mul nsw i64 %84, %.067.us.us.us
-  %91 = getelementptr inbounds float, ptr %83, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %83, i64 %90
   br label %.preheader39.i.us.us.us
 
 .preheader39.i.us.us.us:                          ; preds = %99, %.preheader39.lr.ph.i.us.us.us
   %.03346.i.us.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us.us ], [ %100, %99 ]
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %.03346.i.us.us.us
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.03346.i.us.us.us
   %.val36.le.i.us.us.us = load <16 x float>, ptr %92, align 1, !tbaa !53
-  %invariant.gep.i.us.us.us = getelementptr float, ptr %85, i64 %.03346.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [4 x i8], ptr %85, i64 %.03346.i.us.us.us
   br label %93
 
 93:                                               ; preds = %93, %.preheader39.i.us.us.us
   %.03445.i.us.us.us = phi i64 [ 0, %.preheader39.i.us.us.us ], [ %98, %93 ]
   %94 = add nuw nsw i64 %.03445.i.us.us.us, %82
   %95 = mul nsw i64 %94, %86
-  %gep.i.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us, i64 %95
+  %gep.i.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.i.us.us.us, i64 %95
   %.val.i.us.us.us = load <16 x float>, ptr %gep.i.us.us.us, align 1, !tbaa !53
-  %96 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i.us.us.us
+  %96 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %96, align 64, !tbaa !53
   %97 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us.us, <16 x float> %.val36.le.i.us.us.us, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %97, ptr %96, align 64, !tbaa !53
@@ -2987,10 +2982,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 102:                                              ; preds = %.preheader37.i.loopexit.us.us.us, %102
   %.047.i.us.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us.us ], [ %107, %102 ]
-  %103 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us.us.us
+  %103 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i.us.us.us
   %104 = load <16 x float>, ptr %103, align 64, !tbaa !53
   %105 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %104)
-  %106 = getelementptr float, ptr %gep.us.us.us, i64 %.047.i.us.us.us
+  %106 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.047.i.us.us.us
   store float %105, ptr %106, align 4, !tbaa !93
   %107 = add nuw nsw i64 %.047.i.us.us.us, 1
   %exitcond48.not.i.us.us.us = icmp eq i64 %107, 4
@@ -3004,12 +2999,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
 
 .preheader37.i.loopexit.us.us.us:                 ; preds = %99
   %109 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %109
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %109
   br label %102
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %118
   %.06068.us = phi i64 [ %119, %118 ], [ 0, %.preheader.us.preheader ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.06068.us
   br label %.preheader37.i.us
 
 .preheader37.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
@@ -3017,15 +3012,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %110 = mul nsw i64 %80, %.067.us69
-  %gep.us70 = getelementptr float, ptr %gep, i64 %110
+  %gep.us70 = getelementptr [4 x i8], ptr %gep, i64 %110
   br label %111
 
 111:                                              ; preds = %111, %.preheader37.i.us
   %.047.i.us71 = phi i64 [ 0, %.preheader37.i.us ], [ %116, %111 ]
-  %112 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us71
+  %112 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i.us71
   %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
   %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
-  %115 = getelementptr float, ptr %gep.us70, i64 %.047.i.us71
+  %115 = getelementptr [4 x i8], ptr %gep.us70, i64 %.047.i.us71
   store float %114, ptr %115, align 4, !tbaa !93
   %116 = add nuw nsw i64 %.047.i.us71, 1
   %exitcond48.not.i.us72 = icmp eq i64 %116, 4
@@ -3239,7 +3234,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %109 = load i64, ptr %57, align 8
   %110 = load ptr, ptr %58, align 8
   %111 = load i64, ptr %59, align 8
-  %invariant.gep46.i = getelementptr float, ptr %103, i64 %107
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %103, i64 %107
   br label %121
 
 112:                                              ; preds = %105
@@ -3258,7 +3253,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %118 = load i64, ptr %57, align 8
   %119 = load ptr, ptr %58, align 8
   %120 = load i64, ptr %59, align 8
-  %invariant.gep46.i76 = getelementptr float, ptr %103, i64 %116
+  %invariant.gep46.i76 = getelementptr [4 x i8], ptr %103, i64 %116
   br label %156
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit
@@ -3273,20 +3268,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %121, %127
   %.03344.i = phi i64 [ %128, %127 ], [ 0, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %108, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %108, i64 %.03344.i
   br label %122
 
 .preheader38.i:                                   ; preds = %122
-  %invariant.gep41.i = getelementptr float, ptr %110, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %110, i64 %.03344.i
   br label %130
 
 122:                                              ; preds = %122, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %126, %122 ]
   %123 = add nuw nsw i64 %.03539.i, %107
   %124 = mul nsw i64 %123, %109
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %124
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %124
   %.val.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %125 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %125 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val.i, ptr %125, align 64, !tbaa !53
   %126 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %126, 4
@@ -3302,9 +3297,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %135, %134 ]
   %131 = add nsw i64 %.03443.i, %.099
   %132 = mul nsw i64 %131, %111
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %132
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %132
   %.val36.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %133 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %133 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %136
 
 134:                                              ; preds = %136
@@ -3314,9 +3309,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 136:                                              ; preds = %136, %130
   %.03240.i = phi i64 [ 0, %130 ], [ %142, %136 ]
-  %137 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %137 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %138 = load <16 x float>, ptr %137, align 64, !tbaa !53
-  %139 = getelementptr inbounds nuw <16 x float>, ptr %133, i64 %.03240.i
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %133, i64 %.03240.i
   %140 = load <16 x float>, ptr %139, align 64, !tbaa !53
   %141 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %138, <16 x float> %.val36.i, <16 x float> %140)
   store <16 x float> %141, ptr %139, align 64, !tbaa !53
@@ -3326,10 +3321,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %146
   %.03148.i = phi i64 [ %147, %146 ], [ 0, %.preheader.i.preheader ]
-  %143 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %143 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %144 = add nsw i64 %.03148.i, %.099
   %145 = mul nsw i64 %144, %104
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %145
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %145
   br label %148
 
 146:                                              ; preds = %148
@@ -3339,10 +3334,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 148:                                              ; preds = %148, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %153, %148 ]
-  %149 = getelementptr inbounds nuw <16 x float>, ptr %143, i64 %.045.i
+  %149 = getelementptr inbounds nuw [64 x i8], ptr %143, i64 %.045.i
   %150 = load <16 x float>, ptr %149, align 64, !tbaa !53
   %151 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %150)
-  %152 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %152 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %151, ptr %152, align 4, !tbaa !93
   %153 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %153, 4
@@ -3366,20 +3361,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %156, %162
   %.03344.i84 = phi i64 [ %163, %162 ], [ 0, %156 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr float, ptr %117, i64 %.03344.i84
+  %invariant.gep.i85 = getelementptr [4 x i8], ptr %117, i64 %.03344.i84
   br label %157
 
 .preheader38.i90:                                 ; preds = %157
-  %invariant.gep41.i91 = getelementptr float, ptr %119, i64 %.03344.i84
+  %invariant.gep41.i91 = getelementptr [4 x i8], ptr %119, i64 %.03344.i84
   br label %165
 
 157:                                              ; preds = %157, %.lr.ph.i83
   %.03539.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %161, %157 ]
   %158 = add nuw nsw i64 %.03539.i86, %116
   %159 = mul nsw i64 %158, %118
-  %gep.i87 = getelementptr float, ptr %invariant.gep.i85, i64 %159
+  %gep.i87 = getelementptr [4 x i8], ptr %invariant.gep.i85, i64 %159
   %.val.i88 = load <16 x float>, ptr %gep.i87, align 1, !tbaa !53
-  %160 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i86
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i86
   store <16 x float> %.val.i88, ptr %160, align 64, !tbaa !53
   %161 = add nuw nsw i64 %.03539.i86, 1
   %exitcond.not.i89 = icmp eq i64 %161, 4
@@ -3395,9 +3390,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   %.03443.i92 = phi i64 [ 0, %.preheader38.i90 ], [ %170, %169 ]
   %166 = add nsw i64 %.03443.i92, %.1100
   %167 = mul nsw i64 %166, %120
-  %gep42.i93 = getelementptr float, ptr %invariant.gep41.i91, i64 %167
+  %gep42.i93 = getelementptr [4 x i8], ptr %invariant.gep41.i91, i64 %167
   %.val36.i94 = load <16 x float>, ptr %gep42.i93, align 1, !tbaa !53
-  %168 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03443.i92
+  %168 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03443.i92
   br label %171
 
 169:                                              ; preds = %171
@@ -3407,9 +3402,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 171:                                              ; preds = %171, %165
   %.03240.i95 = phi i64 [ 0, %165 ], [ %177, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03240.i95
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03240.i95
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
-  %174 = getelementptr inbounds nuw <16 x float>, ptr %168, i64 %.03240.i95
+  %174 = getelementptr inbounds nuw [64 x i8], ptr %168, i64 %.03240.i95
   %175 = load <16 x float>, ptr %174, align 64, !tbaa !53
   %176 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %173, <16 x float> %.val36.i94, <16 x float> %175)
   store <16 x float> %176, ptr %174, align 64, !tbaa !53
@@ -3419,10 +3414,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %181
   %.03148.i78 = phi i64 [ %182, %181 ], [ 0, %.preheader.i77.preheader ]
-  %178 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03148.i78
+  %178 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03148.i78
   %179 = add nsw i64 %.03148.i78, %.1100
   %180 = mul nsw i64 %179, %104
-  %gep47.i79 = getelementptr float, ptr %invariant.gep46.i76, i64 %180
+  %gep47.i79 = getelementptr [4 x i8], ptr %invariant.gep46.i76, i64 %180
   br label %183
 
 181:                                              ; preds = %183
@@ -3432,10 +3427,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 183:                                              ; preds = %183, %.preheader.i77
   %.045.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %178, i64 %.045.i80
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %.045.i80
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %185)
-  %187 = getelementptr float, ptr %gep47.i79, i64 %.045.i80
+  %187 = getelementptr [4 x i8], ptr %gep47.i79, i64 %.045.i80
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.045.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %188, 4
@@ -3638,7 +3633,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %109 = load i64, ptr %57, align 8
   %110 = load ptr, ptr %58, align 8
   %111 = load i64, ptr %59, align 8
-  %invariant.gep46.i = getelementptr float, ptr %103, i64 %107
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %103, i64 %107
   br label %121
 
 112:                                              ; preds = %105
@@ -3657,7 +3652,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %118 = load i64, ptr %57, align 8
   %119 = load ptr, ptr %58, align 8
   %120 = load i64, ptr %59, align 8
-  %invariant.gep46.i76 = getelementptr float, ptr %103, i64 %116
+  %invariant.gep46.i76 = getelementptr [4 x i8], ptr %103, i64 %116
   br label %156
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
@@ -3672,20 +3667,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %121, %127
   %.03344.i = phi i64 [ %128, %127 ], [ 0, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %108, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %108, i64 %.03344.i
   br label %122
 
 .preheader38.i:                                   ; preds = %122
-  %invariant.gep41.i = getelementptr float, ptr %110, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %110, i64 %.03344.i
   br label %130
 
 122:                                              ; preds = %122, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %126, %122 ]
   %123 = add nuw nsw i64 %.03539.i, %107
   %124 = mul nsw i64 %123, %109
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %124
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %124
   %.val.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %125 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %125 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val.i, ptr %125, align 64, !tbaa !53
   %126 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %126, 4
@@ -3701,9 +3696,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %135, %134 ]
   %131 = add nsw i64 %.03443.i, %.099
   %132 = mul nsw i64 %131, %111
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %132
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %132
   %.val36.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %133 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %133 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %136
 
 134:                                              ; preds = %136
@@ -3713,9 +3708,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 136:                                              ; preds = %136, %130
   %.03240.i = phi i64 [ 0, %130 ], [ %142, %136 ]
-  %137 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %137 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %138 = load <16 x float>, ptr %137, align 64, !tbaa !53
-  %139 = getelementptr inbounds nuw <16 x float>, ptr %133, i64 %.03240.i
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %133, i64 %.03240.i
   %140 = load <16 x float>, ptr %139, align 64, !tbaa !53
   %141 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %138, <16 x float> %.val36.i, <16 x float> %140)
   store <16 x float> %141, ptr %139, align 64, !tbaa !53
@@ -3725,10 +3720,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %146
   %.03148.i = phi i64 [ %147, %146 ], [ 0, %.preheader.i.preheader ]
-  %143 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %143 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %144 = add nsw i64 %.03148.i, %.099
   %145 = mul nsw i64 %144, %104
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %145
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %145
   br label %148
 
 146:                                              ; preds = %148
@@ -3738,10 +3733,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 148:                                              ; preds = %148, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %153, %148 ]
-  %149 = getelementptr inbounds nuw <16 x float>, ptr %143, i64 %.045.i
+  %149 = getelementptr inbounds nuw [64 x i8], ptr %143, i64 %.045.i
   %150 = load <16 x float>, ptr %149, align 64, !tbaa !53
   %151 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %150)
-  %152 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %152 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %151, ptr %152, align 4, !tbaa !93
   %153 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %153, 4
@@ -3765,20 +3760,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %156, %162
   %.03344.i84 = phi i64 [ %163, %162 ], [ 0, %156 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr float, ptr %117, i64 %.03344.i84
+  %invariant.gep.i85 = getelementptr [4 x i8], ptr %117, i64 %.03344.i84
   br label %157
 
 .preheader38.i90:                                 ; preds = %157
-  %invariant.gep41.i91 = getelementptr float, ptr %119, i64 %.03344.i84
+  %invariant.gep41.i91 = getelementptr [4 x i8], ptr %119, i64 %.03344.i84
   br label %165
 
 157:                                              ; preds = %157, %.lr.ph.i83
   %.03539.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %161, %157 ]
   %158 = add nuw nsw i64 %.03539.i86, %116
   %159 = mul nsw i64 %158, %118
-  %gep.i87 = getelementptr float, ptr %invariant.gep.i85, i64 %159
+  %gep.i87 = getelementptr [4 x i8], ptr %invariant.gep.i85, i64 %159
   %.val36.i88 = load <16 x float>, ptr %gep.i87, align 1, !tbaa !53
-  %160 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i86
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i86
   store <16 x float> %.val36.i88, ptr %160, align 64, !tbaa !53
   %161 = add nuw nsw i64 %.03539.i86, 1
   %exitcond.not.i89 = icmp eq i64 %161, 4
@@ -3794,9 +3789,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   %.03443.i92 = phi i64 [ 0, %.preheader38.i90 ], [ %170, %169 ]
   %166 = add nsw i64 %.03443.i92, %.1100
   %167 = mul nsw i64 %166, %120
-  %gep42.i93 = getelementptr float, ptr %invariant.gep41.i91, i64 %167
+  %gep42.i93 = getelementptr [4 x i8], ptr %invariant.gep41.i91, i64 %167
   %.val.i94 = load <16 x float>, ptr %gep42.i93, align 1, !tbaa !53
-  %168 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03443.i92
+  %168 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03443.i92
   br label %171
 
 169:                                              ; preds = %171
@@ -3806,9 +3801,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 171:                                              ; preds = %171, %165
   %.03240.i95 = phi i64 [ 0, %165 ], [ %177, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03240.i95
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03240.i95
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
-  %174 = getelementptr inbounds nuw <16 x float>, ptr %168, i64 %.03240.i95
+  %174 = getelementptr inbounds nuw [64 x i8], ptr %168, i64 %.03240.i95
   %175 = load <16 x float>, ptr %174, align 64, !tbaa !53
   %176 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %173, <16 x float> %.val.i94, <16 x float> %175)
   store <16 x float> %176, ptr %174, align 64, !tbaa !53
@@ -3818,10 +3813,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %181
   %.03148.i78 = phi i64 [ %182, %181 ], [ 0, %.preheader.i77.preheader ]
-  %178 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03148.i78
+  %178 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03148.i78
   %179 = add nsw i64 %.03148.i78, %.1100
   %180 = mul nsw i64 %179, %104
-  %gep47.i79 = getelementptr float, ptr %invariant.gep46.i76, i64 %180
+  %gep47.i79 = getelementptr [4 x i8], ptr %invariant.gep46.i76, i64 %180
   br label %183
 
 181:                                              ; preds = %183
@@ -3831,10 +3826,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 183:                                              ; preds = %183, %.preheader.i77
   %.045.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %178, i64 %.045.i80
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %.045.i80
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %185)
-  %187 = getelementptr float, ptr %gep47.i79, i64 %.045.i80
+  %187 = getelementptr [4 x i8], ptr %gep47.i79, i64 %.045.i80
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.045.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %188, 4
@@ -4037,7 +4032,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %110 = load i64, ptr %58, align 8
   %111 = load ptr, ptr %59, align 8
   %112 = load i64, ptr %60, align 8
-  %invariant.gep46.i = getelementptr float, ptr %104, i64 %108
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %104, i64 %108
   br label %122
 
 113:                                              ; preds = %106
@@ -4056,7 +4051,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %119 = load i64, ptr %60, align 8
   %120 = load ptr, ptr %57, align 8
   %121 = load i64, ptr %58, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %117
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %117
   br label %157
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
@@ -4071,20 +4066,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %122, %128
   %.03344.i = phi i64 [ %129, %128 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %109, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %109, i64 %.03344.i
   br label %123
 
 .preheader38.i:                                   ; preds = %123
-  %invariant.gep41.i = getelementptr float, ptr %111, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %111, i64 %.03344.i
   br label %131
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %127, %123 ]
   %124 = add nuw nsw i64 %.03539.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %125
   %.val36.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %126 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val36.i, ptr %126, align 64, !tbaa !53
   %127 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %127, 4
@@ -4100,9 +4095,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %136, %135 ]
   %132 = add nsw i64 %.03443.i, %.087
   %133 = mul nsw i64 %132, %112
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %133
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %133
   %.val.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %134 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %134 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %137
 
 135:                                              ; preds = %137
@@ -4112,9 +4107,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 137:                                              ; preds = %137, %131
   %.03240.i = phi i64 [ 0, %131 ], [ %143, %137 ]
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %134, i64 %.03240.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %134, i64 %.03240.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
   %142 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %139, <16 x float> %.val.i, <16 x float> %141)
   store <16 x float> %142, ptr %140, align 64, !tbaa !53
@@ -4124,10 +4119,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %147
   %.03148.i = phi i64 [ %148, %147 ], [ 0, %.preheader.i.preheader ]
-  %144 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %144 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %145 = add nsw i64 %.03148.i, %.087
   %146 = mul nsw i64 %145, %105
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %146
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %146
   br label %149
 
 147:                                              ; preds = %149
@@ -4137,10 +4132,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 149:                                              ; preds = %149, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %154, %149 ]
-  %150 = getelementptr inbounds nuw <16 x float>, ptr %144, i64 %.045.i
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %144, i64 %.045.i
   %151 = load <16 x float>, ptr %150, align 64, !tbaa !53
   %152 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %151)
-  %153 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %153 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %152, ptr %153, align 4, !tbaa !93
   %154 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %154, 4
@@ -4164,20 +4159,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 .lr.ph.i76:                                       ; preds = %157, %163
   %.03346.i = phi i64 [ %164, %163 ], [ 0, %157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr float, ptr %118, i64 %.03346.i
+  %invariant.gep.i77 = getelementptr [4 x i8], ptr %118, i64 %.03346.i
   br label %158
 
 .preheader38.i82:                                 ; preds = %158
-  %invariant.gep43.i = getelementptr float, ptr %120, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [4 x i8], ptr %120, i64 %.03346.i
   br label %166
 
 158:                                              ; preds = %158, %.lr.ph.i76
   %.03539.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %162, %158 ]
   %159 = add nsw i64 %.03539.i78, %.188
   %160 = mul nsw i64 %159, %119
-  %gep.i79 = getelementptr float, ptr %invariant.gep.i77, i64 %160
+  %gep.i79 = getelementptr [4 x i8], ptr %invariant.gep.i77, i64 %160
   %.val36.i80 = load <16 x float>, ptr %gep.i79, align 1, !tbaa !53
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i78
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i78
   store <16 x float> %.val36.i80, ptr %161, align 64, !tbaa !53
   %162 = add nuw nsw i64 %.03539.i78, 1
   %exitcond.not.i81 = icmp eq i64 %162, 3
@@ -4193,9 +4188,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   %.03445.i = phi i64 [ 0, %.preheader38.i82 ], [ %170, %169 ]
   %167 = add nuw nsw i64 %.03445.i, %117
   %168 = mul nsw i64 %167, %121
-  %gep44.i = getelementptr float, ptr %invariant.gep43.i, i64 %168
+  %gep44.i = getelementptr [4 x i8], ptr %invariant.gep43.i, i64 %168
   %.val.i83 = load <16 x float>, ptr %gep44.i, align 1, !tbaa !53
-  %invariant.gep40.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i
+  %invariant.gep40.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i
   br label %171
 
 169:                                              ; preds = %171
@@ -4205,9 +4200,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 171:                                              ; preds = %171, %166
   %.03242.i = phi i64 [ 0, %166 ], [ %176, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
-  %gep41.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep40.i, i64 %.03242.i
+  %gep41.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep40.i, i64 %.03242.i
   %174 = load <16 x float>, ptr %gep41.i, align 64, !tbaa !53
   %175 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i83, <16 x float> %173, <16 x float> %174)
   store <16 x float> %175, ptr %gep41.i, align 64, !tbaa !53
@@ -4217,10 +4212,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %180
   %.03150.i = phi i64 [ %181, %180 ], [ 0, %.preheader.i75.preheader ]
-  %177 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i
+  %177 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i
   %178 = add nsw i64 %.03150.i, %.188
   %179 = mul nsw i64 %178, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %179
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %179
   br label %182
 
 180:                                              ; preds = %182
@@ -4230,10 +4225,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 182:                                              ; preds = %182, %.preheader.i75
   %.047.i = phi i64 [ 0, %.preheader.i75 ], [ %187, %182 ]
-  %183 = getelementptr inbounds nuw <16 x float>, ptr %177, i64 %.047.i
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %177, i64 %.047.i
   %184 = load <16 x float>, ptr %183, align 64, !tbaa !53
   %185 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %184)
-  %186 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %186 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %185, ptr %186, align 4, !tbaa !93
   %187 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %187, 4
@@ -4436,7 +4431,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %108 = load i64, ptr %56, align 8
   %109 = load ptr, ptr %57, align 8
   %110 = load i64, ptr %58, align 8
-  %invariant.gep48.i = getelementptr float, ptr %102, i64 %106
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %102, i64 %106
   br label %145
 
 111:                                              ; preds = %104
@@ -4455,7 +4450,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %117 = load i64, ptr %56, align 8
   %118 = load ptr, ptr %57, align 8
   %119 = load i64, ptr %58, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %102, i64 %115
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %102, i64 %115
   br i1 %101, label %.lr.ph.i82.us, label %.preheader37.i75
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -4469,21 +4464,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader38.i88.us.critedge:                     ; preds = %130, %.lr.ph.i82.us
   %.03346.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %131, %130 ]
-  %invariant.gep.i84.us = getelementptr float, ptr %116, i64 %.03346.i83.us
-  %gep.i86.us = getelementptr float, ptr %invariant.gep.i84.us, i64 %120
+  %invariant.gep.i84.us = getelementptr [4 x i8], ptr %116, i64 %.03346.i83.us
+  %gep.i86.us = getelementptr [4 x i8], ptr %invariant.gep.i84.us, i64 %120
   %.val36.i87.us = load <16 x float>, ptr %gep.i86.us, align 1, !tbaa !53
-  %gep.i86.us.c = getelementptr float, ptr %invariant.gep.i84.us, i64 %122
+  %gep.i86.us.c = getelementptr [4 x i8], ptr %invariant.gep.i84.us, i64 %122
   %.val36.i87.us.c = load <16 x float>, ptr %gep.i86.us.c, align 1, !tbaa !53
-  %invariant.gep43.i89.us = getelementptr float, ptr %118, i64 %.03346.i83.us
+  %invariant.gep43.i89.us = getelementptr [4 x i8], ptr %118, i64 %.03346.i83.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader38.i88.us.critedge
   %.03445.i90.us = phi i64 [ 0, %.preheader38.i88.us.critedge ], [ %129, %.critedge ]
   %123 = add nuw nsw i64 %.03445.i90.us, %115
   %124 = mul nsw i64 %123, %119
-  %gep44.i91.us = getelementptr float, ptr %invariant.gep43.i89.us, i64 %124
+  %gep44.i91.us = getelementptr [4 x i8], ptr %invariant.gep43.i89.us, i64 %124
   %.val.i92.us = load <16 x float>, ptr %gep44.i91.us, align 1, !tbaa !53
-  %invariant.gep40.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i90.us
+  %invariant.gep40.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i90.us
   %125 = load <16 x float>, ptr %invariant.gep40.i93.us, align 64, !tbaa !53
   %126 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i92.us, <16 x float> %.val36.i87.us, <16 x float> %125)
   store <16 x float> %126, ptr %invariant.gep40.i93.us, align 64, !tbaa !53
@@ -4506,15 +4501,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03150.i78.us = phi i64 [ 1, %142 ], [ 0, %130 ]
   %134 = add nsw i64 %.03150.i78.us, %.1102.us
   %135 = mul nsw i64 %134, %103
-  %gep49.i79.us = getelementptr float, ptr %invariant.gep48.i76, i64 %135
+  %gep49.i79.us = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %135
   br label %136
 
 136:                                              ; preds = %136, %.preheader.i77.us
   %.047.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %141, %136 ]
-  %137 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i78.sroa.phi.us, i64 %.047.i80.us
+  %137 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i78.sroa.phi.us, i64 %.047.i80.us
   %138 = load <16 x float>, ptr %137, align 64, !tbaa !53
   %139 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %138)
-  %140 = getelementptr float, ptr %gep49.i79.us, i64 %.047.i80.us
+  %140 = getelementptr [4 x i8], ptr %gep49.i79.us, i64 %.047.i80.us
   store float %139, ptr %140, align 4, !tbaa !93
   %141 = add nuw nsw i64 %.047.i80.us, 1
   %exitcond51.not.i81.us = icmp eq i64 %141, 4
@@ -4541,20 +4536,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 .lr.ph.i:                                         ; preds = %145, %151
   %.03346.i = phi i64 [ %152, %151 ], [ 0, %145 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr float, ptr %107, i64 %.03346.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %107, i64 %.03346.i
   br label %146
 
 .preheader38.i:                                   ; preds = %146
-  %invariant.gep43.i = getelementptr float, ptr %109, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [4 x i8], ptr %109, i64 %.03346.i
   br label %154
 
 146:                                              ; preds = %146, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %150, %146 ]
   %147 = add nsw i64 %.03539.i, %.0101
   %148 = mul nsw i64 %147, %108
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %148
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %148
   %.val36.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %149 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03539.i
+  %149 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03539.i
   store <16 x float> %.val36.i, ptr %149, align 64, !tbaa !53
   %150 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %150, 3
@@ -4570,9 +4565,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03445.i = phi i64 [ 0, %.preheader38.i ], [ %158, %157 ]
   %155 = add nuw nsw i64 %.03445.i, %106
   %156 = mul nsw i64 %155, %110
-  %gep44.i = getelementptr float, ptr %invariant.gep43.i, i64 %156
+  %gep44.i = getelementptr [4 x i8], ptr %invariant.gep43.i, i64 %156
   %.val.i = load <16 x float>, ptr %gep44.i, align 1, !tbaa !53
-  %invariant.gep40.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03445.i
+  %invariant.gep40.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03445.i
   br label %159
 
 157:                                              ; preds = %159
@@ -4582,9 +4577,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 159:                                              ; preds = %159, %154
   %.03242.i = phi i64 [ 0, %154 ], [ %164, %159 ]
-  %160 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03242.i
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03242.i
   %161 = load <16 x float>, ptr %160, align 64, !tbaa !53
-  %gep41.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep40.i, i64 %.03242.i
+  %gep41.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep40.i, i64 %.03242.i
   %162 = load <16 x float>, ptr %gep41.i, align 64, !tbaa !53
   %163 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i, <16 x float> %161, <16 x float> %162)
   store <16 x float> %163, ptr %gep41.i, align 64, !tbaa !53
@@ -4594,10 +4589,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %168
   %.03150.i = phi i64 [ %169, %168 ], [ 0, %.preheader.i.preheader ]
-  %165 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03150.i
+  %165 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03150.i
   %166 = add nsw i64 %.03150.i, %.0101
   %167 = mul nsw i64 %166, %103
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %167
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %167
   br label %170
 
 168:                                              ; preds = %170
@@ -4607,10 +4602,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 170:                                              ; preds = %170, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %175, %170 ]
-  %171 = getelementptr inbounds nuw <16 x float>, ptr %165, i64 %.047.i
+  %171 = getelementptr inbounds nuw [64 x i8], ptr %165, i64 %.047.i
   %172 = load <16 x float>, ptr %171, align 64, !tbaa !53
   %173 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %172)
-  %174 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %174 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %173, ptr %174, align 4, !tbaa !93
   %175 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %175, 4
@@ -4634,7 +4629,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   %.03150.i78 = phi i64 [ 0, %.preheader37.i75 ], [ 1, %181 ]
   %179 = add nsw i64 %.03150.i78, %.1102
   %180 = mul nsw i64 %179, %103
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %180
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %180
   br label %182
 
 181:                                              ; preds = %182
@@ -4642,10 +4637,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 
 182:                                              ; preds = %182, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %187, %182 ]
-  %183 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i78.sroa.phi, i64 %.047.i80
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i78.sroa.phi, i64 %.047.i80
   %184 = load <16 x float>, ptr %183, align 64, !tbaa !53
   %185 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %184)
-  %186 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %186 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %185, ptr %186, align 4, !tbaa !93
   %187 = add nuw nsw i64 %.047.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %187, 4
@@ -4825,7 +4820,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %100 = load i64, ptr %56, align 8
   %101 = load ptr, ptr %57, align 8
   %102 = load i64, ptr %58, align 8
-  %invariant.gep48.i = getelementptr float, ptr %94, i64 %98
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %94, i64 %98
   br i1 %93, label %.lr.ph.i.us, label %.preheader37.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -4839,21 +4834,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader38.i.us.critedge:                       ; preds = %113, %.lr.ph.i.us
   %.03346.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %114, %113 ]
-  %invariant.gep.i.us = getelementptr float, ptr %99, i64 %.03346.i.us
-  %gep.i.us = getelementptr float, ptr %invariant.gep.i.us, i64 %103
+  %invariant.gep.i.us = getelementptr [4 x i8], ptr %99, i64 %.03346.i.us
+  %gep.i.us = getelementptr [4 x i8], ptr %invariant.gep.i.us, i64 %103
   %.val36.i.us = load <16 x float>, ptr %gep.i.us, align 1, !tbaa !53
-  %gep.i.us.c = getelementptr float, ptr %invariant.gep.i.us, i64 %105
+  %gep.i.us.c = getelementptr [4 x i8], ptr %invariant.gep.i.us, i64 %105
   %.val36.i.us.c = load <16 x float>, ptr %gep.i.us.c, align 1, !tbaa !53
-  %invariant.gep43.i.us = getelementptr float, ptr %101, i64 %.03346.i.us
+  %invariant.gep43.i.us = getelementptr [4 x i8], ptr %101, i64 %.03346.i.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader38.i.us.critedge
   %.03445.i.us = phi i64 [ 0, %.preheader38.i.us.critedge ], [ %112, %.critedge ]
   %106 = add nuw nsw i64 %.03445.i.us, %98
   %107 = mul nsw i64 %106, %102
-  %gep44.i.us = getelementptr float, ptr %invariant.gep43.i.us, i64 %107
+  %gep44.i.us = getelementptr [4 x i8], ptr %invariant.gep43.i.us, i64 %107
   %.val.i.us = load <16 x float>, ptr %gep44.i.us, align 1, !tbaa !53
-  %invariant.gep40.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03445.i.us
+  %invariant.gep40.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03445.i.us
   %108 = load <16 x float>, ptr %invariant.gep40.i.us, align 64, !tbaa !53
   %109 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us, <16 x float> %.val36.i.us, <16 x float> %108)
   store <16 x float> %109, ptr %invariant.gep40.i.us, align 64, !tbaa !53
@@ -4876,15 +4871,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03150.i.us = phi i64 [ 1, %125 ], [ 0, %113 ]
   %117 = add nsw i64 %.03150.i.us, %.087.us
   %118 = mul nsw i64 %117, %95
-  %gep49.i.us = getelementptr float, ptr %invariant.gep48.i, i64 %118
+  %gep49.i.us = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %118
   br label %119
 
 119:                                              ; preds = %119, %.preheader.i.us
   %.047.i.us = phi i64 [ 0, %.preheader.i.us ], [ %124, %119 ]
-  %120 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i.sroa.phi.us, i64 %.047.i.us
+  %120 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i.sroa.phi.us, i64 %.047.i.us
   %121 = load <16 x float>, ptr %120, align 64, !tbaa !53
   %122 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %121)
-  %123 = getelementptr float, ptr %gep49.i.us, i64 %.047.i.us
+  %123 = getelementptr [4 x i8], ptr %gep49.i.us, i64 %.047.i.us
   store float %122, ptr %123, align 4, !tbaa !93
   %124 = add nuw nsw i64 %.047.i.us, 1
   %exitcond51.not.i.us = icmp eq i64 %124, 4
@@ -4915,7 +4910,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %134 = load i64, ptr %56, align 8
   %135 = load ptr, ptr %57, align 8
   %136 = load i64, ptr %58, align 8
-  %invariant.gep = getelementptr float, ptr %94, i64 %132
+  %invariant.gep = getelementptr [4 x i8], ptr %94, i64 %132
   br label %149
 
 .preheader37.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
@@ -4930,7 +4925,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03150.i = phi i64 [ 0, %.preheader37.i ], [ 1, %140 ]
   %138 = add nsw i64 %.03150.i, %.087
   %139 = mul nsw i64 %138, %95
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %139
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %139
   br label %141
 
 140:                                              ; preds = %141
@@ -4938,10 +4933,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 141:                                              ; preds = %141, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %146, %141 ]
-  %142 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i.sroa.phi, i64 %.047.i
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i.sroa.phi, i64 %.047.i
   %143 = load <16 x float>, ptr %142, align 64, !tbaa !53
   %144 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %143)
-  %145 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %145 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %144, ptr %145, align 4, !tbaa !93
   %146 = add nuw nsw i64 %.047.i, 1
   %exitcond51.not.i = icmp eq i64 %146, 4
@@ -4961,19 +4956,19 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 .preheader39.lr.ph.i:                             ; preds = %149
   %150 = mul nsw i64 %134, %.188
-  %151 = getelementptr inbounds float, ptr %133, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %133, i64 %150
   br label %.preheader39.i
 
 .preheader39.i:                                   ; preds = %154, %.preheader39.lr.ph.i
   %.03346.i76 = phi i64 [ 0, %.preheader39.lr.ph.i ], [ %155, %154 ]
-  %152 = getelementptr inbounds nuw float, ptr %151, i64 %.03346.i76
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %.03346.i76
   %.val36.le.i = load <16 x float>, ptr %152, align 1, !tbaa !53
-  %invariant.gep.i77 = getelementptr float, ptr %135, i64 %.03346.i76
+  %invariant.gep.i77 = getelementptr [4 x i8], ptr %135, i64 %.03346.i76
   br label %157
 
 .preheader37.i74:                                 ; preds = %154, %149
   %153 = mul nsw i64 %95, %.188
-  %gep = getelementptr float, ptr %invariant.gep, i64 %153
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %153
   br label %163
 
 154:                                              ; preds = %157
@@ -4985,9 +4980,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   %.03445.i78 = phi i64 [ 0, %.preheader39.i ], [ %162, %157 ]
   %158 = add nuw nsw i64 %.03445.i78, %132
   %159 = mul nsw i64 %158, %136
-  %gep.i79 = getelementptr float, ptr %invariant.gep.i77, i64 %159
+  %gep.i79 = getelementptr [4 x i8], ptr %invariant.gep.i77, i64 %159
   %.val.i80 = load <16 x float>, ptr %gep.i79, align 1, !tbaa !53
-  %160 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i78
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i78
   %.promoted.i = load <16 x float>, ptr %160, align 64, !tbaa !53
   %161 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i80, <16 x float> %.val36.le.i, <16 x float> %.promoted.i)
   store <16 x float> %161, ptr %160, align 64, !tbaa !53
@@ -4997,10 +4992,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 163:                                              ; preds = %163, %.preheader37.i74
   %.047.i75 = phi i64 [ 0, %.preheader37.i74 ], [ %168, %163 ]
-  %164 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i75
+  %164 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i75
   %165 = load <16 x float>, ptr %164, align 64, !tbaa !53
   %166 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %165)
-  %167 = getelementptr float, ptr %gep, i64 %.047.i75
+  %167 = getelementptr [4 x i8], ptr %gep, i64 %.047.i75
   store float %166, ptr %167, align 4, !tbaa !93
   %168 = add nuw nsw i64 %.047.i75, 1
   %exitcond48.not.i = icmp eq i64 %168, 4
@@ -5155,7 +5150,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   br label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %88
@@ -5166,7 +5161,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   %85 = load i64, ptr %50, align 8
   %86 = load ptr, ptr %51, align 8
   %87 = load i64, ptr %52, align 8
-  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %83
+  %invariant.gep.us.us = getelementptr [4 x i8], ptr %79, i64 %83
   br label %.preheader39.lr.ph.i.us.us.us
 
 88:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -5177,23 +5172,23 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %89 = mul nsw i64 %85, %.067.us.us.us
-  %90 = getelementptr inbounds float, ptr %84, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %84, i64 %89
   br label %.preheader39.i.us.us.us
 
 .preheader39.i.us.us.us:                          ; preds = %98, %.preheader39.lr.ph.i.us.us.us
   %.03346.i.us.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us.us ], [ %99, %98 ]
-  %91 = getelementptr inbounds nuw float, ptr %90, i64 %.03346.i.us.us.us
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.03346.i.us.us.us
   %.val36.le.i.us.us.us = load <16 x float>, ptr %91, align 1, !tbaa !53
-  %invariant.gep.i.us.us.us = getelementptr float, ptr %86, i64 %.03346.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [4 x i8], ptr %86, i64 %.03346.i.us.us.us
   br label %92
 
 92:                                               ; preds = %92, %.preheader39.i.us.us.us
   %.03445.i.us.us.us = phi i64 [ 0, %.preheader39.i.us.us.us ], [ %97, %92 ]
   %93 = add nuw nsw i64 %.03445.i.us.us.us, %83
   %94 = mul nsw i64 %93, %87
-  %gep.i.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us, i64 %94
+  %gep.i.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.i.us.us.us, i64 %94
   %.val.i.us.us.us = load <16 x float>, ptr %gep.i.us.us.us, align 1, !tbaa !53
-  %95 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i.us.us.us
+  %95 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %95, align 64, !tbaa !53
   %96 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us.us, <16 x float> %.val36.le.i.us.us.us, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %96, ptr %95, align 64, !tbaa !53
@@ -5208,10 +5203,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 101:                                              ; preds = %.preheader37.i.loopexit.us.us.us, %101
   %.047.i.us.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us.us ], [ %106, %101 ]
-  %102 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us.us.us
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i.us.us.us
   %103 = load <16 x float>, ptr %102, align 64, !tbaa !53
   %104 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %103)
-  %105 = getelementptr float, ptr %gep.us.us.us, i64 %.047.i.us.us.us
+  %105 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.047.i.us.us.us
   store float %104, ptr %105, align 4, !tbaa !93
   %106 = add nuw nsw i64 %.047.i.us.us.us, 1
   %exitcond48.not.i.us.us.us = icmp eq i64 %106, 4
@@ -5225,13 +5220,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
 
 .preheader37.i.loopexit.us.us.us:                 ; preds = %98
   %108 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %108
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %108
   br label %101
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %118
   %109 = phi i1 [ false, %118 ], [ true, %.preheader.us.preheader ]
   %.06068.us = phi i64 [ 4, %118 ], [ 0, %.preheader.us.preheader ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.06068.us
   br label %.preheader37.i.us
 
 .preheader37.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
@@ -5239,15 +5234,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %110 = mul nsw i64 %80, %.067.us69
-  %gep.us70 = getelementptr float, ptr %gep, i64 %110
+  %gep.us70 = getelementptr [4 x i8], ptr %gep, i64 %110
   br label %111
 
 111:                                              ; preds = %111, %.preheader37.i.us
   %.047.i.us71 = phi i64 [ 0, %.preheader37.i.us ], [ %116, %111 ]
-  %112 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us71
+  %112 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i.us71
   %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
   %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
-  %115 = getelementptr float, ptr %gep.us70, i64 %.047.i.us71
+  %115 = getelementptr [4 x i8], ptr %gep.us70, i64 %.047.i.us71
   store float %114, ptr %115, align 4, !tbaa !93
   %116 = add nuw nsw i64 %.047.i.us71, 1
   %exitcond48.not.i.us72 = icmp eq i64 %116, 4
@@ -5441,7 +5436,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %102 = icmp sgt i64 %101, 0
   %103 = load ptr, ptr %60, align 8
   %104 = load i64, ptr %61, align 8
-  %invariant.gep46.i = getelementptr float, ptr %103, i64 %64
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %103, i64 %64
   br i1 %100, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -5480,20 +5475,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %117, %123
   %.03344.i = phi i64 [ %124, %123 ], [ 0, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %105, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %105, i64 %.03344.i
   br label %118
 
 .preheader38.i:                                   ; preds = %118
-  %invariant.gep41.i = getelementptr float, ptr %107, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %107, i64 %.03344.i
   br label %126
 
 118:                                              ; preds = %118, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %122, %118 ]
   %119 = add nuw nsw i64 %.03539.i, %64
   %120 = mul nsw i64 %119, %106
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %120
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %120
   %.val.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %121 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %121 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val.i, ptr %121, align 64, !tbaa !53
   %122 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %122, 4
@@ -5509,9 +5504,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %131, %130 ]
   %127 = add nsw i64 %.03443.i, %.099
   %128 = mul nsw i64 %127, %108
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %128
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %128
   %.val36.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %129 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %129 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %132
 
 130:                                              ; preds = %132
@@ -5521,9 +5516,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 132:                                              ; preds = %132, %126
   %.03240.i = phi i64 [ 0, %126 ], [ %138, %132 ]
-  %133 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %133 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %134 = load <16 x float>, ptr %133, align 64, !tbaa !53
-  %135 = getelementptr inbounds nuw <16 x float>, ptr %129, i64 %.03240.i
+  %135 = getelementptr inbounds nuw [64 x i8], ptr %129, i64 %.03240.i
   %136 = load <16 x float>, ptr %135, align 64, !tbaa !53
   %137 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %134, <16 x float> %.val36.i, <16 x float> %136)
   store <16 x float> %137, ptr %135, align 64, !tbaa !53
@@ -5533,10 +5528,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %142
   %.03148.i = phi i64 [ %143, %142 ], [ 0, %.preheader.i.preheader ]
-  %139 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %139 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %140 = add nsw i64 %.03148.i, %.099
   %141 = mul nsw i64 %140, %104
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %141
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %141
   br label %144
 
 142:                                              ; preds = %144
@@ -5546,10 +5541,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 144:                                              ; preds = %144, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %149, %144 ]
-  %145 = getelementptr inbounds nuw <16 x float>, ptr %139, i64 %.045.i
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %.045.i
   %146 = load <16 x float>, ptr %145, align 64, !tbaa !53
   %147 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %146)
-  %148 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %148 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %147, ptr %148, align 4, !tbaa !93
   %149 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %149, 4
@@ -5573,20 +5568,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %152, %158
   %.03344.i84 = phi i64 [ %159, %158 ], [ 0, %152 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr float, ptr %113, i64 %.03344.i84
+  %invariant.gep.i85 = getelementptr [4 x i8], ptr %113, i64 %.03344.i84
   br label %153
 
 .preheader38.i90:                                 ; preds = %153
-  %invariant.gep41.i91 = getelementptr float, ptr %115, i64 %.03344.i84
+  %invariant.gep41.i91 = getelementptr [4 x i8], ptr %115, i64 %.03344.i84
   br label %161
 
 153:                                              ; preds = %153, %.lr.ph.i83
   %.03539.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %157, %153 ]
   %154 = add nuw nsw i64 %.03539.i86, %64
   %155 = mul nsw i64 %154, %114
-  %gep.i87 = getelementptr float, ptr %invariant.gep.i85, i64 %155
+  %gep.i87 = getelementptr [4 x i8], ptr %invariant.gep.i85, i64 %155
   %.val.i88 = load <16 x float>, ptr %gep.i87, align 1, !tbaa !53
-  %156 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i86
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i86
   store <16 x float> %.val.i88, ptr %156, align 64, !tbaa !53
   %157 = add nuw nsw i64 %.03539.i86, 1
   %exitcond.not.i89 = icmp eq i64 %157, 4
@@ -5602,9 +5597,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   %.03443.i92 = phi i64 [ 0, %.preheader38.i90 ], [ %166, %165 ]
   %162 = add nsw i64 %.03443.i92, %.1100
   %163 = mul nsw i64 %162, %116
-  %gep42.i93 = getelementptr float, ptr %invariant.gep41.i91, i64 %163
+  %gep42.i93 = getelementptr [4 x i8], ptr %invariant.gep41.i91, i64 %163
   %.val36.i94 = load <16 x float>, ptr %gep42.i93, align 1, !tbaa !53
-  %164 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03443.i92
+  %164 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03443.i92
   br label %167
 
 165:                                              ; preds = %167
@@ -5614,9 +5609,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 167:                                              ; preds = %167, %161
   %.03240.i95 = phi i64 [ 0, %161 ], [ %173, %167 ]
-  %168 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03240.i95
+  %168 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03240.i95
   %169 = load <16 x float>, ptr %168, align 64, !tbaa !53
-  %170 = getelementptr inbounds nuw <16 x float>, ptr %164, i64 %.03240.i95
+  %170 = getelementptr inbounds nuw [64 x i8], ptr %164, i64 %.03240.i95
   %171 = load <16 x float>, ptr %170, align 64, !tbaa !53
   %172 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %169, <16 x float> %.val36.i94, <16 x float> %171)
   store <16 x float> %172, ptr %170, align 64, !tbaa !53
@@ -5626,10 +5621,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %177
   %.03148.i78 = phi i64 [ %178, %177 ], [ 0, %.preheader.i77.preheader ]
-  %174 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03148.i78
+  %174 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03148.i78
   %175 = add nsw i64 %.03148.i78, %.1100
   %176 = mul nsw i64 %175, %104
-  %gep47.i79 = getelementptr float, ptr %invariant.gep46.i, i64 %176
+  %gep47.i79 = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %176
   br label %179
 
 177:                                              ; preds = %179
@@ -5639,10 +5634,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 179:                                              ; preds = %179, %.preheader.i77
   %.045.i80 = phi i64 [ 0, %.preheader.i77 ], [ %184, %179 ]
-  %180 = getelementptr inbounds nuw <16 x float>, ptr %174, i64 %.045.i80
+  %180 = getelementptr inbounds nuw [64 x i8], ptr %174, i64 %.045.i80
   %181 = load <16 x float>, ptr %180, align 64, !tbaa !53
   %182 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %181)
-  %183 = getelementptr float, ptr %gep47.i79, i64 %.045.i80
+  %183 = getelementptr [4 x i8], ptr %gep47.i79, i64 %.045.i80
   store float %182, ptr %183, align 4, !tbaa !93
   %184 = add nuw nsw i64 %.045.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %184, 4
@@ -5829,7 +5824,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %102 = icmp sgt i64 %101, 0
   %103 = load ptr, ptr %60, align 8
   %104 = load i64, ptr %61, align 8
-  %invariant.gep46.i = getelementptr float, ptr %103, i64 %64
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %103, i64 %64
   br i1 %100, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -5868,20 +5863,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %117, %123
   %.03344.i = phi i64 [ %124, %123 ], [ 0, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %105, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %105, i64 %.03344.i
   br label %118
 
 .preheader38.i:                                   ; preds = %118
-  %invariant.gep41.i = getelementptr float, ptr %107, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %107, i64 %.03344.i
   br label %126
 
 118:                                              ; preds = %118, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %122, %118 ]
   %119 = add nuw nsw i64 %.03539.i, %64
   %120 = mul nsw i64 %119, %106
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %120
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %120
   %.val.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %121 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %121 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val.i, ptr %121, align 64, !tbaa !53
   %122 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %122, 4
@@ -5897,9 +5892,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %131, %130 ]
   %127 = add nsw i64 %.03443.i, %.099
   %128 = mul nsw i64 %127, %108
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %128
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %128
   %.val36.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %129 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %129 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %132
 
 130:                                              ; preds = %132
@@ -5909,9 +5904,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 132:                                              ; preds = %132, %126
   %.03240.i = phi i64 [ 0, %126 ], [ %138, %132 ]
-  %133 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %133 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %134 = load <16 x float>, ptr %133, align 64, !tbaa !53
-  %135 = getelementptr inbounds nuw <16 x float>, ptr %129, i64 %.03240.i
+  %135 = getelementptr inbounds nuw [64 x i8], ptr %129, i64 %.03240.i
   %136 = load <16 x float>, ptr %135, align 64, !tbaa !53
   %137 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %134, <16 x float> %.val36.i, <16 x float> %136)
   store <16 x float> %137, ptr %135, align 64, !tbaa !53
@@ -5921,10 +5916,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %142
   %.03148.i = phi i64 [ %143, %142 ], [ 0, %.preheader.i.preheader ]
-  %139 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %139 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %140 = add nsw i64 %.03148.i, %.099
   %141 = mul nsw i64 %140, %104
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %141
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %141
   br label %144
 
 142:                                              ; preds = %144
@@ -5934,10 +5929,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 144:                                              ; preds = %144, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %149, %144 ]
-  %145 = getelementptr inbounds nuw <16 x float>, ptr %139, i64 %.045.i
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %.045.i
   %146 = load <16 x float>, ptr %145, align 64, !tbaa !53
   %147 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %146)
-  %148 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %148 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %147, ptr %148, align 4, !tbaa !93
   %149 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %149, 4
@@ -5961,20 +5956,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %152, %158
   %.03344.i84 = phi i64 [ %159, %158 ], [ 0, %152 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr float, ptr %113, i64 %.03344.i84
+  %invariant.gep.i85 = getelementptr [4 x i8], ptr %113, i64 %.03344.i84
   br label %153
 
 .preheader38.i90:                                 ; preds = %153
-  %invariant.gep41.i91 = getelementptr float, ptr %115, i64 %.03344.i84
+  %invariant.gep41.i91 = getelementptr [4 x i8], ptr %115, i64 %.03344.i84
   br label %161
 
 153:                                              ; preds = %153, %.lr.ph.i83
   %.03539.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %157, %153 ]
   %154 = add nuw nsw i64 %.03539.i86, %64
   %155 = mul nsw i64 %154, %114
-  %gep.i87 = getelementptr float, ptr %invariant.gep.i85, i64 %155
+  %gep.i87 = getelementptr [4 x i8], ptr %invariant.gep.i85, i64 %155
   %.val36.i88 = load <16 x float>, ptr %gep.i87, align 1, !tbaa !53
-  %156 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i86
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i86
   store <16 x float> %.val36.i88, ptr %156, align 64, !tbaa !53
   %157 = add nuw nsw i64 %.03539.i86, 1
   %exitcond.not.i89 = icmp eq i64 %157, 4
@@ -5990,9 +5985,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   %.03443.i92 = phi i64 [ 0, %.preheader38.i90 ], [ %166, %165 ]
   %162 = add nsw i64 %.03443.i92, %.1100
   %163 = mul nsw i64 %162, %116
-  %gep42.i93 = getelementptr float, ptr %invariant.gep41.i91, i64 %163
+  %gep42.i93 = getelementptr [4 x i8], ptr %invariant.gep41.i91, i64 %163
   %.val.i94 = load <16 x float>, ptr %gep42.i93, align 1, !tbaa !53
-  %164 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03443.i92
+  %164 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03443.i92
   br label %167
 
 165:                                              ; preds = %167
@@ -6002,9 +5997,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 167:                                              ; preds = %167, %161
   %.03240.i95 = phi i64 [ 0, %161 ], [ %173, %167 ]
-  %168 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03240.i95
+  %168 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03240.i95
   %169 = load <16 x float>, ptr %168, align 64, !tbaa !53
-  %170 = getelementptr inbounds nuw <16 x float>, ptr %164, i64 %.03240.i95
+  %170 = getelementptr inbounds nuw [64 x i8], ptr %164, i64 %.03240.i95
   %171 = load <16 x float>, ptr %170, align 64, !tbaa !53
   %172 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %169, <16 x float> %.val.i94, <16 x float> %171)
   store <16 x float> %172, ptr %170, align 64, !tbaa !53
@@ -6014,10 +6009,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %177
   %.03148.i78 = phi i64 [ %178, %177 ], [ 0, %.preheader.i77.preheader ]
-  %174 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03148.i78
+  %174 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03148.i78
   %175 = add nsw i64 %.03148.i78, %.1100
   %176 = mul nsw i64 %175, %104
-  %gep47.i79 = getelementptr float, ptr %invariant.gep46.i, i64 %176
+  %gep47.i79 = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %176
   br label %179
 
 177:                                              ; preds = %179
@@ -6027,10 +6022,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 179:                                              ; preds = %179, %.preheader.i77
   %.045.i80 = phi i64 [ 0, %.preheader.i77 ], [ %184, %179 ]
-  %180 = getelementptr inbounds nuw <16 x float>, ptr %174, i64 %.045.i80
+  %180 = getelementptr inbounds nuw [64 x i8], ptr %174, i64 %.045.i80
   %181 = load <16 x float>, ptr %180, align 64, !tbaa !53
   %182 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %181)
-  %183 = getelementptr float, ptr %gep47.i79, i64 %.045.i80
+  %183 = getelementptr [4 x i8], ptr %gep47.i79, i64 %.045.i80
   store float %182, ptr %183, align 4, !tbaa !93
   %184 = add nuw nsw i64 %.045.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %184, 4
@@ -6217,7 +6212,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %103 = icmp sgt i64 %102, 0
   %104 = load ptr, ptr %61, align 8
   %105 = load i64, ptr %62, align 8
-  %invariant.gep46.i = getelementptr float, ptr %104, i64 %65
+  %invariant.gep46.i = getelementptr [4 x i8], ptr %104, i64 %65
   br i1 %101, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
@@ -6256,20 +6251,20 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %118, %124
   %.03344.i = phi i64 [ %125, %124 ], [ 0, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr float, ptr %106, i64 %.03344.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %106, i64 %.03344.i
   br label %119
 
 .preheader38.i:                                   ; preds = %119
-  %invariant.gep41.i = getelementptr float, ptr %108, i64 %.03344.i
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %108, i64 %.03344.i
   br label %127
 
 119:                                              ; preds = %119, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %123, %119 ]
   %120 = add nuw nsw i64 %.03539.i, %65
   %121 = mul nsw i64 %120, %107
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %121
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %121
   %.val36.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %122 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03539.i
+  %122 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03539.i
   store <16 x float> %.val36.i, ptr %122, align 64, !tbaa !53
   %123 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %123, 4
@@ -6285,9 +6280,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03443.i = phi i64 [ 0, %.preheader38.i ], [ %132, %131 ]
   %128 = add nsw i64 %.03443.i, %.087
   %129 = mul nsw i64 %128, %109
-  %gep42.i = getelementptr float, ptr %invariant.gep41.i, i64 %129
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %129
   %.val.i = load <16 x float>, ptr %gep42.i, align 1, !tbaa !53
-  %130 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03443.i
+  %130 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03443.i
   br label %133
 
 131:                                              ; preds = %133
@@ -6297,9 +6292,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 133:                                              ; preds = %133, %127
   %.03240.i = phi i64 [ 0, %127 ], [ %139, %133 ]
-  %134 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03240.i
+  %134 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03240.i
   %135 = load <16 x float>, ptr %134, align 64, !tbaa !53
-  %136 = getelementptr inbounds nuw <16 x float>, ptr %130, i64 %.03240.i
+  %136 = getelementptr inbounds nuw [64 x i8], ptr %130, i64 %.03240.i
   %137 = load <16 x float>, ptr %136, align 64, !tbaa !53
   %138 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %135, <16 x float> %.val.i, <16 x float> %137)
   store <16 x float> %138, ptr %136, align 64, !tbaa !53
@@ -6309,10 +6304,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %143
   %.03148.i = phi i64 [ %144, %143 ], [ 0, %.preheader.i.preheader ]
-  %140 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03148.i
+  %140 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03148.i
   %141 = add nsw i64 %.03148.i, %.087
   %142 = mul nsw i64 %141, %105
-  %gep47.i = getelementptr float, ptr %invariant.gep46.i, i64 %142
+  %gep47.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %142
   br label %145
 
 143:                                              ; preds = %145
@@ -6322,10 +6317,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 145:                                              ; preds = %145, %.preheader.i
   %.045.i = phi i64 [ 0, %.preheader.i ], [ %150, %145 ]
-  %146 = getelementptr inbounds nuw <16 x float>, ptr %140, i64 %.045.i
+  %146 = getelementptr inbounds nuw [64 x i8], ptr %140, i64 %.045.i
   %147 = load <16 x float>, ptr %146, align 64, !tbaa !53
   %148 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %147)
-  %149 = getelementptr float, ptr %gep47.i, i64 %.045.i
+  %149 = getelementptr [4 x i8], ptr %gep47.i, i64 %.045.i
   store float %148, ptr %149, align 4, !tbaa !93
   %150 = add nuw nsw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %150, 4
@@ -6349,20 +6344,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 .lr.ph.i76:                                       ; preds = %153, %159
   %.03346.i = phi i64 [ %160, %159 ], [ 0, %153 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr float, ptr %114, i64 %.03346.i
+  %invariant.gep.i77 = getelementptr [4 x i8], ptr %114, i64 %.03346.i
   br label %154
 
 .preheader38.i82:                                 ; preds = %154
-  %invariant.gep43.i = getelementptr float, ptr %116, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [4 x i8], ptr %116, i64 %.03346.i
   br label %162
 
 154:                                              ; preds = %154, %.lr.ph.i76
   %.03539.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %158, %154 ]
   %155 = add nsw i64 %.03539.i78, %.188
   %156 = mul nsw i64 %155, %115
-  %gep.i79 = getelementptr float, ptr %invariant.gep.i77, i64 %156
+  %gep.i79 = getelementptr [4 x i8], ptr %invariant.gep.i77, i64 %156
   %.val36.i80 = load <16 x float>, ptr %gep.i79, align 1, !tbaa !53
-  %157 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03539.i78
+  %157 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03539.i78
   store <16 x float> %.val36.i80, ptr %157, align 64, !tbaa !53
   %158 = add nuw nsw i64 %.03539.i78, 1
   %exitcond.not.i81 = icmp eq i64 %158, 3
@@ -6378,9 +6373,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   %.03445.i = phi i64 [ 0, %.preheader38.i82 ], [ %166, %165 ]
   %163 = add nuw nsw i64 %.03445.i, %65
   %164 = mul nsw i64 %163, %117
-  %gep44.i = getelementptr float, ptr %invariant.gep43.i, i64 %164
+  %gep44.i = getelementptr [4 x i8], ptr %invariant.gep43.i, i64 %164
   %.val.i83 = load <16 x float>, ptr %gep44.i, align 1, !tbaa !53
-  %invariant.gep40.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i
+  %invariant.gep40.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i
   br label %167
 
 165:                                              ; preds = %167
@@ -6390,9 +6385,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 167:                                              ; preds = %167, %162
   %.03242.i = phi i64 [ 0, %162 ], [ %172, %167 ]
-  %168 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i
+  %168 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i
   %169 = load <16 x float>, ptr %168, align 64, !tbaa !53
-  %gep41.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep40.i, i64 %.03242.i
+  %gep41.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep40.i, i64 %.03242.i
   %170 = load <16 x float>, ptr %gep41.i, align 64, !tbaa !53
   %171 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i83, <16 x float> %169, <16 x float> %170)
   store <16 x float> %171, ptr %gep41.i, align 64, !tbaa !53
@@ -6402,10 +6397,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %176
   %.03150.i = phi i64 [ %177, %176 ], [ 0, %.preheader.i75.preheader ]
-  %173 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i
+  %173 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i
   %174 = add nsw i64 %.03150.i, %.188
   %175 = mul nsw i64 %174, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep46.i, i64 %175
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep46.i, i64 %175
   br label %178
 
 176:                                              ; preds = %178
@@ -6415,10 +6410,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 178:                                              ; preds = %178, %.preheader.i75
   %.047.i = phi i64 [ 0, %.preheader.i75 ], [ %183, %178 ]
-  %179 = getelementptr inbounds nuw <16 x float>, ptr %173, i64 %.047.i
+  %179 = getelementptr inbounds nuw [64 x i8], ptr %173, i64 %.047.i
   %180 = load <16 x float>, ptr %179, align 64, !tbaa !53
   %181 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %180)
-  %182 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %182 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %181, ptr %182, align 4, !tbaa !93
   %183 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %183, 4
@@ -6605,7 +6600,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %101 = icmp sgt i64 %100, 0
   %102 = load ptr, ptr %59, align 8
   %103 = load i64, ptr %60, align 8
-  %invariant.gep48.i = getelementptr float, ptr %102, i64 %63
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %102, i64 %63
   br i1 %99, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -6643,21 +6638,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader38.i88.us.critedge:                     ; preds = %126, %.lr.ph.i82.us
   %.03346.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %127, %126 ]
-  %invariant.gep.i84.us = getelementptr float, ptr %112, i64 %.03346.i83.us
-  %gep.i86.us = getelementptr float, ptr %invariant.gep.i84.us, i64 %116
+  %invariant.gep.i84.us = getelementptr [4 x i8], ptr %112, i64 %.03346.i83.us
+  %gep.i86.us = getelementptr [4 x i8], ptr %invariant.gep.i84.us, i64 %116
   %.val36.i87.us = load <16 x float>, ptr %gep.i86.us, align 1, !tbaa !53
-  %gep.i86.us.c = getelementptr float, ptr %invariant.gep.i84.us, i64 %118
+  %gep.i86.us.c = getelementptr [4 x i8], ptr %invariant.gep.i84.us, i64 %118
   %.val36.i87.us.c = load <16 x float>, ptr %gep.i86.us.c, align 1, !tbaa !53
-  %invariant.gep43.i89.us = getelementptr float, ptr %114, i64 %.03346.i83.us
+  %invariant.gep43.i89.us = getelementptr [4 x i8], ptr %114, i64 %.03346.i83.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader38.i88.us.critedge
   %.03445.i90.us = phi i64 [ 0, %.preheader38.i88.us.critedge ], [ %125, %.critedge ]
   %119 = add nuw nsw i64 %.03445.i90.us, %63
   %120 = mul nsw i64 %119, %115
-  %gep44.i91.us = getelementptr float, ptr %invariant.gep43.i89.us, i64 %120
+  %gep44.i91.us = getelementptr [4 x i8], ptr %invariant.gep43.i89.us, i64 %120
   %.val.i92.us = load <16 x float>, ptr %gep44.i91.us, align 1, !tbaa !53
-  %invariant.gep40.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i90.us
+  %invariant.gep40.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i90.us
   %121 = load <16 x float>, ptr %invariant.gep40.i93.us, align 64, !tbaa !53
   %122 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i92.us, <16 x float> %.val36.i87.us, <16 x float> %121)
   store <16 x float> %122, ptr %invariant.gep40.i93.us, align 64, !tbaa !53
@@ -6680,15 +6675,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03150.i78.us = phi i64 [ 1, %138 ], [ 0, %126 ]
   %130 = add nsw i64 %.03150.i78.us, %.1102.us
   %131 = mul nsw i64 %130, %103
-  %gep49.i79.us = getelementptr float, ptr %invariant.gep48.i, i64 %131
+  %gep49.i79.us = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %131
   br label %132
 
 132:                                              ; preds = %132, %.preheader.i77.us
   %.047.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %137, %132 ]
-  %133 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i78.sroa.phi.us, i64 %.047.i80.us
+  %133 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i78.sroa.phi.us, i64 %.047.i80.us
   %134 = load <16 x float>, ptr %133, align 64, !tbaa !53
   %135 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %134)
-  %136 = getelementptr float, ptr %gep49.i79.us, i64 %.047.i80.us
+  %136 = getelementptr [4 x i8], ptr %gep49.i79.us, i64 %.047.i80.us
   store float %135, ptr %136, align 4, !tbaa !93
   %137 = add nuw nsw i64 %.047.i80.us, 1
   %exitcond51.not.i81.us = icmp eq i64 %137, 4
@@ -6715,20 +6710,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 .lr.ph.i:                                         ; preds = %141, %147
   %.03346.i = phi i64 [ %148, %147 ], [ 0, %141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr float, ptr %104, i64 %.03346.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %104, i64 %.03346.i
   br label %142
 
 .preheader38.i:                                   ; preds = %142
-  %invariant.gep43.i = getelementptr float, ptr %106, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [4 x i8], ptr %106, i64 %.03346.i
   br label %150
 
 142:                                              ; preds = %142, %.lr.ph.i
   %.03539.i = phi i64 [ 0, %.lr.ph.i ], [ %146, %142 ]
   %143 = add nsw i64 %.03539.i, %.0101
   %144 = mul nsw i64 %143, %105
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %144
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %144
   %.val36.i = load <16 x float>, ptr %gep.i, align 1, !tbaa !53
-  %145 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03539.i
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03539.i
   store <16 x float> %.val36.i, ptr %145, align 64, !tbaa !53
   %146 = add nuw nsw i64 %.03539.i, 1
   %exitcond.not.i = icmp eq i64 %146, 3
@@ -6744,9 +6739,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03445.i = phi i64 [ 0, %.preheader38.i ], [ %154, %153 ]
   %151 = add nuw nsw i64 %.03445.i, %63
   %152 = mul nsw i64 %151, %107
-  %gep44.i = getelementptr float, ptr %invariant.gep43.i, i64 %152
+  %gep44.i = getelementptr [4 x i8], ptr %invariant.gep43.i, i64 %152
   %.val.i = load <16 x float>, ptr %gep44.i, align 1, !tbaa !53
-  %invariant.gep40.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03445.i
+  %invariant.gep40.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03445.i
   br label %155
 
 153:                                              ; preds = %155
@@ -6756,9 +6751,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 155:                                              ; preds = %155, %150
   %.03242.i = phi i64 [ 0, %150 ], [ %160, %155 ]
-  %156 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03242.i
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03242.i
   %157 = load <16 x float>, ptr %156, align 64, !tbaa !53
-  %gep41.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep40.i, i64 %.03242.i
+  %gep41.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep40.i, i64 %.03242.i
   %158 = load <16 x float>, ptr %gep41.i, align 64, !tbaa !53
   %159 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i, <16 x float> %157, <16 x float> %158)
   store <16 x float> %159, ptr %gep41.i, align 64, !tbaa !53
@@ -6768,10 +6763,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %164
   %.03150.i = phi i64 [ %165, %164 ], [ 0, %.preheader.i.preheader ]
-  %161 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03150.i
+  %161 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03150.i
   %162 = add nsw i64 %.03150.i, %.0101
   %163 = mul nsw i64 %162, %103
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %163
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %163
   br label %166
 
 164:                                              ; preds = %166
@@ -6781,10 +6776,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 166:                                              ; preds = %166, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %171, %166 ]
-  %167 = getelementptr inbounds nuw <16 x float>, ptr %161, i64 %.047.i
+  %167 = getelementptr inbounds nuw [64 x i8], ptr %161, i64 %.047.i
   %168 = load <16 x float>, ptr %167, align 64, !tbaa !53
   %169 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %168)
-  %170 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %170 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %169, ptr %170, align 4, !tbaa !93
   %171 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %171, 4
@@ -6808,7 +6803,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   %.03150.i78 = phi i64 [ 0, %.preheader37.i75 ], [ 1, %177 ]
   %175 = add nsw i64 %.03150.i78, %.1102
   %176 = mul nsw i64 %175, %103
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i, i64 %176
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %176
   br label %178
 
 177:                                              ; preds = %178
@@ -6816,10 +6811,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 
 178:                                              ; preds = %178, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %183, %178 ]
-  %179 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i78.sroa.phi, i64 %.047.i80
+  %179 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i78.sroa.phi, i64 %.047.i80
   %180 = load <16 x float>, ptr %179, align 64, !tbaa !53
   %181 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %180)
-  %182 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %182 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %181, ptr %182, align 4, !tbaa !93
   %183 = add nuw nsw i64 %.047.i80, 1
   %exitcond51.not.i81 = icmp eq i64 %183, 4
@@ -6983,7 +6978,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %93 = icmp sgt i64 %92, 0
   %94 = load ptr, ptr %59, align 8
   %95 = load i64, ptr %60, align 8
-  %invariant.gep48.i = getelementptr float, ptr %94, i64 %63
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %94, i64 %63
   br i1 %91, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
@@ -7004,21 +6999,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader38.i.us.critedge:                       ; preds = %110, %.lr.ph.i.us
   %.03346.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %111, %110 ]
-  %invariant.gep.i.us = getelementptr float, ptr %96, i64 %.03346.i.us
-  %gep.i.us = getelementptr float, ptr %invariant.gep.i.us, i64 %100
+  %invariant.gep.i.us = getelementptr [4 x i8], ptr %96, i64 %.03346.i.us
+  %gep.i.us = getelementptr [4 x i8], ptr %invariant.gep.i.us, i64 %100
   %.val36.i.us = load <16 x float>, ptr %gep.i.us, align 1, !tbaa !53
-  %gep.i.us.c = getelementptr float, ptr %invariant.gep.i.us, i64 %102
+  %gep.i.us.c = getelementptr [4 x i8], ptr %invariant.gep.i.us, i64 %102
   %.val36.i.us.c = load <16 x float>, ptr %gep.i.us.c, align 1, !tbaa !53
-  %invariant.gep43.i.us = getelementptr float, ptr %98, i64 %.03346.i.us
+  %invariant.gep43.i.us = getelementptr [4 x i8], ptr %98, i64 %.03346.i.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader38.i.us.critedge
   %.03445.i.us = phi i64 [ 0, %.preheader38.i.us.critedge ], [ %109, %.critedge ]
   %103 = add nuw nsw i64 %.03445.i.us, %63
   %104 = mul nsw i64 %103, %99
-  %gep44.i.us = getelementptr float, ptr %invariant.gep43.i.us, i64 %104
+  %gep44.i.us = getelementptr [4 x i8], ptr %invariant.gep43.i.us, i64 %104
   %.val.i.us = load <16 x float>, ptr %gep44.i.us, align 1, !tbaa !53
-  %invariant.gep40.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03445.i.us
+  %invariant.gep40.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03445.i.us
   %105 = load <16 x float>, ptr %invariant.gep40.i.us, align 64, !tbaa !53
   %106 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us, <16 x float> %.val36.i.us, <16 x float> %105)
   store <16 x float> %106, ptr %invariant.gep40.i.us, align 64, !tbaa !53
@@ -7041,15 +7036,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03150.i.us = phi i64 [ 1, %122 ], [ 0, %110 ]
   %114 = add nsw i64 %.03150.i.us, %.087.us
   %115 = mul nsw i64 %114, %95
-  %gep49.i.us = getelementptr float, ptr %invariant.gep48.i, i64 %115
+  %gep49.i.us = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %115
   br label %116
 
 116:                                              ; preds = %116, %.preheader.i.us
   %.047.i.us = phi i64 [ 0, %.preheader.i.us ], [ %121, %116 ]
-  %117 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i.sroa.phi.us, i64 %.047.i.us
+  %117 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i.sroa.phi.us, i64 %.047.i.us
   %118 = load <16 x float>, ptr %117, align 64, !tbaa !53
   %119 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %118)
-  %120 = getelementptr float, ptr %gep49.i.us, i64 %.047.i.us
+  %120 = getelementptr [4 x i8], ptr %gep49.i.us, i64 %.047.i.us
   store float %119, ptr %120, align 4, !tbaa !93
   %121 = add nuw nsw i64 %.047.i.us, 1
   %exitcond51.not.i.us = icmp eq i64 %121, 4
@@ -7093,7 +7088,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03150.i = phi i64 [ 0, %.preheader37.i ], [ 1, %136 ]
   %134 = add nsw i64 %.03150.i, %.087
   %135 = mul nsw i64 %134, %95
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %135
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %135
   br label %137
 
 136:                                              ; preds = %137
@@ -7101,10 +7096,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 137:                                              ; preds = %137, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %142, %137 ]
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %.03150.i.sroa.phi, i64 %.047.i
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %.03150.i.sroa.phi, i64 %.047.i
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
   %140 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %139)
-  %141 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %141 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %140, ptr %141, align 4, !tbaa !93
   %142 = add nuw nsw i64 %.047.i, 1
   %exitcond51.not.i = icmp eq i64 %142, 4
@@ -7124,19 +7119,19 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 .preheader39.lr.ph.i:                             ; preds = %145
   %146 = mul nsw i64 %130, %.188
-  %147 = getelementptr inbounds float, ptr %129, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %129, i64 %146
   br label %.preheader39.i
 
 .preheader39.i:                                   ; preds = %150, %.preheader39.lr.ph.i
   %.03346.i76 = phi i64 [ 0, %.preheader39.lr.ph.i ], [ %151, %150 ]
-  %148 = getelementptr inbounds nuw float, ptr %147, i64 %.03346.i76
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %.03346.i76
   %.val36.le.i = load <16 x float>, ptr %148, align 1, !tbaa !53
-  %invariant.gep.i77 = getelementptr float, ptr %131, i64 %.03346.i76
+  %invariant.gep.i77 = getelementptr [4 x i8], ptr %131, i64 %.03346.i76
   br label %153
 
 .preheader37.i74:                                 ; preds = %150, %145
   %149 = mul nsw i64 %95, %.188
-  %gep = getelementptr float, ptr %invariant.gep48.i, i64 %149
+  %gep = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %149
   br label %159
 
 150:                                              ; preds = %153
@@ -7148,9 +7143,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   %.03445.i78 = phi i64 [ 0, %.preheader39.i ], [ %158, %153 ]
   %154 = add nuw nsw i64 %.03445.i78, %63
   %155 = mul nsw i64 %154, %132
-  %gep.i79 = getelementptr float, ptr %invariant.gep.i77, i64 %155
+  %gep.i79 = getelementptr [4 x i8], ptr %invariant.gep.i77, i64 %155
   %.val.i80 = load <16 x float>, ptr %gep.i79, align 1, !tbaa !53
-  %156 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i78
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i78
   %.promoted.i = load <16 x float>, ptr %156, align 64, !tbaa !53
   %157 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i80, <16 x float> %.val36.le.i, <16 x float> %.promoted.i)
   store <16 x float> %157, ptr %156, align 64, !tbaa !53
@@ -7160,10 +7155,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 159:                                              ; preds = %159, %.preheader37.i74
   %.047.i75 = phi i64 [ 0, %.preheader37.i74 ], [ %164, %159 ]
-  %160 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i75
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i75
   %161 = load <16 x float>, ptr %160, align 64, !tbaa !53
   %162 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %161)
-  %163 = getelementptr float, ptr %gep, i64 %.047.i75
+  %163 = getelementptr [4 x i8], ptr %gep, i64 %.047.i75
   store float %162, ptr %163, align 4, !tbaa !93
   %164 = add nuw nsw i64 %.047.i75, 1
   %exitcond48.not.i = icmp eq i64 %164, 4
@@ -7312,7 +7307,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   %.fr = freeze i1 %77
   br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
@@ -7332,23 +7327,23 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %86 = mul nsw i64 %83, %.067.us.us.us
-  %87 = getelementptr inbounds float, ptr %82, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %82, i64 %86
   br label %.preheader39.i.us.us.us
 
 .preheader39.i.us.us.us:                          ; preds = %95, %.preheader39.lr.ph.i.us.us.us
   %.03346.i.us.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us.us ], [ %96, %95 ]
-  %88 = getelementptr inbounds nuw float, ptr %87, i64 %.03346.i.us.us.us
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %.03346.i.us.us.us
   %.val36.le.i.us.us.us = load <16 x float>, ptr %88, align 1, !tbaa !53
-  %invariant.gep.i.us.us.us = getelementptr float, ptr %84, i64 %.03346.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [4 x i8], ptr %84, i64 %.03346.i.us.us.us
   br label %89
 
 89:                                               ; preds = %89, %.preheader39.i.us.us.us
   %.03445.i.us.us.us = phi i64 [ 0, %.preheader39.i.us.us.us ], [ %94, %89 ]
   %90 = add nuw nsw i64 %.03445.i.us.us.us, %57
   %91 = mul nsw i64 %90, %85
-  %gep.i.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us, i64 %91
+  %gep.i.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.i.us.us.us, i64 %91
   %.val.i.us.us.us = load <16 x float>, ptr %gep.i.us.us.us, align 1, !tbaa !53
-  %92 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03445.i.us.us.us
+  %92 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03445.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %92, align 64, !tbaa !53
   %93 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us.us, <16 x float> %.val36.le.i.us.us.us, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %93, ptr %92, align 64, !tbaa !53
@@ -7363,10 +7358,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 98:                                               ; preds = %.preheader37.i.loopexit.us.us.us, %98
   %.047.i.us.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us.us ], [ %103, %98 ]
-  %99 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us.us.us
+  %99 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i.us.us.us
   %100 = load <16 x float>, ptr %99, align 64, !tbaa !53
   %101 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %100)
-  %102 = getelementptr float, ptr %gep.us.us.us, i64 %.047.i.us.us.us
+  %102 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.047.i.us.us.us
   store float %101, ptr %102, align 4, !tbaa !93
   %103 = add nuw nsw i64 %.047.i.us.us.us, 1
   %exitcond48.not.i.us.us.us = icmp eq i64 %103, 4
@@ -7380,7 +7375,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
 
 .preheader37.i.loopexit.us.us.us:                 ; preds = %95
   %106 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %106
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep, i64 %106
   br label %98
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -7392,15 +7387,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %108 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %108
+  %gep.us69 = getelementptr [4 x i8], ptr %invariant.gep, i64 %108
   br label %109
 
 109:                                              ; preds = %109, %.preheader37.i.us
   %.047.i.us70 = phi i64 [ 0, %.preheader37.i.us ], [ %114, %109 ]
-  %110 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us70
+  %110 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.047.i.us70
   %111 = load <16 x float>, ptr %110, align 64, !tbaa !53
   %112 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %111)
-  %113 = getelementptr float, ptr %gep.us69, i64 %.047.i.us70
+  %113 = getelementptr [4 x i8], ptr %gep.us69, i64 %.047.i.us70
   store float %112, ptr %113, align 4, !tbaa !93
   %114 = add nuw nsw i64 %.047.i.us70, 1
   %exitcond48.not.i.us71 = icmp eq i64 %114, 4
@@ -7613,7 +7608,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %110 = load i64, ptr %57, align 8
   %111 = load ptr, ptr %58, align 8
   %112 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %108
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %108
   br label %122
 
 113:                                              ; preds = %105
@@ -7632,7 +7627,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %119 = load i64, ptr %57, align 8
   %120 = load ptr, ptr %58, align 8
   %121 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %117
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %117
   br label %162
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit
@@ -7647,22 +7642,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %122, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %109, i64 %.03346.i
   br label %123
 
 .preheader40.i:                                   ; preds = %123
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %111, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %111, i64 %.03346.i
   br label %133
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %129, %123 ]
   %124 = add nuw nsw i64 %.03541.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %125
   %.val38.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %126 = zext <16 x i16> %.val38.i to <16 x i32>
   %127 = shl nuw <16 x i32> %126, splat (i32 16)
-  %128 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
@@ -7678,12 +7673,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %141, %140 ]
   %134 = add nsw i64 %.03445.i, %.099
   %135 = mul nsw i64 %134, %112
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %135
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %135
   %.val3637.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %136 = zext <16 x i16> %.val3637.i to <16 x i32>
   %137 = shl nuw <16 x i32> %136, splat (i32 16)
   %138 = bitcast <16 x i32> %137 to <16 x float>
-  %139 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %139 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %142
 
 140:                                              ; preds = %142
@@ -7693,9 +7688,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 142:                                              ; preds = %142, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %148, %142 ]
-  %143 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %143 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %144 = load <16 x float>, ptr %143, align 64, !tbaa !53
-  %145 = getelementptr inbounds nuw <16 x float>, ptr %139, i64 %.03242.i
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %.03242.i
   %146 = load <16 x float>, ptr %145, align 64, !tbaa !53
   %147 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %144, <16 x float> %138, <16 x float> %146)
   store <16 x float> %147, ptr %145, align 64, !tbaa !53
@@ -7705,10 +7700,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %152
   %.03150.i = phi i64 [ %153, %152 ], [ 0, %.preheader.i.preheader ]
-  %149 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %149 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %150 = add nsw i64 %.03150.i, %.099
   %151 = mul nsw i64 %150, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %151
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %151
   br label %154
 
 152:                                              ; preds = %154
@@ -7718,10 +7713,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 154:                                              ; preds = %154, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %159, %154 ]
-  %155 = getelementptr inbounds nuw <16 x float>, ptr %149, i64 %.047.i
+  %155 = getelementptr inbounds nuw [64 x i8], ptr %149, i64 %.047.i
   %156 = load <16 x float>, ptr %155, align 64, !tbaa !53
   %157 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %156)
-  %158 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %158 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %159, 4
@@ -7745,22 +7740,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 .lr.ph.i83:                                       ; preds = %162, %170
   %.03346.i84 = phi i64 [ %171, %170 ], [ 0, %162 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %118, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %118, i64 %.03346.i84
   br label %163
 
 .preheader40.i90:                                 ; preds = %163
-  %invariant.gep43.i91 = getelementptr %struct.ggml_bf16_t, ptr %120, i64 %.03346.i84
+  %invariant.gep43.i91 = getelementptr [2 x i8], ptr %120, i64 %.03346.i84
   br label %173
 
 163:                                              ; preds = %163, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %169, %163 ]
   %164 = add nuw nsw i64 %.03541.i86, %117
   %165 = mul nsw i64 %164, %119
-  %gep.i87 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i85, i64 %165
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %165
   %.val38.i88 = load <16 x i16>, ptr %gep.i87, align 1, !tbaa !53
   %166 = zext <16 x i16> %.val38.i88 to <16 x i32>
   %167 = shl nuw <16 x i32> %166, splat (i32 16)
-  %168 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %168 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x i32> %167, ptr %168, align 64, !tbaa !53
   %169 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %169, 4
@@ -7776,12 +7771,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %181, %180 ]
   %174 = add nsw i64 %.03445.i92, %.1100
   %175 = mul nsw i64 %174, %121
-  %gep44.i93 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i91, i64 %175
+  %gep44.i93 = getelementptr [2 x i8], ptr %invariant.gep43.i91, i64 %175
   %.val3637.i94 = load <16 x i16>, ptr %gep44.i93, align 1, !tbaa !53
   %176 = zext <16 x i16> %.val3637.i94 to <16 x i32>
   %177 = shl nuw <16 x i32> %176, splat (i32 16)
   %178 = bitcast <16 x i32> %177 to <16 x float>
-  %179 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i92
+  %179 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i92
   br label %182
 
 180:                                              ; preds = %182
@@ -7791,9 +7786,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 182:                                              ; preds = %182, %173
   %.03242.i95 = phi i64 [ 0, %173 ], [ %188, %182 ]
-  %183 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i95
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i95
   %184 = load <16 x float>, ptr %183, align 64, !tbaa !53
-  %185 = getelementptr inbounds nuw <16 x float>, ptr %179, i64 %.03242.i95
+  %185 = getelementptr inbounds nuw [64 x i8], ptr %179, i64 %.03242.i95
   %186 = load <16 x float>, ptr %185, align 64, !tbaa !53
   %187 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %184, <16 x float> %178, <16 x float> %186)
   store <16 x float> %187, ptr %185, align 64, !tbaa !53
@@ -7803,10 +7798,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %192
   %.03150.i78 = phi i64 [ %193, %192 ], [ 0, %.preheader.i77.preheader ]
-  %189 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %189 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %190 = add nsw i64 %.03150.i78, %.1100
   %191 = mul nsw i64 %190, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %191
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %191
   br label %194
 
 192:                                              ; preds = %194
@@ -7816,10 +7811,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 194:                                              ; preds = %194, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %199, %194 ]
-  %195 = getelementptr inbounds nuw <16 x float>, ptr %189, i64 %.047.i80
+  %195 = getelementptr inbounds nuw [64 x i8], ptr %189, i64 %.047.i80
   %196 = load <16 x float>, ptr %195, align 64, !tbaa !53
   %197 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %196)
-  %198 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %198 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %199, 4
@@ -8023,7 +8018,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %110 = load i64, ptr %57, align 8
   %111 = load ptr, ptr %58, align 8
   %112 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %108
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %108
   br label %122
 
 113:                                              ; preds = %105
@@ -8042,7 +8037,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %119 = load i64, ptr %57, align 8
   %120 = load ptr, ptr %58, align 8
   %121 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %117
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %117
   br label %162
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
@@ -8057,22 +8052,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %122, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %109, i64 %.03346.i
   br label %123
 
 .preheader40.i:                                   ; preds = %123
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %111, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %111, i64 %.03346.i
   br label %133
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %129, %123 ]
   %124 = add nuw nsw i64 %.03541.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %125
   %.val38.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %126 = zext <16 x i16> %.val38.i to <16 x i32>
   %127 = shl nuw <16 x i32> %126, splat (i32 16)
-  %128 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
@@ -8088,12 +8083,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %141, %140 ]
   %134 = add nsw i64 %.03445.i, %.097
   %135 = mul nsw i64 %134, %112
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %135
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %135
   %.val3637.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %136 = zext <16 x i16> %.val3637.i to <16 x i32>
   %137 = shl nuw <16 x i32> %136, splat (i32 16)
   %138 = bitcast <16 x i32> %137 to <16 x float>
-  %139 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %139 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %142
 
 140:                                              ; preds = %142
@@ -8103,9 +8098,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 142:                                              ; preds = %142, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %148, %142 ]
-  %143 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %143 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %144 = load <16 x float>, ptr %143, align 64, !tbaa !53
-  %145 = getelementptr inbounds nuw <16 x float>, ptr %139, i64 %.03242.i
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %.03242.i
   %146 = load <16 x float>, ptr %145, align 64, !tbaa !53
   %147 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %144, <16 x float> %138, <16 x float> %146)
   store <16 x float> %147, ptr %145, align 64, !tbaa !53
@@ -8115,10 +8110,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %152
   %.03150.i = phi i64 [ %153, %152 ], [ 0, %.preheader.i.preheader ]
-  %149 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %149 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %150 = add nsw i64 %.03150.i, %.097
   %151 = mul nsw i64 %150, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %151
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %151
   br label %154
 
 152:                                              ; preds = %154
@@ -8128,10 +8123,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 154:                                              ; preds = %154, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %159, %154 ]
-  %155 = getelementptr inbounds nuw <16 x float>, ptr %149, i64 %.047.i
+  %155 = getelementptr inbounds nuw [64 x i8], ptr %149, i64 %.047.i
   %156 = load <16 x float>, ptr %155, align 64, !tbaa !53
   %157 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %156)
-  %158 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %158 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %159, 4
@@ -8155,22 +8150,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 .lr.ph.i83:                                       ; preds = %162, %170
   %.03346.i84 = phi i64 [ %171, %170 ], [ 0, %162 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %118, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %118, i64 %.03346.i84
   br label %163
 
 .preheader40.i89:                                 ; preds = %163
-  %invariant.gep43.i90 = getelementptr %struct.ggml_bf16_t, ptr %120, i64 %.03346.i84
+  %invariant.gep43.i90 = getelementptr [2 x i8], ptr %120, i64 %.03346.i84
   br label %173
 
 163:                                              ; preds = %163, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %169, %163 ]
   %164 = add nuw nsw i64 %.03541.i86, %117
   %165 = mul nsw i64 %164, %119
-  %gep.i87 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i85, i64 %165
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %165
   %.val3638.i = load <16 x i16>, ptr %gep.i87, align 1, !tbaa !53
   %166 = zext <16 x i16> %.val3638.i to <16 x i32>
   %167 = shl nuw <16 x i32> %166, splat (i32 16)
-  %168 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %168 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x i32> %167, ptr %168, align 64, !tbaa !53
   %169 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %169, 4
@@ -8186,12 +8181,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %181, %180 ]
   %174 = add nsw i64 %.03445.i91, %.198
   %175 = mul nsw i64 %174, %121
-  %gep44.i92 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i90, i64 %175
+  %gep44.i92 = getelementptr [2 x i8], ptr %invariant.gep43.i90, i64 %175
   %.val37.i = load <16 x i16>, ptr %gep44.i92, align 1, !tbaa !53
   %176 = zext <16 x i16> %.val37.i to <16 x i32>
   %177 = shl nuw <16 x i32> %176, splat (i32 16)
   %178 = bitcast <16 x i32> %177 to <16 x float>
-  %179 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i91
+  %179 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i91
   br label %182
 
 180:                                              ; preds = %182
@@ -8201,9 +8196,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 182:                                              ; preds = %182, %173
   %.03242.i93 = phi i64 [ 0, %173 ], [ %188, %182 ]
-  %183 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i93
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i93
   %184 = load <16 x float>, ptr %183, align 64, !tbaa !53
-  %185 = getelementptr inbounds nuw <16 x float>, ptr %179, i64 %.03242.i93
+  %185 = getelementptr inbounds nuw [64 x i8], ptr %179, i64 %.03242.i93
   %186 = load <16 x float>, ptr %185, align 64, !tbaa !53
   %187 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %184, <16 x float> %178, <16 x float> %186)
   store <16 x float> %187, ptr %185, align 64, !tbaa !53
@@ -8213,10 +8208,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %192
   %.03150.i78 = phi i64 [ %193, %192 ], [ 0, %.preheader.i77.preheader ]
-  %189 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %189 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %190 = add nsw i64 %.03150.i78, %.198
   %191 = mul nsw i64 %190, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %191
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %191
   br label %194
 
 192:                                              ; preds = %194
@@ -8226,10 +8221,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 194:                                              ; preds = %194, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %199, %194 ]
-  %195 = getelementptr inbounds nuw <16 x float>, ptr %189, i64 %.047.i80
+  %195 = getelementptr inbounds nuw [64 x i8], ptr %189, i64 %.047.i80
   %196 = load <16 x float>, ptr %195, align 64, !tbaa !53
   %197 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %196)
-  %198 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %198 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %199, 4
@@ -8433,7 +8428,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %111 = load i64, ptr %58, align 8
   %112 = load ptr, ptr %59, align 8
   %113 = load i64, ptr %60, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %109
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %109
   br label %123
 
 114:                                              ; preds = %106
@@ -8452,7 +8447,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %120 = load i64, ptr %60, align 8
   %121 = load ptr, ptr %57, align 8
   %122 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %104, i64 %118
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %104, i64 %118
   br label %163
 
 123:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
@@ -8467,22 +8462,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %123, %131
   %.03346.i = phi i64 [ %132, %131 ], [ 0, %123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %110, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %110, i64 %.03346.i
   br label %124
 
 .preheader40.i:                                   ; preds = %124
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %112, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %112, i64 %.03346.i
   br label %134
 
 124:                                              ; preds = %124, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %130, %124 ]
   %125 = add nuw nsw i64 %.03541.i, %109
   %126 = mul nsw i64 %125, %111
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %126
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %126
   %.val3638.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %127 = zext <16 x i16> %.val3638.i to <16 x i32>
   %128 = shl nuw <16 x i32> %127, splat (i32 16)
-  %129 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %129 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %128, ptr %129, align 64, !tbaa !53
   %130 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %130, 4
@@ -8498,12 +8493,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %142, %141 ]
   %135 = add nsw i64 %.03445.i, %.087
   %136 = mul nsw i64 %135, %113
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %136
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %136
   %.val37.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %137 = zext <16 x i16> %.val37.i to <16 x i32>
   %138 = shl nuw <16 x i32> %137, splat (i32 16)
   %139 = bitcast <16 x i32> %138 to <16 x float>
-  %140 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %140 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %143
 
 141:                                              ; preds = %143
@@ -8513,9 +8508,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 143:                                              ; preds = %143, %134
   %.03242.i = phi i64 [ 0, %134 ], [ %149, %143 ]
-  %144 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %144 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %145 = load <16 x float>, ptr %144, align 64, !tbaa !53
-  %146 = getelementptr inbounds nuw <16 x float>, ptr %140, i64 %.03242.i
+  %146 = getelementptr inbounds nuw [64 x i8], ptr %140, i64 %.03242.i
   %147 = load <16 x float>, ptr %146, align 64, !tbaa !53
   %148 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %145, <16 x float> %139, <16 x float> %147)
   store <16 x float> %148, ptr %146, align 64, !tbaa !53
@@ -8525,10 +8520,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %153
   %.03150.i = phi i64 [ %154, %153 ], [ 0, %.preheader.i.preheader ]
-  %150 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %150 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %151 = add nsw i64 %.03150.i, %.087
   %152 = mul nsw i64 %151, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %152
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %152
   br label %155
 
 153:                                              ; preds = %155
@@ -8538,10 +8533,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 155:                                              ; preds = %155, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %160, %155 ]
-  %156 = getelementptr inbounds nuw <16 x float>, ptr %150, i64 %.047.i
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %150, i64 %.047.i
   %157 = load <16 x float>, ptr %156, align 64, !tbaa !53
   %158 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %157)
-  %159 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %159 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %158, ptr %159, align 4, !tbaa !93
   %160 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %160, 4
@@ -8565,22 +8560,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 .lr.ph.i76:                                       ; preds = %163, %171
   %.03348.i = phi i64 [ %172, %171 ], [ 0, %163 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr %struct.ggml_bf16_t, ptr %119, i64 %.03348.i
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %119, i64 %.03348.i
   br label %164
 
 .preheader40.i82:                                 ; preds = %164
-  %invariant.gep45.i = getelementptr %struct.ggml_bf16_t, ptr %121, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %121, i64 %.03348.i
   br label %174
 
 164:                                              ; preds = %164, %.lr.ph.i76
   %.03541.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %170, %164 ]
   %165 = add nsw i64 %.03541.i78, %.188
   %166 = mul nsw i64 %165, %120
-  %gep.i79 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i77, i64 %166
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %166
   %.val3638.i80 = load <16 x i16>, ptr %gep.i79, align 1, !tbaa !53
   %167 = zext <16 x i16> %.val3638.i80 to <16 x i32>
   %168 = shl nuw <16 x i32> %167, splat (i32 16)
-  %169 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i78
+  %169 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i78
   store <16 x i32> %168, ptr %169, align 64, !tbaa !53
   %170 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %170, 3
@@ -8596,12 +8591,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %181, %180 ]
   %175 = add nuw nsw i64 %.03447.i, %118
   %176 = mul nsw i64 %175, %122
-  %gep46.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i, i64 %176
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %176
   %.val37.i83 = load <16 x i16>, ptr %gep46.i, align 1, !tbaa !53
   %177 = zext <16 x i16> %.val37.i83 to <16 x i32>
   %178 = shl nuw <16 x i32> %177, splat (i32 16)
   %179 = bitcast <16 x i32> %178 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i
   br label %182
 
 180:                                              ; preds = %182
@@ -8611,9 +8606,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 182:                                              ; preds = %182, %174
   %.03244.i = phi i64 [ 0, %174 ], [ %187, %182 ]
-  %183 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03244.i
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03244.i
   %184 = load <16 x float>, ptr %183, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %185 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %186 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %179, <16 x float> %184, <16 x float> %185)
   store <16 x float> %186, ptr %gep43.i, align 64, !tbaa !53
@@ -8623,10 +8618,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %191
   %.03152.i = phi i64 [ %192, %191 ], [ 0, %.preheader.i75.preheader ]
-  %188 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03152.i
+  %188 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03152.i
   %189 = add nsw i64 %.03152.i, %.188
   %190 = mul nsw i64 %189, %105
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %190
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %190
   br label %193
 
 191:                                              ; preds = %193
@@ -8636,10 +8631,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 193:                                              ; preds = %193, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %198, %193 ]
-  %194 = getelementptr inbounds nuw <16 x float>, ptr %188, i64 %.049.i
+  %194 = getelementptr inbounds nuw [64 x i8], ptr %188, i64 %.049.i
   %195 = load <16 x float>, ptr %194, align 64, !tbaa !53
   %196 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %195)
-  %197 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %197 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %196, ptr %197, align 4, !tbaa !93
   %198 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %198, 4
@@ -8843,7 +8838,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %109 = load i64, ptr %56, align 8
   %110 = load ptr, ptr %57, align 8
   %111 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %102, i64 %107
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %102, i64 %107
   br label %155
 
 112:                                              ; preds = %104
@@ -8862,7 +8857,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %118 = load i64, ptr %56, align 8
   %119 = load ptr, ptr %57, align 8
   %120 = load i64, ptr %58, align 8
-  %invariant.gep50.i76 = getelementptr float, ptr %102, i64 %116
+  %invariant.gep50.i76 = getelementptr [4 x i8], ptr %102, i64 %116
   br i1 %101, label %.lr.ph.i82.us, label %.preheader39.i75
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -8876,16 +8871,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader40.i88.us.critedge:                     ; preds = %140, %.lr.ph.i82.us
   %.03348.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %141, %140 ]
-  %invariant.gep.i84.us = getelementptr %struct.ggml_bf16_t, ptr %117, i64 %.03348.i83.us
-  %gep.i86.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i84.us, i64 %121
+  %invariant.gep.i84.us = getelementptr [2 x i8], ptr %117, i64 %.03348.i83.us
+  %gep.i86.us = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %121
   %.val3638.i87.us = load <16 x i16>, ptr %gep.i86.us, align 1, !tbaa !53
   %124 = zext <16 x i16> %.val3638.i87.us to <16 x i32>
   %125 = shl nuw <16 x i32> %124, splat (i32 16)
-  %gep.i86.us.c = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i84.us, i64 %123
+  %gep.i86.us.c = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %123
   %.val3638.i87.us.c = load <16 x i16>, ptr %gep.i86.us.c, align 1, !tbaa !53
   %126 = zext <16 x i16> %.val3638.i87.us.c to <16 x i32>
   %127 = shl nuw <16 x i32> %126, splat (i32 16)
-  %invariant.gep45.i89.us = getelementptr %struct.ggml_bf16_t, ptr %119, i64 %.03348.i83.us
+  %invariant.gep45.i89.us = getelementptr [2 x i8], ptr %119, i64 %.03348.i83.us
   %128 = bitcast <16 x i32> %125 to <16 x float>
   %129 = bitcast <16 x i32> %127 to <16 x float>
   br label %.critedge
@@ -8894,12 +8889,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03447.i90.us = phi i64 [ 0, %.preheader40.i88.us.critedge ], [ %139, %.critedge ]
   %130 = add nuw nsw i64 %.03447.i90.us, %116
   %131 = mul nsw i64 %130, %120
-  %gep46.i91.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i89.us, i64 %131
+  %gep46.i91.us = getelementptr [2 x i8], ptr %invariant.gep45.i89.us, i64 %131
   %.val37.i92.us = load <16 x i16>, ptr %gep46.i91.us, align 1, !tbaa !53
   %132 = zext <16 x i16> %.val37.i92.us to <16 x i32>
   %133 = shl nuw <16 x i32> %132, splat (i32 16)
   %134 = bitcast <16 x i32> %133 to <16 x float>
-  %invariant.gep42.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i90.us
+  %invariant.gep42.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i90.us
   %135 = load <16 x float>, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
   %136 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %134, <16 x float> %128, <16 x float> %135)
   store <16 x float> %136, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
@@ -8922,15 +8917,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03152.i78.us = phi i64 [ 1, %152 ], [ 0, %140 ]
   %144 = add nsw i64 %.03152.i78.us, %.1102.us
   %145 = mul nsw i64 %144, %103
-  %gep51.i79.us = getelementptr float, ptr %invariant.gep50.i76, i64 %145
+  %gep51.i79.us = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %145
   br label %146
 
 146:                                              ; preds = %146, %.preheader.i77.us
   %.049.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %151, %146 ]
-  %147 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
+  %147 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
   %148 = load <16 x float>, ptr %147, align 64, !tbaa !53
   %149 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %148)
-  %150 = getelementptr float, ptr %gep51.i79.us, i64 %.049.i80.us
+  %150 = getelementptr [4 x i8], ptr %gep51.i79.us, i64 %.049.i80.us
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %151, 4
@@ -8957,22 +8952,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 .lr.ph.i:                                         ; preds = %155, %163
   %.03348.i = phi i64 [ %164, %163 ], [ 0, %155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %108, i64 %.03348.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %108, i64 %.03348.i
   br label %156
 
 .preheader40.i:                                   ; preds = %156
-  %invariant.gep45.i = getelementptr %struct.ggml_bf16_t, ptr %110, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %110, i64 %.03348.i
   br label %166
 
 156:                                              ; preds = %156, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %162, %156 ]
   %157 = add nsw i64 %.03541.i, %.0101
   %158 = mul nsw i64 %157, %109
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %158
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %158
   %.val3638.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %159 = zext <16 x i16> %.val3638.i to <16 x i32>
   %160 = shl nuw <16 x i32> %159, splat (i32 16)
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03541.i
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03541.i
   store <16 x i32> %160, ptr %161, align 64, !tbaa !53
   %162 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %162, 3
@@ -8988,12 +8983,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %173, %172 ]
   %167 = add nuw nsw i64 %.03447.i, %107
   %168 = mul nsw i64 %167, %111
-  %gep46.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i, i64 %168
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %168
   %.val37.i = load <16 x i16>, ptr %gep46.i, align 1, !tbaa !53
   %169 = zext <16 x i16> %.val37.i to <16 x i32>
   %170 = shl nuw <16 x i32> %169, splat (i32 16)
   %171 = bitcast <16 x i32> %170 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i
   br label %174
 
 172:                                              ; preds = %174
@@ -9003,9 +8998,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 174:                                              ; preds = %174, %166
   %.03244.i = phi i64 [ 0, %166 ], [ %179, %174 ]
-  %175 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03244.i
+  %175 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03244.i
   %176 = load <16 x float>, ptr %175, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %177 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %178 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %171, <16 x float> %176, <16 x float> %177)
   store <16 x float> %178, ptr %gep43.i, align 64, !tbaa !53
@@ -9015,10 +9010,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %183
   %.03152.i = phi i64 [ %184, %183 ], [ 0, %.preheader.i.preheader ]
-  %180 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03152.i
+  %180 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03152.i
   %181 = add nsw i64 %.03152.i, %.0101
   %182 = mul nsw i64 %181, %103
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %182
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %182
   br label %185
 
 183:                                              ; preds = %185
@@ -9028,10 +9023,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 185:                                              ; preds = %185, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %190, %185 ]
-  %186 = getelementptr inbounds nuw <16 x float>, ptr %180, i64 %.049.i
+  %186 = getelementptr inbounds nuw [64 x i8], ptr %180, i64 %.049.i
   %187 = load <16 x float>, ptr %186, align 64, !tbaa !53
   %188 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %187)
-  %189 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %189 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %188, ptr %189, align 4, !tbaa !93
   %190 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %190, 4
@@ -9055,7 +9050,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   %.03152.i78 = phi i64 [ 0, %.preheader39.i75 ], [ 1, %196 ]
   %194 = add nsw i64 %.03152.i78, %.1102
   %195 = mul nsw i64 %194, %103
-  %gep51.i79 = getelementptr float, ptr %invariant.gep50.i76, i64 %195
+  %gep51.i79 = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %195
   br label %197
 
 196:                                              ; preds = %197
@@ -9063,10 +9058,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
 
 197:                                              ; preds = %197, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %202, %197 ]
-  %198 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi, i64 %.049.i80
+  %198 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi, i64 %.049.i80
   %199 = load <16 x float>, ptr %198, align 64, !tbaa !53
   %200 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %199)
-  %201 = getelementptr float, ptr %gep51.i79, i64 %.049.i80
+  %201 = getelementptr [4 x i8], ptr %gep51.i79, i64 %.049.i80
   store float %200, ptr %201, align 4, !tbaa !93
   %202 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %202, 4
@@ -9247,7 +9242,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %101 = load i64, ptr %56, align 8
   %102 = load ptr, ptr %57, align 8
   %103 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %94, i64 %99
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %94, i64 %99
   br i1 %93, label %.lr.ph.i.us, label %.preheader39.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -9261,16 +9256,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader40.i.us.critedge:                       ; preds = %123, %.lr.ph.i.us
   %.03348.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %124, %123 ]
-  %invariant.gep.i.us = getelementptr %struct.ggml_bf16_t, ptr %100, i64 %.03348.i.us
-  %gep.i.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us, i64 %104
+  %invariant.gep.i.us = getelementptr [2 x i8], ptr %100, i64 %.03348.i.us
+  %gep.i.us = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %104
   %.val3638.i.us = load <16 x i16>, ptr %gep.i.us, align 1, !tbaa !53
   %107 = zext <16 x i16> %.val3638.i.us to <16 x i32>
   %108 = shl nuw <16 x i32> %107, splat (i32 16)
-  %gep.i.us.c = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us, i64 %106
+  %gep.i.us.c = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %106
   %.val3638.i.us.c = load <16 x i16>, ptr %gep.i.us.c, align 1, !tbaa !53
   %109 = zext <16 x i16> %.val3638.i.us.c to <16 x i32>
   %110 = shl nuw <16 x i32> %109, splat (i32 16)
-  %invariant.gep45.i.us = getelementptr %struct.ggml_bf16_t, ptr %102, i64 %.03348.i.us
+  %invariant.gep45.i.us = getelementptr [2 x i8], ptr %102, i64 %.03348.i.us
   %111 = bitcast <16 x i32> %108 to <16 x float>
   %112 = bitcast <16 x i32> %110 to <16 x float>
   br label %.critedge
@@ -9279,12 +9274,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03447.i.us = phi i64 [ 0, %.preheader40.i.us.critedge ], [ %122, %.critedge ]
   %113 = add nuw nsw i64 %.03447.i.us, %99
   %114 = mul nsw i64 %113, %103
-  %gep46.i.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i.us, i64 %114
+  %gep46.i.us = getelementptr [2 x i8], ptr %invariant.gep45.i.us, i64 %114
   %.val37.i.us = load <16 x i16>, ptr %gep46.i.us, align 1, !tbaa !53
   %115 = zext <16 x i16> %.val37.i.us to <16 x i32>
   %116 = shl nuw <16 x i32> %115, splat (i32 16)
   %117 = bitcast <16 x i32> %116 to <16 x float>
-  %invariant.gep42.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i.us
+  %invariant.gep42.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i.us
   %118 = load <16 x float>, ptr %invariant.gep42.i.us, align 64, !tbaa !53
   %119 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %117, <16 x float> %111, <16 x float> %118)
   store <16 x float> %119, ptr %invariant.gep42.i.us, align 64, !tbaa !53
@@ -9307,15 +9302,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03152.i.us = phi i64 [ 1, %135 ], [ 0, %123 ]
   %127 = add nsw i64 %.03152.i.us, %.084.us
   %128 = mul nsw i64 %127, %95
-  %gep51.i.us = getelementptr float, ptr %invariant.gep50.i, i64 %128
+  %gep51.i.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %128
   br label %129
 
 129:                                              ; preds = %129, %.preheader.i.us
   %.049.i.us = phi i64 [ 0, %.preheader.i.us ], [ %134, %129 ]
-  %130 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
+  %130 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
   %131 = load <16 x float>, ptr %130, align 64, !tbaa !53
   %132 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %131)
-  %133 = getelementptr float, ptr %gep51.i.us, i64 %.049.i.us
+  %133 = getelementptr [4 x i8], ptr %gep51.i.us, i64 %.049.i.us
   store float %132, ptr %133, align 4, !tbaa !93
   %134 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %134, 4
@@ -9346,7 +9341,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %144 = load i64, ptr %56, align 8
   %145 = load ptr, ptr %57, align 8
   %146 = load i64, ptr %58, align 8
-  %invariant.gep = getelementptr float, ptr %94, i64 %142
+  %invariant.gep = getelementptr [4 x i8], ptr %94, i64 %142
   br label %159
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
@@ -9361,7 +9356,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03152.i = phi i64 [ 0, %.preheader39.i ], [ 1, %150 ]
   %148 = add nsw i64 %.03152.i, %.084
   %149 = mul nsw i64 %148, %95
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %149
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %149
   br label %151
 
 150:                                              ; preds = %151
@@ -9369,10 +9364,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 151:                                              ; preds = %151, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
-  %152 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi, i64 %.049.i
+  %152 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi, i64 %.049.i
   %153 = load <16 x float>, ptr %152, align 64, !tbaa !53
   %154 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %153)
-  %155 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %155 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
@@ -9392,22 +9387,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader41.lr.ph.i:                             ; preds = %159
   %160 = mul nsw i64 %144, %.185
-  %161 = getelementptr inbounds %struct.ggml_bf16_t, ptr %143, i64 %160
+  %161 = getelementptr inbounds [2 x i8], ptr %143, i64 %160
   br label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %167, %.preheader41.lr.ph.i
   %.03349.i = phi i64 [ 0, %.preheader41.lr.ph.i ], [ %168, %167 ]
-  %162 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %161, i64 %.03349.i
+  %162 = getelementptr inbounds nuw [2 x i8], ptr %161, i64 %.03349.i
   %.val3638.le.i = load <16 x i16>, ptr %162, align 1, !tbaa !53
   %163 = zext <16 x i16> %.val3638.le.i to <16 x i32>
   %164 = shl nuw <16 x i32> %163, splat (i32 16)
   %165 = bitcast <16 x i32> %164 to <16 x float>
-  %invariant.gep.i75 = getelementptr %struct.ggml_bf16_t, ptr %145, i64 %.03349.i
+  %invariant.gep.i75 = getelementptr [2 x i8], ptr %145, i64 %.03349.i
   br label %170
 
 .preheader39.i74:                                 ; preds = %167, %159
   %166 = mul nsw i64 %95, %.185
-  %gep = getelementptr float, ptr %invariant.gep, i64 %166
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %166
   br label %179
 
 167:                                              ; preds = %170
@@ -9419,12 +9414,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03448.i = phi i64 [ 0, %.preheader41.i ], [ %178, %170 ]
   %171 = add nuw nsw i64 %.03448.i, %142
   %172 = mul nsw i64 %171, %146
-  %gep.i76 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i75, i64 %172
+  %gep.i76 = getelementptr [2 x i8], ptr %invariant.gep.i75, i64 %172
   %.val37.i77 = load <16 x i16>, ptr %gep.i76, align 1, !tbaa !53
   %173 = zext <16 x i16> %.val37.i77 to <16 x i32>
   %174 = shl nuw <16 x i32> %173, splat (i32 16)
   %175 = bitcast <16 x i32> %174 to <16 x float>
-  %176 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03448.i
+  %176 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03448.i
   %.promoted.i = load <16 x float>, ptr %176, align 64, !tbaa !53
   %177 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %175, <16 x float> %165, <16 x float> %.promoted.i)
   store <16 x float> %177, ptr %176, align 64, !tbaa !53
@@ -9434,10 +9429,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 179:                                              ; preds = %179, %.preheader39.i74
   %.050.i = phi i64 [ 0, %.preheader39.i74 ], [ %184, %179 ]
-  %180 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i
+  %180 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i
   %181 = load <16 x float>, ptr %180, align 64, !tbaa !53
   %182 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %181)
-  %183 = getelementptr float, ptr %gep, i64 %.050.i
+  %183 = getelementptr [4 x i8], ptr %gep, i64 %.050.i
   store float %182, ptr %183, align 4, !tbaa !93
   %184 = add nuw nsw i64 %.050.i, 1
   %exitcond51.not.i = icmp eq i64 %184, 4
@@ -9592,7 +9587,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   br label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %87
@@ -9602,7 +9597,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   %84 = load i64, ptr %50, align 8
   %85 = load ptr, ptr %51, align 8
   %86 = load i64, ptr %52, align 8
-  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %82
+  %invariant.gep.us.us = getelementptr [4 x i8], ptr %79, i64 %82
   br label %.preheader41.lr.ph.i.us.us.us
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -9615,29 +9610,29 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %90 = mul nsw i64 %84, %.067.us.us.us
-  %91 = getelementptr inbounds %struct.ggml_bf16_t, ptr %83, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %83, i64 %90
   br label %.preheader41.i.us.us.us
 
 .preheader41.i.us.us.us:                          ; preds = %105, %.preheader41.lr.ph.i.us.us.us
   %.03349.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %106, %105 ]
-  %92 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %91, i64 %.03349.i.us.us.us
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %.03349.i.us.us.us
   %.val3638.le.i.us.us.us = load <16 x i16>, ptr %92, align 1, !tbaa !53
   %93 = zext <16 x i16> %.val3638.le.i.us.us.us to <16 x i32>
   %94 = shl nuw <16 x i32> %93, splat (i32 16)
   %95 = bitcast <16 x i32> %94 to <16 x float>
-  %invariant.gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %85, i64 %.03349.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [2 x i8], ptr %85, i64 %.03349.i.us.us.us
   br label %96
 
 96:                                               ; preds = %96, %.preheader41.i.us.us.us
   %.03448.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %104, %96 ]
   %97 = add nuw nsw i64 %.03448.i.us.us.us, %82
   %98 = mul nsw i64 %97, %86
-  %gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us.us, i64 %98
+  %gep.i.us.us.us = getelementptr [2 x i8], ptr %invariant.gep.i.us.us.us, i64 %98
   %.val37.i.us.us.us = load <16 x i16>, ptr %gep.i.us.us.us, align 1, !tbaa !53
   %99 = zext <16 x i16> %.val37.i.us.us.us to <16 x i32>
   %100 = shl nuw <16 x i32> %99, splat (i32 16)
   %101 = bitcast <16 x i32> %100 to <16 x float>
-  %102 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03448.i.us.us.us
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03448.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %102, align 64, !tbaa !53
   %103 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %101, <16 x float> %95, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %103, ptr %102, align 64, !tbaa !53
@@ -9652,10 +9647,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 108:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %108
   %.050.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %113, %108 ]
-  %109 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us.us.us
+  %109 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i.us.us.us
   %110 = load <16 x float>, ptr %109, align 64, !tbaa !53
   %111 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %110)
-  %112 = getelementptr float, ptr %gep.us.us.us, i64 %.050.i.us.us.us
+  %112 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.050.i.us.us.us
   store float %111, ptr %112, align 4, !tbaa !93
   %113 = add nuw nsw i64 %.050.i.us.us.us, 1
   %exitcond51.not.i.us.us.us = icmp eq i64 %113, 4
@@ -9669,12 +9664,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %105
   %115 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %115
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %115
   br label %108
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %124
   %.06068.us = phi i64 [ %125, %124 ], [ 0, %.preheader.us.preheader ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.06068.us
   br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
@@ -9682,15 +9677,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %116 = mul nsw i64 %80, %.067.us69
-  %gep.us70 = getelementptr float, ptr %gep, i64 %116
+  %gep.us70 = getelementptr [4 x i8], ptr %gep, i64 %116
   br label %117
 
 117:                                              ; preds = %117, %.preheader39.i.us
   %.050.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %122, %117 ]
-  %118 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us71
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i.us71
   %119 = load <16 x float>, ptr %118, align 64, !tbaa !53
   %120 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %119)
-  %121 = getelementptr float, ptr %gep.us70, i64 %.050.i.us71
+  %121 = getelementptr [4 x i8], ptr %gep.us70, i64 %.050.i.us71
   store float %120, ptr %121, align 4, !tbaa !93
   %122 = add nuw nsw i64 %.050.i.us71, 1
   %exitcond51.not.i.us72 = icmp eq i64 %122, 4
@@ -9902,7 +9897,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %109 = load i64, ptr %57, align 8
   %110 = load ptr, ptr %58, align 8
   %111 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %107
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %107
   br label %121
 
 112:                                              ; preds = %105
@@ -9921,7 +9916,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %118 = load i64, ptr %57, align 8
   %119 = load ptr, ptr %58, align 8
   %120 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %116
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %116
   br label %161
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit
@@ -9936,22 +9931,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %121, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %108, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %108, i64 %.03346.i
   br label %122
 
 .preheader40.i:                                   ; preds = %122
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %110, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %110, i64 %.03346.i
   br label %132
 
 122:                                              ; preds = %122, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %128, %122 ]
   %123 = add nuw nsw i64 %.03541.i, %107
   %124 = mul nsw i64 %123, %109
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %124
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %124
   %.val38.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %125 = zext <16 x i16> %.val38.i to <16 x i32>
   %126 = shl nuw <16 x i32> %125, splat (i32 16)
-  %127 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
@@ -9967,12 +9962,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %140, %139 ]
   %133 = add nsw i64 %.03445.i, %.099
   %134 = mul nsw i64 %133, %111
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %134
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %134
   %.val3637.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %135 = zext <16 x i16> %.val3637.i to <16 x i32>
   %136 = shl nuw <16 x i32> %135, splat (i32 16)
   %137 = bitcast <16 x i32> %136 to <16 x float>
-  %138 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %138 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %141
 
 139:                                              ; preds = %141
@@ -9982,9 +9977,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 141:                                              ; preds = %141, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %147, %141 ]
-  %142 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %143 = load <16 x float>, ptr %142, align 64, !tbaa !53
-  %144 = getelementptr inbounds nuw <16 x float>, ptr %138, i64 %.03242.i
+  %144 = getelementptr inbounds nuw [64 x i8], ptr %138, i64 %.03242.i
   %145 = load <16 x float>, ptr %144, align 64, !tbaa !53
   %146 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %143, <16 x float> %137, <16 x float> %145)
   store <16 x float> %146, ptr %144, align 64, !tbaa !53
@@ -9994,10 +9989,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %151
   %.03150.i = phi i64 [ %152, %151 ], [ 0, %.preheader.i.preheader ]
-  %148 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %148 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %149 = add nsw i64 %.03150.i, %.099
   %150 = mul nsw i64 %149, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %150
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %150
   br label %153
 
 151:                                              ; preds = %153
@@ -10007,10 +10002,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 153:                                              ; preds = %153, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %158, %153 ]
-  %154 = getelementptr inbounds nuw <16 x float>, ptr %148, i64 %.047.i
+  %154 = getelementptr inbounds nuw [64 x i8], ptr %148, i64 %.047.i
   %155 = load <16 x float>, ptr %154, align 64, !tbaa !53
   %156 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %155)
-  %157 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %157 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %156, ptr %157, align 4, !tbaa !93
   %158 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %158, 4
@@ -10034,22 +10029,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 .lr.ph.i83:                                       ; preds = %161, %169
   %.03346.i84 = phi i64 [ %170, %169 ], [ 0, %161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %117, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %117, i64 %.03346.i84
   br label %162
 
 .preheader40.i90:                                 ; preds = %162
-  %invariant.gep43.i91 = getelementptr %struct.ggml_bf16_t, ptr %119, i64 %.03346.i84
+  %invariant.gep43.i91 = getelementptr [2 x i8], ptr %119, i64 %.03346.i84
   br label %172
 
 162:                                              ; preds = %162, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %168, %162 ]
   %163 = add nuw nsw i64 %.03541.i86, %116
   %164 = mul nsw i64 %163, %118
-  %gep.i87 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i85, i64 %164
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %164
   %.val38.i88 = load <16 x i16>, ptr %gep.i87, align 1, !tbaa !53
   %165 = zext <16 x i16> %.val38.i88 to <16 x i32>
   %166 = shl nuw <16 x i32> %165, splat (i32 16)
-  %167 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %167 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x i32> %166, ptr %167, align 64, !tbaa !53
   %168 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %168, 4
@@ -10065,12 +10060,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %180, %179 ]
   %173 = add nsw i64 %.03445.i92, %.1100
   %174 = mul nsw i64 %173, %120
-  %gep44.i93 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i91, i64 %174
+  %gep44.i93 = getelementptr [2 x i8], ptr %invariant.gep43.i91, i64 %174
   %.val3637.i94 = load <16 x i16>, ptr %gep44.i93, align 1, !tbaa !53
   %175 = zext <16 x i16> %.val3637.i94 to <16 x i32>
   %176 = shl nuw <16 x i32> %175, splat (i32 16)
   %177 = bitcast <16 x i32> %176 to <16 x float>
-  %178 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i92
+  %178 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i92
   br label %181
 
 179:                                              ; preds = %181
@@ -10080,9 +10075,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 181:                                              ; preds = %181, %172
   %.03242.i95 = phi i64 [ 0, %172 ], [ %187, %181 ]
-  %182 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i95
+  %182 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i95
   %183 = load <16 x float>, ptr %182, align 64, !tbaa !53
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %178, i64 %.03242.i95
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %.03242.i95
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %183, <16 x float> %177, <16 x float> %185)
   store <16 x float> %186, ptr %184, align 64, !tbaa !53
@@ -10092,10 +10087,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %191
   %.03150.i78 = phi i64 [ %192, %191 ], [ 0, %.preheader.i77.preheader ]
-  %188 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %188 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %189 = add nsw i64 %.03150.i78, %.1100
   %190 = mul nsw i64 %189, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %190
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %190
   br label %193
 
 191:                                              ; preds = %193
@@ -10105,10 +10100,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 193:                                              ; preds = %193, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %198, %193 ]
-  %194 = getelementptr inbounds nuw <16 x float>, ptr %188, i64 %.047.i80
+  %194 = getelementptr inbounds nuw [64 x i8], ptr %188, i64 %.047.i80
   %195 = load <16 x float>, ptr %194, align 64, !tbaa !53
   %196 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %195)
-  %197 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %197 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %196, ptr %197, align 4, !tbaa !93
   %198 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %198, 4
@@ -10311,7 +10306,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %109 = load i64, ptr %57, align 8
   %110 = load ptr, ptr %58, align 8
   %111 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %107
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %107
   br label %121
 
 112:                                              ; preds = %105
@@ -10330,7 +10325,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %118 = load i64, ptr %57, align 8
   %119 = load ptr, ptr %58, align 8
   %120 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %116
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %116
   br label %161
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
@@ -10345,22 +10340,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %121, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %108, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %108, i64 %.03346.i
   br label %122
 
 .preheader40.i:                                   ; preds = %122
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %110, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %110, i64 %.03346.i
   br label %132
 
 122:                                              ; preds = %122, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %128, %122 ]
   %123 = add nuw nsw i64 %.03541.i, %107
   %124 = mul nsw i64 %123, %109
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %124
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %124
   %.val38.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %125 = zext <16 x i16> %.val38.i to <16 x i32>
   %126 = shl nuw <16 x i32> %125, splat (i32 16)
-  %127 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
@@ -10376,12 +10371,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %140, %139 ]
   %133 = add nsw i64 %.03445.i, %.097
   %134 = mul nsw i64 %133, %111
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %134
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %134
   %.val3637.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %135 = zext <16 x i16> %.val3637.i to <16 x i32>
   %136 = shl nuw <16 x i32> %135, splat (i32 16)
   %137 = bitcast <16 x i32> %136 to <16 x float>
-  %138 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %138 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %141
 
 139:                                              ; preds = %141
@@ -10391,9 +10386,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 141:                                              ; preds = %141, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %147, %141 ]
-  %142 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %143 = load <16 x float>, ptr %142, align 64, !tbaa !53
-  %144 = getelementptr inbounds nuw <16 x float>, ptr %138, i64 %.03242.i
+  %144 = getelementptr inbounds nuw [64 x i8], ptr %138, i64 %.03242.i
   %145 = load <16 x float>, ptr %144, align 64, !tbaa !53
   %146 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %143, <16 x float> %137, <16 x float> %145)
   store <16 x float> %146, ptr %144, align 64, !tbaa !53
@@ -10403,10 +10398,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %151
   %.03150.i = phi i64 [ %152, %151 ], [ 0, %.preheader.i.preheader ]
-  %148 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %148 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %149 = add nsw i64 %.03150.i, %.097
   %150 = mul nsw i64 %149, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %150
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %150
   br label %153
 
 151:                                              ; preds = %153
@@ -10416,10 +10411,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 153:                                              ; preds = %153, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %158, %153 ]
-  %154 = getelementptr inbounds nuw <16 x float>, ptr %148, i64 %.047.i
+  %154 = getelementptr inbounds nuw [64 x i8], ptr %148, i64 %.047.i
   %155 = load <16 x float>, ptr %154, align 64, !tbaa !53
   %156 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %155)
-  %157 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %157 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %156, ptr %157, align 4, !tbaa !93
   %158 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %158, 4
@@ -10443,22 +10438,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 .lr.ph.i83:                                       ; preds = %161, %169
   %.03346.i84 = phi i64 [ %170, %169 ], [ 0, %161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %117, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %117, i64 %.03346.i84
   br label %162
 
 .preheader40.i89:                                 ; preds = %162
-  %invariant.gep43.i90 = getelementptr %struct.ggml_bf16_t, ptr %119, i64 %.03346.i84
+  %invariant.gep43.i90 = getelementptr [2 x i8], ptr %119, i64 %.03346.i84
   br label %172
 
 162:                                              ; preds = %162, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %168, %162 ]
   %163 = add nuw nsw i64 %.03541.i86, %116
   %164 = mul nsw i64 %163, %118
-  %gep.i87 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i85, i64 %164
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %164
   %.val3638.i = load <16 x i16>, ptr %gep.i87, align 1, !tbaa !53
   %165 = zext <16 x i16> %.val3638.i to <16 x i32>
   %166 = shl nuw <16 x i32> %165, splat (i32 16)
-  %167 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %167 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x i32> %166, ptr %167, align 64, !tbaa !53
   %168 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %168, 4
@@ -10474,12 +10469,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %180, %179 ]
   %173 = add nsw i64 %.03445.i91, %.198
   %174 = mul nsw i64 %173, %120
-  %gep44.i92 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i90, i64 %174
+  %gep44.i92 = getelementptr [2 x i8], ptr %invariant.gep43.i90, i64 %174
   %.val37.i = load <16 x i16>, ptr %gep44.i92, align 1, !tbaa !53
   %175 = zext <16 x i16> %.val37.i to <16 x i32>
   %176 = shl nuw <16 x i32> %175, splat (i32 16)
   %177 = bitcast <16 x i32> %176 to <16 x float>
-  %178 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i91
+  %178 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i91
   br label %181
 
 179:                                              ; preds = %181
@@ -10489,9 +10484,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 181:                                              ; preds = %181, %172
   %.03242.i93 = phi i64 [ 0, %172 ], [ %187, %181 ]
-  %182 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i93
+  %182 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i93
   %183 = load <16 x float>, ptr %182, align 64, !tbaa !53
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %178, i64 %.03242.i93
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %.03242.i93
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %183, <16 x float> %177, <16 x float> %185)
   store <16 x float> %186, ptr %184, align 64, !tbaa !53
@@ -10501,10 +10496,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %191
   %.03150.i78 = phi i64 [ %192, %191 ], [ 0, %.preheader.i77.preheader ]
-  %188 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %188 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %189 = add nsw i64 %.03150.i78, %.198
   %190 = mul nsw i64 %189, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %190
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %190
   br label %193
 
 191:                                              ; preds = %193
@@ -10514,10 +10509,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 193:                                              ; preds = %193, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %198, %193 ]
-  %194 = getelementptr inbounds nuw <16 x float>, ptr %188, i64 %.047.i80
+  %194 = getelementptr inbounds nuw [64 x i8], ptr %188, i64 %.047.i80
   %195 = load <16 x float>, ptr %194, align 64, !tbaa !53
   %196 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %195)
-  %197 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %197 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %196, ptr %197, align 4, !tbaa !93
   %198 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %198, 4
@@ -10720,7 +10715,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %110 = load i64, ptr %58, align 8
   %111 = load ptr, ptr %59, align 8
   %112 = load i64, ptr %60, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %108
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %108
   br label %122
 
 113:                                              ; preds = %106
@@ -10739,7 +10734,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %119 = load i64, ptr %60, align 8
   %120 = load ptr, ptr %57, align 8
   %121 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %104, i64 %117
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %104, i64 %117
   br label %162
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
@@ -10754,22 +10749,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %122, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %109, i64 %.03346.i
   br label %123
 
 .preheader40.i:                                   ; preds = %123
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %111, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %111, i64 %.03346.i
   br label %133
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %129, %123 ]
   %124 = add nuw nsw i64 %.03541.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %125
   %.val3638.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %126 = zext <16 x i16> %.val3638.i to <16 x i32>
   %127 = shl nuw <16 x i32> %126, splat (i32 16)
-  %128 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
@@ -10785,12 +10780,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %141, %140 ]
   %134 = add nsw i64 %.03445.i, %.087
   %135 = mul nsw i64 %134, %112
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %135
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %135
   %.val37.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %136 = zext <16 x i16> %.val37.i to <16 x i32>
   %137 = shl nuw <16 x i32> %136, splat (i32 16)
   %138 = bitcast <16 x i32> %137 to <16 x float>
-  %139 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %139 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %142
 
 140:                                              ; preds = %142
@@ -10800,9 +10795,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 142:                                              ; preds = %142, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %148, %142 ]
-  %143 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %143 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %144 = load <16 x float>, ptr %143, align 64, !tbaa !53
-  %145 = getelementptr inbounds nuw <16 x float>, ptr %139, i64 %.03242.i
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %.03242.i
   %146 = load <16 x float>, ptr %145, align 64, !tbaa !53
   %147 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %144, <16 x float> %138, <16 x float> %146)
   store <16 x float> %147, ptr %145, align 64, !tbaa !53
@@ -10812,10 +10807,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %152
   %.03150.i = phi i64 [ %153, %152 ], [ 0, %.preheader.i.preheader ]
-  %149 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %149 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %150 = add nsw i64 %.03150.i, %.087
   %151 = mul nsw i64 %150, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %151
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %151
   br label %154
 
 152:                                              ; preds = %154
@@ -10825,10 +10820,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 154:                                              ; preds = %154, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %159, %154 ]
-  %155 = getelementptr inbounds nuw <16 x float>, ptr %149, i64 %.047.i
+  %155 = getelementptr inbounds nuw [64 x i8], ptr %149, i64 %.047.i
   %156 = load <16 x float>, ptr %155, align 64, !tbaa !53
   %157 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %156)
-  %158 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %158 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %159, 4
@@ -10852,22 +10847,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 .lr.ph.i76:                                       ; preds = %162, %170
   %.03348.i = phi i64 [ %171, %170 ], [ 0, %162 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr %struct.ggml_bf16_t, ptr %118, i64 %.03348.i
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %118, i64 %.03348.i
   br label %163
 
 .preheader40.i82:                                 ; preds = %163
-  %invariant.gep45.i = getelementptr %struct.ggml_bf16_t, ptr %120, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %120, i64 %.03348.i
   br label %173
 
 163:                                              ; preds = %163, %.lr.ph.i76
   %.03541.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %169, %163 ]
   %164 = add nsw i64 %.03541.i78, %.188
   %165 = mul nsw i64 %164, %119
-  %gep.i79 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i77, i64 %165
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %165
   %.val3638.i80 = load <16 x i16>, ptr %gep.i79, align 1, !tbaa !53
   %166 = zext <16 x i16> %.val3638.i80 to <16 x i32>
   %167 = shl nuw <16 x i32> %166, splat (i32 16)
-  %168 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i78
+  %168 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i78
   store <16 x i32> %167, ptr %168, align 64, !tbaa !53
   %169 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %169, 3
@@ -10883,12 +10878,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %180, %179 ]
   %174 = add nuw nsw i64 %.03447.i, %117
   %175 = mul nsw i64 %174, %121
-  %gep46.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i, i64 %175
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %175
   %.val37.i83 = load <16 x i16>, ptr %gep46.i, align 1, !tbaa !53
   %176 = zext <16 x i16> %.val37.i83 to <16 x i32>
   %177 = shl nuw <16 x i32> %176, splat (i32 16)
   %178 = bitcast <16 x i32> %177 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i
   br label %181
 
 179:                                              ; preds = %181
@@ -10898,9 +10893,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 181:                                              ; preds = %181, %173
   %.03244.i = phi i64 [ 0, %173 ], [ %186, %181 ]
-  %182 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03244.i
+  %182 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03244.i
   %183 = load <16 x float>, ptr %182, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %184 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %185 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %178, <16 x float> %183, <16 x float> %184)
   store <16 x float> %185, ptr %gep43.i, align 64, !tbaa !53
@@ -10910,10 +10905,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %190
   %.03152.i = phi i64 [ %191, %190 ], [ 0, %.preheader.i75.preheader ]
-  %187 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03152.i
+  %187 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03152.i
   %188 = add nsw i64 %.03152.i, %.188
   %189 = mul nsw i64 %188, %105
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %189
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %189
   br label %192
 
 190:                                              ; preds = %192
@@ -10923,10 +10918,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 192:                                              ; preds = %192, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %197, %192 ]
-  %193 = getelementptr inbounds nuw <16 x float>, ptr %187, i64 %.049.i
+  %193 = getelementptr inbounds nuw [64 x i8], ptr %187, i64 %.049.i
   %194 = load <16 x float>, ptr %193, align 64, !tbaa !53
   %195 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %194)
-  %196 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %196 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %195, ptr %196, align 4, !tbaa !93
   %197 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %197, 4
@@ -11129,7 +11124,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %108 = load i64, ptr %56, align 8
   %109 = load ptr, ptr %57, align 8
   %110 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %102, i64 %106
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %102, i64 %106
   br label %154
 
 111:                                              ; preds = %104
@@ -11148,7 +11143,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %117 = load i64, ptr %56, align 8
   %118 = load ptr, ptr %57, align 8
   %119 = load i64, ptr %58, align 8
-  %invariant.gep50.i76 = getelementptr float, ptr %102, i64 %115
+  %invariant.gep50.i76 = getelementptr [4 x i8], ptr %102, i64 %115
   br i1 %101, label %.lr.ph.i82.us, label %.preheader39.i75
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -11162,16 +11157,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader40.i88.us.critedge:                     ; preds = %139, %.lr.ph.i82.us
   %.03348.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %140, %139 ]
-  %invariant.gep.i84.us = getelementptr %struct.ggml_bf16_t, ptr %116, i64 %.03348.i83.us
-  %gep.i86.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i84.us, i64 %120
+  %invariant.gep.i84.us = getelementptr [2 x i8], ptr %116, i64 %.03348.i83.us
+  %gep.i86.us = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %120
   %.val3638.i87.us = load <16 x i16>, ptr %gep.i86.us, align 1, !tbaa !53
   %123 = zext <16 x i16> %.val3638.i87.us to <16 x i32>
   %124 = shl nuw <16 x i32> %123, splat (i32 16)
-  %gep.i86.us.c = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i84.us, i64 %122
+  %gep.i86.us.c = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %122
   %.val3638.i87.us.c = load <16 x i16>, ptr %gep.i86.us.c, align 1, !tbaa !53
   %125 = zext <16 x i16> %.val3638.i87.us.c to <16 x i32>
   %126 = shl nuw <16 x i32> %125, splat (i32 16)
-  %invariant.gep45.i89.us = getelementptr %struct.ggml_bf16_t, ptr %118, i64 %.03348.i83.us
+  %invariant.gep45.i89.us = getelementptr [2 x i8], ptr %118, i64 %.03348.i83.us
   %127 = bitcast <16 x i32> %124 to <16 x float>
   %128 = bitcast <16 x i32> %126 to <16 x float>
   br label %.critedge
@@ -11180,12 +11175,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03447.i90.us = phi i64 [ 0, %.preheader40.i88.us.critedge ], [ %138, %.critedge ]
   %129 = add nuw nsw i64 %.03447.i90.us, %115
   %130 = mul nsw i64 %129, %119
-  %gep46.i91.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i89.us, i64 %130
+  %gep46.i91.us = getelementptr [2 x i8], ptr %invariant.gep45.i89.us, i64 %130
   %.val37.i92.us = load <16 x i16>, ptr %gep46.i91.us, align 1, !tbaa !53
   %131 = zext <16 x i16> %.val37.i92.us to <16 x i32>
   %132 = shl nuw <16 x i32> %131, splat (i32 16)
   %133 = bitcast <16 x i32> %132 to <16 x float>
-  %invariant.gep42.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i90.us
+  %invariant.gep42.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i90.us
   %134 = load <16 x float>, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
   %135 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %133, <16 x float> %127, <16 x float> %134)
   store <16 x float> %135, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
@@ -11208,15 +11203,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03152.i78.us = phi i64 [ 1, %151 ], [ 0, %139 ]
   %143 = add nsw i64 %.03152.i78.us, %.1102.us
   %144 = mul nsw i64 %143, %103
-  %gep51.i79.us = getelementptr float, ptr %invariant.gep50.i76, i64 %144
+  %gep51.i79.us = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %144
   br label %145
 
 145:                                              ; preds = %145, %.preheader.i77.us
   %.049.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %150, %145 ]
-  %146 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
+  %146 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
   %147 = load <16 x float>, ptr %146, align 64, !tbaa !53
   %148 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %147)
-  %149 = getelementptr float, ptr %gep51.i79.us, i64 %.049.i80.us
+  %149 = getelementptr [4 x i8], ptr %gep51.i79.us, i64 %.049.i80.us
   store float %148, ptr %149, align 4, !tbaa !93
   %150 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %150, 4
@@ -11243,22 +11238,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 .lr.ph.i:                                         ; preds = %154, %162
   %.03348.i = phi i64 [ %163, %162 ], [ 0, %154 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %107, i64 %.03348.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %107, i64 %.03348.i
   br label %155
 
 .preheader40.i:                                   ; preds = %155
-  %invariant.gep45.i = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %109, i64 %.03348.i
   br label %165
 
 155:                                              ; preds = %155, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %161, %155 ]
   %156 = add nsw i64 %.03541.i, %.0101
   %157 = mul nsw i64 %156, %108
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %157
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %157
   %.val3638.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %158 = zext <16 x i16> %.val3638.i to <16 x i32>
   %159 = shl nuw <16 x i32> %158, splat (i32 16)
-  %160 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03541.i
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03541.i
   store <16 x i32> %159, ptr %160, align 64, !tbaa !53
   %161 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %161, 3
@@ -11274,12 +11269,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %172, %171 ]
   %166 = add nuw nsw i64 %.03447.i, %106
   %167 = mul nsw i64 %166, %110
-  %gep46.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i, i64 %167
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %167
   %.val37.i = load <16 x i16>, ptr %gep46.i, align 1, !tbaa !53
   %168 = zext <16 x i16> %.val37.i to <16 x i32>
   %169 = shl nuw <16 x i32> %168, splat (i32 16)
   %170 = bitcast <16 x i32> %169 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i
   br label %173
 
 171:                                              ; preds = %173
@@ -11289,9 +11284,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 173:                                              ; preds = %173, %165
   %.03244.i = phi i64 [ 0, %165 ], [ %178, %173 ]
-  %174 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03244.i
+  %174 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03244.i
   %175 = load <16 x float>, ptr %174, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %176 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %177 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %170, <16 x float> %175, <16 x float> %176)
   store <16 x float> %177, ptr %gep43.i, align 64, !tbaa !53
@@ -11301,10 +11296,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %182
   %.03152.i = phi i64 [ %183, %182 ], [ 0, %.preheader.i.preheader ]
-  %179 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03152.i
+  %179 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03152.i
   %180 = add nsw i64 %.03152.i, %.0101
   %181 = mul nsw i64 %180, %103
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %181
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %181
   br label %184
 
 182:                                              ; preds = %184
@@ -11314,10 +11309,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 184:                                              ; preds = %184, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %189, %184 ]
-  %185 = getelementptr inbounds nuw <16 x float>, ptr %179, i64 %.049.i
+  %185 = getelementptr inbounds nuw [64 x i8], ptr %179, i64 %.049.i
   %186 = load <16 x float>, ptr %185, align 64, !tbaa !53
   %187 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %186)
-  %188 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %188 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %187, ptr %188, align 4, !tbaa !93
   %189 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %189, 4
@@ -11341,7 +11336,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   %.03152.i78 = phi i64 [ 0, %.preheader39.i75 ], [ 1, %195 ]
   %193 = add nsw i64 %.03152.i78, %.1102
   %194 = mul nsw i64 %193, %103
-  %gep51.i79 = getelementptr float, ptr %invariant.gep50.i76, i64 %194
+  %gep51.i79 = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %194
   br label %196
 
 195:                                              ; preds = %196
@@ -11349,10 +11344,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
 
 196:                                              ; preds = %196, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %201, %196 ]
-  %197 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi, i64 %.049.i80
+  %197 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi, i64 %.049.i80
   %198 = load <16 x float>, ptr %197, align 64, !tbaa !53
   %199 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %198)
-  %200 = getelementptr float, ptr %gep51.i79, i64 %.049.i80
+  %200 = getelementptr [4 x i8], ptr %gep51.i79, i64 %.049.i80
   store float %199, ptr %200, align 4, !tbaa !93
   %201 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %201, 4
@@ -11532,7 +11527,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %100 = load i64, ptr %56, align 8
   %101 = load ptr, ptr %57, align 8
   %102 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %94, i64 %98
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %94, i64 %98
   br i1 %93, label %.lr.ph.i.us, label %.preheader39.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -11546,16 +11541,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader40.i.us.critedge:                       ; preds = %122, %.lr.ph.i.us
   %.03348.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %123, %122 ]
-  %invariant.gep.i.us = getelementptr %struct.ggml_bf16_t, ptr %99, i64 %.03348.i.us
-  %gep.i.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us, i64 %103
+  %invariant.gep.i.us = getelementptr [2 x i8], ptr %99, i64 %.03348.i.us
+  %gep.i.us = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %103
   %.val3638.i.us = load <16 x i16>, ptr %gep.i.us, align 1, !tbaa !53
   %106 = zext <16 x i16> %.val3638.i.us to <16 x i32>
   %107 = shl nuw <16 x i32> %106, splat (i32 16)
-  %gep.i.us.c = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us, i64 %105
+  %gep.i.us.c = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %105
   %.val3638.i.us.c = load <16 x i16>, ptr %gep.i.us.c, align 1, !tbaa !53
   %108 = zext <16 x i16> %.val3638.i.us.c to <16 x i32>
   %109 = shl nuw <16 x i32> %108, splat (i32 16)
-  %invariant.gep45.i.us = getelementptr %struct.ggml_bf16_t, ptr %101, i64 %.03348.i.us
+  %invariant.gep45.i.us = getelementptr [2 x i8], ptr %101, i64 %.03348.i.us
   %110 = bitcast <16 x i32> %107 to <16 x float>
   %111 = bitcast <16 x i32> %109 to <16 x float>
   br label %.critedge
@@ -11564,12 +11559,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03447.i.us = phi i64 [ 0, %.preheader40.i.us.critedge ], [ %121, %.critedge ]
   %112 = add nuw nsw i64 %.03447.i.us, %98
   %113 = mul nsw i64 %112, %102
-  %gep46.i.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i.us, i64 %113
+  %gep46.i.us = getelementptr [2 x i8], ptr %invariant.gep45.i.us, i64 %113
   %.val37.i.us = load <16 x i16>, ptr %gep46.i.us, align 1, !tbaa !53
   %114 = zext <16 x i16> %.val37.i.us to <16 x i32>
   %115 = shl nuw <16 x i32> %114, splat (i32 16)
   %116 = bitcast <16 x i32> %115 to <16 x float>
-  %invariant.gep42.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i.us
+  %invariant.gep42.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i.us
   %117 = load <16 x float>, ptr %invariant.gep42.i.us, align 64, !tbaa !53
   %118 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %116, <16 x float> %110, <16 x float> %117)
   store <16 x float> %118, ptr %invariant.gep42.i.us, align 64, !tbaa !53
@@ -11592,15 +11587,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03152.i.us = phi i64 [ 1, %134 ], [ 0, %122 ]
   %126 = add nsw i64 %.03152.i.us, %.084.us
   %127 = mul nsw i64 %126, %95
-  %gep51.i.us = getelementptr float, ptr %invariant.gep50.i, i64 %127
+  %gep51.i.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %127
   br label %128
 
 128:                                              ; preds = %128, %.preheader.i.us
   %.049.i.us = phi i64 [ 0, %.preheader.i.us ], [ %133, %128 ]
-  %129 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
+  %129 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
   %130 = load <16 x float>, ptr %129, align 64, !tbaa !53
   %131 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %130)
-  %132 = getelementptr float, ptr %gep51.i.us, i64 %.049.i.us
+  %132 = getelementptr [4 x i8], ptr %gep51.i.us, i64 %.049.i.us
   store float %131, ptr %132, align 4, !tbaa !93
   %133 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %133, 4
@@ -11631,7 +11626,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %143 = load i64, ptr %56, align 8
   %144 = load ptr, ptr %57, align 8
   %145 = load i64, ptr %58, align 8
-  %invariant.gep = getelementptr float, ptr %94, i64 %141
+  %invariant.gep = getelementptr [4 x i8], ptr %94, i64 %141
   br label %158
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
@@ -11646,7 +11641,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03152.i = phi i64 [ 0, %.preheader39.i ], [ 1, %149 ]
   %147 = add nsw i64 %.03152.i, %.084
   %148 = mul nsw i64 %147, %95
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %148
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %148
   br label %150
 
 149:                                              ; preds = %150
@@ -11654,10 +11649,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 150:                                              ; preds = %150, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
-  %151 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi, i64 %.049.i
+  %151 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi, i64 %.049.i
   %152 = load <16 x float>, ptr %151, align 64, !tbaa !53
   %153 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %152)
-  %154 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %154 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
@@ -11677,22 +11672,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader41.lr.ph.i:                             ; preds = %158
   %159 = mul nsw i64 %143, %.185
-  %160 = getelementptr inbounds %struct.ggml_bf16_t, ptr %142, i64 %159
+  %160 = getelementptr inbounds [2 x i8], ptr %142, i64 %159
   br label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %166, %.preheader41.lr.ph.i
   %.03349.i = phi i64 [ 0, %.preheader41.lr.ph.i ], [ %167, %166 ]
-  %161 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %160, i64 %.03349.i
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %160, i64 %.03349.i
   %.val3638.le.i = load <16 x i16>, ptr %161, align 1, !tbaa !53
   %162 = zext <16 x i16> %.val3638.le.i to <16 x i32>
   %163 = shl nuw <16 x i32> %162, splat (i32 16)
   %164 = bitcast <16 x i32> %163 to <16 x float>
-  %invariant.gep.i75 = getelementptr %struct.ggml_bf16_t, ptr %144, i64 %.03349.i
+  %invariant.gep.i75 = getelementptr [2 x i8], ptr %144, i64 %.03349.i
   br label %169
 
 .preheader39.i74:                                 ; preds = %166, %158
   %165 = mul nsw i64 %95, %.185
-  %gep = getelementptr float, ptr %invariant.gep, i64 %165
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %165
   br label %178
 
 166:                                              ; preds = %169
@@ -11704,12 +11699,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03448.i = phi i64 [ 0, %.preheader41.i ], [ %177, %169 ]
   %170 = add nuw nsw i64 %.03448.i, %141
   %171 = mul nsw i64 %170, %145
-  %gep.i76 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i75, i64 %171
+  %gep.i76 = getelementptr [2 x i8], ptr %invariant.gep.i75, i64 %171
   %.val37.i77 = load <16 x i16>, ptr %gep.i76, align 1, !tbaa !53
   %172 = zext <16 x i16> %.val37.i77 to <16 x i32>
   %173 = shl nuw <16 x i32> %172, splat (i32 16)
   %174 = bitcast <16 x i32> %173 to <16 x float>
-  %175 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03448.i
+  %175 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03448.i
   %.promoted.i = load <16 x float>, ptr %175, align 64, !tbaa !53
   %176 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %174, <16 x float> %164, <16 x float> %.promoted.i)
   store <16 x float> %176, ptr %175, align 64, !tbaa !53
@@ -11719,10 +11714,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 178:                                              ; preds = %178, %.preheader39.i74
   %.050.i = phi i64 [ 0, %.preheader39.i74 ], [ %183, %178 ]
-  %179 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i
+  %179 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i
   %180 = load <16 x float>, ptr %179, align 64, !tbaa !53
   %181 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %180)
-  %182 = getelementptr float, ptr %gep, i64 %.050.i
+  %182 = getelementptr [4 x i8], ptr %gep, i64 %.050.i
   store float %181, ptr %182, align 4, !tbaa !93
   %183 = add nuw nsw i64 %.050.i, 1
   %exitcond51.not.i = icmp eq i64 %183, 4
@@ -11877,7 +11872,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   br label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %88
@@ -11888,7 +11883,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   %85 = load i64, ptr %50, align 8
   %86 = load ptr, ptr %51, align 8
   %87 = load i64, ptr %52, align 8
-  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %83
+  %invariant.gep.us.us = getelementptr [4 x i8], ptr %79, i64 %83
   br label %.preheader41.lr.ph.i.us.us.us
 
 88:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -11899,29 +11894,29 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %89 = mul nsw i64 %85, %.067.us.us.us
-  %90 = getelementptr inbounds %struct.ggml_bf16_t, ptr %84, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %84, i64 %89
   br label %.preheader41.i.us.us.us
 
 .preheader41.i.us.us.us:                          ; preds = %104, %.preheader41.lr.ph.i.us.us.us
   %.03349.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %105, %104 ]
-  %91 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %90, i64 %.03349.i.us.us.us
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %.03349.i.us.us.us
   %.val3638.le.i.us.us.us = load <16 x i16>, ptr %91, align 1, !tbaa !53
   %92 = zext <16 x i16> %.val3638.le.i.us.us.us to <16 x i32>
   %93 = shl nuw <16 x i32> %92, splat (i32 16)
   %94 = bitcast <16 x i32> %93 to <16 x float>
-  %invariant.gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %86, i64 %.03349.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [2 x i8], ptr %86, i64 %.03349.i.us.us.us
   br label %95
 
 95:                                               ; preds = %95, %.preheader41.i.us.us.us
   %.03448.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %103, %95 ]
   %96 = add nuw nsw i64 %.03448.i.us.us.us, %83
   %97 = mul nsw i64 %96, %87
-  %gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us.us, i64 %97
+  %gep.i.us.us.us = getelementptr [2 x i8], ptr %invariant.gep.i.us.us.us, i64 %97
   %.val37.i.us.us.us = load <16 x i16>, ptr %gep.i.us.us.us, align 1, !tbaa !53
   %98 = zext <16 x i16> %.val37.i.us.us.us to <16 x i32>
   %99 = shl nuw <16 x i32> %98, splat (i32 16)
   %100 = bitcast <16 x i32> %99 to <16 x float>
-  %101 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03448.i.us.us.us
+  %101 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03448.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %101, align 64, !tbaa !53
   %102 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %100, <16 x float> %94, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %102, ptr %101, align 64, !tbaa !53
@@ -11936,10 +11931,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 107:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %107
   %.050.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %112, %107 ]
-  %108 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us.us.us
+  %108 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i.us.us.us
   %109 = load <16 x float>, ptr %108, align 64, !tbaa !53
   %110 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %109)
-  %111 = getelementptr float, ptr %gep.us.us.us, i64 %.050.i.us.us.us
+  %111 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.050.i.us.us.us
   store float %110, ptr %111, align 4, !tbaa !93
   %112 = add nuw nsw i64 %.050.i.us.us.us, 1
   %exitcond51.not.i.us.us.us = icmp eq i64 %112, 4
@@ -11953,13 +11948,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %104
   %114 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %114
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %114
   br label %107
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %124
   %115 = phi i1 [ false, %124 ], [ true, %.preheader.us.preheader ]
   %.06068.us = phi i64 [ 4, %124 ], [ 0, %.preheader.us.preheader ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.06068.us
   br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
@@ -11967,15 +11962,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %116 = mul nsw i64 %80, %.067.us69
-  %gep.us70 = getelementptr float, ptr %gep, i64 %116
+  %gep.us70 = getelementptr [4 x i8], ptr %gep, i64 %116
   br label %117
 
 117:                                              ; preds = %117, %.preheader39.i.us
   %.050.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %122, %117 ]
-  %118 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us71
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i.us71
   %119 = load <16 x float>, ptr %118, align 64, !tbaa !53
   %120 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %119)
-  %121 = getelementptr float, ptr %gep.us70, i64 %.050.i.us71
+  %121 = getelementptr [4 x i8], ptr %gep.us70, i64 %.050.i.us71
   store float %120, ptr %121, align 4, !tbaa !93
   %122 = add nuw nsw i64 %.050.i.us71, 1
   %exitcond51.not.i.us72 = icmp eq i64 %122, 4
@@ -12169,7 +12164,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %102 = icmp sgt i64 %101, 0
   %103 = load ptr, ptr %60, align 8
   %104 = load i64, ptr %61, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %64
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %64
   br i1 %100, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -12208,22 +12203,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %117, %125
   %.03346.i = phi i64 [ %126, %125 ], [ 0, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %105, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %105, i64 %.03346.i
   br label %118
 
 .preheader40.i:                                   ; preds = %118
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %107, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %107, i64 %.03346.i
   br label %128
 
 118:                                              ; preds = %118, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %124, %118 ]
   %119 = add nuw nsw i64 %.03541.i, %64
   %120 = mul nsw i64 %119, %106
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %120
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %120
   %.val38.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %121 = zext <16 x i16> %.val38.i to <16 x i32>
   %122 = shl nuw <16 x i32> %121, splat (i32 16)
-  %123 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %123 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %122, ptr %123, align 64, !tbaa !53
   %124 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %124, 4
@@ -12239,12 +12234,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %136, %135 ]
   %129 = add nsw i64 %.03445.i, %.099
   %130 = mul nsw i64 %129, %108
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %130
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %130
   %.val3637.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %131 = zext <16 x i16> %.val3637.i to <16 x i32>
   %132 = shl nuw <16 x i32> %131, splat (i32 16)
   %133 = bitcast <16 x i32> %132 to <16 x float>
-  %134 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %134 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %137
 
 135:                                              ; preds = %137
@@ -12254,9 +12249,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 137:                                              ; preds = %137, %128
   %.03242.i = phi i64 [ 0, %128 ], [ %143, %137 ]
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %134, i64 %.03242.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %134, i64 %.03242.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
   %142 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %139, <16 x float> %133, <16 x float> %141)
   store <16 x float> %142, ptr %140, align 64, !tbaa !53
@@ -12266,10 +12261,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %147
   %.03150.i = phi i64 [ %148, %147 ], [ 0, %.preheader.i.preheader ]
-  %144 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %144 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %145 = add nsw i64 %.03150.i, %.099
   %146 = mul nsw i64 %145, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %146
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %146
   br label %149
 
 147:                                              ; preds = %149
@@ -12279,10 +12274,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 149:                                              ; preds = %149, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %154, %149 ]
-  %150 = getelementptr inbounds nuw <16 x float>, ptr %144, i64 %.047.i
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %144, i64 %.047.i
   %151 = load <16 x float>, ptr %150, align 64, !tbaa !53
   %152 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %151)
-  %153 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %153 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %152, ptr %153, align 4, !tbaa !93
   %154 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %154, 4
@@ -12306,22 +12301,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 .lr.ph.i83:                                       ; preds = %157, %165
   %.03346.i84 = phi i64 [ %166, %165 ], [ 0, %157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %113, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %113, i64 %.03346.i84
   br label %158
 
 .preheader40.i90:                                 ; preds = %158
-  %invariant.gep43.i91 = getelementptr %struct.ggml_bf16_t, ptr %115, i64 %.03346.i84
+  %invariant.gep43.i91 = getelementptr [2 x i8], ptr %115, i64 %.03346.i84
   br label %168
 
 158:                                              ; preds = %158, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %164, %158 ]
   %159 = add nuw nsw i64 %.03541.i86, %64
   %160 = mul nsw i64 %159, %114
-  %gep.i87 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i85, i64 %160
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %160
   %.val38.i88 = load <16 x i16>, ptr %gep.i87, align 1, !tbaa !53
   %161 = zext <16 x i16> %.val38.i88 to <16 x i32>
   %162 = shl nuw <16 x i32> %161, splat (i32 16)
-  %163 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %163 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x i32> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %164, 4
@@ -12337,12 +12332,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %176, %175 ]
   %169 = add nsw i64 %.03445.i92, %.1100
   %170 = mul nsw i64 %169, %116
-  %gep44.i93 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i91, i64 %170
+  %gep44.i93 = getelementptr [2 x i8], ptr %invariant.gep43.i91, i64 %170
   %.val3637.i94 = load <16 x i16>, ptr %gep44.i93, align 1, !tbaa !53
   %171 = zext <16 x i16> %.val3637.i94 to <16 x i32>
   %172 = shl nuw <16 x i32> %171, splat (i32 16)
   %173 = bitcast <16 x i32> %172 to <16 x float>
-  %174 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i92
+  %174 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i92
   br label %177
 
 175:                                              ; preds = %177
@@ -12352,9 +12347,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 177:                                              ; preds = %177, %168
   %.03242.i95 = phi i64 [ 0, %168 ], [ %183, %177 ]
-  %178 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i95
+  %178 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i95
   %179 = load <16 x float>, ptr %178, align 64, !tbaa !53
-  %180 = getelementptr inbounds nuw <16 x float>, ptr %174, i64 %.03242.i95
+  %180 = getelementptr inbounds nuw [64 x i8], ptr %174, i64 %.03242.i95
   %181 = load <16 x float>, ptr %180, align 64, !tbaa !53
   %182 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %179, <16 x float> %173, <16 x float> %181)
   store <16 x float> %182, ptr %180, align 64, !tbaa !53
@@ -12364,10 +12359,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %187
   %.03150.i78 = phi i64 [ %188, %187 ], [ 0, %.preheader.i77.preheader ]
-  %184 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %184 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %185 = add nsw i64 %.03150.i78, %.1100
   %186 = mul nsw i64 %185, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i, i64 %186
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %186
   br label %189
 
 187:                                              ; preds = %189
@@ -12377,10 +12372,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 189:                                              ; preds = %189, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %194, %189 ]
-  %190 = getelementptr inbounds nuw <16 x float>, ptr %184, i64 %.047.i80
+  %190 = getelementptr inbounds nuw [64 x i8], ptr %184, i64 %.047.i80
   %191 = load <16 x float>, ptr %190, align 64, !tbaa !53
   %192 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %191)
-  %193 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %193 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %192, ptr %193, align 4, !tbaa !93
   %194 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %194, 4
@@ -12567,7 +12562,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %102 = icmp sgt i64 %101, 0
   %103 = load ptr, ptr %60, align 8
   %104 = load i64, ptr %61, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %64
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %64
   br i1 %100, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -12606,22 +12601,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %117, %125
   %.03346.i = phi i64 [ %126, %125 ], [ 0, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %105, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %105, i64 %.03346.i
   br label %118
 
 .preheader40.i:                                   ; preds = %118
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %107, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %107, i64 %.03346.i
   br label %128
 
 118:                                              ; preds = %118, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %124, %118 ]
   %119 = add nuw nsw i64 %.03541.i, %64
   %120 = mul nsw i64 %119, %106
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %120
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %120
   %.val38.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %121 = zext <16 x i16> %.val38.i to <16 x i32>
   %122 = shl nuw <16 x i32> %121, splat (i32 16)
-  %123 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %123 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %122, ptr %123, align 64, !tbaa !53
   %124 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %124, 4
@@ -12637,12 +12632,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %136, %135 ]
   %129 = add nsw i64 %.03445.i, %.097
   %130 = mul nsw i64 %129, %108
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %130
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %130
   %.val3637.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %131 = zext <16 x i16> %.val3637.i to <16 x i32>
   %132 = shl nuw <16 x i32> %131, splat (i32 16)
   %133 = bitcast <16 x i32> %132 to <16 x float>
-  %134 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %134 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %137
 
 135:                                              ; preds = %137
@@ -12652,9 +12647,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 137:                                              ; preds = %137, %128
   %.03242.i = phi i64 [ 0, %128 ], [ %143, %137 ]
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %134, i64 %.03242.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %134, i64 %.03242.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
   %142 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %139, <16 x float> %133, <16 x float> %141)
   store <16 x float> %142, ptr %140, align 64, !tbaa !53
@@ -12664,10 +12659,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %147
   %.03150.i = phi i64 [ %148, %147 ], [ 0, %.preheader.i.preheader ]
-  %144 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %144 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %145 = add nsw i64 %.03150.i, %.097
   %146 = mul nsw i64 %145, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %146
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %146
   br label %149
 
 147:                                              ; preds = %149
@@ -12677,10 +12672,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 149:                                              ; preds = %149, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %154, %149 ]
-  %150 = getelementptr inbounds nuw <16 x float>, ptr %144, i64 %.047.i
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %144, i64 %.047.i
   %151 = load <16 x float>, ptr %150, align 64, !tbaa !53
   %152 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %151)
-  %153 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %153 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %152, ptr %153, align 4, !tbaa !93
   %154 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %154, 4
@@ -12704,22 +12699,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 .lr.ph.i83:                                       ; preds = %157, %165
   %.03346.i84 = phi i64 [ %166, %165 ], [ 0, %157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %113, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %113, i64 %.03346.i84
   br label %158
 
 .preheader40.i89:                                 ; preds = %158
-  %invariant.gep43.i90 = getelementptr %struct.ggml_bf16_t, ptr %115, i64 %.03346.i84
+  %invariant.gep43.i90 = getelementptr [2 x i8], ptr %115, i64 %.03346.i84
   br label %168
 
 158:                                              ; preds = %158, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %164, %158 ]
   %159 = add nuw nsw i64 %.03541.i86, %64
   %160 = mul nsw i64 %159, %114
-  %gep.i87 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i85, i64 %160
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %160
   %.val3638.i = load <16 x i16>, ptr %gep.i87, align 1, !tbaa !53
   %161 = zext <16 x i16> %.val3638.i to <16 x i32>
   %162 = shl nuw <16 x i32> %161, splat (i32 16)
-  %163 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %163 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x i32> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %164, 4
@@ -12735,12 +12730,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %176, %175 ]
   %169 = add nsw i64 %.03445.i91, %.198
   %170 = mul nsw i64 %169, %116
-  %gep44.i92 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i90, i64 %170
+  %gep44.i92 = getelementptr [2 x i8], ptr %invariant.gep43.i90, i64 %170
   %.val37.i = load <16 x i16>, ptr %gep44.i92, align 1, !tbaa !53
   %171 = zext <16 x i16> %.val37.i to <16 x i32>
   %172 = shl nuw <16 x i32> %171, splat (i32 16)
   %173 = bitcast <16 x i32> %172 to <16 x float>
-  %174 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i91
+  %174 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i91
   br label %177
 
 175:                                              ; preds = %177
@@ -12750,9 +12745,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 177:                                              ; preds = %177, %168
   %.03242.i93 = phi i64 [ 0, %168 ], [ %183, %177 ]
-  %178 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i93
+  %178 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i93
   %179 = load <16 x float>, ptr %178, align 64, !tbaa !53
-  %180 = getelementptr inbounds nuw <16 x float>, ptr %174, i64 %.03242.i93
+  %180 = getelementptr inbounds nuw [64 x i8], ptr %174, i64 %.03242.i93
   %181 = load <16 x float>, ptr %180, align 64, !tbaa !53
   %182 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %179, <16 x float> %173, <16 x float> %181)
   store <16 x float> %182, ptr %180, align 64, !tbaa !53
@@ -12762,10 +12757,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %187
   %.03150.i78 = phi i64 [ %188, %187 ], [ 0, %.preheader.i77.preheader ]
-  %184 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %184 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %185 = add nsw i64 %.03150.i78, %.198
   %186 = mul nsw i64 %185, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i, i64 %186
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %186
   br label %189
 
 187:                                              ; preds = %189
@@ -12775,10 +12770,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 189:                                              ; preds = %189, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %194, %189 ]
-  %190 = getelementptr inbounds nuw <16 x float>, ptr %184, i64 %.047.i80
+  %190 = getelementptr inbounds nuw [64 x i8], ptr %184, i64 %.047.i80
   %191 = load <16 x float>, ptr %190, align 64, !tbaa !53
   %192 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %191)
-  %193 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %193 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %192, ptr %193, align 4, !tbaa !93
   %194 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %194, 4
@@ -12965,7 +12960,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %103 = icmp sgt i64 %102, 0
   %104 = load ptr, ptr %61, align 8
   %105 = load i64, ptr %62, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %65
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %65
   br i1 %101, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
@@ -13004,22 +12999,22 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %118, %126
   %.03346.i = phi i64 [ %127, %126 ], [ 0, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %106, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %106, i64 %.03346.i
   br label %119
 
 .preheader40.i:                                   ; preds = %119
-  %invariant.gep43.i = getelementptr %struct.ggml_bf16_t, ptr %108, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %108, i64 %.03346.i
   br label %129
 
 119:                                              ; preds = %119, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %125, %119 ]
   %120 = add nuw nsw i64 %.03541.i, %65
   %121 = mul nsw i64 %120, %107
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %121
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %121
   %.val3638.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %122 = zext <16 x i16> %.val3638.i to <16 x i32>
   %123 = shl nuw <16 x i32> %122, splat (i32 16)
-  %124 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %124 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x i32> %123, ptr %124, align 64, !tbaa !53
   %125 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %125, 4
@@ -13035,12 +13030,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %137, %136 ]
   %130 = add nsw i64 %.03445.i, %.087
   %131 = mul nsw i64 %130, %109
-  %gep44.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep43.i, i64 %131
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %131
   %.val37.i = load <16 x i16>, ptr %gep44.i, align 1, !tbaa !53
   %132 = zext <16 x i16> %.val37.i to <16 x i32>
   %133 = shl nuw <16 x i32> %132, splat (i32 16)
   %134 = bitcast <16 x i32> %133 to <16 x float>
-  %135 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %135 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %138
 
 136:                                              ; preds = %138
@@ -13050,9 +13045,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 138:                                              ; preds = %138, %129
   %.03242.i = phi i64 [ 0, %129 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %140 = load <16 x float>, ptr %139, align 64, !tbaa !53
-  %141 = getelementptr inbounds nuw <16 x float>, ptr %135, i64 %.03242.i
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %.03242.i
   %142 = load <16 x float>, ptr %141, align 64, !tbaa !53
   %143 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %140, <16 x float> %134, <16 x float> %142)
   store <16 x float> %143, ptr %141, align 64, !tbaa !53
@@ -13062,10 +13057,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %148
   %.03150.i = phi i64 [ %149, %148 ], [ 0, %.preheader.i.preheader ]
-  %145 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %145 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %146 = add nsw i64 %.03150.i, %.087
   %147 = mul nsw i64 %146, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %147
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %147
   br label %150
 
 148:                                              ; preds = %150
@@ -13075,10 +13070,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 150:                                              ; preds = %150, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
-  %151 = getelementptr inbounds nuw <16 x float>, ptr %145, i64 %.047.i
+  %151 = getelementptr inbounds nuw [64 x i8], ptr %145, i64 %.047.i
   %152 = load <16 x float>, ptr %151, align 64, !tbaa !53
   %153 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %152)
-  %154 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %154 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
@@ -13102,22 +13097,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 .lr.ph.i76:                                       ; preds = %158, %166
   %.03348.i = phi i64 [ %167, %166 ], [ 0, %158 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr %struct.ggml_bf16_t, ptr %114, i64 %.03348.i
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %114, i64 %.03348.i
   br label %159
 
 .preheader40.i82:                                 ; preds = %159
-  %invariant.gep45.i = getelementptr %struct.ggml_bf16_t, ptr %116, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %116, i64 %.03348.i
   br label %169
 
 159:                                              ; preds = %159, %.lr.ph.i76
   %.03541.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %165, %159 ]
   %160 = add nsw i64 %.03541.i78, %.188
   %161 = mul nsw i64 %160, %115
-  %gep.i79 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i77, i64 %161
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %161
   %.val3638.i80 = load <16 x i16>, ptr %gep.i79, align 1, !tbaa !53
   %162 = zext <16 x i16> %.val3638.i80 to <16 x i32>
   %163 = shl nuw <16 x i32> %162, splat (i32 16)
-  %164 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i78
+  %164 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i78
   store <16 x i32> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %165, 3
@@ -13133,12 +13128,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %176, %175 ]
   %170 = add nuw nsw i64 %.03447.i, %65
   %171 = mul nsw i64 %170, %117
-  %gep46.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i, i64 %171
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %171
   %.val37.i83 = load <16 x i16>, ptr %gep46.i, align 1, !tbaa !53
   %172 = zext <16 x i16> %.val37.i83 to <16 x i32>
   %173 = shl nuw <16 x i32> %172, splat (i32 16)
   %174 = bitcast <16 x i32> %173 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i
   br label %177
 
 175:                                              ; preds = %177
@@ -13148,9 +13143,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 177:                                              ; preds = %177, %169
   %.03244.i = phi i64 [ 0, %169 ], [ %182, %177 ]
-  %178 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03244.i
+  %178 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03244.i
   %179 = load <16 x float>, ptr %178, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %180 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %181 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %174, <16 x float> %179, <16 x float> %180)
   store <16 x float> %181, ptr %gep43.i, align 64, !tbaa !53
@@ -13160,10 +13155,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %186
   %.03152.i = phi i64 [ %187, %186 ], [ 0, %.preheader.i75.preheader ]
-  %183 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03152.i
+  %183 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03152.i
   %184 = add nsw i64 %.03152.i, %.188
   %185 = mul nsw i64 %184, %105
-  %gep51.i = getelementptr float, ptr %invariant.gep48.i, i64 %185
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %185
   br label %188
 
 186:                                              ; preds = %188
@@ -13173,10 +13168,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 188:                                              ; preds = %188, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %193, %188 ]
-  %189 = getelementptr inbounds nuw <16 x float>, ptr %183, i64 %.049.i
+  %189 = getelementptr inbounds nuw [64 x i8], ptr %183, i64 %.049.i
   %190 = load <16 x float>, ptr %189, align 64, !tbaa !53
   %191 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %190)
-  %192 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %192 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %193, 4
@@ -13363,7 +13358,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %101 = icmp sgt i64 %100, 0
   %102 = load ptr, ptr %59, align 8
   %103 = load i64, ptr %60, align 8
-  %invariant.gep50.i = getelementptr float, ptr %102, i64 %63
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %102, i64 %63
   br i1 %99, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -13401,16 +13396,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader40.i88.us.critedge:                     ; preds = %135, %.lr.ph.i82.us
   %.03348.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %136, %135 ]
-  %invariant.gep.i84.us = getelementptr %struct.ggml_bf16_t, ptr %112, i64 %.03348.i83.us
-  %gep.i86.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i84.us, i64 %116
+  %invariant.gep.i84.us = getelementptr [2 x i8], ptr %112, i64 %.03348.i83.us
+  %gep.i86.us = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %116
   %.val3638.i87.us = load <16 x i16>, ptr %gep.i86.us, align 1, !tbaa !53
   %119 = zext <16 x i16> %.val3638.i87.us to <16 x i32>
   %120 = shl nuw <16 x i32> %119, splat (i32 16)
-  %gep.i86.us.c = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i84.us, i64 %118
+  %gep.i86.us.c = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %118
   %.val3638.i87.us.c = load <16 x i16>, ptr %gep.i86.us.c, align 1, !tbaa !53
   %121 = zext <16 x i16> %.val3638.i87.us.c to <16 x i32>
   %122 = shl nuw <16 x i32> %121, splat (i32 16)
-  %invariant.gep45.i89.us = getelementptr %struct.ggml_bf16_t, ptr %114, i64 %.03348.i83.us
+  %invariant.gep45.i89.us = getelementptr [2 x i8], ptr %114, i64 %.03348.i83.us
   %123 = bitcast <16 x i32> %120 to <16 x float>
   %124 = bitcast <16 x i32> %122 to <16 x float>
   br label %.critedge
@@ -13419,12 +13414,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03447.i90.us = phi i64 [ 0, %.preheader40.i88.us.critedge ], [ %134, %.critedge ]
   %125 = add nuw nsw i64 %.03447.i90.us, %63
   %126 = mul nsw i64 %125, %115
-  %gep46.i91.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i89.us, i64 %126
+  %gep46.i91.us = getelementptr [2 x i8], ptr %invariant.gep45.i89.us, i64 %126
   %.val37.i92.us = load <16 x i16>, ptr %gep46.i91.us, align 1, !tbaa !53
   %127 = zext <16 x i16> %.val37.i92.us to <16 x i32>
   %128 = shl nuw <16 x i32> %127, splat (i32 16)
   %129 = bitcast <16 x i32> %128 to <16 x float>
-  %invariant.gep42.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i90.us
+  %invariant.gep42.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i90.us
   %130 = load <16 x float>, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
   %131 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %129, <16 x float> %123, <16 x float> %130)
   store <16 x float> %131, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
@@ -13447,15 +13442,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03152.i78.us = phi i64 [ 1, %147 ], [ 0, %135 ]
   %139 = add nsw i64 %.03152.i78.us, %.1102.us
   %140 = mul nsw i64 %139, %103
-  %gep51.i79.us = getelementptr float, ptr %invariant.gep50.i, i64 %140
+  %gep51.i79.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %140
   br label %141
 
 141:                                              ; preds = %141, %.preheader.i77.us
   %.049.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %146, %141 ]
-  %142 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
   %143 = load <16 x float>, ptr %142, align 64, !tbaa !53
   %144 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %143)
-  %145 = getelementptr float, ptr %gep51.i79.us, i64 %.049.i80.us
+  %145 = getelementptr [4 x i8], ptr %gep51.i79.us, i64 %.049.i80.us
   store float %144, ptr %145, align 4, !tbaa !93
   %146 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %146, 4
@@ -13482,22 +13477,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 .lr.ph.i:                                         ; preds = %150, %158
   %.03348.i = phi i64 [ %159, %158 ], [ 0, %150 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %104, i64 %.03348.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %104, i64 %.03348.i
   br label %151
 
 .preheader40.i:                                   ; preds = %151
-  %invariant.gep45.i = getelementptr %struct.ggml_bf16_t, ptr %106, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %106, i64 %.03348.i
   br label %161
 
 151:                                              ; preds = %151, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %157, %151 ]
   %152 = add nsw i64 %.03541.i, %.0101
   %153 = mul nsw i64 %152, %105
-  %gep.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i, i64 %153
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %153
   %.val3638.i = load <16 x i16>, ptr %gep.i, align 1, !tbaa !53
   %154 = zext <16 x i16> %.val3638.i to <16 x i32>
   %155 = shl nuw <16 x i32> %154, splat (i32 16)
-  %156 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03541.i
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03541.i
   store <16 x i32> %155, ptr %156, align 64, !tbaa !53
   %157 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %157, 3
@@ -13513,12 +13508,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %168, %167 ]
   %162 = add nuw nsw i64 %.03447.i, %63
   %163 = mul nsw i64 %162, %107
-  %gep46.i = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i, i64 %163
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %163
   %.val37.i = load <16 x i16>, ptr %gep46.i, align 1, !tbaa !53
   %164 = zext <16 x i16> %.val37.i to <16 x i32>
   %165 = shl nuw <16 x i32> %164, splat (i32 16)
   %166 = bitcast <16 x i32> %165 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i
   br label %169
 
 167:                                              ; preds = %169
@@ -13528,9 +13523,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 169:                                              ; preds = %169, %161
   %.03244.i = phi i64 [ 0, %161 ], [ %174, %169 ]
-  %170 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03244.i
+  %170 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03244.i
   %171 = load <16 x float>, ptr %170, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %172 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %173 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %166, <16 x float> %171, <16 x float> %172)
   store <16 x float> %173, ptr %gep43.i, align 64, !tbaa !53
@@ -13540,10 +13535,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %178
   %.03152.i = phi i64 [ %179, %178 ], [ 0, %.preheader.i.preheader ]
-  %175 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03152.i
+  %175 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03152.i
   %176 = add nsw i64 %.03152.i, %.0101
   %177 = mul nsw i64 %176, %103
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %177
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %177
   br label %180
 
 178:                                              ; preds = %180
@@ -13553,10 +13548,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 180:                                              ; preds = %180, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %185, %180 ]
-  %181 = getelementptr inbounds nuw <16 x float>, ptr %175, i64 %.049.i
+  %181 = getelementptr inbounds nuw [64 x i8], ptr %175, i64 %.049.i
   %182 = load <16 x float>, ptr %181, align 64, !tbaa !53
   %183 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %182)
-  %184 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %184 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %183, ptr %184, align 4, !tbaa !93
   %185 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %185, 4
@@ -13580,7 +13575,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   %.03152.i78 = phi i64 [ 0, %.preheader39.i75 ], [ 1, %191 ]
   %189 = add nsw i64 %.03152.i78, %.1102
   %190 = mul nsw i64 %189, %103
-  %gep51.i79 = getelementptr float, ptr %invariant.gep50.i, i64 %190
+  %gep51.i79 = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %190
   br label %192
 
 191:                                              ; preds = %192
@@ -13588,10 +13583,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
 
 192:                                              ; preds = %192, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %197, %192 ]
-  %193 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi, i64 %.049.i80
+  %193 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi, i64 %.049.i80
   %194 = load <16 x float>, ptr %193, align 64, !tbaa !53
   %195 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %194)
-  %196 = getelementptr float, ptr %gep51.i79, i64 %.049.i80
+  %196 = getelementptr [4 x i8], ptr %gep51.i79, i64 %.049.i80
   store float %195, ptr %196, align 4, !tbaa !93
   %197 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %197, 4
@@ -13755,7 +13750,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %93 = icmp sgt i64 %92, 0
   %94 = load ptr, ptr %59, align 8
   %95 = load i64, ptr %60, align 8
-  %invariant.gep50.i = getelementptr float, ptr %94, i64 %63
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %94, i64 %63
   br i1 %91, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
@@ -13776,16 +13771,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader40.i.us.critedge:                       ; preds = %119, %.lr.ph.i.us
   %.03348.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %120, %119 ]
-  %invariant.gep.i.us = getelementptr %struct.ggml_bf16_t, ptr %96, i64 %.03348.i.us
-  %gep.i.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us, i64 %100
+  %invariant.gep.i.us = getelementptr [2 x i8], ptr %96, i64 %.03348.i.us
+  %gep.i.us = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %100
   %.val3638.i.us = load <16 x i16>, ptr %gep.i.us, align 1, !tbaa !53
   %103 = zext <16 x i16> %.val3638.i.us to <16 x i32>
   %104 = shl nuw <16 x i32> %103, splat (i32 16)
-  %gep.i.us.c = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us, i64 %102
+  %gep.i.us.c = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %102
   %.val3638.i.us.c = load <16 x i16>, ptr %gep.i.us.c, align 1, !tbaa !53
   %105 = zext <16 x i16> %.val3638.i.us.c to <16 x i32>
   %106 = shl nuw <16 x i32> %105, splat (i32 16)
-  %invariant.gep45.i.us = getelementptr %struct.ggml_bf16_t, ptr %98, i64 %.03348.i.us
+  %invariant.gep45.i.us = getelementptr [2 x i8], ptr %98, i64 %.03348.i.us
   %107 = bitcast <16 x i32> %104 to <16 x float>
   %108 = bitcast <16 x i32> %106 to <16 x float>
   br label %.critedge
@@ -13794,12 +13789,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03447.i.us = phi i64 [ 0, %.preheader40.i.us.critedge ], [ %118, %.critedge ]
   %109 = add nuw nsw i64 %.03447.i.us, %63
   %110 = mul nsw i64 %109, %99
-  %gep46.i.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep45.i.us, i64 %110
+  %gep46.i.us = getelementptr [2 x i8], ptr %invariant.gep45.i.us, i64 %110
   %.val37.i.us = load <16 x i16>, ptr %gep46.i.us, align 1, !tbaa !53
   %111 = zext <16 x i16> %.val37.i.us to <16 x i32>
   %112 = shl nuw <16 x i32> %111, splat (i32 16)
   %113 = bitcast <16 x i32> %112 to <16 x float>
-  %invariant.gep42.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i.us
+  %invariant.gep42.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i.us
   %114 = load <16 x float>, ptr %invariant.gep42.i.us, align 64, !tbaa !53
   %115 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %113, <16 x float> %107, <16 x float> %114)
   store <16 x float> %115, ptr %invariant.gep42.i.us, align 64, !tbaa !53
@@ -13822,15 +13817,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03152.i.us = phi i64 [ 1, %131 ], [ 0, %119 ]
   %123 = add nsw i64 %.03152.i.us, %.084.us
   %124 = mul nsw i64 %123, %95
-  %gep51.i.us = getelementptr float, ptr %invariant.gep50.i, i64 %124
+  %gep51.i.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %124
   br label %125
 
 125:                                              ; preds = %125, %.preheader.i.us
   %.049.i.us = phi i64 [ 0, %.preheader.i.us ], [ %130, %125 ]
-  %126 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
   %127 = load <16 x float>, ptr %126, align 64, !tbaa !53
   %128 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %127)
-  %129 = getelementptr float, ptr %gep51.i.us, i64 %.049.i.us
+  %129 = getelementptr [4 x i8], ptr %gep51.i.us, i64 %.049.i.us
   store float %128, ptr %129, align 4, !tbaa !93
   %130 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %130, 4
@@ -13874,7 +13869,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03152.i = phi i64 [ 0, %.preheader39.i ], [ 1, %145 ]
   %143 = add nsw i64 %.03152.i, %.084
   %144 = mul nsw i64 %143, %95
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %144
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %144
   br label %146
 
 145:                                              ; preds = %146
@@ -13882,10 +13877,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 146:                                              ; preds = %146, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %151, %146 ]
-  %147 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi, i64 %.049.i
+  %147 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi, i64 %.049.i
   %148 = load <16 x float>, ptr %147, align 64, !tbaa !53
   %149 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %148)
-  %150 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %150 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %151, 4
@@ -13905,22 +13900,22 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader41.lr.ph.i:                             ; preds = %154
   %155 = mul nsw i64 %139, %.185
-  %156 = getelementptr inbounds %struct.ggml_bf16_t, ptr %138, i64 %155
+  %156 = getelementptr inbounds [2 x i8], ptr %138, i64 %155
   br label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %162, %.preheader41.lr.ph.i
   %.03349.i = phi i64 [ 0, %.preheader41.lr.ph.i ], [ %163, %162 ]
-  %157 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %156, i64 %.03349.i
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %156, i64 %.03349.i
   %.val3638.le.i = load <16 x i16>, ptr %157, align 1, !tbaa !53
   %158 = zext <16 x i16> %.val3638.le.i to <16 x i32>
   %159 = shl nuw <16 x i32> %158, splat (i32 16)
   %160 = bitcast <16 x i32> %159 to <16 x float>
-  %invariant.gep.i75 = getelementptr %struct.ggml_bf16_t, ptr %140, i64 %.03349.i
+  %invariant.gep.i75 = getelementptr [2 x i8], ptr %140, i64 %.03349.i
   br label %165
 
 .preheader39.i74:                                 ; preds = %162, %154
   %161 = mul nsw i64 %95, %.185
-  %gep = getelementptr float, ptr %invariant.gep50.i, i64 %161
+  %gep = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %161
   br label %174
 
 162:                                              ; preds = %165
@@ -13932,12 +13927,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   %.03448.i = phi i64 [ 0, %.preheader41.i ], [ %173, %165 ]
   %166 = add nuw nsw i64 %.03448.i, %63
   %167 = mul nsw i64 %166, %141
-  %gep.i76 = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i75, i64 %167
+  %gep.i76 = getelementptr [2 x i8], ptr %invariant.gep.i75, i64 %167
   %.val37.i77 = load <16 x i16>, ptr %gep.i76, align 1, !tbaa !53
   %168 = zext <16 x i16> %.val37.i77 to <16 x i32>
   %169 = shl nuw <16 x i32> %168, splat (i32 16)
   %170 = bitcast <16 x i32> %169 to <16 x float>
-  %171 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03448.i
+  %171 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03448.i
   %.promoted.i = load <16 x float>, ptr %171, align 64, !tbaa !53
   %172 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %170, <16 x float> %160, <16 x float> %.promoted.i)
   store <16 x float> %172, ptr %171, align 64, !tbaa !53
@@ -13947,10 +13942,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 174:                                              ; preds = %174, %.preheader39.i74
   %.050.i = phi i64 [ 0, %.preheader39.i74 ], [ %179, %174 ]
-  %175 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i
+  %175 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i
   %176 = load <16 x float>, ptr %175, align 64, !tbaa !53
   %177 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %176)
-  %178 = getelementptr float, ptr %gep, i64 %.050.i
+  %178 = getelementptr [4 x i8], ptr %gep, i64 %.050.i
   store float %177, ptr %178, align 4, !tbaa !93
   %179 = add nuw nsw i64 %.050.i, 1
   %exitcond51.not.i = icmp eq i64 %179, 4
@@ -14099,7 +14094,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   %.fr = freeze i1 %77
   br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
@@ -14119,29 +14114,29 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %86 = mul nsw i64 %83, %.067.us.us.us
-  %87 = getelementptr inbounds %struct.ggml_bf16_t, ptr %82, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %82, i64 %86
   br label %.preheader41.i.us.us.us
 
 .preheader41.i.us.us.us:                          ; preds = %101, %.preheader41.lr.ph.i.us.us.us
   %.03349.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %102, %101 ]
-  %88 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %87, i64 %.03349.i.us.us.us
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %.03349.i.us.us.us
   %.val3638.le.i.us.us.us = load <16 x i16>, ptr %88, align 1, !tbaa !53
   %89 = zext <16 x i16> %.val3638.le.i.us.us.us to <16 x i32>
   %90 = shl nuw <16 x i32> %89, splat (i32 16)
   %91 = bitcast <16 x i32> %90 to <16 x float>
-  %invariant.gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %84, i64 %.03349.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [2 x i8], ptr %84, i64 %.03349.i.us.us.us
   br label %92
 
 92:                                               ; preds = %92, %.preheader41.i.us.us.us
   %.03448.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %100, %92 ]
   %93 = add nuw nsw i64 %.03448.i.us.us.us, %57
   %94 = mul nsw i64 %93, %85
-  %gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us.us, i64 %94
+  %gep.i.us.us.us = getelementptr [2 x i8], ptr %invariant.gep.i.us.us.us, i64 %94
   %.val37.i.us.us.us = load <16 x i16>, ptr %gep.i.us.us.us, align 1, !tbaa !53
   %95 = zext <16 x i16> %.val37.i.us.us.us to <16 x i32>
   %96 = shl nuw <16 x i32> %95, splat (i32 16)
   %97 = bitcast <16 x i32> %96 to <16 x float>
-  %98 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03448.i.us.us.us
+  %98 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03448.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %98, align 64, !tbaa !53
   %99 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %97, <16 x float> %91, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %99, ptr %98, align 64, !tbaa !53
@@ -14156,10 +14151,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 104:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %104
   %.050.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %109, %104 ]
-  %105 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us.us.us
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i.us.us.us
   %106 = load <16 x float>, ptr %105, align 64, !tbaa !53
   %107 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %106)
-  %108 = getelementptr float, ptr %gep.us.us.us, i64 %.050.i.us.us.us
+  %108 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.050.i.us.us.us
   store float %107, ptr %108, align 4, !tbaa !93
   %109 = add nuw nsw i64 %.050.i.us.us.us, 1
   %exitcond51.not.i.us.us.us = icmp eq i64 %109, 4
@@ -14173,7 +14168,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %101
   %112 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %112
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep, i64 %112
   br label %104
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -14185,15 +14180,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %114 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %114
+  %gep.us69 = getelementptr [4 x i8], ptr %invariant.gep, i64 %114
   br label %115
 
 115:                                              ; preds = %115, %.preheader39.i.us
   %.050.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %120, %115 ]
-  %116 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us70
+  %116 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.050.i.us70
   %117 = load <16 x float>, ptr %116, align 64, !tbaa !53
   %118 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %117)
-  %119 = getelementptr float, ptr %gep.us69, i64 %.050.i.us70
+  %119 = getelementptr [4 x i8], ptr %gep.us69, i64 %.050.i.us70
   store float %118, ptr %119, align 4, !tbaa !93
   %120 = add nuw nsw i64 %.050.i.us70, 1
   %exitcond51.not.i.us71 = icmp eq i64 %120, 4
@@ -14406,7 +14401,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %110 = load i64, ptr %57, align 8
   %111 = load ptr, ptr %58, align 8
   %112 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %108
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %108
   br label %122
 
 113:                                              ; preds = %105
@@ -14425,7 +14420,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %119 = load i64, ptr %57, align 8
   %120 = load ptr, ptr %58, align 8
   %121 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %117
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %117
   br label %159
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit
@@ -14440,21 +14435,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %122, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %109, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %109, i64 %.03346.i
   br label %123
 
 .preheader40.i:                                   ; preds = %123
-  %invariant.gep43.i = getelementptr i16, ptr %111, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %111, i64 %.03346.i
   br label %132
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %128, %123 ]
   %124 = add nuw nsw i64 %.03541.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %125
   %.val38.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %126 = fpext <16 x half> %.val38.i to <16 x float>
-  %127 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
@@ -14470,10 +14465,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %138, %137 ]
   %133 = add nsw i64 %.03445.i, %.099
   %134 = mul nsw i64 %133, %112
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %134
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %134
   %.val3637.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %135 = fpext <16 x half> %.val3637.i to <16 x float>
-  %136 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %136 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %139
 
 137:                                              ; preds = %139
@@ -14483,9 +14478,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 139:                                              ; preds = %139, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %145, %139 ]
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
-  %142 = getelementptr inbounds nuw <16 x float>, ptr %136, i64 %.03242.i
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %136, i64 %.03242.i
   %143 = load <16 x float>, ptr %142, align 64, !tbaa !53
   %144 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %141, <16 x float> %135, <16 x float> %143)
   store <16 x float> %144, ptr %142, align 64, !tbaa !53
@@ -14495,10 +14490,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %149
   %.03150.i = phi i64 [ %150, %149 ], [ 0, %.preheader.i.preheader ]
-  %146 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %146 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %147 = add nsw i64 %.03150.i, %.099
   %148 = mul nsw i64 %147, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %148
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %148
   br label %151
 
 149:                                              ; preds = %151
@@ -14508,10 +14503,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 151:                                              ; preds = %151, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
-  %152 = getelementptr inbounds nuw <16 x float>, ptr %146, i64 %.047.i
+  %152 = getelementptr inbounds nuw [64 x i8], ptr %146, i64 %.047.i
   %153 = load <16 x float>, ptr %152, align 64, !tbaa !53
   %154 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %153)
-  %155 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %155 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
@@ -14535,21 +14530,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %159, %166
   %.03346.i84 = phi i64 [ %167, %166 ], [ 0, %159 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr i16, ptr %118, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %118, i64 %.03346.i84
   br label %160
 
 .preheader40.i90:                                 ; preds = %160
-  %invariant.gep43.i91 = getelementptr i16, ptr %120, i64 %.03346.i84
+  %invariant.gep43.i91 = getelementptr [2 x i8], ptr %120, i64 %.03346.i84
   br label %169
 
 160:                                              ; preds = %160, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %165, %160 ]
   %161 = add nuw nsw i64 %.03541.i86, %117
   %162 = mul nsw i64 %161, %119
-  %gep.i87 = getelementptr i16, ptr %invariant.gep.i85, i64 %162
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %162
   %.val38.i88 = load <16 x half>, ptr %gep.i87, align 1, !tbaa !53
   %163 = fpext <16 x half> %.val38.i88 to <16 x float>
-  %164 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %164 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x float> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %165, 4
@@ -14565,10 +14560,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %175, %174 ]
   %170 = add nsw i64 %.03445.i92, %.1100
   %171 = mul nsw i64 %170, %121
-  %gep44.i93 = getelementptr i16, ptr %invariant.gep43.i91, i64 %171
+  %gep44.i93 = getelementptr [2 x i8], ptr %invariant.gep43.i91, i64 %171
   %.val3637.i94 = load <16 x half>, ptr %gep44.i93, align 1, !tbaa !53
   %172 = fpext <16 x half> %.val3637.i94 to <16 x float>
-  %173 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i92
+  %173 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i92
   br label %176
 
 174:                                              ; preds = %176
@@ -14578,9 +14573,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 176:                                              ; preds = %176, %169
   %.03242.i95 = phi i64 [ 0, %169 ], [ %182, %176 ]
-  %177 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i95
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i95
   %178 = load <16 x float>, ptr %177, align 64, !tbaa !53
-  %179 = getelementptr inbounds nuw <16 x float>, ptr %173, i64 %.03242.i95
+  %179 = getelementptr inbounds nuw [64 x i8], ptr %173, i64 %.03242.i95
   %180 = load <16 x float>, ptr %179, align 64, !tbaa !53
   %181 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %178, <16 x float> %172, <16 x float> %180)
   store <16 x float> %181, ptr %179, align 64, !tbaa !53
@@ -14590,10 +14585,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %186
   %.03150.i78 = phi i64 [ %187, %186 ], [ 0, %.preheader.i77.preheader ]
-  %183 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %183 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %184 = add nsw i64 %.03150.i78, %.1100
   %185 = mul nsw i64 %184, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %185
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %185
   br label %188
 
 186:                                              ; preds = %188
@@ -14603,10 +14598,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 188:                                              ; preds = %188, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %193, %188 ]
-  %189 = getelementptr inbounds nuw <16 x float>, ptr %183, i64 %.047.i80
+  %189 = getelementptr inbounds nuw [64 x i8], ptr %183, i64 %.047.i80
   %190 = load <16 x float>, ptr %189, align 64, !tbaa !53
   %191 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %190)
-  %192 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %192 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %193, 4
@@ -14810,7 +14805,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %110 = load i64, ptr %57, align 8
   %111 = load ptr, ptr %58, align 8
   %112 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %108
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %108
   br label %122
 
 113:                                              ; preds = %105
@@ -14829,7 +14824,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %119 = load i64, ptr %57, align 8
   %120 = load ptr, ptr %58, align 8
   %121 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %117
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %117
   br label %159
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
@@ -14844,21 +14839,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %122, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %109, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %109, i64 %.03346.i
   br label %123
 
 .preheader40.i:                                   ; preds = %123
-  %invariant.gep43.i = getelementptr i16, ptr %111, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %111, i64 %.03346.i
   br label %132
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %128, %123 ]
   %124 = add nuw nsw i64 %.03541.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %125
   %.val38.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %126 = fpext <16 x half> %.val38.i to <16 x float>
-  %127 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
@@ -14874,10 +14869,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %138, %137 ]
   %133 = add nsw i64 %.03445.i, %.097
   %134 = mul nsw i64 %133, %112
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %134
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %134
   %.val3637.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %135 = fpext <16 x half> %.val3637.i to <16 x float>
-  %136 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %136 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %139
 
 137:                                              ; preds = %139
@@ -14887,9 +14882,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 139:                                              ; preds = %139, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %145, %139 ]
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
-  %142 = getelementptr inbounds nuw <16 x float>, ptr %136, i64 %.03242.i
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %136, i64 %.03242.i
   %143 = load <16 x float>, ptr %142, align 64, !tbaa !53
   %144 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %141, <16 x float> %135, <16 x float> %143)
   store <16 x float> %144, ptr %142, align 64, !tbaa !53
@@ -14899,10 +14894,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %149
   %.03150.i = phi i64 [ %150, %149 ], [ 0, %.preheader.i.preheader ]
-  %146 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %146 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %147 = add nsw i64 %.03150.i, %.097
   %148 = mul nsw i64 %147, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %148
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %148
   br label %151
 
 149:                                              ; preds = %151
@@ -14912,10 +14907,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 151:                                              ; preds = %151, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
-  %152 = getelementptr inbounds nuw <16 x float>, ptr %146, i64 %.047.i
+  %152 = getelementptr inbounds nuw [64 x i8], ptr %146, i64 %.047.i
   %153 = load <16 x float>, ptr %152, align 64, !tbaa !53
   %154 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %153)
-  %155 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %155 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
@@ -14939,21 +14934,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %159, %166
   %.03346.i84 = phi i64 [ %167, %166 ], [ 0, %159 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr i16, ptr %118, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %118, i64 %.03346.i84
   br label %160
 
 .preheader40.i89:                                 ; preds = %160
-  %invariant.gep43.i90 = getelementptr i16, ptr %120, i64 %.03346.i84
+  %invariant.gep43.i90 = getelementptr [2 x i8], ptr %120, i64 %.03346.i84
   br label %169
 
 160:                                              ; preds = %160, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %165, %160 ]
   %161 = add nuw nsw i64 %.03541.i86, %117
   %162 = mul nsw i64 %161, %119
-  %gep.i87 = getelementptr i16, ptr %invariant.gep.i85, i64 %162
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %162
   %.val3638.i = load <16 x half>, ptr %gep.i87, align 1, !tbaa !53
   %163 = fpext <16 x half> %.val3638.i to <16 x float>
-  %164 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %164 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x float> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %165, 4
@@ -14969,10 +14964,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %175, %174 ]
   %170 = add nsw i64 %.03445.i91, %.198
   %171 = mul nsw i64 %170, %121
-  %gep44.i92 = getelementptr i16, ptr %invariant.gep43.i90, i64 %171
+  %gep44.i92 = getelementptr [2 x i8], ptr %invariant.gep43.i90, i64 %171
   %.val37.i = load <16 x half>, ptr %gep44.i92, align 1, !tbaa !53
   %172 = fpext <16 x half> %.val37.i to <16 x float>
-  %173 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i91
+  %173 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i91
   br label %176
 
 174:                                              ; preds = %176
@@ -14982,9 +14977,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 176:                                              ; preds = %176, %169
   %.03242.i93 = phi i64 [ 0, %169 ], [ %182, %176 ]
-  %177 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i93
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i93
   %178 = load <16 x float>, ptr %177, align 64, !tbaa !53
-  %179 = getelementptr inbounds nuw <16 x float>, ptr %173, i64 %.03242.i93
+  %179 = getelementptr inbounds nuw [64 x i8], ptr %173, i64 %.03242.i93
   %180 = load <16 x float>, ptr %179, align 64, !tbaa !53
   %181 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %178, <16 x float> %172, <16 x float> %180)
   store <16 x float> %181, ptr %179, align 64, !tbaa !53
@@ -14994,10 +14989,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %186
   %.03150.i78 = phi i64 [ %187, %186 ], [ 0, %.preheader.i77.preheader ]
-  %183 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %183 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %184 = add nsw i64 %.03150.i78, %.198
   %185 = mul nsw i64 %184, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %185
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %185
   br label %188
 
 186:                                              ; preds = %188
@@ -15007,10 +15002,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 188:                                              ; preds = %188, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %193, %188 ]
-  %189 = getelementptr inbounds nuw <16 x float>, ptr %183, i64 %.047.i80
+  %189 = getelementptr inbounds nuw [64 x i8], ptr %183, i64 %.047.i80
   %190 = load <16 x float>, ptr %189, align 64, !tbaa !53
   %191 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %190)
-  %192 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %192 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %193, 4
@@ -15214,7 +15209,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %111 = load i64, ptr %58, align 8
   %112 = load ptr, ptr %59, align 8
   %113 = load i64, ptr %60, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %109
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %109
   br label %123
 
 114:                                              ; preds = %106
@@ -15233,7 +15228,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %120 = load i64, ptr %60, align 8
   %121 = load ptr, ptr %57, align 8
   %122 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %104, i64 %118
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %104, i64 %118
   br label %160
 
 123:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
@@ -15248,21 +15243,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %123, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %110, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %110, i64 %.03346.i
   br label %124
 
 .preheader40.i:                                   ; preds = %124
-  %invariant.gep43.i = getelementptr i16, ptr %112, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %112, i64 %.03346.i
   br label %133
 
 124:                                              ; preds = %124, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %129, %124 ]
   %125 = add nuw nsw i64 %.03541.i, %109
   %126 = mul nsw i64 %125, %111
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %126
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %126
   %.val3638.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %127 = fpext <16 x half> %.val3638.i to <16 x float>
-  %128 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
@@ -15278,10 +15273,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %139, %138 ]
   %134 = add nsw i64 %.03445.i, %.087
   %135 = mul nsw i64 %134, %113
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %135
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %135
   %.val37.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %136 = fpext <16 x half> %.val37.i to <16 x float>
-  %137 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %137 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %140
 
 138:                                              ; preds = %140
@@ -15291,9 +15286,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 140:                                              ; preds = %140, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %146, %140 ]
-  %141 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %142 = load <16 x float>, ptr %141, align 64, !tbaa !53
-  %143 = getelementptr inbounds nuw <16 x float>, ptr %137, i64 %.03242.i
+  %143 = getelementptr inbounds nuw [64 x i8], ptr %137, i64 %.03242.i
   %144 = load <16 x float>, ptr %143, align 64, !tbaa !53
   %145 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %142, <16 x float> %136, <16 x float> %144)
   store <16 x float> %145, ptr %143, align 64, !tbaa !53
@@ -15303,10 +15298,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %150
   %.03150.i = phi i64 [ %151, %150 ], [ 0, %.preheader.i.preheader ]
-  %147 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %147 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %148 = add nsw i64 %.03150.i, %.087
   %149 = mul nsw i64 %148, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %149
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %149
   br label %152
 
 150:                                              ; preds = %152
@@ -15316,10 +15311,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 152:                                              ; preds = %152, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %157, %152 ]
-  %153 = getelementptr inbounds nuw <16 x float>, ptr %147, i64 %.047.i
+  %153 = getelementptr inbounds nuw [64 x i8], ptr %147, i64 %.047.i
   %154 = load <16 x float>, ptr %153, align 64, !tbaa !53
   %155 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %154)
-  %156 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %156 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %155, ptr %156, align 4, !tbaa !93
   %157 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %157, 4
@@ -15343,21 +15338,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 .lr.ph.i76:                                       ; preds = %160, %167
   %.03348.i = phi i64 [ %168, %167 ], [ 0, %160 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr i16, ptr %119, i64 %.03348.i
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %119, i64 %.03348.i
   br label %161
 
 .preheader40.i82:                                 ; preds = %161
-  %invariant.gep45.i = getelementptr i16, ptr %121, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %121, i64 %.03348.i
   br label %170
 
 161:                                              ; preds = %161, %.lr.ph.i76
   %.03541.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %166, %161 ]
   %162 = add nsw i64 %.03541.i78, %.188
   %163 = mul nsw i64 %162, %120
-  %gep.i79 = getelementptr i16, ptr %invariant.gep.i77, i64 %163
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %163
   %.val3638.i80 = load <16 x half>, ptr %gep.i79, align 1, !tbaa !53
   %164 = fpext <16 x half> %.val3638.i80 to <16 x float>
-  %165 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i78
+  %165 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i78
   store <16 x float> %164, ptr %165, align 64, !tbaa !53
   %166 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %166, 3
@@ -15373,10 +15368,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %175, %174 ]
   %171 = add nuw nsw i64 %.03447.i, %118
   %172 = mul nsw i64 %171, %122
-  %gep46.i = getelementptr i16, ptr %invariant.gep45.i, i64 %172
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %172
   %.val37.i83 = load <16 x half>, ptr %gep46.i, align 1, !tbaa !53
   %173 = fpext <16 x half> %.val37.i83 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i
   br label %176
 
 174:                                              ; preds = %176
@@ -15386,9 +15381,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 176:                                              ; preds = %176, %170
   %.03244.i = phi i64 [ 0, %170 ], [ %181, %176 ]
-  %177 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03244.i
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03244.i
   %178 = load <16 x float>, ptr %177, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %179 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %180 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %173, <16 x float> %178, <16 x float> %179)
   store <16 x float> %180, ptr %gep43.i, align 64, !tbaa !53
@@ -15398,10 +15393,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %185
   %.03152.i = phi i64 [ %186, %185 ], [ 0, %.preheader.i75.preheader ]
-  %182 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03152.i
+  %182 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03152.i
   %183 = add nsw i64 %.03152.i, %.188
   %184 = mul nsw i64 %183, %105
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %184
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %184
   br label %187
 
 185:                                              ; preds = %187
@@ -15411,10 +15406,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 187:                                              ; preds = %187, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %192, %187 ]
-  %188 = getelementptr inbounds nuw <16 x float>, ptr %182, i64 %.049.i
+  %188 = getelementptr inbounds nuw [64 x i8], ptr %182, i64 %.049.i
   %189 = load <16 x float>, ptr %188, align 64, !tbaa !53
   %190 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %189)
-  %191 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %191 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %192, 4
@@ -15618,7 +15613,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %109 = load i64, ptr %56, align 8
   %110 = load ptr, ptr %57, align 8
   %111 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %102, i64 %107
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %102, i64 %107
   br label %149
 
 112:                                              ; preds = %104
@@ -15637,7 +15632,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %118 = load i64, ptr %56, align 8
   %119 = load ptr, ptr %57, align 8
   %120 = load i64, ptr %58, align 8
-  %invariant.gep50.i76 = getelementptr float, ptr %102, i64 %116
+  %invariant.gep50.i76 = getelementptr [4 x i8], ptr %102, i64 %116
   br i1 %101, label %.lr.ph.i82.us, label %.preheader39.i75
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -15651,24 +15646,24 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader40.i88.us.critedge:                     ; preds = %134, %.lr.ph.i82.us
   %.03348.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %135, %134 ]
-  %invariant.gep.i84.us = getelementptr i16, ptr %117, i64 %.03348.i83.us
-  %gep.i86.us = getelementptr i16, ptr %invariant.gep.i84.us, i64 %121
+  %invariant.gep.i84.us = getelementptr [2 x i8], ptr %117, i64 %.03348.i83.us
+  %gep.i86.us = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %121
   %.val3638.i87.us = load <16 x half>, ptr %gep.i86.us, align 1, !tbaa !53
   %124 = fpext <16 x half> %.val3638.i87.us to <16 x float>
-  %gep.i86.us.c = getelementptr i16, ptr %invariant.gep.i84.us, i64 %123
+  %gep.i86.us.c = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %123
   %.val3638.i87.us.c = load <16 x half>, ptr %gep.i86.us.c, align 1, !tbaa !53
   %125 = fpext <16 x half> %.val3638.i87.us.c to <16 x float>
-  %invariant.gep45.i89.us = getelementptr i16, ptr %119, i64 %.03348.i83.us
+  %invariant.gep45.i89.us = getelementptr [2 x i8], ptr %119, i64 %.03348.i83.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader40.i88.us.critedge
   %.03447.i90.us = phi i64 [ 0, %.preheader40.i88.us.critedge ], [ %133, %.critedge ]
   %126 = add nuw nsw i64 %.03447.i90.us, %116
   %127 = mul nsw i64 %126, %120
-  %gep46.i91.us = getelementptr i16, ptr %invariant.gep45.i89.us, i64 %127
+  %gep46.i91.us = getelementptr [2 x i8], ptr %invariant.gep45.i89.us, i64 %127
   %.val37.i92.us = load <16 x half>, ptr %gep46.i91.us, align 1, !tbaa !53
   %128 = fpext <16 x half> %.val37.i92.us to <16 x float>
-  %invariant.gep42.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i90.us
+  %invariant.gep42.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i90.us
   %129 = load <16 x float>, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
   %130 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %128, <16 x float> %124, <16 x float> %129)
   store <16 x float> %130, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
@@ -15691,15 +15686,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03152.i78.us = phi i64 [ 1, %146 ], [ 0, %134 ]
   %138 = add nsw i64 %.03152.i78.us, %.1102.us
   %139 = mul nsw i64 %138, %103
-  %gep51.i79.us = getelementptr float, ptr %invariant.gep50.i76, i64 %139
+  %gep51.i79.us = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %139
   br label %140
 
 140:                                              ; preds = %140, %.preheader.i77.us
   %.049.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %145, %140 ]
-  %141 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
   %142 = load <16 x float>, ptr %141, align 64, !tbaa !53
   %143 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %142)
-  %144 = getelementptr float, ptr %gep51.i79.us, i64 %.049.i80.us
+  %144 = getelementptr [4 x i8], ptr %gep51.i79.us, i64 %.049.i80.us
   store float %143, ptr %144, align 4, !tbaa !93
   %145 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %145, 4
@@ -15726,21 +15721,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 .lr.ph.i:                                         ; preds = %149, %156
   %.03348.i = phi i64 [ %157, %156 ], [ 0, %149 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr i16, ptr %108, i64 %.03348.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %108, i64 %.03348.i
   br label %150
 
 .preheader40.i:                                   ; preds = %150
-  %invariant.gep45.i = getelementptr i16, ptr %110, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %110, i64 %.03348.i
   br label %159
 
 150:                                              ; preds = %150, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %155, %150 ]
   %151 = add nsw i64 %.03541.i, %.0101
   %152 = mul nsw i64 %151, %109
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %152
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %152
   %.val3638.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %153 = fpext <16 x half> %.val3638.i to <16 x float>
-  %154 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03541.i
+  %154 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03541.i
   store <16 x float> %153, ptr %154, align 64, !tbaa !53
   %155 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %155, 3
@@ -15756,10 +15751,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %164, %163 ]
   %160 = add nuw nsw i64 %.03447.i, %107
   %161 = mul nsw i64 %160, %111
-  %gep46.i = getelementptr i16, ptr %invariant.gep45.i, i64 %161
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %161
   %.val37.i = load <16 x half>, ptr %gep46.i, align 1, !tbaa !53
   %162 = fpext <16 x half> %.val37.i to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i
   br label %165
 
 163:                                              ; preds = %165
@@ -15769,9 +15764,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 165:                                              ; preds = %165, %159
   %.03244.i = phi i64 [ 0, %159 ], [ %170, %165 ]
-  %166 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03244.i
+  %166 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03244.i
   %167 = load <16 x float>, ptr %166, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %168 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %169 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %162, <16 x float> %167, <16 x float> %168)
   store <16 x float> %169, ptr %gep43.i, align 64, !tbaa !53
@@ -15781,10 +15776,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %174
   %.03152.i = phi i64 [ %175, %174 ], [ 0, %.preheader.i.preheader ]
-  %171 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03152.i
+  %171 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03152.i
   %172 = add nsw i64 %.03152.i, %.0101
   %173 = mul nsw i64 %172, %103
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %173
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %173
   br label %176
 
 174:                                              ; preds = %176
@@ -15794,10 +15789,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 176:                                              ; preds = %176, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %181, %176 ]
-  %177 = getelementptr inbounds nuw <16 x float>, ptr %171, i64 %.049.i
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %171, i64 %.049.i
   %178 = load <16 x float>, ptr %177, align 64, !tbaa !53
   %179 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %178)
-  %180 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %180 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %179, ptr %180, align 4, !tbaa !93
   %181 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %181, 4
@@ -15821,7 +15816,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   %.03152.i78 = phi i64 [ 0, %.preheader39.i75 ], [ 1, %187 ]
   %185 = add nsw i64 %.03152.i78, %.1102
   %186 = mul nsw i64 %185, %103
-  %gep51.i79 = getelementptr float, ptr %invariant.gep50.i76, i64 %186
+  %gep51.i79 = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %186
   br label %188
 
 187:                                              ; preds = %188
@@ -15829,10 +15824,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 
 188:                                              ; preds = %188, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %193, %188 ]
-  %189 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi, i64 %.049.i80
+  %189 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi, i64 %.049.i80
   %190 = load <16 x float>, ptr %189, align 64, !tbaa !53
   %191 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %190)
-  %192 = getelementptr float, ptr %gep51.i79, i64 %.049.i80
+  %192 = getelementptr [4 x i8], ptr %gep51.i79, i64 %.049.i80
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %193, 4
@@ -16013,7 +16008,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %101 = load i64, ptr %56, align 8
   %102 = load ptr, ptr %57, align 8
   %103 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %94, i64 %99
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %94, i64 %99
   br i1 %93, label %.lr.ph.i.us, label %.preheader39.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -16027,24 +16022,24 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader40.i.us.critedge:                       ; preds = %117, %.lr.ph.i.us
   %.03348.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %118, %117 ]
-  %invariant.gep.i.us = getelementptr i16, ptr %100, i64 %.03348.i.us
-  %gep.i.us = getelementptr i16, ptr %invariant.gep.i.us, i64 %104
+  %invariant.gep.i.us = getelementptr [2 x i8], ptr %100, i64 %.03348.i.us
+  %gep.i.us = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %104
   %.val3638.i.us = load <16 x half>, ptr %gep.i.us, align 1, !tbaa !53
   %107 = fpext <16 x half> %.val3638.i.us to <16 x float>
-  %gep.i.us.c = getelementptr i16, ptr %invariant.gep.i.us, i64 %106
+  %gep.i.us.c = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %106
   %.val3638.i.us.c = load <16 x half>, ptr %gep.i.us.c, align 1, !tbaa !53
   %108 = fpext <16 x half> %.val3638.i.us.c to <16 x float>
-  %invariant.gep45.i.us = getelementptr i16, ptr %102, i64 %.03348.i.us
+  %invariant.gep45.i.us = getelementptr [2 x i8], ptr %102, i64 %.03348.i.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader40.i.us.critedge
   %.03447.i.us = phi i64 [ 0, %.preheader40.i.us.critedge ], [ %116, %.critedge ]
   %109 = add nuw nsw i64 %.03447.i.us, %99
   %110 = mul nsw i64 %109, %103
-  %gep46.i.us = getelementptr i16, ptr %invariant.gep45.i.us, i64 %110
+  %gep46.i.us = getelementptr [2 x i8], ptr %invariant.gep45.i.us, i64 %110
   %.val37.i.us = load <16 x half>, ptr %gep46.i.us, align 1, !tbaa !53
   %111 = fpext <16 x half> %.val37.i.us to <16 x float>
-  %invariant.gep42.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i.us
+  %invariant.gep42.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i.us
   %112 = load <16 x float>, ptr %invariant.gep42.i.us, align 64, !tbaa !53
   %113 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %111, <16 x float> %107, <16 x float> %112)
   store <16 x float> %113, ptr %invariant.gep42.i.us, align 64, !tbaa !53
@@ -16067,15 +16062,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03152.i.us = phi i64 [ 1, %129 ], [ 0, %117 ]
   %121 = add nsw i64 %.03152.i.us, %.087.us
   %122 = mul nsw i64 %121, %95
-  %gep51.i.us = getelementptr float, ptr %invariant.gep50.i, i64 %122
+  %gep51.i.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %122
   br label %123
 
 123:                                              ; preds = %123, %.preheader.i.us
   %.049.i.us = phi i64 [ 0, %.preheader.i.us ], [ %128, %123 ]
-  %124 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
+  %124 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
   %125 = load <16 x float>, ptr %124, align 64, !tbaa !53
   %126 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %125)
-  %127 = getelementptr float, ptr %gep51.i.us, i64 %.049.i.us
+  %127 = getelementptr [4 x i8], ptr %gep51.i.us, i64 %.049.i.us
   store float %126, ptr %127, align 4, !tbaa !93
   %128 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %128, 4
@@ -16106,7 +16101,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %138 = load i64, ptr %56, align 8
   %139 = load ptr, ptr %57, align 8
   %140 = load i64, ptr %58, align 8
-  %invariant.gep = getelementptr float, ptr %94, i64 %136
+  %invariant.gep = getelementptr [4 x i8], ptr %94, i64 %136
   br label %153
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
@@ -16121,7 +16116,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03152.i = phi i64 [ 0, %.preheader39.i ], [ 1, %144 ]
   %142 = add nsw i64 %.03152.i, %.087
   %143 = mul nsw i64 %142, %95
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %143
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %143
   br label %145
 
 144:                                              ; preds = %145
@@ -16129,10 +16124,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 145:                                              ; preds = %145, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %150, %145 ]
-  %146 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi, i64 %.049.i
+  %146 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi, i64 %.049.i
   %147 = load <16 x float>, ptr %146, align 64, !tbaa !53
   %148 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %147)
-  %149 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %149 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %148, ptr %149, align 4, !tbaa !93
   %150 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %150, 4
@@ -16152,20 +16147,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 .preheader41.lr.ph.i:                             ; preds = %153
   %154 = mul nsw i64 %138, %.188
-  %155 = getelementptr inbounds i16, ptr %137, i64 %154
+  %155 = getelementptr inbounds [2 x i8], ptr %137, i64 %154
   br label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %159, %.preheader41.lr.ph.i
   %.03348.i76 = phi i64 [ 0, %.preheader41.lr.ph.i ], [ %160, %159 ]
-  %156 = getelementptr inbounds nuw i16, ptr %155, i64 %.03348.i76
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %155, i64 %.03348.i76
   %.val3638.le.i = load <16 x half>, ptr %156, align 1, !tbaa !53
   %157 = fpext <16 x half> %.val3638.le.i to <16 x float>
-  %invariant.gep.i77 = getelementptr i16, ptr %139, i64 %.03348.i76
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %139, i64 %.03348.i76
   br label %162
 
 .preheader39.i74:                                 ; preds = %159, %153
   %158 = mul nsw i64 %95, %.188
-  %gep = getelementptr float, ptr %invariant.gep, i64 %158
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %158
   br label %169
 
 159:                                              ; preds = %162
@@ -16177,10 +16172,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   %.03447.i78 = phi i64 [ 0, %.preheader41.i ], [ %168, %162 ]
   %163 = add nuw nsw i64 %.03447.i78, %136
   %164 = mul nsw i64 %163, %140
-  %gep.i79 = getelementptr i16, ptr %invariant.gep.i77, i64 %164
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %164
   %.val37.i80 = load <16 x half>, ptr %gep.i79, align 1, !tbaa !53
   %165 = fpext <16 x half> %.val37.i80 to <16 x float>
-  %166 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i78
+  %166 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i78
   %.promoted.i = load <16 x float>, ptr %166, align 64, !tbaa !53
   %167 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %165, <16 x float> %157, <16 x float> %.promoted.i)
   store <16 x float> %167, ptr %166, align 64, !tbaa !53
@@ -16190,10 +16185,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 169:                                              ; preds = %169, %.preheader39.i74
   %.049.i75 = phi i64 [ 0, %.preheader39.i74 ], [ %174, %169 ]
-  %170 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i75
+  %170 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i75
   %171 = load <16 x float>, ptr %170, align 64, !tbaa !53
   %172 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %171)
-  %173 = getelementptr float, ptr %gep, i64 %.049.i75
+  %173 = getelementptr [4 x i8], ptr %gep, i64 %.049.i75
   store float %172, ptr %173, align 4, !tbaa !93
   %174 = add nuw nsw i64 %.049.i75, 1
   %exitcond50.not.i = icmp eq i64 %174, 4
@@ -16348,7 +16343,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   br label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %87
@@ -16358,7 +16353,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   %84 = load i64, ptr %50, align 8
   %85 = load ptr, ptr %51, align 8
   %86 = load i64, ptr %52, align 8
-  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %82
+  %invariant.gep.us.us = getelementptr [4 x i8], ptr %79, i64 %82
   br label %.preheader41.lr.ph.i.us.us.us
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -16371,25 +16366,25 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %90 = mul nsw i64 %84, %.067.us.us.us
-  %91 = getelementptr inbounds i16, ptr %83, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %83, i64 %90
   br label %.preheader41.i.us.us.us
 
 .preheader41.i.us.us.us:                          ; preds = %101, %.preheader41.lr.ph.i.us.us.us
   %.03348.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %102, %101 ]
-  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %.03348.i.us.us.us
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %.03348.i.us.us.us
   %.val3638.le.i.us.us.us = load <16 x half>, ptr %92, align 1, !tbaa !53
   %93 = fpext <16 x half> %.val3638.le.i.us.us.us to <16 x float>
-  %invariant.gep.i.us.us.us = getelementptr i16, ptr %85, i64 %.03348.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [2 x i8], ptr %85, i64 %.03348.i.us.us.us
   br label %94
 
 94:                                               ; preds = %94, %.preheader41.i.us.us.us
   %.03447.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %100, %94 ]
   %95 = add nuw nsw i64 %.03447.i.us.us.us, %82
   %96 = mul nsw i64 %95, %86
-  %gep.i.us.us.us = getelementptr i16, ptr %invariant.gep.i.us.us.us, i64 %96
+  %gep.i.us.us.us = getelementptr [2 x i8], ptr %invariant.gep.i.us.us.us, i64 %96
   %.val37.i.us.us.us = load <16 x half>, ptr %gep.i.us.us.us, align 1, !tbaa !53
   %97 = fpext <16 x half> %.val37.i.us.us.us to <16 x float>
-  %98 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i.us.us.us
+  %98 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %98, align 64, !tbaa !53
   %99 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %97, <16 x float> %93, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %99, ptr %98, align 64, !tbaa !53
@@ -16404,10 +16399,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 104:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %104
   %.049.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %109, %104 ]
-  %105 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us.us.us
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i.us.us.us
   %106 = load <16 x float>, ptr %105, align 64, !tbaa !53
   %107 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %106)
-  %108 = getelementptr float, ptr %gep.us.us.us, i64 %.049.i.us.us.us
+  %108 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.049.i.us.us.us
   store float %107, ptr %108, align 4, !tbaa !93
   %109 = add nuw nsw i64 %.049.i.us.us.us, 1
   %exitcond50.not.i.us.us.us = icmp eq i64 %109, 4
@@ -16421,12 +16416,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %101
   %111 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %111
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %111
   br label %104
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %120
   %.06068.us = phi i64 [ %121, %120 ], [ 0, %.preheader.us.preheader ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.06068.us
   br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
@@ -16434,15 +16429,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %112 = mul nsw i64 %80, %.067.us69
-  %gep.us70 = getelementptr float, ptr %gep, i64 %112
+  %gep.us70 = getelementptr [4 x i8], ptr %gep, i64 %112
   br label %113
 
 113:                                              ; preds = %113, %.preheader39.i.us
   %.049.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %118, %113 ]
-  %114 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us71
+  %114 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i.us71
   %115 = load <16 x float>, ptr %114, align 64, !tbaa !53
   %116 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %115)
-  %117 = getelementptr float, ptr %gep.us70, i64 %.049.i.us71
+  %117 = getelementptr [4 x i8], ptr %gep.us70, i64 %.049.i.us71
   store float %116, ptr %117, align 4, !tbaa !93
   %118 = add nuw nsw i64 %.049.i.us71, 1
   %exitcond50.not.i.us72 = icmp eq i64 %118, 4
@@ -16654,7 +16649,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %109 = load i64, ptr %57, align 8
   %110 = load ptr, ptr %58, align 8
   %111 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %107
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %107
   br label %121
 
 112:                                              ; preds = %105
@@ -16673,7 +16668,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %118 = load i64, ptr %57, align 8
   %119 = load ptr, ptr %58, align 8
   %120 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %116
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %116
   br label %158
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit
@@ -16688,21 +16683,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %121, %128
   %.03346.i = phi i64 [ %129, %128 ], [ 0, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %108, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %108, i64 %.03346.i
   br label %122
 
 .preheader40.i:                                   ; preds = %122
-  %invariant.gep43.i = getelementptr i16, ptr %110, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %110, i64 %.03346.i
   br label %131
 
 122:                                              ; preds = %122, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %127, %122 ]
   %123 = add nuw nsw i64 %.03541.i, %107
   %124 = mul nsw i64 %123, %109
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %124
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %124
   %.val38.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %125 = fpext <16 x half> %.val38.i to <16 x float>
-  %126 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %125, ptr %126, align 64, !tbaa !53
   %127 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %127, 4
@@ -16718,10 +16713,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %137, %136 ]
   %132 = add nsw i64 %.03445.i, %.099
   %133 = mul nsw i64 %132, %111
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %133
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %133
   %.val3637.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %134 = fpext <16 x half> %.val3637.i to <16 x float>
-  %135 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %135 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %138
 
 136:                                              ; preds = %138
@@ -16731,9 +16726,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 138:                                              ; preds = %138, %131
   %.03242.i = phi i64 [ 0, %131 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %140 = load <16 x float>, ptr %139, align 64, !tbaa !53
-  %141 = getelementptr inbounds nuw <16 x float>, ptr %135, i64 %.03242.i
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %.03242.i
   %142 = load <16 x float>, ptr %141, align 64, !tbaa !53
   %143 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %140, <16 x float> %134, <16 x float> %142)
   store <16 x float> %143, ptr %141, align 64, !tbaa !53
@@ -16743,10 +16738,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %148
   %.03150.i = phi i64 [ %149, %148 ], [ 0, %.preheader.i.preheader ]
-  %145 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %145 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %146 = add nsw i64 %.03150.i, %.099
   %147 = mul nsw i64 %146, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %147
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %147
   br label %150
 
 148:                                              ; preds = %150
@@ -16756,10 +16751,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 150:                                              ; preds = %150, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
-  %151 = getelementptr inbounds nuw <16 x float>, ptr %145, i64 %.047.i
+  %151 = getelementptr inbounds nuw [64 x i8], ptr %145, i64 %.047.i
   %152 = load <16 x float>, ptr %151, align 64, !tbaa !53
   %153 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %152)
-  %154 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %154 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
@@ -16783,21 +16778,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %158, %165
   %.03346.i84 = phi i64 [ %166, %165 ], [ 0, %158 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr i16, ptr %117, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %117, i64 %.03346.i84
   br label %159
 
 .preheader40.i90:                                 ; preds = %159
-  %invariant.gep43.i91 = getelementptr i16, ptr %119, i64 %.03346.i84
+  %invariant.gep43.i91 = getelementptr [2 x i8], ptr %119, i64 %.03346.i84
   br label %168
 
 159:                                              ; preds = %159, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %164, %159 ]
   %160 = add nuw nsw i64 %.03541.i86, %116
   %161 = mul nsw i64 %160, %118
-  %gep.i87 = getelementptr i16, ptr %invariant.gep.i85, i64 %161
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %161
   %.val38.i88 = load <16 x half>, ptr %gep.i87, align 1, !tbaa !53
   %162 = fpext <16 x half> %.val38.i88 to <16 x float>
-  %163 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %163 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x float> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %164, 4
@@ -16813,10 +16808,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %174, %173 ]
   %169 = add nsw i64 %.03445.i92, %.1100
   %170 = mul nsw i64 %169, %120
-  %gep44.i93 = getelementptr i16, ptr %invariant.gep43.i91, i64 %170
+  %gep44.i93 = getelementptr [2 x i8], ptr %invariant.gep43.i91, i64 %170
   %.val3637.i94 = load <16 x half>, ptr %gep44.i93, align 1, !tbaa !53
   %171 = fpext <16 x half> %.val3637.i94 to <16 x float>
-  %172 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i92
+  %172 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i92
   br label %175
 
 173:                                              ; preds = %175
@@ -16826,9 +16821,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 175:                                              ; preds = %175, %168
   %.03242.i95 = phi i64 [ 0, %168 ], [ %181, %175 ]
-  %176 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i95
+  %176 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i95
   %177 = load <16 x float>, ptr %176, align 64, !tbaa !53
-  %178 = getelementptr inbounds nuw <16 x float>, ptr %172, i64 %.03242.i95
+  %178 = getelementptr inbounds nuw [64 x i8], ptr %172, i64 %.03242.i95
   %179 = load <16 x float>, ptr %178, align 64, !tbaa !53
   %180 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %177, <16 x float> %171, <16 x float> %179)
   store <16 x float> %180, ptr %178, align 64, !tbaa !53
@@ -16838,10 +16833,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %185
   %.03150.i78 = phi i64 [ %186, %185 ], [ 0, %.preheader.i77.preheader ]
-  %182 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %182 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %183 = add nsw i64 %.03150.i78, %.1100
   %184 = mul nsw i64 %183, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %184
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %184
   br label %187
 
 185:                                              ; preds = %187
@@ -16851,10 +16846,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 187:                                              ; preds = %187, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %192, %187 ]
-  %188 = getelementptr inbounds nuw <16 x float>, ptr %182, i64 %.047.i80
+  %188 = getelementptr inbounds nuw [64 x i8], ptr %182, i64 %.047.i80
   %189 = load <16 x float>, ptr %188, align 64, !tbaa !53
   %190 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %189)
-  %191 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %191 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %192, 4
@@ -17057,7 +17052,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %109 = load i64, ptr %57, align 8
   %110 = load ptr, ptr %58, align 8
   %111 = load i64, ptr %59, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %107
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %107
   br label %121
 
 112:                                              ; preds = %105
@@ -17076,7 +17071,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %118 = load i64, ptr %57, align 8
   %119 = load ptr, ptr %58, align 8
   %120 = load i64, ptr %59, align 8
-  %invariant.gep48.i76 = getelementptr float, ptr %103, i64 %116
+  %invariant.gep48.i76 = getelementptr [4 x i8], ptr %103, i64 %116
   br label %158
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
@@ -17091,21 +17086,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %121, %128
   %.03346.i = phi i64 [ %129, %128 ], [ 0, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %108, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %108, i64 %.03346.i
   br label %122
 
 .preheader40.i:                                   ; preds = %122
-  %invariant.gep43.i = getelementptr i16, ptr %110, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %110, i64 %.03346.i
   br label %131
 
 122:                                              ; preds = %122, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %127, %122 ]
   %123 = add nuw nsw i64 %.03541.i, %107
   %124 = mul nsw i64 %123, %109
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %124
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %124
   %.val38.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %125 = fpext <16 x half> %.val38.i to <16 x float>
-  %126 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %125, ptr %126, align 64, !tbaa !53
   %127 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %127, 4
@@ -17121,10 +17116,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %137, %136 ]
   %132 = add nsw i64 %.03445.i, %.097
   %133 = mul nsw i64 %132, %111
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %133
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %133
   %.val3637.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %134 = fpext <16 x half> %.val3637.i to <16 x float>
-  %135 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %135 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %138
 
 136:                                              ; preds = %138
@@ -17134,9 +17129,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 138:                                              ; preds = %138, %131
   %.03242.i = phi i64 [ 0, %131 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %140 = load <16 x float>, ptr %139, align 64, !tbaa !53
-  %141 = getelementptr inbounds nuw <16 x float>, ptr %135, i64 %.03242.i
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %.03242.i
   %142 = load <16 x float>, ptr %141, align 64, !tbaa !53
   %143 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %140, <16 x float> %134, <16 x float> %142)
   store <16 x float> %143, ptr %141, align 64, !tbaa !53
@@ -17146,10 +17141,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %148
   %.03150.i = phi i64 [ %149, %148 ], [ 0, %.preheader.i.preheader ]
-  %145 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %145 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %146 = add nsw i64 %.03150.i, %.097
   %147 = mul nsw i64 %146, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %147
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %147
   br label %150
 
 148:                                              ; preds = %150
@@ -17159,10 +17154,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 150:                                              ; preds = %150, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
-  %151 = getelementptr inbounds nuw <16 x float>, ptr %145, i64 %.047.i
+  %151 = getelementptr inbounds nuw [64 x i8], ptr %145, i64 %.047.i
   %152 = load <16 x float>, ptr %151, align 64, !tbaa !53
   %153 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %152)
-  %154 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %154 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
@@ -17186,21 +17181,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %158, %165
   %.03346.i84 = phi i64 [ %166, %165 ], [ 0, %158 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr i16, ptr %117, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %117, i64 %.03346.i84
   br label %159
 
 .preheader40.i89:                                 ; preds = %159
-  %invariant.gep43.i90 = getelementptr i16, ptr %119, i64 %.03346.i84
+  %invariant.gep43.i90 = getelementptr [2 x i8], ptr %119, i64 %.03346.i84
   br label %168
 
 159:                                              ; preds = %159, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %164, %159 ]
   %160 = add nuw nsw i64 %.03541.i86, %116
   %161 = mul nsw i64 %160, %118
-  %gep.i87 = getelementptr i16, ptr %invariant.gep.i85, i64 %161
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %161
   %.val3638.i = load <16 x half>, ptr %gep.i87, align 1, !tbaa !53
   %162 = fpext <16 x half> %.val3638.i to <16 x float>
-  %163 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %163 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x float> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %164, 4
@@ -17216,10 +17211,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %174, %173 ]
   %169 = add nsw i64 %.03445.i91, %.198
   %170 = mul nsw i64 %169, %120
-  %gep44.i92 = getelementptr i16, ptr %invariant.gep43.i90, i64 %170
+  %gep44.i92 = getelementptr [2 x i8], ptr %invariant.gep43.i90, i64 %170
   %.val37.i = load <16 x half>, ptr %gep44.i92, align 1, !tbaa !53
   %171 = fpext <16 x half> %.val37.i to <16 x float>
-  %172 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i91
+  %172 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i91
   br label %175
 
 173:                                              ; preds = %175
@@ -17229,9 +17224,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 175:                                              ; preds = %175, %168
   %.03242.i93 = phi i64 [ 0, %168 ], [ %181, %175 ]
-  %176 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i93
+  %176 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i93
   %177 = load <16 x float>, ptr %176, align 64, !tbaa !53
-  %178 = getelementptr inbounds nuw <16 x float>, ptr %172, i64 %.03242.i93
+  %178 = getelementptr inbounds nuw [64 x i8], ptr %172, i64 %.03242.i93
   %179 = load <16 x float>, ptr %178, align 64, !tbaa !53
   %180 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %177, <16 x float> %171, <16 x float> %179)
   store <16 x float> %180, ptr %178, align 64, !tbaa !53
@@ -17241,10 +17236,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %185
   %.03150.i78 = phi i64 [ %186, %185 ], [ 0, %.preheader.i77.preheader ]
-  %182 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %182 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %183 = add nsw i64 %.03150.i78, %.198
   %184 = mul nsw i64 %183, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i76, i64 %184
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i76, i64 %184
   br label %187
 
 185:                                              ; preds = %187
@@ -17254,10 +17249,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 187:                                              ; preds = %187, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %192, %187 ]
-  %188 = getelementptr inbounds nuw <16 x float>, ptr %182, i64 %.047.i80
+  %188 = getelementptr inbounds nuw [64 x i8], ptr %182, i64 %.047.i80
   %189 = load <16 x float>, ptr %188, align 64, !tbaa !53
   %190 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %189)
-  %191 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %191 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %192, 4
@@ -17460,7 +17455,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %110 = load i64, ptr %58, align 8
   %111 = load ptr, ptr %59, align 8
   %112 = load i64, ptr %60, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %108
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %108
   br label %122
 
 113:                                              ; preds = %106
@@ -17479,7 +17474,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %119 = load i64, ptr %60, align 8
   %120 = load ptr, ptr %57, align 8
   %121 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %104, i64 %117
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %104, i64 %117
   br label %159
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
@@ -17494,21 +17489,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %122, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %109, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %109, i64 %.03346.i
   br label %123
 
 .preheader40.i:                                   ; preds = %123
-  %invariant.gep43.i = getelementptr i16, ptr %111, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %111, i64 %.03346.i
   br label %132
 
 123:                                              ; preds = %123, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %128, %123 ]
   %124 = add nuw nsw i64 %.03541.i, %108
   %125 = mul nsw i64 %124, %110
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %125
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %125
   %.val3638.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %126 = fpext <16 x half> %.val3638.i to <16 x float>
-  %127 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
@@ -17524,10 +17519,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %138, %137 ]
   %133 = add nsw i64 %.03445.i, %.087
   %134 = mul nsw i64 %133, %112
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %134
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %134
   %.val37.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %135 = fpext <16 x half> %.val37.i to <16 x float>
-  %136 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %136 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %139
 
 137:                                              ; preds = %139
@@ -17537,9 +17532,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 139:                                              ; preds = %139, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %145, %139 ]
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
-  %142 = getelementptr inbounds nuw <16 x float>, ptr %136, i64 %.03242.i
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %136, i64 %.03242.i
   %143 = load <16 x float>, ptr %142, align 64, !tbaa !53
   %144 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %141, <16 x float> %135, <16 x float> %143)
   store <16 x float> %144, ptr %142, align 64, !tbaa !53
@@ -17549,10 +17544,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %149
   %.03150.i = phi i64 [ %150, %149 ], [ 0, %.preheader.i.preheader ]
-  %146 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %146 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %147 = add nsw i64 %.03150.i, %.087
   %148 = mul nsw i64 %147, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %148
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %148
   br label %151
 
 149:                                              ; preds = %151
@@ -17562,10 +17557,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 151:                                              ; preds = %151, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
-  %152 = getelementptr inbounds nuw <16 x float>, ptr %146, i64 %.047.i
+  %152 = getelementptr inbounds nuw [64 x i8], ptr %146, i64 %.047.i
   %153 = load <16 x float>, ptr %152, align 64, !tbaa !53
   %154 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %153)
-  %155 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %155 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
@@ -17589,21 +17584,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 .lr.ph.i76:                                       ; preds = %159, %166
   %.03348.i = phi i64 [ %167, %166 ], [ 0, %159 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr i16, ptr %118, i64 %.03348.i
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %118, i64 %.03348.i
   br label %160
 
 .preheader40.i82:                                 ; preds = %160
-  %invariant.gep45.i = getelementptr i16, ptr %120, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %120, i64 %.03348.i
   br label %169
 
 160:                                              ; preds = %160, %.lr.ph.i76
   %.03541.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %165, %160 ]
   %161 = add nsw i64 %.03541.i78, %.188
   %162 = mul nsw i64 %161, %119
-  %gep.i79 = getelementptr i16, ptr %invariant.gep.i77, i64 %162
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %162
   %.val3638.i80 = load <16 x half>, ptr %gep.i79, align 1, !tbaa !53
   %163 = fpext <16 x half> %.val3638.i80 to <16 x float>
-  %164 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i78
+  %164 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i78
   store <16 x float> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %165, 3
@@ -17619,10 +17614,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %174, %173 ]
   %170 = add nuw nsw i64 %.03447.i, %117
   %171 = mul nsw i64 %170, %121
-  %gep46.i = getelementptr i16, ptr %invariant.gep45.i, i64 %171
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %171
   %.val37.i83 = load <16 x half>, ptr %gep46.i, align 1, !tbaa !53
   %172 = fpext <16 x half> %.val37.i83 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i
   br label %175
 
 173:                                              ; preds = %175
@@ -17632,9 +17627,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 175:                                              ; preds = %175, %169
   %.03244.i = phi i64 [ 0, %169 ], [ %180, %175 ]
-  %176 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03244.i
+  %176 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03244.i
   %177 = load <16 x float>, ptr %176, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %178 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %179 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %172, <16 x float> %177, <16 x float> %178)
   store <16 x float> %179, ptr %gep43.i, align 64, !tbaa !53
@@ -17644,10 +17639,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %184
   %.03152.i = phi i64 [ %185, %184 ], [ 0, %.preheader.i75.preheader ]
-  %181 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03152.i
+  %181 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03152.i
   %182 = add nsw i64 %.03152.i, %.188
   %183 = mul nsw i64 %182, %105
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %183
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %183
   br label %186
 
 184:                                              ; preds = %186
@@ -17657,10 +17652,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 186:                                              ; preds = %186, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %191, %186 ]
-  %187 = getelementptr inbounds nuw <16 x float>, ptr %181, i64 %.049.i
+  %187 = getelementptr inbounds nuw [64 x i8], ptr %181, i64 %.049.i
   %188 = load <16 x float>, ptr %187, align 64, !tbaa !53
   %189 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %188)
-  %190 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %190 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %189, ptr %190, align 4, !tbaa !93
   %191 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %191, 4
@@ -17863,7 +17858,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %108 = load i64, ptr %56, align 8
   %109 = load ptr, ptr %57, align 8
   %110 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %102, i64 %106
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %102, i64 %106
   br label %148
 
 111:                                              ; preds = %104
@@ -17882,7 +17877,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %117 = load i64, ptr %56, align 8
   %118 = load ptr, ptr %57, align 8
   %119 = load i64, ptr %58, align 8
-  %invariant.gep50.i76 = getelementptr float, ptr %102, i64 %115
+  %invariant.gep50.i76 = getelementptr [4 x i8], ptr %102, i64 %115
   br i1 %101, label %.lr.ph.i82.us, label %.preheader39.i75
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -17896,24 +17891,24 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader40.i88.us.critedge:                     ; preds = %133, %.lr.ph.i82.us
   %.03348.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %134, %133 ]
-  %invariant.gep.i84.us = getelementptr i16, ptr %116, i64 %.03348.i83.us
-  %gep.i86.us = getelementptr i16, ptr %invariant.gep.i84.us, i64 %120
+  %invariant.gep.i84.us = getelementptr [2 x i8], ptr %116, i64 %.03348.i83.us
+  %gep.i86.us = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %120
   %.val3638.i87.us = load <16 x half>, ptr %gep.i86.us, align 1, !tbaa !53
   %123 = fpext <16 x half> %.val3638.i87.us to <16 x float>
-  %gep.i86.us.c = getelementptr i16, ptr %invariant.gep.i84.us, i64 %122
+  %gep.i86.us.c = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %122
   %.val3638.i87.us.c = load <16 x half>, ptr %gep.i86.us.c, align 1, !tbaa !53
   %124 = fpext <16 x half> %.val3638.i87.us.c to <16 x float>
-  %invariant.gep45.i89.us = getelementptr i16, ptr %118, i64 %.03348.i83.us
+  %invariant.gep45.i89.us = getelementptr [2 x i8], ptr %118, i64 %.03348.i83.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader40.i88.us.critedge
   %.03447.i90.us = phi i64 [ 0, %.preheader40.i88.us.critedge ], [ %132, %.critedge ]
   %125 = add nuw nsw i64 %.03447.i90.us, %115
   %126 = mul nsw i64 %125, %119
-  %gep46.i91.us = getelementptr i16, ptr %invariant.gep45.i89.us, i64 %126
+  %gep46.i91.us = getelementptr [2 x i8], ptr %invariant.gep45.i89.us, i64 %126
   %.val37.i92.us = load <16 x half>, ptr %gep46.i91.us, align 1, !tbaa !53
   %127 = fpext <16 x half> %.val37.i92.us to <16 x float>
-  %invariant.gep42.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i90.us
+  %invariant.gep42.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i90.us
   %128 = load <16 x float>, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
   %129 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %127, <16 x float> %123, <16 x float> %128)
   store <16 x float> %129, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
@@ -17936,15 +17931,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03152.i78.us = phi i64 [ 1, %145 ], [ 0, %133 ]
   %137 = add nsw i64 %.03152.i78.us, %.1102.us
   %138 = mul nsw i64 %137, %103
-  %gep51.i79.us = getelementptr float, ptr %invariant.gep50.i76, i64 %138
+  %gep51.i79.us = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %138
   br label %139
 
 139:                                              ; preds = %139, %.preheader.i77.us
   %.049.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %144, %139 ]
-  %140 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
   %141 = load <16 x float>, ptr %140, align 64, !tbaa !53
   %142 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %141)
-  %143 = getelementptr float, ptr %gep51.i79.us, i64 %.049.i80.us
+  %143 = getelementptr [4 x i8], ptr %gep51.i79.us, i64 %.049.i80.us
   store float %142, ptr %143, align 4, !tbaa !93
   %144 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %144, 4
@@ -17971,21 +17966,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 .lr.ph.i:                                         ; preds = %148, %155
   %.03348.i = phi i64 [ %156, %155 ], [ 0, %148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr i16, ptr %107, i64 %.03348.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %107, i64 %.03348.i
   br label %149
 
 .preheader40.i:                                   ; preds = %149
-  %invariant.gep45.i = getelementptr i16, ptr %109, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %109, i64 %.03348.i
   br label %158
 
 149:                                              ; preds = %149, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %154, %149 ]
   %150 = add nsw i64 %.03541.i, %.0101
   %151 = mul nsw i64 %150, %108
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %151
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %151
   %.val3638.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %152 = fpext <16 x half> %.val3638.i to <16 x float>
-  %153 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03541.i
+  %153 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03541.i
   store <16 x float> %152, ptr %153, align 64, !tbaa !53
   %154 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %154, 3
@@ -18001,10 +17996,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %163, %162 ]
   %159 = add nuw nsw i64 %.03447.i, %106
   %160 = mul nsw i64 %159, %110
-  %gep46.i = getelementptr i16, ptr %invariant.gep45.i, i64 %160
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %160
   %.val37.i = load <16 x half>, ptr %gep46.i, align 1, !tbaa !53
   %161 = fpext <16 x half> %.val37.i to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i
   br label %164
 
 162:                                              ; preds = %164
@@ -18014,9 +18009,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 164:                                              ; preds = %164, %158
   %.03244.i = phi i64 [ 0, %158 ], [ %169, %164 ]
-  %165 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03244.i
+  %165 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03244.i
   %166 = load <16 x float>, ptr %165, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %167 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %168 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %161, <16 x float> %166, <16 x float> %167)
   store <16 x float> %168, ptr %gep43.i, align 64, !tbaa !53
@@ -18026,10 +18021,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %173
   %.03152.i = phi i64 [ %174, %173 ], [ 0, %.preheader.i.preheader ]
-  %170 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03152.i
+  %170 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03152.i
   %171 = add nsw i64 %.03152.i, %.0101
   %172 = mul nsw i64 %171, %103
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %172
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %172
   br label %175
 
 173:                                              ; preds = %175
@@ -18039,10 +18034,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 175:                                              ; preds = %175, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %180, %175 ]
-  %176 = getelementptr inbounds nuw <16 x float>, ptr %170, i64 %.049.i
+  %176 = getelementptr inbounds nuw [64 x i8], ptr %170, i64 %.049.i
   %177 = load <16 x float>, ptr %176, align 64, !tbaa !53
   %178 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %177)
-  %179 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %179 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %178, ptr %179, align 4, !tbaa !93
   %180 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %180, 4
@@ -18066,7 +18061,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   %.03152.i78 = phi i64 [ 0, %.preheader39.i75 ], [ 1, %186 ]
   %184 = add nsw i64 %.03152.i78, %.1102
   %185 = mul nsw i64 %184, %103
-  %gep51.i79 = getelementptr float, ptr %invariant.gep50.i76, i64 %185
+  %gep51.i79 = getelementptr [4 x i8], ptr %invariant.gep50.i76, i64 %185
   br label %187
 
 186:                                              ; preds = %187
@@ -18074,10 +18069,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 
 187:                                              ; preds = %187, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %192, %187 ]
-  %188 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi, i64 %.049.i80
+  %188 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi, i64 %.049.i80
   %189 = load <16 x float>, ptr %188, align 64, !tbaa !53
   %190 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %189)
-  %191 = getelementptr float, ptr %gep51.i79, i64 %.049.i80
+  %191 = getelementptr [4 x i8], ptr %gep51.i79, i64 %.049.i80
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %192, 4
@@ -18257,7 +18252,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %100 = load i64, ptr %56, align 8
   %101 = load ptr, ptr %57, align 8
   %102 = load i64, ptr %58, align 8
-  %invariant.gep50.i = getelementptr float, ptr %94, i64 %98
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %94, i64 %98
   br i1 %93, label %.lr.ph.i.us, label %.preheader39.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
@@ -18271,24 +18266,24 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader40.i.us.critedge:                       ; preds = %116, %.lr.ph.i.us
   %.03348.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %117, %116 ]
-  %invariant.gep.i.us = getelementptr i16, ptr %99, i64 %.03348.i.us
-  %gep.i.us = getelementptr i16, ptr %invariant.gep.i.us, i64 %103
+  %invariant.gep.i.us = getelementptr [2 x i8], ptr %99, i64 %.03348.i.us
+  %gep.i.us = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %103
   %.val3638.i.us = load <16 x half>, ptr %gep.i.us, align 1, !tbaa !53
   %106 = fpext <16 x half> %.val3638.i.us to <16 x float>
-  %gep.i.us.c = getelementptr i16, ptr %invariant.gep.i.us, i64 %105
+  %gep.i.us.c = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %105
   %.val3638.i.us.c = load <16 x half>, ptr %gep.i.us.c, align 1, !tbaa !53
   %107 = fpext <16 x half> %.val3638.i.us.c to <16 x float>
-  %invariant.gep45.i.us = getelementptr i16, ptr %101, i64 %.03348.i.us
+  %invariant.gep45.i.us = getelementptr [2 x i8], ptr %101, i64 %.03348.i.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader40.i.us.critedge
   %.03447.i.us = phi i64 [ 0, %.preheader40.i.us.critedge ], [ %115, %.critedge ]
   %108 = add nuw nsw i64 %.03447.i.us, %98
   %109 = mul nsw i64 %108, %102
-  %gep46.i.us = getelementptr i16, ptr %invariant.gep45.i.us, i64 %109
+  %gep46.i.us = getelementptr [2 x i8], ptr %invariant.gep45.i.us, i64 %109
   %.val37.i.us = load <16 x half>, ptr %gep46.i.us, align 1, !tbaa !53
   %110 = fpext <16 x half> %.val37.i.us to <16 x float>
-  %invariant.gep42.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i.us
+  %invariant.gep42.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i.us
   %111 = load <16 x float>, ptr %invariant.gep42.i.us, align 64, !tbaa !53
   %112 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %110, <16 x float> %106, <16 x float> %111)
   store <16 x float> %112, ptr %invariant.gep42.i.us, align 64, !tbaa !53
@@ -18311,15 +18306,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03152.i.us = phi i64 [ 1, %128 ], [ 0, %116 ]
   %120 = add nsw i64 %.03152.i.us, %.087.us
   %121 = mul nsw i64 %120, %95
-  %gep51.i.us = getelementptr float, ptr %invariant.gep50.i, i64 %121
+  %gep51.i.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %121
   br label %122
 
 122:                                              ; preds = %122, %.preheader.i.us
   %.049.i.us = phi i64 [ 0, %.preheader.i.us ], [ %127, %122 ]
-  %123 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
+  %123 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
   %124 = load <16 x float>, ptr %123, align 64, !tbaa !53
   %125 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %124)
-  %126 = getelementptr float, ptr %gep51.i.us, i64 %.049.i.us
+  %126 = getelementptr [4 x i8], ptr %gep51.i.us, i64 %.049.i.us
   store float %125, ptr %126, align 4, !tbaa !93
   %127 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %127, 4
@@ -18350,7 +18345,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %137 = load i64, ptr %56, align 8
   %138 = load ptr, ptr %57, align 8
   %139 = load i64, ptr %58, align 8
-  %invariant.gep = getelementptr float, ptr %94, i64 %135
+  %invariant.gep = getelementptr [4 x i8], ptr %94, i64 %135
   br label %152
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
@@ -18365,7 +18360,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03152.i = phi i64 [ 0, %.preheader39.i ], [ 1, %143 ]
   %141 = add nsw i64 %.03152.i, %.087
   %142 = mul nsw i64 %141, %95
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %142
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %142
   br label %144
 
 143:                                              ; preds = %144
@@ -18373,10 +18368,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 144:                                              ; preds = %144, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %149, %144 ]
-  %145 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi, i64 %.049.i
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi, i64 %.049.i
   %146 = load <16 x float>, ptr %145, align 64, !tbaa !53
   %147 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %146)
-  %148 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %148 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %147, ptr %148, align 4, !tbaa !93
   %149 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %149, 4
@@ -18396,20 +18391,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 .preheader41.lr.ph.i:                             ; preds = %152
   %153 = mul nsw i64 %137, %.188
-  %154 = getelementptr inbounds i16, ptr %136, i64 %153
+  %154 = getelementptr inbounds [2 x i8], ptr %136, i64 %153
   br label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %158, %.preheader41.lr.ph.i
   %.03348.i76 = phi i64 [ 0, %.preheader41.lr.ph.i ], [ %159, %158 ]
-  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %.03348.i76
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %.03348.i76
   %.val3638.le.i = load <16 x half>, ptr %155, align 1, !tbaa !53
   %156 = fpext <16 x half> %.val3638.le.i to <16 x float>
-  %invariant.gep.i77 = getelementptr i16, ptr %138, i64 %.03348.i76
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %138, i64 %.03348.i76
   br label %161
 
 .preheader39.i74:                                 ; preds = %158, %152
   %157 = mul nsw i64 %95, %.188
-  %gep = getelementptr float, ptr %invariant.gep, i64 %157
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %157
   br label %168
 
 158:                                              ; preds = %161
@@ -18421,10 +18416,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   %.03447.i78 = phi i64 [ 0, %.preheader41.i ], [ %167, %161 ]
   %162 = add nuw nsw i64 %.03447.i78, %135
   %163 = mul nsw i64 %162, %139
-  %gep.i79 = getelementptr i16, ptr %invariant.gep.i77, i64 %163
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %163
   %.val37.i80 = load <16 x half>, ptr %gep.i79, align 1, !tbaa !53
   %164 = fpext <16 x half> %.val37.i80 to <16 x float>
-  %165 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i78
+  %165 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i78
   %.promoted.i = load <16 x float>, ptr %165, align 64, !tbaa !53
   %166 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %164, <16 x float> %156, <16 x float> %.promoted.i)
   store <16 x float> %166, ptr %165, align 64, !tbaa !53
@@ -18434,10 +18429,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 168:                                              ; preds = %168, %.preheader39.i74
   %.049.i75 = phi i64 [ 0, %.preheader39.i74 ], [ %173, %168 ]
-  %169 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i75
+  %169 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i75
   %170 = load <16 x float>, ptr %169, align 64, !tbaa !53
   %171 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %170)
-  %172 = getelementptr float, ptr %gep, i64 %.049.i75
+  %172 = getelementptr [4 x i8], ptr %gep, i64 %.049.i75
   store float %171, ptr %172, align 4, !tbaa !93
   %173 = add nuw nsw i64 %.049.i75, 1
   %exitcond50.not.i = icmp eq i64 %173, 4
@@ -18592,7 +18587,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   br label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %88
@@ -18603,7 +18598,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   %85 = load i64, ptr %50, align 8
   %86 = load ptr, ptr %51, align 8
   %87 = load i64, ptr %52, align 8
-  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %83
+  %invariant.gep.us.us = getelementptr [4 x i8], ptr %79, i64 %83
   br label %.preheader41.lr.ph.i.us.us.us
 
 88:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -18614,25 +18609,25 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %89 = mul nsw i64 %85, %.067.us.us.us
-  %90 = getelementptr inbounds i16, ptr %84, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %84, i64 %89
   br label %.preheader41.i.us.us.us
 
 .preheader41.i.us.us.us:                          ; preds = %100, %.preheader41.lr.ph.i.us.us.us
   %.03348.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %101, %100 ]
-  %91 = getelementptr inbounds nuw i16, ptr %90, i64 %.03348.i.us.us.us
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %.03348.i.us.us.us
   %.val3638.le.i.us.us.us = load <16 x half>, ptr %91, align 1, !tbaa !53
   %92 = fpext <16 x half> %.val3638.le.i.us.us.us to <16 x float>
-  %invariant.gep.i.us.us.us = getelementptr i16, ptr %86, i64 %.03348.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [2 x i8], ptr %86, i64 %.03348.i.us.us.us
   br label %93
 
 93:                                               ; preds = %93, %.preheader41.i.us.us.us
   %.03447.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %99, %93 ]
   %94 = add nuw nsw i64 %.03447.i.us.us.us, %83
   %95 = mul nsw i64 %94, %87
-  %gep.i.us.us.us = getelementptr i16, ptr %invariant.gep.i.us.us.us, i64 %95
+  %gep.i.us.us.us = getelementptr [2 x i8], ptr %invariant.gep.i.us.us.us, i64 %95
   %.val37.i.us.us.us = load <16 x half>, ptr %gep.i.us.us.us, align 1, !tbaa !53
   %96 = fpext <16 x half> %.val37.i.us.us.us to <16 x float>
-  %97 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i.us.us.us
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %97, align 64, !tbaa !53
   %98 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %96, <16 x float> %92, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %98, ptr %97, align 64, !tbaa !53
@@ -18647,10 +18642,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 103:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %103
   %.049.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %108, %103 ]
-  %104 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us.us.us
+  %104 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i.us.us.us
   %105 = load <16 x float>, ptr %104, align 64, !tbaa !53
   %106 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %105)
-  %107 = getelementptr float, ptr %gep.us.us.us, i64 %.049.i.us.us.us
+  %107 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.049.i.us.us.us
   store float %106, ptr %107, align 4, !tbaa !93
   %108 = add nuw nsw i64 %.049.i.us.us.us, 1
   %exitcond50.not.i.us.us.us = icmp eq i64 %108, 4
@@ -18664,13 +18659,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %100
   %110 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %110
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %110
   br label %103
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %120
   %111 = phi i1 [ false, %120 ], [ true, %.preheader.us.preheader ]
   %.06068.us = phi i64 [ 4, %120 ], [ 0, %.preheader.us.preheader ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.06068.us
   br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
@@ -18678,15 +18673,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %112 = mul nsw i64 %80, %.067.us69
-  %gep.us70 = getelementptr float, ptr %gep, i64 %112
+  %gep.us70 = getelementptr [4 x i8], ptr %gep, i64 %112
   br label %113
 
 113:                                              ; preds = %113, %.preheader39.i.us
   %.049.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %118, %113 ]
-  %114 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us71
+  %114 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i.us71
   %115 = load <16 x float>, ptr %114, align 64, !tbaa !53
   %116 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %115)
-  %117 = getelementptr float, ptr %gep.us70, i64 %.049.i.us71
+  %117 = getelementptr [4 x i8], ptr %gep.us70, i64 %.049.i.us71
   store float %116, ptr %117, align 4, !tbaa !93
   %118 = add nuw nsw i64 %.049.i.us71, 1
   %exitcond50.not.i.us72 = icmp eq i64 %118, 4
@@ -18880,7 +18875,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %102 = icmp sgt i64 %101, 0
   %103 = load ptr, ptr %60, align 8
   %104 = load i64, ptr %61, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %64
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %64
   br i1 %100, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -18919,21 +18914,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %117, %124
   %.03346.i = phi i64 [ %125, %124 ], [ 0, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %105, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %105, i64 %.03346.i
   br label %118
 
 .preheader40.i:                                   ; preds = %118
-  %invariant.gep43.i = getelementptr i16, ptr %107, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %107, i64 %.03346.i
   br label %127
 
 118:                                              ; preds = %118, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %123, %118 ]
   %119 = add nuw nsw i64 %.03541.i, %64
   %120 = mul nsw i64 %119, %106
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %120
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %120
   %.val38.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %121 = fpext <16 x half> %.val38.i to <16 x float>
-  %122 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %122 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %121, ptr %122, align 64, !tbaa !53
   %123 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %123, 4
@@ -18949,10 +18944,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %133, %132 ]
   %128 = add nsw i64 %.03445.i, %.099
   %129 = mul nsw i64 %128, %108
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %129
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %129
   %.val3637.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %130 = fpext <16 x half> %.val3637.i to <16 x float>
-  %131 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %131 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %134
 
 132:                                              ; preds = %134
@@ -18962,9 +18957,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 134:                                              ; preds = %134, %127
   %.03242.i = phi i64 [ 0, %127 ], [ %140, %134 ]
-  %135 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %135 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %136 = load <16 x float>, ptr %135, align 64, !tbaa !53
-  %137 = getelementptr inbounds nuw <16 x float>, ptr %131, i64 %.03242.i
+  %137 = getelementptr inbounds nuw [64 x i8], ptr %131, i64 %.03242.i
   %138 = load <16 x float>, ptr %137, align 64, !tbaa !53
   %139 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %136, <16 x float> %130, <16 x float> %138)
   store <16 x float> %139, ptr %137, align 64, !tbaa !53
@@ -18974,10 +18969,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %144
   %.03150.i = phi i64 [ %145, %144 ], [ 0, %.preheader.i.preheader ]
-  %141 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %141 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %142 = add nsw i64 %.03150.i, %.099
   %143 = mul nsw i64 %142, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %143
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %143
   br label %146
 
 144:                                              ; preds = %146
@@ -18987,10 +18982,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 146:                                              ; preds = %146, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %151, %146 ]
-  %147 = getelementptr inbounds nuw <16 x float>, ptr %141, i64 %.047.i
+  %147 = getelementptr inbounds nuw [64 x i8], ptr %141, i64 %.047.i
   %148 = load <16 x float>, ptr %147, align 64, !tbaa !53
   %149 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %148)
-  %150 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %150 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %151, 4
@@ -19014,21 +19009,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %154, %161
   %.03346.i84 = phi i64 [ %162, %161 ], [ 0, %154 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr i16, ptr %113, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %113, i64 %.03346.i84
   br label %155
 
 .preheader40.i90:                                 ; preds = %155
-  %invariant.gep43.i91 = getelementptr i16, ptr %115, i64 %.03346.i84
+  %invariant.gep43.i91 = getelementptr [2 x i8], ptr %115, i64 %.03346.i84
   br label %164
 
 155:                                              ; preds = %155, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %160, %155 ]
   %156 = add nuw nsw i64 %.03541.i86, %64
   %157 = mul nsw i64 %156, %114
-  %gep.i87 = getelementptr i16, ptr %invariant.gep.i85, i64 %157
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %157
   %.val38.i88 = load <16 x half>, ptr %gep.i87, align 1, !tbaa !53
   %158 = fpext <16 x half> %.val38.i88 to <16 x float>
-  %159 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x float> %158, ptr %159, align 64, !tbaa !53
   %160 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %160, 4
@@ -19044,10 +19039,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %170, %169 ]
   %165 = add nsw i64 %.03445.i92, %.1100
   %166 = mul nsw i64 %165, %116
-  %gep44.i93 = getelementptr i16, ptr %invariant.gep43.i91, i64 %166
+  %gep44.i93 = getelementptr [2 x i8], ptr %invariant.gep43.i91, i64 %166
   %.val3637.i94 = load <16 x half>, ptr %gep44.i93, align 1, !tbaa !53
   %167 = fpext <16 x half> %.val3637.i94 to <16 x float>
-  %168 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i92
+  %168 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i92
   br label %171
 
 169:                                              ; preds = %171
@@ -19057,9 +19052,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 171:                                              ; preds = %171, %164
   %.03242.i95 = phi i64 [ 0, %164 ], [ %177, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i95
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i95
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
-  %174 = getelementptr inbounds nuw <16 x float>, ptr %168, i64 %.03242.i95
+  %174 = getelementptr inbounds nuw [64 x i8], ptr %168, i64 %.03242.i95
   %175 = load <16 x float>, ptr %174, align 64, !tbaa !53
   %176 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %173, <16 x float> %167, <16 x float> %175)
   store <16 x float> %176, ptr %174, align 64, !tbaa !53
@@ -19069,10 +19064,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %181
   %.03150.i78 = phi i64 [ %182, %181 ], [ 0, %.preheader.i77.preheader ]
-  %178 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %178 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %179 = add nsw i64 %.03150.i78, %.1100
   %180 = mul nsw i64 %179, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i, i64 %180
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %180
   br label %183
 
 181:                                              ; preds = %183
@@ -19082,10 +19077,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 183:                                              ; preds = %183, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %178, i64 %.047.i80
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %.047.i80
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %185)
-  %187 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %187 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %188, 4
@@ -19272,7 +19267,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %102 = icmp sgt i64 %101, 0
   %103 = load ptr, ptr %60, align 8
   %104 = load i64, ptr %61, align 8
-  %invariant.gep48.i = getelementptr float, ptr %103, i64 %64
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %103, i64 %64
   br i1 %100, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -19311,21 +19306,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 .lr.ph.i:                                         ; preds = %117, %124
   %.03346.i = phi i64 [ %125, %124 ], [ 0, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %105, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %105, i64 %.03346.i
   br label %118
 
 .preheader40.i:                                   ; preds = %118
-  %invariant.gep43.i = getelementptr i16, ptr %107, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %107, i64 %.03346.i
   br label %127
 
 118:                                              ; preds = %118, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %123, %118 ]
   %119 = add nuw nsw i64 %.03541.i, %64
   %120 = mul nsw i64 %119, %106
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %120
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %120
   %.val38.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %121 = fpext <16 x half> %.val38.i to <16 x float>
-  %122 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %122 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %121, ptr %122, align 64, !tbaa !53
   %123 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %123, 4
@@ -19341,10 +19336,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %133, %132 ]
   %128 = add nsw i64 %.03445.i, %.097
   %129 = mul nsw i64 %128, %108
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %129
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %129
   %.val3637.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %130 = fpext <16 x half> %.val3637.i to <16 x float>
-  %131 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %131 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %134
 
 132:                                              ; preds = %134
@@ -19354,9 +19349,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 134:                                              ; preds = %134, %127
   %.03242.i = phi i64 [ 0, %127 ], [ %140, %134 ]
-  %135 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %135 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %136 = load <16 x float>, ptr %135, align 64, !tbaa !53
-  %137 = getelementptr inbounds nuw <16 x float>, ptr %131, i64 %.03242.i
+  %137 = getelementptr inbounds nuw [64 x i8], ptr %131, i64 %.03242.i
   %138 = load <16 x float>, ptr %137, align 64, !tbaa !53
   %139 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %136, <16 x float> %130, <16 x float> %138)
   store <16 x float> %139, ptr %137, align 64, !tbaa !53
@@ -19366,10 +19361,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %144
   %.03150.i = phi i64 [ %145, %144 ], [ 0, %.preheader.i.preheader ]
-  %141 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %141 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %142 = add nsw i64 %.03150.i, %.097
   %143 = mul nsw i64 %142, %104
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %143
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %143
   br label %146
 
 144:                                              ; preds = %146
@@ -19379,10 +19374,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 146:                                              ; preds = %146, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %151, %146 ]
-  %147 = getelementptr inbounds nuw <16 x float>, ptr %141, i64 %.047.i
+  %147 = getelementptr inbounds nuw [64 x i8], ptr %141, i64 %.047.i
   %148 = load <16 x float>, ptr %147, align 64, !tbaa !53
   %149 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %148)
-  %150 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %150 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %151, 4
@@ -19406,21 +19401,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 .lr.ph.i83:                                       ; preds = %154, %161
   %.03346.i84 = phi i64 [ %162, %161 ], [ 0, %154 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i85 = getelementptr i16, ptr %113, i64 %.03346.i84
+  %invariant.gep.i85 = getelementptr [2 x i8], ptr %113, i64 %.03346.i84
   br label %155
 
 .preheader40.i89:                                 ; preds = %155
-  %invariant.gep43.i90 = getelementptr i16, ptr %115, i64 %.03346.i84
+  %invariant.gep43.i90 = getelementptr [2 x i8], ptr %115, i64 %.03346.i84
   br label %164
 
 155:                                              ; preds = %155, %.lr.ph.i83
   %.03541.i86 = phi i64 [ 0, %.lr.ph.i83 ], [ %160, %155 ]
   %156 = add nuw nsw i64 %.03541.i86, %64
   %157 = mul nsw i64 %156, %114
-  %gep.i87 = getelementptr i16, ptr %invariant.gep.i85, i64 %157
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i85, i64 %157
   %.val3638.i = load <16 x half>, ptr %gep.i87, align 1, !tbaa !53
   %158 = fpext <16 x half> %.val3638.i to <16 x float>
-  %159 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i86
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i86
   store <16 x float> %158, ptr %159, align 64, !tbaa !53
   %160 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %160, 4
@@ -19436,10 +19431,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %170, %169 ]
   %165 = add nsw i64 %.03445.i91, %.198
   %166 = mul nsw i64 %165, %116
-  %gep44.i92 = getelementptr i16, ptr %invariant.gep43.i90, i64 %166
+  %gep44.i92 = getelementptr [2 x i8], ptr %invariant.gep43.i90, i64 %166
   %.val37.i = load <16 x half>, ptr %gep44.i92, align 1, !tbaa !53
   %167 = fpext <16 x half> %.val37.i to <16 x float>
-  %168 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03445.i91
+  %168 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03445.i91
   br label %171
 
 169:                                              ; preds = %171
@@ -19449,9 +19444,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 171:                                              ; preds = %171, %164
   %.03242.i93 = phi i64 [ 0, %164 ], [ %177, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03242.i93
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03242.i93
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
-  %174 = getelementptr inbounds nuw <16 x float>, ptr %168, i64 %.03242.i93
+  %174 = getelementptr inbounds nuw [64 x i8], ptr %168, i64 %.03242.i93
   %175 = load <16 x float>, ptr %174, align 64, !tbaa !53
   %176 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %173, <16 x float> %167, <16 x float> %175)
   store <16 x float> %176, ptr %174, align 64, !tbaa !53
@@ -19461,10 +19456,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %181
   %.03150.i78 = phi i64 [ %182, %181 ], [ 0, %.preheader.i77.preheader ]
-  %178 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03150.i78
+  %178 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03150.i78
   %179 = add nsw i64 %.03150.i78, %.198
   %180 = mul nsw i64 %179, %104
-  %gep49.i79 = getelementptr float, ptr %invariant.gep48.i, i64 %180
+  %gep49.i79 = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %180
   br label %183
 
 181:                                              ; preds = %183
@@ -19474,10 +19469,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 183:                                              ; preds = %183, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %178, i64 %.047.i80
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %.047.i80
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %185)
-  %187 = getelementptr float, ptr %gep49.i79, i64 %.047.i80
+  %187 = getelementptr [4 x i8], ptr %gep49.i79, i64 %.047.i80
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %188, 4
@@ -19664,7 +19659,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %103 = icmp sgt i64 %102, 0
   %104 = load ptr, ptr %61, align 8
   %105 = load i64, ptr %62, align 8
-  %invariant.gep48.i = getelementptr float, ptr %104, i64 %65
+  %invariant.gep48.i = getelementptr [4 x i8], ptr %104, i64 %65
   br i1 %101, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
@@ -19703,21 +19698,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 .lr.ph.i:                                         ; preds = %118, %125
   %.03346.i = phi i64 [ %126, %125 ], [ 0, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %invariant.gep.i = getelementptr i16, ptr %106, i64 %.03346.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %106, i64 %.03346.i
   br label %119
 
 .preheader40.i:                                   ; preds = %119
-  %invariant.gep43.i = getelementptr i16, ptr %108, i64 %.03346.i
+  %invariant.gep43.i = getelementptr [2 x i8], ptr %108, i64 %.03346.i
   br label %128
 
 119:                                              ; preds = %119, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %124, %119 ]
   %120 = add nuw nsw i64 %.03541.i, %65
   %121 = mul nsw i64 %120, %107
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %121
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %121
   %.val3638.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %122 = fpext <16 x half> %.val3638.i to <16 x float>
-  %123 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03541.i
+  %123 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03541.i
   store <16 x float> %122, ptr %123, align 64, !tbaa !53
   %124 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %124, 4
@@ -19733,10 +19728,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %134, %133 ]
   %129 = add nsw i64 %.03445.i, %.087
   %130 = mul nsw i64 %129, %109
-  %gep44.i = getelementptr i16, ptr %invariant.gep43.i, i64 %130
+  %gep44.i = getelementptr [2 x i8], ptr %invariant.gep43.i, i64 %130
   %.val37.i = load <16 x half>, ptr %gep44.i, align 1, !tbaa !53
   %131 = fpext <16 x half> %.val37.i to <16 x float>
-  %132 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03445.i
+  %132 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03445.i
   br label %135
 
 133:                                              ; preds = %135
@@ -19746,9 +19741,9 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 135:                                              ; preds = %135, %128
   %.03242.i = phi i64 [ 0, %128 ], [ %141, %135 ]
-  %136 = getelementptr inbounds nuw <16 x float>, ptr %7, i64 %.03242.i
+  %136 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.03242.i
   %137 = load <16 x float>, ptr %136, align 64, !tbaa !53
-  %138 = getelementptr inbounds nuw <16 x float>, ptr %132, i64 %.03242.i
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %132, i64 %.03242.i
   %139 = load <16 x float>, ptr %138, align 64, !tbaa !53
   %140 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %137, <16 x float> %131, <16 x float> %139)
   store <16 x float> %140, ptr %138, align 64, !tbaa !53
@@ -19758,10 +19753,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %145
   %.03150.i = phi i64 [ %146, %145 ], [ 0, %.preheader.i.preheader ]
-  %142 = getelementptr inbounds nuw [4 x <16 x float>], ptr %6, i64 %.03150.i
+  %142 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %.03150.i
   %143 = add nsw i64 %.03150.i, %.087
   %144 = mul nsw i64 %143, %105
-  %gep49.i = getelementptr float, ptr %invariant.gep48.i, i64 %144
+  %gep49.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %144
   br label %147
 
 145:                                              ; preds = %147
@@ -19771,10 +19766,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 147:                                              ; preds = %147, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %152, %147 ]
-  %148 = getelementptr inbounds nuw <16 x float>, ptr %142, i64 %.047.i
+  %148 = getelementptr inbounds nuw [64 x i8], ptr %142, i64 %.047.i
   %149 = load <16 x float>, ptr %148, align 64, !tbaa !53
   %150 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %149)
-  %151 = getelementptr float, ptr %gep49.i, i64 %.047.i
+  %151 = getelementptr [4 x i8], ptr %gep49.i, i64 %.047.i
   store float %150, ptr %151, align 4, !tbaa !93
   %152 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %152, 4
@@ -19798,21 +19793,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 .lr.ph.i76:                                       ; preds = %155, %162
   %.03348.i = phi i64 [ %163, %162 ], [ 0, %155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.gep.i77 = getelementptr i16, ptr %114, i64 %.03348.i
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %114, i64 %.03348.i
   br label %156
 
 .preheader40.i82:                                 ; preds = %156
-  %invariant.gep45.i = getelementptr i16, ptr %116, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %116, i64 %.03348.i
   br label %165
 
 156:                                              ; preds = %156, %.lr.ph.i76
   %.03541.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %161, %156 ]
   %157 = add nsw i64 %.03541.i78, %.188
   %158 = mul nsw i64 %157, %115
-  %gep.i79 = getelementptr i16, ptr %invariant.gep.i77, i64 %158
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %158
   %.val3638.i80 = load <16 x half>, ptr %gep.i79, align 1, !tbaa !53
   %159 = fpext <16 x half> %.val3638.i80 to <16 x float>
-  %160 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03541.i78
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03541.i78
   store <16 x float> %159, ptr %160, align 64, !tbaa !53
   %161 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %161, 3
@@ -19828,10 +19823,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %170, %169 ]
   %166 = add nuw nsw i64 %.03447.i, %65
   %167 = mul nsw i64 %166, %117
-  %gep46.i = getelementptr i16, ptr %invariant.gep45.i, i64 %167
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %167
   %.val37.i83 = load <16 x half>, ptr %gep46.i, align 1, !tbaa !53
   %168 = fpext <16 x half> %.val37.i83 to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i
   br label %171
 
 169:                                              ; preds = %171
@@ -19841,9 +19836,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 171:                                              ; preds = %171, %165
   %.03244.i = phi i64 [ 0, %165 ], [ %176, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03244.i
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03244.i
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %174 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %175 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %168, <16 x float> %173, <16 x float> %174)
   store <16 x float> %175, ptr %gep43.i, align 64, !tbaa !53
@@ -19853,10 +19848,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %180
   %.03152.i = phi i64 [ %181, %180 ], [ 0, %.preheader.i75.preheader ]
-  %177 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 %.03152.i
+  %177 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %.03152.i
   %178 = add nsw i64 %.03152.i, %.188
   %179 = mul nsw i64 %178, %105
-  %gep51.i = getelementptr float, ptr %invariant.gep48.i, i64 %179
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep48.i, i64 %179
   br label %182
 
 180:                                              ; preds = %182
@@ -19866,10 +19861,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 182:                                              ; preds = %182, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %187, %182 ]
-  %183 = getelementptr inbounds nuw <16 x float>, ptr %177, i64 %.049.i
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %177, i64 %.049.i
   %184 = load <16 x float>, ptr %183, align 64, !tbaa !53
   %185 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %184)
-  %186 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %186 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %185, ptr %186, align 4, !tbaa !93
   %187 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %187, 4
@@ -20056,7 +20051,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %101 = icmp sgt i64 %100, 0
   %102 = load ptr, ptr %59, align 8
   %103 = load i64, ptr %60, align 8
-  %invariant.gep50.i = getelementptr float, ptr %102, i64 %63
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %102, i64 %63
   br i1 %99, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
@@ -20094,24 +20089,24 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .preheader40.i88.us.critedge:                     ; preds = %129, %.lr.ph.i82.us
   %.03348.i83.us = phi i64 [ 0, %.lr.ph.i82.us ], [ %130, %129 ]
-  %invariant.gep.i84.us = getelementptr i16, ptr %112, i64 %.03348.i83.us
-  %gep.i86.us = getelementptr i16, ptr %invariant.gep.i84.us, i64 %116
+  %invariant.gep.i84.us = getelementptr [2 x i8], ptr %112, i64 %.03348.i83.us
+  %gep.i86.us = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %116
   %.val3638.i87.us = load <16 x half>, ptr %gep.i86.us, align 1, !tbaa !53
   %119 = fpext <16 x half> %.val3638.i87.us to <16 x float>
-  %gep.i86.us.c = getelementptr i16, ptr %invariant.gep.i84.us, i64 %118
+  %gep.i86.us.c = getelementptr [2 x i8], ptr %invariant.gep.i84.us, i64 %118
   %.val3638.i87.us.c = load <16 x half>, ptr %gep.i86.us.c, align 1, !tbaa !53
   %120 = fpext <16 x half> %.val3638.i87.us.c to <16 x float>
-  %invariant.gep45.i89.us = getelementptr i16, ptr %114, i64 %.03348.i83.us
+  %invariant.gep45.i89.us = getelementptr [2 x i8], ptr %114, i64 %.03348.i83.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader40.i88.us.critedge
   %.03447.i90.us = phi i64 [ 0, %.preheader40.i88.us.critedge ], [ %128, %.critedge ]
   %121 = add nuw nsw i64 %.03447.i90.us, %63
   %122 = mul nsw i64 %121, %115
-  %gep46.i91.us = getelementptr i16, ptr %invariant.gep45.i89.us, i64 %122
+  %gep46.i91.us = getelementptr [2 x i8], ptr %invariant.gep45.i89.us, i64 %122
   %.val37.i92.us = load <16 x half>, ptr %gep46.i91.us, align 1, !tbaa !53
   %123 = fpext <16 x half> %.val37.i92.us to <16 x float>
-  %invariant.gep42.i93.us = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i90.us
+  %invariant.gep42.i93.us = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i90.us
   %124 = load <16 x float>, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
   %125 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %123, <16 x float> %119, <16 x float> %124)
   store <16 x float> %125, ptr %invariant.gep42.i93.us, align 64, !tbaa !53
@@ -20134,15 +20129,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   %.03152.i78.us = phi i64 [ 1, %141 ], [ 0, %129 ]
   %133 = add nsw i64 %.03152.i78.us, %.1102.us
   %134 = mul nsw i64 %133, %103
-  %gep51.i79.us = getelementptr float, ptr %invariant.gep50.i, i64 %134
+  %gep51.i79.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %134
   br label %135
 
 135:                                              ; preds = %135, %.preheader.i77.us
   %.049.i80.us = phi i64 [ 0, %.preheader.i77.us ], [ %140, %135 ]
-  %136 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
+  %136 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi.us, i64 %.049.i80.us
   %137 = load <16 x float>, ptr %136, align 64, !tbaa !53
   %138 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %137)
-  %139 = getelementptr float, ptr %gep51.i79.us, i64 %.049.i80.us
+  %139 = getelementptr [4 x i8], ptr %gep51.i79.us, i64 %.049.i80.us
   store float %138, ptr %139, align 4, !tbaa !93
   %140 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %140, 4
@@ -20169,21 +20164,21 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 .lr.ph.i:                                         ; preds = %144, %151
   %.03348.i = phi i64 [ %152, %151 ], [ 0, %144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep.i = getelementptr i16, ptr %104, i64 %.03348.i
+  %invariant.gep.i = getelementptr [2 x i8], ptr %104, i64 %.03348.i
   br label %145
 
 .preheader40.i:                                   ; preds = %145
-  %invariant.gep45.i = getelementptr i16, ptr %106, i64 %.03348.i
+  %invariant.gep45.i = getelementptr [2 x i8], ptr %106, i64 %.03348.i
   br label %154
 
 145:                                              ; preds = %145, %.lr.ph.i
   %.03541.i = phi i64 [ 0, %.lr.ph.i ], [ %150, %145 ]
   %146 = add nsw i64 %.03541.i, %.0101
   %147 = mul nsw i64 %146, %105
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %147
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %147
   %.val3638.i = load <16 x half>, ptr %gep.i, align 1, !tbaa !53
   %148 = fpext <16 x half> %.val3638.i to <16 x float>
-  %149 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03541.i
+  %149 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03541.i
   store <16 x float> %148, ptr %149, align 64, !tbaa !53
   %150 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %150, 3
@@ -20199,10 +20194,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %159, %158 ]
   %155 = add nuw nsw i64 %.03447.i, %63
   %156 = mul nsw i64 %155, %107
-  %gep46.i = getelementptr i16, ptr %invariant.gep45.i, i64 %156
+  %gep46.i = getelementptr [2 x i8], ptr %invariant.gep45.i, i64 %156
   %.val37.i = load <16 x half>, ptr %gep46.i, align 1, !tbaa !53
   %157 = fpext <16 x half> %.val37.i to <16 x float>
-  %invariant.gep42.i = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i
+  %invariant.gep42.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i
   br label %160
 
 158:                                              ; preds = %160
@@ -20212,9 +20207,9 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 160:                                              ; preds = %160, %154
   %.03244.i = phi i64 [ 0, %154 ], [ %165, %160 ]
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %6, i64 %.03244.i
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.03244.i
   %162 = load <16 x float>, ptr %161, align 64, !tbaa !53
-  %gep43.i = getelementptr inbounds nuw [4 x <16 x float>], ptr %invariant.gep42.i, i64 %.03244.i
+  %gep43.i = getelementptr inbounds nuw [256 x i8], ptr %invariant.gep42.i, i64 %.03244.i
   %163 = load <16 x float>, ptr %gep43.i, align 64, !tbaa !53
   %164 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %157, <16 x float> %162, <16 x float> %163)
   store <16 x float> %164, ptr %gep43.i, align 64, !tbaa !53
@@ -20224,10 +20219,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %169
   %.03152.i = phi i64 [ %170, %169 ], [ 0, %.preheader.i.preheader ]
-  %166 = getelementptr inbounds nuw [4 x <16 x float>], ptr %5, i64 %.03152.i
+  %166 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 %.03152.i
   %167 = add nsw i64 %.03152.i, %.0101
   %168 = mul nsw i64 %167, %103
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %168
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %168
   br label %171
 
 169:                                              ; preds = %171
@@ -20237,10 +20232,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 171:                                              ; preds = %171, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %176, %171 ]
-  %172 = getelementptr inbounds nuw <16 x float>, ptr %166, i64 %.049.i
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %166, i64 %.049.i
   %173 = load <16 x float>, ptr %172, align 64, !tbaa !53
   %174 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %173)
-  %175 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %175 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %174, ptr %175, align 4, !tbaa !93
   %176 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %176, 4
@@ -20264,7 +20259,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   %.03152.i78 = phi i64 [ 0, %.preheader39.i75 ], [ 1, %182 ]
   %180 = add nsw i64 %.03152.i78, %.1102
   %181 = mul nsw i64 %180, %103
-  %gep51.i79 = getelementptr float, ptr %invariant.gep50.i, i64 %181
+  %gep51.i79 = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %181
   br label %183
 
 182:                                              ; preds = %183
@@ -20272,10 +20267,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 
 183:                                              ; preds = %183, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i78.sroa.phi, i64 %.049.i80
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i78.sroa.phi, i64 %.049.i80
   %185 = load <16 x float>, ptr %184, align 64, !tbaa !53
   %186 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %185)
-  %187 = getelementptr float, ptr %gep51.i79, i64 %.049.i80
+  %187 = getelementptr [4 x i8], ptr %gep51.i79, i64 %.049.i80
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %188, 4
@@ -20439,7 +20434,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %93 = icmp sgt i64 %92, 0
   %94 = load ptr, ptr %59, align 8
   %95 = load i64, ptr %60, align 8
-  %invariant.gep50.i = getelementptr float, ptr %94, i64 %63
+  %invariant.gep50.i = getelementptr [4 x i8], ptr %94, i64 %63
   br i1 %91, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
@@ -20460,24 +20455,24 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .preheader40.i.us.critedge:                       ; preds = %113, %.lr.ph.i.us
   %.03348.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %114, %113 ]
-  %invariant.gep.i.us = getelementptr i16, ptr %96, i64 %.03348.i.us
-  %gep.i.us = getelementptr i16, ptr %invariant.gep.i.us, i64 %100
+  %invariant.gep.i.us = getelementptr [2 x i8], ptr %96, i64 %.03348.i.us
+  %gep.i.us = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %100
   %.val3638.i.us = load <16 x half>, ptr %gep.i.us, align 1, !tbaa !53
   %103 = fpext <16 x half> %.val3638.i.us to <16 x float>
-  %gep.i.us.c = getelementptr i16, ptr %invariant.gep.i.us, i64 %102
+  %gep.i.us.c = getelementptr [2 x i8], ptr %invariant.gep.i.us, i64 %102
   %.val3638.i.us.c = load <16 x half>, ptr %gep.i.us.c, align 1, !tbaa !53
   %104 = fpext <16 x half> %.val3638.i.us.c to <16 x float>
-  %invariant.gep45.i.us = getelementptr i16, ptr %98, i64 %.03348.i.us
+  %invariant.gep45.i.us = getelementptr [2 x i8], ptr %98, i64 %.03348.i.us
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.preheader40.i.us.critedge
   %.03447.i.us = phi i64 [ 0, %.preheader40.i.us.critedge ], [ %112, %.critedge ]
   %105 = add nuw nsw i64 %.03447.i.us, %63
   %106 = mul nsw i64 %105, %99
-  %gep46.i.us = getelementptr i16, ptr %invariant.gep45.i.us, i64 %106
+  %gep46.i.us = getelementptr [2 x i8], ptr %invariant.gep45.i.us, i64 %106
   %.val37.i.us = load <16 x half>, ptr %gep46.i.us, align 1, !tbaa !53
   %107 = fpext <16 x half> %.val37.i.us to <16 x float>
-  %invariant.gep42.i.us = getelementptr inbounds nuw <16 x float>, ptr %5, i64 %.03447.i.us
+  %invariant.gep42.i.us = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.03447.i.us
   %108 = load <16 x float>, ptr %invariant.gep42.i.us, align 64, !tbaa !53
   %109 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %107, <16 x float> %103, <16 x float> %108)
   store <16 x float> %109, ptr %invariant.gep42.i.us, align 64, !tbaa !53
@@ -20500,15 +20495,15 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   %.03152.i.us = phi i64 [ 1, %125 ], [ 0, %113 ]
   %117 = add nsw i64 %.03152.i.us, %.087.us
   %118 = mul nsw i64 %117, %95
-  %gep51.i.us = getelementptr float, ptr %invariant.gep50.i, i64 %118
+  %gep51.i.us = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %118
   br label %119
 
 119:                                              ; preds = %119, %.preheader.i.us
   %.049.i.us = phi i64 [ 0, %.preheader.i.us ], [ %124, %119 ]
-  %120 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
+  %120 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi.us, i64 %.049.i.us
   %121 = load <16 x float>, ptr %120, align 64, !tbaa !53
   %122 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %121)
-  %123 = getelementptr float, ptr %gep51.i.us, i64 %.049.i.us
+  %123 = getelementptr [4 x i8], ptr %gep51.i.us, i64 %.049.i.us
   store float %122, ptr %123, align 4, !tbaa !93
   %124 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %124, 4
@@ -20552,7 +20547,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   %.03152.i = phi i64 [ 0, %.preheader39.i ], [ 1, %139 ]
   %137 = add nsw i64 %.03152.i, %.087
   %138 = mul nsw i64 %137, %95
-  %gep51.i = getelementptr float, ptr %invariant.gep50.i, i64 %138
+  %gep51.i = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %138
   br label %140
 
 139:                                              ; preds = %140
@@ -20560,10 +20555,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 140:                                              ; preds = %140, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %145, %140 ]
-  %141 = getelementptr inbounds nuw <16 x float>, ptr %.03152.i.sroa.phi, i64 %.049.i
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %.03152.i.sroa.phi, i64 %.049.i
   %142 = load <16 x float>, ptr %141, align 64, !tbaa !53
   %143 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %142)
-  %144 = getelementptr float, ptr %gep51.i, i64 %.049.i
+  %144 = getelementptr [4 x i8], ptr %gep51.i, i64 %.049.i
   store float %143, ptr %144, align 4, !tbaa !93
   %145 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %145, 4
@@ -20583,20 +20578,20 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 .preheader41.lr.ph.i:                             ; preds = %148
   %149 = mul nsw i64 %133, %.188
-  %150 = getelementptr inbounds i16, ptr %132, i64 %149
+  %150 = getelementptr inbounds [2 x i8], ptr %132, i64 %149
   br label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %154, %.preheader41.lr.ph.i
   %.03348.i76 = phi i64 [ 0, %.preheader41.lr.ph.i ], [ %155, %154 ]
-  %151 = getelementptr inbounds nuw i16, ptr %150, i64 %.03348.i76
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %150, i64 %.03348.i76
   %.val3638.le.i = load <16 x half>, ptr %151, align 1, !tbaa !53
   %152 = fpext <16 x half> %.val3638.le.i to <16 x float>
-  %invariant.gep.i77 = getelementptr i16, ptr %134, i64 %.03348.i76
+  %invariant.gep.i77 = getelementptr [2 x i8], ptr %134, i64 %.03348.i76
   br label %157
 
 .preheader39.i74:                                 ; preds = %154, %148
   %153 = mul nsw i64 %95, %.188
-  %gep = getelementptr float, ptr %invariant.gep50.i, i64 %153
+  %gep = getelementptr [4 x i8], ptr %invariant.gep50.i, i64 %153
   br label %164
 
 154:                                              ; preds = %157
@@ -20608,10 +20603,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   %.03447.i78 = phi i64 [ 0, %.preheader41.i ], [ %163, %157 ]
   %158 = add nuw nsw i64 %.03447.i78, %63
   %159 = mul nsw i64 %158, %135
-  %gep.i79 = getelementptr i16, ptr %invariant.gep.i77, i64 %159
+  %gep.i79 = getelementptr [2 x i8], ptr %invariant.gep.i77, i64 %159
   %.val37.i80 = load <16 x half>, ptr %gep.i79, align 1, !tbaa !53
   %160 = fpext <16 x half> %.val37.i80 to <16 x float>
-  %161 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i78
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i78
   %.promoted.i = load <16 x float>, ptr %161, align 64, !tbaa !53
   %162 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %160, <16 x float> %152, <16 x float> %.promoted.i)
   store <16 x float> %162, ptr %161, align 64, !tbaa !53
@@ -20621,10 +20616,10 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 
 164:                                              ; preds = %164, %.preheader39.i74
   %.049.i75 = phi i64 [ 0, %.preheader39.i74 ], [ %169, %164 ]
-  %165 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i75
+  %165 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i75
   %166 = load <16 x float>, ptr %165, align 64, !tbaa !53
   %167 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %166)
-  %168 = getelementptr float, ptr %gep, i64 %.049.i75
+  %168 = getelementptr [4 x i8], ptr %gep, i64 %.049.i75
   store float %167, ptr %168, align 4, !tbaa !93
   %169 = add nuw nsw i64 %.049.i75, 1
   %exitcond50.not.i = icmp eq i64 %169, 4
@@ -20773,7 +20768,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
-  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %79, i64 %57
   %.fr = freeze i1 %77
   br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
@@ -20793,25 +20788,25 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %86 = mul nsw i64 %83, %.067.us.us.us
-  %87 = getelementptr inbounds i16, ptr %82, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %82, i64 %86
   br label %.preheader41.i.us.us.us
 
 .preheader41.i.us.us.us:                          ; preds = %97, %.preheader41.lr.ph.i.us.us.us
   %.03348.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %98, %97 ]
-  %88 = getelementptr inbounds nuw i16, ptr %87, i64 %.03348.i.us.us.us
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %.03348.i.us.us.us
   %.val3638.le.i.us.us.us = load <16 x half>, ptr %88, align 1, !tbaa !53
   %89 = fpext <16 x half> %.val3638.le.i.us.us.us to <16 x float>
-  %invariant.gep.i.us.us.us = getelementptr i16, ptr %84, i64 %.03348.i.us.us.us
+  %invariant.gep.i.us.us.us = getelementptr [2 x i8], ptr %84, i64 %.03348.i.us.us.us
   br label %90
 
 90:                                               ; preds = %90, %.preheader41.i.us.us.us
   %.03447.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %96, %90 ]
   %91 = add nuw nsw i64 %.03447.i.us.us.us, %57
   %92 = mul nsw i64 %91, %85
-  %gep.i.us.us.us = getelementptr i16, ptr %invariant.gep.i.us.us.us, i64 %92
+  %gep.i.us.us.us = getelementptr [2 x i8], ptr %invariant.gep.i.us.us.us, i64 %92
   %.val37.i.us.us.us = load <16 x half>, ptr %gep.i.us.us.us, align 1, !tbaa !53
   %93 = fpext <16 x half> %.val37.i.us.us.us to <16 x float>
-  %94 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.03447.i.us.us.us
+  %94 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.03447.i.us.us.us
   %.promoted.i.us.us.us = load <16 x float>, ptr %94, align 64, !tbaa !53
   %95 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %93, <16 x float> %89, <16 x float> %.promoted.i.us.us.us)
   store <16 x float> %95, ptr %94, align 64, !tbaa !53
@@ -20826,10 +20821,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 100:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %100
   %.049.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %105, %100 ]
-  %101 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us.us.us
+  %101 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i.us.us.us
   %102 = load <16 x float>, ptr %101, align 64, !tbaa !53
   %103 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %102)
-  %104 = getelementptr float, ptr %gep.us.us.us, i64 %.049.i.us.us.us
+  %104 = getelementptr [4 x i8], ptr %gep.us.us.us, i64 %.049.i.us.us.us
   store float %103, ptr %104, align 4, !tbaa !93
   %105 = add nuw nsw i64 %.049.i.us.us.us, 1
   %exitcond50.not.i.us.us.us = icmp eq i64 %105, 4
@@ -20843,7 +20838,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %97
   %108 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %108
+  %gep.us.us.us = getelementptr [4 x i8], ptr %invariant.gep, i64 %108
   br label %100
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
@@ -20855,15 +20850,15 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %110 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %110
+  %gep.us69 = getelementptr [4 x i8], ptr %invariant.gep, i64 %110
   br label %111
 
 111:                                              ; preds = %111, %.preheader39.i.us
   %.049.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %116, %111 ]
-  %112 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us70
+  %112 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %.049.i.us70
   %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
   %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
-  %115 = getelementptr float, ptr %gep.us69, i64 %.049.i.us70
+  %115 = getelementptr [4 x i8], ptr %gep.us69, i64 %.049.i.us70
   store float %114, ptr %115, align 4, !tbaa !93
   %116 = add nuw nsw i64 %.049.i.us70, 1
   %exitcond50.not.i.us71 = icmp eq i64 %116, 4
@@ -21051,7 +21046,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.lr.ph.us, label %.preheader119.preheader
 
 .preheader119.preheader:                          ; preds = %.lr.ph127
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader119
 
 .lr.ph.us:                                        ; preds = %.lr.ph127, %55
@@ -21066,15 +21061,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q8_0, ptr %27, i64 %45
+  %46 = getelementptr [34 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %27, i64 %48
+  %49 = getelementptr [34 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %27, i64 %51
+  %52 = getelementptr [34 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q8_0, ptr %27, i64 %53
+  %54 = getelementptr [34 x i8], ptr %27, i64 %53
   br label %70
 
 55:                                               ; preds = %57
@@ -21090,7 +21085,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %135, i64 %.0122.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %.0122.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21100,7 +21095,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %gep124.us, i64 %.0122.us
+  %68 = getelementptr [4 x i8], ptr %gep124.us, i64 %.0122.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
@@ -21108,13 +21103,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 70:                                               ; preds = %.lr.ph.us, %93
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %94, %93 ]
-  %71 = getelementptr %struct.block_q8_0, ptr %46, i64 %.0104121.us
+  %71 = getelementptr [34 x i8], ptr %46, i64 %.0104121.us
   %72 = load i16, ptr %71, align 2, !tbaa !391
-  %73 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0104121.us
+  %73 = getelementptr [34 x i8], ptr %49, i64 %.0104121.us
   %74 = load i16, ptr %73, align 2, !tbaa !391
-  %75 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0104121.us
+  %75 = getelementptr [34 x i8], ptr %52, i64 %.0104121.us
   %76 = load i16, ptr %75, align 2, !tbaa !391
-  %77 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0104121.us
+  %77 = getelementptr [34 x i8], ptr %54, i64 %.0104121.us
   %78 = load i16, ptr %77, align 2, !tbaa !391
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -21130,7 +21125,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.val108116.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
   %88 = getelementptr i8, ptr %71, i64 2
   %.val109117.us = load <32 x i8>, ptr %88, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104121.us
   %89 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114.us, <32 x i8> %.val114.us)
   %90 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val107115.us, <32 x i8> %.val107115.us)
   %91 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val108116.us, <32 x i8> %.val108116.us)
@@ -21146,10 +21141,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0103120.us = phi i64 [ 0, %70 ], [ %134, %95 ]
   %96 = add nsw i64 %.0103120.us, %43
   %97 = mul nsw i64 %33, %96
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %97
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %97
   %98 = load i16, ptr %gep.us, align 2, !tbaa !391
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
   %102 = insertelement <4 x float> poison, float %101, i64 0
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
@@ -21160,7 +21155,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %107 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110118.us, <32 x i8> %.val114.us)
   %108 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %89, <32 x i8> %107)
   %109 = sitofp <8 x i32> %108 to <8 x float>
-  %110 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103120.us
+  %110 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103120.us
   %111 = load <8 x float>, ptr %110, align 32, !tbaa !53
   %112 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %105, <8 x float> %109, <8 x float> %111)
   store <8 x float> %112, ptr %110, align 32, !tbaa !53
@@ -21194,14 +21189,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
-  %135 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125.us
+  %135 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125.us
   %136 = add nsw i64 %.0100125.us, %43
   %137 = mul nsw i64 %37, %136
-  %gep124.us = getelementptr float, ptr %invariant.gep123.us, i64 %137
+  %gep124.us = getelementptr [4 x i8], ptr %invariant.gep123.us, i64 %137
   br label %59
 
 ..preheader119_crit_edge.us:                      ; preds = %93
-  %invariant.gep123.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep123.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %145, %55, %5
@@ -21221,10 +21216,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader:                                       ; preds = %.preheader119, %147
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ %148, %147 ]
-  %142 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125
+  %142 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125
   %143 = add nsw i64 %.0100125, %141
   %144 = mul nsw i64 %37, %143
-  %gep124 = getelementptr float, ptr %gep, i64 %144
+  %gep124 = getelementptr [4 x i8], ptr %gep, i64 %144
   br label %149
 
 145:                                              ; preds = %147
@@ -21240,7 +21235,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 149:                                              ; preds = %.preheader, %149
   %.0122 = phi i64 [ 0, %.preheader ], [ %159, %149 ]
-  %150 = getelementptr inbounds nuw <8 x float>, ptr %142, i64 %.0122
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %.0122
   %151 = load <8 x float>, ptr %150, align 32, !tbaa !53
   %152 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %153 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21250,7 +21245,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift145 = shufflevector <4 x float> %156, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop146 = fadd <4 x float> %156, %shift145
   %157 = extractelement <4 x float> %foldExtExtBinop146, i64 0
-  %158 = getelementptr float, ptr %gep124, i64 %.0122
+  %158 = getelementptr [4 x i8], ptr %gep124, i64 %.0122
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %159, 4
@@ -21298,7 +21293,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.lr.ph.us, label %.preheader119.preheader
 
 .preheader119.preheader:                          ; preds = %.lr.ph127
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader119
 
 .lr.ph.us:                                        ; preds = %.lr.ph127, %55
@@ -21313,15 +21308,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q8_0, ptr %27, i64 %45
+  %46 = getelementptr [34 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %27, i64 %48
+  %49 = getelementptr [34 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %27, i64 %51
+  %52 = getelementptr [34 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q8_0, ptr %27, i64 %53
+  %54 = getelementptr [34 x i8], ptr %27, i64 %53
   br label %70
 
 55:                                               ; preds = %57
@@ -21337,7 +21332,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %135, i64 %.0122.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %.0122.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21347,7 +21342,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %gep124.us, i64 %.0122.us
+  %68 = getelementptr [4 x i8], ptr %gep124.us, i64 %.0122.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
@@ -21355,13 +21350,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 70:                                               ; preds = %.lr.ph.us, %93
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %94, %93 ]
-  %71 = getelementptr %struct.block_q8_0, ptr %46, i64 %.0104121.us
+  %71 = getelementptr [34 x i8], ptr %46, i64 %.0104121.us
   %72 = load i16, ptr %71, align 2, !tbaa !391
-  %73 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0104121.us
+  %73 = getelementptr [34 x i8], ptr %49, i64 %.0104121.us
   %74 = load i16, ptr %73, align 2, !tbaa !391
-  %75 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0104121.us
+  %75 = getelementptr [34 x i8], ptr %52, i64 %.0104121.us
   %76 = load i16, ptr %75, align 2, !tbaa !391
-  %77 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0104121.us
+  %77 = getelementptr [34 x i8], ptr %54, i64 %.0104121.us
   %78 = load i16, ptr %77, align 2, !tbaa !391
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -21377,7 +21372,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.val108116.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
   %88 = getelementptr i8, ptr %71, i64 2
   %.val109117.us = load <32 x i8>, ptr %88, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104121.us
   %89 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114.us, <32 x i8> %.val114.us)
   %90 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val107115.us, <32 x i8> %.val107115.us)
   %91 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val108116.us, <32 x i8> %.val108116.us)
@@ -21393,10 +21388,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0103120.us = phi i64 [ 0, %70 ], [ %134, %95 ]
   %96 = add nsw i64 %.0103120.us, %43
   %97 = mul nsw i64 %33, %96
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %97
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %97
   %98 = load i16, ptr %gep.us, align 2, !tbaa !391
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
   %102 = insertelement <4 x float> poison, float %101, i64 0
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
@@ -21407,7 +21402,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %107 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110118.us, <32 x i8> %.val114.us)
   %108 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %89, <32 x i8> %107)
   %109 = sitofp <8 x i32> %108 to <8 x float>
-  %110 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103120.us
+  %110 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103120.us
   %111 = load <8 x float>, ptr %110, align 32, !tbaa !53
   %112 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %105, <8 x float> %109, <8 x float> %111)
   store <8 x float> %112, ptr %110, align 32, !tbaa !53
@@ -21441,14 +21436,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
-  %135 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125.us
+  %135 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125.us
   %136 = add nsw i64 %.0100125.us, %43
   %137 = mul nsw i64 %37, %136
-  %gep124.us = getelementptr float, ptr %invariant.gep123.us, i64 %137
+  %gep124.us = getelementptr [4 x i8], ptr %invariant.gep123.us, i64 %137
   br label %59
 
 ..preheader119_crit_edge.us:                      ; preds = %93
-  %invariant.gep123.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep123.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %145, %55, %5
@@ -21468,10 +21463,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader:                                       ; preds = %.preheader119, %147
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ %148, %147 ]
-  %142 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125
+  %142 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125
   %143 = add nsw i64 %.0100125, %141
   %144 = mul nsw i64 %37, %143
-  %gep124 = getelementptr float, ptr %gep, i64 %144
+  %gep124 = getelementptr [4 x i8], ptr %gep, i64 %144
   br label %149
 
 145:                                              ; preds = %147
@@ -21487,7 +21482,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 149:                                              ; preds = %.preheader, %149
   %.0122 = phi i64 [ 0, %.preheader ], [ %159, %149 ]
-  %150 = getelementptr inbounds nuw <8 x float>, ptr %142, i64 %.0122
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %.0122
   %151 = load <8 x float>, ptr %150, align 32, !tbaa !53
   %152 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %153 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21497,7 +21492,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift145 = shufflevector <4 x float> %156, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop146 = fadd <4 x float> %156, %shift145
   %157 = extractelement <4 x float> %foldExtExtBinop146, i64 0
-  %158 = getelementptr float, ptr %gep124, i64 %.0122
+  %158 = getelementptr [4 x i8], ptr %gep124, i64 %.0122
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %159, 4
@@ -21548,7 +21543,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.lr.ph.us, label %.preheader143.preheader
 
 .preheader143.preheader:                          ; preds = %.lr.ph151
-  %invariant.gep = getelementptr float, ptr %38, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %1
   br label %.preheader143
 
 .lr.ph.us:                                        ; preds = %.lr.ph151, %58
@@ -21563,15 +21558,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %28, i64 %48
+  %49 = getelementptr [34 x i8], ptr %28, i64 %48
   %50 = add nsw i64 %46, 2
   %51 = mul nsw i64 %30, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %28, i64 %51
+  %52 = getelementptr [34 x i8], ptr %28, i64 %51
   %53 = add nsw i64 %46, 1
   %54 = mul nsw i64 %30, %53
-  %55 = getelementptr %struct.block_q8_0, ptr %28, i64 %54
+  %55 = getelementptr [34 x i8], ptr %28, i64 %54
   %56 = mul nsw i64 %30, %46
-  %57 = getelementptr %struct.block_q8_0, ptr %28, i64 %56
+  %57 = getelementptr [34 x i8], ptr %28, i64 %56
   br label %73
 
 58:                                               ; preds = %60
@@ -21587,7 +21582,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 62:                                               ; preds = %.preheader.us, %62
   %.0146.us = phi i64 [ 0, %.preheader.us ], [ %72, %62 ]
-  %63 = getelementptr inbounds nuw <8 x float>, ptr %135, i64 %.0146.us
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %.0146.us
   %64 = load <8 x float>, ptr %63, align 32, !tbaa !53
   %65 = shufflevector <8 x float> %64, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %66 = shufflevector <8 x float> %64, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21597,7 +21592,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %69, %shift
   %70 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %71 = getelementptr float, ptr %gep148.us, i64 %.0146.us
+  %71 = getelementptr [4 x i8], ptr %gep148.us, i64 %.0146.us
   store float %70, ptr %71, align 4, !tbaa !93
   %72 = add nuw nsw i64 %.0146.us, 1
   %exitcond157.not = icmp eq i64 %72, 3
@@ -21605,13 +21600,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120145.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
-  %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120145.us
+  %74 = getelementptr [34 x i8], ptr %49, i64 %.0120145.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120145.us
+  %76 = getelementptr [34 x i8], ptr %52, i64 %.0120145.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
-  %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120145.us
+  %78 = getelementptr [34 x i8], ptr %55, i64 %.0120145.us
   %79 = load i16, ptr %78, align 2, !tbaa !391
-  %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120145.us
+  %80 = getelementptr [34 x i8], ptr %57, i64 %.0120145.us
   %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
@@ -21627,7 +21622,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.val124140.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %74, i64 2
   %.val125141.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0120145.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0120145.us
   br label %94
 
 92:                                               ; preds = %94
@@ -21639,10 +21634,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0119144.us = phi i64 [ 0, %73 ], [ %134, %94 ]
   %95 = add nsw i64 %.0119144.us, %43
   %96 = mul nsw i64 %33, %95
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %96
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %96
   %97 = load i16, ptr %gep.us, align 2, !tbaa !391
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
   %101 = insertelement <4 x float> poison, float %100, i64 0
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
@@ -21654,7 +21649,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %107 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val138.us, <32 x i8> %.val126142.us)
   %108 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %106, <32 x i8> %107)
   %109 = sitofp <8 x i32> %108 to <8 x float>
-  %110 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0119144.us
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0119144.us
   %111 = load <8 x float>, ptr %110, align 32, !tbaa !53
   %112 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %104, <8 x float> %109, <8 x float> %111)
   store <8 x float> %112, ptr %110, align 32, !tbaa !53
@@ -21662,7 +21657,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %114 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val123139.us, <32 x i8> %.val126142.us)
   %115 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %106, <32 x i8> %114)
   %116 = sitofp <8 x i32> %115 to <8 x float>
-  %117 = getelementptr inbounds nuw <8 x float>, ptr %34, i64 %.0119144.us
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.0119144.us
   %118 = load <8 x float>, ptr %117, align 32, !tbaa !53
   %119 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %113, <8 x float> %116, <8 x float> %118)
   store <8 x float> %119, ptr %117, align 32, !tbaa !53
@@ -21670,7 +21665,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %121 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val124140.us, <32 x i8> %.val126142.us)
   %122 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %106, <32 x i8> %121)
   %123 = sitofp <8 x i32> %122 to <8 x float>
-  %124 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119144.us
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119144.us
   %125 = load <8 x float>, ptr %124, align 32, !tbaa !53
   %126 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %120, <8 x float> %123, <8 x float> %125)
   store <8 x float> %126, ptr %124, align 32, !tbaa !53
@@ -21678,7 +21673,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %128 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val125141.us, <32 x i8> %.val126142.us)
   %129 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %106, <32 x i8> %128)
   %130 = sitofp <8 x i32> %129 to <8 x float>
-  %131 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119144.us
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119144.us
   %132 = load <8 x float>, ptr %131, align 32, !tbaa !53
   %133 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %127, <8 x float> %130, <8 x float> %132)
   store <8 x float> %133, ptr %131, align 32, !tbaa !53
@@ -21688,14 +21683,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %..preheader143_crit_edge.us, %60
   %.0116149.us = phi i64 [ 0, %..preheader143_crit_edge.us ], [ %61, %60 ]
-  %135 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116149.us
+  %135 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116149.us
   %136 = add nsw i64 %.0116149.us, %46
   %137 = mul nsw i64 %40, %136
-  %gep148.us = getelementptr float, ptr %invariant.gep147.us, i64 %137
+  %gep148.us = getelementptr [4 x i8], ptr %invariant.gep147.us, i64 %137
   br label %62
 
 ..preheader143_crit_edge.us:                      ; preds = %92
-  %invariant.gep147.us = getelementptr float, ptr %38, i64 %43
+  %invariant.gep147.us = getelementptr [4 x i8], ptr %38, i64 %43
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %145, %58, %5
@@ -21715,10 +21710,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader:                                       ; preds = %.preheader143, %147
   %.0116149 = phi i64 [ 0, %.preheader143 ], [ %148, %147 ]
-  %142 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116149
+  %142 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116149
   %143 = add nsw i64 %.0116149, %141
   %144 = mul nsw i64 %40, %143
-  %gep148 = getelementptr float, ptr %gep, i64 %144
+  %gep148 = getelementptr [4 x i8], ptr %gep, i64 %144
   br label %149
 
 145:                                              ; preds = %147
@@ -21734,7 +21729,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 149:                                              ; preds = %.preheader, %149
   %.0146 = phi i64 [ 0, %.preheader ], [ %159, %149 ]
-  %150 = getelementptr inbounds nuw <8 x float>, ptr %142, i64 %.0146
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %.0146
   %151 = load <8 x float>, ptr %150, align 32, !tbaa !53
   %152 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %153 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21744,7 +21739,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift169 = shufflevector <4 x float> %156, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop170 = fadd <4 x float> %156, %shift169
   %157 = extractelement <4 x float> %foldExtExtBinop170, i64 0
-  %158 = getelementptr float, ptr %gep148, i64 %.0146
+  %158 = getelementptr [4 x i8], ptr %gep148, i64 %.0146
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.0146, 1
   %exitcond.not = icmp eq i64 %159, 3
@@ -21792,7 +21787,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.preheader76.lr.ph.us, label %.preheader77.preheader
 
 .preheader77.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader77
 
 .preheader76.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -21820,7 +21815,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 48:                                               ; preds = %.preheader75.us, %48
   %.083.us = phi i64 [ 0, %.preheader75.us ], [ %58, %48 ]
-  %49 = getelementptr inbounds nuw <8 x float>, ptr %90, i64 %.083.us
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %.083.us
   %50 = load <8 x float>, ptr %49, align 32, !tbaa !53
   %51 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %52 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21830,7 +21825,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %55, %shift
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %57 = getelementptr float, ptr %gep85.us, i64 %.083.us
+  %57 = getelementptr [4 x i8], ptr %gep85.us, i64 %.083.us
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.083.us, 1
   %exitcond94.not = icmp eq i64 %58, 3
@@ -21850,7 +21845,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06478.us = phi i64 [ 0, %.preheader.us ], [ %81, %63 ]
   %64 = add nsw i64 %.06478.us, %40
   %65 = mul nsw i64 %29, %64
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %65
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %65
   %66 = getelementptr i8, ptr %gep.us, i64 2
   %.val73.us = load <32 x i8>, ptr %66, align 1, !tbaa !53
   %67 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
@@ -21859,12 +21854,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %70 = sitofp <8 x i32> %69 to <8 x float>
   %71 = load i16, ptr %gep.us, align 2, !tbaa !391
   %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !93
   %75 = fmul float %74, %88
   %76 = insertelement <8 x float> poison, float %75, i64 0
   %77 = shufflevector <8 x float> %76, <8 x float> poison, <8 x i32> zeroinitializer
-  %78 = getelementptr inbounds nuw <8 x float>, ptr %89, i64 %.06478.us
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %.06478.us
   %79 = load <8 x float>, ptr %78, align 32, !tbaa !53
   %80 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %77, <8 x float> %70, <8 x float> %79)
   store <8 x float> %80, ptr %78, align 32, !tbaa !53
@@ -21876,32 +21871,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ %62, %61 ]
   %82 = add nsw i64 %.06581.us, %43
   %83 = mul nsw i64 %33, %82
-  %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %83
+  %gep80.us = getelementptr [34 x i8], ptr %invariant.gep79.us, i64 %83
   %84 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %84, align 1, !tbaa !53
   %85 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !93
-  %89 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06581.us
+  %89 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06581.us
   br label %63
 
 .preheader75.us:                                  ; preds = %..preheader77_crit_edge.us, %46
   %.06286.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ %47, %46 ]
-  %90 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06286.us
+  %90 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06286.us
   %91 = add nsw i64 %.06286.us, %43
   %92 = mul nsw i64 %37, %91
-  %gep85.us = getelementptr float, ptr %invariant.gep84.us, i64 %92
+  %gep85.us = getelementptr [4 x i8], ptr %invariant.gep84.us, i64 %92
   br label %48
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %59
   %.06682.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %27, i64 %.06682.us
-  %invariant.gep79.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06682.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %27, i64 %.06682.us
+  %invariant.gep79.us = getelementptr [34 x i8], ptr %31, i64 %.06682.us
   br label %.preheader.us
 
 ..preheader77_crit_edge.us:                       ; preds = %59
-  %invariant.gep84.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep84.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader75.us
 
 ._crit_edge:                                      ; preds = %100, %44, %5
@@ -21921,10 +21916,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader75:                                     ; preds = %.preheader77, %102
   %.06286 = phi i64 [ 0, %.preheader77 ], [ %103, %102 ]
-  %97 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06286
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06286
   %98 = add nsw i64 %.06286, %96
   %99 = mul nsw i64 %37, %98
-  %gep85 = getelementptr float, ptr %gep, i64 %99
+  %gep85 = getelementptr [4 x i8], ptr %gep, i64 %99
   br label %104
 
 100:                                              ; preds = %102
@@ -21940,7 +21935,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 104:                                              ; preds = %.preheader75, %104
   %.083 = phi i64 [ 0, %.preheader75 ], [ %114, %104 ]
-  %105 = getelementptr inbounds nuw <8 x float>, ptr %97, i64 %.083
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %.083
   %106 = load <8 x float>, ptr %105, align 32, !tbaa !53
   %107 = shufflevector <8 x float> %106, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %108 = shufflevector <8 x float> %106, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -21950,7 +21945,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift107 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop108 = fadd <4 x float> %111, %shift107
   %112 = extractelement <4 x float> %foldExtExtBinop108, i64 0
-  %113 = getelementptr float, ptr %gep85, i64 %.083
+  %113 = getelementptr [4 x i8], ptr %gep85, i64 %.083
   store float %112, ptr %113, align 4, !tbaa !93
   %114 = add nuw nsw i64 %.083, 1
   %exitcond.not = icmp eq i64 %114, 3
@@ -22001,7 +21996,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.lr.ph.us, label %.preheader119.preheader
 
 .preheader119.preheader:                          ; preds = %.lr.ph127
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader119
 
 .lr.ph.us:                                        ; preds = %.lr.ph127, %55
@@ -22016,15 +22011,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q8_0, ptr %27, i64 %45
+  %46 = getelementptr [34 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %27, i64 %48
+  %49 = getelementptr [34 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %27, i64 %51
+  %52 = getelementptr [34 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q8_0, ptr %27, i64 %53
+  %54 = getelementptr [34 x i8], ptr %27, i64 %53
   br label %69
 
 55:                                               ; preds = %57
@@ -22038,7 +22033,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 58:                                               ; preds = %.preheader.us, %58
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %68, %58 ]
-  %59 = getelementptr inbounds nuw <8 x float>, ptr %.0100125.us.sroa.phi, i64 %.0122.us
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %.0100125.us.sroa.phi, i64 %.0122.us
   %60 = load <8 x float>, ptr %59, align 32, !tbaa !53
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %62 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22048,7 +22043,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %65, %shift
   %66 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %67 = getelementptr float, ptr %gep124.us, i64 %.0122.us
+  %67 = getelementptr [4 x i8], ptr %gep124.us, i64 %.0122.us
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0122.us, 1
   %exitcond131.not = icmp eq i64 %68, 4
@@ -22056,13 +22051,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 69:                                               ; preds = %.lr.ph.us, %92
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
-  %70 = getelementptr %struct.block_q8_0, ptr %46, i64 %.0104121.us
+  %70 = getelementptr [34 x i8], ptr %46, i64 %.0104121.us
   %71 = load i16, ptr %70, align 2, !tbaa !391
-  %72 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0104121.us
+  %72 = getelementptr [34 x i8], ptr %49, i64 %.0104121.us
   %73 = load i16, ptr %72, align 2, !tbaa !391
-  %74 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0104121.us
+  %74 = getelementptr [34 x i8], ptr %52, i64 %.0104121.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0104121.us
+  %76 = getelementptr [34 x i8], ptr %54, i64 %.0104121.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
@@ -22078,7 +22073,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.val108116.us = load <32 x i8>, ptr %86, align 2, !tbaa !53
   %87 = getelementptr i8, ptr %70, i64 2
   %.val109117.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104121.us
   %88 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114.us, <32 x i8> %.val114.us)
   %89 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val107115.us, <32 x i8> %.val107115.us)
   %90 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val108116.us, <32 x i8> %.val108116.us)
@@ -22096,10 +22091,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0103120.us = phi i64 [ 0, %69 ], [ 1, %94 ]
   %96 = add nsw i64 %.0103120.us, %43
   %97 = mul nsw i64 %33, %96
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %97
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %97
   %98 = load i16, ptr %gep.us, align 2, !tbaa !391
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
   %102 = insertelement <4 x float> poison, float %101, i64 0
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
@@ -22145,11 +22140,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ 1, %57 ]
   %134 = add nsw i64 %.0100125.us, %43
   %135 = mul nsw i64 %37, %134
-  %gep124.us = getelementptr float, ptr %invariant.gep123.us, i64 %135
+  %gep124.us = getelementptr [4 x i8], ptr %invariant.gep123.us, i64 %135
   br label %58
 
 ..preheader119_crit_edge.us:                      ; preds = %92
-  %invariant.gep123.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep123.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %143, %55, %5
@@ -22173,7 +22168,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ 1, %145 ]
   %141 = add nsw i64 %.0100125, %139
   %142 = mul nsw i64 %37, %141
-  %gep124 = getelementptr float, ptr %gep, i64 %142
+  %gep124 = getelementptr [4 x i8], ptr %gep, i64 %142
   br label %146
 
 143:                                              ; preds = %145
@@ -22187,7 +22182,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 146:                                              ; preds = %.preheader, %146
   %.0122 = phi i64 [ 0, %.preheader ], [ %156, %146 ]
-  %147 = getelementptr inbounds nuw <8 x float>, ptr %.0100125.sroa.phi, i64 %.0122
+  %147 = getelementptr inbounds nuw [32 x i8], ptr %.0100125.sroa.phi, i64 %.0122
   %148 = load <8 x float>, ptr %147, align 32, !tbaa !53
   %149 = shufflevector <8 x float> %148, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %150 = shufflevector <8 x float> %148, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22197,7 +22192,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift140 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop141 = fadd <4 x float> %153, %shift140
   %154 = extractelement <4 x float> %foldExtExtBinop141, i64 0
-  %155 = getelementptr float, ptr %gep124, i64 %.0122
+  %155 = getelementptr [4 x i8], ptr %gep124, i64 %.0122
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %156, 4
@@ -22249,7 +22244,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.lr.ph.us, label %.preheader143.preheader
 
 .preheader143.preheader:                          ; preds = %.lr.ph151
-  %invariant.gep = getelementptr float, ptr %38, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %1
   br label %.preheader143
 
 .lr.ph.us:                                        ; preds = %.lr.ph151, %58
@@ -22264,15 +22259,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %28, i64 %48
+  %49 = getelementptr [34 x i8], ptr %28, i64 %48
   %50 = add nsw i64 %46, 2
   %51 = mul nsw i64 %30, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %28, i64 %51
+  %52 = getelementptr [34 x i8], ptr %28, i64 %51
   %53 = add nsw i64 %46, 1
   %54 = mul nsw i64 %30, %53
-  %55 = getelementptr %struct.block_q8_0, ptr %28, i64 %54
+  %55 = getelementptr [34 x i8], ptr %28, i64 %54
   %56 = mul nsw i64 %30, %46
-  %57 = getelementptr %struct.block_q8_0, ptr %28, i64 %56
+  %57 = getelementptr [34 x i8], ptr %28, i64 %56
   br label %73
 
 58:                                               ; preds = %60
@@ -22289,7 +22284,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 62:                                               ; preds = %.preheader.us, %62
   %63 = phi i1 [ true, %.preheader.us ], [ false, %62 ]
   %.0146.us = phi i64 [ 0, %.preheader.us ], [ 1, %62 ]
-  %64 = getelementptr inbounds nuw <8 x float>, ptr %134, i64 %.0146.us
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %.0146.us
   %65 = load <8 x float>, ptr %64, align 32, !tbaa !53
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %67 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22299,19 +22294,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %70, %shift
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %72 = getelementptr float, ptr %gep148.us, i64 %.0146.us
+  %72 = getelementptr [4 x i8], ptr %gep148.us, i64 %.0146.us
   store float %71, ptr %72, align 4, !tbaa !93
   br i1 %63, label %62, label %60, !llvm.loop !419
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120145.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
-  %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120145.us
+  %74 = getelementptr [34 x i8], ptr %49, i64 %.0120145.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120145.us
+  %76 = getelementptr [34 x i8], ptr %52, i64 %.0120145.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
-  %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120145.us
+  %78 = getelementptr [34 x i8], ptr %55, i64 %.0120145.us
   %79 = load i16, ptr %78, align 2, !tbaa !391
-  %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120145.us
+  %80 = getelementptr [34 x i8], ptr %57, i64 %.0120145.us
   %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
@@ -22327,7 +22322,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.val124140.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %74, i64 2
   %.val125141.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0120145.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0120145.us
   br label %94
 
 92:                                               ; preds = %94
@@ -22341,10 +22336,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0119144.us = phi i64 [ 0, %73 ], [ 1, %94 ]
   %96 = add nsw i64 %.0119144.us, %43
   %97 = mul nsw i64 %33, %96
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %97
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %97
   %98 = load i16, ptr %gep.us, align 2, !tbaa !391
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
   %102 = insertelement <4 x float> poison, float %101, i64 0
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
@@ -22363,7 +22358,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %114 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val123139.us, <32 x i8> %.val126142.us)
   %115 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %107, <32 x i8> %114)
   %116 = sitofp <8 x i32> %115 to <8 x float>
-  %117 = getelementptr inbounds nuw <8 x float>, ptr %34, i64 %.0119144.us
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.0119144.us
   %118 = load <8 x float>, ptr %117, align 32, !tbaa !53
   %119 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %113, <8 x float> %116, <8 x float> %118)
   store <8 x float> %119, ptr %117, align 32, !tbaa !53
@@ -22371,7 +22366,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %121 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val124140.us, <32 x i8> %.val126142.us)
   %122 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %107, <32 x i8> %121)
   %123 = sitofp <8 x i32> %122 to <8 x float>
-  %124 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119144.us
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119144.us
   %125 = load <8 x float>, ptr %124, align 32, !tbaa !53
   %126 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %120, <8 x float> %123, <8 x float> %125)
   store <8 x float> %126, ptr %124, align 32, !tbaa !53
@@ -22379,7 +22374,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %128 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val125141.us, <32 x i8> %.val126142.us)
   %129 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %107, <32 x i8> %128)
   %130 = sitofp <8 x i32> %129 to <8 x float>
-  %131 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119144.us
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119144.us
   %132 = load <8 x float>, ptr %131, align 32, !tbaa !53
   %133 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %127, <8 x float> %130, <8 x float> %132)
   store <8 x float> %133, ptr %131, align 32, !tbaa !53
@@ -22387,14 +22382,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %..preheader143_crit_edge.us, %60
   %.0116149.us = phi i64 [ 0, %..preheader143_crit_edge.us ], [ %61, %60 ]
-  %134 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116149.us
+  %134 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116149.us
   %135 = add nsw i64 %.0116149.us, %46
   %136 = mul nsw i64 %40, %135
-  %gep148.us = getelementptr float, ptr %invariant.gep147.us, i64 %136
+  %gep148.us = getelementptr [4 x i8], ptr %invariant.gep147.us, i64 %136
   br label %62
 
 ..preheader143_crit_edge.us:                      ; preds = %92
-  %invariant.gep147.us = getelementptr float, ptr %38, i64 %43
+  %invariant.gep147.us = getelementptr [4 x i8], ptr %38, i64 %43
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %144, %58, %5
@@ -22414,10 +22409,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader:                                       ; preds = %.preheader143, %146
   %.0116149 = phi i64 [ 0, %.preheader143 ], [ %147, %146 ]
-  %141 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116149
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116149
   %142 = add nsw i64 %.0116149, %140
   %143 = mul nsw i64 %40, %142
-  %gep148 = getelementptr float, ptr %gep, i64 %143
+  %gep148 = getelementptr [4 x i8], ptr %gep, i64 %143
   br label %148
 
 144:                                              ; preds = %146
@@ -22434,7 +22429,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 148:                                              ; preds = %.preheader, %148
   %149 = phi i1 [ true, %.preheader ], [ false, %148 ]
   %.0146 = phi i64 [ 0, %.preheader ], [ 1, %148 ]
-  %150 = getelementptr inbounds nuw <8 x float>, ptr %141, i64 %.0146
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %.0146
   %151 = load <8 x float>, ptr %150, align 32, !tbaa !53
   %152 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %153 = shufflevector <8 x float> %151, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22444,7 +22439,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift166 = shufflevector <4 x float> %156, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop167 = fadd <4 x float> %156, %shift166
   %157 = extractelement <4 x float> %foldExtExtBinop167, i64 0
-  %158 = getelementptr float, ptr %gep148, i64 %.0146
+  %158 = getelementptr [4 x i8], ptr %gep148, i64 %.0146
   store float %157, ptr %158, align 4, !tbaa !93
   br i1 %149, label %148, label %146, !llvm.loop !419
 }
@@ -22493,7 +22488,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.preheader76.lr.ph.us, label %.preheader77.preheader
 
 .preheader77.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader77
 
 .preheader76.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -22519,7 +22514,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 47:                                               ; preds = %.preheader75.us, %47
   %.083.us = phi i64 [ 0, %.preheader75.us ], [ %57, %47 ]
-  %48 = getelementptr inbounds nuw <8 x float>, ptr %.06286.us.sroa.phi, i64 %.083.us
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %.06286.us.sroa.phi, i64 %.083.us
   %49 = load <8 x float>, ptr %48, align 32, !tbaa !53
   %50 = shufflevector <8 x float> %49, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %51 = shufflevector <8 x float> %49, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22529,7 +22524,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %54, %shift
   %55 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %56 = getelementptr float, ptr %gep85.us, i64 %.083.us
+  %56 = getelementptr [4 x i8], ptr %gep85.us, i64 %.083.us
   store float %55, ptr %56, align 4, !tbaa !93
   %57 = add nuw nsw i64 %.083.us, 1
   %exitcond92.not = icmp eq i64 %57, 3
@@ -22547,7 +22542,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06478.us = phi i64 [ 0, %.preheader.us ], [ %79, %61 ]
   %62 = add nsw i64 %.06478.us, %40
   %63 = mul nsw i64 %29, %62
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %63
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %63
   %64 = getelementptr i8, ptr %gep.us, i64 2
   %.val73.us = load <32 x i8>, ptr %64, align 1, !tbaa !53
   %65 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
@@ -22556,12 +22551,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %68 = sitofp <8 x i32> %67 to <8 x float>
   %69 = load i16, ptr %gep.us, align 2, !tbaa !391
   %70 = zext i16 %69 to i64
-  %71 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !93
   %73 = fmul float %72, %87
   %74 = insertelement <8 x float> poison, float %73, i64 0
   %75 = shufflevector <8 x float> %74, <8 x float> poison, <8 x i32> zeroinitializer
-  %76 = getelementptr inbounds nuw <8 x float>, ptr %.06581.us.sroa.phi, i64 %.06478.us
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %.06581.us.sroa.phi, i64 %.06478.us
   %77 = load <8 x float>, ptr %76, align 32, !tbaa !53
   %78 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %75, <8 x float> %68, <8 x float> %77)
   store <8 x float> %78, ptr %76, align 32, !tbaa !53
@@ -22575,12 +22570,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ 1, %60 ]
   %81 = add nsw i64 %.06581.us, %43
   %82 = mul nsw i64 %33, %81
-  %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %82
+  %gep80.us = getelementptr [34 x i8], ptr %invariant.gep79.us, i64 %82
   %83 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %83, align 1, !tbaa !53
   %84 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %85 = zext i16 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !93
   br label %61
 
@@ -22590,17 +22585,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06286.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ 1, %46 ]
   %89 = add nsw i64 %.06286.us, %43
   %90 = mul nsw i64 %37, %89
-  %gep85.us = getelementptr float, ptr %invariant.gep84.us, i64 %90
+  %gep85.us = getelementptr [4 x i8], ptr %invariant.gep84.us, i64 %90
   br label %47
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %58
   %.06682.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %59, %58 ]
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %27, i64 %.06682.us
-  %invariant.gep79.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06682.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %27, i64 %.06682.us
+  %invariant.gep79.us = getelementptr [34 x i8], ptr %31, i64 %.06682.us
   br label %.preheader.us
 
 ..preheader77_crit_edge.us:                       ; preds = %58
-  %invariant.gep84.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep84.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader75.us
 
 ._crit_edge:                                      ; preds = %98, %44, %5
@@ -22624,7 +22619,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06286 = phi i64 [ 0, %.preheader77 ], [ 1, %100 ]
   %96 = add nsw i64 %.06286, %94
   %97 = mul nsw i64 %37, %96
-  %gep85 = getelementptr float, ptr %gep, i64 %97
+  %gep85 = getelementptr [4 x i8], ptr %gep, i64 %97
   br label %101
 
 98:                                               ; preds = %100
@@ -22638,7 +22633,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 101:                                              ; preds = %.preheader75, %101
   %.083 = phi i64 [ 0, %.preheader75 ], [ %111, %101 ]
-  %102 = getelementptr inbounds nuw <8 x float>, ptr %.06286.sroa.phi, i64 %.083
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %.06286.sroa.phi, i64 %.083
   %103 = load <8 x float>, ptr %102, align 32, !tbaa !53
   %104 = shufflevector <8 x float> %103, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %105 = shufflevector <8 x float> %103, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22648,7 +22643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift101 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop102 = fadd <4 x float> %108, %shift101
   %109 = extractelement <4 x float> %foldExtExtBinop102, i64 0
-  %110 = getelementptr float, ptr %gep85, i64 %.083
+  %110 = getelementptr [4 x i8], ptr %gep85, i64 %.083
   store float %109, ptr %110, align 4, !tbaa !93
   %111 = add nuw nsw i64 %.083, 1
   %exitcond.not = icmp eq i64 %111, 3
@@ -22696,7 +22691,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.preheader76.lr.ph.us, label %.preheader77.preheader
 
 .preheader77.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader77
 
 .preheader76.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -22725,7 +22720,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 48:                                               ; preds = %.preheader75.us, %48
   %49 = phi i1 [ true, %.preheader75.us ], [ false, %48 ]
   %.083.us = phi i64 [ 0, %.preheader75.us ], [ 1, %48 ]
-  %50 = getelementptr inbounds nuw <8 x float>, ptr %90, i64 %.083.us
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %.083.us
   %51 = load <8 x float>, ptr %50, align 32, !tbaa !53
   %52 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %53 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22735,7 +22730,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %56, %shift
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %58 = getelementptr float, ptr %gep85.us, i64 %.083.us
+  %58 = getelementptr [4 x i8], ptr %gep85.us, i64 %.083.us
   store float %57, ptr %58, align 4, !tbaa !93
   br i1 %49, label %48, label %46, !llvm.loop !430
 
@@ -22754,7 +22749,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06478.us = phi i64 [ 0, %.preheader.us ], [ 1, %63 ]
   %65 = add nsw i64 %.06478.us, %40
   %66 = mul nsw i64 %29, %65
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %66
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %66
   %67 = getelementptr i8, ptr %gep.us, i64 2
   %.val73.us = load <32 x i8>, ptr %67, align 1, !tbaa !53
   %68 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
@@ -22763,12 +22758,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %71 = sitofp <8 x i32> %70 to <8 x float>
   %72 = load i16, ptr %gep.us, align 2, !tbaa !391
   %73 = zext i16 %72 to i64
-  %74 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !93
   %76 = fmul float %75, %88
   %77 = insertelement <8 x float> poison, float %76, i64 0
   %78 = shufflevector <8 x float> %77, <8 x float> poison, <8 x i32> zeroinitializer
-  %79 = getelementptr inbounds nuw <8 x float>, ptr %89, i64 %.06478.us
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %.06478.us
   %80 = load <8 x float>, ptr %79, align 32, !tbaa !53
   %81 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %78, <8 x float> %71, <8 x float> %80)
   store <8 x float> %81, ptr %79, align 32, !tbaa !53
@@ -22778,32 +22773,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ %62, %61 ]
   %82 = add nsw i64 %.06581.us, %43
   %83 = mul nsw i64 %33, %82
-  %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %83
+  %gep80.us = getelementptr [34 x i8], ptr %invariant.gep79.us, i64 %83
   %84 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %84, align 1, !tbaa !53
   %85 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !93
-  %89 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06581.us
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06581.us
   br label %63
 
 .preheader75.us:                                  ; preds = %..preheader77_crit_edge.us, %46
   %.06286.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ %47, %46 ]
-  %90 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06286.us
+  %90 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06286.us
   %91 = add nsw i64 %.06286.us, %43
   %92 = mul nsw i64 %37, %91
-  %gep85.us = getelementptr float, ptr %invariant.gep84.us, i64 %92
+  %gep85.us = getelementptr [4 x i8], ptr %invariant.gep84.us, i64 %92
   br label %48
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %59
   %.06682.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %27, i64 %.06682.us
-  %invariant.gep79.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06682.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %27, i64 %.06682.us
+  %invariant.gep79.us = getelementptr [34 x i8], ptr %31, i64 %.06682.us
   br label %.preheader.us
 
 ..preheader77_crit_edge.us:                       ; preds = %59
-  %invariant.gep84.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep84.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader75.us
 
 ._crit_edge:                                      ; preds = %100, %44, %5
@@ -22823,10 +22818,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader75:                                     ; preds = %.preheader77, %102
   %.06286 = phi i64 [ 0, %.preheader77 ], [ %103, %102 ]
-  %97 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06286
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06286
   %98 = add nsw i64 %.06286, %96
   %99 = mul nsw i64 %37, %98
-  %gep85 = getelementptr float, ptr %gep, i64 %99
+  %gep85 = getelementptr [4 x i8], ptr %gep, i64 %99
   br label %104
 
 100:                                              ; preds = %102
@@ -22843,7 +22838,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 104:                                              ; preds = %.preheader75, %104
   %105 = phi i1 [ true, %.preheader75 ], [ false, %104 ]
   %.083 = phi i64 [ 0, %.preheader75 ], [ 1, %104 ]
-  %106 = getelementptr inbounds nuw <8 x float>, ptr %97, i64 %.083
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %.083
   %107 = load <8 x float>, ptr %106, align 32, !tbaa !53
   %108 = shufflevector <8 x float> %107, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %109 = shufflevector <8 x float> %107, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22853,7 +22848,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift104 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop105 = fadd <4 x float> %112, %shift104
   %113 = extractelement <4 x float> %foldExtExtBinop105, i64 0
-  %114 = getelementptr float, ptr %gep85, i64 %.083
+  %114 = getelementptr [4 x i8], ptr %gep85, i64 %.083
   store float %113, ptr %114, align 4, !tbaa !93
   br i1 %105, label %104, label %102, !llvm.loop !430
 }
@@ -22910,22 +22905,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %42, 3
   %46 = mul nsw i64 %28, %45
-  %47 = getelementptr %struct.block_q8_0, ptr %26, i64 %46
+  %47 = getelementptr [34 x i8], ptr %26, i64 %46
   %48 = add nsw i64 %42, 2
   %49 = mul nsw i64 %28, %48
-  %50 = getelementptr %struct.block_q8_0, ptr %26, i64 %49
+  %50 = getelementptr [34 x i8], ptr %26, i64 %49
   %51 = add nsw i64 %42, 1
   %52 = mul nsw i64 %28, %51
-  %53 = getelementptr %struct.block_q8_0, ptr %26, i64 %52
+  %53 = getelementptr [34 x i8], ptr %26, i64 %52
   %54 = mul nsw i64 %28, %42
-  %55 = getelementptr %struct.block_q8_0, ptr %26, i64 %54
+  %55 = getelementptr [34 x i8], ptr %26, i64 %54
   %56 = mul nsw i64 %32, %44
-  %57 = getelementptr %struct.block_q8_0, ptr %30, i64 %56
+  %57 = getelementptr [34 x i8], ptr %30, i64 %56
   br label %69
 
 58:                                               ; preds = %..preheader119_crit_edge.us, %58
   %.0135.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %68, %58 ]
-  %59 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0135.us
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0135.us
   %60 = load <8 x float>, ptr %59, align 32, !tbaa !53
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %62 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -22935,7 +22930,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %65, %shift
   %66 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %67 = getelementptr float, ptr %125, i64 %.0135.us
+  %67 = getelementptr [4 x i8], ptr %125, i64 %.0135.us
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0135.us, 1
   %exitcond144.not = icmp eq i64 %68, 4
@@ -22947,13 +22942,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.lcssa121130.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %118, %69 ]
   %.0104129.us = phi i64 [ 0, %.lr.ph.us ], [ %121, %69 ]
   %.lcssa127128.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %117, %69 ]
-  %70 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0104129.us
+  %70 = getelementptr [34 x i8], ptr %47, i64 %.0104129.us
   %71 = load i16, ptr %70, align 2, !tbaa !391
-  %72 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0104129.us
+  %72 = getelementptr [34 x i8], ptr %50, i64 %.0104129.us
   %73 = load i16, ptr %72, align 2, !tbaa !391
-  %74 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0104129.us
+  %74 = getelementptr [34 x i8], ptr %53, i64 %.0104129.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0104129.us
+  %76 = getelementptr [34 x i8], ptr %55, i64 %.0104129.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
@@ -22969,10 +22964,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.val108116.us = load <32 x i8>, ptr %86, align 2, !tbaa !53
   %87 = getelementptr i8, ptr %70, i64 2
   %.val109117.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
-  %88 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0104129.us
+  %88 = getelementptr [34 x i8], ptr %57, i64 %.0104129.us
   %89 = load i16, ptr %88, align 2, !tbaa !391
   %90 = zext i16 %89 to i64
-  %91 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %90
   %92 = load float, ptr %91, align 4, !tbaa !93
   %93 = insertelement <4 x float> poison, float %92, i64 0
   %94 = shufflevector <4 x float> %93, <4 x float> poison, <4 x i32> zeroinitializer
@@ -23019,8 +23014,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %120, ptr %35, align 32, !tbaa !53
   store <8 x float> %117, ptr %6, align 32
   %123 = mul nsw i64 %39, %44
-  %124 = getelementptr float, ptr %37, i64 %123
-  %125 = getelementptr float, ptr %124, i64 %42
+  %124 = getelementptr [4 x i8], ptr %37, i64 %123
+  %125 = getelementptr [4 x i8], ptr %124, i64 %42
   br label %58
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %5
@@ -23033,10 +23028,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %128 = add nsw i64 %127, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %129 = mul nsw i64 %39, %128
-  %130 = getelementptr float, ptr %37, i64 %129
+  %130 = getelementptr [4 x i8], ptr %37, i64 %129
   %.idx = shl i64 %126, 4
   %131 = getelementptr i8, ptr %130, i64 %.idx
-  %132 = getelementptr float, ptr %131, i64 %1
+  %132 = getelementptr [4 x i8], ptr %131, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %134
 
@@ -23048,7 +23043,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 134:                                              ; preds = %.preheader119, %134
   %.0135 = phi i64 [ 0, %.preheader119 ], [ %144, %134 ]
-  %135 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0135
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0135
   %136 = load <8 x float>, ptr %135, align 32, !tbaa !53
   %137 = shufflevector <8 x float> %136, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %138 = shufflevector <8 x float> %136, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23058,7 +23053,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift158 = shufflevector <4 x float> %141, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop159 = fadd <4 x float> %141, %shift158
   %142 = extractelement <4 x float> %foldExtExtBinop159, i64 0
-  %143 = getelementptr float, ptr %132, i64 %.0135
+  %143 = getelementptr [4 x i8], ptr %132, i64 %.0135
   store float %142, ptr %143, align 4, !tbaa !93
   %144 = add nuw nsw i64 %.0135, 1
   %exitcond.not = icmp eq i64 %144, 4
@@ -23109,7 +23104,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %26, label %.preheader76.lr.ph.us, label %.preheader77.preheader
 
 .preheader77.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader77
 
 .preheader76.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -23136,7 +23131,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 47:                                               ; preds = %.preheader75.us, %47
   %48 = phi i1 [ true, %.preheader75.us ], [ false, %47 ]
   %.083.us = phi i64 [ 0, %.preheader75.us ], [ 1, %47 ]
-  %49 = getelementptr inbounds nuw <8 x float>, ptr %.06286.us.sroa.phi, i64 %.083.us
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.06286.us.sroa.phi, i64 %.083.us
   %50 = load <8 x float>, ptr %49, align 32, !tbaa !53
   %51 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %52 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23146,7 +23141,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %55, %shift
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %57 = getelementptr float, ptr %gep85.us, i64 %.083.us
+  %57 = getelementptr [4 x i8], ptr %gep85.us, i64 %.083.us
   store float %56, ptr %57, align 4, !tbaa !93
   br i1 %48, label %47, label %46, !llvm.loop !439
 
@@ -23163,7 +23158,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06478.us = phi i64 [ 0, %.preheader.us ], [ 1, %61 ]
   %63 = add nsw i64 %.06478.us, %40
   %64 = mul nsw i64 %29, %63
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %64
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %64
   %65 = getelementptr i8, ptr %gep.us, i64 2
   %.val73.us = load <32 x i8>, ptr %65, align 1, !tbaa !53
   %66 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
@@ -23172,12 +23167,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %69 = sitofp <8 x i32> %68 to <8 x float>
   %70 = load i16, ptr %gep.us, align 2, !tbaa !391
   %71 = zext i16 %70 to i64
-  %72 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !93
   %74 = fmul float %73, %87
   %75 = insertelement <8 x float> poison, float %74, i64 0
   %76 = shufflevector <8 x float> %75, <8 x float> poison, <8 x i32> zeroinitializer
-  %77 = getelementptr inbounds nuw <8 x float>, ptr %.06581.us.sroa.phi, i64 %.06478.us
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %.06581.us.sroa.phi, i64 %.06478.us
   %78 = load <8 x float>, ptr %77, align 32, !tbaa !53
   %79 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %76, <8 x float> %69, <8 x float> %78)
   store <8 x float> %79, ptr %77, align 32, !tbaa !53
@@ -23189,12 +23184,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ 1, %60 ]
   %81 = add nsw i64 %.06581.us, %43
   %82 = mul nsw i64 %33, %81
-  %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %82
+  %gep80.us = getelementptr [34 x i8], ptr %invariant.gep79.us, i64 %82
   %83 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %83, align 1, !tbaa !53
   %84 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %85 = zext i16 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !93
   br label %61
 
@@ -23204,17 +23199,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06286.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ 1, %46 ]
   %89 = add nsw i64 %.06286.us, %43
   %90 = mul nsw i64 %37, %89
-  %gep85.us = getelementptr float, ptr %invariant.gep84.us, i64 %90
+  %gep85.us = getelementptr [4 x i8], ptr %invariant.gep84.us, i64 %90
   br label %47
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %58
   %.06682.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %59, %58 ]
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %27, i64 %.06682.us
-  %invariant.gep79.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06682.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %27, i64 %.06682.us
+  %invariant.gep79.us = getelementptr [34 x i8], ptr %31, i64 %.06682.us
   br label %.preheader.us
 
 ..preheader77_crit_edge.us:                       ; preds = %58
-  %invariant.gep84.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep84.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader75.us
 
 ._crit_edge:                                      ; preds = %98, %44, %5
@@ -23238,7 +23233,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06286 = phi i64 [ 0, %.preheader77 ], [ 1, %100 ]
   %96 = add nsw i64 %.06286, %94
   %97 = mul nsw i64 %37, %96
-  %gep85 = getelementptr float, ptr %gep, i64 %97
+  %gep85 = getelementptr [4 x i8], ptr %gep, i64 %97
   br label %101
 
 98:                                               ; preds = %100
@@ -23253,7 +23248,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 101:                                              ; preds = %.preheader75, %101
   %102 = phi i1 [ true, %.preheader75 ], [ false, %101 ]
   %.083 = phi i64 [ 0, %.preheader75 ], [ 1, %101 ]
-  %103 = getelementptr inbounds nuw <8 x float>, ptr %.06286.sroa.phi, i64 %.083
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %.06286.sroa.phi, i64 %.083
   %104 = load <8 x float>, ptr %103, align 32, !tbaa !53
   %105 = shufflevector <8 x float> %104, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %106 = shufflevector <8 x float> %104, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23263,7 +23258,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift98 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop99 = fadd <4 x float> %109, %shift98
   %110 = extractelement <4 x float> %foldExtExtBinop99, i64 0
-  %111 = getelementptr float, ptr %gep85, i64 %.083
+  %111 = getelementptr [4 x i8], ptr %gep85, i64 %.083
   store float %110, ptr %111, align 4, !tbaa !93
   br i1 %102, label %101, label %100, !llvm.loop !439
 }
@@ -23311,7 +23306,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %25, label %.lr.ph.us, label %.preheader143.preheader
 
 .preheader143.preheader:                          ; preds = %.lr.ph161
-  %invariant.gep177 = getelementptr float, ptr %37, i64 %1
+  %invariant.gep177 = getelementptr [4 x i8], ptr %37, i64 %1
   br label %.preheader143
 
 .lr.ph.us:                                        ; preds = %.lr.ph161, %58
@@ -23324,17 +23319,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %44, 3
   %46 = mul nsw i64 %29, %45
-  %47 = getelementptr %struct.block_q8_0, ptr %27, i64 %46
+  %47 = getelementptr [34 x i8], ptr %27, i64 %46
   %48 = add nsw i64 %44, 2
   %49 = mul nsw i64 %29, %48
-  %50 = getelementptr %struct.block_q8_0, ptr %27, i64 %49
+  %50 = getelementptr [34 x i8], ptr %27, i64 %49
   %51 = add nsw i64 %44, 1
   %52 = mul nsw i64 %29, %51
-  %53 = getelementptr %struct.block_q8_0, ptr %27, i64 %52
+  %53 = getelementptr [34 x i8], ptr %27, i64 %52
   %54 = mul nsw i64 %29, %44
-  %55 = getelementptr %struct.block_q8_0, ptr %27, i64 %54
+  %55 = getelementptr [34 x i8], ptr %27, i64 %54
   %56 = mul nsw i64 %32, %41
-  %57 = getelementptr %struct.block_q8_0, ptr %30, i64 %56
+  %57 = getelementptr [34 x i8], ptr %30, i64 %56
   br label %60
 
 58:                                               ; preds = %.preheader.us
@@ -23349,13 +23344,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.lcssa145154.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %106, %60 ]
   %.0120153.us = phi i64 [ 0, %.lr.ph.us ], [ %109, %60 ]
   %.lcssa151152.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %105, %60 ]
-  %61 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0120153.us
+  %61 = getelementptr [34 x i8], ptr %47, i64 %.0120153.us
   %62 = load i16, ptr %61, align 2, !tbaa !391
-  %63 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120153.us
+  %63 = getelementptr [34 x i8], ptr %50, i64 %.0120153.us
   %64 = load i16, ptr %63, align 2, !tbaa !391
-  %65 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120153.us
+  %65 = getelementptr [34 x i8], ptr %53, i64 %.0120153.us
   %66 = load i16, ptr %65, align 2, !tbaa !391
-  %67 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120153.us
+  %67 = getelementptr [34 x i8], ptr %55, i64 %.0120153.us
   %68 = load i16, ptr %67, align 2, !tbaa !391
   %69 = insertelement <4 x i16> poison, i16 %68, i64 0
   %70 = insertelement <4 x i16> %69, i16 %66, i64 1
@@ -23371,10 +23366,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.val124140.us = load <32 x i8>, ptr %77, align 2, !tbaa !53
   %78 = getelementptr i8, ptr %61, i64 2
   %.val125141.us = load <32 x i8>, ptr %78, align 2, !tbaa !53
-  %79 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120153.us
+  %79 = getelementptr [34 x i8], ptr %57, i64 %.0120153.us
   %80 = load i16, ptr %79, align 2, !tbaa !391
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
   %84 = insertelement <4 x float> poison, float %83, i64 0
   %85 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> zeroinitializer
@@ -23408,7 +23403,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %..preheader143_crit_edge.us, %.preheader.us
   %.0116159.us = phi i64 [ 0, %..preheader143_crit_edge.us ], [ %120, %.preheader.us ]
-  %110 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116159.us
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116159.us
   %111 = load <8 x float>, ptr %110, align 32, !tbaa !53
   %112 = shufflevector <8 x float> %111, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %113 = shufflevector <8 x float> %111, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23420,7 +23415,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %117 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %118 = add nsw i64 %.0116159.us, %44
   %119 = mul nsw i64 %39, %118
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %119
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %119
   store float %117, ptr %gep.us, align 4, !tbaa !93
   %120 = add nuw nsw i64 %.0116159.us, 1
   %exitcond168.not = icmp eq i64 %120, 4
@@ -23431,7 +23426,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %107, ptr %34, align 32, !tbaa !53
   store <8 x float> %108, ptr %35, align 32, !tbaa !53
   store <8 x float> %105, ptr %6, align 32
-  %invariant.gep.us = getelementptr float, ptr %37, i64 %41
+  %invariant.gep.us = getelementptr [4 x i8], ptr %37, i64 %41
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %136, %58, %5
@@ -23444,13 +23439,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %123 = shl nsw i64 %122, 2
   %124 = add nsw i64 %123, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep178 = getelementptr float, ptr %invariant.gep177, i64 %121
+  %gep178 = getelementptr [4 x i8], ptr %invariant.gep177, i64 %121
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader143, %.preheader
   %.0116159 = phi i64 [ 0, %.preheader143 ], [ %135, %.preheader ]
-  %125 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116159
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116159
   %126 = load <8 x float>, ptr %125, align 32, !tbaa !53
   %127 = shufflevector <8 x float> %126, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %128 = shufflevector <8 x float> %126, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23462,7 +23457,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %132 = extractelement <4 x float> %foldExtExtBinop185, i64 0
   %133 = add nsw i64 %.0116159, %124
   %134 = mul nsw i64 %39, %133
-  %gep = getelementptr float, ptr %gep178, i64 %134
+  %gep = getelementptr [4 x i8], ptr %gep178, i64 %134
   store float %132, ptr %gep, align 4, !tbaa !93
   %135 = add nuw nsw i64 %.0116159, 1
   %exitcond.not = icmp eq i64 %135, 4
@@ -23524,12 +23519,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %32, %41
-  %43 = getelementptr inbounds %struct.block_q8_0, ptr %30, i64 %42
+  %43 = getelementptr inbounds [34 x i8], ptr %30, i64 %42
   br label %.preheader77.us
 
 44:                                               ; preds = %..preheader78_crit_edge.us, %44
   %.081.us = phi i64 [ 0, %..preheader78_crit_edge.us ], [ %54, %44 ]
-  %45 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.081.us
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.081.us
   %46 = load <8 x float>, ptr %45, align 32, !tbaa !53
   %47 = shufflevector <8 x float> %46, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %48 = shufflevector <8 x float> %46, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23539,7 +23534,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %51, %shift
   %52 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %53 = getelementptr float, ptr %84, i64 %.081.us
+  %53 = getelementptr [4 x i8], ptr %84, i64 %.081.us
   store float %52, ptr %53, align 4, !tbaa !93
   %54 = add nuw nsw i64 %.081.us, 1
   %exitcond87.not = icmp eq i64 %54, 3
@@ -23549,7 +23544,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06479.us = phi i64 [ 0, %.preheader77.us ], [ %73, %55 ]
   %56 = add nsw i64 %.06479.us, %39
   %57 = mul nsw i64 %28, %56
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %57
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %57
   %58 = getelementptr i8, ptr %gep.us, i64 2
   %.val73.us = load <32 x i8>, ptr %58, align 1, !tbaa !53
   %59 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
@@ -23558,12 +23553,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %62 = sitofp <8 x i32> %61 to <8 x float>
   %63 = load i16, ptr %gep.us, align 2, !tbaa !391
   %64 = zext i16 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !93
   %67 = fmul float %66, %81
   %68 = insertelement <8 x float> poison, float %67, i64 0
   %69 = shufflevector <8 x float> %68, <8 x float> poison, <8 x i32> zeroinitializer
-  %70 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.06479.us
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06479.us
   %71 = load <8 x float>, ptr %70, align 32, !tbaa !53
   %72 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %69, <8 x float> %62, <8 x float> %71)
   store <8 x float> %72, ptr %70, align 32, !tbaa !53
@@ -23584,20 +23579,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader77.us:                                  ; preds = %.preheader77.lr.ph.us, %.loopexit.us
   %.06680.us = phi i64 [ 0, %.preheader77.lr.ph.us ], [ %74, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %26, i64 %.06680.us
-  %76 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06680.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %26, i64 %.06680.us
+  %76 = getelementptr inbounds nuw [34 x i8], ptr %43, i64 %.06680.us
   %77 = getelementptr i8, ptr %76, i64 2
   %.val7174.us = load <32 x i8>, ptr %77, align 1, !tbaa !53
   %78 = load i16, ptr %76, align 2, !tbaa !391
   %79 = zext i16 %78 to i64
-  %80 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !93
   br label %55
 
 ..preheader78_crit_edge.us:                       ; preds = %.loopexit.us
   %82 = mul nsw i64 %36, %41
-  %83 = getelementptr float, ptr %34, i64 %82
-  %84 = getelementptr float, ptr %83, i64 %39
+  %83 = getelementptr [4 x i8], ptr %34, i64 %82
+  %84 = getelementptr [4 x i8], ptr %83, i64 %39
   br label %44
 
 ._crit_edge:                                      ; preds = %.loopexit76, %.loopexit76.us, %5
@@ -23611,10 +23606,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %88 = mul nsw i64 %36, %87
-  %89 = getelementptr float, ptr %34, i64 %88
+  %89 = getelementptr [4 x i8], ptr %34, i64 %88
   %.idx = mul i64 %85, 12
   %90 = getelementptr i8, ptr %89, i64 %.idx
-  %91 = getelementptr float, ptr %90, i64 %1
+  %91 = getelementptr [4 x i8], ptr %90, i64 %1
   br label %93
 
 .loopexit76:                                      ; preds = %93
@@ -23625,7 +23620,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 93:                                               ; preds = %.preheader78, %93
   %.081 = phi i64 [ 0, %.preheader78 ], [ %103, %93 ]
-  %94 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.081
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.081
   %95 = load <8 x float>, ptr %94, align 32, !tbaa !53
   %96 = shufflevector <8 x float> %95, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %97 = shufflevector <8 x float> %95, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23635,7 +23630,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift96 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop97 = fadd <4 x float> %100, %shift96
   %101 = extractelement <4 x float> %foldExtExtBinop97, i64 0
-  %102 = getelementptr float, ptr %91, i64 %.081
+  %102 = getelementptr [4 x i8], ptr %91, i64 %.081
   store float %101, ptr %102, align 4, !tbaa !93
   %103 = add nuw nsw i64 %.081, 1
   %exitcond.not = icmp eq i64 %103, 3
@@ -23682,7 +23677,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %25, label %.preheader76.lr.ph.us, label %.preheader77.preheader
 
 .preheader77.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %34, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %34, i64 %1
   br label %.preheader77
 
 .preheader76.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -23695,7 +23690,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %28, %38
-  %43 = getelementptr inbounds %struct.block_q8_0, ptr %26, i64 %42
+  %43 = getelementptr inbounds [34 x i8], ptr %26, i64 %42
   br label %.preheader76.us
 
 44:                                               ; preds = %.preheader75.us
@@ -23713,7 +23708,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06578.us = phi i64 [ 0, %.preheader76.us ], [ %63, %.preheader.us ]
   %48 = add nsw i64 %.06578.us, %41
   %49 = mul nsw i64 %32, %48
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %49
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %49
   %50 = getelementptr i8, ptr %gep.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %50, align 1, !tbaa !53
   %51 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7174.us, <32 x i8> %.val73.us)
@@ -23721,12 +23716,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %53 = sitofp <8 x i32> %52 to <8 x float>
   %54 = load i16, ptr %gep.us, align 2, !tbaa !391
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !93
   %58 = fmul float %81, %57
   %59 = insertelement <8 x float> poison, float %58, i64 0
   %60 = shufflevector <8 x float> %59, <8 x float> poison, <8 x i32> zeroinitializer
-  %61 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06578.us
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06578.us
   %.promoted.us = load <8 x float>, ptr %61, align 32, !tbaa !53
   %62 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %60, <8 x float> %53, <8 x float> %.promoted.us)
   store <8 x float> %62, ptr %61, align 32, !tbaa !53
@@ -23736,7 +23731,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader75.us:                                  ; preds = %..preheader77_crit_edge.us, %.preheader75.us
   %.06282.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ %74, %.preheader75.us ]
-  %64 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06282.us
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06282.us
   %65 = load <8 x float>, ptr %64, align 32, !tbaa !53
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %67 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23748,7 +23743,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %72 = add nsw i64 %.06282.us, %41
   %73 = mul nsw i64 %36, %72
-  %gep81.us = getelementptr float, ptr %invariant.gep80.us, i64 %73
+  %gep81.us = getelementptr [4 x i8], ptr %invariant.gep80.us, i64 %73
   store float %71, ptr %gep81.us, align 4, !tbaa !93
   %74 = add nuw nsw i64 %.06282.us, 1
   %exitcond88.not = icmp eq i64 %74, 3
@@ -23756,19 +23751,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %46
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %47, %46 ]
-  %75 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06679.us
+  %75 = getelementptr inbounds nuw [34 x i8], ptr %43, i64 %.06679.us
   %76 = getelementptr i8, ptr %75, i64 2
   %.val73.us = load <32 x i8>, ptr %76, align 1, !tbaa !53
   %77 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06679.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %30, i64 %.06679.us
   %78 = load i16, ptr %75, align 2, !tbaa !391
   %79 = zext i16 %78 to i64
-  %80 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader77_crit_edge.us:                       ; preds = %46
-  %invariant.gep80.us = getelementptr float, ptr %34, i64 %38
+  %invariant.gep80.us = getelementptr [4 x i8], ptr %34, i64 %38
   br label %.preheader75.us
 
 ._crit_edge:                                      ; preds = %97, %44, %5
@@ -23782,12 +23777,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %85 = add nsw i64 %84, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
-  %gep = getelementptr float, ptr %invariant.gep, i64 %82
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %82
   br label %.preheader75
 
 .preheader75:                                     ; preds = %.preheader77, %.preheader75
   %.06282 = phi i64 [ 0, %.preheader77 ], [ %96, %.preheader75 ]
-  %86 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06282
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06282
   %87 = load <8 x float>, ptr %86, align 32, !tbaa !53
   %88 = shufflevector <8 x float> %87, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %89 = shufflevector <8 x float> %87, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -23799,7 +23794,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %93 = extractelement <4 x float> %foldExtExtBinop98, i64 0
   %94 = add nsw i64 %.06282, %85
   %95 = mul nsw i64 %36, %94
-  %gep81 = getelementptr float, ptr %gep, i64 %95
+  %gep81 = getelementptr [4 x i8], ptr %gep, i64 %95
   store float %93, ptr %gep81, align 4, !tbaa !93
   %96 = add nuw nsw i64 %.06282, 1
   %exitcond.not = icmp eq i64 %96, 3
@@ -23864,7 +23859,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %31, %40
-  %42 = getelementptr inbounds %struct.block_q8_0, ptr %29, i64 %41
+  %42 = getelementptr inbounds [34 x i8], ptr %29, i64 %41
   br label %.preheader77.us
 
 43:                                               ; preds = %..preheader78_crit_edge.us, %43
@@ -23880,7 +23875,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %50, %shift
   %51 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %52 = getelementptr float, ptr %81, i64 %.081.us
+  %52 = getelementptr [4 x i8], ptr %81, i64 %.081.us
   store float %51, ptr %52, align 4, !tbaa !93
   br i1 %44, label %43, label %.loopexit76.us, !llvm.loop !454
 
@@ -23890,7 +23885,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06479.us = phi i64 [ 0, %.preheader77.us ], [ 1, %53 ]
   %55 = add nsw i64 %.06479.us, %38
   %56 = mul nsw i64 %27, %55
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %56
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %56
   %57 = getelementptr i8, ptr %gep.us, i64 2
   %.val73.us = load <32 x i8>, ptr %57, align 1, !tbaa !53
   %58 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
@@ -23899,7 +23894,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %61 = sitofp <8 x i32> %60 to <8 x float>
   %62 = load i16, ptr %gep.us, align 2, !tbaa !391
   %63 = zext i16 %62 to i64
-  %64 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %63
   %65 = load float, ptr %64, align 4, !tbaa !93
   %66 = fmul float %65, %78
   %67 = insertelement <8 x float> poison, float %66, i64 0
@@ -23923,20 +23918,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader77.us:                                  ; preds = %.preheader77.lr.ph.us, %.loopexit.us
   %.06680.us = phi i64 [ 0, %.preheader77.lr.ph.us ], [ %71, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %25, i64 %.06680.us
-  %73 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06680.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %25, i64 %.06680.us
+  %73 = getelementptr inbounds nuw [34 x i8], ptr %42, i64 %.06680.us
   %74 = getelementptr i8, ptr %73, i64 2
   %.val7174.us = load <32 x i8>, ptr %74, align 1, !tbaa !53
   %75 = load i16, ptr %73, align 2, !tbaa !391
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !93
   br label %53
 
 ..preheader78_crit_edge.us:                       ; preds = %.loopexit.us
   %79 = mul nsw i64 %35, %40
-  %80 = getelementptr float, ptr %33, i64 %79
-  %81 = getelementptr float, ptr %80, i64 %38
+  %80 = getelementptr [4 x i8], ptr %33, i64 %79
+  %81 = getelementptr [4 x i8], ptr %80, i64 %38
   br label %43
 
 ._crit_edge:                                      ; preds = %.loopexit76, %.loopexit76.us, %5
@@ -23952,10 +23947,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %85 = mul nsw i64 %35, %84
-  %86 = getelementptr float, ptr %33, i64 %85
+  %86 = getelementptr [4 x i8], ptr %33, i64 %85
   %.idx = shl i64 %82, 3
   %87 = getelementptr i8, ptr %86, i64 %.idx
-  %88 = getelementptr float, ptr %87, i64 %1
+  %88 = getelementptr [4 x i8], ptr %87, i64 %1
   br label %90
 
 .loopexit76:                                      ; preds = %90
@@ -23978,7 +23973,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %shift93 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop94 = fadd <4 x float> %97, %shift93
   %98 = extractelement <4 x float> %foldExtExtBinop94, i64 0
-  %99 = getelementptr float, ptr %88, i64 %.081
+  %99 = getelementptr [4 x i8], ptr %88, i64 %.081
   store float %98, ptr %99, align 4, !tbaa !93
   br i1 %91, label %90, label %.loopexit76, !llvm.loop !454
 }
@@ -24024,7 +24019,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %24, label %.preheader76.lr.ph.us, label %.preheader77.preheader
 
 .preheader77.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %33, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %33, i64 %1
   br label %.preheader77
 
 .preheader76.lr.ph.us:                            ; preds = %.lr.ph, %43
@@ -24039,7 +24034,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %27, %37
-  %42 = getelementptr inbounds %struct.block_q8_0, ptr %25, i64 %41
+  %42 = getelementptr inbounds [34 x i8], ptr %25, i64 %41
   br label %.preheader76.us
 
 43:                                               ; preds = %.preheader75.us
@@ -24060,7 +24055,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.06578.us = phi i64 [ 0, %.preheader76.us ], [ 1, %.preheader.us ]
   %48 = add nsw i64 %.06578.us, %40
   %49 = mul nsw i64 %31, %48
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %49
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %49
   %50 = getelementptr i8, ptr %gep.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %50, align 1, !tbaa !53
   %51 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7174.us, <32 x i8> %.val73.us)
@@ -24068,7 +24063,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %53 = sitofp <8 x i32> %52 to <8 x float>
   %54 = load i16, ptr %gep.us, align 2, !tbaa !391
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !93
   %58 = fmul float %78, %57
   %59 = insertelement <8 x float> poison, float %58, i64 0
@@ -24093,25 +24088,25 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %69 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %70 = add nsw i64 %.06282.us, %40
   %71 = mul nsw i64 %35, %70
-  %gep81.us = getelementptr float, ptr %invariant.gep80.us, i64 %71
+  %gep81.us = getelementptr [4 x i8], ptr %invariant.gep80.us, i64 %71
   store float %69, ptr %gep81.us, align 4, !tbaa !93
   br i1 %62, label %.preheader75.us, label %43, !llvm.loop !461
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %45
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %46, %45 ]
-  %72 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06679.us
+  %72 = getelementptr inbounds nuw [34 x i8], ptr %42, i64 %.06679.us
   %73 = getelementptr i8, ptr %72, i64 2
   %.val73.us = load <32 x i8>, ptr %73, align 1, !tbaa !53
   %74 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %29, i64 %.06679.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %29, i64 %.06679.us
   %75 = load i16, ptr %72, align 2, !tbaa !391
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader77_crit_edge.us:                       ; preds = %45
-  %invariant.gep80.us = getelementptr float, ptr %33, i64 %37
+  %invariant.gep80.us = getelementptr [4 x i8], ptr %33, i64 %37
   br label %.preheader75.us
 
 ._crit_edge:                                      ; preds = %93, %43, %5
@@ -24127,7 +24122,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
-  %gep = getelementptr float, ptr %invariant.gep, i64 %79
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %79
   br label %.preheader75
 
 .preheader75:                                     ; preds = %.preheader77, %.preheader75
@@ -24145,7 +24140,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %90 = extractelement <4 x float> %foldExtExtBinop95, i64 0
   %91 = add nsw i64 %.06282, %82
   %92 = mul nsw i64 %35, %91
-  %gep81 = getelementptr float, ptr %gep, i64 %92
+  %gep81 = getelementptr [4 x i8], ptr %gep, i64 %92
   store float %90, ptr %gep81, align 4, !tbaa !93
   br i1 %83, label %.preheader75, label %93, !llvm.loop !461
 
@@ -24201,19 +24196,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %37 = srem i64 %.06784.us, %7
   %38 = add nsw i64 %37, %3
   %39 = mul nsw i64 %26, %36
-  %40 = getelementptr inbounds %struct.block_q8_0, ptr %24, i64 %39
+  %40 = getelementptr inbounds [34 x i8], ptr %24, i64 %39
   %41 = mul nsw i64 %30, %38
-  %42 = getelementptr inbounds %struct.block_q8_0, ptr %28, i64 %41
+  %42 = getelementptr inbounds [34 x i8], ptr %28, i64 %41
   br label %.preheader78.us
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %.preheader78.us
   %.06683.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %63, %.preheader78.us ]
   %.sroa.0.182.us = phi <8 x float> [ zeroinitializer, %.preheader78.lr.ph.us ], [ %62, %.preheader78.us ]
-  %43 = getelementptr inbounds nuw %struct.block_q8_0, ptr %40, i64 %.06683.us
+  %43 = getelementptr inbounds nuw [34 x i8], ptr %40, i64 %.06683.us
   %44 = getelementptr i8, ptr %43, i64 2
   %.val74.us = load <32 x i8>, ptr %44, align 1, !tbaa !53
   %45 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val74.us, <32 x i8> %.val74.us)
-  %46 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06683.us
+  %46 = getelementptr inbounds nuw [34 x i8], ptr %42, i64 %.06683.us
   %47 = getelementptr i8, ptr %46, i64 2
   %.val7175.us = load <32 x i8>, ptr %47, align 1, !tbaa !53
   %48 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7175.us, <32 x i8> %.val74.us)
@@ -24221,11 +24216,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %50 = sitofp <8 x i32> %49 to <8 x float>
   %51 = load i16, ptr %43, align 2, !tbaa !391
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !93
   %55 = load i16, ptr %46, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
   %59 = fmul float %54, %58
   %60 = insertelement <8 x float> poison, float %59, i64 0
@@ -24245,8 +24240,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %foldExtExtBinop = fadd <4 x float> %68, %shift
   %69 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %70 = mul nsw i64 %34, %38
-  %71 = getelementptr float, ptr %32, i64 %70
-  %72 = getelementptr float, ptr %71, i64 %36
+  %71 = getelementptr [4 x i8], ptr %32, i64 %70
+  %72 = getelementptr [4 x i8], ptr %71, i64 %36
   store float %69, ptr %72, align 4, !tbaa !93
   %73 = add nsw i64 %.06784.us, 1
   %exitcond87.not = icmp eq i64 %73, %spec.select
@@ -24261,9 +24256,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %75 = srem i64 %.06784, %7
   %76 = add nsw i64 %75, %3
   %77 = mul nsw i64 %34, %76
-  %78 = getelementptr float, ptr %32, i64 %77
-  %79 = getelementptr float, ptr %78, i64 %74
-  %80 = getelementptr float, ptr %79, i64 %1
+  %78 = getelementptr [4 x i8], ptr %32, i64 %77
+  %79 = getelementptr [4 x i8], ptr %78, i64 %74
+  %80 = getelementptr [4 x i8], ptr %79, i64 %1
   store float 0.000000e+00, ptr %80, align 4, !tbaa !93
   %81 = add nsw i64 %.06784, 1
   %exitcond.not = icmp eq i64 %81, %spec.select
@@ -24427,7 +24422,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader115.preheader
 
 .preheader115.preheader:                          ; preds = %.lr.ph123
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader115
 
 .lr.ph.us:                                        ; preds = %.lr.ph123, %55
@@ -24442,15 +24437,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q4_0, ptr %27, i64 %45
+  %46 = getelementptr [18 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q4_0, ptr %27, i64 %48
+  %49 = getelementptr [18 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q4_0, ptr %27, i64 %51
+  %52 = getelementptr [18 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q4_0, ptr %27, i64 %53
+  %54 = getelementptr [18 x i8], ptr %27, i64 %53
   br label %70
 
 55:                                               ; preds = %57
@@ -24466,7 +24461,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 59:                                               ; preds = %.preheader.us, %59
   %.0118.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %167, i64 %.0118.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %167, i64 %.0118.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -24476,7 +24471,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %gep120.us, i64 %.0118.us
+  %68 = getelementptr [4 x i8], ptr %gep120.us, i64 %.0118.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0118.us, 1
   %exitcond129.not = icmp eq i64 %69, 4
@@ -24484,13 +24479,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 70:                                               ; preds = %.lr.ph.us, %125
   %.0104117.us = phi i64 [ 0, %.lr.ph.us ], [ %126, %125 ]
-  %71 = getelementptr %struct.block_q4_0, ptr %46, i64 %.0104117.us
+  %71 = getelementptr [18 x i8], ptr %46, i64 %.0104117.us
   %72 = load i16, ptr %71, align 2, !tbaa !467
-  %73 = getelementptr %struct.block_q4_0, ptr %49, i64 %.0104117.us
+  %73 = getelementptr [18 x i8], ptr %49, i64 %.0104117.us
   %74 = load i16, ptr %73, align 2, !tbaa !467
-  %75 = getelementptr %struct.block_q4_0, ptr %52, i64 %.0104117.us
+  %75 = getelementptr [18 x i8], ptr %52, i64 %.0104117.us
   %76 = load i16, ptr %75, align 2, !tbaa !467
-  %77 = getelementptr %struct.block_q4_0, ptr %54, i64 %.0104117.us
+  %77 = getelementptr [18 x i8], ptr %54, i64 %.0104117.us
   %78 = load i16, ptr %77, align 2, !tbaa !467
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -24538,7 +24533,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %118 = bitcast <8 x i32> %117 to <32 x i8>
   %119 = and <32 x i8> %118, splat (i8 15)
   %120 = add nsw <32 x i8> %119, splat (i8 -8)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104117.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104117.us
   %121 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %93, <32 x i8> %93)
   %122 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %102, <32 x i8> %102)
   %123 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %111, <32 x i8> %111)
@@ -24554,10 +24549,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0103116.us = phi i64 [ 0, %70 ], [ %166, %127 ]
   %128 = add nsw i64 %.0103116.us, %43
   %129 = mul nsw i64 %33, %128
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %129
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %129
   %130 = load i16, ptr %gep.us, align 2, !tbaa !391
   %131 = zext i16 %130 to i64
-  %132 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %131
   %133 = load float, ptr %132, align 4, !tbaa !93
   %134 = insertelement <4 x float> poison, float %133, i64 0
   %135 = shufflevector <4 x float> %134, <4 x float> poison, <4 x i32> zeroinitializer
@@ -24568,7 +24563,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %139 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110114.us, <32 x i8> %93)
   %140 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %121, <32 x i8> %139)
   %141 = sitofp <8 x i32> %140 to <8 x float>
-  %142 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103116.us
+  %142 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103116.us
   %143 = load <8 x float>, ptr %142, align 32, !tbaa !53
   %144 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %137, <8 x float> %141, <8 x float> %143)
   store <8 x float> %144, ptr %142, align 32, !tbaa !53
@@ -24602,14 +24597,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %..preheader115_crit_edge.us, %57
   %.0100121.us = phi i64 [ 0, %..preheader115_crit_edge.us ], [ %58, %57 ]
-  %167 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100121.us
+  %167 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100121.us
   %168 = add nsw i64 %.0100121.us, %43
   %169 = mul nsw i64 %37, %168
-  %gep120.us = getelementptr float, ptr %invariant.gep119.us, i64 %169
+  %gep120.us = getelementptr [4 x i8], ptr %invariant.gep119.us, i64 %169
   br label %59
 
 ..preheader115_crit_edge.us:                      ; preds = %125
-  %invariant.gep119.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep119.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %177, %55, %5
@@ -24629,10 +24624,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader:                                       ; preds = %.preheader115, %179
   %.0100121 = phi i64 [ 0, %.preheader115 ], [ %180, %179 ]
-  %174 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100121
+  %174 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100121
   %175 = add nsw i64 %.0100121, %173
   %176 = mul nsw i64 %37, %175
-  %gep120 = getelementptr float, ptr %gep, i64 %176
+  %gep120 = getelementptr [4 x i8], ptr %gep, i64 %176
   br label %181
 
 177:                                              ; preds = %179
@@ -24648,7 +24643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 181:                                              ; preds = %.preheader, %181
   %.0118 = phi i64 [ 0, %.preheader ], [ %191, %181 ]
-  %182 = getelementptr inbounds nuw <8 x float>, ptr %174, i64 %.0118
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %.0118
   %183 = load <8 x float>, ptr %182, align 32, !tbaa !53
   %184 = shufflevector <8 x float> %183, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %185 = shufflevector <8 x float> %183, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -24658,7 +24653,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift144 = shufflevector <4 x float> %188, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop145 = fadd <4 x float> %188, %shift144
   %189 = extractelement <4 x float> %foldExtExtBinop145, i64 0
-  %190 = getelementptr float, ptr %gep120, i64 %.0118
+  %190 = getelementptr [4 x i8], ptr %gep120, i64 %.0118
   store float %189, ptr %190, align 4, !tbaa !93
   %191 = add nuw nsw i64 %.0118, 1
   %exitcond.not = icmp eq i64 %191, 4
@@ -24706,7 +24701,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader115.preheader
 
 .preheader115.preheader:                          ; preds = %.lr.ph123
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader115
 
 .lr.ph.us:                                        ; preds = %.lr.ph123, %55
@@ -24721,15 +24716,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q4_0, ptr %27, i64 %45
+  %46 = getelementptr [18 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q4_0, ptr %27, i64 %48
+  %49 = getelementptr [18 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q4_0, ptr %27, i64 %51
+  %52 = getelementptr [18 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q4_0, ptr %27, i64 %53
+  %54 = getelementptr [18 x i8], ptr %27, i64 %53
   br label %70
 
 55:                                               ; preds = %57
@@ -24745,7 +24740,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 59:                                               ; preds = %.preheader.us, %59
   %.0118.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %167, i64 %.0118.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %167, i64 %.0118.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -24755,7 +24750,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %gep120.us, i64 %.0118.us
+  %68 = getelementptr [4 x i8], ptr %gep120.us, i64 %.0118.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0118.us, 1
   %exitcond129.not = icmp eq i64 %69, 4
@@ -24763,13 +24758,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 70:                                               ; preds = %.lr.ph.us, %125
   %.0104117.us = phi i64 [ 0, %.lr.ph.us ], [ %126, %125 ]
-  %71 = getelementptr %struct.block_q4_0, ptr %46, i64 %.0104117.us
+  %71 = getelementptr [18 x i8], ptr %46, i64 %.0104117.us
   %72 = load i16, ptr %71, align 2, !tbaa !467
-  %73 = getelementptr %struct.block_q4_0, ptr %49, i64 %.0104117.us
+  %73 = getelementptr [18 x i8], ptr %49, i64 %.0104117.us
   %74 = load i16, ptr %73, align 2, !tbaa !467
-  %75 = getelementptr %struct.block_q4_0, ptr %52, i64 %.0104117.us
+  %75 = getelementptr [18 x i8], ptr %52, i64 %.0104117.us
   %76 = load i16, ptr %75, align 2, !tbaa !467
-  %77 = getelementptr %struct.block_q4_0, ptr %54, i64 %.0104117.us
+  %77 = getelementptr [18 x i8], ptr %54, i64 %.0104117.us
   %78 = load i16, ptr %77, align 2, !tbaa !467
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -24817,7 +24812,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %118 = bitcast <8 x i32> %117 to <32 x i8>
   %119 = and <32 x i8> %118, splat (i8 15)
   %120 = add nsw <32 x i8> %119, splat (i8 -8)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104117.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104117.us
   %121 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %93, <32 x i8> %93)
   %122 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %102, <32 x i8> %102)
   %123 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %111, <32 x i8> %111)
@@ -24833,10 +24828,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0103116.us = phi i64 [ 0, %70 ], [ %166, %127 ]
   %128 = add nsw i64 %.0103116.us, %43
   %129 = mul nsw i64 %33, %128
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %129
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %129
   %130 = load i16, ptr %gep.us, align 2, !tbaa !391
   %131 = zext i16 %130 to i64
-  %132 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %131
   %133 = load float, ptr %132, align 4, !tbaa !93
   %134 = insertelement <4 x float> poison, float %133, i64 0
   %135 = shufflevector <4 x float> %134, <4 x float> poison, <4 x i32> zeroinitializer
@@ -24847,7 +24842,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %139 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110114.us, <32 x i8> %93)
   %140 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %121, <32 x i8> %139)
   %141 = sitofp <8 x i32> %140 to <8 x float>
-  %142 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103116.us
+  %142 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103116.us
   %143 = load <8 x float>, ptr %142, align 32, !tbaa !53
   %144 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %137, <8 x float> %141, <8 x float> %143)
   store <8 x float> %144, ptr %142, align 32, !tbaa !53
@@ -24881,14 +24876,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %..preheader115_crit_edge.us, %57
   %.0100121.us = phi i64 [ 0, %..preheader115_crit_edge.us ], [ %58, %57 ]
-  %167 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100121.us
+  %167 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100121.us
   %168 = add nsw i64 %.0100121.us, %43
   %169 = mul nsw i64 %37, %168
-  %gep120.us = getelementptr float, ptr %invariant.gep119.us, i64 %169
+  %gep120.us = getelementptr [4 x i8], ptr %invariant.gep119.us, i64 %169
   br label %59
 
 ..preheader115_crit_edge.us:                      ; preds = %125
-  %invariant.gep119.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep119.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %177, %55, %5
@@ -24908,10 +24903,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader:                                       ; preds = %.preheader115, %179
   %.0100121 = phi i64 [ 0, %.preheader115 ], [ %180, %179 ]
-  %174 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100121
+  %174 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100121
   %175 = add nsw i64 %.0100121, %173
   %176 = mul nsw i64 %37, %175
-  %gep120 = getelementptr float, ptr %gep, i64 %176
+  %gep120 = getelementptr [4 x i8], ptr %gep, i64 %176
   br label %181
 
 177:                                              ; preds = %179
@@ -24927,7 +24922,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 181:                                              ; preds = %.preheader, %181
   %.0118 = phi i64 [ 0, %.preheader ], [ %191, %181 ]
-  %182 = getelementptr inbounds nuw <8 x float>, ptr %174, i64 %.0118
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %.0118
   %183 = load <8 x float>, ptr %182, align 32, !tbaa !53
   %184 = shufflevector <8 x float> %183, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %185 = shufflevector <8 x float> %183, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -24937,7 +24932,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift144 = shufflevector <4 x float> %188, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop145 = fadd <4 x float> %188, %shift144
   %189 = extractelement <4 x float> %foldExtExtBinop145, i64 0
-  %190 = getelementptr float, ptr %gep120, i64 %.0118
+  %190 = getelementptr [4 x i8], ptr %gep120, i64 %.0118
   store float %189, ptr %190, align 4, !tbaa !93
   %191 = add nuw nsw i64 %.0118, 1
   %exitcond.not = icmp eq i64 %191, 4
@@ -24988,7 +24983,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader142.preheader
 
 .preheader142.preheader:                          ; preds = %.lr.ph150
-  %invariant.gep = getelementptr float, ptr %38, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %1
   br label %.preheader142
 
 .lr.ph.us:                                        ; preds = %.lr.ph150, %58
@@ -25003,15 +24998,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %28, i64 %48
+  %49 = getelementptr [34 x i8], ptr %28, i64 %48
   %50 = add nsw i64 %46, 2
   %51 = mul nsw i64 %30, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %28, i64 %51
+  %52 = getelementptr [34 x i8], ptr %28, i64 %51
   %53 = add nsw i64 %46, 1
   %54 = mul nsw i64 %30, %53
-  %55 = getelementptr %struct.block_q8_0, ptr %28, i64 %54
+  %55 = getelementptr [34 x i8], ptr %28, i64 %54
   %56 = mul nsw i64 %30, %46
-  %57 = getelementptr %struct.block_q8_0, ptr %28, i64 %56
+  %57 = getelementptr [34 x i8], ptr %28, i64 %56
   br label %73
 
 58:                                               ; preds = %60
@@ -25027,7 +25022,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 62:                                               ; preds = %.preheader.us, %62
   %.0145.us = phi i64 [ 0, %.preheader.us ], [ %72, %62 ]
-  %63 = getelementptr inbounds nuw <8 x float>, ptr %143, i64 %.0145.us
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %.0145.us
   %64 = load <8 x float>, ptr %63, align 32, !tbaa !53
   %65 = shufflevector <8 x float> %64, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %66 = shufflevector <8 x float> %64, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25037,7 +25032,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %69, %shift
   %70 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %71 = getelementptr float, ptr %gep147.us, i64 %.0145.us
+  %71 = getelementptr [4 x i8], ptr %gep147.us, i64 %.0145.us
   store float %70, ptr %71, align 4, !tbaa !93
   %72 = add nuw nsw i64 %.0145.us, 1
   %exitcond156.not = icmp eq i64 %72, 3
@@ -25045,13 +25040,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120144.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
-  %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120144.us
+  %74 = getelementptr [34 x i8], ptr %49, i64 %.0120144.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120144.us
+  %76 = getelementptr [34 x i8], ptr %52, i64 %.0120144.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
-  %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120144.us
+  %78 = getelementptr [34 x i8], ptr %55, i64 %.0120144.us
   %79 = load i16, ptr %78, align 2, !tbaa !391
-  %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120144.us
+  %80 = getelementptr [34 x i8], ptr %57, i64 %.0120144.us
   %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
@@ -25067,7 +25062,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.val136140.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %74, i64 2
   %.val137141.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %31, i64 %.0120144.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %31, i64 %.0120144.us
   br label %94
 
 92:                                               ; preds = %94
@@ -25079,10 +25074,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0119143.us = phi i64 [ 0, %73 ], [ %142, %94 ]
   %95 = add nsw i64 %.0119143.us, %43
   %96 = mul nsw i64 %33, %95
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %96
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %96
   %97 = load i16, ptr %gep.us, align 2, !tbaa !467
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
   %101 = insertelement <4 x float> poison, float %100, i64 0
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
@@ -25102,7 +25097,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %115 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val134138.us, <32 x i8> %113)
   %116 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %114, <32 x i8> %115)
   %117 = sitofp <8 x i32> %116 to <8 x float>
-  %118 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0119143.us
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0119143.us
   %119 = load <8 x float>, ptr %118, align 32, !tbaa !53
   %120 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %104, <8 x float> %117, <8 x float> %119)
   store <8 x float> %120, ptr %118, align 32, !tbaa !53
@@ -25110,7 +25105,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %122 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val135139.us, <32 x i8> %113)
   %123 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %114, <32 x i8> %122)
   %124 = sitofp <8 x i32> %123 to <8 x float>
-  %125 = getelementptr inbounds nuw <8 x float>, ptr %34, i64 %.0119143.us
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.0119143.us
   %126 = load <8 x float>, ptr %125, align 32, !tbaa !53
   %127 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %121, <8 x float> %124, <8 x float> %126)
   store <8 x float> %127, ptr %125, align 32, !tbaa !53
@@ -25118,7 +25113,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %129 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val136140.us, <32 x i8> %113)
   %130 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %114, <32 x i8> %129)
   %131 = sitofp <8 x i32> %130 to <8 x float>
-  %132 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119143.us
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119143.us
   %133 = load <8 x float>, ptr %132, align 32, !tbaa !53
   %134 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %128, <8 x float> %131, <8 x float> %133)
   store <8 x float> %134, ptr %132, align 32, !tbaa !53
@@ -25126,7 +25121,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %136 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val137141.us, <32 x i8> %113)
   %137 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %114, <32 x i8> %136)
   %138 = sitofp <8 x i32> %137 to <8 x float>
-  %139 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119143.us
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119143.us
   %140 = load <8 x float>, ptr %139, align 32, !tbaa !53
   %141 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %135, <8 x float> %138, <8 x float> %140)
   store <8 x float> %141, ptr %139, align 32, !tbaa !53
@@ -25136,14 +25131,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %..preheader142_crit_edge.us, %60
   %.0116148.us = phi i64 [ 0, %..preheader142_crit_edge.us ], [ %61, %60 ]
-  %143 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116148.us
+  %143 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116148.us
   %144 = add nsw i64 %.0116148.us, %46
   %145 = mul nsw i64 %40, %144
-  %gep147.us = getelementptr float, ptr %invariant.gep146.us, i64 %145
+  %gep147.us = getelementptr [4 x i8], ptr %invariant.gep146.us, i64 %145
   br label %62
 
 ..preheader142_crit_edge.us:                      ; preds = %92
-  %invariant.gep146.us = getelementptr float, ptr %38, i64 %43
+  %invariant.gep146.us = getelementptr [4 x i8], ptr %38, i64 %43
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %153, %58, %5
@@ -25163,10 +25158,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader:                                       ; preds = %.preheader142, %155
   %.0116148 = phi i64 [ 0, %.preheader142 ], [ %156, %155 ]
-  %150 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116148
+  %150 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116148
   %151 = add nsw i64 %.0116148, %149
   %152 = mul nsw i64 %40, %151
-  %gep147 = getelementptr float, ptr %gep, i64 %152
+  %gep147 = getelementptr [4 x i8], ptr %gep, i64 %152
   br label %157
 
 153:                                              ; preds = %155
@@ -25182,7 +25177,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 157:                                              ; preds = %.preheader, %157
   %.0145 = phi i64 [ 0, %.preheader ], [ %167, %157 ]
-  %158 = getelementptr inbounds nuw <8 x float>, ptr %150, i64 %.0145
+  %158 = getelementptr inbounds nuw [32 x i8], ptr %150, i64 %.0145
   %159 = load <8 x float>, ptr %158, align 32, !tbaa !53
   %160 = shufflevector <8 x float> %159, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %161 = shufflevector <8 x float> %159, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25192,7 +25187,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift168 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop169 = fadd <4 x float> %164, %shift168
   %165 = extractelement <4 x float> %foldExtExtBinop169, i64 0
-  %166 = getelementptr float, ptr %gep147, i64 %.0145
+  %166 = getelementptr [4 x i8], ptr %gep147, i64 %.0145
   store float %165, ptr %166, align 4, !tbaa !93
   %167 = add nuw nsw i64 %.0145, 1
   %exitcond.not = icmp eq i64 %167, 3
@@ -25240,7 +25235,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.preheader75.lr.ph.us, label %.preheader76.preheader
 
 .preheader76.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader76
 
 .preheader75.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -25268,7 +25263,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 48:                                               ; preds = %.preheader74.us, %48
   %.082.us = phi i64 [ 0, %.preheader74.us ], [ %58, %48 ]
-  %49 = getelementptr inbounds nuw <8 x float>, ptr %98, i64 %.082.us
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %.082.us
   %50 = load <8 x float>, ptr %49, align 32, !tbaa !53
   %51 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %52 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25278,7 +25273,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %55, %shift
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %57 = getelementptr float, ptr %gep84.us, i64 %.082.us
+  %57 = getelementptr [4 x i8], ptr %gep84.us, i64 %.082.us
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.082.us, 1
   %exitcond93.not = icmp eq i64 %58, 3
@@ -25298,7 +25293,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06477.us = phi i64 [ 0, %.preheader.us ], [ %89, %63 ]
   %64 = add nsw i64 %.06477.us, %40
   %65 = mul nsw i64 %29, %64
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %65
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %65
   %66 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load <2 x i64>, ptr %66, align 1, !tbaa !53
   %67 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -25315,12 +25310,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %78 = sitofp <8 x i32> %77 to <8 x float>
   %79 = load i16, ptr %gep.us, align 2, !tbaa !467
   %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !93
   %83 = fmul float %82, %96
   %84 = insertelement <8 x float> poison, float %83, i64 0
   %85 = shufflevector <8 x float> %84, <8 x float> poison, <8 x i32> zeroinitializer
-  %86 = getelementptr inbounds nuw <8 x float>, ptr %97, i64 %.06477.us
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %.06477.us
   %87 = load <8 x float>, ptr %86, align 32, !tbaa !53
   %88 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %85, <8 x float> %78, <8 x float> %87)
   store <8 x float> %88, ptr %86, align 32, !tbaa !53
@@ -25332,32 +25327,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ %62, %61 ]
   %90 = add nsw i64 %.06580.us, %43
   %91 = mul nsw i64 %33, %90
-  %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %91
+  %gep79.us = getelementptr [34 x i8], ptr %invariant.gep78.us, i64 %91
   %92 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
   %93 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %94 = zext i16 %93 to i64
-  %95 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %94
   %96 = load float, ptr %95, align 4, !tbaa !93
-  %97 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06580.us
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06580.us
   br label %63
 
 .preheader74.us:                                  ; preds = %..preheader76_crit_edge.us, %46
   %.06285.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ %47, %46 ]
-  %98 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06285.us
+  %98 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06285.us
   %99 = add nsw i64 %.06285.us, %43
   %100 = mul nsw i64 %37, %99
-  %gep84.us = getelementptr float, ptr %invariant.gep83.us, i64 %100
+  %gep84.us = getelementptr [4 x i8], ptr %invariant.gep83.us, i64 %100
   br label %48
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %59
   %.06681.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %27, i64 %.06681.us
-  %invariant.gep78.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06681.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06681.us
+  %invariant.gep78.us = getelementptr [34 x i8], ptr %31, i64 %.06681.us
   br label %.preheader.us
 
 ..preheader76_crit_edge.us:                       ; preds = %59
-  %invariant.gep83.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep83.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader74.us
 
 ._crit_edge:                                      ; preds = %108, %44, %5
@@ -25377,10 +25372,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader74:                                     ; preds = %.preheader76, %110
   %.06285 = phi i64 [ 0, %.preheader76 ], [ %111, %110 ]
-  %105 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06285
+  %105 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06285
   %106 = add nsw i64 %.06285, %104
   %107 = mul nsw i64 %37, %106
-  %gep84 = getelementptr float, ptr %gep, i64 %107
+  %gep84 = getelementptr [4 x i8], ptr %gep, i64 %107
   br label %112
 
 108:                                              ; preds = %110
@@ -25396,7 +25391,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 112:                                              ; preds = %.preheader74, %112
   %.082 = phi i64 [ 0, %.preheader74 ], [ %122, %112 ]
-  %113 = getelementptr inbounds nuw <8 x float>, ptr %105, i64 %.082
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %.082
   %114 = load <8 x float>, ptr %113, align 32, !tbaa !53
   %115 = shufflevector <8 x float> %114, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %116 = shufflevector <8 x float> %114, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25406,7 +25401,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift106 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop107 = fadd <4 x float> %119, %shift106
   %120 = extractelement <4 x float> %foldExtExtBinop107, i64 0
-  %121 = getelementptr float, ptr %gep84, i64 %.082
+  %121 = getelementptr [4 x i8], ptr %gep84, i64 %.082
   store float %120, ptr %121, align 4, !tbaa !93
   %122 = add nuw nsw i64 %.082, 1
   %exitcond.not = icmp eq i64 %122, 3
@@ -25457,7 +25452,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader115.preheader
 
 .preheader115.preheader:                          ; preds = %.lr.ph123
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader115
 
 .lr.ph.us:                                        ; preds = %.lr.ph123, %55
@@ -25472,15 +25467,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q4_0, ptr %27, i64 %45
+  %46 = getelementptr [18 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q4_0, ptr %27, i64 %48
+  %49 = getelementptr [18 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q4_0, ptr %27, i64 %51
+  %52 = getelementptr [18 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q4_0, ptr %27, i64 %53
+  %54 = getelementptr [18 x i8], ptr %27, i64 %53
   br label %69
 
 55:                                               ; preds = %57
@@ -25494,7 +25489,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 58:                                               ; preds = %.preheader.us, %58
   %.0118.us = phi i64 [ 0, %.preheader.us ], [ %68, %58 ]
-  %59 = getelementptr inbounds nuw <8 x float>, ptr %.0100121.us.sroa.phi, i64 %.0118.us
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %.0100121.us.sroa.phi, i64 %.0118.us
   %60 = load <8 x float>, ptr %59, align 32, !tbaa !53
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %62 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25504,7 +25499,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %65, %shift
   %66 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %67 = getelementptr float, ptr %gep120.us, i64 %.0118.us
+  %67 = getelementptr [4 x i8], ptr %gep120.us, i64 %.0118.us
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0118.us, 1
   %exitcond127.not = icmp eq i64 %68, 4
@@ -25512,13 +25507,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 69:                                               ; preds = %.lr.ph.us, %124
   %.0104117.us = phi i64 [ 0, %.lr.ph.us ], [ %125, %124 ]
-  %70 = getelementptr %struct.block_q4_0, ptr %46, i64 %.0104117.us
+  %70 = getelementptr [18 x i8], ptr %46, i64 %.0104117.us
   %71 = load i16, ptr %70, align 2, !tbaa !467
-  %72 = getelementptr %struct.block_q4_0, ptr %49, i64 %.0104117.us
+  %72 = getelementptr [18 x i8], ptr %49, i64 %.0104117.us
   %73 = load i16, ptr %72, align 2, !tbaa !467
-  %74 = getelementptr %struct.block_q4_0, ptr %52, i64 %.0104117.us
+  %74 = getelementptr [18 x i8], ptr %52, i64 %.0104117.us
   %75 = load i16, ptr %74, align 2, !tbaa !467
-  %76 = getelementptr %struct.block_q4_0, ptr %54, i64 %.0104117.us
+  %76 = getelementptr [18 x i8], ptr %54, i64 %.0104117.us
   %77 = load i16, ptr %76, align 2, !tbaa !467
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
@@ -25566,7 +25561,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %117 = bitcast <8 x i32> %116 to <32 x i8>
   %118 = and <32 x i8> %117, splat (i8 15)
   %119 = add nsw <32 x i8> %118, splat (i8 -8)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104117.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104117.us
   %120 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %92, <32 x i8> %92)
   %121 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %101, <32 x i8> %101)
   %122 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %110, <32 x i8> %110)
@@ -25584,10 +25579,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0103116.us = phi i64 [ 0, %69 ], [ 1, %126 ]
   %128 = add nsw i64 %.0103116.us, %43
   %129 = mul nsw i64 %33, %128
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %129
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %129
   %130 = load i16, ptr %gep.us, align 2, !tbaa !391
   %131 = zext i16 %130 to i64
-  %132 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %131
   %133 = load float, ptr %132, align 4, !tbaa !93
   %134 = insertelement <4 x float> poison, float %133, i64 0
   %135 = shufflevector <4 x float> %134, <4 x float> poison, <4 x i32> zeroinitializer
@@ -25633,11 +25628,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0100121.us = phi i64 [ 0, %..preheader115_crit_edge.us ], [ 1, %57 ]
   %166 = add nsw i64 %.0100121.us, %43
   %167 = mul nsw i64 %37, %166
-  %gep120.us = getelementptr float, ptr %invariant.gep119.us, i64 %167
+  %gep120.us = getelementptr [4 x i8], ptr %invariant.gep119.us, i64 %167
   br label %58
 
 ..preheader115_crit_edge.us:                      ; preds = %124
-  %invariant.gep119.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep119.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %175, %55, %5
@@ -25661,7 +25656,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0100121 = phi i64 [ 0, %.preheader115 ], [ 1, %177 ]
   %173 = add nsw i64 %.0100121, %171
   %174 = mul nsw i64 %37, %173
-  %gep120 = getelementptr float, ptr %gep, i64 %174
+  %gep120 = getelementptr [4 x i8], ptr %gep, i64 %174
   br label %178
 
 175:                                              ; preds = %177
@@ -25675,7 +25670,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 178:                                              ; preds = %.preheader, %178
   %.0118 = phi i64 [ 0, %.preheader ], [ %188, %178 ]
-  %179 = getelementptr inbounds nuw <8 x float>, ptr %.0100121.sroa.phi, i64 %.0118
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %.0100121.sroa.phi, i64 %.0118
   %180 = load <8 x float>, ptr %179, align 32, !tbaa !53
   %181 = shufflevector <8 x float> %180, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %182 = shufflevector <8 x float> %180, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25685,7 +25680,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift139 = shufflevector <4 x float> %185, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop140 = fadd <4 x float> %185, %shift139
   %186 = extractelement <4 x float> %foldExtExtBinop140, i64 0
-  %187 = getelementptr float, ptr %gep120, i64 %.0118
+  %187 = getelementptr [4 x i8], ptr %gep120, i64 %.0118
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.0118, 1
   %exitcond.not = icmp eq i64 %188, 4
@@ -25737,7 +25732,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader142.preheader
 
 .preheader142.preheader:                          ; preds = %.lr.ph150
-  %invariant.gep = getelementptr float, ptr %38, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %1
   br label %.preheader142
 
 .lr.ph.us:                                        ; preds = %.lr.ph150, %58
@@ -25752,15 +25747,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %28, i64 %48
+  %49 = getelementptr [34 x i8], ptr %28, i64 %48
   %50 = add nsw i64 %46, 2
   %51 = mul nsw i64 %30, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %28, i64 %51
+  %52 = getelementptr [34 x i8], ptr %28, i64 %51
   %53 = add nsw i64 %46, 1
   %54 = mul nsw i64 %30, %53
-  %55 = getelementptr %struct.block_q8_0, ptr %28, i64 %54
+  %55 = getelementptr [34 x i8], ptr %28, i64 %54
   %56 = mul nsw i64 %30, %46
-  %57 = getelementptr %struct.block_q8_0, ptr %28, i64 %56
+  %57 = getelementptr [34 x i8], ptr %28, i64 %56
   br label %73
 
 58:                                               ; preds = %60
@@ -25777,7 +25772,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 62:                                               ; preds = %.preheader.us, %62
   %63 = phi i1 [ true, %.preheader.us ], [ false, %62 ]
   %.0145.us = phi i64 [ 0, %.preheader.us ], [ 1, %62 ]
-  %64 = getelementptr inbounds nuw <8 x float>, ptr %142, i64 %.0145.us
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %.0145.us
   %65 = load <8 x float>, ptr %64, align 32, !tbaa !53
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %67 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25787,19 +25782,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %70, %shift
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %72 = getelementptr float, ptr %gep147.us, i64 %.0145.us
+  %72 = getelementptr [4 x i8], ptr %gep147.us, i64 %.0145.us
   store float %71, ptr %72, align 4, !tbaa !93
   br i1 %63, label %62, label %60, !llvm.loop !494
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120144.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
-  %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120144.us
+  %74 = getelementptr [34 x i8], ptr %49, i64 %.0120144.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120144.us
+  %76 = getelementptr [34 x i8], ptr %52, i64 %.0120144.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
-  %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120144.us
+  %78 = getelementptr [34 x i8], ptr %55, i64 %.0120144.us
   %79 = load i16, ptr %78, align 2, !tbaa !391
-  %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120144.us
+  %80 = getelementptr [34 x i8], ptr %57, i64 %.0120144.us
   %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
@@ -25815,7 +25810,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.val136140.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %74, i64 2
   %.val137141.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %31, i64 %.0120144.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %31, i64 %.0120144.us
   br label %94
 
 92:                                               ; preds = %94
@@ -25829,10 +25824,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0119143.us = phi i64 [ 0, %73 ], [ 1, %94 ]
   %96 = add nsw i64 %.0119143.us, %43
   %97 = mul nsw i64 %33, %96
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %97
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %97
   %98 = load i16, ptr %gep.us, align 2, !tbaa !467
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
   %102 = insertelement <4 x float> poison, float %101, i64 0
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
@@ -25859,7 +25854,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %122 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val135139.us, <32 x i8> %114)
   %123 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %115, <32 x i8> %122)
   %124 = sitofp <8 x i32> %123 to <8 x float>
-  %125 = getelementptr inbounds nuw <8 x float>, ptr %34, i64 %.0119143.us
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.0119143.us
   %126 = load <8 x float>, ptr %125, align 32, !tbaa !53
   %127 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %121, <8 x float> %124, <8 x float> %126)
   store <8 x float> %127, ptr %125, align 32, !tbaa !53
@@ -25867,7 +25862,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %129 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val136140.us, <32 x i8> %114)
   %130 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %115, <32 x i8> %129)
   %131 = sitofp <8 x i32> %130 to <8 x float>
-  %132 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119143.us
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119143.us
   %133 = load <8 x float>, ptr %132, align 32, !tbaa !53
   %134 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %128, <8 x float> %131, <8 x float> %133)
   store <8 x float> %134, ptr %132, align 32, !tbaa !53
@@ -25875,7 +25870,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %136 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val137141.us, <32 x i8> %114)
   %137 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %115, <32 x i8> %136)
   %138 = sitofp <8 x i32> %137 to <8 x float>
-  %139 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119143.us
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119143.us
   %140 = load <8 x float>, ptr %139, align 32, !tbaa !53
   %141 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %135, <8 x float> %138, <8 x float> %140)
   store <8 x float> %141, ptr %139, align 32, !tbaa !53
@@ -25883,14 +25878,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %..preheader142_crit_edge.us, %60
   %.0116148.us = phi i64 [ 0, %..preheader142_crit_edge.us ], [ %61, %60 ]
-  %142 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116148.us
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116148.us
   %143 = add nsw i64 %.0116148.us, %46
   %144 = mul nsw i64 %40, %143
-  %gep147.us = getelementptr float, ptr %invariant.gep146.us, i64 %144
+  %gep147.us = getelementptr [4 x i8], ptr %invariant.gep146.us, i64 %144
   br label %62
 
 ..preheader142_crit_edge.us:                      ; preds = %92
-  %invariant.gep146.us = getelementptr float, ptr %38, i64 %43
+  %invariant.gep146.us = getelementptr [4 x i8], ptr %38, i64 %43
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %152, %58, %5
@@ -25910,10 +25905,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader:                                       ; preds = %.preheader142, %154
   %.0116148 = phi i64 [ 0, %.preheader142 ], [ %155, %154 ]
-  %149 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116148
+  %149 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116148
   %150 = add nsw i64 %.0116148, %148
   %151 = mul nsw i64 %40, %150
-  %gep147 = getelementptr float, ptr %gep, i64 %151
+  %gep147 = getelementptr [4 x i8], ptr %gep, i64 %151
   br label %156
 
 152:                                              ; preds = %154
@@ -25930,7 +25925,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 156:                                              ; preds = %.preheader, %156
   %157 = phi i1 [ true, %.preheader ], [ false, %156 ]
   %.0145 = phi i64 [ 0, %.preheader ], [ 1, %156 ]
-  %158 = getelementptr inbounds nuw <8 x float>, ptr %149, i64 %.0145
+  %158 = getelementptr inbounds nuw [32 x i8], ptr %149, i64 %.0145
   %159 = load <8 x float>, ptr %158, align 32, !tbaa !53
   %160 = shufflevector <8 x float> %159, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %161 = shufflevector <8 x float> %159, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -25940,7 +25935,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift165 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop166 = fadd <4 x float> %164, %shift165
   %165 = extractelement <4 x float> %foldExtExtBinop166, i64 0
-  %166 = getelementptr float, ptr %gep147, i64 %.0145
+  %166 = getelementptr [4 x i8], ptr %gep147, i64 %.0145
   store float %165, ptr %166, align 4, !tbaa !93
   br i1 %157, label %156, label %154, !llvm.loop !494
 }
@@ -25989,7 +25984,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.preheader75.lr.ph.us, label %.preheader76.preheader
 
 .preheader76.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader76
 
 .preheader75.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -26015,7 +26010,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 47:                                               ; preds = %.preheader74.us, %47
   %.082.us = phi i64 [ 0, %.preheader74.us ], [ %57, %47 ]
-  %48 = getelementptr inbounds nuw <8 x float>, ptr %.06285.us.sroa.phi, i64 %.082.us
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %.06285.us.sroa.phi, i64 %.082.us
   %49 = load <8 x float>, ptr %48, align 32, !tbaa !53
   %50 = shufflevector <8 x float> %49, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %51 = shufflevector <8 x float> %49, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26025,7 +26020,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %54, %shift
   %55 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %56 = getelementptr float, ptr %gep84.us, i64 %.082.us
+  %56 = getelementptr [4 x i8], ptr %gep84.us, i64 %.082.us
   store float %55, ptr %56, align 4, !tbaa !93
   %57 = add nuw nsw i64 %.082.us, 1
   %exitcond91.not = icmp eq i64 %57, 3
@@ -26043,7 +26038,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06477.us = phi i64 [ 0, %.preheader.us ], [ %87, %61 ]
   %62 = add nsw i64 %.06477.us, %40
   %63 = mul nsw i64 %29, %62
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %63
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %63
   %64 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load <2 x i64>, ptr %64, align 1, !tbaa !53
   %65 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -26060,12 +26055,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %76 = sitofp <8 x i32> %75 to <8 x float>
   %77 = load i16, ptr %gep.us, align 2, !tbaa !467
   %78 = zext i16 %77 to i64
-  %79 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !93
   %81 = fmul float %80, %95
   %82 = insertelement <8 x float> poison, float %81, i64 0
   %83 = shufflevector <8 x float> %82, <8 x float> poison, <8 x i32> zeroinitializer
-  %84 = getelementptr inbounds nuw <8 x float>, ptr %.06580.us.sroa.phi, i64 %.06477.us
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %.06580.us.sroa.phi, i64 %.06477.us
   %85 = load <8 x float>, ptr %84, align 32, !tbaa !53
   %86 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %83, <8 x float> %76, <8 x float> %85)
   store <8 x float> %86, ptr %84, align 32, !tbaa !53
@@ -26079,12 +26074,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ 1, %60 ]
   %89 = add nsw i64 %.06580.us, %43
   %90 = mul nsw i64 %33, %89
-  %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %90
+  %gep79.us = getelementptr [34 x i8], ptr %invariant.gep78.us, i64 %90
   %91 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
   %92 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %93 = zext i16 %92 to i64
-  %94 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !93
   br label %61
 
@@ -26094,17 +26089,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06285.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ 1, %46 ]
   %97 = add nsw i64 %.06285.us, %43
   %98 = mul nsw i64 %37, %97
-  %gep84.us = getelementptr float, ptr %invariant.gep83.us, i64 %98
+  %gep84.us = getelementptr [4 x i8], ptr %invariant.gep83.us, i64 %98
   br label %47
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %58
   %.06681.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %59, %58 ]
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %27, i64 %.06681.us
-  %invariant.gep78.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06681.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06681.us
+  %invariant.gep78.us = getelementptr [34 x i8], ptr %31, i64 %.06681.us
   br label %.preheader.us
 
 ..preheader76_crit_edge.us:                       ; preds = %58
-  %invariant.gep83.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep83.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader74.us
 
 ._crit_edge:                                      ; preds = %106, %44, %5
@@ -26128,7 +26123,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06285 = phi i64 [ 0, %.preheader76 ], [ 1, %108 ]
   %104 = add nsw i64 %.06285, %102
   %105 = mul nsw i64 %37, %104
-  %gep84 = getelementptr float, ptr %gep, i64 %105
+  %gep84 = getelementptr [4 x i8], ptr %gep, i64 %105
   br label %109
 
 106:                                              ; preds = %108
@@ -26142,7 +26137,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 109:                                              ; preds = %.preheader74, %109
   %.082 = phi i64 [ 0, %.preheader74 ], [ %119, %109 ]
-  %110 = getelementptr inbounds nuw <8 x float>, ptr %.06285.sroa.phi, i64 %.082
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.06285.sroa.phi, i64 %.082
   %111 = load <8 x float>, ptr %110, align 32, !tbaa !53
   %112 = shufflevector <8 x float> %111, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %113 = shufflevector <8 x float> %111, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26152,7 +26147,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift100 = shufflevector <4 x float> %116, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop101 = fadd <4 x float> %116, %shift100
   %117 = extractelement <4 x float> %foldExtExtBinop101, i64 0
-  %118 = getelementptr float, ptr %gep84, i64 %.082
+  %118 = getelementptr [4 x i8], ptr %gep84, i64 %.082
   store float %117, ptr %118, align 4, !tbaa !93
   %119 = add nuw nsw i64 %.082, 1
   %exitcond.not = icmp eq i64 %119, 3
@@ -26200,7 +26195,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.preheader75.lr.ph.us, label %.preheader76.preheader
 
 .preheader76.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader76
 
 .preheader75.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -26229,7 +26224,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 48:                                               ; preds = %.preheader74.us, %48
   %49 = phi i1 [ true, %.preheader74.us ], [ false, %48 ]
   %.082.us = phi i64 [ 0, %.preheader74.us ], [ 1, %48 ]
-  %50 = getelementptr inbounds nuw <8 x float>, ptr %98, i64 %.082.us
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %.082.us
   %51 = load <8 x float>, ptr %50, align 32, !tbaa !53
   %52 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %53 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26239,7 +26234,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %56, %shift
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %58 = getelementptr float, ptr %gep84.us, i64 %.082.us
+  %58 = getelementptr [4 x i8], ptr %gep84.us, i64 %.082.us
   store float %57, ptr %58, align 4, !tbaa !93
   br i1 %49, label %48, label %46, !llvm.loop !505
 
@@ -26258,7 +26253,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06477.us = phi i64 [ 0, %.preheader.us ], [ 1, %63 ]
   %65 = add nsw i64 %.06477.us, %40
   %66 = mul nsw i64 %29, %65
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %66
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %66
   %67 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load <2 x i64>, ptr %67, align 1, !tbaa !53
   %68 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -26275,12 +26270,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %79 = sitofp <8 x i32> %78 to <8 x float>
   %80 = load i16, ptr %gep.us, align 2, !tbaa !467
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
   %84 = fmul float %83, %96
   %85 = insertelement <8 x float> poison, float %84, i64 0
   %86 = shufflevector <8 x float> %85, <8 x float> poison, <8 x i32> zeroinitializer
-  %87 = getelementptr inbounds nuw <8 x float>, ptr %97, i64 %.06477.us
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %.06477.us
   %88 = load <8 x float>, ptr %87, align 32, !tbaa !53
   %89 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %86, <8 x float> %79, <8 x float> %88)
   store <8 x float> %89, ptr %87, align 32, !tbaa !53
@@ -26290,32 +26285,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ %62, %61 ]
   %90 = add nsw i64 %.06580.us, %43
   %91 = mul nsw i64 %33, %90
-  %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %91
+  %gep79.us = getelementptr [34 x i8], ptr %invariant.gep78.us, i64 %91
   %92 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
   %93 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %94 = zext i16 %93 to i64
-  %95 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %94
   %96 = load float, ptr %95, align 4, !tbaa !93
-  %97 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06580.us
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06580.us
   br label %63
 
 .preheader74.us:                                  ; preds = %..preheader76_crit_edge.us, %46
   %.06285.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ %47, %46 ]
-  %98 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06285.us
+  %98 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06285.us
   %99 = add nsw i64 %.06285.us, %43
   %100 = mul nsw i64 %37, %99
-  %gep84.us = getelementptr float, ptr %invariant.gep83.us, i64 %100
+  %gep84.us = getelementptr [4 x i8], ptr %invariant.gep83.us, i64 %100
   br label %48
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %59
   %.06681.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %27, i64 %.06681.us
-  %invariant.gep78.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06681.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06681.us
+  %invariant.gep78.us = getelementptr [34 x i8], ptr %31, i64 %.06681.us
   br label %.preheader.us
 
 ..preheader76_crit_edge.us:                       ; preds = %59
-  %invariant.gep83.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep83.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader74.us
 
 ._crit_edge:                                      ; preds = %108, %44, %5
@@ -26335,10 +26330,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader74:                                     ; preds = %.preheader76, %110
   %.06285 = phi i64 [ 0, %.preheader76 ], [ %111, %110 ]
-  %105 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06285
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06285
   %106 = add nsw i64 %.06285, %104
   %107 = mul nsw i64 %37, %106
-  %gep84 = getelementptr float, ptr %gep, i64 %107
+  %gep84 = getelementptr [4 x i8], ptr %gep, i64 %107
   br label %112
 
 108:                                              ; preds = %110
@@ -26355,7 +26350,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 112:                                              ; preds = %.preheader74, %112
   %113 = phi i1 [ true, %.preheader74 ], [ false, %112 ]
   %.082 = phi i64 [ 0, %.preheader74 ], [ 1, %112 ]
-  %114 = getelementptr inbounds nuw <8 x float>, ptr %105, i64 %.082
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %.082
   %115 = load <8 x float>, ptr %114, align 32, !tbaa !53
   %116 = shufflevector <8 x float> %115, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %117 = shufflevector <8 x float> %115, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26365,7 +26360,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift103 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop104 = fadd <4 x float> %120, %shift103
   %121 = extractelement <4 x float> %foldExtExtBinop104, i64 0
-  %122 = getelementptr float, ptr %gep84, i64 %.082
+  %122 = getelementptr [4 x i8], ptr %gep84, i64 %.082
   store float %121, ptr %122, align 4, !tbaa !93
   br i1 %113, label %112, label %110, !llvm.loop !505
 }
@@ -26422,22 +26417,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %42, 3
   %46 = mul nsw i64 %28, %45
-  %47 = getelementptr %struct.block_q4_0, ptr %26, i64 %46
+  %47 = getelementptr [18 x i8], ptr %26, i64 %46
   %48 = add nsw i64 %42, 2
   %49 = mul nsw i64 %28, %48
-  %50 = getelementptr %struct.block_q4_0, ptr %26, i64 %49
+  %50 = getelementptr [18 x i8], ptr %26, i64 %49
   %51 = add nsw i64 %42, 1
   %52 = mul nsw i64 %28, %51
-  %53 = getelementptr %struct.block_q4_0, ptr %26, i64 %52
+  %53 = getelementptr [18 x i8], ptr %26, i64 %52
   %54 = mul nsw i64 %28, %42
-  %55 = getelementptr %struct.block_q4_0, ptr %26, i64 %54
+  %55 = getelementptr [18 x i8], ptr %26, i64 %54
   %56 = mul nsw i64 %32, %44
-  %57 = getelementptr %struct.block_q8_0, ptr %30, i64 %56
+  %57 = getelementptr [34 x i8], ptr %30, i64 %56
   br label %69
 
 58:                                               ; preds = %..preheader115_crit_edge.us, %58
   %.0131.us = phi i64 [ 0, %..preheader115_crit_edge.us ], [ %68, %58 ]
-  %59 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0131.us
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0131.us
   %60 = load <8 x float>, ptr %59, align 32, !tbaa !53
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %62 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26447,7 +26442,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %65, %shift
   %66 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %67 = getelementptr float, ptr %157, i64 %.0131.us
+  %67 = getelementptr [4 x i8], ptr %157, i64 %.0131.us
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0131.us, 1
   %exitcond140.not = icmp eq i64 %68, 4
@@ -26459,13 +26454,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.lcssa117126.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %150, %69 ]
   %.0104125.us = phi i64 [ 0, %.lr.ph.us ], [ %153, %69 ]
   %.lcssa123124.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %149, %69 ]
-  %70 = getelementptr %struct.block_q4_0, ptr %47, i64 %.0104125.us
+  %70 = getelementptr [18 x i8], ptr %47, i64 %.0104125.us
   %71 = load i16, ptr %70, align 2, !tbaa !467
-  %72 = getelementptr %struct.block_q4_0, ptr %50, i64 %.0104125.us
+  %72 = getelementptr [18 x i8], ptr %50, i64 %.0104125.us
   %73 = load i16, ptr %72, align 2, !tbaa !467
-  %74 = getelementptr %struct.block_q4_0, ptr %53, i64 %.0104125.us
+  %74 = getelementptr [18 x i8], ptr %53, i64 %.0104125.us
   %75 = load i16, ptr %74, align 2, !tbaa !467
-  %76 = getelementptr %struct.block_q4_0, ptr %55, i64 %.0104125.us
+  %76 = getelementptr [18 x i8], ptr %55, i64 %.0104125.us
   %77 = load i16, ptr %76, align 2, !tbaa !467
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
@@ -26513,10 +26508,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %117 = bitcast <8 x i32> %116 to <32 x i8>
   %118 = and <32 x i8> %117, splat (i8 15)
   %119 = add nsw <32 x i8> %118, splat (i8 -8)
-  %120 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0104125.us
+  %120 = getelementptr [34 x i8], ptr %57, i64 %.0104125.us
   %121 = load i16, ptr %120, align 2, !tbaa !391
   %122 = zext i16 %121 to i64
-  %123 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %122
   %124 = load float, ptr %123, align 4, !tbaa !93
   %125 = insertelement <4 x float> poison, float %124, i64 0
   %126 = shufflevector <4 x float> %125, <4 x float> poison, <4 x i32> zeroinitializer
@@ -26563,8 +26558,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %152, ptr %35, align 32, !tbaa !53
   store <8 x float> %149, ptr %6, align 32
   %155 = mul nsw i64 %39, %44
-  %156 = getelementptr float, ptr %37, i64 %155
-  %157 = getelementptr float, ptr %156, i64 %42
+  %156 = getelementptr [4 x i8], ptr %37, i64 %155
+  %157 = getelementptr [4 x i8], ptr %156, i64 %42
   br label %58
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %5
@@ -26577,10 +26572,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %160 = add nsw i64 %159, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %161 = mul nsw i64 %39, %160
-  %162 = getelementptr float, ptr %37, i64 %161
+  %162 = getelementptr [4 x i8], ptr %37, i64 %161
   %.idx = shl i64 %158, 4
   %163 = getelementptr i8, ptr %162, i64 %.idx
-  %164 = getelementptr float, ptr %163, i64 %1
+  %164 = getelementptr [4 x i8], ptr %163, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %166
 
@@ -26592,7 +26587,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 166:                                              ; preds = %.preheader115, %166
   %.0131 = phi i64 [ 0, %.preheader115 ], [ %176, %166 ]
-  %167 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0131
+  %167 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0131
   %168 = load <8 x float>, ptr %167, align 32, !tbaa !53
   %169 = shufflevector <8 x float> %168, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %170 = shufflevector <8 x float> %168, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26602,7 +26597,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift157 = shufflevector <4 x float> %173, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop158 = fadd <4 x float> %173, %shift157
   %174 = extractelement <4 x float> %foldExtExtBinop158, i64 0
-  %175 = getelementptr float, ptr %164, i64 %.0131
+  %175 = getelementptr [4 x i8], ptr %164, i64 %.0131
   store float %174, ptr %175, align 4, !tbaa !93
   %176 = add nuw nsw i64 %.0131, 1
   %exitcond.not = icmp eq i64 %176, 4
@@ -26653,7 +26648,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %26, label %.preheader75.lr.ph.us, label %.preheader76.preheader
 
 .preheader76.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader76
 
 .preheader75.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -26680,7 +26675,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 47:                                               ; preds = %.preheader74.us, %47
   %48 = phi i1 [ true, %.preheader74.us ], [ false, %47 ]
   %.082.us = phi i64 [ 0, %.preheader74.us ], [ 1, %47 ]
-  %49 = getelementptr inbounds nuw <8 x float>, ptr %.06285.us.sroa.phi, i64 %.082.us
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.06285.us.sroa.phi, i64 %.082.us
   %50 = load <8 x float>, ptr %49, align 32, !tbaa !53
   %51 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %52 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26690,7 +26685,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %55, %shift
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %57 = getelementptr float, ptr %gep84.us, i64 %.082.us
+  %57 = getelementptr [4 x i8], ptr %gep84.us, i64 %.082.us
   store float %56, ptr %57, align 4, !tbaa !93
   br i1 %48, label %47, label %46, !llvm.loop !514
 
@@ -26707,7 +26702,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06477.us = phi i64 [ 0, %.preheader.us ], [ 1, %61 ]
   %63 = add nsw i64 %.06477.us, %40
   %64 = mul nsw i64 %29, %63
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %64
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %64
   %65 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load <2 x i64>, ptr %65, align 1, !tbaa !53
   %66 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -26724,12 +26719,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %77 = sitofp <8 x i32> %76 to <8 x float>
   %78 = load i16, ptr %gep.us, align 2, !tbaa !467
   %79 = zext i16 %78 to i64
-  %80 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !93
   %82 = fmul float %81, %95
   %83 = insertelement <8 x float> poison, float %82, i64 0
   %84 = shufflevector <8 x float> %83, <8 x float> poison, <8 x i32> zeroinitializer
-  %85 = getelementptr inbounds nuw <8 x float>, ptr %.06580.us.sroa.phi, i64 %.06477.us
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %.06580.us.sroa.phi, i64 %.06477.us
   %86 = load <8 x float>, ptr %85, align 32, !tbaa !53
   %87 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %84, <8 x float> %77, <8 x float> %86)
   store <8 x float> %87, ptr %85, align 32, !tbaa !53
@@ -26741,12 +26736,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ 1, %60 ]
   %89 = add nsw i64 %.06580.us, %43
   %90 = mul nsw i64 %33, %89
-  %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %90
+  %gep79.us = getelementptr [34 x i8], ptr %invariant.gep78.us, i64 %90
   %91 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
   %92 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %93 = zext i16 %92 to i64
-  %94 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !93
   br label %61
 
@@ -26756,17 +26751,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06285.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ 1, %46 ]
   %97 = add nsw i64 %.06285.us, %43
   %98 = mul nsw i64 %37, %97
-  %gep84.us = getelementptr float, ptr %invariant.gep83.us, i64 %98
+  %gep84.us = getelementptr [4 x i8], ptr %invariant.gep83.us, i64 %98
   br label %47
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %58
   %.06681.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %59, %58 ]
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %27, i64 %.06681.us
-  %invariant.gep78.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06681.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06681.us
+  %invariant.gep78.us = getelementptr [34 x i8], ptr %31, i64 %.06681.us
   br label %.preheader.us
 
 ..preheader76_crit_edge.us:                       ; preds = %58
-  %invariant.gep83.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep83.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader74.us
 
 ._crit_edge:                                      ; preds = %106, %44, %5
@@ -26790,7 +26785,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06285 = phi i64 [ 0, %.preheader76 ], [ 1, %108 ]
   %104 = add nsw i64 %.06285, %102
   %105 = mul nsw i64 %37, %104
-  %gep84 = getelementptr float, ptr %gep, i64 %105
+  %gep84 = getelementptr [4 x i8], ptr %gep, i64 %105
   br label %109
 
 106:                                              ; preds = %108
@@ -26805,7 +26800,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 109:                                              ; preds = %.preheader74, %109
   %110 = phi i1 [ true, %.preheader74 ], [ false, %109 ]
   %.082 = phi i64 [ 0, %.preheader74 ], [ 1, %109 ]
-  %111 = getelementptr inbounds nuw <8 x float>, ptr %.06285.sroa.phi, i64 %.082
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %.06285.sroa.phi, i64 %.082
   %112 = load <8 x float>, ptr %111, align 32, !tbaa !53
   %113 = shufflevector <8 x float> %112, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %114 = shufflevector <8 x float> %112, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26815,7 +26810,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift97 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop98 = fadd <4 x float> %117, %shift97
   %118 = extractelement <4 x float> %foldExtExtBinop98, i64 0
-  %119 = getelementptr float, ptr %gep84, i64 %.082
+  %119 = getelementptr [4 x i8], ptr %gep84, i64 %.082
   store float %118, ptr %119, align 4, !tbaa !93
   br i1 %110, label %109, label %108, !llvm.loop !514
 }
@@ -26863,7 +26858,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %25, label %.lr.ph.us, label %.preheader142.preheader
 
 .preheader142.preheader:                          ; preds = %.lr.ph160
-  %invariant.gep176 = getelementptr float, ptr %37, i64 %1
+  %invariant.gep176 = getelementptr [4 x i8], ptr %37, i64 %1
   br label %.preheader142
 
 .lr.ph.us:                                        ; preds = %.lr.ph160, %58
@@ -26876,17 +26871,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %44, 3
   %46 = mul nsw i64 %29, %45
-  %47 = getelementptr %struct.block_q8_0, ptr %27, i64 %46
+  %47 = getelementptr [34 x i8], ptr %27, i64 %46
   %48 = add nsw i64 %44, 2
   %49 = mul nsw i64 %29, %48
-  %50 = getelementptr %struct.block_q8_0, ptr %27, i64 %49
+  %50 = getelementptr [34 x i8], ptr %27, i64 %49
   %51 = add nsw i64 %44, 1
   %52 = mul nsw i64 %29, %51
-  %53 = getelementptr %struct.block_q8_0, ptr %27, i64 %52
+  %53 = getelementptr [34 x i8], ptr %27, i64 %52
   %54 = mul nsw i64 %29, %44
-  %55 = getelementptr %struct.block_q8_0, ptr %27, i64 %54
+  %55 = getelementptr [34 x i8], ptr %27, i64 %54
   %56 = mul nsw i64 %32, %41
-  %57 = getelementptr %struct.block_q4_0, ptr %30, i64 %56
+  %57 = getelementptr [18 x i8], ptr %30, i64 %56
   br label %60
 
 58:                                               ; preds = %.preheader.us
@@ -26901,13 +26896,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.lcssa144153.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %114, %60 ]
   %.0120152.us = phi i64 [ 0, %.lr.ph.us ], [ %117, %60 ]
   %.lcssa150151.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %113, %60 ]
-  %61 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0120152.us
+  %61 = getelementptr [34 x i8], ptr %47, i64 %.0120152.us
   %62 = load i16, ptr %61, align 2, !tbaa !391
-  %63 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120152.us
+  %63 = getelementptr [34 x i8], ptr %50, i64 %.0120152.us
   %64 = load i16, ptr %63, align 2, !tbaa !391
-  %65 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120152.us
+  %65 = getelementptr [34 x i8], ptr %53, i64 %.0120152.us
   %66 = load i16, ptr %65, align 2, !tbaa !391
-  %67 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120152.us
+  %67 = getelementptr [34 x i8], ptr %55, i64 %.0120152.us
   %68 = load i16, ptr %67, align 2, !tbaa !391
   %69 = insertelement <4 x i16> poison, i16 %68, i64 0
   %70 = insertelement <4 x i16> %69, i16 %66, i64 1
@@ -26923,10 +26918,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.val136140.us = load <32 x i8>, ptr %77, align 2, !tbaa !53
   %78 = getelementptr i8, ptr %61, i64 2
   %.val137141.us = load <32 x i8>, ptr %78, align 2, !tbaa !53
-  %79 = getelementptr %struct.block_q4_0, ptr %57, i64 %.0120152.us
+  %79 = getelementptr [18 x i8], ptr %57, i64 %.0120152.us
   %80 = load i16, ptr %79, align 2, !tbaa !467
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
   %84 = insertelement <4 x float> poison, float %83, i64 0
   %85 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> zeroinitializer
@@ -26968,7 +26963,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %..preheader142_crit_edge.us, %.preheader.us
   %.0116158.us = phi i64 [ 0, %..preheader142_crit_edge.us ], [ %128, %.preheader.us ]
-  %118 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116158.us
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116158.us
   %119 = load <8 x float>, ptr %118, align 32, !tbaa !53
   %120 = shufflevector <8 x float> %119, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %121 = shufflevector <8 x float> %119, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -26980,7 +26975,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %125 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %126 = add nsw i64 %.0116158.us, %44
   %127 = mul nsw i64 %39, %126
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %127
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %127
   store float %125, ptr %gep.us, align 4, !tbaa !93
   %128 = add nuw nsw i64 %.0116158.us, 1
   %exitcond167.not = icmp eq i64 %128, 4
@@ -26991,7 +26986,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %115, ptr %34, align 32, !tbaa !53
   store <8 x float> %116, ptr %35, align 32, !tbaa !53
   store <8 x float> %113, ptr %6, align 32
-  %invariant.gep.us = getelementptr float, ptr %37, i64 %41
+  %invariant.gep.us = getelementptr [4 x i8], ptr %37, i64 %41
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %144, %58, %5
@@ -27004,13 +26999,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %131 = shl nsw i64 %130, 2
   %132 = add nsw i64 %131, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep177 = getelementptr float, ptr %invariant.gep176, i64 %129
+  %gep177 = getelementptr [4 x i8], ptr %invariant.gep176, i64 %129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader142, %.preheader
   %.0116158 = phi i64 [ 0, %.preheader142 ], [ %143, %.preheader ]
-  %133 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116158
+  %133 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116158
   %134 = load <8 x float>, ptr %133, align 32, !tbaa !53
   %135 = shufflevector <8 x float> %134, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %136 = shufflevector <8 x float> %134, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -27022,7 +27017,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %140 = extractelement <4 x float> %foldExtExtBinop184, i64 0
   %141 = add nsw i64 %.0116158, %132
   %142 = mul nsw i64 %39, %141
-  %gep = getelementptr float, ptr %gep177, i64 %142
+  %gep = getelementptr [4 x i8], ptr %gep177, i64 %142
   store float %140, ptr %gep, align 4, !tbaa !93
   %143 = add nuw nsw i64 %.0116158, 1
   %exitcond.not = icmp eq i64 %143, 4
@@ -27084,12 +27079,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %32, %41
-  %43 = getelementptr inbounds %struct.block_q8_0, ptr %30, i64 %42
+  %43 = getelementptr inbounds [34 x i8], ptr %30, i64 %42
   br label %.preheader76.us
 
 44:                                               ; preds = %..preheader77_crit_edge.us, %44
   %.080.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ %54, %44 ]
-  %45 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.080.us
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.080.us
   %46 = load <8 x float>, ptr %45, align 32, !tbaa !53
   %47 = shufflevector <8 x float> %46, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %48 = shufflevector <8 x float> %46, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -27099,7 +27094,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %51, %shift
   %52 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %53 = getelementptr float, ptr %92, i64 %.080.us
+  %53 = getelementptr [4 x i8], ptr %92, i64 %.080.us
   store float %52, ptr %53, align 4, !tbaa !93
   %54 = add nuw nsw i64 %.080.us, 1
   %exitcond86.not = icmp eq i64 %54, 3
@@ -27109,7 +27104,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06478.us = phi i64 [ 0, %.preheader76.us ], [ %81, %55 ]
   %56 = add nsw i64 %.06478.us, %39
   %57 = mul nsw i64 %28, %56
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %57
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %57
   %58 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load <2 x i64>, ptr %58, align 1, !tbaa !53
   %59 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -27126,12 +27121,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %70 = sitofp <8 x i32> %69 to <8 x float>
   %71 = load i16, ptr %gep.us, align 2, !tbaa !467
   %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !93
   %75 = fmul float %74, %89
   %76 = insertelement <8 x float> poison, float %75, i64 0
   %77 = shufflevector <8 x float> %76, <8 x float> poison, <8 x i32> zeroinitializer
-  %78 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.06478.us
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06478.us
   %79 = load <8 x float>, ptr %78, align 32, !tbaa !53
   %80 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %77, <8 x float> %70, <8 x float> %79)
   store <8 x float> %80, ptr %78, align 32, !tbaa !53
@@ -27152,20 +27147,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %.loopexit.us
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %82, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %26, i64 %.06679.us
-  %84 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06679.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %26, i64 %.06679.us
+  %84 = getelementptr inbounds nuw [34 x i8], ptr %43, i64 %.06679.us
   %85 = getelementptr i8, ptr %84, i64 2
   %.val7273.us = load <32 x i8>, ptr %85, align 1, !tbaa !53
   %86 = load i16, ptr %84, align 2, !tbaa !391
   %87 = zext i16 %86 to i64
-  %88 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !93
   br label %55
 
 ..preheader77_crit_edge.us:                       ; preds = %.loopexit.us
   %90 = mul nsw i64 %36, %41
-  %91 = getelementptr float, ptr %34, i64 %90
-  %92 = getelementptr float, ptr %91, i64 %39
+  %91 = getelementptr [4 x i8], ptr %34, i64 %90
+  %92 = getelementptr [4 x i8], ptr %91, i64 %39
   br label %44
 
 ._crit_edge:                                      ; preds = %.loopexit75, %.loopexit75.us, %5
@@ -27179,10 +27174,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %96 = mul nsw i64 %36, %95
-  %97 = getelementptr float, ptr %34, i64 %96
+  %97 = getelementptr [4 x i8], ptr %34, i64 %96
   %.idx = mul i64 %93, 12
   %98 = getelementptr i8, ptr %97, i64 %.idx
-  %99 = getelementptr float, ptr %98, i64 %1
+  %99 = getelementptr [4 x i8], ptr %98, i64 %1
   br label %101
 
 .loopexit75:                                      ; preds = %101
@@ -27193,7 +27188,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 101:                                              ; preds = %.preheader77, %101
   %.080 = phi i64 [ 0, %.preheader77 ], [ %111, %101 ]
-  %102 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.080
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.080
   %103 = load <8 x float>, ptr %102, align 32, !tbaa !53
   %104 = shufflevector <8 x float> %103, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %105 = shufflevector <8 x float> %103, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -27203,7 +27198,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift95 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop96 = fadd <4 x float> %108, %shift95
   %109 = extractelement <4 x float> %foldExtExtBinop96, i64 0
-  %110 = getelementptr float, ptr %99, i64 %.080
+  %110 = getelementptr [4 x i8], ptr %99, i64 %.080
   store float %109, ptr %110, align 4, !tbaa !93
   %111 = add nuw nsw i64 %.080, 1
   %exitcond.not = icmp eq i64 %111, 3
@@ -27250,7 +27245,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %25, label %.preheader75.lr.ph.us, label %.preheader76.preheader
 
 .preheader76.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %34, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %34, i64 %1
   br label %.preheader76
 
 .preheader75.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -27263,7 +27258,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %28, %38
-  %43 = getelementptr inbounds %struct.block_q4_0, ptr %26, i64 %42
+  %43 = getelementptr inbounds [18 x i8], ptr %26, i64 %42
   br label %.preheader75.us
 
 44:                                               ; preds = %.preheader74.us
@@ -27281,7 +27276,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06577.us = phi i64 [ 0, %.preheader75.us ], [ %63, %.preheader.us ]
   %48 = add nsw i64 %.06577.us, %41
   %49 = mul nsw i64 %32, %48
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %49
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %49
   %50 = getelementptr i8, ptr %gep.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %50, align 1, !tbaa !53
   %51 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7273.us, <32 x i8> %84)
@@ -27289,12 +27284,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %53 = sitofp <8 x i32> %52 to <8 x float>
   %54 = load i16, ptr %gep.us, align 2, !tbaa !391
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !93
   %58 = fmul float %89, %57
   %59 = insertelement <8 x float> poison, float %58, i64 0
   %60 = shufflevector <8 x float> %59, <8 x float> poison, <8 x i32> zeroinitializer
-  %61 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06577.us
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06577.us
   %.promoted.us = load <8 x float>, ptr %61, align 32, !tbaa !53
   %62 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %60, <8 x float> %53, <8 x float> %.promoted.us)
   store <8 x float> %62, ptr %61, align 32, !tbaa !53
@@ -27304,7 +27299,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader74.us:                                  ; preds = %..preheader76_crit_edge.us, %.preheader74.us
   %.06281.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ %74, %.preheader74.us ]
-  %64 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06281.us
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06281.us
   %65 = load <8 x float>, ptr %64, align 32, !tbaa !53
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %67 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -27316,7 +27311,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %72 = add nsw i64 %.06281.us, %41
   %73 = mul nsw i64 %36, %72
-  %gep80.us = getelementptr float, ptr %invariant.gep79.us, i64 %73
+  %gep80.us = getelementptr [4 x i8], ptr %invariant.gep79.us, i64 %73
   store float %71, ptr %gep80.us, align 4, !tbaa !93
   %74 = add nuw nsw i64 %.06281.us, 1
   %exitcond87.not = icmp eq i64 %74, 3
@@ -27324,7 +27319,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %46
   %.06678.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %47, %46 ]
-  %75 = getelementptr inbounds nuw %struct.block_q4_0, ptr %43, i64 %.06678.us
+  %75 = getelementptr inbounds nuw [18 x i8], ptr %43, i64 %.06678.us
   %76 = getelementptr i8, ptr %75, i64 2
   %.val.us = load <2 x i64>, ptr %76, align 1, !tbaa !53
   %77 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -27336,15 +27331,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %83 = and <32 x i8> %82, splat (i8 15)
   %84 = add nsw <32 x i8> %83, splat (i8 -8)
   %85 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %84, <32 x i8> %84)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06678.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %30, i64 %.06678.us
   %86 = load i16, ptr %75, align 2, !tbaa !467
   %87 = zext i16 %86 to i64
-  %88 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader76_crit_edge.us:                       ; preds = %46
-  %invariant.gep79.us = getelementptr float, ptr %34, i64 %38
+  %invariant.gep79.us = getelementptr [4 x i8], ptr %34, i64 %38
   br label %.preheader74.us
 
 ._crit_edge:                                      ; preds = %105, %44, %5
@@ -27358,12 +27353,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %93 = add nsw i64 %92, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
-  %gep = getelementptr float, ptr %invariant.gep, i64 %90
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %90
   br label %.preheader74
 
 .preheader74:                                     ; preds = %.preheader76, %.preheader74
   %.06281 = phi i64 [ 0, %.preheader76 ], [ %104, %.preheader74 ]
-  %94 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06281
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06281
   %95 = load <8 x float>, ptr %94, align 32, !tbaa !53
   %96 = shufflevector <8 x float> %95, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %97 = shufflevector <8 x float> %95, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -27375,7 +27370,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %101 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %102 = add nsw i64 %.06281, %93
   %103 = mul nsw i64 %36, %102
-  %gep80 = getelementptr float, ptr %gep, i64 %103
+  %gep80 = getelementptr [4 x i8], ptr %gep, i64 %103
   store float %101, ptr %gep80, align 4, !tbaa !93
   %104 = add nuw nsw i64 %.06281, 1
   %exitcond.not = icmp eq i64 %104, 3
@@ -27440,7 +27435,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %31, %40
-  %42 = getelementptr inbounds %struct.block_q8_0, ptr %29, i64 %41
+  %42 = getelementptr inbounds [34 x i8], ptr %29, i64 %41
   br label %.preheader76.us
 
 43:                                               ; preds = %..preheader77_crit_edge.us, %43
@@ -27456,7 +27451,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %50, %shift
   %51 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %52 = getelementptr float, ptr %89, i64 %.080.us
+  %52 = getelementptr [4 x i8], ptr %89, i64 %.080.us
   store float %51, ptr %52, align 4, !tbaa !93
   br i1 %44, label %43, label %.loopexit75.us, !llvm.loop !529
 
@@ -27466,7 +27461,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06478.us = phi i64 [ 0, %.preheader76.us ], [ 1, %53 ]
   %55 = add nsw i64 %.06478.us, %38
   %56 = mul nsw i64 %27, %55
-  %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %56
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %56
   %57 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load <2 x i64>, ptr %57, align 1, !tbaa !53
   %58 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -27483,7 +27478,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %69 = sitofp <8 x i32> %68 to <8 x float>
   %70 = load i16, ptr %gep.us, align 2, !tbaa !467
   %71 = zext i16 %70 to i64
-  %72 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !93
   %74 = fmul float %73, %86
   %75 = insertelement <8 x float> poison, float %74, i64 0
@@ -27507,20 +27502,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %.loopexit.us
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %79, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %25, i64 %.06679.us
-  %81 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06679.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %25, i64 %.06679.us
+  %81 = getelementptr inbounds nuw [34 x i8], ptr %42, i64 %.06679.us
   %82 = getelementptr i8, ptr %81, i64 2
   %.val7273.us = load <32 x i8>, ptr %82, align 1, !tbaa !53
   %83 = load i16, ptr %81, align 2, !tbaa !391
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !93
   br label %53
 
 ..preheader77_crit_edge.us:                       ; preds = %.loopexit.us
   %87 = mul nsw i64 %35, %40
-  %88 = getelementptr float, ptr %33, i64 %87
-  %89 = getelementptr float, ptr %88, i64 %38
+  %88 = getelementptr [4 x i8], ptr %33, i64 %87
+  %89 = getelementptr [4 x i8], ptr %88, i64 %38
   br label %43
 
 ._crit_edge:                                      ; preds = %.loopexit75, %.loopexit75.us, %5
@@ -27536,10 +27531,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %93 = mul nsw i64 %35, %92
-  %94 = getelementptr float, ptr %33, i64 %93
+  %94 = getelementptr [4 x i8], ptr %33, i64 %93
   %.idx = shl i64 %90, 3
   %95 = getelementptr i8, ptr %94, i64 %.idx
-  %96 = getelementptr float, ptr %95, i64 %1
+  %96 = getelementptr [4 x i8], ptr %95, i64 %1
   br label %98
 
 .loopexit75:                                      ; preds = %98
@@ -27562,7 +27557,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %shift92 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop93 = fadd <4 x float> %105, %shift92
   %106 = extractelement <4 x float> %foldExtExtBinop93, i64 0
-  %107 = getelementptr float, ptr %96, i64 %.080
+  %107 = getelementptr [4 x i8], ptr %96, i64 %.080
   store float %106, ptr %107, align 4, !tbaa !93
   br i1 %99, label %98, label %.loopexit75, !llvm.loop !529
 }
@@ -27608,7 +27603,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %24, label %.preheader75.lr.ph.us, label %.preheader76.preheader
 
 .preheader76.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %33, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %33, i64 %1
   br label %.preheader76
 
 .preheader75.lr.ph.us:                            ; preds = %.lr.ph, %43
@@ -27623,7 +27618,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %27, %37
-  %42 = getelementptr inbounds %struct.block_q4_0, ptr %25, i64 %41
+  %42 = getelementptr inbounds [18 x i8], ptr %25, i64 %41
   br label %.preheader75.us
 
 43:                                               ; preds = %.preheader74.us
@@ -27644,7 +27639,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.06577.us = phi i64 [ 0, %.preheader75.us ], [ 1, %.preheader.us ]
   %48 = add nsw i64 %.06577.us, %40
   %49 = mul nsw i64 %31, %48
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %49
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %49
   %50 = getelementptr i8, ptr %gep.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %50, align 1, !tbaa !53
   %51 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7273.us, <32 x i8> %81)
@@ -27652,7 +27647,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %53 = sitofp <8 x i32> %52 to <8 x float>
   %54 = load i16, ptr %gep.us, align 2, !tbaa !391
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !93
   %58 = fmul float %86, %57
   %59 = insertelement <8 x float> poison, float %58, i64 0
@@ -27677,13 +27672,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %69 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %70 = add nsw i64 %.06281.us, %40
   %71 = mul nsw i64 %35, %70
-  %gep80.us = getelementptr float, ptr %invariant.gep79.us, i64 %71
+  %gep80.us = getelementptr [4 x i8], ptr %invariant.gep79.us, i64 %71
   store float %69, ptr %gep80.us, align 4, !tbaa !93
   br i1 %62, label %.preheader74.us, label %43, !llvm.loop !536
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %45
   %.06678.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %46, %45 ]
-  %72 = getelementptr inbounds nuw %struct.block_q4_0, ptr %42, i64 %.06678.us
+  %72 = getelementptr inbounds nuw [18 x i8], ptr %42, i64 %.06678.us
   %73 = getelementptr i8, ptr %72, i64 2
   %.val.us = load <2 x i64>, ptr %73, align 1, !tbaa !53
   %74 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -27695,15 +27690,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %80 = and <32 x i8> %79, splat (i8 15)
   %81 = add nsw <32 x i8> %80, splat (i8 -8)
   %82 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %81, <32 x i8> %81)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %29, i64 %.06678.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %29, i64 %.06678.us
   %83 = load i16, ptr %72, align 2, !tbaa !467
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader76_crit_edge.us:                       ; preds = %45
-  %invariant.gep79.us = getelementptr float, ptr %33, i64 %37
+  %invariant.gep79.us = getelementptr [4 x i8], ptr %33, i64 %37
   br label %.preheader74.us
 
 ._crit_edge:                                      ; preds = %101, %43, %5
@@ -27719,7 +27714,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
-  %gep = getelementptr float, ptr %invariant.gep, i64 %87
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %87
   br label %.preheader74
 
 .preheader74:                                     ; preds = %.preheader76, %.preheader74
@@ -27737,7 +27732,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %98 = extractelement <4 x float> %foldExtExtBinop94, i64 0
   %99 = add nsw i64 %.06281, %90
   %100 = mul nsw i64 %35, %99
-  %gep80 = getelementptr float, ptr %gep, i64 %100
+  %gep80 = getelementptr [4 x i8], ptr %gep, i64 %100
   store float %98, ptr %gep80, align 4, !tbaa !93
   br i1 %91, label %.preheader74, label %101, !llvm.loop !536
 
@@ -27793,15 +27788,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %37 = srem i64 %.06783.us, %7
   %38 = add nsw i64 %37, %3
   %39 = mul nsw i64 %26, %36
-  %40 = getelementptr inbounds %struct.block_q4_0, ptr %24, i64 %39
+  %40 = getelementptr inbounds [18 x i8], ptr %24, i64 %39
   %41 = mul nsw i64 %30, %38
-  %42 = getelementptr inbounds %struct.block_q8_0, ptr %28, i64 %41
+  %42 = getelementptr inbounds [34 x i8], ptr %28, i64 %41
   br label %.preheader77.us
 
 .preheader77.us:                                  ; preds = %.preheader77.lr.ph.us, %.preheader77.us
   %.06682.us = phi i64 [ 0, %.preheader77.lr.ph.us ], [ %71, %.preheader77.us ]
   %.sroa.0.181.us = phi <8 x float> [ zeroinitializer, %.preheader77.lr.ph.us ], [ %70, %.preheader77.us ]
-  %43 = getelementptr inbounds nuw %struct.block_q4_0, ptr %40, i64 %.06682.us
+  %43 = getelementptr inbounds nuw [18 x i8], ptr %40, i64 %.06682.us
   %44 = getelementptr i8, ptr %43, i64 2
   %.val.us = load <2 x i64>, ptr %44, align 1, !tbaa !53
   %45 = bitcast <2 x i64> %.val.us to <4 x i32>
@@ -27813,7 +27808,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %51 = and <32 x i8> %50, splat (i8 15)
   %52 = add nsw <32 x i8> %51, splat (i8 -8)
   %53 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %52, <32 x i8> %52)
-  %54 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06682.us
+  %54 = getelementptr inbounds nuw [34 x i8], ptr %42, i64 %.06682.us
   %55 = getelementptr i8, ptr %54, i64 2
   %.val7274.us = load <32 x i8>, ptr %55, align 1, !tbaa !53
   %56 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7274.us, <32 x i8> %52)
@@ -27821,11 +27816,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %58 = sitofp <8 x i32> %57 to <8 x float>
   %59 = load i16, ptr %43, align 2, !tbaa !467
   %60 = zext i16 %59 to i64
-  %61 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !93
   %63 = load i16, ptr %54, align 2, !tbaa !391
   %64 = zext i16 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !93
   %67 = fmul float %62, %66
   %68 = insertelement <8 x float> poison, float %67, i64 0
@@ -27845,8 +27840,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %foldExtExtBinop = fadd <4 x float> %76, %shift
   %77 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %78 = mul nsw i64 %34, %38
-  %79 = getelementptr float, ptr %32, i64 %78
-  %80 = getelementptr float, ptr %79, i64 %36
+  %79 = getelementptr [4 x i8], ptr %32, i64 %78
+  %80 = getelementptr [4 x i8], ptr %79, i64 %36
   store float %77, ptr %80, align 4, !tbaa !93
   %81 = add nsw i64 %.06783.us, 1
   %exitcond86.not = icmp eq i64 %81, %spec.select
@@ -27861,9 +27856,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %83 = srem i64 %.06783, %7
   %84 = add nsw i64 %83, %3
   %85 = mul nsw i64 %34, %84
-  %86 = getelementptr float, ptr %32, i64 %85
-  %87 = getelementptr float, ptr %86, i64 %82
-  %88 = getelementptr float, ptr %87, i64 %1
+  %86 = getelementptr [4 x i8], ptr %32, i64 %85
+  %87 = getelementptr [4 x i8], ptr %86, i64 %82
+  %88 = getelementptr [4 x i8], ptr %87, i64 %1
   store float 0.000000e+00, ptr %88, align 4, !tbaa !93
   %89 = add nsw i64 %.06783, 1
   %exitcond.not = icmp eq i64 %89, %spec.select
@@ -28021,7 +28016,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader119.preheader
 
 .preheader119.preheader:                          ; preds = %.lr.ph127
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader119
 
 .lr.ph.us:                                        ; preds = %.lr.ph127, %55
@@ -28036,15 +28031,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q5_0, ptr %27, i64 %45
+  %46 = getelementptr [22 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q5_0, ptr %27, i64 %48
+  %49 = getelementptr [22 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q5_0, ptr %27, i64 %51
+  %52 = getelementptr [22 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q5_0, ptr %27, i64 %53
+  %54 = getelementptr [22 x i8], ptr %27, i64 %53
   br label %70
 
 55:                                               ; preds = %57
@@ -28060,7 +28055,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %183, i64 %.0122.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %183, i64 %.0122.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -28070,7 +28065,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %gep124.us, i64 %.0122.us
+  %68 = getelementptr [4 x i8], ptr %gep124.us, i64 %.0122.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
@@ -28078,13 +28073,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 70:                                               ; preds = %.lr.ph.us, %141
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %142, %141 ]
-  %71 = getelementptr %struct.block_q5_0, ptr %46, i64 %.0104121.us
+  %71 = getelementptr [22 x i8], ptr %46, i64 %.0104121.us
   %72 = load i16, ptr %71, align 2, !tbaa !542
-  %73 = getelementptr %struct.block_q5_0, ptr %49, i64 %.0104121.us
+  %73 = getelementptr [22 x i8], ptr %49, i64 %.0104121.us
   %74 = load i16, ptr %73, align 2, !tbaa !542
-  %75 = getelementptr %struct.block_q5_0, ptr %52, i64 %.0104121.us
+  %75 = getelementptr [22 x i8], ptr %52, i64 %.0104121.us
   %76 = load i16, ptr %75, align 2, !tbaa !542
-  %77 = getelementptr %struct.block_q5_0, ptr %54, i64 %.0104121.us
+  %77 = getelementptr [22 x i8], ptr %54, i64 %.0104121.us
   %78 = load i16, ptr %77, align 2, !tbaa !542
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -28148,7 +28143,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %124 = or <32 x i8> %123, <i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127>
   %.not153 = icmp eq <32 x i8> %124, splat (i8 -1)
   %.inner147 = select <32 x i1> %.not153, <32 x i8> zeroinitializer, <32 x i8> splat (i8 -16)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104121.us
   %125 = bitcast <4 x i64> %90 to <32 x i8>
   %126 = and <32 x i8> %125, splat (i8 15)
   %127 = or disjoint <32 x i8> %126, %.inner
@@ -28176,10 +28171,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0103120.us = phi i64 [ 0, %70 ], [ %182, %143 ]
   %144 = add nsw i64 %.0103120.us, %43
   %145 = mul nsw i64 %33, %144
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %145
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %145
   %146 = load i16, ptr %gep.us, align 2, !tbaa !391
   %147 = zext i16 %146 to i64
-  %148 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !93
   %150 = insertelement <4 x float> poison, float %149, i64 0
   %151 = shufflevector <4 x float> %150, <4 x float> poison, <4 x i32> zeroinitializer
@@ -28190,7 +28185,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %155 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114118.us, <32 x i8> %127)
   %156 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %128, <32 x i8> %155)
   %157 = sitofp <8 x i32> %156 to <8 x float>
-  %158 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103120.us
+  %158 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103120.us
   %159 = load <8 x float>, ptr %158, align 32, !tbaa !53
   %160 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %153, <8 x float> %157, <8 x float> %159)
   store <8 x float> %160, ptr %158, align 32, !tbaa !53
@@ -28224,14 +28219,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
-  %183 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125.us
+  %183 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125.us
   %184 = add nsw i64 %.0100125.us, %43
   %185 = mul nsw i64 %37, %184
-  %gep124.us = getelementptr float, ptr %invariant.gep123.us, i64 %185
+  %gep124.us = getelementptr [4 x i8], ptr %invariant.gep123.us, i64 %185
   br label %59
 
 ..preheader119_crit_edge.us:                      ; preds = %141
-  %invariant.gep123.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep123.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %193, %55, %5
@@ -28251,10 +28246,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader:                                       ; preds = %.preheader119, %195
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ %196, %195 ]
-  %190 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125
+  %190 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125
   %191 = add nsw i64 %.0100125, %189
   %192 = mul nsw i64 %37, %191
-  %gep124 = getelementptr float, ptr %gep, i64 %192
+  %gep124 = getelementptr [4 x i8], ptr %gep, i64 %192
   br label %197
 
 193:                                              ; preds = %195
@@ -28270,7 +28265,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 197:                                              ; preds = %.preheader, %197
   %.0122 = phi i64 [ 0, %.preheader ], [ %207, %197 ]
-  %198 = getelementptr inbounds nuw <8 x float>, ptr %190, i64 %.0122
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %190, i64 %.0122
   %199 = load <8 x float>, ptr %198, align 32, !tbaa !53
   %200 = shufflevector <8 x float> %199, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %201 = shufflevector <8 x float> %199, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -28280,7 +28275,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift148 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop149 = fadd <4 x float> %204, %shift148
   %205 = extractelement <4 x float> %foldExtExtBinop149, i64 0
-  %206 = getelementptr float, ptr %gep124, i64 %.0122
+  %206 = getelementptr [4 x i8], ptr %gep124, i64 %.0122
   store float %205, ptr %206, align 4, !tbaa !93
   %207 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %207, 4
@@ -28328,7 +28323,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader119.preheader
 
 .preheader119.preheader:                          ; preds = %.lr.ph127
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader119
 
 .lr.ph.us:                                        ; preds = %.lr.ph127, %55
@@ -28343,15 +28338,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q5_0, ptr %27, i64 %45
+  %46 = getelementptr [22 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q5_0, ptr %27, i64 %48
+  %49 = getelementptr [22 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q5_0, ptr %27, i64 %51
+  %52 = getelementptr [22 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q5_0, ptr %27, i64 %53
+  %54 = getelementptr [22 x i8], ptr %27, i64 %53
   br label %70
 
 55:                                               ; preds = %57
@@ -28367,7 +28362,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %183, i64 %.0122.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %183, i64 %.0122.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -28377,7 +28372,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %gep124.us, i64 %.0122.us
+  %68 = getelementptr [4 x i8], ptr %gep124.us, i64 %.0122.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
@@ -28385,13 +28380,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 70:                                               ; preds = %.lr.ph.us, %141
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %142, %141 ]
-  %71 = getelementptr %struct.block_q5_0, ptr %46, i64 %.0104121.us
+  %71 = getelementptr [22 x i8], ptr %46, i64 %.0104121.us
   %72 = load i16, ptr %71, align 2, !tbaa !542
-  %73 = getelementptr %struct.block_q5_0, ptr %49, i64 %.0104121.us
+  %73 = getelementptr [22 x i8], ptr %49, i64 %.0104121.us
   %74 = load i16, ptr %73, align 2, !tbaa !542
-  %75 = getelementptr %struct.block_q5_0, ptr %52, i64 %.0104121.us
+  %75 = getelementptr [22 x i8], ptr %52, i64 %.0104121.us
   %76 = load i16, ptr %75, align 2, !tbaa !542
-  %77 = getelementptr %struct.block_q5_0, ptr %54, i64 %.0104121.us
+  %77 = getelementptr [22 x i8], ptr %54, i64 %.0104121.us
   %78 = load i16, ptr %77, align 2, !tbaa !542
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -28455,7 +28450,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %124 = or <32 x i8> %123, <i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127>
   %.not153 = icmp eq <32 x i8> %124, splat (i8 -1)
   %.inner147 = select <32 x i1> %.not153, <32 x i8> zeroinitializer, <32 x i8> splat (i8 -16)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104121.us
   %125 = bitcast <4 x i64> %90 to <32 x i8>
   %126 = and <32 x i8> %125, splat (i8 15)
   %127 = or disjoint <32 x i8> %126, %.inner
@@ -28483,10 +28478,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0103120.us = phi i64 [ 0, %70 ], [ %182, %143 ]
   %144 = add nsw i64 %.0103120.us, %43
   %145 = mul nsw i64 %33, %144
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %145
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %145
   %146 = load i16, ptr %gep.us, align 2, !tbaa !391
   %147 = zext i16 %146 to i64
-  %148 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !93
   %150 = insertelement <4 x float> poison, float %149, i64 0
   %151 = shufflevector <4 x float> %150, <4 x float> poison, <4 x i32> zeroinitializer
@@ -28497,7 +28492,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %155 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114118.us, <32 x i8> %127)
   %156 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %128, <32 x i8> %155)
   %157 = sitofp <8 x i32> %156 to <8 x float>
-  %158 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103120.us
+  %158 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103120.us
   %159 = load <8 x float>, ptr %158, align 32, !tbaa !53
   %160 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %153, <8 x float> %157, <8 x float> %159)
   store <8 x float> %160, ptr %158, align 32, !tbaa !53
@@ -28531,14 +28526,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
-  %183 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125.us
+  %183 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125.us
   %184 = add nsw i64 %.0100125.us, %43
   %185 = mul nsw i64 %37, %184
-  %gep124.us = getelementptr float, ptr %invariant.gep123.us, i64 %185
+  %gep124.us = getelementptr [4 x i8], ptr %invariant.gep123.us, i64 %185
   br label %59
 
 ..preheader119_crit_edge.us:                      ; preds = %141
-  %invariant.gep123.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep123.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %193, %55, %5
@@ -28558,10 +28553,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader:                                       ; preds = %.preheader119, %195
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ %196, %195 ]
-  %190 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100125
+  %190 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100125
   %191 = add nsw i64 %.0100125, %189
   %192 = mul nsw i64 %37, %191
-  %gep124 = getelementptr float, ptr %gep, i64 %192
+  %gep124 = getelementptr [4 x i8], ptr %gep, i64 %192
   br label %197
 
 193:                                              ; preds = %195
@@ -28577,7 +28572,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 197:                                              ; preds = %.preheader, %197
   %.0122 = phi i64 [ 0, %.preheader ], [ %207, %197 ]
-  %198 = getelementptr inbounds nuw <8 x float>, ptr %190, i64 %.0122
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %190, i64 %.0122
   %199 = load <8 x float>, ptr %198, align 32, !tbaa !53
   %200 = shufflevector <8 x float> %199, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %201 = shufflevector <8 x float> %199, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -28587,7 +28582,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift148 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop149 = fadd <4 x float> %204, %shift148
   %205 = extractelement <4 x float> %foldExtExtBinop149, i64 0
-  %206 = getelementptr float, ptr %gep124, i64 %.0122
+  %206 = getelementptr [4 x i8], ptr %gep124, i64 %.0122
   store float %205, ptr %206, align 4, !tbaa !93
   %207 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %207, 4
@@ -28638,7 +28633,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader154.preheader
 
 .preheader154.preheader:                          ; preds = %.lr.ph162
-  %invariant.gep = getelementptr float, ptr %38, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %1
   br label %.preheader154
 
 .lr.ph.us:                                        ; preds = %.lr.ph162, %58
@@ -28653,15 +28648,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %28, i64 %48
+  %49 = getelementptr [34 x i8], ptr %28, i64 %48
   %50 = add nsw i64 %46, 2
   %51 = mul nsw i64 %30, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %28, i64 %51
+  %52 = getelementptr [34 x i8], ptr %28, i64 %51
   %53 = add nsw i64 %46, 1
   %54 = mul nsw i64 %30, %53
-  %55 = getelementptr %struct.block_q8_0, ptr %28, i64 %54
+  %55 = getelementptr [34 x i8], ptr %28, i64 %54
   %56 = mul nsw i64 %30, %46
-  %57 = getelementptr %struct.block_q8_0, ptr %28, i64 %56
+  %57 = getelementptr [34 x i8], ptr %28, i64 %56
   br label %73
 
 58:                                               ; preds = %60
@@ -28677,7 +28672,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 62:                                               ; preds = %.preheader.us, %62
   %.0157.us = phi i64 [ 0, %.preheader.us ], [ %72, %62 ]
-  %63 = getelementptr inbounds nuw <8 x float>, ptr %147, i64 %.0157.us
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %.0157.us
   %64 = load <8 x float>, ptr %63, align 32, !tbaa !53
   %65 = shufflevector <8 x float> %64, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %66 = shufflevector <8 x float> %64, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -28687,7 +28682,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %69, %shift
   %70 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %71 = getelementptr float, ptr %gep159.us, i64 %.0157.us
+  %71 = getelementptr [4 x i8], ptr %gep159.us, i64 %.0157.us
   store float %70, ptr %71, align 4, !tbaa !93
   %72 = add nuw nsw i64 %.0157.us, 1
   %exitcond168.not = icmp eq i64 %72, 3
@@ -28695,13 +28690,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120156.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
-  %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120156.us
+  %74 = getelementptr [34 x i8], ptr %49, i64 %.0120156.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120156.us
+  %76 = getelementptr [34 x i8], ptr %52, i64 %.0120156.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
-  %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120156.us
+  %78 = getelementptr [34 x i8], ptr %55, i64 %.0120156.us
   %79 = load i16, ptr %78, align 2, !tbaa !391
-  %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120156.us
+  %80 = getelementptr [34 x i8], ptr %57, i64 %.0120156.us
   %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
@@ -28717,7 +28712,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.val148152.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %74, i64 2
   %.val149153.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %31, i64 %.0120156.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %31, i64 %.0120156.us
   br label %94
 
 92:                                               ; preds = %94
@@ -28729,10 +28724,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0119155.us = phi i64 [ 0, %73 ], [ %146, %94 ]
   %95 = add nsw i64 %.0119155.us, %43
   %96 = mul nsw i64 %33, %95
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %96
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %96
   %97 = load i16, ptr %gep.us, align 2, !tbaa !542
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
   %101 = insertelement <4 x float> poison, float %100, i64 0
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
@@ -28759,7 +28754,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %119 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val146150.us, <32 x i8> %117)
   %120 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %118, <32 x i8> %119)
   %121 = sitofp <8 x i32> %120 to <8 x float>
-  %122 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0119155.us
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0119155.us
   %123 = load <8 x float>, ptr %122, align 32, !tbaa !53
   %124 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %104, <8 x float> %121, <8 x float> %123)
   store <8 x float> %124, ptr %122, align 32, !tbaa !53
@@ -28767,7 +28762,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %126 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val147151.us, <32 x i8> %117)
   %127 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %118, <32 x i8> %126)
   %128 = sitofp <8 x i32> %127 to <8 x float>
-  %129 = getelementptr inbounds nuw <8 x float>, ptr %34, i64 %.0119155.us
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.0119155.us
   %130 = load <8 x float>, ptr %129, align 32, !tbaa !53
   %131 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %125, <8 x float> %128, <8 x float> %130)
   store <8 x float> %131, ptr %129, align 32, !tbaa !53
@@ -28775,7 +28770,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %133 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val148152.us, <32 x i8> %117)
   %134 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %118, <32 x i8> %133)
   %135 = sitofp <8 x i32> %134 to <8 x float>
-  %136 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119155.us
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119155.us
   %137 = load <8 x float>, ptr %136, align 32, !tbaa !53
   %138 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %132, <8 x float> %135, <8 x float> %137)
   store <8 x float> %138, ptr %136, align 32, !tbaa !53
@@ -28783,7 +28778,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %140 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val149153.us, <32 x i8> %117)
   %141 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %118, <32 x i8> %140)
   %142 = sitofp <8 x i32> %141 to <8 x float>
-  %143 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119155.us
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119155.us
   %144 = load <8 x float>, ptr %143, align 32, !tbaa !53
   %145 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %139, <8 x float> %142, <8 x float> %144)
   store <8 x float> %145, ptr %143, align 32, !tbaa !53
@@ -28793,14 +28788,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %..preheader154_crit_edge.us, %60
   %.0116160.us = phi i64 [ 0, %..preheader154_crit_edge.us ], [ %61, %60 ]
-  %147 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116160.us
+  %147 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116160.us
   %148 = add nsw i64 %.0116160.us, %46
   %149 = mul nsw i64 %40, %148
-  %gep159.us = getelementptr float, ptr %invariant.gep158.us, i64 %149
+  %gep159.us = getelementptr [4 x i8], ptr %invariant.gep158.us, i64 %149
   br label %62
 
 ..preheader154_crit_edge.us:                      ; preds = %92
-  %invariant.gep158.us = getelementptr float, ptr %38, i64 %43
+  %invariant.gep158.us = getelementptr [4 x i8], ptr %38, i64 %43
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %157, %58, %5
@@ -28820,10 +28815,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader:                                       ; preds = %.preheader154, %159
   %.0116160 = phi i64 [ 0, %.preheader154 ], [ %160, %159 ]
-  %154 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116160
+  %154 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116160
   %155 = add nsw i64 %.0116160, %153
   %156 = mul nsw i64 %40, %155
-  %gep159 = getelementptr float, ptr %gep, i64 %156
+  %gep159 = getelementptr [4 x i8], ptr %gep, i64 %156
   br label %161
 
 157:                                              ; preds = %159
@@ -28839,7 +28834,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 161:                                              ; preds = %.preheader, %161
   %.0157 = phi i64 [ 0, %.preheader ], [ %171, %161 ]
-  %162 = getelementptr inbounds nuw <8 x float>, ptr %154, i64 %.0157
+  %162 = getelementptr inbounds nuw [32 x i8], ptr %154, i64 %.0157
   %163 = load <8 x float>, ptr %162, align 32, !tbaa !53
   %164 = shufflevector <8 x float> %163, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %165 = shufflevector <8 x float> %163, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -28849,7 +28844,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift180 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop181 = fadd <4 x float> %168, %shift180
   %169 = extractelement <4 x float> %foldExtExtBinop181, i64 0
-  %170 = getelementptr float, ptr %gep159, i64 %.0157
+  %170 = getelementptr [4 x i8], ptr %gep159, i64 %.0157
   store float %169, ptr %170, align 4, !tbaa !93
   %171 = add nuw nsw i64 %.0157, 1
   %exitcond.not = icmp eq i64 %171, 3
@@ -28897,7 +28892,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.preheader78.lr.ph.us, label %.preheader79.preheader
 
 .preheader79.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader79
 
 .preheader78.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -28925,7 +28920,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 48:                                               ; preds = %.preheader77.us, %48
   %.085.us = phi i64 [ 0, %.preheader77.us ], [ %58, %48 ]
-  %49 = getelementptr inbounds nuw <8 x float>, ptr %102, i64 %.085.us
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %.085.us
   %50 = load <8 x float>, ptr %49, align 32, !tbaa !53
   %51 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %52 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -28935,7 +28930,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %55, %shift
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %57 = getelementptr float, ptr %gep87.us, i64 %.085.us
+  %57 = getelementptr [4 x i8], ptr %gep87.us, i64 %.085.us
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.085.us, 1
   %exitcond96.not = icmp eq i64 %58, 3
@@ -28955,7 +28950,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06480.us = phi i64 [ 0, %.preheader.us ], [ %93, %63 ]
   %64 = add nsw i64 %.06480.us, %40
   %65 = mul nsw i64 %29, %64
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %65
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %65
   %66 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load i32, ptr %66, align 1
   %67 = getelementptr i8, ptr %gep.us, i64 6
@@ -28979,12 +28974,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %82 = sitofp <8 x i32> %81 to <8 x float>
   %83 = load i16, ptr %gep.us, align 2, !tbaa !542
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !93
   %87 = fmul float %86, %100
   %88 = insertelement <8 x float> poison, float %87, i64 0
   %89 = shufflevector <8 x float> %88, <8 x float> poison, <8 x i32> zeroinitializer
-  %90 = getelementptr inbounds nuw <8 x float>, ptr %101, i64 %.06480.us
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %101, i64 %.06480.us
   %91 = load <8 x float>, ptr %90, align 32, !tbaa !53
   %92 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %89, <8 x float> %82, <8 x float> %91)
   store <8 x float> %92, ptr %90, align 32, !tbaa !53
@@ -28996,32 +28991,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ %62, %61 ]
   %94 = add nsw i64 %.06583.us, %43
   %95 = mul nsw i64 %33, %94
-  %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %95
+  %gep82.us = getelementptr [34 x i8], ptr %invariant.gep81.us, i64 %95
   %96 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %96, align 1, !tbaa !53
   %97 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
-  %101 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06583.us
+  %101 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06583.us
   br label %63
 
 .preheader77.us:                                  ; preds = %..preheader79_crit_edge.us, %46
   %.06288.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ %47, %46 ]
-  %102 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06288.us
+  %102 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06288.us
   %103 = add nsw i64 %.06288.us, %43
   %104 = mul nsw i64 %37, %103
-  %gep87.us = getelementptr float, ptr %invariant.gep86.us, i64 %104
+  %gep87.us = getelementptr [4 x i8], ptr %invariant.gep86.us, i64 %104
   br label %48
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %59
   %.06684.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %27, i64 %.06684.us
-  %invariant.gep81.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06684.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %27, i64 %.06684.us
+  %invariant.gep81.us = getelementptr [34 x i8], ptr %31, i64 %.06684.us
   br label %.preheader.us
 
 ..preheader79_crit_edge.us:                       ; preds = %59
-  %invariant.gep86.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep86.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader77.us
 
 ._crit_edge:                                      ; preds = %112, %44, %5
@@ -29041,10 +29036,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader77:                                     ; preds = %.preheader79, %114
   %.06288 = phi i64 [ 0, %.preheader79 ], [ %115, %114 ]
-  %109 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06288
+  %109 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06288
   %110 = add nsw i64 %.06288, %108
   %111 = mul nsw i64 %37, %110
-  %gep87 = getelementptr float, ptr %gep, i64 %111
+  %gep87 = getelementptr [4 x i8], ptr %gep, i64 %111
   br label %116
 
 112:                                              ; preds = %114
@@ -29060,7 +29055,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 116:                                              ; preds = %.preheader77, %116
   %.085 = phi i64 [ 0, %.preheader77 ], [ %126, %116 ]
-  %117 = getelementptr inbounds nuw <8 x float>, ptr %109, i64 %.085
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %109, i64 %.085
   %118 = load <8 x float>, ptr %117, align 32, !tbaa !53
   %119 = shufflevector <8 x float> %118, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %120 = shufflevector <8 x float> %118, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29070,7 +29065,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift109 = shufflevector <4 x float> %123, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop110 = fadd <4 x float> %123, %shift109
   %124 = extractelement <4 x float> %foldExtExtBinop110, i64 0
-  %125 = getelementptr float, ptr %gep87, i64 %.085
+  %125 = getelementptr [4 x i8], ptr %gep87, i64 %.085
   store float %124, ptr %125, align 4, !tbaa !93
   %126 = add nuw nsw i64 %.085, 1
   %exitcond.not = icmp eq i64 %126, 3
@@ -29121,7 +29116,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader119.preheader
 
 .preheader119.preheader:                          ; preds = %.lr.ph127
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader119
 
 .lr.ph.us:                                        ; preds = %.lr.ph127, %55
@@ -29136,15 +29131,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
-  %46 = getelementptr %struct.block_q5_0, ptr %27, i64 %45
+  %46 = getelementptr [22 x i8], ptr %27, i64 %45
   %47 = add nsw i64 %40, 2
   %48 = mul nsw i64 %29, %47
-  %49 = getelementptr %struct.block_q5_0, ptr %27, i64 %48
+  %49 = getelementptr [22 x i8], ptr %27, i64 %48
   %50 = add nsw i64 %40, 1
   %51 = mul nsw i64 %29, %50
-  %52 = getelementptr %struct.block_q5_0, ptr %27, i64 %51
+  %52 = getelementptr [22 x i8], ptr %27, i64 %51
   %53 = mul nsw i64 %29, %40
-  %54 = getelementptr %struct.block_q5_0, ptr %27, i64 %53
+  %54 = getelementptr [22 x i8], ptr %27, i64 %53
   br label %69
 
 55:                                               ; preds = %57
@@ -29158,7 +29153,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 58:                                               ; preds = %.preheader.us, %58
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %68, %58 ]
-  %59 = getelementptr inbounds nuw <8 x float>, ptr %.0100125.us.sroa.phi, i64 %.0122.us
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %.0100125.us.sroa.phi, i64 %.0122.us
   %60 = load <8 x float>, ptr %59, align 32, !tbaa !53
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %62 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29168,7 +29163,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %65, %shift
   %66 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %67 = getelementptr float, ptr %gep124.us, i64 %.0122.us
+  %67 = getelementptr [4 x i8], ptr %gep124.us, i64 %.0122.us
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0122.us, 1
   %exitcond131.not = icmp eq i64 %68, 4
@@ -29176,13 +29171,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 69:                                               ; preds = %.lr.ph.us, %140
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %141, %140 ]
-  %70 = getelementptr %struct.block_q5_0, ptr %46, i64 %.0104121.us
+  %70 = getelementptr [22 x i8], ptr %46, i64 %.0104121.us
   %71 = load i16, ptr %70, align 2, !tbaa !542
-  %72 = getelementptr %struct.block_q5_0, ptr %49, i64 %.0104121.us
+  %72 = getelementptr [22 x i8], ptr %49, i64 %.0104121.us
   %73 = load i16, ptr %72, align 2, !tbaa !542
-  %74 = getelementptr %struct.block_q5_0, ptr %52, i64 %.0104121.us
+  %74 = getelementptr [22 x i8], ptr %52, i64 %.0104121.us
   %75 = load i16, ptr %74, align 2, !tbaa !542
-  %76 = getelementptr %struct.block_q5_0, ptr %54, i64 %.0104121.us
+  %76 = getelementptr [22 x i8], ptr %54, i64 %.0104121.us
   %77 = load i16, ptr %76, align 2, !tbaa !542
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
@@ -29246,7 +29241,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %123 = or <32 x i8> %122, <i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127>
   %.not148 = icmp eq <32 x i8> %123, splat (i8 -1)
   %.inner142 = select <32 x i1> %.not148, <32 x i8> zeroinitializer, <32 x i8> splat (i8 -16)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.0104121.us
   %124 = bitcast <4 x i64> %89 to <32 x i8>
   %125 = and <32 x i8> %124, splat (i8 15)
   %126 = or disjoint <32 x i8> %125, %.inner
@@ -29276,10 +29271,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0103120.us = phi i64 [ 0, %69 ], [ 1, %142 ]
   %144 = add nsw i64 %.0103120.us, %43
   %145 = mul nsw i64 %33, %144
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %145
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %145
   %146 = load i16, ptr %gep.us, align 2, !tbaa !391
   %147 = zext i16 %146 to i64
-  %148 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !93
   %150 = insertelement <4 x float> poison, float %149, i64 0
   %151 = shufflevector <4 x float> %150, <4 x float> poison, <4 x i32> zeroinitializer
@@ -29325,11 +29320,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ 1, %57 ]
   %182 = add nsw i64 %.0100125.us, %43
   %183 = mul nsw i64 %37, %182
-  %gep124.us = getelementptr float, ptr %invariant.gep123.us, i64 %183
+  %gep124.us = getelementptr [4 x i8], ptr %invariant.gep123.us, i64 %183
   br label %58
 
 ..preheader119_crit_edge.us:                      ; preds = %140
-  %invariant.gep123.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep123.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %191, %55, %5
@@ -29353,7 +29348,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ 1, %193 ]
   %189 = add nsw i64 %.0100125, %187
   %190 = mul nsw i64 %37, %189
-  %gep124 = getelementptr float, ptr %gep, i64 %190
+  %gep124 = getelementptr [4 x i8], ptr %gep, i64 %190
   br label %194
 
 191:                                              ; preds = %193
@@ -29367,7 +29362,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 194:                                              ; preds = %.preheader, %194
   %.0122 = phi i64 [ 0, %.preheader ], [ %204, %194 ]
-  %195 = getelementptr inbounds nuw <8 x float>, ptr %.0100125.sroa.phi, i64 %.0122
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %.0100125.sroa.phi, i64 %.0122
   %196 = load <8 x float>, ptr %195, align 32, !tbaa !53
   %197 = shufflevector <8 x float> %196, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %198 = shufflevector <8 x float> %196, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29377,7 +29372,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift143 = shufflevector <4 x float> %201, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop144 = fadd <4 x float> %201, %shift143
   %202 = extractelement <4 x float> %foldExtExtBinop144, i64 0
-  %203 = getelementptr float, ptr %gep124, i64 %.0122
+  %203 = getelementptr [4 x i8], ptr %gep124, i64 %.0122
   store float %202, ptr %203, align 4, !tbaa !93
   %204 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %204, 4
@@ -29429,7 +29424,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.lr.ph.us, label %.preheader154.preheader
 
 .preheader154.preheader:                          ; preds = %.lr.ph162
-  %invariant.gep = getelementptr float, ptr %38, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %1
   br label %.preheader154
 
 .lr.ph.us:                                        ; preds = %.lr.ph162, %58
@@ -29444,15 +29439,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
-  %49 = getelementptr %struct.block_q8_0, ptr %28, i64 %48
+  %49 = getelementptr [34 x i8], ptr %28, i64 %48
   %50 = add nsw i64 %46, 2
   %51 = mul nsw i64 %30, %50
-  %52 = getelementptr %struct.block_q8_0, ptr %28, i64 %51
+  %52 = getelementptr [34 x i8], ptr %28, i64 %51
   %53 = add nsw i64 %46, 1
   %54 = mul nsw i64 %30, %53
-  %55 = getelementptr %struct.block_q8_0, ptr %28, i64 %54
+  %55 = getelementptr [34 x i8], ptr %28, i64 %54
   %56 = mul nsw i64 %30, %46
-  %57 = getelementptr %struct.block_q8_0, ptr %28, i64 %56
+  %57 = getelementptr [34 x i8], ptr %28, i64 %56
   br label %73
 
 58:                                               ; preds = %60
@@ -29469,7 +29464,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 62:                                               ; preds = %.preheader.us, %62
   %63 = phi i1 [ true, %.preheader.us ], [ false, %62 ]
   %.0157.us = phi i64 [ 0, %.preheader.us ], [ 1, %62 ]
-  %64 = getelementptr inbounds nuw <8 x float>, ptr %146, i64 %.0157.us
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %146, i64 %.0157.us
   %65 = load <8 x float>, ptr %64, align 32, !tbaa !53
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %67 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29479,19 +29474,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %70, %shift
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %72 = getelementptr float, ptr %gep159.us, i64 %.0157.us
+  %72 = getelementptr [4 x i8], ptr %gep159.us, i64 %.0157.us
   store float %71, ptr %72, align 4, !tbaa !93
   br i1 %63, label %62, label %60, !llvm.loop !569
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120156.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
-  %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120156.us
+  %74 = getelementptr [34 x i8], ptr %49, i64 %.0120156.us
   %75 = load i16, ptr %74, align 2, !tbaa !391
-  %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120156.us
+  %76 = getelementptr [34 x i8], ptr %52, i64 %.0120156.us
   %77 = load i16, ptr %76, align 2, !tbaa !391
-  %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120156.us
+  %78 = getelementptr [34 x i8], ptr %55, i64 %.0120156.us
   %79 = load i16, ptr %78, align 2, !tbaa !391
-  %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120156.us
+  %80 = getelementptr [34 x i8], ptr %57, i64 %.0120156.us
   %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
@@ -29507,7 +29502,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.val148152.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %74, i64 2
   %.val149153.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %31, i64 %.0120156.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %31, i64 %.0120156.us
   br label %94
 
 92:                                               ; preds = %94
@@ -29521,10 +29516,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0119155.us = phi i64 [ 0, %73 ], [ 1, %94 ]
   %96 = add nsw i64 %.0119155.us, %43
   %97 = mul nsw i64 %33, %96
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %97
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %97
   %98 = load i16, ptr %gep.us, align 2, !tbaa !542
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
   %102 = insertelement <4 x float> poison, float %101, i64 0
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
@@ -29558,7 +29553,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %126 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val147151.us, <32 x i8> %118)
   %127 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %119, <32 x i8> %126)
   %128 = sitofp <8 x i32> %127 to <8 x float>
-  %129 = getelementptr inbounds nuw <8 x float>, ptr %34, i64 %.0119155.us
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.0119155.us
   %130 = load <8 x float>, ptr %129, align 32, !tbaa !53
   %131 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %125, <8 x float> %128, <8 x float> %130)
   store <8 x float> %131, ptr %129, align 32, !tbaa !53
@@ -29566,7 +29561,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %133 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val148152.us, <32 x i8> %118)
   %134 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %119, <32 x i8> %133)
   %135 = sitofp <8 x i32> %134 to <8 x float>
-  %136 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119155.us
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119155.us
   %137 = load <8 x float>, ptr %136, align 32, !tbaa !53
   %138 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %132, <8 x float> %135, <8 x float> %137)
   store <8 x float> %138, ptr %136, align 32, !tbaa !53
@@ -29574,7 +29569,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %140 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val149153.us, <32 x i8> %118)
   %141 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %119, <32 x i8> %140)
   %142 = sitofp <8 x i32> %141 to <8 x float>
-  %143 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119155.us
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119155.us
   %144 = load <8 x float>, ptr %143, align 32, !tbaa !53
   %145 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %139, <8 x float> %142, <8 x float> %144)
   store <8 x float> %145, ptr %143, align 32, !tbaa !53
@@ -29582,14 +29577,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %..preheader154_crit_edge.us, %60
   %.0116160.us = phi i64 [ 0, %..preheader154_crit_edge.us ], [ %61, %60 ]
-  %146 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116160.us
+  %146 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116160.us
   %147 = add nsw i64 %.0116160.us, %46
   %148 = mul nsw i64 %40, %147
-  %gep159.us = getelementptr float, ptr %invariant.gep158.us, i64 %148
+  %gep159.us = getelementptr [4 x i8], ptr %invariant.gep158.us, i64 %148
   br label %62
 
 ..preheader154_crit_edge.us:                      ; preds = %92
-  %invariant.gep158.us = getelementptr float, ptr %38, i64 %43
+  %invariant.gep158.us = getelementptr [4 x i8], ptr %38, i64 %43
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %156, %58, %5
@@ -29609,10 +29604,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader:                                       ; preds = %.preheader154, %158
   %.0116160 = phi i64 [ 0, %.preheader154 ], [ %159, %158 ]
-  %153 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116160
+  %153 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116160
   %154 = add nsw i64 %.0116160, %152
   %155 = mul nsw i64 %40, %154
-  %gep159 = getelementptr float, ptr %gep, i64 %155
+  %gep159 = getelementptr [4 x i8], ptr %gep, i64 %155
   br label %160
 
 156:                                              ; preds = %158
@@ -29629,7 +29624,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 160:                                              ; preds = %.preheader, %160
   %161 = phi i1 [ true, %.preheader ], [ false, %160 ]
   %.0157 = phi i64 [ 0, %.preheader ], [ 1, %160 ]
-  %162 = getelementptr inbounds nuw <8 x float>, ptr %153, i64 %.0157
+  %162 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %.0157
   %163 = load <8 x float>, ptr %162, align 32, !tbaa !53
   %164 = shufflevector <8 x float> %163, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %165 = shufflevector <8 x float> %163, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29639,7 +29634,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift177 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop178 = fadd <4 x float> %168, %shift177
   %169 = extractelement <4 x float> %foldExtExtBinop178, i64 0
-  %170 = getelementptr float, ptr %gep159, i64 %.0157
+  %170 = getelementptr [4 x i8], ptr %gep159, i64 %.0157
   store float %169, ptr %170, align 4, !tbaa !93
   br i1 %161, label %160, label %158, !llvm.loop !569
 }
@@ -29688,7 +29683,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.preheader78.lr.ph.us, label %.preheader79.preheader
 
 .preheader79.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader79
 
 .preheader78.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -29714,7 +29709,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 47:                                               ; preds = %.preheader77.us, %47
   %.085.us = phi i64 [ 0, %.preheader77.us ], [ %57, %47 ]
-  %48 = getelementptr inbounds nuw <8 x float>, ptr %.06288.us.sroa.phi, i64 %.085.us
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %.06288.us.sroa.phi, i64 %.085.us
   %49 = load <8 x float>, ptr %48, align 32, !tbaa !53
   %50 = shufflevector <8 x float> %49, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %51 = shufflevector <8 x float> %49, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29724,7 +29719,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %54, %shift
   %55 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %56 = getelementptr float, ptr %gep87.us, i64 %.085.us
+  %56 = getelementptr [4 x i8], ptr %gep87.us, i64 %.085.us
   store float %55, ptr %56, align 4, !tbaa !93
   %57 = add nuw nsw i64 %.085.us, 1
   %exitcond94.not = icmp eq i64 %57, 3
@@ -29742,7 +29737,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06480.us = phi i64 [ 0, %.preheader.us ], [ %91, %61 ]
   %62 = add nsw i64 %.06480.us, %40
   %63 = mul nsw i64 %29, %62
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %63
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %63
   %64 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load i32, ptr %64, align 1
   %65 = getelementptr i8, ptr %gep.us, i64 6
@@ -29766,12 +29761,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %80 = sitofp <8 x i32> %79 to <8 x float>
   %81 = load i16, ptr %gep.us, align 2, !tbaa !542
   %82 = zext i16 %81 to i64
-  %83 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !93
   %85 = fmul float %84, %99
   %86 = insertelement <8 x float> poison, float %85, i64 0
   %87 = shufflevector <8 x float> %86, <8 x float> poison, <8 x i32> zeroinitializer
-  %88 = getelementptr inbounds nuw <8 x float>, ptr %.06583.us.sroa.phi, i64 %.06480.us
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %.06583.us.sroa.phi, i64 %.06480.us
   %89 = load <8 x float>, ptr %88, align 32, !tbaa !53
   %90 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %87, <8 x float> %80, <8 x float> %89)
   store <8 x float> %90, ptr %88, align 32, !tbaa !53
@@ -29785,12 +29780,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ 1, %60 ]
   %93 = add nsw i64 %.06583.us, %43
   %94 = mul nsw i64 %33, %93
-  %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %94
+  %gep82.us = getelementptr [34 x i8], ptr %invariant.gep81.us, i64 %94
   %95 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %95, align 1, !tbaa !53
   %96 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !93
   br label %61
 
@@ -29800,17 +29795,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06288.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ 1, %46 ]
   %101 = add nsw i64 %.06288.us, %43
   %102 = mul nsw i64 %37, %101
-  %gep87.us = getelementptr float, ptr %invariant.gep86.us, i64 %102
+  %gep87.us = getelementptr [4 x i8], ptr %invariant.gep86.us, i64 %102
   br label %47
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %58
   %.06684.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %59, %58 ]
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %27, i64 %.06684.us
-  %invariant.gep81.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06684.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %27, i64 %.06684.us
+  %invariant.gep81.us = getelementptr [34 x i8], ptr %31, i64 %.06684.us
   br label %.preheader.us
 
 ..preheader79_crit_edge.us:                       ; preds = %58
-  %invariant.gep86.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep86.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader77.us
 
 ._crit_edge:                                      ; preds = %110, %44, %5
@@ -29834,7 +29829,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06288 = phi i64 [ 0, %.preheader79 ], [ 1, %112 ]
   %108 = add nsw i64 %.06288, %106
   %109 = mul nsw i64 %37, %108
-  %gep87 = getelementptr float, ptr %gep, i64 %109
+  %gep87 = getelementptr [4 x i8], ptr %gep, i64 %109
   br label %113
 
 110:                                              ; preds = %112
@@ -29848,7 +29843,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 113:                                              ; preds = %.preheader77, %113
   %.085 = phi i64 [ 0, %.preheader77 ], [ %123, %113 ]
-  %114 = getelementptr inbounds nuw <8 x float>, ptr %.06288.sroa.phi, i64 %.085
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %.06288.sroa.phi, i64 %.085
   %115 = load <8 x float>, ptr %114, align 32, !tbaa !53
   %116 = shufflevector <8 x float> %115, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %117 = shufflevector <8 x float> %115, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29858,7 +29853,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift103 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop104 = fadd <4 x float> %120, %shift103
   %121 = extractelement <4 x float> %foldExtExtBinop104, i64 0
-  %122 = getelementptr float, ptr %gep87, i64 %.085
+  %122 = getelementptr [4 x i8], ptr %gep87, i64 %.085
   store float %121, ptr %122, align 4, !tbaa !93
   %123 = add nuw nsw i64 %.085, 1
   %exitcond.not = icmp eq i64 %123, 3
@@ -29906,7 +29901,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.preheader78.lr.ph.us, label %.preheader79.preheader
 
 .preheader79.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader79
 
 .preheader78.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -29935,7 +29930,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 48:                                               ; preds = %.preheader77.us, %48
   %49 = phi i1 [ true, %.preheader77.us ], [ false, %48 ]
   %.085.us = phi i64 [ 0, %.preheader77.us ], [ 1, %48 ]
-  %50 = getelementptr inbounds nuw <8 x float>, ptr %102, i64 %.085.us
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %.085.us
   %51 = load <8 x float>, ptr %50, align 32, !tbaa !53
   %52 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %53 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -29945,7 +29940,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %56, %shift
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %58 = getelementptr float, ptr %gep87.us, i64 %.085.us
+  %58 = getelementptr [4 x i8], ptr %gep87.us, i64 %.085.us
   store float %57, ptr %58, align 4, !tbaa !93
   br i1 %49, label %48, label %46, !llvm.loop !580
 
@@ -29964,7 +29959,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06480.us = phi i64 [ 0, %.preheader.us ], [ 1, %63 ]
   %65 = add nsw i64 %.06480.us, %40
   %66 = mul nsw i64 %29, %65
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %66
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %66
   %67 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load i32, ptr %67, align 1
   %68 = getelementptr i8, ptr %gep.us, i64 6
@@ -29988,12 +29983,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %83 = sitofp <8 x i32> %82 to <8 x float>
   %84 = load i16, ptr %gep.us, align 2, !tbaa !542
   %85 = zext i16 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !93
   %88 = fmul float %87, %100
   %89 = insertelement <8 x float> poison, float %88, i64 0
   %90 = shufflevector <8 x float> %89, <8 x float> poison, <8 x i32> zeroinitializer
-  %91 = getelementptr inbounds nuw <8 x float>, ptr %101, i64 %.06480.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %101, i64 %.06480.us
   %92 = load <8 x float>, ptr %91, align 32, !tbaa !53
   %93 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %90, <8 x float> %83, <8 x float> %92)
   store <8 x float> %93, ptr %91, align 32, !tbaa !53
@@ -30003,32 +29998,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ %62, %61 ]
   %94 = add nsw i64 %.06583.us, %43
   %95 = mul nsw i64 %33, %94
-  %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %95
+  %gep82.us = getelementptr [34 x i8], ptr %invariant.gep81.us, i64 %95
   %96 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %96, align 1, !tbaa !53
   %97 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
-  %101 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06583.us
+  %101 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06583.us
   br label %63
 
 .preheader77.us:                                  ; preds = %..preheader79_crit_edge.us, %46
   %.06288.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ %47, %46 ]
-  %102 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06288.us
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06288.us
   %103 = add nsw i64 %.06288.us, %43
   %104 = mul nsw i64 %37, %103
-  %gep87.us = getelementptr float, ptr %invariant.gep86.us, i64 %104
+  %gep87.us = getelementptr [4 x i8], ptr %invariant.gep86.us, i64 %104
   br label %48
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %59
   %.06684.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %27, i64 %.06684.us
-  %invariant.gep81.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06684.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %27, i64 %.06684.us
+  %invariant.gep81.us = getelementptr [34 x i8], ptr %31, i64 %.06684.us
   br label %.preheader.us
 
 ..preheader79_crit_edge.us:                       ; preds = %59
-  %invariant.gep86.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep86.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader77.us
 
 ._crit_edge:                                      ; preds = %112, %44, %5
@@ -30048,10 +30043,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader77:                                     ; preds = %.preheader79, %114
   %.06288 = phi i64 [ 0, %.preheader79 ], [ %115, %114 ]
-  %109 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06288
+  %109 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06288
   %110 = add nsw i64 %.06288, %108
   %111 = mul nsw i64 %37, %110
-  %gep87 = getelementptr float, ptr %gep, i64 %111
+  %gep87 = getelementptr [4 x i8], ptr %gep, i64 %111
   br label %116
 
 112:                                              ; preds = %114
@@ -30068,7 +30063,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 116:                                              ; preds = %.preheader77, %116
   %117 = phi i1 [ true, %.preheader77 ], [ false, %116 ]
   %.085 = phi i64 [ 0, %.preheader77 ], [ 1, %116 ]
-  %118 = getelementptr inbounds nuw <8 x float>, ptr %109, i64 %.085
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %109, i64 %.085
   %119 = load <8 x float>, ptr %118, align 32, !tbaa !53
   %120 = shufflevector <8 x float> %119, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %121 = shufflevector <8 x float> %119, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30078,7 +30073,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift106 = shufflevector <4 x float> %124, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop107 = fadd <4 x float> %124, %shift106
   %125 = extractelement <4 x float> %foldExtExtBinop107, i64 0
-  %126 = getelementptr float, ptr %gep87, i64 %.085
+  %126 = getelementptr [4 x i8], ptr %gep87, i64 %.085
   store float %125, ptr %126, align 4, !tbaa !93
   br i1 %117, label %116, label %114, !llvm.loop !580
 }
@@ -30135,22 +30130,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %42, 3
   %46 = mul nsw i64 %28, %45
-  %47 = getelementptr %struct.block_q5_0, ptr %26, i64 %46
+  %47 = getelementptr [22 x i8], ptr %26, i64 %46
   %48 = add nsw i64 %42, 2
   %49 = mul nsw i64 %28, %48
-  %50 = getelementptr %struct.block_q5_0, ptr %26, i64 %49
+  %50 = getelementptr [22 x i8], ptr %26, i64 %49
   %51 = add nsw i64 %42, 1
   %52 = mul nsw i64 %28, %51
-  %53 = getelementptr %struct.block_q5_0, ptr %26, i64 %52
+  %53 = getelementptr [22 x i8], ptr %26, i64 %52
   %54 = mul nsw i64 %28, %42
-  %55 = getelementptr %struct.block_q5_0, ptr %26, i64 %54
+  %55 = getelementptr [22 x i8], ptr %26, i64 %54
   %56 = mul nsw i64 %32, %44
-  %57 = getelementptr %struct.block_q8_0, ptr %30, i64 %56
+  %57 = getelementptr [34 x i8], ptr %30, i64 %56
   br label %69
 
 58:                                               ; preds = %..preheader119_crit_edge.us, %58
   %.0135.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %68, %58 ]
-  %59 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0135.us
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0135.us
   %60 = load <8 x float>, ptr %59, align 32, !tbaa !53
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %62 = shufflevector <8 x float> %60, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30160,7 +30155,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %65, %shift
   %66 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %67 = getelementptr float, ptr %173, i64 %.0135.us
+  %67 = getelementptr [4 x i8], ptr %173, i64 %.0135.us
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0135.us, 1
   %exitcond144.not = icmp eq i64 %68, 4
@@ -30172,13 +30167,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.lcssa121130.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %166, %69 ]
   %.0104129.us = phi i64 [ 0, %.lr.ph.us ], [ %169, %69 ]
   %.lcssa127128.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %165, %69 ]
-  %70 = getelementptr %struct.block_q5_0, ptr %47, i64 %.0104129.us
+  %70 = getelementptr [22 x i8], ptr %47, i64 %.0104129.us
   %71 = load i16, ptr %70, align 2, !tbaa !542
-  %72 = getelementptr %struct.block_q5_0, ptr %50, i64 %.0104129.us
+  %72 = getelementptr [22 x i8], ptr %50, i64 %.0104129.us
   %73 = load i16, ptr %72, align 2, !tbaa !542
-  %74 = getelementptr %struct.block_q5_0, ptr %53, i64 %.0104129.us
+  %74 = getelementptr [22 x i8], ptr %53, i64 %.0104129.us
   %75 = load i16, ptr %74, align 2, !tbaa !542
-  %76 = getelementptr %struct.block_q5_0, ptr %55, i64 %.0104129.us
+  %76 = getelementptr [22 x i8], ptr %55, i64 %.0104129.us
   %77 = load i16, ptr %76, align 2, !tbaa !542
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
@@ -30242,10 +30237,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %123 = or <32 x i8> %122, <i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127, i8 -2, i8 -3, i8 -5, i8 -9, i8 -17, i8 -33, i8 -65, i8 127>
   %.not166 = icmp eq <32 x i8> %123, splat (i8 -1)
   %.inner160 = select <32 x i1> %.not166, <32 x i8> zeroinitializer, <32 x i8> splat (i8 -16)
-  %124 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0104129.us
+  %124 = getelementptr [34 x i8], ptr %57, i64 %.0104129.us
   %125 = load i16, ptr %124, align 2, !tbaa !391
   %126 = zext i16 %125 to i64
-  %127 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %126
   %128 = load float, ptr %127, align 4, !tbaa !93
   %129 = insertelement <4 x float> poison, float %128, i64 0
   %130 = shufflevector <4 x float> %129, <4 x float> poison, <4 x i32> zeroinitializer
@@ -30304,8 +30299,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %168, ptr %35, align 32, !tbaa !53
   store <8 x float> %165, ptr %6, align 32
   %171 = mul nsw i64 %39, %44
-  %172 = getelementptr float, ptr %37, i64 %171
-  %173 = getelementptr float, ptr %172, i64 %42
+  %172 = getelementptr [4 x i8], ptr %37, i64 %171
+  %173 = getelementptr [4 x i8], ptr %172, i64 %42
   br label %58
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %5
@@ -30318,10 +30313,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %176 = add nsw i64 %175, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %177 = mul nsw i64 %39, %176
-  %178 = getelementptr float, ptr %37, i64 %177
+  %178 = getelementptr [4 x i8], ptr %37, i64 %177
   %.idx = shl i64 %174, 4
   %179 = getelementptr i8, ptr %178, i64 %.idx
-  %180 = getelementptr float, ptr %179, i64 %1
+  %180 = getelementptr [4 x i8], ptr %179, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %182
 
@@ -30333,7 +30328,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 182:                                              ; preds = %.preheader119, %182
   %.0135 = phi i64 [ 0, %.preheader119 ], [ %192, %182 ]
-  %183 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0135
+  %183 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0135
   %184 = load <8 x float>, ptr %183, align 32, !tbaa !53
   %185 = shufflevector <8 x float> %184, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %186 = shufflevector <8 x float> %184, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30343,7 +30338,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift161 = shufflevector <4 x float> %189, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop162 = fadd <4 x float> %189, %shift161
   %190 = extractelement <4 x float> %foldExtExtBinop162, i64 0
-  %191 = getelementptr float, ptr %180, i64 %.0135
+  %191 = getelementptr [4 x i8], ptr %180, i64 %.0135
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.0135, 1
   %exitcond.not = icmp eq i64 %192, 4
@@ -30394,7 +30389,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %26, label %.preheader78.lr.ph.us, label %.preheader79.preheader
 
 .preheader79.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader79
 
 .preheader78.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -30421,7 +30416,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 47:                                               ; preds = %.preheader77.us, %47
   %48 = phi i1 [ true, %.preheader77.us ], [ false, %47 ]
   %.085.us = phi i64 [ 0, %.preheader77.us ], [ 1, %47 ]
-  %49 = getelementptr inbounds nuw <8 x float>, ptr %.06288.us.sroa.phi, i64 %.085.us
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.06288.us.sroa.phi, i64 %.085.us
   %50 = load <8 x float>, ptr %49, align 32, !tbaa !53
   %51 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %52 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30431,7 +30426,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %55, %shift
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %57 = getelementptr float, ptr %gep87.us, i64 %.085.us
+  %57 = getelementptr [4 x i8], ptr %gep87.us, i64 %.085.us
   store float %56, ptr %57, align 4, !tbaa !93
   br i1 %48, label %47, label %46, !llvm.loop !589
 
@@ -30448,7 +30443,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06480.us = phi i64 [ 0, %.preheader.us ], [ 1, %61 ]
   %63 = add nsw i64 %.06480.us, %40
   %64 = mul nsw i64 %29, %63
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %64
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %64
   %65 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load i32, ptr %65, align 1
   %66 = getelementptr i8, ptr %gep.us, i64 6
@@ -30472,12 +30467,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %81 = sitofp <8 x i32> %80 to <8 x float>
   %82 = load i16, ptr %gep.us, align 2, !tbaa !542
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !93
   %86 = fmul float %85, %99
   %87 = insertelement <8 x float> poison, float %86, i64 0
   %88 = shufflevector <8 x float> %87, <8 x float> poison, <8 x i32> zeroinitializer
-  %89 = getelementptr inbounds nuw <8 x float>, ptr %.06583.us.sroa.phi, i64 %.06480.us
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %.06583.us.sroa.phi, i64 %.06480.us
   %90 = load <8 x float>, ptr %89, align 32, !tbaa !53
   %91 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %88, <8 x float> %81, <8 x float> %90)
   store <8 x float> %91, ptr %89, align 32, !tbaa !53
@@ -30489,12 +30484,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ 1, %60 ]
   %93 = add nsw i64 %.06583.us, %43
   %94 = mul nsw i64 %33, %93
-  %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %94
+  %gep82.us = getelementptr [34 x i8], ptr %invariant.gep81.us, i64 %94
   %95 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %95, align 1, !tbaa !53
   %96 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !93
   br label %61
 
@@ -30504,17 +30499,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06288.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ 1, %46 ]
   %101 = add nsw i64 %.06288.us, %43
   %102 = mul nsw i64 %37, %101
-  %gep87.us = getelementptr float, ptr %invariant.gep86.us, i64 %102
+  %gep87.us = getelementptr [4 x i8], ptr %invariant.gep86.us, i64 %102
   br label %47
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %58
   %.06684.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %59, %58 ]
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %27, i64 %.06684.us
-  %invariant.gep81.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06684.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %27, i64 %.06684.us
+  %invariant.gep81.us = getelementptr [34 x i8], ptr %31, i64 %.06684.us
   br label %.preheader.us
 
 ..preheader79_crit_edge.us:                       ; preds = %58
-  %invariant.gep86.us = getelementptr float, ptr %35, i64 %40
+  %invariant.gep86.us = getelementptr [4 x i8], ptr %35, i64 %40
   br label %.preheader77.us
 
 ._crit_edge:                                      ; preds = %110, %44, %5
@@ -30538,7 +30533,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06288 = phi i64 [ 0, %.preheader79 ], [ 1, %112 ]
   %108 = add nsw i64 %.06288, %106
   %109 = mul nsw i64 %37, %108
-  %gep87 = getelementptr float, ptr %gep, i64 %109
+  %gep87 = getelementptr [4 x i8], ptr %gep, i64 %109
   br label %113
 
 110:                                              ; preds = %112
@@ -30553,7 +30548,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 113:                                              ; preds = %.preheader77, %113
   %114 = phi i1 [ true, %.preheader77 ], [ false, %113 ]
   %.085 = phi i64 [ 0, %.preheader77 ], [ 1, %113 ]
-  %115 = getelementptr inbounds nuw <8 x float>, ptr %.06288.sroa.phi, i64 %.085
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %.06288.sroa.phi, i64 %.085
   %116 = load <8 x float>, ptr %115, align 32, !tbaa !53
   %117 = shufflevector <8 x float> %116, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %118 = shufflevector <8 x float> %116, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30563,7 +30558,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift100 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop101 = fadd <4 x float> %121, %shift100
   %122 = extractelement <4 x float> %foldExtExtBinop101, i64 0
-  %123 = getelementptr float, ptr %gep87, i64 %.085
+  %123 = getelementptr [4 x i8], ptr %gep87, i64 %.085
   store float %122, ptr %123, align 4, !tbaa !93
   br i1 %114, label %113, label %112, !llvm.loop !589
 }
@@ -30611,7 +30606,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %25, label %.lr.ph.us, label %.preheader154.preheader
 
 .preheader154.preheader:                          ; preds = %.lr.ph172
-  %invariant.gep188 = getelementptr float, ptr %37, i64 %1
+  %invariant.gep188 = getelementptr [4 x i8], ptr %37, i64 %1
   br label %.preheader154
 
 .lr.ph.us:                                        ; preds = %.lr.ph172, %58
@@ -30624,17 +30619,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %44, 3
   %46 = mul nsw i64 %29, %45
-  %47 = getelementptr %struct.block_q8_0, ptr %27, i64 %46
+  %47 = getelementptr [34 x i8], ptr %27, i64 %46
   %48 = add nsw i64 %44, 2
   %49 = mul nsw i64 %29, %48
-  %50 = getelementptr %struct.block_q8_0, ptr %27, i64 %49
+  %50 = getelementptr [34 x i8], ptr %27, i64 %49
   %51 = add nsw i64 %44, 1
   %52 = mul nsw i64 %29, %51
-  %53 = getelementptr %struct.block_q8_0, ptr %27, i64 %52
+  %53 = getelementptr [34 x i8], ptr %27, i64 %52
   %54 = mul nsw i64 %29, %44
-  %55 = getelementptr %struct.block_q8_0, ptr %27, i64 %54
+  %55 = getelementptr [34 x i8], ptr %27, i64 %54
   %56 = mul nsw i64 %32, %41
-  %57 = getelementptr %struct.block_q5_0, ptr %30, i64 %56
+  %57 = getelementptr [22 x i8], ptr %30, i64 %56
   br label %60
 
 58:                                               ; preds = %.preheader.us
@@ -30649,13 +30644,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.lcssa156165.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %118, %60 ]
   %.0120164.us = phi i64 [ 0, %.lr.ph.us ], [ %121, %60 ]
   %.lcssa162163.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %117, %60 ]
-  %61 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0120164.us
+  %61 = getelementptr [34 x i8], ptr %47, i64 %.0120164.us
   %62 = load i16, ptr %61, align 2, !tbaa !391
-  %63 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120164.us
+  %63 = getelementptr [34 x i8], ptr %50, i64 %.0120164.us
   %64 = load i16, ptr %63, align 2, !tbaa !391
-  %65 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120164.us
+  %65 = getelementptr [34 x i8], ptr %53, i64 %.0120164.us
   %66 = load i16, ptr %65, align 2, !tbaa !391
-  %67 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120164.us
+  %67 = getelementptr [34 x i8], ptr %55, i64 %.0120164.us
   %68 = load i16, ptr %67, align 2, !tbaa !391
   %69 = insertelement <4 x i16> poison, i16 %68, i64 0
   %70 = insertelement <4 x i16> %69, i16 %66, i64 1
@@ -30671,10 +30666,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.val148152.us = load <32 x i8>, ptr %77, align 2, !tbaa !53
   %78 = getelementptr i8, ptr %61, i64 2
   %.val149153.us = load <32 x i8>, ptr %78, align 2, !tbaa !53
-  %79 = getelementptr %struct.block_q5_0, ptr %57, i64 %.0120164.us
+  %79 = getelementptr [22 x i8], ptr %57, i64 %.0120164.us
   %80 = load i16, ptr %79, align 2, !tbaa !542
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
   %84 = insertelement <4 x float> poison, float %83, i64 0
   %85 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> zeroinitializer
@@ -30723,7 +30718,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %..preheader154_crit_edge.us, %.preheader.us
   %.0116170.us = phi i64 [ 0, %..preheader154_crit_edge.us ], [ %132, %.preheader.us ]
-  %122 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116170.us
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116170.us
   %123 = load <8 x float>, ptr %122, align 32, !tbaa !53
   %124 = shufflevector <8 x float> %123, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %125 = shufflevector <8 x float> %123, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30735,7 +30730,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %129 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %130 = add nsw i64 %.0116170.us, %44
   %131 = mul nsw i64 %39, %130
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %131
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %131
   store float %129, ptr %gep.us, align 4, !tbaa !93
   %132 = add nuw nsw i64 %.0116170.us, 1
   %exitcond179.not = icmp eq i64 %132, 4
@@ -30746,7 +30741,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %119, ptr %34, align 32, !tbaa !53
   store <8 x float> %120, ptr %35, align 32, !tbaa !53
   store <8 x float> %117, ptr %6, align 32
-  %invariant.gep.us = getelementptr float, ptr %37, i64 %41
+  %invariant.gep.us = getelementptr [4 x i8], ptr %37, i64 %41
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %148, %58, %5
@@ -30759,13 +30754,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %135 = shl nsw i64 %134, 2
   %136 = add nsw i64 %135, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep189 = getelementptr float, ptr %invariant.gep188, i64 %133
+  %gep189 = getelementptr [4 x i8], ptr %invariant.gep188, i64 %133
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader154, %.preheader
   %.0116170 = phi i64 [ 0, %.preheader154 ], [ %147, %.preheader ]
-  %137 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116170
+  %137 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116170
   %138 = load <8 x float>, ptr %137, align 32, !tbaa !53
   %139 = shufflevector <8 x float> %138, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %140 = shufflevector <8 x float> %138, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30777,7 +30772,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %144 = extractelement <4 x float> %foldExtExtBinop196, i64 0
   %145 = add nsw i64 %.0116170, %136
   %146 = mul nsw i64 %39, %145
-  %gep = getelementptr float, ptr %gep189, i64 %146
+  %gep = getelementptr [4 x i8], ptr %gep189, i64 %146
   store float %144, ptr %gep, align 4, !tbaa !93
   %147 = add nuw nsw i64 %.0116170, 1
   %exitcond.not = icmp eq i64 %147, 4
@@ -30839,12 +30834,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %32, %41
-  %43 = getelementptr inbounds %struct.block_q8_0, ptr %30, i64 %42
+  %43 = getelementptr inbounds [34 x i8], ptr %30, i64 %42
   br label %.preheader79.us
 
 44:                                               ; preds = %..preheader80_crit_edge.us, %44
   %.083.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ %54, %44 ]
-  %45 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.083.us
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.083.us
   %46 = load <8 x float>, ptr %45, align 32, !tbaa !53
   %47 = shufflevector <8 x float> %46, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %48 = shufflevector <8 x float> %46, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30854,7 +30849,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %51, %shift
   %52 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %53 = getelementptr float, ptr %96, i64 %.083.us
+  %53 = getelementptr [4 x i8], ptr %96, i64 %.083.us
   store float %52, ptr %53, align 4, !tbaa !93
   %54 = add nuw nsw i64 %.083.us, 1
   %exitcond89.not = icmp eq i64 %54, 3
@@ -30864,7 +30859,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06481.us = phi i64 [ 0, %.preheader79.us ], [ %85, %55 ]
   %56 = add nsw i64 %.06481.us, %39
   %57 = mul nsw i64 %28, %56
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %57
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %57
   %58 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load i32, ptr %58, align 1
   %59 = getelementptr i8, ptr %gep.us, i64 6
@@ -30888,12 +30883,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %74 = sitofp <8 x i32> %73 to <8 x float>
   %75 = load i16, ptr %gep.us, align 2, !tbaa !542
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !93
   %79 = fmul float %78, %93
   %80 = insertelement <8 x float> poison, float %79, i64 0
   %81 = shufflevector <8 x float> %80, <8 x float> poison, <8 x i32> zeroinitializer
-  %82 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.06481.us
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06481.us
   %83 = load <8 x float>, ptr %82, align 32, !tbaa !53
   %84 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %81, <8 x float> %74, <8 x float> %83)
   store <8 x float> %84, ptr %82, align 32, !tbaa !53
@@ -30914,20 +30909,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %.loopexit.us
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %86, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %26, i64 %.06682.us
-  %88 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06682.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %26, i64 %.06682.us
+  %88 = getelementptr inbounds nuw [34 x i8], ptr %43, i64 %.06682.us
   %89 = getelementptr i8, ptr %88, i64 2
   %.val7576.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
   %90 = load i16, ptr %88, align 2, !tbaa !391
   %91 = zext i16 %90 to i64
-  %92 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !93
   br label %55
 
 ..preheader80_crit_edge.us:                       ; preds = %.loopexit.us
   %94 = mul nsw i64 %36, %41
-  %95 = getelementptr float, ptr %34, i64 %94
-  %96 = getelementptr float, ptr %95, i64 %39
+  %95 = getelementptr [4 x i8], ptr %34, i64 %94
+  %96 = getelementptr [4 x i8], ptr %95, i64 %39
   br label %44
 
 ._crit_edge:                                      ; preds = %.loopexit78, %.loopexit78.us, %5
@@ -30941,10 +30936,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %100 = mul nsw i64 %36, %99
-  %101 = getelementptr float, ptr %34, i64 %100
+  %101 = getelementptr [4 x i8], ptr %34, i64 %100
   %.idx = mul i64 %97, 12
   %102 = getelementptr i8, ptr %101, i64 %.idx
-  %103 = getelementptr float, ptr %102, i64 %1
+  %103 = getelementptr [4 x i8], ptr %102, i64 %1
   br label %105
 
 .loopexit78:                                      ; preds = %105
@@ -30955,7 +30950,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 105:                                              ; preds = %.preheader80, %105
   %.083 = phi i64 [ 0, %.preheader80 ], [ %115, %105 ]
-  %106 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.083
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.083
   %107 = load <8 x float>, ptr %106, align 32, !tbaa !53
   %108 = shufflevector <8 x float> %107, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %109 = shufflevector <8 x float> %107, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -30965,7 +30960,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift98 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop99 = fadd <4 x float> %112, %shift98
   %113 = extractelement <4 x float> %foldExtExtBinop99, i64 0
-  %114 = getelementptr float, ptr %103, i64 %.083
+  %114 = getelementptr [4 x i8], ptr %103, i64 %.083
   store float %113, ptr %114, align 4, !tbaa !93
   %115 = add nuw nsw i64 %.083, 1
   %exitcond.not = icmp eq i64 %115, 3
@@ -31012,7 +31007,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %25, label %.preheader78.lr.ph.us, label %.preheader79.preheader
 
 .preheader79.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %34, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %34, i64 %1
   br label %.preheader79
 
 .preheader78.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -31025,7 +31020,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %28, %38
-  %43 = getelementptr inbounds %struct.block_q5_0, ptr %26, i64 %42
+  %43 = getelementptr inbounds [22 x i8], ptr %26, i64 %42
   br label %.preheader78.us
 
 44:                                               ; preds = %.preheader77.us
@@ -31043,7 +31038,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06580.us = phi i64 [ 0, %.preheader78.us ], [ %63, %.preheader.us ]
   %48 = add nsw i64 %.06580.us, %41
   %49 = mul nsw i64 %32, %48
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %49
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %49
   %50 = getelementptr i8, ptr %gep.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %50, align 1, !tbaa !53
   %51 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7576.us, <32 x i8> %88)
@@ -31051,12 +31046,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %53 = sitofp <8 x i32> %52 to <8 x float>
   %54 = load i16, ptr %gep.us, align 2, !tbaa !391
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !93
   %58 = fmul float %93, %57
   %59 = insertelement <8 x float> poison, float %58, i64 0
   %60 = shufflevector <8 x float> %59, <8 x float> poison, <8 x i32> zeroinitializer
-  %61 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06580.us
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06580.us
   %.promoted.us = load <8 x float>, ptr %61, align 32, !tbaa !53
   %62 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %60, <8 x float> %53, <8 x float> %.promoted.us)
   store <8 x float> %62, ptr %61, align 32, !tbaa !53
@@ -31066,7 +31061,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader77.us:                                  ; preds = %..preheader79_crit_edge.us, %.preheader77.us
   %.06284.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ %74, %.preheader77.us ]
-  %64 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06284.us
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06284.us
   %65 = load <8 x float>, ptr %64, align 32, !tbaa !53
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %67 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -31078,7 +31073,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %72 = add nsw i64 %.06284.us, %41
   %73 = mul nsw i64 %36, %72
-  %gep83.us = getelementptr float, ptr %invariant.gep82.us, i64 %73
+  %gep83.us = getelementptr [4 x i8], ptr %invariant.gep82.us, i64 %73
   store float %71, ptr %gep83.us, align 4, !tbaa !93
   %74 = add nuw nsw i64 %.06284.us, 1
   %exitcond90.not = icmp eq i64 %74, 3
@@ -31086,7 +31081,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %46
   %.06681.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %47, %46 ]
-  %75 = getelementptr inbounds nuw %struct.block_q5_0, ptr %43, i64 %.06681.us
+  %75 = getelementptr inbounds nuw [22 x i8], ptr %43, i64 %.06681.us
   %76 = getelementptr i8, ptr %75, i64 2
   %.val.us = load i32, ptr %76, align 1
   %77 = getelementptr i8, ptr %75, i64 6
@@ -31105,15 +31100,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %87 = and <32 x i8> %86, splat (i8 15)
   %88 = or disjoint <32 x i8> %87, %.inner
   %89 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %88, <32 x i8> %88)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06681.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %30, i64 %.06681.us
   %90 = load i16, ptr %75, align 2, !tbaa !542
   %91 = zext i16 %90 to i64
-  %92 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader79_crit_edge.us:                       ; preds = %46
-  %invariant.gep82.us = getelementptr float, ptr %34, i64 %38
+  %invariant.gep82.us = getelementptr [4 x i8], ptr %34, i64 %38
   br label %.preheader77.us
 
 ._crit_edge:                                      ; preds = %109, %44, %5
@@ -31127,12 +31122,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %97 = add nsw i64 %96, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
-  %gep = getelementptr float, ptr %invariant.gep, i64 %94
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %94
   br label %.preheader77
 
 .preheader77:                                     ; preds = %.preheader79, %.preheader77
   %.06284 = phi i64 [ 0, %.preheader79 ], [ %108, %.preheader77 ]
-  %98 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06284
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06284
   %99 = load <8 x float>, ptr %98, align 32, !tbaa !53
   %100 = shufflevector <8 x float> %99, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %101 = shufflevector <8 x float> %99, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -31144,7 +31139,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %105 = extractelement <4 x float> %foldExtExtBinop100, i64 0
   %106 = add nsw i64 %.06284, %97
   %107 = mul nsw i64 %36, %106
-  %gep83 = getelementptr float, ptr %gep, i64 %107
+  %gep83 = getelementptr [4 x i8], ptr %gep, i64 %107
   store float %105, ptr %gep83, align 4, !tbaa !93
   %108 = add nuw nsw i64 %.06284, 1
   %exitcond.not = icmp eq i64 %108, 3
@@ -31209,7 +31204,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %31, %40
-  %42 = getelementptr inbounds %struct.block_q8_0, ptr %29, i64 %41
+  %42 = getelementptr inbounds [34 x i8], ptr %29, i64 %41
   br label %.preheader79.us
 
 43:                                               ; preds = %..preheader80_crit_edge.us, %43
@@ -31225,7 +31220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %50, %shift
   %51 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %52 = getelementptr float, ptr %93, i64 %.083.us
+  %52 = getelementptr [4 x i8], ptr %93, i64 %.083.us
   store float %51, ptr %52, align 4, !tbaa !93
   br i1 %44, label %43, label %.loopexit78.us, !llvm.loop !604
 
@@ -31235,7 +31230,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06481.us = phi i64 [ 0, %.preheader79.us ], [ 1, %53 ]
   %55 = add nsw i64 %.06481.us, %38
   %56 = mul nsw i64 %27, %55
-  %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %56
+  %gep.us = getelementptr [22 x i8], ptr %invariant.gep.us, i64 %56
   %57 = getelementptr i8, ptr %gep.us, i64 2
   %.val.us = load i32, ptr %57, align 1
   %58 = getelementptr i8, ptr %gep.us, i64 6
@@ -31259,7 +31254,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %73 = sitofp <8 x i32> %72 to <8 x float>
   %74 = load i16, ptr %gep.us, align 2, !tbaa !542
   %75 = zext i16 %74 to i64
-  %76 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !93
   %78 = fmul float %77, %90
   %79 = insertelement <8 x float> poison, float %78, i64 0
@@ -31283,20 +31278,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %.loopexit.us
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %83, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %25, i64 %.06682.us
-  %85 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06682.us
+  %invariant.gep.us = getelementptr [22 x i8], ptr %25, i64 %.06682.us
+  %85 = getelementptr inbounds nuw [34 x i8], ptr %42, i64 %.06682.us
   %86 = getelementptr i8, ptr %85, i64 2
   %.val7576.us = load <32 x i8>, ptr %86, align 1, !tbaa !53
   %87 = load i16, ptr %85, align 2, !tbaa !391
   %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !93
   br label %53
 
 ..preheader80_crit_edge.us:                       ; preds = %.loopexit.us
   %91 = mul nsw i64 %35, %40
-  %92 = getelementptr float, ptr %33, i64 %91
-  %93 = getelementptr float, ptr %92, i64 %38
+  %92 = getelementptr [4 x i8], ptr %33, i64 %91
+  %93 = getelementptr [4 x i8], ptr %92, i64 %38
   br label %43
 
 ._crit_edge:                                      ; preds = %.loopexit78, %.loopexit78.us, %5
@@ -31312,10 +31307,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %97 = mul nsw i64 %35, %96
-  %98 = getelementptr float, ptr %33, i64 %97
+  %98 = getelementptr [4 x i8], ptr %33, i64 %97
   %.idx = shl i64 %94, 3
   %99 = getelementptr i8, ptr %98, i64 %.idx
-  %100 = getelementptr float, ptr %99, i64 %1
+  %100 = getelementptr [4 x i8], ptr %99, i64 %1
   br label %102
 
 .loopexit78:                                      ; preds = %102
@@ -31338,7 +31333,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %shift95 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop96 = fadd <4 x float> %109, %shift95
   %110 = extractelement <4 x float> %foldExtExtBinop96, i64 0
-  %111 = getelementptr float, ptr %100, i64 %.083
+  %111 = getelementptr [4 x i8], ptr %100, i64 %.083
   store float %110, ptr %111, align 4, !tbaa !93
   br i1 %103, label %102, label %.loopexit78, !llvm.loop !604
 }
@@ -31384,7 +31379,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %24, label %.preheader78.lr.ph.us, label %.preheader79.preheader
 
 .preheader79.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %33, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %33, i64 %1
   br label %.preheader79
 
 .preheader78.lr.ph.us:                            ; preds = %.lr.ph, %43
@@ -31399,7 +31394,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %27, %37
-  %42 = getelementptr inbounds %struct.block_q5_0, ptr %25, i64 %41
+  %42 = getelementptr inbounds [22 x i8], ptr %25, i64 %41
   br label %.preheader78.us
 
 43:                                               ; preds = %.preheader77.us
@@ -31420,7 +31415,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.06580.us = phi i64 [ 0, %.preheader78.us ], [ 1, %.preheader.us ]
   %48 = add nsw i64 %.06580.us, %40
   %49 = mul nsw i64 %31, %48
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %49
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %49
   %50 = getelementptr i8, ptr %gep.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %50, align 1, !tbaa !53
   %51 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7576.us, <32 x i8> %85)
@@ -31428,7 +31423,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %53 = sitofp <8 x i32> %52 to <8 x float>
   %54 = load i16, ptr %gep.us, align 2, !tbaa !391
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !93
   %58 = fmul float %90, %57
   %59 = insertelement <8 x float> poison, float %58, i64 0
@@ -31453,13 +31448,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %69 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %70 = add nsw i64 %.06284.us, %40
   %71 = mul nsw i64 %35, %70
-  %gep83.us = getelementptr float, ptr %invariant.gep82.us, i64 %71
+  %gep83.us = getelementptr [4 x i8], ptr %invariant.gep82.us, i64 %71
   store float %69, ptr %gep83.us, align 4, !tbaa !93
   br i1 %62, label %.preheader77.us, label %43, !llvm.loop !611
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %45
   %.06681.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %46, %45 ]
-  %72 = getelementptr inbounds nuw %struct.block_q5_0, ptr %42, i64 %.06681.us
+  %72 = getelementptr inbounds nuw [22 x i8], ptr %42, i64 %.06681.us
   %73 = getelementptr i8, ptr %72, i64 2
   %.val.us = load i32, ptr %73, align 1
   %74 = getelementptr i8, ptr %72, i64 6
@@ -31478,15 +31473,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %84 = and <32 x i8> %83, splat (i8 15)
   %85 = or disjoint <32 x i8> %84, %.inner
   %86 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %85, <32 x i8> %85)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %29, i64 %.06681.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %29, i64 %.06681.us
   %87 = load i16, ptr %72, align 2, !tbaa !542
   %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader79_crit_edge.us:                       ; preds = %45
-  %invariant.gep82.us = getelementptr float, ptr %33, i64 %37
+  %invariant.gep82.us = getelementptr [4 x i8], ptr %33, i64 %37
   br label %.preheader77.us
 
 ._crit_edge:                                      ; preds = %105, %43, %5
@@ -31502,7 +31497,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
-  %gep = getelementptr float, ptr %invariant.gep, i64 %91
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %91
   br label %.preheader77
 
 .preheader77:                                     ; preds = %.preheader79, %.preheader77
@@ -31520,7 +31515,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %102 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %103 = add nsw i64 %.06284, %94
   %104 = mul nsw i64 %35, %103
-  %gep83 = getelementptr float, ptr %gep, i64 %104
+  %gep83 = getelementptr [4 x i8], ptr %gep, i64 %104
   store float %102, ptr %gep83, align 4, !tbaa !93
   br i1 %95, label %.preheader77, label %105, !llvm.loop !611
 
@@ -31576,15 +31571,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %37 = srem i64 %.06786.us, %7
   %38 = add nsw i64 %37, %3
   %39 = mul nsw i64 %26, %36
-  %40 = getelementptr inbounds %struct.block_q5_0, ptr %24, i64 %39
+  %40 = getelementptr inbounds [22 x i8], ptr %24, i64 %39
   %41 = mul nsw i64 %30, %38
-  %42 = getelementptr inbounds %struct.block_q8_0, ptr %28, i64 %41
+  %42 = getelementptr inbounds [34 x i8], ptr %28, i64 %41
   br label %.preheader80.us
 
 .preheader80.us:                                  ; preds = %.preheader80.lr.ph.us, %.preheader80.us
   %.06685.us = phi i64 [ 0, %.preheader80.lr.ph.us ], [ %75, %.preheader80.us ]
   %.sroa.0.184.us = phi <8 x float> [ zeroinitializer, %.preheader80.lr.ph.us ], [ %74, %.preheader80.us ]
-  %43 = getelementptr inbounds nuw %struct.block_q5_0, ptr %40, i64 %.06685.us
+  %43 = getelementptr inbounds nuw [22 x i8], ptr %40, i64 %.06685.us
   %44 = getelementptr i8, ptr %43, i64 2
   %.val.us = load i32, ptr %44, align 1
   %45 = getelementptr i8, ptr %43, i64 6
@@ -31603,7 +31598,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %55 = and <32 x i8> %54, splat (i8 15)
   %56 = or disjoint <32 x i8> %55, %.inner
   %57 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %56, <32 x i8> %56)
-  %58 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06685.us
+  %58 = getelementptr inbounds nuw [34 x i8], ptr %42, i64 %.06685.us
   %59 = getelementptr i8, ptr %58, i64 2
   %.val7577.us = load <32 x i8>, ptr %59, align 1, !tbaa !53
   %60 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7577.us, <32 x i8> %56)
@@ -31611,11 +31606,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %62 = sitofp <8 x i32> %61 to <8 x float>
   %63 = load i16, ptr %43, align 2, !tbaa !542
   %64 = zext i16 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !93
   %67 = load i16, ptr %58, align 2, !tbaa !391
   %68 = zext i16 %67 to i64
-  %69 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !93
   %71 = fmul float %66, %70
   %72 = insertelement <8 x float> poison, float %71, i64 0
@@ -31635,8 +31630,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %foldExtExtBinop = fadd <4 x float> %80, %shift
   %81 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %82 = mul nsw i64 %34, %38
-  %83 = getelementptr float, ptr %32, i64 %82
-  %84 = getelementptr float, ptr %83, i64 %36
+  %83 = getelementptr [4 x i8], ptr %32, i64 %82
+  %84 = getelementptr [4 x i8], ptr %83, i64 %36
   store float %81, ptr %84, align 4, !tbaa !93
   %85 = add nsw i64 %.06786.us, 1
   %exitcond89.not = icmp eq i64 %85, %spec.select
@@ -31651,9 +31646,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %87 = srem i64 %.06786, %7
   %88 = add nsw i64 %87, %3
   %89 = mul nsw i64 %34, %88
-  %90 = getelementptr float, ptr %32, i64 %89
-  %91 = getelementptr float, ptr %90, i64 %86
-  %92 = getelementptr float, ptr %91, i64 %1
+  %90 = getelementptr [4 x i8], ptr %32, i64 %89
+  %91 = getelementptr [4 x i8], ptr %90, i64 %86
+  %92 = getelementptr [4 x i8], ptr %91, i64 %1
   store float 0.000000e+00, ptr %92, align 4, !tbaa !93
   %93 = add nsw i64 %.06786, 1
   %exitcond.not = icmp eq i64 %93, %spec.select
@@ -31812,7 +31807,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.lr.ph.us, label %.preheader120.preheader
 
 .preheader120.preheader:                          ; preds = %.lr.ph128
-  %invariant.gep = getelementptr float, ptr %36, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %1
   br label %.preheader120
 
 .lr.ph.us:                                        ; preds = %.lr.ph128, %56
@@ -31827,15 +31822,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %45 = add nsw i64 %41, 3
   %46 = mul nsw i64 %29, %45
-  %47 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %46
+  %47 = getelementptr [18 x i8], ptr %27, i64 %46
   %48 = add nsw i64 %41, 2
   %49 = mul nsw i64 %29, %48
-  %50 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %49
+  %50 = getelementptr [18 x i8], ptr %27, i64 %49
   %51 = add nsw i64 %41, 1
   %52 = mul nsw i64 %29, %51
-  %53 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %52
+  %53 = getelementptr [18 x i8], ptr %27, i64 %52
   %54 = mul nsw i64 %29, %41
-  %55 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %54
+  %55 = getelementptr [18 x i8], ptr %27, i64 %54
   %.val118.us = load <16 x i8>, ptr %30, align 16, !tbaa !53
   br label %71
 
@@ -31852,7 +31847,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 60:                                               ; preds = %.preheader.us, %60
   %.0123.us = phi i64 [ 0, %.preheader.us ], [ %70, %60 ]
-  %61 = getelementptr inbounds nuw <8 x float>, ptr %172, i64 %.0123.us
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %172, i64 %.0123.us
   %62 = load <8 x float>, ptr %61, align 32, !tbaa !53
   %63 = shufflevector <8 x float> %62, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %64 = shufflevector <8 x float> %62, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -31862,7 +31857,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %67, %shift
   %68 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %69 = getelementptr float, ptr %gep125.us, i64 %.0123.us
+  %69 = getelementptr [4 x i8], ptr %gep125.us, i64 %.0123.us
   store float %68, ptr %69, align 4, !tbaa !93
   %70 = add nuw nsw i64 %.0123.us, 1
   %exitcond134.not = icmp eq i64 %70, 4
@@ -31870,13 +31865,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 71:                                               ; preds = %.lr.ph.us, %130
   %.0104122.us = phi i64 [ 0, %.lr.ph.us ], [ %131, %130 ]
-  %72 = getelementptr %struct.block_iq4_nl, ptr %47, i64 %.0104122.us
+  %72 = getelementptr [18 x i8], ptr %47, i64 %.0104122.us
   %73 = load i16, ptr %72, align 2, !tbaa !617
-  %74 = getelementptr %struct.block_iq4_nl, ptr %50, i64 %.0104122.us
+  %74 = getelementptr [18 x i8], ptr %50, i64 %.0104122.us
   %75 = load i16, ptr %74, align 2, !tbaa !617
-  %76 = getelementptr %struct.block_iq4_nl, ptr %53, i64 %.0104122.us
+  %76 = getelementptr [18 x i8], ptr %53, i64 %.0104122.us
   %77 = load i16, ptr %76, align 2, !tbaa !617
-  %78 = getelementptr %struct.block_iq4_nl, ptr %55, i64 %.0104122.us
+  %78 = getelementptr [18 x i8], ptr %55, i64 %.0104122.us
   %79 = load i16, ptr %78, align 2, !tbaa !617
   %80 = insertelement <4 x i16> poison, i16 %79, i64 0
   %81 = insertelement <4 x i16> %80, i16 %77, i64 1
@@ -31924,7 +31919,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %119 = bitcast <8 x i16> %118 to <16 x i8>
   %120 = and <16 x i8> %119, splat (i8 15)
   %121 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %120)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %32, i64 %.0104122.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %32, i64 %.0104122.us
   %122 = shufflevector <16 x i8> %89, <16 x i8> %94, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %123 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %122, <32 x i8> %122)
   %124 = shufflevector <16 x i8> %98, <16 x i8> %103, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
@@ -31944,10 +31939,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0103121.us = phi i64 [ 0, %71 ], [ %171, %132 ]
   %133 = add nsw i64 %.0103121.us, %44
   %134 = mul nsw i64 %34, %133
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %134
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %134
   %135 = load i16, ptr %gep.us, align 2, !tbaa !391
   %136 = zext i16 %135 to i64
-  %137 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !93
   %139 = insertelement <4 x float> poison, float %138, i64 0
   %140 = shufflevector <4 x float> %139, <4 x float> poison, <4 x i32> zeroinitializer
@@ -31958,7 +31953,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %144 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114119.us, <32 x i8> %122)
   %145 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %123, <32 x i8> %144)
   %146 = sitofp <8 x i32> %145 to <8 x float>
-  %147 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103121.us
+  %147 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103121.us
   %148 = load <8 x float>, ptr %147, align 32, !tbaa !53
   %149 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %142, <8 x float> %146, <8 x float> %148)
   store <8 x float> %149, ptr %147, align 32, !tbaa !53
@@ -31992,14 +31987,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %..preheader120_crit_edge.us, %58
   %.0100126.us = phi i64 [ 0, %..preheader120_crit_edge.us ], [ %59, %58 ]
-  %172 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100126.us
+  %172 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100126.us
   %173 = add nsw i64 %.0100126.us, %44
   %174 = mul nsw i64 %38, %173
-  %gep125.us = getelementptr float, ptr %invariant.gep124.us, i64 %174
+  %gep125.us = getelementptr [4 x i8], ptr %invariant.gep124.us, i64 %174
   br label %60
 
 ..preheader120_crit_edge.us:                      ; preds = %130
-  %invariant.gep124.us = getelementptr float, ptr %36, i64 %41
+  %invariant.gep124.us = getelementptr [4 x i8], ptr %36, i64 %41
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %182, %56, %5
@@ -32019,10 +32014,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader:                                       ; preds = %.preheader120, %184
   %.0100126 = phi i64 [ 0, %.preheader120 ], [ %185, %184 ]
-  %179 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100126
+  %179 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100126
   %180 = add nsw i64 %.0100126, %178
   %181 = mul nsw i64 %38, %180
-  %gep125 = getelementptr float, ptr %gep, i64 %181
+  %gep125 = getelementptr [4 x i8], ptr %gep, i64 %181
   br label %186
 
 182:                                              ; preds = %184
@@ -32038,7 +32033,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 186:                                              ; preds = %.preheader, %186
   %.0123 = phi i64 [ 0, %.preheader ], [ %196, %186 ]
-  %187 = getelementptr inbounds nuw <8 x float>, ptr %179, i64 %.0123
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %179, i64 %.0123
   %188 = load <8 x float>, ptr %187, align 32, !tbaa !53
   %189 = shufflevector <8 x float> %188, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %190 = shufflevector <8 x float> %188, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32048,7 +32043,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift153 = shufflevector <4 x float> %193, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop154 = fadd <4 x float> %193, %shift153
   %194 = extractelement <4 x float> %foldExtExtBinop154, i64 0
-  %195 = getelementptr float, ptr %gep125, i64 %.0123
+  %195 = getelementptr [4 x i8], ptr %gep125, i64 %.0123
   store float %194, ptr %195, align 4, !tbaa !93
   %196 = add nuw nsw i64 %.0123, 1
   %exitcond.not = icmp eq i64 %196, 4
@@ -32097,7 +32092,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.lr.ph.us, label %.preheader120.preheader
 
 .preheader120.preheader:                          ; preds = %.lr.ph128
-  %invariant.gep = getelementptr float, ptr %36, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %1
   br label %.preheader120
 
 .lr.ph.us:                                        ; preds = %.lr.ph128, %56
@@ -32112,15 +32107,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %45 = add nsw i64 %41, 3
   %46 = mul nsw i64 %29, %45
-  %47 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %46
+  %47 = getelementptr [18 x i8], ptr %27, i64 %46
   %48 = add nsw i64 %41, 2
   %49 = mul nsw i64 %29, %48
-  %50 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %49
+  %50 = getelementptr [18 x i8], ptr %27, i64 %49
   %51 = add nsw i64 %41, 1
   %52 = mul nsw i64 %29, %51
-  %53 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %52
+  %53 = getelementptr [18 x i8], ptr %27, i64 %52
   %54 = mul nsw i64 %29, %41
-  %55 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %54
+  %55 = getelementptr [18 x i8], ptr %27, i64 %54
   %.val118.us = load <16 x i8>, ptr %30, align 16, !tbaa !53
   br label %71
 
@@ -32137,7 +32132,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 60:                                               ; preds = %.preheader.us, %60
   %.0123.us = phi i64 [ 0, %.preheader.us ], [ %70, %60 ]
-  %61 = getelementptr inbounds nuw <8 x float>, ptr %172, i64 %.0123.us
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %172, i64 %.0123.us
   %62 = load <8 x float>, ptr %61, align 32, !tbaa !53
   %63 = shufflevector <8 x float> %62, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %64 = shufflevector <8 x float> %62, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32147,7 +32142,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %67, %shift
   %68 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %69 = getelementptr float, ptr %gep125.us, i64 %.0123.us
+  %69 = getelementptr [4 x i8], ptr %gep125.us, i64 %.0123.us
   store float %68, ptr %69, align 4, !tbaa !93
   %70 = add nuw nsw i64 %.0123.us, 1
   %exitcond134.not = icmp eq i64 %70, 4
@@ -32155,13 +32150,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 71:                                               ; preds = %.lr.ph.us, %130
   %.0104122.us = phi i64 [ 0, %.lr.ph.us ], [ %131, %130 ]
-  %72 = getelementptr %struct.block_iq4_nl, ptr %47, i64 %.0104122.us
+  %72 = getelementptr [18 x i8], ptr %47, i64 %.0104122.us
   %73 = load i16, ptr %72, align 2, !tbaa !617
-  %74 = getelementptr %struct.block_iq4_nl, ptr %50, i64 %.0104122.us
+  %74 = getelementptr [18 x i8], ptr %50, i64 %.0104122.us
   %75 = load i16, ptr %74, align 2, !tbaa !617
-  %76 = getelementptr %struct.block_iq4_nl, ptr %53, i64 %.0104122.us
+  %76 = getelementptr [18 x i8], ptr %53, i64 %.0104122.us
   %77 = load i16, ptr %76, align 2, !tbaa !617
-  %78 = getelementptr %struct.block_iq4_nl, ptr %55, i64 %.0104122.us
+  %78 = getelementptr [18 x i8], ptr %55, i64 %.0104122.us
   %79 = load i16, ptr %78, align 2, !tbaa !617
   %80 = insertelement <4 x i16> poison, i16 %79, i64 0
   %81 = insertelement <4 x i16> %80, i16 %77, i64 1
@@ -32209,7 +32204,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %119 = bitcast <8 x i16> %118 to <16 x i8>
   %120 = and <16 x i8> %119, splat (i8 15)
   %121 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %120)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %32, i64 %.0104122.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %32, i64 %.0104122.us
   %122 = shufflevector <16 x i8> %89, <16 x i8> %94, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %123 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %122, <32 x i8> %122)
   %124 = shufflevector <16 x i8> %98, <16 x i8> %103, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
@@ -32229,10 +32224,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0103121.us = phi i64 [ 0, %71 ], [ %171, %132 ]
   %133 = add nsw i64 %.0103121.us, %44
   %134 = mul nsw i64 %34, %133
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %134
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %134
   %135 = load i16, ptr %gep.us, align 2, !tbaa !391
   %136 = zext i16 %135 to i64
-  %137 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !93
   %139 = insertelement <4 x float> poison, float %138, i64 0
   %140 = shufflevector <4 x float> %139, <4 x float> poison, <4 x i32> zeroinitializer
@@ -32243,7 +32238,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %144 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114119.us, <32 x i8> %122)
   %145 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %123, <32 x i8> %144)
   %146 = sitofp <8 x i32> %145 to <8 x float>
-  %147 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0103121.us
+  %147 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0103121.us
   %148 = load <8 x float>, ptr %147, align 32, !tbaa !53
   %149 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %142, <8 x float> %146, <8 x float> %148)
   store <8 x float> %149, ptr %147, align 32, !tbaa !53
@@ -32277,14 +32272,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %..preheader120_crit_edge.us, %58
   %.0100126.us = phi i64 [ 0, %..preheader120_crit_edge.us ], [ %59, %58 ]
-  %172 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100126.us
+  %172 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100126.us
   %173 = add nsw i64 %.0100126.us, %44
   %174 = mul nsw i64 %38, %173
-  %gep125.us = getelementptr float, ptr %invariant.gep124.us, i64 %174
+  %gep125.us = getelementptr [4 x i8], ptr %invariant.gep124.us, i64 %174
   br label %60
 
 ..preheader120_crit_edge.us:                      ; preds = %130
-  %invariant.gep124.us = getelementptr float, ptr %36, i64 %41
+  %invariant.gep124.us = getelementptr [4 x i8], ptr %36, i64 %41
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %182, %56, %5
@@ -32304,10 +32299,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader:                                       ; preds = %.preheader120, %184
   %.0100126 = phi i64 [ 0, %.preheader120 ], [ %185, %184 ]
-  %179 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 %.0100126
+  %179 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %.0100126
   %180 = add nsw i64 %.0100126, %178
   %181 = mul nsw i64 %38, %180
-  %gep125 = getelementptr float, ptr %gep, i64 %181
+  %gep125 = getelementptr [4 x i8], ptr %gep, i64 %181
   br label %186
 
 182:                                              ; preds = %184
@@ -32323,7 +32318,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 186:                                              ; preds = %.preheader, %186
   %.0123 = phi i64 [ 0, %.preheader ], [ %196, %186 ]
-  %187 = getelementptr inbounds nuw <8 x float>, ptr %179, i64 %.0123
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %179, i64 %.0123
   %188 = load <8 x float>, ptr %187, align 32, !tbaa !53
   %189 = shufflevector <8 x float> %188, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %190 = shufflevector <8 x float> %188, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32333,7 +32328,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift153 = shufflevector <4 x float> %193, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop154 = fadd <4 x float> %193, %shift153
   %194 = extractelement <4 x float> %foldExtExtBinop154, i64 0
-  %195 = getelementptr float, ptr %gep125, i64 %.0123
+  %195 = getelementptr [4 x i8], ptr %gep125, i64 %.0123
   store float %194, ptr %195, align 4, !tbaa !93
   %196 = add nuw nsw i64 %.0123, 1
   %exitcond.not = icmp eq i64 %196, 4
@@ -32385,7 +32380,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.lr.ph.us, label %.preheader155.preheader
 
 .preheader155.preheader:                          ; preds = %.lr.ph163
-  %invariant.gep = getelementptr float, ptr %39, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %39, i64 %1
   br label %.preheader155
 
 .lr.ph.us:                                        ; preds = %.lr.ph163, %59
@@ -32400,15 +32395,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %48 = add nsw i64 %47, 3
   %49 = mul nsw i64 %30, %48
-  %50 = getelementptr %struct.block_q8_0, ptr %28, i64 %49
+  %50 = getelementptr [34 x i8], ptr %28, i64 %49
   %51 = add nsw i64 %47, 2
   %52 = mul nsw i64 %30, %51
-  %53 = getelementptr %struct.block_q8_0, ptr %28, i64 %52
+  %53 = getelementptr [34 x i8], ptr %28, i64 %52
   %54 = add nsw i64 %47, 1
   %55 = mul nsw i64 %30, %54
-  %56 = getelementptr %struct.block_q8_0, ptr %28, i64 %55
+  %56 = getelementptr [34 x i8], ptr %28, i64 %55
   %57 = mul nsw i64 %30, %47
-  %58 = getelementptr %struct.block_q8_0, ptr %28, i64 %57
+  %58 = getelementptr [34 x i8], ptr %28, i64 %57
   %.val154.us = load <16 x i8>, ptr %34, align 16, !tbaa !53
   br label %74
 
@@ -32425,7 +32420,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 63:                                               ; preds = %.preheader.us, %63
   %.0158.us = phi i64 [ 0, %.preheader.us ], [ %73, %63 ]
-  %64 = getelementptr inbounds nuw <8 x float>, ptr %145, i64 %.0158.us
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %145, i64 %.0158.us
   %65 = load <8 x float>, ptr %64, align 32, !tbaa !53
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %67 = shufflevector <8 x float> %65, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32435,7 +32430,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %70, %shift
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %72 = getelementptr float, ptr %gep160.us, i64 %.0158.us
+  %72 = getelementptr [4 x i8], ptr %gep160.us, i64 %.0158.us
   store float %71, ptr %72, align 4, !tbaa !93
   %73 = add nuw nsw i64 %.0158.us, 1
   %exitcond169.not = icmp eq i64 %73, 3
@@ -32443,13 +32438,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 74:                                               ; preds = %.lr.ph.us, %93
   %.0120157.us = phi i64 [ 0, %.lr.ph.us ], [ %94, %93 ]
-  %75 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120157.us
+  %75 = getelementptr [34 x i8], ptr %50, i64 %.0120157.us
   %76 = load i16, ptr %75, align 2, !tbaa !391
-  %77 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120157.us
+  %77 = getelementptr [34 x i8], ptr %53, i64 %.0120157.us
   %78 = load i16, ptr %77, align 2, !tbaa !391
-  %79 = getelementptr %struct.block_q8_0, ptr %56, i64 %.0120157.us
+  %79 = getelementptr [34 x i8], ptr %56, i64 %.0120157.us
   %80 = load i16, ptr %79, align 2, !tbaa !391
-  %81 = getelementptr %struct.block_q8_0, ptr %58, i64 %.0120157.us
+  %81 = getelementptr [34 x i8], ptr %58, i64 %.0120157.us
   %82 = load i16, ptr %81, align 2, !tbaa !391
   %83 = insertelement <4 x i16> poison, i16 %82, i64 0
   %84 = insertelement <4 x i16> %83, i16 %80, i64 1
@@ -32465,7 +32460,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.val148152.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
   %.val149153.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %31, i64 %.0120157.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %31, i64 %.0120157.us
   br label %95
 
 93:                                               ; preds = %95
@@ -32477,10 +32472,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0119156.us = phi i64 [ 0, %74 ], [ %144, %95 ]
   %96 = add nsw i64 %.0119156.us, %44
   %97 = mul nsw i64 %33, %96
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %97
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %97
   %98 = load i16, ptr %gep.us, align 2, !tbaa !617
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
   %102 = insertelement <4 x float> poison, float %101, i64 0
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
@@ -32501,7 +32496,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %117 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val146150.us, <32 x i8> %115)
   %118 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %116, <32 x i8> %117)
   %119 = sitofp <8 x i32> %118 to <8 x float>
-  %120 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0119156.us
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0119156.us
   %121 = load <8 x float>, ptr %120, align 32, !tbaa !53
   %122 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %105, <8 x float> %119, <8 x float> %121)
   store <8 x float> %122, ptr %120, align 32, !tbaa !53
@@ -32509,7 +32504,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %124 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val147151.us, <32 x i8> %115)
   %125 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %116, <32 x i8> %124)
   %126 = sitofp <8 x i32> %125 to <8 x float>
-  %127 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119156.us
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119156.us
   %128 = load <8 x float>, ptr %127, align 32, !tbaa !53
   %129 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %123, <8 x float> %126, <8 x float> %128)
   store <8 x float> %129, ptr %127, align 32, !tbaa !53
@@ -32517,7 +32512,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %131 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val148152.us, <32 x i8> %115)
   %132 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %116, <32 x i8> %131)
   %133 = sitofp <8 x i32> %132 to <8 x float>
-  %134 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119156.us
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119156.us
   %135 = load <8 x float>, ptr %134, align 32, !tbaa !53
   %136 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %130, <8 x float> %133, <8 x float> %135)
   store <8 x float> %136, ptr %134, align 32, !tbaa !53
@@ -32525,7 +32520,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %138 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val149153.us, <32 x i8> %115)
   %139 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %116, <32 x i8> %138)
   %140 = sitofp <8 x i32> %139 to <8 x float>
-  %141 = getelementptr inbounds nuw <8 x float>, ptr %37, i64 %.0119156.us
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.0119156.us
   %142 = load <8 x float>, ptr %141, align 32, !tbaa !53
   %143 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %137, <8 x float> %140, <8 x float> %142)
   store <8 x float> %143, ptr %141, align 32, !tbaa !53
@@ -32535,14 +32530,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %..preheader155_crit_edge.us, %61
   %.0116161.us = phi i64 [ 0, %..preheader155_crit_edge.us ], [ %62, %61 ]
-  %145 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116161.us
+  %145 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116161.us
   %146 = add nsw i64 %.0116161.us, %47
   %147 = mul nsw i64 %41, %146
-  %gep160.us = getelementptr float, ptr %invariant.gep159.us, i64 %147
+  %gep160.us = getelementptr [4 x i8], ptr %invariant.gep159.us, i64 %147
   br label %63
 
 ..preheader155_crit_edge.us:                      ; preds = %93
-  %invariant.gep159.us = getelementptr float, ptr %39, i64 %44
+  %invariant.gep159.us = getelementptr [4 x i8], ptr %39, i64 %44
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %155, %59, %5
@@ -32562,10 +32557,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader:                                       ; preds = %.preheader155, %157
   %.0116161 = phi i64 [ 0, %.preheader155 ], [ %158, %157 ]
-  %152 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.0116161
+  %152 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.0116161
   %153 = add nsw i64 %.0116161, %151
   %154 = mul nsw i64 %41, %153
-  %gep160 = getelementptr float, ptr %gep, i64 %154
+  %gep160 = getelementptr [4 x i8], ptr %gep, i64 %154
   br label %159
 
 155:                                              ; preds = %157
@@ -32581,7 +32576,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 159:                                              ; preds = %.preheader, %159
   %.0158 = phi i64 [ 0, %.preheader ], [ %169, %159 ]
-  %160 = getelementptr inbounds nuw <8 x float>, ptr %152, i64 %.0158
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %.0158
   %161 = load <8 x float>, ptr %160, align 32, !tbaa !53
   %162 = shufflevector <8 x float> %161, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %163 = shufflevector <8 x float> %161, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32591,7 +32586,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift182 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop183 = fadd <4 x float> %166, %shift182
   %167 = extractelement <4 x float> %foldExtExtBinop183, i64 0
-  %168 = getelementptr float, ptr %gep160, i64 %.0158
+  %168 = getelementptr [4 x i8], ptr %gep160, i64 %.0158
   store float %167, ptr %168, align 4, !tbaa !93
   %169 = add nuw nsw i64 %.0158, 1
   %exitcond.not = icmp eq i64 %169, 3
@@ -32640,7 +32635,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.preheader79.lr.ph.us, label %.preheader80.preheader
 
 .preheader80.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %36, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %1
   br label %.preheader80
 
 .preheader79.lr.ph.us:                            ; preds = %.lr.ph, %45
@@ -32669,7 +32664,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 49:                                               ; preds = %.preheader78.us, %49
   %.086.us = phi i64 [ 0, %.preheader78.us ], [ %59, %49 ]
-  %50 = getelementptr inbounds nuw <8 x float>, ptr %100, i64 %.086.us
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %.086.us
   %51 = load <8 x float>, ptr %50, align 32, !tbaa !53
   %52 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %53 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32679,7 +32674,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %56, %shift
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %58 = getelementptr float, ptr %gep88.us, i64 %.086.us
+  %58 = getelementptr [4 x i8], ptr %gep88.us, i64 %.086.us
   store float %57, ptr %58, align 4, !tbaa !93
   %59 = add nuw nsw i64 %.086.us, 1
   %exitcond97.not = icmp eq i64 %59, 3
@@ -32699,7 +32694,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06481.us = phi i64 [ 0, %.preheader.us ], [ %91, %64 ]
   %65 = add nsw i64 %.06481.us, %41
   %66 = mul nsw i64 %29, %65
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %66
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %66
   %67 = getelementptr i8, ptr %gep.us, i64 2
   %.val70.us = load <2 x i64>, ptr %67, align 1, !tbaa !53
   %68 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -32717,12 +32712,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %80 = sitofp <8 x i32> %79 to <8 x float>
   %81 = load i16, ptr %gep.us, align 2, !tbaa !617
   %82 = zext i16 %81 to i64
-  %83 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !93
   %85 = fmul float %84, %98
   %86 = insertelement <8 x float> poison, float %85, i64 0
   %87 = shufflevector <8 x float> %86, <8 x float> poison, <8 x i32> zeroinitializer
-  %88 = getelementptr inbounds nuw <8 x float>, ptr %99, i64 %.06481.us
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %.06481.us
   %89 = load <8 x float>, ptr %88, align 32, !tbaa !53
   %90 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %87, <8 x float> %80, <8 x float> %89)
   store <8 x float> %90, ptr %88, align 32, !tbaa !53
@@ -32734,32 +32729,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ %63, %62 ]
   %92 = add nsw i64 %.06584.us, %44
   %93 = mul nsw i64 %34, %92
-  %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %93
+  %gep83.us = getelementptr [34 x i8], ptr %invariant.gep82.us, i64 %93
   %94 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %94, align 1, !tbaa !53
   %95 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !93
-  %99 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06584.us
+  %99 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06584.us
   br label %64
 
 .preheader78.us:                                  ; preds = %..preheader80_crit_edge.us, %47
   %.06289.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ %48, %47 ]
-  %100 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06289.us
+  %100 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06289.us
   %101 = add nsw i64 %.06289.us, %44
   %102 = mul nsw i64 %38, %101
-  %gep88.us = getelementptr float, ptr %invariant.gep87.us, i64 %102
+  %gep88.us = getelementptr [4 x i8], ptr %invariant.gep87.us, i64 %102
   br label %49
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %60
   %.06685.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %61, %60 ]
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %27, i64 %.06685.us
-  %invariant.gep82.us = getelementptr %struct.block_q8_0, ptr %32, i64 %.06685.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06685.us
+  %invariant.gep82.us = getelementptr [34 x i8], ptr %32, i64 %.06685.us
   br label %.preheader.us
 
 ..preheader80_crit_edge.us:                       ; preds = %60
-  %invariant.gep87.us = getelementptr float, ptr %36, i64 %41
+  %invariant.gep87.us = getelementptr [4 x i8], ptr %36, i64 %41
   br label %.preheader78.us
 
 ._crit_edge:                                      ; preds = %110, %45, %5
@@ -32779,10 +32774,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader78:                                     ; preds = %.preheader80, %112
   %.06289 = phi i64 [ 0, %.preheader80 ], [ %113, %112 ]
-  %107 = getelementptr inbounds nuw [3 x <8 x float>], ptr %6, i64 %.06289
+  %107 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.06289
   %108 = add nsw i64 %.06289, %106
   %109 = mul nsw i64 %38, %108
-  %gep88 = getelementptr float, ptr %gep, i64 %109
+  %gep88 = getelementptr [4 x i8], ptr %gep, i64 %109
   br label %114
 
 110:                                              ; preds = %112
@@ -32798,7 +32793,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 114:                                              ; preds = %.preheader78, %114
   %.086 = phi i64 [ 0, %.preheader78 ], [ %124, %114 ]
-  %115 = getelementptr inbounds nuw <8 x float>, ptr %107, i64 %.086
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %107, i64 %.086
   %116 = load <8 x float>, ptr %115, align 32, !tbaa !53
   %117 = shufflevector <8 x float> %116, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %118 = shufflevector <8 x float> %116, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32808,7 +32803,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift111 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop112 = fadd <4 x float> %121, %shift111
   %122 = extractelement <4 x float> %foldExtExtBinop112, i64 0
-  %123 = getelementptr float, ptr %gep88, i64 %.086
+  %123 = getelementptr [4 x i8], ptr %gep88, i64 %.086
   store float %122, ptr %123, align 4, !tbaa !93
   %124 = add nuw nsw i64 %.086, 1
   %exitcond.not = icmp eq i64 %124, 3
@@ -32860,7 +32855,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.lr.ph.us, label %.preheader120.preheader
 
 .preheader120.preheader:                          ; preds = %.lr.ph128
-  %invariant.gep = getelementptr float, ptr %36, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %1
   br label %.preheader120
 
 .lr.ph.us:                                        ; preds = %.lr.ph128, %56
@@ -32875,15 +32870,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %45 = add nsw i64 %41, 3
   %46 = mul nsw i64 %29, %45
-  %47 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %46
+  %47 = getelementptr [18 x i8], ptr %27, i64 %46
   %48 = add nsw i64 %41, 2
   %49 = mul nsw i64 %29, %48
-  %50 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %49
+  %50 = getelementptr [18 x i8], ptr %27, i64 %49
   %51 = add nsw i64 %41, 1
   %52 = mul nsw i64 %29, %51
-  %53 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %52
+  %53 = getelementptr [18 x i8], ptr %27, i64 %52
   %54 = mul nsw i64 %29, %41
-  %55 = getelementptr %struct.block_iq4_nl, ptr %27, i64 %54
+  %55 = getelementptr [18 x i8], ptr %27, i64 %54
   %.val118.us = load <16 x i8>, ptr %30, align 16, !tbaa !53
   br label %70
 
@@ -32898,7 +32893,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 59:                                               ; preds = %.preheader.us, %59
   %.0123.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %.0100126.us.sroa.phi, i64 %.0123.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %.0100126.us.sroa.phi, i64 %.0123.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -32908,7 +32903,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %gep125.us, i64 %.0123.us
+  %68 = getelementptr [4 x i8], ptr %gep125.us, i64 %.0123.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0123.us, 1
   %exitcond132.not = icmp eq i64 %69, 4
@@ -32916,13 +32911,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 70:                                               ; preds = %.lr.ph.us, %129
   %.0104122.us = phi i64 [ 0, %.lr.ph.us ], [ %130, %129 ]
-  %71 = getelementptr %struct.block_iq4_nl, ptr %47, i64 %.0104122.us
+  %71 = getelementptr [18 x i8], ptr %47, i64 %.0104122.us
   %72 = load i16, ptr %71, align 2, !tbaa !617
-  %73 = getelementptr %struct.block_iq4_nl, ptr %50, i64 %.0104122.us
+  %73 = getelementptr [18 x i8], ptr %50, i64 %.0104122.us
   %74 = load i16, ptr %73, align 2, !tbaa !617
-  %75 = getelementptr %struct.block_iq4_nl, ptr %53, i64 %.0104122.us
+  %75 = getelementptr [18 x i8], ptr %53, i64 %.0104122.us
   %76 = load i16, ptr %75, align 2, !tbaa !617
-  %77 = getelementptr %struct.block_iq4_nl, ptr %55, i64 %.0104122.us
+  %77 = getelementptr [18 x i8], ptr %55, i64 %.0104122.us
   %78 = load i16, ptr %77, align 2, !tbaa !617
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -32970,7 +32965,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %118 = bitcast <8 x i16> %117 to <16 x i8>
   %119 = and <16 x i8> %118, splat (i8 15)
   %120 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %119)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %32, i64 %.0104122.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %32, i64 %.0104122.us
   %121 = shufflevector <16 x i8> %88, <16 x i8> %93, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %122 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %121, <32 x i8> %121)
   %123 = shufflevector <16 x i8> %97, <16 x i8> %102, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
@@ -32992,10 +32987,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0103121.us = phi i64 [ 0, %70 ], [ 1, %131 ]
   %133 = add nsw i64 %.0103121.us, %44
   %134 = mul nsw i64 %34, %133
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %134
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %134
   %135 = load i16, ptr %gep.us, align 2, !tbaa !391
   %136 = zext i16 %135 to i64
-  %137 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !93
   %139 = insertelement <4 x float> poison, float %138, i64 0
   %140 = shufflevector <4 x float> %139, <4 x float> poison, <4 x i32> zeroinitializer
@@ -33041,11 +33036,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0100126.us = phi i64 [ 0, %..preheader120_crit_edge.us ], [ 1, %58 ]
   %171 = add nsw i64 %.0100126.us, %44
   %172 = mul nsw i64 %38, %171
-  %gep125.us = getelementptr float, ptr %invariant.gep124.us, i64 %172
+  %gep125.us = getelementptr [4 x i8], ptr %invariant.gep124.us, i64 %172
   br label %59
 
 ..preheader120_crit_edge.us:                      ; preds = %129
-  %invariant.gep124.us = getelementptr float, ptr %36, i64 %41
+  %invariant.gep124.us = getelementptr [4 x i8], ptr %36, i64 %41
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %180, %56, %5
@@ -33069,7 +33064,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0100126 = phi i64 [ 0, %.preheader120 ], [ 1, %182 ]
   %178 = add nsw i64 %.0100126, %176
   %179 = mul nsw i64 %38, %178
-  %gep125 = getelementptr float, ptr %gep, i64 %179
+  %gep125 = getelementptr [4 x i8], ptr %gep, i64 %179
   br label %183
 
 180:                                              ; preds = %182
@@ -33083,7 +33078,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 183:                                              ; preds = %.preheader, %183
   %.0123 = phi i64 [ 0, %.preheader ], [ %193, %183 ]
-  %184 = getelementptr inbounds nuw <8 x float>, ptr %.0100126.sroa.phi, i64 %.0123
+  %184 = getelementptr inbounds nuw [32 x i8], ptr %.0100126.sroa.phi, i64 %.0123
   %185 = load <8 x float>, ptr %184, align 32, !tbaa !53
   %186 = shufflevector <8 x float> %185, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %187 = shufflevector <8 x float> %185, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33093,7 +33088,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift148 = shufflevector <4 x float> %190, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop149 = fadd <4 x float> %190, %shift148
   %191 = extractelement <4 x float> %foldExtExtBinop149, i64 0
-  %192 = getelementptr float, ptr %gep125, i64 %.0123
+  %192 = getelementptr [4 x i8], ptr %gep125, i64 %.0123
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.0123, 1
   %exitcond.not = icmp eq i64 %193, 4
@@ -33146,7 +33141,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.lr.ph.us, label %.preheader155.preheader
 
 .preheader155.preheader:                          ; preds = %.lr.ph163
-  %invariant.gep = getelementptr float, ptr %39, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %39, i64 %1
   br label %.preheader155
 
 .lr.ph.us:                                        ; preds = %.lr.ph163, %59
@@ -33161,15 +33156,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %48 = add nsw i64 %47, 3
   %49 = mul nsw i64 %30, %48
-  %50 = getelementptr %struct.block_q8_0, ptr %28, i64 %49
+  %50 = getelementptr [34 x i8], ptr %28, i64 %49
   %51 = add nsw i64 %47, 2
   %52 = mul nsw i64 %30, %51
-  %53 = getelementptr %struct.block_q8_0, ptr %28, i64 %52
+  %53 = getelementptr [34 x i8], ptr %28, i64 %52
   %54 = add nsw i64 %47, 1
   %55 = mul nsw i64 %30, %54
-  %56 = getelementptr %struct.block_q8_0, ptr %28, i64 %55
+  %56 = getelementptr [34 x i8], ptr %28, i64 %55
   %57 = mul nsw i64 %30, %47
-  %58 = getelementptr %struct.block_q8_0, ptr %28, i64 %57
+  %58 = getelementptr [34 x i8], ptr %28, i64 %57
   %.val154.us = load <16 x i8>, ptr %34, align 16, !tbaa !53
   br label %74
 
@@ -33187,7 +33182,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 63:                                               ; preds = %.preheader.us, %63
   %64 = phi i1 [ true, %.preheader.us ], [ false, %63 ]
   %.0158.us = phi i64 [ 0, %.preheader.us ], [ 1, %63 ]
-  %65 = getelementptr inbounds nuw <8 x float>, ptr %144, i64 %.0158.us
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %.0158.us
   %66 = load <8 x float>, ptr %65, align 32, !tbaa !53
   %67 = shufflevector <8 x float> %66, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %68 = shufflevector <8 x float> %66, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33197,19 +33192,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %71, %shift
   %72 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %73 = getelementptr float, ptr %gep160.us, i64 %.0158.us
+  %73 = getelementptr [4 x i8], ptr %gep160.us, i64 %.0158.us
   store float %72, ptr %73, align 4, !tbaa !93
   br i1 %64, label %63, label %61, !llvm.loop !644
 
 74:                                               ; preds = %.lr.ph.us, %93
   %.0120157.us = phi i64 [ 0, %.lr.ph.us ], [ %94, %93 ]
-  %75 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120157.us
+  %75 = getelementptr [34 x i8], ptr %50, i64 %.0120157.us
   %76 = load i16, ptr %75, align 2, !tbaa !391
-  %77 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120157.us
+  %77 = getelementptr [34 x i8], ptr %53, i64 %.0120157.us
   %78 = load i16, ptr %77, align 2, !tbaa !391
-  %79 = getelementptr %struct.block_q8_0, ptr %56, i64 %.0120157.us
+  %79 = getelementptr [34 x i8], ptr %56, i64 %.0120157.us
   %80 = load i16, ptr %79, align 2, !tbaa !391
-  %81 = getelementptr %struct.block_q8_0, ptr %58, i64 %.0120157.us
+  %81 = getelementptr [34 x i8], ptr %58, i64 %.0120157.us
   %82 = load i16, ptr %81, align 2, !tbaa !391
   %83 = insertelement <4 x i16> poison, i16 %82, i64 0
   %84 = insertelement <4 x i16> %83, i16 %80, i64 1
@@ -33225,7 +33220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.val148152.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
   %.val149153.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %31, i64 %.0120157.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %31, i64 %.0120157.us
   br label %95
 
 93:                                               ; preds = %95
@@ -33239,10 +33234,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0119156.us = phi i64 [ 0, %74 ], [ 1, %95 ]
   %97 = add nsw i64 %.0119156.us, %44
   %98 = mul nsw i64 %33, %97
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %98
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %98
   %99 = load i16, ptr %gep.us, align 2, !tbaa !617
   %100 = zext i16 %99 to i64
-  %101 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !93
   %103 = insertelement <4 x float> poison, float %102, i64 0
   %104 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> zeroinitializer
@@ -33270,7 +33265,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %124 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val147151.us, <32 x i8> %116)
   %125 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %117, <32 x i8> %124)
   %126 = sitofp <8 x i32> %125 to <8 x float>
-  %127 = getelementptr inbounds nuw <8 x float>, ptr %35, i64 %.0119156.us
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.0119156.us
   %128 = load <8 x float>, ptr %127, align 32, !tbaa !53
   %129 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %123, <8 x float> %126, <8 x float> %128)
   store <8 x float> %129, ptr %127, align 32, !tbaa !53
@@ -33278,7 +33273,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %131 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val148152.us, <32 x i8> %116)
   %132 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %117, <32 x i8> %131)
   %133 = sitofp <8 x i32> %132 to <8 x float>
-  %134 = getelementptr inbounds nuw <8 x float>, ptr %36, i64 %.0119156.us
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.0119156.us
   %135 = load <8 x float>, ptr %134, align 32, !tbaa !53
   %136 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %130, <8 x float> %133, <8 x float> %135)
   store <8 x float> %136, ptr %134, align 32, !tbaa !53
@@ -33286,7 +33281,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %138 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val149153.us, <32 x i8> %116)
   %139 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <32 x i8> %117, <32 x i8> %138)
   %140 = sitofp <8 x i32> %139 to <8 x float>
-  %141 = getelementptr inbounds nuw <8 x float>, ptr %37, i64 %.0119156.us
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.0119156.us
   %142 = load <8 x float>, ptr %141, align 32, !tbaa !53
   %143 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %137, <8 x float> %140, <8 x float> %142)
   store <8 x float> %143, ptr %141, align 32, !tbaa !53
@@ -33294,14 +33289,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %..preheader155_crit_edge.us, %61
   %.0116161.us = phi i64 [ 0, %..preheader155_crit_edge.us ], [ %62, %61 ]
-  %144 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116161.us
+  %144 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116161.us
   %145 = add nsw i64 %.0116161.us, %47
   %146 = mul nsw i64 %41, %145
-  %gep160.us = getelementptr float, ptr %invariant.gep159.us, i64 %146
+  %gep160.us = getelementptr [4 x i8], ptr %invariant.gep159.us, i64 %146
   br label %63
 
 ..preheader155_crit_edge.us:                      ; preds = %93
-  %invariant.gep159.us = getelementptr float, ptr %39, i64 %44
+  %invariant.gep159.us = getelementptr [4 x i8], ptr %39, i64 %44
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %154, %59, %5
@@ -33321,10 +33316,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader:                                       ; preds = %.preheader155, %156
   %.0116161 = phi i64 [ 0, %.preheader155 ], [ %157, %156 ]
-  %151 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.0116161
+  %151 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.0116161
   %152 = add nsw i64 %.0116161, %150
   %153 = mul nsw i64 %41, %152
-  %gep160 = getelementptr float, ptr %gep, i64 %153
+  %gep160 = getelementptr [4 x i8], ptr %gep, i64 %153
   br label %158
 
 154:                                              ; preds = %156
@@ -33341,7 +33336,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 158:                                              ; preds = %.preheader, %158
   %159 = phi i1 [ true, %.preheader ], [ false, %158 ]
   %.0158 = phi i64 [ 0, %.preheader ], [ 1, %158 ]
-  %160 = getelementptr inbounds nuw <8 x float>, ptr %151, i64 %.0158
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %.0158
   %161 = load <8 x float>, ptr %160, align 32, !tbaa !53
   %162 = shufflevector <8 x float> %161, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %163 = shufflevector <8 x float> %161, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33351,7 +33346,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift179 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop180 = fadd <4 x float> %166, %shift179
   %167 = extractelement <4 x float> %foldExtExtBinop180, i64 0
-  %168 = getelementptr float, ptr %gep160, i64 %.0158
+  %168 = getelementptr [4 x i8], ptr %gep160, i64 %.0158
   store float %167, ptr %168, align 4, !tbaa !93
   br i1 %159, label %158, label %156, !llvm.loop !644
 }
@@ -33401,7 +33396,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.preheader79.lr.ph.us, label %.preheader80.preheader
 
 .preheader80.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %36, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %1
   br label %.preheader80
 
 .preheader79.lr.ph.us:                            ; preds = %.lr.ph, %45
@@ -33428,7 +33423,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 48:                                               ; preds = %.preheader78.us, %48
   %.086.us = phi i64 [ 0, %.preheader78.us ], [ %58, %48 ]
-  %49 = getelementptr inbounds nuw <8 x float>, ptr %.06289.us.sroa.phi, i64 %.086.us
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.06289.us.sroa.phi, i64 %.086.us
   %50 = load <8 x float>, ptr %49, align 32, !tbaa !53
   %51 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %52 = shufflevector <8 x float> %50, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33438,7 +33433,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %55, %shift
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %57 = getelementptr float, ptr %gep88.us, i64 %.086.us
+  %57 = getelementptr [4 x i8], ptr %gep88.us, i64 %.086.us
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.086.us, 1
   %exitcond95.not = icmp eq i64 %58, 3
@@ -33456,7 +33451,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06481.us = phi i64 [ 0, %.preheader.us ], [ %89, %62 ]
   %63 = add nsw i64 %.06481.us, %41
   %64 = mul nsw i64 %29, %63
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %64
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %64
   %65 = getelementptr i8, ptr %gep.us, i64 2
   %.val70.us = load <2 x i64>, ptr %65, align 1, !tbaa !53
   %66 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -33474,12 +33469,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %78 = sitofp <8 x i32> %77 to <8 x float>
   %79 = load i16, ptr %gep.us, align 2, !tbaa !617
   %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !93
   %83 = fmul float %82, %97
   %84 = insertelement <8 x float> poison, float %83, i64 0
   %85 = shufflevector <8 x float> %84, <8 x float> poison, <8 x i32> zeroinitializer
-  %86 = getelementptr inbounds nuw <8 x float>, ptr %.06584.us.sroa.phi, i64 %.06481.us
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %.06584.us.sroa.phi, i64 %.06481.us
   %87 = load <8 x float>, ptr %86, align 32, !tbaa !53
   %88 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %85, <8 x float> %78, <8 x float> %87)
   store <8 x float> %88, ptr %86, align 32, !tbaa !53
@@ -33493,12 +33488,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ 1, %61 ]
   %91 = add nsw i64 %.06584.us, %44
   %92 = mul nsw i64 %34, %91
-  %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %92
+  %gep83.us = getelementptr [34 x i8], ptr %invariant.gep82.us, i64 %92
   %93 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
   %94 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !93
   br label %62
 
@@ -33508,17 +33503,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06289.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ 1, %47 ]
   %99 = add nsw i64 %.06289.us, %44
   %100 = mul nsw i64 %38, %99
-  %gep88.us = getelementptr float, ptr %invariant.gep87.us, i64 %100
+  %gep88.us = getelementptr [4 x i8], ptr %invariant.gep87.us, i64 %100
   br label %48
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %59
   %.06685.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %27, i64 %.06685.us
-  %invariant.gep82.us = getelementptr %struct.block_q8_0, ptr %32, i64 %.06685.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06685.us
+  %invariant.gep82.us = getelementptr [34 x i8], ptr %32, i64 %.06685.us
   br label %.preheader.us
 
 ..preheader80_crit_edge.us:                       ; preds = %59
-  %invariant.gep87.us = getelementptr float, ptr %36, i64 %41
+  %invariant.gep87.us = getelementptr [4 x i8], ptr %36, i64 %41
   br label %.preheader78.us
 
 ._crit_edge:                                      ; preds = %108, %45, %5
@@ -33542,7 +33537,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06289 = phi i64 [ 0, %.preheader80 ], [ 1, %110 ]
   %106 = add nsw i64 %.06289, %104
   %107 = mul nsw i64 %38, %106
-  %gep88 = getelementptr float, ptr %gep, i64 %107
+  %gep88 = getelementptr [4 x i8], ptr %gep, i64 %107
   br label %111
 
 108:                                              ; preds = %110
@@ -33556,7 +33551,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 111:                                              ; preds = %.preheader78, %111
   %.086 = phi i64 [ 0, %.preheader78 ], [ %121, %111 ]
-  %112 = getelementptr inbounds nuw <8 x float>, ptr %.06289.sroa.phi, i64 %.086
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %.06289.sroa.phi, i64 %.086
   %113 = load <8 x float>, ptr %112, align 32, !tbaa !53
   %114 = shufflevector <8 x float> %113, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %115 = shufflevector <8 x float> %113, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33566,7 +33561,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift105 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop106 = fadd <4 x float> %118, %shift105
   %119 = extractelement <4 x float> %foldExtExtBinop106, i64 0
-  %120 = getelementptr float, ptr %gep88, i64 %.086
+  %120 = getelementptr [4 x i8], ptr %gep88, i64 %.086
   store float %119, ptr %120, align 4, !tbaa !93
   %121 = add nuw nsw i64 %.086, 1
   %exitcond.not = icmp eq i64 %121, 3
@@ -33615,7 +33610,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.preheader79.lr.ph.us, label %.preheader80.preheader
 
 .preheader80.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %36, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %1
   br label %.preheader80
 
 .preheader79.lr.ph.us:                            ; preds = %.lr.ph, %45
@@ -33645,7 +33640,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 49:                                               ; preds = %.preheader78.us, %49
   %50 = phi i1 [ true, %.preheader78.us ], [ false, %49 ]
   %.086.us = phi i64 [ 0, %.preheader78.us ], [ 1, %49 ]
-  %51 = getelementptr inbounds nuw <8 x float>, ptr %100, i64 %.086.us
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %.086.us
   %52 = load <8 x float>, ptr %51, align 32, !tbaa !53
   %53 = shufflevector <8 x float> %52, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %54 = shufflevector <8 x float> %52, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33655,7 +33650,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %57, %shift
   %58 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %59 = getelementptr float, ptr %gep88.us, i64 %.086.us
+  %59 = getelementptr [4 x i8], ptr %gep88.us, i64 %.086.us
   store float %58, ptr %59, align 4, !tbaa !93
   br i1 %50, label %49, label %47, !llvm.loop !655
 
@@ -33674,7 +33669,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06481.us = phi i64 [ 0, %.preheader.us ], [ 1, %64 ]
   %66 = add nsw i64 %.06481.us, %41
   %67 = mul nsw i64 %29, %66
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %67
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %67
   %68 = getelementptr i8, ptr %gep.us, i64 2
   %.val70.us = load <2 x i64>, ptr %68, align 1, !tbaa !53
   %69 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -33692,12 +33687,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %81 = sitofp <8 x i32> %80 to <8 x float>
   %82 = load i16, ptr %gep.us, align 2, !tbaa !617
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !93
   %86 = fmul float %85, %98
   %87 = insertelement <8 x float> poison, float %86, i64 0
   %88 = shufflevector <8 x float> %87, <8 x float> poison, <8 x i32> zeroinitializer
-  %89 = getelementptr inbounds nuw <8 x float>, ptr %99, i64 %.06481.us
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %.06481.us
   %90 = load <8 x float>, ptr %89, align 32, !tbaa !53
   %91 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %88, <8 x float> %81, <8 x float> %90)
   store <8 x float> %91, ptr %89, align 32, !tbaa !53
@@ -33707,32 +33702,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ %63, %62 ]
   %92 = add nsw i64 %.06584.us, %44
   %93 = mul nsw i64 %34, %92
-  %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %93
+  %gep83.us = getelementptr [34 x i8], ptr %invariant.gep82.us, i64 %93
   %94 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %94, align 1, !tbaa !53
   %95 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !93
-  %99 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06584.us
+  %99 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06584.us
   br label %64
 
 .preheader78.us:                                  ; preds = %..preheader80_crit_edge.us, %47
   %.06289.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ %48, %47 ]
-  %100 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06289.us
+  %100 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06289.us
   %101 = add nsw i64 %.06289.us, %44
   %102 = mul nsw i64 %38, %101
-  %gep88.us = getelementptr float, ptr %invariant.gep87.us, i64 %102
+  %gep88.us = getelementptr [4 x i8], ptr %invariant.gep87.us, i64 %102
   br label %49
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %60
   %.06685.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %61, %60 ]
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %27, i64 %.06685.us
-  %invariant.gep82.us = getelementptr %struct.block_q8_0, ptr %32, i64 %.06685.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06685.us
+  %invariant.gep82.us = getelementptr [34 x i8], ptr %32, i64 %.06685.us
   br label %.preheader.us
 
 ..preheader80_crit_edge.us:                       ; preds = %60
-  %invariant.gep87.us = getelementptr float, ptr %36, i64 %41
+  %invariant.gep87.us = getelementptr [4 x i8], ptr %36, i64 %41
   br label %.preheader78.us
 
 ._crit_edge:                                      ; preds = %110, %45, %5
@@ -33752,10 +33747,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader78:                                     ; preds = %.preheader80, %112
   %.06289 = phi i64 [ 0, %.preheader80 ], [ %113, %112 ]
-  %107 = getelementptr inbounds nuw [2 x <8 x float>], ptr %6, i64 %.06289
+  %107 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.06289
   %108 = add nsw i64 %.06289, %106
   %109 = mul nsw i64 %38, %108
-  %gep88 = getelementptr float, ptr %gep, i64 %109
+  %gep88 = getelementptr [4 x i8], ptr %gep, i64 %109
   br label %114
 
 110:                                              ; preds = %112
@@ -33772,7 +33767,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 114:                                              ; preds = %.preheader78, %114
   %115 = phi i1 [ true, %.preheader78 ], [ false, %114 ]
   %.086 = phi i64 [ 0, %.preheader78 ], [ 1, %114 ]
-  %116 = getelementptr inbounds nuw <8 x float>, ptr %107, i64 %.086
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %107, i64 %.086
   %117 = load <8 x float>, ptr %116, align 32, !tbaa !53
   %118 = shufflevector <8 x float> %117, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %119 = shufflevector <8 x float> %117, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33782,7 +33777,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift108 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop109 = fadd <4 x float> %122, %shift108
   %123 = extractelement <4 x float> %foldExtExtBinop109, i64 0
-  %124 = getelementptr float, ptr %gep88, i64 %.086
+  %124 = getelementptr [4 x i8], ptr %gep88, i64 %.086
   store float %123, ptr %124, align 4, !tbaa !93
   br i1 %115, label %114, label %112, !llvm.loop !655
 }
@@ -33840,23 +33835,23 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = add nsw i64 %43, 3
   %47 = mul nsw i64 %28, %46
-  %48 = getelementptr %struct.block_iq4_nl, ptr %26, i64 %47
+  %48 = getelementptr [18 x i8], ptr %26, i64 %47
   %49 = add nsw i64 %43, 2
   %50 = mul nsw i64 %28, %49
-  %51 = getelementptr %struct.block_iq4_nl, ptr %26, i64 %50
+  %51 = getelementptr [18 x i8], ptr %26, i64 %50
   %52 = add nsw i64 %43, 1
   %53 = mul nsw i64 %28, %52
-  %54 = getelementptr %struct.block_iq4_nl, ptr %26, i64 %53
+  %54 = getelementptr [18 x i8], ptr %26, i64 %53
   %55 = mul nsw i64 %28, %43
-  %56 = getelementptr %struct.block_iq4_nl, ptr %26, i64 %55
+  %56 = getelementptr [18 x i8], ptr %26, i64 %55
   %.val118.us = load <16 x i8>, ptr %29, align 16, !tbaa !53
   %57 = mul nsw i64 %33, %45
-  %58 = getelementptr %struct.block_q8_0, ptr %31, i64 %57
+  %58 = getelementptr [34 x i8], ptr %31, i64 %57
   br label %70
 
 59:                                               ; preds = %..preheader120_crit_edge.us, %59
   %.0136.us = phi i64 [ 0, %..preheader120_crit_edge.us ], [ %69, %59 ]
-  %60 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0136.us
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0136.us
   %61 = load <8 x float>, ptr %60, align 32, !tbaa !53
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %63 = shufflevector <8 x float> %61, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -33866,7 +33861,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %66, %shift
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %68 = getelementptr float, ptr %162, i64 %.0136.us
+  %68 = getelementptr [4 x i8], ptr %162, i64 %.0136.us
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0136.us, 1
   %exitcond145.not = icmp eq i64 %69, 4
@@ -33878,13 +33873,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.lcssa122131.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %155, %70 ]
   %.0104130.us = phi i64 [ 0, %.lr.ph.us ], [ %158, %70 ]
   %.lcssa128129.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %154, %70 ]
-  %71 = getelementptr %struct.block_iq4_nl, ptr %48, i64 %.0104130.us
+  %71 = getelementptr [18 x i8], ptr %48, i64 %.0104130.us
   %72 = load i16, ptr %71, align 2, !tbaa !617
-  %73 = getelementptr %struct.block_iq4_nl, ptr %51, i64 %.0104130.us
+  %73 = getelementptr [18 x i8], ptr %51, i64 %.0104130.us
   %74 = load i16, ptr %73, align 2, !tbaa !617
-  %75 = getelementptr %struct.block_iq4_nl, ptr %54, i64 %.0104130.us
+  %75 = getelementptr [18 x i8], ptr %54, i64 %.0104130.us
   %76 = load i16, ptr %75, align 2, !tbaa !617
-  %77 = getelementptr %struct.block_iq4_nl, ptr %56, i64 %.0104130.us
+  %77 = getelementptr [18 x i8], ptr %56, i64 %.0104130.us
   %78 = load i16, ptr %77, align 2, !tbaa !617
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
@@ -33932,10 +33927,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %118 = bitcast <8 x i16> %117 to <16 x i8>
   %119 = and <16 x i8> %118, splat (i8 15)
   %120 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %119)
-  %121 = getelementptr %struct.block_q8_0, ptr %58, i64 %.0104130.us
+  %121 = getelementptr [34 x i8], ptr %58, i64 %.0104130.us
   %122 = load i16, ptr %121, align 2, !tbaa !391
   %123 = zext i16 %122 to i64
-  %124 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %123
   %125 = load float, ptr %124, align 4, !tbaa !93
   %126 = insertelement <4 x float> poison, float %125, i64 0
   %127 = shufflevector <4 x float> %126, <4 x float> poison, <4 x i32> zeroinitializer
@@ -33986,8 +33981,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %157, ptr %36, align 32, !tbaa !53
   store <8 x float> %154, ptr %6, align 32
   %160 = mul nsw i64 %40, %45
-  %161 = getelementptr float, ptr %38, i64 %160
-  %162 = getelementptr float, ptr %161, i64 %43
+  %161 = getelementptr [4 x i8], ptr %38, i64 %160
+  %162 = getelementptr [4 x i8], ptr %161, i64 %43
   br label %59
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %5
@@ -34000,10 +33995,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %165 = add nsw i64 %164, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %166 = mul nsw i64 %40, %165
-  %167 = getelementptr float, ptr %38, i64 %166
+  %167 = getelementptr [4 x i8], ptr %38, i64 %166
   %.idx = shl i64 %163, 4
   %168 = getelementptr i8, ptr %167, i64 %.idx
-  %169 = getelementptr float, ptr %168, i64 %1
+  %169 = getelementptr [4 x i8], ptr %168, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %171
 
@@ -34015,7 +34010,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 171:                                              ; preds = %.preheader120, %171
   %.0136 = phi i64 [ 0, %.preheader120 ], [ %181, %171 ]
-  %172 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.0136
+  %172 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0136
   %173 = load <8 x float>, ptr %172, align 32, !tbaa !53
   %174 = shufflevector <8 x float> %173, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %175 = shufflevector <8 x float> %173, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34025,7 +34020,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift166 = shufflevector <4 x float> %178, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop167 = fadd <4 x float> %178, %shift166
   %179 = extractelement <4 x float> %foldExtExtBinop167, i64 0
-  %180 = getelementptr float, ptr %169, i64 %.0136
+  %180 = getelementptr [4 x i8], ptr %169, i64 %.0136
   store float %179, ptr %180, align 4, !tbaa !93
   %181 = add nuw nsw i64 %.0136, 1
   %exitcond.not = icmp eq i64 %181, 4
@@ -34077,7 +34072,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %26, label %.preheader79.lr.ph.us, label %.preheader80.preheader
 
 .preheader80.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %36, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %1
   br label %.preheader80
 
 .preheader79.lr.ph.us:                            ; preds = %.lr.ph, %45
@@ -34105,7 +34100,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 48:                                               ; preds = %.preheader78.us, %48
   %49 = phi i1 [ true, %.preheader78.us ], [ false, %48 ]
   %.086.us = phi i64 [ 0, %.preheader78.us ], [ 1, %48 ]
-  %50 = getelementptr inbounds nuw <8 x float>, ptr %.06289.us.sroa.phi, i64 %.086.us
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %.06289.us.sroa.phi, i64 %.086.us
   %51 = load <8 x float>, ptr %50, align 32, !tbaa !53
   %52 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %53 = shufflevector <8 x float> %51, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34115,7 +34110,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %56, %shift
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %58 = getelementptr float, ptr %gep88.us, i64 %.086.us
+  %58 = getelementptr [4 x i8], ptr %gep88.us, i64 %.086.us
   store float %57, ptr %58, align 4, !tbaa !93
   br i1 %49, label %48, label %47, !llvm.loop !664
 
@@ -34132,7 +34127,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06481.us = phi i64 [ 0, %.preheader.us ], [ 1, %62 ]
   %64 = add nsw i64 %.06481.us, %41
   %65 = mul nsw i64 %29, %64
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %65
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %65
   %66 = getelementptr i8, ptr %gep.us, i64 2
   %.val70.us = load <2 x i64>, ptr %66, align 1, !tbaa !53
   %67 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -34150,12 +34145,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %79 = sitofp <8 x i32> %78 to <8 x float>
   %80 = load i16, ptr %gep.us, align 2, !tbaa !617
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
   %84 = fmul float %83, %97
   %85 = insertelement <8 x float> poison, float %84, i64 0
   %86 = shufflevector <8 x float> %85, <8 x float> poison, <8 x i32> zeroinitializer
-  %87 = getelementptr inbounds nuw <8 x float>, ptr %.06584.us.sroa.phi, i64 %.06481.us
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %.06584.us.sroa.phi, i64 %.06481.us
   %88 = load <8 x float>, ptr %87, align 32, !tbaa !53
   %89 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %86, <8 x float> %79, <8 x float> %88)
   store <8 x float> %89, ptr %87, align 32, !tbaa !53
@@ -34167,12 +34162,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ 1, %61 ]
   %91 = add nsw i64 %.06584.us, %44
   %92 = mul nsw i64 %34, %91
-  %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %92
+  %gep83.us = getelementptr [34 x i8], ptr %invariant.gep82.us, i64 %92
   %93 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
   %94 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !93
   br label %62
 
@@ -34182,17 +34177,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06289.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ 1, %47 ]
   %99 = add nsw i64 %.06289.us, %44
   %100 = mul nsw i64 %38, %99
-  %gep88.us = getelementptr float, ptr %invariant.gep87.us, i64 %100
+  %gep88.us = getelementptr [4 x i8], ptr %invariant.gep87.us, i64 %100
   br label %48
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %59
   %.06685.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %60, %59 ]
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %27, i64 %.06685.us
-  %invariant.gep82.us = getelementptr %struct.block_q8_0, ptr %32, i64 %.06685.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %27, i64 %.06685.us
+  %invariant.gep82.us = getelementptr [34 x i8], ptr %32, i64 %.06685.us
   br label %.preheader.us
 
 ..preheader80_crit_edge.us:                       ; preds = %59
-  %invariant.gep87.us = getelementptr float, ptr %36, i64 %41
+  %invariant.gep87.us = getelementptr [4 x i8], ptr %36, i64 %41
   br label %.preheader78.us
 
 ._crit_edge:                                      ; preds = %108, %45, %5
@@ -34216,7 +34211,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06289 = phi i64 [ 0, %.preheader80 ], [ 1, %110 ]
   %106 = add nsw i64 %.06289, %104
   %107 = mul nsw i64 %38, %106
-  %gep88 = getelementptr float, ptr %gep, i64 %107
+  %gep88 = getelementptr [4 x i8], ptr %gep, i64 %107
   br label %111
 
 108:                                              ; preds = %110
@@ -34231,7 +34226,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 111:                                              ; preds = %.preheader78, %111
   %112 = phi i1 [ true, %.preheader78 ], [ false, %111 ]
   %.086 = phi i64 [ 0, %.preheader78 ], [ 1, %111 ]
-  %113 = getelementptr inbounds nuw <8 x float>, ptr %.06289.sroa.phi, i64 %.086
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %.06289.sroa.phi, i64 %.086
   %114 = load <8 x float>, ptr %113, align 32, !tbaa !53
   %115 = shufflevector <8 x float> %114, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %116 = shufflevector <8 x float> %114, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34241,7 +34236,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift102 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop103 = fadd <4 x float> %119, %shift102
   %120 = extractelement <4 x float> %foldExtExtBinop103, i64 0
-  %121 = getelementptr float, ptr %gep88, i64 %.086
+  %121 = getelementptr [4 x i8], ptr %gep88, i64 %.086
   store float %120, ptr %121, align 4, !tbaa !93
   br i1 %112, label %111, label %110, !llvm.loop !664
 }
@@ -34290,7 +34285,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %25, label %.lr.ph.us, label %.preheader155.preheader
 
 .preheader155.preheader:                          ; preds = %.lr.ph173
-  %invariant.gep189 = getelementptr float, ptr %38, i64 %1
+  %invariant.gep189 = getelementptr [4 x i8], ptr %38, i64 %1
   br label %.preheader155
 
 .lr.ph.us:                                        ; preds = %.lr.ph173, %59
@@ -34303,17 +34298,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = add nsw i64 %45, 3
   %47 = mul nsw i64 %29, %46
-  %48 = getelementptr %struct.block_q8_0, ptr %27, i64 %47
+  %48 = getelementptr [34 x i8], ptr %27, i64 %47
   %49 = add nsw i64 %45, 2
   %50 = mul nsw i64 %29, %49
-  %51 = getelementptr %struct.block_q8_0, ptr %27, i64 %50
+  %51 = getelementptr [34 x i8], ptr %27, i64 %50
   %52 = add nsw i64 %45, 1
   %53 = mul nsw i64 %29, %52
-  %54 = getelementptr %struct.block_q8_0, ptr %27, i64 %53
+  %54 = getelementptr [34 x i8], ptr %27, i64 %53
   %55 = mul nsw i64 %29, %45
-  %56 = getelementptr %struct.block_q8_0, ptr %27, i64 %55
+  %56 = getelementptr [34 x i8], ptr %27, i64 %55
   %57 = mul nsw i64 %32, %42
-  %58 = getelementptr %struct.block_iq4_nl, ptr %30, i64 %57
+  %58 = getelementptr [18 x i8], ptr %30, i64 %57
   %.val154.us = load <16 x i8>, ptr %33, align 16, !tbaa !53
   br label %61
 
@@ -34329,13 +34324,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.lcssa157166.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %116, %61 ]
   %.0120165.us = phi i64 [ 0, %.lr.ph.us ], [ %119, %61 ]
   %.lcssa163164.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %115, %61 ]
-  %62 = getelementptr %struct.block_q8_0, ptr %48, i64 %.0120165.us
+  %62 = getelementptr [34 x i8], ptr %48, i64 %.0120165.us
   %63 = load i16, ptr %62, align 2, !tbaa !391
-  %64 = getelementptr %struct.block_q8_0, ptr %51, i64 %.0120165.us
+  %64 = getelementptr [34 x i8], ptr %51, i64 %.0120165.us
   %65 = load i16, ptr %64, align 2, !tbaa !391
-  %66 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0120165.us
+  %66 = getelementptr [34 x i8], ptr %54, i64 %.0120165.us
   %67 = load i16, ptr %66, align 2, !tbaa !391
-  %68 = getelementptr %struct.block_q8_0, ptr %56, i64 %.0120165.us
+  %68 = getelementptr [34 x i8], ptr %56, i64 %.0120165.us
   %69 = load i16, ptr %68, align 2, !tbaa !391
   %70 = insertelement <4 x i16> poison, i16 %69, i64 0
   %71 = insertelement <4 x i16> %70, i16 %67, i64 1
@@ -34351,10 +34346,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.val148152.us = load <32 x i8>, ptr %78, align 2, !tbaa !53
   %79 = getelementptr i8, ptr %62, i64 2
   %.val149153.us = load <32 x i8>, ptr %79, align 2, !tbaa !53
-  %80 = getelementptr %struct.block_iq4_nl, ptr %58, i64 %.0120165.us
+  %80 = getelementptr [18 x i8], ptr %58, i64 %.0120165.us
   %81 = load i16, ptr %80, align 2, !tbaa !617
   %82 = zext i16 %81 to i64
-  %83 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !93
   %85 = insertelement <4 x float> poison, float %84, i64 0
   %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> zeroinitializer
@@ -34397,7 +34392,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %..preheader155_crit_edge.us, %.preheader.us
   %.0116171.us = phi i64 [ 0, %..preheader155_crit_edge.us ], [ %130, %.preheader.us ]
-  %120 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116171.us
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116171.us
   %121 = load <8 x float>, ptr %120, align 32, !tbaa !53
   %122 = shufflevector <8 x float> %121, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %123 = shufflevector <8 x float> %121, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34409,7 +34404,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %127 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %128 = add nsw i64 %.0116171.us, %45
   %129 = mul nsw i64 %40, %128
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %129
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %129
   store float %127, ptr %gep.us, align 4, !tbaa !93
   %130 = add nuw nsw i64 %.0116171.us, 1
   %exitcond180.not = icmp eq i64 %130, 4
@@ -34420,7 +34415,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %117, ptr %35, align 32, !tbaa !53
   store <8 x float> %118, ptr %36, align 32, !tbaa !53
   store <8 x float> %115, ptr %6, align 32
-  %invariant.gep.us = getelementptr float, ptr %38, i64 %42
+  %invariant.gep.us = getelementptr [4 x i8], ptr %38, i64 %42
   br label %.preheader.us
 
 ._crit_edge:                                      ; preds = %146, %59, %5
@@ -34433,13 +34428,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %133 = shl nsw i64 %132, 2
   %134 = add nsw i64 %133, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep190 = getelementptr float, ptr %invariant.gep189, i64 %131
+  %gep190 = getelementptr [4 x i8], ptr %invariant.gep189, i64 %131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader155, %.preheader
   %.0116171 = phi i64 [ 0, %.preheader155 ], [ %145, %.preheader ]
-  %135 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.0116171
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.0116171
   %136 = load <8 x float>, ptr %135, align 32, !tbaa !53
   %137 = shufflevector <8 x float> %136, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %138 = shufflevector <8 x float> %136, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34451,7 +34446,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %142 = extractelement <4 x float> %foldExtExtBinop198, i64 0
   %143 = add nsw i64 %.0116171, %134
   %144 = mul nsw i64 %40, %143
-  %gep = getelementptr float, ptr %gep190, i64 %144
+  %gep = getelementptr [4 x i8], ptr %gep190, i64 %144
   store float %142, ptr %gep, align 4, !tbaa !93
   %145 = add nuw nsw i64 %.0116171, 1
   %exitcond.not = icmp eq i64 %145, 4
@@ -34515,12 +34510,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %.val76.us = load <16 x i8>, ptr %29, align 16, !tbaa !53
   %43 = mul nsw i64 %33, %42
-  %44 = getelementptr inbounds %struct.block_q8_0, ptr %31, i64 %43
+  %44 = getelementptr inbounds [34 x i8], ptr %31, i64 %43
   br label %.preheader80.us
 
 45:                                               ; preds = %..preheader81_crit_edge.us, %45
   %.084.us = phi i64 [ 0, %..preheader81_crit_edge.us ], [ %55, %45 ]
-  %46 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.084.us
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.084.us
   %47 = load <8 x float>, ptr %46, align 32, !tbaa !53
   %48 = shufflevector <8 x float> %47, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %49 = shufflevector <8 x float> %47, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34530,7 +34525,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %52, %shift
   %53 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %54 = getelementptr float, ptr %94, i64 %.084.us
+  %54 = getelementptr [4 x i8], ptr %94, i64 %.084.us
   store float %53, ptr %54, align 4, !tbaa !93
   %55 = add nuw nsw i64 %.084.us, 1
   %exitcond90.not = icmp eq i64 %55, 3
@@ -34540,7 +34535,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06482.us = phi i64 [ 0, %.preheader80.us ], [ %83, %56 ]
   %57 = add nsw i64 %.06482.us, %40
   %58 = mul nsw i64 %28, %57
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %58
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %58
   %59 = getelementptr i8, ptr %gep.us, i64 2
   %.val70.us = load <2 x i64>, ptr %59, align 1, !tbaa !53
   %60 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -34558,12 +34553,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %72 = sitofp <8 x i32> %71 to <8 x float>
   %73 = load i16, ptr %gep.us, align 2, !tbaa !617
   %74 = zext i16 %73 to i64
-  %75 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !93
   %77 = fmul float %76, %91
   %78 = insertelement <8 x float> poison, float %77, i64 0
   %79 = shufflevector <8 x float> %78, <8 x float> poison, <8 x i32> zeroinitializer
-  %80 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.06482.us
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06482.us
   %81 = load <8 x float>, ptr %80, align 32, !tbaa !53
   %82 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %79, <8 x float> %72, <8 x float> %81)
   store <8 x float> %82, ptr %80, align 32, !tbaa !53
@@ -34584,20 +34579,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader80.us:                                  ; preds = %.preheader80.lr.ph.us, %.loopexit.us
   %.06683.us = phi i64 [ 0, %.preheader80.lr.ph.us ], [ %84, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %26, i64 %.06683.us
-  %86 = getelementptr inbounds nuw %struct.block_q8_0, ptr %44, i64 %.06683.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %26, i64 %.06683.us
+  %86 = getelementptr inbounds nuw [34 x i8], ptr %44, i64 %.06683.us
   %87 = getelementptr i8, ptr %86, i64 2
   %.val7577.us = load <32 x i8>, ptr %87, align 1, !tbaa !53
   %88 = load i16, ptr %86, align 2, !tbaa !391
   %89 = zext i16 %88 to i64
-  %90 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !93
   br label %56
 
 ..preheader81_crit_edge.us:                       ; preds = %.loopexit.us
   %92 = mul nsw i64 %37, %42
-  %93 = getelementptr float, ptr %35, i64 %92
-  %94 = getelementptr float, ptr %93, i64 %40
+  %93 = getelementptr [4 x i8], ptr %35, i64 %92
+  %94 = getelementptr [4 x i8], ptr %93, i64 %40
   br label %45
 
 ._crit_edge:                                      ; preds = %.loopexit79, %.loopexit79.us, %5
@@ -34611,10 +34606,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %98 = mul nsw i64 %37, %97
-  %99 = getelementptr float, ptr %35, i64 %98
+  %99 = getelementptr [4 x i8], ptr %35, i64 %98
   %.idx = mul i64 %95, 12
   %100 = getelementptr i8, ptr %99, i64 %.idx
-  %101 = getelementptr float, ptr %100, i64 %1
+  %101 = getelementptr [4 x i8], ptr %100, i64 %1
   br label %103
 
 .loopexit79:                                      ; preds = %103
@@ -34625,7 +34620,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 103:                                              ; preds = %.preheader81, %103
   %.084 = phi i64 [ 0, %.preheader81 ], [ %113, %103 ]
-  %104 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %.084
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.084
   %105 = load <8 x float>, ptr %104, align 32, !tbaa !53
   %106 = shufflevector <8 x float> %105, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %107 = shufflevector <8 x float> %105, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34635,7 +34630,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift100 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop101 = fadd <4 x float> %110, %shift100
   %111 = extractelement <4 x float> %foldExtExtBinop101, i64 0
-  %112 = getelementptr float, ptr %101, i64 %.084
+  %112 = getelementptr [4 x i8], ptr %101, i64 %.084
   store float %111, ptr %112, align 4, !tbaa !93
   %113 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %113, 3
@@ -34683,7 +34678,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %25, label %.preheader79.lr.ph.us, label %.preheader80.preheader
 
 .preheader80.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %35, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %35, i64 %1
   br label %.preheader80
 
 .preheader79.lr.ph.us:                            ; preds = %.lr.ph, %45
@@ -34696,7 +34691,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %43 = mul nsw i64 %28, %39
-  %44 = getelementptr inbounds %struct.block_iq4_nl, ptr %26, i64 %43
+  %44 = getelementptr inbounds [18 x i8], ptr %26, i64 %43
   %.val76.us = load <16 x i8>, ptr %29, align 16, !tbaa !53
   br label %.preheader79.us
 
@@ -34715,7 +34710,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06581.us = phi i64 [ 0, %.preheader79.us ], [ %64, %.preheader.us ]
   %49 = add nsw i64 %.06581.us, %42
   %50 = mul nsw i64 %33, %49
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %50
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %50
   %51 = getelementptr i8, ptr %gep.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %51, align 1, !tbaa !53
   %52 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7577.us, <32 x i8> %86)
@@ -34723,12 +34718,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %54 = sitofp <8 x i32> %53 to <8 x float>
   %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
   %59 = fmul float %91, %58
   %60 = insertelement <8 x float> poison, float %59, i64 0
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <8 x i32> zeroinitializer
-  %62 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06581.us
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06581.us
   %.promoted.us = load <8 x float>, ptr %62, align 32, !tbaa !53
   %63 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %61, <8 x float> %54, <8 x float> %.promoted.us)
   store <8 x float> %63, ptr %62, align 32, !tbaa !53
@@ -34738,7 +34733,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader78.us:                                  ; preds = %..preheader80_crit_edge.us, %.preheader78.us
   %.06285.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ %75, %.preheader78.us ]
-  %65 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06285.us
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06285.us
   %66 = load <8 x float>, ptr %65, align 32, !tbaa !53
   %67 = shufflevector <8 x float> %66, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %68 = shufflevector <8 x float> %66, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34750,7 +34745,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %72 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %73 = add nsw i64 %.06285.us, %42
   %74 = mul nsw i64 %37, %73
-  %gep84.us = getelementptr float, ptr %invariant.gep83.us, i64 %74
+  %gep84.us = getelementptr [4 x i8], ptr %invariant.gep83.us, i64 %74
   store float %72, ptr %gep84.us, align 4, !tbaa !93
   %75 = add nuw nsw i64 %.06285.us, 1
   %exitcond91.not = icmp eq i64 %75, 3
@@ -34758,7 +34753,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %47
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %48, %47 ]
-  %76 = getelementptr inbounds nuw %struct.block_iq4_nl, ptr %44, i64 %.06682.us
+  %76 = getelementptr inbounds nuw [18 x i8], ptr %44, i64 %.06682.us
   %77 = getelementptr i8, ptr %76, i64 2
   %.val70.us = load <2 x i64>, ptr %77, align 1, !tbaa !53
   %78 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -34771,15 +34766,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %85 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val76.us, <16 x i8> %84)
   %86 = shufflevector <16 x i8> %80, <16 x i8> %85, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %87 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %86, <32 x i8> %86)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06682.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %31, i64 %.06682.us
   %88 = load i16, ptr %76, align 2, !tbaa !617
   %89 = zext i16 %88 to i64
-  %90 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader80_crit_edge.us:                       ; preds = %47
-  %invariant.gep83.us = getelementptr float, ptr %35, i64 %39
+  %invariant.gep83.us = getelementptr [4 x i8], ptr %35, i64 %39
   br label %.preheader78.us
 
 ._crit_edge:                                      ; preds = %107, %45, %5
@@ -34793,12 +34788,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %95 = add nsw i64 %94, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
-  %gep = getelementptr float, ptr %invariant.gep, i64 %92
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %92
   br label %.preheader78
 
 .preheader78:                                     ; preds = %.preheader80, %.preheader78
   %.06285 = phi i64 [ 0, %.preheader80 ], [ %106, %.preheader78 ]
-  %96 = getelementptr inbounds nuw [1 x <8 x float>], ptr %6, i64 %.06285
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.06285
   %97 = load <8 x float>, ptr %96, align 32, !tbaa !53
   %98 = shufflevector <8 x float> %97, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %99 = shufflevector <8 x float> %97, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -34810,7 +34805,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %103 = extractelement <4 x float> %foldExtExtBinop102, i64 0
   %104 = add nsw i64 %.06285, %95
   %105 = mul nsw i64 %37, %104
-  %gep84 = getelementptr float, ptr %gep, i64 %105
+  %gep84 = getelementptr [4 x i8], ptr %gep, i64 %105
   store float %103, ptr %gep84, align 4, !tbaa !93
   %106 = add nuw nsw i64 %.06285, 1
   %exitcond.not = icmp eq i64 %106, 3
@@ -34877,7 +34872,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %.val76.us = load <16 x i8>, ptr %28, align 16, !tbaa !53
   %42 = mul nsw i64 %32, %41
-  %43 = getelementptr inbounds %struct.block_q8_0, ptr %30, i64 %42
+  %43 = getelementptr inbounds [34 x i8], ptr %30, i64 %42
   br label %.preheader80.us
 
 44:                                               ; preds = %..preheader81_crit_edge.us, %44
@@ -34893,7 +34888,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %51, %shift
   %52 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %53 = getelementptr float, ptr %91, i64 %.084.us
+  %53 = getelementptr [4 x i8], ptr %91, i64 %.084.us
   store float %52, ptr %53, align 4, !tbaa !93
   br i1 %45, label %44, label %.loopexit79.us, !llvm.loop !679
 
@@ -34903,7 +34898,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06482.us = phi i64 [ 0, %.preheader80.us ], [ 1, %54 ]
   %56 = add nsw i64 %.06482.us, %39
   %57 = mul nsw i64 %27, %56
-  %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %57
+  %gep.us = getelementptr [18 x i8], ptr %invariant.gep.us, i64 %57
   %58 = getelementptr i8, ptr %gep.us, i64 2
   %.val70.us = load <2 x i64>, ptr %58, align 1, !tbaa !53
   %59 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -34921,7 +34916,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %71 = sitofp <8 x i32> %70 to <8 x float>
   %72 = load i16, ptr %gep.us, align 2, !tbaa !617
   %73 = zext i16 %72 to i64
-  %74 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !93
   %76 = fmul float %75, %88
   %77 = insertelement <8 x float> poison, float %76, i64 0
@@ -34945,20 +34940,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader80.us:                                  ; preds = %.preheader80.lr.ph.us, %.loopexit.us
   %.06683.us = phi i64 [ 0, %.preheader80.lr.ph.us ], [ %81, %.loopexit.us ]
-  %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %25, i64 %.06683.us
-  %83 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06683.us
+  %invariant.gep.us = getelementptr [18 x i8], ptr %25, i64 %.06683.us
+  %83 = getelementptr inbounds nuw [34 x i8], ptr %43, i64 %.06683.us
   %84 = getelementptr i8, ptr %83, i64 2
   %.val7577.us = load <32 x i8>, ptr %84, align 1, !tbaa !53
   %85 = load i16, ptr %83, align 2, !tbaa !391
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !93
   br label %54
 
 ..preheader81_crit_edge.us:                       ; preds = %.loopexit.us
   %89 = mul nsw i64 %36, %41
-  %90 = getelementptr float, ptr %34, i64 %89
-  %91 = getelementptr float, ptr %90, i64 %39
+  %90 = getelementptr [4 x i8], ptr %34, i64 %89
+  %91 = getelementptr [4 x i8], ptr %90, i64 %39
   br label %44
 
 ._crit_edge:                                      ; preds = %.loopexit79, %.loopexit79.us, %5
@@ -34974,10 +34969,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %95 = mul nsw i64 %36, %94
-  %96 = getelementptr float, ptr %34, i64 %95
+  %96 = getelementptr [4 x i8], ptr %34, i64 %95
   %.idx = shl i64 %92, 3
   %97 = getelementptr i8, ptr %96, i64 %.idx
-  %98 = getelementptr float, ptr %97, i64 %1
+  %98 = getelementptr [4 x i8], ptr %97, i64 %1
   br label %100
 
 .loopexit79:                                      ; preds = %100
@@ -35000,7 +34995,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %shift97 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop98 = fadd <4 x float> %107, %shift97
   %108 = extractelement <4 x float> %foldExtExtBinop98, i64 0
-  %109 = getelementptr float, ptr %98, i64 %.084
+  %109 = getelementptr [4 x i8], ptr %98, i64 %.084
   store float %108, ptr %109, align 4, !tbaa !93
   br i1 %101, label %100, label %.loopexit79, !llvm.loop !679
 }
@@ -35047,7 +35042,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %24, label %.preheader79.lr.ph.us, label %.preheader80.preheader
 
 .preheader80.preheader:                           ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %34, i64 %1
+  %invariant.gep = getelementptr [4 x i8], ptr %34, i64 %1
   br label %.preheader80
 
 .preheader79.lr.ph.us:                            ; preds = %.lr.ph, %44
@@ -35062,7 +35057,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %42 = mul nsw i64 %27, %38
-  %43 = getelementptr inbounds %struct.block_iq4_nl, ptr %25, i64 %42
+  %43 = getelementptr inbounds [18 x i8], ptr %25, i64 %42
   %.val76.us = load <16 x i8>, ptr %28, align 16, !tbaa !53
   br label %.preheader79.us
 
@@ -35084,7 +35079,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.06581.us = phi i64 [ 0, %.preheader79.us ], [ 1, %.preheader.us ]
   %49 = add nsw i64 %.06581.us, %41
   %50 = mul nsw i64 %32, %49
-  %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %50
+  %gep.us = getelementptr [34 x i8], ptr %invariant.gep.us, i64 %50
   %51 = getelementptr i8, ptr %gep.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %51, align 1, !tbaa !53
   %52 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7577.us, <32 x i8> %83)
@@ -35092,7 +35087,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %54 = sitofp <8 x i32> %53 to <8 x float>
   %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
   %59 = fmul float %88, %58
   %60 = insertelement <8 x float> poison, float %59, i64 0
@@ -35117,13 +35112,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %70 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %71 = add nsw i64 %.06285.us, %41
   %72 = mul nsw i64 %36, %71
-  %gep84.us = getelementptr float, ptr %invariant.gep83.us, i64 %72
+  %gep84.us = getelementptr [4 x i8], ptr %invariant.gep83.us, i64 %72
   store float %70, ptr %gep84.us, align 4, !tbaa !93
   br i1 %63, label %.preheader78.us, label %44, !llvm.loop !686
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %46
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %47, %46 ]
-  %73 = getelementptr inbounds nuw %struct.block_iq4_nl, ptr %43, i64 %.06682.us
+  %73 = getelementptr inbounds nuw [18 x i8], ptr %43, i64 %.06682.us
   %74 = getelementptr i8, ptr %73, i64 2
   %.val70.us = load <2 x i64>, ptr %74, align 1, !tbaa !53
   %75 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -35136,15 +35131,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %82 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val76.us, <16 x i8> %81)
   %83 = shufflevector <16 x i8> %77, <16 x i8> %82, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %84 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %83, <32 x i8> %83)
-  %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06682.us
+  %invariant.gep.us = getelementptr [34 x i8], ptr %30, i64 %.06682.us
   %85 = load i16, ptr %73, align 2, !tbaa !617
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !93
   br label %.preheader.us
 
 ..preheader80_crit_edge.us:                       ; preds = %46
-  %invariant.gep83.us = getelementptr float, ptr %34, i64 %38
+  %invariant.gep83.us = getelementptr [4 x i8], ptr %34, i64 %38
   br label %.preheader78.us
 
 ._crit_edge:                                      ; preds = %103, %44, %5
@@ -35160,7 +35155,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
-  %gep = getelementptr float, ptr %invariant.gep, i64 %89
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %89
   br label %.preheader78
 
 .preheader78:                                     ; preds = %.preheader80, %.preheader78
@@ -35178,7 +35173,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %100 = extractelement <4 x float> %foldExtExtBinop99, i64 0
   %101 = add nsw i64 %.06285, %92
   %102 = mul nsw i64 %36, %101
-  %gep84 = getelementptr float, ptr %gep, i64 %102
+  %gep84 = getelementptr [4 x i8], ptr %gep, i64 %102
   store float %100, ptr %gep84, align 4, !tbaa !93
   br i1 %93, label %.preheader78, label %103, !llvm.loop !686
 
@@ -35235,16 +35230,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %38 = srem i64 %.06787.us, %7
   %39 = add nsw i64 %38, %3
   %40 = mul nsw i64 %26, %37
-  %41 = getelementptr inbounds %struct.block_iq4_nl, ptr %24, i64 %40
+  %41 = getelementptr inbounds [18 x i8], ptr %24, i64 %40
   %.val77.us = load <16 x i8>, ptr %27, align 16, !tbaa !53
   %42 = mul nsw i64 %31, %39
-  %43 = getelementptr inbounds %struct.block_q8_0, ptr %29, i64 %42
+  %43 = getelementptr inbounds [34 x i8], ptr %29, i64 %42
   br label %.preheader81.us
 
 .preheader81.us:                                  ; preds = %.preheader81.lr.ph.us, %.preheader81.us
   %.06686.us = phi i64 [ 0, %.preheader81.lr.ph.us ], [ %73, %.preheader81.us ]
   %.sroa.0.185.us = phi <8 x float> [ zeroinitializer, %.preheader81.lr.ph.us ], [ %72, %.preheader81.us ]
-  %44 = getelementptr inbounds nuw %struct.block_iq4_nl, ptr %41, i64 %.06686.us
+  %44 = getelementptr inbounds nuw [18 x i8], ptr %41, i64 %.06686.us
   %45 = getelementptr i8, ptr %44, i64 2
   %.val70.us = load <2 x i64>, ptr %45, align 1, !tbaa !53
   %46 = bitcast <2 x i64> %.val70.us to <16 x i8>
@@ -35257,7 +35252,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %53 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val77.us, <16 x i8> %52)
   %54 = shufflevector <16 x i8> %48, <16 x i8> %53, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %55 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %54, <32 x i8> %54)
-  %56 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06686.us
+  %56 = getelementptr inbounds nuw [34 x i8], ptr %43, i64 %.06686.us
   %57 = getelementptr i8, ptr %56, i64 2
   %.val7578.us = load <32 x i8>, ptr %57, align 1, !tbaa !53
   %58 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val7578.us, <32 x i8> %54)
@@ -35265,11 +35260,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %60 = sitofp <8 x i32> %59 to <8 x float>
   %61 = load i16, ptr %44, align 2, !tbaa !617
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %62
   %64 = load float, ptr %63, align 4, !tbaa !93
   %65 = load i16, ptr %56, align 2, !tbaa !391
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @ggml_table_f32_f16, i64 %66
   %68 = load float, ptr %67, align 4, !tbaa !93
   %69 = fmul float %64, %68
   %70 = insertelement <8 x float> poison, float %69, i64 0
@@ -35289,8 +35284,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %foldExtExtBinop = fadd <4 x float> %78, %shift
   %79 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %80 = mul nsw i64 %35, %39
-  %81 = getelementptr float, ptr %33, i64 %80
-  %82 = getelementptr float, ptr %81, i64 %37
+  %81 = getelementptr [4 x i8], ptr %33, i64 %80
+  %82 = getelementptr [4 x i8], ptr %81, i64 %37
   store float %79, ptr %82, align 4, !tbaa !93
   %83 = add nsw i64 %.06787.us, 1
   %exitcond90.not = icmp eq i64 %83, %spec.select
@@ -35305,9 +35300,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %85 = srem i64 %.06787, %7
   %86 = add nsw i64 %85, %3
   %87 = mul nsw i64 %35, %86
-  %88 = getelementptr float, ptr %33, i64 %87
-  %89 = getelementptr float, ptr %88, i64 %84
-  %90 = getelementptr float, ptr %89, i64 %1
+  %88 = getelementptr [4 x i8], ptr %33, i64 %87
+  %89 = getelementptr [4 x i8], ptr %88, i64 %84
+  %90 = getelementptr [4 x i8], ptr %89, i64 %1
   store float 0.000000e+00, ptr %90, align 4, !tbaa !93
   %91 = add nsw i64 %.06787, 1
   %exitcond.not = icmp eq i64 %91, %spec.select

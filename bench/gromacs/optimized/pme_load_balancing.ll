@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.pme_setup_t = type { float, float, float, float, [3 x i32], float, float, float, ptr, i32, double }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
+%struct.pme_setup_t = type { float, float, float, float, [3 x i32], float, float, float, ptr, i32, double }
 %"class.std::allocator.136" = type { i8 }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr.230" }
@@ -692,9 +692,9 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %
 
 _ZNSt12_Vector_baseI11pme_setup_tSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI11pme_setup_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !164
-  %44 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !163
-  %45 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !303
   br label %46
 
@@ -1121,7 +1121,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   %211 = load i32, ptr %210, align 8, !tbaa !167
   %212 = sext i32 %211 to i64
   %213 = load ptr, ptr %209, align 8, !tbaa !164
-  %214 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %213, i64 %212
+  %214 = getelementptr inbounds nuw [64 x i8], ptr %213, i64 %212
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 48
   %216 = load i32, ptr %215, align 8, !tbaa !318
   %217 = add nsw i32 %216, 1
@@ -1203,7 +1203,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   %264 = load i32, ptr %263, align 4, !tbaa !322
   %265 = sext i32 %264 to i64
   %266 = load ptr, ptr %209, align 8, !tbaa !164
-  %267 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %266, i64 %265
+  %267 = getelementptr inbounds nuw [64 x i8], ptr %266, i64 %265
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 56
   %269 = load double, ptr %268, align 8, !tbaa !319
   %270 = fcmp olt double %262, %269
@@ -1218,7 +1218,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
 
 273:                                              ; preds = %271
   %274 = sext i32 %272 to i64
-  %275 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %266, i64 %274
+  %275 = getelementptr inbounds nuw [64 x i8], ptr %266, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %277 = load float, ptr %276, align 4, !tbaa !171
   call void @_Z21set_dd_dlb_max_cutoffP9t_commrecf(ptr noundef nonnull %1, float noundef %277)
@@ -1230,7 +1230,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   %279 = phi ptr [ %266, %271 ], [ %.pre45.i, %273 ], [ %266, %261 ]
   %280 = phi i32 [ %272, %271 ], [ %.pre44.i, %273 ], [ %264, %261 ]
   %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %279, i64 %281
+  %282 = getelementptr inbounds nuw [64 x i8], ptr %279, i64 %281
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 56
   %284 = load double, ptr %283, align 8, !tbaa !319
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -1271,7 +1271,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   br i1 %308, label %309, label %312
 
 309:                                              ; preds = %307
-  %310 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %279, i64 %297
+  %310 = getelementptr inbounds nuw [64 x i8], ptr %279, i64 %297
   %.not.i.i.i = icmp eq ptr %299, %310
   br i1 %.not.i.i.i, label %312, label %311
 
@@ -1369,7 +1369,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   %368 = load i32, ptr %210, align 8, !tbaa !167
   %369 = sext i32 %368 to i64
   %370 = load ptr, ptr %209, align 8, !tbaa !164
-  %371 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %370, i64 %369
+  %371 = getelementptr inbounds nuw [64 x i8], ptr %370, i64 %369
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 12
   %373 = load float, ptr %372, align 4, !tbaa !182
   %374 = fmul float %373, %367
@@ -1383,7 +1383,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   %382 = load i32, ptr %210, align 8, !tbaa !167
   %383 = sext i32 %382 to i64
   %384 = load ptr, ptr %209, align 8, !tbaa !164
-  %385 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %384, i64 %383
+  %385 = getelementptr inbounds nuw [64 x i8], ptr %384, i64 %383
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 12
   %387 = load float, ptr %386, align 4, !tbaa !182
   %388 = fpext float %387 to double
@@ -1442,11 +1442,11 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
 416:                                              ; preds = %416, %415
   %indvars.iv.i.i = phi i64 [ 0, %415 ], [ %indvars.iv.next.i.i, %416 ]
   %417 = phi float [ 1.000000e+00, %415 ], [ %432, %416 ]
-  %418 = getelementptr inbounds nuw i32, ptr %325, i64 %indvars.iv.i.i
+  %418 = getelementptr inbounds nuw [4 x i8], ptr %325, i64 %indvars.iv.i.i
   %419 = load i32, ptr %418, align 4, !tbaa !174
   %420 = sitofp i32 %419 to float
   %421 = fmul float %376, %420
-  %422 = getelementptr inbounds nuw [3 x float], ptr %328, i64 %indvars.iv.i.i
+  %422 = getelementptr inbounds nuw [12 x i8], ptr %328, i64 %indvars.iv.i.i
   %423 = load float, ptr %422, align 4, !tbaa !162
   %424 = getelementptr inbounds nuw i8, ptr %422, i64 4
   %425 = load float, ptr %424, align 4, !tbaa !162
@@ -1547,7 +1547,7 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i: ;
 _ZNSt6vectorI11pme_setup_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %474, %_ZNSt6vectorI11pme_setup_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i
   store ptr %469, ptr %209, align 8, !tbaa !164
   store ptr %473, ptr %322, align 8, !tbaa !163
-  %475 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %469, i64 %467
+  %475 = getelementptr inbounds nuw [64 x i8], ptr %469, i64 %467
   store ptr %475, ptr %345, align 8, !tbaa !303
   br label %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i
 
@@ -1565,7 +1565,7 @@ _ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.th
   %.pre5465.i = phi ptr [ %.pre50.i, %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i ], [ %.pre5466.i, %.critedge233.i ]
   %478 = phi i32 [ %.pre49.i, %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i ], [ %349, %.critedge233.i ]
   %479 = sext i32 %478 to i64
-  %480 = getelementptr %struct.pme_setup_t, ptr %.pre5465.i, i64 %479
+  %480 = getelementptr [64 x i8], ptr %.pre5465.i, i64 %479
   %481 = getelementptr i8, ptr %480, i64 76
   %482 = load float, ptr %481, align 4, !tbaa !182
   %483 = getelementptr inbounds nuw i8, ptr %.pre5465.i, i64 12
@@ -1603,7 +1603,7 @@ _ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.th
 
 498:                                              ; preds = %495
   %499 = sext i32 %497 to i64
-  %500 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %.pre54.i, i64 %499
+  %500 = getelementptr inbounds nuw [64 x i8], ptr %.pre54.i, i64 %499
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 4
   %502 = load float, ptr %501, align 4, !tbaa !171
   %503 = call noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIKNS4_11BasicVectorIfEEEEfb(ptr noundef nonnull %1, ptr noundef %7, ptr %185, ptr %191, float noundef %502, i1 noundef zeroext true)
@@ -1645,7 +1645,7 @@ _ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.th
   br i1 %520, label %521, label %_ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit239.i
 
 521:                                              ; preds = %519
-  %522 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %511, i64 %509
+  %522 = getelementptr inbounds nuw [64 x i8], ptr %511, i64 %509
   %.not.i.i238.i = icmp eq ptr %510, %522
   br i1 %.not.i.i238.i, label %_ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit239.i, label %523
 
@@ -1662,7 +1662,7 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit239.i: ; preds = %523, %521, %51
   %.pre5467.i = phi ptr [ %.pre54.i, %495 ], [ %.pre53.i, %..critedge231_crit_edge.i ]
   %524 = phi i32 [ %497, %495 ], [ %.pre52.i, %..critedge231_crit_edge.i ]
   %525 = sext i32 %524 to i64
-  %526 = getelementptr %struct.pme_setup_t, ptr %.pre5467.i, i64 %525
+  %526 = getelementptr [64 x i8], ptr %.pre5467.i, i64 %525
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 16
   %528 = load i32, ptr %527, align 8, !tbaa !174
   %529 = getelementptr inbounds nuw i8, ptr %526, i64 20
@@ -1748,7 +1748,7 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit239.i: ; preds = %523, %521, %51
 572:                                              ; preds = %568
   %573 = sext i32 %storemerge.i to i64
   %574 = load ptr, ptr %209, align 8, !tbaa !164
-  %575 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %574, i64 %573
+  %575 = getelementptr inbounds nuw [64 x i8], ptr %574, i64 %573
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 48
   %577 = load i32, ptr %576, align 8, !tbaa !318
   %578 = icmp sgt i32 %577, 0
@@ -1786,7 +1786,7 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit239.i: ; preds = %523, %521, %51
   %590 = load i32, ptr %210, align 8, !tbaa !167
   %591 = sext i32 %590 to i64
   %592 = load ptr, ptr %209, align 8, !tbaa !164
-  %593 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %592, i64 %591
+  %593 = getelementptr inbounds nuw [64 x i8], ptr %592, i64 %591
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 4
   %595 = load float, ptr %594, align 4, !tbaa !171
   %596 = call noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIKNS4_11BasicVectorIfEEEEfb(ptr noundef nonnull %1, ptr noundef %7, ptr %185, ptr %191, float noundef %595, i1 noundef zeroext true)
@@ -1905,7 +1905,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit242.i:            ; preds = %625, %_ZNKSt7__cxx1
   %639 = load i32, ptr %210, align 8, !tbaa !167
   %640 = sext i32 %639 to i64
   %641 = load ptr, ptr %209, align 8, !tbaa !164
-  %642 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %641, i64 %640
+  %642 = getelementptr inbounds nuw [64 x i8], ptr %641, i64 %640
   %643 = load float, ptr %642, align 8, !tbaa !168
   %644 = getelementptr inbounds nuw i8, ptr %194, i64 76
   store float %643, ptr %644, align 4, !tbaa !138
@@ -2006,7 +2006,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit242.i:            ; preds = %625, %_ZNKSt7__cxx1
   %712 = load i32, ptr %210, align 8, !tbaa !167
   %713 = sext i32 %712 to i64
   %714 = load ptr, ptr %209, align 8, !tbaa !164
-  %715 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %714, i64 %713
+  %715 = getelementptr inbounds nuw [64 x i8], ptr %714, i64 %713
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 40
   %717 = load ptr, ptr %716, align 8, !tbaa !181
   %718 = icmp eq ptr %717, null
@@ -2607,7 +2607,7 @@ define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr no
 19:                                               ; preds = %.lr.ph, %.critedge2
   %indvars.iv45 = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next46, %.critedge2 ]
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %.critedge2 ]
-  %20 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %8, i64 %indvars.iv45
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv45
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load i32, ptr %21, align 8, !tbaa !318
   %23 = icmp eq i32 %22, 0
@@ -2618,7 +2618,7 @@ define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr no
   %26 = load double, ptr %25, align 8, !tbaa !319
   %27 = load i32, ptr %16, align 4, !tbaa !322
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %8, i64 %28
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load double, ptr %30, align 8, !tbaa !319
   %32 = fmul double %31, 0x3FF1EB8520000000
@@ -2647,7 +2647,7 @@ define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr no
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %42
   %indvars.iv50 = phi i64 [ %36, %.lr.ph43.preheader ], [ %indvars.iv.next51, %42 ]
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, -1
-  %38 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %8, i64 %indvars.iv.next51
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv.next51
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load i32, ptr %39, align 8, !tbaa !318
   %41 = icmp eq i32 %40, 0
@@ -2675,13 +2675,13 @@ define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr no
 53:                                               ; preds = %.critedge4
   %54 = add nsw i32 %45, -1
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %8, i64 %55
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %58 = load double, ptr %57, align 8, !tbaa !319
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %60 = load i32, ptr %59, align 4, !tbaa !322
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %8, i64 %61
+  %62 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load double, ptr %63, align 8, !tbaa !319
   %65 = fmul double %64, 0x3FF1EB8520000000
@@ -2716,7 +2716,7 @@ define internal fastcc void @_ZL21print_loadbal_limitedP8_IO_FILES0_lP20pme_load
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %9 = load i32, ptr %8, align 4, !tbaa !328
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !442
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -2738,7 +2738,7 @@ define internal fastcc void @_ZL21print_loadbal_limitedP8_IO_FILES0_lP20pme_load
 _ZL15pme_loadbal_endP20pme_load_balancing_t.exit: ; preds = %4, %17
   %.0.i = phi i32 [ %24, %17 ], [ %15, %4 ]
   %25 = sext i32 %.0.i to i64
-  %26 = getelementptr %struct.pme_setup_t, ptr %.pre, i64 %25
+  %26 = getelementptr [64 x i8], ptr %.pre, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -64
   %28 = load float, ptr %27, align 8, !tbaa !168
   %29 = fpext float %28 to double
@@ -2874,7 +2874,7 @@ define void @_Z16pme_loadbal_doneP20pme_load_balancing_tP8_IO_FILERKN3gmx8MDLogg
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = sext i32 %8 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !164
-  %17 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load float, ptr %18, align 8, !tbaa !172
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2936,7 +2936,7 @@ _ZL15pme_loadbal_endP20pme_load_balancing_t.exit.i: ; preds = %53, %48
 
 64:                                               ; preds = %_ZL15pme_loadbal_endP20pme_load_balancing_t.exit.i
   %65 = sext i32 %47 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !442
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.41, ptr noundef %67) #22
   %69 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 55, i64 1, ptr nonnull %1)
@@ -2979,7 +2979,7 @@ _ZL15pme_loadbal_endP20pme_load_balancing_t.exit.i: ; preds = %53, %48
   %99 = load i32, ptr %7, align 8, !tbaa !167
   %100 = sext i32 %99 to i64
   %101 = load ptr, ptr %14, align 8, !tbaa !164
-  %102 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %101, i64 %100
   %103 = load float, ptr %102, align 8, !tbaa !168
   %104 = fpext float %103 to double
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -3090,7 +3090,7 @@ _ZL26print_pme_loadbal_settingsP20pme_load_balancing_tP8_IO_FILERKN3gmx8MDLogger
   br i1 %.not18, label %164, label %160
 
 160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw %struct.pme_setup_t, ptr %156, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [64 x i8], ptr %156, i64 %indvars.iv
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %163 = load ptr, ptr %162, align 8, !tbaa !181
   call void @_Z15gmx_pme_destroyP9gmx_pme_tb(ptr noundef %163, i1 noundef zeroext false)

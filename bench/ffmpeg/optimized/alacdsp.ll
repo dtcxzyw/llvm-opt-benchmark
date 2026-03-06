@@ -27,9 +27,9 @@ define internal void @decorrelate_stereo(ptr noundef readonly captures(none) %0,
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !12
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = mul i32 %13, %3
   %15 = ashr i32 %14, %2
@@ -59,18 +59,18 @@ define internal void @append_extra_bits(ptr noundef readonly captures(none) %0, 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv21 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next22, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv21
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv21
   %9 = load ptr, ptr %8, align 8, !tbaa !10
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv21
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv21
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   br label %12
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !12
   %15 = shl i32 %14, %2
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !12
   %18 = or i32 %17, %15
   store i32 %18, ptr %13, align 4, !tbaa !12

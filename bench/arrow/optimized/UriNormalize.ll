@@ -1582,13 +1582,13 @@ uriContainsUppercaseLettersW.exit218:             ; preds = %.preheader.i215, %u
 
 100:                                              ; preds = %100, %.lr.ph.i221
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i221 ], [ %indvars.iv.next.i, %100 ]
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv.i
   %102 = load i32, ptr %101, align 4, !tbaa !3
   %103 = add i32 %102, -65
   %or.cond.i222 = icmp ult i32 %103, 26
   %104 = or disjoint i32 %102, 32
   %spec.select.i = select i1 %or.cond.i222, i32 %104, i32 %102
-  %105 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %105, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %95
@@ -1596,7 +1596,7 @@ uriContainsUppercaseLettersW.exit218:             ; preds = %.preheader.i215, %u
 
 ._crit_edge.i:                                    ; preds = %100
   store ptr %97, ptr %0, align 8, !tbaa !66
-  %106 = getelementptr inbounds nuw i32, ptr %97, i64 %95
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %95
   store ptr %106, ptr %71, align 8, !tbaa !66
   br label %uriLowercaseMallocW.exit
 
@@ -1681,13 +1681,13 @@ uriLowercaseInplaceW.exit:                        ; preds = %79, %73, %uriLowerc
 
 146:                                              ; preds = %146, %.lr.ph.i228
   %indvars.iv.i230 = phi i64 [ 0, %.lr.ph.i228 ], [ %indvars.iv.next.i233, %146 ]
-  %147 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i230
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv.i230
   %148 = load i32, ptr %147, align 4, !tbaa !3
   %149 = add i32 %148, -65
   %or.cond.i231 = icmp ult i32 %149, 26
   %150 = or disjoint i32 %148, 32
   %spec.select.i232 = select i1 %or.cond.i231, i32 %150, i32 %148
-  %151 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv.i230
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %indvars.iv.i230
   store i32 %spec.select.i232, ptr %151, align 4, !tbaa !3
   %indvars.iv.next.i233 = add nuw nsw i64 %indvars.iv.i230, 1
   %exitcond.not.i234 = icmp eq i64 %indvars.iv.next.i233, %141
@@ -1695,7 +1695,7 @@ uriLowercaseInplaceW.exit:                        ; preds = %79, %73, %uriLowerc
 
 ._crit_edge.i235:                                 ; preds = %146
   store ptr %143, ptr %112, align 8, !tbaa !66
-  %152 = getelementptr inbounds nuw i32, ptr %143, i64 %141
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %141
   store ptr %152, ptr %117, align 8, !tbaa !66
   br label %uriLowercaseMallocW.exit237
 
@@ -2323,7 +2323,7 @@ uriContainsUglyPercentEncodingW.exit278:          ; preds = %375, %379, %382, %3
   %457 = load ptr, ptr %0, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %455, ptr align 4 %457, i64 %454, i1 false)
   store ptr %455, ptr %0, align 8, !tbaa !87
-  %458 = getelementptr inbounds i32, ptr %455, i64 %451
+  %458 = getelementptr inbounds [4 x i8], ptr %455, i64 %451
   store ptr %458, ptr %444, align 8, !tbaa !88
   %459 = or disjoint i32 %433, 1
   store i32 %459, ptr %5, align 4, !tbaa !3
@@ -2364,7 +2364,7 @@ uriContainsUglyPercentEncodingW.exit278:          ; preds = %375, %379, %382, %3
   %481 = load ptr, ptr %462, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %479, ptr align 4 %481, i64 %478, i1 false)
   store ptr %479, ptr %462, align 8, !tbaa !87
-  %482 = getelementptr inbounds i32, ptr %479, i64 %475
+  %482 = getelementptr inbounds [4 x i8], ptr %479, i64 %475
   store ptr %482, ptr %468, align 8, !tbaa !88
   %483 = or disjoint i32 %461, 2
   store i32 %483, ptr %5, align 4, !tbaa !3
@@ -2405,7 +2405,7 @@ uriContainsUglyPercentEncodingW.exit278:          ; preds = %375, %379, %382, %3
   %505 = load ptr, ptr %486, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %503, ptr align 4 %505, i64 %502, i1 false)
   store ptr %503, ptr %486, align 8, !tbaa !87
-  %506 = getelementptr inbounds i32, ptr %503, i64 %499
+  %506 = getelementptr inbounds [4 x i8], ptr %503, i64 %499
   store ptr %506, ptr %492, align 8, !tbaa !88
   %507 = or disjoint i32 %485, 16
   store i32 %507, ptr %5, align 4, !tbaa !3
@@ -2446,7 +2446,7 @@ uriContainsUglyPercentEncodingW.exit278:          ; preds = %375, %379, %382, %3
   %529 = load ptr, ptr %510, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %527, ptr align 4 %529, i64 %526, i1 false)
   store ptr %527, ptr %510, align 8, !tbaa !87
-  %530 = getelementptr inbounds i32, ptr %527, i64 %523
+  %530 = getelementptr inbounds [4 x i8], ptr %527, i64 %523
   store ptr %530, ptr %516, align 8, !tbaa !88
   %531 = or disjoint i32 %509, 32
   store i32 %531, ptr %5, align 4, !tbaa !3
@@ -2541,7 +2541,7 @@ uriContainsUglyPercentEncodingW.exit278:          ; preds = %375, %379, %382, %3
   %579 = load ptr, ptr %.061119.i, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %577, ptr align 4 %579, i64 %576, i1 false)
   store ptr %577, ptr %.061119.i, align 8, !tbaa !87
-  %580 = getelementptr inbounds i32, ptr %577, i64 %573
+  %580 = getelementptr inbounds [4 x i8], ptr %577, i64 %573
   store ptr %580, ptr %566, align 8, !tbaa !88
   br label %601
 
@@ -2636,7 +2636,7 @@ uriMakeRangeOwnerW.exit98.i:                      ; preds = %569
   %622 = load ptr, ptr %606, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %620, ptr align 4 %622, i64 %619, i1 false)
   store ptr %620, ptr %606, align 8, !tbaa !87
-  %623 = getelementptr inbounds i32, ptr %620, i64 %616
+  %623 = getelementptr inbounds [4 x i8], ptr %620, i64 %616
   store ptr %623, ptr %609, align 8, !tbaa !88
   br label %uriMakeOwnerW.exit
 
@@ -3308,7 +3308,7 @@ define internal fastcc void @uriFixPercentEncodingInplaceW(ptr noundef %0, ptr n
   %.046.i = phi ptr [ %41, %40 ], [ %0, %7 ]
   %.03945.i = phi i32 [ %42, %40 ], [ 0, %7 ]
   %17 = sext i32 %.03945.i to i64
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %.not.i = icmp eq i32 %19, 37
   br i1 %.not.i, label %21, label %20
@@ -3321,7 +3321,7 @@ define internal fastcc void @uriFixPercentEncodingInplaceW(ptr noundef %0, ptr n
   %22 = getelementptr i8, ptr %18, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = sext i32 %16 to i64
-  %25 = getelementptr inbounds i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %23) #6
   %28 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %26) #6
@@ -3359,7 +3359,7 @@ define internal fastcc void @uriFixPercentEncodingInplaceW(ptr noundef %0, ptr n
 .lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.lr.ph50.preheader.i
   %indvars.iv.i = phi i64 [ %15, %.lr.ph50.preheader.i ], [ %indvars.iv.next.i, %.lr.ph50.i ]
   %.349.i = phi ptr [ %.0.lcssa.i, %.lr.ph50.preheader.i ], [ %47, %.lr.ph50.i ]
-  %45 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4, !tbaa !3
   store i32 %46, ptr %.349.i, align 4, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %.349.i, i64 4
@@ -3435,7 +3435,7 @@ define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr nou
   %.046.i = phi ptr [ %59, %58 ], [ %21, %23 ]
   %.03945.i = phi i32 [ %60, %58 ], [ 0, %23 ]
   %35 = sext i32 %.03945.i to i64
-  %36 = getelementptr inbounds i32, ptr %24, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %24, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %.not.i = icmp eq i32 %37, 37
   br i1 %.not.i, label %39, label %38
@@ -3448,7 +3448,7 @@ define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr nou
   %40 = getelementptr i8, ptr %36, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !3
   %42 = sext i32 %34 to i64
-  %43 = getelementptr inbounds i32, ptr %24, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %24, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %41) #6
   %46 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %44) #6
@@ -3486,7 +3486,7 @@ define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr nou
 .lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.lr.ph50.preheader.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph50.preheader.i ], [ %indvars.iv.next.i, %.lr.ph50.i ]
   %.349.i = phi ptr [ %.0.lcssa.i, %.lr.ph50.preheader.i ], [ %65, %.lr.ph50.i ]
-  %63 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i
+  %63 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4, !tbaa !3
   store i32 %64, ptr %.349.i, align 4, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %.349.i, i64 4
@@ -3548,7 +3548,7 @@ define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr noundef nonnu
   %24 = load ptr, ptr %2, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 4 %24, i64 %21, i1 false)
   store ptr %22, ptr %2, align 8, !tbaa !87
-  %25 = getelementptr inbounds i32, ptr %22, i64 %18
+  %25 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   store ptr %25, ptr %11, align 8, !tbaa !88
   %26 = load i32, ptr %0, align 4, !tbaa !3
   %27 = or i32 %26, %1

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.git_hash_ctx = type { %struct.SHA1_CTX }
 %struct.SHA1_CTX = type { i64, [5 x i32], [64 x i8], i32, i32, i32, i32, i32, ptr, [5 x i32], [5 x i32], [80 x i32], [80 x i32], [80 x [5 x i32]] }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.idx_entry = type { i64, i32 }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [29 x i8] c"packfile %s index not opened\00", align 1
@@ -66,10 +65,10 @@ git_bswap32.exit:                                 ; preds = %13
   %30 = load i32, ptr %29, align 8, !tbaa !37
   %31 = zext i32 %30 to i64
   %32 = mul i64 %28, %31
-  %33 = getelementptr i32, ptr %22, i64 %32
+  %33 = getelementptr [4 x i8], ptr %22, i64 %32
   %34 = getelementptr i8, ptr %33, i64 1032
   %35 = zext i32 %4 to i64
-  %36 = getelementptr i32, ptr %34, i64 %35
+  %36 = getelementptr [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !37
   %38 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %37) #10, !srcloc !38
   %39 = trunc i64 %17 to i32
@@ -274,7 +273,7 @@ verify_pack_index.exit:                           ; preds = %17, %.sink.split.i
   %91 = shl nuw nsw i64 %90, 4
   %92 = call ptr @xmalloc(i64 noundef %91) #9
   %93 = zext i32 %88 to i64
-  %94 = getelementptr inbounds nuw %struct.idx_entry, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   store i64 %.1.i, ptr %94, align 8, !tbaa !46
   %.not155.i = icmp eq i32 %88, 0
   br i1 %.not155.i, label %._crit_edge153.i, label %.lr.ph.i
@@ -283,7 +282,7 @@ verify_pack_index.exit:                           ; preds = %17, %.sink.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %86 ]
   %95 = trunc nuw i64 %indvars.iv.i to i32
   %96 = call i64 @nth_packed_object_offset(ptr noundef nonnull %1, i32 noundef %95) #9
-  %97 = getelementptr inbounds nuw %struct.idx_entry, ptr %92, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %indvars.iv.i
   store i64 %96, ptr %97, align 8, !tbaa !46
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 %95, ptr %98, align 8, !tbaa !48
@@ -312,7 +311,7 @@ verify_pack_index.exit:                           ; preds = %17, %.sink.split.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %103 = getelementptr inbounds nuw %struct.idx_entry, ptr %92, i64 %indvars.iv161.i
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %indvars.iv161.i
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8, !tbaa !48
   %106 = call i32 @nth_packed_object_id(ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %105) #9
@@ -376,10 +375,10 @@ check_pack_crc.exit.i:                            ; preds = %126
   %141 = load i32, ptr %87, align 8, !tbaa !37
   %142 = zext i32 %141 to i64
   %143 = mul i64 %140, %142
-  %144 = getelementptr i32, ptr %134, i64 %143
+  %144 = getelementptr [4 x i8], ptr %134, i64 %143
   %145 = getelementptr i8, ptr %144, i64 1032
   %146 = zext i32 %119 to i64
-  %147 = getelementptr i32, ptr %145, i64 %146
+  %147 = getelementptr [4 x i8], ptr %145, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !37
   %149 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %148) #10, !srcloc !38
   %150 = trunc i64 %130 to i32

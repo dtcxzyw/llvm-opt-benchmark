@@ -1574,7 +1574,7 @@ define weak_odr void @_ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveE
   %5 = alloca %"class.boost::archive::iterators::ostream_iterator", align 8
   %6 = alloca %"class.boost::archive::iterators::ostream_iterator", align 8
   %7 = tail call i64 @wcslen(ptr noundef %1) #22
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1624,7 +1624,7 @@ define weak_odr void @_ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveE
   %7 = load ptr, ptr %1, align 8, !tbaa !101
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !104
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

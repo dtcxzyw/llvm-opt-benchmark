@@ -10,13 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
 %"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.45" }
 %"struct.std::_Head_base.45" = type { ptr }
-%"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
-%"struct.std::__uniq_ptr_data.13" = type { %"class.std::__uniq_ptr_impl.14" }
-%"class.std::__uniq_ptr_impl.14" = type { %"class.std::tuple.15" }
-%"class.std::tuple.15" = type { %"struct.std::_Tuple_impl.16" }
-%"struct.std::_Tuple_impl.16" = type { %"struct.std::_Head_base.19" }
-%"struct.std::_Head_base.19" = type { ptr }
-%"class.draco::IndexType" = type { i32 }
 
 $_ZN5draco17PointCloudDecoderD2Ev = comdat any
 
@@ -157,7 +150,7 @@ define noundef zeroext i1 @_ZN5draco27PointCloudSequentialDecoder23CreateAttribu
   br i1 %32, label %33, label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit.i
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %19, i64 %27
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %27
   %.not.i.i.i = icmp eq ptr %18, %34
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -187,7 +180,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_de
 _ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit.i: ; preds = %29, %_ZSt8_DestroyIPSt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, %33, %31, %15
   %40 = zext nneg i32 %1 to i64
   %41 = load ptr, ptr %16, align 8, !tbaa !56
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !57
   store ptr %4, ptr %42, align 8, !tbaa !57
   %.not.i.i.i.i.i = icmp eq ptr %43, null
@@ -502,9 +495,9 @@ _ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_dele
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %32
   store ptr %26, ptr %0, align 8, !tbaa !56
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %27, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !55
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %26, i64 %24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %35, ptr %11, align 8, !tbaa !63
   br label %36
 
@@ -586,7 +579,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco15LinearSequencer24GenerateSequ
   unreachable
 
 _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %19
-  %21 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 4, !tbaa !104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -674,9 +667,9 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_reloca
 
 _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i: ; preds = %34, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !103
-  %36 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %29, i64 %12
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !100
-  %37 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %28, i64 %26
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %26
   store ptr %37, ptr %13, align 8, !tbaa !107
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit
 
@@ -685,7 +678,7 @@ _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE13_M
   br i1 %39, label %40, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit, label %42
 

@@ -85,7 +85,7 @@ define hidden void @OGLBufImgOps_EnableConvolveOp(ptr noundef readnone captures(
   %31 = or disjoint i32 %spec.select, 4
   %.2 = select i1 %or.cond, i32 %31, i32 %spec.select
   %32 = zext nneg i32 %.2 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @convolvePrograms, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @convolvePrograms, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %53
@@ -210,7 +210,7 @@ OGLBufImgOps_CreateConvolveProgram.exit:          ; preds = %44
   %.17280 = phi ptr [ %.07185, %.lr.ph ], [ %99, %94 ]
   %95 = sitofp i32 %.06781 to float
   %96 = fmul float %.073, %95
-  %97 = getelementptr inbounds float, ptr %9, i64 %indvars.iv
+  %97 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv
   store float %96, ptr %97, align 4
   %98 = getelementptr i8, ptr %97, i64 4
   store float %92, ptr %98, align 4
@@ -272,7 +272,7 @@ define hidden void @OGLBufImgOps_EnableRescaleOp(ptr noundef readnone captures(a
   %14 = or disjoint i32 %spec.select, 2
   %.1 = select i1 %.not, i32 %spec.select, i32 %14
   %15 = zext nneg i32 %.1 to i64
-  %16 = getelementptr inbounds nuw i32, ptr @rescalePrograms, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @rescalePrograms, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %29
@@ -377,7 +377,7 @@ define hidden void @OGLBufImgOps_EnableLookupOp(ptr noundef readnone captures(ad
   %19 = or disjoint i32 %.1, 4
   %.2 = select i1 %.not61, i32 %.1, i32 %19
   %20 = zext nneg i32 %.2 to i64
-  %21 = getelementptr inbounds nuw i32, ptr @lookupPrograms, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @lookupPrograms, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %39
@@ -467,7 +467,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
 
 .preheader:                                       ; preds = %53, %.preheader
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader ], [ 0, %53 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv75
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv75
   store ptr %7, ptr %61, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 3
@@ -481,7 +481,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
   %66 = sext i32 %65 to i64
   %67 = add nsw i64 %66, %59
   %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv71
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv71
   store ptr %68, ptr %69, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 3
@@ -495,7 +495,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
   %74 = sext i32 %73 to i64
   %75 = add nsw i64 %74, %57
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %76, ptr %77, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -512,7 +512,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
 
 80:                                               ; preds = %.loopexit, %87
   %indvars.iv79 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next80, %87 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv79
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv79
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %87, label %84

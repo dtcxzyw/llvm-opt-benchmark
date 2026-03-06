@@ -3,8 +3,6 @@ source_filename = "bench/hyperscan/original/nfa_api_dispatch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mq_item = type { i32, i64, i64 }
-
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaCheckFinalState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -508,7 +506,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load i64, ptr %8, align 8
   %10 = icmp sgt i64 %9, %2
@@ -563,7 +561,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %38 = add nuw i32 %5, 1
   %39 = add i32 %.promoted, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct.mq_item, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp sgt i64 %43, %34
@@ -589,7 +587,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
 54:                                               ; preds = %46
   %55 = add i64 %indvars.iv45, 4294967294
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %struct.mq_item, ptr %35, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8
   %.not40.i = icmp sgt i64 %59, %34
@@ -601,7 +599,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %60 = trunc nuw i64 %indvars.iv.next to i32
   %61 = add i32 %60, -1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.mq_item, ptr %35, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = icmp sgt i64 %65, %34
@@ -873,7 +871,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.mq_item, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp sgt i64 %10, %2
@@ -926,7 +924,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %38 = add nuw i32 %6, 1
   %39 = add i32 %.promoted, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct.mq_item, ptr %4, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp sgt i64 %43, %35
@@ -952,7 +950,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
 54:                                               ; preds = %46
   %55 = add i64 %indvars.iv60, 4294967294
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %struct.mq_item, ptr %4, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8
   %.not40.i = icmp sgt i64 %59, %35
@@ -964,7 +962,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %60 = trunc nuw i64 %indvars.iv.next to i32
   %61 = add i32 %60, -1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.mq_item, ptr %4, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = icmp sgt i64 %65, %35
@@ -1112,7 +1110,7 @@ nfaQueueExec2_i.exit:                             ; preds = %76, %78, %80, %82, 
   %123 = load i32, ptr %122, align 4
   %124 = add i32 %123, -1
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw %struct.mq_item, ptr %4, i64 %125
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i64 %121, ptr %127, align 8
   br label %132

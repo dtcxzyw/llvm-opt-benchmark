@@ -14415,7 +14415,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12
 
 _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit: ; preds = %46
   %48 = zext nneg i32 %1 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !327
   br label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread
 
@@ -18315,7 +18315,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %.thread
 
 _ZNK10reflection5Field2idEv.exit.i:               ; preds = %41, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %.thread.i
   %46 = phi i64 [ %45, %41 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %.thread.i ]
-  %47 = getelementptr inbounds nuw i32, ptr %20, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %46
   store i32 %26, ptr %47, align 4, !tbaa !81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %24
@@ -18358,7 +18358,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8.us: ; preds = %.lr
 _ZNK10reflection6Object6fieldsEv.exit.us:         ; preds = %59, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8.us, %.lr.ph.split.us
   %65 = phi ptr [ %64, %59 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8.us ], [ null, %.lr.ph.split.us ]
   %.neg.us = xor i64 %.030.us, -1
-  %66 = getelementptr i32, ptr %50, i64 %.neg.us
+  %66 = getelementptr [4 x i8], ptr %50, i64 %.neg.us
   %67 = load i32, ptr %66, align 4, !tbaa !81
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %69 = shl i32 %67, 2
@@ -18422,7 +18422,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8: ; preds = %.lr.ph
 
 _ZNK10reflection6Object6fieldsEv.exit:            ; preds = %88, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8, %.lr.ph.split
   %94 = phi ptr [ %93, %88 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8 ], [ null, %.lr.ph.split ]
-  %95 = getelementptr inbounds nuw i32, ptr %20, i64 %.030
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.030
   %96 = load i32, ptr %95, align 4, !tbaa !81
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %98 = shl i32 %96, 2
@@ -30594,7 +30594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i: ; preds = %7
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i
   %741 = phi ptr [ %766, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i ], [ %706, %._crit_edge.i ]
   %.026.i = phi i64 [ %768, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i ], [ 0, %._crit_edge.i ]
-  %742 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %741, i64 %.026.i
+  %742 = getelementptr inbounds nuw [32 x i8], ptr %741, i64 %.026.i
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 8
   %744 = load i64, ptr %743, align 8, !tbaa !16
   %745 = load i64, ptr %704, align 8, !tbaa !16, !alias.scope !717
@@ -33994,7 +33994,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !722
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !720
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !724
   ret void
 }
@@ -34188,7 +34188,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !722
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !720
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !724
   ret void
 

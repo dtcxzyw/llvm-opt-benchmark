@@ -421,7 +421,7 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
   br i1 %or.cond56.i, label %.critedge.i, label %118
 
 118:                                              ; preds = %.lr.ph
-  %119 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store i64 %115, ptr %119, align 8, !tbaa !25
   %120 = load ptr, ptr %8, align 8, !tbaa !16
   %121 = load i8, ptr %120, align 1, !tbaa !3

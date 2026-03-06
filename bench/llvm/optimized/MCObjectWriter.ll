@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", i64 }
 
 $_ZN4llvm14MCObjectWriter24executePostLayoutBindingERNS_11MCAssemblerE = comdat any
 
@@ -325,7 +324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %34 = zext i32 %30 to i64
   %35 = load ptr, ptr %8, align 8, !tbaa !6
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %37, ptr %36, align 8, !tbaa !53
   %38 = load ptr, ptr %6, align 8, !tbaa !15
@@ -409,7 +408,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !21
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %11, ptr %10, align 8, !tbaa !53
   %12 = load ptr, ptr %1, align 8, !tbaa !15
@@ -546,7 +545,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_tr
   %63 = add i32 %62, 1
   store i32 %63, ptr %7, align 8, !tbaa !21
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %64
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %66

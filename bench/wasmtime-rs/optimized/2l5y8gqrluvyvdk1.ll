@@ -132,7 +132,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !7
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !7
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !7
-  %73 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %58, i64 %60
+  %73 = getelementptr inbounds [104 x i8], ptr %58, i64 %60
   store ptr %58, ptr %45, align 8, !noalias !7
   %74 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %73, ptr %74, align 8, !noalias !7
@@ -193,7 +193,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %76, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %96 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %95, i64 %90
+  %96 = getelementptr inbounds [240 x i8], ptr %95, i64 %90
   %97 = load i64, ptr %96, align 16, !range !12, !noalias !7, !noundef !3
   %.not.i = icmp eq i64 %97, 3
   br i1 %.not.i, label %.critedge.i, label %100
@@ -219,7 +219,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
   %105 = load ptr, ptr %104, align 8, !noalias !7, !nonnull !3, !noundef !3
   %106 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %107 = load i64, ptr %106, align 8, !noalias !7, !noundef !3
-  %108 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %105, i64 %107
+  %108 = getelementptr inbounds [216 x i8], ptr %105, i64 %107
   store ptr %105, ptr %44, align 8, !noalias !7
   store ptr %108, ptr %77, align 8, !noalias !7
   br label %.loopexit35.i

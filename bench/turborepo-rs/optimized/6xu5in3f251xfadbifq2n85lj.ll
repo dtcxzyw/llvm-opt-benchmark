@@ -136,7 +136,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   %54 = and i64 %53, %.val6.i
   %55 = load ptr, ptr %0, align 8, !alias.scope !58, !noalias !63, !nonnull !4, !noundef !4
   %56 = sub nsw i64 0, %54
-  %57 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %55, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %.val3.i.i.i = load ptr, ptr %58, align 8, !alias.scope !66, !noalias !71, !nonnull !4, !align !74, !noundef !4
   %59 = getelementptr i8, ptr %57, i64 -24
@@ -198,7 +198,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
 
 89:                                               ; preds = %.lr.ph.i.i
   %90 = load ptr, ptr %0, align 8, !alias.scope !58, !noalias !59, !nonnull !4
-  %91 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %90, i64 %56
+  %91 = getelementptr inbounds [32 x i8], ptr %90, i64 %56
   %92 = getelementptr inbounds i8, ptr %91, i64 -16
   %93 = load ptr, ptr %92, align 8, !nonnull !4, !align !74, !noundef !4
   %94 = getelementptr inbounds i8, ptr %91, i64 -8
@@ -230,7 +230,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   %111 = add i64 %110, 1
   store i64 %111, ptr %109, align 8, !alias.scope !85, !noalias !88
   %112 = sub nsw i64 0, %.sroa.3.0.i.ph.i
-  %113 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %97, i64 %112
+  %113 = getelementptr inbounds [32 x i8], ptr %97, i64 %112
   %114 = getelementptr inbounds i8, ptr %113, i64 -32
   store ptr %1, ptr %114, align 8, !noalias !85
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 -24

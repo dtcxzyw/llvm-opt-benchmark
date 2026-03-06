@@ -500,7 +500,7 @@ define noundef range(i64 -9223372036854775808, 9223372036854775744) i64 @_ZN5boo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8256
   %5 = load i64, ptr %4, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   %7 = sub i64 1024, %5
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112

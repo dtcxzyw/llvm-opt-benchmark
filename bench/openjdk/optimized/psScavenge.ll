@@ -2716,7 +2716,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN29SpanSubjectToDiscoveryClosur
   %.not.i = icmp uge ptr %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   ret i1 %9
@@ -2868,7 +2868,7 @@ _ZL19scavenge_roots_workN16ParallelRootType5ValueEj.exit: ; preds = %50, %53, %5
 
 63:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit.i, %._crit_edge
   %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit.i ]
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -2887,7 +2887,7 @@ _ZL19scavenge_roots_workN16ParallelRootType5ValueEj.exit: ; preds = %50, %53, %5
   %.0.i.i.i.i = phi i64 [ %69, %68 ], [ %83, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI14PSRootsClosureILb0EEEEEEEEbT_.exit.i.i.i.i ]
   %71 = load ptr, ptr %67, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %.0.i.i.i.i
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %.0.i.i.i.i
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 512
   %76 = load volatile i64, ptr %75, align 8
@@ -2899,7 +2899,7 @@ _ZL19scavenge_roots_workN16ParallelRootType5ValueEj.exit: ; preds = %50, %53, %5
   %77 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i.i, i1 true)
   %78 = shl nuw i64 1, %77
   %79 = xor i64 %78, %.0810.i.i.i.i.i.i
-  %80 = getelementptr inbounds nuw ptr, ptr %74, i64 %77
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %77
   %81 = load ptr, ptr %9, align 8
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %80) #13
@@ -3295,7 +3295,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %27, %30, %37, %57
   br i1 %.not.i, label %_ZN17PSOldPromotionLAB8allocateEm.exit.thread, label %82
 
 82:                                               ; preds = %71
-  %83 = getelementptr inbounds nuw ptr, ptr %75, i64 %.0.i1.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.0.i1.i
   store ptr %83, ptr %74, align 8
   %84 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %85 = add i32 %84, -1
@@ -3344,7 +3344,7 @@ _ZN17PSOldPromotionLAB8allocateEm.exit.thread:    ; preds = %71, %_ZN17PSOldProm
   br i1 %.not.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, label %111
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds ptr, ptr %110, i64 %.0.i1.i
+  %112 = getelementptr inbounds [8 x i8], ptr %110, i64 %.0.i1.i
   %113 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %114 = ptrtoint ptr %110 to i64
   %115 = add i32 %113, -1
@@ -3413,7 +3413,7 @@ _ZNK7oopDesc5klassEv.exit19.i:                    ; preds = %141, %131
   br i1 %.not.i.i55, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i56, label %153
 
 153:                                              ; preds = %147
-  %154 = getelementptr inbounds ptr, ptr %152, i64 %145
+  %154 = getelementptr inbounds [8 x i8], ptr %152, i64 %145
   %155 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %156 = ptrtoint ptr %152 to i64
   %157 = add i32 %155, -1
@@ -3447,7 +3447,7 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i56:   ; preds = %147
   br i1 %.not.i58, label %_ZN17PSOldPromotionLAB8allocateEm.exit60.thread, label %175
 
 175:                                              ; preds = %167
-  %176 = getelementptr inbounds nuw ptr, ptr %169, i64 %.0.i1.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.0.i1.i
   store ptr %176, ptr %74, align 8
   %177 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %178 = add i32 %177, -1
@@ -3696,7 +3696,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %309 = load ptr, ptr %308, align 8
   %310 = zext i32 %303 to i64
-  %311 = getelementptr inbounds nuw %class.ScannerTask, ptr %309, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %310
   store ptr %301, ptr %311, align 8
   %312 = add i32 %303, 1
   %313 = and i32 %312, 131071
@@ -3765,7 +3765,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %330,
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i, %._crit_edge.i.i.i
   %344 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
   %.0.i.i.i72 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %317, %._crit_edge.i.i.i ]
-  %345 = getelementptr inbounds %class.ScannerTask, ptr %344, i64 %.0.i.i.i72
+  %345 = getelementptr inbounds [8 x i8], ptr %344, i64 %.0.i.i.i72
   store ptr %301, ptr %345, align 8
   %346 = add i64 %.0.i.i.i72, 1
   store i64 %346, ptr %316, align 8
@@ -3807,7 +3807,7 @@ _ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i: ; preds
   %367 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %367, align 8
   %368 = sext i32 %364 to i64
-  %369 = getelementptr inbounds ptr, ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 %368
+  %369 = getelementptr inbounds [8 x i8], ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 %368
   %370 = load ptr, ptr %369, align 8
   call void %370(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %.046, ptr noundef nonnull %.0.i.i.i73) #13
   br label %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit
@@ -3937,7 +3937,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 480
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %9 to i64
-  %17 = getelementptr inbounds nuw %class.ScannerTask, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   store ptr %1, ptr %17, align 8
   %18 = add i32 %9, 1
   %19 = and i32 %18, 131071
@@ -4006,7 +4006,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i: ; preds = %
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   %50 = phi ptr [ %.0.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.0.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i ], [ %23, %._crit_edge.i.i.i.i.i ]
-  %51 = getelementptr inbounds %class.ScannerTask, ptr %50, i64 %.0.i.i.i.i.i
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %.0.i.i.i.i.i
   store ptr %1, ptr %51, align 8
   %52 = add i64 %.0.i.i.i.i.i, 1
   store i64 %52, ptr %22, align 8
@@ -4092,7 +4092,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %16 to i64
-  %24 = getelementptr inbounds nuw %class.ScannerTask, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %14, ptr %24, align 8
   %25 = add i32 %16, 1
   %26 = and i32 %25, 131071
@@ -4161,7 +4161,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %43, 
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i, %._crit_edge.i.i.i
   %57 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
   %.0.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %30, %._crit_edge.i.i.i ]
-  %58 = getelementptr inbounds %class.ScannerTask, ptr %57, i64 %.0.i.i.i
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %.0.i.i.i
   store ptr %14, ptr %58, align 8
   %59 = add i64 %.0.i.i.i, 1
   store i64 %59, ptr %29, align 8
@@ -4365,7 +4365,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %29, %32, %39, %59
   br i1 %.not.i, label %_ZN19PSYoungPromotionLAB8allocateEm.exit.thread, label %_ZN19PSYoungPromotionLAB8allocateEm.exit
 
 _ZN19PSYoungPromotionLAB8allocateEm.exit:         ; preds = %77
-  %86 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0.i1.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.0.i1.i
   store ptr %86, ptr %78, align 8
   %87 = icmp eq ptr %79, null
   br i1 %87, label %_ZN19PSYoungPromotionLAB8allocateEm.exit.thread, label %_ZN18PSPromotionManager21promotion_trace_eventEP7oopDescS1_mjbPK14PSPromotionLAB.exit
@@ -4446,7 +4446,7 @@ _ZNK7oopDesc5klassEv.exit19.i:                    ; preds = %117, %107
   br i1 %.not.i77, label %_ZN19PSYoungPromotionLAB8allocateEm.exit79.thread, label %_ZN19PSYoungPromotionLAB8allocateEm.exit79
 
 _ZN19PSYoungPromotionLAB8allocateEm.exit79:       ; preds = %126
-  %134 = getelementptr inbounds nuw ptr, ptr %128, i64 %.0.i1.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %.0.i1.i
   store ptr %134, ptr %78, align 8
   %.not.i80 = icmp eq ptr %128, null
   br i1 %.not.i80, label %_ZN19PSYoungPromotionLAB8allocateEm.exit79.thread, label %135
@@ -4506,7 +4506,7 @@ _ZN19PSYoungPromotionLAB8allocateEm.exit79.thread: ; preds = %126, %_ZN19PSYoung
   br i1 %.not.i86, label %_ZN17PSOldPromotionLAB8allocateEm.exit.thread, label %169
 
 169:                                              ; preds = %_ZN19PSYoungPromotionLAB8allocateEm.exit79.thread
-  %170 = getelementptr inbounds nuw ptr, ptr %162, i64 %.0.i1.i
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %.0.i1.i
   store ptr %170, ptr %161, align 8
   %171 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %172 = add i32 %171, -1
@@ -4555,7 +4555,7 @@ _ZN17PSOldPromotionLAB8allocateEm.exit.thread:    ; preds = %_ZN19PSYoungPromoti
   br i1 %.not.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, label %198
 
 198:                                              ; preds = %192
-  %199 = getelementptr inbounds ptr, ptr %197, i64 %.0.i1.i
+  %199 = getelementptr inbounds [8 x i8], ptr %197, i64 %.0.i1.i
   %200 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %201 = ptrtoint ptr %197 to i64
   %202 = add i32 %200, -1
@@ -4624,7 +4624,7 @@ _ZNK7oopDesc5klassEv.exit19.i89:                  ; preds = %228, %218
   br i1 %.not.i.i92, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i93, label %240
 
 240:                                              ; preds = %234
-  %241 = getelementptr inbounds ptr, ptr %239, i64 %232
+  %241 = getelementptr inbounds [8 x i8], ptr %239, i64 %232
   %242 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %243 = ptrtoint ptr %239 to i64
   %244 = add i32 %242, -1
@@ -4658,7 +4658,7 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i93:   ; preds = %234
   br i1 %.not.i95, label %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread, label %262
 
 262:                                              ; preds = %254
-  %263 = getelementptr inbounds nuw ptr, ptr %256, i64 %.0.i1.i
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %.0.i1.i
   store ptr %263, ptr %161, align 8
   %264 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %265 = add i32 %264, -1
@@ -4972,7 +4972,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %433 = load ptr, ptr %432, align 8
   %434 = zext i32 %427 to i64
-  %435 = getelementptr inbounds nuw %class.ScannerTask, ptr %433, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %433, i64 %434
   store ptr %425, ptr %435, align 8
   %436 = add i32 %427, 1
   %437 = and i32 %436, 131071
@@ -5041,7 +5041,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %454,
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i, %._crit_edge.i.i.i
   %468 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
   %.0.i.i.i109 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %441, %._crit_edge.i.i.i ]
-  %469 = getelementptr inbounds %class.ScannerTask, ptr %468, i64 %.0.i.i.i109
+  %469 = getelementptr inbounds [8 x i8], ptr %468, i64 %.0.i.i.i109
   store ptr %425, ptr %469, align 8
   %470 = add i64 %.0.i.i.i109, 1
   store i64 %470, ptr %440, align 8
@@ -5083,7 +5083,7 @@ _ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i: ; preds
   %491 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %0, ptr %491, align 8
   %492 = sext i32 %488 to i64
-  %493 = getelementptr inbounds ptr, ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 %492
+  %493 = getelementptr inbounds [8 x i8], ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 %492
   %494 = load ptr, ptr %493, align 8
   call void %494(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %.1, ptr noundef nonnull %.0.i.i.i110) #13
   br label %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit
@@ -5434,7 +5434,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
@@ -5492,7 +5492,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
   %42 = zext i32 %.034 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %46 = load volatile i32, ptr %45, align 4
@@ -5503,7 +5503,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %51 = icmp eq i32 %50, 131071
   %52 = select i1 %51, i32 0, i32 %50
   %53 = zext i32 %36 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %41, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
   %57 = load volatile i32, ptr %56, align 4
@@ -5532,7 +5532,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 384
   %72 = load ptr, ptr %71, align 8
   %73 = and i64 %66, 4294967295
-  %74 = getelementptr inbounds nuw %class.ScannerTask, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8
   store i64 %75, ptr %2, align 8
   %76 = add i32 %.sroa.010.0.extract.trunc.i, 1
@@ -5567,7 +5567,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %89 = getelementptr inbounds nuw i8, ptr %44, i64 384
   %90 = load ptr, ptr %89, align 8
   %91 = and i64 %84, 4294967295
-  %92 = getelementptr inbounds nuw %class.ScannerTask, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %91
   %93 = load i64, ptr %92, align 8
   store i64 %93, ptr %2, align 8
   %94 = add i32 %.sroa.010.0.extract.trunc.i42, 1
@@ -5600,7 +5600,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit:
   %104 = and i32 %1, 1
   %105 = xor i32 %104, 1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %5, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 256
   %110 = load volatile i64, ptr %109, align 8
@@ -5619,7 +5619,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit:
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 384
   %117 = load ptr, ptr %116, align 8
   %118 = and i64 %110, 4294967295
-  %119 = getelementptr inbounds nuw %class.ScannerTask, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = load i64, ptr %119, align 8
   store i64 %120, ptr %2, align 8
   %121 = add i32 %.sroa.010.0.extract.trunc.i51, 1
@@ -5927,11 +5927,11 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -6000,7 +6000,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %49 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %50 = load ptr, ptr %49, align 8
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds nuw %class.ScannerTask, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   store ptr %42, ptr %52, align 8
   %53 = add i32 %44, 1
   %54 = and i32 %53, 131071
@@ -6069,7 +6069,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %71
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %85 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %58, %._crit_edge.i.i.i.i ]
-  %86 = getelementptr inbounds %class.ScannerTask, ptr %85, i64 %.0.i.i.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %.0.i.i.i.i
   store ptr %42, ptr %86, align 8
   %87 = add i64 %.0.i.i.i.i, 1
   store i64 %87, ptr %57, align 8
@@ -6089,11 +6089,11 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -6153,7 +6153,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %41 = load ptr, ptr %40, align 8
   %42 = zext i32 %35 to i64
-  %43 = getelementptr inbounds nuw %class.ScannerTask, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   store ptr %30, ptr %43, align 8
   %44 = add i32 %35, 1
   %45 = and i32 %44, 131071
@@ -6222,7 +6222,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %76 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %77 = getelementptr inbounds %class.ScannerTask, ptr %76, i64 %.0.i.i.i.i.i.i.i.i
+  %77 = getelementptr inbounds [8 x i8], ptr %76, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %30, ptr %77, align 8
   %78 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %78, ptr %48, align 8
@@ -6268,11 +6268,11 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_reverseI
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i64, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i64, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
@@ -6341,7 +6341,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %50 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %51 = load ptr, ptr %50, align 8
   %52 = zext i32 %45 to i64
-  %53 = getelementptr inbounds nuw %class.ScannerTask, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   store ptr %43, ptr %53, align 8
   %54 = add i32 %45, 1
   %55 = and i32 %54, 131071
@@ -6410,7 +6410,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %72
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %86 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %59, %._crit_edge.i.i.i.i ]
-  %87 = getelementptr inbounds %class.ScannerTask, ptr %86, i64 %.0.i.i.i.i
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %.0.i.i.i.i
   store ptr %43, ptr %87, align 8
   %88 = add i64 %.0.i.i.i.i, 1
   store i64 %88, ptr %58, align 8
@@ -6562,7 +6562,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #13
@@ -6689,7 +6689,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %20 = lshr i64 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %20
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
@@ -6709,7 +6709,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = lshr i64 %33, 6
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %35, %40
   %.not28 = icmp eq i64 %41, 0
@@ -6739,7 +6739,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %55 = lshr i64 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %55
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
   %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
@@ -6757,7 +6757,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = lshr i64 %68, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %68, 63
   %75 = shl nuw i64 1, %74
@@ -6789,7 +6789,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %90 = lshr i64 %88, %89
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %90
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
   %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
@@ -6809,7 +6809,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
   %106 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %107 = load ptr, ptr %106, align 8
   %108 = lshr i64 %103, 6
-  %109 = getelementptr inbounds nuw i64, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   %110 = load i64, ptr %109, align 8
   %111 = and i64 %105, %110
   %.not32 = icmp eq i64 %111, 0
@@ -7048,7 +7048,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %20 = lshr i64 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %20
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
@@ -7068,7 +7068,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = lshr i64 %33, 6
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %35, %40
   %.not28 = icmp eq i64 %41, 0
@@ -7098,7 +7098,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %55 = lshr i64 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %55
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
   %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
@@ -7116,7 +7116,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = lshr i64 %68, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %68, 63
   %75 = shl nuw i64 1, %74
@@ -7148,7 +7148,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %90 = lshr i64 %88, %89
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %90
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
   %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
@@ -7168,7 +7168,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
   %106 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %107 = load ptr, ptr %106, align 8
   %108 = lshr i64 %103, 6
-  %109 = getelementptr inbounds nuw i64, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   %110 = load i64, ptr %109, align 8
   %111 = and i64 %105, %110
   %.not32 = icmp eq i64 %111, 0
@@ -7304,7 +7304,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -7321,7 +7321,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -7364,7 +7364,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
   %46 = lshr i64 %45, 21
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   %50 = load volatile ptr, ptr %49, align 8
   %.not.i6.i.i = icmp eq ptr %50, null
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -7399,7 +7399,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -7443,7 +7443,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -7457,7 +7457,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -7497,7 +7497,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -7523,7 +7523,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -7592,7 +7592,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #13
@@ -7858,7 +7858,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -7875,7 +7875,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -7918,7 +7918,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
   %46 = lshr i64 %45, 21
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   %50 = load volatile ptr, ptr %49, align 8
   %.not.i6.i.i = icmp eq ptr %50, null
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -7953,7 +7953,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -7999,11 +7999,11 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_reverseI
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i64, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i64, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
@@ -8063,7 +8063,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %41 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %42 = load ptr, ptr %41, align 8
   %43 = zext i32 %36 to i64
-  %44 = getelementptr inbounds nuw %class.ScannerTask, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   store ptr %31, ptr %44, align 8
   %45 = add i32 %36, 1
   %46 = and i32 %45, 131071
@@ -8132,7 +8132,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %77 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %50, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %78 = getelementptr inbounds %class.ScannerTask, ptr %77, i64 %.0.i.i.i.i.i.i.i.i
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %31, ptr %78, align 8
   %79 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %79, ptr %49, align 8
@@ -8197,7 +8197,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %30 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 480
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %25 to i64
-  %33 = getelementptr inbounds nuw %class.ScannerTask, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   store ptr %19, ptr %33, align 8
   %34 = add i32 %25, 1
   %35 = and i32 %34, 131071
@@ -8266,7 +8266,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i.i: ;
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %66 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %39, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
-  %67 = getelementptr inbounds %class.ScannerTask, ptr %66, i64 %.0.i.i.i.i.i.i.i.i.i.i
+  %67 = getelementptr inbounds [8 x i8], ptr %66, i64 %.0.i.i.i.i.i.i.i.i.i.i
   store ptr %19, ptr %67, align 8
   %68 = add i64 %.0.i.i.i.i.i.i.i.i.i.i, 1
   store i64 %68, ptr %38, align 8
@@ -8347,7 +8347,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 480
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %32 to i64
-  %40 = getelementptr inbounds nuw %class.ScannerTask, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   store ptr %26, ptr %40, align 8
   %41 = add i32 %32, 1
   %42 = and i32 %41, 131071
@@ -8416,7 +8416,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i: ; p
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i
   %73 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i ], [ %46, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %74 = getelementptr inbounds %class.ScannerTask, ptr %73, i64 %.0.i.i.i.i.i.i.i.i.i
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %.0.i.i.i.i.i.i.i.i.i
   store ptr %26, ptr %74, align 8
   %75 = add i64 %.0.i.i.i.i.i.i.i.i.i, 1
   store i64 %75, ptr %45, align 8
@@ -8448,7 +8448,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %89 = getelementptr inbounds nuw i8, ptr %.val.i.i8, i64 480
   %90 = load ptr, ptr %89, align 8
   %91 = zext i32 %84 to i64
-  %92 = getelementptr inbounds nuw %class.ScannerTask, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %91
   store ptr %79, ptr %92, align 8
   %93 = add i32 %84, 1
   %94 = and i32 %93, 131071
@@ -8517,7 +8517,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i19: ;
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i.i16: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i19, %._crit_edge.i.i.i.i.i.i.i.i.i13
   %125 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i21, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i19 ], [ %.pre.i.i.i.i.i.i.i.i.i15, %._crit_edge.i.i.i.i.i.i.i.i.i13 ]
   %.0.i.i.i.i.i.i.i.i.i17 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i19 ], [ %98, %._crit_edge.i.i.i.i.i.i.i.i.i13 ]
-  %126 = getelementptr inbounds %class.ScannerTask, ptr %125, i64 %.0.i.i.i.i.i.i.i.i.i17
+  %126 = getelementptr inbounds [8 x i8], ptr %125, i64 %.0.i.i.i.i.i.i.i.i.i17
   store ptr %79, ptr %126, align 8
   %127 = add i64 %.0.i.i.i.i.i.i.i.i.i17, 1
   store i64 %127, ptr %97, align 8
@@ -8556,7 +8556,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %19 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 480
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %14 to i64
-  %22 = getelementptr inbounds nuw %class.ScannerTask, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   store ptr %8, ptr %22, align 8
   %23 = add i32 %14, 1
   %24 = and i32 %23, 131071
@@ -8625,7 +8625,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i: ; p
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i
   %55 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i ], [ %28, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %56 = getelementptr inbounds %class.ScannerTask, ptr %55, i64 %.0.i.i.i.i.i.i.i.i.i
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %.0.i.i.i.i.i.i.i.i.i
   store ptr %8, ptr %56, align 8
   %57 = add i64 %.0.i.i.i.i.i.i.i.i.i, 1
   store i64 %57, ptr %27, align 8
@@ -8657,7 +8657,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %71 = getelementptr inbounds nuw i8, ptr %.val.i.i6, i64 480
   %72 = load ptr, ptr %71, align 8
   %73 = zext i32 %66 to i64
-  %74 = getelementptr inbounds nuw %class.ScannerTask, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   store ptr %61, ptr %74, align 8
   %75 = add i32 %66, 1
   %76 = and i32 %75, 131071
@@ -8726,7 +8726,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i17: ;
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i.i14: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i17, %._crit_edge.i.i.i.i.i.i.i.i.i11
   %107 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i19, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i17 ], [ %.pre.i.i.i.i.i.i.i.i.i13, %._crit_edge.i.i.i.i.i.i.i.i.i11 ]
   %.0.i.i.i.i.i.i.i.i.i15 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i17 ], [ %80, %._crit_edge.i.i.i.i.i.i.i.i.i11 ]
-  %108 = getelementptr inbounds %class.ScannerTask, ptr %107, i64 %.0.i.i.i.i.i.i.i.i.i15
+  %108 = getelementptr inbounds [8 x i8], ptr %107, i64 %.0.i.i.i.i.i.i.i.i.i15
   store ptr %61, ptr %108, align 8
   %109 = add i64 %.0.i.i.i.i.i.i.i.i.i15, 1
   store i64 %109, ptr %79, align 8
@@ -8764,11 +8764,11 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_rever
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -8841,7 +8841,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %49 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %50 = load ptr, ptr %49, align 8
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds nuw %class.ScannerTask, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   store ptr %42, ptr %52, align 8
   %53 = add i32 %44, 1
   %54 = and i32 %53, 131071
@@ -8910,7 +8910,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %71
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %85 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %58, %._crit_edge.i.i.i.i ]
-  %86 = getelementptr inbounds %class.ScannerTask, ptr %85, i64 %.0.i.i.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %.0.i.i.i.i
   store ptr %42, ptr %86, align 8
   %87 = add i64 %.0.i.i.i.i, 1
   store i64 %87, ptr %57, align 8
@@ -8957,11 +8957,11 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_rever
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -9021,7 +9021,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %41 = load ptr, ptr %40, align 8
   %42 = zext i32 %35 to i64
-  %43 = getelementptr inbounds nuw %class.ScannerTask, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   store ptr %30, ptr %43, align 8
   %44 = add i32 %35, 1
   %45 = and i32 %44, 131071
@@ -9090,7 +9090,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %76 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %77 = getelementptr inbounds %class.ScannerTask, ptr %76, i64 %.0.i.i.i.i.i.i.i.i
+  %77 = getelementptr inbounds [8 x i8], ptr %76, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %30, ptr %77, align 8
   %78 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %78, ptr %48, align 8
@@ -9146,7 +9146,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %19 to i64
-  %27 = getelementptr inbounds nuw %class.ScannerTask, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   store ptr %.08, ptr %27, align 8
   %28 = add i32 %19, 1
   %29 = and i32 %28, 131071
@@ -9215,7 +9215,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %60 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %33, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %61 = getelementptr inbounds %class.ScannerTask, ptr %60, i64 %.0.i.i.i.i.i.i.i.i
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.08, ptr %61, align 8
   %62 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %62, ptr %32, align 8
@@ -9258,11 +9258,11 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -9331,7 +9331,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %49 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %50 = load ptr, ptr %49, align 8
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds nuw %class.ScannerTask, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   store ptr %42, ptr %52, align 8
   %53 = add i32 %44, 1
   %54 = and i32 %53, 131071
@@ -9400,7 +9400,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %71
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %85 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %58, %._crit_edge.i.i.i.i ]
-  %86 = getelementptr inbounds %class.ScannerTask, ptr %85, i64 %.0.i.i.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %.0.i.i.i.i
   store ptr %42, ptr %86, align 8
   %87 = add i64 %.0.i.i.i.i, 1
   store i64 %87, ptr %57, align 8
@@ -9420,11 +9420,11 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -9484,7 +9484,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %41 = load ptr, ptr %40, align 8
   %42 = zext i32 %35 to i64
-  %43 = getelementptr inbounds nuw %class.ScannerTask, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   store ptr %30, ptr %43, align 8
   %44 = add i32 %35, 1
   %45 = and i32 %44, 131071
@@ -9553,7 +9553,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %76 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %77 = getelementptr inbounds %class.ScannerTask, ptr %76, i64 %.0.i.i.i.i.i.i.i.i
+  %77 = getelementptr inbounds [8 x i8], ptr %76, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %30, ptr %77, align 8
   %78 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %78, ptr %48, align 8
@@ -9614,190 +9614,189 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %9 = load volatile i8, ptr %8, align 1
   %10 = and i8 %9, 16
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %72, label %11
+  br i1 %.not, label %71, label %11
 
 11:                                               ; preds = %3
   %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %13 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %14 = sext i32 %13 to i64
-  %15 = add nsw i64 %14, %5
-  %16 = inttoptr i64 %15 to ptr
-  %17 = load volatile i32, ptr %16, align 4
-  %18 = sext i32 %17 to i64
-  %.idx9 = shl nsw i64 %18, 3
-  %19 = add nsw i64 %.idx9, -16
-  %20 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
+  %13 = sext i32 %12 to i64
+  %14 = add nsw i64 %13, %5
+  %15 = inttoptr i64 %14 to ptr
+  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %17 = sext i32 %16 to i64
+  %18 = add nsw i64 %17, %5
+  %19 = inttoptr i64 %18 to ptr
+  %20 = load volatile i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = add nsw i64 %21, %5
-  %23 = inttoptr i64 %22 to ptr
-  %24 = load i32, ptr %23, align 4
-  %25 = sext i32 %24 to i64
-  %.idx = shl nsw i64 %25, 3
-  %26 = icmp sgt i64 %.idx, %19
-  br i1 %26, label %27, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
+  %.idx9 = shl nsw i64 %21, 3
+  %22 = add nsw i64 %.idx9, -16
+  %23 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
+  %24 = sext i32 %23 to i64
+  %25 = add nsw i64 %24, %5
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load i32, ptr %26, align 4
+  %28 = sext i32 %27 to i64
+  %.idx = shl nsw i64 %28, 3
+  %29 = getelementptr inbounds i8, ptr %15, i64 %.idx
+  %30 = icmp sgt i64 %.idx, %22
+  br i1 %30, label %31, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
-27:                                               ; preds = %11
-  %28 = sext i32 %12 to i64
-  %29 = add nsw i64 %28, %5
-  %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 %19
-  %32 = getelementptr inbounds i8, ptr %30, i64 %.idx
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %25
-  %34 = ptrtoint ptr %31 to i64
-  %35 = sub i64 %34, %29
-  %36 = ashr exact i64 %35, 2
-  %37 = ptrtoint ptr %32 to i64
-  %38 = sub i64 %37, %29
-  %39 = ashr exact i64 %38, 2
-  %40 = icmp ult i64 %36, %39
-  br i1 %40, label %.lr.ph.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
+31:                                               ; preds = %11
+  %32 = getelementptr inbounds i8, ptr %15, i64 %22
+  %33 = ptrtoint ptr %32 to i64
+  %34 = sub i64 %33, %14
+  %35 = ashr exact i64 %34, 2
+  %36 = ptrtoint ptr %29 to i64
+  %37 = sub i64 %36, %14
+  %38 = ashr exact i64 %37, 2
+  %39 = icmp ult i64 %35, %38
+  br i1 %39, label %.lr.ph.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
-.lr.ph.i.i.i:                                     ; preds = %27
-  %41 = add nsw i64 %39, 63
-  %42 = lshr i64 %41, 6
-  %43 = getelementptr i8, ptr %2, i64 16
-  br label %44
+.lr.ph.i.i.i:                                     ; preds = %31
+  %40 = add nsw i64 %38, 63
+  %41 = lshr i64 %40, 6
+  %42 = getelementptr i8, ptr %2, i64 16
+  br label %43
 
-44:                                               ; preds = %64, %.lr.ph.i.i.i
-  %.0917.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i ], [ %70, %64 ]
-  %45 = lshr i64 %.0917.i.i.i, 6
-  %46 = getelementptr inbounds nuw i64, ptr %33, i64 %45
-  %47 = load i64, ptr %46, align 8
-  %48 = and i64 %.0917.i.i.i, 63
-  %49 = lshr i64 %47, %48
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i, label %51, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i
+43:                                               ; preds = %63, %.lr.ph.i.i.i
+  %.0917.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i ], [ %69, %63 ]
+  %44 = lshr i64 %.0917.i.i.i, 6
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %44
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %.0917.i.i.i, 63
+  %48 = lshr i64 %46, %47
+  %49 = and i64 %48, 1
+  %.not.i.i.i.i.i = icmp eq i64 %49, 0
+  br i1 %.not.i.i.i.i.i, label %50, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i
 
-51:                                               ; preds = %44
-  %52 = icmp eq i64 %49, 0
-  br i1 %52, label %.preheader.i.i.i, label %60
+50:                                               ; preds = %43
+  %51 = icmp eq i64 %48, 0
+  br i1 %51, label %.preheader.i.i.i, label %59
 
-.preheader.i.i.i:                                 ; preds = %51, %55
-  %.025.i.i.i.i.i = phi i64 [ %53, %55 ], [ %45, %51 ]
-  %53 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %54 = icmp samesign ult i64 %53, %42
-  br i1 %54, label %55, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
+.preheader.i.i.i:                                 ; preds = %50, %54
+  %.025.i.i.i.i.i = phi i64 [ %52, %54 ], [ %44, %50 ]
+  %52 = add nuw nsw i64 %.025.i.i.i.i.i, 1
+  %53 = icmp samesign ult i64 %52, %41
+  br i1 %53, label %54, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
-55:                                               ; preds = %.preheader.i.i.i
-  %56 = getelementptr inbounds nuw i64, ptr %33, i64 %53
-  %57 = load i64, ptr %56, align 8
-  %.not36.i.i.i.i.i = icmp eq i64 %57, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %58, !llvm.loop !41
+54:                                               ; preds = %.preheader.i.i.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %52
+  %56 = load i64, ptr %55, align 8
+  %.not36.i.i.i.i.i = icmp eq i64 %56, 0
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !41
 
-58:                                               ; preds = %55
-  %59 = shl nuw i64 %53, 6
-  br label %60
+57:                                               ; preds = %54
+  %58 = shl nuw i64 %52, 6
+  br label %59
 
-60:                                               ; preds = %58, %51
-  %.027.ph.i.i.i.i.i = phi i64 [ %49, %51 ], [ %57, %58 ]
-  %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %51 ], [ %59, %58 ]
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
-  %62 = add i64 %.026.ph.i.i.i.i.i, %61
-  %63 = icmp ult i64 %62, %39
-  br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
+59:                                               ; preds = %57, %50
+  %.027.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
+  %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %50 ], [ %58, %57 ]
+  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
+  %61 = add i64 %.026.ph.i.i.i.i.i, %60
+  %62 = icmp ult i64 %61, %38
+  br i1 %62, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
-_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %60, %44
-  %.0.i.i.i.i.i = phi i64 [ %62, %60 ], [ %.0917.i.i.i, %44 ]
-  %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %39
-  br i1 %.not.not.i.i.i, label %64, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
+_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
+  %.0.i.i.i.i.i = phi i64 [ %61, %59 ], [ %.0917.i.i.i, %43 ]
+  %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %38
+  br i1 %.not.not.i.i.i, label %63, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
-64:                                               ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i
-  %65 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %66 = sext i32 %65 to i64
-  %67 = add nsw i64 %66, %5
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds i32, ptr %68, i64 %.0.i.i.i.i.i
-  %.val.i.i.i.i.i.i.i = load ptr, ptr %43, align 8
-  tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i.i.i.i.i.i, ptr noundef %69)
-  %70 = add nuw i64 %.0.i.i.i.i.i, 1
-  %71 = icmp ult i64 %70, %39
-  br i1 %71, label %44, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !42
+63:                                               ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i
+  %64 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %65 = sext i32 %64 to i64
+  %66 = add nsw i64 %65, %5
+  %67 = inttoptr i64 %66 to ptr
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %.0.i.i.i.i.i
+  %.val.i.i.i.i.i.i.i = load ptr, ptr %42, align 8
+  tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i.i.i.i.i.i, ptr noundef %68)
+  %69 = add nuw i64 %.0.i.i.i.i.i, 1
+  %70 = icmp ult i64 %69, %38
+  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !42
 
-72:                                               ; preds = %3
-  %73 = load i8, ptr @UseCompressedClassPointers, align 1
-  %74 = trunc i8 %73 to i1
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %74, label %76, label %86
+71:                                               ; preds = %3
+  %72 = load i8, ptr @UseCompressedClassPointers, align 1
+  %73 = trunc i8 %72 to i1
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %73, label %75, label %85
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %75, align 8
-  %78 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %79 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %80 = ptrtoint ptr %78 to i64
-  %81 = zext i32 %77 to i64
-  %82 = zext nneg i32 %79 to i64
-  %83 = shl i64 %81, %82
-  %84 = add i64 %83, %80
-  %85 = inttoptr i64 %84 to ptr
+75:                                               ; preds = %71
+  %76 = load i32, ptr %74, align 8
+  %77 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %78 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %79 = ptrtoint ptr %77 to i64
+  %80 = zext i32 %76 to i64
+  %81 = zext nneg i32 %78 to i64
+  %82 = shl i64 %80, %81
+  %83 = add i64 %82, %79
+  %84 = inttoptr i64 %83 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-86:                                               ; preds = %72
-  %87 = load ptr, ptr %75, align 8
+85:                                               ; preds = %71
+  %86 = load ptr, ptr %74, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %86, %76
-  %.0.i.i.i = phi ptr [ %85, %76 ], [ %87, %86 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %91, label %101
+_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %85, %75
+  %.0.i.i.i = phi ptr [ %84, %75 ], [ %86, %85 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %90, label %100
 
-91:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %92 = trunc i32 %89 to i1
-  br i1 %92, label %96, label %93
+90:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
+  %91 = trunc i32 %88 to i1
+  br i1 %91, label %95, label %92
 
-93:                                               ; preds = %91
-  %94 = lshr i32 %89, 3
-  %95 = zext nneg i32 %94 to i64
+92:                                               ; preds = %90
+  %93 = lshr i32 %88, 3
+  %94 = zext nneg i32 %93 to i64
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %.0.i.i.i, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 256
-  %99 = load ptr, ptr %98, align 8
-  %100 = tail call noundef i64 %99(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %.0.i.i.i, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 256
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-101:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %102 = icmp slt i32 %89, 0
-  br i1 %102, label %103, label %123
+100:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
+  %101 = icmp slt i32 %88, 0
+  br i1 %101, label %102, label %122
 
-103:                                              ; preds = %101
-  %104 = select i1 %74, i64 12, i64 16
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 %104
-  %106 = load i32, ptr %105, align 4
-  %107 = sext i32 %106 to i64
-  %108 = and i32 %89, 63
-  %109 = zext nneg i32 %108 to i64
-  %110 = shl i64 %107, %109
-  %111 = lshr i32 %89, 16
-  %112 = and i32 %111, 255
-  %113 = zext nneg i32 %112 to i64
-  %114 = add i64 %110, %113
-  %115 = load i32, ptr @MinObjAlignmentInBytes, align 4
-  %116 = add nsw i32 %115, -1
-  %117 = sext i32 %116 to i64
-  %118 = add i64 %114, %117
-  %119 = sub i32 0, %115
-  %120 = sext i32 %119 to i64
-  %121 = and i64 %118, %120
-  %122 = lshr i64 %121, 3
+102:                                              ; preds = %100
+  %103 = select i1 %73, i64 12, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 %103
+  %105 = load i32, ptr %104, align 4
+  %106 = sext i32 %105 to i64
+  %107 = and i32 %88, 63
+  %108 = zext nneg i32 %107 to i64
+  %109 = shl i64 %106, %108
+  %110 = lshr i32 %88, 16
+  %111 = and i32 %110, 255
+  %112 = zext nneg i32 %111 to i64
+  %113 = add i64 %109, %112
+  %114 = load i32, ptr @MinObjAlignmentInBytes, align 4
+  %115 = add nsw i32 %114, -1
+  %116 = sext i32 %115 to i64
+  %117 = add i64 %113, %116
+  %118 = sub i32 0, %114
+  %119 = sext i32 %118 to i64
+  %120 = and i64 %117, %119
+  %121 = lshr i64 %120, 3
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-123:                                              ; preds = %101
-  %124 = load ptr, ptr %.0.i.i.i, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 256
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i64 %126(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+122:                                              ; preds = %100
+  %123 = load ptr, ptr %.0.i.i.i, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 256
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-_ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %93, %96, %103, %123
-  %.0.i1.i.i = phi i64 [ %100, %96 ], [ %95, %93 ], [ %122, %103 ], [ %127, %123 ]
+_ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %92, %95, %102, %122
+  %.0.i1.i.i = phi i64 [ %99, %95 ], [ %94, %92 ], [ %121, %102 ], [ %126, %122 ]
   tail call void @_ZN23InstanceStackChunkKlass26oop_oop_iterate_stack_slowEP17stackChunkOopDescP17OopIterateClosure9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2, ptr nonnull %1, i64 %.0.i1.i.i) #13
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
-_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit: ; preds = %64, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %60, %.preheader.i.i.i, %27, %11, %_ZN17stackChunkOopDesc5rangeEv.exit
+_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit: ; preds = %63, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %59, %.preheader.i.i.i, %31, %11, %_ZN17stackChunkOopDesc5rangeEv.exit
   ret void
 }
 
@@ -9826,7 +9825,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %19 = inttoptr i64 %18 to ptr
   %20 = load volatile i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %15, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %25 = sext i32 %24 to i64
@@ -9834,7 +9833,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %27 = inttoptr i64 %26 to ptr
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %15, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %15, i64 %29
   tail call void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS8_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %23, ptr noundef %30)
   br label %87
 
@@ -9958,7 +9957,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %23 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %18 to i64
-  %26 = getelementptr inbounds nuw %class.ScannerTask, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   store ptr %8, ptr %26, align 8
   %27 = add i32 %18, 1
   %28 = and i32 %27, 131071
@@ -10027,7 +10026,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %59 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %32, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %60 = getelementptr inbounds %class.ScannerTask, ptr %59, i64 %.0.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %8, ptr %60, align 8
   %61 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %61, ptr %31, align 8
@@ -10055,7 +10054,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %71 = getelementptr inbounds nuw i8, ptr %.val.i6, i64 480
   %72 = load ptr, ptr %71, align 8
   %73 = zext i32 %66 to i64
-  %74 = getelementptr inbounds nuw %class.ScannerTask, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   store ptr %12, ptr %74, align 8
   %75 = add i32 %66, 1
   %76 = and i32 %75, 131071
@@ -10124,7 +10123,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i17: ; p
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i14: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i17, %._crit_edge.i.i.i.i.i.i.i.i11
   %107 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i19, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i17 ], [ %.pre.i.i.i.i.i.i.i.i13, %._crit_edge.i.i.i.i.i.i.i.i11 ]
   %.0.i.i.i.i.i.i.i.i15 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i17 ], [ %80, %._crit_edge.i.i.i.i.i.i.i.i11 ]
-  %108 = getelementptr inbounds %class.ScannerTask, ptr %107, i64 %.0.i.i.i.i.i.i.i.i15
+  %108 = getelementptr inbounds [8 x i8], ptr %107, i64 %.0.i.i.i.i.i.i.i.i15
   store ptr %12, ptr %108, align 8
   %109 = add i64 %.0.i.i.i.i.i.i.i.i15, 1
   store i64 %109, ptr %79, align 8
@@ -10151,7 +10150,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   %16 = add i64 %15, %9
   %17 = inttoptr i64 %16 to ptr
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = ptrtoint ptr %3 to i64
   %21 = sub i64 %20, %16
   %22 = ashr exact i64 %21, 3
@@ -10175,7 +10174,7 @@ _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitE
 32:                                               ; preds = %_ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit, %.lr.ph.i.i
   %.0917.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ %30, %_ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit ]
   %33 = lshr i64 %.0917.i.i, 6
-  %34 = getelementptr inbounds nuw i64, ptr %19, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %.0917.i.i, 63
   %37 = lshr i64 %35, %36
@@ -10194,7 +10193,7 @@ _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitE
   br i1 %42, label %43, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit
 
 43:                                               ; preds = %.preheader.i.i
-  %44 = getelementptr inbounds nuw i64, ptr %19, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %41
   %45 = load i64, ptr %44, align 8
   %.not36.i.i.i.i = icmp eq i64 %45, 0
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %46, !llvm.loop !41
@@ -10221,7 +10220,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %48, %32
   %54 = sext i32 %53 to i64
   %55 = add nsw i64 %54, %9
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %.0.i.i.i.i
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %.0.i.i.i.i
   %.val.i.i = load ptr, ptr %29, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
@@ -10243,7 +10242,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %67 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 480
   %68 = load ptr, ptr %67, align 8
   %69 = zext i32 %62 to i64
-  %70 = getelementptr inbounds nuw %class.ScannerTask, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   store ptr %57, ptr %70, align 8
   %71 = add i32 %62, 1
   %72 = and i32 %71, 131071
@@ -10312,7 +10311,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i: ; p
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i
   %103 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i.i ], [ %76, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %104 = getelementptr inbounds %class.ScannerTask, ptr %103, i64 %.0.i.i.i.i.i.i.i.i.i
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %.0.i.i.i.i.i.i.i.i.i
   store ptr %57, ptr %104, align 8
   %105 = add i64 %.0.i.i.i.i.i.i.i.i.i, 1
   store i64 %105, ptr %75, align 8
@@ -10427,7 +10426,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %32 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %27 to i64
-  %35 = getelementptr inbounds nuw %class.ScannerTask, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   store ptr %.08, ptr %35, align 8
   %36 = add i32 %27, 1
   %37 = and i32 %36, 131071
@@ -10496,7 +10495,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %68 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %41, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %69 = getelementptr inbounds %class.ScannerTask, ptr %68, i64 %.0.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.08, ptr %69, align 8
   %70 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %70, ptr %40, align 8
@@ -10547,11 +10546,11 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 292
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
@@ -10562,7 +10561,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
 
 .lr.ph54:                                         ; preds = %5
   %19 = ptrtoint ptr %1 to i64
-  %20 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %21 = getelementptr i8, ptr %0, i64 16
   br label %22
 
@@ -10575,7 +10574,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %27 = getelementptr inbounds nuw i8, ptr %.04152, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %29
   %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
@@ -10615,7 +10614,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %52 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %53 = load ptr, ptr %52, align 8
   %54 = zext i32 %47 to i64
-  %55 = getelementptr inbounds nuw %class.ScannerTask, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   store ptr %45, ptr %55, align 8
   %56 = add i32 %47, 1
   %57 = and i32 %56, 131071
@@ -10684,7 +10683,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %74
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %88 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %61, %._crit_edge.i.i.i.i ]
-  %89 = getelementptr inbounds %class.ScannerTask, ptr %88, i64 %.0.i.i.i.i
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %.0.i.i.i.i
   store ptr %45, ptr %89, align 8
   %90 = add i64 %.0.i.i.i.i, 1
   store i64 %90, ptr %60, align 8
@@ -10710,11 +10709,11 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 292
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
@@ -10725,7 +10724,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
 
 .lr.ph53:                                         ; preds = %5
   %19 = ptrtoint ptr %1 to i64
-  %20 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %21 = getelementptr i8, ptr %0, i64 16
   br label %22
 
@@ -10738,7 +10737,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %27 = getelementptr inbounds nuw i8, ptr %.04151, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
@@ -10769,7 +10768,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw %class.ScannerTask, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   store ptr %.150, ptr %46, align 8
   %47 = add i32 %38, 1
   %48 = and i32 %47, 131071
@@ -10838,7 +10837,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %79 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %52, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %80 = getelementptr inbounds %class.ScannerTask, ptr %79, i64 %.0.i.i.i.i.i.i.i.i
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.150, ptr %80, align 8
   %81 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %81, ptr %51, align 8
@@ -10887,11 +10886,11 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
@@ -10902,7 +10901,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
 
 .lr.ph58:                                         ; preds = %5
   %20 = ptrtoint ptr %1 to i64
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %21 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %22 = getelementptr i8, ptr %2, i64 16
   br label %23
 
@@ -10915,7 +10914,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %28 = getelementptr inbounds nuw i8, ptr %.04556, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %30
   %32 = icmp ugt ptr %3, %27
   %spec.select = select i1 %32, ptr %3, ptr %27
   %33 = icmp ugt ptr %31, %21
@@ -10955,7 +10954,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %53 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %54 = load ptr, ptr %53, align 8
   %55 = zext i32 %48 to i64
-  %56 = getelementptr inbounds nuw %class.ScannerTask, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   store ptr %46, ptr %56, align 8
   %57 = add i32 %48, 1
   %58 = and i32 %57, 131071
@@ -11024,7 +11023,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %75
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %89 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %62, %._crit_edge.i.i.i.i ]
-  %90 = getelementptr inbounds %class.ScannerTask, ptr %89, i64 %.0.i.i.i.i
+  %90 = getelementptr inbounds [8 x i8], ptr %89, i64 %.0.i.i.i.i
   store ptr %46, ptr %90, align 8
   %91 = add i64 %.0.i.i.i.i, 1
   store i64 %91, ptr %61, align 8
@@ -11111,7 +11110,7 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop21PSPushContentsClosureEEbP7oopDes
   %.not.i.i.i.i = icmp ule ptr %35, %34
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %35, i64 %37
   %39 = icmp ugt ptr %38, %34
   %40 = select i1 %.not.i.i.i.i, i1 %39, i1 false
   br i1 %40, label %41, label %_ZN16InstanceRefKlass11do_referentI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i
@@ -11132,7 +11131,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop21PSPushContentsClosureK10MrContain
   %47 = add nsw i64 %.pre-phi.i, %46
   %48 = inttoptr i64 %47 to ptr
   %.not.i.i.i8.i = icmp ule ptr %44, %48
-  %49 = getelementptr inbounds ptr, ptr %44, i64 %43
+  %49 = getelementptr inbounds [8 x i8], ptr %44, i64 %43
   %50 = icmp ugt ptr %49, %48
   %51 = select i1 %.not.i.i.i8.i, i1 %50, i1 false
   br i1 %51, label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split, label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
@@ -11147,7 +11146,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop21PSPushContentsClosureK10MrContain
   %.not.i.i.i.i14 = icmp ule ptr %58, %57
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %58, i64 %60
   %62 = icmp ugt ptr %61, %57
   %63 = select i1 %.not.i.i.i.i14, i1 %62, i1 false
   br i1 %63, label %64, label %_ZN16InstanceRefKlass11do_referentI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i15
@@ -11168,7 +11167,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop21PSPushContentsClosureK10MrContain
   %70 = add nsw i64 %69, %54
   %71 = inttoptr i64 %70 to ptr
   %.not.i.i.i6.i = icmp ule ptr %67, %71
-  %72 = getelementptr inbounds ptr, ptr %67, i64 %66
+  %72 = getelementptr inbounds [8 x i8], ptr %67, i64 %66
   %73 = icmp ugt ptr %72, %71
   %74 = select i1 %.not.i.i.i6.i, i1 %73, i1 false
   br i1 %74, label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split, label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
@@ -11183,7 +11182,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop21PSPushContentsClosureK10MrContain
   %.not.i.i.i.i18 = icmp ule ptr %81, %80
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds ptr, ptr %81, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %81, i64 %83
   %85 = icmp ugt ptr %84, %80
   %86 = select i1 %.not.i.i.i.i18, i1 %85, i1 false
   br i1 %86, label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split, label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop21PSPushContentsClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
@@ -11212,11 +11211,11 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
@@ -11227,7 +11226,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
 
 .lr.ph57:                                         ; preds = %5
   %20 = ptrtoint ptr %1 to i64
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %21 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %22 = getelementptr i8, ptr %2, i64 16
   br label %23
 
@@ -11240,7 +11239,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %28 = getelementptr inbounds nuw i8, ptr %.04555, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %32 = icmp ugt ptr %3, %27
   %spec.select = select i1 %32, ptr %3, ptr %27
   %33 = icmp ugt ptr %31, %21
@@ -11271,7 +11270,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %39 to i64
-  %47 = getelementptr inbounds nuw %class.ScannerTask, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   store ptr %.154, ptr %47, align 8
   %48 = add i32 %39, 1
   %49 = and i32 %48, 131071
@@ -11340,7 +11339,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %80 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %53, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %81 = getelementptr inbounds %class.ScannerTask, ptr %80, i64 %.0.i.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds [8 x i8], ptr %80, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.154, ptr %81, align 8
   %82 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %82, ptr %52, align 8
@@ -11442,7 +11441,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass11do_referentIP7oopDesc21P
   %.not.i.i = icmp ule ptr %9, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   %13 = icmp ugt ptr %12, %8
   %14 = select i1 %.not.i.i, i1 %13, i1 false
   br i1 %14, label %15, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
@@ -11470,7 +11469,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %27 = load ptr, ptr %26, align 8
   %28 = zext i32 %21 to i64
-  %29 = getelementptr inbounds nuw %class.ScannerTask, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   store ptr %8, ptr %29, align 8
   %30 = add i32 %21, 1
   %31 = and i32 %30, 131071
@@ -11539,7 +11538,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %62 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %35, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %63 = getelementptr inbounds %class.ScannerTask, ptr %62, i64 %.0.i.i.i.i.i.i.i.i
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %8, ptr %63, align 8
   %64 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %64, ptr %34, align 8
@@ -11560,7 +11559,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass13do_discoveredIP7oopDesc2
   %.not.i.i = icmp ule ptr %9, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   %13 = icmp ugt ptr %12, %8
   %14 = select i1 %.not.i.i, i1 %13, i1 false
   br i1 %14, label %15, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
@@ -11588,7 +11587,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %27 = load ptr, ptr %26, align 8
   %28 = zext i32 %21 to i64
-  %29 = getelementptr inbounds nuw %class.ScannerTask, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   store ptr %8, ptr %29, align 8
   %30 = add i32 %21, 1
   %31 = and i32 %30, 131071
@@ -11657,7 +11656,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %62 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %35, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %63 = getelementptr inbounds %class.ScannerTask, ptr %62, i64 %.0.i.i.i.i.i.i.i.i
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %8, ptr %63, align 8
   %64 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %64, ptr %34, align 8
@@ -11695,11 +11694,11 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
@@ -11710,7 +11709,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   br i1 %.not, label %._crit_edge69, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %5
-  %19 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %19 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %20 = getelementptr i8, ptr %2, i64 16
   br label %21
 
@@ -11723,7 +11722,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %26 = getelementptr inbounds nuw i8, ptr %.04966, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %28
   %30 = icmp ugt ptr %3, %25
   %spec.select = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %19
@@ -11763,7 +11762,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %51 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %52 = load ptr, ptr %51, align 8
   %53 = zext i32 %46 to i64
-  %54 = getelementptr inbounds nuw %class.ScannerTask, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   store ptr %44, ptr %54, align 8
   %55 = add i32 %46, 1
   %56 = and i32 %55, 131071
@@ -11832,7 +11831,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %73
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %87 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %60, %._crit_edge.i.i.i.i ]
-  %88 = getelementptr inbounds %class.ScannerTask, ptr %87, i64 %.0.i.i.i.i
+  %88 = getelementptr inbounds [8 x i8], ptr %87, i64 %.0.i.i.i.i
   store ptr %44, ptr %88, align 8
   %89 = add i64 %.0.i.i.i.i, 1
   store i64 %89, ptr %59, align 8
@@ -11855,8 +11854,8 @@ _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds =
   %97 = inttoptr i64 %96 to ptr
   %98 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #13
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %97, i64 %99
-  %101 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %100 = getelementptr inbounds [4 x i8], ptr %97, i64 %99
+  %101 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %102 = icmp ugt ptr %3, %97
   %spec.select.i = select i1 %102, ptr %3, ptr %97
   %103 = icmp ugt ptr %100, %101
@@ -11886,11 +11885,11 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
@@ -11901,7 +11900,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
 
 .lr.ph67:                                         ; preds = %5
   %19 = ptrtoint ptr %1 to i64
-  %20 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %21 = getelementptr i8, ptr %2, i64 16
   br label %22
 
@@ -11914,7 +11913,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %27 = getelementptr inbounds nuw i8, ptr %.04965, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
@@ -11945,7 +11944,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw %class.ScannerTask, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   store ptr %.164, ptr %46, align 8
   %47 = add i32 %38, 1
   %48 = and i32 %47, 131071
@@ -12014,7 +12013,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %79 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %52, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %80 = getelementptr inbounds %class.ScannerTask, ptr %79, i64 %.0.i.i.i.i.i.i.i.i
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.164, ptr %80, align 8
   %81 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %81, ptr %51, align 8
@@ -12044,8 +12043,8 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass31oop_oop_iterate_stati
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #13
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
-  %14 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
+  %14 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %15 = icmp ugt ptr %3, %10
   %spec.select = select i1 %15, ptr %3, ptr %10
   %16 = icmp ugt ptr %13, %14
@@ -12080,7 +12079,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %29 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %24 to i64
-  %32 = getelementptr inbounds nuw %class.ScannerTask, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   store ptr %.120, ptr %32, align 8
   %33 = add i32 %24, 1
   %34 = and i32 %33, 131071
@@ -12149,7 +12148,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %65 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %38, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %66 = getelementptr inbounds %class.ScannerTask, ptr %65, i64 %.0.i.i.i.i.i.i.i.i
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.120, ptr %66, align 8
   %67 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %67, ptr %37, align 8
@@ -12192,11 +12191,11 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
@@ -12207,7 +12206,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 
 .lr.ph61:                                         ; preds = %5
   %19 = ptrtoint ptr %1 to i64
-  %20 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %21 = getelementptr i8, ptr %2, i64 16
   br label %22
 
@@ -12220,7 +12219,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %27 = getelementptr inbounds nuw i8, ptr %.04559, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %29
   %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
@@ -12260,7 +12259,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %52 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %53 = load ptr, ptr %52, align 8
   %54 = zext i32 %47 to i64
-  %55 = getelementptr inbounds nuw %class.ScannerTask, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   store ptr %45, ptr %55, align 8
   %56 = add i32 %47, 1
   %57 = and i32 %56, 131071
@@ -12329,7 +12328,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %74
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %88 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %61, %._crit_edge.i.i.i.i ]
-  %89 = getelementptr inbounds %class.ScannerTask, ptr %88, i64 %.0.i.i.i.i
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %.0.i.i.i.i
   store ptr %45, ptr %89, align 8
   %90 = add i64 %.0.i.i.i.i, 1
   store i64 %90, ptr %60, align 8
@@ -12355,11 +12354,11 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
@@ -12370,7 +12369,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 
 .lr.ph60:                                         ; preds = %5
   %19 = ptrtoint ptr %1 to i64
-  %20 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %21 = getelementptr i8, ptr %2, i64 16
   br label %22
 
@@ -12383,7 +12382,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %27 = getelementptr inbounds nuw i8, ptr %.04558, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
@@ -12414,7 +12413,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw %class.ScannerTask, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   store ptr %.157, ptr %46, align 8
   %47 = add i32 %38, 1
   %48 = and i32 %47, 131071
@@ -12483,7 +12482,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %79 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %52, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %80 = getelementptr inbounds %class.ScannerTask, ptr %79, i64 %.0.i.i.i.i.i.i.i.i
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.157, ptr %80, align 8
   %81 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %81, ptr %51, align 8
@@ -12526,7 +12525,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %13 = add nsw i64 %12, %7
   %14 = inttoptr i64 %13 to ptr
   %.not.i.i.i = icmp ule ptr %3, %10
-  %15 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %15 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %16 = icmp ugt ptr %15, %10
   %17 = select i1 %.not.i.i.i, i1 %16, i1 false
   br i1 %17, label %18, label %20
@@ -12576,7 +12575,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %21 = inttoptr i64 %20 to ptr
   %22 = load volatile i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i64, ptr %17, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %17, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
   %26 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %27 = sext i32 %26 to i64
@@ -12584,10 +12583,10 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %29 = inttoptr i64 %28 to ptr
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i64, ptr %17, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %17, i64 %31
   %33 = icmp ugt ptr %3, %25
   %spec.select.i.i = select i1 %33, ptr %3, ptr %25
-  %34 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %34 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
   %.012.i.i = select i1 %35, ptr %34, ptr %32
   tail call void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS8_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %spec.select.i.i, ptr noundef %.012.i.i)
@@ -12625,7 +12624,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   %21 = inttoptr i64 %20 to ptr
   %22 = load volatile i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i64, ptr %17, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %17, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
   %26 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %27 = sext i32 %26 to i64
@@ -12633,10 +12632,10 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   %29 = inttoptr i64 %28 to ptr
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i64, ptr %17, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %17, i64 %31
   %33 = icmp ugt ptr %3, %25
   %spec.select = select i1 %33, ptr %3, ptr %25
-  %34 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %34 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
   %.012 = select i1 %35, ptr %34, ptr %32
   %36 = icmp ugt ptr %.012, %spec.select
@@ -12661,7 +12660,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 48:                                               ; preds = %68, %.lr.ph.i.i.i
   %.0917.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i ], [ %74, %68 ]
   %49 = lshr i64 %.0917.i.i.i, 6
-  %50 = getelementptr inbounds nuw i64, ptr %32, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %.0917.i.i.i, 63
   %53 = lshr i64 %51, %52
@@ -12680,7 +12679,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   br i1 %58, label %59, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 59:                                               ; preds = %.preheader.i.i.i
-  %60 = getelementptr inbounds nuw i64, ptr %32, i64 %57
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %57
   %61 = load i64, ptr %60, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %61, 0
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %62, !llvm.loop !41
@@ -12707,7 +12706,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %64, %48
   %70 = sext i32 %69 to i64
   %71 = add nsw i64 %70, %7
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds i32, ptr %72, i64 %.0.i.i.i.i.i
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %.0.i.i.i.i.i
   %.val.i.i.i.i.i.i.i = load ptr, ptr %47, align 8
   tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i.i.i.i.i.i, ptr noundef %73)
   %74 = add nuw i64 %.0.i.i.i.i.i, 1
@@ -12734,7 +12733,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_h
   %13 = add nsw i64 %12, %7
   %14 = inttoptr i64 %13 to ptr
   %.not.i = icmp ule ptr %3, %10
-  %15 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %15 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %16 = icmp ugt ptr %15, %10
   %17 = select i1 %.not.i, i1 %16, i1 false
   br i1 %17, label %18, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
@@ -12762,7 +12761,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %29 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %24 to i64
-  %32 = getelementptr inbounds nuw %class.ScannerTask, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   store ptr %10, ptr %32, align 8
   %33 = add i32 %24, 1
   %34 = and i32 %33, 131071
@@ -12831,7 +12830,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %65 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %38, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %66 = getelementptr inbounds %class.ScannerTask, ptr %65, i64 %.0.i.i.i.i.i.i.i.i
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %10, ptr %66, align 8
   %67 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %67, ptr %37, align 8
@@ -12866,7 +12865,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %81 = getelementptr inbounds nuw i8, ptr %.val.i9, i64 480
   %82 = load ptr, ptr %81, align 8
   %83 = zext i32 %76 to i64
-  %84 = getelementptr inbounds nuw %class.ScannerTask, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %83
   store ptr %14, ptr %84, align 8
   %85 = add i32 %76, 1
   %86 = and i32 %85, 131071
@@ -12935,7 +12934,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i20: ; p
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i17: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i20, %._crit_edge.i.i.i.i.i.i.i.i14
   %117 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i22, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i20 ], [ %.pre.i.i.i.i.i.i.i.i16, %._crit_edge.i.i.i.i.i.i.i.i14 ]
   %.0.i.i.i.i.i.i.i.i18 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i20 ], [ %90, %._crit_edge.i.i.i.i.i.i.i.i14 ]
-  %118 = getelementptr inbounds %class.ScannerTask, ptr %117, i64 %.0.i.i.i.i.i.i.i.i18
+  %118 = getelementptr inbounds [8 x i8], ptr %117, i64 %.0.i.i.i.i.i.i.i.i18
   store ptr %14, ptr %118, align 8
   %119 = add i64 %.0.i.i.i.i.i.i.i.i18, 1
   store i64 %119, ptr %89, align 8
@@ -12957,7 +12956,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE5Table23oop_oop_iterate_boundedI13ObjArrayKlass9narrowOopEEvPS0_P7oopDescP5Klass9MemRegion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) #0 comdat align 2 {
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %7 = load i8, ptr @UseCompressedClassPointers, align 1
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 16, i32 20
@@ -12974,7 +12973,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %17, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %17, i64 %21
   %23 = icmp ugt ptr %3, %17
   %spec.select.i.i = select i1 %23, ptr %3, ptr %17
   %24 = icmp ugt ptr %22, %6
@@ -13000,7 +12999,7 @@ _ZN13ObjArrayKlass23oop_oop_iterate_boundedI9narrowOop21PSPushContentsClosureEEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE5Table23oop_oop_iterate_boundedI13ObjArrayKlassP7oopDescEEvPS0_S6_P5Klass9MemRegion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) #0 comdat align 2 {
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   tail call void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedIP7oopDesc21PSPushContentsClosureEEvP15objArrayOopDescPT0_PvS8_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef %1, ptr noundef %0, ptr noundef %3, ptr noundef %6)
   ret void
 }
@@ -13023,7 +13022,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_bo
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %16, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %16, i64 %20
   %22 = icmp ugt ptr %3, %16
   %spec.select = select i1 %22, ptr %3, ptr %16
   %23 = icmp ugt ptr %21, %4
@@ -13058,7 +13057,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 480
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %31 to i64
-  %39 = getelementptr inbounds nuw %class.ScannerTask, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   store ptr %.121, ptr %39, align 8
   %40 = add i32 %31, 1
   %41 = and i32 %40, 131071
@@ -13127,7 +13126,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %72 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i.i.i.i ], [ %45, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %73 = getelementptr inbounds %class.ScannerTask, ptr %72, i64 %.0.i.i.i.i.i.i.i.i
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %.0.i.i.i.i.i.i.i.i
   store ptr %.121, ptr %73, align 8
   %74 = add i64 %.0.i.i.i.i.i.i.i.i, 1
   store i64 %74, ptr %44, align 8
@@ -13265,7 +13264,7 @@ define linkonce_odr hidden void @_ZN13WeakProcessor4Task4workI16PSIsAliveClosure
   %15 = load ptr, ptr %0, align 8
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN27WeakProcessorParTimeTrackerC1EP18WeakProcessorTimesN13OopStorageSet6WeakIdEj(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %15, i32 noundef %16, i32 noundef %1) #13
-  %17 = getelementptr ptr, ptr %13, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -13284,7 +13283,7 @@ define linkonce_odr hidden void @_ZN13WeakProcessor4Task4workI16PSIsAliveClosure
   %.0.i.i.i = phi i64 [ %22, %21 ], [ %51, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEEEEEbT_.exit.i.i.i ]
   %24 = load ptr, ptr %20, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %.0.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %.0.i.i.i
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 512
   %29 = load volatile i64, ptr %28, align 8
@@ -13296,7 +13295,7 @@ define linkonce_odr hidden void @_ZN13WeakProcessor4Task4workI16PSIsAliveClosure
   %30 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
   %31 = shl nuw i64 1, %30
   %32 = xor i64 %31, %.0810.i.i.i.i.i
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, label %36

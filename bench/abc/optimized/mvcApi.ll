@@ -128,7 +128,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsTautology(ptr noundef readonly captures(n
   %.0910 = phi i32 [ %12, %11 ], [ 0, %4 ]
   %13 = lshr i32 %.0910, 5
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = and i32 %.0910, 31
   %18 = shl nuw i32 1, %17
@@ -239,7 +239,7 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   %22 = lshr i32 -1, %21
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = zext nneg i32 %8 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   store i32 %22, ptr %25, align 4, !tbaa !23
   %26 = shl i32 %7, 2
   %27 = and i32 %26, 67108860
@@ -327,7 +327,7 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr noundef readonly captures(none)
   %24 = lshr i32 -1, %23
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = zext nneg i32 %10 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 %24, ptr %27, align 4, !tbaa !23
   %28 = shl i32 %9, 2
   %29 = and i32 %28, 67108860

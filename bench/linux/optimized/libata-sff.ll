@@ -75,17 +75,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_pci_bmdm
 %struct.ata_taskfile = type { i64, i8, i8, i8, i8, i8, i8, i8, %union.anon, i8, i8, i8, i8, i8, %union.anon.0, i32 }
 %union.anon = type { i8 }
 %union.anon.0 = type { i8 }
-%struct.ata_queued_cmd = type { ptr, ptr, ptr, ptr, %struct.ata_taskfile, [16 x i8], i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatterlist, ptr, ptr, i32, i32, %struct.ata_taskfile, ptr, ptr, ptr }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
-%struct.ata_bmdma_prd = type { i32, i32 }
-%struct.page = type { i64, %union.anon.10, %union.anon.18, %struct.atomic_t, [8 x i8] }
-%union.anon.10 = type { %struct.anon.11 }
-%struct.anon.11 = type { %union.anon.12, ptr, %union.anon.14, i64 }
-%union.anon.12 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.14 = type { i64 }
-%union.anon.18 = type { %struct.atomic_t }
 
 @ata_base_port_ops = external dso_local constant %struct.ata_port_operations, align 8
 @ata_sff_port_ops = dso_local constant %struct.ata_port_operations { ptr null, ptr null, ptr @ata_noop_qc_prep, ptr @ata_sff_qc_issue, ptr @ata_sff_qc_fill_rtf, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_sff_freeze, ptr @ata_sff_thaw, ptr @ata_sff_prereset, ptr @ata_sff_softreset, ptr @sata_sff_hardreset, ptr @ata_sff_postreset, ptr null, ptr null, ptr null, ptr null, ptr @ata_sff_error_handler, ptr @ata_sff_lost_interrupt, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_sff_dev_select, ptr null, ptr @ata_sff_check_status, ptr null, ptr @ata_sff_tf_load, ptr @ata_sff_tf_read, ptr @ata_sff_exec_command, ptr @ata_sff_data_xfer, ptr null, ptr null, ptr null, ptr @ata_sff_drain_fifo, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_base_port_ops }, align 8
@@ -1162,7 +1151,7 @@ define dso_local void @ata_sff_error_handler(ptr noundef %0) #1 align 16 {
   %11 = icmp ugt i32 %10, 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %13 = zext i32 %10 to i64
-  %14 = getelementptr %struct.ata_queued_cmd, ptr %12, i64 %13
+  %14 = getelementptr [240 x i8], ptr %12, i64 %13
   %15 = icmp eq ptr %14, null
   %16 = select i1 %11, i1 true, i1 %15
   br i1 %16, label %23, label %17
@@ -1222,7 +1211,7 @@ define dso_local void @ata_sff_lost_interrupt(ptr noundef %0) #1 align 16 {
   %4 = icmp ugt i32 %3, 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = zext i32 %3 to i64
-  %7 = getelementptr %struct.ata_queued_cmd, ptr %5, i64 %6
+  %7 = getelementptr [240 x i8], ptr %5, i64 %6
   %8 = icmp eq ptr %7, null
   %9 = select i1 %4, i1 true, i1 %8
   br i1 %9, label %.thread, label %10, !prof !9
@@ -3050,7 +3039,7 @@ define internal fastcc void @ata_hsm_qc_complete(ptr noundef %0, i32 noundef %1)
   %8 = icmp ugt i32 %7, 32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %10 = zext i32 %7 to i64
-  %11 = getelementptr %struct.ata_queued_cmd, ptr %9, i64 %10
+  %11 = getelementptr [240 x i8], ptr %9, i64 %10
   %12 = icmp eq ptr %11, null
   %13 = select i1 %8, i1 true, i1 %12
   br i1 %13, label %.thread, label %14, !prof !9
@@ -3537,14 +3526,14 @@ define dso_local range(i32 0, 2) i32 @ata_sff_interrupt(i32 %0, ptr noundef %1) 
   %11 = phi i32 [ %117, %__ata_sff_port_intr.exit ], [ 0, %6 ]
   %12 = phi i32 [ %116, %__ata_sff_port_intr.exit ], [ 0, %6 ]
   %13 = phi i32 [ %115, %__ata_sff_port_intr.exit ], [ 0, %6 ]
-  %14 = getelementptr ptr, ptr %5, i64 %10
+  %14 = getelementptr [8 x i8], ptr %5, i64 %10
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 9000
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %17, 32
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 304
   %20 = zext i32 %17 to i64
-  %21 = getelementptr %struct.ata_queued_cmd, ptr %19, i64 %20
+  %21 = getelementptr [240 x i8], ptr %19, i64 %20
   %22 = icmp eq ptr %21, null
   %23 = select i1 %18, i1 true, i1 %22
   br i1 %23, label %111, label %24, !prof !9
@@ -3728,7 +3717,7 @@ __ata_sff_port_intr.exit:                         ; preds = %105, %.thread5.i, %
 .preheader:                                       ; preds = %.loopexit, %157
   %125 = phi i64 [ %159, %157 ], [ 0, %.loopexit ]
   %126 = phi i8 [ %158, %157 ], [ 0, %.loopexit ]
-  %127 = getelementptr ptr, ptr %5, i64 %125
+  %127 = getelementptr [8 x i8], ptr %5, i64 %125
   %128 = load ptr, ptr %127, align 8
   %129 = trunc nuw i64 %125 to i32
   %130 = shl nuw i32 1, %129
@@ -4038,7 +4027,7 @@ define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nounde
   %9 = phi i1 [ true, %1 ], [ false, %87 ]
   %10 = phi i64 [ 0, %1 ], [ 1, %87 ]
   %11 = phi i32 [ 0, %1 ], [ %88, %87 ]
-  %12 = getelementptr ptr, ptr %5, i64 %10
+  %12 = getelementptr [8 x i8], ptr %5, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = shl nuw nsw i64 %10, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -4047,14 +4036,14 @@ define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nounde
   br i1 %17, label %87, label %18
 
 18:                                               ; preds = %8
-  %19 = getelementptr %struct.resource, ptr %6, i64 %14
+  %19 = getelementptr [64 x i8], ptr %6, i64 %14
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %18
   %23 = or disjoint i64 %14, 1
-  %24 = getelementptr %struct.resource, ptr %6, i64 %23
+  %24 = getelementptr [64 x i8], ptr %6, i64 %23
   br label %28
 
 25:                                               ; preds = %28
@@ -4111,11 +4100,11 @@ define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nounde
 53:                                               ; preds = %42
   %54 = tail call ptr @pcim_iomap_table(ptr noundef %4) #13
   store ptr %54, ptr %7, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %14
+  %55 = getelementptr [8 x i8], ptr %54, i64 %14
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %56, ptr %57, align 16
-  %58 = getelementptr ptr, ptr %54, i64 %23
+  %58 = getelementptr [8 x i8], ptr %54, i64 %23
   %59 = load ptr, ptr %58, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = or i64 %60, 2
@@ -4314,7 +4303,7 @@ define dso_local i32 @ata_pci_sff_activate_host(ptr noundef %0, ptr noundef %1, 
 47:                                               ; preds = %59, %45
   %48 = phi i1 [ true, %45 ], [ false, %59 ]
   %49 = phi i64 [ 0, %45 ], [ 1, %59 ]
-  %50 = getelementptr ptr, ptr %46, i64 %49
+  %50 = getelementptr [8 x i8], ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -4423,7 +4412,7 @@ define internal fastcc i32 @ata_pci_init_one(ptr noundef %0, ptr noundef %1, ptr
 9:                                                ; preds = %8, %6
   %10 = phi i1 [ true, %6 ], [ false, %8 ]
   %11 = phi i64 [ 0, %6 ], [ 1, %8 ]
-  %12 = getelementptr ptr, ptr %1, i64 %11
+  %12 = getelementptr [8 x i8], ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -4565,7 +4554,7 @@ define dso_local noundef i32 @ata_bmdma_qc_prep(ptr noundef readonly captures(no
   %34 = sub nuw nsw i32 65536, %31
   %35 = select i1 %33, i32 %34, i32 %28
   %36 = zext i32 %30 to i64
-  %37 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %36
+  %37 = getelementptr [8 x i8], ptr %9, i64 %36
   store i32 %29, ptr %37, align 4
   %38 = and i32 %35, 65535
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -4591,7 +4580,7 @@ define dso_local noundef i32 @ata_bmdma_qc_prep(ptr noundef readonly captures(no
 
 52:                                               ; preds = %49, %6
   %53 = phi i64 [ 4294967295, %6 ], [ %51, %49 ]
-  %.split = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %53
+  %.split = getelementptr [8 x i8], ptr %9, i64 %53
   %54 = getelementptr i8, ptr %.split, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, -2147483648
@@ -4979,7 +4968,7 @@ define dso_local void @ata_bmdma_error_handler(ptr noundef %0) #1 align 16 {
   %4 = icmp ugt i32 %3, 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = zext i32 %3 to i64
-  %7 = getelementptr %struct.ata_queued_cmd, ptr %5, i64 %6
+  %7 = getelementptr [240 x i8], ptr %5, i64 %6
   %8 = icmp eq ptr %7, null
   %9 = select i1 %4, i1 true, i1 %8
   br i1 %9, label %.thread, label %10
@@ -5452,7 +5441,7 @@ define dso_local noundef i32 @ata_bmdma_dumb_qc_prep(ptr noundef readonly captur
   %35 = select i1 %33, i32 %34, i32 %28
   %36 = and i32 %35, 65535
   %37 = zext i32 %30 to i64
-  %38 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %37
+  %38 = getelementptr [8 x i8], ptr %9, i64 %37
   store i32 %29, ptr %38, align 4
   %39 = icmp eq i32 %36, 0
   br i1 %39, label %40, label %46
@@ -5463,7 +5452,7 @@ define dso_local noundef i32 @ata_bmdma_dumb_qc_prep(ptr noundef readonly captur
   %42 = add i32 %29, 32768
   %43 = add i32 %30, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %44
+  %45 = getelementptr [8 x i8], ptr %9, i64 %44
   store i32 %42, ptr %45, align 4
   br label %46
 
@@ -5471,7 +5460,7 @@ define dso_local noundef i32 @ata_bmdma_dumb_qc_prep(ptr noundef readonly captur
   %.pre-phi = phi i64 [ %44, %40 ], [ %37, %27 ]
   %47 = phi i32 [ %43, %40 ], [ %30, %27 ]
   %48 = phi i32 [ 32768, %40 ], [ %36, %27 ]
-  %.split = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %.pre-phi
+  %.split = getelementptr [8 x i8], ptr %9, i64 %.pre-phi
   %49 = getelementptr i8, ptr %.split, i64 4
   store i32 %48, ptr %49, align 4
   %50 = add i32 %47, 1
@@ -5495,7 +5484,7 @@ define dso_local noundef i32 @ata_bmdma_dumb_qc_prep(ptr noundef readonly captur
 
 62:                                               ; preds = %59, %6
   %63 = phi i64 [ 4294967295, %6 ], [ %61, %59 ]
-  %.split4 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %63
+  %.split4 = getelementptr [8 x i8], ptr %9, i64 %63
   %64 = getelementptr i8, ptr %.split4, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, -2147483648
@@ -5685,14 +5674,14 @@ define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1
   %12 = phi i32 [ %50, %46 ], [ 0, %6 ]
   %13 = phi i32 [ %49, %46 ], [ 0, %6 ]
   %14 = phi i32 [ %48, %46 ], [ 0, %6 ]
-  %15 = getelementptr ptr, ptr %5, i64 %11
+  %15 = getelementptr [8 x i8], ptr %5, i64 %11
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 9000
   %18 = load i32, ptr %17, align 8
   %19 = icmp ugt i32 %18, 32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 304
   %21 = zext i32 %18 to i64
-  %22 = getelementptr %struct.ata_queued_cmd, ptr %20, i64 %21
+  %22 = getelementptr [240 x i8], ptr %20, i64 %21
   %23 = icmp eq ptr %22, null
   %24 = select i1 %19, i1 true, i1 %23
   br i1 %24, label %42, label %25, !prof !9
@@ -5749,7 +5738,7 @@ define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1
 .preheader:                                       ; preds = %.loopexit, %89
   %57 = phi i64 [ %91, %89 ], [ 0, %.loopexit ]
   %58 = phi i8 [ %90, %89 ], [ 0, %.loopexit ]
-  %59 = getelementptr ptr, ptr %5, i64 %57
+  %59 = getelementptr [8 x i8], ptr %5, i64 %57
   %60 = load ptr, ptr %59, align 8
   %61 = trunc nuw i64 %57 to i32
   %62 = shl nuw i32 1, %61
@@ -5906,7 +5895,7 @@ define dso_local void @ata_pci_bmdma_init(ptr noundef captures(none) %0) #1 alig
 33:                                               ; preds = %63, %28
   %34 = phi i1 [ true, %28 ], [ false, %63 ]
   %35 = phi i64 [ 0, %28 ], [ 1, %63 ]
-  %36 = getelementptr ptr, ptr %31, i64 %35
+  %36 = getelementptr [8 x i8], ptr %31, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %30, align 8
   %39 = getelementptr i8, ptr %38, i64 32
@@ -6055,7 +6044,7 @@ define internal void @ata_sff_pio_task(ptr noundef %0) #1 align 16 {
   %13 = icmp ugt i32 %12, 32
   %14 = getelementptr i8, ptr %0, i64 120
   %15 = zext i32 %12 to i64
-  %16 = getelementptr %struct.ata_queued_cmd, ptr %14, i64 %15
+  %16 = getelementptr [240 x i8], ptr %14, i64 %15
   %17 = icmp eq ptr %16, null
   %18 = or i1 %13, %17
   br i1 %18, label %27, label %19, !prof !9
@@ -6261,7 +6250,7 @@ define internal fastcc void @ata_pio_sector(ptr noundef %0) unnamed_addr #1 alig
   %31 = add i32 %30, %28
   %32 = lshr i32 %31, 12
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr %struct.page, ptr %26, i64 %33
+  %34 = getelementptr [64 x i8], ptr %26, i64 %33
   %35 = and i32 %31, 4095
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_ata_sff_pio_transfer_data, i64 8), i32 2) #13
           to label %56 [label %36], !srcloc !36

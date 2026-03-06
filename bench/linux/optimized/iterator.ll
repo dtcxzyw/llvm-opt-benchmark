@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netfs_extract_user_iter: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad netfs_extract_user_iter ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netfs_limit_iter: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad netfs_limit_iter ; .previous"
 
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.xa_state = type { ptr, i64, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [20 x i8] c"fs/netfs/iterator.c\00", align 1
@@ -96,7 +95,7 @@ define dso_local noundef range(i64 -12, 4294967296) i64 @netfs_extract_user_iter
 48:                                               ; preds = %46
   %49 = load ptr, ptr %5, align 8
   %50 = zext i32 %26 to i64
-  %51 = getelementptr %struct.bio_vec, ptr %14, i64 %50
+  %51 = getelementptr [16 x i8], ptr %14, i64 %50
   %52 = and i64 %42, 4294967295
   br label %55
 
@@ -110,7 +109,7 @@ define dso_local noundef range(i64 -12, 4294967296) i64 @netfs_extract_user_iter
   %58 = phi ptr [ %49, %48 ], [ %62, %55 ]
   %59 = phi i64 [ %39, %48 ], [ 0, %55 ]
   %60 = call i64 @llvm.umin.i64(i64 %57, i64 4096)
-  %61 = getelementptr %struct.bio_vec, ptr %51, i64 %56
+  %61 = getelementptr [16 x i8], ptr %51, i64 %56
   %62 = getelementptr i8, ptr %58, i64 8
   store ptr %62, ptr %5, align 8
   %63 = load ptr, ptr %58, align 8
@@ -205,7 +204,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %23
-  %.split = getelementptr %struct.bio_vec, ptr %9, i64 %24
+  %.split = getelementptr [16 x i8], ptr %9, i64 %24
   %31 = getelementptr i8, ptr %.split, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
@@ -234,7 +233,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %48 = phi i64 [ 0, %43 ], [ %57, %63 ]
   %49 = phi i64 [ %25, %43 ], [ %65, %63 ]
   %50 = phi i64 [ %26, %43 ], [ 0, %63 ]
-  %.split19 = getelementptr %struct.bio_vec, ptr %9, i64 %46
+  %.split19 = getelementptr [16 x i8], ptr %9, i64 %46
   %51 = getelementptr i8, ptr %.split19, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
@@ -427,7 +426,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
 
 167:                                              ; preds = %161
   %168 = zext i8 %162 to i64
-  %169 = getelementptr ptr, ptr %160, i64 %168
+  %169 = getelementptr [8 x i8], ptr %160, i64 %168
   %170 = load volatile ptr, ptr %169, align 8
   %171 = ptrtoint ptr %170 to i64
   %172 = and i64 %171, 3

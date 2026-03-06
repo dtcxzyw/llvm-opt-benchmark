@@ -249,20 +249,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.934" = type { %"class.llvm::SmallVectorTemplateCommon.935" }
 %"class.llvm::SmallVectorTemplateCommon.935" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.936" = type { [32 x i8] }
-%"struct.clang::CodeGen::EHCatchScope::Handler" = type { %"struct.clang::CodeGen::CatchTypeInfo", ptr }
-%"struct.clang::CodeGen::CatchTypeInfo" = type { ptr, i32 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.1158" }
-%"struct.std::pair.1158" = type { ptr, %"class.clang::CodeGen::Address" }
 %"class.clang::CodeGen::ApplyDebugLocation" = type { %"class.llvm::DebugLoc", ptr }
 %"class.clang::CodeGen::RValue" = type <{ %union.anon.999, i8, [7 x i8] }>
 %union.anon.999 = type { %"class.clang::CodeGen::Address" }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
 %"class.llvm::InsertPosition" = type { %"class.llvm::ilist_iterator_w_bits" }
-%"struct.std::pair.1037" = type { ptr, i64 }
-%"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup" = type { %"class.clang::CodeGen::EHScopeStack::stable_iterator", ptr }
-%"struct.std::pair.1035" = type { i32, ptr }
 
 $_ZN5clang7CodeGen15CodeGenFunction12LexicalScopeD2Ev = comdat any
 
@@ -633,7 +625,7 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime16EmitTryCatchStmtERNS0_1
 _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit: ; preds = %45
   %49 = load i16, ptr %21, align 4
   %50 = zext i16 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %2, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !665
   %.not128 = icmp eq ptr %53, null
@@ -684,7 +676,7 @@ _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %45, %_ZNK5cl
   br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112CatchHandlerELb1EE9push_backERKS2_.exit, label %76, !prof !636
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CatchHandler", ptr %.val.pre4.i, i64 %73
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %.val.pre4.i, i64 %73
   %78 = icmp uge ptr %12, %.val.pre4.i
   %79 = icmp ult ptr %12, %77
   %spec.select.i.i.i.i.i = and i1 %78, %79
@@ -708,7 +700,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112CatchHandlerELb1EE9push_backE
   %.016.i.i.i = phi ptr [ %12, %68 ], [ %83, %80 ], [ %12, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %58, align 8, !tbaa !671
   %84 = zext i32 %.val3.i to i64
-  %85 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CatchHandler", ptr %.val.i, i64 %84
+  %85 = getelementptr inbounds nuw [40 x i8], ptr %.val.i, i64 %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %85, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %86 = load i32, ptr %58, align 8, !tbaa !671
   %87 = add i32 %86, 1
@@ -716,7 +708,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112CatchHandlerELb1EE9push_backE
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val = load ptr, ptr %11, align 8, !tbaa !670
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CatchHandler", ptr %.val, i64 %88
+  %89 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %88
   %90 = getelementptr inbounds i8, ptr %89, i64 -40
   store ptr %71, ptr %90, align 8, !tbaa !677
   %91 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -782,14 +774,14 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112CatchHandlerELb1EE9push_backE
 
 122:                                              ; preds = %.lr.ph223, %122
   %indvars.iv = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next, %122 ]
-  %123 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CatchHandler", ptr %.val139, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [40 x i8], ptr %.val139, i64 %indvars.iv
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8, !tbaa !685
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %127 = load i32, ptr %126, align 8, !tbaa !682
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !681
-  %130 = getelementptr inbounds nuw %"struct.clang::CodeGen::EHCatchScope::Handler", ptr %120, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %indvars.iv
   store ptr %125, ptr %130, align 8, !tbaa !686
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 %127, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !687
@@ -812,7 +804,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112CatchHandlerELb1EE9push_backE
 _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit147: ; preds = %132
   %136 = load i16, ptr %21, align 4
   %137 = zext i16 %136 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %2, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = load ptr, ptr %139, align 8, !tbaa !665
   %.not132 = icmp eq ptr %140, null
@@ -969,7 +961,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %_ZN4llvm13
 212:                                              ; preds = %.lr.ph226, %_ZN5clang7CodeGen15CodeGenFunction12LexicalScope12ForceCleanupEv.exit
   %indvars.iv229 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next230, %_ZN5clang7CodeGen15CodeGenFunction12LexicalScope12ForceCleanupEv.exit ]
   %.val142 = load ptr, ptr %11, align 8, !tbaa !670
-  %213 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CatchHandler", ptr %.val142, i64 %indvars.iv229
+  %213 = getelementptr inbounds nuw [40 x i8], ptr %.val142, i64 %indvars.iv229
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load ptr, ptr %214, align 8, !tbaa !681
   call void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %215, i1 noundef zeroext false) #13
@@ -1062,7 +1054,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
   %253 = and i32 %252, 134217727
   %254 = zext nneg i32 %253 to i64
   %255 = sub nsw i64 0, %254
-  %256 = getelementptr inbounds %"class.llvm::Use", ptr %241, i64 %255
+  %256 = getelementptr inbounds [32 x i8], ptr %241, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 64
   %258 = load ptr, ptr %257, align 8, !tbaa !733
   %.not.i.i.i = icmp eq ptr %258, null
@@ -1184,7 +1176,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %300 = phi i32 [ %295, %294 ], [ %.pre.i, %297 ]
   %301 = load ptr, ptr %195, align 8, !tbaa !670
   %302 = zext i32 %300 to i64
-  %303 = getelementptr inbounds nuw ptr, ptr %301, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %302
   %304 = ptrtoint ptr %.0122 to i64
   store i64 %304, ptr %303, align 1
   %305 = load i32, ptr %196, align 8, !tbaa !671
@@ -1243,7 +1235,7 @@ _ZN5clang7CodeGen15CodeGenFunction12LexicalScope12ForceCleanupEv.exit: ; preds =
 _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit163: ; preds = %322
   %326 = load i16, ptr %21, align 4
   %327 = zext i16 %326 to i64
-  %328 = getelementptr inbounds nuw ptr, ptr %2, i64 %327
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 24
   %330 = load ptr, ptr %329, align 8, !tbaa !665
   %.not135 = icmp eq ptr %330, null
@@ -1337,7 +1329,7 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime20EmitInitOfCatchParamERN
   %17 = add i32 %9, -1
   %.01826.i.i.i = and i32 %17, %16
   %18 = zext nneg i32 %.01826.i.i.i to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %18
+  %19 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !756, !noalias !752
   %21 = icmp eq ptr %3, %20
   br i1 %21, label %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit, label %.lr.ph.i.i.i, !prof !757
@@ -1354,14 +1346,14 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime20EmitInitOfCatchParamERN
   %26 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %26, %17
   %27 = zext i32 %.018.i.i.i to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !756, !noalias !752
   %30 = icmp eq ptr %3, %29
   br i1 %30, label %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit, label %.lr.ph.i.i.i, !prof !758, !llvm.loop !759
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %4
   %31 = zext i32 %9 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %31
+  %32 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %31
   br label %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit
 
 _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; preds = %24, %11, %.loopexit.i.i
@@ -1824,7 +1816,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.thread: ; preds = %_ZN4llvm16dyn_ca
   %48 = add i32 %40, -1
   %.01826.i.i.i = and i32 %48, %47
   %49 = zext nneg i32 %.01826.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %38, i64 %49
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !756, !noalias !802
   %52 = icmp eq ptr %27, %51
   br i1 %52, label %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit, label %.lr.ph.i.i.i, !prof !757
@@ -1841,14 +1833,14 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.thread: ; preds = %_ZN4llvm16dyn_ca
   %57 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %57, %48
   %58 = zext i32 %.018.i.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %38, i64 %58
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !756, !noalias !802
   %61 = icmp eq ptr %27, %60
   br i1 %61, label %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit, label %.lr.ph.i.i.i, !prof !758, !llvm.loop !759
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %36
   %62 = zext i32 %40 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %38, i64 %62
+  %63 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %62
   br label %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit
 
 _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; preds = %55, %42, %.loopexit.i.i
@@ -2267,7 +2259,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !670
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.1037", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -2308,7 +2300,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !670
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !671
@@ -2611,12 +2603,12 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen15CodeGenFunction24CleanupDeac
 _ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEE7reserveEm.exit.i.i: ; preds = %18, %13
   %.pre-phi.i.i = phi i64 [ %.pre-phi, %13 ], [ %.pre13.i.i, %18 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !670
-  %21 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %20, i64 %.lcssa
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.lcssa
   %.not11.i.i = icmp samesign eq i64 %.lcssa, %.pre-phi.i.i
   br i1 %.not11.i.i, label %.sink.split.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEE7reserveEm.exit.i.i
-  %22 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %20, i64 %.pre-phi.i.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.pre-phi.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -2643,13 +2635,13 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCl
   %27 = load ptr, ptr %0, align 8, !tbaa !858
   %28 = add i64 %.012, -1
   %29 = load ptr, ptr %3, align 8, !tbaa !670
-  %30 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %28
   %.sroa.01.0.copyload = load i64, ptr %30, align 8, !tbaa !652
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !860
   tail call void @_ZN5clang7CodeGen15CodeGenFunction22DeactivateCleanupBlockENS0_12EHScopeStack15stable_iteratorEPN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(6496) %27, i64 %.sroa.01.0.copyload, ptr noundef %32) #13
   %33 = load ptr, ptr %3, align 8, !tbaa !670
-  %34 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !860
   %37 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %36) #13
@@ -2888,7 +2880,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !670
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.1035", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -2897,7 +2889,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !671
   %20 = load ptr, ptr %0, align 8, !tbaa !670
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.1035", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

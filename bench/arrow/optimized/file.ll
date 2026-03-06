@@ -43,8 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::Future" = type { %"class.std::shared_ptr.86" }
 %"class.std::shared_ptr.86" = type { %"class.std::__shared_ptr.87" }
 %"class.std::__shared_ptr.87" = type { ptr, %"class.std::__shared_count" }
-%"struct.arrow::internal::MemoryRegion" = type { ptr, i64 }
-%"struct.arrow::io::ReadRange" = type { i64, i64 }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::unique_lock.201" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::allocator.133" = type { i8 }
@@ -6989,7 +6987,7 @@ _ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EE17_S_check_init_lenEmRKS3_.e
   %46 = phi ptr [ %84, %82 ], [ null, %77 ]
   %47 = load i64, ptr %61, align 8, !tbaa !87
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.arrow::internal::MemoryRegion", ptr %34, i64 %.02959
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.02959
   store ptr %48, ptr %49, align 8, !tbaa !464
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %78, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !157
@@ -7012,7 +7010,7 @@ _ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EE17_S_check_init_lenEmRKS3_.e
 59:                                               ; preds = %.lr.ph, %45
   %60 = phi ptr [ %26, %.lr.ph ], [ %52, %45 ]
   %.02959 = phi i64 [ 0, %.lr.ph ], [ %50, %45 ]
-  %61 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %60, i64 %.02959
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %.02959
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %62 = load i64, ptr %61, align 8, !tbaa !87
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -7660,7 +7658,7 @@ define linkonce_odr void @_ZSt4lockISt11unique_lockISt5mutexES2_JEEvRT_RT0_DpRT1
 7:                                                ; preds = %.loopexit, %2
   %.0 = phi i32 [ 0, %2 ], [ %.2, %.loopexit ]
   %8 = zext nneg i32 %.0 to i64
-  %9 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %8
   %10 = load ptr, ptr %9, align 16, !tbaa !529
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.invoke, label %11
@@ -7696,7 +7694,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %18
   %21 = and i32 %.0, 1
   %22 = xor i32 %21, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %24, align 16, !tbaa !529
   %.not.i40 = icmp eq ptr %26, null
@@ -7742,7 +7740,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %18
 .preheader58:                                     ; preds = %39
   %42 = and i32 %.0, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.promoted = load i8, ptr %45, align 8, !tbaa !532
   %46 = trunc nuw i8 %.promoted to i1
@@ -7796,7 +7794,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %18
 .loopexit:                                        ; preds = %39, %.thread
   %.2 = phi i32 [ %22, %.thread ], [ %.0, %39 ]
   %61 = zext nneg i32 %.2 to i64
-  %62 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 8, !tbaa !532, !range !73, !noundef !74
   %65 = trunc nuw i8 %64 to i1

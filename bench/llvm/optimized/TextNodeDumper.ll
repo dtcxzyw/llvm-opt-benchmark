@@ -100,9 +100,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::TemplateArgument" = type { %union.anon.447 }
 %union.anon.447 = type { %"struct.clang::TemplateArgument::DA" }
 %"struct.clang::TemplateArgument::DA" = type { i32, ptr, ptr }
-%"struct.clang::comments::Comment::Argument" = type { %"class.clang::SourceRange", %"class.llvm::StringRef" }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.clang::comments::HTMLStartTagComment::Attribute" = type { %"class.clang::SourceLocation", %"class.llvm::StringRef", %"class.clang::SourceLocation", %"class.clang::SourceRange", %"class.llvm::StringRef" }
 %class.anon.705 = type { %"class.clang::TemplateName", ptr }
 %class.anon.1448 = type { ptr, %class.anon.705, %"class.std::__cxx11::basic_string" }
 %class.anon.723 = type { ptr, ptr }
@@ -142,18 +139,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ArrayRef.905" = type { ptr, i64 }
 %class.anon.1458 = type { ptr, %class.anon.920, %"class.std::__cxx11::basic_string" }
 %class.anon.920 = type { ptr, %"struct.clang::FunctionProtoType::ExtProtoInfo" }
-%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
-%"class.clang::FunctionType::ExtParameterInfo" = type { i8 }
 %class.anon.1461 = type { ptr, %class.anon.966, %"class.std::__cxx11::basic_string" }
 %class.anon.966 = type { ptr, ptr, %class.anon.965 }
 %class.anon.965 = type { ptr }
 %class.anon.1460 = type { ptr, %class.anon.964, %"class.std::__cxx11::basic_string" }
 %class.anon.964 = type { ptr, ptr }
-%"class.clang::DeclAccessPair" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [8 x i8] }
 %class.anon.1463 = type { ptr, %class.anon.972, %"class.std::__cxx11::basic_string" }
 %class.anon.972 = type { ptr, ptr, ptr }
 %class.anon.993 = type { ptr, ptr }
@@ -161,6 +151,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.1478 = type { ptr, %class.anon.1009, %"class.std::__cxx11::basic_string" }
 %class.anon.1009 = type { %"class.clang::CXXBaseSpecifier", ptr }
 %"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
+%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %class.anon.1007 = type { ptr, ptr }
 %class.anon.1465 = type { ptr, %class.anon.1007, %"class.std::__cxx11::basic_string" }
 %class.anon.1481 = type { ptr, %class.anon.1029, %"class.std::__cxx11::basic_string" }
@@ -173,7 +164,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.1093 = type { ptr, ptr }
 %class.anon.1482 = type { ptr, %class.anon.1092, %"class.std::__cxx11::basic_string" }
 %class.anon.1092 = type { ptr, ptr }
-%"struct.std::pair.1129" = type { ptr, i64 }
 %class.anon.686 = type { ptr, ptr }
 %class.anon.1446 = type { ptr, %class.anon.686, %"class.std::__cxx11::basic_string" }
 %class.anon.1456 = type { ptr, %class.anon.1455, %"class.std::__cxx11::basic_string" }
@@ -3473,7 +3463,7 @@ _ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit: ; preds 
 
 switch.lookup:                                    ; preds = %_ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit
   %16 = zext nneg i16 %14 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang14TextNodeDumper5VisitEPKNS_4AttrE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang14TextNodeDumper5VisitEPKNS_4AttrE, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = load ptr, ptr %3, align 8, !tbaa !414
   %18 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull %switch.load)
@@ -4903,7 +4893,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i: ; preds = %29, %27
   %43 = phi i32 [ %62, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %42, %"_ZZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefEENK3$_0clEv.exit.i.i" ]
   %44 = load ptr, ptr %40, align 8, !tbaa !22
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"class.std::function", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 1, !tbaa !426
   %47 = getelementptr inbounds i8, ptr %46, i64 -16
@@ -4926,7 +4916,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %54, ptr %41, align 8, !tbaa !23
   %55 = load ptr, ptr %40, align 8, !tbaa !22
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw %"class.std::function", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %59, null
@@ -5025,7 +5015,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %74, %72
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %98, !prof !445
 
 98:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper11dumpDeclRefEPKNS3_4DeclEN4llvm9StringRefEE3$_0EEvSB_T_EUlbE_vEEOSD_.exit.i.i"
-  %99 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %94
+  %99 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %94
   %100 = icmp uge ptr %9, %.pre3.i.i.i
   %101 = icmp ult ptr %9, %99
   %spec.select.i.i.i.i.i.i.i = and i1 %100, %101
@@ -5050,7 +5040,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %9, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper11dumpDeclRefEPKNS3_4DeclEN4llvm9StringRefEE3$_0EEvSB_T_EUlbE_vEEOSD_.exit.i.i" ], [ %107, %102 ], [ %9, %.critedge.i.i.i.i.i ]
   %109 = load i32, ptr %92, align 8, !tbaa !23
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %"class.std::function", ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %108, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 24, i1 false)
@@ -5090,7 +5080,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %123, %_ZN4llvm23Sma
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = load i32, ptr %127, align 8, !tbaa !23
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw %"class.std::function", ptr %126, i64 %129
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %129
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !426
   %131 = getelementptr inbounds i8, ptr %130, i64 -16
@@ -5111,7 +5101,7 @@ _ZNKSt8functionIFvbEEclEb.exit8.i.i:              ; preds = %125
   %137 = load ptr, ptr %84, align 8, !tbaa !22
   %138 = load i32, ptr %127, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %137, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %137, i64 %139
   %141 = getelementptr inbounds i8, ptr %140, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7196,7 +7186,7 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_p
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %241 = load i32, ptr %240, align 4, !tbaa !29
   %242 = zext i32 %241 to i64
-  %243 = getelementptr inbounds nuw ptr, ptr %239, i64 %242
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %242
   %.sroa.0.0.copyload.i.i = load i64, ptr %243, align 4
   tail call void @_ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE(ptr noundef nonnull readonly align 8 dereferenceable(1168) %0, i64 %.sroa.0.0.copyload.i.i)
   br label %_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE.exit
@@ -9316,7 +9306,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %343 = phi i32 [ %362, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %342, %"_ZZN5clang14TextNodeDumper5VisitEPKNS_4DeclEENK3$_0clEv.exit.i.i" ]
   %344 = load ptr, ptr %302, align 8, !tbaa !22
   %345 = zext i32 %343 to i64
-  %346 = getelementptr inbounds nuw %"class.std::function", ptr %344, i64 %345
+  %346 = getelementptr inbounds nuw [32 x i8], ptr %344, i64 %345
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %347 = getelementptr inbounds i8, ptr %346, i64 -16
@@ -9339,7 +9329,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %354, ptr %303, align 8, !tbaa !23
   %355 = load ptr, ptr %302, align 8, !tbaa !22
   %356 = zext i32 %354 to i64
-  %357 = getelementptr inbounds nuw %"class.std::function", ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [32 x i8], ptr %355, i64 %356
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 16
   %359 = load ptr, ptr %358, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %359, null
@@ -9420,7 +9410,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %372, %370
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %385, !prof !445
 
 385:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitEPKNS3_4DeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %386 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %382
+  %386 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %382
   %387 = icmp uge ptr %8, %.pre3.i.i.i
   %388 = icmp ult ptr %8, %386
   %spec.select.i.i.i.i.i.i.i = and i1 %387, %388
@@ -9444,7 +9434,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitEPKNS3_4DeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %393, %389 ], [ %8, %.critedge.i.i.i.i.i ]
   %395 = load i32, ptr %303, align 8, !tbaa !23
   %396 = zext i32 %395 to i64
-  %397 = getelementptr inbounds nuw %"class.std::function", ptr %394, i64 %396
+  %397 = getelementptr inbounds nuw [32 x i8], ptr %394, i64 %396
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %399 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %397, i8 0, i64 24, i1 false)
@@ -9483,7 +9473,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %409, %_ZN4llvm23Sma
   %412 = load ptr, ptr %302, align 8, !tbaa !22
   %413 = load i32, ptr %303, align 8, !tbaa !23
   %414 = zext i32 %413 to i64
-  %415 = getelementptr inbounds nuw %"class.std::function", ptr %412, i64 %414
+  %415 = getelementptr inbounds nuw [32 x i8], ptr %412, i64 %414
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %416 = getelementptr inbounds i8, ptr %415, i64 -16
@@ -9504,7 +9494,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %411
   %422 = load ptr, ptr %302, align 8, !tbaa !22
   %423 = load i32, ptr %303, align 8, !tbaa !23
   %424 = zext i32 %423 to i64
-  %425 = getelementptr inbounds nuw %"class.std::function", ptr %422, i64 %424
+  %425 = getelementptr inbounds nuw [32 x i8], ptr %422, i64 %424
   %426 = getelementptr inbounds i8, ptr %425, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %304, align 8
@@ -10770,7 +10760,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %25, %27
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %39 = load i32, ptr %38, align 8, !tbaa !493
   %40 = zext i32 %39 to i64
-  %41 = getelementptr ptr, ptr %37, i64 %40
+  %41 = getelementptr [8 x i8], ptr %37, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load ptr, ptr %42, align 8, !tbaa !494
   br label %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit
@@ -12046,7 +12036,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38:               ; preds = %92, %94
   %.0.i.i37 = phi ptr [ %93, %92 ], [ %86, %94 ]
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !425
   %98 = and i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, 4294967295
-  %99 = getelementptr inbounds nuw ptr, ptr %84, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %indvars.iv
   %101 = load i8, ptr %100, align 1, !tbaa !510
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i37, i64 24
@@ -12531,7 +12521,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %28, %_ZN4llvm11raw_
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1) local_unnamed_addr #4 comdat {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13453,7 +13443,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %45, %43, %28
   %50 = phi i32 [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %27, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_ENK3$_0clEv.exit.preheader" ]
   %51 = load ptr, ptr %25, align 8, !tbaa !22
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw %"class.std::function", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %52
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1, !tbaa !426
   %54 = getelementptr inbounds i8, ptr %53, i64 -16
@@ -13476,7 +13466,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph13
   store i32 %61, ptr %26, align 8, !tbaa !23
   %62 = load ptr, ptr %25, align 8, !tbaa !22
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %"class.std::function", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !427
   %.not.i.i2 = icmp eq ptr %66, null
@@ -13655,7 +13645,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %142, !prof !445
 
 142:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper19dumpAPValueChildrenERKNS3_7APValueENS3_8QualTypeEPFS9_S9_jEjN4llvm9StringRefESE_E3$_0EEvSE_T_EUlbE_vEEOSG_.exit"
-  %143 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %138
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %138
   %144 = icmp uge ptr %10, %.pre3.i
   %145 = icmp ult ptr %10, %143
   %spec.select.i.i.i.i.i = and i1 %144, %145
@@ -13680,7 +13670,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %10, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper19dumpAPValueChildrenERKNS3_7APValueENS3_8QualTypeEPFS9_S9_jEjN4llvm9StringRefESE_E3$_0EEvSE_T_EUlbE_vEEOSG_.exit" ], [ %151, %146 ], [ %10, %.critedge.i.i.i ]
   %153 = load i32, ptr %136, align 8, !tbaa !23
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %155, i8 0, i64 24, i1 false)
@@ -13720,7 +13710,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %172 = load i32, ptr %171, align 8, !tbaa !23
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw %"class.std::function", ptr %170, i64 %173
+  %174 = getelementptr inbounds nuw [32 x i8], ptr %170, i64 %173
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !426
   %175 = getelementptr inbounds i8, ptr %174, i64 -16
@@ -13741,7 +13731,7 @@ _ZNKSt8functionIFvbEEclEb.exit6:                  ; preds = %169
   %181 = load ptr, ptr %111, align 8, !tbaa !22
   %182 = load i32, ptr %171, align 8, !tbaa !23
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %"class.std::function", ptr %181, i64 %183
+  %184 = getelementptr inbounds nuw [32 x i8], ptr %181, i64 %183
   %185 = getelementptr inbounds i8, ptr %184, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -14161,7 +14151,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92:               ; preds = %177, %179
 192:                                              ; preds = %.preheader, %203
   %storemerge.i411 = phi i32 [ %.0.i412, %.preheader ], [ %204, %203 ]
   %193 = zext i32 %storemerge.i411 to i64
-  %194 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val.i, i64 %193
+  %194 = getelementptr inbounds nuw [56 x i8], ptr %.val.i, i64 %193
   br label %tailrecurse.i209
 
 tailrecurse.i209:                                 ; preds = %196, %192
@@ -14856,7 +14846,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit157:              ; preds = %548, %550
 563:                                              ; preds = %.preheader374, %574
   %storemerge.i159399 = phi i32 [ %.0.i158400, %.preheader374 ], [ %575, %574 ]
   %564 = zext i32 %storemerge.i159399 to i64
-  %565 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val.i222, i64 %564
+  %565 = getelementptr inbounds nuw [56 x i8], ptr %.val.i222, i64 %564
   br label %tailrecurse.i217
 
 tailrecurse.i217:                                 ; preds = %567, %563
@@ -14962,7 +14952,7 @@ _ZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S
   %597 = phi i32 [ %616, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %596, %593 ]
   %598 = load ptr, ptr %594, align 8, !tbaa !22
   %599 = zext i32 %597 to i64
-  %600 = getelementptr inbounds nuw %"class.std::function", ptr %598, i64 %599
+  %600 = getelementptr inbounds nuw [32 x i8], ptr %598, i64 %599
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !426
   %601 = getelementptr inbounds i8, ptr %600, i64 -16
@@ -14985,7 +14975,7 @@ _ZNKSt8functionIFvbEEclEb.exit227:                ; preds = %.lr.ph404
   store i32 %608, ptr %595, align 8, !tbaa !23
   %609 = load ptr, ptr %594, align 8, !tbaa !22
   %610 = zext i32 %608 to i64
-  %611 = getelementptr inbounds nuw %"class.std::function", ptr %609, i64 %610
+  %611 = getelementptr inbounds nuw [32 x i8], ptr %609, i64 %610
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 16
   %613 = load ptr, ptr %612, align 8, !tbaa !427
   %.not.i.i225 = icmp eq ptr %613, null
@@ -15052,7 +15042,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %632, %635
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %640 = load i32, ptr %639, align 8, !tbaa !23
   %641 = zext i32 %640 to i64
-  %642 = getelementptr inbounds nuw %"class.std::function", ptr %638, i64 %641
+  %642 = getelementptr inbounds nuw [32 x i8], ptr %638, i64 %641
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !426
   %643 = getelementptr inbounds i8, ptr %642, i64 -16
@@ -15073,7 +15063,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %637
   %649 = load ptr, ptr %631, align 8, !tbaa !22
   %650 = load i32, ptr %639, align 8, !tbaa !23
   %651 = zext i32 %650 to i64
-  %652 = getelementptr inbounds nuw %"class.std::function", ptr %649, i64 %651
+  %652 = getelementptr inbounds nuw [32 x i8], ptr %649, i64 %651
   %653 = getelementptr inbounds i8, ptr %652, i64 -32
   %654 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvbEEaSIZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_EENSt9enable_ifIXsr9_CallableISE_EE5valueERS1_E4typeEOSE_"(ptr noundef nonnull align 8 dereferenceable(32) %653, ptr noundef nonnull align 8 dereferenceable(120) %15)
   br label %655
@@ -15144,7 +15134,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit168:              ; preds = %668, %670
 683:                                              ; preds = %.preheader378, %694
   %storemerge.i170393 = phi i32 [ %.0.i169394, %.preheader378 ], [ %695, %694 ]
   %684 = zext i32 %storemerge.i170393 to i64
-  %685 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val.i237, i64 %684
+  %685 = getelementptr inbounds nuw [56 x i8], ptr %.val.i237, i64 %684
   br label %tailrecurse.i232
 
 tailrecurse.i232:                                 ; preds = %687, %683
@@ -15241,7 +15231,7 @@ _ZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S
   %storemerge.i177396 = phi i32 [ %.0.i176397, %.preheader376 ], [ %725, %724 ]
   %713 = add i32 %.val1.i, %storemerge.i177396
   %714 = zext i32 %713 to i64
-  %715 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val.i246, i64 %714
+  %715 = getelementptr inbounds nuw [56 x i8], ptr %.val.i246, i64 %714
   br label %tailrecurse.i241
 
 tailrecurse.i241:                                 ; preds = %717, %712
@@ -15481,7 +15471,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit:      ; preds = %tailrecurse.i, %tai
   %809 = phi i32 [ %828, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i ], [ %808, %804 ]
   %810 = load ptr, ptr %806, align 8, !tbaa !22
   %811 = zext i32 %809 to i64
-  %812 = getelementptr inbounds nuw %"class.std::function", ptr %810, i64 %811
+  %812 = getelementptr inbounds nuw [32 x i8], ptr %810, i64 %811
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1, !tbaa !426
   %813 = getelementptr inbounds i8, ptr %812, i64 -16
@@ -15504,7 +15494,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i:                 ; preds = %.lr.ph
   store i32 %820, ptr %807, align 8, !tbaa !23
   %821 = load ptr, ptr %806, align 8, !tbaa !22
   %822 = zext i32 %820 to i64
-  %823 = getelementptr inbounds nuw %"class.std::function", ptr %821, i64 %822
+  %823 = getelementptr inbounds nuw [32 x i8], ptr %821, i64 %822
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 16
   %825 = load ptr, ptr %824, align 8, !tbaa !427
   %.not.i.i1.i = icmp eq ptr %825, null
@@ -15632,7 +15622,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i, label %883, !prof !445
 
 883:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_5EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i"
-  %884 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i, i64 %879
+  %884 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %879
   %885 = icmp uge ptr %8, %.pre3.i.i
   %886 = icmp ult ptr %8, %884
   %spec.select.i.i.i.i.i.i = and i1 %885, %886
@@ -15657,7 +15647,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_5EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i" ], [ %892, %887 ], [ %8, %.critedge.i.i.i.i ]
   %894 = load i32, ptr %877, align 8, !tbaa !23
   %895 = zext i32 %894 to i64
-  %896 = getelementptr inbounds nuw %"class.std::function", ptr %893, i64 %895
+  %896 = getelementptr inbounds nuw [32 x i8], ptr %893, i64 %895
   %897 = getelementptr inbounds nuw i8, ptr %896, i64 24
   %898 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %896, i8 0, i64 24, i1 false)
@@ -15697,7 +15687,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %908, %_ZN4llvm23Sma
   %912 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %913 = load i32, ptr %912, align 8, !tbaa !23
   %914 = zext i32 %913 to i64
-  %915 = getelementptr inbounds nuw %"class.std::function", ptr %911, i64 %914
+  %915 = getelementptr inbounds nuw [32 x i8], ptr %911, i64 %914
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !426
   %916 = getelementptr inbounds i8, ptr %915, i64 -16
@@ -15718,7 +15708,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i:                ; preds = %910
   %922 = load ptr, ptr %854, align 8, !tbaa !22
   %923 = load i32, ptr %912, align 8, !tbaa !23
   %924 = zext i32 %923 to i64
-  %925 = getelementptr inbounds nuw %"class.std::function", ptr %922, i64 %924
+  %925 = getelementptr inbounds nuw [32 x i8], ptr %922, i64 %924
   %926 = getelementptr inbounds i8, ptr %925, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %927 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16134,7 +16124,7 @@ define dso_local void @_ZN5clang14TextNodeDumper17dumpCleanupObjectERKN4llvm12Po
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %22, %19 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !22
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -16157,7 +16147,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !22
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %39, null
@@ -16250,7 +16240,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %54, %52
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %78, !prof !445
 
 78:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS3_9BlockDeclEPNS3_19CompoundLiteralExprEEEEE3$_0EEvNS7_9StringRefET_EUlbE_vEEOSI_.exit.i.i"
-  %79 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %74
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %74
   %80 = icmp uge ptr %8, %.pre3.i.i.i
   %81 = icmp ult ptr %8, %79
   %spec.select.i.i.i.i.i.i.i = and i1 %80, %81
@@ -16275,7 +16265,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS3_9BlockDeclEPNS3_19CompoundLiteralExprEEEEE3$_0EEvNS7_9StringRefET_EUlbE_vEEOSI_.exit.i.i" ], [ %87, %82 ], [ %8, %.critedge.i.i.i.i.i ]
   %89 = load i32, ptr %72, align 8, !tbaa !23
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"class.std::function", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 24, i1 false)
@@ -16315,7 +16305,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %103, %_ZN4llvm23Sma
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %108 = load i32, ptr %107, align 8, !tbaa !23
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %106, i64 %109
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %109
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %111 = getelementptr inbounds i8, ptr %110, i64 -16
@@ -16336,7 +16326,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %105
   %117 = load ptr, ptr %64, align 8, !tbaa !22
   %118 = load i32, ptr %107, align 8, !tbaa !23
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"class.std::function", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds i8, ptr %120, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16899,10 +16889,10 @@ switch.lookup:                                    ; preds = %57, %55
   %61 = lshr i8 %60, 3
   %62 = and i8 %61, 7
   %63 = zext nneg i8 %62 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE, i64 %63
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   %64 = zext nneg i8 %62 to i64
-  %switch.gep99 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE.228, i64 %64
+  %switch.gep99 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE.228, i64 %64
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !419
@@ -17775,7 +17765,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %161, %163
   %166 = phi ptr [ %.pre, %161 ], [ %165, %163 ]
   %.0.i.i42 = phi ptr [ %162, %161 ], [ %152, %163 ]
   %167 = load ptr, ptr %135, align 8, !tbaa !639
-  %168 = getelementptr inbounds nuw %"struct.clang::comments::Comment::Argument", ptr %167, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [24 x i8], ptr %167, i64 %indvars.iv
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %169, align 8, !tbaa !424
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %168, i64 16
@@ -17956,7 +17946,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %57, %59
 66:                                               ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsEPKc.exit36 ]
   %67 = load ptr, ptr %64, align 8, !tbaa !644
-  %68 = getelementptr inbounds nuw %"class.clang::comments::HTMLStartTagComment::Attribute", ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %67, i64 %indvars.iv
   %69 = load ptr, ptr %4, align 8, !tbaa !414
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !419
@@ -18383,7 +18373,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %84, %86
   %89 = phi ptr [ %.pre, %84 ], [ %88, %86 ]
   %.0.i.i21 = phi ptr [ %85, %84 ], [ %75, %86 ]
   %90 = load ptr, ptr %58, align 8, !tbaa !639
-  %91 = getelementptr inbounds nuw %"struct.clang::comments::Comment::Argument", ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %indvars.iv
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %92, align 8, !tbaa !424
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -18972,7 +18962,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %99, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsEPKc.exit38 ]
   %122 = load ptr, ptr %89, align 8, !tbaa !414
   %123 = load ptr, ptr %106, align 8, !tbaa !656
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv
   %125 = load i32, ptr %124, align 4, !tbaa !463
   %126 = zext i32 %125 to i64
   %127 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %122, i64 noundef %126) #22
@@ -19534,7 +19524,7 @@ define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNo
   %21 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %17 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !22
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !426
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -19557,7 +19547,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %32, ptr %19, align 8, !tbaa !23
   %33 = load ptr, ptr %18, align 8, !tbaa !22
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !427
   %.not.i.i1 = icmp eq ptr %37, null
@@ -19721,7 +19711,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %103, !prof !445
 
 103:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper16dumpTemplateNameENS3_12TemplateNameEN4llvm9StringRefEE3$_0EEvS9_T_EUlbE_vEEOSB_.exit"
-  %104 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %99
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %99
   %105 = icmp uge ptr %12, %.pre3.i
   %106 = icmp ult ptr %12, %104
   %spec.select.i.i.i.i.i = and i1 %105, %106
@@ -19746,7 +19736,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper16dumpTemplateNameENS3_12TemplateNameEN4llvm9StringRefEE3$_0EEvS9_T_EUlbE_vEEOSB_.exit" ], [ %112, %107 ], [ %12, %.critedge.i.i.i ]
   %114 = load i32, ptr %97, align 8, !tbaa !23
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 24, i1 false)
@@ -19786,7 +19776,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %133 = load i32, ptr %132, align 8, !tbaa !23
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"class.std::function", ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %134
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !426
   %136 = getelementptr inbounds i8, ptr %135, i64 -16
@@ -19807,7 +19797,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %130
   %142 = load ptr, ptr %77, align 8, !tbaa !22
   %143 = load i32, ptr %132, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -19969,7 +19959,7 @@ define dso_local void @_ZN5clang14TextNodeDumper20dumpBareTemplateNameENS_12Temp
   %42 = phi i32 [ %61, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %41, %37 ]
   %43 = load ptr, ptr %39, align 8, !tbaa !22
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %"class.std::function", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %44
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i8 1, ptr %26, align 1, !tbaa !426
   %46 = getelementptr inbounds i8, ptr %45, i64 -16
@@ -19992,7 +19982,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %53, ptr %40, align 8, !tbaa !23
   %54 = load ptr, ptr %39, align 8, !tbaa !22
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %"class.std::function", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %58, null
@@ -20085,7 +20075,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %73, %71
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %97, !prof !445
 
 97:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i.i"
-  %98 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %93
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %93
   %99 = icmp uge ptr %29, %.pre3.i.i.i
   %100 = icmp ult ptr %29, %98
   %spec.select.i.i.i.i.i.i.i = and i1 %99, %100
@@ -20110,7 +20100,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %29, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i.i" ], [ %106, %101 ], [ %29, %.critedge.i.i.i.i.i ]
   %108 = load i32, ptr %91, align 8, !tbaa !23
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %107, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, i8 0, i64 24, i1 false)
@@ -20150,7 +20140,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %122, %_ZN4llvm23Sma
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %127 = load i32, ptr %126, align 8, !tbaa !23
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"class.std::function", ptr %125, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %128
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 0, ptr %25, align 1, !tbaa !426
   %130 = getelementptr inbounds i8, ptr %129, i64 -16
@@ -20171,7 +20161,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %124
   %136 = load ptr, ptr %83, align 8, !tbaa !22
   %137 = load i32, ptr %126, align 8, !tbaa !23
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %138
   %140 = getelementptr inbounds i8, ptr %139, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %141 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -20274,7 +20264,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %176 = phi i32 [ %195, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i47 ], [ %175, %172 ]
   %177 = load ptr, ptr %173, align 8, !tbaa !22
   %178 = zext i32 %176 to i64
-  %179 = getelementptr inbounds nuw %"class.std::function", ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %177, i64 %178
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 1, ptr %21, align 1, !tbaa !426
   %180 = getelementptr inbounds i8, ptr %179, i64 -16
@@ -20297,7 +20287,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i45:             ; preds = %.lr.ph.i.i43
   store i32 %187, ptr %174, align 8, !tbaa !23
   %188 = load ptr, ptr %173, align 8, !tbaa !22
   %189 = zext i32 %187 to i64
-  %190 = getelementptr inbounds nuw %"class.std::function", ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [32 x i8], ptr %188, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load ptr, ptr %191, align 8, !tbaa !427
   %.not.i.i2.i.i = icmp eq ptr %192, null
@@ -20388,7 +20378,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i47: 
   br i1 %.not.i.i.not.i.i.i33, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i38, label %231, !prof !445
 
 231:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i.i"
-  %232 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i34, i64 %227
+  %232 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i34, i64 %227
   %233 = icmp uge ptr %23, %.pre3.i.i.i34
   %234 = icmp ult ptr %23, %232
   %spec.select.i.i.i.i.i.i.i35 = and i1 %233, %234
@@ -20413,7 +20403,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i39 = phi ptr [ %23, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i.i" ], [ %240, %235 ], [ %23, %.critedge.i.i.i.i.i36 ]
   %242 = load i32, ptr %225, align 8, !tbaa !23
   %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds nuw %"class.std::function", ptr %241, i64 %243
+  %244 = getelementptr inbounds nuw [32 x i8], ptr %241, i64 %243
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
   %246 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i39, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, i8 0, i64 24, i1 false)
@@ -20453,7 +20443,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i42:             ; preds = %256, %_ZN4llvm23Sma
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %261 = load i32, ptr %260, align 8, !tbaa !23
   %262 = zext i32 %261 to i64
-  %263 = getelementptr inbounds nuw %"class.std::function", ptr %259, i64 %262
+  %263 = getelementptr inbounds nuw [32 x i8], ptr %259, i64 %262
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 0, ptr %20, align 1, !tbaa !426
   %264 = getelementptr inbounds i8, ptr %263, i64 -16
@@ -20474,7 +20464,7 @@ _ZNKSt8functionIFvbEEclEb.exit6.i.i:              ; preds = %258
   %270 = load ptr, ptr %217, align 8, !tbaa !22
   %271 = load i32, ptr %260, align 8, !tbaa !23
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds nuw %"class.std::function", ptr %270, i64 %272
+  %273 = getelementptr inbounds nuw [32 x i8], ptr %270, i64 %272
   %274 = getelementptr inbounds i8, ptr %273, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %275 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -20570,7 +20560,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %306 = phi i32 [ %325, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i ], [ %305, %"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper20dumpBareTemplateNameENS_12TemplateNameEE3$_1EEvT_.exit.thread" ]
   %307 = load ptr, ptr %303, align 8, !tbaa !22
   %308 = zext i32 %306 to i64
-  %309 = getelementptr inbounds nuw %"class.std::function", ptr %307, i64 %308
+  %309 = getelementptr inbounds nuw [32 x i8], ptr %307, i64 %308
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 1, ptr %16, align 1, !tbaa !426
   %310 = getelementptr inbounds i8, ptr %309, i64 -16
@@ -20593,7 +20583,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i:                 ; preds = %.lr.ph.i
   store i32 %317, ptr %304, align 8, !tbaa !23
   %318 = load ptr, ptr %303, align 8, !tbaa !22
   %319 = zext i32 %317 to i64
-  %320 = getelementptr inbounds nuw %"class.std::function", ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [32 x i8], ptr %318, i64 %319
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load ptr, ptr %321, align 8, !tbaa !427
   %.not.i.i2.i = icmp eq ptr %322, null
@@ -20690,7 +20680,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %337, %335
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i, label %362, !prof !445
 
 362:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i"
-  %363 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i, i64 %358
+  %363 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %358
   %364 = icmp uge ptr %18, %.pre3.i.i
   %365 = icmp ult ptr %18, %363
   %spec.select.i.i.i.i.i.i = and i1 %364, %365
@@ -20715,7 +20705,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i = phi ptr [ %18, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i" ], [ %371, %366 ], [ %18, %.critedge.i.i.i.i ]
   %373 = load i32, ptr %356, align 8, !tbaa !23
   %374 = zext i32 %373 to i64
-  %375 = getelementptr inbounds nuw %"class.std::function", ptr %372, i64 %374
+  %375 = getelementptr inbounds nuw [32 x i8], ptr %372, i64 %374
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 24
   %377 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %375, i8 0, i64 24, i1 false)
@@ -20755,7 +20745,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %387, %_ZN4llvm23Sma
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %392 = load i32, ptr %391, align 8, !tbaa !23
   %393 = zext i32 %392 to i64
-  %394 = getelementptr inbounds nuw %"class.std::function", ptr %390, i64 %393
+  %394 = getelementptr inbounds nuw [32 x i8], ptr %390, i64 %393
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1, !tbaa !426
   %395 = getelementptr inbounds i8, ptr %394, i64 -16
@@ -20776,7 +20766,7 @@ _ZNKSt8functionIFvbEEclEb.exit6.i:                ; preds = %389
   %401 = load ptr, ptr %348, align 8, !tbaa !22
   %402 = load i32, ptr %391, align 8, !tbaa !23
   %403 = zext i32 %402 to i64
-  %404 = getelementptr inbounds nuw %"class.std::function", ptr %401, i64 %403
+  %404 = getelementptr inbounds nuw [32 x i8], ptr %401, i64 %403
   %405 = getelementptr inbounds i8, ptr %404, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %406 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -21078,7 +21068,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit72:               ; preds = %541, %543
   %558 = phi i32 [ %577, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i107 ], [ %557, %554 ]
   %559 = load ptr, ptr %555, align 8, !tbaa !22
   %560 = zext i32 %558 to i64
-  %561 = getelementptr inbounds nuw %"class.std::function", ptr %559, i64 %560
+  %561 = getelementptr inbounds nuw [32 x i8], ptr %559, i64 %560
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 1, !tbaa !426
   %562 = getelementptr inbounds i8, ptr %561, i64 -16
@@ -21101,7 +21091,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i104:              ; preds = %.lr.ph.i102
   store i32 %569, ptr %556, align 8, !tbaa !23
   %570 = load ptr, ptr %555, align 8, !tbaa !22
   %571 = zext i32 %569 to i64
-  %572 = getelementptr inbounds nuw %"class.std::function", ptr %570, i64 %571
+  %572 = getelementptr inbounds nuw [32 x i8], ptr %570, i64 %571
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 16
   %574 = load ptr, ptr %573, align 8, !tbaa !427
   %.not.i.i2.i105 = icmp eq ptr %574, null
@@ -21198,7 +21188,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i110:            ; preds = %589, %587
   br i1 %.not.i.i.not.i.i90, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i95, label %614, !prof !445
 
 614:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_3EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i"
-  %615 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i91, i64 %610
+  %615 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i91, i64 %610
   %616 = icmp uge ptr %13, %.pre3.i.i91
   %617 = icmp ult ptr %13, %615
   %spec.select.i.i.i.i.i.i92 = and i1 %616, %617
@@ -21223,7 +21213,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i96 = phi ptr [ %13, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_3EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit.i" ], [ %623, %618 ], [ %13, %.critedge.i.i.i.i93 ]
   %625 = load i32, ptr %608, align 8, !tbaa !23
   %626 = zext i32 %625 to i64
-  %627 = getelementptr inbounds nuw %"class.std::function", ptr %624, i64 %626
+  %627 = getelementptr inbounds nuw [32 x i8], ptr %624, i64 %626
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 24
   %629 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i96, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %627, i8 0, i64 24, i1 false)
@@ -21263,7 +21253,7 @@ _ZNSt14_Function_baseD2Ev.exit.i100:              ; preds = %639, %_ZN4llvm23Sma
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %644 = load i32, ptr %643, align 8, !tbaa !23
   %645 = zext i32 %644 to i64
-  %646 = getelementptr inbounds nuw %"class.std::function", ptr %642, i64 %645
+  %646 = getelementptr inbounds nuw [32 x i8], ptr %642, i64 %645
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !426
   %647 = getelementptr inbounds i8, ptr %646, i64 -16
@@ -21284,7 +21274,7 @@ _ZNKSt8functionIFvbEEclEb.exit6.i80:              ; preds = %641
   %653 = load ptr, ptr %600, align 8, !tbaa !22
   %654 = load i32, ptr %643, align 8, !tbaa !23
   %655 = zext i32 %654 to i64
-  %656 = getelementptr inbounds nuw %"class.std::function", ptr %653, i64 %655
+  %656 = getelementptr inbounds nuw [32 x i8], ptr %653, i64 %655
   %657 = getelementptr inbounds i8, ptr %656, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %658 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -21423,7 +21413,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit114:              ; preds = %698, %700
   %713 = phi i32 [ %732, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %712, %709 ]
   %714 = load ptr, ptr %710, align 8, !tbaa !22
   %715 = zext i32 %713 to i64
-  %716 = getelementptr inbounds nuw %"class.std::function", ptr %714, i64 %715
+  %716 = getelementptr inbounds nuw [32 x i8], ptr %714, i64 %715
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %717 = getelementptr inbounds i8, ptr %716, i64 -16
@@ -21446,7 +21436,7 @@ _ZNKSt8functionIFvbEEclEb.exit143:                ; preds = %.lr.ph
   store i32 %724, ptr %711, align 8, !tbaa !23
   %725 = load ptr, ptr %710, align 8, !tbaa !22
   %726 = zext i32 %724 to i64
-  %727 = getelementptr inbounds nuw %"class.std::function", ptr %725, i64 %726
+  %727 = getelementptr inbounds nuw [32 x i8], ptr %725, i64 %726
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 16
   %729 = load ptr, ptr %728, align 8, !tbaa !427
   %.not.i.i140 = icmp eq ptr %729, null
@@ -21541,7 +21531,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit139:              ; preds = %742, %744
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %769, !prof !445
 
 769:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_4EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit"
-  %770 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %765
+  %770 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %765
   %771 = icmp uge ptr %8, %.pre3.i
   %772 = icmp ult ptr %8, %770
   %spec.select.i.i.i.i.i = and i1 %771, %772
@@ -21566,7 +21556,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEE3$_4EEvN4llvm9StringRefET_EUlbE_vEEOSB_.exit" ], [ %778, %773 ], [ %8, %.critedge.i.i.i ]
   %780 = load i32, ptr %763, align 8, !tbaa !23
   %781 = zext i32 %780 to i64
-  %782 = getelementptr inbounds nuw %"class.std::function", ptr %779, i64 %781
+  %782 = getelementptr inbounds nuw [32 x i8], ptr %779, i64 %781
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 24
   %784 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %782, i8 0, i64 24, i1 false)
@@ -21606,7 +21596,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %798 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %799 = load i32, ptr %798, align 8, !tbaa !23
   %800 = zext i32 %799 to i64
-  %801 = getelementptr inbounds nuw %"class.std::function", ptr %797, i64 %800
+  %801 = getelementptr inbounds nuw [32 x i8], ptr %797, i64 %800
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %802 = getelementptr inbounds i8, ptr %801, i64 -16
@@ -21627,7 +21617,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %796
   %808 = load ptr, ptr %755, align 8, !tbaa !22
   %809 = load i32, ptr %798, align 8, !tbaa !23
   %810 = zext i32 %809 to i64
-  %811 = getelementptr inbounds nuw %"class.std::function", ptr %808, i64 %810
+  %811 = getelementptr inbounds nuw [32 x i8], ptr %808, i64 %810
   %812 = getelementptr inbounds i8, ptr %811, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %813 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -22708,7 +22698,7 @@ define dso_local void @_ZN5clang14TextNodeDumper17VisitConstantExprEPKNS_12Const
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i ], [ %21, %"_ZZN5clang14TextNodeDumper17VisitConstantExprEPKNS_12ConstantExprEENK3$_0clEv.exit.i" ]
   %23 = load ptr, ptr %19, align 8, !tbaa !22
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -22731,7 +22721,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i:                 ; preds = %.lr.ph.i
   store i32 %33, ptr %20, align 8, !tbaa !23
   %34 = load ptr, ptr %19, align 8, !tbaa !22
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !427
   %.not.i.i1.i = icmp eq ptr %38, null
@@ -22828,7 +22818,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %53, %51
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i, label %78, !prof !445
 
 78:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17VisitConstantExprEPKNS3_12ConstantExprEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i"
-  %79 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i, i64 %74
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %74
   %80 = icmp uge ptr %8, %.pre3.i.i
   %81 = icmp ult ptr %8, %79
   %spec.select.i.i.i.i.i.i = and i1 %80, %81
@@ -22853,7 +22843,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17VisitConstantExprEPKNS3_12ConstantExprEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i" ], [ %87, %82 ], [ %8, %.critedge.i.i.i.i ]
   %89 = load i32, ptr %72, align 8, !tbaa !23
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"class.std::function", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 24, i1 false)
@@ -22893,7 +22883,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %103, %_ZN4llvm23Sma
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %108 = load i32, ptr %107, align 8, !tbaa !23
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %106, i64 %109
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %109
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %111 = getelementptr inbounds i8, ptr %110, i64 -16
@@ -22914,7 +22904,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i:                ; preds = %105
   %117 = load ptr, ptr %64, align 8, !tbaa !22
   %118 = load i32, ptr %107, align 8, !tbaa !23
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"class.std::function", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds i8, ptr %120, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -23358,7 +23348,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
   %21 = tail call noundef ptr @_ZN5clang8CastExpr11path_bufferEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #22
   %22 = load i32, ptr %3, align 4, !tbaa !29
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %.not34 = icmp eq ptr %20, %24
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -23595,7 +23585,7 @@ _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.e
   %25 = lshr i32 %21, 19
   %.lobit.i.i.i.i.i = and i32 %25, 1
   %26 = zext nneg i32 %.lobit.i.i.i.i.i to i64
-  %27 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %26
   %.in.i = select i1 %.not.i10, ptr %15, ptr %27
   %28 = load ptr, ptr %.in.i, align 8, !tbaa !444
   %.not = icmp eq ptr %22, %28
@@ -23631,7 +23621,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %39, %41
   %46 = lshr i32 %44, 19
   %.lobit.i.i.i.i.i15 = and i32 %46, 1
   %47 = zext nneg i32 %.lobit.i.i.i.i.i15 to i64
-  %48 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %24, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %47
   %.in.i16 = select i1 %.not.i14, ptr %15, ptr %48
   %49 = load ptr, ptr %.in.i16, align 8, !tbaa !444
   tail call void @_ZN5clang14TextNodeDumper15dumpBareDeclRefEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %49)
@@ -27147,7 +27137,7 @@ define dso_local void @_ZN5clang14TextNodeDumper21VisitExprWithCleanupsEPKNS_16E
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %9 = getelementptr inbounds nuw %"class.llvm::PointerUnion.680", ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
   call void @_ZN5clang14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS_9BlockDeclEPNS_19CompoundLiteralExprEEEE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -29934,7 +29924,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i1.i:            ; preds = %371, %369
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit8.i.i:            ; preds = %384, %382, %.lr.ph.i2.i
-  %387 = getelementptr inbounds nuw %"class.clang::QualType", ptr %.sroa.2114.sroa.2.0.copyload, i64 %indvars.iv.i.i
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.2114.sroa.2.0.copyload, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %387, align 8, !tbaa !29
   %388 = load ptr, ptr %359, align 8, !tbaa !414
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 32
@@ -29971,7 +29961,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit.i.i: ; preds = %395, %393
   %400 = phi i32 [ %419, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %399, %"_ZZN5clang14TextNodeDumper22VisitFunctionProtoTypeEPKNS_17FunctionProtoTypeEENK3$_0clEv.exit.i" ]
   %401 = load ptr, ptr %397, align 8, !tbaa !22
   %402 = zext i32 %400 to i64
-  %403 = getelementptr inbounds nuw %"class.std::function", ptr %401, i64 %402
+  %403 = getelementptr inbounds nuw [32 x i8], ptr %401, i64 %402
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !426
   %404 = getelementptr inbounds i8, ptr %403, i64 -16
@@ -29994,7 +29984,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %411, ptr %398, align 8, !tbaa !23
   %412 = load ptr, ptr %397, align 8, !tbaa !22
   %413 = zext i32 %411 to i64
-  %414 = getelementptr inbounds nuw %"class.std::function", ptr %412, i64 %413
+  %414 = getelementptr inbounds nuw [32 x i8], ptr %412, i64 %413
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 16
   %416 = load ptr, ptr %415, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %416, null
@@ -30096,7 +30086,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %431, %429
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %455, !prof !445
 
 455:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper22VisitFunctionProtoTypeEPKNS3_17FunctionProtoTypeEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %456 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %451
+  %456 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %451
   %457 = icmp uge ptr %12, %.pre3.i.i.i
   %458 = icmp ult ptr %12, %456
   %spec.select.i.i.i.i.i.i.i = and i1 %457, %458
@@ -30121,7 +30111,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %12, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper22VisitFunctionProtoTypeEPKNS3_17FunctionProtoTypeEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %464, %459 ], [ %12, %.critedge.i.i.i.i.i ]
   %466 = load i32, ptr %449, align 8, !tbaa !23
   %467 = zext i32 %466 to i64
-  %468 = getelementptr inbounds nuw %"class.std::function", ptr %465, i64 %467
+  %468 = getelementptr inbounds nuw [32 x i8], ptr %465, i64 %467
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 24
   %470 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %468, i8 0, i64 24, i1 false)
@@ -30161,7 +30151,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %480, %_ZN4llvm23Sma
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %485 = load i32, ptr %484, align 8, !tbaa !23
   %486 = zext i32 %485 to i64
-  %487 = getelementptr inbounds nuw %"class.std::function", ptr %483, i64 %486
+  %487 = getelementptr inbounds nuw [32 x i8], ptr %483, i64 %486
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1, !tbaa !426
   %488 = getelementptr inbounds i8, ptr %487, i64 -16
@@ -30182,7 +30172,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %482
   %494 = load ptr, ptr %441, align 8, !tbaa !22
   %495 = load i32, ptr %484, align 8, !tbaa !23
   %496 = zext i32 %495 to i64
-  %497 = getelementptr inbounds nuw %"class.std::function", ptr %494, i64 %496
+  %497 = getelementptr inbounds nuw [32 x i8], ptr %494, i64 %496
   %498 = getelementptr inbounds i8, ptr %497, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %499 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -30310,7 +30300,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %550 = phi i32 [ %569, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i105 ], [ %549, %"_ZZN5clang14TextNodeDumper22VisitFunctionProtoTypeEPKNS_17FunctionProtoTypeEENK3$_1clEv.exit.i.i" ]
   %551 = load ptr, ptr %547, align 8, !tbaa !22
   %552 = zext i32 %550 to i64
-  %553 = getelementptr inbounds nuw %"class.std::function", ptr %551, i64 %552
+  %553 = getelementptr inbounds nuw [32 x i8], ptr %551, i64 %552
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %554 = getelementptr inbounds i8, ptr %553, i64 -16
@@ -30333,7 +30323,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i102:            ; preds = %.lr.ph.i.i100
   store i32 %561, ptr %548, align 8, !tbaa !23
   %562 = load ptr, ptr %547, align 8, !tbaa !22
   %563 = zext i32 %561 to i64
-  %564 = getelementptr inbounds nuw %"class.std::function", ptr %562, i64 %563
+  %564 = getelementptr inbounds nuw [32 x i8], ptr %562, i64 %563
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 16
   %566 = load ptr, ptr %565, align 8, !tbaa !427
   %.not.i.i1.i.i103 = icmp eq ptr %566, null
@@ -30433,7 +30423,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i108:          ; preds = %581, %579
   br i1 %.not.i.i.not.i.i.i88, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i93, label %605, !prof !445
 
 605:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper22VisitFunctionProtoTypeEPKNS3_17FunctionProtoTypeEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %606 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i89, i64 %601
+  %606 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i89, i64 %601
   %607 = icmp uge ptr %7, %.pre3.i.i.i89
   %608 = icmp ult ptr %7, %606
   %spec.select.i.i.i.i.i.i.i90 = and i1 %607, %608
@@ -30458,7 +30448,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i94 = phi ptr [ %7, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper22VisitFunctionProtoTypeEPKNS3_17FunctionProtoTypeEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %614, %609 ], [ %7, %.critedge.i.i.i.i.i91 ]
   %616 = load i32, ptr %599, align 8, !tbaa !23
   %617 = zext i32 %616 to i64
-  %618 = getelementptr inbounds nuw %"class.std::function", ptr %615, i64 %617
+  %618 = getelementptr inbounds nuw [32 x i8], ptr %615, i64 %617
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 24
   %620 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i94, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %618, i8 0, i64 24, i1 false)
@@ -30498,7 +30488,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i98:             ; preds = %630, %_ZN4llvm23Sma
   %634 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %635 = load i32, ptr %634, align 8, !tbaa !23
   %636 = zext i32 %635 to i64
-  %637 = getelementptr inbounds nuw %"class.std::function", ptr %633, i64 %636
+  %637 = getelementptr inbounds nuw [32 x i8], ptr %633, i64 %636
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %638 = getelementptr inbounds i8, ptr %637, i64 -16
@@ -30519,7 +30509,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i82:            ; preds = %632
   %644 = load ptr, ptr %591, align 8, !tbaa !22
   %645 = load i32, ptr %634, align 8, !tbaa !23
   %646 = zext i32 %645 to i64
-  %647 = getelementptr inbounds nuw %"class.std::function", ptr %644, i64 %646
+  %647 = getelementptr inbounds nuw [32 x i8], ptr %644, i64 %646
   %648 = getelementptr inbounds i8, ptr %647, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %649 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -30642,7 +30632,7 @@ define linkonce_odr hidden void @_ZNK5clang17FunctionProtoType15getExtProtoInfoE
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = lshr i64 %12, 38
   %22 = and i64 %21, 65535
-  %23 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !463
   br label %_ZNK5clang17FunctionProtoType14getEllipsisLocEv.exit
 
@@ -30675,10 +30665,10 @@ _ZNK5clang17FunctionProtoType14getEllipsisLocEv.exit._ZNK5clang17FunctionProtoTy
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = lshr i64 %31, 38
   %39 = and i64 %38, 65535
-  %40 = getelementptr inbounds nuw %"class.clang::QualType", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = lshr i64 %31, 60
   %42 = and i64 %41, 1
-  %43 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = add i64 %44, 7
   %46 = and i64 %45, -8
@@ -30712,18 +30702,18 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = and i32 %61, 15
   %63 = and i64 %60, 15
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %63
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   %64 = lshr i64 %31, 59
   %65 = and i64 %64, 1
-  %66 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %47, i64 %65
-  %67 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %66, i64 %53
-  %68 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %67, i64 %spec.select.i.i.i.i.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %53
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %spec.select.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i = add nsw i32 %62, -6
   %switch.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 3
   %69 = zext i1 %switch.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %switch.load
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %switch.load
   br label %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit
 
 _ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit: ; preds = %_ZNK5clang17FunctionProtoType14getEllipsisLocEv.exit._ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit_crit_edge, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i
@@ -30738,10 +30728,10 @@ _ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i: ; preds = %_ZNK5cl
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %74 = lshr i64 %31, 38
   %75 = and i64 %74, 65535
-  %76 = getelementptr inbounds nuw %"class.clang::QualType", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %75
   %77 = lshr i64 %31, 60
   %78 = and i64 %77, 1
-  %79 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %78
   %80 = ptrtoint ptr %79 to i64
   %81 = add i64 %80, 7
   %82 = and i64 %81, -8
@@ -30786,33 +30776,33 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 15
   %105 = and i64 %102, 15
-  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %106 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %106, i64 %97
-  %108 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %107, i64 %spec.select.i.i.i.i.i.i.i.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %97
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %spec.select.i.i.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i.i.i = add nsw i32 %104, -6
   %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 3
   %109 = zext i1 %switch.i.i.i.i.i.i.i.i to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load9
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %switch.load9
   %112 = select i1 %.not.i3, i64 0, i64 %75
-  %113 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 %112
   %114 = ptrtoint ptr %113 to i64
   %115 = add i64 %114, 7
   %116 = and i64 %115, -8
   %117 = inttoptr i64 %116 to ptr
   %118 = lshr i64 %31, 37
   %119 = and i64 %118, 1
-  %120 = getelementptr inbounds nuw %"class.clang::Qualifiers", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %119
   br i1 %.not10.i, label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %121 = and i64 %102, 15
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
   %switch.load11 = load i64, ptr %switch.gep10, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load11
-  %123 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %122, i64 %112
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %switch.load11
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %112
   %124 = ptrtoint ptr %123 to i64
   %125 = add i64 %124, 7
   %126 = and i64 %125, -8
@@ -33133,7 +33123,7 @@ _ZNK5clang12FunctionDecl17getDeletedMessageEv.exit: ; preds = %230
   %236 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %237 = load i32, ptr %232, align 8, !tbaa !900
   %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %236, i64 %238
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %238
   %240 = load ptr, ptr %239, align 8, !tbaa !901
   %.not17 = icmp eq ptr %240, null
   br i1 %.not17, label %"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper17VisitFunctionDeclEPKNS_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_.exit", label %241
@@ -33157,7 +33147,7 @@ _ZNK5clang12FunctionDecl17getDeletedMessageEv.exit: ; preds = %230
   %249 = phi i32 [ %268, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %248, %245 ]
   %250 = load ptr, ptr %246, align 8, !tbaa !22
   %251 = zext i32 %249 to i64
-  %252 = getelementptr inbounds nuw %"class.std::function", ptr %250, i64 %251
+  %252 = getelementptr inbounds nuw [32 x i8], ptr %250, i64 %251
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %253 = getelementptr inbounds i8, ptr %252, i64 -16
@@ -33180,7 +33170,7 @@ _ZNKSt8functionIFvbEEclEb.exit111:                ; preds = %.lr.ph
   store i32 %260, ptr %247, align 8, !tbaa !23
   %261 = load ptr, ptr %246, align 8, !tbaa !22
   %262 = zext i32 %260 to i64
-  %263 = getelementptr inbounds nuw %"class.std::function", ptr %261, i64 %262
+  %263 = getelementptr inbounds nuw [32 x i8], ptr %261, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %265 = load ptr, ptr %264, align 8, !tbaa !427
   %.not.i.i109 = icmp eq ptr %265, null
@@ -33277,7 +33267,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit108:              ; preds = %278, %280
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %305, !prof !445
 
 305:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17VisitFunctionDeclEPKNS3_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit"
-  %306 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %301
+  %306 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %301
   %307 = icmp uge ptr %13, %.pre3.i
   %308 = icmp ult ptr %13, %306
   %spec.select.i.i.i.i.i = and i1 %307, %308
@@ -33302,7 +33292,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17VisitFunctionDeclEPKNS3_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit" ], [ %314, %309 ], [ %13, %.critedge.i.i.i ]
   %316 = load i32, ptr %299, align 8, !tbaa !23
   %317 = zext i32 %316 to i64
-  %318 = getelementptr inbounds nuw %"class.std::function", ptr %315, i64 %317
+  %318 = getelementptr inbounds nuw [32 x i8], ptr %315, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %320 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %318, i8 0, i64 24, i1 false)
@@ -33342,7 +33332,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %335 = load i32, ptr %334, align 8, !tbaa !23
   %336 = zext i32 %335 to i64
-  %337 = getelementptr inbounds nuw %"class.std::function", ptr %333, i64 %336
+  %337 = getelementptr inbounds nuw [32 x i8], ptr %333, i64 %336
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %338 = getelementptr inbounds i8, ptr %337, i64 -16
@@ -33363,7 +33353,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %332
   %344 = load ptr, ptr %291, align 8, !tbaa !22
   %345 = load i32, ptr %334, align 8, !tbaa !23
   %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds nuw %"class.std::function", ptr %344, i64 %346
+  %347 = getelementptr inbounds nuw [32 x i8], ptr %344, i64 %346
   %348 = getelementptr inbounds i8, ptr %347, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %349 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -33609,7 +33599,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread: ; preds = %403
   %462 = phi i32 [ %481, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %461, %458 ]
   %463 = load ptr, ptr %459, align 8, !tbaa !22
   %464 = zext i32 %462 to i64
-  %465 = getelementptr inbounds nuw %"class.std::function", ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw [32 x i8], ptr %463, i64 %464
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1, !tbaa !426
   %466 = getelementptr inbounds i8, ptr %465, i64 -16
@@ -33632,7 +33622,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %473, ptr %460, align 8, !tbaa !23
   %474 = load ptr, ptr %459, align 8, !tbaa !22
   %475 = zext i32 %473 to i64
-  %476 = getelementptr inbounds nuw %"class.std::function", ptr %474, i64 %475
+  %476 = getelementptr inbounds nuw [32 x i8], ptr %474, i64 %475
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 16
   %478 = load ptr, ptr %477, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %478, null
@@ -33725,7 +33715,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %493, %491
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %517, !prof !445
 
 517:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17VisitFunctionDeclEPKNS3_12FunctionDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %518 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %513
+  %518 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %513
   %519 = icmp uge ptr %10, %.pre3.i.i.i
   %520 = icmp ult ptr %10, %518
   %spec.select.i.i.i.i.i.i.i = and i1 %519, %520
@@ -33750,7 +33740,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %10, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper17VisitFunctionDeclEPKNS3_12FunctionDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %526, %521 ], [ %10, %.critedge.i.i.i.i.i ]
   %528 = load i32, ptr %511, align 8, !tbaa !23
   %529 = zext i32 %528 to i64
-  %530 = getelementptr inbounds nuw %"class.std::function", ptr %527, i64 %529
+  %530 = getelementptr inbounds nuw [32 x i8], ptr %527, i64 %529
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 24
   %532 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %530, i8 0, i64 24, i1 false)
@@ -33790,7 +33780,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %542, %_ZN4llvm23Sma
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %547 = load i32, ptr %546, align 8, !tbaa !23
   %548 = zext i32 %547 to i64
-  %549 = getelementptr inbounds nuw %"class.std::function", ptr %545, i64 %548
+  %549 = getelementptr inbounds nuw [32 x i8], ptr %545, i64 %548
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !426
   %550 = getelementptr inbounds i8, ptr %549, i64 -16
@@ -33811,7 +33801,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %544
   %556 = load ptr, ptr %503, align 8, !tbaa !22
   %557 = load i32, ptr %546, align 8, !tbaa !23
   %558 = zext i32 %557 to i64
-  %559 = getelementptr inbounds nuw %"class.std::function", ptr %556, i64 %558
+  %559 = getelementptr inbounds nuw [32 x i8], ptr %556, i64 %558
   %560 = getelementptr inbounds i8, ptr %559, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %561 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -34921,7 +34911,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit94:               ; preds = %290, %288, %_ZN4llv
   %324 = phi i32 [ %343, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i ], [ %323, %319 ]
   %325 = load ptr, ptr %321, align 8, !tbaa !22
   %326 = zext i32 %324 to i64
-  %327 = getelementptr inbounds nuw %"class.std::function", ptr %325, i64 %326
+  %327 = getelementptr inbounds nuw [32 x i8], ptr %325, i64 %326
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %328 = getelementptr inbounds i8, ptr %327, i64 -16
@@ -34944,7 +34934,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i:                 ; preds = %.lr.ph.i
   store i32 %335, ptr %322, align 8, !tbaa !23
   %336 = load ptr, ptr %321, align 8, !tbaa !22
   %337 = zext i32 %335 to i64
-  %338 = getelementptr inbounds nuw %"class.std::function", ptr %336, i64 %337
+  %338 = getelementptr inbounds nuw [32 x i8], ptr %336, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %340 = load ptr, ptr %339, align 8, !tbaa !427
   %.not.i.i1.i = icmp eq ptr %340, null
@@ -35043,7 +35033,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %355, %353
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i, label %380, !prof !445
 
 380:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper12VisitVarDeclEPKNS3_7VarDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i"
-  %381 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i, i64 %376
+  %381 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %376
   %382 = icmp uge ptr %7, %.pre3.i.i
   %383 = icmp ult ptr %7, %381
   %spec.select.i.i.i.i.i.i = and i1 %382, %383
@@ -35068,7 +35058,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i = phi ptr [ %7, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper12VisitVarDeclEPKNS3_7VarDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i" ], [ %389, %384 ], [ %7, %.critedge.i.i.i.i ]
   %391 = load i32, ptr %374, align 8, !tbaa !23
   %392 = zext i32 %391 to i64
-  %393 = getelementptr inbounds nuw %"class.std::function", ptr %390, i64 %392
+  %393 = getelementptr inbounds nuw [32 x i8], ptr %390, i64 %392
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 24
   %395 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %393, i8 0, i64 24, i1 false)
@@ -35108,7 +35098,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %405, %_ZN4llvm23Sma
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %410 = load i32, ptr %409, align 8, !tbaa !23
   %411 = zext i32 %410 to i64
-  %412 = getelementptr inbounds nuw %"class.std::function", ptr %408, i64 %411
+  %412 = getelementptr inbounds nuw [32 x i8], ptr %408, i64 %411
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %413 = getelementptr inbounds i8, ptr %412, i64 -16
@@ -35129,7 +35119,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i:                ; preds = %407
   %419 = load ptr, ptr %366, align 8, !tbaa !22
   %420 = load i32, ptr %409, align 8, !tbaa !23
   %421 = zext i32 %420 to i64
-  %422 = getelementptr inbounds nuw %"class.std::function", ptr %419, i64 %421
+  %422 = getelementptr inbounds nuw [32 x i8], ptr %419, i64 %421
   %423 = getelementptr inbounds i8, ptr %422, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %424 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -36160,7 +36150,7 @@ define dso_local void @_ZN5clang14TextNodeDumper20VisitOMPRequiresDeclEPKNS_15OM
   %40 = phi i32 [ %59, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %39, %38 ]
   %41 = load ptr, ptr %22, align 8, !tbaa !22
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"class.std::function", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %44 = getelementptr inbounds i8, ptr %43, i64 -16
@@ -36183,7 +36173,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %51, ptr %23, align 8, !tbaa !23
   %52 = load ptr, ptr %22, align 8, !tbaa !22
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %"class.std::function", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %56, null
@@ -36263,7 +36253,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %69, %67
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %82, !prof !445
 
 82:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20VisitOMPRequiresDeclEPKNS3_15OMPRequiresDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %83 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %79
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %79
   %84 = icmp uge ptr %8, %.pre3.i.i.i
   %85 = icmp ult ptr %8, %83
   %spec.select.i.i.i.i.i.i.i = and i1 %84, %85
@@ -36287,7 +36277,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper20VisitOMPRequiresDeclEPKNS3_15OMPRequiresDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %90, %86 ], [ %8, %.critedge.i.i.i.i.i ]
   %92 = load i32, ptr %23, align 8, !tbaa !23
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %"class.std::function", ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, i8 0, i64 24, i1 false)
@@ -36326,7 +36316,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %106, %_ZN4llvm23Sma
   %109 = load ptr, ptr %22, align 8, !tbaa !22
   %110 = load i32, ptr %23, align 8, !tbaa !23
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw %"class.std::function", ptr %109, i64 %111
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %109, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %113 = getelementptr inbounds i8, ptr %112, i64 -16
@@ -36347,7 +36337,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %108
   %119 = load ptr, ptr %22, align 8, !tbaa !22
   %120 = load i32, ptr %23, align 8, !tbaa !23
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"class.std::function", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %121
   %123 = getelementptr inbounds i8, ptr %122, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %24, align 8
@@ -37034,7 +37024,7 @@ _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.e
   %83 = phi i32 [ %102, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %82, %79 ]
   %84 = load ptr, ptr %80, align 8, !tbaa !22
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw %"class.std::function", ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 %85
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 1, !tbaa !426
   %87 = getelementptr inbounds i8, ptr %86, i64 -16
@@ -37057,7 +37047,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %94, ptr %81, align 8, !tbaa !23
   %95 = load ptr, ptr %80, align 8, !tbaa !22
   %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds nuw %"class.std::function", ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %99, null
@@ -37150,7 +37140,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %114, %112
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %138, !prof !445
 
 138:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %139 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %134
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %134
   %140 = icmp uge ptr %14, %.pre3.i.i.i
   %141 = icmp ult ptr %14, %139
   %spec.select.i.i.i.i.i.i.i = and i1 %140, %141
@@ -37175,7 +37165,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %14, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %147, %142 ], [ %14, %.critedge.i.i.i.i.i ]
   %149 = load i32, ptr %132, align 8, !tbaa !23
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.std::function", ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, i8 0, i64 24, i1 false)
@@ -37215,7 +37205,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %163, %_ZN4llvm23Sma
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %168 = load i32, ptr %167, align 8, !tbaa !23
   %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds nuw %"class.std::function", ptr %166, i64 %169
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %166, i64 %169
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !426
   %171 = getelementptr inbounds i8, ptr %170, i64 -16
@@ -37236,7 +37226,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %165
   %177 = load ptr, ptr %124, align 8, !tbaa !22
   %178 = load i32, ptr %167, align 8, !tbaa !23
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw %"class.std::function", ptr %177, i64 %179
+  %180 = getelementptr inbounds nuw [32 x i8], ptr %177, i64 %179
   %181 = getelementptr inbounds i8, ptr %180, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %182 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -37364,7 +37354,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load i32, ptr %232, align 8, !tbaa !1014
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %234
+  %235 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %234
   %.not2259 = icmp eq ptr %.0.i.i.i, %235
   br i1 %.not2259, label %.loopexit, label %.lr.ph
 
@@ -37409,7 +37399,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %258 = phi i32 [ %277, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i51 ], [ %257, %256 ]
   %259 = load ptr, ptr %241, align 8, !tbaa !22
   %260 = zext i32 %258 to i64
-  %261 = getelementptr inbounds nuw %"class.std::function", ptr %259, i64 %260
+  %261 = getelementptr inbounds nuw [32 x i8], ptr %259, i64 %260
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %262 = getelementptr inbounds i8, ptr %261, i64 -16
@@ -37432,7 +37422,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i48:             ; preds = %.lr.ph.i.i46
   store i32 %269, ptr %242, align 8, !tbaa !23
   %270 = load ptr, ptr %241, align 8, !tbaa !22
   %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw %"class.std::function", ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [32 x i8], ptr %270, i64 %271
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %274 = load ptr, ptr %273, align 8, !tbaa !427
   %.not.i.i1.i.i49 = icmp eq ptr %274, null
@@ -37512,7 +37502,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i54:           ; preds = %287, %285
   br i1 %.not.i.i.not.i.i.i34, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i39, label %300, !prof !445
 
 300:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %301 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i35, i64 %297
+  %301 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i35, i64 %297
   %302 = icmp uge ptr %7, %.pre3.i.i.i35
   %303 = icmp ult ptr %7, %301
   %spec.select.i.i.i.i.i.i.i36 = and i1 %302, %303
@@ -37536,7 +37526,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i40 = phi ptr [ %7, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %308, %304 ], [ %7, %.critedge.i.i.i.i.i37 ]
   %310 = load i32, ptr %242, align 8, !tbaa !23
   %311 = zext i32 %310 to i64
-  %312 = getelementptr inbounds nuw %"class.std::function", ptr %309, i64 %311
+  %312 = getelementptr inbounds nuw [32 x i8], ptr %309, i64 %311
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 24
   %314 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i40, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %312, i8 0, i64 24, i1 false)
@@ -37575,7 +37565,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i44:             ; preds = %324, %_ZN4llvm23Sma
   %327 = load ptr, ptr %241, align 8, !tbaa !22
   %328 = load i32, ptr %242, align 8, !tbaa !23
   %329 = zext i32 %328 to i64
-  %330 = getelementptr inbounds nuw %"class.std::function", ptr %327, i64 %329
+  %330 = getelementptr inbounds nuw [32 x i8], ptr %327, i64 %329
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %331 = getelementptr inbounds i8, ptr %330, i64 -16
@@ -37596,7 +37586,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i28:            ; preds = %326
   %337 = load ptr, ptr %241, align 8, !tbaa !22
   %338 = load i32, ptr %242, align 8, !tbaa !23
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds nuw %"class.std::function", ptr %337, i64 %339
+  %340 = getelementptr inbounds nuw [32 x i8], ptr %337, i64 %339
   %341 = getelementptr inbounds i8, ptr %340, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %243, align 8
@@ -38547,7 +38537,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %34, %32, %2
   %61 = phi i32 [ %80, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %60, %"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_0clEv.exit.i.i" ]
   %62 = load ptr, ptr %58, align 8, !tbaa !22
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %"class.std::function", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 1, ptr %15, align 1, !tbaa !426
   %65 = getelementptr inbounds i8, ptr %64, i64 -16
@@ -38570,7 +38560,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %72, ptr %59, align 8, !tbaa !23
   %73 = load ptr, ptr %58, align 8, !tbaa !22
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::function", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %77, null
@@ -38661,7 +38651,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i: ; 
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %116, !prof !445
 
 116:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS3_26ConstructorUsingShadowDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %117 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %112
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %112
   %118 = icmp uge ptr %17, %.pre3.i.i.i
   %119 = icmp ult ptr %17, %117
   %spec.select.i.i.i.i.i.i.i = and i1 %118, %119
@@ -38686,7 +38676,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %17, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS3_26ConstructorUsingShadowDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %125, %120 ], [ %17, %.critedge.i.i.i.i.i ]
   %127 = load i32, ptr %110, align 8, !tbaa !23
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"class.std::function", ptr %126, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, i8 0, i64 24, i1 false)
@@ -38726,7 +38716,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %141, %_ZN4llvm23Sma
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %146 = load i32, ptr %145, align 8, !tbaa !23
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %"class.std::function", ptr %144, i64 %147
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %147
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %14, align 1, !tbaa !426
   %149 = getelementptr inbounds i8, ptr %148, i64 -16
@@ -38747,7 +38737,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %143
   %155 = load ptr, ptr %102, align 8, !tbaa !22
   %156 = load i32, ptr %145, align 8, !tbaa !23
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %"class.std::function", ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [32 x i8], ptr %155, i64 %157
   %159 = getelementptr inbounds i8, ptr %158, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -38888,7 +38878,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %199, %197
   %217 = phi i32 [ %236, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i31 ], [ %216, %"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_1clEv.exit.i.i" ]
   %218 = load ptr, ptr %214, align 8, !tbaa !22
   %219 = zext i32 %217 to i64
-  %220 = getelementptr inbounds nuw %"class.std::function", ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %218, i64 %219
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !426
   %221 = getelementptr inbounds i8, ptr %220, i64 -16
@@ -38911,7 +38901,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i29:             ; preds = %.lr.ph.i.i27
   store i32 %228, ptr %215, align 8, !tbaa !23
   %229 = load ptr, ptr %214, align 8, !tbaa !22
   %230 = zext i32 %228 to i64
-  %231 = getelementptr inbounds nuw %"class.std::function", ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [32 x i8], ptr %229, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load ptr, ptr %232, align 8, !tbaa !427
   %.not.i.i2.i.i = icmp eq ptr %233, null
@@ -39002,7 +38992,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i31: 
   br i1 %.not.i.i.not.i.i.i16, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i21, label %272, !prof !445
 
 272:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS3_26ConstructorUsingShadowDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %273 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i17, i64 %268
+  %273 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i17, i64 %268
   %274 = icmp uge ptr %12, %.pre3.i.i.i17
   %275 = icmp ult ptr %12, %273
   %spec.select.i.i.i.i.i.i.i18 = and i1 %274, %275
@@ -39027,7 +39017,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i22 = phi ptr [ %12, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS3_26ConstructorUsingShadowDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %281, %276 ], [ %12, %.critedge.i.i.i.i.i19 ]
   %283 = load i32, ptr %266, align 8, !tbaa !23
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw %"class.std::function", ptr %282, i64 %284
+  %285 = getelementptr inbounds nuw [32 x i8], ptr %282, i64 %284
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
   %287 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i22, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %285, i8 0, i64 24, i1 false)
@@ -39067,7 +39057,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i25:             ; preds = %297, %_ZN4llvm23Sma
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %302 = load i32, ptr %301, align 8, !tbaa !23
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds nuw %"class.std::function", ptr %300, i64 %303
+  %304 = getelementptr inbounds nuw [32 x i8], ptr %300, i64 %303
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1, !tbaa !426
   %305 = getelementptr inbounds i8, ptr %304, i64 -16
@@ -39088,7 +39078,7 @@ _ZNKSt8functionIFvbEEclEb.exit6.i.i:              ; preds = %299
   %311 = load ptr, ptr %258, align 8, !tbaa !22
   %312 = load i32, ptr %301, align 8, !tbaa !23
   %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds nuw %"class.std::function", ptr %311, i64 %313
+  %314 = getelementptr inbounds nuw [32 x i8], ptr %311, i64 %313
   %315 = getelementptr inbounds i8, ptr %314, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %316 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -39250,7 +39240,7 @@ _ZNK5clang26ConstructorUsingShadowDecl23getConstructedBaseClassEv.exit.i.i.i: ; 
   %386 = phi i32 [ %405, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i60 ], [ %385, %"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_2clEv.exit.i.i" ]
   %387 = load ptr, ptr %383, align 8, !tbaa !22
   %388 = zext i32 %386 to i64
-  %389 = getelementptr inbounds nuw %"class.std::function", ptr %387, i64 %388
+  %389 = getelementptr inbounds nuw [32 x i8], ptr %387, i64 %388
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !426
   %390 = getelementptr inbounds i8, ptr %389, i64 -16
@@ -39273,7 +39263,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i57:             ; preds = %.lr.ph.i.i55
   store i32 %397, ptr %384, align 8, !tbaa !23
   %398 = load ptr, ptr %383, align 8, !tbaa !22
   %399 = zext i32 %397 to i64
-  %400 = getelementptr inbounds nuw %"class.std::function", ptr %398, i64 %399
+  %400 = getelementptr inbounds nuw [32 x i8], ptr %398, i64 %399
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %402 = load ptr, ptr %401, align 8, !tbaa !427
   %.not.i.i2.i.i58 = icmp eq ptr %402, null
@@ -39368,7 +39358,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i63:           ; preds = %417, %415
   br i1 %.not.i.i.not.i.i.i43, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i48, label %441, !prof !445
 
 441:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS3_26ConstructorUsingShadowDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %442 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i44, i64 %437
+  %442 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i44, i64 %437
   %443 = icmp uge ptr %7, %.pre3.i.i.i44
   %444 = icmp ult ptr %7, %442
   %spec.select.i.i.i.i.i.i.i45 = and i1 %443, %444
@@ -39393,7 +39383,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i49 = phi ptr [ %7, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS3_26ConstructorUsingShadowDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %450, %445 ], [ %7, %.critedge.i.i.i.i.i46 ]
   %452 = load i32, ptr %435, align 8, !tbaa !23
   %453 = zext i32 %452 to i64
-  %454 = getelementptr inbounds nuw %"class.std::function", ptr %451, i64 %453
+  %454 = getelementptr inbounds nuw [32 x i8], ptr %451, i64 %453
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 24
   %456 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i49, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %454, i8 0, i64 24, i1 false)
@@ -39433,7 +39423,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i52:             ; preds = %466, %_ZN4llvm23Sma
   %470 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %471 = load i32, ptr %470, align 8, !tbaa !23
   %472 = zext i32 %471 to i64
-  %473 = getelementptr inbounds nuw %"class.std::function", ptr %469, i64 %472
+  %473 = getelementptr inbounds nuw [32 x i8], ptr %469, i64 %472
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %474 = getelementptr inbounds i8, ptr %473, i64 -16
@@ -39454,7 +39444,7 @@ _ZNKSt8functionIFvbEEclEb.exit7.i.i:              ; preds = %468
   %480 = load ptr, ptr %427, align 8, !tbaa !22
   %481 = load i32, ptr %470, align 8, !tbaa !23
   %482 = zext i32 %481 to i64
-  %483 = getelementptr inbounds nuw %"class.std::function", ptr %480, i64 %482
+  %483 = getelementptr inbounds nuw [32 x i8], ptr %480, i64 %482
   %484 = getelementptr inbounds i8, ptr %483, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %485 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -40569,7 +40559,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %48 = getelementptr inbounds nuw i8, ptr %.pre-phi14, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !1082
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
   %.not11 = icmp eq ptr %.0.i913.i, %51
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -40752,7 +40742,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %19, %_ZNK5cla
   %35 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !1082
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3, %32
@@ -41640,7 +41630,7 @@ define dso_local void @_ZN5clang14TextNodeDumper17VisitCompoundStmtEPKNS_12Compo
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !29
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %.sroa.0.0.copyload.i = load i64, ptr %10, align 4
   tail call void @_ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %.sroa.0.0.copyload.i)
   br label %11
@@ -42262,7 +42252,7 @@ define dso_local void @_ZN5clang14TextNodeDumper14VisitEmbedExprEPKNS_9EmbedExpr
   %25 = phi i32 [ %44, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i ], [ %24, %17 ]
   %26 = load ptr, ptr %22, align 8, !tbaa !22
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw %"class.std::function", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 1, !tbaa !426
   %29 = getelementptr inbounds i8, ptr %28, i64 -16
@@ -42285,7 +42275,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i:                 ; preds = %.lr.ph.i
   store i32 %36, ptr %23, align 8, !tbaa !23
   %37 = load ptr, ptr %22, align 8, !tbaa !22
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw %"class.std::function", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !427
   %.not.i.i2.i = icmp eq ptr %41, null
@@ -42378,7 +42368,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i: ; pr
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i, label %81, !prof !445
 
 81:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper14VisitEmbedExprEPKNS3_9EmbedExprEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i"
-  %82 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i, i64 %77
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %77
   %83 = icmp uge ptr %13, %.pre3.i.i
   %84 = icmp ult ptr %13, %82
   %spec.select.i.i.i.i.i.i = and i1 %83, %84
@@ -42403,7 +42393,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i = phi ptr [ %13, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper14VisitEmbedExprEPKNS3_9EmbedExprEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i" ], [ %90, %85 ], [ %13, %.critedge.i.i.i.i ]
   %92 = load i32, ptr %75, align 8, !tbaa !23
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %"class.std::function", ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, i8 0, i64 24, i1 false)
@@ -42443,7 +42433,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %106, %_ZN4llvm23Sma
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = load i32, ptr %110, align 8, !tbaa !23
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %109, i64 %112
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -42464,7 +42454,7 @@ _ZNKSt8functionIFvbEEclEb.exit6.i:                ; preds = %108
   %120 = load ptr, ptr %67, align 8, !tbaa !22
   %121 = load i32, ptr %110, align 8, !tbaa !23
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %120, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %122
   %124 = getelementptr inbounds i8, ptr %123, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -42563,7 +42553,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %159 = phi i32 [ %178, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i41 ], [ %158, %"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper14VisitEmbedExprEPKNS_9EmbedExprEE3$_0EEvN4llvm9StringRefET_.exit.thread" ]
   %160 = load ptr, ptr %156, align 8, !tbaa !22
   %161 = zext i32 %159 to i64
-  %162 = getelementptr inbounds nuw %"class.std::function", ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [32 x i8], ptr %160, i64 %161
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1, !tbaa !426
   %163 = getelementptr inbounds i8, ptr %162, i64 -16
@@ -42586,7 +42576,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i38:               ; preds = %.lr.ph.i36
   store i32 %170, ptr %157, align 8, !tbaa !23
   %171 = load ptr, ptr %156, align 8, !tbaa !22
   %172 = zext i32 %170 to i64
-  %173 = getelementptr inbounds nuw %"class.std::function", ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [32 x i8], ptr %171, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8, !tbaa !427
   %.not.i.i2.i39 = icmp eq ptr %175, null
@@ -42712,7 +42702,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not.i.i.not.i.i22, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i27, label %227, !prof !445
 
 227:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper14VisitEmbedExprEPKNS3_9EmbedExprEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i"
-  %228 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i23, i64 %223
+  %228 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i23, i64 %223
   %229 = icmp uge ptr %8, %.pre3.i.i23
   %230 = icmp ult ptr %8, %228
   %spec.select.i.i.i.i.i.i24 = and i1 %229, %230
@@ -42737,7 +42727,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i28 = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper14VisitEmbedExprEPKNS3_9EmbedExprEE3$_1EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i" ], [ %236, %231 ], [ %8, %.critedge.i.i.i.i25 ]
   %238 = load i32, ptr %221, align 8, !tbaa !23
   %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds nuw %"class.std::function", ptr %237, i64 %239
+  %240 = getelementptr inbounds nuw [32 x i8], ptr %237, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %242 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i28, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %240, i8 0, i64 24, i1 false)
@@ -42777,7 +42767,7 @@ _ZNSt14_Function_baseD2Ev.exit.i32:               ; preds = %252, %_ZN4llvm23Sma
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %257 = load i32, ptr %256, align 8, !tbaa !23
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw %"class.std::function", ptr %255, i64 %258
+  %259 = getelementptr inbounds nuw [32 x i8], ptr %255, i64 %258
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !426
   %260 = getelementptr inbounds i8, ptr %259, i64 -16
@@ -42798,7 +42788,7 @@ _ZNKSt8functionIFvbEEclEb.exit6.i12:              ; preds = %254
   %266 = load ptr, ptr %204, align 8, !tbaa !22
   %267 = load i32, ptr %256, align 8, !tbaa !23
   %268 = zext i32 %267 to i64
-  %269 = getelementptr inbounds nuw %"class.std::function", ptr %266, i64 %268
+  %269 = getelementptr inbounds nuw [32 x i8], ptr %266, i64 %268
   %270 = getelementptr inbounds i8, ptr %269, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -42942,10 +42932,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %2 = load i32, ptr %1, align 4, !tbaa !1144
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.231, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.231, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -44209,7 +44199,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !22
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.1129", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -44250,7 +44240,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !22
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !23
@@ -45754,7 +45744,7 @@ define internal noundef nonnull align 8 dereferenceable(56) ptr @"_ZZN5clang14Te
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !586
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val, i64 %4
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %4
   ret ptr %5
 }
 
@@ -45768,7 +45758,7 @@ define internal noundef nonnull align 8 dereferenceable(56) ptr @"_ZZN5clang14Te
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !594
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val, i64 %4
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %4
   ret ptr %5
 }
 
@@ -45777,7 +45767,7 @@ define internal noundef nonnull align 8 dereferenceable(56) ptr @"_ZZN5clang14Te
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !604
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val, i64 %4
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %4
   ret ptr %5
 }
 
@@ -45789,7 +45779,7 @@ define internal noundef nonnull align 8 dereferenceable(56) ptr @"_ZZN5clang14Te
   %.val1 = load i32, ptr %4, align 8, !tbaa !602
   %5 = add i32 %.val1, %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.clang::APValue", ptr %.val, i64 %6
+  %7 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %6
   ret ptr %7
 }
 
@@ -45852,10 +45842,10 @@ define linkonce_odr hidden void @_ZNK5clang17FunctionProtoType20getExceptionSpec
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = lshr i64 %5, 38
   %13 = and i64 %12, 65535
-  %14 = getelementptr inbounds nuw %"class.clang::QualType", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = lshr i64 %5, 60
   %16 = and i64 %15, 1
-  %17 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = ptrtoint ptr %17 to i64
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
@@ -45870,7 +45860,7 @@ define linkonce_odr hidden void @_ZNK5clang17FunctionProtoType20getExceptionSpec
   %.lobit.i.i.i.i.i.i = and i16 %25, 1
   %26 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %28 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
 _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %23, %10
@@ -45889,8 +45879,8 @@ _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %23, %10
 
 _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %34
   %38 = phi i64 [ %37, %34 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %39 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %30, i64 %31
-  %40 = getelementptr inbounds nuw %"class.clang::QualType", ptr %39, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %29 to i64
   %43 = sub i64 %41, %42
@@ -45909,10 +45899,10 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = lshr i64 %5, 38
   %51 = and i64 %50, 65535
-  %52 = getelementptr inbounds nuw %"class.clang::QualType", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   %53 = lshr i64 %5, 60
   %54 = and i64 %53, 1
-  %55 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %54
   %56 = ptrtoint ptr %55 to i64
   %57 = add i64 %56, 7
   %58 = and i64 %57, -8
@@ -45944,9 +45934,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %71, %68 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %72 = lshr i64 %5, 59
   %73 = and i64 %72, 1
-  %74 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %59, i64 %73
-  %75 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %74, i64 %65
-  %76 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %75, i64 %spec.select.i.i.i.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %65
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %spec.select.i.i.i.i.i
   %77 = load ptr, ptr %76, align 8, !tbaa !529
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %77, ptr %78, align 8, !tbaa !1166
@@ -45962,10 +45952,10 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %82 = lshr i64 %5, 38
   %83 = and i64 %82, 65535
-  %84 = getelementptr inbounds nuw %"class.clang::QualType", ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %83
   %85 = lshr i64 %5, 60
   %86 = and i64 %85, 1
-  %87 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %86
   %88 = ptrtoint ptr %87 to i64
   %89 = add i64 %88, 7
   %90 = and i64 %89, -8
@@ -45993,9 +45983,9 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit.thread: ; preds = %_Z
   %102 = zext nneg i16 %101 to i64
   %103 = lshr i64 %5, 59
   %104 = and i64 %103, 1
-  %105 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %91, i64 %104
-  %106 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %105, i64 %97
-  %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %106, i64 %102
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %97
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %102
   %108 = load ptr, ptr %107, align 8, !tbaa !910
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %108, ptr %109, align 8, !tbaa !1167
@@ -46004,8 +45994,8 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit.thread: ; preds = %_Z
 _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit: ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i
   %110 = lshr i64 %5, 59
   %111 = and i64 %110, 1
-  %112 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %91, i64 %111
-  %113 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %112, i64 %97
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %111
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %97
   %114 = load ptr, ptr %113, align 8, !tbaa !910
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %114, ptr %115, align 8, !tbaa !1167
@@ -46024,7 +46014,7 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit: ; preds = %_ZN4llvm2
 
 _ZNK4llvm15TrailingObjectsIN5clang17FunctionProtoTypeEJNS1_8QualTypeENS1_14SourceLocationENS1_12FunctionType26FunctionTypeExtraBitfieldsENS5_25FunctionTypeArmAttributesENS5_13ExceptionTypeEPNS1_4ExprEPNS1_12FunctionDeclENS5_16ExtParameterInfoENS1_10QualifiersENS1_14FunctionEffectENS1_19EffectConditionExprEEE18getTrailingObjectsISC_EEPKT_v.exit.i8: ; preds = %117, %116
   %121 = phi i64 [ 0, %116 ], [ %120, %117 ]
-  %122 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %112, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !910
   br label %_ZNK5clang17FunctionProtoType24getExceptionSpecTemplateEv.exit
@@ -46039,10 +46029,10 @@ _ZNK5clang17FunctionProtoType24getExceptionSpecTemplateEv.exit: ; preds = %_ZNK5
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %128 = lshr i64 %5, 38
   %129 = and i64 %128, 65535
-  %130 = getelementptr inbounds nuw %"class.clang::QualType", ptr %127, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %129
   %131 = lshr i64 %5, 60
   %132 = and i64 %131, 1
-  %133 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %130, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %132
   %134 = ptrtoint ptr %133 to i64
   %135 = add i64 %134, 7
   %136 = and i64 %135, -8
@@ -46074,9 +46064,9 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit17: ; preds = %_ZN4llv
   %spec.select.i.i.i.i.i.i16 = phi i64 [ %149, %146 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i14 ]
   %150 = lshr i64 %5, 59
   %151 = and i64 %150, 1
-  %152 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %137, i64 %151
-  %153 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %152, i64 %143
-  %154 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %153, i64 %spec.select.i.i.i.i.i.i16
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %143
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %spec.select.i.i.i.i.i.i16
   %155 = load ptr, ptr %154, align 8, !tbaa !910
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %155, ptr %156, align 8, !tbaa !1167
@@ -46098,10 +46088,10 @@ define linkonce_odr hidden i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = lshr i64 %3, 38
   %8 = and i64 %7, 65535
-  %9 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = lshr i64 %3, 60
   %11 = and i64 %10, 1
-  %12 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = ptrtoint ptr %12 to i64
   %14 = add i64 %13, 7
   %15 = and i64 %14, -8
@@ -46135,22 +46125,22 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1
-  %35 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %16, i64 %34
-  %36 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %35, i64 %22
-  %37 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %36, i64 %spec.select.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %22
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %spec.select.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i = add nsw i32 %31, -6
   %switch.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 3
   %38 = zext i1 %switch.i.i.i.i.i.i to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %switch.load
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %switch.load
   %41 = and i64 %3, 288230376151711744
   %.not.i.i.i.i = icmp eq i64 %41, 0
   %42 = select i1 %.not.i.i.i.i, i64 0, i64 %8
-  %43 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = add i64 %44, 7
   %46 = and i64 %45, -8
@@ -65640,7 +65630,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIF
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit, label %9, !prof !445
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -65665,7 +65655,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !23
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.std::function", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false)
@@ -66040,7 +66030,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %138 = phi i32 [ %157, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %136, %"_ZZN5clang14TextNodeDumper5VisitEPKNS_4DeclEENK3$_0clEv.exit.i.i.i" ]
   %139 = zext i32 %138 to i64
   %140 = load ptr, ptr %105, align 8, !tbaa !22
-  %141 = getelementptr inbounds nuw %"class.std::function", ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %140, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %142 = getelementptr inbounds i8, ptr %141, i64 -16
@@ -66063,7 +66053,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %149, ptr %106, align 8, !tbaa !23
   %150 = load ptr, ptr %105, align 8, !tbaa !22
   %151 = zext i32 %149 to i64
-  %152 = getelementptr inbounds nuw %"class.std::function", ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %150, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %154, null
@@ -66446,7 +66436,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i:         ; preds = %135, %133, %118
   %141 = phi i32 [ %160, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %.pre14.i.i.i, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_ENK3$_0clEv.exit.i.i.i" ]
   %142 = zext i32 %141 to i64
   %143 = load ptr, ptr %104, align 8, !tbaa !22
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %143, i64 %142
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %142
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %145 = getelementptr inbounds i8, ptr %144, i64 -16
@@ -66469,7 +66459,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %152, ptr %105, align 8, !tbaa !23
   %153 = load ptr, ptr %104, align 8, !tbaa !22
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %157, null
@@ -66672,7 +66662,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i32, ptr %41, align 8, !tbaa !593
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.clang::APValue", ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload = load i64, ptr %45, align 8, !tbaa !29
   tail call void @_ZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %2, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 %.sroa.0.0.copyload)
@@ -67104,7 +67094,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i:         ; preds = %137, %135
   %147 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %148 = load i32, ptr %147, align 8, !tbaa !593
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.clang::APValue", ptr %146, i64 %149
+  %150 = getelementptr inbounds nuw [56 x i8], ptr %146, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %151, align 8, !tbaa !29
   tail call void @_ZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %108, ptr noundef nonnull align 8 dereferenceable(56) %150, i64 %.sroa.0.0.copyload.i.i.i.i) #28
@@ -67116,7 +67106,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i:         ; preds = %137, %135
   %154 = phi i32 [ %173, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %152, %"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEENK3$_2clEv.exit.i.i.i" ]
   %155 = zext i32 %154 to i64
   %156 = load ptr, ptr %104, align 8, !tbaa !22
-  %157 = getelementptr inbounds nuw %"class.std::function", ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %156, i64 %155
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %158 = getelementptr inbounds i8, ptr %157, i64 -16
@@ -67139,7 +67129,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %165, ptr %105, align 8, !tbaa !23
   %166 = load ptr, ptr %104, align 8, !tbaa !22
   %167 = zext i32 %165 to i64
-  %168 = getelementptr inbounds nuw %"class.std::function", ptr %166, i64 %167
+  %168 = getelementptr inbounds nuw [32 x i8], ptr %166, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %170, null
@@ -67486,7 +67476,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %113 = phi i32 [ %132, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %111, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %114 = zext i32 %113 to i64
   %115 = load ptr, ptr %104, align 8, !tbaa !22
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %114
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %117 = getelementptr inbounds i8, ptr %116, i64 -16
@@ -67509,7 +67499,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %124, ptr %105, align 8, !tbaa !23
   %125 = load ptr, ptr %104, align 8, !tbaa !22
   %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw %"class.std::function", ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %129, null
@@ -67989,7 +67979,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -68012,7 +68002,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -68161,7 +68151,7 @@ define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNo
   %21 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %17 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !22
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !426
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -68184,7 +68174,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %32, ptr %19, align 8, !tbaa !23
   %33 = load ptr, ptr %18, align 8, !tbaa !22
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !427
   %.not.i.i1 = icmp eq ptr %37, null
@@ -68348,7 +68338,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %103, !prof !445
 
 103:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper23dumpNestedNameSpecifierEPKNS3_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit"
-  %104 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %99
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %99
   %105 = icmp uge ptr %12, %.pre3.i
   %106 = icmp ult ptr %12, %104
   %spec.select.i.i.i.i.i = and i1 %105, %106
@@ -68373,7 +68363,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper23dumpNestedNameSpecifierEPKNS3_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit" ], [ %112, %107 ], [ %12, %.critedge.i.i.i ]
   %114 = load i32, ptr %97, align 8, !tbaa !23
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 24, i1 false)
@@ -68413,7 +68403,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %133 = load i32, ptr %132, align 8, !tbaa !23
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"class.std::function", ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %134
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !426
   %136 = getelementptr inbounds i8, ptr %135, i64 -16
@@ -68434,7 +68424,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %130
   %142 = load ptr, ptr %77, align 8, !tbaa !22
   %143 = load i32, ptr %132, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -69104,7 +69094,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -69127,7 +69117,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -69505,7 +69495,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i.i: ; preds = %126, %124
   %141 = phi i32 [ %160, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %139, %"_ZZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefEENK3$_0clEv.exit.i.i.i" ]
   %142 = zext i32 %141 to i64
   %143 = load ptr, ptr %104, align 8, !tbaa !22
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %143, i64 %142
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %142
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %145 = getelementptr inbounds i8, ptr %144, i64 -16
@@ -69528,7 +69518,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %152, ptr %105, align 8, !tbaa !23
   %153 = load ptr, ptr %104, align 8, !tbaa !22
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !427
   %.not.i.i14.i.i.i = icmp eq ptr %157, null
@@ -70064,7 +70054,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -70087,7 +70077,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -70414,7 +70404,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %113 = phi i32 [ %132, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %111, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %114 = zext i32 %113 to i64
   %115 = load ptr, ptr %104, align 8, !tbaa !22
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %114
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %117 = getelementptr inbounds i8, ptr %116, i64 -16
@@ -70437,7 +70427,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %124, ptr %105, align 8, !tbaa !23
   %125 = load ptr, ptr %104, align 8, !tbaa !22
   %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw %"class.std::function", ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %129, null
@@ -70762,7 +70752,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %111 = phi i32 [ %130, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %109, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %112 = zext i32 %111 to i64
   %113 = load ptr, ptr %104, align 8, !tbaa !22
-  %114 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %112
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %112
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %115 = getelementptr inbounds i8, ptr %114, i64 -16
@@ -70785,7 +70775,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %122, ptr %105, align 8, !tbaa !23
   %123 = load ptr, ptr %104, align 8, !tbaa !22
   %124 = zext i32 %122 to i64
-  %125 = getelementptr inbounds nuw %"class.std::function", ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %127, null
@@ -71112,7 +71102,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %112 = phi i32 [ %131, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %110, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %113 = zext i32 %112 to i64
   %114 = load ptr, ptr %104, align 8, !tbaa !22
-  %115 = getelementptr inbounds nuw %"class.std::function", ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %114, i64 %113
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %116 = getelementptr inbounds i8, ptr %115, i64 -16
@@ -71135,7 +71125,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %123, ptr %105, align 8, !tbaa !23
   %124 = load ptr, ptr %104, align 8, !tbaa !22
   %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw %"class.std::function", ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %124, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %128, null
@@ -71460,7 +71450,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %111 = phi i32 [ %130, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %109, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %112 = zext i32 %111 to i64
   %113 = load ptr, ptr %104, align 8, !tbaa !22
-  %114 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %112
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %112
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %115 = getelementptr inbounds i8, ptr %114, i64 -16
@@ -71483,7 +71473,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %122, ptr %105, align 8, !tbaa !23
   %123 = load ptr, ptr %104, align 8, !tbaa !22
   %124 = zext i32 %122 to i64
-  %125 = getelementptr inbounds nuw %"class.std::function", ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %127, null
@@ -71719,7 +71709,7 @@ _ZN5clang14TextNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4D
   %71 = phi i32 [ %90, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i ], [ %70, %_ZN5clang14TextNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE.exit ]
   %72 = load ptr, ptr %40, align 8, !tbaa !22
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw %"class.std::function", ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %73
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1, !tbaa !426
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
@@ -71742,7 +71732,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i:                 ; preds = %.lr.ph
   store i32 %82, ptr %41, align 8, !tbaa !23
   %83 = load ptr, ptr %40, align 8, !tbaa !22
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw %"class.std::function", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !427
   %.not.i.i1.i = icmp eq ptr %87, null
@@ -71823,7 +71813,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %100, %98
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i, label %114, !prof !445
 
 114:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEENK3$_4clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSC_.exit.i"
-  %115 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i, i64 %111
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %111
   %116 = icmp uge ptr %6, %.pre3.i.i
   %117 = icmp ult ptr %6, %115
   %spec.select.i.i.i.i.i.i = and i1 %116, %117
@@ -71847,7 +71837,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i = phi ptr [ %6, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper20dumpBareTemplateNameENS3_12TemplateNameEENK3$_4clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSC_.exit.i" ], [ %122, %118 ], [ %6, %.critedge.i.i.i.i ]
   %124 = load i32, ptr %41, align 8, !tbaa !23
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw %"class.std::function", ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 24, i1 false)
@@ -71886,7 +71876,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %138, %_ZN4llvm23Sma
   %141 = load ptr, ptr %40, align 8, !tbaa !22
   %142 = load i32, ptr %41, align 8, !tbaa !23
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %143
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !426
   %145 = getelementptr inbounds i8, ptr %144, i64 -16
@@ -71907,7 +71897,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i:                ; preds = %140
   %151 = load ptr, ptr %40, align 8, !tbaa !22
   %152 = load i32, ptr %41, align 8, !tbaa !23
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw %"class.std::function", ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %153
   %155 = getelementptr inbounds i8, ptr %154, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %42, align 8
@@ -72220,7 +72210,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %127 = phi i32 [ %146, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %125, %"_ZZZN5clang14TextNodeDumper20dumpBareTemplateNameENS_12TemplateNameEENK3$_4clEvENKUlvE_clEv.exit.i.i.i" ]
   %128 = zext i32 %127 to i64
   %129 = load ptr, ptr %104, align 8, !tbaa !22
-  %130 = getelementptr inbounds nuw %"class.std::function", ptr %129, i64 %128
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %128
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %131 = getelementptr inbounds i8, ptr %130, i64 -16
@@ -72243,7 +72233,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %138, ptr %105, align 8, !tbaa !23
   %139 = load ptr, ptr %104, align 8, !tbaa !22
   %140 = zext i32 %138 to i64
-  %141 = getelementptr inbounds nuw %"class.std::function", ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %139, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %143, null
@@ -72565,7 +72555,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -72588,7 +72578,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -72931,7 +72921,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %99, %_ZNSt7__cxx111
   %118 = phi i32 [ %137, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %116, %"_ZZN5clang14TextNodeDumper17VisitConstantExprEPKNS_12ConstantExprEENK3$_0clEv.exit.i.i.i" ]
   %119 = zext i32 %118 to i64
   %120 = load ptr, ptr %105, align 8, !tbaa !22
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %119
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %122 = getelementptr inbounds i8, ptr %121, i64 -16
@@ -72954,7 +72944,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %129, ptr %106, align 8, !tbaa !23
   %130 = load ptr, ptr %105, align 8, !tbaa !22
   %131 = zext i32 %129 to i64
-  %132 = getelementptr inbounds nuw %"class.std::function", ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %134, null
@@ -73140,7 +73130,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %32, %30, %.lr.ph
   %35 = load ptr, ptr %18, align 8, !tbaa !1732
-  %36 = getelementptr inbounds nuw %"class.clang::QualType", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %36, align 8, !tbaa !29
   %37 = load ptr, ptr %3, align 8, !tbaa !414
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -73371,7 +73361,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -73394,7 +73384,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -73743,7 +73733,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %128 = phi i32 [ %147, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %126, %"_ZZN5clang14TextNodeDumper22VisitFunctionProtoTypeEPKNS_17FunctionProtoTypeEENK3$_1clEv.exit.i.i.i" ]
   %129 = zext i32 %128 to i64
   %130 = load ptr, ptr %104, align 8, !tbaa !22
-  %131 = getelementptr inbounds nuw %"class.std::function", ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %129
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %132 = getelementptr inbounds i8, ptr %131, i64 -16
@@ -73766,7 +73756,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %139, ptr %105, align 8, !tbaa !23
   %140 = load ptr, ptr %104, align 8, !tbaa !22
   %141 = zext i32 %139 to i64
-  %142 = getelementptr inbounds nuw %"class.std::function", ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %140, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %144, null
@@ -74091,7 +74081,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %111 = phi i32 [ %130, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %109, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %112 = zext i32 %111 to i64
   %113 = load ptr, ptr %104, align 8, !tbaa !22
-  %114 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %112
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %112
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %115 = getelementptr inbounds i8, ptr %114, i64 -16
@@ -74114,7 +74104,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %122, ptr %105, align 8, !tbaa !23
   %123 = load ptr, ptr %104, align 8, !tbaa !22
   %124 = zext i32 %122 to i64
-  %125 = getelementptr inbounds nuw %"class.std::function", ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %127, null
@@ -74736,7 +74726,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -74759,7 +74749,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -75088,7 +75078,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %116 = phi i32 [ %135, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %114, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %117 = zext i32 %116 to i64
   %118 = load ptr, ptr %104, align 8, !tbaa !22
-  %119 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %117
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %117
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %120 = getelementptr inbounds i8, ptr %119, i64 -16
@@ -75111,7 +75101,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %127, ptr %105, align 8, !tbaa !23
   %128 = load ptr, ptr %104, align 8, !tbaa !22
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw %"class.std::function", ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %132, null
@@ -75678,7 +75668,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -75701,7 +75691,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -76614,7 +76604,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit69:               ; preds = %481, %501, %499, %_
   %513 = phi i32 [ %532, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %512, %509 ]
   %514 = load ptr, ptr %510, align 8, !tbaa !22
   %515 = zext i32 %513 to i64
-  %516 = getelementptr inbounds nuw %"class.std::function", ptr %514, i64 %515
+  %516 = getelementptr inbounds nuw [32 x i8], ptr %514, i64 %515
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 1, ptr %34, align 1, !tbaa !426
   %517 = getelementptr inbounds i8, ptr %516, i64 -16
@@ -76637,7 +76627,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %524, ptr %511, align 8, !tbaa !23
   %525 = load ptr, ptr %510, align 8, !tbaa !22
   %526 = zext i32 %524 to i64
-  %527 = getelementptr inbounds nuw %"class.std::function", ptr %525, i64 %526
+  %527 = getelementptr inbounds nuw [32 x i8], ptr %525, i64 %526
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 16
   %529 = load ptr, ptr %528, align 8, !tbaa !427
   %.not.i.i1.i.i = icmp eq ptr %529, null
@@ -76735,7 +76725,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i: ; 
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %570, !prof !445
 
 570:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %571 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %566
+  %571 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %566
   %572 = icmp uge ptr %37, %.pre3.i.i.i
   %573 = icmp ult ptr %37, %571
   %spec.select.i.i.i.i.i.i.i = and i1 %572, %573
@@ -76760,7 +76750,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %37, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %579, %574 ], [ %37, %.critedge.i.i.i.i.i ]
   %581 = load i32, ptr %564, align 8, !tbaa !23
   %582 = zext i32 %581 to i64
-  %583 = getelementptr inbounds nuw %"class.std::function", ptr %580, i64 %582
+  %583 = getelementptr inbounds nuw [32 x i8], ptr %580, i64 %582
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 24
   %585 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %583, i8 0, i64 24, i1 false)
@@ -76800,7 +76790,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %595, %_ZN4llvm23Sma
   %599 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %600 = load i32, ptr %599, align 8, !tbaa !23
   %601 = zext i32 %600 to i64
-  %602 = getelementptr inbounds nuw %"class.std::function", ptr %598, i64 %601
+  %602 = getelementptr inbounds nuw [32 x i8], ptr %598, i64 %601
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i8 0, ptr %33, align 1, !tbaa !426
   %603 = getelementptr inbounds i8, ptr %602, i64 -16
@@ -76821,7 +76811,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %597
   %609 = load ptr, ptr %556, align 8, !tbaa !22
   %610 = load i32, ptr %599, align 8, !tbaa !23
   %611 = zext i32 %610 to i64
-  %612 = getelementptr inbounds nuw %"class.std::function", ptr %609, i64 %611
+  %612 = getelementptr inbounds nuw [32 x i8], ptr %609, i64 %611
   %613 = getelementptr inbounds i8, ptr %612, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %614 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -76921,7 +76911,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %647 = phi i32 [ %666, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i97 ], [ %646, %643 ]
   %648 = load ptr, ptr %644, align 8, !tbaa !22
   %649 = zext i32 %647 to i64
-  %650 = getelementptr inbounds nuw %"class.std::function", ptr %648, i64 %649
+  %650 = getelementptr inbounds nuw [32 x i8], ptr %648, i64 %649
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i8 1, ptr %28, align 1, !tbaa !426
   %651 = getelementptr inbounds i8, ptr %650, i64 -16
@@ -76944,7 +76934,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i94:             ; preds = %.lr.ph.i.i92
   store i32 %658, ptr %645, align 8, !tbaa !23
   %659 = load ptr, ptr %644, align 8, !tbaa !22
   %660 = zext i32 %658 to i64
-  %661 = getelementptr inbounds nuw %"class.std::function", ptr %659, i64 %660
+  %661 = getelementptr inbounds nuw [32 x i8], ptr %659, i64 %660
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 16
   %663 = load ptr, ptr %662, align 8, !tbaa !427
   %.not.i.i1.i.i95 = icmp eq ptr %663, null
@@ -77042,7 +77032,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i97: 
   br i1 %.not.i.i.not.i.i.i80, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i85, label %704, !prof !445
 
 704:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %705 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i81, i64 %700
+  %705 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i81, i64 %700
   %706 = icmp uge ptr %31, %.pre3.i.i.i81
   %707 = icmp ult ptr %31, %705
   %spec.select.i.i.i.i.i.i.i82 = and i1 %706, %707
@@ -77067,7 +77057,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i86 = phi ptr [ %31, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %713, %708 ], [ %31, %.critedge.i.i.i.i.i83 ]
   %715 = load i32, ptr %698, align 8, !tbaa !23
   %716 = zext i32 %715 to i64
-  %717 = getelementptr inbounds nuw %"class.std::function", ptr %714, i64 %716
+  %717 = getelementptr inbounds nuw [32 x i8], ptr %714, i64 %716
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 24
   %719 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i86, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %717, i8 0, i64 24, i1 false)
@@ -77107,7 +77097,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i90:             ; preds = %729, %_ZN4llvm23Sma
   %733 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %734 = load i32, ptr %733, align 8, !tbaa !23
   %735 = zext i32 %734 to i64
-  %736 = getelementptr inbounds nuw %"class.std::function", ptr %732, i64 %735
+  %736 = getelementptr inbounds nuw [32 x i8], ptr %732, i64 %735
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 0, ptr %27, align 1, !tbaa !426
   %737 = getelementptr inbounds i8, ptr %736, i64 -16
@@ -77128,7 +77118,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i74:            ; preds = %731
   %743 = load ptr, ptr %690, align 8, !tbaa !22
   %744 = load i32, ptr %733, align 8, !tbaa !23
   %745 = zext i32 %744 to i64
-  %746 = getelementptr inbounds nuw %"class.std::function", ptr %743, i64 %745
+  %746 = getelementptr inbounds nuw [32 x i8], ptr %743, i64 %745
   %747 = getelementptr inbounds i8, ptr %746, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %748 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -77228,7 +77218,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %781 = phi i32 [ %800, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i127 ], [ %780, %777 ]
   %782 = load ptr, ptr %778, align 8, !tbaa !22
   %783 = zext i32 %781 to i64
-  %784 = getelementptr inbounds nuw %"class.std::function", ptr %782, i64 %783
+  %784 = getelementptr inbounds nuw [32 x i8], ptr %782, i64 %783
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 1, ptr %22, align 1, !tbaa !426
   %785 = getelementptr inbounds i8, ptr %784, i64 -16
@@ -77251,7 +77241,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i124:            ; preds = %.lr.ph.i.i122
   store i32 %792, ptr %779, align 8, !tbaa !23
   %793 = load ptr, ptr %778, align 8, !tbaa !22
   %794 = zext i32 %792 to i64
-  %795 = getelementptr inbounds nuw %"class.std::function", ptr %793, i64 %794
+  %795 = getelementptr inbounds nuw [32 x i8], ptr %793, i64 %794
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 16
   %797 = load ptr, ptr %796, align 8, !tbaa !427
   %.not.i.i1.i.i125 = icmp eq ptr %797, null
@@ -77349,7 +77339,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i127:
   br i1 %.not.i.i.not.i.i.i110, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i115, label %838, !prof !445
 
 838:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE1_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %839 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i111, i64 %834
+  %839 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i111, i64 %834
   %840 = icmp uge ptr %25, %.pre3.i.i.i111
   %841 = icmp ult ptr %25, %839
   %spec.select.i.i.i.i.i.i.i112 = and i1 %840, %841
@@ -77374,7 +77364,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i116 = phi ptr [ %25, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE1_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %847, %842 ], [ %25, %.critedge.i.i.i.i.i113 ]
   %849 = load i32, ptr %832, align 8, !tbaa !23
   %850 = zext i32 %849 to i64
-  %851 = getelementptr inbounds nuw %"class.std::function", ptr %848, i64 %850
+  %851 = getelementptr inbounds nuw [32 x i8], ptr %848, i64 %850
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 24
   %853 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i116, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %851, i8 0, i64 24, i1 false)
@@ -77414,7 +77404,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i120:            ; preds = %863, %_ZN4llvm23Sma
   %867 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %868 = load i32, ptr %867, align 8, !tbaa !23
   %869 = zext i32 %868 to i64
-  %870 = getelementptr inbounds nuw %"class.std::function", ptr %866, i64 %869
+  %870 = getelementptr inbounds nuw [32 x i8], ptr %866, i64 %869
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 0, ptr %21, align 1, !tbaa !426
   %871 = getelementptr inbounds i8, ptr %870, i64 -16
@@ -77435,7 +77425,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i104:           ; preds = %865
   %877 = load ptr, ptr %824, align 8, !tbaa !22
   %878 = load i32, ptr %867, align 8, !tbaa !23
   %879 = zext i32 %878 to i64
-  %880 = getelementptr inbounds nuw %"class.std::function", ptr %877, i64 %879
+  %880 = getelementptr inbounds nuw [32 x i8], ptr %877, i64 %879
   %881 = getelementptr inbounds i8, ptr %880, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %882 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -77535,7 +77525,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %915 = phi i32 [ %934, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i157 ], [ %914, %911 ]
   %916 = load ptr, ptr %912, align 8, !tbaa !22
   %917 = zext i32 %915 to i64
-  %918 = getelementptr inbounds nuw %"class.std::function", ptr %916, i64 %917
+  %918 = getelementptr inbounds nuw [32 x i8], ptr %916, i64 %917
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 1, ptr %16, align 1, !tbaa !426
   %919 = getelementptr inbounds i8, ptr %918, i64 -16
@@ -77558,7 +77548,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i154:            ; preds = %.lr.ph.i.i152
   store i32 %926, ptr %913, align 8, !tbaa !23
   %927 = load ptr, ptr %912, align 8, !tbaa !22
   %928 = zext i32 %926 to i64
-  %929 = getelementptr inbounds nuw %"class.std::function", ptr %927, i64 %928
+  %929 = getelementptr inbounds nuw [32 x i8], ptr %927, i64 %928
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 16
   %931 = load ptr, ptr %930, align 8, !tbaa !427
   %.not.i.i1.i.i155 = icmp eq ptr %931, null
@@ -77656,7 +77646,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i157:
   br i1 %.not.i.i.not.i.i.i140, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i145, label %972, !prof !445
 
 972:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE2_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %973 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i141, i64 %968
+  %973 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i141, i64 %968
   %974 = icmp uge ptr %19, %.pre3.i.i.i141
   %975 = icmp ult ptr %19, %973
   %spec.select.i.i.i.i.i.i.i142 = and i1 %974, %975
@@ -77681,7 +77671,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i146 = phi ptr [ %19, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE2_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %981, %976 ], [ %19, %.critedge.i.i.i.i.i143 ]
   %983 = load i32, ptr %966, align 8, !tbaa !23
   %984 = zext i32 %983 to i64
-  %985 = getelementptr inbounds nuw %"class.std::function", ptr %982, i64 %984
+  %985 = getelementptr inbounds nuw [32 x i8], ptr %982, i64 %984
   %986 = getelementptr inbounds nuw i8, ptr %985, i64 24
   %987 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i146, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %985, i8 0, i64 24, i1 false)
@@ -77721,7 +77711,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i150:            ; preds = %997, %_ZN4llvm23Sma
   %1001 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %1002 = load i32, ptr %1001, align 8, !tbaa !23
   %1003 = zext i32 %1002 to i64
-  %1004 = getelementptr inbounds nuw %"class.std::function", ptr %1000, i64 %1003
+  %1004 = getelementptr inbounds nuw [32 x i8], ptr %1000, i64 %1003
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1, !tbaa !426
   %1005 = getelementptr inbounds i8, ptr %1004, i64 -16
@@ -77742,7 +77732,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i134:           ; preds = %999
   %1011 = load ptr, ptr %958, align 8, !tbaa !22
   %1012 = load i32, ptr %1001, align 8, !tbaa !23
   %1013 = zext i32 %1012 to i64
-  %1014 = getelementptr inbounds nuw %"class.std::function", ptr %1011, i64 %1013
+  %1014 = getelementptr inbounds nuw [32 x i8], ptr %1011, i64 %1013
   %1015 = getelementptr inbounds i8, ptr %1014, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1016 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -77842,7 +77832,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %1049 = phi i32 [ %1068, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i187 ], [ %1048, %1045 ]
   %1050 = load ptr, ptr %1046, align 8, !tbaa !22
   %1051 = zext i32 %1049 to i64
-  %1052 = getelementptr inbounds nuw %"class.std::function", ptr %1050, i64 %1051
+  %1052 = getelementptr inbounds nuw [32 x i8], ptr %1050, i64 %1051
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !426
   %1053 = getelementptr inbounds i8, ptr %1052, i64 -16
@@ -77865,7 +77855,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i184:            ; preds = %.lr.ph.i.i182
   store i32 %1060, ptr %1047, align 8, !tbaa !23
   %1061 = load ptr, ptr %1046, align 8, !tbaa !22
   %1062 = zext i32 %1060 to i64
-  %1063 = getelementptr inbounds nuw %"class.std::function", ptr %1061, i64 %1062
+  %1063 = getelementptr inbounds nuw [32 x i8], ptr %1061, i64 %1062
   %1064 = getelementptr inbounds nuw i8, ptr %1063, i64 16
   %1065 = load ptr, ptr %1064, align 8, !tbaa !427
   %.not.i.i1.i.i185 = icmp eq ptr %1065, null
@@ -77963,7 +77953,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i187:
   br i1 %.not.i.i.not.i.i.i170, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i175, label %1106, !prof !445
 
 1106:                                             ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE3_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %1107 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i171, i64 %1102
+  %1107 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i171, i64 %1102
   %1108 = icmp uge ptr %13, %.pre3.i.i.i171
   %1109 = icmp ult ptr %13, %1107
   %spec.select.i.i.i.i.i.i.i172 = and i1 %1108, %1109
@@ -77988,7 +77978,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i176 = phi ptr [ %13, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE3_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %1115, %1110 ], [ %13, %.critedge.i.i.i.i.i173 ]
   %1117 = load i32, ptr %1100, align 8, !tbaa !23
   %1118 = zext i32 %1117 to i64
-  %1119 = getelementptr inbounds nuw %"class.std::function", ptr %1116, i64 %1118
+  %1119 = getelementptr inbounds nuw [32 x i8], ptr %1116, i64 %1118
   %1120 = getelementptr inbounds nuw i8, ptr %1119, i64 24
   %1121 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i176, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1119, i8 0, i64 24, i1 false)
@@ -78028,7 +78018,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i180:            ; preds = %1131, %_ZN4llvm23Sm
   %1135 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %1136 = load i32, ptr %1135, align 8, !tbaa !23
   %1137 = zext i32 %1136 to i64
-  %1138 = getelementptr inbounds nuw %"class.std::function", ptr %1134, i64 %1137
+  %1138 = getelementptr inbounds nuw [32 x i8], ptr %1134, i64 %1137
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1, !tbaa !426
   %1139 = getelementptr inbounds i8, ptr %1138, i64 -16
@@ -78049,7 +78039,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i164:           ; preds = %1133
   %1145 = load ptr, ptr %1092, align 8, !tbaa !22
   %1146 = load i32, ptr %1135, align 8, !tbaa !23
   %1147 = zext i32 %1146 to i64
-  %1148 = getelementptr inbounds nuw %"class.std::function", ptr %1145, i64 %1147
+  %1148 = getelementptr inbounds nuw [32 x i8], ptr %1145, i64 %1147
   %1149 = getelementptr inbounds i8, ptr %1148, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1150 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -78149,7 +78139,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %1183 = phi i32 [ %1202, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i217 ], [ %1182, %1179 ]
   %1184 = load ptr, ptr %1180, align 8, !tbaa !22
   %1185 = zext i32 %1183 to i64
-  %1186 = getelementptr inbounds nuw %"class.std::function", ptr %1184, i64 %1185
+  %1186 = getelementptr inbounds nuw [32 x i8], ptr %1184, i64 %1185
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1, !tbaa !426
   %1187 = getelementptr inbounds i8, ptr %1186, i64 -16
@@ -78172,7 +78162,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i214:            ; preds = %.lr.ph.i.i212
   store i32 %1194, ptr %1181, align 8, !tbaa !23
   %1195 = load ptr, ptr %1180, align 8, !tbaa !22
   %1196 = zext i32 %1194 to i64
-  %1197 = getelementptr inbounds nuw %"class.std::function", ptr %1195, i64 %1196
+  %1197 = getelementptr inbounds nuw [32 x i8], ptr %1195, i64 %1196
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 16
   %1199 = load ptr, ptr %1198, align 8, !tbaa !427
   %.not.i.i1.i.i215 = icmp eq ptr %1199, null
@@ -78265,7 +78255,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i220:          ; preds = %1214, %1212
   br i1 %.not.i.i.not.i.i.i200, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i205, label %1238, !prof !445
 
 1238:                                             ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE4_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %1239 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i201, i64 %1234
+  %1239 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i201, i64 %1234
   %1240 = icmp uge ptr %7, %.pre3.i.i.i201
   %1241 = icmp ult ptr %7, %1239
   %spec.select.i.i.i.i.i.i.i202 = and i1 %1240, %1241
@@ -78290,7 +78280,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i206 = phi ptr [ %7, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_14TextNodeDumper18VisitCXXRecordDeclEPKNS3_13CXXRecordDeclEENK3$_0clEvEUlvE4_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %1247, %1242 ], [ %7, %.critedge.i.i.i.i.i203 ]
   %1249 = load i32, ptr %1232, align 8, !tbaa !23
   %1250 = zext i32 %1249 to i64
-  %1251 = getelementptr inbounds nuw %"class.std::function", ptr %1248, i64 %1250
+  %1251 = getelementptr inbounds nuw [32 x i8], ptr %1248, i64 %1250
   %1252 = getelementptr inbounds nuw i8, ptr %1251, i64 24
   %1253 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i206, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1251, i8 0, i64 24, i1 false)
@@ -78330,7 +78320,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i210:            ; preds = %1263, %_ZN4llvm23Sm
   %1267 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %1268 = load i32, ptr %1267, align 8, !tbaa !23
   %1269 = zext i32 %1268 to i64
-  %1270 = getelementptr inbounds nuw %"class.std::function", ptr %1266, i64 %1269
+  %1270 = getelementptr inbounds nuw [32 x i8], ptr %1266, i64 %1269
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !426
   %1271 = getelementptr inbounds i8, ptr %1270, i64 -16
@@ -78351,7 +78341,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i194:           ; preds = %1265
   %1277 = load ptr, ptr %1224, align 8, !tbaa !22
   %1278 = load i32, ptr %1267, align 8, !tbaa !23
   %1279 = zext i32 %1278 to i64
-  %1280 = getelementptr inbounds nuw %"class.std::function", ptr %1277, i64 %1279
+  %1280 = getelementptr inbounds nuw [32 x i8], ptr %1277, i64 %1279
   %1281 = getelementptr inbounds i8, ptr %1280, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1282 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -79207,7 +79197,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -79230,7 +79220,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -80062,7 +80052,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -80085,7 +80075,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -80874,7 +80864,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -80897,7 +80887,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -81618,7 +81608,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -81641,7 +81631,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -82392,7 +82382,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -82415,7 +82405,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -83134,7 +83124,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -83157,7 +83147,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -83479,7 +83469,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -83502,7 +83492,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -83981,7 +83971,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -84004,7 +83994,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !22
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -84355,7 +84345,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %130 = phi i32 [ %149, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %128, %"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_0clEv.exit.i.i.i" ]
   %131 = zext i32 %130 to i64
   %132 = load ptr, ptr %104, align 8, !tbaa !22
-  %133 = getelementptr inbounds nuw %"class.std::function", ptr %132, i64 %131
+  %133 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %131
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %134 = getelementptr inbounds i8, ptr %133, i64 -16
@@ -84378,7 +84368,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %141, ptr %105, align 8, !tbaa !23
   %142 = load ptr, ptr %104, align 8, !tbaa !22
   %143 = zext i32 %141 to i64
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %142, i64 %143
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !427
   %.not.i.i12.i.i.i = icmp eq ptr %146, null
@@ -84753,7 +84743,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i:         ; preds = %121, %119
   %141 = phi i32 [ %160, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %139, %"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_1clEv.exit.i.i.i" ]
   %142 = zext i32 %141 to i64
   %143 = load ptr, ptr %104, align 8, !tbaa !22
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %143, i64 %142
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %142
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %145 = getelementptr inbounds i8, ptr %144, i64 -16
@@ -84776,7 +84766,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %152, ptr %105, align 8, !tbaa !23
   %153 = load ptr, ptr %104, align 8, !tbaa !22
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %157, null
@@ -85171,7 +85161,7 @@ _ZNK5clang26ConstructorUsingShadowDecl23getConstructedBaseClassEv.exit.i.i.i.i: 
   %155 = phi i32 [ %174, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %153, %"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_2clEv.exit.i.i.i" ]
   %156 = zext i32 %155 to i64
   %157 = load ptr, ptr %104, align 8, !tbaa !22
-  %158 = getelementptr inbounds nuw %"class.std::function", ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [32 x i8], ptr %157, i64 %156
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %159 = getelementptr inbounds i8, ptr %158, i64 -16
@@ -85194,7 +85184,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %166, ptr %105, align 8, !tbaa !23
   %167 = load ptr, ptr %104, align 8, !tbaa !22
   %168 = zext i32 %166 to i64
-  %169 = getelementptr inbounds nuw %"class.std::function", ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %167, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8, !tbaa !427
   %.not.i.i14.i.i.i = icmp eq ptr %171, null
@@ -85524,7 +85514,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %115 = phi i32 [ %134, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %113, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %116 = zext i32 %115 to i64
   %117 = load ptr, ptr %104, align 8, !tbaa !22
-  %118 = getelementptr inbounds nuw %"class.std::function", ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %116
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %119 = getelementptr inbounds i8, ptr %118, i64 -16
@@ -85547,7 +85537,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %126, ptr %105, align 8, !tbaa !23
   %127 = load ptr, ptr %104, align 8, !tbaa !22
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds nuw %"class.std::function", ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %131, null
@@ -85877,7 +85867,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %115 = phi i32 [ %134, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %113, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %116 = zext i32 %115 to i64
   %117 = load ptr, ptr %104, align 8, !tbaa !22
-  %118 = getelementptr inbounds nuw %"class.std::function", ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %116
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !426
   %119 = getelementptr inbounds i8, ptr %118, i64 -16
@@ -85900,7 +85890,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %126, ptr %105, align 8, !tbaa !23
   %127 = load ptr, ptr %104, align 8, !tbaa !22
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds nuw %"class.std::function", ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !427
   %.not.i.i13.i.i.i = icmp eq ptr %131, null

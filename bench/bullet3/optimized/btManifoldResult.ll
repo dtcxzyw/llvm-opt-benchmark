@@ -539,7 +539,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %250, %264
 290:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %292 = zext nneg i32 %164 to i64
-  %293 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %291, i64 %292
+  %293 = getelementptr inbounds nuw [208 x i8], ptr %291, i64 %292
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 168
   %295 = load i32, ptr %294, align 8, !tbaa !67
   %296 = getelementptr inbounds nuw i8, ptr %293, i64 132
@@ -617,7 +617,7 @@ _ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit: ; pred
   %337 = load ptr, ptr %6, align 8, !tbaa !27
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %339 = sext i32 %.0 to i64
-  %340 = getelementptr inbounds %class.btManifoldPoint, ptr %338, i64 %339
+  %340 = getelementptr inbounds [208 x i8], ptr %338, i64 %339
   %341 = load i32, ptr %161, align 4, !tbaa !63
   %342 = load i32, ptr %286, align 4, !tbaa !65
   %343 = load i32, ptr %285, align 8, !tbaa !64

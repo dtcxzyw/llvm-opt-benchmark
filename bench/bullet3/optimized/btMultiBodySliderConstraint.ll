@@ -3,15 +3,9 @@ source_filename = "bench/bullet3/original/btMultiBodySliderConstraint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.btMultibodyLink = type { float, %class.btVector3, i32, %class.btQuaternion, %class.btVector3, %class.btVector3, %struct.btSpatialMotionVector, %struct.btSpatialMotionVector, [6 x %struct.btSpatialMotionVector], i32, i32, %class.btQuaternion, %class.btVector3, %class.btQuaternion, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [7 x float], [7 x float], [6 x float], ptr, i32, i32, i32, i32, ptr, %class.btTransform, ptr, ptr, ptr, float, float, float, float, float, float }
-%struct.btSpatialMotionVector = type { %class.btVector3, %class.btVector3 }
-%class.btQuaternion = type { %class.btQuadWord }
-%class.btQuadWord = type { [4 x float] }
 %class.btVector3 = type { [4 x float] }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%struct.btMultiBodySolverConstraint = type <{ i32, i32, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, float, float, float, float, [4 x i8], %union.anon.12, i32, i32, i32, [4 x i8], ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
-%union.anon.12 = type { ptr }
+%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 
 $_ZN27btMultiBodySliderConstraint11setFrameInBERK11btMatrix3x3 = comdat any
 
@@ -101,8 +95,8 @@ define dso_local void @_ZN27btMultiBodySliderConstraintC2EP11btMultiBodyiP11btRi
 
 37:                                               ; preds = %37, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i.i.i
-  %39 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i.i.i
   %40 = load float, ptr %39, align 4, !tbaa !28
   store float %40, ptr %38, align 4, !tbaa !28
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -225,8 +219,8 @@ define dso_local void @_ZN27btMultiBodySliderConstraintC2EP11btMultiBodyiS1_iRK9
 
 37:                                               ; preds = %37, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i.i.i
-  %39 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i.i.i
   %40 = load float, ptr %39, align 4, !tbaa !28
   store float %40, ptr %38, align 4, !tbaa !28
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -335,7 +329,7 @@ define dso_local noundef i32 @_ZNK27btMultiBodySliderConstraint12getIslandIdAEv(
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [688 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 544
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %.not10 = icmp eq ptr %20, null
@@ -381,7 +375,7 @@ define dso_local noundef i32 @_ZNK27btMultiBodySliderConstraint12getIslandIdBEv(
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [688 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 544
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %.not10 = icmp eq ptr %20, null
@@ -871,9 +865,9 @@ define dso_local void @_ZN27btMultiBodySliderConstraint20createConstraintRowsER2
 
 327:                                              ; preds = %.preheader, %326
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %326 ]
-  %328 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
-  %329 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
-  %330 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %331 = load float, ptr %328, align 4, !tbaa !28
   %332 = load float, ptr %329, align 4, !tbaa !28
   %333 = load float, ptr %330, align 4, !tbaa !28
@@ -1112,9 +1106,9 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i: ; 
 
 491:                                              ; preds = %491, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %491 ]
-  %492 = getelementptr inbounds nuw %struct.btMultiBodySolverConstraint, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %492 = getelementptr inbounds nuw [224 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %493 = load ptr, ptr %464, align 8, !tbaa !85
-  %494 = getelementptr inbounds nuw %struct.btMultiBodySolverConstraint, ptr %493, i64 %indvars.iv.i.i.i
+  %494 = getelementptr inbounds nuw [224 x i8], ptr %493, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %492, ptr noundef nonnull align 8 dereferenceable(224) %494, i64 224, i1 false), !tbaa.struct !86
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1145,7 +1139,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   store i32 %500, ptr %462, align 4, !tbaa !80
   %501 = load ptr, ptr %464, align 8, !tbaa !85
   %502 = sext i32 %477 to i64
-  %503 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %501, i64 %502
+  %503 = getelementptr inbounds [224 x i8], ptr %501, i64 %502
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 208
   store ptr %0, ptr %504, align 8, !tbaa !93
   %505 = getelementptr inbounds nuw i8, ptr %503, i64 216
@@ -1188,7 +1182,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   br i1 %521, label %522, label %542
 
 522:                                              ; preds = %520
-  %523 = getelementptr inbounds nuw %class.btVector3, ptr %10, i64 %indvars.iv250
+  %523 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %523, i64 16, i1 false), !tbaa.struct !23
   %524 = load float, ptr %5, align 8, !tbaa !28
   %525 = load float, ptr %8, align 8, !tbaa !28
@@ -1216,9 +1210,9 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %544 = add i32 %543, -3
   %545 = select i1 %.cmp, i32 2, i32 %544
   %546 = sext i32 %545 to i64
-  %547 = getelementptr inbounds float, ptr %6, i64 %546
-  %548 = getelementptr inbounds float, ptr %18, i64 %546
-  %549 = getelementptr inbounds float, ptr %20, i64 %546
+  %547 = getelementptr inbounds [4 x i8], ptr %6, i64 %546
+  %548 = getelementptr inbounds [4 x i8], ptr %18, i64 %546
+  %549 = getelementptr inbounds [4 x i8], ptr %20, i64 %546
   %550 = load float, ptr %547, align 4, !tbaa !28
   %.sroa.0.0.vec.insert.i106 = insertelement <2 x float> poison, float %550, i64 0
   %551 = load float, ptr %548, align 4, !tbaa !28
@@ -1228,7 +1222,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   store <2 x float> %.sroa.0.4.vec.insert.i107, ptr %14, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i108, ptr %469, align 8, !tbaa !24
   %553 = zext nneg i32 %545 to i64
-  %554 = getelementptr inbounds nuw float, ptr %12, i64 %553
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %553
   %555 = load float, ptr %554, align 4, !tbaa !28
   %556 = load float, ptr %470, align 4, !tbaa !102
   %557 = fneg float %556

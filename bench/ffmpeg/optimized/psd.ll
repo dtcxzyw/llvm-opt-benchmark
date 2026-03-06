@@ -1316,9 +1316,9 @@ decode_rle.exit.thread:                           ; preds = %decode_rle.exit.thr
   %588 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv401
   %589 = load i8, ptr %588, align 1, !tbaa !44
   %590 = zext i8 %589 to i64
-  %591 = getelementptr inbounds nuw ptr, ptr %1, i64 %590
+  %591 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %590
   %592 = load ptr, ptr %591, align 8, !tbaa !43
-  %593 = getelementptr inbounds nuw i32, ptr %582, i64 %590
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %582, i64 %590
   %.pre415 = load i64, ptr %12, align 8, !tbaa !36
   br label %594
 

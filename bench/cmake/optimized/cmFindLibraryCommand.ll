@@ -8432,7 +8432,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !67
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !68
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !69
   ret void
 
@@ -8649,7 +8649,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !67
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !68
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !69
   ret void
 }
@@ -8956,7 +8956,7 @@ _ZSt8_DestroyIPN19cmFindLibraryHelper4NameES1_EvT_S3_RSaIT0_E.exit: ; preds = %_
 _ZNSt12_Vector_baseIN19cmFindLibraryHelper4NameESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN19cmFindLibraryHelper4NameES1_EvT_S3_RSaIT0_E.exit, %71
   store ptr %22, ptr %0, align 8, !tbaa !195
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !196
-  %75 = getelementptr inbounds nuw %"struct.cmFindLibraryHelper::Name", ptr %22, i64 %16
+  %75 = getelementptr inbounds nuw [1160 x i8], ptr %22, i64 %16
   store ptr %75, ptr %70, align 8, !tbaa !202
   ret void
 

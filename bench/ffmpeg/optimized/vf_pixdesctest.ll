@@ -70,7 +70,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 37:                                               ; preds = %34, %54
   %indvars.iv = phi i64 [ 0, %34 ], [ %indvars.iv.next, %54 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !44
   %.not86 = icmp eq ptr %39, null
   br i1 %.not86, label %54, label %40
@@ -80,7 +80,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %42 = add i32 %41, -1
   %or.cond = icmp ult i32 %42, 2
   %43 = select i1 %or.cond, i32 %27, i32 %14
-  %44 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !45
   %46 = icmp sgt i32 %45, 0
   %47 = add nsw i32 %43, -1

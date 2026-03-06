@@ -194,7 +194,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit196
   %.0167424 = phi i64 [ %7, %.lr.ph ], [ %.1168, %556 ]
   %.0174423 = phi ptr [ %8, %.lr.ph ], [ %.1175, %556 ]
   %.0179422 = phi ptr [ %11, %.lr.ph ], [ %.1180, %556 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0167424
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0167424
   %42 = load ptr, ptr %41, align 8, !tbaa !4
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i1
@@ -3005,7 +3005,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %lean_dec.exit121
 
 lean_dec.exit121:                                 ; preds = %48, %47, %45, %39
-  %49 = getelementptr inbounds nuw ptr, ptr %12, i64 %.099203
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.099203
   %50 = load ptr, ptr %49, align 8, !tbaa !4
   %51 = ptrtoint ptr %50 to i64
   %52 = trunc i64 %51 to i1
@@ -3743,7 +3743,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %lean_dec.exit121
 
 lean_dec.exit121:                                 ; preds = %48, %47, %45, %39
-  %49 = getelementptr inbounds nuw ptr, ptr %12, i64 %.099203
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.099203
   %50 = load ptr, ptr %49, align 8, !tbaa !4
   %51 = ptrtoint ptr %50 to i64
   %52 = trunc i64 %51 to i1

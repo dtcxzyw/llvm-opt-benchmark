@@ -551,7 +551,7 @@ define internal i32 @dissect_xra(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
   %75 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_xra, i64 %75
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_xra, i64 %75
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %76
 
@@ -686,7 +686,7 @@ dissect_xra_tlv_burst_info.exit.i:                ; preds = %131, %115
 
 switch.lookup89:                                  ; preds = %.lr.ph.i137.i
   %150 = zext nneg i8 %switch.tableidx88 to i64
-  %switch.gep90 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_xra.9, i64 %150
+  %switch.gep90 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_xra.9, i64 %150
   %switch.load91 = load ptr, ptr %switch.gep90, align 8
   br label %151
 

@@ -4,14 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.duckdb_zstd::ZSTD_customMem" = type { ptr, ptr, ptr }
-%"struct.duckdb_zstd::ZSTDMT_jobDescription" = type { i64, i64, i32, i32, ptr, ptr, ptr, ptr, %"struct.duckdb_zstd::buffer_s", %"struct.duckdb_zstd::range_t", %"struct.duckdb_zstd::range_t", i32, i32, i32, %"struct.duckdb_zstd::ZSTD_CCtx_params_s", ptr, i64, i64, i32 }
-%"struct.duckdb_zstd::buffer_s" = type { ptr, i64 }
-%"struct.duckdb_zstd::range_t" = type { ptr, i64 }
-%"struct.duckdb_zstd::ZSTD_CCtx_params_s" = type { i32, %"struct.duckdb_zstd::ZSTD_compressionParameters", %"struct.duckdb_zstd::ZSTD_frameParameters", i32, i32, i64, i32, i32, i32, i32, i64, i32, i32, %"struct.duckdb_zstd::ldmParams_t", i32, i32, i32, i32, i32, i32, i32, i32, %"struct.duckdb_zstd::ZSTD_customMem", i32, i32, ptr, ptr, i64, i32 }
 %"struct.duckdb_zstd::ZSTD_compressionParameters" = type { i32, i32, i32, i32, i32, i32, i32 }
+%"struct.duckdb_zstd::ZSTD_frameProgression" = type { i64, i64, i64, i64, i32, i32 }
+%"struct.duckdb_zstd::ZSTD_CCtx_params_s" = type { i32, %"struct.duckdb_zstd::ZSTD_compressionParameters", %"struct.duckdb_zstd::ZSTD_frameParameters", i32, i32, i64, i32, i32, i32, i32, i64, i32, i32, %"struct.duckdb_zstd::ldmParams_t", i32, i32, i32, i32, i32, i32, i32, i32, %"struct.duckdb_zstd::ZSTD_customMem", i32, i32, ptr, ptr, i64, i32 }
 %"struct.duckdb_zstd::ZSTD_frameParameters" = type { i32, i32, i32 }
 %"struct.duckdb_zstd::ldmParams_t" = type { i32, i32, i32, i32, i32, i32 }
-%"struct.duckdb_zstd::ZSTD_frameProgression" = type { i64, i64, i64, i64, i32, i32 }
 %"struct.duckdb_zstd::rawSeqStore_t" = type { ptr, i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [2 x i8] c" \00", align 1
@@ -50,7 +47,7 @@ define noundef i64 @_ZN11duckdb_zstd15ZSTDMT_freeCCtxEPNS_13ZSTDMT_CCtx_sE(ptr n
   %14 = phi ptr [ %.pre.i, %9 ], [ %41, %_ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i ]
   %.020.i = phi i32 [ 0, %9 ], [ %45, %_ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i ]
   %15 = zext i32 %.020.i to i64
-  %16 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [368 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -77,7 +74,7 @@ define noundef i64 @_ZN11duckdb_zstd15ZSTDMT_freeCCtxEPNS_13ZSTDMT_CCtx_sE(ptr n
   %33 = add nuw i32 %26, 1
   store i32 %33, ptr %25, align 4, !tbaa !42
   %34 = zext i32 %26 to i64
-  %35 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %34
   store ptr %.sroa.0.0.copyload.i, ptr %35, align 8, !tbaa !40
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41
@@ -101,10 +98,10 @@ define noundef i64 @_ZN11duckdb_zstd15ZSTDMT_freeCCtxEPNS_13ZSTDMT_CCtx_sE(ptr n
 
 _ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i: ; preds = %38, %37, %30, %13
   %39 = load ptr, ptr %11, align 8, !tbaa !35
-  %40 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %39, i64 %15
+  %40 = getelementptr inbounds nuw [368 x i8], ptr %39, i64 %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %40, i8 0, i64 368, i1 false)
   %41 = load ptr, ptr %11, align 8, !tbaa !35
-  %42 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %41, i64 %15
+  %42 = getelementptr inbounds nuw [368 x i8], ptr %41, i64 %15
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %18, ptr %43, align 8, !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 20
@@ -157,7 +154,7 @@ _ZN11duckdb_zstdL20ZSTDMT_freeJobsTableEPNS_21ZSTDMT_jobDescriptionEjNS_14ZSTD_c
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %60 = load ptr, ptr %55, align 8, !tbaa !52
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8, !tbaa !56
   %63 = tail call noundef i64 @_ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE(ptr noundef %62)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -322,7 +319,7 @@ define internal fastcc void @_ZN11duckdb_zstdL21ZSTDMT_freeBufferPoolEPNS_19ZSTD
 7:                                                ; preds = %.lr.ph, %_ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit ]
   %8 = load ptr, ptr %3, align 8, !tbaa !46
-  %9 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %.sroa.128.0.copyload = load ptr, ptr %.sroa.125.0..sroa_idx36, align 8, !tbaa !40
   %.sroa.229.0.copyload = load ptr, ptr %.sroa.229.0..sroa_idx, align 8, !tbaa !40
@@ -417,7 +414,7 @@ define noundef i64 @_ZN11duckdb_zstd18ZSTDMT_sizeof_CCtxEPNS_13ZSTDMT_CCtx_sE(pt
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %12 ]
-  %13 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !66
   %16 = add i64 %15, %.010.i
@@ -454,7 +451,7 @@ _ZN11duckdb_zstdL24ZSTDMT_sizeof_bufferPoolEPNS_19ZSTDMT_bufferPool_sE.exit: ; p
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %31 ]
   %.0910.i = phi i64 [ 0, %.lr.ph.i10 ], [ %36, %31 ]
   %32 = load ptr, ptr %30, align 8, !tbaa !52
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i12
   %34 = load ptr, ptr %33, align 8, !tbaa !56
   %35 = tail call noundef i64 @_ZN11duckdb_zstd16ZSTD_sizeof_CCtxEPKNS_11ZSTD_CCtx_sE(ptr noundef %34)
   %36 = add i64 %35, %.0910.i
@@ -482,7 +479,7 @@ _ZN11duckdb_zstdL22ZSTDMT_sizeof_CCtxPoolEPNS_15ZSTDMT_CCtxPoolE.exit: ; preds =
 45:                                               ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
   %.010.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %49, %45 ]
-  %46 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %44, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !66
   %49 = add i64 %48, %.010.i.i
@@ -578,7 +575,7 @@ define void @_ZN11duckdb_zstd26ZSTDMT_getFrameProgressionEPNS_13ZSTDMT_CCtx_sE(p
   %28 = phi i32 [ 0, %.lr.ph ], [ %50, %39 ]
   %29 = and i32 %20, %.034
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %22, i64 %30
+  %31 = getelementptr inbounds nuw [368 x i8], ptr %22, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !85
   %34 = icmp ult i64 %33, -119
@@ -640,7 +637,7 @@ define noundef i64 @_ZN11duckdb_zstd17ZSTDMT_toFlushNowEPNS_13ZSTDMT_CCtx_sE(ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [368 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !85
   %17 = icmp ult i64 %16, -119
@@ -788,7 +785,7 @@ _ZN11duckdb_zstdL22ZSTDMT_expandJobsTableEPNS_13ZSTDMT_CCtx_sEj.exit.i: ; preds 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
   %65 = load ptr, ptr %62, align 8, !tbaa !52
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !56
   %68 = tail call noundef i64 @_ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE(ptr noundef %67)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -908,7 +905,7 @@ _ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit21.i.i.i: ; preds
 .lr.ph.i37.i.i.i:                                 ; preds = %.preheader.i25.i.i.i, %.lr.ph.i37.i.i.i
   %indvars.iv.i38.i.i.i = phi i64 [ %indvars.iv.next.i39.i.i.i, %.lr.ph.i37.i.i.i ], [ 0, %.preheader.i25.i.i.i ]
   %101 = load ptr, ptr %91, align 8, !tbaa !52
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i38.i.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i38.i.i.i
   %103 = load ptr, ptr %102, align 8, !tbaa !56
   %104 = tail call noundef i64 @_ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE(ptr noundef %103)
   %indvars.iv.next.i39.i.i.i = add nuw nsw i64 %indvars.iv.i38.i.i.i, 1
@@ -1026,7 +1023,7 @@ _ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit: ; p
   %142 = phi ptr [ %.pre.i, %_ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit ], [ %169, %_ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i ]
   %.020.i = phi i32 [ 0, %_ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit ], [ %173, %_ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i ]
   %143 = zext i32 %.020.i to i64
-  %144 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %142, i64 %143
+  %144 = getelementptr inbounds nuw [368 x i8], ptr %142, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load i32, ptr %145, align 8, !tbaa !36
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 20
@@ -1053,7 +1050,7 @@ _ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit: ; p
   %161 = add nuw i32 %154, 1
   store i32 %161, ptr %153, align 4, !tbaa !42
   %162 = zext i32 %154 to i64
-  %163 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %160, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %162
   store ptr %.sroa.0.0.copyload.i, ptr %163, align 8, !tbaa !40
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41
@@ -1077,10 +1074,10 @@ _ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit: ; p
 
 _ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i: ; preds = %166, %165, %158, %141
   %167 = load ptr, ptr %139, align 8, !tbaa !35
-  %168 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %167, i64 %143
+  %168 = getelementptr inbounds nuw [368 x i8], ptr %167, i64 %143
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %168, i8 0, i64 368, i1 false)
   %169 = load ptr, ptr %139, align 8, !tbaa !35
-  %170 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %169, i64 %143
+  %170 = getelementptr inbounds nuw [368 x i8], ptr %169, i64 %143
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store i32 %146, ptr %171, align 8, !tbaa !36
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 20
@@ -1144,7 +1141,7 @@ _ZN11duckdb_zstdL17ZSTDMT_overlapLogEiNS_13ZSTD_strategyE.exit.i: ; preds = %189
 
 switch.lookup:                                    ; preds = %196
   %200 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11duckdb_zstd27ZSTDMT_initCStream_internalEPNS_13ZSTDMT_CCtx_sEPKvmNS_22ZSTD_dictContentType_eEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEy, i64 %200
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11duckdb_zstd27ZSTDMT_initCStream_internalEPNS_13ZSTDMT_CCtx_sEPKvmNS_22ZSTD_dictContentType_eEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEy, i64 %200
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN11duckdb_zstdL17ZSTDMT_overlapLogEiNS_13ZSTD_strategyE.exit.thread.i
 
@@ -1732,7 +1729,7 @@ define noundef i64 @_ZN11duckdb_zstd29ZSTDMT_compressStream_genericEPNS_13ZSTDMT
   %.02329.i.i = phi i32 [ %24, %.lr.ph.i.i ], [ %33, %32 ]
   %35 = and i32 %.02329.i.i, %29
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [368 x i8], ptr %31, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !88
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %40 = load i64, ptr %39, align 8, !tbaa !87
@@ -2078,7 +2075,7 @@ _ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exit.thread139: 
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !35
   %215 = zext i32 %201 to i64
-  %216 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [368 x i8], ptr %214, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 88
   store ptr %212, ptr %217, align 8, !tbaa !145
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 96
@@ -2086,7 +2083,7 @@ _ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exit.thread139: 
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !tbaa.struct !146
   %220 = load ptr, ptr %213, align 8, !tbaa !35
-  %221 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %220, i64 %215
+  %221 = getelementptr inbounds nuw [368 x i8], ptr %220, i64 %215
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %221, i8 0, i64 16, i1 false)
@@ -2103,7 +2100,7 @@ _ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exit.thread139: 
 229:                                              ; preds = %226, %209
   %230 = phi ptr [ %228, %226 ], [ null, %209 ]
   %231 = load ptr, ptr %213, align 8, !tbaa !35
-  %232 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %231, i64 %215
+  %232 = getelementptr inbounds nuw [368 x i8], ptr %231, i64 %215
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 336
   store ptr %230, ptr %233, align 8, !tbaa !147
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 2872
@@ -2115,7 +2112,7 @@ _ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exit.thread139: 
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %239 = load ptr, ptr %238, align 8, !tbaa !51
   %240 = load ptr, ptr %213, align 8, !tbaa !35
-  %241 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %240, i64 %215
+  %241 = getelementptr inbounds nuw [368 x i8], ptr %240, i64 %215
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
   store ptr %239, ptr %242, align 8, !tbaa !149
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2198,7 +2195,7 @@ _ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exit.thread139: 
   %285 = add i32 %281, -1
   store i32 %285, ptr %280, align 4, !tbaa !42
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %284, i64 %286
+  %287 = getelementptr inbounds nuw [16 x i8], ptr %284, i64 %286
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %287, align 8, !tbaa !40
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %287, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !41
@@ -2280,7 +2277,7 @@ _ZN11duckdb_zstdL26ZSTDMT_writeLastEmptyBlockEPNS_21ZSTDMT_jobDescriptionE.exit.
   %.pre-phi.i = phi i64 [ %.pre102.i, %..thread100_crit_edge.i ], [ %215, %268 ], [ %215, %.thread99.i ], [ %215, %.thread.i ]
   %310 = phi ptr [ %.pre.i, %..thread100_crit_edge.i ], [ %240, %268 ], [ %240, %.thread99.i ], [ %240, %.thread.i ]
   %311 = load ptr, ptr %0, align 8, !tbaa !3
-  %312 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %310, i64 %.pre-phi.i
+  %312 = getelementptr inbounds nuw [368 x i8], ptr %310, i64 %.pre-phi.i
   %313 = tail call noundef i32 @_ZN11duckdb_zstd11POOL_tryAddEPNS_10POOL_ctx_sEPFvPvES2_(ptr noundef %311, ptr noundef nonnull @_ZN11duckdb_zstdL21ZSTDMT_compressionJobEPv, ptr noundef %312)
   %.not97.i = icmp eq i32 %313, 0
   br i1 %.not97.i, label %317, label %314
@@ -2305,7 +2302,7 @@ _ZN11duckdb_zstdL27ZSTDMT_createCompressionJobEPNS_13ZSTDMT_CCtx_sEmNS_17ZSTD_En
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %324 = load ptr, ptr %323, align 8, !tbaa !35
   %325 = zext i32 %322 to i64
-  %326 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %324, i64 %325
+  %326 = getelementptr inbounds nuw [368 x i8], ptr %324, i64 %325
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load i64, ptr %327, align 8, !tbaa !85
   %329 = load i64, ptr %326, align 8, !tbaa !88
@@ -2332,7 +2329,7 @@ _ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit.i: ;
   %339 = phi ptr [ %324, %_ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit.i ], [ %366, %_ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i.i ]
   %.020.i.i = phi i32 [ 0, %_ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit.i ], [ %370, %_ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i.i ]
   %340 = zext i32 %.020.i.i to i64
-  %341 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %339, i64 %340
+  %341 = getelementptr inbounds nuw [368 x i8], ptr %339, i64 %340
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %343 = load i32, ptr %342, align 8, !tbaa !36
   %344 = getelementptr inbounds nuw i8, ptr %341, i64 20
@@ -2359,7 +2356,7 @@ _ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit.i: ;
   %358 = add nuw i32 %351, 1
   store i32 %358, ptr %350, align 4, !tbaa !42
   %359 = zext i32 %351 to i64
-  %360 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %357, i64 %359
+  %360 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %359
   store ptr %.sroa.0.0.copyload.i.i75, ptr %360, align 8, !tbaa !40
   %.sroa.4.0..sroa_idx.i.i.i84 = getelementptr inbounds nuw i8, ptr %360, i64 8
   store i64 %.sroa.2.0.copyload.i.i77, ptr %.sroa.4.0..sroa_idx.i.i.i84, align 8, !tbaa !41
@@ -2383,10 +2380,10 @@ _ZN11duckdb_zstdL30ZSTDMT_waitForAllJobsCompletedEPNS_13ZSTDMT_CCtx_sE.exit.i: ;
 
 _ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i.i: ; preds = %363, %362, %355, %338
   %364 = load ptr, ptr %323, align 8, !tbaa !35
-  %365 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %364, i64 %340
+  %365 = getelementptr inbounds nuw [368 x i8], ptr %364, i64 %340
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %365, i8 0, i64 368, i1 false)
   %366 = load ptr, ptr %323, align 8, !tbaa !35
-  %367 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %366, i64 %340
+  %367 = getelementptr inbounds nuw [368 x i8], ptr %366, i64 %340
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
   store i32 %343, ptr %368, align 8, !tbaa !36
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 20
@@ -2418,7 +2415,7 @@ _ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i: ; 
   %380 = tail call noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr noundef nonnull %379)
   %381 = trunc i64 %380 to i32
   %382 = load ptr, ptr %323, align 8, !tbaa !35
-  %383 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %382, i64 %325
+  %383 = getelementptr inbounds nuw [368 x i8], ptr %382, i64 %325
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 56
   %385 = load ptr, ptr %384, align 8, !tbaa !158
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 8
@@ -2439,7 +2436,7 @@ _ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i: ; 
 393:                                              ; preds = %392, %.thread127.i
   %.096130.i = phi i64 [ %389, %.thread127.i ], [ %328, %392 ]
   %394 = phi ptr [ %382, %.thread127.i ], [ %324, %392 ]
-  %395 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %394, i64 %325
+  %395 = getelementptr inbounds nuw [368 x i8], ptr %394, i64 %325
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 352
   %397 = load i64, ptr %396, align 8, !tbaa !86
   %398 = sub i64 %.096130.i, %397
@@ -2461,7 +2458,7 @@ _ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i: ; 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %406, ptr align 1 %409, i64 %..i85, i1 false)
   %.pre.i86 = load i64, ptr %401, align 8, !tbaa !161
   %.pre117.i = load ptr, ptr %323, align 8, !tbaa !35
-  %.phi.trans.insert.i87 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %.pre117.i, i64 %325
+  %.phi.trans.insert.i87 = getelementptr inbounds nuw [368 x i8], ptr %.pre117.i, i64 %325
   %.phi.trans.insert118.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i87, i64 352
   %.pre119.i = load i64, ptr %.phi.trans.insert118.i, align 8, !tbaa !86
   br label %410
@@ -2472,7 +2469,7 @@ _ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i: ; 
   %413 = phi i64 [ %.pre.i86, %404 ], [ %402, %393 ]
   %414 = add i64 %413, %..i85
   store i64 %414, ptr %401, align 8, !tbaa !161
-  %415 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %412, i64 %325
+  %415 = getelementptr inbounds nuw [368 x i8], ptr %412, i64 %325
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 352
   %417 = add i64 %411, %..i85
   store i64 %417, ptr %416, align 8, !tbaa !86
@@ -2504,7 +2501,7 @@ _ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i: ; 
   %433 = add nuw i32 %426, 1
   store i32 %433, ptr %425, align 4, !tbaa !42
   %434 = zext i32 %426 to i64
-  %435 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %432, i64 %434
+  %435 = getelementptr inbounds nuw [16 x i8], ptr %432, i64 %434
   store ptr %.sroa.0.0.copyload.i, ptr %435, align 8, !tbaa !40
   %.sroa.4.0..sroa_idx.i.i89 = getelementptr inbounds nuw i8, ptr %435, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i89, align 8, !tbaa !41
@@ -2528,11 +2525,11 @@ _ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i: ; 
 
 _ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.exit.i: ; preds = %438, %437, %430, %419
   %439 = load ptr, ptr %323, align 8, !tbaa !35
-  %440 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %439, i64 %325
+  %440 = getelementptr inbounds nuw [368 x i8], ptr %439, i64 %325
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %441, i8 0, i64 16, i1 false)
   %442 = load ptr, ptr %323, align 8, !tbaa !35
-  %443 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTDMT_jobDescription", ptr %442, i64 %325
+  %443 = getelementptr inbounds nuw [368 x i8], ptr %442, i64 %325
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
   store i64 0, ptr %444, align 8, !tbaa !85
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 2880
@@ -2744,7 +2741,7 @@ define internal void @_ZN11duckdb_zstdL21ZSTDMT_compressionJobEPv(ptr noundef ca
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !56
   br label %_ZN11duckdb_zstdL14ZSTDMT_getCCtxEPNS_15ZSTDMT_CCtxPoolE.exit
 
@@ -2780,7 +2777,7 @@ _ZN11duckdb_zstdL14ZSTDMT_getCCtxEPNS_15ZSTDMT_CCtxPoolE.exit: ; preds = %9, %16
   %31 = add i32 %27, -1
   store i32 %31, ptr %26, align 4, !tbaa !42, !noalias !163
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %32
   %.sroa.0.0.copyload.i.i = load ptr, ptr %33, align 8, !tbaa !40, !noalias !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41, !noalias !163
@@ -2875,7 +2872,7 @@ _ZN11duckdb_zstdL13ZSTDMT_getSeqEPNS_19ZSTDMT_bufferPool_sE.exit: ; preds = %24,
   %65 = add i32 %61, -1
   store i32 %65, ptr %60, align 4, !tbaa !42
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %66
   %.sroa.0.0.copyload.i = load ptr, ptr %67, align 8, !tbaa !40
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !41
@@ -3325,7 +3322,7 @@ _ZN11duckdb_zstdL33ZSTDMT_serialState_ensureFinishedEPNS_13serialState_tEjm.exit
   %285 = add nuw i32 %278, 1
   store i32 %285, ptr %277, align 4, !tbaa !42
   %286 = zext i32 %278 to i64
-  %287 = getelementptr inbounds nuw %"struct.duckdb_zstd::buffer_s", ptr %284, i64 %286
+  %287 = getelementptr inbounds nuw [16 x i8], ptr %284, i64 %286
   store ptr %.sroa.0.0, ptr %287, align 8, !tbaa !40
   %.sroa.4.0..sroa_idx.i.i169 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store i64 %274, ptr %.sroa.4.0..sroa_idx.i.i169, align 8, !tbaa !41
@@ -3365,7 +3362,7 @@ _ZN11duckdb_zstdL17ZSTDMT_releaseSeqEPNS_19ZSTDMT_bufferPool_sENS_13rawSeqStore_
   %301 = add nsw i32 %294, 1
   store i32 %301, ptr %293, align 8, !tbaa !92
   %302 = sext i32 %294 to i64
-  %303 = getelementptr inbounds ptr, ptr %300, i64 %302
+  %303 = getelementptr inbounds [8 x i8], ptr %300, i64 %302
   store ptr %.0.i, ptr %303, align 8, !tbaa !56
   br label %_ZN11duckdb_zstdL18ZSTDMT_releaseCCtxEPNS_15ZSTDMT_CCtxPoolEPNS_11ZSTD_CCtx_sE.exit
 

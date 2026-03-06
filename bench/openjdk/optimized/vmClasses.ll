@@ -41,7 +41,7 @@ define hidden void @_ZN9vmClasses21metaspace_pointers_doEP16MetaspaceClosure(ptr
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #5
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8
@@ -78,7 +78,7 @@ define hidden noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9vmClasses7resolveE9vmClassIDP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr @_ZN9vmClasses8_klassesE, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @_ZN9vmClasses8_klassesE, i64 %3
   %5 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   %.not = xor i1 %5, true
   %6 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
@@ -106,10 +106,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit:    ; preds = %13
   br i1 %.not17, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, label %26
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread: ; preds = %13, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit
-  %16 = getelementptr inbounds i16, ptr @_ZL17vm_class_name_ids, i64 %3
+  %16 = getelementptr inbounds [2 x i8], ptr @_ZL17vm_class_name_ids, i64 %3
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr @_ZN6Symbol11_vm_symbolsE, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %20, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %1) #5
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -170,7 +170,7 @@ define hidden void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15Class
 24:                                               ; preds = %.lr.ph, %33
   %25 = phi i32 [ %20, %.lr.ph ], [ %34, %33 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 152
   %29 = load ptr, ptr %28, align 8
@@ -228,7 +228,7 @@ define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32
 
 9:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %10 = getelementptr inbounds ptr, ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv
+  %10 = getelementptr inbounds [8 x i8], ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv
   %11 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   %.not.i = xor i1 %11, true
   %12 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
@@ -253,10 +253,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i:  ; preds = %17
   br i1 %.not17.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i, %17
-  %20 = getelementptr inbounds i16, ptr @_ZL17vm_class_name_ids, i64 %indvars.iv
+  %20 = getelementptr inbounds [2 x i8], ptr @_ZL17vm_class_name_ids, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZN6Symbol11_vm_symbolsE, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %24, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
   %26 = load ptr, ptr %5, align 8
@@ -349,7 +349,7 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i: ; preds = %_ZN9vmClasses
 
 .lr.ph.i.i22:                                     ; preds = %18, %23
   %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i29, %23 ], [ 1, %18 ]
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv.i.i23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv.i.i23
   %25 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   %.not.i.i.i24 = xor i1 %25, true
   %26 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
@@ -374,10 +374,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i33: ; preds = %31
   br i1 %.not17.i.i.i34, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i35, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i35: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i33, %31
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL17vm_class_name_ids, i64 %indvars.iv.i.i23
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL17vm_class_name_ids, i64 %indvars.iv.i.i23
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr @_ZN6Symbol11_vm_symbolsE, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %38, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
   %40 = load ptr, ptr %2, align 8
@@ -400,7 +400,7 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26: ; preds = %41, %_ZN9vm
 
 .lr.ph.i.i39:                                     ; preds = %15, %42
   %indvars.iv.i.i40 = phi i64 [ %indvars.iv.next.i.i46, %42 ], [ 1, %15 ]
-  %43 = getelementptr inbounds nuw ptr, ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv.i.i40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv.i.i40
   %44 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   %.not.i.i.i41 = xor i1 %44, true
   %45 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
@@ -425,10 +425,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i50: ; preds = %50
   br i1 %.not17.i.i.i51, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i52, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i52: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i50, %50
-  %53 = getelementptr inbounds nuw i16, ptr @_ZL17vm_class_name_ids, i64 %indvars.iv.i.i40
+  %53 = getelementptr inbounds nuw [2 x i8], ptr @_ZL17vm_class_name_ids, i64 %indvars.iv.i.i40
   %54 = load i16, ptr %53, align 2
   %55 = sext i16 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr @_ZN6Symbol11_vm_symbolsE, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %57, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
   %59 = load ptr, ptr %2, align 8
@@ -538,7 +538,7 @@ define linkonce_odr hidden void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P1
 
 10:                                               ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %11 = getelementptr inbounds ptr, ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv.i
+  %11 = getelementptr inbounds [8 x i8], ptr @_ZN9vmClasses8_klassesE, i64 %indvars.iv.i
   %12 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   %.not.i.i = xor i1 %12, true
   %13 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
@@ -563,10 +563,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i: ; preds = %18
   br i1 %.not17.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i, %18
-  %21 = getelementptr inbounds i16, ptr @_ZL17vm_class_name_ids, i64 %indvars.iv.i
+  %21 = getelementptr inbounds [2 x i8], ptr @_ZL17vm_class_name_ids, i64 %indvars.iv.i
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr @_ZN6Symbol11_vm_symbolsE, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %25, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
   %27 = load ptr, ptr %6, align 8
@@ -624,7 +624,7 @@ define hidden noundef zeroext range(i8 0, 15) i8 @_ZN9vmClasses14box_klass_typeE
 
 2:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 4, %1 ], [ %indvars.iv.next, %8 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN9vmClasses12_box_klassesE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9vmClasses12_box_klassesE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %6, label %8

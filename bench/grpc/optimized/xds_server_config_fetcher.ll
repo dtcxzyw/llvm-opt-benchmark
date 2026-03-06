@@ -169,10 +169,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<grpc_core::XdsListenerResource::HttpConnectionManager::HttpFilter, std::allocator<grpc_core::XdsListenerResource::HttpConnectionManager::HttpFilter>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::XdsListenerResource::HttpConnectionManager::HttpFilter, std::allocator<grpc_core::XdsListenerResource::HttpConnectionManager::HttpFilter>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_core::XdsListenerResource::HttpConnectionManager::HttpFilter, std::allocator<grpc_core::XdsListenerResource::HttpConnectionManager::HttpFilter>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"class.std::vector.345" = type { %"struct.std::_Vector_base.346" }
-%"struct.std::_Vector_base.346" = type { %"struct.std::_Vector_base<grpc_core::XdsListenerResource::FilterChainMap::SourceIp, std::allocator<grpc_core::XdsListenerResource::FilterChainMap::SourceIp>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::XdsListenerResource::FilterChainMap::SourceIp, std::allocator<grpc_core::XdsListenerResource::FilterChainMap::SourceIp>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::XdsListenerResource::FilterChainMap::SourceIp, std::allocator<grpc_core::XdsListenerResource::FilterChainMap::SourceIp>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::XdsListenerResource::FilterChainMap::SourceIp, std::allocator<grpc_core::XdsListenerResource::FilterChainMap::SourceIp>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, grpc_core::XdsListenerResource::FilterChainMap::FilterChainDataSharedPtr>, std::_Select1st<std::pair<const unsigned short, grpc_core::XdsListenerResource::FilterChainMap::FilterChainDataSharedPtr>>, std::less<unsigned short>>::_Alloc_node" = type { ptr }
 %class.anon.426 = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
@@ -231,33 +227,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.797 = type { %"class.absl::lts_20240722::Status" }
 %union.anon.798 = type { %"class.grpc_core::RefCountedPtr.778" }
 %"class.grpc_core::RefCountedPtr.778" = type { ptr }
-%"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost" = type { %"class.std::vector.509", %"class.std::vector.773" }
-%"class.std::vector.509" = type { %"struct.std::_Vector_base.510" }
-%"struct.std::_Vector_base.510" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.773" = type { %"struct.std::_Vector_base.774" }
-%"struct.std::_Vector_base.774" = type { %"struct.std::_Vector_base<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route, std::allocator<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route, std::allocator<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route, std::allocator<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route, std::allocator<grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route" = type { i8, %"struct.grpc_core::XdsRouteConfigResource::Route::Matchers", %"class.grpc_core::RefCountedPtr.778" }
-%"struct.grpc_core::XdsRouteConfigResource::Route::Matchers" = type { %"class.grpc_core::StringMatcher", %"class.std::vector.526", %"class.std::optional.531" }
-%"class.grpc_core::StringMatcher" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.377", i8, [7 x i8] }>
-%"class.std::unique_ptr.377" = type { %"struct.std::__uniq_ptr_data.378" }
-%"struct.std::__uniq_ptr_data.378" = type { %"class.std::__uniq_ptr_impl.379" }
-%"class.std::__uniq_ptr_impl.379" = type { %"class.std::tuple.380" }
-%"class.std::tuple.380" = type { %"struct.std::_Tuple_impl.381" }
-%"struct.std::_Tuple_impl.381" = type { %"struct.std::_Head_base.384" }
-%"struct.std::_Head_base.384" = type { ptr }
-%"class.std::vector.526" = type { %"struct.std::_Vector_base.527" }
-%"struct.std::_Vector_base.527" = type { %"struct.std::_Vector_base<grpc_core::HeaderMatcher, std::allocator<grpc_core::HeaderMatcher>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::HeaderMatcher, std::allocator<grpc_core::HeaderMatcher>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::HeaderMatcher, std::allocator<grpc_core::HeaderMatcher>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::HeaderMatcher, std::allocator<grpc_core::HeaderMatcher>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::optional.531" = type { %"struct.std::_Optional_base.532" }
-%"struct.std::_Optional_base.532" = type { %"struct.std::_Optional_payload.534" }
-%"struct.std::_Optional_payload.534" = type { %"struct.std::_Optional_payload_base.base.536", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.536" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
 %"class.absl::lts_20240722::StatusOr.803" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.804" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData.804" = type { %union.anon.805, %union.anon.806 }
 %union.anon.805 = type { %"class.absl::lts_20240722::Status" }
@@ -1702,7 +1671,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !75
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !72
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !76
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -5240,7 +5209,7 @@ _ZNSt12_Vector_baseIZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15Listener
   %684 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %683, ptr %27, align 8, !tbaa !220
   store ptr %683, ptr %684, align 8, !tbaa !223
-  %685 = getelementptr inbounds nuw %struct.WatcherToStart, ptr %683, i64 %677
+  %685 = getelementptr inbounds nuw [40 x i8], ptr %683, i64 %677
   store ptr %685, ptr %681, align 8, !tbaa !224
   br label %_ZNSt6vectorIZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager13StartRdsWatchENS0_13RefCountedPtrIS3_EEE14WatcherToStartSaIS7_EE7reserveEm.exit.i
 
@@ -6591,7 +6560,7 @@ _ZNSt6vectorIZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher
 _ZNSt6vectorIZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager13StartRdsWatchENS0_13RefCountedPtrIS3_EEE14WatcherToStartSaIS7_EE9push_backEOS7_.exit.i: ; preds = %1101, %_ZNSt6vectorIZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager13StartRdsWatchENS0_13RefCountedPtrIS3_EEE14WatcherToStartSaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i
   store ptr %1069, ptr %27, align 8, !tbaa !220
   store ptr %1100, ptr %923, align 8, !tbaa !223
-  %1102 = getelementptr inbounds nuw %struct.WatcherToStart, ptr %1069, i64 %1065
+  %1102 = getelementptr inbounds nuw [40 x i8], ptr %1069, i64 %1065
   store ptr %1102, ptr %681, align 8, !tbaa !224
   %.val.i118.pr.i = load ptr, ptr %922, align 8, !tbaa !287
   %.not.i.i119.i = icmp eq ptr %.val.i118.pr.i, null
@@ -7815,7 +7784,7 @@ define linkonce_odr void @_ZN9grpc_core19XdsListenerResource14FilterChainMap13De
   %.idx.i = mul nuw nsw i64 %5, 24
   %.add4 = add nuw nsw i64 %.idx.i, 144
   %.ptr7 = getelementptr inbounds nuw i8, ptr %0, i64 %.add4
-  %6 = getelementptr inbounds nuw %"class.std::vector.345", ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !199
   %9 = load ptr, ptr %6, align 8, !tbaa !196
@@ -11366,7 +11335,7 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %419, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  %420 = getelementptr inbounds nuw ptr, ptr %415, i64 %413
+  %420 = getelementptr inbounds nuw [8 x i8], ptr %415, i64 %413
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backEOS2_.exit
 
 421:                                              ; preds = %481
@@ -11496,7 +11465,7 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76: ; preds = %469, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i74
-  %470 = getelementptr inbounds nuw ptr, ptr %464, i64 %462
+  %470 = getelementptr inbounds nuw [8 x i8], ptr %464, i64 %462
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backEOS2_.exit79
 
 .loopexit:                                        ; preds = %444, %_ZNKSt6vectorIPK19grpc_channel_filterSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i71
@@ -18785,7 +18754,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher2
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %90, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25.i.i
   store ptr %69, ptr %18, align 8, !tbaa !570
   store ptr %89, ptr %23, align 8, !tbaa !566
-  %94 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost", ptr %69, i64 %67
+  %94 = getelementptr inbounds nuw [48 x i8], ptr %69, i64 %67
   store ptr %94, ptr %24, align 8, !tbaa !569
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE12emplace_backIJEEERS6_DpOT_.exit
 
@@ -18908,7 +18877,7 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHost5RouteESaIS7_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %142, %.noexc92
   store ptr %133, ptr %102, align 8, !tbaa !577
   store ptr %141, ptr %103, align 8, !tbaa !580
-  %146 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route", ptr %133, i64 %131
+  %146 = getelementptr inbounds nuw [104 x i8], ptr %133, i64 %131
   store ptr %146, ptr %104, align 8, !tbaa !581
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHost5RouteESaIS7_EE12emplace_backIJEEERS7_DpOT_.exit
 
@@ -19026,7 +18995,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i unwind label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i167.thread.loopexit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
-  %187 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %186, i64 %181
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %186, i64 %181
   br label %_ZN4absl12lts_202407228StatusOrIN9grpc_core10XdsRouting34GeneratePerHttpFilterConfigsResultEEptEv.exit99
 
 _ZN4absl12lts_202407228StatusOrIN9grpc_core10XdsRouting34GeneratePerHttpFilterConfigsResultEEptEv.exit99: ; preds = %184, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i
@@ -19306,7 +19275,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %281
-  %282 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %254, i64 %250
+  %282 = getelementptr inbounds nuw [32 x i8], ptr %254, i64 %250
   %.pre271 = load ptr, ptr %8, align 8, !tbaa !68
   %283 = icmp eq ptr %.pre271, %39
   br i1 %283, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -20648,7 +20617,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %103
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %60
   %109 = extractvalue { i64, i8 } %73, 0
   %.val = load ptr, ptr %71, align 8, !tbaa !570
-  %110 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost", ptr %.val, i64 %109
+  %110 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %109
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHost17RouteListIteratorE, i64 16), ptr %12, align 8, !tbaa !7
@@ -20663,7 +20632,7 @@ _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %60
 _ZNRSt8optionalImE5valueEv.exit78:                ; preds = %_ZNRSt8optionalImE5valueEv.exit
   %116 = extractvalue { i64, i8 } %113, 0
   %.val54 = load ptr, ptr %111, align 8, !tbaa !577
-  %117 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route", ptr %.val54, i64 %116
+  %117 = getelementptr inbounds nuw [104 x i8], ptr %.val54, i64 %116
   %118 = load i8, ptr %117, align 8, !tbaa !596, !range !27, !noundef !28
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %135
@@ -21112,7 +21081,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9grpc_core1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !654
   %.val = load ptr, ptr %4, align 8, !tbaa !570
-  %5 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost", ptr %.val, i64 %1
+  %5 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %1
   ret ptr %5
 }
 
@@ -21141,7 +21110,7 @@ define internal noundef nonnull align 8 dereferenceable(88) ptr @_ZNK9grpc_core1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !658
   %.val = load ptr, ptr %4, align 8, !tbaa !577
-  %5 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost::Route", ptr %.val, i64 %1
+  %5 = getelementptr inbounds nuw [104 x i8], ptr %.val, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   ret ptr %6
 }

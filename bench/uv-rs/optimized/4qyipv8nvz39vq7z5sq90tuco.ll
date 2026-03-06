@@ -59,8 +59,8 @@ define hidden void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$
   %7 = phi ptr [ %4, %.lr.ph ], [ %25, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h3131a2e0c38bc218E.llvm.2637951192517512934.exit" ]
   %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1592
-  %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.21.0.copyload
-  %10 = getelementptr inbounds { [18 x i64] }, ptr %7, i64 %.sroa.21.0.copyload
+  %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %.sroa.21.0.copyload
+  %10 = getelementptr inbounds [144 x i8], ptr %7, i64 %.sroa.21.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -487,7 +487,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$uv_options_metadata..Po
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr55drop_in_place$LT$uv_options_metadata..PossibleValue$GT$17h8cad8062c5a05530E.exit"
   %.sroa.0.07 = phi i64 [ %5, %"_ZN4core3ptr55drop_in_place$LT$uv_options_metadata..PossibleValue$GT$17h8cad8062c5a05530E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %0, i64 %.sroa.0.07
+  %4 = getelementptr inbounds [48 x i8], ptr %0, i64 %.sroa.0.07
   %5 = add nuw i64 %.sroa.0.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
@@ -624,7 +624,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$uv_option
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr55drop_in_place$LT$uv_options_metadata..PossibleValue$GT$17h8cad8062c5a05530E.exit.i.i"
   %.sroa.0.07.i.i = phi i64 [ %8, %"_ZN4core3ptr55drop_in_place$LT$uv_options_metadata..PossibleValue$GT$17h8cad8062c5a05530E.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.07.i.i
+  %7 = getelementptr inbounds [48 x i8], ptr %3, i64 %.sroa.0.07.i.i
   %8 = add nuw i64 %.sroa.0.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
@@ -883,8 +883,8 @@ define hidden void @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collec
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1592
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = getelementptr inbounds { [3 x i64] }, ptr %3, i64 %5
-  %7 = getelementptr inbounds { [18 x i64] }, ptr %2, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %3, i64 %5
+  %7 = getelementptr inbounds [144 x i8], ptr %2, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
@@ -954,7 +954,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr55drop_in_place$LT$uv_options_metadata..PossibleValue$GT$17h8cad8062c5a05530E.exit.i"
   %.sroa.0.07.i = phi i64 [ %8, %"_ZN4core3ptr55drop_in_place$LT$uv_options_metadata..PossibleValue$GT$17h8cad8062c5a05530E.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.07.i
+  %7 = getelementptr inbounds [48 x i8], ptr %3, i64 %.sroa.0.07.i
   %8 = add nuw i64 %.sroa.0.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
@@ -1198,8 +1198,8 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %6 = phi ptr [ %3, %.lr.ph ], [ %24, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h3131a2e0c38bc218E.llvm.2637951192517512934.exit" ]
   %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1592
-  %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %.sroa.21.0.copyload
-  %9 = getelementptr inbounds { [18 x i64] }, ptr %6, i64 %.sroa.21.0.copyload
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %.sroa.21.0.copyload
+  %9 = getelementptr inbounds [144 x i8], ptr %6, i64 %.sroa.21.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !430)

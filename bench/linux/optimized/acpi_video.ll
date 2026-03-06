@@ -38,8 +38,6 @@ module asm ".previous\09\09\09\09\09"
 %union.acpi_object = type { %struct.anon.9 }
 %struct.anon.9 = type { i32, i32, i64, i32 }
 %struct.acpi_object_list = type { i32, ptr }
-%struct.acpi_video_enumerated_device = type { %union.anon.11, ptr }
-%union.anon.11 = type { i32 }
 %struct.backlight_properties = type { i32, i32, i32, i32, i32, i32, i32 }
 
 @__UNIQUE_ID_author442 = internal constant [26 x i8] c"video.author=Bruno Ducrot\00", section ".modinfo", align 1
@@ -247,7 +245,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   %51 = phi i32 [ 0, %37 ], [ %79, %78 ]
   %52 = load ptr, ptr %38, align 8
   %53 = sext i32 %49 to i64
-  %54 = getelementptr %union.acpi_object, ptr %52, i64 %53
+  %54 = getelementptr [24 x i8], ptr %52, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %59, label %57
@@ -267,7 +265,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 
 64:                                               ; preds = %59
   %65 = zext nneg i32 %50 to i64
-  %66 = getelementptr i32, ptr %.pre, i64 %65
+  %66 = getelementptr [4 x i8], ptr %.pre, i64 %65
   %67 = getelementptr i8, ptr %66, i64 -4
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, %62
@@ -275,10 +273,10 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 
 70:                                               ; preds = %64, %59
   %71 = sext i32 %50 to i64
-  %72 = getelementptr i32, ptr %.pre, i64 %71
+  %72 = getelementptr [4 x i8], ptr %.pre, i64 %71
   store i32 %62, ptr %72, align 4
   %73 = load ptr, ptr %32, align 8
-  %74 = getelementptr i32, ptr %73, i64 %71
+  %74 = getelementptr [4 x i8], ptr %73, i64 %71
   %75 = load i32, ptr %74, align 4
   %76 = call i32 @llvm.smax.i32(i32 %75, i32 %51)
   %77 = add i32 %50, 1
@@ -295,7 +293,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 84:                                               ; preds = %84, %42
   %85 = phi i64 [ 2, %42 ], [ %95, %84 ]
   %86 = phi i32 [ 0, %42 ], [ %94, %84 ]
-  %87 = getelementptr i32, ptr %43, i64 %85
+  %87 = getelementptr [4 x i8], ptr %43, i64 %85
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, %44
   %90 = zext i1 %89 to i32
@@ -335,9 +333,9 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   %113 = trunc i64 %111 to i32
   %114 = sub i32 %113, %102
   %115 = sext i32 %114 to i64
-  %116 = getelementptr i32, ptr %112, i64 %115
+  %116 = getelementptr [4 x i8], ptr %112, i64 %115
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr i32, ptr %112, i64 %111
+  %118 = getelementptr [4 x i8], ptr %112, i64 %111
   store i32 %117, ptr %118, align 4
   %119 = add nsw i64 %111, -1
   %120 = icmp samesign ugt i64 %111, 2
@@ -378,7 +376,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 139:                                              ; preds = %126
   %140 = add i32 %128, -1
   %141 = sext i32 %140 to i64
-  %142 = getelementptr i32, ptr %129, i64 %141
+  %142 = getelementptr [4 x i8], ptr %129, i64 %141
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %127, %143
   br i1 %144, label %147, label %145
@@ -462,7 +460,7 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
 31:                                               ; preds = %110, %20
   %32 = phi i64 [ 0, %20 ], [ %111, %110 ]
   %33 = load ptr, ptr %21, align 8
-  %.split = getelementptr %struct.acpi_video_enumerated_device, ptr %33, i64 %32
+  %.split = getelementptr [16 x i8], ptr %33, i64 %32
   %34 = getelementptr i8, ptr %.split, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
@@ -772,7 +770,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
 
 41:                                               ; preds = %41, %35
   %42 = phi i64 [ 0, %35 ], [ %48, %41 ]
-  %43 = getelementptr %struct.acpi_video_enumerated_device, ptr %37, i64 %42
+  %43 = getelementptr [16 x i8], ptr %37, i64 %42
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 4095
   %46 = zext nneg i32 %45 to i64
@@ -901,7 +899,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
 
 120:                                              ; preds = %131, %116
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ 2, %116 ]
-  %121 = getelementptr i32, ptr %118, i64 %indvars.iv.i
+  %121 = getelementptr [4 x i8], ptr %118, i64 %indvars.iv.i
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, %103
   br i1 %123, label %124, label %131
@@ -991,7 +989,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %174 = phi i64 [ %172, %169 ], [ %157, %166 ]
   %175 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr i32, ptr %176, i64 %174
+  %177 = getelementptr [4 x i8], ptr %176, i64 %174
   %178 = getelementptr i8, ptr %177, i64 8
   %179 = load i32, ptr %178, align 4
   %180 = icmp eq i32 %179, %103
@@ -1056,7 +1054,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
   %213 = phi i64 [ %211, %206 ], [ %197, %203 ]
   %214 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr i32, ptr %215, i64 %213
+  %216 = getelementptr [4 x i8], ptr %215, i64 %213
   %217 = getelementptr i8, ptr %216, i64 8
   %218 = load i32, ptr %217, align 4
   %219 = sext i32 %218 to i64
@@ -1081,7 +1079,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
 
 233:                                              ; preds = %239, %229
   %234 = phi i64 [ %240, %239 ], [ 2, %229 ]
-  %235 = getelementptr i32, ptr %231, i64 %234
+  %235 = getelementptr [4 x i8], ptr %231, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = sext i32 %236 to i64
   %238 = icmp eq i64 %224, %237
@@ -1144,7 +1142,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
 
 274:                                              ; preds = %285, %270
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %285 ], [ 2, %270 ]
-  %275 = getelementptr i32, ptr %272, i64 %indvars.iv.i16
+  %275 = getelementptr [4 x i8], ptr %272, i64 %indvars.iv.i16
   %276 = load i32, ptr %275, align 4
   %277 = icmp eq i32 %276, %253
   br i1 %277, label %278, label %285
@@ -1255,7 +1253,7 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
 
 334:                                              ; preds = %343, %329
   %335 = phi i64 [ %344, %343 ], [ 2, %329 ]
-  %336 = getelementptr i32, ptr %331, i64 %335
+  %336 = getelementptr [4 x i8], ptr %331, i64 %335
   %337 = load i32, ptr %336, align 4
   %338 = sext i32 %337 to i64
   %339 = icmp eq i64 %332, %338
@@ -2140,7 +2138,7 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
   %27 = phi i8 [ %39, %38 ], [ %22, %.split ]
   %28 = phi i64 [ %40, %38 ], [ 0, %.split ]
   %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr %struct.acpi_video_enumerated_device, ptr %29, i64 %28
+  %30 = getelementptr [16 x i8], ptr %29, i64 %28
   %31 = load i64, ptr %25, align 8
   %32 = load i32, ptr %30, align 8
   %33 = and i32 %32, 65535
@@ -2427,7 +2425,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %45 = phi i32 [ 0, %40 ], [ %65, %63 ]
   %46 = load ptr, ptr %41, align 8
   %47 = sext i32 %44 to i64
-  %48 = getelementptr %union.acpi_object, ptr %46, i64 %47
+  %48 = getelementptr [24 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %55, label %51
@@ -2445,7 +2443,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
   %59 = sext i32 %45 to i64
-  %60 = getelementptr %struct.acpi_video_enumerated_device, ptr %35, i64 %59
+  %60 = getelementptr [16 x i8], ptr %35, i64 %59
   store i32 %58, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr null, ptr %61, align 8
@@ -2543,7 +2541,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
 
 34:                                               ; preds = %31, %27
   %35 = phi i64 [ 0, %27 ], [ %32, %31 ]
-  %36 = getelementptr %struct.acpi_video_enumerated_device, ptr %29, i64 %35
+  %36 = getelementptr [16 x i8], ptr %29, i64 %35
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 65535
   %39 = zext nneg i32 %38 to i64
@@ -2594,7 +2592,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
 
 .thread:                                          ; preds = %.thread.preheader, %62
   %65 = phi i64 [ %63, %62 ], [ 0, %.thread.preheader ]
-  %66 = getelementptr %struct.acpi_video_enumerated_device, ptr %29, i64 %65
+  %66 = getelementptr [16 x i8], ptr %29, i64 %65
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 65535
   %69 = zext nneg i32 %68 to i64
@@ -2649,7 +2647,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %91 = phi i8 [ %25, %88 ], [ %103, %102 ]
   %92 = phi i64 [ 0, %88 ], [ %104, %102 ]
   %93 = load ptr, ptr %89, align 8
-  %94 = getelementptr %struct.acpi_video_enumerated_device, ptr %93, i64 %92
+  %94 = getelementptr [16 x i8], ptr %93, i64 %92
   %95 = load i64, ptr %10, align 8
   %96 = load i32, ptr %94, align 8
   %97 = and i32 %96, 65535
@@ -2841,7 +2839,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
 25:                                               ; preds = %36, %21
   %26 = phi i64 [ 2, %21 ], [ %38, %36 ]
   %27 = phi i32 [ 255, %21 ], [ %37, %36 ]
-  %28 = getelementptr i32, ptr %23, i64 %26
+  %28 = getelementptr [4 x i8], ptr %23, i64 %26
   %29 = load i32, ptr %28, align 4
   %30 = sub i32 %29, %15
   %31 = call i32 @llvm.abs.i32(i32 %30, i1 false)
@@ -2870,7 +2868,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
   %46 = phi i32 [ 0, %40 ], [ %52, %43 ]
   %47 = phi i32 [ 0, %40 ], [ %60, %43 ]
   %48 = phi i32 [ 255, %40 ], [ %56, %43 ]
-  %49 = getelementptr i32, ptr %23, i64 %44
+  %49 = getelementptr [4 x i8], ptr %23, i64 %44
   %50 = load i32, ptr %49, align 4
   %51 = call i32 @llvm.smin.i32(i32 %50, i32 %45)
   %52 = call i32 @llvm.smax.i32(i32 %50, i32 %46)
@@ -2946,7 +2944,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
 
 97:                                               ; preds = %107, %93
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %107 ], [ 2, %93 ]
-  %98 = getelementptr i32, ptr %95, i64 %indvars.iv.i
+  %98 = getelementptr [4 x i8], ptr %95, i64 %indvars.iv.i
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, %79
   br i1 %100, label %101, label %107
@@ -3047,7 +3045,7 @@ define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef
   %35 = phi i64 [ %33, %28 ], [ %18, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr i32, ptr %37, i64 %35
+  %38 = getelementptr [4 x i8], ptr %37, i64 %35
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
@@ -3078,7 +3076,7 @@ define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef
 
 57:                                               ; preds = %55, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 2, %51 ]
-  %58 = getelementptr i32, ptr %53, i64 %indvars.iv
+  %58 = getelementptr [4 x i8], ptr %53, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp eq i64 %46, %60
@@ -3294,7 +3292,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
 13:                                               ; preds = %acpi_video_device_lcd_set_level.exit, %11
   %14 = phi i64 [ 0, %11 ], [ %62, %acpi_video_device_lcd_set_level.exit ]
   %15 = load ptr, ptr %12, align 8
-  %.split = getelementptr %struct.acpi_video_enumerated_device, ptr %15, i64 %14
+  %.split = getelementptr [16 x i8], ptr %15, i64 %14
   %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -3341,7 +3339,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
 
 46:                                               ; preds = %57, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %57 ], [ 2, %42 ]
-  %47 = getelementptr i32, ptr %44, i64 %indvars.iv.i
+  %47 = getelementptr [4 x i8], ptr %44, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, %24
   br i1 %49, label %50, label %57
@@ -3418,7 +3416,7 @@ define internal range(i32 -2147483648, 2147483646) i32 @acpi_video_get_brightnes
 
 15:                                               ; preds = %23, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 2, %10 ]
-  %16 = getelementptr i32, ptr %12, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp eq i64 %13, %18
@@ -3462,7 +3460,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %3 to i64
-  %13 = getelementptr i32, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %16 = load ptr, ptr %15, align 8
@@ -3497,7 +3495,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nou
 
 36:                                               ; preds = %47, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 2, %32 ]
-  %37 = getelementptr i32, ptr %34, i64 %indvars.iv.i
+  %37 = getelementptr [4 x i8], ptr %34, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %14
   br i1 %39, label %40, label %47
@@ -3572,7 +3570,7 @@ define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr noundef r
 
 16:                                               ; preds = %26, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 2, %11 ]
-  %17 = getelementptr i32, ptr %14, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr %14, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp eq i64 %12, %19
@@ -3615,8 +3613,8 @@ define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr noundef r
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = xor i64 %1, -1
-  %17 = getelementptr i32, ptr %15, i64 %16
-  %18 = getelementptr i32, ptr %17, i64 %13
+  %17 = getelementptr [4 x i8], ptr %15, i64 %16
+  %18 = getelementptr [4 x i8], ptr %17, i64 %13
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %21 = load ptr, ptr %20, align 8
@@ -3651,7 +3649,7 @@ define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr noundef r
 
 41:                                               ; preds = %52, %37
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 2, %37 ]
-  %42 = getelementptr i32, ptr %39, i64 %indvars.iv.i
+  %42 = getelementptr [4 x i8], ptr %39, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %19
   br i1 %44, label %45, label %52

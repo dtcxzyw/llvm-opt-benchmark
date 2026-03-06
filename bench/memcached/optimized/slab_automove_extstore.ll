@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.stats_state = type { i64, i64, i64, i64, float, i32, i32, i32, i32, i8, i8, i8, i8 }
 %struct.settings = type { i64, i32, i32, i32, ptr, i32, i32, i32, ptr, ptr, i32, double, i32, i32, i32, i8, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i32, i32, double, double, i32, i32, i8, i32, i8, i8, ptr, i32, i32, i32, i32, double, double, i32, i8, i32, i32, i32, i32, i32, i8, i8, i8, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, double, i8, i32, i32, ptr, i32 }
-%struct.slab_stats_automove = type { i32, i32, i64, i64 }
-%struct.window_data = type { i64, i64, i64, i32, i32 }
-%struct.item_stats_automove = type { i64, i64, i32 }
 
 @stats_state = external local_unnamed_addr global %struct.stats_state, align 8
 @settings = external local_unnamed_addr global %struct.settings, align 8
@@ -113,7 +110,7 @@ global_pool_check.exit:                           ; preds = %3, %10
 18:                                               ; preds = %18, %global_pool_check.exit
   %indvars.iv.i = phi i64 [ 1, %global_pool_check.exit ], [ %indvars.iv.next.i, %18 ]
   %.015.i = phi i32 [ 0, %global_pool_check.exit ], [ %23, %18 ]
-  %19 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4680
   %21 = load i64, ptr %20, align 8, !tbaa !34
   %22 = trunc i64 %21 to i32
@@ -151,7 +148,7 @@ memcheck.exit:                                    ; preds = %18
   %.094129 = phi i1 [ false, %memcheck.exit ], [ %.195, %123 ]
   %.097128 = phi i32 [ 0, %memcheck.exit ], [ %.198116, %123 ]
   %.099127 = phi i32 [ 0, %memcheck.exit ], [ %.1100114, %123 ]
-  %40 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !39
   %43 = load i32, ptr %34, align 8, !tbaa !25
@@ -163,9 +160,9 @@ memcheck.exit:                                    ; preds = %18
   %49 = urem i32 %48, %45
   %50 = add i32 %49, %47
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.window_data, ptr %39, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
-  %53 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %14, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv
   %54 = load i32, ptr %53, align 8, !tbaa !40
   %55 = shl i32 %54, 1
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -181,9 +178,9 @@ memcheck.exit:                                    ; preds = %18
 
 62:                                               ; preds = %38
   %63 = add i32 %.097128, %58
-  %64 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %13, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8, !tbaa !41
-  %66 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %36, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8, !tbaa !41
   %68 = icmp sgt i64 %65, %67
   br i1 %68, label %75, label %69
@@ -229,14 +226,14 @@ memcheck.exit:                                    ; preds = %18
   br label %91
 
 91:                                               ; preds = %89, %84
-  %92 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %13, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load i32, ptr %93, align 8, !tbaa !49
   %95 = zext i32 %94 to i64
   store i64 %95, ptr %52, align 8, !tbaa !50
   %96 = load ptr, ptr %0, align 8, !tbaa !16
   %97 = sext i32 %47 to i64
-  %98 = getelementptr inbounds %struct.window_data, ptr %96, i64 %97
+  %98 = getelementptr inbounds [32 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %35, align 8, !tbaa !20
   %.not.i = icmp eq i32 %99, 0
   br i1 %.not.i, label %window_sum.exit.thread, label %.lr.ph.i
@@ -250,7 +247,7 @@ memcheck.exit:                                    ; preds = %18
   %101 = phi i32 [ 0, %.lr.ph.i ], [ %112, %100 ]
   %102 = phi i64 [ 0, %.lr.ph.i ], [ %109, %100 ]
   %103 = phi i64 [ 0, %.lr.ph.i ], [ %106, %100 ]
-  %104 = getelementptr inbounds nuw %struct.window_data, ptr %98, i64 %indvars.iv.i105
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %indvars.iv.i105
   %105 = load i64, ptr %104, align 8, !tbaa !50
   %106 = add i64 %105, %103
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 8

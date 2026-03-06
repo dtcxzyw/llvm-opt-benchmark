@@ -51,7 +51,7 @@ define hidden void @KeccakP1600_AddBytesInLane(ptr noundef captures(none) %0, i3
   %14 = zext nneg i32 %13 to i64
   %15 = shl i64 %.0..0..0., %14
   %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !4
   %19 = xor i64 %18, %15
   store i64 %19, ptr %17, align 8, !tbaa !4
@@ -80,65 +80,65 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
   %5 = phi i32 [ %61, %.lr.ph ], [ 8, %3 ]
   %.078 = phi i32 [ %5, %.lr.ph ], [ 0, %3 ]
   %6 = zext i32 %.078 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %10 = load i64, ptr %9, align 8, !tbaa !4
   %11 = xor i64 %10, %8
   store i64 %11, ptr %9, align 8, !tbaa !4
   %12 = or disjoint i32 %.078, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %13
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %17 = load i64, ptr %16, align 8, !tbaa !4
   %18 = xor i64 %17, %15
   store i64 %18, ptr %16, align 8, !tbaa !4
   %19 = or disjoint i32 %.078, 2
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !4
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %24 = load i64, ptr %23, align 8, !tbaa !4
   %25 = xor i64 %24, %22
   store i64 %25, ptr %23, align 8, !tbaa !4
   %26 = or disjoint i32 %.078, 3
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw i64, ptr %0, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %27
   %31 = load i64, ptr %30, align 8, !tbaa !4
   %32 = xor i64 %31, %29
   store i64 %32, ptr %30, align 8, !tbaa !4
   %33 = or disjoint i32 %.078, 4
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !4
-  %37 = getelementptr inbounds nuw i64, ptr %0, i64 %34
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %34
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = xor i64 %38, %36
   store i64 %39, ptr %37, align 8, !tbaa !4
   %40 = or disjoint i32 %.078, 5
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i64, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !4
-  %44 = getelementptr inbounds nuw i64, ptr %0, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %41
   %45 = load i64, ptr %44, align 8, !tbaa !4
   %46 = xor i64 %45, %43
   store i64 %46, ptr %44, align 8, !tbaa !4
   %47 = or disjoint i32 %.078, 6
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !4
-  %51 = getelementptr inbounds nuw i64, ptr %0, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %48
   %52 = load i64, ptr %51, align 8, !tbaa !4
   %53 = xor i64 %52, %50
   store i64 %53, ptr %51, align 8, !tbaa !4
   %54 = or disjoint i32 %.078, 7
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !4
-  %58 = getelementptr inbounds nuw i64, ptr %0, i64 %55
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %55
   %59 = load i64, ptr %58, align 8, !tbaa !4
   %60 = xor i64 %59, %57
   store i64 %60, ptr %58, align 8, !tbaa !4
@@ -156,33 +156,33 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
   %63 = phi i32 [ %91, %.lr.ph81 ], [ %4, %.preheader76 ]
   %.180 = phi i32 [ %63, %.lr.ph81 ], [ %.0.lcssa, %.preheader76 ]
   %64 = zext i32 %.180 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %1, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !4
-  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %64
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %64
   %68 = load i64, ptr %67, align 8, !tbaa !4
   %69 = xor i64 %68, %66
   store i64 %69, ptr %67, align 8, !tbaa !4
   %70 = or disjoint i32 %.180, 1
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i64, ptr %1, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !4
-  %74 = getelementptr inbounds nuw i64, ptr %0, i64 %71
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %71
   %75 = load i64, ptr %74, align 8, !tbaa !4
   %76 = xor i64 %75, %73
   store i64 %76, ptr %74, align 8, !tbaa !4
   %77 = or disjoint i32 %.180, 2
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %1, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !4
-  %81 = getelementptr inbounds nuw i64, ptr %0, i64 %78
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %78
   %82 = load i64, ptr %81, align 8, !tbaa !4
   %83 = xor i64 %82, %80
   store i64 %83, ptr %81, align 8, !tbaa !4
   %84 = or disjoint i32 %.180, 3
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i64, ptr %1, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !4
-  %88 = getelementptr inbounds nuw i64, ptr %0, i64 %85
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %85
   %89 = load i64, ptr %88, align 8, !tbaa !4
   %90 = xor i64 %89, %87
   store i64 %90, ptr %88, align 8, !tbaa !4
@@ -194,17 +194,17 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
   %92 = phi i32 [ %106, %.lr.ph85 ], [ %62, %.preheader ]
   %.284 = phi i32 [ %92, %.lr.ph85 ], [ %.1.lcssa, %.preheader ]
   %93 = zext i32 %.284 to i64
-  %94 = getelementptr inbounds nuw i64, ptr %1, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %93
   %95 = load i64, ptr %94, align 8, !tbaa !4
-  %96 = getelementptr inbounds nuw i64, ptr %0, i64 %93
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %93
   %97 = load i64, ptr %96, align 8, !tbaa !4
   %98 = xor i64 %97, %95
   store i64 %98, ptr %96, align 8, !tbaa !4
   %99 = or disjoint i32 %.284, 1
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw i64, ptr %1, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %100
   %102 = load i64, ptr %101, align 8, !tbaa !4
-  %103 = getelementptr inbounds nuw i64, ptr %0, i64 %100
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %100
   %104 = load i64, ptr %103, align 8, !tbaa !4
   %105 = xor i64 %104, %102
   store i64 %105, ptr %103, align 8, !tbaa !4
@@ -219,9 +219,9 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
 
 108:                                              ; preds = %._crit_edge
   %109 = zext i32 %.2.lcssa to i64
-  %110 = getelementptr inbounds nuw i64, ptr %1, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !4
-  %112 = getelementptr inbounds nuw i64, ptr %0, i64 %109
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %109
   %113 = load i64, ptr %112, align 8, !tbaa !4
   %114 = xor i64 %113, %111
   store i64 %114, ptr %112, align 8, !tbaa !4
@@ -266,7 +266,7 @@ define hidden void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr noun
 19:                                               ; preds = %17, %14
   %.0..0..0..i = phi i64 [ %.0..0..0..0..0..0..pre.i, %17 ], [ %16, %14 ]
   %20 = zext nneg i32 %9 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !4
   %23 = xor i64 %22, %.0..0..0..i
   store i64 %23, ptr %21, align 8, !tbaa !4
@@ -315,7 +315,7 @@ KeccakP1600_AddBytesInLane.exit35:                ; preds = %31, %28
   %34 = zext nneg i32 %33 to i64
   %35 = shl i64 %.0..0..0..i33, %34
   %36 = zext i32 %.02938 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = xor i64 %38, %35
   store i64 %39, ptr %37, align 8, !tbaa !4
@@ -391,7 +391,7 @@ define hidden void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures(no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
   %4 = trunc nuw i64 %indvars.iv to i32
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !4
   switch i32 %4, label %9 [
     i32 20, label %7
@@ -408,7 +408,7 @@ define hidden void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures(no
 
 9:                                                ; preds = %.lr.ph, %7
   %.sink = phi i64 [ %8, %7 ], [ %6, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %.sink, ptr %10, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -435,7 +435,7 @@ define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(no
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
   %8 = trunc nuw i64 %indvars.iv.i to i32
-  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8, !tbaa !4
   switch i32 %8, label %13 [
     i32 20, label %11
@@ -452,7 +452,7 @@ define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(no
 
 13:                                               ; preds = %11, %.lr.ph.i
   %.sink.i = phi i64 [ %12, %11 ], [ %10, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   store i64 %.sink.i, ptr %14, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -599,7 +599,7 @@ switch.early.test:                                ; preds = %.lr.ph
 
 8:                                                ; preds = %.lr.ph, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %7
   %.sink = phi i64 [ 0, %7 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %.sink, ptr %9, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -741,7 +741,7 @@ define hidden void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0, i
   %93 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 14)
   %94 = or i64 %89, %87
   %95 = zext i32 %72 to i64
-  %96 = getelementptr inbounds nuw i64, ptr @KeccakF1600RoundConstants, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr @KeccakF1600RoundConstants, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !4
   %98 = xor i64 %94, %97
   %99 = xor i64 %98, %85
@@ -952,7 +952,7 @@ define hidden void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0, i
   %234 = xor i64 %226, %.1851921
   %235 = tail call i64 @llvm.fshl.i64(i64 %234, i64 %234, i64 14)
   %236 = or i64 %231, %229
-  %237 = getelementptr inbounds nuw i64, ptr @KeccakF1600RoundConstants, i64 %indvars.iv
+  %237 = getelementptr inbounds nuw [8 x i8], ptr @KeccakF1600RoundConstants, i64 %indvars.iv
   %238 = load i64, ptr %237, align 8, !tbaa !4
   %239 = xor i64 %236, %238
   %240 = xor i64 %239, %227
@@ -6286,7 +6286,7 @@ define hidden void @KeccakP1600_Permute_12rounds(ptr noundef captures(none) %0) 
 define hidden void @KeccakP1600_ExtractBytesInLane(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [1 x i64], align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !4
   switch i32 %1, label %12 [
     i32 20, label %10
@@ -6444,7 +6444,7 @@ KeccakP1600_ExtractLanes.exit:                    ; preds = %7, %20, %24, %29, %
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %44 = and i32 %3, 7
   %45 = zext nneg i32 %8 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !4
   switch i32 %8, label %KeccakP1600_ExtractBytesInLane.exit [
     i32 20, label %48
@@ -6489,7 +6489,7 @@ KeccakP1600_ExtractBytesInLane.exit:              ; preds = %KeccakP1600_Extract
   %59 = sub nuw nsw i32 8, %.02838
   %spec.select = tail call i32 @llvm.umin.i32(i32 %59, i32 %.03036)
   %60 = zext i32 %.02937 to i64
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !4
   switch i32 %.02937, label %KeccakP1600_ExtractBytesInLane.exit34 [
     i32 20, label %63
@@ -6527,7 +6527,7 @@ KeccakP1600_ExtractBytesInLane.exit34:            ; preds = %.lr.ph, %63
 define hidden void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca [1 x i64], align 8
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !4
   switch i32 %1, label %13 [
     i32 20, label %11
@@ -6585,12 +6585,12 @@ define hidden void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !4
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = xor i64 %8, %6
-  %10 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %9, ptr %10, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6673,12 +6673,12 @@ KeccakP1600_ExtractAndAddLanes.exit.thread59:     ; preds = %9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %13 = load i64, ptr %12, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8, !tbaa !4
   %16 = xor i64 %15, %13
-  %17 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   store i64 %16, ptr %17, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6741,7 +6741,7 @@ KeccakP1600_ExtractAndAddLanes.exit.thread:       ; preds = %._crit_edge.i, %18
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 %47
   %50 = and i32 %4, 7
-  %51 = getelementptr inbounds nuw i64, ptr %0, i64 %wide.trip.count.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %wide.trip.count.i
   %52 = load i64, ptr %51, align 8, !tbaa !4
   br label %60
 
@@ -6751,7 +6751,7 @@ KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %22, %27, %32, %37, 
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 %54
   %57 = and i32 %4, 7
-  %58 = getelementptr inbounds nuw i64, ptr %0, i64 %wide.trip.count.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %wide.trip.count.i
   %59 = load i64, ptr %58, align 8, !tbaa !4
   switch i32 %10, label %66 [
     i32 20, label %60
@@ -6817,7 +6817,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %66
   %79 = sub nuw nsw i32 8, %.03663
   %spec.select = tail call i32 @llvm.umin.i32(i32 %79, i32 %.03861)
   %80 = zext i32 %.03762 to i64
-  %81 = getelementptr inbounds nuw i64, ptr %0, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !4
   switch i32 %.03762, label %.lr.ph.preheader.i51 [
     i32 20, label %83
@@ -10621,7 +10621,7 @@ define hidden i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0, i3
   %3613 = xor i64 %3612, %3602
   %3614 = and i64 %3596, %3598
   %3615 = xor i64 %3614, %3604
-  %3616 = getelementptr inbounds nuw i64, ptr %.05996, i64 %75
+  %3616 = getelementptr inbounds nuw [8 x i8], ptr %.05996, i64 %75
   %3617 = sub i64 %.059115995, %55
   %.not = icmp ult i64 %3617, %55
   br i1 %.not, label %._crit_edge, label %76

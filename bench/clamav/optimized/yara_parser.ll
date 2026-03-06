@@ -325,7 +325,7 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
 
 8:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11

@@ -1727,7 +1727,7 @@ thread-pre-split:                                 ; preds = %263
 292:                                              ; preds = %._crit_edge.i, %283
   %293 = phi i64 [ %.pre.i140, %._crit_edge.i ], [ %284, %283 ]
   %294 = load ptr, ptr %18, align 8, !alias.scope !237, !noalias !240, !nonnull !5, !noundef !5
-  %295 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %294, i64 %293
+  %295 = getelementptr inbounds [24 x i8], ptr %294, i64 %293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %295, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %296 = load i64, ptr %19, align 8, !alias.scope !237, !noalias !240, !noundef !5
   %297 = add i64 %296, 1
@@ -1865,7 +1865,7 @@ define hidden void @_ZN6uu_fmt9parasplit9ParaWords12create_words17h7ac08de88d827
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !5
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %21, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %21, i64 %23
   store ptr %21, ptr %7, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %24, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -2106,7 +2106,7 @@ _ZN6uu_fmt9parasplit9WordSplit3new17hdc2494d9dc6a263dE.exit76: ; preds = %"_ZN53
   %112 = load ptr, ptr %14, align 8, !nonnull !5, !align !79, !noundef !5
   %113 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %114 = load ptr, ptr %113, align 8, !nonnull !5, !noundef !5
-  %115 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %114, i64 %75
+  %115 = getelementptr inbounds [24 x i8], ptr %114, i64 %75
   store ptr %114, ptr %5, align 8
   %.sroa.048.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %115, ptr %.sroa.048.sroa.4.0..sroa_idx, align 8
@@ -2134,7 +2134,7 @@ define hidden { ptr, ptr } @_ZN6uu_fmt9parasplit9ParaWords5words17ha2f6ee4f1980d
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { i64, [1 x i64] }, { ptr, i64 }, i64, i64, i64, i8, i8, i8, [5 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [64 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8

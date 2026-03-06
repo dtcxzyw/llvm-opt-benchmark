@@ -4,13 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._wtap_module_reg = type { ptr, ptr }
-%struct.file_extension_info = type { ptr, i8, ptr }
-%struct.open_info = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.supported_block_type = type { i32, i32, i64, ptr }
-%struct.supported_option_type = type { i32, i32 }
 %struct.backwards_compatibiliity_lua_name = type { ptr, i32 }
 
 @file_type_extensions_arr = internal unnamed_addr global ptr null, align 8
@@ -227,7 +222,7 @@ define i32 @wtap_get_num_file_type_extensions() local_unnamed_addr #2 {
 define ptr @wtap_get_file_extension_type_name(i32 noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @file_type_extensions, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr %struct.file_extension_info, ptr %2, i64 %3
+  %4 = getelementptr [24 x i8], ptr %2, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -258,7 +253,7 @@ declare ptr @wtap_get_all_compression_type_extensions_list() local_unnamed_addr 
 define internal fastcc ptr @add_extensions_for_file_extensions_type(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = load ptr, ptr @file_type_extensions, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr %struct.file_extension_info, ptr %4, i64 %5
+  %6 = getelementptr [24 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @g_strsplit(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 0)
@@ -369,7 +364,7 @@ define void @init_open_routines() local_unnamed_addr #0 {
 
 23:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %24 = getelementptr %struct.open_info, ptr %22, i64 %indvars.iv.i
+  %24 = getelementptr [48 x i8], ptr %22, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
@@ -423,7 +418,7 @@ define void @wtap_register_open_info(ptr noundef %0, i1 noundef zeroext %1) loca
 
 10:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %11 = getelementptr %struct.open_info, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr [48 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %.not9.i = icmp eq ptr %12, null
   br i1 %.not9.i, label %16, label %13
@@ -496,7 +491,7 @@ wtap_has_open_info.exit:                          ; preds = %13
 
 40:                                               ; preds = %47, %.lr.ph.i17
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i20, %47 ]
-  %41 = getelementptr %struct.open_info, ptr %37, i64 %indvars.iv.i19
+  %41 = getelementptr [48 x i8], ptr %37, i64 %indvars.iv.i19
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 1
@@ -542,7 +537,7 @@ define noundef zeroext i1 @wtap_has_open_info(ptr noundef readonly captures(addr
 
 7:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %8 = getelementptr %struct.open_info, ptr %5, i64 %indvars.iv
+  %8 = getelementptr [48 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not9 = icmp eq ptr %9, null
   br i1 %.not9, label %13, label %10
@@ -591,7 +586,7 @@ define void @wtap_deregister_open_info(ptr noundef readonly captures(address_is_
 
 7:                                                ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %8 = getelementptr %struct.open_info, ptr %5, i64 %indvars.iv
+  %8 = getelementptr [48 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not9 = icmp eq ptr %9, null
   br i1 %.not9, label %30, label %10
@@ -621,7 +616,7 @@ define void @wtap_deregister_open_info(ptr noundef readonly captures(address_is_
 
 22:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
-  %23 = getelementptr %struct.open_info, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr [48 x i8], ptr %21, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 1
@@ -697,7 +692,7 @@ define i32 @open_info_name_to_type(ptr noundef readonly captures(address_is_null
 
 6:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %7 = getelementptr %struct.open_info, ptr %5, i64 %indvars.iv
+  %7 = getelementptr [48 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %15, label %9
@@ -943,7 +938,7 @@ sub_0:
 102:                                              ; preds = %97
   %103 = add i32 %1, -1
   %104 = zext i32 %103 to i64
-  %105 = getelementptr %struct.open_info, ptr %98, i64 %104
+  %105 = getelementptr [48 x i8], ptr %98, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load ptr, ptr %106, align 8
   store ptr %107, ptr %68, align 8
@@ -966,7 +961,7 @@ sub_0:
   br i1 %116, label %try_open.exit.thread, label %try_one_open.exit57.i
 
 try_one_open.exit57.i:                            ; preds = %.lr.ph.i
-  %117 = getelementptr %struct.open_info, ptr %113, i64 %indvars.iv.i
+  %117 = getelementptr [48 x i8], ptr %113, i64 %indvars.iv.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 40
   %119 = load ptr, ptr %118, align 8
   store ptr %119, ptr %68, align 8
@@ -1008,14 +1003,14 @@ try_one_open.exit57.i:                            ; preds = %.lr.ph.i
 
 138:                                              ; preds = %138, %135
   %.038.i.i = phi i64 [ 0, %135 ], [ %141, %138 ]
-  %139 = getelementptr ptr, ptr %137, i64 %.038.i.i
+  %139 = getelementptr [8 x i8], ptr %137, i64 %.038.i.i
   %140 = load ptr, ptr %139, align 8
   %.not.i.i = icmp eq ptr %140, null
   %141 = add i64 %.038.i.i, 1
   br i1 %.not.i.i, label %142, label %138, !llvm.loop !15
 
 142:                                              ; preds = %138
-  %143 = getelementptr ptr, ptr %137, i64 %.038.i.i
+  %143 = getelementptr [8 x i8], ptr %137, i64 %.038.i.i
   switch i64 %.038.i.i, label %146 [
     i64 0, label %144
     i64 1, label %145
@@ -1107,7 +1102,7 @@ get_file_extension.exit.i:                        ; preds = %._crit_edge.i.i, %1
 
 176:                                              ; preds = %.lr.ph83.i
   %177 = load ptr, ptr @open_routines, align 8
-  %178 = getelementptr %struct.open_info, ptr %177, i64 %indvars.iv94.i
+  %178 = getelementptr [48 x i8], ptr %177, i64 %indvars.iv94.i
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
@@ -1135,7 +1130,7 @@ get_file_extension.exit.i:                        ; preds = %._crit_edge.i.i, %1
 
 .lr.ph83._crit_edge102.i:                         ; preds = %.lr.ph83.i
   %.pre103.i = load ptr, ptr @open_routines, align 8
-  %.phi.trans.insert104.i = getelementptr %struct.open_info, ptr %.pre103.i, i64 %indvars.iv94.i
+  %.phi.trans.insert104.i = getelementptr [48 x i8], ptr %.pre103.i, i64 %indvars.iv94.i
   %.phi.trans.insert105.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert104.i, i64 24
   %.pre106.i = load ptr, ptr %.phi.trans.insert105.i, align 8
   %192 = icmp eq ptr %.pre106.i, null
@@ -1143,7 +1138,7 @@ get_file_extension.exit.i:                        ; preds = %._crit_edge.i.i, %1
 
 193:                                              ; preds = %.lr.ph83.i
   %.pre.i = load ptr, ptr @open_routines, align 8
-  %.phi.trans.insert.i = getelementptr %struct.open_info, ptr %.pre.i, i64 %indvars.iv94.i
+  %.phi.trans.insert.i = getelementptr [48 x i8], ptr %.pre.i, i64 %indvars.iv94.i
   %.phi.trans.insert100.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 24
   %.pre101.i = load ptr, ptr %.phi.trans.insert100.i, align 8
   %.not55.i = icmp eq ptr %.pre101.i, null
@@ -1177,7 +1172,7 @@ heuristic_uses_extension.exit.i:                  ; preds = %198, %.lr.ph.i58.i,
   br i1 %207, label %.split.us.i, label %208
 
 208:                                              ; preds = %heuristic_uses_extension.exit.i
-  %209 = getelementptr %struct.open_info, ptr %204, i64 %indvars.iv94.i
+  %209 = getelementptr [48 x i8], ptr %204, i64 %indvars.iv94.i
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 40
   %211 = load ptr, ptr %210, align 8
   store ptr %211, ptr %68, align 8
@@ -1235,7 +1230,7 @@ get_file_extension.exit.thread.i:                 ; preds = %get_file_extension.
   br i1 %238, label %try_open.exit.thread, label %try_one_open.exit69.i
 
 try_one_open.exit69.i:                            ; preds = %234
-  %239 = getelementptr %struct.open_info, ptr %235, i64 %indvars.iv97.i
+  %239 = getelementptr [48 x i8], ptr %235, i64 %indvars.iv97.i
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 40
   %241 = load ptr, ptr %240, align 8
   store ptr %241, ptr %68, align 8
@@ -1437,7 +1432,7 @@ define hidden void @wtap_init_file_type_subtypes() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr %struct._wtap_module_reg, ptr @wtap_module_reg, i64 %indvars.iv
+  %10 = getelementptr [16 x i8], ptr @wtap_module_reg, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12()
@@ -1518,7 +1513,7 @@ define i32 @wtap_register_file_type_subtype(ptr noundef %0) local_unnamed_addr #
 
 25:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %26 = getelementptr %struct.file_type_subtype_info, ptr %24, i64 %indvars.iv.i
+  %26 = getelementptr [80 x i8], ptr %24, i64 %indvars.iv.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not13.i = icmp eq ptr %28, null
@@ -1552,7 +1547,7 @@ wtap_name_to_file_type_subtype.exit.thread:       ; preds = %32, %17
 
 38:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %39 = getelementptr %struct.file_type_subtype_info, ptr %36, i64 %indvars.iv
+  %39 = getelementptr [80 x i8], ptr %36, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
@@ -1561,7 +1556,7 @@ wtap_name_to_file_type_subtype.exit.thread:       ; preds = %32, %17
 43:                                               ; preds = %38
   %44 = trunc nuw i64 %indvars.iv to i32
   %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr %struct.file_type_subtype_info, ptr %45, i64 %indvars.iv
+  %46 = getelementptr [80 x i8], ptr %45, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(80) %46, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   br label %51
 
@@ -1604,7 +1599,7 @@ define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_file_type_subtype(pt
 
 9:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %indvars.iv
+  %10 = getelementptr [80 x i8], ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
@@ -1660,7 +1655,7 @@ define void @wtap_deregister_file_type_subtype(i32 noundef %0) local_unnamed_add
 12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr %struct.file_type_subtype_info, ptr %13, i64 %14
+  %15 = getelementptr [80 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(33) %15, i8 0, i64 33, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
@@ -1699,7 +1694,7 @@ define noundef zeroext i1 @wtap_dump_can_write_encap(i32 noundef %0, i32 noundef
 8:                                                ; preds = %4
   %9 = load ptr, ptr @file_type_subtype_table, align 8
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr %struct.file_type_subtype_info, ptr %9, i64 %10
+  %11 = getelementptr [80 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -1714,7 +1709,7 @@ define noundef zeroext i1 @wtap_dump_can_write_encap(i32 noundef %0, i32 noundef
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr @file_type_subtype_table, align 8
-  %19 = getelementptr %struct.file_type_subtype_info, ptr %18, i64 %10
+  %19 = getelementptr [80 x i8], ptr %18, i64 %10
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
   %.not20 = icmp eq ptr %21, null
@@ -1781,7 +1776,7 @@ define internal fastcc noundef zeroext i1 @wtap_dump_can_write_format(i32 nounde
 wtap_dump_can_open.exit:                          ; preds = %5
   %9 = load ptr, ptr @file_type_subtype_table, align 8
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr %struct.file_type_subtype_info, ptr %9, i64 %10
+  %11 = getelementptr [80 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not59 = icmp eq ptr %13, null
@@ -1807,7 +1802,7 @@ wtap_dump_can_open.exit:                          ; preds = %5
 
 .lr.ph.i:                                         ; preds = %16, %21
   %.03139.i = phi i64 [ %22, %21 ], [ 0, %16 ]
-  %23 = getelementptr %struct.supported_block_type, ptr %20, i64 %.03139.i
+  %23 = getelementptr [24 x i8], ptr %20, i64 %.03139.i
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %21
@@ -1828,7 +1823,7 @@ wtap_dump_can_open.exit:                          ; preds = %5
 
 .lr.ph42.i:                                       ; preds = %30, %38
   %.041.i = phi i64 [ %39, %38 ], [ 0, %30 ]
-  %35 = getelementptr %struct.supported_option_type, ptr %34, i64 %.041.i
+  %35 = getelementptr [8 x i8], ptr %34, i64 %.041.i
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %wtap_file_type_subtype_supports_option.exit, label %38
@@ -1839,7 +1834,7 @@ wtap_dump_can_open.exit:                          ; preds = %5
   br i1 %exitcond46.not.i, label %wtap_dump_can_open.exit.thread, label %.lr.ph42.i, !llvm.loop !27
 
 wtap_file_type_subtype_supports_option.exit:      ; preds = %.lr.ph42.i
-  %40 = getelementptr %struct.supported_option_type, ptr %34, i64 %.041.i
+  %40 = getelementptr [8 x i8], ptr %34, i64 %.041.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
@@ -1870,7 +1865,7 @@ wtap_file_type_subtype_supports_option.exit:      ; preds = %.lr.ph42.i
 
 .lr.ph.i22:                                       ; preds = %.thread51, %51
   %.03139.i23 = phi i64 [ %52, %51 ], [ 0, %.thread51 ]
-  %53 = getelementptr %struct.supported_block_type, ptr %50, i64 %.03139.i23
+  %53 = getelementptr [24 x i8], ptr %50, i64 %.03139.i23
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 1
   br i1 %55, label %56, label %51
@@ -1891,7 +1886,7 @@ wtap_file_type_subtype_supports_option.exit:      ; preds = %.lr.ph42.i
 
 .lr.ph42.i26:                                     ; preds = %60, %68
   %.041.i27 = phi i64 [ %69, %68 ], [ 0, %60 ]
-  %65 = getelementptr %struct.supported_option_type, ptr %64, i64 %.041.i27
+  %65 = getelementptr [8 x i8], ptr %64, i64 %.041.i27
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %wtap_file_type_subtype_supports_option.exit29, label %68
@@ -1902,7 +1897,7 @@ wtap_file_type_subtype_supports_option.exit:      ; preds = %.lr.ph42.i
   br i1 %exitcond46.not.i28, label %wtap_dump_can_open.exit.thread, label %.lr.ph42.i26, !llvm.loop !27
 
 wtap_file_type_subtype_supports_option.exit29:    ; preds = %.lr.ph42.i26
-  %70 = getelementptr %struct.supported_option_type, ptr %64, i64 %.041.i27
+  %70 = getelementptr [8 x i8], ptr %64, i64 %.041.i27
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
@@ -1933,7 +1928,7 @@ wtap_file_type_subtype_supports_option.exit29:    ; preds = %.lr.ph42.i26
 
 .lr.ph.i33:                                       ; preds = %.thread55, %81
   %.03139.i34 = phi i64 [ %82, %81 ], [ 0, %.thread55 ]
-  %83 = getelementptr %struct.supported_block_type, ptr %80, i64 %.03139.i34
+  %83 = getelementptr [24 x i8], ptr %80, i64 %.03139.i34
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 5
   br i1 %85, label %86, label %81
@@ -1954,7 +1949,7 @@ wtap_file_type_subtype_supports_option.exit29:    ; preds = %.lr.ph42.i26
 
 .lr.ph42.i37:                                     ; preds = %90, %98
   %.041.i38 = phi i64 [ %99, %98 ], [ 0, %90 ]
-  %95 = getelementptr %struct.supported_option_type, ptr %94, i64 %.041.i38
+  %95 = getelementptr [8 x i8], ptr %94, i64 %.041.i38
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, 1
   br i1 %97, label %wtap_file_type_subtype_supports_option.exit40, label %98
@@ -1965,7 +1960,7 @@ wtap_file_type_subtype_supports_option.exit29:    ; preds = %.lr.ph42.i26
   br i1 %exitcond46.not.i39, label %wtap_dump_can_open.exit.thread, label %.lr.ph42.i37, !llvm.loop !27
 
 wtap_file_type_subtype_supports_option.exit40:    ; preds = %.lr.ph42.i37
-  %100 = getelementptr %struct.supported_option_type, ptr %94, i64 %.041.i38
+  %100 = getelementptr [8 x i8], ptr %94, i64 %.041.i38
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
@@ -1998,7 +1993,7 @@ wtap_dump_required_file_encap_type.exit:          ; preds = %104, %108
 
 116:                                              ; preds = %114
   %117 = load ptr, ptr @file_type_subtype_table, align 8
-  %118 = getelementptr %struct.file_type_subtype_info, ptr %117, i64 %10
+  %118 = getelementptr [80 x i8], ptr %117, i64 %10
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 72
   %120 = load ptr, ptr %119, align 8
   %.not20.i = icmp eq ptr %120, null
@@ -2024,7 +2019,7 @@ wtap_dump_can_write_encap.exit:                   ; preds = %114, %123
 .lr.ph:                                           ; preds = %wtap_dump_can_write_encap.exit, %wtap_dump_can_write_encap.exit47
   %indvars.iv = phi i64 [ %indvars.iv.next, %wtap_dump_can_write_encap.exit47 ], [ 0, %wtap_dump_can_write_encap.exit ]
   %129 = load ptr, ptr %1, align 8
-  %130 = getelementptr i32, ptr %129, i64 %indvars.iv
+  %130 = getelementptr [4 x i8], ptr %129, i64 %indvars.iv
   %131 = load i32, ptr %130, align 4
   %132 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -2034,7 +2029,7 @@ wtap_dump_can_write_encap.exit:                   ; preds = %114, %123
 
 135:                                              ; preds = %.lr.ph
   %136 = load ptr, ptr @file_type_subtype_table, align 8
-  %137 = getelementptr %struct.file_type_subtype_info, ptr %136, i64 %10
+  %137 = getelementptr [80 x i8], ptr %136, i64 %10
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 56
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %139, null
@@ -2049,7 +2044,7 @@ wtap_dump_can_write_encap.exit:                   ; preds = %114, %123
 
 143:                                              ; preds = %141
   %144 = load ptr, ptr @file_type_subtype_table, align 8
-  %145 = getelementptr %struct.file_type_subtype_info, ptr %144, i64 %10
+  %145 = getelementptr [80 x i8], ptr %144, i64 %10
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 72
   %147 = load ptr, ptr %146, align 8
   %.not20.i45 = icmp eq ptr %147, null
@@ -2242,7 +2237,7 @@ define internal i32 @compare_file_type_subtypes_by_name(ptr noundef readonly cap
 10:                                               ; preds = %6
   %11 = load ptr, ptr @file_type_subtype_table, align 8
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr %struct.file_type_subtype_info, ptr %11, i64 %12
+  %13 = getelementptr [80 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %wtap_file_type_subtype_name.exit
@@ -2262,7 +2257,7 @@ wtap_file_type_subtype_name.exit:                 ; preds = %2, %6, %10
 21:                                               ; preds = %17
   %22 = load ptr, ptr @file_type_subtype_table, align 8
   %23 = zext nneg i32 %4 to i64
-  %24 = getelementptr %struct.file_type_subtype_info, ptr %22, i64 %23
+  %24 = getelementptr [80 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %wtap_file_type_subtype_name.exit5
@@ -2290,7 +2285,7 @@ define internal i32 @compare_file_type_subtypes_by_description(ptr noundef reado
 10:                                               ; preds = %6
   %11 = load ptr, ptr @file_type_subtype_table, align 8
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr %struct.file_type_subtype_info, ptr %11, i64 %12
+  %13 = getelementptr [80 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %wtap_file_type_subtype_description.exit
 
@@ -2309,7 +2304,7 @@ wtap_file_type_subtype_description.exit:          ; preds = %2, %6, %10
 20:                                               ; preds = %16
   %21 = load ptr, ptr @file_type_subtype_table, align 8
   %22 = zext nneg i32 %4 to i64
-  %23 = getelementptr %struct.file_type_subtype_info, ptr %21, i64 %22
+  %23 = getelementptr [80 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %wtap_file_type_subtype_description.exit5
 
@@ -2354,7 +2349,7 @@ define ptr @wtap_get_writable_file_types_subtypes(i32 noundef %0) local_unnamed_
 wtap_dump_can_open.exit:                          ; preds = %.lr.ph
   %17 = load ptr, ptr @file_type_subtype_table, align 8
   %18 = zext nneg i32 %storemerge23 to i64
-  %19 = getelementptr %struct.file_type_subtype_info, ptr %17, i64 %18
+  %19 = getelementptr [80 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not22 = icmp eq ptr %21, null
@@ -2398,7 +2393,7 @@ wtap_dump_can_open.exit.thread:                   ; preds = %wtap_dump_can_open.
 wtap_dump_can_open.exit11:                        ; preds = %36
   %40 = load ptr, ptr @file_type_subtype_table, align 8
   %41 = zext nneg i32 %34 to i64
-  %42 = getelementptr %struct.file_type_subtype_info, ptr %40, i64 %41
+  %42 = getelementptr [80 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
@@ -2423,7 +2418,7 @@ wtap_dump_can_open.exit11.thread:                 ; preds = %36, %45, %wtap_dump
 wtap_dump_can_open.exit14:                        ; preds = %49
   %53 = load ptr, ptr @file_type_subtype_table, align 8
   %54 = zext nneg i32 %47 to i64
-  %55 = getelementptr %struct.file_type_subtype_info, ptr %53, i64 %54
+  %55 = getelementptr [80 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
   %57 = load ptr, ptr %56, align 8
   %.not21 = icmp eq ptr %57, null
@@ -2453,7 +2448,7 @@ define zeroext i1 @wtap_dump_can_open(i32 noundef %0) local_unnamed_addr #2 {
 7:                                                ; preds = %3
   %8 = load ptr, ptr @file_type_subtype_table, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %9
+  %10 = getelementptr [80 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
@@ -2479,7 +2474,7 @@ define ptr @wtap_file_type_subtype_description(i32 noundef %0) local_unnamed_add
 7:                                                ; preds = %3
   %8 = load ptr, ptr @file_type_subtype_table, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %9
+  %10 = getelementptr [80 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -2503,7 +2498,7 @@ define ptr @wtap_file_type_subtype_name(i32 noundef %0) local_unnamed_addr #2 {
 7:                                                ; preds = %3
   %8 = load ptr, ptr @file_type_subtype_table, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %9
+  %10 = getelementptr [80 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
@@ -2561,7 +2556,7 @@ define i32 @wtap_file_type_subtype_supports_block(i32 noundef %0, i32 noundef %1
 8:                                                ; preds = %4
   %9 = load ptr, ptr @file_type_subtype_table, align 8
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr %struct.file_type_subtype_info, ptr %9, i64 %10
+  %11 = getelementptr [80 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -2576,7 +2571,7 @@ define i32 @wtap_file_type_subtype_supports_block(i32 noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %8, %16
   %.018 = phi i64 [ %17, %16 ], [ 0, %8 ]
-  %18 = getelementptr %struct.supported_block_type, ptr %15, i64 %.018
+  %18 = getelementptr [24 x i8], ptr %15, i64 %.018
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %21, label %16
@@ -2606,7 +2601,7 @@ define i32 @wtap_file_type_subtype_supports_option(i32 noundef %0, i32 noundef %
 9:                                                ; preds = %5
   %10 = load ptr, ptr @file_type_subtype_table, align 8
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr %struct.file_type_subtype_info, ptr %10, i64 %11
+  %12 = getelementptr [80 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -2621,7 +2616,7 @@ define i32 @wtap_file_type_subtype_supports_option(i32 noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %9, %17
   %.03139 = phi i64 [ %18, %17 ], [ 0, %9 ]
-  %19 = getelementptr %struct.supported_block_type, ptr %16, i64 %.03139
+  %19 = getelementptr [24 x i8], ptr %16, i64 %.03139
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %22, label %17
@@ -2642,13 +2637,13 @@ define i32 @wtap_file_type_subtype_supports_option(i32 noundef %0, i32 noundef %
 
 .lr.ph42:                                         ; preds = %26, %38
   %.041 = phi i64 [ %39, %38 ], [ 0, %26 ]
-  %31 = getelementptr %struct.supported_option_type, ptr %30, i64 %.041
+  %31 = getelementptr [8 x i8], ptr %30, i64 %.041
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %2
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %.lr.ph42
-  %35 = getelementptr %struct.supported_option_type, ptr %30, i64 %.041
+  %35 = getelementptr [8 x i8], ptr %30, i64 %.041
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   br label %.loopexit
@@ -2678,7 +2673,7 @@ define ptr @wtap_get_file_extensions_list(i32 noundef %0, i1 noundef zeroext %1)
 8:                                                ; preds = %4
   %9 = load ptr, ptr @file_type_subtype_table, align 8
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr %struct.file_type_subtype_info, ptr %9, i64 %10
+  %11 = getelementptr [80 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -2717,7 +2712,7 @@ define internal fastcc ptr @add_extensions_for_file_type_subtype(i32 noundef %0,
 9:                                                ; preds = %5
   %10 = load ptr, ptr @file_type_subtype_table, align 8
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr %struct.file_type_subtype_info, ptr %10, i64 %11
+  %12 = getelementptr [80 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not24 = icmp eq ptr %14, null
@@ -2743,7 +2738,7 @@ define internal fastcc ptr @add_extensions_for_file_type_subtype(i32 noundef %0,
 add_extensions.exit:                              ; preds = %.lr.ph.i, %15, %9
   %.019 = phi ptr [ %1, %9 ], [ %17, %15 ], [ %20, %.lr.ph.i ]
   %23 = load ptr, ptr @file_type_subtype_table, align 8
-  %24 = getelementptr %struct.file_type_subtype_info, ptr %23, i64 %11
+  %24 = getelementptr [80 x i8], ptr %23, i64 %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not25 = icmp eq ptr %26, null
@@ -2837,7 +2832,7 @@ init_file_type_extensions.exit:                   ; preds = %0, %2
   %12 = phi ptr [ %.pre11, %.lr.ph.preheader ], [ %22, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %.078 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %20 ]
-  %13 = getelementptr %struct.file_extension_info, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [24 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i8, ptr %14, align 8, !range !34, !noundef !35
   %16 = trunc nuw i8 %15 to i1
@@ -2927,7 +2922,7 @@ define ptr @wtap_default_file_extension(i32 noundef %0) local_unnamed_addr #2 {
 7:                                                ; preds = %3
   %8 = load ptr, ptr @file_type_subtype_table, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %9
+  %10 = getelementptr [80 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   br label %13
@@ -2952,7 +2947,7 @@ define zeroext i1 @wtap_dump_can_compress(i32 noundef %0) local_unnamed_addr #2 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @file_type_subtype_table, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %9
+  %10 = getelementptr [80 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i8, ptr %11, align 8, !range !34, !noundef !35
   %13 = trunc nuw i8 %12 to i1
@@ -3021,7 +3016,7 @@ wtap_dump_file_open.exit:                         ; preds = %12, %14, %16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.file_type_subtype_info, ptr %27, i64 %30
+  %31 = getelementptr [80 x i8], ptr %27, i64 %30
   br label %41
 
 32:                                               ; preds = %22, %21
@@ -3029,7 +3024,7 @@ wtap_dump_file_open.exit:                         ; preds = %12, %14, %16
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.file_type_subtype_info, ptr %33, i64 %36
+  %37 = getelementptr [80 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load i8, ptr %38, align 8, !range !34, !noundef !35
   %40 = trunc nuw i8 %39 to i1
@@ -3120,7 +3115,7 @@ define internal fastcc noalias noundef ptr @wtap_dump_init_dumper(i32 noundef %0
 wtap_dump_can_open.exit:                          ; preds = %13
   %17 = load ptr, ptr @file_type_subtype_table, align 8
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr %struct.file_type_subtype_info, ptr %17, i64 %18
+  %19 = getelementptr [80 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not97 = icmp eq ptr %21, null
@@ -3141,7 +3136,7 @@ wtap_dump_can_open.exit.thread:                   ; preds = %13, %10, %wtap_dump
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr @file_type_subtype_table, align 8
-  %30 = getelementptr %struct.file_type_subtype_info, ptr %29, i64 %18
+  %30 = getelementptr [80 x i8], ptr %29, i64 %18
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load ptr, ptr %31, align 8
   %.not83 = icmp eq ptr %32, null
@@ -3178,7 +3173,7 @@ thread-pre-split:                                 ; preds = %35, %22
 
 wtap_dump_can_compress.exit:                      ; preds = %42
   %46 = load ptr, ptr @file_type_subtype_table, align 8
-  %47 = getelementptr %struct.file_type_subtype_info, ptr %46, i64 %18
+  %47 = getelementptr [80 x i8], ptr %46, i64 %18
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i8, ptr %48, align 8, !range !34, !noundef !35
   %50 = trunc nuw i8 %49 to i1
@@ -3246,7 +3241,7 @@ wtap_dump_can_compress.exit.thread:               ; preds = %42, %wtap_dump_can_
 .lr.ph:                                           ; preds = %80, %95
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %80 ]
   %84 = load ptr, ptr %11, align 8
-  %85 = getelementptr ptr, ptr %84, i64 %indvars.iv
+  %85 = getelementptr [8 x i8], ptr %84, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr @wtap_block_get_mandatory_data(ptr noundef %86)
   %88 = call ptr @wtap_block_make_copy(ptr noundef %86)
@@ -3334,7 +3329,7 @@ define noundef ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef initiali
 18:                                               ; preds = %14
   %19 = load ptr, ptr @file_type_subtype_table, align 8
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr %struct.file_type_subtype_info, ptr %19, i64 %20
+  %21 = getelementptr [80 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   br label %wtap_default_file_extension.exit
@@ -3406,7 +3401,7 @@ wtap_dump_file_fdopen.exit:                       ; preds = %33, %35, %37
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.file_type_subtype_info, ptr %50, i64 %53
+  %54 = getelementptr [80 x i8], ptr %50, i64 %53
   br label %64
 
 55:                                               ; preds = %45, %43
@@ -3414,7 +3409,7 @@ wtap_dump_file_fdopen.exit:                       ; preds = %33, %35, %37
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.file_type_subtype_info, ptr %56, i64 %59
+  %60 = getelementptr [80 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i8, ptr %61, align 8, !range !34, !noundef !35
   %63 = trunc nuw i8 %62 to i1
@@ -3542,7 +3537,7 @@ wtap_dump_file_fdopen.exit:                       ; preds = %12, %14, %16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.file_type_subtype_info, ptr %27, i64 %30
+  %31 = getelementptr [80 x i8], ptr %27, i64 %30
   br label %41
 
 32:                                               ; preds = %22, %21
@@ -3550,7 +3545,7 @@ wtap_dump_file_fdopen.exit:                       ; preds = %12, %14, %16
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.file_type_subtype_info, ptr %33, i64 %36
+  %37 = getelementptr [80 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load i8, ptr %38, align 8, !range !34, !noundef !35
   %40 = trunc nuw i8 %39 to i1
@@ -3884,7 +3879,7 @@ define noundef zeroext i1 @wtap_dump_set_addrinfo_list(ptr noundef captures(addr
 11:                                               ; preds = %7
   %12 = load ptr, ptr @file_type_subtype_table, align 8
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr %struct.file_type_subtype_info, ptr %12, i64 %13
+  %14 = getelementptr [80 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -3899,7 +3894,7 @@ define noundef zeroext i1 @wtap_dump_set_addrinfo_list(ptr noundef captures(addr
 
 .lr.ph.i:                                         ; preds = %11, %19
   %.018.i = phi i64 [ %20, %19 ], [ 0, %11 ]
-  %21 = getelementptr %struct.supported_block_type, ptr %18, i64 %.018.i
+  %21 = getelementptr [24 x i8], ptr %18, i64 %.018.i
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %wtap_file_type_subtype_supports_block.exit, label %19

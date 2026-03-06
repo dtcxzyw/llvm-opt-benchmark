@@ -14,7 +14,7 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.tasklist_s, ptr @g_tasklisttable, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @g_tasklisttable, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 8

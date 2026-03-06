@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/ssl_rsa.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cert_pkey_st = type { ptr, ptr, ptr, ptr, i64 }
-
 @.str = private unnamed_addr constant [25 x i8] c"../openssl/ssl/ssl_rsa.c\00", align 1
 @__func__.SSL_use_certificate = private unnamed_addr constant [20 x i8] c"SSL_use_certificate\00", align 1
 @__func__.SSL_use_certificate_file = private unnamed_addr constant [25 x i8] c"SSL_use_certificate_file\00", align 1
@@ -141,7 +139,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(no
   %19 = phi i64 [ %.pre, %._crit_edge ], [ %13, %12 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !72
-  %22 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !76
   %.not20 = icmp eq ptr %24, null
@@ -152,7 +150,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(no
   call void @ERR_clear_error() #6
   %27 = load ptr, ptr %20, align 8, !tbaa !72
   %28 = load i64, ptr %4, align 8, !tbaa !71
-  %29 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !76
   %32 = call i32 @X509_check_private_key(ptr noundef nonnull %1, ptr noundef %31) #6
@@ -162,13 +160,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(no
   br i1 %.not21, label %33, label %41
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %.pre23, i64 %.pre25
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %.pre23, i64 %.pre25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !76
   call void @EVP_PKEY_free(ptr noundef %36) #6
   %37 = load ptr, ptr %20, align 8, !tbaa !72
   %38 = load i64, ptr %4, align 8, !tbaa !71
-  %39 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr null, ptr %40, align 8, !tbaa !76
   call void @ERR_clear_error() #6
@@ -179,13 +177,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(no
 41:                                               ; preds = %25, %33, %18
   %42 = phi i64 [ %.pre25, %25 ], [ %.pre24, %33 ], [ %19, %18 ]
   %43 = phi ptr [ %.pre23, %25 ], [ %.pre22, %33 ], [ %21, %18 ]
-  %44 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8, !tbaa !78
   call void @X509_free(ptr noundef %45) #6
   %46 = call i32 @X509_up_ref(ptr noundef nonnull %1) #6
   %47 = load ptr, ptr %20, align 8, !tbaa !72
   %48 = load i64, ptr %4, align 8, !tbaa !71
-  %49 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %48
   store ptr %1, ptr %49, align 8, !tbaa !78
   store ptr %49, ptr %0, align 8, !tbaa !79
   br label %50
@@ -446,7 +444,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr noundef captures(no
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !72
   %11 = load i64, ptr %4, align 8, !tbaa !71
-  %12 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !78
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %16, label %14
@@ -464,14 +462,14 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr noundef captures(no
 16:                                               ; preds = %._crit_edge, %8
   %17 = phi i64 [ %.pre13, %._crit_edge ], [ %11, %8 ]
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %10, %8 ]
-  %19 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !76
   call void @EVP_PKEY_free(ptr noundef %21) #6
   %22 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %1) #6
   %23 = load ptr, ptr %9, align 8, !tbaa !72
   %24 = load i64, ptr %4, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %1, ptr %26, align 8, !tbaa !76
   store ptr %25, ptr %0, align 8, !tbaa !79
@@ -1854,7 +1852,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !72
   %60 = load i64, ptr %7, align 8, !tbaa !71
-  %61 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !78
   %.not84 = icmp eq ptr %62, null
   br i1 %.not84, label %63, label %69
@@ -1897,13 +1895,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   %76 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %77 = load ptr, ptr %76, align 8, !tbaa !72
   %78 = load i64, ptr %7, align 8, !tbaa !71
-  %79 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %77, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !111
   call void @OSSL_STACK_OF_X509_free(ptr noundef %81) #6
   %82 = load ptr, ptr %76, align 8, !tbaa !72
   %83 = load i64, ptr %7, align 8, !tbaa !71
-  %84 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %82, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %.061, ptr %85, align 8, !tbaa !111
   %86 = load ptr, ptr %84, align 8, !tbaa !78
@@ -1911,7 +1909,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   %87 = call i32 @X509_up_ref(ptr noundef %2) #6
   %88 = load ptr, ptr %76, align 8, !tbaa !72
   %89 = load i64, ptr %7, align 8, !tbaa !71
-  %90 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [40 x i8], ptr %88, i64 %89
   store ptr %2, ptr %90, align 8, !tbaa !78
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !76
@@ -1919,7 +1917,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   %93 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %.065) #6
   %94 = load ptr, ptr %76, align 8, !tbaa !72
   %95 = load i64, ptr %7, align 8, !tbaa !71
-  %96 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %94, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr %.065, ptr %97, align 8, !tbaa !76
   store ptr %96, ptr %21, align 8, !tbaa !79

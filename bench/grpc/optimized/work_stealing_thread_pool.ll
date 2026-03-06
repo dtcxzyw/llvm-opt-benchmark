@@ -34,9 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState", ptr, ptr }
 %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData" = type { %"struct.std::atomic.7", [56 x i8] }
-%"struct.std::atomic.7" = type { %"struct.std::__atomic_base.8" }
-%"struct.std::__atomic_base.8" = type { i64 }
 %"class.grpc_core::Thread" = type { i32, ptr, %"class.grpc_core::Thread::Options" }
 %"class.grpc_core::Thread::Options" = type { i8, i8, i64 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
@@ -1039,7 +1036,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13Theft
 .noexc2:                                          ; preds = %.noexc
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load ptr, ptr %31, align 8, !tbaa !26, !noalias !108
-  %32 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %30
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE22find_or_prepare_insertIS7_EESt4pairINSE_8iteratorEbERKT_.exit.i.i.i.thread
 
 33:                                               ; preds = %2
@@ -1088,7 +1085,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13Theft
   %64 = zext nneg i16 %63 to i64
   %65 = add i64 %.sroa.7.0.i, %64
   %66 = and i64 %65, %4
-  %67 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !89, !noalias !111
   %69 = icmp eq ptr %68, %1
   br i1 %69, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE7emplaceIJRS7_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbEDpOSI_.exit, label %.critedge.i, !prof !93
@@ -1115,7 +1112,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13Theft
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE22find_or_prepare_insertIS7_EESt4pairINSE_8iteratorEbERKT_.exit.i.i.i.thread15: ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %57, align 8, !tbaa !26, !noalias !111
-  %79 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %78
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE22find_or_prepare_insertIS7_EESt4pairINSE_8iteratorEbERKT_.exit.i.i.i.thread
 
 80:                                               ; preds = %.critedge19.i
@@ -1267,7 +1264,7 @@ define linkonce_odr noundef i64 @_ZN4absl12lts_2024072218container_internal12raw
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.sroa.6.0.i.i, %46
   %48 = and i64 %47, %3
-  %49 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !89
   %51 = icmp eq ptr %50, %17
   br i1 %51, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE4findIS7_EENSE_8iteratorERKT_.exit, label %52, !prof !93
@@ -1345,7 +1342,7 @@ define noundef ptr @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool
   %22 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %21, i1 true)
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 %23
-  %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   %26 = load i8, ptr %24, align 1, !tbaa !115
   %27 = icmp slt i8 %26, -1
   br i1 %27, label %.lr.ph.i.i, label %.lr.ph.preheader, !llvm.loop !117
@@ -1393,7 +1390,7 @@ define noundef ptr @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool
   %48 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %47, i1 true)
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 %49
-  %51 = getelementptr inbounds nuw ptr, ptr %41, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %49
   %52 = load i8, ptr %50, align 1, !tbaa !115
   %53 = icmp slt i8 %52, -1
   br i1 %53, label %.lr.ph.i.i20, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE8iterator21skip_empty_or_deletedEv.exit.i, !llvm.loop !117
@@ -1678,7 +1675,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
 
 10:                                               ; preds = %.noexc
   store ptr %9, ptr %4, align 8, !tbaa !118
-  %11 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %9, i64 %7
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %9, i8 0, i64 %8, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2288,7 +2285,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
   %31 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %30, i1 true)
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 %32
-  %34 = getelementptr inbounds nuw i64, ptr %24, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %32
   %35 = load i8, ptr %33, align 1, !tbaa !115
   %36 = icmp slt i8 %35, -1
   br i1 %36, label %.lr.ph.i.i, label %.lr.ph.preheader, !llvm.loop !140
@@ -2343,7 +2340,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
   %59 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %58, i1 true)
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 %60
-  %62 = getelementptr inbounds nuw i64, ptr %52, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %60
   %63 = load i8, ptr %61, align 1, !tbaa !115
   %64 = icmp slt i8 %63, -1
   br i1 %64, label %.lr.ph.i.i19, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyImEENS0_13hash_internal4HashImEESt8equal_toImESaImEE8iterator21skip_empty_or_deletedEv.exit.i, !llvm.loop !140
@@ -2612,7 +2609,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
   %38 = zext nneg i16 %37 to i64
   %39 = add i64 %.sroa.6.0.i.i.i, %38
   %40 = and i64 %39, %5
-  %41 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !139
   %43 = icmp eq i64 %42, %1
   br i1 %43, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyImEENS0_13hash_internal4HashImEESt8equal_toImESaImEE4findImEENSB_8iteratorERKm.exit.i, label %44, !prof !93
@@ -3886,7 +3883,7 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThread
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %72 = load i64, ptr %71, align 8, !tbaa !216
   %73 = load ptr, ptr %70, align 8, !tbaa !118, !noalias !240
-  %74 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [64 x i8], ptr %73, i64 %72
   %75 = atomicrmw add ptr %74, i64 1 monotonic, align 8, !noalias !240
   %76 = load ptr, ptr %0, align 8, !tbaa !9
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 225
@@ -3981,13 +3978,13 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThread
 _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit12.i: ; preds = %125, %99, %97
   %.pn.i = phi { ptr, i32 } [ %126, %125 ], [ %98, %97 ], [ %100, %99 ]
   %127 = load ptr, ptr %70, align 8, !tbaa !118
-  %128 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %127, i64 %72
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %127, i64 %72
   %129 = atomicrmw sub ptr %128, i64 1 monotonic, align 8
   br label %common.resume
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadState14FinishDrainingEv.exit: ; preds = %.backedge.i, %112, %69
   %130 = load ptr, ptr %70, align 8, !tbaa !118
-  %131 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %130, i64 %72
+  %131 = getelementptr inbounds nuw [64 x i8], ptr %130, i64 %72
   %132 = atomicrmw sub ptr %131, i64 1 monotonic, align 8
   br label %.loopexit
 
@@ -4279,7 +4276,7 @@ define noundef zeroext i1 @_ZN17grpc_event_engine12experimental22WorkStealingThr
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %17 = load i64, ptr %16, align 8, !tbaa !216
   %18 = load ptr, ptr %15, align 8, !tbaa !118, !noalias !245
-  %19 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %17
   %20 = atomicrmw add ptr %19, i64 1 monotonic, align 8, !noalias !245
   %21 = load ptr, ptr %12, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -4289,7 +4286,7 @@ define noundef zeroext i1 @_ZN17grpc_event_engine12experimental22WorkStealingThr
 
 _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit: ; preds = %13
   %24 = load ptr, ptr %15, align 8, !tbaa !118
-  %25 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %24, i64 %17
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %17
   %26 = atomicrmw sub ptr %25, i64 1 monotonic, align 8
   br label %.thread46
 
@@ -4297,7 +4294,7 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
   %27 = landingpad { ptr, i32 }
           cleanup
   %28 = load ptr, ptr %15, align 8, !tbaa !118
-  %29 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %28, i64 %17
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %17
   br label %113
 
 30:                                               ; preds = %6
@@ -4423,7 +4420,7 @@ _ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit: ; preds = 
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %98 = load i64, ptr %97, align 8, !tbaa !216
   %99 = load ptr, ptr %96, align 8, !tbaa !118, !noalias !248
-  %100 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %99, i64 %98
+  %100 = getelementptr inbounds nuw [64 x i8], ptr %99, i64 %98
   %101 = atomicrmw add ptr %100, i64 1 monotonic, align 8, !noalias !248
   %102 = load ptr, ptr %.115, align 8, !tbaa !3
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -4433,7 +4430,7 @@ _ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit: ; preds = 
 
 _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit33: ; preds = %95
   %105 = load ptr, ptr %96, align 8, !tbaa !118
-  %106 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %105, i64 %98
+  %106 = getelementptr inbounds nuw [64 x i8], ptr %105, i64 %98
   %107 = atomicrmw sub ptr %106, i64 1 monotonic, align 8
   br label %111
 
@@ -4441,7 +4438,7 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
   %108 = landingpad { ptr, i32 }
           cleanup
   %109 = load ptr, ptr %96, align 8, !tbaa !118
-  %110 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %109, i64 %98
+  %110 = getelementptr inbounds nuw [64 x i8], ptr %109, i64 %98
   br label %113
 
 111:                                              ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit33, %94
@@ -4467,7 +4464,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11Threa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = load i64, ptr %4, align 8, !tbaa !216
   %6 = load ptr, ptr %3, align 8, !tbaa !118, !noalias !251
-  %7 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %5
   %8 = atomicrmw add ptr %7, i64 1 monotonic, align 8, !noalias !251
   %9 = load ptr, ptr %0, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 225
@@ -4565,14 +4562,14 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11Threa
 
 _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit: ; preds = %.backedge, %47, %1
   %62 = load ptr, ptr %3, align 8, !tbaa !118
-  %63 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %62, i64 %5
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 %5
   %64 = atomicrmw sub ptr %63, i64 1 monotonic, align 8
   ret void
 
 _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit12: ; preds = %60, %34, %32
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %33, %32 ], [ %35, %34 ]
   %65 = load ptr, ptr %3, align 8, !tbaa !118
-  %66 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %65, i64 %5
+  %66 = getelementptr inbounds nuw [64 x i8], ptr %65, i64 %5
   %67 = atomicrmw sub ptr %66, i64 1 monotonic, align 8
   resume { ptr, i32 } %.pn
 }
@@ -5255,7 +5252,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %85 = getelementptr i8, ptr %55, i64 %83
   %86 = getelementptr i8, ptr %85, i64 %84
   store i8 %80, ptr %86, align 1, !tbaa !115
-  %87 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   %88 = load i64, ptr %3, align 8
   store i64 %88, ptr %87, align 1
   br label %160
@@ -5276,7 +5273,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %95, label %96, label %146
 
 96:                                               ; preds = %.lr.ph
-  %97 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.064
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %98 = load ptr, ptr %97, align 8, !tbaa !89
   %99 = ptrtoint ptr %98 to i64
   %100 = add i64 %99, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -5344,7 +5341,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %142 = getelementptr i8, ptr %112, i64 %140
   %143 = getelementptr i8, ptr %142, i64 %141
   store i8 %137, ptr %143, align 1, !tbaa !115
-  %144 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   %145 = load i64, ptr %97, align 8
   store i64 %145, ptr %144, align 1
   %.pre = load i64, ptr %30, align 8, !tbaa !262
@@ -5575,7 +5572,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %28, align 8, !tbaa !26, !noalias !281
-  %29 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %25
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyImEENS0_13hash_internal4HashImEESt8equal_toImESaImEE26find_or_prepare_insert_sooImEESt4pairINSB_8iteratorEbERKT_.exit
 
@@ -5619,7 +5616,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %55 = zext nneg i16 %54 to i64
   %56 = add i64 %.sroa.7.0.i, %55
   %57 = and i64 %56, %4
-  %58 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !139, !noalias !284
   %60 = icmp eq i64 %59, %33
   br i1 %60, label %.critedge21.i, label %.critedge.i, !prof !93
@@ -5645,7 +5642,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %70 = load ptr, ptr %31, align 8, !tbaa !26, !noalias !284
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %48, align 8, !tbaa !26, !noalias !284
-  %72 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %69
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %69
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyImEENS0_13hash_internal4HashImEESt8equal_toImESaImEE30find_or_prepare_insert_non_sooImEESt4pairINSB_8iteratorEbERKT_.exit
 
 73:                                               ; preds = %.critedge19.i
@@ -5654,7 +5651,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %49
 
 .critedge21.i:                                    ; preds = %.lr.ph.i
-  %76 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %57
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %57
   %77 = getelementptr inbounds nuw i8, ptr %32, i64 %57
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyImEENS0_13hash_internal4HashImEESt8equal_toImESaImEE30find_or_prepare_insert_non_sooImEESt4pairINSB_8iteratorEbERKT_.exit
 
@@ -5804,7 +5801,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %72 = getelementptr i8, ptr %42, i64 %70
   %73 = getelementptr i8, ptr %72, i64 %71
   store i8 %67, ptr %73, align 1, !tbaa !115
-  %74 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   %75 = load i64, ptr %3, align 8
   store i64 %75, ptr %74, align 1
   br label %140
@@ -5825,7 +5822,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %82, label %83, label %126
 
 83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %.064
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %85 = load i64, ptr %84, align 8, !tbaa !139
   %86 = add i64 %85, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
   %87 = zext i64 %86 to i128
@@ -5886,7 +5883,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %122 = getelementptr i8, ptr %92, i64 %120
   %123 = getelementptr i8, ptr %122, i64 %121
   store i8 %117, ptr %123, align 1, !tbaa !115
-  %124 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   %125 = load i64, ptr %84, align 8
   store i64 %125, ptr %124, align 1
   %.pre = load i64, ptr %24, align 8, !tbaa !262

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__sigset_t = type { [16 x i64] }
-%struct.uv_stdio_container_s = type { i32, %union.anon.5 }
-%union.anon.5 = type { ptr }
 %struct.cpu_set_t = type { [16 x i64] }
 
 @.str = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
@@ -268,8 +266,8 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef %1, ptr noundef reado
 44:                                               ; preds = %.lr.ph, %uv__process_init_stdio.exit.thread122
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %uv__process_init_stdio.exit.thread122 ]
   %45 = load ptr, ptr %43, align 8, !tbaa !45
-  %46 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %45, i64 %indvars.iv
-  %47 = getelementptr inbounds nuw [2 x i32], ptr %.096177, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.096177, i64 %indvars.iv
   %48 = load i32, ptr %46, align 8, !tbaa !46
   %49 = and i32 %48, 7
   switch i32 %49, label %uv__process_init_stdio.exit.thread [
@@ -519,8 +517,8 @@ uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_
   %149 = phi i32 [ %145, %.lr.ph146 ], [ %182, %uv__process_open_stream.exit.thread ]
   %indvars.iv158 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next159, %uv__process_open_stream.exit.thread ]
   %150 = load ptr, ptr %147, align 8, !tbaa !45
-  %151 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %150, i64 %indvars.iv158
-  %152 = getelementptr inbounds nuw [2 x i32], ptr %.096177, i64 %indvars.iv158
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %indvars.iv158
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %.096177, i64 %indvars.iv158
   %153 = load i32, ptr %151, align 8, !tbaa !46
   %154 = and i32 %153, 1
   %.not.i112 = icmp eq i32 %154, 0
@@ -571,7 +569,7 @@ uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge: ; pr
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %uv__process_close_stream.exit ], [ %indvars.iv158, %.preheader ]
   %indvars.iv.next164 = add nsw i64 %indvars.iv163, -1
   %174 = load ptr, ptr %147, align 8, !tbaa !45
-  %175 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %174, i64 %indvars.iv.next164
+  %175 = getelementptr inbounds [16 x i8], ptr %174, i64 %indvars.iv.next164
   %176 = load i32, ptr %175, align 8, !tbaa !46
   %177 = and i32 %176, 1
   %.not.i114 = icmp eq i32 %177, 0
@@ -612,14 +610,14 @@ uv__process_init_stdio.exit.thread:               ; preds = %44, %61, %50, %uv__
 
 190:                                              ; preds = %186
   %191 = load ptr, ptr %185, align 8, !tbaa !45
-  %192 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %191, i64 %indvars.iv166
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %indvars.iv166
   %193 = load i32, ptr %192, align 8, !tbaa !46
   %194 = and i32 %193, 6
   %.not107 = icmp eq i32 %194, 0
   br i1 %.not107, label %195, label %205
 
 195:                                              ; preds = %190, %186
-  %196 = getelementptr inbounds nuw [2 x i32], ptr %.096177, i64 %indvars.iv166
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %.096177, i64 %indvars.iv166
   %197 = load i32, ptr %196, align 4, !tbaa !25
   %.not108 = icmp eq i32 %197, -1
   br i1 %.not108, label %200, label %198
@@ -868,7 +866,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %56 ]
-  %39 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !25
   %42 = zext i32 %41 to i64
@@ -911,7 +909,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 .lr.ph162:                                        ; preds = %56, %111
   %.1161 = phi i32 [ %112, %111 ], [ 0, %56 ]
   %57 = sext i32 %.1161 to i64
-  %58 = getelementptr inbounds [2 x i32], ptr %2, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %2, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !25
   %61 = icmp slt i32 %60, 0
@@ -1192,7 +1190,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
   %181 = and i64 %indvars.iv169, 63
   %182 = shl nuw i64 1, %181
   %183 = lshr i64 %indvars.iv169, 6
-  %184 = getelementptr inbounds nuw i64, ptr %15, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %183
   %185 = load i64, ptr %184, align 8, !tbaa !69
   %186 = or i64 %185, %182
   store i64 %186, ptr %184, align 8, !tbaa !69

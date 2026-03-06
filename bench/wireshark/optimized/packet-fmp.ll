@@ -1985,7 +1985,7 @@ define internal fastcc noundef i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 nou
 
 switch.lookup:                                    ; preds = %.split
   %10 = zext nneg i32 %.025 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_fmp_flushCmd, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_fmp_flushCmd, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %11
 

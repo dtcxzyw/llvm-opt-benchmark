@@ -41,7 +41,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon.2, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
 %union.anon.2 = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.range = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"Crash kernel\00", align 1
@@ -491,7 +490,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_prepare_elf64_headers(ptr 
   %44 = load ptr, ptr @crash_notes, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %40, 63
-  %47 = getelementptr i64, ptr @__per_cpu_offset, i64 %46
+  %47 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, %45
   %50 = inttoptr i64 %49 to ptr
@@ -566,7 +565,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_prepare_elf64_headers(ptr 
 90:                                               ; preds = %90, %88
   %91 = phi i64 [ 0, %88 ], [ %111, %90 ]
   %92 = phi ptr [ %85, %88 ], [ %110, %90 ]
-  %93 = getelementptr %struct.range, ptr %89, i64 %91
+  %93 = getelementptr [16 x i8], ptr %89, i64 %91
   %94 = load i64, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %96 = load i64, ptr %95, align 8
@@ -650,7 +649,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noun
   %10 = phi i32 [ %5, %7 ], [ %64, %63 ]
   %11 = phi i32 [ 0, %7 ], [ %66, %63 ]
   %12 = sext i32 %11 to i64
-  %13 = getelementptr %struct.range, ptr %8, i64 %12
+  %13 = getelementptr [16 x i8], ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
@@ -672,7 +671,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noun
 26:                                               ; preds = %20
   %27 = add nuw i32 %11, 1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr %struct.range, ptr %8, i64 %28
+  %29 = getelementptr [16 x i8], ptr %8, i64 %28
   %30 = sub i32 %10, %27
   %31 = zext i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 4
@@ -697,10 +696,10 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noun
 43:                                               ; preds = %40
   %44 = add i32 %11, 2
   %45 = sext i32 %44 to i64
-  %46 = getelementptr %struct.range, ptr %8, i64 %45
+  %46 = getelementptr [16 x i8], ptr %8, i64 %45
   %47 = add nuw i32 %11, 1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr %struct.range, ptr %8, i64 %48
+  %49 = getelementptr [16 x i8], ptr %8, i64 %48
   %50 = sub i32 %10, %47
   %51 = zext i32 %50 to i64
   %52 = shl nuw nsw i64 %51, 4
@@ -761,11 +760,11 @@ define dso_local ptr @append_elf_note(ptr noundef writeonly captures(ret: addres
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 1 %1, i64 %13, i1 false)
   %14 = add nuw nsw i64 %13, 3
   %15 = lshr i64 %14, 2
-  %16 = getelementptr i32, ptr %12, i64 %15
+  %16 = getelementptr [4 x i8], ptr %12, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 1 %3, i64 %4, i1 false)
   %17 = add i64 %4, 3
   %18 = lshr i64 %17, 2
-  %19 = getelementptr i32, ptr %16, i64 %18
+  %19 = getelementptr [4 x i8], ptr %16, i64 %18
   ret ptr %19
 }
 
@@ -831,7 +830,7 @@ define dso_local void @crash_save_vmcoreinfo() local_unnamed_addr #4 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 1 %13, i64 %9, i1 false)
   %19 = add i64 %9, 3
   %20 = lshr i64 %19, 2
-  %21 = getelementptr i32, ptr %18, i64 %20
+  %21 = getelementptr [4 x i8], ptr %18, i64 %20
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %21, i8 0, i64 12, i1 false)
   br label %22
 
@@ -1020,7 +1019,7 @@ define internal noundef range(i32 -12, 1) i32 @crash_save_vmcoreinfo_init() #0 s
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %31, ptr align 1 %26, i64 %22, i1 false)
   %32 = add i64 %22, 3
   %33 = lshr i64 %32, 2
-  %34 = getelementptr i32, ptr %31, i64 %33
+  %34 = getelementptr [4 x i8], ptr %31, i64 %33
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %34, i8 0, i64 12, i1 false)
   br label %35
 
@@ -1127,7 +1126,7 @@ define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr no
 .preheader:                                       ; preds = %15, %.preheader
   %17 = phi i1 [ true, %.preheader ], [ false, %15 ]
   %18 = phi i64 [ 1, %.preheader ], [ 0, %15 ]
-  %19 = getelementptr ptr, ptr @suffix_tbl, i64 %18
+  %19 = getelementptr [8 x i8], ptr @suffix_tbl, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 @strlen(ptr noundef %20) #19
   %22 = sub i64 0, %21

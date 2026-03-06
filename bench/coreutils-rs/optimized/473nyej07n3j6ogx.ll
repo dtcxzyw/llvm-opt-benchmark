@@ -622,7 +622,7 @@ define void @_ZN12uu_dircolors18generate_ls_colors17hdf92147a276a9f20E(ptr noali
 ._crit_edge.i:                                    ; preds = %59
   %.pre = load ptr, ptr %42, align 8, !alias.scope !70, !noalias !67
   %.pre.i = load i64, ptr %43, align 8, !alias.scope !70, !noalias !67
-  %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.pre, i64 %.pre.i
+  %64 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.pre.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
   %65 = load i64, ptr %43, align 8, !alias.scope !70, !noalias !67, !noundef !4
   %66 = add i64 %65, 1
@@ -742,7 +742,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN4core5slice29_$
 99:                                               ; preds = %._crit_edge.i52, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
   %100 = phi i64 [ %.pre.i53, %._crit_edge.i52 ], [ %91, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ]
   %101 = load ptr, ptr %42, align 8, !alias.scope !85, !noalias !88, !nonnull !4, !noundef !4
-  %102 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %101, i64 %100
+  %102 = getelementptr inbounds [24 x i8], ptr %101, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   %103 = load i64, ptr %43, align 8, !alias.scope !85, !noalias !88, !noundef !4
   %104 = add i64 %103, 1
@@ -1091,7 +1091,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit94:  ; preds = %184
 193:                                              ; preds = %._crit_edge.i95, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit94
   %194 = phi i64 [ %.pre.i96, %._crit_edge.i95 ], [ %185, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit94 ]
   %195 = load ptr, ptr %45, align 8, !alias.scope !162, !noalias !165, !nonnull !4, !noundef !4
-  %196 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %195, i64 %194
+  %196 = getelementptr inbounds [24 x i8], ptr %195, i64 %194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %196, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %197 = load i64, ptr %46, align 8, !alias.scope !162, !noalias !165, !noundef !4
   %198 = add i64 %197, 1
@@ -1351,7 +1351,7 @@ define void @_ZN12uu_dircolors6uu_app17h4561972d28636de1E(ptr noalias noundef wr
   %83 = phi i64 [ %.pre.i.i, %.noexc.i29 ], [ %74, %71 ]
   %84 = getelementptr inbounds nuw i8, ptr %27, i64 136
   %85 = load ptr, ptr %84, align 8, !alias.scope !220, !noalias !224, !nonnull !4, !noundef !4
-  %86 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %85, i64 %83
+  %86 = getelementptr inbounds [16 x i8], ptr %85, i64 %83
   store ptr @anon.0e465fe6be52864fcdae16bb4d6a5c56.60, ptr %86, align 8, !noalias !224
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 7, ptr %87, align 8, !noalias !217
@@ -1539,7 +1539,7 @@ define void @_ZN12uu_dircolors6uu_app17h4561972d28636de1E(ptr noalias noundef wr
   %136 = phi i64 [ %.pre.i.i47, %.noexc.i46 ], [ %127, %124 ]
   %137 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %138 = load ptr, ptr %137, align 8, !alias.scope !291, !noalias !295, !nonnull !4, !noundef !4
-  %139 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %138, i64 %136
+  %139 = getelementptr inbounds [16 x i8], ptr %138, i64 %136
   store ptr @anon.0e465fe6be52864fcdae16bb4d6a5c56.58, ptr %139, align 8, !noalias !295
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i64 12, ptr %140, align 8, !noalias !288

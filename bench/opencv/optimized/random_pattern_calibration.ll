@@ -248,7 +248,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
   %.042250 = phi i32 [ %.244.ph, %160 ], [ 0, %2 ]
   %.051249 = phi i32 [ %161, %160 ], [ 1, %2 ]
   %103 = sext i32 %.051249 to i64
-  %104 = getelementptr inbounds ptr, ptr %1, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %1, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !10
   %106 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(4) @.str.2) #22
   %107 = icmp eq i32 %106, 0
@@ -257,7 +257,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 108:                                              ; preds = %.preheader237
   %109 = add nsw i32 %.051249, 1
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %1, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %1, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !10
   %113 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %112, ptr noundef nonnull @.str.3, ptr noundef nonnull %69) #23
   %114 = icmp ne i32 %113, 1
@@ -279,7 +279,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 123:                                              ; preds = %120
   %124 = add nsw i32 %.051249, 1
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds ptr, ptr %1, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %1, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !10
   %128 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %127, ptr noundef nonnull @.str.3, ptr noundef nonnull %70) #23
   %129 = icmp ne i32 %128, 1
@@ -301,7 +301,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 138:                                              ; preds = %135
   %139 = add nsw i32 %.051249, 1
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr %1, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %1, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !10
   %143 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %142, ptr noundef nonnull @.str.8, ptr noundef nonnull %71) #23
   %144 = icmp ne i32 %143, 1
@@ -718,7 +718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %.b
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %74) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %271 = load ptr, ptr %67, align 8, !tbaa !28
-  %272 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %271, i64 %indvars.iv
+  %272 = getelementptr inbounds nuw [32 x i8], ptr %271, i64 %indvars.iv
   invoke void @_ZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %75, ptr noundef nonnull align 8 dereferenceable(32) %272, i32 noundef 0)
           to label %273 unwind label %289
 
@@ -2487,7 +2487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i273.i: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %885 = load ptr, ptr %88, align 8, !tbaa !52
-  %886 = getelementptr inbounds nuw %"class.cv::Mat", ptr %885, i64 %indvars.iv.i
+  %886 = getelementptr inbounds nuw [96 x i8], ptr %885, i64 %indvars.iv.i
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 8
   %888 = load i32, ptr %887, align 8, !tbaa !87
   %889 = icmp eq i32 %888, 3
@@ -2547,7 +2547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288.i: ; preds = %
 
 908:                                              ; preds = %890
   %909 = load ptr, ptr %89, align 8, !tbaa !52
-  %910 = getelementptr inbounds nuw %"class.cv::Mat", ptr %909, i64 %indvars.iv.i
+  %910 = getelementptr inbounds nuw [96 x i8], ptr %909, i64 %indvars.iv.i
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 8
   %912 = load i32, ptr %911, align 8, !tbaa !87
   %913 = icmp eq i32 %912, 3
@@ -2615,7 +2615,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %929
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %934 = load ptr, ptr %89, align 8, !tbaa !52
-  %935 = getelementptr inbounds nuw %"class.cv::Mat", ptr %934, i64 %indvars.iv.i
+  %935 = getelementptr inbounds nuw [96 x i8], ptr %934, i64 %indvars.iv.i
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %57, ptr noundef nonnull align 8 dereferenceable(96) %935)
           to label %936 unwind label %954
 
@@ -3983,7 +3983,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !28
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !25
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !30
   ret void
 }
@@ -4149,7 +4149,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !52
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !32
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !35
   ret void
 

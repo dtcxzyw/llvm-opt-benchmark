@@ -4832,7 +4832,7 @@ define hidden void @"_ZN6diesel13query_builder16insert_statement39IncompleteInse
   %4 = load ptr, ptr %3, align 8, !alias.scope !1445, !noalias !1448, !nonnull !14, !noundef !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1445, !noalias !1448, !noundef !14
-  %7 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h76c2118c2dc61996E.llvm.4390069830711507923"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %.sroa.0, ptr noundef nonnull readonly align 8 %4, ptr noundef nonnull readonly %7), !noalias !1445
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !alias.scope !1450
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
@@ -4853,7 +4853,7 @@ define hidden void @"_ZN6diesel13query_builder16insert_statement39IncompleteInse
   %4 = load ptr, ptr %3, align 8, !alias.scope !1454, !noalias !1457, !nonnull !14, !noundef !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1454, !noalias !1457, !noundef !14
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd4319300661bc7d3E.llvm.4390069830711507923"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %.sroa.0, ptr noundef nonnull readonly align 8 %4, ptr noundef nonnull readonly %7), !noalias !1454
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !alias.scope !1459
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
@@ -4869,7 +4869,7 @@ define hidden void @"_ZN6diesel13query_builder16insert_statement39IncompleteInse
   %4 = load ptr, ptr %3, align 8, !alias.scope !1463, !noalias !1466, !nonnull !14, !noundef !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1463, !noalias !1466, !noundef !14
-  %7 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h6922c6362196ceb8E.llvm.4390069830711507923"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %.sroa.0, ptr noundef nonnull readonly align 8 %4, ptr noundef nonnull readonly %7), !noalias !1463
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !alias.scope !1468
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
@@ -4911,7 +4911,7 @@ define hidden void @"_ZN6diesel13query_builder16insert_statement39IncompleteInse
   %4 = load ptr, ptr %3, align 8, !alias.scope !1481, !noalias !1484, !nonnull !14, !noundef !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1481, !noalias !1484, !noundef !14
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h788ed3a37f28c1fdE.llvm.4390069830711507923"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %.sroa.0, ptr noundef nonnull readonly align 8 %4, ptr noundef nonnull readonly %7), !noalias !1481
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !alias.scope !1486
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
@@ -4948,7 +4948,7 @@ define hidden void @"_ZN6diesel13query_builder16insert_statement39IncompleteInse
   %4 = load ptr, ptr %3, align 8, !alias.scope !1496, !noalias !1499, !nonnull !14, !noundef !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1496, !noalias !1499, !noundef !14
-  %7 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h76de4a41344eb220E.llvm.4390069830711507923"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %.sroa.0, ptr noundef nonnull readonly align 8 %4, ptr noundef nonnull readonly %7), !noalias !1496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !alias.scope !1501
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)

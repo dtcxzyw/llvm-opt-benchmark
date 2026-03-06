@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.attrs_t = type { ptr, i64, i64, i64 }
 %struct.nodes_t = type { ptr, i64, i64, i64 }
-%struct.strattr_t = type { ptr, ptr }
 
 @verbose = dso_local local_unnamed_addr global i32 0, align 4
 @opterr = external local_unnamed_addr global i32, align 4
@@ -140,7 +139,7 @@ gv_strdup.exit7.i:                                ; preds = %gv_strdup.exit.i
   br i1 %46, label %59, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw %struct.strattr_t, ptr %45, i64 %.ph505
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %.ph505
   %49 = sub i64 %spec.select.i.i.i, %.ph505
   %50 = shl i64 %49, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %48, i8 0, i64 %50, i1 false)
@@ -151,8 +150,8 @@ gv_strdup.exit7.i:                                ; preds = %gv_strdup.exit.i
 53:                                               ; preds = %47
   %54 = sub i64 %.ph505, %.ph
   %55 = sub i64 %spec.select.i.i.i, %54
-  %56 = getelementptr inbounds nuw %struct.strattr_t, ptr %45, i64 %55
-  %57 = getelementptr inbounds nuw %struct.strattr_t, ptr %45, i64 %.ph
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %55
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %.ph
   %58 = shl i64 %54, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 8 %57, i64 %58, i1 false)
   br label %addattr.exit
@@ -171,7 +170,7 @@ addattr.exit:                                     ; preds = %47, %53, %gv_strdup
   %63 = phi ptr [ %.ph508, %gv_strdup.exit7.i ], [ %45, %47 ], [ %45, %53 ]
   %64 = add i64 %.pre.i.i.i183, %.val73.ph
   %65 = urem i64 %64, %spec.select.i.i.i171
-  %66 = getelementptr inbounds nuw %struct.strattr_t, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %65
   store ptr %24, ptr %66, align 8, !tbaa !8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !8
@@ -210,7 +209,7 @@ gv_strdup.exit.i74:                               ; preds = %68
   br i1 %84, label %97, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw ptr, ptr %83, i64 %.ph512
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.ph512
   %87 = sub i64 %spec.select.i.i.i78, %.ph512
   %88 = shl i64 %87, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %86, i8 0, i64 %88, i1 false)
@@ -221,8 +220,8 @@ gv_strdup.exit.i74:                               ; preds = %68
 91:                                               ; preds = %85
   %92 = sub i64 %.ph512, %.ph511
   %93 = sub i64 %spec.select.i.i.i78, %92
-  %94 = getelementptr inbounds nuw ptr, ptr %83, i64 %93
-  %95 = getelementptr inbounds nuw ptr, ptr %83, i64 %.ph511
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %93
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.ph511
   %96 = shl i64 %92, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %95, i64 %96, i1 false)
   br label %addnode.exit
@@ -241,7 +240,7 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   %101 = phi ptr [ %.ph515, %gv_strdup.exit.i74 ], [ %83, %85 ], [ %83, %91 ]
   %102 = add i64 %.pre.i.i.i77146, %.val.ph513
   %103 = urem i64 %102, %spec.select.i.i.i78134
-  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %103
   store ptr %70, ptr %104, align 8, !tbaa !8
   %105 = add i64 %.val.ph513, 1
   br label %.outer510, !llvm.loop !14
@@ -269,7 +268,7 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   %113 = tail call ptr @__ctype_b_loc() #23
   %114 = load ptr, ptr %113, align 8, !tbaa !16
   %115 = sext i32 %109 to i64
-  %116 = getelementptr inbounds i16, ptr %114, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr %114, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !18
   %118 = and i16 %117, 16384
   %.not72 = icmp eq i16 %118, 0
@@ -296,7 +295,7 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   %123 = load i32, ptr @optind, align 4, !tbaa !4
   %124 = icmp slt i32 %123, %0
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds ptr, ptr %1, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %1, i64 %125
   %.057 = select i1 %124, ptr %126, ptr null
   %127 = call ptr @newIngraph(ptr noundef nonnull %3, ptr noundef %.057) #19
   %128 = call ptr @nextGraph(ptr noundef nonnull %3) #19
@@ -333,14 +332,14 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   %136 = load ptr, ptr @stderr, align 8, !tbaa !11
   %137 = add i64 %.ph511, %.058200.us
   %138 = urem i64 %137, %.ph512
-  %139 = getelementptr inbounds nuw ptr, ptr %.ph515, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %.ph515, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !8
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.5, ptr noundef %140) #20
   br label %142
 
 142:                                              ; preds = %._crit_edge, %135
   %.pre-phi303 = phi i64 [ %.pre302, %._crit_edge ], [ %138, %135 ]
-  %143 = getelementptr inbounds nuw ptr, ptr %.ph515, i64 %.pre-phi303
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %.ph515, i64 %.pre-phi303
   %144 = load ptr, ptr %143, align 8, !tbaa !8
   %145 = call ptr @agnode(ptr noundef nonnull %129, ptr noundef %144, i32 noundef 0) #19
   %146 = icmp eq ptr %145, null
@@ -409,7 +408,7 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   %.059197.us = phi i64 [ %185, %183 ], [ 0, %._crit_edge.us ]
   %178 = add i64 %.ph, %.059197.us
   %179 = urem i64 %178, %.ph505
-  %180 = getelementptr inbounds nuw %struct.strattr_t, ptr %.ph508, i64 %179
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %.ph508, i64 %179
   %.sroa.0.0.copyload.i.us = load ptr, ptr %180, align 8, !tbaa !8
   %181 = call ptr @agattr(ptr noundef nonnull %129, i32 noundef 1, ptr noundef %.sroa.0.0.copyload.i.us, ptr noundef nonnull @.str.8) #19
   %182 = icmp eq ptr %181, null
@@ -635,7 +634,7 @@ define internal fastcc void @attrs_free(ptr noundef nonnull captures(none) %0) u
   %9 = add i64 %8, %.06.i
   %10 = load i64, ptr %5, align 8, !tbaa !42
   %11 = urem i64 %9, %10
-  %12 = getelementptr inbounds nuw %struct.strattr_t, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %11
   %.sroa.0.0.copyload.i.i = load ptr, ptr %12, align 8, !tbaa !8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !8
@@ -674,7 +673,7 @@ define internal fastcc void @nodes_free(ptr noundef nonnull captures(none) %0) u
   %9 = add i64 %8, %.06.i
   %10 = load i64, ptr %5, align 8, !tbaa !49
   %11 = urem i64 %9, %10
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   tail call void @free(ptr noundef %13) #19
   %14 = add nuw i64 %.06.i, 1

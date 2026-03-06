@@ -144,7 +144,7 @@ switch.lookup:                                    ; preds = %3
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %5, i64 %12
   %14 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_data, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.parse_data, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 180
   %16 = load i32, ptr %15, align 4
@@ -2252,7 +2252,7 @@ define internal fastcc void @process_rollback(i1 noundef zeroext %0) unnamed_add
   store i8 %28, ptr %10, align 1
   store i8 0, ptr %11, align 1
   %29 = zext i8 %23 to i64
-  %30 = getelementptr i16, ptr %12, i64 %29
+  %30 = getelementptr [2 x i8], ptr %12, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 1024
   %.not = icmp eq i16 %32, 0
@@ -2260,7 +2260,7 @@ define internal fastcc void @process_rollback(i1 noundef zeroext %0) unnamed_add
 
 33:                                               ; preds = %25
   %34 = zext i8 %28 to i64
-  %35 = getelementptr i16, ptr %12, i64 %34
+  %35 = getelementptr [2 x i8], ptr %12, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 1024
   %.not37 = icmp eq i16 %37, 0
@@ -2415,7 +2415,7 @@ define hidden range(i32 0, 9) i32 @text_import(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.text_import, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.text_import, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr @offset_base, align 4
   br label %14

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.faiss::MatrixStats::PerDimStats" = type { i64, i64, i64, i64, float, float, double, double, i64, double, double }
 
 $_ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImESaISt4pairIKmS2_EEED2Ev = comdat any
 
@@ -265,7 +264,7 @@ define void @_ZN5faiss11MatrixStatsC2EmmPKf(ptr noundef nonnull align 8 derefere
   br i1 %47, label %48, label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %38, i64 %2
+  %49 = getelementptr inbounds nuw [80 x i8], ptr %38, i64 %2
   %.not.i.i = icmp eq ptr %37, %49
   br i1 %.not.i.i, label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit, label %50
 
@@ -300,7 +299,7 @@ _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit: ; preds =
 58:                                               ; preds = %.lr.ph172, %185
   %.0106170 = phi i64 [ 0, %.lr.ph172 ], [ %186, %185 ]
   %59 = mul i64 %.0106170, %2
-  %60 = getelementptr inbounds nuw float, ptr %3, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %59
   br i1 %.not205, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
@@ -316,8 +315,8 @@ _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit: ; preds =
 64:                                               ; preds = %.lr.ph, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit
   %.0107169 = phi i64 [ 0, %.lr.ph ], [ %109, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ]
   %.0108168 = phi double [ 0.000000e+00, %.lr.ph ], [ %108, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ]
-  %65 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %61, i64 %.0107169
-  %66 = getelementptr inbounds nuw float, ptr %60, i64 %.0107169
+  %65 = getelementptr inbounds nuw [80 x i8], ptr %61, i64 %.0107169
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.0107169
   %67 = load float, ptr %66, align 4, !tbaa !54
   %68 = load i64, ptr %65, align 8, !tbaa !4
   %69 = add i64 %68, 1
@@ -452,7 +451,7 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %98, %78, %71
   %134 = load i64, ptr %18, align 8, !tbaa !48
   %135 = urem i64 %126, %134
   %136 = load ptr, ptr %16, align 8, !tbaa !47
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %135
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %135
   %138 = load ptr, ptr %137, align 8, !tbaa !63
   %.not.i.i.i.i = icmp eq ptr %138, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %139
@@ -488,7 +487,7 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %98, %78, %71
   %.pre222 = load i64, ptr %18, align 8, !tbaa !48
   %.pre223 = load ptr, ptr %16, align 8, !tbaa !47
   %.pre226 = urem i64 %126, %.pre222
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre223, i64 %.pre226
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre223, i64 %.pre226
   %.pre227 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !63
   br label %.loopexit160
 
@@ -569,7 +568,7 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %175 = load i64, ptr %174, align 8, !tbaa !68
   %176 = mul i64 %175, %2
-  %177 = getelementptr inbounds nuw float, ptr %3, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %176
   %bcmp = tail call i32 @bcmp(ptr %60, ptr %177, i64 %35)
   %.not119 = icmp eq i32 %bcmp, 0
   br i1 %.not119, label %178, label %182
@@ -708,7 +707,7 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
   %.0100186 = phi i64 [ 0, %.lr.ph191 ], [ %.1101, %269 ]
   %.0102185 = phi double [ 0x7FF0000000000000, %.lr.ph191 ], [ %.1103, %269 ]
   %.0104184 = phi double [ 0.000000e+00, %.lr.ph191 ], [ %.1105, %269 ]
-  %230 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %227, i64 %.096189
+  %230 = getelementptr inbounds nuw [80 x i8], ptr %227, i64 %.096189
   %231 = load i64, ptr %230, align 8, !tbaa !4
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %233 = load i64, ptr %232, align 8, !tbaa !11
@@ -830,7 +829,7 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
 289:                                              ; preds = %.lr.ph201, %289
   %.087199 = phi i64 [ 0, %.lr.ph201 ], [ %295, %289 ]
   %.088198 = phi i64 [ 0, %.lr.ph201 ], [ %.189, %289 ]
-  %290 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %287, i64 %.087199
+  %290 = getelementptr inbounds nuw [80 x i8], ptr %287, i64 %.087199
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 72
   %292 = load double, ptr %291, align 8, !tbaa !22
   %293 = fcmp olt double %292, %288
@@ -1073,9 +1072,9 @@ _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_R
 
 _ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %43
   store ptr %32, ptr %0, align 8, !tbaa !52
-  %45 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %33, i64 %1
+  %45 = getelementptr inbounds nuw [80 x i8], ptr %33, i64 %1
   store ptr %45, ptr %4, align 8, !tbaa !51
-  %46 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %32, i64 %30
+  %46 = getelementptr inbounds nuw [80 x i8], ptr %32, i64 %30
   store ptr %46, ptr %11, align 8, !tbaa !75
   br label %47
 
@@ -1142,7 +1141,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !47
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !63
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1168,7 +1167,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
   %44 = load i64, ptr %9, align 8, !tbaa !48
   %45 = load i64, ptr %43, align 8, !tbaa !61
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !63
   br label %48
 
@@ -1232,7 +1231,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !61
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !63
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1247,7 +1246,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !63
   br label %28
 

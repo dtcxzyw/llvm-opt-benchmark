@@ -2656,10 +2656,10 @@ switch.lookup:
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %9, ptr %14, align 2
   %15 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mbrtu_pdu_common, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mbrtu_pdu_common, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = zext nneg i32 %12 to i64
-  %switch.gep98 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mbrtu_pdu_common.1, i64 %16
+  %switch.gep98 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mbrtu_pdu_common.1, i64 %16
   %switch.load99 = load ptr, ptr %switch.gep98, align 8
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %.not = icmp sgt i8 %17, -1

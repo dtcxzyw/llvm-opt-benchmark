@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.aiFace = type { i32, ptr }
-%struct.iqmtriangle = type { [3 x i32] }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -648,7 +646,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   %161 = add i32 %160, 1
   store i32 %161, ptr %118, align 8
   %162 = zext i32 %160 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %159, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %162
   store ptr %151, ptr %163, align 8
   %164 = load i32, ptr %125, align 8
   %165 = getelementptr inbounds nuw i8, ptr %151, i64 232
@@ -666,7 +664,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   %171 = add i32 %170, 1
   store i32 %171, ptr %125, align 8
   %172 = zext i32 %170 to i64
-  %173 = getelementptr inbounds nuw ptr, ptr %169, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %172
   store ptr %166, ptr %173, align 8
   %174 = load i32, ptr %136, align 4
   %175 = zext i32 %174 to i64
@@ -771,7 +769,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   br i1 %215, label %.loopexit368, label %216
 
 216:                                              ; preds = %213
-  %217 = getelementptr inbounds nuw %struct.aiFace, ptr %214, i64 %209
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %209
   br label %218
 
 218:                                              ; preds = %218, %216
@@ -792,7 +790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %227 = getelementptr inbounds nuw i8, ptr %.0234410, i64 16
   %228 = load i32, ptr %227, align 4
   %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds nuw %struct.iqmtriangle, ptr %226, i64 %229
+  %230 = getelementptr inbounds nuw [12 x i8], ptr %226, i64 %229
   %231 = load i32, ptr %207, align 4
   %232 = zext i32 %231 to i64
   %.idx414 = mul nuw nsw i64 %232, 12
@@ -863,7 +861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %261 = add i32 %260, 1
   store i32 %261, ptr %154, align 8
   %262 = zext i32 %260 to i64
-  %263 = getelementptr inbounds nuw %struct.aiFace, ptr %259, i64 %262
+  %263 = getelementptr inbounds nuw [16 x i8], ptr %259, i64 %262
   store i32 3, ptr %263, align 8
   %264 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #20
           to label %265 unwind label %279
@@ -948,7 +946,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %306 = load i32, ptr %243, align 4
   %307 = mul i32 %306, %285
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds nuw float, ptr %305, i64 %308
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %305, i64 %308
   %310 = mul i32 %285, %283
   %311 = zext i32 %310 to i64
   %.idx419 = shl nuw nsw i64 %311, 2
@@ -978,7 +976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   store float %319, ptr %.sroa.4324.0..0236.sroa_idx, align 4
   %.sroa.5325.0..0236.sroa_idx = getelementptr inbounds nuw i8, ptr %.0236400, i64 8
   store float %321, ptr %.sroa.5325.0..0236.sroa_idx, align 4
-  %322 = getelementptr inbounds nuw float, ptr %.0235401, i64 %313
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %.0235401, i64 %313
   %323 = getelementptr inbounds nuw i8, ptr %.0236400, i64 12
   %.not269 = icmp eq ptr %322, %312
   br i1 %.not269, label %.loopexit, label %316, !llvm.loop !7
@@ -1019,7 +1017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %343 = load i32, ptr %243, align 4
   %344 = mul i32 %343, %285
   %345 = zext i32 %344 to i64
-  %346 = getelementptr inbounds nuw float, ptr %342, i64 %345
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %345
   %347 = mul i32 %285, %283
   %348 = zext i32 %347 to i64
   %.idx418 = shl nuw nsw i64 %348, 2
@@ -1048,7 +1046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   store float %357, ptr %.sroa.4321.0..0233.sroa_idx, align 4
   %.sroa.5322.0..0233.sroa_idx = getelementptr inbounds nuw i8, ptr %.0233395, i64 8
   store float 0.000000e+00, ptr %.sroa.5322.0..0233.sroa_idx, align 4
-  %358 = getelementptr inbounds nuw float, ptr %.0232396, i64 %350
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %.0232396, i64 %350
   %359 = getelementptr inbounds nuw i8, ptr %.0233395, i64 12
   %.not266 = icmp eq ptr %358, %349
   br i1 %.not266, label %.loopexit, label %353, !llvm.loop !8
@@ -1088,7 +1086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %379 = load i32, ptr %243, align 4
   %380 = mul i32 %379, %285
   %381 = zext i32 %380 to i64
-  %382 = getelementptr inbounds nuw float, ptr %378, i64 %381
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %378, i64 %381
   %383 = mul i32 %285, %283
   %384 = zext i32 %383 to i64
   %.idx417 = shl nuw nsw i64 %384, 2
@@ -1118,7 +1116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   store float %392, ptr %.sroa.4318.0..0230.sroa_idx, align 4
   %.sroa.5319.0..0230.sroa_idx = getelementptr inbounds nuw i8, ptr %.0230390, i64 8
   store float %394, ptr %.sroa.5319.0..0230.sroa_idx, align 4
-  %395 = getelementptr inbounds nuw float, ptr %.0229391, i64 %386
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %.0229391, i64 %386
   %396 = getelementptr inbounds nuw i8, ptr %.0230390, i64 12
   %.not265 = icmp eq ptr %395, %385
   br i1 %.not265, label %.loopexit, label %389, !llvm.loop !9
@@ -1236,7 +1234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %456 = load i32, ptr %243, align 4
   %457 = mul i32 %456, %285
   %458 = zext i32 %457 to i64
-  %459 = getelementptr inbounds nuw float, ptr %455, i64 %458
+  %459 = getelementptr inbounds nuw [4 x i8], ptr %455, i64 %458
   %460 = mul i32 %285, %283
   %461 = zext i32 %460 to i64
   %.idx416 = shl nuw nsw i64 %461, 2
@@ -1278,7 +1276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   store float %472, ptr %.sroa.5.0..0214.sroa_idx, align 4
   %.sroa.6.0..0214.sroa_idx = getelementptr inbounds nuw i8, ptr %.0214380, i64 12
   store float %477, ptr %.sroa.6.0..0214.sroa_idx, align 4
-  %478 = getelementptr inbounds nuw float, ptr %.0213381, i64 %464
+  %478 = getelementptr inbounds nuw [4 x i8], ptr %.0213381, i64 %464
   %479 = getelementptr inbounds nuw i8, ptr %.0214380, i64 16
   %.not263 = icmp eq ptr %478, %462
   br i1 %.not263, label %.loopexit, label %467, !llvm.loop !11

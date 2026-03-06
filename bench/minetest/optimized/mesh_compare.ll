@@ -22,7 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::pair.23" = type { %"struct.std::array.25", %struct.QuadRef }
 %struct.QuadRef = type { i32, i32 }
 %"struct.std::array.26" = type { [4 x i32] }
-%"struct.std::array" = type { [4 x %"struct.irr::video::S3DVertex"] }
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_ = comdat any
 
@@ -167,7 +166,7 @@ _ZNSt12_Vector_baseISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EEC2EmRKS5_.exit.i
   %mul.i.i.i.i.i.i.i = mul nuw nsw i64 %conv1.i, 108
   %call5.i.i.i.i4.i.i46.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #19, !noalias !9
   store ptr %call5.i.i.i.i4.i.i46.i, ptr %agg.result, align 8, !tbaa !18, !alias.scope !9
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.std::array.25", ptr %call5.i.i.i.i4.i.i46.i, i64 %conv1.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [108 x i8], ptr %call5.i.i.i.i4.i.i46.i, i64 %conv1.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !19, !alias.scope !9
   %2 = icmp samesign ult i32 %conv.i, 6
@@ -282,48 +281,48 @@ if.then.i.i47.cont.i:                             ; preds = %if.then.i.i47.invok
   unreachable
 
 invoke.cont7.i:                                   ; preds = %for.body.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %indices.0.val, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %indices.0.val, i64 %4
   %7 = load i16, ptr %add.ptr.i.i.i, align 2, !tbaa !26, !noalias !9
   %conv9.i = zext i16 %7 to i64
   %cmp.not.i.i54.i = icmp ugt i64 %sub.ptr.div.i.i.i53.i, %conv9.i
   br i1 %cmp.not.i.i54.i, label %invoke.cont10.i, label %if.then.i.i47.invoke.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont7.i
-  %add.ptr.i.i56.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %vertices.0.val, i64 %conv9.i
+  %add.ptr.i.i56.i = getelementptr inbounds nuw [36 x i8], ptr %vertices.0.val, i64 %conv9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp4.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i.i56.i, i64 36, i1 false), !tbaa.struct !28, !noalias !9
   %8 = add nuw nsw i64 %4, 1
   %cmp.not.i.i63.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %8
   br i1 %cmp.not.i.i63.i, label %invoke.cont14.i, label %if.then.i.i47.invoke.i
 
 invoke.cont14.i:                                  ; preds = %invoke.cont10.i
-  %add.ptr.i.i65.i = getelementptr inbounds nuw i16, ptr %indices.0.val, i64 %8
+  %add.ptr.i.i65.i = getelementptr inbounds nuw [2 x i8], ptr %indices.0.val, i64 %8
   %9 = load i16, ptr %add.ptr.i.i65.i, align 2, !tbaa !26, !noalias !9
   %conv16.i = zext i16 %9 to i64
   %cmp.not.i.i73.i = icmp ugt i64 %sub.ptr.div.i.i.i53.i, %conv16.i
   br i1 %cmp.not.i.i73.i, label %invoke.cont17.i, label %if.then.i.i47.invoke.i
 
 invoke.cont17.i:                                  ; preds = %invoke.cont14.i
-  %add.ptr.i.i75.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %vertices.0.val, i64 %conv16.i
+  %add.ptr.i.i75.i = getelementptr inbounds nuw [36 x i8], ptr %vertices.0.val, i64 %conv16.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp4.sroa.0.36.arrayinit.element.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i.i75.i, i64 36, i1 false), !tbaa.struct !28, !noalias !9
   %10 = add nuw nsw i64 %4, 2
   %cmp.not.i.i83.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %10
   br i1 %cmp.not.i.i83.i, label %invoke.cont23.i, label %if.then.i.i47.invoke.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont17.i
-  %add.ptr.i.i85.i = getelementptr inbounds nuw i16, ptr %indices.0.val, i64 %10
+  %add.ptr.i.i85.i = getelementptr inbounds nuw [2 x i8], ptr %indices.0.val, i64 %10
   %11 = load i16, ptr %add.ptr.i.i85.i, align 2, !tbaa !26, !noalias !9
   %conv25.i = zext i16 %11 to i64
   %cmp.not.i.i93.i = icmp ugt i64 %sub.ptr.div.i.i.i53.i, %conv25.i
   br i1 %cmp.not.i.i93.i, label %invoke.cont26.i, label %if.then.i.i47.invoke.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont23.i
-  %add.ptr.i.i95.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %vertices.0.val, i64 %conv25.i
+  %add.ptr.i.i95.i = getelementptr inbounds nuw [36 x i8], ptr %vertices.0.val, i64 %conv25.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp4.sroa.0.72.arrayinit.element19.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i.i95.i, i64 36, i1 false), !tbaa.struct !28, !noalias !9
   %exitcond.not = icmp eq i64 %indvars.iv.i, %sub.ptr.div.i.i.i102.i
   br i1 %exitcond.not, label %if.then.i.i47.invoke.i, label %invoke.cont29.i
 
 invoke.cont29.i:                                  ; preds = %invoke.cont26.i
-  %add.ptr.i.i105.i = getelementptr inbounds nuw %"struct.std::array.25", ptr %call5.i.i.i.i4.i.i46.i, i64 %indvars.iv.i
+  %add.ptr.i.i105.i = getelementptr inbounds nuw [108 x i8], ptr %call5.i.i.i.i4.i.i46.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i.i105.i, ptr noundef nonnull align 8 dereferenceable(108) %ref.tmp4.sroa.0.i, i64 108, i1 false), !tbaa.struct !30, !noalias !9
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.sroa.0.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -480,7 +479,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorISt5arr
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i4.i.i232, i64 16
-  %add.ptr.i.i.i.i.i.i.i = getelementptr %"struct.std::array.26", ptr %call5.i.i.i.i4.i.i232, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr [16 x i8], ptr %call5.i.i.i.i4.i.i232, i64 %sub.ptr.div.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
@@ -534,7 +533,7 @@ for.body:                                         ; preds = %invoke.cont81, %for
   %7 = phi ptr [ %1, %for.body.lr.ph ], [ %9, %invoke.cont81 ]
   %conv488 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %invoke.cont81 ]
   %k.0487 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont81 ]
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::array", ptr %7, i64 %conv488
+  %add.ptr.i = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %conv488
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i, i64 36, i1 false), !tbaa.struct !28
@@ -1116,11 +1115,11 @@ if.end:                                           ; preds = %if.end.i.i.i.i.i.2.
   %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 140
   %81 = load i32, ptr %second, align 4, !tbaa !59
   %conv109 = zext i32 %81 to i64
-  %add.ptr.i264 = getelementptr inbounds nuw %"struct.std::array.26", ptr %refs.sroa.0.0502, i64 %conv109
+  %add.ptr.i264 = getelementptr inbounds nuw [16 x i8], ptr %refs.sroa.0.0502, i64 %conv109
   %quad_part113 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 144
   %82 = load i32, ptr %quad_part113, align 4, !tbaa !63
   %conv114 = sext i32 %82 to i64
-  %arrayidx.i.i266 = getelementptr inbounds i32, ptr %add.ptr.i264, i64 %conv114
+  %arrayidx.i.i266 = getelementptr inbounds [4 x i8], ptr %add.ptr.i264, i64 %conv114
   %83 = load i32, ptr %arrayidx.i.i266, align 4, !tbaa !29
   %add = add nsw i32 %83, 1
   store i32 %add, ptr %arrayidx.i.i266, align 4, !tbaa !29
@@ -1131,7 +1130,7 @@ if.end:                                           ; preds = %if.end.i.i.i.i.i.2.
 invoke.cont147:                                   ; preds = %for.cond132.preheader, %for.inc164
   %conv133493 = phi i64 [ %conv133, %for.inc164 ], [ 0, %for.cond132.preheader ]
   %k131.0492 = phi i32 [ %inc165, %for.inc164 ], [ 0, %for.cond132.preheader ]
-  %add.ptr.i272 = getelementptr inbounds nuw %"struct.std::array.26", ptr %refs.sroa.0.0502, i64 %conv133493
+  %add.ptr.i272 = getelementptr inbounds nuw [16 x i8], ptr %refs.sroa.0.0502, i64 %conv133493
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp140)
   store <4 x i32> <i32 1, i32 1, i32 0, i32 0>, ptr %ref.tmp140, align 16, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp151)
@@ -1476,7 +1475,7 @@ if.then:                                          ; preds = %while.body
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.then
   %__parent.0.i.i = phi i64 [ %div2526.i.i, %if.then ], [ %dec.i.i, %while.cond.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %__parent.0.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %__parent.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp6.i.i, ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i.i.i, i64 108, i1 false)
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull byval(%"struct.std::array.25") align 8 %agg.tmp6.i.i)
   %cmp9.not.i.i = icmp eq i64 %__parent.0.i.i, 0
@@ -1504,7 +1503,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %_Z
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.033, -1
   %div.i = udiv i64 %sub.ptr.sub.i34, 216
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::array.25", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [108 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge32, i64 -108
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_SE_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i28.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i29.i)
   %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEET_SE_SE_SE_T0_(ptr nonnull %add.ptr.i28.i, ptr %storemerge32, ptr %__first.coerce)
@@ -1530,9 +1529,9 @@ while.body:                                       ; preds = %entry, %_ZNK9__gnu_
   %__holeIndex.addr.068 = phi i64 [ %0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.068, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i54 = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i54 = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %sub3
   %call.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 @_ZNK3irr5video9S3DVertexltERKS1_(ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i54)
   br i1 %call.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit, label %if.end.i.i.i.i.i.i.i
 
@@ -1562,8 +1561,8 @@ if.end.i.i.i.i.i.2.i.i:                           ; preds = %for.inc.i.i.i.i.i.1
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit: ; preds = %if.end.i.i.i.i.i.2.i.i, %for.inc.i.i.i.i.i.1.i.i, %if.end.i.i.i.i.i.1.i.i, %for.inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %while.body
   %0 = phi i64 [ %mul, %if.end.i.i.i.i.i.i.i ], [ %mul, %if.end.i.i.i.i.i.1.i.i ], [ %mul, %if.end.i.i.i.i.i.2.i.i ], [ %sub3, %while.body ], [ %sub3, %for.inc.i.i.i.i.i.i.i ], [ %sub3, %for.inc.i.i.i.i.i.1.i.i ]
-  %add.ptr.i55 = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %0
-  %add.ptr.i56 = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %__holeIndex.addr.068
+  %add.ptr.i55 = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %0
+  %add.ptr.i56 = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.068
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i56, ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i55, i64 108, i1 false), !tbaa.struct !30
   %cmp = icmp slt i64 %0, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !69
@@ -1583,8 +1582,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i57 = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %sub24
-  %add.ptr.i58 = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i57 = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %sub24
+  %add.ptr.i58 = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i58, ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i57, i64 108, i1 false), !tbaa.struct !30
   br label %if.end33
 
@@ -1650,7 +1649,7 @@ land.rhs.i:                                       ; preds = %if.end33, %while.bo
   %__holeIndex.addr.035.i = phi i64 [ %__parent.036.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
   %__parent.036.in.i = add nsw i64 %__holeIndex.addr.035.i, -1
   %__parent.036.i = sdiv i64 %__parent.036.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %__parent.036.i
+  %add.ptr.i.i = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %__parent.036.i
   %1 = load float, ptr %add.ptr.i.i, align 4, !tbaa !51
   %cmp.i.i = fcmp nsz olt float %1, %agg.tmp3659.sroa.0.0.copyload
   br i1 %cmp.i.i, label %while.body.i, label %lor.lhs.false.i.i
@@ -2086,14 +2085,14 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit265:         ; preds = %lor.rhs.i.i247
   br i1 %cmp7.i107.i252, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %land.lhs.true.i215, %land.lhs.true.i49.i221, %for.inc.i.i.i.i.i.1.i.i.i, %land.lhs.true.i.i203, %land.rhs.i243, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i209, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i261, %land.lhs.true16.i257, %land.lhs.true.i83, %land.lhs.true.i49.i89, %for.inc.i.i.i.i.i.i.i.i, %land.lhs.true.i.i71, %land.rhs.i111, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i77, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i129, %land.lhs.true16.i125, %land.lhs.true.i, %land.lhs.true.i49.i, %land.rhs.i, %land.lhs.true.i.i, %land.rhs.i1, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i, %land.lhs.true16.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit265, %_ZNK3irr5video9S3DVertexltERKS1_.exit133, %_ZNK3irr5video9S3DVertexltERKS1_.exit
-  %add.ptr.i24.i = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %__holeIndex.addr.035.i
+  %add.ptr.i24.i = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.035.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i24.i, ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i.i, i64 108, i1 false), !tbaa.struct !30
   %cmp.i = icmp sgt i64 %__parent.036.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, !llvm.loop !70
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit: ; preds = %_ZNK3irr5video9S3DVertexltERKS1_.exit265, %lor.lhs.false.i47.i219, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i213, %lor.lhs.false.i.i201, %land.lhs.true26.i239, %land.lhs.true11.i.i207, %land.lhs.true11.i53.i225, %lor.rhs.i.i247, %land.lhs.true.i149, %land.lhs.true.i49.i155, %if.end.i.i.i.i.i.1.i.i.i, %land.lhs.true.i.i137, %land.rhs.i177, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i143, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i195, %land.lhs.true16.i191, %land.lhs.true.i17, %land.lhs.true.i49.i23, %if.end.i.i.i.i.i.i.i.i, %land.lhs.true.i.i5, %land.rhs.i45, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i11, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i63, %land.lhs.true16.i59, %while.body.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit199, %_ZNK3irr5video9S3DVertexltERKS1_.exit67, %if.end.i.i.i.i.i.i.i.i.thread, %if.end.i.i.i.i.i.1.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i253, %if.end33
   %__holeIndex.addr.031.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i253 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.i.i.i.thread ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit265 ], [ %__holeIndex.addr.035.i, %lor.lhs.false.i47.i219 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i213 ], [ %__holeIndex.addr.035.i, %lor.lhs.false.i.i201 ], [ %__holeIndex.addr.035.i, %land.lhs.true26.i239 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.1.i.i.i.thread ], [ %__holeIndex.addr.035.i, %land.lhs.true11.i.i207 ], [ %__holeIndex.addr.035.i, %land.lhs.true11.i53.i225 ], [ %__holeIndex.addr.035.i, %lor.rhs.i.i247 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i49.i23 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.i.i.i ], [ %__holeIndex.addr.035.i, %land.lhs.true.i.i5 ], [ %__holeIndex.addr.035.i, %land.rhs.i45 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i11 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i.i137 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i63 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.1.i.i.i ], [ %__holeIndex.addr.035.i, %land.lhs.true16.i59 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i49.i155 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i143 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i149 ], [ %__holeIndex.addr.035.i, %land.lhs.true16.i191 ], [ %__holeIndex.addr.035.i, %land.rhs.i177 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i195 ], [ %__parent.036.i, %while.body.i ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit67 ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit199 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i17 ]
-  %add.ptr.i25.i = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %__holeIndex.addr.031.i
+  %add.ptr.i25.i = getelementptr inbounds [108 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.031.i
   store float %agg.tmp3659.sroa.0.0.copyload, ptr %add.ptr.i25.i, align 4
   %agg.tmp3659.sroa.6.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i, i64 4
   store float %agg.tmp3659.sroa.6.0.copyload, ptr %agg.tmp3659.sroa.6.0.add.ptr.i25.i.sroa_idx, align 4
@@ -3677,7 +3676,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVert
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.040 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, -108
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::array.25", ptr %add.ptr.i29, i64 %sub.ptr.div.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [108 x i8], ptr %add.ptr.i29, i64 %sub.ptr.div.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(108) %__val.sroa.0, i64 108, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %__val.sroa.0)

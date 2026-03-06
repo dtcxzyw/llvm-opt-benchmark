@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ComponentIDs = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.pollfd = type { i32, i16, i16 }
 %struct.timeval = type { i64, i64 }
-%struct._XDeviceInfo = type { i64, i64, ptr, i32, i32, ptr }
-%struct._XAnyClassinfo = type { i64, i32 }
 
 @awt_NumLockMask = hidden local_unnamed_addr global i32 0, align 4
 @awt_ModLockIsShiftLock = hidden local_unnamed_addr global i8 0, align 1
@@ -1505,7 +1503,7 @@ define hidden range(i32 -32768, 32768) i32 @getNumButtons() local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %12 = getelementptr inbounds nuw %struct._XDeviceInfo, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %35 [
@@ -1544,7 +1542,7 @@ define hidden range(i32 -32768, 32768) i32 @getNumButtons() local_unnamed_addr #
 
 26:                                               ; preds = %.lr.ph46, %25
   %indvars.iv62 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next63, %25 ]
-  %27 = getelementptr inbounds nuw %struct._XAnyClassinfo, ptr %24, i64 %indvars.iv62
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv62
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 1
   br i1 %29, label %.loopexit, label %25
@@ -1556,7 +1554,7 @@ define hidden range(i32 -32768, 32768) i32 @getNumButtons() local_unnamed_addr #
 
 31:                                               ; preds = %.lr.ph44, %30
   %indvars.iv57 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next58, %30 ]
-  %32 = getelementptr inbounds nuw %struct._XAnyClassinfo, ptr %19, i64 %indvars.iv57
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv57
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 1
   br i1 %34, label %.loopexit, label %30

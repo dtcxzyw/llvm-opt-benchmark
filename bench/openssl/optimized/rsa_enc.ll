@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/rsa_enc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ossl_item_st = type { i32, ptr }
-
 @ossl_rsa_asym_cipher_functions = local_unnamed_addr constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @rsa_newctx }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @rsa_encrypt_init }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @rsa_encrypt }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @rsa_decrypt_init }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @rsa_decrypt }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @rsa_freectx }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @rsa_dupctx }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @rsa_get_ctx_params }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @rsa_gettable_ctx_params }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @rsa_set_ctx_params }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @rsa_settable_ctx_params }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str = private unnamed_addr constant [59 x i8] c"../openssl/providers/implementations/asymciphers/rsa_enc.c\00", align 1
 @__func__.rsa_init = private unnamed_addr constant [9 x i8] c"rsa_init\00", align 1
@@ -479,7 +477,7 @@ define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly cap
 
 16:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @padding_item, i64 %indvars.iv
   %18 = load i32, ptr %17, align 16, !tbaa !36
   %19 = icmp eq i32 %10, %18
   br i1 %19, label %20, label %15
@@ -706,7 +704,7 @@ ossl_param_is_empty.exit:                         ; preds = %13
 
 .preheader:                                       ; preds = %37, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %37 ]
-  %41 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @padding_item, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !38
   %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %43) #9

@@ -5,39 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::detail::IEEEFloat" = type <{ ptr, %"union.llvm::detail::IEEEFloat::Significand", i32, i8, [3 x i8] }>
 %"union.llvm::detail::IEEEFloat::Significand" = type { i64 }
-%"class.clang::interp::IntegralAP" = type { %"class.llvm::APInt" }
-%"class.llvm::APInt" = type <{ %union.anon.59, i32, [4 x i8] }>
-%union.anon.59 = type { i64 }
-%"class.clang::interp::IntegralAP.60" = type { %"class.llvm::APInt" }
-%"class.clang::interp::Floating" = type { %"class.llvm::APFloat" }
-%"class.llvm::APFloat" = type { %"union.llvm::APFloat::Storage" }
-%"union.llvm::APFloat::Storage" = type { %"class.llvm::detail::DoubleAPFloat", [8 x i8] }
-%"class.llvm::detail::DoubleAPFloat" = type { ptr, %"class.std::unique_ptr.51" }
-%"class.std::unique_ptr.51" = type { %"struct.std::__uniq_ptr_data.52" }
-%"struct.std::__uniq_ptr_data.52" = type { %"class.std::__uniq_ptr_impl.53" }
-%"class.std::__uniq_ptr_impl.53" = type { %"class.std::tuple.54" }
-%"class.std::tuple.54" = type { %"struct.std::_Tuple_impl.55" }
-%"struct.std::_Tuple_impl.55" = type { %"struct.std::_Head_base.58" }
-%"struct.std::_Head_base.58" = type { ptr }
-%"class.clang::interp::Pointer" = type <{ i64, ptr, ptr, %union.anon.61, i32, [4 x i8] }>
-%union.anon.61 = type { %"struct.clang::interp::BlockPointer", [8 x i8] }
-%"struct.clang::interp::BlockPointer" = type { ptr, i32 }
-%"class.clang::interp::MemberPointer" = type <{ %"class.clang::interp::Pointer", ptr, i32, [4 x i8] }>
-%"class.clang::interp::FixedPoint" = type { %"class.llvm::APFixedPoint" }
-%"class.llvm::APFixedPoint" = type { %"class.llvm::APSInt", %"class.llvm::FixedPointSemantics", [4 x i8] }
-%"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
-%"class.llvm::APInt.base" = type <{ %union.anon.59, i32 }>
-%"class.llvm::FixedPointSemantics" = type { i32 }
-%"class.clang::interp::Integral" = type { i8 }
-%"class.clang::interp::Integral.72" = type { i8 }
-%"class.clang::interp::Integral.73" = type { i16 }
-%"class.clang::interp::Integral.74" = type { i16 }
-%"class.clang::interp::Integral.75" = type { i32 }
-%"class.clang::interp::Integral.76" = type { i32 }
-%"class.clang::interp::Integral.77" = type { i64 }
-%"class.clang::interp::Integral.78" = type { i64 }
-%"class.clang::interp::Boolean" = type { i8 }
-%"class.clang::interp::FunctionPointer" = type <{ ptr, i64, i8, [7 x i8] }>
 
 $_ZN4llvm6detail13DoubleAPFloatD2Ev = comdat any
 
@@ -201,13 +168,13 @@ switch.lookup:
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %34, align 4, !tbaa !31
   %35 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = zext nneg i32 %2 to i64
-  %switch.gep71 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 %36
+  %switch.gep71 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 %36
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
   %37 = zext nneg i32 %2 to i64
-  %switch.gep73 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 %37
+  %switch.gep73 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 %37
   %switch.load74 = load ptr, ptr %switch.gep73, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -254,13 +221,13 @@ switch.lookup:
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %21, align 4, !tbaa !31
   %22 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = zext nneg i32 %2 to i64
-  %switch.gep67 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 %23
+  %switch.gep67 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 %23
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   %24 = zext nneg i32 %2 to i64
-  %switch.gep69 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 %24
+  %switch.gep69 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 %24
   %switch.load70 = load ptr, ptr %switch.gep69, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1549,7 +1516,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp7InitMap17initializeElement
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !117
   %9 = zext nneg i32 %3 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !118
   %12 = and i64 %11, %6
   %.not = icmp eq i64 %12, 0
@@ -1575,7 +1542,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp7InitMap20isElementInitial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !117
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !118
   %9 = and i32 %1, 63
   %10 = zext nneg i32 %9 to i64
@@ -2083,7 +2050,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP", ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 3, ptr %17, align 8, !tbaa !119
   store i64 7, ptr %16, align 8, !tbaa !25
@@ -2118,7 +2085,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP.60", ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 3, ptr %17, align 8, !tbaa !119
   store i64 7, ptr %16, align 8, !tbaa !25
@@ -2154,7 +2121,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %"class.clang::interp::Floating", ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm6detail9IEEEFloatC1Ef(ptr noundef nonnull align 8 dereferenceable(24) %8, float noundef 0.000000e+00) #21
   %18 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #24
@@ -2218,7 +2185,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"class.clang::interp::Pointer", ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %16, i8 0, i64 24, i1 false)
   store i32 1, ptr %17, align 8, !tbaa !121
@@ -2282,7 +2249,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"class.clang::interp::MemberPointer", ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 72, i1 false)
   store i32 1, ptr %17, align 8, !tbaa !121
@@ -2321,7 +2288,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"class.clang::interp::FixedPoint", ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %17, align 8, !tbaa !119
   store i64 0, ptr %16, align 8
@@ -2911,7 +2878,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang6interp10IntegralAPILb0EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5clang6interp10IntegralAPILb0EED2Ev.exit ]
-  %38 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP", ptr %31, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !119
   %41 = icmp ugt i32 %40, 64
@@ -3013,7 +2980,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang6interp10IntegralAPILb1EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5clang6interp10IntegralAPILb1EED2Ev.exit ]
-  %38 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP.60", ptr %31, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !119
   %41 = icmp ugt i32 %40, 64
@@ -3116,7 +3083,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 39:                                               ; preds = %.lr.ph, %_ZN5clang6interp8FloatingD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5clang6interp8FloatingD2Ev.exit ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Floating", ptr %31, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %41, %38
   br i1 %.not.i.i, label %43, label %42
@@ -3278,7 +3245,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %"class.clang::interp::Pointer", ptr %31, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %indvars.iv
   tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %38) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3428,7 +3395,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %"class.clang::interp::MemberPointer", ptr %31, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %31, i64 %indvars.iv
   tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %38) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3516,7 +3483,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang6interp10FixedPointD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5clang6interp10FixedPointD2Ev.exit ]
-  %38 = getelementptr inbounds nuw %"class.clang::interp::FixedPoint", ptr %31, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !119
   %41 = icmp ugt i32 %40, 64
@@ -3656,8 +3623,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   %42 = load i8, ptr %40, align 1, !tbaa !25
   store i8 %42, ptr %41, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3747,8 +3714,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.72", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.72", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   %42 = load i8, ptr %40, align 1, !tbaa !25
   store i8 %42, ptr %41, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3838,8 +3805,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.73", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.73", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv
   %42 = load i16, ptr %40, align 2, !tbaa !176
   store i16 %42, ptr %41, align 2, !tbaa !176
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3929,8 +3896,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.74", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.74", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv
   %42 = load i16, ptr %40, align 2, !tbaa !176
   store i16 %42, ptr %41, align 2, !tbaa !176
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4020,8 +3987,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.75", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.75", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %42 = load i32, ptr %40, align 4, !tbaa !69
   store i32 %42, ptr %41, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4111,8 +4078,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.76", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.76", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %42 = load i32, ptr %40, align 4, !tbaa !69
   store i32 %42, ptr %41, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4202,8 +4169,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.77", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.77", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %42 = load i64, ptr %40, align 8, !tbaa !118
   store i64 %42, ptr %41, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4293,8 +4260,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.78", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.78", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %42 = load i64, ptr %40, align 8, !tbaa !118
   store i64 %42, ptr %41, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4384,8 +4351,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !119
@@ -4480,8 +4447,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP.60", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP.60", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !119
@@ -4577,8 +4544,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 41:                                               ; preds = %.lr.ph, %_ZN5clang6interp8FloatingC2EOS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5clang6interp8FloatingC2EOS1_.exit ]
-  %42 = getelementptr inbounds nuw %"class.clang::interp::Floating", ptr %32, i64 %indvars.iv
-  %43 = getelementptr inbounds nuw %"class.clang::interp::Floating", ptr %33, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv
   %44 = load ptr, ptr %42, align 8, !tbaa !25
   %.not.i.i.i = icmp eq ptr %44, %40
   br i1 %.not.i.i.i, label %46, label %45
@@ -4679,8 +4646,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Boolean", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Boolean", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   %42 = load i8, ptr %40, align 1, !tbaa !186
   store i8 %42, ptr %41, align 1, !tbaa !186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4770,8 +4737,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::Pointer", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::Pointer", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [56 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %indvars.iv
   tail call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %41, ptr noundef nonnull align 8 dereferenceable(52) %40) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4860,8 +4827,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::FunctionPointer", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::FunctionPointer", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !189
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4950,8 +4917,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::MemberPointer", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::MemberPointer", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [72 x i8], ptr %33, i64 %indvars.iv
   tail call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull align 8 dereferenceable(72) %40) #21
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -5043,8 +5010,8 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"class.clang::interp::FixedPoint", ptr %32, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw %"class.clang::interp::FixedPoint", ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !119

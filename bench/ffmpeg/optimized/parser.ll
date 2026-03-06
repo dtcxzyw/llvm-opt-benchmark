@@ -164,7 +164,7 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
 .split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us.backedge
   %.048.us.us = phi i32 [ %.048.us.us.be, %.split.us.split.us.backedge ], [ 0, %.split.us ]
   %24 = zext nneg i32 %.048.us.us to i64
-  %25 = getelementptr inbounds nuw i64, ptr %13, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !32
   %.not42.us.us = icmp slt i64 %12, %26
   br i1 %.not42.us.us, label %49, label %27
@@ -184,19 +184,19 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %.not44.us.us, label %33, label %49
 
 33:                                               ; preds = %31, %27
-  %34 = getelementptr inbounds nuw i64, ptr %16, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %24
   %35 = load i64, ptr %34, align 8, !tbaa !32
   %.not45.us.us = icmp eq i64 %35, 0
   br i1 %.not45.us.us, label %49, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i64, ptr %17, i64 %24
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %24
   %38 = load i64, ptr %37, align 8, !tbaa !32
   store i64 %38, ptr %18, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw i64, ptr %19, i64 %24
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %24
   %40 = load i64, ptr %39, align 8, !tbaa !32
   store i64 %40, ptr %20, align 8, !tbaa !27
-  %41 = getelementptr inbounds nuw i64, ptr %21, i64 %24
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   %42 = load i64, ptr %41, align 8, !tbaa !32
   store i64 %42, ptr %22, align 8, !tbaa !29
   %43 = load i64, ptr %15, align 8, !tbaa !34
@@ -220,7 +220,7 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split.backedge
   %.048.us = phi i32 [ %.048.us.be, %.split.us.split.backedge ], [ 0, %.split.us ]
   %50 = zext nneg i32 %.048.us to i64
-  %51 = getelementptr inbounds nuw i64, ptr %13, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !32
   %.not42.us = icmp slt i64 %12, %52
   br i1 %.not42.us, label %75, label %53
@@ -240,19 +240,19 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %.not44.us, label %59, label %75
 
 59:                                               ; preds = %57, %53
-  %60 = getelementptr inbounds nuw i64, ptr %16, i64 %50
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %50
   %61 = load i64, ptr %60, align 8, !tbaa !32
   %.not45.us = icmp eq i64 %61, 0
   br i1 %.not45.us, label %75, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i64, ptr %17, i64 %50
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %50
   %64 = load i64, ptr %63, align 8, !tbaa !32
   store i64 %64, ptr %18, align 8, !tbaa !28
-  %65 = getelementptr inbounds nuw i64, ptr %19, i64 %50
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %50
   %66 = load i64, ptr %65, align 8, !tbaa !32
   store i64 %66, ptr %20, align 8, !tbaa !27
-  %67 = getelementptr inbounds nuw i64, ptr %21, i64 %50
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %50
   %68 = load i64, ptr %67, align 8, !tbaa !32
   store i64 %68, ptr %22, align 8, !tbaa !29
   %69 = load i64, ptr %15, align 8, !tbaa !34
@@ -296,7 +296,7 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
 .split.split.us:                                  ; preds = %.split, %.split.split.us.backedge
   %.048.us51 = phi i32 [ %.048.us51.be, %.split.split.us.backedge ], [ 0, %.split ]
   %91 = zext nneg i32 %.048.us51 to i64
-  %92 = getelementptr inbounds nuw i64, ptr %80, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !32
   %.not42.us52 = icmp slt i64 %79, %93
   br i1 %.not42.us52, label %118, label %94
@@ -316,23 +316,23 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %.not44.us54, label %100, label %118
 
 100:                                              ; preds = %98, %94
-  %101 = getelementptr inbounds nuw i64, ptr %83, i64 %91
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %91
   %102 = load i64, ptr %101, align 8, !tbaa !32
   %.not45.us55 = icmp eq i64 %102, 0
   br i1 %.not45.us55, label %118, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i64, ptr %84, i64 %91
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %91
   %105 = load i64, ptr %104, align 8, !tbaa !32
   %.not46.us = icmp eq i64 %105, -9223372036854775808
   br i1 %.not46.us, label %114, label %106
 
 106:                                              ; preds = %103
   store i64 %105, ptr %85, align 8, !tbaa !28
-  %107 = getelementptr inbounds nuw i64, ptr %86, i64 %91
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %91
   %108 = load i64, ptr %107, align 8, !tbaa !32
   store i64 %108, ptr %87, align 8, !tbaa !27
-  %109 = getelementptr inbounds nuw i64, ptr %88, i64 %91
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %91
   %110 = load i64, ptr %109, align 8, !tbaa !32
   store i64 %110, ptr %89, align 8, !tbaa !29
   %111 = load i64, ptr %82, align 8, !tbaa !34
@@ -360,7 +360,7 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
 .split.split:                                     ; preds = %.split, %.split.split.backedge
   %.048 = phi i32 [ %.048.be, %.split.split.backedge ], [ 0, %.split ]
   %119 = zext nneg i32 %.048 to i64
-  %120 = getelementptr inbounds nuw i64, ptr %80, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !32
   %.not42 = icmp slt i64 %79, %121
   br i1 %.not42, label %146, label %122
@@ -380,23 +380,23 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %.not44, label %128, label %146
 
 128:                                              ; preds = %126, %122
-  %129 = getelementptr inbounds nuw i64, ptr %83, i64 %119
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %119
   %130 = load i64, ptr %129, align 8, !tbaa !32
   %.not45 = icmp eq i64 %130, 0
   br i1 %.not45, label %146, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i64, ptr %84, i64 %119
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %119
   %133 = load i64, ptr %132, align 8, !tbaa !32
   %.not46 = icmp eq i64 %133, -9223372036854775808
   br i1 %.not46, label %142, label %134
 
 134:                                              ; preds = %131
   store i64 %133, ptr %85, align 8, !tbaa !28
-  %135 = getelementptr inbounds nuw i64, ptr %86, i64 %119
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %119
   %136 = load i64, ptr %135, align 8, !tbaa !32
   store i64 %136, ptr %87, align 8, !tbaa !27
-  %137 = getelementptr inbounds nuw i64, ptr %88, i64 %119
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %119
   %138 = load i64, ptr %137, align 8, !tbaa !32
   store i64 %138, ptr %89, align 8, !tbaa !29
   %139 = load i64, ptr %82, align 8, !tbaa !34
@@ -462,7 +462,7 @@ define range(i32 0, -2147483648) i32 @av_parser_parse2(ptr noundef %0, ptr nound
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %28 = load i32, ptr %27, align 4, !tbaa !37
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !32
   %.not85 = icmp eq i64 %25, %31
   br i1 %.not85, label %45, label %32
@@ -473,18 +473,18 @@ define range(i32 0, -2147483648) i32 @av_parser_parse2(ptr noundef %0, ptr nound
   store i32 %34, ptr %27, align 4, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store i64 %23, ptr %37, align 8, !tbaa !32
-  %38 = getelementptr inbounds nuw i64, ptr %26, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %36
   store i64 %25, ptr %38, align 8, !tbaa !32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %36
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %36
   store i64 %6, ptr %40, align 8, !tbaa !32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %36
   store i64 %7, ptr %42, align 8, !tbaa !32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %36
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %36
   store i64 %8, ptr %44, align 8, !tbaa !32
   br label %45
 
@@ -527,7 +527,7 @@ define range(i32 0, -2147483648) i32 @av_parser_parse2(ptr noundef %0, ptr nound
 
 .split.us.split.us.i:                             ; preds = %.split.us.split.us.backedge.i, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split.us.split.us.backedge.i ], [ 0, %48 ]
-  %68 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %69 = load i64, ptr %68, align 8, !tbaa !32
   %.not42.us.us.i = icmp slt i64 %60, %69
   br i1 %.not42.us.us.i, label %92, label %70
@@ -547,19 +547,19 @@ define range(i32 0, -2147483648) i32 @av_parser_parse2(ptr noundef %0, ptr nound
   br i1 %.not44.us.us.i, label %76, label %92
 
 76:                                               ; preds = %74, %70
-  %77 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %78 = load i64, ptr %77, align 8, !tbaa !32
   %.not45.us.us.i = icmp eq i64 %78, 0
   br i1 %.not45.us.us.i, label %92, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %81 = load i64, ptr %80, align 8, !tbaa !32
   store i64 %81, ptr %52, align 8, !tbaa !28
-  %82 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %83 = load i64, ptr %82, align 8, !tbaa !32
   store i64 %83, ptr %49, align 8, !tbaa !27
-  %84 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %85 = load i64, ptr %84, align 8, !tbaa !32
   store i64 %85, ptr %55, align 8, !tbaa !29
   %86 = load i64, ptr %63, align 8, !tbaa !34

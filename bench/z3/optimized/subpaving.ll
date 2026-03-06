@@ -9,16 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.subpaving::config_hwf" = type { ptr }
 %"struct.subpaving::config_mpff" = type { ptr }
 %"struct.subpaving::config_mpfx" = type { ptr }
-%class.mpq = type { %class.mpz, %class.mpz }
-%class.mpz = type { i32, i8, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.mpf = type { i32, %class.mpz, i64 }
-%class.hwf = type { double }
-%class.mpff = type { i32, i32 }
-%class.mpfx = type { i32 }
 
 $_ZN9subpaving19context_mpf_wrapperC2ER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator = comdat any
 
@@ -666,7 +660,7 @@ _ZN22_scoped_numeral_vectorI11mpq_managerILb0EEE5resetEv.exit.thread4.i: ; preds
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc1.i ]
   %10 = load ptr, ptr %7, align 8, !tbaa !105
   %11 = load ptr, ptr %2, align 8, !tbaa !101
-  %12 = getelementptr inbounds nuw %class.mpq, ptr %11, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv.i.i
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc.i unwind label %18
 
@@ -824,13 +818,13 @@ _ZNK6vectorI3mpqLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorI3mpqLb
   %18 = getelementptr inbounds i8, ptr %12, i64 -4
   store i32 %2, ptr %18, align 4, !tbaa !104
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw %class.mpq, ptr %12, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %19
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %2
   br i1 %.not1218.i.i, label %_ZN6vectorI3mpqLb0EjE7reserveEj.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %17
   %21 = zext i32 %.0.i16.i.i.ph to i64
-  %22 = getelementptr inbounds nuw %class.mpq, ptr %12, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %21
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -893,8 +887,8 @@ _ZN11mpq_managerILb0EE3setER3mpqRK3mpz.exit:      ; preds = %34, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11mpq_managerILb0EE3setER3mpqRK3mpz.exit11 ]
   %48 = load ptr, ptr %26, align 8, !tbaa !111
   %49 = load ptr, ptr %6, align 8, !tbaa !101
-  %50 = getelementptr inbounds nuw %class.mpq, ptr %49, i64 %indvars.iv
-  %51 = getelementptr inbounds nuw %class.mpz, ptr %3, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i8, ptr %52, align 4
   %54 = and i8 %53, 1
@@ -1459,7 +1453,7 @@ _ZN22_scoped_numeral_vectorI11mpf_managerE5resetEv.exit.thread3.i: ; preds = %._
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i3 ]
   %24 = load ptr, ptr %21, align 8, !tbaa !161
   %25 = load ptr, ptr %16, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw %class.mpf, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 728
   %28 = load ptr, ptr %27, align 8, !tbaa !162
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1615,13 +1609,13 @@ _ZNK6vectorI3mpfLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorI3mpfLb
   %18 = getelementptr inbounds i8, ptr %12, i64 -4
   store i32 %2, ptr %18, align 4, !tbaa !104
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw %class.mpf, ptr %12, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %19
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %2
   br i1 %.not1218.i.i, label %_ZN6vectorI3mpfLb0EjE7reserveEj.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %17
   %21 = zext i32 %.0.i16.i.i.ph to i64
-  %22 = getelementptr inbounds nuw %class.mpf, ptr %12, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %21
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc19, %.lr.ph.preheader.i.i
@@ -1664,9 +1658,9 @@ _ZN6vectorI3mpfLb0EjE7reserveEj.exit:             ; preds = %.noexc19, %_ZNK6vec
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds nuw %class.mpz, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %26 = load ptr, ptr %6, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw %class.mpf, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   invoke void @_ZN9subpaving19context_mpf_wrapper7int2mpfERK3mpzR3mpf(ptr noundef nonnull align 8 dereferenceable(1712) %0, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %28 unwind label %29
 
@@ -2414,7 +2408,7 @@ _ZNK6vectorI3hwfLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorI3hwfLb
 .lr.ph.preheader.i.i:                             ; preds = %17
   %19 = zext i32 %2 to i64
   %20 = zext i32 %.0.i16.i.i.ph to i64
-  %21 = getelementptr %class.hwf, ptr %12, i64 %20
+  %21 = getelementptr [8 x i8], ptr %12, i64 %20
   %22 = sub nsw i64 %19, %20
   %23 = shl nsw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %23, i1 false)
@@ -2445,9 +2439,9 @@ _ZN6vectorI3hwfLb0EjE7reserveEj.exit:             ; preds = %_ZNK6vectorI3hwfLb0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds nuw %class.mpz, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %26 = load ptr, ptr %6, align 8, !tbaa !89
-  %27 = getelementptr inbounds nuw %class.hwf, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   invoke void @_ZN9subpaving19context_hwf_wrapper7int2hwfERK3mpzR3hwf(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %28 unwind label %29
 
@@ -2943,7 +2937,7 @@ _ZN22_scoped_numeral_vectorI12mpff_managerE5resetEv.exit.thread3.i: ; preds = %.
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %22 = load ptr, ptr %19, align 8, !tbaa !241
   %23 = load ptr, ptr %14, align 8, !tbaa !238
-  %24 = getelementptr inbounds nuw %class.mpff, ptr %23, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i
   invoke void @_ZN12mpff_manager3delER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %22, ptr noundef nonnull align 4 dereferenceable(8) %24)
           to label %.noexc.i unwind label %29
 
@@ -3099,7 +3093,7 @@ _ZNK6vectorI4mpffLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorI4mpff
 .lr.ph.preheader.i.i:                             ; preds = %17
   %19 = zext i32 %2 to i64
   %20 = zext i32 %.0.i16.i.i.ph to i64
-  %21 = getelementptr %class.mpff, ptr %12, i64 %20
+  %21 = getelementptr [8 x i8], ptr %12, i64 %20
   %22 = sub nsw i64 %19, %20
   %23 = shl nsw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %23, i1 false)
@@ -3130,9 +3124,9 @@ _ZN6vectorI4mpffLb0EjE7reserveEj.exit:            ; preds = %_ZNK6vectorI4mpffLb
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds nuw %class.mpz, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %26 = load ptr, ptr %6, align 8, !tbaa !238
-  %27 = getelementptr inbounds nuw %class.mpff, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   invoke void @_ZN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEE10int2fpointERK3mpzR4mpff(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(8) %27)
           to label %28 unwind label %29
 
@@ -3633,7 +3627,7 @@ _ZN22_scoped_numeral_vectorI12mpfx_managerE5resetEv.exit.thread3.i: ; preds = %.
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %22 = load ptr, ptr %19, align 8, !tbaa !288
   %23 = load ptr, ptr %14, align 8, !tbaa !98
-  %24 = getelementptr inbounds nuw %class.mpfx, ptr %23, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i
   invoke void @_ZN12mpfx_manager3delER4mpfx(ptr noundef nonnull align 8 dereferenceable(85) %22, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %.noexc.i unwind label %29
 
@@ -3789,7 +3783,7 @@ _ZNK6vectorI4mpfxLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorI4mpfx
 .lr.ph.preheader.i.i:                             ; preds = %17
   %19 = zext i32 %2 to i64
   %20 = zext i32 %.0.i16.i.i.ph to i64
-  %21 = getelementptr %class.mpfx, ptr %12, i64 %20
+  %21 = getelementptr [4 x i8], ptr %12, i64 %20
   %22 = sub nsw i64 %19, %20
   %23 = shl nsw i64 %22, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %23, i1 false)
@@ -3820,9 +3814,9 @@ _ZN6vectorI4mpfxLb0EjE7reserveEj.exit:            ; preds = %_ZNK6vectorI4mpfxLb
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds nuw %class.mpz, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %26 = load ptr, ptr %6, align 8, !tbaa !98
-  %27 = getelementptr inbounds nuw %class.mpfx, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   invoke void @_ZN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEE10int2fpointERK3mpzR4mpfx(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(4) %27)
           to label %28 unwind label %29
 

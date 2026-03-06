@@ -24,9 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.13" = type { i8 }
-%"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"struct.cv::MatSize" = type { ptr }
-%"struct.cv::MatStep" = type { ptr, [2 x i64] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -554,7 +551,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN2c
   store ptr %9, ptr %0, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !73
-  %11 = getelementptr inbounds nuw %"class.cv::Mat", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !76
   br label %.lr.ph.i.i.i.i.i
@@ -930,7 +927,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %.pre34 = phi ptr [ %.pre34.pre, %119 ], [ %.pre3436, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
   store ptr %114, ptr %85, align 8, !tbaa !98
   store ptr %118, ptr %86, align 8, !tbaa !96
-  %120 = getelementptr inbounds nuw i32, ptr %114, i64 %112
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %112
   store ptr %120, ptr %87, align 8, !tbaa !97
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 

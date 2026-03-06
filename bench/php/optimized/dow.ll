@@ -29,7 +29,7 @@ define hidden range(i64 -6, 14) i64 @timelib_day_of_week(i64 noundef %0, i64 nou
 
 timelib_day_of_week_ex.exit:                      ; preds = %8, %10
   %m_table_common.sink.i = phi ptr [ @m_table_common, %10 ], [ @m_table_leap, %8 ]
-  %11 = getelementptr inbounds i32, ptr %m_table_common.sink.i, i64 %1
+  %11 = getelementptr inbounds [4 x i8], ptr %m_table_common.sink.i, i64 %1
   %12 = icmp slt i64 %5, 0
   %13 = select i1 %12, i64 100, i64 0
   %spec.select.i17.i = add nsw i64 %13, %5
@@ -74,7 +74,7 @@ define hidden range(i64 -6, 14) i64 @timelib_iso_day_of_week(i64 noundef %0, i64
 
 timelib_day_of_week_ex.exit:                      ; preds = %8, %10
   %m_table_common.sink.i = phi ptr [ @m_table_common, %10 ], [ @m_table_leap, %8 ]
-  %11 = getelementptr inbounds i32, ptr %m_table_common.sink.i, i64 %1
+  %11 = getelementptr inbounds [4 x i8], ptr %m_table_common.sink.i, i64 %1
   %12 = icmp slt i64 %5, 0
   %13 = select i1 %12, i64 100, i64 0
   %spec.select.i17.i = add nsw i64 %13, %5
@@ -121,7 +121,7 @@ define hidden i64 @timelib_day_of_year(i64 noundef %0, i64 noundef %1, i64 nound
 
 11:                                               ; preds = %6, %10
   %d_table_common.sink = phi ptr [ @d_table_common, %10 ], [ @d_table_leap, %6 ]
-  %12 = getelementptr inbounds i32, ptr %d_table_common.sink, i64 %1
+  %12 = getelementptr inbounds [4 x i8], ptr %d_table_common.sink, i64 %1
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = sext i32 %13 to i64
   %15 = add i64 %2, -1
@@ -148,7 +148,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @timelib_days_in_month(i64 
 
 10:                                               ; preds = %5, %9
   %ml_table_common.sink = phi ptr [ @ml_table_common, %9 ], [ @ml_table_leap, %5 ]
-  %11 = getelementptr inbounds i32, ptr %ml_table_common.sink, i64 %1
+  %11 = getelementptr inbounds [4 x i8], ptr %ml_table_common.sink, i64 %1
   %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = sext i32 %12 to i64
   ret i64 %13
@@ -198,7 +198,7 @@ define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i6
   %28 = icmp eq i64 %27, 0
   %or.cond.i = or i1 %.not.i, %28
   %spec.select91 = select i1 %or.cond.i, ptr @d_table_leap, ptr @d_table_common
-  %29 = getelementptr inbounds i32, ptr %spec.select91, i64 %1
+  %29 = getelementptr inbounds [4 x i8], ptr %spec.select91, i64 %1
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = trunc i64 %2 to i32
   %32 = add i32 %30, %31
@@ -215,7 +215,7 @@ define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i6
 timelib_day_of_year.exit:                         ; preds = %23
   %.pre74 = srem i64 %0, 400
   %.pre = srem i64 %0, 100
-  %36 = getelementptr inbounds i32, ptr @d_table_common, i64 %1
+  %36 = getelementptr inbounds [4 x i8], ptr @d_table_common, i64 %1
   %37 = load i32, ptr %36, align 4, !tbaa !4
   %38 = trunc i64 %2 to i32
   %39 = add i32 %37, %38
@@ -266,7 +266,7 @@ timelib_day_of_week.exit:                         ; preds = %25, %timelib_day_of
 
 timelib_day_of_week.exit68:                       ; preds = %61, %63
   %m_table_common.sink.i.i61 = phi ptr [ @m_table_common, %63 ], [ @m_table_leap, %61 ]
-  %64 = getelementptr inbounds i32, ptr %m_table_common.sink.i.i61, i64 %1
+  %64 = getelementptr inbounds [4 x i8], ptr %m_table_common.sink.i.i61, i64 %1
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = sext i32 %65 to i64
   %reass.sub.i.i = add i64 %2, 6
@@ -365,7 +365,7 @@ define hidden void @timelib_isodate_from_date(i64 noundef %0, i64 noundef %1, i6
 
 timelib_day_of_week_ex.exit:                      ; preds = %11, %13
   %m_table_common.sink.i = phi ptr [ @m_table_common, %13 ], [ @m_table_leap, %11 ]
-  %14 = getelementptr inbounds i32, ptr %m_table_common.sink.i, i64 %1
+  %14 = getelementptr inbounds [4 x i8], ptr %m_table_common.sink.i, i64 %1
   %15 = icmp slt i64 %8, 0
   %16 = select i1 %15, i64 100, i64 0
   %spec.select.i17.i = add nsw i64 %16, %8
@@ -589,7 +589,7 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   %storemerge52 = phi i64 [ %77, %.lr.ph55 ], [ 1, %72 ]
   %76 = sub i64 %.253, %75
   %77 = add i64 %storemerge52, 1
-  %78 = getelementptr inbounds i32, ptr %73, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %73, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = sext i32 %79 to i64
   %81 = icmp sgt i64 %76, %80
@@ -640,7 +640,7 @@ define hidden range(i32 0, 2) i32 @timelib_valid_date(i64 noundef %0, i64 nounde
 
 timelib_days_in_month.exit:                       ; preds = %9, %13
   %ml_table_common.sink.i = phi ptr [ @ml_table_common, %13 ], [ @ml_table_leap, %9 ]
-  %14 = getelementptr inbounds nuw i32, ptr %ml_table_common.sink.i, i64 %1
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %ml_table_common.sink.i, i64 %1
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %16 = sext i32 %15 to i64
   %17 = icmp sle i64 %2, %16

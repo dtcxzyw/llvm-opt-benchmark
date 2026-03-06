@@ -12,19 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.136" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.AtomDistribution::DomainAtomGroups" = type <{ %"class.gmx::ArrayRef", i32, [4 x i8] }>
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
-%"class.gmx::RangePartitioning" = type { %"class.std::vector.7" }
-%"class.std::vector.2" = type { %"struct.std::_Vector_base.3" }
-%"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 $_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev = comdat any
 
@@ -107,27 +96,27 @@ define void @_Z20dd_distribute_dfhistP12gmx_domdec_tP12df_history_t(ptr noundef 
 31:                                               ; preds = %9, %31
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %31 ]
   %32 = load ptr, ptr %25, align 8, !tbaa !23
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %0, i32 noundef %10, ptr noundef %34)
   %35 = load ptr, ptr %26, align 8, !tbaa !25
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %0, i32 noundef %10, ptr noundef %37)
   %38 = load ptr, ptr %27, align 8, !tbaa !26
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %0, i32 noundef %10, ptr noundef %40)
   %41 = load ptr, ptr %28, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !24
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %0, i32 noundef %10, ptr noundef %43)
   %44 = load ptr, ptr %29, align 8, !tbaa !28
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !24
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %0, i32 noundef %10, ptr noundef %46)
   %47 = load ptr, ptr %30, align 8, !tbaa !29
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !24
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %0, i32 noundef %10, ptr noundef %49)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -239,14 +228,14 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i: ; preds = 
           to label %.noexc91.i unwind label %259
 
 .noexc91.i:                                       ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds nuw %"class.std::vector.7", ptr %45, i64 %42
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %42
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %45, i8 0, i64 %44, i1 false), !noalias !131
   %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %45, i64 %44
   br label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i.i
 
 47:                                               ; preds = %47, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %47 ]
-  %48 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %36, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv.i.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %49, align 8, !tbaa !139, !noalias !131
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -294,7 +283,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i.i: ; pred
   %70 = sext i32 %69 to i64
   %71 = load i64, ptr %68, align 8, !noalias !131
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds %"class.gmx::RangePartitioning", ptr %72, i64 %70
+  %73 = getelementptr inbounds [24 x i8], ptr %72, i64 %70
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0173.0220.i.i, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !281, !noalias !131
   %76 = icmp sgt i32 %75, 0
@@ -344,7 +333,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i.i: ; pred
 .lr.ph212.i.i:                                    ; preds = %.preheader.i.i, %._crit_edge210.i.i
   %indvars.iv244.i.i = phi i64 [ %indvars.iv.next245.i.i, %._crit_edge210.i.i ], [ 0, %.preheader.i.i ]
   %93 = phi ptr [ %113, %._crit_edge210.i.i ], [ %78, %.preheader.i.i ]
-  %94 = getelementptr i32, ptr %93, i64 %indvars.iv244.i.i
+  %94 = getelementptr [4 x i8], ptr %93, i64 %indvars.iv244.i.i
   %95 = load i32, ptr %94, align 4, !tbaa !284, !noalias !131
   %96 = getelementptr i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !284, !noalias !131
@@ -367,7 +356,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i.i: ; pred
   br i1 %.not179206.i.i, label %._crit_edge210.i.i, label %.lr.ph209.i.i
 
 .lr.ph209.i.i:                                    ; preds = %99
-  %103 = getelementptr inbounds nuw %"class.std::vector.7", ptr %50, i64 %.pre255.i.i
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.pre255.i.i
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %.pre253.i.i = load ptr, ptr %104, align 8, !tbaa !282, !noalias !131
@@ -377,7 +366,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i.i: ; pred
 ._crit_edge210.i.i:                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i.i, %99
   %106 = sub i32 %97, %95
   %107 = load ptr, ptr %33, align 8, !tbaa !135, !noalias !131
-  %108 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %107, i64 %.pre255.i.i
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %.pre255.i.i
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i32, ptr %109, align 8, !tbaa !139, !noalias !131
   %111 = add nsw i32 %106, %110
@@ -463,7 +452,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %144,
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i: ; preds = %146, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %141, ptr %103, align 8, !tbaa !283, !noalias !131
   store ptr %145, ptr %104, align 8, !tbaa !282, !noalias !131
-  %147 = getelementptr inbounds nuw i32, ptr %141, i64 %139
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %139
   store ptr %147, ptr %105, align 8, !tbaa !285, !noalias !131
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i.i
 
@@ -513,7 +502,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i.i:       ; preds = %_ZNSt6vectorIiSaIiE
   %161 = add nuw nsw i32 %storemerge204.i.i, 1
   %162 = call fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_(ptr noundef nonnull align 8 dereferenceable(1072) %1, ptr noundef nonnull align 4 dereferenceable(200) %4, ptr noundef nonnull align 4 dereferenceable(36) %7, ptr %40, i32 noundef %storemerge204.i.i, i32 noundef %161, ptr noundef nonnull %23, ptr noundef %20, ptr noundef %22)
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds nuw %"class.std::vector.7", ptr %50, i64 %163
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !282, !noalias !131
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
@@ -577,13 +566,13 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %187, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %189, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
   store ptr %184, ptr %164, align 8, !tbaa !283, !noalias !131
   store ptr %188, ptr %165, align 8, !tbaa !282, !noalias !131
-  %190 = getelementptr inbounds nuw i32, ptr %184, i64 %182
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %182
   store ptr %190, ptr %167, align 8, !tbaa !285, !noalias !131
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %169
   %191 = load ptr, ptr %33, align 8, !tbaa !135, !noalias !131
-  %192 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %191, i64 %163
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %191, i64 %163
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load i32, ptr %193, align 8, !tbaa !139, !noalias !131
   %195 = add nsw i32 %194, 1
@@ -620,7 +609,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
   %.084228.i.i = phi i32 [ 0, %.lr.ph232.preheader.i.i ], [ %206, %.lr.ph232.i.i ]
   %.0177227.i.i = phi i32 [ %200, %.lr.ph232.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph232.i.i ]
   %.0178226.i.i = phi i32 [ %200, %.lr.ph232.preheader.i.i ], [ %.sroa.speculated144.i.i, %.lr.ph232.i.i ]
-  %203 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %198, i64 %indvars.iv247.i.i
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %indvars.iv247.i.i
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %205 = load i32, ptr %204, align 8, !tbaa !139, !noalias !131
   %206 = add nsw i32 %205, %.084228.i.i
@@ -766,7 +755,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i:       ; preds = %_ZN3gmx14LogEntryWr
 
 261:                                              ; preds = %261, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %261 ]
-  %262 = getelementptr inbounds nuw %"class.std::vector.7", ptr %50, i64 %indvars.iv.i
+  %262 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %indvars.iv.i
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %264 = load ptr, ptr %263, align 8, !tbaa !282
   %265 = load ptr, ptr %262, align 8, !tbaa !283
@@ -778,7 +767,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i:       ; preds = %_ZN3gmx14LogEntryWr
   %.idx219.i = shl nuw nsw i64 %indvars.iv.i, 3
   %271 = getelementptr inbounds nuw i8, ptr %257, i64 %.idx219.i
   store i32 %270, ptr %271, align 4, !tbaa !284
-  %272 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %258, i64 %indvars.iv.i
+  %272 = getelementptr inbounds nuw [24 x i8], ptr %258, i64 %indvars.iv.i
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %274 = load i32, ptr %273, align 8, !tbaa !139
   %275 = getelementptr inbounds nuw i8, ptr %271, i64 4
@@ -812,7 +801,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i:       ; preds = %_ZN3gmx14LogEntryWr
 
 .lr.ph.i96.i:                                     ; preds = %.lr.ph.i96.i, %281
   %indvars.iv.i97.i = phi i64 [ 0, %281 ], [ %indvars.iv.next.i98.i, %.lr.ph.i96.i ]
-  %290 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv.i97.i
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv.i97.i
   store i32 %289, ptr %290, align 4, !tbaa !284
   %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i97.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i98.i, 4
@@ -858,7 +847,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.._crit_edge157_crit_edge.i: ; preds = %_ZNSt6v
 306:                                              ; preds = %329, %.lr.ph156.i
   %indvars.iv169.i = phi i64 [ 0, %.lr.ph156.i ], [ %indvars.iv.next170.i, %329 ]
   %.081155.i = phi i32 [ 0, %.lr.ph156.i ], [ %348, %329 ]
-  %307 = getelementptr inbounds nuw %"class.std::vector.7", ptr %.pre178.i, i64 %indvars.iv169.i
+  %307 = getelementptr inbounds nuw [24 x i8], ptr %.pre178.i, i64 %indvars.iv169.i
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load ptr, ptr %308, align 8, !tbaa !282
   %310 = load ptr, ptr %307, align 8, !tbaa !283
@@ -868,13 +857,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.._crit_edge157_crit_edge.i: ; preds = %_ZNSt6v
   %314 = lshr exact i64 %313, 2
   %315 = trunc i64 %314 to i32
   %316 = load ptr, ptr %305, align 8, !tbaa !283
-  %317 = getelementptr inbounds nuw i32, ptr %316, i64 %indvars.iv169.i
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %316, i64 %indvars.iv169.i
   store i32 %315, ptr %317, align 4, !tbaa !284
   %318 = load i32, ptr %1, align 8, !tbaa !134
   %319 = trunc nuw nsw i64 %indvars.iv169.i to i32
   %320 = add nsw i32 %318, %319
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds nuw i32, ptr %316, i64 %321
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %316, i64 %321
   store i32 %.081155.i, ptr %322, align 4, !tbaa !284
   %323 = load ptr, ptr %300, align 8, !tbaa !313
   %324 = load ptr, ptr %298, align 8, !tbaa !313
@@ -888,7 +877,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.._crit_edge157_crit_edge.i: ; preds = %_ZNSt6v
 329:                                              ; preds = %306
   %330 = load ptr, ptr %298, align 8, !tbaa !313
   %331 = sext i32 %.081155.i to i64
-  %332 = getelementptr inbounds i32, ptr %330, i64 %331
+  %332 = getelementptr inbounds [4 x i8], ptr %330, i64 %331
   %333 = load ptr, ptr %308, align 8, !tbaa !282
   %334 = load ptr, ptr %307, align 8, !tbaa !283
   %335 = ptrtoint ptr %333 to i64
@@ -898,7 +887,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.._crit_edge157_crit_edge.i: ; preds = %_ZNSt6v
   %338 = getelementptr inbounds nuw i8, ptr %332, i64 %337
   %spec.select.i.i = select i1 %.not.i103.i, ptr null, ptr %338
   %339 = load ptr, ptr %279, align 8, !tbaa !135
-  %340 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %339, i64 %indvars.iv169.i
+  %340 = getelementptr inbounds nuw [24 x i8], ptr %339, i64 %indvars.iv169.i
   store ptr %332, ptr %340, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %340, i64 8
   store ptr %spec.select.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8
@@ -932,7 +921,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.._crit_edge157_crit_edge.i: ; preds = %_ZNSt6v
   %356 = load ptr, ptr %355, align 8, !tbaa !283
   %.idx.i = shl nsw i64 %.pre-phi.i, 2
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 %.idx.i
-  %358 = getelementptr inbounds i32, ptr %356, i64 %.pre-phi.i
+  %358 = getelementptr inbounds [4 x i8], ptr %356, i64 %.pre-phi.i
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 %.idx.i
   br label %.thread140.i
 
@@ -973,7 +962,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.._crit_edge157_crit_edge.i: ; preds = %_ZNSt6v
   %indvars.iv172.i = phi i64 [ %indvars.iv.next173.i, %386 ], [ 0, %368 ]
   %376 = load ptr, ptr @debug, align 8, !tbaa !317
   %377 = load ptr, ptr %293, align 8, !tbaa !315
-  %378 = getelementptr inbounds nuw i32, ptr %377, i64 %indvars.iv172.i
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %377, i64 %indvars.iv172.i
   %379 = load i32, ptr %378, align 4, !tbaa !284
   %380 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %376, ptr noundef nonnull @.str.1, i32 noundef %379) #19
   %381 = trunc nuw nsw i64 %indvars.iv172.i to i32
@@ -1264,9 +1253,9 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
 
 564:                                              ; preds = %564, %.preheader168.i
   %indvars.iv.i22 = phi i64 [ 0, %.preheader168.i ], [ %indvars.iv.next.i23, %564 ]
-  %565 = getelementptr inbounds nuw float, ptr %415, i64 %indvars.iv.i22
+  %565 = getelementptr inbounds nuw [4 x i8], ptr %415, i64 %indvars.iv.i22
   %566 = load float, ptr %565, align 4, !tbaa !345
-  %567 = getelementptr inbounds nuw float, ptr %416, i64 %indvars.iv.i22
+  %567 = getelementptr inbounds nuw [4 x i8], ptr %416, i64 %indvars.iv.i22
   store float %566, ptr %567, align 4, !tbaa !345
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %.not162.i = icmp eq i64 %indvars.iv.next.i23, 7
@@ -1317,22 +1306,22 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
 590:                                              ; preds = %590, %.preheader167.us.i
   %indvars.iv182.i = phi i64 [ 0, %.preheader167.us.i ], [ %indvars.iv.next183.i, %590 ]
   %591 = add nuw nsw i64 %indvars.iv182.i, %589
-  %592 = getelementptr inbounds nuw double, ptr %584, i64 %591
+  %592 = getelementptr inbounds nuw [8 x i8], ptr %584, i64 %591
   %593 = load double, ptr %592, align 8, !tbaa !349
-  %594 = getelementptr inbounds nuw double, ptr %585, i64 %591
+  %594 = getelementptr inbounds nuw [8 x i8], ptr %585, i64 %591
   store double %593, ptr %594, align 8, !tbaa !349
-  %595 = getelementptr inbounds nuw double, ptr %586, i64 %591
+  %595 = getelementptr inbounds nuw [8 x i8], ptr %586, i64 %591
   %596 = load double, ptr %595, align 8, !tbaa !349
-  %597 = getelementptr inbounds nuw double, ptr %587, i64 %591
+  %597 = getelementptr inbounds nuw [8 x i8], ptr %587, i64 %591
   store double %596, ptr %597, align 8, !tbaa !349
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
   %exitcond186.not.i = icmp eq i64 %indvars.iv.next183.i, %588
   br i1 %exitcond186.not.i, label %._crit_edge.us.i, label %590, !llvm.loop !350
 
 ._crit_edge.us.i:                                 ; preds = %590
-  %598 = getelementptr inbounds nuw double, ptr %577, i64 %indvars.iv187.i
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %577, i64 %indvars.iv187.i
   %599 = load double, ptr %598, align 8, !tbaa !349
-  %600 = getelementptr inbounds nuw double, ptr %579, i64 %indvars.iv187.i
+  %600 = getelementptr inbounds nuw [8 x i8], ptr %579, i64 %indvars.iv187.i
   store double %599, ptr %600, align 8, !tbaa !349
   %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
   %exitcond191.not.i = icmp eq i64 %indvars.iv.next188.i, %wide.trip.count190.i
@@ -1340,9 +1329,9 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
 
 .preheader167.i:                                  ; preds = %.preheader167.i, %.preheader167.preheader.i
   %indvars.iv179.i = phi i64 [ 0, %.preheader167.preheader.i ], [ %indvars.iv.next180.i, %.preheader167.i ]
-  %601 = getelementptr inbounds nuw double, ptr %577, i64 %indvars.iv179.i
+  %601 = getelementptr inbounds nuw [8 x i8], ptr %577, i64 %indvars.iv179.i
   %602 = load double, ptr %601, align 8, !tbaa !349
-  %603 = getelementptr inbounds nuw double, ptr %579, i64 %indvars.iv179.i
+  %603 = getelementptr inbounds nuw [8 x i8], ptr %579, i64 %indvars.iv179.i
   store double %602, ptr %603, align 8, !tbaa !349
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next180.i, %wide.trip.count.i
@@ -1377,13 +1366,13 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
 618:                                              ; preds = %618, %.preheader.us.i
   %indvars.iv192.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next193.i, %618 ]
   %619 = add nuw nsw i64 %indvars.iv192.i, %617
-  %620 = getelementptr inbounds nuw double, ptr %612, i64 %619
+  %620 = getelementptr inbounds nuw [8 x i8], ptr %612, i64 %619
   %621 = load double, ptr %620, align 8, !tbaa !349
-  %622 = getelementptr inbounds nuw double, ptr %613, i64 %619
+  %622 = getelementptr inbounds nuw [8 x i8], ptr %613, i64 %619
   store double %621, ptr %622, align 8, !tbaa !349
-  %623 = getelementptr inbounds nuw double, ptr %614, i64 %619
+  %623 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %619
   %624 = load double, ptr %623, align 8, !tbaa !349
-  %625 = getelementptr inbounds nuw double, ptr %615, i64 %619
+  %625 = getelementptr inbounds nuw [8 x i8], ptr %615, i64 %619
   store double %624, ptr %625, align 8, !tbaa !349
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %exitcond196.not.i = icmp eq i64 %indvars.iv.next193.i, %616
@@ -1664,9 +1653,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_N3gmx30DefaultInitializationAlloca
 
 _ZNSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE13_M_deallocateEPim.exit42.i: ; preds = %34, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_N3gmx30DefaultInitializationAllocatorIiSaIiEEEET0_T_S6_S5_RT1_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !315
-  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %12
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !357
-  %37 = getelementptr inbounds nuw i32, ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   store ptr %37, ptr %13, align 8, !tbaa !358
   br label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_M_default_appendEm.exit
 
@@ -1675,7 +1664,7 @@ _ZNSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE13_M_dealloc
   br i1 %39, label %40, label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_M_default_appendEm.exit, label %42
 
@@ -1715,7 +1704,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 19:                                               ; preds = %9
   %20 = sext i32 %4 to i64
-  %21 = getelementptr inbounds [3 x float], ptr %7, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %7, i64 %20
   %22 = load float, ptr %21, align 4, !tbaa !345
   store float %22, ptr %10, align 4, !tbaa !345
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -1755,7 +1744,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %36 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %37 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %44, %.lr.ph ]
   %38 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %47, %.lr.ph ]
-  %39 = getelementptr inbounds [3 x float], ptr %7, i64 %indvars.iv
+  %39 = getelementptr inbounds [12 x i8], ptr %7, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !345
   %41 = fadd float %36, %40
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -1770,7 +1759,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 48:                                               ; preds = %.preheader139, %48
   %indvars.iv209 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next210, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv209
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv209
   %50 = load float, ptr %49, align 4, !tbaa !345
   %51 = fmul float %31, %50
   store float %51, ptr %49, align 4, !tbaa !345
@@ -1836,7 +1825,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %79 = phi float [ %.promoted189, %.loopexit140 ], [ %271, %.critedge ]
   %80 = phi float [ %.promoted188, %.loopexit140 ], [ %272, %.critedge ]
   %.lcssa180184 = phi float [ %.promoted178, %.loopexit140 ], [ %.lcssa179, %.critedge ]
-  %81 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv213
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv213
   %82 = load float, ptr %81, align 4, !tbaa !345
   %83 = icmp slt i64 %indvars.iv213, %65
   br i1 %83, label %84, label %.loopexit136
@@ -1844,19 +1833,19 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 84:                                               ; preds = %78
   %85 = icmp eq i64 %indvars.iv213, 0
   %86 = and i1 %85, %57
-  %87 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv213
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv213
   %88 = load i32, ptr %87, align 4, !tbaa !284
   %.not = icmp eq i32 %88, 0
   br i1 %.not, label %.loopexit138, label %89
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv213
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv213
   %91 = load i32, ptr %90, align 4, !tbaa !284
   %92 = icmp sgt i32 %91, 1
   br i1 %92, label %.preheader137, label %.loopexit138
 
 .preheader137:                                    ; preds = %89
-  %invariant.gep = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv213
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv213
   %93 = icmp samesign ult i64 %indvars.iv213, 2
   br i1 %93, label %.lr.ph153, label %.loopexit138
 
@@ -1864,9 +1853,9 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %indvars.iv215 = phi i64 [ 1, %.lr.ph153 ], [ %indvars.iv213, %.preheader137 ]
   %.2151 = phi float [ %97, %.lr.ph153 ], [ %82, %.preheader137 ]
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %94 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next216
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next216
   %95 = load float, ptr %94, align 4, !tbaa !345
-  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv.next216
+  %gep = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep, i64 %indvars.iv.next216
   %96 = load float, ptr %gep, align 4, !tbaa !345
   %97 = tail call float @llvm.fmuladd.f32(float %95, float %96, float %.2151)
   %98 = icmp eq i64 %indvars.iv215, 0
@@ -1874,8 +1863,8 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 .loopexit138:                                     ; preds = %.lr.ph153, %.preheader137, %89, %84
   %.1 = phi float [ %82, %84 ], [ %82, %89 ], [ %82, %.preheader137 ], [ %97, %.lr.ph153 ]
-  %99 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv213
-  %100 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv213
+  %99 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv213
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv213
   %101 = load float, ptr %100, align 4, !tbaa !345
   %102 = fcmp ult float %.1, %101
   br i1 %102, label %.preheader, label %.lr.ph162
@@ -1941,7 +1930,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 .lr.ph156.split.us:                               ; preds = %.lr.ph156, %163
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %163 ], [ %.pre-phi, %.lr.ph156 ]
-  %132 = getelementptr inbounds [3 x float], ptr %7, i64 %indvars.iv228
+  %132 = getelementptr inbounds [12 x i8], ptr %7, i64 %indvars.iv228
   %133 = load float, ptr %132, align 4, !tbaa !345
   %134 = load float, ptr %99, align 4, !tbaa !345
   %135 = fsub float %133, %134
@@ -1956,22 +1945,22 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   store float %135, ptr %132, align 4, !tbaa !345
   store float %139, ptr %136, align 4, !tbaa !345
   store float %143, ptr %140, align 4, !tbaa !345
-  %144 = getelementptr inbounds [3 x float], ptr %8, i64 %indvars.iv228
+  %144 = getelementptr inbounds [12 x i8], ptr %8, i64 %indvars.iv228
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %155, %.lr.ph156.split.us
   %indvars.iv19.i.us = phi i64 [ 0, %.lr.ph156.split.us ], [ %indvars.iv.next20.i.us, %155 ]
   %indvars.iv17.i.us = phi i64 [ 1, %.lr.ph156.split.us ], [ %indvars.iv.next18.i.us, %155 ]
-  %145 = getelementptr inbounds nuw [3 x float], ptr %64, i64 %indvars.iv19.i.us
-  %146 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv19.i.us
+  %145 = getelementptr inbounds nuw [12 x i8], ptr %64, i64 %indvars.iv19.i.us
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv19.i.us
   br label %147
 
 147:                                              ; preds = %147, %.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us, %147 ]
-  %148 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv.i.us
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv.i.us
   %149 = load float, ptr %148, align 4, !tbaa !345
   %150 = load float, ptr %146, align 4, !tbaa !345
-  %151 = getelementptr inbounds nuw float, ptr %144, i64 %indvars.iv.i.us
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv.i.us
   %152 = load float, ptr %151, align 4, !tbaa !345
   %153 = fneg float %149
   %154 = tail call float @llvm.fmuladd.f32(float %153, float %150, float %152)
@@ -2010,7 +1999,7 @@ _ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit.loopexit.us: ; preds
 
 _ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit.us157: ; preds = %.lr.ph156.split, %_ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit.us157
   %indvars.iv223 = phi i64 [ %indvars.iv.next224, %_ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit.us157 ], [ %.pre-phi, %.lr.ph156.split ]
-  %164 = getelementptr inbounds [3 x float], ptr %7, i64 %indvars.iv223
+  %164 = getelementptr inbounds [12 x i8], ptr %7, i64 %indvars.iv223
   %165 = load float, ptr %164, align 4, !tbaa !345
   %166 = load float, ptr %99, align 4, !tbaa !345
   %167 = fsub float %165, %166
@@ -2037,7 +2026,7 @@ _ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit.us157: ; preds = %.l
 
 _ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph156.split, %_ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %_ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit ], [ %.pre-phi, %.lr.ph156.split ]
-  %180 = getelementptr inbounds [3 x float], ptr %7, i64 %indvars.iv218
+  %180 = getelementptr inbounds [12 x i8], ptr %7, i64 %indvars.iv218
   %181 = load float, ptr %180, align 4, !tbaa !345
   %182 = load float, ptr %99, align 4, !tbaa !345
   %183 = fsub float %181, %182
@@ -2092,7 +2081,7 @@ _ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph15
 
 .lr.ph172.split.us:                               ; preds = %.lr.ph172, %242
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %242 ], [ %.pre-phi, %.lr.ph172 ]
-  %212 = getelementptr inbounds [3 x float], ptr %7, i64 %indvars.iv243
+  %212 = getelementptr inbounds [12 x i8], ptr %7, i64 %indvars.iv243
   %213 = load float, ptr %212, align 4, !tbaa !345
   %214 = load float, ptr %99, align 4, !tbaa !345
   %215 = fadd float %213, %214
@@ -2107,22 +2096,22 @@ _ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph15
   store float %215, ptr %212, align 4, !tbaa !345
   store float %219, ptr %216, align 4, !tbaa !345
   store float %223, ptr %220, align 4, !tbaa !345
-  %224 = getelementptr inbounds [3 x float], ptr %8, i64 %indvars.iv243
+  %224 = getelementptr inbounds [12 x i8], ptr %8, i64 %indvars.iv243
   br label %.preheader.i126.us
 
 .preheader.i126.us:                               ; preds = %234, %.lr.ph172.split.us
   %indvars.iv19.i127.us = phi i64 [ 0, %.lr.ph172.split.us ], [ %indvars.iv.next20.i132.us, %234 ]
   %indvars.iv17.i128.us = phi i64 [ 1, %.lr.ph172.split.us ], [ %indvars.iv.next18.i133.us, %234 ]
-  %225 = getelementptr inbounds nuw [3 x float], ptr %64, i64 %indvars.iv19.i127.us
-  %226 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv19.i127.us
+  %225 = getelementptr inbounds nuw [12 x i8], ptr %64, i64 %indvars.iv19.i127.us
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv19.i127.us
   br label %227
 
 227:                                              ; preds = %227, %.preheader.i126.us
   %indvars.iv.i129.us = phi i64 [ 0, %.preheader.i126.us ], [ %indvars.iv.next.i130.us, %227 ]
-  %228 = getelementptr inbounds nuw float, ptr %225, i64 %indvars.iv.i129.us
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %indvars.iv.i129.us
   %229 = load float, ptr %228, align 4, !tbaa !345
   %230 = load float, ptr %226, align 4, !tbaa !345
-  %231 = getelementptr inbounds nuw float, ptr %224, i64 %indvars.iv.i129.us
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %indvars.iv.i129.us
   %232 = load float, ptr %231, align 4, !tbaa !345
   %233 = tail call float @llvm.fmuladd.f32(float %229, float %230, float %232)
   store float %233, ptr %231, align 4, !tbaa !345
@@ -2160,7 +2149,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.loopexit.us: ; preds
 
 _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.us173: ; preds = %.lr.ph172.split, %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.us173
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.us173 ], [ %.pre-phi, %.lr.ph172.split ]
-  %243 = getelementptr inbounds [3 x float], ptr %7, i64 %indvars.iv238
+  %243 = getelementptr inbounds [12 x i8], ptr %7, i64 %indvars.iv238
   %244 = load float, ptr %243, align 4, !tbaa !345
   %245 = load float, ptr %99, align 4, !tbaa !345
   %246 = fadd float %244, %245
@@ -2187,7 +2176,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.us173: ; preds = %.l
 
 _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph172.split, %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit ], [ %.pre-phi, %.lr.ph172.split ]
-  %259 = getelementptr inbounds [3 x float], ptr %7, i64 %indvars.iv233
+  %259 = getelementptr inbounds [12 x i8], ptr %7, i64 %indvars.iv233
   %260 = load float, ptr %259, align 4, !tbaa !345
   %261 = load float, ptr %99, align 4, !tbaa !345
   %262 = fadd float %260, %261
@@ -2217,9 +2206,9 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph17
   %272 = phi float [ %80, %78 ], [ %108, %.preheader ], [ %211, %.loopexit136.loopexit ]
   %.lcssa179 = phi float [ %.lcssa180184, %78 ], [ %.lcssa, %.preheader ], [ %199, %.loopexit136.loopexit ]
   %.0120 = phi float [ %82, %78 ], [ %.3.lcssa, %.preheader ], [ %197, %.loopexit136.loopexit ]
-  %273 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv213
-  %274 = getelementptr inbounds nuw %"class.std::vector.2", ptr %3, i64 %indvars.iv213
-  %275 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv213
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv213
+  %274 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv213
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv213
   %276 = load i32, ptr %275, align 4, !tbaa !284
   %smax = tail call i32 @llvm.smax.i32(i32 %276, i32 1)
   %277 = add nsw i32 %smax, -1
@@ -2234,7 +2223,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph17
 279:                                              ; preds = %278
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %280 = load ptr, ptr %274, align 8, !tbaa !372
-  %281 = getelementptr inbounds nuw float, ptr %280, i64 %indvars.iv.next249
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %indvars.iv.next249
   %282 = load float, ptr %281, align 4, !tbaa !345
   %283 = fcmp ult float %.0120, %282
   br i1 %283, label %.critedge.split.loop.exit287, label %278, !llvm.loop !373
@@ -2319,7 +2308,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %13, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -2342,7 +2331,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit:
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !282
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit53, label %38
@@ -2426,7 +2415,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !283
   store ptr %67, ptr %12, align 8, !tbaa !282
-  %70 = getelementptr inbounds nuw i32, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8, !tbaa !285
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
@@ -2477,7 +2466,7 @@ define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS
   %19 = load ptr, ptr %18, align 8, !tbaa !126
   %20 = sext i32 %17 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !135
-  %22 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %20
   %.sroa.0.0.copyload.i.i = load ptr, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.0.0.copyload.i45.i = load ptr, ptr %23, align 8
@@ -2498,7 +2487,7 @@ define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS
 28:                                               ; preds = %24
   %29 = load ptr, ptr %13, align 8, !tbaa !126
   %30 = load ptr, ptr %29, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %30, i64 %indvars.iv109.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv109.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !139
   %34 = sext i32 %33 to i64
@@ -2570,8 +2559,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   br label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i: ; preds = %60, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i.i
-  %62 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %57, i64 %41
-  %63 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [12 x i8], ptr %57, i64 %41
+  %63 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %54
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i
 
 64:                                               ; preds = %28
@@ -2579,7 +2568,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br i1 %65, label %66, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.sroa.056.086.i, i64 %34
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.056.086.i, i64 %34
   %.not.i4.i.i = icmp eq ptr %.sroa.10.084.i, %67
   %spec.select.i = select i1 %.not.i4.i.i, ptr %.sroa.10.084.i, ptr %67
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i
@@ -2619,9 +2608,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i: ; preds = %66, %64,
   %.sroa.054.082.i = phi ptr [ %76, %.lr.ph.i ], [ %.sroa.0.0.copyload.i47.i, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i ]
   %72 = load i32, ptr %.sroa.054.082.i, align 4, !tbaa !284
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %73
+  %74 = getelementptr inbounds [12 x i8], ptr %1, i64 %73
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %75 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.sroa.056.3.i, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.056.3.i, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %75, ptr noundef nonnull readonly align 4 dereferenceable(12) %74, i64 12, i1 false), !tbaa.struct !375
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.054.082.i, i64 4
   %.not68.i = icmp eq ptr %76, %.sroa.0.0.copyload.i48.i
@@ -2697,9 +2686,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %88, %87
   %.sroa.0.093.i = phi ptr [ %103, %.lr.ph96.i ], [ %.sroa.0.0.copyload.i.i, %._crit_edge89.i ]
   %99 = load i32, ptr %.sroa.0.093.i, align 4, !tbaa !284
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %100
+  %101 = getelementptr inbounds [12 x i8], ptr %1, i64 %100
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %102 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %indvars.iv112.i
+  %102 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv112.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %102, ptr noundef nonnull readonly align 4 dereferenceable(12) %101, i64 12, i1 false), !tbaa.struct !375
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.093.i, i64 4
   %.not67.i = icmp eq ptr %103, %.sroa.0.0.copyload.i45.i
@@ -2744,7 +2733,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %88, %87
   %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %._crit_edge.i12 ], [ 0, %118 ]
   %.038.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i12 ], [ 0, %118 ]
   %126 = load ptr, ptr %120, align 8, !tbaa !135
-  %127 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %126, i64 %indvars.iv42.i
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %indvars.iv42.i
   %.sroa.0.0.copyload.i.i5 = load ptr, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %.sroa.0.0.copyload.i24.i = load ptr, ptr %128, align 8
@@ -2773,9 +2762,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %88, %87
   %.sroa.027.035.i = phi ptr [ %.sroa.0.0.copyload.i.i5, %.lr.ph.preheader.i ], [ %138, %.lr.ph.i6 ]
   %134 = load i32, ptr %.sroa.027.035.i, align 4, !tbaa !284
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %135
+  %136 = getelementptr inbounds [12 x i8], ptr %1, i64 %135
   %indvars.iv.next.i8 = add nsw i64 %indvars.iv.i7, 1
-  %137 = getelementptr inbounds %"class.gmx::BasicVector", ptr %122, i64 %indvars.iv.i7
+  %137 = getelementptr inbounds [12 x i8], ptr %122, i64 %indvars.iv.i7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %137, ptr noundef nonnull readonly align 4 dereferenceable(12) %136, i64 12, i1 false), !tbaa.struct !375
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.027.035.i, i64 4
   %.not.i9 = icmp eq ptr %138, %.sroa.0.0.copyload.i24.i

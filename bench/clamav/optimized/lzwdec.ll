@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/lzwdec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.code_ent = type { ptr, i16, i8, i8 }
-
 @.str = private unnamed_addr constant [25 x i8] c"failed to allocate state\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"failed to allocate code table\00", align 1
 @.str.2 = private unnamed_addr constant [48 x i8] c"cannot reference unpopulated dictionary entries\00", align 1
@@ -34,7 +32,7 @@ define range(i32 -4, 1) i32 @lzwInit(ptr noundef writeonly captures(none) %0) lo
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   store ptr null, ptr %10, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 1, ptr %11, align 8, !tbaa !14
@@ -306,7 +304,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 131:                                              ; preds = %124, %128
   %.0290.lcssa899910 = phi i64 [ %130, %128 ], [ 257, %124 ]
   %.2276 = phi i32 [ -3, %128 ], [ 1, %124 ]
-  %132 = getelementptr inbounds nuw %struct.code_ent, ptr %86, i64 %.0290.lcssa899910
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %.0290.lcssa899910
   br label %.loopexit
 
 .loopexit974:                                     ; preds = %102, %126, %120
@@ -319,7 +317,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.4383.ph = phi ptr [ %122, %120 ], [ %.0379, %126 ], [ %.0379, %102 ]
   %.5362.ph = phi i32 [ %123, %120 ], [ %.0357, %126 ], [ %.0357, %102 ]
   %134 = zext nneg i16 %.0290688 to i64
-  %135 = getelementptr inbounds nuw %struct.code_ent, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %134
   %.old9.not722 = icmp eq i32 %.5362.ph, 0
   br i1 %.old9.not722, label %.loopexit, label %.preheader.lr.ph
 
@@ -503,7 +501,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 .thread507:                                       ; preds = %200, %204
   %.5.ph = phi i32 [ -3, %204 ], [ 1, %200 ]
   %206 = and i64 %.1291.in.lcssa, 65535
-  %207 = getelementptr inbounds nuw %struct.code_ent, ptr %163, i64 %206
+  %207 = getelementptr inbounds nuw [16 x i8], ptr %163, i64 %206
   br label %.loopexit
 
 .thread501:                                       ; preds = %178, %202, %196
@@ -516,7 +514,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.7386 = phi ptr [ %198, %196 ], [ %.6385, %202 ], [ %.6385, %178 ]
   %.8365 = phi i32 [ %199, %196 ], [ %.7364, %202 ], [ %.7364, %178 ]
   %209 = and i64 %.1291.in530, 65535
-  %210 = getelementptr inbounds nuw %struct.code_ent, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %208, i64 %209
   %.not516 = icmp eq i32 %.8365, 0
   br i1 %.not516, label %.loopexit, label %137
 
@@ -525,7 +523,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %213 = and i32 %212, 65535
   %214 = load ptr, ptr %39, align 8, !tbaa !11
   %215 = and i64 %161, 65535
-  %216 = getelementptr inbounds nuw %struct.code_ent, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %215
   %217 = icmp ult i16 %.2288, 4096
   %or.cond = select i1 %217, i1 true, i1 %136
   br i1 %or.cond, label %218, label %255
@@ -543,7 +541,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.5353 = select i1 %222, i64 %.mux, i64 %221
   %notmask = shl nsw i64 -1, %.5353
   %223 = xor i64 %notmask, -1
-  %224 = getelementptr inbounds nuw %struct.code_ent, ptr %214, i64 %223
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %223
   %225 = getelementptr inbounds i8, ptr %224, i64 -16
   br label %226
 
@@ -594,7 +592,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.7355 = select i1 %247, i64 %.mux439, i64 %246
   %notmask426 = shl nsw i64 -1, %.7355
   %248 = xor i64 %notmask426, -1
-  %249 = getelementptr inbounds nuw %struct.code_ent, ptr %214, i64 %248
+  %249 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %248
   %250 = getelementptr inbounds i8, ptr %249, i64 -16
   br label %251
 

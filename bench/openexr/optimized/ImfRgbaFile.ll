@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::Vec3" = type { float, float, float }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
 %"struct.Imf_3_4::Chromaticities" = type { %"class.Imath_3_2::Vec2.8", %"class.Imath_3_2::Vec2.8", %"class.Imath_3_2::Vec2.8", %"class.Imath_3_2::Vec2.8" }
 %"class.Imath_3_2::Vec2.8" = type { float, float }
 %"class.Imf_3_4::FrameBuffer" = type { %"class.std::map.0" }
@@ -246,8 +244,8 @@ _ZN7Imf_3_412_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %59, %61, %65
 86:                                               ; preds = %_ZN7Imf_3_412_GLOBAL__N_112cachePaddingEl.exit, %86
   %indvars.iv = phi i64 [ 0, %_ZN7Imf_3_412_GLOBAL__N_112cachePaddingEl.exit ], [ %indvars.iv.next, %86 ]
   %87 = mul nsw i64 %68, %indvars.iv
-  %88 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %73, i64 %87
-  %89 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv
+  %88 = getelementptr inbounds [8 x i8], ptr %73, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   store ptr %88, ptr %89, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27
@@ -411,7 +409,7 @@ define hidden void @_ZN7Imf_3_414RgbaOutputFile5ToYca14setFrameBufferEPKNS_4Rgba
   %26 = load i32, ptr %25, align 4, !tbaa !24
   %27 = sub nsw i32 0, %26
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %24, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %6, i32 noundef 1, ptr noundef nonnull %30, i64 noundef 8, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %31 unwind label %33
@@ -444,7 +442,7 @@ define hidden void @_ZN7Imf_3_414RgbaOutputFile5ToYca14setFrameBufferEPKNS_4Rgba
   %43 = load i32, ptr %42, align 4, !tbaa !24
   %44 = sub nsw i32 0, %43
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %41, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %41, i64 %45
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %7, i32 noundef 1, ptr noundef %46, i64 noundef 16, i64 noundef 0, i32 noundef 2, i32 noundef 2, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %47 unwind label %57
 
@@ -459,7 +457,7 @@ define hidden void @_ZN7Imf_3_414RgbaOutputFile5ToYca14setFrameBufferEPKNS_4Rgba
   %50 = load i32, ptr %42, align 4, !tbaa !24
   %51 = sub nsw i32 0, %50
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %49, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %8, i32 noundef 1, ptr noundef nonnull %54, i64 noundef 16, i64 noundef 0, i32 noundef 2, i32 noundef 2, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %55 unwind label %59
@@ -498,7 +496,7 @@ define hidden void @_ZN7Imf_3_414RgbaOutputFile5ToYca14setFrameBufferEPKNS_4Rgba
   %69 = load i32, ptr %68, align 4, !tbaa !24
   %70 = sub nsw i32 0, %69
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %67, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %67, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %9, i32 noundef 1, ptr noundef nonnull %73, i64 noundef 8, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %74 unwind label %76
@@ -739,7 +737,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %15
   %88 = add i64 %87, %25
   %89 = inttoptr i64 %88 to ptr
   %90 = load ptr, ptr %38, align 8, !tbaa !38
-  %91 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load i64, ptr %89, align 2
   store i64 %92, ptr %91, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -769,19 +767,19 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %15
   %indvars.iv.i = phi i64 [ 0, %._crit_edge63 ], [ %indvars.iv.next.i, %105 ]
   %106 = load ptr, ptr %49, align 8, !tbaa !38
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
-  %108 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %106, i64 %indvars.iv.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i
   %109 = load i64, ptr %107, align 2
   store i64 %109, ptr %108, align 2
   %110 = load ptr, ptr %49, align 8, !tbaa !38
   %111 = load i32, ptr %44, align 8, !tbaa !25
   %112 = sext i32 %111 to i64
-  %113 = getelementptr %"struct.Imf_3_4::Rgba", ptr %110, i64 %112
+  %113 = getelementptr [8 x i8], ptr %110, i64 %112
   %114 = getelementptr i8, ptr %113, i64 88
   %115 = trunc i64 %indvars.iv.i to i32
   %116 = add i32 %115, 13
   %117 = add i32 %116, %111
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %110, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %110, i64 %118
   %120 = load i64, ptr %114, align 2
   store i64 %120, ptr %119, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -816,7 +814,7 @@ _ZN7Imf_3_414RgbaOutputFile5ToYca9padTmpBufEv.exit: ; preds = %105
   %138 = add i64 %137, %98
   %139 = inttoptr i64 %138 to ptr
   %140 = load ptr, ptr %49, align 8, !tbaa !38
-  %141 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %140, i64 %indvars.iv77
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv77
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 104
   %143 = load i64, ptr %139, align 2
   store i64 %143, ptr %142, align 2
@@ -1093,19 +1091,19 @@ define hidden void @_ZN7Imf_3_414RgbaOutputFile5ToYca9padTmpBufEv(ptr noundef no
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %2, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %8 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %7, align 2
   store i64 %9, ptr %8, align 2
   %10 = load ptr, ptr %2, align 8, !tbaa !38
   %11 = load i32, ptr %3, align 8, !tbaa !25
   %12 = sext i32 %11 to i64
-  %13 = getelementptr %"struct.Imf_3_4::Rgba", ptr %10, i64 %12
+  %13 = getelementptr [8 x i8], ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 88
   %15 = trunc i64 %indvars.iv to i32
   %16 = add i32 %15, 13
   %17 = add i32 %16, %11
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %10, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %10, i64 %18
   %20 = load i64, ptr %14, align 2
   store i64 %20, ptr %19, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3148,8 +3146,8 @@ _ZN7Imf_3_412_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %54, %56, %60
 71:                                               ; preds = %_ZN7Imf_3_412_GLOBAL__N_112cachePaddingEl.exit, %71
   %indvars.iv = phi i64 [ 0, %_ZN7Imf_3_412_GLOBAL__N_112cachePaddingEl.exit ], [ %indvars.iv.next, %71 ]
   %72 = mul nsw i64 %63, %indvars.iv
-  %73 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %67, i64 %72
-  %74 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
+  %73 = getelementptr inbounds [8 x i8], ptr %67, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   store ptr %73, ptr %74, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
@@ -3172,8 +3170,8 @@ _ZN7Imf_3_412_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %54, %56, %60
   %indvars.iv28 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next29, %83 ]
   %84 = add nuw nsw i64 %indvars.iv28, 29
   %85 = mul nsw i64 %63, %84
-  %86 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %67, i64 %85
-  %87 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv28
+  %86 = getelementptr inbounds [8 x i8], ptr %67, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv28
   store ptr %86, ptr %87, align 8, !tbaa !41
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 3
@@ -3321,7 +3319,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %56 = load i32, ptr %55, align 4, !tbaa !114
   %57 = sub nsw i32 13, %56
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %54, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %54, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %12, i32 noundef 1, ptr noundef nonnull %60, i64 noundef 8, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 5.000000e-01, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %61 unwind label %146
@@ -3430,7 +3428,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %97 = load i32, ptr %55, align 4, !tbaa !114
   %98 = sub nsw i32 13, %97
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %96, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %96, i64 %99
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %14, i32 noundef 1, ptr noundef %100, i64 noundef 16, i64 noundef 0, i32 noundef 2, i32 noundef 2, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %101 unwind label %154
 
@@ -3532,7 +3530,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %133 = load i32, ptr %55, align 4, !tbaa !114
   %134 = sub nsw i32 13, %133
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %132, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %132, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %16, i32 noundef 1, ptr noundef nonnull %137, i64 noundef 16, i64 noundef 0, i32 noundef 2, i32 noundef 2, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %138 unwind label %162
@@ -3709,7 +3707,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %194 = load i32, ptr %55, align 4, !tbaa !114
   %195 = sub nsw i32 13, %194
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %193, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %193, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 6
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %18, i32 noundef 1, ptr noundef nonnull %198, i64 noundef 8, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 1.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %199 unwind label %214
@@ -3909,9 +3907,9 @@ _ZN9Imath_3_24modpEii.exit.i:                     ; preds = %26
   %36 = add i32 %33, %35
   %37 = srem i32 %36, 29
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %4, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %4, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !41
-  %41 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   store ptr %40, ptr %41, align 8, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 29
@@ -3937,9 +3935,9 @@ _ZN9Imath_3_24modpEii.exit.i56:                   ; preds = %42
   %49 = add i32 %46, %48
   %50 = srem i32 %49, 3
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %3, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %3, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !41
-  %54 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i58
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i58
   store ptr %53, ptr %54, align 8, !tbaa !41
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, 3
@@ -3980,7 +3978,7 @@ _ZN7Imf_3_413RgbaInputFile7FromYca10rotateBuf2Ei.exit: ; preds = %47
   %indvars.iv127 = phi i64 [ %umin126, %56 ], [ %indvars.iv.next128, %_ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE.exit ]
   %indvars.iv.next128 = add nsw i64 %indvars.iv127, -1
   %73 = add nsw i64 %indvars.iv.next128, %67
-  %74 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.next128
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv.next128
   %75 = load ptr, ptr %74, align 8, !tbaa !41
   %76 = load i32, ptr %60, align 8, !tbaa !115
   %77 = sext i32 %76 to i64
@@ -4010,7 +4008,7 @@ _ZN7Imf_3_413RgbaInputFile7FromYca10rotateBuf2Ei.exit: ; preds = %47
 
 90:                                               ; preds = %90, %.lr.ph.i
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i63, %90 ]
-  %91 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %89, i64 %indvars.iv.i62
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.i62
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 104
   store i16 0, ptr %92, align 2, !tbaa !145
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 108
@@ -4037,19 +4035,19 @@ _ZN7Imf_3_413RgbaInputFile7FromYca10rotateBuf2Ei.exit: ; preds = %47
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %.loopexit.i ]
   %101 = load ptr, ptr %65, align 8, !tbaa !124
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 104
-  %103 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %101, i64 %indvars.iv.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i.i
   %104 = load i64, ptr %102, align 2
   store i64 %104, ptr %103, align 2
   %105 = load ptr, ptr %65, align 8, !tbaa !124
   %106 = load i32, ptr %64, align 8, !tbaa !117
   %107 = sext i32 %106 to i64
-  %108 = getelementptr %"struct.Imf_3_4::Rgba", ptr %105, i64 %107
+  %108 = getelementptr [8 x i8], ptr %105, i64 %107
   %109 = getelementptr i8, ptr %108, i64 88
   %110 = trunc i64 %indvars.iv.i.i to i32
   %111 = add i32 %110, 13
   %112 = add i32 %111, %106
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %105, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %105, i64 %113
   %115 = load i64, ptr %109, align 2
   store i64 %115, ptr %114, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4076,17 +4074,17 @@ _ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE.exit: ; preds = 
   br i1 %.not53, label %130, label %124
 
 124:                                              ; preds = %119
-  %125 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv129
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv129
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 208
   %127 = load ptr, ptr %126, align 8, !tbaa !41
-  %128 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv129
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv129
   %129 = load ptr, ptr %128, align 8, !tbaa !41
   tail call void @_ZN7Imf_3_47RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %68, i32 noundef %123, ptr noundef %127, ptr noundef %129)
   br label %136
 
 130:                                              ; preds = %119
-  %131 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv129
-  %132 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv129
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv129
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv129
   %133 = load ptr, ptr %132, align 8, !tbaa !41
   tail call void @_ZN7Imf_3_47RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %123, ptr noundef nonnull %131, ptr noundef %133)
   %134 = load i32, ptr %64, align 8, !tbaa !117
@@ -4132,7 +4130,7 @@ _ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE.exit: ; preds = 
   %154 = sub i32 %1, %153
   %155 = add i32 %154, 15
   %156 = sub nsw i64 29, %indvars.iv
-  %157 = getelementptr inbounds ptr, ptr %138, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %138, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !41
   %159 = load i32, ptr %139, align 8, !tbaa !115
   %160 = icmp slt i32 %155, %159
@@ -4159,7 +4157,7 @@ _ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE.exit: ; preds = 
 
 170:                                              ; preds = %170, %.lr.ph.i76
   %indvars.iv.i78 = phi i64 [ 0, %.lr.ph.i76 ], [ %indvars.iv.next.i79, %170 ]
-  %171 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %169, i64 %indvars.iv.i78
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.i78
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 104
   store i16 0, ptr %172, align 2, !tbaa !145
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 108
@@ -4186,19 +4184,19 @@ _ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE.exit: ; preds = 
   %indvars.iv.i.i72 = phi i64 [ %indvars.iv.next.i.i73, %.preheader122 ], [ 0, %.loopexit.i70 ]
   %181 = load ptr, ptr %144, align 8, !tbaa !124
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 104
-  %183 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %181, i64 %indvars.iv.i.i72
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv.i.i72
   %184 = load i64, ptr %182, align 2
   store i64 %184, ptr %183, align 2
   %185 = load ptr, ptr %144, align 8, !tbaa !124
   %186 = load i32, ptr %143, align 8, !tbaa !117
   %187 = sext i32 %186 to i64
-  %188 = getelementptr %"struct.Imf_3_4::Rgba", ptr %185, i64 %187
+  %188 = getelementptr [8 x i8], ptr %185, i64 %187
   %189 = getelementptr i8, ptr %188, i64 88
   %190 = trunc i64 %indvars.iv.i.i72 to i32
   %191 = add i32 %190, 13
   %192 = add i32 %191, %186
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %185, i64 %193
+  %194 = getelementptr inbounds [8 x i8], ptr %185, i64 %193
   %195 = load i64, ptr %189, align 2
   store i64 %195, ptr %194, align 2
   %indvars.iv.next.i.i73 = add nuw nsw i64 %indvars.iv.i.i72, 1
@@ -4225,17 +4223,17 @@ _ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE.exit81: ; preds 
   br i1 %.not, label %210, label %204
 
 204:                                              ; preds = %199
-  %205 = getelementptr ptr, ptr %0, i64 %indvars.iv123
+  %205 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv123
   %206 = getelementptr i8, ptr %205, i64 208
   %207 = load ptr, ptr %206, align 8, !tbaa !41
-  %208 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv123
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv123
   %209 = load ptr, ptr %208, align 8, !tbaa !41
   tail call void @_ZN7Imf_3_47RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %147, i32 noundef %203, ptr noundef %207, ptr noundef %209)
   br label %216
 
 210:                                              ; preds = %199
-  %211 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv123
-  %212 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv123
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv123
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv123
   %213 = load ptr, ptr %212, align 8, !tbaa !41
   tail call void @_ZN7Imf_3_47RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %203, ptr noundef nonnull %211, ptr noundef %213)
   %214 = load i32, ptr %148, align 8, !tbaa !117
@@ -4288,7 +4286,7 @@ _ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE.exit81: ; preds 
   %243 = add i64 %242, %225
   %244 = inttoptr i64 %243 to ptr
   %245 = load ptr, ptr %222, align 8, !tbaa !124
-  %246 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %245, i64 %indvars.iv132
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %indvars.iv132
   %247 = load i64, ptr %246, align 2
   store i64 %247, ptr %244, align 2
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
@@ -4338,9 +4336,9 @@ _ZN9Imath_3_24modpEii.exit:                       ; preds = %5, %7
   %17 = add i32 %13, %16
   %18 = srem i32 %17, 29
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %3, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
@@ -4382,9 +4380,9 @@ _ZN9Imath_3_24modpEii.exit:                       ; preds = %5, %7
   %17 = add i32 %13, %16
   %18 = srem i32 %17, 3
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %3, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %3, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -4424,7 +4422,7 @@ define hidden void @_ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4Rg
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store i16 0, ptr %23, align 2, !tbaa !145
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 108
@@ -4457,19 +4455,19 @@ define hidden void @_ZN7Imf_3_413RgbaInputFile7FromYca15readYCAScanLineEiPNS_4Rg
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %36 ]
   %37 = load ptr, ptr %26, align 8, !tbaa !124
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
-  %39 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %37, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   %40 = load i64, ptr %38, align 2
   store i64 %40, ptr %39, align 2
   %41 = load ptr, ptr %26, align 8, !tbaa !124
   %42 = load i32, ptr %35, align 8, !tbaa !117
   %43 = sext i32 %42 to i64
-  %44 = getelementptr %"struct.Imf_3_4::Rgba", ptr %41, i64 %43
+  %44 = getelementptr [8 x i8], ptr %41, i64 %43
   %45 = getelementptr i8, ptr %44, i64 88
   %46 = trunc i64 %indvars.iv.i to i32
   %47 = add i32 %46, 13
   %48 = add i32 %47, %42
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %41, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %41, i64 %49
   %51 = load i64, ptr %45, align 2
   store i64 %51, ptr %50, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4507,19 +4505,19 @@ define hidden void @_ZN7Imf_3_413RgbaInputFile7FromYca9padTmpBufEv(ptr noundef n
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %2, align 8, !tbaa !124
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %8 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %7, align 2
   store i64 %9, ptr %8, align 2
   %10 = load ptr, ptr %2, align 8, !tbaa !124
   %11 = load i32, ptr %3, align 8, !tbaa !117
   %12 = sext i32 %11 to i64
-  %13 = getelementptr %"struct.Imf_3_4::Rgba", ptr %10, i64 %12
+  %13 = getelementptr [8 x i8], ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 88
   %15 = trunc i64 %indvars.iv to i32
   %16 = add i32 %15, 13
   %17 = add i32 %16, %11
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %10, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %10, i64 %18
   %20 = load i64, ptr %14, align 2
   store i64 %20, ptr %19, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

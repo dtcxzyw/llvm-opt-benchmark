@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.asn1_pctx_st = type { i64, i64, i64, i64, i64 }
 %struct.ASN1_PRINT_ARG_st = type { ptr, i32, ptr }
-%struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/tasn_prn.c\00", align 1
 @default_pctx = internal global %struct.asn1_pctx_st { i64 1, i64 0, i64 0, i64 0, i64 0 }, align 8
@@ -474,7 +473,7 @@ asn1_primitive_print.exit:                        ; preds = %72
 150:                                              ; preds = %143
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %152 = load ptr, ptr %151, align 8, !tbaa !33
-  %153 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %152, i64 %144
+  %153 = getelementptr inbounds nuw [40 x i8], ptr %152, i64 %144
   %154 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %1, ptr noundef %153) #8
   %155 = tail call i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef %154, i32 noundef %2, ptr noundef %153, ptr noundef %7)
   %.not133 = icmp eq i32 %155, 0

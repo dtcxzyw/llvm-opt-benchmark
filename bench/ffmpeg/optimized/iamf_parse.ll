@@ -9,11 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.IAMFSoundSystemMap = type { i32, %struct.AVChannelLayout }
 %struct.FFIOContext = type { %struct.AVIOContext, ptr, i32, i32, i64, i64, i64, i64, i32, i32, i32, i64 }
 %struct.AVIOContext = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i64, i64 }
-%struct.IAMFSubStream = type { i32, ptr }
 %struct.MPEG4AudioConfig = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.IAMFLayer = type { i32, i32 }
-%struct.AVChannelCustom = type { i32, [16 x i8], ptr }
-%struct.AVRational = type { i32, i32 }
 
 @.str = private unnamed_addr constant [27 x i8] c"Failed to read obu header\0A\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"Failed to read obu type %d\0A\00", align 1
@@ -378,7 +374,7 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
 
 72:                                               ; preds = %71, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8, !tbaa !21
   %75 = load i32, ptr %74, align 8, !tbaa !23
   %76 = icmp eq i32 %75, %61
@@ -453,7 +449,7 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %27, align 8, !tbaa !11
   %108 = sext i32 %106 to i64
-  %109 = getelementptr inbounds ptr, ptr %105, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %105, i64 %108
   store ptr %81, ptr %109, align 8, !tbaa !21
   %110 = call i64 @avio_seek(ptr noundef nonnull %12, i64 noundef 0, i32 noundef 1) #10
   %111 = trunc i64 %110 to i32
@@ -523,7 +519,7 @@ codec_config_obu.exit:                            ; preds = %54, %.sink.split.i
 
 129:                                              ; preds = %128, %.lr.ph.i59
   %indvars.iv.i61 = phi i64 [ 0, %.lr.ph.i59 ], [ %indvars.iv.next.i62, %128 ]
-  %130 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i61
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i61
   %131 = load ptr, ptr %130, align 8, !tbaa !30
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i32, ptr %132, align 8, !tbaa !35
@@ -558,7 +554,7 @@ codec_config_obu.exit:                            ; preds = %54, %.sink.split.i
 145:                                              ; preds = %145, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %145 ]
   %.089.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %spec.select.i.i, %145 ]
-  %146 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.i.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.i.i
   %147 = load ptr, ptr %146, align 8, !tbaa !21
   %148 = load i32, ptr %147, align 8, !tbaa !23
   %149 = icmp eq i32 %148, %141
@@ -642,7 +638,7 @@ ff_iamf_get_codec_config.exit.thread.i:           ; preds = %ff_iamf_get_codec_c
 182:                                              ; preds = %220, %.lr.ph208.i
   %indvars.iv218.i = phi i64 [ 0, %.lr.ph208.i ], [ %indvars.iv.next219.i, %220 ]
   %183 = load ptr, ptr %169, align 8, !tbaa !42
-  %184 = getelementptr inbounds nuw %struct.IAMFSubStream, ptr %183, i64 %indvars.iv218.i
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %183, i64 %indvars.iv218.i
   %185 = call ptr @avcodec_parameters_alloc() #10
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr %185, ptr %186, align 8, !tbaa !51
@@ -812,7 +808,7 @@ ff_iamf_get_codec_config.exit.thread.i:           ; preds = %ff_iamf_get_codec_c
   %264 = add nsw i32 %263, 1
   store i32 %264, ptr %25, align 8, !tbaa !32
   %265 = sext i32 %263 to i64
-  %266 = getelementptr inbounds ptr, ptr %262, i64 %265
+  %266 = getelementptr inbounds [8 x i8], ptr %262, i64 %265
   store ptr %162, ptr %266, align 8, !tbaa !30
   %267 = call i64 @avio_seek(ptr noundef nonnull %11, i64 noundef 0, i32 noundef 1) #10
   %268 = trunc i64 %267 to i32
@@ -873,7 +869,7 @@ audio_element_obu.exit:                           ; preds = %117, %.thread201.i,
 
 283:                                              ; preds = %282, %.lr.ph.i68
   %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i68 ], [ %indvars.iv.next.i71, %282 ]
-  %284 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv.i70
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv.i70
   %285 = load ptr, ptr %284, align 8, !tbaa !73
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %287 = load i32, ptr %286, align 8, !tbaa !78
@@ -939,7 +935,7 @@ audio_element_obu.exit:                           ; preds = %117, %.thread201.i,
 .lr.ph395.i:                                      ; preds = %.preheader375.i, %318
   %indvars.iv458.i = phi i64 [ %indvars.iv.next459.i, %318 ], [ 0, %.preheader375.i ]
   %309 = load ptr, ptr %304, align 8, !tbaa !85
-  %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv458.i
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %indvars.iv458.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %311 = call i32 @avio_get_str(ptr noundef nonnull %9, i32 noundef 128, ptr noundef nonnull %7, i32 noundef 128) #10
   %312 = load i32, ptr %23, align 4, !tbaa !86
@@ -1020,7 +1016,7 @@ label_string.exit244.i:                           ; preds = %326
 334:                                              ; preds = %label_string.exit244.i, %label_string.exit244.thread277.i
   %.0263280.i = phi ptr [ %332, %label_string.exit244.thread277.i ], [ null, %label_string.exit244.i ]
   %335 = load ptr, ptr %304, align 8, !tbaa !85
-  %336 = getelementptr inbounds nuw ptr, ptr %335, i64 %indvars.iv461.i
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %indvars.iv461.i
   %337 = load ptr, ptr %336, align 8, !tbaa !89
   %338 = call i32 @av_dict_set(ptr noundef nonnull %308, ptr noundef %337, ptr noundef %.0263280.i, i32 noundef 24) #10
   %339 = icmp sgt i32 %338, -1
@@ -1068,7 +1064,7 @@ label_string.exit244.i:                           ; preds = %326
 
 352:                                              ; preds = %351, %.lr.ph400.i
   %indvars.iv464.i = phi i64 [ 0, %.lr.ph400.i ], [ %indvars.iv.next465.i, %351 ]
-  %353 = getelementptr inbounds nuw ptr, ptr %350, i64 %indvars.iv464.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %indvars.iv464.i
   %354 = load ptr, ptr %353, align 8, !tbaa !30
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 16
   %356 = load i32, ptr %355, align 8, !tbaa !35
@@ -1130,7 +1126,7 @@ label_string.exit250.i:                           ; preds = %364
 372:                                              ; preds = %label_string.exit250.i, %label_string.exit250.thread296.i
   %.0262299.i = phi ptr [ %370, %label_string.exit250.thread296.i ], [ null, %label_string.exit250.i ]
   %373 = load ptr, ptr %304, align 8, !tbaa !85
-  %374 = getelementptr inbounds nuw ptr, ptr %373, i64 %indvars.iv469.i
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %indvars.iv469.i
   %375 = load ptr, ptr %374, align 8, !tbaa !89
   %376 = call i32 @av_dict_set(ptr noundef nonnull %359, ptr noundef %375, ptr noundef %.0262299.i, i32 noundef 24) #10
   %377 = icmp sgt i32 %376, -1
@@ -1211,7 +1207,7 @@ label_string.exit250.i:                           ; preds = %364
 .thread329.i:                                     ; preds = %410
   %414 = zext nneg i32 %412 to i64
   %415 = getelementptr inbounds nuw i8, ptr %402, i64 16
-  %416 = getelementptr inbounds nuw %struct.IAMFSoundSystemMap, ptr @ff_iamf_sound_system_map, i64 %414
+  %416 = getelementptr inbounds nuw [32 x i8], ptr @ff_iamf_sound_system_map, i64 %414
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = call i32 @av_channel_layout_copy(ptr noundef nonnull %415, ptr noundef nonnull %417) #10
   br label %421
@@ -1331,7 +1327,7 @@ label_string.exit250.i:                           ; preds = %364
   %466 = add nsw i32 %465, 1
   store i32 %466, ptr %21, align 8, !tbaa !75
   %467 = sext i32 %465 to i64
-  %468 = getelementptr inbounds ptr, ptr %464, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr %464, i64 %467
   store ptr %294, ptr %468, align 8, !tbaa !73
   %469 = call i64 @avio_seek(ptr noundef nonnull %9, i64 noundef 0, i32 noundef 1) #10
   %470 = trunc i64 %469 to i32
@@ -1660,9 +1656,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ipcm_decoder_config(ptr no
 
 13:                                               ; preds = %10
   %14 = sext i32 %4 to i64
-  %15 = getelementptr inbounds [3 x i32], ptr @ipcm_decoder_config.sample_fmt, i64 %14
+  %15 = getelementptr inbounds [12 x i8], ptr @ipcm_decoder_config.sample_fmt, i64 %14
   %16 = zext nneg i32 %7 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %18, ptr %19, align 4, !tbaa !26
@@ -1722,7 +1718,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @param_parse(ptr noundef %0
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !110
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !112
@@ -2042,7 +2038,7 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %.lr.ph145.split.spl
   %152 = add nsw i32 %151, 1
   store i32 %152, ptr %9, align 8, !tbaa !107
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds ptr, ptr %150, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %150, i64 %153
   store ptr %143, ptr %154, align 8, !tbaa !110
   br label %155
 
@@ -2118,7 +2114,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %10, align 8, !tbaa !132
-  %35 = getelementptr inbounds nuw %struct.IAMFLayer, ptr %34, i64 %indvars.iv29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv29
   store i32 %28, ptr %35, align 4, !tbaa !137
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %29, ptr %36, align 4, !tbaa !139
@@ -2155,7 +2151,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %54 = zext nneg i32 %50 to i64
-  %55 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @ff_iamf_expanded_scalable_ch_layouts, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr @ff_iamf_expanded_scalable_ch_layouts, i64 %54
   %56 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %53, ptr noundef nonnull %55) #10
   br label %66
 
@@ -2166,7 +2162,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %61 = sext i32 %21 to i64
-  %62 = getelementptr inbounds %struct.AVChannelLayout, ptr @ff_iamf_scalable_ch_layouts, i64 %61
+  %62 = getelementptr inbounds [24 x i8], ptr @ff_iamf_scalable_ch_layouts, i64 %61
   %63 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %60, ptr noundef nonnull %62) #10
   br label %66
 
@@ -2200,7 +2196,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
   %.08712 = phi i32 [ %29, %.lr.ph.preheader ], [ %69, %68 ]
   %.08911 = phi i32 [ 0, %.lr.ph.preheader ], [ %70, %68 ]
   %71 = load ptr, ptr %15, align 8, !tbaa !42
-  %72 = getelementptr inbounds %struct.IAMFSubStream, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds [16 x i8], ptr %71, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !51
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
@@ -2301,7 +2297,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ambisonics_config(ptr noun
 33:                                               ; preds = %.lr.ph19, %32
   %indvars.iv31 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next32, %32 ]
   %34 = load ptr, ptr %31, align 8, !tbaa !42
-  %35 = getelementptr inbounds nuw %struct.IAMFSubStream, ptr %34, i64 %indvars.iv31
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv31
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !51
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
@@ -2342,7 +2338,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ambisonics_config(ptr noun
   %48 = tail call i32 @avio_r8(ptr noundef nonnull %0) #10
   %49 = add nsw i32 %48, 1024
   %50 = load ptr, ptr %46, align 8, !tbaa !4
-  %51 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %50, i64 %indvars.iv36
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %indvars.iv36
   store i32 %49, ptr %51, align 8, !tbaa !147
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
@@ -2388,7 +2384,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ambisonics_config(ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %64 = load ptr, ptr %61, align 8, !tbaa !150
-  %65 = getelementptr inbounds nuw %struct.AVRational, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = tail call i32 @avio_rb16(ptr noundef nonnull %0) #10
   %67 = shl i32 %66, 16
   %68 = ashr exact i32 %67, 16
@@ -2409,7 +2405,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ambisonics_config(ptr noun
   %indvars.iv26 = phi i64 [ 0, %.lr.ph14 ], [ %indvars.iv.next27, %69 ]
   %.010013 = phi i32 [ %53, %.lr.ph14 ], [ %70, %69 ]
   %72 = load ptr, ptr %63, align 8, !tbaa !42
-  %73 = getelementptr inbounds nuw %struct.IAMFSubStream, ptr %72, i64 %indvars.iv26
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %indvars.iv26
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !51
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 128

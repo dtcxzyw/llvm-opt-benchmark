@@ -53,25 +53,16 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.70 = type { i64 }
 %struct.nla_policy = type { i8, i8, i16, %union.anon.86 }
 %union.anon.86 = type { ptr }
-%struct.nh_grp_entry = type { ptr, i8, %union.anon.8, %struct.list_head, ptr }
-%union.anon.8 = type { %struct.anon.10 }
-%struct.anon.10 = type { %struct.list_head, i16, i16 }
-%struct.nh_res_bucket = type { ptr, %struct.atomic64_t, i64, i8, i8 }
 %struct.nh_notifier_info = type { ptr, ptr, i32, i32, %union.anon.41 }
 %union.anon.41 = type { ptr }
-%struct.nh_notifier_single_info = type { ptr, i8, %union.anon.42, i8 }
-%union.anon.42 = type { %struct.in6_addr }
+%struct.fib6_config = type { i32, i32, i32, i32, i32, i32, i32, i16, i16, i32, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, i64, ptr, i32, i32, ptr, %struct.nl_info, ptr, i16, i8 }
 %struct.in6_addr = type { %union.anon.13 }
 %union.anon.13 = type { [4 x i32] }
-%struct.nh_notifier_grp_entry_info = type { i8, i32, %struct.nh_notifier_single_info }
-%struct.fib6_config = type { i32, i32, i32, i32, i32, i32, i32, i16, i16, i32, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, i64, ptr, i32, i32, ptr, %struct.nl_info, ptr, i16, i8 }
 %struct.nl_info = type { ptr, ptr, i32, i8 }
 %struct.fib_config = type { i8, i8, i8, i8, i8, i8, i32, i32, %union.anon.88, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, %struct.nl_info, ptr, i16 }
 %union.anon.88 = type { %struct.in6_addr }
 %struct.nh_config = type { i32, i8, i8, i8, i8, i32, i32, ptr, %union.anon.72, ptr, i16, i16, i64, i64, i8, i8, i8, ptr, i16, i32, %struct.nl_info }
 %union.anon.72 = type { %struct.in6_addr }
-%struct.nexthop_grp = type { i32, i8, i8, i16 }
-%struct.hlist_head = type { ptr }
 %struct.rtm_dump_nexthop_bucket_data = type { ptr, %struct.nh_dump_filter }
 %struct.nh_dump_filter = type { i32, i32, i32, i8, i8, i32 }
 %struct.netlink_ext_ack = type { ptr, ptr, ptr, ptr, i16, [20 x i8], i8, [80 x i8] }
@@ -204,7 +195,7 @@ define dso_local void @nexthop_free_rcu(ptr noundef %0) #0 align 16 {
 
 13:                                               ; preds = %.thread, %11
   %14 = phi i64 [ 0, %11 ], [ %30, %.thread ]
-  %15 = getelementptr %struct.nh_grp_entry, ptr %12, i64 %14
+  %15 = getelementptr [64 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
@@ -381,7 +372,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
 
 29:                                               ; preds = %26, %23
   %30 = phi i64 [ 0, %23 ], [ %27, %26 ]
-  %31 = getelementptr %struct.nh_grp_entry, ptr %24, i64 %30
+  %31 = getelementptr [64 x i8], ptr %24, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load volatile i32, ptr %32, align 4
   %34 = icmp slt i32 %33, %1
@@ -408,7 +399,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
 42:                                               ; preds = %37, %20
   %43 = phi i64 [ 0, %20 ], [ %38, %37 ]
   %44 = phi ptr [ null, %20 ], [ %.ph, %37 ]
-  %45 = getelementptr %struct.nh_grp_entry, ptr %21, i64 %43
+  %45 = getelementptr [64 x i8], ptr %21, i64 %43
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %48 = load volatile ptr, ptr %47, align 8
@@ -445,7 +436,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
   %73 = lshr i32 %69, %72
   %74 = load ptr, ptr %61, align 8
   %75 = zext i32 %73 to i64
-  %76 = getelementptr ptr, ptr %74, i64 %75
+  %76 = getelementptr [8 x i8], ptr %74, i64 %75
   %77 = load volatile ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.thread11, label %.preheader
@@ -511,7 +502,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
   %129 = lshr i32 %125, %128
   %130 = load ptr, ptr %98, align 8
   %131 = zext i32 %129 to i64
-  %132 = getelementptr ptr, ptr %130, i64 %131
+  %132 = getelementptr [8 x i8], ptr %130, i64 %131
   %133 = load volatile ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %.thread11, label %.preheader17
@@ -603,7 +594,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 144
   %190 = and i32 %188, 65535
   %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr %struct.nh_res_bucket, ptr %189, i64 %191
+  %192 = getelementptr [32 x i8], ptr %189, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load volatile i64, ptr @jiffies, align 64
   store volatile i64 %194, ptr %193, align 8
@@ -650,7 +641,7 @@ define dso_local i32 @nexthop_for_each_fib6_nh(ptr noundef %0, ptr noundef reado
   br i1 %24, label %25, label %.loopexit, !llvm.loop !26
 
 25:                                               ; preds = %.preheader
-  %26 = getelementptr %struct.nh_grp_entry, ptr %10, i64 %21
+  %26 = getelementptr [64 x i8], ptr %10, i64 %21
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %29 = load volatile ptr, ptr %28, align 8
@@ -1286,14 +1277,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_notifier_info_init(ptr 
 
 37:                                               ; preds = %59, %35
   %38 = phi i64 [ 0, %35 ], [ %77, %59 ]
-  %39 = getelementptr %struct.nh_res_bucket, ptr %36, i64 %38
+  %39 = getelementptr [32 x i8], ptr %36, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 128
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %31, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = getelementptr %struct.nh_notifier_single_info, ptr %45, i64 %38
+  %46 = getelementptr [32 x i8], ptr %45, i64 %38
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %46, align 8
@@ -1434,7 +1425,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @nh_notifier_mpath_info_ini
 
 19:                                               ; preds = %50, %17
   %20 = phi i64 [ 0, %17 ], [ %68, %50 ]
-  %21 = getelementptr %struct.nh_grp_entry, ptr %18, i64 %20
+  %21 = getelementptr [64 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
@@ -1449,7 +1440,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @nh_notifier_mpath_info_ini
   %31 = load i8, ptr %30, align 8
   %32 = load ptr, ptr %10, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = getelementptr %struct.nh_notifier_grp_entry_info, ptr %33, i64 %20
+  %34 = getelementptr [40 x i8], ptr %33, i64 %20
   store i8 %31, ptr %34, align 8
   %35 = load ptr, ptr %10, align 8
   %36 = getelementptr i8, ptr %35, i64 16
@@ -2134,7 +2125,7 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
 
 322:                                              ; preds = %363, %317
   %323 = phi i64 [ 0, %317 ], [ %375, %363 ]
-  %324 = getelementptr %struct.nexthop_grp, ptr %283, i64 %323
+  %324 = getelementptr [8 x i8], ptr %283, i64 %323
   %325 = load i32, ptr %324, align 4
   %326 = load volatile ptr, ptr %318, align 8
   %327 = icmp eq ptr %326, null
@@ -2208,7 +2199,7 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
   br label %363
 
 363:                                              ; preds = %356, %362
-  %364 = getelementptr %struct.nh_grp_entry, ptr %320, i64 %323
+  %364 = getelementptr [64 x i8], ptr %320, i64 %323
   store ptr %.lcssa174, ptr %364, align 8
   %365 = getelementptr inbounds nuw i8, ptr %324, i64 4
   %366 = load i8, ptr %365, align 4
@@ -2360,7 +2351,7 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
 449:                                              ; preds = %449, %435
   %450 = phi i64 [ 0, %435 ], [ %464, %449 ]
   %451 = phi i32 [ 0, %435 ], [ %456, %449 ]
-  %452 = getelementptr %struct.nh_grp_entry, ptr %433, i64 %450
+  %452 = getelementptr [64 x i8], ptr %433, i64 %450
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %454 = load i8, ptr %453, align 8
   %455 = zext i8 %454 to i32
@@ -2412,7 +2403,7 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
 482:                                              ; preds = %.thread109, %479
   %483 = phi i64 [ %481, %479 ], [ %484, %.thread109 ]
   %484 = add nsw i64 %483, -1
-  %485 = getelementptr %struct.nh_grp_entry, ptr %480, i64 %484
+  %485 = getelementptr [64 x i8], ptr %480, i64 %484
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 40
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 48
   %488 = load ptr, ptr %487, align 8
@@ -2719,7 +2710,7 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
   %653 = getelementptr inbounds nuw i8, ptr %13, i64 592
   %654 = load ptr, ptr %653, align 8
   %655 = zext nneg i32 %652 to i64
-  %656 = getelementptr %struct.hlist_head, ptr %654, i64 %655
+  %656 = getelementptr [8 x i8], ptr %654, i64 %655
   %657 = load ptr, ptr %656, align 8
   store volatile ptr %657, ptr %517, align 8
   %658 = icmp eq ptr %657, null
@@ -3369,7 +3360,7 @@ fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread
   %994 = phi i64 [ 0, %978 ], [ %1028, %1026 ]
   %995 = phi i32 [ 0, %978 ], [ %1010, %1026 ]
   %996 = phi i32 [ 0, %978 ], [ %1001, %1026 ]
-  %997 = getelementptr %struct.nh_grp_entry, ptr %976, i64 %994
+  %997 = getelementptr [64 x i8], ptr %976, i64 %994
   %998 = getelementptr inbounds nuw i8, ptr %997, i64 8
   %999 = load i8, ptr %998, align 8
   %1000 = zext i8 %999 to i32
@@ -4401,7 +4392,7 @@ define internal i32 @rtm_get_nexthop_bucket(ptr noundef readonly captures(none) 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %117, i64 144
   %129 = zext i16 %80 to i64
-  %130 = getelementptr %struct.nh_res_bucket, ptr %128, i64 %129
+  %130 = getelementptr [32 x i8], ptr %128, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4966,7 +4957,7 @@ __remove_nexthop_fib.exit:                        ; preds = %38, %19
 
 58:                                               ; preds = %70, %55
   %59 = phi i64 [ 0, %55 ], [ %71, %70 ]
-  %60 = getelementptr %struct.nh_grp_entry, ptr %56, i64 %59
+  %60 = getelementptr [64 x i8], ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %64, !prof !16
@@ -5374,7 +5365,7 @@ __remove_nexthop_fib.exit:                        ; preds = %32, %13
 
 52:                                               ; preds = %64, %49
   %53 = phi i64 [ 0, %49 ], [ %65, %64 ]
-  %54 = getelementptr %struct.nh_grp_entry, ptr %50, i64 %53
+  %54 = getelementptr [64 x i8], ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %58, !prof !16
@@ -5573,7 +5564,7 @@ define internal fastcc range(i32 -90, 1) i32 @nh_fill_node(ptr noundef %0, ptr n
 81:                                               ; preds = %81, %78
   %82 = phi i64 [ 0, %78 ], [ %93, %81 ]
   %83 = phi ptr [ %79, %78 ], [ %92, %81 ]
-  %84 = getelementptr %struct.nh_grp_entry, ptr %80, i64 %82
+  %84 = getelementptr [64 x i8], ptr %80, i64 %82
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 96
   %87 = load i32, ptr %86, align 8
@@ -5926,7 +5917,7 @@ define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noun
 .preheader:                                       ; preds = %27, %82
   %46 = phi i64 [ %84, %82 ], [ 0, %27 ]
   %47 = phi i32 [ %83, %82 ], [ 0, %27 ]
-  %48 = getelementptr %struct.nh_grp_entry, ptr %43, i64 %46
+  %48 = getelementptr [64 x i8], ptr %43, i64 %46
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %16
   br i1 %50, label %51, label %54
@@ -5962,7 +5953,7 @@ define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noun
   %67 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %68 = load ptr, ptr %67, align 8
   %69 = sext i32 %47 to i64
-  %70 = getelementptr %struct.nh_grp_entry, ptr %44, i64 %69
+  %70 = getelementptr [64 x i8], ptr %44, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
   store ptr %68, ptr %71, align 8
   %72 = load ptr, ptr %48, align 8
@@ -6031,7 +6022,7 @@ define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noun
 109:                                              ; preds = %109, %95
   %110 = phi i64 [ 0, %95 ], [ %124, %109 ]
   %111 = phi i32 [ 0, %95 ], [ %116, %109 ]
-  %112 = getelementptr %struct.nh_grp_entry, ptr %44, i64 %110
+  %112 = getelementptr [64 x i8], ptr %44, i64 %110
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i8, ptr %113, align 8
   %115 = zext i8 %114 to i32
@@ -6153,7 +6144,7 @@ define internal fastcc void @replace_nexthop_grp_res(ptr noundef readonly captur
 
 19:                                               ; preds = %60, %15
   %20 = phi i64 [ 0, %15 ], [ %61, %60 ]
-  %21 = getelementptr %struct.nh_res_bucket, ptr %16, i64 %20
+  %21 = getelementptr [32 x i8], ptr %16, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
@@ -6174,7 +6165,7 @@ define internal fastcc void @replace_nexthop_grp_res(ptr noundef readonly captur
 
 34:                                               ; preds = %31, %28
   %35 = phi i64 [ 0, %28 ], [ %32, %31 ]
-  %36 = getelementptr %struct.nh_grp_entry, ptr %18, i64 %35
+  %36 = getelementptr [64 x i8], ptr %18, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6262,7 +6253,7 @@ define internal fastcc void @replace_nexthop_grp_res(ptr noundef readonly captur
   %86 = phi i64 [ 0, %72 ], [ %120, %118 ]
   %87 = phi i32 [ 0, %72 ], [ %102, %118 ]
   %88 = phi i32 [ 0, %72 ], [ %93, %118 ]
-  %89 = getelementptr %struct.nh_grp_entry, ptr %70, i64 %86
+  %89 = getelementptr [64 x i8], ptr %70, i64 %86
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i8, ptr %90, align 8
   %92 = zext i8 %91 to i32
@@ -6367,7 +6358,7 @@ define internal fastcc void @nh_res_table_upkeep(ptr noundef %0, i1 noundef zero
 25:                                               ; preds = %164, %19
   %26 = phi i64 [ 0, %19 ], [ %166, %164 ]
   %27 = phi i64 [ %15, %19 ], [ %165, %164 ]
-  %28 = getelementptr %struct.nh_res_bucket, ptr %20, i64 %26
+  %28 = getelementptr [32 x i8], ptr %20, i64 %26
   %29 = load volatile i64, ptr @jiffies, align 64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
@@ -6998,7 +6989,7 @@ define internal noundef i32 @nh_netdev_event(ptr readnone captures(none) %0, i64
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 592
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr %struct.hlist_head, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.preheader
@@ -7073,7 +7064,7 @@ define internal noundef i32 @nh_netdev_event(ptr readnone captures(none) %0, i64
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 592
   %60 = load ptr, ptr %59, align 8
   %61 = zext nneg i32 %56 to i64
-  %62 = getelementptr %struct.hlist_head, ptr %60, i64 %61
+  %62 = getelementptr [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.loopexit, label %.preheader6
@@ -7117,7 +7108,7 @@ define internal noundef i32 @nh_netdev_event(ptr readnone captures(none) %0, i64
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 592
   %92 = load ptr, ptr %91, align 8
   %93 = zext nneg i32 %88 to i64
-  %94 = getelementptr %struct.hlist_head, ptr %92, i64 %93
+  %94 = getelementptr [8 x i8], ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %.loopexit8, label %97
@@ -7204,7 +7195,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
 21:                                               ; preds = %16, %.loopexit
   %22 = phi i64 [ %41, %.loopexit ], [ 0, %16 ]
   %23 = phi i64 [ %19, %.loopexit ], [ 1, %16 ]
-  %24 = getelementptr %struct.nexthop_grp, ptr %18, i64 %22
+  %24 = getelementptr [8 x i8], ptr %18, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 5
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
@@ -7248,7 +7239,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
 
 48:                                               ; preds = %45, %43
   %49 = phi i64 [ %23, %43 ], [ %46, %45 ]
-  %50 = getelementptr %struct.nexthop_grp, ptr %18, i64 %49
+  %50 = getelementptr [8 x i8], ptr %18, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %44, %51
   br i1 %52, label %53, label %45
@@ -7270,7 +7261,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
 
 .split.us:                                        ; preds = %55, %96
   %62 = phi i64 [ %97, %96 ], [ 0, %55 ]
-  %63 = getelementptr %struct.nexthop_grp, ptr %18, i64 %62
+  %63 = getelementptr [8 x i8], ptr %18, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = load volatile ptr, ptr %59, align 8
   %66 = icmp eq ptr %65, null
@@ -7339,7 +7330,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
 
 .split29.us:                                      ; preds = %.split28.us, %108
   %103 = phi i64 [ %109, %108 ], [ 4, %.split28.us ]
-  %104 = getelementptr ptr, ptr %1, i64 %103
+  %104 = getelementptr [8 x i8], ptr %1, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   %107 = and i64 %103, 4294967295
@@ -7355,7 +7346,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
 .split:                                           ; preds = %55, %158
   %111 = phi i64 [ %160, %158 ], [ 0, %55 ]
   %112 = phi i8 [ %159, %158 ], [ 0, %55 ]
-  %113 = getelementptr %struct.nexthop_grp, ptr %18, i64 %111
+  %113 = getelementptr [8 x i8], ptr %18, i64 %111
   %114 = load i32, ptr %113, align 4
   %115 = load volatile ptr, ptr %59, align 8
   %116 = icmp eq ptr %115, null
@@ -7458,7 +7449,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
 
 .split29:                                         ; preds = %.split28.us, %167
   %162 = phi i64 [ %168, %167 ], [ 4, %.split28.us ]
-  %163 = getelementptr ptr, ptr %1, i64 %162
+  %163 = getelementptr [8 x i8], ptr %1, i64 %162
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
   %166 = trunc i64 %162 to i32
@@ -7755,7 +7746,7 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
 65:                                               ; preds = %65, %63
   %66 = phi i64 [ 0, %63 ], [ %76, %65 ]
   %67 = phi i8 [ 0, %63 ], [ %75, %65 ]
-  %68 = getelementptr %struct.nh_grp_entry, ptr %59, i64 %66
+  %68 = getelementptr [64 x i8], ptr %59, i64 %66
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 128
   %71 = load ptr, ptr %70, align 8
@@ -7857,7 +7848,7 @@ define internal fastcc void @nh_rt_cache_flush(ptr noundef %0, ptr noundef nonnu
 30:                                               ; preds = %45, %28
   %31 = phi i16 [ %26, %28 ], [ %46, %45 ]
   %32 = phi i64 [ 0, %28 ], [ %47, %45 ]
-  %33 = getelementptr %struct.nh_grp_entry, ptr %29, i64 %32
+  %33 = getelementptr [64 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %36 = load ptr, ptr %35, align 8
@@ -7922,7 +7913,7 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single_notify(pt
 28:                                               ; preds = %select.unfold, %26
   %29 = phi i16 [ %24, %26 ], [ %41, %select.unfold ]
   %30 = phi i64 [ 0, %26 ], [ %42, %select.unfold ]
-  %31 = getelementptr %struct.nh_res_bucket, ptr %27, i64 %30
+  %31 = getelementptr [32 x i8], ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %2
@@ -7954,7 +7945,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %46 = add nsw i64 %45, -1
   %47 = trunc i64 %46 to i16
   %48 = and i64 %46, 65535
-  %49 = getelementptr %struct.nh_res_bucket, ptr %27, i64 %48
+  %49 = getelementptr [32 x i8], ptr %27, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %2
@@ -8097,7 +8088,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtm_dump_nexthop_bucket_nh(ptr nou
 
 28:                                               ; preds = %.thread, %21
   %29 = phi i64 [ %27, %21 ], [ %98, %.thread ]
-  %30 = getelementptr %struct.nh_res_bucket, ptr %22, i64 %29
+  %30 = getelementptr [32 x i8], ptr %22, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %10, align 4

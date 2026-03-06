@@ -3,11 +3,6 @@ source_filename = "bench/libigl/original/edge_exists_near.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 $_ZN3igl16edge_exists_nearIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEiiEEbRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKSt6vectorISE_IT1_SaISF_EESaISH_EERKT2_SO_SO_ = comdat any
 
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -29,7 +24,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
   %13 = load i32, ptr %5, align 4, !tbaa !11
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %2, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw %"class.std::vector", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = load i32, ptr %17, align 4, !tbaa !11
   %19 = srem i32 %18, %12
@@ -81,15 +76,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit139.thread253:       ; preds = %_ZNSt12_Vector_base
   %.sroa.27.2356 = phi ptr [ %.sroa.27.1363, %28 ], [ %.sroa.27.6.ph, %.loopexit ]
   %34 = mul nsw i64 %indvars.iv, %27
   %35 = load ptr, ptr %1, align 8, !tbaa !18
-  %36 = getelementptr i32, ptr %35, i64 %34
-  %37 = getelementptr i32, ptr %36, i64 %31
+  %36 = getelementptr [4 x i8], ptr %35, i64 %34
+  %37 = getelementptr [4 x i8], ptr %36, i64 %31
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %0, align 8, !tbaa !19
-  %41 = getelementptr i32, ptr %40, i64 %39
+  %41 = getelementptr [4 x i8], ptr %40, i64 %39
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = load i64, ptr %26, align 8, !tbaa !21
-  %44 = getelementptr i32, ptr %41, i64 %43
+  %44 = getelementptr [4 x i8], ptr %41, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !11
   %46 = load i32, ptr %3, align 4, !tbaa !11
   %47 = icmp eq i32 %42, %46
@@ -108,7 +103,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit139.thread253:       ; preds = %_ZNSt12_Vector_base
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %2, align 8, !tbaa !13
-  %56 = getelementptr inbounds nuw %"class.std::vector", ptr %55, i64 %39
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %39
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !22
@@ -186,7 +181,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i116: ; preds = %66
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i121: ; preds = %81, %.noexc123
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0161.7343, i64 noundef %69) #9
-  %82 = getelementptr inbounds nuw i32, ptr %78, i64 %76
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %76
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit124
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit124:       ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i121, %65
@@ -242,7 +237,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i126: ; preds = %85
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i131: ; preds = %100, %.noexc133
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0177.8349, i64 noundef %88) #9
-  %102 = getelementptr inbounds nuw i32, ptr %97, i64 %95
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %95
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit134
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit134:       ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i131, %83

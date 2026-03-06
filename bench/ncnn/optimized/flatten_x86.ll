@@ -750,17 +750,17 @@ define internal void @_ZNK4ncnn11Flatten_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %35 = trunc nsw i64 %indvars.iv to i32
   %.reass105.us = mul i32 %factor.op.mul104, %35
   %36 = sext i32 %.reass105.us to i64
-  %37 = getelementptr inbounds float, ptr %29, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %29, i64 %36
   %38 = shl nsw i64 %indvars.iv, 2
   %39 = or disjoint i64 %38, 1
   %40 = mul nsw i64 %39, %32
-  %41 = getelementptr inbounds float, ptr %29, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %29, i64 %40
   %42 = or disjoint i64 %38, 2
   %43 = mul nsw i64 %42, %32
-  %44 = getelementptr inbounds float, ptr %29, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %29, i64 %43
   %45 = or disjoint i64 %38, 3
   %46 = mul nsw i64 %45, %32
-  %47 = getelementptr inbounds float, ptr %29, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %29, i64 %46
   br label %48
 
 48:                                               ; preds = %.preheader.us.us, %48
@@ -811,18 +811,18 @@ define internal void @_ZNK4ncnn11Flatten_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %72 = shl i32 %71, 2
   %73 = mul i32 %72, %62
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds float, ptr %70, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %70, i64 %74
   %76 = shl nsw i64 %indvars.iv118, 2
   %77 = or disjoint i64 %76, 1
   %78 = sext i32 %62 to i64
   %79 = mul nsw i64 %77, %78
-  %80 = getelementptr inbounds float, ptr %70, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %70, i64 %79
   %81 = or disjoint i64 %76, 2
   %82 = mul nsw i64 %81, %78
-  %83 = getelementptr inbounds float, ptr %70, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %70, i64 %82
   %84 = or disjoint i64 %76, 3
   %85 = mul nsw i64 %84, %78
-  %86 = getelementptr inbounds float, ptr %70, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %70, i64 %85
   %87 = icmp sgt i32 %62, 3
   br i1 %87, label %.lr.ph, label %.preheader
 
@@ -1000,17 +1000,17 @@ define internal void @_ZNK4ncnn11Flatten_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %34 = trunc nsw i64 %indvars.iv to i32
   %.reass110.us = mul i32 %factor.op.mul109, %34
   %35 = sext i32 %.reass110.us to i64
-  %36 = getelementptr inbounds float, ptr %28, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %28, i64 %35
   %37 = shl nsw i64 %indvars.iv, 2
   %38 = or disjoint i64 %37, 1
   %39 = mul nsw i64 %38, %31
-  %40 = getelementptr inbounds float, ptr %28, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %28, i64 %39
   %41 = or disjoint i64 %37, 2
   %42 = mul nsw i64 %41, %31
-  %43 = getelementptr inbounds float, ptr %28, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %28, i64 %42
   %44 = or disjoint i64 %37, 3
   %45 = mul nsw i64 %44, %31
-  %46 = getelementptr inbounds float, ptr %28, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %28, i64 %45
   br label %47
 
 47:                                               ; preds = %.noexc.us.us, %47
@@ -1060,18 +1060,18 @@ define internal void @_ZNK4ncnn11Flatten_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %70 = shl i32 %69, 2
   %71 = mul i32 %70, %61
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %68, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %68, i64 %72
   %74 = shl nsw i64 %indvars.iv123, 2
   %75 = or disjoint i64 %74, 1
   %76 = sext i32 %61 to i64
   %77 = mul nsw i64 %75, %76
-  %78 = getelementptr inbounds float, ptr %68, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %68, i64 %77
   %79 = or disjoint i64 %74, 2
   %80 = mul nsw i64 %79, %76
-  %81 = getelementptr inbounds float, ptr %68, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %68, i64 %80
   %82 = or disjoint i64 %74, 3
   %83 = mul nsw i64 %82, %76
-  %84 = getelementptr inbounds float, ptr %68, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %68, i64 %83
   %85 = icmp sgt i32 %61, 3
   br i1 %85, label %.lr.ph, label %.preheader
 
@@ -1220,7 +1220,7 @@ define internal void @_ZNK4ncnn11Flatten_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass.us
   %31 = mul nsw i64 %indvars.iv, %28
-  %32 = getelementptr inbounds float, ptr %24, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %24, i64 %31
   br label %33
 
 33:                                               ; preds = %.noexc.us, %33

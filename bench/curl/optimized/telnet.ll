@@ -660,7 +660,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 
 243:                                              ; preds = %239, %238
   %244 = zext i8 %192 to i64
-  %245 = getelementptr ptr, ptr @telnetcmds, i64 %244
+  %245 = getelementptr [8 x i8], ptr @telnetcmds, i64 %244
   %246 = getelementptr i8, ptr %245, i64 -1888
   %247 = load ptr, ptr %246, align 8, !tbaa !101
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, ptr noundef %247) #9
@@ -697,7 +697,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 
 262:                                              ; preds = %258
   %263 = zext nneg i8 %192 to i64
-  %264 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %263
   %265 = load ptr, ptr %264, align 8, !tbaa !101
   %.pre215.i = load ptr, ptr %139, align 8, !tbaa !112
   br label %.thread82.i.i
@@ -737,7 +737,7 @@ printoption.exit142.i:                            ; preds = %276, %272, %271, %2
   %277 = load ptr, ptr %27, align 8, !tbaa !79
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 3080
   %279 = zext i8 %192 to i64
-  %280 = getelementptr inbounds nuw i32, ptr %278, i64 %279
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %279
   %281 = load i32, ptr %280, align 4, !tbaa !75
   switch i32 %281, label %rec_will.exit.i [
     i32 0, label %282
@@ -747,7 +747,7 @@ printoption.exit142.i:                            ; preds = %276, %272, %271, %2
 
 282:                                              ; preds = %printoption.exit142.i
   %283 = getelementptr inbounds nuw i8, ptr %277, i64 5128
-  %284 = getelementptr inbounds nuw i32, ptr %283, i64 %279
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %279
   %285 = load i32, ptr %284, align 4, !tbaa !75
   %286 = icmp eq i32 %285, 1
   br i1 %286, label %287, label %317
@@ -786,7 +786,7 @@ send_negotiation.exit.i.i:                        ; preds = %293, %287
   br i1 %301, label %.thread82.i.i.i, label %.thread79.i.i.i
 
 302:                                              ; preds = %298
-  %303 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %279
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %279
   %304 = load ptr, ptr %303, align 8, !tbaa !101
   br label %.thread82.i.i.i
 
@@ -858,7 +858,7 @@ send_negotiation.exit28.i.i:                      ; preds = %323, %317
   br i1 %331, label %.thread82.i33.i.i, label %.thread79.i31.i.i
 
 332:                                              ; preds = %328
-  %333 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %279
+  %333 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %279
   %334 = load ptr, ptr %333, align 8, !tbaa !101
   br label %.thread82.i33.i.i
 
@@ -899,7 +899,7 @@ printoption.exit36.i.i:                           ; preds = %346, %342, %340, %3
 
 347:                                              ; preds = %printoption.exit142.i
   %348 = getelementptr inbounds nuw i8, ptr %277, i64 4104
-  %349 = getelementptr inbounds nuw i32, ptr %348, i64 %279
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %348, i64 %279
   %350 = load i32, ptr %349, align 4, !tbaa !75
   switch i32 %350, label %rec_will.exit.i [
     i32 0, label %351
@@ -917,7 +917,7 @@ printoption.exit36.i.i:                           ; preds = %346, %342, %340, %3
 
 353:                                              ; preds = %printoption.exit142.i
   %354 = getelementptr inbounds nuw i8, ptr %277, i64 4104
-  %355 = getelementptr inbounds nuw i32, ptr %354, i64 %279
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %354, i64 %279
   %356 = load i32, ptr %355, align 4, !tbaa !75
   switch i32 %356, label %rec_will.exit.i [
     i32 0, label %357
@@ -963,7 +963,7 @@ send_negotiation.exit29.i.i:                      ; preds = %364, %358
   br i1 %372, label %.thread82.i40.i.i, label %.thread79.i38.i.i
 
 373:                                              ; preds = %369
-  %374 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %279
+  %374 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %279
   %375 = load ptr, ptr %374, align 8, !tbaa !101
   br label %.thread82.i40.i.i
 
@@ -1024,7 +1024,7 @@ rec_will.exit.i:                                  ; preds = %printoption.exit43.
 
 396:                                              ; preds = %392
   %397 = zext nneg i8 %192 to i64
-  %398 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %397
+  %398 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %397
   %399 = load ptr, ptr %398, align 8, !tbaa !101
   %.pre213.i = load ptr, ptr %139, align 8, !tbaa !112
   br label %.thread82.i146.i
@@ -1064,7 +1064,7 @@ printoption.exit149.i:                            ; preds = %410, %406, %405, %4
   %411 = load ptr, ptr %27, align 8, !tbaa !79
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 3080
   %413 = zext i8 %192 to i64
-  %414 = getelementptr inbounds nuw i32, ptr %412, i64 %413
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %412, i64 %413
   %415 = load i32, ptr %414, align 4, !tbaa !75
   switch i32 %415, label %rec_wont.exit.i [
     i32 2, label %481
@@ -1106,7 +1106,7 @@ send_negotiation.exit.i150.i:                     ; preds = %422, %416
   br i1 %430, label %.thread82.i.i155.i, label %.thread79.i.i152.i
 
 431:                                              ; preds = %427
-  %432 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %413
+  %432 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %413
   %433 = load ptr, ptr %432, align 8, !tbaa !101
   br label %.thread82.i.i155.i
 
@@ -1147,7 +1147,7 @@ printoption.exit.i154.i:                          ; preds = %445, %441, %439, %4
 
 446:                                              ; preds = %printoption.exit149.i
   %447 = getelementptr inbounds nuw i8, ptr %411, i64 4104
-  %448 = getelementptr inbounds nuw i32, ptr %447, i64 %413
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %447, i64 %413
   %449 = load i32, ptr %448, align 4, !tbaa !75
   switch i32 %449, label %rec_wont.exit.i [
     i32 0, label %450
@@ -1193,7 +1193,7 @@ send_negotiation.exit24.i.i:                      ; preds = %457, %451
   br i1 %465, label %.thread82.i28.i.i, label %.thread79.i26.i.i
 
 466:                                              ; preds = %462
-  %467 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %413
+  %467 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %413
   %468 = load ptr, ptr %467, align 8, !tbaa !101
   br label %.thread82.i28.i.i
 
@@ -1234,7 +1234,7 @@ printoption.exit31.i.i:                           ; preds = %480, %476, %474, %4
 
 481:                                              ; preds = %printoption.exit149.i
   %482 = getelementptr inbounds nuw i8, ptr %411, i64 4104
-  %483 = getelementptr inbounds nuw i32, ptr %482, i64 %413
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %413
   %484 = load i32, ptr %483, align 4, !tbaa !75
   switch i32 %484, label %rec_wont.exit.i [
     i32 0, label %485
@@ -1272,7 +1272,7 @@ rec_wont.exit.i:                                  ; preds = %486, %485, %481, %p
 
 495:                                              ; preds = %491
   %496 = zext nneg i8 %192 to i64
-  %497 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %496
+  %497 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %496
   %498 = load ptr, ptr %497, align 8, !tbaa !101
   %.pre211.i = load ptr, ptr %139, align 8, !tbaa !112
   br label %.thread82.i161.i
@@ -1312,7 +1312,7 @@ printoption.exit164.i:                            ; preds = %509, %505, %504, %5
   %510 = load ptr, ptr %27, align 8, !tbaa !79
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %512 = zext i8 %192 to i64
-  %513 = getelementptr inbounds nuw i32, ptr %511, i64 %512
+  %513 = getelementptr inbounds nuw [4 x i8], ptr %511, i64 %512
   %514 = load i32, ptr %513, align 4, !tbaa !75
   switch i32 %514, label %rec_do.exit.i [
     i32 0, label %515
@@ -1322,7 +1322,7 @@ printoption.exit164.i:                            ; preds = %509, %505, %504, %5
 
 515:                                              ; preds = %printoption.exit164.i
   %516 = getelementptr inbounds nuw i8, ptr %510, i64 2056
-  %517 = getelementptr inbounds nuw i32, ptr %516, i64 %512
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %516, i64 %512
   %518 = load i32, ptr %517, align 4, !tbaa !75
   %519 = icmp eq i32 %518, 1
   br i1 %519, label %520, label %555
@@ -1361,7 +1361,7 @@ send_negotiation.exit.i165.i:                     ; preds = %526, %520
   br i1 %534, label %.thread82.i.i170.i, label %.thread79.i.i167.i
 
 535:                                              ; preds = %531
-  %536 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %512
+  %536 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %512
   %537 = load ptr, ptr %536, align 8, !tbaa !101
   br label %.thread82.i.i170.i
 
@@ -1399,7 +1399,7 @@ send_negotiation.exit.i165.i:                     ; preds = %526, %520
 printoption.exit.i169.i:                          ; preds = %549, %545, %543, %539, %send_negotiation.exit.i165.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %550 = getelementptr inbounds nuw i8, ptr %510, i64 6152
-  %551 = getelementptr inbounds nuw i32, ptr %550, i64 %512
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %550, i64 %512
   %552 = load i32, ptr %551, align 4, !tbaa !75
   %553 = icmp eq i32 %552, 1
   br i1 %553, label %554, label %rec_do.exit.i
@@ -1410,7 +1410,7 @@ printoption.exit.i169.i:                          ; preds = %549, %545, %543, %5
 
 555:                                              ; preds = %515
   %556 = getelementptr inbounds nuw i8, ptr %510, i64 6152
-  %557 = getelementptr inbounds nuw i32, ptr %556, i64 %512
+  %557 = getelementptr inbounds nuw [4 x i8], ptr %556, i64 %512
   %558 = load i32, ptr %557, align 4, !tbaa !75
   %559 = icmp eq i32 %558, 1
   br i1 %559, label %560, label %590
@@ -1449,7 +1449,7 @@ send_negotiation.exit44.i.i:                      ; preds = %566, %560
   br i1 %574, label %.thread82.i50.i.i, label %.thread79.i48.i.i
 
 575:                                              ; preds = %571
-  %576 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %512
+  %576 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %512
   %577 = load ptr, ptr %576, align 8, !tbaa !101
   br label %.thread82.i50.i.i
 
@@ -1522,7 +1522,7 @@ send_negotiation.exit45.i.i:                      ; preds = %596, %590
   br i1 %604, label %.thread82.i57.i.i, label %.thread79.i55.i.i
 
 605:                                              ; preds = %601
-  %606 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %512
+  %606 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %512
   %607 = load ptr, ptr %606, align 8, !tbaa !101
   br label %.thread82.i57.i.i
 
@@ -1563,7 +1563,7 @@ printoption.exit60.i.i:                           ; preds = %619, %615, %613, %6
 
 620:                                              ; preds = %printoption.exit164.i
   %621 = getelementptr inbounds nuw i8, ptr %510, i64 1032
-  %622 = getelementptr inbounds nuw i32, ptr %621, i64 %512
+  %622 = getelementptr inbounds nuw [4 x i8], ptr %621, i64 %512
   %623 = load i32, ptr %622, align 4, !tbaa !75
   switch i32 %623, label %rec_do.exit.i [
     i32 0, label %624
@@ -1581,7 +1581,7 @@ printoption.exit60.i.i:                           ; preds = %619, %615, %613, %6
 
 626:                                              ; preds = %printoption.exit164.i
   %627 = getelementptr inbounds nuw i8, ptr %510, i64 1032
-  %628 = getelementptr inbounds nuw i32, ptr %627, i64 %512
+  %628 = getelementptr inbounds nuw [4 x i8], ptr %627, i64 %512
   %629 = load i32, ptr %628, align 4, !tbaa !75
   switch i32 %629, label %rec_do.exit.i [
     i32 0, label %630
@@ -1591,7 +1591,7 @@ printoption.exit60.i.i:                           ; preds = %619, %615, %613, %6
 630:                                              ; preds = %626
   store i32 1, ptr %513, align 4, !tbaa !75
   %631 = getelementptr inbounds nuw i8, ptr %510, i64 6152
-  %632 = getelementptr inbounds nuw i32, ptr %631, i64 %512
+  %632 = getelementptr inbounds nuw [4 x i8], ptr %631, i64 %512
   %633 = load i32, ptr %632, align 4, !tbaa !75
   %634 = icmp eq i32 %633, 1
   br i1 %634, label %635, label %rec_do.exit.i
@@ -1603,7 +1603,7 @@ printoption.exit60.i.i:                           ; preds = %619, %615, %613, %6
 636:                                              ; preds = %626
   store i32 3, ptr %513, align 4, !tbaa !75
   %637 = getelementptr inbounds nuw i8, ptr %510, i64 4104
-  %638 = getelementptr inbounds nuw i32, ptr %637, i64 %512
+  %638 = getelementptr inbounds nuw [4 x i8], ptr %637, i64 %512
   store i32 0, ptr %638, align 4, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %639 = load ptr, ptr %19, align 8, !tbaa !3
@@ -1637,7 +1637,7 @@ send_negotiation.exit46.i.i:                      ; preds = %644, %636
   br i1 %652, label %.thread82.i64.i.i, label %.thread79.i62.i.i
 
 653:                                              ; preds = %649
-  %654 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %512
+  %654 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %512
   %655 = load ptr, ptr %654, align 8, !tbaa !101
   br label %.thread82.i64.i.i
 
@@ -1698,7 +1698,7 @@ rec_do.exit.i:                                    ; preds = %printoption.exit67.
 
 676:                                              ; preds = %672
   %677 = zext nneg i8 %192 to i64
-  %678 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %677
+  %678 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %677
   %679 = load ptr, ptr %678, align 8, !tbaa !101
   %.pre209.i = load ptr, ptr %139, align 8, !tbaa !112
   br label %.thread82.i176.i
@@ -1738,7 +1738,7 @@ printoption.exit179.i:                            ; preds = %690, %686, %685, %6
   %691 = load ptr, ptr %27, align 8, !tbaa !79
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 8
   %693 = zext i8 %192 to i64
-  %694 = getelementptr inbounds nuw i32, ptr %692, i64 %693
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %692, i64 %693
   %695 = load i32, ptr %694, align 4, !tbaa !75
   switch i32 %695, label %rec_dont.exit.i [
     i32 2, label %761
@@ -1780,7 +1780,7 @@ send_negotiation.exit.i188.i:                     ; preds = %702, %696
   br i1 %710, label %.thread82.i.i193.i, label %.thread79.i.i190.i
 
 711:                                              ; preds = %707
-  %712 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %693
+  %712 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %693
   %713 = load ptr, ptr %712, align 8, !tbaa !101
   br label %.thread82.i.i193.i
 
@@ -1821,7 +1821,7 @@ printoption.exit.i192.i:                          ; preds = %725, %721, %719, %7
 
 726:                                              ; preds = %printoption.exit179.i
   %727 = getelementptr inbounds nuw i8, ptr %691, i64 1032
-  %728 = getelementptr inbounds nuw i32, ptr %727, i64 %693
+  %728 = getelementptr inbounds nuw [4 x i8], ptr %727, i64 %693
   %729 = load i32, ptr %728, align 4, !tbaa !75
   switch i32 %729, label %rec_dont.exit.i [
     i32 0, label %730
@@ -1867,7 +1867,7 @@ send_negotiation.exit24.i180.i:                   ; preds = %737, %731
   br i1 %745, label %.thread82.i28.i185.i, label %.thread79.i26.i182.i
 
 746:                                              ; preds = %742
-  %747 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %693
+  %747 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %693
   %748 = load ptr, ptr %747, align 8, !tbaa !101
   br label %.thread82.i28.i185.i
 
@@ -1908,7 +1908,7 @@ printoption.exit31.i184.i:                        ; preds = %760, %756, %754, %7
 
 761:                                              ; preds = %printoption.exit179.i
   %762 = getelementptr inbounds nuw i8, ptr %691, i64 1032
-  %763 = getelementptr inbounds nuw i32, ptr %762, i64 %693
+  %763 = getelementptr inbounds nuw [4 x i8], ptr %762, i64 %693
   %764 = load i32, ptr %763, align 4, !tbaa !75
   switch i32 %764, label %rec_dont.exit.i [
     i32 0, label %765
@@ -2005,7 +2005,7 @@ rec_dont.exit.i:                                  ; preds = %766, %765, %761, %p
 
 800:                                              ; preds = %796, %795
   %801 = zext i8 %192 to i64
-  %802 = getelementptr ptr, ptr @telnetcmds, i64 %801
+  %802 = getelementptr [8 x i8], ptr @telnetcmds, i64 %801
   %803 = getelementptr i8, ptr %802, i64 -1888
   %804 = load ptr, ptr %803, align 8, !tbaa !101
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, ptr noundef %804) #9
@@ -2265,7 +2265,7 @@ define internal fastcc void @negotiate(ptr noundef %0) unnamed_addr #0 {
   br i1 %16, label %set_remote_option.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !75
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %set_local_option.exit
@@ -2273,7 +2273,7 @@ define internal fastcc void @negotiate(ptr noundef %0) unnamed_addr #0 {
 21:                                               ; preds = %17
   %22 = load ptr, ptr %4, align 8, !tbaa !79
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !75
   switch i32 %25, label %set_local_option.exit [
     i32 0, label %26
@@ -2308,7 +2308,7 @@ send_negotiation.exit.i:                          ; preds = %33, %26
   br i1 %.not.i.i, label %printoption.exit.i, label %38
 
 38:                                               ; preds = %send_negotiation.exit.i
-  %39 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !101
   %41 = load ptr, ptr %11, align 8, !tbaa !112
   %.not72.i.i = icmp eq ptr %41, null
@@ -2330,7 +2330,7 @@ printoption.exit.i:                               ; preds = %46, %42, %send_nego
 
 47:                                               ; preds = %21
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 1032
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !75
   %cond2.i = icmp eq i32 %50, 0
   br i1 %cond2.i, label %51, label %set_local_option.exit
@@ -2341,7 +2341,7 @@ printoption.exit.i:                               ; preds = %46, %42, %send_nego
 
 52:                                               ; preds = %21
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 1032
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !75
   %cond3.i = icmp eq i32 %55, 1
   br i1 %cond3.i, label %56, label %set_local_option.exit
@@ -2351,7 +2351,7 @@ printoption.exit.i:                               ; preds = %46, %42, %send_nego
   br label %set_local_option.exit
 
 set_local_option.exit:                            ; preds = %56, %52, %51, %47, %printoption.exit.i, %21, %17
-  %57 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !75
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %set_remote_option.exit
@@ -2359,7 +2359,7 @@ set_local_option.exit:                            ; preds = %56, %52, %51, %47, 
 60:                                               ; preds = %set_local_option.exit
   %61 = load ptr, ptr %4, align 8, !tbaa !79
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 3080
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !75
   switch i32 %64, label %set_remote_option.exit [
     i32 0, label %65
@@ -2394,7 +2394,7 @@ send_negotiation.exit.i13:                        ; preds = %72, %65
   br i1 %.not.i.i14, label %printoption.exit.i16, label %77
 
 77:                                               ; preds = %send_negotiation.exit.i13
-  %78 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !101
   %80 = load ptr, ptr %11, align 8, !tbaa !112
   %.not72.i.i15 = icmp eq ptr %80, null
@@ -2416,7 +2416,7 @@ printoption.exit.i16:                             ; preds = %85, %81, %send_nego
 
 86:                                               ; preds = %60
   %87 = getelementptr inbounds nuw i8, ptr %61, i64 4104
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !75
   %cond2.i11 = icmp eq i32 %89, 0
   br i1 %cond2.i11, label %90, label %set_remote_option.exit
@@ -2427,7 +2427,7 @@ printoption.exit.i16:                             ; preds = %85, %81, %send_nego
 
 91:                                               ; preds = %60
   %92 = getelementptr inbounds nuw i8, ptr %61, i64 4104
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !75
   %cond3.i12 = icmp eq i32 %94, 1
   br i1 %cond3.i12, label %95, label %set_remote_option.exit
@@ -2883,7 +2883,7 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
 
 51:                                               ; preds = %47, %45
   %52 = zext nneg i8 %23 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !101
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, ptr noundef %54) #9
   br label %79
@@ -2911,7 +2911,7 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
 
 66:                                               ; preds = %62, %60
   %67 = zext i8 %23 to i64
-  %68 = getelementptr ptr, ptr @telnetcmds, i64 %67
+  %68 = getelementptr [8 x i8], ptr @telnetcmds, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -1888
   %70 = load ptr, ptr %69, align 8, !tbaa !101
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, ptr noundef %70) #9
@@ -2958,7 +2958,7 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
 
 90:                                               ; preds = %86, %84
   %91 = zext nneg i8 %26 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !101
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef %93) #9
   br label %118
@@ -2986,7 +2986,7 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
 
 105:                                              ; preds = %101, %99
   %106 = zext i8 %26 to i64
-  %107 = getelementptr ptr, ptr @telnetcmds, i64 %106
+  %107 = getelementptr [8 x i8], ptr @telnetcmds, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -1888
   %109 = load ptr, ptr %108, align 8, !tbaa !101
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef %109) #9
@@ -3090,7 +3090,7 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
 
 155:                                              ; preds = %151, %149
   %156 = zext nneg i8 %143 to i64
-  %157 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !101
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef %158) #9
   br label %181
@@ -3111,7 +3111,7 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
 
 166:                                              ; preds = %162, %160
   %167 = zext nneg i8 %143 to i64
-  %168 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr @telnetoptions, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !101
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, ptr noundef %169) #9
   br label %181

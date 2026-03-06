@@ -250,7 +250,7 @@ st_mult.exit.i.i:                                 ; preds = %60
   %81 = add i32 %77, 1
   store i32 %81, ptr %48, align 8, !tbaa !23
   %82 = zext i32 %77 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %82
   store i32 %80, ptr %83, align 4, !tbaa !29
   br label %84
 
@@ -352,7 +352,7 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = load ptr, ptr %6, align 8, !tbaa !32
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !29
   tail call void @put_be24(ptr noundef %32, i32 noundef %35) #11
   %36 = load i32, ptr %5, align 8, !tbaa !20

@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BCWriteCtx = type { %struct.SBuf, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
 %struct.MRef = type { i64 }
-%struct.GCRef = type { i64 }
-%union.TValue = type { i64 }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_bcwrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -406,7 +403,7 @@ lj_buf_need.exit:                                 ; preds = %.loopexit, %39
   %113 = load ptr, ptr %101, align 8, !tbaa !65
   %.idx.i = shl nuw nsw i64 %112, 11
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i
-  %115 = getelementptr inbounds nuw %struct.GCRef, ptr %114, i64 %109
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %109
   %116 = load i64, ptr %115, align 8, !tbaa !52
   %117 = inttoptr i64 %116 to ptr
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 80
@@ -441,7 +438,7 @@ bcwrite_bytecode.exit:                            ; preds = %120, %90, %93
   %132 = inttoptr i64 %.val to ptr
   %133 = zext i32 %.val84 to i64
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds %struct.GCRef, ptr %132, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %132, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -540,7 +537,7 @@ lj_buf_more.exit.i:                               ; preds = %162, %154
 
 183:                                              ; preds = %181
   %.058.i.i = add nsw i64 %.058.in.i.i, -1
-  %184 = getelementptr inbounds nuw %union.TValue, ptr %179, i64 %.058.i.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %.058.i.i
   %185 = load i64, ptr %184, align 8, !tbaa !47
   %186 = icmp eq i64 %185, -1
   br i1 %186, label %181, label %187, !llvm.loop !84
@@ -569,7 +566,7 @@ lj_buf_more.exit.i:                               ; preds = %162, %154
 197:                                              ; preds = %197, %192
   %indvars.iv.i.i = phi i64 [ 0, %192 ], [ %indvars.iv.next.i.i, %197 ]
   %.15769.i.i = phi i32 [ 0, %192 ], [ %203, %197 ]
-  %198 = getelementptr inbounds nuw %struct.Node, ptr %195, i64 %indvars.iv.i.i
+  %198 = getelementptr inbounds nuw [24 x i8], ptr %195, i64 %indvars.iv.i.i
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load i64, ptr %199, align 8, !tbaa !47
   %201 = icmp ne i64 %200, -1
@@ -695,7 +692,7 @@ bcwrite_ktabk.exit.i:                             ; preds = %258, %.thread.i.i, 
   %266 = inttoptr i64 %265 to ptr
   %267 = load i32, ptr %190, align 4, !tbaa !85
   %268 = zext i32 %267 to i64
-  %269 = getelementptr inbounds nuw %struct.Node, ptr %266, i64 %268
+  %269 = getelementptr inbounds nuw [24 x i8], ptr %266, i64 %268
   %270 = load i32, ptr %62, align 4, !tbaa !20
   %271 = icmp slt i32 %270, 0
   %272 = icmp ne i32 %.056.i.i, 1
@@ -781,7 +778,7 @@ bcwrite_heap_resize.exit.i.i:                     ; preds = %296, %295, %273
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %indvars.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %313 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %314 = getelementptr inbounds nuw ptr, ptr %300, i64 %313
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %313
   %315 = load ptr, ptr %314, align 8, !tbaa !89
   tail call fastcc void @bcwrite_ktabk_heap_insert(ptr noundef nonnull %300, i32 noundef 0, i32 noundef %indvars.i.i.i, ptr noundef %315)
   %.not.i66.i.i = icmp eq i32 %indvars.i.i.i, 0
@@ -1126,7 +1123,7 @@ define internal fastcc void @bcwrite_ktabk_heap_insert(ptr noundef captures(none
   %9 = phi i32 [ %54, %51 ], [ %5, %4 ]
   %.02137 = phi i32 [ %.024, %51 ], [ %1, %4 ]
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
   %13 = add nuw i32 %9, 2
   %14 = icmp ult i32 %13, %2
@@ -1134,7 +1131,7 @@ define internal fastcc void @bcwrite_ktabk_heap_insert(ptr noundef captures(none
 
 15:                                               ; preds = %.lr.ph
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !89
   %19 = load i64, ptr %18, align 8, !tbaa !47
   %20 = ashr i64 %19, 47
@@ -1203,7 +1200,7 @@ bcwrite_ktabk_lt.exit34:                          ; preds = %42
 
 51:                                               ; preds = %44, %41, %bcwrite_ktabk_lt.exit34
   %52 = zext i32 %.02137 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %52
   store ptr %.022, ptr %53, align 8, !tbaa !89
   %54 = shl i32 %.024, 1
   %55 = or disjoint i32 %54, 1
@@ -1213,7 +1210,7 @@ bcwrite_ktabk_lt.exit34:                          ; preds = %42
 .thread:                                          ; preds = %51, %bcwrite_ktabk_lt.exit34, %41, %44, %4
   %.021.lcssa = phi i32 [ %1, %4 ], [ %.02137, %44 ], [ %.02137, %41 ], [ %.02137, %bcwrite_ktabk_lt.exit34 ], [ %.024, %51 ]
   %57 = zext i32 %.021.lcssa to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %57
   store ptr %3, ptr %58, align 8, !tbaa !89
   ret void
 }

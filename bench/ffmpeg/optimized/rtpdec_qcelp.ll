@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/rtpdec_qcelp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.InterleavePacket = type { i32, i32, [315 x i8] }
-
 @.str = private unnamed_addr constant [12 x i8] c"x-Purevoice\00", align 1
 @ff_qcelp_dynamic_handler = local_unnamed_addr constant { ptr, i32, i32, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr } { ptr @.str, i32 1, i32 86040, i32 0, i32 12, i32 2316, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr @qcelp_parse_packet, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [28 x i8] c"Invalid interleave size %d\0A\00", align 1
@@ -66,7 +64,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
 
 23:                                               ; preds = %22, %23
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw %struct.InterleavePacket, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [324 x i8], ptr %1, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 0, ptr %25, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -101,7 +99,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
   %indvars.iv114 = phi i64 [ %32, %.lr.ph106.preheader ], [ %indvars.iv.next115, %.lr.ph106 ]
-  %34 = getelementptr %struct.InterleavePacket, ptr %1, i64 %indvars.iv114
+  %34 = getelementptr [324 x i8], ptr %1, i64 %indvars.iv114
   %35 = getelementptr i8, ptr %34, i64 12
   store i32 0, ptr %35, align 4, !tbaa !10
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -144,7 +142,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv110 = phi i64 [ %48, %.lr.ph.preheader ], [ %indvars.iv.next111, %.lr.ph ]
-  %49 = getelementptr %struct.InterleavePacket, ptr %1, i64 %indvars.iv110
+  %49 = getelementptr [324 x i8], ptr %1, i64 %indvars.iv110
   %50 = getelementptr i8, ptr %49, i64 12
   store i32 0, ptr %50, align 4, !tbaa !10
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
@@ -189,7 +187,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load i32, ptr %46, align 4, !tbaa !14
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.InterleavePacket, ptr %73, i64 %75
+  %76 = getelementptr inbounds [324 x i8], ptr %73, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 %61, ptr %77, align 4, !tbaa !10
   store i32 0, ptr %76, align 4, !tbaa !35
@@ -228,7 +226,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @return_stored_frame(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.InterleavePacket, ptr %6, i64 %9
+  %10 = getelementptr inbounds [324 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1952
   %12 = load i32, ptr %11, align 4, !tbaa !15
   %.not = icmp ne i32 %12, 0

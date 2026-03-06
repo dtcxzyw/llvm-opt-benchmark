@@ -64,7 +64,7 @@ define ptr @ossl_ml_kem_get_vinfo(i32 noundef %0) local_unnamed_addr #2 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_ml_kem_key_new, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_ml_kem_key_new, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -81,7 +81,7 @@ define ptr @ossl_ml_kem_key_new(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_ml_kem_key_new, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_ml_kem_key_new, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 184, ptr noundef nonnull @.str, i32 noundef 1592) #13
   %7 = icmp eq ptr %6, null
@@ -288,7 +288,7 @@ define ptr @ossl_ml_kem_key_dup(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr %32, ptr %20, align 8, !tbaa !3
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %32, i64 %39
+  %40 = getelementptr inbounds [512 x i8], ptr %32, i64 %39
   store ptr %40, ptr %21, align 8, !tbaa !30
   br label %add_storage.exit
 
@@ -321,13 +321,13 @@ add_storage.exit:                                 ; preds = %28, %34
   store i64 0, ptr %55, align 8
   store ptr %47, ptr %20, align 8, !tbaa !3
   %56 = sext i32 %52 to i64
-  %57 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %47, i64 %56
+  %57 = getelementptr inbounds [512 x i8], ptr %47, i64 %56
   store ptr %57, ptr %21, align 8, !tbaa !30
   %58 = mul nsw i32 %52, %52
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.ossl_ml_kem_scalar_st, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [512 x i8], ptr %57, i64 %59
   store ptr %60, ptr %22, align 8, !tbaa !13
-  %61 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %60, i64 %56
+  %61 = getelementptr inbounds [512 x i8], ptr %60, i64 %56
   store ptr %61, ptr %18, align 8, !tbaa !34
   br label %add_storage.exit46
 
@@ -766,7 +766,7 @@ define range(i32 0, 2) i32 @ossl_ml_kem_parse_public_key(ptr noundef %0, i64 nou
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   store ptr %21, ptr %6, align 8, !tbaa !3
   %32 = sext i32 %26 to i64
-  %33 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %21, i64 %32
+  %33 = getelementptr inbounds [512 x i8], ptr %21, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %33, ptr %34, align 8, !tbaa !30
   %35 = tail call fastcc i32 @parse_pubkey(ptr noundef %0, ptr noundef %16, ptr noundef %2)
@@ -930,15 +930,15 @@ define range(i32 0, 2) i32 @ossl_ml_kem_parse_private_key(ptr noundef %0, i64 no
   store i64 0, ptr %32, align 8
   store ptr %21, ptr %6, align 8, !tbaa !3
   %33 = sext i32 %26 to i64
-  %34 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %21, i64 %33
+  %34 = getelementptr inbounds [512 x i8], ptr %21, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %34, ptr %35, align 8, !tbaa !30
   %36 = mul nsw i32 %26, %26
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.ossl_ml_kem_scalar_st, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [512 x i8], ptr %34, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %38, ptr %39, align 8, !tbaa !13
-  %40 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %38, i64 %33
+  %40 = getelementptr inbounds [512 x i8], ptr %38, i64 %33
   store ptr %40, ptr %31, align 8, !tbaa !34
   %41 = tail call fastcc i32 @parse_prvkey(ptr noundef %0, ptr noundef %16, ptr noundef %2)
   %.not21 = icmp eq i32 %41, 0
@@ -1205,15 +1205,15 @@ define range(i32 0, 2) i32 @ossl_ml_kem_genkey(ptr noundef %0, i64 noundef %1, p
   store i64 0, ptr %48, align 8
   store ptr %37, ptr %7, align 8, !tbaa !3
   %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %37, i64 %49
+  %50 = getelementptr inbounds [512 x i8], ptr %37, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %50, ptr %51, align 8, !tbaa !30
   %52 = mul nsw i32 %42, %42
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.ossl_ml_kem_scalar_st, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [512 x i8], ptr %50, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %54, ptr %55, align 8, !tbaa !13
-  %56 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %54, i64 %49
+  %56 = getelementptr inbounds [512 x i8], ptr %54, i64 %49
   store ptr %56, ptr %47, align 8, !tbaa !34
   %57 = call fastcc i32 @genkey(ptr noundef %4, ptr noundef %32, ptr noundef %0, ptr noundef %2)
   %58 = icmp eq i32 %57, 0
@@ -1570,7 +1570,7 @@ scalar_mult_add.exit.preheader.i:                 ; preds = %129
   %.033.i = phi i32 [ %257, %scalar_mult_add.exit30.i ], [ %18, %scalar_mult_add.exit.preheader.i ]
   %.01332.i = phi ptr [ %194, %scalar_mult_add.exit30.i ], [ %123, %scalar_mult_add.exit.preheader.i ]
   %.01431.i = phi ptr [ %193, %scalar_mult_add.exit30.i ], [ %.01535.i, %scalar_mult_add.exit.preheader.i ]
-  %193 = getelementptr inbounds nuw %struct.ossl_ml_kem_scalar_st, ptr %.01431.i, i64 %127
+  %193 = getelementptr inbounds nuw [512 x i8], ptr %.01431.i, i64 %127
   %194 = getelementptr inbounds nuw i8, ptr %.01332.i, i64 512
   br label %195
 
@@ -1673,7 +1673,7 @@ matrix_mult_transpose_add.exit:                   ; preds = %scalar_mult_add.exi
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 72
   %267 = load i32, ptr %266, align 8, !tbaa !29
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %122, i64 %268
+  %269 = getelementptr inbounds [512 x i8], ptr %122, i64 %268
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %271 = load ptr, ptr %270, align 8, !tbaa !23
@@ -2241,7 +2241,7 @@ kdf.exit:                                         ; preds = %24
 
 scalar_decode.exit.i.i:                           ; preds = %74, %scalar_decode.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %scalar_decode.exit.i.i ], [ 0, %74 ]
-  %76 = getelementptr inbounds nuw i16, ptr %.016.i.i, i64 %indvars.iv.i.i.i
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.016.i.i, i64 %indvars.iv.i.i.i
   %77 = load i16, ptr %76, align 2, !tbaa !36
   %78 = zext i16 %77 to i32
   %79 = mul nuw nsw i32 %78, 3329
@@ -2418,7 +2418,7 @@ scalar_decode.exit.i:                             ; preds = %162
 
 166:                                              ; preds = %166, %scalar_decode.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %scalar_decode.exit.i ], [ %indvars.iv.next.i.i, %166 ]
-  %167 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i.i
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i.i
   %168 = load i16, ptr %167, align 2, !tbaa !36
   %169 = zext i16 %168 to i32
   %170 = mul nuw nsw i32 %169, 3329
@@ -2526,9 +2526,9 @@ scalar_decompress.exit.i:                         ; preds = %166
 
 scalar_inverse_ntt.exit.i:                        ; preds = %.preheader.i.i, %scalar_inverse_ntt.exit.i
   %indvars.iv.i21.i = phi i64 [ %indvars.iv.next.i23.i, %scalar_inverse_ntt.exit.i ], [ 0, %.preheader.i.i ]
-  %228 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i21.i
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i21.i
   %229 = load i16, ptr %228, align 2, !tbaa !36
-  %230 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i21.i
+  %230 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i21.i
   %231 = load i16, ptr %230, align 2, !tbaa !36
   %232 = sub i16 %229, %231
   %233 = add i16 %232, 3329
@@ -2543,7 +2543,7 @@ scalar_inverse_ntt.exit.i:                        ; preds = %.preheader.i.i, %sc
 
 scalar_sub.exit.i:                                ; preds = %scalar_inverse_ntt.exit.i, %scalar_sub.exit.i
   %indvars.iv.i25.i = phi i64 [ %indvars.iv.next.i27.i, %scalar_sub.exit.i ], [ 0, %scalar_inverse_ntt.exit.i ]
-  %237 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i25.i
+  %237 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i25.i
   %238 = load i16, ptr %237, align 2, !tbaa !36
   %239 = zext i16 %238 to i32
   %240 = shl nuw nsw i32 %239, 1
@@ -2570,13 +2570,13 @@ scalar_sub.exit.i:                                ; preds = %scalar_inverse_ntt.
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %259 ], [ 0, %scalar_sub.exit.i ]
   %.01316.i.i.idx = phi i64 [ %.01316.i.i.add, %259 ], [ 0, %scalar_sub.exit.i ]
   %.01316.i.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.01316.i.i.idx
-  %invariant.gep.i.i = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv18.i.i
+  %invariant.gep.i.i = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv18.i.i
   br label %251
 
 251:                                              ; preds = %251, %.preheader.i29.i
   %indvars.iv.i30.i = phi i64 [ 0, %.preheader.i29.i ], [ %indvars.iv.next.i31.i, %251 ]
   %.015.i.i = phi i8 [ 0, %.preheader.i29.i ], [ %258, %251 ]
-  %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i30.i
+  %gep.i.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i30.i
   %252 = load i16, ptr %gep.i.i, align 2, !tbaa !36
   %253 = and i16 %252, 1
   %254 = zext nneg i16 %253 to i32
@@ -3174,7 +3174,7 @@ define internal fastcc range(i32 0, 2) i32 @encrypt_cpa(ptr noundef nonnull writ
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %19 = load i32, ptr %18, align 8, !tbaa !29
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.ossl_ml_kem_scalar_st, ptr %3, i64 %20
+  %21 = getelementptr inbounds [512 x i8], ptr %3, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 76
@@ -3730,9 +3730,9 @@ gencbd_vector.exit.thread:                        ; preds = %301
 
 337:                                              ; preds = %337, %336
   %indvars.iv.i.i = phi i64 [ 0, %336 ], [ %indvars.iv.next.i.i, %337 ]
-  %338 = getelementptr inbounds nuw i16, ptr %.03.i, i64 %indvars.iv.i.i
+  %338 = getelementptr inbounds nuw [2 x i8], ptr %.03.i, i64 %indvars.iv.i.i
   %339 = load i16, ptr %338, align 2, !tbaa !36
-  %340 = getelementptr inbounds nuw i16, ptr %.02.i, i64 %indvars.iv.i.i
+  %340 = getelementptr inbounds nuw [2 x i8], ptr %.02.i, i64 %indvars.iv.i.i
   %341 = load i16, ptr %340, align 2, !tbaa !36
   %342 = add i16 %341, %339
   %343 = add i16 %342, -3329
@@ -3764,7 +3764,7 @@ vector_add.exit:                                  ; preds = %scalar_add.exit.i
 
 353:                                              ; preds = %353, %352
   %indvars.iv.i.i77 = phi i64 [ 0, %352 ], [ %indvars.iv.next.i.i79, %353 ]
-  %354 = getelementptr inbounds nuw i16, ptr %.02.i75, i64 %indvars.iv.i.i77
+  %354 = getelementptr inbounds nuw [2 x i8], ptr %.02.i75, i64 %indvars.iv.i.i77
   %355 = load i16, ptr %354, align 2, !tbaa !36
   %356 = zext i16 %355 to i32
   %357 = shl i32 %356, %23
@@ -3921,9 +3921,9 @@ cbd_2.exit.thread:                                ; preds = %vector_encode.exit
 
 432:                                              ; preds = %432, %431
   %indvars.iv.i = phi i64 [ 0, %431 ], [ %indvars.iv.next.i, %432 ]
-  %433 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
+  %433 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i
   %434 = load i16, ptr %433, align 2, !tbaa !36
-  %435 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
+  %435 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i
   %436 = load i16, ptr %435, align 2, !tbaa !36
   %437 = add i16 %436, %434
   %438 = add i16 %437, -3329
@@ -4060,7 +4060,7 @@ scalar_decode_decompress_add.exit:                ; preds = %scalar_add.exit
 
 536:                                              ; preds = %536, %scalar_decode_decompress_add.exit
   %indvars.iv.i95 = phi i64 [ 0, %scalar_decode_decompress_add.exit ], [ %indvars.iv.next.i97, %536 ]
-  %537 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i95
+  %537 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i95
   %538 = load i16, ptr %537, align 2, !tbaa !36
   %539 = zext i16 %538 to i32
   %540 = shl i32 %539, %25

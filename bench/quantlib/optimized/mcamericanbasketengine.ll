@@ -22,10 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::function<double (QuantLib::Array)>, std::allocator<std::function<double (QuantLib::Array)>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::function<double (QuantLib::Array)>, std::allocator<std::function<double (QuantLib::Array)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<double (QuantLib::Array)>, std::allocator<std::function<double (QuantLib::Array)>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::function<double (QuantLib::Array)>, std::allocator<std::function<double (QuantLib::Array)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.QuantLib::Array" = type { %"class.std::unique_ptr", i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -33,12 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.29" }
 %"struct.std::_Head_base.29" = type { ptr }
-%"class.QuantLib::Path" = type { %"class.QuantLib::TimeGrid", %"class.QuantLib::Array" }
-%"class.QuantLib::TimeGrid" = type { %"class.std::vector.35", %"class.std::vector.35", %"class.std::vector.35" }
-%"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
-%"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -790,7 +780,7 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt8fun
 "_ZNSt6vectorISt8functionIFdN8QuantLib5ArrayEEESaIS4_EE17_M_realloc_insertIJZNS1_24AmericanBasketPathPricerC1EmN5boost10shared_ptrINS1_6PayoffEEEmNS1_14LsmBasisSystem14PolynomialTypeEE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i": ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt8functionIFdN8QuantLib5ArrayEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i
   store ptr %call5.i.i.i.i.i91, ptr %v_, align 8, !tbaa !54
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !47
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.std::function", ptr %call5.i.i.i.i.i91, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i91, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !48
   br label %invoke.cont99
 
@@ -1271,13 +1261,13 @@ invoke.cont32.lr.ph:                              ; preds = %do.end
 
 invoke.cont32:                                    ; preds = %invoke.cont32.lr.ph, %invoke.cont32
   %i.045 = phi i64 [ 0, %invoke.cont32.lr.ph ], [ %inc, %invoke.cont32 ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %1, i64 %i.045
+  %add.ptr.i.i = getelementptr inbounds nuw [88 x i8], ptr %1, i64 %i.045
   %values_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 72
   %24 = load ptr, ptr %values_.i, align 8, !tbaa !49
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %24, i64 %t
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %t
   %25 = load double, ptr %arrayidx.i.i, align 8, !tbaa !76
   %mul = fmul double %25, %23
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %i.045
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %i.045
   store double %mul, ptr %arrayidx.i, align 8, !tbaa !76
   %inc = add nuw i64 %i.045, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i.i

@@ -2643,7 +2643,7 @@ select.unfold:                                    ; preds = %219
 329:                                              ; preds = %314
   %330 = load ptr, ptr %182, align 8, !nonnull !4, !noundef !4
   %331 = urem i64 %.1131438, %315
-  %332 = getelementptr inbounds nuw i32, ptr %330, i64 %331
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %331
   %333 = load i32, ptr %332, align 4, !range !589, !noundef !4
   %334 = icmp samesign ult i32 %333, 128
   br i1 %334, label %339, label %335
@@ -3139,7 +3139,7 @@ select.unfold339:                                 ; preds = %486
 523:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h22d05ef3f99236f1E.exit235.thread"
   %524 = load ptr, ptr %395, align 8, !nonnull !4, !noundef !4
   %525 = urem i64 %.3, %520
-  %526 = getelementptr inbounds i32, ptr %524, i64 %525
+  %526 = getelementptr inbounds [4 x i8], ptr %524, i64 %525
   %527 = load i32, ptr %526, align 4, !range !589, !noundef !4
   %528 = icmp samesign ult i32 %527, 128
   br i1 %528, label %533, label %529
@@ -3479,7 +3479,7 @@ split486:                                         ; preds = %"_ZN5alloc3vec16Vec
 653:                                              ; preds = %._crit_edge.i, %642
   %654 = phi i64 [ %.pre.i275, %._crit_edge.i ], [ %643, %642 ]
   %655 = load ptr, ptr %66, align 8, !alias.scope !713, !noalias !716, !nonnull !4, !noundef !4
-  %656 = getelementptr inbounds { ptr, [5 x i64] }, ptr %655, i64 %654
+  %656 = getelementptr inbounds [48 x i8], ptr %655, i64 %654
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %656, ptr noundef nonnull align 8 dereferenceable(48) %50, i64 48, i1 false)
   %657 = add i64 %654, 1
   store i64 %657, ptr %67, align 8, !alias.scope !713, !noalias !716

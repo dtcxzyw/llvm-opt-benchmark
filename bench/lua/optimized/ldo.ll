@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lua_longjmp = type { ptr, [1 x %struct.__jmp_buf_tag], i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.StackValue = type { %struct.TValue }
-%struct.TValue = type { %union.Value, i8 }
-%union.Value = type { ptr }
 %struct.lua_Debug = type { i32, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i8, i8, i8, i8, i8, i32, i32, [60 x i8], ptr }
 %struct.CloseP = type { ptr, i32 }
 %struct.SParser = type { ptr, %struct.Mbuffer, %struct.Dyndata, ptr, ptr }
@@ -338,14 +335,14 @@ relstack.exit:                                    ; preds = %.lr.ph30.i, %._crit
 correctstack.exit:                                ; preds = %82, %._crit_edge.i35
   %84 = load ptr, ptr %6, align 8, !tbaa !27
   %85 = sext i32 %1 to i64
-  %86 = getelementptr inbounds %union.StackValue, ptr %84, i64 %85
+  %86 = getelementptr inbounds [16 x i8], ptr %84, i64 %85
   store ptr %86, ptr %4, align 8, !tbaa !27
   %87 = icmp sgt i32 %1, %12
   br i1 %87, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %correctstack.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %49, %correctstack.exit ]
-  %88 = getelementptr inbounds %union.StackValue, ptr %54, i64 %indvars.iv
+  %88 = getelementptr inbounds [16 x i8], ptr %54, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i8 0, ptr %89, align 8, !tbaa !27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -848,7 +845,7 @@ define hidden void @luaD_poscall(ptr noundef %0, ptr noundef captures(none) %1, 
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = sext i32 %2 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %union.StackValue, ptr %20, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !27
   store i64 %24, ptr %13, align 8, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -869,7 +866,7 @@ define hidden void @luaD_poscall(ptr noundef %0, ptr noundef captures(none) %1, 
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = sext i32 %2 to i64
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %union.StackValue, ptr %33, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %33, i64 %35
   %37 = icmp sgt i32 %2, 0
   br i1 %37, label %.lr.ph.preheader.i.i, label %genmoveresults.exit.i
 
@@ -879,8 +876,8 @@ define hidden void @luaD_poscall(ptr noundef %0, ptr noundef captures(none) %1, 
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %38 = getelementptr inbounds nuw %union.StackValue, ptr %13, i64 %indvars.iv.i.i
-  %39 = getelementptr inbounds nuw %union.StackValue, ptr %36, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !27
   store i64 %40, ptr %38, align 8, !tbaa !27
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -892,7 +889,7 @@ define hidden void @luaD_poscall(ptr noundef %0, ptr noundef captures(none) %1, 
   br i1 %exitcond.not.i.i, label %genmoveresults.exit.i, label %.lr.ph.i.i
 
 genmoveresults.exit.i:                            ; preds = %.lr.ph.i.i, %31
-  %44 = getelementptr inbounds %union.StackValue, ptr %13, i64 %34
+  %44 = getelementptr inbounds [16 x i8], ptr %13, i64 %34
   store ptr %44, ptr %32, align 8, !tbaa !27
   br label %moveresults.exit
 
@@ -946,7 +943,7 @@ genmoveresults.exit.i:                            ; preds = %.lr.ph.i.i, %31
   %74 = load ptr, ptr %73, align 8, !tbaa !27
   %75 = sext i32 %2 to i64
   %76 = sub nsw i64 0, %75
-  %77 = getelementptr inbounds %union.StackValue, ptr %74, i64 %76
+  %77 = getelementptr inbounds [16 x i8], ptr %74, i64 %76
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %.039.i)
   %78 = icmp sgt i32 %spec.select.i.i, 0
   br i1 %78, label %.lr.ph.preheader.i51.i, label %.preheader.i43.i
@@ -967,8 +964,8 @@ genmoveresults.exit.i:                            ; preds = %.lr.ph.i.i, %31
 
 .lr.ph.i53.i:                                     ; preds = %.lr.ph.i53.i, %.lr.ph.preheader.i51.i
   %indvars.iv.i54.i = phi i64 [ 0, %.lr.ph.preheader.i51.i ], [ %indvars.iv.next.i55.i, %.lr.ph.i53.i ]
-  %81 = getelementptr inbounds nuw %union.StackValue, ptr %.0.i, i64 %indvars.iv.i54.i
-  %82 = getelementptr inbounds nuw %union.StackValue, ptr %77, i64 %indvars.iv.i54.i
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv.i54.i
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv.i54.i
   %83 = load i64, ptr %82, align 8, !tbaa !27
   store i64 %83, ptr %81, align 8, !tbaa !27
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -981,7 +978,7 @@ genmoveresults.exit.i:                            ; preds = %.lr.ph.i.i, %31
 
 .lr.ph29.i47.i:                                   ; preds = %.lr.ph29.i47.i, %.lr.ph29.preheader.i45.i
   %indvars.iv31.i48.i = phi i64 [ %80, %.lr.ph29.preheader.i45.i ], [ %indvars.iv.next32.i49.i, %.lr.ph29.i47.i ]
-  %87 = getelementptr inbounds nuw %union.StackValue, ptr %.0.i, i64 %indvars.iv31.i48.i
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv31.i48.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i8 0, ptr %88, align 8, !tbaa !27
   %indvars.iv.next32.i49.i = add nuw nsw i64 %indvars.iv31.i48.i, 1
@@ -990,7 +987,7 @@ genmoveresults.exit.i:                            ; preds = %.lr.ph.i.i, %31
 
 genmoveresults.exit57.i:                          ; preds = %.lr.ph29.i47.i, %.preheader.i43.i
   %89 = sext i32 %.039.i to i64
-  %90 = getelementptr inbounds %union.StackValue, ptr %.0.i, i64 %89
+  %90 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %89
   store ptr %90, ptr %73, align 8, !tbaa !27
   br label %moveresults.exit
 
@@ -1016,7 +1013,7 @@ define internal fastcc void @rethook(ptr noundef %0, ptr noundef captures(none) 
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = sext i32 %2 to i64
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds %union.StackValue, ptr %10, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = and i32 %15, 32768
@@ -1047,7 +1044,7 @@ define internal fastcc void @rethook(ptr noundef %0, ptr noundef captures(none) 
 
 33:                                               ; preds = %17, %24, %8
   %.0 = phi i64 [ 0, %8 ], [ %32, %24 ], [ 0, %17 ]
-  %34 = getelementptr inbounds %union.StackValue, ptr %.pre, i64 %.0
+  %34 = getelementptr inbounds [16 x i8], ptr %.pre, i64 %.0
   store ptr %34, ptr %1, align 8, !tbaa !27
   %35 = ptrtoint ptr %13 to i64
   %36 = ptrtoint ptr %34 to i64
@@ -1153,7 +1150,7 @@ define internal fastcc void @rethook(ptr noundef %0, ptr noundef captures(none) 
 luaD_hook.exit:                                   ; preds = %33, %42, %84
   %93 = phi ptr [ %34, %33 ], [ %34, %42 ], [ %.pre23, %84 ]
   %94 = sub nsw i64 0, %.0
-  %95 = getelementptr inbounds %union.StackValue, ptr %93, i64 %94
+  %95 = getelementptr inbounds [16 x i8], ptr %93, i64 %94
   store ptr %95, ptr %1, align 8, !tbaa !27
   br label %96
 
@@ -1384,7 +1381,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   %124 = load ptr, ptr %1, align 8, !tbaa !27
   %125 = sext i32 %4 to i64
   %126 = sub nsw i64 0, %125
-  %127 = getelementptr inbounds %union.StackValue, ptr %124, i64 %126
+  %127 = getelementptr inbounds [16 x i8], ptr %124, i64 %126
   store ptr %127, ptr %1, align 8, !tbaa !27
   %128 = icmp sgt i32 %.063, 0
   br i1 %128, label %.lr.ph.preheader, label %._crit_edge
@@ -1396,8 +1393,8 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %129 = load ptr, ptr %1, align 8, !tbaa !27
-  %130 = getelementptr inbounds nuw %union.StackValue, ptr %129, i64 %indvars.iv
-  %131 = getelementptr inbounds nuw %union.StackValue, ptr %.1, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %indvars.iv
   %132 = load i64, ptr %131, align 8, !tbaa !27
   store i64 %132, ptr %130, align 8, !tbaa !27
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
@@ -1423,7 +1420,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
   %indvars.iv118 = phi i64 [ %indvars.iv112, %.lr.ph92.preheader ], [ %indvars.iv.next119, %.lr.ph92 ]
-  %138 = getelementptr inbounds %union.StackValue, ptr %136, i64 %indvars.iv118
+  %138 = getelementptr inbounds [16 x i8], ptr %136, i64 %indvars.iv118
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i8 0, ptr %139, align 8, !tbaa !27
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
@@ -1435,7 +1432,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   %.164.lcssa = phi i32 [ %.063, %._crit_edge ], [ %137, %.lr.ph92 ]
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %141 = zext i8 %102 to i64
-  %142 = getelementptr inbounds nuw %union.StackValue, ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %142, ptr %143, align 8, !tbaa !27
   %144 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -1447,7 +1444,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   %149 = or i32 %148, 4194304
   store i32 %149, ptr %147, align 4, !tbaa !43
   %150 = zext nneg i32 %.164.lcssa to i64
-  %151 = getelementptr inbounds nuw %union.StackValue, ptr %136, i64 %150
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %150
   store ptr %151, ptr %7, align 8, !tbaa !27
   br label %193
 
@@ -1694,7 +1691,7 @@ prepCallInfo.exit.i52:                            ; preds = %69, %61
 106:                                              ; preds = %77, %98
   %.1 = phi ptr [ %105, %98 ], [ %.047, %77 ]
   %107 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %108 = getelementptr inbounds nuw %union.StackValue, ptr %107, i64 %97
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %97
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = load ptr, ptr %109, align 8, !tbaa !46
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -1971,7 +1968,7 @@ define dso_local i32 @lua_resume(ptr noundef %0, ptr noundef readonly captures(a
 14:                                               ; preds = %8
   %15 = sext i32 %2 to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %union.StackValue, ptr %13, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %13, i64 %16
   store ptr %17, ptr %12, align 8, !tbaa !27
   %18 = tail call ptr @luaS_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #13
   store ptr %18, ptr %17, align 8, !tbaa !27
@@ -1998,7 +1995,7 @@ define dso_local i32 @lua_resume(ptr noundef %0, ptr noundef readonly captures(a
 
 34:                                               ; preds = %25
   %35 = sub nsw i64 0, %32
-  %36 = getelementptr inbounds %union.StackValue, ptr %13, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %13, i64 %35
   store ptr %36, ptr %12, align 8, !tbaa !27
   %37 = tail call ptr @luaS_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #13
   store ptr %37, ptr %36, align 8, !tbaa !27
@@ -2017,7 +2014,7 @@ define dso_local i32 @lua_resume(ptr noundef %0, ptr noundef readonly captures(a
   %46 = load ptr, ptr %45, align 8, !tbaa !27
   %47 = sext i32 %2 to i64
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds %union.StackValue, ptr %46, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %46, i64 %48
   store ptr %49, ptr %45, align 8, !tbaa !27
   %50 = tail call ptr @luaS_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #13
   store ptr %50, ptr %49, align 8, !tbaa !27
@@ -2053,7 +2050,7 @@ define dso_local i32 @lua_resume(ptr noundef %0, ptr noundef readonly captures(a
   %67 = load ptr, ptr %66, align 8, !tbaa !27
   %68 = sext i32 %2 to i64
   %69 = sub nsw i64 0, %68
-  %70 = getelementptr inbounds %union.StackValue, ptr %67, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %67, i64 %69
   store ptr %70, ptr %66, align 8, !tbaa !27
   %71 = tail call ptr @luaS_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #13
   store ptr %71, ptr %70, align 8, !tbaa !27
@@ -2172,7 +2169,7 @@ define internal void @resume(ptr noundef %0, ptr noundef readonly captures(none)
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = sext i32 %3 to i64
   %7 = sub nsw i64 0, %6
-  %8 = getelementptr inbounds %union.StackValue, ptr %5, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10

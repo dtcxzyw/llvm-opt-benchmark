@@ -316,7 +316,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h145eae5e9bb6
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5c906087b1602f8bE.exit.i.i.i.i.i": ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %27 = load ptr, ptr %26, align 8, !alias.scope !35, !noalias !30, !nonnull !6, !noundef !6
-  %28 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [184 x i8], ptr %27, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !39
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h804236abff3d6365E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8bf1f29a660b296f966d18effed83e80.7)
           to label %.noexc2.i.i.i.i unwind label %30, !noalias !30
@@ -443,7 +443,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i.i.i.i.i: ; preds = %17
   %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
   %33 = sub nuw nsw i64 58, %32
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 1288
-  %35 = getelementptr inbounds nuw { { ptr } }, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load atomic ptr, ptr %35 acquire, align 8, !noalias !54
   %37 = icmp eq ptr %36, null
   br i1 %37, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i.i.i.i.i", label %38
@@ -451,8 +451,8 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i.i.i.i.i: ; preds = %17
 38:                                               ; preds = %_ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i.i.i.i.i
   %39 = xor i64 %32, 63
   %.neg.i.i.i.i.i.i = shl nsw i64 -1, %39
-  %40 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %36, i64 %.neg.i.i.i.i.i.i
-  %41 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %40, i64 %31
+  %40 = getelementptr [24 x i8], ptr %36, i64 %.neg.i.i.i.i.i.i
+  %41 = getelementptr [24 x i8], ptr %40, i64 %31
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load atomic i8, ptr %42 acquire, align 1, !noalias !54
   %44 = icmp eq i8 %43, 0
@@ -742,7 +742,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %22
   %30 = add nuw i64 %23, 32
   %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
   %32 = sub nuw nsw i64 58, %31
-  %33 = getelementptr inbounds nuw { { ptr } }, ptr %12, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %32
   %34 = load atomic ptr, ptr %33 acquire, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i", label %36
@@ -750,8 +750,8 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %22
 36:                                               ; preds = %_ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i
   %37 = xor i64 %31, 63
   %.neg.i.i = shl nsw i64 -1, %37
-  %38 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %34, i64 %.neg.i.i
-  %39 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %38, i64 %30
+  %38 = getelementptr [24 x i8], ptr %34, i64 %.neg.i.i
+  %39 = getelementptr [24 x i8], ptr %38, i64 %30
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load atomic i8, ptr %40 acquire, align 1
   %42 = icmp eq i8 %41, 0
@@ -917,7 +917,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %6
   %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
   %22 = sub nuw nsw i64 58, %21
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 1288
-  %24 = getelementptr inbounds nuw { { ptr } }, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load atomic ptr, ptr %24 acquire, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i", label %27
@@ -925,8 +925,8 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %6
 27:                                               ; preds = %_ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i
   %28 = xor i64 %21, 63
   %.neg.i.i = shl nsw i64 -1, %28
-  %29 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %25, i64 %.neg.i.i
-  %30 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %29, i64 %20
+  %29 = getelementptr [24 x i8], ptr %25, i64 %.neg.i.i
+  %30 = getelementptr [24 x i8], ptr %29, i64 %20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load atomic i8, ptr %31 acquire, align 1
   %33 = icmp eq i8 %32, 0
@@ -997,7 +997,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %4
   %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
   %20 = sub nuw nsw i64 58, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 1288
-  %22 = getelementptr inbounds nuw { { ptr } }, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load atomic ptr, ptr %22 acquire, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i", label %25
@@ -1005,8 +1005,8 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %4
 25:                                               ; preds = %_ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i
   %26 = xor i64 %19, 63
   %.neg.i.i = shl nsw i64 -1, %26
-  %27 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %23, i64 %.neg.i.i
-  %28 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %27, i64 %18
+  %27 = getelementptr [24 x i8], ptr %23, i64 %.neg.i.i
+  %28 = getelementptr [24 x i8], ptr %27, i64 %18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load atomic i8, ptr %29 acquire, align 1
   %31 = icmp eq i8 %30, 0
@@ -1077,7 +1077,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %4
   %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
   %20 = sub nuw nsw i64 58, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 1288
-  %22 = getelementptr inbounds nuw { { ptr } }, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load atomic ptr, ptr %22 acquire, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i", label %25
@@ -1085,8 +1085,8 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %4
 25:                                               ; preds = %_ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i
   %26 = xor i64 %19, 63
   %.neg.i.i = shl nsw i64 -1, %26
-  %27 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %23, i64 %.neg.i.i
-  %28 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %27, i64 %18
+  %27 = getelementptr [24 x i8], ptr %23, i64 %.neg.i.i
+  %28 = getelementptr [24 x i8], ptr %27, i64 %18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load atomic i8, ptr %29 acquire, align 1
   %31 = icmp eq i8 %30, 0
@@ -1168,7 +1168,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i.i.i.i.i.i: ; preds = %10
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
   %23 = sub nuw nsw i64 58, %22
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 1288
-  %25 = getelementptr inbounds nuw { { ptr } }, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load atomic ptr, ptr %25 acquire, align 8, !noalias !117
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i.i.i.i.i.i", label %28
@@ -1176,8 +1176,8 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i.i.i.i.i.i: ; preds = %10
 28:                                               ; preds = %_ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i.i.i.i.i.i
   %29 = xor i64 %22, 63
   %.neg.i.i.i.i.i.i.i = shl nsw i64 -1, %29
-  %30 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %26, i64 %.neg.i.i.i.i.i.i.i
-  %31 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %30, i64 %21
+  %30 = getelementptr [24 x i8], ptr %26, i64 %.neg.i.i.i.i.i.i.i
+  %31 = getelementptr [24 x i8], ptr %30, i64 %21
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load atomic i8, ptr %32 acquire, align 1, !noalias !117
   %34 = icmp eq i8 %33, 0
@@ -1270,7 +1270,7 @@ define { ptr, i64 } @"_ZN130_$LT$salsa..memo_ingredient_indices..MemoIngredientI
           to label %40 unwind label %38
 
 24:                                               ; preds = %6
-  %25 = getelementptr i32, ptr %1, i64 %2
+  %25 = getelementptr [4 x i8], ptr %1, i64 %2
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4, !noundef !6
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -1386,7 +1386,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %.noexc13
   %59 = add nuw i64 %55, 32
   %60 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %59, i1 true)
   %61 = sub nuw nsw i64 58, %60
-  %62 = getelementptr inbounds nuw { { ptr } }, ptr %51, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %61
   %63 = load atomic ptr, ptr %62 acquire, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i", label %65
@@ -1394,8 +1394,8 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %.noexc13
 65:                                               ; preds = %_ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i
   %66 = xor i64 %60, 63
   %.neg.i.i = shl nsw i64 -1, %66
-  %67 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %63, i64 %.neg.i.i
-  %68 = getelementptr { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %67, i64 %59
+  %67 = getelementptr [24 x i8], ptr %63, i64 %.neg.i.i
+  %68 = getelementptr [24 x i8], ptr %67, i64 %59
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load atomic i8, ptr %69 acquire, align 1
   %71 = icmp eq i8 %70, 0
@@ -1474,7 +1474,7 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %.noexc13
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %28, align 8, !nonnull !6, !noundef !6
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %91
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %91
   store i32 %81, ptr %97, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.experimental.noalias.scope.decl(metadata !149)

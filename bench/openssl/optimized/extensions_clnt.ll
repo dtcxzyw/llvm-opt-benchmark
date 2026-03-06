@@ -431,7 +431,7 @@ define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef 
 .lr.ph49:                                         ; preds = %.thread.thread, %.critedge
   %.03448 = phi i64 [ %33, %.critedge ], [ 0, %.thread.thread ]
   %27 = load ptr, ptr %4, align 8, !tbaa !83
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %.03448
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %.03448
   %29 = load i16, ptr %28, align 2, !tbaa !91
   %30 = call i32 @tls_valid_group(ptr noundef nonnull %0, i16 noundef zeroext %29, i32 noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef null) #10
   %.not37 = icmp eq i32 %30, 0
@@ -542,7 +542,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   %.03959 = phi i64 [ %.241, %56 ], [ 0, %.preheader ]
   %.04258 = phi i64 [ %.244, %56 ], [ 0, %.preheader ]
   %38 = load ptr, ptr %6, align 8, !tbaa !83
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.03860
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %.03860
   %40 = load i16, ptr %39, align 2, !tbaa !91
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %41 = load i32, ptr %8, align 4, !tbaa !80
@@ -1490,7 +1490,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
   %.051.us = phi i64 [ %.1.us, %52 ], [ 0, %.lr.ph ]
   %.03450.us = phi i64 [ %53, %52 ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %7, align 8, !tbaa !83
-  %34 = getelementptr inbounds nuw i16, ptr %33, i64 %.03450.us
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %.03450.us
   %35 = load i16, ptr %34, align 2, !tbaa !91
   %36 = call i32 @tls_group_allowed(ptr noundef %0, i16 noundef zeroext %35, i32 noundef 131076) #10
   %.not41.us = icmp eq i32 %36, 0
@@ -1498,7 +1498,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 
 37:                                               ; preds = %.lr.ph.split.us
   %38 = load ptr, ptr %7, align 8, !tbaa !83
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.03450.us
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %.03450.us
   %40 = load i16, ptr %39, align 2, !tbaa !91
   %41 = call i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %40, i32 noundef 772, i32 noundef 772, i32 noundef 0, ptr noundef null) #10
   %.not42.us = icmp eq i32 %41, 0
@@ -1506,7 +1506,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %7, align 8, !tbaa !83
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %.03450.us
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %.03450.us
   %45 = load i16, ptr %44, align 2, !tbaa !91
   %46 = icmp eq i16 %45, 0
   br i1 %46, label %.split.us, label %47
@@ -1531,7 +1531,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %.03450 = phi i64 [ %74, %73 ], [ 0, %.lr.ph ]
   %56 = load ptr, ptr %7, align 8, !tbaa !83
-  %57 = getelementptr inbounds nuw i16, ptr %56, i64 %.03450
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %.03450
   %58 = load i16, ptr %57, align 2, !tbaa !91
   %59 = call i32 @tls_group_allowed(ptr noundef %0, i16 noundef zeroext %58, i32 noundef 131076) #10
   %.not41 = icmp eq i32 %59, 0
@@ -1539,7 +1539,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 
 60:                                               ; preds = %.lr.ph.split
   %61 = load ptr, ptr %7, align 8, !tbaa !83
-  %62 = getelementptr inbounds nuw i16, ptr %61, i64 %.03450
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %.03450
   %63 = load i16, ptr %62, align 2, !tbaa !91
   %64 = call i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %63, i32 noundef 772, i32 noundef 772, i32 noundef 0, ptr noundef null) #10
   %.not42 = icmp eq i32 %64, 0
@@ -1547,7 +1547,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %7, align 8, !tbaa !83
-  %67 = getelementptr inbounds nuw i16, ptr %66, i64 %.03450
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %.03450
   %68 = load i16, ptr %67, align 2, !tbaa !91
   %69 = icmp eq i16 %68, 0
   br i1 %69, label %.split.us, label %70
@@ -1660,10 +1660,10 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
 32:                                               ; preds = %._crit_edge, %29
   %.pre-phi = phi i16 [ %.pre, %._crit_edge ], [ %30, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %3
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %3
   store ptr %.031, ptr %34, align 8, !tbaa !145
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %3
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %3
   store i16 %.pre-phi, ptr %36, align 2, !tbaa !91
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %38 = load i64, ptr %37, align 8, !tbaa !138
@@ -3836,7 +3836,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %.lr.ph, %39
   %.086139 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %42 = getelementptr inbounds nuw i16, ptr %37, i64 %.086139
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %.086139
   %43 = load i16, ptr %42, align 2, !tbaa !91
   %44 = zext i16 %43 to i32
   %45 = icmp eq i32 %27, %44
@@ -3865,7 +3865,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 51:                                               ; preds = %.lr.ph142, %49
   %.187140 = phi i64 [ 0, %.lr.ph142 ], [ %50, %49 ]
-  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %.187140
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %.187140
   %53 = load i16, ptr %52, align 2, !tbaa !91
   %54 = zext i16 %53 to i32
   %55 = icmp eq i32 %27, %54
@@ -3902,7 +3902,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 65:                                               ; preds = %.lr.ph145, %70
   %66 = phi i64 [ %63, %.lr.ph145 ], [ %71, %70 ]
   %.288143 = phi i64 [ 0, %.lr.ph145 ], [ %72, %70 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.288143
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.288143
   %68 = load ptr, ptr %67, align 8, !tbaa !145
   %.not109 = icmp eq ptr %68, null
   br i1 %.not109, label %70, label %69
@@ -3932,7 +3932,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 75:                                               ; preds = %.lr.ph148, %87
   %.389147 = phi i64 [ 0, %.lr.ph148 ], [ %88, %87 ]
-  %76 = getelementptr inbounds nuw i16, ptr %33, i64 %.389147
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %.389147
   %77 = load i16, ptr %76, align 2, !tbaa !91
   %78 = zext i16 %77 to i32
   %79 = icmp eq i32 %27, %78
@@ -3941,7 +3941,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 80:                                               ; preds = %75
   %81 = trunc nuw i32 %27 to i16
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.389147
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.389147
   %84 = load ptr, ptr %83, align 8, !tbaa !145
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1246
   store i16 %81, ptr %85, align 2, !tbaa !139

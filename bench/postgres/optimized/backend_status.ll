@@ -3,10 +3,8 @@ source_filename = "bench/postgres/original/backend_status.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PgBackendStatus = type { i32, i32, i32, i64, i64, i64, i64, i32, i32, %struct.SockAddr, ptr, i8, ptr, i8, ptr, i32, ptr, ptr, i32, i32, [20 x i64], i64 }
 %struct.SockAddr = type { %struct.sockaddr_storage, i32 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.LocalPgBackendStatus = type { %struct.PgBackendStatus, i32, i32, i32, i32, i8 }
 
 @pgstat_track_activities = dso_local local_unnamed_addr global i8 0, align 1
 @pgstat_track_activity_query_size = dso_local local_unnamed_addr global i32 1024, align 4
@@ -179,7 +177,7 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
 50:                                               ; preds = %.lr.ph109, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %50 ]
   %.088107 = phi ptr [ %28, %.lr.ph109 ], [ %53, %50 ]
-  %51 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %49, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [432 x i8], ptr %49, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 240
   store ptr %.088107, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.088107, i64 64
@@ -250,7 +248,7 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
 82:                                               ; preds = %.lr.ph114, %82
   %indvars.iv126 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next127, %82 ]
   %.189112 = phi ptr [ %60, %.lr.ph114 ], [ %85, %82 ]
-  %83 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %81, i64 %indvars.iv126
+  %83 = getelementptr inbounds nuw [432 x i8], ptr %81, i64 %indvars.iv126
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 192
   store ptr %.189112, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.189112, i64 64
@@ -322,7 +320,7 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
 119:                                              ; preds = %.lr.ph119, %119
   %indvars.iv130 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next131, %119 ]
   %.290117 = phi ptr [ %94, %.lr.ph119 ], [ %122, %119 ]
-  %120 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %116, i64 %indvars.iv130
+  %120 = getelementptr inbounds nuw [432 x i8], ptr %116, i64 %indvars.iv130
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 248
   store ptr %.290117, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %.290117, i64 %118
@@ -348,7 +346,7 @@ define dso_local void @pgstat_beinit() local_unnamed_addr #0 {
   %1 = load ptr, ptr @BackendStatusArray, align 8
   %2 = load i32, ptr @MyProcNumber, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %struct.PgBackendStatus, ptr %1, i64 %3
+  %4 = getelementptr inbounds [432 x i8], ptr %1, i64 %3
   store ptr %4, ptr @MyBEEntry, align 8
   tail call void @on_shmem_exit(ptr noundef nonnull @pgstat_beshutdown_hook, i64 noundef 0) #11
   ret void
@@ -1090,7 +1088,7 @@ define dso_local i64 @pgstat_get_my_query_id() local_unnamed_addr #6 {
 define dso_local i32 @pgstat_get_backend_type_by_proc_number(i32 noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr @BackendStatusArray, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.PgBackendStatus, ptr %2, i64 %3
+  %4 = getelementptr inbounds [432 x i8], ptr %2, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load volatile i32, ptr %5, align 8
   ret i32 %6
@@ -1350,7 +1348,7 @@ define dso_local ptr @pgstat_get_local_beentry_by_index(i32 noundef %0) local_un
   %or.cond = select i1 %2, i1 true, i1 %4
   %5 = load ptr, ptr @localBackendStatusTable, align 8
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr %struct.LocalPgBackendStatus, ptr %5, i64 %6
+  %7 = getelementptr [456 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -456
   %.0 = select i1 %or.cond, ptr null, ptr %8
   ret ptr %.0

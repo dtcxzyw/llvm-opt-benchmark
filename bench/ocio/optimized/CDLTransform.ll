@@ -30,16 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.15" = type { ptr, %"class.std::__shared_count" }
 %"class.std::allocator" = type { i8 }
 %"struct.OpenColorIO_v2_5dev::CDLOpData::ChannelParams" = type { [3 x double] }
-%"class.OpenColorIO_v2_5dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_5dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_5dev::FormatMetadata" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_5dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_5dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_5dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_5dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_5dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_5dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_5dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_5dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev6ConfigELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -2490,7 +2480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK19OpenColorIO_v2_5dev18FormatMetadataImpl19getChildrenElementsEv(ptr noundef nonnull align 8 dereferenceable(120) %2) #26
   %14 = sext i32 %6 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !84
-  %16 = getelementptr inbounds nuw %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [120 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -2580,7 +2570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %31 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN19OpenColorIO_v2_5dev18FormatMetadataImpl19getChildrenElementsEv(ptr noundef nonnull align 8 dereferenceable(120) %4) #26
   %32 = sext i32 %8 to i64
   %33 = load ptr, ptr %31, align 8, !tbaa !84
-  %34 = getelementptr inbounds nuw %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [120 x i8], ptr %33, i64 %32
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -2592,7 +2582,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %40 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN19OpenColorIO_v2_5dev18FormatMetadataImpl19getChildrenElementsEv(ptr noundef nonnull align 8 dereferenceable(120) %4) #26
   %41 = load ptr, ptr %40, align 8, !tbaa !88
   %42 = sext i32 %8 to i64
-  %43 = getelementptr inbounds %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %41, i64 %42
+  %43 = getelementptr inbounds [120 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %39, align 8, !tbaa !88
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
@@ -2732,7 +2722,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %39, %
   br label %54
 
 54:                                               ; preds = %52, %51
-  %55 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %56 = load double, ptr %55, align 8, !tbaa !82
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3119,7 +3109,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exi
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exit, %65
   store ptr %23, ptr %0, align 8, !tbaa !84
   store ptr %.0.lcssa.i.i.i.i.i40, ptr %5, align 8, !tbaa !86
-  %69 = getelementptr inbounds nuw %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %23, i64 %17
+  %69 = getelementptr inbounds nuw [120 x i8], ptr %23, i64 %17
   store ptr %69, ptr %64, align 8, !tbaa !87
   ret void
 

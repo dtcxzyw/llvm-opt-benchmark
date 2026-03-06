@@ -19,10 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.5 = type { ptr, ptr, ptr, i32 }
 %struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_dirent_s = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.uv_env_item_s = type { ptr, ptr }
 
 @uv__allocator.0 = internal unnamed_addr global ptr @malloc, align 8
 @uv__allocator.1 = internal unnamed_addr global ptr @realloc, align 8
@@ -447,7 +444,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_handle_size, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_handle_size, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
@@ -465,7 +462,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_req_size, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_req_size, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
@@ -2700,7 +2697,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %sw
 
 switch.lookup:                                    ; preds = %for.body.us
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.2, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__print_handles.2, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog.us
 
@@ -2752,7 +2749,7 @@ if.end8:                                          ; preds = %for.body
 
 switch.lookup18:                                  ; preds = %if.end8
   %12 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.2, i64 %12
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__print_handles.2, i64 %12
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   br label %sw.epilog
 
@@ -2888,7 +2885,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %bytes.06 = phi i64 [ 0, %for.body.preheader ], [ %add, %for.body ]
-  %arrayidx = getelementptr inbounds nuw %struct.uv_buf_t, ptr %bufs, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %bufs, i64 %indvars.iv
   %len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %len, align 8
   %add = add i64 %0, %bytes.06
@@ -2980,7 +2977,7 @@ for.body.preheader:                               ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %3, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   tail call void @free(ptr noundef %5) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3025,7 +3022,7 @@ if.end3:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end3
   %sub = add i32 %2, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   tail call void @free(ptr noundef %3) #26
   %.pre = load i32, ptr %nbufs.i, align 4
@@ -3048,7 +3045,7 @@ if.end15:                                         ; preds = %if.end8
   %inc = add i32 %5, 1
   store i32 %inc, ptr %nbufs.i, align 4
   %idxprom16 = zext i32 %5 to i64
-  %arrayidx17 = getelementptr inbounds nuw ptr, ptr %1, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %idxprom16
   %6 = load ptr, ptr %arrayidx17, align 8
   %d_name = getelementptr inbounds nuw i8, ptr %6, i64 19
   store ptr %d_name, ptr %ent, align 8
@@ -3060,7 +3057,7 @@ if.end15:                                         ; preds = %if.end8
 
 switch.lookup:                                    ; preds = %if.end15
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uv__fs_get_dirent_type, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %uv__fs_get_dirent_type.exit
 
@@ -3086,7 +3083,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uv__fs_get_dirent_type, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 
@@ -3121,7 +3118,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i32, ptr %call.i, align 4
   %5 = load ptr, ptr @uv__allocator.3, align 8
@@ -3344,7 +3341,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw %struct.uv_env_item_s, ptr %envitems, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %envitems, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load ptr, ptr @uv__allocator.3, align 8
   tail call void %1(ptr noundef %0) #26

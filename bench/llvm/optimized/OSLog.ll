@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [384 x i8] }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.clang::SourceLocation" = type { i32 }
-%"class.clang::analyze_os_log::OSLogBufferItem" = type { i32, ptr, %"class.clang::CharUnits", %"class.clang::CharUnits", i32, %"class.llvm::StringRef" }
 %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData" = type { ptr, %"class.std::optional.373", %"class.std::optional.381", %"class.std::optional.389", %"class.std::optional.389", %"class.std::optional.389", i8, %"class.llvm::StringRef" }
 %"class.std::optional.373" = type { %"struct.std::_Optional_base.374" }
 %"struct.std::_Optional_base.374" = type { %"struct.std::_Optional_payload.376" }
@@ -32,6 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.392" = type { %"struct.std::_Optional_payload_base.base.394", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.394" = type <{ %"union.std::_Optional_payload_base<const clang::Expr *>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<const clang::Expr *>::_Storage" = type { ptr }
+%"class.clang::analyze_os_log::OSLogBufferItem" = type { i32, ptr, %"class.clang::CharUnits", %"class.clang::CharUnits", i32, %"class.llvm::StringRef" }
 
 $_ZN5clang21analyze_format_string19FormatStringHandler14HandleNullCharEPKc = comdat any
 
@@ -102,7 +101,7 @@ define dso_local noundef zeroext i1 @_ZN5clang14analyze_os_log24computeOSLogBuff
   %28 = lshr i32 %23, 19
   %29 = and i32 %28, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !3
   %34 = zext i32 %33 to i64
@@ -115,13 +114,13 @@ define dso_local noundef zeroext i1 @_ZN5clang14analyze_os_log24computeOSLogBuff
   %41 = lshr i32 %37, 19
   %42 = and i32 %41, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = lshr i32 %37, 19
   %48 = and i32 %47, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %49
   %.sink32 = select i1 %36, i64 -1, i64 -2
   %.sink = select i1 %36, i64 8, i64 16
   %.0.in = select i1 %36, ptr %50, ptr %45
@@ -133,7 +132,7 @@ define dso_local noundef zeroext i1 @_ZN5clang14analyze_os_log24computeOSLogBuff
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !18
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %57
   %59 = load i32, ptr %53, align 8
   %60 = lshr i32 %59, 22
   %61 = and i32 %60, 7
@@ -212,7 +211,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
 94:                                               ; preds = %89
   %95 = zext i32 %90 to i64
   %96 = load ptr, ptr %2, align 8, !tbaa !22
-  %97 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %96, i64 %95
+  %97 = getelementptr inbounds nuw [56 x i8], ptr %96, i64 %95
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
   store i32 7, ptr %97, align 8, !tbaa !393
@@ -267,7 +266,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
 117:                                              ; preds = %109
   %118 = zext i32 %113 to i64
   %119 = load ptr, ptr %2, align 8, !tbaa !22
-  %120 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [56 x i8], ptr %119, i64 %118
   %121 = load ptr, ptr %105, align 8, !tbaa !15
   store i32 0, ptr %120, align 8, !tbaa !393
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -321,7 +320,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
 142:                                              ; preds = %134
   %143 = zext i32 %138 to i64
   %144 = load ptr, ptr %2, align 8, !tbaa !22
-  %145 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [56 x i8], ptr %144, i64 %143
   %146 = load ptr, ptr %130, align 8, !tbaa !15
   store i32 0, ptr %145, align 8, !tbaa !393
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -375,7 +374,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
 167:                                              ; preds = %159
   %168 = zext i32 %163 to i64
   %169 = load ptr, ptr %2, align 8, !tbaa !22
-  %170 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %169, i64 %168
+  %170 = getelementptr inbounds nuw [56 x i8], ptr %169, i64 %168
   %171 = load ptr, ptr %155, align 8, !tbaa !15
   store i32 1, ptr %170, align 8, !tbaa !393
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -424,7 +423,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
 192:                                              ; preds = %183
   %193 = zext i32 %188 to i64
   %194 = load ptr, ptr %2, align 8, !tbaa !22
-  %195 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %194, i64 %193
+  %195 = getelementptr inbounds nuw [56 x i8], ptr %194, i64 %193
   %196 = load i8, ptr %187, align 1, !tbaa !18
   %197 = zext i8 %196 to i32
   store i32 1, ptr %195, align 8, !tbaa !393
@@ -486,7 +485,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
 224:                                              ; preds = %218
   %225 = zext i32 %220 to i64
   %226 = load ptr, ptr %2, align 8, !tbaa !22
-  %227 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %226, i64 %225
+  %227 = getelementptr inbounds nuw [56 x i8], ptr %226, i64 %225
   %228 = load i32, ptr %207, align 4, !tbaa !388
   %229 = load ptr, ptr %.078.i, align 8, !tbaa !15
   %230 = load i8, ptr %219, align 8, !tbaa !18
@@ -533,7 +532,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
 248:                                              ; preds = %239
   %249 = zext i32 %244 to i64
   %250 = load ptr, ptr %2, align 8, !tbaa !22
-  %251 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %250, i64 %249
+  %251 = getelementptr inbounds nuw [56 x i8], ptr %250, i64 %249
   %252 = load ptr, ptr %.078.i, align 8, !tbaa !15
   %253 = load i8, ptr %243, align 8, !tbaa !18
   %254 = zext i8 %253 to i32
@@ -700,7 +699,7 @@ _ZNK5clang14analyze_printf15PrintfSpecifier20consumesDataArgumentEv.exit.thread:
 14:                                               ; preds = %_ZNK5clang14analyze_printf15PrintfSpecifier20consumesDataArgumentEv.exit.thread
   %15 = zext i32 %10 to i64
   %.val.i = load ptr, ptr %8, align 8, !tbaa !22
-  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val.i, i64 %15
+  %16 = getelementptr inbounds nuw [96 x i8], ptr %.val.i, i64 %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, i8 0, i64 96, i1 false)
   %17 = load i32, ptr %9, align 8, !tbaa !24
   %18 = add i32 %17, 1
@@ -719,12 +718,12 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12e
 
 26:                                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12emplace_backIJEEERS3_DpOT_.exit
   %27 = load ptr, ptr %22, align 8, !tbaa !431
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   %.val = load ptr, ptr %8, align 8, !tbaa !22
   %.val35 = load i32, ptr %9, align 8, !tbaa !24
   %30 = zext i32 %.val35 to i64
-  %31 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val, i64 %30
+  %31 = getelementptr inbounds nuw [96 x i8], ptr %.val, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -96
   store ptr %29, ptr %32, align 8, !tbaa !409
   br label %33
@@ -759,13 +758,13 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %.val36 = load ptr, ptr %8, align 8, !tbaa !22
   %.val37 = load i32, ptr %9, align 8, !tbaa !24
   %40 = zext i32 %.val37 to i64
-  %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val36, i64 %40
+  %41 = getelementptr inbounds nuw [96 x i8], ptr %.val36, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -88
   store i64 %.0.i62, ptr %42, align 8
   %.val38 = load ptr, ptr %8, align 8, !tbaa !22
   %.val39 = load i32, ptr %9, align 8, !tbaa !24
   %43 = zext i32 %.val39 to i64
-  %44 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val38, i64 %43
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %.val38, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -88
   %46 = getelementptr inbounds i8, ptr %44, i64 -84
   %47 = load i8, ptr %46, align 4, !tbaa !407, !range !401, !noundef !402
@@ -817,7 +816,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %66 = load i32, ptr %65, align 8, !tbaa !433
   %67 = zext i32 %66 to i64
   %68 = load ptr, ptr %22, align 8, !tbaa !431
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8, !tbaa !15
   %71 = getelementptr inbounds i8, ptr %44, i64 -72
   store ptr %70, ptr %71, align 8
@@ -847,7 +846,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %79 = load i32, ptr %78, align 8, !tbaa !433
   %80 = zext i32 %79 to i64
   %81 = load ptr, ptr %22, align 8, !tbaa !431
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !15
   %84 = getelementptr inbounds i8, ptr %44, i64 -72
   store ptr %83, ptr %84, align 8
@@ -864,7 +863,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %89 = load i32, ptr %88, align 8, !tbaa !433
   %90 = zext i32 %89 to i64
   %91 = load ptr, ptr %22, align 8, !tbaa !431
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8, !tbaa !15
   %94 = getelementptr inbounds i8, ptr %44, i64 -56
   store ptr %93, ptr %94, align 8
@@ -883,12 +882,12 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %100 = load i32, ptr %99, align 8, !tbaa !433
   %101 = zext i32 %100 to i64
   %102 = load ptr, ptr %22, align 8, !tbaa !431
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %101
   %104 = load ptr, ptr %103, align 8, !tbaa !15
   %.val52 = load ptr, ptr %8, align 8, !tbaa !22
   %.val53 = load i32, ptr %9, align 8, !tbaa !24
   %105 = zext i32 %.val53 to i64
-  %106 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val52, i64 %105
+  %106 = getelementptr inbounds nuw [96 x i8], ptr %.val52, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 -40
   store ptr %104, ptr %107, align 8
   %.sroa.4.0..sroa_idx63 = getelementptr inbounds i8, ptr %106, i64 -32
@@ -905,7 +904,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %.val54 = load ptr, ptr %8, align 8, !tbaa !22
   %.val55 = load i32, ptr %9, align 8, !tbaa !24
   %113 = zext i32 %.val55 to i64
-  %114 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val54, i64 %113
+  %114 = getelementptr inbounds nuw [96 x i8], ptr %.val54, i64 %113
   br label %._crit_edge.sink.split
 
 115:                                              ; preds = %108
@@ -918,7 +917,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %.val56 = load ptr, ptr %8, align 8, !tbaa !22
   %.val57 = load i32, ptr %9, align 8, !tbaa !24
   %120 = zext i32 %.val57 to i64
-  %121 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val56, i64 %120
+  %121 = getelementptr inbounds nuw [96 x i8], ptr %.val56, i64 %120
   br label %._crit_edge.sink.split
 
 122:                                              ; preds = %115
@@ -931,7 +930,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br i1 %125, label %127, label %._crit_edge
 
 127:                                              ; preds = %122
-  %128 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val60.pre, i64 %126
+  %128 = getelementptr inbounds nuw [96 x i8], ptr %.val60.pre, i64 %126
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %112, %127, %119
@@ -952,7 +951,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %.sroa.0.0.copyload.i = load ptr, ptr %132, align 8, !tbaa !398
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 376
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
-  %133 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val60, i64 %.pre-phi
+  %133 = getelementptr inbounds nuw [96 x i8], ptr %.val60, i64 %.pre-phi
   %134 = getelementptr inbounds i8, ptr %133, i64 -16
   store ptr %.sroa.0.0.copyload.i, ptr %134, align 8, !tbaa !398
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %133, i64 -8
@@ -1005,7 +1004,7 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124
   br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataELb1EE9push_backERKS3_.exit, label %9, !prof !392
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val.pre4.i, i64 %5
+  %10 = getelementptr inbounds nuw [96 x i8], ptr %.val.pre4.i, i64 %5
   %11 = icmp uge ptr %2, %.val.pre4.i
   %12 = icmp ult ptr %2, %10
   %spec.select.i.i.i.i.i = and i1 %11, %12
@@ -1032,7 +1031,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgD
   %.016.i.i.i = phi ptr [ %2, %1 ], [ %18, %13 ], [ %2, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %3, align 8, !tbaa !24
   %20 = zext i32 %.val3.i to i64
-  %21 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val.i, i64 %20
+  %21 = getelementptr inbounds nuw [96 x i8], ptr %.val.i, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i, i64 96, i1 false)
   %22 = load i32, ptr %3, align 8, !tbaa !24
   %23 = add i32 %22, 1
@@ -1073,7 +1072,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit, label %20, !prof !392
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %.pre3.i, i64 %16
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %16
   %22 = icmp uge ptr %7, %.pre3.i
   %23 = icmp ult ptr %7, %21
   %spec.select.i.i.i.i.i = and i1 %22, %23
@@ -1100,7 +1099,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   %.016.i.i.i = phi ptr [ %7, %6 ], [ %30, %24 ], [ %7, %.critedge.i.i.i ]
   %33 = load i32, ptr %14, align 8, !tbaa !24
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %32, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %36 = load i32, ptr %14, align 8, !tbaa !24
   %37 = add i32 %36, 1
@@ -1108,7 +1107,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = load ptr, ptr %0, align 8, !tbaa !22
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -56
   ret ptr %41
 }
@@ -1143,7 +1142,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit, label %21, !prof !392
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %.pre3.i, i64 %17
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %17
   %23 = icmp uge ptr %6, %.pre3.i
   %24 = icmp ult ptr %6, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
@@ -1170,7 +1169,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   %.016.i.i.i = phi ptr [ %6, %5 ], [ %31, %25 ], [ %6, %.critedge.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !24
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %37 = load i32, ptr %15, align 8, !tbaa !24
   %38 = add i32 %37, 1
@@ -1178,7 +1177,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %39 = load ptr, ptr %0, align 8, !tbaa !22
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -56
   ret ptr %42
 }
@@ -1215,7 +1214,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit, label %21, !prof !392
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %.pre3.i, i64 %17
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %17
   %23 = icmp uge ptr %5, %.pre3.i
   %24 = icmp ult ptr %5, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
@@ -1242,7 +1241,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   %.016.i.i.i = phi ptr [ %5, %4 ], [ %31, %25 ], [ %5, %.critedge.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !24
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %37 = load i32, ptr %15, align 8, !tbaa !24
   %38 = add i32 %37, 1
@@ -1250,7 +1249,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = load ptr, ptr %0, align 8, !tbaa !22
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -56
   ret ptr %42
 }
@@ -1286,7 +1285,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit, label %22, !prof !392
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %.pre3.i, i64 %18
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %18
   %24 = icmp uge ptr %6, %.pre3.i
   %25 = icmp ult ptr %6, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
@@ -1313,7 +1312,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   %.016.i.i.i = phi ptr [ %6, %5 ], [ %32, %26 ], [ %6, %.critedge.i.i.i ]
   %35 = load i32, ptr %16, align 8, !tbaa !24
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %38 = load i32, ptr %16, align 8, !tbaa !24
   %39 = add i32 %38, 1
@@ -1321,7 +1320,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %40 = load ptr, ptr %0, align 8, !tbaa !22
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -56
   ret ptr %43
 }
@@ -1357,7 +1356,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit, label %22, !prof !392
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %.pre3.i, i64 %18
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %18
   %24 = icmp uge ptr %6, %.pre3.i
   %25 = icmp ult ptr %6, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
@@ -1384,7 +1383,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   %.016.i.i.i = phi ptr [ %6, %5 ], [ %32, %26 ], [ %6, %.critedge.i.i.i ]
   %35 = load i32, ptr %16, align 8, !tbaa !24
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %38 = load i32, ptr %16, align 8, !tbaa !24
   %39 = add i32 %38, 1
@@ -1392,7 +1391,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %40 = load ptr, ptr %0, align 8, !tbaa !22
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -56
   ret ptr %43
 }

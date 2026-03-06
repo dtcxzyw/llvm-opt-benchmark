@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.anon.1 = type { ptr, ptr, ptr }
 %struct.except_id_t = type { i64, i64 }
-%struct.dynamic_lcid_drb_mapping_t = type { i8, i32, i32, i32, i8 }
-%struct._value_string = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
@@ -20,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_t = type { %struct.except_id_t, ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.lcid_drb_mapping_t = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"MAC-NR\00", align 1
 @proto_mac_nr = hidden local_unnamed_addr global i32 0, align 4
@@ -1848,7 +1845,7 @@ define hidden void @set_mac_nr_bearer_mapping(ptr noundef readonly captures(none
   %.141 = phi i8 [ %34, %30 ], [ %.0, %24 ]
   %36 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   %37 = zext i8 %.141 to i64
-  %38 = getelementptr %struct.dynamic_lcid_drb_mapping_t, ptr %36, i64 %37
+  %38 = getelementptr [20 x i8], ptr %36, i64 %37
   store i8 1, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %40 = load i8, ptr %39, align 1
@@ -2134,7 +2131,7 @@ define internal void @lcid_drb_mappings_lcid_set_cb(ptr noundef writeonly captur
   %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct._value_string, ptr %3, i64 %12
+  %13 = getelementptr [16 x i8], ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -2174,7 +2171,7 @@ define internal void @lcid_drb_mappings_lcid_tostr_cb(ptr noundef readonly captu
   %.01520 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
   %11 = add i32 %.01520, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct._value_string, ptr %3, i64 %12
+  %13 = getelementptr [16 x i8], ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -2249,7 +2246,7 @@ define internal void @lcid_drb_mappings_bearer_type_ul_set_cb(ptr noundef writeo
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -2289,7 +2286,7 @@ define internal void @lcid_drb_mappings_bearer_type_ul_tostr_cb(ptr noundef read
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -2339,7 +2336,7 @@ define internal void @lcid_drb_mappings_bearer_type_dl_set_cb(ptr noundef writeo
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -2379,7 +2376,7 @@ define internal void @lcid_drb_mappings_bearer_type_dl_tostr_cb(ptr noundef read
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -3623,12 +3620,12 @@ proto_item_set_hidden.exit:                       ; preds = %90, %102, %105
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %168 = zext nneg i8 %58 to i64
-  %169 = getelementptr i32, ptr %48, i64 %168
+  %169 = getelementptr [4 x i8], ptr %48, i64 %168
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 4
   %172 = load i32, ptr %10, align 4
-  %173 = getelementptr i32, ptr %49, i64 %168
+  %173 = getelementptr [4 x i8], ptr %49, i64 %168
   %174 = load i32, ptr %173, align 4
   %175 = add i32 %174, %172
   store i32 %175, ptr %173, align 4
@@ -3694,12 +3691,12 @@ proto_item_set_hidden.exit:                       ; preds = %90, %102, %105
 
 208:                                              ; preds = %206
   %209 = zext nneg i8 %58 to i64
-  %210 = getelementptr i32, ptr %48, i64 %209
+  %210 = getelementptr [4 x i8], ptr %48, i64 %209
   %211 = load i32, ptr %210, align 4
   %212 = add i32 %211, 1
   store i32 %212, ptr %210, align 4
   %213 = load i32, ptr %10, align 4
-  %214 = getelementptr i32, ptr %49, i64 %209
+  %214 = getelementptr [4 x i8], ptr %49, i64 %209
   %215 = load i32, ptr %214, align 4
   %216 = add i32 %215, %213
   store i32 %216, ptr %214, align 4
@@ -4081,7 +4078,7 @@ proto_item_set_hidden.exit585:                    ; preds = %241, %242, %245
   br i1 %.not570, label %409, label %401
 
 401:                                              ; preds = %397
-  %402 = getelementptr ptr, ptr @dissect_ulsch_or_dlsch.ph_fields1, i64 %indvars.iv
+  %402 = getelementptr [8 x i8], ptr @dissect_ulsch_or_dlsch.ph_fields1, i64 %indvars.iv
   %403 = getelementptr i8, ptr %402, i64 -8
   %404 = load ptr, ptr %403, align 8
   %405 = load i32, ptr %404, align 4
@@ -4105,7 +4102,7 @@ proto_item_set_hidden.exit585:                    ; preds = %241, %242, %245
   br i1 %.not569, label %422, label %413
 
 413:                                              ; preds = %.preheader
-  %414 = getelementptr ptr, ptr @dissect_ulsch_or_dlsch.ph_fields2_3_4, i64 %indvars.iv687
+  %414 = getelementptr [8 x i8], ptr @dissect_ulsch_or_dlsch.ph_fields2_3_4, i64 %indvars.iv687
   %415 = load ptr, ptr %414, align 8
   %416 = load i32, ptr %415, align 4
   %417 = load i32, ptr @hf_mac_nr_control_me_phr_pcmax_f_c_typeX, align 4
@@ -4203,7 +4200,7 @@ write_pdu_label_and_info_literal.exit590:         ; preds = %427, %428
   %466 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %464, ptr noundef %0, i32 noundef %465, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21)
   %467 = load i32, ptr %21, align 4
   %468 = zext i32 %467 to i64
-  %469 = getelementptr ptr, ptr @dissect_ulsch_or_dlsch.hf_mac_nr_control_bsr_short_bs_lcg, i64 %468
+  %469 = getelementptr [8 x i8], ptr @dissect_ulsch_or_dlsch.hf_mac_nr_control_bsr_short_bs_lcg, i64 %468
   %470 = load ptr, ptr %469, align 8
   %471 = load i32, ptr %470, align 4
   %472 = load i32, ptr %8, align 4
@@ -5543,7 +5540,7 @@ define internal fastcc void @lookup_rlc_bearer_from_lcid(i16 noundef zeroext %0,
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr %struct.lcid_drb_mapping_t, ptr %12, i64 %indvars.iv
+  %15 = getelementptr [16 x i8], ptr %12, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %11
   br i1 %17, label %get_rlc_seqnum_length.exit, label %13
@@ -5562,7 +5559,7 @@ get_rlc_seqnum_length.exit:                       ; preds = %14
   %.0.i = select i1 %19, i8 %switch.masked, i8 0
   store i8 %.0.i, ptr %4, align 1
   %20 = load ptr, ptr @lcid_drb_mappings, align 8
-  %21 = getelementptr %struct.lcid_drb_mapping_t, ptr %20, i64 %indvars.iv
+  %21 = getelementptr [16 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %5, align 4
@@ -5613,7 +5610,7 @@ get_rlc_seqnum_length.exit:                       ; preds = %14
 37:                                               ; preds = %.sink.split, %34
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %39 = zext nneg i8 %1 to i64
-  %40 = getelementptr %struct.dynamic_lcid_drb_mapping_t, ptr %38, i64 %39
+  %40 = getelementptr [20 x i8], ptr %38, i64 %39
   %41 = load i8, ptr %40, align 4, !range !8, !noundef !9
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %get_rlc_seqnum_length.exit52, label %48

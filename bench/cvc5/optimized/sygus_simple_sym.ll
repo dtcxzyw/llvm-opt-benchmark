@@ -4593,7 +4593,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit59:            ; preds = %131, %135, %141
 
 165:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %166 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %159, i64 %157
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %157
   %167 = load ptr, ptr %166, align 8, !tbaa !9
   store ptr %167, ptr %8, align 8, !tbaa !9
   %168 = load i64, ptr %167, align 8

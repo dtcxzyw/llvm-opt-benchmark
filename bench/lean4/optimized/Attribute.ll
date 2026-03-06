@@ -652,7 +652,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinato
 6:                                                ; preds = %.lr.ph, %44
   %.02036 = phi i64 [ %1, %.lr.ph ], [ %46, %44 ]
   %.02235 = phi ptr [ %3, %.lr.ph ], [ %45, %44 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02036
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02036
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -772,7 +772,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinato
 6:                                                ; preds = %.lr.ph, %lean_dec.exit43
   %.03166 = phi i64 [ %1, %.lr.ph ], [ %33, %lean_dec.exit43 ]
   %.03365 = phi ptr [ %3, %.lr.ph ], [ %.336, %lean_dec.exit43 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03166
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.03166
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1

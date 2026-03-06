@@ -40,21 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<void>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.84", %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_key_compare.84" = type { %"struct.std::less.85" }
 %"struct.std::less.85" = type { i8 }
-%"struct.pkpy::Token" = type { i8, ptr, i32, i32, i32, [4 x i8], %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.18" }
-%"union.std::__detail::__variant::_Variadic_union.18" = type { %"union.std::__detail::__variant::_Variadic_union.20" }
-%"union.std::__detail::__variant::_Variadic_union.20" = type { %"struct.std::__detail::__variant::_Uninitialized.21", [24 x i8] }
-%"struct.std::__detail::__variant::_Uninitialized.21" = type { double }
 %"struct.pkpy::Str" = type { i32, i8, ptr, [16 x i8] }
-%"struct.pkpy::Bytecode" = type { i8, i16 }
-%"struct.pkpy::CodeBlock" = type { i32, i32, i32, i32, i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.94 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.94 = type { i64, [8 x i8] }
@@ -68,13 +54,23 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.pkpy::SStream" = type <{ %"struct.pkpy::pod_vector.131", i32, [4 x i8] }>
 %"struct.pkpy::pod_vector.131" = type { i32, i32, ptr }
 %"class.pkpy::unique_ptr_128.97" = type { ptr }
-%"struct.pkpy::StrName" = type { i16 }
-%"struct.pkpy::FuncDecl::KwArg" = type { i32, %"struct.pkpy::StrName", ptr }
+%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
+%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
+%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
+%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
+%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
+%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
+%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
+%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.18" }
+%"union.std::__detail::__variant::_Variadic_union.18" = type { %"union.std::__detail::__variant::_Variadic_union.20" }
+%"union.std::__detail::__variant::_Variadic_union.20" = type { %"struct.std::__detail::__variant::_Uninitialized.21", [24 x i8] }
+%"struct.std::__detail::__variant::_Uninitialized.21" = type { double }
 %"struct.std::_Rb_tree<pkpy::Str, pkpy::Str, std::_Identity<pkpy::Str>, std::less<pkpy::Str>>::_Alloc_node" = type { ptr }
 %"class.std::tuple.249" = type { %"struct.std::_Tuple_impl.250" }
 %"struct.std::_Tuple_impl.250" = type { %"struct.std::_Head_base.251" }
 %"struct.std::_Head_base.251" = type { ptr }
 %"class.std::tuple.221" = type { i8 }
+%"struct.pkpy::StrName" = type { i16 }
 %"class.pkpy::small_vector_2.86" = type { %"class.pkpy::small_vector.87" }
 %"class.pkpy::small_vector.87" = type { [24 x i8], ptr, ptr, ptr }
 %"struct.pkpy::pod_vector.195" = type { i32, i32, ptr }
@@ -88,6 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.196" = type { %"class.std::_Rb_tree.197" }
 %"class.std::_Rb_tree.197" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, int>, std::_Select1st<std::pair<const std::basic_string_view<char>, int>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, int>, std::_Select1st<std::pair<const std::basic_string_view<char>, int>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.pkpy::Token" = type { i8, ptr, i32, i32, i32, [4 x i8], %"class.std::variant" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
@@ -97,10 +94,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned short, std::__cxx11::basic_string<char>>>, std::less<unsigned short>>::_Auto_node" = type { ptr, ptr }
 %"struct.pkpy::SmallNameDict" = type { i8, i16, [8 x %"struct.pkpy::StrName"], [8 x i32] }
-%"struct.pkpy::NameDictItem" = type { %"struct.pkpy::StrName", i32 }
-%"struct.pkpy::NameDictItem.278" = type { %"struct.pkpy::StrName", ptr }
 %struct._Guard = type { ptr }
-%"struct.pkpy::ExceptionLine" = type { %"class.std::shared_ptr", i32, ptr, %"class.std::__cxx11::basic_string" }
 
 $_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEhSt4lessIS3_ESaISt4pairIKS3_hEEED2Ev = comdat any
 
@@ -903,7 +897,7 @@ _ZSt11make_sharedIN4pkpy10CodeObjectEJRSt10shared_ptrINS0_10SourceDataEERNS0_3St
   unreachable
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds %"struct.pkpy::Token", ptr %22, i64 %19
+  %29 = getelementptr inbounds [72 x i8], ptr %22, i64 %19
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %31 = load i32, ptr %30, align 4
   br label %32
@@ -1306,7 +1300,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4pkpy8C
   unreachable
 
 _ZNKSt6vectorIN4pkpy5TokenESaIS1_EE2atEm.exit:    ; preds = %1
-  %15 = getelementptr inbounds %"struct.pkpy::Token", ptr %9, i64 %6
+  %15 = getelementptr inbounds [72 x i8], ptr %9, i64 %6
   ret ptr %15
 }
 
@@ -1794,7 +1788,7 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit:  ; preds = %_ZNSt16_Sp_counted_
   unreachable
 
 80:                                               ; preds = %68
-  %81 = getelementptr inbounds %"struct.pkpy::Token", ptr %74, i64 %71
+  %81 = getelementptr inbounds [72 x i8], ptr %74, i64 %71
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %83 = load i32, ptr %82, align 4
   br label %84
@@ -2430,13 +2424,13 @@ define void @_ZN4pkpy8Compiler11pop_contextEv(ptr noundef nonnull align 8 derefe
 .critedge:                                        ; preds = %.critedge.backedge, %19
   %indvars.iv = phi i64 [ %26, %19 ], [ %indvars.iv.next, %.critedge.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %27 = getelementptr inbounds %"struct.pkpy::Token", ptr %25, i64 %indvars.iv.next
+  %27 = getelementptr inbounds [72 x i8], ptr %25, i64 %indvars.iv.next
   %28 = load i8, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %44, %.critedge
   %indvars.iv.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i, %44 ]
-  %30 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %31, align 1
   %.not20.i = icmp eq i8 %32, 0
@@ -2480,7 +2474,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %44, %42
 
 .preheader121:                                    ; preds = %_ZN4pkpy2TKEPKc.exit, %60
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i82, %60 ], [ 0, %_ZN4pkpy2TKEPKc.exit ]
-  %46 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i74
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i74
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %47, align 1
   %.not20.i75 = icmp eq i8 %48, 0
@@ -2527,7 +2521,7 @@ _ZN4pkpy2TKEPKc.exit86:                           ; preds = %60, %58
 
 .preheader:                                       ; preds = %_ZN4pkpy2TKEPKc.exit86, %76
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i95, %76 ], [ 0, %_ZN4pkpy2TKEPKc.exit86 ]
-  %62 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i87
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i87
   %63 = load ptr, ptr %62, align 8
   %64 = load i8, ptr %63, align 1
   %.not20.i88 = icmp eq i8 %64, 0
@@ -2686,7 +2680,7 @@ _ZN4pkpy2TKEPKc.exit99:                           ; preds = %76, %74
 .lr.ph:                                           ; preds = %138, %172
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %172 ], [ 0, %138 ]
   %141 = phi ptr [ %174, %172 ], [ %139, %138 ]
-  %142 = getelementptr inbounds nuw %"struct.pkpy::Bytecode", ptr %141, i64 %indvars.iv140
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv140
   %143 = load i8, ptr %142, align 2
   switch i8 %143, label %172 [
     i8 76, label %144
@@ -2702,7 +2696,7 @@ _ZN4pkpy2TKEPKc.exit99:                           ; preds = %76, %74
   %150 = load i16, ptr %149, align 2
   %151 = zext i16 %150 to i64
   %152 = load ptr, ptr %148, align 8
-  %153 = getelementptr inbounds nuw %"struct.pkpy::CodeBlock", ptr %152, i64 %151
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %152, i64 %151
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 12
   %155 = load i32, ptr %154, align 4
   %156 = trunc i32 %155 to i16
@@ -2718,7 +2712,7 @@ _ZN4pkpy2TKEPKc.exit99:                           ; preds = %76, %74
   %163 = load i16, ptr %162, align 2
   %164 = zext i16 %163 to i64
   %165 = load ptr, ptr %161, align 8
-  %166 = getelementptr inbounds nuw %"struct.pkpy::CodeBlock", ptr %165, i64 %164
+  %166 = getelementptr inbounds nuw [24 x i8], ptr %165, i64 %164
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 20
   %168 = load i32, ptr %167, align 4
   %.not.i100 = icmp eq i32 %168, -1
@@ -3006,7 +3000,7 @@ define linkonce_odr noundef zeroext i8 @_ZN4pkpy2TKEPKc(ptr noundef %0) local_un
 
 2:                                                ; preds = %1, %17
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
   %.not20 = icmp eq i8 %5, 0
@@ -3082,7 +3076,7 @@ define linkonce_odr void @_ZN4pkpy8Compiler11SyntaxErrorENS_3StrE(ptr noundef no
 
 .thread:                                          ; preds = %16, %2
   %.pn = phi i64 [ %7, %2 ], [ %18, %16 ]
-  %.0.i.pn = getelementptr inbounds %"struct.pkpy::Token", ptr %11, i64 %.pn
+  %.0.i.pn = getelementptr inbounds [72 x i8], ptr %11, i64 %.pn
   %.in = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 20
   %20 = load i32, ptr %.in, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 8
@@ -3324,7 +3318,7 @@ define void @_ZN4pkpy8Compiler16init_pratt_rulesEv() local_unnamed_addr #8 align
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 95
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 36, i1 false)
@@ -3332,7 +3326,7 @@ define void @_ZN4pkpy8Compiler16init_pratt_rulesEv() local_unnamed_addr #8 align
 
 .preheader:                                       ; preds = %2, %18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
   %.not20.i = icmp eq i8 %6, 0
@@ -3371,7 +3365,7 @@ define void @_ZN4pkpy8Compiler16init_pratt_rulesEv() local_unnamed_addr #8 align
 
 _ZN4pkpy2TKEPKc.exit:                             ; preds = %18, %16
   %.015.i = phi i64 [ %17, %16 ], [ 255, %18 ]
-  %19 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i
+  %19 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i
   %.sroa.3351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler10exprAttribEv to i64), ptr %.sroa.3351.0..sroa_idx, align 8
@@ -3383,7 +3377,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %18, %16
 
 20:                                               ; preds = %35, %_ZN4pkpy2TKEPKc.exit
   %indvars.iv.i365 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit ], [ %indvars.iv.next.i373, %35 ]
-  %21 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i365
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i365
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
   %.not20.i366 = icmp eq i8 %23, 0
@@ -3422,7 +3416,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %18, %16
 
 _ZN4pkpy2TKEPKc.exit377:                          ; preds = %35, %33
   %.015.i375 = phi i64 [ %34, %33 ], [ 255, %35 ]
-  %36 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i375
+  %36 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i375
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler9exprGroupEv to i64), ptr %36, align 8
   %.sroa.2342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %.sroa.2342.0..sroa_idx, align 8
@@ -3436,7 +3430,7 @@ _ZN4pkpy2TKEPKc.exit377:                          ; preds = %35, %33
 
 37:                                               ; preds = %52, %_ZN4pkpy2TKEPKc.exit377
   %indvars.iv.i378 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit377 ], [ %indvars.iv.next.i386, %52 ]
-  %38 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i378
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i378
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 1
   %.not20.i379 = icmp eq i8 %40, 0
@@ -3475,7 +3469,7 @@ _ZN4pkpy2TKEPKc.exit377:                          ; preds = %35, %33
 
 _ZN4pkpy2TKEPKc.exit390:                          ; preds = %52, %50
   %.015.i388 = phi i64 [ %51, %50 ], [ 255, %52 ]
-  %53 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i388
+  %53 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i388
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprListEv to i64), ptr %53, align 8
   %.sroa.2334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 0, ptr %.sroa.2334.0..sroa_idx, align 8
@@ -3489,7 +3483,7 @@ _ZN4pkpy2TKEPKc.exit390:                          ; preds = %52, %50
 
 54:                                               ; preds = %69, %_ZN4pkpy2TKEPKc.exit390
   %indvars.iv.i391 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit390 ], [ %indvars.iv.next.i399, %69 ]
-  %55 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i391
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i391
   %56 = load ptr, ptr %55, align 8
   %57 = load i8, ptr %56, align 1
   %.not20.i392 = icmp eq i8 %57, 0
@@ -3528,7 +3522,7 @@ _ZN4pkpy2TKEPKc.exit390:                          ; preds = %52, %50
 
 _ZN4pkpy2TKEPKc.exit403:                          ; preds = %69, %67
   %.015.i401 = phi i64 [ %68, %67 ], [ 255, %69 ]
-  %70 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i401
+  %70 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i401
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler7exprMapEv to i64), ptr %70, align 8
   %.sroa.2326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.2326.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -3536,7 +3530,7 @@ _ZN4pkpy2TKEPKc.exit403:                          ; preds = %69, %67
 
 71:                                               ; preds = %86, %_ZN4pkpy2TKEPKc.exit403
   %indvars.iv.i404 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit403 ], [ %indvars.iv.next.i412, %86 ]
-  %72 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i404
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i404
   %73 = load ptr, ptr %72, align 8
   %74 = load i8, ptr %73, align 1
   %.not20.i405 = icmp eq i8 %74, 0
@@ -3575,7 +3569,7 @@ _ZN4pkpy2TKEPKc.exit403:                          ; preds = %69, %67
 
 _ZN4pkpy2TKEPKc.exit416:                          ; preds = %86, %84
   %.015.i414 = phi i64 [ %85, %84 ], [ 255, %86 ]
-  %87 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i414
+  %87 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i414
   %.sroa.3319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3319.0..sroa_idx, align 8
@@ -3587,7 +3581,7 @@ _ZN4pkpy2TKEPKc.exit416:                          ; preds = %86, %84
 
 88:                                               ; preds = %103, %_ZN4pkpy2TKEPKc.exit416
   %indvars.iv.i417 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit416 ], [ %indvars.iv.next.i425, %103 ]
-  %89 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i417
+  %89 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i417
   %90 = load ptr, ptr %89, align 8
   %91 = load i8, ptr %90, align 1
   %.not20.i418 = icmp eq i8 %91, 0
@@ -3626,7 +3620,7 @@ _ZN4pkpy2TKEPKc.exit416:                          ; preds = %86, %84
 
 _ZN4pkpy2TKEPKc.exit429:                          ; preds = %103, %101
   %.015.i427 = phi i64 [ %102, %101 ], [ 255, %103 ]
-  %104 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i427
+  %104 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i427
   %.sroa.3311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3311.0..sroa_idx, align 8
@@ -3638,7 +3632,7 @@ _ZN4pkpy2TKEPKc.exit429:                          ; preds = %103, %101
 
 105:                                              ; preds = %120, %_ZN4pkpy2TKEPKc.exit429
   %indvars.iv.i430 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit429 ], [ %indvars.iv.next.i438, %120 ]
-  %106 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i430
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i430
   %107 = load ptr, ptr %106, align 8
   %108 = load i8, ptr %107, align 1
   %.not20.i431 = icmp eq i8 %108, 0
@@ -3677,7 +3671,7 @@ _ZN4pkpy2TKEPKc.exit429:                          ; preds = %103, %101
 
 _ZN4pkpy2TKEPKc.exit442:                          ; preds = %120, %118
   %.015.i440 = phi i64 [ %119, %118 ], [ 255, %120 ]
-  %121 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i440
+  %121 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i440
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %121, align 8
   %.sroa.2302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i64 0, ptr %.sroa.2302.0..sroa_idx, align 8
@@ -3691,7 +3685,7 @@ _ZN4pkpy2TKEPKc.exit442:                          ; preds = %120, %118
 
 122:                                              ; preds = %137, %_ZN4pkpy2TKEPKc.exit442
   %indvars.iv.i443 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit442 ], [ %indvars.iv.next.i451, %137 ]
-  %123 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i443
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i443
   %124 = load ptr, ptr %123, align 8
   %125 = load i8, ptr %124, align 1
   %.not20.i444 = icmp eq i8 %125, 0
@@ -3730,7 +3724,7 @@ _ZN4pkpy2TKEPKc.exit442:                          ; preds = %120, %118
 
 _ZN4pkpy2TKEPKc.exit455:                          ; preds = %137, %135
   %.015.i453 = phi i64 [ %136, %135 ], [ 255, %137 ]
-  %138 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i453
+  %138 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i453
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %138, align 8
   %.sroa.2294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i64 0, ptr %.sroa.2294.0..sroa_idx, align 8
@@ -3744,7 +3738,7 @@ _ZN4pkpy2TKEPKc.exit455:                          ; preds = %137, %135
 
 139:                                              ; preds = %154, %_ZN4pkpy2TKEPKc.exit455
   %indvars.iv.i456 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit455 ], [ %indvars.iv.next.i464, %154 ]
-  %140 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i456
+  %140 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i456
   %141 = load ptr, ptr %140, align 8
   %142 = load i8, ptr %141, align 1
   %.not20.i457 = icmp eq i8 %142, 0
@@ -3783,7 +3777,7 @@ _ZN4pkpy2TKEPKc.exit455:                          ; preds = %137, %135
 
 _ZN4pkpy2TKEPKc.exit468:                          ; preds = %154, %152
   %.015.i466 = phi i64 [ %153, %152 ], [ 255, %154 ]
-  %155 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i466
+  %155 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i466
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %155, align 8
   %.sroa.2286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   %.sroa.5289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 32
@@ -3793,7 +3787,7 @@ _ZN4pkpy2TKEPKc.exit468:                          ; preds = %154, %152
 
 156:                                              ; preds = %171, %_ZN4pkpy2TKEPKc.exit468
   %indvars.iv.i469 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit468 ], [ %indvars.iv.next.i477, %171 ]
-  %157 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i469
+  %157 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i469
   %158 = load ptr, ptr %157, align 8
   %159 = load i8, ptr %158, align 1
   %.not20.i470 = icmp eq i8 %159, 0
@@ -3832,7 +3826,7 @@ _ZN4pkpy2TKEPKc.exit468:                          ; preds = %154, %152
 
 _ZN4pkpy2TKEPKc.exit481:                          ; preds = %171, %169
   %.015.i479 = phi i64 [ %170, %169 ], [ 255, %171 ]
-  %172 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i479
+  %172 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i479
   %.sroa.3279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3279.0..sroa_idx, align 8
@@ -3844,7 +3838,7 @@ _ZN4pkpy2TKEPKc.exit481:                          ; preds = %171, %169
 
 173:                                              ; preds = %188, %_ZN4pkpy2TKEPKc.exit481
   %indvars.iv.i482 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit481 ], [ %indvars.iv.next.i490, %188 ]
-  %174 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i482
+  %174 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i482
   %175 = load ptr, ptr %174, align 8
   %176 = load i8, ptr %175, align 1
   %.not20.i483 = icmp eq i8 %176, 0
@@ -3883,7 +3877,7 @@ _ZN4pkpy2TKEPKc.exit481:                          ; preds = %171, %169
 
 _ZN4pkpy2TKEPKc.exit494:                          ; preds = %188, %186
   %.015.i492 = phi i64 [ %187, %186 ], [ 255, %188 ]
-  %189 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i492
+  %189 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i492
   %.sroa.3271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3271.0..sroa_idx, align 8
@@ -3895,7 +3889,7 @@ _ZN4pkpy2TKEPKc.exit494:                          ; preds = %188, %186
 
 190:                                              ; preds = %205, %_ZN4pkpy2TKEPKc.exit494
   %indvars.iv.i495 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit494 ], [ %indvars.iv.next.i503, %205 ]
-  %191 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i495
+  %191 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i495
   %192 = load ptr, ptr %191, align 8
   %193 = load i8, ptr %192, align 1
   %.not20.i496 = icmp eq i8 %193, 0
@@ -3934,7 +3928,7 @@ _ZN4pkpy2TKEPKc.exit494:                          ; preds = %188, %186
 
 _ZN4pkpy2TKEPKc.exit507:                          ; preds = %205, %203
   %.015.i505 = phi i64 [ %204, %203 ], [ 255, %205 ]
-  %206 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i505
+  %206 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i505
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %206, align 8
   %.sroa.2262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i64 0, ptr %.sroa.2262.0..sroa_idx, align 8
@@ -3948,7 +3942,7 @@ _ZN4pkpy2TKEPKc.exit507:                          ; preds = %205, %203
 
 207:                                              ; preds = %222, %_ZN4pkpy2TKEPKc.exit507
   %indvars.iv.i508 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit507 ], [ %indvars.iv.next.i516, %222 ]
-  %208 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i508
+  %208 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i508
   %209 = load ptr, ptr %208, align 8
   %210 = load i8, ptr %209, align 1
   %.not20.i509 = icmp eq i8 %210, 0
@@ -3987,7 +3981,7 @@ _ZN4pkpy2TKEPKc.exit507:                          ; preds = %205, %203
 
 _ZN4pkpy2TKEPKc.exit520:                          ; preds = %222, %220
   %.015.i518 = phi i64 [ %221, %220 ], [ 255, %222 ]
-  %223 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i518
+  %223 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i518
   %.sroa.3255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %223, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3255.0..sroa_idx, align 8
@@ -3999,7 +3993,7 @@ _ZN4pkpy2TKEPKc.exit520:                          ; preds = %222, %220
 
 224:                                              ; preds = %239, %_ZN4pkpy2TKEPKc.exit520
   %indvars.iv.i521 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit520 ], [ %indvars.iv.next.i529, %239 ]
-  %225 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i521
+  %225 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i521
   %226 = load ptr, ptr %225, align 8
   %227 = load i8, ptr %226, align 1
   %.not20.i522 = icmp eq i8 %227, 0
@@ -4038,7 +4032,7 @@ _ZN4pkpy2TKEPKc.exit520:                          ; preds = %222, %220
 
 _ZN4pkpy2TKEPKc.exit533:                          ; preds = %239, %237
   %.015.i531 = phi i64 [ %238, %237 ], [ 255, %239 ]
-  %240 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i531
+  %240 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i531
   %.sroa.3247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3247.0..sroa_idx, align 8
@@ -4050,7 +4044,7 @@ _ZN4pkpy2TKEPKc.exit533:                          ; preds = %239, %237
 
 241:                                              ; preds = %256, %_ZN4pkpy2TKEPKc.exit533
   %indvars.iv.i534 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit533 ], [ %indvars.iv.next.i542, %256 ]
-  %242 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i534
+  %242 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i534
   %243 = load ptr, ptr %242, align 8
   %244 = load i8, ptr %243, align 1
   %.not20.i535 = icmp eq i8 %244, 0
@@ -4089,7 +4083,7 @@ _ZN4pkpy2TKEPKc.exit533:                          ; preds = %239, %237
 
 _ZN4pkpy2TKEPKc.exit546:                          ; preds = %256, %254
   %.015.i544 = phi i64 [ %255, %254 ], [ 255, %256 ]
-  %257 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i544
+  %257 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i544
   %.sroa.3239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %257, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %257, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3239.0..sroa_idx, align 8
@@ -4101,7 +4095,7 @@ _ZN4pkpy2TKEPKc.exit546:                          ; preds = %256, %254
 
 258:                                              ; preds = %273, %_ZN4pkpy2TKEPKc.exit546
   %indvars.iv.i547 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit546 ], [ %indvars.iv.next.i555, %273 ]
-  %259 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i547
+  %259 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i547
   %260 = load ptr, ptr %259, align 8
   %261 = load i8, ptr %260, align 1
   %.not20.i548 = icmp eq i8 %261, 0
@@ -4140,7 +4134,7 @@ _ZN4pkpy2TKEPKc.exit546:                          ; preds = %256, %254
 
 _ZN4pkpy2TKEPKc.exit559:                          ; preds = %273, %271
   %.015.i557 = phi i64 [ %272, %271 ], [ 255, %273 ]
-  %274 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i557
+  %274 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i557
   %.sroa.3231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %274, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3231.0..sroa_idx, align 8
@@ -4152,7 +4146,7 @@ _ZN4pkpy2TKEPKc.exit559:                          ; preds = %273, %271
 
 275:                                              ; preds = %290, %_ZN4pkpy2TKEPKc.exit559
   %indvars.iv.i560 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit559 ], [ %indvars.iv.next.i568, %290 ]
-  %276 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i560
+  %276 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i560
   %277 = load ptr, ptr %276, align 8
   %278 = load i8, ptr %277, align 1
   %.not20.i561 = icmp eq i8 %278, 0
@@ -4191,7 +4185,7 @@ _ZN4pkpy2TKEPKc.exit559:                          ; preds = %273, %271
 
 _ZN4pkpy2TKEPKc.exit572:                          ; preds = %290, %288
   %.015.i570 = phi i64 [ %289, %288 ], [ 255, %290 ]
-  %291 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i570
+  %291 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i570
   %.sroa.3223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %291, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3223.0..sroa_idx, align 8
@@ -4203,7 +4197,7 @@ _ZN4pkpy2TKEPKc.exit572:                          ; preds = %290, %288
 
 292:                                              ; preds = %307, %_ZN4pkpy2TKEPKc.exit572
   %indvars.iv.i573 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit572 ], [ %indvars.iv.next.i581, %307 ]
-  %293 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i573
+  %293 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i573
   %294 = load ptr, ptr %293, align 8
   %295 = load i8, ptr %294, align 1
   %.not20.i574 = icmp eq i8 %295, 0
@@ -4242,7 +4236,7 @@ _ZN4pkpy2TKEPKc.exit572:                          ; preds = %290, %288
 
 _ZN4pkpy2TKEPKc.exit585:                          ; preds = %307, %305
   %.015.i583 = phi i64 [ %306, %305 ], [ 255, %307 ]
-  %308 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i583
+  %308 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i583
   %.sroa.3215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %308, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3215.0..sroa_idx, align 8
@@ -4254,7 +4248,7 @@ _ZN4pkpy2TKEPKc.exit585:                          ; preds = %307, %305
 
 309:                                              ; preds = %324, %_ZN4pkpy2TKEPKc.exit585
   %indvars.iv.i586 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit585 ], [ %indvars.iv.next.i594, %324 ]
-  %310 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i586
+  %310 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i586
   %311 = load ptr, ptr %310, align 8
   %312 = load i8, ptr %311, align 1
   %.not20.i587 = icmp eq i8 %312, 0
@@ -4293,7 +4287,7 @@ _ZN4pkpy2TKEPKc.exit585:                          ; preds = %307, %305
 
 _ZN4pkpy2TKEPKc.exit598:                          ; preds = %324, %322
   %.015.i596 = phi i64 [ %323, %322 ], [ 255, %324 ]
-  %325 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i596
+  %325 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i596
   %.sroa.3207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %325, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %325, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3207.0..sroa_idx, align 8
@@ -4305,7 +4299,7 @@ _ZN4pkpy2TKEPKc.exit598:                          ; preds = %324, %322
 
 326:                                              ; preds = %341, %_ZN4pkpy2TKEPKc.exit598
   %indvars.iv.i599 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit598 ], [ %indvars.iv.next.i607, %341 ]
-  %327 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i599
+  %327 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i599
   %328 = load ptr, ptr %327, align 8
   %329 = load i8, ptr %328, align 1
   %.not20.i600 = icmp eq i8 %329, 0
@@ -4344,7 +4338,7 @@ _ZN4pkpy2TKEPKc.exit598:                          ; preds = %324, %322
 
 _ZN4pkpy2TKEPKc.exit611:                          ; preds = %341, %339
   %.015.i609 = phi i64 [ %340, %339 ], [ 255, %341 ]
-  %342 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i609
+  %342 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i609
   %.sroa.3199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %342, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %342, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3199.0..sroa_idx, align 8
@@ -4356,7 +4350,7 @@ _ZN4pkpy2TKEPKc.exit611:                          ; preds = %341, %339
 
 343:                                              ; preds = %358, %_ZN4pkpy2TKEPKc.exit611
   %indvars.iv.i612 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit611 ], [ %indvars.iv.next.i620, %358 ]
-  %344 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i612
+  %344 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i612
   %345 = load ptr, ptr %344, align 8
   %346 = load i8, ptr %345, align 1
   %.not20.i613 = icmp eq i8 %346, 0
@@ -4395,7 +4389,7 @@ _ZN4pkpy2TKEPKc.exit611:                          ; preds = %341, %339
 
 _ZN4pkpy2TKEPKc.exit624:                          ; preds = %358, %356
   %.015.i622 = phi i64 [ %357, %356 ], [ 255, %358 ]
-  %359 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i622
+  %359 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i622
   %.sroa.3191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %359, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %359, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3191.0..sroa_idx, align 8
@@ -4407,7 +4401,7 @@ _ZN4pkpy2TKEPKc.exit624:                          ; preds = %358, %356
 
 360:                                              ; preds = %375, %_ZN4pkpy2TKEPKc.exit624
   %indvars.iv.i625 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit624 ], [ %indvars.iv.next.i633, %375 ]
-  %361 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i625
+  %361 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i625
   %362 = load ptr, ptr %361, align 8
   %363 = load i8, ptr %362, align 1
   %.not20.i626 = icmp eq i8 %363, 0
@@ -4446,7 +4440,7 @@ _ZN4pkpy2TKEPKc.exit624:                          ; preds = %358, %356
 
 _ZN4pkpy2TKEPKc.exit637:                          ; preds = %375, %373
   %.015.i635 = phi i64 [ %374, %373 ], [ 255, %375 ]
-  %376 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i635
+  %376 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i635
   %.sroa.3183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %376, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3183.0..sroa_idx, align 8
@@ -4458,7 +4452,7 @@ _ZN4pkpy2TKEPKc.exit637:                          ; preds = %375, %373
 
 377:                                              ; preds = %392, %_ZN4pkpy2TKEPKc.exit637
   %indvars.iv.i638 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit637 ], [ %indvars.iv.next.i646, %392 ]
-  %378 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i638
+  %378 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i638
   %379 = load ptr, ptr %378, align 8
   %380 = load i8, ptr %379, align 1
   %.not20.i639 = icmp eq i8 %380, 0
@@ -4497,7 +4491,7 @@ _ZN4pkpy2TKEPKc.exit637:                          ; preds = %375, %373
 
 _ZN4pkpy2TKEPKc.exit650:                          ; preds = %392, %390
   %.015.i648 = phi i64 [ %391, %390 ], [ 255, %392 ]
-  %393 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i648
+  %393 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i648
   %.sroa.3175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %393, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %393, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3175.0..sroa_idx, align 8
@@ -4509,7 +4503,7 @@ _ZN4pkpy2TKEPKc.exit650:                          ; preds = %392, %390
 
 394:                                              ; preds = %409, %_ZN4pkpy2TKEPKc.exit650
   %indvars.iv.i651 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit650 ], [ %indvars.iv.next.i659, %409 ]
-  %395 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i651
+  %395 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i651
   %396 = load ptr, ptr %395, align 8
   %397 = load i8, ptr %396, align 1
   %.not20.i652 = icmp eq i8 %397, 0
@@ -4548,7 +4542,7 @@ _ZN4pkpy2TKEPKc.exit650:                          ; preds = %392, %390
 
 _ZN4pkpy2TKEPKc.exit663:                          ; preds = %409, %407
   %.015.i661 = phi i64 [ %408, %407 ], [ 255, %409 ]
-  %410 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i661
+  %410 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i661
   %.sroa.3167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %410, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %410, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3167.0..sroa_idx, align 8
@@ -4560,7 +4554,7 @@ _ZN4pkpy2TKEPKc.exit663:                          ; preds = %409, %407
 
 411:                                              ; preds = %426, %_ZN4pkpy2TKEPKc.exit663
   %indvars.iv.i664 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit663 ], [ %indvars.iv.next.i672, %426 ]
-  %412 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i664
+  %412 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i664
   %413 = load ptr, ptr %412, align 8
   %414 = load i8, ptr %413, align 1
   %.not20.i665 = icmp eq i8 %414, 0
@@ -4599,7 +4593,7 @@ _ZN4pkpy2TKEPKc.exit663:                          ; preds = %409, %407
 
 _ZN4pkpy2TKEPKc.exit676:                          ; preds = %426, %424
   %.015.i674 = phi i64 [ %425, %424 ], [ 255, %426 ]
-  %427 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i674
+  %427 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i674
   %.sroa.3159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %427, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %427, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3159.0..sroa_idx, align 8
@@ -4611,7 +4605,7 @@ _ZN4pkpy2TKEPKc.exit676:                          ; preds = %426, %424
 
 428:                                              ; preds = %443, %_ZN4pkpy2TKEPKc.exit676
   %indvars.iv.i677 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit676 ], [ %indvars.iv.next.i685, %443 ]
-  %429 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i677
+  %429 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i677
   %430 = load ptr, ptr %429, align 8
   %431 = load i8, ptr %430, align 1
   %.not20.i678 = icmp eq i8 %431, 0
@@ -4650,7 +4644,7 @@ _ZN4pkpy2TKEPKc.exit676:                          ; preds = %426, %424
 
 _ZN4pkpy2TKEPKc.exit689:                          ; preds = %443, %441
   %.015.i687 = phi i64 [ %442, %441 ], [ 255, %443 ]
-  %444 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i687
+  %444 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i687
   %.sroa.3151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %444, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %444, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3151.0..sroa_idx, align 8
@@ -4662,7 +4656,7 @@ _ZN4pkpy2TKEPKc.exit689:                          ; preds = %443, %441
 
 445:                                              ; preds = %460, %_ZN4pkpy2TKEPKc.exit689
   %indvars.iv.i690 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit689 ], [ %indvars.iv.next.i698, %460 ]
-  %446 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i690
+  %446 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i690
   %447 = load ptr, ptr %446, align 8
   %448 = load i8, ptr %447, align 1
   %.not20.i691 = icmp eq i8 %448, 0
@@ -4701,7 +4695,7 @@ _ZN4pkpy2TKEPKc.exit689:                          ; preds = %443, %441
 
 _ZN4pkpy2TKEPKc.exit702:                          ; preds = %460, %458
   %.015.i700 = phi i64 [ %459, %458 ], [ 255, %460 ]
-  %461 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i700
+  %461 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i700
   %.sroa.3143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %461, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %461, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprTernaryEv to i64), ptr %.sroa.3143.0..sroa_idx, align 8
@@ -4713,7 +4707,7 @@ _ZN4pkpy2TKEPKc.exit702:                          ; preds = %460, %458
 
 462:                                              ; preds = %477, %_ZN4pkpy2TKEPKc.exit702
   %indvars.iv.i703 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit702 ], [ %indvars.iv.next.i711, %477 ]
-  %463 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i703
+  %463 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i703
   %464 = load ptr, ptr %463, align 8
   %465 = load i8, ptr %464, align 1
   %.not20.i704 = icmp eq i8 %465, 0
@@ -4752,7 +4746,7 @@ _ZN4pkpy2TKEPKc.exit702:                          ; preds = %460, %458
 
 _ZN4pkpy2TKEPKc.exit715:                          ; preds = %477, %475
   %.015.i713 = phi i64 [ %476, %475 ], [ 255, %477 ]
-  %478 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i713
+  %478 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i713
   %.sroa.3135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %478, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %478, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3135.0..sroa_idx, align 8
@@ -4764,7 +4758,7 @@ _ZN4pkpy2TKEPKc.exit715:                          ; preds = %477, %475
 
 479:                                              ; preds = %494, %_ZN4pkpy2TKEPKc.exit715
   %indvars.iv.i716 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit715 ], [ %indvars.iv.next.i724, %494 ]
-  %480 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i716
+  %480 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i716
   %481 = load ptr, ptr %480, align 8
   %482 = load i8, ptr %481, align 1
   %.not20.i717 = icmp eq i8 %482, 0
@@ -4803,7 +4797,7 @@ _ZN4pkpy2TKEPKc.exit715:                          ; preds = %477, %475
 
 _ZN4pkpy2TKEPKc.exit728:                          ; preds = %494, %492
   %.015.i726 = phi i64 [ %493, %492 ], [ 255, %494 ]
-  %495 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i726
+  %495 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i726
   %.sroa.3127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %495, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %495, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3127.0..sroa_idx, align 8
@@ -4815,7 +4809,7 @@ _ZN4pkpy2TKEPKc.exit728:                          ; preds = %494, %492
 
 496:                                              ; preds = %511, %_ZN4pkpy2TKEPKc.exit728
   %indvars.iv.i729 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit728 ], [ %indvars.iv.next.i737, %511 ]
-  %497 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i729
+  %497 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i729
   %498 = load ptr, ptr %497, align 8
   %499 = load i8, ptr %498, align 1
   %.not20.i730 = icmp eq i8 %499, 0
@@ -4854,7 +4848,7 @@ _ZN4pkpy2TKEPKc.exit728:                          ; preds = %494, %492
 
 _ZN4pkpy2TKEPKc.exit741:                          ; preds = %511, %509
   %.015.i739 = phi i64 [ %510, %509 ], [ 255, %511 ]
-  %512 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i739
+  %512 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i739
   %.sroa.3119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %512, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %512, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler7exprAndEv to i64), ptr %.sroa.3119.0..sroa_idx, align 8
@@ -4866,7 +4860,7 @@ _ZN4pkpy2TKEPKc.exit741:                          ; preds = %511, %509
 
 513:                                              ; preds = %528, %_ZN4pkpy2TKEPKc.exit741
   %indvars.iv.i742 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit741 ], [ %indvars.iv.next.i750, %528 ]
-  %514 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i742
+  %514 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i742
   %515 = load ptr, ptr %514, align 8
   %516 = load i8, ptr %515, align 1
   %.not20.i743 = icmp eq i8 %516, 0
@@ -4905,7 +4899,7 @@ _ZN4pkpy2TKEPKc.exit741:                          ; preds = %511, %509
 
 _ZN4pkpy2TKEPKc.exit754:                          ; preds = %528, %526
   %.015.i752 = phi i64 [ %527, %526 ], [ 255, %528 ]
-  %529 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i752
+  %529 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i752
   %.sroa.3111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %529, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %529, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler6exprOrEv to i64), ptr %.sroa.3111.0..sroa_idx, align 8
@@ -4917,7 +4911,7 @@ _ZN4pkpy2TKEPKc.exit754:                          ; preds = %528, %526
 
 530:                                              ; preds = %545, %_ZN4pkpy2TKEPKc.exit754
   %indvars.iv.i755 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit754 ], [ %indvars.iv.next.i763, %545 ]
-  %531 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i755
+  %531 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i755
   %532 = load ptr, ptr %531, align 8
   %533 = load i8, ptr %532, align 1
   %.not20.i756 = icmp eq i8 %533, 0
@@ -4956,7 +4950,7 @@ _ZN4pkpy2TKEPKc.exit754:                          ; preds = %528, %526
 
 _ZN4pkpy2TKEPKc.exit767:                          ; preds = %545, %543
   %.015.i765 = phi i64 [ %544, %543 ], [ 255, %545 ]
-  %546 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i765
+  %546 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i765
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler7exprNotEv to i64), ptr %546, align 8
   %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %546, i64 8
   %.sroa.5105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %546, i64 32
@@ -4966,7 +4960,7 @@ _ZN4pkpy2TKEPKc.exit767:                          ; preds = %545, %543
 
 547:                                              ; preds = %562, %_ZN4pkpy2TKEPKc.exit767
   %indvars.iv.i768 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit767 ], [ %indvars.iv.next.i776, %562 ]
-  %548 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i768
+  %548 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i768
   %549 = load ptr, ptr %548, align 8
   %550 = load i8, ptr %549, align 1
   %.not20.i769 = icmp eq i8 %550, 0
@@ -5005,7 +4999,7 @@ _ZN4pkpy2TKEPKc.exit767:                          ; preds = %545, %543
 
 _ZN4pkpy2TKEPKc.exit780:                          ; preds = %562, %560
   %.015.i778 = phi i64 [ %561, %560 ], [ 255, %562 ]
-  %563 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i778
+  %563 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i778
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %563, align 8
   %.sroa.294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %563, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.294.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5013,7 +5007,7 @@ _ZN4pkpy2TKEPKc.exit780:                          ; preds = %562, %560
 
 564:                                              ; preds = %579, %_ZN4pkpy2TKEPKc.exit780
   %indvars.iv.i781 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit780 ], [ %indvars.iv.next.i789, %579 ]
-  %565 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i781
+  %565 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i781
   %566 = load ptr, ptr %565, align 8
   %567 = load i8, ptr %566, align 1
   %.not20.i782 = icmp eq i8 %567, 0
@@ -5052,7 +5046,7 @@ _ZN4pkpy2TKEPKc.exit780:                          ; preds = %562, %560
 
 _ZN4pkpy2TKEPKc.exit793:                          ; preds = %579, %577
   %.015.i791 = phi i64 [ %578, %577 ], [ 255, %579 ]
-  %580 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i791
+  %580 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i791
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %580, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %580, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.286.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5060,7 +5054,7 @@ _ZN4pkpy2TKEPKc.exit793:                          ; preds = %579, %577
 
 581:                                              ; preds = %596, %_ZN4pkpy2TKEPKc.exit793
   %indvars.iv.i794 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit793 ], [ %indvars.iv.next.i802, %596 ]
-  %582 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i794
+  %582 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i794
   %583 = load ptr, ptr %582, align 8
   %584 = load i8, ptr %583, align 1
   %.not20.i795 = icmp eq i8 %584, 0
@@ -5099,7 +5093,7 @@ _ZN4pkpy2TKEPKc.exit793:                          ; preds = %579, %577
 
 _ZN4pkpy2TKEPKc.exit806:                          ; preds = %596, %594
   %.015.i804 = phi i64 [ %595, %594 ], [ 255, %596 ]
-  %597 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i804
+  %597 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i804
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %597, align 8
   %.sroa.278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %597, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.278.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5107,7 +5101,7 @@ _ZN4pkpy2TKEPKc.exit806:                          ; preds = %596, %594
 
 598:                                              ; preds = %613, %_ZN4pkpy2TKEPKc.exit806
   %indvars.iv.i807 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit806 ], [ %indvars.iv.next.i815, %613 ]
-  %599 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i807
+  %599 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i807
   %600 = load ptr, ptr %599, align 8
   %601 = load i8, ptr %600, align 1
   %.not20.i808 = icmp eq i8 %601, 0
@@ -5146,7 +5140,7 @@ _ZN4pkpy2TKEPKc.exit806:                          ; preds = %596, %594
 
 _ZN4pkpy2TKEPKc.exit819:                          ; preds = %613, %611
   %.015.i817 = phi i64 [ %612, %611 ], [ 255, %613 ]
-  %614 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i817
+  %614 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i817
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %614, align 8
   %.sroa.270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %614, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.270.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5154,7 +5148,7 @@ _ZN4pkpy2TKEPKc.exit819:                          ; preds = %613, %611
 
 615:                                              ; preds = %630, %_ZN4pkpy2TKEPKc.exit819
   %indvars.iv.i820 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit819 ], [ %indvars.iv.next.i828, %630 ]
-  %616 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i820
+  %616 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i820
   %617 = load ptr, ptr %616, align 8
   %618 = load i8, ptr %617, align 1
   %.not20.i821 = icmp eq i8 %618, 0
@@ -5193,7 +5187,7 @@ _ZN4pkpy2TKEPKc.exit819:                          ; preds = %613, %611
 
 _ZN4pkpy2TKEPKc.exit832:                          ; preds = %630, %628
   %.015.i830 = phi i64 [ %629, %628 ], [ 255, %630 ]
-  %631 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i830
+  %631 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i830
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler10exprLambdaEv to i64), ptr %631, align 8
   %.sroa.262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %631, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.262.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5201,7 +5195,7 @@ _ZN4pkpy2TKEPKc.exit832:                          ; preds = %630, %628
 
 632:                                              ; preds = %647, %_ZN4pkpy2TKEPKc.exit832
   %indvars.iv.i833 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit832 ], [ %indvars.iv.next.i841, %647 ]
-  %633 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i833
+  %633 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i833
   %634 = load ptr, ptr %633, align 8
   %635 = load i8, ptr %634, align 1
   %.not20.i834 = icmp eq i8 %635, 0
@@ -5240,7 +5234,7 @@ _ZN4pkpy2TKEPKc.exit832:                          ; preds = %630, %628
 
 _ZN4pkpy2TKEPKc.exit845:                          ; preds = %647, %645
   %.015.i843 = phi i64 [ %646, %645 ], [ 255, %647 ]
-  %648 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i843
+  %648 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i843
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprNameEv to i64), ptr %648, align 8
   %.sroa.254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %648, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.254.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5248,7 +5242,7 @@ _ZN4pkpy2TKEPKc.exit845:                          ; preds = %647, %645
 
 649:                                              ; preds = %664, %_ZN4pkpy2TKEPKc.exit845
   %indvars.iv.i846 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit845 ], [ %indvars.iv.next.i854, %664 ]
-  %650 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i846
+  %650 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i846
   %651 = load ptr, ptr %650, align 8
   %652 = load i8, ptr %651, align 1
   %.not20.i847 = icmp eq i8 %652, 0
@@ -5287,7 +5281,7 @@ _ZN4pkpy2TKEPKc.exit845:                          ; preds = %647, %645
 
 _ZN4pkpy2TKEPKc.exit858:                          ; preds = %664, %662
   %.015.i856 = phi i64 [ %663, %662 ], [ 255, %664 ]
-  %665 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i856
+  %665 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i856
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprLiteralEv to i64), ptr %665, align 8
   %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %665, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.246.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5295,7 +5289,7 @@ _ZN4pkpy2TKEPKc.exit858:                          ; preds = %664, %662
 
 666:                                              ; preds = %681, %_ZN4pkpy2TKEPKc.exit858
   %indvars.iv.i859 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit858 ], [ %indvars.iv.next.i867, %681 ]
-  %667 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i859
+  %667 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i859
   %668 = load ptr, ptr %667, align 8
   %669 = load i8, ptr %668, align 1
   %.not20.i860 = icmp eq i8 %669, 0
@@ -5334,7 +5328,7 @@ _ZN4pkpy2TKEPKc.exit858:                          ; preds = %664, %662
 
 _ZN4pkpy2TKEPKc.exit871:                          ; preds = %681, %679
   %.015.i869 = phi i64 [ %680, %679 ], [ 255, %681 ]
-  %682 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i869
+  %682 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i869
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprLiteralEv to i64), ptr %682, align 8
   %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %682, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.238.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5342,7 +5336,7 @@ _ZN4pkpy2TKEPKc.exit871:                          ; preds = %681, %679
 
 683:                                              ; preds = %698, %_ZN4pkpy2TKEPKc.exit871
   %indvars.iv.i872 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit871 ], [ %indvars.iv.next.i880, %698 ]
-  %684 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i872
+  %684 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i872
   %685 = load ptr, ptr %684, align 8
   %686 = load i8, ptr %685, align 1
   %.not20.i873 = icmp eq i8 %686, 0
@@ -5381,7 +5375,7 @@ _ZN4pkpy2TKEPKc.exit871:                          ; preds = %681, %679
 
 _ZN4pkpy2TKEPKc.exit884:                          ; preds = %698, %696
   %.015.i882 = phi i64 [ %697, %696 ], [ 255, %698 ]
-  %699 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i882
+  %699 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i882
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprFStringEv to i64), ptr %699, align 8
   %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %699, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.230.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5389,7 +5383,7 @@ _ZN4pkpy2TKEPKc.exit884:                          ; preds = %698, %696
 
 700:                                              ; preds = %715, %_ZN4pkpy2TKEPKc.exit884
   %indvars.iv.i885 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit884 ], [ %indvars.iv.next.i893, %715 ]
-  %701 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i885
+  %701 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i885
   %702 = load ptr, ptr %701, align 8
   %703 = load i8, ptr %702, align 1
   %.not20.i886 = icmp eq i8 %703, 0
@@ -5428,7 +5422,7 @@ _ZN4pkpy2TKEPKc.exit884:                          ; preds = %698, %696
 
 _ZN4pkpy2TKEPKc.exit897:                          ; preds = %715, %713
   %.015.i895 = phi i64 [ %714, %713 ], [ 255, %715 ]
-  %716 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i895
+  %716 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i895
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprLongEv to i64), ptr %716, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %716, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.222.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5436,7 +5430,7 @@ _ZN4pkpy2TKEPKc.exit897:                          ; preds = %715, %713
 
 717:                                              ; preds = %732, %_ZN4pkpy2TKEPKc.exit897
   %indvars.iv.i898 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit897 ], [ %indvars.iv.next.i906, %732 ]
-  %718 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i898
+  %718 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i898
   %719 = load ptr, ptr %718, align 8
   %720 = load i8, ptr %719, align 1
   %.not20.i899 = icmp eq i8 %720, 0
@@ -5475,7 +5469,7 @@ _ZN4pkpy2TKEPKc.exit897:                          ; preds = %715, %713
 
 _ZN4pkpy2TKEPKc.exit910:                          ; preds = %732, %730
   %.015.i908 = phi i64 [ %731, %730 ], [ 255, %732 ]
-  %733 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i908
+  %733 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i908
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprImagEv to i64), ptr %733, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %733, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.214.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5483,7 +5477,7 @@ _ZN4pkpy2TKEPKc.exit910:                          ; preds = %732, %730
 
 734:                                              ; preds = %749, %_ZN4pkpy2TKEPKc.exit910
   %indvars.iv.i911 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit910 ], [ %indvars.iv.next.i919, %749 ]
-  %735 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i911
+  %735 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i911
   %736 = load ptr, ptr %735, align 8
   %737 = load i8, ptr %736, align 1
   %.not20.i912 = icmp eq i8 %737, 0
@@ -5522,7 +5516,7 @@ _ZN4pkpy2TKEPKc.exit910:                          ; preds = %732, %730
 
 _ZN4pkpy2TKEPKc.exit923:                          ; preds = %749, %747
   %.015.i921 = phi i64 [ %748, %747 ], [ 255, %749 ]
-  %750 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i921
+  %750 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i921
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler9exprBytesEv to i64), ptr %750, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %750, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.26.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -5530,7 +5524,7 @@ _ZN4pkpy2TKEPKc.exit923:                          ; preds = %749, %747
 
 751:                                              ; preds = %766, %_ZN4pkpy2TKEPKc.exit923
   %indvars.iv.i924 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit923 ], [ %indvars.iv.next.i932, %766 ]
-  %752 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i924
+  %752 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i924
   %753 = load ptr, ptr %752, align 8
   %754 = load i8, ptr %753, align 1
   %.not20.i925 = icmp eq i8 %754, 0
@@ -5569,7 +5563,7 @@ _ZN4pkpy2TKEPKc.exit923:                          ; preds = %749, %747
 
 _ZN4pkpy2TKEPKc.exit936:                          ; preds = %766, %764
   %.015.i934 = phi i64 [ %765, %764 ], [ 255, %766 ]
-  %767 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i934
+  %767 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i934
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler10exprSlice0Ev to i64), ptr %767, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %767, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -5592,7 +5586,7 @@ define void @_ZN4pkpy8Compiler10exprAttribEv(ptr noundef nonnull align 8 derefer
 
 3:                                                ; preds = %18, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %18 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
   %.not20.i = icmp eq i8 %6, 0
@@ -5680,7 +5674,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   unreachable
 
 46:                                               ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
-  %47 = getelementptr inbounds %"struct.pkpy::Token", ptr %40, i64 %37
+  %47 = getelementptr inbounds [72 x i8], ptr %40, i64 %37
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -5727,7 +5721,7 @@ _ZN4pkpy14unique_ptr_128INS_10AttribExprEED2Ev.exit19: ; preds = %68
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit17
 
 72:                                               ; preds = %54
-  %73 = getelementptr inbounds %"struct.pkpy::Token", ptr %63, i64 %61
+  %73 = getelementptr inbounds [72 x i8], ptr %63, i64 %61
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %75 = load i32, ptr %74, align 4, !noalias !25
   store i32 %75, ptr %56, align 8, !noalias !25
@@ -5817,7 +5811,7 @@ define void @_ZN4pkpy8Compiler9exprGroupEv(ptr noundef nonnull align 8 dereferen
 
 14:                                               ; preds = %29, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %29 ]
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %16, align 1
   %.not20.i = icmp eq i8 %17, 0
@@ -5931,7 +5925,7 @@ _ZN4pkpy14unique_ptr_128INS_11GroupedExprEED2Ev.exit18: ; preds = %68
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit14
 
 72:                                               ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
-  %73 = getelementptr inbounds %"struct.pkpy::Token", ptr %63, i64 %60
+  %73 = getelementptr inbounds [72 x i8], ptr %63, i64 %60
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %75 = load i32, ptr %74, align 4, !noalias !31
   store i32 %75, ptr %54, align 8, !noalias !31
@@ -6050,7 +6044,7 @@ _ZN4pkpy14unique_ptr_128INS_8CallExprEED2Ev.exit145: ; preds = %28
   br label %common.resume
 
 32:                                               ; preds = %1
-  %33 = getelementptr inbounds %"struct.pkpy::Token", ptr %23, i64 %20
+  %33 = getelementptr inbounds [72 x i8], ptr %23, i64 %20
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %35 = load i32, ptr %34, align 4, !noalias !34
   store i32 %35, ptr %10, align 8, !noalias !34
@@ -6131,13 +6125,13 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit:    ; preds = %60
   unreachable
 
 76:                                               ; preds = %_ZN4pkpy8Compiler19match_newlines_replEv.exit
-  %77 = getelementptr inbounds %"struct.pkpy::Token", ptr %69, i64 %67
+  %77 = getelementptr inbounds [72 x i8], ptr %69, i64 %67
   %78 = load i8, ptr %77, align 8
   br label %79
 
 79:                                               ; preds = %94, %76
   %indvars.iv.i = phi i64 [ 0, %76 ], [ %indvars.iv.next.i, %94 ]
-  %80 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %81, align 1
   %.not20.i = icmp eq i8 %82, 0
@@ -6194,7 +6188,7 @@ _ZN4pkpy8Compiler5matchEh.exit.thread.preheader:  ; preds = %_ZNK4pkpy8Compiler4
 
 _ZNK4pkpy8Compiler4currEv.exit16:                 ; preds = %_ZN4pkpy2TKEPKc.exit, %110
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i25, %110 ], [ 0, %_ZN4pkpy2TKEPKc.exit ]
-  %96 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i17
+  %96 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i17
   %97 = load ptr, ptr %96, align 8
   %98 = load i8, ptr %97, align 1
   %.not20.i18 = icmp eq i8 %98, 0
@@ -6243,13 +6237,13 @@ _ZN4pkpy2TKEPKc.exit29:                           ; preds = %110, %108
   br i1 %.not.i.i.i30, label %115, label %.invoke
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds %"struct.pkpy::Token", ptr %69, i64 %114
+  %116 = getelementptr inbounds [72 x i8], ptr %69, i64 %114
   %117 = load i8, ptr %116, align 8
   br label %118
 
 118:                                              ; preds = %133, %115
   %indvars.iv.i32 = phi i64 [ 0, %115 ], [ %indvars.iv.next.i40, %133 ]
-  %119 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i32
+  %119 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i32
   %120 = load ptr, ptr %119, align 8
   %121 = load i8, ptr %120, align 1
   %.not20.i33 = icmp eq i8 %121, 0
@@ -6293,7 +6287,7 @@ _ZN4pkpy2TKEPKc.exit44:                           ; preds = %133, %131
 
 .preheader:                                       ; preds = %_ZN4pkpy2TKEPKc.exit44, %149
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i53, %149 ], [ 0, %_ZN4pkpy2TKEPKc.exit44 ]
-  %135 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i45
+  %135 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i45
   %136 = load ptr, ptr %135, align 8
   %137 = load i8, ptr %136, align 1
   %.not20.i46 = icmp eq i8 %137, 0
@@ -6349,7 +6343,7 @@ _ZN4pkpy2TKEPKc.exit57:                           ; preds = %149, %147
   br i1 %.not.i.i.i58, label %160, label %.invoke
 
 160:                                              ; preds = %150
-  %161 = getelementptr inbounds %"struct.pkpy::Token", ptr %155, i64 %153
+  %161 = getelementptr inbounds [72 x i8], ptr %155, i64 %153
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8, !noalias !40
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
@@ -6359,7 +6353,7 @@ _ZN4pkpy2TKEPKc.exit57:                           ; preds = %149, %147
 
 _ZNK4pkpy5Token3strEv.exit:                       ; preds = %160, %180
   %indvars.iv.i61 = phi i64 [ %indvars.iv.next.i69, %180 ], [ 0, %160 ]
-  %166 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i61
+  %166 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i61
   %167 = load ptr, ptr %166, align 8
   %168 = load i8, ptr %167, align 1
   %.not20.i62 = icmp eq i8 %168, 0
@@ -6695,9 +6689,9 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %storemerge.i.i = phi ptr [ %300, %299 ], [ %298, %297 ]
   store ptr %storemerge.i.i, ptr %12, align 8
   %304 = ashr i64 %sext.i.i, 32
-  %305 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %304
   store ptr %305, ptr %13, align 8
-  %306 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %295
+  %306 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %295
   store ptr %306, ptr %14, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit103
 
@@ -6719,7 +6713,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit103:  ; preds = %303, %_ZN4pkpy5stac
 
 _ZN4pkpy8Compiler19match_newlines_replEv.exit105: ; preds = %310, %330
   %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i114, %330 ], [ 0, %310 ]
-  %316 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i106
+  %316 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i106
   %317 = load ptr, ptr %316, align 8
   %318 = load i8, ptr %317, align 1
   %.not20.i107 = icmp eq i8 %318, 0
@@ -6770,7 +6764,7 @@ _ZN4pkpy2TKEPKc.exit118:                          ; preds = %330, %328
   br i1 %.not.i.i.i.i119, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit118
-  %339 = getelementptr inbounds %"struct.pkpy::Token", ptr %334, i64 %332
+  %339 = getelementptr inbounds [72 x i8], ptr %334, i64 %332
   %340 = load i8, ptr %339, align 8
   %.not.i120 = icmp eq i8 %340, %.015.i116
   br i1 %.not.i120, label %_ZN4pkpy8Compiler5matchEh.exit, label %_ZN4pkpy8Compiler5matchEh.exit.thread.preheader
@@ -6782,7 +6776,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
 
 _ZN4pkpy8Compiler5matchEh.exit.thread:            ; preds = %_ZN4pkpy8Compiler5matchEh.exit.thread.preheader, %356
   %indvars.iv.i122 = phi i64 [ %indvars.iv.next.i130, %356 ], [ 0, %_ZN4pkpy8Compiler5matchEh.exit.thread.preheader ]
-  %342 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i122
+  %342 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i122
   %343 = load ptr, ptr %342, align 8
   %344 = load i8, ptr %343, align 1
   %.not20.i123 = icmp eq i8 %344, 0
@@ -6969,7 +6963,7 @@ define void @_ZN4pkpy8Compiler8exprListEv(ptr noundef nonnull align 8 dereferenc
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %19 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %19 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -7012,13 +7006,13 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit:    ; preds = %27
   unreachable
 
 43:                                               ; preds = %_ZN4pkpy8Compiler19match_newlines_replEv.exit
-  %44 = getelementptr inbounds %"struct.pkpy::Token", ptr %36, i64 %34
+  %44 = getelementptr inbounds [72 x i8], ptr %36, i64 %34
   %45 = load i8, ptr %44, align 8
   br label %46
 
 46:                                               ; preds = %61, %43
   %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %61 ]
-  %47 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %48, align 1
   %.not20.i = icmp eq i8 %49, 0
@@ -7134,9 +7128,9 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %storemerge.i.i = phi ptr [ %92, %91 ], [ %90, %89 ]
   store ptr %storemerge.i.i, ptr %22, align 8
   %96 = ashr i64 %sext.i.i, 32
-  %97 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %96
   store ptr %97, ptr %23, align 8
-  %98 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %87
+  %98 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %87
   store ptr %98, ptr %24, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
 
@@ -7165,7 +7159,7 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit16:  ; preds = %_ZN4pkpy14unique_pt
 
 .preheader:                                       ; preds = %_ZN4pkpy8Compiler19match_newlines_replEv.exit16, %128
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i25, %128 ], [ 0, %_ZN4pkpy8Compiler19match_newlines_replEv.exit16 ]
-  %114 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i17
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i17
   %115 = load ptr, ptr %114, align 8
   %116 = load i8, ptr %115, align 1
   %.not20.i18 = icmp eq i8 %116, 0
@@ -7216,7 +7210,7 @@ _ZN4pkpy2TKEPKc.exit29:                           ; preds = %128, %126
   br i1 %.not.i.i.i.i, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit29
-  %137 = getelementptr inbounds %"struct.pkpy::Token", ptr %132, i64 %130
+  %137 = getelementptr inbounds [72 x i8], ptr %132, i64 %130
   %138 = load i8, ptr %137, align 8
   %.not.i30 = icmp eq i8 %138, %.015.i27
   br i1 %.not.i30, label %139, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -7257,7 +7251,7 @@ _ZN4pkpy14unique_ptr_128INS_12ListCompExprEED2Ev.exit104: ; preds = %152
   br label %.body
 
 156:                                              ; preds = %139
-  %157 = getelementptr inbounds %"struct.pkpy::Token", ptr %147, i64 %145
+  %157 = getelementptr inbounds [72 x i8], ptr %147, i64 %145
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 20
   %159 = load i32, ptr %158, align 4, !noalias !55
   store i32 %159, ptr %142, align 8, !noalias !55
@@ -7298,7 +7292,7 @@ _ZN4pkpy14unique_ptr_128INS_12ListCompExprEED2Ev.exit.preheader: ; preds = %168,
 
 _ZN4pkpy14unique_ptr_128INS_12ListCompExprEED2Ev.exit: ; preds = %_ZN4pkpy14unique_ptr_128INS_12ListCompExprEED2Ev.exit.preheader, %185
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i45, %185 ], [ 0, %_ZN4pkpy14unique_ptr_128INS_12ListCompExprEED2Ev.exit.preheader ]
-  %171 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i37
+  %171 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i37
   %172 = load ptr, ptr %171, align 8
   %173 = load i8, ptr %172, align 1
   %.not20.i38 = icmp eq i8 %173, 0
@@ -7376,7 +7370,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
 
 _ZN4pkpy8Compiler19match_newlines_replEv.exit57:  ; preds = %_ZN4pkpy8Compiler5matchEh.exit, %215
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i66, %215 ], [ 0, %_ZN4pkpy8Compiler5matchEh.exit ]
-  %201 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i58
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i58
   %202 = load ptr, ptr %201, align 8
   %203 = load i8, ptr %202, align 1
   %.not20.i59 = icmp eq i8 %203, 0
@@ -7427,7 +7421,7 @@ _ZN4pkpy2TKEPKc.exit70:                           ; preds = %215, %213
   br i1 %.not.i.i.i.i71, label %_ZNK4pkpy8Compiler4currEv.exit.i72, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i72:               ; preds = %_ZN4pkpy2TKEPKc.exit70
-  %224 = getelementptr inbounds %"struct.pkpy::Token", ptr %219, i64 %217
+  %224 = getelementptr inbounds [72 x i8], ptr %219, i64 %217
   %225 = load i8, ptr %224, align 8
   %.not.i73 = icmp eq i8 %225, %.015.i68
   br i1 %.not.i73, label %_ZN4pkpy8Compiler5matchEh.exit75, label %_ZN4pkpy8Compiler5matchEh.exit75.thread.preheader
@@ -7439,7 +7433,7 @@ _ZN4pkpy8Compiler5matchEh.exit75:                 ; preds = %_ZNK4pkpy8Compiler4
 
 _ZN4pkpy8Compiler5matchEh.exit75.thread:          ; preds = %_ZN4pkpy8Compiler5matchEh.exit75.thread.preheader, %241
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i84, %241 ], [ 0, %_ZN4pkpy8Compiler5matchEh.exit75.thread.preheader ]
-  %227 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i76
+  %227 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i76
   %228 = load ptr, ptr %227, align 8
   %229 = load i8, ptr %228, align 1
   %.not20.i77 = icmp eq i8 %229, 0
@@ -7510,7 +7504,7 @@ _ZN4pkpy2TKEPKc.exit88:                           ; preds = %241, %239
   %261 = sub i64 %259, %260
   %sext14.i.i.i.i = shl i64 %261, 29
   %262 = ashr i64 %sext14.i.i.i.i, 32
-  %263 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %256, i64 %262
+  %263 = getelementptr inbounds [8 x i8], ptr %256, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %256, i64 32
   br label %_ZN4pkpy8ListExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
 
@@ -7706,7 +7700,7 @@ _ZN4pkpy14unique_ptr_128INS_10SubscrExprEED2Ev.exit21: ; preds = %18
   br label %common.resume
 
 _ZN4pkpy8Compiler9make_exprINS_10SubscrExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit: ; preds = %1
-  %22 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %22 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %24 = load i32, ptr %23, align 4, !noalias !61
   store i32 %24, ptr %4, align 8, !noalias !61
@@ -7810,7 +7804,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit10:   ; preds = %65, %_ZN4pkpy5stack
 
 _ZN4pkpy8Compiler19match_newlines_replEv.exit11:  ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit10, %88
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %88 ], [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit10 ]
-  %74 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = load i8, ptr %75, align 1
   %.not20.i = icmp eq i8 %76, 0
@@ -7977,13 +7971,13 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit:    ; preds = %17
   unreachable
 
 33:                                               ; preds = %_ZN4pkpy8Compiler19match_newlines_replEv.exit
-  %34 = getelementptr inbounds %"struct.pkpy::Token", ptr %26, i64 %24
+  %34 = getelementptr inbounds [72 x i8], ptr %26, i64 %24
   %35 = load i8, ptr %34, align 8
   br label %36
 
 36:                                               ; preds = %51, %33
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %51 ]
-  %37 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = load i8, ptr %38, align 1
   %.not20.i = icmp eq i8 %39, 0
@@ -8068,13 +8062,13 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %51, %49
   br i1 %.not.i.i.i29, label %75, label %.invoke
 
 75:                                               ; preds = %66
-  %76 = getelementptr inbounds %"struct.pkpy::Token", ptr %70, i64 %68
+  %76 = getelementptr inbounds [72 x i8], ptr %70, i64 %68
   %77 = load i8, ptr %76, align 8
   br label %78
 
 78:                                               ; preds = %93, %75
   %indvars.iv.i32 = phi i64 [ 0, %75 ], [ %indvars.iv.next.i40, %93 ]
-  %79 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i32
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i32
   %80 = load ptr, ptr %79, align 8
   %81 = load i8, ptr %80, align 1
   %.not20.i33 = icmp eq i8 %81, 0
@@ -8154,7 +8148,7 @@ _ZN4pkpy14unique_ptr_128INS_12DictItemExprEED2Ev.exit213: ; preds = %108
   br label %.body
 
 112:                                              ; preds = %.thread
-  %113 = getelementptr inbounds %"struct.pkpy::Token", ptr %103, i64 %101
+  %113 = getelementptr inbounds [72 x i8], ptr %103, i64 %101
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 20
   %115 = load i32, ptr %114, align 4, !noalias !70
   store i32 %115, ptr %97, align 8, !noalias !70
@@ -8214,7 +8208,7 @@ _ZN4pkpy14unique_ptr_128INS_12DictItemExprEED2Ev.exit: ; preds = %153, %_ZN4pkpy
 
 .preheader279:                                    ; preds = %112, %152
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i57, %152 ], [ 0, %112 ]
-  %138 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i49
+  %138 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i49
   %139 = load ptr, ptr %138, align 8
   %140 = load i8, ptr %139, align 1
   %.not20.i50 = icmp eq i8 %140, 0
@@ -8374,9 +8368,9 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit75:   ; preds = %187, %_ZN4pkpy5stac
   %storemerge.i.i = phi ptr [ %207, %206 ], [ %205, %204 ]
   store ptr %storemerge.i.i, ptr %9, align 8
   %211 = ashr i64 %sext.i.i, 32
-  %212 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %211
   store ptr %212, ptr %10, align 8
-  %213 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %202
+  %213 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %202
   store ptr %213, ptr %11, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_12DictItemExprEED2Ev.exit79
 
@@ -8442,9 +8436,9 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %storemerge.i.i84 = phi ptr [ %243, %242 ], [ %241, %240 ]
   store ptr %storemerge.i.i84, ptr %9, align 8
   %247 = ashr i64 %sext.i.i83, 32
-  %248 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i84, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i84, i64 %247
   store ptr %248, ptr %10, align 8
-  %249 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i84, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i84, i64 %238
   store ptr %249, ptr %11, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit87
 
@@ -8478,7 +8472,7 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit89:  ; preds = %251
 
 .preheader:                                       ; preds = %_ZN4pkpy8Compiler19match_newlines_replEv.exit89, %280
   %indvars.iv.i90 = phi i64 [ %indvars.iv.next.i98, %280 ], [ 0, %_ZN4pkpy8Compiler19match_newlines_replEv.exit89 ]
-  %266 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i90
+  %266 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i90
   %267 = load ptr, ptr %266, align 8
   %268 = load i8, ptr %267, align 1
   %.not20.i91 = icmp eq i8 %268, 0
@@ -8529,7 +8523,7 @@ _ZN4pkpy2TKEPKc.exit102:                          ; preds = %280, %278
   br i1 %.not.i.i.i.i103, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit102
-  %289 = getelementptr inbounds %"struct.pkpy::Token", ptr %284, i64 %282
+  %289 = getelementptr inbounds [72 x i8], ptr %284, i64 %282
   %290 = load i8, ptr %289, align 8
   %.not.i104 = icmp eq i8 %290, %.015.i100
   br i1 %.not.i104, label %291, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -8573,7 +8567,7 @@ _ZN4pkpy14unique_ptr_128INS_12DictCompExprEED2Ev.exit215: ; preds = %305
   br label %.body
 
 309:                                              ; preds = %295
-  %310 = getelementptr inbounds %"struct.pkpy::Token", ptr %300, i64 %298
+  %310 = getelementptr inbounds [72 x i8], ptr %300, i64 %298
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 20
   %312 = load i32, ptr %311, align 4, !noalias !86
   store i32 %312, ptr %294, align 8, !noalias !86
@@ -8659,7 +8653,7 @@ _ZN4pkpy14unique_ptr_128INS_11SetCompExprEED2Ev.exit217: ; preds = %341
   br label %.body
 
 345:                                              ; preds = %331
-  %346 = getelementptr inbounds %"struct.pkpy::Token", ptr %336, i64 %334
+  %346 = getelementptr inbounds [72 x i8], ptr %336, i64 %334
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 20
   %348 = load i32, ptr %347, align 4, !noalias !89
   store i32 %348, ptr %294, align 8, !noalias !89
@@ -8727,7 +8721,7 @@ _ZN4pkpy14unique_ptr_128INS_12DictCompExprEED2Ev.exit.preheader: ; preds = %_ZN4
 
 _ZN4pkpy14unique_ptr_128INS_12DictCompExprEED2Ev.exit: ; preds = %_ZN4pkpy14unique_ptr_128INS_12DictCompExprEED2Ev.exit.preheader, %383
   %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i143, %383 ], [ 0, %_ZN4pkpy14unique_ptr_128INS_12DictCompExprEED2Ev.exit.preheader ]
-  %369 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i135
+  %369 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i135
   %370 = load ptr, ptr %369, align 8
   %371 = load i8, ptr %370, align 1
   %.not20.i136 = icmp eq i8 %371, 0
@@ -8779,7 +8773,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
 
 _ZN4pkpy8Compiler19match_newlines_replEv.exit149: ; preds = %_ZN4pkpy8Compiler5matchEh.exit, %403
   %indvars.iv.i150 = phi i64 [ %indvars.iv.next.i158, %403 ], [ 0, %_ZN4pkpy8Compiler5matchEh.exit ]
-  %389 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i150
+  %389 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i150
   %390 = load ptr, ptr %389, align 8
   %391 = load i8, ptr %390, align 1
   %.not20.i151 = icmp eq i8 %391, 0
@@ -8830,7 +8824,7 @@ _ZN4pkpy2TKEPKc.exit162:                          ; preds = %403, %401
   br i1 %.not.i.i.i.i163, label %_ZNK4pkpy8Compiler4currEv.exit.i164, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i164:              ; preds = %_ZN4pkpy2TKEPKc.exit162
-  %412 = getelementptr inbounds %"struct.pkpy::Token", ptr %407, i64 %405
+  %412 = getelementptr inbounds [72 x i8], ptr %407, i64 %405
   %413 = load i8, ptr %412, align 8
   %.not.i165 = icmp eq i8 %413, %.015.i160
   br i1 %.not.i165, label %_ZN4pkpy8Compiler5matchEh.exit167, label %_ZN4pkpy8Compiler5matchEh.exit167.thread
@@ -8846,7 +8840,7 @@ _ZN4pkpy8Compiler5matchEh.exit167.thread:         ; preds = %_ZNK4pkpy8Compiler4
 
 415:                                              ; preds = %430, %_ZN4pkpy8Compiler5matchEh.exit167.thread
   %indvars.iv.i168 = phi i64 [ 0, %_ZN4pkpy8Compiler5matchEh.exit167.thread ], [ %indvars.iv.next.i176, %430 ]
-  %416 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i168
+  %416 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i168
   %417 = load ptr, ptr %416, align 8
   %418 = load i8, ptr %417, align 1
   %.not20.i169 = icmp eq i8 %418, 0
@@ -8929,7 +8923,7 @@ _ZN4pkpy2TKEPKc.exit180:                          ; preds = %430, %428
   %459 = sub i64 %457, %458
   %sext14.i.i.i.i = shl i64 %459, 29
   %460 = ashr i64 %sext14.i.i.i.i, 32
-  %461 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %454, i64 %460
+  %461 = getelementptr inbounds [8 x i8], ptr %454, i64 %460
   %462 = getelementptr inbounds nuw i8, ptr %454, i64 32
   br label %_ZN4pkpy8DictExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
 
@@ -8979,7 +8973,7 @@ _ZN4pkpy14unique_ptr_128INS_8DictExprEED2Ev.exit219: ; preds = %477
   br label %.body
 
 481:                                              ; preds = %_ZN4pkpy8DictExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
-  %482 = getelementptr inbounds %"struct.pkpy::Token", ptr %472, i64 %470
+  %482 = getelementptr inbounds [72 x i8], ptr %472, i64 %470
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 20
   %484 = load i32, ptr %483, align 4, !noalias !92
   store i32 %484, ptr %441, align 8, !noalias !92
@@ -9057,7 +9051,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4pushEOS3_.e
   %519 = sub i64 %517, %518
   %sext14.i.i.i.i198 = shl i64 %519, 29
   %520 = ashr i64 %sext14.i.i.i.i198, 32
-  %521 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %514, i64 %520
+  %521 = getelementptr inbounds [8 x i8], ptr %514, i64 %520
   %522 = getelementptr inbounds nuw i8, ptr %514, i64 32
   br label %_ZN4pkpy7SetExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
 
@@ -9107,7 +9101,7 @@ _ZN4pkpy14unique_ptr_128INS_7SetExprEED2Ev.exit221: ; preds = %537
   br label %.body
 
 541:                                              ; preds = %_ZN4pkpy7SetExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
-  %542 = getelementptr inbounds %"struct.pkpy::Token", ptr %532, i64 %530
+  %542 = getelementptr inbounds [72 x i8], ptr %532, i64 %530
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 20
   %544 = load i32, ptr %543, align 4, !noalias !95
   store i32 %544, ptr %441, align 8, !noalias !95
@@ -9256,7 +9250,7 @@ _ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit21: ; preds = %18
   br label %common.resume
 
 _ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit: ; preds = %1
-  %22 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %22 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %24 = load i32, ptr %23, align 4, !noalias !98
   store i32 %24, ptr %4, align 8, !noalias !98
@@ -9280,7 +9274,7 @@ _ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.e
   unreachable
 
 35:                                               ; preds = %_ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit
-  %36 = getelementptr inbounds %"struct.pkpy::Token", ptr %29, i64 %27
+  %36 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %37 = load i8, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 %37, ptr %38, align 4
@@ -9325,7 +9319,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %53, %_ZN4pkpy5stack
   store ptr %44, ptr %5, align 8
   %57 = load i8, ptr %38, align 4
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %58
+  %59 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i32, ptr %60, align 8
   %62 = add nsw i32 %61, 1
@@ -9466,7 +9460,7 @@ define void @_ZN4pkpy8Compiler11exprUnaryOpEv(ptr noundef nonnull align 8 derefe
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %25 = getelementptr inbounds %"struct.pkpy::Token", ptr %19, i64 %16
+  %25 = getelementptr inbounds [72 x i8], ptr %19, i64 %16
   %26 = load i8, ptr %25, align 8
   tail call void @_ZN4pkpy8Compiler16parse_expressionEib(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef 14, i1 noundef zeroext false)
   switch i8 %26, label %237 [
@@ -9537,7 +9531,7 @@ _ZN4pkpy14unique_ptr_128INS_11NegatedExprEED2Ev.exit114: ; preds = %54
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48
 
 58:                                               ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
-  %59 = getelementptr inbounds %"struct.pkpy::Token", ptr %49, i64 %47
+  %59 = getelementptr inbounds [72 x i8], ptr %49, i64 %47
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %61 = load i32, ptr %60, align 4, !noalias !110
   store i32 %61, ptr %43, align 8, !noalias !110
@@ -9648,7 +9642,7 @@ _ZN4pkpy14unique_ptr_128INS_10InvertExprEED2Ev.exit116: ; preds = %106
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48
 
 110:                                              ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit50
-  %111 = getelementptr inbounds %"struct.pkpy::Token", ptr %101, i64 %99
+  %111 = getelementptr inbounds [72 x i8], ptr %101, i64 %99
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %113 = load i32, ptr %112, align 4, !noalias !116
   store i32 %113, ptr %95, align 8, !noalias !116
@@ -9761,7 +9755,7 @@ _ZN4pkpy14unique_ptr_128INS_11StarredExprEED2Ev.exit118: ; preds = %159
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48
 
 163:                                              ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit70
-  %164 = getelementptr inbounds %"struct.pkpy::Token", ptr %154, i64 %152
+  %164 = getelementptr inbounds [72 x i8], ptr %154, i64 %152
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 20
   %166 = load i32, ptr %165, align 4, !noalias !122
   store i32 %166, ptr %147, align 8, !noalias !122
@@ -9874,7 +9868,7 @@ _ZN4pkpy14unique_ptr_128INS_11StarredExprEED2Ev.exit120: ; preds = %212
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48
 
 216:                                              ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit90
-  %217 = getelementptr inbounds %"struct.pkpy::Token", ptr %207, i64 %205
+  %217 = getelementptr inbounds [72 x i8], ptr %207, i64 %205
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 20
   %219 = load i32, ptr %218, align 4, !noalias !128
   store i32 %219, ptr %200, align 8, !noalias !128
@@ -10062,7 +10056,7 @@ _ZN4pkpy14unique_ptr_128INS_11TernaryExprEED2Ev.exit26: ; preds = %18
   br label %common.resume
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %23 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4, !noalias !131
   store i32 %25, ptr %4, align 8, !noalias !131
@@ -10157,7 +10151,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit10:   ; preds = %60, %_ZN4pkpy5stack
 
 64:                                               ; preds = %79, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit10
   %indvars.iv.i = phi i64 [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit10 ], [ %indvars.iv.next.i, %79 ]
-  %65 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %66 = load ptr, ptr %65, align 8
   %67 = load i8, ptr %66, align 1
   %.not20.i = icmp eq i8 %67, 0
@@ -10354,7 +10348,7 @@ _ZN4pkpy14unique_ptr_128INS_7AndExprEED2Ev.exit19: ; preds = %18
   br label %common.resume
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %23 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4, !noalias !143
   store i32 %25, ptr %4, align 8, !noalias !143
@@ -10547,7 +10541,7 @@ _ZN4pkpy14unique_ptr_128INS_6OrExprEED2Ev.exit19: ; preds = %18
   br label %common.resume
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %23 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4, !noalias !152
   store i32 %25, ptr %4, align 8, !noalias !152
@@ -10762,7 +10756,7 @@ _ZN4pkpy14unique_ptr_128INS_7NotExprEED2Ev.exit16: ; preds = %32
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit14
 
 36:                                               ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
-  %37 = getelementptr inbounds %"struct.pkpy::Token", ptr %27, i64 %24
+  %37 = getelementptr inbounds [72 x i8], ptr %27, i64 %24
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !noalias !164
   store i32 %39, ptr %18, align 8, !noalias !164
@@ -10845,7 +10839,7 @@ define void @_ZN4pkpy8Compiler12exprLiteral0Ev(ptr noundef nonnull readonly alig
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %18 = getelementptr inbounds %"struct.pkpy::Token", ptr %12, i64 %9
+  %18 = getelementptr inbounds [72 x i8], ptr %12, i64 %9
   %19 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 16) #37, !noalias !167
   %20 = load i8, ptr %18, align 1, !noalias !167
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -10886,7 +10880,7 @@ _ZN4pkpy14unique_ptr_128INS_12Literal0ExprEED2Ev.exit11: ; preds = %32
   br label %common.resume
 
 36:                                               ; preds = %_ZNK4pkpy8Compiler4prevEv.exit
-  %37 = getelementptr inbounds %"struct.pkpy::Token", ptr %27, i64 %25
+  %37 = getelementptr inbounds [72 x i8], ptr %27, i64 %25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !noalias !167
   store i32 %39, ptr %21, align 8, !noalias !167
@@ -10960,7 +10954,7 @@ define void @_ZN4pkpy8Compiler10exprLambdaEv(ptr noundef nonnull align 8 derefer
 
 .preheader:                                       ; preds = %7, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
   %.not20.i = icmp eq i8 %10, 0
@@ -11021,7 +11015,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %22, %20
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %35 = getelementptr inbounds %"struct.pkpy::Token", ptr %29, i64 %26
+  %35 = getelementptr inbounds [72 x i8], ptr %29, i64 %26
   %36 = load i8, ptr %35, align 8
   %.not.i8 = icmp eq i8 %36, %.015.i
   br i1 %.not.i8, label %_ZN4pkpy8Compiler5matchEh.exit.thread, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -11141,7 +11135,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader: ; preds = %52, %70, %83,
 
 _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader, %102
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i20, %102 ], [ 0, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader ]
-  %88 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i12
+  %88 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i12
   %89 = load ptr, ptr %88, align 8
   %90 = load i8, ptr %89, align 1
   %.not20.i13 = icmp eq i8 %90, 0
@@ -11421,7 +11415,7 @@ define void @_ZN4pkpy8Compiler8exprNameEv(ptr noundef nonnull readonly align 8 c
   unreachable
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.pkpy::Token", ptr %11, i64 %8
+  %18 = getelementptr inbounds [72 x i8], ptr %11, i64 %8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !170
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -11535,7 +11529,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit17: ; preds = %65
   br label %.body
 
 69:                                               ; preds = %.noexc8
-  %70 = getelementptr inbounds %"struct.pkpy::Token", ptr %60, i64 %58
+  %70 = getelementptr inbounds [72 x i8], ptr %60, i64 %58
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %72 = load i32, ptr %71, align 4, !noalias !174
   store i32 %72, ptr %53, align 8, !noalias !174
@@ -11625,7 +11619,7 @@ define void @_ZN4pkpy8Compiler11exprLiteralEv(ptr noundef nonnull align 8 derefe
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %"struct.pkpy::Token", ptr %11, i64 %8
+  %20 = getelementptr inbounds [72 x i8], ptr %11, i64 %8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   call void @_ZN4pkpy8Compiler9make_exprINS_11LiteralExprEJRKSt7variantIJSt9monostateldNS_3StrEEEEEENS_14unique_ptr_128IT_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pkpy::unique_ptr_128.98") align 8 %3, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(33) %21)
   %22 = load ptr, ptr %3, align 8
@@ -11739,7 +11733,7 @@ define void @_ZN4pkpy8Compiler11exprFStringEv(ptr noundef nonnull readonly align
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %18 = getelementptr inbounds %"struct.pkpy::Token", ptr %12, i64 %9
+  %18 = getelementptr inbounds [72 x i8], ptr %12, i64 %9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load i8, ptr %19, align 8
   %.not.i.i = icmp eq i8 %20, 3
@@ -11803,7 +11797,7 @@ _ZN4pkpy14unique_ptr_128INS_11FStringExprEED2Ev.exit12: ; preds = %39
   br label %common.resume
 
 43:                                               ; preds = %_ZSt3getIN4pkpy3StrEJSt9monostateldS1_EERKT_RKSt7variantIJDpT0_EE.exit
-  %44 = getelementptr inbounds %"struct.pkpy::Token", ptr %34, i64 %32
+  %44 = getelementptr inbounds [72 x i8], ptr %34, i64 %32
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = load i32, ptr %45, align 4, !noalias !177
   store i32 %46, ptr %28, align 8, !noalias !177
@@ -11886,7 +11880,7 @@ define void @_ZN4pkpy8Compiler8exprLongEv(ptr noundef nonnull readonly align 8 c
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %20 = getelementptr inbounds %"struct.pkpy::Token", ptr %14, i64 %11
+  %20 = getelementptr inbounds [72 x i8], ptr %14, i64 %11
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !180
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -11930,7 +11924,7 @@ _ZN4pkpy14unique_ptr_128INS_8LongExprEED2Ev.exit14: ; preds = %37
   br label %.body
 
 41:                                               ; preds = %.noexc
-  %42 = getelementptr inbounds %"struct.pkpy::Token", ptr %32, i64 %30
+  %42 = getelementptr inbounds [72 x i8], ptr %32, i64 %30
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %44 = load i32, ptr %43, align 4, !noalias !183
   store i32 %44, ptr %26, align 8, !noalias !183
@@ -12024,7 +12018,7 @@ define void @_ZN4pkpy8Compiler8exprImagEv(ptr noundef nonnull readonly align 8 c
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %18 = getelementptr inbounds %"struct.pkpy::Token", ptr %12, i64 %9
+  %18 = getelementptr inbounds [72 x i8], ptr %12, i64 %9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load i8, ptr %19, align 8
   %.not.i.i = icmp eq i8 %20, 2
@@ -12089,7 +12083,7 @@ _ZN4pkpy14unique_ptr_128INS_8ImagExprEED2Ev.exit12: ; preds = %40
   br label %common.resume
 
 44:                                               ; preds = %_ZSt3getIdJSt9monostateldN4pkpy3StrEEERKT_RKSt7variantIJDpT0_EE.exit
-  %45 = getelementptr inbounds %"struct.pkpy::Token", ptr %35, i64 %33
+  %45 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %47 = load i32, ptr %46, align 4, !noalias !186
   store i32 %47, ptr %29, align 8, !noalias !186
@@ -12170,7 +12164,7 @@ define void @_ZN4pkpy8Compiler9exprBytesEv(ptr noundef nonnull readonly align 8 
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %18 = getelementptr inbounds %"struct.pkpy::Token", ptr %12, i64 %9
+  %18 = getelementptr inbounds [72 x i8], ptr %12, i64 %9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load i8, ptr %19, align 8
   %.not.i.i = icmp eq i8 %20, 3
@@ -12234,7 +12228,7 @@ _ZN4pkpy14unique_ptr_128INS_9BytesExprEED2Ev.exit12: ; preds = %39
   br label %common.resume
 
 43:                                               ; preds = %_ZSt3getIN4pkpy3StrEJSt9monostateldS1_EERKT_RKSt7variantIJDpT0_EE.exit
-  %44 = getelementptr inbounds %"struct.pkpy::Token", ptr %34, i64 %32
+  %44 = getelementptr inbounds [72 x i8], ptr %34, i64 %32
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = load i32, ptr %45, align 4, !noalias !189
   store i32 %46, ptr %28, align 8, !noalias !189
@@ -12335,7 +12329,7 @@ _ZN4pkpy14unique_ptr_128INS_9SliceExprEED2Ev.exit77: ; preds = %18
   br label %common.resume
 
 _ZN4pkpy8Compiler9make_exprINS_9SliceExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit: ; preds = %1
-  %22 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %22 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %24 = load i32, ptr %23, align 4, !noalias !192
   store i32 %24, ptr %4, align 8, !noalias !192
@@ -12363,17 +12357,17 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit73.thread100: ; preds = %33
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy8Compiler9make_exprINS_9SliceExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit
-  %35 = getelementptr inbounds %"struct.pkpy::Token", ptr %28, i64 %26
+  %35 = getelementptr inbounds [72 x i8], ptr %28, i64 %26
   %36 = load i8, ptr %35, align 8
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %37
   %.unpack.i = load i64, ptr %38, align 8
   %.not.i = icmp eq i64 %.unpack.i, 0
   br i1 %.not.i, label %_ZN4pkpy8Compiler13is_expressionEb.exit.thread.preheader, label %_ZNK4pkpy8Compiler4currEv.exit6.i
 
 _ZNK4pkpy8Compiler4currEv.exit6.i:                ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i, %53
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %53 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8
   %41 = load i8, ptr %40, align 1
   %.not20.i.i = icmp eq i8 %41, 0
@@ -12467,7 +12461,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %71, %_ZN4pkpy5stack
 
 75:                                               ; preds = %90, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit ], [ %indvars.iv.next.i, %90 ]
-  %76 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 1
   %.not20.i = icmp eq i8 %78, 0
@@ -12527,7 +12521,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %90, %88
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i10:               ; preds = %_ZN4pkpy2TKEPKc.exit
-  %101 = getelementptr inbounds %"struct.pkpy::Token", ptr %94, i64 %92
+  %101 = getelementptr inbounds [72 x i8], ptr %94, i64 %92
   %102 = load i8, ptr %101, align 8
   %.not.i11 = icmp eq i8 %102, %.015.i
   br i1 %.not.i11, label %103, label %_ZN4pkpy8Compiler13is_expressionEb.exit59.thread
@@ -12582,7 +12576,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit20:   ; preds = %120, %_ZN4pkpy5stac
 
 _ZN4pkpy8Compiler13is_expressionEb.exit.thread:   ; preds = %_ZN4pkpy8Compiler13is_expressionEb.exit.thread.preheader, %138
   %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i29, %138 ], [ 0, %_ZN4pkpy8Compiler13is_expressionEb.exit.thread.preheader ]
-  %124 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
+  %124 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
   %125 = load ptr, ptr %124, align 8
   %126 = load i8, ptr %125, align 1
   %.not20.i22 = icmp eq i8 %126, 0
@@ -12632,17 +12626,17 @@ _ZNK4pkpy8Compiler4currEv.exit.i35:               ; preds = %138, %136
   br i1 %.not.i.i.i.i39, label %_ZNK4pkpy8Compiler4currEv.exit.i40, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i40:               ; preds = %139
-  %142 = getelementptr inbounds %"struct.pkpy::Token", ptr %28, i64 %141
+  %142 = getelementptr inbounds [72 x i8], ptr %28, i64 %141
   %143 = load i8, ptr %142, align 8
   %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %144
+  %145 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %144
   %.unpack.i41 = load i64, ptr %145, align 8
   %.not.i42 = icmp eq i64 %.unpack.i41, 0
   br i1 %.not.i42, label %_ZN4pkpy8Compiler13is_expressionEb.exit59.thread, label %_ZNK4pkpy8Compiler4currEv.exit6.i44
 
 _ZNK4pkpy8Compiler4currEv.exit6.i44:              ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i40, %160
   %indvars.iv.i.i45 = phi i64 [ %indvars.iv.next.i.i53, %160 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i40 ]
-  %146 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i45
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i45
   %147 = load ptr, ptr %146, align 8
   %148 = load i8, ptr %147, align 1
   %.not20.i.i46 = icmp eq i8 %148, 0
@@ -12844,7 +12838,7 @@ _ZN4pkpy14unique_ptr_128INS_9SliceExprEED2Ev.exit62: ; preds = %18
   br label %common.resume
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %10
+  %23 = getelementptr inbounds [72 x i8], ptr %13, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4, !noalias !204
   store i32 %25, ptr %4, align 8, !noalias !204
@@ -12911,17 +12905,17 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit58.thread89: ; preds = %52
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
-  %54 = getelementptr inbounds %"struct.pkpy::Token", ptr %47, i64 %45
+  %54 = getelementptr inbounds [72 x i8], ptr %47, i64 %45
   %55 = load i8, ptr %54, align 8
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %56
+  %57 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %56
   %.unpack.i = load i64, ptr %57, align 8
   %.not.i6 = icmp eq i64 %.unpack.i, 0
   br i1 %.not.i6, label %_ZN4pkpy8Compiler13is_expressionEb.exit.thread.preheader, label %_ZNK4pkpy8Compiler4currEv.exit6.i
 
 _ZNK4pkpy8Compiler4currEv.exit6.i:                ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i, %72
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %72 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i ]
-  %58 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %59 = load ptr, ptr %58, align 8
   %60 = load i8, ptr %59, align 1
   %.not20.i.i = icmp eq i8 %60, 0
@@ -13014,7 +13008,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit13:   ; preds = %89, %_ZN4pkpy5stack
 
 93:                                               ; preds = %108, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit13
   %indvars.iv.i = phi i64 [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit13 ], [ %indvars.iv.next.i, %108 ]
-  %94 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %95, align 1
   %.not20.i = icmp eq i8 %96, 0
@@ -13072,7 +13066,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %108, %106
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i16:               ; preds = %_ZN4pkpy2TKEPKc.exit
-  %118 = getelementptr inbounds %"struct.pkpy::Token", ptr %112, i64 %110
+  %118 = getelementptr inbounds [72 x i8], ptr %112, i64 %110
   %119 = load i8, ptr %118, align 8
   %.not.i17 = icmp eq i8 %119, %.015.i
   br i1 %.not.i17, label %120, label %177
@@ -13127,7 +13121,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit26:   ; preds = %137, %_ZN4pkpy5stac
 
 _ZN4pkpy8Compiler13is_expressionEb.exit.thread:   ; preds = %_ZN4pkpy8Compiler13is_expressionEb.exit.thread.preheader, %155
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i35, %155 ], [ 0, %_ZN4pkpy8Compiler13is_expressionEb.exit.thread.preheader ]
-  %141 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i27
+  %141 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i27
   %142 = load ptr, ptr %141, align 8
   %143 = load i8, ptr %142, align 1
   %.not20.i28 = icmp eq i8 %143, 0
@@ -13305,7 +13299,7 @@ define noundef zeroext i1 @_ZN4pkpy8Compiler5matchEh(ptr noundef nonnull align 8
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %2
-  %15 = getelementptr inbounds %"struct.pkpy::Token", ptr %9, i64 %6
+  %15 = getelementptr inbounds [72 x i8], ptr %9, i64 %6
   %16 = load i8, ptr %15, align 8
   %.not = icmp eq i8 %16, %1
   br i1 %.not, label %17, label %19
@@ -13341,7 +13335,7 @@ define void @_ZN4pkpy8Compiler7consumeEh(ptr noundef nonnull align 8 dereference
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %2
-  %16 = getelementptr inbounds %"struct.pkpy::Token", ptr %10, i64 %7
+  %16 = getelementptr inbounds [72 x i8], ptr %10, i64 %7
   %17 = load i8, ptr %16, align 8
   %.not.i = icmp eq i8 %17, %1
   br i1 %.not.i, label %_ZN4pkpy8Compiler5matchEh.exit.thread, label %_ZNK4pkpy8Compiler4currEv.exit
@@ -13353,9 +13347,9 @@ _ZN4pkpy8Compiler5matchEh.exit.thread:            ; preds = %_ZNK4pkpy8Compiler4
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i
   %19 = zext i8 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %19
   %21 = zext i8 %17 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %21
   call void @_ZN4pkpy2_SIJRA11_KcRKPS1_RA9_S1_S6_RA2_S1_EEENS_3StrEDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %3, ptr noundef nonnull align 1 dereferenceable(11) @.str.56, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(9) @.str.57, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 1 dereferenceable(2) @.str.58)
   invoke void @_ZN4pkpy8Compiler11SyntaxErrorENS_3StrE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3)
           to label %23 unwind label %24
@@ -13469,13 +13463,13 @@ define noundef zeroext i1 @_ZN4pkpy8Compiler14match_newlinesEb(ptr noundef nonnu
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %2
-  %15 = getelementptr inbounds %"struct.pkpy::Token", ptr %9, i64 %6
+  %15 = getelementptr inbounds [72 x i8], ptr %9, i64 %6
   %16 = load i8, ptr %15, align 8
   br label %17
 
 17:                                               ; preds = %32, %_ZNK4pkpy8Compiler4currEv.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit ], [ %indvars.iv.next.i, %32 ]
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 1
   %.not20.i = icmp eq i8 %20, 0
@@ -13524,13 +13518,13 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %32, %30
 _ZNK4pkpy8Compiler4currEv.exit5:                  ; preds = %_ZN4pkpy2TKEPKc.exit, %54
   %34 = phi i32 [ %55, %54 ], [ %5, %_ZN4pkpy2TKEPKc.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ %6, %_ZN4pkpy2TKEPKc.exit ]
-  %35 = getelementptr inbounds %"struct.pkpy::Token", ptr %9, i64 %indvars.iv
+  %35 = getelementptr inbounds [72 x i8], ptr %9, i64 %indvars.iv
   %36 = load i8, ptr %35, align 8
   br label %37
 
 37:                                               ; preds = %52, %_ZNK4pkpy8Compiler4currEv.exit5
   %indvars.iv.i6 = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit5 ], [ %indvars.iv.next.i14, %52 ]
-  %38 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i6
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i6
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 1
   %.not20.i7 = icmp eq i8 %40, 0
@@ -13593,13 +13587,13 @@ _ZN4pkpy2TKEPKc.exit18:                           ; preds = %52, %50
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit20:                 ; preds = %57
-  %60 = getelementptr inbounds %"struct.pkpy::Token", ptr %9, i64 %58
+  %60 = getelementptr inbounds [72 x i8], ptr %9, i64 %58
   %61 = load i8, ptr %60, align 8
   br label %62
 
 62:                                               ; preds = %77, %_ZNK4pkpy8Compiler4currEv.exit20
   %indvars.iv.i21 = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit20 ], [ %indvars.iv.next.i29, %77 ]
-  %63 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
   %64 = load ptr, ptr %63, align 8
   %65 = load i8, ptr %64, align 1
   %.not20.i22 = icmp eq i8 %65, 0
@@ -13662,7 +13656,7 @@ define noundef zeroext i1 @_ZN4pkpy8Compiler14match_end_stmtEv(ptr noundef nonnu
 
 2:                                                ; preds = %17, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %17 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
   %.not20.i = icmp eq i8 %5, 0
@@ -13720,7 +13714,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %17, %15
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %30 = getelementptr inbounds %"struct.pkpy::Token", ptr %24, i64 %21
+  %30 = getelementptr inbounds [72 x i8], ptr %24, i64 %21
   %31 = load i8, ptr %30, align 8
   %.not.i2 = icmp eq i8 %31, %.015.i
   br i1 %.not.i2, label %32, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -13752,13 +13746,13 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %36
-  %46 = getelementptr inbounds %"struct.pkpy::Token", ptr %40, i64 %38
+  %46 = getelementptr inbounds [72 x i8], ptr %40, i64 %38
   %47 = load i8, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %63, %_ZNK4pkpy8Compiler4currEv.exit
   %indvars.iv.i3 = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit ], [ %indvars.iv.next.i11, %63 ]
-  %49 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i3
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i3
   %50 = load ptr, ptr %49, align 8
   %51 = load i8, ptr %50, align 1
   %.not20.i4 = icmp eq i8 %51, 0
@@ -13802,7 +13796,7 @@ _ZN4pkpy2TKEPKc.exit15:                           ; preds = %63, %61
 
 _ZNK4pkpy8Compiler4currEv.exit17:                 ; preds = %_ZN4pkpy2TKEPKc.exit15, %79
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i26, %79 ], [ 0, %_ZN4pkpy2TKEPKc.exit15 ]
-  %65 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i18
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i18
   %66 = load ptr, ptr %65, align 8
   %67 = load i8, ptr %66, align 1
   %.not20.i19 = icmp eq i8 %67, 0
@@ -13909,10 +13903,10 @@ define void @_ZN4pkpy8Compiler16parse_expressionEib(ptr noundef nonnull align 8 
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %3
-  %24 = getelementptr inbounds %"struct.pkpy::Token", ptr %18, i64 %15
+  %24 = getelementptr inbounds [72 x i8], ptr %18, i64 %15
   %25 = load i8, ptr %24, align 8
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %26
   %.unpack = load i64, ptr %27, align 8
   %.elt47 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.unpack48 = load i64, ptr %.elt47, align 8
@@ -13921,7 +13915,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %3
 
 _ZNK4pkpy8Compiler4currEv.exit64:                 ; preds = %_ZNK4pkpy8Compiler4currEv.exit, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit ]
-  %29 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
   %.not20.i = icmp eq i8 %31, 0
@@ -13985,10 +13979,10 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %43, %41
   unreachable
 
 55:                                               ; preds = %45
-  %56 = getelementptr inbounds %"struct.pkpy::Token", ptr %49, i64 %47
+  %56 = getelementptr inbounds [72 x i8], ptr %49, i64 %47
   %57 = load i8, ptr %56, align 8
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %58
   %60 = load ptr, ptr %59, align 8
   invoke void @_ZNK4pkpy3StrplEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %60)
           to label %61 unwind label %63
@@ -14060,10 +14054,10 @@ _ZNK4pkpy8Compiler4currEv.exit68.us:              ; preds = %_ZNK4pkpy8Compiler4
   %90 = phi ptr [ %116, %111 ], [ %85, %_ZNK4pkpy8Compiler4currEv.exit68.lr.ph ]
   %91 = phi i64 [ %114, %111 ], [ %83, %_ZNK4pkpy8Compiler4currEv.exit68.lr.ph ]
   %92 = phi i32 [ %113, %111 ], [ %82, %_ZNK4pkpy8Compiler4currEv.exit68.lr.ph ]
-  %93 = getelementptr inbounds %"struct.pkpy::Token", ptr %90, i64 %91
+  %93 = getelementptr inbounds [72 x i8], ptr %90, i64 %91
   %94 = load i8, ptr %93, align 8
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %95
+  %96 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load i32, ptr %97, align 8
   %.not50.us = icmp slt i32 %98, %1
@@ -14120,10 +14114,10 @@ _ZNK4pkpy8Compiler4currEv.exit68:                 ; preds = %_ZNK4pkpy8Compiler4
   %121 = phi ptr [ %183, %178 ], [ %85, %_ZNK4pkpy8Compiler4currEv.exit68.lr.ph ]
   %122 = phi i64 [ %181, %178 ], [ %83, %_ZNK4pkpy8Compiler4currEv.exit68.lr.ph ]
   %123 = phi i32 [ %180, %178 ], [ %82, %_ZNK4pkpy8Compiler4currEv.exit68.lr.ph ]
-  %124 = getelementptr inbounds %"struct.pkpy::Token", ptr %121, i64 %122
+  %124 = getelementptr inbounds [72 x i8], ptr %121, i64 %122
   %125 = load i8, ptr %124, align 8
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %126
+  %127 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load i32, ptr %128, align 8
   %.not50 = icmp slt i32 %129, %1
@@ -14131,7 +14125,7 @@ _ZNK4pkpy8Compiler4currEv.exit68:                 ; preds = %_ZNK4pkpy8Compiler4
 
 _ZNK4pkpy8Compiler4currEv.exit70:                 ; preds = %_ZNK4pkpy8Compiler4currEv.exit68, %144
   %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i79, %144 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit68 ]
-  %130 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i71
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i71
   %131 = load ptr, ptr %130, align 8
   %132 = load i8, ptr %131, align 1
   %.not20.i72 = icmp eq i8 %132, 0
@@ -14316,7 +14310,7 @@ define void @_ZN4pkpy8Compiler10EXPR_TUPLEEb(ptr noundef nonnull align 8 derefer
 
 5:                                                ; preds = %20, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %20 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   %.not20.i = icmp eq i8 %8, 0
@@ -14374,7 +14368,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %20, %18
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %33 = getelementptr inbounds %"struct.pkpy::Token", ptr %27, i64 %24
+  %33 = getelementptr inbounds [72 x i8], ptr %27, i64 %24
   %34 = load i8, ptr %33, align 8
   %.not.i10 = icmp eq i8 %34, %.015.i
   br i1 %.not.i10, label %35, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -14445,9 +14439,9 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %storemerge.i.i = phi ptr [ %68, %67 ], [ %66, %65 ]
   store ptr %storemerge.i.i, ptr %37, align 8
   %72 = ashr i64 %sext.i.i, 32
-  %73 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %72
   store ptr %73, ptr %38, align 8
-  %74 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %63
+  %74 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %63
   store ptr %74, ptr %39, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
 
@@ -14486,7 +14480,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %71, %_ZN4pkpy5stack
   %91 = phi i32 [ %78, %.lr.ph ], [ %212, %_ZN4pkpy8Compiler5matchEh.exit47 ]
   %92 = phi ptr [ %81, %.lr.ph ], [ %205, %_ZN4pkpy8Compiler5matchEh.exit47 ]
   %93 = phi i64 [ %79, %.lr.ph ], [ %213, %_ZN4pkpy8Compiler5matchEh.exit47 ]
-  %94 = getelementptr inbounds %"struct.pkpy::Token", ptr %92, i64 %93
+  %94 = getelementptr inbounds [72 x i8], ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load i32, ptr %95, align 8
   %.not = icmp eq i32 %96, 0
@@ -14529,10 +14523,10 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit:    ; preds = %._ZN4pkpy8Compiler1
   br i1 %.not.i.i.i.i13, label %_ZNK4pkpy8Compiler4currEv.exit.i14, label %._crit_edge.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i14:               ; preds = %_ZN4pkpy8Compiler19match_newlines_replEv.exit
-  %111 = getelementptr inbounds %"struct.pkpy::Token", ptr %103, i64 %106
+  %111 = getelementptr inbounds [72 x i8], ptr %103, i64 %106
   %112 = load i8, ptr %111, align 8
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %113
+  %114 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %113
   %.unpack.i = load i64, ptr %114, align 8
   %.not.i15 = icmp eq i64 %.unpack.i, 0
   %brmerge.i = or i1 %1, %.not.i15
@@ -14540,7 +14534,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i14:               ; preds = %_ZN4pkpy8Compiler19
 
 _ZNK4pkpy8Compiler4currEv.exit6.i:                ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i14, %129
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %129 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i14 ]
-  %115 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %116 = load ptr, ptr %115, align 8
   %117 = load i8, ptr %116, align 1
   %.not20.i.i = icmp eq i8 %117, 0
@@ -14646,9 +14640,9 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %storemerge.i.i21 = phi ptr [ %159, %158 ], [ %157, %156 ]
   store ptr %storemerge.i.i21, ptr %37, align 8
   %163 = ashr i64 %sext.i.i20, 32
-  %164 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i21, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i21, i64 %163
   store ptr %164, ptr %38, align 8
-  %165 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i21, i64 %154
+  %165 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i21, i64 %154
   store ptr %165, ptr %39, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit24
 
@@ -14670,7 +14664,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit24:   ; preds = %162, %_ZN4pkpy5stac
   br i1 %.not.i.i.i25, label %177, label %._crit_edge.invoke
 
 177:                                              ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit24
-  %178 = getelementptr inbounds %"struct.pkpy::Token", ptr %172, i64 %170
+  %178 = getelementptr inbounds [72 x i8], ptr %172, i64 %170
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load i32, ptr %179, align 8
   %.not7 = icmp eq i32 %180, 0
@@ -14689,7 +14683,7 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit29.preheader: ; preds = %181, %177
 
 _ZN4pkpy8Compiler19match_newlines_replEv.exit29:  ; preds = %_ZN4pkpy8Compiler19match_newlines_replEv.exit29.preheader, %201
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i38, %201 ], [ 0, %_ZN4pkpy8Compiler19match_newlines_replEv.exit29.preheader ]
-  %187 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i30
+  %187 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i30
   %188 = load ptr, ptr %187, align 8
   %189 = load i8, ptr %188, align 1
   %.not20.i31 = icmp eq i8 %189, 0
@@ -14740,7 +14734,7 @@ _ZN4pkpy2TKEPKc.exit42:                           ; preds = %201, %199
   br i1 %.not.i.i.i.i43, label %_ZNK4pkpy8Compiler4currEv.exit.i44, label %._crit_edge.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i44:               ; preds = %_ZN4pkpy2TKEPKc.exit42
-  %210 = getelementptr inbounds %"struct.pkpy::Token", ptr %205, i64 %203
+  %210 = getelementptr inbounds [72 x i8], ptr %205, i64 %203
   %211 = load i8, ptr %210, align 8
   %.not.i45 = icmp eq i8 %211, %.015.i40
   br i1 %.not.i45, label %_ZN4pkpy8Compiler5matchEh.exit47, label %_ZN4pkpy8Compiler5matchEh.exit47.thread
@@ -14783,7 +14777,7 @@ _ZN4pkpy8Compiler5matchEh.exit47.thread:          ; preds = %_ZNK4pkpy8Compiler4
   %234 = sub i64 %232, %233
   %sext14.i.i.i.i = shl i64 %234, 29
   %235 = ashr i64 %sext14.i.i.i.i, 32
-  %236 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %229, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %229, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %229, i64 32
   br label %_ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
 
@@ -14833,7 +14827,7 @@ _ZN4pkpy14unique_ptr_128INS_9TupleExprEED2Ev.exit60: ; preds = %252
   br label %.body
 
 256:                                              ; preds = %_ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
-  %257 = getelementptr inbounds %"struct.pkpy::Token", ptr %247, i64 %245
+  %257 = getelementptr inbounds [72 x i8], ptr %247, i64 %245
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 20
   %259 = load i32, ptr %258, align 4, !noalias !227
   store i32 %259, ptr %217, align 8, !noalias !227
@@ -14956,10 +14950,10 @@ define noundef zeroext i1 @_ZN4pkpy8Compiler13is_expressionEb(ptr noundef nonnul
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %2
-  %15 = getelementptr inbounds %"struct.pkpy::Token", ptr %9, i64 %6
+  %15 = getelementptr inbounds [72 x i8], ptr %9, i64 %6
   %16 = load i8, ptr %15, align 8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %17
   %.unpack = load i64, ptr %18, align 8
   %.not = icmp eq i64 %.unpack, 0
   %brmerge = or i1 %1, %.not
@@ -14968,7 +14962,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %2
 
 _ZNK4pkpy8Compiler4currEv.exit6:                  ; preds = %_ZNK4pkpy8Compiler4currEv.exit, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit ]
-  %19 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %20, align 1
   %.not20.i = icmp eq i8 %21, 0
@@ -15082,7 +15076,7 @@ define void @_ZN4pkpy8Compiler9EXPR_VARSEv(ptr dead_on_unwind noalias writable w
 
 15:                                               ; preds = %.backedge, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.i.be, %.backedge ]
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 1
   %.not20.i = icmp eq i8 %18, 0
@@ -15151,7 +15145,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %30, %28
   unreachable
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds %"struct.pkpy::Token", ptr %36, i64 %34
+  %44 = getelementptr inbounds [72 x i8], ptr %36, i64 %34
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !230
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -15216,7 +15210,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit38: ; preds = %77
   br label %.body
 
 81:                                               ; preds = %.noexc8
-  %82 = getelementptr inbounds %"struct.pkpy::Token", ptr %72, i64 %70
+  %82 = getelementptr inbounds [72 x i8], ptr %72, i64 %70
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %84 = load i32, ptr %83, align 4, !noalias !233
   store i32 %84, ptr %65, align 8, !noalias !233
@@ -15253,9 +15247,9 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit38: ; preds = %77
   %storemerge.i.i = phi ptr [ %100, %99 ], [ %98, %97 ]
   store ptr %storemerge.i.i, ptr %5, align 8
   %104 = ashr i64 %sext.i.i, 32
-  %105 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %104
   store ptr %105, ptr %6, align 8
-  %106 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %95
+  %106 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %95
   store ptr %106, ptr %7, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit
 
@@ -15270,7 +15264,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit: ; preds = %81, %103
 
 110:                                              ; preds = %125, %_ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit
   %indvars.iv.i11 = phi i64 [ 0, %_ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit ], [ %indvars.iv.next.i19, %125 ]
-  %111 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i11
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i11
   %112 = load ptr, ptr %111, align 8
   %113 = load i8, ptr %112, align 1
   %.not20.i12 = icmp eq i8 %113, 0
@@ -15321,7 +15315,7 @@ _ZN4pkpy2TKEPKc.exit23:                           ; preds = %125, %123
   br i1 %.not.i.i.i.i24, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit23
-  %134 = getelementptr inbounds %"struct.pkpy::Token", ptr %129, i64 %127
+  %134 = getelementptr inbounds [72 x i8], ptr %129, i64 %127
   %135 = load i8, ptr %134, align 8
   %.not.i25 = icmp eq i8 %135, %.015.i21
   br i1 %.not.i25, label %_ZN4pkpy8Compiler5matchEh.exit, label %137
@@ -15395,7 +15389,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
   %168 = sub i64 %166, %167
   %sext14.i.i.i.i = shl i64 %168, 29
   %169 = ashr i64 %sext14.i.i.i.i, 32
-  %170 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %163, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %163, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %163, i64 32
   br label %_ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
 
@@ -15445,7 +15439,7 @@ _ZN4pkpy14unique_ptr_128INS_9TupleExprEED2Ev.exit40: ; preds = %186
   br label %.body31
 
 _ZN4pkpy14unique_ptr_128INS_9TupleExprEED2Ev.exit: ; preds = %_ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE.exit.i
-  %190 = getelementptr inbounds %"struct.pkpy::Token", ptr %181, i64 %179
+  %190 = getelementptr inbounds [72 x i8], ptr %181, i64 %179
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 20
   %192 = load i32, ptr %191, align 4, !noalias !236
   store i32 %192, ptr %151, align 8, !noalias !236
@@ -15541,7 +15535,7 @@ define linkonce_odr void @_ZN4pkpy8Compiler9make_exprINS_8NameExprEJNS_3StrENS_9
   unreachable
 
 28:                                               ; preds = %4
-  %29 = getelementptr inbounds %"struct.pkpy::Token", ptr %22, i64 %19
+  %29 = getelementptr inbounds [72 x i8], ptr %22, i64 %19
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %12, align 8
@@ -15751,7 +15745,7 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit: ; preds = %thread-pre-split
   unreachable
 
 60:                                               ; preds = %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit
-  %61 = getelementptr inbounds %"struct.pkpy::Token", ptr %54, i64 %51
+  %61 = getelementptr inbounds [72 x i8], ptr %54, i64 %51
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %46, align 8
@@ -15942,7 +15936,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZN4pkpy10LambdaExp
   unreachable
 
 75:                                               ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit
-  %76 = getelementptr inbounds %"struct.pkpy::Token", ptr %69, i64 %66
+  %76 = getelementptr inbounds [72 x i8], ptr %69, i64 %66
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr %0, align 8
@@ -16009,7 +16003,7 @@ define void @_ZN4pkpy8Compiler15_compile_f_argsESt10shared_ptrINS_8FuncDeclEEb(p
 
 29:                                               ; preds = %44, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %44 ]
-  %30 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %31, align 1
   %.not20.i = icmp eq i8 %32, 0
@@ -16064,7 +16058,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %44, %42
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %54 = getelementptr inbounds %"struct.pkpy::Token", ptr %48, i64 %46
+  %54 = getelementptr inbounds [72 x i8], ptr %48, i64 %46
   %55 = load i8, ptr %54, align 8
   %.not.i41 = icmp eq i8 %55, %.015.i
   br i1 %.not.i41, label %56, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -16091,7 +16085,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exi
 
 _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i, %77
   %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i50, %77 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i ]
-  %63 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i42
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i42
   %64 = load ptr, ptr %63, align 8
   %65 = load i8, ptr %64, align 1
   %.not20.i43 = icmp eq i8 %65, 0
@@ -16144,7 +16138,7 @@ _ZN4pkpy8Compiler5matchEh.exit58:                 ; preds = %78, %_ZNK4pkpy8Comp
 
 80:                                               ; preds = %95, %_ZN4pkpy8Compiler5matchEh.exit58
   %indvars.iv.i59 = phi i64 [ 0, %_ZN4pkpy8Compiler5matchEh.exit58 ], [ %indvars.iv.next.i67, %95 ]
-  %81 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i59
+  %81 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i59
   %82 = load ptr, ptr %81, align 8
   %83 = load i8, ptr %82, align 1
   %.not20.i60 = icmp eq i8 %83, 0
@@ -16201,7 +16195,7 @@ _ZN4pkpy2TKEPKc.exit71:                           ; preds = %95, %93
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %_ZN4pkpy2TKEPKc.exit71
-  %106 = getelementptr inbounds %"struct.pkpy::Token", ptr %100, i64 %98
+  %106 = getelementptr inbounds [72 x i8], ptr %100, i64 %98
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8, !noalias !239
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -16238,7 +16232,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
   %.029273 = phi ptr [ %117, %.lr.ph ], [ %124, %123 ]
   %126 = load i32, ptr %.029273, align 4
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds %"struct.pkpy::StrName", ptr %122, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr %122, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = icmp eq i16 %129, %114
   br i1 %130, label %131, label %123
@@ -16280,7 +16274,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
 
 .thread.i:                                        ; preds = %141, %.noexc72
   %.pn.i = phi i64 [ %134, %.noexc72 ], [ %143, %141 ]
-  %.0.i.pn.i = getelementptr inbounds %"struct.pkpy::Token", ptr %136, i64 %.pn.i
+  %.0.i.pn.i = getelementptr inbounds [72 x i8], ptr %136, i64 %.pn.i
   %.in.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 20
   %145 = load i32, ptr %.in.i, align 4
   %146 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 8
@@ -16330,7 +16324,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
   %.030275 = phi ptr [ %155, %.lr.ph277 ], [ %162, %161 ]
   %164 = load i32, ptr %.030275, align 8
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds %"struct.pkpy::StrName", ptr %160, i64 %165
+  %166 = getelementptr inbounds [2 x i8], ptr %160, i64 %165
   %167 = load i16, ptr %166, align 2
   %168 = icmp eq i16 %167, %114
   br i1 %168, label %169, label %161
@@ -16372,7 +16366,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
 
 .thread.i76:                                      ; preds = %179, %.noexc82
   %.pn.i77 = phi i64 [ %172, %.noexc82 ], [ %181, %179 ]
-  %.0.i.pn.i78 = getelementptr inbounds %"struct.pkpy::Token", ptr %174, i64 %.pn.i77
+  %.0.i.pn.i78 = getelementptr inbounds [72 x i8], ptr %174, i64 %.pn.i77
   %.in.i79 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i78, i64 20
   %183 = load i32, ptr %.in.i79, align 4
   %184 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i78, i64 8
@@ -16405,7 +16399,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 224
   %195 = load ptr, ptr %194, align 8
   %196 = sext i32 %191 to i64
-  %197 = getelementptr inbounds %"struct.pkpy::StrName", ptr %195, i64 %196
+  %197 = getelementptr inbounds [2 x i8], ptr %195, i64 %196
   %198 = load i16, ptr %197, align 2
   %199 = icmp eq i16 %198, %114
   br i1 %199, label %200, label %204
@@ -16437,7 +16431,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 224
   %211 = load ptr, ptr %210, align 8
   %212 = sext i32 %207 to i64
-  %213 = getelementptr inbounds %"struct.pkpy::StrName", ptr %211, i64 %212
+  %213 = getelementptr inbounds [2 x i8], ptr %211, i64 %212
   %214 = load i16, ptr %213, align 2
   %215 = icmp eq i16 %214, %114
   br i1 %215, label %216, label %220
@@ -16461,7 +16455,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
 
 .preheader:                                       ; preds = %220, %235
   %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i94, %235 ], [ 0, %220 ]
-  %221 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i86
+  %221 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i86
   %222 = load ptr, ptr %221, align 8
   %223 = load i8, ptr %222, align 1
   %.not20.i87 = icmp eq i8 %223, 0
@@ -16516,7 +16510,7 @@ _ZN4pkpy2TKEPKc.exit98:                           ; preds = %235, %233
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i100:              ; preds = %_ZN4pkpy2TKEPKc.exit98
-  %245 = getelementptr inbounds %"struct.pkpy::Token", ptr %239, i64 %237
+  %245 = getelementptr inbounds [72 x i8], ptr %239, i64 %237
   %246 = load i8, ptr %245, align 8
   %.not.i101 = icmp eq i8 %246, %.015.i96
   br i1 %.not.i101, label %247, label %_ZN4pkpy8Compiler5matchEh.exit102
@@ -16564,13 +16558,13 @@ _ZN4pkpy8Compiler5matchEh.exit102:                ; preds = %254, %247, %_ZNK4pk
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %259
-  %269 = getelementptr inbounds %"struct.pkpy::Token", ptr %263, i64 %261
+  %269 = getelementptr inbounds [72 x i8], ptr %263, i64 %261
   %270 = load i8, ptr %269, align 8
   br label %271
 
 271:                                              ; preds = %286, %_ZNK4pkpy8Compiler4currEv.exit
   %indvars.iv.i104 = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit ], [ %indvars.iv.next.i112, %286 ]
-  %272 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i104
+  %272 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i104
   %273 = load ptr, ptr %272, align 8
   %274 = load i8, ptr %273, align 1
   %.not20.i105 = icmp eq i8 %274, 0
@@ -16664,9 +16658,9 @@ _ZN4pkpy2TKEPKc.exit116:                          ; preds = %286, %284
   %storemerge.i.i = phi ptr [ %315, %314 ], [ %313, %312 ]
   store ptr %storemerge.i.i, ptr %303, align 8
   %319 = ashr i64 %sext.i.i, 32
-  %320 = getelementptr inbounds i32, ptr %storemerge.i.i, i64 %319
+  %320 = getelementptr inbounds [4 x i8], ptr %storemerge.i.i, i64 %319
   store ptr %320, ptr %293, align 8
-  %321 = getelementptr inbounds i32, ptr %storemerge.i.i, i64 %310
+  %321 = getelementptr inbounds [4 x i8], ptr %storemerge.i.i, i64 %310
   store ptr %321, ptr %295, align 8
   br label %_ZN4pkpy12small_vectorIiLm6EE9push_backERKi.exit
 
@@ -16690,7 +16684,7 @@ _ZN4pkpy12small_vectorIiLm6EE9push_backERKi.exit: ; preds = %.thread161, %318
 
 329:                                              ; preds = %344, %.thread163
   %indvars.iv.i117 = phi i64 [ 0, %.thread163 ], [ %indvars.iv.next.i125, %344 ]
-  %330 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i117
+  %330 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i117
   %331 = load ptr, ptr %330, align 8
   %332 = load i8, ptr %331, align 1
   %.not20.i118 = icmp eq i8 %332, 0
@@ -16775,9 +16769,9 @@ _ZN4pkpy2TKEPKc.exit129:                          ; preds = %344, %342
   %storemerge.i.i.i = phi ptr [ %368, %367 ], [ %366, %365 ]
   store ptr %storemerge.i.i.i, ptr %356, align 8
   %372 = ashr i64 %sext.i.i.i, 32
-  %373 = getelementptr inbounds %"struct.pkpy::FuncDecl::KwArg", ptr %storemerge.i.i.i, i64 %372
+  %373 = getelementptr inbounds [16 x i8], ptr %storemerge.i.i.i, i64 %372
   store ptr %373, ptr %350, align 8
-  %374 = getelementptr inbounds %"struct.pkpy::FuncDecl::KwArg", ptr %storemerge.i.i.i, i64 %363
+  %374 = getelementptr inbounds [16 x i8], ptr %storemerge.i.i.i, i64 %363
   store ptr %374, ptr %352, align 8
   br label %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit
 
@@ -16840,9 +16834,9 @@ _ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit: ; preds = %.split,
   %storemerge.i.i.i134 = phi ptr [ %400, %399 ], [ %398, %397 ]
   store ptr %storemerge.i.i.i134, ptr %388, align 8
   %404 = ashr i64 %sext.i.i.i133, 32
-  %405 = getelementptr inbounds %"struct.pkpy::FuncDecl::KwArg", ptr %storemerge.i.i.i134, i64 %404
+  %405 = getelementptr inbounds [16 x i8], ptr %storemerge.i.i.i134, i64 %404
   store ptr %405, ptr %382, align 8
-  %406 = getelementptr inbounds %"struct.pkpy::FuncDecl::KwArg", ptr %storemerge.i.i.i134, i64 %395
+  %406 = getelementptr inbounds [16 x i8], ptr %storemerge.i.i.i134, i64 %395
   store ptr %406, ptr %384, align 8
   br label %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit135
 
@@ -16875,7 +16869,7 @@ _ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit135: ; preds = %.spl
 
 416:                                              ; preds = %431, %415
   %indvars.iv.i136 = phi i64 [ 0, %415 ], [ %indvars.iv.next.i144, %431 ]
-  %417 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i136
+  %417 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i136
   %418 = load ptr, ptr %417, align 8
   %419 = load i8, ptr %418, align 1
   %.not20.i137 = icmp eq i8 %419, 0
@@ -16930,7 +16924,7 @@ _ZN4pkpy2TKEPKc.exit148:                          ; preds = %431, %429
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i150:              ; preds = %_ZN4pkpy2TKEPKc.exit148
-  %441 = getelementptr inbounds %"struct.pkpy::Token", ptr %435, i64 %433
+  %441 = getelementptr inbounds [72 x i8], ptr %435, i64 %433
   %442 = load i8, ptr %441, align 8
   %.not.i151 = icmp eq i8 %442, %.015.i146
   br i1 %.not.i151, label %_ZN4pkpy8Compiler5matchEh.exit152, label %444
@@ -17017,7 +17011,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %17, %_ZN4pkpy14uniq
 
 22:                                               ; preds = %37, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit ], [ %indvars.iv.next.i, %37 ]
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
   %.not20.i = icmp eq i8 %25, 0
@@ -17109,7 +17103,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit9:    ; preds = %54, %_ZN4pkpy5stack
 
 64:                                               ; preds = %79, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit9
   %indvars.iv.i10 = phi i64 [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit9 ], [ %indvars.iv.next.i18, %79 ]
-  %65 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i10
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i10
   %66 = load ptr, ptr %65, align 8
   %67 = load i8, ptr %66, align 1
   %.not20.i11 = icmp eq i8 %67, 0
@@ -17167,7 +17161,7 @@ _ZN4pkpy2TKEPKc.exit22:                           ; preds = %79, %77
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit22
-  %92 = getelementptr inbounds %"struct.pkpy::Token", ptr %86, i64 %83
+  %92 = getelementptr inbounds [72 x i8], ptr %86, i64 %83
   %93 = load i8, ptr %92, align 8
   %.not.i23 = icmp eq i8 %93, %.015.i20
   br i1 %.not.i23, label %94, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -17317,7 +17311,7 @@ define void @_ZN4pkpy8Compiler18compile_block_bodyEMS0_FvvE(ptr noundef nonnull 
 
 6:                                                ; preds = %21, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %21 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1
   %.not20.i = icmp eq i8 %9, 0
@@ -17376,13 +17370,13 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %21, %19
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %_ZN4pkpy2TKEPKc.exit
-  %34 = getelementptr inbounds %"struct.pkpy::Token", ptr %28, i64 %25
+  %34 = getelementptr inbounds [72 x i8], ptr %28, i64 %25
   %35 = load i8, ptr %34, align 8
   br label %36
 
 36:                                               ; preds = %51, %_ZNK4pkpy8Compiler4currEv.exit
   %indvars.iv.i21 = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit ], [ %indvars.iv.next.i29, %51 ]
-  %37 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
   %38 = load ptr, ptr %37, align 8
   %39 = load i8, ptr %38, align 1
   %.not20.i22 = icmp eq i8 %39, 0
@@ -17426,7 +17420,7 @@ _ZN4pkpy2TKEPKc.exit33:                           ; preds = %51, %49
 
 _ZNK4pkpy8Compiler4currEv.exit35:                 ; preds = %_ZN4pkpy2TKEPKc.exit33, %66
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i44, %66 ], [ 0, %_ZN4pkpy2TKEPKc.exit33 ]
-  %52 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i36
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i36
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %53, align 1
   %.not20.i37 = icmp eq i8 %54, 0
@@ -17486,13 +17480,13 @@ _ZN4pkpy2TKEPKc.exit48:                           ; preds = %66, %64
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit50:                 ; preds = %.preheader134
-  %76 = getelementptr inbounds %"struct.pkpy::Token", ptr %70, i64 %68
+  %76 = getelementptr inbounds [72 x i8], ptr %70, i64 %68
   %77 = load i8, ptr %76, align 8
   br label %78
 
 78:                                               ; preds = %93, %_ZNK4pkpy8Compiler4currEv.exit50
   %indvars.iv.i51 = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit50 ], [ %indvars.iv.next.i59, %93 ]
-  %79 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i51
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i51
   %80 = load ptr, ptr %79, align 8
   %81 = load i8, ptr %80, align 1
   %.not20.i52 = icmp eq i8 %81, 0
@@ -17536,7 +17530,7 @@ _ZN4pkpy2TKEPKc.exit63:                           ; preds = %93, %91
 
 _ZNK4pkpy8Compiler4currEv.exit65:                 ; preds = %_ZN4pkpy2TKEPKc.exit63, %108
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i74, %108 ], [ 0, %_ZN4pkpy2TKEPKc.exit63 ]
-  %94 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i66
+  %94 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i66
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %95, align 1
   %.not20.i67 = icmp eq i8 %96, 0
@@ -17590,13 +17584,13 @@ _ZN4pkpy2TKEPKc.exit78:                           ; preds = %108, %106
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %110
-  %115 = getelementptr inbounds %"struct.pkpy::Token", ptr %70, i64 %113
+  %115 = getelementptr inbounds [72 x i8], ptr %70, i64 %113
   %116 = load i8, ptr %115, align 8
   br label %117
 
 117:                                              ; preds = %132, %_ZNK4pkpy8Compiler4prevEv.exit
   %indvars.iv.i80 = phi i64 [ 0, %_ZNK4pkpy8Compiler4prevEv.exit ], [ %indvars.iv.next.i88, %132 ]
-  %118 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i80
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i80
   %119 = load ptr, ptr %118, align 8
   %120 = load i8, ptr %119, align 1
   %.not20.i81 = icmp eq i8 %120, 0
@@ -17668,7 +17662,7 @@ _ZN4pkpy2TKEPKc.exit92:                           ; preds = %132, %130
 
 145:                                              ; preds = %.preheader259, %160
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i101, %160 ], [ 0, %.preheader259 ]
-  %146 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i93
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i93
   %147 = load ptr, ptr %146, align 8
   %148 = load i8, ptr %147, align 1
   %.not20.i94 = icmp eq i8 %148, 0
@@ -17735,13 +17729,13 @@ _ZNK4pkpy8Compiler4currEv.exit107.lr.ph:          ; preds = %_ZN4pkpy2TKEPKc.exi
 _ZNK4pkpy8Compiler4currEv.exit107:                ; preds = %_ZNK4pkpy8Compiler4currEv.exit107.lr.ph, %199
   %172 = phi ptr [ %164, %_ZNK4pkpy8Compiler4currEv.exit107.lr.ph ], [ %205, %199 ]
   %173 = phi i64 [ %162, %_ZNK4pkpy8Compiler4currEv.exit107.lr.ph ], [ %203, %199 ]
-  %174 = getelementptr inbounds %"struct.pkpy::Token", ptr %172, i64 %173
+  %174 = getelementptr inbounds [72 x i8], ptr %172, i64 %173
   %175 = load i8, ptr %174, align 8
   br label %176
 
 176:                                              ; preds = %191, %_ZNK4pkpy8Compiler4currEv.exit107
   %indvars.iv.i108 = phi i64 [ 0, %_ZNK4pkpy8Compiler4currEv.exit107 ], [ %indvars.iv.next.i116, %191 ]
-  %177 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i108
+  %177 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i108
   %178 = load ptr, ptr %177, align 8
   %179 = load i8, ptr %178, align 1
   %.not20.i109 = icmp eq i8 %179, 0
@@ -17811,7 +17805,7 @@ _ZN4pkpy2TKEPKc.exit120:                          ; preds = %191, %189
 
 .preheader:                                       ; preds = %_ZN4pkpy2TKEPKc.exit120, %224
   %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i129, %224 ], [ 0, %_ZN4pkpy2TKEPKc.exit120 ]
-  %210 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i121
+  %210 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i121
   %211 = load ptr, ptr %210, align 8
   %212 = load i8, ptr %211, align 1
   %.not20.i122 = icmp eq i8 %212, 0
@@ -17909,7 +17903,7 @@ define void @_ZN4pkpy8Compiler12compile_stmtEv(ptr noundef nonnull align 8 deref
 
 48:                                               ; preds = %63, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %63 ]
-  %49 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8
   %51 = load i8, ptr %50, align 1
   %.not20.i = icmp eq i8 %51, 0
@@ -17967,7 +17961,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %63, %61
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %76 = getelementptr inbounds %"struct.pkpy::Token", ptr %70, i64 %67
+  %76 = getelementptr inbounds [72 x i8], ptr %70, i64 %67
   %77 = load i8, ptr %76, align 8
   %.not.i69 = icmp eq i8 %77, %.015.i
   %78 = add nsw i32 %66, 1
@@ -18053,7 +18047,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %_ZNK4pkpy8Compiler4
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit72:                 ; preds = %_ZNK4pkpy8Compiler4prevEv.exit
-  %113 = getelementptr inbounds %"struct.pkpy::Token", ptr %107, i64 %105
+  %113 = getelementptr inbounds [72 x i8], ptr %107, i64 %105
   %114 = load i8, ptr %113, align 8
   switch i8 %114, label %882 [
     i8 90, label %115
@@ -18463,7 +18457,7 @@ _ZN4pkpy8Compiler16consume_end_stmtEv.exit86:     ; preds = %258, %261
 
 .preheader:                                       ; preds = %_ZNK4pkpy8Compiler4prevEv.exit72, %278
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i95, %278 ], [ 0, %_ZNK4pkpy8Compiler4prevEv.exit72 ]
-  %264 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i87
+  %264 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i87
   %265 = load ptr, ptr %264, align 8
   %266 = load i8, ptr %265, align 1
   %.not20.i88 = icmp eq i8 %266, 0
@@ -18520,7 +18514,7 @@ _ZN4pkpy2TKEPKc.exit99:                           ; preds = %278, %276
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit101:                ; preds = %_ZN4pkpy2TKEPKc.exit99
-  %289 = getelementptr inbounds %"struct.pkpy::Token", ptr %283, i64 %281
+  %289 = getelementptr inbounds [72 x i8], ptr %283, i64 %281
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 16
@@ -18715,7 +18709,7 @@ _ZN4pkpy8Compiler16consume_end_stmtEv.exit104:    ; preds = %360, %363
 
 .preheader326:                                    ; preds = %_ZNK4pkpy8Compiler4prevEv.exit72, %380
   %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i113, %380 ], [ 0, %_ZNK4pkpy8Compiler4prevEv.exit72 ]
-  %366 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i105
+  %366 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i105
   %367 = load ptr, ptr %366, align 8
   %368 = load i8, ptr %367, align 1
   %.not20.i106 = icmp eq i8 %368, 0
@@ -18772,7 +18766,7 @@ _ZN4pkpy2TKEPKc.exit117:                          ; preds = %380, %378
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit119:                ; preds = %_ZN4pkpy2TKEPKc.exit117
-  %391 = getelementptr inbounds %"struct.pkpy::Token", ptr %385, i64 %383
+  %391 = getelementptr inbounds [72 x i8], ptr %385, i64 %383
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 16
@@ -18871,7 +18865,7 @@ _ZN4pkpy8Compiler16consume_end_stmtEv.exit126:    ; preds = %431, %434
 
 443:                                              ; preds = %458, %437
   %indvars.iv.i127 = phi i64 [ 0, %437 ], [ %indvars.iv.next.i135, %458 ]
-  %444 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i127
+  %444 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i127
   %445 = load ptr, ptr %444, align 8
   %446 = load i8, ptr %445, align 1
   %.not20.i128 = icmp eq i8 %446, 0
@@ -18926,7 +18920,7 @@ _ZN4pkpy2TKEPKc.exit139:                          ; preds = %458, %456
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i141:              ; preds = %_ZN4pkpy2TKEPKc.exit139
-  %468 = getelementptr inbounds %"struct.pkpy::Token", ptr %462, i64 %460
+  %468 = getelementptr inbounds [72 x i8], ptr %462, i64 %460
   %469 = load i8, ptr %468, align 8
   %.not.i142 = icmp eq i8 %469, %.015.i137
   br i1 %.not.i142, label %470, label %_ZN4pkpy8Compiler5matchEh.exit143
@@ -18973,7 +18967,7 @@ _ZN4pkpy8Compiler16consume_end_stmtEv.exit144:    ; preds = %_ZN4pkpy8Compiler5m
 
 .preheader332:                                    ; preds = %_ZNK4pkpy8Compiler4prevEv.exit72, %.preheader332.backedge
   %indvars.iv.i145 = phi i64 [ %indvars.iv.i145.be, %.preheader332.backedge ], [ 0, %_ZNK4pkpy8Compiler4prevEv.exit72 ]
-  %484 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i145
+  %484 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i145
   %485 = load ptr, ptr %484, align 8
   %486 = load i8, ptr %485, align 1
   %.not20.i146 = icmp eq i8 %486, 0
@@ -19036,7 +19030,7 @@ _ZN4pkpy2TKEPKc.exit157:                          ; preds = %498, %496
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit159:                ; preds = %_ZN4pkpy2TKEPKc.exit157
-  %511 = getelementptr inbounds %"struct.pkpy::Token", ptr %505, i64 %503
+  %511 = getelementptr inbounds [72 x i8], ptr %505, i64 %503
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
   %513 = load ptr, ptr %512, align 8, !noalias !251
   %514 = getelementptr inbounds nuw i8, ptr %511, i64 16
@@ -19099,7 +19093,7 @@ select.unfold.i.i:                                ; preds = %.noexc164, %._crit_
 
 530:                                              ; preds = %545, %529
   %indvars.iv.i166 = phi i64 [ 0, %529 ], [ %indvars.iv.next.i174, %545 ]
-  %531 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i166
+  %531 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i166
   %532 = load ptr, ptr %531, align 8
   %533 = load i8, ptr %532, align 1
   %.not20.i167 = icmp eq i8 %533, 0
@@ -19154,7 +19148,7 @@ _ZN4pkpy2TKEPKc.exit178:                          ; preds = %545, %543
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i180:              ; preds = %_ZN4pkpy2TKEPKc.exit178
-  %555 = getelementptr inbounds %"struct.pkpy::Token", ptr %549, i64 %547
+  %555 = getelementptr inbounds [72 x i8], ptr %549, i64 %547
   %556 = load i8, ptr %555, align 8
   %.not.i181 = icmp eq i8 %556, %.015.i176
   br i1 %.not.i181, label %_ZN4pkpy8Compiler5matchEh.exit182, label %558
@@ -19333,7 +19327,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit191:  ; preds = %605, %.noexc187
 
 616:                                              ; preds = %631, %610
   %indvars.iv.i192 = phi i64 [ 0, %610 ], [ %indvars.iv.next.i200, %631 ]
-  %617 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i192
+  %617 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i192
   %618 = load ptr, ptr %617, align 8
   %619 = load i8, ptr %618, align 1
   %.not20.i193 = icmp eq i8 %619, 0
@@ -19388,7 +19382,7 @@ _ZN4pkpy2TKEPKc.exit204:                          ; preds = %631, %629
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i206:              ; preds = %_ZN4pkpy2TKEPKc.exit204
-  %640 = getelementptr inbounds %"struct.pkpy::Token", ptr %635, i64 %633
+  %640 = getelementptr inbounds [72 x i8], ptr %635, i64 %633
   %641 = load i8, ptr %640, align 8
   %.not.i207 = icmp eq i8 %641, %.015.i202
   br i1 %.not.i207, label %642, label %664
@@ -19463,7 +19457,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit: ; preds = %642
 671:                                              ; preds = %664
   %672 = load ptr, ptr %99, align 8
   %673 = getelementptr inbounds i8, ptr %672, i64 -232
-  %674 = getelementptr inbounds %"struct.pkpy::Token", ptr %665, i64 %668
+  %674 = getelementptr inbounds [72 x i8], ptr %665, i64 %668
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 20
   %676 = load i32, ptr %675, align 4
   %677 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %673, i8 noundef zeroext 108, i16 noundef zeroext 0, i32 noundef %676, i1 noundef zeroext false)
@@ -19513,7 +19507,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit: ; preds = %642
 701:                                              ; preds = %691
   %702 = load ptr, ptr %99, align 8
   %703 = getelementptr inbounds i8, ptr %702, i64 -232
-  %704 = getelementptr inbounds %"struct.pkpy::Token", ptr %696, i64 %694
+  %704 = getelementptr inbounds [72 x i8], ptr %696, i64 %694
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 20
   %706 = load i32, ptr %705, align 4
   %707 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %703, i8 noundef zeroext 109, i16 noundef zeroext 0, i32 noundef %706, i1 noundef zeroext false)
@@ -19556,7 +19550,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit: ; preds = %642
 
 .preheader333:                                    ; preds = %_ZNK4pkpy8Compiler4prevEv.exit72, %733
   %indvars.iv.i225 = phi i64 [ %indvars.iv.next.i233, %733 ], [ 0, %_ZNK4pkpy8Compiler4prevEv.exit72 ]
-  %719 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i225
+  %719 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i225
   %720 = load ptr, ptr %719, align 8
   %721 = load i8, ptr %720, align 1
   %.not20.i226 = icmp eq i8 %721, 0
@@ -19638,7 +19632,7 @@ _ZN4pkpy2TKEPKc.exit237:                          ; preds = %733, %731
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit239:                ; preds = %742
-  %755 = getelementptr inbounds %"struct.pkpy::Token", ptr %749, i64 %747
+  %755 = getelementptr inbounds [72 x i8], ptr %749, i64 %747
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
   %757 = load ptr, ptr %756, align 8, !noalias !261
   %758 = getelementptr inbounds nuw i8, ptr %755, i64 16
@@ -19661,7 +19655,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit241:            ; preds = %_ZNK4pkpy8Compiler4
 
 767:                                              ; preds = %782, %766
   %indvars.iv.i242 = phi i64 [ 0, %766 ], [ %indvars.iv.next.i250, %782 ]
-  %768 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i242
+  %768 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i242
   %769 = load ptr, ptr %768, align 8
   %770 = load i8, ptr %769, align 1
   %.not20.i243 = icmp eq i8 %770, 0
@@ -19800,7 +19794,7 @@ _ZN4pkpy8Compiler16consume_end_stmtEv.exit255:    ; preds = %806, %809
 
 .preheader334:                                    ; preds = %_ZNK4pkpy8Compiler4prevEv.exit72, %826
   %indvars.iv.i256 = phi i64 [ %indvars.iv.next.i264, %826 ], [ 0, %_ZNK4pkpy8Compiler4prevEv.exit72 ]
-  %812 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i256
+  %812 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i256
   %813 = load ptr, ptr %812, align 8
   %814 = load i8, ptr %813, align 1
   %.not20.i257 = icmp eq i8 %814, 0
@@ -19882,7 +19876,7 @@ _ZN4pkpy2TKEPKc.exit268:                          ; preds = %826, %824
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit270:                ; preds = %835
-  %848 = getelementptr inbounds %"struct.pkpy::Token", ptr %842, i64 %840
+  %848 = getelementptr inbounds [72 x i8], ptr %842, i64 %840
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 8
   %850 = load ptr, ptr %849, align 8
   %851 = getelementptr inbounds nuw i8, ptr %848, i64 16
@@ -19917,7 +19911,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit274:            ; preds = %_ZNK4pkpy8Compiler4
   unreachable
 
 869:                                              ; preds = %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit274
-  %870 = getelementptr inbounds %"struct.pkpy::Token", ptr %863, i64 %861
+  %870 = getelementptr inbounds [72 x i8], ptr %863, i64 %861
   %871 = getelementptr inbounds nuw i8, ptr %870, i64 20
   %872 = load i32, ptr %871, align 4
   %873 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %837, i8 noundef zeroext 78, i16 noundef zeroext %858, i32 noundef %872, i1 noundef zeroext false)
@@ -20210,7 +20204,7 @@ define void @_ZN4pkpy8Compiler21compile_normal_importEv(ptr noundef nonnull alig
 
 12:                                               ; preds = %.backedge, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.i.be, %.backedge ]
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = load i8, ptr %14, align 1
   %.not20.i = icmp eq i8 %15, 0
@@ -20271,7 +20265,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %27, %25
   unreachable
 
 38:                                               ; preds = %_ZN4pkpy2TKEPKc.exit
-  %39 = getelementptr inbounds %"struct.pkpy::Token", ptr %32, i64 %30
+  %39 = getelementptr inbounds [72 x i8], ptr %32, i64 %30
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !noalias !267
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -20308,7 +20302,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %27, %25
   unreachable
 
 62:                                               ; preds = %50
-  %63 = getelementptr inbounds %"struct.pkpy::Token", ptr %55, i64 %53
+  %63 = getelementptr inbounds [72 x i8], ptr %55, i64 %53
   %64 = trunc i32 %49 to i16
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %66 = load i32, ptr %65, align 4
@@ -20317,7 +20311,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %27, %25
 
 .preheader:                                       ; preds = %62, %82
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i14, %82 ], [ 0, %62 ]
-  %68 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i6
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i6
   %69 = load ptr, ptr %68, align 8
   %70 = load i8, ptr %69, align 1
   %.not20.i7 = icmp eq i8 %70, 0
@@ -20368,7 +20362,7 @@ _ZN4pkpy2TKEPKc.exit18:                           ; preds = %82, %80
   br i1 %.not.i.i.i.i, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit18
-  %91 = getelementptr inbounds %"struct.pkpy::Token", ptr %86, i64 %84
+  %91 = getelementptr inbounds [72 x i8], ptr %86, i64 %84
   %92 = load i8, ptr %91, align 8
   %.not.i19 = icmp eq i8 %92, %.015.i16
   br i1 %.not.i19, label %93, label %131
@@ -20380,7 +20374,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exi
 
 95:                                               ; preds = %110, %93
   %indvars.iv.i21 = phi i64 [ 0, %93 ], [ %indvars.iv.next.i29, %110 ]
-  %96 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
+  %96 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i21
   %97 = load ptr, ptr %96, align 8
   %98 = load i8, ptr %97, align 1
   %.not20.i22 = icmp eq i8 %98, 0
@@ -20436,7 +20430,7 @@ _ZN4pkpy2TKEPKc.exit33:                           ; preds = %110, %108
   br i1 %.not.i.i.i34, label %121, label %.invoke
 
 121:                                              ; preds = %111
-  %122 = getelementptr inbounds %"struct.pkpy::Token", ptr %116, i64 %114
+  %122 = getelementptr inbounds [72 x i8], ptr %116, i64 %114
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8, !noalias !270
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
@@ -20502,7 +20496,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %131
   br i1 %.not.i.i.i39, label %156, label %.invoke
 
 156:                                              ; preds = %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit
-  %157 = getelementptr inbounds %"struct.pkpy::Token", ptr %151, i64 %149
+  %157 = getelementptr inbounds [72 x i8], ptr %151, i64 %149
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 20
   %159 = load i32, ptr %158, align 4
   invoke void @_ZN4pkpy15CodeEmitContext15emit_store_nameENS_9NameScopeENS_7StrNameEi(ptr noundef nonnull align 8 dereferenceable(232) %133, i32 noundef %spec.store.select.i, i16 %146, i32 noundef %159)
@@ -20514,7 +20508,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %131
 
 161:                                              ; preds = %176, %160
   %indvars.iv.i42 = phi i64 [ 0, %160 ], [ %indvars.iv.next.i50, %176 ]
-  %162 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i42
+  %162 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i42
   %163 = load ptr, ptr %162, align 8
   %164 = load i8, ptr %163, align 1
   %.not20.i43 = icmp eq i8 %164, 0
@@ -20569,7 +20563,7 @@ _ZN4pkpy2TKEPKc.exit54:                           ; preds = %176, %174
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i56:               ; preds = %_ZN4pkpy2TKEPKc.exit54
-  %186 = getelementptr inbounds %"struct.pkpy::Token", ptr %180, i64 %178
+  %186 = getelementptr inbounds [72 x i8], ptr %180, i64 %178
   %187 = load i8, ptr %186, align 8
   %.not.i57 = icmp eq i8 %187, %.015.i52
   br i1 %.not.i57, label %_ZN4pkpy8Compiler5matchEh.exit58, label %189
@@ -20646,7 +20640,7 @@ define void @_ZN4pkpy8Compiler19compile_from_importEv(ptr noundef nonnull align 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ %18, %1 ]
   %.0372 = phi i32 [ %24, %23 ], [ 0, %1 ]
-  %19 = getelementptr inbounds %"struct.pkpy::Token", ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds [72 x i8], ptr %13, i64 %indvars.iv
   %20 = load i8, ptr %19, align 8
   switch i8 %20, label %26 [
     i8 37, label %23
@@ -20718,7 +20712,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1, %23
 
 .preheader262:                                    ; preds = %32, %48
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %36 = load i8, ptr %35, align 1
   %.not20.i = icmp eq i8 %36, 0
@@ -20769,7 +20763,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %48, %46
   br i1 %.not.i.i.i.i, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %57 = getelementptr inbounds %"struct.pkpy::Token", ptr %52, i64 %50
+  %57 = getelementptr inbounds [72 x i8], ptr %52, i64 %50
   %58 = load i8, ptr %57, align 8
   %.not.i25 = icmp eq i8 %58, %.015.i
   br i1 %.not.i25, label %59, label %.loopexit258
@@ -20787,7 +20781,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exi
 
 .preheader257:                                    ; preds = %59, %.preheader257.backedge
   %indvars.iv.i28 = phi i64 [ %indvars.iv.i28.be, %.preheader257.backedge ], [ 0, %59 ]
-  %67 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i28
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i28
   %68 = load ptr, ptr %67, align 8
   %69 = load i8, ptr %68, align 1
   %.not20.i29 = icmp eq i8 %69, 0
@@ -20842,7 +20836,7 @@ _ZN4pkpy2TKEPKc.exit40:                           ; preds = %81, %79
   br i1 %.not.i.i.i.i41, label %_ZNK4pkpy8Compiler4currEv.exit.i42, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i42:               ; preds = %_ZN4pkpy2TKEPKc.exit40
-  %90 = getelementptr inbounds %"struct.pkpy::Token", ptr %85, i64 %83
+  %90 = getelementptr inbounds [72 x i8], ptr %85, i64 %83
   %91 = load i8, ptr %90, align 8
   %.not.i43 = icmp eq i8 %91, %.015.i38
   br i1 %.not.i43, label %92, label %.loopexit258
@@ -20854,7 +20848,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i42:               ; preds = %_ZN4pkpy2TKEPKc.exi
 
 94:                                               ; preds = %109, %92
   %indvars.iv.i46 = phi i64 [ 0, %92 ], [ %indvars.iv.next.i54, %109 ]
-  %95 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i46
+  %95 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i46
   %96 = load ptr, ptr %95, align 8
   %97 = load i8, ptr %96, align 1
   %.not20.i47 = icmp eq i8 %97, 0
@@ -20914,7 +20908,7 @@ _ZN4pkpy2TKEPKc.exit58:                           ; preds = %109, %107
   br i1 %.not.i.i.i59, label %122, label %.invoke
 
 122:                                              ; preds = %112
-  %123 = getelementptr inbounds %"struct.pkpy::Token", ptr %117, i64 %115
+  %123 = getelementptr inbounds [72 x i8], ptr %117, i64 %115
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -20925,7 +20919,7 @@ _ZN4pkpy2TKEPKc.exit58:                           ; preds = %109, %107
 
 .preheader267:                                    ; preds = %26, %144
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i72, %144 ], [ 0, %26 ]
-  %130 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i64
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i64
   %131 = load ptr, ptr %130, align 8
   %132 = load i8, ptr %131, align 1
   %.not20.i65 = icmp eq i8 %132, 0
@@ -20981,7 +20975,7 @@ _ZN4pkpy2TKEPKc.exit76:                           ; preds = %144, %142
   br i1 %.not.i.i.i77, label %155, label %.invoke
 
 155:                                              ; preds = %145
-  %156 = getelementptr inbounds %"struct.pkpy::Token", ptr %150, i64 %148
+  %156 = getelementptr inbounds [72 x i8], ptr %150, i64 %148
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -20992,7 +20986,7 @@ _ZN4pkpy2TKEPKc.exit76:                           ; preds = %144, %142
 
 .preheader263:                                    ; preds = %155, %.preheader263.backedge
   %indvars.iv.i82 = phi i64 [ %indvars.iv.i82.be, %.preheader263.backedge ], [ 0, %155 ]
-  %163 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i82
+  %163 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i82
   %164 = load ptr, ptr %163, align 8
   %165 = load i8, ptr %164, align 1
   %.not20.i83 = icmp eq i8 %165, 0
@@ -21047,7 +21041,7 @@ _ZN4pkpy2TKEPKc.exit94:                           ; preds = %177, %175
   br i1 %.not.i.i.i.i95, label %_ZNK4pkpy8Compiler4currEv.exit.i96, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i96:               ; preds = %_ZN4pkpy2TKEPKc.exit94
-  %186 = getelementptr inbounds %"struct.pkpy::Token", ptr %181, i64 %179
+  %186 = getelementptr inbounds [72 x i8], ptr %181, i64 %179
   %187 = load i8, ptr %186, align 8
   %.not.i97 = icmp eq i8 %187, %.015.i92
   br i1 %.not.i97, label %188, label %.loopexit258
@@ -21059,7 +21053,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i96:               ; preds = %_ZN4pkpy2TKEPKc.exi
 
 190:                                              ; preds = %205, %188
   %indvars.iv.i100 = phi i64 [ 0, %188 ], [ %indvars.iv.next.i108, %205 ]
-  %191 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i100
+  %191 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i100
   %192 = load ptr, ptr %191, align 8
   %193 = load i8, ptr %192, align 1
   %.not20.i101 = icmp eq i8 %193, 0
@@ -21119,7 +21113,7 @@ _ZN4pkpy2TKEPKc.exit112:                          ; preds = %205, %203
   br i1 %.not.i.i.i113, label %218, label %.invoke
 
 218:                                              ; preds = %208
-  %219 = getelementptr inbounds %"struct.pkpy::Token", ptr %213, i64 %211
+  %219 = getelementptr inbounds [72 x i8], ptr %213, i64 %211
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
@@ -21164,7 +21158,7 @@ _ZN4pkpy2TKEPKc.exit112:                          ; preds = %205, %203
   unreachable
 
 246:                                              ; preds = %235
-  %247 = getelementptr inbounds %"struct.pkpy::Token", ptr %240, i64 %238
+  %247 = getelementptr inbounds [72 x i8], ptr %240, i64 %238
   %248 = trunc i32 %234 to i16
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 20
   %250 = load i32, ptr %249, align 4
@@ -21177,7 +21171,7 @@ _ZN4pkpy2TKEPKc.exit112:                          ; preds = %205, %203
 
 253:                                              ; preds = %268, %252
   %indvars.iv.i123 = phi i64 [ 0, %252 ], [ %indvars.iv.next.i131, %268 ]
-  %254 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i123
+  %254 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i123
   %255 = load ptr, ptr %254, align 8
   %256 = load i8, ptr %255, align 1
   %.not20.i124 = icmp eq i8 %256, 0
@@ -21221,7 +21215,7 @@ _ZN4pkpy2TKEPKc.exit135:                          ; preds = %268, %266
 
 .preheader256:                                    ; preds = %_ZN4pkpy2TKEPKc.exit135, %283
   %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i144, %283 ], [ 0, %_ZN4pkpy2TKEPKc.exit135 ]
-  %269 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i136
+  %269 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i136
   %270 = load ptr, ptr %269, align 8
   %271 = load i8, ptr %270, align 1
   %.not20.i137 = icmp eq i8 %271, 0
@@ -21272,7 +21266,7 @@ _ZN4pkpy2TKEPKc.exit148:                          ; preds = %283, %281
   br i1 %.not.i.i.i.i149, label %_ZNK4pkpy8Compiler4currEv.exit.i150, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i150:              ; preds = %_ZN4pkpy2TKEPKc.exit148
-  %292 = getelementptr inbounds %"struct.pkpy::Token", ptr %287, i64 %285
+  %292 = getelementptr inbounds [72 x i8], ptr %287, i64 %285
   %293 = load i8, ptr %292, align 8
   %.not.i151 = icmp eq i8 %293, %.015.i146
   br i1 %.not.i151, label %297, label %_ZN4pkpy8Compiler5matchEh.exit153.preheader
@@ -21343,7 +21337,7 @@ _ZN4pkpy8Compiler5matchEh.exit153.preheader:      ; preds = %_ZNK4pkpy8Compiler4
 322:                                              ; preds = %318
   %323 = load ptr, ptr %226, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 -232
-  %325 = getelementptr inbounds %"struct.pkpy::Token", ptr %319, i64 %321
+  %325 = getelementptr inbounds [72 x i8], ptr %319, i64 %321
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 20
   %327 = load i32, ptr %326, align 4
   %328 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %324, i8 noundef zeroext 99, i16 noundef zeroext 0, i32 noundef %327, i1 noundef zeroext false)
@@ -21387,7 +21381,7 @@ _ZN4pkpy8Compiler5matchEh.exit153:                ; preds = %_ZN4pkpy8Compiler5m
 
 .preheader250:                                    ; preds = %_ZN4pkpy8Compiler5matchEh.exit153, %352
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i167, %352 ], [ 0, %_ZN4pkpy8Compiler5matchEh.exit153 ]
-  %338 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i159
+  %338 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i159
   %339 = load ptr, ptr %338, align 8
   %340 = load i8, ptr %339, align 1
   %.not20.i160 = icmp eq i8 %340, 0
@@ -21443,7 +21437,7 @@ _ZN4pkpy2TKEPKc.exit171:                          ; preds = %352, %350
   br i1 %.not.i.i.i172, label %363, label %.invoke
 
 363:                                              ; preds = %353
-  %364 = getelementptr inbounds %"struct.pkpy::Token", ptr %358, i64 %356
+  %364 = getelementptr inbounds [72 x i8], ptr %358, i64 %356
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load ptr, ptr %365, align 8, !noalias !277
   %367 = getelementptr inbounds nuw i8, ptr %364, i64 16
@@ -21483,7 +21477,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %369
   unreachable
 
 387:                                              ; preds = %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit
-  %388 = getelementptr inbounds %"struct.pkpy::Token", ptr %380, i64 %378
+  %388 = getelementptr inbounds [72 x i8], ptr %380, i64 %378
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 20
   %390 = load i32, ptr %389, align 4
   %391 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %371, i8 noundef zeroext 18, i16 noundef zeroext %375, i32 noundef %390, i1 noundef zeroext false)
@@ -21491,7 +21485,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %369
 
 .preheader:                                       ; preds = %387, %406
   %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i188, %406 ], [ 0, %387 ]
-  %392 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i180
+  %392 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i180
   %393 = load ptr, ptr %392, align 8
   %394 = load i8, ptr %393, align 1
   %.not20.i181 = icmp eq i8 %394, 0
@@ -21542,7 +21536,7 @@ _ZN4pkpy2TKEPKc.exit192:                          ; preds = %406, %404
   br i1 %.not.i.i.i.i193, label %_ZNK4pkpy8Compiler4currEv.exit.i194, label %.invoke659
 
 _ZNK4pkpy8Compiler4currEv.exit.i194:              ; preds = %_ZN4pkpy2TKEPKc.exit192
-  %415 = getelementptr inbounds %"struct.pkpy::Token", ptr %410, i64 %408
+  %415 = getelementptr inbounds [72 x i8], ptr %410, i64 %408
   %416 = load i8, ptr %415, align 8
   %.not.i195 = icmp eq i8 %416, %.015.i190
   br i1 %.not.i195, label %417, label %455
@@ -21554,7 +21548,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i194:              ; preds = %_ZN4pkpy2TKEPKc.exi
 
 419:                                              ; preds = %434, %417
   %indvars.iv.i198 = phi i64 [ 0, %417 ], [ %indvars.iv.next.i206, %434 ]
-  %420 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i198
+  %420 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i198
   %421 = load ptr, ptr %420, align 8
   %422 = load i8, ptr %421, align 1
   %.not20.i199 = icmp eq i8 %422, 0
@@ -21610,7 +21604,7 @@ _ZN4pkpy2TKEPKc.exit210:                          ; preds = %434, %432
   br i1 %.not.i.i.i211, label %445, label %.invoke659
 
 445:                                              ; preds = %435
-  %446 = getelementptr inbounds %"struct.pkpy::Token", ptr %440, i64 %438
+  %446 = getelementptr inbounds [72 x i8], ptr %440, i64 %438
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %448 = load ptr, ptr %447, align 8, !noalias !280
   %449 = getelementptr inbounds nuw i8, ptr %446, i64 16
@@ -21676,7 +21670,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit219:            ; preds = %455
   br i1 %.not.i.i.i220, label %480, label %.invoke659
 
 480:                                              ; preds = %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit219
-  %481 = getelementptr inbounds %"struct.pkpy::Token", ptr %475, i64 %473
+  %481 = getelementptr inbounds [72 x i8], ptr %475, i64 %473
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 20
   %483 = load i32, ptr %482, align 4
   invoke void @_ZN4pkpy15CodeEmitContext15emit_store_nameENS_9NameScopeENS_7StrNameEi(ptr noundef nonnull align 8 dereferenceable(232) %457, i32 noundef %spec.store.select.i217, i16 %470, i32 noundef %483)
@@ -21688,7 +21682,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit219:            ; preds = %455
 
 485:                                              ; preds = %500, %484
   %indvars.iv.i223 = phi i64 [ 0, %484 ], [ %indvars.iv.next.i231, %500 ]
-  %486 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i223
+  %486 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i223
   %487 = load ptr, ptr %486, align 8
   %488 = load i8, ptr %487, align 1
   %.not20.i224 = icmp eq i8 %488, 0
@@ -21748,7 +21742,7 @@ _ZN4pkpy2TKEPKc.exit235:                          ; preds = %500, %498
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i237:              ; preds = %_ZN4pkpy2TKEPKc.exit235
-  %511 = getelementptr inbounds %"struct.pkpy::Token", ptr %504, i64 %502
+  %511 = getelementptr inbounds [72 x i8], ptr %504, i64 %502
   %512 = load i8, ptr %511, align 8
   %.not.i238 = icmp eq i8 %512, %.015.i233
   br i1 %.not.i238, label %_ZN4pkpy8Compiler5matchEh.exit240, label %514
@@ -21864,7 +21858,7 @@ define void @_ZN4pkpy8Compiler15compile_if_stmtEv(ptr noundef nonnull align 8 de
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
   %18 = load ptr, ptr %2, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 -232
-  %20 = getelementptr inbounds %"struct.pkpy::Token", ptr %12, i64 %9
+  %20 = getelementptr inbounds [72 x i8], ptr %12, i64 %9
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %19, i8 noundef zeroext 71, i16 noundef zeroext 0, i32 noundef %22, i1 noundef zeroext false)
@@ -21873,7 +21867,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
 
 24:                                               ; preds = %39, %_ZNK4pkpy8Compiler4prevEv.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNK4pkpy8Compiler4prevEv.exit ], [ %indvars.iv.next.i, %39 ]
-  %25 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 1
   %.not20.i = icmp eq i8 %27, 0
@@ -21928,7 +21922,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %39, %37
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %49 = getelementptr inbounds %"struct.pkpy::Token", ptr %43, i64 %41
+  %49 = getelementptr inbounds [72 x i8], ptr %43, i64 %41
   %50 = load i8, ptr %49, align 8
   %.not.i7 = icmp eq i8 %50, %.015.i
   br i1 %.not.i7, label %_ZNK4pkpy8Compiler4prevEv.exit9, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -21956,7 +21950,7 @@ _ZNK4pkpy8Compiler4prevEv.exit9:                  ; preds = %_ZNK4pkpy8Compiler4
 
 _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i, %75
   %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i18, %75 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i ]
-  %61 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i10
   %62 = load ptr, ptr %61, align 8
   %63 = load i8, ptr %62, align 1
   %.not20.i11 = icmp eq i8 %63, 0
@@ -22047,7 +22041,7 @@ define void @_ZN4pkpy8Compiler18compile_while_loopEv(ptr noundef nonnull align 8
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
   %21 = load ptr, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 -232
-  %23 = getelementptr inbounds %"struct.pkpy::Token", ptr %15, i64 %12
+  %23 = getelementptr inbounds [72 x i8], ptr %15, i64 %12
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %22, i8 noundef zeroext 71, i16 noundef zeroext 0, i32 noundef %25, i1 noundef zeroext false)
@@ -22067,7 +22061,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
 
 36:                                               ; preds = %51, %_ZNK4pkpy8Compiler4prevEv.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNK4pkpy8Compiler4prevEv.exit ], [ %indvars.iv.next.i, %51 ]
-  %37 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = load i8, ptr %38, align 1
   %.not20.i = icmp eq i8 %39, 0
@@ -22122,7 +22116,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %51, %49
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %61 = getelementptr inbounds %"struct.pkpy::Token", ptr %55, i64 %53
+  %61 = getelementptr inbounds [72 x i8], ptr %55, i64 %53
   %62 = load i8, ptr %61, align 8
   %.not.i4 = icmp eq i8 %62, %.015.i
   br i1 %.not.i4, label %63, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -22165,7 +22159,7 @@ define void @_ZN4pkpy8Compiler16compile_for_loopEv(ptr noundef nonnull align 8 d
 
 3:                                                ; preds = %18, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %18 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
   %.not20.i = icmp eq i8 %6, 0
@@ -22299,7 +22293,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %46, %49
 
 .preheader:                                       ; preds = %63, %80
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i16, %80 ], [ 0, %63 ]
-  %66 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i8
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i8
   %67 = load ptr, ptr %66, align 8
   %68 = load i8, ptr %67, align 1
   %.not20.i9 = icmp eq i8 %68, 0
@@ -22360,7 +22354,7 @@ _ZN4pkpy2TKEPKc.exit20:                           ; preds = %80, %78
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit20
-  %93 = getelementptr inbounds %"struct.pkpy::Token", ptr %87, i64 %84
+  %93 = getelementptr inbounds [72 x i8], ptr %87, i64 %84
   %94 = load i8, ptr %93, align 8
   %.not.i21 = icmp eq i8 %94, %.015.i18
   br i1 %.not.i21, label %95, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit23
@@ -22430,7 +22424,7 @@ define linkonce_odr void @_ZN4pkpy8Compiler11SyntaxErrorEv(ptr noundef nonnull a
 
 .thread:                                          ; preds = %15, %1
   %.pn = phi i64 [ %6, %1 ], [ %17, %15 ]
-  %.0.i.pn = getelementptr inbounds %"struct.pkpy::Token", ptr %10, i64 %.pn
+  %.0.i.pn = getelementptr inbounds [72 x i8], ptr %10, i64 %.pn
   %.in = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 20
   %19 = load i32, ptr %.in, align 4
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 8
@@ -22506,9 +22500,9 @@ define void @_ZN4pkpy8Compiler18compile_try_exceptEv(ptr noundef nonnull align 8
   %storemerge.i.i = phi ptr [ %32, %31 ], [ %30, %29 ]
   store ptr %storemerge.i.i, ptr %10, align 8
   %36 = ashr i64 %sext.i.i, 32
-  %37 = getelementptr inbounds i32, ptr %storemerge.i.i, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %storemerge.i.i, i64 %36
   store ptr %37, ptr %11, align 8
-  %38 = getelementptr inbounds i32, ptr %storemerge.i.i, i64 %27
+  %38 = getelementptr inbounds [4 x i8], ptr %storemerge.i.i, i64 %27
   store ptr %38, ptr %12, align 8
   br label %39
 
@@ -22539,13 +22533,13 @@ define void @_ZN4pkpy8Compiler18compile_try_exceptEv(ptr noundef nonnull align 8
   br i1 %.not.i.i.i, label %57, label %.invoke
 
 57:                                               ; preds = %45
-  %58 = getelementptr inbounds %"struct.pkpy::Token", ptr %52, i64 %49
+  %58 = getelementptr inbounds [72 x i8], ptr %52, i64 %49
   %59 = load i8, ptr %58, align 8
   br label %60
 
 60:                                               ; preds = %75, %57
   %indvars.iv.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i, %75 ]
-  %61 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8
   %63 = load i8, ptr %62, align 1
   %.not20.i = icmp eq i8 %63, 0
@@ -22595,7 +22589,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %75, %73
 
 79:                                               ; preds = %.backedge, %.preheader136
   %indvars.iv.i28 = phi i64 [ 0, %.preheader136 ], [ %indvars.iv.i28.be, %.backedge ]
-  %80 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i28
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i28
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %81, align 1
   %.not20.i29 = icmp eq i8 %82, 0
@@ -22654,17 +22648,17 @@ _ZN4pkpy2TKEPKc.exit40:                           ; preds = %94, %92
   br i1 %.not.i.i.i.i, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %95
-  %104 = getelementptr inbounds %"struct.pkpy::Token", ptr %99, i64 %97
+  %104 = getelementptr inbounds [72 x i8], ptr %99, i64 %97
   %105 = load i8, ptr %104, align 8
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %106
+  %107 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %106
   %.unpack.i = load i64, ptr %107, align 8
   %.not.i41 = icmp eq i64 %.unpack.i, 0
   br i1 %.not.i41, label %_ZN4pkpy8Compiler13is_expressionEb.exit.thread, label %_ZNK4pkpy8Compiler4currEv.exit6.i
 
 _ZNK4pkpy8Compiler4currEv.exit6.i:                ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i, %122
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %122 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i ]
-  %108 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %109 = load ptr, ptr %108, align 8
   %110 = load i8, ptr %109, align 1
   %.not20.i.i = icmp eq i8 %110, 0
@@ -22732,7 +22726,7 @@ _ZN4pkpy8Compiler13is_expressionEb.exit:          ; preds = %122, %120
 137:                                              ; preds = %127
   %138 = load ptr, ptr %6, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 -232
-  %140 = getelementptr inbounds %"struct.pkpy::Token", ptr %132, i64 %130
+  %140 = getelementptr inbounds [72 x i8], ptr %132, i64 %130
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %142 = load i32, ptr %141, align 4
   %143 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %139, i8 noundef zeroext 110, i16 noundef zeroext 0, i32 noundef %142, i1 noundef zeroext false)
@@ -22740,7 +22734,7 @@ _ZN4pkpy8Compiler13is_expressionEb.exit:          ; preds = %122, %120
 
 .preheader:                                       ; preds = %137, %158
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i54, %158 ], [ 0, %137 ]
-  %144 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i46
+  %144 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i46
   %145 = load ptr, ptr %144, align 8
   %146 = load i8, ptr %145, align 1
   %.not20.i47 = icmp eq i8 %146, 0
@@ -22791,7 +22785,7 @@ _ZN4pkpy2TKEPKc.exit58:                           ; preds = %158, %156
   br i1 %.not.i.i.i.i59, label %_ZNK4pkpy8Compiler4currEv.exit.i60, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i60:               ; preds = %_ZN4pkpy2TKEPKc.exit58
-  %167 = getelementptr inbounds %"struct.pkpy::Token", ptr %162, i64 %160
+  %167 = getelementptr inbounds [72 x i8], ptr %162, i64 %160
   %168 = load i8, ptr %167, align 8
   %.not.i61 = icmp eq i8 %168, %.015.i56
   br i1 %.not.i61, label %169, label %214
@@ -22803,7 +22797,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i60:               ; preds = %_ZN4pkpy2TKEPKc.exi
 
 171:                                              ; preds = %186, %169
   %indvars.iv.i63 = phi i64 [ 0, %169 ], [ %indvars.iv.next.i71, %186 ]
-  %172 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i63
+  %172 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i63
   %173 = load ptr, ptr %172, align 8
   %174 = load i8, ptr %173, align 1
   %.not20.i64 = icmp eq i8 %174, 0
@@ -22859,7 +22853,7 @@ _ZN4pkpy2TKEPKc.exit75:                           ; preds = %186, %184
   br i1 %.not.i.i.i76, label %197, label %.invoke
 
 197:                                              ; preds = %187
-  %198 = getelementptr inbounds %"struct.pkpy::Token", ptr %192, i64 %190
+  %198 = getelementptr inbounds [72 x i8], ptr %192, i64 %190
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 16
@@ -22990,9 +22984,9 @@ _ZN4pkpy8Compiler13is_expressionEb.exit.thread:   ; preds = %_ZNK4pkpy8Compiler4
   %storemerge.i.i82 = phi ptr [ %261, %260 ], [ %259, %258 ]
   store ptr %storemerge.i.i82, ptr %10, align 8
   %265 = ashr i64 %sext.i.i81, 32
-  %266 = getelementptr inbounds i32, ptr %storemerge.i.i82, i64 %265
+  %266 = getelementptr inbounds [4 x i8], ptr %storemerge.i.i82, i64 %265
   store ptr %266, ptr %11, align 8
-  %267 = getelementptr inbounds i32, ptr %storemerge.i.i82, i64 %256
+  %267 = getelementptr inbounds [4 x i8], ptr %storemerge.i.i82, i64 %256
   store ptr %267, ptr %12, align 8
   br label %268
 
@@ -23020,13 +23014,13 @@ _ZN4pkpy8Compiler13is_expressionEb.exit.thread:   ; preds = %_ZNK4pkpy8Compiler4
   br i1 %.not.i.i.i84, label %283, label %.invoke
 
 283:                                              ; preds = %274
-  %284 = getelementptr inbounds %"struct.pkpy::Token", ptr %278, i64 %276
+  %284 = getelementptr inbounds [72 x i8], ptr %278, i64 %276
   %285 = load i8, ptr %284, align 8
   br label %286
 
 286:                                              ; preds = %301, %283
   %indvars.iv.i87 = phi i64 [ 0, %283 ], [ %indvars.iv.next.i95, %301 ]
-  %287 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i87
+  %287 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i87
   %288 = load ptr, ptr %287, align 8
   %289 = load i8, ptr %288, align 1
   %.not20.i88 = icmp eq i8 %289, 0
@@ -23077,7 +23071,7 @@ _ZN4pkpy2TKEPKc.exit99:                           ; preds = %301, %299
 
 307:                                              ; preds = %322, %.loopexit140
   %indvars.iv.i100 = phi i64 [ 0, %.loopexit140 ], [ %indvars.iv.next.i108, %322 ]
-  %308 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i100
+  %308 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i100
   %309 = load ptr, ptr %308, align 8
   %310 = load i8, ptr %309, align 1
   %.not20.i101 = icmp eq i8 %310, 0
@@ -23414,9 +23408,9 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %storemerge.i.i = phi ptr [ %40, %39 ], [ %38, %37 ]
   store ptr %storemerge.i.i, ptr %3, align 8
   %44 = ashr i64 %sext.i.i, 32
-  %45 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %44
   store ptr %45, ptr %4, align 8
-  %46 = getelementptr inbounds %"class.pkpy::unique_ptr_128", ptr %storemerge.i.i, i64 %35
+  %46 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i, i64 %35
   store ptr %46, ptr %5, align 8
   br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
 
@@ -23460,7 +23454,7 @@ _ZN4pkpy8Compiler19match_newlines_replEv.exit:    ; preds = %_ZN4pkpy14unique_pt
 
 57:                                               ; preds = %.preheader99, %72
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %72 ], [ 0, %.preheader99 ]
-  %58 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8
   %60 = load i8, ptr %59, align 1
   %.not20.i = icmp eq i8 %60, 0
@@ -23518,7 +23512,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %72, %70
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %82 = getelementptr inbounds %"struct.pkpy::Token", ptr %76, i64 %74
+  %82 = getelementptr inbounds [72 x i8], ptr %76, i64 %74
   %83 = load i8, ptr %82, align 8
   %.not.i3 = icmp eq i8 %83, %.015.i
   br i1 %.not.i3, label %_ZN4pkpy8Compiler5matchEh.exit, label %.preheader
@@ -23530,7 +23524,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
 
 .preheader:                                       ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i, %99
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i12, %99 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i ]
-  %85 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i4
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i4
   %86 = load ptr, ptr %85, align 8
   %87 = load i8, ptr %86, align 1
   %.not20.i5 = icmp eq i8 %87, 0
@@ -23580,7 +23574,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i18:               ; preds = %99, %97
 
 _ZN4pkpy8Compiler5matchEh.exit21:                 ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i18, %116
   %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i30, %116 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i18 ]
-  %102 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i22
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i22
   %103 = load ptr, ptr %102, align 8
   %104 = load i8, ptr %103, align 1
   %.not20.i23 = icmp eq i8 %104, 0
@@ -23677,7 +23671,7 @@ define void @_ZN4pkpy8Compiler13compile_classERKNS_12small_vectorINS_14unique_pt
 
 5:                                                ; preds = %20, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %20 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   %.not20.i = icmp eq i8 %8, 0
@@ -23737,7 +23731,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %20, %18
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %_ZN4pkpy2TKEPKc.exit
-  %34 = getelementptr inbounds %"struct.pkpy::Token", ptr %28, i64 %25
+  %34 = getelementptr inbounds [72 x i8], ptr %28, i64 %25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -23757,7 +23751,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZNK4pkpy8Compiler4
 
 45:                                               ; preds = %60, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit
   %indvars.iv.i15 = phi i64 [ 0, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit ], [ %indvars.iv.next.i23, %60 ]
-  %46 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i15
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i15
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %47, align 1
   %.not20.i16 = icmp eq i8 %48, 0
@@ -23817,7 +23811,7 @@ _ZN4pkpy2TKEPKc.exit27:                           ; preds = %60, %58
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit27
-  %71 = getelementptr inbounds %"struct.pkpy::Token", ptr %64, i64 %62
+  %71 = getelementptr inbounds [72 x i8], ptr %64, i64 %62
   %72 = load i8, ptr %71, align 8
   %.not.i28 = icmp eq i8 %72, %.015.i25
   br i1 %.not.i28, label %73, label %_ZN4pkpy8Compiler5matchEh.exit.thread71
@@ -23830,17 +23824,17 @@ _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exi
   br i1 %.not.i.i.i.i29, label %_ZNK4pkpy8Compiler4currEv.exit.i30, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i30:               ; preds = %73
-  %76 = getelementptr inbounds %"struct.pkpy::Token", ptr %64, i64 %75
+  %76 = getelementptr inbounds [72 x i8], ptr %64, i64 %75
   %77 = load i8, ptr %76, align 8
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %78
+  %79 = getelementptr inbounds nuw [40 x i8], ptr @_ZN4pkpy8Compiler5rulesE, i64 %78
   %.unpack.i = load i64, ptr %79, align 8
   %.not.i31 = icmp eq i64 %.unpack.i, 0
   br i1 %.not.i31, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit, label %_ZNK4pkpy8Compiler4currEv.exit6.i
 
 _ZNK4pkpy8Compiler4currEv.exit6.i:                ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i30, %94
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %94 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit.i30 ]
-  %80 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %81, align 1
   %.not20.i.i = icmp eq i8 %82, 0
@@ -23933,7 +23927,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %_ZNK4pkpy8Compiler4
 
 112:                                              ; preds = %127, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
   %indvars.iv.i36 = phi i64 [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit ], [ %indvars.iv.next.i44, %127 ]
-  %113 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i36
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i36
   %114 = load ptr, ptr %113, align 8
   %115 = load i8, ptr %114, align 1
   %.not20.i37 = icmp eq i8 %115, 0
@@ -24002,7 +23996,7 @@ _ZN4pkpy8Compiler5matchEh.exit.thread71:          ; preds = %_ZN4pkpy8Compiler5m
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 -232
-  %137 = getelementptr inbounds %"struct.pkpy::Token", ptr %129, i64 %132
+  %137 = getelementptr inbounds [72 x i8], ptr %129, i64 %132
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 20
   %139 = load i32, ptr %138, align 4
   %140 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %136, i8 noundef zeroext 7, i16 noundef zeroext 0, i32 noundef %139, i1 noundef zeroext false)
@@ -24150,7 +24144,7 @@ define void @_ZN4pkpy8Compiler16compile_functionERKNS_12small_vectorINS_14unique
 
 8:                                                ; preds = %23, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %23 ]
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %10, align 1
   %.not20.i = icmp eq i8 %11, 0
@@ -24210,7 +24204,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %23, %21
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %_ZN4pkpy2TKEPKc.exit
-  %37 = getelementptr inbounds %"struct.pkpy::Token", ptr %31, i64 %28
+  %37 = getelementptr inbounds [72 x i8], ptr %31, i64 %28
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !290
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -24229,7 +24223,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %_ZN4pkpy2TKEPKc.exi
 
 44:                                               ; preds = %59, %43
   %indvars.iv.i11 = phi i64 [ 0, %43 ], [ %indvars.iv.next.i19, %59 ]
-  %45 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i11
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i11
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %46, align 1
   %.not20.i12 = icmp eq i8 %47, 0
@@ -24273,7 +24267,7 @@ _ZN4pkpy2TKEPKc.exit23:                           ; preds = %59, %57
 
 .preheader:                                       ; preds = %_ZN4pkpy2TKEPKc.exit23, %74
   %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i32, %74 ], [ 0, %_ZN4pkpy2TKEPKc.exit23 ]
-  %60 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i24
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i24
   %61 = load ptr, ptr %60, align 8
   %62 = load i8, ptr %61, align 1
   %.not20.i25 = icmp eq i8 %62, 0
@@ -24324,7 +24318,7 @@ _ZN4pkpy2TKEPKc.exit36:                           ; preds = %74, %72
   br i1 %.not.i.i.i.i, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit36
-  %83 = getelementptr inbounds %"struct.pkpy::Token", ptr %78, i64 %76
+  %83 = getelementptr inbounds [72 x i8], ptr %78, i64 %76
   %84 = load i8, ptr %83, align 8
   %.not.i37 = icmp eq i8 %84, %.015.i34
   br i1 %.not.i37, label %_ZN4pkpy8Compiler5matchEh.exit.thread, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -24442,7 +24436,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader: ; preds = %98, %116, %12
 
 _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader, %148
   %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i50, %148 ], [ 0, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader ]
-  %134 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i42
+  %134 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i42
   %135 = load ptr, ptr %134, align 8
   %136 = load i8, ptr %135, align 1
   %.not20.i43 = icmp eq i8 %136, 0
@@ -24511,7 +24505,7 @@ _ZN4pkpy2TKEPKc.exit54:                           ; preds = %148, %146
 
 157:                                              ; preds = %.preheader170, %172
   %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i63, %172 ], [ 0, %.preheader170 ]
-  %158 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i55
+  %158 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i55
   %159 = load ptr, ptr %158, align 8
   %160 = load i8, ptr %159, align 1
   %.not20.i56 = icmp eq i8 %160, 0
@@ -24562,7 +24556,7 @@ _ZN4pkpy2TKEPKc.exit67:                           ; preds = %172, %170
   br i1 %.not.i.i.i.i68, label %_ZNK4pkpy8Compiler4currEv.exit.i69, label %.invoke
 
 _ZNK4pkpy8Compiler4currEv.exit.i69:               ; preds = %_ZN4pkpy2TKEPKc.exit67
-  %181 = getelementptr inbounds %"struct.pkpy::Token", ptr %176, i64 %174
+  %181 = getelementptr inbounds [72 x i8], ptr %176, i64 %174
   %182 = load i8, ptr %181, align 8
   %.not.i70 = icmp eq i8 %182, %.015.i65
   br i1 %.not.i70, label %183, label %_ZN4pkpy8Compiler5matchEh.exit72
@@ -24633,7 +24627,7 @@ _ZN4pkpy8Compiler5matchEh.exit72:                 ; preds = %191, %.noexc74, %_Z
   %218 = getelementptr inbounds nuw i8, ptr %199, i64 184
   %219 = load ptr, ptr %218, align 8
   %220 = zext i16 %217 to i64
-  %221 = getelementptr inbounds nuw ptr, ptr %219, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %220
   %222 = load ptr, ptr %221, align 8
   %223 = ptrtoint ptr %222 to i64
   %224 = and i64 %223, 3
@@ -24715,7 +24709,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit77: ; preds = %_ZN4pkpy7is_typeE
   unreachable
 
 266:                                              ; preds = %255
-  %267 = getelementptr inbounds %"struct.pkpy::Token", ptr %260, i64 %258
+  %267 = getelementptr inbounds [72 x i8], ptr %260, i64 %258
   %268 = trunc i32 %254 to i16
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 20
   %270 = load i32, ptr %269, align 4
@@ -24865,7 +24859,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit105: ; preds = %343
   br label %.body
 
 347:                                              ; preds = %.noexc89
-  %348 = getelementptr inbounds %"struct.pkpy::Token", ptr %338, i64 %336
+  %348 = getelementptr inbounds [72 x i8], ptr %338, i64 %336
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 20
   %350 = load i32, ptr %349, align 4, !noalias !293
   store i32 %350, ptr %331, align 8, !noalias !293
@@ -24930,7 +24924,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit92: ; preds = %347
 380:                                              ; preds = %368
   %381 = load ptr, ptr %240, align 8
   %382 = getelementptr inbounds i8, ptr %381, i64 -232
-  %383 = getelementptr inbounds %"struct.pkpy::Token", ptr %373, i64 %371
+  %383 = getelementptr inbounds [72 x i8], ptr %373, i64 %371
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 20
   %385 = load i32, ptr %384, align 4
   %386 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %382, i8 noundef zeroext 104, i16 noundef zeroext %367, i32 noundef %385, i1 noundef zeroext false)
@@ -25046,7 +25040,7 @@ define noundef zeroext i1 @_ZN4pkpy8Compiler22try_compile_assignmentEv(ptr nound
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1
-  %15 = getelementptr inbounds %"struct.pkpy::Token", ptr %9, i64 %6
+  %15 = getelementptr inbounds [72 x i8], ptr %9, i64 %6
   %16 = load i8, ptr %15, align 8
   switch i8 %16, label %232 [
     i8 16, label %17
@@ -25146,7 +25140,7 @@ _ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit53: ; preds = %54
   br label %common.resume
 
 _ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit: ; preds = %39
-  %58 = getelementptr inbounds %"struct.pkpy::Token", ptr %49, i64 %47
+  %58 = getelementptr inbounds [72 x i8], ptr %49, i64 %47
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %60 = load i32, ptr %59, align 4, !noalias !296
   store i32 %60, ptr %43, align 8, !noalias !296
@@ -25170,7 +25164,7 @@ _ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.e
   unreachable
 
 71:                                               ; preds = %_ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit
-  %72 = getelementptr inbounds %"struct.pkpy::Token", ptr %65, i64 %63
+  %72 = getelementptr inbounds [72 x i8], ptr %65, i64 %63
   %73 = load i8, ptr %72, align 8
   %74 = add i8 %73, -1
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 12
@@ -25317,7 +25311,7 @@ _ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit34: ; preds = %136, %135
 
 139:                                              ; preds = %154, %.preheader82
   %indvars.iv.i = phi i64 [ 0, %.preheader82 ], [ %indvars.iv.next.i, %154 ]
-  %140 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %141 = load ptr, ptr %140, align 8
   %142 = load i8, ptr %141, align 1
   %.not20.i = icmp eq i8 %142, 0
@@ -25372,7 +25366,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %154, %152
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
-  %164 = getelementptr inbounds %"struct.pkpy::Token", ptr %158, i64 %156
+  %164 = getelementptr inbounds [72 x i8], ptr %158, i64 %156
   %165 = load i8, ptr %164, align 8
   %.not.i37 = icmp eq i8 %165, %.015.i
   br i1 %.not.i37, label %166, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -25674,7 +25668,7 @@ define noundef ptr @_ZN4pkpy8Compiler12read_literalEv(ptr noundef nonnull align 
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
-  %17 = getelementptr inbounds %"struct.pkpy::Token", ptr %11, i64 %8
+  %17 = getelementptr inbounds [72 x i8], ptr %11, i64 %8
   %18 = load i8, ptr %17, align 8
   switch i8 %18, label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit [
     i8 17, label %.preheader
@@ -25689,7 +25683,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
 
 .preheader:                                       ; preds = %_ZNK4pkpy8Compiler4prevEv.exit, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %_ZNK4pkpy8Compiler4prevEv.exit ]
-  %19 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %20, align 1
   %.not20.i = icmp eq i8 %21, 0
@@ -25746,7 +25740,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %33, %31
   unreachable
 
 _ZNK4pkpy8Compiler4prevEv.exit8:                  ; preds = %_ZN4pkpy2TKEPKc.exit
-  %44 = getelementptr inbounds %"struct.pkpy::Token", ptr %38, i64 %36
+  %44 = getelementptr inbounds [72 x i8], ptr %38, i64 %36
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = tail call noundef ptr @_ZN4pkpy8Compiler9to_objectERKSt7variantIJSt9monostateldNS_3StrEEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(33) %45)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -25839,7 +25833,7 @@ _ZNK4pkpy8Compiler4prevEv.exit12:                 ; preds = %_ZNK4pkpy8Compiler4
   %94 = add nuw nsw i32 %.pre.i, 1
   store i32 %94, ptr %2, align 8
   %95 = zext nneg i32 %.pre.i to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %95
   store ptr %79, ptr %96, align 8
   %97 = load i32, ptr %4, align 4
   %98 = sext i32 %97 to i64
@@ -25862,13 +25856,13 @@ _ZNK4pkpy8Compiler4prevEv.exit12:                 ; preds = %_ZNK4pkpy8Compiler4
   unreachable
 
 107:                                              ; preds = %91
-  %108 = getelementptr inbounds %"struct.pkpy::Token", ptr %100, i64 %98
+  %108 = getelementptr inbounds [72 x i8], ptr %100, i64 %98
   %109 = load i8, ptr %108, align 8
   br label %110
 
 110:                                              ; preds = %125, %107
   %indvars.iv.i16 = phi i64 [ 0, %107 ], [ %indvars.iv.next.i24, %125 ]
-  %111 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i16
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i16
   %112 = load ptr, ptr %111, align 8
   %113 = load i8, ptr %112, align 1
   %.not20.i17 = icmp eq i8 %113, 0
@@ -25923,7 +25917,7 @@ _ZN4pkpy2TKEPKc.exit28:                           ; preds = %125, %123
 
 .preheader76:                                     ; preds = %_ZN4pkpy2TKEPKc.exit28, %142
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i37, %142 ], [ 0, %_ZN4pkpy2TKEPKc.exit28 ]
-  %128 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i29
+  %128 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i29
   %129 = load ptr, ptr %128, align 8
   %130 = load i8, ptr %129, align 1
   %.not20.i30 = icmp eq i8 %130, 0
@@ -25978,13 +25972,13 @@ _ZN4pkpy2TKEPKc.exit41:                           ; preds = %142, %140
   br i1 %.not.i.i.i42, label %152, label %.invoke
 
 152:                                              ; preds = %143
-  %153 = getelementptr inbounds %"struct.pkpy::Token", ptr %147, i64 %145
+  %153 = getelementptr inbounds [72 x i8], ptr %147, i64 %145
   %154 = load i8, ptr %153, align 8
   br label %155
 
 155:                                              ; preds = %170, %152
   %indvars.iv.i45 = phi i64 [ 0, %152 ], [ %indvars.iv.next.i53, %170 ]
-  %156 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i45
+  %156 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i45
   %157 = load ptr, ptr %156, align 8
   %158 = load i8, ptr %157, align 1
   %.not20.i46 = icmp eq i8 %158, 0
@@ -26031,7 +26025,7 @@ _ZN4pkpy2TKEPKc.exit57:                           ; preds = %170, %168
 
 172:                                              ; preds = %.preheader163, %187
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i66, %187 ], [ 0, %.preheader163 ]
-  %173 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i58
+  %173 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i58
   %174 = load ptr, ptr %173, align 8
   %175 = load i8, ptr %174, align 1
   %.not20.i59 = icmp eq i8 %175, 0
@@ -26817,7 +26811,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN
 
 61:                                               ; preds = %76, %58
   %indvars.iv.i.i = phi i64 [ 0, %58 ], [ %indvars.iv.next.i.i, %76 ]
-  %62 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %63 = load ptr, ptr %62, align 8
   %64 = load i8, ptr %63, align 1
   %.not20.i.i = icmp eq i8 %64, 0
@@ -26861,7 +26855,7 @@ _ZN4pkpy2TKEPKc.exit.i:                           ; preds = %76, %74
 
 .preheader.i:                                     ; preds = %_ZN4pkpy2TKEPKc.exit.i, %92
   %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i10.i, %92 ], [ 0, %_ZN4pkpy2TKEPKc.exit.i ]
-  %78 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i2.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i2.i
   %79 = load ptr, ptr %78, align 8
   %80 = load i8, ptr %79, align 1
   %.not20.i3.i = icmp eq i8 %80, 0
@@ -27223,7 +27217,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN
 185:                                              ; preds = %.lr.ph163, %"_ZSt5visitIZN4pkpy8Compiler10precompileEvE3$_0JRKSt7variantIJSt9monostateldNS0_3StrEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISC_EEEEE4typeEE4typeEOSL_EEEE4typeEOSA_DpOSC_.exit"
   %indvars.iv = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next, %"_ZSt5visitIZN4pkpy8Compiler10precompileEvE3$_0JRKSt7variantIJSt9monostateldNS0_3StrEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISC_EEEEE4typeEE4typeEOSL_EEEE4typeEOSA_DpOSC_.exit" ]
   %186 = phi ptr [ %183, %.lr.ph163 ], [ %295, %"_ZSt5visitIZN4pkpy8Compiler10precompileEvE3$_0JRKSt7variantIJSt9monostateldNS0_3StrEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISC_EEEEE4typeEE4typeEOSL_EEEE4typeEOSA_DpOSC_.exit" ]
-  %187 = getelementptr inbounds nuw %"struct.pkpy::Token", ptr %186, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [72 x i8], ptr %186, i64 %indvars.iv
   %188 = load i8, ptr %187, align 8
   %189 = zext i8 %188 to i32
   %190 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEi(ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef %189)
@@ -27239,7 +27233,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN
 
 195:                                              ; preds = %210, %193
   %indvars.iv.i.i65 = phi i64 [ 0, %193 ], [ %indvars.iv.next.i.i73, %210 ]
-  %196 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i65
+  %196 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i65
   %197 = load ptr, ptr %196, align 8
   %198 = load i8, ptr %197, align 1
   %.not20.i.i66 = icmp eq i8 %198, 0
@@ -27283,7 +27277,7 @@ _ZN4pkpy2TKEPKc.exit.i75:                         ; preds = %210, %208
 
 .preheader.i77:                                   ; preds = %_ZN4pkpy2TKEPKc.exit.i75, %226
   %indvars.iv.i2.i78 = phi i64 [ %indvars.iv.next.i10.i86, %226 ], [ 0, %_ZN4pkpy2TKEPKc.exit.i75 ]
-  %212 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i2.i78
+  %212 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i2.i78
   %213 = load ptr, ptr %212, align 8
   %214 = load i8, ptr %213, align 1
   %.not20.i3.i79 = icmp eq i8 %214, 0
@@ -27356,7 +27350,7 @@ _ZN4pkpy18is_raw_string_usedEh.exit92.thread:     ; preds = %_ZN4pkpy2TKEPKc.exi
 
 240:                                              ; preds = %239
   %241 = load ptr, ptr %3, align 8
-  %242 = getelementptr %"struct.pkpy::Token", ptr %241, i64 %indvars.iv
+  %242 = getelementptr [72 x i8], ptr %241, i64 %indvars.iv
   %243 = getelementptr i8, ptr %242, i64 -52
   %244 = load i32, ptr %243, align 4
   %245 = getelementptr inbounds nuw i8, ptr %187, i64 20
@@ -27387,7 +27381,7 @@ _ZN4pkpy18is_raw_string_usedEh.exit92.thread:     ; preds = %_ZN4pkpy2TKEPKc.exi
 
 .thread127:                                       ; preds = %248, %255
   %256 = load ptr, ptr %3, align 8
-  %257 = getelementptr %"struct.pkpy::Token", ptr %256, i64 %indvars.iv
+  %257 = getelementptr [72 x i8], ptr %256, i64 %indvars.iv
   %258 = getelementptr i8, ptr %257, i64 -48
   %259 = load i32, ptr %258, align 8
   %260 = getelementptr inbounds nuw i8, ptr %187, i64 24
@@ -27931,7 +27925,7 @@ _ZN4pkpy17TokenDeserializer9read_uintEc.exit44:   ; preds = %.lr.ph.i39, %92
 
 102:                                              ; preds = %117, %_ZN4pkpy17TokenDeserializer9read_uintEc.exit44
   %indvars.iv.i.i = phi i64 [ 0, %_ZN4pkpy17TokenDeserializer9read_uintEc.exit44 ], [ %indvars.iv.next.i.i, %117 ]
-  %103 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %104 = load ptr, ptr %103, align 8
   %105 = load i8, ptr %104, align 1
   %.not20.i.i = icmp eq i8 %105, 0
@@ -27975,7 +27969,7 @@ _ZN4pkpy2TKEPKc.exit.i:                           ; preds = %117, %115
 
 .preheader.i:                                     ; preds = %_ZN4pkpy2TKEPKc.exit.i, %133
   %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i10.i, %133 ], [ 0, %_ZN4pkpy2TKEPKc.exit.i ]
-  %119 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i2.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i2.i
   %120 = load ptr, ptr %119, align 8
   %121 = load i8, ptr %120, align 1
   %.not20.i3.i = icmp eq i8 %121, 0
@@ -28042,7 +28036,7 @@ _ZN4pkpy17TokenDeserializer9read_uintEc.exit53:   ; preds = %.lr.ph.i48, %_ZN4pk
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 2
   store ptr %145, ptr %4, align 8
   %146 = load ptr, ptr %58, align 8
-  %147 = getelementptr inbounds %"struct.pkpy::Str", ptr %146, i64 %.0.lcssa.i51
+  %147 = getelementptr inbounds [32 x i8], ptr %146, i64 %.0.lcssa.i51
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
   store ptr %149, ptr %83, align 8
@@ -29240,7 +29234,7 @@ _ZNSt6vectorIN4pkpy5TokenESaIS1_EED2Ev.exit:      ; preds = %74, %_ZSt8_DestroyI
 
 .preheader66:                                     ; preds = %89, %107
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %107 ], [ 0, %89 ]
-  %93 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i
   %94 = load ptr, ptr %93, align 8
   %95 = load i8, ptr %94, align 1
   %.not20.i = icmp eq i8 %95, 0
@@ -29368,7 +29362,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
 
 139:                                              ; preds = %.preheader140, %154
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i35, %154 ], [ 0, %.preheader140 ]
-  %140 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i27
+  %140 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i27
   %141 = load ptr, ptr %140, align 8
   %142 = load i8, ptr %141, align 1
   %.not20.i28 = icmp eq i8 %142, 0
@@ -29446,7 +29440,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit42:   ; preds = %137, %135
 
 170:                                              ; preds = %.backedge, %.preheader
   %indvars.iv.i43 = phi i64 [ 0, %.preheader ], [ %indvars.iv.i43.be, %.backedge ]
-  %171 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i43
+  %171 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i43
   %172 = load ptr, ptr %171, align 8
   %173 = load i8, ptr %172, align 1
   %.not20.i44 = icmp eq i8 %173, 0
@@ -29508,7 +29502,7 @@ _ZN4pkpy2TKEPKc.exit55:                           ; preds = %185, %183
   unreachable
 
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit55
-  %195 = getelementptr inbounds %"struct.pkpy::Token", ptr %189, i64 %187
+  %195 = getelementptr inbounds [72 x i8], ptr %189, i64 %187
   %196 = load i8, ptr %195, align 8
   %.not.i57 = icmp eq i8 %196, %.015.i53
   br i1 %.not.i57, label %199, label %_ZN4pkpy8Compiler5matchEh.exit
@@ -30666,14 +30660,14 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIiE3setENS_7StrNameEi(ptr nounde
 
 10:                                               ; preds = %9, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, %1
   br i1 %13, label %14, label %9
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   store i32 %2, ptr %16, align 4
   br label %_ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit.thread
 
@@ -30685,7 +30679,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIiE3setENS_7StrNameEi(ptr nounde
 
 21:                                               ; preds = %17
   %22 = zext i16 %19 to i64
-  %23 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %.preheader.i
@@ -30693,7 +30687,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIiE3setENS_7StrNameEi(ptr nounde
 26:                                               ; preds = %21
   store i16 %1, ptr %23, align 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %22
   store i32 %2, ptr %28, align 4
   %29 = add i16 %19, 1
   store i16 %29, ptr %18, align 2
@@ -30703,17 +30697,17 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIiE3setENS_7StrNameEi(ptr nounde
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.preheader.i ], [ 0, %21 ]
   %30 = icmp samesign ult i64 %indvars.iv24.i, 8
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %indvars.iv24.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv24.i
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 0
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   br i1 %33, label %34, label %.preheader.i, !llvm.loop !354
 
 34:                                               ; preds = %.preheader.i
-  %35 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %8, i64 %indvars.iv24.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv24.i
   store i16 %1, ptr %35, align 2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv24.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv24.i
   store i32 %2, ptr %37, align 4
   %38 = add i16 %19, 1
   store i16 %38, ptr %18, align 2
@@ -30740,19 +30734,19 @@ _ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit: ; preds = %17
 
 46:                                               ; preds = %86, %_ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit
   %indvars.iv.i10 = phi i64 [ 0, %_ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit ], [ %indvars.iv.next.i11, %86 ]
-  %47 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %44, i64 %indvars.iv.i10
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv.i10
   %48 = load i16, ptr %47, align 2
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %86, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i10
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i10
   %52 = load i32, ptr %51, align 4
   %53 = load i16, ptr %42, align 2
   %54 = load ptr, ptr %43, align 8
   %.018.i.i.i = and i16 %53, %48
   %55 = zext i16 %.018.i.i.i to i64
-  %56 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %.critedge.i.i.i, label %.lr.ph.i.i.i
@@ -30767,7 +30761,7 @@ _ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit: ; preds = %17
   %62 = add i16 %.019.i.i.i, 1
   %.0.i.i.i = and i16 %62, %53
   %63 = zext i16 %.0.i.i.i to i64
-  %64 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %54, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
   br i1 %66, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !355
@@ -30795,7 +30789,7 @@ _ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit: ; preds = %17
   %.pn14.i.i.i = phi i16 [ %48, %71 ], [ %80, %74 ]
   %.3.i.i.i = and i16 %.pn14.i.i.i, %72
   %75 = zext i16 %.3.i.i.i to i64
-  %76 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %77, 0
   %79 = icmp eq i16 %77, %48
@@ -30806,7 +30800,7 @@ _ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit: ; preds = %17
 .loopexit.i.i.i:                                  ; preds = %74, %.critedge..loopexit_crit_edge.i.i.i
   %.pre-phi24.i.i.i = phi i64 [ %.pre23.i.i.i, %.critedge..loopexit_crit_edge.i.i.i ], [ %75, %74 ]
   %81 = phi ptr [ %54, %.critedge..loopexit_crit_edge.i.i.i ], [ %73, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %81, i64 %.pre-phi24.i.i.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.pre-phi24.i.i.i
   store i16 %48, ptr %82, align 4
   %.pre.i.i.i = load ptr, ptr %43, align 8
   br label %_ZZN4pkpy12NameDictImplIiE3setENS_7StrNameEiENKUlS2_iE_clES2_i.exit.i
@@ -30818,7 +30812,7 @@ _ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit: ; preds = %17
 _ZZN4pkpy12NameDictImplIiE3setENS_7StrNameEiENKUlS2_iE_clES2_i.exit.i: ; preds = %.loopexit15.i.i.i, %.loopexit.i.i.i
   %.pre-phi.i.i.i = phi i64 [ %.pre22.i.i.i, %.loopexit15.i.i.i ], [ %.pre-phi24.i.i.i, %.loopexit.i.i.i ]
   %83 = phi ptr [ %54, %.loopexit15.i.i.i ], [ %.pre.i.i.i, %.loopexit.i.i.i ]
-  %84 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %83, i64 %.pre-phi.i.i.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.pre-phi.i.i.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 %52, ptr %85, align 4
   br label %86
@@ -30833,7 +30827,7 @@ _ZNK4pkpy13SmallNameDictIiE5applyIZNS_12NameDictImplIiE3setENS_7StrNameEiEUlS5_i
   %88 = load ptr, ptr %43, align 8
   %.018.i = and i16 %87, %1
   %89 = zext i16 %.018.i to i64
-  %90 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = icmp eq i16 %91, 0
   br i1 %92, label %.critedge.i, label %.lr.ph.i
@@ -30848,7 +30842,7 @@ _ZNK4pkpy13SmallNameDictIiE5applyIZNS_12NameDictImplIiE3setENS_7StrNameEiEUlS5_i
   %96 = add i16 %.019.i, 1
   %.0.i = and i16 %96, %87
   %97 = zext i16 %.0.i to i64
-  %98 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %88, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = icmp eq i16 %99, 0
   br i1 %100, label %.critedge.i, label %.lr.ph.i, !llvm.loop !355
@@ -30876,7 +30870,7 @@ _ZNK4pkpy13SmallNameDictIiE5applyIZNS_12NameDictImplIiE3setENS_7StrNameEiEUlS5_i
   %.pn14.i = phi i16 [ %1, %105 ], [ %114, %108 ]
   %.3.i = and i16 %.pn14.i, %106
   %109 = zext i16 %.3.i to i64
-  %110 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %109
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
   %113 = icmp eq i16 %111, %1
@@ -30887,7 +30881,7 @@ _ZNK4pkpy13SmallNameDictIiE5applyIZNS_12NameDictImplIiE3setENS_7StrNameEiEUlS5_i
 .loopexit.i:                                      ; preds = %108, %.critedge..loopexit_crit_edge.i
   %.pre-phi24.i = phi i64 [ %.pre23.i, %.critedge..loopexit_crit_edge.i ], [ %109, %108 ]
   %115 = phi ptr [ %88, %.critedge..loopexit_crit_edge.i ], [ %107, %108 ]
-  %116 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %115, i64 %.pre-phi24.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.pre-phi24.i
   store i16 %1, ptr %116, align 4
   %.pre.i = load ptr, ptr %43, align 8
   br label %_ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit
@@ -30899,7 +30893,7 @@ _ZNK4pkpy13SmallNameDictIiE5applyIZNS_12NameDictImplIiE3setENS_7StrNameEiEUlS5_i
 _ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit: ; preds = %.loopexit.i, %.loopexit15.i
   %.pre-phi.i = phi i64 [ %.pre22.i, %.loopexit15.i ], [ %.pre-phi24.i, %.loopexit.i ]
   %117 = phi ptr [ %88, %.loopexit15.i ], [ %.pre.i, %.loopexit.i ]
-  %118 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %117, i64 %.pre-phi.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.pre-phi.i
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 %2, ptr %119, align 4
   br label %_ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit.thread
@@ -30911,7 +30905,7 @@ _ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit: ; preds = %.loopexit.i, %.loo
   %124 = load ptr, ptr %123, align 8
   %.018.i13 = and i16 %122, %1
   %125 = zext i16 %.018.i13 to i64
-  %126 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = icmp eq i16 %127, 0
   br i1 %128, label %.critedge.i17, label %.lr.ph.i14
@@ -30926,7 +30920,7 @@ _ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit: ; preds = %.loopexit.i, %.loo
   %132 = add i16 %.019.i15, 1
   %.0.i16 = and i16 %132, %122
   %133 = zext i16 %.0.i16 to i64
-  %134 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %124, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %133
   %135 = load i16, ptr %134, align 2
   %136 = icmp eq i16 %135, 0
   br i1 %136, label %.critedge.i17, label %.lr.ph.i14, !llvm.loop !355
@@ -30956,7 +30950,7 @@ _ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit: ; preds = %.loopexit.i, %.loo
   %.pn14.i25 = phi i16 [ %1, %143 ], [ %152, %146 ]
   %.3.i26 = and i16 %.pn14.i25, %144
   %147 = zext i16 %.3.i26 to i64
-  %148 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = icmp eq i16 %149, 0
   %151 = icmp eq i16 %149, %1
@@ -30967,7 +30961,7 @@ _ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit: ; preds = %.loopexit.i, %.loo
 .loopexit.i21:                                    ; preds = %146, %.critedge..loopexit_crit_edge.i19
   %.pre-phi24.i22 = phi i64 [ %.pre23.i20, %.critedge..loopexit_crit_edge.i19 ], [ %147, %146 ]
   %153 = phi ptr [ %124, %.critedge..loopexit_crit_edge.i19 ], [ %145, %146 ]
-  %154 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %153, i64 %.pre-phi24.i22
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %.pre-phi24.i22
   store i16 %1, ptr %154, align 4
   %.pre.i23 = load ptr, ptr %123, align 8
   br label %_ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit30
@@ -30979,7 +30973,7 @@ _ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit: ; preds = %.loopexit.i, %.loo
 _ZN4pkpy13LargeNameDictIiE3setENS_7StrNameEi.exit30: ; preds = %.loopexit.i21, %.loopexit15.i28
   %.pre-phi.i24 = phi i64 [ %.pre22.i29, %.loopexit15.i28 ], [ %.pre-phi24.i22, %.loopexit.i21 ]
   %155 = phi ptr [ %124, %.loopexit15.i28 ], [ %.pre.i23, %.loopexit.i21 ]
-  %156 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %155, i64 %.pre-phi.i24
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %.pre-phi.i24
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store i32 %2, ptr %157, align 4
   br label %_ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit.thread
@@ -31028,7 +31022,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIiE10_rehash_2xEv(ptr noundef n
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %65 ]
-  %23 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %9, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %65, label %26
@@ -31038,7 +31032,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIiE10_rehash_2xEv(ptr noundef n
   %28 = load ptr, ptr %8, align 8
   %.02843 = and i16 %24, %27
   %29 = zext i16 %.02843 to i64
-  %30 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %.critedge, label %.lr.ph
@@ -31047,7 +31041,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIiE10_rehash_2xEv(ptr noundef n
   %34 = add i16 %.02844, 1
   %.028 = and i16 %34, %27
   %35 = zext i16 %.028 to i64
-  %36 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %28, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %.critedge, label %.lr.ph, !llvm.loop !358
@@ -31142,7 +31136,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIiE10_rehash_2xEv(ptr noundef n
 
 .critedge:                                        ; preds = %33, %26
   %.lcssa42 = phi i64 [ %29, %26 ], [ %35, %33 ]
-  %63 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %28, i64 %.lcssa42
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.lcssa42
   %64 = load i64, ptr %23, align 4
   store i64 %64, ptr %63, align 4
   br label %65
@@ -31341,14 +31335,14 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
 
 12:                                               ; preds = %11, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %11 ]
-  %13 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %10, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv.i.i
   %14 = load i16, ptr %13, align 2
   %15 = icmp eq i16 %14, %1
   br i1 %15, label %16, label %11
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i.i
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 19:                                               ; preds = %2
@@ -31358,7 +31352,7 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = zext i16 %22 to i64
-  %26 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem.278", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = icmp eq i16 %27, %1
   br i1 %28, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %29
@@ -31367,7 +31361,7 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
   %30 = add i16 %22, 1
   %31 = and i16 %30, %21
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem.278", ptr %24, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = icmp eq i16 %34, %1
   br i1 %35, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %36
@@ -31381,7 +31375,7 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
   %38 = add i16 %.010.i9.i.i, 1
   %.0.i.i.i = and i16 %38, %21
   %39 = zext i16 %.0.i.i.i to i64
-  %40 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem.278", ptr %24, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !362
@@ -32585,7 +32579,7 @@ _ZNSt6vectorIN4pkpy15CodeEmitContextESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22
 _ZNSt12_Vector_baseIN4pkpy15CodeEmitContextESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4pkpy15CodeEmitContextESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"struct.pkpy::CodeEmitContext", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [232 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 }
@@ -33192,7 +33186,7 @@ _ZSt8_DestroyIPN4pkpy14unique_ptr_128INS0_4ExprEEES3_EvT_S5_RSaIT0_E.exit: ; pre
 _ZNSt12_Vector_baseIN4pkpy14unique_ptr_128INS0_4ExprEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4pkpy14unique_ptr_128INS0_4ExprEEES3_EvT_S5_RSaIT0_E.exit, %37
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %"class.pkpy::unique_ptr_128", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %41, ptr %36, align 8
   ret void
 }
@@ -34263,7 +34257,7 @@ _ZSt8_DestroyIPSt4pairIN4pkpy3StrENS1_14unique_ptr_128INS1_4ExprEEEES6_EvT_S8_RS
 _ZNSt12_Vector_baseISt4pairIN4pkpy3StrENS1_14unique_ptr_128INS1_4ExprEEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4pkpy3StrENS1_14unique_ptr_128INS1_4ExprEEEES6_EvT_S8_RSaIT0_E.exit, %71
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8
-  %75 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %75 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %75, ptr %70, align 8
   ret void
 
@@ -34478,7 +34472,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %32, ptr %11, align 8
   store ptr %36, ptr %12, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %14, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -34645,7 +34639,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %32, ptr %11, align 8
   store ptr %36, ptr %12, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %14, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -34757,7 +34751,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %33, ptr %12, align 8
   store ptr %37, ptr %13, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %39, ptr %15, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -34864,7 +34858,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %31, ptr %10, align 8
   store ptr %35, ptr %11, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %37, ptr %13, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -35663,7 +35657,7 @@ _ZSt8_DestroyIPN4pkpy3StrES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_ZS
 _ZNSt12_Vector_baseIN4pkpy3StrESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4pkpy3StrES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"struct.pkpy::Str", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -35853,7 +35847,7 @@ _ZSt8_DestroyIPN4pkpy5TokenES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4
 _ZNSt12_Vector_baseIN4pkpy5TokenESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4pkpy5TokenES1_EvT_S3_RSaIT0_E.exit, %48
   store ptr %20, ptr %0, align 8
   store ptr %41, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"struct.pkpy::Token", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -36095,7 +36089,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %33, ptr %12, align 8
   store ptr %37, ptr %13, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %39, ptr %15, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -36191,7 +36185,7 @@ _ZNSt6vectorIN4pkpy13ExceptionLineESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35: 
 _ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4pkpy13ExceptionLineESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %33
   store ptr %25, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8
-  %37 = getelementptr inbounds nuw %"struct.pkpy::ExceptionLine", ptr %25, i64 %19
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %19
   store ptr %37, ptr %32, align 8
   ret void
 
@@ -36603,7 +36597,7 @@ define internal void @_GLOBAL__sub_I_compiler.cpp() #25 section ".text.startup" 
 
 3:                                                ; preds = %16, %0
   %indvars.iv.i.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i.i, %16 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i.i
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
   %.not20.i.i.i = icmp eq i8 %6, 0
@@ -36647,7 +36641,7 @@ _ZN4pkpy2TKEPKc.exit.i.i:                         ; preds = %.critedge.i.i.i
 
 20:                                               ; preds = %25, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %21 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #37
   store i64 %23, ptr %1, align 8

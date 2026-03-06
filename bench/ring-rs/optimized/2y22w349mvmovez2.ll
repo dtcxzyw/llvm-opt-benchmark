@@ -559,7 +559,7 @@ define void @_ZN4ring4aead13less_safe_key11LessSafeKey4new_17h8997f99074d8e2f5E(
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> <i64 528, i64 36>, ptr %5, align 16
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %19 = load i64, ptr %18, align 8, !noundef !16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 16 %7, i64 %19, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -572,7 +572,7 @@ define void @_ZN4ring4aead13less_safe_key11LessSafeKey4new_17h8997f99074d8e2f5E(
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <2 x i64> <i64 528, i64 36>, ptr %6, align 16
   %22 = zext i32 %.0..0..0..0..pr to i64
-  %23 = getelementptr inbounds nuw i64, ptr %6, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %22
   %24 = load i64, ptr %23, align 8, !noundef !16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0, ptr nonnull align 16 %8, i64 %24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -772,7 +772,7 @@ define void @"_ZN131_$LT$ring..aead..unbound_key..UnboundKey$u20$as$u20$core..co
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !110
   store <2 x i64> <i64 528, i64 36>, ptr %4, align 16, !noalias !110
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %4, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %25
   %27 = load i64, ptr %26, align 8, !noalias !110, !noundef !16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 16 %6, i64 %27, i1 false), !noalias !110
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !110
@@ -789,7 +789,7 @@ _ZN4ring4aead13less_safe_key11LessSafeKey4new_17h8997f99074d8e2f5E.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !110
   store <2 x i64> <i64 528, i64 36>, ptr %5, align 16, !noalias !110
   %29 = zext i32 %.0..0..0..0..0..0..pr.i to i64
-  %30 = getelementptr inbounds nuw i64, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %29
   %31 = load i64, ptr %30, align 8, !noalias !110, !noundef !16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i, ptr nonnull align 16 %7, i64 %31, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !110
@@ -1618,7 +1618,7 @@ define void @_ZN4ring6digest20sha256_format_output17hab5dd42d6f6973e2E(ptr noali
 
 "_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h55d7cac25fc72134E.exit.i.i.i.i": ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h55d7cac25fc72134E.exit.i.i.i.i"
   %.sroa.01.017.i.i.i.i = phi i64 [ %12, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h55d7cac25fc72134E.exit.i.i.i.i" ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.01.017.i.i.i.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.01.017.i.i.i.i
   %8 = load i32, ptr %7, align 4, !alias.scope !240, !noalias !259, !noundef !16
   %9 = shl i64 %.sroa.01.017.i.i.i.i, 2
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
@@ -1659,7 +1659,7 @@ define void @_ZN4ring6digest20sha512_format_output17h84fc89429f17e182E(ptr noali
 
 "_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb7000219913bc245E.exit.i.i.i.i": ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb7000219913bc245E.exit.i.i.i.i"
   %.sroa.01.016.i.i.i.i = phi i64 [ %12, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb7000219913bc245E.exit.i.i.i.i" ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.01.016.i.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.01.016.i.i.i.i
   %8 = load i64, ptr %7, align 8, !alias.scope !281, !noalias !300, !noundef !16
   %9 = shl i64 %.sroa.01.016.i.i.i.i, 3
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
@@ -2397,10 +2397,10 @@ switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8, !range !239, !noundef !16
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$ring..digest..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h83270b08215f0a76E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$ring..digest..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h83270b08215f0a76E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$ring..digest..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h83270b08215f0a76E.22", i64 %5
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$ring..digest..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h83270b08215f0a76E.22", i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %6

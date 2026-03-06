@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_cred_arg_t = type { %struct.slurm_step_id_msg, i32, i32, ptr, i16, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i64, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i16, ptr, ptr, ptr, i16, ptr, i64, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr }
 %struct.slurmdb_wckey_rec_t = type { ptr, ptr, i32, i32, i16, ptr, i32, ptr }
 %struct.job_overlap_args_t = type { ptr, ptr, i32 }
-%struct.kill_jobs_resp_job_t = type { i32, ptr, ptr, i32, ptr }
 
 @job_list = dso_local local_unnamed_addr global ptr null, align 8
 @purge_jobs_list = dso_local local_unnamed_addr global ptr null, align 8
@@ -2069,7 +2068,7 @@ define dso_local range(i32 -1, 1) i32 @job_mgr_load_job_state(ptr noundef %0, i1
   %17 = load i32, ptr @hash_table_size, align 4
   %18 = urem i32 %15, %17
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   %.07.i = load ptr, ptr %20, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -2274,7 +2273,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %133 = urem i32 %131, %132
   %134 = load ptr, ptr @job_hash, align 8
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %134, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %129, i64 408
   store ptr %137, ptr %138, align 8
@@ -2820,7 +2819,7 @@ define dso_local ptr @find_job_record(i32 noundef %0) local_unnamed_addr #9 {
   %3 = load i32, ptr @hash_table_size, align 4
   %4 = urem i32 %0, %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %.07 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %.07, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -2899,7 +2898,7 @@ define internal fastcc void @_add_job_array_hash(ptr noundef %0) unnamed_addr #1
   %9 = urem i32 %7, %8
   %10 = load ptr, ptr @job_array_hash_j, align 8
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %13, ptr %14, align 8
@@ -2910,7 +2909,7 @@ define internal fastcc void @_add_job_array_hash(ptr noundef %0) unnamed_addr #1
   %18 = urem i32 %17, %8
   %19 = load ptr, ptr @job_array_hash_t, align 8
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %22, ptr %23, align 8
@@ -3471,7 +3470,7 @@ define dso_local noundef zeroext i1 @test_job_array_complete(i32 noundef %0) loc
   %3 = load i32, ptr @hash_table_size, align 4
   %4 = urem i32 %0, %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %.07.i = load ptr, ptr %6, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -3511,7 +3510,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 find_job_record.exit.thread:                      ; preds = %10, %1, %16, %19
   %22 = load ptr, ptr @job_array_hash_j, align 8
   %23 = sext i32 %4 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %.01221 = load ptr, ptr %24, align 8
   %.not1722 = icmp eq ptr %.01221, null
   br i1 %.not1722, label %.loopexit, label %.lr.ph
@@ -3547,7 +3546,7 @@ define dso_local noundef zeroext i1 @test_job_array_completed(i32 noundef %0) lo
   %3 = load i32, ptr @hash_table_size, align 4
   %4 = urem i32 %0, %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %.07.i = load ptr, ptr %6, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -3578,7 +3577,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 find_job_record.exit.thread:                      ; preds = %10, %1, %find_job_record.exit
   %18 = load ptr, ptr @job_array_hash_j, align 8
   %19 = sext i32 %4 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %.01221 = load ptr, ptr %20, align 8
   %.not1422 = icmp eq ptr %.01221, null
   br i1 %.not1422, label %.loopexit, label %.lr.ph
@@ -3617,7 +3616,7 @@ define dso_local noundef zeroext i1 @test_job_array_finished(i32 noundef %0) loc
   %3 = load i32, ptr @hash_table_size, align 4
   %4 = urem i32 %0, %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %.07.i = load ptr, ptr %6, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -3645,7 +3644,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 find_job_record.exit.thread:                      ; preds = %10, %1, %find_job_record.exit
   %16 = load ptr, ptr @job_array_hash_j, align 8
   %17 = sext i32 %4 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %.01016 = load ptr, ptr %18, align 8
   %.not1217 = icmp eq ptr %.01016, null
   br i1 %.not1217, label %.loopexit, label %.lr.ph
@@ -3681,7 +3680,7 @@ define dso_local noundef zeroext i1 @test_job_array_pending(i32 noundef %0) loca
   %3 = load i32, ptr @hash_table_size, align 4
   %4 = urem i32 %0, %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %.07.i = load ptr, ptr %6, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -3720,7 +3719,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 find_job_record.exit.thread:                      ; preds = %10, %1, %16, %19
   %21 = load ptr, ptr @job_array_hash_j, align 8
   %22 = sext i32 %4 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   %.01221 = load ptr, ptr %23, align 8
   %.not1722 = icmp eq ptr %.01221, null
   br i1 %.not1722, label %.loopexit, label %.lr.ph
@@ -3756,7 +3755,7 @@ define dso_local i32 @num_pending_job_array_tasks(i32 noundef %0) local_unnamed_
   %3 = urem i32 %0, %2
   %4 = load ptr, ptr @job_array_hash_j, align 8
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %.09 = load ptr, ptr %6, align 8
   %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -4058,7 +4057,7 @@ _foreach_array_bitmap.exit:                       ; preds = %81, %82
   %96 = load i32, ptr @hash_table_size, align 4
   %97 = urem i32 %94, %96
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %95, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %98
   %.07.i = load ptr, ptr %99, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit, label %.lr.ph.i
@@ -4081,7 +4080,7 @@ _foreach_array_bitmap.exit:                       ; preds = %81, %82
   %107 = load i32, ptr @hash_table_size, align 4
   %108 = urem i32 %5, %107
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %109
   %.07.i49 = load ptr, ptr %110, align 8
   %.not8.i50 = icmp eq ptr %.07.i49, null
   br i1 %.not8.i50, label %find_job_record.exit, label %.lr.ph.i51
@@ -4244,7 +4243,7 @@ define dso_local ptr @find_job_array_rec(i32 noundef %0, i32 noundef %1) local_u
   %5 = load ptr, ptr @job_hash, align 8
   %6 = urem i32 %0, %3
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %.07.i = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit, label %.lr.ph.i
@@ -4266,7 +4265,7 @@ define dso_local ptr @find_job_array_rec(i32 noundef %0, i32 noundef %1) local_u
   %15 = load ptr, ptr @job_hash, align 8
   %16 = urem i32 %0, %3
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   %.07.i54 = load ptr, ptr %18, align 8
   %.not8.i55 = icmp eq ptr %.07.i54, null
   br i1 %.not8.i55, label %find_job_record.exit61.thread, label %.lr.ph.i56
@@ -4299,7 +4298,7 @@ find_job_record.exit61:                           ; preds = %.lr.ph.i56
 find_job_record.exit61.thread:                    ; preds = %22, %14, %26, %find_job_record.exit61
   %30 = load ptr, ptr @job_array_hash_j, align 8
   %31 = sext i32 %16 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   %.03980 = load ptr, ptr %32, align 8
   %.not5381 = icmp eq ptr %.03980, null
   br i1 %.not5381, label %find_job_record.exit, label %.lr.ph
@@ -4331,7 +4330,7 @@ find_job_record.exit61.thread:                    ; preds = %22, %14, %26, %find
   %45 = urem i32 %44, %3
   %46 = load ptr, ptr @job_array_hash_t, align 8
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %.14086 = load ptr, ptr %48, align 8
   %.not87 = icmp eq ptr %.14086, null
   br i1 %.not87, label %._crit_edge, label %.lr.ph89
@@ -4359,7 +4358,7 @@ find_job_record.exit61.thread:                    ; preds = %22, %14, %26, %find
   %58 = load ptr, ptr @job_hash, align 8
   %59 = urem i32 %0, %3
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %60
   %.07.i62 = load ptr, ptr %61, align 8
   %.not8.i63 = icmp eq ptr %.07.i62, null
   br i1 %.not8.i63, label %find_job_record.exit69.thread, label %.lr.ph.i64
@@ -4422,7 +4421,7 @@ define dso_local ptr @find_het_job_record(i32 noundef %0, i32 noundef %1) local_
   %4 = load i32, ptr @hash_table_size, align 4
   %5 = urem i32 %0, %4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %.01927 = load ptr, ptr %7, align 8
   %.not28 = icmp eq ptr %.01927, null
   br i1 %.not28, label %.critedge, label %.lr.ph
@@ -4512,7 +4511,7 @@ define dso_local i32 @kill_job_step(ptr noundef %0, i32 noundef %1) local_unname
   %7 = load i32, ptr @hash_table_size, align 4
   %8 = urem i32 %5, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %.07.i = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -4565,7 +4564,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 392
   %34 = load i32, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   store i32 %34, ptr %35, align 4
   %36 = tail call ptr @list_next(ptr noundef %30) #27
   %.not34 = icmp eq ptr %36, null
@@ -4603,7 +4602,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 42:                                               ; preds = %.lr.ph44, %42
   %indvars.iv48 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next49, %42 ]
   %.143 = phi i32 [ 0, %.lr.ph44 ], [ %spec.select, %42 ]
-  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv48
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv48
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %4, align 8
   %45 = tail call fastcc i32 @_kill_job_step(ptr noundef nonnull %0, i32 noundef %1)
@@ -4650,7 +4649,7 @@ define internal fastcc i32 @_kill_job_step(ptr noundef %0, i32 noundef %1) unnam
   %12 = load i32, ptr @hash_table_size, align 4
   %13 = urem i32 %10, %12
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %.07.i = load ptr, ptr %15, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit, label %.lr.ph.i
@@ -5254,7 +5253,7 @@ define dso_local void @job_completion_logger(ptr noundef %0, i1 noundef zeroext 
   %51 = load i32, ptr @hash_table_size, align 4
   %52 = urem i32 %49, %51
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %.07.i.i = load ptr, ptr %54, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %_job_array_comp.exit, label %.lr.ph.i.i
@@ -5373,7 +5372,7 @@ _job_array_comp.exit:                             ; preds = %58, %35, %47, %find
   %110 = load i32, ptr @hash_table_size, align 4
   %111 = urem i32 %108, %110
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %112
   %.07.i.i96 = load ptr, ptr %113, align 8
   %.not8.i.i97 = icmp eq ptr %.07.i.i96, null
   br i1 %.not8.i.i97, label %find_job_record.exit.thread.i, label %.lr.ph.i.i98
@@ -5401,7 +5400,7 @@ find_job_record.exit.i103:                        ; preds = %.lr.ph.i.i98
 find_job_record.exit.thread.i:                    ; preds = %117, %find_job_record.exit.i103, %106
   %123 = load ptr, ptr @job_array_hash_j, align 8
   %124 = sext i32 %111 to i64
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %123, i64 %124
   %.01016.i = load ptr, ptr %125, align 8
   %.not1217.i = icmp eq ptr %.01016.i, null
   br i1 %.not1217.i, label %test_job_array_finished.exit.thread, label %.lr.ph.i
@@ -5461,7 +5460,7 @@ test_job_array_finished.exit.thread:              ; preds = %134, %find_job_reco
   %150 = load i32, ptr @hash_table_size, align 4
   %151 = urem i32 %148, %150
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %152
   %.07.i = load ptr, ptr %153, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %test_job_array_finished.exit, label %.lr.ph.i104
@@ -5723,7 +5722,7 @@ define dso_local i32 @kill_running_job_by_node_name(ptr noundef %0) local_unname
   %27 = load i32, ptr @hash_table_size, align 4
   %28 = urem i32 %19, %27
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %.07.i.i = load ptr, ptr %30, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %.loopexit45.i, label %.lr.ph.i.i
@@ -6200,7 +6199,7 @@ define dso_local range(i32 -1, 1) i32 @job_update_tres_cnt(ptr noundef %0, i32 n
 8:                                                ; preds = %2
   %9 = load ptr, ptr @node_record_table_ptr, align 8
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -6225,7 +6224,7 @@ define dso_local range(i32 -1, 1) i32 @job_update_tres_cnt(ptr noundef %0, i32 n
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %19 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %28
   br label %30
 
 30:                                               ; preds = %24, %8
@@ -7680,7 +7679,7 @@ _create_job_record.exit:                          ; preds = %2, %12, %14
   %19 = load i32, ptr @hash_table_size, align 4
   %20 = urem i32 %18, %19
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %.sink.i, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.sink.i, i64 %21
   br label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i, %.lr.ph.i
@@ -7941,7 +7940,7 @@ _dup_job_fed_details.exit:                        ; preds = %140, %143
   %170 = urem i32 %168, %169
   %171 = load ptr, ptr @job_hash, align 8
   %172 = sext i32 %170 to i64
-  %173 = getelementptr inbounds ptr, ptr %171, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %171, i64 %172
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %174, ptr %175, align 8
@@ -7950,7 +7949,7 @@ _dup_job_fed_details.exit:                        ; preds = %140, %143
   %177 = urem i32 %176, %169
   %178 = load ptr, ptr @job_hash, align 8
   %179 = sext i32 %177 to i64
-  %180 = getelementptr inbounds ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 408
   store ptr %181, ptr %182, align 8
@@ -7966,7 +7965,7 @@ _dup_job_fed_details.exit:                        ; preds = %140, %143
   %189 = urem i32 %188, %169
   %190 = load ptr, ptr @job_array_hash_j, align 8
   %191 = sext i32 %189 to i64
-  %192 = getelementptr inbounds ptr, ptr %190, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %193, ptr %194, align 8
@@ -7977,7 +7976,7 @@ _dup_job_fed_details.exit:                        ; preds = %140, %143
   %198 = urem i32 %197, %169
   %199 = load ptr, ptr @job_array_hash_t, align 8
   %200 = sext i32 %198 to i64
-  %201 = getelementptr inbounds ptr, ptr %199, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %199, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %202, ptr %203, align 8
@@ -8177,11 +8176,11 @@ _add_job_array_hash.exit:                         ; preds = %_dup_job_fed_detail
 326:                                              ; preds = %.lr.ph, %326
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %326 ]
   %327 = load ptr, ptr %325, align 8
-  %328 = getelementptr inbounds nuw ptr, ptr %327, i64 %indvars.iv
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %indvars.iv
   %329 = load ptr, ptr %328, align 8
   %330 = tail call ptr @xstrdup(ptr noundef %329) #27
   %331 = load ptr, ptr %323, align 8
-  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv
   store ptr %330, ptr %332, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %333 = load i32, ptr %317, align 8
@@ -8308,11 +8307,11 @@ _add_job_array_hash.exit:                         ; preds = %_dup_job_fed_detail
 420:                                              ; preds = %.lr.ph375, %420
   %indvars.iv381 = phi i64 [ 0, %.lr.ph375 ], [ %indvars.iv.next382, %420 ]
   %421 = load ptr, ptr %419, align 8
-  %422 = getelementptr inbounds nuw ptr, ptr %421, i64 %indvars.iv381
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %indvars.iv381
   %423 = load ptr, ptr %422, align 8
   %424 = tail call ptr @xstrdup(ptr noundef %423) #27
   %425 = load ptr, ptr %417, align 8
-  %426 = getelementptr inbounds nuw ptr, ptr %425, i64 %indvars.iv381
+  %426 = getelementptr inbounds nuw [8 x i8], ptr %425, i64 %indvars.iv381
   store ptr %424, ptr %426, align 8
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %427 = load i32, ptr %411, align 8
@@ -8379,11 +8378,11 @@ _add_job_array_hash.exit:                         ; preds = %_dup_job_fed_detail
 467:                                              ; preds = %.lr.ph377, %467
   %indvars.iv384 = phi i64 [ 0, %.lr.ph377 ], [ %indvars.iv.next385, %467 ]
   %468 = load ptr, ptr %466, align 8
-  %469 = getelementptr inbounds nuw ptr, ptr %468, i64 %indvars.iv384
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %468, i64 %indvars.iv384
   %470 = load ptr, ptr %469, align 8
   %471 = tail call ptr @xstrdup(ptr noundef %470) #27
   %472 = load ptr, ptr %464, align 8
-  %473 = getelementptr inbounds nuw ptr, ptr %472, i64 %indvars.iv384
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %472, i64 %indvars.iv384
   store ptr %471, ptr %473, align 8
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %474 = load i16, ptr %458, align 8
@@ -8740,7 +8739,7 @@ define dso_local noundef ptr @job_array_post_sched(ptr noundef %0, i1 noundef ze
   %45 = urem i32 %43, %44
   %46 = load ptr, ptr @job_array_hash_j, align 8
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %49, ptr %50, align 8
@@ -8751,7 +8750,7 @@ define dso_local noundef ptr @job_array_post_sched(ptr noundef %0, i1 noundef ze
   %54 = urem i32 %53, %44
   %55 = load ptr, ptr @job_array_hash_t, align 8
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %58, ptr %59, align 8
@@ -11242,28 +11241,28 @@ _select_nodes_parts.exit:                         ; preds = %1078, %1080
   %1161 = add i16 %1160, 1
   store i16 %1161, ptr %1159, align 8
   %1162 = zext i16 %1160 to i64
-  %1163 = getelementptr inbounds nuw ptr, ptr %1158, i64 %1162
+  %1163 = getelementptr inbounds nuw [8 x i8], ptr %1158, i64 %1162
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1163, ptr noundef nonnull @.str.315, i32 noundef %1107) #27
   %1164 = load ptr, ptr %1150, align 8
   %1165 = load i16, ptr %1159, align 8
   %1166 = add i16 %1165, 1
   store i16 %1166, ptr %1159, align 8
   %1167 = zext i16 %1165 to i64
-  %1168 = getelementptr inbounds nuw ptr, ptr %1164, i64 %1167
+  %1168 = getelementptr inbounds nuw [8 x i8], ptr %1164, i64 %1167
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1168, ptr noundef nonnull @.str.316, i32 noundef %1091) #27
   %1169 = load ptr, ptr %1150, align 8
   %1170 = load i16, ptr %1159, align 8
   %1171 = add i16 %1170, 1
   store i16 %1171, ptr %1159, align 8
   %1172 = zext i16 %1170 to i64
-  %1173 = getelementptr inbounds nuw ptr, ptr %1169, i64 %1172
+  %1173 = getelementptr inbounds nuw [8 x i8], ptr %1169, i64 %1172
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1173, ptr noundef nonnull @.str.317, i32 noundef %1105) #27
   %1174 = load ptr, ptr %1150, align 8
   %1175 = load i16, ptr %1159, align 8
   %1176 = add i16 %1175, 1
   store i16 %1176, ptr %1159, align 8
   %1177 = zext i16 %1175 to i64
-  %1178 = getelementptr inbounds nuw ptr, ptr %1174, i64 %1177
+  %1178 = getelementptr inbounds nuw [8 x i8], ptr %1174, i64 %1177
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1178, ptr noundef nonnull @.str.318, i32 noundef %.046.i) #27
   br label %1179
 
@@ -11537,7 +11536,7 @@ define dso_local noundef zeroext i1 @job_independent(ptr noundef %0) local_unnam
   %39 = load i32, ptr @hash_table_size, align 4
   %40 = urem i32 %37, %39
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   %.07.i.i = load ptr, ptr %42, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
@@ -12480,7 +12479,7 @@ define dso_local i32 @job_signal_id(i32 noundef %0, i16 noundef zeroext %1, i16 
   %7 = load i32, ptr @hash_table_size, align 4
   %8 = urem i32 %0, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %.07.i = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -12769,7 +12768,7 @@ define dso_local i32 @job_str_signal(ptr noundef %0, i16 noundef zeroext %1, i16
   %91 = load i32, ptr @hash_table_size, align 4
   %92 = urem i32 %86, %91
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %90, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %93
   %.07.i = load ptr, ptr %94, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.critedge221, label %.lr.ph.i
@@ -12834,7 +12833,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %123 = load i32, ptr @hash_table_size, align 4
   %124 = urem i32 %121, %123
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %122, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %125
   %.07.i224 = load ptr, ptr %126, align 8
   %.not8.i225 = icmp eq ptr %.07.i224, null
   br i1 %.not8.i225, label %.thread, label %.lr.ph.i226
@@ -12928,7 +12927,7 @@ find_job_record.exit231:                          ; preds = %.lr.ph.i226
   %159 = load i32, ptr @hash_table_size, align 4
   %160 = urem i32 %86, %159
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %161
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = icmp ne ptr %163, null
   %165 = icmp ne ptr %.0160, null
@@ -13028,7 +13027,7 @@ find_job_record.exit231:                          ; preds = %.lr.ph.i226
   %204 = load i32, ptr @hash_table_size, align 4
   %205 = urem i32 %86, %204
   %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds nuw ptr, ptr %203, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %206
   %.07.i.i = load ptr, ptr %207, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %.loopexit19.i, label %.lr.ph.i.i
@@ -13048,7 +13047,7 @@ find_job_record.exit231:                          ; preds = %.lr.ph.i226
 
 .loopexit19.i:                                    ; preds = %211, %202
   %213 = load ptr, ptr @job_array_hash_j, align 8
-  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %206
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %206
   %.122.i = load ptr, ptr %214, align 8
   %.not23.i = icmp eq ptr %.122.i, null
   br i1 %.not23.i, label %.loopexit244, label %.lr.ph.i232
@@ -13351,7 +13350,7 @@ define internal fastcc void @_signal_pending_job_array_tasks(ptr noundef %0, ptr
   %74 = load i32, ptr @hash_table_size, align 4
   %75 = urem i32 %72, %74
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %76
   %.07.i.i = load ptr, ptr %77, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %_job_array_comp.exit, label %.lr.ph.i.i
@@ -13578,9 +13577,9 @@ define dso_local i32 @job_mgr_signal_jobs(ptr noundef %0, i32 noundef %1, ptr no
 62:                                               ; preds = %73, %59
   %indvars.iv.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i, %73 ]
   %63 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.44, i32 noundef 5744, ptr noundef nonnull @__func__._parse_jobs_array) #27
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr @max_array_size, align 4
   %68 = tail call i32 @unfmt_job_id_string(ptr noundef %66, ptr noundef %63, i32 noundef %67) #27
@@ -13596,7 +13595,7 @@ define dso_local i32 @job_mgr_signal_jobs(ptr noundef %0, i32 noundef %1, ptr no
 
 70:                                               ; preds = %70, %69
   %indvars.iv.i.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i.i, %70 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i.i
   %72 = load ptr, ptr %71, align 8
   tail call void @slurm_destroy_selected_step(ptr noundef %72) #27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -13657,7 +13656,7 @@ _parse_jobs_array.exit:                           ; preds = %70
 
 94:                                               ; preds = %105, %.lr.ph.i
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i30, %105 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %.040, i64 %indvars.iv.i28
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.040, i64 %indvars.iv.i28
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not.i29 = icmp eq ptr %97, null
@@ -13758,7 +13757,7 @@ _build_kill_jobs_resp_msg.exit:                   ; preds = %119, %128
 
 134:                                              ; preds = %134, %.lr.ph.i34
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i37, %134 ]
-  %135 = getelementptr inbounds nuw ptr, ptr %.040, i64 %indvars.iv.i36
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %.040, i64 %indvars.iv.i36
   %136 = load ptr, ptr %135, align 8
   call void @slurm_destroy_selected_step(ptr noundef %136) #27
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
@@ -14105,7 +14104,7 @@ define dso_local range(i32 0, 2018) i32 @prolog_complete(i32 noundef %0, i32 nou
   %5 = load i32, ptr @hash_table_size, align 4
   %6 = urem i32 %0, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %.07.i = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -14218,7 +14217,7 @@ define dso_local range(i32 0, 2022) i32 @job_complete(i32 noundef %0, i32 nounde
   %7 = load i32, ptr @hash_table_size, align 4
   %8 = urem i32 %0, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %.07.i = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -14508,7 +14507,7 @@ define internal fastcc range(i32 0, 2022) i32 @_job_complete(ptr noundef nonnull
 89:                                               ; preds = %85
   %90 = load ptr, ptr @node_record_table_ptr, align 8
   %91 = and i64 %86, 2147483647
-  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 320
   %95 = load i32, ptr %94, align 8
@@ -15586,7 +15585,7 @@ define internal fastcc noundef zeroext i1 @_valid_pn_min_mem(ptr noundef %0, ptr
 67:                                               ; preds = %63
   %68 = load ptr, ptr @node_record_table_ptr, align 8
   %69 = and i64 %64, 2147483647
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %73 = load ptr, ptr %72, align 8
@@ -16956,7 +16955,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr noundef writeonly captures
 62:                                               ; preds = %62, %.preheader111.i
   %indvars.iv.i = phi i64 [ 0, %.preheader111.i ], [ %indvars.iv.next.i, %62 ]
   %.1124.i = phi i32 [ %41, %.preheader111.i ], [ %68, %62 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %64 = load ptr, ptr %63, align 8
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #30
   %66 = trunc i64 %65 to i32
@@ -16993,7 +16992,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr noundef writeonly captures
   %.2126.i = phi i32 [ 0, %73 ], [ %90, %96 ]
   %82 = sext i32 %.2126.i to i64
   %83 = getelementptr inbounds i8, ptr %81, i64 %82
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv150.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv150.i
   store ptr %83, ptr %84, align 8
   %85 = load ptr, ptr %3, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 %82
@@ -17031,7 +17030,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr noundef writeonly captures
   %101 = phi i32 [ %160, %159 ], [ %.promoted.i, %.loopexit110.i ]
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 160
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv160.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv160.i
   %105 = load ptr, ptr %104, align 8
   %106 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %105, i32 noundef 61) #30
   %107 = icmp eq ptr %106, null
@@ -17060,12 +17059,12 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr noundef writeonly captures
 
 119:                                              ; preds = %131, %.lr.ph130.i
   %indvars.iv155.i = phi i64 [ 0, %.lr.ph130.i ], [ %indvars.iv.next156.i, %131 ]
-  %120 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv155.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv155.i
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %56, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 160
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv160.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv160.i
   %126 = load ptr, ptr %125, align 8
   %127 = call i32 @xstrncmp(ptr noundef %121, ptr noundef %126, i64 noundef %118) #27
   %.not101.i = icmp eq i32 %127, 0
@@ -17086,14 +17085,14 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr noundef writeonly captures
   br i1 %exitcond159.not.i, label %.loopexit._crit_edge.i, label %119, !llvm.loop !54
 
 .loopexit.i:                                      ; preds = %128
-  %132 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv155.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv155.i
   %133 = load ptr, ptr %3, align 8
   %134 = sext i32 %.4133.i to i64
   %135 = getelementptr inbounds i8, ptr %133, i64 %134
   %136 = load ptr, ptr %56, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 160
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv160.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv160.i
   %140 = load ptr, ptr %139, align 8
   %141 = sext i32 %113 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr align 1 %140, i64 %141, i1 false)
@@ -17111,14 +17110,14 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr noundef writeonly captures
   %148 = load ptr, ptr %56, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 160
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv160.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv160.i
   %152 = load ptr, ptr %151, align 8
   %153 = sext i32 %113 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %147, ptr align 1 %152, i64 %153, i1 false)
   %154 = load ptr, ptr %3, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 %146
   %156 = add i32 %101, 1
-  %157 = getelementptr inbounds nuw ptr, ptr %78, i64 %.pre-phi.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.pre-phi.i
   store ptr %155, ptr %157, align 8
   %158 = add nsw i32 %113, %.4133.i
   br label %159
@@ -17310,7 +17309,7 @@ define internal fastcc void @_het_job_time_limit_incr(ptr noundef %0, i32 nounde
   %8 = load i32, ptr @hash_table_size, align 4
   %9 = urem i32 %4, %8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %.07.i = load ptr, ptr %11, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -17667,7 +17666,7 @@ set_job_prio.exit:                                ; preds = %90, %94, %105
   %118 = load i32, ptr @hash_table_size, align 4
   %119 = urem i32 %115, %118
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %117, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %120
   %.07.i.i = load ptr, ptr %121, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -18266,7 +18265,7 @@ define dso_local i64 @job_get_tres_mem(ptr noundef readonly captures(address_is_
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.04272 = phi i64 [ 0, %.lr.ph ], [ %18, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %.04272
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -18399,7 +18398,7 @@ define dso_local i64 @job_get_tres_mem(ptr noundef readonly captures(address_is_
 77:                                               ; preds = %73
   %78 = load ptr, ptr @node_record_table_ptr, align 8
   %79 = and i64 %74, 2147483647
-  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
   %83 = load ptr, ptr %82, align 8
@@ -18699,7 +18698,7 @@ _all_parts_hidden.exit.thread29:                  ; preds = %._crit_edge.i, %28
 
 34:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.next.i
   %36 = load ptr, ptr %35, align 8
   %.not30.i = icmp eq ptr %36, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !60
@@ -18728,7 +18727,7 @@ _all_parts_hidden.exit.thread29:                  ; preds = %._crit_edge.i, %28
 
 43:                                               ; preds = %.lr.ph41.i
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.next46.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.next46.i
   %45 = load ptr, ptr %44, align 8
   %.not28.i = icmp eq ptr %45, null
   br i1 %.not28.i, label %_all_parts_hidden.exit.thread, label %.lr.ph41.i, !llvm.loop !61
@@ -18881,7 +18880,7 @@ define internal noundef i32 @_foreach_pack_jobid(ptr noundef readonly captures(n
   %5 = load i32, ptr @hash_table_size, align 4
   %6 = urem i32 %3, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %.07.i = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -18939,7 +18938,7 @@ _pack_init_job_info.exit:                         ; preds = %4, %9
   %18 = load i32, ptr @hash_table_size, align 4
   %19 = urem i32 %0, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %.07.i = load ptr, ptr %21, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -19125,7 +19124,7 @@ _pack_het_job.exit:                               ; preds = %83, %69
   %100 = load i32, ptr @hash_table_size, align 4
   %101 = urem i32 %0, %100
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %99, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %102
   %.068104 = load ptr, ptr %103, align 8
   %.not78105 = icmp eq ptr %.068104, null
   br i1 %.not78105, label %.loopexit, label %.lr.ph
@@ -19414,7 +19413,7 @@ build_array_str.exit:                             ; preds = %20, %23, %26, %29, 
   %51 = load i32, ptr @hash_table_size, align 4
   %52 = urem i32 %48, %51
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %.07.i = load ptr, ptr %54, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -19992,7 +19991,7 @@ build_array_str.exit1472:                         ; preds = %306, %309, %312, %3
   %335 = load i32, ptr @hash_table_size, align 4
   %336 = urem i32 %332, %335
   %337 = zext i32 %336 to i64
-  %338 = getelementptr inbounds nuw ptr, ptr %334, i64 %337
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %337
   %.07.i1473 = load ptr, ptr %338, align 8
   %.not8.i1474 = icmp eq ptr %.07.i1473, null
   br i1 %.not8.i1474, label %find_job_record.exit1480.thread, label %.lr.ph.i1475
@@ -21246,7 +21245,7 @@ build_array_str.exit1487:                         ; preds = %935, %938, %941, %9
   %964 = load i32, ptr @hash_table_size, align 4
   %965 = urem i32 %961, %964
   %966 = zext i32 %965 to i64
-  %967 = getelementptr inbounds nuw ptr, ptr %963, i64 %966
+  %967 = getelementptr inbounds nuw [8 x i8], ptr %963, i64 %966
   %.07.i1488 = load ptr, ptr %967, align 8
   %.not8.i1489 = icmp eq ptr %.07.i1488, null
   br i1 %.not8.i1489, label %find_job_record.exit1495.thread, label %.lr.ph.i1490
@@ -24266,7 +24265,7 @@ define internal fastcc void @_delete_job_common(ptr noundef %0) unnamed_addr #0 
   %6 = load i32, ptr @hash_table_size, align 4
   %7 = urem i32 %5, %6
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %.sink.i, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.sink.i, i64 %8
   br label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i, %.lr.ph.i
@@ -24314,7 +24313,7 @@ _remove_job_hash.exit:                            ; preds = %.loopexit.i, %13, %
   %23 = load i32, ptr @hash_table_size, align 4
   %24 = urem i32 %22, %23
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %.sink.i7, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.sink.i7, i64 %25
   br label %.lr.ph.split.us42.split.i
 
 .lr.ph.split.us42.split.i:                        ; preds = %.lr.ph.split.us42.split.i, %.lr.ph.i9
@@ -24358,7 +24357,7 @@ _remove_job_hash.exit12:                          ; preds = %.loopexit.i11, %31,
   %39 = load i32, ptr @hash_table_size, align 4
   %40 = urem i32 %38, %39
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %.sink.i13, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.sink.i13, i64 %41
   br label %.lr.ph.split.us53.split.i
 
 .lr.ph.split.us53.split.i:                        ; preds = %.lr.ph.split.us53.split.i, %.lr.ph.i15
@@ -24431,7 +24430,7 @@ define dso_local i32 @get_next_job_id(i1 noundef zeroext %0) local_unnamed_addr 
   %13 = load i32, ptr @hash_table_size, align 4
   %14 = urem i32 %11, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %15
   %.07.i = load ptr, ptr %16, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -24611,7 +24610,7 @@ define dso_local i32 @update_job(ptr noundef %0, i32 noundef %1, i1 noundef zero
   %16 = load i32, ptr @hash_table_size, align 4
   %17 = urem i32 %14, %16
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %.07.i = load ptr, ptr %19, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -24918,7 +24917,7 @@ define internal fastcc i32 @_update_job(ptr noundef nonnull %0, ptr noundef %1, 
 .lr.ph:                                           ; preds = %.preheader2394, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader2394 ]
   %136 = load ptr, ptr %133, align 8
-  %137 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %136, i64 %indvars.iv
   store i16 -1, ptr %137, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i32, ptr @slurmctld_tres_cnt, align 4
@@ -28425,7 +28424,7 @@ _check_for_part_assocs.exit:                      ; preds = %1084
   %1753 = load ptr, ptr %1745, align 8
   %1754 = getelementptr inbounds nuw i8, ptr %1753, i64 8
   %1755 = load ptr, ptr %1754, align 8
-  %1756 = getelementptr inbounds nuw i32, ptr %1755, i64 %indvars.iv2421
+  %1756 = getelementptr inbounds nuw [4 x i8], ptr %1755, i64 %indvars.iv2421
   store i32 %.pre2437, ptr %1756, align 4
   %indvars.iv.next2422 = add nuw nsw i64 %indvars.iv2421, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next2422, %wide.trip.count
@@ -29618,7 +29617,7 @@ thread-pre-split2258:                             ; preds = %2222
   %2277 = load i32, ptr @hash_table_size, align 4
   %2278 = urem i32 %2274, %2277
   %2279 = zext i32 %2278 to i64
-  %2280 = getelementptr inbounds nuw ptr, ptr %2276, i64 %2279
+  %2280 = getelementptr inbounds nuw [8 x i8], ptr %2276, i64 %2279
   %.07.i = load ptr, ptr %2280, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -30791,9 +30790,9 @@ switch.early.test:                                ; preds = %2570
 
 2760:                                             ; preds = %.outer, %2766
   %indvars.iv2424 = phi i64 [ %indvars.iv.next2425, %2766 ], [ %indvars.iv2424.ph, %.outer ]
-  %2761 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv2424
+  %2761 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv2424
   %2762 = load i64, ptr %2761, align 8
-  %2763 = getelementptr inbounds nuw i64, ptr %2758, i64 %indvars.iv2424
+  %2763 = getelementptr inbounds nuw [8 x i8], ptr %2758, i64 %indvars.iv2424
   %2764 = load i64, ptr %2763, align 8
   %2765 = icmp eq i64 %2762, %2764
   br i1 %2765, label %2766, label %.thread2653
@@ -30804,7 +30803,7 @@ switch.early.test:                                ; preds = %2570
   br i1 %2767, label %2760, label %._crit_edge2415, !llvm.loop !74
 
 .thread2653:                                      ; preds = %2760
-  %2768 = getelementptr inbounds nuw i64, ptr %2758, i64 %indvars.iv2424
+  %2768 = getelementptr inbounds nuw [8 x i8], ptr %2758, i64 %indvars.iv2424
   store i64 %2762, ptr %2768, align 8
   %.pre2439 = load i32, ptr @slurmctld_tres_cnt, align 4
   %indvars.iv.next24252655 = add nuw nsw i64 %indvars.iv2424, 1
@@ -31092,7 +31091,7 @@ define dso_local i32 @update_job_str(ptr noundef %0, i32 noundef %1) local_unnam
   %37 = load i32, ptr @hash_table_size, align 4
   %38 = urem i32 %34, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   %.07.i = load ptr, ptr %40, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.critedge202, label %.lr.ph.i
@@ -31228,13 +31227,13 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %.pre255 = urem i32 %34, %.pre250
   %.pre256 = zext i32 %.pre255 to i64
   %94 = load ptr, ptr @job_array_hash_j, align 8
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %.pre256
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.pre256
   %96 = load ptr, ptr %95, align 8
   br label %.preheader
 
 .critedge202:                                     ; preds = %44, %35, %.critedge
   %97 = load ptr, ptr @job_array_hash_j, align 8
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %39
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %39
   %99 = load ptr, ptr %98, align 8
   %.not291 = icmp eq ptr %99, null
   br i1 %.not291, label %101, label %.preheader
@@ -31349,7 +31348,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %148 = load i32, ptr @hash_table_size, align 4
   %149 = urem i32 %34, %148
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %147, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %150
   %.07.i204 = load ptr, ptr %151, align 8
   %.not8.i205 = icmp eq ptr %.07.i204, null
   br i1 %.not8.i205, label %find_job_record.exit211.thread, label %.lr.ph.i206
@@ -31732,7 +31731,7 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
 
 41:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   %.not87 = icmp eq i32 %43, %2
   br i1 %.not87, label %44, label %40
@@ -31746,7 +31745,7 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
   %47 = zext i32 %45 to i64
   %48 = getelementptr inbounds nuw i8, ptr %.074, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i64 @bit_size(ptr noundef %51) #27
   %53 = icmp sgt i64 %52, %47
@@ -31754,7 +31753,7 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
 
 54:                                               ; preds = %46
   %55 = load ptr, ptr %48, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %5, align 4
   %59 = zext i32 %58 to i64
@@ -31781,7 +31780,7 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
   %69 = tail call i64 @bit_size(ptr noundef nonnull %67) #27
   %70 = getelementptr inbounds nuw i8, ptr %.074, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i64 @bit_size(ptr noundef %73) #27
   %sext = shl i64 %69, 32
@@ -31791,13 +31790,13 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
 
 76:                                               ; preds = %68
   %77 = load ptr, ptr %70, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %79 = tail call ptr @slurm_bit_realloc(ptr noundef %78, i64 noundef %75) #27
   br label %80
 
 80:                                               ; preds = %76, %68
   %81 = load ptr, ptr %70, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %63, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -31837,14 +31836,14 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
   %106 = getelementptr inbounds nuw i8, ptr %.074, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = sext i32 %105 to i64
-  %109 = getelementptr inbounds i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %107, i64 %108
   store i32 %2, ptr %109, align 4
   %110 = tail call ptr @xstrdup(ptr noundef %3) #27
   %111 = getelementptr inbounds nuw i8, ptr %.074, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = load i32, ptr %.074, align 8
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr %112, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %112, i64 %114
   store ptr %110, ptr %115, align 8
   %116 = load i32, ptr %5, align 4
   %.not84 = icmp eq i32 %116, -2
@@ -31858,14 +31857,14 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
   %122 = load ptr, ptr %121, align 8
   %123 = load i32, ptr %.074, align 8
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %122, i64 %124
   store ptr %120, ptr %125, align 8
   %126 = load i32, ptr %5, align 4
   %127 = zext i32 %126 to i64
   %128 = load ptr, ptr %121, align 8
   %129 = load i32, ptr %.074, align 8
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds ptr, ptr %128, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %128, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i64 @bit_size(ptr noundef %132) #27
   %134 = icmp sgt i64 %133, %127
@@ -31875,7 +31874,7 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
   %136 = load ptr, ptr %121, align 8
   %137 = load i32, ptr %.074, align 8
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr %136, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %136, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %5, align 4
   %142 = zext i32 %141 to i64
@@ -31900,7 +31899,7 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %.074, align 8
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %152, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %152, i64 %154
   store ptr %150, ptr %155, align 8
   br label %166
 
@@ -31913,7 +31912,7 @@ define internal fastcc void @_resp_array_add(ptr noundef nonnull captures(none) 
   %162 = load ptr, ptr %161, align 8
   %163 = load i32, ptr %.074, align 8
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %162, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %162, i64 %164
   store ptr %160, ptr %165, align 8
   br label %166
 
@@ -31958,11 +31957,11 @@ define internal fastcc noundef ptr @_resp_array_xlate(ptr noundef nonnull readon
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @bit_ffs(ptr noundef %14) #27
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %16, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %0, align 8
@@ -32015,7 +32014,7 @@ define internal fastcc noundef ptr @_resp_array_xlate(ptr noundef nonnull readon
 45:                                               ; preds = %.lr.ph48, %57
   %indvars.iv54 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next55, %57 ]
   %.047 = phi i32 [ -1, %.lr.ph48 ], [ %.1, %57 ]
-  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv54
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv54
   %47 = load i32, ptr %46, align 4
   %.not = icmp eq i32 %47, -1
   br i1 %.not, label %57, label %48
@@ -32026,7 +32025,7 @@ define internal fastcc noundef ptr @_resp_array_xlate(ptr noundef nonnull readon
 
 50:                                               ; preds = %48
   %51 = sext i32 %.047 to i64
-  %52 = getelementptr inbounds i32, ptr %7, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %7, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = icmp slt i32 %47, %53
   br i1 %54, label %55, label %57
@@ -32047,23 +32046,23 @@ define internal fastcc noundef ptr @_resp_array_xlate(ptr noundef nonnull readon
 
 59:                                               ; preds = %._crit_edge49
   %60 = sext i32 %.1 to i64
-  %61 = getelementptr inbounds i32, ptr %7, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %7, i64 %60
   store i32 -1, ptr %61, align 4
   %62 = load ptr, ptr %36, align 8
-  %63 = getelementptr inbounds i32, ptr %62, i64 %60
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %60
   %64 = load i32, ptr %63, align 4
   %65 = load ptr, ptr %29, align 8
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv57
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv57
   store i32 %64, ptr %66, align 4
   %67 = load ptr, ptr %37, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %60
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %60
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr @xstrdup(ptr noundef %69) #27
   %71 = load ptr, ptr %33, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv57
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv57
   store ptr %70, ptr %72, align 8
   %73 = load ptr, ptr %38, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %60
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %60
   %75 = load ptr, ptr %74, align 8
   %76 = call ptr @bit_fmt(ptr noundef nonnull %3, i32 noundef 32, ptr noundef %75) #27
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
@@ -32079,7 +32078,7 @@ define internal fastcc noundef ptr @_resp_array_xlate(ptr noundef nonnull readon
 
 80:                                               ; preds = %79, %59
   %81 = load ptr, ptr %25, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv57
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv57
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %82, ptr noundef nonnull @.str.647, i32 noundef %1, ptr noundef nonnull %3) #27
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %83 = load i32, ptr %0, align 8
@@ -32118,7 +32117,7 @@ define internal fastcc void @_resp_array_free(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not6 = icmp eq ptr %9, null
   br i1 %.not6, label %11, label %10
@@ -32130,10 +32129,10 @@ define internal fastcc void @_resp_array_free(ptr noundef %0) unnamed_addr #0 {
 
 11:                                               ; preds = %10, %.lr.ph
   %12 = phi ptr [ %.pre, %10 ], [ %7, %.lr.ph ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %15) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %0, align 8
@@ -32357,7 +32356,7 @@ define dso_local void @validate_jobs_on_node(ptr noundef readonly captures(none)
 55:                                               ; preds = %.lr.ph, %167
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %167 ]
   %56 = load ptr, ptr %52, align 8
-  %57 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 65536
@@ -32371,7 +32370,7 @@ define dso_local void @validate_jobs_on_node(ptr noundef readonly captures(none)
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %52, align 8
-  %66 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %5, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.194, ptr noundef %66, ptr noundef %67) #27
   br label %167
@@ -32381,7 +32380,7 @@ define dso_local void @validate_jobs_on_node(ptr noundef readonly captures(none)
   %70 = load i32, ptr @hash_table_size, align 4
   %71 = urem i32 %59, %70
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %72
   %.07.i = load ptr, ptr %73, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -32403,7 +32402,7 @@ define dso_local void @validate_jobs_on_node(ptr noundef readonly captures(none)
   %79 = load ptr, ptr %5, align 8
   %80 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.195, ptr noundef %57, ptr noundef %79) #27
   %81 = load ptr, ptr %52, align 8
-  %82 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %indvars.iv
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = load ptr, ptr %53, align 8
@@ -32448,7 +32447,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 
 106:                                              ; preds = %104, %98, %95
   %107 = load ptr, ptr %52, align 8
-  %108 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %indvars.iv
   %109 = tail call ptr @find_step_record(ptr noundef nonnull %.09.i, ptr noundef %108) #27
   %.not125 = icmp eq ptr %109, null
   br i1 %.not125, label %112, label %110
@@ -32470,7 +32469,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 
 117:                                              ; preds = %89
   %118 = load ptr, ptr %52, align 8
-  %119 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %indvars.iv
   %120 = load ptr, ptr %5, align 8
   %121 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.197, ptr noundef nonnull %.09.i, ptr noundef %119, ptr noundef %120) #27
   %122 = tail call i32 @get_log_level() #27
@@ -32488,7 +32487,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 
 130:                                              ; preds = %124, %117
   %131 = load ptr, ptr %52, align 8
-  %132 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %indvars.iv
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load i32, ptr %133, align 8
   %135 = load ptr, ptr %53, align 8
@@ -32512,7 +32511,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %142 = load ptr, ptr %5, align 8
   %143 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.199, ptr noundef nonnull %.09.i, ptr noundef %57, ptr noundef %142) #27
   %144 = load ptr, ptr %52, align 8
-  %145 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %144, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %144, i64 %indvars.iv
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i32, ptr %146, align 8
   %148 = load ptr, ptr %53, align 8
@@ -32535,7 +32534,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %52, align 8
-  %161 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %160, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [24 x i8], ptr %160, i64 %indvars.iv
   %162 = load ptr, ptr %53, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.200, ptr noundef nonnull %.09.i, ptr noundef %161, ptr noundef %162) #27
   br label %167
@@ -32571,7 +32570,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %181 = load i32, ptr %180, align 8
   %182 = load ptr, ptr @node_record_table_ptr, align 8
   %183 = sext i32 %181 to i64
-  %184 = getelementptr inbounds ptr, ptr %182, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %182, i64 %183
   %185 = load ptr, ptr %184, align 8
   %186 = load i64, ptr @_purge_missing_jobs.sched_update, align 8
   %187 = load i64, ptr @slurm_conf, align 8
@@ -32727,7 +32726,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 
 272:                                              ; preds = %248, %244, %240, %.thread.i, %236
   %273 = load ptr, ptr @node_record_table_ptr, align 8
-  %274 = getelementptr inbounds ptr, ptr %273, i64 %183
+  %274 = getelementptr inbounds [8 x i8], ptr %273, i64 %183
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 272
   %277 = load ptr, ptr %276, align 8
@@ -33252,7 +33251,7 @@ define dso_local range(i32 0, 2025) i32 @job_alloc_info(i32 noundef %0, i32 noun
   %5 = load i32, ptr @hash_table_size, align 4
   %6 = urem i32 %1, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %.07.i = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -33409,7 +33408,7 @@ _get_batch_job_dir_ids.exit:                      ; preds = %10, %._crit_edge.i
   %49 = load i32, ptr @hash_table_size, align 4
   %50 = urem i32 %47, %49
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %51
   %.07.i.i = load ptr, ptr %52, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %.critedge.i, label %.lr.ph.i.i
@@ -33445,7 +33444,7 @@ find_job_record.exit.i:                           ; preds = %.lr.ph.i.i
   %68 = load i32, ptr @hash_table_size, align 4
   %69 = urem i32 %66, %68
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %70
   %.024.i = load ptr, ptr %71, align 8
   %.not1925.i = icmp eq ptr %.024.i, null
   br i1 %.not1925.i, label %.critedge.i, label %.lr.ph.i7
@@ -33567,7 +33566,7 @@ define dso_local noundef zeroext i1 @job_epilog_complete(i32 noundef %0, ptr nou
   %5 = load i32, ptr @hash_table_size, align 4
   %6 = urem i32 %0, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %.07.i = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -33790,7 +33789,7 @@ define dso_local void @job_array_start(ptr noundef readonly captures(none) %0) l
   %11 = load i32, ptr @hash_table_size, align 4
   %12 = urem i32 %9, %11
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %.07.i = load ptr, ptr %14, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -33846,7 +33845,7 @@ define dso_local noundef zeroext i1 @job_array_start_test(ptr noundef %0) local_
   %12 = load i32, ptr @hash_table_size, align 4
   %13 = urem i32 %10, %12
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %.07.i = load ptr, ptr %15, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -33931,7 +33930,7 @@ define dso_local range(i32 0, 2018) i32 @job_node_ready(i32 noundef %0, ptr noun
   %4 = load i32, ptr @hash_table_size, align 4
   %5 = urem i32 %0, %4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %.07.i = load ptr, ptr %7, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -34043,7 +34042,7 @@ define dso_local i32 @job_suspend(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %11 = load i32, ptr @hash_table_size, align 4
   %12 = urem i32 %9, %11
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %.07.i = load ptr, ptr %14, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -34211,7 +34210,7 @@ define dso_local i32 @job_suspend2(ptr noundef %0, ptr noundef readonly captures
   %27 = load i32, ptr @hash_table_size, align 4
   %28 = urem i32 %25, %27
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %.07.i = load ptr, ptr %30, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit107, label %.lr.ph.i
@@ -34302,7 +34301,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %69 = load i32, ptr @hash_table_size, align 4
   %70 = urem i32 %25, %69
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %68, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp ne ptr %73, null
   %75 = icmp ne ptr %.071, null
@@ -34446,7 +34445,7 @@ define dso_local i32 @job_requeue(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %7 = load i32, ptr @hash_table_size, align 4
   %8 = urem i32 %1, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %.07.i = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -34620,7 +34619,7 @@ define dso_local i32 @job_requeue2(i32 noundef %0, ptr noundef readonly captures
   %40 = load i32, ptr @hash_table_size, align 4
   %41 = urem i32 %38, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   %.07.i = load ptr, ptr %43, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.critedge, label %.lr.ph.i
@@ -34673,13 +34672,13 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %.pre109 = urem i32 %38, %.pre107
   %.pre110 = zext i32 %.pre109 to i64
   %63 = load ptr, ptr @job_array_hash_j, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.pre110
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.pre110
   %65 = load ptr, ptr %64, align 8
   br label %.preheader
 
 .critedge:                                        ; preds = %47, %37, %.thread
   %66 = load ptr, ptr @job_array_hash_j, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %42
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %42
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -34898,7 +34897,7 @@ define dso_local range(i32 0, 2074) i32 @job_set_top(ptr noundef %0, ptr noundef
   %40 = load i32, ptr @hash_table_size, align 4
   %41 = urem i32 %29, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   %.07.i = load ptr, ptr %43, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -35453,7 +35452,7 @@ define dso_local range(i32 0, 2018) i32 @job_end_time(ptr noundef readonly captu
   %5 = load i32, ptr @hash_table_size, align 4
   %6 = urem i32 %3, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %.07.i = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -35909,11 +35908,11 @@ define dso_local ptr @copy_job_record_to_job_desc(ptr noundef %0) local_unnamed_
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @xstrdup(ptr noundef %30) #27
   %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   store ptr %31, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %21, align 8
@@ -36251,11 +36250,11 @@ get_job_script.exit:                              ; preds = %188, %222
 254:                                              ; preds = %.lr.ph231, %254
   %indvars.iv236 = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next237, %254 ]
   %255 = load ptr, ptr %253, align 8
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv236
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv236
   %257 = load ptr, ptr %256, align 8
   %258 = call ptr @xstrdup(ptr noundef %257) #27
   %259 = load ptr, ptr %251, align 8
-  %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv236
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %indvars.iv236
   store ptr %258, ptr %260, align 8
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %261 = load i32, ptr %248, align 8
@@ -36488,7 +36487,7 @@ define dso_local noundef zeroext i1 @job_hold_requeue(ptr noundef %0) local_unna
   %21 = load i32, ptr @hash_table_size, align 4
   %22 = urem i32 %19, %21
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   %.07.i = load ptr, ptr %24, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -36702,7 +36701,7 @@ _set_job_requeue_exit_value.exit:                 ; preds = %39, %54, %56, %.sin
   %125 = load i32, ptr @hash_table_size, align 4
   %126 = urem i32 %123, %125
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %124, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %127
   %.07.i69 = load ptr, ptr %128, align 8
   %.not8.i70 = icmp eq ptr %.07.i69, null
   br i1 %.not8.i70, label %find_job_record.exit76.thread, label %.lr.ph.i71
@@ -37279,7 +37278,7 @@ define dso_local ptr @job_common_env_vars(ptr noundef %0, i1 noundef zeroext %1)
   %56 = phi ptr [ %77, %76 ], [ %49, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @xstrncmp(ptr noundef %60, ptr noundef nonnull @.str.250, i64 noundef 16) #27
   %.not142 = icmp eq i32 %61, 0
@@ -37289,7 +37288,7 @@ define dso_local ptr @job_common_env_vars(ptr noundef %0, i1 noundef zeroext %1)
 62:                                               ; preds = %.lr.ph
   %63 = getelementptr inbounds nuw i8, ptr %.pre155, i64 160
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %66, i32 noundef 61) #30
   %.not143 = icmp eq ptr %67, null
@@ -37300,7 +37299,7 @@ define dso_local ptr @job_common_env_vars(ptr noundef %0, i1 noundef zeroext %1)
   %69 = load ptr, ptr %48, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 160
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %75 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef %73, ptr noundef nonnull @.str.243, ptr noundef nonnull %74) #27
@@ -38003,7 +38002,7 @@ declare void @gres_job_state_log(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local zeroext i16 @job_mgr_determine_cpus_per_core(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = load ptr, ptr @node_record_table_ptr, align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %8 = load i16, ptr %7, align 8
@@ -38250,7 +38249,7 @@ define internal fastcc void @_foreach_job_by_id_array(ptr noundef nonnull captur
   %7 = urem i32 %5, %6
   %8 = load ptr, ptr @job_array_hash_j, align 8
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %.078.i = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %.078.i, null
   br i1 %.not9.i, label %._crit_edge.thread, label %.lr.ph.i
@@ -38368,7 +38367,7 @@ _foreach_by_job_callback.exit:                    ; preds = %._foreach_by_job_ca
   %60 = load i32, ptr @hash_table_size, align 4
   %61 = urem i32 %58, %60
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %62
   %.07.i84 = load ptr, ptr %63, align 8
   %.not8.i = icmp eq ptr %.07.i84, null
   br i1 %.not8.i, label %.thread, label %.lr.ph.i85
@@ -39699,7 +39698,7 @@ define internal noundef i32 @_foreach_xfer_responses(ptr noundef %0, ptr noundef
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %1, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.kill_jobs_resp_job_t, ptr %6, i64 %8
+  %9 = getelementptr inbounds [40 x i8], ptr %6, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   call void @slurm_xfree(ptr noundef nonnull %3) #27
   %10 = load i32, ptr %1, align 8
@@ -40904,7 +40903,7 @@ define internal fastcc range(i32 0, 4004) i32 @_validate_job_desc(ptr noundef %0
   %127 = load i32, ptr @hash_table_size, align 4
   %128 = urem i32 %108, %127
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr %126, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %129
   %.07.i = load ptr, ptr %130, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -41390,7 +41389,7 @@ _set_job_id.exit:                                 ; preds = %74
   %98 = urem i32 %96, %97
   %99 = load ptr, ptr @job_hash, align 8
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds ptr, ptr %99, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %52, i64 408
   store ptr %102, ptr %103, align 8
@@ -42487,7 +42486,7 @@ define internal fastcc range(i32 0, 2128) i32 @_copy_job_desc_to_file(ptr nounde
 
 .lr.ph35.i:                                       ; preds = %._crit_edge.i, %.lr.ph35.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %61 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #30
   %64 = trunc i64 %63 to i32
@@ -43134,7 +43133,7 @@ define internal fastcc noundef zeroext i1 @_test_job_array_purged(i32 noundef %0
   %3 = load i32, ptr @hash_table_size, align 4
   %4 = urem i32 %0, %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %.07.i = load ptr, ptr %6, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -43166,7 +43165,7 @@ find_job_record.exit.thread:                      ; preds = %10, %1, %find_job_r
   %.0.lcssa.i20 = phi ptr [ %.09.i, %find_job_record.exit ], [ null, %1 ], [ null, %10 ]
   %18 = load ptr, ptr @job_array_hash_j, align 8
   %19 = sext i32 %4 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %.01222 = load ptr, ptr %20, align 8
   %.not1423 = icmp eq ptr %.01222, null
   br i1 %.not1423, label %.loopexit, label %.lr.ph
@@ -43478,7 +43477,7 @@ _get_whole_hetjob.exit:                           ; preds = %5
   %17 = load i32, ptr @hash_table_size, align 4
   %18 = urem i32 %15, %17
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   %.07.i = load ptr, ptr %20, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -43576,7 +43575,7 @@ _get_whole_hetjob.exit:                           ; preds = %5
   %17 = load i32, ptr @hash_table_size, align 4
   %18 = urem i32 %15, %17
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   %.07.i = load ptr, ptr %20, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %find_job_record.exit.thread, label %.lr.ph.i
@@ -44057,7 +44056,7 @@ define internal fastcc void @_hold_job_rec(ptr noundef initializes((224, 226), (
   %33 = load ptr, ptr %25, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   store i32 0, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

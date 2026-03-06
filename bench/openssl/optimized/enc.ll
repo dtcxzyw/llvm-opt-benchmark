@@ -1401,7 +1401,7 @@ define internal void @show_ciphers(ptr noundef readonly captures(none) %0, ptr n
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = load i8, ptr %6, align 1, !tbaa !24
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !36
   %11 = and i16 %10, 512
   %.not = icmp eq i16 %11, 0
@@ -1552,7 +1552,7 @@ define internal fastcc range(i32 0, 2) i32 @set_hex(ptr noundef nonnull readonly
   %18 = load i8, ptr %.02428, align 1, !tbaa !24
   %19 = load ptr, ptr %15, align 8, !tbaa !32
   %20 = zext i8 %18 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !36
   %23 = and i16 %22, 4096
   %.not = icmp eq i16 %23, 0

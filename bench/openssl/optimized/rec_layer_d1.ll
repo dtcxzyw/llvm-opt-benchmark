@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hm_header_st = type { i8, i64, i16, i64, i64, i32, %struct.dtls1_retransmit_state }
 %struct.dtls1_retransmit_state = type { ptr, ptr }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
 %struct.ossl_record_template_st = type { i8, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [37 x i8] c"../openssl/ssl/record/rec_layer_d1.c\00", align 1
@@ -270,7 +269,7 @@ dtls_unbuffer_record.exit:                        ; preds = %66, %61, %57, %.out
 
 78:                                               ; preds = %106, %77
   %79 = phi i64 [ %107, %106 ], [ 0, %77 ]
-  %80 = getelementptr inbounds nuw %struct.tls_record_st, ptr %39, i64 %79
+  %80 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %79
   %81 = load ptr, ptr %40, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %83 = load ptr, ptr %82, align 8, !tbaa !96
@@ -316,7 +315,7 @@ dtls_unbuffer_record.exit:                        ; preds = %66, %61, %57, %.out
 
 .critedge:                                        ; preds = %.critedge.loopexit, %74
   %109 = phi i64 [ %.pre, %.critedge.loopexit ], [ %75, %74 ]
-  %110 = getelementptr inbounds nuw %struct.tls_record_st, ptr %39, i64 %109
+  %110 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %112 = load i8, ptr %111, align 4, !tbaa !102
   %.not234 = icmp eq i8 %112, 21

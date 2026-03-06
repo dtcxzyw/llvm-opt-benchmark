@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon = type { i32, i32, i32 }
-%struct.H264LevelDescriptor = type { [4 x i8], i8, i8, i32, i32, i32, i32, i32, i16, i8, i8 }
 
 @h264_levels = internal constant [21 x { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 }] [{ [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"1\00\00\00", i8 10, i8 0, [2 x i8] zeroinitializer, i32 1485, i32 99, i32 396, i32 64, i32 175, i16 64, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"1b\00\00", i8 11, i8 1, [2 x i8] zeroinitializer, i32 1485, i32 99, i32 396, i32 128, i32 350, i16 64, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"1b\00\00", i8 9, i8 0, [2 x i8] zeroinitializer, i32 1485, i32 99, i32 396, i32 128, i32 350, i16 64, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"1.1\00", i8 11, i8 0, [2 x i8] zeroinitializer, i32 3000, i32 396, i32 900, i32 192, i32 500, i16 128, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"1.2\00", i8 12, i8 0, [2 x i8] zeroinitializer, i32 6000, i32 396, i32 2376, i32 384, i32 1000, i16 128, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"1.3\00", i8 13, i8 0, [2 x i8] zeroinitializer, i32 11880, i32 396, i32 2376, i32 768, i32 2000, i16 128, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"2\00\00\00", i8 20, i8 0, [2 x i8] zeroinitializer, i32 11880, i32 396, i32 2376, i32 2000, i32 2000, i16 128, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"2.1\00", i8 21, i8 0, [2 x i8] zeroinitializer, i32 19800, i32 792, i32 4752, i32 4000, i32 4000, i16 256, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"2.2\00", i8 22, i8 0, [2 x i8] zeroinitializer, i32 20250, i32 1620, i32 8100, i32 4000, i32 4000, i16 256, i8 2, i8 0 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"3\00\00\00", i8 30, i8 0, [2 x i8] zeroinitializer, i32 40500, i32 1620, i32 8100, i32 10000, i32 10000, i16 256, i8 2, i8 32 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"3.1\00", i8 31, i8 0, [2 x i8] zeroinitializer, i32 108000, i32 3600, i32 18000, i32 14000, i32 14000, i16 512, i8 4, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"3.2\00", i8 32, i8 0, [2 x i8] zeroinitializer, i32 216000, i32 5120, i32 20480, i32 20000, i32 20000, i16 512, i8 4, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"4\00\00\00", i8 40, i8 0, [2 x i8] zeroinitializer, i32 245760, i32 8192, i32 32768, i32 20000, i32 25000, i16 512, i8 4, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"4.1\00", i8 41, i8 0, [2 x i8] zeroinitializer, i32 245760, i32 8192, i32 32768, i32 50000, i32 62500, i16 512, i8 2, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"4.2\00", i8 42, i8 0, [2 x i8] zeroinitializer, i32 522240, i32 8704, i32 34816, i32 50000, i32 62500, i16 512, i8 2, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"5\00\00\00", i8 50, i8 0, [2 x i8] zeroinitializer, i32 589824, i32 22080, i32 110400, i32 135000, i32 135000, i16 512, i8 2, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"5.1\00", i8 51, i8 0, [2 x i8] zeroinitializer, i32 983040, i32 36864, i32 184320, i32 240000, i32 240000, i16 512, i8 2, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"5.2\00", i8 52, i8 0, [2 x i8] zeroinitializer, i32 2073600, i32 36864, i32 184320, i32 240000, i32 240000, i16 512, i8 2, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"6\00\00\00", i8 60, i8 0, [2 x i8] zeroinitializer, i32 4177920, i32 139264, i32 696320, i32 240000, i32 240000, i16 8192, i8 2, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"6.1\00", i8 61, i8 0, [2 x i8] zeroinitializer, i32 8355840, i32 139264, i32 696320, i32 480000, i32 480000, i16 8192, i8 2, i8 16 }, { [4 x i8], i8, i8, [2 x i8], i32, i32, i32, i32, i32, i16, i8, i8 } { [4 x i8] c"6.2\00", i8 62, i8 0, [2 x i8] zeroinitializer, i32 16711680, i32 139264, i32 696320, i32 800000, i32 800000, i16 8192, i8 2, i8 16 }], align 16
 @h264_br_factors = internal unnamed_addr constant [8 x %struct.anon] [%struct.anon { i32 66, i32 1000, i32 1200 }, %struct.anon { i32 77, i32 1000, i32 1200 }, %struct.anon { i32 88, i32 1000, i32 1200 }, %struct.anon { i32 100, i32 1250, i32 1500 }, %struct.anon { i32 110, i32 3000, i32 3600 }, %struct.anon { i32 122, i32 4000, i32 4800 }, %struct.anon { i32 244, i32 4000, i32 4800 }, %struct.anon { i32 44, i32 4000, i32 4800 }], align 16
@@ -38,7 +37,7 @@ switch.edge.split.us:                             ; preds = %switch.edge
 
 switch.edge.split.us.split.us:                    ; preds = %switch.edge.split.us, %.thread58.us.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.thread58.us.us ], [ 0, %switch.edge.split.us ]
-  %19 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv108
+  %19 = getelementptr inbounds nuw [32 x i8], ptr @h264_levels, i64 %indvars.iv108
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = zext i32 %21 to i64
@@ -46,7 +45,7 @@ switch.edge.split.us.split.us:                    ; preds = %switch.edge.split.u
 
 23:                                               ; preds = %27, %switch.edge.split.us.split.us
   %indvars.iv.i.us.us = phi i64 [ 0, %switch.edge.split.us.split.us ], [ %indvars.iv.next.i.us.us, %27 ]
-  %24 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i.us.us
+  %24 = getelementptr inbounds nuw [12 x i8], ptr @h264_br_factors, i64 %indvars.iv.i.us.us
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = icmp eq i32 %25, %0
   br i1 %26, label %28, label %27
@@ -99,7 +98,7 @@ h264_get_br_factor.exit.us.us:                    ; preds = %27, %28
 
 switch.edge.split.us.split:                       ; preds = %switch.edge.split.us, %.thread58.us
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.thread58.us ], [ 0, %switch.edge.split.us ]
-  %48 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv112
+  %48 = getelementptr inbounds nuw [32 x i8], ptr @h264_levels, i64 %indvars.iv112
   %49 = icmp eq i64 %indvars.iv112, 1
   br i1 %49, label %.thread58.us, label %50
 
@@ -111,7 +110,7 @@ switch.edge.split.us.split:                       ; preds = %switch.edge.split.u
 
 54:                                               ; preds = %58, %50
   %indvars.iv.i.us = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.us, %58 ]
-  %55 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i.us
+  %55 = getelementptr inbounds nuw [12 x i8], ptr @h264_br_factors, i64 %indvars.iv.i.us
   %56 = load i32, ptr %55, align 4, !tbaa !10
   %57 = icmp eq i32 %56, %0
   br i1 %57, label %59, label %58
@@ -167,7 +166,7 @@ switch.edge.split:                                ; preds = %switch.edge
 
 switch.edge.split.split.us:                       ; preds = %switch.edge.split, %.thread58.us80
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread58.us80 ], [ 0, %switch.edge.split ]
-  %79 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [32 x i8], ptr @h264_levels, i64 %indvars.iv
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %82 = zext i32 %81 to i64
@@ -175,7 +174,7 @@ switch.edge.split.split.us:                       ; preds = %switch.edge.split, 
 
 83:                                               ; preds = %87, %switch.edge.split.split.us
   %indvars.iv.i.us73 = phi i64 [ 0, %switch.edge.split.split.us ], [ %indvars.iv.next.i.us74, %87 ]
-  %84 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i.us73
+  %84 = getelementptr inbounds nuw [12 x i8], ptr @h264_br_factors, i64 %indvars.iv.i.us73
   %85 = load i32, ptr %84, align 4, !tbaa !10
   %86 = icmp eq i32 %85, %0
   br i1 %86, label %88, label %87
@@ -213,7 +212,7 @@ h264_get_br_factor.exit.us77:                     ; preds = %87, %88
 
 switch.edge.split.split:                          ; preds = %switch.edge.split, %.thread58
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.thread58 ], [ 0, %switch.edge.split ]
-  %99 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv104
+  %99 = getelementptr inbounds nuw [32 x i8], ptr @h264_levels, i64 %indvars.iv104
   %100 = icmp eq i64 %indvars.iv104, 1
   br i1 %100, label %.thread58, label %101
 
@@ -230,7 +229,7 @@ switch.edge.split.split:                          ; preds = %switch.edge.split, 
 
 106:                                              ; preds = %105, %101
   %indvars.iv.i = phi i64 [ 0, %101 ], [ %indvars.iv.next.i, %105 ]
-  %107 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [12 x i8], ptr @h264_br_factors, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 4, !tbaa !10
   %109 = icmp eq i32 %108, %0
   br i1 %109, label %110, label %105

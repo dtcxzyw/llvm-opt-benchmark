@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.replDataBuf = type { ptr, i64, i64, i64, i64 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.multiCmd = type { ptr, i32, i32, ptr }
 %struct.listIter = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [30 x i8] c"MULTI calls can not be nested\00", align 1
@@ -56,7 +55,7 @@ define dso_local void @freeClientMultiState(ptr noundef readonly captures(none) 
 .lr.ph15:                                         ; preds = %1, %._crit_edge
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %._crit_edge ], [ 0, %1 ]
   %6 = load ptr, ptr %2, align 8, !tbaa !30
-  %7 = getelementptr inbounds nuw %struct.multiCmd, ptr %6, i64 %indvars.iv18
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !31
   %10 = icmp sgt i32 %9, 0
@@ -65,7 +64,7 @@ define dso_local void @freeClientMultiState(ptr noundef readonly captures(none) 
 .lr.ph:                                           ; preds = %.lr.ph15, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph15 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !33
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   tail call void @decrRefCount(ptr noundef %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -146,7 +145,7 @@ define dso_local void @queueMultiCommand(ptr noundef captures(none) %0, i64 noun
   %26 = phi i32 [ %.pre35, %18 ], [ %16, %14 ]
   %27 = phi ptr [ %24, %18 ], [ %.pre34, %14 ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.multiCmd, ptr %27, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %31 = load ptr, ptr %30, align 8, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -210,7 +209,7 @@ define dso_local void @discardTransaction(ptr noundef %0) local_unnamed_addr #1 
 .lr.ph15.i:                                       ; preds = %1, %._crit_edge.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %._crit_edge.i ], [ 0, %1 ]
   %6 = load ptr, ptr %2, align 8, !tbaa !30
-  %7 = getelementptr inbounds nuw %struct.multiCmd, ptr %6, i64 %indvars.iv18.i
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv18.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !31
   %10 = icmp sgt i32 %9, 0
@@ -219,7 +218,7 @@ define dso_local void @discardTransaction(ptr noundef %0) local_unnamed_addr #1 
 .lr.ph.i:                                         ; preds = %.lr.ph15.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph15.i ]
   %11 = load ptr, ptr %7, align 8, !tbaa !33
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   tail call void @decrRefCount(ptr noundef %13) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -389,7 +388,7 @@ define dso_local void @discardCommand(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph15.i.i:                                     ; preds = %6, %._crit_edge.i.i
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %._crit_edge.i.i ], [ 0, %6 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw %struct.multiCmd, ptr %11, i64 %indvars.iv18.i.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv18.i.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !31
   %15 = icmp sgt i32 %14, 0
@@ -398,7 +397,7 @@ define dso_local void @discardCommand(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.i.i:                                       ; preds = %.lr.ph15.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph15.i.i ]
   %16 = load ptr, ptr %12, align 8, !tbaa !33
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !34
   tail call void @decrRefCount(ptr noundef %18) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -447,7 +446,7 @@ define dso_local void @execCommandAbort(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph15.i.i:                                     ; preds = %2, %._crit_edge.i.i
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %._crit_edge.i.i ], [ 0, %2 ]
   %7 = load ptr, ptr %3, align 8, !tbaa !30
-  %8 = getelementptr inbounds nuw %struct.multiCmd, ptr %7, i64 %indvars.iv18.i.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv18.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !31
   %11 = icmp sgt i32 %10, 0
@@ -456,7 +455,7 @@ define dso_local void @execCommandAbort(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph.i.i:                                       ; preds = %.lr.ph15.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph15.i.i ]
   %12 = load ptr, ptr %8, align 8, !tbaa !33
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   tail call void @decrRefCount(ptr noundef %14) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -594,7 +593,7 @@ isWatchedKeyExpired.exit.thread:                  ; preds = %.backedge.i, %8, %1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4, !tbaa !89
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 96), i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 96), i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   call void @addReply(ptr noundef nonnull %0, ptr noundef %44) #10
   br label %45
@@ -609,7 +608,7 @@ isWatchedKeyExpired.exit.thread:                  ; preds = %.backedge.i, %8, %1
 .lr.ph15.i.i:                                     ; preds = %45, %._crit_edge.i.i
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %._crit_edge.i.i ], [ 0, %45 ]
   %50 = load ptr, ptr %46, align 8, !tbaa !30
-  %51 = getelementptr inbounds nuw %struct.multiCmd, ptr %50, i64 %indvars.iv18.i.i
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %indvars.iv18.i.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !31
   %54 = icmp sgt i32 %53, 0
@@ -618,7 +617,7 @@ isWatchedKeyExpired.exit.thread:                  ; preds = %.backedge.i, %8, %1
 .lr.ph.i.i:                                       ; preds = %.lr.ph15.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph15.i.i ]
   %55 = load ptr, ptr %51, align 8, !tbaa !33
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i.i
   %57 = load ptr, ptr %56, align 8, !tbaa !34
   call void @decrRefCount(ptr noundef %57) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -680,7 +679,7 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
 87:                                               ; preds = %.lr.ph, %110
   %88 = phi ptr [ %.pre90, %.lr.ph ], [ %112, %110 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %110 ]
-  %89 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %88, i64 %indvars.iv
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %91 = load i32, ptr %90, align 4, !tbaa !31
   store i32 %91, ptr %76, align 8, !tbaa !41
@@ -736,7 +735,7 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
 110:                                              ; preds = %103, %101
   %111 = load i32, ptr %76, align 8, !tbaa !41
   %112 = load ptr, ptr %80, align 8, !tbaa !30
-  %113 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %indvars.iv
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
   store i32 %111, ptr %114, align 4, !tbaa !31
   %115 = load ptr, ptr %72, align 8, !tbaa !42
@@ -782,7 +781,7 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
 .lr.ph15.i.i76:                                   ; preds = %128, %._crit_edge.i.i78
   %indvars.iv18.i.i77 = phi i64 [ %indvars.iv.next19.i.i79, %._crit_edge.i.i78 ], [ 0, %128 ]
   %130 = load ptr, ptr %80, align 8, !tbaa !30
-  %131 = getelementptr inbounds nuw %struct.multiCmd, ptr %130, i64 %indvars.iv18.i.i77
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %indvars.iv18.i.i77
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 12
   %133 = load i32, ptr %132, align 4, !tbaa !31
   %134 = icmp sgt i32 %133, 0
@@ -791,7 +790,7 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
 .lr.ph.i.i80:                                     ; preds = %.lr.ph15.i.i76, %.lr.ph.i.i80
   %indvars.iv.i.i81 = phi i64 [ %indvars.iv.next.i.i82, %.lr.ph.i.i80 ], [ 0, %.lr.ph15.i.i76 ]
   %135 = load ptr, ptr %131, align 8, !tbaa !33
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i.i81
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv.i.i81
   %137 = load ptr, ptr %136, align 8, !tbaa !34
   call void @decrRefCount(ptr noundef %137) #10
   %indvars.iv.next.i.i82 = add nuw nsw i64 %indvars.iv.i.i81, 1
@@ -1309,7 +1308,7 @@ define dso_local void @watchCommand(ptr noundef %0) local_unnamed_addr #1 {
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = load ptr, ptr %11, align 8, !tbaa !42
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   tail call void @watchForKey(ptr noundef nonnull %0, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

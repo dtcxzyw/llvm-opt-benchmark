@@ -492,7 +492,7 @@ cp_pragma.exit.i:                                 ; preds = %149, %.lr.ph.i84.i,
   %163 = phi i32 [ %157, %159 ], [ %167, %162 ]
   %164 = and i32 %163, 65535
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw %struct.CType, ptr %161, i64 %165
+  %166 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %165
   %167 = load i32, ptr %166, align 8, !tbaa !71
   %168 = icmp slt i32 %167, -1879048192
   br i1 %168, label %162, label %ctype_rawchild.exit.i, !llvm.loop !75
@@ -536,7 +536,7 @@ ctype_rawchild.exit.i:                            ; preds = %162
 186:                                              ; preds = %180
   %187 = load ptr, ptr %181, align 8, !tbaa !74
   %188 = zext i32 %175 to i64
-  %189 = getelementptr inbounds nuw %struct.CType, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [24 x i8], ptr %187, i64 %188
   %190 = load i32, ptr %189, align 8, !tbaa !71
   %.mask69.i = and i32 %190, -268435456
   %191 = icmp eq i32 %.mask69.i, 1610612736
@@ -556,7 +556,7 @@ ctype_rawchild.exit.i:                            ; preds = %162
 195:                                              ; preds = %195, %194
   %.0.i86.i = phi i32 [ %175, %194 ], [ %198, %195 ]
   %.pn.i.i = zext i32 %.0.i86.i to i64
-  %.024.i.i = getelementptr inbounds nuw %struct.CType, ptr %187, i64 %.pn.i.i
+  %.024.i.i = getelementptr inbounds nuw [24 x i8], ptr %187, i64 %.pn.i.i
   %196 = load i32, ptr %.024.i.i, align 8, !tbaa !71
   %197 = icmp slt i32 %196, -1879048192
   %198 = and i32 %196, 65535
@@ -647,7 +647,7 @@ cp_decl_constinit.exit.i:                         ; preds = %cp_check.exit.i88.i
   %240 = load ptr, ptr %37, align 8, !tbaa !14
   %241 = load ptr, ptr %240, align 8, !tbaa !74
   %242 = zext i32 %.161.i to i64
-  %243 = getelementptr inbounds nuw %struct.CType, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [24 x i8], ptr %241, i64 %242
   store ptr %243, ptr %7, align 8, !tbaa !79
   %244 = load ptr, ptr %8, align 8, !tbaa !79
   store i32 -2147221504, ptr %244, align 8, !tbaa !71
@@ -696,7 +696,7 @@ cp_decl_constinit.exit.i:                         ; preds = %cp_check.exit.i88.i
   %270 = add i32 %269, 1
   store i32 %270, ptr %6, align 8, !tbaa !88
   %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw %struct.CType, ptr %6, i64 %271
+  %272 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %271
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 74
   store i16 0, ptr %273, align 2, !tbaa !89
   %274 = load i32, ptr %43, align 4, !tbaa !90
@@ -2071,7 +2071,7 @@ lj_buf_more.exit:                                 ; preds = %27, %36
 
 42:                                               ; preds = %40
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr ptr, ptr @ctoknames, i64 %43
+  %44 = getelementptr [8 x i8], ptr @ctoknames, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -2048
   %46 = load ptr, ptr %45, align 8, !tbaa !111
   br label %cp_tok2str.exit
@@ -2139,7 +2139,7 @@ define internal fastcc ptr @cp_tok2str(ptr noundef readonly captures(none) %0, i
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr ptr, ptr @ctoknames, i64 %5
+  %6 = getelementptr [8 x i8], ptr @ctoknames, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -2048
   %8 = load ptr, ptr %7, align 8, !tbaa !111
   br label %20
@@ -2339,7 +2339,7 @@ cp_expr_unary.exit.us:                            ; preds = %56
 66:                                               ; preds = %66, %cp_expr_unary.exit.us
   %.pn.in.us = phi i32 [ %64, %cp_expr_unary.exit.us ], [ %69, %66 ]
   %.pn.us = zext i32 %.pn.in.us to i64
-  %.0.i.i.us = getelementptr inbounds nuw %struct.CType, ptr %65, i64 %.pn.us
+  %.0.i.i.us = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.pn.us
   %67 = load i32, ptr %.0.i.i.us, align 8, !tbaa !71
   %68 = icmp slt i32 %67, -1879048192
   %69 = and i32 %67, 65535
@@ -2380,7 +2380,7 @@ cp_opt.exit129.thread.us:                         ; preds = %.cp_opt.exit129.thr
   %84 = load ptr, ptr %21, align 8, !tbaa !14
   %85 = load ptr, ptr %84, align 8, !tbaa !74
   %86 = zext i32 %.032.i.us to i64
-  %87 = getelementptr inbounds nuw %struct.CType, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i16 %83, ptr %88, align 8, !tbaa !83
   %89 = load ptr, ptr %5, align 8, !tbaa !79
@@ -2426,7 +2426,7 @@ cp_check.exit.us:                                 ; preds = %104, %101
   %108 = load ptr, ptr %21, align 8, !tbaa !14
   %109 = load ptr, ptr %108, align 8, !tbaa !74
   %110 = zext i32 %40 to i64
-  %111 = getelementptr inbounds nuw %struct.CType, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %110
   store i32 %.1.i.us, ptr %111, align 8, !tbaa !71
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 4, ptr %112, align 4, !tbaa !81
@@ -2573,7 +2573,7 @@ cp_push.exit:                                     ; preds = %149
   %156 = or disjoint i32 %155, 1073741824
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %158 = zext nneg i32 %150 to i64
-  %159 = getelementptr inbounds nuw %struct.CType, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %157, i64 %158
   store i32 %156, ptr %159, align 8, !tbaa !71
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store i32 -1, ptr %160, align 4, !tbaa !81
@@ -2583,7 +2583,7 @@ cp_push.exit:                                     ; preds = %149
   store i64 0, ptr %162, align 8, !tbaa !85
   %163 = load i32, ptr %13, align 4, !tbaa !87
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw %struct.CType, ptr %157, i64 %164
+  %165 = getelementptr inbounds nuw [24 x i8], ptr %157, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 10
   %167 = load i16, ptr %166, align 2, !tbaa !89
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 10
@@ -2691,7 +2691,7 @@ cp_push.exit126:                                  ; preds = %200
   %211 = add nuw nsw i32 %208, %210
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %213 = zext nneg i32 %201 to i64
-  %214 = getelementptr inbounds nuw %struct.CType, ptr %212, i64 %213
+  %214 = getelementptr inbounds nuw [24 x i8], ptr %212, i64 %213
   store i32 %211, ptr %214, align 8, !tbaa !71
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   store i32 %.4, ptr %215, align 4, !tbaa !81
@@ -2701,7 +2701,7 @@ cp_push.exit126:                                  ; preds = %200
   store i64 0, ptr %217, align 8, !tbaa !85
   %218 = load i32, ptr %13, align 4, !tbaa !87
   %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds nuw %struct.CType, ptr %212, i64 %219
+  %220 = getelementptr inbounds nuw [24 x i8], ptr %212, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 10
   %222 = load i16, ptr %221, align 2, !tbaa !89
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 10
@@ -2805,7 +2805,7 @@ cp_push.exit70:                                   ; preds = %cp_opt.exit67, %cp_
   %.sink141 = phi i32 [ %27, %cp_push.exit ], [ 579010560, %cp_opt.exit67 ]
   %.sink = phi i32 [ %spec.select65, %cp_push.exit ], [ 8, %cp_opt.exit67 ]
   %36 = zext nneg i32 %.sink144 to i64
-  %37 = getelementptr inbounds nuw %struct.CType, ptr %10, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %36
   store i32 %.sink141, ptr %37, align 8, !tbaa !71
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %.sink, ptr %38, align 4, !tbaa !81
@@ -2815,7 +2815,7 @@ cp_push.exit70:                                   ; preds = %cp_opt.exit67, %cp_
   store i64 0, ptr %40, align 8, !tbaa !85
   %41 = load i32, ptr %11, align 4, !tbaa !87
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.CType, ptr %10, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 10
   %45 = load i16, ptr %44, align 2, !tbaa !89
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 10
@@ -2959,7 +2959,7 @@ cp_check.exit85:                                  ; preds = %88, %cp_decl_array.
 
 cp_add.exit:                                      ; preds = %cp_check.exit85
   %101 = zext nneg i32 %96 to i64
-  %102 = getelementptr inbounds nuw %struct.CType, ptr %10, i64 %101
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %101
   store i32 %.09.i109, ptr %102, align 8, !tbaa !71
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 %.0.i77110, ptr %103, align 4, !tbaa !81
@@ -2969,7 +2969,7 @@ cp_add.exit:                                      ; preds = %cp_check.exit85
   store i64 0, ptr %105, align 8, !tbaa !85
   %106 = load i32, ptr %11, align 4, !tbaa !87
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw %struct.CType, ptr %10, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 10
   %110 = load i16, ptr %109, align 2, !tbaa !89
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 10
@@ -3030,7 +3030,7 @@ cp_expr_sub.exit:                                 ; preds = %120
 133:                                              ; preds = %133, %cp_expr_sub.exit
   %.pn.in = phi i32 [ %131, %cp_expr_sub.exit ], [ %136, %133 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i.i.i = getelementptr inbounds nuw %struct.CType, ptr %132, i64 %.pn
+  %.0.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %132, i64 %.pn
   %134 = load i32, ptr %.0.i.i.i, align 8, !tbaa !71
   %135 = icmp slt i32 %134, -1879048192
   %136 = and i32 %134, 65535
@@ -3063,7 +3063,7 @@ cp_opt.exit81.thread:                             ; preds = %cp_expr_ksize.exit,
   tail call fastcc void @cp_decl_attributes(ptr noundef nonnull %0, ptr noundef %1)
   %143 = load i32, ptr %11, align 4, !tbaa !87
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %struct.CType, ptr %10, i64 %144
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %144
   %146 = load i32, ptr %145, align 8, !tbaa !71
   %.mask.i82 = and i32 %146, -268435456
   %147 = icmp eq i32 %.mask.i82, 1610612736
@@ -3096,7 +3096,7 @@ cp_push.exit.i:                                   ; preds = %154
   %160 = lshr i32 %149, 16
   %161 = and i32 %160, 15
   %162 = zext nneg i32 %155 to i64
-  %163 = getelementptr inbounds nuw %struct.CType, ptr %10, i64 %162
+  %163 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %162
   store i32 -2147352576, ptr %163, align 8, !tbaa !71
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   store i32 %161, ptr %164, align 4, !tbaa !81
@@ -3136,7 +3136,7 @@ define internal fastcc i32 @cp_decl_intern(ptr noundef %0, ptr noundef nonnull r
   %.0115 = phi i32 [ 0, %2 ], [ %.1116, %154 ]
   %.0 = phi i32 [ 0, %2 ], [ %.1, %154 ]
   %8 = zext nneg i32 %.0115 to i64
-  %9 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !71
   %.fr = freeze i32 %10
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -3159,7 +3159,7 @@ define internal fastcc i32 @cp_decl_intern(ptr noundef %0, ptr noundef nonnull r
   %19 = load ptr, ptr %5, align 8, !tbaa !14
   %20 = load ptr, ptr %19, align 8, !tbaa !74
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw %struct.CType, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !81
@@ -3178,7 +3178,7 @@ define internal fastcc i32 @cp_decl_intern(ptr noundef %0, ptr noundef nonnull r
 30:                                               ; preds = %30, %27
   %.pn167.in = phi i32 [ %.0, %27 ], [ %33, %30 ]
   %.pn167 = zext i32 %.pn167.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %29, i64 %.pn167
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.pn167
   %31 = load i32, ptr %.0.i, align 8, !tbaa !71
   %32 = icmp slt i32 %31, -1879048192
   %33 = and i32 %31, 65535
@@ -3203,7 +3203,7 @@ ctype_raw.exit:                                   ; preds = %30
 .lr.ph175:                                        ; preds = %38, %43
   %.2117174 = phi i32 [ %46, %43 ], [ %15, %38 ]
   %39 = zext nneg i32 %.2117174 to i64
-  %40 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %39
   %41 = load i32, ptr %40, align 8, !tbaa !71
   %42 = icmp slt i32 %41, -1879048192
   br i1 %42, label %43, label %.thread
@@ -3327,7 +3327,7 @@ switch.early.test:                                ; preds = %75
 101:                                              ; preds = %101, %98
   %.pn.in = phi i32 [ %.0, %98 ], [ %104, %101 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i160 = getelementptr inbounds nuw %struct.CType, ptr %100, i64 %.pn
+  %.0.i160 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %.pn
   %102 = load i32, ptr %.0.i160, align 8, !tbaa !71
   %103 = icmp slt i32 %102, -1879048192
   %104 = and i32 %102, 65535
@@ -3355,7 +3355,7 @@ ctype_raw.exit161:                                ; preds = %101
 .lr.ph:                                           ; preds = %111, %117
   %.6170 = phi i32 [ %120, %117 ], [ %15, %111 ]
   %113 = zext nneg i32 %.6170 to i64
-  %114 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %113
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %113
   %115 = load i32, ptr %114, align 8, !tbaa !71
   %116 = icmp slt i32 %115, -1879048192
   br i1 %116, label %117, label %.thread164
@@ -3778,7 +3778,7 @@ cp_expr_unary.exit.i:                             ; preds = %cp_check.exit.i23
 144:                                              ; preds = %144, %cp_expr_unary.exit.i
   %.pn69.in = phi i32 [ %142, %cp_expr_unary.exit.i ], [ %147, %144 ]
   %.pn69 = zext i32 %.pn69.in to i64
-  %.0.i.i = getelementptr inbounds nuw %struct.CType, ptr %143, i64 %.pn69
+  %.0.i.i = getelementptr inbounds nuw [24 x i8], ptr %143, i64 %.pn69
   %145 = load i32, ptr %.0.i.i, align 8, !tbaa !71
   %146 = icmp slt i32 %145, -1879048192
   %147 = and i32 %145, 65535
@@ -4015,7 +4015,7 @@ cp_expr_sub.exit.i:                               ; preds = %cp_check.exit58
 237:                                              ; preds = %237, %cp_expr_sub.exit.i
   %.pn.in = phi i32 [ %235, %cp_expr_sub.exit.i ], [ %240, %237 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i.i.i = getelementptr inbounds nuw %struct.CType, ptr %236, i64 %.pn
+  %.0.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %236, i64 %.pn
   %238 = load i32, ptr %.0.i.i.i, align 8, !tbaa !71
   %239 = icmp slt i32 %238, -1879048192
   %240 = and i32 %238, 65535
@@ -4180,7 +4180,7 @@ cp_opt.exit:                                      ; preds = %3
 35:                                               ; preds = %35, %.lr.ph.split.us
   %.pn96.in.us = phi i32 [ %30, %.lr.ph.split.us ], [ %38, %35 ]
   %.pn96.us = zext i32 %.pn96.in.us to i64
-  %.0.i.us = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %.pn96.us
+  %.0.i.us = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.pn96.us
   %36 = load i32, ptr %.0.i.us, align 8, !tbaa !71
   %37 = icmp slt i32 %36, -1879048192
   %38 = and i32 %36, 65535
@@ -4284,7 +4284,7 @@ ctype_raw.exit.us:                                ; preds = %35
   %.4.us = phi i32 [ %.5.us, %71 ], [ %.5.us, %63 ], [ %.3.us, %80 ]
   %90 = trunc i32 %32 to i16
   %91 = zext i32 %.1106.us to i64
-  %92 = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i16 %90, ptr %93, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4299,7 +4299,7 @@ ctype_raw.exit.us:                                ; preds = %35
   %99 = add i32 %98, 1
   store i32 %99, ptr %6, align 8, !tbaa !88
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw %struct.CType, ptr %6, i64 %100
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 74
   store i16 0, ptr %102, align 2, !tbaa !89
   %103 = load i32, ptr %23, align 4, !tbaa !90
@@ -4328,7 +4328,7 @@ ctype_raw.exit.us:                                ; preds = %35
 108:                                              ; preds = %108, %.lr.ph.split.split
   %.0.i79 = phi i32 [ %105, %.lr.ph.split.split ], [ %111, %108 ]
   %.pn = zext i32 %.0.i79 to i64
-  %.024.i = getelementptr inbounds nuw %struct.CType, ptr %107, i64 %.pn
+  %.024.i = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %.pn
   %109 = load i32, ptr %.024.i, align 8, !tbaa !71
   %110 = icmp slt i32 %109, -1879048192
   %111 = and i32 %109, 65535
@@ -4400,7 +4400,7 @@ cp_expr_sub.exit:                                 ; preds = %cp_check.exit89
   %143 = load ptr, ptr %17, align 8, !tbaa !14
   %144 = load ptr, ptr %143, align 8, !tbaa !74
   %145 = zext i32 %.1106 to i64
-  %146 = getelementptr inbounds nuw %struct.CType, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %144, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i16 %142, ptr %147, align 8, !tbaa !83
   %148 = load ptr, ptr %19, align 8, !tbaa !76
@@ -4431,7 +4431,7 @@ cp_expr_sub.exit:                                 ; preds = %cp_check.exit89
   %159 = add i32 %158, 1
   store i32 %159, ptr %6, align 8, !tbaa !88
   %160 = zext i32 %158 to i64
-  %161 = getelementptr inbounds nuw %struct.CType, ptr %6, i64 %160
+  %161 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 74
   store i16 0, ptr %162, align 2, !tbaa !89
   %163 = load i32, ptr %23, align 4, !tbaa !90
@@ -4466,7 +4466,7 @@ cp_check.exit84:                                  ; preds = %cp_check.exit, %cp_
   %171 = load ptr, ptr %170, align 8, !tbaa !14
   %172 = load ptr, ptr %171, align 8, !tbaa !74
   %173 = zext i32 %.056.lcssa to i64
-  %174 = getelementptr inbounds nuw %struct.CType, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw [24 x i8], ptr %172, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i16 0, ptr %175, align 8, !tbaa !83
   call fastcc void @cp_decl_attributes(ptr noundef nonnull %0, ptr noundef %1)
@@ -4477,7 +4477,7 @@ cp_check.exit84:                                  ; preds = %cp_check.exit, %cp_
   %180 = load ptr, ptr %170, align 8, !tbaa !14
   %181 = load ptr, ptr %180, align 8, !tbaa !74
   %182 = zext i32 %9 to i64
-  %183 = getelementptr inbounds nuw %struct.CType, ptr %181, i64 %182
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %181, i64 %182
   %184 = load i32, ptr %183, align 8, !tbaa !71
   %.0109.in.in139.i = getelementptr inbounds nuw i8, ptr %183, i64 8
   %.0109.in140.i = load i16, ptr %.0109.in.in139.i, align 8, !tbaa !83
@@ -4498,7 +4498,7 @@ cp_check.exit84:                                  ; preds = %cp_check.exit, %cp_
   %188 = load ptr, ptr %170, align 8, !tbaa !14
   %189 = load ptr, ptr %188, align 8, !tbaa !74
   %190 = zext i16 %.0109.in146.i to i64
-  %191 = getelementptr inbounds nuw %struct.CType, ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %189, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %193 = load i32, ptr %192, align 4, !tbaa !81
   %194 = load i32, ptr %191, align 8, !tbaa !71
@@ -4707,7 +4707,7 @@ define internal fastcc void @cp_push_type(ptr noundef nonnull %0, i32 noundef %1
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.CType, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !81
@@ -4733,7 +4733,7 @@ cp_push.exit:                                     ; preds = %14
   %18 = add i32 %1, 1879048192
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr inbounds nuw %struct.CType, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %20
   store i32 %18, ptr %21, align 8, !tbaa !71
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4, !tbaa !81
@@ -4744,7 +4744,7 @@ cp_push.exit:                                     ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !87
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.CType, ptr %19, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 10
   %30 = load i16, ptr %29, align 2, !tbaa !89
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 10
@@ -4770,7 +4770,7 @@ cp_push.exit:                                     ; preds = %14
 
 cp_push.exit41:                                   ; preds = %37
   %40 = zext nneg i32 %33 to i64
-  %41 = getelementptr inbounds nuw %struct.CType, ptr %19, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %40
   store i32 -2147418112, ptr %41, align 8, !tbaa !71
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %36, ptr %42, align 4, !tbaa !81
@@ -4819,7 +4819,7 @@ cp_push.exit42:                                   ; preds = %58
   %64 = and i32 %10, -65536
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %66 = zext nneg i32 %60 to i64
-  %67 = getelementptr inbounds nuw %struct.CType, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %66
   store i32 %64, ptr %67, align 8, !tbaa !71
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %12, ptr %68, align 4, !tbaa !81
@@ -4830,7 +4830,7 @@ cp_push.exit42:                                   ; preds = %58
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !87
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %struct.CType, ptr %65, i64 %73
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 10
   %76 = load i16, ptr %75, align 2, !tbaa !89
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 10
@@ -4873,7 +4873,7 @@ cp_push.exit43:                                   ; preds = %88
   %94 = and i32 %.0, -65536
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %96 = zext nneg i32 %90 to i64
-  %97 = getelementptr inbounds nuw %struct.CType, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %96
   store i32 %94, ptr %97, align 8, !tbaa !71
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store i32 %12, ptr %98, align 4, !tbaa !81
@@ -4882,7 +4882,7 @@ cp_push.exit43:                                   ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %101 = load i32, ptr %100, align 4, !tbaa !87
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct.CType, ptr %95, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 10
   %105 = load i16, ptr %104, align 2, !tbaa !89
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 10
@@ -4892,7 +4892,7 @@ cp_push.exit43:                                   ; preds = %88
   %108 = add nuw nsw i32 %90, 1
   store i32 %108, ptr %0, align 8, !tbaa !88
   store i32 %90, ptr %100, align 4, !tbaa !87
-  %109 = getelementptr inbounds nuw %struct.CType, ptr %0, i64 %96
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %96
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 72
   store i16 1, ptr %110, align 8, !tbaa !83
   br label %157
@@ -4911,7 +4911,7 @@ cp_push.exit44:                                   ; preds = %111
   %116 = load i16, ptr %115, align 8, !tbaa !83
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %118 = zext nneg i32 %112 to i64
-  %119 = getelementptr inbounds nuw %struct.CType, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %118
   store i32 %10, ptr %119, align 8, !tbaa !71
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 %12, ptr %120, align 4, !tbaa !81
@@ -4920,7 +4920,7 @@ cp_push.exit44:                                   ; preds = %111
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %123 = load i32, ptr %122, align 4, !tbaa !87
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %struct.CType, ptr %117, i64 %124
+  %125 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 10
   %127 = load i16, ptr %126, align 2, !tbaa !89
   %128 = getelementptr inbounds nuw i8, ptr %119, i64 10
@@ -4930,7 +4930,7 @@ cp_push.exit44:                                   ; preds = %111
   %130 = add nuw nsw i32 %112, 1
   store i32 %130, ptr %0, align 8, !tbaa !88
   store i32 %112, ptr %122, align 4, !tbaa !87
-  %131 = getelementptr inbounds nuw %struct.CType, ptr %0, i64 %118
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %118
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 72
   store i16 %116, ptr %132, align 8, !tbaa !83
   br label %157
@@ -4951,7 +4951,7 @@ cp_push.exit45:                                   ; preds = %133
   %140 = or i32 %139, %10
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %142 = zext nneg i32 %134 to i64
-  %143 = getelementptr inbounds nuw %struct.CType, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %142
   store i32 %140, ptr %143, align 8, !tbaa !71
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %12, ptr %144, align 4, !tbaa !81
@@ -4962,7 +4962,7 @@ cp_push.exit45:                                   ; preds = %133
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %148 = load i32, ptr %147, align 4, !tbaa !87
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %struct.CType, ptr %141, i64 %149
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 10
   %152 = load i16, ptr %151, align 2, !tbaa !89
   %153 = getelementptr inbounds nuw i8, ptr %143, i64 10
@@ -5012,7 +5012,7 @@ cp_expr_sub.exit:                                 ; preds = %1
 15:                                               ; preds = %15, %cp_expr_sub.exit
   %.pn.in = phi i32 [ %13, %cp_expr_sub.exit ], [ %18, %15 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i.i = getelementptr inbounds nuw %struct.CType, ptr %14, i64 %.pn
+  %.0.i.i = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.pn
   %16 = load i32, ptr %.0.i.i, align 8, !tbaa !71
   %17 = icmp slt i32 %16, -1879048192
   %18 = and i32 %16, 65535
@@ -6904,7 +6904,7 @@ cp_check.exit67:                                  ; preds = %cp_check.exit
 25:                                               ; preds = %25, %20
   %.pn.in = phi i32 [ %22, %20 ], [ %28, %25 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %24, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.pn
   %26 = load i32, ptr %.0.i, align 8, !tbaa !71
   %27 = icmp slt i32 %26, -1879048192
   %28 = and i32 %26, 65535
@@ -6951,7 +6951,7 @@ ctype_raw.exit:                                   ; preds = %25
   %47 = load ptr, ptr %9, align 8, !tbaa !14
   %48 = load ptr, ptr %47, align 8, !tbaa !74
   %49 = zext i32 %.051104 to i64
-  %50 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i16 %46, ptr %51, align 8, !tbaa !83
   br label %52
@@ -7077,7 +7077,7 @@ cp_add.exit:                                      ; preds = %cp_opt.exit73.threa
   %97 = or i32 %96, %.05389
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %99 = zext nneg i32 %90 to i64
-  %100 = getelementptr inbounds nuw %struct.CType, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %99
   store i32 %97, ptr %100, align 8, !tbaa !71
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 %.04491, ptr %101, align 4, !tbaa !81
@@ -7086,7 +7086,7 @@ cp_add.exit:                                      ; preds = %cp_opt.exit73.threa
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !87
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw %struct.CType, ptr %98, i64 %105
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 10
   %108 = load i16, ptr %107, align 2, !tbaa !89
   %109 = getelementptr inbounds nuw i8, ptr %100, i64 10
@@ -7095,7 +7095,7 @@ cp_add.exit:                                      ; preds = %cp_opt.exit73.threa
   store i16 %110, ptr %107, align 2, !tbaa !89
   %111 = add nuw nsw i32 %90, 1
   store i32 %111, ptr %1, align 8, !tbaa !88
-  %112 = getelementptr inbounds nuw %struct.CType, ptr %1, i64 %99
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %99
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 72
   store i16 %95, ptr %113, align 8, !tbaa !83
   ret void

@@ -811,7 +811,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 44:                                               ; preds = %._crit_edge.i, %35
   %45 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %36, %35 ]
   %46 = load ptr, ptr %17, align 8, !alias.scope !210, !noalias !213, !nonnull !16, !noundef !16
-  %47 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %46, i64 %45
+  %47 = getelementptr inbounds [24 x i8], ptr %46, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %48 = load i64, ptr %18, align 8, !alias.scope !210, !noalias !213, !noundef !16
   %49 = add i64 %48, 1
@@ -922,7 +922,7 @@ _ZN5serde2de9SeqAccess12next_element17hd96b803c2b32b2abE.exit: ; preds = %16
 33:                                               ; preds = %._crit_edge.i, %24
   %34 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %25, %24 ]
   %35 = load ptr, ptr %13, align 8, !alias.scope !220, !noalias !223, !nonnull !16, !noundef !16
-  %36 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %35, i64 %34
+  %36 = getelementptr inbounds [24 x i8], ptr %35, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %37 = load i64, ptr %14, align 8, !alias.scope !220, !noalias !223, !noundef !16
   %38 = add i64 %37, 1
@@ -1031,7 +1031,7 @@ _ZN5serde2de9SeqAccess12next_element17h9634dfcddce520e9E.exit: ; preds = %16
 33:                                               ; preds = %._crit_edge.i, %24
   %34 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %25, %24 ]
   %35 = load ptr, ptr %13, align 8, !alias.scope !226, !noalias !229, !nonnull !16, !noundef !16
-  %36 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] }, { { { { { i64, ptr }, i64 } } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %35, i64 %34
+  %36 = getelementptr inbounds [304 x i8], ptr %35, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %36, ptr noundef nonnull align 8 dereferenceable(304) %4, i64 304, i1 false)
   %37 = add i64 %34, 1
   store i64 %37, ptr %14, align 8, !alias.scope !226, !noalias !229
@@ -1760,7 +1760,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
 _ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit: ; preds = %2, %_ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit
   %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit ]
   %6 = add nuw nsw i64 %5, 1
-  %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %5
   %8 = load ptr, ptr %7, align 8, !alias.scope !415, !nonnull !16, !align !370, !noundef !16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !415, !noundef !16
@@ -1787,7 +1787,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
 _ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit: ; preds = %2, %_ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit
   %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit ]
   %6 = add nuw nsw i64 %5, 1
-  %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %5
   %8 = load ptr, ptr %7, align 8, !alias.scope !418, !nonnull !16, !align !370, !noundef !16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !418, !noundef !16
@@ -1814,7 +1814,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
 _ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit: ; preds = %2, %_ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit
   %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17hc247b8ec28daf3ecE.llvm.6082948530530484711.exit ]
   %6 = add nuw nsw i64 %5, 1
-  %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %5
   %8 = load ptr, ptr %7, align 8, !alias.scope !421, !nonnull !16, !align !370, !noundef !16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !421, !noundef !16
@@ -2941,7 +2941,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf47ceef9a182d2c5E.ll
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !16, !noundef !16
-  %12 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !16
   %14 = add i64 %13, 1

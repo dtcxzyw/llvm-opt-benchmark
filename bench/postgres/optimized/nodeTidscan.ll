@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/nodeTidscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 
@@ -134,7 +133,7 @@ define dso_local noundef ptr @ExecInitTidScan(ptr noundef %0, ptr noundef %1, i3
 .lr.ph:                                           ; preds = %.lr.ph.i, %79
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %.lr.ph.i ]
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv.i26
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i26
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @palloc0(i64 noundef 24) #8
   %.not.i.i = icmp eq ptr %34, null
@@ -356,7 +355,7 @@ list_length.exit.i:                               ; preds = %37, %33
   %.068100.i41 = phi ptr [ %.1.i, %149 ], [ %43, %.lr.ph101.i ]
   %indvars.iv108.i40 = phi i64 [ %indvars.iv.next109.i, %149 ], [ 0, %.lr.ph101.i ]
   %50 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv108.i40
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv108.i40
   %52 = load ptr, ptr %51, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = load ptr, ptr %52, align 8
@@ -411,7 +410,7 @@ list_length.exit.i:                               ; preds = %37, %33
   %.2.i = phi ptr [ %80, %76 ], [ %.068100.i41, %75 ]
   %82 = add i32 %.07798.i43, 1
   %83 = sext i32 %.07798.i43 to i64
-  %84 = getelementptr inbounds %struct.ItemPointerData, ptr %.2.i, i64 %83
+  %84 = getelementptr inbounds [6 x i8], ptr %.2.i, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %84, ptr noundef nonnull align 2 dereferenceable(6) %65, i64 6, i1 false)
   br label %149
 
@@ -464,7 +463,7 @@ list_length.exit.i:                               ; preds = %37, %33
 
 110:                                              ; preds = %.lr.ph.i
   %111 = load ptr, ptr %3, align 8
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i
   %113 = load i64, ptr %112, align 8
   %114 = inttoptr i64 %113 to ptr
   %115 = load ptr, ptr %34, align 8
@@ -478,7 +477,7 @@ list_length.exit.i:                               ; preds = %37, %33
 121:                                              ; preds = %110
   %122 = add i32 %.48195.i, 1
   %123 = sext i32 %.48195.i to i64
-  %124 = getelementptr inbounds %struct.ItemPointerData, ptr %.5.i, i64 %123
+  %124 = getelementptr inbounds [6 x i8], ptr %.5.i, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %124, ptr noundef nonnull align 2 dereferenceable(6) %114, i64 6, i1 false)
   br label %125
 
@@ -533,7 +532,7 @@ list_length.exit.i:                               ; preds = %37, %33
   %.7.i = phi ptr [ %143, %139 ], [ %.068100.i41, %138 ]
   %145 = add i32 %.07798.i43, 1
   %146 = sext i32 %.07798.i43 to i64
-  %147 = getelementptr inbounds %struct.ItemPointerData, ptr %.7.i, i64 %146
+  %147 = getelementptr inbounds [6 x i8], ptr %.7.i, i64 %146
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %147, ptr noundef nonnull align 2 dereferenceable(6) %6, i64 6, i1 false)
   br label %148
 
@@ -667,7 +666,7 @@ TidListEval.exit:                                 ; preds = %.lr.ph101.i, %list_
   %205 = phi i32 [ %226, %225 ], [ %.sink, %.lr.ph46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %185, i64 %206
+  %207 = getelementptr inbounds nuw [6 x i8], ptr %185, i64 %206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %207, i64 6, i1 false)
   %208 = load i8, ptr %203, align 8, !range !4, !noundef !5
   %209 = trunc nuw i8 %208 to i1
@@ -717,7 +716,7 @@ table_tuple_fetch_row_version.exit.us:            ; preds = %211
   %229 = phi i32 [ %252, %251 ], [ %.sink, %.lr.ph46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %185, i64 %230
+  %231 = getelementptr inbounds nuw [6 x i8], ptr %185, i64 %230
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %231, i64 6, i1 false)
   %232 = load i8, ptr %203, align 8, !range !4, !noundef !5
   %233 = trunc nuw i8 %232 to i1

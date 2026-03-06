@@ -146,7 +146,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu10custom_row17h
 37:                                               ; preds = %32, %21
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !alias.scope !4, !noalias !7, !nonnull !9, !noundef !9
-  %40 = getelementptr inbounds { i64, [7 x i64] }, ptr %39, i64 %29
+  %40 = getelementptr inbounds [64 x i8], ptr %39, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   %41 = add i64 %29, 1
   store i64 %41, ptr %28, align 8, !alias.scope !4, !noalias !7
@@ -264,7 +264,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu10custom_row17h
 39:                                               ; preds = %34, %23
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load ptr, ptr %40, align 8, !alias.scope !13, !noalias !16, !nonnull !9, !noundef !9
-  %42 = getelementptr inbounds { i64, [7 x i64] }, ptr %41, i64 %31
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   %43 = add i64 %31, 1
   store i64 %43, ptr %30, align 8, !alias.scope !13, !noalias !16
@@ -375,7 +375,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu10custom_row17h
 37:                                               ; preds = %32, %21
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !alias.scope !18, !noalias !21, !nonnull !9, !noundef !9
-  %40 = getelementptr inbounds { i64, [7 x i64] }, ptr %39, i64 %29
+  %40 = getelementptr inbounds [64 x i8], ptr %39, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   %41 = add i64 %29, 1
   store i64 %41, ptr %28, align 8, !alias.scope !18, !noalias !21
@@ -509,7 +509,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12custom_entry1
 42:                                               ; preds = %37, %27
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8, !alias.scope !26, !noalias !29, !nonnull !9, !noundef !9
-  %45 = getelementptr inbounds { i64, [7 x i64] }, ptr %44, i64 %34
+  %45 = getelementptr inbounds [64 x i8], ptr %44, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %46 = add i64 %34, 1
   store i64 %46, ptr %33, align 8, !alias.scope !26, !noalias !29
@@ -625,7 +625,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12custom_entry1
 35:                                               ; preds = %30, %20
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8, !alias.scope !34, !noalias !37, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds { i64, [7 x i64] }, ptr %37, i64 %27
+  %38 = getelementptr inbounds [64 x i8], ptr %37, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %39 = add i64 %27, 1
   store i64 %39, ptr %26, align 8, !alias.scope !34, !noalias !37
@@ -734,7 +734,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12custom_entry1
 35:                                               ; preds = %30, %20
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8, !alias.scope !42, !noalias !45, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds { i64, [7 x i64] }, ptr %37, i64 %27
+  %38 = getelementptr inbounds [64 x i8], ptr %37, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %39 = add i64 %27, 1
   store i64 %39, ptr %26, align 8, !alias.scope !42, !noalias !45
@@ -843,7 +843,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12custom_entry1
 35:                                               ; preds = %30, %20
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8, !alias.scope !50, !noalias !53, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds { i64, [7 x i64] }, ptr %37, i64 %27
+  %38 = getelementptr inbounds [64 x i8], ptr %37, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %39 = add i64 %27, 1
   store i64 %39, ptr %26, align 8, !alias.scope !50, !noalias !53
@@ -952,7 +952,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12custom_entry1
 35:                                               ; preds = %30, %20
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8, !alias.scope !58, !noalias !61, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds { i64, [7 x i64] }, ptr %37, i64 %27
+  %38 = getelementptr inbounds [64 x i8], ptr %37, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %39 = add i64 %27, 1
   store i64 %39, ptr %26, align 8, !alias.scope !58, !noalias !61
@@ -1285,7 +1285,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu16toggleable_en
 44:                                               ; preds = %39, %24
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !101, !noalias !104, !nonnull !9, !noundef !9
-  %47 = getelementptr inbounds { i64, [7 x i64] }, ptr %46, i64 %36
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %48 = add i64 %36, 1
   store i64 %48, ptr %35, align 8, !alias.scope !101, !noalias !104
@@ -1400,7 +1400,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu16toggleable_en
 44:                                               ; preds = %39, %24
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !109, !noalias !112, !nonnull !9, !noundef !9
-  %47 = getelementptr inbounds { i64, [7 x i64] }, ptr %46, i64 %36
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %48 = add i64 %36, 1
   store i64 %48, ptr %35, align 8, !alias.scope !109, !noalias !112
@@ -1515,7 +1515,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu16toggleable_en
 44:                                               ; preds = %39, %24
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !117, !noalias !120, !nonnull !9, !noundef !9
-  %47 = getelementptr inbounds { i64, [7 x i64] }, ptr %46, i64 %36
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %48 = add i64 %36, 1
   store i64 %48, ptr %35, align 8, !alias.scope !117, !noalias !120
@@ -1630,7 +1630,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu16toggleable_en
 44:                                               ; preds = %39, %24
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !125, !noalias !128, !nonnull !9, !noundef !9
-  %47 = getelementptr inbounds { i64, [7 x i64] }, ptr %46, i64 %36
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %48 = add i64 %36, 1
   store i64 %48, ptr %35, align 8, !alias.scope !125, !noalias !128
@@ -1826,7 +1826,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu4link17ha9701d2
 44:                                               ; preds = %39, %27
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !149, !noalias !152, !nonnull !9, !noundef !9
-  %47 = getelementptr inbounds { i64, [7 x i64] }, ptr %46, i64 %36
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %48 = add i64 %36, 1
   store i64 %48, ptr %35, align 8, !alias.scope !149, !noalias !152
@@ -1966,7 +1966,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu6action17h3e947
 44:                                               ; preds = %39, %27
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !159, !noalias !162, !nonnull !9, !noundef !9
-  %47 = getelementptr inbounds { i64, [7 x i64] }, ptr %46, i64 %36
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %48 = add i64 %36, 1
   store i64 %48, ptr %35, align 8, !alias.scope !159, !noalias !162
@@ -4017,7 +4017,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3fc434bfef9fdebbE.ll
 8:                                                ; preds = %2, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !9, !noundef !9
-  %11 = getelementptr inbounds { i64, [7 x i64] }, ptr %10, i64 %4
+  %11 = getelementptr inbounds [64 x i8], ptr %10, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %12 = add i64 %4, 1
   store i64 %12, ptr %3, align 8

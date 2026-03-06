@@ -915,8 +915,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._err_stackitem = type { ptr, ptr }
 %struct.anon.0 = type { i32, i32 }
 %struct._PyBinaryOpSpecializationDescr = type { ptr, ptr }
-%union._Py_CODEUNIT = type { i16 }
-%union._PyStackRef = type { i64 }
 
 @_PyOpcode_Caches = external local_unnamed_addr constant [256 x i8], align 16
 @PySuper_Type = external global %struct._typeobject, align 8
@@ -972,7 +970,7 @@ define hidden void @_PyCode_Quicken(ptr noundef captures(none) %0, i64 noundef %
 
 .lr.ph:                                           ; preds = %3, %18
   %.033 = phi i64 [ %19, %18 ], [ 0, %3 ]
-  %6 = getelementptr %union._Py_CODEUNIT, ptr %0, i64 %.033
+  %6 = getelementptr [2 x i8], ptr %0, i64 %.033
   %7 = load i8, ptr %6, align 2, !tbaa !4
   %8 = zext i8 %7 to i64
   %9 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %8
@@ -3336,7 +3334,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %2, i64 13
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !4
   %21 = zext i8 %.sroa.4.0.copyload to i64
-  %22 = getelementptr %union._PyStackRef, ptr %4, i64 %21
+  %22 = getelementptr [8 x i8], ptr %4, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !4
   %24 = icmp eq i64 %23, %0
   br i1 %24, label %25, label %27
@@ -3431,7 +3429,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
 
 53:                                               ; preds = %50, %44, %41, %35, %32, %13, %12
   %54 = sext i32 %3 to i64
-  %55 = getelementptr %struct._PyBinaryOpSpecializationDescr, ptr @compactlong_float_specs, i64 %54
+  %55 = getelementptr [16 x i8], ptr @compactlong_float_specs, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !172
   %.not.i = icmp eq ptr %57, null
@@ -3444,7 +3442,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
   br i1 %.not18.i, label %61, label %.sink.split.i
 
 61:                                               ; preds = %58, %53
-  %62 = getelementptr %struct._PyBinaryOpSpecializationDescr, ptr @float_compactlong_specs, i64 %54
+  %62 = getelementptr [16 x i8], ptr @float_compactlong_specs, i64 %54
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !172
   %.not19.i = icmp eq ptr %64, null
@@ -3457,7 +3455,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
   br i1 %.not20.i, label %68, label %.sink.split.i
 
 68:                                               ; preds = %65, %61
-  %69 = getelementptr %struct._PyBinaryOpSpecializationDescr, ptr @compactlongs_specs, i64 %54
+  %69 = getelementptr [16 x i8], ptr @compactlongs_specs, i64 %54
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !172
   %.not21.i = icmp eq ptr %71, null

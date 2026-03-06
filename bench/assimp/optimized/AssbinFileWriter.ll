@@ -20,11 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiMetadataEntry = type { i32, ptr }
 %class.aiVector3t = type { float, float, float }
 %class.aiColor4t = type { float, float, float, float }
-%struct.aiFace = type { i32, ptr }
 %struct.aiVertexWeight = type { i32, float }
 %struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
 %struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
@@ -946,7 +943,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinarySceneE
 52:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %53 = load ptr, ptr %47, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter15WriteBinaryMeshEPNS_8IOStreamEPK6aiMesh(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %7, ptr noundef %55)
           to label %56 unwind label %60
@@ -975,7 +972,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinarySceneE
 64:                                               ; preds = %.lr.ph68, %68
   %indvars.iv83 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next84, %68 ]
   %65 = load ptr, ptr %49, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv83
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv83
   %67 = load ptr, ptr %66, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter19WriteBinaryMaterialEPNS_8IOStreamEPK10aiMaterial(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %7, ptr noundef %67)
           to label %68 unwind label %72
@@ -1004,7 +1001,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinarySceneE
 76:                                               ; preds = %.lr.ph70, %80
   %indvars.iv86 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next87, %80 ]
   %77 = load ptr, ptr %63, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv86
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv86
   %79 = load ptr, ptr %78, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter15WriteBinaryAnimEPNS_8IOStreamEPK11aiAnimation(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %7, ptr noundef %79)
           to label %80 unwind label %84
@@ -1033,7 +1030,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinarySceneE
 88:                                               ; preds = %.lr.ph72, %92
   %indvars.iv89 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next90, %92 ]
   %89 = load ptr, ptr %75, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv89
   %91 = load ptr, ptr %90, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter18WriteBinaryTextureEPNS_8IOStreamEPK9aiTexture(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %7, ptr noundef %91)
           to label %92 unwind label %96
@@ -1062,7 +1059,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinarySceneE
 100:                                              ; preds = %.lr.ph74, %104
   %indvars.iv92 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next93, %104 ]
   %101 = load ptr, ptr %87, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv92
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv92
   %103 = load ptr, ptr %102, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter16WriteBinaryLightEPNS_8IOStreamEPK7aiLight(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %7, ptr noundef %103)
           to label %104 unwind label %108
@@ -1133,7 +1130,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %130, %132
 136:                                              ; preds = %.lr.ph76, %140
   %indvars.iv95 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next96, %140 ]
   %137 = load ptr, ptr %99, align 8
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv95
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv95
   %139 = load ptr, ptr %138, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter17WriteBinaryCameraEPNS_8IOStreamEPK8aiCamera(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %7, ptr noundef %139)
           to label %140 unwind label %144
@@ -1674,7 +1671,7 @@ _ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17Ass
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us.i:              ; preds = %.preheader.i, %.noexc47
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.noexc47 ], [ 0, %.preheader.i ]
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv34.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv34.i
   %39 = load ptr, ptr %8, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
@@ -1688,7 +1685,7 @@ _ZNK12aiMatrix4x4tIfEixEj.exit.us.i:              ; preds = %.preheader.i, %.noe
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us11.i:            ; preds = %.preheader.i, %.noexc48
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.noexc48 ], [ 0, %.preheader.i ]
-  %43 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv30.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv30.i
   %44 = load ptr, ptr %8, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
@@ -1702,7 +1699,7 @@ _ZNK12aiMatrix4x4tIfEixEj.exit.us11.i:            ; preds = %.preheader.i, %.noe
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us15.i:            ; preds = %.preheader.i, %.noexc49
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.noexc49 ], [ 0, %.preheader.i ]
-  %48 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv26.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv26.i
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
@@ -1716,7 +1713,7 @@ _ZNK12aiMatrix4x4tIfEixEj.exit.us15.i:            ; preds = %.preheader.i, %.noe
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us19.i:            ; preds = %.preheader.i, %.noexc50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc50 ], [ 0, %.preheader.i ]
-  %53 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i
   %54 = load ptr, ptr %8, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
@@ -1815,7 +1812,7 @@ _ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit55:   ; preds = %72
 81:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %82 = load ptr, ptr %78, align 8
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %84 = load i32, ptr %83, align 4
   store i32 %84, ptr %4, align 4
@@ -1849,7 +1846,7 @@ _ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit55:   ; preds = %72
 95:                                               ; preds = %.lr.ph87, %99
   %indvars.iv96 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next97, %99 ]
   %96 = load ptr, ptr %80, align 8
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv96
   %98 = load ptr, ptr %97, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter15WriteBinaryNodeEPNS_8IOStreamEPK6aiNode(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %8, ptr noundef %98)
           to label %99 unwind label %103
@@ -1922,10 +1919,10 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %125, %127
   %131 = load ptr, ptr %15, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds nuw %struct.aiString, ptr %133, i64 %indvars.iv99
+  %134 = getelementptr inbounds nuw [1028 x i8], ptr %133, i64 %indvars.iv99
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %136, i64 %indvars.iv99
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %indvars.iv99
   %138 = load i32, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %140 = load ptr, ptr %139, align 8
@@ -2125,7 +2122,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryMeshEP
 49:                                               ; preds = %47, %52
   %indvars.iv = phi i64 [ 0, %47 ], [ %indvars.iv.next, %52 ]
   %.2274 = phi i32 [ %.1245, %47 ], [ %55, %52 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %.not124 = icmp eq ptr %51, null
   br i1 %.not124, label %56, label %52
@@ -2146,7 +2143,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryMeshEP
 58:                                               ; preds = %56, %61
   %indvars.iv307 = phi i64 [ 0, %56 ], [ %indvars.iv.next308, %61 ]
   %.3276 = phi i32 [ %.2.lcssa, %56 ], [ %64, %61 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv307
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv307
   %60 = load ptr, ptr %59, align 8
   %.not125 = icmp eq ptr %60, null
   br i1 %.not125, label %65, label %61
@@ -2225,7 +2222,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryMeshEP
 
 .lr.ph.i:                                         ; preds = %.noexc146, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc146 ]
-  %81 = getelementptr inbounds nuw %class.aiVector3t, ptr %71, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %71, i64 %indvars.iv.i
   %82 = load ptr, ptr %9, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8
@@ -2278,7 +2275,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit: ; preds = %.n
 
 .lr.ph.i150:                                      ; preds = %.noexc158, %.lr.ph.preheader.i148
   %indvars.iv.i151 = phi i64 [ 0, %.lr.ph.preheader.i148 ], [ %indvars.iv.next.i152, %.noexc158 ]
-  %104 = getelementptr inbounds nuw %class.aiVector3t, ptr %96, i64 %indvars.iv.i151
+  %104 = getelementptr inbounds nuw [12 x i8], ptr %96, i64 %indvars.iv.i151
   %105 = load ptr, ptr %9, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
@@ -2343,7 +2340,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit159: ; preds = 
 
 .lr.ph.i163:                                      ; preds = %.noexc171, %.lr.ph.preheader.i161
   %indvars.iv.i164 = phi i64 [ 0, %.lr.ph.preheader.i161 ], [ %indvars.iv.next.i165, %.noexc171 ]
-  %134 = getelementptr inbounds nuw %class.aiVector3t, ptr %119, i64 %indvars.iv.i164
+  %134 = getelementptr inbounds nuw [12 x i8], ptr %119, i64 %indvars.iv.i164
   %135 = load ptr, ptr %9, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = load ptr, ptr %136, align 8
@@ -2383,7 +2380,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit172: ; preds = 
 
 .lr.ph.i176:                                      ; preds = %.noexc184, %.lr.ph.preheader.i174
   %indvars.iv.i177 = phi i64 [ 0, %.lr.ph.preheader.i174 ], [ %indvars.iv.next.i178, %.noexc184 ]
-  %150 = getelementptr inbounds nuw %class.aiVector3t, ptr %149, i64 %indvars.iv.i177
+  %150 = getelementptr inbounds nuw [12 x i8], ptr %149, i64 %indvars.iv.i177
   %151 = load ptr, ptr %9, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
@@ -2416,7 +2413,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185.preheader: 
 
 _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185: ; preds = %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185.preheader, %_ZN6Assimp10WriteArrayI9aiColor4tIfEEEmPNS_8IOStreamEPKT_j.exit
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %_ZN6Assimp10WriteArrayI9aiColor4tIfEEEmPNS_8IOStreamEPKT_j.exit ], [ 0, %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185.preheader ]
-  %165 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv311
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv311
   %166 = load ptr, ptr %165, align 8
   %.not130 = icmp eq ptr %166, null
   br i1 %.not130, label %194, label %167
@@ -2451,7 +2448,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185: ; preds = 
 
 .lr.ph.i189:                                      ; preds = %.noexc198, %.lr.ph.preheader.i187
   %indvars.iv.i190 = phi i64 [ 0, %.lr.ph.preheader.i187 ], [ %indvars.iv.next.i191, %.noexc198 ]
-  %174 = getelementptr inbounds nuw %class.aiColor4t, ptr %166, i64 %indvars.iv.i190
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %indvars.iv.i190
   %175 = load ptr, ptr %9, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %177 = load ptr, ptr %176, align 8
@@ -2498,13 +2495,13 @@ _ZN6Assimp10WriteArrayI9aiColor4tIfEEEmPNS_8IOStreamEPKT_j.exit: ; preds = %.noe
 
 196:                                              ; preds = %194, %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit213
   %indvars.iv315 = phi i64 [ 0, %194 ], [ %indvars.iv.next316, %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit213 ]
-  %197 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv315
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv315
   %198 = load ptr, ptr %197, align 8
   %.not131 = icmp eq ptr %198, null
   br i1 %.not131, label %229, label %199
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv315
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %indvars.iv315
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %201 = load i32, ptr %200, align 4
   store i32 %201, ptr %6, align 4
@@ -2546,7 +2543,7 @@ _ZN6Assimp10WriteArrayI9aiColor4tIfEEEmPNS_8IOStreamEPKT_j.exit: ; preds = %.noe
 
 .lr.ph.i204:                                      ; preds = %.noexc212, %.lr.ph.preheader.i202
   %indvars.iv.i205 = phi i64 [ 0, %.lr.ph.preheader.i202 ], [ %indvars.iv.next.i206, %.noexc212 ]
-  %214 = getelementptr inbounds nuw %class.aiVector3t, ptr %209, i64 %indvars.iv.i205
+  %214 = getelementptr inbounds nuw [12 x i8], ptr %209, i64 %indvars.iv.i205
   %215 = load ptr, ptr %9, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load ptr, ptr %216, align 8
@@ -2628,7 +2625,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit213: ; preds = 
   %240 = trunc nuw nsw i64 %indvars.iv329 to i32
   %241 = add i32 %.0112294, %240
   %242 = zext i32 %241 to i64
-  %243 = getelementptr inbounds nuw %struct.aiFace, ptr %235, i64 %242
+  %243 = getelementptr inbounds nuw [16 x i8], ptr %235, i64 %242
   %244 = load i32, ptr %243, align 8
   %245 = and i32 %244, 65535
   %246 = add i32 %245, %.0287
@@ -2669,7 +2666,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit213: ; preds = 
 .lr.ph.i218:                                      ; preds = %.lr.ph285, %.lr.ph.i218
   %indvars.iv325 = phi i64 [ 0, %.lr.ph285 ], [ %indvars.iv.next326, %.lr.ph.i218 ]
   %.1283 = phi i32 [ %265, %.lr.ph285 ], [ %290, %.lr.ph.i218 ]
-  %268 = getelementptr inbounds nuw i32, ptr %267, i64 %indvars.iv325
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %indvars.iv325
   %269 = load i32, ptr %268, align 4
   %270 = and i32 %269, 65535
   %271 = add i32 %270, %.1283
@@ -2713,7 +2710,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit213: ; preds = 
 297:                                              ; preds = %.lr.ph282, %._crit_edge
   %indvars.iv322 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next323, %._crit_edge ]
   %298 = load ptr, ptr %233, align 8
-  %299 = getelementptr inbounds nuw %struct.aiFace, ptr %298, i64 %indvars.iv322
+  %299 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %indvars.iv322
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %300 = load i32, ptr %299, align 8
   %301 = trunc i32 %300 to i16
@@ -2756,7 +2753,7 @@ _ZN6Assimp5WriteItEEmPNS_8IOStreamERKT_.exit:     ; preds = %297
 316:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %317 = load ptr, ptr %307, align 8
-  %318 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv319
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %indvars.iv319
   %319 = load i32, ptr %318, align 4
   %320 = trunc i32 %319 to i16
   store i16 %320, ptr %11, align 2
@@ -2778,7 +2775,7 @@ _ZN6Assimp5WriteItEEmPNS_8IOStreamERKT_.exit226:  ; preds = %316
 
 327:                                              ; preds = %313
   %328 = load ptr, ptr %307, align 8
-  %329 = getelementptr inbounds nuw i32, ptr %328, i64 %indvars.iv319
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %328, i64 %indvars.iv319
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %330 = load i32, ptr %329, align 4
   store i32 %330, ptr %4, align 4
@@ -2816,7 +2813,7 @@ _ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit228:  ; preds = %327
 343:                                              ; preds = %.lr.ph297, %347
   %indvars.iv334 = phi i64 [ 0, %.lr.ph297 ], [ %indvars.iv.next335, %347 ]
   %344 = load ptr, ptr %342, align 8
-  %345 = getelementptr inbounds nuw ptr, ptr %344, i64 %indvars.iv334
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %indvars.iv334
   %346 = load ptr, ptr %345, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter15WriteBinaryBoneEPNS_8IOStreamEPK6aiBone(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %9, ptr noundef %346)
           to label %347 unwind label %351
@@ -2983,7 +2980,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %34, %36
 .lr.ph:                                           ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter27WriteBinaryMaterialPropertyEPNS_8IOStreamEPK18aiMaterialProperty(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %4, ptr noundef %44)
           to label %45 unwind label %49
@@ -3172,7 +3169,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %71, %73
 79:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %80 = load ptr, ptr %50, align 8
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter19WriteBinaryNodeAnimEPNS_8IOStreamEPK10aiNodeAnim(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull %5, ptr noundef %82)
           to label %83 unwind label %87
@@ -3943,7 +3940,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI10aiVector3tIfEE
   %14 = phi float [ -1.000000e+10, %.lr.ph.preheader.i ], [ %33, %.lr.ph.i ]
   %15 = phi float [ 1.000000e+10, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv.i
   %17 = load float, ptr %16, align 4
   %18 = fcmp olt float %13, %17
   %19 = select i1 %18, float %13, float %17
@@ -4043,7 +4040,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI9aiColor4tIfEEEm
   %12 = phi float [ 1.000000e+10, %.lr.ph.preheader.i ], [ %21, %.lr.ph.i ]
   %13 = phi float [ 1.000000e+10, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %class.aiColor4t, ptr %1, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv.i
   %15 = load float, ptr %14, align 4
   %16 = fcmp olt float %13, %15
   %17 = select i1 %16, float %13, float %15
@@ -4223,7 +4220,7 @@ _ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i75:    ; preds = %33
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us.i:              ; preds = %.preheader.i, %.noexc12
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.noexc12 ], [ 0, %.preheader.i ]
-  %47 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv34.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv34.i
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
@@ -4237,7 +4234,7 @@ _ZNK12aiMatrix4x4tIfEixEj.exit.us.i:              ; preds = %.preheader.i, %.noe
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us11.i:            ; preds = %.preheader.i, %.noexc13
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.noexc13 ], [ 0, %.preheader.i ]
-  %52 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv30.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv30.i
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
@@ -4251,7 +4248,7 @@ _ZNK12aiMatrix4x4tIfEixEj.exit.us11.i:            ; preds = %.preheader.i, %.noe
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us15.i:            ; preds = %.preheader.i, %.noexc14
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.noexc14 ], [ 0, %.preheader.i ]
-  %57 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv26.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv26.i
   %58 = load ptr, ptr %9, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
@@ -4265,7 +4262,7 @@ _ZNK12aiMatrix4x4tIfEixEj.exit.us15.i:            ; preds = %.preheader.i, %.noe
 
 _ZNK12aiMatrix4x4tIfEixEj.exit.us19.i:            ; preds = %.preheader.i, %.noexc15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc15 ], [ 0, %.preheader.i ]
-  %62 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i
   %63 = load ptr, ptr %9, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -4314,7 +4311,7 @@ _ZN6Assimp5WriteI12aiMatrix4x4tIfEEEmPNS_8IOStreamERKT_.exit: ; preds = %.noexc1
   %78 = phi float [ 1.000000e+10, %.lr.ph.preheader.i.i ], [ %.v.i.i.i, %.lr.ph.i.i ]
   %79 = phi i32 [ -2147483648, %.lr.ph.preheader.i.i ], [ %82, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %80 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %71, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i.i
   %81 = load i32, ptr %80, align 4
   %82 = call i32 @llvm.umin.i32(i32 %79, i32 %81)
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
@@ -4430,7 +4427,7 @@ _ZN6Assimp11WriteBoundsI14aiVertexWeightEEmPNS_8IOStreamEPKT_j.exit: ; preds = %
 
 .lr.ph.i:                                         ; preds = %.noexc24, %.lr.ph.preheader.i
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i21, %.noexc24 ]
-  %109 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %71, i64 %indvars.iv.i20
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %110 = load i32, ptr %109, align 4
   store i32 %110, ptr %4, align 4
@@ -4919,7 +4916,7 @@ _ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i103:   ; preds = %32
 
 .lr.ph.i:                                         ; preds = %.noexc44, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc44 ]
-  %83 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %71, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %indvars.iv.i
   %84 = load ptr, ptr %8, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load ptr, ptr %85, align 8
@@ -4981,7 +4978,7 @@ _ZN6Assimp10WriteArrayI11aiVectorKeyEEmPNS_8IOStreamEPKT_j.exit: ; preds = %.noe
 
 .lr.ph.i48:                                       ; preds = %.noexc58, %.lr.ph.preheader.i46
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i50, %.noexc58 ]
-  %112 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %104, i64 %indvars.iv.i49
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv.i49
   %113 = load ptr, ptr %8, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
@@ -5051,7 +5048,7 @@ _ZN6Assimp10WriteArrayI9aiQuatKeyEEmPNS_8IOStreamEPKT_j.exit: ; preds = %.noexc5
 
 .lr.ph.i62:                                       ; preds = %.noexc71, %.lr.ph.preheader.i60
   %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i64, %.noexc71 ]
-  %146 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %138, i64 %indvars.iv.i63
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %indvars.iv.i63
   %147 = load ptr, ptr %8, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8
@@ -5186,7 +5183,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI11aiVectorKeyEEm
   %17 = phi float [ 1.000000e+10, %.lr.ph.i ], [ %34, %10 ]
   %18 = phi double [ 1.000000e+10, %.lr.ph.i ], [ %22, %10 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %19 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %1, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv.i
   %20 = load double, ptr %19, align 8, !noalias !46
   %21 = fcmp olt double %18, %20
   %22 = select i1 %21, double %18, double %20
@@ -5314,7 +5311,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI9aiQuatKeyEEmPNS
   %25 = phi double [ -1.000000e+10, %.lr.ph.i ], [ %48, %16 ]
   %26 = phi double [ 1.000000e+10, %.lr.ph.i ], [ %30, %16 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %27 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %1, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   %28 = load double, ptr %27, align 8, !noalias !50
   %29 = fcmp olt double %26, %28
   %30 = select i1 %29, double %26, double %28

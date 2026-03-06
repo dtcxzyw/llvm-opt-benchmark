@@ -62,17 +62,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr i32, ptr %22, i64 %21
+  %24 = getelementptr [4 x i8], ptr %22, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !16
-  %28 = getelementptr inbounds double, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !19
   %31 = load double, ptr %28, align 8, !tbaa !20
   store double %31, ptr %14, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %33 = getelementptr inbounds double, ptr %28, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !20
   store double %34, ptr %32, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -82,14 +82,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   store double %37, ptr %35, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !22
-  %39 = getelementptr i32, ptr %24, i64 %38
+  %39 = getelementptr [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %27, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %27, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !20
   store double %43, ptr %15, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %45 = getelementptr inbounds double, ptr %42, i64 %30
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %30
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %44, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -101,11 +101,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds double, ptr %27, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %27, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !20
   store double %54, ptr %16, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %56 = getelementptr inbounds double, ptr %53, i64 %30
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %30
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %55, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -122,7 +122,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 .preheader177:                                    ; preds = %11
   %63 = load ptr, ptr %1, align 8, !tbaa !4
   %64 = load i64, ptr %23, align 8, !tbaa !22
-  %65 = getelementptr i32, ptr %63, i64 %21
+  %65 = getelementptr [4 x i8], ptr %63, i64 %21
   %66 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !23
   %67 = load i64, ptr %29, align 8, !tbaa !19
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -163,7 +163,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader:                                       ; preds = %76, %90
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %90 ], [ 0, %76 ]
-  %91 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv198
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv198
   %92 = load double, ptr %91, align 8, !tbaa !20
   %93 = fcmp ogt double %92, 0x3D719799812DEA11
   br i1 %93, label %94, label %90
@@ -172,18 +172,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %95 = load ptr, ptr %1, align 8, !tbaa !4
   %96 = load i64, ptr %23, align 8, !tbaa !22
   %97 = mul nsw i64 %96, %indvars.iv198
-  %98 = getelementptr i32, ptr %95, i64 %21
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %95, i64 %21
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   %100 = load i32, ptr %99, align 4, !tbaa !11
   %101 = sext i32 %100 to i64
   %102 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !28
-  %103 = getelementptr inbounds double, ptr %102, i64 %101
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %101
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %105 = load i64, ptr %104, align 8, !tbaa !19
   %106 = load double, ptr %103, align 8, !tbaa !20
   store double %106, ptr %10, align 8, !tbaa !20
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %108 = getelementptr inbounds double, ptr %103, i64 %105
+  %108 = getelementptr inbounds [8 x i8], ptr %103, i64 %105
   %109 = load double, ptr %108, align 8, !tbaa !20
   store double %109, ptr %107, align 8, !tbaa !20
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -200,7 +200,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader174:                                    ; preds = %76, %113
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %113 ], [ 0, %76 ]
-  %114 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv195
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv195
   %115 = load double, ptr %114, align 8, !tbaa !20
   %116 = fcmp ugt double %115, 0x3D719799812DEA11
   br i1 %116, label %113, label %117
@@ -209,18 +209,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %118 = load i64, ptr %23, align 8, !tbaa !22
   %119 = mul nsw i64 %118, %indvars.iv195
   %120 = load ptr, ptr %5, align 8, !tbaa !32
-  %121 = getelementptr i32, ptr %120, i64 %119
-  %122 = getelementptr i32, ptr %121, i64 %21
+  %121 = getelementptr [4 x i8], ptr %120, i64 %119
+  %122 = getelementptr [4 x i8], ptr %121, i64 %21
   %123 = load i32, ptr %122, align 4, !tbaa !11
   %124 = sext i32 %123 to i64
   %125 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !34
-  %126 = getelementptr inbounds double, ptr %125, i64 %124
+  %126 = getelementptr inbounds [8 x i8], ptr %125, i64 %124
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !19
   %129 = load double, ptr %126, align 8, !tbaa !20
   store double %129, ptr %10, align 8, !tbaa !20
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %131 = getelementptr inbounds double, ptr %126, i64 %128
+  %131 = getelementptr inbounds [8 x i8], ptr %126, i64 %128
   %132 = load double, ptr %131, align 8, !tbaa !20
   store double %132, ptr %130, align 8, !tbaa !20
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -232,13 +232,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 136:                                              ; preds = %76
   %137 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !37
-  %138 = getelementptr inbounds double, ptr %137, i64 %21
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %21
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load i64, ptr %139, align 8, !tbaa !19
   %141 = load double, ptr %138, align 8, !tbaa !20
   store double %141, ptr %10, align 8, !tbaa !20
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %143 = getelementptr inbounds double, ptr %138, i64 %140
+  %143 = getelementptr inbounds [8 x i8], ptr %138, i64 %140
   %144 = load double, ptr %143, align 8, !tbaa !20
   store double %144, ptr %142, align 8, !tbaa !20
   %145 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -250,11 +250,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge.thread:                               ; preds = %161
   %148 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !40
-  %149 = getelementptr inbounds double, ptr %148, i64 %165
+  %149 = getelementptr inbounds [8 x i8], ptr %148, i64 %165
   %150 = load i64, ptr %70, align 8, !tbaa !19
   %151 = load double, ptr %149, align 8, !tbaa !20
   store double %151, ptr %10, align 8, !tbaa !20
-  %152 = getelementptr inbounds double, ptr %149, i64 %150
+  %152 = getelementptr inbounds [8 x i8], ptr %149, i64 %150
   %153 = load double, ptr %152, align 8, !tbaa !20
   store double %153, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i81 = shl nsw i64 %150, 4
@@ -274,14 +274,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 161:                                              ; preds = %.thread, %.preheader177
   %indvars.iv = phi i64 [ 0, %.preheader177 ], [ %indvars.iv.next202, %.thread ]
   %162 = mul nsw i64 %64, %indvars.iv
-  %163 = getelementptr i32, ptr %65, i64 %162
+  %163 = getelementptr [4 x i8], ptr %65, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !11
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds double, ptr %66, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %66, i64 %165
   %167 = load double, ptr %166, align 8, !tbaa !20
   %168 = fsub double %73, %167
   %169 = fmul double %168, %168
-  %170 = getelementptr double, ptr %166, i64 %67
+  %170 = getelementptr [8 x i8], ptr %166, i64 %67
   %171 = load double, ptr %170, align 8, !tbaa !20
   %172 = fsub double %74, %171
   %173 = fmul double %172, %172
@@ -310,16 +310,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %186 = load ptr, ptr %1, align 8, !tbaa !4
   %187 = load i64, ptr %23, align 8, !tbaa !22
   %188 = mul nsw i64 %187, %185
-  %189 = getelementptr i32, ptr %186, i64 %21
-  %190 = getelementptr i32, ptr %189, i64 %188
+  %189 = getelementptr [4 x i8], ptr %186, i64 %21
+  %190 = getelementptr [4 x i8], ptr %189, i64 %188
   %191 = load i32, ptr %190, align 4, !tbaa !11
   %192 = sext i32 %191 to i64
   %193 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !44
-  %194 = getelementptr inbounds double, ptr %193, i64 %192
+  %194 = getelementptr inbounds [8 x i8], ptr %193, i64 %192
   %195 = load i64, ptr %29, align 8, !tbaa !19
   %196 = load double, ptr %194, align 8, !tbaa !20
   store double %196, ptr %17, align 8, !tbaa !20
-  %197 = getelementptr inbounds double, ptr %194, i64 %195
+  %197 = getelementptr inbounds [8 x i8], ptr %194, i64 %195
   %198 = load double, ptr %197, align 8, !tbaa !20
   store double %198, ptr %156, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %195, 4
@@ -332,13 +332,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %202 = and i64 %201, 4294967295
   %203 = select i1 %.cmp, i64 2, i64 %202
   %204 = mul nsw i64 %187, %203
-  %205 = getelementptr i32, ptr %189, i64 %204
+  %205 = getelementptr [4 x i8], ptr %189, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds double, ptr %193, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %193, i64 %207
   %209 = load double, ptr %208, align 8, !tbaa !20
   store double %209, ptr %18, align 8, !tbaa !20
-  %210 = getelementptr inbounds double, ptr %208, i64 %195
+  %210 = getelementptr inbounds [8 x i8], ptr %208, i64 %195
   %211 = load double, ptr %210, align 8, !tbaa !20
   store double %211, ptr %158, align 8, !tbaa !20
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
@@ -356,16 +356,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %217 = load i64, ptr %23, align 8, !tbaa !22
   %218 = mul nsw i64 %217, %indvars.iv191
   %219 = load ptr, ptr %5, align 8, !tbaa !32
-  %220 = getelementptr i32, ptr %219, i64 %218
-  %221 = getelementptr i32, ptr %220, i64 %21
+  %220 = getelementptr [4 x i8], ptr %219, i64 %218
+  %221 = getelementptr [4 x i8], ptr %220, i64 %21
   %222 = load i32, ptr %221, align 4, !tbaa !11
   %223 = sext i32 %222 to i64
   %224 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !47
-  %225 = getelementptr inbounds double, ptr %224, i64 %223
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %223
   %226 = load i64, ptr %160, align 8, !tbaa !19
   %227 = load double, ptr %225, align 8, !tbaa !20
   store double %227, ptr %10, align 8, !tbaa !20
-  %228 = getelementptr inbounds double, ptr %225, i64 %226
+  %228 = getelementptr inbounds [8 x i8], ptr %225, i64 %226
   %229 = load double, ptr %228, align 8, !tbaa !20
   store double %229, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %226, 4
@@ -388,12 +388,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge:                                      ; preds = %232
   %234 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !51
-  %235 = getelementptr inbounds double, ptr %234, i64 %21
+  %235 = getelementptr inbounds [8 x i8], ptr %234, i64 %21
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %237 = load i64, ptr %236, align 8, !tbaa !19
   %238 = load double, ptr %235, align 8, !tbaa !20
   store double %238, ptr %10, align 8, !tbaa !20
-  %239 = getelementptr inbounds double, ptr %235, i64 %237
+  %239 = getelementptr inbounds [8 x i8], ptr %235, i64 %237
   %240 = load double, ptr %239, align 8, !tbaa !20
   store double %240, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %237, 4
@@ -443,24 +443,24 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %11 = load ptr, ptr %1, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !57
-  %14 = getelementptr i32, ptr %11, i64 %10
-  %15 = getelementptr i32, ptr %14, i64 %13
+  %14 = getelementptr [4 x i8], ptr %11, i64 %10
+  %15 = getelementptr [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = sext i32 %16 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !58, !noalias !60
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   %20 = load i32, ptr %14, align 4, !tbaa !11
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds double, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !63
   %25 = load double, ptr %19, align 8, !tbaa !20
   %26 = load double, ptr %22, align 8, !tbaa !20
   %27 = fsub double %25, %26
   %28 = fmul double %27, %27
-  %29 = getelementptr double, ptr %19, i64 %24
+  %29 = getelementptr [8 x i8], ptr %19, i64 %24
   %30 = load double, ptr %29, align 8, !tbaa !20
-  %31 = getelementptr double, ptr %22, i64 %24
+  %31 = getelementptr [8 x i8], ptr %22, i64 %24
   %32 = load double, ptr %31, align 8, !tbaa !20
   %33 = fsub double %30, %32
   %34 = fmul double %33, %33
@@ -499,7 +499,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   br i1 %55, label %56, label %53
 
 56:                                               ; preds = %.preheader
-  %57 = getelementptr i32, ptr %14, i64 %indvars.iv
+  %57 = getelementptr [4 x i8], ptr %14, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = sext i32 %58 to i64
   br label %.loopexit.sink.split
@@ -508,13 +508,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %.sink = phi ptr [ %3, %56 ], [ %2, %9 ]
   %.sink143 = phi i64 [ %59, %56 ], [ %10, %9 ]
   %60 = load ptr, ptr %.sink, align 8, !tbaa !58, !noalias !65
-  %61 = getelementptr inbounds double, ptr %60, i64 %.sink143
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %.sink143
   %62 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !63
   %64 = load double, ptr %61, align 8, !tbaa !20
   store double %64, ptr %8, align 16, !tbaa !20
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %66 = getelementptr inbounds double, ptr %61, i64 %63
+  %66 = getelementptr inbounds [8 x i8], ptr %61, i64 %63
   %67 = load double, ptr %66, align 8, !tbaa !20
   store double %67, ptr %65, align 8, !tbaa !20
   br label %.loopexit
@@ -540,16 +540,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %11 = load ptr, ptr %1, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !68
-  %14 = getelementptr i32, ptr %11, i64 %10
-  %15 = getelementptr i32, ptr %14, i64 %13
+  %14 = getelementptr [4 x i8], ptr %11, i64 %10
+  %15 = getelementptr [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = sext i32 %16 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !71
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %14, align 4, !tbaa !11
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds double, ptr %18, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %18, i64 %22
   %24 = load i64, ptr %20, align 8, !tbaa !74, !noalias !75
   %25 = icmp eq i64 %24, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -568,9 +568,9 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %.01724.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i ], [ 1, %26 ]
   %.02223.i.i.i.i.i = phi double [ %37, %.lr.ph.i.i.i.i.i ], [ %28, %26 ]
   %30 = mul nsw i64 %.01724.i.i.i.i.i, %.pre
-  %31 = getelementptr double, ptr %19, i64 %30
+  %31 = getelementptr [8 x i8], ptr %19, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !20
-  %33 = getelementptr double, ptr %23, i64 %30
+  %33 = getelementptr [8 x i8], ptr %23, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !20
   %35 = fsub double %32, %34
   %36 = fmul double %35, %35
@@ -586,7 +586,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %40 = fsub double %39, %.pre142
   %41 = fmul double %40, %40
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %43 = getelementptr double, ptr %19, i64 %.pre
+  %43 = getelementptr [8 x i8], ptr %19, i64 %.pre
   %44 = load double, ptr %43, align 8, !tbaa !20
   %45 = load double, ptr %42, align 8, !tbaa !20
   %46 = fsub double %45, %44
@@ -596,7 +596,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %49 = fdiv double %.scalar.i33, %.scalar.i
   %50 = fsub double %39, %.pre143
   %51 = fmul double %50, %50
-  %52 = getelementptr double, ptr %23, i64 %.pre
+  %52 = getelementptr [8 x i8], ptr %23, i64 %.pre
   %53 = load double, ptr %52, align 8, !tbaa !20
   %54 = fsub double %45, %53
   %55 = fmul double %54, %54
@@ -619,7 +619,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br i1 %62, label %63, label %60
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr i32, ptr %14, i64 %indvars.iv
+  %64 = getelementptr [4 x i8], ptr %14, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !11
   %66 = sext i32 %65 to i64
   br label %.loopexit.sink.split
@@ -628,13 +628,13 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %.sink = phi ptr [ %3, %63 ], [ %2, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit ]
   %.sink153 = phi i64 [ %66, %63 ], [ %10, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit ]
   %67 = load ptr, ptr %.sink, align 8, !tbaa !58, !noalias !65
-  %68 = getelementptr inbounds double, ptr %67, i64 %.sink153
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %.sink153
   %69 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !63
   %71 = load double, ptr %68, align 8, !tbaa !20
   store double %71, ptr %8, align 16, !tbaa !20
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %73 = getelementptr inbounds double, ptr %68, i64 %70
+  %73 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   %74 = load double, ptr %73, align 8, !tbaa !20
   store double %74, ptr %72, align 8, !tbaa !20
   br label %.loopexit
@@ -766,7 +766,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader:                                       ; preds = %70, %84
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %84 ], [ 0, %70 ]
-  %85 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv213
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv213
   %86 = load float, ptr %85, align 4, !tbaa !89
   %87 = fpext float %86 to double
   %88 = fcmp ogt double %87, 0x3D719799812DEA11
@@ -775,17 +775,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 89:                                               ; preds = %.preheader
   %90 = load ptr, ptr %1, align 8, !tbaa !81
   %91 = getelementptr i8, ptr %90, i64 %.idx.i.i.i
-  %92 = getelementptr i32, ptr %91, i64 %indvars.iv213
+  %92 = getelementptr [4 x i8], ptr %91, i64 %indvars.iv213
   %93 = load i32, ptr %92, align 4, !tbaa !11
   %94 = sext i32 %93 to i64
   %95 = load ptr, ptr %3, align 8, !tbaa !95, !noalias !97
-  %96 = getelementptr inbounds float, ptr %95, i64 %94
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %94
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %98 = load i64, ptr %97, align 8, !tbaa !100
   %99 = load float, ptr %96, align 4, !tbaa !89
   store float %99, ptr %10, align 4, !tbaa !89
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %101 = getelementptr inbounds float, ptr %96, i64 %98
+  %101 = getelementptr inbounds [4 x i8], ptr %96, i64 %98
   %102 = load float, ptr %101, align 4, !tbaa !89
   store float %102, ptr %100, align 4, !tbaa !89
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -802,7 +802,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader189:                                    ; preds = %70, %106
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %106 ], [ 0, %70 ]
-  %107 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv210
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv210
   %108 = load float, ptr %107, align 4, !tbaa !89
   %109 = fpext float %108 to double
   %110 = fcmp ugt double %109, 0x3D719799812DEA11
@@ -813,18 +813,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %113 = load i64, ptr %112, align 8, !tbaa !102
   %114 = mul nsw i64 %113, %indvars.iv210
   %115 = load ptr, ptr %5, align 8, !tbaa !32
-  %116 = getelementptr i32, ptr %115, i64 %114
-  %117 = getelementptr i32, ptr %116, i64 %21
+  %116 = getelementptr [4 x i8], ptr %115, i64 %114
+  %117 = getelementptr [4 x i8], ptr %116, i64 %21
   %118 = load i32, ptr %117, align 4, !tbaa !11
   %119 = sext i32 %118 to i64
   %120 = load ptr, ptr %4, align 8, !tbaa !95, !noalias !103
-  %121 = getelementptr inbounds float, ptr %120, i64 %119
+  %121 = getelementptr inbounds [4 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !100
   %124 = load float, ptr %121, align 4, !tbaa !89
   store float %124, ptr %10, align 4, !tbaa !89
   %125 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %126 = getelementptr inbounds float, ptr %121, i64 %123
+  %126 = getelementptr inbounds [4 x i8], ptr %121, i64 %123
   %127 = load float, ptr %126, align 4, !tbaa !89
   store float %127, ptr %125, align 4, !tbaa !89
   %128 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -836,13 +836,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 131:                                              ; preds = %70
   %132 = load ptr, ptr %2, align 8, !tbaa !95, !noalias !106
-  %133 = getelementptr inbounds float, ptr %132, i64 %21
+  %133 = getelementptr inbounds [4 x i8], ptr %132, i64 %21
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %135 = load i64, ptr %134, align 8, !tbaa !100
   %136 = load float, ptr %133, align 4, !tbaa !89
   store float %136, ptr %10, align 4, !tbaa !89
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %138 = getelementptr inbounds float, ptr %133, i64 %135
+  %138 = getelementptr inbounds [4 x i8], ptr %133, i64 %135
   %139 = load float, ptr %138, align 4, !tbaa !89
   store float %139, ptr %137, align 4, !tbaa !89
   %140 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -854,11 +854,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge.thread:                               ; preds = %157
   %143 = load ptr, ptr %3, align 8, !tbaa !95, !noalias !109
-  %144 = getelementptr inbounds float, ptr %143, i64 %160
+  %144 = getelementptr inbounds [4 x i8], ptr %143, i64 %160
   %145 = load i64, ptr %64, align 8, !tbaa !100
   %146 = load float, ptr %144, align 4, !tbaa !89
   store float %146, ptr %10, align 4, !tbaa !89
-  %147 = getelementptr inbounds float, ptr %144, i64 %145
+  %147 = getelementptr inbounds [4 x i8], ptr %144, i64 %145
   %148 = load float, ptr %147, align 4, !tbaa !89
   store float %148, ptr %65, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i87 = shl nsw i64 %145, 3
@@ -878,7 +878,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 157:                                              ; preds = %.thread, %.preheader192
   %indvars.iv = phi i64 [ 0, %.preheader192 ], [ %indvars.iv.next217, %.thread ]
-  %158 = getelementptr i32, ptr %60, i64 %indvars.iv
+  %158 = getelementptr [4 x i8], ptr %60, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !11
   %160 = sext i32 %159 to i64
   %.idx.i.i.i.i85 = mul nsw i64 %160, 12
@@ -915,7 +915,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %182 = select i1 %180, i64 0, i64 %181
   %183 = load ptr, ptr %1, align 8, !tbaa !81
   %184 = getelementptr i8, ptr %183, i64 %.idx.i.i.i
-  %185 = getelementptr i32, ptr %184, i64 %182
+  %185 = getelementptr [4 x i8], ptr %184, i64 %182
   %186 = load i32, ptr %185, align 4, !tbaa !11
   %187 = sext i32 %186 to i64
   %188 = load ptr, ptr %0, align 8, !tbaa !83, !noalias !113
@@ -934,7 +934,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %195 = add nuw nsw i64 %indvars.iv206, 4294967295
   %196 = and i64 %195, 4294967295
   %197 = select i1 %.cmp, i64 2, i64 %196
-  %198 = getelementptr i32, ptr %184, i64 %197
+  %198 = getelementptr [4 x i8], ptr %184, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11
   %200 = sext i32 %199 to i64
   %.idx.i.i.i.i91 = mul nsw i64 %200, 12
@@ -959,16 +959,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %210 = load i64, ptr %155, align 8, !tbaa !102
   %211 = mul nsw i64 %210, %indvars.iv206
   %212 = load ptr, ptr %5, align 8, !tbaa !32
-  %213 = getelementptr i32, ptr %212, i64 %211
-  %214 = getelementptr i32, ptr %213, i64 %21
+  %213 = getelementptr [4 x i8], ptr %212, i64 %211
+  %214 = getelementptr [4 x i8], ptr %213, i64 %21
   %215 = load i32, ptr %214, align 4, !tbaa !11
   %216 = sext i32 %215 to i64
   %217 = load ptr, ptr %4, align 8, !tbaa !95, !noalias !116
-  %218 = getelementptr inbounds float, ptr %217, i64 %216
+  %218 = getelementptr inbounds [4 x i8], ptr %217, i64 %216
   %219 = load i64, ptr %156, align 8, !tbaa !100
   %220 = load float, ptr %218, align 4, !tbaa !89
   store float %220, ptr %10, align 4, !tbaa !89
-  %221 = getelementptr inbounds float, ptr %218, i64 %219
+  %221 = getelementptr inbounds [4 x i8], ptr %218, i64 %219
   %222 = load float, ptr %221, align 4, !tbaa !89
   store float %222, ptr %65, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i92 = shl nsw i64 %219, 3
@@ -991,12 +991,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge:                                      ; preds = %225
   %227 = load ptr, ptr %2, align 8, !tbaa !95, !noalias !120
-  %228 = getelementptr inbounds float, ptr %227, i64 %21
+  %228 = getelementptr inbounds [4 x i8], ptr %227, i64 %21
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %230 = load i64, ptr %229, align 8, !tbaa !100
   %231 = load float, ptr %228, align 4, !tbaa !89
   store float %231, ptr %10, align 4, !tbaa !89
-  %232 = getelementptr inbounds float, ptr %228, i64 %230
+  %232 = getelementptr inbounds [4 x i8], ptr %228, i64 %230
   %233 = load float, ptr %232, align 4, !tbaa !89
   store float %233, ptr %65, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i93 = shl nsw i64 %230, 3
@@ -1059,17 +1059,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr i32, ptr %22, i64 %21
+  %24 = getelementptr [4 x i8], ptr %22, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !123, !noalias !125
-  %28 = getelementptr inbounds float, ptr %27, i64 %26
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !128
   %31 = load float, ptr %28, align 4, !tbaa !89
   store float %31, ptr %14, align 4, !tbaa !89
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %33 = getelementptr inbounds float, ptr %28, i64 %30
+  %33 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
   %34 = load float, ptr %33, align 4, !tbaa !89
   store float %34, ptr %32, align 4, !tbaa !89
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1079,14 +1079,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   store float %37, ptr %35, align 4, !tbaa !89
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !22
-  %39 = getelementptr i32, ptr %24, i64 %38
+  %39 = getelementptr [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds float, ptr %27, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %27, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !89
   store float %43, ptr %15, align 4, !tbaa !89
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %45 = getelementptr inbounds float, ptr %42, i64 %30
+  %45 = getelementptr inbounds [4 x i8], ptr %42, i64 %30
   %46 = load float, ptr %45, align 4, !tbaa !89
   store float %46, ptr %44, align 4, !tbaa !89
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1098,11 +1098,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds float, ptr %27, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %27, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !89
   store float %54, ptr %16, align 4, !tbaa !89
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %56 = getelementptr inbounds float, ptr %53, i64 %30
+  %56 = getelementptr inbounds [4 x i8], ptr %53, i64 %30
   %57 = load float, ptr %56, align 4, !tbaa !89
   store float %57, ptr %55, align 4, !tbaa !89
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1119,7 +1119,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 .preheader183:                                    ; preds = %11
   %63 = load ptr, ptr %1, align 8, !tbaa !4
   %64 = load i64, ptr %23, align 8, !tbaa !22
-  %65 = getelementptr i32, ptr %63, i64 %21
+  %65 = getelementptr [4 x i8], ptr %63, i64 %21
   %66 = load ptr, ptr %0, align 8, !tbaa !123, !noalias !129
   %67 = load i64, ptr %29, align 8, !tbaa !128
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1160,7 +1160,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader:                                       ; preds = %76, %90
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %90 ], [ 0, %76 ]
-  %91 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv204
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv204
   %92 = load float, ptr %91, align 4, !tbaa !89
   %93 = fpext float %92 to double
   %94 = fcmp ogt double %93, 0x3D719799812DEA11
@@ -1170,18 +1170,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %96 = load ptr, ptr %1, align 8, !tbaa !4
   %97 = load i64, ptr %23, align 8, !tbaa !22
   %98 = mul nsw i64 %97, %indvars.iv204
-  %99 = getelementptr i32, ptr %96, i64 %21
-  %100 = getelementptr i32, ptr %99, i64 %98
+  %99 = getelementptr [4 x i8], ptr %96, i64 %21
+  %100 = getelementptr [4 x i8], ptr %99, i64 %98
   %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = sext i32 %101 to i64
   %103 = load ptr, ptr %3, align 8, !tbaa !95, !noalias !133
-  %104 = getelementptr inbounds float, ptr %103, i64 %102
+  %104 = getelementptr inbounds [4 x i8], ptr %103, i64 %102
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !100
   %107 = load float, ptr %104, align 4, !tbaa !89
   store float %107, ptr %10, align 4, !tbaa !89
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %109 = getelementptr inbounds float, ptr %104, i64 %106
+  %109 = getelementptr inbounds [4 x i8], ptr %104, i64 %106
   %110 = load float, ptr %109, align 4, !tbaa !89
   store float %110, ptr %108, align 4, !tbaa !89
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1198,7 +1198,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader180:                                    ; preds = %76, %114
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %114 ], [ 0, %76 ]
-  %115 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv201
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv201
   %116 = load float, ptr %115, align 4, !tbaa !89
   %117 = fpext float %116 to double
   %118 = fcmp ugt double %117, 0x3D719799812DEA11
@@ -1208,18 +1208,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %120 = load i64, ptr %23, align 8, !tbaa !22
   %121 = mul nsw i64 %120, %indvars.iv201
   %122 = load ptr, ptr %5, align 8, !tbaa !32
-  %123 = getelementptr i32, ptr %122, i64 %121
-  %124 = getelementptr i32, ptr %123, i64 %21
+  %123 = getelementptr [4 x i8], ptr %122, i64 %121
+  %124 = getelementptr [4 x i8], ptr %123, i64 %21
   %125 = load i32, ptr %124, align 4, !tbaa !11
   %126 = sext i32 %125 to i64
   %127 = load ptr, ptr %4, align 8, !tbaa !95, !noalias !137
-  %128 = getelementptr inbounds float, ptr %127, i64 %126
+  %128 = getelementptr inbounds [4 x i8], ptr %127, i64 %126
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !100
   %131 = load float, ptr %128, align 4, !tbaa !89
   store float %131, ptr %10, align 4, !tbaa !89
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %133 = getelementptr inbounds float, ptr %128, i64 %130
+  %133 = getelementptr inbounds [4 x i8], ptr %128, i64 %130
   %134 = load float, ptr %133, align 4, !tbaa !89
   store float %134, ptr %132, align 4, !tbaa !89
   %135 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1231,13 +1231,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 138:                                              ; preds = %76
   %139 = load ptr, ptr %2, align 8, !tbaa !95, !noalias !140
-  %140 = getelementptr inbounds float, ptr %139, i64 %21
+  %140 = getelementptr inbounds [4 x i8], ptr %139, i64 %21
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %142 = load i64, ptr %141, align 8, !tbaa !100
   %143 = load float, ptr %140, align 4, !tbaa !89
   store float %143, ptr %10, align 4, !tbaa !89
   %144 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %145 = getelementptr inbounds float, ptr %140, i64 %142
+  %145 = getelementptr inbounds [4 x i8], ptr %140, i64 %142
   %146 = load float, ptr %145, align 4, !tbaa !89
   store float %146, ptr %144, align 4, !tbaa !89
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1249,11 +1249,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge.thread:                               ; preds = %163
   %150 = load ptr, ptr %3, align 8, !tbaa !95, !noalias !143
-  %151 = getelementptr inbounds float, ptr %150, i64 %167
+  %151 = getelementptr inbounds [4 x i8], ptr %150, i64 %167
   %152 = load i64, ptr %70, align 8, !tbaa !100
   %153 = load float, ptr %151, align 4, !tbaa !89
   store float %153, ptr %10, align 4, !tbaa !89
-  %154 = getelementptr inbounds float, ptr %151, i64 %152
+  %154 = getelementptr inbounds [4 x i8], ptr %151, i64 %152
   %155 = load float, ptr %154, align 4, !tbaa !89
   store float %155, ptr %71, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i81 = shl nsw i64 %152, 3
@@ -1273,14 +1273,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 163:                                              ; preds = %.thread, %.preheader183
   %indvars.iv = phi i64 [ 0, %.preheader183 ], [ %indvars.iv.next208, %.thread ]
   %164 = mul nsw i64 %64, %indvars.iv
-  %165 = getelementptr i32, ptr %65, i64 %164
+  %165 = getelementptr [4 x i8], ptr %65, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !11
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds float, ptr %66, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %66, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !89
   %170 = fsub float %73, %169
   %171 = fmul float %170, %170
-  %172 = getelementptr float, ptr %168, i64 %67
+  %172 = getelementptr [4 x i8], ptr %168, i64 %67
   %173 = load float, ptr %172, align 4, !tbaa !89
   %174 = fsub float %74, %173
   %175 = fmul float %174, %174
@@ -1310,16 +1310,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %190 = load ptr, ptr %1, align 8, !tbaa !4
   %191 = load i64, ptr %23, align 8, !tbaa !22
   %192 = mul nsw i64 %191, %189
-  %193 = getelementptr i32, ptr %190, i64 %21
-  %194 = getelementptr i32, ptr %193, i64 %192
+  %193 = getelementptr [4 x i8], ptr %190, i64 %21
+  %194 = getelementptr [4 x i8], ptr %193, i64 %192
   %195 = load i32, ptr %194, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %197 = load ptr, ptr %0, align 8, !tbaa !123, !noalias !147
-  %198 = getelementptr inbounds float, ptr %197, i64 %196
+  %198 = getelementptr inbounds [4 x i8], ptr %197, i64 %196
   %199 = load i64, ptr %29, align 8, !tbaa !128
   %200 = load float, ptr %198, align 4, !tbaa !89
   store float %200, ptr %17, align 4, !tbaa !89
-  %201 = getelementptr inbounds float, ptr %198, i64 %199
+  %201 = getelementptr inbounds [4 x i8], ptr %198, i64 %199
   %202 = load float, ptr %201, align 4, !tbaa !89
   store float %202, ptr %158, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %199, 3
@@ -1332,13 +1332,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %206 = and i64 %205, 4294967295
   %207 = select i1 %.cmp, i64 2, i64 %206
   %208 = mul nsw i64 %191, %207
-  %209 = getelementptr i32, ptr %193, i64 %208
+  %209 = getelementptr [4 x i8], ptr %193, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !11
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds float, ptr %197, i64 %211
+  %212 = getelementptr inbounds [4 x i8], ptr %197, i64 %211
   %213 = load float, ptr %212, align 4, !tbaa !89
   store float %213, ptr %18, align 4, !tbaa !89
-  %214 = getelementptr inbounds float, ptr %212, i64 %199
+  %214 = getelementptr inbounds [4 x i8], ptr %212, i64 %199
   %215 = load float, ptr %214, align 4, !tbaa !89
   store float %215, ptr %160, align 4, !tbaa !89
   %216 = getelementptr inbounds i8, ptr %212, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
@@ -1356,16 +1356,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %221 = load i64, ptr %23, align 8, !tbaa !22
   %222 = mul nsw i64 %221, %indvars.iv197
   %223 = load ptr, ptr %5, align 8, !tbaa !32
-  %224 = getelementptr i32, ptr %223, i64 %222
-  %225 = getelementptr i32, ptr %224, i64 %21
+  %224 = getelementptr [4 x i8], ptr %223, i64 %222
+  %225 = getelementptr [4 x i8], ptr %224, i64 %21
   %226 = load i32, ptr %225, align 4, !tbaa !11
   %227 = sext i32 %226 to i64
   %228 = load ptr, ptr %4, align 8, !tbaa !95, !noalias !150
-  %229 = getelementptr inbounds float, ptr %228, i64 %227
+  %229 = getelementptr inbounds [4 x i8], ptr %228, i64 %227
   %230 = load i64, ptr %162, align 8, !tbaa !100
   %231 = load float, ptr %229, align 4, !tbaa !89
   store float %231, ptr %10, align 4, !tbaa !89
-  %232 = getelementptr inbounds float, ptr %229, i64 %230
+  %232 = getelementptr inbounds [4 x i8], ptr %229, i64 %230
   %233 = load float, ptr %232, align 4, !tbaa !89
   store float %233, ptr %71, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %230, 3
@@ -1388,12 +1388,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge:                                      ; preds = %236
   %238 = load ptr, ptr %2, align 8, !tbaa !95, !noalias !154
-  %239 = getelementptr inbounds float, ptr %238, i64 %21
+  %239 = getelementptr inbounds [4 x i8], ptr %238, i64 %21
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %241 = load i64, ptr %240, align 8, !tbaa !100
   %242 = load float, ptr %239, align 4, !tbaa !89
   store float %242, ptr %10, align 4, !tbaa !89
-  %243 = getelementptr inbounds float, ptr %239, i64 %241
+  %243 = getelementptr inbounds [4 x i8], ptr %239, i64 %241
   %244 = load float, ptr %243, align 4, !tbaa !89
   store float %244, ptr %71, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %241, 3
@@ -1442,16 +1442,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %11 = load ptr, ptr %1, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !68
-  %14 = getelementptr i32, ptr %11, i64 %10
-  %15 = getelementptr i32, ptr %14, i64 %13
+  %14 = getelementptr [4 x i8], ptr %11, i64 %10
+  %15 = getelementptr [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = sext i32 %16 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !157
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %14, align 4, !tbaa !11
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds double, ptr %18, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %18, i64 %22
   %24 = load i64, ptr %20, align 8, !tbaa !74, !noalias !160
   %25 = icmp eq i64 %24, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1470,9 +1470,9 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %.01724.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i ], [ 1, %26 ]
   %.02223.i.i.i.i.i = phi double [ %37, %.lr.ph.i.i.i.i.i ], [ %28, %26 ]
   %30 = mul nsw i64 %.01724.i.i.i.i.i, %.pre
-  %31 = getelementptr double, ptr %19, i64 %30
+  %31 = getelementptr [8 x i8], ptr %19, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !20
-  %33 = getelementptr double, ptr %23, i64 %30
+  %33 = getelementptr [8 x i8], ptr %23, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !20
   %35 = fsub double %32, %34
   %36 = fmul double %35, %35
@@ -1488,7 +1488,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %40 = fsub double %39, %.pre146
   %41 = fmul double %40, %40
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %43 = getelementptr double, ptr %19, i64 %.pre
+  %43 = getelementptr [8 x i8], ptr %19, i64 %.pre
   %44 = load double, ptr %43, align 8, !tbaa !20
   %45 = load double, ptr %42, align 8, !tbaa !20
   %46 = fsub double %45, %44
@@ -1498,7 +1498,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %49 = fdiv double %.scalar.i33, %.scalar.i
   %50 = fsub double %39, %.pre147
   %51 = fmul double %50, %50
-  %52 = getelementptr double, ptr %23, i64 %.pre
+  %52 = getelementptr [8 x i8], ptr %23, i64 %.pre
   %53 = load double, ptr %52, align 8, !tbaa !20
   %54 = fsub double %45, %53
   %55 = fmul double %54, %54
@@ -1521,7 +1521,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br i1 %62, label %63, label %60
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr i32, ptr %14, i64 %indvars.iv
+  %64 = getelementptr [4 x i8], ptr %14, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !11
   %66 = sext i32 %65 to i64
   br label %.loopexit.sink.split
@@ -1530,13 +1530,13 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %.sink = phi ptr [ %3, %63 ], [ %2, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit ]
   %.sink157 = phi i64 [ %66, %63 ], [ %10, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit ]
   %67 = load ptr, ptr %.sink, align 8, !tbaa !69, !noalias !65
-  %68 = getelementptr inbounds double, ptr %67, i64 %.sink157
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %.sink157
   %69 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !78
   %71 = load double, ptr %68, align 8, !tbaa !20
   store double %71, ptr %8, align 16, !tbaa !20
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %73 = getelementptr inbounds double, ptr %68, i64 %70
+  %73 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   %74 = load double, ptr %73, align 8, !tbaa !20
   store double %74, ptr %72, align 8, !tbaa !20
   br label %.loopexit
@@ -1654,7 +1654,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader:                                       ; preds = %59, %73
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %73 ], [ 0, %59 ]
-  %74 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv207
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv207
   %75 = load double, ptr %74, align 8, !tbaa !20
   %76 = fcmp ogt double %75, 0x3D719799812DEA11
   br i1 %76, label %77, label %73
@@ -1662,17 +1662,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 77:                                               ; preds = %.preheader
   %78 = load ptr, ptr %1, align 8, !tbaa !81
   %79 = getelementptr i8, ptr %78, i64 %.idx.i.i.i
-  %80 = getelementptr i32, ptr %79, i64 %indvars.iv207
+  %80 = getelementptr [4 x i8], ptr %79, i64 %indvars.iv207
   %81 = load i32, ptr %80, align 4, !tbaa !11
   %82 = sext i32 %81 to i64
   %83 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !173
-  %84 = getelementptr inbounds double, ptr %83, i64 %82
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !19
   %87 = load double, ptr %84, align 8, !tbaa !20
   store double %87, ptr %10, align 8, !tbaa !20
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %89 = getelementptr inbounds double, ptr %84, i64 %86
+  %89 = getelementptr inbounds [8 x i8], ptr %84, i64 %86
   %90 = load double, ptr %89, align 8, !tbaa !20
   store double %90, ptr %88, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1689,7 +1689,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader183:                                    ; preds = %59, %94
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %94 ], [ 0, %59 ]
-  %95 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv204
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv204
   %96 = load double, ptr %95, align 8, !tbaa !20
   %97 = fcmp ugt double %96, 0x3D719799812DEA11
   br i1 %97, label %94, label %98
@@ -1699,18 +1699,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %100 = load i64, ptr %99, align 8, !tbaa !102
   %101 = mul nsw i64 %100, %indvars.iv204
   %102 = load ptr, ptr %5, align 8, !tbaa !32
-  %103 = getelementptr i32, ptr %102, i64 %101
-  %104 = getelementptr i32, ptr %103, i64 %21
+  %103 = getelementptr [4 x i8], ptr %102, i64 %101
+  %104 = getelementptr [4 x i8], ptr %103, i64 %21
   %105 = load i32, ptr %104, align 4, !tbaa !11
   %106 = sext i32 %105 to i64
   %107 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !177
-  %108 = getelementptr inbounds double, ptr %107, i64 %106
+  %108 = getelementptr inbounds [8 x i8], ptr %107, i64 %106
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !19
   %111 = load double, ptr %108, align 8, !tbaa !20
   store double %111, ptr %10, align 8, !tbaa !20
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %113 = getelementptr inbounds double, ptr %108, i64 %110
+  %113 = getelementptr inbounds [8 x i8], ptr %108, i64 %110
   %114 = load double, ptr %113, align 8, !tbaa !20
   store double %114, ptr %112, align 8, !tbaa !20
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1722,13 +1722,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 118:                                              ; preds = %59
   %119 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !180
-  %120 = getelementptr inbounds double, ptr %119, i64 %21
+  %120 = getelementptr inbounds [8 x i8], ptr %119, i64 %21
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !19
   %123 = load double, ptr %120, align 8, !tbaa !20
   store double %123, ptr %10, align 8, !tbaa !20
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %125 = getelementptr inbounds double, ptr %120, i64 %122
+  %125 = getelementptr inbounds [8 x i8], ptr %120, i64 %122
   %126 = load double, ptr %125, align 8, !tbaa !20
   store double %126, ptr %124, align 8, !tbaa !20
   %127 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1740,11 +1740,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge.thread:                               ; preds = %142
   %130 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !183
-  %131 = getelementptr inbounds double, ptr %130, i64 %145
+  %131 = getelementptr inbounds [8 x i8], ptr %130, i64 %145
   %132 = load i64, ptr %54, align 8, !tbaa !19
   %133 = load double, ptr %131, align 8, !tbaa !20
   store double %133, ptr %10, align 8, !tbaa !20
-  %134 = getelementptr inbounds double, ptr %131, i64 %132
+  %134 = getelementptr inbounds [8 x i8], ptr %131, i64 %132
   %135 = load double, ptr %134, align 8, !tbaa !20
   store double %135, ptr %55, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i87 = shl nsw i64 %132, 4
@@ -1762,7 +1762,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 142:                                              ; preds = %.thread, %.preheader186
   %indvars.iv = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next211, %.thread ]
-  %143 = getelementptr i32, ptr %51, i64 %indvars.iv
+  %143 = getelementptr [4 x i8], ptr %51, i64 %indvars.iv
   %144 = load i32, ptr %143, align 4, !tbaa !11
   %145 = sext i32 %144 to i64
   %.idx.i.i.i.i85 = mul nsw i64 %145, 24
@@ -1796,7 +1796,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %161 = select i1 %159, i64 0, i64 %160
   %162 = load ptr, ptr %1, align 8, !tbaa !81
   %163 = getelementptr i8, ptr %162, i64 %.idx.i.i.i
-  %164 = getelementptr i32, ptr %163, i64 %161
+  %164 = getelementptr [4 x i8], ptr %163, i64 %161
   %165 = load i32, ptr %164, align 4, !tbaa !11
   %166 = sext i32 %165 to i64
   %167 = load ptr, ptr %0, align 8, !tbaa !164, !noalias !187
@@ -1812,7 +1812,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %172 = add nuw nsw i64 %indvars.iv200, 4294967295
   %173 = and i64 %172, 4294967295
   %174 = select i1 %.cmp, i64 2, i64 %173
-  %175 = getelementptr i32, ptr %163, i64 %174
+  %175 = getelementptr [4 x i8], ptr %163, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !11
   %177 = sext i32 %176 to i64
   %.idx.i.i.i.i91 = mul nsw i64 %177, 24
@@ -1834,16 +1834,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %185 = load i64, ptr %140, align 8, !tbaa !102
   %186 = mul nsw i64 %185, %indvars.iv200
   %187 = load ptr, ptr %5, align 8, !tbaa !32
-  %188 = getelementptr i32, ptr %187, i64 %186
-  %189 = getelementptr i32, ptr %188, i64 %21
+  %188 = getelementptr [4 x i8], ptr %187, i64 %186
+  %189 = getelementptr [4 x i8], ptr %188, i64 %21
   %190 = load i32, ptr %189, align 4, !tbaa !11
   %191 = sext i32 %190 to i64
   %192 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !190
-  %193 = getelementptr inbounds double, ptr %192, i64 %191
+  %193 = getelementptr inbounds [8 x i8], ptr %192, i64 %191
   %194 = load i64, ptr %141, align 8, !tbaa !19
   %195 = load double, ptr %193, align 8, !tbaa !20
   store double %195, ptr %10, align 8, !tbaa !20
-  %196 = getelementptr inbounds double, ptr %193, i64 %194
+  %196 = getelementptr inbounds [8 x i8], ptr %193, i64 %194
   %197 = load double, ptr %196, align 8, !tbaa !20
   store double %197, ptr %55, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i92 = shl nsw i64 %194, 4
@@ -1866,12 +1866,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge:                                      ; preds = %200
   %202 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !194
-  %203 = getelementptr inbounds double, ptr %202, i64 %21
+  %203 = getelementptr inbounds [8 x i8], ptr %202, i64 %21
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %205 = load i64, ptr %204, align 8, !tbaa !19
   %206 = load double, ptr %203, align 8, !tbaa !20
   store double %206, ptr %10, align 8, !tbaa !20
-  %207 = getelementptr inbounds double, ptr %203, i64 %205
+  %207 = getelementptr inbounds [8 x i8], ptr %203, i64 %205
   %208 = load double, ptr %207, align 8, !tbaa !20
   store double %208, ptr %55, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i93 = shl nsw i64 %205, 4
@@ -1924,17 +1924,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr i32, ptr %22, i64 %21
+  %24 = getelementptr [4 x i8], ptr %22, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !123, !noalias !197
-  %28 = getelementptr inbounds float, ptr %27, i64 %26
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !128
   %31 = load float, ptr %28, align 4, !tbaa !89
   store float %31, ptr %14, align 4, !tbaa !89
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %33 = getelementptr inbounds float, ptr %28, i64 %30
+  %33 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
   %34 = load float, ptr %33, align 4, !tbaa !89
   store float %34, ptr %32, align 4, !tbaa !89
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1944,14 +1944,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   store float %37, ptr %35, align 4, !tbaa !89
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !22
-  %39 = getelementptr i32, ptr %24, i64 %38
+  %39 = getelementptr [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds float, ptr %27, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %27, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !89
   store float %43, ptr %15, align 4, !tbaa !89
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %45 = getelementptr inbounds float, ptr %42, i64 %30
+  %45 = getelementptr inbounds [4 x i8], ptr %42, i64 %30
   %46 = load float, ptr %45, align 4, !tbaa !89
   store float %46, ptr %44, align 4, !tbaa !89
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1963,11 +1963,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds float, ptr %27, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %27, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !89
   store float %54, ptr %16, align 4, !tbaa !89
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %56 = getelementptr inbounds float, ptr %53, i64 %30
+  %56 = getelementptr inbounds [4 x i8], ptr %53, i64 %30
   %57 = load float, ptr %56, align 4, !tbaa !89
   store float %57, ptr %55, align 4, !tbaa !89
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1984,7 +1984,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 .preheader177:                                    ; preds = %11
   %63 = load ptr, ptr %1, align 8, !tbaa !4
   %64 = load i64, ptr %23, align 8, !tbaa !22
-  %65 = getelementptr i32, ptr %63, i64 %21
+  %65 = getelementptr [4 x i8], ptr %63, i64 %21
   %66 = load ptr, ptr %0, align 8, !tbaa !123, !noalias !200
   %67 = load i64, ptr %29, align 8, !tbaa !128
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -2025,7 +2025,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader:                                       ; preds = %76, %90
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %90 ], [ 0, %76 ]
-  %91 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv198
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv198
   %92 = load float, ptr %91, align 4, !tbaa !89
   %93 = fpext float %92 to double
   %94 = fcmp ogt double %93, 0x3D719799812DEA11
@@ -2035,18 +2035,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %96 = load ptr, ptr %1, align 8, !tbaa !4
   %97 = load i64, ptr %23, align 8, !tbaa !22
   %98 = mul nsw i64 %97, %indvars.iv198
-  %99 = getelementptr i32, ptr %96, i64 %21
-  %100 = getelementptr i32, ptr %99, i64 %98
+  %99 = getelementptr [4 x i8], ptr %96, i64 %21
+  %100 = getelementptr [4 x i8], ptr %99, i64 %98
   %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = sext i32 %101 to i64
   %103 = load ptr, ptr %3, align 8, !tbaa !123, !noalias !204
-  %104 = getelementptr inbounds float, ptr %103, i64 %102
+  %104 = getelementptr inbounds [4 x i8], ptr %103, i64 %102
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !128
   %107 = load float, ptr %104, align 4, !tbaa !89
   store float %107, ptr %10, align 4, !tbaa !89
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %109 = getelementptr inbounds float, ptr %104, i64 %106
+  %109 = getelementptr inbounds [4 x i8], ptr %104, i64 %106
   %110 = load float, ptr %109, align 4, !tbaa !89
   store float %110, ptr %108, align 4, !tbaa !89
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2063,7 +2063,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader174:                                    ; preds = %76, %114
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %114 ], [ 0, %76 ]
-  %115 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv195
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv195
   %116 = load float, ptr %115, align 4, !tbaa !89
   %117 = fpext float %116 to double
   %118 = fcmp ugt double %117, 0x3D719799812DEA11
@@ -2073,18 +2073,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %120 = load i64, ptr %23, align 8, !tbaa !22
   %121 = mul nsw i64 %120, %indvars.iv195
   %122 = load ptr, ptr %5, align 8, !tbaa !32
-  %123 = getelementptr i32, ptr %122, i64 %121
-  %124 = getelementptr i32, ptr %123, i64 %21
+  %123 = getelementptr [4 x i8], ptr %122, i64 %121
+  %124 = getelementptr [4 x i8], ptr %123, i64 %21
   %125 = load i32, ptr %124, align 4, !tbaa !11
   %126 = sext i32 %125 to i64
   %127 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !208
-  %128 = getelementptr inbounds float, ptr %127, i64 %126
+  %128 = getelementptr inbounds [4 x i8], ptr %127, i64 %126
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !128
   %131 = load float, ptr %128, align 4, !tbaa !89
   store float %131, ptr %10, align 4, !tbaa !89
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %133 = getelementptr inbounds float, ptr %128, i64 %130
+  %133 = getelementptr inbounds [4 x i8], ptr %128, i64 %130
   %134 = load float, ptr %133, align 4, !tbaa !89
   store float %134, ptr %132, align 4, !tbaa !89
   %135 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2096,13 +2096,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 138:                                              ; preds = %76
   %139 = load ptr, ptr %2, align 8, !tbaa !123, !noalias !211
-  %140 = getelementptr inbounds float, ptr %139, i64 %21
+  %140 = getelementptr inbounds [4 x i8], ptr %139, i64 %21
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %142 = load i64, ptr %141, align 8, !tbaa !128
   %143 = load float, ptr %140, align 4, !tbaa !89
   store float %143, ptr %10, align 4, !tbaa !89
   %144 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %145 = getelementptr inbounds float, ptr %140, i64 %142
+  %145 = getelementptr inbounds [4 x i8], ptr %140, i64 %142
   %146 = load float, ptr %145, align 4, !tbaa !89
   store float %146, ptr %144, align 4, !tbaa !89
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2114,11 +2114,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge.thread:                               ; preds = %163
   %150 = load ptr, ptr %3, align 8, !tbaa !123, !noalias !214
-  %151 = getelementptr inbounds float, ptr %150, i64 %167
+  %151 = getelementptr inbounds [4 x i8], ptr %150, i64 %167
   %152 = load i64, ptr %70, align 8, !tbaa !128
   %153 = load float, ptr %151, align 4, !tbaa !89
   store float %153, ptr %10, align 4, !tbaa !89
-  %154 = getelementptr inbounds float, ptr %151, i64 %152
+  %154 = getelementptr inbounds [4 x i8], ptr %151, i64 %152
   %155 = load float, ptr %154, align 4, !tbaa !89
   store float %155, ptr %71, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i81 = shl nsw i64 %152, 3
@@ -2138,14 +2138,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 163:                                              ; preds = %.thread, %.preheader177
   %indvars.iv = phi i64 [ 0, %.preheader177 ], [ %indvars.iv.next202, %.thread ]
   %164 = mul nsw i64 %64, %indvars.iv
-  %165 = getelementptr i32, ptr %65, i64 %164
+  %165 = getelementptr [4 x i8], ptr %65, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !11
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds float, ptr %66, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %66, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !89
   %170 = fsub float %73, %169
   %171 = fmul float %170, %170
-  %172 = getelementptr float, ptr %168, i64 %67
+  %172 = getelementptr [4 x i8], ptr %168, i64 %67
   %173 = load float, ptr %172, align 4, !tbaa !89
   %174 = fsub float %74, %173
   %175 = fmul float %174, %174
@@ -2175,16 +2175,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %190 = load ptr, ptr %1, align 8, !tbaa !4
   %191 = load i64, ptr %23, align 8, !tbaa !22
   %192 = mul nsw i64 %191, %189
-  %193 = getelementptr i32, ptr %190, i64 %21
-  %194 = getelementptr i32, ptr %193, i64 %192
+  %193 = getelementptr [4 x i8], ptr %190, i64 %21
+  %194 = getelementptr [4 x i8], ptr %193, i64 %192
   %195 = load i32, ptr %194, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %197 = load ptr, ptr %0, align 8, !tbaa !123, !noalias !218
-  %198 = getelementptr inbounds float, ptr %197, i64 %196
+  %198 = getelementptr inbounds [4 x i8], ptr %197, i64 %196
   %199 = load i64, ptr %29, align 8, !tbaa !128
   %200 = load float, ptr %198, align 4, !tbaa !89
   store float %200, ptr %17, align 4, !tbaa !89
-  %201 = getelementptr inbounds float, ptr %198, i64 %199
+  %201 = getelementptr inbounds [4 x i8], ptr %198, i64 %199
   %202 = load float, ptr %201, align 4, !tbaa !89
   store float %202, ptr %158, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %199, 3
@@ -2197,13 +2197,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %206 = and i64 %205, 4294967295
   %207 = select i1 %.cmp, i64 2, i64 %206
   %208 = mul nsw i64 %191, %207
-  %209 = getelementptr i32, ptr %193, i64 %208
+  %209 = getelementptr [4 x i8], ptr %193, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !11
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds float, ptr %197, i64 %211
+  %212 = getelementptr inbounds [4 x i8], ptr %197, i64 %211
   %213 = load float, ptr %212, align 4, !tbaa !89
   store float %213, ptr %18, align 4, !tbaa !89
-  %214 = getelementptr inbounds float, ptr %212, i64 %199
+  %214 = getelementptr inbounds [4 x i8], ptr %212, i64 %199
   %215 = load float, ptr %214, align 4, !tbaa !89
   store float %215, ptr %160, align 4, !tbaa !89
   %216 = getelementptr inbounds i8, ptr %212, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
@@ -2221,16 +2221,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %221 = load i64, ptr %23, align 8, !tbaa !22
   %222 = mul nsw i64 %221, %indvars.iv191
   %223 = load ptr, ptr %5, align 8, !tbaa !32
-  %224 = getelementptr i32, ptr %223, i64 %222
-  %225 = getelementptr i32, ptr %224, i64 %21
+  %224 = getelementptr [4 x i8], ptr %223, i64 %222
+  %225 = getelementptr [4 x i8], ptr %224, i64 %21
   %226 = load i32, ptr %225, align 4, !tbaa !11
   %227 = sext i32 %226 to i64
   %228 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !221
-  %229 = getelementptr inbounds float, ptr %228, i64 %227
+  %229 = getelementptr inbounds [4 x i8], ptr %228, i64 %227
   %230 = load i64, ptr %162, align 8, !tbaa !128
   %231 = load float, ptr %229, align 4, !tbaa !89
   store float %231, ptr %10, align 4, !tbaa !89
-  %232 = getelementptr inbounds float, ptr %229, i64 %230
+  %232 = getelementptr inbounds [4 x i8], ptr %229, i64 %230
   %233 = load float, ptr %232, align 4, !tbaa !89
   store float %233, ptr %71, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %230, 3
@@ -2253,12 +2253,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge:                                      ; preds = %236
   %238 = load ptr, ptr %2, align 8, !tbaa !123, !noalias !225
-  %239 = getelementptr inbounds float, ptr %238, i64 %21
+  %239 = getelementptr inbounds [4 x i8], ptr %238, i64 %21
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %241 = load i64, ptr %240, align 8, !tbaa !128
   %242 = load float, ptr %239, align 4, !tbaa !89
   store float %242, ptr %10, align 4, !tbaa !89
-  %243 = getelementptr inbounds float, ptr %239, i64 %241
+  %243 = getelementptr inbounds [4 x i8], ptr %239, i64 %241
   %244 = load float, ptr %243, align 4, !tbaa !89
   store float %244, ptr %71, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %241, 3
@@ -2410,7 +2410,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader:                                       ; preds = %67, %81
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %81 ], [ 0, %67 ]
-  %82 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv209
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv209
   %83 = load float, ptr %82, align 4, !tbaa !89
   %84 = fpext float %83 to double
   %85 = fcmp ogt double %84, 0x3D719799812DEA11
@@ -2419,17 +2419,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 86:                                               ; preds = %.preheader
   %87 = load ptr, ptr %1, align 8, !tbaa !81
   %88 = getelementptr i8, ptr %87, i64 %.idx.i.i.i
-  %89 = getelementptr i32, ptr %88, i64 %indvars.iv209
+  %89 = getelementptr [4 x i8], ptr %88, i64 %indvars.iv209
   %90 = load i32, ptr %89, align 4, !tbaa !11
   %91 = sext i32 %90 to i64
   %92 = load ptr, ptr %3, align 8, !tbaa !123, !noalias !237
-  %93 = getelementptr inbounds float, ptr %92, i64 %91
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %91
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !128
   %96 = load float, ptr %93, align 4, !tbaa !89
   store float %96, ptr %10, align 4, !tbaa !89
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %98 = getelementptr inbounds float, ptr %93, i64 %95
+  %98 = getelementptr inbounds [4 x i8], ptr %93, i64 %95
   %99 = load float, ptr %98, align 4, !tbaa !89
   store float %99, ptr %97, align 4, !tbaa !89
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2446,7 +2446,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader183:                                    ; preds = %67, %103
   %indvars.iv206 = phi i64 [ %indvars.iv.next207, %103 ], [ 0, %67 ]
-  %104 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv206
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv206
   %105 = load float, ptr %104, align 4, !tbaa !89
   %106 = fpext float %105 to double
   %107 = fcmp ugt double %106, 0x3D719799812DEA11
@@ -2457,18 +2457,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %110 = load i64, ptr %109, align 8, !tbaa !102
   %111 = mul nsw i64 %110, %indvars.iv206
   %112 = load ptr, ptr %5, align 8, !tbaa !32
-  %113 = getelementptr i32, ptr %112, i64 %111
-  %114 = getelementptr i32, ptr %113, i64 %21
+  %113 = getelementptr [4 x i8], ptr %112, i64 %111
+  %114 = getelementptr [4 x i8], ptr %113, i64 %21
   %115 = load i32, ptr %114, align 4, !tbaa !11
   %116 = sext i32 %115 to i64
   %117 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !241
-  %118 = getelementptr inbounds float, ptr %117, i64 %116
+  %118 = getelementptr inbounds [4 x i8], ptr %117, i64 %116
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !128
   %121 = load float, ptr %118, align 4, !tbaa !89
   store float %121, ptr %10, align 4, !tbaa !89
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %123 = getelementptr inbounds float, ptr %118, i64 %120
+  %123 = getelementptr inbounds [4 x i8], ptr %118, i64 %120
   %124 = load float, ptr %123, align 4, !tbaa !89
   store float %124, ptr %122, align 4, !tbaa !89
   %125 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2480,13 +2480,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 128:                                              ; preds = %67
   %129 = load ptr, ptr %2, align 8, !tbaa !123, !noalias !244
-  %130 = getelementptr inbounds float, ptr %129, i64 %21
+  %130 = getelementptr inbounds [4 x i8], ptr %129, i64 %21
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !128
   %133 = load float, ptr %130, align 4, !tbaa !89
   store float %133, ptr %10, align 4, !tbaa !89
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %135 = getelementptr inbounds float, ptr %130, i64 %132
+  %135 = getelementptr inbounds [4 x i8], ptr %130, i64 %132
   %136 = load float, ptr %135, align 4, !tbaa !89
   store float %136, ptr %134, align 4, !tbaa !89
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2498,11 +2498,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge.thread:                               ; preds = %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEEKNS_5BlockIKNS5_IfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEEEEE4normEv.exit
   %140 = load ptr, ptr %3, align 8, !tbaa !123, !noalias !247
-  %141 = getelementptr inbounds float, ptr %140, i64 %157
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %157
   %142 = load i64, ptr %63, align 8, !tbaa !128
   %143 = load float, ptr %141, align 4, !tbaa !89
   store float %143, ptr %10, align 4, !tbaa !89
-  %144 = getelementptr inbounds float, ptr %141, i64 %142
+  %144 = getelementptr inbounds [4 x i8], ptr %141, i64 %142
   %145 = load float, ptr %144, align 4, !tbaa !89
   store float %145, ptr %64, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i87 = shl nsw i64 %142, 3
@@ -2522,7 +2522,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 154:                                              ; preds = %.thread, %.preheader186
   %indvars.iv = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next213, %.thread ]
-  %155 = getelementptr i32, ptr %60, i64 %indvars.iv
+  %155 = getelementptr [4 x i8], ptr %60, i64 %indvars.iv
   %156 = load i32, ptr %155, align 4, !tbaa !11
   %157 = sext i32 %156 to i64
   %.idx.i.i.i.i85 = mul nsw i64 %157, 12
@@ -2535,8 +2535,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 162:                                              ; preds = %162, %154
   %.077.i.i.i.i.i = phi i64 [ 1, %154 ], [ %170, %162 ]
   %.376.i.i.i.i.i = phi float [ %161, %154 ], [ %169, %162 ]
-  %163 = getelementptr inbounds nuw float, ptr %62, i64 %.077.i.i.i.i.i
-  %164 = getelementptr inbounds nuw float, ptr %158, i64 %.077.i.i.i.i.i
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.077.i.i.i.i.i
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %.077.i.i.i.i.i
   %165 = load float, ptr %164, align 4, !tbaa !89
   %166 = load float, ptr %163, align 4, !tbaa !89
   %167 = fsub float %166, %165
@@ -2566,7 +2566,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
   %178 = select i1 %176, i64 0, i64 %177
   %179 = load ptr, ptr %1, align 8, !tbaa !81
   %180 = getelementptr i8, ptr %179, i64 %.idx.i.i.i
-  %181 = getelementptr i32, ptr %180, i64 %178
+  %181 = getelementptr [4 x i8], ptr %180, i64 %178
   %182 = load i32, ptr %181, align 4, !tbaa !11
   %183 = sext i32 %182 to i64
   %184 = load ptr, ptr %0, align 8, !tbaa !83, !noalias !252
@@ -2585,7 +2585,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
   %191 = add nuw nsw i64 %indvars.iv202, 4294967295
   %192 = and i64 %191, 4294967295
   %193 = select i1 %.cmp, i64 2, i64 %192
-  %194 = getelementptr i32, ptr %180, i64 %193
+  %194 = getelementptr [4 x i8], ptr %180, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %.idx.i.i.i.i91 = mul nsw i64 %196, 12
@@ -2610,16 +2610,16 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
   %206 = load i64, ptr %152, align 8, !tbaa !102
   %207 = mul nsw i64 %206, %indvars.iv202
   %208 = load ptr, ptr %5, align 8, !tbaa !32
-  %209 = getelementptr i32, ptr %208, i64 %207
-  %210 = getelementptr i32, ptr %209, i64 %21
+  %209 = getelementptr [4 x i8], ptr %208, i64 %207
+  %210 = getelementptr [4 x i8], ptr %209, i64 %21
   %211 = load i32, ptr %210, align 4, !tbaa !11
   %212 = sext i32 %211 to i64
   %213 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !255
-  %214 = getelementptr inbounds float, ptr %213, i64 %212
+  %214 = getelementptr inbounds [4 x i8], ptr %213, i64 %212
   %215 = load i64, ptr %153, align 8, !tbaa !128
   %216 = load float, ptr %214, align 4, !tbaa !89
   store float %216, ptr %10, align 4, !tbaa !89
-  %217 = getelementptr inbounds float, ptr %214, i64 %215
+  %217 = getelementptr inbounds [4 x i8], ptr %214, i64 %215
   %218 = load float, ptr %217, align 4, !tbaa !89
   store float %218, ptr %64, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i92 = shl nsw i64 %215, 3
@@ -2642,12 +2642,12 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
 
 ._crit_edge:                                      ; preds = %221
   %223 = load ptr, ptr %2, align 8, !tbaa !123, !noalias !259
-  %224 = getelementptr inbounds float, ptr %223, i64 %21
+  %224 = getelementptr inbounds [4 x i8], ptr %223, i64 %21
   %225 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %226 = load i64, ptr %225, align 8, !tbaa !128
   %227 = load float, ptr %224, align 4, !tbaa !89
   store float %227, ptr %10, align 4, !tbaa !89
-  %228 = getelementptr inbounds float, ptr %224, i64 %226
+  %228 = getelementptr inbounds [4 x i8], ptr %224, i64 %226
   %229 = load float, ptr %228, align 4, !tbaa !89
   store float %229, ptr %64, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i93 = shl nsw i64 %226, 3
@@ -2711,17 +2711,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr i32, ptr %22, i64 %21
+  %24 = getelementptr [4 x i8], ptr %22, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !262
-  %28 = getelementptr inbounds double, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !78
   %31 = load double, ptr %28, align 8, !tbaa !20
   store double %31, ptr %14, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %33 = getelementptr inbounds double, ptr %28, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !20
   store double %34, ptr %32, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2731,14 +2731,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   store double %37, ptr %35, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
-  %39 = getelementptr i32, ptr %24, i64 %38
+  %39 = getelementptr [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %27, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %27, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !20
   store double %43, ptr %15, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %45 = getelementptr inbounds double, ptr %42, i64 %30
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %30
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %44, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2750,11 +2750,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds double, ptr %27, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %27, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !20
   store double %54, ptr %16, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %56 = getelementptr inbounds double, ptr %53, i64 %30
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %30
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %55, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -2772,7 +2772,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %1, align 8, !tbaa !66
   %65 = load i64, ptr %23, align 8, !tbaa !68
-  %66 = getelementptr i32, ptr %64, i64 %21
+  %66 = getelementptr [4 x i8], ptr %64, i64 %21
   %67 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !265
   %68 = load i64, ptr %63, align 8, !tbaa !74, !noalias !265
   %69 = icmp eq i64 %68, 0
@@ -2789,10 +2789,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %76 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !268
   %77 = load i32, ptr %66, align 4, !tbaa !11
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %76, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %76, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !20
   store double %80, ptr %10, align 8, !tbaa !20
-  %81 = getelementptr inbounds double, ptr %79, i64 %75
+  %81 = getelementptr inbounds [8 x i8], ptr %79, i64 %75
   %82 = load double, ptr %81, align 8, !tbaa !20
   store double %82, ptr %73, align 8, !tbaa !20
   %83 = getelementptr inbounds i8, ptr %79, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i81.us
@@ -2832,7 +2832,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader:                                       ; preds = %87, %101
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %101 ], [ 0, %87 ]
-  %102 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv207
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv207
   %103 = load double, ptr %102, align 8, !tbaa !20
   %104 = fcmp ogt double %103, 0x3D719799812DEA11
   br i1 %104, label %105, label %101
@@ -2841,18 +2841,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %106 = load ptr, ptr %1, align 8, !tbaa !66
   %107 = load i64, ptr %23, align 8, !tbaa !68
   %108 = mul nsw i64 %107, %indvars.iv207
-  %109 = getelementptr i32, ptr %106, i64 %21
-  %110 = getelementptr i32, ptr %109, i64 %108
+  %109 = getelementptr [4 x i8], ptr %106, i64 %21
+  %110 = getelementptr [4 x i8], ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !11
   %112 = sext i32 %111 to i64
   %113 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !272
-  %114 = getelementptr inbounds double, ptr %113, i64 %112
+  %114 = getelementptr inbounds [8 x i8], ptr %113, i64 %112
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %116 = load i64, ptr %115, align 8, !tbaa !19
   %117 = load double, ptr %114, align 8, !tbaa !20
   store double %117, ptr %10, align 8, !tbaa !20
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %119 = getelementptr inbounds double, ptr %114, i64 %116
+  %119 = getelementptr inbounds [8 x i8], ptr %114, i64 %116
   %120 = load double, ptr %119, align 8, !tbaa !20
   store double %120, ptr %118, align 8, !tbaa !20
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2869,7 +2869,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader180:                                    ; preds = %87, %124
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %124 ], [ 0, %87 ]
-  %125 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv204
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv204
   %126 = load double, ptr %125, align 8, !tbaa !20
   %127 = fcmp ugt double %126, 0x3D719799812DEA11
   br i1 %127, label %124, label %128
@@ -2878,18 +2878,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %129 = load i64, ptr %23, align 8, !tbaa !68
   %130 = mul nsw i64 %129, %indvars.iv204
   %131 = load ptr, ptr %5, align 8, !tbaa !32
-  %132 = getelementptr i32, ptr %131, i64 %130
-  %133 = getelementptr i32, ptr %132, i64 %21
+  %132 = getelementptr [4 x i8], ptr %131, i64 %130
+  %133 = getelementptr [4 x i8], ptr %132, i64 %21
   %134 = load i32, ptr %133, align 4, !tbaa !11
   %135 = sext i32 %134 to i64
   %136 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !276
-  %137 = getelementptr inbounds double, ptr %136, i64 %135
+  %137 = getelementptr inbounds [8 x i8], ptr %136, i64 %135
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %139 = load i64, ptr %138, align 8, !tbaa !19
   %140 = load double, ptr %137, align 8, !tbaa !20
   store double %140, ptr %10, align 8, !tbaa !20
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %142 = getelementptr inbounds double, ptr %137, i64 %139
+  %142 = getelementptr inbounds [8 x i8], ptr %137, i64 %139
   %143 = load double, ptr %142, align 8, !tbaa !20
   store double %143, ptr %141, align 8, !tbaa !20
   %144 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2901,13 +2901,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 147:                                              ; preds = %87
   %148 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !279
-  %149 = getelementptr inbounds double, ptr %148, i64 %21
+  %149 = getelementptr inbounds [8 x i8], ptr %148, i64 %21
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %151 = load i64, ptr %150, align 8, !tbaa !19
   %152 = load double, ptr %149, align 8, !tbaa !20
   store double %152, ptr %10, align 8, !tbaa !20
   %153 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %154 = getelementptr inbounds double, ptr %149, i64 %151
+  %154 = getelementptr inbounds [8 x i8], ptr %149, i64 %151
   %155 = load double, ptr %154, align 8, !tbaa !20
   store double %155, ptr %153, align 8, !tbaa !20
   %156 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2928,10 +2928,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 164:                                              ; preds = %.preheader183.split, %191
   %indvars.iv = phi i64 [ 0, %.preheader183.split ], [ %indvars.iv.next, %191 ]
   %165 = mul nsw i64 %65, %indvars.iv
-  %166 = getelementptr i32, ptr %66, i64 %165
+  %166 = getelementptr [4 x i8], ptr %66, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !11
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds double, ptr %67, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %67, i64 %168
   %170 = load double, ptr %169, align 8, !tbaa !20
   %171 = fsub double %86, %170
   %172 = fmul double %171, %171
@@ -2940,9 +2940,9 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 .lr.ph.i.i.i.i.i:                                 ; preds = %164, %.lr.ph.i.i.i.i.i
   %.01724.i.i.i.i.i = phi i64 [ %181, %.lr.ph.i.i.i.i.i ], [ 1, %164 ]
   %.02223.i.i.i.i.i = phi double [ %180, %.lr.ph.i.i.i.i.i ], [ %172, %164 ]
-  %173 = getelementptr double, ptr %70, i64 %.01724.i.i.i.i.i
+  %173 = getelementptr [8 x i8], ptr %70, i64 %.01724.i.i.i.i.i
   %174 = mul nsw i64 %.01724.i.i.i.i.i, %85
-  %175 = getelementptr double, ptr %169, i64 %174
+  %175 = getelementptr [8 x i8], ptr %169, i64 %174
   %176 = load double, ptr %175, align 8, !tbaa !20
   %177 = load double, ptr %173, align 8, !tbaa !20
   %178 = fsub double %177, %176
@@ -2960,11 +2960,11 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 .preheader182.thread217:                          ; preds = %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEKNS_5BlockIKNS5_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEE4normEv.exit
   %183 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !268
-  %184 = getelementptr inbounds double, ptr %183, i64 %168
+  %184 = getelementptr inbounds [8 x i8], ptr %183, i64 %168
   %185 = load i64, ptr %72, align 8, !tbaa !19
   %186 = load double, ptr %184, align 8, !tbaa !20
   store double %186, ptr %10, align 8, !tbaa !20
-  %187 = getelementptr inbounds double, ptr %184, i64 %185
+  %187 = getelementptr inbounds [8 x i8], ptr %184, i64 %185
   %188 = load double, ptr %187, align 8, !tbaa !20
   store double %188, ptr %73, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i81 = shl nsw i64 %185, 4
@@ -2988,16 +2988,16 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %197 = load ptr, ptr %1, align 8, !tbaa !66
   %198 = load i64, ptr %23, align 8, !tbaa !68
   %199 = mul nsw i64 %198, %196
-  %200 = getelementptr i32, ptr %197, i64 %21
-  %201 = getelementptr i32, ptr %200, i64 %199
+  %200 = getelementptr [4 x i8], ptr %197, i64 %21
+  %201 = getelementptr [4 x i8], ptr %200, i64 %199
   %202 = load i32, ptr %201, align 4, !tbaa !11
   %203 = sext i32 %202 to i64
   %204 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !284
-  %205 = getelementptr inbounds double, ptr %204, i64 %203
+  %205 = getelementptr inbounds [8 x i8], ptr %204, i64 %203
   %206 = load i64, ptr %29, align 8, !tbaa !78
   %207 = load double, ptr %205, align 8, !tbaa !20
   store double %207, ptr %17, align 8, !tbaa !20
-  %208 = getelementptr inbounds double, ptr %205, i64 %206
+  %208 = getelementptr inbounds [8 x i8], ptr %205, i64 %206
   %209 = load double, ptr %208, align 8, !tbaa !20
   store double %209, ptr %159, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %206, 4
@@ -3010,13 +3010,13 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %213 = and i64 %212, 4294967295
   %214 = select i1 %.cmp, i64 2, i64 %213
   %215 = mul nsw i64 %198, %214
-  %216 = getelementptr i32, ptr %200, i64 %215
+  %216 = getelementptr [4 x i8], ptr %200, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !11
   %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds double, ptr %204, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %204, i64 %218
   %220 = load double, ptr %219, align 8, !tbaa !20
   store double %220, ptr %18, align 8, !tbaa !20
-  %221 = getelementptr inbounds double, ptr %219, i64 %206
+  %221 = getelementptr inbounds [8 x i8], ptr %219, i64 %206
   %222 = load double, ptr %221, align 8, !tbaa !20
   store double %222, ptr %161, align 8, !tbaa !20
   %223 = getelementptr inbounds i8, ptr %219, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
@@ -3034,16 +3034,16 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %228 = load i64, ptr %23, align 8, !tbaa !68
   %229 = mul nsw i64 %228, %indvars.iv200
   %230 = load ptr, ptr %5, align 8, !tbaa !32
-  %231 = getelementptr i32, ptr %230, i64 %229
-  %232 = getelementptr i32, ptr %231, i64 %21
+  %231 = getelementptr [4 x i8], ptr %230, i64 %229
+  %232 = getelementptr [4 x i8], ptr %231, i64 %21
   %233 = load i32, ptr %232, align 4, !tbaa !11
   %234 = sext i32 %233 to i64
   %235 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !287
-  %236 = getelementptr inbounds double, ptr %235, i64 %234
+  %236 = getelementptr inbounds [8 x i8], ptr %235, i64 %234
   %237 = load i64, ptr %163, align 8, !tbaa !19
   %238 = load double, ptr %236, align 8, !tbaa !20
   store double %238, ptr %10, align 8, !tbaa !20
-  %239 = getelementptr inbounds double, ptr %236, i64 %237
+  %239 = getelementptr inbounds [8 x i8], ptr %236, i64 %237
   %240 = load double, ptr %239, align 8, !tbaa !20
   store double %240, ptr %73, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %237, 4
@@ -3066,12 +3066,12 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 ._crit_edge:                                      ; preds = %243
   %245 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !291
-  %246 = getelementptr inbounds double, ptr %245, i64 %21
+  %246 = getelementptr inbounds [8 x i8], ptr %245, i64 %21
   %247 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %248 = load i64, ptr %247, align 8, !tbaa !19
   %249 = load double, ptr %246, align 8, !tbaa !20
   store double %249, ptr %10, align 8, !tbaa !20
-  %250 = getelementptr inbounds double, ptr %246, i64 %248
+  %250 = getelementptr inbounds [8 x i8], ptr %246, i64 %248
   %251 = load double, ptr %250, align 8, !tbaa !20
   store double %251, ptr %73, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %248, 4
@@ -3132,17 +3132,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr i32, ptr %22, i64 %21
+  %24 = getelementptr [4 x i8], ptr %22, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !296
-  %28 = getelementptr inbounds double, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !78
   %31 = load double, ptr %28, align 8, !tbaa !20
   store double %31, ptr %14, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %33 = getelementptr inbounds double, ptr %28, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !20
   store double %34, ptr %32, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3152,14 +3152,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   store double %37, ptr %35, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
-  %39 = getelementptr i32, ptr %24, i64 %38
+  %39 = getelementptr [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %27, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %27, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !20
   store double %43, ptr %15, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %45 = getelementptr inbounds double, ptr %42, i64 %30
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %30
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %44, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -3171,11 +3171,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds double, ptr %27, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %27, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !20
   store double %54, ptr %16, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %56 = getelementptr inbounds double, ptr %53, i64 %30
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %30
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %55, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3192,7 +3192,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 .preheader184:                                    ; preds = %11
   %63 = load ptr, ptr %1, align 8, !tbaa !66
   %64 = load i64, ptr %23, align 8, !tbaa !68
-  %65 = getelementptr i32, ptr %63, i64 %21
+  %65 = getelementptr [4 x i8], ptr %63, i64 %21
   %66 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !299
   %67 = load i64, ptr %29, align 8, !tbaa !78
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3233,7 +3233,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader:                                       ; preds = %76, %90
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %90 ], [ 0, %76 ]
-  %91 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv207
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv207
   %92 = load double, ptr %91, align 8, !tbaa !20
   %93 = fcmp ogt double %92, 0x3D719799812DEA11
   br i1 %93, label %94, label %90
@@ -3242,18 +3242,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %95 = load ptr, ptr %1, align 8, !tbaa !66
   %96 = load i64, ptr %23, align 8, !tbaa !68
   %97 = mul nsw i64 %96, %indvars.iv207
-  %98 = getelementptr i32, ptr %95, i64 %21
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %95, i64 %21
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   %100 = load i32, ptr %99, align 4, !tbaa !11
   %101 = sext i32 %100 to i64
   %102 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !303
-  %103 = getelementptr inbounds double, ptr %102, i64 %101
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %101
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %105 = load i64, ptr %104, align 8, !tbaa !19
   %106 = load double, ptr %103, align 8, !tbaa !20
   store double %106, ptr %10, align 8, !tbaa !20
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %108 = getelementptr inbounds double, ptr %103, i64 %105
+  %108 = getelementptr inbounds [8 x i8], ptr %103, i64 %105
   %109 = load double, ptr %108, align 8, !tbaa !20
   store double %109, ptr %107, align 8, !tbaa !20
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3270,7 +3270,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader181:                                    ; preds = %76, %113
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %113 ], [ 0, %76 ]
-  %114 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv204
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv204
   %115 = load double, ptr %114, align 8, !tbaa !20
   %116 = fcmp ugt double %115, 0x3D719799812DEA11
   br i1 %116, label %113, label %117
@@ -3279,18 +3279,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %118 = load i64, ptr %23, align 8, !tbaa !68
   %119 = mul nsw i64 %118, %indvars.iv204
   %120 = load ptr, ptr %5, align 8, !tbaa !32
-  %121 = getelementptr i32, ptr %120, i64 %119
-  %122 = getelementptr i32, ptr %121, i64 %21
+  %121 = getelementptr [4 x i8], ptr %120, i64 %119
+  %122 = getelementptr [4 x i8], ptr %121, i64 %21
   %123 = load i32, ptr %122, align 4, !tbaa !11
   %124 = sext i32 %123 to i64
   %125 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !307
-  %126 = getelementptr inbounds double, ptr %125, i64 %124
+  %126 = getelementptr inbounds [8 x i8], ptr %125, i64 %124
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !19
   %129 = load double, ptr %126, align 8, !tbaa !20
   store double %129, ptr %10, align 8, !tbaa !20
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %131 = getelementptr inbounds double, ptr %126, i64 %128
+  %131 = getelementptr inbounds [8 x i8], ptr %126, i64 %128
   %132 = load double, ptr %131, align 8, !tbaa !20
   store double %132, ptr %130, align 8, !tbaa !20
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3302,13 +3302,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 136:                                              ; preds = %76
   %137 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !310
-  %138 = getelementptr inbounds double, ptr %137, i64 %21
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %21
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load i64, ptr %139, align 8, !tbaa !19
   %141 = load double, ptr %138, align 8, !tbaa !20
   store double %141, ptr %10, align 8, !tbaa !20
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %143 = getelementptr inbounds double, ptr %138, i64 %140
+  %143 = getelementptr inbounds [8 x i8], ptr %138, i64 %140
   %144 = load double, ptr %143, align 8, !tbaa !20
   store double %144, ptr %142, align 8, !tbaa !20
   %145 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3320,11 +3320,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge.thread:                               ; preds = %161
   %148 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !313
-  %149 = getelementptr inbounds double, ptr %148, i64 %165
+  %149 = getelementptr inbounds [8 x i8], ptr %148, i64 %165
   %150 = load i64, ptr %70, align 8, !tbaa !19
   %151 = load double, ptr %149, align 8, !tbaa !20
   store double %151, ptr %10, align 8, !tbaa !20
-  %152 = getelementptr inbounds double, ptr %149, i64 %150
+  %152 = getelementptr inbounds [8 x i8], ptr %149, i64 %150
   %153 = load double, ptr %152, align 8, !tbaa !20
   store double %153, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i81 = shl nsw i64 %150, 4
@@ -3344,14 +3344,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 161:                                              ; preds = %.thread, %.preheader184
   %indvars.iv = phi i64 [ 0, %.preheader184 ], [ %indvars.iv.next211, %.thread ]
   %162 = mul nsw i64 %64, %indvars.iv
-  %163 = getelementptr i32, ptr %65, i64 %162
+  %163 = getelementptr [4 x i8], ptr %65, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !11
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds double, ptr %66, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %66, i64 %165
   %167 = load double, ptr %166, align 8, !tbaa !20
   %168 = fsub double %73, %167
   %169 = fmul double %168, %168
-  %170 = getelementptr double, ptr %166, i64 %67
+  %170 = getelementptr [8 x i8], ptr %166, i64 %67
   %171 = load double, ptr %170, align 8, !tbaa !20
   %172 = fsub double %74, %171
   %173 = fmul double %172, %172
@@ -3380,16 +3380,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %186 = load ptr, ptr %1, align 8, !tbaa !66
   %187 = load i64, ptr %23, align 8, !tbaa !68
   %188 = mul nsw i64 %187, %185
-  %189 = getelementptr i32, ptr %186, i64 %21
-  %190 = getelementptr i32, ptr %189, i64 %188
+  %189 = getelementptr [4 x i8], ptr %186, i64 %21
+  %190 = getelementptr [4 x i8], ptr %189, i64 %188
   %191 = load i32, ptr %190, align 4, !tbaa !11
   %192 = sext i32 %191 to i64
   %193 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !317
-  %194 = getelementptr inbounds double, ptr %193, i64 %192
+  %194 = getelementptr inbounds [8 x i8], ptr %193, i64 %192
   %195 = load i64, ptr %29, align 8, !tbaa !78
   %196 = load double, ptr %194, align 8, !tbaa !20
   store double %196, ptr %17, align 8, !tbaa !20
-  %197 = getelementptr inbounds double, ptr %194, i64 %195
+  %197 = getelementptr inbounds [8 x i8], ptr %194, i64 %195
   %198 = load double, ptr %197, align 8, !tbaa !20
   store double %198, ptr %156, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %195, 4
@@ -3402,13 +3402,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %202 = and i64 %201, 4294967295
   %203 = select i1 %.cmp, i64 2, i64 %202
   %204 = mul nsw i64 %187, %203
-  %205 = getelementptr i32, ptr %189, i64 %204
+  %205 = getelementptr [4 x i8], ptr %189, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds double, ptr %193, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %193, i64 %207
   %209 = load double, ptr %208, align 8, !tbaa !20
   store double %209, ptr %18, align 8, !tbaa !20
-  %210 = getelementptr inbounds double, ptr %208, i64 %195
+  %210 = getelementptr inbounds [8 x i8], ptr %208, i64 %195
   %211 = load double, ptr %210, align 8, !tbaa !20
   store double %211, ptr %158, align 8, !tbaa !20
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
@@ -3426,16 +3426,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %217 = load i64, ptr %23, align 8, !tbaa !68
   %218 = mul nsw i64 %217, %indvars.iv200
   %219 = load ptr, ptr %5, align 8, !tbaa !32
-  %220 = getelementptr i32, ptr %219, i64 %218
-  %221 = getelementptr i32, ptr %220, i64 %21
+  %220 = getelementptr [4 x i8], ptr %219, i64 %218
+  %221 = getelementptr [4 x i8], ptr %220, i64 %21
   %222 = load i32, ptr %221, align 4, !tbaa !11
   %223 = sext i32 %222 to i64
   %224 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !320
-  %225 = getelementptr inbounds double, ptr %224, i64 %223
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %223
   %226 = load i64, ptr %160, align 8, !tbaa !19
   %227 = load double, ptr %225, align 8, !tbaa !20
   store double %227, ptr %10, align 8, !tbaa !20
-  %228 = getelementptr inbounds double, ptr %225, i64 %226
+  %228 = getelementptr inbounds [8 x i8], ptr %225, i64 %226
   %229 = load double, ptr %228, align 8, !tbaa !20
   store double %229, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %226, 4
@@ -3458,12 +3458,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge:                                      ; preds = %232
   %234 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !324
-  %235 = getelementptr inbounds double, ptr %234, i64 %21
+  %235 = getelementptr inbounds [8 x i8], ptr %234, i64 %21
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %237 = load i64, ptr %236, align 8, !tbaa !19
   %238 = load double, ptr %235, align 8, !tbaa !20
   store double %238, ptr %10, align 8, !tbaa !20
-  %239 = getelementptr inbounds double, ptr %235, i64 %237
+  %239 = getelementptr inbounds [8 x i8], ptr %235, i64 %237
   %240 = load double, ptr %239, align 8, !tbaa !20
   store double %240, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %237, 4
@@ -3486,12 +3486,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %.01724.i.i.i.i.i = phi i64 [ 1, %.loopexit ], [ %261, %250 ]
   %.02223.i.i.i.i.i = phi double [ %249, %.loopexit ], [ %260, %250 ]
   %251 = mul nsw i64 %.01724.i.i.i.i.i, %244
-  %252 = getelementptr double, ptr %.sroa.0175.0.copyload, i64 %251
-  %253 = getelementptr double, ptr %8, i64 %.01724.i.i.i.i.i
+  %252 = getelementptr [8 x i8], ptr %.sroa.0175.0.copyload, i64 %251
+  %253 = getelementptr [8 x i8], ptr %8, i64 %.01724.i.i.i.i.i
   %254 = load double, ptr %252, align 8, !tbaa !20
   %255 = load double, ptr %253, align 8, !tbaa !20
   %256 = fsub double %254, %255
-  %257 = getelementptr double, ptr %10, i64 %.01724.i.i.i.i.i
+  %257 = getelementptr [8 x i8], ptr %10, i64 %.01724.i.i.i.i.i
   %258 = load double, ptr %257, align 8, !tbaa !20
   %259 = fmul double %256, %258
   %260 = fadd double %.02223.i.i.i.i.i, %259
@@ -3622,7 +3622,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader:                                       ; preds = %70, %84
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %84 ], [ 0, %70 ]
-  %85 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv207
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv207
   %86 = load float, ptr %85, align 4, !tbaa !89
   %87 = fpext float %86 to double
   %88 = fcmp ogt double %87, 0x3D719799812DEA11
@@ -3631,17 +3631,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 89:                                               ; preds = %.preheader
   %90 = load ptr, ptr %1, align 8, !tbaa !81
   %91 = getelementptr i8, ptr %90, i64 %.idx.i.i.i
-  %92 = getelementptr i32, ptr %91, i64 %indvars.iv207
+  %92 = getelementptr [4 x i8], ptr %91, i64 %indvars.iv207
   %93 = load i32, ptr %92, align 4, !tbaa !11
   %94 = sext i32 %93 to i64
   %95 = load ptr, ptr %3, align 8, !tbaa !123, !noalias !335
-  %96 = getelementptr inbounds float, ptr %95, i64 %94
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %94
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %98 = load i64, ptr %97, align 8, !tbaa !128
   %99 = load float, ptr %96, align 4, !tbaa !89
   store float %99, ptr %10, align 4, !tbaa !89
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %101 = getelementptr inbounds float, ptr %96, i64 %98
+  %101 = getelementptr inbounds [4 x i8], ptr %96, i64 %98
   %102 = load float, ptr %101, align 4, !tbaa !89
   store float %102, ptr %100, align 4, !tbaa !89
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3658,7 +3658,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 .preheader183:                                    ; preds = %70, %106
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %106 ], [ 0, %70 ]
-  %107 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv204
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv204
   %108 = load float, ptr %107, align 4, !tbaa !89
   %109 = fpext float %108 to double
   %110 = fcmp ugt double %109, 0x3D719799812DEA11
@@ -3669,18 +3669,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %113 = load i64, ptr %112, align 8, !tbaa !102
   %114 = mul nsw i64 %113, %indvars.iv204
   %115 = load ptr, ptr %5, align 8, !tbaa !32
-  %116 = getelementptr i32, ptr %115, i64 %114
-  %117 = getelementptr i32, ptr %116, i64 %21
+  %116 = getelementptr [4 x i8], ptr %115, i64 %114
+  %117 = getelementptr [4 x i8], ptr %116, i64 %21
   %118 = load i32, ptr %117, align 4, !tbaa !11
   %119 = sext i32 %118 to i64
   %120 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !339
-  %121 = getelementptr inbounds float, ptr %120, i64 %119
+  %121 = getelementptr inbounds [4 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !128
   %124 = load float, ptr %121, align 4, !tbaa !89
   store float %124, ptr %10, align 4, !tbaa !89
   %125 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %126 = getelementptr inbounds float, ptr %121, i64 %123
+  %126 = getelementptr inbounds [4 x i8], ptr %121, i64 %123
   %127 = load float, ptr %126, align 4, !tbaa !89
   store float %127, ptr %125, align 4, !tbaa !89
   %128 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3692,13 +3692,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 131:                                              ; preds = %70
   %132 = load ptr, ptr %2, align 8, !tbaa !123, !noalias !342
-  %133 = getelementptr inbounds float, ptr %132, i64 %21
+  %133 = getelementptr inbounds [4 x i8], ptr %132, i64 %21
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %135 = load i64, ptr %134, align 8, !tbaa !128
   %136 = load float, ptr %133, align 4, !tbaa !89
   store float %136, ptr %10, align 4, !tbaa !89
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %138 = getelementptr inbounds float, ptr %133, i64 %135
+  %138 = getelementptr inbounds [4 x i8], ptr %133, i64 %135
   %139 = load float, ptr %138, align 4, !tbaa !89
   store float %139, ptr %137, align 4, !tbaa !89
   %140 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3710,11 +3710,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge.thread:                               ; preds = %157
   %143 = load ptr, ptr %3, align 8, !tbaa !123, !noalias !345
-  %144 = getelementptr inbounds float, ptr %143, i64 %160
+  %144 = getelementptr inbounds [4 x i8], ptr %143, i64 %160
   %145 = load i64, ptr %64, align 8, !tbaa !128
   %146 = load float, ptr %144, align 4, !tbaa !89
   store float %146, ptr %10, align 4, !tbaa !89
-  %147 = getelementptr inbounds float, ptr %144, i64 %145
+  %147 = getelementptr inbounds [4 x i8], ptr %144, i64 %145
   %148 = load float, ptr %147, align 4, !tbaa !89
   store float %148, ptr %65, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i87 = shl nsw i64 %145, 3
@@ -3734,7 +3734,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 157:                                              ; preds = %.thread, %.preheader186
   %indvars.iv = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next211, %.thread ]
-  %158 = getelementptr i32, ptr %60, i64 %indvars.iv
+  %158 = getelementptr [4 x i8], ptr %60, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !11
   %160 = sext i32 %159 to i64
   %.idx.i.i.i.i85 = mul nsw i64 %160, 12
@@ -3771,7 +3771,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %182 = select i1 %180, i64 0, i64 %181
   %183 = load ptr, ptr %1, align 8, !tbaa !81
   %184 = getelementptr i8, ptr %183, i64 %.idx.i.i.i
-  %185 = getelementptr i32, ptr %184, i64 %182
+  %185 = getelementptr [4 x i8], ptr %184, i64 %182
   %186 = load i32, ptr %185, align 4, !tbaa !11
   %187 = sext i32 %186 to i64
   %188 = load ptr, ptr %0, align 8, !tbaa !83, !noalias !349
@@ -3790,7 +3790,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %195 = add nuw nsw i64 %indvars.iv200, 4294967295
   %196 = and i64 %195, 4294967295
   %197 = select i1 %.cmp, i64 2, i64 %196
-  %198 = getelementptr i32, ptr %184, i64 %197
+  %198 = getelementptr [4 x i8], ptr %184, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11
   %200 = sext i32 %199 to i64
   %.idx.i.i.i.i91 = mul nsw i64 %200, 12
@@ -3815,16 +3815,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %210 = load i64, ptr %155, align 8, !tbaa !102
   %211 = mul nsw i64 %210, %indvars.iv200
   %212 = load ptr, ptr %5, align 8, !tbaa !32
-  %213 = getelementptr i32, ptr %212, i64 %211
-  %214 = getelementptr i32, ptr %213, i64 %21
+  %213 = getelementptr [4 x i8], ptr %212, i64 %211
+  %214 = getelementptr [4 x i8], ptr %213, i64 %21
   %215 = load i32, ptr %214, align 4, !tbaa !11
   %216 = sext i32 %215 to i64
   %217 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !352
-  %218 = getelementptr inbounds float, ptr %217, i64 %216
+  %218 = getelementptr inbounds [4 x i8], ptr %217, i64 %216
   %219 = load i64, ptr %156, align 8, !tbaa !128
   %220 = load float, ptr %218, align 4, !tbaa !89
   store float %220, ptr %10, align 4, !tbaa !89
-  %221 = getelementptr inbounds float, ptr %218, i64 %219
+  %221 = getelementptr inbounds [4 x i8], ptr %218, i64 %219
   %222 = load float, ptr %221, align 4, !tbaa !89
   store float %222, ptr %65, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i92 = shl nsw i64 %219, 3
@@ -3847,12 +3847,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 ._crit_edge:                                      ; preds = %225
   %227 = load ptr, ptr %2, align 8, !tbaa !123, !noalias !356
-  %228 = getelementptr inbounds float, ptr %227, i64 %21
+  %228 = getelementptr inbounds [4 x i8], ptr %227, i64 %21
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %230 = load i64, ptr %229, align 8, !tbaa !128
   %231 = load float, ptr %228, align 4, !tbaa !89
   store float %231, ptr %10, align 4, !tbaa !89
-  %232 = getelementptr inbounds float, ptr %228, i64 %230
+  %232 = getelementptr inbounds [4 x i8], ptr %228, i64 %230
   %233 = load float, ptr %232, align 4, !tbaa !89
   store float %233, ptr %65, align 4, !tbaa !89
   %.idx.i.i.i.i.i.i.i.i.i.i.i93 = shl nsw i64 %230, 3
@@ -3911,17 +3911,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr i32, ptr %22, i64 %21
+  %24 = getelementptr [4 x i8], ptr %22, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !359
-  %28 = getelementptr inbounds double, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !78
   %31 = load double, ptr %28, align 8, !tbaa !20
   store double %31, ptr %14, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %33 = getelementptr inbounds double, ptr %28, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !20
   store double %34, ptr %32, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3931,14 +3931,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   store double %37, ptr %35, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
-  %39 = getelementptr i32, ptr %24, i64 %38
+  %39 = getelementptr [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %27, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %27, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !20
   store double %43, ptr %15, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %45 = getelementptr inbounds double, ptr %42, i64 %30
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %30
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %44, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -3950,11 +3950,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds double, ptr %27, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %27, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !20
   store double %54, ptr %16, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %56 = getelementptr inbounds double, ptr %53, i64 %30
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %30
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %55, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3971,7 +3971,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 .preheader189:                                    ; preds = %11
   %63 = load ptr, ptr %1, align 8, !tbaa !66
   %64 = load i64, ptr %23, align 8, !tbaa !68
-  %65 = getelementptr i32, ptr %63, i64 %21
+  %65 = getelementptr [4 x i8], ptr %63, i64 %21
   %66 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !362
   %67 = load i64, ptr %29, align 8, !tbaa !78
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4012,7 +4012,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader:                                       ; preds = %76, %90
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %90 ], [ 0, %76 ]
-  %91 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv210
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv210
   %92 = load double, ptr %91, align 8, !tbaa !20
   %93 = fcmp ogt double %92, 0x3D719799812DEA11
   br i1 %93, label %94, label %90
@@ -4021,18 +4021,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %95 = load ptr, ptr %1, align 8, !tbaa !66
   %96 = load i64, ptr %23, align 8, !tbaa !68
   %97 = mul nsw i64 %96, %indvars.iv210
-  %98 = getelementptr i32, ptr %95, i64 %21
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %95, i64 %21
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   %100 = load i32, ptr %99, align 4, !tbaa !11
   %101 = sext i32 %100 to i64
   %102 = load ptr, ptr %3, align 8, !tbaa !69, !noalias !366
-  %103 = getelementptr inbounds double, ptr %102, i64 %101
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %101
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %105 = load i64, ptr %104, align 8, !tbaa !78
   %106 = load double, ptr %103, align 8, !tbaa !20
   store double %106, ptr %10, align 8, !tbaa !20
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %108 = getelementptr inbounds double, ptr %103, i64 %105
+  %108 = getelementptr inbounds [8 x i8], ptr %103, i64 %105
   %109 = load double, ptr %108, align 8, !tbaa !20
   store double %109, ptr %107, align 8, !tbaa !20
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4049,7 +4049,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader186:                                    ; preds = %76, %113
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %113 ], [ 0, %76 ]
-  %114 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv207
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv207
   %115 = load double, ptr %114, align 8, !tbaa !20
   %116 = fcmp ugt double %115, 0x3D719799812DEA11
   br i1 %116, label %113, label %117
@@ -4058,18 +4058,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %118 = load i64, ptr %23, align 8, !tbaa !68
   %119 = mul nsw i64 %118, %indvars.iv207
   %120 = load ptr, ptr %5, align 8, !tbaa !32
-  %121 = getelementptr i32, ptr %120, i64 %119
-  %122 = getelementptr i32, ptr %121, i64 %21
+  %121 = getelementptr [4 x i8], ptr %120, i64 %119
+  %122 = getelementptr [4 x i8], ptr %121, i64 %21
   %123 = load i32, ptr %122, align 4, !tbaa !11
   %124 = sext i32 %123 to i64
   %125 = load ptr, ptr %4, align 8, !tbaa !69, !noalias !370
-  %126 = getelementptr inbounds double, ptr %125, i64 %124
+  %126 = getelementptr inbounds [8 x i8], ptr %125, i64 %124
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !78
   %129 = load double, ptr %126, align 8, !tbaa !20
   store double %129, ptr %10, align 8, !tbaa !20
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %131 = getelementptr inbounds double, ptr %126, i64 %128
+  %131 = getelementptr inbounds [8 x i8], ptr %126, i64 %128
   %132 = load double, ptr %131, align 8, !tbaa !20
   store double %132, ptr %130, align 8, !tbaa !20
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4081,13 +4081,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 136:                                              ; preds = %76
   %137 = load ptr, ptr %2, align 8, !tbaa !69, !noalias !373
-  %138 = getelementptr inbounds double, ptr %137, i64 %21
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %21
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load i64, ptr %139, align 8, !tbaa !78
   %141 = load double, ptr %138, align 8, !tbaa !20
   store double %141, ptr %10, align 8, !tbaa !20
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %143 = getelementptr inbounds double, ptr %138, i64 %140
+  %143 = getelementptr inbounds [8 x i8], ptr %138, i64 %140
   %144 = load double, ptr %143, align 8, !tbaa !20
   store double %144, ptr %142, align 8, !tbaa !20
   %145 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4099,11 +4099,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge.thread:                               ; preds = %161
   %148 = load ptr, ptr %3, align 8, !tbaa !69, !noalias !376
-  %149 = getelementptr inbounds double, ptr %148, i64 %165
+  %149 = getelementptr inbounds [8 x i8], ptr %148, i64 %165
   %150 = load i64, ptr %70, align 8, !tbaa !78
   %151 = load double, ptr %149, align 8, !tbaa !20
   store double %151, ptr %10, align 8, !tbaa !20
-  %152 = getelementptr inbounds double, ptr %149, i64 %150
+  %152 = getelementptr inbounds [8 x i8], ptr %149, i64 %150
   %153 = load double, ptr %152, align 8, !tbaa !20
   store double %153, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i81 = shl nsw i64 %150, 4
@@ -4123,14 +4123,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 161:                                              ; preds = %.thread, %.preheader189
   %indvars.iv = phi i64 [ 0, %.preheader189 ], [ %indvars.iv.next214, %.thread ]
   %162 = mul nsw i64 %64, %indvars.iv
-  %163 = getelementptr i32, ptr %65, i64 %162
+  %163 = getelementptr [4 x i8], ptr %65, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !11
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds double, ptr %66, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %66, i64 %165
   %167 = load double, ptr %166, align 8, !tbaa !20
   %168 = fsub double %73, %167
   %169 = fmul double %168, %168
-  %170 = getelementptr double, ptr %166, i64 %67
+  %170 = getelementptr [8 x i8], ptr %166, i64 %67
   %171 = load double, ptr %170, align 8, !tbaa !20
   %172 = fsub double %74, %171
   %173 = fmul double %172, %172
@@ -4159,16 +4159,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %186 = load ptr, ptr %1, align 8, !tbaa !66
   %187 = load i64, ptr %23, align 8, !tbaa !68
   %188 = mul nsw i64 %187, %185
-  %189 = getelementptr i32, ptr %186, i64 %21
-  %190 = getelementptr i32, ptr %189, i64 %188
+  %189 = getelementptr [4 x i8], ptr %186, i64 %21
+  %190 = getelementptr [4 x i8], ptr %189, i64 %188
   %191 = load i32, ptr %190, align 4, !tbaa !11
   %192 = sext i32 %191 to i64
   %193 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !380
-  %194 = getelementptr inbounds double, ptr %193, i64 %192
+  %194 = getelementptr inbounds [8 x i8], ptr %193, i64 %192
   %195 = load i64, ptr %29, align 8, !tbaa !78
   %196 = load double, ptr %194, align 8, !tbaa !20
   store double %196, ptr %17, align 8, !tbaa !20
-  %197 = getelementptr inbounds double, ptr %194, i64 %195
+  %197 = getelementptr inbounds [8 x i8], ptr %194, i64 %195
   %198 = load double, ptr %197, align 8, !tbaa !20
   store double %198, ptr %156, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %195, 4
@@ -4181,13 +4181,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %202 = and i64 %201, 4294967295
   %203 = select i1 %.cmp, i64 2, i64 %202
   %204 = mul nsw i64 %187, %203
-  %205 = getelementptr i32, ptr %189, i64 %204
+  %205 = getelementptr [4 x i8], ptr %189, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds double, ptr %193, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %193, i64 %207
   %209 = load double, ptr %208, align 8, !tbaa !20
   store double %209, ptr %18, align 8, !tbaa !20
-  %210 = getelementptr inbounds double, ptr %208, i64 %195
+  %210 = getelementptr inbounds [8 x i8], ptr %208, i64 %195
   %211 = load double, ptr %210, align 8, !tbaa !20
   store double %211, ptr %158, align 8, !tbaa !20
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
@@ -4205,16 +4205,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %217 = load i64, ptr %23, align 8, !tbaa !68
   %218 = mul nsw i64 %217, %indvars.iv203
   %219 = load ptr, ptr %5, align 8, !tbaa !32
-  %220 = getelementptr i32, ptr %219, i64 %218
-  %221 = getelementptr i32, ptr %220, i64 %21
+  %220 = getelementptr [4 x i8], ptr %219, i64 %218
+  %221 = getelementptr [4 x i8], ptr %220, i64 %21
   %222 = load i32, ptr %221, align 4, !tbaa !11
   %223 = sext i32 %222 to i64
   %224 = load ptr, ptr %4, align 8, !tbaa !69, !noalias !383
-  %225 = getelementptr inbounds double, ptr %224, i64 %223
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %223
   %226 = load i64, ptr %160, align 8, !tbaa !78
   %227 = load double, ptr %225, align 8, !tbaa !20
   store double %227, ptr %10, align 8, !tbaa !20
-  %228 = getelementptr inbounds double, ptr %225, i64 %226
+  %228 = getelementptr inbounds [8 x i8], ptr %225, i64 %226
   %229 = load double, ptr %228, align 8, !tbaa !20
   store double %229, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %226, 4
@@ -4237,12 +4237,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge:                                      ; preds = %232
   %234 = load ptr, ptr %2, align 8, !tbaa !69, !noalias !387
-  %235 = getelementptr inbounds double, ptr %234, i64 %21
+  %235 = getelementptr inbounds [8 x i8], ptr %234, i64 %21
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %237 = load i64, ptr %236, align 8, !tbaa !78
   %238 = load double, ptr %235, align 8, !tbaa !20
   store double %238, ptr %10, align 8, !tbaa !20
-  %239 = getelementptr inbounds double, ptr %235, i64 %237
+  %239 = getelementptr inbounds [8 x i8], ptr %235, i64 %237
   %240 = load double, ptr %239, align 8, !tbaa !20
   store double %240, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %237, 4
@@ -4295,17 +4295,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr i32, ptr %22, i64 %21
+  %24 = getelementptr [4 x i8], ptr %22, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !390
-  %28 = getelementptr inbounds double, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !78
   %31 = load double, ptr %28, align 8, !tbaa !20
   store double %31, ptr %14, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %33 = getelementptr inbounds double, ptr %28, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !20
   store double %34, ptr %32, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -4315,14 +4315,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   store double %37, ptr %35, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
-  %39 = getelementptr i32, ptr %24, i64 %38
+  %39 = getelementptr [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %27, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %27, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !20
   store double %43, ptr %15, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %45 = getelementptr inbounds double, ptr %42, i64 %30
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %30
   %46 = load double, ptr %45, align 8, !tbaa !20
   store double %46, ptr %44, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -4334,11 +4334,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds double, ptr %27, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %27, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !20
   store double %54, ptr %16, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %56 = getelementptr inbounds double, ptr %53, i64 %30
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %30
   %57 = load double, ptr %56, align 8, !tbaa !20
   store double %57, ptr %55, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -4355,7 +4355,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 .preheader183:                                    ; preds = %11
   %63 = load ptr, ptr %1, align 8, !tbaa !66
   %64 = load i64, ptr %23, align 8, !tbaa !68
-  %65 = getelementptr i32, ptr %63, i64 %21
+  %65 = getelementptr [4 x i8], ptr %63, i64 %21
   %66 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !393
   %67 = load i64, ptr %29, align 8, !tbaa !78
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4396,7 +4396,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader:                                       ; preds = %76, %90
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %90 ], [ 0, %76 ]
-  %91 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv204
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv204
   %92 = load double, ptr %91, align 8, !tbaa !20
   %93 = fcmp ogt double %92, 0x3D719799812DEA11
   br i1 %93, label %94, label %90
@@ -4405,18 +4405,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %95 = load ptr, ptr %1, align 8, !tbaa !66
   %96 = load i64, ptr %23, align 8, !tbaa !68
   %97 = mul nsw i64 %96, %indvars.iv204
-  %98 = getelementptr i32, ptr %95, i64 %21
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %95, i64 %21
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   %100 = load i32, ptr %99, align 4, !tbaa !11
   %101 = sext i32 %100 to i64
   %102 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !397
-  %103 = getelementptr inbounds double, ptr %102, i64 %101
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %101
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %105 = load i64, ptr %104, align 8, !tbaa !19
   %106 = load double, ptr %103, align 8, !tbaa !20
   store double %106, ptr %10, align 8, !tbaa !20
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %108 = getelementptr inbounds double, ptr %103, i64 %105
+  %108 = getelementptr inbounds [8 x i8], ptr %103, i64 %105
   %109 = load double, ptr %108, align 8, !tbaa !20
   store double %109, ptr %107, align 8, !tbaa !20
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4433,7 +4433,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 .preheader180:                                    ; preds = %76, %113
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %113 ], [ 0, %76 ]
-  %114 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv201
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv201
   %115 = load double, ptr %114, align 8, !tbaa !20
   %116 = fcmp ugt double %115, 0x3D719799812DEA11
   br i1 %116, label %113, label %117
@@ -4442,18 +4442,18 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %118 = load i64, ptr %23, align 8, !tbaa !68
   %119 = mul nsw i64 %118, %indvars.iv201
   %120 = load ptr, ptr %5, align 8, !tbaa !32
-  %121 = getelementptr i32, ptr %120, i64 %119
-  %122 = getelementptr i32, ptr %121, i64 %21
+  %121 = getelementptr [4 x i8], ptr %120, i64 %119
+  %122 = getelementptr [4 x i8], ptr %121, i64 %21
   %123 = load i32, ptr %122, align 4, !tbaa !11
   %124 = sext i32 %123 to i64
   %125 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !401
-  %126 = getelementptr inbounds double, ptr %125, i64 %124
+  %126 = getelementptr inbounds [8 x i8], ptr %125, i64 %124
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !19
   %129 = load double, ptr %126, align 8, !tbaa !20
   store double %129, ptr %10, align 8, !tbaa !20
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %131 = getelementptr inbounds double, ptr %126, i64 %128
+  %131 = getelementptr inbounds [8 x i8], ptr %126, i64 %128
   %132 = load double, ptr %131, align 8, !tbaa !20
   store double %132, ptr %130, align 8, !tbaa !20
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4465,13 +4465,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 136:                                              ; preds = %76
   %137 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !404
-  %138 = getelementptr inbounds double, ptr %137, i64 %21
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %21
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load i64, ptr %139, align 8, !tbaa !19
   %141 = load double, ptr %138, align 8, !tbaa !20
   store double %141, ptr %10, align 8, !tbaa !20
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %143 = getelementptr inbounds double, ptr %138, i64 %140
+  %143 = getelementptr inbounds [8 x i8], ptr %138, i64 %140
   %144 = load double, ptr %143, align 8, !tbaa !20
   store double %144, ptr %142, align 8, !tbaa !20
   %145 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4483,11 +4483,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge.thread:                               ; preds = %161
   %148 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !407
-  %149 = getelementptr inbounds double, ptr %148, i64 %165
+  %149 = getelementptr inbounds [8 x i8], ptr %148, i64 %165
   %150 = load i64, ptr %70, align 8, !tbaa !19
   %151 = load double, ptr %149, align 8, !tbaa !20
   store double %151, ptr %10, align 8, !tbaa !20
-  %152 = getelementptr inbounds double, ptr %149, i64 %150
+  %152 = getelementptr inbounds [8 x i8], ptr %149, i64 %150
   %153 = load double, ptr %152, align 8, !tbaa !20
   store double %153, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i81 = shl nsw i64 %150, 4
@@ -4507,14 +4507,14 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 161:                                              ; preds = %.thread, %.preheader183
   %indvars.iv = phi i64 [ 0, %.preheader183 ], [ %indvars.iv.next208, %.thread ]
   %162 = mul nsw i64 %64, %indvars.iv
-  %163 = getelementptr i32, ptr %65, i64 %162
+  %163 = getelementptr [4 x i8], ptr %65, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !11
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds double, ptr %66, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %66, i64 %165
   %167 = load double, ptr %166, align 8, !tbaa !20
   %168 = fsub double %73, %167
   %169 = fmul double %168, %168
-  %170 = getelementptr double, ptr %166, i64 %67
+  %170 = getelementptr [8 x i8], ptr %166, i64 %67
   %171 = load double, ptr %170, align 8, !tbaa !20
   %172 = fsub double %74, %171
   %173 = fmul double %172, %172
@@ -4543,16 +4543,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %186 = load ptr, ptr %1, align 8, !tbaa !66
   %187 = load i64, ptr %23, align 8, !tbaa !68
   %188 = mul nsw i64 %187, %185
-  %189 = getelementptr i32, ptr %186, i64 %21
-  %190 = getelementptr i32, ptr %189, i64 %188
+  %189 = getelementptr [4 x i8], ptr %186, i64 %21
+  %190 = getelementptr [4 x i8], ptr %189, i64 %188
   %191 = load i32, ptr %190, align 4, !tbaa !11
   %192 = sext i32 %191 to i64
   %193 = load ptr, ptr %0, align 8, !tbaa !69, !noalias !411
-  %194 = getelementptr inbounds double, ptr %193, i64 %192
+  %194 = getelementptr inbounds [8 x i8], ptr %193, i64 %192
   %195 = load i64, ptr %29, align 8, !tbaa !78
   %196 = load double, ptr %194, align 8, !tbaa !20
   store double %196, ptr %17, align 8, !tbaa !20
-  %197 = getelementptr inbounds double, ptr %194, i64 %195
+  %197 = getelementptr inbounds [8 x i8], ptr %194, i64 %195
   %198 = load double, ptr %197, align 8, !tbaa !20
   store double %198, ptr %156, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %195, 4
@@ -4565,13 +4565,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %202 = and i64 %201, 4294967295
   %203 = select i1 %.cmp, i64 2, i64 %202
   %204 = mul nsw i64 %187, %203
-  %205 = getelementptr i32, ptr %189, i64 %204
+  %205 = getelementptr [4 x i8], ptr %189, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds double, ptr %193, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %193, i64 %207
   %209 = load double, ptr %208, align 8, !tbaa !20
   store double %209, ptr %18, align 8, !tbaa !20
-  %210 = getelementptr inbounds double, ptr %208, i64 %195
+  %210 = getelementptr inbounds [8 x i8], ptr %208, i64 %195
   %211 = load double, ptr %210, align 8, !tbaa !20
   store double %211, ptr %158, align 8, !tbaa !20
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
@@ -4589,16 +4589,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %217 = load i64, ptr %23, align 8, !tbaa !68
   %218 = mul nsw i64 %217, %indvars.iv197
   %219 = load ptr, ptr %5, align 8, !tbaa !32
-  %220 = getelementptr i32, ptr %219, i64 %218
-  %221 = getelementptr i32, ptr %220, i64 %21
+  %220 = getelementptr [4 x i8], ptr %219, i64 %218
+  %221 = getelementptr [4 x i8], ptr %220, i64 %21
   %222 = load i32, ptr %221, align 4, !tbaa !11
   %223 = sext i32 %222 to i64
   %224 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !414
-  %225 = getelementptr inbounds double, ptr %224, i64 %223
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %223
   %226 = load i64, ptr %160, align 8, !tbaa !19
   %227 = load double, ptr %225, align 8, !tbaa !20
   store double %227, ptr %10, align 8, !tbaa !20
-  %228 = getelementptr inbounds double, ptr %225, i64 %226
+  %228 = getelementptr inbounds [8 x i8], ptr %225, i64 %226
   %229 = load double, ptr %228, align 8, !tbaa !20
   store double %229, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %226, 4
@@ -4621,12 +4621,12 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 ._crit_edge:                                      ; preds = %232
   %234 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !418
-  %235 = getelementptr inbounds double, ptr %234, i64 %21
+  %235 = getelementptr inbounds [8 x i8], ptr %234, i64 %21
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %237 = load i64, ptr %236, align 8, !tbaa !19
   %238 = load double, ptr %235, align 8, !tbaa !20
   store double %238, ptr %10, align 8, !tbaa !20
-  %239 = getelementptr inbounds double, ptr %235, i64 %237
+  %239 = getelementptr inbounds [8 x i8], ptr %235, i64 %237
   %240 = load double, ptr %239, align 8, !tbaa !20
   store double %240, ptr %71, align 8, !tbaa !20
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %237, 4

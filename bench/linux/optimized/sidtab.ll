@@ -5,15 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.static_call_key = type { ptr, %union.anon.2 }
 %union.anon.2 = type { i64 }
-%struct.sidtab_isid_entry = type { i32, %struct.sidtab_entry }
-%struct.sidtab_entry = type { i32, i32, %struct.context, ptr, %struct.hlist_node }
-%struct.context = type { i32, i32, i32, i32, %struct.mls_range, ptr }
-%struct.mls_range = type { [2 x %struct.mls_level] }
-%struct.mls_level = type { i32, %struct.ebitmap }
-%struct.ebitmap = type { ptr, i32 }
-%struct.hlist_node = type { ptr, ptr }
-%struct.hlist_head = type { ptr }
-%union.sidtab_entry_inner = type { ptr }
 
 @.str = private unnamed_addr constant [51 x i8] c"entries: %d\0Abuckets used: %d/%d\0Alongest chain: %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [54 x i8] c"\016SELinux:  Context %s is not valid (left unmapped).\0A\00", align 1
@@ -31,7 +22,7 @@ define dso_local noundef i32 @sidtab_init(ptr noundef initializes((0, 32)) %0) l
 
 3:                                                ; preds = %3, %1
   %4 = phi i64 [ 0, %1 ], [ %6, %3 ]
-  %5 = getelementptr %struct.sidtab_isid_entry, ptr %2, i64 %4
+  %5 = getelementptr [112 x i8], ptr %2, i64 %4
   store i32 0, ptr %5, align 8
   %6 = add nuw nsw i64 %4, 1
   %7 = icmp eq i64 %6, 27
@@ -73,7 +64,7 @@ define dso_local i32 @sidtab_set_initial(ptr noundef %0, i32 noundef %1, ptr nou
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr %struct.sidtab_isid_entry, ptr %0, i64 %7
+  %8 = getelementptr [112 x i8], ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = getelementptr i8, ptr %8, i64 -16
   %11 = getelementptr i8, ptr %8, i64 -8
@@ -164,7 +155,7 @@ define dso_local i32 @sidtab_set_initial(ptr noundef %0, i32 noundef %1, ptr nou
   %61 = mul i32 %54, 1640531527
   %62 = lshr i32 %61, 23
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr %struct.hlist_head, ptr %60, i64 %63
+  %64 = getelementptr [8 x i8], ptr %60, i64 %63
   %65 = load ptr, ptr %64, align 8
   store volatile ptr %65, ptr %59, align 8
   %66 = icmp eq ptr %65, null
@@ -196,7 +187,7 @@ define internal fastcc i32 @context_to_sid(ptr noundef %0, ptr noundef %1, i32 n
   %5 = mul i32 %2, 1640531527
   %6 = lshr i32 %5, 23
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr %struct.hlist_head, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %11 = getelementptr i8, ptr %9, i64 -88
@@ -324,7 +315,7 @@ define dso_local i32 @sidtab_hash_stats(ptr noundef %0, ptr noundef %1) local_un
   %8 = phi i32 [ 0, %2 ], [ %48, %.loopexit ]
   %9 = phi i32 [ 0, %2 ], [ %47, %.loopexit ]
   %10 = phi i32 [ 0, %2 ], [ %46, %.loopexit ]
-  %11 = getelementptr %struct.hlist_head, ptr %3, i64 %5
+  %11 = getelementptr [8 x i8], ptr %3, i64 %5
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %14 = getelementptr i8, ptr %12, i64 -88
@@ -425,7 +416,7 @@ define dso_local ptr @sidtab_search_entry(ptr noundef %0, i32 noundef %1) local_
 
 21:                                               ; preds = %.preheader
   %22 = zext i32 %19 to i64
-  %23 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %22
+  %23 = getelementptr [8 x i8], ptr %0, i64 %22
   %24 = icmp eq i32 %19, 0
   br i1 %24, label %.thread, label %25
 
@@ -442,7 +433,7 @@ define dso_local ptr @sidtab_search_entry(ptr noundef %0, i32 noundef %1) local_
   %32 = add i32 %30, -9
   %33 = lshr i32 %29, %32
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr %union.sidtab_entry_inner, ptr %28, i64 %34
+  %35 = getelementptr [8 x i8], ptr %28, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread6, label %38
@@ -456,7 +447,7 @@ define dso_local ptr @sidtab_search_entry(ptr noundef %0, i32 noundef %1) local_
   br i1 %43, label %.thread.loopexit, label %27, !llvm.loop !13
 
 .thread.loopexit:                                 ; preds = %38
-  %44 = getelementptr %union.sidtab_entry_inner, ptr %28, i64 %34
+  %44 = getelementptr [8 x i8], ptr %28, i64 %34
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %11, %21
@@ -467,12 +458,12 @@ define dso_local ptr @sidtab_search_entry(ptr noundef %0, i32 noundef %1) local_
 
 48:                                               ; preds = %.thread
   %49 = zext nneg i32 %13 to i64
-  %50 = getelementptr %struct.sidtab_entry, ptr %46, i64 %49
+  %50 = getelementptr [104 x i8], ptr %46, i64 %49
   br label %58
 
 51:                                               ; preds = %4
   %52 = zext nneg i32 %1 to i64
-  %53 = getelementptr %struct.sidtab_isid_entry, ptr %0, i64 %52
+  %53 = getelementptr [112 x i8], ptr %0, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -24
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
@@ -537,7 +528,7 @@ define dso_local ptr @sidtab_search_entry_force(ptr noundef %0, i32 noundef %1) 
 
 21:                                               ; preds = %.preheader
   %22 = zext i32 %19 to i64
-  %23 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %22
+  %23 = getelementptr [8 x i8], ptr %0, i64 %22
   %24 = icmp eq i32 %19, 0
   br i1 %24, label %.thread, label %25
 
@@ -554,7 +545,7 @@ define dso_local ptr @sidtab_search_entry_force(ptr noundef %0, i32 noundef %1) 
   %32 = add i32 %30, -9
   %33 = lshr i32 %29, %32
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr %union.sidtab_entry_inner, ptr %28, i64 %34
+  %35 = getelementptr [8 x i8], ptr %28, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread6, label %38
@@ -568,7 +559,7 @@ define dso_local ptr @sidtab_search_entry_force(ptr noundef %0, i32 noundef %1) 
   br i1 %43, label %.thread.loopexit, label %27, !llvm.loop !13
 
 .thread.loopexit:                                 ; preds = %38
-  %44 = getelementptr %union.sidtab_entry_inner, ptr %28, i64 %34
+  %44 = getelementptr [8 x i8], ptr %28, i64 %34
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %11, %21
@@ -579,12 +570,12 @@ define dso_local ptr @sidtab_search_entry_force(ptr noundef %0, i32 noundef %1) 
 
 48:                                               ; preds = %.thread
   %49 = zext nneg i32 %13 to i64
-  %50 = getelementptr %struct.sidtab_entry, ptr %46, i64 %49
+  %50 = getelementptr [104 x i8], ptr %46, i64 %49
   br label %58
 
 51:                                               ; preds = %4
   %52 = zext nneg i32 %1 to i64
-  %53 = getelementptr %struct.sidtab_isid_entry, ptr %0, i64 %52
+  %53 = getelementptr [112 x i8], ptr %0, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -24
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
@@ -760,7 +751,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   %92 = mul i32 %91, 1640531527
   %93 = lshr i32 %92, 23
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr %struct.hlist_head, ptr %90, i64 %94
+  %95 = getelementptr [8 x i8], ptr %90, i64 %94
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %89, align 8
   %97 = getelementptr inbounds nuw i8, ptr %75, i64 96
@@ -797,7 +788,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   %112 = mul i32 %111, 1640531527
   %113 = lshr i32 %112, 23
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr %struct.hlist_head, ptr %110, i64 %114
+  %115 = getelementptr [8 x i8], ptr %110, i64 %114
   %116 = load ptr, ptr %115, align 8
   store ptr %116, ptr %109, align 8
   %117 = getelementptr inbounds nuw i8, ptr %21, i64 96
@@ -863,7 +854,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr noundef captures(none) %0, i32 
 .preheader:                                       ; preds = %20, %37
   %23 = phi i32 [ %38, %37 ], [ 1, %20 ]
   %24 = zext i32 %23 to i64
-  %25 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %24
+  %25 = getelementptr [8 x i8], ptr %0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %37
@@ -878,7 +869,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr noundef captures(none) %0, i32 
 32:                                               ; preds = %28
   %33 = add i32 %23, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %34
+  %35 = getelementptr [8 x i8], ptr %0, i64 %34
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %30, align 8
   br label %37
@@ -890,7 +881,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr noundef captures(none) %0, i32 
 
 40:                                               ; preds = %37
   %41 = zext i32 %12 to i64
-  %42 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %41
+  %42 = getelementptr [8 x i8], ptr %0, i64 %41
   %.pre = load ptr, ptr %42, align 8
   br label %43
 
@@ -903,7 +894,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr noundef captures(none) %0, i32 
   %49 = add i32 %47, -1
   %50 = lshr i32 %45, %48
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr %union.sidtab_entry_inner, ptr %44, i64 %51
+  %52 = getelementptr [8 x i8], ptr %44, i64 %51
   %53 = shl nsw i32 -1, %48
   %54 = xor i32 %53, -1
   %55 = and i32 %45, %54
@@ -926,7 +917,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr noundef captures(none) %0, i32 
 .loopexit4:                                       ; preds = %62, %20
   %65 = phi ptr [ %21, %20 ], [ %63, %62 ]
   %66 = zext nneg i32 %4 to i64
-  %67 = getelementptr %struct.sidtab_entry, ptr %65, i64 %66
+  %67 = getelementptr [104 x i8], ptr %65, i64 %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %58, %.loopexit4, %16
@@ -1006,8 +997,8 @@ define dso_local i32 @sidtab_convert(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 0, ptr %3, align 4
   %28 = load ptr, ptr %19, align 8
   %29 = zext i32 %18 to i64
-  %30 = getelementptr %union.sidtab_entry_inner, ptr %28, i64 %29
-  %31 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
+  %31 = getelementptr [8 x i8], ptr %0, i64 %29
   %32 = call fastcc i32 @sidtab_convert_tree(ptr noundef %30, ptr noundef %31, ptr noundef nonnull %3, i32 noundef %11, i32 noundef %18, ptr noundef %1)
   %33 = icmp eq i32 %32, 0
   %34 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #13
@@ -1064,9 +1055,9 @@ define internal fastcc i32 @sidtab_convert_tree(ptr noundef captures(none) %0, p
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr %union.sidtab_entry_inner, ptr %25, i64 %21
+  %26 = getelementptr [8 x i8], ptr %25, i64 %21
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr %union.sidtab_entry_inner, ptr %27, i64 %21
+  %28 = getelementptr [8 x i8], ptr %27, i64 %21
   %29 = tail call fastcc i32 @sidtab_convert_tree(ptr noundef %26, ptr noundef %28, ptr noundef %2, i32 noundef %3, i32 noundef %16, ptr noundef %5)
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %17, label %.loopexit
@@ -1094,10 +1085,10 @@ define internal fastcc i32 @sidtab_convert_tree(ptr noundef captures(none) %0, p
 41:                                               ; preds = %37
   %42 = load ptr, ptr %5, align 8
   %43 = load ptr, ptr %1, align 8
-  %.split = getelementptr %struct.sidtab_entry, ptr %43, i64 %39
+  %.split = getelementptr [104 x i8], ptr %43, i64 %39
   %44 = getelementptr i8, ptr %.split, i64 8
   %45 = load ptr, ptr %0, align 8
-  %.split6 = getelementptr %struct.sidtab_entry, ptr %45, i64 %39
+  %.split6 = getelementptr [104 x i8], ptr %45, i64 %39
   %46 = getelementptr i8, ptr %.split6, i64 8
   %47 = tail call i32 @services_convert_context(ptr noundef %42, ptr noundef %44, ptr noundef %46, i32 noundef 3264) #13
   %48 = icmp eq i32 %47, 0
@@ -1147,7 +1138,7 @@ define internal fastcc void @sidtab_convert_hashtable(ptr noundef %0, i32 nounde
 
 17:                                               ; preds = %.preheader
   %18 = zext i32 %15 to i64
-  %19 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %18
+  %19 = getelementptr [8 x i8], ptr %0, i64 %18
   %20 = icmp eq i32 %15, 0
   br i1 %20, label %.thread, label %21
 
@@ -1164,7 +1155,7 @@ define internal fastcc void @sidtab_convert_hashtable(ptr noundef %0, i32 nounde
   %28 = add i32 %26, -9
   %29 = lshr i32 %25, %28
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr %union.sidtab_entry_inner, ptr %24, i64 %30
+  %31 = getelementptr [8 x i8], ptr %24, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.loopexit, label %34
@@ -1178,7 +1169,7 @@ define internal fastcc void @sidtab_convert_hashtable(ptr noundef %0, i32 nounde
   br i1 %39, label %.thread.loopexit, label %23, !llvm.loop !13
 
 .thread.loopexit:                                 ; preds = %34
-  %40 = getelementptr %union.sidtab_entry_inner, ptr %24, i64 %30
+  %40 = getelementptr [8 x i8], ptr %24, i64 %30
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %6, %17
@@ -1189,7 +1180,7 @@ define internal fastcc void @sidtab_convert_hashtable(ptr noundef %0, i32 nounde
 
 44:                                               ; preds = %.thread
   %45 = zext nneg i32 %9 to i64
-  %46 = getelementptr %struct.sidtab_entry, ptr %42, i64 %45
+  %46 = getelementptr [104 x i8], ptr %42, i64 %45
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %44, %.thread
@@ -1204,7 +1195,7 @@ define internal fastcc void @sidtab_convert_hashtable(ptr noundef %0, i32 nounde
   %53 = mul i32 %50, 1640531527
   %54 = lshr i32 %53, 23
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr %struct.hlist_head, ptr %5, i64 %55
+  %56 = getelementptr [8 x i8], ptr %5, i64 %55
   %57 = load ptr, ptr %56, align 8
   store ptr %57, ptr %52, align 8
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 96
@@ -1264,7 +1255,7 @@ define dso_local void @sidtab_destroy(ptr noundef %0) local_unnamed_addr #3 alig
 
 3:                                                ; preds = %20, %1
   %4 = phi i64 [ 0, %1 ], [ %21, %20 ]
-  %5 = getelementptr %struct.sidtab_isid_entry, ptr %2, i64 %4
+  %5 = getelementptr [112 x i8], ptr %2, i64 %4
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %20, label %8
@@ -1301,7 +1292,7 @@ define dso_local void @sidtab_destroy(ptr noundef %0) local_unnamed_addr #3 alig
 .preheader:                                       ; preds = %20, %28
   %23 = phi i32 [ %29, %28 ], [ 3, %20 ]
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %24
+  %25 = getelementptr [8 x i8], ptr %0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %split
@@ -1337,7 +1328,7 @@ define internal fastcc void @sidtab_destroy_tree(ptr %0, i32 noundef range(i32 0
 
 8:                                                ; preds = %8, %6
   %9 = phi i64 [ 0, %6 ], [ %12, %8 ]
-  %10 = getelementptr %union.sidtab_entry_inner, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call fastcc void @sidtab_destroy_tree(ptr %11, i32 noundef %7)
   %12 = add nuw nsw i64 %9, 1
@@ -1349,7 +1340,7 @@ define internal fastcc void @sidtab_destroy_tree(ptr %0, i32 noundef range(i32 0
 
 .preheader:                                       ; preds = %14, %.preheader
   %15 = phi i64 [ %28, %.preheader ], [ 0, %14 ]
-  %16 = getelementptr %struct.sidtab_entry, ptr %0, i64 %15
+  %16 = getelementptr [104 x i8], ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %18, align 8

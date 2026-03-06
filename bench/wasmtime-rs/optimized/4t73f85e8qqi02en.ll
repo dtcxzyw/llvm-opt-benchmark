@@ -399,7 +399,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit6: ; p
   %.sroa.8.sroa.0.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx8, align 8, !noalias !103, !nonnull !4, !noundef !4
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
   %.sroa.8.sroa.5.0.copyload = load i64, ptr %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx8.sroa_idx, align 8, !noalias !103
-  %49 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.sroa.8.sroa.0.0.copyload, i64 %.sroa.8.sroa.5.0.copyload
+  %49 = getelementptr inbounds [32 x i8], ptr %.sroa.8.sroa.0.0.copyload, i64 %.sroa.8.sroa.5.0.copyload
   store ptr %.sroa.8.sroa.0.0.copyload, ptr %5, align 8
   store ptr %.sroa.8.sroa.0.0.copyload, ptr %7, align 8
   store i64 %.sroa.0.0.copyload7, ptr %.sroa.617.0..sroa_idx18, align 8
@@ -2156,7 +2156,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
 
 36:                                               ; preds = %24
   %37 = load ptr, ptr %0, align 8, !noalias !367, !nonnull !4, !align !373, !noundef !4
-  %38 = getelementptr inbounds { { ptr } }, ptr %37, i64 %.011.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.011.i.i
   %39 = load atomic i64, ptr %38 monotonic, align 8, !noalias !367
   %40 = inttoptr i64 %39 to ptr
   %41 = icmp eq i64 %39, 0
@@ -2251,7 +2251,7 @@ common.resume:                                    ; preds = %112, %47, %57
 
 63:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h90cfcafa863f3eedE.exit.i.i.i"
   %64 = load ptr, ptr %0, align 8, !noalias !367, !nonnull !4, !align !373, !noundef !4
-  %65 = getelementptr inbounds { { ptr } }, ptr %64, i64 %.011.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %.011.i.i
   %66 = ptrtoint ptr %54 to i64
   %67 = cmpxchg ptr %65, i64 0, i64 %66 acq_rel acquire, align 8, !noalias !367
   %68 = extractvalue { i64, i1 } %67, 1
@@ -2315,7 +2315,7 @@ common.resume:                                    ; preds = %112, %47, %57
   br i1 %exitcond.not.i.i, label %97, label %94, !prof !397
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i64, ptr %89, i64 %.sroa.8.015.i.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.sroa.8.015.i.i
   call void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h1dbf72a974c762ceE"(ptr noalias noundef nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 8 %.sroa.0.016.i.i, ptr noundef nonnull align 8 %95, ptr noalias noundef nonnull align 1 %4), !noalias !398
   %96 = load i8, ptr %90, align 8, !range !399, !noalias !398, !noundef !4
   %.not.i.i = icmp eq i8 %96, 2
@@ -2477,8 +2477,8 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %22 = lshr i64 %1, 51
-  %23 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %9, i64 %7
-  %24 = getelementptr inbounds nuw i64, ptr %21, i64 %7
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %7
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %7
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load i64, ptr %25, align 8, !noundef !4
   %27 = sub i64 %3, %26
@@ -2493,7 +2493,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
   br i1 %33, label %34, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17h1e813926c23efcc2E.exit"
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %28, i64 %27
+  %35 = getelementptr inbounds [96 x i8], ptr %28, i64 %27
   %36 = tail call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h7341c18dfde20f18E"(ptr noundef nonnull align 8 %35, i64 noundef %22, i64 noundef %27, ptr noundef nonnull align 8 %24), !noalias !417
   br label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17h1e813926c23efcc2E.exit"
 
@@ -2525,7 +2525,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12
   br i1 %14, label %15, label %31, !prof !391
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %9, i64 %7
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %7
   %17 = lshr i64 %1, 51
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -2542,7 +2542,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12
   br i1 %27, label %28, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17h03eade8423be1bd3E.exit"
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %22, i64 %21
+  %29 = getelementptr inbounds [96 x i8], ptr %22, i64 %21
   %30 = tail call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h85304f09218cd1c0E"(ptr noundef nonnull align 8 %29, i64 noundef %17, i64 noundef %21, ptr noundef nonnull align 8 %18), !noalias !420
   br label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17h03eade8423be1bd3E.exit"
 
@@ -2608,7 +2608,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
   br i1 %27, label %28, label %44, !prof !391
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %23, i64 %19
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   %30 = lshr i64 %1, 51
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -2625,7 +2625,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
   br i1 %40, label %41, label %"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12clear_remote17h11a1d12b84a5af21E.llvm.1804880793895523134.exit"
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %35, i64 %34
+  %42 = getelementptr inbounds [96 x i8], ptr %35, i64 %34
   %43 = tail call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h85304f09218cd1c0E"(ptr noundef nonnull align 8 %42, i64 noundef %30, i64 noundef %34, ptr noundef nonnull align 8 %31), !noalias !434
   br label %"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12clear_remote17h11a1d12b84a5af21E.llvm.1804880793895523134.exit"
 
@@ -2657,8 +2657,8 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
 56:                                               ; preds = %51
   %57 = load ptr, ptr %0, align 8, !alias.scope !437, !nonnull !4, !noundef !4
   %58 = lshr i64 %1, 51
-  %59 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %46, i64 %19
-  %60 = getelementptr inbounds nuw i64, ptr %57, i64 %19
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %19
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %19
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %62 = load i64, ptr %61, align 8, !noalias !437, !noundef !4
   %63 = sub i64 %15, %62
@@ -2673,7 +2673,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
   br i1 %69, label %70, label %"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12clear_remote17h11a1d12b84a5af21E.llvm.1804880793895523134.exit"
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %64, i64 %63
+  %71 = getelementptr inbounds [96 x i8], ptr %64, i64 %63
   %72 = tail call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h7341c18dfde20f18E"(ptr noundef nonnull align 8 %71, i64 noundef %58, i64 noundef %63, ptr noundef nonnull align 8 %60), !noalias !440
   br label %"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12clear_remote17h11a1d12b84a5af21E.llvm.1804880793895523134.exit"
 
@@ -2810,7 +2810,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %23 = add i64 %.sroa.01.0.i.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val4.i.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !468, !noalias !473, !noundef !4
   %28 = icmp eq i128 %.val4.i.i.i.i.i, 44560359678799612439427765009674515160
@@ -2887,7 +2887,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %23 = add i64 %.sroa.01.0.i.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val4.i.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !507, !noalias !512, !noundef !4
   %28 = icmp eq i128 %.val4.i.i.i.i.i, -71927339031038113698621999641004571473
@@ -3097,7 +3097,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %8, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   %.val4.i.i.i.i = load i128, ptr %26, align 16, !alias.scope !578, !noalias !583, !noundef !4
   %27 = icmp eq i128 %.val4.i.i.i.i, -71927339031038113698621999641004571473
@@ -3172,7 +3172,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %8, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   %.val4.i.i.i.i = load i128, ptr %26, align 16, !alias.scope !612, !noalias !617, !noundef !4
   %27 = icmp eq i128 %.val4.i.i.i.i, 44560359678799612439427765009674515160
@@ -3929,7 +3929,7 @@ define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$alloc..boxed..Box$
 
 .lr.ph.i:                                         ; preds = %0, %"_ZN4core3ptr138drop_in_place$LT$sharded_slab..page..Shared$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h38a034e44f624427E.exit.i"
   %.09.i = phi i64 [ %3, %"_ZN4core3ptr138drop_in_place$LT$sharded_slab..page..Shared$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h38a034e44f624427E.exit.i" ], [ 0, %0 ]
-  %2 = getelementptr inbounds { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %.0.val, i64 %.09.i
+  %2 = getelementptr inbounds [40 x i8], ptr %.0.val, i64 %.09.i
   %3 = add nuw i64 %.09.i, 1
   %4 = load ptr, ptr %2, align 8, !alias.scope !718, !noundef !4
   %5 = icmp eq ptr %4, null
@@ -3951,7 +3951,7 @@ define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$alloc..boxed..Box$
 
 .lr.ph12.i:                                       ; preds = %8, %"_ZN4core3ptr138drop_in_place$LT$sharded_slab..page..Shared$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h38a034e44f624427E.exit8.i"
   %.110.i = phi i64 [ %12, %"_ZN4core3ptr138drop_in_place$LT$sharded_slab..page..Shared$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h38a034e44f624427E.exit8.i" ], [ %3, %8 ]
-  %11 = getelementptr inbounds { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %.0.val, i64 %.110.i
+  %11 = getelementptr inbounds [40 x i8], ptr %.0.val, i64 %.110.i
   %12 = add i64 %.110.i, 1
   %13 = load ptr, ptr %11, align 8, !alias.scope !729, !noundef !4
   %14 = icmp eq ptr %13, null
@@ -4502,7 +4502,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   %27 = add i64 %.sroa.01.0.i.i.i, %24
   %28 = and i64 %27, %12
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %13, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %13, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -32
   %.val4.i.i.i = load i128, ptr %31, align 16, !alias.scope !771, !noalias !776, !noundef !4
   %32 = icmp eq i128 %7, %.val4.i.i.i
@@ -4572,7 +4572,7 @@ define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3r
   %23 = add i64 %.sroa.01.0.i.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %8, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val4.i.i = load i128, ptr %27, align 16, !alias.scope !793, !noalias !798, !noundef !4
   %28 = icmp eq i128 %9, %.val4.i.i

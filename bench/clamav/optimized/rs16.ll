@@ -23,10 +23,10 @@ define void @_ZN9RSCoder16C2Ev(ptr noundef nonnull writeonly align 8 captures(no
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
   %.01419.i = phi i32 [ 1, %1 ], [ %spec.select.i, %7 ]
   %8 = zext i32 %.01419.i to i64
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %10, ptr %9, align 4, !tbaa !15
-  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %.01419.i, ptr %11, align 4, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 262140
   store i32 %.01419.i, ptr %12, align 4, !tbaa !15
@@ -64,10 +64,10 @@ define void @_ZN9RSCoder166gfInitEv(ptr noundef nonnull writeonly align 8 captur
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %.01419 = phi i32 [ 1, %1 ], [ %spec.select, %6 ]
   %7 = zext i32 %.01419 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %7
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 4, !tbaa !15
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %.01419, ptr %10, align 4, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 262140
   store i32 %.01419, ptr %11, align 4, !tbaa !15
@@ -315,11 +315,11 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
 77:                                               ; preds = %.lr.ph.i
   %78 = xor i32 %.018.i, %.115.i
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %62, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !15
   %82 = sub i32 65535, %81
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %61, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !15
   br label %_ZN9RSCoder165gfInvEj.exit.i
 
@@ -328,7 +328,7 @@ _ZN9RSCoder165gfInvEj.exit.i:                     ; preds = %77, %.lr.ph.i
   %87 = mul i32 %75, %.01321.i
   %88 = add i32 %87, %.018.i
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %57, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %89
   store i32 %86, ptr %90, align 4, !tbaa !15
   %91 = add nuw i32 %.018.i, 1
   %exitcond58.not = icmp eq i32 %91, %51
@@ -387,11 +387,11 @@ _ZN9RSCoder1617MakeDecoderMatrixEv.exit:          ; preds = %92, %52
 111:                                              ; preds = %.lr.ph.i36
   %112 = xor i32 %109, %.010.i
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %104, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !15
   %116 = sub i32 65535, %115
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %103, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !15
   br label %_ZN9RSCoder165gfInvEj.exit.i37
 
@@ -400,7 +400,7 @@ _ZN9RSCoder165gfInvEj.exit.i37:                   ; preds = %111, %.lr.ph.i36
   %121 = mul i32 %108, %.0811.i
   %122 = add i32 %121, %.010.i
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %101, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %123
   store i32 %120, ptr %124, align 4, !tbaa !15
   %125 = add nuw i32 %.010.i, 1
   %exitcond56.not = icmp eq i32 %125, %51
@@ -471,11 +471,11 @@ define void @_ZN9RSCoder1617MakeDecoderMatrixEv(ptr noundef nonnull readonly ali
 26:                                               ; preds = %23
   %27 = xor i32 %.018, %.115
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %20, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !15
   %31 = sub i32 65535, %30
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %19, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !15
   br label %_ZN9RSCoder165gfInvEj.exit
 
@@ -484,7 +484,7 @@ _ZN9RSCoder165gfInvEj.exit:                       ; preds = %23, %26
   %36 = mul i32 %24, %.01321
   %37 = add i32 %36, %.018
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %8, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %38
   store i32 %35, ptr %39, align 4, !tbaa !15
   %40 = add nuw i32 %.018, 1
   %41 = load i32, ptr %2, align 4, !tbaa !21
@@ -552,7 +552,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %26 = mul i32 %.06883, %5
   %27 = add i32 %.1, %26
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %28
   store i32 1, ptr %29, align 4, !tbaa !15
   %30 = add nuw i32 %.06883, 1
   %exitcond.not = icmp eq i32 %30, %3
@@ -588,9 +588,9 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %40 = mul i32 %31, %39
   %41 = add i32 %40, %.17485.us
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !15
-  %45 = getelementptr inbounds nuw i32, ptr %9, i64 %42
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %42
   %46 = load i32, ptr %45, align 4, !tbaa !15
   %47 = xor i32 %46, %44
   store i32 %47, ptr %45, align 4, !tbaa !15
@@ -628,27 +628,27 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
 61:                                               ; preds = %.critedge
   %62 = mul i32 %31, %.07094
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %15, i64 %63
-  %65 = getelementptr inbounds nuw i32, ptr %9, i64 %63
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %.lcssa
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %63
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %63
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.lcssa
   %67 = load i32, ptr %66, align 4, !tbaa !15
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %.lr.ph, label %69
 
 69:                                               ; preds = %61
   %70 = zext i32 %67 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %18, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !15
   %73 = sub i32 65535, %72
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %16, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !15
   %77 = zext i32 %76 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %69, %61
   %78 = phi i64 [ %77, %69 ], [ 0, %61 ]
-  %79 = getelementptr inbounds nuw i32, ptr %18, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %78
   %.pre = load i32, ptr %79, align 4, !tbaa !15
   br label %82
 
@@ -665,25 +665,25 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
 82:                                               ; preds = %.lr.ph, %82
   %83 = phi i32 [ %.pre, %.lr.ph ], [ %98, %82 ]
   %indvars.iv114 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next115, %82 ]
-  %84 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv114
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv114
   %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %18, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = add i32 %83, %88
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %16, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !15
   store i32 %92, ptr %84, align 4, !tbaa !15
-  %93 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv114
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv114
   %94 = load i32, ptr %93, align 4, !tbaa !15
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %18, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !15
   %98 = load i32, ptr %79, align 4, !tbaa !15
   %99 = add i32 %98, %97
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %16, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   store i32 %102, ptr %93, align 4, !tbaa !15
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -711,46 +711,46 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
 115:                                              ; preds = %111
   %116 = mul i32 %114, %.07191
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %15, i64 %117
-  %119 = getelementptr inbounds nuw i32, ptr %9, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %117
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %117
   %.not105 = icmp eq i32 %114, 0
   br i1 %.not105, label %.loopexit, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %115
-  %120 = getelementptr inbounds nuw i32, ptr %118, i64 %.lcssa
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %.lcssa
   %121 = load i32, ptr %120, align 4, !tbaa !15
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %81, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %122
   %.pre124 = load i32, ptr %123, align 4, !tbaa !15
   br label %124
 
 124:                                              ; preds = %.lr.ph90, %124
   %125 = phi i32 [ %.pre124, %.lr.ph90 ], [ %143, %124 ]
   %indvars.iv117 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next118, %124 ]
-  %126 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv117
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv117
   %127 = load i32, ptr %126, align 4, !tbaa !15
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %81, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !15
   %131 = add i32 %125, %130
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %80, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !15
-  %135 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv117
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv117
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = xor i32 %136, %134
   store i32 %137, ptr %135, align 4, !tbaa !15
-  %138 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv117
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv117
   %139 = load i32, ptr %138, align 4, !tbaa !15
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %81, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !15
   %143 = load i32, ptr %123, align 4, !tbaa !15
   %144 = add i32 %143, %142
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw i32, ptr %80, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !15
-  %148 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv117
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv117
   %149 = load i32, ptr %148, align 4, !tbaa !15
   %150 = xor i32 %149, %147
   store i32 %150, ptr %148, align 4, !tbaa !15
@@ -786,9 +786,9 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
 
 165:                                              ; preds = %.lr.ph98, %165
   %indvars.iv120 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next121, %165 ]
-  %166 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv120
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv120
   %167 = load i32, ptr %166, align 4, !tbaa !15
-  %168 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv120
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv120
   store i32 %167, ptr %168, align 4, !tbaa !15
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %169 = load i32, ptr %2, align 4, !tbaa !23
@@ -855,11 +855,11 @@ define void @_ZN9RSCoder1617MakeEncoderMatrixEv(ptr noundef nonnull readonly ali
 21:                                               ; preds = %17
   %22 = xor i32 %19, %.010
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = sub i32 65535, %25
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %11, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !15
   br label %_ZN9RSCoder165gfInvEj.exit
 
@@ -868,7 +868,7 @@ _ZN9RSCoder165gfInvEj.exit:                       ; preds = %17, %21
   %31 = mul i32 %18, %.0811
   %32 = add i32 %31, %.010
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %7, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %33
   store i32 %30, ptr %34, align 4, !tbaa !15
   %35 = add nuw i32 %.010, 1
   %36 = load i32, ptr %4, align 4, !tbaa !21
@@ -933,9 +933,9 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.049
   %31 = load i16, ptr %30, align 2, !tbaa !45
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !15
-  %35 = getelementptr inbounds nuw i32, ptr %28, i64 %.049
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.049
   store i32 %34, ptr %35, align 4, !tbaa !15
   %36 = add nuw i64 %.049, 2
   %37 = icmp ult i64 %36, %5
@@ -951,10 +951,10 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
   %44 = mul i32 %43, %2
   %45 = add i32 %44, %1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %41, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !15
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %39, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !15
   %.not53 = icmp eq i64 %5, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph51
@@ -967,11 +967,11 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
 
 55:                                               ; preds = %.lr.ph51, %55
   %.04550 = phi i64 [ 0, %.lr.ph51 ], [ %66, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %.04550
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %.04550
   %57 = load i32, ptr %56, align 4, !tbaa !15
   %58 = add i32 %57, %51
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %52, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 %.04550
   %63 = load i16, ptr %62, align 2, !tbaa !45

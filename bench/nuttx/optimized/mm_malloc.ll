@@ -3,8 +3,6 @@ source_filename = "bench/nuttx/original/mm_malloc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mm_freenode_s = type { i64, i64, ptr, ptr }
-
 ; Function Attrs: nounwind allocsize(1) uwtable
 define noalias noundef ptr @mm_malloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
@@ -46,7 +44,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   %14 = call i32 @mm_lock(ptr noundef nonnull %0) #4
   %15 = call i32 @mm_size2ndx(i64 noundef %11) #4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.mm_freenode_s, ptr %0, i64 %16
+  %17 = getelementptr [32 x i8], ptr %0, i64 %16
   %18 = getelementptr i8, ptr %17, i64 96
   %.04861 = load ptr, ptr %18, align 8
   %.not62 = icmp eq ptr %.04861, null

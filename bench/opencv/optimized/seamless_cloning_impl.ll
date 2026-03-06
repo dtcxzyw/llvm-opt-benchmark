@@ -710,7 +710,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %4
   %64 = zext nneg i32 %60 to i64
   %wide.trip.count152 = zext nneg i32 %50 to i64
   %wide.trip.count = zext nneg i32 %60 to i64
-  %invariant.gep = getelementptr float, ptr %63, i64 %64
+  %invariant.gep = getelementptr [4 x i8], ptr %63, i64 %64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -724,13 +724,13 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %4
 68:                                               ; preds = %.lr.ph.us, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %68 ]
   %69 = xor i64 %indvars.iv, -1
-  %70 = getelementptr float, ptr %gep, i64 %69
+  %70 = getelementptr [4 x i8], ptr %gep, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !58
   %72 = fneg float %71
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass.us = add i32 %invariant.op, %73
   %74 = sext i32 %.reass.us to i64
-  %75 = getelementptr inbounds float, ptr %66, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %66, i64 %74
   store float %72, ptr %75, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -894,7 +894,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %112
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %._crit_edge.us143 ], [ 0, %.lr.ph140.split.us ]
   %136 = mul i64 %126, %indvars.iv159
   %137 = getelementptr inbounds nuw i8, ptr %123, i64 %136
-  %invariant.gep.us = getelementptr float, ptr %130, i64 %indvars.iv159
+  %invariant.gep.us = getelementptr [4 x i8], ptr %130, i64 %indvars.iv159
   br label %138
 
 138:                                              ; preds = %.lr.ph.us142, %138
@@ -904,14 +904,14 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %112
   %140 = getelementptr inbounds nuw i8, ptr %gep.us, i64 4
   %141 = load float, ptr %140, align 4, !tbaa !58
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %142 = getelementptr inbounds nuw float, ptr %137, i64 %indvars.iv.next155
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv.next155
   store float %141, ptr %142, align 4, !tbaa !58
   %143 = fneg float %141
   %144 = trunc i64 %indvars.iv154 to i32
   %145 = xor i32 %144, -1
   %146 = add i32 %132, %145
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds float, ptr %137, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %137, i64 %147
   store float %143, ptr %148, align 4, !tbaa !58
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
   br i1 %exitcond158.not, label %._crit_edge.us143, label %138, !llvm.loop !68
@@ -1300,17 +1300,17 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
   %indvars.iv93 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next94, %._crit_edge.us ]
   %23 = mul i64 %16, %indvars.iv93
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 %23
-  %25 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv93
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv93
   br label %26
 
 26:                                               ; preds = %.lr.ph.us, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %28 = load float, ptr %27, align 4, !tbaa !58
   %29 = load float, ptr %25, align 4, !tbaa !58
   %30 = fadd float %28, %29
   %31 = fadd float %30, -4.000000e+00
-  %32 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !58
   %34 = fdiv float %33, %31
   store float %34, ptr %32, align 4, !tbaa !58
@@ -1423,7 +1423,7 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
 
 .lr.ph83:                                         ; preds = %65, %94
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %94 ], [ 1, %65 ]
-  %86 = getelementptr float, ptr %81, i64 %indvars.iv103
+  %86 = getelementptr [4 x i8], ptr %81, i64 %indvars.iv103
   %87 = getelementptr i8, ptr %86, i64 -4
   %88 = load float, ptr %87, align 4, !tbaa !58
   %89 = fcmp olt float %88, 0.000000e+00
@@ -1826,7 +1826,7 @@ define hidden void @_ZN2cv7Cloning13initVariablesERKNS_3MatES3_(ptr noundef nonn
   br i1 %70, label %71, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw float, ptr %61, i64 %58
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %58
   %.not.i.i = icmp eq ptr %60, %72
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %73
 
@@ -1872,7 +1872,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %67, %69, %71, %73
   br i1 %95, label %96, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit56
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw float, ptr %86, i64 %83
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %83
   %.not.i.i55 = icmp eq ptr %85, %97
   br i1 %.not.i.i55, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit56, label %98
 
@@ -1943,7 +1943,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit56:             ; preds = %92, %94, %96, %98
   %120 = call double @cos(double noundef %119) #17, !tbaa !64
   %121 = fptrunc double %120 to float
   %122 = fmul float %121, 2.000000e+00
-  %123 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv
   store float %122, ptr %123, align 4, !tbaa !58
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !86
@@ -1960,7 +1960,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit56:             ; preds = %92, %94, %96, %98
   %128 = call double @cos(double noundef %127) #17, !tbaa !64
   %129 = fptrunc double %128 to float
   %130 = fmul float %129, 2.000000e+00
-  %131 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv62
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv62
   store float %130, ptr %131, align 4, !tbaa !58
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %._crit_edge60, label %124, !llvm.loop !87
@@ -2469,7 +2469,7 @@ define hidden void @_ZNK2cv7Cloning12arrayProductERKNS_3MatES3_RS1_(ptr nonnull 
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %41 = load ptr, ptr %5, align 8, !tbaa !94
-  %42 = getelementptr inbounds nuw %"class.cv::Mat", ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [96 x i8], ptr %41, i64 %indvars.iv
   store i32 0, ptr %28, align 8, !tbaa !30
   store i32 0, ptr %29, align 4, !tbaa !32
   store i32 16842752, ptr %11, align 8, !tbaa !33
@@ -2481,7 +2481,7 @@ define hidden void @_ZNK2cv7Cloning12arrayProductERKNS_3MatES3_RS1_(ptr nonnull 
   store ptr %2, ptr %33, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %43 = load ptr, ptr %6, align 8, !tbaa !94
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %indvars.iv
   store i64 0, ptr %35, align 8
   store i32 33619968, ptr %13, align 8, !tbaa !33
   store ptr %44, ptr %34, align 8, !tbaa !35
@@ -2789,11 +2789,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit36:               ; preds = %25
 68:                                               ; preds = %55, %75
   %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %75 ]
   %69 = load ptr, ptr %52, align 8, !tbaa !94
-  %70 = getelementptr inbounds nuw %"class.cv::Mat", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %0, align 8, !tbaa !94
-  %72 = getelementptr inbounds nuw %"class.cv::Mat", ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [96 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %45, align 8, !tbaa !94
-  %74 = getelementptr inbounds nuw %"class.cv::Mat", ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [96 x i8], ptr %73, i64 %indvars.iv
   invoke void @_ZN2cv7Cloning13poissonSolverERKNS_3MatERS1_S4_S4_(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull align 8 dereferenceable(96) %70, ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef nonnull align 8 dereferenceable(96) %74, ptr noundef nonnull align 8 dereferenceable(96) %70)
           to label %75 unwind label %76
 
@@ -3004,23 +3004,23 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %29, %33
 
 75:                                               ; preds = %.lr.ph76.us, %104
   %indvars.iv82 = phi i64 [ 0, %.lr.ph76.us ], [ %indvars.iv.next83, %104 ]
-  %76 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv82
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv82
   %77 = load i32, ptr %76, align 4, !tbaa !64
-  %78 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv82
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv82
   %79 = load float, ptr %78, align 4, !tbaa !58
-  %80 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv82
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv82
   %81 = load float, ptr %80, align 4, !tbaa !58
   %82 = fsub float %79, %81
   %83 = call noundef float @llvm.fabs.f32(float %82)
-  %84 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv82
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv82
   %85 = load float, ptr %84, align 4, !tbaa !58
-  %86 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv82
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv82
   %87 = load float, ptr %86, align 4, !tbaa !58
   %88 = fsub float %85, %87
   %89 = call noundef float @llvm.fabs.f32(float %88)
   %90 = fcmp ogt float %83, %89
   %91 = sext i32 %77 to i64
-  %92 = getelementptr inbounds float, ptr %74, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %74, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !58
   br i1 %90, label %99, label %94
 
@@ -3056,7 +3056,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %29, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
   %106 = trunc nuw nsw i64 %indvars.iv to i32
   %107 = udiv i32 %106, %23
-  %108 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   store i32 %107, ptr %108, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4336,9 +4336,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !85
-  %38 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !82
-  %39 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !125
   br label %40
 

@@ -1641,7 +1641,7 @@ define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, pt
 
 18:                                               ; preds = %18, %8
   %.06.i = phi i64 [ 0, %8 ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw %struct.mbedtls_x509_crt_verify_chain_item, ptr %17, i64 %.06.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.06.i
   store ptr null, ptr %19, align 8, !tbaa !88
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 -1, ptr %20, align 8, !tbaa !90
@@ -1918,7 +1918,7 @@ x509_profile_check_key.exit.thread:               ; preds = %102, %107, %109, %x
   %.041.i = phi i32 [ %storemerge.i.i, %x509_crt_verifycrl.exit.i ], [ 0, %.preheader.i ]
   %.0.i40 = phi i32 [ %.121.i, %x509_crt_verifycrl.exit.i ], [ 0, %.preheader.i ]
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw %struct.mbedtls_x509_crt_verify_chain_item, ptr %17, i64 %132
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %132
   store ptr %.042.i, ptr %133, align 8, !tbaa !88
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store i32 0, ptr %134, align 8, !tbaa !90
@@ -2657,7 +2657,7 @@ x509_crt_verify_chain.exit:                       ; preds = %332, %122
   %indvars.iv23.i = phi i64 [ %489, %487 ], [ %486, %.lr.ph.split.us.i ]
   %488 = phi i32 [ %493, %487 ], [ %.promoted.i, %.lr.ph.split.us.i ]
   %489 = add nsw i64 %indvars.iv23.i, -1
-  %490 = getelementptr inbounds nuw %struct.mbedtls_x509_crt_verify_chain_item, ptr %17, i64 %489
+  %490 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %489
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   %492 = load i32, ptr %491, align 8, !tbaa !90
   %493 = or i32 %492, %488
@@ -2669,7 +2669,7 @@ x509_crt_verify_chain.exit:                       ; preds = %332, %122
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %494 = and i64 %indvars.iv.next.i, 4294967295
-  %495 = getelementptr inbounds nuw %struct.mbedtls_x509_crt_verify_chain_item, ptr %17, i64 %494
+  %495 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %494
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
   %497 = load i32, ptr %496, align 8, !tbaa !90
   store i32 %497, ptr %9, align 4, !tbaa !31

@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_step_io_fds = type { %struct.anon.0, %struct.anon.0, %struct.anon.0 }
 %struct.anon.0 = type { i32, i32, i32 }
 %struct.slurm_step_launch_callbacks_t = type { ptr, ptr, ptr, ptr, ptr }
-%struct.MPIR_PROCDESC = type { ptr, ptr, i32 }
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 
 @task_state_list = internal unnamed_addr global ptr null, align 8
@@ -603,7 +602,7 @@ define dso_local range(i32 0, 2) i32 @launch_g_handle_multi_prog_verify(i32 noun
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
   %indvars.iv.i = phi i64 [ %63, %.lr.ph31.preheader.i ], [ %indvars.iv.next.i, %.lr.ph31.i ]
-  %64 = getelementptr ptr, ptr %18, i64 %indvars.iv.i
+  %64 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv.i
   %65 = getelementptr i8, ptr %64, i64 -8
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %64, align 8
@@ -621,7 +620,7 @@ _load_multi.exit:                                 ; preds = %.lr.ph31.i, %._crit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = load ptr, ptr %17, align 8
   %73 = sext i32 %0 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 @verify_multi_name(ptr noundef %75, ptr noundef nonnull %1) #17
   %.not = icmp eq i32 %76, 0
@@ -1761,7 +1760,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
   %604 = phi i32 [ %607, %.lr.ph ], [ %603, %601 ]
   %605 = call ptr @xsignal(i32 noundef %604, ptr noundef %2) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %606 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
+  %606 = getelementptr inbounds nuw [4 x i8], ptr @sig_array, i64 %indvars.iv.next
   %607 = load i32, ptr %606, align 4
   %.not136 = icmp eq i32 %607, 0
   br i1 %.not136, label %.loopexit, label %.lr.ph, !llvm.loop !15
@@ -2778,7 +2777,7 @@ define internal void @_task_start(ptr noundef %0) #0 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %55
   %indvars.iv38 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next39, %55 ]
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv38
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv38
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @task_state_global_id(ptr noundef null, i32 noundef %34) #17
   %36 = load i32, ptr @MPIR_proctable_size, align 4
@@ -2792,7 +2791,7 @@ define internal void @_task_start(ptr noundef %0) #0 {
 39:                                               ; preds = %.lr.ph.split.us
   %40 = load ptr, ptr @MPIR_proctable, align 8
   %41 = zext i32 %35 to i64
-  %42 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %30, align 8
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 608), align 8
   %45 = tail call ptr @xstrcasestr(ptr noundef %44, ptr noundef nonnull @.str.58) #17
@@ -2811,7 +2810,7 @@ _mpir_get_host_name.exit.us:                      ; preds = %48, %46
   %.0.i.us = phi ptr [ %47, %46 ], [ %49, %48 ]
   store ptr %.0.i.us, ptr %42, align 8
   %50 = load ptr, ptr %31, align 8
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv38
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv38
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %52, ptr %53, align 8
@@ -2828,7 +2827,7 @@ _mpir_get_host_name.exit.us:                      ; preds = %48, %46
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %85 ]
   %59 = load ptr, ptr %26, align 8
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @task_state_global_id(ptr noundef nonnull %21, i32 noundef %61) #17
   %63 = load i32, ptr @MPIR_proctable_size, align 4
@@ -2842,7 +2841,7 @@ _mpir_get_host_name.exit.us:                      ; preds = %48, %46
 66:                                               ; preds = %.lr.ph.split
   %67 = load ptr, ptr @MPIR_proctable, align 8
   %68 = zext i32 %62 to i64
-  %69 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %27, align 8
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 608), align 8
   %72 = tail call ptr @xstrcasestr(ptr noundef %71, ptr noundef nonnull @.str.58) #17
@@ -2861,7 +2860,7 @@ _mpir_get_host_name.exit:                         ; preds = %73, %75
   %.0.i = phi ptr [ %74, %73 ], [ %76, %75 ]
   store ptr %.0.i, ptr %69, align 8
   %77 = load ptr, ptr %28, align 8
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 %79, ptr %80, align 8
@@ -3069,7 +3068,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
 
 60:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 4
   %63 = zext i32 %62 to i64
   tail call void @bit_set(ptr noundef nonnull %55, i64 noundef %63) #17
@@ -3117,7 +3116,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
 79:                                               ; preds = %79, %.lr.ph.i107
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i110, %79 ]
   %.0241.i = phi i32 [ 0, %.lr.ph.i107 ], [ %83, %79 ]
-  %80 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv.i109
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv.i109
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = add nuw nsw i32 %.0241.i, %82
@@ -3144,7 +3143,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
 
 .lr.ph5.i:                                        ; preds = %97, %.lr.ph5.preheader.i
   %indvars.iv9.i = phi i64 [ 0, %.lr.ph5.preheader.i ], [ %indvars.iv.next10.i, %97 ]
-  %89 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv9.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv9.i
   %90 = load i32, ptr %89, align 4
   %91 = call ptr @slurm_step_layout_host_name(ptr noundef nonnull %72, i32 noundef %90) #17
   %.not.i113 = icmp eq ptr %91, null
@@ -3450,7 +3449,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %126, %135, %_is_ope
 
 .lr.ph.i118:                                      ; preds = %.lr.ph.i118, %.lr.ph.preheader.i
   %indvars.iv.i119 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i120, %.lr.ph.i118 ]
-  %224 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv.i119
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %indvars.iv.i119
   %225 = load i32, ptr %224, align 4
   call void @task_state_update(ptr noundef nonnull %218, i32 noundef %225, i32 noundef %223) #17
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1

@@ -202,7 +202,7 @@ define hidden void @_ZN3smt12theory_dummy17found_theory_exprEv(ptr noundef nonnu
   %21 = phi ptr [ %.pre.i.i, %.noexc2 ], [ %11, %13 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -4
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   store ptr %9, ptr %24, align 8, !tbaa !30
   %25 = add i32 %20, 1
   store i32 %25, ptr %22, align 4, !tbaa !29
@@ -270,7 +270,7 @@ define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_atomEP3appb
   %23 = phi ptr [ %.pre.i.i.i, %.noexc2.i ], [ %13, %15 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store ptr %11, ptr %26, align 8, !tbaa !30
   %27 = add i32 %22, 1
   store i32 %27, ptr %24, align 4, !tbaa !29
@@ -323,7 +323,7 @@ define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_termEP3app(
   %22 = phi ptr [ %.pre.i.i.i, %.noexc2.i ], [ %12, %14 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 -4
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %10, ptr %25, align 8, !tbaa !30
   %26 = add i32 %21, 1
   store i32 %26, ptr %23, align 4, !tbaa !29
@@ -412,7 +412,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit: ; preds = %6, %_ZNK6vectorI
   %13 = phi ptr [ %.pre.i, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread ], [ %4, %6 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   store ptr %1, ptr %16, align 8, !tbaa !34
   %17 = add i32 %12, 1
   store i32 %17, ptr %14, align 4, !tbaa !29

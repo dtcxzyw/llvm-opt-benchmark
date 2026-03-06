@@ -4481,7 +4481,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt11__use_cacheISt16__numpunct_cache
   %4 = load ptr, ptr %1, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !75
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %3
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %32
@@ -5242,7 +5242,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost6locale4util22formatting_size_t
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !94
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZSt9has_facetIN5boost6locale4infoEEbRKSt6locale.exit.thread, label %_ZSt9has_facetIN5boost6locale4infoEEbRKSt6locale.exit
@@ -5268,7 +5268,7 @@ _ZSt9has_facetIN5boost6locale4infoEEbRKSt6locale.exit.thread: ; preds = %8, %2, 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !94
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %18
   %26 = load ptr, ptr %25, align 8, !tbaa !19
   %.not8.i = icmp eq ptr %26, null
   br i1 %.not8.i, label %27, label %28
@@ -8139,7 +8139,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i: ; p
   %45 = phi i64 [ %.pre.i, %42 ], [ 1, %40 ], [ %37, %39 ]
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %45, ptr %46, align 8, !tbaa !103
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 0, ptr %47, align 4, !tbaa !105
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_.exit
 
@@ -8419,7 +8419,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale10impl_posix15num_punct_posixI
 
 10:                                               ; preds = %.lr.ph.i.i.i
   store i64 %6, ptr %4, align 8, !tbaa !103
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   store i32 0, ptr %11, align 4, !tbaa !105
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -8455,7 +8455,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale10impl_posix15num_punct_posixI
 
 10:                                               ; preds = %.lr.ph.i.i.i
   store i64 %6, ptr %4, align 8, !tbaa !103
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   store i32 0, ptr %11, align 4, !tbaa !105
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -9973,7 +9973,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit.i:           ; preds = %21, %_ZNSt6vectorIc
   %51 = load ptr, ptr %6, align 8, !tbaa !107
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !103
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %53
   %55 = invoke { ptr, i8 } @_ZNKSt8time_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE3putES3_RSt8ios_basewPK2tmPKwSB_(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr %49, i8 %50, ptr noundef nonnull align 8 dereferenceable(216) %47, i32 noundef signext %4, ptr noundef nonnull %10, ptr noundef %51, ptr noundef %54)
           to label %56 unwind label %84
 
@@ -10323,7 +10323,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.022.i = phi ptr [ %22, %.preheader.i ], [ %16, %.preheader.i.preheader ]
   %.0.i = phi i64 [ %23, %.preheader.i ], [ %17, %.preheader.i.preheader ]
   %18 = urem i64 %.0.i, 10
-  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 4, !tbaa !105
   %22 = getelementptr inbounds i8, ptr %.022.i, i64 -4
@@ -10336,7 +10336,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.224.i = phi ptr [ %28, %.preheader28.i ], [ %16, %6 ]
   %.1.i = phi i64 [ %29, %.preheader28.i ], [ %5, %6 ]
   %24 = and i64 %.1.i, 7
-  %25 = getelementptr inbounds nuw i32, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 4, !tbaa !105
   %28 = getelementptr inbounds i8, ptr %.224.i, i64 -4
@@ -10349,14 +10349,14 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %31 = and i32 %13, 16384
   %.not.i = icmp eq i32 %31, 0
   %32 = select i1 %.not.i, i64 4, i64 20
-  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %11, i64 %32
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %32
   br label %33
 
 33:                                               ; preds = %33, %30
   %.3.i = phi ptr [ %16, %30 ], [ %36, %33 ]
   %.2.i = phi i64 [ %5, %30 ], [ %37, %33 ]
   %34 = and i64 %.2.i, 15
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %34
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %34
   %35 = load i32, ptr %gep.i, align 4, !tbaa !105
   %36 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %35, ptr %36, align 4, !tbaa !105
@@ -10375,7 +10375,7 @@ _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.pre
   %43 = shl i64 %40, 30
   %sext = sub i64 171798691840, %43
   %44 = ashr i64 %sext, 32
-  %45 = getelementptr inbounds i32, ptr %14, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %14, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %47 = load i8, ptr %46, align 8, !tbaa !144, !range !70, !noundef !71
   %48 = trunc nuw i8 %47 to i1
@@ -10460,7 +10460,7 @@ _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.pre
   %88 = and i32 %13, 16384
   %.not = icmp eq i32 %88, 0
   %89 = select i1 %.not, i64 2, i64 3
-  %90 = getelementptr inbounds nuw i32, ptr %11, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !105
   %92 = getelementptr inbounds i8, ptr %.0, i64 -4
   store i32 %91, ptr %92, align 4, !tbaa !105
@@ -10522,7 +10522,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt11__use_cacheISt16__numpunct_cache
   %4 = load ptr, ptr %1, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !75
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %3
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %32
@@ -11095,7 +11095,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %.
   %27 = phi i64 [ %20, %._crit_edge.i.i ], [ %20, %22 ], [ %.pre6.i.i, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %28, align 8, !tbaa !103
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %29, align 4, !tbaa !105
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -11443,7 +11443,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.022.i = phi ptr [ %21, %.preheader.i ], [ %16, %6 ]
   %.0.i = phi i64 [ %22, %.preheader.i ], [ %5, %6 ]
   %17 = urem i64 %.0.i, 10
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 4, !tbaa !105
   %21 = getelementptr inbounds i8, ptr %.022.i, i64 -4
@@ -11456,7 +11456,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.224.i = phi ptr [ %27, %.preheader28.i ], [ %16, %6 ]
   %.1.i = phi i64 [ %28, %.preheader28.i ], [ %5, %6 ]
   %23 = and i64 %.1.i, 7
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 4, !tbaa !105
   %27 = getelementptr inbounds i8, ptr %.224.i, i64 -4
@@ -11469,14 +11469,14 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %30 = and i32 %13, 16384
   %.not.i = icmp eq i32 %30, 0
   %31 = select i1 %.not.i, i64 4, i64 20
-  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %11, i64 %31
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %31
   br label %32
 
 32:                                               ; preds = %32, %29
   %.3.i = phi ptr [ %16, %29 ], [ %35, %32 ]
   %.2.i = phi i64 [ %5, %29 ], [ %36, %32 ]
   %33 = and i64 %.2.i, 15
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %33
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %33
   %34 = load i32, ptr %gep.i, align 4, !tbaa !105
   %35 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %34, ptr %35, align 4, !tbaa !105
@@ -11495,7 +11495,7 @@ _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.pre
   %42 = shl i64 %39, 30
   %sext = sub i64 171798691840, %42
   %43 = ashr i64 %sext, 32
-  %44 = getelementptr inbounds i32, ptr %14, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %14, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %46 = load i8, ptr %45, align 8, !tbaa !144, !range !70, !noundef !71
   %47 = trunc nuw i8 %46 to i1
@@ -11538,7 +11538,7 @@ _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.pre
   %67 = and i32 %13, 16384
   %.not = icmp eq i32 %67, 0
   %68 = select i1 %.not, i64 2, i64 3
-  %69 = getelementptr inbounds nuw i32, ptr %11, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !105
   %71 = getelementptr inbounds i8, ptr %.0, i64 -4
   store i32 %70, ptr %71, align 4, !tbaa !105
@@ -11945,7 +11945,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.022.i = phi ptr [ %22, %.preheader.i ], [ %16, %.preheader.i.preheader ]
   %.0.i = phi i64 [ %23, %.preheader.i ], [ %17, %.preheader.i.preheader ]
   %18 = urem i64 %.0.i, 10
-  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 4, !tbaa !105
   %22 = getelementptr inbounds i8, ptr %.022.i, i64 -4
@@ -11958,7 +11958,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.224.i = phi ptr [ %28, %.preheader28.i ], [ %16, %6 ]
   %.1.i = phi i64 [ %29, %.preheader28.i ], [ %5, %6 ]
   %24 = and i64 %.1.i, 7
-  %25 = getelementptr inbounds nuw i32, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 4, !tbaa !105
   %28 = getelementptr inbounds i8, ptr %.224.i, i64 -4
@@ -11971,14 +11971,14 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %31 = and i32 %13, 16384
   %.not.i = icmp eq i32 %31, 0
   %32 = select i1 %.not.i, i64 4, i64 20
-  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %11, i64 %32
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %32
   br label %33
 
 33:                                               ; preds = %33, %30
   %.3.i = phi ptr [ %16, %30 ], [ %36, %33 ]
   %.2.i = phi i64 [ %5, %30 ], [ %37, %33 ]
   %34 = and i64 %.2.i, 15
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %34
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %34
   %35 = load i32, ptr %gep.i, align 4, !tbaa !105
   %36 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %35, ptr %36, align 4, !tbaa !105
@@ -11997,7 +11997,7 @@ _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.pre
   %43 = shl i64 %40, 30
   %sext = sub i64 171798691840, %43
   %44 = ashr i64 %sext, 32
-  %45 = getelementptr inbounds i32, ptr %14, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %14, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %47 = load i8, ptr %46, align 8, !tbaa !144, !range !70, !noundef !71
   %48 = trunc nuw i8 %47 to i1
@@ -12082,7 +12082,7 @@ _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.pre
   %88 = and i32 %13, 16384
   %.not = icmp eq i32 %88, 0
   %89 = select i1 %.not, i64 2, i64 3
-  %90 = getelementptr inbounds nuw i32, ptr %11, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !105
   %92 = getelementptr inbounds i8, ptr %.0, i64 -4
   store i32 %91, ptr %92, align 4, !tbaa !105
@@ -12480,7 +12480,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.022.i = phi ptr [ %21, %.preheader.i ], [ %16, %6 ]
   %.0.i = phi i64 [ %22, %.preheader.i ], [ %5, %6 ]
   %17 = urem i64 %.0.i, 10
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 4, !tbaa !105
   %21 = getelementptr inbounds i8, ptr %.022.i, i64 -4
@@ -12493,7 +12493,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %.224.i = phi ptr [ %27, %.preheader28.i ], [ %16, %6 ]
   %.1.i = phi i64 [ %28, %.preheader28.i ], [ %5, %6 ]
   %23 = and i64 %.1.i, 7
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 4, !tbaa !105
   %27 = getelementptr inbounds i8, ptr %.224.i, i64 -4
@@ -12506,14 +12506,14 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %30 = and i32 %13, 16384
   %.not.i = icmp eq i32 %30, 0
   %31 = select i1 %.not.i, i64 4, i64 20
-  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %11, i64 %31
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %31
   br label %32
 
 32:                                               ; preds = %32, %29
   %.3.i = phi ptr [ %16, %29 ], [ %35, %32 ]
   %.2.i = phi i64 [ %5, %29 ], [ %36, %32 ]
   %33 = and i64 %.2.i, 15
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %33
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %33
   %34 = load i32, ptr %gep.i, align 4, !tbaa !105
   %35 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %34, ptr %35, align 4, !tbaa !105
@@ -12532,7 +12532,7 @@ _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.pre
   %42 = shl i64 %39, 30
   %sext = sub i64 171798691840, %42
   %43 = ashr i64 %sext, 32
-  %44 = getelementptr inbounds i32, ptr %14, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %14, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %46 = load i8, ptr %45, align 8, !tbaa !144, !range !70, !noundef !71
   %47 = trunc nuw i8 %46 to i1
@@ -12575,7 +12575,7 @@ _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.pre
   %67 = and i32 %13, 16384
   %.not = icmp eq i32 %67, 0
   %68 = select i1 %.not, i64 2, i64 3
-  %69 = getelementptr inbounds nuw i32, ptr %11, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !105
   %71 = getelementptr inbounds i8, ptr %.0, i64 -4
   store i32 %70, ptr %71, align 4, !tbaa !105

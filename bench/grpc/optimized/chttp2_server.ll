@@ -14961,7 +14961,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i: ; preds = %669, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i
   store ptr %664, ptr %.sroa.gep.i, align 8, !tbaa !550, !noalias !534
   store ptr %668, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
-  %670 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %664, i64 %662
+  %670 = getelementptr inbounds nuw [132 x i8], ptr %664, i64 %662
   store ptr %670, ptr %346, align 8, !tbaa !553, !noalias !534
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit.i.i
 
@@ -15100,7 +15100,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i220.i.i: ; preds = %712, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i217.i.i
   store ptr %707, ptr %.sroa.gep.i, align 8, !tbaa !550, !noalias !534
   store ptr %711, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
-  %713 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %707, i64 %705
+  %713 = getelementptr inbounds nuw [132 x i8], ptr %707, i64 %705
   store ptr %713, ptr %346, align 8, !tbaa !553, !noalias !534
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit223.i.i
 
@@ -15457,7 +15457,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i, %823
   store ptr %813, ptr %34, align 8, !tbaa !125, !noalias !531
   store ptr %822, ptr %731, align 8, !tbaa !128, !noalias !531
-  %824 = getelementptr inbounds nuw %"class.absl::lts_20240722::Status", ptr %813, i64 %811
+  %824 = getelementptr inbounds nuw [8 x i8], ptr %813, i64 %811
   store ptr %824, ptr %732, align 8, !tbaa !131, !noalias !531
   br label %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE9push_backERKS2_.exit.i.i
 
@@ -18372,7 +18372,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !627
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !625
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !628
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

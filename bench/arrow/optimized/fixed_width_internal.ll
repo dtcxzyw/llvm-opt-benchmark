@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::internal::StaticVectorImpl" = type { %"struct.arrow::internal::SmallVectorStorage" }
 %"struct.arrow::internal::SmallVectorStorage" = type { [1 x %"class.arrow::internal::AlignedStorage.36"], i64, ptr, i64 }
 %"class.arrow::internal::AlignedStorage.36" = type { [16 x i8] }
-%"class.std::shared_ptr.30" = type { %"class.std::__shared_ptr.31" }
-%"class.std::__shared_ptr.31" = type { ptr, %"class.std::__shared_count" }
 %"class.arrow::util::detail::StringStreamWrapper" = type { %"class.std::unique_ptr", ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -1619,7 +1617,7 @@ _ZN5arrow8internal18SmallVectorStorageISt4pairIllELm1EE18reallocate_dynamicEm.ex
   %38 = phi ptr [ %34, %.noexc28 ], [ %11, %29 ], [ %27, %_ZN5arrow8internal18SmallVectorStorageISt4pairIllELm1EE18reallocate_dynamicEm.exit.i.i.i ], [ %11, %21 ]
   %39 = phi i64 [ %20, %.noexc28 ], [ 0, %29 ], [ %.sroa.speculated.i.i.i, %_ZN5arrow8internal18SmallVectorStorageISt4pairIllELm1EE18reallocate_dynamicEm.exit.i.i.i ], [ %12, %21 ]
   store i64 %20, ptr %3, align 8, !tbaa !131
-  %40 = getelementptr %"class.arrow::internal::AlignedStorage.36", ptr %38, i64 %20
+  %40 = getelementptr [16 x i8], ptr %38, i64 %20
   %41 = getelementptr i8, ptr %40, i64 -16
   %42 = load i64, ptr %19, align 8, !tbaa !150
   store i64 %42, ptr %41, align 8, !tbaa !151
@@ -1912,9 +1910,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !73
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.30", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !72
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr.30", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !174
   br label %39
 

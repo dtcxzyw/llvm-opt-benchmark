@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.connectivity_progress = type { ptr, i64 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [27 x i8] c"revision walk setup failed\00", align 1
@@ -327,7 +326,7 @@ strbuf_complete.exit.i:                           ; preds = %strbuf_addch.exit.i
   br label %strbuf_setlen.exit12.i
 
 strbuf_setlen.exit12.i:                           ; preds = %56, %54
-  %58 = getelementptr inbounds nuw ptr, ptr @__const.add_rebase_files.path, i64 %.014.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @__const.add_rebase_files.path, i64 %.014.i
   %59 = load ptr, ptr %58, align 8, !tbaa !79
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #14
   call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %59, i64 noundef %60) #11
@@ -625,7 +624,7 @@ define internal fastcc void @add_recent_object(ptr noundef %0, ptr noundef %1, i
   %34 = phi ptr [ %20, %.lr.ph.i.i ], [ %29, %27 ]
   %.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %28, %27 ]
   %35 = load ptr, ptr %34, align 8, !tbaa !88
-  %36 = getelementptr inbounds nuw %struct.string_list_item, ptr %35, i64 %.09.i.i
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %.09.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_one_gc_recent_objects_hook.cmd, i64 120, i1 false)

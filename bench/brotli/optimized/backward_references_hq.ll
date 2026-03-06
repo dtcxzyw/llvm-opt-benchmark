@@ -3,12 +3,8 @@ source_filename = "bench/brotli/original/backward_references_hq.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ZopfliNode = type { i32, i32, i32, %union.anon }
-%union.anon = type { float }
-%struct.Command = type { i32, i32, i32, i16, i16 }
 %struct.PosData = type { i64, [4 x i32], float, float }
 %struct.StartPosQueue = type { [8 x %struct.PosData], i64 }
-%struct.BackwardMatch = type { i32, i32 }
 
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 @kDistanceCacheIndex = internal unnamed_addr constant [16 x i32] [i32 0, i32 1, i32 2, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 16
@@ -23,7 +19,7 @@ define hidden void @BrotliInitZopfliNodes(ptr noundef writeonly captures(none) %
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.04 = phi i64 [ %4, %.lr.ph ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %0, i64 %.04
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.04
   store i32 1, ptr %3, align 4, !tbaa !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !3
@@ -72,8 +68,8 @@ define hidden void @BrotliZopfliCreateCommands(i64 noundef %0, i64 noundef %1, p
   %.05366 = phi i32 [ %15, %.lr.ph ], [ %39, %184 ]
   %.05465 = phi i64 [ 0, %.lr.ph ], [ %188, %184 ]
   %27 = zext i32 %.05366 to i64
-  %28 = getelementptr %struct.ZopfliNode, ptr %2, i64 %.067
-  %29 = getelementptr %struct.ZopfliNode, ptr %28, i64 %27
+  %28 = getelementptr [16 x i8], ptr %2, i64 %.067
+  %29 = getelementptr [16 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !31
   %31 = and i32 %30, 33554431
   %32 = zext nneg i32 %31 to i64
@@ -111,7 +107,7 @@ ZopfliNodeDistanceCode.exit:                      ; preds = %41, %26
   %57 = add nsw i32 %54, -1
   %58 = select i1 %55, i32 %56, i32 %57
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.Command, ptr %6, i64 %.05465
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.05465
   %61 = sub i32 %49, %30
   %62 = trunc i64 %.055 to i32
   store i32 %62, ptr %60, align 4, !tbaa !36
@@ -404,7 +400,7 @@ InitZopfliCostModel.exit:                         ; preds = %41, %46
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 696
-  %61 = getelementptr %struct.BackwardMatch, ptr %26, i64 %33
+  %61 = getelementptr [8 x i8], ptr %26, i64 %33
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -470,7 +466,7 @@ InitZopfliCostModel.exit:                         ; preds = %41, %46
 
 107:                                              ; preds = %.thread, %78
   %.0134 = phi i64 [ %106, %.thread ], [ 0, %78 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %60, i64 %.0134
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0134
   %109 = load ptr, ptr %108, align 8, !tbaa !58
   %110 = sub i64 %1, %.0541
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
@@ -619,7 +615,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %130, %.critedge.i
   %170 = load ptr, ptr %62, align 8, !tbaa !79, !alias.scope !72, !noalias !82
   %171 = load ptr, ptr %63, align 8, !tbaa !84, !alias.scope !72, !noalias !82
   %172 = zext nneg i32 %169 to i64
-  %173 = getelementptr inbounds nuw i32, ptr %170, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !3, !noalias !85
   %175 = load i64, ptr %59, align 8, !tbaa !86, !alias.scope !87, !noalias !90
   %176 = and i64 %175, %79
@@ -662,7 +658,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %130, %.critedge.i
 
 186:                                              ; preds = %._crit_edge
   %187 = load i32, ptr %64, align 8, !tbaa !91, !alias.scope !72, !noalias !82
-  %188 = getelementptr inbounds nuw i32, ptr %171, i64 %.098.i.lcssa
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %.098.i.lcssa
   store i32 %187, ptr %188, align 4, !tbaa !3, !noalias !90
   br label %StoreAndFindMatchesH10.exit.sink.split
 
@@ -770,7 +766,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   %.idx = shl nuw nsw i64 %231, 3
   %232 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx
   %233 = load i32, ptr %232, align 4, !tbaa !3, !noalias !90
-  %234 = getelementptr inbounds nuw i32, ptr %171, i64 %.098.i411
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %.098.i411
   store i32 %233, ptr %234, align 4, !tbaa !3, !noalias !90
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !3, !noalias !90
@@ -788,7 +784,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   br i1 %166, label %244, label %246
 
 244:                                              ; preds = %243
-  %245 = getelementptr inbounds nuw i32, ptr %171, i64 %.098.i411
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %.098.i411
   store i32 %.093.i.in412, ptr %245, align 4, !tbaa !3, !noalias !90
   br label %246
 
@@ -802,7 +798,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   br i1 %166, label %251, label %253
 
 251:                                              ; preds = %250
-  %252 = getelementptr inbounds nuw i32, ptr %171, i64 %.0102.i410
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %.0102.i410
   store i32 %.093.i.in412, ptr %252, align 4, !tbaa !3, !noalias !90
   br label %253
 
@@ -817,7 +813,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   %.3105.i = phi i64 [ %.0102.i410, %246 ], [ %255, %253 ]
   %.3101.i = phi i64 [ %249, %246 ], [ %.098.i411, %253 ]
   %.pn.i = phi i64 [ %249, %246 ], [ %255, %253 ]
-  %.3.in.in.i = getelementptr inbounds nuw i32, ptr %171, i64 %.pn.i
+  %.3.in.in.i = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %.pn.i
   %.3.in.i = load i32, ptr %.3.in.in.i, align 4, !tbaa !3, !noalias !90
   %257 = add nsw i64 %.0106.i409, -1
   %.093.i = zext i32 %.3.in.i to i64
@@ -829,7 +825,7 @@ StoreAndFindMatchesH10.exit.sink.split:           ; preds = %186, %230
   %.sink = phi i32 [ %236, %230 ], [ %187, %186 ]
   %.2259.ph = phi i64 [ %.5, %230 ], [ %.4.lcssa, %186 ]
   %.4.i.ph = phi ptr [ %.2.i163, %230 ], [ %.0.i161.lcssa, %186 ]
-  %259 = getelementptr inbounds nuw i32, ptr %171, i64 %.0102.i410.lcssa671.sink
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %.0102.i410.lcssa671.sink
   store i32 %.sink, ptr %259, align 4, !tbaa !3, !noalias !90
   br label %StoreAndFindMatchesH10.exit
 
@@ -840,7 +836,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 
 260:                                              ; preds = %StoreAndFindMatchesH10.exit, %260
   %.173.i425 = phi i64 [ 0, %StoreAndFindMatchesH10.exit ], [ %262, %260 ]
-  %261 = getelementptr inbounds nuw i32, ptr %13, i64 %.173.i425
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.173.i425
   store i32 268435455, ptr %261, align 4, !tbaa !3, !noalias !62
   %262 = add nuw nsw i64 %.173.i425, 1
   %exitcond.not = icmp eq i64 %262, 38
@@ -866,7 +862,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 271:                                              ; preds = %.lr.ph430, %291
   %.6.i428 = phi ptr [ %.4.i, %.lr.ph430 ], [ %.7.i, %291 ]
   %.071.i427 = phi i64 [ %265, %.lr.ph430 ], [ %292, %291 ]
-  %272 = getelementptr inbounds nuw i32, ptr %13, i64 %.071.i427
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.071.i427
   %273 = load i32, ptr %272, align 4, !tbaa !3, !noalias !62
   %274 = icmp ult i32 %273, 268435455
   br i1 %274, label %275, label %291
@@ -921,11 +917,11 @@ FindAllMatchesH10.exit:                           ; preds = %291, %268, %263
   %.0.i150459 = phi i64 [ 0, %297 ], [ %408, %415 ]
   %.026.i458 = phi i64 [ 0, %297 ], [ %416, %415 ]
   %.027.i457 = phi i64 [ 3, %297 ], [ %.128.i, %415 ]
-  %301 = getelementptr inbounds nuw ptr, ptr %69, i64 %.026.i458
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.026.i458
   %302 = load ptr, ptr %301, align 8, !tbaa !102, !noalias !96
-  %303 = getelementptr inbounds nuw i64, ptr %70, i64 %.026.i458
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.026.i458
   %304 = load i64, ptr %303, align 8, !tbaa !34, !noalias !96
-  %305 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %68, i64 %.0.i150459
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.0.i150459
   %306 = sub i64 64, %.0.i150459
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %307 = getelementptr inbounds nuw i8, ptr %302, i64 8
@@ -945,10 +941,10 @@ FindAllMatchesH10.exit:                           ; preds = %291, %268, %263
   %321 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %322 = zext nneg i32 %314 to i64
   %323 = shl nuw i64 1, %322
-  %324 = getelementptr inbounds nuw i32, ptr %321, i64 %323
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %323
   %325 = zext nneg i32 %312 to i64
   %326 = shl nuw i64 1, %325
-  %327 = getelementptr inbounds nuw i16, ptr %324, i64 %326
+  %327 = getelementptr inbounds nuw [2 x i8], ptr %324, i64 %326
   %328 = and i64 %.0.copyload.i93.i, %320
   %329 = mul i64 %328, 2297779722762296275
   %330 = zext nneg i32 %315 to i64
@@ -956,20 +952,20 @@ FindAllMatchesH10.exit:                           ; preds = %291, %268, %263
   %332 = trunc i64 %331 to i32
   %333 = and i32 %317, %332
   %334 = and i64 %331, 4294967295
-  %335 = getelementptr inbounds nuw i16, ptr %324, i64 %334
+  %335 = getelementptr inbounds nuw [2 x i8], ptr %324, i64 %334
   %336 = load i16, ptr %335, align 2, !tbaa !42, !noalias !99
   %337 = zext i16 %336 to i32
   %338 = zext i32 %333 to i64
-  %339 = getelementptr inbounds nuw i32, ptr %321, i64 %338
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %338
   %340 = load i32, ptr %339, align 4, !tbaa !3, !noalias !99
   %341 = add i32 %340, %337
   %342 = zext i32 %341 to i64
-  %343 = getelementptr inbounds nuw i32, ptr %327, i64 %342
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %342
   %.not544 = icmp eq i16 %336, -1
   %344 = getelementptr inbounds nuw i8, ptr %302, i64 4
   %345 = load i32, ptr %344, align 4, !tbaa !109, !noalias !99
   %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds nuw i32, ptr %327, i64 %346
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %346
   %348 = load i32, ptr %302, align 4, !tbaa !110, !noalias !99
   %349 = icmp eq i32 %348, -558043680
   br i1 %349, label %351, label %350
@@ -1116,7 +1112,7 @@ FindAllCompoundDictionaryMatches.exit:            ; preds = %406, %399, %351
   ]
 
 409:                                              ; preds = %FindAllCompoundDictionaryMatches.exit
-  %410 = getelementptr %struct.BackwardMatch, ptr %68, i64 %408
+  %410 = getelementptr [8 x i8], ptr %68, i64 %408
   %411 = getelementptr i8, ptr %410, i64 -4
   %412 = load i32, ptr %411, align 4, !tbaa !70
   %413 = lshr i32 %412, 5
@@ -1233,7 +1229,7 @@ MergeMatches.exit:                                ; preds = %.lr.ph56.i, %.prehe
   br i1 %.not147, label %465, label %455
 
 455:                                              ; preds = %454
-  %456 = getelementptr %struct.BackwardMatch, ptr %26, i64 %.0135
+  %456 = getelementptr [8 x i8], ptr %26, i64 %.0135
   %457 = getelementptr i8, ptr %456, i64 -4
   %458 = load i32, ptr %457, align 4, !tbaa !70
   %459 = lshr i32 %458, 5
@@ -1304,7 +1300,7 @@ MergeMatches.exit:                                ; preds = %.lr.ph56.i, %.prehe
   %493 = mul i32 %.val237, 506832829
   %494 = lshr i32 %493, 15
   %495 = zext nneg i32 %494 to i64
-  %496 = getelementptr inbounds nuw i32, ptr %488, i64 %495
+  %496 = getelementptr inbounds nuw [4 x i8], ptr %488, i64 %495
   %497 = load i32, ptr %496, align 4, !tbaa !3, !noalias !130
   %498 = and i64 %486, %.0.i154492
   %499 = shl i64 %498, 1
@@ -1333,7 +1329,7 @@ MergeMatches.exit:                                ; preds = %.lr.ph56.i, %.prehe
   %.0102.i.i.lcssa = phi i64 [ %500, %490 ], [ %.0102.i.i480, %.lr.ph485 ], [ %.3105.i.i, %560 ]
   %.098.i.i.lcssa = phi i64 [ %499, %490 ], [ %.098.i.i481, %.lr.ph485 ], [ %.3101.i.i, %560 ]
   %506 = load i32, ptr %64, align 8, !tbaa !91, !alias.scope !121, !noalias !124
-  %507 = getelementptr inbounds nuw i32, ptr %489, i64 %.098.i.i.lcssa
+  %507 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %.098.i.i.lcssa
   store i32 %506, ptr %507, align 4, !tbaa !3, !noalias !131
   br label %StoreH10.exit
 
@@ -1418,7 +1414,7 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %516, %.critedge.i.i
   %.idx650 = shl nuw nsw i64 %541, 3
   %542 = getelementptr inbounds nuw i8, ptr %489, i64 %.idx650
   %543 = load i32, ptr %542, align 4, !tbaa !3, !noalias !131
-  %544 = getelementptr inbounds nuw i32, ptr %489, i64 %.098.i.i481
+  %544 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %.098.i.i481
   store i32 %543, ptr %544, align 4, !tbaa !3, !noalias !131
   %545 = getelementptr inbounds nuw i8, ptr %542, i64 4
   %546 = load i32, ptr %545, align 4, !tbaa !3, !noalias !131
@@ -1435,13 +1431,13 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %516, %.critedge.i.i
   br i1 %552, label %555, label %558
 
 555:                                              ; preds = %547
-  %556 = getelementptr inbounds nuw i32, ptr %489, i64 %.098.i.i481
+  %556 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %.098.i.i481
   store i32 %.093.i.i.in482, ptr %556, align 4, !tbaa !3, !noalias !131
   %557 = or disjoint i64 %554, 1
   br label %560
 
 558:                                              ; preds = %547
-  %559 = getelementptr inbounds nuw i32, ptr %489, i64 %.0102.i.i480
+  %559 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %.0102.i.i480
   store i32 %.093.i.i.in482, ptr %559, align 4, !tbaa !3, !noalias !131
   br label %560
 
@@ -1451,7 +1447,7 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %516, %.critedge.i.i
   %.3105.i.i = phi i64 [ %.0102.i.i480, %555 ], [ %554, %558 ]
   %.3101.i.i = phi i64 [ %557, %555 ], [ %.098.i.i481, %558 ]
   %.pn.i.i = phi i64 [ %557, %555 ], [ %554, %558 ]
-  %.3.in.in.i.i = getelementptr inbounds nuw i32, ptr %489, i64 %.pn.i.i
+  %.3.in.in.i.i = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %.pn.i.i
   %.3.in.i.i = load i32, ptr %.3.in.in.i.i, align 4, !tbaa !3, !noalias !131
   %561 = add nsw i64 %.0106.i.i479, -1
   %.093.i.i = zext i32 %.3.in.i.i to i64
@@ -1461,7 +1457,7 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %516, %.critedge.i.i
 StoreH10.exit:                                    ; preds = %540, %._crit_edge486
   %.0102.i.i480.lcssa688.sink = phi i64 [ %.0102.i.i480, %540 ], [ %.0102.i.i.lcssa, %._crit_edge486 ]
   %.sink703 = phi i32 [ %546, %540 ], [ %506, %._crit_edge486 ]
-  %563 = getelementptr inbounds nuw i32, ptr %489, i64 %.0102.i.i480.lcssa688.sink
+  %563 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %.0102.i.i480.lcssa688.sink
   store i32 %.sink703, ptr %563, align 4, !tbaa !3, !noalias !131
   %564 = add i64 %.0.i154492, 8
   %565 = icmp ult i64 %564, %spec.select.i153
@@ -1495,7 +1491,7 @@ StoreH10.exit:                                    ; preds = %540, %._crit_edge48
   %574 = mul i32 %.val, 506832829
   %575 = lshr i32 %574, 15
   %576 = zext nneg i32 %575 to i64
-  %577 = getelementptr inbounds nuw i32, ptr %569, i64 %576
+  %577 = getelementptr inbounds nuw [4 x i8], ptr %569, i64 %576
   %578 = load i32, ptr %577, align 4, !tbaa !3, !noalias !148
   %579 = and i64 %567, %.1.i155527
   %580 = shl i64 %579, 1
@@ -1524,7 +1520,7 @@ StoreH10.exit:                                    ; preds = %540, %._crit_edge48
   %.0102.i.i196.lcssa = phi i64 [ %581, %571 ], [ %.0102.i.i196515, %.lr.ph520 ], [ %.3105.i.i224, %641 ]
   %.098.i.i197.lcssa = phi i64 [ %580, %571 ], [ %.098.i.i197516, %.lr.ph520 ], [ %.3101.i.i225, %641 ]
   %587 = load i32, ptr %64, align 8, !tbaa !91, !alias.scope !139, !noalias !142
-  %588 = getelementptr inbounds nuw i32, ptr %570, i64 %.098.i.i197.lcssa
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %.098.i.i197.lcssa
   store i32 %587, ptr %588, align 4, !tbaa !3, !noalias !149
   br label %StoreH10.exit236
 
@@ -1609,7 +1605,7 @@ FindMatchLengthWithLimit.exit.i.i210:             ; preds = %597, %.critedge.i.i
   %.idx651 = shl nuw nsw i64 %622, 3
   %623 = getelementptr inbounds nuw i8, ptr %570, i64 %.idx651
   %624 = load i32, ptr %623, align 4, !tbaa !3, !noalias !149
-  %625 = getelementptr inbounds nuw i32, ptr %570, i64 %.098.i.i197516
+  %625 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %.098.i.i197516
   store i32 %624, ptr %625, align 4, !tbaa !3, !noalias !149
   %626 = getelementptr inbounds nuw i8, ptr %623, i64 4
   %627 = load i32, ptr %626, align 4, !tbaa !3, !noalias !149
@@ -1626,13 +1622,13 @@ FindMatchLengthWithLimit.exit.i.i210:             ; preds = %597, %.critedge.i.i
   br i1 %633, label %636, label %639
 
 636:                                              ; preds = %628
-  %637 = getelementptr inbounds nuw i32, ptr %570, i64 %.098.i.i197516
+  %637 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %.098.i.i197516
   store i32 %.093.i.i198.in517, ptr %637, align 4, !tbaa !3, !noalias !149
   %638 = or disjoint i64 %635, 1
   br label %641
 
 639:                                              ; preds = %628
-  %640 = getelementptr inbounds nuw i32, ptr %570, i64 %.0102.i.i196515
+  %640 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %.0102.i.i196515
   store i32 %.093.i.i198.in517, ptr %640, align 4, !tbaa !3, !noalias !149
   br label %641
 
@@ -1642,7 +1638,7 @@ FindMatchLengthWithLimit.exit.i.i210:             ; preds = %597, %.critedge.i.i
   %.3105.i.i224 = phi i64 [ %.0102.i.i196515, %636 ], [ %635, %639 ]
   %.3101.i.i225 = phi i64 [ %638, %636 ], [ %.098.i.i197516, %639 ]
   %.pn.i.i226 = phi i64 [ %638, %636 ], [ %635, %639 ]
-  %.3.in.in.i.i227 = getelementptr inbounds nuw i32, ptr %570, i64 %.pn.i.i226
+  %.3.in.in.i.i227 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %.pn.i.i226
   %.3.in.i.i228 = load i32, ptr %.3.in.in.i.i227, align 4, !tbaa !3, !noalias !149
   %642 = add nsw i64 %.0106.i.i195514, -1
   %.093.i.i198 = zext i32 %.3.in.i.i228 to i64
@@ -1652,7 +1648,7 @@ FindMatchLengthWithLimit.exit.i.i210:             ; preds = %597, %.critedge.i.i
 StoreH10.exit236:                                 ; preds = %621, %._crit_edge521
   %.0102.i.i196515.lcssa697.sink = phi i64 [ %.0102.i.i196515, %621 ], [ %.0102.i.i196.lcssa, %._crit_edge521 ]
   %.sink705 = phi i32 [ %627, %621 ], [ %587, %._crit_edge521 ]
-  %644 = getelementptr inbounds nuw i32, ptr %570, i64 %.0102.i.i196515.lcssa697.sink
+  %644 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %.0102.i.i196515.lcssa697.sink
   store i32 %.sink705, ptr %644, align 4, !tbaa !3, !noalias !149
   %645 = add nuw i64 %.1.i155527, 1
   %646 = icmp ult i64 %645, %481
@@ -1668,7 +1664,7 @@ StoreH10.exit236:                                 ; preds = %621, %._crit_edge52
   br i1 %.not149, label %650, label %.loopexit
 
 650:                                              ; preds = %.lr.ph536
-  %651 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %648
+  %651 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %648
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 12
   %653 = load float, ptr %652, align 4, !tbaa !7
   %654 = load i32, ptr %651, align 4, !tbaa !31
@@ -1708,7 +1704,7 @@ ZopfliNodeDistanceCode.exit.i.i:                  ; preds = %662
   %narrow.i.i = add nuw nsw i32 %658, %655
   %675 = zext nneg i32 %narrow.i.i to i64
   %676 = sub i64 %648, %675
-  %677 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %676
+  %677 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %676
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 12
   %679 = load i32, ptr %678, align 4, !tbaa !7
   br label %ComputeDistanceShortcut.exit.i
@@ -1717,7 +1713,7 @@ ComputeDistanceShortcut.exit.i:                   ; preds = %674, %672, %650
   %.0.i.i245 = phi i32 [ %679, %674 ], [ %673, %672 ], [ 0, %650 ]
   store i32 %.0.i.i245, ptr %652, align 4, !tbaa !7
   %680 = load ptr, ptr %43, align 8, !tbaa !51
-  %681 = getelementptr inbounds nuw float, ptr %680, i64 %648
+  %681 = getelementptr inbounds nuw [4 x i8], ptr %680, i64 %648
   %682 = load float, ptr %681, align 4, !tbaa !152
   %683 = load float, ptr %680, align 4, !tbaa !152
   %684 = fsub float %682, %683
@@ -1749,7 +1745,7 @@ ComputeDistanceShortcut.exit.i:                   ; preds = %674, %672, %650
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %686 ]
   %.022.in28.i.i = phi i32 [ %.022.in.i.i, %.lr.ph.i.i ], [ %.0.i.i245, %686 ]
   %.022.i.i246 = zext i32 %.022.in28.i.i to i64
-  %691 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %.022.i.i246
+  %691 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.022.i.i246
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 8
   %693 = load i32, ptr %692, align 4, !tbaa !33
   %694 = and i32 %693, 134217727
@@ -1758,12 +1754,12 @@ ComputeDistanceShortcut.exit.i:                   ; preds = %674, %672, %650
   %697 = getelementptr inbounds nuw i8, ptr %691, i64 4
   %698 = load i32, ptr %697, align 4, !tbaa !35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %699 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i.i
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i.i
   store i32 %698, ptr %699, align 4, !tbaa !3
   %narrow.i21.i = add nuw nsw i32 %696, %694
   %700 = zext nneg i32 %narrow.i21.i to i64
   %701 = sub nsw i64 %.022.i.i246, %700
-  %.pn.i.i247 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %701
+  %.pn.i.i247 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %701
   %.022.in.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i247, i64 12
   %.022.in.i.i = load i32, ptr %.022.in.in.i.i, align 4, !tbaa !7
   %702 = icmp samesign ult i64 %indvars.iv.i.i, 3
@@ -1776,7 +1772,7 @@ ComputeDistanceCache.exit.i:                      ; preds = %.lr.ph31.preheader.
   %706 = and i64 %647, 7
   %707 = xor i64 %706, 7
   %708 = call i64 @llvm.umin.i64(i64 %705, i64 8)
-  %709 = getelementptr inbounds nuw %struct.PosData, ptr %14, i64 %707
+  %709 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %707
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %709, ptr noundef nonnull readonly align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !158
   %710 = icmp ugt i64 %705, 1
   br i1 %710, label %.lr.ph.i22.i, label %StartPosQueuePush.exit.i
@@ -1785,12 +1781,12 @@ ComputeDistanceCache.exit.i:                      ; preds = %.lr.ph31.preheader.
   %.023.i.i = phi i64 [ %715, %722 ], [ %707, %ComputeDistanceCache.exit.i ]
   %.02122.i.i = phi i64 [ %723, %722 ], [ 1, %ComputeDistanceCache.exit.i ]
   %711 = and i64 %.023.i.i, 7
-  %712 = getelementptr inbounds nuw %struct.PosData, ptr %14, i64 %711
+  %712 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %711
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 24
   %714 = load float, ptr %713, align 8, !tbaa !156
   %715 = add nuw nsw i64 %.023.i.i, 1
   %716 = and i64 %715, 7
-  %717 = getelementptr inbounds nuw %struct.PosData, ptr %14, i64 %716
+  %717 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %716
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 24
   %719 = load float, ptr %718, align 8, !tbaa !156
   %720 = fcmp ogt float %714, %719
@@ -1840,7 +1836,7 @@ EvaluateNode.exit:                                ; preds = %ComputeDistanceShor
   store ptr null, ptr %52, align 8, !tbaa !53
   call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %34) #13
   call void @BrotliFree(ptr noundef %0, ptr noundef %26) #13
-  %731 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %1
+  %731 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %1
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 8
   %733 = load i32, ptr %732, align 4, !tbaa !33
   %734 = and i32 %733, 134217727
@@ -1856,7 +1852,7 @@ EvaluateNode.exit:                                ; preds = %ComputeDistanceShor
 
 739:                                              ; preds = %.lr.ph.i252
   %740 = add i64 %.018.i, -1
-  %741 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %740
+  %741 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %740
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 8
   %743 = load i32, ptr %742, align 4, !tbaa !33
   %744 = and i32 %743, 134217727
@@ -1874,7 +1870,7 @@ EvaluateNode.exit:                                ; preds = %ComputeDistanceShor
 .lr.ph26.i:                                       ; preds = %.critedge.i248, %.lr.ph26.i
   %.125.i250 = phi i64 [ %755, %.lr.ph26.i ], [ %.0.lcssa.i249, %.critedge.i248 ]
   %.01724.i = phi i64 [ %758, %.lr.ph26.i ], [ 0, %.critedge.i248 ]
-  %747 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %.125.i250
+  %747 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.125.i250
   %748 = load i32, ptr %747, align 4, !tbaa !31
   %749 = and i32 %748, 33554431
   %750 = getelementptr inbounds nuw i8, ptr %747, i64 8
@@ -1883,7 +1879,7 @@ EvaluateNode.exit:                                ; preds = %ComputeDistanceShor
   %753 = add nuw nsw i32 %752, %749
   %754 = zext nneg i32 %753 to i64
   %755 = sub i64 %.125.i250, %754
-  %756 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %9, i64 %755
+  %756 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %755
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 12
   store i32 %753, ptr %757, align 4, !tbaa !7
   %758 = add i64 %.01724.i, 1
@@ -1921,7 +1917,7 @@ define internal fastcc void @ZopfliCostModelSetFromLiteralCosts(ptr noundef %0, 
   %.044 = phi i64 [ %14, %.lr.ph ], [ 0, %4 ]
   %.03843 = phi float [ %20, %.lr.ph ], [ 0.000000e+00, %4 ]
   %14 = add nuw i64 %.044, 1
-  %15 = getelementptr inbounds nuw float, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %14
   %16 = load float, ptr %15, align 4, !tbaa !152
   %17 = fadd float %.03843, %16
   %18 = fadd float %13, %17
@@ -1944,7 +1940,7 @@ define internal fastcc void @ZopfliCostModelSetFromLiteralCosts(ptr noundef %0, 
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %.preheader42
-  %26 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %23
   %27 = load double, ptr %26, align 8, !tbaa !165
   br label %FastLog2.exit
 
@@ -1956,7 +1952,7 @@ define internal fastcc void @ZopfliCostModelSetFromLiteralCosts(ptr noundef %0, 
 FastLog2.exit:                                    ; preds = %25, %28
   %.0.i = phi double [ %27, %25 ], [ %30, %28 ]
   %31 = fptrunc double %.0.i to float
-  %32 = getelementptr inbounds nuw float, ptr %0, i64 %.145
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.145
   store float %31, ptr %32, align 4, !tbaa !152
   %33 = add nuw nsw i64 %.145, 1
   %exitcond49.not = icmp eq i64 %33, 704
@@ -1971,7 +1967,7 @@ FastLog2.exit:                                    ; preds = %25, %28
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %.lr.ph47
-  %39 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %36
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %36
   %40 = load double, ptr %39, align 8, !tbaa !165
   br label %FastLog2.exit40
 
@@ -1985,7 +1981,7 @@ FastLog2.exit40:                                  ; preds = %38, %41
   %44 = phi i32 [ %34, %38 ], [ %.pre, %41 ]
   %.0.i39 = phi double [ %40, %38 ], [ %43, %41 ]
   %45 = fptrunc double %.0.i39 to float
-  %46 = getelementptr inbounds nuw float, ptr %8, i64 %.246
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.246
   store float %45, ptr %46, align 4, !tbaa !152
   %47 = add nuw nsw i64 %.246, 1
   %48 = zext i32 %44 to i64
@@ -2028,17 +2024,17 @@ define internal fastcc i64 @UpdateNodes(i64 noundef %0, i64 noundef %1, i64 noun
   %32 = load i64, ptr %29, align 8, !tbaa !55
   %33 = sub i64 0, %32
   %34 = and i64 %33, 7
-  %35 = getelementptr inbounds nuw %struct.PosData, ptr %11, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %37 = load float, ptr %36, align 4, !tbaa !155
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 2840
   %39 = load float, ptr %38, align 8, !tbaa !169
   %40 = fadd float %37, %39
   %41 = load ptr, ptr %30, align 8, !tbaa !51
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %2
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %2
   %43 = load float, ptr %42, align 4, !tbaa !152
   %44 = load i64, ptr %35, align 8, !tbaa !153
-  %45 = getelementptr inbounds nuw float, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !152
   %47 = fsub float %43, %46
   %48 = fadd float %40, %47
@@ -2050,7 +2046,7 @@ define internal fastcc i64 @UpdateNodes(i64 noundef %0, i64 noundef %1, i64 noun
   %.01524.i = phi i64 [ %.116.i, %54 ], [ 4, %.lr.ph.i.preheader ]
   %.01723.i = phi i64 [ %55, %54 ], [ 2, %.lr.ph.i.preheader ]
   %.01822.i = phi float [ %.119.i, %54 ], [ %48, %.lr.ph.i.preheader ]
-  %50 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %12, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %52 = load float, ptr %51, align 4, !tbaa !7
   %53 = fcmp ugt float %52, %.01822.i
@@ -2079,7 +2075,7 @@ ComputeMinimumCopyLength.exit:                    ; preds = %.lr.ph.i, %54, %13
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 2816
-  %69 = getelementptr %struct.ZopfliNode, ptr %12, i64 %2
+  %69 = getelementptr [16 x i8], ptr %12, i64 %2
   %.not372 = icmp eq i64 %8, 0
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 60
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2096,7 +2092,7 @@ ComputeMinimumCopyLength.exit:                    ; preds = %.lr.ph.i, %54, %13
 75:                                               ; preds = %72
   %76 = sub i64 %.0205369, %.val
   %77 = and i64 %76, 7
-  %78 = getelementptr inbounds nuw %struct.PosData, ptr %11, i64 %77
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !153
   %80 = sub i64 %2, %79
   %81 = icmp ult i64 %80, 6
@@ -2150,12 +2146,12 @@ GetInsertLengthCode.exit:                         ; preds = %82, %86, %100, %106
   %110 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %111 = load float, ptr %110, align 8, !tbaa !156
   %112 = zext nneg i16 %.0.i to i64
-  %113 = getelementptr inbounds nuw i32, ptr @kBrotliInsExtra, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr @kBrotliInsExtra, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = uitofp i32 %114 to float
   %116 = fadd float %111, %115
   %117 = load ptr, ptr %30, align 8, !tbaa !51
-  %118 = getelementptr inbounds nuw float, ptr %117, i64 %2
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %2
   %119 = load float, ptr %118, align 4, !tbaa !152
   %120 = load float, ptr %117, align 4, !tbaa !152
   %121 = fsub float %119, %120
@@ -2175,12 +2171,12 @@ GetInsertLengthCode.exit:                         ; preds = %82, %86, %100, %106
   %.1354 = phi i64 [ %.0370, %.lr.ph355 ], [ %.3.ph, %.loopexit ]
   %.0206353 = phi i64 [ %61, %.lr.ph355 ], [ %.1207.ph, %.loopexit ]
   %.0209351 = phi i64 [ 0, %.lr.ph355 ], [ %298, %.loopexit ]
-  %129 = getelementptr inbounds nuw i32, ptr @kDistanceCacheIndex, i64 %.0209351
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @kDistanceCacheIndex, i64 %.0209351
   %130 = load i32, ptr %129, align 4, !tbaa !3
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %123, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !3
-  %134 = getelementptr inbounds nuw i32, ptr @kDistanceCacheOffset, i64 %.0209351
+  %134 = getelementptr inbounds nuw [4 x i8], ptr @kDistanceCacheOffset, i64 %.0209351
   %135 = load i32, ptr %134, align 4, !tbaa !3
   %136 = add nsw i32 %135, %133
   %137 = sext i32 %136 to i64
@@ -2291,14 +2287,14 @@ GetInsertLengthCode.exit:                         ; preds = %82, %86, %100, %106
 184:                                              ; preds = %184, %181
   %.0215 = phi i64 [ 0, %181 ], [ %185, %184 ]
   %185 = add i64 %.0215, 1
-  %186 = getelementptr inbounds nuw i64, ptr %66, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %185
   %187 = load i64, ptr %186, align 8, !tbaa !34
   %188 = add i64 %187, %137
   %.not231 = icmp ult i64 %183, %188
   br i1 %.not231, label %189, label %184, !llvm.loop !171
 
 189:                                              ; preds = %184
-  %190 = getelementptr inbounds nuw i64, ptr %66, i64 %.0215
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.0215
   %191 = load i64, ptr %190, align 8, !tbaa !34
   %192 = add i64 %191, %137
   %193 = sub i64 %183, %192
@@ -2309,7 +2305,7 @@ GetInsertLengthCode.exit:                         ; preds = %82, %86, %100, %106
   br i1 %.not232, label %197, label %.loopexit
 
 197:                                              ; preds = %189
-  %198 = getelementptr inbounds nuw ptr, ptr %67, i64 %.0215
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.0215
   %199 = load ptr, ptr %198, align 8, !tbaa !172
   %200 = getelementptr i8, ptr %199, i64 %193
   %201 = getelementptr i8, ptr %200, i64 %.0206353
@@ -2384,7 +2380,7 @@ GetInsertLengthCode.exit:                         ; preds = %82, %86, %100, %106
 FindMatchLengthWithLimit.exit:                    ; preds = %.critedge.i257, %205, %.critedge.i, %156
   %.0211 = phi i64 [ %178, %.critedge.i ], [ %163, %156 ], [ %227, %.critedge.i257 ], [ %212, %205 ]
   %228 = load ptr, ptr %68, align 8, !tbaa !53
-  %229 = getelementptr inbounds nuw float, ptr %228, i64 %.0209351
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %.0209351
   %230 = load float, ptr %229, align 4, !tbaa !152
   %231 = fadd float %122, %230
   %.0219343 = add i64 %.0206353, 1
@@ -2472,15 +2468,15 @@ CombineLengthCodes.exit:                          ; preds = %262, %GetCopyLength
   %276 = icmp ult i16 %.pn.i, 128
   %277 = select i1 %276, float %122, float %231
   %278 = zext i16 %.0.i239290 to i64
-  %279 = getelementptr inbounds nuw i32, ptr @kBrotliCopyExtra, i64 %278
+  %279 = getelementptr inbounds nuw [4 x i8], ptr @kBrotliCopyExtra, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !3
   %281 = uitofp i32 %280 to float
   %282 = fadd float %277, %281
   %283 = zext i16 %.0.i242 to i64
-  %284 = getelementptr inbounds nuw float, ptr %10, i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %283
   %285 = load float, ptr %284, align 4, !tbaa !152
   %286 = fadd float %285, %282
-  %287 = getelementptr %struct.ZopfliNode, ptr %69, i64 %.0219347
+  %287 = getelementptr [16 x i8], ptr %69, i64 %.0219347
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 12
   %289 = load float, ptr %288, align 4, !tbaa !7
   %290 = fcmp olt float %286, %289
@@ -2531,7 +2527,7 @@ FindMatchLengthWithLimit.exit262:                 ; preds = %.loopexit, %128, %G
   %.7366 = phi i64 [ %.1.lcssa, %.lr.ph367 ], [ %.8.lcssa, %._crit_edge ]
   %.1210365 = phi i64 [ 0, %.lr.ph367 ], [ %419, %._crit_edge ]
   %.0216364 = phi i64 [ %.017.lcssa.i, %.lr.ph367 ], [ %.2218.lcssa, %._crit_edge ]
-  %308 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %9, i64 %.1210365
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.1210365
   %309 = load i64, ptr %308, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %309 to i32
   %.sroa.4.0.extract.shift = lshr i64 %309, 32
@@ -2581,7 +2577,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %307, %317
   %345 = fadd float %122, %344
   %346 = and i64 %.0273.in, 1023
   %347 = load ptr, ptr %68, align 8, !tbaa !53
-  %348 = getelementptr inbounds nuw float, ptr %347, i64 %346
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %347, i64 %346
   %349 = load float, ptr %348, align 4, !tbaa !152
   %350 = fadd float %349, %345
   %351 = lshr i64 %309, 37
@@ -2659,15 +2655,15 @@ GetCopyLengthCode.exit241:                        ; preds = %359, %364, %376, %3
   %394 = or disjoint i16 %393, %305
   %.0.i248 = or disjoint i16 %394, %392
   %395 = zext i16 %.0.i240 to i64
-  %396 = getelementptr inbounds nuw i32, ptr @kBrotliCopyExtra, i64 %395
+  %396 = getelementptr inbounds nuw [4 x i8], ptr @kBrotliCopyExtra, i64 %395
   %397 = load i32, ptr %396, align 4, !tbaa !3
   %398 = uitofp i32 %397 to float
   %399 = fadd float %350, %398
   %400 = zext i16 %.0.i248 to i64
-  %401 = getelementptr inbounds nuw float, ptr %10, i64 %400
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %400
   %402 = load float, ptr %401, align 4, !tbaa !152
   %403 = fadd float %402, %399
-  %404 = getelementptr %struct.ZopfliNode, ptr %69, i64 %.2218360
+  %404 = getelementptr [16 x i8], ptr %69, i64 %.2218360
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 12
   %406 = load float, ptr %405, align 4, !tbaa !7
   %407 = fcmp olt float %403, %406
@@ -2717,7 +2713,7 @@ GetCopyLengthCode.exit241:                        ; preds = %359, %364, %376, %3
 define internal fastcc void @EvaluateNode(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef captures(none) %7) unnamed_addr #5 {
   %9 = alloca %struct.PosData, align 8
   %10 = alloca %struct.PosData, align 8
-  %11 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %7, i64 %1
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load float, ptr %12, align 4, !tbaa !7
   %14 = load i32, ptr %11, align 4, !tbaa !31
@@ -2759,7 +2755,7 @@ ZopfliNodeDistanceCode.exit.i:                    ; preds = %22
   %narrow.i = add nuw nsw i32 %18, %15
   %37 = zext nneg i32 %narrow.i to i64
   %38 = sub i64 %1, %37
-  %39 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %7, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !7
   br label %ComputeDistanceShortcut.exit
@@ -2769,7 +2765,7 @@ ComputeDistanceShortcut.exit:                     ; preds = %8, %34, %36
   store i32 %.0.i, ptr %12, align 4, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2832
   %43 = load ptr, ptr %42, align 8, !tbaa !51
-  %44 = getelementptr inbounds nuw float, ptr %43, i64 %1
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1
   %45 = load float, ptr %44, align 4, !tbaa !152
   %46 = load float, ptr %43, align 4, !tbaa !152
   %47 = fsub float %45, %46
@@ -2804,7 +2800,7 @@ ComputeDistanceShortcut.exit:                     ; preds = %8, %34, %36
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %49 ]
   %.022.in28.i = phi i32 [ %.022.in.i, %.lr.ph.i ], [ %.0.i, %49 ]
   %.022.i = zext i32 %.022.in28.i to i64
-  %57 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %7, i64 %.022.i
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.022.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 4, !tbaa !33
   %60 = and i32 %59, 134217727
@@ -2813,12 +2809,12 @@ ComputeDistanceShortcut.exit:                     ; preds = %8, %34, %36
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %65 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i
   store i32 %64, ptr %65, align 4, !tbaa !3
   %narrow.i21 = add nuw nsw i32 %62, %60
   %66 = zext nneg i32 %narrow.i21 to i64
   %67 = sub nsw i64 %.022.i, %66
-  %.pn.i = getelementptr inbounds nuw %struct.ZopfliNode, ptr %7, i64 %67
+  %.pn.i = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %67
   %.022.in.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 12
   %.022.in.i = load i32, ptr %.022.in.in.i, align 4, !tbaa !7
   %68 = icmp samesign ult i64 %indvars.iv.i, 3
@@ -2834,7 +2830,7 @@ ComputeDistanceCache.exit:                        ; preds = %.lr.ph31.preheader.
   %74 = and i64 %72, 7
   %75 = xor i64 %74, 7
   %76 = tail call i64 @llvm.umin.i64(i64 %73, i64 8)
-  %77 = getelementptr inbounds nuw %struct.PosData, ptr %6, i64 %75
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull readonly align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !158
   %78 = icmp ugt i64 %73, 1
   br i1 %78, label %.lr.ph.i22, label %StartPosQueuePush.exit
@@ -2843,12 +2839,12 @@ ComputeDistanceCache.exit:                        ; preds = %.lr.ph31.preheader.
   %.023.i = phi i64 [ %83, %90 ], [ %75, %ComputeDistanceCache.exit ]
   %.02122.i = phi i64 [ %91, %90 ], [ 1, %ComputeDistanceCache.exit ]
   %79 = and i64 %.023.i, 7
-  %80 = getelementptr inbounds nuw %struct.PosData, ptr %6, i64 %79
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load float, ptr %81, align 8, !tbaa !156
   %83 = add nuw nsw i64 %.023.i, 1
   %84 = and i64 %83, 7
-  %85 = getelementptr inbounds nuw %struct.PosData, ptr %6, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load float, ptr %86, align 8, !tbaa !156
   %88 = fcmp ogt float %82, %87
@@ -2890,7 +2886,7 @@ define hidden void @BrotliCreateZopfliBackwardReferences(ptr noundef %0, i64 nou
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   %.04.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %17, i64 %.04.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.04.i
   store i32 1, ptr %18, align 4, !tbaa !3
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !3
@@ -3063,10 +3059,10 @@ define hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef %0, i64 n
 104:                                              ; preds = %103, %90
   %.1208 = phi ptr [ %100, %103 ], [ %.0207627, %90 ]
   %.1 = phi i64 [ %.0204, %103 ], [ %.0630, %90 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %51, i64 %.0205
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.0205
   %106 = load ptr, ptr %105, align 8, !tbaa !58
-  %107 = getelementptr %struct.BackwardMatch, ptr %.1208, i64 %.0199629
-  %108 = getelementptr %struct.BackwardMatch, ptr %107, i64 %44
+  %107 = getelementptr [8 x i8], ptr %.1208, i64 %.0199629
+  %108 = getelementptr [8 x i8], ptr %107, i64 %44
   call void @llvm.experimental.noalias.scope.decl(metadata !181)
   %109 = and i64 %61, %4
   %110 = load i32, ptr %52, align 4, !tbaa !44, !noalias !184
@@ -3213,7 +3209,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %128, %.critedge.i
   %168 = load ptr, ptr %53, align 8, !tbaa !79, !alias.scope !187, !noalias !194
   %169 = load ptr, ptr %54, align 8, !tbaa !84, !alias.scope !187, !noalias !194
   %170 = zext nneg i32 %167 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %168, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !3, !noalias !196
   %173 = load i64, ptr %50, align 8, !tbaa !86, !alias.scope !197, !noalias !200
   %174 = and i64 %173, %61
@@ -3256,7 +3252,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %128, %.critedge.i
 
 184:                                              ; preds = %._crit_edge
   %185 = load i32, ptr %55, align 8, !tbaa !91, !alias.scope !187, !noalias !194
-  %186 = getelementptr inbounds nuw i32, ptr %169, i64 %.098.i.lcssa
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.098.i.lcssa
   store i32 %185, ptr %186, align 4, !tbaa !3, !noalias !200
   br label %StoreAndFindMatchesH10.exit.sink.split
 
@@ -3364,7 +3360,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %195, %.critedge.i.i
   %.idx = shl nuw nsw i64 %229, 3
   %230 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx
   %231 = load i32, ptr %230, align 4, !tbaa !3, !noalias !200
-  %232 = getelementptr inbounds nuw i32, ptr %169, i64 %.098.i507
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.098.i507
   store i32 %231, ptr %232, align 4, !tbaa !3, !noalias !200
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %234 = load i32, ptr %233, align 4, !tbaa !3, !noalias !200
@@ -3382,7 +3378,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %195, %.critedge.i.i
   br i1 %164, label %242, label %244
 
 242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw i32, ptr %169, i64 %.098.i507
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.098.i507
   store i32 %.093.i.in508, ptr %243, align 4, !tbaa !3, !noalias !200
   br label %244
 
@@ -3396,7 +3392,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %195, %.critedge.i.i
   br i1 %164, label %249, label %251
 
 249:                                              ; preds = %248
-  %250 = getelementptr inbounds nuw i32, ptr %169, i64 %.0102.i506
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.0102.i506
   store i32 %.093.i.in508, ptr %250, align 4, !tbaa !3, !noalias !200
   br label %251
 
@@ -3411,7 +3407,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %195, %.critedge.i.i
   %.3105.i = phi i64 [ %.0102.i506, %244 ], [ %253, %251 ]
   %.3101.i = phi i64 [ %247, %244 ], [ %.098.i507, %251 ]
   %.pn.i = phi i64 [ %247, %244 ], [ %253, %251 ]
-  %.3.in.in.i = getelementptr inbounds nuw i32, ptr %169, i64 %.pn.i
+  %.3.in.in.i = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.pn.i
   %.3.in.i = load i32, ptr %.3.in.in.i, align 4, !tbaa !3, !noalias !200
   %255 = add nsw i64 %.0106.i505, -1
   %.093.i = zext i32 %.3.in.i to i64
@@ -3423,7 +3419,7 @@ StoreAndFindMatchesH10.exit.sink.split:           ; preds = %184, %228
   %.sink = phi i32 [ %234, %228 ], [ %185, %184 ]
   %.2.ph = phi i64 [ %.5, %228 ], [ %.4.lcssa, %184 ]
   %.4.i.ph = phi ptr [ %.2.i244, %228 ], [ %.0.i242.lcssa, %184 ]
-  %257 = getelementptr inbounds nuw i32, ptr %169, i64 %.0102.i506.lcssa783.sink
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.0102.i506.lcssa783.sink
   store i32 %.sink, ptr %257, align 4, !tbaa !3, !noalias !200
   br label %StoreAndFindMatchesH10.exit
 
@@ -3434,7 +3430,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 
 258:                                              ; preds = %StoreAndFindMatchesH10.exit, %258
   %.173.i521 = phi i64 [ 0, %StoreAndFindMatchesH10.exit ], [ %260, %258 ]
-  %259 = getelementptr inbounds nuw i32, ptr %17, i64 %.173.i521
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.173.i521
   store i32 268435455, ptr %259, align 4, !tbaa !3, !noalias !184
   %260 = add nuw nsw i64 %.173.i521, 1
   %exitcond.not = icmp eq i64 %260, 38
@@ -3460,7 +3456,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 269:                                              ; preds = %.lr.ph526, %289
   %.6.i524 = phi ptr [ %.4.i, %.lr.ph526 ], [ %.7.i, %289 ]
   %.071.i523 = phi i64 [ %263, %.lr.ph526 ], [ %290, %289 ]
-  %270 = getelementptr inbounds nuw i32, ptr %17, i64 %.071.i523
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.071.i523
   %271 = load i32, ptr %270, align 4, !tbaa !3, !noalias !184
   %272 = icmp ult i32 %271, 268435455
   br i1 %272, label %273, label %289
@@ -3517,11 +3513,11 @@ FindAllMatchesH10.exit:                           ; preds = %289, %266, %261
   %.0.i231555 = phi i64 [ 0, %296 ], [ %408, %415 ]
   %.026.i554 = phi i64 [ 0, %296 ], [ %416, %415 ]
   %.027.i553 = phi i64 [ 3, %296 ], [ %.128.i, %415 ]
-  %301 = getelementptr inbounds nuw ptr, ptr %58, i64 %.026.i554
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.026.i554
   %302 = load ptr, ptr %301, align 8, !tbaa !102, !noalias !202
-  %303 = getelementptr inbounds nuw i64, ptr %59, i64 %.026.i554
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.026.i554
   %304 = load i64, ptr %303, align 8, !tbaa !34, !noalias !202
-  %305 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %298, i64 %.0.i231555
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %.0.i231555
   %306 = sub i64 64, %.0.i231555
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
   %307 = getelementptr inbounds nuw i8, ptr %302, i64 8
@@ -3541,10 +3537,10 @@ FindAllMatchesH10.exit:                           ; preds = %289, %266, %261
   %321 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %322 = zext nneg i32 %314 to i64
   %323 = shl nuw i64 1, %322
-  %324 = getelementptr inbounds nuw i32, ptr %321, i64 %323
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %323
   %325 = zext nneg i32 %312 to i64
   %326 = shl nuw i64 1, %325
-  %327 = getelementptr inbounds nuw i16, ptr %324, i64 %326
+  %327 = getelementptr inbounds nuw [2 x i8], ptr %324, i64 %326
   %328 = and i64 %.0.copyload.i93.i, %320
   %329 = mul i64 %328, 2297779722762296275
   %330 = zext nneg i32 %315 to i64
@@ -3552,20 +3548,20 @@ FindAllMatchesH10.exit:                           ; preds = %289, %266, %261
   %332 = trunc i64 %331 to i32
   %333 = and i32 %317, %332
   %334 = and i64 %331, 4294967295
-  %335 = getelementptr inbounds nuw i16, ptr %324, i64 %334
+  %335 = getelementptr inbounds nuw [2 x i8], ptr %324, i64 %334
   %336 = load i16, ptr %335, align 2, !tbaa !42, !noalias !205
   %337 = zext i16 %336 to i32
   %338 = zext i32 %333 to i64
-  %339 = getelementptr inbounds nuw i32, ptr %321, i64 %338
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %338
   %340 = load i32, ptr %339, align 4, !tbaa !3, !noalias !205
   %341 = add i32 %340, %337
   %342 = zext i32 %341 to i64
-  %343 = getelementptr inbounds nuw i32, ptr %327, i64 %342
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %342
   %.not636 = icmp eq i16 %336, -1
   %344 = getelementptr inbounds nuw i8, ptr %302, i64 4
   %345 = load i32, ptr %344, align 4, !tbaa !109, !noalias !205
   %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds nuw i32, ptr %327, i64 %346
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %346
   %348 = load i32, ptr %302, align 4, !tbaa !110, !noalias !205
   %349 = icmp eq i32 %348, -558043680
   br i1 %349, label %351, label %350
@@ -3712,7 +3708,7 @@ FindAllCompoundDictionaryMatches.exit:            ; preds = %406, %399, %351
   ]
 
 409:                                              ; preds = %FindAllCompoundDictionaryMatches.exit
-  %410 = getelementptr %struct.BackwardMatch, ptr %298, i64 %408
+  %410 = getelementptr [8 x i8], ptr %298, i64 %408
   %411 = getelementptr i8, ptr %410, i64 -4
   %412 = load i32, ptr %411, align 4, !tbaa !70
   %413 = lshr i32 %412, 5
@@ -3826,14 +3822,14 @@ MergeMatches.exit:                                ; preds = %.lr.ph56.i, %.prehe
 454:                                              ; preds = %MergeMatches.exit, %FindAllMatchesH10.exit
   %.0209 = phi i64 [ %453, %MergeMatches.exit ], [ %294, %FindAllMatchesH10.exit ]
   %455 = trunc i64 %.0209 to i32
-  %456 = getelementptr inbounds nuw i32, ptr %31, i64 %.0201628
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0201628
   store i32 %455, ptr %456, align 4, !tbaa !3
   %.not230 = icmp eq i64 %.0209, 0
   br i1 %.not230, label %641, label %457
 
 457:                                              ; preds = %454
   %458 = add i64 %.0209, %.0199629
-  %459 = getelementptr %struct.BackwardMatch, ptr %.1208, i64 %458
+  %459 = getelementptr [8 x i8], ptr %.1208, i64 %458
   %460 = getelementptr i8, ptr %459, i64 -4
   %461 = load i32, ptr %460, align 4, !tbaa !70
   %462 = icmp ugt i32 %461, 10431
@@ -3880,7 +3876,7 @@ MergeMatches.exit:                                ; preds = %.lr.ph56.i, %.prehe
   %484 = mul i32 %.val318, 506832829
   %485 = lshr i32 %484, 15
   %486 = zext nneg i32 %485 to i64
-  %487 = getelementptr inbounds nuw i32, ptr %479, i64 %486
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %479, i64 %486
   %488 = load i32, ptr %487, align 4, !tbaa !3, !noalias !222
   %489 = and i64 %477, %.0.i235588
   %490 = shl i64 %489, 1
@@ -3909,7 +3905,7 @@ MergeMatches.exit:                                ; preds = %.lr.ph56.i, %.prehe
   %.0102.i.i.lcssa = phi i64 [ %491, %481 ], [ %.0102.i.i576, %.lr.ph581 ], [ %.3105.i.i, %551 ]
   %.098.i.i.lcssa = phi i64 [ %490, %481 ], [ %.098.i.i577, %.lr.ph581 ], [ %.3101.i.i, %551 ]
   %497 = load i32, ptr %55, align 8, !tbaa !91, !alias.scope !213, !noalias !216
-  %498 = getelementptr inbounds nuw i32, ptr %480, i64 %.098.i.i.lcssa
+  %498 = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %.098.i.i.lcssa
   store i32 %497, ptr %498, align 4, !tbaa !3, !noalias !223
   br label %StoreH10.exit
 
@@ -3994,7 +3990,7 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %507, %.critedge.i.i
   %.idx757 = shl nuw nsw i64 %532, 3
   %533 = getelementptr inbounds nuw i8, ptr %480, i64 %.idx757
   %534 = load i32, ptr %533, align 4, !tbaa !3, !noalias !223
-  %535 = getelementptr inbounds nuw i32, ptr %480, i64 %.098.i.i577
+  %535 = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %.098.i.i577
   store i32 %534, ptr %535, align 4, !tbaa !3, !noalias !223
   %536 = getelementptr inbounds nuw i8, ptr %533, i64 4
   %537 = load i32, ptr %536, align 4, !tbaa !3, !noalias !223
@@ -4011,13 +4007,13 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %507, %.critedge.i.i
   br i1 %543, label %546, label %549
 
 546:                                              ; preds = %538
-  %547 = getelementptr inbounds nuw i32, ptr %480, i64 %.098.i.i577
+  %547 = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %.098.i.i577
   store i32 %.093.i.i.in578, ptr %547, align 4, !tbaa !3, !noalias !223
   %548 = or disjoint i64 %545, 1
   br label %551
 
 549:                                              ; preds = %538
-  %550 = getelementptr inbounds nuw i32, ptr %480, i64 %.0102.i.i576
+  %550 = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %.0102.i.i576
   store i32 %.093.i.i.in578, ptr %550, align 4, !tbaa !3, !noalias !223
   br label %551
 
@@ -4027,7 +4023,7 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %507, %.critedge.i.i
   %.3105.i.i = phi i64 [ %.0102.i.i576, %546 ], [ %545, %549 ]
   %.3101.i.i = phi i64 [ %548, %546 ], [ %.098.i.i577, %549 ]
   %.pn.i.i = phi i64 [ %548, %546 ], [ %545, %549 ]
-  %.3.in.in.i.i = getelementptr inbounds nuw i32, ptr %480, i64 %.pn.i.i
+  %.3.in.in.i.i = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %.pn.i.i
   %.3.in.i.i = load i32, ptr %.3.in.in.i.i, align 4, !tbaa !3, !noalias !223
   %552 = add nsw i64 %.0106.i.i575, -1
   %.093.i.i = zext i32 %.3.in.i.i to i64
@@ -4037,7 +4033,7 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %507, %.critedge.i.i
 StoreH10.exit:                                    ; preds = %531, %._crit_edge582
   %.0102.i.i576.lcssa800.sink = phi i64 [ %.0102.i.i576, %531 ], [ %.0102.i.i.lcssa, %._crit_edge582 ]
   %.sink813 = phi i32 [ %537, %531 ], [ %497, %._crit_edge582 ]
-  %554 = getelementptr inbounds nuw i32, ptr %480, i64 %.0102.i.i576.lcssa800.sink
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %.0102.i.i576.lcssa800.sink
   store i32 %.sink813, ptr %554, align 4, !tbaa !3, !noalias !223
   %555 = add i64 %.0.i235588, 8
   %556 = icmp ult i64 %555, %spec.select.i234
@@ -4066,7 +4062,7 @@ StoreH10.exit:                                    ; preds = %531, %._crit_edge58
   %565 = mul i32 %.val, 506832829
   %566 = lshr i32 %565, 15
   %567 = zext nneg i32 %566 to i64
-  %568 = getelementptr inbounds nuw i32, ptr %560, i64 %567
+  %568 = getelementptr inbounds nuw [4 x i8], ptr %560, i64 %567
   %569 = load i32, ptr %568, align 4, !tbaa !3, !noalias !239
   %570 = and i64 %558, %.1.i236623
   %571 = shl i64 %570, 1
@@ -4095,7 +4091,7 @@ StoreH10.exit:                                    ; preds = %531, %._crit_edge58
   %.0102.i.i277.lcssa = phi i64 [ %572, %562 ], [ %.0102.i.i277611, %.lr.ph616 ], [ %.3105.i.i305, %632 ]
   %.098.i.i278.lcssa = phi i64 [ %571, %562 ], [ %.098.i.i278612, %.lr.ph616 ], [ %.3101.i.i306, %632 ]
   %578 = load i32, ptr %55, align 8, !tbaa !91, !alias.scope !230, !noalias !233
-  %579 = getelementptr inbounds nuw i32, ptr %561, i64 %.098.i.i278.lcssa
+  %579 = getelementptr inbounds nuw [4 x i8], ptr %561, i64 %.098.i.i278.lcssa
   store i32 %578, ptr %579, align 4, !tbaa !3, !noalias !240
   br label %StoreH10.exit317
 
@@ -4180,7 +4176,7 @@ FindMatchLengthWithLimit.exit.i.i291:             ; preds = %588, %.critedge.i.i
   %.idx758 = shl nuw nsw i64 %613, 3
   %614 = getelementptr inbounds nuw i8, ptr %561, i64 %.idx758
   %615 = load i32, ptr %614, align 4, !tbaa !3, !noalias !240
-  %616 = getelementptr inbounds nuw i32, ptr %561, i64 %.098.i.i278612
+  %616 = getelementptr inbounds nuw [4 x i8], ptr %561, i64 %.098.i.i278612
   store i32 %615, ptr %616, align 4, !tbaa !3, !noalias !240
   %617 = getelementptr inbounds nuw i8, ptr %614, i64 4
   %618 = load i32, ptr %617, align 4, !tbaa !3, !noalias !240
@@ -4197,13 +4193,13 @@ FindMatchLengthWithLimit.exit.i.i291:             ; preds = %588, %.critedge.i.i
   br i1 %624, label %627, label %630
 
 627:                                              ; preds = %619
-  %628 = getelementptr inbounds nuw i32, ptr %561, i64 %.098.i.i278612
+  %628 = getelementptr inbounds nuw [4 x i8], ptr %561, i64 %.098.i.i278612
   store i32 %.093.i.i279.in613, ptr %628, align 4, !tbaa !3, !noalias !240
   %629 = or disjoint i64 %626, 1
   br label %632
 
 630:                                              ; preds = %619
-  %631 = getelementptr inbounds nuw i32, ptr %561, i64 %.0102.i.i277611
+  %631 = getelementptr inbounds nuw [4 x i8], ptr %561, i64 %.0102.i.i277611
   store i32 %.093.i.i279.in613, ptr %631, align 4, !tbaa !3, !noalias !240
   br label %632
 
@@ -4213,7 +4209,7 @@ FindMatchLengthWithLimit.exit.i.i291:             ; preds = %588, %.critedge.i.i
   %.3105.i.i305 = phi i64 [ %.0102.i.i277611, %627 ], [ %626, %630 ]
   %.3101.i.i306 = phi i64 [ %629, %627 ], [ %.098.i.i278612, %630 ]
   %.pn.i.i307 = phi i64 [ %629, %627 ], [ %626, %630 ]
-  %.3.in.in.i.i308 = getelementptr inbounds nuw i32, ptr %561, i64 %.pn.i.i307
+  %.3.in.in.i.i308 = getelementptr inbounds nuw [4 x i8], ptr %561, i64 %.pn.i.i307
   %.3.in.i.i309 = load i32, ptr %.3.in.in.i.i308, align 4, !tbaa !3, !noalias !240
   %633 = add nsw i64 %.0106.i.i276610, -1
   %.093.i.i279 = zext i32 %.3.in.i.i309 to i64
@@ -4223,7 +4219,7 @@ FindMatchLengthWithLimit.exit.i.i291:             ; preds = %588, %.critedge.i.i
 StoreH10.exit317:                                 ; preds = %612, %._crit_edge617
   %.0102.i.i277611.lcssa809.sink = phi i64 [ %.0102.i.i277611, %612 ], [ %.0102.i.i277.lcssa, %._crit_edge617 ]
   %.sink815 = phi i32 [ %618, %612 ], [ %578, %._crit_edge617 ]
-  %635 = getelementptr inbounds nuw i32, ptr %561, i64 %.0102.i.i277611.lcssa809.sink
+  %635 = getelementptr inbounds nuw [4 x i8], ptr %561, i64 %.0102.i.i277611.lcssa809.sink
   store i32 %.sink815, ptr %635, align 4, !tbaa !3, !noalias !240
   %636 = add nuw i64 %.1.i236623, 1
   %637 = icmp ult i64 %636, %472
@@ -4322,7 +4318,7 @@ InitZopfliCostModel.exit:                         ; preds = %668, %676
   %694 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %695 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %696 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %697 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %1
+  %697 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %1
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 8
   br label %699
 
@@ -4332,7 +4328,7 @@ InitZopfliCostModel.exit:                         ; preds = %668, %676
 
 .lr.ph.i325:                                      ; preds = %699, %.lr.ph.i325
   %.04.i = phi i64 [ %702, %.lr.ph.i325 ], [ 0, %699 ]
-  %701 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %.04.i
+  %701 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %.04.i
   store i32 1, ptr %701, align 4, !tbaa !3
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %701, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !3
@@ -4361,7 +4357,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i325, %699
 .lr.ph79.i:                                       ; preds = %704, %._crit_edge.i
   %.077.i327 = phi i64 [ %740, %._crit_edge.i ], [ %687, %704 ]
   %.07276.i = phi i64 [ %741, %._crit_edge.i ], [ 0, %704 ]
-  %707 = getelementptr inbounds nuw %struct.Command, ptr %10, i64 %.07276.i
+  %707 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.07276.i
   %708 = load i32, ptr %707, align 4, !tbaa !36
   %709 = zext i32 %708 to i64
   %710 = getelementptr inbounds nuw i8, ptr %707, i64 4
@@ -4373,7 +4369,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i325, %699
   %716 = getelementptr inbounds nuw i8, ptr %707, i64 12
   %717 = load i16, ptr %716, align 4, !tbaa !244
   %718 = zext i16 %717 to i64
-  %719 = getelementptr inbounds nuw i32, ptr %685, i64 %718
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %685, i64 %718
   %720 = load i32, ptr %719, align 4, !tbaa !3
   %721 = add i32 %720, 1
   store i32 %721, ptr %719, align 4, !tbaa !3
@@ -4383,7 +4379,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i325, %699
 723:                                              ; preds = %.lr.ph79.i
   %724 = and i16 %715, 1023
   %725 = zext nneg i16 %724 to i64
-  %726 = getelementptr inbounds nuw i32, ptr %686, i64 %725
+  %726 = getelementptr inbounds nuw [4 x i8], ptr %686, i64 %725
   %727 = load i32, ptr %726, align 4, !tbaa !3
   %728 = add i32 %727, 1
   store i32 %728, ptr %726, align 4, !tbaa !3
@@ -4400,7 +4396,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i325, %699
   %732 = getelementptr inbounds nuw i8, ptr %3, i64 %731
   %733 = load i8, ptr %732, align 1, !tbaa !7
   %734 = zext i8 %733 to i64
-  %735 = getelementptr inbounds nuw i32, ptr %684, i64 %734
+  %735 = getelementptr inbounds nuw [4 x i8], ptr %684, i64 %734
   %736 = load i32, ptr %735, align 4, !tbaa !3
   %737 = add i32 %736, 1
   store i32 %737, ptr %735, align 4, !tbaa !3
@@ -4421,7 +4417,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i325, %699
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.043.i.i = phi i64 [ %746, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.03242.i.i = phi i64 [ %745, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %742 = getelementptr inbounds nuw i32, ptr %684, i64 %.043.i.i
+  %742 = getelementptr inbounds nuw [4 x i8], ptr %684, i64 %.043.i.i
   %743 = load i32, ptr %742, align 4, !tbaa !3
   %744 = zext i32 %743 to i64
   %745 = add i64 %.03242.i.i, %744
@@ -4434,7 +4430,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i325, %699
   br i1 %747, label %748, label %751
 
 748:                                              ; preds = %._crit_edge.i.i
-  %749 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %745
+  %749 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %745
   %750 = load double, ptr %749, align 8, !tbaa !165
   br label %FastLog2.exit39.i.i
 
@@ -4451,13 +4447,13 @@ FastLog2.exit39.i.i:                              ; preds = %751, %748
 
 .lr.ph49.i.i:                                     ; preds = %775, %FastLog2.exit39.i.i
   %.248.i.i = phi i64 [ %776, %775 ], [ 0, %FastLog2.exit39.i.i ]
-  %756 = getelementptr inbounds nuw i32, ptr %684, i64 %.248.i.i
+  %756 = getelementptr inbounds nuw [4 x i8], ptr %684, i64 %.248.i.i
   %757 = load i32, ptr %756, align 4, !tbaa !3
   %758 = icmp eq i32 %757, 0
   br i1 %758, label %759, label %761
 
 759:                                              ; preds = %.lr.ph49.i.i
-  %760 = getelementptr inbounds nuw float, ptr %688, i64 %.248.i.i
+  %760 = getelementptr inbounds nuw [4 x i8], ptr %688, i64 %.248.i.i
   store float %755, ptr %760, align 4, !tbaa !152
   br label %775
 
@@ -4467,7 +4463,7 @@ FastLog2.exit39.i.i:                              ; preds = %751, %748
 
 763:                                              ; preds = %761
   %764 = zext nneg i32 %757 to i64
-  %765 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %764
+  %765 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %764
   %766 = load double, ptr %765, align 8, !tbaa !165
   br label %FastLog2.exit.i.i
 
@@ -4480,7 +4476,7 @@ FastLog2.exit.i.i:                                ; preds = %767, %763
   %.0.i.i.i = phi double [ %766, %763 ], [ %769, %767 ]
   %770 = fptrunc double %.0.i.i.i to float
   %771 = fsub float %754, %770
-  %772 = getelementptr inbounds nuw float, ptr %688, i64 %.248.i.i
+  %772 = getelementptr inbounds nuw [4 x i8], ptr %688, i64 %.248.i.i
   store float %771, ptr %772, align 4, !tbaa !152
   %773 = fcmp olt float %771, 1.000000e+00
   br i1 %773, label %774, label %775
@@ -4505,7 +4501,7 @@ SetCost.exit.i:                                   ; preds = %775
 780:                                              ; preds = %780, %SetCost.exit.i
   %.07082.i = phi float [ 0x47DFF933C0000000, %SetCost.exit.i ], [ %784, %780 ]
   %.181.i = phi i64 [ 0, %SetCost.exit.i ], [ %785, %780 ]
-  %781 = getelementptr inbounds nuw float, ptr %648, i64 %.181.i
+  %781 = getelementptr inbounds nuw [4 x i8], ptr %648, i64 %.181.i
   %782 = load float, ptr %781, align 4, !tbaa !152
   %783 = fcmp olt float %.07082.i, %782
   %784 = select i1 %783, float %.07082.i, float %782
@@ -4530,12 +4526,12 @@ SetCost.exit.i:                                   ; preds = %775
   %792 = getelementptr inbounds nuw i8, ptr %3, i64 %791
   %793 = load i8, ptr %792, align 1, !tbaa !7
   %794 = zext i8 %793 to i64
-  %795 = getelementptr inbounds nuw float, ptr %688, i64 %794
+  %795 = getelementptr inbounds nuw [4 x i8], ptr %688, i64 %794
   %796 = load float, ptr %795, align 4, !tbaa !152
   %797 = fadd float %.06984.i, %796
   %798 = fadd float %789, %797
   %799 = add nuw i64 %.283.i330, 1
-  %800 = getelementptr inbounds nuw float, ptr %787, i64 %799
+  %800 = getelementptr inbounds nuw [4 x i8], ptr %787, i64 %799
   store float %798, ptr %800, align 4, !tbaa !152
   %801 = fsub float %798, %789
   %802 = fsub float %797, %801
@@ -4569,10 +4565,10 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %786, %
 813:                                              ; preds = %917, %.lr.ph76.i
   %.05375.i = phi i64 [ 0, %.lr.ph76.i ], [ %918, %917 ]
   %.05574.i = phi i64 [ 0, %.lr.ph76.i ], [ %.156.i, %917 ]
-  %814 = getelementptr inbounds nuw i32, ptr %647, i64 %.05375.i
+  %814 = getelementptr inbounds nuw [4 x i8], ptr %647, i64 %.05375.i
   %815 = load i32, ptr %814, align 4, !tbaa !3
   %816 = zext i32 %815 to i64
-  %817 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %.0207.lcssa, i64 %.05574.i
+  %817 = getelementptr inbounds nuw [8 x i8], ptr %.0207.lcssa, i64 %.05574.i
   %818 = call fastcc i64 @UpdateNodes(i64 noundef %1, i64 noundef %2, i64 noundef %.05375.i, ptr noundef %3, i64 noundef %4, ptr noundef readonly %6, i64 noundef %807, ptr noundef nonnull readonly %8, i64 noundef %816, ptr noundef readonly %817, ptr noundef readonly %648, ptr noundef %16, ptr noundef nonnull %671)
   %819 = icmp ult i64 %818, 16384
   %spec.store.select.i = select i1 %819, i64 0, i64 %818
@@ -4583,7 +4579,7 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %786, %
   br i1 %823, label %824, label %833
 
 824:                                              ; preds = %813
-  %825 = getelementptr %struct.BackwardMatch, ptr %.0207.lcssa, i64 %822
+  %825 = getelementptr [8 x i8], ptr %.0207.lcssa, i64 %822
   %826 = getelementptr i8, ptr %825, i64 -4
   %827 = load i32, ptr %826, align 4, !tbaa !70
   %828 = lshr i32 %827, 5
@@ -4616,7 +4612,7 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %786, %
   br i1 %.not60.i, label %838, label %.loopexit.i
 
 838:                                              ; preds = %.lr.ph.i336
-  %839 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %836
+  %839 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %836
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 12
   %841 = load float, ptr %840, align 4, !tbaa !7
   %842 = load i32, ptr %839, align 4, !tbaa !31
@@ -4656,7 +4652,7 @@ ZopfliNodeDistanceCode.exit.i.i.i:                ; preds = %850
   %narrow.i.i.i = add nuw nsw i32 %846, %843
   %863 = zext nneg i32 %narrow.i.i.i to i64
   %864 = sub i64 %836, %863
-  %865 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %864
+  %865 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %864
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 12
   %867 = load i32, ptr %866, align 4, !tbaa !7
   br label %ComputeDistanceShortcut.exit.i.i
@@ -4665,7 +4661,7 @@ ComputeDistanceShortcut.exit.i.i:                 ; preds = %862, %860, %838
   %.0.i.i.i338 = phi i32 [ %867, %862 ], [ %861, %860 ], [ 0, %838 ]
   store i32 %.0.i.i.i338, ptr %840, align 4, !tbaa !7
   %868 = load ptr, ptr %673, align 8, !tbaa !51
-  %869 = getelementptr inbounds nuw float, ptr %868, i64 %836
+  %869 = getelementptr inbounds nuw [4 x i8], ptr %868, i64 %836
   %870 = load float, ptr %869, align 4, !tbaa !152
   %871 = load float, ptr %868, align 4, !tbaa !152
   %872 = fsub float %870, %871
@@ -4697,7 +4693,7 @@ ComputeDistanceShortcut.exit.i.i:                 ; preds = %862, %860, %838
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %874 ]
   %.022.in28.i.i.i = phi i32 [ %.022.in.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i338, %874 ]
   %.022.i.i.i339 = zext i32 %.022.in28.i.i.i to i64
-  %879 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %.022.i.i.i339
+  %879 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %.022.i.i.i339
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 8
   %881 = load i32, ptr %880, align 4, !tbaa !33
   %882 = and i32 %881, 134217727
@@ -4706,12 +4702,12 @@ ComputeDistanceShortcut.exit.i.i:                 ; preds = %862, %860, %838
   %885 = getelementptr inbounds nuw i8, ptr %879, i64 4
   %886 = load i32, ptr %885, align 4, !tbaa !35
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %887 = getelementptr inbounds nuw i32, ptr %696, i64 %indvars.iv.i.i.i
+  %887 = getelementptr inbounds nuw [4 x i8], ptr %696, i64 %indvars.iv.i.i.i
   store i32 %886, ptr %887, align 4, !tbaa !3
   %narrow.i21.i.i = add nuw nsw i32 %884, %882
   %888 = zext nneg i32 %narrow.i21.i.i to i64
   %889 = sub nsw i64 %.022.i.i.i339, %888
-  %.pn.i.i.i = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %889
+  %.pn.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %889
   %.022.in.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 12
   %.022.in.i.i.i = load i32, ptr %.022.in.in.i.i.i, align 4, !tbaa !7
   %890 = icmp samesign ult i64 %indvars.iv.i.i.i, 3
@@ -4724,7 +4720,7 @@ ComputeDistanceCache.exit.i.i:                    ; preds = %.lr.ph31.preheader.
   %894 = and i64 %835, 7
   %895 = xor i64 %894, 7
   %896 = call i64 @llvm.umin.i64(i64 %893, i64 8)
-  %897 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %895
+  %897 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %895
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %897, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !158
   %898 = icmp ugt i64 %893, 1
   br i1 %898, label %.lr.ph.i22.i.i, label %StartPosQueuePush.exit.i.i
@@ -4733,12 +4729,12 @@ ComputeDistanceCache.exit.i.i:                    ; preds = %.lr.ph31.preheader.
   %.023.i.i.i = phi i64 [ %903, %910 ], [ %895, %ComputeDistanceCache.exit.i.i ]
   %.02122.i.i.i = phi i64 [ %911, %910 ], [ 1, %ComputeDistanceCache.exit.i.i ]
   %899 = and i64 %.023.i.i.i, 7
-  %900 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %899
+  %900 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %899
   %901 = getelementptr inbounds nuw i8, ptr %900, i64 24
   %902 = load float, ptr %901, align 8, !tbaa !156
   %903 = add nuw nsw i64 %.023.i.i.i, 1
   %904 = and i64 %903, 7
-  %905 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %904
+  %905 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %904
   %906 = getelementptr inbounds nuw i8, ptr %905, i64 24
   %907 = load float, ptr %906, align 8, !tbaa !156
   %908 = fcmp ogt float %902, %907
@@ -4763,7 +4759,7 @@ StartPosQueuePush.exit.i.i:                       ; preds = %910, %ComputeDistan
 
 EvaluateNode.exit.i:                              ; preds = %StartPosQueuePush.exit.i.i, %ComputeDistanceShortcut.exit.i.i
   %912 = phi i64 [ %835, %ComputeDistanceShortcut.exit.i.i ], [ %893, %StartPosQueuePush.exit.i.i ]
-  %913 = getelementptr inbounds nuw i32, ptr %647, i64 %836
+  %913 = getelementptr inbounds nuw [4 x i8], ptr %647, i64 %836
   %914 = load i32, ptr %913, align 4, !tbaa !3
   %915 = zext i32 %914 to i64
   %916 = add i64 %.25765.i, %915
@@ -4800,7 +4796,7 @@ EvaluateNode.exit.i:                              ; preds = %StartPosQueuePush.e
 
 927:                                              ; preds = %.lr.ph.i.i334
   %928 = add i64 %.018.i.i, -1
-  %929 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %928
+  %929 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %928
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %931 = load i32, ptr %930, align 4, !tbaa !33
   %932 = and i32 %931, 134217727
@@ -4818,7 +4814,7 @@ EvaluateNode.exit.i:                              ; preds = %StartPosQueuePush.e
 .lr.ph26.i.i:                                     ; preds = %.critedge.i.i332, %.lr.ph26.i.i
   %.125.i.i = phi i64 [ %943, %.lr.ph26.i.i ], [ %.0.lcssa.i.i, %.critedge.i.i332 ]
   %.01724.i.i = phi i64 [ %946, %.lr.ph26.i.i ], [ 0, %.critedge.i.i332 ]
-  %935 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %.125.i.i
+  %935 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %.125.i.i
   %936 = load i32, ptr %935, align 4, !tbaa !31
   %937 = and i32 %936, 33554431
   %938 = getelementptr inbounds nuw i8, ptr %935, i64 8
@@ -4827,7 +4823,7 @@ EvaluateNode.exit.i:                              ; preds = %StartPosQueuePush.e
   %941 = add nuw nsw i32 %940, %937
   %942 = zext nneg i32 %941 to i64
   %943 = sub i64 %.125.i.i, %942
-  %944 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %943
+  %944 = getelementptr inbounds nuw [16 x i8], ptr %671, i64 %943
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 12
   store i32 %941, ptr %945, align 4, !tbaa !7
   %946 = add i64 %.01724.i.i, 1
@@ -4882,7 +4878,7 @@ define internal fastcc void @SetCost(ptr noundef readonly captures(none) %0, i64
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.043 = phi i64 [ %9, %.lr.ph ], [ 0, %4 ]
   %.03242 = phi i64 [ %8, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %.043
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.043
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = zext i32 %6 to i64
   %8 = add i64 %.03242, %7
@@ -4896,7 +4892,7 @@ define internal fastcc void @SetCost(ptr noundef readonly captures(none) %0, i64
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
   %.032.lcssa59 = phi i64 [ %8, %._crit_edge ], [ 0, %4 ]
-  %11 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.032.lcssa59
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.032.lcssa59
   %12 = load double, ptr %11, align 8, !tbaa !165
   br label %FastLog2.exit41
 
@@ -4917,7 +4913,7 @@ FastLog2.exit41:                                  ; preds = %._crit_edge.thread,
 .lr.ph46:                                         ; preds = %FastLog2.exit41, %.lr.ph46
   %.145 = phi i64 [ %22, %.lr.ph46 ], [ 0, %FastLog2.exit41 ]
   %.13444 = phi i64 [ %spec.select, %.lr.ph46 ], [ %.032.lcssa58, %FastLog2.exit41 ]
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %.145
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.145
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = icmp eq i32 %19, 0
   %21 = zext i1 %20 to i64
@@ -4932,7 +4928,7 @@ FastLog2.exit41:                                  ; preds = %._crit_edge.thread,
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %.loopexit
-  %25 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.033
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %.033
   %26 = load double, ptr %25, align 8, !tbaa !165
   br label %FastLog2.exit39
 
@@ -4949,13 +4945,13 @@ FastLog2.exit39:                                  ; preds = %24, %27
 
 .lr.ph49:                                         ; preds = %FastLog2.exit39, %51
   %.248 = phi i64 [ %52, %51 ], [ 0, %FastLog2.exit39 ]
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %.248
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.248
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %.lr.ph49
-  %36 = getelementptr inbounds nuw float, ptr %3, i64 %.248
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.248
   store float %31, ptr %36, align 4, !tbaa !152
   br label %51
 
@@ -4965,7 +4961,7 @@ FastLog2.exit39:                                  ; preds = %24, %27
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %33 to i64
-  %41 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !165
   br label %FastLog2.exit
 
@@ -4978,7 +4974,7 @@ FastLog2.exit:                                    ; preds = %39, %43
   %.0.i = phi double [ %42, %39 ], [ %45, %43 ]
   %46 = fptrunc double %.0.i to float
   %47 = fsub float %16, %46
-  %48 = getelementptr inbounds nuw float, ptr %3, i64 %.248
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.248
   store float %47, ptr %48, align 4, !tbaa !152
   %49 = fcmp olt float %47, 1.000000e+00
   br i1 %49, label %50, label %51

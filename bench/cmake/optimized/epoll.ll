@@ -71,11 +71,11 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8, !tbaa !22
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = add i32 %7, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = ptrtoint ptr %14 to i64
   %.not = icmp ne ptr %10, null
@@ -85,7 +85,7 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %2, %22
   %.016 = phi i64 [ %23, %22 ], [ 0, %2 ]
-  %17 = getelementptr inbounds nuw %struct.epoll_event, ptr %10, i64 %.016
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %.016
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 1, !tbaa !25
   %20 = icmp eq i32 %19, %1
@@ -416,13 +416,13 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %99 = load ptr, ptr %56, align 8, !tbaa !21
   %100 = load i32, ptr %57, align 8, !tbaa !22
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %101
   store ptr %3, ptr %102, align 8, !tbaa !23
   %103 = sext i32 %.0126 to i64
   %104 = inttoptr i64 %103 to ptr
   %105 = add i32 %100, 1
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %99, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %106
   store ptr %104, ptr %107, align 8, !tbaa !23
   %108 = icmp sgt i32 %.0126, 0
   br i1 %108, label %.lr.ph219.preheader, label %.critedge.thread
@@ -431,11 +431,11 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %109 = load ptr, ptr %56, align 8, !tbaa !21
   %110 = load i32, ptr %57, align 8, !tbaa !22
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %109, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %111
   store ptr null, ptr %112, align 8, !tbaa !23
   %113 = add i32 %110, 1
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %109, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %114
   store ptr null, ptr %115, align 8, !tbaa !23
   br label %166
 
@@ -447,7 +447,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %indvars.iv = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next, %144 ]
   %.0128216 = phi i32 [ 0, %.lr.ph219.preheader ], [ %.1129, %144 ]
   %.0130215 = phi i32 [ 0, %.lr.ph219.preheader ], [ %.1131, %144 ]
-  %116 = getelementptr inbounds nuw %struct.epoll_event, ptr %3, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4, !tbaa !25
   %119 = icmp eq i32 %118, -1
@@ -456,7 +456,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
 120:                                              ; preds = %.lr.ph219
   %121 = load ptr, ptr %56, align 8, !tbaa !21
   %122 = sext i32 %118 to i64
-  %123 = getelementptr inbounds ptr, ptr %121, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !23
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %129
@@ -519,11 +519,11 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %148 = load ptr, ptr %56, align 8, !tbaa !21
   %149 = load i32, ptr %57, align 8, !tbaa !22
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %150
   store ptr null, ptr %151, align 8, !tbaa !23
   %152 = add i32 %149, 1
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %148, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %153
   store ptr null, ptr %154, align 8, !tbaa !23
   br label %.loopexit
 
@@ -532,11 +532,11 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %156 = load ptr, ptr %56, align 8, !tbaa !21
   %157 = load i32, ptr %57, align 8, !tbaa !22
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr %156, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %158
   store ptr null, ptr %159, align 8, !tbaa !23
   %160 = add i32 %157, 1
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %161
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %161
   store ptr null, ptr %162, align 8, !tbaa !23
   br i1 %155, label %166, label %163
 

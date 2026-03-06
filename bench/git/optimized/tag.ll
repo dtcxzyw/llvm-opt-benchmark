@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { i32, i32 }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.column_options = type { i32, i32, ptr, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -1156,7 +1155,7 @@ _.exit.i:                                         ; preds = %473, %471
   %482 = getelementptr inbounds nuw i8, ptr %.01014.i147, i64 16
   %483 = load ptr, ptr %18, align 8, !tbaa !50
   %484 = load i64, ptr %463, align 8, !tbaa !24
-  %485 = getelementptr inbounds nuw %struct.string_list_item, ptr %483, i64 %484
+  %485 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %484
   %486 = icmp ult ptr %482, %485
   br i1 %486, label %.lr.ph, label %delete_tags.exit
 
@@ -1302,7 +1301,7 @@ sub_0:                                            ; preds = %502
 
 549:                                              ; preds = %551, %545
   %.0811.i.i = phi i64 [ 0, %545 ], [ %552, %551 ]
-  %550 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %550 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %548, %550
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %551
 
@@ -2476,7 +2475,7 @@ define internal noundef i32 @collect_tags(ptr readnone captures(none) %0, ptr no
   %10 = load ptr, ptr %3, align 8, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !24
-  %13 = getelementptr %struct.string_list_item, ptr %10, i64 %12
+  %13 = getelementptr [16 x i8], ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   store ptr %6, ptr %14, align 8, !tbaa !53
   ret i32 0

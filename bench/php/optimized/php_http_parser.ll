@@ -518,7 +518,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 185:                                              ; preds = %183
   %186 = load i8, ptr %44, align 2, !tbaa !20
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr @method_strings, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr @method_strings, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !24
   %190 = icmp eq i8 %55, 32
   %.not1296 = icmp eq i8 %186, 26
@@ -2628,7 +2628,7 @@ define hidden range(i32 0, 2) i32 @php_http_should_keep_alive(ptr noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @php_http_method_str(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @method_strings, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @method_strings, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !24
   ret ptr %4
 }

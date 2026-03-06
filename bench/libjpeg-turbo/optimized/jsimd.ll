@@ -291,10 +291,10 @@ define void @jsimd_rgb_ycc_convert(ptr noundef readonly captures(none) %0, ptr n
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_rgb_ycc_convert, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_rgb_ycc_convert, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_rgb_ycc_convert.1, i64 %15
+  %switch.gep13 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_rgb_ycc_convert.1, i64 %15
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   br label %16
 
@@ -359,10 +359,10 @@ define void @jsimd_rgb_gray_convert(ptr noundef readonly captures(none) %0, ptr 
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_rgb_gray_convert, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_rgb_gray_convert, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_rgb_gray_convert.2, i64 %15
+  %switch.gep13 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_rgb_gray_convert.2, i64 %15
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   br label %16
 
@@ -427,10 +427,10 @@ define void @jsimd_ycc_rgb_convert(ptr noundef readonly captures(none) %0, ptr n
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_ycc_rgb_convert, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_ycc_rgb_convert, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_ycc_rgb_convert.3, i64 %15
+  %switch.gep13 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_ycc_rgb_convert.3, i64 %15
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   br label %16
 
@@ -884,10 +884,10 @@ define void @jsimd_h2v2_merged_upsample(ptr noundef readonly captures(none) %0, 
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_h2v2_merged_upsample, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_h2v2_merged_upsample, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep11 = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_h2v2_merged_upsample.4, i64 %14
+  %switch.gep11 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_h2v2_merged_upsample.4, i64 %14
   %switch.load12 = load ptr, ptr %switch.gep11, align 8
   br label %15
 
@@ -952,10 +952,10 @@ define void @jsimd_h2v1_merged_upsample(ptr noundef readonly captures(none) %0, 
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_h2v1_merged_upsample, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_h2v1_merged_upsample, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep11 = getelementptr inbounds nuw ptr, ptr @switch.table.jsimd_h2v1_merged_upsample.5, i64 %14
+  %switch.gep11 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jsimd_h2v1_merged_upsample.5, i64 %14
   %switch.load12 = load ptr, ptr %switch.gep11, align 8
   br label %15
 

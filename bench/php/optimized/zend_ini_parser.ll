@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon.3 = type { i32 }
 %union.anon.6 = type { i32 }
-%union.yyalloc = type { %struct._zval_struct }
 
 @compiler_globals = external local_unnamed_addr global %struct._zend_compiler_globals, align 8
 @yypact = internal unnamed_addr constant [76 x i8] c"\D2v\D2I\EFQ\D2\D2\D2\D2\D2\D2\D2\00\D2\DE^\D2\D2\FF\D2\D2\D2\D2\D2\D2\E1f\D2\D2\06;\D2\D2\D2\D2\D2\D2\D2\D2\1C\1C\1C\D2f\19P\02\D2\D2\D2Q\D2\D2\D2\D2m\D2\D2H\1C\1C\1C\D2\FFxf\EC\D2\D2\D2\D2\D2\D2\D2\D2", align 16
@@ -208,7 +207,7 @@ define internal fastcc range(i32 0, 3) i32 @ini_parse() unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 1 %.0269, i64 %24, i1 false)
   %32 = add nsw i64 %spec.store.select, 15
   %33 = sdiv i64 %32, 16
-  %34 = getelementptr inbounds %union.yyalloc, ptr %30, i64 %33
+  %34 = getelementptr inbounds [16 x i8], ptr %30, i64 %33
   %35 = shl i64 %24, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %.0256, i64 %35, i1 false)
   %.not293 = icmp eq ptr %.0269, %6
@@ -220,7 +219,7 @@ define internal fastcc range(i32 0, 3) i32 @ini_parse() unnamed_addr #0 {
 
 37:                                               ; preds = %31, %36
   %38 = getelementptr inbounds i8, ptr %30, i64 %23
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %34, i64 %24
+  %39 = getelementptr inbounds [16 x i8], ptr %34, i64 %24
   %40 = getelementptr inbounds i8, ptr %39, i64 -16
   %41 = add nsw i64 %spec.store.select, -1
   %.not294 = icmp sgt i64 %41, %23
@@ -318,7 +317,7 @@ define internal fastcc range(i32 0, 3) i32 @ini_parse() unnamed_addr #0 {
   %88 = load i8, ptr %87, align 1, !tbaa !35
   %89 = sext i8 %88 to i64
   %90 = sub nsw i64 1, %89
-  %91 = getelementptr inbounds %struct._zval_struct, ptr %.2249, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %.2249, i64 %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !36
   switch i32 %.0246, label %zend_string_release.exit [
     i32 53, label %507
@@ -1361,7 +1360,7 @@ zend_ini_get_constant.exit:                       ; preds = %zend_string_release
 
 zend_string_release.exit:                         ; preds = %410, %409, %zend_string_free.exit341, %391, %390, %382, %370, %369, %360, %359, %358, %350, %349, %348, %340, %335, %334, %325, %324, %323, %315, %314, %313, %305, %291, %290, %282, %281, %280, %272, %248, %convert_to_number.exit.thread.i, %231, %229, %218, %217, %210, %201, %200, %199, %192, %187, %zval_ini_dtor.exit352, %146, %145, %138, %133, %zend_string_release.exit307, %110, %109, %102, %92, %85, %507, %506, %505, %504, %zend_ini_get_constant.exit, %425, %424, %423, %422, %421, %zend_ini_init_string.exit368, %411, %380, %379, %378, %376, %374, %372, %371, %338, %337, %336, %303, %302, %301, %zend_ini_init_string.exit365, %zend_ini_init_string.exit362, %262, %zend_ini_init_string.exit359, %252, %251, %250, %zend_ini_init_string.exit, %219
   %508 = sub nsw i64 0, %89
-  %509 = getelementptr inbounds %struct._zval_struct, ptr %.2249, i64 %508
+  %509 = getelementptr inbounds [16 x i8], ptr %.2249, i64 %508
   %510 = getelementptr inbounds i8, ptr %.2262, i64 %508
   %511 = getelementptr inbounds nuw i8, ptr %509, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %511, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !36
@@ -2229,7 +2228,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
 26:                                               ; preds = %24
   %27 = add i32 %.1365.i.i, 1
   %28 = sext i32 %.1365.i.i to i64
-  %29 = getelementptr inbounds i32, ptr %4, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %4, i64 %28
   store i32 %20, ptr %29, align 4, !tbaa !51
   br label %30
 
@@ -2293,10 +2292,10 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %24, %.critedge.thre
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %yytnamerr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %yytnamerr.exit.thread ]
   %.04921 = phi i64 [ %40, %.lr.ph.preheader ], [ %.15013, %yytnamerr.exit.thread ]
-  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !51
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr @yytname, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !52
   %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = icmp eq i8 %46, 34
@@ -2372,10 +2371,10 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 66:                                               ; preds = %61
   %67 = add nsw i32 %.0, 1
   %68 = sext i32 %.0 to i64
-  %69 = getelementptr inbounds i32, ptr %2, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !51
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @yytname, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %74 = load i8, ptr %73, align 1, !tbaa !35
   %75 = icmp eq i8 %74, 34

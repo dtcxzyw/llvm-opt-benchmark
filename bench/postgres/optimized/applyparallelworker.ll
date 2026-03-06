@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.shm_toc_estimator = type { i64, i64 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.ErrorData = type { i32, i8, i8, i8, i8, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr }
@@ -135,7 +134,7 @@ pa_can_start.exit:                                ; preds = %14
 
 28:                                               ; preds = %27, %.lr.ph31.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 25
   %32 = load i8, ptr %31, align 1, !range !4, !noundef !5
@@ -368,7 +367,7 @@ define dso_local void @pa_detach_all_error_mq() local_unnamed_addr #0 {
   %6 = phi i32 [ %14, %13 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -855,7 +854,7 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
 .lr.ph24:                                         ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = load ptr, ptr %21, align 8
@@ -1322,7 +1321,7 @@ list_length.exit:                                 ; preds = %31, %33
 41:                                               ; preds = %39
   %.val = load ptr, ptr %38, align 8
   %42 = and i64 %indvars.iv.next, 2147483647
-  %43 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %42
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, %5
   br i1 %45, label %.thread, label %39, !llvm.loop !15

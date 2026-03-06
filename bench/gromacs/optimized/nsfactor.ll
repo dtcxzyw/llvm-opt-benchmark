@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
 %"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
 %"struct.std::_Head_base.9" = type { ptr }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 %"class.gmx::ThreeFry2x64Fast" = type { %"class.gmx::ThreeFry2x64General.base", [4 x i8] }
 %"class.gmx::ThreeFry2x64General.base" = type <{ %"struct.std::array", %"struct.std::array", %"struct.std::array", i32 }>
 %"struct.std::array" = type { [2 x i64] }
@@ -374,7 +373,7 @@ define void @_Z21normalize_probabilityiPd(i32 noundef %0, ptr noundef captures(n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.014 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %6, %.lr.ph ]
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %5 = load double, ptr %4, align 8, !tbaa !18
   %6 = fadd double %.014, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -383,7 +382,7 @@ define void @_Z21normalize_probabilityiPd(i32 noundef %0, ptr noundef captures(n
 
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %.lr.ph16
   %indvars.iv18 = phi i64 [ 0, %.lr.ph16.preheader ], [ %indvars.iv.next19, %.lr.ph16 ]
-  %7 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv18
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv18
   %8 = load double, ptr %7, align 8, !tbaa !18
   %9 = fdiv double %8, %6
   store double %9, ptr %7, align 8, !tbaa !18
@@ -502,19 +501,19 @@ _ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ;
 41:                                               ; preds = %39
   %42 = load ptr, ptr %20, align 8, !tbaa !36
   %43 = zext nneg i32 %.023.ph62 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   store ptr %40, ptr %44, align 8, !tbaa !23
   %45 = load i32, ptr %4, align 4, !tbaa !37
   %46 = load ptr, ptr %26, align 8, !tbaa !38
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %43
   store i32 %45, ptr %47, align 4, !tbaa !37
   %48 = load i32, ptr %5, align 4, !tbaa !37
   %49 = load ptr, ptr %23, align 8, !tbaa !39
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %43
   store i32 %48, ptr %50, align 4, !tbaa !37
   %51 = load double, ptr %7, align 8, !tbaa !18
   %52 = load ptr, ptr %29, align 8, !tbaa !40
-  %53 = getelementptr inbounds nuw double, ptr %52, i64 %43
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %43
   store double %51, ptr %53, align 8, !tbaa !18
   %54 = add nuw nsw i32 %.023.ph62, 1
   store i32 %54, ptr %19, align 8, !tbaa !31
@@ -796,11 +795,11 @@ define noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structu
   %20 = phi ptr [ %46, %45 ], [ %17, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.preheader ]
   %21 = load ptr, ptr %11, align 8, !tbaa !60
-  %22 = getelementptr inbounds nuw %struct.t_atom, ptr %21, i64 %indvars.iv34
+  %22 = getelementptr inbounds nuw [36 x i8], ptr %21, i64 %indvars.iv34
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !61
   %25 = load ptr, ptr %12, align 8, !tbaa !39
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !37
   %28 = icmp eq i32 %24, %27
   br i1 %28, label %29, label %45
@@ -827,14 +826,14 @@ define noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structu
 
 41:                                               ; preds = %29
   %42 = load ptr, ptr %13, align 8, !tbaa !40
-  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %38, %36
   %.sink42 = phi ptr [ %37, %36 ], [ %40, %38 ], [ %20, %41 ]
   %.sink.in = phi ptr [ %35, %36 ], [ %39, %38 ], [ %43, %41 ]
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %.sink42, i64 %indvars.iv34
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.sink42, i64 %indvars.iv34
   store double %.sink, ptr %44, align 8, !tbaa !18
   br label %45
 
@@ -1037,7 +1036,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   br label %._crit_edge88
 
 138:                                              ; preds = %124
-  %139 = getelementptr inbounds %"class.gmx::ThreeFry2x64Fast", ptr %136, i64 %130
+  %139 = getelementptr inbounds [56 x i8], ptr %136, i64 %130
   br label %140
 
 140:                                              ; preds = %142, %138
@@ -1124,12 +1123,12 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv118 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next119, %.lr.ph87 ]
   %201 = load ptr, ptr %16, align 8, !tbaa !83
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv118
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv118
   %203 = load i32, ptr %76, align 8, !tbaa !82
   %204 = sext i32 %203 to i64
   %205 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, i32 noundef 254, i64 noundef range(i64 -2147483648, 2147483648) %204, i64 noundef 8)
   store ptr %205, ptr %202, align 8, !tbaa !29
-  %206 = getelementptr inbounds nuw %"class.gmx::ThreeFry2x64Fast", ptr %136, i64 %indvars.iv118
+  %206 = getelementptr inbounds nuw [56 x i8], ptr %136, i64 %indvars.iv118
   %207 = call noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(ptr noundef nonnull align 8 dereferenceable(52) %19)
   store i64 %207, ptr %206, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -1228,16 +1227,16 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 
 .preheader74.us:                                  ; preds = %._crit_edge91.us, %.preheader74.lr.ph.split.us
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %._crit_edge91.us ], [ 0, %.preheader74.lr.ph.split.us ]
-  %270 = getelementptr inbounds nuw double, ptr %269, i64 %indvars.iv128
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %indvars.iv128
   %.promoted.us93 = load double, ptr %270, align 8, !tbaa !18
   br label %271
 
 271:                                              ; preds = %.preheader74.us, %271
   %indvars.iv123 = phi i64 [ 0, %.preheader74.us ], [ %indvars.iv.next124, %271 ]
   %272 = phi double [ %.promoted.us93, %.preheader74.us ], [ %277, %271 ]
-  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %indvars.iv123
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv123
   %274 = load ptr, ptr %273, align 8, !tbaa !29
-  %275 = getelementptr inbounds nuw double, ptr %274, i64 %indvars.iv128
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %indvars.iv128
   %276 = load double, ptr %275, align 8, !tbaa !18
   %277 = fadd double %276, %272
   store double %277, ptr %270, align 8, !tbaa !18
@@ -1260,7 +1259,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv133 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next134, %.lr.ph95 ]
   %278 = load ptr, ptr %16, align 8, !tbaa !83
-  %279 = getelementptr inbounds nuw ptr, ptr %278, i64 %indvars.iv133
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %indvars.iv133
   %280 = load ptr, ptr %279, align 8, !tbaa !29
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, i32 noundef 289, ptr noundef %280)
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
@@ -1293,7 +1292,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %290 = load ptr, ptr %16, align 8, !tbaa !83
-  %291 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %indvars.iv
   %292 = load i32, ptr %76, align 8, !tbaa !82
   %293 = sext i32 %292 to i64
   %294 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, i32 noundef 315, i64 noundef range(i64 -2147483648, 2147483648) %293, i64 noundef 8)
@@ -1320,16 +1319,16 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 
 .preheader76.us:                                  ; preds = %._crit_edge80.us, %.preheader76.lr.ph.split.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %._crit_edge80.us ], [ 0, %.preheader76.lr.ph.split.us ]
-  %299 = getelementptr inbounds nuw double, ptr %298, i64 %indvars.iv108
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %indvars.iv108
   %.promoted.us = load double, ptr %299, align 8, !tbaa !18
   br label %300
 
 300:                                              ; preds = %.preheader76.us, %300
   %indvars.iv103 = phi i64 [ 0, %.preheader76.us ], [ %indvars.iv.next104, %300 ]
   %301 = phi double [ %.promoted.us, %.preheader76.us ], [ %306, %300 ]
-  %302 = getelementptr inbounds nuw ptr, ptr %297, i64 %indvars.iv103
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv103
   %303 = load ptr, ptr %302, align 8, !tbaa !29
-  %304 = getelementptr inbounds nuw double, ptr %303, i64 %indvars.iv108
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %indvars.iv108
   %305 = load double, ptr %304, align 8, !tbaa !18
   %306 = fadd double %305, %301
   store double %306, ptr %299, align 8, !tbaa !18
@@ -1352,7 +1351,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv113 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next114, %.lr.ph83 ]
   %307 = load ptr, ptr %16, align 8, !tbaa !83
-  %308 = getelementptr inbounds nuw ptr, ptr %307, i64 %indvars.iv113
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %indvars.iv113
   %309 = load ptr, ptr %308, align 8, !tbaa !29
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, i32 noundef 346, ptr noundef %309)
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
@@ -1380,7 +1379,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.014.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %317, %.lr.ph.i ]
-  %315 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv.i
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv.i
   %316 = load double, ptr %315, align 8, !tbaa !18
   %317 = fadd double %.014.i, %316
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1389,7 +1388,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 
 .lr.ph16.i:                                       ; preds = %.lr.ph.i, %.lr.ph16.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %.lr.ph16.i ], [ 0, %.lr.ph.i ]
-  %318 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv18.i
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv18.i
   %319 = load double, ptr %318, align 8, !tbaa !18
   %320 = fdiv double %319, %317
   store double %320, ptr %318, align 8, !tbaa !18
@@ -1417,7 +1416,7 @@ _Z21normalize_probabilityiPd.exit:                ; preds = %.lr.ph16.i, %312, %
   %328 = uitofp nneg i32 %327 to double
   %329 = fmul double %326, 5.000000e-01
   %330 = call double @llvm.fmuladd.f64(double %326, double %328, double %329)
-  %331 = getelementptr inbounds nuw double, ptr %323, i64 %indvars.iv138
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %indvars.iv138
   store double %330, ptr %331, align 8, !tbaa !18
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
@@ -1455,7 +1454,7 @@ define linkonce_odr noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(pt
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.phi.trans.insert1 = zext nneg i32 %3 to i64
-  %.phi.trans.insert2 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert, i64 %.phi.trans.insert1
+  %.phi.trans.insert2 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert1
   %.pre = load i64, ptr %.phi.trans.insert2, align 8, !tbaa !10
   %5 = add nuw nsw i32 %3, 1
   br label %64
@@ -1596,7 +1595,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %10
   %.sroa.15.096 = phi i32 [ %232, %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.thread ], [ 0, %.lr.ph ]
   %.sroa.10.095 = phi i64 [ %228, %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.thread ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %4, align 8, !tbaa !74
-  %36 = getelementptr inbounds %"class.gmx::ThreeFry2x64Fast", ptr %35, i64 %33
+  %36 = getelementptr inbounds [56 x i8], ptr %35, i64 %33
   %37 = invoke noundef i32 @_ZN3gmx5log2IEj(i32 noundef %22)
           to label %38 unwind label %283
 
@@ -1627,7 +1626,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %10
 
 ._crit_edge.i:                                    ; preds = %51
   %.phi.trans.insert1.i = zext nneg i32 %52 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert.i, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !10
   %54 = add nuw nsw i32 %52, 1
   br label %.noexc35
@@ -1785,7 +1784,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %10
 
 _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit: ; preds = %._crit_edge.i.i
   %134 = load ptr, ptr %4, align 8, !tbaa !74
-  %135 = getelementptr inbounds %"class.gmx::ThreeFry2x64Fast", ptr %134, i64 %33
+  %135 = getelementptr inbounds [56 x i8], ptr %134, i64 %33
   %136 = invoke noundef i32 @_ZN3gmx5log2IEj(i32 noundef %22)
           to label %137 unwind label %283
 
@@ -1816,7 +1815,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit: ;
 
 ._crit_edge.i45:                                  ; preds = %150
   %.phi.trans.insert1.i47 = zext nneg i32 %151 to i64
-  %.phi.trans.insert2.i48 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i46, i64 %.phi.trans.insert1.i47
+  %.phi.trans.insert2.i48 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert.i46, i64 %.phi.trans.insert1.i47
   %.pre.i49 = load i64, ptr %.phi.trans.insert2.i48, align 8, !tbaa !10
   %153 = add nuw nsw i32 %151, 1
   br label %.noexc42
@@ -1986,21 +1985,21 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43:
   %239 = getelementptr inbounds i8, ptr %237, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !37
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds double, ptr %236, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %236, i64 %241
   %243 = load double, ptr %242, align 8, !tbaa !18
   %sext98 = shl i64 %230, 32
   %244 = ashr exact i64 %sext98, 30
   %245 = getelementptr inbounds i8, ptr %237, i64 %244
   %246 = load i32, ptr %245, align 4, !tbaa !37
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds double, ptr %236, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %236, i64 %247
   %249 = load double, ptr %248, align 8, !tbaa !18
   %250 = load ptr, ptr %5, align 8, !tbaa !83
-  %251 = getelementptr inbounds ptr, ptr %250, i64 %33
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %33
   %252 = load ptr, ptr %251, align 8, !tbaa !29
   %253 = load ptr, ptr %6, align 8, !tbaa !72
-  %254 = getelementptr inbounds [3 x float], ptr %253, i64 %241
-  %255 = getelementptr inbounds [3 x float], ptr %253, i64 %247
+  %254 = getelementptr inbounds [12 x i8], ptr %253, i64 %241
+  %255 = getelementptr inbounds [12 x i8], ptr %253, i64 %247
   %256 = load float, ptr %255, align 4, !tbaa !81
   %257 = load float, ptr %254, align 4, !tbaa !81
   %258 = fsub float %256, %257
@@ -2026,7 +2025,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43:
   %277 = call double @llvm.floor.f64(double %276)
   %278 = fptosi double %277 to i32
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds double, ptr %252, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %252, i64 %279
   %281 = load double, ptr %280, align 8, !tbaa !18
   %282 = call double @llvm.fmuladd.f64(double %243, double %249, double %281)
   store double %282, ptr %280, align 8, !tbaa !18
@@ -2149,7 +2148,7 @@ define internal void @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2
   %24 = load ptr, ptr %5, align 8
   %25 = load ptr, ptr %3, align 8
   %26 = sext i32 %13 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %4, align 8
   br label %.preheader
 
@@ -2161,12 +2160,12 @@ define internal void @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2
 .lr.ph:                                           ; preds = %.preheader
   %30 = load ptr, ptr %23, align 8, !tbaa !66
   %31 = zext nneg i32 %.02831 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %24, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !37
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds double, ptr %30, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %30, i64 %34
   %36 = load ptr, ptr %27, align 8, !tbaa !29
-  %37 = getelementptr inbounds [3 x float], ptr %28, i64 %34
+  %37 = getelementptr inbounds [12 x i8], ptr %28, i64 %34
   %38 = load float, ptr %37, align 4, !tbaa !81
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load float, ptr %39, align 4, !tbaa !81
@@ -2177,12 +2176,12 @@ define internal void @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %44 = load double, ptr %35, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !37
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds double, ptr %30, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %30, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !18
-  %50 = getelementptr inbounds [3 x float], ptr %28, i64 %47
+  %50 = getelementptr inbounds [12 x i8], ptr %28, i64 %47
   %51 = load float, ptr %50, align 4, !tbaa !81
   %52 = fsub float %51, %38
   %53 = fmul float %52, %52
@@ -2203,7 +2202,7 @@ define internal void @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2
   %67 = call double @llvm.floor.f64(double %66)
   %68 = fptosi double %67 to i32
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds double, ptr %36, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %36, i64 %69
   %71 = load double, ptr %70, align 8, !tbaa !18
   %72 = call double @llvm.fmuladd.f64(double %44, double %49, double %71)
   store double %72, ptr %70, align 8, !tbaa !18
@@ -2808,7 +2807,7 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = uitofp nneg i32 %21 to double
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %3, double %1)
-  %24 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %23, ptr %24, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2840,9 +2839,9 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
 
 .preheader52.us:                                  ; preds = %.preheader52.us, %.preheader52.lr.ph.split.us
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.preheader52.us ], [ 0, %.preheader52.lr.ph.split.us ]
-  %32 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv68
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv68
   %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv68
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv68
   %35 = load double, ptr %34, align 8, !tbaa !18
   %36 = fdiv double %35, %33
   store double %36, ptr %34, align 8, !tbaa !18
@@ -2869,9 +2868,9 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
 
 .preheader.us:                                    ; preds = %.preheader.us, %.preheader.lr.ph.split.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader.us ], [ 1, %.preheader.lr.ph.split.us ]
-  %43 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv79
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv79
   %44 = load double, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv79
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv79
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fdiv double %46, %44
   store double %47, ptr %45, align 8, !tbaa !18
@@ -2887,24 +2886,24 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
   br i1 %50, label %.lr.ph61, label %.preheader.._crit_edge62_crit_edge
 
 .preheader.._crit_edge62_crit_edge:               ; preds = %.preheader
-  %.phi.trans.insert94 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv88
+  %.phi.trans.insert94 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv88
   %.pre95 = load double, ptr %.phi.trans.insert94, align 8, !tbaa !18
   br label %._crit_edge62
 
 .lr.ph61:                                         ; preds = %.preheader
   %51 = load ptr, ptr %38, align 8, !tbaa !86
   %52 = load ptr, ptr %39, align 8, !tbaa !131
-  %53 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv88
-  %54 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv88
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv88
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv88
   %.pre93 = load double, ptr %54, align 8, !tbaa !18
   br label %55
 
 55:                                               ; preds = %.lr.ph61, %55
   %56 = phi double [ %.pre93, %.lr.ph61 ], [ %65, %55 ]
   %indvars.iv85 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next86, %55 ]
-  %57 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv85
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv85
   %58 = load double, ptr %57, align 8, !tbaa !18
-  %59 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv85
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv85
   %60 = load double, ptr %59, align 8, !tbaa !18
   %61 = fdiv double %58, %60
   %62 = load double, ptr %53, align 8, !tbaa !18
@@ -2926,9 +2925,9 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
   %69 = phi i32 [ %.pre96, %._crit_edge62.loopexit ], [ %48, %.preheader.._crit_edge62_crit_edge ]
   %70 = phi double [ %65, %._crit_edge62.loopexit ], [ %.pre95, %.preheader.._crit_edge62_crit_edge ]
   %71 = phi i32 [ %66, %._crit_edge62.loopexit ], [ %49, %.preheader.._crit_edge62_crit_edge ]
-  %72 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv88
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv88
   %73 = load double, ptr %72, align 8, !tbaa !18
-  %74 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv88
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv88
   %75 = fdiv double %70, %73
   store double %75, ptr %74, align 8, !tbaa !18
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -2944,24 +2943,24 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
   br i1 %80, label %.lr.ph57, label %.preheader52.._crit_edge58_crit_edge
 
 .preheader52.._crit_edge58_crit_edge:             ; preds = %.preheader52
-  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv76
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv76
   %.pre91 = load double, ptr %.phi.trans.insert, align 8, !tbaa !18
   br label %._crit_edge58
 
 .lr.ph57:                                         ; preds = %.preheader52
   %81 = load ptr, ptr %27, align 8, !tbaa !86
   %82 = load ptr, ptr %28, align 8, !tbaa !131
-  %83 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv76
-  %84 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv76
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv76
   %.pre = load double, ptr %84, align 8, !tbaa !18
   br label %85
 
 85:                                               ; preds = %.lr.ph57, %85
   %86 = phi double [ %.pre, %.lr.ph57 ], [ %95, %85 ]
   %indvars.iv73 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next74, %85 ]
-  %87 = getelementptr inbounds nuw double, ptr %81, i64 %indvars.iv73
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv73
   %88 = load double, ptr %87, align 8, !tbaa !18
-  %89 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv73
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv73
   %90 = load double, ptr %89, align 8, !tbaa !18
   %91 = fdiv double %88, %90
   %92 = load double, ptr %83, align 8, !tbaa !18
@@ -2983,9 +2982,9 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
   %99 = phi i32 [ %.pre92, %._crit_edge58.loopexit ], [ %78, %.preheader52.._crit_edge58_crit_edge ]
   %100 = phi double [ %95, %._crit_edge58.loopexit ], [ %.pre91, %.preheader52.._crit_edge58_crit_edge ]
   %101 = phi i32 [ %96, %._crit_edge58.loopexit ], [ %79, %.preheader52.._crit_edge58_crit_edge ]
-  %102 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv76
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv76
   %103 = load double, ptr %102, align 8, !tbaa !18
-  %104 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv76
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv76
   %105 = fdiv double %100, %103
   store double %105, ptr %104, align 8, !tbaa !18
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1

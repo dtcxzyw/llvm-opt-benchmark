@@ -9,14 +9,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.asmjit::_abi_1_10::OperandSignature" = type { i32 }
 %"struct.asmjit::_abi_1_10::Support::Array.4" = type { [32 x i8] }
 %"struct.asmjit::_abi_1_10::Support::Array.5" = type { [32 x i8] }
-%"struct.asmjit::_abi_1_10::FuncValuePack" = type { [4 x %"struct.asmjit::_abi_1_10::FuncValue"] }
-%"struct.asmjit::_abi_1_10::FuncValue" = type { i32 }
 %"class.asmjit::_abi_1_10::RAConstraints" = type { %"struct.asmjit::_abi_1_10::Support::Array.0" }
 %"struct.asmjit::_abi_1_10::Support::Array.0" = type { [4 x i32] }
 %"class.asmjit::_abi_1_10::FuncArgsContext" = type <{ ptr, ptr, i8, i8, i8, i8, i8, i8, [2 x i8], i32, %"struct.asmjit::_abi_1_10::Support::Array.6", [65 x %"struct.asmjit::_abi_1_10::FuncArgsContext::Var"], [4 x i8] }>
 %"struct.asmjit::_abi_1_10::Support::Array.6" = type { [4 x %"struct.asmjit::_abi_1_10::FuncArgsContext::WorkData"] }
 %"struct.asmjit::_abi_1_10::FuncArgsContext::WorkData" = type { i32, i32, i32, i32, i32, i32, i8, i8, [6 x i8], [32 x i8] }
 %"struct.asmjit::_abi_1_10::FuncArgsContext::Var" = type { %"struct.asmjit::_abi_1_10::FuncValue", %"struct.asmjit::_abi_1_10::FuncValue" }
+%"struct.asmjit::_abi_1_10::FuncValue" = type { i32 }
 
 $_ZN6asmjit9_abi_1_1013RAConstraints4initENS0_4ArchE = comdat any
 
@@ -85,7 +84,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13Func
   %32 = phi i64 [ 0, %20 ], [ %43, %31 ]
   %33 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %20 ], [ %44, %31 ]
   %34 = icmp ule <8 x i64> %33, %28
-  %35 = getelementptr inbounds %"struct.asmjit::_abi_1_10::FuncValuePack", ptr %21, <8 x i64> %33
+  %35 = getelementptr inbounds [16 x i8], ptr %21, <8 x i64> %33
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 %32
   %37 = tail call <8 x i8> @llvm.masked.load.v8i8.p0(ptr align 1 %36, <8 x i1> %34, <8 x i8> poison), !tbaa !28
   %38 = and <8 x i8> %37, splat (i8 -2)
@@ -151,7 +150,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame4ini
 
 6:                                                ; preds = %2
   %7 = zext nneg i8 %3 to i64
-  %8 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7
+  %8 = getelementptr inbounds nuw [216 x i8], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %0, i8 0, i64 100, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -222,13 +221,13 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame4ini
 
 55:                                               ; preds = %55, %39
   %56 = phi i64 [ 0, %39 ], [ %63, %55 ]
-  %57 = getelementptr inbounds nuw i32, ptr %40, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !66
-  %59 = getelementptr inbounds nuw i32, ptr %41, i64 %56
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %56
   store i32 %58, ptr %59, align 4, !tbaa !66
-  %60 = getelementptr inbounds nuw i32, ptr %42, i64 %56
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %56
   %61 = load i32, ptr %60, align 4, !tbaa !66
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %56
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %56
   store i32 %61, ptr %62, align 4, !tbaa !66
   %63 = add nuw nsw i64 %56, 1
   %64 = icmp eq i64 %63, 4
@@ -249,7 +248,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 
 6:                                                ; preds = %1
   %7 = zext nneg i8 %3 to i64
-  %8 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7
+  %8 = getelementptr inbounds nuw [216 x i8], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i8, ptr %9, align 4, !tbaa !67
   %11 = zext i8 %10 to i32
@@ -349,9 +348,9 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
   %.sroa.0.0 = phi i32 [ 0, %57 ], [ %.sroa.0.0., %.cont ]
   %.sroa.5.0 = phi i32 [ 0, %57 ], [ %..sroa.5.0, %.cont ]
   %82 = phi i64 [ 0, %57 ], [ %105, %.cont ]
-  %83 = getelementptr inbounds nuw i32, ptr %60, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = getelementptr inbounds nuw i32, ptr %61, i64 %82
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %82
   %86 = load i32, ptr %85, align 4, !tbaa !66
   %87 = and i32 %86, %84
   %88 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %87), !range !76

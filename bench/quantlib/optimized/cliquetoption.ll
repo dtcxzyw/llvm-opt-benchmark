@@ -2897,7 +2897,7 @@ invoke.cont386:                                   ; preds = %.noexc257, %do.body
 
 invoke.cont392:                                   ; preds = %invoke.cont386
   %165 = load ptr, ptr %resetDates, align 8, !tbaa !51
-  %add.ptr.i = getelementptr %"class.QuantLib::Date", ptr %165, i64 %i.0495
+  %add.ptr.i = getelementptr [8 x i8], ptr %165, i64 %i.0495
   %166 = load i64, ptr %add.ptr.i, align 8, !tbaa !77
   %cmp.i258 = icmp sgt i64 %call389, %166
   br i1 %cmp.i258, label %do.body437, label %if.then396

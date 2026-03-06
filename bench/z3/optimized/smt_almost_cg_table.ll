@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.sat::literal" = type { i32 }
 %"class.smt::eq_justification" = type { ptr }
 %struct._key_data = type { ptr, ptr }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 
 $_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S6_E = comdat any
 
@@ -315,7 +313,7 @@ _ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit327: ; preds = %_ZNK
   %.0315426 = phi i32 [ -1640531527, %.lr.ph ], [ %276, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit333 ]
   %206 = add i64 %indvars.iv, 4294967295
   %207 = and i64 %206, 4294967295
-  %208 = getelementptr inbounds nuw ptr, ptr %17, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !33
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !34
@@ -337,7 +335,7 @@ _ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit329: ; preds = %205,
   %.0.i328 = phi i32 [ %219, %216 ], [ 17, %213 ], [ 17, %205 ]
   %220 = add i64 %indvars.iv, 4294967294
   %221 = and i64 %220, 4294967295
-  %222 = getelementptr inbounds nuw ptr, ptr %17, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !33
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load ptr, ptr %224, align 8, !tbaa !34
@@ -359,7 +357,7 @@ _ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit331: ; preds = %_ZNK
   %.0.i330 = phi i32 [ %233, %230 ], [ 17, %227 ], [ 17, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit329 ]
   %234 = add i32 %.0.i330, %.0313427
   %235 = add nsw i64 %indvars.iv, -3
-  %236 = getelementptr inbounds nuw ptr, ptr %17, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !33
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8, !tbaa !34
@@ -593,11 +591,11 @@ _ZNK3smt5enode12get_num_argsEv.exit31:            ; preds = %_ZNK3smt5enode12get
 
 30:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !34
-  %35 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !33
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !34
@@ -872,7 +870,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entry
   %.idx = mul nuw nsw i64 %11, 24
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds nuw %class.default_map_entry, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %13
   %.not52 = icmp eq i32 %8, %6
   br i1 %.not52, label %.preheader, label %.lr.ph
 
@@ -964,11 +962,11 @@ _ZNK3smt5enode12get_num_argsEv.exit31.i.i.i:      ; preds = %52, %_ZNK3smt5enode
 
 57:                                               ; preds = %78, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %78 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i.i.i
   %59 = load ptr, ptr %58, align 8, !tbaa !33
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !34
-  %62 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i.i
   %63 = load ptr, ptr %62, align 8, !tbaa !33
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !34
@@ -1070,11 +1068,11 @@ _ZNK3smt5enode12get_num_argsEv.exit31.i.i.i33:    ; preds = %105, %_ZNK3smt5enod
 
 110:                                              ; preds = %131, %.lr.ph.i.i.i37
   %indvars.iv.i.i.i39 = phi i64 [ 0, %.lr.ph.i.i.i37 ], [ %indvars.iv.next.i.i.i40, %131 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i.i.i39
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i.i.i39
   %112 = load ptr, ptr %111, align 8, !tbaa !33
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !34
-  %115 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i.i.i39
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i.i.i39
   %116 = load ptr, ptr %115, align 8, !tbaa !33
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !34
@@ -1146,7 +1144,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIPN3smt5
   %.idx = mul nuw nsw i64 %22, 24
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %24
   %.not92 = icmp eq i32 %19, %15
   br i1 %.not92, label %.preheader, label %.lr.ph
 
@@ -1240,11 +1238,11 @@ _ZNK3smt5enode12get_num_argsEv.exit31.i.i.i:      ; preds = %63, %_ZNK3smt5enode
 
 68:                                               ; preds = %89, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %89 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i.i.i
   %70 = load ptr, ptr %69, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !34
-  %73 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i.i
   %74 = load ptr, ptr %73, align 8, !tbaa !33
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !34
@@ -1377,11 +1375,11 @@ _ZNK3smt5enode12get_num_argsEv.exit31.i.i.i55:    ; preds = %127, %_ZNK3smt5enod
 
 132:                                              ; preds = %153, %.lr.ph.i.i.i59
   %indvars.iv.i.i.i61 = phi i64 [ 0, %.lr.ph.i.i.i59 ], [ %indvars.iv.next.i.i.i62, %153 ]
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i.i.i61
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.i.i.i61
   %134 = load ptr, ptr %133, align 8, !tbaa !33
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !34
-  %137 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i.i.i61
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i.i61
   %138 = load ptr, ptr %137, align 8, !tbaa !33
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !34
@@ -1486,7 +1484,7 @@ _ZN14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_
   %15 = zext i32 %13 to i64
   %.idx.i = mul nuw nsw i64 %15, 24
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
-  %17 = getelementptr inbounds nuw %class.default_map_entry, ptr %7, i64 %5
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %13, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE10move_tableEPS7_jSG_j.exit, label %.lr.ph41.i
 

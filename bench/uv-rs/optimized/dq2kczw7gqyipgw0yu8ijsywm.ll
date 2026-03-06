@@ -565,7 +565,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$L
   br i1 %1, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17h33c47b78424c2163E.exit", label %2
 
 2:                                                ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i"
-  %3 = getelementptr inbounds ptr, ptr %.0.val, i64 %.sroa.0.0.i
+  %3 = getelementptr inbounds [8 x i8], ptr %.0.val, i64 %.sroa.0.0.i
   %4 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i" unwind label %6
@@ -581,7 +581,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$L
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i"
 
 8:                                                ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i"
-  %9 = getelementptr inbounds ptr, ptr %.0.val, i64 %.sroa.0.1.i
+  %9 = getelementptr inbounds [8 x i8], ptr %.0.val, i64 %.sroa.0.1.i
   %10 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i" unwind label %11
@@ -953,7 +953,7 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br i1 %46, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17h33c47b78424c2163E.exit.i", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i.i"
-  %48 = getelementptr inbounds ptr, ptr %.val103, i64 %.sroa.0.0.i.i
+  %48 = getelementptr inbounds [8 x i8], ptr %.val103, i64 %.sroa.0.0.i.i
   %49 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %48)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i.i" unwind label %51
@@ -969,7 +969,7 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i"
 
 53:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i"
-  %54 = getelementptr inbounds ptr, ptr %.val103, i64 %.sroa.0.1.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %.val103, i64 %.sroa.0.1.i.i
   %55 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %54)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i" unwind label %56
@@ -1411,7 +1411,7 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br i1 %180, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17h33c47b78424c2163E.exit.i139", label %181
 
 181:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i.i134"
-  %182 = getelementptr inbounds ptr, ptr %.val101, i64 %.sroa.0.0.i.i135
+  %182 = getelementptr inbounds [8 x i8], ptr %.val101, i64 %.sroa.0.0.i.i135
   %183 = add i64 %.sroa.0.0.i.i135, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %182)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i.i134" unwind label %185
@@ -1427,7 +1427,7 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i136"
 
 187:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i136"
-  %188 = getelementptr inbounds ptr, ptr %.val101, i64 %.sroa.0.1.i.i137
+  %188 = getelementptr inbounds [8 x i8], ptr %.val101, i64 %.sroa.0.1.i.i137
   %189 = add i64 %.sroa.0.1.i.i137, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %188)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i136" unwind label %190
@@ -1858,7 +1858,7 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br i1 %317, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17h33c47b78424c2163E.exit.i190", label %318
 
 318:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i.i185"
-  %319 = getelementptr inbounds ptr, ptr %.val95, i64 %.sroa.0.0.i.i186
+  %319 = getelementptr inbounds [8 x i8], ptr %.val95, i64 %.sroa.0.0.i.i186
   %320 = add i64 %.sroa.0.0.i.i186, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %319)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit.i.i185" unwind label %322
@@ -1874,7 +1874,7 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i187"
 
 324:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i187"
-  %325 = getelementptr inbounds ptr, ptr %.val95, i64 %.sroa.0.1.i.i188
+  %325 = getelementptr inbounds [8 x i8], ptr %.val95, i64 %.sroa.0.1.i.i188
   %326 = add i64 %.sroa.0.1.i.i188, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4835927983515205844"(ptr noalias noundef nonnull align 8 dereferenceable(8) %325)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hb2c43bdf30e9de7aE.exit7.i.i187" unwind label %327

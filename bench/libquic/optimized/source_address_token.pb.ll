@@ -1514,7 +1514,7 @@ define linkonce_odr void @_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAdd
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %8 = phi ptr [ %13, %.lr.ph.i ], [ %3, %.preheader.i ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = load ptr, ptr %0, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE(ptr noundef %11, ptr noundef %12)
@@ -1612,9 +1612,9 @@ define void @_ZN3net19SourceAddressTokens9MergeFromERKS0_(ptr noundef nonnull al
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !68
-  %27 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !68
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef %28)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1623,11 +1623,11 @@ define void @_ZN3net19SourceAddressTokens9MergeFromERKS0_(ptr noundef nonnull al
 
 .lr.ph28.i.i.i:                                   ; preds = %.lr.ph28.i.i.i, %.lr.ph28.preheader.i.i.i
   %indvars.iv31.i.i.i = phi i64 [ %24, %.lr.ph28.preheader.i.i.i ], [ %indvars.iv.next32.i.i.i, %.lr.ph28.i.i.i ]
-  %29 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv31.i.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv31.i.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !68
   %31 = tail call noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE16NewFromPrototypeEPKS4_PNS0_5ArenaE(ptr noundef %30, ptr noundef %22)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef %31)
-  %32 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv31.i.i.i
+  %32 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv31.i.i.i
   store ptr %31, ptr %32, align 8, !tbaa !68
   %indvars.iv.next32.i.i.i = add nsw i64 %indvars.iv31.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next32.i.i.i to i32
@@ -1711,7 +1711,7 @@ _ZN3net19SourceAddressTokens10SharedDtorEv.exit:  ; preds = %1
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %11 = phi ptr [ %16, %.lr.ph.i.i ], [ %6, %.preheader.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !68
   %15 = load ptr, ptr %4, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE(ptr noundef %14, ptr noundef %15)
@@ -1831,7 +1831,7 @@ define void @_ZN3net19SourceAddressTokens5ClearEv(ptr noundef nonnull align 8 ca
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = load ptr, ptr %11, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -1982,7 +1982,7 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread: ; preds = %
   %46 = add nsw i32 %41, 1
   store i32 %46, ptr %14, align 8, !tbaa !71
   %47 = sext i32 %41 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !68
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -2018,7 +2018,7 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread: ; preds = %
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %14, align 8, !tbaa !71
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   store ptr %60, ptr %66, align 8, !tbaa !68
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -2148,7 +2148,7 @@ define void @_ZNK3net19SourceAddressTokens24SerializeWithCachedSizesEPN6google8p
   %13 = load ptr, ptr %5, align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = sext i32 %.06 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !68
   tail call void @_ZN6google8protobuf8internal14WireFormatLite12WriteMessageEiRKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %1)
   %18 = add nuw i32 %.06, 1
@@ -2184,7 +2184,7 @@ define noundef i32 @_ZNK3net19SourceAddressTokens8ByteSizeEv(ptr noundef nonnull
   %.089 = phi i32 [ %3, %.lr.ph ], [ %23, %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net18SourceAddressTokenEEEiRKT_.exit ]
   %14 = load ptr, ptr %5, align 8, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !68
   %18 = tail call noundef i32 @_ZNK3net18SourceAddressToken8ByteSizeEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
   %19 = icmp ult i32 %18, 128
@@ -2245,7 +2245,7 @@ define noundef zeroext i1 @_ZNK3net19SourceAddressTokens13IsInitializedEv(ptr no
 9:                                                ; preds = %6
   %10 = add nsw i64 %indvars.iv.i, -1
   %11 = load ptr, ptr %4, align 8, !tbaa !64
-  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !68
   %14 = load ptr, ptr %13, align 8, !tbaa !8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64

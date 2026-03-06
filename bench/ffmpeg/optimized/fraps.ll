@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.VLC = type { i32, ptr, i32, i32 }
 %struct.Node = type { i16, i16, i32 }
-%struct.VLCElem = type { %union.anon.1 }
-%union.anon.1 = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 
 @.str = private unnamed_addr constant [6 x i8] c"fraps\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"Fraps\00", align 1
@@ -143,7 +140,7 @@ define internal range(i32 4, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   %60 = shl nuw nsw i64 %indvars.iv, 2
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 %60
   %62 = load i32, ptr %61, align 1, !tbaa !38
-  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %62, ptr %63, align 4, !tbaa !37
   %.not234 = icmp ult i32 %62, %57
   br i1 %.not234, label %64, label %69
@@ -183,9 +180,9 @@ define internal range(i32 4, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
 
 77:                                               ; preds = %76
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
-  %78 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next295
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next295
   %79 = load i32, ptr %78, align 4, !tbaa !37
-  %80 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv294
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv294
   %81 = load i32, ptr %80, align 4, !tbaa !37
   %82 = add i32 %79, -1024
   %83 = sub i32 %82, %81
@@ -366,7 +363,7 @@ define internal range(i32 4, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   %.0206259 = phi ptr [ %25, %168 ], [ %180, %176 ]
   %177 = load i32, ptr %.0206259, align 1, !tbaa !38
   %178 = or i32 %177, -16777216
-  %179 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv302
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv302
   store i32 %178, ptr %179, align 4, !tbaa !37
   %180 = getelementptr inbounds nuw i8, ptr %.0206259, i64 4
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
@@ -429,20 +426,20 @@ define internal range(i32 4, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
 220:                                              ; preds = %219
   %221 = icmp ne i64 %indvars.iv298, 0
   %222 = zext i1 %221 to i32
-  %223 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv298
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv298
   %224 = load ptr, ptr %223, align 8, !tbaa !45
-  %225 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv298
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %216, i64 %indvars.iv298
   %226 = load i32, ptr %225, align 4, !tbaa !37
   %227 = load i32, ptr %217, align 8, !tbaa !35
   %228 = ashr i32 %227, %222
   %229 = load i32, ptr %218, align 4, !tbaa !36
   %230 = ashr i32 %229, %222
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv298
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv298
   %232 = load i32, ptr %231, align 4, !tbaa !37
   %233 = zext i32 %232 to i64
   %234 = getelementptr inbounds nuw i8, ptr %25, i64 %233
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %235 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next299
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next299
   %236 = load i32, ptr %235, align 4, !tbaa !37
   %237 = sub i32 %236, %232
   %238 = tail call fastcc i32 @fraps2_decode_plane(ptr noundef %7, ptr noundef %224, i32 noundef %226, i32 noundef %228, i32 noundef %230, ptr noundef nonnull %234, i32 noundef %237, i32 noundef %222, i32 noundef 1)
@@ -476,12 +473,12 @@ define internal range(i32 4, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   %255 = getelementptr inbounds i8, ptr %249, i64 %254
   %256 = sub nsw i32 0, %250
   %257 = load i32, ptr %245, align 8, !tbaa !35
-  %258 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv306
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv306
   %259 = load i32, ptr %258, align 4, !tbaa !37
   %260 = zext i32 %259 to i64
   %261 = getelementptr inbounds nuw i8, ptr %25, i64 %260
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
-  %262 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next307
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next307
   %263 = load i32, ptr %262, align 4, !tbaa !37
   %264 = sub i32 %263, %259
   %265 = tail call fastcc i32 @fraps2_decode_plane(ptr noundef %7, ptr noundef %255, i32 noundef %256, i32 noundef %257, i32 noundef %251, ptr noundef nonnull %261, i32 noundef %264, i32 noundef 0, i32 noundef 3)
@@ -592,7 +589,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fraps2_decode_plane(ptr no
   %.04246 = phi ptr [ %5, %9 ], [ %13, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.04246, i64 4
   %14 = load i32, ptr %.04246, align 1, !tbaa !38
-  %15 = getelementptr inbounds nuw %struct.Node, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %14, ptr %16, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -665,7 +662,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fraps2_decode_plane(ptr no
   %48 = shl i32 %46, %47
   %49 = lshr i32 %48, 21
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw %struct.VLCElem, ptr %37, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !38
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %54 = load i16, ptr %53, align 2, !tbaa !38
@@ -687,7 +684,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fraps2_decode_plane(ptr no
   %68 = lshr i32 %66, %67
   %69 = add i32 %68, %58
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %struct.VLCElem, ptr %37, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %74 = load i16, ptr %73, align 2, !tbaa !38
@@ -709,7 +706,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fraps2_decode_plane(ptr no
   %88 = lshr i32 %86, %87
   %89 = add i32 %88, %78
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %struct.VLCElem, ptr %37, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !38
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 2
   %94 = load i16, ptr %93, align 2, !tbaa !38
@@ -751,7 +748,7 @@ get_vlc2.exit.us57:                               ; preds = %77, %57, %.lr.ph.sp
   %112 = shl i32 %110, %111
   %113 = lshr i32 %112, 21
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw %struct.VLCElem, ptr %37, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !38
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 2
   %118 = load i16, ptr %117, align 2, !tbaa !38
@@ -779,7 +776,7 @@ get_vlc2.exit.us57:                               ; preds = %77, %57, %.lr.ph.sp
   %135 = lshr i32 %133, %134
   %136 = add i32 %135, %125
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %struct.VLCElem, ptr %37, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !38
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 2
   %141 = load i16, ptr %140, align 2, !tbaa !38
@@ -801,7 +798,7 @@ get_vlc2.exit.us57:                               ; preds = %77, %57, %.lr.ph.sp
   %155 = lshr i32 %153, %154
   %156 = add i32 %155, %145
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %struct.VLCElem, ptr %37, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %157
   %159 = load i16, ptr %158, align 2, !tbaa !38
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 2
   %161 = load i16, ptr %160, align 2, !tbaa !38

@@ -769,7 +769,7 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   %.1138 = phi ptr [ %102, %98 ], [ %.0145, %.preheader ]
   %.092137 = phi i64 [ %103, %98 ], [ 0, %.preheader ]
   %.097136 = phi i64 [ %104, %98 ], [ 0, %.preheader ]
-  %93 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %3, i64 %.097136
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.097136
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !21
   %96 = add i64 %95, %.093144
@@ -1590,7 +1590,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.02026 = phi i64 [ %8, %.lr.ph ], [ 0, %4 ]
   %.02125 = phi i64 [ %9, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.02125
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.02125
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !21
   %8 = add i64 %7, %.02026
@@ -1605,7 +1605,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly cap
 .lr.ph29:                                         ; preds = %._crit_edge, %15
   %.028 = phi ptr [ %16, %15 ], [ %0, %._crit_edge ]
   %.127 = phi i64 [ %17, %15 ], [ 0, %._crit_edge ]
-  %11 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.127
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.127
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !21

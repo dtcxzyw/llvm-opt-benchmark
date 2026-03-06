@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5EA_sblk_info_t = type { i64, i64, i64, i64 }
 %struct.H5EA_sblock_cache_ud_t = type { ptr, ptr, i32, i64 }
 
 @.str = private unnamed_addr constant [14 x i8] c"page_init_blk\00", align 1
@@ -93,7 +92,7 @@ define ptr @H5EA__sblock_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %30 = load ptr, ptr %29, align 8, !tbaa !30
   %31 = zext i32 %2 to i64
-  %32 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 328
   store i64 %33, ptr %34, align 8, !tbaa !43
@@ -286,7 +285,7 @@ define i64 @H5EA__sblock_create(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %36 = load ptr, ptr %35, align 8, !tbaa !30
   %37 = zext i32 %3 to i64
-  %38 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8, !tbaa !56
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 248
@@ -561,7 +560,7 @@ define range(i32 -1, 1) i32 @H5EA__sblock_delete(ptr noundef %0, ptr noundef %1,
   %19 = phi i64 [ %15, %.lr.ph ], [ %35, %34 ]
   %20 = phi ptr [ %.pre, %.lr.ph ], [ %36, %34 ]
   %.02230 = phi i64 [ 0, %.lr.ph ], [ %37, %34 ]
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %.02230
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02230
   %22 = load i64, ptr %21, align 8, !tbaa !10
   %.not = icmp eq i64 %22, -1
   br i1 %.not, label %34, label %23
@@ -580,7 +579,7 @@ define range(i32 -1, 1) i32 @H5EA__sblock_delete(ptr noundef %0, ptr noundef %1,
 
 31:                                               ; preds = %23
   %32 = load ptr, ptr %16, align 8, !tbaa !46
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %.02230
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.02230
   store i64 -1, ptr %33, align 8, !tbaa !10
   %.pre32 = load i64, ptr %14, align 8, !tbaa !43
   br label %34

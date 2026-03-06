@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct.dt_iop_rotatepixels_gui_data_t = type {}
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"modulename\04rotate pixels\00", align 1
 @.str.1 = private unnamed_addr constant [99 x i8] c"internal module to setup technical specificities of raw sensor.\0A\0Ayou should not touch values here!\00", align 1
@@ -117,7 +114,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 27:                                               ; preds = %.lr.ph, %27
   %.018 = phi i64 [ 0, %.lr.ph ], [ %40, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %.018
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.018
   %29 = load float, ptr %28, align 4, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load float, ptr %30, align 4, !tbaa !31
@@ -172,7 +169,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 27:                                               ; preds = %.lr.ph, %27
   %.019 = phi i64 [ 0, %.lr.ph ], [ %40, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %.019
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.019
   %29 = load float, ptr %28, align 4, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load float, ptr %30, align 4, !tbaa !31
@@ -386,11 +383,11 @@ get_corner.exit.critedge:                         ; preds = %4, %get_corner.exit
   %97 = shl nuw nsw i32 %.090, 1
   %98 = and i32 %97, 2
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr %5, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %99
   %101 = load float, ptr %100, align 8, !tbaa !31
   %102 = and i32 %.090, 2
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw float, ptr %5, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load float, ptr %105, align 4, !tbaa !31
   %107 = fmul reassoc nsz arcp contract afn float %101, %29
@@ -465,7 +462,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %32 = mul nsw i64 %indvars.iv, %21
   %33 = zext nneg i32 %30 to i64
   %34 = mul i64 %32, %33
-  %35 = getelementptr inbounds nuw float, ptr %3, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %34
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph
 
@@ -524,7 +521,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %77 = load i32, ptr %26, align 4, !tbaa !33
   tail call void @dt_interpolation_compute_pixel4c(ptr noundef %17, ptr noundef %2, ptr noundef %.03041, float noundef %69, float noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %11) #19
   %78 = add nuw nsw i32 %.042, 1
-  %79 = getelementptr inbounds float, ptr %.03041, i64 %21
+  %79 = getelementptr inbounds [4 x i8], ptr %.03041, i64 %21
   %80 = load i32, ptr %22, align 4, !tbaa !32
   %81 = icmp slt i32 %78, %80
   br i1 %81, label %.lr.ph, label %._crit_edge.loopexit
@@ -694,7 +691,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

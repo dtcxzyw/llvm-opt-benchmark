@@ -506,7 +506,7 @@ define internal fastcc void @sld_state_setup() unnamed_addr #1 section ".init.te
 
 .preheader:                                       ; preds = %10, %35
   %13 = phi i64 [ %36, %35 ], [ 0, %10 ]
-  %14 = getelementptr %struct.anon.18, ptr @sld_options, i64 %13
+  %14 = getelementptr [16 x i8], ptr @sld_options, i64 %13
   %15 = load ptr, ptr %14, align 16
   %16 = call i64 @strlen(ptr noundef %15) #14
   %17 = trunc i64 %16 to i32
@@ -717,7 +717,7 @@ thread-pre-split:                                 ; preds = %6, %10, %13
 
 80:                                               ; preds = %96, %76
   %81 = phi i64 [ 0, %76 ], [ %97, %96 ]
-  %82 = getelementptr %struct.sku_microcode, ptr @spectre_bad_microcodes, i64 %81
+  %82 = getelementptr [8 x i8], ptr @spectre_bad_microcodes, i64 %81
   %83 = load i8, ptr %82, align 8
   %84 = icmp eq i8 %78, %83
   br i1 %84, label %85, label %96
@@ -1111,7 +1111,7 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
 
 83:                                               ; preds = %78, %74
   %84 = sext i32 %75 to i64
-  %85 = getelementptr i64, ptr @__per_cpu_offset, i64 %84
+  %85 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, ptrtoint (ptr @numa_node to i64)
   %88 = inttoptr i64 %87 to ptr
@@ -1486,7 +1486,7 @@ define internal void @intel_detect_tlb(ptr noundef readonly captures(none) %0) #
 
 30:                                               ; preds = %30, %15
   %31 = phi i64 [ 0, %15 ], [ %35, %30 ]
-  %32 = getelementptr i32, ptr %2, i64 %31
+  %32 = getelementptr [4 x i8], ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
   store i32 %34, ptr %32, align 4
@@ -1510,7 +1510,7 @@ define internal void @intel_detect_tlb(ptr noundef readonly captures(none) %0) #
 
 .preheader:                                       ; preds = %37, %.preheader
   %49 = phi i64 [ %56, %.preheader ], [ 0, %37 ]
-  %50 = getelementptr %struct._tlb_table, ptr @intel_tlb_table, i64 %49
+  %50 = getelementptr [136 x i8], ptr @intel_tlb_table, i64 %49
   %51 = load i8, ptr %50, align 8
   %52 = icmp eq i8 %51, %47
   %53 = and i64 %49, 2305843009213693951

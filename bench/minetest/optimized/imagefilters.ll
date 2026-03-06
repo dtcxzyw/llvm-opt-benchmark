@@ -60,7 +60,7 @@ invoke.cont.us.i:                                 ; preds = %for.inc.us.i, %for.
   %3 = trunc i64 %indvars.iv.i to i32
   %add.i231.us.i = add i32 %mul.i230.us.i, %3
   %idxprom.i.us.i = zext i32 %add.i231.us.i to i64
-  %arrayidx.i.us.i = getelementptr inbounds nuw i32, ptr %src.val4, i64 %idxprom.i.us.i
+  %arrayidx.i.us.i = getelementptr inbounds nuw [4 x i8], ptr %src.val4, i64 %idxprom.i.us.i
   %4 = load i32, ptr %arrayidx.i.us.i, align 4, !tbaa !14
   %shr.i.us.i = lshr i32 %4, 24
   %cmp10.us.i = icmp ugt i32 %shr.i.us.i, %threshold
@@ -282,7 +282,7 @@ if.end54.us.us.i:                                 ; preds = %for.body49.us.us.i
 
 invoke.cont123.us.us.i:                           ; preds = %for.cond57.for.cond.cleanup61_crit_edge.us.us.i
   %idxprom.i314.us.us.i = zext i32 %add.i281.us.us.i to i64
-  %arrayidx.i315.us.us.i = getelementptr inbounds nuw i32, ptr %src.val4, i64 %idxprom.i314.us.us.i
+  %arrayidx.i315.us.us.i = getelementptr inbounds nuw [4 x i8], ptr %src.val4, i64 %idxprom.i314.us.us.i
   %21 = load i32, ptr %arrayidx.i315.us.us.i, align 4, !tbaa !14
   %div118.us.us.i = udiv i32 %sr.2.us.us.us.i, %ss.2.us.us.us.i
   %and.i316.us.us.i = shl i32 %div118.us.us.i, 16
@@ -343,7 +343,7 @@ for.body77.us.us.us.i:                            ; preds = %for.inc104.us.us.us
 
 invoke.cont84.us.us.us.i:                         ; preds = %for.body77.us.us.us.i
   %idxprom.i303.us.us.us.i = zext i32 %add.i291.us.us.us.i to i64
-  %arrayidx.i304.us.us.us.i = getelementptr inbounds nuw i32, ptr %src.val4, i64 %idxprom.i303.us.us.us.i
+  %arrayidx.i304.us.us.us.i = getelementptr inbounds nuw [4 x i8], ptr %src.val4, i64 %idxprom.i303.us.us.us.i
   %26 = load i32, ptr %arrayidx.i304.us.us.us.i, align 4, !tbaa !14
   %shr.i305.us.us.us.i = lshr i32 %26, 24
   %cmp88.not.us.us.us.i = icmp ugt i32 %shr.i305.us.us.us.i, %threshold

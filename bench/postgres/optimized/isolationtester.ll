@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TestSpec = type { ptr, i32, ptr, ptr, i32, ptr, i32 }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.IsoConnInfo = type { ptr, i32, ptr, ptr, ptr, i32 }
-%struct.PermutationStep = type { ptr, ptr, i32, ptr }
 %struct._PQprintOpt = type { i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.fd_set = type { [16 x i64] }
@@ -100,7 +98,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 16:                                               ; preds = %11
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -132,7 +130,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %36, %31 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load i32, ptr %34, align 8
@@ -159,7 +157,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %43 = phi ptr [ %.pre.i, %.preheader8.preheader.i ], [ %65, %._crit_edge23.i ]
   %indvars.iv78.i = phi i64 [ 0, %.preheader8.preheader.i ], [ %indvars.iv.next79.i, %._crit_edge23.i ]
   %.010225.i = phi i32 [ 0, %.preheader8.preheader.i ], [ %.1103.lcssa.i, %._crit_edge23.i ]
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv78.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv78.i
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 8
@@ -172,15 +170,15 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.110320.i = phi i32 [ %54, %.lr.ph22.i ], [ %.010225.i, %.preheader8.i ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv75.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv75.i
   %53 = load ptr, ptr %52, align 8
   %54 = add i32 %.110320.i, 1
   %55 = sext i32 %.110320.i to i64
-  %56 = getelementptr inbounds ptr, ptr %39, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %39, i64 %55
   store ptr %53, ptr %56, align 8
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 24), align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv78.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv78.i
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i32, ptr %60, align 8
@@ -222,7 +220,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .lr.ph30.i:                                       ; preds = %69, %.lr.ph30.preheader.i
   %indvars.iv81.i = phi i64 [ 1, %.lr.ph30.preheader.i ], [ %indvars.iv.next82.i, %69 ]
-  %72 = getelementptr ptr, ptr %39, i64 %indvars.iv81.i
+  %72 = getelementptr [8 x i8], ptr %39, i64 %indvars.iv81.i
   %73 = getelementptr i8, ptr %72, i64 -8
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %74, align 8
@@ -251,7 +249,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %85 = phi i32 [ %102, %._crit_edge34.i ], [ %70, %.preheader7.i ]
   %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %._crit_edge34.i ], [ 0, %.preheader7.i ]
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 24), align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv89.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv89.i
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load i32, ptr %89, align 8
@@ -266,7 +264,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 94:                                               ; preds = %94, %.lr.ph33.i
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next87.i, %94 ]
   %95 = load ptr, ptr %92, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv86.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv86.i
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store i32 %93, ptr %98, align 8
@@ -290,7 +288,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 105:                                              ; preds = %._crit_edge51.i, %.lr.ph53.i
   %indvars.iv106.i = phi i64 [ 0, %.lr.ph53.i ], [ %indvars.iv.next107.i, %._crit_edge51.i ]
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 40), align 8
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv106.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv106.i
   %108 = load ptr, ptr %107, align 8
   %109 = load i32, ptr %108, align 8
   %110 = icmp sgt i32 %109, 0
@@ -313,7 +311,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph40.i, %bsearch.exit.i
   %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %bsearch.exit.i ], [ 0, %.lr.ph40.i ]
   %116 = load ptr, ptr %111, align 8
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv92.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv92.i
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
   br label %.lr.ph.i.i
@@ -367,7 +365,7 @@ bsearch.exit.i:                                   ; preds = %128
   %141 = phi i32 [ %191, %._crit_edge48.i ], [ %138, %.preheader4.i ]
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %._crit_edge48.i ], [ 0, %.preheader4.i ]
   %142 = load ptr, ptr %111, align 8
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv103.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv103.i
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load i32, ptr %145, align 8
@@ -383,7 +381,7 @@ bsearch.exit.i:                                   ; preds = %128
   %151 = phi i32 [ %146, %.lr.ph47.i ], [ %188, %187 ]
   %indvars.iv100.i = phi i64 [ 0, %.lr.ph47.i ], [ %indvars.iv.next101.i, %187 ]
   %152 = load ptr, ptr %148, align 8
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv100.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv100.i
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8
@@ -410,7 +408,7 @@ bsearch.exit.i:                                   ; preds = %128
 
 164:                                              ; preds = %163, %.lr.ph44.i
   %indvars.iv95.i = phi i64 [ 0, %.lr.ph44.i ], [ %indvars.iv.next96.i, %163 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv95.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv95.i
   %166 = load ptr, ptr %165, align 8
   %167 = load ptr, ptr %166, align 8
   %168 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) %.pre.pre) #19
@@ -489,7 +487,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 .lr.ph56.i:                                       ; preds = %208, %.lr.ph56.preheader.i
   %indvars.iv109.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %indvars.iv.next110.i, %208 ]
-  %199 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv109.i
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv109.i
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 20
   %202 = load i8, ptr %201, align 4, !range !17, !noundef !18
@@ -531,7 +529,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 
 220:                                              ; preds = %.lr.ph
   %221 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 24), align 8
-  %222 = getelementptr ptr, ptr %221, i64 %indvars.iv
+  %222 = getelementptr [8 x i8], ptr %221, i64 %indvars.iv
   %223 = getelementptr i8, ptr %222, i64 -8
   %224 = load ptr, ptr %223, align 8
   %225 = load ptr, ptr %224, align 8
@@ -541,12 +539,12 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
   %storemerge = phi ptr [ %225, %220 ], [ @.str.6, %.lr.ph ]
   store ptr %storemerge, ptr %4, align 8
   %227 = load ptr, ptr @conns, align 8
-  %228 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %227, i64 %indvars.iv
+  %228 = getelementptr inbounds nuw [48 x i8], ptr %227, i64 %indvars.iv
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 24
   store ptr %storemerge, ptr %229, align 8
   %230 = call ptr @PQconnectdb(ptr noundef %.039) #17
   %231 = load ptr, ptr @conns, align 8
-  %232 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %231, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw [48 x i8], ptr %231, i64 %indvars.iv
   store ptr %230, ptr %232, align 8
   %233 = call i32 @PQstatus(ptr noundef %230) #17
   %.not45 = icmp eq i32 %233, 0
@@ -556,7 +554,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
   %235 = trunc nuw nsw i64 %indvars.iv to i32
   %236 = load ptr, ptr @stderr, align 8
   %237 = load ptr, ptr @conns, align 8
-  %238 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %237, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw [48 x i8], ptr %237, i64 %indvars.iv
   %239 = load ptr, ptr %238, align 8
   %240 = call ptr @PQerrorMessage(ptr noundef %239) #17
   %241 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %236, ptr noundef nonnull @.str.7, i32 noundef %235, ptr noundef %240) #17
@@ -568,7 +566,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
   br i1 %219, label %248, label %244
 
 244:                                              ; preds = %242
-  %245 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %243, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw [48 x i8], ptr %243, i64 %indvars.iv
   %246 = load ptr, ptr %245, align 8
   %247 = call ptr @PQsetNoticeProcessor(ptr noundef %246, ptr noundef nonnull @isotesterNoticeProcessor, ptr noundef nonnull %245) #17
   br label %251
@@ -580,7 +578,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 
 251:                                              ; preds = %248, %244
   %252 = load ptr, ptr @conns, align 8
-  %253 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %252, i64 %indvars.iv
+  %253 = getelementptr inbounds nuw [48 x i8], ptr %252, i64 %indvars.iv
   %254 = load ptr, ptr %253, align 8
   %255 = call ptr @PQexecParams(ptr noundef %254, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef null, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %256 = call i32 @PQresultStatus(ptr noundef %255) #17
@@ -590,7 +588,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 257:                                              ; preds = %251
   %258 = load ptr, ptr @stderr, align 8
   %259 = load ptr, ptr @conns, align 8
-  %260 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %259, i64 %indvars.iv
+  %260 = getelementptr inbounds nuw [48 x i8], ptr %259, i64 %indvars.iv
   %261 = load ptr, ptr %260, align 8
   %262 = call ptr @PQerrorMessage(ptr noundef %261) #17
   %263 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %258, ptr noundef nonnull @.str.9, ptr noundef %262) #17
@@ -599,16 +597,16 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 
 264:                                              ; preds = %251
   %265 = load ptr, ptr @conns, align 8
-  %266 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %265, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw [48 x i8], ptr %265, i64 %indvars.iv
   %267 = load ptr, ptr %266, align 8
   %268 = call i32 @PQbackendPID(ptr noundef %267) #17
   %269 = load ptr, ptr @conns, align 8
-  %270 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %269, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [48 x i8], ptr %269, i64 %indvars.iv
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   store i32 %268, ptr %271, align 8
   %272 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, i32 noundef %268) #17
   %273 = load ptr, ptr @conns, align 8
-  %274 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %273, i64 %indvars.iv
+  %274 = getelementptr inbounds nuw [48 x i8], ptr %273, i64 %indvars.iv
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   store ptr %272, ptr %275, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -632,7 +630,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 .lr.ph83:                                         ; preds = %._crit_edge, %.lr.ph83
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph83 ], [ 2, %._crit_edge ]
   %284 = load ptr, ptr @conns, align 8
-  %285 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %284, i64 %indvars.iv117
+  %285 = getelementptr inbounds nuw [48 x i8], ptr %284, i64 %indvars.iv117
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %287 = load ptr, ptr %286, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, ptr noundef %287) #17
@@ -676,7 +674,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 .lr.ph.i.i49:                                     ; preds = %304, %.lr.ph.i.i49
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i49 ], [ 0, %304 ]
   %307 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 40), align 8
-  %308 = getelementptr inbounds nuw ptr, ptr %307, i64 %indvars.iv.i.i
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %indvars.iv.i.i
   %309 = load ptr, ptr %308, align 8
   %310 = load i32, ptr %309, align 8
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 8
@@ -701,7 +699,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 320:                                              ; preds = %320, %.lr.ph.i3.i
   %indvars.iv.i4.i = phi i64 [ 0, %.lr.ph.i3.i ], [ %indvars.iv.next.i5.i, %320 ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.i3.i ], [ %325, %320 ]
-  %321 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv.i4.i
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv.i4.i
   %322 = load ptr, ptr %321, align 8
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 32
   %324 = load i32, ptr %323, align 8
@@ -726,8 +724,8 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 
 .lr.ph5.i.i:                                      ; preds = %.lr.ph5.i.i, %.lr.ph5.preheader.i.i
   %indvars.iv12.i.i = phi i64 [ 0, %.lr.ph5.preheader.i.i ], [ %indvars.iv.next13.i.i, %.lr.ph5.i.i ]
-  %332 = getelementptr inbounds nuw %struct.PermutationStep, ptr %328, i64 %indvars.iv12.i.i
-  %333 = getelementptr inbounds nuw ptr, ptr %330, i64 %indvars.iv12.i.i
+  %332 = getelementptr inbounds nuw [32 x i8], ptr %328, i64 %indvars.iv12.i.i
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %indvars.iv12.i.i
   store ptr %332, ptr %333, align 8
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond16.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, %wide.trip.count15.i.i
@@ -744,7 +742,7 @@ check_testspec.exit:                              ; preds = %208, %._crit_edge54
 
 .lr.ph9.i.i:                                      ; preds = %._crit_edge6.i.i, %.lr.ph9.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph9.i.i ], [ 0, %._crit_edge6.i.i ]
-  %340 = getelementptr inbounds nuw i32, ptr %337, i64 %indvars.iv17.i.i
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %indvars.iv17.i.i
   store i32 0, ptr %340, align 4
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %341 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 32), align 8
@@ -805,7 +803,7 @@ define internal void @disconnect_atexit() #0 {
   %3 = phi i32 [ %1, %.lr.ph.preheader ], [ %9, %8 ]
   %4 = phi ptr [ %.pre7, %.lr.ph.preheader ], [ %10, %8 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %5 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -921,7 +919,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.22, ptr noundef %17) #17
@@ -956,7 +954,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   %29 = load ptr, ptr @conns, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @parseresult, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv70
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv70
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @PQexec(ptr noundef %30, ptr noundef %33) #17
   %35 = call i32 @PQresultStatus(ptr noundef %34) #17
@@ -1009,7 +1007,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   %54 = phi i32 [ %24, %.lr.ph26 ], [ %83, %82 ]
   %55 = phi ptr [ %.pre91, %.lr.ph26 ], [ %84, %82 ]
   %indvars.iv73 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next74.pre-phi, %82 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv73
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv73
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -1023,7 +1021,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 60:                                               ; preds = %53
   %61 = load ptr, ptr @conns, align 8
   %62 = add nuw nsw i64 %indvars.iv73, 1
-  %63 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @PQexec(ptr noundef %64, ptr noundef nonnull %59) #17
   %66 = call i32 @PQresultStatus(ptr noundef %65) #17
@@ -1049,7 +1047,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 72:                                               ; preds = %70
   %73 = load ptr, ptr @stderr, align 8
   %74 = load ptr, ptr @conns, align 8
-  %75 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %74, i64 %62
+  %75 = getelementptr inbounds nuw [48 x i8], ptr %74, i64 %62
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %75, align 8
@@ -1075,7 +1073,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 87:                                               ; preds = %.lr.ph41, %269
   %indvars.iv80 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next81, %269 ]
   %.012239 = phi i32 [ 0, %.lr.ph41 ], [ %.4126, %269 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv80
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv80
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
@@ -1084,7 +1082,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   %94 = load i32, ptr %93, align 8
   %95 = add i32 %94, 1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.IsoConnInfo, ptr %92, i64 %96
+  %97 = getelementptr inbounds [48 x i8], ptr %92, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %100 = load ptr, ptr %99, align 8
@@ -1116,7 +1114,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 .lr.ph28:                                         ; preds = %.preheader2, %115
   %.012127 = phi i32 [ %114, %115 ], [ 0, %.preheader2 ]
   %110 = zext nneg i32 %.012127 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %12, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %107, %112
   %114 = add nuw nsw i32 %.012127, 1
@@ -1135,9 +1133,9 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   br i1 %117, label %118, label %125
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds nuw ptr, ptr %12, i64 %110
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %110
   %120 = zext nneg i32 %114 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %12, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %120
   %122 = sub nsw i32 %.212431, %114
   %123 = zext nneg i32 %122 to i64
   %124 = shl nuw nsw i64 %123, 3
@@ -1163,7 +1161,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   %.0222.i = phi i1 [ %.2.i, %150 ], [ false, %127 ]
   %.1251.i = phi i32 [ %.226.i, %150 ], [ %.024.i, %127 ]
   %129 = sext i32 %.03.i to i64
-  %130 = getelementptr inbounds ptr, ptr %12, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %12, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = call fastcc zeroext i1 @try_complete_step(ptr noundef %131, i32 noundef 3)
   br i1 %132, label %133, label %139
@@ -1184,7 +1182,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 
 142:                                              ; preds = %139
   %143 = sext i32 %140 to i64
-  %144 = getelementptr inbounds ptr, ptr %12, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %12, i64 %143
   %145 = sub i32 %.1251.i, %140
   %146 = sext i32 %145 to i64
   %147 = shl nsw i64 %146, 3
@@ -1252,7 +1250,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
   %178 = phi i32 [ %176, %.lr.ph48.preheader ], [ %188, %187 ]
   %179 = phi ptr [ %.pre94, %.lr.ph48.preheader ], [ %189, %187 ]
   %indvars.iv85 = phi i64 [ 1, %.lr.ph48.preheader ], [ %indvars.iv.next86, %187 ]
-  %180 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %179, i64 %indvars.iv85
+  %180 = getelementptr inbounds nuw [48 x i8], ptr %179, i64 %indvars.iv85
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %182 = load ptr, ptr %181, align 8
   %.not146 = icmp eq ptr %182, null
@@ -1323,7 +1321,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
   %211 = phi i32 [ %206, %.lr.ph37 ], [ %233, %232 ]
   %indvars.iv77 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next78, %232 ]
   %212 = load ptr, ptr %208, align 8
-  %213 = getelementptr inbounds nuw ptr, ptr %212, i64 %indvars.iv77
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %indvars.iv77
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load i32, ptr %215, align 8
@@ -1339,7 +1337,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
   %224 = load i32, ptr %223, align 8
   %225 = add i32 %224, 1
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds %struct.IsoConnInfo, ptr %209, i64 %226
+  %227 = getelementptr inbounds [48 x i8], ptr %209, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 40
   %229 = load i32, ptr %228, align 8
   %230 = add i32 %229, %220
@@ -1370,7 +1368,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
   %.0222.i154 = phi i1 [ %.2.i157, %260 ], [ false, %237 ]
   %.1251.i155 = phi i32 [ %.226.i156, %260 ], [ %.024.i150, %237 ]
   %239 = sext i32 %.03.i153 to i64
-  %240 = getelementptr inbounds ptr, ptr %12, i64 %239
+  %240 = getelementptr inbounds [8 x i8], ptr %12, i64 %239
   %241 = load ptr, ptr %240, align 8
   %242 = call fastcc zeroext i1 @try_complete_step(ptr noundef %241, i32 noundef 3)
   br i1 %242, label %243, label %249
@@ -1391,7 +1389,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
 
 252:                                              ; preds = %249
   %253 = sext i32 %250 to i64
-  %254 = getelementptr inbounds ptr, ptr %12, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %12, i64 %253
   %255 = sub i32 %.1251.i155, %250
   %256 = sext i32 %255 to i64
   %257 = shl nsw i64 %256, 3
@@ -1425,7 +1423,7 @@ try_complete_steps.exit162:                       ; preds = %237, %._crit_edge.i
 265:                                              ; preds = %try_complete_steps.exit162
   %266 = add i32 %.125.lcssa7.i151, 1
   %267 = sext i32 %.125.lcssa7.i151 to i64
-  %268 = getelementptr inbounds ptr, ptr %12, i64 %267
+  %268 = getelementptr inbounds [8 x i8], ptr %12, i64 %267
   store ptr %89, ptr %268, align 8
   br label %269
 
@@ -1450,7 +1448,7 @@ try_complete_steps.exit162:                       ; preds = %237, %._crit_edge.i
   %.0222.i167 = phi i1 [ %.2.i170, %292 ], [ false, %.preheader1 ]
   %.1251.i168 = phi i32 [ %.226.i169, %292 ], [ %.024.i163, %.preheader1 ]
   %271 = sext i32 %.03.i166 to i64
-  %272 = getelementptr inbounds ptr, ptr %12, i64 %271
+  %272 = getelementptr inbounds [8 x i8], ptr %12, i64 %271
   %273 = load ptr, ptr %272, align 8
   %274 = call fastcc zeroext i1 @try_complete_step(ptr noundef %273, i32 noundef 2)
   br i1 %274, label %275, label %281
@@ -1471,7 +1469,7 @@ try_complete_steps.exit162:                       ; preds = %237, %._crit_edge.i
 
 284:                                              ; preds = %281
   %285 = sext i32 %282 to i64
-  %286 = getelementptr inbounds ptr, ptr %12, i64 %285
+  %286 = getelementptr inbounds [8 x i8], ptr %12, i64 %285
   %287 = sub i32 %.1251.i168, %282
   %288 = sext i32 %287 to i64
   %289 = shl nsw i64 %288, 3
@@ -1524,7 +1522,7 @@ try_complete_steps.exit175:                       ; preds = %.preheader1, %._cri
   %305 = phi i32 [ %297, %.lr.ph44 ], [ %334, %333 ]
   %306 = phi ptr [ %.pre99, %.lr.ph44 ], [ %335, %333 ]
   %indvars.iv88 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next89.pre-phi, %333 ]
-  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %indvars.iv88
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %indvars.iv88
   %308 = load ptr, ptr %307, align 8
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 16
   %310 = load ptr, ptr %309, align 8
@@ -1538,7 +1536,7 @@ try_complete_steps.exit175:                       ; preds = %.preheader1, %._cri
 311:                                              ; preds = %304
   %312 = load ptr, ptr @conns, align 8
   %313 = add nuw nsw i64 %indvars.iv88, 1
-  %314 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %312, i64 %313
+  %314 = getelementptr inbounds nuw [48 x i8], ptr %312, i64 %313
   %315 = load ptr, ptr %314, align 8
   %316 = call ptr @PQexec(ptr noundef %315, ptr noundef nonnull %310) #17
   %317 = call i32 @PQresultStatus(ptr noundef %316) #17
@@ -1564,7 +1562,7 @@ try_complete_steps.exit175:                       ; preds = %.preheader1, %._cri
 323:                                              ; preds = %321
   %324 = load ptr, ptr @stderr, align 8
   %325 = load ptr, ptr @conns, align 8
-  %326 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %325, i64 %313
+  %326 = getelementptr inbounds nuw [48 x i8], ptr %325, i64 %313
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 24
   %328 = load ptr, ptr %327, align 8
   %329 = load ptr, ptr %326, align 8
@@ -1654,7 +1652,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.IsoConnInfo, ptr %11, i64 %15
+  %16 = getelementptr inbounds [48 x i8], ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1682,7 +1680,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
@@ -1715,7 +1713,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   %41 = shl nuw i64 1, %40
   %42 = lshr i32 %18, 6
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %46 = add nuw i32 %18, 1
   %47 = and i32 %1, 1
@@ -1771,7 +1769,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   %72 = load i32, ptr %12, align 8
   %73 = add i32 %72, 1
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.IsoConnInfo, ptr %70, i64 %74
+  %75 = getelementptr inbounds [48 x i8], ptr %70, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = call ptr @PQexecPrepared(ptr noundef %71, ptr noundef nonnull @.str.14, i32 noundef 1, ptr noundef nonnull %76, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %78 = call i32 @PQresultStatus(ptr noundef %77) #17
@@ -1916,7 +1914,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
 
 148:                                              ; preds = %.critedge.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %149 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv.i
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv.i
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i32, ptr %151, align 8
@@ -1932,7 +1930,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   %157 = load i32, ptr %156, align 8
   %158 = add i32 %157, 1
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds %struct.IsoConnInfo, ptr %147, i64 %159
+  %160 = getelementptr inbounds [48 x i8], ptr %147, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %162 = load ptr, ptr %161, align 8
   %.not.i = icmp eq ptr %162, null
@@ -1951,7 +1949,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   %171 = load i32, ptr %170, align 8
   %172 = add i32 %171, 1
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds %struct.IsoConnInfo, ptr %147, i64 %173
+  %174 = getelementptr inbounds [48 x i8], ptr %147, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %176 = load i32, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %150, i64 24
@@ -2072,7 +2070,7 @@ step_has_blocker.exit:                            ; preds = %.critedge.i, %.loop
 
 225:                                              ; preds = %224
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %226 = getelementptr inbounds nuw %struct.IsoConnInfo, ptr %223, i64 %indvars.iv.next30
+  %226 = getelementptr inbounds nuw [48 x i8], ptr %223, i64 %indvars.iv.next30
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load i32, ptr %227, align 8
   %229 = icmp eq i32 %.pre34, %228
@@ -2093,7 +2091,7 @@ step_has_blocker.exit:                            ; preds = %.critedge.i, %.loop
   %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 24), align 8
   %237 = load i32, ptr %12, align 8
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds ptr, ptr %236, i64 %238
+  %239 = getelementptr inbounds [8 x i8], ptr %236, i64 %238
   %240 = load ptr, ptr %239, align 8
   %241 = load ptr, ptr %240, align 8
   %242 = load ptr, ptr %220, align 8
@@ -2180,7 +2178,7 @@ define internal fastcc void @run_all_permutations_recurse(ptr noundef captures(n
 
 .lr.ph:                                           ; preds = %3
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %2, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %2, i64 %6
   %8 = add i32 %1, 1
   br label %.outer
 
@@ -2194,9 +2192,9 @@ define internal fastcc void @run_all_permutations_recurse(ptr noundef captures(n
 
 10:                                               ; preds = %.outer, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ %indvars.iv.ph, %.outer ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds nuw ptr, ptr %.ph10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.ph10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
@@ -2209,11 +2207,11 @@ define internal fastcc void @run_all_permutations_recurse(ptr noundef captures(n
   br i1 %19, label %10, label %._crit_edge, !llvm.loop !44
 
 .thread:                                          ; preds = %10
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = sext i32 %12 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %7, align 8

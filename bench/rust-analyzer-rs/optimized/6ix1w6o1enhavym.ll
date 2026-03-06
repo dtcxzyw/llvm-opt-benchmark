@@ -172,7 +172,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %8 = load i64, ptr %7, align 8, !alias.scope !32, !noalias !35, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !39
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !43
-  %9 = getelementptr inbounds { i32, i16, i16 }, ptr %6, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %6, i64 %8
   %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h8d455ea7770ed904E.llvm.17596014262530528876(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 %6, ptr noundef nonnull readonly %9), !noalias !32
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !39
@@ -192,7 +192,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !44
   call void @_ZN4core3fmt9Formatter9debug_set17h9a9f6a3430619a15E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
-  %9 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %.val, i64 %.val1
+  %9 = getelementptr inbounds [16 x i8], ptr %.val, i64 %.val1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !47
   store ptr %.val, ptr %4, align 8, !noalias !47
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8

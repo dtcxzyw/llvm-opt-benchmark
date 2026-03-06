@@ -716,7 +716,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %10, %._ZNSt6vectorI
   br i1 %54, label %55, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit73
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw %"class.cv::Mat", ptr %47, i64 %49
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %47, i64 %49
   %.not.i.i67 = icmp eq ptr %48, %56
   br i1 %.not.i.i67, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit73, label %.lr.ph.i.i.i.i.i68
 
@@ -779,7 +779,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i71: ; preds = %.lr.ph.i.i.i.i
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %78
   %79 = sext i32 %.1113 to i64
   %80 = load ptr, ptr %0, align 8, !tbaa !37
-  %81 = getelementptr inbounds nuw %"class.cv::Mat", ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [96 x i8], ptr %80, i64 %79
   %82 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull align 8 dereferenceable(96) %11)
           to label %83 unwind label %87
 
@@ -964,9 +964,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %33
   store ptr %27, ptr %0, align 8, !tbaa !37
-  %34 = getelementptr inbounds nuw %"class.cv::Mat", ptr %28, i64 %1
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !40
-  %35 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %25
   store ptr %35, ptr %11, align 8, !tbaa !41
   br label %36
 

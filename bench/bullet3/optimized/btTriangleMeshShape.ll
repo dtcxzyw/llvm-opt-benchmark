@@ -105,7 +105,7 @@ define dso_local void @_ZN19btTriangleMeshShapeC2EP23btStridingMeshInterface(ptr
 22:                                               ; preds = %.noexc5, %19
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %.noexc5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %23 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %23, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -120,11 +120,11 @@ define dso_local void @_ZN19btTriangleMeshShapeC2EP23btStridingMeshInterface(ptr
   store <2 x float> %28, ptr %4, align 8
   %29 = extractvalue { <2 x float>, <2 x float> } %27, 1
   store <2 x float> %29, ptr %20, align 8
-  %30 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %31 = load float, ptr %30, align 4, !tbaa !18
   %32 = load float, ptr %21, align 8, !tbaa !19
   %33 = fadd float %31, %32
-  %34 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float %33, ptr %34, align 4, !tbaa !18
   store float -1.000000e+00, ptr %23, align 4, !tbaa !18
   %35 = load ptr, ptr %0, align 8, !tbaa !4
@@ -141,7 +141,7 @@ define dso_local void @_ZN19btTriangleMeshShapeC2EP23btStridingMeshInterface(ptr
   %41 = load float, ptr %30, align 4, !tbaa !18
   %42 = load float, ptr %21, align 8, !tbaa !19
   %43 = fsub float %41, %42
-  %44 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   store float %43, ptr %44, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -173,7 +173,7 @@ define dso_local void @_ZN19btTriangleMeshShape15recalcLocalAabbEv(ptr noundef n
 9:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %10, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -185,11 +185,11 @@ define dso_local void @_ZN19btTriangleMeshShape15recalcLocalAabbEv(ptr noundef n
   store <2 x float> %15, ptr %3, align 8
   %16 = extractvalue { <2 x float>, <2 x float> } %14, 1
   store <2 x float> %16, ptr %4, align 8
-  %17 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !18
   %19 = load float, ptr %5, align 8, !tbaa !19
   %20 = fadd float %18, %19
-  %21 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %20, ptr %21, align 4, !tbaa !18
   store float -1.000000e+00, ptr %10, align 4, !tbaa !18
   %22 = load ptr, ptr %0, align 8, !tbaa !4
@@ -203,7 +203,7 @@ define dso_local void @_ZN19btTriangleMeshShape15recalcLocalAabbEv(ptr noundef n
   %28 = load float, ptr %17, align 4, !tbaa !18
   %29 = load float, ptr %5, align 8, !tbaa !19
   %30 = fsub float %28, %29
-  %31 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store float %30, ptr %31, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -379,7 +379,7 @@ define dso_local void @_ZN19btTriangleMeshShape15setLocalScalingERK9btVector3(pt
 12:                                               ; preds = %12, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %13, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -391,11 +391,11 @@ define dso_local void @_ZN19btTriangleMeshShape15setLocalScalingERK9btVector3(pt
   store <2 x float> %18, ptr %4, align 8
   %19 = extractvalue { <2 x float>, <2 x float> } %17, 1
   store <2 x float> %19, ptr %8, align 8
-  %20 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %21 = load float, ptr %20, align 4, !tbaa !18
   %22 = load float, ptr %9, align 8, !tbaa !19
   %23 = fadd float %21, %22
-  %24 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   store float %23, ptr %24, align 4, !tbaa !18
   store float -1.000000e+00, ptr %13, align 4, !tbaa !18
   %25 = load ptr, ptr %0, align 8, !tbaa !4
@@ -409,7 +409,7 @@ define dso_local void @_ZN19btTriangleMeshShape15setLocalScalingERK9btVector3(pt
   %31 = load float, ptr %20, align 4, !tbaa !18
   %32 = load float, ptr %9, align 8, !tbaa !19
   %33 = fsub float %31, %32
-  %34 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i
   store float %33, ptr %34, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -763,7 +763,7 @@ define linkonce_odr dso_local void @_ZN21SupportVertexCallback15processTriangleE
 14:                                               ; preds = %4, %27
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %27 ]
   %15 = phi float [ %.promoted, %4 ], [ %28, %27 ]
-  %16 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load float, ptr %18, align 4, !tbaa !18

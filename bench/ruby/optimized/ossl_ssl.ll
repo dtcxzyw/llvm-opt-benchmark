@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.rb_data_type_struct = type { ptr, %struct.anon, ptr, ptr, i64 }
 %struct.anon = type { ptr, ptr, ptr, ptr, [1 x ptr] }
-%struct.anon.0 = type { ptr, i32 }
 %struct.tmp_dh_callback_args = type { i64, i64, i32, i32, i32 }
 %struct.npn_select_cb_common_args = type { i64, ptr, i32 }
 %struct.ossl_call_keylog_cb_args = type { i64, ptr }
@@ -1327,7 +1326,7 @@ define internal range(i64 1, -7) i64 @ossl_sslctx_add_certificate(i32 noundef %0
   %exitcond.not = phi i1 [ true, %.preheader29 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader29 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader29 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !10
   store i64 %9, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   br i1 %exitcond.not, label %.preheader, label %.preheader29, !llvm.loop !26
@@ -1618,7 +1617,7 @@ rb_array_len.exit.thread:                         ; preds = %68
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %76
   %.0.i94 = phi ptr [ %77, %76 ], [ %66, %rb_array_len.exit.thread ]
-  %78 = getelementptr inbounds nuw i64, ptr %.0.i94, i64 %.074
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.0.i94, i64 %.074
   %79 = load i64, ptr %78, align 8, !tbaa !10
   %80 = tail call ptr @GetX509CertPtr(i64 noundef %79) #9
   %81 = tail call i32 @SSL_CTX_add_client_CA(ptr noundef %13, ptr noundef %80) #9
@@ -2863,7 +2862,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !10
   %9 = tail call i32 @rb_keyword_given_p() #9
@@ -2907,7 +2906,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !10
   %9 = tail call i32 @rb_keyword_given_p() #9
@@ -2964,7 +2963,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !10
   %9 = tail call i32 @rb_keyword_given_p() #9
@@ -3488,7 +3487,7 @@ define internal i64 @ossl_ssl_export_keying_material(i32 noundef %0, ptr noundef
   %exitcond.not = phi i1 [ true, %.preheader29 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader29 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader29 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !10
   store i64 %9, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !10
   br i1 %exitcond.not, label %.preheader, label %.preheader29, !llvm.loop !26
@@ -3766,7 +3765,7 @@ RB_SYMBOL_P.exit.thread10:                        ; preds = %rb_integer_type_p.e
 
 RSTRING_PTR.exit.us:                              ; preds = %RB_SYMBOL_P.exit.thread10, %38
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %38 ], [ 0, %RB_SYMBOL_P.exit.thread10 ]
-  %35 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @parse_proto_version.map, i64 %indvars.iv20
   %36 = load ptr, ptr %35, align 16, !tbaa !59
   %37 = call i32 @strncmp(ptr noundef %36, ptr noundef nonnull %32, i64 noundef %34) #12
   %.not.us = icmp eq i32 %37, 0
@@ -3788,7 +3787,7 @@ RB_SYMBOL_P.exit.thread10.split:                  ; preds = %RB_SYMBOL_P.exit.th
 
 RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.thread10.split, %39
   %indvars.iv = phi i64 [ 0, %RB_SYMBOL_P.exit.thread10.split ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr @parse_proto_version.map, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 16, !tbaa !59
   %42 = call i32 @strncmp(ptr noundef %41, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %34) #12
   %.not = icmp eq i32 %42, 0
@@ -3796,7 +3795,7 @@ RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.th
 
 .split13.us:                                      ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit.us
   %43 = phi i64 [ %indvars.iv20, %RSTRING_PTR.exit.us ], [ %indvars.iv, %RSTRING_PTR.exit ]
-  %44 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr @parse_proto_version.map, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !62
   br label %48
@@ -5633,7 +5632,7 @@ rb_scan_args_n_opt.exit73:                        ; preds = %4
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit73
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !10
   %12 = tail call i32 @rb_keyword_given_p() #9

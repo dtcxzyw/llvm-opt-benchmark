@@ -881,7 +881,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
 32:                                               ; preds = %29
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %34 = zext nneg i32 %1 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @scancmd, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @scancmd, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #18
   %38 = add i64 %37, %33
@@ -1048,7 +1048,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
 
 98:                                               ; preds = %97
   %99 = zext nneg i32 %1 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr @scancmd, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @scancmd, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !15
   br label %102
 

@@ -97,7 +97,7 @@ define hidden noundef zeroext i1 @SDL_SystemTheme_Init() local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %38
   %43 = zext nneg i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.DBus_ExtractThemeVariant, i64 %43
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.DBus_ExtractThemeVariant, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr @system_theme_data.1, align 8
   br label %DBus_ExtractThemeVariant.exit
@@ -174,7 +174,7 @@ define internal fastcc noundef zeroext i1 @DBus_ExtractThemeVariant(ptr noundef 
 
 switch.lookup:                                    ; preds = %13
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.DBus_ExtractThemeVariant, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.DBus_ExtractThemeVariant, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr @system_theme_data.1, align 8
   br label %19

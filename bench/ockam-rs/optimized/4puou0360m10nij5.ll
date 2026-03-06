@@ -2270,7 +2270,7 @@ define internal noundef i128 @_ZN4core5error5Error7type_id17h4efbdf7eb7e76f4aE(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$$u5b$T$u5d$$GT$9into_iter17h73f6a586a2829149E"(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1) unnamed_addr #6 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %1
+  %3 = getelementptr inbounds [16 x i8], ptr %0, i64 %1
   %4 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr %3, 1
   ret { ptr, ptr } %5

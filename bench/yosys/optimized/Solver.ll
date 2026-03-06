@@ -11,12 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.Minisat::IntRange" = type { i32, i32 }
 %"class.Minisat::BoolOption" = type <{ %"class.Minisat::Option", i8, [7 x i8] }>
 %"class.Minisat::vec.27" = type { ptr, i32, i32 }
-%"class.Minisat::vec.26" = type { ptr, i32, i32 }
-%"struct.Minisat::Solver::VarData" = type { i32, i32 }
-%"struct.Minisat::Lit" = type { i32 }
-%"struct.Minisat::Solver::Watcher" = type { i32, %"struct.Minisat::Lit" }
-%union.anon = type { %"struct.Minisat::Lit" }
-%"struct.Minisat::Solver::ShrinkStackElem" = type { i32, %"struct.Minisat::Lit" }
 %"class.Minisat::vec.3" = type { ptr, i32, i32 }
 %"class.Minisat::vec.1" = type { ptr, i32, i32 }
 %struct.rusage = type { %struct.timeval, %struct.timeval, %union.anon.28, %union.anon.29, %union.anon.30, %union.anon.31, %union.anon.32, %union.anon.33, %union.anon.34, %union.anon.35, %union.anon.36, %union.anon.37, %union.anon.38, %union.anon.39, %union.anon.40, %union.anon.41 }
@@ -645,7 +639,7 @@ _ZN7Minisat6IntMapINS_3LitEcNS_10MkIndexLitEED2Ev.exit: ; preds = %_ZN7Minisat3v
   %16 = phi i32 [ %22, %_ZN7Minisat3vecINS_6Solver7WatcherEiED2Ev.exit.i.i.i ], [ %12, %.preheader.i.i.i2 ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN7Minisat3vecINS_6Solver7WatcherEiED2Ev.exit.i.i.i ], [ 0, %.preheader.i.i.i2 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !109
-  %18 = getelementptr inbounds nuw %"class.Minisat::vec.26", ptr %17, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv.i.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !112
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN7Minisat3vecINS_6Solver7WatcherEiED2Ev.exit.i.i.i, label %.preheader.i.i.i.i.i
@@ -896,7 +890,7 @@ _ZN7Minisat6IntMapINS_3LitEcNS_10MkIndexLitEED2Ev.exit.i: ; preds = %.preheader.
   %52 = phi i32 [ %58, %_ZN7Minisat3vecINS_6Solver7WatcherEiED2Ev.exit.i.i.i.i ], [ %48, %.preheader.i.i.i2.i ]
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %_ZN7Minisat3vecINS_6Solver7WatcherEiED2Ev.exit.i.i.i.i ], [ 0, %.preheader.i.i.i2.i ]
   %53 = load ptr, ptr %37, align 8, !tbaa !109
-  %54 = getelementptr inbounds nuw %"class.Minisat::vec.26", ptr %53, i64 %indvars.iv.i.i.i.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv.i.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !112
   %.not.i.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN7Minisat3vecINS_6Solver7WatcherEiED2Ev.exit.i.i.i.i, label %.preheader.i.i.i.i.i.i
@@ -1155,7 +1149,7 @@ define noundef i32 @_ZN7Minisat6Solver6newVarENS_5lboolEb(ptr noundef nonnull al
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %11 = load ptr, ptr %10, align 8, !tbaa !103
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i32, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -4
   %15 = load i32, ptr %14, align 4, !tbaa !65
   %16 = add nsw i32 %7, -1
@@ -1177,7 +1171,7 @@ define noundef i32 @_ZN7Minisat6Solver6newVarENS_5lboolEb(ptr noundef nonnull al
   tail call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef %24)
   %25 = load ptr, ptr %22, align 8, !tbaa !109
   %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds %"class.Minisat::vec.26", ptr %25, i64 %26
+  %27 = getelementptr inbounds [16 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !112
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit, label %.preheader.i.i
@@ -1196,7 +1190,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %31 = add nsw i32 %23, 2
   call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef %31)
   %32 = load ptr, ptr %22, align 8, !tbaa !109
-  %33 = getelementptr %"class.Minisat::vec.26", ptr %32, i64 %26
+  %33 = getelementptr [16 x i8], ptr %32, i64 %26
   %34 = getelementptr i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !112
   %.not.i.i18 = icmp eq ptr %35, null
@@ -1218,12 +1212,12 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   call void @_ZN7Minisat3vecINS_5lboolEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %37, i32 noundef %38)
   %39 = load ptr, ptr %37, align 8, !tbaa !94
   %40 = sext i32 %.0 to i64
-  %41 = getelementptr inbounds %"class.Minisat::lbool", ptr %39, i64 %40
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
   store i8 %.sroa.02.0.copyload, ptr %41, align 1, !tbaa !124
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 480
   call void @_ZN7Minisat3vecINS_6Solver7VarDataEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %42, i32 noundef %38)
   %43 = load ptr, ptr %42, align 8, !tbaa !88
-  %44 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %43, i64 %40
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %40
   store i64 4294967295, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 117
   %46 = load i8, ptr %45, align 1, !tbaa !69, !range !62, !noundef !63
@@ -1249,7 +1243,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 360
   call void @_ZN7Minisat3vecIdiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %61, i32 noundef %38)
   %62 = load ptr, ptr %61, align 8, !tbaa !97
-  %63 = getelementptr inbounds double, ptr %62, i64 %40
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %40
   store double %60, ptr %63, align 8, !tbaa !9
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 744
   call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %64, i32 noundef %38)
@@ -1264,7 +1258,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 432
   call void @_ZN7Minisat3vecINS_5lboolEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %70, i32 noundef %38)
   %71 = load ptr, ptr %70, align 8, !tbaa !94
-  %72 = getelementptr inbounds %"class.Minisat::lbool", ptr %71, i64 %40
+  %72 = getelementptr inbounds i8, ptr %71, i64 %40
   store i8 %1, ptr %72, align 1, !tbaa !124
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 456
   call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %73, i32 noundef %38)
@@ -1340,7 +1334,7 @@ _ZN7Minisat3vecINS_3LitEiE8capacityEi.exit:       ; preds = %59, %87, %93
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i: ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %113 = load ptr, ptr %112, align 8, !tbaa !103
-  %114 = getelementptr inbounds i32, ptr %113, i64 %40
+  %114 = getelementptr inbounds [4 x i8], ptr %113, i64 %40
   %115 = load i32, ptr %114, align 4, !tbaa !65
   %116 = icmp sgt i32 %115, -1
   br i1 %116, label %_ZN7Minisat6Solver14setDecisionVarEib.exit, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i.i
@@ -1366,7 +1360,7 @@ define void @_ZN7Minisat6Solver10releaseVarENS_3LitE(ptr noundef nonnull align 8
   %4 = ashr i32 %1, 1
   %5 = load ptr, ptr %3, align 8, !tbaa !94
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds %"class.Minisat::lbool", ptr %5, i64 %6
+  %7 = getelementptr inbounds i8, ptr %5, i64 %6
   %8 = trunc i32 %1 to i8
   %9 = load i8, ptr %7, align 1, !tbaa !126
   %10 = and i8 %8, 1
@@ -1438,7 +1432,7 @@ _ZN7Minisat6Solver9addClauseENS_3LitE.exit:       ; preds = %_ZN7Minisat3vecINS_
   %43 = add nsw i32 %41, 1
   store i32 %43, ptr %.phi.trans.insert.i, align 8, !tbaa !101
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds %"struct.Minisat::Lit", ptr %42, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %42, i64 %44
   store i32 %1, ptr %45, align 4, !tbaa !65
   %46 = tail call noundef zeroext i1 @_ZN7Minisat6Solver10addClause_ERNS_3vecINS_3LitEiEE(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef nonnull align 8 dereferenceable(16) %21)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 712
@@ -1487,7 +1481,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %70 = add nsw i32 %68, 1
   store i32 %70, ptr %48, align 8, !tbaa !104
   %71 = sext i32 %68 to i64
-  %72 = getelementptr inbounds i32, ptr %69, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %69, i64 %71
   store i32 %4, ptr %72, align 4, !tbaa !65
   br label %73
 
@@ -1532,11 +1526,11 @@ define noundef zeroext i1 @_ZN7Minisat6Solver10addClause_ERNS_3vecINS_3LitEiEE(p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge2 ]
   %.sroa.019.049 = phi i32 [ -2, %.lr.ph ], [ %.sroa.019.1, %.critedge2 ]
   %.03847 = phi i32 [ 0, %.lr.ph ], [ %.139, %.critedge2 ]
-  %23 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %12, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %.sroa.09.0.copyload = load i32, ptr %23, align 4, !tbaa !65
   %24 = ashr i32 %.sroa.09.0.copyload, 1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %"class.Minisat::lbool", ptr %14, i64 %25
+  %26 = getelementptr inbounds i8, ptr %14, i64 %25
   %27 = trunc i32 %.sroa.09.0.copyload to i8
   %28 = load i8, ptr %26, align 1, !tbaa !126
   %29 = and i8 %27, 1
@@ -1564,7 +1558,7 @@ define noundef zeroext i1 @_ZN7Minisat6Solver10addClause_ERNS_3vecINS_3LitEiEE(p
 42:                                               ; preds = %37
   %43 = add nsw i32 %.03847, 1
   %44 = sext i32 %.03847 to i64
-  %45 = getelementptr inbounds %"struct.Minisat::Lit", ptr %12, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %12, i64 %44
   store i32 %.sroa.09.0.copyload, ptr %45, align 4, !tbaa !65
   %.pre = load i32, ptr %8, align 8, !tbaa !101
   br label %.critedge2
@@ -1609,7 +1603,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %6, %._crit_edge, %.
   %60 = ashr i32 %.sroa.0.0.copyload, 1
   %61 = load ptr, ptr %59, align 8, !tbaa !94
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds %"class.Minisat::lbool", ptr %61, i64 %62
+  %63 = getelementptr inbounds i8, ptr %61, i64 %62
   store i8 %58, ptr %63, align 1, !tbaa !124
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %65 = load i32, ptr %64, align 8, !tbaa !104
@@ -1618,7 +1612,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %6, %._crit_edge, %.
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, 4294967295
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %67 = load ptr, ptr %66, align 8, !tbaa !88
-  %68 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %67, i64 %62
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %62
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %70 = load ptr, ptr %69, align 8, !tbaa !100
@@ -1627,7 +1621,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %6, %._crit_edge, %.
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %71, align 8, !tbaa !101
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds %"struct.Minisat::Lit", ptr %70, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %70, i64 %74
   store i32 %.sroa.0.0.copyload, ptr %75, align 4, !tbaa !65
   %76 = tail call noundef i32 @_ZN7Minisat6Solver9propagateEv(ptr noundef nonnull align 8 dereferenceable(857) %0)
   %77 = icmp eq i32 %76, -1
@@ -1684,7 +1678,7 @@ _ZN7Minisat3vecIjiE4pushERKj.exit:                ; preds = %._ZN7Minisat3vecIji
   %105 = add nsw i32 %103, 1
   store i32 %105, ptr %83, align 8, !tbaa !107
   %106 = sext i32 %103 to i64
-  %107 = getelementptr inbounds i32, ptr %104, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %104, i64 %106
   store i32 %81, ptr %107, align 4, !tbaa !65
   tail call void @_ZN7Minisat6Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef %81)
   br label %.critedge
@@ -1702,7 +1696,7 @@ define void @_ZN7Minisat6Solver16uncheckedEnqueueENS_3LitEj(ptr noundef nonnull 
   %7 = ashr i32 %1, 1
   %8 = load ptr, ptr %6, align 8, !tbaa !94
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds %"class.Minisat::lbool", ptr %8, i64 %9
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
   store i8 %5, ptr %10, align 1, !tbaa !124
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %12 = load i32, ptr %11, align 8, !tbaa !104
@@ -1712,7 +1706,7 @@ define void @_ZN7Minisat6Solver16uncheckedEnqueueENS_3LitEj(ptr noundef nonnull 
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %14 = load ptr, ptr %13, align 8, !tbaa !88
-  %15 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %14, i64 %9
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %9
   store i64 %.sroa.0.0.insert.insert.i, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %16, align 8, !tbaa !100
@@ -1721,7 +1715,7 @@ define void @_ZN7Minisat6Solver16uncheckedEnqueueENS_3LitEj(ptr noundef nonnull 
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 8, !tbaa !101
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %"struct.Minisat::Lit", ptr %17, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %17, i64 %21
   store i32 %1, ptr %22, align 4, !tbaa !65
   ret void
 }
@@ -1754,7 +1748,7 @@ define noundef i32 @_ZN7Minisat6Solver9propagateEv(ptr noundef nonnull align 8 c
   store i32 %17, ptr %2, align 8, !tbaa !83
   %18 = load ptr, ptr %3, align 8, !tbaa !100
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds %"struct.Minisat::Lit", ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !65
   %22 = load ptr, ptr %9, align 8, !tbaa !91
   %23 = sext i32 %21 to i64
@@ -1765,7 +1759,7 @@ define noundef i32 @_ZN7Minisat6Solver9propagateEv(ptr noundef nonnull align 8 c
   br i1 %.not.i, label %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE6lookupERKS1_.exit, label %26
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds %"class.Minisat::vec.26", ptr %.pre158, i64 %23
+  %27 = getelementptr inbounds [16 x i8], ptr %.pre158, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !115
   %30 = icmp sgt i32 %29, 0
@@ -1776,12 +1770,12 @@ define noundef i32 @_ZN7Minisat6Solver9propagateEv(ptr noundef nonnull align 8 c
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %47 ], [ 0, %26 ]
   %.01517.i.i = phi i32 [ %.1.i.i, %47 ], [ 0, %26 ]
   %32 = load ptr, ptr %27, align 8, !tbaa !112
-  %33 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %32, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %10, align 8, !tbaa !129
   %35 = load i32, ptr %33, align 4, !tbaa !130
   %36 = load ptr, ptr %34, align 8, !tbaa !122
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 3
   %41 = icmp eq i32 %40, 1
@@ -1790,7 +1784,7 @@ define noundef i32 @_ZN7Minisat6Solver9propagateEv(ptr noundef nonnull align 8 c
 42:                                               ; preds = %.lr.ph.i.i
   %43 = add nsw i32 %.01517.i.i, 1
   %44 = sext i32 %.01517.i.i to i64
-  %45 = getelementptr inbounds %"struct.Minisat::Solver::Watcher", ptr %32, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %32, i64 %44
   %46 = load i64, ptr %33, align 4
   store i64 %46, ptr %45, align 4
   %.pre.i.i = load i32, ptr %28, align 8, !tbaa !115
@@ -1824,7 +1818,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 
 _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE6lookupERKS1_.exit: ; preds = %15, %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE5cleanERKS1_.exit.i
   %57 = phi ptr [ %.pre158, %15 ], [ %.pre, %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE5cleanERKS1_.exit.i ]
-  %58 = getelementptr inbounds %"class.Minisat::vec.26", ptr %57, i64 %23
+  %58 = getelementptr inbounds [16 x i8], ptr %57, i64 %23
   %59 = add nuw nsw i32 %.061142, 1
   %60 = load ptr, ptr %58, align 8, !tbaa !112
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -1848,7 +1842,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %68 = ashr i32 %.sroa.035.0.copyload, 1
   %69 = load ptr, ptr %11, align 8, !tbaa !94
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds %"class.Minisat::lbool", ptr %69, i64 %70
+  %71 = getelementptr inbounds i8, ptr %69, i64 %70
   %72 = trunc i32 %.sroa.035.0.copyload to i8
   %73 = load i8, ptr %71, align 1, !tbaa !126
   %74 = and i8 %72, 1
@@ -1876,7 +1870,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %89 = load i32, ptr %.062135, align 4, !tbaa !130
   %90 = load ptr, ptr %12, align 8, !tbaa !122
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !135
   %95 = icmp eq i32 %94, %65
@@ -1898,7 +1892,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 102:                                              ; preds = %99
   %103 = ashr i32 %100, 1
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %"class.Minisat::lbool", ptr %69, i64 %104
+  %105 = getelementptr inbounds i8, ptr %69, i64 %104
   %106 = trunc i32 %100 to i8
   %107 = load i8, ptr %105, align 1, !tbaa !126
   %108 = and i8 %106, 1
@@ -1946,11 +1940,11 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 
 123:                                              ; preds = %.lr.ph, %122
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %122 ]
-  %124 = getelementptr inbounds nuw %union.anon, ptr %93, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv
   %.sroa.05.0.copyload = load i32, ptr %124, align 4, !tbaa !65
   %125 = ashr i32 %.sroa.05.0.copyload, 1
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %"class.Minisat::lbool", ptr %69, i64 %126
+  %127 = getelementptr inbounds i8, ptr %69, i64 %126
   %128 = trunc i32 %.sroa.05.0.copyload to i8
   %129 = load i8, ptr %127, align 1, !tbaa !126
   %130 = and i8 %128, 1
@@ -1963,7 +1957,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   br i1 %.not.i76, label %135, label %122
 
 135:                                              ; preds = %123
-  %136 = getelementptr inbounds nuw %union.anon, ptr %93, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv
   %137 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i32 %.sroa.05.0.copyload, ptr %137, align 4, !tbaa !65
   store i32 %65, ptr %136, align 4, !tbaa !65
@@ -1971,7 +1965,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %138 = xor i32 %.sroa.03.0.copyload, 1
   %139 = load ptr, ptr %8, align 8, !tbaa !109
   %140 = sext i32 %138 to i64
-  %141 = getelementptr inbounds %"class.Minisat::vec.26", ptr %139, i64 %140
+  %141 = getelementptr inbounds [16 x i8], ptr %139, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 8, !tbaa !115
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 12
@@ -2017,7 +2011,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %164 = add nsw i32 %162, 1
   store i32 %164, ptr %142, align 8, !tbaa !115
   %165 = sext i32 %162 to i64
-  %166 = getelementptr inbounds %"struct.Minisat::Solver::Watcher", ptr %163, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %163, i64 %165
   %.sroa.6.0.insert.ext96 = zext i32 %100 to i64
   %.sroa.6.0.insert.shift97 = shl nuw i64 %.sroa.6.0.insert.ext96, 32
   %.sroa.081.0.insert.insert89 = or disjoint i64 %.sroa.6.0.insert.shift97, %91
@@ -2034,7 +2028,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %168 = ashr i32 %100, 1
   %169 = load ptr, ptr %11, align 8, !tbaa !94
   %170 = sext i32 %168 to i64
-  %171 = getelementptr inbounds %"class.Minisat::lbool", ptr %169, i64 %170
+  %171 = getelementptr inbounds i8, ptr %169, i64 %170
   %172 = trunc i32 %100 to i8
   %173 = load i8, ptr %171, align 1, !tbaa !126
   %174 = and i8 %172, 1
@@ -2070,14 +2064,14 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %91
   %190 = load ptr, ptr %14, align 8, !tbaa !88
-  %191 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %190, i64 %170
+  %191 = getelementptr inbounds [8 x i8], ptr %190, i64 %170
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %191, align 4
   %192 = load ptr, ptr %3, align 8, !tbaa !100
   %193 = load i32, ptr %4, align 8, !tbaa !101
   %194 = add nsw i32 %193, 1
   store i32 %194, ptr %4, align 8, !tbaa !101
   %195 = sext i32 %193 to i64
-  %196 = getelementptr inbounds %"struct.Minisat::Lit", ptr %192, i64 %195
+  %196 = getelementptr inbounds [4 x i8], ptr %192, i64 %195
   store i32 %100, ptr %196, align 4, !tbaa !65
   br label %.loopexit
 
@@ -2160,7 +2154,7 @@ define linkonce_odr noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_3vecINS
 _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %3
   %21 = load ptr, ptr %0, align 8, !tbaa !122
   %22 = zext i32 %16 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = select i1 %2, i32 4, i32 0
   %26 = and i32 %24, -32
@@ -2187,8 +2181,8 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %3
 
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %36, i64 %indvars.iv.i
-  %40 = getelementptr inbounds nuw %union.anon, ptr %37, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i
   %41 = load i32, ptr %39, align 4, !tbaa !65
   store i32 %41, ptr %40, align 4, !tbaa !65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2204,7 +2198,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %48 = and i32 %30, 134217727
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw %union.anon, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %49
   store float 0.000000e+00, ptr %50, align 4, !tbaa !124
   br label %_ZN7Minisat6ClauseC2ERKNS_3vecINS_3LitEiEEbb.exit
 
@@ -2221,7 +2215,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %3
 54:                                               ; preds = %54, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %54 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %59, %54 ]
-  %55 = getelementptr inbounds nuw %union.anon, ptr %53, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %55, align 4, !tbaa !65
   %56 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %57 = and i32 %56, 31
@@ -2235,7 +2229,7 @@ _ZN7Minisat6Clause15calcAbstractionEv.exit.i:     ; preds = %54, %51
   %.pre-phi.i.i = phi i64 [ 0, %51 ], [ %wide.trip.count.i.i, %54 ]
   %.0.lcssa.i.i = phi i32 [ 0, %51 ], [ %59, %54 ]
   %60 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %61 = getelementptr inbounds nuw %union.anon, ptr %60, i64 %.pre-phi.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.pre-phi.i.i
   store i32 %.0.lcssa.i.i, ptr %61, align 4, !tbaa !124
   br label %_ZN7Minisat6ClauseC2ERKNS_3vecINS_3LitEiEEbb.exit
 
@@ -2248,14 +2242,14 @@ define void @_ZN7Minisat6Solver12attachClauseEj(ptr noundef nonnull align 8 capt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %4 = load ptr, ptr %3, align 8, !tbaa !122
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4, !tbaa !65
   %9 = xor i32 %.sroa.0.0.copyload.i, 1
   %10 = load ptr, ptr %7, align 8, !tbaa !109
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds %"class.Minisat::vec.26", ptr %10, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.0.0.copyload.i14 = load i32, ptr %13, align 4, !tbaa !65
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2303,7 +2297,7 @@ _ZN7Minisat3vecINS_6Solver7WatcherEiE4pushERKS2_.exit: ; preds = %._ZN7Minisat3v
   %36 = add nsw i32 %34, 1
   store i32 %36, ptr %14, align 8, !tbaa !115
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds %"struct.Minisat::Solver::Watcher", ptr %35, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %35, i64 %37
   %.sroa.423.0.insert.ext = zext i32 %.sroa.0.0.copyload.i14 to i64
   %.sroa.423.0.insert.shift = shl nuw i64 %.sroa.423.0.insert.ext, 32
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.423.0.insert.shift, %5
@@ -2312,7 +2306,7 @@ _ZN7Minisat3vecINS_6Solver7WatcherEiE4pushERKS2_.exit: ; preds = %._ZN7Minisat3v
   %39 = xor i32 %.sroa.0.0.copyload.i15, 1
   %40 = load ptr, ptr %7, align 8, !tbaa !109
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds %"class.Minisat::vec.26", ptr %40, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %40, i64 %41
   %.sroa.0.0.copyload.i17 = load i32, ptr %8, align 4, !tbaa !65
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !115
@@ -2359,7 +2353,7 @@ _ZN7Minisat3vecINS_6Solver7WatcherEiE4pushERKS2_.exit20: ; preds = %._ZN7Minisat
   %65 = add nsw i32 %63, 1
   store i32 %65, ptr %43, align 8, !tbaa !115
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds %"struct.Minisat::Solver::Watcher", ptr %64, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %64, i64 %66
   %.sroa.4.0.insert.ext = zext i32 %.sroa.0.0.copyload.i17 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %5
@@ -2388,7 +2382,7 @@ define void @_ZN7Minisat6Solver12detachClauseEjb(ptr noundef nonnull align 8 cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !122
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   br i1 %2, label %8, label %62
 
 8:                                                ; preds = %3
@@ -2398,7 +2392,7 @@ define void @_ZN7Minisat6Solver12detachClauseEjb(ptr noundef nonnull align 8 cap
   %11 = xor i32 %.sroa.0.0.copyload.i, 1
   %12 = load ptr, ptr %9, align 8, !tbaa !109
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %"class.Minisat::vec.26", ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !115
@@ -2412,7 +2406,7 @@ define void @_ZN7Minisat6Solver12detachClauseEjb(ptr noundef nonnull align 8 cap
 
 20:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %21 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %19, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4, !tbaa !130
   %.not.i = icmp eq i32 %22, %1
   br i1 %.not.i, label %.critedge.loopexit.i, label %23
@@ -2444,8 +2438,8 @@ define void @_ZN7Minisat6Solver12detachClauseEjb(ptr noundef nonnull align 8 cap
   %indvars.iv10.i = phi i64 [ %28, %.lr.ph6.preheader.i ], [ %indvars.iv.next11.i, %.lr.ph6.i ]
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %29 = load ptr, ptr %14, align 8, !tbaa !112
-  %30 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %29, i64 %indvars.iv.next11.i
-  %31 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %29, i64 %indvars.iv10.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.next11.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv10.i
   %32 = load i64, ptr %30, align 4
   store i64 %32, ptr %31, align 4
   %33 = load i32, ptr %16, align 8, !tbaa !115
@@ -2465,7 +2459,7 @@ _ZN7MinisatL6removeINS_3vecINS_6Solver7WatcherEiEES3_EEvRT_RKT0_.exit: ; preds =
   %.sroa.0.0.copyload.i21 = load i32, ptr %15, align 4, !tbaa !65
   %38 = xor i32 %.sroa.0.0.copyload.i21, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %"class.Minisat::vec.26", ptr %37, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !115
   %43 = icmp sgt i32 %42, 0
@@ -2478,7 +2472,7 @@ _ZN7MinisatL6removeINS_3vecINS_6Solver7WatcherEiEES3_EEvRT_RKT0_.exit: ; preds =
 
 45:                                               ; preds = %48, %.lr.ph.i31
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i35, %48 ]
-  %46 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %44, i64 %indvars.iv.i33
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i33
   %47 = load i32, ptr %46, align 4, !tbaa !130
   %.not.i34 = icmp eq i32 %47, %1
   br i1 %.not.i34, label %.critedge.loopexit.i38, label %48
@@ -2510,8 +2504,8 @@ _ZN7MinisatL6removeINS_3vecINS_6Solver7WatcherEiEES3_EEvRT_RKT0_.exit: ; preds =
   %indvars.iv10.i29 = phi i64 [ %53, %.lr.ph6.preheader.i27 ], [ %indvars.iv.next11.i30, %.lr.ph6.i28 ]
   %indvars.iv.next11.i30 = add nuw nsw i64 %indvars.iv10.i29, 1
   %54 = load ptr, ptr %40, align 8, !tbaa !112
-  %55 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %54, i64 %indvars.iv.next11.i30
-  %56 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %54, i64 %indvars.iv10.i29
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.next11.i30
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv10.i29
   %57 = load i64, ptr %55, align 4
   store i64 %57, ptr %56, align 4
   %58 = load i32, ptr %41, align 8, !tbaa !115
@@ -2585,7 +2579,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit.i:     ; preds = %._ZN7Minisat3vecINS
   %95 = add nsw i32 %93, 1
   store i32 %95, ptr %73, align 8, !tbaa !101
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds %"struct.Minisat::Lit", ptr %94, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %94, i64 %96
   store i32 %64, ptr %97, align 4, !tbaa !65
   %.pre = load ptr, ptr %65, align 8, !tbaa !91
   br label %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE6smudgeERKS1_.exit
@@ -2649,7 +2643,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit.i45:   ; preds = %._ZN7Minisat3vecINS
   %129 = add nsw i32 %127, 1
   store i32 %129, ptr %107, align 8, !tbaa !101
   %130 = sext i32 %127 to i64
-  %131 = getelementptr inbounds %"struct.Minisat::Lit", ptr %128, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %128, i64 %130
   store i32 %100, ptr %131, align 4, !tbaa !65
   br label %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE6smudgeERKS1_.exit48
 
@@ -2678,7 +2672,7 @@ define void @_ZN7Minisat6Solver12removeClauseEj(ptr noundef nonnull align 8 capt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %4 = load ptr, ptr %3, align 8, !tbaa !122
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   tail call void @_ZN7Minisat6Solver12detachClauseEjb(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef %1, i1 noundef zeroext false)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %7, align 4, !tbaa !65
@@ -2686,7 +2680,7 @@ define void @_ZN7Minisat6Solver12removeClauseEj(ptr noundef nonnull align 8 capt
   %9 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %10 = load ptr, ptr %8, align 8, !tbaa !94
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds %"class.Minisat::lbool", ptr %10, i64 %11
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = trunc i32 %.sroa.0.0.copyload.i.i to i8
   %14 = load i8, ptr %12, align 1, !tbaa !126
   %15 = and i8 %13, 1
@@ -2706,12 +2700,12 @@ define void @_ZN7Minisat6Solver12removeClauseEj(ptr noundef nonnull align 8 capt
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %27 = load ptr, ptr %26, align 8, !tbaa !88
-  %28 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %27, i64 %11
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %11
   %29 = load i32, ptr %28, align 4, !tbaa !147
   %.not.i = icmp ne i32 %29, -1
   %30 = load ptr, ptr %3, align 8
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = icmp eq ptr %32, %6
   %or.cond = select i1 %.not.i, i1 %33, i1 false
   br i1 %or.cond, label %34, label %_ZNK7Minisat6Solver6lockedERKNS_6ClauseE.exit.thread
@@ -2726,7 +2720,7 @@ _ZNK7Minisat6Solver6lockedERKNS_6ClauseE.exit.thread: ; preds = %2, %25, %34
   %37 = or disjoint i32 %36, 1
   store i32 %37, ptr %6, align 4
   %38 = load ptr, ptr %3, align 8, !tbaa !122
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %5
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %5
   %40 = load i32, ptr %39, align 4
   %41 = lshr i32 %40, 5
   %42 = lshr i32 %40, 3
@@ -2761,11 +2755,11 @@ define noundef zeroext i1 @_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE(ptr nound
 
 11:                                               ; preds = %11, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %union.anon, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %12, align 4, !tbaa !65
   %13 = ashr i32 %.sroa.0.0.copyload.i, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %"class.Minisat::lbool", ptr %7, i64 %14
+  %15 = getelementptr inbounds i8, ptr %7, i64 %14
   %16 = trunc i32 %.sroa.0.0.copyload.i to i8
   %17 = load i8, ptr %15, align 1, !tbaa !126
   %18 = and i8 %16, 1
@@ -2799,7 +2793,7 @@ define void @_ZN7Minisat6Solver11cancelUntilEi(ptr noundef nonnull align 8 deref
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %11 = sext i32 %1 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !103
-  %13 = getelementptr inbounds i32, ptr %12, i64 %11
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %11
   %14 = load i32, ptr %13, align 4, !tbaa !65
   %.not.not22 = icmp sgt i32 %9, %14
   br i1 %.not.not22, label %.lr.ph, label %._crit_edge
@@ -2823,7 +2817,7 @@ define void @_ZN7Minisat6Solver11cancelUntilEi(ptr noundef nonnull align 8 deref
   %23 = phi i32 [ %9, %6 ], [ %.pre, %._crit_edge.loopexit ]
   %.lcssa19 = phi ptr [ %12, %6 ], [ %69, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %14, %6 ], [ %71, %._crit_edge.loopexit ]
-  %24 = getelementptr inbounds i32, ptr %.lcssa19, i64 %11
+  %24 = getelementptr inbounds [4 x i8], ptr %.lcssa19, i64 %11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i32 %.lcssa, ptr %25, align 8, !tbaa !83
   %26 = load i32, ptr %24, align 4, !tbaa !65
@@ -2847,12 +2841,12 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %._crit_edge, %.lr.p
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %_ZN7Minisat6Solver14insertVarOrderEi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %31 = load ptr, ptr %7, align 8, !tbaa !100
-  %32 = getelementptr inbounds %"struct.Minisat::Lit", ptr %31, i64 %indvars.iv.next
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %indvars.iv.next
   %.sroa.01.0.copyload = load i32, ptr %32, align 4, !tbaa !65
   %33 = ashr i32 %.sroa.01.0.copyload, 1
   %34 = load ptr, ptr %15, align 8, !tbaa !94
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds %"class.Minisat::lbool", ptr %34, i64 %35
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
   %37 = load i8, ptr @_ZN7MinisatL7l_UndefE, align 1, !tbaa !124
   store i8 %37, ptr %36, align 1, !tbaa !124
   %38 = load i32, ptr %16, align 8, !tbaa !67
@@ -2867,7 +2861,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %._crit_edge, %.lr.p
   %43 = load ptr, ptr %10, align 8, !tbaa !103
   %44 = load i32, ptr %3, align 8, !tbaa !104
   %45 = sext i32 %44 to i64
-  %46 = getelementptr i32, ptr %43, i64 %45
+  %46 = getelementptr [4 x i8], ptr %43, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -4
   %48 = load i32, ptr %47, align 4, !tbaa !65
   %49 = sext i32 %48 to i64
@@ -2876,7 +2870,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %._crit_edge, %.lr.p
 
 51:                                               ; preds = %42, %30
   %52 = load ptr, ptr %7, align 8, !tbaa !100
-  %53 = getelementptr inbounds %"struct.Minisat::Lit", ptr %52, i64 %indvars.iv.next
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %indvars.iv.next
   %.sroa.0.0.copyload = load i32, ptr %53, align 4, !tbaa !65
   %54 = trunc i32 %.sroa.0.0.copyload to i8
   %55 = and i8 %54, 1
@@ -2892,7 +2886,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %._crit_edge, %.lr.p
 
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i: ; preds = %58
   %61 = load ptr, ptr %20, align 8, !tbaa !103
-  %62 = getelementptr inbounds i32, ptr %61, i64 %35
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %35
   %63 = load i32, ptr %62, align 4, !tbaa !65
   %64 = icmp sgt i32 %63, -1
   br i1 %64, label %_ZN7Minisat6Solver14insertVarOrderEi.exit, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i
@@ -2910,7 +2904,7 @@ _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit
 
 _ZN7Minisat6Solver14insertVarOrderEi.exit:        ; preds = %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i, %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i, %68
   %69 = load ptr, ptr %10, align 8, !tbaa !103
-  %70 = getelementptr inbounds i32, ptr %69, i64 %11
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %11
   %71 = load i32, ptr %70, align 4, !tbaa !65
   %72 = sext i32 %71 to i64
   %.not.not = icmp sgt i64 %indvars.iv.next, %72
@@ -2963,12 +2957,12 @@ define i32 @_ZN7Minisat6Solver13pickBranchLitEv(ptr noundef nonnull align 8 capt
   %29 = fptosi double %28 to i32
   %30 = load ptr, ptr %19, align 8, !tbaa !103
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !65
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %35 = load ptr, ptr %34, align 8, !tbaa !94
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds %"class.Minisat::lbool", ptr %35, i64 %36
+  %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %.sroa.0.0.copyload.i = load i8, ptr %37, align 1, !tbaa !124
   %38 = and i8 %.sroa.0.0.copyload.i, 2
   %39 = and i8 %38, %.sroa.04.0.copyload.pre26
@@ -3023,7 +3017,7 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
 
 70:                                               ; preds = %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.exit
   %71 = sext i32 %.1 to i64
-  %72 = getelementptr inbounds %"class.Minisat::lbool", ptr %57, i64 %71
+  %72 = getelementptr inbounds i8, ptr %57, i64 %71
   %.sroa.0.0.copyload.i19 = load i8, ptr %72, align 1, !tbaa !124
   %.reass = and i8 %.sroa.0.0.copyload.i19, %invariant.op
   %73 = icmp eq i8 %.sroa.0.0.copyload.i19, %.sroa.03.0.copyload
@@ -3046,15 +3040,15 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
 81:                                               ; preds = %.critedge2
   %82 = load i32, ptr %65, align 4, !tbaa !65
   %83 = sext i32 %79 to i64
-  %84 = getelementptr i32, ptr %65, i64 %83
+  %84 = getelementptr [4 x i8], ptr %65, i64 %83
   %85 = getelementptr i8, ptr %84, i64 -4
   %86 = load i32, ptr %85, align 4, !tbaa !65
   store i32 %86, ptr %65, align 4, !tbaa !65
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %67, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %67, i64 %87
   store i32 0, ptr %88, align 4, !tbaa !65
   %89 = sext i32 %82 to i64
-  %90 = getelementptr inbounds i32, ptr %67, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %67, i64 %89
   store i32 -1, ptr %90, align 4, !tbaa !65
   %91 = load i32, ptr %63, align 8, !tbaa !104
   %92 = add nsw i32 %91, -1
@@ -3070,7 +3064,7 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
   %95 = load ptr, ptr %68, align 8
   %96 = load ptr, ptr %95, align 8, !tbaa !97
   %97 = sext i32 %94 to i64
-  %98 = getelementptr inbounds double, ptr %96, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %96, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !9
   %100 = load ptr, ptr %66, align 8
   br label %101
@@ -3086,25 +3080,25 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
 
 ._crit_edge.i.i:                                  ; preds = %101
   %.pre.phi.trans.insert.i.i = sext i32 %103 to i64
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %65, i64 %.pre.phi.trans.insert.i.i
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds [4 x i8], ptr %65, i64 %.pre.phi.trans.insert.i.i
   %.pre25.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !65
   %.phi.trans.insert26.phi.trans.insert.i.i = sext i32 %.pre25.pre.i.i to i64
-  %.phi.trans.insert27.phi.trans.insert.i.i = getelementptr inbounds double, ptr %96, i64 %.phi.trans.insert26.phi.trans.insert.i.i
+  %.phi.trans.insert27.phi.trans.insert.i.i = getelementptr inbounds [8 x i8], ptr %96, i64 %.phi.trans.insert26.phi.trans.insert.i.i
   %.pre28.pre.i.i = load double, ptr %.phi.trans.insert27.phi.trans.insert.i.i, align 8, !tbaa !9
   br label %122
 
 107:                                              ; preds = %101
   %108 = sext i32 %105 to i64
-  %109 = getelementptr inbounds i32, ptr %65, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %65, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !65
   %111 = sext i32 %103 to i64
-  %112 = getelementptr inbounds i32, ptr %65, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %65, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !65
   %114 = sext i32 %110 to i64
-  %115 = getelementptr inbounds double, ptr %96, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %96, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !9
   %117 = sext i32 %113 to i64
-  %118 = getelementptr inbounds double, ptr %96, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %96, i64 %117
   %119 = load double, ptr %118, align 8, !tbaa !9
   %120 = fcmp ogt double %116, %119
   br i1 %120, label %122, label %121
@@ -3122,9 +3116,9 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
 
 127:                                              ; preds = %122
   %128 = sext i32 %.01922.i.i to i64
-  %129 = getelementptr inbounds i32, ptr %65, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %65, i64 %128
   store i32 %124, ptr %129, align 4, !tbaa !65
-  %130 = getelementptr inbounds i32, ptr %100, i64 %.pre-phi33.i.i
+  %130 = getelementptr inbounds [4 x i8], ptr %100, i64 %.pre-phi33.i.i
   store i32 %.01922.i.i, ptr %130, align 4, !tbaa !65
   %131 = shl nsw i32 %125, 1
   %132 = or disjoint i32 %131, 1
@@ -3135,16 +3129,16 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
 _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE13percolateDownEi.exit.i: ; preds = %127, %122
   %.019.lcssa.ph.i.i = phi i32 [ %125, %127 ], [ %.01922.i.i, %122 ]
   %.pre34.i.i = sext i32 %.019.lcssa.ph.i.i to i64
-  %135 = getelementptr inbounds i32, ptr %65, i64 %.pre34.i.i
+  %135 = getelementptr inbounds [4 x i8], ptr %65, i64 %.pre34.i.i
   store i32 %94, ptr %135, align 4, !tbaa !65
-  %136 = getelementptr inbounds i32, ptr %100, i64 %97
+  %136 = getelementptr inbounds [4 x i8], ptr %100, i64 %97
   store i32 %.019.lcssa.ph.i.i, ptr %136, align 4, !tbaa !65
   br label %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.exit.backedge
 
 137:                                              ; preds = %76
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %139 = load ptr, ptr %138, align 8, !tbaa !94
-  %140 = getelementptr inbounds %"class.Minisat::lbool", ptr %139, i64 %71
+  %140 = getelementptr inbounds i8, ptr %139, i64 %71
   %141 = load i8, ptr %140, align 1, !tbaa !126
   %142 = and i8 %141, 2
   %143 = and i8 %142, %.sroa.03.0.copyload
@@ -3251,7 +3245,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushEv.exit:           ; preds = %._ZN7Minisat3vecINS
   %25 = phi i32 [ %6, %._ZN7Minisat3vecINS_3LitEiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN7Minisat3vecINS_3LitEiE4pushEv.exit_crit_edge ]
   %26 = phi ptr [ %.pre.i, %._ZN7Minisat3vecINS_3LitEiE8capacityEi.exit_crit_edge.i ], [ %21, %._ZN7Minisat3vecINS_3LitEiE4pushEv.exit_crit_edge ]
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %"struct.Minisat::Lit", ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 4
   %29 = load i32, ptr %5, align 8, !tbaa !101
   %30 = add nsw i32 %29, 1
@@ -3283,7 +3277,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushEv.exit:           ; preds = %._ZN7Minisat3vecINS
   %.0 = phi i32 [ %1, %_ZN7Minisat3vecINS_3LitEiE4pushEv.exit ], [ %201, %196 ]
   %50 = load ptr, ptr %35, align 8, !tbaa !122
   %51 = zext i32 %.0 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 4
   %.not134 = icmp eq i32 %54, 0
@@ -3294,7 +3288,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushEv.exit:           ; preds = %._ZN7Minisat3vecINS
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %58 = lshr i32 %53, 5
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw %union.anon, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !154
   %62 = fpext float %61 to double
   %63 = fadd double %56, %62
@@ -3322,15 +3316,15 @@ _ZN7Minisat3vecINS_3LitEiE4pushEv.exit:           ; preds = %._ZN7Minisat3vecINS
 
 71:                                               ; preds = %71, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i
   %73 = load i32, ptr %72, align 4, !tbaa !65
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %50, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %75, align 4
   %78 = lshr i32 %77, 5
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw %union.anon, ptr %76, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !154
   %82 = fpext float %81 to double
   %83 = fmul double %82, 0x3BC79CA10C924223
@@ -3363,7 +3357,7 @@ _ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i,
 95:                                               ; preds = %.lr.ph, %185
   %indvars.iv = phi i64 [ %91, %.lr.ph ], [ %indvars.iv.next, %185 ]
   %.1152 = phi i32 [ %.0100, %.lr.ph ], [ %.2, %185 ]
-  %96 = getelementptr inbounds nuw %union.anon, ptr %90, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4, !tbaa !65
   %98 = ashr i32 %97, 1
   %99 = load ptr, ptr %39, align 8, !tbaa !91
@@ -3375,7 +3369,7 @@ _ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i,
 
 103:                                              ; preds = %95
   %104 = load ptr, ptr %40, align 8, !tbaa !88
-  %105 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %104, i64 %100
+  %105 = getelementptr inbounds [8 x i8], ptr %104, i64 %100
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4, !tbaa !157
   %108 = icmp sgt i32 %107, 0
@@ -3384,7 +3378,7 @@ _ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i,
 109:                                              ; preds = %103
   %110 = load double, ptr %41, align 8, !tbaa !82
   %111 = load ptr, ptr %42, align 8, !tbaa !97
-  %112 = getelementptr inbounds double, ptr %111, i64 %100
+  %112 = getelementptr inbounds [8 x i8], ptr %111, i64 %100
   %113 = load double, ptr %112, align 8, !tbaa !9
   %114 = fadd double %110, %113
   store double %114, ptr %112, align 8, !tbaa !9
@@ -3408,7 +3402,7 @@ _ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i,
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %120 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv.i.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i.i
   %121 = load double, ptr %120, align 8, !tbaa !9
   %122 = fmul double %121, 1.000000e-100
   store double %122, ptr %120, align 8, !tbaa !9
@@ -3423,7 +3417,7 @@ _ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i,
 
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i: ; preds = %123
   %126 = load ptr, ptr %46, align 8, !tbaa !103
-  %127 = getelementptr inbounds i32, ptr %126, i64 %100
+  %127 = getelementptr inbounds [4 x i8], ptr %126, i64 %100
   %128 = load i32, ptr %127, align 4, !tbaa !65
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %130, label %_ZN7Minisat6Solver15varBumpActivityEi.exit
@@ -3431,7 +3425,7 @@ _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit
 130:                                              ; preds = %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i
   %131 = load ptr, ptr %44, align 8, !tbaa !103
   %132 = zext nneg i32 %128 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !65
   %.not21.i.i.i.i = icmp eq i32 %128, 0
   br i1 %.not21.i.i.i.i, label %..critedge_crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
@@ -3444,7 +3438,7 @@ _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit
   %135 = load ptr, ptr %47, align 8, !tbaa !159
   %136 = load ptr, ptr %135, align 8, !tbaa !97
   %137 = sext i32 %134 to i64
-  %138 = getelementptr inbounds double, ptr %136, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %136, i64 %137
   %139 = load double, ptr %138, align 8, !tbaa !9
   br label %140
 
@@ -3453,21 +3447,21 @@ _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit
   %.023.in.i.i.i.i = add nsw i32 %.01522.i.i.i.i, -1
   %.023.i.i.i.i = lshr i32 %.023.in.i.i.i.i, 1
   %141 = zext nneg i32 %.023.i.i.i.i to i64
-  %142 = getelementptr inbounds nuw i32, ptr %131, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !65
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds double, ptr %136, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %136, i64 %144
   %146 = load double, ptr %145, align 8, !tbaa !9
   %147 = fcmp ogt double %139, %146
   %148 = zext nneg i32 %.01522.i.i.i.i to i64
-  %149 = getelementptr inbounds nuw i32, ptr %131, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %148
   br i1 %147, label %150, label %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE8decreaseEi.exit.i.i
 
 150:                                              ; preds = %140
   store i32 %143, ptr %149, align 4, !tbaa !65
   %151 = load i32, ptr %142, align 4, !tbaa !65
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i32, ptr %126, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %126, i64 %152
   store i32 %.01522.i.i.i.i, ptr %153, align 4, !tbaa !65
   %.not.i.i.i.i = icmp eq i32 %.023.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE8decreaseEi.exit.i.i, label %140, !llvm.loop !160
@@ -3477,14 +3471,14 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE8decreaseEi.exi
   %.01518.i.i.i.i = phi i32 [ 0, %..critedge_crit_edge.i.i.i.i ], [ 0, %150 ], [ %.01522.i.i.i.i, %140 ]
   %phi.call.i.i.i.i = phi ptr [ %131, %..critedge_crit_edge.i.i.i.i ], [ %131, %150 ], [ %149, %140 ]
   store i32 %134, ptr %phi.call.i.i.i.i, align 4, !tbaa !65
-  %154 = getelementptr inbounds i32, ptr %126, i64 %.pre-phi.i.i.i.i
+  %154 = getelementptr inbounds [4 x i8], ptr %126, i64 %.pre-phi.i.i.i.i
   store i32 %.01518.i.i.i.i, ptr %154, align 4, !tbaa !65
   br label %_ZN7Minisat6Solver15varBumpActivityEi.exit
 
 _ZN7Minisat6Solver15varBumpActivityEi.exit:       ; preds = %123, %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i, %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE8decreaseEi.exit.i.i
   store i8 1, ptr %101, align 1, !tbaa !124
   %155 = load ptr, ptr %40, align 8, !tbaa !88
-  %156 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %155, i64 %100
+  %156 = getelementptr inbounds [8 x i8], ptr %155, i64 %100
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %158 = load i32, ptr %157, align 4, !tbaa !157
   %159 = load i32, ptr %48, align 8, !tbaa !104
@@ -3539,7 +3533,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %182 = add nsw i32 %180, 1
   store i32 %182, ptr %5, align 8, !tbaa !101
   %183 = sext i32 %180 to i64
-  %184 = getelementptr inbounds %"struct.Minisat::Lit", ptr %181, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr %181, i64 %183
   store i32 %97, ptr %184, align 4, !tbaa !65
   br label %185
 
@@ -3555,7 +3549,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
 190:                                              ; preds = %.preheader139, %190
   %indvars.iv181 = phi i64 [ %94, %.preheader139 ], [ %indvars.iv.next182, %190 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -1
-  %191 = getelementptr inbounds %"struct.Minisat::Lit", ptr %92, i64 %indvars.iv181
+  %191 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv181
   %.sroa.048.0.copyload = load i32, ptr %191, align 4, !tbaa !65
   %192 = ashr i32 %.sroa.048.0.copyload, 1
   %193 = sext i32 %192 to i64
@@ -3568,7 +3562,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %197 = getelementptr inbounds i8, ptr %93, i64 %193
   %198 = trunc nsw i64 %indvars.iv.next182 to i32
   %199 = load ptr, ptr %40, align 8, !tbaa !88
-  %200 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %199, i64 %193
+  %200 = getelementptr inbounds [8 x i8], ptr %199, i64 %193
   %201 = load i32, ptr %200, align 4, !tbaa !147
   store i8 0, ptr %197, align 1, !tbaa !124
   %202 = add nsw i32 %.1.lcssa, -1
@@ -3603,8 +3597,8 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit.i:        ; preds = %.preheader.i.i121, 
 
 215:                                              ; preds = %215, %.lr.ph.i123
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.i123 ], [ %indvars.iv.next.i125, %215 ]
-  %216 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %213, i64 %indvars.iv.i124
-  %217 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %214, i64 %indvars.iv.i124
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %indvars.iv.i124
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %indvars.iv.i124
   %218 = load i32, ptr %216, align 4, !tbaa !65
   store i32 %218, ptr %217, align 4, !tbaa !65
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
@@ -3641,12 +3635,12 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %247 ], [ 1, %.preheader135 ]
   %.0110162 = phi i32 [ %.1111, %247 ], [ 1, %.preheader135 ]
   %231 = load ptr, ptr %2, align 8, !tbaa !100
-  %232 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %231, i64 %indvars.iv190
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv190
   %.sroa.027.0.copyload = load i32, ptr %232, align 4, !tbaa !65
   %233 = ashr i32 %.sroa.027.0.copyload, 1
   %234 = load ptr, ptr %40, align 8, !tbaa !88
   %235 = sext i32 %233 to i64
-  %236 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %234, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %234, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !147
   %238 = icmp eq i32 %237, -1
   br i1 %238, label %241, label %239
@@ -3657,7 +3651,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
 
 ._crit_edge203:                                   ; preds = %239
   %.pre204 = load ptr, ptr %2, align 8, !tbaa !100
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.pre204, i64 %indvars.iv190
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre204, i64 %indvars.iv190
   %.pre205 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !65
   br label %241
 
@@ -3666,7 +3660,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
   %243 = phi ptr [ %.pre204, %._crit_edge203 ], [ %231, %.lr.ph164 ]
   %244 = add nsw i32 %.0110162, 1
   %245 = sext i32 %.0110162 to i64
-  %246 = getelementptr inbounds %"struct.Minisat::Lit", ptr %243, i64 %245
+  %246 = getelementptr inbounds [4 x i8], ptr %243, i64 %245
   store i32 %242, ptr %246, align 4, !tbaa !65
   br label %247
 
@@ -3681,18 +3675,18 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
 251:                                              ; preds = %.lr.ph159, %.loopexit136
   %indvars.iv187 = phi i64 [ 1, %.lr.ph159 ], [ %indvars.iv.next188, %.loopexit136 ]
   %.3157 = phi i32 [ 1, %.lr.ph159 ], [ %.4, %.loopexit136 ]
-  %252 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %226, i64 %indvars.iv187
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %indvars.iv187
   %.sroa.024.0.copyload = load i32, ptr %252, align 4, !tbaa !65
   %253 = ashr i32 %.sroa.024.0.copyload, 1
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %227, i64 %254
+  %255 = getelementptr inbounds [8 x i8], ptr %227, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !147
   %257 = icmp eq i32 %256, -1
   br i1 %257, label %.loopexit136.sink.split, label %258
 
 258:                                              ; preds = %251
   %259 = zext i32 %256 to i64
-  %260 = getelementptr inbounds nuw i32, ptr %228, i64 %259
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = icmp ugt i32 %261, 63
   br i1 %262, label %.lr.ph156, label %.loopexit136
@@ -3705,7 +3699,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
 
 265:                                              ; preds = %.lr.ph156, %276
   %indvars.iv184 = phi i64 [ 1, %.lr.ph156 ], [ %indvars.iv.next185, %276 ]
-  %266 = getelementptr inbounds nuw %union.anon, ptr %264, i64 %indvars.iv184
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %264, i64 %indvars.iv184
   %.sroa.016.0.copyload = load i32, ptr %266, align 4, !tbaa !65
   %267 = ashr i32 %.sroa.016.0.copyload, 1
   %268 = sext i32 %267 to i64
@@ -3715,7 +3709,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
   br i1 %.not116, label %271, label %276
 
 271:                                              ; preds = %265
-  %272 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %227, i64 %268
+  %272 = getelementptr inbounds [8 x i8], ptr %227, i64 %268
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 4
   %274 = load i32, ptr %273, align 4, !tbaa !157
   %275 = icmp sgt i32 %274, 0
@@ -3729,7 +3723,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
 .loopexit136.sink.split:                          ; preds = %271, %251
   %277 = add nsw i32 %.3157, 1
   %278 = sext i32 %.3157 to i64
-  %279 = getelementptr inbounds %"struct.Minisat::Lit", ptr %226, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %226, i64 %278
   store i32 %.sroa.024.0.copyload, ptr %279, align 4, !tbaa !65
   br label %.loopexit136
 
@@ -3794,7 +3788,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %.loopexit, %.lr.ph.
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.0108.lcssa = phi i64 [ 1, %.preheader ], [ %298, %._crit_edge.loopexit ]
-  %299 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.pre206, i64 %.0108.lcssa
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %.pre206, i64 %.0108.lcssa
   %.sroa.04.0.copyload = load i32, ptr %299, align 4, !tbaa !65
   %300 = getelementptr inbounds nuw i8, ptr %.pre206, i64 4
   %301 = load i32, ptr %300, align 4, !tbaa !65
@@ -3802,7 +3796,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %.loopexit, %.lr.ph.
   store i32 %.sroa.04.0.copyload, ptr %300, align 4, !tbaa !65
   %302 = ashr i32 %.sroa.04.0.copyload, 1
   %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %.pre207, i64 %303
+  %304 = getelementptr inbounds [8 x i8], ptr %.pre207, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 4
   %306 = load i32, ptr %305, align 4, !tbaa !157
   br label %323
@@ -3810,19 +3804,19 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %.loopexit, %.lr.ph.
 307:                                              ; preds = %.lr.ph169, %307
   %indvars.iv193 = phi i64 [ 2, %.lr.ph169 ], [ %indvars.iv.next194, %307 ]
   %.0108167 = phi i32 [ 1, %.lr.ph169 ], [ %spec.select, %307 ]
-  %308 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.pre206, i64 %indvars.iv193
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %.pre206, i64 %indvars.iv193
   %.sroa.07.0.copyload = load i32, ptr %308, align 4, !tbaa !65
   %309 = ashr i32 %.sroa.07.0.copyload, 1
   %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %.pre207, i64 %310
+  %311 = getelementptr inbounds [8 x i8], ptr %.pre207, i64 %310
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 4
   %313 = load i32, ptr %312, align 4, !tbaa !157
   %314 = zext nneg i32 %.0108167 to i64
-  %315 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.pre206, i64 %314
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %.pre206, i64 %314
   %.sroa.06.0.copyload = load i32, ptr %315, align 4, !tbaa !65
   %316 = ashr i32 %.sroa.06.0.copyload, 1
   %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %.pre207, i64 %317
+  %318 = getelementptr inbounds [8 x i8], ptr %.pre207, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %320 = load i32, ptr %319, align 4, !tbaa !157
   %321 = icmp sgt i32 %313, %320
@@ -3846,7 +3840,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %.loopexit, %.lr.ph.
 .lr.ph173:                                        ; preds = %323, %.lr.ph173
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.lr.ph173 ], [ 0, %323 ]
   %327 = load ptr, ptr %207, align 8, !tbaa !100
-  %328 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %327, i64 %indvars.iv198
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %indvars.iv198
   %.sroa.0.0.copyload = load i32, ptr %328, align 4, !tbaa !65
   %329 = ashr i32 %.sroa.0.0.copyload, 1
   %330 = load ptr, ptr %39, align 8, !tbaa !91
@@ -3867,11 +3861,11 @@ define noundef zeroext i1 @_ZN7Minisat6Solver12litRedundantENS_3LitE(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = load ptr, ptr %5, align 8, !tbaa !88
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !147
   %10 = load ptr, ptr %3, align 8, !tbaa !122
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %14 = load ptr, ptr %13, align 8, !tbaa !119
   %.not.i = icmp eq ptr %14, null
@@ -3904,11 +3898,11 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE5clearEb.exit: ; preds = %2, %.pre
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %.044, i64 4
   %28 = zext nneg i32 %.047 to i64
-  %29 = getelementptr inbounds nuw %union.anon, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %.sroa.019.0.copyload = load i32, ptr %29, align 4, !tbaa !65
   %30 = ashr i32 %.sroa.019.0.copyload, 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %23, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %23, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !157
   %35 = icmp eq i32 %34, 0
@@ -3973,7 +3967,7 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit: ; preds = %._ZN7
   %65 = add nsw i32 %63, 1
   store i32 %65, ptr %17, align 8, !tbaa !120
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds %"struct.Minisat::Solver::ShrinkStackElem", ptr %64, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %64, i64 %66
   %.sroa.461.0.insert.ext = zext i32 %.sroa.062.0 to i64
   %.sroa.461.0.insert.shift = shl nuw i64 %.sroa.461.0.insert.ext, 32
   store i64 %.sroa.461.0.insert.shift, ptr %67, align 4
@@ -3985,7 +3979,7 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit: ; preds = %._ZN7
   %70 = phi i32 [ %108, %107 ], [ %68, %_ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %107 ], [ 0, %_ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit ]
   %71 = load ptr, ptr %13, align 8, !tbaa !119
-  %72 = getelementptr inbounds nuw %"struct.Minisat::Solver::ShrinkStackElem", ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %.sroa.06.0.copyload = load i32, ptr %73, align 4, !tbaa !65
   %74 = ashr i32 %.sroa.06.0.copyload, 1
@@ -3999,7 +3993,7 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit: ; preds = %._ZN7
 80:                                               ; preds = %.lr.ph
   store i8 3, ptr %77, align 1, !tbaa !124
   %81 = load ptr, ptr %13, align 8, !tbaa !119
-  %82 = getelementptr inbounds nuw %"struct.Minisat::Solver::ShrinkStackElem", ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i32, ptr %20, align 8, !tbaa !101
   %85 = load i32, ptr %21, align 4, !tbaa !102
@@ -4044,7 +4038,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %103 = add nsw i32 %101, 1
   store i32 %103, ptr %20, align 8, !tbaa !101
   %104 = sext i32 %101 to i64
-  %105 = getelementptr inbounds %"struct.Minisat::Lit", ptr %102, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %102, i64 %104
   %106 = load i32, ptr %83, align 4, !tbaa !65
   store i32 %106, ptr %105, align 4, !tbaa !65
   %.pre104 = load i32, ptr %17, align 8, !tbaa !120
@@ -4098,17 +4092,17 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit56: ; preds = %._Z
   %128 = add nsw i32 %126, 1
   store i32 %128, ptr %17, align 8, !tbaa !120
   %129 = sext i32 %126 to i64
-  %130 = getelementptr inbounds %"struct.Minisat::Solver::ShrinkStackElem", ptr %127, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %127, i64 %129
   %.sroa.4.0.insert.ext = zext i32 %.sroa.062.0 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %28
   store i64 %.sroa.0.0.insert.insert, ptr %130, align 4
   %131 = load ptr, ptr %5, align 8, !tbaa !88
-  %132 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %131, i64 %31
+  %132 = getelementptr inbounds [8 x i8], ptr %131, i64 %31
   %133 = load i32, ptr %132, align 4, !tbaa !147
   %134 = load ptr, ptr %3, align 8, !tbaa !122
   %135 = zext i32 %133 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %135
   br label %.thread
 
 137:                                              ; preds = %22
@@ -4165,7 +4159,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit59:     ; preds = %._ZN7Minisat3vecINS
   %164 = add nsw i32 %162, 1
   store i32 %164, ptr %20, align 8, !tbaa !101
   %165 = sext i32 %162 to i64
-  %166 = getelementptr inbounds %"struct.Minisat::Lit", ptr %163, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %163, i64 %165
   store i32 %.sroa.062.0, ptr %166, align 4, !tbaa !65
   br label %167
 
@@ -4177,7 +4171,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit59:     ; preds = %._ZN7Minisat3vecINS
 170:                                              ; preds = %167
   %171 = load ptr, ptr %13, align 8, !tbaa !119
   %172 = sext i32 %168 to i64
-  %173 = getelementptr %"struct.Minisat::Solver::ShrinkStackElem", ptr %171, i64 %172
+  %173 = getelementptr [8 x i8], ptr %171, i64 %172
   %174 = getelementptr i8, ptr %173, i64 -8
   %175 = load i32, ptr %174, align 4, !tbaa !173
   %176 = getelementptr i8, ptr %173, i64 -4
@@ -4185,11 +4179,11 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit59:     ; preds = %._ZN7Minisat3vecINS
   %178 = ashr i32 %177, 1
   %179 = load ptr, ptr %5, align 8, !tbaa !88
   %180 = sext i32 %178 to i64
-  %181 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %179, i64 %180
+  %181 = getelementptr inbounds [8 x i8], ptr %179, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !147
   %183 = load ptr, ptr %3, align 8, !tbaa !122
   %184 = zext i32 %182 to i64
-  %185 = getelementptr inbounds nuw i32, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %184
   %186 = add nsw i32 %168, -1
   store i32 %186, ptr %17, align 8, !tbaa !120
   br label %.thread
@@ -4220,7 +4214,7 @@ define void @_ZN7Minisat6Solver12analyzeFinalENS_3LitERNS_4LSetE(ptr noundef non
 8:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !100
-  %10 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %10, align 4, !tbaa !65
   %11 = load ptr, ptr %2, align 8, !tbaa !91
   %12 = sext i32 %.sroa.0.0.copyload.i to i64
@@ -4282,7 +4276,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   %indvars.iv35 = phi i64 [ %36, %.lr.ph33 ], [ %indvars.iv.next36, %82 ]
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, -1
   %41 = load ptr, ptr %28, align 8, !tbaa !100
-  %42 = getelementptr inbounds %"struct.Minisat::Lit", ptr %41, i64 %indvars.iv.next36
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %indvars.iv.next36
   %.sroa.010.0.copyload = load i32, ptr %42, align 4, !tbaa !65
   %43 = ashr i32 %.sroa.010.0.copyload, 1
   %44 = load ptr, ptr %23, align 8, !tbaa !91
@@ -4294,7 +4288,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr %34, align 8, !tbaa !88
-  %50 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %49, i64 %45
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %45
   %51 = load i32, ptr %50, align 4, !tbaa !147
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %55
@@ -4307,7 +4301,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
 55:                                               ; preds = %48
   %56 = load ptr, ptr %35, align 8, !tbaa !122
   %57 = zext i32 %51 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp ugt i32 %59, 63
   br i1 %60, label %.lr.ph, label %.loopexit
@@ -4319,12 +4313,12 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
 62:                                               ; preds = %.lr.ph, %75
   %63 = phi i32 [ %59, %.lr.ph ], [ %76, %75 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %64 = getelementptr inbounds nuw %union.anon, ptr %61, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %64, align 4, !tbaa !65
   %65 = ashr i32 %.sroa.02.0.copyload, 1
   %66 = load ptr, ptr %34, align 8, !tbaa !88
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !157
   %71 = icmp sgt i32 %70, 0
@@ -4426,7 +4420,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %33 = add nsw i32 %31, 1
   store i32 %33, ptr %11, align 8, !tbaa !101
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds %"struct.Minisat::Lit", ptr %32, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %32, i64 %34
   store i32 %1, ptr %35, align 4, !tbaa !65
   br label %36
 
@@ -4463,10 +4457,10 @@ define void @_ZN7Minisat6Solver8reduceDBEv(ptr noundef nonnull align 8 dereferen
   %18 = phi i32 [ %11, %.lr.ph ], [ %103, %101 ]
   %.01316 = phi i32 [ 0, %.lr.ph ], [ %.1, %101 ]
   %19 = load ptr, ptr %4, align 8, !tbaa !106
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !65
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = lshr i32 %24, 5
   %26 = icmp ugt i32 %24, 95
@@ -4478,7 +4472,7 @@ define void @_ZN7Minisat6Solver8reduceDBEv(ptr noundef nonnull align 8 dereferen
   %29 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %30 = load ptr, ptr %13, align 8, !tbaa !94
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %"class.Minisat::lbool", ptr %30, i64 %31
+  %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = trunc i32 %.sroa.0.0.copyload.i.i to i8
   %34 = load i8, ptr %32, align 1, !tbaa !126
   %35 = and i8 %33, 1
@@ -4497,7 +4491,7 @@ define void @_ZN7Minisat6Solver8reduceDBEv(ptr noundef nonnull align 8 dereferen
 
 45:                                               ; preds = %27
   %46 = load ptr, ptr %14, align 8, !tbaa !88
-  %47 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %46, i64 %31
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %31
   %48 = load i32, ptr %47, align 4, !tbaa !147
   %.not.i = icmp ne i32 %48, -1
   %49 = icmp eq i32 %48, %21
@@ -4512,7 +4506,7 @@ _ZNK7Minisat6Solver6lockedERKNS_6ClauseE.exit.thread: ; preds = %27, %45
 
 53:                                               ; preds = %_ZNK7Minisat6Solver6lockedERKNS_6ClauseE.exit.thread
   %54 = zext nneg i32 %25 to i64
-  %55 = getelementptr inbounds nuw %union.anon, ptr %28, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !154
   %57 = fpext float %56 to double
   %58 = fcmp ogt double %8, %57
@@ -4524,7 +4518,7 @@ _ZNK7Minisat6Solver6lockedERKNS_6ClauseE.exit.thread: ; preds = %27, %45
   %60 = ashr i32 %.sroa.0.0.copyload.i.i.i, 1
   %61 = load ptr, ptr %13, align 8, !tbaa !94
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds %"class.Minisat::lbool", ptr %61, i64 %62
+  %63 = getelementptr inbounds i8, ptr %61, i64 %62
   %64 = trunc i32 %.sroa.0.0.copyload.i.i.i to i8
   %65 = load i8, ptr %63, align 1, !tbaa !126
   %66 = and i8 %64, 1
@@ -4543,12 +4537,12 @@ _ZNK7Minisat6Solver6lockedERKNS_6ClauseE.exit.thread: ; preds = %27, %45
 
 76:                                               ; preds = %59
   %77 = load ptr, ptr %14, align 8, !tbaa !88
-  %78 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %77, i64 %62
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %62
   %79 = load i32, ptr %78, align 4, !tbaa !147
   %.not.i.i = icmp ne i32 %79, -1
   %80 = load ptr, ptr %9, align 8
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   %83 = icmp eq ptr %82, %23
   %or.cond.i = select i1 %.not.i.i, i1 %83, i1 false
   br i1 %or.cond.i, label %84, label %_ZN7Minisat6Solver12removeClauseEj.exit
@@ -4563,7 +4557,7 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %59, %76, %84
   %87 = or disjoint i32 %86, 1
   store i32 %87, ptr %23, align 4
   %88 = load ptr, ptr %9, align 8, !tbaa !122
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %22
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %22
   %90 = load i32, ptr %89, align 4
   %91 = lshr i32 %90, 5
   %92 = lshr i32 %90, 3
@@ -4578,7 +4572,7 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %59, %76, %84
 97:                                               ; preds = %45, %53, %16
   %98 = add nsw i32 %.01316, 1
   %99 = sext i32 %.01316 to i64
-  %100 = getelementptr inbounds i32, ptr %19, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %19, i64 %99
   store i32 %21, ptr %100, align 4, !tbaa !65
   br label %101
 
@@ -4644,11 +4638,11 @@ define void @_ZN7Minisat6Solver15removeSatisfiedERNS_3vecIjiEE(ptr noundef nonnu
   %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %124 ]
   %.02634 = phi i32 [ 0, %.lr.ph37 ], [ %.1, %124 ]
   %11 = load ptr, ptr %1, align 8, !tbaa !106
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !65
   %14 = load ptr, ptr %6, align 8, !tbaa !122
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %16, align 4
   %19 = lshr i32 %18, 5
@@ -4672,11 +4666,11 @@ define void @_ZN7Minisat6Solver15removeSatisfiedERNS_3vecIjiEE(ptr noundef nonnu
 
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %26 = getelementptr inbounds nuw %union.anon, ptr %17, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %26, align 4, !tbaa !65
   %27 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"class.Minisat::lbool", ptr %20, i64 %28
+  %29 = getelementptr inbounds i8, ptr %20, i64 %28
   %30 = trunc i32 %.sroa.0.0.copyload.i.i to i8
   %31 = load i8, ptr %29, align 1, !tbaa !126
   %32 = and i8 %30, 1
@@ -4706,7 +4700,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit: ; preds = %24, %10
   %42 = ashr i32 %.sroa.0.0.copyload.i.i.i, 1
   %43 = load ptr, ptr %7, align 8, !tbaa !94
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %"class.Minisat::lbool", ptr %43, i64 %44
+  %45 = getelementptr inbounds i8, ptr %43, i64 %44
   %46 = trunc i32 %.sroa.0.0.copyload.i.i.i to i8
   %47 = load i8, ptr %45, align 1, !tbaa !126
   %48 = and i8 %46, 1
@@ -4725,12 +4719,12 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit: ; preds = %24, %10
 
 58:                                               ; preds = %41
   %59 = load ptr, ptr %8, align 8, !tbaa !88
-  %60 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %59, i64 %44
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %44
   %61 = load i32, ptr %60, align 4, !tbaa !147
   %.not.i.i = icmp ne i32 %61, -1
   %62 = load ptr, ptr %6, align 8
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %63
   %65 = icmp eq ptr %64, %16
   %or.cond.i = select i1 %.not.i.i, i1 %65, i1 false
   br i1 %or.cond.i, label %66, label %_ZN7Minisat6Solver12removeClauseEj.exit
@@ -4745,7 +4739,7 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %41, %58, %66
   %69 = or disjoint i32 %68, 1
   store i32 %69, ptr %16, align 4
   %70 = load ptr, ptr %6, align 8, !tbaa !122
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %15
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %15
   %72 = load i32, ptr %71, align 4
   %73 = lshr i32 %72, 5
   %74 = lshr i32 %72, 3
@@ -4759,7 +4753,7 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %41, %58, %66
 
 ._crit_edge.loopexit:                             ; preds = %119
   %.pre = load ptr, ptr %1, align 8, !tbaa !106
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %.pre44 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !65
   br label %._crit_edge
 
@@ -4768,7 +4762,7 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %41, %58, %66
   %80 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit ]
   %81 = add nsw i32 %.02634, 1
   %82 = sext i32 %.02634 to i64
-  %83 = getelementptr inbounds i32, ptr %80, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %80, i64 %82
   store i32 %79, ptr %83, align 4, !tbaa !65
   br label %124
 
@@ -4777,12 +4771,12 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %41, %58, %66
   %86 = phi i32 [ %19, %.lr.ph ], [ %122, %119 ]
   %.02733 = phi i32 [ 2, %.lr.ph ], [ %121, %119 ]
   %87 = sext i32 %.02733 to i64
-  %88 = getelementptr inbounds %union.anon, ptr %17, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %17, i64 %87
   %.sroa.01.0.copyload = load i32, ptr %88, align 4, !tbaa !65
   %89 = ashr i32 %.sroa.01.0.copyload, 1
   %90 = load ptr, ptr %7, align 8, !tbaa !94
   %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds %"class.Minisat::lbool", ptr %90, i64 %91
+  %92 = getelementptr inbounds i8, ptr %90, i64 %91
   %93 = trunc i32 %.sroa.01.0.copyload to i8
   %94 = load i8, ptr %92, align 1, !tbaa !126
   %95 = and i8 %93, 1
@@ -4796,7 +4790,7 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %41, %58, %66
 
 100:                                              ; preds = %84
   %101 = zext nneg i32 %86 to i64
-  %102 = getelementptr %union.anon, ptr %17, i64 %101
+  %102 = getelementptr [4 x i8], ptr %17, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -4
   %104 = add nsw i32 %.02733, -1
   %105 = load i32, ptr %103, align 4, !tbaa !65
@@ -4809,7 +4803,7 @@ _ZN7Minisat6Solver12removeClauseEj.exit:          ; preds = %41, %58, %66
 108:                                              ; preds = %100
   %109 = lshr i32 %106, 5
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr %union.anon, ptr %17, i64 %110
+  %111 = getelementptr [4 x i8], ptr %17, i64 %110
   %112 = getelementptr i8, ptr %111, i64 -4
   %113 = load i32, ptr %111, align 4, !tbaa !124
   store i32 %113, ptr %112, align 4, !tbaa !124
@@ -4895,7 +4889,7 @@ define void @_ZN7Minisat6Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %7, align 8, !tbaa !94
-  %21 = getelementptr inbounds nuw %"class.Minisat::lbool", ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i8, ptr %21, align 1, !tbaa !124
   %.sroa.0.0.copyload = load i8, ptr @_ZN7MinisatL7l_UndefE, align 1, !tbaa !124
   %22 = and i8 %.sroa.0.0.copyload.i, 2
@@ -4946,7 +4940,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %30, %41
   %48 = add nsw i32 %31, 1
   store i32 %48, ptr %8, align 8, !tbaa !104
   %49 = sext i32 %31 to i64
-  %50 = getelementptr inbounds i32, ptr %47, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %47, i64 %49
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %51, ptr %50, align 4, !tbaa !65
   %.pre = load i32, ptr %3, align 4, !tbaa !123
@@ -5031,10 +5025,10 @@ _ZN7Minisat3vecIiiE5clearEb.exit:                 ; preds = %._crit_edge, %.preh
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !65
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %7, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %7, i64 %16
   store i32 -1, ptr %17, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %3, align 8, !tbaa !104
@@ -5059,11 +5053,11 @@ _ZN7Minisat3vecIiiE5clearEb.exit:                 ; preds = %._crit_edge, %.preh
   %26 = phi ptr [ %.pre, %.lr.ph18 ], [ %.pre.i32, %_ZN7Minisat3vecIiiE4pushERKi.exit ]
   %indvars.iv25 = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next26, %_ZN7Minisat3vecIiiE4pushERKi.exit ]
   %27 = load ptr, ptr %1, align 8, !tbaa !103
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv25
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv25
   %29 = load i32, ptr %28, align 4, !tbaa !65
   %30 = load ptr, ptr %11, align 8, !tbaa !103
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   %33 = trunc nuw nsw i64 %indvars.iv25 to i32
   store i32 %33, ptr %32, align 4, !tbaa !65
   %34 = load i32, ptr %3, align 8, !tbaa !104
@@ -5104,7 +5098,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %25, %._ZN7Minisat3v
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %3, align 8, !tbaa !104
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds i32, ptr %.pre.i32, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %.pre.i32, i64 %52
   %54 = load i32, ptr %28, align 4, !tbaa !65
   store i32 %54, ptr %53, align 4, !tbaa !65
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
@@ -5119,7 +5113,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %25, %._ZN7Minisat3v
 58:                                               ; preds = %.lr.ph22, %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE13percolateDownEi.exit
   %indvars.iv28 = phi i64 [ %24, %.lr.ph22 ], [ %indvars.iv.next29, %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE13percolateDownEi.exit ]
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, -1
-  %59 = getelementptr inbounds nuw i32, ptr %.pre.i32, i64 %indvars.iv.next29
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i32, i64 %indvars.iv.next29
   %60 = load i32, ptr %59, align 4, !tbaa !65
   %61 = shl nuw nsw i64 %indvars.iv.next29, 1
   %62 = or disjoint i64 %61, 1
@@ -5137,7 +5131,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %25, %._ZN7Minisat3v
   %67 = load ptr, ptr %23, align 8
   %68 = load ptr, ptr %67, align 8, !tbaa !97
   %69 = sext i32 %60 to i64
-  %70 = getelementptr inbounds double, ptr %68, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %68, i64 %69
   %71 = load double, ptr %70, align 8, !tbaa !9
   %72 = load ptr, ptr %.phi.trans.insert29.i, align 8
   %73 = trunc nsw i64 %62 to i32
@@ -5156,25 +5150,25 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %25, %._ZN7Minisat3v
 
 ._crit_edge.i:                                    ; preds = %76
   %.pre.phi.trans.insert.i = sext i32 %78 to i64
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre.i32, i64 %.pre.phi.trans.insert.i
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds [4 x i8], ptr %.pre.i32, i64 %.pre.phi.trans.insert.i
   %.pre25.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !65
   %.phi.trans.insert26.phi.trans.insert.i = sext i32 %.pre25.pre.i to i64
-  %.phi.trans.insert27.phi.trans.insert.i = getelementptr inbounds double, ptr %68, i64 %.phi.trans.insert26.phi.trans.insert.i
+  %.phi.trans.insert27.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %68, i64 %.phi.trans.insert26.phi.trans.insert.i
   %.pre28.pre.i = load double, ptr %.phi.trans.insert27.phi.trans.insert.i, align 8, !tbaa !9
   br label %97
 
 82:                                               ; preds = %76
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds i32, ptr %.pre.i32, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %.pre.i32, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !65
   %86 = sext i32 %78 to i64
-  %87 = getelementptr inbounds i32, ptr %.pre.i32, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %.pre.i32, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !65
   %89 = sext i32 %85 to i64
-  %90 = getelementptr inbounds double, ptr %68, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %68, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !9
   %92 = sext i32 %88 to i64
-  %93 = getelementptr inbounds double, ptr %68, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %68, i64 %92
   %94 = load double, ptr %93, align 8, !tbaa !9
   %95 = fcmp ogt double %91, %94
   br i1 %95, label %97, label %96
@@ -5192,9 +5186,9 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %25, %._ZN7Minisat3v
 
 102:                                              ; preds = %97
   %103 = sext i32 %.01922.i to i64
-  %104 = getelementptr inbounds i32, ptr %.pre.i32, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %.pre.i32, i64 %103
   store i32 %99, ptr %104, align 4, !tbaa !65
-  %105 = getelementptr inbounds i32, ptr %72, i64 %.pre-phi33.i
+  %105 = getelementptr inbounds [4 x i8], ptr %72, i64 %.pre-phi33.i
   store i32 %.01922.i, ptr %105, align 4, !tbaa !65
   %106 = shl nsw i32 %100, 1
   %107 = or disjoint i32 %106, 1
@@ -5212,9 +5206,9 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE13percolateDown
   %.pre-phi35.i = phi i64 [ %indvars.iv.next29, %..thread_crit_edge.i ], [ %.pre34.i, %.thread.loopexit.i ]
   %110 = phi ptr [ %.pre30.i, %..thread_crit_edge.i ], [ %72, %.thread.loopexit.i ]
   %.019.lcssa.i = phi i32 [ %66, %..thread_crit_edge.i ], [ %.019.lcssa.ph.i, %.thread.loopexit.i ]
-  %111 = getelementptr inbounds i32, ptr %.pre.i32, i64 %.pre-phi35.i
+  %111 = getelementptr inbounds [4 x i8], ptr %.pre.i32, i64 %.pre-phi35.i
   store i32 %60, ptr %111, align 4, !tbaa !65
-  %112 = getelementptr inbounds i32, ptr %110, i64 %.pre-phi37.i
+  %112 = getelementptr inbounds [4 x i8], ptr %110, i64 %.pre-phi37.i
   store i32 %.019.lcssa.i, ptr %112, align 4, !tbaa !65
   %113 = icmp sgt i64 %indvars.iv28, 1
   br i1 %113, label %58, label %._crit_edge23, !llvm.loop !185
@@ -5286,7 +5280,7 @@ define noundef zeroext i1 @_ZN7Minisat6Solver8simplifyEv(ptr noundef nonnull ali
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %37 = load ptr, ptr %25, align 8, !tbaa !103
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !65
   %40 = load ptr, ptr %29, align 8, !tbaa !91
   %41 = sext i32 %39 to i64
@@ -5302,7 +5296,7 @@ define noundef zeroext i1 @_ZN7Minisat6Solver8simplifyEv(ptr noundef nonnull ali
   %47 = phi i32 [ %30, %.lr.ph24 ], [ %59, %58 ]
   %indvars.iv34 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next35, %58 ]
   %.01523 = phi i32 [ 0, %.lr.ph24 ], [ %.1, %58 ]
-  %48 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %34, i64 %indvars.iv34
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv34
   %.sroa.0.0.copyload = load i32, ptr %48, align 4, !tbaa !65
   %49 = ashr i32 %.sroa.0.0.copyload, 1
   %50 = sext i32 %49 to i64
@@ -5314,7 +5308,7 @@ define noundef zeroext i1 @_ZN7Minisat6Solver8simplifyEv(ptr noundef nonnull ali
 54:                                               ; preds = %46
   %55 = add nsw i32 %.01523, 1
   %56 = sext i32 %.01523 to i64
-  %57 = getelementptr inbounds %"struct.Minisat::Lit", ptr %34, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %34, i64 %56
   store i32 %.sroa.0.0.copyload, ptr %57, align 4, !tbaa !65
   %.pre = load i32, ptr %9, align 8, !tbaa !101
   br label %58
@@ -5364,7 +5358,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %.preheader, %._crit
 73:                                               ; preds = %.lr.ph29, %73
   %indvars.iv37 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next38, %73 ]
   %74 = load ptr, ptr %25, align 8, !tbaa !103
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv37
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv37
   %76 = load i32, ptr %75, align 4, !tbaa !65
   %77 = load ptr, ptr %70, align 8, !tbaa !91
   %78 = sext i32 %76 to i64
@@ -5468,15 +5462,15 @@ _ZN7Minisat3vecIiiE4pushEv.exit.i:                ; preds = %._ZN7Minisat3vecIii
   %26 = phi i32 [ %9, %._ZN7Minisat3vecIiiE8capacityEi.exit_crit_edge.i.i ], [ %.pre.i, %._ZN7Minisat3vecIiiE4pushEv.exit_crit_edge.i ]
   %27 = phi ptr [ %.pre.i.i, %._ZN7Minisat3vecIiiE8capacityEi.exit_crit_edge.i.i ], [ %23, %._ZN7Minisat3vecIiiE4pushEv.exit_crit_edge.i ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   store i32 0, ptr %29, align 4, !tbaa !65
   %30 = load i32, ptr %6, align 8, !tbaa !104
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %6, align 8, !tbaa !104
   %32 = load ptr, ptr %0, align 8, !tbaa !103
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i
   %34 = sext i32 %31 to i64
-  %35 = getelementptr i32, ptr %27, i64 %34
+  %35 = getelementptr [4 x i8], ptr %27, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -4
   %.val.i = load i32, ptr %33, align 4, !tbaa !65
   store i32 %.val.i, ptr %36, align 4, !tbaa !65
@@ -5641,7 +5635,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %56, %.preheader.i
 _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %70 = load ptr, ptr %27, align 8, !tbaa !122
   %71 = zext i32 %66 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   %73 = shl i32 %60, 5
   %74 = or disjoint i32 %73, 12
   store i32 %74, ptr %72, align 4
@@ -5656,8 +5650,8 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
 
 79:                                               ; preds = %79, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %79 ]
-  %80 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %76, i64 %indvars.iv.i.i
-  %81 = getelementptr inbounds nuw %union.anon, ptr %77, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i.i
   %82 = load i32, ptr %80, align 4, !tbaa !65
   store i32 %82, ptr %81, align 4, !tbaa !65
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5668,7 +5662,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %83 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %84 = and i32 %60, 134217727
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw %union.anon, ptr %83, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %85
   store float 0.000000e+00, ptr %86, align 4, !tbaa !124
   %87 = load i32, ptr %15, align 8, !tbaa !107
   %88 = load i32, ptr %30, align 4, !tbaa !108
@@ -5708,20 +5702,20 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %106 = add nsw i32 %104, 1
   store i32 %106, ptr %15, align 8, !tbaa !107
   %107 = sext i32 %104 to i64
-  %108 = getelementptr inbounds i32, ptr %105, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %105, i64 %107
   store i32 %66, ptr %108, align 4, !tbaa !65
   invoke void @_ZN7Minisat6Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef %66)
           to label %109 unwind label %.loopexit128
 
 109:                                              ; preds = %103
   %110 = load ptr, ptr %27, align 8, !tbaa !122
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %71
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %71
   %112 = load double, ptr %31, align 8, !tbaa !81
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %114 = load i32, ptr %111, align 4
   %115 = lshr i32 %114, 5
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw %union.anon, ptr %113, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !154
   %119 = fpext float %118 to double
   %120 = fadd double %112, %119
@@ -5748,15 +5742,15 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
 
 128:                                              ; preds = %128, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %128 ]
-  %129 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv.i
   %130 = load i32, ptr %129, align 4, !tbaa !65
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %110, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %132, align 4
   %135 = lshr i32 %134, 5
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw %union.anon, ptr %133, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !154
   %139 = fpext float %138 to double
   %140 = fmul double %139, 0x3BC79CA10C924223
@@ -5785,21 +5779,21 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %146 = ashr i32 %.sroa.016.0.copyload, 1
   %147 = load ptr, ptr %20, align 8, !tbaa !94
   %148 = sext i32 %146 to i64
-  %149 = getelementptr inbounds %"class.Minisat::lbool", ptr %147, i64 %148
+  %149 = getelementptr inbounds i8, ptr %147, i64 %148
   store i8 %145, ptr %149, align 1, !tbaa !124
   %150 = load i32, ptr %14, align 8, !tbaa !104
   %.sroa.2.0.insert.ext.i.i = zext i32 %150 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sink
   %151 = load ptr, ptr %24, align 8, !tbaa !88
-  %152 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %151, i64 %148
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %148
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %152, align 4
   %153 = load ptr, ptr %25, align 8, !tbaa !100
   %154 = load i32, ptr %16, align 8, !tbaa !101
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %16, align 8, !tbaa !101
   %156 = sext i32 %154 to i64
-  %157 = getelementptr inbounds %"struct.Minisat::Lit", ptr %153, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %153, i64 %156
   store i32 %.sroa.016.0.copyload, ptr %157, align 4, !tbaa !65
   %158 = load double, ptr %32, align 8, !tbaa !12
   %159 = fdiv double 1.000000e+00, %158
@@ -5870,7 +5864,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   br i1 %198, label %203, label %199
 
 199:                                              ; preds = %.lr.ph.i56
-  %200 = getelementptr i32, ptr %186, i64 %indvars.iv.i57
+  %200 = getelementptr [4 x i8], ptr %186, i64 %indvars.iv.i57
   %201 = getelementptr i8, ptr %200, i64 -4
   %202 = load i32, ptr %201, align 4, !tbaa !65
   br label %203
@@ -5879,7 +5873,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %204 = phi i32 [ %202, %199 ], [ 0, %.lr.ph.i56 ]
   %205 = zext i32 %197 to i64
   %206 = icmp eq i64 %indvars.iv.i57, %205
-  %207 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.i57
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %indvars.iv.i57
   %.in.i = select i1 %206, ptr %16, ptr %207
   %208 = load i32, ptr %.in.i, align 4, !tbaa !65
   %209 = trunc nuw nsw i64 %indvars.iv.i57 to i32
@@ -5954,7 +5948,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread:  ; preds = %48, %227, %230, %23
   br i1 %247, label %252, label %248
 
 248:                                              ; preds = %245
-  %249 = getelementptr i32, ptr %244, i64 %indvars.iv.i63
+  %249 = getelementptr [4 x i8], ptr %244, i64 %indvars.iv.i63
   %250 = getelementptr i8, ptr %249, i64 -4
   %251 = load i32, ptr %250, align 4, !tbaa !65
   br label %252
@@ -5963,7 +5957,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread:  ; preds = %48, %227, %230, %23
   %253 = phi i32 [ %251, %248 ], [ 0, %245 ]
   %254 = zext i32 %246 to i64
   %255 = icmp eq i64 %indvars.iv.i63, %254
-  %256 = getelementptr inbounds nuw i32, ptr %244, i64 %indvars.iv.i63
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %indvars.iv.i63
   %.in.i65 = select i1 %255, ptr %16, ptr %256
   %257 = load i32, ptr %.in.i65, align 4, !tbaa !65
   %258 = trunc nuw nsw i64 %indvars.iv.i63 to i32
@@ -6027,12 +6021,12 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %235
   %286 = phi i32 [ %344, %339 ], [ %283, %.lr.ph.preheader ]
   %287 = load ptr, ptr %19, align 8, !tbaa !100
   %288 = sext i32 %286 to i64
-  %289 = getelementptr inbounds %"struct.Minisat::Lit", ptr %287, i64 %288
+  %289 = getelementptr inbounds [4 x i8], ptr %287, i64 %288
   %.sroa.011.0.copyload = load i32, ptr %289, align 4, !tbaa !65
   %290 = ashr i32 %.sroa.011.0.copyload, 1
   %291 = load ptr, ptr %20, align 8, !tbaa !94
   %292 = sext i32 %290 to i64
-  %293 = getelementptr inbounds %"class.Minisat::lbool", ptr %291, i64 %292
+  %293 = getelementptr inbounds i8, ptr %291, i64 %292
   %294 = trunc i32 %.sroa.011.0.copyload to i8
   %295 = load i8, ptr %293, align 1, !tbaa !126
   %296 = and i8 %294, 1
@@ -6126,7 +6120,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %235
   %341 = phi ptr [ %321, %._ZN7Minisat3vecIiiE4pushERKi.exit_crit_edge.i ], [ %.pre.i.i, %._ZN7Minisat3vecIiiE8capacityEi.exit_crit_edge.i.i ]
   %342 = add nsw i32 %340, 1
   store i32 %342, ptr %14, align 8, !tbaa !104
-  %343 = getelementptr inbounds i32, ptr %341, i64 %.pre-phi
+  %343 = getelementptr inbounds [4 x i8], ptr %341, i64 %.pre-phi
   store i32 %307, ptr %343, align 4, !tbaa !65
   %344 = load i32, ptr %14, align 8, !tbaa !104
   %345 = load i32, ptr %18, align 8, !tbaa !101
@@ -6198,28 +6192,28 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %235
   %375 = add nsw i32 %373, 1
   store i32 %375, ptr %14, align 8, !tbaa !104
   %376 = sext i32 %373 to i64
-  %377 = getelementptr inbounds i32, ptr %374, i64 %376
+  %377 = getelementptr inbounds [4 x i8], ptr %374, i64 %376
   store i32 %355, ptr %377, align 4, !tbaa !65
   %378 = trunc i32 %.sroa.090.3 to i8
   %379 = and i8 %378, 1
   %380 = ashr i32 %.sroa.090.3, 1
   %381 = load ptr, ptr %20, align 8, !tbaa !94
   %382 = sext i32 %380 to i64
-  %383 = getelementptr inbounds %"class.Minisat::lbool", ptr %381, i64 %382
+  %383 = getelementptr inbounds i8, ptr %381, i64 %382
   store i8 %379, ptr %383, align 1, !tbaa !124
   %384 = load i32, ptr %14, align 8, !tbaa !104
   %.sroa.2.0.insert.ext.i.i83 = zext i32 %384 to i64
   %.sroa.2.0.insert.shift.i.i84 = shl nuw i64 %.sroa.2.0.insert.ext.i.i83, 32
   %.sroa.0.0.insert.insert.i.i85 = or disjoint i64 %.sroa.2.0.insert.shift.i.i84, 4294967295
   %385 = load ptr, ptr %24, align 8, !tbaa !88
-  %386 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %385, i64 %382
+  %386 = getelementptr inbounds [8 x i8], ptr %385, i64 %382
   store i64 %.sroa.0.0.insert.insert.i.i85, ptr %386, align 4
   %387 = load ptr, ptr %25, align 8, !tbaa !100
   %388 = load i32, ptr %16, align 8, !tbaa !101
   %389 = add nsw i32 %388, 1
   store i32 %389, ptr %16, align 8, !tbaa !101
   %390 = sext i32 %388 to i64
-  %391 = getelementptr inbounds %"struct.Minisat::Lit", ptr %387, i64 %390
+  %391 = getelementptr inbounds [4 x i8], ptr %387, i64 %390
   store i32 %.sroa.090.3, ptr %391, align 4, !tbaa !65
   br label %.outer.split, !llvm.loop !195
 
@@ -6293,7 +6287,7 @@ define noundef double @_ZNK7Minisat6Solver16progressEstimateEv(ptr noundef nonnu
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv
   %17 = getelementptr i8, ptr %16, i64 -4
   %18 = load i32, ptr %17, align 4, !tbaa !65
   br label %19
@@ -6302,7 +6296,7 @@ define noundef double @_ZNK7Minisat6Solver16progressEstimateEv(ptr noundef nonnu
   %20 = phi i32 [ %18, %15 ], [ 0, %12 ]
   %21 = zext i32 %13 to i64
   %22 = icmp eq i64 %indvars.iv, %21
-  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %.in = select i1 %22, ptr %10, ptr %23
   %24 = load i32, ptr %.in, align 4, !tbaa !65
   %25 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6347,7 +6341,7 @@ _ZN7Minisat3vecINS_5lboolEiE5clearEb.exit:        ; preds = %1, %.preheader.i
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load ptr, ptr %9, align 8, !tbaa !100
-  %12 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %12, align 4, !tbaa !65
   %13 = load ptr, ptr %5, align 8, !tbaa !91
   %14 = sext i32 %.sroa.0.0.copyload.i to i64
@@ -6575,10 +6569,10 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread27: ; preds = %106
 133:                                              ; preds = %.lr.ph45, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next, %133 ]
   %134 = load ptr, ptr %132, align 8, !tbaa !94
-  %135 = getelementptr inbounds nuw %"class.Minisat::lbool", ptr %134, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %indvars.iv
   %.sroa.0.0.copyload.i23 = load i8, ptr %135, align 1, !tbaa !124
   %136 = load ptr, ptr %2, align 8, !tbaa !94
-  %137 = getelementptr inbounds nuw %"class.Minisat::lbool", ptr %136, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv
   store i8 %.sroa.0.0.copyload.i23, ptr %137, align 1, !tbaa !124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i32, ptr %128, align 4, !tbaa !123
@@ -6735,7 +6729,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %30 = add nsw i32 %28, 1
   store i32 %30, ptr %8, align 8, !tbaa !104
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %29, i64 %31
   store i32 %7, ptr %32, align 4, !tbaa !65
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !101
@@ -6753,12 +6747,12 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %.sroa.07.0.copyload = phi i8 [ %.sroa.07.0.copyload.pre40, %.lr.ph ], [ %.sroa.07.0.copyload41, %75 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %40 = load ptr, ptr %1, align 8, !tbaa !100
-  %41 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %.sroa.09.0.copyload = load i32, ptr %41, align 4, !tbaa !65
   %42 = ashr i32 %.sroa.09.0.copyload, 1
   %43 = load ptr, ptr %36, align 8, !tbaa !94
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %"class.Minisat::lbool", ptr %43, i64 %44
+  %45 = getelementptr inbounds i8, ptr %43, i64 %44
   %46 = trunc i32 %.sroa.09.0.copyload to i8
   %47 = load i8, ptr %45, align 1, !tbaa !126
   %48 = and i8 %46, 1
@@ -6793,14 +6787,14 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, 4294967295
   %68 = load ptr, ptr %37, align 8, !tbaa !88
-  %69 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %68, i64 %44
+  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 %44
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %69, align 4
   %70 = load ptr, ptr %5, align 8, !tbaa !100
   %71 = load i32, ptr %6, align 8, !tbaa !101
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %6, align 8, !tbaa !101
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds %"struct.Minisat::Lit", ptr %70, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %70, i64 %73
   store i32 %.sroa.09.0.copyload, ptr %74, align 4, !tbaa !65
   %.sroa.07.0.copyload.pre = load i8, ptr @_ZN7MinisatL7l_FalseE, align 1, !tbaa !124
   %.pre43 = load i32, ptr %33, align 8, !tbaa !101
@@ -6845,7 +6839,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %82, %.preheader.i
   %91 = phi ptr [ %83, %.lr.ph35 ], [ %.pre.i2745, %_ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit ]
   %indvars.iv37 = phi i64 [ %89, %.lr.ph35 ], [ %indvars.iv.next38, %_ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit ]
   %92 = load ptr, ptr %5, align 8, !tbaa !100
-  %93 = getelementptr inbounds %"struct.Minisat::Lit", ptr %92, i64 %indvars.iv37
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %indvars.iv37
   %94 = load i32, ptr %87, align 8, !tbaa !101
   %95 = load i32, ptr %88, align 4, !tbaa !102
   %96 = icmp eq i32 %94, %95
@@ -6884,7 +6878,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %90, %._ZN7Minisat3v
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %87, align 8, !tbaa !101
   %112 = sext i32 %110 to i64
-  %113 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.pre.i2745, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %.pre.i2745, i64 %112
   %114 = load i32, ptr %93, align 4, !tbaa !65
   store i32 %114, ptr %113, align 4, !tbaa !65
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, 1
@@ -6926,11 +6920,11 @@ define void @_ZN7Minisat6Solver8toDimacsEP8_IO_FILERNS_6ClauseERNS_3vecIiiEERi(p
 
 16:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %17 = getelementptr inbounds nuw %union.anon, ptr %7, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %17, align 4, !tbaa !65
   %18 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"class.Minisat::lbool", ptr %11, i64 %19
+  %20 = getelementptr inbounds i8, ptr %11, i64 %19
   %21 = trunc i32 %.sroa.0.0.copyload.i.i to i8
   %22 = load i8, ptr %20, align 1, !tbaa !126
   %23 = and i8 %21, 1
@@ -6960,12 +6954,12 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit: ; preds = %15, %5
   %32 = phi i32 [ %8, %.lr.ph ], [ %66, %65 ]
   %.sroa.02.0.copyload = phi i8 [ %.sroa.02.0.copyload.pre21, %.lr.ph ], [ %.sroa.02.0.copyload22, %65 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %33 = getelementptr inbounds nuw %union.anon, ptr %7, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %33, align 4, !tbaa !65
   %34 = ashr i32 %.sroa.03.0.copyload, 1
   %35 = load ptr, ptr %28, align 8, !tbaa !94
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %"class.Minisat::lbool", ptr %35, i64 %36
+  %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = trunc i32 %.sroa.03.0.copyload to i8
   %39 = load i8, ptr %37, align 1, !tbaa !126
   %40 = and i8 %38, 1
@@ -6990,7 +6984,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit: ; preds = %15, %5
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %3, align 8, !tbaa !103
-  %56 = getelementptr inbounds i32, ptr %55, i64 %36
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %36
   %57 = load i32, ptr %56, align 4, !tbaa !65
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %._crit_edge.i, label %._ZL6mapVariRN7Minisat3vecIiiEERi.exit_crit_edge
@@ -7009,7 +7003,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit: ; preds = %15, %5
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %4, align 4, !tbaa !65
   %62 = load ptr, ptr %3, align 8, !tbaa !103
-  %63 = getelementptr inbounds i32, ptr %62, i64 %36
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %36
   store i32 %60, ptr %63, align 4, !tbaa !65
   br label %_ZL6mapVariRN7Minisat3vecIiiEERi.exit
 
@@ -7109,10 +7103,10 @@ define void @_ZN7Minisat6Solver8toDimacsEP8_IO_FILERKNS_3vecINS_3LitEiEE(ptr nou
 29:                                               ; preds = %.lr.ph, %.loopexit92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit92 ]
   %.03995 = phi i32 [ 0, %.lr.ph ], [ %51, %.loopexit92 ]
-  %30 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !65
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %19, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %33, align 4
   %36 = lshr i32 %35, 5
@@ -7130,11 +7124,11 @@ define void @_ZN7Minisat6Solver8toDimacsEP8_IO_FILERKNS_3vecINS_3LitEiEE(ptr nou
 
 38:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %39 = getelementptr inbounds nuw %union.anon, ptr %34, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %39, align 4, !tbaa !65
   %40 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %"class.Minisat::lbool", ptr %21, i64 %41
+  %42 = getelementptr inbounds i8, ptr %21, i64 %41
   %43 = trunc i32 %.sroa.0.0.copyload.i.i to i8
   %44 = load i8, ptr %42, align 1, !tbaa !126
   %45 = and i8 %43, 1
@@ -7177,11 +7171,11 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit.thread: ; preds = %37, %29
   %.lcssa103106 = phi i32 [ 0, %.lr.ph108 ], [ %.lcssa102, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67 ]
   %61 = phi ptr [ null, %.lr.ph108 ], [ %156, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67 ]
   %62 = load ptr, ptr %13, align 8, !tbaa !106
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv133
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv133
   %64 = load i32, ptr %63, align 4, !tbaa !65
   %65 = load ptr, ptr %25, align 8, !tbaa !122
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %67, align 4
   %70 = lshr i32 %69, 5
@@ -7205,11 +7199,11 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit.thread: ; preds = %37, %29
 
 76:                                               ; preds = %75, %.lr.ph.i56
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i65, %75 ]
-  %77 = getelementptr inbounds nuw %union.anon, ptr %68, i64 %indvars.iv.i60
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i60
   %.sroa.0.0.copyload.i.i61 = load i32, ptr %77, align 4, !tbaa !65
   %78 = ashr i32 %.sroa.0.0.copyload.i.i61, 1
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %"class.Minisat::lbool", ptr %71, i64 %79
+  %80 = getelementptr inbounds i8, ptr %71, i64 %79
   %81 = trunc i32 %.sroa.0.0.copyload.i.i61 to i8
   %82 = load i8, ptr %80, align 1, !tbaa !126
   %83 = and i8 %81, 1
@@ -7235,12 +7229,12 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit.thread: ; preds = %37, %29
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %_ZL6mapVariRN7Minisat3vecIiiEERi.exit ], [ 0, %.loopexit ]
   %91 = phi ptr [ %150, %_ZL6mapVariRN7Minisat3vecIiiEERi.exit ], [ %61, %.loopexit ]
   %92 = phi i32 [ %151, %_ZL6mapVariRN7Minisat3vecIiiEERi.exit ], [ %.lcssa103106, %.loopexit ]
-  %93 = getelementptr inbounds nuw %union.anon, ptr %68, i64 %indvars.iv130
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv130
   %.sroa.010.0.copyload = load i32, ptr %93, align 4, !tbaa !65
   %94 = ashr i32 %.sroa.010.0.copyload, 1
   %95 = load ptr, ptr %26, align 8, !tbaa !94
   %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds %"class.Minisat::lbool", ptr %95, i64 %96
+  %97 = getelementptr inbounds i8, ptr %95, i64 %96
   %98 = trunc i32 %.sroa.010.0.copyload to i8
   %99 = load i8, ptr %97, align 1, !tbaa !126
   %100 = and i8 %98, 1
@@ -7263,7 +7257,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit.thread: ; preds = %37, %29
   br i1 %.not.i68, label %112, label %116
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i32, ptr %91, i64 %96
+  %113 = getelementptr inbounds [4 x i8], ptr %91, i64 %96
   %114 = load i32, ptr %113, align 4, !tbaa !65
   %115 = icmp eq i32 %114, -1
   br i1 %115, label %.noexc, label %_ZL6mapVariRN7Minisat3vecIiiEERi.exit
@@ -7324,7 +7318,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit.thread: ; preds = %37, %29
 .noexc:                                           ; preds = %112, %._crit_edge.i80
   %146 = phi ptr [ %140, %._crit_edge.i80 ], [ %91, %112 ]
   %147 = add nsw i32 %92, 1
-  %148 = getelementptr inbounds i32, ptr %146, i64 %96
+  %148 = getelementptr inbounds [4 x i8], ptr %146, i64 %96
   store i32 %92, ptr %148, align 4, !tbaa !65
   %.pre = load i32, ptr %67, align 4
   br label %_ZL6mapVariRN7Minisat3vecIiiEERi.exit
@@ -7372,7 +7366,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67: ; preds = %76, %_ZNK7Minisat
   %indvars.iv136 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next137, %_ZL6mapVariRN7Minisat3vecIiiEERi.exit74 ]
   %165 = phi i32 [ %.lcssa103.lcssa, %.lr.ph115 ], [ %182, %_ZL6mapVariRN7Minisat3vecIiiEERi.exit74 ]
   %166 = load ptr, ptr %2, align 8, !tbaa !100
-  %167 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %166, i64 %indvars.iv136
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %indvars.iv136
   %.sroa.03.0.copyload = load i32, ptr %167, align 4, !tbaa !65
   %168 = trunc i32 %.sroa.03.0.copyload to i1
   %169 = ashr i32 %.sroa.03.0.copyload, 1
@@ -7387,7 +7381,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67: ; preds = %76, %_ZNK7Minisat
 171:                                              ; preds = %164
   %172 = load ptr, ptr %5, align 8, !tbaa !103
   %173 = sext i32 %169 to i64
-  %174 = getelementptr inbounds i32, ptr %172, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %172, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !65
   %176 = icmp eq i32 %175, -1
   br i1 %176, label %177, label %._ZL6mapVariRN7Minisat3vecIiiEERi.exit74_crit_edge
@@ -7408,7 +7402,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67: ; preds = %76, %_ZNK7Minisat
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %179 = add nsw i32 %165, 1
   %180 = load ptr, ptr %5, align 8, !tbaa !103
-  %181 = getelementptr inbounds i32, ptr %180, i64 %.pre-phi10.i72
+  %181 = getelementptr inbounds [4 x i8], ptr %180, i64 %.pre-phi10.i72
   store i32 %165, ptr %181, align 4, !tbaa !65
   br label %_ZL6mapVariRN7Minisat3vecIiiEERi.exit74
 
@@ -7437,11 +7431,11 @@ _ZL6mapVariRN7Minisat3vecIiiEERi.exit74:          ; preds = %._ZL6mapVariRN7Mini
 193:                                              ; preds = %.lr.ph118, %200
   %indvars.iv139 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next140, %200 ]
   %194 = load ptr, ptr %13, align 8, !tbaa !106
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %indvars.iv139
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %indvars.iv139
   %196 = load i32, ptr %195, align 4, !tbaa !65
   %197 = load ptr, ptr %161, align 8, !tbaa !122
   %198 = zext i32 %196 to i64
-  %199 = getelementptr inbounds nuw i32, ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %198
   invoke void @_ZN7Minisat6Solver8toDimacsEP8_IO_FILERNS_6ClauseERNS_3vecIiiEERi(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %199, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %200 unwind label %191
 
@@ -7587,7 +7581,7 @@ define void @_ZN7Minisat6Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonn
   %12 = phi i32 [ %6, %.lr.ph.i ], [ %53, %52 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
   %13 = load ptr, ptr %4, align 8, !tbaa !100
-  %14 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 4, !tbaa !65
   %15 = load ptr, ptr %8, align 8, !tbaa !91
   %16 = sext i32 %.sroa.0.0.copyload.i to i64
@@ -7598,7 +7592,7 @@ define void @_ZN7Minisat6Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonn
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %3, align 8, !tbaa !109
-  %21 = getelementptr inbounds %"class.Minisat::vec.26", ptr %20, i64 %16
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !115
   %24 = icmp sgt i32 %23, 0
@@ -7609,12 +7603,12 @@ define void @_ZN7Minisat6Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonn
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %41 ], [ 0, %19 ]
   %.01517.i.i = phi i32 [ %.1.i.i, %41 ], [ 0, %19 ]
   %26 = load ptr, ptr %21, align 8, !tbaa !112
-  %27 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %26, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i.i
   %28 = load ptr, ptr %9, align 8, !tbaa !129
   %29 = load i32, ptr %27, align 4, !tbaa !130
   %30 = load ptr, ptr %28, align 8, !tbaa !122
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 3
   %35 = icmp eq i32 %34, 1
@@ -7623,7 +7617,7 @@ define void @_ZN7Minisat6Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonn
 36:                                               ; preds = %.lr.ph.i.i
   %37 = add nsw i32 %.01517.i.i, 1
   %38 = sext i32 %.01517.i.i to i64
-  %39 = getelementptr inbounds %"struct.Minisat::Solver::Watcher", ptr %26, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %26, i64 %38
   %40 = load i64, ptr %27, align 4
   store i64 %40, ptr %39, align 4
   %.pre.i.i = load i32, ptr %22, align 8, !tbaa !115
@@ -7706,7 +7700,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %75 = phi i1 [ true, %.preheader70 ], [ false, %._crit_edge ]
   %indvars.iv103 = phi i64 [ 0, %.preheader70 ], [ 1, %._crit_edge ]
   %76 = load ptr, ptr %3, align 8, !tbaa !109
-  %77 = getelementptr inbounds nuw %"class.Minisat::vec.26", ptr %76, i64 %indvars.iv103
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv103
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !115
@@ -7719,11 +7713,11 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 .lr.ph:                                           ; preds = %74, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit ], [ 0, %74 ]
   %82 = load ptr, ptr %78, align 8, !tbaa !112
-  %83 = getelementptr inbounds nuw %"struct.Minisat::Solver::Watcher", ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !65
   %85 = load ptr, ptr %59, align 8, !tbaa !122
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 16
   %.not.i45 = icmp eq i32 %89, 0
@@ -7813,7 +7807,7 @@ _ZN7Minisat15RegionAllocatorIjE8capacityEj.exit:  ; preds = %93, %_ZN7MinisatL8x
 _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15RegionAllocatorIjE8capacityEj.exit
   %133 = load ptr, ptr %1, align 8, !tbaa !122
   %134 = zext i32 %129 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %134
   %136 = load i32, ptr %87, align 4, !tbaa !124
   %137 = select i1 %.not.i58, i32 0, i32 8
   %138 = and i32 %136, -9
@@ -7833,9 +7827,9 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15Region
 
 143:                                              ; preds = %143, %.lr.ph.i.i60
   %indvars.iv.i.i61 = phi i64 [ 0, %.lr.ph.i.i60 ], [ %indvars.iv.next.i.i62, %143 ]
-  %144 = getelementptr inbounds nuw %union.anon, ptr %141, i64 %indvars.iv.i.i61
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv.i.i61
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %144, align 4, !tbaa !65
-  %145 = getelementptr inbounds nuw %union.anon, ptr %142, i64 %indvars.iv.i.i61
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %indvars.iv.i.i61
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %145, align 4, !tbaa !65
   %indvars.iv.next.i.i62 = add nuw nsw i64 %indvars.iv.i.i61, 1
   %146 = load i32, ptr %87, align 4
@@ -7850,9 +7844,9 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15Region
   %152 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %153 = lshr i32 %136, 5
   %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds nuw %union.anon, ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %135, i64 4
-  %157 = getelementptr inbounds nuw %union.anon, ptr %156, i64 %154
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %154
   br i1 %.not10.i.i, label %160, label %158
 
 158:                                              ; preds = %150
@@ -7896,12 +7890,12 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %90, %_ZN7Minisat15C
 173:                                              ; preds = %.lr.ph81, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49
   %indvars.iv109 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next110, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49 ]
   %174 = load ptr, ptr %66, align 8, !tbaa !100
-  %175 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %174, i64 %indvars.iv109
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %indvars.iv109
   %.sroa.0.0.copyload = load i32, ptr %175, align 4, !tbaa !65
   %176 = ashr i32 %.sroa.0.0.copyload, 1
   %177 = load ptr, ptr %67, align 8, !tbaa !88
   %178 = sext i32 %176 to i64
-  %179 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %177, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %177, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !147
   %.not = icmp eq i32 %180, -1
   br i1 %.not, label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49, label %181
@@ -7909,7 +7903,7 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %90, %_ZN7Minisat15C
 181:                                              ; preds = %173
   %182 = load ptr, ptr %68, align 8, !tbaa !122
   %183 = zext i32 %180 to i64
-  %184 = getelementptr inbounds nuw i32, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %183
   %185 = load i32, ptr %184, align 4
   %186 = and i32 %185, 16
   %.not68 = icmp eq i32 %186, 0
@@ -7921,7 +7915,7 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %90, %_ZN7Minisat15C
   %189 = ashr i32 %.sroa.0.0.copyload.i.i46, 1
   %190 = load ptr, ptr %69, align 8, !tbaa !94
   %191 = sext i32 %189 to i64
-  %192 = getelementptr inbounds %"class.Minisat::lbool", ptr %190, i64 %191
+  %192 = getelementptr inbounds i8, ptr %190, i64 %191
   %193 = trunc i32 %.sroa.0.0.copyload.i.i46 to i8
   %194 = load i8, ptr %192, align 1, !tbaa !126
   %195 = and i8 %193, 1
@@ -7939,7 +7933,7 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %90, %_ZN7Minisat15C
   br i1 %.not10.i, label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49, label %205
 
 205:                                              ; preds = %188
-  %206 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %177, i64 %191
+  %206 = getelementptr inbounds [8 x i8], ptr %177, i64 %191
   %207 = load i32, ptr %206, align 4, !tbaa !147
   %208 = icmp eq i32 %207, %180
   br i1 %208, label %210, label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49
@@ -7970,11 +7964,11 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49: ; preds = %188, %205, %210, %2
   %220 = phi ptr [ %.pre118, %.lr.ph84 ], [ %248, %245 ]
   %indvars.iv112 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next113, %245 ]
   %.083 = phi i32 [ 0, %.lr.ph84 ], [ %.1, %245 ]
-  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv112
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv112
   %222 = load i32, ptr %221, align 4, !tbaa !65
   %223 = load ptr, ptr %172, align 8, !tbaa !122
   %224 = zext i32 %222 to i64
-  %225 = getelementptr inbounds nuw i32, ptr %223, i64 %224
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %224
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, 3
   %228 = icmp eq i32 %227, 1
@@ -8004,11 +7998,11 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49: ; preds = %188, %205, %210, %2
 
 _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit51: ; preds = %231, %234
   %239 = phi ptr [ %219, %231 ], [ %.pre119, %234 ]
-  %240 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv112
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv112
   %241 = load i32, ptr %240, align 4, !tbaa !65
   %242 = add nsw i32 %.083, 1
   %243 = sext i32 %.083 to i64
-  %244 = getelementptr inbounds i32, ptr %239, i64 %243
+  %244 = getelementptr inbounds [4 x i8], ptr %239, i64 %243
   store i32 %241, ptr %244, align 4, !tbaa !65
   %.pre120 = load i32, ptr %169, align 8, !tbaa !107
   br label %245
@@ -8052,11 +8046,11 @@ _ZN7Minisat3vecIjiE6shrinkEi.exit:                ; preds = %.preheader, %._crit
   %263 = phi ptr [ %.pre121, %.lr.ph90 ], [ %291, %288 ]
   %indvars.iv115 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next116, %288 ]
   %.289 = phi i32 [ 0, %.lr.ph90 ], [ %.3, %288 ]
-  %264 = getelementptr inbounds nuw i32, ptr %263, i64 %indvars.iv115
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %263, i64 %indvars.iv115
   %265 = load i32, ptr %264, align 4, !tbaa !65
   %266 = load ptr, ptr %259, align 8, !tbaa !122
   %267 = zext i32 %265 to i64
-  %268 = getelementptr inbounds nuw i32, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %267
   %269 = load i32, ptr %268, align 4
   %270 = and i32 %269, 3
   %271 = icmp eq i32 %270, 1
@@ -8086,11 +8080,11 @@ _ZN7Minisat3vecIjiE6shrinkEi.exit:                ; preds = %.preheader, %._crit
 
 _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit54: ; preds = %274, %277
   %282 = phi ptr [ %262, %274 ], [ %.pre122, %277 ]
-  %283 = getelementptr inbounds nuw i32, ptr %282, i64 %indvars.iv115
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %282, i64 %indvars.iv115
   %284 = load i32, ptr %283, align 4, !tbaa !65
   %285 = add nsw i32 %.289, 1
   %286 = sext i32 %.289 to i64
-  %287 = getelementptr inbounds i32, ptr %282, i64 %286
+  %287 = getelementptr inbounds [4 x i8], ptr %282, i64 %286
   store i32 %284, ptr %287, align 4, !tbaa !65
   %.pre123 = load i32, ptr %256, align 8, !tbaa !107
   br label %288
@@ -8266,7 +8260,7 @@ _ZN7Minisat3vecIPNS_6OptionEiE4pushERKS2_.exit:   ; preds = %._ZN7Minisat3vecIPN
   %36 = add nsw i32 %34, 1
   store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, i64 8), align 8, !tbaa !240
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %35, i64 %37
   store ptr %0, ptr %38, align 8, !tbaa !246
   ret void
 }
@@ -8805,7 +8799,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexD
   %7 = load i32, ptr %6, align 8, !tbaa !104
   %8 = load ptr, ptr %4, align 8, !tbaa !103
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   store i32 %7, ptr %10, align 4, !tbaa !65
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !105
@@ -8852,12 +8846,12 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %32 = add nsw i32 %30, 1
   store i32 %32, ptr %6, align 8, !tbaa !104
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %31, i64 %33
   store i32 %1, ptr %34, align 4, !tbaa !65
-  %35 = getelementptr inbounds i32, ptr %29, i64 %9
+  %35 = getelementptr inbounds [4 x i8], ptr %29, i64 %9
   %36 = load i32, ptr %35, align 4, !tbaa !65
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %31, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %31, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !65
   %.not21.i = icmp eq i32 %36, 0
   br i1 %.not21.i, label %..critedge_crit_edge.i, label %.lr.ph.i
@@ -8871,7 +8865,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %41 = load ptr, ptr %40, align 8, !tbaa !159
   %42 = load ptr, ptr %41, align 8, !tbaa !97
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds double, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   %45 = load double, ptr %44, align 8, !tbaa !9
   br label %46
 
@@ -8880,21 +8874,21 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %.023.in.i = add nsw i32 %.01522.i, -1
   %.023.i = ashr i32 %.023.in.i, 1
   %47 = sext i32 %.023.i to i64
-  %48 = getelementptr inbounds i32, ptr %31, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %31, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !65
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds double, ptr %42, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %42, i64 %50
   %52 = load double, ptr %51, align 8, !tbaa !9
   %53 = fcmp ogt double %45, %52
   %54 = sext i32 %.01522.i to i64
-  %55 = getelementptr inbounds i32, ptr %31, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %31, i64 %54
   br i1 %53, label %56, label %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE11percolateUpEi.exit
 
 56:                                               ; preds = %46
   store i32 %49, ptr %55, align 4, !tbaa !65
   %57 = load i32, ptr %48, align 4, !tbaa !65
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %29, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %29, i64 %58
   store i32 %.01522.i, ptr %59, align 4, !tbaa !65
   %.not.i = icmp eq i32 %.023.i, 0
   br i1 %.not.i, label %_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE11percolateUpEi.exit, label %46, !llvm.loop !160
@@ -8904,7 +8898,7 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE11percolateUpEi
   %.01518.i = phi i32 [ 0, %..critedge_crit_edge.i ], [ 0, %56 ], [ %.01522.i, %46 ]
   %phi.call.i = phi ptr [ %31, %..critedge_crit_edge.i ], [ %31, %56 ], [ %55, %46 ]
   store i32 %39, ptr %phi.call.i, align 4, !tbaa !65
-  %60 = getelementptr inbounds i32, ptr %29, i64 %.pre-phi.i
+  %60 = getelementptr inbounds [4 x i8], ptr %29, i64 %.pre-phi.i
   store i32 %.01518.i, ptr %60, align 4, !tbaa !65
   ret void
 }
@@ -8973,7 +8967,7 @@ _ZN7Minisat3vecIiiE8capacityEi.exit:              ; preds = %6, %19, %25
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %.pre, ptr %36, align 4, !tbaa !65
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9021,7 +9015,7 @@ define linkonce_odr noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_6Clause
 _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %2
   %22 = load ptr, ptr %0, align 8, !tbaa !122
   %23 = zext i32 %17 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %1, align 4, !tbaa !124
   %26 = select i1 %.not, i32 0, i32 8
   %27 = and i32 %25, -9
@@ -9041,9 +9035,9 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %2
 
 32:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw %union.anon, ptr %30, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %33, align 4, !tbaa !65
-  %34 = getelementptr inbounds nuw %union.anon, ptr %31, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 %.sroa.0.0.copyload.i.i, ptr %34, align 4, !tbaa !65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %1, align 4
@@ -9058,9 +9052,9 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %42 = lshr i32 %25, 5
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw %union.anon, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %46 = getelementptr inbounds nuw %union.anon, ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %43
   br i1 %.not10.i, label %49, label %47
 
 47:                                               ; preds = %39
@@ -9140,7 +9134,7 @@ _ZN7Minisat3vecINS_3LitEiE8capacityEi.exit:       ; preds = %5, %18, %24
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %33 = load ptr, ptr %0, align 8, !tbaa !100
-  %34 = getelementptr inbounds %"struct.Minisat::Lit", ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   store i32 0, ptr %34, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9216,7 +9210,7 @@ _ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE8capacityEi.exit: ; preds = %5, %18
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %33 = load ptr, ptr %0, align 8, !tbaa !109
-  %34 = getelementptr inbounds %"class.Minisat::vec.26", ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds [16 x i8], ptr %33, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9363,7 +9357,7 @@ _ZN7Minisat3vecINS_6Solver7VarDataEiE8capacityEi.exit: ; preds = %5, %18, %24
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %33 = load ptr, ptr %0, align 8, !tbaa !88
-  %34 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %indvars.iv
   store i64 0, ptr %34, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9544,10 +9538,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next32.i, %.lr.ph.i ]
   %.02425.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %indvars.iv31.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv31.i
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 4, !tbaa !65
   %8 = sext i32 %.02425.i to i64
-  %9 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %8
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 4, !tbaa !65
   %10 = icmp slt i32 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
   %11 = trunc nuw nsw i64 %indvars.iv31.i to i32
@@ -9558,10 +9552,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %12 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %indvars.iv34.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv34.i
   %.sroa.02.0.copyload.i = load i32, ptr %12, align 4, !tbaa !65
   %13 = sext i32 %spec.select.i to i64
-  %14 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !65
   store i32 %15, ptr %12, align 4, !tbaa !65
   store i32 %.sroa.02.0.copyload.i, ptr %14, align 4, !tbaa !65
@@ -9574,7 +9568,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.tr46 = phi ptr [ %24, %tailrecurse ], [ %0, %2 ]
   %16 = lshr i32 %.tr4147, 1
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.tr46, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.tr46, i64 %17
   %.sroa.018.0.copyload = load i32, ptr %18, align 4, !tbaa !65
   br label %19
 
@@ -9588,20 +9582,20 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 21:                                               ; preds = %21, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ %20, %19 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next
+  %22 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next
   %.sroa.03.0.copyload = load i32, ptr %22, align 4, !tbaa !65
   %23 = icmp slt i32 %.sroa.03.0.copyload, %.sroa.018.0.copyload
   br i1 %23, label %21, label %.preheader, !llvm.loop !273
 
 .preheader:                                       ; preds = %21
-  %24 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next
+  %24 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next
   %25 = sext i32 %.034 to i64
   br label %26
 
 26:                                               ; preds = %.preheader, %26
   %indvars.iv55 = phi i64 [ %25, %.preheader ], [ %indvars.iv.next56, %26 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %27 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %27 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next56
   %.sroa.0.0.copyload = load i32, ptr %27, align 4, !tbaa !65
   %28 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
   br i1 %28, label %26, label %29, !llvm.loop !274
@@ -9611,7 +9605,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %.not, label %30, label %tailrecurse
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %31 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next56
   %32 = trunc nsw i64 %indvars.iv.next56 to i32
   store i32 %.sroa.0.0.copyload, ptr %24, align 4, !tbaa !65
   store i32 %.sroa.03.0.copyload, ptr %31, align 4, !tbaa !65
@@ -9655,10 +9649,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 9:                                                ; preds = %_ZN11reduceDB_ltclEjj.exit.thread24.i, %.lr.ph.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next33.i, %_ZN11reduceDB_ltclEjj.exit.thread24.i ]
   %.02127.i = phi i32 [ %8, %.lr.ph.i ], [ %36, %_ZN11reduceDB_ltclEjj.exit.thread24.i ]
-  %10 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv32.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv32.i
   %11 = load i32, ptr %10, align 4, !tbaa !65
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 5
   %16 = icmp ugt i32 %14, 95
@@ -9666,10 +9660,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 
 17:                                               ; preds = %9
   %18 = sext i32 %.02127.i to i64
-  %19 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !65
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = lshr i32 %23, 5
   %25 = icmp eq i32 %24, 2
@@ -9678,11 +9672,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 _ZN11reduceDB_ltclEjj.exit.i:                     ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %27 = zext nneg i32 %15 to i64
-  %28 = getelementptr inbounds nuw %union.anon, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !154
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %31 = zext nneg i32 %24 to i64
-  %32 = getelementptr inbounds nuw %union.anon, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = load float, ptr %32, align 4, !tbaa !154
   %34 = fcmp olt float %29, %33
   %cond.fr.i = freeze i1 %34
@@ -9700,10 +9694,10 @@ _ZN11reduceDB_ltclEjj.exit.thread24.i:            ; preds = %_ZN11reduceDB_ltclE
 
 ._crit_edge.i:                                    ; preds = %_ZN11reduceDB_ltclEjj.exit.thread24.i
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
-  %37 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv35.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv35.i
   %38 = load i32, ptr %37, align 4, !tbaa !65
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !65
   store i32 %41, ptr %37, align 4, !tbaa !65
   store i32 %38, ptr %40, align 4, !tbaa !65
@@ -9716,11 +9710,11 @@ _ZN11reduceDB_ltclEjj.exit.thread24.i:            ; preds = %_ZN11reduceDB_ltclE
   %.tr76 = phi ptr [ %91, %tailrecurse ], [ %0, %3 ]
   %42 = lshr i32 %.tr4177, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %.tr76, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.tr76, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !65
   %46 = load ptr, ptr %2, align 8, !tbaa !122
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   br label %50
 
@@ -9729,10 +9723,10 @@ _ZN11reduceDB_ltclEjj.exit.thread24.i:            ; preds = %_ZN11reduceDB_ltclE
   %.0 = phi i32 [ -1, %.lr.ph78 ], [ %.lcssa46, %117 ]
   %51 = add nsw i32 %.0, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %.tr76, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %.tr76, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !65
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %46, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = lshr i32 %57, 5
   %59 = icmp ugt i32 %57, 95
@@ -9747,21 +9741,21 @@ _ZN11reduceDB_ltclEjj.exit.thread24.i:            ; preds = %_ZN11reduceDB_ltclE
 _ZN11reduceDB_ltclEjj.exit.backedge.us:           ; preds = %.lr.ph, %_ZN11reduceDB_ltclEjj.exit.backedge.us
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %_ZN11reduceDB_ltclEjj.exit.backedge.us ], [ %52, %.lr.ph ]
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
-  %62 = getelementptr inbounds i32, ptr %.tr76, i64 %indvars.iv.next95
+  %62 = getelementptr inbounds [4 x i8], ptr %.tr76, i64 %indvars.iv.next95
   %63 = load i32, ptr %62, align 4, !tbaa !65
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %46, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = icmp ugt i32 %66, 95
   br i1 %67, label %_ZN11reduceDB_ltclEjj.exit.backedge.us, label %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit, !llvm.loop !278
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %68 = zext nneg i32 %60 to i64
-  %69 = getelementptr inbounds nuw %union.anon, ptr %49, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !154
   %71 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %72 = zext nneg i32 %58 to i64
-  %73 = getelementptr inbounds nuw %union.anon, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !154
   %75 = fcmp olt float %74, %70
   br i1 %75, label %_ZN11reduceDB_ltclEjj.exit.backedge, label %_ZN11reduceDB_ltclEjj.exit39.preheader
@@ -9770,7 +9764,7 @@ _ZN11reduceDB_ltclEjj.exit.backedge.us:           ; preds = %.lr.ph, %_ZN11reduc
   %77 = lshr i32 %87, 5
   %78 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %79 = zext nneg i32 %77 to i64
-  %80 = getelementptr inbounds nuw %union.anon, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !154
   %82 = fcmp olt float %81, %70
   br i1 %82, label %_ZN11reduceDB_ltclEjj.exit.backedge, label %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108, !llvm.loop !278
@@ -9778,10 +9772,10 @@ _ZN11reduceDB_ltclEjj.exit.backedge.us:           ; preds = %.lr.ph, %_ZN11reduc
 _ZN11reduceDB_ltclEjj.exit.backedge:              ; preds = %.lr.ph.split, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ %52, %.lr.ph.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %83 = getelementptr inbounds i32, ptr %.tr76, i64 %indvars.iv.next
+  %83 = getelementptr inbounds [4 x i8], ptr %.tr76, i64 %indvars.iv.next
   %84 = load i32, ptr %83, align 4, !tbaa !65
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %46, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp ugt i32 %87, 95
   br i1 %88, label %76, label %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108, !llvm.loop !278
@@ -9798,25 +9792,25 @@ _ZN11reduceDB_ltclEjj.exit39.preheader:           ; preds = %_ZN11reduceDB_ltclE
   %.lcssa50 = phi i64 [ %52, %50 ], [ %indvars.iv.next95, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %52, %.lr.ph.split ], [ %indvars.iv.next, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
   %.lcssa46 = phi i32 [ %51, %50 ], [ %89, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %51, %.lr.ph.split ], [ %90, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
   %.lcssa44 = phi i32 [ %54, %50 ], [ %63, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %54, %.lr.ph.split ], [ %84, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
-  %91 = getelementptr inbounds i32, ptr %.tr76, i64 %.lcssa50
+  %91 = getelementptr inbounds [4 x i8], ptr %.tr76, i64 %.lcssa50
   %92 = icmp ugt i32 %.pre, 95
   %93 = add nsw i32 %.032, -1
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i32, ptr %.tr76, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %.tr76, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !65
   br i1 %92, label %.lr.ph66, label %_ZN11reduceDB_ltclEjj.exit39.thread
 
 .lr.ph66:                                         ; preds = %_ZN11reduceDB_ltclEjj.exit39.preheader
   %97 = lshr i32 %.pre, 5
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw %union.anon, ptr %49, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %98
   br label %100
 
 100:                                              ; preds = %_ZN11reduceDB_ltclEjj.exit39.backedge.us, %.lr.ph66
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %_ZN11reduceDB_ltclEjj.exit39.backedge.us ], [ %94, %.lr.ph66 ]
   %101 = phi i32 [ %115, %_ZN11reduceDB_ltclEjj.exit39.backedge.us ], [ %96, %.lr.ph66 ]
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %46, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = lshr i32 %104, 5
   %106 = icmp eq i32 %105, 2
@@ -9826,14 +9820,14 @@ _ZN11reduceDB_ltclEjj.exit39.preheader:           ; preds = %_ZN11reduceDB_ltclE
   %108 = load float, ptr %99, align 4, !tbaa !154
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %110 = zext nneg i32 %105 to i64
-  %111 = getelementptr inbounds nuw %union.anon, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !154
   %113 = fcmp olt float %108, %112
   br i1 %113, label %_ZN11reduceDB_ltclEjj.exit39.backedge.us, label %_ZN11reduceDB_ltclEjj.exit39.thread.loopexit
 
 _ZN11reduceDB_ltclEjj.exit39.backedge.us:         ; preds = %107, %100
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, -1
-  %114 = getelementptr inbounds i32, ptr %.tr76, i64 %indvars.iv.next98
+  %114 = getelementptr inbounds [4 x i8], ptr %.tr76, i64 %indvars.iv.next98
   %115 = load i32, ptr %114, align 4, !tbaa !65
   br label %100
 
@@ -9849,7 +9843,7 @@ _ZN11reduceDB_ltclEjj.exit39.thread:              ; preds = %_ZN11reduceDB_ltclE
   br i1 %.not, label %117, label %tailrecurse
 
 117:                                              ; preds = %_ZN11reduceDB_ltclEjj.exit39.thread
-  %118 = getelementptr inbounds i32, ptr %.tr76, i64 %.lcssa65
+  %118 = getelementptr inbounds [4 x i8], ptr %.tr76, i64 %.lcssa65
   store i32 %.lcssa47, ptr %91, align 4, !tbaa !65
   store i32 %.lcssa44, ptr %118, align 4, !tbaa !65
   br label %50, !llvm.loop !279

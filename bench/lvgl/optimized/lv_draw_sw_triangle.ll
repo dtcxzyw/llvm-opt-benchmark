@@ -281,11 +281,11 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %164 = load ptr, ptr %.fr177, align 8, !tbaa !41
   %165 = load i32, ptr %4, align 4, !tbaa !8
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds %struct.lv_color_t, ptr %164, i64 %166
+  %167 = getelementptr inbounds [3 x i8], ptr %164, i64 %166
   %168 = load i32, ptr %3, align 4, !tbaa !8
   %169 = sext i32 %168 to i64
   %170 = sub nsw i64 0, %169
-  %171 = getelementptr inbounds %struct.lv_color_t, ptr %167, i64 %170
+  %171 = getelementptr inbounds [3 x i8], ptr %167, i64 %170
   store ptr %171, ptr %148, align 8, !tbaa !39
   %172 = getelementptr inbounds nuw i8, ptr %.fr177, i64 8
   %173 = load ptr, ptr %172, align 8, !tbaa !43
@@ -322,7 +322,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %188 = load i32, ptr %32, align 4, !tbaa !12
   %189 = sub nsw i32 %.0123168.us.us, %188
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds %struct.lv_color_t, ptr %187, i64 %190
+  %191 = getelementptr inbounds [3 x i8], ptr %187, i64 %190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %140, ptr noundef nonnull align 1 dereferenceable(3) %191, i64 3, i1 false), !tbaa.struct !22
   %192 = load ptr, ptr %184, align 8, !tbaa !43
   %193 = getelementptr inbounds i8, ptr %192, i64 %190

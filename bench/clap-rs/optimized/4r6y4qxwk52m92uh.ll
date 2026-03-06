@@ -114,7 +114,7 @@ _ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread: ; preds = %2
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !10, !noalias !13, !nonnull !4
-  %10 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %9, i64 %5
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !15, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -143,7 +143,7 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E(ptr noalia
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %8, i64 %5
+  %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -173,7 +173,7 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs4peek17h9c091d774d1c058fE(ptr noalias n
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !16, !noalias !19, !nonnull !4
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %8, i64 %5
+  %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !21, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -199,7 +199,7 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs7peek_os17he56275292fcdee6aE(ptr noalia
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %8, i64 %5
+  %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -229,8 +229,8 @@ define { ptr, ptr } @_ZN8clap_lex7RawArgs9remaining17h51b7b126f9c1f904E(ptr noal
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfb34af44b3b02965E.exit": ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %.val, i64 %3
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %.val, i64 %.val2
+  %8 = getelementptr inbounds [24 x i8], ptr %.val, i64 %3
+  %9 = getelementptr inbounds [24 x i8], ptr %.val, i64 %.val2
   store i64 %.val2, ptr %1, align 8
   %10 = insertvalue { ptr, ptr } poison, ptr %8, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %9, 1

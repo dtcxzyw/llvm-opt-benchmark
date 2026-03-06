@@ -378,7 +378,7 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 24:                                               ; preds = %24, %_ZNSt13random_deviceclEv.exit
   %store_forwarded = phi i64 [ %23, %_ZNSt13random_deviceclEv.exit ], [ %30, %24 ]
   %.011.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %31, %24 ]
-  %25 = getelementptr i64, ptr %5, i64 %.011.i.i
+  %25 = getelementptr [8 x i8], ptr %5, i64 %.011.i.i
   %26 = lshr i64 %store_forwarded, 30
   %27 = xor i64 %26, %store_forwarded
   %28 = mul nuw nsw i64 %27, 1812433253
@@ -1407,7 +1407,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %32, 
           to label %69 unwind label %112
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw %struct.perf_data, ptr %42, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %42, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !45
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(96) %70, ptr noundef %72)
@@ -1658,7 +1658,7 @@ _ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE10_S_minimumEPS
   %indvars.iv68 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next69, %187 ]
   %.01562 = phi double [ 0.000000e+00, %.preheader ], [ %191, %187 ]
   %.01661 = phi double [ 0.000000e+00, %.preheader ], [ %190, %187 ]
-  %156 = getelementptr inbounds nuw %struct.perf_data, ptr %42, i64 %indvars.iv68
+  %156 = getelementptr inbounds nuw [96 x i8], ptr %42, i64 %indvars.iv68
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !45
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -1973,7 +1973,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %32, 
           to label %69 unwind label %112
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw %struct.perf_data, ptr %42, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %42, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !45
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(96) %70, ptr noundef %72)
@@ -2224,7 +2224,7 @@ _ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE10_S_minimumEPS
   %indvars.iv68 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next69, %187 ]
   %.01562 = phi double [ 0.000000e+00, %.preheader ], [ %191, %187 ]
   %.01661 = phi double [ 0.000000e+00, %.preheader ], [ %190, %187 ]
-  %156 = getelementptr inbounds nuw %struct.perf_data, ptr %42, i64 %indvars.iv68
+  %156 = getelementptr inbounds nuw [96 x i8], ptr %42, i64 %indvars.iv68
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !45
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -2539,7 +2539,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %32, 
           to label %69 unwind label %112
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw %struct.perf_data, ptr %42, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %42, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !45
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(96) %70, ptr noundef %72)
@@ -2790,7 +2790,7 @@ _ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE10_S_minimumEPS
   %indvars.iv68 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next69, %187 ]
   %.01562 = phi double [ 0.000000e+00, %.preheader ], [ %191, %187 ]
   %.01661 = phi double [ 0.000000e+00, %.preheader ], [ %190, %187 ]
-  %156 = getelementptr inbounds nuw %struct.perf_data, ptr %42, i64 %indvars.iv68
+  %156 = getelementptr inbounds nuw [96 x i8], ptr %42, i64 %indvars.iv68
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !45
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -3395,10 +3395,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !14
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -3422,10 +3422,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !14
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -3463,7 +3463,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !17
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !14
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295

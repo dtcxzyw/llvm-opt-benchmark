@@ -172,7 +172,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.432" = type { i8, %"class.boost::shared_ptr.347" }
 %"class.boost::runtime::conflicting_param" = type { %"class.boost::runtime::specific_param_error.434" }
 %"class.boost::runtime::specific_param_error.434" = type { %"class.boost::runtime::init_error" }
-%"class.boost::reference_wrapper" = type { ptr }
 %"struct.std::_Rb_tree<char, std::pair<const char, boost::shared_ptr<boost::runtime::cla::rt_cla_detail::parameter_trie>>, std::_Select1st<std::pair<const char, boost::shared_ptr<boost::runtime::cla::rt_cla_detail::parameter_trie>>>, std::less<char>>::_Auto_node" = type { ptr, ptr }
 
 $_ZN5boost7runtime15arguments_storeD2Ev = comdat any
@@ -5482,7 +5481,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i: ; preds = %1021, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i
   store ptr %1008, ptr %983, align 8, !tbaa !166
   store ptr %1020, ptr %984, align 8, !tbaa !163
-  %1022 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %1008, i64 %1006
+  %1022 = getelementptr inbounds nuw [16 x i8], ptr %1008, i64 %1006
   store ptr %1022, ptr %985, align 8, !tbaa !167
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i
 
@@ -6338,7 +6337,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i1038: ; preds = %1327, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i2003
   store ptr %1314, ptr %1289, align 8, !tbaa !166
   store ptr %1326, ptr %1290, align 8, !tbaa !163
-  %1328 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %1314, i64 %1312
+  %1328 = getelementptr inbounds nuw [16 x i8], ptr %1314, i64 %1312
   store ptr %1328, ptr %1291, align 8, !tbaa !167
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i1034
 
@@ -7166,7 +7165,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i1156: ; preds = %1617, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i2024
   store ptr %1604, ptr %1579, align 8, !tbaa !166
   store ptr %1616, ptr %1580, align 8, !tbaa !163
-  %1618 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %1604, i64 %1602
+  %1618 = getelementptr inbounds nuw [16 x i8], ptr %1604, i64 %1602
   store ptr %1618, ptr %1581, align 8, !tbaa !167
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i1151
 
@@ -8802,7 +8801,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i1505: ; preds = %2181, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i2045
   store ptr %2168, ptr %2143, align 8, !tbaa !166
   store ptr %2180, ptr %2144, align 8, !tbaa !163
-  %2182 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %2168, i64 %2166
+  %2182 = getelementptr inbounds nuw [16 x i8], ptr %2168, i64 %2166
   store ptr %2182, ptr %2145, align 8, !tbaa !167
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i1500
 
@@ -12554,7 +12553,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit: ; preds = %_ZN5boos
   %.sroa.37.0321 = phi i64 [ %60, %_ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit.lr.ph ], [ %.sroa.37.2, %502 ]
   %.sroa.22.0319 = phi i64 [ 1, %_ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit.lr.ph ], [ %.sroa.22.2, %502 ]
   %.sroa.0176.0318 = phi i64 [ %57, %_ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit.lr.ph ], [ %.sroa.0176.3, %502 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %2, i64 %.sroa.22.0319
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.sroa.22.0319
   %91 = load ptr, ptr %90, align 8, !tbaa !33, !noalias !399
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.sroa.37.0321
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12581,9 +12580,9 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit: ; preds = %_ZN5boos
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.04.i = phi i64 [ %96, %.lr.ph.i ], [ %.sroa.22.0319, %.preheader.i ]
   %96 = add nuw i64 %.04.i, 1
-  %97 = getelementptr inbounds nuw ptr, ptr %2, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !33
-  %99 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i
   store ptr %98, ptr %99, align 8, !tbaa !33
   %exitcond.not.i = icmp eq i64 %96, %94
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !402
@@ -12663,7 +12662,7 @@ _ZN5boost7runtime3cla13rt_cla_detailL20report_foreing_tokenENS_9unit_test13basic
   br i1 %121, label %_ZN5boost7runtime3cla14argv_traverser10save_tokenEv.exit, label %122, !llvm.loop !405
 
 122:                                              ; preds = %_ZN5boost7runtime3cla13rt_cla_detailL20report_foreing_tokenENS_9unit_test13basic_cstringIKcEES6_.exit
-  %123 = getelementptr inbounds nuw ptr, ptr %2, i64 %120
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %120
   %124 = load ptr, ptr %123, align 8, !tbaa !33
   %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #34
   br label %_ZN5boost7runtime3cla14argv_traverser10save_tokenEv.exit, !llvm.loop !405
@@ -13030,9 +13029,9 @@ _ZN5boost10shared_ptrINS_7runtime11basic_paramEEC2ERKS3_.exit: ; preds = %_ZN5bo
 .lr.ph.i98:                                       ; preds = %.preheader.i96, %.lr.ph.i98
   %.04.i99 = phi i64 [ %267, %.lr.ph.i98 ], [ %.sroa.22.0319, %.preheader.i96 ]
   %267 = add nuw i64 %.04.i99, 1
-  %268 = getelementptr inbounds nuw ptr, ptr %2, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %267
   %269 = load ptr, ptr %268, align 8, !tbaa !33
-  %270 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i99
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i99
   store ptr %269, ptr %270, align 8, !tbaa !33
   %exitcond.not.i100 = icmp eq i64 %267, %265
   br i1 %exitcond.not.i100, label %_ZN5boost7runtime3cla14argv_traverser10next_tokenEv.exit101, label %.lr.ph.i98, !llvm.loop !402
@@ -13185,9 +13184,9 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit104.thread: ; preds =
 .lr.ph.i110:                                      ; preds = %.preheader.i108, %.lr.ph.i110
   %.04.i111 = phi i64 [ %318, %.lr.ph.i110 ], [ %.sroa.22.0319, %.preheader.i108 ]
   %318 = add nuw i64 %.04.i111, 1
-  %319 = getelementptr inbounds nuw ptr, ptr %2, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !33
-  %321 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i111
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i111
   store ptr %320, ptr %321, align 8, !tbaa !33
   %exitcond.not.i112 = icmp eq i64 %318, %316
   br i1 %exitcond.not.i112, label %.loopexit, label %.lr.ph.i110, !llvm.loop !402
@@ -13509,9 +13508,9 @@ _ZNK5boost7runtime15arguments_store3hasENS_9unit_test13basic_cstringIKcEE.exit.t
 .lr.ph.i129:                                      ; preds = %.preheader.i127, %.lr.ph.i129
   %.04.i130 = phi i64 [ %430, %.lr.ph.i129 ], [ %.sroa.22.0319, %.preheader.i127 ]
   %430 = add nuw i64 %.04.i130, 1
-  %431 = getelementptr inbounds nuw ptr, ptr %2, i64 %430
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %430
   %432 = load ptr, ptr %431, align 8, !tbaa !33
-  %433 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i130
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i130
   store ptr %432, ptr %433, align 8, !tbaa !33
   %exitcond.not.i131 = icmp eq i64 %430, %426
   br i1 %exitcond.not.i131, label %._crit_edge.i128, label %.lr.ph.i129, !llvm.loop !402
@@ -18470,7 +18469,7 @@ _ZNK5boost3nfp23named_parameter_combineINS0_15named_parameterIKSt16initializer_l
   store ptr %180, ptr %183, align 8, !tbaa !13
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 0, ptr %184, align 8, !tbaa !11
-  %185 = getelementptr inbounds nuw %"struct.std::pair.122", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %185 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
   invoke void @_ZNSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS1_13output_formatEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_(ptr noundef nonnull align 8 dereferenceable(56) %170, ptr noundef %.sroa.0.0.copyload.i.i.i, ptr noundef %185)
           to label %_ZN5boost7runtime17value_interpreterINS_9unit_test13output_formatELb1EEC2INS_3nfp23named_parameter_combineINS6_15named_parameterIKNS2_13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSC_EENS7_INS8_IKSt16initializer_listISt4pairISC_S3_EENSD_13enum_values_tERSL_EENS7_INS8_IKS3_NSD_15default_value_tERSP_EENS7_INS8_ISC_NSD_9env_var_tESF_EENS8_ISC_NSD_13description_tESF_EEEEEEEEEEEERKT_.exit.i.i unwind label %.body.i.i.i
 
@@ -18604,7 +18603,7 @@ _ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit:
   %227 = phi i64 [ %.pre3, %._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge ], [ %216, %220 ]
   %228 = phi ptr [ %.pre, %._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge ], [ %217, %220 ]
   %229 = getelementptr inbounds nuw i8, ptr %.02, i64 24
-  %230 = getelementptr inbounds nuw %"struct.std::pair.122", ptr %228, i64 %227
+  %230 = getelementptr inbounds nuw [24 x i8], ptr %228, i64 %227
   %.not = icmp eq ptr %229, %230
   br i1 %.not, label %._crit_edge, label %215, !llvm.loop !524
 
@@ -25131,7 +25130,7 @@ _ZNSt6vectorIN5boost7runtime16parameter_cla_idESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN5boost7runtime16parameter_cla_idESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5boost7runtime16parameter_cla_idESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, %168
   store ptr %22, ptr %0, align 8, !tbaa !544
   store ptr %.0.lcssa.i.i.i33, ptr %4, align 8, !tbaa !545
-  %172 = getelementptr inbounds nuw %"struct.boost::runtime::parameter_cla_id", ptr %22, i64 %16
+  %172 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %16
   store ptr %172, ptr %167, align 8, !tbaa !547
   ret void
 }
@@ -29958,7 +29957,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 _ZNSt12_Vector_baseIN5boost9unit_test13basic_cstringIKcEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %40
   store ptr %20, ptr %0, align 8, !tbaa !166
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !163
-  %44 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !167
   ret void
 }
@@ -34645,7 +34644,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !673
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !675
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !677
   ret void
 
@@ -38521,7 +38520,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 .noexc:                                           ; preds = %146, %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %131, ptr %6, align 8, !tbaa !739
   store ptr %145, ptr %28, align 8, !tbaa !736
-  %150 = getelementptr inbounds nuw %"class.boost::shared_ptr.347", ptr %131, i64 %129
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %129
   store ptr %150, ptr %29, align 8, !tbaa !738
   br label %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE9push_backERKS6_.exit
 
@@ -38718,7 +38717,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 .noexc182:                                        ; preds = %227, %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i277
   store ptr %213, ptr %6, align 8, !tbaa !739
   store ptr %226, ptr %28, align 8, !tbaa !736
-  %231 = getelementptr inbounds nuw %"class.boost::shared_ptr.347", ptr %213, i64 %211
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %213, i64 %211
   store ptr %231, ptr %29, align 8, !tbaa !738
   br label %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE9push_backERKS6_.exit183
 
@@ -39025,7 +39024,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 .noexc216:                                        ; preds = %351, %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i300
   store ptr %338, ptr %7, align 8, !tbaa !739
   store ptr %350, ptr %32, align 8, !tbaa !736
-  %352 = getelementptr inbounds nuw %"class.boost::shared_ptr.347", ptr %338, i64 %336
+  %352 = getelementptr inbounds nuw [16 x i8], ptr %338, i64 %336
   store ptr %352, ptr %33, align 8, !tbaa !738
   br label %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE9push_backERKS6_.exit217
 
@@ -39485,7 +39484,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
   br label %.noexc228
 
 .noexc228:                                        ; preds = %532, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i
-  %533 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %523, i64 %521
+  %533 = getelementptr inbounds nuw [16 x i8], ptr %523, i64 %521
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backEOS4_.exit: ; preds = %.noexc228, %509
@@ -41080,7 +41079,7 @@ _ZNSt12_Vector_baseIN5boost9unit_test13basic_cstringIKcEESaIS4_EE13_M_deallocate
   store ptr %19, ptr %0, align 8, !tbaa !166
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %27, ptr %14, align 8, !tbaa !163
-  %28 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %19, i64 %1
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %1
   store ptr %28, ptr %6, align 8, !tbaa !167
   br label %29
 
@@ -41656,7 +41655,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !739
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !736
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr.347", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !738
   ret void
 }
@@ -41749,7 +41748,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 _ZNSt12_Vector_baseIN5boost9unit_test13basic_cstringIKcEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %40
   store ptr %20, ptr %0, align 8, !tbaa !166
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !163
-  %44 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !167
   ret void
 }
@@ -44560,7 +44559,7 @@ _ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_
 _ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %87, %_ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i
   store ptr %80, ptr %59, align 8, !tbaa !774
   store ptr %86, ptr %60, align 8, !tbaa !772
-  %88 = getelementptr inbounds nuw %"class.boost::reference_wrapper", ptr %80, i64 %78
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %78
   store ptr %88, ptr %61, align 8, !tbaa !822
   br label %_ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_EE9push_backERKS5_.exit
 

@@ -56,7 +56,7 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !13
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %.not31 = icmp eq ptr %13, null
   br i1 %.not31, label %.thread, label %14
@@ -72,7 +72,7 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre37 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
-  %.phi.trans.insert38 = getelementptr inbounds nuw ptr, ptr %.pre37, i64 %indvars.iv
+  %.phi.trans.insert38 = getelementptr inbounds nuw [8 x i8], ptr %.pre37, i64 %indvars.iv
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8, !tbaa !14
   %.not33 = icmp eq ptr %.pre39, null
   br i1 %.not33, label %.thread, label %.thread49
@@ -146,7 +146,7 @@ define i32 @SUNHashMap_Iterate(ptr noundef readonly captures(address_is_null) %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !13
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = trunc nsw i64 %indvars.iv to i32
   %20 = tail call i32 %2(i32 noundef %19, ptr noundef %18, ptr noundef %3) #11
@@ -215,7 +215,7 @@ fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
 
 .lr.ph.i31:                                       ; preds = %27, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %26, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %29 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %31 = icmp ne ptr %30, null
   %.not.i3234 = icmp eq i64 %indvars.iv.i, -1
@@ -246,7 +246,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %27, %SUNHashMap_Ite
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %2, ptr %40, align 8, !tbaa !16
   %41 = sext i32 %.025 to i64
-  %42 = getelementptr inbounds ptr, ptr %21, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %21, i64 %41
   store ptr %37, ptr %42, align 8, !tbaa !14
   %43 = load i32, ptr %0, align 8, !tbaa !8
   %44 = add nsw i32 %43, 1
@@ -322,7 +322,7 @@ sunHashMapLinearProbeGet.exit.thread:             ; preds = %33, %37
 
 33:                                               ; preds = %.lr.ph.preheader.i, %sunHashMapLinearProbeGet.exit.thread
   %indvars.iv.i = phi i64 [ %31, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %sunHashMapLinearProbeGet.exit.thread ]
-  %34 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %34 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %sunHashMapLinearProbeGet.exit.thread, label %37
@@ -391,9 +391,9 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %17, ptr %18, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -423,7 +423,7 @@ rb_array_len.exit388.thread:                      ; preds = %139
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit388.thread, %147
   %.0.i.i = phi ptr [ %148, %147 ], [ %58, %rb_array_len.exit388.thread ]
   %149 = add nsw i64 %.0315722, 1
-  %150 = getelementptr i64, ptr %.0.i.i, i64 %.0315722
+  %150 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0315722
   %151 = load i64, ptr %150, align 8, !tbaa !7
   store i64 %151, ptr %8, align 8, !tbaa !7
   %152 = icmp eq i64 %151, 4
@@ -851,7 +851,7 @@ rb_array_len.exit398.thread:                      ; preds = %319
 RARRAY_AREF.exit401:                              ; preds = %rb_array_len.exit398.thread, %327
   %.0.i.i400 = phi ptr [ %328, %327 ], [ %58, %rb_array_len.exit398.thread ]
   %329 = add nsw i64 %.4319691, 1
-  %330 = getelementptr i64, ptr %.0.i.i400, i64 %.4319691
+  %330 = getelementptr [8 x i8], ptr %.0.i.i400, i64 %.4319691
   %331 = load i64, ptr %330, align 8, !tbaa !7
   store i64 %331, ptr %8, align 8, !tbaa !7
   %332 = call i32 @rb_integer_pack(i64 noundef %331, ptr noundef nonnull %19, i64 noundef %.0331, i64 noundef 1, i64 noundef 0, i32 noundef %317) #13
@@ -899,7 +899,7 @@ rb_array_len.exit404.thread:                      ; preds = %.lr.ph689
 RARRAY_AREF.exit407:                              ; preds = %rb_array_len.exit404.thread, %346
   %.0.i.i406 = phi ptr [ %347, %346 ], [ %58, %rb_array_len.exit404.thread ]
   %348 = add nsw i64 %.5320687, 1
-  %349 = getelementptr i64, ptr %.0.i.i406, i64 %.5320687
+  %349 = getelementptr [8 x i8], ptr %.0.i.i406, i64 %.5320687
   %350 = load i64, ptr %349, align 8, !tbaa !7
   store i64 %350, ptr %8, align 8, !tbaa !7
   %351 = call i64 @rb_to_float(i64 noundef %350) #13
@@ -958,7 +958,7 @@ rb_array_len.exit411.thread:                      ; preds = %.lr.ph685
 RARRAY_AREF.exit414:                              ; preds = %rb_array_len.exit411.thread, %370
   %.0.i.i413 = phi ptr [ %371, %370 ], [ %58, %rb_array_len.exit411.thread ]
   %372 = add nsw i64 %.6321684, 1
-  %373 = getelementptr i64, ptr %.0.i.i413, i64 %.6321684
+  %373 = getelementptr [8 x i8], ptr %.0.i.i413, i64 %.6321684
   %374 = load i64, ptr %373, align 8, !tbaa !7
   store i64 %374, ptr %8, align 8, !tbaa !7
   %375 = call i64 @rb_to_float(i64 noundef %374) #13
@@ -1017,7 +1017,7 @@ rb_array_len.exit419.thread:                      ; preds = %.lr.ph682
 RARRAY_AREF.exit422:                              ; preds = %rb_array_len.exit419.thread, %394
   %.0.i.i421 = phi ptr [ %395, %394 ], [ %58, %rb_array_len.exit419.thread ]
   %396 = add nsw i64 %.7322681, 1
-  %397 = getelementptr i64, ptr %.0.i.i421, i64 %.7322681
+  %397 = getelementptr [8 x i8], ptr %.0.i.i421, i64 %.7322681
   %398 = load i64, ptr %397, align 8, !tbaa !7
   store i64 %398, ptr %8, align 8, !tbaa !7
   %399 = call i64 @rb_to_float(i64 noundef %398) #13
@@ -1067,7 +1067,7 @@ rb_array_len.exit425.thread:                      ; preds = %.lr.ph679
 RARRAY_AREF.exit428:                              ; preds = %rb_array_len.exit425.thread, %414
   %.0.i.i427 = phi ptr [ %415, %414 ], [ %58, %rb_array_len.exit425.thread ]
   %416 = add nsw i64 %.8323677, 1
-  %417 = getelementptr i64, ptr %.0.i.i427, i64 %.8323677
+  %417 = getelementptr [8 x i8], ptr %.0.i.i427, i64 %.8323677
   %418 = load i64, ptr %417, align 8, !tbaa !7
   store i64 %418, ptr %8, align 8, !tbaa !7
   %419 = call i64 @rb_to_float(i64 noundef %418) #13
@@ -1109,7 +1109,7 @@ rb_array_len.exit431.thread:                      ; preds = %.lr.ph675
 RARRAY_AREF.exit434:                              ; preds = %rb_array_len.exit431.thread, %431
   %.0.i.i433 = phi ptr [ %432, %431 ], [ %58, %rb_array_len.exit431.thread ]
   %433 = add nsw i64 %.9324674, 1
-  %434 = getelementptr i64, ptr %.0.i.i433, i64 %.9324674
+  %434 = getelementptr [8 x i8], ptr %.0.i.i433, i64 %.9324674
   %435 = load i64, ptr %434, align 8, !tbaa !7
   store i64 %435, ptr %8, align 8, !tbaa !7
   %436 = call i64 @rb_to_float(i64 noundef %435) #13
@@ -1170,7 +1170,7 @@ rb_array_len.exit439.thread:                      ; preds = %.lr.ph672
 RARRAY_AREF.exit442:                              ; preds = %rb_array_len.exit439.thread, %457
   %.0.i.i441 = phi ptr [ %458, %457 ], [ %58, %rb_array_len.exit439.thread ]
   %459 = add nsw i64 %.10325671, 1
-  %460 = getelementptr i64, ptr %.0.i.i441, i64 %.10325671
+  %460 = getelementptr [8 x i8], ptr %.0.i.i441, i64 %.10325671
   %461 = load i64, ptr %460, align 8, !tbaa !7
   store i64 %461, ptr %8, align 8, !tbaa !7
   %462 = call i64 @rb_to_float(i64 noundef %461) #13
@@ -1267,7 +1267,7 @@ rb_array_len.exit449.thread:                      ; preds = %.lr.ph669
 
 RARRAY_AREF.exit452:                              ; preds = %rb_array_len.exit449.thread, %498
   %.0.i.i451 = phi ptr [ %499, %498 ], [ %58, %rb_array_len.exit449.thread ]
-  %500 = getelementptr i64, ptr %.0.i.i451, i64 %.11326668
+  %500 = getelementptr [8 x i8], ptr %.0.i.i451, i64 %.11326668
   %501 = load i64, ptr %500, align 8, !tbaa !7
   store i64 %501, ptr %8, align 8, !tbaa !7
   %502 = call i64 @rb_to_int(i64 noundef %501) #13
@@ -1331,7 +1331,7 @@ rb_array_len.exit456.thread:                      ; preds = %518
 RARRAY_AREF.exit459:                              ; preds = %rb_array_len.exit456.thread, %526
   %.0.i.i458 = phi ptr [ %527, %526 ], [ %58, %rb_array_len.exit456.thread ]
   %528 = add nsw i64 %.0315722, 1
-  %529 = getelementptr i64, ptr %.0.i.i458, i64 %.0315722
+  %529 = getelementptr [8 x i8], ptr %.0.i.i458, i64 %.0315722
   %530 = load i64, ptr %529, align 8, !tbaa !7
   store i64 %530, ptr %8, align 8, !tbaa !7
   %531 = call i64 @rb_string_value(ptr noundef nonnull %8) #13
@@ -1419,7 +1419,7 @@ rb_array_len.exit466.thread:                      ; preds = %559
 RARRAY_AREF.exit469:                              ; preds = %rb_array_len.exit466.thread, %567
   %.0.i.i468 = phi ptr [ %568, %567 ], [ %58, %rb_array_len.exit466.thread ]
   %569 = add nsw i64 %.0315722, 1
-  %570 = getelementptr i64, ptr %.0.i.i468, i64 %.0315722
+  %570 = getelementptr [8 x i8], ptr %.0.i.i468, i64 %.0315722
   %571 = load i64, ptr %570, align 8, !tbaa !7
   %572 = call i64 @rb_obj_as_string(i64 noundef %571) #13
   store i64 %572, ptr %8, align 8, !tbaa !7
@@ -1601,7 +1601,7 @@ rb_array_len.exit475.thread:                      ; preds = %639
 
 RARRAY_AREF.exit478:                              ; preds = %rb_array_len.exit475.thread, %647
   %.0.i.i477 = phi ptr [ %648, %647 ], [ %58, %rb_array_len.exit475.thread ]
-  %649 = getelementptr i64, ptr %.0.i.i477, i64 %.0315722
+  %649 = getelementptr [8 x i8], ptr %.0.i.i477, i64 %.0315722
   %650 = load i64, ptr %649, align 8, !tbaa !7
   store i64 %650, ptr %8, align 8, !tbaa !7
   %651 = icmp eq i64 %650, 4
@@ -1662,7 +1662,7 @@ rb_array_len.exit481.thread:                      ; preds = %.lr.ph661
 RARRAY_AREF.exit484:                              ; preds = %rb_array_len.exit481.thread, %673
   %.0.i.i483 = phi ptr [ %674, %673 ], [ %58, %rb_array_len.exit481.thread ]
   %675 = add nsw i64 %.12327658, 1
-  %676 = getelementptr i64, ptr %.0.i.i483, i64 %.12327658
+  %676 = getelementptr [8 x i8], ptr %.0.i.i483, i64 %.12327658
   %677 = load i64, ptr %676, align 8, !tbaa !7
   store i64 %677, ptr %8, align 8, !tbaa !7
   %678 = icmp eq i64 %677, 4
@@ -1722,7 +1722,7 @@ rb_array_len.exit487.thread:                      ; preds = %.lr.ph657
 RARRAY_AREF.exit490:                              ; preds = %rb_array_len.exit487.thread, %698
   %.0.i.i489 = phi ptr [ %699, %698 ], [ %58, %rb_array_len.exit487.thread ]
   %700 = add nsw i64 %.13328656, 1
-  %701 = getelementptr i64, ptr %.0.i.i489, i64 %.13328656
+  %701 = getelementptr [8 x i8], ptr %.0.i.i489, i64 %.13328656
   %702 = load i64, ptr %701, align 8, !tbaa !7
   store i64 %702, ptr %8, align 8, !tbaa !7
   %703 = call i64 @rb_to_int(i64 noundef %702) #13
@@ -3695,7 +3695,7 @@ utf8_to_uv.exit.thread:                           ; preds = %.lr.ph1617
   br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !110
 
 ._crit_edge.i:                                    ; preds = %532
-  %537 = getelementptr i64, ptr @utf8_limits, i64 %.0.i1144
+  %537 = getelementptr [8 x i8], ptr @utf8_limits, i64 %.0.i1144
   %538 = getelementptr i8, ptr %537, i64 -8
   %539 = load i64, ptr %538, align 8, !tbaa !7
   %540 = icmp ult i64 %536, %539
@@ -4610,7 +4610,7 @@ RSTRING_PTR.exit1176:                             ; preds = %952, %958
 rb_array_len.exit.i:                              ; preds = %996, %992
   %.0.i1418.i = phi ptr [ %993, %992 ], [ %998, %996 ]
   %.0.i16.i = phi i64 [ %995, %992 ], [ %1000, %996 ]
-  %1001 = getelementptr i64, ptr %.0.i1418.i, i64 %.0.i16.i
+  %1001 = getelementptr [8 x i8], ptr %.0.i1418.i, i64 %.0.i16.i
   %1002 = icmp ult ptr %.0.i1418.i, %1001
   br i1 %1002, label %.lr.ph.i1179, label %._crit_edge.i1178
 
@@ -4744,7 +4744,7 @@ str_associated.exit:                              ; preds = %1044, %1043
 rb_array_len.exit.i1182:                          ; preds = %1057, %1053
   %.0.i1418.i1183 = phi ptr [ %1054, %1053 ], [ %1059, %1057 ]
   %.0.i16.i1184 = phi i64 [ %1056, %1053 ], [ %1061, %1057 ]
-  %1062 = getelementptr i64, ptr %.0.i1418.i1183, i64 %.0.i16.i1184
+  %1062 = getelementptr [8 x i8], ptr %.0.i1418.i1183, i64 %.0.i16.i1184
   %1063 = icmp ult ptr %.0.i1418.i1183, %1062
   br i1 %1063, label %.lr.ph.i1186, label %._crit_edge.i1185
 

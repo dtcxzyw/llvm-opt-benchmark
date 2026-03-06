@@ -828,7 +828,7 @@ cond.true11:                                      ; preds = %for.body
 
 cond.false19:                                     ; preds = %for.body
   %14 = load ptr, ptr %Materials20, align 8, !tbaa !78
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %14, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [184 x i8], ptr %14, i64 %indvars.iv
   br label %cond.end22
 
 cond.end22:                                       ; preds = %cond.false19, %cond.true11
@@ -1019,7 +1019,7 @@ cond.true:                                        ; preds = %if.then23
 
 cond.false:                                       ; preds = %if.then23
   %19 = load ptr, ptr %Materials, align 8, !tbaa !78
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %19, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [184 x i8], ptr %19, i64 %indvars.iv
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -1466,7 +1466,7 @@ if.end:                                           ; preds = %land.lhs.true3, %en
 
 if.end18:                                         ; preds = %if.end
   %conv.i25 = zext i32 %i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %7, i64 %conv.i25
+  %add.ptr.i.i = getelementptr inbounds nuw [184 x i8], ptr %7, i64 %conv.i25
   br label %return
 
 return:                                           ; preds = %if.end18, %if.end, %if.then
@@ -2452,9 +2452,9 @@ if.then.i65.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 
 _ZNSt12_Vector_baseIN3irr4core8vector3dIfEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %if.then.i65.i.i, %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %edges, align 8, !tbaa !107
-  %add.ptr34.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %add.ptr.i.i, i64 %sub.i
+  %add.ptr34.i.i = getelementptr inbounds nuw [12 x i8], ptr %add.ptr.i.i, i64 %sub.i
   store ptr %add.ptr34.i.i, ptr %_M_finish.i.i, align 8, !tbaa !105
-  %add.ptr37.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i, i64 %add.i.i.i
+  %add.ptr37.i.i = getelementptr inbounds nuw [12 x i8], ptr %call5.i.i.i.i.i, i64 %add.i.i.i
   store ptr %add.ptr37.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !108
   br label %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit
 
@@ -3648,7 +3648,7 @@ _ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !78
   store ptr %__cur.0.lcssa.i.i.i.i.i42, ptr %_M_finish.i.i, align 8, !tbaa !79
-  %add.ptr20 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [184 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !98
   ret void
 }

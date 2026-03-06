@@ -732,16 +732,16 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
 
 24:                                               ; preds = %.preheader75, %33
   %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %33 ]
-  %25 = getelementptr float, ptr %18, i64 %indvars.iv
+  %25 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv
   %26 = load float, ptr %25, align 4, !tbaa !125
   %27 = fcmp une float %26, 0.000000e+00
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = getelementptr float, ptr %19, i64 %indvars.iv
+  %29 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !125
   %31 = tail call float @llvm.fmuladd.f32(float %12, float %26, float %30)
-  %32 = getelementptr float, ptr %20, i64 %indvars.iv
+  %32 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv
   store float %31, ptr %32, align 4, !tbaa !125
   br label %33
 
@@ -773,11 +773,11 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
 .preheader72:                                     ; preds = %.preheader73, %.loopexit
   %indvars.iv106 = phi i64 [ %indvars.iv104, %.preheader73 ], [ %indvars.iv.next107, %.loopexit ]
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, -1
-  %41 = getelementptr float, ptr %35, i64 %indvars.iv.next107
-  %42 = getelementptr float, ptr %36, i64 %indvars.iv.next107
+  %41 = getelementptr [4 x i8], ptr %35, i64 %indvars.iv.next107
+  %42 = getelementptr [4 x i8], ptr %36, i64 %indvars.iv.next107
   %.idx.i.i55 = mul nsw i64 %indvars.iv.next107, 12
   %43 = getelementptr i8, ptr %4, i64 %.idx.i.i55
-  %44 = getelementptr float, ptr %43, i64 %indvars.iv.next107
+  %44 = getelementptr [4 x i8], ptr %43, i64 %indvars.iv.next107
   %45 = load float, ptr %41, align 4, !tbaa !125
   %46 = load float, ptr %42, align 4, !tbaa !125
   %47 = fsub float %45, %46
@@ -864,8 +864,8 @@ define void @_ZN3gmx27setBoxDeformationFlowMatrixEPA3_KfS2_PA3_f(ptr noundef rea
 
 .preheader:                                       ; preds = %3, %6
   %indvars.iv16 = phi i64 [ 0, %3 ], [ %indvars.iv.next17, %6 ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv16
-  %4 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv16
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv16
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv16
   br label %7
 
 5:                                                ; preds = %6
@@ -878,13 +878,13 @@ define void @_ZN3gmx27setBoxDeformationFlowMatrixEPA3_KfS2_PA3_f(ptr noundef rea
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep, i64 %indvars.iv
   %8 = load float, ptr %gep, align 4, !tbaa !125
-  %9 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv
-  %10 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !125
   %12 = fdiv float %8, %11
-  %13 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %12, ptr %13, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

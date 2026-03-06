@@ -3861,7 +3861,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit88: ; preds = %207, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i84, %197
   %210 = phi ptr [ %199, %197 ], [ %209, %207 ], [ %201, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i84 ]
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
-  %212 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.1
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.1
   %.not.i89 = icmp eq ptr %211, %212
   br i1 %.not.i89, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit94, label %213
 
@@ -3907,7 +3907,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i93: ; preds =
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit94: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit88, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i93
   %235 = add nuw nsw i64 %.1, 1
-  %236 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.1
+  %236 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.1
   %237 = load ptr, ptr %3, align 8
   store ptr %237, ptr %236, align 16
   %238 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4060,7 +4060,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit113: ; preds = %297, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i109, %287
   %300 = phi ptr [ %289, %287 ], [ %299, %297 ], [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i109 ]
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 32
-  %302 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.2
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.2
   %.not.i114 = icmp eq ptr %301, %302
   br i1 %.not.i114, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit119, label %303
 
@@ -4106,7 +4106,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i118: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit119: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit113, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i118
   %325 = add nuw nsw i64 %.2, 1
-  %326 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.2
+  %326 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.2
   %327 = load ptr, ptr %4, align 8
   store ptr %327, ptr %326, align 16
   %328 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4259,7 +4259,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit138: ; preds = %387, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i134, %377
   %390 = phi ptr [ %379, %377 ], [ %389, %387 ], [ %381, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i134 ]
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 40
-  %392 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.3
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.3
   %.not.i139 = icmp eq ptr %391, %392
   br i1 %.not.i139, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit144, label %393
 
@@ -4305,7 +4305,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i143: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit144: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit138, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i143
   %415 = add nuw nsw i64 %.3, 1
-  %416 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.3
+  %416 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.3
   %417 = load ptr, ptr %5, align 8
   store ptr %417, ptr %416, align 16
   %418 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4458,7 +4458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit163: ; preds = %477, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i159, %467
   %480 = phi ptr [ %469, %467 ], [ %479, %477 ], [ %471, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i159 ]
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 48
-  %482 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.4
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.4
   %.not.i164 = icmp eq ptr %481, %482
   br i1 %.not.i164, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit169, label %483
 
@@ -4504,7 +4504,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i168: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit169: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit163, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i168
   %505 = add nuw nsw i64 %.4, 1
-  %506 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.4
+  %506 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.4
   %507 = load ptr, ptr %6, align 8
   store ptr %507, ptr %506, align 16
   %508 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4657,7 +4657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit189: ; preds = %567, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i185, %557
   %570 = phi ptr [ %559, %557 ], [ %569, %567 ], [ %561, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i185 ]
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 56
-  %572 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.5
+  %572 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.5
   %.not.i190 = icmp eq ptr %571, %572
   br i1 %.not.i190, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit195, label %573
 
@@ -4703,7 +4703,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i194: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit195: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit189, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i194
   %595 = add nuw nsw i64 %.5, 1
-  %596 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.5
+  %596 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.5
   %597 = load ptr, ptr %7, align 8
   store ptr %597, ptr %596, align 16
   %598 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4856,7 +4856,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit214: ; preds = %657, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i210, %647
   %660 = phi ptr [ %649, %647 ], [ %659, %657 ], [ %651, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i210 ]
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 64
-  %662 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.6
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.6
   %.not.i215 = icmp eq ptr %661, %662
   br i1 %.not.i215, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit220, label %663
 
@@ -4902,7 +4902,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i219: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit220: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit214, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i219
   %685 = add nuw nsw i64 %.6, 1
-  %686 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.6
+  %686 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.6
   %687 = load ptr, ptr %8, align 8
   store ptr %687, ptr %686, align 16
   %688 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5055,7 +5055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit239: ; preds = %747, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i235, %737
   %750 = phi ptr [ %739, %737 ], [ %749, %747 ], [ %741, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i235 ]
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 72
-  %752 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.7
+  %752 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.7
   %.not.i240 = icmp eq ptr %751, %752
   br i1 %.not.i240, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit245, label %753
 
@@ -5101,7 +5101,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i244: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit245: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit239, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i244
   %775 = add nuw nsw i64 %.7, 1
-  %776 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.7
+  %776 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.7
   %777 = load ptr, ptr %9, align 8
   store ptr %777, ptr %776, align 16
   %778 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -5254,7 +5254,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit265: ; preds = %837, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i261, %827
   %840 = phi ptr [ %829, %827 ], [ %839, %837 ], [ %831, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i261 ]
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 80
-  %842 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.8
+  %842 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.8
   %.not.i266 = icmp eq ptr %841, %842
   br i1 %.not.i266, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit271, label %843
 
@@ -5300,7 +5300,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i270: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit271: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit265, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i270
   %865 = add nuw nsw i64 %.8, 1
-  %866 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.8
+  %866 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.8
   %867 = load ptr, ptr %10, align 8
   store ptr %867, ptr %866, align 16
   %868 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5453,7 +5453,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit291: ; preds = %927, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i287, %917
   %930 = phi ptr [ %919, %917 ], [ %929, %927 ], [ %921, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i287 ]
   %931 = getelementptr inbounds nuw i8, ptr %930, i64 88
-  %932 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.9
+  %932 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.9
   %.not.i292 = icmp eq ptr %931, %932
   br i1 %.not.i292, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit297, label %933
 
@@ -5499,7 +5499,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i296: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit297: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit291, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i296
   %955 = add nuw nsw i64 %.9, 1
-  %956 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.9
+  %956 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.9
   %957 = load ptr, ptr %11, align 8
   store ptr %957, ptr %956, align 16
   %958 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5652,7 +5652,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagi
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit316: ; preds = %1017, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i312, %1007
   %1020 = phi ptr [ %1009, %1007 ], [ %1019, %1017 ], [ %1011, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i312 ]
   %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 96
-  %1022 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %14, i64 %.10
+  %1022 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.10
   %.not.i317 = icmp eq ptr %1021, %1022
   br i1 %.not.i317, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit322, label %1023
 
@@ -5698,7 +5698,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i321: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit322: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_55UsdImagingUsdRenderSettingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit316, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i321
   %1045 = add nuw nsw i64 %.10, 1
-  %1046 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %15, i64 %.10
+  %1046 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.10
   %1047 = load ptr, ptr %12, align 8
   store ptr %1047, ptr %1046, align 16
   %1048 = getelementptr inbounds nuw i8, ptr %12, i64 8

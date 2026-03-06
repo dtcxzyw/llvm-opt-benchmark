@@ -1369,7 +1369,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %164 ]
   %165 = phi ptr [ %159, %.lr.ph ], [ %172, %164 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv
   %167 = load ptr, ptr %166, align 8, !tbaa !90
   %168 = load ptr, ptr %0, align 8, !tbaa !4
   %169 = load ptr, ptr %168, align 8
@@ -4081,7 +4081,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   %28 = load i64, ptr %27, align 8, !tbaa !203
   %29 = load i64, ptr %25, align 8, !tbaa !159
   %30 = urem i64 %29, %28
-  %31 = getelementptr inbounds nuw ptr, ptr %18, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %30
   store ptr %26, ptr %31, align 8, !tbaa !208
   %.02834 = load ptr, ptr %20, align 8, !tbaa !188
   %.not3035 = icmp eq ptr %.02834, null
@@ -4101,7 +4101,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   store ptr %32, ptr %.02636, align 8, !tbaa !188
   %36 = load i64, ptr %35, align 8, !tbaa !159
   %37 = urem i64 %36, %28
-  %38 = getelementptr inbounds nuw ptr, ptr %18, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !208
   %.not32 = icmp eq ptr %39, null
   br i1 %.not32, label %40, label %45
@@ -5207,7 +5207,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   %28 = load i64, ptr %27, align 8, !tbaa !187
   %29 = load i64, ptr %25, align 8, !tbaa !159
   %30 = urem i64 %29, %28
-  %31 = getelementptr inbounds nuw ptr, ptr %18, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %30
   store ptr %26, ptr %31, align 8, !tbaa !208
   %.02834 = load ptr, ptr %20, align 8, !tbaa !188
   %.not3035 = icmp eq ptr %.02834, null
@@ -5227,7 +5227,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   store ptr %32, ptr %.02636, align 8, !tbaa !188
   %36 = load i64, ptr %35, align 8, !tbaa !159
   %37 = urem i64 %36, %28
-  %38 = getelementptr inbounds nuw ptr, ptr %18, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !208
   %.not32 = icmp eq ptr %39, null
   br i1 %.not32, label %40, label %45
@@ -10684,7 +10684,7 @@ _ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !88
   store ptr %28, ptr %3, align 8, !tbaa !87
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !300
   br label %_ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -12793,13 +12793,13 @@ define linkonce_odr noundef i64 @_ZNK5faiss3nsg5GraphIiE13get_neighborsEiPi(ptr 
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = add nsw i32 %11, %12
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %8, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !199
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %16, ptr %19, align 4, !tbaa !199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %4, align 8, !tbaa !306

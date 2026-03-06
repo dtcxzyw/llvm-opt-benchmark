@@ -20,10 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.0" = type { i8 }
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN2cv3dnn21InstanceNormLayerImplC2ERKNS0_14dnn4_v2024122311LayerParamsE = comdat any
 
@@ -871,14 +867,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 52:                                               ; preds = %48
   %53 = zext nneg i32 %51 to i64
   %54 = load ptr, ptr %49, align 8, !tbaa !68
-  %55 = getelementptr inbounds nuw double, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load double, ptr %55, align 8, !tbaa !71
   br label %79
 
 57:                                               ; preds = %48
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %49, align 8, !tbaa !73
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %61 = load i64, ptr %60, align 8, !tbaa !67
   %62 = sitofp i64 %61 to double
   br label %79
@@ -886,7 +882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 63:                                               ; preds = %48
   %64 = zext nneg i32 %51 to i64
   %65 = load ptr, ptr %49, align 8, !tbaa !76
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !33
   %68 = tail call double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #20
   br label %79
@@ -1050,7 +1046,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.18", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !80

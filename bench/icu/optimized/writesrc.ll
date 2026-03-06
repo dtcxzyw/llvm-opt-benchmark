@@ -845,19 +845,19 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
   br label %46
 
 35:                                               ; preds = %.split1
-  %36 = getelementptr inbounds nuw i16, ptr %.039, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %.039, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !18
   %38 = zext i16 %37 to i64
   br label %46
 
 39:                                               ; preds = %.split1
-  %40 = getelementptr inbounds nuw i32, ptr %.038, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.038, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %42 = zext i32 %41 to i64
   br label %46
 
 43:                                               ; preds = %.split1
-  %44 = getelementptr inbounds nuw i64, ptr %.037, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.037, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !20
   br label %46
 
@@ -1001,7 +1001,7 @@ define void @usrc_writeUCPTrieArrays(ptr noundef captures(none) %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %6
   %15 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.usrc_writeUCPTrie.1, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.usrc_writeUCPTrie.1, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %16
 
@@ -1086,7 +1086,7 @@ define void @usrc_writeUCPTrie(ptr noundef captures(none) %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %4
   %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.usrc_writeUCPTrie.1, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.usrc_writeUCPTrie.1, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %13
 
@@ -1130,7 +1130,7 @@ switch.lookup:                                    ; preds = %4
 
 switch.lookup17:                                  ; preds = %21
   %29 = zext nneg i8 %27 to i64
-  %switch.gep18 = getelementptr inbounds nuw i32, ptr @switch.table.usrc_writeUCPTrie.1, i64 %29
+  %switch.gep18 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.usrc_writeUCPTrie.1, i64 %29
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   br label %usrc_writeUCPTrieArrays.exit
 
@@ -1332,7 +1332,7 @@ define void @usrc_writeStringAsASCII(ptr noundef captures(none) %0, ptr noundef 
   %.02342 = phi i32 [ 0, %.lr.ph ], [ %.239, %59 ]
   %14 = add nsw i32 %.02342, 1
   %15 = sext i32 %.02342 to i64
-  %16 = getelementptr inbounds i16, ptr %1, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %1, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !56
   %18 = zext i16 %17 to i32
   %19 = and i32 %18, 64512
@@ -1343,7 +1343,7 @@ define void @usrc_writeStringAsASCII(ptr noundef captures(none) %0, ptr noundef 
 
 21:                                               ; preds = %13
   %22 = sext i32 %14 to i64
-  %23 = getelementptr inbounds i16, ptr %1, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %1, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !56
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512

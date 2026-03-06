@@ -6848,7 +6848,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %33 = and i64 %.0411, 255
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = load ptr, ptr %34, align 8, !nonnull !7, !align !587, !noundef !7
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %37 = load ptr, ptr %36, align 8
   br label %45
 

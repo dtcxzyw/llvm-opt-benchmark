@@ -372,11 +372,11 @@ define void @_Z18sparse_eigensolverP16gmx_sparsematrixiPfS1_i(ptr noundef %0, i3
 45:                                               ; preds = %43, %43
   %46 = load i32, ptr %9, align 16, !tbaa !3
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds float, ptr %31, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %31, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 -4
   %50 = load i32, ptr %41, align 4, !tbaa !3
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds float, ptr %31, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %31, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -4
   call void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPKfPf(ptr noundef %0, ptr noundef nonnull %49, ptr noundef nonnull %53)
   br label %54

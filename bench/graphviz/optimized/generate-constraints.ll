@@ -13,13 +13,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<(anonymous namespace)::Node *, (anonymous namespace)::Node *, std::_Identity<(anonymous namespace)::Node *>, (anonymous namespace)::CmpNodePos>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"struct.std::_Rb_tree<(anonymous namespace)::Node *, (anonymous namespace)::Node *, std::_Identity<(anonymous namespace)::Node *>, (anonymous namespace)::CmpNodePos>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
+%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { ptr }
 %struct.Event = type { i32, %"class.std::shared_ptr", double }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%class.Rectangle = type { double, double, double, double }
-%"struct.std::_Rb_tree<(anonymous namespace)::Node *, (anonymous namespace)::Node *, std::_Identity<(anonymous namespace)::Node *>, (anonymous namespace)::CmpNodePos>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
-%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { ptr }
 
 $_ZNSt6vectorI5EventSaIS0_EED2Ev = comdat any
@@ -163,7 +162,7 @@ _ZNSt12_Vector_baseI5EventSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %21, ptr %5, align 8, !tbaa !16
   store ptr %21, ptr %22, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw %struct.Event, ptr %21, i64 %15
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %15
   store ptr %23, ptr %19, align 8, !tbaa !20
   br label %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit
 
@@ -234,14 +233,14 @@ _ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit:       ; preds = %18, %_ZNSt12_Vector
 .lr.ph:                                           ; preds = %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit, %_ZNSt12__shared_ptrIN12_GLOBAL__N_14NodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %39 = phi ptr [ %96, %_ZNSt12__shared_ptrIN12_GLOBAL__N_14NodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %11, %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit ]
   %.082617 = phi i64 [ %94, %_ZNSt12__shared_ptrIN12_GLOBAL__N_14NodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit ]
-  %40 = getelementptr inbounds nuw %class.Rectangle, ptr %39, i64 %.082617
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %.082617
   %41 = load double, ptr %40, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load double, ptr %42, align 8, !tbaa !8
   %44 = fsub double %43, %41
   %45 = fmul double %44, 5.000000e-01
   %46 = fadd double %41, %45
-  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %.082617
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.082617
   %48 = load ptr, ptr %47, align 8, !tbaa !24
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store double %46, ptr %49, align 8, !tbaa !26
@@ -290,7 +289,7 @@ _ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit:       ; preds = %18, %_ZNSt12_Vector
 
 70:                                               ; preds = %51
   %71 = load ptr, ptr %0, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %class.Rectangle, ptr %71, i64 %.082617
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %.082617
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load double, ptr %73, align 8, !tbaa !10
   invoke fastcc void @_ZNSt6vectorI5EventSaIS0_EE12emplace_backIJ9EventTypeRSt10shared_ptrIN12_GLOBAL__N_14NodeEEdEEERS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 1, ptr nonnull %54, ptr nonnull %50, double %74)
@@ -1351,7 +1350,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; p
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %501, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %502 = getelementptr inbounds nuw ptr, ptr %497, i64 %495
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %495
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %484
@@ -1605,7 +1604,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i251: 
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i253
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i253: ; preds = %590, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i251
-  %591 = getelementptr inbounds nuw ptr, ptr %586, i64 %584
+  %591 = getelementptr inbounds nuw [8 x i8], ptr %586, i64 %584
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit256
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit256: ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i253, %573
@@ -1862,7 +1861,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i314: 
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i316
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i316: ; preds = %683, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i314
-  %684 = getelementptr inbounds nuw ptr, ptr %679, i64 %677
+  %684 = getelementptr inbounds nuw [8 x i8], ptr %679, i64 %677
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit319
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit319: ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i316, %666
@@ -1977,7 +1976,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i324: 
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i326
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i326: ; preds = %727, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i324
-  %728 = getelementptr inbounds nuw ptr, ptr %723, i64 %721
+  %728 = getelementptr inbounds nuw [8 x i8], ptr %723, i64 %721
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit329
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit329: ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i326, %710
@@ -2133,9 +2132,9 @@ _ZNSt6vectorI5EventSaIS0_EED2Ev.exit:             ; preds = %_ZSt8_DestroyIP5Eve
 
 .lr.ph650:                                        ; preds = %.lr.ph650.preheader, %.lr.ph650
   %indvars.iv = phi i64 [ 0, %.lr.ph650.preheader ], [ %indvars.iv.next, %.lr.ph650 ]
-  %772 = getelementptr inbounds nuw ptr, ptr %.sroa.0409.0.lcssa, i64 %indvars.iv
+  %772 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0409.0.lcssa, i64 %indvars.iv
   %773 = load ptr, ptr %772, align 8, !tbaa !90
-  %774 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv
+  %774 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv
   store ptr %773, ptr %774, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2309,7 +2308,7 @@ _ZNSt6vectorI5EventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit37.i: ; preds = %.lr
 _ZNSt6vectorI5EventSaIS0_EE17_M_realloc_insertIJ9EventTypeRSt10shared_ptrIN12_GLOBAL__N_14NodeEEdEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI5EventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit37.i, %60
   store ptr %33, ptr %0, align 8, !tbaa !16
   store ptr %59, ptr %2, align 8, !tbaa !19
-  %64 = getelementptr inbounds nuw %struct.Event, ptr %33, i64 %31
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %31
   store ptr %64, ptr %4, align 8, !tbaa !20
   br label %65
 
@@ -2752,7 +2751,7 @@ _ZNSt12_Vector_baseI5EventSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %18, ptr %4, align 8, !tbaa !16
   store ptr %18, ptr %19, align 8, !tbaa !19
-  %20 = getelementptr inbounds nuw %struct.Event, ptr %18, i64 %12
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %12
   store ptr %20, ptr %16, align 8, !tbaa !20
   br label %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit
 
@@ -2823,7 +2822,7 @@ _ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit:       ; preds = %15, %_ZNSt12_Vector
 .lr.ph:                                           ; preds = %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit, %_ZNSt12__shared_ptrIN12_GLOBAL__N_14NodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %36 = phi ptr [ %93, %_ZNSt12__shared_ptrIN12_GLOBAL__N_14NodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %8, %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit ]
   %.060237 = phi i64 [ %91, %_ZNSt12__shared_ptrIN12_GLOBAL__N_14NodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %_ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit ]
-  %37 = getelementptr inbounds nuw %class.Rectangle, ptr %36, i64 %.060237
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.060237
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load double, ptr %38, align 8, !tbaa !9
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -2831,7 +2830,7 @@ _ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit:       ; preds = %15, %_ZNSt12_Vector
   %42 = fsub double %41, %39
   %43 = fmul double %42, 5.000000e-01
   %44 = fadd double %39, %43
-  %45 = getelementptr inbounds nuw ptr, ptr %1, i64 %.060237
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.060237
   %46 = load ptr, ptr %45, align 8, !tbaa !24
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store double %44, ptr %47, align 8, !tbaa !26
@@ -2879,7 +2878,7 @@ _ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit:       ; preds = %15, %_ZNSt12_Vector
 
 67:                                               ; preds = %49
   %68 = load ptr, ptr %0, align 8, !tbaa !15
-  %69 = getelementptr inbounds nuw %class.Rectangle, ptr %68, i64 %.060237
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %.060237
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load double, ptr %70, align 8, !tbaa !8
   invoke fastcc void @_ZNSt6vectorI5EventSaIS0_EE12emplace_backIJ9EventTypeRSt10shared_ptrIN12_GLOBAL__N_14NodeEEdEEERS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 1, ptr nonnull %52, ptr nonnull %48, double %71)
@@ -3243,7 +3242,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; p
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %230, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %231 = getelementptr inbounds nuw ptr, ptr %226, i64 %224
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %224
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %213
@@ -3360,7 +3359,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i139: 
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i141
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i141: ; preds = %276, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i139
-  %277 = getelementptr inbounds nuw ptr, ptr %272, i64 %270
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %270
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit144
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit144: ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i141, %259
@@ -3516,9 +3515,9 @@ _ZNSt6vectorI5EventSaIS0_EED2Ev.exit:             ; preds = %_ZSt8_DestroyIP5Eve
 
 .lr.ph249:                                        ; preds = %.lr.ph249.preheader, %.lr.ph249
   %indvars.iv = phi i64 [ 0, %.lr.ph249.preheader ], [ %indvars.iv.next, %.lr.ph249 ]
-  %322 = getelementptr inbounds nuw ptr, ptr %.sroa.0168.0.lcssa, i64 %indvars.iv
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0168.0.lcssa, i64 %indvars.iv
   %323 = load ptr, ptr %322, align 8, !tbaa !90
-  %324 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv
   store ptr %323, ptr %324, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4130,7 +4129,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP5EventSt6vectorIS2_SaIS2_EE
 21:                                               ; preds = %13
   %22 = add nsw i64 %.019, -1
   %23 = lshr i64 %14, 1
-  %24 = getelementptr inbounds nuw %struct.Event, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %23
   %25 = getelementptr inbounds i8, ptr %storemerge18, i64 -32
   %26 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %24)
   br i1 %26, label %27, label %29
@@ -4337,7 +4336,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIP5Eve
 20:                                               ; preds = %_ZN5EventD2Ev.exit16, %11
   %.010 = phi i64 [ %13, %11 ], [ %51, %_ZN5EventD2Ev.exit16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds %struct.Event, ptr %0, i64 %.010
+  %21 = getelementptr inbounds [32 x i8], ptr %0, i64 %.010
   %22 = load i32, ptr %21, align 8, !tbaa !72
   store i32 %22, ptr %4, align 8, !tbaa !72
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -4702,13 +4701,13 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP5E
   %.041 = phi i64 [ %spec.select, %_ZN5EventaSEOS_.exit ], [ %1, %5 ]
   %11 = shl i64 %.041, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds %struct.Event, ptr %0, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds %struct.Event, ptr %0, i64 %14
+  %15 = getelementptr inbounds [32 x i8], ptr %0, i64 %14
   %16 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15)
   %spec.select = select i1 %16, i64 %14, i64 %12
-  %17 = getelementptr inbounds %struct.Event, ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %struct.Event, ptr %0, i64 %.041
+  %17 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds [32 x i8], ptr %0, i64 %.041
   %19 = load i32, ptr %17, align 8, !tbaa !72
   store i32 %19, ptr %18, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -4791,8 +4790,8 @@ _ZN5EventaSEOS_.exit:                             ; preds = %.lr.ph, %32, %_ZN9_
 58:                                               ; preds = %54
   %59 = shl nsw i64 %.0.lcssa, 1
   %60 = or disjoint i64 %59, 1
-  %61 = getelementptr inbounds %struct.Event, ptr %0, i64 %60
-  %62 = getelementptr inbounds %struct.Event, ptr %0, i64 %.0.lcssa
+  %61 = getelementptr inbounds [32 x i8], ptr %0, i64 %60
+  %62 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %63 = load i32, ptr %61, align 8, !tbaa !72
   store i32 %63, ptr %62, align 8, !tbaa !72
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4952,13 +4951,13 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP5Eve
   %.023 = phi i64 [ %.0924, %_ZN5EventaSEOS_.exit ], [ %1, %5 ]
   %.0924.in = add nsw i64 %.023, -1
   %.0924 = sdiv i64 %.0924.in, 2
-  %7 = getelementptr inbounds %struct.Event, ptr %0, i64 %.0924
+  %7 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0924
   %8 = load ptr, ptr %4, align 8, !tbaa !136
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds %struct.Event, ptr %0, i64 %.023
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %.023
   %12 = load i32, ptr %7, align 8, !tbaa !72
   store i32 %12, ptr %11, align 8, !tbaa !72
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5028,7 +5027,7 @@ _ZN5EventaSEOS_.exit:                             ; preds = %10, %25, %_ZN9__gnu
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN5EventaSEOS_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0924, %_ZN5EventaSEOS_.exit ], [ %.023, %.lr.ph ]
-  %45 = getelementptr inbounds %struct.Event, ptr %0, i64 %.0.lcssa
+  %45 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %46 = load i32, ptr %3, align 8, !tbaa !72
   store i32 %46, ptr %45, align 8, !tbaa !72
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8

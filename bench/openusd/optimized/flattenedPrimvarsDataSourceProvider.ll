@@ -11,17 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
 %"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.17" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.15" }
-%"struct.std::atomic.15" = type { %"struct.std::__atomic_base.16" }
-%"struct.std::__atomic_base.16" = type { i64 }
-%"struct.std::atomic.17" = type { %"struct.std::__atomic_base.18" }
-%"struct.std::__atomic_base.18" = type { ptr }
-%"struct.std::atomic.19" = type { %"struct.std::__atomic_base.20" }
-%"struct.std::__atomic_base.20" = type { ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.6" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.6" = type { %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.7", i32, i32 }
-%"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.7" = type { ptr, [40 x i8] }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl_data" }
@@ -289,7 +278,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
 
 .preheader13.i.i.i.i.i:                           ; preds = %.preheader13.i.i.i.i.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i
   %.014.i.i.i.i.i = phi i64 [ %52, %.preheader13.i.i.i.i.i ], [ 0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i ]
-  %50 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i.i.i, i64 %.014.i.i.i.i.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %.ptr12.i.i.i.i.i, i64 %.014.i.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store atomic i64 0, ptr %51 monotonic, align 8, !noalias !9
   %52 = add nuw nsw i64 %.014.i.i.i.i.i, 1
@@ -299,7 +288,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
 53:                                               ; preds = %53, %.preheader.i.i.i.i.i
   %.01015.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %57, %53 ]
   %54 = icmp eq i64 %.01015.i.i.i.i.i, 0
-  %55 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %48, i64 %.01015.i.i.i.i.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.01015.i.i.i.i.i
   %56 = select i1 %54, i64 %49, i64 0
   store atomic i64 %56, ptr %55 monotonic, align 8, !noalias !9
   %57 = add nuw nsw i64 %.01015.i.i.i.i.i, 1
@@ -938,7 +927,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__37HdFlattenedPrimvarsDataSour
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", ptr %spec.select.i.i.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %spec.select.i.i.i.i, i64 %17
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE6assignIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %spec.select.i.i.i.i, ptr noundef %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetaSERKS0_.exit
 
@@ -2338,10 +2327,10 @@ _ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTo
   %148 = shl nuw i64 1, %147
   %149 = and i64 %148, -2
   %150 = sub i64 %144, %149
-  %151 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %21, i64 %147
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %147
   %152 = load atomic i64, ptr %151 acquire, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %152 to ptr
-  %153 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i, i64 %150
+  %153 = getelementptr inbounds [16 x i8], ptr %.0.i.i.i.i.i.i, i64 %150
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load atomic i64, ptr %154 acquire, align 8
   %156 = icmp eq i64 %155, 3
@@ -2365,7 +2354,7 @@ _ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTo
   %164 = add i64 %.16.ph.i.i, 1
   %165 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %164, i1 true)
   %166 = xor i64 %165, 63
-  %167 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %21, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %166
   %168 = load atomic i64, ptr %167 acquire, align 8
   %.not10.i.i.i = icmp eq i64 %168, 0
   br i1 %.not10.i.i.i, label %169, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
@@ -2492,7 +2481,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTok
 
 common.resume.i.i.i:                              ; preds = %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS8_16HdDataSourceBaseEEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS8_16HdDataSourceBaseEEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i
   %common.resume.op.i.i.i = phi { ptr, i32 } [ %216, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS8_16HdDataSourceBaseEEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i ], [ %226, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS8_16HdDataSourceBaseEEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i ]
-  %215 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %21, i64 %.246.i.i
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.246.i.i
   store atomic i64 0, ptr %215 monotonic, align 8
   br label %.body
 
@@ -2503,7 +2492,7 @@ _ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %211, %.lr.ph.i.i.i.i.i
   %.06.i.i.i.i.i = phi i64 [ %219, %.lr.ph.i.i.i.i.i ], [ 0, %211 ]
-  %217 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %214, i64 %.06.i.i.i.i.i
+  %217 = getelementptr inbounds [16 x i8], ptr %214, i64 %.06.i.i.i.i.i
   store i64 0, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store ptr inttoptr (i64 3 to ptr), ptr %218, align 8
@@ -2512,7 +2501,7 @@ _ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %220 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %21, i64 %.246.i.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.246.i.i
   %221 = ptrtoint ptr %214 to i64
   store atomic i64 %221, ptr %220 release, align 8
   %222 = shl i64 2, %.246.i.i
@@ -2530,7 +2519,7 @@ _ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4
 
 .lr.ph.i.i17.i.i.i:                               ; preds = %224, %.lr.ph.i.i17.i.i.i
   %.06.i.i18.i.i.i = phi i64 [ %229, %.lr.ph.i.i17.i.i.i ], [ 0, %224 ]
-  %227 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %225, i64 %.06.i.i18.i.i.i
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %225, i64 %.06.i.i18.i.i.i
   store i64 0, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store ptr inttoptr (i64 3 to ptr), ptr %228, align 8
@@ -2544,9 +2533,9 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_
 
 231:                                              ; preds = %231, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i
   %.047.i.i.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i ], [ %236, %231 ]
-  %232 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %21, i64 %.047.i.i.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.047.i.i.i
   %233 = shl nuw nsw i64 1, %.047.i.i.i
-  %234 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %230, i64 %233
+  %234 = getelementptr inbounds nuw [16 x i8], ptr %230, i64 %233
   %235 = ptrtoint ptr %234 to i64
   store atomic i64 %235, ptr %232 release, align 8
   %236 = add nuw nsw i64 %.047.i.i.i, 1
@@ -3939,10 +3928,10 @@ _ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal
   %93 = shl nuw i64 1, %92
   %94 = and i64 %93, -2
   %95 = sub i64 %89, %94
-  %96 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %10, i64 %92
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %92
   %97 = load atomic i64, ptr %96 acquire, align 8
   %.0.i.i.i.i.i.i14 = inttoptr i64 %97 to ptr
-  %98 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i14, i64 %95
+  %98 = getelementptr inbounds [16 x i8], ptr %.0.i.i.i.i.i.i14, i64 %95
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load atomic i64, ptr %99 acquire, align 8
   %101 = icmp eq i64 %100, 3
@@ -4109,10 +4098,10 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
   %165 = shl nuw i64 1, %164
   %166 = and i64 %165, -2
   %167 = sub i64 %161, %166
-  %168 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %10, i64 %164
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %164
   %169 = load atomic i64, ptr %168 acquire, align 8
   %.0.i.i.i.i38.i.i = inttoptr i64 %169 to ptr
-  %170 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i38.i.i, i64 %167
+  %170 = getelementptr inbounds [16 x i8], ptr %.0.i.i.i.i38.i.i, i64 %167
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load atomic i64, ptr %171 acquire, align 8
   %173 = icmp eq i64 %172, 3
@@ -4431,7 +4420,7 @@ define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrIntern
 
 9:                                                ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit, %1
   %.038 = phi i64 [ %7, %1 ], [ %74, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit ]
-  %10 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %8, i64 %.038
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.038
   %11 = load atomic i64, ptr %10 monotonic, align 8
   %.0.i = inttoptr i64 %11 to ptr
   %12 = tail call i64 @llvm.umax.i64(i64 %.038, i64 1)
@@ -4439,7 +4428,7 @@ define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrIntern
 
 13:                                               ; preds = %9, %._crit_edge
   %.03643 = phi i64 [ 0, %9 ], [ %66, %._crit_edge ]
-  %14 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i, i64 %.03643
+  %14 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %.03643
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load atomic i64, ptr %15 monotonic, align 8
   %17 = icmp ugt i64 %16, 63
@@ -7264,7 +7253,7 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7Tf
 
 _ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
   %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %26, i64 %6
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %6
   store ptr %27, ptr %9, align 8
   %28 = ptrtoint ptr %22 to i64
   %29 = sub i64 %28, %16
@@ -7428,7 +7417,7 @@ _ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__p
 _ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEPS2_S2_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEPS2_S2_ET0_T_S6_S5_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEmEvRT_T0_.exit
   %93 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEPS2_S2_ET0_T_S6_S5_RSaIT1_E.exit.loopexit ], [ %10, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEmEvRT_T0_.exit ]
   %94 = sub nuw i64 %6, %18
-  %95 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   store ptr %95, ptr %9, align 8
   %.not11.i.i.i.i.i61 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i61, label %_ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_SaIS1_EET0_T_S5_S4_RT1_.exit67, label %.lr.ph.i.i.i.i.i62
@@ -7639,7 +7628,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit, %170
   store ptr %140, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i101, ptr %9, align 8
-  %174 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %140, i64 %136
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %136
   store ptr %174, ptr %7, align 8
   br label %_ZSt4copyISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SC_SB_.exit
 
@@ -7856,10 +7845,10 @@ define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrIntern
   %10 = and i64 %9, -2
   %11 = sub i64 %2, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %13 = getelementptr inbounds nuw %"struct.std::atomic.19", ptr %12, i64 %8
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %8
   %14 = load atomic i64, ptr %13 acquire, align 8
   %.0.i.i10 = inttoptr i64 %14 to ptr
-  %15 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i10, i64 %11
+  %15 = getelementptr inbounds [16 x i8], ptr %.0.i.i10, i64 %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8

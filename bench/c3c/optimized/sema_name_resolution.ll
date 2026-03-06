@@ -10,19 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Path_ = type { %union.SourceSpan, ptr, i32 }
 %union.SourceSpan = type { i64 }
 %struct.Vmem = type { ptr, i64, i64 }
-%struct.TypeInfo_ = type { i16, ptr, %union.SourceSpan, %union.anon.56 }
-%union.anon.56 = type { %struct.anon.57 }
-%struct.anon.57 = type { ptr, ptr }
-%struct.Decl_ = type { ptr, ptr, %union.SourceSpan, i64, %union.anon, i32, %union.anon.0, i64, ptr, ptr, ptr, %union.anon.1 }
-%union.anon = type { ptr }
-%union.anon.0 = type { i16 }
-%union.anon.1 = type { %struct.FuncDecl }
-%struct.FuncDecl = type { i32, [4 x i8], %struct.Signature_, i32, i32, %union.anon.8 }
-%struct.Signature_ = type <{ %struct.CalleeAttributes, i16, i8, i32, i32, [4 x i8], ptr }>
-%struct.CalleeAttributes = type { i8 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { i16, %union.anon.10 }
-%union.anon.10 = type { ptr }
 %struct.NameResolve = type { ptr, ptr, ptr, ptr, %union.SourceSpan, ptr, i8, i8 }
 
 @global_context = external global %struct.GlobalContext, align 8
@@ -178,7 +165,7 @@ define internal fastcc void @add_members_to_decl_stack(ptr noundef readonly capt
 
 sema_decl_stack_push.exit:                        ; preds = %.lr.ph
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %16, ptr %11, align 8
@@ -251,7 +238,7 @@ sema_decl_stack_push.exit:                        ; preds = %.lr.ph
   unreachable
 
 sema_decl_stack_push.exit104:                     ; preds = %.lr.ph120
-  %44 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv142
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv142
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %45, ptr %41, align 8
@@ -288,7 +275,7 @@ sema_decl_stack_push.exit104:                     ; preds = %.lr.ph120
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %._crit_edge124
   %indvars.iv152 = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next153, %._crit_edge124 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv152
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv152
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -321,7 +308,7 @@ sema_decl_stack_push.exit104:                     ; preds = %.lr.ph120
   unreachable
 
 sema_decl_stack_push.exit105:                     ; preds = %.lr.ph123
-  %70 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv147
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv147
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %71, ptr %67, align 8
@@ -363,7 +350,7 @@ sema_decl_stack_push.exit105:                     ; preds = %.lr.ph123
   unreachable
 
 sema_decl_stack_push.exit106:                     ; preds = %.lr.ph131
-  %81 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv157
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv157
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %82, ptr %78, align 8
@@ -400,7 +387,7 @@ sema_decl_stack_push.exit106:                     ; preds = %.lr.ph131
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %103
   %indvars.iv162 = phi i64 [ 0, %.lr.ph134.preheader ], [ %indvars.iv.next163, %103 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv162
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv162
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
@@ -454,7 +441,7 @@ define dso_local ptr @sema_find_decl_in_modules(ptr noundef readonly captures(ad
 
 sema_find_decl_in_module.exit.us:                 ; preds = %.lr.ph, %sema_find_decl_in_module.exit.thread.us
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %sema_find_decl_in_module.exit.thread.us ], [ 0, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv29
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv29
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @module_find_symbol(ptr noundef %10, ptr noundef %2) #10
   %.not19.us = icmp eq ptr %11, null
@@ -467,7 +454,7 @@ sema_find_decl_in_module.exit.thread.us:          ; preds = %sema_find_decl_in_m
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %sema_find_decl_in_module.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %sema_find_decl_in_module.exit.thread ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %7, align 8
   %15 = load ptr, ptr %13, align 8
@@ -541,7 +528,7 @@ define dso_local noundef ptr @sema_find_extension_method_in_list(ptr noundef rea
 
 8:                                                ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %.not18 = icmp eq ptr %11, %2
@@ -551,7 +538,7 @@ define dso_local noundef ptr @sema_find_extension_method_in_list(ptr noundef rea
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -596,7 +583,7 @@ define dso_local ptr @sema_resolve_method_in_module(ptr noundef readonly capture
 
 17:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %.not18.i = icmp eq ptr %20, %2
@@ -606,7 +593,7 @@ define dso_local ptr @sema_resolve_method_in_module(ptr noundef readonly capture
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %16, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -665,7 +652,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
   %.157 = phi ptr [ %.04253, %.lr.ph.preheader ], [ %.2, %54 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @sema_resolve_method_in_module(ptr noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %spec.store.select)
   %.not47 = icmp eq ptr %51, null
@@ -721,7 +708,7 @@ define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %2, %19
@@ -750,7 +737,7 @@ define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr noundef readonly c
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %26
   %indvars.iv54 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next55, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv54
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv54
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %2, %29
@@ -802,7 +789,7 @@ define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef reado
 
 20:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %.not18.i = icmp eq ptr %23, %2
@@ -812,7 +799,7 @@ define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef reado
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %19, i64 %27
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -857,7 +844,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
   %.1124 = phi ptr [ %.067147, %.lr.ph.preheader ], [ %.2, %62 ]
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load ptr, ptr %46, align 8
@@ -942,7 +929,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
 
 78:                                               ; preds = %92, %.lr.ph.i94
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i94 ], [ %indvars.iv.next.i98, %92 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i96
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i96
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
   %.not18.i97 = icmp eq ptr %81, %2
@@ -952,7 +939,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 80
   %84 = load i32, ptr %83, align 8
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %77, i64 %85
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %77, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -1346,7 +1333,7 @@ define internal fastcc ptr @sema_find_decl_in_private_imports(ptr noundef readon
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %sema_find_decl_in_module.exit.thread.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %sema_find_decl_in_module.exit.thread.us ], [ 0, %.lr.ph ]
   %.03350.us = phi ptr [ %.1.us, %sema_find_decl_in_module.exit.thread.us ], [ null, %.lr.ph ]
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv55
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv55
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load ptr, ptr %17, align 8
@@ -1410,7 +1397,7 @@ sema_find_decl_in_module.exit.thread.us:          ; preds = %39, %.thread48.us, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %sema_find_decl_in_module.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %sema_find_decl_in_module.exit.thread ], [ 0, %.lr.ph ]
   %.03350 = phi ptr [ %.1, %sema_find_decl_in_module.exit.thread ], [ null, %.lr.ph ]
-  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load ptr, ptr %42, align 8
@@ -1534,7 +1521,7 @@ define internal fastcc ptr @sema_find_decl_in_global(ptr noundef readonly captur
 
 22:                                               ; preds = %matches_subpath.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %matches_subpath.exit.thread.i ]
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i16, ptr %25, align 8
@@ -1592,7 +1579,7 @@ sema_is_path_found.exit:                          ; preds = %29, %matches_subpat
 51:                                               ; preds = %5
   %52 = load ptr, ptr @decl_arena, align 8
   %53 = zext i32 %10 to i64
-  %54 = getelementptr inbounds nuw %struct.Decl_, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [136 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 127
@@ -1685,7 +1672,7 @@ matches_subpath.exit.thread107:                   ; preds = %58, %59, %matches_s
   %.063138 = phi ptr [ null, %.lr.ph ], [ %.1, %matches_subpath.exit94.thread ]
   %.064137 = phi ptr [ null, %.lr.ph ], [ %.165, %matches_subpath.exit94.thread ]
   %.066136 = phi ptr [ null, %.lr.ph ], [ %.167, %matches_subpath.exit94.thread ]
-  %98 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8
   %.phi.trans.insert145 = getelementptr i8, ptr %99, i64 56
   %.val88.pre = load ptr, ptr %.phi.trans.insert145, align 8
@@ -2045,7 +2032,7 @@ define dso_local noundef ptr @sema_find_label_symbol(ptr noundef readonly captur
 
 15:                                               ; preds = %14
   %16 = add nsw i64 %.012, -1
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %.012
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.012
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %1
@@ -2081,7 +2068,7 @@ define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr noundef readon
 
 13:                                               ; preds = %11
   %14 = add nsw i64 %.011, -1
-  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %.011
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.011
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %1
@@ -2218,7 +2205,7 @@ define dso_local ptr @sema_find_path_symbol(ptr noundef readonly captures(none) 
 
 30:                                               ; preds = %.lr.ph, %matches_subpath.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %matches_subpath.exit.thread ]
-  %31 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -2292,7 +2279,7 @@ matches_subpath.exit.thread:                      ; preds = %45, %49, %37, %matc
 
 60:                                               ; preds = %.lr.ph106, %matches_subpath.exit81.thread
   %indvars.iv115 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next116, %matches_subpath.exit81.thread ]
-  %61 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv115
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv115
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -2444,7 +2431,7 @@ define dso_local ptr @sema_resolve_symbol(ptr noundef readonly captures(none) %0
 
 31:                                               ; preds = %.lr.ph, %matches_subpath.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %matches_subpath.exit.thread ]
-  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -2518,7 +2505,7 @@ matches_subpath.exit.thread:                      ; preds = %46, %50, %38, %matc
 
 61:                                               ; preds = %.lr.ph106, %matches_subpath.exit81.thread
   %indvars.iv115 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next116, %matches_subpath.exit81.thread ]
-  %62 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv115
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv115
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -2663,7 +2650,7 @@ define dso_local noundef zeroext i1 @sema_add_local(ptr noundef captures(none) %
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %6
@@ -2739,7 +2726,7 @@ sema_find_ct_local.exit:                          ; preds = %.lr.ph.i
   %65 = load i32, ptr %.1.i, align 4
   %66 = add i32 %65, -1
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %67
   store ptr %1, ptr %68, align 8
   br label %181
 
@@ -2776,7 +2763,7 @@ sema_find_ct_local.exit:                          ; preds = %.lr.ph.i
 
 .lr.ph.i.i:                                       ; preds = %78, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %78 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i.i
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, %6
@@ -2806,7 +2793,7 @@ sema_find_ct_local.exit:                          ; preds = %.lr.ph.i
 
 95:                                               ; preds = %92, %89
   %.02026.i = phi i64 [ %91, %89 ], [ %93, %92 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %85, i64 %.02026.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.02026.i
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %6
@@ -2951,14 +2938,14 @@ sema_find_local.exit.thread:                      ; preds = %92, %78, %73, %75, 
   %171 = load i32, ptr %.1.i.i, align 4
   %172 = add i32 %171, -1
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %173
   store ptr %1, ptr %174, align 8
   %175 = add nuw nsw i64 %.02634.i, 1
   %exitcond.not.i72 = icmp eq i64 %.02634.i, %141
   br i1 %exitcond.not.i72, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 176:                                              ; preds = %134
-  %177 = getelementptr inbounds nuw ptr, ptr %130, i64 %140
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %140
   store ptr %1, ptr %177, align 8
   br label %sema_append_local.exit
 
@@ -3079,14 +3066,14 @@ define dso_local void @sema_unwrap_var(ptr noundef captures(none) %0, ptr nounde
   %59 = load i32, ptr %.1.i.i, align 4
   %60 = add i32 %59, -1
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %61
   store ptr %3, ptr %62, align 8
   %63 = add nuw nsw i64 %.02634.i, 1
   %exitcond.not.i = icmp eq i64 %.02634.i, %29
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 64:                                               ; preds = %22
-  %65 = getelementptr inbounds nuw ptr, ptr %18, i64 %28
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %28
   store ptr %3, ptr %65, align 8
   br label %sema_append_local.exit
 
@@ -3184,14 +3171,14 @@ define dso_local void @sema_rewrap_var(ptr noundef captures(none) %0, ptr nounde
   %47 = load i32, ptr %.1.i.i, align 4
   %48 = add i32 %47, -1
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %49
   store ptr %4, ptr %50, align 8
   %51 = add nuw nsw i64 %.02634.i, 1
   %exitcond.not.i = icmp eq i64 %.02634.i, %17
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 52:                                               ; preds = %10
-  %53 = getelementptr inbounds nuw ptr, ptr %6, i64 %16
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %16
   store ptr %4, ptr %53, align 8
   br label %sema_append_local.exit
 
@@ -3299,14 +3286,14 @@ define dso_local void @sema_erase_var(ptr noundef captures(none) %0, ptr noundef
   %54 = load i32, ptr %.1.i.i, align 4
   %55 = add i32 %54, -1
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   store ptr %3, ptr %57, align 8
   %58 = add nuw nsw i64 %.02634.i, 1
   %exitcond.not.i = icmp eq i64 %.02634.i, %24
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 59:                                               ; preds = %17
-  %60 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %23
   store ptr %3, ptr %60, align 8
   br label %sema_append_local.exit
 
@@ -3420,14 +3407,14 @@ define dso_local void @sema_erase_unwrapped(ptr noundef captures(none) %0, ptr n
   %58 = load i32, ptr %.1.i.i, align 4
   %59 = add i32 %58, -1
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   store ptr %3, ptr %61, align 8
   %62 = add nuw nsw i64 %.02634.i, 1
   %exitcond.not.i = icmp eq i64 %.02634.i, %28
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 63:                                               ; preds = %21
-  %64 = getelementptr inbounds nuw ptr, ptr %17, i64 %27
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %27
   store ptr %3, ptr %64, align 8
   br label %sema_append_local.exit
 
@@ -3544,7 +3531,7 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr noundef readonly 
 .lr.ph17:                                         ; preds = %46, %.critedge90
   %.06115 = phi i32 [ %86, %.critedge90 ], [ 0, %46 ]
   %49 = zext i32 %.06115 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load ptr, ptr %52, align 8
@@ -3737,7 +3724,7 @@ define internal fastcc ptr @sema_resolve_no_path_symbol(ptr noundef readonly cap
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %4
@@ -3767,7 +3754,7 @@ define internal fastcc ptr @sema_resolve_no_path_symbol(ptr noundef readonly cap
 
 29:                                               ; preds = %26, %23
   %.02026.i = phi i64 [ %25, %23 ], [ %27, %26 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02026.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02026.i
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %4

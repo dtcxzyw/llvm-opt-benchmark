@@ -612,7 +612,7 @@ common.resume:                                    ; preds = %289, %233, %.body.i
 
 223:                                              ; preds = %218, %214
   %224 = load ptr, ptr %194, align 8, !alias.scope !104, !noalias !107, !nonnull !5, !noundef !5
-  %225 = getelementptr inbounds { i64, [8 x i64] }, ptr %224, i64 %215
+  %225 = getelementptr inbounds [72 x i8], ptr %224, i64 %215
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %225, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false), !noalias !71
   %226 = add i64 %215, 1
   store i64 %226, ptr %195, align 8, !alias.scope !104, !noalias !107
@@ -3585,7 +3585,7 @@ define hidden void @_ZN4gpui6keymap6Keymap12add_bindings17h319f2e91cac1a732E(ptr
   store i8 %56, ptr %63, align 1, !noalias !1247
   %64 = load ptr, ptr %.sroa.027.0.copyload, align 8, !alias.scope !1250, !noalias !1247, !nonnull !5, !noundef !5
   %65 = sub nsw i64 0, %47
-  %66 = getelementptr inbounds { { { i64, i64 } }, { i64, { [3 x i64] } } }, ptr %64, i64 %65
+  %66 = getelementptr inbounds [48 x i8], ptr %64, i64 %65
   %67 = and i8 %54, 1
   %68 = zext nneg i8 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.027.0.copyload, i64 16
@@ -3631,7 +3631,7 @@ define hidden void @_ZN4gpui6keymap6Keymap12add_bindings17h319f2e91cac1a732E(ptr
   %88 = phi i64 [ %.pre.i, %.noexc ], [ %82, %76 ]
   %.sroa.01.0.i = phi ptr [ %86, %.noexc ], [ %.sink9.i.i, %76 ]
   %.sroa.0.0.i3 = phi ptr [ %85, %.noexc ], [ %.sink10.i.i, %76 ]
-  %89 = getelementptr inbounds i64, ptr %.sroa.0.0.i3, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.i3, i64 %88
   store i64 %77, ptr %89, align 8
   %90 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !1259, !noundef !5
   %91 = add i64 %90, 1
@@ -3661,7 +3661,7 @@ define hidden void @_ZN4gpui6keymap6Keymap12add_bindings17h319f2e91cac1a732E(ptr
 
 100:                                              ; preds = %95, %87
   %101 = load ptr, ptr %15, align 8, !alias.scope !1260, !noalias !1263, !nonnull !5, !noundef !5
-  %102 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %101, i64 %92
+  %102 = getelementptr inbounds [192 x i8], ptr %101, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %102, ptr noundef nonnull align 8 dereferenceable(192) %5, i64 192, i1 false)
   %103 = add i64 %92, 1
   store i64 %103, ptr %14, align 8, !alias.scope !1260, !noalias !1263
@@ -4316,7 +4316,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h069c46a83b7d6cc0E(p
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2021926f0a3ad0cdE.exit.i.i": ; preds = %43, %.noexc10
   %48 = load ptr, ptr %24, align 8, !alias.scope !1428, !noalias !1431, !nonnull !5, !noundef !5
-  %49 = getelementptr inbounds { i64, [8 x i64] }, ptr %48, i64 %40
+  %49 = getelementptr inbounds [72 x i8], ptr %48, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !1434
   %50 = add i64 %40, 1
   store i64 %50, ptr %23, align 8, !alias.scope !1428, !noalias !1431
@@ -4703,7 +4703,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17ha128e57e448bcce5E(p
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc61e70dd07be5d7fE.exit.i.i": ; preds = %27, %23
   %32 = load ptr, ptr %17, align 8, !alias.scope !1644, !noalias !1647, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %24
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !1650
   %34 = add i64 %24, 1
   store i64 %34, ptr %16, align 8, !alias.scope !1644, !noalias !1647
@@ -4863,7 +4863,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17ha8679f1422b083b5E(p
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5c06da93b118e2f7E.exit.i.i": ; preds = %27, %23
   %32 = load ptr, ptr %17, align 8, !alias.scope !1710, !noalias !1713, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %24
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !1716
   %34 = add i64 %24, 1
   store i64 %34, ptr %16, align 8, !alias.scope !1710, !noalias !1713
@@ -5046,7 +5046,7 @@ _ZN10serde_json5value8to_value17hfda8fd84ffe5d6d6E.exit.i.i.i.i.i: ; preds = %18
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4f600aca4bb21a46E.exit.i.i": ; preds = %30, %26
   %35 = load ptr, ptr %17, align 8, !alias.scope !1801, !noalias !1804, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i64, [8 x i64] }, ptr %35, i64 %27
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !1807
   %37 = add i64 %27, 1
   store i64 %37, ptr %16, align 8, !alias.scope !1801, !noalias !1804
@@ -5140,7 +5140,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hce90
   %4 = load ptr, ptr %3, align 8, !alias.scope !1847, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1847, !noundef !5
-  %7 = getelementptr inbounds { i64, [8 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [72 x i8], ptr %4, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1850)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1853, !noalias !1856, !nonnull !5, !align !6, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16

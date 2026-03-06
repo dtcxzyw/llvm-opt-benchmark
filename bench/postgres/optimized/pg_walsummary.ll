@@ -102,7 +102,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr @optind, align 4
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds ptr, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %18, align 8
   %28 = call i32 (ptr, i32, ...) @open(ptr noundef %27, i32 noundef 0, i32 noundef 0) #11
@@ -132,7 +132,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %39 = load i32, ptr %19, align 4
   %40 = load i32, ptr %20, align 4
   %41 = sext i32 %35 to i64
-  %42 = getelementptr inbounds ptr, ptr @forkNames, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr @forkNames, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %38, i32 noundef %39, i32 noundef %40, ptr noundef %43, i32 noundef %36) #11
   br label %45
@@ -171,7 +171,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr %63, ptr @block_buffer, align 8
   %64 = load i32, ptr @block_buffer_size, align 4
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %65
   %67 = sub i32 %spec.store.select.i, %64
   %68 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %33, ptr noundef %66, i32 noundef %67) #11
   %69 = add i32 %68, %.0406.i
@@ -192,7 +192,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph17.i:                                       ; preds = %70
   %73 = sext i32 %35 to i64
-  %74 = getelementptr inbounds ptr, ptr @forkNames, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr @forkNames, i64 %73
   br i1 %.sroa.0.0, label %.lr.ph17.split.us.i, label %.preheader.i
 
 .lr.ph17.split.us.i:                              ; preds = %.lr.ph17.i
@@ -203,7 +203,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %.critedge.thread.us.i ], [ 0, %.lr.ph17.split.us.i ]
   %76 = load ptr, ptr @block_buffer, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv21.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv21.i
   %78 = load i32, ptr %77, align 4
   %79 = load i32, ptr %5, align 4
   %80 = load i32, ptr %19, align 4
@@ -217,7 +217,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %83 = load ptr, ptr @block_buffer, align 8
   %84 = add nuw i32 %.015.i, 1
   %85 = zext i32 %.015.i to i64
-  %86 = getelementptr inbounds nuw i32, ptr %83, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp ult i32 %84, %.040.lcssa.i
   br i1 %88, label %.lr.ph9.preheader.i, label %.preheader.i..critedge.thread.i_crit_edge
@@ -236,7 +236,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .lr.ph9.i:                                        ; preds = %97, %.lr.ph9.preheader.i
   %indvars.iv.i = phi i64 [ %89, %.lr.ph9.preheader.i ], [ %indvars.iv.next.i, %97 ]
   %.1397.i = phi i32 [ %87, %.lr.ph9.preheader.i ], [ %94, %97 ]
-  %93 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %.1397.i, 1
   %96 = icmp eq i32 %94, %95

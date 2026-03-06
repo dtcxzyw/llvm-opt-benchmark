@@ -458,7 +458,7 @@ define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, 
   %7 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef %1, i16 noundef zeroext %.1)
   %8 = and i32 %0, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %9
   store i16 %7, ptr %10, align 2
   %11 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef %2, i16 noundef zeroext %.1)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 512

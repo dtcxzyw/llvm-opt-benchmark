@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.except_id_t = type { i64, i64 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct._header_field_t = type { ptr, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
@@ -23,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_t = type { %struct.except_id_t, ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.header_info = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"Continue\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Switching Protocols\00", align 1
@@ -1542,12 +1540,12 @@ define internal void @header_fields_post_update_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_http, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1599,18 +1597,18 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %27 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #24
   store i32 -1, ptr %27, align 4
   %28 = load ptr, ptr @header_fields, align 8
-  %29 = getelementptr %struct._header_field_t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [16 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @g_strdup(ptr noundef %30)
   %32 = tail call noalias ptr @g_ascii_strdown(ptr noundef %31, i64 noundef -1)
   %33 = load ptr, ptr @dynamic_hf, align 8
-  %34 = getelementptr %struct.hf_register_info, ptr %33, i64 %indvars.iv
+  %34 = getelementptr [80 x i8], ptr %33, i64 %indvars.iv
   store ptr %27, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %31, ptr %35, align 8
   %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.503, ptr noundef %31)
   %37 = load ptr, ptr @dynamic_hf, align 8
-  %38 = getelementptr %struct.hf_register_info, ptr %37, i64 %indvars.iv
+  %38 = getelementptr [80 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %36, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -1618,12 +1616,12 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %42 = load ptr, ptr @header_fields, align 8
-  %43 = getelementptr %struct._header_field_t, ptr %42, i64 %indvars.iv
+  %43 = getelementptr [16 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias ptr @g_strdup(ptr noundef %45)
   %47 = load ptr, ptr @dynamic_hf, align 8
-  %48 = getelementptr %struct.hf_register_info, ptr %47, i64 %indvars.iv
+  %48 = getelementptr [80 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store ptr %46, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 56
@@ -1674,12 +1672,12 @@ define internal void @header_fields_reset_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_http, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2887,7 +2885,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   %87 = load ptr, ptr @g_ascii_table, align 8
   %88 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0713)
   %89 = zext i8 %88 to i64
-  %90 = getelementptr i16, ptr %87, i64 %89
+  %90 = getelementptr [2 x i8], ptr %87, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 64
   %.not843 = icmp eq i16 %92, 0
@@ -3488,7 +3486,7 @@ switch.early.test:                                ; preds = %230, %233
 
 is_token_char.exit.i:                             ; preds = %385
   %387 = zext i8 %383 to i64
-  %388 = getelementptr i16, ptr %87, i64 %387
+  %388 = getelementptr [2 x i8], ptr %87, i64 %387
   %389 = load i16, ptr %388, align 2
   %390 = trunc i16 %389 to i1
   br i1 %390, label %is_token_char.exit.thread.i, label %valid_header_name.exit.thread.thread
@@ -5707,7 +5705,7 @@ define internal fastcc noundef zeroext i1 @process_header(ptr noundef %0, i32 no
 
 is_token_char.exit.i:                             ; preds = %55
   %57 = zext i8 %53 to i64
-  %58 = getelementptr i16, ptr %50, i64 %57
+  %58 = getelementptr [2 x i8], ptr %50, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = trunc i16 %59 to i1
   br i1 %60, label %is_token_char.exit.thread.i, label %.loopexit
@@ -5747,7 +5745,7 @@ valid_header_name.exit:                           ; preds = %is_token_char.exit.
 
 72:                                               ; preds = %80, %valid_header_name.exit
   %indvars.iv.i506 = phi i64 [ 0, %valid_header_name.exit ], [ %indvars.iv.next.i507, %80 ]
-  %73 = getelementptr %struct.header_info, ptr @headers, i64 %indvars.iv.i506
+  %73 = getelementptr [24 x i8], ptr @headers, i64 %indvars.iv.i506
   %74 = load ptr, ptr %73, align 8
   %75 = call i64 @strlen(ptr noundef %74) #20
   %76 = icmp eq i64 %75, %.pre-phi
@@ -5925,7 +5923,7 @@ get_hf_for_header.exit.thread:                    ; preds = %117
   br i1 %.not461, label %proto_item_set_hidden.exit512, label %158
 
 158:                                              ; preds = %157
-  %159 = getelementptr %struct.header_info, ptr @headers, i64 %.pre577
+  %159 = getelementptr [24 x i8], ptr @headers, i64 %.pre577
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = load i32, ptr %161, align 4
@@ -6005,7 +6003,7 @@ proto_item_set_hidden.exit512.sink.split:         ; preds = %194, %177
 
 proto_item_set_hidden.exit512:                    ; preds = %proto_item_set_hidden.exit512.sink.split, %157, %194, %186, %177, %171, %166, %180
   %.1436 = phi ptr [ %185, %180 ], [ %170, %166 ], [ %185, %194 ], [ %185, %186 ], [ null, %157 ], [ %170, %177 ], [ %170, %171 ], [ %.1436.ph, %proto_item_set_hidden.exit512.sink.split ]
-  %200 = getelementptr %struct.header_info, ptr @headers, i64 %.pre577
+  %200 = getelementptr [24 x i8], ptr @headers, i64 %.pre577
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load i32, ptr %201, align 8
   switch i32 %202, label %.critedge502 [
@@ -6099,7 +6097,7 @@ proto_item_set_hidden.exit512:                    ; preds = %proto_item_set_hidd
 
 240:                                              ; preds = %236
   %241 = zext i8 %238 to i64
-  %242 = getelementptr i16, ptr %235, i64 %241
+  %242 = getelementptr [2 x i8], ptr %235, i64 %241
   %243 = load i16, ptr %242, align 2
   %244 = and i16 %243, 256
   %.not493 = icmp eq i16 %244, 0
@@ -6153,7 +6151,7 @@ proto_item_set_hidden.exit512:                    ; preds = %proto_item_set_hidd
 
 263:                                              ; preds = %259
   %264 = zext i8 %261 to i64
-  %265 = getelementptr i16, ptr %257, i64 %264
+  %265 = getelementptr [2 x i8], ptr %257, i64 %264
   %266 = load i16, ptr %265, align 2
   %267 = and i16 %266, 256
   %.not494 = icmp eq i16 %267, 0
@@ -6208,7 +6206,7 @@ proto_item_set_hidden.exit512:                    ; preds = %proto_item_set_hidd
 287:                                              ; preds = %285
   %288 = load ptr, ptr @g_ascii_table, align 8
   %289 = zext i8 %286 to i64
-  %290 = getelementptr i16, ptr %288, i64 %289
+  %290 = getelementptr [2 x i8], ptr %288, i64 %289
   %291 = load i16, ptr %290, align 2
   %292 = and i16 %291, 256
   %.not491 = icmp eq i16 %292, 0
@@ -6340,7 +6338,7 @@ proto_item_set_generated.exit:                    ; preds = %295, %302, %305
 
 355:                                              ; preds = %.preheader
   %356 = zext i8 %.0432 to i64
-  %357 = getelementptr i16, ptr %353, i64 %356
+  %357 = getelementptr [2 x i8], ptr %353, i64 %356
   %358 = load i16, ptr %357, align 2
   %359 = and i16 %358, 256
   %.not484 = icmp eq i16 %359, 0

@@ -990,7 +990,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit
 74:                                               ; preds = %69, %63
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %76 = load ptr, ptr %75, align 8, !alias.scope !162, !noalias !148, !nonnull !4, !noundef !4
-  %77 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %76, i64 %66
+  %77 = getelementptr inbounds [16 x i8], ptr %76, i64 %66
   store ptr %53, ptr %77, align 8, !noalias !148
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr @anon.20e8271e5016fadc382b0336ece0ff03.37, ptr %78, align 8, !noalias !148

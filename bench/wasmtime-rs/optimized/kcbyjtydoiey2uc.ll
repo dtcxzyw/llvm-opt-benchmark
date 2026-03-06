@@ -92,7 +92,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   %34 = phi i64 [ %.pre.i, %.noexc ], [ %28, %6 ]
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %36 = load ptr, ptr %35, align 8, !alias.scope !5, !noalias !8, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [32 x i8], ptr %36, i64 %34
   %.sroa.5.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i8 2, ptr %.sroa.5.0..sroa_idx29, align 8
@@ -304,7 +304,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_e
 18:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E.exit"
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { i8, [39 x i8] }, ptr %20, i64 %1
+  %21 = getelementptr inbounds [40 x i8], ptr %20, i64 %1
   ret ptr %21
 
 22:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E.exit"

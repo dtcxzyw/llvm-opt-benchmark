@@ -33,8 +33,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.static_key = type { %struct.atomic_t, %union.anon.3 }
 %union.anon.3 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.amd_northbridge = type { ptr, ptr, ptr, %struct.amd_l3_cache, ptr }
-%struct.amd_l3_cache = type { i32, [4 x i8] }
 
 @amd_nb_bus_dev_ranges = dso_local local_unnamed_addr constant [4 x %struct.amd_nb_bus_dev_range] [%struct.amd_nb_bus_dev_range { i8 0, i8 24, i8 32 }, %struct.amd_nb_bus_dev_range { i8 -1, i8 0, i8 32 }, %struct.amd_nb_bus_dev_range { i8 -2, i8 0, i8 32 }, %struct.amd_nb_bus_dev_range zeroinitializer], section ".init.rodata", align 1
 @amd_northbridges.0 = internal unnamed_addr global i16 0, align 8
@@ -95,7 +93,7 @@ define dso_local ptr @node_to_amd_nb(i32 noundef %0) #0 align 16 {
   %4 = icmp slt i32 %0, %3
   %5 = load ptr, ptr @amd_northbridges.2, align 8
   %6 = sext i32 %0 to i64
-  %7 = getelementptr %struct.amd_northbridge, ptr %5, i64 %6
+  %7 = getelementptr [40 x i8], ptr %5, i64 %6
   %8 = select i1 %4, ptr %7, ptr null
   ret ptr %8
 }
@@ -115,7 +113,7 @@ define internal fastcc i32 @__amd_smn_rw(i16 noundef zeroext %0, i32 noundef %1,
 7:                                                ; preds = %4
   %8 = load ptr, ptr @amd_northbridges.2, align 8
   %9 = zext i16 %0 to i64
-  %10 = getelementptr %struct.amd_northbridge, ptr %8, i64 %9
+  %10 = getelementptr [40 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %32, label %13
@@ -266,7 +264,7 @@ define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly captu
 define dso_local range(i32 0, 16) i32 @amd_get_subcaches(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i32, align 4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -277,7 +275,7 @@ define dso_local range(i32 0, 16) i32 @amd_get_subcaches(i32 noundef %0) local_u
   %12 = icmp slt i32 %9, %11
   %13 = load ptr, ptr @amd_northbridges.2, align 8
   %14 = sext i32 %9 to i64
-  %15 = getelementptr %struct.amd_northbridge, ptr %13, i64 %14
+  %15 = getelementptr [40 x i8], ptr %13, i64 %14
   %16 = select i1 %12, ptr %15, ptr null
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
@@ -314,7 +312,7 @@ declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr nound
 define dso_local noundef range(i32 -22, 1) i32 @amd_set_subcaches(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_info to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -325,7 +323,7 @@ define dso_local noundef range(i32 -22, 1) i32 @amd_set_subcaches(i32 noundef %0
   %13 = icmp slt i32 %10, %12
   %14 = load ptr, ptr @amd_northbridges.2, align 8
   %15 = sext i32 %10 to i64
-  %16 = getelementptr %struct.amd_northbridge, ptr %14, i64 %15
+  %16 = getelementptr [40 x i8], ptr %14, i64 %15
   %17 = select i1 %13, ptr %16, ptr null
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i64, ptr @amd_northbridges.1, align 8
@@ -438,11 +436,11 @@ define dso_local void @amd_flush_garts() #1 align 16 {
 .preheader5:                                      ; preds = %5, %.preheader5
   %12 = phi i64 [ %21, %.preheader5 ], [ 0, %5 ]
   %13 = load ptr, ptr @amd_northbridges.2, align 8
-  %.split = getelementptr %struct.amd_northbridge, ptr %13, i64 %12
+  %.split = getelementptr [40 x i8], ptr %13, i64 %12
   %14 = getelementptr i8, ptr %.split, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @flush_words, align 8
-  %17 = getelementptr i32, ptr %16, i64 %12
+  %17 = getelementptr [4 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 1
   %20 = tail call i32 @pci_write_config_dword(ptr noundef %15, i32 noundef 156, i32 noundef %19) #8
@@ -460,7 +458,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %27 = zext i16 %25 to i64
   %28 = icmp samesign ult i64 %26, %27
   %29 = load ptr, ptr @amd_northbridges.2, align 8
-  %30 = getelementptr %struct.amd_northbridge, ptr %29, i64 %26
+  %30 = getelementptr [40 x i8], ptr %29, i64 %26
   %31 = select i1 %28, ptr %30, ptr null
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -476,7 +474,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %39 = zext i16 %38 to i64
   %40 = icmp samesign ult i64 %26, %39
   %41 = load ptr, ptr @amd_northbridges.2, align 8
-  %42 = getelementptr %struct.amd_northbridge, ptr %41, i64 %26
+  %42 = getelementptr [40 x i8], ptr %41, i64 %26
   %43 = select i1 %40, ptr %42, ptr null
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -621,7 +619,7 @@ define internal noundef i32 @init_amd_nbs() #5 section ".init.text" align 16 {
   %66 = zext i16 %65 to i64
   %67 = icmp samesign ult i64 %53, %66
   %68 = load ptr, ptr @amd_northbridges.2, align 8
-  %69 = getelementptr %struct.amd_northbridge, ptr %68, i64 %53
+  %69 = getelementptr [40 x i8], ptr %68, i64 %53
   %70 = select i1 %67, ptr %69, ptr null
   store ptr %59, ptr %70, align 8
   br label %71
@@ -642,7 +640,7 @@ define internal noundef i32 @init_amd_nbs() #5 section ".init.text" align 16 {
   %80 = zext i16 %79 to i64
   %81 = icmp samesign ult i64 %53, %80
   %82 = load ptr, ptr @amd_northbridges.2, align 8
-  %83 = getelementptr %struct.amd_northbridge, ptr %82, i64 %53
+  %83 = getelementptr [40 x i8], ptr %82, i64 %53
   %84 = select i1 %81, ptr %83, ptr null
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %73, ptr %85, align 8
@@ -664,7 +662,7 @@ define internal noundef i32 @init_amd_nbs() #5 section ".init.text" align 16 {
   %95 = zext i16 %94 to i64
   %96 = icmp samesign ult i64 %53, %95
   %97 = load ptr, ptr @amd_northbridges.2, align 8
-  %98 = getelementptr %struct.amd_northbridge, ptr %97, i64 %53
+  %98 = getelementptr [40 x i8], ptr %97, i64 %53
   %99 = select i1 %96, ptr %98, ptr null
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %88, ptr %100, align 8
@@ -797,12 +795,12 @@ define internal noundef i32 @init_amd_nbs() #5 section ".init.text" align 16 {
   %172 = icmp ugt i16 %170, %171
   %173 = load ptr, ptr @amd_northbridges.2, align 8
   %174 = zext i16 %171 to i64
-  %175 = getelementptr %struct.amd_northbridge, ptr %173, i64 %174
+  %175 = getelementptr [40 x i8], ptr %173, i64 %174
   %176 = select i1 %172, ptr %175, ptr null
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr @flush_words, align 8
-  %180 = getelementptr i32, ptr %179, i64 %174
+  %180 = getelementptr [4 x i8], ptr %179, i64 %174
   %181 = tail call i32 @pci_read_config_dword(ptr noundef %178, i32 noundef 156, ptr noundef %180) #8
   %182 = add i16 %171, 1
   %183 = load i16, ptr @amd_northbridges.0, align 8

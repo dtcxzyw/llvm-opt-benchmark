@@ -3,7 +3,6 @@ source_filename = "bench/git/original/string-list.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.string_list_item = type { ptr, ptr }
 %struct.string_list_sort_ctx = type { ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"string-list.c\00", align 1
@@ -56,7 +55,7 @@ define dso_local ptr @string_list_insert(ptr noundef captures(none) %0, ptr noun
   %11 = add nsw i32 %10, %.02236.i.i
   %12 = load ptr, ptr %0, align 8, !tbaa !13
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = tail call i32 %spec.select.i.i(ptr noundef %1, ptr noundef %15) #12
   %17 = icmp slt i32 %16, 0
@@ -129,7 +128,7 @@ st_mult.exit.i:                                   ; preds = %28
 
 st_mult.exit.i.i:                                 ; preds = %41
   %45 = load ptr, ptr %0, align 8, !tbaa !13
-  %46 = getelementptr inbounds %struct.string_list_item, ptr %45, i64 %39
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %39
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = shl nuw i64 %42, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr readonly align 1 %46, i64 %48, i1 false)
@@ -149,7 +148,7 @@ move_array.exit.i:                                ; preds = %st_mult.exit.i.i, %
 54:                                               ; preds = %52, %move_array.exit.i
   %55 = phi ptr [ %53, %52 ], [ %1, %move_array.exit.i ]
   %56 = load ptr, ptr %0, align 8, !tbaa !13
-  %57 = getelementptr inbounds %struct.string_list_item, ptr %56, i64 %39
+  %57 = getelementptr inbounds [16 x i8], ptr %56, i64 %39
   store ptr %55, ptr %57, align 8, !tbaa !14
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr null, ptr %58, align 8, !tbaa !20
@@ -164,7 +163,7 @@ add_entry.exit:                                   ; preds = %get_entry_index.exi
   %.0.i.lobit = ashr i32 %.0.i, 31
   %spec.select = xor i32 %.0.i.lobit, %.0.i
   %62 = zext nneg i32 %spec.select to i64
-  %63 = getelementptr inbounds nuw %struct.string_list_item, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %62
   ret ptr %63
 }
 
@@ -188,7 +187,7 @@ define dso_local void @string_list_remove(ptr noundef captures(none) %0, ptr nou
   %12 = add nsw i32 %11, %.02236.i
   %13 = load ptr, ptr %0, align 8, !tbaa !13
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %16) #12
   %18 = icmp slt i32 %17, 0
@@ -214,7 +213,7 @@ get_entry_index.exit:                             ; preds = %19
 
 26:                                               ; preds = %get_entry_index.exit
   %27 = load ptr, ptr %0, align 8, !tbaa !13
-  %28 = getelementptr inbounds %struct.string_list_item, ptr %27, i64 %14
+  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %14
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   tail call void @free(ptr noundef %29) #12
   br label %30
@@ -225,7 +224,7 @@ get_entry_index.exit:                             ; preds = %19
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr %0, align 8, !tbaa !13
-  %33 = getelementptr inbounds %struct.string_list_item, ptr %32, i64 %14
+  %33 = getelementptr inbounds [16 x i8], ptr %32, i64 %14
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !20
   tail call void @free(ptr noundef %35) #12
@@ -236,7 +235,7 @@ get_entry_index.exit:                             ; preds = %19
   %38 = add i64 %37, -1
   store i64 %38, ptr %4, align 8, !tbaa !4
   %39 = load ptr, ptr %0, align 8, !tbaa !13
-  %40 = getelementptr inbounds %struct.string_list_item, ptr %39, i64 %14
+  %40 = getelementptr inbounds [16 x i8], ptr %39, i64 %14
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = sub i64 %38, %14
   %.not.i16 = icmp eq i64 %38, %14
@@ -282,7 +281,7 @@ define dso_local range(i32 0, 2) i32 @string_list_has_string(ptr noundef readonl
   %11 = add nsw i32 %10, %.02236.i
   %12 = load ptr, ptr %0, align 8, !tbaa !13
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %15) #12
   %17 = icmp slt i32 %16, 0
@@ -324,7 +323,7 @@ define dso_local i32 @string_list_find_insert_index(ptr noundef readonly capture
   %12 = add nsw i32 %11, %.02236.i
   %13 = load ptr, ptr %0, align 8, !tbaa !13
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %16) #12
   %18 = icmp slt i32 %17, 0
@@ -372,7 +371,7 @@ define dso_local ptr @string_list_lookup(ptr noundef readonly captures(none) %0,
   %11 = add nsw i32 %10, %.02236.i
   %12 = load ptr, ptr %0, align 8, !tbaa !13
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %15) #12
   %17 = icmp slt i32 %16, 0
@@ -391,7 +390,7 @@ define dso_local ptr @string_list_lookup(ptr noundef readonly captures(none) %0,
 
 get_entry_index.exit:                             ; preds = %18
   %22 = load ptr, ptr %0, align 8, !tbaa !13
-  %23 = getelementptr inbounds %struct.string_list_item, ptr %22, i64 %13
+  %23 = getelementptr inbounds [16 x i8], ptr %22, i64 %13
   br label %get_entry_index.exit.thread
 
 get_entry_index.exit.thread:                      ; preds = %19, %2, %get_entry_index.exit
@@ -420,10 +419,10 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
   %.02228.us = phi i32 [ %.1.us, %29 ], [ 1, %.lr.ph ]
   %9 = load ptr, ptr %0, align 8, !tbaa !13
   %10 = sext i32 %.02228.us to i64
-  %11 = getelementptr %struct.string_list_item, ptr %9, i64 %10
+  %11 = getelementptr [16 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -16
   %13 = load ptr, ptr %12, align 8, !tbaa !14
-  %14 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %indvars.iv32
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv32
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = tail call i32 %spec.select(ptr noundef %13, ptr noundef %15) #12
   %.not25.us = icmp eq i32 %16, 0
@@ -432,8 +431,8 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
 17:                                               ; preds = %.lr.ph.split.us
   %18 = load ptr, ptr %0, align 8, !tbaa !13
   %19 = add nsw i32 %.02228.us, 1
-  %20 = getelementptr inbounds %struct.string_list_item, ptr %18, i64 %10
-  %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %18, i64 %indvars.iv32
+  %20 = getelementptr inbounds [16 x i8], ptr %18, i64 %10
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !21
   br label %29
 
@@ -445,7 +444,7 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %0, align 8, !tbaa !13
-  %27 = getelementptr inbounds nuw %struct.string_list_item, ptr %26, i64 %indvars.iv32
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv32
   %28 = load ptr, ptr %27, align 8, !tbaa !14
   tail call void @free(ptr noundef %28) #12
   br label %29
@@ -462,10 +461,10 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
   %.02228 = phi i32 [ %.1, %57 ], [ 1, %.lr.ph ]
   %32 = load ptr, ptr %0, align 8, !tbaa !13
   %33 = sext i32 %.02228 to i64
-  %34 = getelementptr %struct.string_list_item, ptr %32, i64 %33
+  %34 = getelementptr [16 x i8], ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -16
   %36 = load ptr, ptr %35, align 8, !tbaa !14
-  %37 = getelementptr inbounds nuw %struct.string_list_item, ptr %32, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !14
   %39 = tail call i32 %spec.select(ptr noundef %36, ptr noundef %38) #12
   %.not25 = icmp eq i32 %39, 0
@@ -479,14 +478,14 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %0, align 8, !tbaa !13
-  %45 = getelementptr inbounds nuw %struct.string_list_item, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !14
   tail call void @free(ptr noundef %46) #12
   br label %47
 
 47:                                               ; preds = %43, %40
   %48 = load ptr, ptr %0, align 8, !tbaa !13
-  %49 = getelementptr inbounds nuw %struct.string_list_item, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !20
   tail call void @free(ptr noundef %51) #12
@@ -495,8 +494,8 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
 52:                                               ; preds = %.lr.ph.split
   %53 = load ptr, ptr %0, align 8, !tbaa !13
   %54 = add nsw i32 %.02228, 1
-  %55 = getelementptr inbounds %struct.string_list_item, ptr %53, i64 %33
-  %56 = getelementptr inbounds nuw %struct.string_list_item, ptr %53, i64 %indvars.iv
+  %55 = getelementptr inbounds [16 x i8], ptr %53, i64 %33
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !21
   br label %57
 
@@ -536,7 +535,7 @@ define dso_local i32 @for_each_string_list(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %3, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %3 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !13
-  %10 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #12
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %6, label %._crit_edge
@@ -562,7 +561,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %24 ], [ 0, %.lr.ph ]
   %.023.us = phi i32 [ %.1.us, %24 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %0, align 8, !tbaa !13
-  %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %indvars.iv27
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv27
   %10 = tail call i32 %2(ptr noundef %9, ptr noundef %3) #12
   %.not.us = icmp eq i32 %10, 0
   br i1 %.not.us, label %17, label %11
@@ -571,8 +570,8 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %12 = load ptr, ptr %0, align 8, !tbaa !13
   %13 = add nsw i32 %.023.us, 1
   %14 = sext i32 %.023.us to i64
-  %15 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %14
-  %16 = getelementptr inbounds nuw %struct.string_list_item, ptr %12, i64 %indvars.iv27
+  %15 = getelementptr inbounds [16 x i8], ptr %12, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !21
   br label %24
 
@@ -584,7 +583,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8, !tbaa !13
-  %22 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %indvars.iv27
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv27
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   tail call void @free(ptr noundef %23) #12
   br label %24
@@ -600,7 +599,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph ]
   %.023 = phi i32 [ %.1, %48 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %0, align 8, !tbaa !13
-  %28 = getelementptr inbounds nuw %struct.string_list_item, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv
   %29 = tail call i32 %2(ptr noundef %28, ptr noundef %3) #12
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %36, label %30
@@ -609,8 +608,8 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %31 = load ptr, ptr %0, align 8, !tbaa !13
   %32 = add nsw i32 %.023, 1
   %33 = sext i32 %.023 to i64
-  %34 = getelementptr inbounds %struct.string_list_item, ptr %31, i64 %33
-  %35 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %indvars.iv
+  %34 = getelementptr inbounds [16 x i8], ptr %31, i64 %33
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !21
   br label %48
 
@@ -622,14 +621,14 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %0, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw %struct.string_list_item, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   tail call void @free(ptr noundef %42) #12
   br label %43
 
 43:                                               ; preds = %39, %36
   %44 = load ptr, ptr %0, align 8, !tbaa !13
-  %45 = getelementptr inbounds nuw %struct.string_list_item, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !20
   tail call void @free(ptr noundef %47) #12
@@ -665,7 +664,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %18 ], [ 0, %.lr.ph.i ]
   %.023.us.i = phi i32 [ %.1.us.i, %18 ], [ 0, %.lr.ph.i ]
   %6 = load ptr, ptr %0, align 8, !tbaa !13
-  %7 = getelementptr inbounds nuw %struct.string_list_item, ptr %6, i64 %indvars.iv27.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv27.i
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = load i8, ptr %8, align 1, !tbaa !27
   %.not1 = icmp eq i8 %9, 0
@@ -674,7 +673,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
 10:                                               ; preds = %.lr.ph.split.us.i
   %11 = add nsw i32 %.023.us.i, 1
   %12 = sext i32 %.023.us.i to i64
-  %13 = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %6, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !21
   br label %18
 
@@ -699,7 +698,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %.lr.ph.i ]
   %.023.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i ]
   %21 = load ptr, ptr %0, align 8, !tbaa !13
-  %22 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = load i8, ptr %23, align 1, !tbaa !27
   %.not = icmp eq i8 %24, 0
@@ -708,7 +707,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
 25:                                               ; preds = %.lr.ph.split.i
   %26 = add nsw i32 %.023.i, 1
   %27 = sext i32 %.023.i to i64
-  %28 = getelementptr inbounds %struct.string_list_item, ptr %21, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %21, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !21
   br label %38
 
@@ -725,7 +724,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
 
 33:                                               ; preds = %32, %29
   %34 = phi ptr [ %.pre, %32 ], [ %21, %29 ]
-  %35 = getelementptr inbounds nuw %struct.string_list_item, ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !20
   tail call void @free(ptr noundef %37) #12
@@ -767,7 +766,7 @@ define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noun
 .lr.ph:                                           ; preds = %.preheader20, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader20 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !13
-  %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   tail call void @free(ptr noundef %12) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -788,7 +787,7 @@ define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noun
 .lr.ph24:                                         ; preds = %.preheader, %.lr.ph24
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph24 ], [ 0, %.preheader ]
   %17 = load ptr, ptr %0, align 8, !tbaa !13
-  %18 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %indvars.iv28
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv28
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   tail call void @free(ptr noundef %20) #12
@@ -826,7 +825,7 @@ define dso_local void @string_list_clear_func(ptr noundef captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.preheader24, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader24 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw %struct.string_list_item, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = load ptr, ptr %8, align 8, !tbaa !14
@@ -852,7 +851,7 @@ define dso_local void @string_list_clear_func(ptr noundef captures(none) %0, ptr
 .lr.ph28:                                         ; preds = %.preheader, %.lr.ph28
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph28 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %0, align 8, !tbaa !13
-  %20 = getelementptr inbounds nuw %struct.string_list_item, ptr %19, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv32
   %21 = load ptr, ptr %20, align 8, !tbaa !14
   tail call void @free(ptr noundef %21) #12
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
@@ -941,7 +940,7 @@ st_mult.exit:                                     ; preds = %9
   %19 = phi i64 [ %4, %._crit_edge ], [ %.pre19, %st_mult.exit ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %17, %st_mult.exit ]
   store i64 %.pre-phi, ptr %3, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %19
   store ptr %1, ptr %21, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr null, ptr %22, align 8, !tbaa !20
@@ -1003,7 +1002,7 @@ string_list_append_nodup.exit:                    ; preds = %._crit_edge.i, %st_
   %25 = phi i64 [ %11, %._crit_edge.i ], [ %.pre19.i, %st_mult.exit.i ]
   %26 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %24, %st_mult.exit.i ]
   store i64 %.pre-phi.i, ptr %10, align 8, !tbaa !4
-  %27 = getelementptr inbounds nuw %struct.string_list_item, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %25
   store ptr %9, ptr %27, align 8, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %28, align 8, !tbaa !20
@@ -1062,7 +1061,7 @@ define dso_local ptr @unsorted_string_list_lookup(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8, !tbaa !13
   %8 = load i64, ptr %6, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   %10 = icmp ult ptr %5, %9
   br i1 %10, label %.lr.ph25, label %.critedge
 
@@ -1077,7 +1076,7 @@ define dso_local ptr @unsorted_string_list_lookup(ptr noundef readonly captures(
   %14 = getelementptr inbounds nuw i8, ptr %.0131824, i64 16
   %15 = load ptr, ptr %0, align 8, !tbaa !13
   %16 = load i64, ptr %6, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw %struct.string_list_item, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   %18 = icmp ult ptr %14, %17
   br i1 %18, label %.lr.ph25, label %.critedge
 
@@ -1106,7 +1105,7 @@ define dso_local range(i32 0, 2) i32 @unsorted_string_list_has_string(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %.01318.i2, i64 16
   %10 = load ptr, ptr %0, align 8, !tbaa !13
   %11 = load i64, ptr %6, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw %struct.string_list_item, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = icmp ult ptr %9, %12
   br i1 %13, label %.lr.ph, label %unsorted_string_list_lookup.exit
 
@@ -1133,7 +1132,7 @@ define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(non
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !tbaa !13
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   tail call void @free(ptr noundef %11) #12
   br label %12
@@ -1149,7 +1148,7 @@ define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(non
 13:                                               ; preds = %12
   %14 = load ptr, ptr %0, align 8, !tbaa !13
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds %struct.string_list_item, ptr %14, i64 %15
+  %16 = getelementptr inbounds [16 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   tail call void @free(ptr noundef %18) #12
@@ -1158,10 +1157,10 @@ define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(non
 19:                                               ; preds = %._crit_edge, %13
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %15, %13 ]
   %20 = load ptr, ptr %0, align 8, !tbaa !13
-  %21 = getelementptr inbounds %struct.string_list_item, ptr %20, i64 %.pre-phi
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %.pre-phi
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !4
-  %24 = getelementptr %struct.string_list_item, ptr %20, i64 %23
+  %24 = getelementptr [16 x i8], ptr %20, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !21
   %26 = load i64, ptr %22, align 8, !tbaa !4
@@ -1238,7 +1237,7 @@ string_list_append_nodup.exit.us:                 ; preds = %st_mult.exit.i.us, 
   %31 = phi i64 [ %19, %._crit_edge.i.us ], [ %.pre19.i.us, %st_mult.exit.i.us ]
   %32 = phi ptr [ %.pre.i.us, %._crit_edge.i.us ], [ %30, %st_mult.exit.i.us ]
   store i64 %.pre-phi.i.us, ptr %9, align 8, !tbaa !4
-  %33 = getelementptr inbounds nuw %struct.string_list_item, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %31
   store ptr %18, ptr %33, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %34, align 8, !tbaa !20
@@ -1306,7 +1305,7 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
   %58 = phi i64 [ %44, %._crit_edge.i.i ], [ %.pre19.i.i, %st_mult.exit.i.i ]
   %59 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %57, %st_mult.exit.i.i ]
   store i64 %.pre-phi.i.i, ptr %43, align 8, !tbaa !4
-  %60 = getelementptr inbounds nuw %struct.string_list_item, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %58
   store ptr %42, ptr %60, align 8, !tbaa !14
   br label %108
 
@@ -1360,7 +1359,7 @@ string_list_append_nodup.exit:                    ; preds = %._crit_edge.i, %st_
   %80 = phi i64 [ %68, %._crit_edge.i ], [ %.pre19.i, %st_mult.exit.i ]
   %81 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %79, %st_mult.exit.i ]
   store i64 %.pre-phi.i, ptr %9, align 8, !tbaa !4
-  %82 = getelementptr inbounds nuw %struct.string_list_item, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %80
   store ptr %67, ptr %82, align 8, !tbaa !14
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr null, ptr %83, align 8, !tbaa !20
@@ -1420,7 +1419,7 @@ string_list_append.exit33:                        ; preds = %._crit_edge.i.i26, 
   %105 = phi i64 [ %92, %._crit_edge.i.i26 ], [ %.pre19.i.i31, %st_mult.exit.i.i30 ]
   %106 = phi ptr [ %.pre.i.i27, %._crit_edge.i.i26 ], [ %104, %st_mult.exit.i.i30 ]
   store i64 %.pre-phi.i.i28, ptr %9, align 8, !tbaa !4
-  %107 = getelementptr inbounds nuw %struct.string_list_item, ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %105
   store ptr %91, ptr %107, align 8, !tbaa !14
   br label %108
 
@@ -1516,7 +1515,7 @@ string_list_append.exit32.us:                     ; preds = %st_mult.exit.i.i29.
   %33 = phi i64 [ %21, %._crit_edge.i.i25.us ], [ %.pre19.i.i30.us, %st_mult.exit.i.i29.us ]
   %34 = phi ptr [ %.pre.i.i26.us, %._crit_edge.i.i25.us ], [ %32, %st_mult.exit.i.i29.us ]
   store i64 %.pre-phi.i.i27.us, ptr %9, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw %struct.string_list_item, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %33
   store ptr %20, ptr %35, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr null, ptr %36, align 8, !tbaa !20
@@ -1582,7 +1581,7 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
   %60 = phi i64 [ %46, %._crit_edge.i.i ], [ %.pre19.i.i, %st_mult.exit.i.i ]
   %61 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %59, %st_mult.exit.i.i ]
   store i64 %.pre-phi.i.i, ptr %45, align 8, !tbaa !4
-  %62 = getelementptr inbounds nuw %struct.string_list_item, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %60
   store ptr %44, ptr %62, align 8, !tbaa !14
   br label %112
 
@@ -1644,7 +1643,7 @@ string_list_append.exit32:                        ; preds = %._crit_edge.i.i25, 
   %84 = phi i64 [ %72, %._crit_edge.i.i25 ], [ %.pre19.i.i30, %st_mult.exit.i.i29 ]
   %85 = phi ptr [ %.pre.i.i26, %._crit_edge.i.i25 ], [ %83, %st_mult.exit.i.i29 ]
   store i64 %.pre-phi.i.i27, ptr %9, align 8, !tbaa !4
-  %86 = getelementptr inbounds nuw %struct.string_list_item, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %84
   store ptr %71, ptr %86, align 8, !tbaa !14
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr null, ptr %87, align 8, !tbaa !20
@@ -1704,7 +1703,7 @@ string_list_append.exit41:                        ; preds = %._crit_edge.i.i34, 
   %109 = phi i64 [ %96, %._crit_edge.i.i34 ], [ %.pre19.i.i39, %st_mult.exit.i.i38 ]
   %110 = phi ptr [ %.pre.i.i35, %._crit_edge.i.i34 ], [ %108, %st_mult.exit.i.i38 ]
   store i64 %.pre-phi.i.i36, ptr %9, align 8, !tbaa !4
-  %111 = getelementptr inbounds nuw %struct.string_list_item, ptr %110, i64 %109
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %109
   store ptr %95, ptr %111, align 8, !tbaa !14
   br label %112
 

@@ -4609,7 +4609,7 @@ declare ptr @l_Lean_PersistentArray_push___rarg(ptr noundef, ptr noundef) local_
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 9) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -67394,7 +67394,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_PrettyPrinter_Parenthesizer_inte
   br label %lean_dec.exit112
 
 lean_dec.exit112:                                 ; preds = %31, %30, %28, %22
-  %32 = getelementptr inbounds nuw ptr, ptr %11, i64 %.074189
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.074189
   %33 = load ptr, ptr %32, align 8, !tbaa !4
   %34 = ptrtoint ptr %33 to i64
   %35 = trunc i64 %34 to i1

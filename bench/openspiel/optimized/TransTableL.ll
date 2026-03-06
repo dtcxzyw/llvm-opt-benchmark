@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.TransTableL::aggrType" = type { [4 x i32], [4 x [4 x i32]] }
-%"struct.TransTableL::distHashType" = type { i32, i32, [32 x %"struct.TransTableL::posSearchType"] }
-%"struct.TransTableL::posSearchType" = type { ptr, i64 }
 %"struct.TransTableL::winMatchType" = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.nodeCardsType }
 %struct.nodeCardsType = type { i8, i8, i8, i8, [4 x i8] }
 %"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
@@ -215,15 +212,15 @@ define void @_ZN11TransTableLC2Ev(ptr noundef nonnull writeonly align 8 captures
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = xor i32 %spec.select.i, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 2
   %13 = or i32 %12, 50331648
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %14, align 4
   %15 = shl i32 %13, 6
   %16 = and i32 %15, -16777216
-  %17 = getelementptr inbounds nuw [4 x [4 x i32]], ptr @_ZL9maskBytes, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [64 x i8], ptr @_ZL9maskBytes, i64 %indvars.iv.i
   store i32 %16, ptr %17, align 16
   %18 = shl i32 %12, 14
   %19 = and i32 %18, -16777216
@@ -275,10 +272,10 @@ define void @_ZN11TransTableLC2Ev(ptr noundef nonnull writeonly align 8 captures
   %51 = and i32 %15, 192
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 60
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %9
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %9
   %54 = load i32, ptr %53, align 4
   %55 = add nsw i32 %54, -1
-  %56 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %indvars.iv.i
   store i32 %55, ptr %56, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8192
@@ -329,15 +326,15 @@ define void @_ZN11TransTableL12SetConstantsEv(ptr noundef nonnull readnone align
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = xor i32 %spec.select, %6
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 2
   %12 = or i32 %11, 50331648
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %14 = shl i32 %12, 6
   %15 = and i32 %14, -16777216
-  %16 = getelementptr inbounds nuw [4 x [4 x i32]], ptr @_ZL9maskBytes, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [64 x i8], ptr @_ZL9maskBytes, i64 %indvars.iv
   store i32 %15, ptr %16, align 16
   %17 = shl i32 %11, 14
   %18 = and i32 %17, -16777216
@@ -389,10 +386,10 @@ define void @_ZN11TransTableL12SetConstantsEv(ptr noundef nonnull readnone align
   %50 = and i32 %14, 192
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 60
   store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %8
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %8
   %53 = load i32, ptr %52, align 4
   %54 = add nsw i32 %53, -1
-  %55 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %indvars.iv
   store i32 %54, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8192
@@ -457,12 +454,12 @@ define void @_ZN11TransTableLD2Ev(ptr noundef nonnull align 8 captures(none) der
 
 .preheader.i.i:                                   ; preds = %26, %17
   %indvars.iv13.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next14.i.i, %26 ]
-  %19 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 %indvars.iv13.i.i
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv13.i.i
   br label %20
 
 20:                                               ; preds = %25, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -539,12 +536,12 @@ define void @_ZN11TransTableL15ReturnAllMemoryEv(ptr noundef nonnull align 8 cap
 
 .preheader.i:                                     ; preds = %26, %17
   %indvars.iv13.i = phi i64 [ 0, %17 ], [ %indvars.iv.next14.i, %26 ]
-  %19 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 %indvars.iv13.i
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv13.i
   br label %20
 
 20:                                               ; preds = %25, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -609,19 +606,19 @@ define void @_ZN11TransTableL4InitEPA15_Ki(ptr noundef nonnull align 8 captures(
   %7 = trunc nuw nsw i64 %indvars.iv72 to i32
   %8 = xor i32 %spec.select64, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %2, i64 %9
-  %11 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %2, i64 %indvars.iv72
+  %10 = getelementptr inbounds nuw [80 x i8], ptr %2, i64 %9
+  %11 = getelementptr inbounds nuw [80 x i8], ptr %2, i64 %indvars.iv72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %11, ptr noundef nonnull align 4 dereferenceable(80) %10, i64 80, i1 false)
   %12 = zext i32 %spec.select to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %1, i64 %12
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %12
   br label %13
 
 13:                                               ; preds = %3, %13
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 2
-  %gep = getelementptr inbounds nuw [15 x i32], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [60 x i8], ptr %invariant.gep, i64 %indvars.iv
   %17 = load i32, ptr %gep, align 4
   %18 = shl i32 %17, 24
   %19 = or i32 %18, %16
@@ -748,7 +745,7 @@ define void @_ZN11TransTableL6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 .preheader:                                       ; preds = %4, %13
   %indvars.iv12 = phi i64 [ 0, %4 ], [ %indvars.iv.next13, %13 ]
-  %6 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 %indvars.iv12
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv12
   br label %8
 
 7:                                                ; preds = %8
@@ -759,7 +756,7 @@ define void @_ZN11TransTableL6MakeTTEv(ptr noundef nonnull align 8 captures(none
 8:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %9 = tail call noalias dereferenceable_or_null(133120) ptr @malloc(i64 noundef 133120) #37
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %7
@@ -780,22 +777,22 @@ define void @_ZN11TransTableL6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 .preheader16.i:                                   ; preds = %27, %.loopexit
   %indvars.iv25.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next26.i, %27 ]
-  %16 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 %indvars.iv25.i
-  %17 = getelementptr inbounds nuw [4 x ptr], ptr %15, i64 %indvars.iv25.i
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv25.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv25.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %25, %.preheader16.i
   %indvars.iv21.i = phi i64 [ 0, %.preheader16.i ], [ %indvars.iv.next22.i, %25 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv21.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv21.i
   br label %19
 
 19:                                               ; preds = %19, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %19 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [520 x i8], ptr %20, i64 %indvars.iv.i
   store i32 0, ptr %21, align 8
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [520 x i8], ptr %22, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 0, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -803,7 +800,7 @@ define void @_ZN11TransTableL6MakeTTEv(ptr noundef nonnull align 8 captures(none
   br i1 %exitcond.not.i, label %25, label %19, !llvm.loop !15
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv21.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv21.i
   store ptr null, ptr %26, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 4
@@ -832,22 +829,22 @@ define void @_ZN11TransTableL6InitTTEv(ptr noundef nonnull align 8 captures(none
 
 .preheader16:                                     ; preds = %1, %15
   %indvars.iv25 = phi i64 [ 0, %1 ], [ %indvars.iv.next26, %15 ]
-  %4 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 %indvars.iv25
-  %5 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 %indvars.iv25
+  %4 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv25
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv25
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader16, %13
   %indvars.iv21 = phi i64 [ 0, %.preheader16 ], [ %indvars.iv.next22, %13 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv21
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv21
   br label %7
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [520 x i8], ptr %8, i64 %indvars.iv
   store i32 0, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [520 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -855,7 +852,7 @@ define void @_ZN11TransTableL6InitTTEv(ptr noundef nonnull align 8 captures(none
   br i1 %exitcond.not, label %13, label %7, !llvm.loop !15
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv21
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv21
   store ptr null, ptr %14, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 4
@@ -884,12 +881,12 @@ define void @_ZN11TransTableL9ReleaseTTEv(ptr noundef nonnull align 8 captures(n
 
 .preheader:                                       ; preds = %4, %13
   %indvars.iv13 = phi i64 [ 0, %4 ], [ %indvars.iv.next14, %13 ]
-  %6 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 %indvars.iv13
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv13
   br label %7
 
 7:                                                ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
@@ -1005,22 +1002,22 @@ define void @_ZN11TransTableL11ResetMemoryE13TTresetReason(ptr noundef nonnull a
 
 .preheader16.i:                                   ; preds = %61, %._crit_edge7
   %indvars.iv25.i = phi i64 [ 0, %._crit_edge7 ], [ %indvars.iv.next26.i, %61 ]
-  %50 = getelementptr inbounds nuw [4 x ptr], ptr %48, i64 %indvars.iv25.i
-  %51 = getelementptr inbounds nuw [4 x ptr], ptr %49, i64 %indvars.iv25.i
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %indvars.iv25.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv25.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %59, %.preheader16.i
   %indvars.iv21.i = phi i64 [ 0, %.preheader16.i ], [ %indvars.iv.next22.i, %59 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv21.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv21.i
   br label %53
 
 53:                                               ; preds = %53, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %53 ]
   %54 = load ptr, ptr %52, align 8
-  %55 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [520 x i8], ptr %54, i64 %indvars.iv.i
   store i32 0, ptr %55, align 8
   %56 = load ptr, ptr %52, align 8
-  %57 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [520 x i8], ptr %56, i64 %indvars.iv.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 0, ptr %58, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1028,7 +1025,7 @@ define void @_ZN11TransTableL11ResetMemoryE13TTresetReason(ptr noundef nonnull a
   br i1 %exitcond.not.i, label %59, label %53, !llvm.loop !15
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv21.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv21.i
   store ptr null, ptr %60, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 4
@@ -1162,7 +1159,7 @@ define noundef ptr @_ZN11TransTableL16GetNextCardBlockEv(ptr noundef nonnull ali
   store i32 %40, ptr %25, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 656208
   %42 = sext i32 %.012 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   br label %130
 
@@ -1328,11 +1325,11 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr noundef nonnull align 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [4 x ptr], ptr %2, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664208
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 656208
   br label %13
@@ -1346,7 +1343,7 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr noundef nonnull align 
 14:                                               ; preds = %13, %._crit_edge
   %indvars.iv47 = phi i64 [ 0, %13 ], [ %indvars.iv.next48, %._crit_edge ]
   %.145 = phi i32 [ %.0, %13 ], [ %.2.lcssa, %._crit_edge ]
-  %15 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %.031, i64 %indvars.iv47
+  %15 = getelementptr inbounds nuw [520 x i8], ptr %.031, i64 %indvars.iv47
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -1361,7 +1358,7 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr noundef nonnull align 
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %.242 = phi i32 [ %.145, %.lr.ph ], [ %.3, %58 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %22 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %18, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1377,7 +1374,7 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr noundef nonnull align 
   %31 = load i32, ptr %11, align 8
   store i32 %31, ptr %25, align 4
   %32 = sext i32 %.242 to i64
-  %33 = getelementptr inbounds ptr, ptr %12, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %12, i64 %32
   store ptr %23, ptr %33, align 8
   %34 = load i32, ptr %15, align 8
   %35 = zext i32 %34 to i64
@@ -1386,7 +1383,7 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr noundef nonnull align 
 
 36:                                               ; preds = %29
   %37 = sext i32 %34 to i64
-  %38 = getelementptr %"struct.TransTableL::posSearchType", ptr %18, i64 %37
+  %38 = getelementptr [16 x i8], ptr %18, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   %.pre = load i32, ptr %15, align 8
@@ -1463,9 +1460,9 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr noundef nonnull align 
 
 72:                                               ; preds = %67
   %73 = sext i32 %69 to i64
-  %74 = getelementptr inbounds [4 x ptr], ptr %2, i64 %73
+  %74 = getelementptr inbounds [32 x i8], ptr %2, i64 %73
   %75 = sext i32 %68 to i64
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   br label %13, !llvm.loop !23
 
 .loopexit:                                        ; preds = %67, %54
@@ -1525,12 +1522,12 @@ define noundef ptr @_ZN11TransTableL6LookupEiiPKtPKiiRb(ptr noundef nonnull alig
   %34 = and i32 %33, 255
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds [4 x ptr], ptr %35, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %35, i64 %36
   %38 = sext i32 %2 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = zext nneg i32 %34 to i64
-  %42 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [520 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph.i, label %._crit_edge.thread.i
@@ -1547,7 +1544,7 @@ define noundef ptr @_ZN11TransTableL6LookupEiiPKtPKiiRb(ptr noundef nonnull alig
 
 47:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %48 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %45, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i64 %50, %25
@@ -1580,7 +1577,7 @@ define noundef ptr @_ZN11TransTableL6LookupEiiPKtPKiiRb(ptr noundef nonnull alig
   store i32 %63, ptr %61, align 4
   %64 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %65 = sext i32 %62 to i64
-  %66 = getelementptr inbounds %"struct.TransTableL::posSearchType", ptr %64, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %64, i64 %65
   store ptr %60, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 664208
   %68 = load i32, ptr %67, align 8
@@ -1595,7 +1592,7 @@ _ZN11TransTableL10LookupSuitEPNS_12distHashTypeExRb.exit.thread: ; preds = %57, 
   %.032.i = phi i32 [ 0, %57 ], [ %55, %58 ], [ %62, %._crit_edge.thread.i ]
   %72 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %73 = sext i32 %.032.i to i64
-  %74 = getelementptr inbounds %"struct.TransTableL::posSearchType", ptr %72, i64 %73
+  %74 = getelementptr inbounds [16 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %25, ptr %75, align 8
   %76 = load ptr, ptr %74, align 8
@@ -1605,36 +1602,36 @@ _ZN11TransTableL10LookupSuitEPNS_12distHashTypeExRb.exit.thread: ; preds = %57, 
   store i32 0, ptr %78, align 4
   %.0.i39 = load ptr, ptr %74, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 655800
-  %80 = getelementptr inbounds [4 x ptr], ptr %79, i64 %36
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %38
+  %80 = getelementptr inbounds [32 x i8], ptr %79, i64 %36
+  %81 = getelementptr inbounds [8 x i8], ptr %80, i64 %38
   store ptr %.0.i39, ptr %81, align 8
   br label %151
 
 82:                                               ; preds = %47
   %.0.i = load ptr, ptr %48, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 655800
-  %84 = getelementptr inbounds [4 x ptr], ptr %83, i64 %36
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %38
+  %84 = getelementptr inbounds [32 x i8], ptr %83, i64 %36
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %38
   store ptr %.0.i, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %87 = load i16, ptr %3, align 2
   %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [80 x i8], ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i64
-  %94 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %86, i64 %93
+  %94 = getelementptr inbounds nuw [80 x i8], ptr %86, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %86, i64 %98
+  %99 = getelementptr inbounds nuw [80 x i8], ptr %86, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i64
-  %104 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %86, i64 %103
+  %104 = getelementptr inbounds nuw [80 x i8], ptr %86, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %106 = load i32, ptr %90, align 4
   %107 = load i32, ptr %95, align 4
@@ -1714,7 +1711,7 @@ define noundef ptr @_ZN11TransTableL10LookupSuitEPNS_12distHashTypeExRb(ptr noun
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %2
@@ -1752,7 +1749,7 @@ define noundef ptr @_ZN11TransTableL10LookupSuitEPNS_12distHashTypeExRb(ptr noun
   store i32 %27, ptr %25, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds %"struct.TransTableL::posSearchType", ptr %28, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %29
   store ptr %24, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 664208
   %32 = load i32, ptr %31, align 8
@@ -1767,7 +1764,7 @@ define noundef ptr @_ZN11TransTableL10LookupSuitEPNS_12distHashTypeExRb(ptr noun
   %.032 = phi i32 [ 0, %20 ], [ %18, %21 ], [ %26, %23 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = sext i32 %.032 to i64
-  %39 = getelementptr inbounds %"struct.TransTableL::posSearchType", ptr %37, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %2, ptr %40, align 8
   %41 = load ptr, ptr %39, align 8
@@ -1794,7 +1791,7 @@ define noundef ptr @_ZN11TransTableL11LookupCardsERKNS_12winMatchTypeEPNS_12winB
 .lr.ph:                                           ; preds = %5
   %10 = add nsw i32 %7, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.TransTableL::winMatchType", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [52 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1893,7 +1890,7 @@ define noundef ptr @_ZN11TransTableL11LookupCardsERKNS_12winMatchTypeEPNS_12winB
 .lr.ph88:                                         ; preds = %._crit_edge
   %68 = add nsw i32 %67, -1
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %"struct.TransTableL::winMatchType", ptr %8, i64 %69
+  %70 = getelementptr inbounds [52 x i8], ptr %8, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2102,7 +2099,7 @@ define void @_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatch
   %63 = add nsw i32 %61, 1
   store i32 %63, ptr %62, align 4
   %64 = sext i32 %61 to i64
-  %65 = getelementptr inbounds %"struct.TransTableL::winMatchType", ptr %5, i64 %64
+  %65 = getelementptr inbounds [52 x i8], ptr %5, i64 %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %65, ptr noundef nonnull align 4 dereferenceable(52) %2, i64 52, i1 false)
   br i1 %3, label %69, label %66
 
@@ -2130,9 +2127,9 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   %11 = alloca %"struct.TransTableL::winMatchType", align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 655800
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds [4 x ptr], ptr %12, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %12, i64 %13
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatchTypeEb.exit, label %19
@@ -2149,17 +2146,17 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
 25:                                               ; preds = %19, %61
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %61 ]
   %26 = phi i32 [ 0, %19 ], [ %62, %61 ]
-  %27 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2
   %29 = icmp eq i16 %28, 0
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9maskBytes, i64 %indvars.iv
-  %34 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @_ZL9maskBytes, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 15, ptr %35, align 1
@@ -2170,21 +2167,21 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
 37:                                               ; preds = %25
   %38 = sub i16 0, %28
   %39 = and i16 %28, %38
-  %40 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2
   %42 = sub i16 0, %39
   %43 = and i16 %41, %42
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %22, i64 %44
+  %45 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %46, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds nuw [4 x [4 x i32]], ptr @_ZL9maskBytes, i64 %44
-  %50 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 %indvars.iv
-  %51 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [64 x i8], ptr @_ZL9maskBytes, i64 %44
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %44
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %44
   %53 = load i32, ptr %52, align 4
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
@@ -2192,7 +2189,7 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   %56 = sub i8 15, %54
   %57 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   %60 = xor i32 %26, %59
   br label %61
@@ -2467,7 +2464,7 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   %246 = add nsw i32 %244, 1
   store i32 %246, ptr %245, align 4
   %247 = sext i32 %244 to i64
-  %248 = getelementptr inbounds %"struct.TransTableL::winMatchType", ptr %197, i64 %247
+  %248 = getelementptr inbounds [52 x i8], ptr %197, i64 %247
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %248, ptr noundef nonnull readonly align 4 dereferenceable(52) %11, i64 52, i1 false)
   br i1 %6, label %_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatchTypeEb.exit, label %249
 
@@ -2507,7 +2504,7 @@ _ZNKSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaI
 
 9:                                                ; preds = %.noexc60, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
   %indvars.iv = phi i64 [ 0, %.noexc60 ], [ %indvars.iv.next, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit ]
-  %10 = getelementptr inbounds nuw %"class.std::vector", ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
@@ -2613,9 +2610,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   %40 = getelementptr inbounds nuw i8, ptr @cardRank, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"class.std::vector", ptr %5, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %42
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %44, i64 %indvars.iv25.i
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %indvars.iv25.i
   %46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 noundef signext %41)
           to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2659,9 +2656,9 @@ _ZNK11TransTableL17SetToPartialHandsEjjiiRSt6vectorIS0_INSt7__cxx1112basic_strin
   %62 = getelementptr inbounds nuw i8, ptr @cardRank, i64 %indvars.iv.i26
   %63 = load i8, ptr %62, align 1
   %64 = zext nneg i32 %61 to i64
-  %65 = getelementptr inbounds nuw %"class.std::vector", ptr %5, i64 %64
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %66, i64 %indvars.iv25.i24
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %indvars.iv25.i24
   %68 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 noundef signext %63)
           to label %.noexc32 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2705,9 +2702,9 @@ _ZNK11TransTableL17SetToPartialHandsEjjiiRSt6vectorIS0_INSt7__cxx1112basic_strin
   %84 = getelementptr inbounds nuw i8, ptr @cardRank, i64 %indvars.iv.i37
   %85 = load i8, ptr %84, align 1
   %86 = zext nneg i32 %83 to i64
-  %87 = getelementptr inbounds nuw %"class.std::vector", ptr %5, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %86
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %indvars.iv25.i35
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %indvars.iv25.i35
   %90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %89, i8 noundef signext %85)
           to label %.noexc43 unwind label %.loopexit.split-lp.loopexit
 
@@ -2743,9 +2740,9 @@ _ZNK11TransTableL17SetToPartialHandsEjjiiRSt6vectorIS0_INSt7__cxx1112basic_strin
   %102 = and i32 %101, 3
   %103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cardRank, i64 2), align 2
   %104 = zext nneg i32 %102 to i64
-  %105 = getelementptr inbounds nuw %"class.std::vector", ptr %5, i64 %104
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %106, i64 %indvars.iv25.i46
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %indvars.iv25.i46
   %108 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %107, i8 noundef signext %103)
           to label %.noexc54 unwind label %.loopexit
 
@@ -2843,9 +2840,9 @@ define void @_ZNK11TransTableL17SetToPartialHandsEjjiiRSt6vectorIS0_INSt7__cxx11
   %24 = load i8, ptr %23, align 1
   %25 = zext nneg i32 %22 to i64
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds nuw %"class.std::vector", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %indvars.iv25
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv25
   %30 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 noundef signext %24)
   br label %31
 
@@ -2882,7 +2879,7 @@ define void @_ZNK11TransTableL9DumpHandsERSt14basic_ofstreamIcSt11char_traitsIcE
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.14)
   %14 = load ptr, ptr %2, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
@@ -2916,7 +2913,7 @@ define void @_ZNK11TransTableL9DumpHandsERSt14basic_ofstreamIcSt11char_traitsIcE
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %indvars.iv45
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %indvars.iv45
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv45
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
@@ -2940,7 +2937,7 @@ define void @_ZNK11TransTableL9DumpHandsERSt14basic_ofstreamIcSt11char_traitsIcE
   %45 = load ptr, ptr %2, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %47, i64 %indvars.iv45
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %indvars.iv45
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv45
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
@@ -2980,7 +2977,7 @@ define void @_ZNK11TransTableL9DumpHandsERSt14basic_ofstreamIcSt11char_traitsIcE
   %64 = load ptr, ptr %2, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %66, i64 %indvars.iv49
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %indvars.iv49
   %68 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv49
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
@@ -3515,7 +3512,7 @@ define void @_ZNK11TransTableL13DistToLengthsEiPKiPA4_h(ptr noundef nonnull read
 
 5:                                                ; preds = %4, %5
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 8
   %9 = trunc i32 %8 to i8
@@ -4103,9 +4100,9 @@ define void @_ZNK11TransTableL10PrintSuitsERSt14basic_ofstreamIcSt11char_traitsI
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.7)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %32 = sext i32 %2 to i64
-  %33 = getelementptr inbounds [4 x ptr], ptr %31, i64 %32
+  %33 = getelementptr inbounds [32 x i8], ptr %31, i64 %32
   %34 = sext i32 %3 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -4115,7 +4112,7 @@ define void @_ZNK11TransTableL10PrintSuitsERSt14basic_ofstreamIcSt11char_traitsI
 39:                                               ; preds = %4, %.loopexit
   %indvars.iv38 = phi i64 [ 0, %4 ], [ %indvars.iv.next39, %.loopexit ]
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %40, i64 %indvars.iv38
+  %41 = getelementptr inbounds nuw [520 x i8], ptr %40, i64 %indvars.iv38
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.preheader, label %.loopexit
@@ -4148,7 +4145,7 @@ define void @_ZNK11TransTableL10PrintSuitsERSt14basic_ofstreamIcSt11char_traitsI
   br label %60
 
 60:                                               ; preds = %57, %46
-  %61 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %41, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i64, ptr %62, align 8
   %64 = lshr i64 %63, 36
@@ -4169,7 +4166,7 @@ define void @_ZNK11TransTableL10PrintSuitsERSt14basic_ofstreamIcSt11char_traitsI
 
 74:                                               ; preds = %74, %60
   %indvars.iv.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %76 = load i32, ptr %75, align 4
   %77 = lshr i32 %76, 8
   %78 = trunc i32 %77 to i8
@@ -4277,7 +4274,7 @@ define void @_ZNK11TransTableL13PrintAllSuitsERSt14basic_ofstreamIcSt11char_trai
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %.01519)
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.21)
   %9 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.7)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #34
@@ -4356,7 +4353,7 @@ define void @_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i(ptr noundef nonnul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not25 = icmp eq i32 %10, 0
   br i1 %.not25, label %29, label %11
@@ -4409,7 +4406,7 @@ define noundef range(i32 1, 0) i32 @_ZNK11TransTableL14CalcPercentileEPKidi(ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %.0912 = phi i32 [ 0, %.lr.ph.preheader ], [ %8, %11 ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, %.0912
   %9 = sitofp i32 %8 to double
@@ -4446,7 +4443,7 @@ define void @_ZNK11TransTableL9PrintHistERSt14basic_ofstreamIcSt11char_traitsIcE
   %.050 = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.151, %19 ]
   %.049 = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1, %19 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4
   %.not25.i = icmp eq i32 %8, 0
   br i1 %.not25.i, label %19, label %9
@@ -4483,7 +4480,7 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %19
 
 .lr.ph:                                           ; preds = %_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit, %35
   %indvars.iv = phi i64 [ 1, %_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit ], [ %indvars.iv.next, %35 ]
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %.not38 = icmp eq i32 %24, 0
   br i1 %.not38, label %35, label %25
@@ -4604,18 +4601,18 @@ define void @_ZNK11TransTableL14UpdateSuitHistEiiPiRi(ptr noundef nonnull readon
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, i8 0, i64 132, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [4 x ptr], ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   br label %10
 
 10:                                               ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %24 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [520 x i8], ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %3, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %3, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -4647,24 +4644,24 @@ define void @_ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_(ptr noundef nonnull 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, i8 0, i64 132, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr %7, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %7, i64 %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %33 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [520 x i8], ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %3, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %3, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4
   %20 = load i32, ptr %14, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %4, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %4, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4
@@ -4698,19 +4695,19 @@ define void @_ZNK11TransTableL14PrintSuitStatsERSt14basic_ofstreamIcSt11char_tra
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %5, i8 0, i64 132, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [4 x ptr], ptr %6, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %6, i64 %7
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %12, %4
   %.0 = phi i32 [ 0, %4 ], [ %spec.select, %12 ]
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [520 x i8], ptr %11, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -4729,7 +4726,7 @@ _ZNK11TransTableL14UpdateSuitHistEiiPiRi.exit:    ; preds = %12
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.21)
   %25 = zext i32 %3 to i64
   %26 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %25
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(32) %27)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.7)
   call void @_ZNK11TransTableL9PrintHistERSt14basic_ofstreamIcSt11char_traitsIcEEPKiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %5, i32 noundef %spec.select, i32 noundef 32)
@@ -4748,7 +4745,7 @@ define void @_ZNK11TransTableL17PrintAllSuitStatsERSt14basic_ofstreamIcSt11char_
 .preheader:                                       ; preds = %.preheader23, %30
   %indvars.iv31 = phi i64 [ 11, %.preheader23 ], [ %indvars.iv.next32, %30 ]
   %.02027 = phi i32 [ 0, %.preheader23 ], [ %.3, %30 ]
-  %5 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 %indvars.iv31
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv31
   %6 = trunc nuw nsw i64 %indvars.iv31 to i32
   br label %7
 
@@ -4756,7 +4753,7 @@ define void @_ZNK11TransTableL17PrintAllSuitStatsERSt14basic_ofstreamIcSt11char_
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_.exit ]
   %.125 = phi i32 [ %.02027, %.preheader ], [ %.3, %_ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %2, i8 0, i64 132, i1 false)
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -4764,14 +4761,14 @@ define void @_ZNK11TransTableL17PrintAllSuitStatsERSt14basic_ofstreamIcSt11char_
   %.021 = phi i32 [ 0, %7 ], [ %.122, %10 ]
   %.2 = phi i32 [ %.125, %7 ], [ %.3, %10 ]
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [520 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %2, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i32, ptr %3, i64 %13
+  %17 = getelementptr inbounds [4 x i8], ptr %3, i64 %13
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -4790,7 +4787,7 @@ _ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_.exit: ; preds = %10
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %6)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.21)
   %26 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(32) %27)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.7)
   call void @_ZNK11TransTableL9PrintHistERSt14basic_ofstreamIcSt11char_traitsIcEEPKiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, i32 noundef %.122, i32 noundef 32)
@@ -4839,24 +4836,24 @@ define void @_ZNK11TransTableL21PrintSummarySuitStatsERSt14basic_ofstreamIcSt11c
 
 .preheader:                                       ; preds = %2, %111
   %indvars.iv82 = phi i64 [ 11, %2 ], [ %indvars.iv.next83, %111 ]
-  %27 = getelementptr inbounds nuw [4 x ptr], ptr %26, i64 %indvars.iv82
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv82
   %28 = trunc nuw nsw i64 %indvars.iv82 to i32
   br label %29
 
 29:                                               ; preds = %.preheader, %103
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %103 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %3, i8 0, i64 132, i1 false)
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   br label %32
 
 32:                                               ; preds = %32, %29
   %.066 = phi i32 [ 0, %29 ], [ %spec.select, %32 ]
   %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [520 x i8], ptr %31, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %3, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %3, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 4
@@ -4875,7 +4872,7 @@ define void @_ZNK11TransTableL21PrintSummarySuitStatsERSt14basic_ofstreamIcSt11c
   %.069 = phi i32 [ %.170, %54 ], [ 0, %32 ]
   %.067 = phi i32 [ %.168, %54 ], [ 0, %32 ]
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %54 ], [ 1, %32 ]
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i47
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i47
   %43 = load i32, ptr %42, align 4
   %.not25.i = icmp eq i32 %43, 0
   br i1 %.not25.i, label %54, label %44
@@ -4934,7 +4931,7 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %54
 .lr.ph.i50:                                       ; preds = %77, %69
   %indvars.iv.i51 = phi i64 [ 1, %69 ], [ %indvars.iv.next.i52, %77 ]
   %.0912.i = phi i32 [ 0, %69 ], [ %74, %77 ]
-  %72 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i51
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i51
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, %.0912.i
   %75 = sitofp i32 %74 to double
@@ -4957,7 +4954,7 @@ _ZNK11TransTableL14CalcPercentileEPKidi.exit:     ; preds = %77, %._crit_edge.lo
   %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %80, i32 noundef %28)
   %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %81, i32 7)
   %83 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %84 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %indvars.iv
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(32) %84)
   %86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %85, i32 8)
   %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %86, i32 noundef %.174)
@@ -5012,9 +5009,9 @@ define noundef ptr @_ZNK11TransTableL16FindMatchingDistEiiPKi(ptr noundef nonnul
   %5 = alloca [4 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x ptr], ptr %6, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %6, i64 %7
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5023,7 +5020,7 @@ define noundef ptr @_ZNK11TransTableL16FindMatchingDistEiiPKi(ptr noundef nonnul
 
 15:                                               ; preds = %4, %._crit_edge
   %indvars.iv35 = phi i64 [ 0, %4 ], [ %indvars.iv.next36, %._crit_edge ]
-  %16 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %11, i64 %indvars.iv35
+  %16 = getelementptr inbounds nuw [520 x i8], ptr %11, i64 %indvars.iv35
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
@@ -5035,7 +5032,7 @@ define noundef ptr @_ZNK11TransTableL16FindMatchingDistEiiPKi(ptr noundef nonnul
 
 20:                                               ; preds = %.lr.ph, %41
   %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %41 ]
-  %21 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %19, i64 %indvars.iv31
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv31
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8
@@ -5062,9 +5059,9 @@ define noundef ptr @_ZNK11TransTableL16FindMatchingDistEiiPKi(ptr noundef nonnul
 
 36:                                               ; preds = %20, %35
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %35 ]
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %.not = icmp eq i32 %38, %40
   br i1 %.not, label %35, label %41
@@ -5231,7 +5228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit39: ; p
 64:                                               ; preds = %62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #34
-  %65 = getelementptr inbounds nuw %"struct.TransTableL::winMatchType", ptr %43, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [52 x i8], ptr %43, i64 %indvars.iv
   invoke void @_ZNK11TransTableL10PrintMatchERSt14basic_ofstreamIcSt11char_traitsIcEERKNS_12winMatchTypeEPA4_Kh(ptr noundef nonnull align 8 dereferenceable(664216) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 4 dereferenceable(52) %65, ptr noundef %3)
           to label %44 unwind label %.loopexit, !llvm.loop !79
 
@@ -5328,9 +5325,9 @@ define void @_ZNK11TransTableL24PrintEntriesDistAndCardsERSt14basic_ofstreamIcSt
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %13 = sext i32 %2 to i64
-  %14 = getelementptr inbounds [4 x ptr], ptr %12, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %12, i64 %13
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5339,7 +5336,7 @@ define void @_ZNK11TransTableL24PrintEntriesDistAndCardsERSt14basic_ofstreamIcSt
 
 21:                                               ; preds = %._crit_edge.i, %6
   %indvars.iv35.i = phi i64 [ 0, %6 ], [ %indvars.iv.next36.i, %._crit_edge.i ]
-  %22 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %17, i64 %indvars.iv35.i
+  %22 = getelementptr inbounds nuw [520 x i8], ptr %17, i64 %indvars.iv35.i
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
@@ -5351,7 +5348,7 @@ define void @_ZNK11TransTableL24PrintEntriesDistAndCardsERSt14basic_ofstreamIcSt
 
 26:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next32.i, %47 ]
-  %27 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %25, i64 %indvars.iv31.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv31.i
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8
@@ -5378,9 +5375,9 @@ define void @_ZNK11TransTableL24PrintEntriesDistAndCardsERSt14basic_ofstreamIcSt
 
 42:                                               ; preds = %41, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %41 ]
-  %43 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4
   %.not.i = icmp eq i32 %44, %46
   br i1 %.not.i, label %41, label %47
@@ -5403,7 +5400,7 @@ _ZNK11TransTableL16FindMatchingDistEiiPKi.exit:   ; preds = %._crit_edge.i, %41
 
 48:                                               ; preds = %48, %_ZNK11TransTableL16FindMatchingDistEiiPKi.exit
   %indvars.iv.i73 = phi i64 [ 0, %_ZNK11TransTableL16FindMatchingDistEiiPKi.exit ], [ %indvars.iv.next.i74, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i73
   %50 = load i32, ptr %49, align 4
   %51 = lshr i32 %50, 8
   %52 = trunc i32 %51 to i8
@@ -5436,7 +5433,7 @@ _ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit:  ; preds = %48
   %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull @.str.21)
   %71 = zext i32 %3 to i64
   %72 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %71
   %74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull align 8 dereferenceable(32) %73)
   %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull @.str.7)
   call void @_ZNK11TransTableL8LenToStrB5cxx11EPA4_Kh(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull align 8 poison, ptr noundef nonnull %8)
@@ -5466,22 +5463,22 @@ _ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit:  ; preds = %48
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %86 = load i16, ptr %4, align 2
   %87 = zext i16 %86 to i64
-  %88 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %91 = load i16, ptr %90, align 2
   %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %85, i64 %92
+  %93 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %85, i64 %97
+  %98 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.TransTableL::aggrType", ptr %85, i64 %102
+  %103 = getelementptr inbounds nuw [80 x i8], ptr %85, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %105 = load i32, ptr %89, align 4
   %106 = load i32, ptr %94, align 4
@@ -5520,7 +5517,7 @@ _ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit:  ; preds = %48
 
 .lr.ph.preheader:                                 ; preds = %84
   %138 = zext nneg i32 %135 to i64
-  %139 = getelementptr inbounds nuw %"struct.TransTableL::winMatchType", ptr %136, i64 %138
+  %139 = getelementptr inbounds nuw [52 x i8], ptr %136, i64 %138
   %140 = zext nneg i32 %135 to i64
   br label %.lr.ph
 
@@ -5601,7 +5598,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 176:                                              ; preds = %174
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #34
-  %177 = getelementptr inbounds nuw %"struct.TransTableL::winMatchType", ptr %136, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw [52 x i8], ptr %136, i64 %indvars.iv
   call void @_ZNK11TransTableL10PrintMatchERSt14basic_ofstreamIcSt11char_traitsIcEERKNS_12winMatchTypeEPA4_Kh(ptr noundef nonnull align 8 dereferenceable(664216) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 4 dereferenceable(52) %177, ptr noundef nonnull %8)
   br label %178
 
@@ -5657,9 +5654,9 @@ define void @_ZNK11TransTableL16PrintEntriesDistERSt14basic_ofstreamIcSt11char_t
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds [4 x ptr], ptr %9, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %9, i64 %10
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5668,7 +5665,7 @@ define void @_ZNK11TransTableL16PrintEntriesDistERSt14basic_ofstreamIcSt11char_t
 
 18:                                               ; preds = %._crit_edge.i, %5
   %indvars.iv35.i = phi i64 [ 0, %5 ], [ %indvars.iv.next36.i, %._crit_edge.i ]
-  %19 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %14, i64 %indvars.iv35.i
+  %19 = getelementptr inbounds nuw [520 x i8], ptr %14, i64 %indvars.iv35.i
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i
@@ -5680,7 +5677,7 @@ define void @_ZNK11TransTableL16PrintEntriesDistERSt14basic_ofstreamIcSt11char_t
 
 23:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next32.i, %44 ]
-  %24 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %22, i64 %indvars.iv31.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv31.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8
@@ -5707,9 +5704,9 @@ define void @_ZNK11TransTableL16PrintEntriesDistERSt14basic_ofstreamIcSt11char_t
 
 39:                                               ; preds = %38, %23
   %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %38 ]
-  %40 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
   %.not.i = icmp eq i32 %41, %43
   br i1 %.not.i, label %38, label %44
@@ -5732,7 +5729,7 @@ _ZNK11TransTableL16FindMatchingDistEiiPKi.exit:   ; preds = %._crit_edge.i, %38
 
 45:                                               ; preds = %45, %_ZNK11TransTableL16FindMatchingDistEiiPKi.exit
   %indvars.iv.i14 = phi i64 [ 0, %_ZNK11TransTableL16FindMatchingDistEiiPKi.exit ], [ %indvars.iv.next.i15, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i14
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i14
   %47 = load i32, ptr %46, align 4
   %48 = lshr i32 %47, 8
   %49 = trunc i32 %48 to i8
@@ -5769,7 +5766,7 @@ _ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit:  ; preds = %45
   %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull @.str.21)
   %69 = zext i32 %3 to i64
   %70 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %71 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %70, i64 %69
   %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(32) %71)
   %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull @.str.7)
   call void @_ZNK11TransTableL8LenToStrB5cxx11EPA4_Kh(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull align 8 poison, ptr noundef nonnull %7)
@@ -5804,9 +5801,9 @@ define void @_ZNK11TransTableL12PrintEntriesERSt14basic_ofstreamIcSt11char_trait
   %6 = alloca [4 x [4 x i8]], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr %7, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %7, i64 %8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -5816,7 +5813,7 @@ define void @_ZNK11TransTableL12PrintEntriesERSt14basic_ofstreamIcSt11char_trait
 15:                                               ; preds = %4, %._crit_edge
   %indvars.iv23 = phi i64 [ 0, %4 ], [ %indvars.iv.next24, %._crit_edge ]
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %16, i64 %indvars.iv23
+  %17 = getelementptr inbounds nuw [520 x i8], ptr %16, i64 %indvars.iv23
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -5827,7 +5824,7 @@ define void @_ZNK11TransTableL12PrintEntriesERSt14basic_ofstreamIcSt11char_trait
 
 21:                                               ; preds = %.lr.ph, %_ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit ]
-  %22 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8
@@ -5849,7 +5846,7 @@ define void @_ZNK11TransTableL12PrintEntriesERSt14basic_ofstreamIcSt11char_trait
 
 36:                                               ; preds = %36, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4
   %39 = lshr i32 %38, 8
   %40 = trunc i32 %39 to i8
@@ -5913,7 +5910,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
 .preheader:                                       ; preds = %2, %133
   %indvars.iv45 = phi i64 [ 11, %2 ], [ %indvars.iv.next46, %133 ]
   %16 = icmp samesign ult i64 %indvars.iv45, 10
-  %17 = getelementptr inbounds nuw [4 x ptr], ptr %12, i64 %indvars.iv45
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv45
   %18 = trunc nuw nsw i64 %indvars.iv45 to i32
   %19 = icmp ugt i64 %indvars.iv45, 9
   %20 = trunc nuw nsw i64 %indvars.iv45 to i8
@@ -6025,7 +6022,7 @@ _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %._crit_edge.i.i, %4
 59:                                               ; preds = %57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %58) #34
   %60 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %61 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %60, i64 %indvars.iv
   %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %63 unwind label %126
 
@@ -6074,13 +6071,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %76 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   br label %77
 
 77:                                               ; preds = %._crit_edge.i, %75
   %indvars.iv23.i = phi i64 [ 0, %75 ], [ %indvars.iv.next24.i, %._crit_edge.i ]
   %78 = load ptr, ptr %76, align 8
-  %79 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %78, i64 %indvars.iv23.i
+  %79 = getelementptr inbounds nuw [520 x i8], ptr %78, i64 %indvars.iv23.i
   %80 = load i32, ptr %79, align 8
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph.i, label %._crit_edge.i
@@ -6091,7 +6088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 83:                                               ; preds = %.noexc29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc29 ]
-  %84 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %82, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %indvars.iv.i
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load i64, ptr %86, align 8
@@ -6113,7 +6110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 98:                                               ; preds = %98, %83
   %indvars.iv.i.i = phi i64 [ 0, %83 ], [ %indvars.iv.next.i.i, %98 ]
-  %99 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i
   %100 = load i32, ptr %99, align 4
   %101 = lshr i32 %100, 8
   %102 = trunc i32 %101 to i8
@@ -6234,15 +6231,15 @@ define void @_ZNK11TransTableL15UpdateEntryHistEiiPiRi(ptr noundef nonnull reado
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(504) %3, i8 0, i64 504, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [4 x ptr], ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   br label %10
 
 10:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv28 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next29, %._crit_edge ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %11, i64 %indvars.iv28
+  %12 = getelementptr inbounds nuw [520 x i8], ptr %11, i64 %indvars.iv28
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
@@ -6253,11 +6250,11 @@ define void @_ZNK11TransTableL15UpdateEntryHistEiiPiRi(ptr noundef nonnull reado
 
 16:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %17 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %3, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %3, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4
@@ -6296,15 +6293,15 @@ define void @_ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_(ptr noundef nonnull
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(504) %3, i8 0, i64 504, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr %7, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %7, i64 %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %._crit_edge ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %13, i64 %indvars.iv31
+  %14 = getelementptr inbounds nuw [520 x i8], ptr %13, i64 %indvars.iv31
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -6315,15 +6312,15 @@ define void @_ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_(ptr noundef nonnull
 
 18:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %19 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %3, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %3, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 4
-  %26 = getelementptr inbounds i32, ptr %4, i64 %22
+  %26 = getelementptr inbounds [4 x i8], ptr %4, i64 %22
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -6364,16 +6361,16 @@ define void @_ZNK11TransTableL15PrintEntryStatsERSt14basic_ofstreamIcSt11char_tr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(504) %5, i8 0, i64 504, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 655416
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [4 x ptr], ptr %6, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %6, i64 %7
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %._crit_edge.i, %4
   %.0 = phi i32 [ 0, %4 ], [ %.1, %._crit_edge.i ]
   %indvars.iv28.i = phi i64 [ 0, %4 ], [ %indvars.iv.next29.i, %._crit_edge.i ]
-  %13 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %11, i64 %indvars.iv28.i
+  %13 = getelementptr inbounds nuw [520 x i8], ptr %11, i64 %indvars.iv28.i
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
@@ -6386,11 +6383,11 @@ define void @_ZNK11TransTableL15PrintEntryStatsERSt14basic_ofstreamIcSt11char_tr
 18:                                               ; preds = %18, %.lr.ph.i
   %.2 = phi i32 [ %.0, %.lr.ph.i ], [ %spec.select, %18 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %5, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 4
@@ -6415,7 +6412,7 @@ _ZNK11TransTableL15UpdateEntryHistEiiPiRi.exit:   ; preds = %._crit_edge.i
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.42)
   %32 = zext i32 %3 to i64
   %33 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %32
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(32) %34)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.7)
   call void @_ZNK11TransTableL9PrintHistERSt14basic_ofstreamIcSt11char_traitsIcEEPKiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %5, i32 noundef %.1, i32 noundef 125)
@@ -6434,7 +6431,7 @@ define void @_ZNK11TransTableL18PrintAllEntryStatsERSt14basic_ofstreamIcSt11char
 .preheader:                                       ; preds = %.preheader25, %37
   %indvars.iv34 = phi i64 [ 11, %.preheader25 ], [ %indvars.iv.next35, %37 ]
   %.02029 = phi i32 [ 0, %.preheader25 ], [ %.3, %37 ]
-  %5 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 %indvars.iv34
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv34
   %6 = trunc nuw nsw i64 %indvars.iv34 to i32
   br label %7
 
@@ -6442,7 +6439,7 @@ define void @_ZNK11TransTableL18PrintAllEntryStatsERSt14basic_ofstreamIcSt11char
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_.exit ]
   %.127 = phi i32 [ %.02029, %.preheader ], [ %.3, %_ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(504) %2, i8 0, i64 504, i1 false)
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -6450,7 +6447,7 @@ define void @_ZNK11TransTableL18PrintAllEntryStatsERSt14basic_ofstreamIcSt11char
   %.021 = phi i32 [ 0, %7 ], [ %.122, %._crit_edge.i ]
   %.2 = phi i32 [ %.127, %7 ], [ %.3, %._crit_edge.i ]
   %indvars.iv31.i = phi i64 [ 0, %7 ], [ %indvars.iv.next32.i, %._crit_edge.i ]
-  %11 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %9, i64 %indvars.iv31.i
+  %11 = getelementptr inbounds nuw [520 x i8], ptr %9, i64 %indvars.iv31.i
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
@@ -6464,15 +6461,15 @@ define void @_ZNK11TransTableL18PrintAllEntryStatsERSt14basic_ofstreamIcSt11char
   %.223 = phi i32 [ %.021, %.lr.ph.i ], [ %.324, %16 ]
   %.4 = phi i32 [ %.2, %.lr.ph.i ], [ %.5, %16 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %2, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %2, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4
-  %24 = getelementptr inbounds i32, ptr %3, i64 %20
+  %24 = getelementptr inbounds [4 x i8], ptr %3, i64 %20
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -6498,7 +6495,7 @@ _ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_.exit: ; preds = %._crit_edge.i
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %6)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.42)
   %33 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %indvars.iv
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(32) %34)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.7)
   call void @_ZNK11TransTableL9PrintHistERSt14basic_ofstreamIcSt11char_traitsIcEEPKiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, i32 noundef %.122, i32 noundef 125)
@@ -6531,7 +6528,7 @@ define noundef i32 @_ZNK11TransTableL18EffectOfBlockBoundEPKii(ptr noundef nonnu
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i32 %2, i32 0
   %spec.select = add nsw i32 %9, %.01013
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = mul nsw i32 %spec.select, %11
   %13 = add nsw i32 %12, %.01112
@@ -6576,7 +6573,7 @@ define void @_ZNK11TransTableL22PrintSummaryEntryStatsERSt14basic_ofstreamIcSt11
   %.0117 = phi i32 [ 0, %2 ], [ %71, %120 ]
   %.060116 = phi double [ 0.000000e+00, %2 ], [ %73, %120 ]
   %.062115 = phi i32 [ 0, %2 ], [ %74, %120 ]
-  %27 = getelementptr inbounds nuw [4 x ptr], ptr %26, i64 %indvars.iv125
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv125
   %28 = trunc nuw nsw i64 %indvars.iv125 to i32
   br label %29
 
@@ -6586,14 +6583,14 @@ define void @_ZNK11TransTableL22PrintSummaryEntryStatsERSt14basic_ofstreamIcSt11
   %.161112 = phi double [ %.060116, %.preheader ], [ %73, %_ZNK11TransTableL14CalcPercentileEPKidi.exit ]
   %.163111 = phi i32 [ %.062115, %.preheader ], [ %74, %_ZNK11TransTableL14CalcPercentileEPKidi.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(504) %3, i8 0, i64 504, i1 false)
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge.i, %29
   %.096 = phi i32 [ 0, %29 ], [ %.197, %._crit_edge.i ]
   %indvars.iv28.i = phi i64 [ 0, %29 ], [ %indvars.iv.next29.i, %._crit_edge.i ]
-  %33 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %31, i64 %indvars.iv28.i
+  %33 = getelementptr inbounds nuw [520 x i8], ptr %31, i64 %indvars.iv28.i
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i
@@ -6606,11 +6603,11 @@ define void @_ZNK11TransTableL22PrintSummaryEntryStatsERSt14basic_ofstreamIcSt11
 38:                                               ; preds = %38, %.lr.ph.i
   %.2 = phi i32 [ %.096, %.lr.ph.i ], [ %spec.select, %38 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw %"struct.TransTableL::posSearchType", ptr %36, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %3, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %3, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -6635,7 +6632,7 @@ define void @_ZNK11TransTableL22PrintSummaryEntryStatsERSt14basic_ofstreamIcSt11
   %.0100 = phi i32 [ %.1101, %61 ], [ 0, %._crit_edge.i ]
   %.098 = phi i32 [ %.199, %61 ], [ 0, %._crit_edge.i ]
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %61 ], [ 1, %._crit_edge.i ]
-  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i70
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i70
   %50 = load i32, ptr %49, align 4
   %.not25.i = icmp eq i32 %50, 0
   br i1 %.not25.i, label %61, label %51
@@ -6673,7 +6670,7 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %61, %_ZNK11Tra
   %65 = icmp eq i32 %64, 0
   %66 = select i1 %65, i32 20, i32 0
   %spec.select.i = add nuw nsw i32 %66, %.01013.i
-  %67 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i74
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i74
   %68 = load i32, ptr %67, align 4
   %69 = mul nsw i32 %spec.select.i, %68
   %70 = add nsw i32 %69, %.01112.i
@@ -6711,7 +6708,7 @@ _ZNK11TransTableL18EffectOfBlockBoundEPKii.exit:  ; preds = %_ZNK11TransTableL13
 .lr.ph.i77:                                       ; preds = %95, %86
   %indvars.iv.i78 = phi i64 [ 1, %86 ], [ %indvars.iv.next.i80, %95 ]
   %.0912.i = phi i32 [ 0, %86 ], [ %92, %95 ]
-  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i78
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i78
   %91 = load i32, ptr %90, align 4
   %92 = add nsw i32 %91, %.0912.i
   %93 = sitofp i32 %92 to double
@@ -6734,7 +6731,7 @@ _ZNK11TransTableL14CalcPercentileEPKidi.exit:     ; preds = %95, %._crit_edge.lo
   %99 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef %28)
   %100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %99, i32 7)
   %101 = load ptr, ptr @_ZL7playersB5cxx11, align 8
-  %102 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %101, i64 %indvars.iv
   %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull align 8 dereferenceable(32) %102)
   %104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %103, i32 8)
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 noundef %.1105)
@@ -7148,9 +7145,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %33
   store ptr %27, ptr %0, align 8
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %1
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %1
   store ptr %37, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %25
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %38, ptr %11, align 8
   br label %39
 

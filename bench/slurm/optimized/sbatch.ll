@@ -467,7 +467,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
 
 164:                                              ; preds = %158
   %165 = zext nneg i32 %161 to i64
-  %166 = getelementptr inbounds nuw ptr, ptr %.0105197, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %.0105197, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = call i32 @xstrcmp(ptr noundef %167, ptr noundef nonnull @.str.4) #14
   %.not141 = icmp eq i32 %168, 0
@@ -477,7 +477,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   %170 = load i32, ptr %15, align 4
   %171 = sub nsw i32 %.0103198, %170
   %172 = sext i32 %170 to i64
-  %173 = getelementptr inbounds ptr, ptr %.0105197, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %.0105197, i64 %172
   br label %178
 
 174:                                              ; preds = %164, %158
@@ -641,7 +641,7 @@ _set_rlimit_env.exit:                             ; preds = %239, %206
 .lr.ph.i153:                                      ; preds = %246, %259
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %259 ], [ 0, %246 ]
   %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %indvars.iv.i
   %251 = load ptr, ptr %250, align 8
   %252 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.31, ptr noundef %251) #14
   %253 = icmp slt i32 %252, 0
@@ -649,7 +649,7 @@ _set_rlimit_env.exit:                             ; preds = %239, %206
 
 254:                                              ; preds = %.lr.ph.i153
   %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv.i
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv.i
   %257 = load ptr, ptr %256, align 8
   %258 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %257) #14
   br label %259

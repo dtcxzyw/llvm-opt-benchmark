@@ -1694,7 +1694,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %.pre = phi ptr [ %.pre.pre, %251 ], [ %222, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
   store ptr %246, ptr %221, align 8, !tbaa !59
   store ptr %250, ptr %227, align 8, !tbaa !141
-  %252 = getelementptr inbounds nuw i32, ptr %246, i64 %244
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %244
   store ptr %252, ptr %229, align 8, !tbaa !142
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -2345,7 +2345,7 @@ define hidden noundef zeroext i1 @_ZN2cv11AvifEncoder14writeanimationERKNS_9Anim
   %.0168 = phi i32 [ 8, %.lr.ph ], [ %.1, %50 ]
   %.047167 = phi i32 [ 10, %.lr.ph ], [ %.148, %50 ]
   %.064166 = phi i64 [ 0, %.lr.ph ], [ %51, %50 ]
-  %36 = getelementptr inbounds nuw i32, ptr %24, i64 %.064166
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.064166
   %37 = load i32, ptr %36, align 4, !tbaa !126
   switch i32 %37, label %50 [
     i32 512, label %38
@@ -2789,7 +2789,7 @@ _ZNSt6vectorISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEESaIS
 
 _ZNSt6vectorISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEESaIS5_EE12emplace_backIJS5_EEEvDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i, %203
   store ptr %202, ptr %73, align 8, !tbaa !171
-  %204 = getelementptr inbounds nuw %"class.std::unique_ptr.35", ptr %198, i64 %196
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %196
   store ptr %204, ptr %74, align 8, !tbaa !180
   %.pr = load ptr, ptr %12, align 8, !tbaa !170
   %.not.i97 = icmp eq ptr %.pr, null
@@ -2860,10 +2860,10 @@ _ZNSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEED2Ev.exit: ; p
 221:                                              ; preds = %.lr.ph185, %216
   %.049184 = phi i64 [ 0, %.lr.ph185 ], [ %217, %216 ]
   %222 = load ptr, ptr %31, align 8, !tbaa !150
-  %223 = getelementptr inbounds nuw %"class.std::unique_ptr.35", ptr %211, i64 %.049184
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %.049184
   %.val87 = load ptr, ptr %223, align 8, !tbaa !170
   %224 = load ptr, ptr %79, align 8, !tbaa !59
-  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %.049184
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %.049184
   %226 = load i32, ptr %225, align 4, !tbaa !126
   %227 = sext i32 %226 to i64
   %228 = invoke i32 @avifEncoderAddImage(ptr noundef %222, ptr noundef %.val87, i64 noundef %227, i32 noundef %68)

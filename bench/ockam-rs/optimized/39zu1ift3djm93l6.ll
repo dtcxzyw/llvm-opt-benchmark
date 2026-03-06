@@ -812,7 +812,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he2a5270914d4c33dE.ll
 9:                                                ; preds = %._crit_edge, %2
   %10 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %11 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %11, i64 %10
+  %12 = getelementptr inbounds [32 x i8], ptr %11, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !13
   %14 = add i64 %13, 1
@@ -1002,7 +1002,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !noalias !64, !noundef !13
   %22 = and i64 %21, %18
-  %23 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %19, i64 %22
+  %23 = getelementptr inbounds [24 x i8], ptr %19, i64 %22
   %24 = cmpxchg weak ptr %23, i8 0, i8 1 acquire monotonic, align 1, !noalias !68
   %25 = extractvalue { i8, i1 } %24, 1
   br i1 %25, label %30, label %26
@@ -1199,7 +1199,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !noalias !79, !noundef !13
   %22 = and i64 %21, %18
-  %23 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %19, i64 %22
+  %23 = getelementptr inbounds [24 x i8], ptr %19, i64 %22
   %24 = cmpxchg weak ptr %23, i8 0, i8 1 acquire monotonic, align 1, !noalias !83
   %25 = extractvalue { i8, i1 } %24, 1
   br i1 %25, label %30, label %26
@@ -1613,7 +1613,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !13, !align !18, !noundef !13
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 
@@ -1872,7 +1872,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry13ad
 59:                                               ; preds = %._crit_edge.i.i, %39
   %60 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %46, %39 ]
   %61 = load ptr, ptr %31, align 8, !alias.scope !140, !noalias !143, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr, i8, [7 x i8] }, ptr %61, i64 %60
+  %62 = getelementptr inbounds [48 x i8], ptr %61, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !128
   %63 = load i64, ptr %45, align 8, !alias.scope !140, !noalias !143, !noundef !13
   %64 = add i64 %63, 1
@@ -2224,7 +2224,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry12ad
 48:                                               ; preds = %._crit_edge.i.i, %.noexc
   %49 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %37, %.noexc ]
   %50 = load ptr, ptr %26, align 8, !alias.scope !214, !noalias !217, !nonnull !13, !noundef !13
-  %51 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %50, i64 %49
+  %51 = getelementptr inbounds [32 x i8], ptr %50, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !202
   %52 = load i64, ptr %36, align 8, !alias.scope !214, !noalias !217, !noundef !13
   %53 = add i64 %52, 1
@@ -2741,7 +2741,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry16InternalRegistry12a
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he2a5270914d4c33dE.llvm.7577897545201684169.exit": ; preds = %2, %._crit_edge.i
   %25 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %15, %2 ]
   %26 = load ptr, ptr %4, align 8, !alias.scope !314, !noalias !317, !nonnull !13, !noundef !13
-  %27 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %26, i64 %25
+  %27 = getelementptr inbounds [32 x i8], ptr %26, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %28 = load i64, ptr %14, align 8, !alias.scope !314, !noalias !317, !noundef !13
   %29 = add i64 %28, 1

@@ -354,7 +354,7 @@ define internal range(i32 0, 28) i32 @ftp_setup_connection(ptr noundef %0, ptr n
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 1358
   %72 = load i8, ptr %71, align 2, !tbaa !20
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.178, ptr noundef %75, i32 noundef 0) #10
   br label %76
@@ -851,7 +851,7 @@ wc_statemach.exit:                                ; preds = %117, %140, %init_wc
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 1358
   %227 = load i8, ptr %226, align 2, !tbaa !20
   %228 = zext i8 %227 to i64
-  %229 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %228
   %230 = load ptr, ptr %229, align 8, !tbaa !7
   br label %231
 
@@ -920,7 +920,7 @@ wc_statemach.exit:                                ; preds = %117, %140, %init_wc
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 1358
   %267 = load i8, ptr %266, align 2, !tbaa !20
   %268 = zext i8 %267 to i64
-  %269 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %268
+  %269 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !7
   br label %271
 
@@ -961,7 +961,7 @@ wc_statemach.exit:                                ; preds = %117, %140, %init_wc
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 1358
   %288 = load i8, ptr %287, align 2, !tbaa !20
   %289 = zext i8 %288 to i64
-  %290 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %289
+  %290 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %289
   %291 = load ptr, ptr %290, align 8, !tbaa !7
   br label %292
 
@@ -1010,7 +1010,7 @@ wc_statemach.exit:                                ; preds = %117, %140, %init_wc
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 1358
   %314 = load i8, ptr %313, align 2, !tbaa !20
   %315 = zext i8 %314 to i64
-  %316 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %315
   %317 = load ptr, ptr %316, align 8, !tbaa !7
   br label %318
 
@@ -1075,7 +1075,7 @@ ftp_perform.exit.i:                               ; preds = %318, %309, %303, %2
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 1358
   %346 = load i8, ptr %345, align 2, !tbaa !20
   %347 = zext i8 %346 to i64
-  %348 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %347
   %349 = load ptr, ptr %348, align 8, !tbaa !7
   br label %350
 
@@ -1139,11 +1139,11 @@ ftp_perform.exit.thread.i:                        ; preds = %ftp_perform.exit.i,
   %371 = phi ptr [ %375, %.lr.ph.i.i ], [ %367, %.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %372 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %373 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv.i.i
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv.i.i
   %374 = load ptr, ptr %373, align 8, !tbaa !7
   call void %372(ptr noundef %374) #10
   %375 = load ptr, ptr %366, align 8, !tbaa !139
-  %376 = getelementptr inbounds nuw ptr, ptr %375, i64 %indvars.iv.i.i
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %375, i64 %indvars.iv.i.i
   store ptr null, ptr %376, align 8, !tbaa !7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %377 = load i32, ptr %368, align 8, !tbaa !140
@@ -1402,11 +1402,11 @@ define internal i32 @ftp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
   %105 = phi ptr [ %109, %.lr.ph.i ], [ %101, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %106 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %107 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i
   %108 = load ptr, ptr %107, align 8, !tbaa !7
   call void %106(ptr noundef %108) #10
   %109 = load ptr, ptr %100, align 8, !tbaa !139
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i
   store ptr null, ptr %110, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %111 = load i32, ptr %102, align 8, !tbaa !140
@@ -1505,7 +1505,7 @@ freedirs.exit:                                    ; preds = %99, %._crit_edge.i
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 1358
   %157 = load i8, ptr %156, align 2, !tbaa !20
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !7
   br label %161
 
@@ -1839,7 +1839,7 @@ ftp_sendquote.exit.thread:                        ; preds = %259, %.thread212, %
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 1358
   %300 = load i8, ptr %299, align 2, !tbaa !20
   %301 = zext i8 %300 to i64
-  %302 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %301
   %303 = load ptr, ptr %302, align 8, !tbaa !7
   br label %304
 
@@ -2123,7 +2123,7 @@ define internal i32 @ftp_do_more(ptr noundef %0, ptr noundef writeonly captures(
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 1358
   %133 = load i8, ptr %132, align 2, !tbaa !20
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !7
   br label %137
 
@@ -2203,7 +2203,7 @@ define internal i32 @ftp_connect(ptr noundef %0, ptr noundef initializes((0, 1))
 
 34:                                               ; preds = %33, %27
   %35 = zext i8 %19 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %37, ptr noundef nonnull @.str.10) #10
   %.pre = load ptr, ptr %3, align 8, !tbaa !105
@@ -2290,7 +2290,7 @@ define internal i32 @ftp_doing(ptr noundef %0, ptr noundef writeonly captures(no
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 1358
   %29 = load i8, ptr %28, align 2, !tbaa !20
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !7
   br label %33
 
@@ -2362,7 +2362,7 @@ define internal i32 @ftp_doing(ptr noundef %0, ptr noundef writeonly captures(no
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 1358
   %67 = load i8, ptr %66, align 2, !tbaa !20
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !7
   br label %71
 
@@ -2425,7 +2425,7 @@ define internal i32 @ftp_domore_getsock(ptr noundef %0, ptr noundef %1, ptr noun
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 1358
   %24 = load i8, ptr %23, align 2, !tbaa !20
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !7
   br label %28
 
@@ -2523,7 +2523,7 @@ define internal noundef i32 @ftp_disconnect(ptr noundef %0, ptr noundef %1, i1 n
 
 38:                                               ; preds = %37, %31
   %39 = zext i8 %21 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %41, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit.i
@@ -2571,7 +2571,7 @@ _ftp_state.exit.i:                                ; preds = %38, %37, %31, %24, 
 
 63:                                               ; preds = %62, %56
   %64 = zext i8 %46 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %66, ptr noundef nonnull @.str.43) #10
   br label %_ftp_state.exit23.i
@@ -2629,11 +2629,11 @@ ftp_quit.exit:                                    ; preds = %68, %70, %.thread, 
   %87 = phi ptr [ %91, %.lr.ph.i ], [ %83, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %88 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv.i
   %90 = load ptr, ptr %89, align 8, !tbaa !7
   tail call void %88(ptr noundef %90) #10
   %91 = load ptr, ptr %82, align 8, !tbaa !139
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.i
   store ptr null, ptr %92, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %93 = load i32, ptr %84, align 8, !tbaa !140
@@ -2960,7 +2960,7 @@ define internal fastcc i32 @ftp_readresp(ptr noundef %0, ptr noundef %1, ptr nou
 
 40:                                               ; preds = %39, %33
   %41 = zext i8 %26 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %43, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -3019,10 +3019,10 @@ define internal fastcc void @_ftp_state(ptr noundef %0, i8 noundef zeroext %1) u
 
 23:                                               ; preds = %22, %16
   %24 = zext i8 %6 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !7
   %27 = zext i8 %1 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %26, ptr noundef %29) #10
   br label %30
@@ -3161,19 +3161,19 @@ define internal i32 @ftp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 switch.lookup:                                    ; preds = %36
   %43 = zext nneg i8 %39 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ftp_statemachine, i64 %43
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ftp_statemachine, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   %44 = zext nneg i8 %39 to i64
-  %switch.gep455 = getelementptr inbounds nuw i32, ptr @switch.table.ftp_statemachine.3, i64 %44
+  %switch.gep455 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ftp_statemachine.3, i64 %44
   %switch.load456 = load i32, ptr %switch.gep455, align 4
   %45 = zext nneg i8 %39 to i64
-  %switch.gep457 = getelementptr inbounds nuw i64, ptr @switch.table.ftp_statemachine.4, i64 %45
+  %switch.gep457 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ftp_statemachine.4, i64 %45
   %switch.load458 = load i64, ptr %switch.gep457, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1348
   store i32 %switch.load, ptr %46, align 4, !tbaa !173
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 1344
   store i32 %switch.load456, ptr %47, align 8, !tbaa !161
-  %48 = getelementptr inbounds nuw ptr, ptr @ftp_statemachine.ftpauth, i64 %switch.load458
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @ftp_statemachine.ftpauth, i64 %switch.load458
   %49 = load ptr, ptr %48, align 8, !tbaa !7
   %50 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.49, ptr noundef %49) #10
   %.not371 = icmp eq i32 %50, 0
@@ -3248,7 +3248,7 @@ switch.lookup:                                    ; preds = %36
   %81 = add nsw i32 %80, %78
   store i32 %81, ptr %79, align 8, !tbaa !161
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr @ftp_statemachine.ftpauth, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr @ftp_statemachine.ftpauth, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !7
   %85 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.49, ptr noundef %84) #10
   br label %.thread403
@@ -3575,7 +3575,7 @@ switch.lookup:                                    ; preds = %36
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 1358
   %230 = load i8, ptr %229, align 2, !tbaa !20
   %231 = zext i8 %230 to i64
-  %232 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %231
+  %232 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !7
   br label %234
 
@@ -3695,7 +3695,7 @@ switch.lookup:                                    ; preds = %36
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 1358
   %285 = load i8, ptr %284, align 2, !tbaa !20
   %286 = zext i8 %285 to i64
-  %287 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %286
+  %287 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !7
   br label %289
 
@@ -3754,7 +3754,7 @@ switch.lookup:                                    ; preds = %36
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 1358
   %315 = load i8, ptr %314, align 2, !tbaa !20
   %316 = zext i8 %315 to i64
-  %317 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %316
+  %317 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %316
   %318 = load ptr, ptr %317, align 8, !tbaa !7
   br label %319
 
@@ -3813,7 +3813,7 @@ switch.lookup:                                    ; preds = %36
   %343 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %344 = load ptr, ptr %343, align 8, !tbaa !139
   %345 = sext i32 %335 to i64
-  %346 = getelementptr ptr, ptr %344, i64 %345
+  %346 = getelementptr [8 x i8], ptr %344, i64 %345
   %347 = getelementptr i8, ptr %346, i64 -8
   %348 = load ptr, ptr %347, align 8, !tbaa !7
   %349 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.59, ptr noundef %348) #10
@@ -3848,7 +3848,7 @@ switch.lookup:                                    ; preds = %36
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %364 = load ptr, ptr %363, align 8, !tbaa !139
   %365 = sext i32 %358 to i64
-  %366 = getelementptr inbounds ptr, ptr %364, i64 %365
+  %366 = getelementptr inbounds [8 x i8], ptr %364, i64 %365
   %367 = load ptr, ptr %366, align 8, !tbaa !7
   %368 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.61, ptr noundef %367) #10
   br label %.thread403
@@ -3881,7 +3881,7 @@ switch.lookup:                                    ; preds = %36
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 1340
   %381 = load i32, ptr %380, align 4, !tbaa !180
   %382 = sext i32 %381 to i64
-  %383 = getelementptr ptr, ptr %379, i64 %382
+  %383 = getelementptr [8 x i8], ptr %379, i64 %382
   %384 = getelementptr i8, ptr %383, i64 -8
   %385 = load ptr, ptr %384, align 8, !tbaa !7
   %386 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.61, ptr noundef %385) #10
@@ -4049,7 +4049,7 @@ define internal fastcc i32 @ftp_state_user_resp(ptr noundef %0, i32 noundef %1) 
 
 33:                                               ; preds = %32, %26
   %34 = zext i8 %18 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %36, ptr noundef nonnull @.str.13) #10
   br label %_ftp_state.exit
@@ -4118,7 +4118,7 @@ _ftp_state.exit:                                  ; preds = %15, %19, %26, %32, 
 
 66:                                               ; preds = %65, %59
   %67 = zext i8 %51 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %69, ptr noundef nonnull @.str.14) #10
   br label %_ftp_state.exit51
@@ -4188,7 +4188,7 @@ _ftp_state.exit51:                                ; preds = %48, %52, %59, %65, 
 
 99:                                               ; preds = %98, %92
   %100 = zext i8 %84 to i64
-  %101 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %102, ptr noundef nonnull @.str.12) #10
   br label %_ftp_state.exit58
@@ -4262,7 +4262,7 @@ define internal fastcc i32 @ftp_state_user(ptr noundef %0, ptr noundef %1) unnam
 
 31:                                               ; preds = %30, %24
   %32 = zext i8 %14 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %34, ptr noundef nonnull @.str.12) #10
   br label %_ftp_state.exit
@@ -4341,7 +4341,7 @@ define internal fastcc i32 @ftp_state_pwd(ptr noundef %0, ptr noundef %1) unname
 
 26:                                               ; preds = %25, %19
   %27 = zext i8 %9 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %29, ptr noundef nonnull @.str.18) #10
   br label %_ftp_state.exit
@@ -4381,7 +4381,7 @@ define internal fastcc i32 @ftp_state_quote(ptr noundef %0, i1 noundef zeroext %
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ftp_state_quote, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ftp_state_quote, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %11
 
@@ -4472,10 +4472,10 @@ switch.lookup:                                    ; preds = %3
 
 47:                                               ; preds = %46, %40
   %48 = zext i8 %32 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !7
   %51 = zext i8 %2 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %50, ptr noundef %53) #10
   br label %.thread98
@@ -4607,7 +4607,7 @@ switch.lookup:                                    ; preds = %3
 
 113:                                              ; preds = %112, %106
   %114 = zext i8 %98 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %116, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit90
@@ -4736,7 +4736,7 @@ define internal fastcc i32 @ftp_state_mdtm(ptr noundef %0) unnamed_addr #0 {
 
 33:                                               ; preds = %32, %26
   %34 = zext i8 %19 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %36, ptr noundef nonnull @.str.27) #10
   br label %_ftp_state.exit
@@ -4939,14 +4939,14 @@ ftp_213_date.exit.thread:                         ; preds = %10, %16, %72, %ftp_
   %95 = add nsw i32 %94, -1
   %narrow = select i1 %.not103, i32 6, i32 %95
   %96 = sext i32 %narrow to i64
-  %97 = getelementptr inbounds ptr, ptr @Curl_wkday, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr @Curl_wkday, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !7
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %100 = load i32, ptr %99, align 4, !tbaa !189
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %102 = load i32, ptr %101, align 8, !tbaa !190
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr @Curl_month, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr @Curl_month, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !7
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %107 = load i32, ptr %106, align 4, !tbaa !191
@@ -5109,7 +5109,7 @@ ftp_213_date.exit.thread:                         ; preds = %10, %16, %72, %ftp_
 
 188:                                              ; preds = %187, %181
   %189 = zext i8 %174 to i64
-  %190 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %191, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -5185,7 +5185,7 @@ _ftp_state.exit:                                  ; preds = %167, %175, %181, %1
 
 226:                                              ; preds = %225, %219
   %227 = zext i8 %212 to i64
-  %228 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %227
   %229 = load ptr, ptr %228, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %229, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit126
@@ -5532,7 +5532,7 @@ define internal fastcc i32 @ftp_state_rest_resp(ptr noundef %0, ptr noundef %1, 
 
 47:                                               ; preds = %46, %40
   %48 = zext i8 %30 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %50, ptr noundef nonnull @.str.41) #10
   br label %_ftp_state.exit
@@ -5613,7 +5613,7 @@ define internal fastcc i32 @ftp_state_use_pasv(ptr noundef %0, ptr noundef %1) u
 
 38:                                               ; preds = %37, %31
   %39 = zext i8 %21 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %41, ptr noundef nonnull @.str.39) #10
   br label %42
@@ -5804,7 +5804,7 @@ control_address.exit:                             ; preds = %50, %53
 
 74:                                               ; preds = %71
   %75 = trunc nuw nsw i64 %72 to i32
-  %76 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   store i32 %75, ptr %76, align 4, !tbaa !147
   %77 = load ptr, ptr %4, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -6147,7 +6147,7 @@ ftp_pasv_verbose.exit:                            ; preds = %204, %214, %218
 
 248:                                              ; preds = %247, %241
   %249 = zext i8 %234 to i64
-  %250 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %249
   %251 = load ptr, ptr %250, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %251, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -6279,7 +6279,7 @@ define internal fastcc i32 @ftp_state_port_resp(ptr noundef %0, i32 noundef rang
 
 60:                                               ; preds = %59, %53
   %61 = zext i8 %46 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %63, ptr noundef nonnull @.str.9) #10
   %.pre34 = load ptr, ptr %3, align 8, !tbaa !105
@@ -6573,7 +6573,7 @@ define internal fastcc i32 @ftp_state_get_resp(ptr noundef %0, i32 noundef %1, i
 
 127:                                              ; preds = %126, %120
   %128 = zext i8 %113 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %130, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -6652,7 +6652,7 @@ _ftp_state.exit:                                  ; preds = %110, %114, %120, %1
 
 163:                                              ; preds = %162, %156
   %164 = zext i8 %148 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %166, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit111
@@ -6720,7 +6720,7 @@ define internal fastcc i32 @ftp_state_stor_resp(ptr noundef %0, i32 noundef rang
 
 27:                                               ; preds = %26, %20
   %28 = zext i8 %10 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %30, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -6773,7 +6773,7 @@ _ftp_state.exit:                                  ; preds = %6, %13, %20, %26, %
 
 53:                                               ; preds = %52, %46
   %54 = zext i8 %41 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %56, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit38
@@ -6893,7 +6893,7 @@ define internal fastcc i32 @ftp_state_loggedin(ptr noundef %0) unnamed_addr #0 {
 
 28:                                               ; preds = %27, %21
   %29 = zext i8 %13 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %31, ptr noundef nonnull @.str.15) #10
   br label %_ftp_state.exit
@@ -6943,7 +6943,7 @@ _ftp_state.exit:                                  ; preds = %10, %14, %21, %27, 
 
 52:                                               ; preds = %51, %45
   %53 = zext i8 %37 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %55, ptr noundef nonnull @.str.18) #10
   br label %_ftp_state.exit.i
@@ -7000,7 +7000,7 @@ define internal fastcc i32 @ftp_state_retr(ptr noundef %0, i64 noundef %1) unnam
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 1358
   %24 = load i8, ptr %23, align 2, !tbaa !20
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !7
   br label %28
 
@@ -7153,7 +7153,7 @@ thread-pre-split:                                 ; preds = %51, %62
 
 95:                                               ; preds = %94, %88
   %96 = zext i8 %81 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %98, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -7226,7 +7226,7 @@ thread-pre-split.thread:                          ; preds = %41, %47, %thread-pr
 
 130:                                              ; preds = %129, %123
   %131 = zext i8 %116 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %133, ptr noundef nonnull @.str.36) #10
   br label %_ftp_state.exit106
@@ -7277,7 +7277,7 @@ _ftp_state.exit106:                               ; preds = %113, %117, %123, %1
 
 155:                                              ; preds = %154, %148
   %156 = zext i8 %141 to i64
-  %157 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %158, ptr noundef nonnull @.str.41) #10
   br label %_ftp_state.exit113
@@ -7353,7 +7353,7 @@ define internal fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroex
 
 37:                                               ; preds = %36, %30
   %38 = zext i8 %23 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %40, ptr noundef nonnull @.str.34) #10
   br label %_ftp_state.exit
@@ -7497,7 +7497,7 @@ _ftp_state.exit:                                  ; preds = %20, %24, %30, %36, 
 
 105:                                              ; preds = %104, %98
   %106 = zext i8 %91 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %108, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit96
@@ -7559,7 +7559,7 @@ _ftp_state.exit96:                                ; preds = %87, %92, %98, %104,
 
 133:                                              ; preds = %132, %126
   %134 = zext i8 %119 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %136, ptr noundef nonnull @.str.42) #10
   br label %_ftp_state.exit103
@@ -7626,10 +7626,10 @@ define internal fastcc i32 @ftp_nb_type(ptr noundef %0, ptr noundef %1, i1 nound
 
 30:                                               ; preds = %29, %23
   %31 = zext i8 %13 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !7
   %34 = zext nneg i8 %3 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %33, ptr noundef %36) #10
   br label %_ftp_state.exit
@@ -7706,10 +7706,10 @@ _ftp_state.exit:                                  ; preds = %9, %16, %23, %29, %
 
 71:                                               ; preds = %70, %64
   %72 = zext i8 %54 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !7
   %75 = zext nneg i8 %3 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %74, ptr noundef %77) #10
   br label %_ftp_state.exit25
@@ -7785,7 +7785,7 @@ define internal fastcc i32 @ftp_state_size(ptr noundef %0, ptr noundef %1) unnam
 
 33:                                               ; preds = %32, %26
   %34 = zext i8 %18 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %36, ptr noundef nonnull @.str.32) #10
   br label %_ftp_state.exit
@@ -7861,7 +7861,7 @@ define internal fastcc i32 @ftp_state_rest(ptr noundef %0, ptr noundef %1) unnam
 
 32:                                               ; preds = %31, %25
   %33 = zext i8 %17 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %35, ptr noundef nonnull @.str.35) #10
   br label %_ftp_state.exit
@@ -7925,7 +7925,7 @@ define internal fastcc i32 @ftp_state_prepare_transfer(ptr noundef %0) unnamed_a
 
 25:                                               ; preds = %24, %18
   %26 = zext i8 %10 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %28, ptr noundef nonnull @.str.22) #10
   br label %_ftp_state.exit
@@ -8032,7 +8032,7 @@ _ftp_state.exit:                                  ; preds = %8, %11, %18, %24, %
 
 79:                                               ; preds = %78, %72
   %80 = zext i8 %65 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %82, ptr noundef nonnull @.str.38) #10
   br label %_ftp_state.exit41
@@ -8292,7 +8292,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 1358
   %109 = load i8, ptr %108, align 2, !tbaa !20
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !7
   br label %113
 
@@ -8468,7 +8468,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 1358
   %185 = load i8, ptr %184, align 2, !tbaa !20
   %186 = zext i8 %185 to i64
-  %187 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !7
   br label %189
 
@@ -8524,7 +8524,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 1358
   %214 = load i8, ptr %213, align 2, !tbaa !20
   %215 = zext i8 %214 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !7
   br label %218
 
@@ -8712,7 +8712,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
 
 277:                                              ; preds = %276, %270
   %278 = zext i8 %262 to i64
-  %279 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %278
   %280 = load ptr, ptr %279, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %280, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -8982,7 +8982,7 @@ define internal fastcc i32 @ftp_state_list(ptr noundef %0) unnamed_addr #0 {
 
 62:                                               ; preds = %61, %55
   %63 = zext i8 %47 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %65, ptr noundef nonnull @.str.40) #10
   br label %_ftp_state.exit
@@ -9061,7 +9061,7 @@ define internal fastcc i32 @ftp_state_stor_prequote(ptr noundef %0) unnamed_addr
 
 31:                                               ; preds = %30, %24
   %32 = zext i8 %16 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %34, ptr noundef nonnull @.str.23) #10
   br label %.thread
@@ -9187,7 +9187,7 @@ define internal fastcc i32 @ftp_epsv_disable(ptr noundef %0, ptr noundef %1) unn
 
 50:                                               ; preds = %49, %43
   %51 = zext i8 %35 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !7
   tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %53, ptr noundef nonnull @.str.39) #10
   br label %_ftp_state.exit
@@ -9500,7 +9500,7 @@ define internal fastcc i32 @InitiateTransfer(ptr noundef %0) unnamed_addr #0 {
 
 52:                                               ; preds = %51, %45
   %53 = zext i8 %38 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr @ftp_state_names, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @ftp_state_names, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %55, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit
@@ -9709,7 +9709,7 @@ select.unfold:                                    ; preds = %72, %66
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %62, align 8, !tbaa !140
   %82 = sext i32 %80 to i64
-  %83 = getelementptr inbounds ptr, ptr %79, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %79, i64 %82
   store ptr %75, ptr %83, align 8, !tbaa !7
   br label %84
 

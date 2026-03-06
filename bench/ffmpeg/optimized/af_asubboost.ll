@@ -371,23 +371,23 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
 58:                                               ; preds = %.lr.ph121, %145
   %indvars.iv124 = phi i64 [ %57, %.lr.ph121 ], [ %indvars.iv.next125, %145 ]
   %59 = load ptr, ptr %50, align 8, !tbaa !70
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv124
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %indvars.iv124
   %61 = load ptr, ptr %60, align 8, !tbaa !71
   %62 = load ptr, ptr %51, align 8, !tbaa !70
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv124
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %indvars.iv124
   %64 = load ptr, ptr %63, align 8, !tbaa !71
   %65 = load ptr, ptr %52, align 8, !tbaa !60
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 96
   %67 = load ptr, ptr %66, align 8, !tbaa !70
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv124
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %indvars.iv124
   %69 = load ptr, ptr %68, align 8, !tbaa !71
   %70 = load ptr, ptr %53, align 8, !tbaa !61
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 96
   %72 = load ptr, ptr %71, align 8, !tbaa !70
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv124
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %indvars.iv124
   %74 = load ptr, ptr %73, align 8, !tbaa !71
   %75 = load ptr, ptr %54, align 8, !tbaa !62
-  %76 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv124
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %indvars.iv124
   %77 = load i32, ptr %76, align 4, !tbaa !72
   %78 = trunc nsw i64 %indvars.iv124 to i32
   %79 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %39, i32 noundef %78) #9
@@ -411,10 +411,10 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
 
 87:                                               ; preds = %86
   %88 = load ptr, ptr %51, align 8, !tbaa !70
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv124
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %indvars.iv124
   %90 = load ptr, ptr %89, align 8, !tbaa !71
   %91 = load ptr, ptr %50, align 8, !tbaa !70
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv124
+  %92 = getelementptr inbounds [8 x i8], ptr %91, i64 %indvars.iv124
   %93 = load ptr, ptr %92, align 8, !tbaa !71
   %94 = load i32, ptr %56, align 8, !tbaa !50
   %95 = sext i32 %94 to i64
@@ -425,14 +425,14 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
 ._crit_edge:                                      ; preds = %132, %.preheader
   %.0108.lcssa = phi i32 [ %77, %.preheader ], [ %spec.store.select, %132 ]
   %97 = load ptr, ptr %54, align 8, !tbaa !62
-  %98 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv124
+  %98 = getelementptr inbounds [4 x i8], ptr %97, i64 %indvars.iv124
   store i32 %.0108.lcssa, ptr %98, align 4, !tbaa !72
   br label %145
 
 99:                                               ; preds = %.lr.ph, %132
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %132 ]
   %.0108117 = phi i32 [ %77, %.lr.ph ], [ %spec.store.select, %132 ]
-  %100 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %101 = load double, ptr %100, align 8, !tbaa !73
   %102 = load double, ptr %74, align 8, !tbaa !73
   %103 = tail call nsz double @llvm.fmuladd.f64(double %101, double %28, double %102)
@@ -445,7 +445,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %109 = tail call nsz double @llvm.fmuladd.f64(double %32, double %107, double %108)
   store double %109, ptr %84, align 8, !tbaa !73
   %110 = sext i32 %.0108117 to i64
-  %111 = getelementptr inbounds double, ptr %69, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %69, i64 %110
   %112 = load double, ptr %111, align 8, !tbaa !73
   %113 = fmul nsz double %22, %103
   %114 = tail call nsz double @llvm.fmuladd.f64(double %112, double %24, double %113)
@@ -487,7 +487,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %140 = fmul nsz double %12, %139
   %141 = tail call nsz double @llvm.fmuladd.f64(double %137, double %20, double %140)
   %142 = fmul nsz double %19, %141
-  %143 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   store double %142, ptr %143, align 8, !tbaa !73
   %144 = add nsw i32 %.0108117, 1
   %.not114 = icmp slt i32 %144, %48

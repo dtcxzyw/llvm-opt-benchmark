@@ -2233,7 +2233,7 @@ _ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget3DirESaIS2_EE11_S_reloca
 _ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget3DirESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit: ; preds = %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget3DirESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %679
   store ptr %646, ptr %583, align 8, !tbaa !93
   store ptr %678, ptr %584, align 8, !tbaa !94
-  %683 = getelementptr inbounds nuw %"struct.cmGlobalCommonGenerator::DirectoryTarget::Dir", ptr %646, i64 %642
+  %683 = getelementptr inbounds nuw [40 x i8], ptr %646, i64 %642
   store ptr %683, ptr %585, align 8, !tbaa !96
   %.pre446 = load ptr, ptr %32, align 8, !tbaa !26
   %684 = icmp eq ptr %.pre446, %72
@@ -4334,7 +4334,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %71
   store ptr %23, ptr %0, align 8, !tbaa !99
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !82
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %70, align 8, !tbaa !83
   ret void
 
@@ -4578,7 +4578,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !99
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !82
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !83
   ret void
 
@@ -5492,7 +5492,7 @@ _ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_rel
 _ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %74
   store ptr %20, ptr %0, align 8, !tbaa !97
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !98
-  %78 = getelementptr inbounds nuw %"struct.cmGlobalCommonGenerator::DirectoryTarget::Target", ptr %20, i64 %16
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %78, ptr %73, align 8, !tbaa !102
   ret void
 

@@ -29,25 +29,19 @@ module asm ".previous\09\09\09\09\09"
 %struct.cpumask = type { [1 x i64] }
 %struct.static_call_key = type { ptr, %union.anon.88 }
 %union.anon.88 = type { i64 }
-%struct.ipt_standard = type { %struct.ipt_entry, %struct.xt_standard_target }
-%struct.ipt_entry = type { %struct.ipt_ip, i32, i16, i16, i32, %struct.xt_counters, [0 x i8] }
-%struct.xt_counters = type { i64, i64 }
-%struct.xt_standard_target = type { %struct.xt_entry_target, i32 }
-%struct.xt_entry_target = type { %union.anon, [0 x i8] }
-%union.anon = type { %struct.anon.1, [16 x i8] }
-%struct.anon.1 = type { i16, ptr }
 %struct.xt_action_param = type { %union.anon.2, %union.anon.3, ptr, i32, i16, i8 }
 %union.anon.2 = type { ptr }
 %union.anon.3 = type { ptr }
 %struct.xt_mtdtor_param = type { ptr, ptr, ptr, i8 }
 %struct.xt_tgdtor_param = type { ptr, ptr, ptr, i8 }
 %struct.xt_table_info = type { i32, i32, i32, [5 x i32], [5 x i32], i32, ptr, [0 x i8] }
-%struct.nf_hook_ops = type { ptr, ptr, ptr, i8, i8, i32, i32 }
 %struct.xt_tgchk_param = type { ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
 %struct.xt_mtchk_param = type { ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
 %struct.xt_percpu_counter_alloc_state = type { i32, ptr }
 %struct.xt_counters_info = type { [32 x i8], i32, [0 x %struct.xt_counters] }
+%struct.xt_counters = type { i64, i64 }
 %struct.ipt_replace = type { [32 x i8], i32, i32, i32, [5 x i32], [5 x i32], i32, ptr, [0 x %struct.ipt_entry] }
+%struct.ipt_entry = type { %struct.ipt_ip, i32, i16, i16, i32, %struct.xt_counters, [0 x i8] }
 %struct.ipt_get_entries = type { [32 x i8], i32, [0 x %struct.ipt_entry] }
 %struct.ipt_getinfo = type { [32 x i8], i32, [5 x i32], [5 x i32], i32, i32 }
 %struct.xt_get_revision = type { [29 x i8], i8 }
@@ -148,13 +142,13 @@ define dso_local ptr @ipt_alloc_initial_table(ptr noundef %0) #0 align 16 {
   br i1 %39, label %53, label %40
 
 40:                                               ; preds = %33
-  %41 = getelementptr i32, ptr %30, i64 %34
+  %41 = getelementptr [4 x i8], ptr %30, i64 %34
   store i32 %36, ptr %41, align 4
-  %42 = getelementptr i32, ptr %31, i64 %34
+  %42 = getelementptr [4 x i8], ptr %31, i64 %34
   store i32 %36, ptr %42, align 4
   %43 = add i32 %37, 1
   %44 = zext i32 %37 to i64
-  %45 = getelementptr %struct.ipt_standard, ptr %32, i64 %44
+  %45 = getelementptr [152 x i8], ptr %32, i64 %44
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %45, i8 0, i64 88, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store i16 112, ptr %46, align 8
@@ -259,7 +253,7 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr ptr, ptr %52, i64 %49
+  %53 = getelementptr [8 x i8], ptr %52, i64 %49
   %54 = load ptr, ptr %53, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @xt_tee_enabled, i32 2) #15
           to label %63 [label %55], !srcloc !21
@@ -271,14 +265,14 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
   %59 = icmp eq i8 %58, 0
   %60 = zext i32 %57 to i64
   %61 = select i1 %59, i64 0, i64 %60
-  %62 = getelementptr ptr, ptr %54, i64 %61
+  %62 = getelementptr [8 x i8], ptr %54, i64 %61
   br label %63
 
 63:                                               ; preds = %55, %41
   %64 = phi ptr [ %62, %55 ], [ %54, %41 ]
   %65 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %66 = zext i8 %5 to i64
-  %67 = getelementptr i32, ptr %65, i64 %66
+  %67 = getelementptr [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
   %70 = getelementptr i8, ptr %50, i64 %69
@@ -288,7 +282,7 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %75 = getelementptr inbounds nuw i8, ptr %47, i64 52
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %77 = getelementptr i32, ptr %76, i64 %66
+  %77 = getelementptr [4 x i8], ptr %76, i64 %66
   br label %78
 
 78:                                               ; preds = %286, %63
@@ -518,7 +512,7 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
 242:                                              ; preds = %236
   %243 = add i32 %79, -1
   %244 = zext i32 %243 to i64
-  %245 = getelementptr ptr, ptr %64, i64 %244
+  %245 = getelementptr [8 x i8], ptr %64, i64 %244
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 90
   %248 = load i16, ptr %247, align 2
@@ -550,7 +544,7 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
 266:                                              ; preds = %263
   %267 = add nuw i32 %79, 1
   %268 = zext i32 %79 to i64
-  %269 = getelementptr ptr, ptr %64, i64 %268
+  %269 = getelementptr [8 x i8], ptr %64, i64 %268
   store ptr %80, ptr %269, align 8
   br label %286
 
@@ -762,7 +756,7 @@ cleanup_entry.exit:                               ; preds = %.loopexit.i, %70
 .preheader14:                                     ; preds = %92, %.preheader14
   %97 = phi i32 [ %100, %.preheader14 ], [ 0, %92 ]
   %98 = sext i32 %97 to i64
-  %.split = getelementptr %struct.nf_hook_ops, ptr %95, i64 %98
+  %.split = getelementptr [40 x i8], ptr %95, i64 %98
   %99 = getelementptr i8, ptr %.split, i64 16
   store ptr %23, ptr %99, align 8
   %100 = add nuw i32 %97, 1
@@ -1009,19 +1003,19 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br i1 %76, label %103, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr i32, ptr %25, i64 %72
+  %78 = getelementptr [4 x i8], ptr %25, i64 %72
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
   %81 = icmp eq i64 %68, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %77
-  %83 = getelementptr i32, ptr %16, i64 %72
+  %83 = getelementptr [4 x i8], ptr %16, i64 %72
   store i32 %79, ptr %83, align 4
   br label %84
 
 84:                                               ; preds = %82, %77
-  %85 = getelementptr i32, ptr %26, i64 %72
+  %85 = getelementptr [4 x i8], ptr %26, i64 %72
   %86 = load i32, ptr %85, align 4
   %87 = zext i32 %86 to i64
   %88 = icmp eq i64 %68, %87
@@ -1048,7 +1042,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br i1 %100, label %101, label %.thread
 
 101:                                              ; preds = %98
-  %102 = getelementptr i32, ptr %29, i64 %72
+  %102 = getelementptr [4 x i8], ptr %29, i64 %72
   store i32 %86, ptr %102, align 4
   br label %103
 
@@ -1067,7 +1061,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
 110:                                              ; preds = %106
   %111 = trunc i64 %68 to i32
   %112 = zext i32 %32 to i64
-  %113 = getelementptr i32, ptr %17, i64 %112
+  %113 = getelementptr [4 x i8], ptr %17, i64 %112
   store i32 %111, ptr %113, align 4
   br label %114
 
@@ -1123,7 +1117,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br i1 %148, label %.thread49, label %149
 
 149:                                              ; preds = %143
-  %150 = getelementptr i32, ptr %16, i64 %144
+  %150 = getelementptr [4 x i8], ptr %16, i64 %144
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
   %153 = getelementptr i8, ptr %2, i64 %152
@@ -2175,7 +2169,7 @@ cleanup_entry.exit:                               ; preds = %.loopexit.i, %106
 163:                                              ; preds = %158, %.preheader10
   %164 = phi ptr [ %162, %158 ], [ %155, %.preheader10 ]
   %165 = zext i32 %154 to i64
-  %166 = getelementptr %struct.xt_counters, ptr %124, i64 %165
+  %166 = getelementptr [16 x i8], ptr %124, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i64, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %164, i64 8
@@ -2395,7 +2389,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
 
 105:                                              ; preds = %101
   %106 = and i64 %102, 63
-  %107 = getelementptr i64, ptr @__per_cpu_offset, i64 %106
+  %107 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, ptrtoint (ptr @xt_recseq to i64)
   %110 = inttoptr i64 %109 to ptr
@@ -2450,7 +2444,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
 
 140:                                              ; preds = %.loopexit21
   %141 = zext i32 %116 to i64
-  %142 = getelementptr %struct.xt_counters, ptr %91, i64 %141
+  %142 = getelementptr [16 x i8], ptr %91, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8
   %145 = add i64 %144, %136
@@ -2502,7 +2496,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
 
 174:                                              ; preds = %.preheader18
   %175 = zext i32 %167 to i64
-  %176 = getelementptr %struct.xt_counters, ptr %91, i64 %175
+  %176 = getelementptr [16 x i8], ptr %91, i64 %175
   %177 = getelementptr i8, ptr %171, i64 96
   %178 = call i64 @_copy_to_user(ptr noundef %177, ptr noundef %176, i64 noundef 16) #15
   %179 = icmp eq i64 %178, 0
@@ -2743,7 +2737,7 @@ define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 nou
 
 74:                                               ; preds = %73
   %75 = and i64 %65, 63
-  %76 = getelementptr i64, ptr @__per_cpu_offset, i64 %75
+  %76 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %75
   br label %77
 
 77:                                               ; preds = %88, %74
@@ -2766,7 +2760,7 @@ define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 nou
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = zext i32 %79 to i64
-  %93 = getelementptr %struct.xt_counters, ptr %10, i64 %92
+  %93 = getelementptr [16 x i8], ptr %10, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %91

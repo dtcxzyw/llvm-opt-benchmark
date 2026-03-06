@@ -42,7 +42,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.06389, i64 1
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %.not77 = icmp eq ptr %6, %8
   br label %9
@@ -83,7 +83,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 23:                                               ; preds = %.lr.ph96, %20
   %.265 = phi ptr [ %22, %20 ], [ %.16494, %.lr.ph96 ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next118
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next118
   %25 = load ptr, ptr %24, align 8, !tbaa !9
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %._crit_edge97.loopexit, label %.lr.ph96
@@ -119,14 +119,14 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %40 ], [ 0, %.preheader84 ]
   %37 = phi ptr [ %42, %40 ], [ %16, %.preheader84 ]
   %38 = tail call noalias ptr @strdup(ptr noundef nonnull %37) #13
-  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv120
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv120
   store ptr %38, ptr %39, align 8, !tbaa !9
   %.not73 = icmp eq ptr %38, null
   br i1 %.not73, label %.thread, label %40
 
 40:                                               ; preds = %.lr.ph103
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next121
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next121
   %42 = load ptr, ptr %41, align 8, !tbaa !9
   %.not72 = icmp eq ptr %42, null
   br i1 %.not72, label %._crit_edge104.loopexit, label %.lr.ph103
@@ -140,7 +140,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 ._crit_edge104:                                   ; preds = %._crit_edge104.loopexit, %.preheader84
   %.2.lcssa = phi i64 [ 8, %.preheader84 ], [ %45, %._crit_edge104.loopexit ]
   %.lcssa = phi i64 [ 0, %.preheader84 ], [ %indvars.iv.next121, %._crit_edge104.loopexit ]
-  %46 = getelementptr inbounds nuw ptr, ptr %33, i64 %.lcssa
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.lcssa
   store ptr null, ptr %46, align 8, !tbaa !9
   store ptr %33, ptr @environ, align 8, !tbaa !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %33, i64 %.2.lcssa, i1 false)
@@ -156,7 +156,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 
 ._crit_edge109.thread:                            ; preds = %.preheader
   %51 = sext i32 %0 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   store ptr null, ptr %52, align 8, !tbaa !9
   br label %.loopexit
 
@@ -171,10 +171,10 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %53
   %indvars.iv123 = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next124, %53 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv123
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv123
   %55 = load ptr, ptr %54, align 8, !tbaa !9
   %56 = tail call noalias ptr @strdup(ptr noundef %55) #13
-  %57 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv123
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv123
   store ptr %56, ptr %57, align 8, !tbaa !9
   %.not75 = icmp eq ptr %56, null
   br i1 %.not75, label %58, label %53
@@ -185,7 +185,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 
 ._crit_edge109:                                   ; preds = %53
   %59 = zext nneg i32 %0 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %50, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %59
   store ptr null, ptr %60, align 8, !tbaa !9
   %.not144 = icmp eq i32 %0, 1
   br i1 %.not144, label %.loopexit, label %.lr.ph112
@@ -197,7 +197,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 
 62:                                               ; preds = %.lr.ph112, %62
   %indvars.iv126 = phi i64 [ 1, %.lr.ph112 ], [ %indvars.iv.next127, %62 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv126
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv126
   store ptr %61, ptr %63, align 8, !tbaa !9
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
@@ -247,7 +247,7 @@ define hidden noundef nonnull ptr @ps_title_errno(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ps_title_errno, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ps_title_errno, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -328,7 +328,7 @@ define hidden void @cleanup_ps_args(ptr noundef captures(none) %0) local_unnamed
   %6 = phi ptr [ %8, %.lr.ph ], [ %5, %3 ]
   tail call void @free(ptr noundef nonnull %6) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %.not11 = icmp eq ptr %8, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -347,7 +347,7 @@ define hidden void @cleanup_ps_args(ptr noundef captures(none) %0) local_unnamed
   %11 = phi ptr [ %13, %.lr.ph18 ], [ %10, %._crit_edge ]
   tail call void @free(ptr noundef nonnull %11) #13
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next22
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next22
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %.not12 = icmp eq ptr %13, null
   br i1 %.not12, label %._crit_edge19, label %.lr.ph18

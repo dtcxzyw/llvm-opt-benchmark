@@ -234,7 +234,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
   %47 = zext nneg i32 %46 to i64
   %48 = and i32 %42, 63
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %50 = getelementptr i64, ptr %49, i64 %47
+  %50 = getelementptr [8 x i8], ptr %49, i64 %47
   %51 = load i64, ptr %50, align 8
   %52 = zext nneg i32 %48 to i64
   %53 = shl nuw i64 1, %52
@@ -343,7 +343,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_get_bit(ptr noundef readonly captu
   %25 = zext nneg i32 %24 to i64
   %26 = and i32 %20, 63
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %28 = getelementptr i64, ptr %27, i64 %25
+  %28 = getelementptr [8 x i8], ptr %27, i64 %25
   %29 = load i64, ptr %28, align 8
   %30 = zext nneg i32 %26 to i64
   %31 = lshr i64 %29, %30
@@ -401,7 +401,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr noundef capt
   %28 = zext nneg i32 %27 to i64
   %29 = shl nuw i64 1, %28
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %31 = getelementptr i64, ptr %30, i64 %26
+  %31 = getelementptr [8 x i8], ptr %30, i64 %26
   %32 = load i64, ptr %31, align 8
   %33 = or i64 %32, %29
   store i64 %33, ptr %31, align 8
@@ -423,7 +423,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr noundef capt
   %41 = shl nuw i64 1, %40
   %42 = xor i64 %41, -1
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = getelementptr i64, ptr %43, i64 %38
+  %44 = getelementptr [8 x i8], ptr %43, i64 %38
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, %42
   store i64 %46, ptr %44, align 8
@@ -496,7 +496,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr noundef capt
   %86 = zext nneg i32 %85 to i64
   %87 = shl nuw i64 1, %86
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %89 = getelementptr i64, ptr %88, i64 %84
+  %89 = getelementptr [8 x i8], ptr %88, i64 %84
   %90 = load i64, ptr %89, align 8
   %91 = or i64 %90, %87
   store i64 %91, ptr %89, align 8
@@ -567,7 +567,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_export(ptr nounde
 18:                                               ; preds = %27, %13
   %19 = phi i64 [ 0, %13 ], [ %29, %27 ]
   %20 = phi i32 [ %16, %13 ], [ %28, %27 ]
-  %21 = getelementptr i64, ptr %17, i64 %19
+  %21 = getelementptr [8 x i8], ptr %17, i64 %19
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %27, label %24
@@ -688,7 +688,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr nounde
   %48 = lshr i32 %47, 6
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr i64, ptr %49, i64 %50
+  %51 = getelementptr [8 x i8], ptr %49, i64 %50
   store i64 %43, ptr %51, align 8
   %52 = add i32 %45, 64
   store i32 %52, ptr %3, align 4
@@ -780,7 +780,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 
 31:                                               ; preds = %.preheader.us
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, -1
-  %32 = getelementptr i64, ptr %23, i64 %indvars.iv28
+  %32 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv28
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.preheader.us, label %.loopexit16.us, !llvm.loop !28
@@ -798,9 +798,9 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 39:                                               ; preds = %48, %.loopexit16.us.thread
   %40 = phi i32 [ %37, %.loopexit16.us.thread ], [ %49, %48 ]
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr i64, ptr %38, i64 %41
+  %42 = getelementptr [8 x i8], ptr %38, i64 %41
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr i64, ptr %27, i64 %41
+  %44 = getelementptr [8 x i8], ptr %27, i64 %41
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, %43
   %47 = icmp eq i64 %46, %45
@@ -856,7 +856,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 
 80:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %81 = getelementptr i64, ptr %72, i64 %indvars.iv
+  %81 = getelementptr [8 x i8], ptr %72, i64 %indvars.iv
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %82, 0
   br i1 %83, label %.preheader, label %.loopexit16.loopexit, !llvm.loop !28
@@ -875,7 +875,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   %86 = shl i32 %85, 6
   %87 = add i32 %86, %70
   %88 = zext nneg i32 %85 to i64
-  %89 = getelementptr i64, ptr %76, i64 %88
+  %89 = getelementptr [8 x i8], ptr %76, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %90) #13, !srcloc !31
   %92 = trunc i64 %91 to i32
@@ -899,9 +899,9 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 102:                                              ; preds = %99, %97
   %103 = phi i32 [ %85, %97 ], [ %100, %99 ]
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr i64, ptr %98, i64 %104
+  %105 = getelementptr [8 x i8], ptr %98, i64 %104
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr i64, ptr %76, i64 %104
+  %107 = getelementptr [8 x i8], ptr %76, i64 %104
   %108 = load i64, ptr %107, align 8
   %109 = and i64 %108, %106
   %110 = icmp eq i64 %109, %108
@@ -1076,7 +1076,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
   %84 = lshr i32 %83, 6
   %85 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr i64, ptr %85, i64 %86
+  %87 = getelementptr [8 x i8], ptr %85, i64 %86
   store i64 %76, ptr %87, align 8
   br label %88
 

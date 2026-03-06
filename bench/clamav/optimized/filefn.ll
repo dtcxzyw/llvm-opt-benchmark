@@ -378,7 +378,7 @@ define noundef ptr @_Z6MkTempPwm(ptr noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %.not, label %.lr.ph, label %.thread26
 
 .lr.ph:                                           ; preds = %2
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %6
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %6
   %16 = sub i64 %1, %6
   br label %25
 
@@ -451,7 +451,7 @@ define void @_Z11CalcFileSumP4FilePjPhjlj(ptr noundef %0, ptr noundef writeonly 
 
 18:                                               ; preds = %18, %17
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   store ptr @.str, ptr %19, align 8, !tbaa !18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -669,7 +669,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 
 102:                                              ; preds = %102, %101
   %indvars.iv.i.i57 = phi i64 [ 0, %101 ], [ %indvars.iv.next.i.i58, %102 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i57
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i57
   store ptr @.str, ptr %103, align 8, !tbaa !18
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, 8
@@ -857,7 +857,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   %.03561 = phi i32 [ %27, %24 ], [ 0, %13 ]
   %.13760 = phi i64 [ %.2, %24 ], [ %.036, %13 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !7
   %23 = icmp eq i32 %18, %22
   br i1 %23, label %24, label %.critedge
@@ -873,7 +873,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   %.2 = select i1 %25, i64 %26, i64 %.13760
   %27 = add i32 %.03561, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %5, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !7
   %.not47 = icmp ne i32 %30, 0
   %31 = load i64, ptr %14, align 8
@@ -882,7 +882,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   br i1 %or.cond57, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 33:                                               ; preds = %.critedge
-  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %.137.lcssa
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.137.lcssa
   br label %35
 
 35:                                               ; preds = %35, %33
@@ -895,7 +895,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
 .loopexit:                                        ; preds = %35, %.critedge
   %.034 = phi ptr [ %5, %.critedge ], [ %.1, %35 ]
   %39 = call i64 @wcslen(ptr noundef nonnull %5) #16
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %39
   %.064 = getelementptr inbounds i8, ptr %40, i64 -4
   %.not49.not65 = icmp ugt ptr %.064, %.034
   br i1 %.not49.not65, label %.lr.ph67, label %.critedge54

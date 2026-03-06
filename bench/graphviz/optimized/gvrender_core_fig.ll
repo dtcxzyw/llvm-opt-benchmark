@@ -202,7 +202,7 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr noundef captures(non
 
 6:                                                ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @figcolor, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @figcolor, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %5) #19
   %10 = icmp eq i32 %9, 0
@@ -238,15 +238,15 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr noundef captures(non
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
   %.041.i = phi i64 [ 195075, %.lr.ph.i ], [ %.1.i, %47 ]
   %.03239.i = phi i32 [ -1, %.lr.ph.i ], [ %.133.i, %47 ]
-  %26 = getelementptr inbounds nuw i16, ptr @figColorResolve.red, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @figColorResolve.red, i64 %indvars.iv.i
   %27 = load i16, ptr %26, align 2, !tbaa !55
   %28 = sext i16 %27 to i64
   %29 = sub nsw i64 %28, %22
-  %30 = getelementptr inbounds nuw i16, ptr @figColorResolve.green, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [2 x i8], ptr @figColorResolve.green, i64 %indvars.iv.i
   %31 = load i16, ptr %30, align 2, !tbaa !55
   %32 = sext i16 %31 to i64
   %33 = sub nsw i64 %32, %23
-  %34 = getelementptr inbounds nuw i16, ptr @figColorResolve.blue, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @figColorResolve.blue, i64 %indvars.iv.i
   %35 = load i16, ptr %34, align 2, !tbaa !55
   %36 = sext i16 %35 to i64
   %37 = sub nsw i64 %36, %24
@@ -285,13 +285,13 @@ figColorResolve.exit.thread:                      ; preds = %44, %._crit_edge.i
   store i32 %50, ptr @figColorResolve.top, align 4, !tbaa !38
   %51 = zext i8 %15 to i16
   %52 = zext nneg i32 %.031.lcssa50.i to i64
-  %53 = getelementptr inbounds nuw i16, ptr @figColorResolve.red, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr @figColorResolve.red, i64 %52
   store i16 %51, ptr %53, align 2, !tbaa !55
   %54 = zext i8 %17 to i16
-  %55 = getelementptr inbounds nuw i16, ptr @figColorResolve.green, i64 %52
+  %55 = getelementptr inbounds nuw [2 x i8], ptr @figColorResolve.green, i64 %52
   store i16 %54, ptr %55, align 2, !tbaa !55
   %56 = zext i8 %19 to i16
-  %57 = getelementptr inbounds nuw i16, ptr @figColorResolve.blue, i64 %52
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @figColorResolve.blue, i64 %52
   store i16 %56, ptr %57, align 2, !tbaa !55
   %58 = add nuw nsw i32 %.031.lcssa50.i, 32
   %59 = zext i8 %15 to i32
@@ -384,7 +384,7 @@ fig_line_style.exit:
 
 .lr.ph.i:                                         ; preds = %fig_line_style.exit, %.lr.ph.i
   %.012.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
-  %17 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.012.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.012.i
   %18 = load double, ptr %17, align 8, !tbaa !64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load double, ptr %19, align 8, !tbaa !65
@@ -543,14 +543,14 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %51
   %.05466 = phi i64 [ %54, %.loopexit ], [ 0, %18 ]
   %.05565 = phi i32 [ %25, %.loopexit ], [ 1, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !68
-  %55 = getelementptr %struct.pointf_s, ptr %1, i64 %.05466
+  %55 = getelementptr [16 x i8], ptr %1, i64 %.05466
   br label %56
 
 56:                                               ; preds = %.lr.ph, %56
   %.05362 = phi i64 [ 1, %.lr.ph ], [ %63, %56 ]
-  %57 = getelementptr %struct.pointf_s, ptr %55, i64 %.05362
+  %57 = getelementptr [16 x i8], ptr %55, i64 %.05362
   %58 = load double, ptr %57, align 8, !tbaa !64
-  %59 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i64 %.05362
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.05362
   store double %58, ptr %59, align 16, !tbaa !64
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load double, ptr %60, align 8, !tbaa !65
@@ -612,7 +612,7 @@ fig_line_style.exit:
 
 .lr.ph.i:                                         ; preds = %fig_line_style.exit, %.lr.ph.i
   %.012.i = phi i64 [ %16, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
-  %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.012.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.012.i
   %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load double, ptr %14, align 8, !tbaa !65

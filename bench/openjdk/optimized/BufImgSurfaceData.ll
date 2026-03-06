@@ -321,7 +321,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv77.i.i
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %48, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = lshr i32 %69, 16
   %71 = and i32 %70, 255
@@ -349,7 +349,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %gep107.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep106.i.i, i64 %indvars.iv73.i.i
   %82 = load i8, ptr %gep107.i.i, align 1
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %48, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = lshr i32 %85, 16
   %87 = and i32 %86, 255
@@ -386,7 +386,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %gep105.i.i = getelementptr inbounds nuw i8, ptr %gep.i, i64 %indvars.iv65.i.i
   %99 = load i8, ptr %gep105.i.i, align 1
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %48, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = lshr i32 %102, 16
   %104 = and i32 %103, 255
@@ -414,7 +414,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %gep.i.i = getelementptr inbounds nuw i8, ptr %gep.i, i64 %indvars.iv.i.i
   %115 = load i8, ptr %gep.i.i, align 1
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %48, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = lshr i32 %118, 16
   %120 = and i32 %119, 255

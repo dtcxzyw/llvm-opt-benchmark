@@ -348,7 +348,7 @@ _ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %29, ptr %4, align 8, !tbaa !60
   store ptr %33, ptr %5, align 8, !tbaa !62
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %6, align 8, !tbaa !61
   br label %_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE9push_backERKS2_.exit
 
@@ -518,7 +518,7 @@ define dso_local noundef ptr @_ZN18DFSRndNumGenerator21make_rndnum_generatorEv()
   %21 = phi ptr [ %17, %.lr.ph.i ], [ %31, %.noexc ]
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %29, %.noexc ]
   %22 = load ptr, ptr %19, align 8, !tbaa !58
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.06.i
   %24 = load i32, ptr %23, align 4, !tbaa !74
   %25 = trunc i64 %.06.i to i32
   %26 = load ptr, ptr %22, align 8, !tbaa !22
@@ -813,7 +813,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %66, %.noex
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %63, ptr %0, align 8, !tbaa !73
   store ptr %67, ptr %9, align 8, !tbaa !71
-  %69 = getelementptr inbounds nuw i32, ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %61
   store ptr %69, ptr %10, align 8, !tbaa !76
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -868,7 +868,7 @@ define dso_local void @_ZN18DFSRndNumGenerator19initialize_sequenceERKSt6vectorI
   %8 = phi ptr [ %5, %.lr.ph ], [ %18, %7 ]
   %.06 = phi i64 [ 0, %.lr.ph ], [ %16, %7 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !58
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %.06
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06
   %11 = load i32, ptr %10, align 4, !tbaa !74
   %12 = trunc i64 %.06 to i32
   %13 = load ptr, ptr %9, align 8, !tbaa !22
@@ -984,7 +984,7 @@ define dso_local noundef zeroext i1 @_ZN18DFSRndNumGenerator18eager_backtracking
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !63
   store i8 0, ptr %21, align 4, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1348,7 +1348,7 @@ define dso_local noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterP
   %47 = load i32, ptr %9, align 4, !tbaa !56
   %48 = sext i32 %47 to i64
   %49 = load ptr, ptr %46, align 8, !tbaa !60
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 %1, ptr %52, align 4, !tbaa !11
@@ -1563,7 +1563,7 @@ _ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit: ; preds =
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.lr.ph171
   %indvars.iv198 = phi i64 [ %80, %.lr.ph171.preheader ], [ %indvars.iv.next199, %.lr.ph171 ]
   %135 = load ptr, ptr %46, align 8, !tbaa !60
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv198
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv198
   %137 = load ptr, ptr %136, align 8, !tbaa !63
   store i8 0, ptr %137, align 4, !tbaa !4
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, 1
@@ -1761,7 +1761,7 @@ _ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit120: ; pred
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %213, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %215 = load ptr, ptr %46, align 8, !tbaa !60
-  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %indvars.iv
   %217 = load ptr, ptr %216, align 8, !tbaa !63
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
   store i32 0, ptr %218, align 4, !tbaa !10
@@ -1789,7 +1789,7 @@ _ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit120: ; pred
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
   %indvars.iv195 = phi i64 [ %159, %.lr.ph152.preheader ], [ %indvars.iv.next196, %.lr.ph152 ]
   %228 = load ptr, ptr %46, align 8, !tbaa !60
-  %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv195
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %indvars.iv195
   %230 = load ptr, ptr %229, align 8, !tbaa !63
   store i8 0, ptr %230, align 4, !tbaa !4
   %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1

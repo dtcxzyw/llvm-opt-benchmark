@@ -4413,7 +4413,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE11_S_reloca
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !95
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !96
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !97
   ret void
 }
@@ -4516,7 +4516,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE11_S_reloca
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !95
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !96
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !97
   ret void
 }
@@ -4572,7 +4572,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 32:                                               ; preds = %_ZN7rocksdb9cassandra8RowValueD2Ev.exit24.i.i.i, %24
   %.010.i.i.i = phi i64 [ %27, %24 ], [ %74, %_ZN7rocksdb9cassandra8RowValueD2Ev.exit24.i.i.i ]
-  %33 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %.010.i.i.i
+  %33 = getelementptr inbounds [48 x i8], ptr %0, i64 %.010.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !95
@@ -4788,7 +4788,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 125:                                              ; preds = %21
   %126 = add nsw i64 %.036, -1
   %127 = udiv i64 %22, 96
-  %128 = getelementptr inbounds nuw %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %127
+  %128 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %127
   %129 = getelementptr inbounds i8, ptr %storemerge35, i64 -48
   %.val.i.i.i = load i64, ptr %11, align 8, !tbaa !94
   %.val1.i.i.i = load i64, ptr %12, align 8
@@ -5483,9 +5483,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.037 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.037, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %9
+  %10 = getelementptr inbounds [48 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %11
+  %12 = getelementptr inbounds [48 x i8], ptr %0, i64 %11
   %13 = getelementptr i8, ptr %10, i64 8
   %.val.i = load i64, ptr %13, align 8, !tbaa !94
   %14 = getelementptr i8, ptr %10, i64 40
@@ -5500,8 +5500,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.0.i4.i.i = select i1 %.not.i2.i.i, i64 %.val3.i, i64 %.val2.i
   %17 = icmp sgt i64 %.0.i.i.i, %.0.i4.i.i
   %spec.select = select i1 %17, i64 %11, i64 %9
-  %18 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %spec.select
-  %19 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %.037
+  %18 = getelementptr inbounds [48 x i8], ptr %0, i64 %spec.select
+  %19 = getelementptr inbounds [48 x i8], ptr %0, i64 %.037
   %20 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN7rocksdb9cassandra8RowValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %18) #26
   %21 = icmp slt i64 %spec.select, %6
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !168
@@ -5521,8 +5521,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 28:                                               ; preds = %24
   %29 = shl nsw i64 %.0.lcssa, 1
   %30 = or disjoint i64 %29, 1
-  %31 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %30
-  %32 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %.0.lcssa
+  %31 = getelementptr inbounds [48 x i8], ptr %0, i64 %30
+  %32 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa
   %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN7rocksdb9cassandra8RowValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %31) #26
   br label %34
 
@@ -5552,7 +5552,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.010.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0911.i, %49 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %45 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %.0911.i
+  %45 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0911.i
   %46 = getelementptr i8, ptr %45, i64 8
   %.val.i.i = load i64, ptr %46, align 8, !tbaa !94
   %47 = getelementptr i8, ptr %45, i64 40
@@ -5563,14 +5563,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %48, label %49, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS4_5MergeEOS8_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %.010.i
+  %50 = getelementptr inbounds [48 x i8], ptr %0, i64 %.010.i
   %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN7rocksdb9cassandra8RowValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 8 dereferenceable(48) %45) #26
   %52 = icmp sgt i64 %.0911.i, %1
   br i1 %52, label %44, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS4_5MergeEOS8_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !169
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS4_5MergeEOS8_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %44, %49, %34
   %.0.lcssa.i = phi i64 [ %.1, %34 ], [ %.010.i, %44 ], [ %.0911.i, %49 ]
-  %53 = getelementptr inbounds %"class.rocksdb::cassandra::RowValue", ptr %0, i64 %.0.lcssa.i
+  %53 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa.i
   store i64 %.sroa.0.0.copyload, ptr %53, align 8
   %.sroa.2.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx39, align 8

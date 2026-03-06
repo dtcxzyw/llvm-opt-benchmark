@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.WebPBitstreamFeatures = type { i32, i32, i32, i32, i32, [5 x i32] }
 %struct.WebPHeaderStructure = type { ptr, i64, i32, i64, ptr, i64, i64, i64, i32 }
-%struct.VP8BitReader = type { i64, i32, i32, ptr, ptr, ptr, i32 }
-%struct.VP8MB = type { i8, i8 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @WebPINewDecoder(ptr noundef %0) local_unnamed_addr #0 {
@@ -984,13 +982,13 @@ IDecError.exit56.i:                               ; preds = %215, %212
   %226 = load i32, ptr %192, align 4, !tbaa !74
   %227 = and i32 %226, %224
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %201, i64 %228
+  %229 = getelementptr inbounds nuw [48 x i8], ptr %201, i64 %228
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %230 = load ptr, ptr %203, align 8, !tbaa !79
   %231 = getelementptr inbounds i8, ptr %230, i64 -2
   %232 = load i16, ptr %231, align 1
   %233 = sext i32 %225 to i64
-  %234 = getelementptr inbounds %struct.VP8MB, ptr %230, i64 %233
+  %234 = getelementptr inbounds [2 x i8], ptr %230, i64 %233
   %235 = load i16, ptr %234, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.6.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %229, i64 48, i1 false), !tbaa.struct !80
   %236 = call i32 @VP8DecodeMB(ptr noundef nonnull %187, ptr noundef nonnull %229) #7
@@ -1060,7 +1058,7 @@ IDecError.exit58.i:                               ; preds = %263, %260
   %269 = load ptr, ptr %203, align 8, !tbaa !79
   %270 = load i32, ptr %199, align 8, !tbaa !76
   %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds %struct.VP8MB, ptr %269, i64 %271
+  %272 = getelementptr inbounds [2 x i8], ptr %269, i64 %271
   store i16 %235, ptr %272, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %229, ptr noundef nonnull align 4 dereferenceable(48) %.sroa.6.8..sroa_idx.i, i64 48, i1 false), !tbaa.struct !80
   br label %.thread.i
@@ -1811,7 +1809,7 @@ define internal fastcc void @DoRemap(ptr noundef nonnull captures(none) initiali
 22:                                               ; preds = %.preheader, %22
   %.058 = phi i32 [ 0, %.preheader ], [ %25, %22 ]
   %23 = zext i32 %.058 to i64
-  %24 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %23
   tail call void @VP8RemapBitReader(ptr noundef nonnull %24, i64 noundef %1) #7
   %25 = add i32 %.058, 1
   %.not49 = icmp ugt i32 %25, %20
@@ -1830,7 +1828,7 @@ define internal fastcc void @DoRemap(ptr noundef nonnull captures(none) initiali
 31:                                               ; preds = %26, %29, %18
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 440
   %33 = zext i32 %20 to i64
-  %34 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !72
   %37 = load ptr, ptr %4, align 8, !tbaa !27

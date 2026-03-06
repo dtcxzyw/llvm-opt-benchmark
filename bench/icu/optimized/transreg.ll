@@ -2288,7 +2288,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
 
 69:                                               ; preds = %69, %68
   %.0.i.i.i.i = phi i64 [ 0, %68 ], [ %73, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr @_ZN6icu_7722CompoundTransliterator11PASS_STRINGE, i64 %.0.i.i.i.i
+  %70 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6icu_7722CompoundTransliterator11PASS_STRINGE, i64 %.0.i.i.i.i
   %71 = load i16, ptr %70, align 2, !tbaa !33
   %72 = icmp eq i16 %71, 0
   %73 = add i64 %.0.i.i.i.i, 1

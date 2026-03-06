@@ -277,7 +277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
   %76 = phi i64 [ %82, %.lr.ph ], [ 0, %.preheader ]
   %.041 = phi i32 [ %81, %.lr.ph ], [ 0, %.preheader ]
   %.01240 = phi i1 [ %80, %.lr.ph ], [ false, %.preheader ]
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %75, i64 %76
   %78 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @__func__.main, i64 noundef 0) #13
   %79 = icmp ne i64 %78, -1
   %80 = or i1 %.01240, %79

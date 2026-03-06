@@ -3,12 +3,6 @@ source_filename = "bench/gromacs/original/p2p_protocol.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.envelope = type { i32, ptr, ptr, ptr, ptr, i64, ptr, i32, %struct.tMPI_Atomic, i32, ptr, ptr, i32, ptr, ptr, ptr, ptr }
-%struct.tMPI_Atomic = type { i32, [60 x i8] }
-%struct.tmpi_req_ = type { i32, ptr, ptr, ptr, i32, i32, i64, i32, ptr, ptr }
-%struct.send_envelope_list = type { ptr, %struct.tMPI_Atomic_ptr, %struct.tMPI_Atomic_ptr, ptr, ptr, i64 }
-%struct.tMPI_Atomic_ptr = type { ptr, [56 x i8] }
-
 @TMPI_COMM_WORLD = external local_unnamed_addr global ptr, align 8
 @threads = external local_unnamed_addr global ptr, align 8
 @Nthreads = external local_unnamed_addr global i32, align 4
@@ -37,12 +31,12 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = icmp samesign ult i64 %indvars.iv, %11
-  %14 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [184 x i8], ptr %5, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %.sink = select i1 %13, ptr %15, ptr null
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr %.sink, ptr %16, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [184 x i8], ptr %5, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -93,7 +87,7 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = icmp samesign ult i64 %indvars.iv, %11
-  %14 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [184 x i8], ptr %6, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %16 = select i1 %13, ptr %15, ptr null
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 136
@@ -189,7 +183,7 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nounde
   br label %20
 
 16:                                               ; preds = %13
-  %17 = getelementptr %struct.tmpi_req_, ptr %5, i64 %indvars.iv
+  %17 = getelementptr [72 x i8], ptr %5, i64 %indvars.iv
   %18 = getelementptr i8, ptr %17, i64 -72
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %18, ptr %19, align 8, !tbaa !40
@@ -197,7 +191,7 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nounde
 
 20:                                               ; preds = %16, %15
   %.not = icmp samesign ult i64 %indvars.iv, %12
-  %21 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %.sink = select i1 %.not, ptr %22, ptr null
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -446,7 +440,7 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
 72:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %73 = load ptr, ptr %67, align 8, !tbaa !77
-  %74 = getelementptr inbounds nuw %struct.send_envelope_list, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [160 x i8], ptr %73, i64 %indvars.iv
   %75 = getelementptr i8, ptr %74, i64 136
   %.val39 = load ptr, ptr %75, align 8, !tbaa !33
   %76 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val39, ptr noundef %40)
@@ -458,7 +452,7 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
   %79 = load ptr, ptr %78, align 8, !tbaa !77
   %sext = shl i64 %13, 32
   %80 = ashr exact i64 %sext, 32
-  %81 = getelementptr inbounds %struct.send_envelope_list, ptr %79, i64 %80
+  %81 = getelementptr inbounds [160 x i8], ptr %79, i64 %80
   %82 = getelementptr i8, ptr %81, i64 136
   %.val = load ptr, ptr %82, align 8, !tbaa !33
   %83 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val, ptr noundef %15)
@@ -782,7 +776,7 @@ define noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_d
   %16 = load ptr, ptr %15, align 8, !tbaa !77
   %sext = shl i64 %14, 32
   %17 = ashr exact i64 %sext, 32
-  %18 = getelementptr inbounds %struct.send_envelope_list, ptr %16, i64 %17
+  %18 = getelementptr inbounds [160 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %.not.i.i = icmp eq ptr %20, null
@@ -887,7 +881,7 @@ _ZL23tMPI_Prep_send_envelopeP18send_envelope_listP10tmpi_comm_P11tmpi_threadS4_P
 
 54:                                               ; preds = %50, %.loopexit.i
   %55 = load ptr, ptr %15, align 8, !tbaa !77
-  %56 = getelementptr inbounds %struct.send_envelope_list, ptr %55, i64 %17
+  %56 = getelementptr inbounds [160 x i8], ptr %55, i64 %17
   store ptr null, ptr %33, align 8, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 136
@@ -951,7 +945,7 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
 
 16:                                               ; preds = %.preheader52, %16
   %17 = load ptr, ptr %14, align 8, !tbaa !77
-  %18 = getelementptr inbounds nuw %struct.send_envelope_list, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [160 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = ptrtoint ptr %20 to i64

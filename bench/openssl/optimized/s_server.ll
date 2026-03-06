@@ -1532,7 +1532,7 @@ define dso_local range(i32 0, 2) i32 @s_server_main(i32 noundef %0, ptr noundef 
   %253 = phi i8 [ %246, %.lr.ph ], [ %251, %249 ]
   %.03871564 = phi ptr [ %245, %.lr.ph ], [ %250, %249 ]
   %254 = zext i8 %253 to i64
-  %255 = getelementptr inbounds nuw i16, ptr %248, i64 %254
+  %255 = getelementptr inbounds nuw [2 x i8], ptr %248, i64 %254
   %256 = load i16, ptr %255, align 2, !tbaa !36
   %257 = and i16 %256, 4096
   %.not620 = icmp eq i16 %257, 0
@@ -3819,7 +3819,7 @@ define internal i32 @ssl_servername_cb(ptr noundef %0, ptr readnone captures(non
   %19 = tail call ptr @__ctype_b_loc() #15
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = zext nneg i8 %13 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !36
   %24 = and i16 %23, 16384
   %.not28 = icmp eq i16 %24, 0
@@ -4758,7 +4758,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %136 = shl nuw i64 1, %135
   %137 = sdiv i32 %0, 64
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i64, ptr %5, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %5, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !38
   %141 = or i64 %140, %136
   store i64 %141, ptr %139, align 8, !tbaa !38
@@ -4803,7 +4803,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 .lr.ph369:                                        ; preds = %.loopexit358, %179
   %indvars.iv = phi i64 [ %indvars.iv.next, %179 ], [ 0, %.loopexit358 ]
   %164 = load ptr, ptr @local_argv, align 8, !tbaa !15
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %indvars.iv
   %166 = load ptr, ptr %165, align 8, !tbaa !11
   br label %167
 
@@ -5537,7 +5537,7 @@ define internal range(i32 -11, 2) i32 @sv_body(i32 noundef %0, i32 noundef %1, i
   %150 = shl nuw i64 1, %149
   %151 = sdiv i32 %0, 64
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i64, ptr %6, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %6, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %.backedge
 
@@ -5564,7 +5564,7 @@ define internal range(i32 -11, 2) i32 @sv_body(i32 noundef %0, i32 noundef %1, i
   %163 = call i32 @fileno_stdin() #14
   %164 = sdiv i32 %163, 64
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i64, ptr %6, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %6, i64 %165
   %167 = load i64, ptr %166, align 8, !tbaa !38
   %168 = or i64 %162, %167
   store i64 %168, ptr %166, align 8, !tbaa !38
@@ -5608,7 +5608,7 @@ define internal range(i32 -11, 2) i32 @sv_body(i32 noundef %0, i32 noundef %1, i
   %187 = call i32 @fileno_stdin() #14
   %188 = sdiv i32 %187, 64
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i64, ptr %6, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %6, i64 %189
   %191 = load i64, ptr %190, align 8, !tbaa !38
   %192 = call i32 @fileno_stdin() #14
   %193 = srem i32 %192, 64

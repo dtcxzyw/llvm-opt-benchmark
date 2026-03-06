@@ -37,7 +37,7 @@ define range(i32 -2147483648, 2147483647) i32 @Raig_ManFindPo(ptr noundef readon
 
 8:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !25
@@ -189,7 +189,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %47, align 4, !tbaa !32
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds i32, ptr %73, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %73, i64 %76
   store i32 %.val41, ptr %77, align 4, !tbaa !36
   br label %78
 
@@ -201,13 +201,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %82 = load i32, ptr %81, align 8, !tbaa !38
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %80, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %80, i64 %83
   store i32 %.029, ptr %84, align 4, !tbaa !36
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load ptr, ptr %85, align 8, !tbaa !39
   %87 = load i32, ptr %81, align 8, !tbaa !38
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %86, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %86, i64 %88
   store i32 %.0, ptr %89, align 4, !tbaa !36
   %.val42 = load i64, ptr %6, align 8
   %90 = trunc i64 %.val42 to i32
@@ -216,7 +216,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %93 = load ptr, ptr %92, align 8, !tbaa !40
   %94 = load i32, ptr %81, align 8, !tbaa !38
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %93, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %93, i64 %95
   store i32 %91, ptr %96, align 4, !tbaa !36
   %97 = load i32, ptr %81, align 8, !tbaa !38
   %98 = add nsw i32 %97, 1
@@ -322,7 +322,7 @@ Vec_IntAlloc.exit:                                ; preds = %1, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %Vec_IntAlloc.exit ]
   %49 = getelementptr i8, ptr %48, i64 8
   %.val77 = load ptr, ptr %49, align 8, !tbaa !22
-  %50 = getelementptr inbounds nuw ptr, ptr %.val77, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val77, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !24
   %52 = getelementptr i8, ptr %51, i64 24
   %.val78 = load i64, ptr %52, align 8
@@ -349,7 +349,7 @@ Vec_IntAlloc.exit:                                ; preds = %1, %30
   %62 = phi ptr [ %67, %.critedge ], [ %45, %.critedge.preheader ]
   %63 = getelementptr i8, ptr %62, i64 8
   %.val76 = load ptr, ptr %63, align 8, !tbaa !22
-  %64 = getelementptr inbounds nuw ptr, ptr %.val76, i64 %indvars.iv123
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.val76, i64 %indvars.iv123
   %65 = load ptr, ptr %64, align 8, !tbaa !24
   %66 = tail call i32 @Raig_ManCreate_rec(ptr noundef nonnull %calloc, ptr noundef %65)
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
@@ -396,7 +396,7 @@ Vec_IntAlloc.exit96:                              ; preds = %.critedge2, %75
   %85 = getelementptr i8, ptr %83, i64 8
   %.val75 = load ptr, ptr %85, align 8, !tbaa !22
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds ptr, ptr %.val75, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.val75, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !24
   %89 = load ptr, ptr %81, align 8, !tbaa !55
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 40
@@ -465,7 +465,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %120 = add nsw i32 %119, 1
   store i32 %120, ptr %92, align 4, !tbaa !32
   %121 = sext i32 %119 to i64
-  %122 = getelementptr inbounds i32, ptr %118, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %118, i64 %121
   store i32 %91, ptr %122, align 4, !tbaa !36
   %123 = add nuw nsw i32 %.2115, 1
   %.val91 = load i32, ptr %71, align 8, !tbaa !54
@@ -511,7 +511,7 @@ Vec_IntAlloc.exit100:                             ; preds = %.critedge4, %127
   %137 = getelementptr i8, ptr %135, i64 8
   %.val74 = load ptr, ptr %137, align 8, !tbaa !22
   %138 = sext i32 %136 to i64
-  %139 = getelementptr inbounds ptr, ptr %.val74, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %.val74, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !24
   %141 = load ptr, ptr %133, align 8, !tbaa !57
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 40
@@ -580,12 +580,12 @@ Vec_IntPush.exit107:                              ; preds = %.Vec_IntGrow.exit10
   %172 = add nsw i32 %171, 1
   store i32 %172, ptr %144, align 4, !tbaa !32
   %173 = sext i32 %171 to i64
-  %174 = getelementptr inbounds i32, ptr %170, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %170, i64 %173
   store i32 %143, ptr %174, align 4, !tbaa !36
   %175 = load ptr, ptr %24, align 8, !tbaa !40
   %176 = load i32, ptr %142, align 8, !tbaa !25
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i32, ptr %175, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %175, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !36
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr %178, align 4, !tbaa !36
@@ -776,7 +776,7 @@ define noundef ptr @Raig_ManSimRef(ptr noundef captures(none) %0, i32 noundef %1
   %.04047 = phi ptr [ %36, %.lr.ph ], [ %3, %23 ]
   store i32 %.048, ptr %.04047, align 4, !tbaa !36
   %35 = zext i32 %.048 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %25, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %35
   %.reass45 = add i32 %.048, %28
   %.reass = add i32 %.reass45, %28
   %37 = icmp ult i32 %.reass, %24
@@ -794,16 +794,16 @@ define noundef ptr @Raig_ManSimRef(ptr noundef captures(none) %0, i32 noundef %1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8, !tbaa !48
   %43 = sext i32 %1 to i64
-  %44 = getelementptr inbounds i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %42, i64 %43
   store i32 %40, ptr %44, align 4, !tbaa !36
   %45 = load i32, ptr %3, align 4, !tbaa !60
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %39, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %39, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !36
   store i32 %48, ptr %3, align 4, !tbaa !60
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load ptr, ptr %49, align 8, !tbaa !40
-  %51 = getelementptr inbounds i32, ptr %50, i64 %43
+  %51 = getelementptr inbounds [4 x i8], ptr %50, i64 %43
   %52 = load i32, ptr %51, align 4, !tbaa !36
   store i32 %52, ptr %47, align 4, !tbaa !36
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -837,10 +837,10 @@ define ptr @Raig_ManSimDeref(ptr noundef captures(none) %0, i32 noundef %1) loca
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8, !tbaa !48
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !36
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = add i32 %14, -1
   store i32 %15, ptr %13, align 4, !tbaa !36
@@ -910,7 +910,7 @@ define i32 @Raig_ManSimulateRound(ptr noundef captures(none) %0, i32 noundef %1,
   %31 = phi ptr [ %6, %.lr.ph226 ], [ %108, %Raig_ManSimDeref.exit194 ]
   %32 = getelementptr i8, ptr %31, i64 8
   %.val188 = load ptr, ptr %32, align 8, !tbaa !35
-  %33 = getelementptr inbounds nuw i32, ptr %.val188, i64 %indvars.iv266
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.val188, i64 %indvars.iv266
   %34 = load i32, ptr %33, align 4, !tbaa !36
   %35 = load i32, ptr %9, align 4, !tbaa !43
   %36 = icmp slt i32 %34, %35
@@ -922,7 +922,7 @@ define i32 @Raig_ManSimulateRound(ptr noundef captures(none) %0, i32 noundef %1,
   %40 = getelementptr i8, ptr %38, i64 8
   %.val189 = load ptr, ptr %40, align 8, !tbaa !35
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %.val189, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.val189, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !36
   %44 = tail call ptr @Raig_ManSimRef(ptr noundef nonnull %0, i32 noundef %43)
   br i1 %.not186, label %50, label %45
@@ -942,7 +942,7 @@ define i32 @Raig_ManSimulateRound(ptr noundef captures(none) %0, i32 noundef %1,
   %54 = getelementptr i8, ptr %51, i64 8
   %.val190 = load ptr, ptr %54, align 8, !tbaa !35
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds i32, ptr %.val190, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %.val190, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !36
   %58 = icmp eq i32 %57, 1
   %59 = load ptr, ptr %13, align 8, !tbaa !59
@@ -951,10 +951,10 @@ define i32 @Raig_ManSimulateRound(ptr noundef captures(none) %0, i32 noundef %1,
 60:                                               ; preds = %50
   %61 = load ptr, ptr %14, align 8, !tbaa !48
   %62 = sext i32 %57 to i64
-  %63 = getelementptr inbounds i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %61, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !36
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %59, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !36
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 4, !tbaa !36
@@ -980,9 +980,9 @@ Raig_ManSimDeref.exit:                            ; preds = %50, %60, %70
 
 .lr.ph:                                           ; preds = %Raig_ManSimDeref.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %Raig_ManSimDeref.exit ]
-  %76 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !36
-  %78 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %77, ptr %78, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i32, ptr %11, align 8, !tbaa !63
@@ -1003,7 +1003,7 @@ Raig_ManSimDeref.exit:                            ; preds = %50, %60, %70
   %87 = getelementptr i8, ptr %84, i64 8
   %.val191 = load ptr, ptr %87, align 8, !tbaa !35
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds i32, ptr %.val191, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %.val191, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !36
   %91 = icmp eq i32 %90, 1
   br i1 %91, label %Raig_ManSimDeref.exit194, label %92
@@ -1012,10 +1012,10 @@ Raig_ManSimDeref.exit:                            ; preds = %50, %60, %70
   %93 = load ptr, ptr %13, align 8, !tbaa !59
   %94 = load ptr, ptr %14, align 8, !tbaa !48
   %95 = sext i32 %90 to i64
-  %96 = getelementptr inbounds i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !36
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %93, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !36
   %101 = add i32 %100, -1
   store i32 %101, ptr %99, align 4, !tbaa !36
@@ -1047,7 +1047,7 @@ Raig_ManSimDeref.exit194:                         ; preds = %103, %92, %83, %.lo
   %.0152255 = phi i32 [ 0, %.lr.ph256 ], [ %.1153, %.critedge ]
   %.0154254 = phi i32 [ 0, %.lr.ph256 ], [ %.1155, %.critedge ]
   %113 = load ptr, ptr %20, align 8, !tbaa !37
-  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv293
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv293
   %115 = load i32, ptr %114, align 4, !tbaa !36
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %151
@@ -1057,7 +1057,7 @@ Raig_ManSimDeref.exit194:                         ; preds = %103, %92, %83, %.lo
   %119 = getelementptr i8, ptr %118, i64 8
   %.val192 = load ptr, ptr %119, align 8, !tbaa !35
   %120 = sext i32 %.0154254 to i64
-  %121 = getelementptr inbounds i32, ptr %.val192, i64 %120
+  %121 = getelementptr inbounds [4 x i8], ptr %.val192, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !36
   %123 = load i32, ptr %29, align 4, !tbaa !43
   %124 = icmp slt i32 %122, %123
@@ -1073,7 +1073,7 @@ Raig_ManSimDeref.exit194:                         ; preds = %103, %92, %83, %.lo
 .lr.ph250:                                        ; preds = %125, %.lr.ph250
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %.lr.ph250 ], [ 1, %125 ]
   %129 = tail call i32 @Aig_ManRandom(i32 noundef 0) #20
-  %130 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv290
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv290
   store i32 %129, ptr %130, align 4, !tbaa !36
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %131 = load i32, ptr %26, align 8, !tbaa !63
@@ -1090,10 +1090,10 @@ Raig_ManSimDeref.exit194:                         ; preds = %103, %92, %83, %.lo
   store i32 1, ptr %127, align 4, !tbaa !36
   %136 = load ptr, ptr %22, align 8, !tbaa !59
   %137 = load ptr, ptr %23, align 8, !tbaa !48
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv293
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv293
   %139 = load i32, ptr %138, align 4, !tbaa !36
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %136, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !36
   %143 = add i32 %142, -1
   store i32 %143, ptr %141, align 4, !tbaa !36
@@ -1117,7 +1117,7 @@ Raig_ManSimDeref.exit196:                         ; preds = %145, %135, %117, %.
 
 151:                                              ; preds = %112
   %152 = load ptr, ptr %21, align 8, !tbaa !39
-  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv293
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %indvars.iv293
   %154 = load i32, ptr %153, align 4, !tbaa !36
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %218
@@ -1131,10 +1131,10 @@ Raig_ManSimDeref.exit196:                         ; preds = %145, %135, %117, %.
 160:                                              ; preds = %156
   %161 = load ptr, ptr %23, align 8, !tbaa !48
   %162 = sext i32 %157 to i64
-  %163 = getelementptr inbounds i32, ptr %161, i64 %162
+  %163 = getelementptr inbounds [4 x i8], ptr %161, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !36
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw i32, ptr %159, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !36
   %168 = add i32 %167, -1
   store i32 %168, ptr %166, align 4, !tbaa !36
@@ -1174,7 +1174,7 @@ Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
 
 .lr.ph247:                                        ; preds = %.lr.ph247.preheader, %195
   %indvars.iv287 = phi i64 [ 1, %.lr.ph247.preheader ], [ %indvars.iv.next288, %195 ]
-  %182 = getelementptr inbounds nuw i32, ptr %.0.i197, i64 %indvars.iv287
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %.0.i197, i64 %indvars.iv287
   %183 = load i32, ptr %182, align 4, !tbaa !36
   %.not184 = icmp eq i32 %183, %sext
   br i1 %.not184, label %195, label %184
@@ -1214,7 +1214,7 @@ Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
   %199 = trunc nuw nsw i64 %indvars.iv293 to i32
   %200 = tail call ptr @Raig_ManSimRef(ptr noundef nonnull %0, i32 noundef %199)
   %201 = load ptr, ptr %20, align 8, !tbaa !37
-  %202 = getelementptr inbounds nuw i32, ptr %201, i64 %indvars.iv293
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %indvars.iv293
   %203 = load i32, ptr %202, align 4, !tbaa !36
   %204 = and i32 %203, 1
   %.not179 = icmp eq i32 %204, 0
@@ -1230,10 +1230,10 @@ Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
 
 .lr.ph241:                                        ; preds = %.preheader208, %.lr.ph241
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %.lr.ph241 ], [ 1, %.preheader208 ]
-  %206 = getelementptr inbounds nuw i32, ptr %.0.i197, i64 %indvars.iv281
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %.0.i197, i64 %indvars.iv281
   %207 = load i32, ptr %206, align 4, !tbaa !36
   %208 = xor i32 %207, -1
-  %209 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv281
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv281
   store i32 %208, ptr %209, align 4, !tbaa !36
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %210 = load i32, ptr %26, align 8, !tbaa !63
@@ -1243,9 +1243,9 @@ Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
 
 .lr.ph244:                                        ; preds = %.preheader, %.lr.ph244
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.lr.ph244 ], [ 1, %.preheader ]
-  %212 = getelementptr inbounds nuw i32, ptr %.0.i197, i64 %indvars.iv284
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %.0.i197, i64 %indvars.iv284
   %213 = load i32, ptr %212, align 4, !tbaa !36
-  %214 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv284
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv284
   store i32 %213, ptr %214, align 4, !tbaa !36
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %215 = load i32, ptr %26, align 8, !tbaa !63
@@ -1261,10 +1261,10 @@ Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
   %219 = trunc nuw nsw i64 %indvars.iv293 to i32
   %220 = tail call ptr @Raig_ManSimRef(ptr noundef nonnull %0, i32 noundef %219)
   %221 = load ptr, ptr %20, align 8, !tbaa !37
-  %222 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv293
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %indvars.iv293
   %223 = load i32, ptr %222, align 4, !tbaa !36
   %224 = load ptr, ptr %21, align 8, !tbaa !39
-  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %indvars.iv293
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %indvars.iv293
   %226 = load i32, ptr %225, align 4, !tbaa !36
   %227 = ashr i32 %223, 1
   %228 = icmp eq i32 %227, 1
@@ -1274,10 +1274,10 @@ Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
 230:                                              ; preds = %218
   %231 = load ptr, ptr %23, align 8, !tbaa !48
   %232 = sext i32 %227 to i64
-  %233 = getelementptr inbounds i32, ptr %231, i64 %232
+  %233 = getelementptr inbounds [4 x i8], ptr %231, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !36
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds nuw i32, ptr %229, i64 %235
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !36
   %238 = add i32 %237, -1
   store i32 %238, ptr %236, align 4, !tbaa !36
@@ -1305,10 +1305,10 @@ Raig_ManSimDeref.exit200:                         ; preds = %218, %230, %240
 248:                                              ; preds = %Raig_ManSimDeref.exit200
   %249 = load ptr, ptr %23, align 8, !tbaa !48
   %250 = sext i32 %246 to i64
-  %251 = getelementptr inbounds i32, ptr %249, i64 %250
+  %251 = getelementptr inbounds [4 x i8], ptr %249, i64 %250
   %252 = load i32, ptr %251, align 4, !tbaa !36
   %253 = zext i32 %252 to i64
-  %254 = getelementptr inbounds nuw i32, ptr %229, i64 %253
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %253
   %255 = load i32, ptr %254, align 4, !tbaa !36
   %256 = add i32 %255, -1
   store i32 %256, ptr %254, align 4, !tbaa !36
@@ -1347,13 +1347,13 @@ Raig_ManSimDeref.exit202:                         ; preds = %Raig_ManSimDeref.ex
 
 .lr.ph229:                                        ; preds = %.preheader215, %.lr.ph229
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %.lr.ph229 ], [ 1, %.preheader215 ]
-  %267 = getelementptr inbounds nuw i32, ptr %.0.i199, i64 %indvars.iv269
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %.0.i199, i64 %indvars.iv269
   %268 = load i32, ptr %267, align 4, !tbaa !36
-  %269 = getelementptr inbounds nuw i32, ptr %.0.i201, i64 %indvars.iv269
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %.0.i201, i64 %indvars.iv269
   %270 = load i32, ptr %269, align 4, !tbaa !36
   %271 = or i32 %270, %268
   %272 = xor i32 %271, -1
-  %273 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv269
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv269
   store i32 %272, ptr %273, align 4, !tbaa !36
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %274 = load i32, ptr %26, align 8, !tbaa !63
@@ -1363,13 +1363,13 @@ Raig_ManSimDeref.exit202:                         ; preds = %Raig_ManSimDeref.ex
 
 .lr.ph232:                                        ; preds = %.preheader213, %.lr.ph232
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %.lr.ph232 ], [ 1, %.preheader213 ]
-  %276 = getelementptr inbounds nuw i32, ptr %.0.i199, i64 %indvars.iv272
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %.0.i199, i64 %indvars.iv272
   %277 = load i32, ptr %276, align 4, !tbaa !36
   %278 = xor i32 %277, -1
-  %279 = getelementptr inbounds nuw i32, ptr %.0.i201, i64 %indvars.iv272
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %.0.i201, i64 %indvars.iv272
   %280 = load i32, ptr %279, align 4, !tbaa !36
   %281 = and i32 %280, %278
-  %282 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv272
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv272
   store i32 %281, ptr %282, align 4, !tbaa !36
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %283 = load i32, ptr %26, align 8, !tbaa !63
@@ -1388,13 +1388,13 @@ Raig_ManSimDeref.exit202:                         ; preds = %Raig_ManSimDeref.ex
 
 .lr.ph235:                                        ; preds = %.preheader211, %.lr.ph235
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %.lr.ph235 ], [ 1, %.preheader211 ]
-  %286 = getelementptr inbounds nuw i32, ptr %.0.i199, i64 %indvars.iv275
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %.0.i199, i64 %indvars.iv275
   %287 = load i32, ptr %286, align 4, !tbaa !36
-  %288 = getelementptr inbounds nuw i32, ptr %.0.i201, i64 %indvars.iv275
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %.0.i201, i64 %indvars.iv275
   %289 = load i32, ptr %288, align 4, !tbaa !36
   %290 = xor i32 %289, -1
   %291 = and i32 %287, %290
-  %292 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv275
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv275
   store i32 %291, ptr %292, align 4, !tbaa !36
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %293 = load i32, ptr %26, align 8, !tbaa !63
@@ -1404,12 +1404,12 @@ Raig_ManSimDeref.exit202:                         ; preds = %Raig_ManSimDeref.ex
 
 .lr.ph238:                                        ; preds = %.preheader210, %.lr.ph238
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.lr.ph238 ], [ 1, %.preheader210 ]
-  %295 = getelementptr inbounds nuw i32, ptr %.0.i199, i64 %indvars.iv278
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %.0.i199, i64 %indvars.iv278
   %296 = load i32, ptr %295, align 4, !tbaa !36
-  %297 = getelementptr inbounds nuw i32, ptr %.0.i201, i64 %indvars.iv278
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %.0.i201, i64 %indvars.iv278
   %298 = load i32, ptr %297, align 4, !tbaa !36
   %299 = and i32 %298, %296
-  %300 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv278
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv278
   store i32 %299, ptr %300, align 4, !tbaa !36
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %301 = load i32, ptr %26, align 8, !tbaa !63
@@ -1460,7 +1460,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   %21 = icmp sgt i32 %3, 0
   %22 = ashr i32 %4, 5
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %17, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %17, i64 %23
   %25 = and i32 %4, 31
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -1490,7 +1490,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
 .lr.ph48.split.us:                                ; preds = %.lr.ph48, %43
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %43 ], [ 0, %.lr.ph48 ]
   %.val43.us = load ptr, ptr %19, align 8, !tbaa !35
-  %31 = getelementptr inbounds nuw i32, ptr %.val43.us, i64 %indvars.iv60
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val43.us, i64 %indvars.iv60
   %32 = load i32, ptr %31, align 4, !tbaa !36
   %33 = load i32, ptr %20, align 4, !tbaa !82
   %.not39.us = icmp slt i32 %32, %33
@@ -1502,7 +1502,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   %37 = shl nuw i32 1, %36
   %38 = ashr i32 %35, 5
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %27, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %27, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !36
   %42 = or i32 %41, %37
   store i32 %42, ptr %40, align 4, !tbaa !36
@@ -1518,7 +1518,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
 .preheader.us:                                    ; preds = %.lr.ph48.split.us, %.preheader.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.preheader.us ], [ 0, %.lr.ph48.split.us ]
   %46 = tail call i32 @Aig_ManRandom(i32 noundef 0) #20
-  %47 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv57
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv57
   store i32 %46, ptr %47, align 4, !tbaa !36
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
@@ -1533,7 +1533,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
 .lr.ph48.split:                                   ; preds = %.lr.ph48.split.preheader, %64
   %.val4168 = phi i32 [ %.val4166, %.lr.ph48.split.preheader ], [ %.val41, %64 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph48.split.preheader ], [ %indvars.iv.next, %64 ]
-  %50 = getelementptr inbounds nuw i32, ptr %.val43.pre, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.val43.pre, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !36
   %52 = load i32, ptr %20, align 4, !tbaa !82
   %.not39 = icmp slt i32 %51, %52
@@ -1551,7 +1551,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   %58 = shl nuw i32 1, %57
   %59 = ashr i32 %56, 5
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %27, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %27, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !36
   %63 = or i32 %62, %58
   store i32 %63, ptr %61, align 4, !tbaa !36
@@ -1725,7 +1725,7 @@ Abc_Clock.exit48:                                 ; preds = %48, %53
 
 72:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8, !tbaa !24
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !25

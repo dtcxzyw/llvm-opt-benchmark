@@ -708,7 +708,7 @@ define dso_local i32 @avc_get_hash_stats(ptr noundef %0) local_unnamed_addr #1 a
   %3 = phi i64 [ 0, %1 ], [ %29, %26 ]
   %4 = phi i32 [ 0, %1 ], [ %28, %26 ]
   %5 = phi i32 [ 0, %1 ], [ %27, %26 ]
-  %6 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %3
+  %6 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %3
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %26, label %9
@@ -835,7 +835,7 @@ define internal void @avc_audit_pre_callback(ptr noundef %0, ptr noundef readonl
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i64
-  %16 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %15
+  %16 = getelementptr [272 x i8], ptr @secclass_map, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -264
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef %0, ptr noundef nonnull @.str.301) #23
   br label %18
@@ -849,7 +849,7 @@ define internal void @avc_audit_pre_callback(ptr noundef %0, ptr noundef readonl
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr ptr, ptr %17, i64 %19
+  %25 = getelementptr [8 x i8], ptr %17, i64 %19
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %31, label %28
@@ -933,7 +933,7 @@ define internal void @avc_audit_post_callback(ptr noundef %0, ptr noundef readon
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i64
-  %29 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %28
+  %29 = getelementptr [272 x i8], ptr @secclass_map, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -272
   %31 = load ptr, ptr %30, align 16
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef %0, ptr noundef nonnull @.str.309, ptr noundef %31) #23
@@ -1104,7 +1104,7 @@ define dso_local i32 @avc_ss_reset(i32 noundef %0) local_unnamed_addr #1 align 1
 
 2:                                                ; preds = %.loopexit8, %1
   %3 = phi i64 [ 0, %1 ], [ %28, %.loopexit8 ]
-  %4 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %3
+  %4 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %3
   %.idx = shl i64 %3, 2
   %5 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %.idx
   %6 = getelementptr i8, ptr %5, i64 4096
@@ -1236,7 +1236,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %21 = xor i32 %20, %0
   %22 = and i32 %21, 511
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %23
+  %24 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %27 = getelementptr i8, ptr %25, i64 -40
@@ -1320,7 +1320,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %72 = zext i8 %4 to i32
   %73 = lshr i32 %72, 5
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr i32, ptr %71, i64 %74
+  %75 = getelementptr [4 x i8], ptr %71, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %72, 31
   %78 = shl nuw i32 1, %77
@@ -1351,9 +1351,9 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %90 = getelementptr i8, ptr %62, i64 -24
   %91 = load ptr, ptr %90, align 8
   %92 = zext nneg i8 %85 to i64
-  %93 = getelementptr i32, ptr %91, i64 %92
+  %93 = getelementptr [4 x i8], ptr %91, i64 %92
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr i32, ptr %10, i64 %92
+  %95 = getelementptr [4 x i8], ptr %10, i64 %92
   store i32 %94, ptr %95, align 4
   br label %96
 
@@ -1366,9 +1366,9 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %100 = getelementptr i8, ptr %62, i64 -16
   %101 = load ptr, ptr %100, align 8
   %102 = zext nneg i8 %85 to i64
-  %103 = getelementptr i32, ptr %101, i64 %102
+  %103 = getelementptr [4 x i8], ptr %101, i64 %102
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr i32, ptr %11, i64 %102
+  %105 = getelementptr [4 x i8], ptr %11, i64 %102
   store i32 %104, ptr %105, align 4
   br label %106
 
@@ -1381,9 +1381,9 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %110 = getelementptr i8, ptr %62, i64 -8
   %111 = load ptr, ptr %110, align 8
   %112 = zext nneg i8 %85 to i64
-  %113 = getelementptr i32, ptr %111, i64 %112
+  %113 = getelementptr [4 x i8], ptr %111, i64 %112
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr i32, ptr %12, i64 %112
+  %115 = getelementptr [4 x i8], ptr %12, i64 %112
   store i32 %114, ptr %115, align 4
   br label %116
 
@@ -1397,7 +1397,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %120 = zext i8 %5 to i32
   %121 = lshr i32 %120, 5
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr i32, ptr %119, i64 %122
+  %123 = getelementptr [4 x i8], ptr %119, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %120, 31
   %126 = shl nuw i32 1, %125
@@ -1473,7 +1473,7 @@ avc_denied.exit:                                  ; preds = %146, %141, %132
   %168 = zext i8 %5 to i32
   %169 = lshr i32 %168, 5
   %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr i32, ptr %167, i64 %170
+  %171 = getelementptr [4 x i8], ptr %167, i64 %170
   %172 = load i32, ptr %171, align 4
   %173 = and i32 %168, 31
   %174 = shl nuw i32 1, %173
@@ -1504,7 +1504,7 @@ avc_denied.exit:                                  ; preds = %146, %141, %132
   %191 = zext i8 %5 to i32
   %192 = lshr i32 %191, 5
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr i32, ptr %190, i64 %193
+  %194 = getelementptr [4 x i8], ptr %190, i64 %193
   %195 = load i32, ptr %194, align 4
   %196 = and i32 %191, 31
   %197 = shl nuw i32 1, %196
@@ -1594,7 +1594,7 @@ define internal fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 
   %33 = xor i32 %32, %0
   %34 = and i32 %33, 511
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %35
+  %36 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %35
   %.idx = shl nuw nsw i64 %35, 2
   %37 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %.idx
   %38 = getelementptr i8, ptr %37, i64 4096
@@ -1700,7 +1700,7 @@ define internal fastcc void @avc_update_node(i32 noundef range(i32 1, 257) %0, i
   %18 = xor i32 %17, %4
   %19 = and i32 %18, 511
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %20
+  %21 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %20
   %.idx = shl nuw nsw i64 %20, 2
   %22 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %.idx
   %23 = getelementptr i8, ptr %22, i64 4096
@@ -2014,7 +2014,7 @@ define dso_local noundef range(i32 -13, 1) i32 @avc_has_perm_noaudit(i32 noundef
   %14 = xor i32 %13, %0
   %15 = and i32 %14, 511
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %16
+  %17 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = getelementptr i8, ptr %18, i64 -40
@@ -2408,7 +2408,7 @@ define internal fastcc noalias ptr @avc_alloc_node() unnamed_addr #1 align 16 {
   br label %54
 
 26:                                               ; preds = %.preheader6
-  %27 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %16
+  %27 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @selinux_avc, i64 8), i64 %16
   call void @__rcu_read_lock() #23
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -2687,7 +2687,7 @@ define internal fastcc void @avc_xperms_allow_perm(ptr noundef nonnull captures(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = lshr i32 %4, 5
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr i32, ptr %7, i64 %9
+  %10 = getelementptr [4 x i8], ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %11, %6
   store i32 %12, ptr %10, align 4
@@ -2723,7 +2723,7 @@ define internal fastcc void @avc_xperms_allow_perm(ptr noundef nonnull captures(
   %32 = shl nuw i32 1, %31
   %33 = lshr i32 %30, 5
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr i32, ptr %27, i64 %34
+  %35 = getelementptr [4 x i8], ptr %27, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %36, %32
   store i32 %37, ptr %35, align 4

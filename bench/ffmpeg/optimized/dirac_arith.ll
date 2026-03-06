@@ -14,11 +14,11 @@ define void @ff_dirac_init_arith_tables() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = sub nuw nsw i64 255, %indvars.iv
-  %3 = getelementptr inbounds nuw i16, ptr @dirac_prob, i64 %2
+  %3 = getelementptr inbounds nuw [2 x i8], ptr @dirac_prob, i64 %2
   %4 = load i16, ptr %3, align 2, !tbaa !4
-  %5 = getelementptr inbounds nuw [2 x i16], ptr @ff_dirac_prob_branchless, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @ff_dirac_prob_branchless, i64 %indvars.iv
   store i16 %4, ptr %5, align 4, !tbaa !4
-  %6 = getelementptr inbounds nuw i16, ptr @dirac_prob, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @dirac_prob, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = sub i16 0, %7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -114,7 +114,7 @@ align_get_bits.exit:                              ; preds = %3, %7
 
 43:                                               ; preds = %37, %43
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv
   store i16 -32768, ptr %44, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, 22

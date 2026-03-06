@@ -855,7 +855,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
 
 323:                                              ; preds = %323, %322
   %.05.i.i.i.i.i.i.i = phi i64 [ 0, %322 ], [ %330, %323 ]
-  %324 = getelementptr inbounds nuw double, ptr %33, i64 %.05.i.i.i.i.i.i.i
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.05.i.i.i.i.i.i.i
   %325 = call i32 @rand() #24
   %326 = sitofp i32 %325 to double
   %327 = fmul nnan double %326, 2.000000e+00
@@ -1091,7 +1091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
 
 477:                                              ; preds = %477, %476
   %.05.i.i.i.i.i.i.i130 = phi i64 [ 0, %476 ], [ %484, %477 ]
-  %478 = getelementptr inbounds nuw double, ptr %36, i64 %.05.i.i.i.i.i.i.i130
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.05.i.i.i.i.i.i.i130
   %479 = call i32 @rand() #24
   %480 = sitofp i32 %479 to double
   %481 = fmul nnan double %480, 2.000000e+00
@@ -2352,7 +2352,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !112
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -2493,7 +2493,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !112
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -2520,7 +2520,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !103
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !112
   br label %49
 
@@ -2585,7 +2585,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !103
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !112
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -2600,7 +2600,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !112
   br label %29
 
@@ -2826,7 +2826,7 @@ _ZSt8_DestroyIPN6open3d9pipelines12registration13PoseGraphNodeEEvT_S5_.exit: ; p
 _ZNSt12_Vector_baseIN6open3d9pipelines12registration13PoseGraphNodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN6open3d9pipelines12registration13PoseGraphNodeEEvT_S5_.exit, %37
   store ptr %20, ptr %0, align 8, !tbaa !122
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !52
-  %41 = getelementptr inbounds nuw %"class.open3d::pipelines::registration::PoseGraphNode", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %16
   store ptr %41, ptr %36, align 8, !tbaa !55
   ret void
 }
@@ -2956,7 +2956,7 @@ _ZSt8_DestroyIPN6open3d9pipelines12registration13PoseGraphEdgeEEvT_S5_.exit: ; p
 _ZNSt12_Vector_baseIN6open3d9pipelines12registration13PoseGraphEdgeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN6open3d9pipelines12registration13PoseGraphEdgeEEvT_S5_.exit, %58
   store ptr %20, ptr %0, align 8, !tbaa !125
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !74
-  %62 = getelementptr inbounds nuw %"class.open3d::pipelines::registration::PoseGraphEdge", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [448 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !77
   ret void
 }

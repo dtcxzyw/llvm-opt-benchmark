@@ -1592,7 +1592,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.41086.0..sink.i268.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i268, i64 4
   %.sroa.41086.0.copyload = load i32, ptr %.sroa.41086.0..sink.i268.sroa_idx, align 4
   %208 = sext i32 %.sroa.41086.0.copyload to i64
-  %209 = getelementptr i32, ptr %106, i64 %208
+  %209 = getelementptr [4 x i8], ptr %106, i64 %208
   %210 = load i32, ptr %209, align 4
   %211 = zext i32 %210 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %16, ptr noundef nonnull align 8 dereferenceable_or_null(24) %17, i64 noundef %211, i32 noundef 0, i32 noundef 10, i16 32)
@@ -1692,7 +1692,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.41074.0..sink.i295.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i295, i64 4
   %.sroa.41074.0.copyload = load i32, ptr %.sroa.41074.0..sink.i295.sroa_idx, align 4
   %240 = sext i32 %.sroa.41074.0.copyload to i64
-  %241 = getelementptr i32, ptr %109, i64 %240
+  %241 = getelementptr [4 x i8], ptr %109, i64 %240
   %242 = load i32, ptr %241, align 4
   %243 = zext i32 %242 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable_or_null(24) %20, i64 noundef %243, i32 noundef 0, i32 noundef 10, i16 32)
@@ -1792,7 +1792,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.41062.0..sink.i323.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i323, i64 4
   %.sroa.41062.0.copyload = load i32, ptr %.sroa.41062.0..sink.i323.sroa_idx, align 4
   %272 = sext i32 %.sroa.41062.0.copyload to i64
-  %273 = getelementptr i32, ptr %112, i64 %272
+  %273 = getelementptr [4 x i8], ptr %112, i64 %272
   %274 = load i32, ptr %273, align 4
   %275 = zext i32 %274 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable_or_null(24) %23, i64 noundef %275, i32 noundef 0, i32 noundef 10, i16 32)
@@ -2323,7 +2323,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.41038.0..sink.i453.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i453, i64 4
   %.sroa.41038.0.copyload = load i32, ptr %.sroa.41038.0..sink.i453.sroa_idx, align 4
   %427 = sext i32 %.sroa.41038.0.copyload to i64
-  %428 = getelementptr i32, ptr %106, i64 %427
+  %428 = getelementptr [4 x i8], ptr %106, i64 %427
   %429 = load i32, ptr %428, align 4
   %430 = zext i32 %429 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %31, ptr noundef nonnull align 8 dereferenceable_or_null(24) %32, i64 noundef %430, i32 noundef 0, i32 noundef 10, i16 32)
@@ -2423,7 +2423,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.41026.0..sink.i481.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i481, i64 4
   %.sroa.41026.0.copyload = load i32, ptr %.sroa.41026.0..sink.i481.sroa_idx, align 4
   %459 = sext i32 %.sroa.41026.0.copyload to i64
-  %460 = getelementptr i32, ptr %109, i64 %459
+  %460 = getelementptr [4 x i8], ptr %109, i64 %459
   %461 = load i32, ptr %460, align 4
   %462 = zext i32 %461 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %34, ptr noundef nonnull align 8 dereferenceable_or_null(24) %35, i64 noundef %462, i32 noundef 0, i32 noundef 10, i16 32)
@@ -2523,7 +2523,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.41014.0..sink.i509.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i509, i64 4
   %.sroa.41014.0.copyload = load i32, ptr %.sroa.41014.0..sink.i509.sroa_idx, align 4
   %491 = sext i32 %.sroa.41014.0.copyload to i64
-  %492 = getelementptr i32, ptr %112, i64 %491
+  %492 = getelementptr [4 x i8], ptr %112, i64 %491
   %493 = load i32, ptr %492, align 4
   %494 = zext i32 %493 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %37, ptr noundef nonnull align 8 dereferenceable_or_null(24) %38, i64 noundef %494, i32 noundef 0, i32 noundef 10, i16 32)
@@ -3309,7 +3309,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit644:           ; preds = %738, %_ZN17QArrayDa
   store i64 2, ptr %596, align 8
   %745 = load i32, ptr %578, align 4
   %746 = sext i32 %745 to i64
-  %747 = getelementptr i32, ptr %597, i64 %746
+  %747 = getelementptr [4 x i8], ptr %597, i64 %746
   %748 = load i32, ptr %747, align 4
   %749 = zext i32 %748 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %53, ptr noundef nonnull align 8 dereferenceable_or_null(24) %54, i64 noundef %749, i32 noundef 0, i32 noundef 10, i16 32)
@@ -3370,7 +3370,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit657:           ; preds = %758, %_ZN17QArrayDa
   store i64 2, ptr %599, align 8
   %765 = load i32, ptr %578, align 4
   %766 = sext i32 %765 to i64
-  %767 = getelementptr i32, ptr %600, i64 %766
+  %767 = getelementptr [4 x i8], ptr %600, i64 %766
   %768 = load i32, ptr %767, align 4
   %769 = zext i32 %768 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %55, ptr noundef nonnull align 8 dereferenceable_or_null(24) %56, i64 noundef %769, i32 noundef 0, i32 noundef 10, i16 32)
@@ -3431,7 +3431,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit670:           ; preds = %778, %_ZN17QArrayDa
   store i64 2, ptr %602, align 8
   %785 = load i32, ptr %578, align 4
   %786 = sext i32 %785 to i64
-  %787 = getelementptr i32, ptr %603, i64 %786
+  %787 = getelementptr [4 x i8], ptr %603, i64 %786
   %788 = load i32, ptr %787, align 4
   %789 = zext i32 %788 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %57, ptr noundef nonnull align 8 dereferenceable_or_null(24) %58, i64 noundef %789, i32 noundef 0, i32 noundef 10, i16 32)
@@ -4039,7 +4039,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.4955.0..sink.i810.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i810, i64 4
   %.sroa.4955.0.copyload = load i32, ptr %.sroa.4955.0..sink.i810.sroa_idx, align 4
   %983 = sext i32 %.sroa.4955.0.copyload to i64
-  %984 = getelementptr i32, ptr %890, i64 %983
+  %984 = getelementptr [4 x i8], ptr %890, i64 %983
   %985 = load i32, ptr %984, align 4
   %986 = zext i32 %985 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %65, ptr noundef nonnull align 8 dereferenceable_or_null(24) %66, i64 noundef %986, i32 noundef 0, i32 noundef 10, i16 32)
@@ -4143,7 +4143,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.4943.0..sink.i838.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i838, i64 4
   %.sroa.4943.0.copyload = load i32, ptr %.sroa.4943.0..sink.i838.sroa_idx, align 4
   %1017 = sext i32 %.sroa.4943.0.copyload to i64
-  %1018 = getelementptr i32, ptr %893, i64 %1017
+  %1018 = getelementptr [4 x i8], ptr %893, i64 %1017
   %1019 = load i32, ptr %1018, align 4
   %1020 = zext i32 %1019 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %68, ptr noundef nonnull align 8 dereferenceable_or_null(24) %69, i64 noundef %1020, i32 noundef 0, i32 noundef 10, i16 32)
@@ -4247,7 +4247,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   %.sroa.4.0..sink.i866.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i866, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sink.i866.sroa_idx, align 4
   %1051 = sext i32 %.sroa.4.0.copyload to i64
-  %1052 = getelementptr i32, ptr %896, i64 %1051
+  %1052 = getelementptr [4 x i8], ptr %896, i64 %1051
   %1053 = load i32, ptr %1052, align 4
   %1054 = zext i32 %1053 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %71, ptr noundef nonnull align 8 dereferenceable_or_null(24) %72, i64 noundef %1054, i32 noundef 0, i32 noundef 10, i16 32)

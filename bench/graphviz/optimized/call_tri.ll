@@ -3,8 +3,6 @@ source_filename = "bench/graphviz/original/call_tri.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.v_data = type { i32, ptr, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
@@ -67,11 +65,11 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %24 = load double, ptr %23, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load double, ptr %26, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store double %27, ptr %28, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -209,13 +207,13 @@ gv_calloc.exit50.preheader61:                     ; preds = %gv_calloc.exit50.pr
 gv_calloc.exit50:                                 ; preds = %gv_calloc.exit50.preheader61, %gv_calloc.exit50
   %indvars.iv = phi i64 [ 0, %gv_calloc.exit50.preheader61 ], [ %indvars.iv.next, %gv_calloc.exit50 ]
   %24 = mul nsw i64 %indvars.iv, %19
-  %25 = getelementptr inbounds double, ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %26, ptr %27, align 8, !tbaa !3
   %28 = getelementptr i8, ptr %25, i64 8
   %29 = load double, ptr %28, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store double %29, ptr %30, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -232,7 +230,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 
 .preheader51:                                     ; preds = %.preheader51.preheader, %._crit_edge
   %indvars.iv66 = phi i64 [ 0, %.preheader51.preheader ], [ %indvars.iv.next67, %._crit_edge ]
-  %33 = getelementptr inbounds nuw %struct.v_data, ptr %31, i64 %indvars.iv66
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv66
   %34 = load i32, ptr %33, align 8, !tbaa !17
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %.lr.ph54, label %._crit_edge
@@ -245,7 +243,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 38:                                               ; preds = %.lr.ph54, %38
   %indvars.iv63 = phi i64 [ 1, %.lr.ph54 ], [ %indvars.iv.next64, %38 ]
   %39 = load ptr, ptr %36, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv63
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv63
   %41 = load i32, ptr %40, align 4, !tbaa !10
   %42 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %4) #11
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1

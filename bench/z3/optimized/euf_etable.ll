@@ -4,17 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 %struct._key_data = type { %"struct.std::pair", i32, [4 x i8] }
 %"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
 %struct.mk_pp = type { %struct.mk_ismt2_pp }
 %struct.mk_ismt2_pp = type { ptr, ptr, %class.params_ref, ptr, i32, i32, ptr }
 %class.params_ref = type { ptr }
-%"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell" = type { ptr, ptr }
-%"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell" = type { ptr, ptr }
-%"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell" = type { ptr, ptr }
-%"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.43 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.43 = type { i64, [8 x i8] }
@@ -111,7 +105,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   %.0130166 = phi i32 [ -1640531527, %.lr.ph ], [ %61, %8 ]
   %9 = add i64 %indvars.iv, 4294967295
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !25
@@ -119,7 +113,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = add i64 %indvars.iv, 4294967294
   %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !25
@@ -127,7 +121,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   %24 = load i32, ptr %23, align 4, !tbaa !27
   %25 = add i32 %24, %.0128167
   %26 = add nsw i64 %indvars.iv, -3
-  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !25
@@ -272,11 +266,11 @@ define hidden noundef zeroext i1 @_ZNK3euf6etable5cg_eqclEPNS_5enodeES3_(ptr nou
 
 10:                                               ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !25
@@ -456,7 +450,7 @@ _ZN6vectorIPvLb0EjE5resetEv.exit:                 ; preds = %1, %._crit_edge, %.
 
 _ZNK9table2mapI17default_map_entryISt4pairIP9func_decljEjEN3euf6etable9decl_hashENS7_7decl_eqEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %21, %_ZN6vectorIPvLb0EjE5resetEv.exit
   %.sroa.0.1.i.i = phi ptr [ %13, %_ZN6vectorIPvLb0EjE5resetEv.exit ], [ %17, %21 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ]
-  %23 = getelementptr inbounds nuw %class.default_map_entry, ptr %13, i64 %16
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %16
   %.not2427 = icmp eq ptr %.sroa.0.1.i.i, %23
   br i1 %.not2427, label %._crit_edge30, label %.lr.ph29
 
@@ -927,7 +921,7 @@ _ZNK3euf5enode8get_declEv.exit:
   %.idx.i.i.i = shl nuw nsw i64 %16, 5
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw %class.default_map_entry, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %18
   %.not30.i.i.i = icmp eq i32 %14, %12
   br i1 %.not30.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -1056,7 +1050,7 @@ _ZN6vectorIPvLb0EjE9push_backEOS0_.exit:          ; preds = %67, %73
   %74 = phi i32 [ %.pre2.i, %73 ], [ %69, %67 ]
   %75 = phi ptr [ %.pre.i, %73 ], [ %65, %67 ]
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   store ptr %64, ptr %77, align 8, !tbaa !56
   %78 = load ptr, ptr %52, align 8, !tbaa !42
   %79 = getelementptr inbounds i8, ptr %78, i64 -4
@@ -1099,7 +1093,7 @@ define hidden void @_ZNK3euf6etable7displayERSo(ptr noundef nonnull readonly ali
 
 _ZNK9table2mapI17default_map_entryISt4pairIP9func_decljEjEN3euf6etable9decl_hashENS7_7decl_eqEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %13, %2
   %.sroa.0.1.i.i = phi ptr [ %5, %2 ], [ %9, %13 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ]
-  %15 = getelementptr inbounds nuw %class.default_map_entry, ptr %5, i64 %8
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %8
   %.not21 = icmp eq ptr %.sroa.0.1.i.i, %15
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -1118,7 +1112,7 @@ _ZNK9table2mapI17default_map_entryISt4pairIP9func_decljEjEN3euf6etable9decl_hash
   %21 = load i32, ptr %20, align 8, !tbaa !134
   %22 = load ptr, ptr %16, align 8, !tbaa !42
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = load ptr, ptr %19, align 8, !tbaa !73
@@ -1538,7 +1532,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = zext i32 %.0.i to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i32
@@ -1599,7 +1593,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE14ha
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !77
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %.pre28, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.pre28, i64 %9
   %11 = icmp ult ptr %6, %10
   br i1 %11, label %_ZNK10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE14has_free_cellsEv.exit.thread, label %12
 
@@ -1622,7 +1616,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE14ha
   %23 = load i32, ptr %22, align 4, !tbaa !27
   %24 = and i32 %23, %16
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %13, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !78
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 7
@@ -1720,7 +1714,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !105
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %.pre28, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.pre28, i64 %9
   %11 = icmp ult ptr %6, %10
   br i1 %11, label %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE14has_free_cellsEv.exit.thread, label %12
 
@@ -1758,7 +1752,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE14
   %38 = xor i32 %36, %37
   %39 = and i32 %38, %16
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %13, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !106
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %43, 7
@@ -1865,7 +1859,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEE14has_
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !94
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %11
   %13 = icmp ult ptr %6, %12
   br i1 %13, label %_ZNK10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEE14has_free_cellsEv.exit.thread, label %14
 
@@ -1917,7 +1911,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEE14has_
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !63
   %55 = zext i32 %52 to i64
-  %56 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !95
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 7
@@ -2064,7 +2058,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE14has_free_cellsEv
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !116
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %.pre33, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.pre33, i64 %9
   %11 = icmp ult ptr %6, %10
   br i1 %11, label %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE14has_free_cellsEv.exit.thread, label %12
 
@@ -2082,7 +2076,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE14has_free_cellsEv
   %18 = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 8 poison, ptr noundef %17)
   %19 = and i32 %18, %16
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !117
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 7
@@ -2134,11 +2128,11 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE14has_free_cellsEv
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %45
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %45 ], [ 0, %.preheader.i.i ]
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i
   %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !25
-  %50 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !25
@@ -2213,7 +2207,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = zext i32 %.0.i to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i32
@@ -2239,7 +2233,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %7
   %29 = and i32 %28, %22
   %30 = load ptr, ptr %18, align 8, !tbaa !57
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !78
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 7
@@ -2367,7 +2361,7 @@ define linkonce_odr hidden void @_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_bi
   %28 = and i32 %27, %5
   %29 = load ptr, ptr %0, align 8, !tbaa !60
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !106
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 7
@@ -2493,7 +2487,7 @@ define linkonce_odr hidden void @_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_co
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !63
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !95
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 7
@@ -2624,7 +2618,7 @@ define linkonce_odr hidden void @_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_has
   %8 = and i32 %7, %5
   %9 = load ptr, ptr %0, align 8, !tbaa !68
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !117
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 7
@@ -2663,11 +2657,11 @@ define linkonce_odr hidden void @_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_has
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %27
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %27 ], [ 0, %.preheader.i.i ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8, !tbaa !25
-  %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load ptr, ptr %34, align 8, !tbaa !25
@@ -2740,7 +2734,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = zext i32 %.0.i to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i32
@@ -2766,7 +2760,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %7
   %29 = and i32 %28, %22
   %30 = load ptr, ptr %18, align 8, !tbaa !57
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !78
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 7
@@ -2825,7 +2819,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %7
   %75 = and i32 %74, %53
   %76 = load ptr, ptr %18, align 8, !tbaa !60
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !106
   %80 = ptrtoint ptr %79 to i64
   %81 = and i64 %80, 7
@@ -2876,7 +2870,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6e
   %107 = and i32 %106, %105
   %108 = load ptr, ptr %18, align 8, !tbaa !68
   %109 = zext i32 %107 to i64
-  %110 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !117
   %112 = ptrtoint ptr %111 to i64
   %113 = and i64 %112, 7
@@ -2932,11 +2926,11 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.e
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %132
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %132 ], [ 0, %.preheader.i.i.i ]
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i.i.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.i.i.i
   %134 = load ptr, ptr %133, align 8, !tbaa !24
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 64
   %136 = load ptr, ptr %135, align 8, !tbaa !25
-  %137 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i.i.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i.i.i
   %138 = load ptr, ptr %137, align 8, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 64
   %140 = load ptr, ptr %139, align 8, !tbaa !25
@@ -3000,7 +2994,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10chashtableIPN3euf5enodeENS0
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !63
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !95
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 7
@@ -3105,7 +3099,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = zext i32 %.0.i to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i32
@@ -3131,7 +3125,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %8
   %30 = and i32 %29, %23
   %31 = load ptr, ptr %19, align 8, !tbaa !57
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !78
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 7
@@ -3190,7 +3184,7 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %8
   %76 = and i32 %75, %54
   %77 = load ptr, ptr %19, align 8, !tbaa !60
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !106
   %81 = ptrtoint ptr %80 to i64
   %82 = and i64 %81, 7
@@ -3243,7 +3237,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6e
   %110 = and i32 %109, %108
   %111 = load ptr, ptr %19, align 8, !tbaa !68
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !117
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, 7
@@ -3299,11 +3293,11 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.e
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %135
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %135 ], [ 0, %.preheader.i.i.i ]
-  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i.i.i
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i.i.i
   %137 = load ptr, ptr %136, align 8, !tbaa !24
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %139 = load ptr, ptr %138, align 8, !tbaa !25
-  %140 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv.i.i.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv.i.i.i
   %141 = load ptr, ptr %140, align 8, !tbaa !24
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
   %143 = load ptr, ptr %142, align 8, !tbaa !25
@@ -3368,7 +3362,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10chashtableIPN3euf5enodeENS0_
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !63
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !95
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, 7
@@ -3513,7 +3507,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryISt4pair
   %.idx = shl nuw nsw i64 %22, 5
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %24
   %.not65 = icmp eq i32 %20, %15
   br i1 %.not65, label %.preheader, label %.lr.ph
 
@@ -3716,7 +3710,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljEjEN9table2mapIS5_N3
   %13 = zext i32 %11 to i64
   %.idx.i = shl nuw nsw i64 %13, 5
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
-  %15 = getelementptr inbounds nuw %class.default_map_entry, ptr %7, i64 %5
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %11, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljEjEN9table2mapIS5_N3euf6etable9decl_hashENS8_7decl_eqEE15entry_hash_procENSB_13entry_eq_procEE10move_tableEPS5_jSF_j.exit, label %.lr.ph42.i
 
@@ -4266,8 +4260,8 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE11all
   %81 = zext i32 %80 to i64
   %.idx.i = shl nuw nsw i64 %81, 4
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
-  %83 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %76, i64 %19
-  %84 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %76, i64 %74
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %19
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %74
   %.not63.i = icmp eq i32 %80, 0
   br i1 %.not63.i, label %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %.lr.ph.i
 
@@ -4293,7 +4287,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE11all
   %96 = load i32, ptr %95, align 4, !tbaa !27
   %97 = and i32 %96, %18
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %76, i64 %98
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !78
   %101 = ptrtoint ptr %100 to i64
   %102 = and i64 %101, 7
@@ -4648,8 +4642,8 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE11a
   %81 = zext i32 %80 to i64
   %.idx.i = shl nuw nsw i64 %81, 4
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
-  %83 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %76, i64 %19
-  %84 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %76, i64 %74
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %19
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %74
   %.not63.i = icmp eq i32 %80, 0
   br i1 %.not63.i, label %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %.lr.ph.i
 
@@ -4690,7 +4684,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE11a
   %111 = xor i32 %109, %110
   %112 = and i32 %111, %18
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %76, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !106
   %116 = ptrtoint ptr %115 to i64
   %117 = and i64 %116, 7
@@ -5163,9 +5157,9 @@ define linkonce_odr hidden noundef ptr @_ZN10chashtableIPN3euf5enodeENS0_6etable
   %.idx = shl nuw nsw i64 %10, 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %12 = zext i32 %5 to i64
-  %13 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = zext i32 %6 to i64
-  %15 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %14
   %.not63 = icmp eq i32 %2, 0
   br i1 %.not63, label %.critedge, label %.lr.ph
 
@@ -5220,7 +5214,7 @@ define linkonce_odr hidden noundef ptr @_ZN10chashtableIPN3euf5enodeENS0_6etable
   %54 = xor i32 %53, -1252372727
   %55 = and i32 %54, %9
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %4, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !95
   %59 = ptrtoint ptr %58 to i64
   %60 = and i64 %59, 7
@@ -5465,8 +5459,8 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   %81 = zext i32 %80 to i64
   %.idx.i = shl nuw nsw i64 %81, 4
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
-  %83 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %76, i64 %19
-  %84 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %76, i64 %74
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %19
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %74
   %.not63.i = icmp eq i32 %80, 0
   br i1 %.not63.i, label %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %.lr.ph.i
 
@@ -5501,7 +5495,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   %.0130166.i = phi i32 [ -1640531527, %.lr.ph.i62 ], [ %149, %96 ]
   %97 = add nsw i64 %indvars.iv.i, 4294967295
   %98 = and i64 %97, 4294967295
-  %99 = getelementptr inbounds nuw ptr, ptr %94, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !24
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %102 = load ptr, ptr %101, align 8, !tbaa !25
@@ -5509,7 +5503,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   %104 = load i32, ptr %103, align 4, !tbaa !27
   %105 = add nsw i64 %indvars.iv.i, 4294967294
   %106 = and i64 %105, 4294967295
-  %107 = getelementptr inbounds nuw ptr, ptr %94, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !24
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %110 = load ptr, ptr %109, align 8, !tbaa !25
@@ -5517,7 +5511,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   %112 = load i32, ptr %111, align 4, !tbaa !27
   %113 = add i32 %112, %.0128167.i
   %114 = add nsw i64 %indvars.iv.i, -3
-  %115 = getelementptr inbounds nuw ptr, ptr %94, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !24
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 64
   %118 = load ptr, ptr %117, align 8, !tbaa !25
@@ -5640,7 +5634,7 @@ _ZNK3euf6etable7cg_hashclEPNS_5enodeE.exit:       ; preds = %._crit_edge.i, %167
   %210 = xor i32 %208, %209
   %211 = and i32 %210, %18
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %76, i64 %212
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !117
   %215 = ptrtoint ptr %214 to i64
   %216 = and i64 %215, 7

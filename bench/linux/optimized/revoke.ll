@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.static_call_key = type { ptr, %union.anon.6 }
 %union.anon.6 = type { i64 }
-%struct.list_head = type { ptr, ptr }
 
 @jbd2_revoke_record_cache = internal unnamed_addr global ptr null, align 8
 @jbd2_revoke_table_cache = internal unnamed_addr global ptr null, align 8
@@ -177,7 +176,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr nou
 
 .preheader8:                                      ; preds = %30, %.preheader8
   %38 = phi i64 [ %41, %.preheader8 ], [ 0, %30 ]
-  %39 = getelementptr %struct.list_head, ptr %33, i64 %38
+  %39 = getelementptr [16 x i8], ptr %33, i64 %38
   store volatile ptr %39, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store volatile ptr %39, ptr %40, align 8
@@ -226,7 +225,7 @@ jbd2_journal_init_revoke_table.exit.thread:       ; preds = %36, %14
 
 .preheader:                                       ; preds = %.thread.i6, %.preheader
   %59 = phi i64 [ %62, %.preheader ], [ 0, %.thread.i6 ]
-  %60 = getelementptr %struct.list_head, ptr %54, i64 %59
+  %60 = getelementptr [16 x i8], ptr %54, i64 %59
   store volatile ptr %60, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store volatile ptr %60, ptr %61, align 8
@@ -264,7 +263,7 @@ jbd2_journal_init_revoke_table.exit.thread:       ; preds = %36, %14
 
 80:                                               ; preds = %77, %75
   %81 = phi i64 [ %78, %77 ], [ 0, %75 ]
-  %82 = getelementptr %struct.list_head, ptr %74, i64 %81
+  %82 = getelementptr [16 x i8], ptr %74, i64 %81
   %83 = load volatile ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, %82
   br i1 %84, label %77, label %85, !prof !5
@@ -313,7 +312,7 @@ define dso_local void @jbd2_journal_destroy_revoke(ptr noundef captures(none) in
 
 16:                                               ; preds = %13, %11
   %17 = phi i64 [ %14, %13 ], [ 0, %11 ]
-  %18 = getelementptr %struct.list_head, ptr %10, i64 %17
+  %18 = getelementptr [16 x i8], ptr %10, i64 %17
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %18
   br i1 %20, label %13, label %21, !prof !5
@@ -353,7 +352,7 @@ define dso_local void @jbd2_journal_destroy_revoke(ptr noundef captures(none) in
 
 37:                                               ; preds = %34, %32
   %38 = phi i64 [ %35, %34 ], [ 0, %32 ]
-  %39 = getelementptr %struct.list_head, ptr %31, i64 %38
+  %39 = getelementptr [16 x i8], ptr %31, i64 %38
   %40 = load volatile ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
   br i1 %41, label %34, label %42, !prof !5
@@ -659,7 +658,7 @@ define dso_local void @jbd2_clear_buffer_revoked_flags(ptr noundef readonly capt
   %11 = phi i32 [ %4, %6 ], [ %29, %.loopexit ]
   %12 = phi i64 [ 0, %6 ], [ %30, %.loopexit ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr %struct.list_head, ptr %13, i64 %12
+  %14 = getelementptr [16 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %14
   br i1 %16, label %.loopexit, label %.preheader
@@ -726,7 +725,7 @@ define dso_local void @jbd2_journal_switch_revoke_table(ptr noundef captures(non
   %15 = phi ptr [ %21, %.preheader ], [ %11, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr %struct.list_head, ptr %17, i64 %14
+  %18 = getelementptr [16 x i8], ptr %17, i64 %14
   store volatile ptr %18, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store volatile ptr %18, ptr %19, align 8
@@ -773,7 +772,7 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   %22 = phi i32 [ 0, %16 ], [ %154, %.loopexit ]
   %23 = phi ptr [ null, %16 ], [ %153, %.loopexit ]
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr %struct.list_head, ptr %24, i64 %21
+  %25 = getelementptr [16 x i8], ptr %24, i64 %21
   %26 = load volatile ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %25
   br i1 %27, label %.loopexit, label %.preheader
@@ -1194,7 +1193,7 @@ define dso_local void @jbd2_journal_clear_revoke(ptr noundef readonly captures(n
   %9 = phi i32 [ %4, %6 ], [ %23, %.loopexit ]
   %10 = phi i64 [ 0, %6 ], [ %24, %.loopexit ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr %struct.list_head, ptr %11, i64 %10
+  %12 = getelementptr [16 x i8], ptr %11, i64 %10
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %.loopexit, label %.preheader

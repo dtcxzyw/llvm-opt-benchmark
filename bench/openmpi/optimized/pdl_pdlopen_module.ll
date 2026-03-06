@@ -64,7 +64,7 @@ define internal range(i32 -32, 1) i32 @pdlopen_open(ptr noundef %0, i1 noundef z
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8, !tbaa !8
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next78
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next78
   %.025.us = load ptr, ptr %22, align 8, !tbaa !15
   %.not.us = icmp eq ptr %.025.us, null
   br i1 %.not.us, label %do_pdlopen.exit40.thread, label %.lr.ph.split.us, !llvm.loop !16
@@ -124,7 +124,7 @@ define internal range(i32 -32, 1) i32 @pdlopen_open(ptr noundef %0, i1 noundef z
 40:                                               ; preds = %33
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.next
   %.025 = load ptr, ptr %42, align 8, !tbaa !15
   %.not = icmp eq ptr %.025, null
   br i1 %.not, label %do_pdlopen.exit40.thread, label %.lr.ph.split, !llvm.loop !16
@@ -221,7 +221,7 @@ define internal i32 @pdlopen_foreachfile(ptr noundef %0, ptr noundef readonly ca
 .lr.ph184:                                        ; preds = %.lr.ph130, %._crit_edge
   %10 = phi ptr [ %58, %._crit_edge ], [ %9, %.lr.ph130 ]
   %indvars.iv145183 = phi i64 [ %indvars.iv.next146, %._crit_edge ], [ 0, %.lr.ph130 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv145183
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv145183
   %12 = call ptr @opendir(ptr noundef nonnull %10)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread113, label %.preheader115
@@ -309,7 +309,7 @@ sub_1:                                            ; preds = %sub_0
 
 48:                                               ; preds = %.lr.ph125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.next
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.next
   %50 = load ptr, ptr %49, align 8, !tbaa !15
   %.not73 = icmp eq ptr %50, null
   br i1 %.not73, label %.critedge79, label %.lr.ph125
@@ -338,7 +338,7 @@ sub_1:                                            ; preds = %sub_0
 ._crit_edge:                                      ; preds = %.critedge2, %.preheader115
   %56 = call i32 @closedir(ptr noundef nonnull %12)
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145183, 1
-  %57 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next146
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next146
   %58 = load ptr, ptr %57, align 8, !tbaa !15
   %.not69 = icmp eq ptr %58, null
   br i1 %.not69, label %._crit_edge131, label %.lr.ph184
@@ -356,7 +356,7 @@ sub_1:                                            ; preds = %sub_0
 60:                                               ; preds = %.lr.ph136
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %61 = load ptr, ptr %4, align 8, !tbaa !21
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.next149
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.next149
   %63 = load ptr, ptr %62, align 8, !tbaa !15
   %.not75 = icmp eq ptr %63, null
   br i1 %.not75, label %.thread113, label %.lr.ph136, !llvm.loop !28

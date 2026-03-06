@@ -14,26 +14,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
 %"struct.std::__atomic_base.1" = type { i32 }
 %"class.tbb::detail::d1::small_object_allocator" = type { ptr }
-%"class.tbb::detail::r1::mail_outbox" = type { %"struct.tbb::detail::d0::padded.base", [7 x i8] }
-%"struct.tbb::detail::d0::padded.base" = type { %"struct.tbb::detail::d0::padded_base.base" }
-%"struct.tbb::detail::d0::padded_base.base" = type { %"class.tbb::detail::r1::unpadded_mail_outbox.base", [104 x i8] }
-%"class.tbb::detail::r1::unpadded_mail_outbox.base" = type <{ %"struct.std::atomic.26", %"struct.std::atomic.30", %"struct.std::atomic" }>
-%"struct.std::atomic.26" = type { %"struct.std::__atomic_base.27" }
-%"struct.std::__atomic_base.27" = type { ptr }
-%"struct.std::atomic.30" = type { %"struct.std::__atomic_base.31" }
-%"struct.std::__atomic_base.31" = type { ptr }
 %"struct.tbb::detail::r1::subsequent_lane_selector" = type { %"struct.tbb::detail::r1::lane_selector_base" }
 %"struct.tbb::detail::r1::lane_selector_base" = type { ptr }
 %"struct.tbb::detail::r1::random_lane_selector" = type { ptr }
 %"class.tbb::detail::d1::unique_scoped_lock" = type { ptr }
-%"struct.tbb::detail::r1::queue_and_mutex" = type <{ %"class.std::deque", %"class.tbb::detail::d1::mutex", [47 x i8] }>
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<tbb::detail::d1::task *, tbb::detail::d1::cache_aligned_allocator<tbb::detail::d1::task *>>::_Deque_impl" }
-%"struct.std::_Deque_base<tbb::detail::d1::task *, tbb::detail::d1::cache_aligned_allocator<tbb::detail::d1::task *>>::_Deque_impl" = type { %"struct.std::_Deque_base<tbb::detail::d1::task *, tbb::detail::d1::cache_aligned_allocator<tbb::detail::d1::task *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<tbb::detail::d1::task *, tbb::detail::d1::cache_aligned_allocator<tbb::detail::d1::task *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.tbb::detail::d1::mutex" = type { %"class.tbb::detail::d1::waitable_atomic" }
-%"class.tbb::detail::d1::waitable_atomic" = type { %"struct.std::atomic" }
 %"class.tbb::detail::r1::external_waiter" = type { %"class.tbb::detail::r1::sleep_waiter", ptr }
 %"class.tbb::detail::r1::sleep_waiter" = type { %"class.tbb::detail::r1::waiter_base" }
 %"class.tbb::detail::r1::waiter_base" = type { ptr, %"class.tbb::detail::r1::stealing_loop_backoff" }
@@ -48,13 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dispatch_loop_guard.48 = type <{ ptr, %"struct.tbb::detail::r1::execution_data_ext", %"struct.tbb::detail::r1::task_dispatcher::properties", i8, [4 x i8] }>
 %"class.tbb::detail::r1::context_guard_helper.50" = type { ptr, %"struct.tbb::detail::d1::cpu_ctl_env", %"struct.tbb::detail::d1::cpu_ctl_env" }
 %"struct.tbb::detail::r1::stack_anchor_type" = type { i8 }
-%"class.tbb::detail::r1::arena_slot" = type { %"struct.tbb::detail::r1::arena_slot_shared_state.base", [104 x i8], %"struct.tbb::detail::r1::arena_slot_private_state.base", ptr, [80 x i8] }
-%"struct.tbb::detail::r1::arena_slot_shared_state.base" = type { %"struct.std::atomic", %"struct.std::atomic.20", %"struct.std::atomic.13" }
-%"struct.std::atomic.20" = type { %"struct.std::__atomic_base.21" }
-%"struct.std::__atomic_base.21" = type { ptr }
-%"struct.std::atomic.13" = type { %"struct.std::__atomic_base.14" }
-%"struct.std::__atomic_base.14" = type { i64 }
-%"struct.tbb::detail::r1::arena_slot_private_state.base" = type { i32, i32, i32, %"struct.std::atomic.13", i64, ptr }
 %"class.tbb::detail::r1::sleep_node" = type <{ %"class.tbb::detail::r1::wait_node", %"class.tbb::detail::d0::aligned_space.42", [4 x i8] }>
 %"class.tbb::detail::d0::aligned_space.42" = type { [4 x i8] }
 %struct.dispatch_loop_guard.53 = type <{ ptr, %"struct.tbb::detail::r1::execution_data_ext", %"struct.tbb::detail::r1::task_dispatcher::properties", i8, [4 x i8] }>
@@ -653,7 +630,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %2, %5
   %18 = tail call noundef i64 @_ZN3tbb6detail2r110arena_slot17prepare_task_poolEm(ptr noundef nonnull align 128 dereferenceable(176) %11, i64 noundef 1)
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %20 = load ptr, ptr %19, align 32, !tbaa !144
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %18
   store ptr %0, ptr %21, align 8, !tbaa !147
   %22 = add i64 %18, 1
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 144
@@ -765,7 +742,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %3, %7
   store i16 %2, ptr %36, align 8, !tbaa !157
   %37 = zext i16 %2 to i64
   %38 = xor i64 %37, -1
-  %39 = getelementptr inbounds %"class.tbb::detail::r1::mail_outbox", ptr %11, i64 %38
+  %39 = getelementptr inbounds [128 x i8], ptr %11, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 80
   store ptr %39, ptr %40, align 16, !tbaa !164
   %41 = ptrtoint ptr %0 to i64
@@ -783,7 +760,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %3, %7
   %49 = call noundef i64 @_ZN3tbb6detail2r110arena_slot17prepare_task_poolEm(ptr noundef nonnull align 128 dereferenceable(176) %13, i64 noundef 1)
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %51 = load ptr, ptr %50, align 32, !tbaa !144
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %49
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %30, ptr %52, align 8, !tbaa !147
   %53 = add i64 %49, 1
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 144
@@ -833,7 +810,7 @@ _ZN3tbb6detail2r1L16spawn_and_notifyERNS0_2d14taskEPNS1_10arena_slotEPNS1_5arena
   %71 = tail call noundef i64 @_ZN3tbb6detail2r110arena_slot17prepare_task_poolEm(ptr noundef nonnull align 128 dereferenceable(176) %13, i64 noundef 1)
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %73 = load ptr, ptr %72, align 32, !tbaa !144
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %0, ptr %74, align 8, !tbaa !147
   %75 = add i64 %71, 1
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 144
@@ -935,7 +912,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %4, %9
   %28 = tail call noundef i64 @_ZN3tbb6detail2r110arena_slot17prepare_task_poolEm(ptr noundef nonnull align 128 dereferenceable(176) %23, i64 noundef 1)
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 160
   %30 = load ptr, ptr %29, align 32, !tbaa !144
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %0, ptr %31, align 8, !tbaa !147
   %32 = add i64 %28, 1
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 144
@@ -1024,7 +1001,7 @@ define linkonce_odr void @_ZN3tbb6detail2r111task_streamILNS1_25task_stream_acce
   store ptr null, ptr %5, align 8, !tbaa !173
   %15 = load ptr, ptr %7, align 8, !tbaa !176
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [128 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load atomic i8, ptr %18 monotonic, align 1
   %20 = trunc i8 %19 to i1
@@ -1038,7 +1015,7 @@ _ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i:      ; preds = %8
 23:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
   store ptr %18, ptr %5, align 8, !tbaa !173
   %24 = load ptr, ptr %7, align 8, !tbaa !176
-  %25 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %24, i64 %16
+  %25 = getelementptr inbounds nuw [128 x i8], ptr %24, i64 %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !177
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -1123,7 +1100,7 @@ define linkonce_odr void @_ZN3tbb6detail2r111task_streamILNS1_25task_stream_acce
   store ptr null, ptr %5, align 8, !tbaa !173
   %19 = load ptr, ptr %7, align 8, !tbaa !176
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load atomic i8, ptr %22 monotonic, align 1
   %24 = trunc i8 %23 to i1
@@ -1137,7 +1114,7 @@ _ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i:      ; preds = %8
 27:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
   store ptr %22, ptr %5, align 8, !tbaa !173
   %28 = load ptr, ptr %7, align 8, !tbaa !176
-  %29 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %28, i64 %20
+  %29 = getelementptr inbounds nuw [128 x i8], ptr %28, i64 %20
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !177
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 64
@@ -1222,7 +1199,7 @@ define linkonce_odr void @_ZN3tbb6detail2r111task_streamILNS1_25task_stream_acce
   store ptr null, ptr %5, align 8, !tbaa !173
   %19 = load ptr, ptr %7, align 8, !tbaa !188
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load atomic i8, ptr %22 monotonic, align 1
   %24 = trunc i8 %23 to i1
@@ -1236,7 +1213,7 @@ _ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i:      ; preds = %8
 27:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
   store ptr %22, ptr %5, align 8, !tbaa !173
   %28 = load ptr, ptr %7, align 8, !tbaa !188
-  %29 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %28, i64 %20
+  %29 = getelementptr inbounds nuw [128 x i8], ptr %28, i64 %20
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !177
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 64
@@ -1923,7 +1900,7 @@ _ZN3tbb6detail2r110arena_slot17acquire_task_poolEv.exit: ; preds = %23, %16
 .lr.ph:                                           ; preds = %_ZN3tbb6detail2r110arena_slot17acquire_task_poolEv.exit, %.lr.ph
   %.03549 = phi i64 [ %45, %.lr.ph ], [ %35, %_ZN3tbb6detail2r110arena_slot17acquire_task_poolEv.exit ]
   %.13748 = phi i64 [ %spec.select46, %.lr.ph ], [ %1, %_ZN3tbb6detail2r110arena_slot17acquire_task_poolEv.exit ]
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %.03549
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.03549
   %43 = load ptr, ptr %42, align 8, !tbaa !147
   %.not45 = icmp ne ptr %43, null
   %44 = zext i1 %.not45 to i64
@@ -1955,14 +1932,14 @@ _ZN3tbb6detail2r110arena_slot17acquire_task_poolEv.exit: ; preds = %23, %16
 .lr.ph53:                                         ; preds = %53, %60
   %.051 = phi i64 [ %61, %60 ], [ %35, %53 ]
   %.03250 = phi i64 [ %.1, %60 ], [ 0, %53 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %37, i64 %.051
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.051
   %56 = load ptr, ptr %55, align 8, !tbaa !147
   %.not44 = icmp eq ptr %56, null
   br i1 %.not44, label %60, label %57
 
 57:                                               ; preds = %.lr.ph53
   %58 = add i64 %.03250, 1
-  %59 = getelementptr inbounds nuw ptr, ptr %54, i64 %.03250
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.03250
   store ptr %56, ptr %59, align 8, !tbaa !147
   br label %60
 
@@ -2564,9 +2541,9 @@ define linkonce_odr void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_
   %19 = load ptr, ptr %0, align 8, !tbaa !228
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -2585,12 +2562,12 @@ define linkonce_odr void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN3tbb6detail2d14taskES6_ET0_T_S8_S7_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN3tbb6detail2d14taskES6_ET0_T_S8_S7_.exit
 
@@ -2602,9 +2579,9 @@ define linkonce_odr void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_
   %43 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef %42)
   %44 = sub i64 %41, %13
   %45 = lshr i64 %44, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   %47 = select i1 %2, i64 %1, i64 0
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %6, align 8, !tbaa !230
   %50 = load ptr, ptr %4, align 8, !tbaa !227
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -2644,7 +2621,7 @@ _ZSt4copyIPPPN3tbb6detail2d14taskES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28,
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 512
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %62, ptr %63, align 8, !tbaa !225
-  %64 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   store ptr %65, ptr %4, align 8, !tbaa !222
   %66 = load ptr, ptr %65, align 8, !tbaa !229
@@ -3990,7 +3967,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %167, %15
   %169 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %169, %168
-  %170 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %42, i64 %spec.select.i.i77
+  %170 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 %spec.select.i.i77
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load atomic i64, ptr %171 monotonic, align 8
   %173 = icmp eq i64 %172, 0
@@ -4270,7 +4247,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2r111task_streamILNS1_25task_stre
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %9, align 8, !tbaa !176
-  %19 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %18, i64 %14
+  %19 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 %14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load atomic i8, ptr %20 monotonic, align 1
   %22 = trunc i8 %21 to i1
@@ -4461,7 +4438,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2r111task_streamILNS1_25task_stre
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !176
-  %10 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %9, i64 %4
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load atomic i8, ptr %11 monotonic, align 1
   %13 = trunc i8 %12 to i1
@@ -4828,7 +4805,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2r111task_streamILNS1_25task_stre
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !188
-  %10 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %9, i64 %4
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load atomic i8, ptr %11 monotonic, align 1
   %13 = trunc i8 %12 to i1
@@ -5606,7 +5583,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %167, %15
   %169 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %169, %168
-  %170 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %42, i64 %spec.select.i.i77
+  %170 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 %spec.select.i.i77
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load atomic i64, ptr %171 monotonic, align 8
   %173 = icmp eq i64 %172, 0
@@ -6977,7 +6954,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %163, %15
   %165 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %165, %164
-  %166 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %38, i64 %spec.select.i.i77
+  %166 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 %spec.select.i.i77
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load atomic i64, ptr %167 monotonic, align 8
   %169 = icmp eq i64 %168, 0
@@ -7728,7 +7705,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %163, %15
   %165 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %165, %164
-  %166 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %38, i64 %spec.select.i.i77
+  %166 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 %spec.select.i.i77
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load atomic i64, ptr %167 monotonic, align 8
   %169 = icmp eq i64 %168, 0

@@ -609,7 +609,7 @@ define void @_ZN10raft_proto10confchange17parse_conf_change17he894210fdd0eef47E(
 
 159:                                              ; preds = %154, %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h94ae65e2f8b0b215E.exit"
   %160 = load ptr, ptr %28, align 8, !alias.scope !58, !noalias !61, !nonnull !6, !noundef !6
-  %161 = getelementptr inbounds nuw { i64, ptr, { { i64 } }, i8, [7 x i8] }, ptr %160, i64 %151
+  %161 = getelementptr inbounds nuw [32 x i8], ptr %160, i64 %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %162 = add i64 %151, 1
   store i64 %162, ptr %29, align 8, !alias.scope !58, !noalias !61

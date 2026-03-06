@@ -6937,7 +6937,7 @@ _ZNSt12_Vector_baseIN3nix3refINS0_12TestResourceEEESaIS3_EE13_M_deallocateEPS3_m
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8
-  %102 = getelementptr inbounds nuw %"class.nix::ref", ptr %20, i64 %16
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %102, ptr %101, align 8
   ret void
 }
@@ -7526,7 +7526,7 @@ _ZNSt12_Vector_baseIN3nix3refINS0_12TestResourceEEESaIS3_EE13_M_deallocateEPS3_m
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8
-  %102 = getelementptr inbounds nuw %"class.nix::ref", ptr %20, i64 %16
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %102, ptr %101, align 8
   ret void
 }

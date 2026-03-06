@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/cuddZddReord.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @empty = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [4 x i8] c"ZDD\00", align 1
 @zddTotalNumberSwapping = local_unnamed_addr global i32 0, align 4
@@ -187,7 +185,7 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
   %22 = phi i32 [ %10, %.lr.ph94 ], [ %100, %99 ]
   %indvars.iv99 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next100, %99 ]
   %23 = load ptr, ptr %12, align 8, !tbaa !43
-  %24 = getelementptr inbounds nuw %struct.DdSubtable, ptr %23, i64 %indvars.iv99
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv99
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -237,7 +235,7 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !28
   %.not8589 = icmp eq ptr %50, null
   br i1 %.not8589, label %._crit_edge, label %.lr.ph91
@@ -273,7 +271,7 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
   %77 = mul i32 %76, 4256249
   %78 = lshr i32 %77, %44
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %39, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %39, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !28
   store ptr %81, ptr %51, align 8, !tbaa !51
   store ptr %.07790, ptr %80, align 8, !tbaa !28
@@ -344,11 +342,11 @@ define range(i32 0, 2) i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr noundef read
 
 10:                                               ; preds = %zddSiftUp.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %zddSiftUp.exit.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !34
   %13 = load ptr, ptr %9, align 8, !tbaa !64
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = sext i32 %16 to i64
   br label %18
@@ -424,26 +422,26 @@ define range(i32 0, 2) i32 @cuddZddAlignToBdd(ptr noundef %0) local_unnamed_addr
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph48.split.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us ], [ 0, %.lr.ph48.split.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv53
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv53
   %27 = load i32, ptr %26, align 4, !tbaa !34
   %28 = mul nsw i32 %27, %10
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %21, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !34
   %.fr.us = freeze i32 %31
   %32 = srem i32 %.fr.us, %10
   %33 = sub nsw i32 %.fr.us, %32
   %34 = mul nuw nsw i64 %indvars.iv53, %25
   %35 = sext i32 %33 to i64
-  %invariant.gep = getelementptr i32, ptr %24, i64 %35
-  %invariant.gep67 = getelementptr inbounds nuw i32, ptr %15, i64 %34
+  %invariant.gep = getelementptr [4 x i8], ptr %24, i64 %35
+  %invariant.gep67 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %34
   br label %36
 
 36:                                               ; preds = %.lr.ph.us, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %36 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %37 = load i32, ptr %gep, align 4, !tbaa !34
-  %gep68 = getelementptr inbounds nuw i32, ptr %invariant.gep67, i64 %indvars.iv
+  %gep68 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep67, i64 %indvars.iv
   store i32 %37, ptr %gep68, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -473,11 +471,11 @@ define range(i32 0, 2) i32 @cuddZddAlignToBdd(ptr noundef %0) local_unnamed_addr
 
 44:                                               ; preds = %zddSiftUp.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %zddSiftUp.exit.i ]
-  %45 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4, !tbaa !34
   %47 = load ptr, ptr %43, align 8, !tbaa !64
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !34
   %51 = sext i32 %50 to i64
   br label %52
@@ -538,7 +536,7 @@ define internal fastcc void @zddFixTree(ptr noundef %0, ptr noundef captures(add
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %12 = load ptr, ptr %11, align 8, !tbaa !64
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !34
   br label %16
 
@@ -606,11 +604,11 @@ define i32 @cuddZddUniqueCompare(ptr noundef readonly captures(none) %0, ptr nou
   %3 = load ptr, ptr @zdd_entry, align 8, !tbaa !80
   %4 = load i32, ptr %1, align 4, !tbaa !34
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %3, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !34
   %8 = load i32, ptr %0, align 4, !tbaa !34
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %3, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %3, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !34
   %12 = sub nsw i32 %7, %11
   ret i32 %12
@@ -626,11 +624,11 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8, !tbaa !43
-  %14 = getelementptr inbounds %struct.DdSubtable, ptr %13, i64 %9
+  %14 = getelementptr inbounds [56 x i8], ptr %13, i64 %9
   %15 = load ptr, ptr %14, align 8, !tbaa !47
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !45
@@ -639,9 +637,9 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !49
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds i32, ptr %8, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %8, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !34
-  %25 = getelementptr inbounds %struct.DdSubtable, ptr %13, i64 %22
+  %25 = getelementptr inbounds [56 x i8], ptr %13, i64 %22
   %26 = load ptr, ptr %25, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !45
@@ -661,7 +659,7 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %indvars.iv = phi i64 [ 0, %.lr.ph285.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.0227283 = phi ptr [ %4, %.lr.ph285.preheader ], [ %.1228.lcssa, %._crit_edge ]
   %.0248281 = phi i32 [ 0, %.lr.ph285.preheader ], [ %.1249.lcssa, %._crit_edge ]
-  %34 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   %.not263274 = icmp eq ptr %35, null
   br i1 %.not263274, label %._crit_edge, label %.lr.ph
@@ -806,7 +804,7 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %98 = mul i32 %97, 4256249
   %99 = lshr i32 %98, %21
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %15, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %15, i64 %100
   %.2234289 = load ptr, ptr %101, align 8, !tbaa !28
   %cond290 = icmp eq ptr %.2234289, null
   br i1 %cond290, label %._crit_edge294, label %.lr.ph293
@@ -900,7 +898,7 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %153 = mul i32 %152, 4256249
   %154 = lshr i32 %153, %21
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %15, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %15, i64 %155
   %.1231295 = load ptr, ptr %156, align 8, !tbaa !28
   %cond267296 = icmp eq ptr %.1231295, null
   br i1 %cond267296, label %._crit_edge300, label %.lr.ph299
@@ -981,7 +979,7 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %202 = lshr i32 %201, %32
   %203 = add nsw i32 %.0244303, 1
   %204 = sext i32 %202 to i64
-  %205 = getelementptr inbounds ptr, ptr %26, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %26, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !28
   store ptr %206, ptr %51, align 8, !tbaa !51
   store ptr %.1240304, ptr %205, align 8, !tbaa !28
@@ -991,7 +989,7 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 207:                                              ; preds = %.lr.ph321, %._crit_edge316
   %indvars.iv327 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next328, %._crit_edge316 ]
   %.1245319 = phi i32 [ %.0244.lcssa, %.lr.ph321 ], [ %.2246.lcssa, %._crit_edge316 ]
-  %208 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv327
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv327
   %209 = load ptr, ptr %208, align 8, !tbaa !28
   %.not259310 = icmp eq ptr %209, null
   br i1 %.not259310, label %._crit_edge316, label %.lr.ph315
@@ -1047,7 +1045,7 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 ._crit_edge322:                                   ; preds = %._crit_edge316, %.preheader
   %.1245.lcssa = phi i32 [ %.0244.lcssa, %.preheader ], [ %.2246.lcssa, %._crit_edge316 ]
   %230 = load ptr, ptr %12, align 8, !tbaa !43
-  %231 = getelementptr inbounds %struct.DdSubtable, ptr %230, i64 %9
+  %231 = getelementptr inbounds [56 x i8], ptr %230, i64 %9
   store ptr %26, ptr %231, align 8, !tbaa !47
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 12
   store i32 %30, ptr %232, align 4, !tbaa !44
@@ -1058,7 +1056,7 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %235 = shl nsw i32 %30, 2
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 20
   store i32 %235, ptr %236, align 4, !tbaa !50
-  %237 = getelementptr inbounds %struct.DdSubtable, ptr %230, i64 %22
+  %237 = getelementptr inbounds [56 x i8], ptr %230, i64 %22
   store ptr %15, ptr %237, align 8, !tbaa !47
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 12
   store i32 %19, ptr %238, align 4, !tbaa !44
@@ -1072,15 +1070,15 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %244 = load ptr, ptr %243, align 8, !tbaa !64
   %245 = sext i32 %11 to i64
-  %246 = getelementptr inbounds i32, ptr %244, i64 %245
+  %246 = getelementptr inbounds [4 x i8], ptr %244, i64 %245
   store i32 %2, ptr %246, align 4, !tbaa !34
   %247 = sext i32 %24 to i64
-  %248 = getelementptr inbounds i32, ptr %244, i64 %247
+  %248 = getelementptr inbounds [4 x i8], ptr %244, i64 %247
   store i32 %1, ptr %248, align 4, !tbaa !34
   %249 = load ptr, ptr %7, align 8, !tbaa !69
-  %250 = getelementptr inbounds i32, ptr %249, i64 %9
+  %250 = getelementptr inbounds [4 x i8], ptr %249, i64 %9
   store i32 %24, ptr %250, align 4, !tbaa !34
-  %251 = getelementptr inbounds i32, ptr %249, i64 %22
+  %251 = getelementptr inbounds [4 x i8], ptr %249, i64 %22
   store i32 %11, ptr %251, align 4, !tbaa !34
   %252 = add i32 %28, %17
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1091,11 +1089,11 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   store i32 %257, ptr %253, align 8, !tbaa !3
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %259 = load ptr, ptr %258, align 8, !tbaa !91
-  %260 = getelementptr inbounds ptr, ptr %259, i64 %9
+  %260 = getelementptr inbounds [8 x i8], ptr %259, i64 %9
   %261 = load ptr, ptr %260, align 8, !tbaa !28
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8, !tbaa !52
-  %264 = getelementptr inbounds ptr, ptr %259, i64 %22
+  %264 = getelementptr inbounds [8 x i8], ptr %259, i64 %22
   store ptr %263, ptr %264, align 8, !tbaa !28
   br label %269
 
@@ -1149,7 +1147,7 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.1107 = phi i32 [ %.060112, %.lr.ph ], [ %spec.select82, %18 ]
   %.068105 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %18 ]
-  %19 = getelementptr inbounds %struct.DdSubtable, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds [56 x i8], ptr %17, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !45
   %22 = icmp sgt i32 %21, %.068105
@@ -1551,15 +1549,15 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.DdSubtable, ptr %18, i64 %24
+  %25 = getelementptr inbounds [56 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !45
-  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !34
-  %29 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %30, ptr %29, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1593,10 +1591,10 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %35, align 8, !tbaa !64
-  %44 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv153
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv153
   %45 = load i32, ptr %44, align 4, !tbaa !34
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %43, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %43, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !34
   %49 = icmp slt i32 %48, %1
   %50 = icmp sgt i32 %48, %2

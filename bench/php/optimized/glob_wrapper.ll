@@ -175,7 +175,7 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %25 = load ptr, ptr %24, align 8, !tbaa !39
   %.not35 = icmp eq ptr %25, null
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %15
   %spec.select = select i1 %.not35, ptr %14, ptr %26
   %.pre = load i64, ptr %spec.select, align 8, !tbaa !28
   br label %.thread
@@ -186,7 +186,7 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %29 = phi ptr [ %19, %php_glob_stream_get_result_count.exit.thread ], [ %14, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !40
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %28
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %28
   %33 = load ptr, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %35 = load i32, ptr %34, align 8, !tbaa !31
@@ -408,7 +408,7 @@ zend_string_alloc.exit:                           ; preds = %8
 34:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %35 = load ptr, ptr %31, align 8, !tbaa !40
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !41
   %38 = tail call i32 @php_check_open_basedir_ex(ptr noundef %37, i32 noundef 0) #10
   %.not50 = icmp eq i32 %38, 0
@@ -430,7 +430,7 @@ zend_string_alloc.exit:                           ; preds = %8
   %46 = load i64, ptr %33, align 8, !tbaa !36
   %47 = add i64 %46, 1
   store i64 %47, ptr %33, align 8, !tbaa !36
-  %48 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   store i64 %indvars.iv, ptr %48, align 8, !tbaa !28
   br label %49
 

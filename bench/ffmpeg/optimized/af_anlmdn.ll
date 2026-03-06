@@ -59,9 +59,9 @@ define internal float @compute_distance_ssd_c(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %4, %3 ]
   %.0912 = phi float [ %11, %.lr.ph ], [ 0.000000e+00, %3 ]
-  %5 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4, !tbaa !10
-  %7 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !10
   %9 = fsub nsz float %6, %8
   %10 = fmul nsz float %9, %9
@@ -81,11 +81,11 @@ define internal void @compute_cache_c(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph:                                           ; preds = %6
   %10 = xor i64 %3, -1
-  %11 = getelementptr float, ptr %1, i64 %4
-  %12 = getelementptr float, ptr %11, i64 %10
-  %13 = getelementptr float, ptr %1, i64 %10
-  %14 = getelementptr float, ptr %11, i64 %3
-  %15 = getelementptr float, ptr %1, i64 %3
+  %11 = getelementptr [4 x i8], ptr %1, i64 %4
+  %12 = getelementptr [4 x i8], ptr %11, i64 %10
+  %13 = getelementptr [4 x i8], ptr %1, i64 %10
+  %14 = getelementptr [4 x i8], ptr %11, i64 %3
+  %15 = getelementptr [4 x i8], ptr %1, i64 %3
   br label %16
 
 ._crit_edge:                                      ; preds = %16, %6
@@ -95,17 +95,17 @@ define internal void @compute_cache_c(ptr noundef captures(none) %0, ptr noundef
   %indvars.iv23 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next24, %16 ]
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load float, ptr %12, align 4, !tbaa !10
-  %18 = getelementptr float, ptr %13, i64 %indvars.iv
+  %18 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv
   %19 = load float, ptr %18, align 4, !tbaa !10
   %20 = fsub nsz float %17, %19
   %21 = fmul nsz float %20, %20
   %22 = load float, ptr %14, align 4, !tbaa !10
-  %23 = getelementptr float, ptr %15, i64 %indvars.iv
+  %23 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !10
   %25 = fsub nsz float %22, %24
   %26 = fmul nsz float %25, %25
   %27 = fsub nsz float %26, %21
-  %28 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv23
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv23
   %29 = load float, ptr %28, align 4, !tbaa !10
   %30 = fadd nsz float %29, %27
   store float %30, ptr %28, align 4, !tbaa !10
@@ -431,7 +431,7 @@ define internal fastcc range(i32 -12, 1) i32 @config_filter(ptr noundef %0) unna
   %84 = sitofp i32 %83 to float
   %85 = fdiv nsz float %84, %73
   %86 = tail call nsz float @llvm.exp.f32(float %85)
-  %87 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   store float %86, ptr %87, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1048576
@@ -499,15 +499,15 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !72
   %24 = sext i32 %10 to i64
-  %25 = getelementptr inbounds float, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 4194376
   %27 = load ptr, ptr %26, align 8, !tbaa !60
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8, !tbaa !61
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %21
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %21
   %31 = load ptr, ptr %30, align 8, !tbaa !72
   %32 = shl nsw i32 %10, 2
   %33 = or disjoint i32 %32, 2
@@ -519,7 +519,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %39 = fdiv nsz float %35, %38
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %41 = load ptr, ptr %40, align 8, !tbaa !61
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %21
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %21
   %43 = load ptr, ptr %42, align 8, !tbaa !72
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -532,14 +532,14 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 4194368
   %53 = load ptr, ptr %52, align 8, !tbaa !52
   %54 = sext i32 %14 to i64
-  %55 = getelementptr inbounds float, ptr %23, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %23, i64 %54
   %56 = sext i32 %51 to i64
   %57 = shl nsw i64 %56, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %23, ptr align 4 %55, i64 %57, i1 false)
-  %58 = getelementptr inbounds float, ptr %23, i64 %56
+  %58 = getelementptr inbounds [4 x i8], ptr %23, i64 %56
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 96
   %60 = load ptr, ptr %59, align 8, !tbaa !61
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %21
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %21
   %62 = load ptr, ptr %61, align 8, !tbaa !72
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %64 = load i32, ptr %63, align 8, !tbaa !46
@@ -549,7 +549,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %67 = load i32, ptr %63, align 8, !tbaa !46
   %68 = add nsw i32 %67, %51
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds float, ptr %23, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %23, i64 %69
   %71 = sub nsw i32 %14, %67
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 2
@@ -561,7 +561,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %75 = add nsw i32 %14, %8
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 4194400
   %77 = sext i32 %8 to i64
-  %78 = getelementptr inbounds float, ptr %31, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %31, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 4194392
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %81 = shl i32 %8, 1
@@ -570,7 +570,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %smax = tail call i32 @llvm.smax.i32(i32 %81, i32 1)
   %84 = sext i32 %75 to i64
   %.not139 = icmp slt i32 %8, 0
-  %85 = getelementptr inbounds nuw float, ptr %25, i64 %77
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %77
   %86 = zext nneg i32 %8 to i64
   %wide.trip.count159 = zext nneg i32 %smax to i64
   br label %87
@@ -599,11 +599,11 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %79, align 8, !tbaa !74
-  %93 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %94 = tail call nsz float %92(ptr noundef %85, ptr noundef %93, i64 noundef %24) #12
   %95 = add nsw i32 %.0129140, 1
   %96 = sext i32 %.0129140 to i64
-  %97 = getelementptr inbounds float, ptr %31, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %31, i64 %96
   store float %94, ptr %97, align 4, !tbaa !10
   br label %98
 
@@ -634,14 +634,14 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %105 = trunc nsw i64 %indvars.iv161 to i32
   %106 = sub i32 %105, %8
   %107 = sext i32 %106 to i64
-  %invariant.gep = getelementptr float, ptr %25, i64 %107
+  %invariant.gep = getelementptr [4 x i8], ptr %25, i64 %107
   br label %.lr.ph145.split.us
 
 .lr.ph145.split.us:                               ; preds = %.lr.ph145.split.us.preheader, %127
   %indvars.iv156 = phi i64 [ 0, %.lr.ph145.split.us.preheader ], [ %indvars.iv.next157, %127 ]
   %.0130143.us = phi float [ 0.000000e+00, %.lr.ph145.split.us.preheader ], [ %.1131.us, %127 ]
   %.0132142.us = phi float [ 0.000000e+00, %.lr.ph145.split.us.preheader ], [ %.1133.us, %127 ]
-  %108 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv156
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv156
   %109 = load float, ptr %108, align 4, !tbaa !10
   %110 = fcmp nsz olt float %109, 0.000000e+00
   br i1 %110, label %111, label %112
@@ -660,12 +660,12 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %116 = fmul nsz float %46, %113
   %117 = fptoui float %116 to i32
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw float, ptr %44, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %118
   %120 = load float, ptr %119, align 4, !tbaa !10
   %121 = icmp sge i64 %indvars.iv156, %77
   %122 = zext i1 %121 to i64
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv156
-  %123 = getelementptr float, ptr %gep, i64 %122
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv156
+  %123 = getelementptr [4 x i8], ptr %gep, i64 %122
   %124 = load float, ptr %123, align 4, !tbaa !10
   %125 = tail call nsz float @llvm.fmuladd.f32(float %120, float %124, float %.0132142.us)
   %126 = fadd nsz float %.0130143.us, %120
@@ -685,7 +685,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 .critedge:                                        ; preds = %.preheader, %.critedge.loopexit, %.lr.ph145, %.loopexit
   %.0132.lcssa = phi float [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.lr.ph145 ], [ %.1133.us, %.critedge.loopexit ], [ 0.000000e+00, %.preheader ]
   %.0130.lcssa = phi float [ 1.000000e+00, %.loopexit ], [ 1.000000e+00, %.lr.ph145 ], [ %128, %.critedge.loopexit ], [ 1.000000e+00, %.preheader ]
-  %129 = getelementptr inbounds float, ptr %25, i64 %indvars.iv161
+  %129 = getelementptr inbounds [4 x i8], ptr %25, i64 %indvars.iv161
   %130 = load float, ptr %129, align 4, !tbaa !10
   %131 = fadd nsz float %.0132.lcssa, %130
   switch i32 %16, label %139 [
@@ -706,7 +706,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 .sink.split:                                      ; preds = %.critedge, %132, %134
   %.sink = phi float [ %136, %134 ], [ %133, %132 ], [ %130, %.critedge ]
   %137 = sub nsw i64 %indvars.iv161, %77
-  %138 = getelementptr inbounds float, ptr %43, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %43, i64 %137
   store float %.sink, ptr %138, align 4, !tbaa !10
   br label %139
 

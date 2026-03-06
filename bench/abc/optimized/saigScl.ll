@@ -38,13 +38,13 @@ define void @Saig_ManReportUselessRegisters(ptr noundef %0) local_unnamed_addr #
   %13 = getelementptr i8, ptr %0, i64 108
   %14 = sext i32 %.val to i64
   %wide.trip.count69 = zext nneg i32 %.val44 to i64
-  %invariant.gep = getelementptr ptr, ptr %.val39, i64 %14
+  %invariant.gep = getelementptr [8 x i8], ptr %.val39, i64 %14
   br label %27
 
 15:                                               ; preds = %.lr.ph, %Saig_ObjIsLo.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_ObjIsLo.exit.thread ]
   %.02958 = phi i32 [ 0, %.lr.ph ], [ %.130, %Saig_ObjIsLo.exit.thread ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val38, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   %18 = getelementptr i8, ptr %17, i64 8
   %.val40 = load ptr, ptr %18, align 8, !tbaa !26
@@ -79,7 +79,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjI
 27:                                               ; preds = %.lr.ph62, %Saig_ObjIsPi.exit.thread
   %indvars.iv66 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next67, %Saig_ObjIsPi.exit.thread ]
   %.061 = phi i32 [ 0, %.lr.ph62 ], [ %.1, %Saig_ObjIsPi.exit.thread ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv66
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv66
   %28 = load ptr, ptr %gep, align 8, !tbaa !25
   %29 = getelementptr i8, ptr %28, i64 8
   %.val41 = load ptr, ptr %29, align 8, !tbaa !26
@@ -163,7 +163,7 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   %.045 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %24 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val32 = load ptr, ptr %10, align 8, !tbaa !22
-  %11 = getelementptr inbounds ptr, ptr %.val32, i64 %indvars.iv
+  %11 = getelementptr inbounds [8 x i8], ptr %.val32, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = getelementptr i8, ptr %12, i64 8
   %.val35 = load ptr, ptr %13, align 8, !tbaa !26
@@ -212,7 +212,7 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   %31 = phi ptr [ %25, %.lr.ph48.preheader ], [ %42, %.lr.ph48 ]
   %32 = getelementptr i8, ptr %31, i64 8
   %.val = load ptr, ptr %32, align 8, !tbaa !22
-  %33 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv50
+  %33 = getelementptr inbounds [8 x i8], ptr %.val, i64 %indvars.iv50
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   %35 = getelementptr i8, ptr %34, i64 8
   %.val34 = load ptr, ptr %35, align 8, !tbaa !26

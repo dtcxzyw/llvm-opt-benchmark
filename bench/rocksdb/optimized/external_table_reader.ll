@@ -1570,7 +1570,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %5
 35:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %.sroa.8.018 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.018
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.8.018
   %37 = load ptr, ptr %36, align 8, !tbaa !208
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 160

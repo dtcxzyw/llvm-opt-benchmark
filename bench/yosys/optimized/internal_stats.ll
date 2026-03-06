@@ -152,7 +152,7 @@ define internal void @_ZN12_GLOBAL__N_117InternalStatsPass7executeESt6vectorINSt
   br i1 %27, label %.lr.ph238, label %.lr.ph.._crit_edge.loopexit_crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph238
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre139.pre237, i64 %31
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.pre139.pre237, i64 %31
   %29 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.5) #17
   %30 = icmp eq i32 %29, 0
   %.pre.pre = load ptr, ptr %18, align 8, !tbaa !6

@@ -32,7 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.iovec = type { ptr, i64 }
 %union.anon.39 = type { i64 }
 %union.anon.40 = type { ptr }
-%struct.bio_vec = type { ptr, i32, i32 }
 %union.anon.54 = type { %struct.__kernel_sockaddr_storage }
 %struct.__kernel_sockaddr_storage = type { %union.anon.0 }
 %union.anon.0 = type { ptr, [120 x i8] }
@@ -372,7 +371,7 @@ xs_setup_xprt.exit:                               ; preds = %24, %26, %30, %31
   ]
 
 70:                                               ; preds = %67
-  %71 = getelementptr ptr, ptr %66, i64 %68
+  %71 = getelementptr [8 x i8], ptr %66, i64 %68
   %72 = load ptr, ptr %71, align 8
   tail call void @kfree(ptr noundef %72) #12
   br label %73
@@ -747,7 +746,7 @@ xs_sock_recv_cmsg.exit39:                         ; preds = %140, %157
 197:                                              ; preds = %218, %188
   %198 = phi ptr [ %.pre61, %188 ], [ %219, %218 ]
   %199 = phi i64 [ 0, %188 ], [ %220, %218 ]
-  %200 = getelementptr ptr, ptr %198, i64 %199
+  %200 = getelementptr [8 x i8], ptr %198, i64 %199
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %203, label %218
@@ -755,13 +754,13 @@ xs_sock_recv_cmsg.exit39:                         ; preds = %140, %157
 203:                                              ; preds = %197
   %204 = call ptr @alloc_pages(i32 noundef 76992, i32 noundef 0) #12
   %205 = load ptr, ptr %195, align 8
-  %206 = getelementptr ptr, ptr %205, i64 %199
+  %206 = getelementptr [8 x i8], ptr %205, i64 %199
   store ptr %204, ptr %206, align 8
   %207 = load ptr, ptr %196, align 8
-  %208 = getelementptr %struct.bio_vec, ptr %207, i64 %199
+  %208 = getelementptr [16 x i8], ptr %207, i64 %199
   store ptr %204, ptr %208, align 8
   %209 = load ptr, ptr %195, align 8
-  %210 = getelementptr ptr, ptr %209, i64 %199
+  %210 = getelementptr [8 x i8], ptr %209, i64 %199
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %211, null
   br i1 %212, label %213, label %218
@@ -1917,7 +1916,7 @@ define internal void @xs_destroy(ptr noundef %0) #0 align 16 {
   ]
 
 18:                                               ; preds = %15
-  %19 = getelementptr ptr, ptr %14, i64 %16
+  %19 = getelementptr [8 x i8], ptr %14, i64 %16
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #12
   br label %21
@@ -2912,7 +2911,7 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   ]
 
 80:                                               ; preds = %77
-  %81 = getelementptr ptr, ptr %76, i64 %78
+  %81 = getelementptr [8 x i8], ptr %76, i64 %78
   %82 = load ptr, ptr %81, align 8
   tail call void @kfree(ptr noundef %82) #12
   br label %83
@@ -4085,7 +4084,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   ]
 
 101:                                              ; preds = %98
-  %102 = getelementptr ptr, ptr %97, i64 %99
+  %102 = getelementptr [8 x i8], ptr %97, i64 %99
   %103 = load ptr, ptr %102, align 8
   tail call void @kfree(ptr noundef %103) #12
   br label %104
@@ -5308,7 +5307,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   ]
 
 94:                                               ; preds = %91
-  %95 = getelementptr ptr, ptr %90, i64 %92
+  %95 = getelementptr [8 x i8], ptr %90, i64 %92
   %96 = load ptr, ptr %95, align 8
   tail call void @kfree(ptr noundef %96) #12
   br label %97
@@ -6059,7 +6058,7 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   ]
 
 67:                                               ; preds = %64
-  %68 = getelementptr ptr, ptr %63, i64 %65
+  %68 = getelementptr [8 x i8], ptr %63, i64 %65
   %69 = load ptr, ptr %68, align 8
   tail call void @kfree(ptr noundef %69) #12
   br label %70
@@ -6227,7 +6226,7 @@ define internal void @bc_destroy(ptr noundef %0) #0 align 16 {
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr ptr, ptr %2, i64 %4
+  %7 = getelementptr [8 x i8], ptr %2, i64 %4
   %8 = load ptr, ptr %7, align 8
   tail call void @kfree(ptr noundef %8) #12
   br label %9

@@ -451,12 +451,12 @@ define void @_ZN4SSAO9runShaderER12MeshDocumentP6GLArea(ptr noundef nonnull read
   %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %33 ], [ 1, %19 ]
   %.idx.i.i = shl nuw nsw i64 %indvars.iv15.i.i, 4
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
-  %invariant.gep20.i.i = getelementptr float, ptr %4, i64 %indvars.iv15.i.i
+  %invariant.gep20.i.i = getelementptr [4 x i8], ptr %4, i64 %indvars.iv15.i.i
   br label %30
 
 30:                                               ; preds = %30, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %.idx19.i.i = shl i64 %indvars.iv.i.i, 4
   %gep21.i.i = getelementptr i8, ptr %invariant.gep20.i.i, i64 %.idx19.i.i
   %31 = load float, ptr %gep.i.i, align 4
@@ -653,12 +653,12 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12Mesh
   %indvars.iv15.i.i35 = phi i64 [ 1, %107 ], [ %indvars.iv.next16.i.i45, %112 ]
   %.idx.i.i36 = shl nuw nsw i64 %indvars.iv15.i.i35, 4
   %invariant.gep.i.i37 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i36
-  %invariant.gep20.i.i38 = getelementptr float, ptr %8, i64 %indvars.iv15.i.i35
+  %invariant.gep20.i.i38 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv15.i.i35
   br label %109
 
 109:                                              ; preds = %109, %.preheader.i.i34
   %indvars.iv.i.i39 = phi i64 [ 0, %.preheader.i.i34 ], [ %indvars.iv.next.i.i43, %109 ]
-  %gep.i.i40 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i37, i64 %indvars.iv.i.i39
+  %gep.i.i40 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i37, i64 %indvars.iv.i.i39
   %.idx19.i.i41 = shl i64 %indvars.iv.i.i39, 4
   %gep21.i.i42 = getelementptr i8, ptr %invariant.gep20.i.i38, i64 %.idx19.i.i41
   %110 = load float, ptr %gep.i.i40, align 4, !alias.scope !8
@@ -693,12 +693,12 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %112
   %indvars.iv15.i.i48 = phi i64 [ 1, %117 ], [ %indvars.iv.next16.i.i58, %122 ]
   %.idx.i.i49 = shl nuw nsw i64 %indvars.iv15.i.i48, 4
   %invariant.gep.i.i50 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i49
-  %invariant.gep20.i.i51 = getelementptr float, ptr %9, i64 %indvars.iv15.i.i48
+  %invariant.gep20.i.i51 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv15.i.i48
   br label %119
 
 119:                                              ; preds = %119, %.preheader.i.i47
   %indvars.iv.i.i52 = phi i64 [ 0, %.preheader.i.i47 ], [ %indvars.iv.next.i.i56, %119 ]
-  %gep.i.i53 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i50, i64 %indvars.iv.i.i52
+  %gep.i.i53 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i50, i64 %indvars.iv.i.i52
   %.idx19.i.i54 = shl i64 %indvars.iv.i.i52, 4
   %gep21.i.i55 = getelementptr i8, ptr %invariant.gep20.i.i51, i64 %.idx19.i.i54
   %120 = load float, ptr %gep.i.i53, align 4, !alias.scope !11
@@ -2450,12 +2450,12 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
   %indvars.iv13.i = phi i64 [ 0, %2 ], [ %indvars.iv.next14.i, %12 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv13.i, 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %6 = getelementptr double, ptr %3, i64 %indvars.iv13.i
+  %6 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv13.i
   br label %7
 
 7:                                                ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4
   %10 = fpext float %9 to double
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv.i, 5
@@ -2633,7 +2633,7 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
 
 .preheader.i3:                                    ; preds = %154, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit
   %indvars.iv13.i4 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit ], [ %indvars.iv.next14.i9, %154 ]
-  %148 = getelementptr double, ptr %4, i64 %indvars.iv13.i4
+  %148 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv13.i4
   %.idx.i5 = shl nuw nsw i64 %indvars.iv13.i4, 4
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i5
   br label %149
@@ -2644,7 +2644,7 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   %151 = getelementptr i8, ptr %148, i64 %150
   %152 = load double, ptr %151, align 8
   %153 = fptrunc double %152 to float
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i6
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i6
   store float %153, ptr %gep.i, align 4
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 4
@@ -3048,7 +3048,7 @@ define void @_ZN4SSAO13printNoiseTxtEv(ptr noundef nonnull readonly align 8 capt
   %34 = or disjoint i32 %32, %33
   %35 = or disjoint i32 %34, %31
   %36 = or disjoint i32 %35, -16777216
-  %37 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %36, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.11926, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

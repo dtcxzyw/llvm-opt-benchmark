@@ -10,7 +10,7 @@ define hidden void @fnt_dif2(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %2, align 8, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr i64, ptr @mpd_moduli, i64 %6
+  %7 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = lshr i64 %1, 1
   %.not = icmp eq i64 %9, 0
@@ -36,18 +36,18 @@ define hidden void @fnt_dif2(ptr noundef captures(none) %0, i64 noundef %1, ptr 
 
 15:                                               ; preds = %.lr.ph, %x64_mulmod2.exit
   %.0121219 = phi i64 [ 0, %.lr.ph ], [ %155, %x64_mulmod2.exit ]
-  %16 = getelementptr i64, ptr %4, i64 %.0121219
+  %16 = getelementptr [8 x i8], ptr %4, i64 %.0121219
   %17 = load i64, ptr %16, align 8, !tbaa !7
   %18 = or disjoint i64 %.0121219, 1
-  %19 = getelementptr i64, ptr %4, i64 %18
+  %19 = getelementptr [8 x i8], ptr %4, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !7
-  %21 = getelementptr i64, ptr %0, i64 %.0121219
+  %21 = getelementptr [8 x i8], ptr %0, i64 %.0121219
   %22 = load i64, ptr %21, align 8, !tbaa !7
-  %23 = getelementptr i64, ptr %21, i64 %9
+  %23 = getelementptr [8 x i8], ptr %21, i64 %9
   %24 = load i64, ptr %23, align 8, !tbaa !7
-  %25 = getelementptr i64, ptr %0, i64 %18
+  %25 = getelementptr [8 x i8], ptr %0, i64 %18
   %26 = load i64, ptr %25, align 8, !tbaa !7
-  %27 = getelementptr i64, ptr %25, i64 %9
+  %27 = getelementptr [8 x i8], ptr %25, i64 %9
   %28 = load i64, ptr %27, align 8, !tbaa !7
   %29 = add i64 %24, %22
   %30 = icmp ult i64 %29, %22
@@ -249,7 +249,7 @@ x64_mulmod2.exit:                                 ; preds = %108, %120, %133
   %.0123231 = phi i64 [ %9, %.lr.ph232 ], [ %157, %._crit_edge228 ]
   %.0124229 = phi i64 [ 2, %.lr.ph232 ], [ %332, %._crit_edge228 ]
   %157 = lshr i64 %.0123231, 1
-  %158 = getelementptr i64, ptr %0, i64 %.0123231
+  %158 = getelementptr [8 x i8], ptr %0, i64 %.0123231
   %159 = shl nuw i64 %.0123231, 1
   br label %301
 
@@ -258,29 +258,29 @@ x64_mulmod2.exit:                                 ; preds = %108, %120, %133
   br i1 %160, label %.lr.ph223.us.preheader, label %._crit_edge
 
 .lr.ph223.us.preheader:                           ; preds = %.preheader
-  %161 = getelementptr i64, ptr %0, i64 %.0123231
+  %161 = getelementptr [8 x i8], ptr %0, i64 %.0123231
   %162 = shl nuw i64 %.0123231, 1
   br label %.lr.ph223.us
 
 .lr.ph223.us:                                     ; preds = %.lr.ph223.us.preheader, %._crit_edge.us
   %.1122226.us = phi i64 [ %300, %._crit_edge.us ], [ 1, %.lr.ph223.us.preheader ]
   %163 = mul i64 %.1122226.us, %.0124229
-  %164 = getelementptr i64, ptr %4, i64 %163
+  %164 = getelementptr [8 x i8], ptr %4, i64 %163
   %165 = load i64, ptr %164, align 8, !tbaa !7
-  %invariant.gep.us = getelementptr i64, ptr %0, i64 %.1122226.us
-  %invariant.gep224.us = getelementptr i64, ptr %161, i64 %.1122226.us
+  %invariant.gep.us = getelementptr [8 x i8], ptr %0, i64 %.1122226.us
+  %invariant.gep224.us = getelementptr [8 x i8], ptr %161, i64 %.1122226.us
   %166 = zext i64 %165 to i128
   br label %167
 
 167:                                              ; preds = %.lr.ph223.us, %x64_mulmod2c.exit.us
   %.1222.us = phi i64 [ 0, %.lr.ph223.us ], [ %298, %x64_mulmod2c.exit.us ]
-  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %.1222.us
+  %gep.us = getelementptr [8 x i8], ptr %invariant.gep.us, i64 %.1222.us
   %168 = load i64, ptr %gep.us, align 8, !tbaa !7
-  %169 = getelementptr i64, ptr %gep.us, i64 %157
+  %169 = getelementptr [8 x i8], ptr %gep.us, i64 %157
   %170 = load i64, ptr %169, align 8, !tbaa !7
-  %gep225.us = getelementptr i64, ptr %invariant.gep224.us, i64 %.1222.us
+  %gep225.us = getelementptr [8 x i8], ptr %invariant.gep224.us, i64 %.1222.us
   %171 = load i64, ptr %gep225.us, align 8, !tbaa !7
-  %172 = getelementptr i64, ptr %gep225.us, i64 %157
+  %172 = getelementptr [8 x i8], ptr %gep225.us, i64 %157
   %173 = load i64, ptr %172, align 8, !tbaa !7
   %174 = add i64 %170, %168
   %175 = icmp ult i64 %174, %168
@@ -483,13 +483,13 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
 
 301:                                              ; preds = %.lr.ph221, %301
   %.0220 = phi i64 [ 0, %.lr.ph221 ], [ %330, %301 ]
-  %302 = getelementptr i64, ptr %0, i64 %.0220
+  %302 = getelementptr [8 x i8], ptr %0, i64 %.0220
   %303 = load i64, ptr %302, align 8, !tbaa !7
-  %304 = getelementptr i64, ptr %302, i64 %157
+  %304 = getelementptr [8 x i8], ptr %302, i64 %157
   %305 = load i64, ptr %304, align 8, !tbaa !7
-  %306 = getelementptr i64, ptr %158, i64 %.0220
+  %306 = getelementptr [8 x i8], ptr %158, i64 %.0220
   %307 = load i64, ptr %306, align 8, !tbaa !7
-  %308 = getelementptr i64, ptr %306, i64 %157
+  %308 = getelementptr [8 x i8], ptr %306, i64 %157
   %309 = load i64, ptr %308, align 8, !tbaa !7
   %310 = add i64 %305, %303
   %311 = icmp ult i64 %310, %303
@@ -536,9 +536,9 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   br i1 %334, label %335, label %340
 
 335:                                              ; preds = %333
-  %336 = getelementptr i64, ptr %0, i64 %.0.i
+  %336 = getelementptr [8 x i8], ptr %0, i64 %.0.i
   %337 = load i64, ptr %336, align 8, !tbaa !7
-  %338 = getelementptr i64, ptr %0, i64 %.017.i
+  %338 = getelementptr [8 x i8], ptr %0, i64 %.017.i
   %339 = load i64, ptr %338, align 8, !tbaa !7
   store i64 %339, ptr %336, align 8, !tbaa !7
   store i64 %337, ptr %338, align 8, !tbaa !7

@@ -11,12 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvm::codeview::CVRecord" = type { %"class.llvm::ArrayRef" }
-%"struct.std::pair.52" = type { ptr, i64 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base.14", [4 x i8] }
-%"struct.std::pair.base.14" = type <{ %"struct.llvm::codeview::LocallyHashedType", %"class.llvm::codeview::TypeIndex" }>
-%"class.llvm::codeview::TypeIndex" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [4 x i8] }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -147,7 +141,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview23MergingTypeTableBuilder7getTyp
   %5 = add nsw i32 %4, -4096
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !21
@@ -336,7 +330,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8ArrayRefIhEELb1EE9push_backES2_.exit: ; pr
   %42 = phi i32 [ %35, %_ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS_8ArrayRefIhEE.exit ], [ %.pre.i, %38 ]
   %43 = load ptr, ptr %34, align 8, !tbaa !13
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %44
   store ptr %.0.i.i.i.i.i, ptr %45, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %.sroa.22.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -354,7 +348,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8ArrayRefIhEELb1EE9push_backES2_.exit: ; pr
   %53 = add nsw i32 %52, -4096
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %51, align 8, !tbaa !13
-  %56 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %50
@@ -510,7 +504,7 @@ _ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm
   %44 = add nsw i32 %43, -4096
   %45 = zext i32 %44 to i64
   %46 = load ptr, ptr %42, align 8, !tbaa !13
-  %47 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %45
   store ptr %.sroa.04.0, ptr %47, align 8, !tbaa !19
   %.sroa.9.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %3, ptr %.sroa.9.0..sroa_idx9, align 8, !tbaa !21
@@ -553,7 +547,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !13
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.52", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -594,7 +588,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !13
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !3
@@ -764,7 +758,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
 
 .split.us:                                        ; preds = %8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %12
   %.sroa.066.0.copyload.us119 = load i64, ptr %13, align 8, !tbaa !21
   %.sroa.368.0..sroa_idx.us122 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.368.0.copyload.us123 = load i64, ptr %.sroa.368.0..sroa_idx.us122, align 8, !tbaa !21
@@ -822,7 +816,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   %20 = add i32 %.025.us129, %.027.us128
   %21 = and i32 %20, %10
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %22
   %.sroa.066.0.copyload.us = load i64, ptr %23, align 8, !tbaa !21
   %.sroa.368.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.sroa.368.0.copyload.us = load i64, ptr %.sroa.368.0..sroa_idx.us, align 8, !tbaa !21
@@ -836,7 +830,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   %.027 = phi i32 [ %33, %29 ], [ %11, %.split.preheader ]
   %.025 = phi i32 [ %31, %29 ], [ 1, %.split.preheader ]
   %24 = zext i32 %.027 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %24
   %.sroa.066.0.copyload = load i64, ptr %25, align 8, !tbaa !21
   %.sroa.267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.267.0.copyload = load ptr, ptr %.sroa.267.0..sroa_idx, align 8, !tbaa !19
@@ -1024,7 +1018,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codevie
 
 30:                                               ; preds = %2
   %31 = zext i32 %4 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %31
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %5, ptr noundef nonnull %32)
   %33 = shl nuw nsw i64 %31, 5
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %33, i64 noundef 8) #16

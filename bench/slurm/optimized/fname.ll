@@ -179,7 +179,7 @@ _remove_path_slashes.exit:                        ; preds = %49
   %65 = load ptr, ptr %64, align 8
   store ptr %57, ptr %5, align 8
   %66 = sext i8 %58 to i64
-  %67 = getelementptr inbounds i16, ptr %65, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %65, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 2048
   %.not98 = icmp eq i16 %69, 0
@@ -371,7 +371,7 @@ _remove_path_slashes.exit:                        ; preds = %49
   %141 = tail call ptr @__ctype_b_loc() #10
   %142 = load ptr, ptr %141, align 8
   %143 = sext i8 %55 to i64
-  %144 = getelementptr inbounds i16, ptr %142, i64 %143
+  %144 = getelementptr inbounds [2 x i8], ptr %142, i64 %143
   %145 = load i16, ptr %144, align 2
   %146 = and i16 %145, 2048
   %.not96 = icmp eq i16 %146, 0

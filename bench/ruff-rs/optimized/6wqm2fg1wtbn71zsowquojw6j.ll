@@ -303,7 +303,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17hfb852c094d7f21d8E(pt
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hca4a4f66d94a4d13E.exit": ; preds = %20
   %22 = sub nuw i64 %1, %.sroa.08.0
-  %23 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %0, i64 %.sroa.08.0
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.sroa.08.0
   %.not.i = icmp ult i64 %22, %.sroa.0.0
   br i1 %.not.i, label %24, label %25
 
@@ -329,7 +329,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17hfb852c094d7f21d8E(pt
 
 .lr.ph.i:                                         ; preds = %.preheader13.i, %35
   %.sroa.01.1.i15.i = phi i64 [ %36, %35 ], [ 2, %.preheader13.i ]
-  %31 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %23, i64 %.sroa.01.1.i15.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.sroa.01.1.i15.i
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..Ord$GT$3cmp17h96d04ab661f7a1c7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32), !noalias !44
   %34 = icmp slt i8 %33, 0
@@ -342,7 +342,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17hfb852c094d7f21d8E(pt
 
 .lr.ph19.i:                                       ; preds = %.preheader.i, %41
   %.sroa.01.0.i18.i = phi i64 [ %42, %41 ], [ 2, %.preheader.i ]
-  %37 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %23, i64 %.sroa.01.0.i18.i
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.sroa.01.0.i18.i
   %38 = getelementptr i8, ptr %37, i64 -24
   %39 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..Ord$GT$3cmp17h96d04ab661f7a1c7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38), !noalias !44
   %40 = icmp slt i8 %39, 0
@@ -391,20 +391,20 @@ _ZN4core5slice4sort6shared17find_existing_run17h61b8a947f474cf16E.exit.i: ; pred
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h826f04cdb6db3428E.exit.i"
   %53 = phi i64 [ %52, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h826f04cdb6db3428E.exit.i" ], [ 1, %.preheader.i ]
   %.sroa.0.0.i364346.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h826f04cdb6db3428E.exit.i" ], [ 2, %.preheader.i ]
-  %54 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %23, i64 %.sroa.0.0.i364346.i
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.sroa.0.0.i364346.i
   br label %55
 
 55:                                               ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h672339a80551a775E.exit.i.i.i, %.lr.ph.preheader.i.i.i
   %.sroa.0.014.i.i.i = phi i64 [ %65, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h672339a80551a775E.exit.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
   %56 = xor i64 %.sroa.0.014.i.i.i, -1
-  %57 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %23, i64 %.sroa.0.014.i.i.i
-  %58 = getelementptr { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.sroa.0.014.i.i.i
+  %58 = getelementptr [24 x i8], ptr %54, i64 %56
   br label %59
 
 59:                                               ; preds = %59, %55
   %.sroa.0.05.i.i.i.i.i.i = phi i64 [ 0, %55 ], [ %64, %59 ]
-  %60 = getelementptr inbounds nuw i64, ptr %57, i64 %.sroa.0.05.i.i.i.i.i.i
-  %61 = getelementptr inbounds nuw i64, ptr %58, i64 %.sroa.0.05.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.sroa.0.05.i.i.i.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.sroa.0.05.i.i.i.i.i.i
   %62 = load i64, ptr %60, align 8, !alias.scope !53, !noalias !57
   %63 = load i64, ptr %61, align 8, !alias.scope !58, !noalias !59
   store i64 %63, ptr %60, align 8, !alias.scope !53, !noalias !57
@@ -450,20 +450,20 @@ _ZN4core5slice4sort6stable5drift10create_run17hb505bbb1b56e913cE.exit: ; preds =
 ._crit_edge:                                      ; preds = %_ZN4core5slice4sort6stable5drift13logical_merge17h38d86a6d99c852baE.exit, %.lr.ph, %75
   %.sroa.017.1.lcssa = phi i64 [ %.sroa.017.0, %75 ], [ %.sroa.017.134, %.lr.ph ], [ %.sroa.0.0.i, %_ZN4core5slice4sort6stable5drift13logical_merge17h38d86a6d99c852baE.exit ]
   %.sroa.01.1.lcssa = phi i64 [ %.sroa.01.0, %75 ], [ %.sroa.01.135, %.lr.ph ], [ 1, %_ZN4core5slice4sort6stable5drift13logical_merge17h38d86a6d99c852baE.exit ]
-  %80 = getelementptr inbounds nuw i64, ptr %8, i64 %.sroa.01.1.lcssa
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.sroa.01.1.lcssa
   store i64 %.sroa.017.1.lcssa, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.01.1.lcssa
   store i8 %.sroa.025.0, ptr %81, align 1
   br i1 %21, label %114, label %118
 
 82:                                               ; preds = %.lr.ph
-  %83 = getelementptr inbounds nuw i64, ptr %8, i64 %77
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %77
   %84 = load i64, ptr %83, align 8, !noundef !22
   %85 = lshr i64 %84, 1
   %86 = lshr i64 %.sroa.017.134, 1
   %87 = add nuw i64 %85, %86
   %88 = sub i64 %.sroa.08.0, %87
-  %89 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %0, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %88
   %90 = icmp ugt i64 %87, %3
   %91 = trunc i64 %.sroa.017.134 to i1
   %92 = or i64 %84, %.sroa.017.134
@@ -492,7 +492,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hb505bbb1b56e913cE.exit: ; preds =
   br i1 %91, label %110, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hca4a4f66d94a4d13E.exit31"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hca4a4f66d94a4d13E.exit31": ; preds = %103
-  %104 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %89, i64 %85
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %85
   %105 = or i64 %86, 1
   %106 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %105, i1 true)
   %107 = trunc nuw nsw i64 %106 to i32
@@ -753,7 +753,7 @@ common.resume:                                    ; preds = %143, %129, %58
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit": ; preds = %53, %57
   %62 = load ptr, ptr %29, align 8, !alias.scope !82, !noalias !85, !nonnull !22, !noundef !22
-  %63 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %62, i64 %54
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %64 = add i64 %54, 1
   store i64 %64, ptr %28, align 8, !alias.scope !82, !noalias !85
@@ -833,7 +833,7 @@ common.resume:                                    ; preds = %143, %129, %58
 
 91:                                               ; preds = %89
   %92 = load i64, ptr %83, align 8, !noundef !22
-  %93 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %92
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h18e1ce7d66480929E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %90, ptr noundef nonnull %93, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.92dfc6385c475635612bbec15acb990d.39)
           to label %.preheader unwind label %143
 
@@ -912,7 +912,7 @@ common.resume:                                    ; preds = %143, %129, %58
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h20927be83563914fE.exit": ; preds = %119, %113
   %120 = load ptr, ptr %80, align 8, !alias.scope !91, !noalias !94, !nonnull !22, !noundef !22
-  %121 = getelementptr inbounds nuw { ptr, i64 }, ptr %120, i64 %116
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %116
   store ptr %114, ptr %121, align 8, !noalias !94
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i64 %115, ptr %122, align 8
@@ -947,7 +947,7 @@ common.resume:                                    ; preds = %143, %129, %58
 
 133:                                              ; preds = %128, %124
   %134 = load ptr, ptr %87, align 8, !alias.scope !96, !noalias !99, !nonnull !22, !noundef !22
-  %135 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %134, i64 %125
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %136 = add i64 %125, 1
   store i64 %136, ptr %86, align 8, !alias.scope !96, !noalias !99
@@ -1117,7 +1117,7 @@ _ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit: ;
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit": ; preds = %31, %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !alias.scope !122, !noalias !125, !nonnull !22, !noundef !22
-  %44 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %43, i64 %34
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %45 = add i64 %34, 1
   store i64 %45, ptr %33, align 8, !alias.scope !122, !noalias !125

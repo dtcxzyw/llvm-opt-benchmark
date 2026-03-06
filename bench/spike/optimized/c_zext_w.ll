@@ -136,7 +136,7 @@ define noundef i64 @_Z19fast_rv64i_c_zext_wP11processor_t6insn_tm(ptr noundef ca
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = and i64 %25, 4294967295
   store i64 %26, ptr %24, align 8, !tbaa !14
@@ -204,7 +204,7 @@ define noundef i64 @_Z21logged_rv64i_c_zext_wP11processor_t6insn_tm(ptr noundef 
   %23 = lshr i64 %1, 7
   %24 = and i64 %23, 7
   %25 = or disjoint i64 %24, 8
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !14
   %28 = and i64 %27, 4294967295
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -362,7 +362,7 @@ define noundef i64 @_Z19fast_rv64e_c_zext_wP11processor_t6insn_tm(ptr noundef ca
   %21 = and i64 %20, 7
   %22 = add i64 %2, 2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %21
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = and i64 %25, 4294967295
   store i64 %26, ptr %24, align 8, !tbaa !14
@@ -427,7 +427,7 @@ define noundef i64 @_Z21logged_rv64e_c_zext_wP11processor_t6insn_tm(ptr noundef 
   %23 = or disjoint i64 %22, 8
   %24 = add i64 %2, 2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   %27 = load i64, ptr %26, align 8, !tbaa !14
   %28 = and i64 %27, 4294967295
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3840

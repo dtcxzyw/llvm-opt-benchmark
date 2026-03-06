@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.nfs_name_snoop_key = type { i32, i32, ptr }
 %struct._wmem_tree_key_t = type { i32, ptr }
 %struct.nstime_t = type { i64, i32 }
-%struct._nfs4_operation_summary = type { i32, i8, ptr }
 %struct.e_in6_addr = type { [16 x i8] }
 %struct._address = type { i32, i32, ptr, ptr }
 
@@ -4593,7 +4592,7 @@ define hidden noalias noundef ptr @display_access_items(ptr noundef %0, i32 noun
 
 40:                                               ; preds = %36, %63
   %indvars.iv = phi i64 [ 0, %36 ], [ %indvars.iv.next, %63 ]
-  %41 = getelementptr %struct._value_string, ptr @accvs, i64 %indvars.iv
+  %41 = getelementptr [16 x i8], ptr @accvs, i64 %indvars.iv
   %42 = load i32, ptr %41, align 16
   %43 = and i32 %42, %4
   %.not = icmp eq i32 %43, 0
@@ -4632,10 +4631,10 @@ define hidden noalias noundef ptr @display_access_items(ptr noundef %0, i32 noun
 
 switch.lookup:                                    ; preds = %55, %55, %55
   %56 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_access_reply, i64 %56
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_access_reply, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   %57 = and i64 %indvars.iv, 4294967295
-  %switch.gep111 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_access_reply.22, i64 %57
+  %switch.gep111 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_access_reply.22, i64 %57
   %switch.load112 = load ptr, ptr %switch.gep111, align 8
   %58 = load i32, ptr %switch.load, align 4
   %59 = load i32, ptr %switch.load112, align 4
@@ -4750,7 +4749,7 @@ display_access_items.exit84.thread:               ; preds = %14
 
 33:                                               ; preds = %40, %32
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %40 ]
-  %34 = getelementptr %struct._value_string, ptr @accvs, i64 %indvars.iv.i
+  %34 = getelementptr [16 x i8], ptr @accvs, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 16
   %36 = and i32 %35, %26
   %.not.i = icmp eq i32 %36, 0
@@ -4784,7 +4783,7 @@ display_access_items.exit:                        ; preds = %40
 
 47:                                               ; preds = %54, %.thread107
   %indvars.iv.i80 = phi i64 [ 0, %.thread107 ], [ %indvars.iv.next.i82, %54 ]
-  %48 = getelementptr %struct._value_string, ptr @accvs, i64 %indvars.iv.i80
+  %48 = getelementptr [16 x i8], ptr @accvs, i64 %indvars.iv.i80
   %49 = load i32, ptr %48, align 16
   %50 = and i32 %49, %.070.ph
   %.not.i81 = icmp eq i32 %50, 0
@@ -4792,7 +4791,7 @@ display_access_items.exit:                        ; preds = %40
 
 switch.lookup:                                    ; preds = %47
   %51 = and i64 %indvars.iv.i80, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_access_reply, i64 %51
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_access_reply, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8
   %52 = load i32, ptr %switch.load, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
@@ -4837,7 +4836,7 @@ display_access_items.exit84:                      ; preds = %54, %.thread104, %2
 
 71:                                               ; preds = %78, %64
   %indvars.iv.i85 = phi i64 [ 0, %64 ], [ %indvars.iv.next.i89, %78 ]
-  %72 = getelementptr %struct._value_string, ptr @accvs, i64 %indvars.iv.i85
+  %72 = getelementptr [16 x i8], ptr @accvs, i64 %indvars.iv.i85
   %73 = load i32, ptr %72, align 16
   %74 = and i32 %73, %60
   %.not.i86 = icmp eq i32 %74, 0
@@ -4845,7 +4844,7 @@ display_access_items.exit84:                      ; preds = %54, %.thread104, %2
 
 switch.lookup120:                                 ; preds = %71
   %75 = and i64 %indvars.iv.i85, 4294967295
-  %switch.gep121 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_access_reply.22, i64 %75
+  %switch.gep121 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_access_reply.22, i64 %75
   %switch.load122 = load ptr, ptr %switch.gep121, align 8
   %76 = load i32, ptr %switch.load122, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %76, ptr noundef %0, i32 noundef %.0112, i32 noundef 4, i32 noundef 0)
@@ -5109,7 +5108,7 @@ define internal range(i32 0, 2) i32 @nfsstat_packet(ptr noundef readonly capture
   %33 = phi i32 [ %32, %.lr.ph.split.us.preheader ], [ %40, %39 ]
   %indvars.iv38 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next39, %39 ]
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr %struct._nfs4_operation_summary, ptr %34, i64 %indvars.iv38
+  %35 = getelementptr [16 x i8], ptr %34, i64 %indvars.iv38
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 10044
   br i1 %37, label %39, label %38
@@ -5129,7 +5128,7 @@ define internal range(i32 0, 2) i32 @nfsstat_packet(ptr noundef readonly capture
 .lr.ph.split:                                     ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
   %43 = load ptr, ptr %27, align 8
-  %44 = getelementptr %struct._nfs4_operation_summary, ptr %43, i64 %indvars.iv
+  %44 = getelementptr [16 x i8], ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 10044
   br i1 %46, label %58, label %47
@@ -5141,7 +5140,7 @@ define internal range(i32 0, 2) i32 @nfsstat_packet(ptr noundef readonly capture
 
 49:                                               ; preds = %47
   %50 = zext nneg i32 %45 to i64
-  %51 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %50
+  %51 = getelementptr [4 x i8], ptr @nfs4_operation_tiers, i64 %50
   %52 = load i32, ptr %51, align 4
   br label %53
 
@@ -10333,7 +10332,7 @@ define internal fastcc i32 @dissect_nfs4_request_op(ptr noundef %0, i32 noundef 
   %.0894971 = phi i32 [ 0, %.lr.ph ], [ %.1895, %dissect_nfs4_layoutreturn.exit ]
   %36 = load ptr, ptr %24, align 8
   %37 = call noalias ptr @wmem_strbuf_new(ptr noundef %36, ptr noundef nonnull @.str.1409)
-  %38 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv
+  %38 = getelementptr [16 x i8], ptr %29, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %37, ptr %39, align 8
   %40 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0973)
@@ -10359,7 +10358,7 @@ define internal fastcc i32 @dissect_nfs4_request_op(ptr noundef %0, i32 noundef 
 
 49:                                               ; preds = %47
   %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr ptr, ptr @nfs4_operation_ett, i64 %50
+  %51 = getelementptr [8 x i8], ptr @nfs4_operation_ett, i64 %50
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -11666,14 +11665,14 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %595, %
 .lr.ph987:                                        ; preds = %.lr.ph987.preheader, %833
   %indvars.iv997 = phi i64 [ 0, %.lr.ph987.preheader ], [ %indvars.iv.next998, %833 ]
   %.0886985 = phi i32 [ 5, %.lr.ph987.preheader ], [ %spec.select, %833 ]
-  %825 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv997
+  %825 = getelementptr [16 x i8], ptr %29, i64 %indvars.iv997
   %826 = load i32, ptr %825, align 8
   %827 = icmp ult i32 %826, 76
   br i1 %827, label %828, label %833
 
 828:                                              ; preds = %.lr.ph987
   %829 = zext nneg i32 %826 to i64
-  %830 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %829
+  %830 = getelementptr [4 x i8], ptr @nfs4_operation_tiers, i64 %829
   %831 = load i32, ptr %830, align 4
   %832 = call i32 @llvm.umin.i32(i32 %831, i32 %.0886985)
   br label %833
@@ -11687,14 +11686,14 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %595, %
 834:                                              ; preds = %.lr.ph991, %870
   %indvars.iv1002 = phi i64 [ 0, %.lr.ph991 ], [ %indvars.iv.next1003, %870 ]
   %.0888990 = phi i32 [ 1, %.lr.ph991 ], [ %.1889, %870 ]
-  %835 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv1002
+  %835 = getelementptr [16 x i8], ptr %29, i64 %indvars.iv1002
   %836 = load i32, ptr %835, align 8
   %837 = icmp ult i32 %836, 76
   br i1 %837, label %838, label %842
 
 838:                                              ; preds = %834
   %839 = zext nneg i32 %836 to i64
-  %840 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %839
+  %840 = getelementptr [4 x i8], ptr @nfs4_operation_tiers, i64 %839
   %841 = load i32, ptr %840, align 4
   br label %842
 
@@ -13851,7 +13850,7 @@ define internal fastcc i32 @dissect_nfs4_response_op(ptr noundef %0, i32 noundef
   %.0528 = phi i32 [ %30, %.lr.ph.preheader ], [ %.1, %dissect_nfsdata_reduced.exit ]
   %43 = load ptr, ptr %38, align 8
   %44 = call noalias ptr @wmem_strbuf_new(ptr noundef %43, ptr noundef nonnull @.str.1409)
-  %45 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv
+  %45 = getelementptr [16 x i8], ptr %40, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8
   %47 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0528)
@@ -13879,7 +13878,7 @@ define internal fastcc i32 @dissect_nfs4_response_op(ptr noundef %0, i32 noundef
 
 57:                                               ; preds = %55
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr ptr, ptr @nfs4_operation_ett, i64 %58
+  %59 = getelementptr [8 x i8], ptr @nfs4_operation_ett, i64 %58
   %60 = load ptr, ptr %59, align 8
   br label %61
 
@@ -15167,14 +15166,14 @@ dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %525, 
 .lr.ph542:                                        ; preds = %.lr.ph542.preheader, %770
   %indvars.iv565 = phi i64 [ 0, %.lr.ph542.preheader ], [ %indvars.iv.next566, %770 ]
   %.0458540 = phi i32 [ 5, %.lr.ph542.preheader ], [ %spec.select, %770 ]
-  %762 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv565
+  %762 = getelementptr [16 x i8], ptr %40, i64 %indvars.iv565
   %763 = load i32, ptr %762, align 8
   %764 = icmp ult i32 %763, 76
   br i1 %764, label %765, label %770
 
 765:                                              ; preds = %.lr.ph542
   %766 = zext nneg i32 %763 to i64
-  %767 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %766
+  %767 = getelementptr [4 x i8], ptr @nfs4_operation_tiers, i64 %766
   %768 = load i32, ptr %767, align 4
   %769 = call i32 @llvm.umin.i32(i32 %768, i32 %.0458540)
   br label %770
@@ -15188,14 +15187,14 @@ dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %525, 
 771:                                              ; preds = %.lr.ph546, %811
   %indvars.iv570 = phi i64 [ 0, %.lr.ph546 ], [ %indvars.iv.next571, %811 ]
   %.0460545 = phi i32 [ 1, %.lr.ph546 ], [ %.1461, %811 ]
-  %772 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv570
+  %772 = getelementptr [16 x i8], ptr %40, i64 %indvars.iv570
   %773 = load i32, ptr %772, align 8
   %774 = icmp ult i32 %773, 76
   br i1 %774, label %775, label %779
 
 775:                                              ; preds = %771
   %776 = zext nneg i32 %773 to i64
-  %777 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %776
+  %777 = getelementptr [4 x i8], ptr @nfs4_operation_tiers, i64 %776
   %778 = load i32, ptr %777, align 4
   br label %779
 
@@ -15484,7 +15483,7 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %dissect_nfs4_cb_layoutrecall.exit.i ]
   %.0146.i = phi i32 [ %19, %.lr.ph.i ], [ %.2.i, %dissect_nfs4_cb_layoutrecall.exit.i ]
   %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0146.i)
-  %35 = getelementptr %struct._nfs4_operation_summary, ptr %31, i64 %indvars.iv.i
+  %35 = getelementptr [16 x i8], ptr %31, i64 %indvars.iv.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i8 0, ptr %36, align 4
   store i32 %34, ptr %35, align 8
@@ -15513,7 +15512,7 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
 
 50:                                               ; preds = %46
   %51 = zext nneg i32 %34 to i64
-  %52 = getelementptr ptr, ptr @nfs4_cb_operation_ett, i64 %51
+  %52 = getelementptr [8 x i8], ptr @nfs4_cb_operation_ett, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -24
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 4
@@ -15784,7 +15783,7 @@ dissect_nfs4_status.exit:                         ; preds = %4, %13, %16
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %95 ]
   %.092.i = phi i32 [ %28, %.lr.ph.i ], [ %.2.i, %95 ]
   %43 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.092.i)
-  %44 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv.i
+  %44 = getelementptr [16 x i8], ptr %40, i64 %indvars.iv.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i8 0, ptr %45, align 4
   store i32 %43, ptr %44, align 8
@@ -15808,7 +15807,7 @@ dissect_nfs4_status.exit:                         ; preds = %4, %13, %16
 
 57:                                               ; preds = %48
   %58 = zext nneg i32 %43 to i64
-  %59 = getelementptr ptr, ptr @nfs4_cb_operation_ett, i64 %58
+  %59 = getelementptr [8 x i8], ptr @nfs4_cb_operation_ett, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -24
   %61 = load ptr, ptr %60, align 8
   br label %62

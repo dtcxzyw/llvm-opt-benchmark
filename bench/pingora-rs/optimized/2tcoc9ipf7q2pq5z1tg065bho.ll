@@ -1203,7 +1203,7 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$rmp..encode..ValueWriteError$LT$E$G
 define hidden noundef nonnull align 8 ptr @"_ZN13pingora_cache9hashtable32ConcurrentHashTable$LT$V$C$_$GT$3get17h5357e6849f8790faE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #4 {
   %3 = trunc i128 %1 to i64
   %4 = and i64 %3, 15
-  %5 = getelementptr inbounds nuw { { { i64 } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %4
   ret ptr %5
 }
 
@@ -1211,7 +1211,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN13pingora_cache9hashtable32Concur
 define hidden noundef nonnull align 8 ptr @"_ZN13pingora_cache9hashtable32ConcurrentHashTable$LT$V$C$_$GT$5write17h705f4d108a194351E"(ptr noundef nonnull align 8 %0, i128 noundef %1) unnamed_addr #1 {
   %3 = trunc i128 %1 to i64
   %4 = and i64 %3, 15
-  %5 = getelementptr inbounds nuw { { { i64 } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %4
   %6 = cmpxchg weak ptr %5, i64 0, i64 8 acquire monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   br i1 %7, label %10, label %8, !prof !246
@@ -2795,7 +2795,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %50 = add i64 %.sroa.01.0.i.i.i.i, %49
   %51 = and i64 %50, %42
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %43, i64 %52
+  %53 = getelementptr inbounds [72 x i8], ptr %43, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -72
   %55 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7df4afad08a98a93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %54)
           to label %.noexc53 unwind label %.loopexit169
@@ -2892,7 +2892,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i.i, 
   %88 = add i64 %.sroa.01.0.i.i.i.i59, %87
   %89 = and i64 %88, %80
   %90 = sub nsw i64 0, %89
-  %91 = getelementptr inbounds { i64, { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr, ptr } }, ptr %81, i64 %90
+  %91 = getelementptr inbounds [72 x i8], ptr %81, i64 %90
   %92 = getelementptr inbounds i8, ptr %91, i64 -72
   %93 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h506371e4b1e3dcefE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %92)
           to label %.noexc72 unwind label %.loopexit164
@@ -3265,7 +3265,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %222 = add i64 %.sroa.01.0.i.i.i.i89, %221
   %223 = and i64 %222, %214
   %224 = sub nsw i64 0, %223
-  %225 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %215, i64 %224
+  %225 = getelementptr inbounds [72 x i8], ptr %215, i64 %224
   %226 = getelementptr inbounds i8, ptr %225, i64 -72
   %227 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7df4afad08a98a93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %226)
           to label %.noexc103 unwind label %.loopexit
@@ -3576,7 +3576,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %49 = add i64 %.sroa.01.0.i.i.i.i, %48
   %50 = and i64 %49, %41
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %42, i64 %51
+  %52 = getelementptr inbounds [72 x i8], ptr %42, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -72
   %54 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7df4afad08a98a93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %53)
           to label %.noexc55 unwind label %.loopexit121
@@ -3714,7 +3714,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %103 = add i64 %.sroa.01.0.i.i.i.i67, %102
   %104 = and i64 %103, %95
   %105 = sub nsw i64 0, %104
-  %106 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr } }, ptr %96, i64 %105
+  %106 = getelementptr inbounds [80 x i8], ptr %96, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 -80
   %108 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7df4afad08a98a93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %107)
           to label %.noexc80 unwind label %.loopexit
@@ -4141,7 +4141,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %63 = add i64 %.sroa.01.0.i.i.i.i, %62
   %64 = and i64 %63, %55
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %56, i64 %65
+  %66 = getelementptr inbounds [72 x i8], ptr %56, i64 %65
   %67 = getelementptr inbounds i8, ptr %66, i64 -72
   %68 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7df4afad08a98a93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %67)
           to label %.noexc29 unwind label %.loopexit53
@@ -4231,7 +4231,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %99 = add i64 %.sroa.01.0.i.i.i.i.i, %98
   %100 = and i64 %99, %91
   %101 = sub nsw i64 0, %100
-  %102 = getelementptr inbounds { i64, { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr, ptr } }, ptr %92, i64 %101
+  %102 = getelementptr inbounds [72 x i8], ptr %92, i64 %101
   %103 = getelementptr inbounds i8, ptr %102, i64 -72
   %104 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h506371e4b1e3dcefE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %103)
           to label %.noexc35 unwind label %.loopexit
@@ -5419,7 +5419,7 @@ default.unreachable66:                            ; preds = %3
   %41 = add i64 %.sroa.01.0.i.i.i.i, %40
   %42 = and i64 %41, %33
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr } }, ptr %34, i64 %43
+  %44 = getelementptr inbounds [80 x i8], ptr %34, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -80
   %46 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7df4afad08a98a93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %45)
           to label %.noexc23 unwind label %.loopexit

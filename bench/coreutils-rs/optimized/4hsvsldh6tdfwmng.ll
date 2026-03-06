@@ -553,7 +553,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit"
   %.07 = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit" ]
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.07
+  %8 = getelementptr inbounds [24 x i8], ptr %0, i64 %.07
   %9 = add nuw i64 %.07, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !133
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h55f7c2227d10da75E.llvm.12269880611312064175"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -593,7 +593,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u
   br label %17
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.1
+  %22 = getelementptr inbounds [24 x i8], ptr %0, i64 %.1
   %23 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #13
           to label %17 unwind label %25
@@ -820,7 +820,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 
 14:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit.i", %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit.i" ]
-  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.07.i
+  %15 = getelementptr inbounds [24 x i8], ptr %3, i64 %.07.i
   %16 = add nuw i64 %.07.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !221
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h55f7c2227d10da75E.llvm.12269880611312064175"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
@@ -857,7 +857,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   br label %24
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.1.i
+  %29 = getelementptr inbounds [24 x i8], ptr %3, i64 %.1.i
   %30 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #13
           to label %24 unwind label %32

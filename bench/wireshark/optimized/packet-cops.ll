@@ -1369,7 +1369,7 @@ dissect_cops_object.exit.thread:                  ; preds = %49
 
 switch.lookup:                                    ; preds = %67
   %78 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cops_pdu.1, i64 %78
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_cops_pdu.1, i64 %78
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %cops_c_type_to_str.exit.i
 
@@ -1443,7 +1443,7 @@ cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77,
 
 switch.lookup331:                                 ; preds = %89
   %100 = zext nneg i8 %switch.tableidx330 to i64
-  %switch.gep332 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cops_pdu.1, i64 %100
+  %switch.gep332 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_cops_pdu.1, i64 %100
   %switch.load333 = load ptr, ptr %switch.gep332, align 8
   br label %cops_c_type_to_str.exit75.i
 
@@ -2476,9 +2476,9 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %99 = call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef %98) #10
   store ptr %99, ptr %11, align 8
   %100 = zext i32 %.035.lcssa.i.i to i64
-  %101 = getelementptr i32, ptr %99, i64 %100
+  %101 = getelementptr [4 x i8], ptr %99, i64 %100
   %102 = zext i32 %91 to i64
-  %103 = getelementptr i32, ptr %101, i64 %102
+  %103 = getelementptr [4 x i8], ptr %101, i64 %102
   %.not57.i.i = icmp eq i32 %91, 0
   br i1 %.not57.i.i, label %._crit_edge49.i.i, label %.lr.ph48.preheader.i.i
 
@@ -2491,7 +2491,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   br i1 %.not56.i.i, label %redecode_oid.exit.i, label %.lr.ph54.preheader.i.i
 
 .lr.ph54.preheader.i.i:                           ; preds = %._crit_edge49.i.i
-  %105 = getelementptr i32, ptr %99, i64 %102
+  %105 = getelementptr [4 x i8], ptr %99, i64 %102
   %wide.trip.count66.i.i = zext i32 %89 to i64
   br label %.lr.ph54.i.i
 

@@ -494,7 +494,7 @@ define dso_local ptr @find_rel_exe_dir(ptr noundef %0) local_unnamed_addr #5 {
 19:                                               ; preds = %17, %30
   %.01518 = phi i64 [ 0, %17 ], [ %31, %30 ]
   tail call void @scratch_buffer_clear() #17
-  %20 = getelementptr inbounds nuw ptr, ptr @__const.find_rel_exe_dir.attempts, i64 %.01518
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @__const.find_rel_exe_dir.attempts, i64 %.01518
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.18, ptr noundef nonnull %3, ptr noundef %21, ptr noundef %0) #17
   %22 = tail call ptr @scratch_buffer_to_string() #17
@@ -778,7 +778,7 @@ define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
   %9 = trunc i64 %8 to i32
@@ -998,7 +998,7 @@ define dso_local void @file_add_wildcard_files(ptr noundef captures(none) %0, pt
 
 .lr.ph.i.us:                                      ; preds = %39, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %39 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.us
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.us
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #18
   %31 = trunc i64 %30 to i32
@@ -1096,7 +1096,7 @@ expand_.exit.us:                                  ; preds = %56, %52
 
 80:                                               ; preds = %75, %expand_.exit.us
   %.0.us = phi i64 [ %79, %75 ], [ 4294967295, %expand_.exit.us ]
-  %81 = getelementptr inbounds nuw ptr, ptr %74, i64 %.0.us
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.0.us
   store ptr %73, ptr %81, align 8
   br label %.backedge.us
 

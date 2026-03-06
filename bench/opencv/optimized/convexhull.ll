@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"class.cv::Point_" = type { i32, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -408,7 +407,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; p
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %174, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %168, ptr %6, align 8, !tbaa !56
   store ptr %173, ptr %80, align 8, !tbaa !55
-  %175 = getelementptr inbounds nuw %"class.cv::Point_", ptr %168, i64 %166
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %166
   store ptr %175, ptr %81, align 8, !tbaa !52
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit
 
@@ -473,7 +472,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   store i32 50397184, ptr %11, align 8, !tbaa !68
   store ptr %5, ptr %87, align 8, !tbaa !70
   %187 = load ptr, ptr %6, align 8, !tbaa !56
-  %188 = getelementptr inbounds nuw %"class.cv::Point_", ptr %187, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %188, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)

@@ -15,11 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.vector.44 = type { ptr }
 %class._scoped_numeral = type { ptr, %class.mpz }
 %class._scoped_numeral.8 = type { ptr, %"struct.std::pair" }
-%"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry" = type { %"struct.simplex::sparse_matrix<simplex::mpz_ext>::row_entry.base", %union.anon.45 }
-%"struct.simplex::sparse_matrix<simplex::mpz_ext>::row_entry.base" = type <{ %class.mpz, i32 }>
-%union.anon.45 = type { i32 }
-%"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry" = type { i32, %union.anon.64 }
-%union.anon.64 = type { i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -32,11 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row" = type { %class.vector.28, i32, i32 }
 %class.vector.28 = type { ptr }
 %class._scoped_numeral.17 = type { ptr, %class.mpq }
-%"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry" = type { %"struct.simplex::sparse_matrix<simplex::mpq_ext>::row_entry.base", %union.anon.39 }
-%"struct.simplex::sparse_matrix<simplex::mpq_ext>::row_entry.base" = type <{ %class.mpq, i32 }>
-%union.anon.39 = type { i32 }
-%"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry" = type { i32, %union.anon.89 }
-%union.anon.89 = type { i32 }
 %"class.simplex::sparse_matrix<simplex::mpq_ext>::row" = type { i32 }
 %class.rational = type { %class.mpq }
 %class.inf_rational = type { %class.rational, %class.rational }
@@ -698,7 +688,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEEC2ER8reslimit(ptr 
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !48
   %59 = zext i32 %.pre2.i.i to i64
-  %60 = getelementptr inbounds nuw i32, ptr %.pre.i.i, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %59
   store i32 -1, ptr %60, align 4, !tbaa !48
   %61 = add i32 %.pre2.i.i, 1
   store i32 %61, ptr %.phi.trans.insert.i.i, align 4, !tbaa !48
@@ -744,7 +734,7 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIiLb0EjE
   %73 = getelementptr inbounds i8, ptr %67, i64 -4
   store i32 1024, ptr %73, align 4, !tbaa !48
   %74 = zext nneg i32 %.0.i17.i.i.i.ph to i64
-  %75 = getelementptr i32, ptr %67, i64 %74
+  %75 = getelementptr [4 x i8], ptr %67, i64 %74
   %76 = shl nuw nsw i64 %74, 2
   %77 = sub nuw nsw i64 4096, %76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, i8 0, i64 %77, i1 false), !tbaa !48
@@ -1321,7 +1311,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i:           ; preds = %_ZN6vectorIiLb0EjE5
   %24 = phi ptr [ %.pre.i.i, %_ZN6vectorIiLb0EjE5resetEv.exit.thread.i ], [ %17, %18 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %26
   store i32 -1, ptr %27, align 4, !tbaa !48
   %28 = add i32 %23, 1
   store i32 %28, ptr %25, align 4, !tbaa !48
@@ -1486,7 +1476,7 @@ _ZN6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE9push_backEOS4_.exit:
   %20 = phi i32 [ %.pre2.i, %19 ], [ %15, %13 ]
   %21 = phi ptr [ %.pre.i, %19 ], [ %11, %13 ]
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [216 x i8], ptr %21, i64 %22
   call void @_ZN7simplex7simplexINS_7mpz_extEE8var_infoC2EOS3_(ptr noundef nonnull align 8 dereferenceable(216) %23, ptr noundef nonnull align 8 dereferenceable(216) %3) #20
   %24 = load ptr, ptr %4, align 8, !tbaa !54
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -1554,7 +1544,7 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
 .lr.ph.preheader.i.i:                             ; preds = %44
   %46 = zext i32 %.ph to i64
   %47 = zext i32 %.0.i17.i.i.ph to i64
-  %48 = getelementptr i32, ptr %39, i64 %47
+  %48 = getelementptr [4 x i8], ptr %39, i64 %47
   %49 = sub nsw i64 %46, %47
   %50 = shl nsw i64 %49, 2
   call void @llvm.memset.p0.i64(ptr align 4 %48, i8 0, i64 %50, i1 false), !tbaa !48
@@ -1618,7 +1608,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6columnD2Ev.exit: ; preds = %.noexc, %14
   %19 = phi i32 [ %.pre2.i, %.noexc ], [ %13, %14 ]
   %20 = phi ptr [ %.pre.i, %.noexc ], [ %10, %14 ]
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   store ptr null, ptr %22, align 8, !tbaa !73
   store ptr null, ptr %3, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1653,7 +1643,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit:             ; preds = %29, %35
   %37 = phi ptr [ %.pre.i3, %35 ], [ %.pre, %29 ]
   %38 = getelementptr inbounds i8, ptr %37, i64 -4
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %39
   store i32 -1, ptr %40, align 4, !tbaa !48
   %41 = add i32 %36, 1
   store i32 %41, ptr %38, align 4, !tbaa !48
@@ -1750,7 +1740,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE4_rowD2Ev.exit.i: ; preds = %.noexc.i, %
   %41 = phi i32 [ %.pre2.i.i, %.noexc.i ], [ %32, %30 ]
   %42 = phi ptr [ %.pre.i.i, %.noexc.i ], [ %26, %30 ]
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   store ptr null, ptr %44, align 8, !tbaa !78
   store ptr null, ptr %6, align 8, !tbaa !78
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -1778,7 +1768,7 @@ common.resume:                                    ; preds = %315, %51
 _ZN6vectorIjLb0EjE4backEv.exit.i:                 ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.i
   %53 = add i32 %23, -1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %20, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !48
   store i32 %53, ptr %22, align 4, !tbaa !48
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE6mk_rowEv.exit
@@ -1795,17 +1785,17 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6mk_rowEv.exit: ; preds = %_ZN7simplex13
 
 58:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %59 = getelementptr inbounds nuw %class.mpz, ptr %4, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %60 = load i32, ptr %59, align 8, !tbaa !3
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %88, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !48
   %65 = load ptr, ptr %57, align 8, !tbaa !54
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [216 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 536870912
   %.not114 = icmp eq i32 %69, 0
@@ -1836,7 +1826,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %73, %79
   %81 = phi ptr [ %.pre.i, %79 ], [ %71, %73 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 -4
   %83 = zext i32 %80 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %83
   %85 = trunc nuw i64 %indvars.iv to i32
   store i32 %85, ptr %84, align 4, !tbaa !48
   %86 = add i32 %80, 1
@@ -1912,19 +1902,19 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %117, label %118, label %.critedge
 
 118:                                              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %119 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv128
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv128
   %120 = load i32, ptr %119, align 4, !tbaa !48
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %3, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !48
-  %124 = getelementptr inbounds nuw %class.mpz, ptr %4, i64 %121
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %121
   invoke void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %89, ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %95)
           to label %125 unwind label %156
 
 125:                                              ; preds = %118
   %126 = load ptr, ptr %112, align 8, !tbaa !54
   %127 = zext i32 %123 to i64
-  %128 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [216 x i8], ptr %126, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 200
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 204
   %131 = load i8, ptr %130, align 4
@@ -1958,7 +1948,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %134, %138
 
 141:                                              ; preds = %140
   %142 = load ptr, ptr %112, align 8, !tbaa !54
-  %143 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %142, i64 %127
+  %143 = getelementptr inbounds nuw [216 x i8], ptr %142, i64 %127
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 200
   invoke void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %89, ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 8 dereferenceable(16) %95)
           to label %145 unwind label %156
@@ -1977,7 +1967,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %134, %138
 
 148:                                              ; preds = %147
   %149 = load ptr, ptr %112, align 8, !tbaa !54
-  %150 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %149, i64 %127
+  %150 = getelementptr inbounds nuw [216 x i8], ptr %149, i64 %127
   %151 = load i32, ptr %150, align 8
   %152 = and i32 %151, 536870911
   invoke void @_ZN7simplex13sparse_matrixINS_7mpz_extEE3addENS2_3rowERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(80) %18, i32 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(16) %95, i32 %152)
@@ -2033,7 +2023,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %134, %138
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %175 = load ptr, ptr %174, align 8, !tbaa !55
   %176 = zext i32 %.sroa.0.0.i to i64
-  %177 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !56
   %179 = icmp eq ptr %178, null
   br i1 %179, label %._crit_edge123, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -2057,7 +2047,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %187 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %178, i64 %indvars.iv.next.i.i.i
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %indvars.iv.next.i.i.i
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load i32, ptr %188, align 8, !tbaa !83
   %190 = icmp eq i32 %189, -1
@@ -2088,7 +2078,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
   %196 = phi ptr [ %178, %.lr.ph122 ], [ %221, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %.sroa.079.0121 = phi i32 [ %.sroa.0.1.i105, %.lr.ph122 ], [ %.sroa.079.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %197 = zext i32 %.sroa.079.0121 to i64
-  %198 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load i32, ptr %199, align 8, !tbaa !83
   %201 = icmp eq i32 %200, %1
@@ -2131,7 +2121,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
 214:                                              ; preds = %195
   %215 = load ptr, ptr %192, align 8, !tbaa !54
   %216 = zext i32 %200 to i64
-  %217 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [216 x i8], ptr %215, i64 %216
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3mulERKSt4pairI3mpqS2_ERK3mpzRS3_(ptr noundef nonnull align 8 dereferenceable(736) %163, ptr noundef nonnull align 8 dereferenceable(64) %218, ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef nonnull align 8 dereferenceable(64) %169)
           to label %219 unwind label %212
@@ -2158,7 +2148,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %226 = zext i32 %220 to i64
-  %227 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %221, i64 %226
+  %227 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %229 = load i32, ptr %228, align 8, !tbaa !83
   %230 = icmp eq i32 %229, -1
@@ -2171,7 +2161,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i118, 1
-  %233 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %221, i64 %indvars.iv.next.i.i
+  %233 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %indvars.iv.next.i.i
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %235 = load i32, ptr %234, align 8, !tbaa !83
   %236 = icmp eq i32 %235, -1
@@ -2245,31 +2235,31 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit66:          ; preds = %244, %.noexc65
   %249 = phi i32 [ %.pre2.i64, %.noexc65 ], [ %243, %244 ]
   %250 = getelementptr inbounds i8, ptr %248, i64 -4
   %251 = zext i32 %249 to i64
-  %252 = getelementptr inbounds nuw i32, ptr %248, i64 %251
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %248, i64 %251
   store i32 -1, ptr %252, align 4, !tbaa !48
   %253 = add i32 %249, 1
   store i32 %253, ptr %250, align 4, !tbaa !48
   br label %_ZN15mpq_inf_managerILb0EE3divERKSt4pairI3mpqS2_ERK3mpzRS3_.exit
 
 254:                                              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit61
-  %255 = getelementptr inbounds nuw i32, ptr %240, i64 %176
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %176
   store i32 %1, ptr %255, align 4, !tbaa !48
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %257 = load ptr, ptr %256, align 8, !tbaa !54
   %258 = zext i32 %1 to i64
-  %259 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %257, i64 %258
+  %259 = getelementptr inbounds nuw [216 x i8], ptr %257, i64 %258
   %260 = load i32, ptr %259, align 8
   %261 = and i32 %.sroa.0.0.i, 536870911
   %262 = and i32 %260, -536870912
   %263 = or disjoint i32 %262, %261
   store i32 %263, ptr %259, align 8
   %264 = load ptr, ptr %256, align 8, !tbaa !54
-  %265 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %264, i64 %258
+  %265 = getelementptr inbounds nuw [216 x i8], ptr %264, i64 %258
   %266 = load i32, ptr %265, align 8
   %267 = or i32 %266, 536870912
   store i32 %267, ptr %265, align 8
   %268 = load ptr, ptr %256, align 8, !tbaa !54
-  %269 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %268, i64 %258
+  %269 = getelementptr inbounds nuw [216 x i8], ptr %268, i64 %258
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 200
   %271 = load i8, ptr %159, align 4
   %272 = and i8 %271, 1
@@ -2291,7 +2281,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit66:          ; preds = %244, %.noexc65
 
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit68:     ; preds = %274, %279
   %280 = load ptr, ptr %256, align 8, !tbaa !54
-  %281 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %280, i64 %258
+  %281 = getelementptr inbounds nuw [216 x i8], ptr %280, i64 %258
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3setERSt4pairI3mpqS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(736) %163, ptr noundef nonnull align 8 dereferenceable(64) %282, ptr noundef nonnull align 8 dereferenceable(64) %164)
           to label %283 unwind label %.loopexit.split-lp
@@ -2447,7 +2437,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE7is
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 536870912
   %9 = icmp ne i32 %8, 0
@@ -2464,11 +2454,11 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpz_extEE7add_va
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !55
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !61
   %14 = zext i32 %3 to i64
-  %15 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !75
   %18 = add i32 %17, 1
@@ -2504,7 +2494,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %31 = phi i32 [ %.pre2.i.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %27, %25 ]
   %32 = phi ptr [ %.pre.i.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %22, %25 ]
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i8, ptr %35, align 4
@@ -2522,12 +2512,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !48
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %45
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE4_row13add_row_entryERj.exit
 
 47:                                               ; preds = %7
   %48 = zext i32 %20 to i64
-  %49 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %22, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %51 = load i32, ptr %50, align 4, !tbaa !90
   store i32 %51, ptr %19, align 4, !tbaa !77
@@ -2571,7 +2561,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %67 = phi i32 [ %.pre2.i.i14, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %63, %61 ]
   %68 = phi ptr [ %.pre.i.i12, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %58, %61 ]
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   store i64 0, ptr %70, align 4
   %71 = load ptr, ptr %15, align 8, !tbaa !62
   %72 = getelementptr inbounds i8, ptr %71, i64 -4
@@ -2579,12 +2569,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 4, !tbaa !48
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %71, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %75
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit
 
 77:                                               ; preds = %_ZN7simplex13sparse_matrixINS_7mpz_extEE4_row13add_row_entryERj.exit
   %78 = zext i32 %56 to i64
-  %79 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %58, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !90
   store i32 %81, ptr %55, align 4, !tbaa !71
@@ -2655,7 +2645,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpz_extEE3mulENS
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !55
   %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = icmp eq ptr %18, null
   br i1 %13, label %20, label %55
@@ -2682,7 +2672,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i.i, 1
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %18, i64 %indvars.iv.next.i.i.i.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv.next.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !83
   %31 = icmp eq i32 %30, -1
@@ -2707,7 +2697,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit.i: ; preds = %
   %.sroa.04.019.i = phi i32 [ %.sroa.04.2.i, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit.i ], [ %.sroa.0.1.i15.i, %_ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit.i ]
   %34 = load ptr, ptr %0, align 8, !tbaa !59
   %35 = zext i32 %.sroa.04.019.i to i64
-  %36 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %35
   tail call void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %34, ptr noundef nonnull align 8 dereferenceable(16) %36)
   %37 = add i32 %.sroa.04.019.i, 1
   %38 = load ptr, ptr %17, align 8, !tbaa !56
@@ -2722,7 +2712,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
   %43 = zext i32 %37 to i64
-  %44 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %38, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !83
   %47 = icmp eq i32 %46, -1
@@ -2735,7 +2725,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i16.i, 1
-  %50 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %38, i64 %indvars.iv.next.i.i.i
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv.next.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !83
   %53 = icmp eq i32 %52, -1
@@ -2777,7 +2767,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i5:
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i6
   %indvars.iv.next.i.i.i9 = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %63 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %18, i64 %indvars.iv.next.i.i.i9
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv.next.i.i.i9
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i32, ptr %64, align 8, !tbaa !83
   %66 = icmp eq i32 %65, -1
@@ -2803,7 +2793,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.sroa.013.036 = phi i32 [ %.sroa.013.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ], [ %.sroa.0.1.i30, %_ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit ]
   %69 = load ptr, ptr %0, align 8, !tbaa !59
   %70 = zext i32 %.sroa.013.036 to i64
-  %71 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %70
   tail call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %69, ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %71)
   %72 = add i32 %.sroa.013.036, 1
   %73 = load ptr, ptr %17, align 8, !tbaa !56
@@ -2818,7 +2808,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %78 = zext i32 %72 to i64
-  %79 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %73, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !83
   %82 = icmp eq i32 %81, -1
@@ -2831,7 +2821,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i33, 1
-  %85 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %73, i64 %indvars.iv.next.i.i
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %indvars.iv.next.i.i
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i32, ptr %86, align 8, !tbaa !83
   %88 = icmp eq i32 %87, -1
@@ -2872,7 +2862,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpz_extEE3addENS
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %15, align 8, !tbaa !56
@@ -2899,7 +2889,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE3endEv.exi
 28:                                               ; preds = %.lr.ph.i
   %29 = load ptr, ptr %16, align 8, !tbaa !47
   %30 = zext i32 %26 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 %.016.i, ptr %31, align 4, !tbaa !48
   %32 = load ptr, ptr %17, align 8, !tbaa !53
   %33 = icmp eq ptr %32, null
@@ -2925,7 +2915,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %40, %34
   %42 = phi ptr [ %.pre.i.i, %40 ], [ %32, %34 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -4
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %44
   %46 = load i32, ptr %25, align 4, !tbaa !48
   store i32 %46, ptr %45, align 4, !tbaa !48
   %47 = add i32 %41, 1
@@ -2951,7 +2941,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row12save_var_posER7svectorIijERS4_Ij
 58:                                               ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row12save_var_posER7svectorIijERS4_IjjE.exit
   %59 = load ptr, ptr %12, align 8, !tbaa !55
   %60 = zext i32 %3 to i64
-  %61 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !56
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.loopexit, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -2975,7 +2965,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %71 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %62, i64 %indvars.iv.next.i.i.i
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %indvars.iv.next.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8, !tbaa !83
   %74 = icmp eq i32 %73, -1
@@ -3006,12 +2996,12 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %80 = phi ptr [ %62, %.lr.ph322 ], [ %235, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %.sroa.0244.0321 = phi i32 [ %.sroa.0.1.i284, %.lr.ph322 ], [ %.sroa.0244.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %81 = zext i32 %.sroa.0244.0321 to i64
-  %82 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i32, ptr %83, align 8, !tbaa !83
   %85 = load ptr, ptr %16, align 8, !tbaa !47
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !48
   %89 = icmp eq i32 %88, -1
   br i1 %89, label %90, label %173
@@ -3050,7 +3040,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %104 = phi i32 [ %.pre2.i.i87, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %100, %98 ]
   %105 = phi ptr [ %.pre.i.i85, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %95, %98 ]
   %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %106
   store i32 0, ptr %107, align 8, !tbaa !3
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i8, ptr %108, align 4
@@ -3068,13 +3058,13 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !48
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %114, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %118
   %.pre336 = load ptr, ptr %61, align 8, !tbaa !56
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE4_row13add_row_entryERj.exit
 
 120:                                              ; preds = %90
   %121 = zext i32 %93 to i64
-  %122 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %95, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 20
   %124 = load i32, ptr %123, align 4, !tbaa !90
   store i32 %124, ptr %76, align 4, !tbaa !77
@@ -3086,7 +3076,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE4_row13add_row_entryERj.exit: ; preds = 
   %.0.i = phi ptr [ %119, %_ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exit.i ], [ %122, %120 ]
   %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 %84, ptr %126, align 8, !tbaa !83
-  %127 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %125, i64 %81
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %81
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = load i8, ptr %128, align 4
   %130 = and i8 %129, 1
@@ -3109,7 +3099,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE4_row13add_row_entryERj.exit: ; preds = 
 
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %132, %137
   %139 = load ptr, ptr %78, align 8, !tbaa !61
-  %140 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %139, i64 %86
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %86
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load i32, ptr %141, align 8, !tbaa !68
   %143 = add i32 %142, 1
@@ -3145,7 +3135,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %156 = phi i32 [ %.pre2.i.i91, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %152, %150 ]
   %157 = phi ptr [ %.pre.i.i89, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %147, %150 ]
   %158 = zext i32 %156 to i64
-  %159 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %158
   store i64 0, ptr %159, align 4
   %160 = load ptr, ptr %140, align 8, !tbaa !62
   %161 = getelementptr inbounds i8, ptr %160, i64 -4
@@ -3153,12 +3143,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %163 = add i32 %162, 1
   store i32 %163, ptr %161, align 4, !tbaa !48
   %164 = zext i32 %162 to i64
-  %165 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %160, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %164
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit
 
 166:                                              ; preds = %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
   %167 = zext i32 %145 to i64
-  %168 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %147, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !90
   store i32 %170, ptr %144, align 4, !tbaa !71
@@ -3177,7 +3167,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit: ; preds 
 173:                                              ; preds = %79
   %174 = load ptr, ptr %15, align 8, !tbaa !56
   %175 = zext i32 %88 to i64
-  %176 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [24 x i8], ptr %174, i64 %175
   %177 = load ptr, ptr %0, align 8, !tbaa !59
   tail call void @_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %177, ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %176)
   %178 = load i32, ptr %176, align 8, !tbaa !3
@@ -3186,7 +3176,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit: ; preds 
 
 180:                                              ; preds = %173
   %181 = load ptr, ptr %15, align 8, !tbaa !56
-  %182 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %181, i64 %175
+  %182 = getelementptr inbounds nuw [24 x i8], ptr %181, i64 %175
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load i32, ptr %183, align 8, !tbaa !83
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 20
@@ -3200,10 +3190,10 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit: ; preds 
   store i32 %88, ptr %76, align 4, !tbaa !77
   %190 = load ptr, ptr %78, align 8, !tbaa !61
   %191 = zext i32 %184 to i64
-  %192 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !62
   %194 = zext i32 %186 to i64
-  %195 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %193, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %194
   store i32 -1, ptr %195, align 4, !tbaa !91
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %197 = load i32, ptr %196, align 4, !tbaa !71
@@ -3237,7 +3227,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i: ; pred
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i93, %232 ]
   %.01516.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.1.i.i.i, %232 ]
   %211 = load ptr, ptr %192, align 8, !tbaa !62
-  %212 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %211, i64 %indvars.iv.i.i.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i.i.i
   %213 = load i32, ptr %212, align 4, !tbaa !91
   %214 = icmp eq i32 %213, -1
   br i1 %214, label %232, label %215
@@ -3248,18 +3238,18 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i: ; pred
   br i1 %.not.i.i.i, label %230, label %217
 
 217:                                              ; preds = %215
-  %218 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %211, i64 %216
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %216
   %219 = load i64, ptr %212, align 4
   store i64 %219, ptr %218, align 4
   %220 = load i32, ptr %212, align 4, !tbaa !91
   %221 = load ptr, ptr %12, align 8, !tbaa !55
   %222 = zext i32 %220 to i64
-  %223 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %221, i64 %222
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %221, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %225 = load i32, ptr %224, align 4, !tbaa !90
   %226 = load ptr, ptr %223, align 8, !tbaa !56
   %227 = zext i32 %225 to i64
-  %228 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [24 x i8], ptr %226, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 20
   store i32 %.01516.i.i.i, ptr %229, align 4, !tbaa !90
   br label %230
@@ -3303,7 +3293,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %240 = zext i32 %234 to i64
-  %241 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %235, i64 %240
+  %241 = getelementptr inbounds nuw [24 x i8], ptr %235, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %243 = load i32, ptr %242, align 8, !tbaa !83
   %244 = icmp eq i32 %243, -1
@@ -3316,7 +3306,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i317, 1
-  %247 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %235, i64 %indvars.iv.next.i.i
+  %247 = getelementptr inbounds nuw [24 x i8], ptr %235, i64 %indvars.iv.next.i.i
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load i32, ptr %248, align 8, !tbaa !83
   %250 = icmp eq i32 %249, -1
@@ -3344,7 +3334,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit: ; preds = %_ZNK
 255:                                              ; preds = %252
   %256 = load ptr, ptr %12, align 8, !tbaa !55
   %257 = zext i32 %3 to i64
-  %258 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %256, i64 %257
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %256, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !56
   %260 = icmp eq ptr %259, null
   br i1 %260, label %.loopexit, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i95
@@ -3368,7 +3358,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i10
 
 .lr.ph.i.i.i105:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i102
   %indvars.iv.next.i.i.i106 = add nuw nsw i64 %indvars.iv.i.i2.i103, 1
-  %268 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %259, i64 %indvars.iv.next.i.i.i106
+  %268 = getelementptr inbounds nuw [24 x i8], ptr %259, i64 %indvars.iv.next.i.i.i106
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %270 = load i32, ptr %269, align 8, !tbaa !83
   %271 = icmp eq i32 %270, -1
@@ -3399,12 +3389,12 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit112: ; preds = 
   %277 = phi ptr [ %259, %.lr.ph316 ], [ %433, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit152 ]
   %.sroa.0230.0315 = phi i32 [ %.sroa.0.1.i98289, %.lr.ph316 ], [ %.sroa.0230.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit152 ]
   %278 = zext i32 %.sroa.0230.0315 to i64
-  %279 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %277, i64 %278
+  %279 = getelementptr inbounds nuw [24 x i8], ptr %277, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %281 = load i32, ptr %280, align 8, !tbaa !83
   %282 = load ptr, ptr %16, align 8, !tbaa !47
   %283 = zext i32 %281 to i64
-  %284 = getelementptr inbounds nuw i32, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %282, i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !48
   %286 = icmp eq i32 %285, -1
   br i1 %286, label %287, label %371
@@ -3443,7 +3433,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %301 = phi i32 [ %.pre2.i.i117, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i118 ], [ %297, %295 ]
   %302 = phi ptr [ %.pre.i.i115, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i118 ], [ %292, %295 ]
   %303 = zext i32 %301 to i64
-  %304 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw [24 x i8], ptr %302, i64 %303
   store i32 0, ptr %304, align 8, !tbaa !3
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 4
   %306 = load i8, ptr %305, align 4
@@ -3461,13 +3451,13 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %314 = add i32 %313, 1
   store i32 %314, ptr %312, align 4, !tbaa !48
   %315 = zext i32 %313 to i64
-  %316 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %311, i64 %315
+  %316 = getelementptr inbounds nuw [24 x i8], ptr %311, i64 %315
   %.pre335 = load ptr, ptr %258, align 8, !tbaa !56
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE4_row13add_row_entryERj.exit119
 
 317:                                              ; preds = %287
   %318 = zext i32 %290 to i64
-  %319 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %292, i64 %318
+  %319 = getelementptr inbounds nuw [24 x i8], ptr %292, i64 %318
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 20
   %321 = load i32, ptr %320, align 4, !tbaa !90
   store i32 %321, ptr %273, align 4, !tbaa !77
@@ -3479,7 +3469,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE4_row13add_row_entryERj.exit119: ; preds
   %.0.i113 = phi ptr [ %316, %_ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exit.i114 ], [ %319, %317 ]
   %323 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 16
   store i32 %281, ptr %323, align 8, !tbaa !83
-  %324 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %322, i64 %278
+  %324 = getelementptr inbounds nuw [24 x i8], ptr %322, i64 %278
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 4
   %326 = load i8, ptr %325, align 4
   %327 = and i8 %326, 1
@@ -3504,7 +3494,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit120:    ; preds = %329, %334
   %336 = load ptr, ptr %0, align 8, !tbaa !59
   tail call void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %336, ptr noundef nonnull align 8 dereferenceable(16) %.0.i113)
   %337 = load ptr, ptr %275, align 8, !tbaa !61
-  %338 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %337, i64 %283
+  %338 = getelementptr inbounds nuw [24 x i8], ptr %337, i64 %283
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %340 = load i32, ptr %339, align 8, !tbaa !68
   %341 = add i32 %340, 1
@@ -3540,7 +3530,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %354 = phi i32 [ %.pre2.i.i125, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4sizeEv.exit.thread.i126 ], [ %350, %348 ]
   %355 = phi ptr [ %.pre.i.i123, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4sizeEv.exit.thread.i126 ], [ %345, %348 ]
   %356 = zext i32 %354 to i64
-  %357 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %356
   store i64 0, ptr %357, align 4
   %358 = load ptr, ptr %338, align 8, !tbaa !62
   %359 = getelementptr inbounds i8, ptr %358, i64 -4
@@ -3548,12 +3538,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %361 = add i32 %360, 1
   store i32 %361, ptr %359, align 4, !tbaa !48
   %362 = zext i32 %360 to i64
-  %363 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %358, i64 %362
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %358, i64 %362
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit127
 
 364:                                              ; preds = %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit120
   %365 = zext i32 %343 to i64
-  %366 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %345, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %365
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 4
   %368 = load i32, ptr %367, align 4, !tbaa !90
   store i32 %368, ptr %342, align 4, !tbaa !71
@@ -3572,7 +3562,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit127: ; pre
 371:                                              ; preds = %276
   %372 = load ptr, ptr %15, align 8, !tbaa !56
   %373 = zext i32 %285 to i64
-  %374 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %372, i64 %373
+  %374 = getelementptr inbounds nuw [24 x i8], ptr %372, i64 %373
   %375 = load ptr, ptr %0, align 8, !tbaa !59
   tail call void @_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %375, ptr noundef nonnull align 8 dereferenceable(16) %374, ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 8 dereferenceable(16) %374)
   %376 = load i32, ptr %374, align 8, !tbaa !3
@@ -3581,7 +3571,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit127: ; pre
 
 378:                                              ; preds = %371
   %379 = load ptr, ptr %15, align 8, !tbaa !56
-  %380 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %379, i64 %373
+  %380 = getelementptr inbounds nuw [24 x i8], ptr %379, i64 %373
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %382 = load i32, ptr %381, align 8, !tbaa !83
   %383 = getelementptr inbounds nuw i8, ptr %380, i64 20
@@ -3595,10 +3585,10 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit127: ; pre
   store i32 %285, ptr %273, align 4, !tbaa !77
   %388 = load ptr, ptr %275, align 8, !tbaa !61
   %389 = zext i32 %382 to i64
-  %390 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %388, i64 %389
+  %390 = getelementptr inbounds nuw [24 x i8], ptr %388, i64 %389
   %391 = load ptr, ptr %390, align 8, !tbaa !62
   %392 = zext i32 %384 to i64
-  %393 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %391, i64 %392
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %391, i64 %392
   store i32 -1, ptr %393, align 4, !tbaa !91
   %394 = getelementptr inbounds nuw i8, ptr %390, i64 12
   %395 = load i32, ptr %394, align 4, !tbaa !71
@@ -3632,7 +3622,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i128: ; p
   %indvars.iv.i.i.i133 = phi i64 [ 0, %.lr.ph.preheader.i.i.i130 ], [ %indvars.iv.next.i.i.i137, %430 ]
   %.01516.i.i.i134 = phi i32 [ 0, %.lr.ph.preheader.i.i.i130 ], [ %.1.i.i.i136, %430 ]
   %409 = load ptr, ptr %390, align 8, !tbaa !62
-  %410 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %409, i64 %indvars.iv.i.i.i133
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %indvars.iv.i.i.i133
   %411 = load i32, ptr %410, align 4, !tbaa !91
   %412 = icmp eq i32 %411, -1
   br i1 %412, label %430, label %413
@@ -3643,18 +3633,18 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i128: ; p
   br i1 %.not.i.i.i135, label %428, label %415
 
 415:                                              ; preds = %413
-  %416 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %409, i64 %414
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %414
   %417 = load i64, ptr %410, align 4
   store i64 %417, ptr %416, align 4
   %418 = load i32, ptr %410, align 4, !tbaa !91
   %419 = load ptr, ptr %12, align 8, !tbaa !55
   %420 = zext i32 %418 to i64
-  %421 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %419, i64 %420
+  %421 = getelementptr inbounds nuw [16 x i8], ptr %419, i64 %420
   %422 = getelementptr inbounds nuw i8, ptr %410, i64 4
   %423 = load i32, ptr %422, align 4, !tbaa !90
   %424 = load ptr, ptr %421, align 8, !tbaa !56
   %425 = zext i32 %423 to i64
-  %426 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %424, i64 %425
+  %426 = getelementptr inbounds nuw [24 x i8], ptr %424, i64 %425
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 20
   store i32 %.01516.i.i.i134, ptr %427, align 4, !tbaa !90
   br label %428
@@ -3698,7 +3688,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i146:
 
 .lr.ph.preheader.i.i147:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i146
   %438 = zext i32 %432 to i64
-  %439 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %433, i64 %438
+  %439 = getelementptr inbounds nuw [24 x i8], ptr %433, i64 %438
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
   %441 = load i32, ptr %440, align 8, !tbaa !83
   %442 = icmp eq i32 %441, -1
@@ -3711,7 +3701,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i150.lr.ph:
 
 .lr.ph.i.i148:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i150
   %indvars.iv.next.i.i151 = add nuw nsw i64 %indvars.iv.i.i149311, 1
-  %445 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %433, i64 %indvars.iv.next.i.i151
+  %445 = getelementptr inbounds nuw [24 x i8], ptr %433, i64 %indvars.iv.next.i.i151
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %447 = load i32, ptr %446, align 8, !tbaa !83
   %448 = icmp eq i32 %447, -1
@@ -3745,7 +3735,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit152: ; preds = %_
   store ptr null, ptr %456, align 8, !tbaa !10
   %457 = load ptr, ptr %12, align 8, !tbaa !55
   %458 = zext i32 %3 to i64
-  %459 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %457, i64 %458
+  %459 = getelementptr inbounds nuw [16 x i8], ptr %457, i64 %458
   %460 = load ptr, ptr %459, align 8, !tbaa !56
   %461 = icmp eq ptr %460, null
   br i1 %461, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i153
@@ -3769,7 +3759,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i15
 
 .lr.ph.i.i.i163:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i160
   %indvars.iv.next.i.i.i164 = add nuw nsw i64 %indvars.iv.i.i2.i161, 1
-  %469 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %460, i64 %indvars.iv.next.i.i.i164
+  %469 = getelementptr inbounds nuw [24 x i8], ptr %460, i64 %indvars.iv.next.i.i.i164
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   %471 = load i32, ptr %470, align 8, !tbaa !83
   %472 = icmp eq i32 %471, -1
@@ -3800,12 +3790,12 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
   %478 = phi ptr [ %460, %.lr.ph ], [ %645, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit212 ]
   %.sroa.0217.0310 = phi i32 [ %.sroa.0.1.i156294, %.lr.ph ], [ %.sroa.0217.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit212 ]
   %479 = zext i32 %.sroa.0217.0310 to i64
-  %480 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %478, i64 %479
+  %480 = getelementptr inbounds nuw [24 x i8], ptr %478, i64 %479
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 16
   %482 = load i32, ptr %481, align 8, !tbaa !83
   %483 = load ptr, ptr %16, align 8, !tbaa !47
   %484 = zext i32 %482 to i64
-  %485 = getelementptr inbounds nuw i32, ptr %483, i64 %484
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %483, i64 %484
   %486 = load i32, ptr %485, align 4, !tbaa !48
   %487 = icmp eq i32 %486, -1
   br i1 %487, label %488, label %578
@@ -3847,7 +3837,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %502 = phi i32 [ %.pre2.i.i175, %.noexc ], [ %498, %496 ]
   %503 = phi ptr [ %.pre.i.i173, %.noexc ], [ %493, %496 ]
   %504 = zext i32 %502 to i64
-  %505 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %503, i64 %504
+  %505 = getelementptr inbounds nuw [24 x i8], ptr %503, i64 %504
   store i32 0, ptr %505, align 8, !tbaa !3
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 4
   %507 = load i8, ptr %506, align 4
@@ -3865,13 +3855,13 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %515 = add i32 %514, 1
   store i32 %515, ptr %513, align 4, !tbaa !48
   %516 = zext i32 %514 to i64
-  %517 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %512, i64 %516
+  %517 = getelementptr inbounds nuw [24 x i8], ptr %512, i64 %516
   %.pre = load ptr, ptr %459, align 8, !tbaa !56
   br label %523
 
 518:                                              ; preds = %488
   %519 = zext i32 %491 to i64
-  %520 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %493, i64 %519
+  %520 = getelementptr inbounds nuw [24 x i8], ptr %493, i64 %519
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 20
   %522 = load i32, ptr %521, align 4, !tbaa !90
   store i32 %522, ptr %474, align 4, !tbaa !77
@@ -3883,7 +3873,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exi
   %.0.i171 = phi ptr [ %517, %_ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4backEv.exit.i172 ], [ %520, %518 ]
   %525 = getelementptr inbounds nuw i8, ptr %.0.i171, i64 16
   store i32 %482, ptr %525, align 8, !tbaa !83
-  %526 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %524, i64 %479
+  %526 = getelementptr inbounds nuw [24 x i8], ptr %524, i64 %479
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 4
   %528 = load i8, ptr %527, align 4
   %529 = and i8 %528, 1
@@ -3911,7 +3901,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit179:    ; preds = %531, %536
 
 539:                                              ; preds = %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit179
   %540 = load ptr, ptr %476, align 8, !tbaa !61
-  %541 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %540, i64 %484
+  %541 = getelementptr inbounds nuw [24 x i8], ptr %540, i64 %484
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
   %543 = load i32, ptr %542, align 8, !tbaa !68
   %544 = add i32 %543, 1
@@ -3950,7 +3940,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %557 = phi i32 [ %.pre2.i.i184, %.noexc186 ], [ %553, %551 ]
   %558 = phi ptr [ %.pre.i.i182, %.noexc186 ], [ %548, %551 ]
   %559 = zext i32 %557 to i64
-  %560 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %558, i64 %559
+  %560 = getelementptr inbounds nuw [8 x i8], ptr %558, i64 %559
   store i64 0, ptr %560, align 4
   %561 = load ptr, ptr %541, align 8, !tbaa !62
   %562 = getelementptr inbounds i8, ptr %561, i64 -4
@@ -3958,12 +3948,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE9col_entryELb0EjE4backEv.exit.
   %564 = add i32 %563, 1
   store i32 %564, ptr %562, align 4, !tbaa !48
   %565 = zext i32 %563 to i64
-  %566 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %561, i64 %565
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %561, i64 %565
   br label %_ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit187
 
 567:                                              ; preds = %539
   %568 = zext i32 %546 to i64
-  %569 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %548, i64 %568
+  %569 = getelementptr inbounds nuw [8 x i8], ptr %548, i64 %568
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 4
   %571 = load i32, ptr %570, align 4, !tbaa !90
   store i32 %571, ptr %545, align 4, !tbaa !71
@@ -3992,7 +3982,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit187: ; pre
 578:                                              ; preds = %477
   %579 = load ptr, ptr %15, align 8, !tbaa !56
   %580 = zext i32 %486 to i64
-  %581 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %579, i64 %580
+  %581 = getelementptr inbounds nuw [24 x i8], ptr %579, i64 %580
   %582 = load ptr, ptr %0, align 8, !tbaa !59
   invoke void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %582, ptr noundef nonnull align 8 dereferenceable(16) %480, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %452)
           to label %583 unwind label %642
@@ -4009,7 +3999,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit187: ; pre
 
 588:                                              ; preds = %585
   %589 = load ptr, ptr %15, align 8, !tbaa !56
-  %590 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %589, i64 %580
+  %590 = getelementptr inbounds nuw [24 x i8], ptr %589, i64 %580
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 16
   %592 = load i32, ptr %591, align 8, !tbaa !83
   %593 = getelementptr inbounds nuw i8, ptr %590, i64 20
@@ -4023,10 +4013,10 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE6column13add_col_entryERi.exit187: ; pre
   store i32 %486, ptr %474, align 4, !tbaa !77
   %598 = load ptr, ptr %476, align 8, !tbaa !61
   %599 = zext i32 %592 to i64
-  %600 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %598, i64 %599
+  %600 = getelementptr inbounds nuw [24 x i8], ptr %598, i64 %599
   %601 = load ptr, ptr %600, align 8, !tbaa !62
   %602 = zext i32 %594 to i64
-  %603 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %601, i64 %602
+  %603 = getelementptr inbounds nuw [8 x i8], ptr %601, i64 %602
   store i32 -1, ptr %603, align 4, !tbaa !91
   %604 = getelementptr inbounds nuw i8, ptr %600, i64 12
   %605 = load i32, ptr %604, align 4, !tbaa !71
@@ -4060,7 +4050,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i188: ; p
   %indvars.iv.i.i.i193 = phi i64 [ 0, %.lr.ph.preheader.i.i.i190 ], [ %indvars.iv.next.i.i.i197, %640 ]
   %.01516.i.i.i194 = phi i32 [ 0, %.lr.ph.preheader.i.i.i190 ], [ %.1.i.i.i196, %640 ]
   %619 = load ptr, ptr %600, align 8, !tbaa !62
-  %620 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %619, i64 %indvars.iv.i.i.i193
+  %620 = getelementptr inbounds nuw [8 x i8], ptr %619, i64 %indvars.iv.i.i.i193
   %621 = load i32, ptr %620, align 4, !tbaa !91
   %622 = icmp eq i32 %621, -1
   br i1 %622, label %640, label %623
@@ -4071,18 +4061,18 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i188: ; p
   br i1 %.not.i.i.i195, label %638, label %625
 
 625:                                              ; preds = %623
-  %626 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %619, i64 %624
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %619, i64 %624
   %627 = load i64, ptr %620, align 4
   store i64 %627, ptr %626, align 4
   %628 = load i32, ptr %620, align 4, !tbaa !91
   %629 = load ptr, ptr %12, align 8, !tbaa !55
   %630 = zext i32 %628 to i64
-  %631 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %629, i64 %630
+  %631 = getelementptr inbounds nuw [16 x i8], ptr %629, i64 %630
   %632 = getelementptr inbounds nuw i8, ptr %620, i64 4
   %633 = load i32, ptr %632, align 4, !tbaa !90
   %634 = load ptr, ptr %631, align 8, !tbaa !56
   %635 = zext i32 %633 to i64
-  %636 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %634, i64 %635
+  %636 = getelementptr inbounds nuw [24 x i8], ptr %634, i64 %635
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 20
   store i32 %.01516.i.i.i194, ptr %637, align 4, !tbaa !90
   br label %638
@@ -4131,7 +4121,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i206:
 
 .lr.ph.preheader.i.i207:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i206
   %650 = zext i32 %644 to i64
-  %651 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %645, i64 %650
+  %651 = getelementptr inbounds nuw [24 x i8], ptr %645, i64 %650
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 16
   %653 = load i32, ptr %652, align 8, !tbaa !83
   %654 = icmp eq i32 %653, -1
@@ -4144,7 +4134,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i210.lr.ph:
 
 .lr.ph.i.i208:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i210
   %indvars.iv.next.i.i211 = add nuw nsw i64 %indvars.iv.i.i209307, 1
-  %657 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %645, i64 %indvars.iv.next.i.i211
+  %657 = getelementptr inbounds nuw [24 x i8], ptr %645, i64 %indvars.iv.next.i.i211
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 16
   %659 = load i32, ptr %658, align 8, !tbaa !83
   %660 = icmp eq i32 %659, -1
@@ -4228,10 +4218,10 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i: ; preds = 
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.thread:           ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.lr.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.lr.ph ]
-  %683 = getelementptr inbounds nuw i32, ptr %667, i64 %indvars.iv
+  %683 = getelementptr inbounds nuw [4 x i8], ptr %667, i64 %indvars.iv
   %684 = load i32, ptr %683, align 4, !tbaa !48
   %685 = zext i32 %684 to i64
-  %686 = getelementptr inbounds nuw i32, ptr %670, i64 %685
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %670, i64 %685
   store i32 -1, ptr %686, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %687 = load i32, ptr %669, align 4, !tbaa !48
@@ -4398,7 +4388,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE9add_patchEj(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not.i.i = icmp eq i32 %8, 0
@@ -4413,7 +4403,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.i: ; preds = %2
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread_crit_edge.i: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.i
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !54
-  %.phi.trans.insert.i = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %.pre.i, i64 %5
+  %.phi.trans.insert.i = getelementptr inbounds nuw [216 x i8], ptr %.pre.i, i64 %5
   %.pre3.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread.i
 
@@ -4424,7 +4414,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread.i: ; preds = %_ZNK
   br i1 %.not.i2.i, label %_ZNK7simplex7simplexINS_7mpz_extEE14outside_boundsEj.exit.thread2, label %_ZNK7simplex7simplexINS_7mpz_extEE14outside_boundsEj.exit
 
 _ZNK7simplex7simplexINS_7mpz_extEE14outside_boundsEj.exit: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread.i
-  %15 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %14, i64 %5
+  %15 = getelementptr inbounds nuw [216 x i8], ptr %14, i64 %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 136
@@ -4440,7 +4430,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE14outside_boundsEj.exit.thread: ; preds = %_ZN
 _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE14outside_boundsEj.exit.thread
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %24 = load ptr, ptr %23, align 8, !tbaa !47
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %5
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %5
   store i32 0, ptr %25, align 4, !tbaa !48
   br label %35
 
@@ -4449,7 +4439,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZNK7simplex7simple
   %28 = load i32, ptr %27, align 4, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %30 = load ptr, ptr %29, align 8, !tbaa !47
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %5
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %5
   store i32 %28, ptr %31, align 4, !tbaa !48
   %32 = getelementptr inbounds i8, ptr %21, i64 -8
   %33 = load i32, ptr %32, align 4, !tbaa !48
@@ -4472,12 +4462,12 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   %39 = phi ptr [ %.pre.i.i, %35 ], [ %21, %26 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %41
   store i32 %1, ptr %42, align 4, !tbaa !48
   %43 = add i32 %38, 1
   store i32 %43, ptr %40, align 4, !tbaa !48
   %44 = zext i32 %.0.i6.i to i64
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !48
   %47 = ashr i32 %.0.i6.i, 1
   %48 = icmp eq i32 %47, 0
@@ -4488,17 +4478,17 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   %49 = phi i32 [ %59, %55 ], [ %47, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %.01520.i.i = phi i32 [ %49, %55 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %39, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !48
   %53 = icmp ult i32 %46, %52
   %54 = zext i32 %.01520.i.i to i64
   br i1 %53, label %55, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit
 
 55:                                               ; preds = %.lr.ph.i.i
-  %56 = getelementptr inbounds nuw i32, ptr %39, i64 %54
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %54
   store i32 %52, ptr %56, align 4, !tbaa !48
   %57 = zext i32 %52 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %57
   store i32 %.01520.i.i, ptr %58, align 4, !tbaa !48
   %59 = ashr i32 %49, 1
   %60 = icmp eq i32 %59, 0
@@ -4507,10 +4497,10 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit: ; preds = %55, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %44, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %50, %55 ], [ %54, %.lr.ph.i.i ]
   %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %49, %55 ], [ %.01520.i.i, %.lr.ph.i.i ]
-  %61 = getelementptr inbounds nuw i32, ptr %39, i64 %.pre-phi.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.pre-phi.i.i
   store i32 %46, ptr %61, align 4, !tbaa !48
   %62 = zext i32 %46 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %62
   store i32 %.015.lcssa.i.i, ptr %63, align 4, !tbaa !48
   br label %_ZNK7simplex7simplexINS_7mpz_extEE14outside_boundsEj.exit.thread2
 
@@ -4576,7 +4566,7 @@ define weak_odr hidden i32 @_ZN7simplex7simplexINS_7mpz_extEE18get_infeasible_ro
   %4 = load i32, ptr %3, align 8, !tbaa !100
   %5 = load ptr, ptr %2, align 8, !tbaa !54
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 536870911
   ret i32 %9
@@ -4588,7 +4578,7 @@ define weak_odr hidden noundef i32 @_ZNK7simplex7simplexINS_7mpz_extEE12get_base
   %4 = load i32, ptr %1, align 4, !tbaa !101
   %5 = load ptr, ptr %3, align 8, !tbaa !53
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !48
   ret i32 %8
 }
@@ -4600,11 +4590,11 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7sim
   %5 = load i32, ptr %1, align 4, !tbaa !101
   %6 = load ptr, ptr %4, align 8, !tbaa !53
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !48
   %10 = load ptr, ptr %3, align 8, !tbaa !54
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [216 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 200
   ret ptr %13
 }
@@ -4615,7 +4605,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE7del_rowEj(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 536870912
   %.not = icmp eq i32 %9, 0
@@ -4629,7 +4619,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE7del_rowEj(ptr nou
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %14 = load ptr, ptr %13, align 8, !tbaa !61, !noalias !103
-  %15 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %14, i64 %6
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !72, !noalias !103
@@ -4657,7 +4647,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %20, i64 %indvars.iv.next.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !91, !noalias !103
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -4686,19 +4676,19 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
 
 36:                                               ; preds = %_ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit
   %37 = zext i32 %.sroa.033.0.ph to i64
-  %38 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %20, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !91
   %40 = load ptr, ptr %16, align 8, !tbaa !55
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !90
   %45 = load ptr, ptr %42, align 8, !tbaa !56
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %49 = load ptr, ptr %48, align 8, !tbaa !53
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %41
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %41
   %51 = load i32, ptr %50, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -4714,7 +4704,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %57, align 8, !tbaa !10
   %58 = zext i32 %51 to i64
-  %59 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %58
+  %59 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %58
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, 1073741824
   %.not.i = icmp eq i32 %61, 0
@@ -4731,7 +4721,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit: ; preds = %62
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !54
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %.pre, i64 %58
+  %.phi.trans.insert = getelementptr inbounds nuw [216 x i8], ptr %.pre, i64 %58
   %.pre51 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
 
@@ -4760,7 +4750,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread._ZNK7simplex7simpl
   br label %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit.thread
 
 74:                                               ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
-  %75 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %73, i64 %58
+  %75 = getelementptr inbounds nuw [216 x i8], ptr %73, i64 %58
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 136
   %78 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %52, ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(64) %76)
@@ -4828,25 +4818,25 @@ _ZN15_scoped_numeralI15mpq_inf_managerILb0EEED2Ev.exit: ; preds = %.noexc2.i
   %.sroa.042.0 = phi i32 [ %39, %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEED2Ev.exit ], [ %11, %10 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %96 = load ptr, ptr %95, align 8, !tbaa !53
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %.pre-phi
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.pre-phi
   %98 = load i32, ptr %97, align 4, !tbaa !48
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %94, i64 %99
+  %100 = getelementptr inbounds nuw [216 x i8], ptr %94, i64 %99
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, -536870913
   store i32 %102, ptr %100, align 8
   %103 = load ptr, ptr %4, align 8, !tbaa !54
-  %104 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %103, i64 %99
+  %104 = getelementptr inbounds nuw [216 x i8], ptr %103, i64 %99
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, -1073741825
   store i32 %106, ptr %104, align 8
   %107 = load ptr, ptr %4, align 8, !tbaa !54
-  %108 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %107, i64 %99
+  %108 = getelementptr inbounds nuw [216 x i8], ptr %107, i64 %99
   %109 = load i32, ptr %108, align 8
   %110 = and i32 %109, 2147483647
   store i32 %110, ptr %108, align 8
   %111 = load ptr, ptr %95, align 8, !tbaa !53
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %.pre-phi
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %.pre-phi
   store i32 -1, ptr %112, align 4, !tbaa !48
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   call void @_ZN7simplex13sparse_matrixINS_7mpz_extEE3delENS2_3rowE(ptr noundef nonnull align 8 dereferenceable(80) %113, i32 %.sroa.042.0)
@@ -4865,7 +4855,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not = icmp eq i32 %8, 0
@@ -4888,7 +4878,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %13, label %8
@@ -4911,7 +4901,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE16update_and_pivot
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [216 x i8], ptr %8, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store ptr %11, ptr %6, align 8, !tbaa !81
@@ -5007,29 +4997,29 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE7del_rowERKNS_13sp
   %4 = load i32, ptr %1, align 4, !tbaa !101
   %5 = load ptr, ptr %3, align 8, !tbaa !53
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [216 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -536870913
   store i32 %14, ptr %12, align 8
   %15 = load ptr, ptr %9, align 8, !tbaa !54
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [216 x i8], ptr %15, i64 %11
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, -1073741825
   store i32 %18, ptr %16, align 8
   %19 = load ptr, ptr %9, align 8, !tbaa !54
-  %20 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %19, i64 %11
+  %20 = getelementptr inbounds nuw [216 x i8], ptr %19, i64 %11
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 2147483647
   store i32 %22, ptr %20, align 8
   %23 = load i32, ptr %1, align 4, !tbaa !101
   %24 = load ptr, ptr %3, align 8, !tbaa !53
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 -1, ptr %26, align 4, !tbaa !48
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %.sroa.0.0.copyload = load i32, ptr %1, align 4, !tbaa !48
@@ -5043,7 +5033,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE9set_lowerEjRKSt4p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [216 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
   tail call void @_ZN15mpq_inf_managerILb0EE3setERSt4pairI3mpqS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -5396,13 +5386,13 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE12update_valueEjRK
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [216 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %18)
   %19 = load ptr, ptr %13, align 8, !tbaa !54
-  %20 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %19, i64 %15
+  %20 = getelementptr inbounds nuw [216 x i8], ptr %19, i64 %15
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 536870912
   %.not.i = icmp eq i32 %22, 0
@@ -5415,7 +5405,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE12update_valueEjRK
 _ZN7simplex7simplexINS_7mpz_extEE17update_value_coreEjRKSt4pairI3mpqS4_E.exit: ; preds = %12, %23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %25 = load ptr, ptr %24, align 8, !tbaa !61, !noalias !111
-  %26 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !72, !noalias !111
@@ -5443,7 +5433,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %39 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %31, i64 %indvars.iv.next.i.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.next.i.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !91, !noalias !111
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -5484,11 +5474,11 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %54 = phi ptr [ %31, %.lr.ph ], [ %91, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit ]
   %.sroa.032.047 = phi i32 [ %.sroa.032.1.ph, %.lr.ph ], [ %.sroa.032.3, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit ]
   %55 = zext i32 %.sroa.032.047 to i64
-  %56 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !91
   %58 = load ptr, ptr %46, align 8, !tbaa !53
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !48
   %62 = load ptr, ptr %13, align 8, !tbaa !54
   %63 = zext i32 %61 to i64
@@ -5502,17 +5492,17 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %64 = load i32, ptr %56, align 4, !tbaa !91
   %65 = load ptr, ptr %27, align 8, !tbaa !55
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !90
   %70 = load ptr, ptr %67, align 8, !tbaa !56
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %71
   invoke void @_ZN15mpq_inf_managerILb0EE3mulERKSt4pairI3mpqS2_ERK3mpzRS3_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(64) %47)
           to label %73 unwind label %106
 
 73:                                               ; preds = %53
-  %74 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %62, i64 %63
+  %74 = getelementptr inbounds nuw [216 x i8], ptr %62, i64 %63
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 200
   invoke void @_ZN11mpq_managerILb0EE3divERK3mpqRK3mpzRS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(64) %47)
           to label %.noexc unwind label %106
@@ -5532,7 +5522,7 @@ _ZN15mpq_inf_managerILb0EE3divERKSt4pairI3mpqS2_ERK3mpzRS3_.exit: ; preds = %.no
 
 _ZN15_scoped_numeralI15mpq_inf_managerILb0EEE3negEv.exit: ; preds = %.noexc22
   %77 = load ptr, ptr %13, align 8, !tbaa !54
-  %78 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %77, i64 %63
+  %78 = getelementptr inbounds nuw [216 x i8], ptr %77, i64 %63
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   invoke void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %79)
           to label %.noexc25 unwind label %106
@@ -5544,7 +5534,7 @@ _ZN15_scoped_numeralI15mpq_inf_managerILb0EEE3negEv.exit: ; preds = %.noexc22
 
 .noexc26:                                         ; preds = %.noexc25
   %81 = load ptr, ptr %13, align 8, !tbaa !54
-  %82 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %81, i64 %63
+  %82 = getelementptr inbounds nuw [216 x i8], ptr %81, i64 %63
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 536870912
   %.not.i24 = icmp eq i32 %84, 0
@@ -5593,7 +5583,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %96 = zext i32 %90 to i64
-  %97 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %91, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !91
   %99 = icmp eq i32 %98, -1
   br i1 %99, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit
@@ -5605,7 +5595,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i44, 1
-  %102 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %91, i64 %indvars.iv.next.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.next.i.i
   %103 = load i32, ptr %102, align 4, !tbaa !91
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -5654,7 +5644,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE9set_upperEjRKSt4p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [216 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 136
   tail call void @_ZN15mpq_inf_managerILb0EE3setERSt4pairI3mpqS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -5754,7 +5744,7 @@ define weak_odr hidden void @_ZNK7simplex7simplexINS_7mpz_extEE9get_lowerEjR15_s
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %2, align 8, !tbaa !86
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5767,7 +5757,7 @@ define weak_odr hidden void @_ZNK7simplex7simplexINS_7mpz_extEE9get_upperEjR15_s
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load ptr, ptr %2, align 8, !tbaa !86
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5780,7 +5770,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK7sim
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   ret ptr %7
 }
@@ -5790,7 +5780,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK7sim
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 136
   ret ptr %7
 }
@@ -5800,7 +5790,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1073741824
   %.not = icmp eq i32 %9, 0
@@ -5822,7 +5812,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11b
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %.not = icmp sgt i32 %8, -1
   br i1 %.not, label %13, label %9
@@ -5843,7 +5833,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11l
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %9 = icmp ne i32 %8, 0
@@ -5855,7 +5845,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
   ret i1 %8
@@ -5866,7 +5856,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE11unset_lowerEj(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, -1073741825
   store i32 %8, ptr %6, align 8
@@ -5878,7 +5868,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE11unset_upperEj(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2147483647
   store i32 %8, ptr %6, align 8
@@ -5904,7 +5894,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE9set_valueEjRKSt4p
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [216 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3subERKSt4pairI3mpqS2_ES5_RS3_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %16 unwind label %23
@@ -6200,7 +6190,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %28
 
 _ZNK8uint_set8containsEj.exit.i:                  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !48
   %38 = and i32 %20, 31
   %39 = shl nuw i32 1, %38
@@ -6360,7 +6350,7 @@ thread-pre-split.i.i.i.backedge:                  ; preds = %90, %50
 .lr.ph.preheader.i.i.i:                           ; preds = %95
   %97 = zext nneg i32 %.ph72 to i64
   %98 = zext nneg i32 %.0.i16.i.i.i.ph to i64
-  %99 = getelementptr i32, ptr %46, i64 %98
+  %99 = getelementptr [4 x i8], ptr %46, i64 %98
   %100 = sub nsw i64 %97, %98
   %101 = shl nsw i64 %100, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %99, i8 0, i64 %101, i1 false), !tbaa !48
@@ -6371,7 +6361,7 @@ _ZN8uint_set6insertEj.exit.i:                     ; preds = %.lr.ph.preheader.i.
   %103 = and i32 %20, 31
   %104 = shl nuw i32 1, %103
   %105 = zext nneg i32 %29 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %102, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !48
   %108 = or i32 %107, %104
   store i32 %108, ptr %106, align 4, !tbaa !48
@@ -6392,7 +6382,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %115 = load ptr, ptr %114, align 8, !tbaa !47
   %116 = zext i32 %20 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %116
   store i32 0, ptr %117, align 4, !tbaa !48
   br label %128
 
@@ -6402,7 +6392,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %110
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %122 = load ptr, ptr %121, align 8, !tbaa !47
   %123 = zext i32 %20 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %123
   store i32 %120, ptr %124, align 4, !tbaa !48
   %125 = getelementptr inbounds i8, ptr %112, i64 -8
   %126 = load i32, ptr %125, align 4, !tbaa !48
@@ -6425,12 +6415,12 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   %132 = phi ptr [ %.pre.i.i, %128 ], [ %112, %118 ]
   %133 = getelementptr inbounds i8, ptr %132, i64 -4
   %134 = zext i32 %131 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %132, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %134
   store i32 %20, ptr %135, align 4, !tbaa !48
   %136 = add i32 %131, 1
   store i32 %136, ptr %133, align 4, !tbaa !48
   %137 = zext i32 %.0.i6.i to i64
-  %138 = getelementptr inbounds nuw i32, ptr %132, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !48
   %140 = ashr i32 %.0.i6.i, 1
   %141 = icmp eq i32 %140, 0
@@ -6441,17 +6431,17 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   %142 = phi i32 [ %152, %148 ], [ %140, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %.01520.i.i = phi i32 [ %142, %148 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %132, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !48
   %146 = icmp ult i32 %139, %145
   %147 = zext i32 %.01520.i.i to i64
   br i1 %146, label %148, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit
 
 148:                                              ; preds = %.lr.ph.i.i
-  %149 = getelementptr inbounds nuw i32, ptr %132, i64 %147
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %147
   store i32 %145, ptr %149, align 4, !tbaa !48
   %150 = zext i32 %145 to i64
-  %151 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %150
   store i32 %.01520.i.i, ptr %151, align 4, !tbaa !48
   %152 = ashr i32 %142, 1
   %153 = icmp eq i32 %152, 0
@@ -6460,10 +6450,10 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit: ; preds = %148, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %137, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %143, %148 ], [ %147, %.lr.ph.i.i ]
   %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %142, %148 ], [ %.01520.i.i, %.lr.ph.i.i ]
-  %154 = getelementptr inbounds nuw i32, ptr %132, i64 %.pre-phi.i.i
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.pre-phi.i.i
   store i32 %139, ptr %154, align 4, !tbaa !48
   %155 = zext i32 %139 to i64
-  %156 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %155
   store i32 %.015.lcssa.i.i, ptr %156, align 4, !tbaa !48
   store i32 %20, ptr %11, align 8, !tbaa !100
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1508
@@ -6512,7 +6502,7 @@ _ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread.i: ; pre
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %19 = load ptr, ptr %18, align 8, !tbaa !47
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 0, ptr %21, align 4, !tbaa !48
   %22 = load i32, ptr %15, align 4, !tbaa !48
   %23 = add i32 %22, -1
@@ -6522,16 +6512,16 @@ _ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread.i: ; pre
 _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread.i
   %24 = add i32 %12, -1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !48
   store i32 %27, ptr %13, align 4, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %29 = load ptr, ptr %28, align 8, !tbaa !47
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 1, ptr %31, align 4, !tbaa !48
   %32 = zext i32 %14 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %32
   store i32 0, ptr %33, align 4, !tbaa !48
   %34 = load i32, ptr %15, align 4, !tbaa !48
   %35 = add i32 %34, -1
@@ -6550,16 +6540,16 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
 
 ._crit_edge39.i.i.i:                              ; preds = %.lr.ph.i.i.i
   %.pre.phi.trans.insert.i.i.i = zext i32 %38 to i64
-  %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i
+  %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre.phi.trans.insert.i.i.i
   %.pre36.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !48
   br label %49
 
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %6, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !48
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !48
   %48 = icmp ult i32 %44, %47
   %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %47)
@@ -6574,10 +6564,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
 
 53:                                               ; preds = %49
   %54 = zext i32 %.033.i.i.i to i64
-  %55 = getelementptr inbounds nuw i32, ptr %6, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %54
   store i32 %50, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %50 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %37, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %56
   store i32 %.033.i.i.i, ptr %57, align 4, !tbaa !48
   %58 = shl i32 %51, 1
   %.not.i.i.i = icmp slt i32 %58, %35
@@ -6591,10 +6581,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i.i
   %.pre-phi42.i.i.i = phi i64 [ %.pre41.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
   %.0.lcssa.i.i.i = phi i32 [ %.0.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre-phi42.i.i.i
   store i32 %36, ptr %59, align 4, !tbaa !48
   %60 = zext i32 %36 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %37, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %60
   store i32 %.0.lcssa.i.i.i, ptr %61, align 4, !tbaa !48
   br label %_ZN7simplex7simplexINS_7mpz_extEE19select_smallest_varEv.exit
 
@@ -6623,7 +6613,7 @@ _ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread.i2: ; pr
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %73 = load ptr, ptr %72, align 8, !tbaa !47
   %74 = zext i32 %68 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %74
   store i32 0, ptr %75, align 4, !tbaa !48
   %76 = load i32, ptr %69, align 4, !tbaa !48
   %77 = add i32 %76, -1
@@ -6633,16 +6623,16 @@ _ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread.i2: ; pr
 _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread.i2
   %78 = add i32 %66, -1
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !48
   store i32 %81, ptr %67, align 4, !tbaa !48
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %83 = load ptr, ptr %82, align 8, !tbaa !47
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 1, ptr %85, align 4, !tbaa !48
   %86 = zext i32 %68 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %86
   store i32 0, ptr %87, align 4, !tbaa !48
   %88 = load i32, ptr %69, align 4, !tbaa !48
   %89 = add i32 %88, -1
@@ -6661,16 +6651,16 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
 
 ._crit_edge39.i.i.i10:                            ; preds = %.lr.ph.i.i.i8
   %.pre.phi.trans.insert.i.i.i11 = zext i32 %92 to i64
-  %.phi.trans.insert.phi.trans.insert.i.i.i12 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i11
+  %.phi.trans.insert.phi.trans.insert.i.i.i12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre.phi.trans.insert.i.i.i11
   %.pre36.pre.i.i.i13 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i12, align 4, !tbaa !48
   br label %103
 
 95:                                               ; preds = %.lr.ph.i.i.i8
   %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %6, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !48
   %99 = zext i32 %92 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !48
   %102 = icmp ult i32 %98, %101
   %spec.select.i.i.i18 = tail call i32 @llvm.umin.i32(i32 %98, i32 %101)
@@ -6685,10 +6675,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
 
 107:                                              ; preds = %103
   %108 = zext i32 %.033.i.i.i9 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %6, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %108
   store i32 %104, ptr %109, align 4, !tbaa !48
   %110 = zext i32 %104 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %91, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %110
   store i32 %.033.i.i.i9, ptr %111, align 4, !tbaa !48
   %112 = shl i32 %105, 1
   %.not.i.i.i17 = icmp slt i32 %112, %89
@@ -6702,10 +6692,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i5: ; preds = %._crit_edge.loopexit.i.i.i14, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3
   %.pre-phi42.i.i.i6 = phi i64 [ %.pre41.i.i.i16, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
   %.0.lcssa.i.i.i7 = phi i32 [ %.0.lcssa.ph.i.i.i15, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
-  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i6
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre-phi42.i.i.i6
   store i32 %90, ptr %113, align 4, !tbaa !48
   %114 = zext i32 %90 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %91, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %114
   store i32 %.0.lcssa.i.i.i7, ptr %115, align 4, !tbaa !48
   br label %_ZN7simplex7simplexINS_7mpz_extEE19select_smallest_varEv.exit
 
@@ -6738,7 +6728,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %7
 
 _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !48
   %18 = and i32 %1, 31
   %19 = shl nuw i32 1, %18
@@ -6790,7 +6780,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i.i:                             ; preds = %32
   %34 = zext nneg i32 %.ph10 to i64
   %35 = zext nneg i32 %.0.i16.i.i.ph to i64
-  %36 = getelementptr i32, ptr %28, i64 %35
+  %36 = getelementptr [4 x i8], ptr %28, i64 %35
   %37 = sub nsw i64 %34, %35
   %38 = shl nsw i64 %37, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %38, i1 false), !tbaa !48
@@ -6801,7 +6791,7 @@ _ZN8uint_set6insertEj.exit:                       ; preds = %_ZNK8uint_set8conta
   %40 = and i32 %1, 31
   %41 = shl nuw i32 1, %40
   %42 = zext nneg i32 %9 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !48
   %45 = or i32 %44, %41
   store i32 %45, ptr %43, align 4, !tbaa !48
@@ -6840,7 +6830,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN7simplex7simplexINS_7mpz_extEE17ma
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %16 = load ptr, ptr %15, align 8, !tbaa !54
   %17 = zext i32 %1 to i64
-  %18 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [216 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 1073741824
   %.not.i = icmp eq i32 %20, 0
@@ -6854,7 +6844,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN7simplex7simplexINS_7mpz_extEE17ma
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit: ; preds = %21
   %.pre = load ptr, ptr %15, align 8, !tbaa !54
-  %25 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %.pre, i64 %17
+  %25 = getelementptr inbounds nuw [216 x i8], ptr %.pre, i64 %17
   br i1 %24, label %26, label %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread_crit_edge
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit
@@ -6882,7 +6872,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i23, label %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit.thread, label %36
 
 36:                                               ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
-  %37 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %35, i64 %17
+  %37 = getelementptr inbounds nuw [216 x i8], ptr %35, i64 %17
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 136
   %40 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %38)
@@ -6893,7 +6883,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit: ; preds = %36
 
 41:                                               ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit
   %42 = load ptr, ptr %15, align 8, !tbaa !54
-  %43 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %42, i64 %17
+  %43 = getelementptr inbounds nuw [216 x i8], ptr %42, i64 %17
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 200
   %45 = load i32, ptr %44, align 8, !tbaa !3
   %46 = icmp slt i32 %45, 0
@@ -7045,7 +7035,7 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpz_extEE8minimizeEj
 30:                                               ; preds = %27
   %31 = load ptr, ptr %19, align 8, !tbaa !54
   %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [216 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %5, align 4, !tbaa !48
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %36, label %50
@@ -7172,13 +7162,13 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE19select_pivot_pri
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [216 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 536870911
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %19 = load ptr, ptr %18, align 8, !tbaa !55
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !56
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -7202,7 +7192,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %31 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %22, i64 %indvars.iv.next.i.i.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv.next.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !83
   %34 = icmp eq i32 %33, -1
@@ -7274,7 +7264,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   %57 = phi ptr [ %22, %.lr.ph ], [ %139, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %.sroa.073.099 = phi i32 [ %.sroa.0.1.i86, %.lr.ph ], [ %.sroa.073.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %58 = zext i32 %.sroa.073.099 to i64
-  %59 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i32, ptr %60, align 8, !tbaa !83
   %62 = icmp eq i32 %61, %1
@@ -7284,7 +7274,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   %64 = load i32, ptr %59, align 8, !tbaa !3
   %65 = icmp sgt i32 %64, 0
   %66 = load ptr, ptr %12, align 8, !tbaa !54
-  %67 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %66, i64 %14
+  %67 = getelementptr inbounds nuw [216 x i8], ptr %66, i64 %14
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 200
   %69 = load i32, ptr %68, align 8, !tbaa !3
   %70 = icmp sgt i32 %69, 0
@@ -7292,7 +7282,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   %72 = xor i1 %71, true
   %73 = zext i1 %72 to i8
   %74 = zext i32 %61 to i64
-  %75 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %66, i64 %74
+  %75 = getelementptr inbounds nuw [216 x i8], ptr %66, i64 %74
   %76 = load i32, ptr %75, align 8
   br i1 %71, label %.critedge, label %77
 
@@ -7455,7 +7445,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %144 = zext i32 %138 to i64
-  %145 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %139, i64 %144
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = load i32, ptr %146, align 8, !tbaa !83
   %148 = icmp eq i32 %147, -1
@@ -7468,7 +7458,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i96, 1
-  %151 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %139, i64 %indvars.iv.next.i.i
+  %151 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %indvars.iv.next.i.i
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load i32, ptr %152, align 8, !tbaa !83
   %154 = icmp eq i32 %153, -1
@@ -7581,15 +7571,15 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE5pivotEjjRK3mpz(pt
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [216 x i8], ptr %12, i64 %13
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [216 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %14, align 8
   %18 = and i32 %17, 536870911
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %20 = load ptr, ptr %19, align 8, !tbaa !53
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %2, ptr %22, align 4, !tbaa !48
   %23 = load i32, ptr %16, align 8
   %24 = and i32 %23, -536870912
@@ -7628,7 +7618,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %32, %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %44 = load ptr, ptr %43, align 8, !tbaa !61, !noalias !139
-  %45 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %44, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %15
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !72, !noalias !139
@@ -7656,7 +7646,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %58 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %50, i64 %indvars.iv.next.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.next.i.i.i
   %59 = load i32, ptr %58, align 4, !tbaa !91, !noalias !139
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -7709,7 +7699,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9col_beginEi.exit: ; preds = %_ZN11mpz_m
   %.sroa.043.059 = phi i32 [ %.sroa.043.3, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit ], [ %.sroa.043.154, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = zext i32 %.sroa.043.059 to i64
-  %74 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !91
   store i32 %75, ptr %7, align 4
   %.not = icmp eq i32 %75, %18
@@ -7718,12 +7708,12 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9col_beginEi.exit: ; preds = %_ZN11mpz_m
 76:                                               ; preds = %.lr.ph
   %77 = load ptr, ptr %46, align 8, !tbaa !55
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !90
   %82 = load ptr, ptr %79, align 8, !tbaa !56
   %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i8, ptr %85, align 4
   %87 = and i8 %86, 1
@@ -7762,11 +7752,11 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEE3negEv.exit: ; preds = %_ZN15_scoped_nu
   %98 = load i32, ptr %7, align 4, !tbaa !101
   %99 = load ptr, ptr %19, align 8, !tbaa !53
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !48
   %103 = load ptr, ptr %11, align 8, !tbaa !54
   %104 = zext i32 %102 to i64
-  %105 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [216 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 200
   invoke void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %26, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %106)
           to label %107 unwind label %118
@@ -7813,7 +7803,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %127 = zext i32 %121 to i64
-  %128 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %122, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !91
   %130 = icmp eq i32 %129, -1
   br i1 %130, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit
@@ -7825,7 +7815,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i56, 1
-  %133 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %122, i64 %indvars.iv.next.i.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv.next.i.i
   %134 = load i32, ptr %133, align 4, !tbaa !91
   %135 = icmp eq i32 %134, -1
   br i1 %135, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -7926,7 +7916,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE13move_to_boundEjb
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %17 = load ptr, ptr %16, align 8, !tbaa !54
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [216 x i8], ptr %17, i64 %18
   %. = select i1 %2, i64 8, i64 136
   %.98 = select i1 %2, i64 72, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.
@@ -7942,7 +7932,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE13move_to_boundEjb
 24:                                               ; preds = %.invoke
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %26 = load ptr, ptr %25, align 8, !tbaa !61, !noalias !147
-  %27 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !72, !noalias !147
@@ -7975,7 +7965,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %41 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %32, i64 %indvars.iv.next.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.next.i.i.i
   %42 = load i32, ptr %41, align 4, !tbaa !91, !noalias !147
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -8019,22 +8009,22 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
 
 _Z6is_posRK15_scoped_numeralI15mpq_inf_managerILb0EEE.exit.thread: ; preds = %53, %49
   %57 = zext i32 %.sroa.060.083 to i64
-  %58 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !91
   %60 = load ptr, ptr %47, align 8, !tbaa !53
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = load ptr, ptr %16, align 8, !tbaa !54
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [216 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %28, align 8, !tbaa !55
-  %68 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %67, i64 %61
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %61
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !90
   %71 = load ptr, ptr %68, align 8, !tbaa !56
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 200
   %75 = load i32, ptr %73, align 8, !tbaa !3
   %76 = icmp sgt i32 %75, 0
@@ -8134,7 +8124,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %111 = zext i32 %105 to i64
-  %112 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %106, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !91
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit
@@ -8146,7 +8136,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i80, 1
-  %117 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %106, i64 %indvars.iv.next.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.next.i.i
   %118 = load i32, ptr %117, align 4, !tbaa !91
   %119 = icmp eq i32 %118, -1
   br i1 %119, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -8261,7 +8251,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN7simp
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   ret ptr %7
 }
@@ -8288,7 +8278,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE4_rowELb1EjE4sizeEv.exit.i: ;
   br i1 %15, label %16, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE7displayERSo.exit
 
 16:                                               ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE4_rowELb1EjE4sizeEv.exit.i
-  %17 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %11, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !75
   %20 = icmp eq i32 %19, 0
@@ -8338,7 +8328,7 @@ _ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit: ; pred
   ret void
 
 41:                                               ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit
-  %42 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %36, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [216 x i8], ptr %36, i64 %indvars.iv
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %indvars.iv)
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.1, i64 noundef 1)
@@ -8521,7 +8511,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE11display_rowERSoR
   %9 = load i32, ptr %2, align 4, !tbaa !101
   %10 = load ptr, ptr %8, align 8, !tbaa !55
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = icmp eq ptr %13, null
   br i1 %14, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -8545,7 +8535,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %22 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %13, i64 %indvars.iv.next.i.i.i
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv.next.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !83
   %25 = icmp eq i32 %24, -1
@@ -8582,23 +8572,23 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %36 = phi ptr [ %93, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit.us ], [ %13, %.lr.ph ]
   %.sroa.044.066.us = phi i32 [ %.sroa.044.2.us, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit.us ], [ %.sroa.0.1.i57, %.lr.ph ]
   %37 = zext i32 %.sroa.044.066.us to i64
-  %38 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %37
   call void @_ZNK11mpz_managerILb0EE7displayERSoRK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %27, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %38)
   %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 2)
   %40 = load ptr, ptr %12, align 8, !tbaa !56
-  %41 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %40, i64 %37
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %37
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !83
   %44 = zext i32 %43 to i64
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %44)
   %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.1, i64 noundef 1)
   %47 = load ptr, ptr %12, align 8, !tbaa !56
-  %48 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %47, i64 %37
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %37
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !83
   %51 = load ptr, ptr %28, align 8, !tbaa !54
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [216 x i8], ptr %51, i64 %52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN15mpq_inf_managerILb0EE9to_stringB5cxx11ERKSt4pairI3mpqS2_E(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(736) %29, ptr noundef nonnull align 8 dereferenceable(64) %54)
@@ -8703,7 +8693,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.us:
 
 .lr.ph.preheader.i.i.us:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.us
   %98 = zext i32 %92 to i64
-  %99 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %93, i64 %98
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i32, ptr %100, align 8, !tbaa !83
   %102 = icmp eq i32 %101, -1
@@ -8711,7 +8701,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.us:
 
 .lr.ph.i.i.us:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i63.us, 1
-  %103 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %93, i64 %indvars.iv.next.i.i.us
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %indvars.iv.next.i.i.us
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 8, !tbaa !83
   %106 = icmp eq i32 %105, -1
@@ -8761,11 +8751,11 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.us:
   %119 = phi ptr [ %131, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ], [ %13, %.lr.ph ]
   %.sroa.044.066 = phi i32 [ %.sroa.044.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ], [ %.sroa.0.1.i57, %.lr.ph ]
   %120 = zext i32 %.sroa.044.066 to i64
-  %121 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %120
   tail call void @_ZNK11mpz_managerILb0EE7displayERSoRK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %27, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %121)
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 2)
   %123 = load ptr, ptr %12, align 8, !tbaa !56
-  %124 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %123, i64 %120
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %120
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load i32, ptr %125, align 8, !tbaa !83
   %127 = zext i32 %126 to i64
@@ -8818,7 +8808,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %143 = zext i32 %130 to i64
-  %144 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %131, i64 %143
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load i32, ptr %145, align 8, !tbaa !83
   %147 = icmp eq i32 %146, -1
@@ -8831,7 +8821,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i63, 1
-  %150 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %131, i64 %indvars.iv.next.i.i
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %indvars.iv.next.i.i
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load i32, ptr %151, align 8, !tbaa !83
   %153 = icmp eq i32 %152, -1
@@ -8881,7 +8871,7 @@ define weak_odr hidden { i32, ptr } @_ZN7simplex7simplexINS_7mpz_extEE9row_begin
   %4 = load i32, ptr %1, align 4, !tbaa !101
   %5 = load ptr, ptr %3, align 8, !tbaa !55
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -8905,7 +8895,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %17 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %8, i64 %indvars.iv.next.i.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !83
   %20 = icmp eq i32 %19, -1
@@ -8933,7 +8923,7 @@ define weak_odr hidden { i32, ptr } @_ZN7simplex7simplexINS_7mpz_extEE7row_endER
   %4 = load i32, ptr %1, align 4, !tbaa !101
   %5 = load ptr, ptr %3, align 8, !tbaa !55
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit, label %10
@@ -8974,7 +8964,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpz_extEE3delENS
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit.lr.ph
@@ -9020,14 +9010,14 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %20, %26
   %28 = phi ptr [ %.pre.i, %26 ], [ %18, %20 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 -4
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %30
   store i32 %1, ptr %31, align 4, !tbaa !48
   %32 = add i32 %27, 1
   store i32 %32, ptr %29, align 4, !tbaa !48
   ret void
 
 33:                                               ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit
-  %34 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %12, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8, !tbaa !83
   %37 = icmp eq i32 %36, -1
@@ -9046,10 +9036,10 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %20, %26
   store i32 %44, ptr %9, align 4, !tbaa !77
   %45 = load ptr, ptr %11, align 8, !tbaa !61
   %46 = zext i32 %36 to i64
-  %47 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !62
   %49 = zext i32 %40 to i64
-  %50 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   store i32 -1, ptr %50, align 4, !tbaa !91
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %52 = load i32, ptr %51, align 4, !tbaa !71
@@ -9083,7 +9073,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i: ; pred
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %87 ]
   %.01516.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.1.i.i.i, %87 ]
   %66 = load ptr, ptr %47, align 8, !tbaa !62
-  %67 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %66, i64 %indvars.iv.i.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i.i.i
   %68 = load i32, ptr %67, align 4, !tbaa !91
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %87, label %70
@@ -9094,18 +9084,18 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i: ; pred
   br i1 %.not.i.i.i, label %85, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %66, i64 %71
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %71
   %74 = load i64, ptr %67, align 4
   store i64 %74, ptr %73, align 4
   %75 = load i32, ptr %67, align 4, !tbaa !91
   %76 = load ptr, ptr %3, align 8, !tbaa !55
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !90
   %81 = load ptr, ptr %78, align 8, !tbaa !56
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 20
   store i32 %.01516.i.i.i, ptr %84, align 4, !tbaa !90
   br label %85
@@ -9180,7 +9170,7 @@ _ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread: ; preds
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %15 = load ptr, ptr %14, align 8, !tbaa !47
   %16 = zext i32 %10 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 0, ptr %17, align 4, !tbaa !48
   %18 = load i32, ptr %11, align 4, !tbaa !48
   %19 = add i32 %18, -1
@@ -9190,16 +9180,16 @@ _ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread: ; preds
 _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE5emptyEv.exit.thread
   %20 = add i32 %8, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !48
   store i32 %23, ptr %9, align 4, !tbaa !48
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %25 = load ptr, ptr %24, align 8, !tbaa !47
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 1, ptr %27, align 4, !tbaa !48
   %28 = zext i32 %10 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %28
   store i32 0, ptr %29, align 4, !tbaa !48
   %30 = load i32, ptr %11, align 4, !tbaa !48
   %31 = add i32 %30, -1
@@ -9218,16 +9208,16 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
 
 ._crit_edge39.i.i:                                ; preds = %.lr.ph.i.i
   %.pre.phi.trans.insert.i.i = zext i32 %34 to i64
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %.pre.phi.trans.insert.i.i
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.pre.phi.trans.insert.i.i
   %.pre36.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !48
   br label %45
 
 37:                                               ; preds = %.lr.ph.i.i
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !48
   %41 = zext i32 %34 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !48
   %44 = icmp ult i32 %40, %43
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %43)
@@ -9242,10 +9232,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
 
 49:                                               ; preds = %45
   %50 = zext i32 %.033.i.i to i64
-  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %50
   store i32 %46, ptr %51, align 4, !tbaa !48
   %52 = zext i32 %46 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %33, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %52
   store i32 %.033.i.i, ptr %53, align 4, !tbaa !48
   %54 = shl i32 %47, 1
   %.not.i.i = icmp slt i32 %54, %31
@@ -9259,10 +9249,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
   %.pre-phi42.i.i = phi i64 [ %.pre41.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %.0.lcssa.i.i = phi i32 [ %.0.lcssa.ph.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi42.i.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.pre-phi42.i.i
   store i32 %32, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %32 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %33, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %56
   store i32 %.0.lcssa.i.i, ptr %57, align 4, !tbaa !48
   br label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9erase_minEv.exit
 
@@ -9326,7 +9316,7 @@ _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE3endEv.exit: ; preds = %2
   %26 = load i32, ptr %.02442.us, align 4, !tbaa !48
   %27 = load ptr, ptr %25, align 8, !tbaa !54
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [216 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 1073741824
   %.not.i.us = icmp eq i32 %31, 0
@@ -9343,7 +9333,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.us: ; preds = %32
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.us._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread.us_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.us
   %.pre46 = load ptr, ptr %25, align 8, !tbaa !54
-  %.phi.trans.insert47 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %.pre46, i64 %28
+  %.phi.trans.insert47 = getelementptr inbounds nuw [216 x i8], ptr %.pre46, i64 %28
   %.pre48 = load i32, ptr %.phi.trans.insert47, align 8
   br label %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread.us
 
@@ -9354,7 +9344,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread.us: ; preds = %_ZN
   br i1 %.not.i27.us, label %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit.us, label %38
 
 38:                                               ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread.us
-  %39 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %37, i64 %28
+  %39 = getelementptr inbounds nuw [216 x i8], ptr %37, i64 %28
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %42 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %40)
@@ -9408,7 +9398,7 @@ _ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit.us: ; preds = %52, %_
   %55 = load i32, ptr %.02442, align 4, !tbaa !48
   %56 = load ptr, ptr %25, align 8, !tbaa !54
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [216 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1073741824
   %.not.i = icmp eq i32 %60, 0
@@ -9425,7 +9415,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit: ; preds = %61
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %25, align 8, !tbaa !54
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %.pre, i64 %57
+  %.phi.trans.insert = getelementptr inbounds nuw [216 x i8], ptr %.pre, i64 %57
   %.pre45 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
 
@@ -9446,7 +9436,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i27, label %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit, label %70
 
 70:                                               ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
-  %71 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %69, i64 %57
+  %71 = getelementptr inbounds nuw [216 x i8], ptr %69, i64 %57
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 136
   %74 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %73, ptr noundef nonnull align 8 dereferenceable(64) %72)
@@ -9548,7 +9538,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i.i:         ; preds = %.noexc32, %102
   %108 = phi ptr [ %.pre.i.i.i, %.noexc32 ], [ %101, %102 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 -4
   %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %110
   store i32 -1, ptr %111, align 4, !tbaa !48
   %112 = add i32 %107, 1
   store i32 %112, ptr %109, align 4, !tbaa !48
@@ -9628,7 +9618,7 @@ define linkonce_odr hidden void @_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_l
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !48
   %8 = load ptr, ptr %0, align 8, !tbaa !47
   %9 = icmp eq ptr %8, null
@@ -9659,13 +9649,13 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread:           ; preds = %2
 
 _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit, %19
   %.0.i.i = phi i64 [ %20, %19 ], [ 4294967295, %_ZNK6vectorIiLb0EjE4sizeEv.exit ]
-  %21 = getelementptr inbounds nuw i32, ptr %8, i64 %.0.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.0.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = zext i32 %7 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %8, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %23
   store i32 %22, ptr %24, align 4, !tbaa !48
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %25
   store i32 %7, ptr %26, align 4, !tbaa !48
   store i32 0, ptr %6, align 4, !tbaa !48
   %27 = getelementptr inbounds i8, ptr %8, i64 -4
@@ -9678,7 +9668,7 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
 
 31:                                               ; preds = %_ZN6vectorIiLb0EjE4backEv.exit
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !48
   %35 = icmp ult i32 %22, %34
   br i1 %35, label %36, label %53
@@ -9692,17 +9682,17 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
   %38 = phi i32 [ %48, %44 ], [ %30, %36 ]
   %.01520.i = phi i32 [ %38, %44 ], [ %7, %36 ]
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = icmp ult i32 %37, %41
   %43 = zext i32 %.01520.i to i64
   br i1 %42, label %44, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds nuw i32, ptr %8, i64 %43
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %43
   store i32 %41, ptr %45, align 4, !tbaa !48
   %46 = zext i32 %41 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %46
   store i32 %.01520.i, ptr %47, align 4, !tbaa !48
   %48 = ashr i32 %38, 1
   %49 = icmp eq i32 %48, 0
@@ -9711,10 +9701,10 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit: ; preds = %44, %.lr.ph.i
   %.pre-phi.i = phi i64 [ %43, %.lr.ph.i ], [ %39, %44 ]
   %.015.lcssa.i = phi i32 [ %.01520.i, %.lr.ph.i ], [ %38, %44 ]
-  %50 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.pre-phi.i
   store i32 %37, ptr %50, align 4, !tbaa !48
   %51 = zext i32 %37 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %51
   store i32 %.015.lcssa.i, ptr %52, align 4, !tbaa !48
   br label %81
 
@@ -9734,16 +9724,16 @@ _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 
 ._crit_edge39.i:                                  ; preds = %.lr.ph.i14
   %.pre.phi.trans.insert.i = zext i32 %57 to i64
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.phi.trans.insert.i
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.pre.phi.trans.insert.i
   %.pre36.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !48
   br label %68
 
 60:                                               ; preds = %.lr.ph.i14
   %61 = zext i32 %58 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %8, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = zext i32 %57 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %8, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !48
   %67 = icmp ult i32 %63, %66
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %63, i32 %66)
@@ -9758,10 +9748,10 @@ _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 
 72:                                               ; preds = %68
   %73 = zext i32 %.033.i to i64
-  %74 = getelementptr inbounds nuw i32, ptr %8, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %73
   store i32 %69, ptr %74, align 4, !tbaa !48
   %75 = zext i32 %69 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %56, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %75
   store i32 %.033.i, ptr %76, align 4, !tbaa !48
   %77 = shl i32 %70, 1
   %.not.i = icmp slt i32 %77, %29
@@ -9775,10 +9765,10 @@ _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit: ; preds = %53, %._crit_edge.loopexit.i
   %.pre-phi42.i = phi i64 [ %.pre41.i, %._crit_edge.loopexit.i ], [ %23, %53 ]
   %.0.lcssa.i = phi i32 [ %.0.lcssa.ph.i, %._crit_edge.loopexit.i ], [ %7, %53 ]
-  %78 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi42.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.pre-phi42.i
   store i32 %54, ptr %78, align 4, !tbaa !48
   %79 = zext i32 %54 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %56, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %79
   store i32 %.0.lcssa.i, ptr %80, align 4, !tbaa !48
   br label %81
 
@@ -9811,7 +9801,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE17update_value_cor
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %8)
@@ -9819,7 +9809,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpz_extEE17update_value_cor
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %12 = load ptr, ptr %4, align 8, !tbaa !54
-  %13 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [216 x i8], ptr %12, i64 %6
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 536870912
   %.not = icmp eq i32 %15, 0
@@ -9842,7 +9832,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpz_extEE13gcd_n
   %7 = load i32, ptr %1, align 4, !tbaa !101
   %8 = load ptr, ptr %6, align 8, !tbaa !55
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.critedge, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -9866,7 +9856,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %20 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %11, i64 %indvars.iv.next.i.i.i
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv.next.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !83
   %23 = icmp eq i32 %22, -1
@@ -9905,7 +9895,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
 34:                                               ; preds = %26
   %35 = load ptr, ptr %0, align 8, !tbaa !59
   %36 = zext i32 %.sroa.049.068 to i64
-  %37 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %27, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %36
   %38 = tail call noundef zeroext i1 @_ZNK11mpz_managerILb0EE8is_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %35, ptr noundef nonnull align 8 dereferenceable(16) %37)
   br i1 %38, label %39, label %.critedge.thread97
 
@@ -9933,7 +9923,7 @@ _ZNK11mpz_managerILb0EE6is_intERK3mpz.exit:       ; preds = %39
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %10, align 8, !tbaa !56
-  %51 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %50, i64 %36
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %36
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i8, ptr %52, align 4
   %54 = and i8 %53, 1
@@ -9956,7 +9946,7 @@ _ZNK11mpz_managerILb0EE6is_intERK3mpz.exit:       ; preds = %39
 62:                                               ; preds = %46
   %63 = load ptr, ptr %0, align 8, !tbaa !59
   %64 = load ptr, ptr %10, align 8, !tbaa !56
-  %65 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %64, i64 %36
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %36
   tail call void @_ZN11mpz_managerILb0EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %63, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz.exit17
 
@@ -9974,7 +9964,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %72 = zext i32 %66 to i64
-  %73 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %67, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8, !tbaa !83
   %76 = icmp eq i32 %75, -1
@@ -9987,7 +9977,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i65, 1
-  %79 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %67, i64 %indvars.iv.next.i.i
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %indvars.iv.next.i.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !83
   %82 = icmp eq i32 %81, -1
@@ -10042,7 +10032,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz.exit18: ; preds = %.critedge
   %95 = load i32, ptr %1, align 4, !tbaa !101
   %96 = load ptr, ptr %6, align 8, !tbaa !55
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !56
   %100 = icmp eq ptr %99, null
   br i1 %100, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit32, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i19
@@ -10066,7 +10056,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i25
 
 .lr.ph.i.i.i29:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i26
   %indvars.iv.next.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i2.i27, 1
-  %108 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %99, i64 %indvars.iv.next.i.i.i30
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %indvars.iv.next.i.i.i30
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i32, ptr %109, align 8, !tbaa !83
   %111 = icmp eq i32 %110, -1
@@ -10091,7 +10081,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit32: ; preds =
   %.sroa.0.073 = phi i32 [ %.sroa.0.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit39 ], [ %.sroa.0.1.i22, %_ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit32 ]
   %114 = load ptr, ptr %0, align 8, !tbaa !59
   %115 = zext i32 %.sroa.0.073 to i64
-  %116 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %115
   tail call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %114, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %116)
   %117 = add i32 %.sroa.0.073, 1
   %118 = load ptr, ptr %98, align 8, !tbaa !56
@@ -10106,7 +10096,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i33: 
 
 .lr.ph.preheader.i.i34:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i33
   %123 = zext i32 %117 to i64
-  %124 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %118, i64 %123
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load i32, ptr %125, align 8, !tbaa !83
   %127 = icmp eq i32 %126, -1
@@ -10119,7 +10109,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i37.lr.ph: 
 
 .lr.ph.i.i35:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i37
   %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i3669, 1
-  %130 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %118, i64 %indvars.iv.next.i.i38
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %indvars.iv.next.i.i38
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load i32, ptr %131, align 8, !tbaa !83
   %133 = icmp eq i32 %132, -1
@@ -10158,13 +10148,13 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpz_extEE19select_pi
 _ZNK7simplex7simplexINS_7mpz_extEE12get_num_varsEv.exit: ; preds = %4, %8
   %.0.i.i = phi i32 [ %10, %8 ], [ 0, %4 ]
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [216 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 536870911
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %16 = load ptr, ptr %15, align 8, !tbaa !55
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = icmp eq ptr %19, null
   br i1 %20, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -10188,7 +10178,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %19, i64 %indvars.iv.next.i.i.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv.next.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !83
   %31 = icmp eq i32 %30, -1
@@ -10220,7 +10210,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.044 = phi i32 [ %.0.i.i, %.lr.ph ], [ %.1, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %.sroa.024.043 = phi i32 [ %.sroa.0.1.i37, %.lr.ph ], [ %.sroa.024.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %38 = zext i32 %.sroa.024.043 to i64
-  %39 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8, !tbaa !83
   %.not = icmp eq i32 %1, %41
@@ -10233,7 +10223,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %46 = select i1 %2, i1 %44, i1 %45
   %47 = load ptr, ptr %5, align 8, !tbaa !54
   %48 = zext i32 %41 to i64
-  %49 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [216 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 8
   br i1 %46, label %.critedge, label %51
 
@@ -10305,7 +10295,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %79 = zext i32 %73 to i64
-  %80 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %74, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i32, ptr %81, align 8, !tbaa !83
   %83 = icmp eq i32 %82, -1
@@ -10318,7 +10308,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i40, 1
-  %86 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %74, i64 %indvars.iv.next.i.i
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv.next.i.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load i32, ptr %87, align 8, !tbaa !83
   %89 = icmp eq i32 %88, -1
@@ -10360,13 +10350,13 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpz_extEE17select_pi
 _ZNK7simplex7simplexINS_7mpz_extEE12get_num_varsEv.exit: ; preds = %4, %8
   %.0.i.i = phi i32 [ %10, %8 ], [ 0, %4 ]
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [216 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 536870911
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %16 = load ptr, ptr %15, align 8, !tbaa !55
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = icmp eq ptr %19, null
   br i1 %20, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -10390,7 +10380,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %19, i64 %indvars.iv.next.i.i.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv.next.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !83
   %31 = icmp eq i32 %30, -1
@@ -10428,7 +10418,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.04785 = phi i32 [ 2147483647, %.lr.ph ], [ %.148, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %.sroa.063.084 = phi i32 [ %.sroa.0.1.i76, %.lr.ph ], [ %.sroa.063.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %41 = zext i32 %.sroa.063.084 to i64
-  %42 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8, !tbaa !83
   %45 = icmp eq i32 %1, %44
@@ -10449,7 +10439,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
 52:                                               ; preds = %48, %50
   %53 = load ptr, ptr %5, align 8, !tbaa !54
   %54 = zext i32 %44 to i64
-  %55 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [216 x i8], ptr %53, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 1073741824
   %.not.i = icmp eq i32 %57, 0
@@ -10464,7 +10454,7 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
 .critedge:                                        ; preds = %48, %50
   %62 = load ptr, ptr %5, align 8, !tbaa !54
   %63 = zext i32 %44 to i64
-  %64 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [216 x i8], ptr %62, i64 %63
   %65 = load i32, ptr %64, align 8
   %.not.i56 = icmp sgt i32 %65, -1
   br i1 %.not.i56, label %_ZNK7simplex7simplexINS_7mpz_extEE11above_lowerEj.exit.thread, label %_ZNK7simplex7simplexINS_7mpz_extEE11above_lowerEj.exit
@@ -10478,12 +10468,12 @@ _ZNK7simplex7simplexINS_7mpz_extEE11above_lowerEj.exit: ; preds = %.critedge
 _ZNK7simplex7simplexINS_7mpz_extEE11above_lowerEj.exit.thread: ; preds = %.critedge, %52, %58, %_ZNK7simplex7simplexINS_7mpz_extEE11above_lowerEj.exit
   %.pre-phi = phi i64 [ %63, %.critedge ], [ %54, %52 ], [ %54, %58 ], [ %63, %_ZNK7simplex7simplexINS_7mpz_extEE11above_lowerEj.exit ]
   %69 = load ptr, ptr %5, align 8, !tbaa !54
-  %70 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %69, i64 %.pre-phi
+  %70 = getelementptr inbounds nuw [216 x i8], ptr %69, i64 %.pre-phi
   %71 = load i32, ptr %70, align 8
   %spec.select.i.i.i = icmp ugt i32 %71, 1073741823
   %72 = zext i1 %spec.select.i.i.i to i32
   %73 = load ptr, ptr %34, align 8, !tbaa !61, !noalias !163
-  %74 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %73, i64 %.pre-phi
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %.pre-phi
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !72, !noalias !163
   %77 = add i32 %76, 1
@@ -10510,7 +10500,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i.i, 1
-  %86 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %78, i64 %indvars.iv.next.i.i.i.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next.i.i.i.i
   %87 = load i32, ptr %86, align 4, !tbaa !91, !noalias !163
   %88 = icmp eq i32 %87, -1
   br i1 %88, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i.i
@@ -10542,13 +10532,13 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit.i: ; preds = %_ZNK7simpl
   %.02045.i = phi i32 [ %72, %.lr.ph.i ], [ %106, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.i ]
   %.sroa.030.044.i = phi i32 [ %.sroa.030.1.ph.i, %.lr.ph.i ], [ %.sroa.030.3.i, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.i ]
   %96 = zext i32 %.sroa.030.044.i to i64
-  %97 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %78, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !91
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %92, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !48
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %69, i64 %102
+  %103 = getelementptr inbounds nuw [216 x i8], ptr %69, i64 %102
   %104 = load i32, ptr %103, align 8
   %spec.select.i.i26.i = icmp ugt i32 %104, 1073741823
   %105 = zext i1 %spec.select.i.i26.i to i32
@@ -10563,14 +10553,14 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i.i
   %109 = zext i32 %107 to i64
-  %110 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %78, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !91
   %112 = icmp eq i32 %111, -1
   br i1 %112, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.i
 
 .lr.ph.i.i.i59:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i60 = add nuw nsw i64 %indvars.iv.i.i41.i, 1
-  %113 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %78, i64 %indvars.iv.next.i.i.i60
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.next.i.i.i60
   %114 = load i32, ptr %113, align 4, !tbaa !91
   %115 = icmp eq i32 %114, -1
   br i1 %115, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit.i
@@ -10593,7 +10583,7 @@ _ZN7simplex7simplexINS_7mpz_extEE25get_num_non_free_dep_varsEji.exit: ; preds = 
   %.2.i = phi i32 [ %72, %_ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit.i ], [ %72, %_ZNK7simplex7simplexINS_7mpz_extEE11above_lowerEj.exit.thread ], [ %106, %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i ], [ %106, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.i ], [ %106, %95 ]
   store i32 %76, ptr %75, align 8, !tbaa !72
   %117 = load ptr, ptr %34, align 8, !tbaa !61
-  %118 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %117, i64 %.pre-phi
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %.pre-phi
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 8, !tbaa !68
   %121 = icmp slt i32 %.2.i, %.04785
@@ -10680,7 +10670,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %164 = zext i32 %158 to i64
-  %165 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %159, i64 %164
+  %165 = getelementptr inbounds nuw [24 x i8], ptr %159, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load i32, ptr %166, align 8, !tbaa !83
   %168 = icmp eq i32 %167, -1
@@ -10693,7 +10683,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i81, 1
-  %171 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %159, i64 %indvars.iv.next.i.i
+  %171 = getelementptr inbounds nuw [24 x i8], ptr %159, i64 %indvars.iv.next.i.i
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load i32, ptr %172, align 8, !tbaa !83
   %174 = icmp eq i32 %173, -1
@@ -10725,7 +10715,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not = icmp eq i32 %8, 0
@@ -10748,7 +10738,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %13, label %8
@@ -10770,13 +10760,13 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpz_extEE25get_num_n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %spec.select.i.i = icmp ugt i32 %8, 1073741823
   %9 = zext i1 %spec.select.i.i to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %11 = load ptr, ptr %10, align 8, !tbaa !61, !noalias !172
-  %12 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %11, i64 %6
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %6
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !72, !noalias !172
   %15 = add i32 %14, 1
@@ -10803,7 +10793,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %24 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %16, i64 %indvars.iv.next.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next.i.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !91, !noalias !172
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -10835,13 +10825,13 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %.02045 = phi i32 [ %9, %.lr.ph ], [ %44, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit ]
   %.sroa.030.044 = phi i32 [ %.sroa.030.1.ph, %.lr.ph ], [ %.sroa.030.3, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit ]
   %34 = zext i32 %.sroa.030.044 to i64
-  %35 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %16, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !91
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !48
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %5, i64 %40
+  %41 = getelementptr inbounds nuw [216 x i8], ptr %5, i64 %40
   %42 = load i32, ptr %41, align 8
   %spec.select.i.i26 = icmp ugt i32 %42, 1073741823
   %43 = zext i1 %spec.select.i.i26 to i32
@@ -10857,7 +10847,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %16, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !91
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit
@@ -10869,7 +10859,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i41, 1
-  %54 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %16, i64 %indvars.iv.next.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !91
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -10899,7 +10889,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE11i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %spec.select.i = icmp ugt i32 %7, 1073741823
   ret i1 %spec.select.i
@@ -10943,7 +10933,7 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpz_extEE17pick_var_
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %26 = load ptr, ptr %25, align 8, !tbaa !61, !noalias !180
   %27 = zext i32 %1 to i64
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !72, !noalias !180
@@ -10976,7 +10966,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %42 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %33, i64 %indvars.iv.next.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.next.i.i.i
   %43 = load i32, ptr %42, align 4, !tbaa !91, !noalias !180
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -11012,22 +11002,22 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %.079 = phi i32 [ -1, %.lr.ph ], [ %.1, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit ]
   %.sroa.055.078 = phi i32 [ %.sroa.055.165, %.lr.ph ], [ %.sroa.055.3, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit ]
   %55 = zext i32 %.sroa.055.078 to i64
-  %56 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !91
   %58 = load ptr, ptr %47, align 8, !tbaa !53
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !48
   %62 = load ptr, ptr %48, align 8, !tbaa !54
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [216 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %29, align 8, !tbaa !55
-  %66 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %65, i64 %59
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %59
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !90
   %69 = load ptr, ptr %66, align 8, !tbaa !56
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 200
   %73 = load i32, ptr %72, align 8, !tbaa !3
   %74 = icmp sgt i32 %73, 0
@@ -11182,7 +11172,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %138 = zext i32 %132 to i64
-  %139 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %133, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !91
   %141 = icmp eq i32 %140, -1
   br i1 %141, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit
@@ -11194,7 +11184,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i75, 1
-  %144 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %133, i64 %indvars.iv.next.i.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.next.i.i
   %145 = load i32, ptr %144, align 4, !tbaa !91
   %146 = icmp eq i32 %145, -1
   br i1 %146, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -11257,7 +11247,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE8at
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %13, label %8
@@ -11279,7 +11269,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE8at
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not = icmp eq i32 %8, 0
@@ -11414,7 +11404,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE14o
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not.i = icmp eq i32 %8, 0
@@ -11429,7 +11419,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit: ; preds = %2
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %3, align 8, !tbaa !54
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %.pre, i64 %5
+  %.phi.trans.insert = getelementptr inbounds nuw [216 x i8], ptr %.pre, i64 %5
   %.pre3 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
 
@@ -11440,7 +11430,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i2, label %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit, label %15
 
 15:                                               ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %14, i64 %5
+  %16 = getelementptr inbounds nuw [216 x i8], ptr %14, i64 %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 136
@@ -11457,7 +11447,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE7is
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [216 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %spec.select = icmp ult i32 %7, 1073741824
   ret i1 %spec.select
@@ -11481,7 +11471,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %1, %19
   br i1 %10, label %11, label %.critedge10
 
 11:                                               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !48
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %19, label %15
@@ -11520,7 +11510,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpz_extEE15w
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %11 = load ptr, ptr %10, align 8, !tbaa !55
-  %12 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %8
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -11544,7 +11534,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %22 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %13, i64 %indvars.iv.next.i.i.i
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv.next.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !83
   %25 = icmp eq i32 %24, -1
@@ -11604,12 +11594,12 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %43 = phi ptr [ %13, %.lr.ph ], [ %55, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %.sroa.025.043 = phi i32 [ %.sroa.0.1.i36, %.lr.ph ], [ %.sroa.025.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
   %44 = zext i32 %.sroa.025.043 to i64
-  %45 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !83
   %48 = load ptr, ptr %39, align 8, !tbaa !54
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [216 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3mulERKSt4pairI3mpqS2_ERK3mpzRS3_(ptr noundef nonnull align 8 dereferenceable(736) %27, ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(64) %33)
           to label %52 unwind label %.loopexit
@@ -11637,7 +11627,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %60 = zext i32 %54 to i64
-  %61 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %55, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !83
   %64 = icmp eq i32 %63, -1
@@ -11650,7 +11640,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i40, 1
-  %67 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %55, i64 %indvars.iv.next.i.i
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv.next.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i32, ptr %68, align 8, !tbaa !83
   %70 = icmp eq i32 %69, -1
@@ -11878,7 +11868,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpz_extEE11displ
   %5 = load i32, ptr %2, align 4, !tbaa !101
   %6 = load ptr, ptr %4, align 8, !tbaa !55
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -11902,7 +11892,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %18 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %9, i64 %indvars.iv.next.i.i.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv.next.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !83
   %21 = icmp eq i32 %20, -1
@@ -11928,11 +11918,11 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.sroa.09.024 = phi i32 [ %.sroa.09.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ], [ %.sroa.0.1.i20, %_ZN7simplex13sparse_matrixINS_7mpz_extEE7row_endERKNS2_3rowE.exit ]
   %24 = load ptr, ptr %0, align 8, !tbaa !59
   %25 = zext i32 %.sroa.09.024 to i64
-  %26 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %25
   tail call void @_ZNK11mpz_managerILb0EE7displayERSoRK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %24, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %26)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 2)
   %28 = load ptr, ptr %8, align 8, !tbaa !56
-  %29 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %25
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !83
   %32 = zext i32 %31 to i64
@@ -11951,7 +11941,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %41 = zext i32 %35 to i64
-  %42 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %36, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8, !tbaa !83
   %45 = icmp eq i32 %44, -1
@@ -11964,7 +11954,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i21, 1
-  %48 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %36, i64 %indvars.iv.next.i.i
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv.next.i.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !83
   %51 = icmp eq i32 %50, -1
@@ -12101,7 +12091,7 @@ _ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit: ; pred
   br i1 %10, label %11, label %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit.thread
 
 11:                                               ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %6, i64 %indvars.iv13
+  %12 = getelementptr inbounds nuw [216 x i8], ptr %6, i64 %indvars.iv13
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1073741824
   %.not.i = icmp eq i32 %14, 0
@@ -12115,7 +12105,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit: ; preds = %11
 
 _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %2, align 8, !tbaa !54
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %.pre, i64 %indvars.iv13
+  %.phi.trans.insert = getelementptr inbounds nuw [216 x i8], ptr %.pre, i64 %indvars.iv13
   %.pre10 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
 
@@ -12126,7 +12116,7 @@ _ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i8, label %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit.thread, label %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit
 
 _ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit: ; preds = %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit.thread
-  %20 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %19, i64 %indvars.iv13
+  %20 = getelementptr inbounds nuw [216 x i8], ptr %19, i64 %indvars.iv13
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %23 = tail call noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %3, ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %21)
@@ -12384,7 +12374,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEEC2ER8reslimit(ptr 
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !48
   %104 = zext i32 %.pre2.i.i to i64
-  %105 = getelementptr inbounds nuw i32, ptr %.pre.i.i, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %104
   store i32 -1, ptr %105, align 4, !tbaa !48
   %106 = add i32 %.pre2.i.i, 1
   store i32 %106, ptr %.phi.trans.insert.i.i, align 4, !tbaa !48
@@ -12430,7 +12420,7 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIiLb0EjE
   %118 = getelementptr inbounds i8, ptr %112, i64 -4
   store i32 1024, ptr %118, align 4, !tbaa !48
   %119 = zext nneg i32 %.0.i17.i.i.i.ph to i64
-  %120 = getelementptr i32, ptr %112, i64 %119
+  %120 = getelementptr [4 x i8], ptr %112, i64 %119
   %121 = shl nuw nsw i64 %119, 2
   %122 = sub nuw nsw i64 4096, %121
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %120, i8 0, i64 %122, i1 false), !tbaa !48
@@ -12996,7 +12986,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i:           ; preds = %_ZN6vectorIiLb0EjE5
   %24 = phi ptr [ %.pre.i.i, %_ZN6vectorIiLb0EjE5resetEv.exit.thread.i ], [ %17, %18 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %26
   store i32 -1, ptr %27, align 4, !tbaa !48
   %28 = add i32 %23, 1
   store i32 %28, ptr %25, align 4, !tbaa !48
@@ -13151,7 +13141,7 @@ _ZN6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE9push_backEOS4_.exit:
   %20 = phi i32 [ %.pre2.i, %19 ], [ %15, %13 ]
   %21 = phi ptr [ %.pre.i, %19 ], [ %11, %13 ]
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [232 x i8], ptr %21, i64 %22
   call void @_ZN7simplex7simplexINS_7mpq_extEE8var_infoC2EOS3_(ptr noundef nonnull align 8 dereferenceable(232) %23, ptr noundef nonnull align 8 dereferenceable(232) %3) #20
   %24 = load ptr, ptr %4, align 8, !tbaa !209
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -13219,7 +13209,7 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
 .lr.ph.preheader.i.i:                             ; preds = %44
   %46 = zext i32 %.ph to i64
   %47 = zext i32 %.0.i17.i.i.ph to i64
-  %48 = getelementptr i32, ptr %39, i64 %47
+  %48 = getelementptr [4 x i8], ptr %39, i64 %47
   %49 = sub nsw i64 %46, %47
   %50 = shl nsw i64 %49, 2
   call void @llvm.memset.p0.i64(ptr align 4 %48, i8 0, i64 %50, i1 false), !tbaa !48
@@ -13283,7 +13273,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE6columnD2Ev.exit: ; preds = %.noexc, %14
   %19 = phi i32 [ %.pre2.i, %.noexc ], [ %13, %14 ]
   %20 = phi ptr [ %.pre.i, %.noexc ], [ %10, %14 ]
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   store ptr null, ptr %22, align 8, !tbaa !228
   store ptr null, ptr %3, align 8, !tbaa !228
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -13318,7 +13308,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit:             ; preds = %29, %35
   %37 = phi ptr [ %.pre.i3, %35 ], [ %.pre, %29 ]
   %38 = getelementptr inbounds i8, ptr %37, i64 -4
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %39
   store i32 -1, ptr %40, align 4, !tbaa !48
   %41 = add i32 %36, 1
   store i32 %41, ptr %38, align 4, !tbaa !48
@@ -13415,7 +13405,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE4_rowD2Ev.exit.i: ; preds = %.noexc.i, %
   %41 = phi i32 [ %.pre2.i.i, %.noexc.i ], [ %32, %30 ]
   %42 = phi ptr [ %.pre.i.i, %.noexc.i ], [ %26, %30 ]
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   store ptr null, ptr %44, align 8, !tbaa !233
   store ptr null, ptr %6, align 8, !tbaa !233
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -13443,7 +13433,7 @@ common.resume:                                    ; preds = %408, %51
 _ZN6vectorIjLb0EjE4backEv.exit.i:                 ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.i
   %53 = add i32 %23, -1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %20, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !48
   store i32 %53, ptr %22, align 4, !tbaa !48
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE6mk_rowEv.exit
@@ -13460,17 +13450,17 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE6mk_rowEv.exit: ; preds = %_ZN7simplex13
 
 58:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %59 = getelementptr inbounds nuw %class.mpq, ptr %4, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv
   %60 = load i32, ptr %59, align 8, !tbaa !3
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %88, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !48
   %65 = load ptr, ptr %57, align 8, !tbaa !209
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [232 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 536870912
   %.not135 = icmp eq i32 %69, 0
@@ -13501,7 +13491,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %73, %79
   %81 = phi ptr [ %.pre.i, %79 ], [ %71, %73 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 -4
   %83 = zext i32 %80 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %83
   %85 = trunc nuw i64 %indvars.iv to i32
   store i32 %85, ptr %84, align 4, !tbaa !48
   %86 = add i32 %80, 1
@@ -13622,12 +13612,12 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIjLb0EjE
   br label %408
 
 142:                                              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %143 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv149
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv149
   %144 = load i32, ptr %143, align 4, !tbaa !48
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw i32, ptr %3, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !48
-  %148 = getelementptr inbounds nuw %class.mpq, ptr %4, i64 %145
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %145
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 20
   %151 = load i8, ptr %150, align 4
@@ -13669,7 +13659,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIjLb0EjE
 _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit:    ; preds = %.noexc50, %167
   %168 = load ptr, ptr %134, align 8, !tbaa !209
   %169 = zext i32 %147 to i64
-  %170 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [232 x i8], ptr %168, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 200
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 204
   %173 = load i8, ptr %172, align 4
@@ -13731,7 +13721,7 @@ _ZN11mpq_managerILb0EE3absER3mpq.exit:            ; preds = %191
 
 194:                                              ; preds = %_ZN11mpq_managerILb0EE3absER3mpq.exit
   %195 = load ptr, ptr %134, align 8, !tbaa !209
-  %196 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %195, i64 %169
+  %196 = getelementptr inbounds nuw [232 x i8], ptr %195, i64 %169
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 200
   invoke void @_ZN11mpq_managerILb0EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %89, ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(32) %100)
           to label %198 unwind label %224
@@ -13783,7 +13773,7 @@ _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit60:  ; preds = %.noexc58, %215
 
 _ZN11mpq_managerILb0EE3negER3mpq.exit:            ; preds = %216
   %217 = load ptr, ptr %134, align 8, !tbaa !209
-  %218 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %217, i64 %169
+  %218 = getelementptr inbounds nuw [232 x i8], ptr %217, i64 %169
   %219 = load i32, ptr %218, align 8
   %220 = and i32 %219, 536870911
   invoke void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3addENS2_3rowERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(96) %18, i32 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(32) %100, i32 %220)
@@ -13847,7 +13837,7 @@ _ZN11mpq_managerILb0EE3negER3mpq.exit:            ; preds = %216
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %248 = load ptr, ptr %247, align 8, !tbaa !210
   %249 = zext i32 %.sroa.0.0.i to i64
-  %250 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %248, i64 %249
+  %250 = getelementptr inbounds nuw [16 x i8], ptr %248, i64 %249
   %251 = load ptr, ptr %250, align 8, !tbaa !211
   %252 = icmp eq ptr %251, null
   br i1 %252, label %._crit_edge144, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -13871,7 +13861,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %260 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %251, i64 %indvars.iv.next.i.i.i
+  %260 = getelementptr inbounds nuw [40 x i8], ptr %251, i64 %indvars.iv.next.i.i.i
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 32
   %262 = load i32, ptr %261, align 8, !tbaa !236
   %263 = icmp eq i32 %262, -1
@@ -13902,7 +13892,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
   %269 = phi ptr [ %251, %.lr.ph143 ], [ %304, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %.sroa.0100.0142 = phi i32 [ %.sroa.0.1.i126, %.lr.ph143 ], [ %.sroa.0100.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %270 = zext i32 %.sroa.0100.0142 to i64
-  %271 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %269, i64 %270
+  %271 = getelementptr inbounds nuw [40 x i8], ptr %269, i64 %270
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %273 = load i32, ptr %272, align 8, !tbaa !236
   %274 = icmp eq i32 %273, %1
@@ -13965,7 +13955,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i64:   ; preds = %284, %280
 297:                                              ; preds = %268
   %298 = load ptr, ptr %265, align 8, !tbaa !209
   %299 = zext i32 %273 to i64
-  %300 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %298, i64 %299
+  %300 = getelementptr inbounds nuw [232 x i8], ptr %298, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3mulERKSt4pairI3mpqS2_ERKS2_RS3_(ptr noundef nonnull align 8 dereferenceable(736) %236, ptr noundef nonnull align 8 dereferenceable(64) %301, ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(64) %242)
           to label %302 unwind label %295
@@ -13992,7 +13982,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %309 = zext i32 %303 to i64
-  %310 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %304, i64 %309
+  %310 = getelementptr inbounds nuw [40 x i8], ptr %304, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %312 = load i32, ptr %311, align 8, !tbaa !236
   %313 = icmp eq i32 %312, -1
@@ -14005,7 +13995,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i139, 1
-  %316 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %304, i64 %indvars.iv.next.i.i
+  %316 = getelementptr inbounds nuw [40 x i8], ptr %304, i64 %indvars.iv.next.i.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 32
   %318 = load i32, ptr %317, align 8, !tbaa !236
   %319 = icmp eq i32 %318, -1
@@ -14079,31 +14069,31 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit80:          ; preds = %327, %.noexc79
   %332 = phi i32 [ %.pre2.i78, %.noexc79 ], [ %326, %327 ]
   %333 = getelementptr inbounds i8, ptr %331, i64 -4
   %334 = zext i32 %332 to i64
-  %335 = getelementptr inbounds nuw i32, ptr %331, i64 %334
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %334
   store i32 -1, ptr %335, align 4, !tbaa !48
   %336 = add i32 %332, 1
   store i32 %336, ptr %333, align 4, !tbaa !48
   br label %_ZN15mpq_inf_managerILb0EE3divERKSt4pairI3mpqS2_ERKS2_RS3_.exit
 
 337:                                              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit75
-  %338 = getelementptr inbounds nuw i32, ptr %323, i64 %249
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %249
   store i32 %1, ptr %338, align 4, !tbaa !48
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %340 = load ptr, ptr %339, align 8, !tbaa !209
   %341 = zext i32 %1 to i64
-  %342 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %340, i64 %341
+  %342 = getelementptr inbounds nuw [232 x i8], ptr %340, i64 %341
   %343 = load i32, ptr %342, align 8
   %344 = and i32 %.sroa.0.0.i, 536870911
   %345 = and i32 %343, -536870912
   %346 = or disjoint i32 %345, %344
   store i32 %346, ptr %342, align 8
   %347 = load ptr, ptr %339, align 8, !tbaa !209
-  %348 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %347, i64 %341
+  %348 = getelementptr inbounds nuw [232 x i8], ptr %347, i64 %341
   %349 = load i32, ptr %348, align 8
   %350 = or i32 %349, 536870912
   store i32 %350, ptr %348, align 8
   %351 = load ptr, ptr %339, align 8, !tbaa !209
-  %352 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %351, i64 %341
+  %352 = getelementptr inbounds nuw [232 x i8], ptr %351, i64 %341
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 200
   %354 = load i8, ptr %227, align 4
   %355 = and i8 %354, 1
@@ -14145,7 +14135,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i81:   ; preds = %362, %357
 
 _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit84:     ; preds = %367, %372
   %373 = load ptr, ptr %339, align 8, !tbaa !209
-  %374 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %373, i64 %341
+  %374 = getelementptr inbounds nuw [232 x i8], ptr %373, i64 %341
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3setERSt4pairI3mpqS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(736) %236, ptr noundef nonnull align 8 dereferenceable(64) %375, ptr noundef nonnull align 8 dereferenceable(64) %237)
           to label %376 unwind label %.loopexit.split-lp
@@ -14321,7 +14311,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE7is
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 536870912
   %9 = icmp ne i32 %8, 0
@@ -14338,11 +14328,11 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpq_extEE7add_va
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !210
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !216
   %14 = zext i32 %3 to i64
-  %15 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !230
   %18 = add i32 %17, 1
@@ -14378,7 +14368,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %31 = phi i32 [ %.pre2.i.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %27, %25 ]
   %32 = phi ptr [ %.pre.i.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %22, %25 ]
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i8, ptr %35, align 4
@@ -14404,12 +14394,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !48
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %50
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE4_row13add_row_entryERj.exit
 
 52:                                               ; preds = %7
   %53 = zext i32 %20 to i64
-  %54 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %22, i64 %53
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
   %56 = load i32, ptr %55, align 4, !tbaa !90
   store i32 %56, ptr %19, align 4, !tbaa !232
@@ -14453,7 +14443,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %72 = phi i32 [ %.pre2.i.i14, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %68, %66 ]
   %73 = phi ptr [ %.pre.i.i12, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %63, %66 ]
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   store i64 0, ptr %75, align 4
   %76 = load ptr, ptr %15, align 8, !tbaa !217
   %77 = getelementptr inbounds i8, ptr %76, i64 -4
@@ -14461,12 +14451,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 4, !tbaa !48
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %76, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %80
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit
 
 82:                                               ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE4_row13add_row_entryERj.exit
   %83 = zext i32 %61 to i64
-  %84 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %63, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4, !tbaa !90
   store i32 %86, ptr %60, align 4, !tbaa !226
@@ -14721,7 +14711,7 @@ _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit: ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !210
   %33 = zext i32 %1 to i64
-  %34 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !211
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE3negENS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i
@@ -14745,7 +14735,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %35, i64 %indvars.iv.next.i.i.i.i
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %indvars.iv.next.i.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8, !tbaa !236
   %47 = icmp eq i32 %46, -1
@@ -14770,7 +14760,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i: ; preds = %
   %.sroa.04.019.i = phi i32 [ %.sroa.04.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %.sroa.0.1.i15.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i ]
   %50 = load ptr, ptr %0, align 8, !tbaa !214
   %51 = zext i32 %.sroa.04.019.i to i64
-  %52 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %51
   tail call void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %50, ptr noundef nonnull align 8 dereferenceable(32) %52)
   %53 = add i32 %.sroa.04.019.i, 1
   %54 = load ptr, ptr %34, align 8, !tbaa !211
@@ -14785,7 +14775,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
   %59 = zext i32 %53 to i64
-  %60 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %54, i64 %59
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !236
   %63 = icmp eq i32 %62, -1
@@ -14798,7 +14788,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i16.i, 1
-  %66 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %54, i64 %indvars.iv.next.i.i.i
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %indvars.iv.next.i.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load i32, ptr %67, align 8, !tbaa !236
   %69 = icmp eq i32 %68, -1
@@ -14822,7 +14812,7 @@ _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.thread: ; preds = %_ZN11mpq_man
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !210
   %73 = zext i32 %1 to i64
-  %74 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !211
   %76 = icmp eq ptr %75, null
   br i1 %76, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE3negENS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i4
@@ -14846,7 +14836,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i5:
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i6
   %indvars.iv.next.i.i.i9 = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %84 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %75, i64 %indvars.iv.next.i.i.i9
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %75, i64 %indvars.iv.next.i.i.i9
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load i32, ptr %85, align 8, !tbaa !236
   %87 = icmp eq i32 %86, -1
@@ -14877,7 +14867,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.sroa.013.036 = phi i32 [ %.sroa.0.1.i30, %.lr.ph ], [ %.sroa.013.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %93 = load ptr, ptr %0, align 8, !tbaa !214
   %94 = zext i32 %.sroa.013.036 to i64
-  %95 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [40 x i8], ptr %92, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 20
   %98 = load i8, ptr %97, align 4
@@ -14924,7 +14914,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %121 = zext i32 %115 to i64
-  %122 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %116, i64 %121
+  %122 = getelementptr inbounds nuw [40 x i8], ptr %116, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %124 = load i32, ptr %123, align 8, !tbaa !236
   %125 = icmp eq i32 %124, -1
@@ -14937,7 +14927,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i33, 1
-  %128 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %116, i64 %indvars.iv.next.i.i
+  %128 = getelementptr inbounds nuw [40 x i8], ptr %116, i64 %indvars.iv.next.i.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load i32, ptr %129, align 8, !tbaa !236
   %131 = icmp eq i32 %130, -1
@@ -14976,7 +14966,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3addENS
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !210
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %15, align 8, !tbaa !211
@@ -15003,7 +14993,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exi
 28:                                               ; preds = %.lr.ph.i
   %29 = load ptr, ptr %16, align 8, !tbaa !47
   %30 = zext i32 %26 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 %.016.i, ptr %31, align 4, !tbaa !48
   %32 = load ptr, ptr %17, align 8, !tbaa !53
   %33 = icmp eq ptr %32, null
@@ -15029,7 +15019,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %40, %34
   %42 = phi ptr [ %.pre.i.i, %40 ], [ %32, %34 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -4
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %44
   %46 = load i32, ptr %25, align 4, !tbaa !48
   store i32 %46, ptr %45, align 4, !tbaa !48
   %47 = add i32 %41, 1
@@ -15066,7 +15056,7 @@ _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit:        ; preds = %_ZNK7simplex13spars
 
 66:                                               ; preds = %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit
   %67 = zext i32 %3 to i64
-  %68 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %.pre346, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %.pre346, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !211
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.loopexit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -15090,7 +15080,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %78 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %69, i64 %indvars.iv.next.i.i.i
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %69, i64 %indvars.iv.next.i.i.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load i32, ptr %79, align 8, !tbaa !236
   %81 = icmp eq i32 %80, -1
@@ -15121,12 +15111,12 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %87 = phi ptr [ %69, %.lr.ph333 ], [ %259, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %.sroa.0254.0332 = phi i32 [ %.sroa.0.1.i294, %.lr.ph333 ], [ %.sroa.0254.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %88 = zext i32 %.sroa.0254.0332 to i64
-  %89 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [40 x i8], ptr %87, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load i32, ptr %90, align 8, !tbaa !236
   %92 = load ptr, ptr %16, align 8, !tbaa !47
   %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !48
   %96 = icmp eq i32 %95, -1
   br i1 %96, label %97, label %197
@@ -15165,7 +15155,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %111 = phi i32 [ %.pre2.i.i87, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %107, %105 ]
   %112 = phi ptr [ %.pre.i.i85, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i ], [ %102, %105 ]
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [40 x i8], ptr %112, i64 %113
   store i32 0, ptr %114, align 8, !tbaa !3
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = load i8, ptr %115, align 4
@@ -15191,13 +15181,13 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %129 = add i32 %128, 1
   store i32 %129, ptr %127, align 4, !tbaa !48
   %130 = zext i32 %128 to i64
-  %131 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %126, i64 %130
+  %131 = getelementptr inbounds nuw [40 x i8], ptr %126, i64 %130
   %.pre352 = load ptr, ptr %68, align 8, !tbaa !211
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE4_row13add_row_entryERj.exit
 
 132:                                              ; preds = %97
   %133 = zext i32 %100 to i64
-  %134 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %102, i64 %133
+  %134 = getelementptr inbounds nuw [40 x i8], ptr %102, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 36
   %136 = load i32, ptr %135, align 4, !tbaa !90
   store i32 %136, ptr %83, align 4, !tbaa !232
@@ -15210,7 +15200,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE4_row13add_row_entryERj.exit: ; preds = 
   %138 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 %91, ptr %138, align 8, !tbaa !236
   %139 = load ptr, ptr %0, align 8, !tbaa !214
-  %140 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %137, i64 %88
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %137, i64 %88
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i8, ptr %141, align 4
   %143 = and i8 %142, 1
@@ -15254,7 +15244,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %150, %145
 
 _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %157, %162
   %163 = load ptr, ptr %85, align 8, !tbaa !216
-  %164 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %163, i64 %93
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %163, i64 %93
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load i32, ptr %165, align 8, !tbaa !223
   %167 = add i32 %166, 1
@@ -15290,7 +15280,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %180 = phi i32 [ %.pre2.i.i91, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %176, %174 ]
   %181 = phi ptr [ %.pre.i.i89, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4sizeEv.exit.thread.i ], [ %171, %174 ]
   %182 = zext i32 %180 to i64
-  %183 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %181, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %182
   store i64 0, ptr %183, align 4
   %184 = load ptr, ptr %164, align 8, !tbaa !217
   %185 = getelementptr inbounds i8, ptr %184, i64 -4
@@ -15298,12 +15288,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %187 = add i32 %186, 1
   store i32 %187, ptr %185, align 4, !tbaa !48
   %188 = zext i32 %186 to i64
-  %189 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %184, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %188
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit
 
 190:                                              ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit
   %191 = zext i32 %169 to i64
-  %192 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %171, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4, !tbaa !90
   store i32 %194, ptr %168, align 4, !tbaa !226
@@ -15322,7 +15312,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit: ; preds 
 197:                                              ; preds = %86
   %198 = load ptr, ptr %15, align 8, !tbaa !211
   %199 = zext i32 %95 to i64
-  %200 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw [40 x i8], ptr %198, i64 %199
   %201 = load ptr, ptr %0, align 8, !tbaa !214
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %201, ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %200)
   %202 = load i32, ptr %200, align 8, !tbaa !3
@@ -15331,7 +15321,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit: ; preds 
 
 204:                                              ; preds = %197
   %205 = load ptr, ptr %15, align 8, !tbaa !211
-  %206 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %205, i64 %199
+  %206 = getelementptr inbounds nuw [40 x i8], ptr %205, i64 %199
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %208 = load i32, ptr %207, align 8, !tbaa !236
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 36
@@ -15345,10 +15335,10 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit: ; preds 
   store i32 %95, ptr %83, align 4, !tbaa !232
   %214 = load ptr, ptr %85, align 8, !tbaa !216
   %215 = zext i32 %208 to i64
-  %216 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !217
   %218 = zext i32 %210 to i64
-  %219 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %217, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %218
   store i32 -1, ptr %219, align 4, !tbaa !239
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 12
   %221 = load i32, ptr %220, align 4, !tbaa !226
@@ -15382,7 +15372,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i: ; pred
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i93, %256 ]
   %.01516.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.1.i.i.i, %256 ]
   %235 = load ptr, ptr %216, align 8, !tbaa !217
-  %236 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %235, i64 %indvars.iv.i.i.i
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %indvars.iv.i.i.i
   %237 = load i32, ptr %236, align 4, !tbaa !239
   %238 = icmp eq i32 %237, -1
   br i1 %238, label %256, label %239
@@ -15393,18 +15383,18 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i: ; pred
   br i1 %.not.i.i.i, label %254, label %241
 
 241:                                              ; preds = %239
-  %242 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %235, i64 %240
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %240
   %243 = load i64, ptr %236, align 4
   store i64 %243, ptr %242, align 4
   %244 = load i32, ptr %236, align 4, !tbaa !239
   %245 = load ptr, ptr %12, align 8, !tbaa !210
   %246 = zext i32 %244 to i64
-  %247 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %245, i64 %246
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %245, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %249 = load i32, ptr %248, align 4, !tbaa !90
   %250 = load ptr, ptr %247, align 8, !tbaa !211
   %251 = zext i32 %249 to i64
-  %252 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %250, i64 %251
+  %252 = getelementptr inbounds nuw [40 x i8], ptr %250, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 36
   store i32 %.01516.i.i.i, ptr %253, align 4, !tbaa !90
   br label %254
@@ -15448,7 +15438,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %264 = zext i32 %258 to i64
-  %265 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %259, i64 %264
+  %265 = getelementptr inbounds nuw [40 x i8], ptr %259, i64 %264
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 32
   %267 = load i32, ptr %266, align 8, !tbaa !236
   %268 = icmp eq i32 %267, -1
@@ -15461,7 +15451,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i328, 1
-  %271 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %259, i64 %indvars.iv.next.i.i
+  %271 = getelementptr inbounds nuw [40 x i8], ptr %259, i64 %indvars.iv.next.i.i
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %273 = load i32, ptr %272, align 8, !tbaa !236
   %274 = icmp eq i32 %273, -1
@@ -15504,7 +15494,7 @@ _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit: ; preds = %276
 
 287:                                              ; preds = %_ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit
   %288 = zext i32 %3 to i64
-  %289 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %.pre347, i64 %288
+  %289 = getelementptr inbounds nuw [16 x i8], ptr %.pre347, i64 %288
   %290 = load ptr, ptr %289, align 8, !tbaa !211
   %291 = icmp eq ptr %290, null
   br i1 %291, label %.loopexit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i95
@@ -15528,7 +15518,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i10
 
 .lr.ph.i.i.i105:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i102
   %indvars.iv.next.i.i.i106 = add nuw nsw i64 %indvars.iv.i.i2.i103, 1
-  %299 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %290, i64 %indvars.iv.next.i.i.i106
+  %299 = getelementptr inbounds nuw [40 x i8], ptr %290, i64 %indvars.iv.next.i.i.i106
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 32
   %301 = load i32, ptr %300, align 8, !tbaa !236
   %302 = icmp eq i32 %301, -1
@@ -15559,12 +15549,12 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit112: ; preds = 
   %308 = phi ptr [ %290, %.lr.ph ], [ %502, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit153 ]
   %.sroa.0240.0321 = phi i32 [ %.sroa.0.1.i98299, %.lr.ph ], [ %.sroa.0240.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit153 ]
   %309 = zext i32 %.sroa.0240.0321 to i64
-  %310 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %308, i64 %309
+  %310 = getelementptr inbounds nuw [40 x i8], ptr %308, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %312 = load i32, ptr %311, align 8, !tbaa !236
   %313 = load ptr, ptr %16, align 8, !tbaa !47
   %314 = zext i32 %312 to i64
-  %315 = getelementptr inbounds nuw i32, ptr %313, i64 %314
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %314
   %316 = load i32, ptr %315, align 4, !tbaa !48
   %317 = icmp eq i32 %316, -1
   br i1 %317, label %318, label %419
@@ -15603,7 +15593,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %332 = phi i32 [ %.pre2.i.i117, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i118 ], [ %328, %326 ]
   %333 = phi ptr [ %.pre.i.i115, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit.thread.i118 ], [ %323, %326 ]
   %334 = zext i32 %332 to i64
-  %335 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %333, i64 %334
+  %335 = getelementptr inbounds nuw [40 x i8], ptr %333, i64 %334
   store i32 0, ptr %335, align 8, !tbaa !3
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 4
   %337 = load i8, ptr %336, align 4
@@ -15629,13 +15619,13 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %350 = add i32 %349, 1
   store i32 %350, ptr %348, align 4, !tbaa !48
   %351 = zext i32 %349 to i64
-  %352 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %347, i64 %351
+  %352 = getelementptr inbounds nuw [40 x i8], ptr %347, i64 %351
   %.pre = load ptr, ptr %289, align 8, !tbaa !211
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE4_row13add_row_entryERj.exit119
 
 353:                                              ; preds = %318
   %354 = zext i32 %321 to i64
-  %355 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %323, i64 %354
+  %355 = getelementptr inbounds nuw [40 x i8], ptr %323, i64 %354
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 36
   %357 = load i32, ptr %356, align 4, !tbaa !90
   store i32 %357, ptr %304, align 4, !tbaa !232
@@ -15648,7 +15638,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE4_row13add_row_entryERj.exit119: ; preds
   %359 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 32
   store i32 %312, ptr %359, align 8, !tbaa !236
   %360 = load ptr, ptr %0, align 8, !tbaa !214
-  %361 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %358, i64 %309
+  %361 = getelementptr inbounds nuw [40 x i8], ptr %358, i64 %309
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 4
   %363 = load i8, ptr %362, align 4
   %364 = and i8 %363, 1
@@ -15694,7 +15684,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit121:    ; preds = %378, %383
   %384 = load ptr, ptr %0, align 8, !tbaa !214
   tail call void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %384, ptr noundef nonnull align 8 dereferenceable(32) %.0.i113)
   %385 = load ptr, ptr %306, align 8, !tbaa !216
-  %386 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %385, i64 %314
+  %386 = getelementptr inbounds nuw [24 x i8], ptr %385, i64 %314
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load i32, ptr %387, align 8, !tbaa !223
   %389 = add i32 %388, 1
@@ -15730,7 +15720,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %402 = phi i32 [ %.pre2.i.i126, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4sizeEv.exit.thread.i127 ], [ %398, %396 ]
   %403 = phi ptr [ %.pre.i.i124, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4sizeEv.exit.thread.i127 ], [ %393, %396 ]
   %404 = zext i32 %402 to i64
-  %405 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %403, i64 %404
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %403, i64 %404
   store i64 0, ptr %405, align 4
   %406 = load ptr, ptr %386, align 8, !tbaa !217
   %407 = getelementptr inbounds i8, ptr %406, i64 -4
@@ -15738,12 +15728,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %409 = add i32 %408, 1
   store i32 %409, ptr %407, align 4, !tbaa !48
   %410 = zext i32 %408 to i64
-  %411 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %406, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %406, i64 %410
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit128
 
 412:                                              ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit121
   %413 = zext i32 %391 to i64
-  %414 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %393, i64 %413
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %413
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 4
   %416 = load i32, ptr %415, align 4, !tbaa !90
   store i32 %416, ptr %390, align 4, !tbaa !226
@@ -15762,7 +15752,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit128: ; pre
 419:                                              ; preds = %307
   %420 = load ptr, ptr %15, align 8, !tbaa !211
   %421 = zext i32 %316 to i64
-  %422 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %420, i64 %421
+  %422 = getelementptr inbounds nuw [40 x i8], ptr %420, i64 %421
   %423 = load ptr, ptr %0, align 8, !tbaa !214
   %424 = getelementptr inbounds nuw i8, ptr %422, i64 16
   %425 = getelementptr inbounds nuw i8, ptr %422, i64 20
@@ -15805,7 +15795,7 @@ _ZN11mpq_managerILb0EE3subERK3mpqS3_RS1_.exit:    ; preds = %441, %444
 
 447:                                              ; preds = %_ZN11mpq_managerILb0EE3subERK3mpqS3_RS1_.exit
   %448 = load ptr, ptr %15, align 8, !tbaa !211
-  %449 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %448, i64 %421
+  %449 = getelementptr inbounds nuw [40 x i8], ptr %448, i64 %421
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 32
   %451 = load i32, ptr %450, align 8, !tbaa !236
   %452 = getelementptr inbounds nuw i8, ptr %449, i64 36
@@ -15819,10 +15809,10 @@ _ZN11mpq_managerILb0EE3subERK3mpqS3_RS1_.exit:    ; preds = %441, %444
   store i32 %316, ptr %304, align 4, !tbaa !232
   %457 = load ptr, ptr %306, align 8, !tbaa !216
   %458 = zext i32 %451 to i64
-  %459 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %457, i64 %458
+  %459 = getelementptr inbounds nuw [24 x i8], ptr %457, i64 %458
   %460 = load ptr, ptr %459, align 8, !tbaa !217
   %461 = zext i32 %453 to i64
-  %462 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %460, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %461
   store i32 -1, ptr %462, align 4, !tbaa !239
   %463 = getelementptr inbounds nuw i8, ptr %459, i64 12
   %464 = load i32, ptr %463, align 4, !tbaa !226
@@ -15856,7 +15846,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i129: ; p
   %indvars.iv.i.i.i134 = phi i64 [ 0, %.lr.ph.preheader.i.i.i131 ], [ %indvars.iv.next.i.i.i138, %499 ]
   %.01516.i.i.i135 = phi i32 [ 0, %.lr.ph.preheader.i.i.i131 ], [ %.1.i.i.i137, %499 ]
   %478 = load ptr, ptr %459, align 8, !tbaa !217
-  %479 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %478, i64 %indvars.iv.i.i.i134
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %indvars.iv.i.i.i134
   %480 = load i32, ptr %479, align 4, !tbaa !239
   %481 = icmp eq i32 %480, -1
   br i1 %481, label %499, label %482
@@ -15867,18 +15857,18 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i129: ; p
   br i1 %.not.i.i.i136, label %497, label %484
 
 484:                                              ; preds = %482
-  %485 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %478, i64 %483
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %483
   %486 = load i64, ptr %479, align 4
   store i64 %486, ptr %485, align 4
   %487 = load i32, ptr %479, align 4, !tbaa !239
   %488 = load ptr, ptr %12, align 8, !tbaa !210
   %489 = zext i32 %487 to i64
-  %490 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %488, i64 %489
+  %490 = getelementptr inbounds nuw [16 x i8], ptr %488, i64 %489
   %491 = getelementptr inbounds nuw i8, ptr %479, i64 4
   %492 = load i32, ptr %491, align 4, !tbaa !90
   %493 = load ptr, ptr %490, align 8, !tbaa !211
   %494 = zext i32 %492 to i64
-  %495 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %493, i64 %494
+  %495 = getelementptr inbounds nuw [40 x i8], ptr %493, i64 %494
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 36
   store i32 %.01516.i.i.i135, ptr %496, align 4, !tbaa !90
   br label %497
@@ -15922,7 +15912,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i147:
 
 .lr.ph.preheader.i.i148:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i147
   %507 = zext i32 %501 to i64
-  %508 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %502, i64 %507
+  %508 = getelementptr inbounds nuw [40 x i8], ptr %502, i64 %507
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 32
   %510 = load i32, ptr %509, align 8, !tbaa !236
   %511 = icmp eq i32 %510, -1
@@ -15935,7 +15925,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i151.lr.ph:
 
 .lr.ph.i.i149:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i151
   %indvars.iv.next.i.i152 = add nuw nsw i64 %indvars.iv.i.i150318, 1
-  %514 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %502, i64 %indvars.iv.next.i.i152
+  %514 = getelementptr inbounds nuw [40 x i8], ptr %502, i64 %indvars.iv.next.i.i152
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 32
   %516 = load i32, ptr %515, align 8, !tbaa !236
   %517 = icmp eq i32 %516, -1
@@ -15977,7 +15967,7 @@ _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.thread: ; preds = %._ZN11mpq_ma
   %530 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %530, align 8, !tbaa !10
   %531 = zext i32 %3 to i64
-  %532 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %519, i64 %531
+  %532 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %531
   %533 = load ptr, ptr %532, align 8, !tbaa !211
   %534 = icmp eq ptr %533, null
   br i1 %534, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i154
@@ -16001,7 +15991,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i16
 
 .lr.ph.i.i.i164:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i161
   %indvars.iv.next.i.i.i165 = add nuw nsw i64 %indvars.iv.i.i2.i162, 1
-  %542 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %533, i64 %indvars.iv.next.i.i.i165
+  %542 = getelementptr inbounds nuw [40 x i8], ptr %533, i64 %indvars.iv.next.i.i.i165
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 32
   %544 = load i32, ptr %543, align 8, !tbaa !236
   %545 = icmp eq i32 %544, -1
@@ -16034,12 +16024,12 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
   %553 = phi ptr [ %533, %.lr.ph327 ], [ %772, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit222 ]
   %.sroa.0227.0326 = phi i32 [ %.sroa.0.1.i157305, %.lr.ph327 ], [ %.sroa.0227.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit222 ]
   %554 = zext i32 %.sroa.0227.0326 to i64
-  %555 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %553, i64 %554
+  %555 = getelementptr inbounds nuw [40 x i8], ptr %553, i64 %554
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 32
   %557 = load i32, ptr %556, align 8, !tbaa !236
   %558 = load ptr, ptr %16, align 8, !tbaa !47
   %559 = zext i32 %557 to i64
-  %560 = getelementptr inbounds nuw i32, ptr %558, i64 %559
+  %560 = getelementptr inbounds nuw [4 x i8], ptr %558, i64 %559
   %561 = load i32, ptr %560, align 4, !tbaa !48
   %562 = icmp eq i32 %561, -1
   br i1 %562, label %563, label %687
@@ -16081,7 +16071,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %577 = phi i32 [ %.pre2.i.i176, %.noexc ], [ %573, %571 ]
   %578 = phi ptr [ %.pre.i.i174, %.noexc ], [ %568, %571 ]
   %579 = zext i32 %577 to i64
-  %580 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %578, i64 %579
+  %580 = getelementptr inbounds nuw [40 x i8], ptr %578, i64 %579
   store i32 0, ptr %580, align 8, !tbaa !3
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 4
   %582 = load i8, ptr %581, align 4
@@ -16107,13 +16097,13 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %595 = add i32 %594, 1
   store i32 %595, ptr %593, align 4, !tbaa !48
   %596 = zext i32 %594 to i64
-  %597 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %592, i64 %596
+  %597 = getelementptr inbounds nuw [40 x i8], ptr %592, i64 %596
   %.pre348 = load ptr, ptr %532, align 8, !tbaa !211
   br label %603
 
 598:                                              ; preds = %563
   %599 = zext i32 %566 to i64
-  %600 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %568, i64 %599
+  %600 = getelementptr inbounds nuw [40 x i8], ptr %568, i64 %599
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 36
   %602 = load i32, ptr %601, align 4, !tbaa !90
   store i32 %602, ptr %549, align 4, !tbaa !232
@@ -16126,7 +16116,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4backEv.exi
   %605 = getelementptr inbounds nuw i8, ptr %.0.i172, i64 32
   store i32 %557, ptr %605, align 8, !tbaa !236
   %606 = load ptr, ptr %0, align 8, !tbaa !214
-  %607 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %604, i64 %554
+  %607 = getelementptr inbounds nuw [40 x i8], ptr %604, i64 %554
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 4
   %609 = load i8, ptr %608, align 4
   %610 = and i8 %609, 1
@@ -16215,7 +16205,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit182:    ; preds = %._ZN11mpq_managerIL
 
 _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit:    ; preds = %.noexc184, %648
   %649 = load ptr, ptr %551, align 8, !tbaa !216
-  %650 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %649, i64 %559
+  %650 = getelementptr inbounds nuw [24 x i8], ptr %649, i64 %559
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 8
   %652 = load i32, ptr %651, align 8, !tbaa !223
   %653 = add i32 %652, 1
@@ -16254,7 +16244,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %666 = phi i32 [ %.pre2.i.i190, %.noexc192 ], [ %662, %660 ]
   %667 = phi ptr [ %.pre.i.i188, %.noexc192 ], [ %657, %660 ]
   %668 = zext i32 %666 to i64
-  %669 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %667, i64 %668
+  %669 = getelementptr inbounds nuw [8 x i8], ptr %667, i64 %668
   store i64 0, ptr %669, align 4
   %670 = load ptr, ptr %650, align 8, !tbaa !217
   %671 = getelementptr inbounds i8, ptr %670, i64 -4
@@ -16262,12 +16252,12 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE9col_entryELb0EjE4backEv.exit.
   %673 = add i32 %672, 1
   store i32 %673, ptr %671, align 4, !tbaa !48
   %674 = zext i32 %672 to i64
-  %675 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %670, i64 %674
+  %675 = getelementptr inbounds nuw [8 x i8], ptr %670, i64 %674
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit193
 
 676:                                              ; preds = %_ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit
   %677 = zext i32 %655 to i64
-  %678 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %657, i64 %677
+  %678 = getelementptr inbounds nuw [8 x i8], ptr %657, i64 %677
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 4
   %680 = load i32, ptr %679, align 4, !tbaa !90
   store i32 %680, ptr %654, align 4, !tbaa !226
@@ -16296,7 +16286,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE6column13add_col_entryERi.exit193: ; pre
 687:                                              ; preds = %552
   %688 = load ptr, ptr %15, align 8, !tbaa !211
   %689 = zext i32 %561 to i64
-  %690 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %688, i64 %689
+  %690 = getelementptr inbounds nuw [40 x i8], ptr %688, i64 %689
   %691 = load ptr, ptr %0, align 8, !tbaa !214
   %692 = getelementptr inbounds nuw i8, ptr %555, i64 16
   %693 = getelementptr inbounds nuw i8, ptr %555, i64 20
@@ -16348,7 +16338,7 @@ _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit197: ; preds = %.noexc195, %710
 
 715:                                              ; preds = %712
   %716 = load ptr, ptr %15, align 8, !tbaa !211
-  %717 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %716, i64 %689
+  %717 = getelementptr inbounds nuw [40 x i8], ptr %716, i64 %689
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 32
   %719 = load i32, ptr %718, align 8, !tbaa !236
   %720 = getelementptr inbounds nuw i8, ptr %717, i64 36
@@ -16362,10 +16352,10 @@ _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit197: ; preds = %.noexc195, %710
   store i32 %561, ptr %549, align 4, !tbaa !232
   %725 = load ptr, ptr %551, align 8, !tbaa !216
   %726 = zext i32 %719 to i64
-  %727 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %725, i64 %726
+  %727 = getelementptr inbounds nuw [24 x i8], ptr %725, i64 %726
   %728 = load ptr, ptr %727, align 8, !tbaa !217
   %729 = zext i32 %721 to i64
-  %730 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %728, i64 %729
+  %730 = getelementptr inbounds nuw [8 x i8], ptr %728, i64 %729
   store i32 -1, ptr %730, align 4, !tbaa !239
   %731 = getelementptr inbounds nuw i8, ptr %727, i64 12
   %732 = load i32, ptr %731, align 4, !tbaa !226
@@ -16399,7 +16389,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i198: ; p
   %indvars.iv.i.i.i203 = phi i64 [ 0, %.lr.ph.preheader.i.i.i200 ], [ %indvars.iv.next.i.i.i207, %767 ]
   %.01516.i.i.i204 = phi i32 [ 0, %.lr.ph.preheader.i.i.i200 ], [ %.1.i.i.i206, %767 ]
   %746 = load ptr, ptr %727, align 8, !tbaa !217
-  %747 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %746, i64 %indvars.iv.i.i.i203
+  %747 = getelementptr inbounds nuw [8 x i8], ptr %746, i64 %indvars.iv.i.i.i203
   %748 = load i32, ptr %747, align 4, !tbaa !239
   %749 = icmp eq i32 %748, -1
   br i1 %749, label %767, label %750
@@ -16410,18 +16400,18 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i198: ; p
   br i1 %.not.i.i.i205, label %765, label %752
 
 752:                                              ; preds = %750
-  %753 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %746, i64 %751
+  %753 = getelementptr inbounds nuw [8 x i8], ptr %746, i64 %751
   %754 = load i64, ptr %747, align 4
   store i64 %754, ptr %753, align 4
   %755 = load i32, ptr %747, align 4, !tbaa !239
   %756 = load ptr, ptr %12, align 8, !tbaa !210
   %757 = zext i32 %755 to i64
-  %758 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %756, i64 %757
+  %758 = getelementptr inbounds nuw [16 x i8], ptr %756, i64 %757
   %759 = getelementptr inbounds nuw i8, ptr %747, i64 4
   %760 = load i32, ptr %759, align 4, !tbaa !90
   %761 = load ptr, ptr %758, align 8, !tbaa !211
   %762 = zext i32 %760 to i64
-  %763 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %761, i64 %762
+  %763 = getelementptr inbounds nuw [40 x i8], ptr %761, i64 %762
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 36
   store i32 %.01516.i.i.i204, ptr %764, align 4, !tbaa !90
   br label %765
@@ -16470,7 +16460,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i216:
 
 .lr.ph.preheader.i.i217:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i216
   %777 = zext i32 %771 to i64
-  %778 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %772, i64 %777
+  %778 = getelementptr inbounds nuw [40 x i8], ptr %772, i64 %777
   %779 = getelementptr inbounds nuw i8, ptr %778, i64 32
   %780 = load i32, ptr %779, align 8, !tbaa !236
   %781 = icmp eq i32 %780, -1
@@ -16483,7 +16473,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i220.lr.ph:
 
 .lr.ph.i.i218:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i220
   %indvars.iv.next.i.i221 = add nuw nsw i64 %indvars.iv.i.i219322, 1
-  %784 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %772, i64 %indvars.iv.next.i.i221
+  %784 = getelementptr inbounds nuw [40 x i8], ptr %772, i64 %indvars.iv.next.i.i221
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 32
   %786 = load i32, ptr %785, align 8, !tbaa !236
   %787 = icmp eq i32 %786, -1
@@ -16571,10 +16561,10 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i: ; preds = 
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.thread:           ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.lr.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.lr.ph ]
-  %810 = getelementptr inbounds nuw i32, ptr %794, i64 %indvars.iv
+  %810 = getelementptr inbounds nuw [4 x i8], ptr %794, i64 %indvars.iv
   %811 = load i32, ptr %810, align 4, !tbaa !48
   %812 = zext i32 %811 to i64
-  %813 = getelementptr inbounds nuw i32, ptr %797, i64 %812
+  %813 = getelementptr inbounds nuw [4 x i8], ptr %797, i64 %812
   store i32 -1, ptr %813, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %814 = load i32, ptr %796, align 4, !tbaa !48
@@ -16672,7 +16662,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE9add_patchEj(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not.i.i = icmp eq i32 %8, 0
@@ -16687,7 +16677,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.i: ; preds = %2
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread_crit_edge.i: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.i
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !209
-  %.phi.trans.insert.i = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre.i, i64 %5
+  %.phi.trans.insert.i = getelementptr inbounds nuw [232 x i8], ptr %.pre.i, i64 %5
   %.pre3.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread.i
 
@@ -16698,7 +16688,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread.i: ; preds = %_ZNK
   br i1 %.not.i2.i, label %_ZNK7simplex7simplexINS_7mpq_extEE14outside_boundsEj.exit.thread2, label %_ZNK7simplex7simplexINS_7mpq_extEE14outside_boundsEj.exit
 
 _ZNK7simplex7simplexINS_7mpq_extEE14outside_boundsEj.exit: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread.i
-  %15 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %14, i64 %5
+  %15 = getelementptr inbounds nuw [232 x i8], ptr %14, i64 %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 136
@@ -16714,7 +16704,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE14outside_boundsEj.exit.thread: ; preds = %_ZN
 _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE14outside_boundsEj.exit.thread
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %24 = load ptr, ptr %23, align 8, !tbaa !47
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %5
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %5
   store i32 0, ptr %25, align 4, !tbaa !48
   br label %35
 
@@ -16723,7 +16713,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZNK7simplex7simple
   %28 = load i32, ptr %27, align 4, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %30 = load ptr, ptr %29, align 8, !tbaa !47
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %5
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %5
   store i32 %28, ptr %31, align 4, !tbaa !48
   %32 = getelementptr inbounds i8, ptr %21, i64 -8
   %33 = load i32, ptr %32, align 4, !tbaa !48
@@ -16746,12 +16736,12 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   %39 = phi ptr [ %.pre.i.i, %35 ], [ %21, %26 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %41
   store i32 %1, ptr %42, align 4, !tbaa !48
   %43 = add i32 %38, 1
   store i32 %43, ptr %40, align 4, !tbaa !48
   %44 = zext i32 %.0.i6.i to i64
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !48
   %47 = ashr i32 %.0.i6.i, 1
   %48 = icmp eq i32 %47, 0
@@ -16762,17 +16752,17 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   %49 = phi i32 [ %59, %55 ], [ %47, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %.01520.i.i = phi i32 [ %49, %55 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %39, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !48
   %53 = icmp ult i32 %46, %52
   %54 = zext i32 %.01520.i.i to i64
   br i1 %53, label %55, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit
 
 55:                                               ; preds = %.lr.ph.i.i
-  %56 = getelementptr inbounds nuw i32, ptr %39, i64 %54
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %54
   store i32 %52, ptr %56, align 4, !tbaa !48
   %57 = zext i32 %52 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %57
   store i32 %.01520.i.i, ptr %58, align 4, !tbaa !48
   %59 = ashr i32 %49, 1
   %60 = icmp eq i32 %59, 0
@@ -16781,10 +16771,10 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit: ; preds = %55, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %44, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %50, %55 ], [ %54, %.lr.ph.i.i ]
   %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %49, %55 ], [ %.01520.i.i, %.lr.ph.i.i ]
-  %61 = getelementptr inbounds nuw i32, ptr %39, i64 %.pre-phi.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.pre-phi.i.i
   store i32 %46, ptr %61, align 4, !tbaa !48
   %62 = zext i32 %46 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %62
   store i32 %.015.lcssa.i.i, ptr %63, align 4, !tbaa !48
   br label %_ZNK7simplex7simplexINS_7mpq_extEE14outside_boundsEj.exit.thread2
 
@@ -16822,7 +16812,7 @@ define weak_odr hidden i32 @_ZN7simplex7simplexINS_7mpq_extEE18get_infeasible_ro
   %4 = load i32, ptr %3, align 8, !tbaa !248
   %5 = load ptr, ptr %2, align 8, !tbaa !209
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 536870911
   ret i32 %9
@@ -16834,7 +16824,7 @@ define weak_odr hidden noundef i32 @_ZNK7simplex7simplexINS_7mpq_extEE12get_base
   %4 = load i32, ptr %1, align 4, !tbaa !249
   %5 = load ptr, ptr %3, align 8, !tbaa !53
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !48
   ret i32 %8
 }
@@ -16846,11 +16836,11 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7sim
   %5 = load i32, ptr %1, align 4, !tbaa !249
   %6 = load ptr, ptr %4, align 8, !tbaa !53
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !48
   %10 = load ptr, ptr %3, align 8, !tbaa !209
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [232 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 200
   ret ptr %13
 }
@@ -16861,7 +16851,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE7del_rowEj(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %5 = load ptr, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 536870912
   %.not = icmp eq i32 %9, 0
@@ -16875,7 +16865,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE7del_rowEj(ptr nou
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %14 = load ptr, ptr %13, align 8, !tbaa !216, !noalias !251
-  %15 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %14, i64 %6
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !227, !noalias !251
@@ -16903,7 +16893,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %20, i64 %indvars.iv.next.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !239, !noalias !251
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -16932,19 +16922,19 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
 
 36:                                               ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit
   %37 = zext i32 %.sroa.033.0.ph to i64
-  %38 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %20, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !239
   %40 = load ptr, ptr %16, align 8, !tbaa !210
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !90
   %45 = load ptr, ptr %42, align 8, !tbaa !211
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %49 = load ptr, ptr %48, align 8, !tbaa !53
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %41
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %41
   %51 = load i32, ptr %50, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -16960,7 +16950,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %57, align 8, !tbaa !10
   %58 = zext i32 %51 to i64
-  %59 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %58
+  %59 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %58
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, 1073741824
   %.not.i = icmp eq i32 %61, 0
@@ -16977,7 +16967,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit: ; preds = %62
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !209
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre, i64 %58
+  %.phi.trans.insert = getelementptr inbounds nuw [232 x i8], ptr %.pre, i64 %58
   %.pre51 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
 
@@ -17006,7 +16996,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread._ZNK7simplex7simpl
   br label %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit.thread
 
 74:                                               ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
-  %75 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %73, i64 %58
+  %75 = getelementptr inbounds nuw [232 x i8], ptr %73, i64 %58
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 136
   %78 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %52, ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(64) %76)
@@ -17074,25 +17064,25 @@ _ZN15_scoped_numeralI15mpq_inf_managerILb0EEED2Ev.exit: ; preds = %.noexc2.i
   %.sroa.042.0 = phi i32 [ %39, %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEED2Ev.exit ], [ %11, %10 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %96 = load ptr, ptr %95, align 8, !tbaa !53
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %.pre-phi
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.pre-phi
   %98 = load i32, ptr %97, align 4, !tbaa !48
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %94, i64 %99
+  %100 = getelementptr inbounds nuw [232 x i8], ptr %94, i64 %99
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, -536870913
   store i32 %102, ptr %100, align 8
   %103 = load ptr, ptr %4, align 8, !tbaa !209
-  %104 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %103, i64 %99
+  %104 = getelementptr inbounds nuw [232 x i8], ptr %103, i64 %99
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, -1073741825
   store i32 %106, ptr %104, align 8
   %107 = load ptr, ptr %4, align 8, !tbaa !209
-  %108 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %107, i64 %99
+  %108 = getelementptr inbounds nuw [232 x i8], ptr %107, i64 %99
   %109 = load i32, ptr %108, align 8
   %110 = and i32 %109, 2147483647
   store i32 %110, ptr %108, align 8
   %111 = load ptr, ptr %95, align 8, !tbaa !53
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %.pre-phi
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %.pre-phi
   store i32 -1, ptr %112, align 4, !tbaa !48
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   call void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3delENS2_3rowE(ptr noundef nonnull align 8 dereferenceable(96) %113, i32 %.sroa.042.0)
@@ -17111,7 +17101,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not = icmp eq i32 %8, 0
@@ -17134,7 +17124,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %13, label %8
@@ -17157,7 +17147,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE16update_and_pivot
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %8 = load ptr, ptr %7, align 8, !tbaa !209
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [232 x i8], ptr %8, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store ptr %11, ptr %6, align 8, !tbaa !81
@@ -17253,29 +17243,29 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE7del_rowERKNS_13sp
   %4 = load i32, ptr %1, align 4, !tbaa !249
   %5 = load ptr, ptr %3, align 8, !tbaa !53
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %10 = load ptr, ptr %9, align 8, !tbaa !209
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [232 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -536870913
   store i32 %14, ptr %12, align 8
   %15 = load ptr, ptr %9, align 8, !tbaa !209
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [232 x i8], ptr %15, i64 %11
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, -1073741825
   store i32 %18, ptr %16, align 8
   %19 = load ptr, ptr %9, align 8, !tbaa !209
-  %20 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %19, i64 %11
+  %20 = getelementptr inbounds nuw [232 x i8], ptr %19, i64 %11
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 2147483647
   store i32 %22, ptr %20, align 8
   %23 = load i32, ptr %1, align 4, !tbaa !249
   %24 = load ptr, ptr %3, align 8, !tbaa !53
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 -1, ptr %26, align 4, !tbaa !48
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %.sroa.0.0.copyload = load i32, ptr %1, align 4, !tbaa !48
@@ -17289,7 +17279,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE9set_lowerEjRKSt4p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %6 = load ptr, ptr %5, align 8, !tbaa !209
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [232 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
   tail call void @_ZN15mpq_inf_managerILb0EE3setERSt4pairI3mpqS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -17400,13 +17390,13 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE12update_valueEjRK
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %14 = load ptr, ptr %13, align 8, !tbaa !209
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [232 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %17)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %18)
   %19 = load ptr, ptr %13, align 8, !tbaa !209
-  %20 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %19, i64 %15
+  %20 = getelementptr inbounds nuw [232 x i8], ptr %19, i64 %15
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 536870912
   %.not.i = icmp eq i32 %22, 0
@@ -17419,7 +17409,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE12update_valueEjRK
 _ZN7simplex7simplexINS_7mpq_extEE17update_value_coreEjRKSt4pairI3mpqS4_E.exit: ; preds = %12, %23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %25 = load ptr, ptr %24, align 8, !tbaa !216, !noalias !259
-  %26 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !227, !noalias !259
@@ -17447,7 +17437,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %39 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %31, i64 %indvars.iv.next.i.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.next.i.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !239, !noalias !259
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -17488,11 +17478,11 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %54 = phi ptr [ %31, %.lr.ph ], [ %91, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   %.sroa.032.047 = phi i32 [ %.sroa.032.1.ph, %.lr.ph ], [ %.sroa.032.3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   %55 = zext i32 %.sroa.032.047 to i64
-  %56 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !239
   %58 = load ptr, ptr %46, align 8, !tbaa !53
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !48
   %62 = load ptr, ptr %13, align 8, !tbaa !209
   %63 = zext i32 %61 to i64
@@ -17506,17 +17496,17 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %64 = load i32, ptr %56, align 4, !tbaa !239
   %65 = load ptr, ptr %27, align 8, !tbaa !210
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !90
   %70 = load ptr, ptr %67, align 8, !tbaa !211
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %70, i64 %71
   invoke void @_ZN15mpq_inf_managerILb0EE3mulERKSt4pairI3mpqS2_ERKS2_RS3_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(64) %47)
           to label %73 unwind label %106
 
 73:                                               ; preds = %53
-  %74 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %62, i64 %63
+  %74 = getelementptr inbounds nuw [232 x i8], ptr %62, i64 %63
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 200
   invoke void @_ZN11mpq_managerILb0EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(64) %47)
           to label %.noexc unwind label %106
@@ -17536,7 +17526,7 @@ _ZN15mpq_inf_managerILb0EE3divERKSt4pairI3mpqS2_ERKS2_RS3_.exit: ; preds = %.noe
 
 _ZN15_scoped_numeralI15mpq_inf_managerILb0EEE3negEv.exit: ; preds = %.noexc22
   %77 = load ptr, ptr %13, align 8, !tbaa !209
-  %78 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %77, i64 %63
+  %78 = getelementptr inbounds nuw [232 x i8], ptr %77, i64 %63
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   invoke void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %79)
           to label %.noexc25 unwind label %106
@@ -17548,7 +17538,7 @@ _ZN15_scoped_numeralI15mpq_inf_managerILb0EEE3negEv.exit: ; preds = %.noexc22
 
 .noexc26:                                         ; preds = %.noexc25
   %81 = load ptr, ptr %13, align 8, !tbaa !209
-  %82 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %81, i64 %63
+  %82 = getelementptr inbounds nuw [232 x i8], ptr %81, i64 %63
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 536870912
   %.not.i24 = icmp eq i32 %84, 0
@@ -17597,7 +17587,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %96 = zext i32 %90 to i64
-  %97 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %91, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !239
   %99 = icmp eq i32 %98, -1
   br i1 %99, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
@@ -17609,7 +17599,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i44, 1
-  %102 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %91, i64 %indvars.iv.next.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.next.i.i
   %103 = load i32, ptr %102, align 4, !tbaa !239
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -17658,7 +17648,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE9set_upperEjRKSt4p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %6 = load ptr, ptr %5, align 8, !tbaa !209
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [232 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 136
   tail call void @_ZN15mpq_inf_managerILb0EE3setERSt4pairI3mpqS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -17758,7 +17748,7 @@ define weak_odr hidden void @_ZNK7simplex7simplexINS_7mpq_extEE9get_lowerEjR15_s
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %5 = load ptr, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %2, align 8, !tbaa !86
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17771,7 +17761,7 @@ define weak_odr hidden void @_ZNK7simplex7simplexINS_7mpq_extEE9get_upperEjR15_s
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %5 = load ptr, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load ptr, ptr %2, align 8, !tbaa !86
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17784,7 +17774,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK7sim
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   ret ptr %7
 }
@@ -17794,7 +17784,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK7sim
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 136
   ret ptr %7
 }
@@ -17804,7 +17794,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %5 = load ptr, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1073741824
   %.not = icmp eq i32 %9, 0
@@ -17826,7 +17816,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11b
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %5 = load ptr, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %.not = icmp sgt i32 %8, -1
   br i1 %.not, label %13, label %9
@@ -17847,7 +17837,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11l
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %9 = icmp ne i32 %8, 0
@@ -17859,7 +17849,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
   ret i1 %8
@@ -17870,7 +17860,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE11unset_lowerEj(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, -1073741825
   store i32 %8, ptr %6, align 8
@@ -17882,7 +17872,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE11unset_upperEj(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2147483647
   store i32 %8, ptr %6, align 8
@@ -17908,7 +17898,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE9set_valueEjRKSt4p
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %12 = load ptr, ptr %11, align 8, !tbaa !209
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [232 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3subERKSt4pairI3mpqS2_ES5_RS3_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %16 unwind label %23
@@ -18211,7 +18201,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %28
 
 _ZNK8uint_set8containsEj.exit.i:                  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !48
   %38 = and i32 %20, 31
   %39 = shl nuw i32 1, %38
@@ -18371,7 +18361,7 @@ thread-pre-split.i.i.i.backedge:                  ; preds = %90, %50
 .lr.ph.preheader.i.i.i:                           ; preds = %95
   %97 = zext nneg i32 %.ph72 to i64
   %98 = zext nneg i32 %.0.i16.i.i.i.ph to i64
-  %99 = getelementptr i32, ptr %46, i64 %98
+  %99 = getelementptr [4 x i8], ptr %46, i64 %98
   %100 = sub nsw i64 %97, %98
   %101 = shl nsw i64 %100, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %99, i8 0, i64 %101, i1 false), !tbaa !48
@@ -18382,7 +18372,7 @@ _ZN8uint_set6insertEj.exit.i:                     ; preds = %.lr.ph.preheader.i.
   %103 = and i32 %20, 31
   %104 = shl nuw i32 1, %103
   %105 = zext nneg i32 %29 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %102, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !48
   %108 = or i32 %107, %104
   store i32 %108, ptr %106, align 4, !tbaa !48
@@ -18403,7 +18393,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %115 = load ptr, ptr %114, align 8, !tbaa !47
   %116 = zext i32 %20 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %116
   store i32 0, ptr %117, align 4, !tbaa !48
   br label %128
 
@@ -18413,7 +18403,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %110
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %122 = load ptr, ptr %121, align 8, !tbaa !47
   %123 = zext i32 %20 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %123
   store i32 %120, ptr %124, align 4, !tbaa !48
   %125 = getelementptr inbounds i8, ptr %112, i64 -8
   %126 = load i32, ptr %125, align 4, !tbaa !48
@@ -18436,12 +18426,12 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   %132 = phi ptr [ %.pre.i.i, %128 ], [ %112, %118 ]
   %133 = getelementptr inbounds i8, ptr %132, i64 -4
   %134 = zext i32 %131 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %132, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %134
   store i32 %20, ptr %135, align 4, !tbaa !48
   %136 = add i32 %131, 1
   store i32 %136, ptr %133, align 4, !tbaa !48
   %137 = zext i32 %.0.i6.i to i64
-  %138 = getelementptr inbounds nuw i32, ptr %132, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !48
   %140 = ashr i32 %.0.i6.i, 1
   %141 = icmp eq i32 %140, 0
@@ -18452,17 +18442,17 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   %142 = phi i32 [ %152, %148 ], [ %140, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %.01520.i.i = phi i32 [ %142, %148 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %132, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !48
   %146 = icmp ult i32 %139, %145
   %147 = zext i32 %.01520.i.i to i64
   br i1 %146, label %148, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit
 
 148:                                              ; preds = %.lr.ph.i.i
-  %149 = getelementptr inbounds nuw i32, ptr %132, i64 %147
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %147
   store i32 %145, ptr %149, align 4, !tbaa !48
   %150 = zext i32 %145 to i64
-  %151 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %150
   store i32 %.01520.i.i, ptr %151, align 4, !tbaa !48
   %152 = ashr i32 %142, 1
   %153 = icmp eq i32 %152, 0
@@ -18471,10 +18461,10 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit: ; preds = %148, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %137, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %143, %148 ], [ %147, %.lr.ph.i.i ]
   %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %142, %148 ], [ %.01520.i.i, %.lr.ph.i.i ]
-  %154 = getelementptr inbounds nuw i32, ptr %132, i64 %.pre-phi.i.i
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.pre-phi.i.i
   store i32 %139, ptr %154, align 4, !tbaa !48
   %155 = zext i32 %139 to i64
-  %156 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i3.i, i64 %155
   store i32 %.015.lcssa.i.i, ptr %156, align 4, !tbaa !48
   store i32 %20, ptr %11, align 8, !tbaa !248
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1652
@@ -18523,7 +18513,7 @@ _ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread.i: ; pre
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %19 = load ptr, ptr %18, align 8, !tbaa !47
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 0, ptr %21, align 4, !tbaa !48
   %22 = load i32, ptr %15, align 4, !tbaa !48
   %23 = add i32 %22, -1
@@ -18533,16 +18523,16 @@ _ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread.i: ; pre
 _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread.i
   %24 = add i32 %12, -1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !48
   store i32 %27, ptr %13, align 4, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %29 = load ptr, ptr %28, align 8, !tbaa !47
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 1, ptr %31, align 4, !tbaa !48
   %32 = zext i32 %14 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %32
   store i32 0, ptr %33, align 4, !tbaa !48
   %34 = load i32, ptr %15, align 4, !tbaa !48
   %35 = add i32 %34, -1
@@ -18561,16 +18551,16 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
 
 ._crit_edge39.i.i.i:                              ; preds = %.lr.ph.i.i.i
   %.pre.phi.trans.insert.i.i.i = zext i32 %38 to i64
-  %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i
+  %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre.phi.trans.insert.i.i.i
   %.pre36.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !48
   br label %49
 
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %6, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !48
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !48
   %48 = icmp ult i32 %44, %47
   %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %47)
@@ -18585,10 +18575,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
 
 53:                                               ; preds = %49
   %54 = zext i32 %.033.i.i.i to i64
-  %55 = getelementptr inbounds nuw i32, ptr %6, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %54
   store i32 %50, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %50 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %37, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %56
   store i32 %.033.i.i.i, ptr %57, align 4, !tbaa !48
   %58 = shl i32 %51, 1
   %.not.i.i.i = icmp slt i32 %58, %35
@@ -18602,10 +18592,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i.i
   %.pre-phi42.i.i.i = phi i64 [ %.pre41.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
   %.0.lcssa.i.i.i = phi i32 [ %.0.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre-phi42.i.i.i
   store i32 %36, ptr %59, align 4, !tbaa !48
   %60 = zext i32 %36 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %37, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %60
   store i32 %.0.lcssa.i.i.i, ptr %61, align 4, !tbaa !48
   br label %_ZN7simplex7simplexINS_7mpq_extEE19select_smallest_varEv.exit
 
@@ -18634,7 +18624,7 @@ _ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread.i2: ; pr
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %73 = load ptr, ptr %72, align 8, !tbaa !47
   %74 = zext i32 %68 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %74
   store i32 0, ptr %75, align 4, !tbaa !48
   %76 = load i32, ptr %69, align 4, !tbaa !48
   %77 = add i32 %76, -1
@@ -18644,16 +18634,16 @@ _ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread.i2: ; pr
 _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread.i2
   %78 = add i32 %66, -1
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !48
   store i32 %81, ptr %67, align 4, !tbaa !48
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %83 = load ptr, ptr %82, align 8, !tbaa !47
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 1, ptr %85, align 4, !tbaa !48
   %86 = zext i32 %68 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %86
   store i32 0, ptr %87, align 4, !tbaa !48
   %88 = load i32, ptr %69, align 4, !tbaa !48
   %89 = add i32 %88, -1
@@ -18672,16 +18662,16 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
 
 ._crit_edge39.i.i.i10:                            ; preds = %.lr.ph.i.i.i8
   %.pre.phi.trans.insert.i.i.i11 = zext i32 %92 to i64
-  %.phi.trans.insert.phi.trans.insert.i.i.i12 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i11
+  %.phi.trans.insert.phi.trans.insert.i.i.i12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre.phi.trans.insert.i.i.i11
   %.pre36.pre.i.i.i13 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i12, align 4, !tbaa !48
   br label %103
 
 95:                                               ; preds = %.lr.ph.i.i.i8
   %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %6, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !48
   %99 = zext i32 %92 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !48
   %102 = icmp ult i32 %98, %101
   %spec.select.i.i.i18 = tail call i32 @llvm.umin.i32(i32 %98, i32 %101)
@@ -18696,10 +18686,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
 
 107:                                              ; preds = %103
   %108 = zext i32 %.033.i.i.i9 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %6, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %108
   store i32 %104, ptr %109, align 4, !tbaa !48
   %110 = zext i32 %104 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %91, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %110
   store i32 %.033.i.i.i9, ptr %111, align 4, !tbaa !48
   %112 = shl i32 %105, 1
   %.not.i.i.i17 = icmp slt i32 %112, %89
@@ -18713,10 +18703,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i5: ; preds = %._crit_edge.loopexit.i.i.i14, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3
   %.pre-phi42.i.i.i6 = phi i64 [ %.pre41.i.i.i16, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
   %.0.lcssa.i.i.i7 = phi i32 [ %.0.lcssa.ph.i.i.i15, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
-  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i6
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre-phi42.i.i.i6
   store i32 %90, ptr %113, align 4, !tbaa !48
   %114 = zext i32 %90 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %91, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %114
   store i32 %.0.lcssa.i.i.i7, ptr %115, align 4, !tbaa !48
   br label %_ZN7simplex7simplexINS_7mpq_extEE19select_smallest_varEv.exit
 
@@ -18747,7 +18737,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %7
 
 _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !48
   %18 = and i32 %1, 31
   %19 = shl nuw i32 1, %18
@@ -18799,7 +18789,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i.i:                             ; preds = %32
   %34 = zext nneg i32 %.ph10 to i64
   %35 = zext nneg i32 %.0.i16.i.i.ph to i64
-  %36 = getelementptr i32, ptr %28, i64 %35
+  %36 = getelementptr [4 x i8], ptr %28, i64 %35
   %37 = sub nsw i64 %34, %35
   %38 = shl nsw i64 %37, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %38, i1 false), !tbaa !48
@@ -18810,7 +18800,7 @@ _ZN8uint_set6insertEj.exit:                       ; preds = %_ZNK8uint_set8conta
   %40 = and i32 %1, 31
   %41 = shl nuw i32 1, %40
   %42 = zext nneg i32 %9 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !48
   %45 = or i32 %44, %41
   store i32 %45, ptr %43, align 4, !tbaa !48
@@ -18855,7 +18845,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN7simplex7simplexINS_7mpq_extEE17ma
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %19 = load ptr, ptr %18, align 8, !tbaa !209
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [232 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 1073741824
   %.not.i = icmp eq i32 %23, 0
@@ -18869,7 +18859,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN7simplex7simplexINS_7mpq_extEE17ma
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit: ; preds = %24
   %.pre = load ptr, ptr %18, align 8, !tbaa !209
-  %28 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre, i64 %20
+  %28 = getelementptr inbounds nuw [232 x i8], ptr %.pre, i64 %20
   br i1 %27, label %29, label %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread_crit_edge
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit
@@ -18897,7 +18887,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i23, label %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit.thread, label %39
 
 39:                                               ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
-  %40 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %38, i64 %20
+  %40 = getelementptr inbounds nuw [232 x i8], ptr %38, i64 %20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %43 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %12, ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %41)
@@ -18908,7 +18898,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit: ; preds = %39
 
 44:                                               ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit
   %45 = load ptr, ptr %18, align 8, !tbaa !209
-  %46 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %45, i64 %20
+  %46 = getelementptr inbounds nuw [232 x i8], ptr %45, i64 %20
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 200
   %48 = load i32, ptr %47, align 8, !tbaa !3
   %49 = icmp slt i32 %48, 0
@@ -19070,7 +19060,7 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpq_extEE8minimizeEj
 33:                                               ; preds = %30
   %34 = load ptr, ptr %22, align 8, !tbaa !209
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [232 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %5, align 4, !tbaa !48
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %39, label %53
@@ -19201,13 +19191,13 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE19select_pivot_pri
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %13 = load ptr, ptr %12, align 8, !tbaa !209
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [232 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 536870911
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %19 = load ptr, ptr %18, align 8, !tbaa !210
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !211
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -19231,7 +19221,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %31 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %22, i64 %indvars.iv.next.i.i.i
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %indvars.iv.next.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !236
   %34 = icmp eq i32 %33, -1
@@ -19311,7 +19301,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   %62 = phi ptr [ %22, %.lr.ph ], [ %160, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %.sroa.077.0103 = phi i32 [ %.sroa.0.1.i90, %.lr.ph ], [ %.sroa.077.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %63 = zext i32 %.sroa.077.0103 to i64
-  %64 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8, !tbaa !236
   %67 = icmp eq i32 %66, %1
@@ -19321,7 +19311,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   %69 = load i32, ptr %64, align 8, !tbaa !3
   %70 = icmp sgt i32 %69, 0
   %71 = load ptr, ptr %12, align 8, !tbaa !209
-  %72 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %71, i64 %14
+  %72 = getelementptr inbounds nuw [232 x i8], ptr %71, i64 %14
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 200
   %74 = load i32, ptr %73, align 8, !tbaa !3
   %75 = icmp sgt i32 %74, 0
@@ -19329,7 +19319,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   %77 = xor i1 %76, true
   %78 = zext i1 %77 to i8
   %79 = zext i32 %66 to i64
-  %80 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %71, i64 %79
+  %80 = getelementptr inbounds nuw [232 x i8], ptr %71, i64 %79
   %81 = load i32, ptr %80, align 8
   br i1 %76, label %.critedge, label %82
 
@@ -19528,7 +19518,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %165 = zext i32 %159 to i64
-  %166 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %160, i64 %165
+  %166 = getelementptr inbounds nuw [40 x i8], ptr %160, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %168 = load i32, ptr %167, align 8, !tbaa !236
   %169 = icmp eq i32 %168, -1
@@ -19541,7 +19531,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i100, 1
-  %172 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %160, i64 %indvars.iv.next.i.i
+  %172 = getelementptr inbounds nuw [40 x i8], ptr %160, i64 %indvars.iv.next.i.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load i32, ptr %173, align 8, !tbaa !236
   %175 = icmp eq i32 %174, -1
@@ -19658,15 +19648,15 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE5pivotEjjRK3mpq(pt
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %12 = load ptr, ptr %11, align 8, !tbaa !209
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [232 x i8], ptr %12, i64 %13
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [232 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %14, align 8
   %18 = and i32 %17, 536870911
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %20 = load ptr, ptr %19, align 8, !tbaa !53
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %2, ptr %22, align 4, !tbaa !48
   %23 = load i32, ptr %16, align 8
   %24 = and i32 %23, -536870912
@@ -19726,7 +19716,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %44, %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %56 = load ptr, ptr %55, align 8, !tbaa !216, !noalias !275
-  %57 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %56, i64 %15
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %15
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !227, !noalias !275
@@ -19754,7 +19744,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %70 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %62, i64 %indvars.iv.next.i.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.next.i.i.i
   %71 = load i32, ptr %70, align 4, !tbaa !239, !noalias !275
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -19831,7 +19821,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9col_beginEi.exit: ; preds = %_ZN11mpq_m
   %.sroa.048.064 = phi i32 [ %.sroa.048.159, %.lr.ph ], [ %.sroa.048.3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %100 = zext i32 %.sroa.048.064 to i64
-  %101 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !239
   store i32 %102, ptr %7, align 4
   %.not = icmp eq i32 %102, %18
@@ -19840,12 +19830,12 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9col_beginEi.exit: ; preds = %_ZN11mpq_m
 103:                                              ; preds = %98
   %104 = load ptr, ptr %58, align 8, !tbaa !210
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !90
   %109 = load ptr, ptr %106, align 8, !tbaa !211
   %110 = zext i32 %108 to i64
-  %111 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %5, align 8, !tbaa !215
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %114 = load i8, ptr %113, align 4
@@ -19904,11 +19894,11 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEE3negEv.exit: ; preds = %_ZN15_scoped_nu
   %135 = load i32, ptr %7, align 4, !tbaa !249
   %136 = load ptr, ptr %19, align 8, !tbaa !53
   %137 = zext i32 %135 to i64
-  %138 = getelementptr inbounds nuw i32, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !48
   %140 = load ptr, ptr %11, align 8, !tbaa !209
   %141 = zext i32 %139 to i64
-  %142 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [232 x i8], ptr %140, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 200
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 216
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 220
@@ -19999,7 +19989,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %187 = zext i32 %181 to i64
-  %188 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %182, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !239
   %190 = icmp eq i32 %189, -1
   br i1 %190, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
@@ -20011,7 +20001,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i61, 1
-  %193 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %182, i64 %indvars.iv.next.i.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv.next.i.i
   %194 = load i32, ptr %193, align 4, !tbaa !239
   %195 = icmp eq i32 %194, -1
   br i1 %195, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -20120,7 +20110,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE13move_to_boundEjb
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %17 = load ptr, ptr %16, align 8, !tbaa !209
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [232 x i8], ptr %17, i64 %18
   %. = select i1 %2, i64 8, i64 136
   %.100 = select i1 %2, i64 72, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.
@@ -20136,7 +20126,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE13move_to_boundEjb
 24:                                               ; preds = %.invoke
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %26 = load ptr, ptr %25, align 8, !tbaa !216, !noalias !283
-  %27 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !227, !noalias !283
@@ -20169,7 +20159,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %41 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %32, i64 %indvars.iv.next.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.next.i.i.i
   %42 = load i32, ptr %41, align 4, !tbaa !239, !noalias !283
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -20213,22 +20203,22 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
 
 _Z6is_posRK15_scoped_numeralI15mpq_inf_managerILb0EEE.exit.thread: ; preds = %53, %49
   %57 = zext i32 %.sroa.062.085 to i64
-  %58 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !239
   %60 = load ptr, ptr %47, align 8, !tbaa !53
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = load ptr, ptr %16, align 8, !tbaa !209
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [232 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %28, align 8, !tbaa !210
-  %68 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %67, i64 %61
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %61
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !90
   %71 = load ptr, ptr %68, align 8, !tbaa !211
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 200
   %75 = load i32, ptr %73, align 8, !tbaa !3
   %76 = icmp sgt i32 %75, 0
@@ -20328,7 +20318,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %111 = zext i32 %105 to i64
-  %112 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %106, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !239
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
@@ -20340,7 +20330,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i82, 1
-  %117 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %106, i64 %indvars.iv.next.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.next.i.i
   %118 = load i32, ptr %117, align 4, !tbaa !239
   %119 = icmp eq i32 %118, -1
   br i1 %119, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -20455,7 +20445,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN7simp
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   ret ptr %7
 }
@@ -20482,7 +20472,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i: ;
   br i1 %15, label %16, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7displayERSo.exit
 
 16:                                               ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i
-  %17 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %11, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !230
   %20 = icmp eq i32 %19, 0
@@ -20532,7 +20522,7 @@ _ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit: ; pred
   ret void
 
 41:                                               ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit
-  %42 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %36, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [232 x i8], ptr %36, i64 %indvars.iv
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %indvars.iv)
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.1, i64 noundef 1)
@@ -20713,7 +20703,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE11display_rowERSoR
   %9 = load i32, ptr %2, align 4, !tbaa !249
   %10 = load ptr, ptr %8, align 8, !tbaa !210
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !211
   %14 = icmp eq ptr %13, null
   br i1 %14, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -20737,7 +20727,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %22 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %13, i64 %indvars.iv.next.i.i.i
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv.next.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !236
   %25 = icmp eq i32 %24, -1
@@ -20774,23 +20764,23 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %36 = phi ptr [ %93, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.us ], [ %13, %.lr.ph ]
   %.sroa.044.066.us = phi i32 [ %.sroa.044.2.us, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.us ], [ %.sroa.0.1.i57, %.lr.ph ]
   %37 = zext i32 %.sroa.044.066.us to i64
-  %38 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %36, i64 %37
   call void @_ZNK11mpq_managerILb0EE7displayERSoRK3mpq(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %38)
   %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 2)
   %40 = load ptr, ptr %12, align 8, !tbaa !211
-  %41 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %40, i64 %37
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %37
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load i32, ptr %42, align 8, !tbaa !236
   %44 = zext i32 %43 to i64
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %44)
   %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.1, i64 noundef 1)
   %47 = load ptr, ptr %12, align 8, !tbaa !211
-  %48 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %47, i64 %37
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %37
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load i32, ptr %49, align 8, !tbaa !236
   %51 = load ptr, ptr %28, align 8, !tbaa !209
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [232 x i8], ptr %51, i64 %52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN15mpq_inf_managerILb0EE9to_stringB5cxx11ERKSt4pairI3mpqS2_E(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(736) %29, ptr noundef nonnull align 8 dereferenceable(64) %54)
@@ -20895,7 +20885,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.us:
 
 .lr.ph.preheader.i.i.us:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.us
   %98 = zext i32 %92 to i64
-  %99 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %93, i64 %98
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %93, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %101 = load i32, ptr %100, align 8, !tbaa !236
   %102 = icmp eq i32 %101, -1
@@ -20903,7 +20893,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.us:
 
 .lr.ph.i.i.us:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i63.us, 1
-  %103 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %93, i64 %indvars.iv.next.i.i.us
+  %103 = getelementptr inbounds nuw [40 x i8], ptr %93, i64 %indvars.iv.next.i.i.us
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load i32, ptr %104, align 8, !tbaa !236
   %106 = icmp eq i32 %105, -1
@@ -20953,11 +20943,11 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.us:
   %119 = phi ptr [ %131, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ], [ %13, %.lr.ph ]
   %.sroa.044.066 = phi i32 [ %.sroa.044.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ], [ %.sroa.0.1.i57, %.lr.ph ]
   %120 = zext i32 %.sroa.044.066 to i64
-  %121 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [40 x i8], ptr %119, i64 %120
   tail call void @_ZNK11mpq_managerILb0EE7displayERSoRK3mpq(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %121)
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 2)
   %123 = load ptr, ptr %12, align 8, !tbaa !211
-  %124 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %123, i64 %120
+  %124 = getelementptr inbounds nuw [40 x i8], ptr %123, i64 %120
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %126 = load i32, ptr %125, align 8, !tbaa !236
   %127 = zext i32 %126 to i64
@@ -21010,7 +21000,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %143 = zext i32 %130 to i64
-  %144 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %131, i64 %143
+  %144 = getelementptr inbounds nuw [40 x i8], ptr %131, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %146 = load i32, ptr %145, align 8, !tbaa !236
   %147 = icmp eq i32 %146, -1
@@ -21023,7 +21013,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i63, 1
-  %150 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %131, i64 %indvars.iv.next.i.i
+  %150 = getelementptr inbounds nuw [40 x i8], ptr %131, i64 %indvars.iv.next.i.i
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %152 = load i32, ptr %151, align 8, !tbaa !236
   %153 = icmp eq i32 %152, -1
@@ -21073,7 +21063,7 @@ define weak_odr hidden { i32, ptr } @_ZN7simplex7simplexINS_7mpq_extEE9row_begin
   %4 = load i32, ptr %1, align 4, !tbaa !249
   %5 = load ptr, ptr %3, align 8, !tbaa !210
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !211
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -21097,7 +21087,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %17 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %8, i64 %indvars.iv.next.i.i.i
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load i32, ptr %18, align 8, !tbaa !236
   %20 = icmp eq i32 %19, -1
@@ -21125,7 +21115,7 @@ define weak_odr hidden { i32, ptr } @_ZN7simplex7simplexINS_7mpq_extEE7row_endER
   %4 = load i32, ptr %1, align 4, !tbaa !249
   %5 = load ptr, ptr %3, align 8, !tbaa !210
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !211
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit, label %10
@@ -21164,7 +21154,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3delENS
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !210
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !211
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit.lr.ph
@@ -21210,14 +21200,14 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %20, %26
   %28 = phi ptr [ %.pre.i, %26 ], [ %18, %20 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 -4
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %30
   store i32 %1, ptr %31, align 4, !tbaa !48
   %32 = add i32 %27, 1
   store i32 %32, ptr %29, align 4, !tbaa !48
   ret void
 
 33:                                               ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit
-  %34 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %12, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !236
   %37 = icmp eq i32 %36, -1
@@ -21236,10 +21226,10 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %20, %26
   store i32 %44, ptr %9, align 4, !tbaa !232
   %45 = load ptr, ptr %11, align 8, !tbaa !216
   %46 = zext i32 %36 to i64
-  %47 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !217
   %49 = zext i32 %40 to i64
-  %50 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   store i32 -1, ptr %50, align 4, !tbaa !239
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %52 = load i32, ptr %51, align 4, !tbaa !226
@@ -21273,7 +21263,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i: ; pred
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %87 ]
   %.01516.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.1.i.i.i, %87 ]
   %66 = load ptr, ptr %47, align 8, !tbaa !217
-  %67 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %66, i64 %indvars.iv.i.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i.i.i
   %68 = load i32, ptr %67, align 4, !tbaa !239
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %87, label %70
@@ -21284,18 +21274,18 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i: ; pred
   br i1 %.not.i.i.i, label %85, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %66, i64 %71
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %71
   %74 = load i64, ptr %67, align 4
   store i64 %74, ptr %73, align 4
   %75 = load i32, ptr %67, align 4, !tbaa !239
   %76 = load ptr, ptr %3, align 8, !tbaa !210
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !90
   %81 = load ptr, ptr %78, align 8, !tbaa !211
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 36
   store i32 %.01516.i.i.i, ptr %84, align 4, !tbaa !90
   br label %85
@@ -21370,7 +21360,7 @@ _ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread: ; preds
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %15 = load ptr, ptr %14, align 8, !tbaa !47
   %16 = zext i32 %10 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 0, ptr %17, align 4, !tbaa !48
   %18 = load i32, ptr %11, align 4, !tbaa !48
   %19 = add i32 %18, -1
@@ -21380,16 +21370,16 @@ _ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread: ; preds
 _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE5emptyEv.exit.thread
   %20 = add i32 %8, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !48
   store i32 %23, ptr %9, align 4, !tbaa !48
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %25 = load ptr, ptr %24, align 8, !tbaa !47
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 1, ptr %27, align 4, !tbaa !48
   %28 = zext i32 %10 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %28
   store i32 0, ptr %29, align 4, !tbaa !48
   %30 = load i32, ptr %11, align 4, !tbaa !48
   %31 = add i32 %30, -1
@@ -21408,16 +21398,16 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
 
 ._crit_edge39.i.i:                                ; preds = %.lr.ph.i.i
   %.pre.phi.trans.insert.i.i = zext i32 %34 to i64
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %.pre.phi.trans.insert.i.i
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.pre.phi.trans.insert.i.i
   %.pre36.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !48
   br label %45
 
 37:                                               ; preds = %.lr.ph.i.i
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !48
   %41 = zext i32 %34 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !48
   %44 = icmp ult i32 %40, %43
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %43)
@@ -21432,10 +21422,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
 
 49:                                               ; preds = %45
   %50 = zext i32 %.033.i.i to i64
-  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %50
   store i32 %46, ptr %51, align 4, !tbaa !48
   %52 = zext i32 %46 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %33, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %52
   store i32 %.033.i.i, ptr %53, align 4, !tbaa !48
   %54 = shl i32 %47, 1
   %.not.i.i = icmp slt i32 %54, %31
@@ -21449,10 +21439,10 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
   %.pre-phi42.i.i = phi i64 [ %.pre41.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %.0.lcssa.i.i = phi i32 [ %.0.lcssa.ph.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi42.i.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.pre-phi42.i.i
   store i32 %32, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %32 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %33, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %56
   store i32 %.0.lcssa.i.i, ptr %57, align 4, !tbaa !48
   br label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9erase_minEv.exit
 
@@ -21516,7 +21506,7 @@ _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE3endEv.exit: ; preds = %2
   %26 = load i32, ptr %.02442.us, align 4, !tbaa !48
   %27 = load ptr, ptr %25, align 8, !tbaa !209
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [232 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 1073741824
   %.not.i.us = icmp eq i32 %31, 0
@@ -21533,7 +21523,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.us: ; preds = %32
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.us._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread.us_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.us
   %.pre46 = load ptr, ptr %25, align 8, !tbaa !209
-  %.phi.trans.insert47 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre46, i64 %28
+  %.phi.trans.insert47 = getelementptr inbounds nuw [232 x i8], ptr %.pre46, i64 %28
   %.pre48 = load i32, ptr %.phi.trans.insert47, align 8
   br label %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread.us
 
@@ -21544,7 +21534,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread.us: ; preds = %_ZN
   br i1 %.not.i27.us, label %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit.us, label %38
 
 38:                                               ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread.us
-  %39 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %37, i64 %28
+  %39 = getelementptr inbounds nuw [232 x i8], ptr %37, i64 %28
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %42 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %40)
@@ -21598,7 +21588,7 @@ _ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit.us: ; preds = %52, %_
   %55 = load i32, ptr %.02442, align 4, !tbaa !48
   %56 = load ptr, ptr %25, align 8, !tbaa !209
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [232 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1073741824
   %.not.i = icmp eq i32 %60, 0
@@ -21615,7 +21605,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit: ; preds = %61
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %25, align 8, !tbaa !209
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre, i64 %57
+  %.phi.trans.insert = getelementptr inbounds nuw [232 x i8], ptr %.pre, i64 %57
   %.pre45 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
 
@@ -21636,7 +21626,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i27, label %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit, label %70
 
 70:                                               ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
-  %71 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %69, i64 %57
+  %71 = getelementptr inbounds nuw [232 x i8], ptr %69, i64 %57
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 136
   %74 = invoke noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(64) %73, ptr noundef nonnull align 8 dereferenceable(64) %72)
@@ -21738,7 +21728,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i.i:         ; preds = %.noexc32, %102
   %108 = phi ptr [ %.pre.i.i.i, %.noexc32 ], [ %101, %102 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 -4
   %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %110
   store i32 -1, ptr %111, align 4, !tbaa !48
   %112 = add i32 %107, 1
   store i32 %112, ptr %109, align 4, !tbaa !48
@@ -21818,7 +21808,7 @@ define linkonce_odr hidden void @_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_l
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !48
   %8 = load ptr, ptr %0, align 8, !tbaa !47
   %9 = icmp eq ptr %8, null
@@ -21849,13 +21839,13 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread:           ; preds = %2
 
 _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit, %19
   %.0.i.i = phi i64 [ %20, %19 ], [ 4294967295, %_ZNK6vectorIiLb0EjE4sizeEv.exit ]
-  %21 = getelementptr inbounds nuw i32, ptr %8, i64 %.0.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.0.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = zext i32 %7 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %8, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %23
   store i32 %22, ptr %24, align 4, !tbaa !48
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %25
   store i32 %7, ptr %26, align 4, !tbaa !48
   store i32 0, ptr %6, align 4, !tbaa !48
   %27 = getelementptr inbounds i8, ptr %8, i64 -4
@@ -21868,7 +21858,7 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
 
 31:                                               ; preds = %_ZN6vectorIiLb0EjE4backEv.exit
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !48
   %35 = icmp ult i32 %22, %34
   br i1 %35, label %36, label %53
@@ -21882,17 +21872,17 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
   %38 = phi i32 [ %48, %44 ], [ %30, %36 ]
   %.01520.i = phi i32 [ %38, %44 ], [ %7, %36 ]
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = icmp ult i32 %37, %41
   %43 = zext i32 %.01520.i to i64
   br i1 %42, label %44, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds nuw i32, ptr %8, i64 %43
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %43
   store i32 %41, ptr %45, align 4, !tbaa !48
   %46 = zext i32 %41 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %46
   store i32 %.01520.i, ptr %47, align 4, !tbaa !48
   %48 = ashr i32 %38, 1
   %49 = icmp eq i32 %48, 0
@@ -21901,10 +21891,10 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit: ; preds = %44, %.lr.ph.i
   %.pre-phi.i = phi i64 [ %43, %.lr.ph.i ], [ %39, %44 ]
   %.015.lcssa.i = phi i32 [ %.01520.i, %.lr.ph.i ], [ %38, %44 ]
-  %50 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.pre-phi.i
   store i32 %37, ptr %50, align 4, !tbaa !48
   %51 = zext i32 %37 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %51
   store i32 %.015.lcssa.i, ptr %52, align 4, !tbaa !48
   br label %81
 
@@ -21924,16 +21914,16 @@ _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 
 ._crit_edge39.i:                                  ; preds = %.lr.ph.i14
   %.pre.phi.trans.insert.i = zext i32 %57 to i64
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.phi.trans.insert.i
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.pre.phi.trans.insert.i
   %.pre36.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !48
   br label %68
 
 60:                                               ; preds = %.lr.ph.i14
   %61 = zext i32 %58 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %8, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = zext i32 %57 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %8, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !48
   %67 = icmp ult i32 %63, %66
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %63, i32 %66)
@@ -21948,10 +21938,10 @@ _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 
 72:                                               ; preds = %68
   %73 = zext i32 %.033.i to i64
-  %74 = getelementptr inbounds nuw i32, ptr %8, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %73
   store i32 %69, ptr %74, align 4, !tbaa !48
   %75 = zext i32 %69 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %56, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %75
   store i32 %.033.i, ptr %76, align 4, !tbaa !48
   %77 = shl i32 %70, 1
   %.not.i = icmp slt i32 %77, %29
@@ -21965,10 +21955,10 @@ _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit: ; preds = %53, %._crit_edge.loopexit.i
   %.pre-phi42.i = phi i64 [ %.pre41.i, %._crit_edge.loopexit.i ], [ %23, %53 ]
   %.0.lcssa.i = phi i32 [ %.0.lcssa.ph.i, %._crit_edge.loopexit.i ], [ %7, %53 ]
-  %78 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi42.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.pre-phi42.i
   store i32 %54, ptr %78, align 4, !tbaa !48
   %79 = zext i32 %54 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %56, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %79
   store i32 %.0.lcssa.i, ptr %80, align 4, !tbaa !48
   br label %81
 
@@ -22001,7 +21991,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE17update_value_cor
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %5 = load ptr, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 736
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %8)
@@ -22009,7 +21999,7 @@ define weak_odr hidden void @_ZN7simplex7simplexINS_7mpq_extEE17update_value_cor
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @_ZN11mpq_managerILb0EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(736) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %12 = load ptr, ptr %4, align 8, !tbaa !209
-  %13 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [232 x i8], ptr %12, i64 %6
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 536870912
   %.not = icmp eq i32 %15, 0
@@ -22039,7 +22029,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpq_extEE13gcd_n
   %11 = load i32, ptr %1, align 4, !tbaa !249
   %12 = load ptr, ptr %10, align 8, !tbaa !210
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !211
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.critedge, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -22063,7 +22053,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %24 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %15, i64 %indvars.iv.next.i.i.i
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %indvars.iv.next.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !236
   %27 = icmp eq i32 %26, -1
@@ -22110,7 +22100,7 @@ _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit:        ; preds = %30
 
 _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.thread: ; preds = %30, %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit
   %44 = zext i32 %.sroa.052.071 to i64
-  %45 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %31, i64 %44
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %48 = load i8, ptr %47, align 4
@@ -22196,7 +22186,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %87 = zext i32 %81 to i64
-  %88 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %82, i64 %87
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %82, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load i32, ptr %89, align 8, !tbaa !236
   %91 = icmp eq i32 %90, -1
@@ -22209,7 +22199,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i68, 1
-  %94 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %82, i64 %indvars.iv.next.i.i
+  %94 = getelementptr inbounds nuw [40 x i8], ptr %82, i64 %indvars.iv.next.i.i
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load i32, ptr %95, align 8, !tbaa !236
   %97 = icmp eq i32 %96, -1
@@ -22269,7 +22259,7 @@ _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit21.thread: ; preds = %106, %_ZN11mpq_ma
   %117 = load i32, ptr %1, align 4, !tbaa !249
   %118 = load ptr, ptr %10, align 8, !tbaa !210
   %119 = zext i32 %117 to i64
-  %120 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !211
   %122 = icmp eq ptr %121, null
   br i1 %122, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit35, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i22
@@ -22293,7 +22283,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i28
 
 .lr.ph.i.i.i32:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i29
   %indvars.iv.next.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i2.i30, 1
-  %130 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %121, i64 %indvars.iv.next.i.i.i33
+  %130 = getelementptr inbounds nuw [40 x i8], ptr %121, i64 %indvars.iv.next.i.i.i33
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load i32, ptr %131, align 8, !tbaa !236
   %133 = icmp eq i32 %132, -1
@@ -22318,7 +22308,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit35: ; preds =
   %.sroa.0.076 = phi i32 [ %.sroa.0.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit42 ], [ %.sroa.0.1.i25, %_ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit35 ]
   %136 = load ptr, ptr %0, align 8, !tbaa !214
   %137 = zext i32 %.sroa.0.076 to i64
-  %138 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [40 x i8], ptr %135, i64 %137
   tail call void @_ZN11mpq_managerILb0EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %136, ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %138)
   %139 = add i32 %.sroa.0.076, 1
   %140 = load ptr, ptr %120, align 8, !tbaa !211
@@ -22333,7 +22323,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i36: 
 
 .lr.ph.preheader.i.i37:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i36
   %145 = zext i32 %139 to i64
-  %146 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %140, i64 %145
+  %146 = getelementptr inbounds nuw [40 x i8], ptr %140, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load i32, ptr %147, align 8, !tbaa !236
   %149 = icmp eq i32 %148, -1
@@ -22346,7 +22336,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i40.lr.ph: 
 
 .lr.ph.i.i38:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i40
   %indvars.iv.next.i.i41 = add nuw nsw i64 %indvars.iv.i.i3972, 1
-  %152 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %140, i64 %indvars.iv.next.i.i41
+  %152 = getelementptr inbounds nuw [40 x i8], ptr %140, i64 %indvars.iv.next.i.i41
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load i32, ptr %153, align 8, !tbaa !236
   %155 = icmp eq i32 %154, -1
@@ -22385,13 +22375,13 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpq_extEE19select_pi
 _ZNK7simplex7simplexINS_7mpq_extEE12get_num_varsEv.exit: ; preds = %4, %8
   %.0.i.i = phi i32 [ %10, %8 ], [ 0, %4 ]
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [232 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 536870911
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %16 = load ptr, ptr %15, align 8, !tbaa !210
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !211
   %20 = icmp eq ptr %19, null
   br i1 %20, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -22415,7 +22405,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %19, i64 %indvars.iv.next.i.i.i
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %indvars.iv.next.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 8, !tbaa !236
   %31 = icmp eq i32 %30, -1
@@ -22449,7 +22439,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.044 = phi i32 [ %.0.i.i, %.lr.ph ], [ %.1, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %.sroa.024.043 = phi i32 [ %.sroa.0.1.i37, %.lr.ph ], [ %.sroa.024.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %40 = zext i32 %.sroa.024.043 to i64
-  %41 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load i32, ptr %42, align 8, !tbaa !236
   %.not = icmp eq i32 %1, %43
@@ -22462,7 +22452,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %48 = select i1 %2, i1 %46, i1 %47
   %49 = load ptr, ptr %5, align 8, !tbaa !209
   %50 = zext i32 %43 to i64
-  %51 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [232 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 8
   br i1 %48, label %.critedge, label %53
 
@@ -22554,7 +22544,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %91 = zext i32 %85 to i64
-  %92 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %86, i64 %91
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %86, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load i32, ptr %93, align 8, !tbaa !236
   %95 = icmp eq i32 %94, -1
@@ -22567,7 +22557,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i40, 1
-  %98 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %86, i64 %indvars.iv.next.i.i
+  %98 = getelementptr inbounds nuw [40 x i8], ptr %86, i64 %indvars.iv.next.i.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load i32, ptr %99, align 8, !tbaa !236
   %101 = icmp eq i32 %100, -1
@@ -22609,13 +22599,13 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpq_extEE17select_pi
 _ZNK7simplex7simplexINS_7mpq_extEE12get_num_varsEv.exit: ; preds = %4, %8
   %.0.i.i = phi i32 [ %10, %8 ], [ 0, %4 ]
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [232 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 536870911
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %16 = load ptr, ptr %15, align 8, !tbaa !210
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !211
   %20 = icmp eq ptr %19, null
   br i1 %20, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -22639,7 +22629,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %19, i64 %indvars.iv.next.i.i.i
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %indvars.iv.next.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 8, !tbaa !236
   %31 = icmp eq i32 %30, -1
@@ -22679,7 +22669,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.04786 = phi i32 [ 2147483647, %.lr.ph ], [ %.148, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %.sroa.064.085 = phi i32 [ %.sroa.0.1.i77, %.lr.ph ], [ %.sroa.064.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %43 = zext i32 %.sroa.064.085 to i64
-  %44 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8, !tbaa !236
   %47 = icmp eq i32 %1, %46
@@ -22700,7 +22690,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
 54:                                               ; preds = %50, %52
   %55 = load ptr, ptr %5, align 8, !tbaa !209
   %56 = zext i32 %46 to i64
-  %57 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [232 x i8], ptr %55, i64 %56
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1073741824
   %.not.i = icmp eq i32 %59, 0
@@ -22715,7 +22705,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
 .critedge:                                        ; preds = %50, %52
   %64 = load ptr, ptr %5, align 8, !tbaa !209
   %65 = zext i32 %46 to i64
-  %66 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [232 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 8
   %.not.i56 = icmp sgt i32 %67, -1
   br i1 %.not.i56, label %_ZNK7simplex7simplexINS_7mpq_extEE11above_lowerEj.exit.thread, label %_ZNK7simplex7simplexINS_7mpq_extEE11above_lowerEj.exit
@@ -22729,12 +22719,12 @@ _ZNK7simplex7simplexINS_7mpq_extEE11above_lowerEj.exit: ; preds = %.critedge
 _ZNK7simplex7simplexINS_7mpq_extEE11above_lowerEj.exit.thread: ; preds = %.critedge, %54, %60, %_ZNK7simplex7simplexINS_7mpq_extEE11above_lowerEj.exit
   %.pre-phi = phi i64 [ %65, %.critedge ], [ %56, %54 ], [ %56, %60 ], [ %65, %_ZNK7simplex7simplexINS_7mpq_extEE11above_lowerEj.exit ]
   %71 = load ptr, ptr %5, align 8, !tbaa !209
-  %72 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %71, i64 %.pre-phi
+  %72 = getelementptr inbounds nuw [232 x i8], ptr %71, i64 %.pre-phi
   %73 = load i32, ptr %72, align 8
   %spec.select.i.i.i = icmp ugt i32 %73, 1073741823
   %74 = zext i1 %spec.select.i.i.i to i32
   %75 = load ptr, ptr %34, align 8, !tbaa !216, !noalias !299
-  %76 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %75, i64 %.pre-phi
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %.pre-phi
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 8, !tbaa !227, !noalias !299
   %79 = add i32 %78, 1
@@ -22761,7 +22751,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i.i, 1
-  %88 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %80, i64 %indvars.iv.next.i.i.i.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.next.i.i.i.i
   %89 = load i32, ptr %88, align 4, !tbaa !239, !noalias !299
   %90 = icmp eq i32 %89, -1
   br i1 %90, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i.i
@@ -22793,13 +22783,13 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit.i: ; preds = %_ZNK7simpl
   %.02045.i = phi i32 [ %74, %.lr.ph.i ], [ %108, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.i ]
   %.sroa.030.044.i = phi i32 [ %.sroa.030.1.ph.i, %.lr.ph.i ], [ %.sroa.030.3.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.i ]
   %98 = zext i32 %.sroa.030.044.i to i64
-  %99 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %80, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !239
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %94, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !48
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %71, i64 %104
+  %105 = getelementptr inbounds nuw [232 x i8], ptr %71, i64 %104
   %106 = load i32, ptr %105, align 8
   %spec.select.i.i26.i = icmp ugt i32 %106, 1073741823
   %107 = zext i1 %spec.select.i.i26.i to i32
@@ -22814,14 +22804,14 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i.i
   %111 = zext i32 %109 to i64
-  %112 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %80, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !239
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.i
 
 .lr.ph.i.i.i59:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i60 = add nuw nsw i64 %indvars.iv.i.i41.i, 1
-  %115 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %80, i64 %indvars.iv.next.i.i.i60
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.next.i.i.i60
   %116 = load i32, ptr %115, align 4, !tbaa !239
   %117 = icmp eq i32 %116, -1
   br i1 %117, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit.i
@@ -22844,7 +22834,7 @@ _ZN7simplex7simplexINS_7mpq_extEE25get_num_non_free_dep_varsEji.exit: ; preds = 
   %.2.i = phi i32 [ %74, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit.i ], [ %74, %_ZNK7simplex7simplexINS_7mpq_extEE11above_lowerEj.exit.thread ], [ %108, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i ], [ %108, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.i ], [ %108, %97 ]
   store i32 %78, ptr %77, align 8, !tbaa !227
   %119 = load ptr, ptr %34, align 8, !tbaa !216
-  %120 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %119, i64 %.pre-phi
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %.pre-phi
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load i32, ptr %121, align 8, !tbaa !223
   %123 = icmp slt i32 %.2.i, %.04786
@@ -22971,7 +22961,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %186 = zext i32 %180 to i64
-  %187 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %181, i64 %186
+  %187 = getelementptr inbounds nuw [40 x i8], ptr %181, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 32
   %189 = load i32, ptr %188, align 8, !tbaa !236
   %190 = icmp eq i32 %189, -1
@@ -22984,7 +22974,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i82, 1
-  %193 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %181, i64 %indvars.iv.next.i.i
+  %193 = getelementptr inbounds nuw [40 x i8], ptr %181, i64 %indvars.iv.next.i.i
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %195 = load i32, ptr %194, align 8, !tbaa !236
   %196 = icmp eq i32 %195, -1
@@ -23016,7 +23006,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not = icmp eq i32 %8, 0
@@ -23039,7 +23029,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %13, label %8
@@ -23061,13 +23051,13 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpq_extEE25get_num_n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %5 = load ptr, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %spec.select.i.i = icmp ugt i32 %8, 1073741823
   %9 = zext i1 %spec.select.i.i to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %11 = load ptr, ptr %10, align 8, !tbaa !216, !noalias !308
-  %12 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %11, i64 %6
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %6
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !227, !noalias !308
   %15 = add i32 %14, 1
@@ -23094,7 +23084,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %24 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %16, i64 %indvars.iv.next.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next.i.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !239, !noalias !308
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -23126,13 +23116,13 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %.02045 = phi i32 [ %9, %.lr.ph ], [ %44, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   %.sroa.030.044 = phi i32 [ %.sroa.030.1.ph, %.lr.ph ], [ %.sroa.030.3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   %34 = zext i32 %.sroa.030.044 to i64
-  %35 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %16, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !239
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !48
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %5, i64 %40
+  %41 = getelementptr inbounds nuw [232 x i8], ptr %5, i64 %40
   %42 = load i32, ptr %41, align 8
   %spec.select.i.i26 = icmp ugt i32 %42, 1073741823
   %43 = zext i1 %spec.select.i.i26 to i32
@@ -23148,7 +23138,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %16, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !239
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
@@ -23160,7 +23150,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i41, 1
-  %54 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %16, i64 %indvars.iv.next.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !239
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -23190,7 +23180,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE11i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %spec.select.i = icmp ugt i32 %7, 1073741823
   ret i1 %spec.select.i
@@ -23234,7 +23224,7 @@ define weak_odr hidden noundef i32 @_ZN7simplex7simplexINS_7mpq_extEE17pick_var_
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %26 = load ptr, ptr %25, align 8, !tbaa !216, !noalias !316
   %27 = zext i32 %1 to i64
-  %28 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !227, !noalias !316
@@ -23267,7 +23257,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %42 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %33, i64 %indvars.iv.next.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.next.i.i.i
   %43 = load i32, ptr %42, align 4, !tbaa !239, !noalias !316
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i
@@ -23305,22 +23295,22 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7col_endEi.exit: ; preds = %_ZNK7simplex
   %.082 = phi i32 [ -1, %.lr.ph ], [ %.1, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   %.sroa.058.081 = phi i32 [ %.sroa.058.168, %.lr.ph ], [ %.sroa.058.3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   %57 = zext i32 %.sroa.058.081 to i64
-  %58 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !239
   %60 = load ptr, ptr %47, align 8, !tbaa !53
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = load ptr, ptr %48, align 8, !tbaa !209
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [232 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %29, align 8, !tbaa !210
-  %68 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %67, i64 %61
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %61
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !90
   %71 = load ptr, ptr %68, align 8, !tbaa !211
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 200
   %75 = load i32, ptr %74, align 8, !tbaa !3
   %76 = icmp sgt i32 %75, 0
@@ -23495,7 +23485,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %150 = zext i32 %144 to i64
-  %151 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %145, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !239
   %153 = icmp eq i32 %152, -1
   br i1 %153, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
@@ -23507,7 +23497,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i78, 1
-  %156 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %145, i64 %indvars.iv.next.i.i
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv.next.i.i
   %157 = load i32, ptr %156, align 4, !tbaa !239
   %158 = icmp eq i32 %157, -1
   br i1 %158, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -23570,7 +23560,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE8at
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %13, label %8
@@ -23592,7 +23582,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE8at
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not = icmp eq i32 %8, 0
@@ -23615,7 +23605,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE14o
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1073741824
   %.not.i = icmp eq i32 %8, 0
@@ -23630,7 +23620,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit: ; preds = %2
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %3, align 8, !tbaa !209
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre, i64 %5
+  %.phi.trans.insert = getelementptr inbounds nuw [232 x i8], ptr %.pre, i64 %5
   %.pre3 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
 
@@ -23641,7 +23631,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i2, label %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit, label %15
 
 15:                                               ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
-  %16 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %14, i64 %5
+  %16 = getelementptr inbounds nuw [232 x i8], ptr %14, i64 %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 136
@@ -23658,7 +23648,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE7is
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [232 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %spec.select = icmp ult i32 %7, 1073741824
   ret i1 %spec.select
@@ -23682,7 +23672,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %1, %19
   br i1 %10, label %11, label %.critedge10
 
 11:                                               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !48
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %19, label %15
@@ -23721,7 +23711,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK7simplex7simplexINS_7mpq_extEE15w
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %11 = load ptr, ptr %10, align 8, !tbaa !210
-  %12 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %8
   %13 = load ptr, ptr %12, align 8, !tbaa !211
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -23745,7 +23735,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %22 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %13, i64 %indvars.iv.next.i.i.i
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv.next.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !236
   %25 = icmp eq i32 %24, -1
@@ -23805,12 +23795,12 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %43 = phi ptr [ %13, %.lr.ph ], [ %55, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %.sroa.025.043 = phi i32 [ %.sroa.0.1.i36, %.lr.ph ], [ %.sroa.025.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
   %44 = zext i32 %.sroa.025.043 to i64
-  %45 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 8, !tbaa !236
   %48 = load ptr, ptr %39, align 8, !tbaa !209
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [232 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   invoke void @_ZN15mpq_inf_managerILb0EE3mulERKSt4pairI3mpqS2_ERKS2_RS3_(ptr noundef nonnull align 8 dereferenceable(736) %27, ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(64) %33)
           to label %52 unwind label %.loopexit
@@ -23838,7 +23828,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %60 = zext i32 %54 to i64
-  %61 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %55, i64 %60
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i32, ptr %62, align 8, !tbaa !236
   %64 = icmp eq i32 %63, -1
@@ -23851,7 +23841,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i40, 1
-  %67 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %55, i64 %indvars.iv.next.i.i
+  %67 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %indvars.iv.next.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load i32, ptr %68, align 8, !tbaa !236
   %70 = icmp eq i32 %69, -1
@@ -24069,7 +24059,7 @@ define linkonce_odr hidden void @_ZN7simplex13sparse_matrixINS_7mpq_extEE11displ
   %5 = load i32, ptr %2, align 4, !tbaa !249
   %6 = load ptr, ptr %4, align 8, !tbaa !210
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !211
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
@@ -24093,7 +24083,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %18 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %9, i64 %indvars.iv.next.i.i.i
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv.next.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !236
   %21 = icmp eq i32 %20, -1
@@ -24119,11 +24109,11 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.sroa.09.024 = phi i32 [ %.sroa.09.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ], [ %.sroa.0.1.i20, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit ]
   %24 = load ptr, ptr %0, align 8, !tbaa !214
   %25 = zext i32 %.sroa.09.024 to i64
-  %26 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %25
   tail call void @_ZNK11mpq_managerILb0EE7displayERSoRK3mpq(ptr noundef nonnull align 8 dereferenceable(728) %24, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %26)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 2)
   %28 = load ptr, ptr %8, align 8, !tbaa !211
-  %29 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %25
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8, !tbaa !236
   %32 = zext i32 %31 to i64
@@ -24142,7 +24132,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %41 = zext i32 %35 to i64
-  %42 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %36, i64 %41
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %36, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 8, !tbaa !236
   %45 = icmp eq i32 %44, -1
@@ -24155,7 +24145,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i21, 1
-  %48 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %36, i64 %indvars.iv.next.i.i
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %36, i64 %indvars.iv.next.i.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load i32, ptr %49, align 8, !tbaa !236
   %51 = icmp eq i32 %50, -1
@@ -24198,7 +24188,7 @@ _ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit: ; pred
   br i1 %10, label %11, label %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit.thread
 
 11:                                               ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit
-  %12 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %6, i64 %indvars.iv13
+  %12 = getelementptr inbounds nuw [232 x i8], ptr %6, i64 %indvars.iv13
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1073741824
   %.not.i = icmp eq i32 %14, 0
@@ -24212,7 +24202,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit: ; preds = %11
 
 _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit._ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread_crit_edge: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit
   %.pre = load ptr, ptr %2, align 8, !tbaa !209
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre, i64 %indvars.iv13
+  %.phi.trans.insert = getelementptr inbounds nuw [232 x i8], ptr %.pre, i64 %indvars.iv13
   %.pre10 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
 
@@ -24223,7 +24213,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread: ; preds = %_ZNK7s
   br i1 %.not.i8, label %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit.thread, label %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit
 
 _ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit: ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit.thread
-  %20 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %19, i64 %indvars.iv13
+  %20 = getelementptr inbounds nuw [232 x i8], ptr %19, i64 %indvars.iv13
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %23 = tail call noundef zeroext i1 @_ZN15mpq_inf_managerILb0EE2ltERKSt4pairI3mpqS2_ES5_(ptr noundef nonnull align 8 dereferenceable(736) %3, ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %21)
@@ -24350,7 +24340,7 @@ _ZNK7simplex7simplexINS_7mpq_extEE12get_num_varsEv.exit: ; preds = %_ZNK7simplex
           to label %313 unwind label %388
 
 73:                                               ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE12get_num_varsEv.exit
-  %74 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %68, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [232 x i8], ptr %68, i64 %indvars.iv
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -24491,7 +24481,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 130:                                              ; preds = %.noexc.i90
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %131 = load ptr, ptr %26, align 8, !tbaa !209
-  %132 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [232 x i8], ptr %131, i64 %indvars.iv
   %133 = load i32, ptr %132, align 8
   %134 = and i32 %133, 1073741824
   %.not = icmp eq i32 %134, 0
@@ -24675,7 +24665,7 @@ _ZN8rationalD2Ev.exit.i:                          ; preds = %.noexc.i.i
 _ZN12inf_rationalD2Ev.exit:                       ; preds = %.noexc.i1.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %26, align 8, !tbaa !209
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [232 x i8], ptr %.pre, i64 %indvars.iv
   %.pre177 = load i32, ptr %.phi.trans.insert, align 8
   br label %219
 
@@ -24747,7 +24737,7 @@ _ZN12inf_rationalD2Ev.exit:                       ; preds = %.noexc.i1.i
 219:                                              ; preds = %130, %_ZN12inf_rationalD2Ev.exit
   %220 = phi i32 [ %133, %130 ], [ %.pre177, %_ZN12inf_rationalD2Ev.exit ]
   %221 = phi ptr [ %131, %130 ], [ %.pre, %_ZN12inf_rationalD2Ev.exit ]
-  %222 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %221, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw [232 x i8], ptr %221, i64 %indvars.iv
   %223 = icmp slt i32 %220, 0
   br i1 %223, label %224, label %300
 
@@ -25182,7 +25172,7 @@ _ZN8rationalD2Ev.exit128:                         ; preds = %.noexc.i127
   br label %485
 
 390:                                              ; preds = %_ZNK7simplex7simplexINS_7mpq_extEE12get_num_varsEv.exit125
-  %391 = getelementptr inbounds nuw %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %374, i64 %indvars.iv174
+  %391 = getelementptr inbounds nuw [232 x i8], ptr %374, i64 %indvars.iv174
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %393 = getelementptr inbounds nuw i8, ptr %391, i64 40
@@ -26636,7 +26626,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i139:  ; preds = %_ZNK6vectorIjLb1EjE
 .lr.ph.preheader.i135:                            ; preds = %38
   %40 = zext i32 %.0.i.i to i64
   %41 = zext i32 %.0.i17.i132.ph to i64
-  %42 = getelementptr i32, ptr %33, i64 %41
+  %42 = getelementptr [4 x i8], ptr %33, i64 %41
   %43 = sub nsw i64 %40, %41
   %44 = shl nsw i64 %43, 2
   call void @llvm.memset.p0.i64(ptr align 4 %42, i8 0, i64 %44, i1 false), !tbaa !48
@@ -26721,10 +26711,10 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i139:  ; preds = %_ZNK6vectorIjLb1EjE
 83:                                               ; preds = %.lr.ph306, %.loopexit279
   %84 = phi ptr [ %45, %.lr.ph306 ], [ %262, %.loopexit279 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next, %.loopexit279 ]
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   store i32 0, ptr %85, align 4, !tbaa !48
   %86 = load ptr, ptr %11, align 8, !tbaa !216, !noalias !335
-  %87 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %indvars.iv
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i32, ptr %88, align 8, !tbaa !227, !noalias !335
   %90 = add i32 %89, 1
@@ -26756,7 +26746,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i.i, 1
-  %100 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %91, i64 %indvars.iv.next.i.i.i.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.next.i.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !239, !noalias !335
   %102 = icmp eq i32 %101, -1
   br i1 %102, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i.i
@@ -26787,21 +26777,21 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit: ; preds = %_ZNK7si
 108:                                              ; preds = %.lr.ph, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit178
   %.sroa.0245.0296 = phi i32 [ %.sroa.0245.1264, %.lr.ph ], [ %.sroa.0245.3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit178 ]
   %109 = zext i32 %.sroa.0245.0296 to i64
-  %110 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %91, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !239
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %106, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !48
   %.not103 = icmp eq i32 %114, 0
   br i1 %.not103, label %115, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i172
 
 115:                                              ; preds = %108
-  %116 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %105, i64 %112
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %112
   %117 = load ptr, ptr %116, align 8, !tbaa !211
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !90
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %117, i64 %120
+  %121 = getelementptr inbounds nuw [40 x i8], ptr %117, i64 %120
   %122 = load i32, ptr %121, align 8, !tbaa !3
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i172, label %126
@@ -26894,7 +26884,7 @@ _ZN11mpq_managerILb0EE3negER3mpq.exit:            ; preds = %148
 
 161:                                              ; preds = %_ZN11mpq_managerILb0EE3negER3mpq.exit
   %162 = load ptr, ptr %11, align 8, !tbaa !216, !noalias !348
-  %163 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %162, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %indvars.iv
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load i32, ptr %164, align 8, !tbaa !227, !noalias !348
   %166 = add i32 %165, 1
@@ -26926,7 +26916,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i.i160:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i157
   %indvars.iv.next.i.i.i.i161 = add nuw nsw i64 %indvars.iv.i.i1.i.i158, 1
-  %176 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %167, i64 %indvars.iv.next.i.i.i.i161
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv.next.i.i.i.i161
   %177 = load i32, ptr %176, align 4, !tbaa !239, !noalias !348
   %178 = icmp eq i32 %177, -1
   br i1 %178, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i157, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i.i162
@@ -26957,13 +26947,13 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit165: ; preds = %_ZNK
   %182 = phi i32 [ %181, %._crit_edge.loopexit ], [ %165, %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit165 ], [ %165, %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit165.thread ]
   store i32 %182, ptr %164, align 8, !tbaa !227
   %183 = load ptr, ptr %4, align 8, !tbaa !332
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %112
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %112
   %185 = trunc i64 %indvars.iv to i32
   %186 = add i32 %185, 1
   store i32 %186, ptr %184, align 4, !tbaa !48
   %187 = add i32 %111, 1
   %188 = load ptr, ptr %3, align 8, !tbaa !332
-  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %indvars.iv
   store i32 %187, ptr %189, align 4, !tbaa !48
   %.pre345 = load i32, ptr %88, align 8, !tbaa !227
   %190 = add i32 %.pre345, -2
@@ -26973,16 +26963,16 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit165: ; preds = %_ZNK
   %191 = phi ptr [ %247, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ], [ %167, %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit165 ]
   %.sroa.0222.0301 = phi i32 [ %.sroa.0222.3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ], [ %.sroa.0222.1269, %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit165 ]
   %192 = zext i32 %.sroa.0222.0301 to i64
-  %193 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !239
   %195 = load ptr, ptr %17, align 8, !tbaa !210
   %196 = zext i32 %194 to i64
-  %197 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %195, i64 %196
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %199 = load i32, ptr %198, align 4, !tbaa !90
   %200 = load ptr, ptr %197, align 8, !tbaa !211
   %201 = zext i32 %199 to i64
-  %202 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [40 x i8], ptr %200, i64 %201
   %203 = icmp eq i32 %194, %111
   br i1 %203, label %.thread, label %209
 
@@ -27057,7 +27047,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %237 = zext i32 %232 to i64
-  %238 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %233, i64 %237
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %237
   %239 = load i32, ptr %238, align 4, !tbaa !239
   %240 = icmp eq i32 %239, -1
   br i1 %240, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
@@ -27069,7 +27059,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i297, 1
-  %243 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %233, i64 %indvars.iv.next.i.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv.next.i.i
   %244 = load i32, ptr %243, align 4, !tbaa !239
   %245 = icmp eq i32 %244, -1
   br i1 %245, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -27097,7 +27087,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i17
 
 .lr.ph.preheader.i.i173:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i172
   %251 = zext i32 %248 to i64
-  %252 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %91, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %251
   %253 = load i32, ptr %252, align 4, !tbaa !239
   %254 = icmp eq i32 %253, -1
   br i1 %254, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i176.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit178
@@ -27109,7 +27099,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i176.lr.p
 
 .lr.ph.i.i174:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i176
   %indvars.iv.next.i.i177 = add nuw nsw i64 %indvars.iv.i.i175293, 1
-  %257 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %91, i64 %indvars.iv.next.i.i177
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.next.i.i177
   %258 = load i32, ptr %257, align 4, !tbaa !239
   %259 = icmp eq i32 %258, -1
   br i1 %259, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i176, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit178.loopexit.split.loop.exit
@@ -27219,7 +27209,7 @@ _ZN6vectorIjLb1EjED2Ev.exit182:                   ; preds = %_ZN6vectorIjLb1EjED
 286:                                              ; preds = %.lr.ph309, %.loopexit
   %indvars.iv338 = phi i64 [ 0, %.lr.ph309 ], [ %indvars.iv.next339, %.loopexit ]
   %287 = load ptr, ptr %3, align 8, !tbaa !332
-  %288 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv338
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv338
   %289 = load i32, ptr %288, align 4, !tbaa !48
   %.not = icmp eq i32 %289, 0
   br i1 %.not, label %290, label %.loopexit
@@ -27254,7 +27244,7 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %.noexc184, %293
   %301 = phi ptr [ %.pre.i183, %.noexc184 ], [ %291, %293 ]
   %302 = getelementptr inbounds i8, ptr %301, i64 -4
   %303 = zext i32 %300 to i64
-  %304 = getelementptr inbounds nuw %class.vector.25, ptr %301, i64 %303
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %303
   store ptr null, ptr %304, align 8, !tbaa !368
   %305 = add i32 %300, 1
   store i32 %305, ptr %302, align 4, !tbaa !48
@@ -27271,7 +27261,7 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %.noexc184, %293
 308:                                              ; preds = %_ZN6vectorI8rationalLb1EjED2Ev.exit, %577
   %indvars.iv333 = phi i64 [ 0, %_ZN6vectorI8rationalLb1EjED2Ev.exit ], [ %indvars.iv.next334, %577 ]
   %309 = load ptr, ptr %3, align 8, !tbaa !332
-  %310 = getelementptr inbounds nuw i32, ptr %309, i64 %indvars.iv333
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %309, i64 %indvars.iv333
   %311 = load i32, ptr %310, align 4, !tbaa !48
   %.not94 = icmp eq i32 %311, 0
   %312 = load ptr, ptr %1, align 8, !tbaa !365
@@ -27291,11 +27281,11 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %.noexc184, %293
 
 321:                                              ; preds = %316, %314
   %.0.i.i186 = phi i64 [ %320, %316 ], [ 4294967295, %314 ]
-  %322 = getelementptr inbounds nuw %class.vector.25, ptr %312, i64 %.0.i.i186
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %.0.i.i186
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %323 = load ptr, ptr %17, align 8, !tbaa !210
   %324 = zext i32 %315 to i64
-  %325 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %323, i64 %324
+  %325 = getelementptr inbounds nuw [16 x i8], ptr %323, i64 %324
   %326 = load ptr, ptr %325, align 8, !tbaa !211
   %327 = icmp eq ptr %326, null
   br i1 %327, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i
@@ -27319,7 +27309,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i.i.i, 1
-  %335 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %326, i64 %indvars.iv.next.i.i.i.i.i
+  %335 = getelementptr inbounds nuw [40 x i8], ptr %326, i64 %indvars.iv.next.i.i.i.i.i
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 32
   %337 = load i32, ptr %336, align 8, !tbaa !236
   %338 = icmp eq i32 %337, -1
@@ -27347,7 +27337,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = 
 .lr.ph.i187:                                      ; preds = %.lr.ph.i187.preheader, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i
   %.sroa.015.036.i = phi i32 [ %.sroa.015.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %.sroa.0.1.i.i28.i, %.lr.ph.i187.preheader ]
   %342 = zext i32 %.sroa.015.036.i to i64
-  %343 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %326, i64 %342
+  %343 = getelementptr inbounds nuw [40 x i8], ptr %326, i64 %342
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 32
   %345 = load i32, ptr %344, align 8, !tbaa !236
   %346 = zext i32 %345 to i64
@@ -27361,7 +27351,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
   %349 = zext i32 %347 to i64
-  %350 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %326, i64 %349
+  %350 = getelementptr inbounds nuw [40 x i8], ptr %326, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 32
   %352 = load i32, ptr %351, align 8, !tbaa !236
   %353 = icmp eq i32 %352, -1
@@ -27369,7 +27359,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i33.i, 1
-  %354 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %326, i64 %indvars.iv.next.i.i.i
+  %354 = getelementptr inbounds nuw [40 x i8], ptr %326, i64 %indvars.iv.next.i.i.i
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 32
   %356 = load i32, ptr %355, align 8, !tbaa !236
   %357 = icmp eq i32 %356, -1
@@ -27465,7 +27455,7 @@ _ZN8rationalC2ERK3mpq.exit:                       ; preds = %376, %380
   %391 = phi i32 [ %.pre2.i192, %.noexc193 ], [ %385, %383 ]
   %392 = phi ptr [ %.pre.i190, %.noexc193 ], [ %381, %383 ]
   %393 = zext i32 %391 to i64
-  %394 = getelementptr inbounds nuw %class.rational, ptr %392, i64 %393
+  %394 = getelementptr inbounds nuw [32 x i8], ptr %392, i64 %393
   %395 = load i32, ptr %8, align 8, !tbaa !3
   store i32 %395, ptr %394, align 8, !tbaa !3
   %396 = getelementptr inbounds nuw i8, ptr %394, i64 4
@@ -27561,7 +27551,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i194
 
 443:                                              ; preds = %438, %437
   %.0.i.i195 = phi i64 [ %442, %438 ], [ 4294967295, %437 ]
-  %444 = getelementptr inbounds nuw %class.vector.25, ptr %312, i64 %.0.i.i195
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %.0.i.i195
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %445 = load i8, ptr %78, align 4
   %446 = and i8 %445, -4
@@ -27608,7 +27598,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i194
   %463 = phi i32 [ %.pre2.i200, %.noexc201 ], [ %457, %455 ]
   %464 = phi ptr [ %.pre.i198, %.noexc201 ], [ %453, %455 ]
   %465 = zext i32 %463 to i64
-  %466 = getelementptr inbounds nuw %class.rational, ptr %464, i64 %465
+  %466 = getelementptr inbounds nuw [32 x i8], ptr %464, i64 %465
   %467 = load i32, ptr %9, align 8, !tbaa !3
   store i32 %467, ptr %466, align 8, !tbaa !3
   %468 = getelementptr inbounds nuw i8, ptr %466, i64 4
@@ -27700,7 +27690,7 @@ _ZN8rationalD2Ev.exit204:                         ; preds = %.noexc.i203
 
 513:                                              ; preds = %508, %507
   %.0.i.i205 = phi i64 [ %512, %508 ], [ 4294967295, %507 ]
-  %514 = getelementptr inbounds nuw %class.vector.25, ptr %312, i64 %.0.i.i205
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %.0.i.i205
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %515 = load i8, ptr %73, align 4
   %516 = and i8 %515, -4
@@ -27747,7 +27737,7 @@ _ZN8rationalD2Ev.exit204:                         ; preds = %.noexc.i203
   %533 = phi i32 [ %.pre2.i211, %.noexc212 ], [ %527, %525 ]
   %534 = phi ptr [ %.pre.i209, %.noexc212 ], [ %523, %525 ]
   %535 = zext i32 %533 to i64
-  %536 = getelementptr inbounds nuw %class.rational, ptr %534, i64 %535
+  %536 = getelementptr inbounds nuw [32 x i8], ptr %534, i64 %535
   %537 = load i32, ptr %10, align 8, !tbaa !3
   store i32 %537, ptr %536, align 8, !tbaa !3
   %538 = getelementptr inbounds nuw i8, ptr %536, i64 4
@@ -28639,7 +28629,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i138:  ; preds = %_ZNK6vectorIjLb1EjE
 .lr.ph.preheader.i134:                            ; preds = %39
   %41 = zext i32 %.0.i.i to i64
   %42 = zext i32 %.0.i17.i131.ph to i64
-  %43 = getelementptr i32, ptr %34, i64 %42
+  %43 = getelementptr [4 x i8], ptr %34, i64 %42
   %44 = sub nsw i64 %41, %42
   %45 = shl nsw i64 %44, 2
   call void @llvm.memset.p0.i64(ptr align 4 %43, i8 0, i64 %45, i1 false), !tbaa !48
@@ -28755,10 +28745,10 @@ _ZN11mpq_managerILb0EE3setER3mpqi.exit:           ; preds = %.loopexit338
 98:                                               ; preds = %.lr.ph369, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit169
   %indvars.iv = phi i64 [ 0, %.lr.ph369 ], [ %indvars.iv.next, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit169 ]
   %99 = load ptr, ptr %3, align 8, !tbaa !332
-  %100 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv
   store i32 0, ptr %100, align 4, !tbaa !48
   %101 = load ptr, ptr %12, align 8, !tbaa !216, !noalias !375
-  %102 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %indvars.iv
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load i32, ptr %103, align 8, !tbaa !227, !noalias !375
   %105 = add i32 %104, 1
@@ -28790,7 +28780,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i1.i.i, 1
-  %115 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %106, i64 %indvars.iv.next.i.i.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.next.i.i.i.i
   %116 = load i32, ptr %115, align 4, !tbaa !239, !noalias !375
   %117 = icmp eq i32 %116, -1
   br i1 %117, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorC2ERKNS2_6columnER6vectorINS2_4_rowELb1EjEb.exit.loopexit.loopexit.split.loop.exit4.i.i
@@ -28821,21 +28811,21 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit: ; preds = %_ZNK7si
 123:                                              ; preds = %.lr.ph, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
   %.sroa.0294.0360 = phi i32 [ %.sroa.0294.1310, %.lr.ph ], [ %.sroa.0294.3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
   %124 = zext i32 %.sroa.0294.0360 to i64
-  %125 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %106, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !239
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %121, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !48
   %.not104 = icmp eq i32 %129, 0
   br i1 %.not104, label %130, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %120, i64 %127
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %127
   %132 = load ptr, ptr %131, align 8, !tbaa !211
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %134 = load i32, ptr %133, align 4, !tbaa !90
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %132, i64 %135
+  %136 = getelementptr inbounds nuw [40 x i8], ptr %132, i64 %135
   %137 = load i32, ptr %136, align 8, !tbaa !3
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i, label %139
@@ -28895,7 +28885,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %147, %144
 
 161:                                              ; preds = %158
   %162 = load ptr, ptr %18, align 8, !tbaa !210
-  %163 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %162, i64 %127
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %127
   %164 = load ptr, ptr %163, align 8, !tbaa !211
   %165 = icmp eq ptr %164, null
   br i1 %165, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.lr.ph.i.i.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i
@@ -28919,7 +28909,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i.i
 
 .lr.ph.i.i.i.i152:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i153 = add nuw nsw i64 %indvars.iv.i.i2.i.i, 1
-  %173 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %164, i64 %indvars.iv.next.i.i.i.i153
+  %173 = getelementptr inbounds nuw [40 x i8], ptr %164, i64 %indvars.iv.next.i.i.i.i153
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %175 = load i32, ptr %174, align 8, !tbaa !236
   %176 = icmp eq i32 %175, -1
@@ -28944,7 +28934,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i: ; preds = %
   %.sroa.04.019.i = phi i32 [ %.sroa.04.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %.sroa.0.1.i15.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i ]
   %179 = load ptr, ptr %0, align 8, !tbaa !214
   %180 = zext i32 %.sroa.04.019.i to i64
-  %181 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [40 x i8], ptr %178, i64 %180
   invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %179, ptr noundef nonnull align 8 dereferenceable(32) %181)
           to label %.noexc154 unwind label %.loopexit336
 
@@ -28962,7 +28952,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
   %188 = zext i32 %182 to i64
-  %189 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %183, i64 %188
+  %189 = getelementptr inbounds nuw [40 x i8], ptr %183, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load i32, ptr %190, align 8, !tbaa !236
   %192 = icmp eq i32 %191, -1
@@ -28975,7 +28965,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i16.i, 1
-  %195 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %183, i64 %indvars.iv.next.i.i.i
+  %195 = getelementptr inbounds nuw [40 x i8], ptr %183, i64 %indvars.iv.next.i.i.i
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 32
   %197 = load i32, ptr %196, align 8, !tbaa !236
   %198 = icmp eq i32 %197, -1
@@ -29024,7 +29014,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.
 
 .lr.ph.i.i.i160:                                  ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i
   %indvars.iv.next.i.i.i161 = add nuw nsw i64 %indvars.iv.i.i1.i, 1
-  %210 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %202, i64 %indvars.iv.next.i.i.i161
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %indvars.iv.next.i.i.i161
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load i32, ptr %211, align 8, !tbaa !230
   %213 = icmp eq i32 %212, 0
@@ -29047,13 +29037,13 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_ro
 
 ._crit_edge:                                      ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit, %_ZN7simplex13sparse_matrixINS_7mpq_extEE3negENS2_3rowE.exit, %.thread322
   %215 = load ptr, ptr %4, align 8, !tbaa !332
-  %216 = getelementptr inbounds nuw i32, ptr %215, i64 %127
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %127
   %217 = trunc i64 %indvars.iv to i32
   %218 = add i32 %217, 1
   store i32 %218, ptr %216, align 4, !tbaa !48
   %219 = add i32 %126, 1
   %220 = load ptr, ptr %3, align 8, !tbaa !332
-  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv
   store i32 %219, ptr %221, align 4, !tbaa !48
   %222 = load i8, ptr %58, align 4
   %223 = and i8 %222, 1
@@ -29103,7 +29093,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i166:  ; preds = %229, %225
 
 242:                                              ; preds = %.lr.ph366
   %243 = zext i32 %.sroa.0277.0365 to i64
-  %244 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %238, i64 %243
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %238, i64 %243
   %245 = load ptr, ptr %244, align 8, !tbaa !211
   %246 = icmp eq ptr %245, null
   br i1 %246, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i
@@ -29127,7 +29117,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i.i.i, 1
-  %254 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %245, i64 %indvars.iv.next.i.i.i.i.i
+  %254 = getelementptr inbounds nuw [40 x i8], ptr %245, i64 %indvars.iv.next.i.i.i.i.i
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %256 = load i32, ptr %255, align 8, !tbaa !236
   %257 = icmp eq i32 %256, -1
@@ -29155,7 +29145,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = 
 .lr.ph.i170:                                      ; preds = %.lr.ph.i170.preheader, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173
   %.sroa.015.036.i = phi i32 [ %.sroa.015.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173 ], [ %.sroa.0.1.i.i28.i, %.lr.ph.i170.preheader ]
   %261 = zext i32 %.sroa.015.036.i to i64
-  %262 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %245, i64 %261
+  %262 = getelementptr inbounds nuw [40 x i8], ptr %245, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %264 = load i32, ptr %263, align 8, !tbaa !236
   %265 = zext i32 %264 to i64
@@ -29169,7 +29159,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i17
 
 .lr.ph.preheader.i.i.i174:                        ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i172
   %268 = zext i32 %266 to i64
-  %269 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %245, i64 %268
+  %269 = getelementptr inbounds nuw [40 x i8], ptr %245, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load i32, ptr %270, align 8, !tbaa !236
   %272 = icmp eq i32 %271, -1
@@ -29177,7 +29167,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i17
 
 .lr.ph.i.i.i178:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i176
   %indvars.iv.next.i.i.i179 = add nuw nsw i64 %indvars.iv.i.i33.i, 1
-  %273 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %245, i64 %indvars.iv.next.i.i.i179
+  %273 = getelementptr inbounds nuw [40 x i8], ptr %245, i64 %indvars.iv.next.i.i.i179
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load i32, ptr %274, align 8, !tbaa !236
   %276 = icmp eq i32 %275, -1
@@ -29272,7 +29262,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.lr.p
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.lr.ph.i.i
   %309 = zext i32 %304 to i64
-  %310 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %303, i64 %309
+  %310 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = load i32, ptr %311, align 8, !tbaa !230
   %313 = icmp eq i32 %312, 0
@@ -29285,7 +29275,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.
 
 .lr.ph.i.i:                                       ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i361, 1
-  %316 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %303, i64 %indvars.iv.next.i.i
+  %316 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %indvars.iv.next.i.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %318 = load i32, ptr %317, align 8, !tbaa !230
   %319 = icmp eq i32 %318, 0
@@ -29313,7 +29303,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i: 
 
 .lr.ph.preheader.i.i185:                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.lr.ph.i.i
   %324 = zext i32 %321 to i64
-  %325 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %106, i64 %324
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %324
   %326 = load i32, ptr %325, align 4, !tbaa !239
   %327 = icmp eq i32 %326, -1
   br i1 %327, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
@@ -29325,7 +29315,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.lr.ph: 
 
 .lr.ph.i.i186:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i188 = add nuw nsw i64 %indvars.iv.i.i187357, 1
-  %330 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %106, i64 %indvars.iv.next.i.i188
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.next.i.i188
   %331 = load i32, ptr %330, align 4, !tbaa !239
   %332 = icmp eq i32 %331, -1
   br i1 %332, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit
@@ -29452,7 +29442,7 @@ _ZN6vectorIjLb1EjED2Ev.exit194:                   ; preds = %_ZN6vectorIjLb1EjED
 363:                                              ; preds = %.lr.ph372, %.loopexit
   %indvars.iv402 = phi i64 [ 0, %.lr.ph372 ], [ %indvars.iv.next403, %.loopexit ]
   %364 = load ptr, ptr %3, align 8, !tbaa !332
-  %365 = getelementptr inbounds nuw i32, ptr %364, i64 %indvars.iv402
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %364, i64 %indvars.iv402
   %366 = load i32, ptr %365, align 4, !tbaa !48
   %.not = icmp eq i32 %366, 0
   br i1 %.not, label %367, label %.loopexit
@@ -29487,7 +29477,7 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %.noexc195, %370
   %378 = phi ptr [ %.pre.i, %.noexc195 ], [ %368, %370 ]
   %379 = getelementptr inbounds i8, ptr %378, i64 -4
   %380 = zext i32 %377 to i64
-  %381 = getelementptr inbounds nuw %class.vector.25, ptr %378, i64 %380
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %378, i64 %380
   store ptr null, ptr %381, align 8, !tbaa !368
   %382 = add i32 %377, 1
   store i32 %382, ptr %379, align 4, !tbaa !48
@@ -29504,7 +29494,7 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %.noexc195, %370
 385:                                              ; preds = %_ZN6vectorI8rationalLb1EjED2Ev.exit, %665
   %indvars.iv397 = phi i64 [ 0, %_ZN6vectorI8rationalLb1EjED2Ev.exit ], [ %indvars.iv.next398, %665 ]
   %386 = load ptr, ptr %3, align 8, !tbaa !332
-  %387 = getelementptr inbounds nuw i32, ptr %386, i64 %indvars.iv397
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %386, i64 %indvars.iv397
   %388 = load i32, ptr %387, align 4, !tbaa !48
   %.not95 = icmp eq i32 %388, 0
   %389 = load ptr, ptr %1, align 8, !tbaa !365
@@ -29524,11 +29514,11 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %.noexc195, %370
 
 398:                                              ; preds = %393, %391
   %.0.i.i197 = phi i64 [ %397, %393 ], [ 4294967295, %391 ]
-  %399 = getelementptr inbounds nuw %class.vector.25, ptr %389, i64 %.0.i.i197
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %.0.i.i197
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %400 = load ptr, ptr %18, align 8, !tbaa !210
   %401 = zext i32 %392 to i64
-  %402 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %400, i64 %401
+  %402 = getelementptr inbounds nuw [16 x i8], ptr %400, i64 %401
   %403 = load ptr, ptr %402, align 8, !tbaa !211
   %404 = icmp eq ptr %403, null
   br i1 %404, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i198
@@ -29552,7 +29542,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i.i
 
 .lr.ph.i.i.i.i.i226:                              ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i223
   %indvars.iv.next.i.i.i.i.i227 = add nuw nsw i64 %indvars.iv.i.i2.i.i.i224, 1
-  %412 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %403, i64 %indvars.iv.next.i.i.i.i.i227
+  %412 = getelementptr inbounds nuw [40 x i8], ptr %403, i64 %indvars.iv.next.i.i.i.i.i227
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 32
   %414 = load i32, ptr %413, align 8, !tbaa !236
   %415 = icmp eq i32 %414, -1
@@ -29580,7 +29570,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i201: ; preds
 .lr.ph.i205:                                      ; preds = %.lr.ph.i205.preheader, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209
   %.sroa.015.036.i206 = phi i32 [ %.sroa.015.2.i210, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209 ], [ %.sroa.0.1.i.i28.i202, %.lr.ph.i205.preheader ]
   %419 = zext i32 %.sroa.015.036.i206 to i64
-  %420 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %403, i64 %419
+  %420 = getelementptr inbounds nuw [40 x i8], ptr %403, i64 %419
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 32
   %422 = load i32, ptr %421, align 8, !tbaa !236
   %423 = zext i32 %422 to i64
@@ -29594,7 +29584,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i20
 
 .lr.ph.preheader.i.i.i214:                        ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i208
   %426 = zext i32 %424 to i64
-  %427 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %403, i64 %426
+  %427 = getelementptr inbounds nuw [40 x i8], ptr %403, i64 %426
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 32
   %429 = load i32, ptr %428, align 8, !tbaa !236
   %430 = icmp eq i32 %429, -1
@@ -29602,7 +29592,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i20
 
 .lr.ph.i.i.i219:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i216
   %indvars.iv.next.i.i.i220 = add nuw nsw i64 %indvars.iv.i.i33.i217, 1
-  %431 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %403, i64 %indvars.iv.next.i.i.i220
+  %431 = getelementptr inbounds nuw [40 x i8], ptr %403, i64 %indvars.iv.next.i.i.i220
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 32
   %433 = load i32, ptr %432, align 8, !tbaa !236
   %434 = icmp eq i32 %433, -1
@@ -29698,7 +29688,7 @@ _ZN8rationalC2ERK3mpq.exit:                       ; preds = %453, %457
   %468 = phi i32 [ %.pre2.i234, %.noexc235 ], [ %462, %460 ]
   %469 = phi ptr [ %.pre.i232, %.noexc235 ], [ %458, %460 ]
   %470 = zext i32 %468 to i64
-  %471 = getelementptr inbounds nuw %class.rational, ptr %469, i64 %470
+  %471 = getelementptr inbounds nuw [32 x i8], ptr %469, i64 %470
   %472 = load i32, ptr %9, align 8, !tbaa !3
   store i32 %472, ptr %471, align 8, !tbaa !3
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 4
@@ -29794,7 +29784,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i236
 
 520:                                              ; preds = %515, %514
   %.0.i.i237 = phi i64 [ %519, %515 ], [ 4294967295, %514 ]
-  %521 = getelementptr inbounds nuw %class.vector.25, ptr %389, i64 %.0.i.i237
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %.0.i.i237
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8, !tbaa !3
   %522 = load i8, ptr %91, align 4
@@ -29867,7 +29857,7 @@ _ZN8rationalC2ERK3mpq.exit242:                    ; preds = %536, %540
   %551 = phi i32 [ %.pre2.i245, %.noexc246 ], [ %545, %543 ]
   %552 = phi ptr [ %.pre.i243, %.noexc246 ], [ %541, %543 ]
   %553 = zext i32 %551 to i64
-  %554 = getelementptr inbounds nuw %class.rational, ptr %552, i64 %553
+  %554 = getelementptr inbounds nuw [32 x i8], ptr %552, i64 %553
   %555 = load i32, ptr %10, align 8, !tbaa !3
   store i32 %555, ptr %554, align 8, !tbaa !3
   %556 = getelementptr inbounds nuw i8, ptr %554, i64 4
@@ -29959,7 +29949,7 @@ _ZN8rationalD2Ev.exit249:                         ; preds = %.noexc.i248
 
 601:                                              ; preds = %596, %595
   %.0.i.i250 = phi i64 [ %600, %596 ], [ 4294967295, %595 ]
-  %602 = getelementptr inbounds nuw %class.vector.25, ptr %389, i64 %.0.i.i250
+  %602 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %.0.i.i250
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %603 = load i8, ptr %86, align 4
   %604 = and i8 %603, -4
@@ -30006,7 +29996,7 @@ _ZN8rationalD2Ev.exit249:                         ; preds = %.noexc.i248
   %621 = phi i32 [ %.pre2.i255, %.noexc256 ], [ %615, %613 ]
   %622 = phi ptr [ %.pre.i253, %.noexc256 ], [ %611, %613 ]
   %623 = zext i32 %621 to i64
-  %624 = getelementptr inbounds nuw %class.rational, ptr %622, i64 %623
+  %624 = getelementptr inbounds nuw [32 x i8], ptr %622, i64 %623
   %625 = load i32, ptr %11, align 8, !tbaa !3
   store i32 %625, ptr %624, align 8, !tbaa !3
   %626 = getelementptr inbounds nuw i8, ptr %624, i64 4
@@ -30234,7 +30224,7 @@ _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit: ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !210
   %33 = zext i32 %1 to i64
-  %34 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !211
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE3negENS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i
@@ -30258,7 +30248,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i2.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %35, i64 %indvars.iv.next.i.i.i.i
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %indvars.iv.next.i.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8, !tbaa !236
   %47 = icmp eq i32 %46, -1
@@ -30283,7 +30273,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i: ; preds = %
   %.sroa.04.019.i = phi i32 [ %.sroa.04.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %.sroa.0.1.i15.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i ]
   %50 = load ptr, ptr %0, align 8, !tbaa !214
   %51 = zext i32 %.sroa.04.019.i to i64
-  %52 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %51
   tail call void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %50, ptr noundef nonnull align 8 dereferenceable(32) %52)
   %53 = add i32 %.sroa.04.019.i, 1
   %54 = load ptr, ptr %34, align 8, !tbaa !211
@@ -30298,7 +30288,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
   %59 = zext i32 %53 to i64
-  %60 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %54, i64 %59
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !236
   %63 = icmp eq i32 %62, -1
@@ -30311,7 +30301,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i16.i, 1
-  %66 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %54, i64 %indvars.iv.next.i.i.i
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %indvars.iv.next.i.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load i32, ptr %67, align 8, !tbaa !236
   %69 = icmp eq i32 %68, -1
@@ -30335,7 +30325,7 @@ _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.thread: ; preds = %_ZN11mpq_man
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !210
   %73 = zext i32 %1 to i64
-  %74 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !211
   %76 = icmp eq ptr %75, null
   br i1 %76, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE3negENS2_3rowE.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i4
@@ -30359,7 +30349,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph.i5:
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i6
   %indvars.iv.next.i.i.i9 = add nuw nsw i64 %indvars.iv.i.i2.i, 1
-  %84 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %75, i64 %indvars.iv.next.i.i.i9
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %75, i64 %indvars.iv.next.i.i.i9
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load i32, ptr %85, align 8, !tbaa !236
   %87 = icmp eq i32 %86, -1
@@ -30385,7 +30375,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit: ; preds = %_Z
   %.sroa.013.036 = phi i32 [ %.sroa.013.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ], [ %.sroa.0.1.i30, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit ]
   %90 = load ptr, ptr %0, align 8, !tbaa !214
   %91 = zext i32 %.sroa.013.036 to i64
-  %92 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %89, i64 %91
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %89, i64 %91
   tail call void @_ZN11mpq_managerILb0EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %90, ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %92)
   %93 = add i32 %.sroa.013.036, 1
   %94 = load ptr, ptr %74, align 8, !tbaa !211
@@ -30400,7 +30390,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i: ; 
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
   %99 = zext i32 %93 to i64
-  %100 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %94, i64 %99
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %94, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = load i32, ptr %101, align 8, !tbaa !236
   %103 = icmp eq i32 %102, -1
@@ -30413,7 +30403,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i33, 1
-  %106 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %94, i64 %indvars.iv.next.i.i
+  %106 = getelementptr inbounds nuw [40 x i8], ptr %94, i64 %indvars.iv.next.i.i
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i32, ptr %107, align 8, !tbaa !236
   %109 = icmp eq i32 %108, -1
@@ -32445,7 +32435,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.ex
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
   %.02631 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %55 ]
   %8 = load ptr, ptr %0, align 8, !tbaa !56
-  %9 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !83
   %12 = icmp eq i32 %11, -1
@@ -32457,7 +32447,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.ex
   br i1 %.not, label %53, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %8, i64 %14
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %14
   %17 = load i32, ptr %16, align 4, !tbaa !48
   %18 = load i32, ptr %9, align 4, !tbaa !48
   store i32 %18, ptr %16, align 4, !tbaa !48
@@ -32499,10 +32489,10 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.ex
   store i32 %44, ptr %45, align 4, !tbaa !90
   %46 = load ptr, ptr %2, align 8, !tbaa !61
   %47 = zext i32 %11 to i64
-  %48 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::column", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !62
   %50 = zext i32 %44 to i64
-  %51 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::col_entry", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %.02631, ptr %52, align 4, !tbaa !90
   br label %53
@@ -32550,7 +32540,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE6shrinkEj.e
   ret void
 
 69:                                               ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpz_extEE10_row_entryELb1EjE4sizeEv.exit28.thread
-  %70 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %61, i64 %indvars.iv37
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %indvars.iv37
   tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %1, ptr noundef nonnull align 8 dereferenceable(16) %70)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %71 = load ptr, ptr %0, align 8, !tbaa !56
@@ -34109,7 +34099,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.ex
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %82 ]
   %.02631 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %82 ]
   %8 = load ptr, ptr %0, align 8, !tbaa !211
-  %9 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !236
   %12 = icmp eq i32 %11, -1
@@ -34121,7 +34111,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.ex
   br i1 %.not, label %80, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %8, i64 %14
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %14
   %17 = load i32, ptr %16, align 4, !tbaa !48
   %18 = load i32, ptr %9, align 4, !tbaa !48
   store i32 %18, ptr %16, align 4, !tbaa !48
@@ -34198,10 +34188,10 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.ex
   store i32 %71, ptr %72, align 4, !tbaa !90
   %73 = load ptr, ptr %2, align 8, !tbaa !216
   %74 = zext i32 %11 to i64
-  %75 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !217
   %77 = zext i32 %71 to i64
-  %78 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %.02631, ptr %79, align 4, !tbaa !90
   br label %80
@@ -34249,7 +34239,7 @@ _ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE6shrinkEj.e
   ret void
 
 96:                                               ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit28.thread
-  %97 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %88, i64 %indvars.iv37
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %88, i64 %indvars.iv37
   tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %1, ptr noundef nonnull align 8 dereferenceable(32) %97)
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %1, ptr noundef nonnull align 8 dereferenceable(16) %98)

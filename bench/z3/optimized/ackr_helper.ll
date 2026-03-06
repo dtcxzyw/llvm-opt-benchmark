@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.obj_map<func_decl, ackr_helper::app_occ *>::obj_map_entry" = type { %"struct.obj_map<func_decl, ackr_helper::app_occ *>::key_data" }
-%"struct.obj_map<func_decl, ackr_helper::app_occ *>::key_data" = type { ptr, ptr }
-%"class.obj_map<app, ackr_helper::app_occ *>::obj_map_entry" = type { %"struct.obj_map<app, ackr_helper::app_occ *>::key_data" }
-%"struct.obj_map<app, ackr_helper::app_occ *>::key_data" = type { ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -45,7 +41,7 @@ define hidden noundef double @_ZN11ackr_helper21calculate_lemma_boundERK7obj_map
 
 _ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %10, %2
   %.sroa.0.1.i.i = phi ptr [ %3, %2 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %7, %10 ]
-  %12 = getelementptr inbounds nuw %"class.obj_map<func_decl, ackr_helper::app_occ *>::obj_map_entry", ptr %3, i64 %6
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %6
   %.not46 = icmp eq ptr %.sroa.0.1.i.i, %12
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
@@ -73,7 +69,7 @@ _ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph
 
 _ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i21, %20, %._crit_edge
   %.sroa.0.1.i.i23 = phi ptr [ %13, %._crit_edge ], [ %.sroa.0.0.i.i22, %.lr.ph.i.i.i.i21 ], [ %17, %20 ]
-  %22 = getelementptr inbounds nuw %"class.obj_map<app, ackr_helper::app_occ *>::obj_map_entry", ptr %13, i64 %16
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %16
   %.not4549 = icmp eq ptr %.sroa.0.1.i.i23, %22
   br i1 %.not4549, label %._crit_edge53, label %.lr.ph52
 

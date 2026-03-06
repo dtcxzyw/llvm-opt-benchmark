@@ -1547,7 +1547,7 @@ mbedtls_sha1_update.exit:                         ; preds = %._crit_edge.i, %._c
   br i1 %exitcond.not, label %mbedtls_sha1_update.exit38.loopexit, label %25, !llvm.loop !18
 
 ._crit_edge.thread.i34:                           ; preds = %22
-  %47 = getelementptr inbounds nuw i64, ptr @sha1_test_buflen, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @sha1_test_buflen, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw [57 x i8], ptr @sha1_test_buf, i64 %indvars.iv
   %50 = trunc i64 %48 to i32

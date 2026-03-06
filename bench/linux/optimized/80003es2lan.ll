@@ -1380,7 +1380,7 @@ define internal i32 @e1000_get_cable_length_80003es2lan(ptr noundef %0) #0 align
 
 11:                                               ; preds = %7
   %12 = zext nneg i16 %9 to i64
-  %13 = getelementptr i16, ptr @e1000_gg82563_cable_length_table, i64 %12
+  %13 = getelementptr [2 x i8], ptr @e1000_gg82563_cable_length_table, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i16 %14, ptr %15, align 8

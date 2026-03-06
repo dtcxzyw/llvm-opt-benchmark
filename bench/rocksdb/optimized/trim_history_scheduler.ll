@@ -240,7 +240,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 11:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %9
   %15 = add nuw nsw i64 %9, 1
   store i64 %15, ptr %8, align 8, !tbaa !17
   store ptr %1, ptr %14, align 8, !tbaa !26
@@ -311,7 +311,7 @@ _ZNSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %37, ptr %17, align 8, !tbaa !30
   store ptr %41, ptr %18, align 8, !tbaa !28
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !29
   br label %_ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EE9push_backERKS2_.exit
 
@@ -362,8 +362,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardIS
   %20 = add i64 %15, %19
   %21 = icmp ult i64 %20, 8
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
-  %24 = getelementptr ptr, ptr %11, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
+  %24 = getelementptr [8 x i8], ptr %11, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -64
   %.0.i.i.i = select i1 %21, ptr %23, ptr %25
   %26 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !26

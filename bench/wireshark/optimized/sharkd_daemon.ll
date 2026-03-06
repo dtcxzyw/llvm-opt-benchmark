@@ -197,7 +197,7 @@ sub_034:                                          ; preds = %12, %.tail
   %48 = load ptr, ptr @stderr, align 8
   %49 = load i32, ptr @ws_optind, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr ptr, ptr %1, i64 %50
+  %51 = getelementptr [8 x i8], ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %48, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %52)
   br label %54

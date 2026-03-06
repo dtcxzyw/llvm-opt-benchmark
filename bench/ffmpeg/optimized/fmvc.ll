@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.InterBlock = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"fmvc\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"FM Screen Capture Codec\00", align 1
@@ -141,7 +140,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef %0) #0 {
   %.096114 = phi i32 [ 0, %.lr.ph ], [ %73, %72 ]
   %.not109 = icmp eq i32 %.096114, %53
   %or.cond = select i1 %.not108, i1 %.not109, i1 false
-  %59 = getelementptr inbounds %struct.InterBlock, ptr %46, i64 %indvars.iv
+  %59 = getelementptr inbounds [16 x i8], ptr %46, i64 %indvars.iv
   br i1 %or.cond, label %69, label %60
 
 60:                                               ; preds = %58
@@ -389,7 +388,7 @@ bytestream2_init_writer.exit:                     ; preds = %32
 
 95:                                               ; preds = %.lr.ph222, %95
   %indvars.iv267 = phi i64 [ 0, %.lr.ph222 ], [ %indvars.iv.next268, %95 ]
-  %96 = getelementptr inbounds nuw %struct.InterBlock, ptr %24, i64 %indvars.iv267
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv267
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 0, ptr %97, align 4, !tbaa !71
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
@@ -515,7 +514,7 @@ bytestream2_get_le16.exit194:                     ; preds = %135
 152:                                              ; preds = %150, %149
   %153 = load ptr, ptr %118, align 8, !tbaa !39
   %154 = zext nneg i32 %.0.i191 to i64
-  %155 = getelementptr inbounds nuw %struct.InterBlock, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i32, ptr %156, align 4, !tbaa !43
   %158 = shl nsw i32 %157, 2
@@ -567,7 +566,7 @@ bytestream2_get_le16.exit194:                     ; preds = %135
   %.0159249 = phi ptr [ %.1160.lcssa, %._crit_edge244 ], [ %180, %.lr.ph253.split.preheader ]
   %.2171248 = phi i32 [ %.3172.lcssa, %._crit_edge244 ], [ 0, %.lr.ph253.split.preheader ]
   %185 = zext i32 %.2171248 to i64
-  %186 = getelementptr inbounds nuw %struct.InterBlock, ptr %174, i64 %185
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = load i32, ptr %187, align 4, !tbaa !42
   %189 = icmp sgt i32 %184, 0
@@ -580,7 +579,7 @@ bytestream2_get_le16.exit194:                     ; preds = %135
   %.1160237 = phi ptr [ %.2161, %.loopexit213 ], [ %.0159249, %.lr.ph253.split ]
   %.3172236 = phi i32 [ %212, %.loopexit213 ], [ %.2171248, %.lr.ph253.split ]
   %191 = zext i32 %.3172236 to i64
-  %192 = getelementptr inbounds nuw %struct.InterBlock, ptr %174, i64 %191
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !40
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %195 = load i32, ptr %194, align 4, !tbaa !42
@@ -614,7 +613,7 @@ bytestream2_get_le16.exit194:                     ; preds = %135
   br i1 %exitcond271.not, label %._crit_edge230.us, label %200, !llvm.loop !75
 
 ._crit_edge230.us:                                ; preds = %200
-  %207 = getelementptr inbounds i32, ptr %.2157234.us, i64 %177
+  %207 = getelementptr inbounds [4 x i8], ptr %.2157234.us, i64 %177
   %208 = add nuw nsw i32 %.0167232.us, 1
   %exitcond272.not = icmp eq i32 %208, %195
   br i1 %exitcond272.not, label %.loopexit213.loopexit, label %.preheader.us, !llvm.loop !76
@@ -627,7 +626,7 @@ bytestream2_get_le16.exit194:                     ; preds = %135
   %209 = phi i32 [ %190, %.lr.ph243 ], [ %.pre, %.loopexit213.loopexit ]
   %.2161 = phi ptr [ %.1160237, %.lr.ph243 ], [ %201, %.loopexit213.loopexit ]
   %210 = sext i32 %193 to i64
-  %211 = getelementptr inbounds i32, ptr %.1156238, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %.1156238, i64 %210
   %212 = add i32 %.3172236, 1
   %213 = add nuw nsw i32 %.0149241, 1
   %214 = icmp slt i32 %213, %209
@@ -646,7 +645,7 @@ bytestream2_get_le16.exit194:                     ; preds = %135
   %.0150.lcssa = phi i32 [ %188, %.lr.ph253.split ], [ %195, %._crit_edge244.loopexit ]
   %218 = sext i32 %.0150.lcssa to i64
   %219 = mul nsw i64 %177, %218
-  %220 = getelementptr inbounds i32, ptr %.0155250, i64 %219
+  %220 = getelementptr inbounds [4 x i8], ptr %.0155250, i64 %219
   %221 = add nuw nsw i32 %.1147251, 1
   %222 = icmp slt i32 %221, %215
   br i1 %222, label %.lr.ph253.split, label %._crit_edge254, !llvm.loop !78

@@ -279,10 +279,10 @@ define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr nounde
 .lr.ph.i:                                         ; preds = %46, %60
   %.0101119.i = phi i64 [ %66, %60 ], [ %48, %46 ]
   %49 = load double, ptr %43, align 8, !tbaa !35
-  %50 = getelementptr inbounds double, ptr %15, i64 %.0101119.i
+  %50 = getelementptr inbounds [8 x i8], ptr %15, i64 %.0101119.i
   %51 = load double, ptr %50, align 8, !tbaa !44
   %52 = tail call double @SUNRabs(double noundef %51) #5
-  %53 = getelementptr inbounds double, ptr %16, i64 %.0101119.i
+  %53 = getelementptr inbounds [8 x i8], ptr %16, i64 %.0101119.i
   %54 = load double, ptr %53, align 8, !tbaa !44
   %55 = fdiv double 1.000000e+00, %54
   %56 = fcmp ogt double %52, %55
@@ -296,7 +296,7 @@ define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr nounde
 60:                                               ; preds = %57, %.lr.ph.i
   %61 = phi double [ %59, %57 ], [ %55, %.lr.ph.i ]
   %62 = fmul double %49, %61
-  %63 = getelementptr inbounds double, ptr %19, i64 %.0101119.i
+  %63 = getelementptr inbounds [8 x i8], ptr %19, i64 %.0101119.i
   %64 = load double, ptr %63, align 8, !tbaa !44
   %65 = fadd double %64, %62
   store double %65, ptr %63, align 8, !tbaa !44
@@ -320,21 +320,21 @@ define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr nounde
 
 .lr.ph126.i:                                      ; preds = %.preheader.i, %._crit_edge124.i
   %.1125.i = phi i64 [ %113, %._crit_edge124.i ], [ %48, %.preheader.i ]
-  %73 = getelementptr inbounds double, ptr %15, i64 %.1125.i
+  %73 = getelementptr inbounds [8 x i8], ptr %15, i64 %.1125.i
   %74 = load double, ptr %73, align 8, !tbaa !44
-  %75 = getelementptr inbounds double, ptr %19, i64 %.1125.i
+  %75 = getelementptr inbounds [8 x i8], ptr %19, i64 %.1125.i
   store double %74, ptr %75, align 8, !tbaa !44
   %76 = load ptr, ptr %10, align 8, !tbaa !31
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
   %78 = load ptr, ptr %77, align 8, !tbaa !47
-  %79 = getelementptr inbounds ptr, ptr %78, i64 %.1125.i
+  %79 = getelementptr inbounds [8 x i8], ptr %78, i64 %.1125.i
   %80 = load ptr, ptr %79, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %82 = load i64, ptr %81, align 8, !tbaa !51
-  %83 = getelementptr inbounds double, ptr %80, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %80, i64 %82
   %84 = load double, ptr %43, align 8, !tbaa !35
   %85 = tail call double @SUNRabs(double noundef %74) #5
-  %86 = getelementptr inbounds double, ptr %16, i64 %.1125.i
+  %86 = getelementptr inbounds [8 x i8], ptr %16, i64 %.1125.i
   %87 = load double, ptr %86, align 8, !tbaa !44
   %88 = fdiv double 1.000000e+00, %87
   %89 = fcmp ogt double %85, %88
@@ -362,14 +362,14 @@ define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr nounde
 
 .lr.ph123.i:                                      ; preds = %93, %.lr.ph123.i
   %.0100121.i = phi i64 [ %112, %.lr.ph123.i ], [ %spec.select.i, %93 ]
-  %104 = getelementptr inbounds nuw double, ptr %18, i64 %.0100121.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0100121.i
   %105 = load double, ptr %104, align 8, !tbaa !44
-  %106 = getelementptr inbounds nuw double, ptr %17, i64 %.0100121.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0100121.i
   %107 = load double, ptr %106, align 8, !tbaa !44
   %108 = fsub double %105, %107
   %109 = fmul double %96, %108
   %110 = sub nsw i64 %.0100121.i, %.1125.i
-  %111 = getelementptr inbounds double, ptr %83, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %83, i64 %110
   store double %109, ptr %111, align 8, !tbaa !44
   %112 = add nuw nsw i64 %.0100121.i, 1
   %.not118.not.i = icmp slt i64 %.0100121.i, %103

@@ -183,7 +183,7 @@ define hidden void @_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
-  %12 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i16, ptr %14, align 2, !tbaa !12
@@ -522,31 +522,31 @@ _ZNK2cv11_InputArray6getMatEi.exit79:             ; preds = %68, %71
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %145 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %indvars.iv
   %146 = load i16, ptr %145, align 2, !tbaa !12
   %147 = zext i16 %146 to i32
   %148 = mul nsw i32 %132, %147
   %149 = lshr i32 %148, 16
   %150 = trunc nuw i32 %149 to i16
-  %151 = getelementptr inbounds nuw i16, ptr %142, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %indvars.iv
   store i16 %150, ptr %151, align 2, !tbaa !12
   %152 = add nuw nsw i64 %indvars.iv, 1
-  %153 = getelementptr inbounds nuw i16, ptr %140, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !12
   %155 = zext i16 %154 to i32
   %156 = mul nsw i32 %135, %155
   %157 = lshr i32 %156, 16
   %158 = trunc nuw i32 %157 to i16
-  %159 = getelementptr inbounds nuw i16, ptr %142, i64 %152
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %152
   store i16 %158, ptr %159, align 2, !tbaa !12
   %160 = add nuw nsw i64 %indvars.iv, 2
-  %161 = getelementptr inbounds nuw i16, ptr %140, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %160
   %162 = load i16, ptr %161, align 2, !tbaa !12
   %163 = zext i16 %162 to i32
   %164 = mul nsw i32 %138, %163
   %165 = lshr i32 %164, 16
   %166 = trunc nuw i32 %165 to i16
-  %167 = getelementptr inbounds nuw i16, ptr %142, i64 %160
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %160
   store i16 %166, ptr %167, align 2, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %168 = icmp samesign ult i64 %indvars.iv.next, %144
@@ -955,7 +955,7 @@ _ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit: ; preds = %77
   %.058 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.159, %.lr.ph.i38 ]
   %.0 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.1, %.lr.ph.i38 ]
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i40, %.lr.ph.i38 ]
-  %114 = getelementptr inbounds nuw i16, ptr %106, i64 %indvars.iv.i39
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %106, i64 %indvars.iv.i39
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %117 = load i16, ptr %116, align 2, !tbaa !12

@@ -216,7 +216,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv = phi i64 [ %indvars.iv.next, %get_dither_value.exit152 ], [ 0, %.preheader157 ]
   %.0123160 = phi ptr [ %112, %get_dither_value.exit152 ], [ %.0116164, %.preheader157 ]
   %.0124159 = phi ptr [ %113, %get_dither_value.exit152 ], [ %.0117163, %.preheader157 ]
-  %61 = getelementptr inbounds nuw float, ptr %.0118162, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.0118162, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !57
   %63 = load i8, ptr %.0124159, align 1, !tbaa !58
   %64 = uitofp i8 %63 to float
@@ -320,7 +320,7 @@ get_dither_value.exit152:                         ; preds = %get_dither_value.ex
   %118 = phi i32 [ %114, %._crit_edge.loopexit ], [ 0, %.preheader157 ]
   %119 = getelementptr inbounds i8, ptr %.0116164, i64 %51
   %120 = getelementptr inbounds i8, ptr %.0117163, i64 %52
-  %121 = getelementptr inbounds float, ptr %.0118162, i64 %53
+  %121 = getelementptr inbounds [4 x i8], ptr %.0118162, i64 %53
   %122 = add nuw i32 %.0112165, 1
   %123 = icmp ult i32 %122, %117
   br i1 %123, label %.preheader157, label %.critedge, !llvm.loop !63
@@ -328,23 +328,23 @@ get_dither_value.exit152:                         ; preds = %get_dither_value.ex
 124:                                              ; preds = %.preheader156, %._crit_edge178
   %indvars.iv207 = phi i64 [ 0, %.preheader156 ], [ %indvars.iv.next208, %._crit_edge178 ]
   %125 = load ptr, ptr %3, align 8, !tbaa !33
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv207
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv207
   %127 = load ptr, ptr %126, align 8, !tbaa !55
   %.not130 = icmp eq ptr %127, null
   br i1 %.not130, label %.critedge, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv207
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv207
   %131 = load i32, ptr %130, align 4, !tbaa !54
   %.not131 = icmp eq i32 %131, 0
   br i1 %.not131, label %.critedge, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw ptr, ptr %.0115, i64 %indvars.iv207
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.0115, i64 %indvars.iv207
   %134 = load ptr, ptr %133, align 8, !tbaa !55
   %135 = load ptr, ptr %32, align 8, !tbaa !56
-  %136 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv207
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv207
   %137 = load i32, ptr %136, align 4, !tbaa !54
   %138 = load i32, ptr %34, align 8, !tbaa !53
   %139 = trunc i64 %indvars.iv207 to i32
@@ -419,7 +419,7 @@ get_dither_value.exit155.us.us.us:                ; preds = %167, %165
   %.0.i154.us.us.us = phi nsz double [ %170, %167 ], [ 0.000000e+00, %165 ]
   %173 = shl i32 %.1111166.us.us.us, %151
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw float, ptr %.0119175.us.us, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %.0119175.us.us, i64 %174
   %176 = load float, ptr %175, align 4, !tbaa !57
   %177 = load i8, ptr %.0107168.us.us.us, align 1, !tbaa !58
   %178 = zext i8 %177 to i32
@@ -444,7 +444,7 @@ get_dither_value.exit155.us.us.us:                ; preds = %167, %165
 ._crit_edge170.split.us.us.us:                    ; preds = %get_dither_value.exit155.us.us.us
   %188 = getelementptr inbounds i8, ptr %.0121171.us.us, i64 %161
   %189 = getelementptr inbounds i8, ptr %.0120173.us.us, i64 %162
-  %190 = getelementptr inbounds float, ptr %.0119175.us.us, i64 %164
+  %190 = getelementptr inbounds [4 x i8], ptr %.0119175.us.us, i64 %164
   %191 = add nuw i32 %.1113177.us.us, 1
   %exitcond206.not = icmp eq i32 %191, %160
   br i1 %exitcond206.not, label %._crit_edge178, label %.preheader.us.us, !llvm.loop !68
@@ -475,7 +475,7 @@ get_dither_value.exit155.us.us.us:                ; preds = %167, %165
 
 get_dither_value.exit155.us183:                   ; preds = %194, %192
   %.0.i154.us184 = phi nsz double [ %197, %194 ], [ 0.000000e+00, %192 ]
-  %200 = getelementptr inbounds nuw float, ptr %.0119175.us, i64 %indvars.iv201
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %.0119175.us, i64 %indvars.iv201
   %201 = load float, ptr %200, align 4, !tbaa !57
   %202 = load i8, ptr %.0107168.us179, align 1, !tbaa !58
   %203 = uitofp i8 %202 to float
@@ -498,7 +498,7 @@ get_dither_value.exit155.us183:                   ; preds = %194, %192
 ._crit_edge170.split.us187:                       ; preds = %get_dither_value.exit155.us183
   %210 = getelementptr inbounds i8, ptr %.0121171.us, i64 %161
   %211 = getelementptr inbounds i8, ptr %.0120173.us, i64 %162
-  %212 = getelementptr inbounds float, ptr %.0119175.us, i64 %164
+  %212 = getelementptr inbounds [4 x i8], ptr %.0119175.us, i64 %164
   %213 = add nuw i32 %.1113177.us, 1
   %exitcond204.not = icmp eq i32 %213, %160
   br i1 %exitcond204.not, label %._crit_edge178, label %.preheader.us, !llvm.loop !68
@@ -825,14 +825,14 @@ get_natural_factor.exit.us:                       ; preds = %85, %68
   %.0.i.us = phi nsz double [ %89, %85 ], [ 0.000000e+00, %68 ]
   %90 = fdiv nsz double 1.000000e+00, %.0.i.us
   %91 = fptrunc nsz double %90 to float
-  %92 = getelementptr inbounds nuw float, ptr %.05773.us, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.05773.us, i64 %indvars.iv
   store float %91, ptr %92, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %68, !llvm.loop !88
 
 ._crit_edge.us:                                   ; preds = %get_natural_factor.exit.us
-  %93 = getelementptr inbounds float, ptr %.05773.us, i64 %63
+  %93 = getelementptr inbounds [4 x i8], ptr %.05773.us, i64 %63
   %94 = add nuw nsw i32 %.05972.us, 1
   %exitcond82.not = icmp eq i32 %94, %56
   br i1 %exitcond82.not, label %.loopexit, label %.preheader68.us, !llvm.loop !89
@@ -892,14 +892,14 @@ get_natural_factor.exit.us:                       ; preds = %85, %68
 
 get_natural_factor.exit66.us:                     ; preds = %122, %105
   %.0.i65.us = phi float [ %127, %122 ], [ 0.000000e+00, %105 ]
-  %128 = getelementptr inbounds nuw float, ptr %.15876.us, i64 %indvars.iv83
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.15876.us, i64 %indvars.iv83
   store float %.0.i65.us, ptr %128, align 4, !tbaa !57
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
   br i1 %exitcond87.not, label %._crit_edge.us77, label %105, !llvm.loop !90
 
 ._crit_edge.us77:                                 ; preds = %get_natural_factor.exit66.us
-  %129 = getelementptr inbounds float, ptr %.15876.us, i64 %100
+  %129 = getelementptr inbounds [4 x i8], ptr %.15876.us, i64 %100
   %130 = add nuw nsw i32 %.16075.us, 1
   %exitcond88.not = icmp eq i32 %130, %56
   br i1 %exitcond88.not, label %.loopexit, label %.preheader.us, !llvm.loop !91

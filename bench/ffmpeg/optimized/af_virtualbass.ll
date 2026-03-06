@@ -161,9 +161,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03.i = phi double [ %43, %.lr.ph.preheader.i ], [ %66, %.lr.ph.i ]
   %.0582.i = phi double [ %45, %.lr.ph.preheader.i ], [ %68, %.lr.ph.i ]
-  %54 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %55 = load double, ptr %54, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %57 = load double, ptr %56, align 8, !tbaa !52
   %58 = fadd nsz double %55, %57
   %59 = fmul nsz double %58, 5.000000e-01
@@ -192,7 +192,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %82 = select nsz i1 %80, double %81, double %79
   %83 = fmul nsz double %29, %82
   %84 = tail call nsz double @llvm.sin.f64(double %83)
-  %85 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   store double %84, ptr %85, align 8, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

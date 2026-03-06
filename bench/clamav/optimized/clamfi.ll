@@ -361,7 +361,7 @@ define internal fastcc void @nullify(ptr noundef %0, ptr noundef nonnull capture
   store i32 %42, ptr %37, align 4, !tbaa !21
   %43 = load ptr, ptr %39, align 8, !tbaa !22
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !23
   tail call void @free(ptr noundef %46) #19
   %.pr = load i32, ptr %37, align 4, !tbaa !21
@@ -806,7 +806,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
 98:                                               ; preds = %.lr.ph, %98
   %indvars.iv254 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next255, %98 ]
   %99 = load ptr, ptr %97, align 8, !tbaa !22
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv254
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv254
   %101 = load ptr, ptr %100, align 8, !tbaa !23
   %102 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %82, ptr noundef %83, ptr noundef %101, ptr noundef %86, ptr noundef %92, ptr noundef %89) #19
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
@@ -846,7 +846,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
 119:                                              ; preds = %.lr.ph242, %119
   %indvars.iv257 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next258, %119 ]
   %120 = load ptr, ptr %118, align 8, !tbaa !22
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv257
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv257
   %122 = load ptr, ptr %121, align 8, !tbaa !23
   %123 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %113, ptr noundef %122) #19
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
@@ -968,7 +968,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
 
 184:                                              ; preds = %182
   %185 = load ptr, ptr %173, align 8, !tbaa !22
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv
   %187 = load ptr, ptr %186, align 8, !tbaa !23
   br label %190
 
@@ -1011,7 +1011,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   %202 = tail call ptr @__ctype_b_loc() #21
   %203 = load ptr, ptr %202, align 8, !tbaa !33
   %204 = sext i8 %200 to i64
-  %205 = getelementptr inbounds i16, ptr %203, i64 %204
+  %205 = getelementptr inbounds [2 x i8], ptr %203, i64 %204
   %206 = load i16, ptr %205, align 2, !tbaa !35
   %207 = and i16 %206, 16384
   %.not17.i = icmp eq i16 %207, 0
@@ -1046,7 +1046,7 @@ makesanehdr.exit:                                 ; preds = %.preheader.i, %197
   %214 = tail call ptr @__ctype_b_loc() #21
   %215 = load ptr, ptr %214, align 8, !tbaa !33
   %216 = sext i8 %212 to i64
-  %217 = getelementptr inbounds i16, ptr %215, i64 %216
+  %217 = getelementptr inbounds [2 x i8], ptr %215, i64 %216
   %218 = load i16, ptr %217, align 2, !tbaa !35
   %219 = and i16 %218, 16384
   %.not17.i214 = icmp eq i16 %219, 0
@@ -1081,7 +1081,7 @@ makesanehdr.exit215:                              ; preds = %.preheader.i211, %m
   %226 = tail call ptr @__ctype_b_loc() #21
   %227 = load ptr, ptr %226, align 8, !tbaa !33
   %228 = sext i8 %224 to i64
-  %229 = getelementptr inbounds i16, ptr %227, i64 %228
+  %229 = getelementptr inbounds [2 x i8], ptr %227, i64 %228
   %230 = load i16, ptr %229, align 2, !tbaa !35
   %231 = and i16 %230, 16384
   %.not17.i220 = icmp eq i16 %231, 0
@@ -1383,7 +1383,7 @@ define internal fastcc noundef ptr @makesanehdr(ptr noundef captures(address_is_
   %4 = tail call ptr @__ctype_b_loc() #21
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = sext i8 %2 to i64
-  %7 = getelementptr inbounds i16, ptr %5, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %5, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !35
   %9 = and i16 %8, 16384
   %.not17 = icmp eq i16 %9, 0
@@ -1568,7 +1568,7 @@ define dso_local range(i32 0, 2) i32 @init_actions(ptr noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %43
   %51 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.init_actions, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.init_actions, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %52
 
@@ -1595,7 +1595,7 @@ switch.lookup:                                    ; preds = %43
 
 switch.lookup78:                                  ; preds = %56
   %64 = zext nneg i32 %59 to i64
-  %switch.gep79 = getelementptr inbounds nuw ptr, ptr @switch.table.init_actions.1, i64 %64
+  %switch.gep79 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.init_actions.1, i64 %64
   %switch.load80 = load ptr, ptr %switch.gep79, align 8
   br label %65
 
@@ -1676,7 +1676,7 @@ switch.lookup78:                                  ; preds = %56
   %94 = getelementptr inbounds nuw i8, ptr %.04569, i64 1
   %95 = load ptr, ptr %89, align 8, !tbaa !33
   %96 = sext i8 %93 to i64
-  %97 = getelementptr inbounds i16, ptr %95, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %95, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !35
   %99 = and i16 %98, 16384
   %.not64 = icmp eq i16 %99, 0
@@ -1990,7 +1990,7 @@ define dso_local i32 @clamfi_envrcpt(ptr noundef %0, ptr noundef readonly captur
   %26 = load ptr, ptr %1, align 8, !tbaa !23
   %27 = tail call noalias ptr @strdup(ptr noundef %26) #19
   %28 = zext i32 %24 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %28
   store ptr %27, ptr %29, align 8, !tbaa !23
   %.not26 = icmp eq ptr %27, null
   br i1 %.not26, label %.thread.sink.split, label %.thread

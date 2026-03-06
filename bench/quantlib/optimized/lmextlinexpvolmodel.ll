@@ -262,7 +262,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN8QuantLib9ParameterESaIS1_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Parameter", ptr %2, i64 %add
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %add
   %tobool.not.i.i = icmp eq ptr %1, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN8QuantLib9ParameterESaIS1_EE6resizeEm.exit, label %if.then.i.i
 
@@ -316,7 +316,7 @@ invoke.cont5:                                     ; preds = %for.body
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %7 = load ptr, ptr %arguments_, align 8, !tbaa !16
-  %8 = getelementptr %"class.QuantLib::Parameter", ptr %7, i64 %i.037
+  %8 = getelementptr [48 x i8], ptr %7, i64 %i.037
   %add.ptr.i5 = getelementptr i8, ptr %8, i64 192
   %9 = load ptr, ptr %ref.tmp, align 8, !tbaa !17
   %10 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !20
@@ -983,7 +983,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont
   %i.07 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont ]
   %1 = load ptr, ptr %arguments_, align 8, !tbaa !16
-  %2 = getelementptr %"class.QuantLib::Parameter", ptr %1, i64 %i.07
+  %2 = getelementptr [48 x i8], ptr %1, i64 %i.07
   %add.ptr.i = getelementptr i8, ptr %2, i64 192
   %3 = load ptr, ptr %add.ptr.i, align 8, !tbaa !17
   %cmp.not.i.i = icmp eq ptr %3, null
@@ -1008,7 +1008,7 @@ _ZNK5boost10shared_ptrIN8QuantLib9Parameter4ImplEEptEv.exit.i: ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib9Parameter4ImplEEptEv.exit.i
   %6 = load ptr, ptr %agg.result, align 8, !tbaa !21
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %6, i64 %i.07
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.07
   %7 = load double, ptr %arrayidx.i, align 8, !tbaa !43
   %mul = fmul double %call2.i4, %7
   store double %mul, ptr %arrayidx.i, align 8, !tbaa !43
@@ -1043,7 +1043,7 @@ define noundef double @_ZNK8QuantLib30LmExtLinearExponentialVolModel10volatility
 entry:
   %arguments_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %arguments_, align 8, !tbaa !16
-  %1 = getelementptr %"class.QuantLib::Parameter", ptr %0, i64 %i
+  %1 = getelementptr [48 x i8], ptr %0, i64 %i
   %add.ptr.i = getelementptr i8, ptr %1, i64 192
   %2 = load ptr, ptr %add.ptr.i, align 8, !tbaa !17
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -1073,7 +1073,7 @@ define noundef double @_ZNK8QuantLib30LmExtLinearExponentialVolModel18integrated
 entry:
   %arguments_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %arguments_, align 8, !tbaa !16
-  %1 = getelementptr %"class.QuantLib::Parameter", ptr %0, i64 %i
+  %1 = getelementptr [48 x i8], ptr %0, i64 %i
   %add.ptr.i = getelementptr i8, ptr %1, i64 192
   %2 = load ptr, ptr %add.ptr.i, align 8, !tbaa !17
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -1092,7 +1092,7 @@ _ZNK8QuantLib9ParameterclEd.exit:                 ; preds = %entry, %cond.false.
   %4 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %params_.i, double noundef 0.000000e+00)
   %5 = load ptr, ptr %arguments_, align 8, !tbaa !16
-  %6 = getelementptr %"class.QuantLib::Parameter", ptr %5, i64 %j
+  %6 = getelementptr [48 x i8], ptr %5, i64 %j
   %add.ptr.i3 = getelementptr i8, ptr %6, i64 192
   %7 = load ptr, ptr %add.ptr.i3, align 8, !tbaa !17
   %cmp.not.i.i4 = icmp eq ptr %7, null
@@ -2194,9 +2194,9 @@ if.then.i25:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE13_M_deallocateEPS1_m.exit27: ; preds = %_ZNSt6vectorIN8QuantLib9ParameterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i25
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !16
-  %add.ptr37 = getelementptr inbounds nuw %"class.QuantLib::Parameter", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [48 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !15
-  %add.ptr40 = getelementptr inbounds nuw %"class.QuantLib::Parameter", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !54
   br label %if.end44
 

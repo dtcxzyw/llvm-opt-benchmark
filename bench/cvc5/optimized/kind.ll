@@ -441,7 +441,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal4kind8toStringENS1_6Kind_tE(
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal4kind8toStringENS1_6Kind_tE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal4kind8toStringENS1_6Kind_tE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -546,7 +546,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal8toStringENS0_12TypeConstant
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_12TypeConstantE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_12TypeConstantE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -562,7 +562,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_12TypeConstantE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_12TypeConstantE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_12TypeConstantE.exit
 
@@ -596,7 +596,7 @@ define hidden noundef range(i32 0, 14) i32 @_ZN4cvc58internal6theory14kindToTheo
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -737,7 +737,7 @@ define hidden noundef range(i32 0, 14) i32 @_ZN4cvc58internal6theory22typeConsta
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4cvc58internal6theory22typeConstantToTheoryIdENS0_12TypeConstantE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4cvc58internal6theory22typeConstantToTheoryIdENS0_12TypeConstantE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

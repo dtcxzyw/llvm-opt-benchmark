@@ -3,13 +3,6 @@ source_filename = "bench/lief/original/SymbolVersionRequirement.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
-%"struct.std::_Head_base.4" = type { ptr }
-
 $_ZNK4LIEF6ObjectneERKS0_ = comdat any
 
 $_ZN4LIEF3ELF24SymbolVersionRequirementD2Ev = comdat any
@@ -321,7 +314,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %107
   store ptr %100, ptr %5, align 8, !tbaa !32
   store ptr %106, ptr %57, align 8, !tbaa !31
-  %108 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %100, i64 %98
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %98
   store ptr %108, ptr %37, align 8, !tbaa !33
   br label %_ZNSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS2_EED2Ev.exit
 
@@ -521,7 +514,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %54
   store ptr %47, ptr %4, align 8, !tbaa !32
   store ptr %53, ptr %27, align 8, !tbaa !31
-  %55 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %47, i64 %45
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %55, ptr %29, align 8, !tbaa !33
   br label %_ZNSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS2_EED2Ev.exit
 

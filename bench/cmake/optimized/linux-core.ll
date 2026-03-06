@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
-%struct.uv_cpu_info_s = type { ptr, i32, %struct.uv_cpu_times_s }
-%struct.uv_cpu_times_s = type { i64, i64, i64, i64, i64 }
-%struct.uv_interface_address_s = type { ptr, [6 x i8], i32, %union.anon.4, %union.anon.6 }
-%union.anon.4 = type { %struct.sockaddr_in6 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.5 }
-%union.anon.5 = type { [4 x i32] }
-%union.anon.6 = type { %struct.sockaddr_in6 }
 %struct.sysinfo = type { i64, [3 x i64], i64, i64, i64, i64, i64, i64, i16, i16, i64, i64, i32, [0 x i8] }
 
 @uv__hrtime.fast_clock_id = internal unnamed_addr global i64 -1, align 8
@@ -437,7 +429,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
 
 .outer.i:                                         ; preds = %.split.us.i
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
-  %42 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv111.i
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv111.i
   store ptr %60, ptr %42, align 8, !tbaa !38
   %43 = call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef nonnull %33)
   %.not3857.i = icmp eq ptr %43, null
@@ -476,7 +468,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   %50 = call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #13
   %51 = trunc i64 %50 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %52 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %51, ptr %53, align 8, !tbaa !42
   %54 = call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef nonnull %33)
@@ -524,7 +516,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   %65 = call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #13
   %66 = trunc i64 %65 to i32
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
-  %67 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv121.i
+  %67 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv121.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 %66, ptr %68, align 8, !tbaa !42
   %69 = call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef nonnull %33)
@@ -558,7 +550,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   %.029.ph.lcssa37142.i = phi i32 [ %73, %.outer34._crit_edge.thread139.i ], [ %.029.ph.lcssa37.i, %.outer34._crit_edge.i ]
   %77 = add i32 %.029.ph.lcssa37142.i, -1
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %78
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !38
   br label %81
 
@@ -581,7 +573,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
 
 87:                                               ; preds = %.lr.ph85.i
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
-  %88 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv127.i
+  %88 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv127.i
   store ptr %85, ptr %88, align 8, !tbaa !38
   %exitcond131.not.i = icmp eq i64 %indvars.iv.next128.i, %29
   br i1 %exitcond131.not.i, label %read_models.exit.thread, label %.lr.ph85.i, !llvm.loop !43
@@ -671,7 +663,7 @@ read_models.exit:                                 ; preds = %32
   %118 = load i64, ptr %10, align 8, !tbaa !22
   %119 = mul i64 %118, %.zext.i
   %120 = add nuw nsw i64 %.023.i, 1
-  %121 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %.023.i
+  %121 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %.023.i
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 %111, ptr %122, align 8, !tbaa !22
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %121, i64 24
@@ -736,7 +728,7 @@ read_cpufreq.exit.i:                              ; preds = %134, %.lr.ph.i38
   %.0.i.i = phi i32 [ %138, %134 ], [ 0, %.lr.ph.i38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %139 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv.i39
+  %139 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv.i39
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i32 %.0.i.i, ptr %140, align 8, !tbaa !42
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
@@ -1041,7 +1033,7 @@ define dso_local void @uv_free_interface_addresses(ptr noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.uv_interface_address_s, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [80 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !60
   tail call void @uv__free(ptr noundef %5) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

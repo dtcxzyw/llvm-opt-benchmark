@@ -385,7 +385,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit97: ; preds = %_ZN5Ipopt8Smart
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit97
   %168 = sext i32 %35 to i64
-  %169 = getelementptr inbounds double, ptr %6, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %6, i64 %168
   %170 = load ptr, ptr %12, align 8, !tbaa !3
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !9, !noalias !77
@@ -425,7 +425,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i101: ; preds = %_ZNK5Ipo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %188 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store double 1.000000e+00, ptr %188, align 8, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -580,7 +580,7 @@ _ZN5Ipopt6Vector14ElementWiseMinERKS0_.exit:      ; preds = %.noexc133
 
 259:                                              ; preds = %_ZN5Ipopt6Vector14ElementWiseMinERKS0_.exit
   %260 = sext i32 %74 to i64
-  %261 = getelementptr inbounds double, ptr %169, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr %169, i64 %260
   %262 = add nsw i32 %152, %113
   %263 = icmp sgt i32 %262, 0
   br i1 %263, label %.lr.ph207.preheader, label %._crit_edge208
@@ -792,7 +792,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit146.thread: ; preds = %321, %327
 
 .lr.ph207:                                        ; preds = %.lr.ph207.preheader, %.lr.ph207
   %indvars.iv210 = phi i64 [ 0, %.lr.ph207.preheader ], [ %indvars.iv.next211, %.lr.ph207 ]
-  %363 = getelementptr inbounds nuw double, ptr %261, i64 %indvars.iv210
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv210
   store double 1.000000e+00, ptr %363, align 8, !tbaa !88
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213

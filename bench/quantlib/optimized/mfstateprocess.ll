@@ -484,10 +484,10 @@ do.body141.lr.ph:                                 ; preds = %for.cond134.prehead
   br label %do.body141
 
 do.body59:                                        ; preds = %for.cond
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %30 = load double, ptr %arrayidx.i, align 8, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx.i69 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.next
+  %arrayidx.i69 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   %31 = load double, ptr %arrayidx.i69, align 8, !tbaa !59
   %cmp66 = fcmp olt double %30, %31
   br i1 %cmp66, label %for.cond, label %if.then67, !llvm.loop !60
@@ -505,7 +505,7 @@ invoke.cont70:                                    ; preds = %if.then67
 
 invoke.cont72:                                    ; preds = %invoke.cont70
   %34 = load ptr, ptr %times, align 8, !tbaa !3
-  %arrayidx.i73 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %arrayidx.i73 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %35 = load double, ptr %arrayidx.i73, align 8, !tbaa !59
   %call.i74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream68, double noundef %35)
           to label %invoke.cont77 unwind label %lpad71
@@ -524,7 +524,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
 
 invoke.cont83:                                    ; preds = %invoke.cont81
   %36 = load ptr, ptr %times, align 8, !tbaa !3
-  %arrayidx.i81 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.next
+  %arrayidx.i81 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.next
   %37 = load double, ptr %arrayidx.i81, align 8, !tbaa !59
   %call.i82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call82, double noundef %37)
           to label %invoke.cont89 unwind label %lpad71
@@ -680,7 +680,7 @@ for.cond.cleanup139:                              ; preds = %for.inc196, %for.co
 
 do.body141:                                       ; preds = %do.body141.lr.ph, %for.inc196
   %i133.0205 = phi i64 [ 0, %do.body141.lr.ph ], [ %inc197, %for.inc196 ]
-  %arrayidx.i112 = getelementptr inbounds nuw double, ptr %29, i64 %i133.0205
+  %arrayidx.i112 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %i133.0205
   %56 = load double, ptr %arrayidx.i112, align 8, !tbaa !59
   %cmp144 = fcmp ult double %56, 0.000000e+00
   br i1 %cmp144, label %if.then145, label %for.inc196
@@ -696,7 +696,7 @@ invoke.cont148:                                   ; preds = %if.then145
 
 invoke.cont150:                                   ; preds = %invoke.cont148
   %57 = load ptr, ptr %vols, align 8, !tbaa !3
-  %arrayidx.i116 = getelementptr inbounds nuw double, ptr %57, i64 %i133.0205
+  %arrayidx.i116 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %i133.0205
   %58 = load double, ptr %arrayidx.i116, align 8, !tbaa !59
   %call.i117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream146, double noundef %58)
           to label %invoke.cont154 unwind label %lpad149
@@ -1009,7 +1009,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__first.addr.013.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %2, %entry ]
   %__len.012.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %3, %entry ]
   %shr.i.i = lshr i64 %__len.012.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i, i64 %shr.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i, align 8, !tbaa !59
   %cmp.i.i.i = fcmp olt double %t, %4
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -1097,7 +1097,7 @@ while.body.i.i:                                   ; preds = %if.end13, %while.bo
   %__first.addr.013.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %5, %if.end13 ]
   %__len.012.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %2, %if.end13 ]
   %shr.i.i = lshr i64 %__len.012.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i, i64 %shr.i.i
   %6 = load double, ptr %add.ptr.i.i.i.i, align 8, !tbaa !59
   %cmp.i.i.i = fcmp olt double %t, %6
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -1120,7 +1120,7 @@ while.body.i.i39:                                 ; preds = %while.body.i.i39, %
   %__first.addr.013.i.i40 = phi ptr [ %5, %while.body.lr.ph.i.i38 ], [ %__first.addr.1.i.i52, %while.body.i.i39 ]
   %__len.012.i.i41 = phi i64 [ %2, %while.body.lr.ph.i.i38 ], [ %__len.1.i.i51, %while.body.i.i39 ]
   %shr.i.i42 = lshr i64 %__len.012.i.i41, 1
-  %add.ptr.i.i.i.i46 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i40, i64 %shr.i.i42
+  %add.ptr.i.i.i.i46 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i40, i64 %shr.i.i42
   %8 = load double, ptr %add.ptr.i.i.i.i46, align 8, !tbaa !59
   %cmp.i.i.i48 = fcmp olt double %add2593, %8
   %incdec.ptr.i.i49 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i46, i64 8
@@ -1165,10 +1165,10 @@ for.body.lr.ph:                                   ; preds = %_ZSt11upper_boundIP
 for.body.us:                                      ; preds = %for.body.lr.ph, %cond.end50.us
   %k.0100.us = phi i64 [ %inc.us, %cond.end50.us ], [ %sub.ptr.div94, %for.body.lr.ph ]
   %v.099.us = phi double [ %18, %cond.end50.us ], [ 0.000000e+00, %for.body.lr.ph ]
-  %arrayidx.i.us = getelementptr inbounds nuw double, ptr %14, i64 %k.0100.us
+  %arrayidx.i.us = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %k.0100.us
   %15 = load double, ptr %arrayidx.i.us, align 8, !tbaa !59
   %mul40.us = fmul double %15, %15
-  %arrayidx.i56.us = getelementptr double, ptr %5, i64 %k.0100.us
+  %arrayidx.i56.us = getelementptr [8 x i8], ptr %5, i64 %k.0100.us
   %16 = load double, ptr %arrayidx.i56.us, align 8, !tbaa !59
   %cmp44.not.us = icmp eq i64 %k.0100.us, 0
   br i1 %cmp44.not.us, label %cond.end50.us, label %cond.true45.us
@@ -1194,11 +1194,11 @@ for.cond.cleanup:                                 ; preds = %_ZSt11upper_boundIP
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end79
   %k.0100 = phi i64 [ %inc, %cond.end79 ], [ %sub.ptr.div94, %for.body.lr.ph ]
   %v.099 = phi double [ %22, %cond.end79 ], [ 0.000000e+00, %for.body.lr.ph ]
-  %arrayidx.i59 = getelementptr inbounds nuw double, ptr %14, i64 %k.0100
+  %arrayidx.i59 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %k.0100
   %19 = load double, ptr %arrayidx.i59, align 8, !tbaa !59
   %mul60 = fmul double %div57, %19
   %mul63 = fmul double %19, %mul60
-  %arrayidx.i61 = getelementptr double, ptr %5, i64 %k.0100
+  %arrayidx.i61 = getelementptr [8 x i8], ptr %5, i64 %k.0100
   %20 = load double, ptr %arrayidx.i61, align 8, !tbaa !59
   %mul68 = fmul double %mul56, %20
   %call69 = tail call double @exp(double noundef %mul68) #26, !tbaa !69

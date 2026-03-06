@@ -3,8 +3,6 @@ source_filename = "bench/quantlib/original/defaultprobabilitykey.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.boost::shared_ptr.0" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<QuantLib::AtomicDefault::Type, QuantLib::AtomicDefault::Type, std::_Identity<QuantLib::AtomicDefault::Type>, std::less<QuantLib::AtomicDefault::Type>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<QuantLib::AtomicDefault::Type, QuantLib::AtomicDefault::Type, std::_Identity<QuantLib::AtomicDefault::Type>, std::less<QuantLib::AtomicDefault::Type>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -28,6 +26,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.QuantLib::Currency" = type { %"class.boost::shared_ptr" }
 %"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
+%"class.boost::detail::shared_count" = type { ptr }
+%"class.boost::shared_ptr.0" = type { ptr, %"class.boost::detail::shared_count" }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -244,7 +244,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.026 = phi i64 [ %inc, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit ], [ 0, %for.cond.preheader ]
   %18 = load ptr, ptr %lhs, align 8, !tbaa !25
   %19 = load ptr, ptr %rhs, align 8, !tbaa !24
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %19, i64 %i.026
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %i.026
   %20 = load ptr, ptr %add.ptr.i, align 8, !tbaa !26
   %cmp.not.i = icmp eq ptr %20, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit, !prof !17
@@ -491,7 +491,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
 for.body:                                         ; preds = %entry, %invoke.cont8
   %i.048 = phi i64 [ %inc, %invoke.cont8 ], [ 0, %entry ]
   %9 = load ptr, ptr %this, align 8, !tbaa !24
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %9, i64 %i.048
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %i.048
   %10 = load ptr, ptr %add.ptr.i, align 8, !tbaa !26
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont, !prof !17
@@ -2301,7 +2301,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !24
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !23
-  %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !31
   ret void
 }

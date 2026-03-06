@@ -116,12 +116,12 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit61:           ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = add nuw nsw i64 %31, 9
   %43 = lshr i64 %33, 6
-  %44 = getelementptr inbounds nuw i64, ptr %36, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %43
   store ptr %44, ptr %32, align 8, !tbaa !11
   store ptr %36, ptr %6, align 8
   store i32 0, ptr %41, align 8
   %.zext = lshr i64 %42, 6
-  %45 = getelementptr inbounds nuw i64, ptr %36, i64 %.zext
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.zext
   %46 = trunc nuw nsw i64 %42 to i32
   %47 = and i32 %46, 63
   store ptr %45, ptr %40, align 8
@@ -144,7 +144,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEE
   %.04166 = phi i64 [ %85, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ 0, %38 ]
   %.04265 = phi i32 [ %84, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ %48, %38 ]
   %53 = load ptr, ptr %2, align 8, !tbaa !17
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %.04166
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %.04166
   %55 = load i32, ptr %54, align 4, !tbaa !18
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !18
@@ -179,10 +179,10 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEE
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %69 = zext nneg i32 %55 to i64
-  %70 = getelementptr %"struct.std::array.13", ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 %69
+  %70 = getelementptr [20 x i8], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -960
   %72 = zext nneg i32 %57 to i64
-  %73 = getelementptr %"struct.std::array.13", ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 %72
+  %73 = getelementptr [20 x i8], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 %72
   %74 = getelementptr i8, ptr %73, i64 -960
   br label %77
 
@@ -192,12 +192,12 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEE
 
 77:                                               ; preds = %68, %77
   %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !20
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   store i32 %79, ptr %80, align 4, !tbaa !20
-  %81 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !20
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %82, ptr %83, align 4, !tbaa !20
@@ -237,7 +237,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEE
   %97 = sub i64 %95, %96
   %98 = ashr exact i64 %97, 3
   %99 = sub nsw i64 0, %98
-  %100 = getelementptr inbounds i64, ptr %94, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %94, i64 %99
   call void @_ZdlPvm(ptr noundef %100, i64 noundef %97) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -258,7 +258,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %91, %93
   %107 = sub i64 %105, %106
   %108 = ashr exact i64 %107, 3
   %109 = sub nsw i64 0, %108
-  %110 = getelementptr inbounds i64, ptr %104, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %104, i64 %109
   call void @_ZdlPvm(ptr noundef %110, i64 noundef %107) #11
   br label %.body
 

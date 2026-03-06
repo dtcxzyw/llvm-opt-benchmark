@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.prb_desc = type { %struct.atomic64_t, %struct.prb_data_blk_lpos }
 %struct.atomic64_t = type { i64 }
 %struct.prb_data_blk_lpos = type { i64, i64 }
-%struct.printk_info = type { i64, i64, i16, i8, i8, i32, %struct.dev_printk_info }
-%struct.dev_printk_info = type { [16 x i8], [48 x i8] }
 %struct.printk_record = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [34 x i8] c"kernel/printk/printk_ringbuffer.c\00", align 1
@@ -44,7 +42,7 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
   %19 = and i64 %12, %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr %struct.prb_desc, ptr %21, i64 %19
+  %22 = getelementptr [24 x i8], ptr %21, i64 %19
   %23 = load volatile i64, ptr %22, align 8
   %24 = and i64 %23, 4611686018427387903
   %25 = icmp ne i64 %24, %12
@@ -58,7 +56,7 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
 
 28:                                               ; preds = %5
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
-  %.split9 = getelementptr %struct.printk_info, ptr %14, i64 %19
+  %.split9 = getelementptr [88 x i8], ptr %14, i64 %19
   %29 = getelementptr i8, ptr %.split9, i64 20
   %30 = load i32, ptr %29, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
@@ -80,7 +78,7 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
   %42 = xor i32 %41, -1
   %43 = zext nneg i32 %42 to i64
   %44 = and i64 %12, %43
-  %45 = getelementptr %struct.prb_desc, ptr %39, i64 %44
+  %45 = getelementptr [24 x i8], ptr %39, i64 %44
   %46 = or i64 %12, 4611686018427387904
   %47 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %45, i64 %12, ptr elementtype(i64) %45, i64 %46) #10, !srcloc !10
   %48 = extractvalue { i8, i64 } %47, 0
@@ -115,7 +113,7 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
   %62 = xor i32 %61, -1
   %63 = zext nneg i32 %62 to i64
   %64 = and i64 %12, %63
-  %65 = getelementptr %struct.printk_info, ptr %59, i64 %64
+  %65 = getelementptr [88 x i8], ptr %59, i64 %64
   store ptr %1, ptr %0, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %12, ptr %66, align 8
@@ -468,7 +466,7 @@ data_alloc.exit:                                  ; preds = %data_alloc.exit.sin
   %295 = xor i32 %294, -1
   %296 = zext nneg i32 %295 to i64
   %297 = and i64 %290, %296
-  %298 = getelementptr %struct.prb_desc, ptr %292, i64 %297
+  %298 = getelementptr [24 x i8], ptr %292, i64 %297
   %299 = or i64 %290, 4611686018427387904
   %300 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %298, i64 %299, ptr elementtype(i64) %298, i64 %290) #10, !srcloc !10
   %301 = extractvalue { i8, i64 } %300, 0
@@ -508,7 +506,7 @@ data_alloc.exit:                                  ; preds = %data_alloc.exit.sin
   %320 = xor i32 %319, -1
   %321 = zext nneg i32 %320 to i64
   %322 = and i64 %313, %321
-  %323 = getelementptr %struct.prb_desc, ptr %317, i64 %322
+  %323 = getelementptr [24 x i8], ptr %317, i64 %322
   %324 = or i64 %313, -9223372036854775808
   %325 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %323, i64 %324, i64 %316, ptr elementtype(i64) %323) #10, !srcloc !26
   %326 = getelementptr inbounds nuw i8, ptr %289, i64 40
@@ -653,7 +651,7 @@ define dso_local void @prb_commit(ptr noundef readonly captures(none) %0) local_
   %9 = xor i32 %8, -1
   %10 = zext nneg i32 %9 to i64
   %11 = and i64 %4, %10
-  %12 = getelementptr %struct.prb_desc, ptr %6, i64 %11
+  %12 = getelementptr [24 x i8], ptr %6, i64 %11
   %13 = or i64 %4, 4611686018427387904
   %14 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %13, ptr elementtype(i64) %12, i64 %4) #10, !srcloc !10
   %15 = extractvalue { i8, i64 } %14, 0
@@ -694,7 +692,7 @@ define dso_local void @prb_commit(ptr noundef readonly captures(none) %0) local_
   %35 = xor i32 %34, -1
   %36 = zext nneg i32 %35 to i64
   %37 = and i64 %28, %36
-  %38 = getelementptr %struct.prb_desc, ptr %32, i64 %37
+  %38 = getelementptr [24 x i8], ptr %32, i64 %37
   %39 = or i64 %28, -9223372036854775808
   %40 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %38, i64 %39, i64 %31, ptr elementtype(i64) %38) #10, !srcloc !26
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -767,7 +765,7 @@ define dso_local noundef zeroext i1 @prb_reserve(ptr noundef captures(none) %0, 
   %41 = zext nneg i32 %40 to i64
   %42 = and i64 %33, %41
   %43 = load ptr, ptr %25, align 8
-  %44 = getelementptr %struct.prb_desc, ptr %43, i64 %42
+  %44 = getelementptr [24 x i8], ptr %43, i64 %42
   %45 = load volatile i64, ptr %44, align 8
   %46 = and i64 %45, 4611686018427387903
   %47 = icmp eq i64 %46, %34
@@ -826,7 +824,7 @@ select.unfold:                                    ; preds = %52, %37
   %77 = xor i32 %76, -1
   %78 = zext nneg i32 %77 to i64
   %79 = and i64 %33, %78
-  %80 = getelementptr %struct.prb_desc, ptr %74, i64 %79
+  %80 = getelementptr [24 x i8], ptr %74, i64 %79
   %81 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %80, i64 %73, i64 %72, ptr elementtype(i64) %80) #10, !srcloc !26
   br label %82
 
@@ -843,7 +841,7 @@ select.unfold:                                    ; preds = %52, %37
   %90 = zext nneg i32 %89 to i64
   %91 = and i64 %85, %90
   %92 = load ptr, ptr %25, align 8
-  %93 = getelementptr %struct.prb_desc, ptr %92, i64 %91
+  %93 = getelementptr [24 x i8], ptr %92, i64 %91
   %94 = load volatile i64, ptr %93, align 8
   %95 = and i64 %94, 4611686018427387903
   %96 = icmp eq i64 %95, %86
@@ -905,7 +903,7 @@ select.unfold:                                    ; preds = %52, %37
   %129 = xor i32 %128, -1
   %130 = zext nneg i32 %129 to i64
   %131 = and i64 %28, %130
-  %132 = getelementptr %struct.prb_desc, ptr %126, i64 %131
+  %132 = getelementptr [24 x i8], ptr %126, i64 %131
   %133 = load volatile i64, ptr %132, align 8
   %134 = icmp eq i64 %133, 0
   br i1 %134, label %141, label %135
@@ -962,7 +960,7 @@ select.unfold:                                    ; preds = %52, %37
   %159 = and i64 %28, %158
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr %struct.printk_info, ptr %161, i64 %159
+  %162 = getelementptr [88 x i8], ptr %161, i64 %159
   %163 = load i64, ptr %162, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %162, i8 0, i64 88, i1 false)
   store ptr %1, ptr %0, align 8
@@ -1002,7 +1000,7 @@ select.unfold:                                    ; preds = %52, %37
   %184 = xor i32 %183, -1
   %185 = zext nneg i32 %184 to i64
   %186 = and i64 %178, %185
-  %187 = getelementptr %struct.prb_desc, ptr %181, i64 %186
+  %187 = getelementptr [24 x i8], ptr %181, i64 %186
   %188 = or disjoint i64 %179, -9223372036854775808
   %189 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %187, i64 %188, i64 %180, ptr elementtype(i64) %187) #10, !srcloc !26
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1011,7 +1009,7 @@ select.unfold:                                    ; preds = %52, %37
 
 191:                                              ; preds = %177, %172
   %192 = load i32, ptr %7, align 8
-  %.split = getelementptr %struct.prb_desc, ptr %154, i64 %159
+  %.split = getelementptr [24 x i8], ptr %154, i64 %159
   %193 = getelementptr i8, ptr %.split, i64 8
   %194 = icmp eq i32 %192, 0
   br i1 %194, label %._crit_edge, label %195
@@ -1113,7 +1111,7 @@ select.unfold:                                    ; preds = %52, %37
   %261 = xor i32 %260, -1
   %262 = zext nneg i32 %261 to i64
   %263 = and i64 %256, %262
-  %264 = getelementptr %struct.prb_desc, ptr %258, i64 %263
+  %264 = getelementptr [24 x i8], ptr %258, i64 %263
   %265 = or i64 %256, 4611686018427387904
   %266 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %264, i64 %265, ptr elementtype(i64) %264, i64 %256) #10, !srcloc !10
   %267 = extractvalue { i8, i64 } %266, 0
@@ -1153,7 +1151,7 @@ select.unfold:                                    ; preds = %52, %37
   %286 = xor i32 %285, -1
   %287 = zext nneg i32 %286 to i64
   %288 = and i64 %279, %287
-  %289 = getelementptr %struct.prb_desc, ptr %283, i64 %288
+  %289 = getelementptr [24 x i8], ptr %283, i64 %288
   %290 = or i64 %279, -9223372036854775808
   %291 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %289, i64 %290, i64 %282, ptr elementtype(i64) %289) #10, !srcloc !26
   %292 = getelementptr inbounds nuw i8, ptr %255, i64 40
@@ -1226,7 +1224,7 @@ define dso_local void @prb_final_commit(ptr noundef readonly captures(none) %0) 
   %9 = xor i32 %8, -1
   %10 = zext nneg i32 %9 to i64
   %11 = and i64 %4, %10
-  %12 = getelementptr %struct.prb_desc, ptr %6, i64 %11
+  %12 = getelementptr [24 x i8], ptr %6, i64 %11
   %13 = or i64 %4, -9223372036854775808
   %14 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %13, ptr elementtype(i64) %12, i64 %4) #10, !srcloc !10
   %15 = extractvalue { i8, i64 } %14, 0
@@ -1293,15 +1291,15 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %23 = xor i32 %22, -1
   %24 = zext nneg i32 %23 to i64
   %25 = and i64 %19, %24
-  %26 = getelementptr %struct.printk_info, ptr %20, i64 %25
+  %26 = getelementptr [88 x i8], ptr %20, i64 %25
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr %struct.prb_desc, ptr %27, i64 %25
+  %28 = getelementptr [24 x i8], ptr %27, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !5
   %29 = load volatile i64, ptr %28, align 8
   %30 = and i64 %29, 4611686018427387903
   %31 = and i64 %29, %24
-  %32 = getelementptr %struct.prb_desc, ptr %27, i64 %31
+  %32 = getelementptr [24 x i8], ptr %27, i64 %31
   %33 = load volatile i64, ptr %32, align 8
   %34 = and i64 %33, 4611686018427387903
   %35 = icmp eq i64 %34, %30
@@ -1312,7 +1310,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   br i1 %39, label %50, label %40
 
 40:                                               ; preds = %18
-  %41 = getelementptr %struct.printk_info, ptr %20, i64 %31
+  %41 = getelementptr [88 x i8], ptr %20, i64 %31
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
@@ -1440,7 +1438,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %117 = zext nneg i32 %116 to i64
   %118 = and i64 %29, %117
   %119 = load ptr, ptr %9, align 8
-  %120 = getelementptr %struct.prb_desc, ptr %119, i64 %118
+  %120 = getelementptr [24 x i8], ptr %119, i64 %118
   %121 = load volatile i64, ptr %120, align 8
   %122 = and i64 %121, 4611686018427387903
   %123 = icmp eq i64 %122, %30
@@ -1451,7 +1449,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   br i1 %127, label %138, label %128
 
 128:                                              ; preds = %112
-  %129 = getelementptr %struct.printk_info, ptr %113, i64 %118
+  %129 = getelementptr [88 x i8], ptr %113, i64 %118
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %130, i64 16, i1 false)
@@ -1517,7 +1515,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %165 = zext nneg i32 %164 to i64
   %166 = and i64 %160, %165
   %167 = load ptr, ptr %9, align 8
-  %168 = getelementptr %struct.prb_desc, ptr %167, i64 %166
+  %168 = getelementptr [24 x i8], ptr %167, i64 %166
   %169 = load volatile i64, ptr %168, align 8
   %170 = and i64 %169, 4611686018427387903
   %171 = icmp eq i64 %170, %160
@@ -1528,7 +1526,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   br i1 %175, label %185, label %176
 
 176:                                              ; preds = %158
-  %177 = getelementptr %struct.printk_info, ptr %161, i64 %166
+  %177 = getelementptr [88 x i8], ptr %161, i64 %166
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %178 = load i64, ptr %177, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
@@ -1620,7 +1618,7 @@ define dso_local i64 @prb_next_seq(ptr noundef %0) local_unnamed_addr #0 align 1
   %11 = and i64 %4, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr %struct.prb_desc, ptr %13, i64 %11
+  %14 = getelementptr [24 x i8], ptr %13, i64 %11
   %15 = load volatile i64, ptr %14, align 8
   %16 = and i64 %15, 4611686018427387903
   %17 = icmp eq i64 %16, %4
@@ -1631,7 +1629,7 @@ define dso_local i64 @prb_next_seq(ptr noundef %0) local_unnamed_addr #0 align 1
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %1
-  %23 = getelementptr %struct.printk_info, ptr %6, i64 %11
+  %23 = getelementptr [88 x i8], ptr %6, i64 %11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %2, align 8
@@ -1714,7 +1712,7 @@ define dso_local void @prb_init(ptr noundef initializes((0, 4), (8, 24)) %0, ptr
   store volatile i64 0, ptr %25, align 8
   %26 = add i32 %7, -1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr %struct.prb_desc, ptr %3, i64 %27
+  %28 = getelementptr [24 x i8], ptr %3, i64 %27
   %29 = or disjoint i64 %16, -4611686018427387904
   store volatile i64 %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1723,7 +1721,7 @@ define dso_local void @prb_init(ptr noundef initializes((0, 4), (8, 24)) %0, ptr
   store i64 1, ptr %31, align 8
   %32 = sub nsw i64 0, %8
   store i64 %32, ptr %5, align 8
-  %33 = getelementptr %struct.printk_info, ptr %5, i64 %27
+  %33 = getelementptr [88 x i8], ptr %5, i64 %27
   store i64 0, ptr %33, align 8
   ret void
 }
@@ -1786,7 +1784,7 @@ define internal fastcc noundef zeroext i1 @data_push_tail(ptr noundef %0, i64 no
   %36 = zext nneg i32 %35 to i64
   %37 = and i64 %32, %36
   %38 = load ptr, ptr %18, align 8
-  %39 = getelementptr %struct.prb_desc, ptr %38, i64 %37
+  %39 = getelementptr [24 x i8], ptr %38, i64 %37
   %40 = load volatile i64, ptr %39, align 8
   %41 = and i64 %40, 4611686018427387903
   %42 = icmp eq i64 %41, %32
@@ -1841,7 +1839,7 @@ select.unfold:                                    ; preds = %47, %22
   %69 = xor i32 %68, -1
   %70 = zext nneg i32 %69 to i64
   %71 = and i64 %32, %70
-  %72 = getelementptr %struct.prb_desc, ptr %66, i64 %71
+  %72 = getelementptr [24 x i8], ptr %66, i64 %71
   %73 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %72, i64 %65, i64 %64, ptr elementtype(i64) %72) #10, !srcloc !26
   br label %76
 

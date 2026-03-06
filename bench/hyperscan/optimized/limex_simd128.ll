@@ -3,12 +3,7 @@ source_filename = "bench/hyperscan/original/limex_simd128.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.RepeatControl = type { %struct.RepeatRingControl }
-%struct.RepeatRingControl = type { i64, i16, i16 }
 %struct.NFAContext128 = type { <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, i8, ptr, ptr, ptr, ptr, ptr, [16 x i8] }
-%struct.mq_item = type { i32, i64, i64 }
-%struct.NFAException128 = type { <2 x i64>, <2 x i64>, i32, i32, i8, i8 }
-%struct.NFAAccept = type { i8, i32, i32 }
 
 @simd_onebit_masks = external local_unnamed_addr constant [0 x i8], align 1
 
@@ -91,7 +86,7 @@ queue_prev_byte.exit:                             ; preds = %13, %18, %25
   %52 = load i32, ptr %49, align 16
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %31, i64 %53
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %31, i64 %57
@@ -128,7 +123,7 @@ queue_prev_byte.exit:                             ; preds = %13, %18, %25
   %81 = load i32, ptr %80, align 4
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds nuw i8, ptr %48, i64 %82
-  %84 = getelementptr inbounds nuw %union.RepeatControl, ptr %44, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv
   tail call void @repeatPack(ptr noundef %83, ptr noundef nonnull %79, ptr noundef nonnull %84, i64 noundef %34) #11
   %.pre = load i32, ptr %35, align 4
   br label %85
@@ -164,7 +159,7 @@ nfaExecLimEx128_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   %99 = getelementptr inbounds nuw i8, ptr %31, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw <2 x i64>, ptr %97, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %101
   call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 16) ]
   %103 = load <2 x i64>, ptr %102, align 16
   store <2 x i64> %103, ptr %5, align 16
@@ -251,7 +246,7 @@ define hidden noundef signext i8 @nfaExecLimEx128_expandState(ptr noundef %0, pt
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw <2 x i64>, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %22
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 16) ]
   %24 = load <2 x i64>, ptr %23, align 16
   store <2 x i64> %24, ptr %7, align 16
@@ -321,7 +316,7 @@ moNfaExpandState128.exit:                         ; preds = %13, %39
   %58 = load i32, ptr %55, align 16
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 %59
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 %63
@@ -358,7 +353,7 @@ moNfaExpandState128.exit:                         ; preds = %13, %39
   %87 = load i32, ptr %86, align 4
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr %54, i64 %88
-  %90 = getelementptr inbounds nuw %union.RepeatControl, ptr %50, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   call void @repeatUnpack(ptr noundef %89, ptr noundef nonnull %85, i64 noundef %3, ptr noundef nonnull %90) #11
   %.pre = load i32, ptr %40, align 4
   br label %91
@@ -391,7 +386,7 @@ define hidden noundef signext i8 @nfaExecLimEx128_queueInitState(ptr noundef rea
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw %union.RepeatControl, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %7, align 4
@@ -448,7 +443,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_initCompressedState(ptr
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw <2 x i64>, ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %29
   call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 16) ]
   %31 = load <2 x i64>, ptr %30, align 16
   store <2 x i64> %31, ptr %6, align 16
@@ -519,7 +514,7 @@ moNfaCompressState128.exit:                       ; preds = %20, %.critedge.i, %
   %59 = load i32, ptr %57, align 16
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 %60
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 %64
@@ -576,7 +571,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_Q(ptr noundef %0, ptr n
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %24
@@ -637,7 +632,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %67 = zext i32 %39 to i64
-  %68 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, %65
@@ -659,7 +654,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   %storemerge108 = phi i32 [ %storemerge106, %.lr.ph ], [ %storemerge, %123 ]
   %.074107 = phi i64 [ %71, %.lr.ph ], [ %85, %123 ]
   %80 = zext i32 %storemerge108 to i64
-  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %80
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8
   %84 = add i64 %83, %65
@@ -679,7 +674,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
 ._crit_edge120:                                   ; preds = %86
   %.pre = load i32, ptr %38, align 8
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert121 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %.phi.trans.insert
+  %.phi.trans.insert121 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %.phi.trans.insert
   %.phi.trans.insert122 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert121, i64 8
   %.pre123 = load i64, ptr %.phi.trans.insert122, align 8
   %.pre126 = add i64 %.pre123, %65
@@ -701,7 +696,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   %98 = add i32 %96, -1
   store i32 %98, ptr %38, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %99
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %99
   store i32 0, ptr %100, align 8
   %101 = sub i64 %85, %65
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -712,7 +707,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   br label %.thread
 
 105:                                              ; preds = %95
-  %106 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %.pre-phi
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %.pre-phi
   %107 = load i32, ptr %106, align 8
   switch i32 %107, label %113 [
     i32 2, label %108
@@ -737,7 +732,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 %117
   %119 = zext i32 %115 to i64
-  %120 = getelementptr inbounds nuw <2 x i64>, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %119
   call void @llvm.assume(i1 true) [ "align"(ptr %120, i64 16) ]
   %121 = load <2 x i64>, ptr %120, align 16
   %122 = or <2 x i64> %121, %114
@@ -792,7 +787,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   %142 = load i32, ptr %135, align 16
   %143 = zext i32 %142 to i64
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 %143
-  %145 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv
   %146 = load i32, ptr %145, align 4
   %147 = zext i32 %146 to i64
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 %147
@@ -817,7 +812,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   br i1 %162, label %205, label %163
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds nuw %union.RepeatControl, ptr %136, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %indvars.iv
   %165 = getelementptr inbounds nuw i8, ptr %148, i64 12
   %166 = load i32, ptr %165, align 4
   %167 = zext i32 %166 to i64
@@ -922,7 +917,7 @@ limexExpireExtendedState128.exit:                 ; preds = %205, %._crit_edge, 
   %215 = add i32 %212, -1
   store i32 %215, ptr %38, align 8
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %216
+  %217 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %216
   store i32 0, ptr %217, align 8
   %218 = sub i64 %.074.lcssa, %65
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 8
@@ -1231,10 +1226,10 @@ lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit2
   %177 = extractvalue { i32, i32 } %175, 1
   %178 = lshr i32 %176, 1
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i64, ptr %6, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %179
   %181 = load i64, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i64, ptr %7, i64 %179
-  %183 = getelementptr inbounds nuw i32, ptr %8, i64 %179
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %179
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %179
   br label %184
 
 184:                                              ; preds = %repeatHasMatch.exit.thread, %174
@@ -1257,7 +1252,7 @@ lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit2
   %194 = load i32, ptr %183, align 4
   %195 = add i32 %194, %193
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw %struct.NFAException128, ptr %47, i64 %196
+  %197 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 41
   %199 = load i8, ptr %198, align 1
   %.not69.i = icmp eq i8 %199, 0
@@ -1273,7 +1268,7 @@ lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit2
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 4
   %208 = load i32, ptr %207, align 4
   %209 = zext i32 %208 to i64
-  %210 = getelementptr inbounds nuw %union.RepeatControl, ptr %206, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %206, i64 %209
   %211 = load ptr, ptr %69, align 8
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 12
   %213 = load i32, ptr %212, align 4
@@ -1546,7 +1541,7 @@ processExceptional128.exit111.thread:             ; preds = %165, %161, %156, %1
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 %310
   %312 = load i8, ptr %311, align 1
   %313 = zext i8 %312 to i64
-  %314 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %313
+  %314 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %313
   call void @llvm.assume(i1 true) [ "align"(ptr %314, i64 16) ]
   %315 = load <2 x i64>, ptr %314, align 16
   %316 = and <2 x i64> %315, %.7322.ph
@@ -1785,10 +1780,10 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit3
   %450 = extractvalue { i32, i32 } %448, 1
   %451 = lshr i32 %449, 1
   %452 = zext nneg i32 %451 to i64
-  %453 = getelementptr inbounds nuw i64, ptr %9, i64 %452
+  %453 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %452
   %454 = load i64, ptr %453, align 8
-  %455 = getelementptr inbounds nuw i64, ptr %10, i64 %452
-  %456 = getelementptr inbounds nuw i32, ptr %11, i64 %452
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %452
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %452
   br label %457
 
 457:                                              ; preds = %repeatHasMatch.exit168.thread, %447
@@ -1811,7 +1806,7 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit3
   %467 = load i32, ptr %456, align 4
   %468 = add i32 %467, %466
   %469 = zext i32 %468 to i64
-  %470 = getelementptr inbounds nuw %struct.NFAException128, ptr %47, i64 %469
+  %470 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %469
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 41
   %472 = load i8, ptr %471, align 1
   %.not69.i119 = icmp eq i8 %472, 0
@@ -1827,7 +1822,7 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit3
   %480 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %481 = load i32, ptr %480, align 4
   %482 = zext i32 %481 to i64
-  %483 = getelementptr inbounds nuw %union.RepeatControl, ptr %479, i64 %482
+  %483 = getelementptr inbounds nuw [16 x i8], ptr %479, i64 %482
   %484 = load ptr, ptr %342, align 8
   %485 = getelementptr inbounds nuw i8, ptr %477, i64 12
   %486 = load i32, ptr %485, align 4
@@ -2100,7 +2095,7 @@ processExceptional128.exit94.thread:              ; preds = %438, %434, %429, %4
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 %583
   %585 = load i8, ptr %584, align 1
   %586 = zext i8 %585 to i64
-  %587 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %586
+  %587 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %586
   call void @llvm.assume(i1 true) [ "align"(ptr %587, i64 16) ]
   %588 = load <2 x i64>, ptr %587, align 16
   %589 = and <2 x i64> %588, %.7307.ph
@@ -2377,10 +2372,10 @@ lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit5
   %737 = extractvalue { i32, i32 } %735, 1
   %738 = lshr i32 %736, 1
   %739 = zext nneg i32 %738 to i64
-  %740 = getelementptr inbounds nuw i64, ptr %12, i64 %739
+  %740 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %739
   %741 = load i64, ptr %740, align 8
-  %742 = getelementptr inbounds nuw i64, ptr %13, i64 %739
-  %743 = getelementptr inbounds nuw i32, ptr %14, i64 %739
+  %742 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %739
+  %743 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %739
   br label %744
 
 744:                                              ; preds = %repeatHasMatch.exit170.thread, %734
@@ -2403,7 +2398,7 @@ lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit5
   %754 = load i32, ptr %743, align 4
   %755 = add i32 %754, %753
   %756 = zext i32 %755 to i64
-  %757 = getelementptr inbounds nuw %struct.NFAException128, ptr %34, i64 %756
+  %757 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %756
   %758 = getelementptr inbounds nuw i8, ptr %757, i64 41
   %759 = load i8, ptr %758, align 1
   %.not69.i135 = icmp eq i8 %759, 0
@@ -2419,7 +2414,7 @@ lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit5
   %767 = getelementptr inbounds nuw i8, ptr %764, i64 4
   %768 = load i32, ptr %767, align 4
   %769 = zext i32 %768 to i64
-  %770 = getelementptr inbounds nuw %union.RepeatControl, ptr %766, i64 %769
+  %770 = getelementptr inbounds nuw [16 x i8], ptr %766, i64 %769
   %771 = load ptr, ptr %615, align 8
   %772 = getelementptr inbounds nuw i8, ptr %764, i64 12
   %773 = load i32, ptr %772, align 4
@@ -2692,7 +2687,7 @@ processExceptional128.exit.thread:                ; preds = %725, %721, %716, %6
   %871 = getelementptr inbounds nuw i8, ptr %0, i64 %870
   %872 = load i8, ptr %871, align 1
   %873 = zext i8 %872 to i64
-  %874 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %873
+  %874 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %873
   call void @llvm.assume(i1 true) [ "align"(ptr %874, i64 16) ]
   %875 = load <2 x i64>, ptr %874, align 16
   %876 = and <2 x i64> %875, %.7.ph
@@ -2773,7 +2768,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx128_Q2(ptr noundef %0, ptr 
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %26
@@ -2835,7 +2830,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   %68 = sub i64 0, %67
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %70 = zext i32 %41 to i64
-  %71 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %73, %67
@@ -2858,7 +2853,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   %storemerge151 = phi i32 [ %storemerge149, %.lr.ph ], [ %storemerge, %161 ]
   %.0109150 = phi i64 [ %74, %.lr.ph ], [ %89, %161 ]
   %84 = zext i32 %storemerge151 to i64
-  %85 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, %67
@@ -2885,7 +2880,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   %101 = add i32 %100, -1
   store i32 %101, ptr %40, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %102
   store i32 0, ptr %103, align 8
   %104 = load i64, ptr %5, align 8
   %105 = sub i64 %.0109150, %67
@@ -2926,7 +2921,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   %120 = add i32 %.pre170, -1
   store i32 %120, ptr %40, align 8
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %121
   store i32 0, ptr %122, align 8
   %123 = load i64, ptr %6, align 8
   %124 = sub i64 %.1110, %67
@@ -2941,7 +2936,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
 129:                                              ; preds = %._crit_edge169, %112
   %130 = phi i32 [ %.pre, %._crit_edge169 ], [ %.pre170, %112 ]
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %131
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load i64, ptr %133, align 8
   %135 = add i64 %134, %67
@@ -2952,7 +2947,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   %137 = add i32 %130, -1
   store i32 %137, ptr %40, align 8
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %138
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %138
   store i32 0, ptr %139, align 8
   %140 = sub i64 %89, %67
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -2987,7 +2982,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   %155 = zext i32 %154 to i64
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 %155
   %157 = zext i32 %153 to i64
-  %158 = getelementptr inbounds nuw <2 x i64>, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %156, i64 %157
   call void @llvm.assume(i1 true) [ "align"(ptr %158, i64 16) ]
   %159 = load <2 x i64>, ptr %158, align 16
   %160 = or <2 x i64> %159, %152
@@ -3042,7 +3037,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   %180 = load i32, ptr %173, align 16
   %181 = zext i32 %180 to i64
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 %181
-  %183 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv
   %184 = load i32, ptr %183, align 4
   %185 = zext i32 %184 to i64
   %186 = getelementptr inbounds nuw i8, ptr %7, i64 %185
@@ -3067,7 +3062,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   br i1 %200, label %243, label %201
 
 201:                                              ; preds = %196
-  %202 = getelementptr inbounds nuw %union.RepeatControl, ptr %174, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %indvars.iv
   %203 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
@@ -3172,7 +3167,7 @@ limexExpireExtendedState128.exit:                 ; preds = %243, %._crit_edge, 
   %253 = add i32 %250, -1
   store i32 %253, ptr %40, align 8
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %254
+  %255 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %254
   store i32 0, ptr %255, align 8
   %256 = sub i64 %.0109.lcssa, %67
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 8
@@ -3463,10 +3458,10 @@ lshift64_m128.exit25:                             ; preds = %lshift64_m128.exit2
   %170 = extractvalue { i32, i32 } %169, 0
   %171 = lshr i32 %170, 1
   %172 = zext nneg i32 %171 to i64
-  %173 = getelementptr inbounds nuw i64, ptr %7, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %172
   %174 = load i64, ptr %173, align 8
-  %175 = getelementptr inbounds nuw i64, ptr %8, i64 %172
-  %176 = getelementptr inbounds nuw i32, ptr %9, i64 %172
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %172
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %172
   br label %177
 
 177:                                              ; preds = %runException128.exit, %168
@@ -3488,7 +3483,7 @@ lshift64_m128.exit25:                             ; preds = %lshift64_m128.exit2
   %187 = load i32, ptr %176, align 4
   %188 = add i32 %187, %186
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw %struct.NFAException128, ptr %48, i64 %189
+  %190 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 41
   %192 = load i8, ptr %191, align 1
   %.not69.i = icmp eq i8 %192, 0
@@ -3504,7 +3499,7 @@ lshift64_m128.exit25:                             ; preds = %lshift64_m128.exit2
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %201 = load i32, ptr %200, align 4
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw %union.RepeatControl, ptr %199, i64 %202
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %202
   %204 = load ptr, ptr %71, align 8
   %205 = getelementptr inbounds nuw i8, ptr %197, i64 12
   %206 = load i32, ptr %205, align 4
@@ -3727,7 +3722,7 @@ runException128.exit:                             ; preds = %274, %234, %230, %2
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 %290
   %292 = load i8, ptr %291, align 1
   %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds nuw <2 x i64>, ptr %17, i64 %293
+  %294 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %293
   call void @llvm.assume(i1 true) [ "align"(ptr %294, i64 16) ]
   %295 = load <2 x i64>, ptr %294, align 16
   %296 = and <2 x i64> %295, %.7290.ph
@@ -3952,10 +3947,10 @@ lshift64_m128.exit41:                             ; preds = %lshift64_m128.exit3
   %422 = extractvalue { i32, i32 } %421, 0
   %423 = lshr i32 %422, 1
   %424 = zext nneg i32 %423 to i64
-  %425 = getelementptr inbounds nuw i64, ptr %10, i64 %424
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %424
   %426 = load i64, ptr %425, align 8
-  %427 = getelementptr inbounds nuw i64, ptr %11, i64 %424
-  %428 = getelementptr inbounds nuw i32, ptr %12, i64 %424
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %424
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %424
   br label %429
 
 429:                                              ; preds = %runException128.exit116, %420
@@ -3977,7 +3972,7 @@ lshift64_m128.exit41:                             ; preds = %lshift64_m128.exit3
   %439 = load i32, ptr %428, align 4
   %440 = add i32 %439, %438
   %441 = zext i32 %440 to i64
-  %442 = getelementptr inbounds nuw %struct.NFAException128, ptr %48, i64 %441
+  %442 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %441
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 41
   %444 = load i8, ptr %443, align 1
   %.not69.i108 = icmp eq i8 %444, 0
@@ -3993,7 +3988,7 @@ lshift64_m128.exit41:                             ; preds = %lshift64_m128.exit3
   %452 = getelementptr inbounds nuw i8, ptr %449, i64 4
   %453 = load i32, ptr %452, align 4
   %454 = zext i32 %453 to i64
-  %455 = getelementptr inbounds nuw %union.RepeatControl, ptr %451, i64 %454
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %451, i64 %454
   %456 = load ptr, ptr %323, align 8
   %457 = getelementptr inbounds nuw i8, ptr %449, i64 12
   %458 = load i32, ptr %457, align 4
@@ -4216,7 +4211,7 @@ runException128.exit116:                          ; preds = %526, %486, %482, %4
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 %542
   %544 = load i8, ptr %543, align 1
   %545 = zext i8 %544 to i64
-  %546 = getelementptr inbounds nuw <2 x i64>, ptr %17, i64 %545
+  %546 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %545
   call void @llvm.assume(i1 true) [ "align"(ptr %546, i64 16) ]
   %547 = load <2 x i64>, ptr %546, align 16
   %548 = and <2 x i64> %547, %.7275.ph
@@ -4479,10 +4474,10 @@ lshift64_m128.exit57:                             ; preds = %lshift64_m128.exit5
   %688 = extractvalue { i32, i32 } %687, 0
   %689 = lshr i32 %688, 1
   %690 = zext nneg i32 %689 to i64
-  %691 = getelementptr inbounds nuw i64, ptr %13, i64 %690
+  %691 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %690
   %692 = load i64, ptr %691, align 8
-  %693 = getelementptr inbounds nuw i64, ptr %14, i64 %690
-  %694 = getelementptr inbounds nuw i32, ptr %15, i64 %690
+  %693 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %690
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %690
   br label %695
 
 695:                                              ; preds = %runException128.exit125, %686
@@ -4504,7 +4499,7 @@ lshift64_m128.exit57:                             ; preds = %lshift64_m128.exit5
   %705 = load i32, ptr %694, align 4
   %706 = add i32 %705, %704
   %707 = zext i32 %706 to i64
-  %708 = getelementptr inbounds nuw %struct.NFAException128, ptr %35, i64 %707
+  %708 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %707
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 41
   %710 = load i8, ptr %709, align 1
   %.not69.i117 = icmp eq i8 %710, 0
@@ -4520,7 +4515,7 @@ lshift64_m128.exit57:                             ; preds = %lshift64_m128.exit5
   %718 = getelementptr inbounds nuw i8, ptr %715, i64 4
   %719 = load i32, ptr %718, align 4
   %720 = zext i32 %719 to i64
-  %721 = getelementptr inbounds nuw %union.RepeatControl, ptr %717, i64 %720
+  %721 = getelementptr inbounds nuw [16 x i8], ptr %717, i64 %720
   %722 = load ptr, ptr %575, align 8
   %723 = getelementptr inbounds nuw i8, ptr %715, i64 12
   %724 = load i32, ptr %723, align 4
@@ -4743,7 +4738,7 @@ runException128.exit125:                          ; preds = %792, %752, %748, %7
   %809 = getelementptr inbounds nuw i8, ptr %0, i64 %808
   %810 = load i8, ptr %809, align 1
   %811 = zext i8 %810 to i64
-  %812 = getelementptr inbounds nuw <2 x i64>, ptr %17, i64 %811
+  %812 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %811
   call void @llvm.assume(i1 true) [ "align"(ptr %812, i64 16) ]
   %813 = load <2 x i64>, ptr %812, align 16
   %814 = and <2 x i64> %813, %.7.ph
@@ -4824,7 +4819,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx128_QR(ptr noundef %0, ptr 
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %30 = zext i32 %7 to i64
-  %31 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %28
@@ -4846,7 +4841,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx128_QR(ptr noundef %0, ptr 
   %storemerge119 = phi i32 [ %storemerge117, %.lr.ph ], [ %storemerge, %nfaExecLimEx128_HandleEvent.exit ]
   %.060118 = phi i64 [ %34, %.lr.ph ], [ %47, %nfaExecLimEx128_HandleEvent.exit ]
   %43 = zext i32 %storemerge119 to i64
-  %44 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, %28
@@ -4902,7 +4897,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx128_QR(ptr noundef %0, ptr 
 73:                                               ; preds = %67, %68
   %74 = load i32, ptr %6, align 8
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %75
   %77 = load i32, ptr %76, align 8
   switch i32 %77, label %83 [
     i32 2, label %78
@@ -4927,7 +4922,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx128_QR(ptr noundef %0, ptr 
   %87 = zext i32 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw <2 x i64>, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %89
   call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 16) ]
   %91 = load <2 x i64>, ptr %90, align 16
   %92 = or <2 x i64> %91, %84
@@ -4982,7 +4977,7 @@ nfaExecLimEx128_HandleEvent.exit:                 ; preds = %nfaExecLimEx128_Han
   %111 = load i32, ptr %104, align 16
   %112 = zext i32 %111 to i64
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 %112
-  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
@@ -5007,7 +5002,7 @@ nfaExecLimEx128_HandleEvent.exit:                 ; preds = %nfaExecLimEx128_Han
   br i1 %131, label %174, label %132
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds nuw %union.RepeatControl, ptr %105, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %indvars.iv
   %134 = getelementptr inbounds nuw i8, ptr %117, i64 12
   %135 = load i32, ptr %134, align 4
   %136 = zext i32 %135 to i64
@@ -5131,7 +5126,7 @@ limexExpireExtendedState128.exit:                 ; preds = %174, %._crit_edge, 
   %194 = load i32, ptr %192, align 16
   %195 = zext i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 %195
-  %197 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv142
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv142
   %198 = load i32, ptr %197, align 4
   %199 = zext i32 %198 to i64
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 %199
@@ -5149,7 +5144,7 @@ limexExpireExtendedState128.exit:                 ; preds = %174, %._crit_edge, 
   br i1 %.not.i77.not, label %210, label %repeatHasMatch.exit.thread99
 
 210:                                              ; preds = %193
-  %211 = getelementptr inbounds nuw %union.RepeatControl, ptr %181, i64 %indvars.iv142
+  %211 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %indvars.iv142
   %212 = getelementptr inbounds nuw i8, ptr %200, i64 12
   %213 = load i32, ptr %212, align 4
   %214 = zext i32 %213 to i64
@@ -5273,7 +5268,7 @@ lazyTug128.exit:                                  ; preds = %repeatHasMatch.exit
   %265 = trunc nuw nsw i64 %264 to i32
   %266 = add i32 %.031.i132, %265
   %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds nuw %struct.NFAAccept, ptr %255, i64 %267
+  %268 = getelementptr inbounds nuw [12 x i8], ptr %255, i64 %267
   %269 = load i8, ptr %268, align 4
   %.not.i86 = icmp eq i8 %269, 0
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 4
@@ -5587,10 +5582,10 @@ lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit2
   %162 = extractvalue { i32, i32 } %161, 0
   %163 = lshr i32 %162, 1
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw i64, ptr %6, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %164
   %166 = load i64, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i64, ptr %7, i64 %164
-  %168 = getelementptr inbounds nuw i32, ptr %8, i64 %164
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %164
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %164
   br label %169
 
 169:                                              ; preds = %runException128.exit, %160
@@ -5612,7 +5607,7 @@ lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit2
   %179 = load i32, ptr %168, align 4
   %180 = add i32 %179, %178
   %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw %struct.NFAException128, ptr %47, i64 %181
+  %182 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 41
   %184 = load i8, ptr %183, align 1
   %.not69.i = icmp eq i8 %184, 0
@@ -5628,7 +5623,7 @@ lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit2
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw %union.RepeatControl, ptr %191, i64 %194
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %194
   %196 = load ptr, ptr %69, align 8
   %197 = getelementptr inbounds nuw i8, ptr %189, i64 12
   %198 = load i32, ptr %197, align 4
@@ -5851,7 +5846,7 @@ nfaExecLimEx128_Run_Exceptions.exit:              ; preds = %137, %278, %154
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 %281
   %283 = load i8, ptr %282, align 1
   %284 = zext i8 %283 to i64
-  %285 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %284
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %284
   call void @llvm.assume(i1 true) [ "align"(ptr %285, i64 16) ]
   %286 = load <2 x i64>, ptr %285, align 16
   %287 = and <2 x i64> %286, %.7284
@@ -6058,10 +6053,10 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit3
   %406 = extractvalue { i32, i32 } %405, 0
   %407 = lshr i32 %406, 1
   %408 = zext nneg i32 %407 to i64
-  %409 = getelementptr inbounds nuw i64, ptr %9, i64 %408
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %408
   %410 = load i64, ptr %409, align 8
-  %411 = getelementptr inbounds nuw i64, ptr %10, i64 %408
-  %412 = getelementptr inbounds nuw i32, ptr %11, i64 %408
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %408
+  %412 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %408
   br label %413
 
 413:                                              ; preds = %runException128.exit113, %404
@@ -6083,7 +6078,7 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit3
   %423 = load i32, ptr %412, align 4
   %424 = add i32 %423, %422
   %425 = zext i32 %424 to i64
-  %426 = getelementptr inbounds nuw %struct.NFAException128, ptr %47, i64 %425
+  %426 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %425
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 41
   %428 = load i8, ptr %427, align 1
   %.not69.i105 = icmp eq i8 %428, 0
@@ -6099,7 +6094,7 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit3
   %436 = getelementptr inbounds nuw i8, ptr %433, i64 4
   %437 = load i32, ptr %436, align 4
   %438 = zext i32 %437 to i64
-  %439 = getelementptr inbounds nuw %union.RepeatControl, ptr %435, i64 %438
+  %439 = getelementptr inbounds nuw [16 x i8], ptr %435, i64 %438
   %440 = load ptr, ptr %313, align 8
   %441 = getelementptr inbounds nuw i8, ptr %433, i64 12
   %442 = load i32, ptr %441, align 4
@@ -6322,7 +6317,7 @@ nfaExecLimEx128_Run_Exceptions.exit68:            ; preds = %381, %522, %398
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 %525
   %527 = load i8, ptr %526, align 1
   %528 = zext i8 %527 to i64
-  %529 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %528
+  %529 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %528
   call void @llvm.assume(i1 true) [ "align"(ptr %529, i64 16) ]
   %530 = load <2 x i64>, ptr %529, align 16
   %531 = and <2 x i64> %530, %.7269
@@ -6567,10 +6562,10 @@ lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit5
   %664 = extractvalue { i32, i32 } %663, 0
   %665 = lshr i32 %664, 1
   %666 = zext nneg i32 %665 to i64
-  %667 = getelementptr inbounds nuw i64, ptr %12, i64 %666
+  %667 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %666
   %668 = load i64, ptr %667, align 8
-  %669 = getelementptr inbounds nuw i64, ptr %13, i64 %666
-  %670 = getelementptr inbounds nuw i32, ptr %14, i64 %666
+  %669 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %666
+  %670 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %666
   br label %671
 
 671:                                              ; preds = %runException128.exit122, %662
@@ -6592,7 +6587,7 @@ lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit5
   %681 = load i32, ptr %670, align 4
   %682 = add i32 %681, %680
   %683 = zext i32 %682 to i64
-  %684 = getelementptr inbounds nuw %struct.NFAException128, ptr %34, i64 %683
+  %684 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %683
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 41
   %686 = load i8, ptr %685, align 1
   %.not69.i114 = icmp eq i8 %686, 0
@@ -6608,7 +6603,7 @@ lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit5
   %694 = getelementptr inbounds nuw i8, ptr %691, i64 4
   %695 = load i32, ptr %694, align 4
   %696 = zext i32 %695 to i64
-  %697 = getelementptr inbounds nuw %union.RepeatControl, ptr %693, i64 %696
+  %697 = getelementptr inbounds nuw [16 x i8], ptr %693, i64 %696
   %698 = load ptr, ptr %557, align 8
   %699 = getelementptr inbounds nuw i8, ptr %691, i64 12
   %700 = load i32, ptr %699, align 4
@@ -6831,7 +6826,7 @@ nfaExecLimEx128_Run_Exceptions.exit74:            ; preds = %639, %780, %656
   %784 = getelementptr inbounds nuw i8, ptr %0, i64 %783
   %785 = load i8, ptr %784, align 1
   %786 = zext i8 %785 to i64
-  %787 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %786
+  %787 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %786
   call void @llvm.assume(i1 true) [ "align"(ptr %787, i64 16) ]
   %788 = load <2 x i64>, ptr %787, align 16
   %789 = and <2 x i64> %788, %.7
@@ -6880,7 +6875,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_testEOD(ptr noundef %0,
   %25 = load i32, ptr %23, align 16
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 %26
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 %30
@@ -6898,7 +6893,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_testEOD(ptr noundef %0,
   br i1 %.not.i12.not, label %41, label %repeatHasMatch.exit.thread26
 
 41:                                               ; preds = %24
-  %42 = getelementptr inbounds nuw %union.RepeatControl, ptr %8, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
@@ -7031,7 +7026,7 @@ define hidden noundef signext i8 @nfaExecLimEx128_reportCurrent(ptr noundef read
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %19
@@ -7122,7 +7117,7 @@ define hidden noundef signext i8 @nfaExecLimEx128_B_Reverse(ptr noundef %0, i64 
   %41 = load i32, ptr %39, align 16
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 %42
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 %46
@@ -7140,7 +7135,7 @@ define hidden noundef signext i8 @nfaExecLimEx128_B_Reverse(ptr noundef %0, i64 
   br i1 %.not.i31.not, label %57, label %repeatHasMatch.exit.thread47
 
 57:                                               ; preds = %40
-  %58 = getelementptr inbounds nuw %union.RepeatControl, ptr null, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [16 x i8], ptr null, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = zext i32 %60 to i64
@@ -7452,10 +7447,10 @@ lshift64_m128.exit94:                             ; preds = %lshift64_m128.exit9
   %144 = extractvalue { i32, i32 } %142, 1
   %145 = lshr i32 %143, 1
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i64, ptr %6, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %146
   %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i64, ptr %7, i64 %146
-  %150 = getelementptr inbounds nuw i32, ptr %8, i64 %146
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %146
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %146
   br label %151
 
 151:                                              ; preds = %190, %141
@@ -7477,7 +7472,7 @@ lshift64_m128.exit94:                             ; preds = %lshift64_m128.exit9
   %161 = load i32, ptr %150, align 4
   %162 = add i32 %161, %160
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw %struct.NFAException128, ptr %15, i64 %163
+  %164 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %166 = load i32, ptr %165, align 16
   %.not70.i = icmp eq i32 %166, -1
@@ -7582,7 +7577,7 @@ processExceptional128.exit.thread:                ; preds = %133, %129, %125, %1
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 %198
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds nuw <2 x i64>, ptr %9, i64 %201
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %201
   call void @llvm.assume(i1 true) [ "align"(ptr %202, i64 16) ]
   %203 = load <2 x i64>, ptr %202, align 16
   %204 = and <2 x i64> %203, %.7.ph
@@ -7642,7 +7637,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAccept(ptr noundef %0
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.mq_item, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %16, 1
@@ -7674,7 +7669,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAccept(ptr noundef %0
   %37 = load i32, ptr %35, align 16
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 %38
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %42
@@ -7692,7 +7687,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAccept(ptr noundef %0
   br i1 %.not.i14.not, label %53, label %repeatHasMatch.exit.thread29
 
 53:                                               ; preds = %36
-  %54 = getelementptr inbounds nuw %union.RepeatControl, ptr %7, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
@@ -7812,7 +7807,7 @@ lazyTug128.exit:                                  ; preds = %repeatHasMatch.exit
   %109 = trunc nuw nsw i64 %108 to i32
   %110 = add i32 %.031.i46, %109
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw %struct.NFAAccept, ptr %98, i64 %111
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %98, i64 %111
   %113 = load i8, ptr %112, align 4
   %.not.i19 = icmp eq i8 %113, 0
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 4
@@ -7881,7 +7876,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAnyAccept(ptr noundef
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %15, 1
@@ -7912,7 +7907,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAnyAccept(ptr noundef
   %36 = load i32, ptr %34, align 16
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 %37
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 %41
@@ -7930,7 +7925,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAnyAccept(ptr noundef
   br i1 %.not.i13.not, label %52, label %repeatHasMatch.exit.thread24
 
 52:                                               ; preds = %35
-  %53 = getelementptr inbounds nuw %union.RepeatControl, ptr %6, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %55 to i64
@@ -8061,7 +8056,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx128_zombie_status(ptr noundef %0,
   %25 = load i32, ptr %23, align 16
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 %26
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 %30
@@ -8079,7 +8074,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx128_zombie_status(ptr noundef %0,
   br i1 %.not.i15.not, label %41, label %repeatHasMatch.exit.thread26
 
 41:                                               ; preds = %24
-  %42 = getelementptr inbounds nuw %union.RepeatControl, ptr %16, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
@@ -8223,7 +8218,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash128(pt
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = add i32 %.033.i23, %17
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %19
   %21 = load i8, ptr %20, align 4
   %.not.i7 = icmp eq i8 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -8312,7 +8307,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts128(ptr nounde
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = add i32 %.033.i29, %17
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %19
   %21 = load i8, ptr %20, align 4
   %.not.i6 = icmp eq i8 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4

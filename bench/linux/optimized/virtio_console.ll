@@ -270,7 +270,7 @@ define internal fastcc void @free_buf(ptr noundef %0) unnamed_addr #3 align 16 {
 
 .preheader:                                       ; preds = %1, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %1 ]
-  %6 = getelementptr %struct.scatterlist, ptr %2, i64 %indvars.iv
+  %6 = getelementptr [32 x i8], ptr %2, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, -4
   %9 = inttoptr i64 %8 to ptr
@@ -789,12 +789,12 @@ define internal i32 @virtcons_restore(ptr noundef readonly captures(none) %0) #3
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 192
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr ptr, ptr %43, i64 %46
+  %47 = getelementptr [8 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store ptr %48, ptr %49, align 8
   %50 = load ptr, ptr %40, align 8
-  %51 = getelementptr ptr, ptr %50, i64 %46
+  %51 = getelementptr [8 x i8], ptr %50, i64 %46
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store ptr %52, ptr %53, align 8
@@ -923,15 +923,15 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   %52 = phi i32 [ %61, %.preheader9 ], [ 1, %45 ]
   %53 = add i32 %51, 2
   %54 = zext i32 %53 to i64
-  %55 = getelementptr ptr, ptr %17, i64 %54
+  %55 = getelementptr [8 x i8], ptr %17, i64 %54
   store ptr @in_intr, ptr %55, align 8
   %56 = add i32 %51, 3
   %57 = zext i32 %56 to i64
-  %58 = getelementptr ptr, ptr %17, i64 %57
+  %58 = getelementptr [8 x i8], ptr %17, i64 %57
   store ptr @out_intr, ptr %58, align 8
-  %59 = getelementptr ptr, ptr %18, i64 %54
+  %59 = getelementptr [8 x i8], ptr %18, i64 %54
   store ptr @.str.10, ptr %59, align 8
-  %60 = getelementptr ptr, ptr %18, i64 %57
+  %60 = getelementptr [8 x i8], ptr %18, i64 %57
   store ptr @.str.11, ptr %60, align 8
   %61 = add nuw i32 %52, 1
   %62 = icmp eq i32 %61, %3
@@ -986,17 +986,17 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   %91 = phi i32 [ %92, %.preheader ], [ 2, %82 ]
   %92 = add i32 %91, 2
   %93 = zext i32 %92 to i64
-  %94 = getelementptr ptr, ptr %16, i64 %93
+  %94 = getelementptr [8 x i8], ptr %16, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %22, align 8
-  %97 = getelementptr ptr, ptr %96, i64 %90
+  %97 = getelementptr [8 x i8], ptr %96, i64 %90
   store ptr %95, ptr %97, align 8
   %98 = add i32 %91, 3
   %99 = zext i32 %98 to i64
-  %100 = getelementptr ptr, ptr %16, i64 %99
+  %100 = getelementptr [8 x i8], ptr %16, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %24, align 8
-  %103 = getelementptr ptr, ptr %102, i64 %90
+  %103 = getelementptr [8 x i8], ptr %102, i64 %90
   store ptr %101, ptr %103, align 8
   %104 = add nuw nsw i64 %90, 1
   %105 = icmp eq i64 %104, %19
@@ -1509,7 +1509,7 @@ define internal fastcc i32 @fill_queue(ptr noundef %0, ptr noundef %1) unnamed_a
 
 .preheader.i4:                                    ; preds = %.preheader.i, %73
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ 0, %.preheader.i ]
-  %37 = getelementptr %struct.scatterlist, ptr %33, i64 %indvars.iv.i
+  %37 = getelementptr [32 x i8], ptr %33, i64 %indvars.iv.i
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, -4
   %40 = inttoptr i64 %39 to ptr
@@ -1760,13 +1760,13 @@ define internal fastcc void @add_port(ptr noundef %0, i32 noundef %1) unnamed_ad
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr ptr, ptr %28, i64 %23
+  %29 = getelementptr [8 x i8], ptr %28, i64 %23
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %30, ptr %31, align 8
@@ -4197,7 +4197,7 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr noundef read
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %5, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr %struct.scatterlist, ptr %57, i64 %59
+  %60 = getelementptr [32 x i8], ptr %57, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4292,7 +4292,7 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr noundef read
   %124 = load ptr, ptr %123, align 8
   %125 = load i32, ptr %5, align 8
   %126 = zext i32 %125 to i64
-  %127 = getelementptr %struct.scatterlist, ptr %124, i64 %126
+  %127 = getelementptr [32 x i8], ptr %124, i64 %126
   %128 = load i64, ptr %127, align 8
   %129 = and i64 %128, 3
   %130 = or disjoint i64 %129, %98
@@ -4448,7 +4448,7 @@ define internal fastcc void @remove_vqs(ptr noundef readonly captures(none) %0) 
 
 .preheader.i:                                     ; preds = %.preheader9, %52
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader9 ]
-  %16 = getelementptr %struct.scatterlist, ptr %12, i64 %indvars.iv.i
+  %16 = getelementptr [32 x i8], ptr %12, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, -4
   %19 = inttoptr i64 %18 to ptr
@@ -4547,7 +4547,7 @@ free_buf.exit:                                    ; preds = %.loopexit.i, %59
 
 .preheader.i4:                                    ; preds = %.preheader, %106
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %106 ], [ 0, %.preheader ]
-  %70 = getelementptr %struct.scatterlist, ptr %66, i64 %indvars.iv.i5
+  %70 = getelementptr [32 x i8], ptr %66, i64 %indvars.iv.i5
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, -4
   %73 = inttoptr i64 %72 to ptr

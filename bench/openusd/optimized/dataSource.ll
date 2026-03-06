@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
-%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
 %"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
 %"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl_data" }
@@ -30,6 +28,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator.11" = type { i8 }
 %"class.std::shared_ptr.14" = type { %"class.std::__shared_ptr.15" }
 %"class.std::__shared_ptr.15" = type { ptr, %"class.std::__shared_count" }
+%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
+%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtValue" = type { %"union.std::aligned_storage<8, 8>::type", %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.17" }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.17" = type { ptr }
@@ -858,7 +858,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__45HdGetMergedCon
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEED2Ev.exit26.us
   %.032.us = phi i1 [ %.1.us, %_ZNSt6vectorIfSaIfEED2Ev.exit26.us ], [ false, %.lr.ph ]
   %.01631.us = phi i64 [ %28, %_ZNSt6vectorIfSaIfEED2Ev.exit26.us ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds %"class.std::shared_ptr.3", ptr %1, i64 %.01631.us
+  %14 = getelementptr inbounds [16 x i8], ptr %1, i64 %.01631.us
   %15 = load ptr, ptr %14, align 8
   %.not28.us = icmp eq ptr %15, null
   br i1 %.not28.us, label %_ZNSt6vectorIfSaIfEED2Ev.exit26.us, label %16
@@ -902,7 +902,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit26.us:               ; preds = %23, %_ZNSt6vectorIf
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEED2Ev.exit26
   %.032 = phi i1 [ %.1, %_ZNSt6vectorIfSaIfEED2Ev.exit26 ], [ false, %.lr.ph ]
   %.01631 = phi i64 [ %85, %_ZNSt6vectorIfSaIfEED2Ev.exit26 ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds %"class.std::shared_ptr.3", ptr %1, i64 %.01631
+  %30 = getelementptr inbounds [16 x i8], ptr %1, i64 %.01631
   %31 = load ptr, ptr %30, align 8
   %.not28 = icmp eq ptr %31, null
   br i1 %.not28, label %_ZNSt6vectorIfSaIfEED2Ev.exit26, label %32
@@ -2637,7 +2637,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %37, %_ZN
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %33, ptr %4, align 8
   store ptr %38, ptr %8, align 8
-  %40 = getelementptr inbounds nuw float, ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   store ptr %40, ptr %9, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit
 
@@ -2707,7 +2707,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i15: ; preds = %67, %_
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i17: ; preds = %69, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i15
   store ptr %63, ptr %4, align 8
   store ptr %68, ptr %8, align 8
-  %70 = getelementptr inbounds nuw float, ptr %63, i64 %61
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %61
   store ptr %70, ptr %9, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit18
 
@@ -2770,7 +2770,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i23: ; preds = %93, %_
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i25: ; preds = %95, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i23
   store ptr %89, ptr %4, align 8
   store ptr %94, ptr %8, align 8
-  %96 = getelementptr inbounds nuw float, ptr %89, i64 %87
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %87
   store ptr %96, ptr %9, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit26
 
@@ -2864,7 +2864,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i: ; preds =
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i.i.i.i: ; preds = %135, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i
   store ptr %129, ptr %4, align 8
   store ptr %134, ptr %107, align 8
-  %136 = getelementptr inbounds nuw float, ptr %129, i64 %127
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %127
   store ptr %136, ptr %108, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit.i.i.i.i.i
 
@@ -2950,7 +2950,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i36: ; preds
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i.i.i.i38: ; preds = %174, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i36
   store ptr %168, ptr %4, align 8
   store ptr %173, ptr %146, align 8
-  %175 = getelementptr inbounds nuw float, ptr %168, i64 %166
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %166
   store ptr %175, ptr %147, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit.i.i.i.i.i32
 
@@ -3017,7 +3017,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, %._crit_edge
   %.010.i.i = phi i64 [ %16, %._crit_edge ], [ %28, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i ]
-  %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.010.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i.i
   %19 = load i64, ptr %18, align 8
   store i64 0, ptr %18, align 8
   store i64 %19, ptr %4, align 8
@@ -3124,7 +3124,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserv
   %57 = phi i64 [ %65, %13 ], [ %9, %.lr.ph ]
   %58 = add nsw i64 %.02646, -1
   %59 = lshr i64 %57, 1
-  %60 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %59
   %61 = getelementptr inbounds i8, ptr %storemerge2547, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS3_EEEEvT_SE_SE_SE_T0_(ptr %0, ptr nonnull %11, ptr %60, ptr nonnull %61)
   %62 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS3_EEEET_SE_SE_SE_T0_(ptr nonnull %11, ptr %storemerge2547, ptr %0)
@@ -3152,9 +3152,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   %.050 = phi i64 [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit ], [ %1, %4 ]
   %10 = shl i64 %.050, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = load ptr, ptr %14, align 8
@@ -3212,8 +3212,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN32pxrInternal_v0_24__pxrReserved__
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread: ; preds = %35, %23, %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread45
   %45 = phi i64 [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread45 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit ], [ %11, %21 ], [ %11, %23 ], [ %11, %35 ]
-  %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.050
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %45
+  %47 = getelementptr inbounds [8 x i8], ptr %0, i64 %.050
   %.not.i = icmp eq i64 %45, %.050
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit, label %48
 
@@ -3255,8 +3255,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit: ; preds = %_ZN9__gnu_
 64:                                               ; preds = %60
   %65 = shl nsw i64 %.0.lcssa, 1
   %66 = or disjoint i64 %65, 1
-  %67 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %66
-  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.0.lcssa
+  %67 = getelementptr inbounds [8 x i8], ptr %0, i64 %66
+  %68 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %.not.i25 = icmp eq i64 %66, %.0.lcssa
   br i1 %.not.i25, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit28, label %69
 
@@ -3331,7 +3331,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32p
   %.026 = phi i64 [ %.0927, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit ], [ %1, %5 ]
   %.0927.in = add nsw i64 %.026, -1
   %.0927 = sdiv i64 %.0927.in, 2
-  %7 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.0927
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0927
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = load ptr, ptr %3, align 8
@@ -3384,7 +3384,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN32pxrInternal_v0_24__pxrReserved__7
   br i1 %37, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread21, label %.critedge
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread21: ; preds = %18, %14, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit
-  %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.026
+  %38 = getelementptr inbounds [8 x i8], ptr %0, i64 %.026
   %.not.i = icmp eq i64 %.0927, %.026
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit, label %39
 
@@ -3413,7 +3413,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit: ; preds = %_ZN9__gnu_
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit, %14, %16, %28, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.026, %28 ], [ %.026, %16 ], [ %.026, %14 ], [ %.0927, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit ], [ %.026, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit ]
-  %49 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.0.lcssa
+  %49 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %.not.i10 = icmp eq ptr %3, %49
   br i1 %.not.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit13, label %50
 

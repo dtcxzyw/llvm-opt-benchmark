@@ -319,7 +319,7 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
   %33 = phi i32 [ 0, %1 ], [ %366, %365 ]
   %34 = phi i64 [ 0, %1 ], [ %368, %365 ]
   %35 = phi i32 [ 0, %1 ], [ %367, %365 ]
-  %36 = getelementptr ptr, ptr %15, i64 %34
+  %36 = getelementptr [8 x i8], ptr %15, i64 %34
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %365, label %39
@@ -331,7 +331,7 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
   %43 = load i32, ptr %42, align 8
   %44 = load ptr, ptr %17, align 8
   %45 = zext i32 %33 to i64
-  %46 = getelementptr %struct.guc_mmio_reg, ptr %44, i64 %45
+  %46 = getelementptr [16 x i8], ptr %44, i64 %45
   store ptr %46, ptr %12, align 8
   %47 = add i32 %43, 668
   %48 = call fastcc i64 @guc_mmio_reg_add(ptr noundef nonnull %12, i32 noundef %47, i32 noundef 1)
@@ -443,7 +443,7 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
   %114 = phi ptr [ %111, %110 ], [ %77, %97 ]
   %115 = phi ptr [ %105, %110 ], [ %87, %97 ]
   %116 = zext i32 %86 to i64
-  %117 = getelementptr %struct.guc_mmio_reg, ptr %115, i64 %116
+  %117 = getelementptr [16 x i8], ptr %115, i64 %116
   store i32 %.pre43, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %117, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   %118 = icmp ugt ptr %117, inttoptr (i64 -4096 to ptr)
@@ -579,7 +579,7 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   %183 = phi ptr [ %180, %179 ], [ %150, %166 ]
   %184 = phi ptr [ %174, %179 ], [ %156, %166 ]
   %185 = zext i32 %155 to i64
-  %186 = getelementptr %struct.guc_mmio_reg, ptr %184, i64 %185
+  %186 = getelementptr [16 x i8], ptr %184, i64 %185
   store i32 %.pre, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %186, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
   %187 = icmp ugt ptr %186, inttoptr (i64 -4096 to ptr)
@@ -729,7 +729,7 @@ guc_mmio_reg_add.exit15:                          ; preds = %.preheader.i13, %.p
   %266 = phi ptr [ %263, %262 ], [ %238, %249 ]
   %267 = phi ptr [ %257, %262 ], [ %239, %249 ]
   %268 = zext i32 %237 to i64
-  %269 = getelementptr %struct.guc_mmio_reg, ptr %267, i64 %268
+  %269 = getelementptr [16 x i8], ptr %267, i64 %268
   store i32 %.pre39, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %269, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   %270 = icmp ugt ptr %269, inttoptr (i64 -4096 to ptr)
@@ -831,7 +831,7 @@ guc_mmio_reg_add.exit20:                          ; preds = %.preheader.i18, %28
   %314 = phi ptr [ %311, %310 ], [ %286, %297 ]
   %315 = phi ptr [ %305, %310 ], [ %287, %297 ]
   %316 = zext i32 %285 to i64
-  %317 = getelementptr %struct.guc_mmio_reg, ptr %315, i64 %316
+  %317 = getelementptr [16 x i8], ptr %315, i64 %316
   store i32 %.pre41, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %317, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %318 = icmp ugt ptr %317, inttoptr (i64 -4096 to ptr)
@@ -910,7 +910,7 @@ guc_mmio_reg_add.exit25:                          ; preds = %.preheader.i23, %32
 .thread:                                          ; preds = %359
   %361 = load i32, ptr %16, align 8
   %362 = sub i32 %361, %33
-  %363 = getelementptr i32, ptr %18, i64 %34
+  %363 = getelementptr [4 x i8], ptr %18, i64 %34
   store i32 %362, ptr %363, align 4
   %364 = add i32 %362, %35
   br label %365
@@ -1967,7 +1967,7 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
 
 .split15.us:                                      ; preds = %.split14.us, %122
   %102 = phi i64 [ %123, %122 ], [ 0, %.split14.us ]
-  %103 = getelementptr ptr, ptr %101, i64 %102
+  %103 = getelementptr [8 x i8], ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %122, label %106
@@ -2011,7 +2011,7 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
 
 .split15:                                         ; preds = %.split14.us, %152
   %132 = phi i64 [ %153, %152 ], [ 0, %.split14.us ]
-  %133 = getelementptr ptr, ptr %101, i64 %132
+  %133 = getelementptr [8 x i8], ptr %101, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %152, label %136
@@ -2116,13 +2116,13 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
 201:                                              ; preds = %261, %199
   %202 = phi i64 [ 0, %199 ], [ %263, %261 ]
   %203 = phi i32 [ %187, %199 ], [ %262, %261 ]
-  %204 = getelementptr ptr, ptr %101, i64 %202
+  %204 = getelementptr [8 x i8], ptr %101, i64 %202
   %205 = load ptr, ptr %204, align 8
   %206 = icmp eq ptr %205, null
   br i1 %206, label %261, label %207
 
 207:                                              ; preds = %201
-  %208 = getelementptr i32, ptr %200, i64 %202
+  %208 = getelementptr [4 x i8], ptr %200, i64 %202
   %209 = load i32, ptr %208, align 4
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 56
   %211 = load i8, ptr %210, align 8
@@ -2319,7 +2319,7 @@ define dso_local void @intel_guc_ads_init_late(ptr noundef %0) local_unnamed_add
 
 45:                                               ; preds = %59, %40
   %46 = phi i64 [ 0, %40 ], [ %60, %59 ]
-  %47 = getelementptr ptr, ptr %18, i64 %46
+  %47 = getelementptr [8 x i8], ptr %18, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %59, label %50
@@ -2627,7 +2627,7 @@ define internal fastcc noundef i64 @guc_mmio_reg_add(ptr noundef captures(none) 
   %49 = phi i32 [ %24, %23 ], [ %.pre5, %39 ]
   %50 = phi ptr [ %.pre, %23 ], [ %34, %39 ]
   %51 = zext i32 %24 to i64
-  %52 = getelementptr %struct.guc_mmio_reg, ptr %50, i64 %51
+  %52 = getelementptr [16 x i8], ptr %50, i64 %51
   %53 = add i32 %49, 1
   store i32 %53, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)

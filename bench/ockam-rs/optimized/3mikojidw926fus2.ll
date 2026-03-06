@@ -23735,7 +23735,7 @@ default.unreachable321:                           ; preds = %406, %354, %69, %50
   %138 = load ptr, ptr %137, align 8, !noalias !3232, !nonnull !14, !align !33, !noundef !14
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %140 = load i64, ptr %139, align 8, !noalias !3232, !noundef !14
-  %141 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %138, i64 %140
+  %141 = getelementptr inbounds [160 x i8], ptr %138, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %138, ptr %142, align 8, !noalias !3232
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -24031,7 +24031,7 @@ default.unreachable321:                           ; preds = %406, %354, %69, %50
 261:                                              ; preds = %.noexc106.i.i, %250
   %262 = phi i64 [ %.pre.i.i.i, %.noexc106.i.i ], [ %254, %250 ]
   %263 = load ptr, ptr %215, align 8, !alias.scope !3271, !noalias !3274, !nonnull !14, !noundef !14
-  %264 = getelementptr inbounds { { [32 x i8] }, { i64, i64, { i8, [65 x i8] }, { i8, [32 x i8] }, i8, [4 x i8] }, { i8, [65 x i8] }, [6 x i8] }, ptr %263, i64 %262
+  %264 = getelementptr inbounds [224 x i8], ptr %263, i64 %262
   store <32 x i8> %.val93294.i.i, ptr %264, align 8, !noalias !3236
   %.sroa.5209.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %264, i64 32
   store i64 %252, ptr %.sroa.5209.0..sroa_idx.i.i, align 8, !noalias !3236
@@ -24989,7 +24989,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
 627:                                              ; preds = %618
   %628 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %629 = load ptr, ptr %628, align 8, !noalias !3299, !nonnull !14, !align !33, !noundef !14
-  %630 = getelementptr inbounds { { [32 x i8] }, { i64, i64, { i8, [65 x i8] }, { i8, [32 x i8] }, i8, [4 x i8] }, { i8, [65 x i8] }, [6 x i8] }, ptr %629, i64 %619
+  %630 = getelementptr inbounds [224 x i8], ptr %629, i64 %619
   br label %623
 
 631:                                              ; preds = %618
@@ -25030,7 +25030,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
 
 .thread.i117:                                     ; preds = %635
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val59.i) ]
-  %646 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %637, i64 %384
+  %646 = getelementptr inbounds [160 x i8], ptr %637, i64 %384
   %.sroa.783.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 448
   store ptr %.val.i, ptr %.sroa.783.0..sroa_idx.i, align 8, !noalias !3299
   %.sroa.884.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 456
@@ -26976,7 +26976,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i: ; preds = %260
   %390 = load ptr, ptr %382, align 8, !alias.scope !3686, !noalias !3689, !nonnull !14, !noundef !14
   %391 = load i64, ptr %.sroa.5299.0..sroa_idx, align 8, !alias.scope !3686, !noalias !3689, !noundef !14
   %.not.i = icmp eq i64 %391, 0
-  %392 = getelementptr { { [32 x i8] }, { i64, i64, { i8, [65 x i8] }, { i8, [32 x i8] }, i8, [4 x i8] }, { i8, [65 x i8] }, [6 x i8] }, ptr %390, i64 %391
+  %392 = getelementptr [224 x i8], ptr %390, i64 %391
   %393 = getelementptr i8, ptr %392, i64 -224
   %.not1314.i = icmp eq ptr %393, null
   %.not13.i = or i1 %.not.i, %.not1314.i
@@ -28824,7 +28824,7 @@ default.unreachable567:                           ; preds = %447, %416, %393, %2
   %275 = load ptr, ptr %170, align 8, !alias.scope !3934, !nonnull !14, !noundef !14
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 1824
   %277 = load i64, ptr %276, align 8, !alias.scope !3934, !noundef !14
-  %278 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, [7 x i8] }, { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, [7 x i8] } }, ptr %275, i64 %277
+  %278 = getelementptr inbounds [192 x i8], ptr %275, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %275, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -30037,7 +30037,7 @@ default.unreachable567:                           ; preds = %447, %416, %393, %2
   %690 = load ptr, ptr %689, align 8, !noalias !4001, !nonnull !14, !align !45, !noundef !14
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %692 = load i64, ptr %691, align 8, !noalias !4001, !noundef !14
-  %693 = getelementptr inbounds { [32 x i8] }, ptr %690, i64 %692
+  %693 = getelementptr inbounds [32 x i8], ptr %690, i64 %692
   br label %694
 
 694:                                              ; preds = %696, %688
@@ -38716,7 +38716,7 @@ common.ret:                                       ; preds = %1864, %"_ZN14ockam_
   %386 = add i64 %380, 1
   store i64 %386, ptr %367, align 8, !alias.scope !5241, !noalias !5244
   %387 = load ptr, ptr %93, align 8, !alias.scope !5241, !noalias !5244, !nonnull !14, !noundef !14
-  %388 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %387, i64 %..i.i.i.i
+  %388 = getelementptr inbounds [32 x i8], ptr %387, i64 %..i.i.i.i
   store ptr %365, ptr %388, align 8, !noalias !5226
   %.sroa.6.0..sroa_idx157.i = getelementptr inbounds nuw i8, ptr %388, i64 8
   store i64 %366, ptr %.sroa.6.0..sroa_idx157.i, align 8, !noalias !5226

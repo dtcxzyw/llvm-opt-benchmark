@@ -295,7 +295,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsm4k_viP1
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -815,7 +815,7 @@ define noundef i64 @_Z19fast_rv64i_vsm4k_viP11processor_t6insn_tm(ptr noundef %0
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -1223,7 +1223,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsm4k_vi
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -1633,7 +1633,7 @@ define noundef i64 @_Z21logged_rv64i_vsm4k_viP11processor_t6insn_tm(ptr noundef 
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -2041,7 +2041,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsm4k_viP1
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -2451,7 +2451,7 @@ define noundef i64 @_Z19fast_rv64e_vsm4k_viP11processor_t6insn_tm(ptr noundef %0
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -2859,7 +2859,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsm4k_vi
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -3269,7 +3269,7 @@ define noundef i64 @_Z21logged_rv64e_vsm4k_viP11processor_t6insn_tm(ptr noundef 
 .preheader:                                       ; preds = %107
   %125 = lshr i64 %1, 13
   %126 = and i64 %125, 28
-  %127 = getelementptr inbounds nuw i32, ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ21logged_rv64e_vsm4k_viP11processor_t6insn_tmE9zvksed_ck, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12

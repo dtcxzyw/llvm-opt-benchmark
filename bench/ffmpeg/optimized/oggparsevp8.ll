@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/oggparsevp8.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
-
 @.str = private unnamed_addr constant [6 x i8] c"OVP80\00", align 1
 @ff_vp8_codec = local_unnamed_addr constant { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, i32, i32, ptr } { ptr @.str, i8 5, [7 x i8] zeroinitializer, ptr null, ptr @vp8_header, ptr @vp8_packet, ptr @vp8_gptopts, i32 0, i32 1, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [29 x i8] c"Invalid OggVP8 header packet\00", align 1
@@ -17,7 +15,7 @@ define internal range(i32 -1094995529, 2) i32 @vp8_header(ptr noundef %0, i32 no
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -25,7 +23,7 @@ define internal range(i32 -1094995529, 2) i32 @vp8_header(ptr noundef %0, i32 no
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !32
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %6
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %6
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %18 = load i32, ptr %17, align 4, !tbaa !35
@@ -155,7 +153,7 @@ define internal noundef i32 @vp8_packet(ptr noundef readonly captures(none) %0, 
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -254,7 +252,7 @@ vp8_gptopts.exit:                                 ; preds = %._crit_edge, %52
   store i64 %58, ptr %13, align 8, !tbaa !65
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !32
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %6
+  %62 = getelementptr inbounds [8 x i8], ptr %61, i64 %6
   %63 = load ptr, ptr %62, align 8, !tbaa !33
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load i64, ptr %64, align 8, !tbaa !74
@@ -310,7 +308,7 @@ define internal range(i64 -1, 4294967296) i64 @vp8_gptopts(ptr noundef readonly 
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds %struct.ogg_stream, ptr %12, i64 %13
+  %14 = getelementptr inbounds [432 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !72
   %17 = or i32 %16, 1

@@ -43,7 +43,7 @@ define range(i32 0, 2) i32 @cuddAnnealing(ptr noundef %0, i32 noundef %1, i32 no
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = sext i32 %1 to i64
   %wide.trip.count.i = zext i32 %5 to i64
-  %invariant.gep.i = getelementptr i32, ptr %22, i64 %23
+  %invariant.gep.i = getelementptr [4 x i8], ptr %22, i64 %23
   %24 = shl nuw nsw i64 %wide.trip.count.i, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 4 %invariant.gep.i, i64 %24, i1 false), !tbaa !27
   br label %copyOrder.exit
@@ -418,7 +418,7 @@ ddExchange.exit.thread:                           ; preds = %ddExchange.exit, %s
 
 .lr.ph.i132:                                      ; preds = %188
   %193 = load ptr, ptr %32, align 8, !tbaa !26
-  %invariant.gep.i134 = getelementptr i32, ptr %193, i64 %.pre-phi
+  %invariant.gep.i134 = getelementptr [4 x i8], ptr %193, i64 %.pre-phi
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 4 %invariant.gep.i134, i64 %35, i1 false), !tbaa !27
   br label %copyOrder.exit139
 
@@ -454,10 +454,10 @@ copyOrder.exit139:                                ; preds = %.lr.ph.i132, %188
 206:                                              ; preds = %._crit_edge.i, %.lr.ph31.i
   %indvars.iv.i141 = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next.i143, %._crit_edge.i ]
   %207 = load ptr, ptr %205, align 8, !tbaa !45
-  %208 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i141
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i141
   %209 = load i32, ptr %208, align 4, !tbaa !27
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i32, ptr %207, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %207, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !27
   %213 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %212) #8
   %214 = add nsw i64 %indvars.iv.i141, %.pre-phi

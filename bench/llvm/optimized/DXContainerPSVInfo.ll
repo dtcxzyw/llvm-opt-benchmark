@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.20" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.21" = type { [512 x i8] }
-%"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.llvm::dxbc::PSV::v0::SignatureElement" = type { i32, i32, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.llvm::SmallVector.35" = type { %"class.llvm::SmallVectorImpl.36", %"struct.llvm::SmallVectorStorage.39" }
 %"class.llvm::SmallVectorImpl.36" = type { %"class.llvm::SmallVectorTemplateBase.37" }
 %"class.llvm::SmallVectorTemplateBase.37" = type { %"class.llvm::SmallVectorTemplateCommon.38" }
@@ -51,7 +49,7 @@ define dso_local void @_ZNK4llvm6mcdxbc14PSVRuntimeInfo5writeERNS_11raw_ostreamE
 
 switch.lookup:                                    ; preds = %3
   %17 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6mcdxbc14PSVRuntimeInfo5writeERNS_11raw_ostreamEj, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm6mcdxbc14PSVRuntimeInfo5writeERNS_11raw_ostreamEj, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.idx.mult = mul nuw nsw i32 %2, 12
   %switch.offset = add nuw nsw i32 %switch.idx.mult, 24
@@ -464,7 +462,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %23 = phi i32 [ %18, %15 ], [ %.pre.i, %20 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !10
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   store ptr %.sroa.028.0.copyload, ptr %26, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %.sroa.229.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -536,7 +534,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
 
 68:                                               ; preds = %71, %.preheader.i
   %.0614.i = phi i64 [ 0, %.preheader.i ], [ %72, %71 ]
-  %69 = getelementptr inbounds nuw i32, ptr %61, i64 %.0614.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %.0614.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %69, ptr readonly %64, i64 %67)
   %70 = icmp eq i32 %bcmp.i, 0
   br i1 %70, label %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit, label %71
@@ -551,8 +549,8 @@ _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit:     ; preds = %68
   br i1 %73, label %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread, label %77
 
 _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread: ; preds = %71, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit
-  %74 = getelementptr inbounds nuw i32, ptr %61, i64 %63
-  %75 = getelementptr inbounds nuw i32, ptr %64, i64 %32
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %63
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %32
   %76 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIjE6insertIPKjvEEPjS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %74, ptr noundef %64, ptr noundef %75)
   br label %77
 
@@ -575,7 +573,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v016SignatureElementELb1EE9push_b
   %83 = phi i32 [ %78, %77 ], [ %.pre.i61, %80 ]
   %84 = load ptr, ptr %2, align 8, !tbaa !10
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw %"struct.llvm::dxbc::PSV::v0::SignatureElement", ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %85
   store i64 %.sroa.02.sroa.4.0.insert.ext, ptr %86, align 1
   %.sroa.2.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 %.sroa.6.14.insert.insert27, ptr %.sroa.2.0..sroa_idx.i62, align 1
@@ -754,7 +752,7 @@ _ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds 
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit, label %74, !prof !72
 
 74:                                               ; preds = %49
-  %75 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.pre3.i, i64 %71
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %71
   %76 = icmp uge ptr %5, %.pre3.i
   %77 = icmp ult ptr %5, %75
   %spec.select.i.i.i.i.i = and i1 %76, %77
@@ -778,7 +776,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_b
   %.016.i.i.i = phi ptr [ %5, %49 ], [ %82, %78 ], [ %5, %.critedge.i.i.i ]
   %84 = load i32, ptr %8, align 8, !tbaa !7
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %83, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %86, ptr noundef nonnull align 4 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
   %87 = load i32, ptr %8, align 8, !tbaa !7
   %88 = add i32 %87, 1
@@ -808,7 +806,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIjE6insertIPKjv
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !7
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %11
   %13 = icmp eq ptr %1, %12
   %14 = ptrtoint ptr %3 to i64
   %15 = ptrtoint ptr %2 to i64
@@ -839,7 +837,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i:    ; preds = %24, %17
 
 26:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i
   %27 = zext i32 %.pre8.i to i64
-  %28 = getelementptr inbounds nuw i32, ptr %.pre61, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.pre61, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 4 %2, i64 %16, i1 false)
   %.pre.i = load i32, ptr %9, align 8, !tbaa !7
   %.pre60 = load ptr, ptr %0, align 8, !tbaa !10
@@ -906,7 +904,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i45:  ; preds = %54, %48
 56:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i45
   %57 = load ptr, ptr %0, align 8, !tbaa !10
   %58 = zext i32 %.pre9.i to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %59, ptr nonnull align 4 %49, i64 %16, i1 false)
   %.pre.i46 = load i32, ptr %9, align 8, !tbaa !7
   br label %_ZN4llvm15SmallVectorImplIjE6appendISt13move_iteratorIPjEvEEvT_S6_.exit
@@ -925,7 +923,7 @@ _ZN4llvm15SmallVectorImplIjE6appendISt13move_iteratorIPjEvEEvT_S6_.exit: ; preds
   %gepdiff53 = sub i64 %.idx, %65
   %66 = ashr exact i64 %gepdiff53, 2
   %67 = sub nsw i64 0, %66
-  %68 = getelementptr inbounds i32, ptr %46, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %46, i64 %67
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %68, ptr align 4 %45, i64 %gepdiff53, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -945,9 +943,9 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
 
 .lr.ph.preheader:                                 ; preds = %70
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %44, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %73
   %75 = sub nsw i64 0, %47
-  %76 = getelementptr inbounds i32, ptr %74, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %74, i64 %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 4 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
@@ -1059,7 +1057,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
   %26 = sub i64 %25, %5
   %27 = ashr exact i64 %26, 5
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %24, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %24, i64 %28
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !116
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1127,7 +1125,7 @@ common.ret29:                                     ; preds = %.preheader.i, %9, %
 
 41:                                               ; preds = %2
   %42 = lshr i64 %7, 1
-  %43 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %42
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %0, ptr noundef %43)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %43, ptr noundef %1)
   %44 = ptrtoint ptr %43 to i64
@@ -1145,7 +1143,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN4llvm4dxbc23Program
   %8 = ashr exact i64 %7, 5
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %0, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -1236,7 +1234,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm4dxbc23Program
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit: ; preds = %27
   %30 = sdiv i64 %.tr7382, 2
-  %31 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr79, i64 %30
+  %31 = getelementptr inbounds [32 x i8], ptr %.tr79, i64 %30
   %32 = sub i64 %9, %29
   %33 = ashr exact i64 %32, 5
   %34 = icmp sgt i64 %33, 0
@@ -1254,7 +1252,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
   %.027.i = phi ptr [ %.tr7180, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %57, %.thread22.i ]
   %.01126.i = phi i64 [ %33, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %56, %.thread22.i ]
   %35 = lshr i64 %.01126.i, 1
-  %36 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.027.i, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %.027.i, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %36, align 4, !tbaa !3
@@ -1310,7 +1308,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42: ; preds = %27
   %61 = sdiv i64 %.tr7483, 2
-  %62 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr7180, i64 %61
+  %62 = getelementptr inbounds [32 x i8], ptr %.tr7180, i64 %61
   %63 = ptrtoint ptr %.tr79 to i64
   %64 = sub i64 %29, %63
   %65 = ashr exact i64 %64, 5
@@ -1329,7 +1327,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45: ; preds =
   %.026.i = phi ptr [ %.tr79, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44 ], [ %90, %.thread.i54 ]
   %.01125.i = phi i64 [ %65, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44 ], [ %89, %.thread.i54 ]
   %72 = lshr i64 %.01125.i, 1
-  %73 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.026.i, i64 %72
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %.026.i, i64 %72
   %.sroa.0.0.copyload.i.i48 = load i32, ptr %73, align 4, !tbaa !3
   %.sroa.2.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.sroa.2.0.copyload.i.i50 = load i32, ptr %.sroa.2.0..sroa_idx.i.i49, align 4, !tbaa !3
@@ -1483,7 +1481,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
   br i1 %38, label %.lr.ph109.preheader, label %._crit_edge110
 
 .lr.ph109.preheader:                              ; preds = %37
-  %39 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.054, i64 %.082
+  %39 = getelementptr inbounds [32 x i8], ptr %.054, i64 %.082
   br label %.lr.ph109
 
 ._crit_edge110:                                   ; preds = %.lr.ph109, %37
@@ -1528,7 +1526,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
   %52 = add nsw i64 %.idx, -32
   %53 = ashr exact i64 %52, 5
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %49, i64 %54
+  %55 = getelementptr inbounds [32 x i8], ptr %49, i64 %54
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %55, ptr nonnull align 4 %.054, i64 %52, i1 false)
   br label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit
 
@@ -1538,9 +1536,9 @@ _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: 
   br label %_ZSt11swap_rangesIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.054, i64 %.085
+  %57 = getelementptr inbounds [32 x i8], ptr %.054, i64 %.085
   %58 = sub i64 0, %28
-  %59 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %57, i64 %58
+  %59 = getelementptr inbounds [32 x i8], ptr %57, i64 %58
   %60 = icmp sgt i64 %.082, 0
   br i1 %60, label %.lr.ph, label %._crit_edge
 
@@ -1639,7 +1637,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   %28 = sub i64 %27, %12
   %29 = ashr exact i64 %28, 5
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %26, i64 %30
+  %31 = getelementptr inbounds [32 x i8], ptr %26, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %31, ptr noundef nonnull align 4 dereferenceable(1) %.050.i, i64 %28, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.050.i, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !116
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1766,7 +1764,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   %63 = sub i64 %62, %.lcssa.i
   %64 = ashr exact i64 %63, 5
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %61, i64 %65
+  %66 = getelementptr inbounds [32 x i8], ptr %61, i64 %65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %66, ptr noundef nonnull align 4 dereferenceable(1) %.0.lcssa.i, i64 %63, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.0.lcssa.i, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !116
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2035,7 +2033,7 @@ _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.s
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 5
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.lcssa.sink.i, i64 %74
+  %75 = getelementptr inbounds [32 x i8], ptr %.lcssa.sink.i, i64 %74
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %75, ptr align 4 %5, i64 %72, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit"
 
@@ -2045,7 +2043,7 @@ _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.s
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit: ; preds = %76
   %78 = sdiv i64 %.tr127144, 2
-  %79 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr141, i64 %78
+  %79 = getelementptr inbounds [32 x i8], ptr %.tr141, i64 %78
   %80 = sub i64 %8, %77
   %81 = ashr exact i64 %80, 5
   %82 = icmp sgt i64 %81, 0
@@ -2063,7 +2061,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
   %.027.i = phi ptr [ %.tr125142, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %105, %.thread22.i ]
   %.01126.i = phi i64 [ %81, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %104, %.thread22.i ]
   %83 = lshr i64 %.01126.i, 1
-  %84 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.027.i, i64 %83
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %.027.i, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %87 = load i32, ptr %84, align 4, !tbaa !3
@@ -2119,7 +2117,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93: ; preds = %76
   %109 = sdiv i64 %.tr128145, 2
-  %110 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr125142, i64 %109
+  %110 = getelementptr inbounds [32 x i8], ptr %.tr125142, i64 %109
   %111 = ptrtoint ptr %.tr141 to i64
   %112 = sub i64 %77, %111
   %113 = ashr exact i64 %112, 5
@@ -2138,7 +2136,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97: ; preds =
   %.026.i98 = phi ptr [ %.tr141, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96 ], [ %138, %.thread.i107 ]
   %.01125.i = phi i64 [ %113, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96 ], [ %137, %.thread.i107 ]
   %120 = lshr i64 %.01125.i, 1
-  %121 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.026.i98, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %.026.i98, i64 %120
   %.sroa.0.0.copyload.i.i101 = load i32, ptr %121, align 4, !tbaa !3
   %.sroa.2.0..sroa_idx.i.i102 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %.sroa.2.0.copyload.i.i103 = load i32, ptr %.sroa.2.0..sroa_idx.i.i102, align 4, !tbaa !3
@@ -2228,7 +2226,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i110: ; pre
   %153 = sub i64 %148, %152
   %154 = ashr exact i64 %153, 5
   %155 = sub nsw i64 0, %154
-  %156 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0121, i64 %155
+  %156 = getelementptr inbounds [32 x i8], ptr %.0121, i64 %155
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %156, ptr align 4 %.0122, i64 %153, i1 false)
   br label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i
 
@@ -2278,13 +2276,13 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i: ; pred
 169:                                              ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i
   %170 = ashr exact i64 %164, 5
   %171 = sub nsw i64 0, %170
-  %172 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0121, i64 %171
+  %172 = getelementptr inbounds [32 x i8], ptr %.0121, i64 %171
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %5, i64 %164, i1 false)
   br label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit45.i
 
 _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit45.i: ; preds = %169, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %171, %169 ], [ 0, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i ]
-  %173 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0121, i64 %.pre-phi.i.i.i.i.i44.i
+  %173 = getelementptr inbounds [32 x i8], ptr %.0121, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
 174:                                              ; preds = %159

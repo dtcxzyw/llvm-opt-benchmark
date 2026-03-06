@@ -878,7 +878,7 @@ _valid_date_format.exit304.thread:                ; preds = %225, %223, %228, %_
   store ptr %436, ptr %12, align 8
   %437 = load ptr, ptr %430, align 8
   %438 = sext i32 %.0373 to i64
-  %439 = getelementptr inbounds ptr, ptr %436, i64 %438
+  %439 = getelementptr inbounds [8 x i8], ptr %436, i64 %438
   store ptr %437, ptr %439, align 8
   br label %440
 
@@ -895,7 +895,7 @@ _valid_date_format.exit304.thread:                ; preds = %225, %223, %228, %_
   %indvars.iv = phi i64 [ %428, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %445 = load ptr, ptr %12, align 8
-  %446 = getelementptr inbounds nuw ptr, ptr %445, i64 %indvars.iv.next
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %445, i64 %indvars.iv.next
   %447 = load ptr, ptr %446, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.55, ptr noundef %447) #6
   %448 = icmp samesign ugt i64 %indvars.iv, 1

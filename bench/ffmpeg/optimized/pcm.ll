@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.anon = type { i32, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [9 x i8] c"pcm_alaw\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"PCM A-law / G.711 A-law\00", align 1
@@ -204,7 +203,7 @@ define internal noundef i32 @pcm_lut_decode_init(ptr noundef captures(none) %0) 
   %10 = trunc i64 %indvars.iv35 to i8
   %11 = tail call i32 @alaw2linear(i8 noundef zeroext %10) #8
   %12 = trunc nsw i32 %11 to i16
-  %13 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv35
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv35
   store i16 %12, ptr %13, align 2, !tbaa !28
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 256
@@ -225,7 +224,7 @@ define internal noundef i32 @pcm_lut_decode_init(ptr noundef captures(none) %0) 
   %24 = add nuw nsw i32 %22, 65404
   %25 = select i1 %.not.i.not, i32 %23, i32 %24
   %26 = trunc i32 %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv31
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv31
   store i16 %26, ptr %27, align 2, !tbaa !28
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, 256
@@ -246,7 +245,7 @@ define internal noundef i32 @pcm_lut_decode_init(ptr noundef captures(none) %0) 
   %37 = add nuw nsw i32 %34, 65404
   %38 = select i1 %.not.i20, i32 %37, i32 %36
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %39, ptr %40, align 2, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -478,7 +477,7 @@ define internal i32 @pcm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph383.preheader:                              ; preds = %88
   %90 = load ptr, ptr %86, align 8, !tbaa !59
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv435
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv435
   %92 = load ptr, ptr %91, align 8, !tbaa !54
   br label %.lr.ph383
 
@@ -695,7 +694,7 @@ define internal i32 @pcm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph340.preheader:                              ; preds = %220
   %222 = load ptr, ptr %218, align 8, !tbaa !59
-  %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv432
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv432
   %224 = load ptr, ptr %223, align 8, !tbaa !54
   br label %.lr.ph340
 
@@ -790,7 +789,7 @@ define internal i32 @pcm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph315.preheader:                              ; preds = %262
   %264 = load ptr, ptr %260, align 8, !tbaa !59
-  %265 = getelementptr inbounds nuw ptr, ptr %264, i64 %indvars.iv429
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv429
   %266 = load ptr, ptr %265, align 8, !tbaa !54
   br label %.lr.ph315
 
@@ -841,7 +840,7 @@ define internal i32 @pcm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv426 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next427, %286 ]
   %.20307 = phi ptr [ %6, %.lr.ph310 ], [ %290, %286 ]
   %287 = load ptr, ptr %283, align 8, !tbaa !59
-  %288 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv426
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv426
   %289 = load ptr, ptr %288, align 8, !tbaa !54
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %289, ptr align 1 %.20307, i64 %285, i1 false)
   %290 = getelementptr inbounds nuw i8, ptr %.20307, i64 %285
@@ -864,7 +863,7 @@ define internal i32 @pcm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %298 = getelementptr inbounds nuw i8, ptr %.21302, i64 1
   %299 = load i8, ptr %.21302, align 1, !tbaa !55
   %300 = zext i8 %299 to i64
-  %301 = getelementptr inbounds nuw i16, ptr %296, i64 %300
+  %301 = getelementptr inbounds nuw [2 x i8], ptr %296, i64 %300
   %302 = load i16, ptr %301, align 2, !tbaa !28
   %303 = getelementptr inbounds nuw i8, ptr %.0186304, i64 2
   store i16 %302, ptr %.0186304, align 2, !tbaa !28
@@ -890,7 +889,7 @@ define internal i32 @pcm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %311, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %312
-  %313 = getelementptr inbounds nuw ptr, ptr %310, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %indvars.iv
   %314 = load ptr, ptr %313, align 8, !tbaa !54
   br label %.lr.ph
 
@@ -1212,7 +1211,7 @@ define internal range(i32 -2147483648, 1) i32 @pcm_encode_frame(ptr noundef %0, 
 
 .lr.ph344.preheader:                              ; preds = %73
   %75 = load ptr, ptr %71, align 8, !tbaa !59
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv391
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv391
   %77 = load ptr, ptr %76, align 8, !tbaa !54
   br label %.lr.ph344
 
@@ -1407,7 +1406,7 @@ define internal range(i32 -2147483648, 1) i32 @pcm_encode_frame(ptr noundef %0, 
 
 .lr.ph305.preheader:                              ; preds = %182
   %184 = load ptr, ptr %180, align 8, !tbaa !59
-  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv388
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv388
   %186 = load ptr, ptr %185, align 8, !tbaa !54
   br label %.lr.ph305
 
@@ -1502,7 +1501,7 @@ define internal range(i32 -2147483648, 1) i32 @pcm_encode_frame(ptr noundef %0, 
 
 .lr.ph282.preheader:                              ; preds = %224
   %226 = load ptr, ptr %222, align 8, !tbaa !59
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv385
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv385
   %228 = load ptr, ptr %227, align 8, !tbaa !54
   br label %.lr.ph282
 
@@ -1551,7 +1550,7 @@ define internal range(i32 -2147483648, 1) i32 @pcm_encode_frame(ptr noundef %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph278 ], [ %indvars.iv.next, %246 ]
   %.19276 = phi ptr [ %23, %.lr.ph278 ], [ %250, %246 ]
   %247 = load ptr, ptr %243, align 8, !tbaa !59
-  %248 = getelementptr inbounds nuw ptr, ptr %247, i64 %indvars.iv
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %indvars.iv
   %249 = load ptr, ptr %248, align 8, !tbaa !54
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.19276, ptr align 1 %249, i64 %245, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %.19276, i64 %245
@@ -1674,13 +1673,13 @@ define internal noundef i32 @pcm_decode_init(ptr noundef captures(none) %0) #0 {
 
 7:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @pcm_decode_init.codec_id_to_samplefmt, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @pcm_decode_init.codec_id_to_samplefmt, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8, !tbaa !118
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw %struct.anon, ptr @pcm_decode_init.codec_id_to_samplefmt, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @pcm_decode_init.codec_id_to_samplefmt, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 5
   %14 = load i8, ptr %13, align 1, !tbaa !120
   %15 = zext i8 %14 to i32

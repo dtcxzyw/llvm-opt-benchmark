@@ -40,7 +40,7 @@ define ptr @Fraig_Dfs(ptr noundef captures(none) %0, i32 noundef %1) local_unnam
   %12 = phi ptr [ %20, %.lr.ph ], [ %8, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !24
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
@@ -142,7 +142,7 @@ define ptr @Fraig_DfsNodes(ptr noundef captures(none) %0, ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -176,7 +176,7 @@ define i32 @Fraig_CountNodes(ptr noundef captures(none) %0, i32 noundef %1) loca
   %12 = phi ptr [ %20, %.lr.ph.i ], [ %8, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !24
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
@@ -315,7 +315,7 @@ define void @Fraig_ManMarkRealFanouts(ptr noundef captures(none) %0) local_unnam
   %11 = phi ptr [ %19, %.lr.ph.i ], [ %7, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
@@ -352,14 +352,14 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 30:                                               ; preds = %.lr.ph, %30
   %31 = phi ptr [ %.pre, %.lr.ph ], [ %37, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, -3073
   store i32 %36, ptr %34, align 8
   %37 = load ptr, ptr %27, align 8, !tbaa !24
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   store ptr null, ptr %40, align 8, !tbaa !36
@@ -372,7 +372,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 44:                                               ; preds = %.lr.ph26, %86
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %86 ]
   %45 = load ptr, ptr %29, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv28
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv28
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !30
@@ -402,7 +402,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 
 65:                                               ; preds = %63, %52, %44
   %66 = load ptr, ptr %29, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv28
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv28
   %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !31
@@ -458,7 +458,7 @@ define i32 @Fraig_BitStringCountOnes(ptr noundef readonly captures(none) %0, i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !tbaa !39
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @bit_count, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !40
   %10 = add nsw i32 %9, %.089
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -489,7 +489,7 @@ define noundef i32 @Fraig_ManCheckConsistency(ptr noundef captures(none) %0) loc
   %11 = phi ptr [ %19, %.lr.ph.i ], [ %7, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
@@ -517,7 +517,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 28:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %29 = load ptr, ptr %27, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %32 = tail call i32 @Fraig_NodeIsVar(ptr noundef %31) #15
   %.not = icmp eq i32 %32, 0
@@ -635,7 +635,7 @@ define void @Fraig_PrintNode(ptr noundef captures(none) %0, ptr noundef %1) loca
 14:                                               ; preds = %.lr.ph, %select.unfold._crit_edge.i30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold._crit_edge.i30 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   %18 = tail call i32 @Fraig_NodeIsVar(ptr noundef %17) #15
   %.not = icmp eq i32 %18, 0
@@ -765,7 +765,7 @@ define void @Fraig_PrintBinary(ptr noundef captures(none) %0, ptr noundef readon
 
 .lr.ph.us:                                        ; preds = %.lr.ph19, %select.unfold._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold._crit_edge.us ], [ %14, %.lr.ph19 ]
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   br label %select.unfold.us
 
 select.unfold.us:                                 ; preds = %.lr.ph.us, %select.unfold.us
@@ -787,7 +787,7 @@ select.unfold._crit_edge.us:                      ; preds = %select.unfold.us
 .lr.ph19.split:                                   ; preds = %.lr.ph19, %select.unfold._crit_edge
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %select.unfold._crit_edge ], [ %14, %.lr.ph19 ]
   %22 = icmp eq i64 %indvars.iv22, %14
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv22
   %spec.select = select i1 %22, i32 %13, i32 31
   br label %select.unfold
 
@@ -829,7 +829,7 @@ define range(i32 0, -2147483648) i32 @Fraig_GetMaxLevel(ptr noundef readonly cap
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.09., %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -956,7 +956,7 @@ define void @Fraig_MappingSetChoiceLevels(ptr noundef %0, i32 noundef %1) local_
   %11 = phi ptr [ %20, %.lr.ph ], [ %7, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
@@ -999,7 +999,7 @@ Fraig_MappingSetChoiceLevels.exit.thread:         ; preds = %1
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.0911.i = phi i32 [ 0, %.lr.ph.i ], [ %.09..i, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
@@ -1023,7 +1023,7 @@ Fraig_GetMaxLevel.exit:                           ; preds = %12
   %23 = phi ptr [ %32, %.lr.ph.i23 ], [ %3, %Fraig_GetMaxLevel.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i24
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -2
@@ -1050,7 +1050,7 @@ Fraig_MappingSetChoiceLevels.exit:                ; preds = %.lr.ph.i23
 40:                                               ; preds = %40, %.lr.ph.i27
   %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.i27 ], [ %indvars.iv.next.i32, %40 ]
   %.0911.i30 = phi i32 [ 0, %.lr.ph.i27 ], [ %.09..i31, %40 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i29
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i29
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %43, -2
@@ -1082,7 +1082,7 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %40, %Fraig_MappingS
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %.loopexit ]
   %.01842 = phi i32 [ 0, %.lr.ph43 ], [ %.1, %.loopexit ]
   %.02040 = phi i32 [ 0, %.lr.ph43 ], [ %.2, %.loopexit ]
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
   %59 = load ptr, ptr %58, align 8, !tbaa !42
@@ -1480,7 +1480,7 @@ define i32 @Fraig_ManCountExors(ptr noundef readonly captures(none) %0) local_un
   %.08 = phi i32 [ %57, %Fraig_NodeIsExorType.exit ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -1577,7 +1577,7 @@ define i32 @Fraig_ManCountMuxes(ptr noundef readonly captures(none) %0) local_un
   %.08 = phi i32 [ %61, %Fraig_NodeIsMuxType.exit ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -1689,9 +1689,9 @@ define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !40
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !40
   %16 = xor i32 %15, -1
   %17 = and i32 %13, %16
@@ -1719,9 +1719,9 @@ define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr noundef readonly capture
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %25
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24.preheader ], [ %indvars.iv.next30, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv29
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv29
   %27 = load i32, ptr %26, align 4, !tbaa !40
-  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv29
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv29
   %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = xor i32 %29, -1
   %31 = and i32 %27, %30
@@ -1751,10 +1751,10 @@ define i32 @Fraig_CountPis(ptr noundef readonly captures(none) %0, ptr noundef %
   %8 = load ptr, ptr %6, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !40
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = tail call i32 @Fraig_NodeIsVar(ptr noundef %15) #15
   %17 = add nsw i32 %16, %.011
@@ -1791,7 +1791,7 @@ define noundef i32 @Fraig_ManPrintRefs(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8
@@ -1865,9 +1865,9 @@ Abc_Clock.exit:                                   ; preds = %29, %1
   %.180 = phi i32 [ %.4, %Fraig_NodeSimsContained.exit69.thread ], [ %.086, %45 ]
   %.14279 = phi i32 [ %.243, %Fraig_NodeSimsContained.exit69.thread ], [ %.04185, %45 ]
   %49 = load ptr, ptr %41, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv99
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv99
   %51 = load ptr, ptr %50, align 8, !tbaa !25
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv96
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv96
   %53 = load ptr, ptr %52, align 8, !tbaa !25
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 104
   %55 = load ptr, ptr %54, align 8, !tbaa !58
@@ -1888,9 +1888,9 @@ Abc_Clock.exit:                                   ; preds = %29, %1
 
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 4, !tbaa !40
-  %63 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4, !tbaa !40
   %65 = xor i32 %64, -1
   %66 = and i32 %62, %65
@@ -1917,9 +1917,9 @@ Abc_Clock.exit:                                   ; preds = %29, %1
 
 .lr.ph24.i:                                       ; preds = %73, %.lr.ph24.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph24.preheader.i ], [ %indvars.iv.next30.i, %73 ]
-  %74 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv29.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv29.i
   %75 = load i32, ptr %74, align 4, !tbaa !40
-  %76 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv29.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv29.i
   %77 = load i32, ptr %76, align 4, !tbaa !40
   %78 = xor i32 %77, -1
   %79 = and i32 %75, %78
@@ -1948,9 +1948,9 @@ Fraig_NodeSimsContained.exit:                     ; preds = %73, %._crit_edge.i
 
 .lr.ph.i64:                                       ; preds = %83, %.lr.ph.preheader.i62
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i67, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i65
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i65
   %85 = load i32, ptr %84, align 4, !tbaa !40
-  %86 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i65
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i65
   %87 = load i32, ptr %86, align 4, !tbaa !40
   %88 = xor i32 %87, -1
   %89 = and i32 %85, %88
@@ -1977,9 +1977,9 @@ Fraig_NodeSimsContained.exit:                     ; preds = %73, %._crit_edge.i
 
 .lr.ph24.i57:                                     ; preds = %96, %.lr.ph24.preheader.i55
   %indvars.iv29.i58 = phi i64 [ 0, %.lr.ph24.preheader.i55 ], [ %indvars.iv.next30.i60, %96 ]
-  %97 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv29.i58
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv29.i58
   %98 = load i32, ptr %97, align 4, !tbaa !40
-  %99 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv29.i58
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv29.i58
   %100 = load i32, ptr %99, align 4, !tbaa !40
   %101 = xor i32 %100, -1
   %102 = and i32 %98, %101

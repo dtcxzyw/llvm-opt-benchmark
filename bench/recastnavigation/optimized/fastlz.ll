@@ -100,7 +100,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %42 = xor i32 %41, %34
   %43 = and i32 %42, 8191
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %.1162203 to i64
   %48 = ptrtoint ptr %46 to i64
@@ -334,7 +334,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %174 = xor i32 %173, %166
   %175 = and i32 %174, 8191
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr %4, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %176
   store ptr %128, ptr %177, align 8
   %178 = load i8, ptr %162, align 1
   %179 = zext i8 %178 to i32
@@ -351,7 +351,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %190 = xor i32 %189, %183
   %191 = and i32 %190, 8191
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %4, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %192
   store ptr %162, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   store i8 31, ptr %.5, align 1
@@ -547,7 +547,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %56 = xor i32 %55, %49
   %57 = and i32 %56, 8191
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %4, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = ptrtoint ptr %.1196263 to i64
   %62 = ptrtoint ptr %60 to i64
@@ -881,7 +881,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %243 = xor i32 %242, %235
   %244 = and i32 %243, 8191
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr inbounds nuw ptr, ptr %4, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %245
   store ptr %163, ptr %246, align 8
   %247 = load i8, ptr %231, align 1
   %248 = zext i8 %247 to i32
@@ -898,7 +898,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %259 = xor i32 %258, %252
   %260 = and i32 %259, 8191
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw ptr, ptr %4, i64 %261
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %261
   store ptr %231, ptr %262, align 8
   %263 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   store i8 31, ptr %.4, align 1

@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.default_hash_entry = type { i32, i32, %struct.expr_delta_pair }
 
 $__clang_call_terminate = comdat any
 
@@ -296,7 +295,7 @@ _ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit.lr.ph: ; preds = %55, %49
   %56 = phi i32 [ %.pre2.i, %55 ], [ %51, %49 ]
   %57 = phi ptr [ %.pre.i8, %55 ], [ %47, %49 ]
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %struct.expr_delta_pair, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %58
   store ptr %1, ptr %59, align 8, !tbaa !34
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !27
@@ -322,7 +321,7 @@ _ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorI15expr_
 _ZN6vectorI15expr_delta_pairLb0EjE4backEv.exit:   ; preds = %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit
   %67 = add i32 %65, -1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.expr_delta_pair, ptr %63, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %68
   %.sroa.0.0.copyload = load ptr, ptr %69, align 8, !tbaa !34
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !27
@@ -493,7 +492,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13contains_vars3imp14visit_chi
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %23, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   %.134 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   %23 = add nsw i64 %indvars.iv, -1
-  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %25, ptr %5, align 8, !tbaa !46
@@ -539,7 +538,7 @@ _ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i: ; preds = %43, %37
   %44 = phi i32 [ %.pre2.i.i, %43 ], [ %39, %37 ]
   %45 = phi ptr [ %.pre.i.i, %43 ], [ %35, %37 ]
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %struct.expr_delta_pair, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !48
   %48 = load ptr, ptr %20, align 8, !tbaa !15
   %49 = getelementptr inbounds i8, ptr %48, i64 -4
@@ -611,7 +610,7 @@ _ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i26: ; preds = %79, %73
   %80 = phi i32 [ %.pre2.i.i29, %79 ], [ %75, %73 ]
   %81 = phi ptr [ %.pre.i.i27, %79 ], [ %71, %73 ]
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw %struct.expr_delta_pair, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !48
   %84 = load ptr, ptr %70, align 8, !tbaa !15
   %85 = getelementptr inbounds i8, ptr %84, i64 -4
@@ -927,7 +926,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   %.idx = mul nuw nsw i64 %58, 24
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
   %60 = zext i32 %54 to i64
-  %61 = getelementptr inbounds nuw %class.default_hash_entry, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %60
   %.not30 = icmp eq i32 %56, %54
   br i1 %.not30, label %.preheader, label %.lr.ph
 
@@ -1076,7 +1075,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryI15expr
   %.idx = mul nuw nsw i64 %69, 24
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   %71 = zext i32 %15 to i64
-  %72 = getelementptr inbounds nuw %class.default_hash_entry, ptr %68, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %71
   %.not63 = icmp eq i32 %67, %15
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -1241,7 +1240,7 @@ _ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10defau
   %13 = zext i32 %11 to i64
   %.idx.i = mul nuw nsw i64 %13, 24
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
-  %15 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %5
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %11, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE10move_tableEPS2_jS8_j.exit, label %.lr.ph41.i
 

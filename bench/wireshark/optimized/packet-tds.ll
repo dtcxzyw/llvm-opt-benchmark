@@ -4575,7 +4575,7 @@ dissect_tds5_dbrpc_token.exit.i:                  ; preds = %1073, %._crit_edge.
 1098:                                             ; preds = %1098, %.lr.ph.i.i202
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i202 ], [ %indvars.iv.next.i.i, %1098 ]
   %1099 = load i32, ptr @hf_tds_params_field, align 4
-  %1100 = getelementptr ptr, ptr %721, i64 %indvars.iv.i.i
+  %1100 = getelementptr [8 x i8], ptr %721, i64 %indvars.iv.i.i
   %1101 = load ptr, ptr %1100, align 8
   %1102 = getelementptr inbounds nuw i8, ptr %1101, i64 16
   %1103 = load i8, ptr %1102, align 8
@@ -5133,7 +5133,7 @@ tds45_token_to_idx.exit:                          ; preds = %85, %86, %87, %88, 
   %206 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %205, ptr noundef nonnull %0, i32 noundef %.03747.i, i32 noundef 0, i32 noundef 0)
   %207 = load i32, ptr @ett_tds_col, align 4
   %208 = call ptr @proto_item_add_subtree(ptr noundef %206, i32 noundef %207)
-  %209 = getelementptr ptr, ptr %73, i64 %indvars.iv.i
+  %209 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i
   %210 = load ptr, ptr %209, align 8
   %.not.i = icmp eq ptr %210, null
   br i1 %.not.i, label %211, label %214
@@ -5223,7 +5223,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %.thread.i, %._crit_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i217, 1
   %247 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %244, ptr noundef nonnull @.str.1362, i32 noundef %247)
-  %248 = getelementptr ptr, ptr %73, i64 %indvars.iv.i217
+  %248 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i217
   %249 = load ptr, ptr %248, align 8
   %.not.i219 = icmp eq ptr %249, null
   br i1 %.not.i219, label %250, label %253
@@ -5373,7 +5373,7 @@ dissect_tds_colfmt_token.exit:                    ; preds = %.thread.i225, %._cr
   br label %dissect_tds_control_token.exit
 
 316:                                              ; preds = %.lr.ph.i227
-  %317 = getelementptr ptr, ptr %73, i64 %indvars.iv.i228
+  %317 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i228
   %318 = load ptr, ptr %317, align 8
   %.not.i229 = icmp eq ptr %318, null
   br i1 %.not.i229, label %319, label %322
@@ -5469,7 +5469,7 @@ dissect_tds_control_token.exit:                   ; preds = %315, %._crit_edge.i
 369:                                              ; preds = %369, %.lr.ph.i233
   %indvars.iv.i234 = phi i64 [ 0, %.lr.ph.i233 ], [ %indvars.iv.next.i235, %369 ]
   %370 = load i32, ptr @hf_tds_params_field, align 4
-  %371 = getelementptr ptr, ptr %73, i64 %indvars.iv.i234
+  %371 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i234
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %374 = load i8, ptr %373, align 8
@@ -5564,7 +5564,7 @@ dissect_tds5_params_token.exit:                   ; preds = %365, %._crit_edge.l
   %indvars.iv.next.i244 = add nuw nsw i64 %indvars.iv.i242, 1
   %417 = trunc nuw nsw i64 %indvars.iv.next.i244 to i32
   %418 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef nonnull %0, i32 noundef %.0160187.i, i32 noundef 0, i32 noundef %416, ptr noundef nonnull %28, ptr noundef nonnull @.str.1362, i32 noundef %417)
-  %419 = getelementptr ptr, ptr %73, i64 %indvars.iv.i242
+  %419 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i242
   %420 = load ptr, ptr %419, align 8
   %.not169.i = icmp eq ptr %420, null
   br i1 %.not169.i, label %421, label %424
@@ -5774,10 +5774,10 @@ dissect_tds5_params_token.exit:                   ; preds = %365, %._crit_edge.l
 
 524:                                              ; preds = %532, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %532 ]
-  %525 = getelementptr ptr, ptr %73, i64 %indvars.iv.i.i
+  %525 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i.i
   %526 = load ptr, ptr %525, align 8
   %527 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %520, i64 noundef 24) #12
-  %528 = getelementptr ptr, ptr %522, i64 %indvars.iv.i.i
+  %528 = getelementptr [8 x i8], ptr %522, i64 %indvars.iv.i.i
   store ptr %527, ptr %528, align 8
   %529 = load ptr, ptr %526, align 8
   %.not.i.i = icmp eq ptr %529, null
@@ -5901,7 +5901,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %.thread.i251, %551
   %indvars.iv.next.i264 = add nuw nsw i64 %indvars.iv.i262, 1
   %573 = trunc nuw nsw i64 %indvars.iv.next.i264 to i32
   %574 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef nonnull %0, i32 noundef %.0167216.i, i32 noundef 0, i32 noundef %572, ptr noundef nonnull %12, ptr noundef nonnull @.str.1362, i32 noundef %573)
-  %575 = getelementptr ptr, ptr %73, i64 %indvars.iv.i262
+  %575 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i262
   %576 = load ptr, ptr %575, align 8
   %.not176.i = icmp eq ptr %576, null
   br i1 %.not176.i, label %577, label %580
@@ -6198,10 +6198,10 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %.thread.i251, %551
 
 724:                                              ; preds = %732, %.lr.ph.i.i256
   %indvars.iv.i.i257 = phi i64 [ 0, %.lr.ph.i.i256 ], [ %indvars.iv.next.i.i259, %732 ]
-  %725 = getelementptr ptr, ptr %73, i64 %indvars.iv.i.i257
+  %725 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i.i257
   %726 = load ptr, ptr %725, align 8
   %727 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %720, i64 noundef 24) #12
-  %728 = getelementptr ptr, ptr %722, i64 %indvars.iv.i.i257
+  %728 = getelementptr [8 x i8], ptr %722, i64 %indvars.iv.i.i257
   store ptr %727, ptr %728, align 8
   %729 = load ptr, ptr %726, align 8
   %.not.i.i258 = icmp eq ptr %729, null
@@ -6407,7 +6407,7 @@ dissect_tds7_colmetadata_token.exit.thread:       ; preds = %779
   %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i275, 1
   %796 = trunc nuw nsw i64 %indvars.iv.next.i276 to i32
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %793, ptr noundef nonnull @.str.1362, i32 noundef %796)
-  %797 = getelementptr ptr, ptr %73, i64 %indvars.iv.i275
+  %797 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i275
   %798 = load ptr, ptr %797, align 8
   %.not627.i = icmp eq ptr %798, null
   br i1 %.not627.i, label %799, label %802
@@ -7188,7 +7188,7 @@ dissect_tds_featureextack_token.exit:             ; preds = %.lr.ph.i285, %1212,
   br label %1259
 
 1244:                                             ; preds = %1234
-  %1245 = getelementptr ptr, ptr %73, i64 %indvars.iv.i288
+  %1245 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i288
   %1246 = load ptr, ptr %1245, align 8
   %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 16
   %1248 = load i8, ptr %1247, align 8
@@ -9614,7 +9614,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   %hf_resp_array.sink = phi ptr [ @hf_req_array, %37 ], [ @hf_resp_array, %39 ]
   %.str.1358.sink = phi ptr [ @.str.1357, %37 ], [ @.str.1358, %39 ]
   %.2.in = phi ptr [ @ett_tds_capability_req, %37 ], [ @ett_tds_capability_resp, %39 ]
-  %42 = getelementptr ptr, ptr %hf_resp_array.sink, i64 %indvars.iv
+  %42 = getelementptr [8 x i8], ptr %hf_resp_array.sink, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = shl nuw nsw i32 %indvars14, 3
   %45 = or disjoint i32 %44, 7
@@ -10690,7 +10690,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   br label %92
 
 29:                                               ; preds = %28
-  %30 = getelementptr ptr, ptr %26, i64 %indvars.iv
+  %30 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %32, label %35
@@ -10868,7 +10868,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   br label %94
 
 29:                                               ; preds = %28
-  %30 = getelementptr ptr, ptr %26, i64 %indvars.iv
+  %30 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %32, label %35
@@ -11058,7 +11058,7 @@ define internal fastcc i32 @dissect_tds_row_token(ptr noundef nonnull %0, ptr no
 
 34:                                               ; preds = %.lr.ph, %dissect_tds_type_info_minimal.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %dissect_tds_type_info_minimal.exit ]
-  %35 = getelementptr ptr, ptr %33, i64 %indvars.iv
+  %35 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i8, ptr %37, align 8

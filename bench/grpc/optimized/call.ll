@@ -377,7 +377,7 @@ define void @_ZN9grpc_core4CallC2EbNS_9TimestampENS_13RefCountedPtrINS_5ArenaEEE
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_4CallEE3id_E, align 2, !tbaa !38
   %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store ptr %0, ptr %30, align 8, !tbaa !40
   ret void
 
@@ -594,10 +594,10 @@ _ZN9grpc_core5Arena3NewINS_4Call9ChildCallEJRPS2_EEEPT_DpOT0_.exit: ; preds = %1
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsI14census_contextE3id_E, align 2, !tbaa !38
   %48 = zext i16 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !40
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %48
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %48
   store ptr %50, ptr %52, align 8, !tbaa !40
   br label %55
 
@@ -1872,7 +1872,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %84, %87
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %108 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !38
   %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !40
   %112 = load i64, ptr %37, align 8, !tbaa !66
   %.not73 = icmp eq i64 %112, 9223372036854775807
@@ -2104,7 +2104,7 @@ define void @_ZN9grpc_core4Call13ResetDeadlineEv(ptr noundef nonnull align 8 der
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !38
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.01.0.copyload = load i64, ptr %16, align 8
@@ -3769,7 +3769,7 @@ define void @_Z20grpc_call_tracer_setP9grpc_callPN9grpc_core16ClientCallTracerE(
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_29CallTracerAnnotationInterfaceEE3id_E, align 2, !tbaa !38
   %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   store ptr %1, ptr %8, align 8, !tbaa !40
   ret void
 }
@@ -3806,7 +3806,7 @@ _ZN9grpc_core5Arena10ManagedNewI23ClientCallTracerWrapperJRPNS_16ClientCallTrace
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %18 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_29CallTracerAnnotationInterfaceEE3id_E, align 2, !tbaa !38
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   store ptr %1, ptr %20, align 8, !tbaa !40
   ret void
 }
@@ -3818,7 +3818,7 @@ define noundef ptr @_Z20grpc_call_tracer_getP9grpc_call(ptr noundef readonly cap
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_29CallTracerAnnotationInterfaceEE3id_E, align 2, !tbaa !38
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   ret ptr %8
 }
@@ -3881,7 +3881,7 @@ define noundef nonnull ptr @grpc_call_error_to_string(i32 noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.grpc_call_error_to_string, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.grpc_call_error_to_string, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -3897,7 +3897,7 @@ define void @_Z29grpc_call_run_in_event_enginePK9grpc_callN4absl12lts_2024072212
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !38
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 16, !tbaa !172
@@ -4095,7 +4095,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !179
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !176
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !180
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4566,7 +4566,7 @@ _ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detai
 _ZNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detail8DumpArgs10CustomSinkEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detail8DumpArgs10CustomSinkEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !155
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !152
-  %53 = getelementptr inbounds nuw %"class.absl::lts_20240722::AnyInvocable.94", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !153
   ret void
 }

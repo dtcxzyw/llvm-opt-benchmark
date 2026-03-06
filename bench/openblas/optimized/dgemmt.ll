@@ -104,10 +104,10 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %65 = fcmp oeq double %.fr264, 0.000000e+00
   %66 = sext i32 %20 to i64
   %67 = sext i32 %.3 to i64
-  %68 = getelementptr inbounds ptr, ptr @dgemmt_.gemv_thread, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr @dgemmt_.gemv_thread, i64 %67
   %69 = sext i32 %23 to i64
   %70 = sext i32 %62 to i64
-  %71 = getelementptr inbounds ptr, ptr @__const.dgemmt_.gemv, i64 %67
+  %71 = getelementptr inbounds [8 x i8], ptr @__const.dgemmt_.gemv, i64 %67
   br i1 %65, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -132,8 +132,8 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv271 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next272, %.lr.ph.split.us.split.us ]
   %78 = sub nsw i64 %76, %indvars.iv271
   %79 = mul nsw i64 %indvars.iv271, %77
-  %80 = getelementptr inbounds double, ptr %11, i64 %79
-  %81 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv271
+  %80 = getelementptr inbounds [8 x i8], ptr %11, i64 %79
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv271
   %82 = tail call i32 @dscal_k(i64 noundef %78, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %81, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
@@ -147,10 +147,10 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %84 = fcmp oeq double %.fr264, 0.000000e+00
   %85 = sext i32 %20 to i64
   %86 = sext i32 %.3 to i64
-  %87 = getelementptr inbounds ptr, ptr @dgemmt_.gemv_thread, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr @dgemmt_.gemv_thread, i64 %86
   %88 = sext i32 %23 to i64
   %89 = sext i32 %62 to i64
-  %90 = getelementptr inbounds ptr, ptr @__const.dgemmt_.gemv, i64 %86
+  %90 = getelementptr inbounds [8 x i8], ptr @__const.dgemmt_.gemv, i64 %86
   br i1 %84, label %.lr.ph262.split.us, label %.lr.ph262.split.preheader
 
 .lr.ph262.split.preheader:                        ; preds = %.lr.ph262
@@ -172,7 +172,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv281 = phi i64 [ 0, %.lr.ph262.split.us.split.us.preheader ], [ %indvars.iv.next282, %.lr.ph262.split.us.split.us ]
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %94 = mul nsw i64 %indvars.iv281, %93
-  %95 = getelementptr inbounds double, ptr %11, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %11, i64 %94
   %96 = tail call i32 @dscal_k(i64 noundef %indvars.iv.next282, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %95, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
   br i1 %exitcond285.not, label %.loopexit, label %.lr.ph262.split.us.split.us, !llvm.loop !12
@@ -181,12 +181,12 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %139 ]
   %97 = sub nsw i64 %72, %indvars.iv
   %.pn249 = mul nsw i64 %indvars.iv, %74
-  %.0234 = getelementptr inbounds double, ptr %6, i64 %.pn249
+  %.0234 = getelementptr inbounds [8 x i8], ptr %6, i64 %.pn249
   %.pn250 = mul nsw i64 %indvars.iv, %75
-  %.0232 = getelementptr inbounds double, ptr %8, i64 %.pn250
+  %.0232 = getelementptr inbounds [8 x i8], ptr %8, i64 %.pn250
   %98 = mul nsw i64 %indvars.iv, %73
-  %99 = getelementptr inbounds double, ptr %11, i64 %98
-  %100 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv
+  %99 = getelementptr inbounds [8 x i8], ptr %11, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   br i1 %64, label %101, label %103
 
 101:                                              ; preds = %.lr.ph.split
@@ -289,9 +289,9 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv276 = phi i64 [ 0, %.lr.ph262.split.preheader ], [ %indvars.iv.next277, %180 ]
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %spec.select254 = mul nsw i64 %indvars.iv276, %92
-  %.1233 = getelementptr inbounds double, ptr %8, i64 %spec.select254
+  %.1233 = getelementptr inbounds [8 x i8], ptr %8, i64 %spec.select254
   %140 = mul nsw i64 %indvars.iv276, %91
-  %141 = getelementptr inbounds double, ptr %11, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %11, i64 %140
   br i1 %83, label %142, label %144
 
 142:                                              ; preds = %.lr.ph262.split

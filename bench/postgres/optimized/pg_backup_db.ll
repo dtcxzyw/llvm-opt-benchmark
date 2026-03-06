@@ -213,16 +213,16 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
 98:                                               ; preds = %97, %.split.us
   %.0.us = phi i32 [ 6, %97 ], [ 5, %.split.us ]
   %99 = zext nneg i32 %.0.us to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %4, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %99
   store ptr @.str.7, ptr %100, align 8
   %101 = load ptr, ptr @progname, align 8
   %102 = add nuw nsw i32 %.0.us, 1
-  %103 = getelementptr inbounds nuw ptr, ptr %5, i64 %99
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %99
   store ptr %101, ptr %103, align 8
   %104 = zext nneg i32 %102 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %4, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %104
   store ptr null, ptr %105, align 8
-  %106 = getelementptr inbounds nuw ptr, ptr %5, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %104
   store ptr null, ptr %106, align 8
   %107 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #11
   store ptr %107, ptr %6, align 8
@@ -269,16 +269,16 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
 120:                                              ; preds = %119, %.split
   %.0 = phi i32 [ 6, %119 ], [ 5, %.split ]
   %121 = zext nneg i32 %.0 to i64
-  %122 = getelementptr inbounds nuw ptr, ptr %4, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %121
   store ptr @.str.7, ptr %122, align 8
   %123 = load ptr, ptr @progname, align 8
   %124 = add nuw nsw i32 %.0, 1
-  %125 = getelementptr inbounds nuw ptr, ptr %5, i64 %121
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %121
   store ptr %123, ptr %125, align 8
   %126 = zext nneg i32 %124 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %4, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %126
   store ptr null, ptr %127, align 8
-  %128 = getelementptr inbounds nuw ptr, ptr %5, i64 %126
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %126
   store ptr null, ptr %128, align 8
   %129 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #11
   store ptr %129, ptr %6, align 8
@@ -1202,7 +1202,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %.128 = phi ptr [ %27, %25 ], [ %36, %30 ]
   %31 = load i8, ptr %.128, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 2048
   %.not37 = icmp eq i16 %35, 0
@@ -1225,7 +1225,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %.3 = getelementptr inbounds nuw i8, ptr %.027.pn, i64 1
   %43 = load i8, ptr %.3, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 8192
   %.not36 = icmp eq i16 %47, 0

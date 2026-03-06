@@ -238,7 +238,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %67 = add nsw i32 %65, 1
   store i32 %67, ptr %10, align 8
   %68 = sext i32 %65 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %66, i64 %68
   store ptr %46, ptr %69, align 8
   %70 = load ptr, ptr %26, align 8
   %.not.i.i22 = icmp eq ptr %70, null
@@ -389,7 +389,7 @@ define void @_ZN4pkpy10SourceDataC2ERKNS_3StrENS_11CompileModeE(ptr noundef nonn
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %7, align 8
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   store ptr %13, ptr %31, align 8
   ret void
 
@@ -414,7 +414,7 @@ define { ptr, ptr } @_ZNK4pkpy10SourceData9_get_lineEi(ptr noundef nonnull reado
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -461,7 +461,7 @@ define { i64, ptr } @_ZNK4pkpy10SourceData8get_lineEi(ptr noundef nonnull readon
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -581,7 +581,7 @@ define void @_ZNK4pkpy10SourceData8snapshotEiPKcSt17basic_string_viewIcSt11char_
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %48 = load ptr, ptr %47, align 8
   %49 = zext nneg i32 %46 to i64
-  %50 = getelementptr ptr, ptr %48, i64 %49
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8
   %53 = ptrtoint ptr %52 to i64

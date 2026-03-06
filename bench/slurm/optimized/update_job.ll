@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.job_descriptor = type { ptr, ptr, ptr, ptr, i16, i32, i32, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, ptr, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i64, ptr, %struct.slurm_hash_t, i32, ptr, ptr, ptr, i64, i64, i32, i32, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, i32, i16, i8, ptr, i16, i8, ptr, i16, ptr, i32, i32, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, %struct.slurm_hash_t, i16, i32, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i16, i16, i16, ptr, i16, i32, i32, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i64, i32, ptr, i32, i16, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, i16 }
 %struct.slurm_hash_t = type { i8, [32 x i8] }
-%struct.job_info = type { ptr, i64, ptr, ptr, i32, ptr, i32, i32, i32, ptr, i32, ptr, i16, ptr, i64, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i16, double, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i32, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, i64, ptr, i16, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, i16, i32, i32, i32, i16, ptr, ptr, i64, i16, i32, i64, i64, i64, i32, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i16, i64, i16, ptr, ptr, ptr, ptr, i16, i32, i16, i16, i64, i16, ptr, i32, ptr, ptr, ptr, i16, i64, i64, ptr, i32, i32, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr }
 
 @scontrol_hold.jobs = internal global ptr null, align 8
 @.str = private unnamed_addr constant [7 x i8] c"JobID=\00", align 1
@@ -321,7 +320,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %40 = phi i32 [ %61, %59 ], [ %38, %.preheader ]
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv131
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv131
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   %46 = icmp eq i32 %40, 1
@@ -338,7 +337,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %51 = load ptr, ptr @stderr, align 8
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv131
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv131
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %43, align 4
   %57 = call ptr @slurm_strerror(i32 noundef %56) #12
@@ -523,7 +522,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %139 = phi i32 [ %160, %158 ], [ %137, %.preheader106 ]
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, 0
   %145 = icmp eq i32 %139, 1
@@ -540,7 +539,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %150 = load ptr, ptr @stderr, align 8
   %151 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8
   %155 = load i32, ptr %142, align 4
   %156 = call ptr @slurm_strerror(i32 noundef %155) #12
@@ -963,7 +962,7 @@ define dso_local void @scontrol_suspend(ptr noundef %0, ptr noundef %1) local_un
   %28 = phi i32 [ %49, %47 ], [ %26, %.preheader ]
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   %34 = icmp eq i32 %28, 1
@@ -980,7 +979,7 @@ define dso_local void @scontrol_suspend(ptr noundef %0, ptr noundef %1) local_un
   %39 = load ptr, ptr @stderr, align 8
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %31, align 4
   %45 = call ptr @slurm_strerror(i32 noundef %44) #12
@@ -1099,7 +1098,7 @@ define dso_local void @scontrol_requeue(i32 noundef %0, ptr noundef %1) local_un
   %25 = phi i32 [ %46, %44 ], [ %23, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   %31 = icmp eq i32 %25, 1
@@ -1116,7 +1115,7 @@ define dso_local void @scontrol_requeue(i32 noundef %0, ptr noundef %1) local_un
   %36 = load ptr, ptr @stderr, align 8
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %28, align 4
   %42 = call ptr @slurm_strerror(i32 noundef %41) #12
@@ -1214,7 +1213,7 @@ define dso_local void @scontrol_requeue_hold(i32 noundef %0, ptr noundef %1) loc
   %21 = phi i32 [ %42, %40 ], [ %19, %.preheader ]
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %27 = icmp eq i32 %21, 1
@@ -1231,7 +1230,7 @@ define dso_local void @scontrol_requeue_hold(i32 noundef %0, ptr noundef %1) loc
   %32 = load ptr, ptr @stderr, align 8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %24, align 4
   %38 = call ptr @slurm_strerror(i32 noundef %37) #12
@@ -1411,7 +1410,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %.05311060 = phi i32 [ 0, %.lr.ph ], [ %.1532, %.thread772 ]
   %.05641059 = phi i32 [ -2, %.lr.ph ], [ %.1565, %.thread772 ]
   %87 = sext i32 %.05251061 to i64
-  %88 = getelementptr inbounds ptr, ptr %1, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %1, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %89, i32 noundef 61) #15
   %.not608 = icmp eq ptr %90, null
@@ -1472,7 +1471,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 116:                                              ; preds = %109
   %117 = add nsw i32 %.05251061, 1
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr %1, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %1, i64 %118
   %120 = load ptr, ptr %119, align 8
   %.not611 = icmp eq ptr %120, null
   br i1 %.not611, label %125, label %121
@@ -2796,7 +2795,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   store i32 1, ptr @exit_code, align 4
   %660 = load ptr, ptr @stderr, align 8
   %661 = sext i32 %.1526 to i64
-  %662 = getelementptr inbounds ptr, ptr %1, i64 %661
+  %662 = getelementptr inbounds [8 x i8], ptr %1, i64 %661
   %663 = load ptr, ptr %662, align 8
   %664 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %660, ptr noundef nonnull @.str.131, ptr noundef %663) #14
   %665 = load ptr, ptr @stderr, align 8
@@ -3386,7 +3385,7 @@ _is_single_job.exit:                              ; preds = %781
   %946 = phi ptr [ %987, %986 ], [ %944, %.preheader ]
   %947 = getelementptr inbounds nuw i8, ptr %946, i64 16
   %948 = load ptr, ptr %947, align 8
-  %949 = getelementptr inbounds nuw i32, ptr %948, i64 %indvars.iv
+  %949 = getelementptr inbounds nuw [4 x i8], ptr %948, i64 %indvars.iv
   %950 = load i32, ptr %949, align 4
   %.not603 = icmp eq i32 %950, 0
   br i1 %.not603, label %951, label %thread-pre-split795
@@ -3394,7 +3393,7 @@ _is_single_job.exit:                              ; preds = %781
 951:                                              ; preds = %.lr.ph1066
   %952 = getelementptr inbounds nuw i8, ptr %946, i64 24
   %953 = load ptr, ptr %952, align 8
-  %954 = getelementptr inbounds nuw ptr, ptr %953, i64 %indvars.iv
+  %954 = getelementptr inbounds nuw [8 x i8], ptr %953, i64 %indvars.iv
   %955 = load ptr, ptr %954, align 8
   %.not604 = icmp eq ptr %955, null
   br i1 %.not604, label %986, label %956
@@ -3408,7 +3407,7 @@ _is_single_job.exit:                              ; preds = %781
   %959 = load ptr, ptr @stdout, align 8
   %960 = getelementptr inbounds nuw i8, ptr %946, i64 8
   %961 = load ptr, ptr %960, align 8
-  %962 = getelementptr inbounds nuw ptr, ptr %961, i64 %indvars.iv
+  %962 = getelementptr inbounds nuw [8 x i8], ptr %961, i64 %indvars.iv
   %963 = load ptr, ptr %962, align 8
   %964 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %959, ptr noundef nonnull @.str.6, ptr noundef %963, ptr noundef nonnull %955) #12
   br label %986
@@ -3427,7 +3426,7 @@ thread-pre-split795:                              ; preds = %.lr.ph1066
   %969 = load ptr, ptr @stderr, align 8
   %970 = getelementptr inbounds nuw i8, ptr %946, i64 8
   %971 = load ptr, ptr %970, align 8
-  %972 = getelementptr inbounds nuw ptr, ptr %971, i64 %indvars.iv
+  %972 = getelementptr inbounds nuw [8 x i8], ptr %971, i64 %indvars.iv
   %973 = load ptr, ptr %972, align 8
   %974 = load i32, ptr %949, align 4
   %975 = call ptr @slurm_strerror(i32 noundef %974) #12
@@ -3435,7 +3434,7 @@ thread-pre-split795:                              ; preds = %.lr.ph1066
   %977 = load ptr, ptr %12, align 8
   %978 = getelementptr inbounds nuw i8, ptr %977, i64 24
   %979 = load ptr, ptr %978, align 8
-  %980 = getelementptr inbounds nuw ptr, ptr %979, i64 %indvars.iv
+  %980 = getelementptr inbounds nuw [8 x i8], ptr %979, i64 %indvars.iv
   %981 = load ptr, ptr %980, align 8
   %.not606 = icmp eq ptr %981, null
   %982 = load ptr, ptr @stderr, align 8
@@ -3590,7 +3589,7 @@ define internal fastcc i32 @_get_job_time(ptr noundef nonnull %0) unnamed_addr #
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw %struct.job_info, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [968 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 412
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %5
@@ -3658,7 +3657,7 @@ define internal fastcc i32 @_get_job_time(ptr noundef nonnull %0) unnamed_addr #
 .loopexit.sink.split:                             ; preds = %51, %58, %._crit_edge
   %76 = phi ptr [ %.pre55, %._crit_edge ], [ %42, %58 ], [ %42, %51 ]
   %.ph = phi ptr [ %.pre58, %._crit_edge ], [ %40, %58 ], [ %40, %51 ]
-  %77 = getelementptr inbounds nuw %struct.job_info, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [968 x i8], ptr %76, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 848
   %79 = load i32, ptr %78, align 8
   br label %.loopexit
@@ -3741,7 +3740,7 @@ define dso_local i32 @scontrol_job_notify(i32 noundef %0, ptr noundef readonly c
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %12 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %12, null
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   br i1 %.not14, label %16, label %15
 

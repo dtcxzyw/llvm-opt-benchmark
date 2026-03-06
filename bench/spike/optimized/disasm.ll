@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<const disasm_insn_t *, std::allocator<const disasm_insn_t *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const disasm_insn_t *, std::allocator<const disasm_insn_t *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const disasm_insn_t *, std::allocator<const disasm_insn_t *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const disasm_insn_t *, std::allocator<const disasm_insn_t *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.73" = type { %"struct.std::_Vector_base.74" }
 %"struct.std::_Vector_base.74" = type { %"struct.std::_Vector_base<const arg_t *, std::allocator<const arg_t *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const arg_t *, std::allocator<const arg_t *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const arg_t *, std::allocator<const arg_t *>>::_Vector_impl_data" }
@@ -1974,7 +1970,7 @@ define linkonce_odr void @_ZN5arg_tD2Ev(ptr noundef nonnull align 8 dereferencea
 define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6144) %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = trunc i64 %2 to i16
   %.lhs.trunc.i.i = and i64 %2, 127
-  %5 = getelementptr inbounds nuw %"class.std::vector", ptr %1, i64 %.lhs.trunc.i.i
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.lhs.trunc.i.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !8
   %8 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !11
@@ -2001,7 +1997,7 @@ define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind
   %.lhs.trunc.i13.i = and i16 %4, -8189
   %22 = urem i16 %.lhs.trunc.i13.i, 255
   %23 = zext nneg i16 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.std::vector", ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !3, !noalias !31
   %27 = load ptr, ptr %24, align 8, !tbaa !3, !noalias !34
@@ -2071,7 +2067,7 @@ _ZNK14disassembler_t6lookupE6insn_t.exit:         ; preds = %45
 define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6144) %0, i64 %1) local_unnamed_addr #2 align 2 {
   %3 = trunc i64 %1 to i16
   %.lhs.trunc.i = and i64 %1, 127
-  %4 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %.lhs.trunc.i
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.lhs.trunc.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !46
   %7 = load ptr, ptr %4, align 8, !tbaa !3, !noalias !49
@@ -2098,7 +2094,7 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull read
   %.lhs.trunc.i13 = and i16 %3, -8189
   %21 = urem i16 %.lhs.trunc.i13, 255
   %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !3, !noalias !52
   %26 = load ptr, ptr %23, align 8, !tbaa !3, !noalias !55
@@ -2365,7 +2361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %77,
   %85 = phi ptr [ %71, %.lr.ph ], [ %148, %146 ]
   %.056 = phi i64 [ 0, %.lr.ph ], [ %149, %146 ]
   %.01455 = phi i1 [ false, %.lr.ph ], [ %88, %146 ]
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %.056
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.056
   %87 = load ptr, ptr %86, align 8, !tbaa !68
   %88 = icmp eq ptr %87, null
   br i1 %88, label %146, label %89
@@ -11355,7 +11351,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2314:       ; preds = %3073
   store ptr %113, ptr %3043, align 8, !tbaa !95
   %3101 = trunc nuw nsw i64 %.014273594 to i32
   %3102 = shl nuw nsw i32 8, %3101
-  %3103 = getelementptr inbounds nuw i64, ptr @__const._ZN14disassembler_t16add_instructionsEPK12isa_parser_tb.elt_map, i64 %.014273594
+  %3103 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN14disassembler_t16add_instructionsEPK12isa_parser_tb.elt_map, i64 %.014273594
   br label %3104
 
 3104:                                             ; preds = %3100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2323
@@ -16966,7 +16962,7 @@ define void @_ZN14disassembler_t8add_insnEP13disasm_insn_t(ptr noundef nonnull a
 16:                                               ; preds = %12, %9, %7
   %17 = phi i32 [ %.lhs.trunc.i, %7 ], [ %.zext, %12 ], [ 255, %9 ]
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !111
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -17024,7 +17020,7 @@ _ZNSt6vectorIPK13disasm_insn_tSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPK13disasm_insn_tSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPK13disasm_insn_tSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !114
   store ptr %43, ptr %20, align 8, !tbaa !111
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !113
   br label %_ZNSt6vectorIPK13disasm_insn_tSaIS2_EE9push_backERKS2_.exit
 
@@ -20127,7 +20123,7 @@ define void @_ZN14disassembler_tC2EPK12isa_parser_tb(ptr noundef nonnull align 8
 
 11:                                               ; preds = %.preheader, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPPK13disasm_insn_tSt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
   %.01115 = phi i64 [ %20, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPPK13disasm_insn_tSt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %.01115
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.01115
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -21139,7 +21135,7 @@ define internal fastcc void @_ZL17add_unknown_insnsP14disassembler_t(ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK14disassembler_t10probe_onceE6insn_tm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6144) %0, i64 %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %2
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !119
   %7 = load ptr, ptr %4, align 8, !tbaa !3, !noalias !122
@@ -21173,7 +21169,7 @@ define void @_ZN14disassembler_tD2Ev(ptr noundef nonnull readonly align 8 captur
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %.0710 = phi i64 [ 0, %1 ], [ %8, %._crit_edge ]
-  %2 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %.0710
+  %2 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.0710
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %5 = load ptr, ptr %2, align 8, !tbaa !114
@@ -21193,7 +21189,7 @@ define void @_ZN14disassembler_tD2Ev(ptr noundef nonnull readonly align 8 captur
   %9 = phi ptr [ %30, %29 ], [ %5, %.preheader ]
   %10 = phi ptr [ %31, %29 ], [ %4, %.preheader ]
   %.09 = phi i64 [ %32, %29 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.09
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = icmp eq ptr %12, null
   br i1 %13, label %29, label %14
@@ -21443,7 +21439,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i8 0, ptr %18, align 8, !tbaa !45, !noalias !130
   %81 = lshr i64 %2, 15
   %82 = and i64 %81, 31
-  %83 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
   %85 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #28, !noalias !133
@@ -21730,7 +21726,7 @@ define internal void @"_ZNK3$_19to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   store i8 0, ptr %12, align 8, !tbaa !45, !noalias !139
   %20 = lshr i64 %2, 7
   %21 = and i64 %20, 7
-  %22 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
@@ -22001,7 +21997,7 @@ define internal void @"_ZNK3$_29to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   store i8 0, ptr %7, align 8, !tbaa !45, !noalias !148
   %17 = lshr i64 %2, 7
   %18 = and i64 %17, 7
-  %19 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
@@ -22474,7 +22470,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i8 0, ptr %33, align 8, !tbaa !45, !noalias !162
   %108 = lshr i64 %2, 15
   %109 = and i64 %108, 31
-  %110 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %112 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #28, !noalias !165
@@ -22744,7 +22740,7 @@ define internal void @"_ZNK3$_49to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   store i8 0, ptr %7, align 1, !tbaa !45
   %8 = lshr i64 %2, 15
   %9 = and i64 %8, 31
-  %10 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !171)
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #28, !noalias !171
@@ -22964,7 +22960,7 @@ define internal void @"_ZN3$_4D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 define internal void @"_ZNK3$_59to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 7
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -23037,7 +23033,7 @@ define internal void @"_ZN3$_5D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 define internal void @"_ZNK3$_69to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 15
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -23452,7 +23448,7 @@ define internal void @"_ZNK3$_99to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   br i1 %7, label %switch.lookup, label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZNK4$_119to_stringB5cxx11E6insn_t", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNK4$_119to_stringB5cxx11E6insn_t", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
@@ -23577,7 +23573,7 @@ define internal void @"_ZNK4$_109to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   br i1 %7, label %switch.lookup, label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZNK4$_129to_stringB5cxx11E6insn_t", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNK4$_129to_stringB5cxx11E6insn_t", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
@@ -23700,7 +23696,7 @@ define internal void @"_ZNK4$_119to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   br i1 %6, label %switch.lookup, label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZNK4$_119to_stringB5cxx11E6insn_t", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNK4$_119to_stringB5cxx11E6insn_t", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
@@ -23788,7 +23784,7 @@ define internal void @"_ZNK4$_129to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   br i1 %6, label %switch.lookup, label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZNK4$_129to_stringB5cxx11E6insn_t", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNK4$_129to_stringB5cxx11E6insn_t", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
@@ -23871,7 +23867,7 @@ define internal void @"_ZN4$_12D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_139to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 20
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -23944,7 +23940,7 @@ define internal void @"_ZN4$_13D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_149to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 27
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -24017,7 +24013,7 @@ define internal void @"_ZN4$_14D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_159to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 7
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @fpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @fpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -24090,7 +24086,7 @@ define internal void @"_ZN4$_15D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_169to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 15
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @fpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @fpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -24163,7 +24159,7 @@ define internal void @"_ZN4$_16D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_179to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 20
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @fpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @fpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -24236,7 +24232,7 @@ define internal void @"_ZN4$_17D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_189to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 27
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @fpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @fpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -28236,7 +28232,7 @@ define internal void @"_ZN4$_24D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_259to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 15
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @"_ZZNK4$_259to_stringB5cxx11E6insn_tE5table", i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @"_ZZNK4$_259to_stringB5cxx11E6insn_tE5table", i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -28749,7 +28745,7 @@ define internal void @"_ZN4$_27D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_289to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 7
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -28822,7 +28818,7 @@ define internal void @"_ZN4$_28D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_299to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 2
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -28895,7 +28891,7 @@ define internal void @"_ZN4$_29D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_309to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 2
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @fpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @fpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -28968,7 +28964,7 @@ define internal void @"_ZN4$_30D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_319to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 7
   %5 = and i64 %4, 7
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !103
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29042,7 +29038,7 @@ define internal void @"_ZN4$_31D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_329to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 2
   %5 = and i64 %4, 7
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !103
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29118,8 +29114,8 @@ define internal void @"_ZNK4$_339to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %5 = and i64 %4, 7
   %6 = icmp samesign ult i64 %5, 2
   %.v = select i1 %6, i64 8, i64 16
-  %7 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.v
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.v
   %9 = load ptr, ptr %8, align 8, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %0, align 8, !tbaa !43
@@ -29194,8 +29190,8 @@ define internal void @"_ZNK4$_349to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %5 = and i64 %4, 7
   %6 = icmp samesign ult i64 %5, 2
   %.v = select i1 %6, i64 8, i64 16
-  %7 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.v
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.v
   %9 = load ptr, ptr %8, align 8, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %0, align 8, !tbaa !43
@@ -29268,7 +29264,7 @@ define internal void @"_ZN4$_34D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_359to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 2
   %5 = and i64 %4, 7
-  %6 = getelementptr inbounds nuw ptr, ptr @fpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @fpr_name, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !103
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -31331,7 +31327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i64 0, ptr %43, align 8, !tbaa !44, !noalias !298
   store i8 0, ptr %18, align 8, !tbaa !45, !noalias !298
   %60 = and i64 %8, 7
-  %61 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %63 = load ptr, ptr %62, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !301)
@@ -31696,7 +31692,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i64 0, ptr %43, align 8, !tbaa !44, !noalias !310
   store i8 0, ptr %15, align 8, !tbaa !45, !noalias !310
   %60 = and i64 %6, 7
-  %61 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %63 = load ptr, ptr %62, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
@@ -32531,7 +32527,7 @@ define internal void @"_ZNK4$_539to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   store i8 0, ptr %7, align 1, !tbaa !45
   %8 = lshr i64 %2, 15
   %9 = and i64 %8, 31
-  %10 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !103
   call void @llvm.experimental.noalias.scope.decl(metadata !325)
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #28, !noalias !325
@@ -32751,7 +32747,7 @@ define internal void @"_ZN4$_53D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_549to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 7
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @vr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @vr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -32824,7 +32820,7 @@ define internal void @"_ZN4$_54D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_559to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 15
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @vr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @vr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -32897,7 +32893,7 @@ define internal void @"_ZN4$_55D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_569to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 20
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @vr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @vr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43
@@ -32970,7 +32966,7 @@ define internal void @"_ZN4$_56D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_579to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 7
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @vr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @vr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !43

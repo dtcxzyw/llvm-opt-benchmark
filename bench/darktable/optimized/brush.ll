@@ -178,7 +178,7 @@ define internal void @_brush_modify_property(ptr noundef readonly captures(none)
   %.val = load ptr, ptr %39, align 8, !tbaa !89
   %40 = getelementptr i8, ptr %39, i64 136
   %.val131 = load i64, ptr %40, align 8, !tbaa !92
-  %41 = getelementptr float, ptr %.val, i64 %.val131
+  %41 = getelementptr [4 x i8], ptr %.val, i64 %.val131
   %42 = getelementptr i8, ptr %41, i64 -16
   store float %30, ptr %42, align 4, !tbaa !93
   br label %43
@@ -315,7 +315,7 @@ define internal void @_brush_modify_property(ptr noundef readonly captures(none)
   %.val132 = load ptr, ptr %122, align 8, !tbaa !89
   %123 = getelementptr i8, ptr %122, i64 136
   %.val133 = load i64, ptr %123, align 8, !tbaa !92
-  %124 = getelementptr float, ptr %.val132, i64 %.val133
+  %124 = getelementptr [4 x i8], ptr %.val132, i64 %.val133
   %125 = getelementptr i8, ptr %124, i64 -12
   store float %113, ptr %125, align 4, !tbaa !93
   br label %126
@@ -492,7 +492,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   %42 = load float, ptr %41, align 4, !tbaa !93
   %43 = mul nsw i32 %.0180, 6
   %44 = sext i32 %43 to i64
-  %45 = getelementptr float, ptr %26, i64 %44
+  %45 = getelementptr [4 x i8], ptr %26, i64 %44
   %46 = getelementptr i8, ptr %45, i64 12
   %47 = load float, ptr %46, align 4, !tbaa !93
   %48 = fcmp reassoc nsz arcp contract afn oeq float %42, %47
@@ -567,7 +567,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
 .lr.ph184.preheader:                              ; preds = %79
   %84 = shl nsw i32 %82, 1
   %85 = sext i32 %84 to i64
-  %86 = getelementptr float, ptr %81, i64 %85
+  %86 = getelementptr [4 x i8], ptr %81, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -4
   %88 = load float, ptr %87, align 4, !tbaa !93
   %89 = sext i32 %19 to i64
@@ -586,7 +586,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   %.0142183 = phi float [ %88, %.lr.ph184.preheader ], [ %99, %119 ]
   %.0143182 = phi i32 [ 0, %.lr.ph184.preheader ], [ %.1144, %119 ]
   %95 = shl nsw i64 %indvars.iv190, 1
-  %96 = getelementptr inbounds float, ptr %81, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %81, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !93
   %98 = getelementptr i8, ptr %96, i64 4
   %99 = load float, ptr %98, align 4, !tbaa !93
@@ -663,7 +663,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   %134 = load float, ptr %133, align 4, !tbaa !93
   %135 = mul nsw i32 %.0146185, 6
   %136 = sext i32 %135 to i64
-  %137 = getelementptr float, ptr %126, i64 %136
+  %137 = getelementptr [4 x i8], ptr %126, i64 %136
   %138 = getelementptr i8, ptr %137, i64 12
   %139 = load float, ptr %138, align 4, !tbaa !93
   %140 = fcmp reassoc nsz arcp contract afn oeq float %134, %139
@@ -898,7 +898,7 @@ dt_get_debug_wtime.exit:                          ; preds = %19, %21
   %.05462.i.i = phi float [ %102, %.lr.ph.split.i.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i.i ]
   %.05661.i.i = phi float [ %104, %.lr.ph.split.i.i ], [ 0x3810000000000000, %.lr.ph.i.i ]
   %80 = shl nsw i64 %indvars.iv.i.i, 1
-  %81 = getelementptr inbounds float, ptr %63, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %63, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !93
   %83 = getelementptr i8, ptr %81, i64 4
   %84 = load float, ptr %83, align 4, !tbaa !93
@@ -910,7 +910,7 @@ dt_get_debug_wtime.exit:                          ; preds = %19, %21
   %90 = select reassoc nsz arcp contract afn i1 %89, float %84, float %.05462.i.i
   %91 = fcmp reassoc nsz arcp contract afn ogt float %84, %.05661.i.i
   %92 = select reassoc nsz arcp contract afn i1 %91, float %84, float %.05661.i.i
-  %93 = getelementptr inbounds float, ptr %62, i64 %80
+  %93 = getelementptr inbounds [4 x i8], ptr %62, i64 %80
   %94 = load float, ptr %93, align 4, !tbaa !93
   %95 = getelementptr i8, ptr %93, i64 4
   %96 = load float, ptr %95, align 4, !tbaa !93
@@ -1014,22 +1014,22 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
 146:                                              ; preds = %.lr.ph, %_brush_falloff.exit
   %indvars.iv = phi i64 [ %143, %.lr.ph ], [ %indvars.iv.next, %_brush_falloff.exit ]
   %147 = shl nsw i64 %indvars.iv, 1
-  %148 = getelementptr inbounds float, ptr %62, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %62, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !93
   %150 = fptosi float %149 to i32
   %151 = or disjoint i64 %147, 1
-  %152 = getelementptr inbounds float, ptr %62, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %62, i64 %151
   %153 = load float, ptr %152, align 4, !tbaa !93
   %154 = fptosi float %153 to i32
-  %155 = getelementptr inbounds float, ptr %63, i64 %147
+  %155 = getelementptr inbounds [4 x i8], ptr %63, i64 %147
   %156 = load float, ptr %155, align 4, !tbaa !93
   %157 = fptosi float %156 to i32
-  %158 = getelementptr inbounds float, ptr %63, i64 %151
+  %158 = getelementptr inbounds [4 x i8], ptr %63, i64 %151
   %159 = load float, ptr %158, align 4, !tbaa !93
   %160 = fptosi float %159 to i32
-  %161 = getelementptr inbounds float, ptr %.pre, i64 %147
+  %161 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %147
   %162 = load float, ptr %161, align 4, !tbaa !93
-  %163 = getelementptr inbounds float, ptr %.pre, i64 %151
+  %163 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %151
   %164 = load float, ptr %163, align 4, !tbaa !93
   %165 = sub nsw i32 %157, %150
   %166 = mul nsw i32 %165, %165
@@ -1090,7 +1090,7 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   %210 = mul nsw i32 %199, %142
   %211 = add nsw i32 %210, %195
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds float, ptr %136, i64 %212
+  %213 = getelementptr inbounds [4 x i8], ptr %136, i64 %212
   %214 = load float, ptr %213, align 4, !tbaa !93, !alias.scope !132
   %215 = fcmp reassoc nsz arcp contract afn ogt float %214, %209
   %..i = select reassoc nsz arcp contract afn i1 %215, float %214, float %209
@@ -1115,7 +1115,7 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   %225 = mul nsw i32 %224, %142
   %226 = add nsw i32 %225, %195
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds float, ptr %136, i64 %227
+  %228 = getelementptr inbounds [4 x i8], ptr %136, i64 %227
   %229 = load float, ptr %228, align 4, !tbaa !93, !alias.scope !132
   %230 = fcmp reassoc nsz arcp contract afn ogt float %229, %209
   %.85.i = select reassoc nsz arcp contract afn i1 %230, float %229, float %209
@@ -1349,7 +1349,7 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   %.05462.i = phi float [ %127, %.lr.ph.split.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i ]
   %.05661.i = phi float [ %129, %.lr.ph.split.i ], [ 0x3810000000000000, %.lr.ph.i ]
   %105 = shl nsw i64 %indvars.iv.i, 1
-  %106 = getelementptr inbounds float, ptr %91, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %91, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !93
   %108 = getelementptr i8, ptr %106, i64 4
   %109 = load float, ptr %108, align 4, !tbaa !93
@@ -1361,7 +1361,7 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   %115 = select reassoc nsz arcp contract afn i1 %114, float %109, float %.05462.i
   %116 = fcmp reassoc nsz arcp contract afn ogt float %109, %.05661.i
   %117 = select reassoc nsz arcp contract afn i1 %116, float %109, float %.05661.i
-  %118 = getelementptr inbounds float, ptr %.pre, i64 %105
+  %118 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %105
   %119 = load float, ptr %118, align 4, !tbaa !93
   %120 = getelementptr i8, ptr %118, i64 4
   %121 = load float, ptr %120, align 4, !tbaa !93
@@ -1464,17 +1464,17 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
 167:                                              ; preds = %.lr.ph126, %_brush_falloff_roi.exit
   %indvars.iv142 = phi i64 [ %162, %.lr.ph126 ], [ %indvars.iv.next143, %_brush_falloff_roi.exit ]
   %168 = shl nsw i64 %indvars.iv142, 1
-  %169 = getelementptr inbounds float, ptr %.pre, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !93
   %171 = fptosi float %170 to i32
   %172 = or disjoint i64 %168, 1
-  %173 = getelementptr inbounds float, ptr %.pre, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %172
   %174 = load float, ptr %173, align 4, !tbaa !93
   %175 = fptosi float %174 to i32
-  %176 = getelementptr inbounds float, ptr %130, i64 %168
+  %176 = getelementptr inbounds [4 x i8], ptr %130, i64 %168
   %177 = load float, ptr %176, align 4, !tbaa !93
   %178 = fptosi float %177 to i32
-  %179 = getelementptr inbounds float, ptr %130, i64 %172
+  %179 = getelementptr inbounds [4 x i8], ptr %130, i64 %172
   %180 = load float, ptr %179, align 4, !tbaa !93
   %181 = fptosi float %180 to i32
   %182 = call i32 @llvm.smax.i32(i32 %171, i32 %178)
@@ -1493,9 +1493,9 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   br i1 %or.cond79, label %189, label %_brush_falloff_roi.exit
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds float, ptr %.pre147, i64 %168
+  %190 = getelementptr inbounds [4 x i8], ptr %.pre147, i64 %168
   %191 = load float, ptr %190, align 4, !tbaa !93
-  %192 = getelementptr inbounds float, ptr %.pre147, i64 %172
+  %192 = getelementptr inbounds [4 x i8], ptr %.pre147, i64 %172
   %193 = load float, ptr %192, align 4, !tbaa !93
   %194 = sub nsw i32 %178, %171
   %195 = mul nsw i32 %194, %194
@@ -1557,9 +1557,9 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
 235:                                              ; preds = %231
   %236 = zext nneg i32 %225 to i64
   %237 = mul nuw nsw i64 %236, %161
-  %238 = getelementptr inbounds nuw float, ptr %4, i64 %237
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %237
   %239 = zext nneg i32 %224 to i64
-  %240 = getelementptr inbounds nuw float, ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %239
   %241 = load float, ptr %240, align 4, !tbaa !93
   %242 = fcmp reassoc nsz arcp contract afn ogt float %241, %spec.select.i
   %.spec.select.i = select reassoc nsz arcp contract afn i1 %242, float %241, float %spec.select.i
@@ -1571,7 +1571,7 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   br i1 %or.cond94.i, label %246, label %250
 
 246:                                              ; preds = %235
-  %247 = getelementptr inbounds float, ptr %240, i64 %221
+  %247 = getelementptr inbounds [4 x i8], ptr %240, i64 %221
   %248 = load float, ptr %247, align 4, !tbaa !93
   %249 = fcmp reassoc nsz arcp contract afn ogt float %248, %spec.select.i
   %.spec.select95.i = select reassoc nsz arcp contract afn i1 %249, float %248, float %spec.select.i
@@ -1586,7 +1586,7 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   br i1 %or.cond96.i, label %254, label %258
 
 254:                                              ; preds = %250
-  %255 = getelementptr inbounds float, ptr %240, i64 %222
+  %255 = getelementptr inbounds [4 x i8], ptr %240, i64 %222
   %256 = load float, ptr %255, align 4, !tbaa !93
   %257 = fcmp reassoc nsz arcp contract afn ogt float %256, %spec.select.i
   %.spec.select97.i = select reassoc nsz arcp contract afn i1 %257, float %256, float %spec.select.i
@@ -1750,7 +1750,7 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_moved(ptr noundef %0, f
   %.pre-phi.i = phi i64 [ %.pre12.i, %._crit_edge.i ], [ %50, %45 ]
   %60 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %49, %45 ]
   %61 = load ptr, ptr %44, align 8, !tbaa !89
-  %62 = getelementptr inbounds nuw float, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %60
   store float %46, ptr %62, align 4, !tbaa !93
   store i64 %.pre-phi.i, ptr %48, align 8, !tbaa !92
   %63 = getelementptr i8, ptr %62, i64 4
@@ -1763,7 +1763,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %53, %55, %59
   %.val = load ptr, ptr %65, align 8, !tbaa !89
   %66 = getelementptr i8, ptr %65, i64 136
   %.val348 = load i64, ptr %66, align 8, !tbaa !92
-  %67 = getelementptr float, ptr %.val, i64 %.val348
+  %67 = getelementptr [4 x i8], ptr %.val, i64 %.val348
   %68 = getelementptr i8, ptr %67, i64 -16
   %69 = load float, ptr %68, align 4, !tbaa !93
   %70 = getelementptr i8, ptr %67, i64 -12
@@ -1797,7 +1797,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %53, %55, %59
   %84 = phi ptr [ %.pre, %._crit_edge.i355 ], [ %.val, %dt_masks_dynbuf_add_2.exit ]
   %.pre-phi.i358 = phi i64 [ %.pre12.i357, %._crit_edge.i355 ], [ %74, %dt_masks_dynbuf_add_2.exit ]
   %85 = phi i64 [ %.pre.i356, %._crit_edge.i355 ], [ %.val348, %dt_masks_dynbuf_add_2.exit ]
-  %86 = getelementptr inbounds nuw float, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %85
   store float %69, ptr %86, align 4, !tbaa !93
   store i64 %.pre-phi.i358, ptr %66, align 8, !tbaa !92
   %87 = getelementptr i8, ptr %86, i64 4
@@ -1835,7 +1835,7 @@ dt_masks_dynbuf_add_2.exit359:                    ; preds = %77, %79, %83
   %.pre-phi.i365 = phi i64 [ %.pre12.i364, %._crit_edge.i362 ], [ %92, %dt_masks_dynbuf_add_2.exit359 ]
   %102 = phi i64 [ %.pre.i363, %._crit_edge.i362 ], [ %91, %dt_masks_dynbuf_add_2.exit359 ]
   %103 = load ptr, ptr %88, align 8, !tbaa !89
-  %104 = getelementptr inbounds nuw float, ptr %103, i64 %102
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %102
   store float %73, ptr %104, align 4, !tbaa !93
   store i64 %.pre-phi.i365, ptr %90, align 8, !tbaa !92
   %105 = getelementptr i8, ptr %104, i64 4
@@ -2063,11 +2063,11 @@ g_list_next_wraparound.exit:                      ; preds = %151, %154
   %249 = load ptr, ptr %248, align 8, !tbaa !108
   %250 = mul nuw nsw i32 %245, 6
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw float, ptr %249, i64 %251
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
   %254 = load float, ptr %253, align 4, !tbaa !93
   %255 = load ptr, ptr %23, align 8, !tbaa !105
-  %256 = getelementptr inbounds nuw float, ptr %255, i64 %251
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %251
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 12
   %258 = load float, ptr %257, align 4, !tbaa !93
   %259 = fsub reassoc nsz arcp contract afn float %254, %258
@@ -2255,7 +2255,7 @@ g_list_next_wraparound.exit:                      ; preds = %151, %154
   %384 = load ptr, ptr %23, align 8, !tbaa !105
   %385 = mul nuw nsw i32 %381, 6
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw float, ptr %384, i64 %386
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %384, i64 %386
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load float, ptr %388, align 4, !tbaa !93
   %390 = getelementptr inbounds nuw i8, ptr %387, i64 16
@@ -2331,7 +2331,7 @@ g_list_next_wraparound.exit:                      ; preds = %151, %154
 428:                                              ; preds = %.lr.ph, %459
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %459 ]
   %429 = mul nuw nsw i64 %indvars.iv, 6
-  %430 = getelementptr inbounds nuw float, ptr %425, i64 %429
+  %430 = getelementptr inbounds nuw [4 x i8], ptr %425, i64 %429
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
   %432 = load float, ptr %431, align 4, !tbaa !93
   %433 = fsub reassoc nsz arcp contract afn float %367, %432
@@ -2357,7 +2357,7 @@ g_list_next_wraparound.exit:                      ; preds = %151, %154
 
 444:                                              ; preds = %436, %428
   %445 = load ptr, ptr %427, align 8, !tbaa !108
-  %446 = getelementptr inbounds nuw float, ptr %445, i64 %429
+  %446 = getelementptr inbounds nuw [4 x i8], ptr %445, i64 %429
   %447 = load float, ptr %446, align 4, !tbaa !93
   %448 = fsub reassoc nsz arcp contract afn float %367, %447
   %449 = fcmp reassoc nsz arcp contract afn ogt float %448, %426
@@ -2502,7 +2502,7 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   %.val = load ptr, ptr %32, align 8, !tbaa !89
   %33 = getelementptr i8, ptr %32, i64 136
   %.val125 = load i64, ptr %33, align 8, !tbaa !92
-  %34 = getelementptr float, ptr %.val, i64 %.val125
+  %34 = getelementptr [4 x i8], ptr %.val, i64 %.val125
   %35 = getelementptr i8, ptr %34, i64 -12
   store float %23, ptr %35, align 4, !tbaa !93
   br label %36
@@ -2544,7 +2544,7 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   %.val126 = load ptr, ptr %59, align 8, !tbaa !89
   %60 = getelementptr i8, ptr %59, i64 136
   %.val127 = load i64, ptr %60, align 8, !tbaa !92
-  %61 = getelementptr float, ptr %.val126, i64 %.val127
+  %61 = getelementptr [4 x i8], ptr %.val126, i64 %.val127
   %62 = getelementptr i8, ptr %61, i64 -16
   store float %50, ptr %62, align 4, !tbaa !93
   br label %63
@@ -3338,7 +3338,7 @@ thread-pre-split:                                 ; preds = %174
   %308 = load ptr, ptr %17, align 8, !tbaa !105
   %309 = mul nsw i32 %.pre368, 6
   %310 = sext i32 %309 to i64
-  %311 = getelementptr float, ptr %308, i64 %310
+  %311 = getelementptr [4 x i8], ptr %308, i64 %310
   %312 = getelementptr i8, ptr %311, i64 8
   %313 = load float, ptr %312, align 4, !tbaa !93
   %314 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -3760,7 +3760,7 @@ define internal range(i32 0, 2) i32 @_brush_events_button_released(ptr noundef %
   %.val325 = load ptr, ptr %65, align 8, !tbaa !89
   %73 = getelementptr i8, ptr %65, i64 136
   %.val326 = load i64, ptr %73, align 8, !tbaa !92
-  %74 = getelementptr float, ptr %.val325, i64 %.val326
+  %74 = getelementptr [4 x i8], ptr %.val325, i64 %.val326
   %75 = getelementptr i8, ptr %74, i64 -8
   %76 = load float, ptr %75, align 4, !tbaa !93
   %77 = fadd reassoc nsz arcp contract afn float %76, 0x3F847AE140000000
@@ -3794,7 +3794,7 @@ define internal range(i32 0, 2) i32 @_brush_events_button_released(ptr noundef %
   %91 = phi ptr [ %.pre423, %._crit_edge.i ], [ %.val325, %72 ]
   %.pre-phi.i = phi i64 [ %.pre12.i, %._crit_edge.i ], [ %81, %72 ]
   %92 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.val326, %72 ]
-  %93 = getelementptr inbounds nuw float, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %92
   store float %77, ptr %93, align 4, !tbaa !93
   store i64 %.pre-phi.i, ptr %73, align 8, !tbaa !92
   %94 = getelementptr i8, ptr %93, i64 4
@@ -3807,7 +3807,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %84, %86, %90
   %.val329 = load ptr, ptr %96, align 8, !tbaa !89
   %97 = getelementptr i8, ptr %96, i64 136
   %.val330 = load i64, ptr %97, align 8, !tbaa !92
-  %98 = getelementptr float, ptr %.val329, i64 %.val330
+  %98 = getelementptr [4 x i8], ptr %.val329, i64 %.val330
   %99 = getelementptr i8, ptr %98, i64 -16
   %100 = load float, ptr %99, align 4, !tbaa !93
   %101 = getelementptr i8, ptr %98, i64 -12
@@ -3843,7 +3843,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %84, %86, %90
   %117 = phi ptr [ %.pre424, %._crit_edge.i339 ], [ %.val329, %dt_masks_dynbuf_add_2.exit ]
   %.pre-phi.i342 = phi i64 [ %.pre12.i341, %._crit_edge.i339 ], [ %107, %dt_masks_dynbuf_add_2.exit ]
   %118 = phi i64 [ %.pre.i340, %._crit_edge.i339 ], [ %.val330, %dt_masks_dynbuf_add_2.exit ]
-  %119 = getelementptr inbounds nuw float, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %118
   store float %100, ptr %119, align 4, !tbaa !93
   store i64 %.pre-phi.i342, ptr %97, align 8, !tbaa !92
   %120 = getelementptr i8, ptr %119, i64 4
@@ -3880,7 +3880,7 @@ dt_masks_dynbuf_add_2.exit343:                    ; preds = %110, %112, %116
   %.pre-phi.i349 = phi i64 [ %.pre12.i348, %._crit_edge.i346 ], [ %124, %dt_masks_dynbuf_add_2.exit343 ]
   %134 = phi i64 [ %.pre.i347, %._crit_edge.i346 ], [ %123, %dt_masks_dynbuf_add_2.exit343 ]
   %135 = load ptr, ptr %121, align 8, !tbaa !89
-  %136 = getelementptr inbounds nuw float, ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %134
   store float %104, ptr %136, align 4, !tbaa !93
   store i64 %.pre-phi.i349, ptr %122, align 8, !tbaa !92
   %137 = getelementptr i8, ptr %136, i64 4
@@ -4177,14 +4177,14 @@ dt_masks_dynbuf_free.exit353:                     ; preds = %dt_masks_dynbuf_fre
 
 278:                                              ; preds = %260, %288
   %indvars.iv418 = phi i64 [ 0, %260 ], [ %indvars.iv.next419, %288 ]
-  %279 = getelementptr inbounds nuw i32, ptr %263, i64 %indvars.iv418
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %263, i64 %indvars.iv418
   %280 = load i32, ptr %279, align 4, !tbaa !97
   %281 = load i32, ptr %33, align 8, !tbaa !84
   %282 = icmp eq i32 %280, %281
   br i1 %282, label %283, label %288
 
 283:                                              ; preds = %278
-  %284 = getelementptr inbounds nuw ptr, ptr %264, i64 %indvars.iv418
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv418
   %285 = load ptr, ptr %284, align 8, !tbaa !196
   %286 = tail call i64 @gtk_toggle_button_get_type() #23
   %287 = tail call ptr @g_type_check_instance_cast(ptr noundef %285, i64 noundef %286) #20
@@ -4917,12 +4917,12 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %189 = shl i32 %188, 1
   %190 = add i32 %189, -2
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds float, ptr %.val, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %.val, i64 %191
   %193 = load float, ptr %192, align 4, !tbaa !93
   %194 = fpext reassoc nsz arcp contract afn float %193 to double
   %195 = add i32 %189, -1
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds float, ptr %.val, i64 %196
+  %197 = getelementptr inbounds [4 x i8], ptr %.val, i64 %196
   %198 = load float, ptr %197, align 4, !tbaa !93
   %199 = fpext reassoc nsz arcp contract afn float %198 to double
   %200 = fpext reassoc nsz arcp contract afn float %.0332.lcssa433 to double
@@ -4935,12 +4935,12 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %202 = shl i32 %201, 1
   %203 = add i32 %202, -2
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds float, ptr %.val, i64 %204
+  %205 = getelementptr inbounds [4 x i8], ptr %.val, i64 %204
   %206 = load float, ptr %205, align 4, !tbaa !93
   %207 = fpext reassoc nsz arcp contract afn float %206 to double
   %208 = add i32 %202, -1
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds float, ptr %.val, i64 %209
+  %210 = getelementptr inbounds [4 x i8], ptr %.val, i64 %209
   %211 = load float, ptr %210, align 4, !tbaa !93
   %212 = fpext reassoc nsz arcp contract afn float %211 to double
   %213 = fmul reassoc nsz arcp contract afn float %.1.lcssa434, %35
@@ -4971,11 +4971,11 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %226 = shl i32 %223, 1
   %227 = add i32 %226, -2
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds float, ptr %.val, i64 %228
+  %229 = getelementptr inbounds [4 x i8], ptr %.val, i64 %228
   %230 = load float, ptr %229, align 4, !tbaa !93
   %231 = add i32 %226, -1
   %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds float, ptr %.val, i64 %232
+  %233 = getelementptr inbounds [4 x i8], ptr %.val, i64 %232
   %234 = load float, ptr %233, align 4, !tbaa !93
   call void @dt_masks_calculate_source_pos_value(ptr noundef nonnull %2, i32 noundef 64, float noundef %224, float noundef %225, float noundef %230, float noundef %234, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #20
   %235 = load float, ptr %9, align 4, !tbaa !93
@@ -5001,7 +5001,7 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %245 = load ptr, ptr %17, align 8, !tbaa !105
   %246 = mul nsw i32 %4, 6
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds float, ptr %245, i64 %247
+  %248 = getelementptr inbounds [4 x i8], ptr %245, i64 %247
   %249 = load float, ptr %248, align 4, !tbaa !93
   %250 = fpext reassoc nsz arcp contract afn float %249 to double
   %251 = getelementptr i8, ptr %248, i64 4
@@ -5020,27 +5020,27 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %.0327384 = phi i32 [ 1, %244 ], [ %.1328, %307 ]
   %260 = load ptr, ptr %17, align 8, !tbaa !105
   %261 = shl nsw i64 %indvars.iv402, 1
-  %262 = getelementptr inbounds float, ptr %260, i64 %261
+  %262 = getelementptr inbounds [4 x i8], ptr %260, i64 %261
   %263 = load float, ptr %262, align 4, !tbaa !93
   %264 = fpext reassoc nsz arcp contract afn float %263 to double
   %265 = or disjoint i64 %261, 1
-  %266 = getelementptr inbounds float, ptr %260, i64 %265
+  %266 = getelementptr inbounds [4 x i8], ptr %260, i64 %265
   %267 = load float, ptr %266, align 4, !tbaa !93
   %268 = fpext reassoc nsz arcp contract afn float %267 to double
   tail call void @cairo_line_to(ptr noundef %0, double noundef %264, double noundef %268) #20
   %269 = load ptr, ptr %17, align 8, !tbaa !105
-  %270 = getelementptr inbounds float, ptr %269, i64 %265
+  %270 = getelementptr inbounds [4 x i8], ptr %269, i64 %265
   %271 = load float, ptr %270, align 4, !tbaa !93
   %272 = mul nsw i32 %.0327384, 6
   %273 = sext i32 %272 to i64
-  %274 = getelementptr float, ptr %269, i64 %273
+  %274 = getelementptr [4 x i8], ptr %269, i64 %273
   %275 = getelementptr i8, ptr %274, i64 12
   %276 = load float, ptr %275, align 4, !tbaa !93
   %277 = fcmp reassoc nsz arcp contract afn oeq float %271, %276
   br i1 %277, label %278, label %307
 
 278:                                              ; preds = %259
-  %279 = getelementptr inbounds float, ptr %269, i64 %261
+  %279 = getelementptr inbounds [4 x i8], ptr %269, i64 %261
   %280 = load float, ptr %279, align 4, !tbaa !93
   %281 = getelementptr i8, ptr %274, i64 8
   %282 = load float, ptr %281, align 4, !tbaa !93
@@ -5075,10 +5075,10 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %298 = add nsw i32 %.0327384, 1
   %299 = srem i32 %298, %4
   %300 = load ptr, ptr %17, align 8, !tbaa !105
-  %301 = getelementptr inbounds float, ptr %300, i64 %261
+  %301 = getelementptr inbounds [4 x i8], ptr %300, i64 %261
   %302 = load float, ptr %301, align 4, !tbaa !93
   %303 = fpext reassoc nsz arcp contract afn float %302 to double
-  %304 = getelementptr inbounds float, ptr %300, i64 %265
+  %304 = getelementptr inbounds [4 x i8], ptr %300, i64 %265
   %305 = load float, ptr %304, align 4, !tbaa !93
   %306 = fpext reassoc nsz arcp contract afn float %305 to double
   tail call void @cairo_move_to(ptr noundef %0, double noundef %303, double noundef %306) #20
@@ -5152,7 +5152,7 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %339 = load ptr, ptr %17, align 8, !tbaa !105
   %340 = mul nuw nsw i32 %336, 6
   %341 = zext nneg i32 %340 to i64
-  %342 = getelementptr inbounds nuw float, ptr %339, i64 %341
+  %342 = getelementptr inbounds nuw [4 x i8], ptr %339, i64 %341
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = load float, ptr %343, align 4, !tbaa !93
   %345 = getelementptr inbounds nuw i8, ptr %342, i64 12
@@ -5216,7 +5216,7 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   %383 = load ptr, ptr %382, align 8, !tbaa !108
   %384 = mul nsw i32 %4, 6
   %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds float, ptr %383, i64 %385
+  %386 = getelementptr inbounds [4 x i8], ptr %383, i64 %385
   %387 = load float, ptr %386, align 4, !tbaa !93
   %388 = fpext reassoc nsz arcp contract afn float %387 to double
   %389 = getelementptr i8, ptr %386, i64 4
@@ -5340,12 +5340,12 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.us.i.i
   %456 = load ptr, ptr %413, align 8, !tbaa !106
   %457 = mul nsw i32 %4, 6
   %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds float, ptr %456, i64 %458
+  %459 = getelementptr inbounds [4 x i8], ptr %456, i64 %458
   %460 = load float, ptr %459, align 4, !tbaa !93
   %461 = fpext reassoc nsz arcp contract afn float %460 to double
   %462 = or disjoint i32 %457, 1
   %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds float, ptr %456, i64 %463
+  %464 = getelementptr inbounds [4 x i8], ptr %456, i64 %463
   %465 = load float, ptr %464, align 4, !tbaa !93
   %466 = fpext reassoc nsz arcp contract afn float %465 to double
   call void @cairo_move_to(ptr noundef %0, double noundef %461, double noundef %466) #20
@@ -5355,10 +5355,10 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.us.i.i
 
 ._crit_edge395:                                   ; preds = %.lr.ph394, %_brush_bounding_box.exit
   %469 = load ptr, ptr %413, align 8, !tbaa !106
-  %470 = getelementptr inbounds float, ptr %469, i64 %458
+  %470 = getelementptr inbounds [4 x i8], ptr %469, i64 %458
   %471 = load float, ptr %470, align 4, !tbaa !93
   %472 = fpext reassoc nsz arcp contract afn float %471 to double
-  %473 = getelementptr inbounds float, ptr %469, i64 %463
+  %473 = getelementptr inbounds [4 x i8], ptr %469, i64 %463
   %474 = load float, ptr %473, align 4, !tbaa !93
   %475 = fpext reassoc nsz arcp contract afn float %474 to double
   call void @cairo_line_to(ptr noundef %0, double noundef %472, double noundef %475) #20
@@ -5674,7 +5674,7 @@ dt_masks_dynbuf_reserve_n.exit:                   ; preds = %105, %._crit_edge.i
   br i1 %.not518, label %dt_masks_dynbuf_reserve_n.exit.thread, label %117
 
 117:                                              ; preds = %dt_masks_dynbuf_reserve_n.exit
-  %118 = getelementptr inbounds nuw float, ptr %116, i64 %115
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %115
   %119 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %120 = load float, ptr %119, align 4, !tbaa !93
   %121 = fmul reassoc nsz arcp contract afn float %120, %44
@@ -5750,7 +5750,7 @@ dt_masks_dynbuf_reserve_n.exit.thread:            ; preds = %110, %113, %117, %d
 161:                                              ; preds = %._crit_edge.i603, %148
   %162 = phi i64 [ %.pre.i604, %._crit_edge.i603 ], [ %151, %148 ]
   %163 = load ptr, ptr %.0452, align 8, !tbaa !89
-  %164 = getelementptr inbounds nuw float, ptr %163, i64 %162
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %162
   %165 = shl nsw i64 %152, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %164, i8 0, i64 %165, i1 false)
   %166 = load i64, ptr %150, align 8, !tbaa !92
@@ -5795,7 +5795,7 @@ dt_masks_dynbuf_add_zeros.exit:                   ; preds = %161, %159, %156, %.
 181:                                              ; preds = %._crit_edge.i610, %168
   %182 = phi i64 [ %.pre.i611, %._crit_edge.i610 ], [ %171, %168 ]
   %183 = load ptr, ptr %.0453, align 8, !tbaa !89
-  %184 = getelementptr inbounds nuw float, ptr %183, i64 %182
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %182
   %185 = shl nsw i64 %172, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %184, i8 0, i64 %185, i1 false)
   %186 = load i64, ptr %170, align 8, !tbaa !92
@@ -6045,14 +6045,14 @@ dt_masks_dynbuf_free.exit614:                     ; preds = %._crit_edge745, %22
 289:                                              ; preds = %288
   %.0452.val = load ptr, ptr %.0452, align 8, !tbaa !89
   %.0452.val529 = load i64, ptr %207, align 8, !tbaa !92
-  %290 = getelementptr float, ptr %.0452.val, i64 %.0452.val529
+  %290 = getelementptr [4 x i8], ptr %.0452.val, i64 %.0452.val529
   %291 = getelementptr i8, ptr %290, i64 -8
   %292 = load float, ptr %291, align 4, !tbaa !93
   %293 = getelementptr i8, ptr %290, i64 -4
   %294 = load float, ptr %293, align 4, !tbaa !93
   %.val = load ptr, ptr %50, align 8, !tbaa !89
   %.val532 = load i64, ptr %208, align 8, !tbaa !92
-  %295 = getelementptr float, ptr %.val, i64 %.val532
+  %295 = getelementptr [4 x i8], ptr %.val, i64 %.val532
   %296 = getelementptr i8, ptr %295, i64 -8
   %297 = load float, ptr %296, align 4, !tbaa !93
   %298 = getelementptr i8, ptr %295, i64 -4
@@ -6106,7 +6106,7 @@ dt_masks_dynbuf_free.exit614:                     ; preds = %._crit_edge745, %22
   %325 = phi ptr [ %.pre753, %._crit_edge.i.i ], [ %.val, %310 ]
   %.pre-phi.i.i = phi i64 [ %.pre22.i.i, %._crit_edge.i.i ], [ %317, %310 ]
   %326 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.val532, %310 ]
-  %327 = getelementptr inbounds nuw float, ptr %325, i64 %326
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %325, i64 %326
   store i64 %.pre-phi.i.i, ptr %208, align 8, !tbaa !92
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
@@ -6150,7 +6150,7 @@ dt_masks_dynbuf_reserve_n.exit56.i:               ; preds = %._crit_edge.i51.i, 
 
 .lr.ph.preheader.i:                               ; preds = %dt_masks_dynbuf_reserve_n.exit56.i
   %340 = call reassoc nsz arcp contract afn float @llvm.atan2.f32(float %300, float %301)
-  %341 = getelementptr inbounds nuw float, ptr %337, i64 %336
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %336
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6253,7 +6253,7 @@ _dt_masks_dynbuf_growto.exit.thread:              ; preds = %360
   %378 = phi ptr [ %364, %._crit_edge.i619 ], [ %.pre754, %.split._crit_edge ]
   %.pre-phi.i621 = phi i64 [ %.pre12.i, %._crit_edge.i619 ], [ %356, %.split._crit_edge ]
   %379 = phi i64 [ %.pre.i620, %._crit_edge.i619 ], [ %phi.call755, %.split._crit_edge ]
-  %380 = getelementptr inbounds nuw float, ptr %378, i64 %379
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %378, i64 %379
   store float %354, ptr %380, align 4, !tbaa !93
   store i64 %.pre-phi.i621, ptr %211, align 8, !tbaa !92
   %381 = getelementptr i8, ptr %380, i64 4
@@ -6283,7 +6283,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %_dt_masks_dynbuf_gr
 390:                                              ; preds = %389
   %.0452.val535 = load ptr, ptr %.0452, align 8, !tbaa !89
   %.0452.val536 = load i64, ptr %207, align 8, !tbaa !92
-  %391 = getelementptr float, ptr %.0452.val535, i64 %.0452.val536
+  %391 = getelementptr [4 x i8], ptr %.0452.val535, i64 %.0452.val536
   %392 = getelementptr i8, ptr %391, i64 -8
   %393 = load float, ptr %392, align 4, !tbaa !93
   %394 = getelementptr i8, ptr %391, i64 -4
@@ -6291,7 +6291,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %_dt_masks_dynbuf_gr
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.val539 = load ptr, ptr %50, align 8, !tbaa !89
   %.val540 = load i64, ptr %208, align 8, !tbaa !92
-  %396 = getelementptr float, ptr %.val539, i64 %.val540
+  %396 = getelementptr [4 x i8], ptr %.val539, i64 %.val540
   %397 = getelementptr i8, ptr %396, i64 -8
   %398 = load float, ptr %397, align 4, !tbaa !93
   store float %398, ptr %20, align 4, !tbaa !93
@@ -6382,7 +6382,7 @@ _dt_masks_dynbuf_growto.exit679.thread:           ; preds = %413
   %431 = phi ptr [ %417, %._crit_edge.i624 ], [ %.pre757, %.split466._crit_edge ]
   %.pre-phi.i627 = phi i64 [ %.pre12.i626, %._crit_edge.i624 ], [ %409, %.split466._crit_edge ]
   %432 = phi i64 [ %.pre.i625, %._crit_edge.i624 ], [ %phi.call468758, %.split466._crit_edge ]
-  %433 = getelementptr inbounds nuw float, ptr %431, i64 %432
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %431, i64 %432
   store float %407, ptr %433, align 4, !tbaa !93
   store i64 %.pre-phi.i627, ptr %211, align 8, !tbaa !92
   %434 = getelementptr i8, ptr %433, i64 4
@@ -6405,7 +6405,7 @@ dt_masks_dynbuf_add_2.exit628:                    ; preds = %_dt_masks_dynbuf_gr
 438:                                              ; preds = %437
   %.0452.val543 = load ptr, ptr %.0452, align 8, !tbaa !89
   %.0452.val544 = load i64, ptr %207, align 8, !tbaa !92
-  %439 = getelementptr float, ptr %.0452.val543, i64 %.0452.val544
+  %439 = getelementptr [4 x i8], ptr %.0452.val543, i64 %.0452.val544
   %440 = getelementptr i8, ptr %439, i64 -8
   %441 = load float, ptr %440, align 4, !tbaa !93
   %442 = getelementptr i8, ptr %439, i64 -4
@@ -6413,7 +6413,7 @@ dt_masks_dynbuf_add_2.exit628:                    ; preds = %_dt_masks_dynbuf_gr
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.val547 = load ptr, ptr %50, align 8, !tbaa !89
   %.val548 = load i64, ptr %208, align 8, !tbaa !92
-  %444 = getelementptr float, ptr %.val547, i64 %.val548
+  %444 = getelementptr [4 x i8], ptr %.val547, i64 %.val548
   %445 = getelementptr i8, ptr %444, i64 -8
   %446 = load float, ptr %445, align 4, !tbaa !93
   store float %446, ptr %21, align 4, !tbaa !93
@@ -6504,7 +6504,7 @@ _dt_masks_dynbuf_growto.exit684.thread:           ; preds = %461
   %479 = phi ptr [ %465, %._crit_edge.i631 ], [ %.pre768, %.split470._crit_edge ]
   %.pre-phi.i634 = phi i64 [ %.pre12.i633, %._crit_edge.i631 ], [ %457, %.split470._crit_edge ]
   %480 = phi i64 [ %.pre.i632, %._crit_edge.i631 ], [ %phi.call472769, %.split470._crit_edge ]
-  %481 = getelementptr inbounds nuw float, ptr %479, i64 %480
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %479, i64 %480
   store float %455, ptr %481, align 4, !tbaa !93
   store i64 %.pre-phi.i634, ptr %211, align 8, !tbaa !92
   %482 = getelementptr i8, ptr %481, i64 4
@@ -6562,7 +6562,7 @@ dt_masks_dynbuf_add_2.exit635:                    ; preds = %_dt_masks_dynbuf_gr
   %.pre-phi.i641 = phi i64 [ %.pre12.i640, %._crit_edge.i638 ], [ %489, %485 ]
   %498 = phi i64 [ %.pre.i639, %._crit_edge.i638 ], [ %488, %485 ]
   %499 = load ptr, ptr %50, align 8, !tbaa !89
-  %500 = getelementptr inbounds nuw float, ptr %499, i64 %498
+  %500 = getelementptr inbounds nuw [4 x i8], ptr %499, i64 %498
   store float %486, ptr %500, align 4, !tbaa !93
   store i64 %.pre-phi.i641, ptr %208, align 8, !tbaa !92
   %501 = getelementptr i8, ptr %500, i64 4
@@ -6601,7 +6601,7 @@ dt_masks_dynbuf_add_2.exit642:                    ; preds = %491, %493, %497
   %.pre-phi.i648 = phi i64 [ %.pre12.i647, %._crit_edge.i645 ], [ %506, %502 ]
   %515 = phi i64 [ %.pre.i646, %._crit_edge.i645 ], [ %505, %502 ]
   %516 = load ptr, ptr %.0453, align 8, !tbaa !89
-  %517 = getelementptr inbounds nuw float, ptr %516, i64 %515
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %516, i64 %515
   store float %503, ptr %517, align 4, !tbaa !93
   store i64 %.pre-phi.i648, ptr %211, align 8, !tbaa !92
   %518 = getelementptr i8, ptr %517, i64 4
@@ -6623,7 +6623,7 @@ dt_masks_dynbuf_add_2.exit649:                    ; preds = %514, %510, %508, %d
 
 522:                                              ; preds = %519
   %.0452.val551 = load ptr, ptr %.0452, align 8, !tbaa !89
-  %523 = getelementptr float, ptr %.0452.val551, i64 %.0452.val552
+  %523 = getelementptr [4 x i8], ptr %.0452.val551, i64 %.0452.val552
   %524 = getelementptr i8, ptr %523, i64 -8
   %525 = load float, ptr %524, align 4, !tbaa !93
   %526 = fcmp reassoc nsz arcp contract afn oeq float %525, 0xC7EFFFFFE0000000
@@ -6679,7 +6679,7 @@ dt_masks_dynbuf_add_2.exit649:                    ; preds = %514, %510, %508, %d
   %.pre-phi.i655 = phi i64 [ %.pre12.i654, %._crit_edge.i652 ], [ %538, %536 ]
   %547 = phi i64 [ %.pre.i653, %._crit_edge.i652 ], [ %.0452.val552, %536 ]
   %548 = load ptr, ptr %.0452, align 8, !tbaa !89
-  %549 = getelementptr inbounds nuw float, ptr %548, i64 %547
+  %549 = getelementptr inbounds nuw [4 x i8], ptr %548, i64 %547
   store float %537, ptr %549, align 4, !tbaa !93
   store i64 %.pre-phi.i655, ptr %207, align 8, !tbaa !92
   %550 = getelementptr i8, ptr %549, i64 4
@@ -6886,7 +6886,7 @@ _dt_masks_dynbuf_growto.exit689.thread:           ; preds = %637
   %655 = phi ptr [ %641, %._crit_edge.i663 ], [ %.pre765, %.split474._crit_edge ]
   %.pre-phi.i666 = phi i64 [ %.pre12.i665, %._crit_edge.i663 ], [ %633, %.split474._crit_edge ]
   %656 = phi i64 [ %.pre.i664, %._crit_edge.i663 ], [ %phi.call476766, %.split474._crit_edge ]
-  %657 = getelementptr inbounds nuw float, ptr %655, i64 %656
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %655, i64 %656
   store float %632, ptr %657, align 4, !tbaa !93
   store i64 %.pre-phi.i666, ptr %211, align 8, !tbaa !92
   %658 = getelementptr i8, ptr %657, i64 4
@@ -7275,10 +7275,10 @@ define internal fastcc void @dt_masks_dynbuf_add_2(ptr noundef %0, float noundef
   %.pre-phi = phi i64 [ %.pre12, %._crit_edge ], [ %6, %3 ]
   %16 = phi i64 [ %.pre, %._crit_edge ], [ %5, %3 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !89
-  %18 = getelementptr inbounds nuw float, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   store float %1, ptr %18, align 4, !tbaa !93
   store i64 %.pre-phi, ptr %4, align 8, !tbaa !92
-  %19 = getelementptr float, ptr %17, i64 %16
+  %19 = getelementptr [4 x i8], ptr %17, i64 %16
   %20 = getelementptr i8, ptr %19, i64 4
   store float %2, ptr %20, align 4, !tbaa !93
   br label %21
@@ -7374,7 +7374,7 @@ define internal fastcc void @_brush_points_recurs_border_gaps(ptr noundef nonnul
   %.pre-phi.i = phi i64 [ %.pre22.i, %._crit_edge.i ], [ %50, %39 ]
   %59 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %48, %39 ]
   %60 = load ptr, ptr %1, align 8, !tbaa !89
-  %61 = getelementptr inbounds nuw float, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %59
   store i64 %.pre-phi.i, ptr %47, align 8, !tbaa !92
   br label %dt_masks_dynbuf_reserve_n.exit
 
@@ -7419,7 +7419,7 @@ dt_masks_dynbuf_reserve_n.exit105:                ; preds = %dt_masks_dynbuf_res
   br i1 %or.cond5, label %.lr.ph.preheader, label %dt_masks_dynbuf_reserve_n.exit105.thread
 
 .lr.ph.preheader:                                 ; preds = %dt_masks_dynbuf_reserve_n.exit105
-  %76 = getelementptr inbounds nuw float, ptr %73, i64 %72
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %72
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7763,7 +7763,7 @@ _brush_border_get_XY.exit152:                     ; preds = %181, %182
   %.pre-phi.i = phi i64 [ %.pre12.i, %._crit_edge.i ], [ %236, %230 ]
   %246 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %235, %230 ]
   %247 = load ptr, ptr %11, align 8, !tbaa !89
-  %248 = getelementptr inbounds nuw float, ptr %247, i64 %246
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %247, i64 %246
   store float %.pre, ptr %248, align 4, !tbaa !93
   store i64 %.pre-phi.i, ptr %234, align 8, !tbaa !92
   %249 = getelementptr i8, ptr %248, i64 4
@@ -7913,7 +7913,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %239, %241, %245
   %.pre-phi.i.i = phi i64 [ %.pre22.i.i, %._crit_edge.i.i ], [ %329, %320 ]
   %337 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %327, %320 ]
   %338 = load ptr, ptr %11, align 8, !tbaa !89
-  %339 = getelementptr inbounds nuw float, ptr %338, i64 %337
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %337
   store i64 %.pre-phi.i.i, ptr %234, align 8, !tbaa !92
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
@@ -7958,7 +7958,7 @@ dt_masks_dynbuf_reserve_n.exit90.i:               ; preds = %._crit_edge.i85.i, 
   br i1 %or.cond.i153, label %.lr.ph.preheader.i, label %_brush_points_recurs_border_small_gaps.exit
 
 .lr.ph.preheader.i:                               ; preds = %dt_masks_dynbuf_reserve_n.exit90.i
-  %354 = getelementptr inbounds nuw float, ptr %351, i64 %350
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %351, i64 %350
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8026,7 +8026,7 @@ _brush_points_recurs_border_small_gaps.exit:      ; preds = %.lr.ph.i, %dt_masks
   %.pre-phi.i159 = phi i64 [ %.pre12.i158, %._crit_edge.i156 ], [ %376, %_brush_points_recurs_border_small_gaps.exit ]
   %386 = phi i64 [ %.pre.i157, %._crit_edge.i156 ], [ %375, %_brush_points_recurs_border_small_gaps.exit ]
   %387 = load ptr, ptr %12, align 8, !tbaa !89
-  %388 = getelementptr inbounds nuw float, ptr %387, i64 %386
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %387, i64 %386
   store float %370, ptr %388, align 4, !tbaa !93
   store i64 %.pre-phi.i159, ptr %374, align 8, !tbaa !92
   br label %dt_masks_dynbuf_add_2.exit160.sink.split
@@ -8064,7 +8064,7 @@ _brush_points_recurs_border_small_gaps.exit:      ; preds = %.lr.ph.i, %dt_masks
   %.pre-phi.i166 = phi i64 [ %.pre12.i165, %._crit_edge.i163 ], [ %393, %.critedge ]
   %403 = phi i64 [ %.pre.i164, %._crit_edge.i163 ], [ %392, %.critedge ]
   %404 = load ptr, ptr %11, align 8, !tbaa !89
-  %405 = getelementptr inbounds nuw float, ptr %404, i64 %403
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %404, i64 %403
   store float %.pre, ptr %405, align 4, !tbaa !93
   store i64 %.pre-phi.i166, ptr %391, align 8, !tbaa !92
   br label %dt_masks_dynbuf_add_2.exit160.sink.split
@@ -8141,7 +8141,7 @@ dt_masks_dynbuf_add_2.exit160:                    ; preds = %dt_masks_dynbuf_add
   %.pre-phi.i173 = phi i64 [ %.pre12.i172, %._crit_edge.i170 ], [ %432, %.split ]
   %441 = phi i64 [ %phi.call.pre, %._crit_edge.i170 ], [ %phi.call187, %.split ]
   %442 = load ptr, ptr %13, align 8, !tbaa !89
-  %443 = getelementptr inbounds nuw float, ptr %442, i64 %441
+  %443 = getelementptr inbounds nuw [4 x i8], ptr %442, i64 %441
   store float %423, ptr %443, align 4, !tbaa !93
   store i64 %.pre-phi.i173, ptr %407, align 8, !tbaa !92
   %444 = getelementptr i8, ptr %443, i64 4
@@ -8345,7 +8345,7 @@ define internal fastcc range(i32 0, 2) i32 @_get_area(ptr noundef readonly captu
   %.05462.i.i = phi float [ %68, %.lr.ph.split.i.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i.i ]
   %.05661.i.i = phi float [ %70, %.lr.ph.split.i.i ], [ 0x3810000000000000, %.lr.ph.i.i ]
   %46 = shl nsw i64 %indvars.iv.i.i, 1
-  %47 = getelementptr inbounds float, ptr %29, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %29, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !93
   %49 = getelementptr i8, ptr %47, i64 4
   %50 = load float, ptr %49, align 4, !tbaa !93
@@ -8357,7 +8357,7 @@ define internal fastcc range(i32 0, 2) i32 @_get_area(ptr noundef readonly captu
   %56 = select reassoc nsz arcp contract afn i1 %55, float %50, float %.05462.i.i
   %57 = fcmp reassoc nsz arcp contract afn ogt float %50, %.05661.i.i
   %58 = select reassoc nsz arcp contract afn i1 %57, float %50, float %.05661.i.i
-  %59 = getelementptr inbounds float, ptr %28, i64 %46
+  %59 = getelementptr inbounds [4 x i8], ptr %28, i64 %46
   %60 = load float, ptr %59, align 4, !tbaa !93
   %61 = getelementptr i8, ptr %59, i64 4
   %62 = load float, ptr %61, align 4, !tbaa !93
@@ -8878,13 +8878,13 @@ define internal fastcc ptr @_brush_ramer_douglas_peucker(ptr noundef %0, i32 nou
   %14 = load float, ptr %13, align 4, !tbaa !93
   %15 = shl nuw nsw i32 %5, 1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw float, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !93
   %19 = getelementptr i8, ptr %17, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !93
   %21 = shl nsw i32 %5, 2
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw float, ptr %2, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !93
   %25 = getelementptr i8, ptr %23, i64 4
   %26 = load float, ptr %25, align 4, !tbaa !93
@@ -9042,11 +9042,11 @@ common.ret111:                                    ; preds = %105, %common.ret
   %107 = tail call fastcc ptr @_brush_ramer_douglas_peucker(ptr noundef %0, i32 noundef %106, ptr noundef %2, float noundef %3)
   %108 = shl nuw nsw i32 %.072.lcssa, 1
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw float, ptr %0, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %109
   %111 = sub nsw i32 %1, %.072.lcssa
   %112 = shl nsw i32 %.072.lcssa, 2
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw float, ptr %2, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %113
   %115 = tail call fastcc ptr @_brush_ramer_douglas_peucker(ptr noundef %110, i32 noundef %111, ptr noundef %114, float noundef %3)
   %116 = tail call ptr @g_list_last(ptr noundef %107) #20
   %117 = load ptr, ptr %116, align 8, !tbaa !95
@@ -9090,7 +9090,7 @@ common.ret:                                       ; preds = %._crit_edge
   %140 = tail call noalias dereferenceable_or_null(44) ptr @malloc(i64 noundef 44) #21
   %141 = shl nsw i32 %5, 1
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds float, ptr %0, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %0, i64 %142
   %144 = load float, ptr %143, align 4, !tbaa !93
   store float %144, ptr %140, align 4, !tbaa !93
   %145 = getelementptr i8, ptr %143, i64 4
@@ -9107,7 +9107,7 @@ common.ret:                                       ; preds = %._crit_edge
   store float -1.000000e+00, ptr %150, align 4, !tbaa !93
   %152 = shl nsw i32 %5, 2
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds float, ptr %2, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %2, i64 %153
   %155 = load float, ptr %154, align 4, !tbaa !93
   %156 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %157 = getelementptr inbounds nuw i8, ptr %140, i64 28

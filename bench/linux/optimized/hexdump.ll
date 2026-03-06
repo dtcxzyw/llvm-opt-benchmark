@@ -238,7 +238,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %57 = sext i32 %68 to i64
   %58 = getelementptr i8, ptr %4, i64 %57
   %59 = sub i64 %5, %57
-  %60 = getelementptr i64, ptr %0, i64 %69
+  %60 = getelementptr [8 x i8], ptr %0, i64 %69
   %61 = load i64, ptr %60, align 1
   %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %58, i64 noundef %59, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i64 noundef %61) #9
   %63 = sext i32 %62 to i64
@@ -258,7 +258,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %72 = sext i32 %83 to i64
   %73 = getelementptr i8, ptr %4, i64 %72
   %74 = sub i64 %5, %72
-  %75 = getelementptr i32, ptr %0, i64 %84
+  %75 = getelementptr [4 x i8], ptr %0, i64 %84
   %76 = load i32, ptr %75, align 1
   %77 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %73, i64 noundef %74, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef %76) #9
   %78 = sext i32 %77 to i64
@@ -278,7 +278,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %87 = sext i32 %99 to i64
   %88 = getelementptr i8, ptr %4, i64 %87
   %89 = sub i64 %5, %87
-  %90 = getelementptr i16, ptr %0, i64 %100
+  %90 = getelementptr [2 x i8], ptr %0, i64 %100
   %91 = load i16, ptr %90, align 1
   %92 = zext i16 %91 to i32
   %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %88, i64 noundef %89, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef %92) #9

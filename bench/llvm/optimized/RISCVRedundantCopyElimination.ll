@@ -12,9 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.206" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.207" = type { [96 x i8] }
-%"struct.llvm::MachineBasicBlock::RegisterMaskPair" = type { %"class.llvm::MCRegister", %"struct.llvm::LaneBitmask" }
-%"class.llvm::MCRegister" = type { i32 }
-%"struct.llvm::LaneBitmask" = type { i64 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -450,7 +447,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %114 = lshr i32 %108, 6
   %115 = zext nneg i32 %114 to i64
   %116 = load ptr, ptr %110, align 8, !tbaa !156
-  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %115
   %118 = load i64, ptr %117, align 8, !tbaa !11
   %119 = and i64 %118, %113
   %120 = icmp eq i64 %119, 0
@@ -556,7 +553,7 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %157, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
   store ptr %152, ptr %131, align 8, !tbaa !189
   store ptr %156, ptr %133, align 8, !tbaa !184
-  %158 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %152, i64 %150
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %150
   store ptr %158, ptr %135, align 8, !tbaa !187
   br label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit
 

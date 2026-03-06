@@ -137,8 +137,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm_audit_p
 %struct.possible_net_t = type { ptr }
 %struct.xfrm_pol_inexact_candidates = type { [4 x ptr] }
 %union.xfrm_address_t = type { [4 x i32] }
-%struct.xfrm_tmpl = type { %struct.xfrm_id, %union.xfrm_address_t, i16, i32, i8, i8, i8, i8, i32, i32, i32 }
-%struct.xfrm_id = type { %union.xfrm_address_t, i32, i8 }
 %struct.xfrm_if_decode_session_result = type { ptr, i32 }
 %struct.rhashtable_compare_arg = type { ptr, ptr }
 
@@ -388,9 +386,9 @@ define dso_local zeroext i1 @xfrm_selector_match(ptr noundef readonly captures(n
   %109 = shl nsw i32 -1, %108
   %110 = tail call i32 @llvm.bswap.i32(i32 %109)
   %111 = zext nneg i32 %97 to i64
-  %112 = getelementptr i32, ptr %93, i64 %111
+  %112 = getelementptr [4 x i8], ptr %93, i64 %111
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr i32, ptr %0, i64 %111
+  %114 = getelementptr [4 x i8], ptr %0, i64 %111
   %115 = load i32, ptr %114, align 4
   %116 = xor i32 %115, %113
   %117 = and i32 %116, %110
@@ -424,9 +422,9 @@ define dso_local zeroext i1 @xfrm_selector_match(ptr noundef readonly captures(n
   %137 = shl nsw i32 -1, %136
   %138 = tail call i32 @llvm.bswap.i32(i32 %137)
   %139 = zext nneg i32 %125 to i64
-  %140 = getelementptr i32, ptr %120, i64 %139
+  %140 = getelementptr [4 x i8], ptr %120, i64 %139
   %141 = load i32, ptr %140, align 4
-  %142 = getelementptr i32, ptr %121, i64 %139
+  %142 = getelementptr [4 x i8], ptr %121, i64 %139
   %143 = load i32, ptr %142, align 4
   %144 = xor i32 %143, %141
   %145 = and i32 %144, %138
@@ -555,7 +553,7 @@ define dso_local ptr @__xfrm_dst_lookup(ptr noundef %0, i32 noundef %1, i32 noun
   %11 = and i32 %5, 15
   %12 = zext nneg i32 %11 to i64
   tail call void @__rcu_read_lock() #22
-  %13 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %12
+  %13 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread.sink.split, label %16, !prof !6
@@ -591,7 +589,7 @@ define dso_local noundef ptr @xfrm_policy_alloc(ptr noundef %0, i32 noundef %1) 
 
 10:                                               ; preds = %6, %2
   %11 = phi i64 [ 0, %2 ], [ %9, %6 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 80
   %13 = load ptr, ptr %12, align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %13, i32 noundef %3, i64 noundef 832) #23
@@ -1736,7 +1734,7 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
   store volatile ptr %25, ptr %26, align 8
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 2816
   %31 = sext i32 %0 to i64
-  %32 = getelementptr i32, ptr %30, i64 %31
+  %32 = getelementptr [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -1862,7 +1860,7 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
   store volatile ptr %59, ptr %59, align 8
   store volatile ptr %59, ptr %94, align 8
   %97 = getelementptr inbounds nuw i8, ptr %58, i64 2816
-  %98 = getelementptr i32, ptr %97, i64 %31
+  %98 = getelementptr [4 x i8], ptr %97, i64 %31
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, -1
   store i32 %100, ptr %98, align 4
@@ -1905,7 +1903,7 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
   %123 = xor i32 %122, %121
   %124 = and i32 %123, %110
   %125 = zext i32 %124 to i64
-  %126 = getelementptr %struct.hlist_head, ptr %108, i64 %125
+  %126 = getelementptr [8 x i8], ptr %108, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   %129 = getelementptr i8, ptr %127, i64 -24
@@ -1949,7 +1947,7 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
   %152 = load i32, ptr %151, align 16
   %153 = and i32 %152, %.pre-phi26
   %154 = zext i32 %153 to i64
-  %155 = getelementptr %struct.hlist_head, ptr %150, i64 %154
+  %155 = getelementptr [8 x i8], ptr %150, i64 %154
   %156 = load ptr, ptr %155, align 8
   store volatile ptr %156, ptr %148, align 8
   %157 = icmp eq ptr %156, null
@@ -2004,7 +2002,7 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
 
 183:                                              ; preds = %181
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 2816
-  %185 = getelementptr i32, ptr %184, i64 %31
+  %185 = getelementptr [4 x i8], ptr %184, i64 %31
   %186 = load i32, ptr %185, align 4
   %.idx = shl nsw i64 %31, 4
   %187 = getelementptr i8, ptr %4, i64 2776
@@ -2031,7 +2029,7 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
 define internal fastcc ptr @policy_hash_bysel(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i32 noundef %3) unnamed_addr #5 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2768
   %6 = sext i32 %3 to i64
-  %7 = getelementptr %struct.xfrm_policy_hash, ptr %5, i64 %6
+  %7 = getelementptr [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   switch i16 %2, label %17 [
@@ -2158,7 +2156,7 @@ define internal fastcc ptr @policy_hash_bysel(ptr noundef %0, ptr noundef readon
   %92 = shl nsw i32 -1, %91
   %93 = tail call i32 @llvm.bswap.i32(i32 %92)
   %94 = zext nneg i32 %87 to i64
-  %95 = getelementptr i32, ptr %1, i64 %94
+  %95 = getelementptr [4 x i8], ptr %1, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = and i32 %96, %93
   br label %98
@@ -2177,7 +2175,7 @@ define internal fastcc ptr @policy_hash_bysel(ptr noundef %0, ptr noundef readon
   %107 = shl nsw i32 -1, %106
   %108 = tail call i32 @llvm.bswap.i32(i32 %107)
   %109 = zext nneg i32 %102 to i64
-  %110 = getelementptr i32, ptr %20, i64 %109
+  %110 = getelementptr [4 x i8], ptr %20, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, %108
   br label %113
@@ -2200,7 +2198,7 @@ define internal fastcc ptr @policy_hash_bysel(ptr noundef %0, ptr noundef readon
 124:                                              ; preds = %117
   %125 = load volatile ptr, ptr %7, align 16
   %126 = zext i32 %121 to i64
-  %127 = getelementptr %struct.hlist_head, ptr %125, i64 %126
+  %127 = getelementptr [8 x i8], ptr %125, i64 %126
   br label %.thread
 
 .thread:                                          ; preds = %77, %81, %21, %25, %124, %117
@@ -2251,9 +2249,9 @@ define internal fastcc ptr @xfrm_policy_insert_list(ptr noundef nonnull %0, ptr 
 
 28:                                               ; preds = %28, %26
   %29 = phi i64 [ 0, %26 ], [ %35, %28 ]
-  %30 = getelementptr i32, ptr %27, i64 %29
+  %30 = getelementptr [4 x i8], ptr %27, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr i32, ptr %12, i64 %29
+  %32 = getelementptr [4 x i8], ptr %12, i64 %29
   %33 = load i32, ptr %32, align 4
   %34 = icmp ne i32 %31, %33
   %35 = add nuw nsw i64 %29, 1
@@ -2315,9 +2313,9 @@ define internal fastcc ptr @xfrm_policy_insert_list(ptr noundef nonnull %0, ptr 
 
 74:                                               ; preds = %74, %72
   %75 = phi i64 [ 0, %72 ], [ %81, %74 ]
-  %76 = getelementptr i32, ptr %73, i64 %75
+  %76 = getelementptr [4 x i8], ptr %73, i64 %75
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr i32, ptr %12, i64 %75
+  %78 = getelementptr [4 x i8], ptr %12, i64 %75
   %79 = load i32, ptr %78, align 4
   %80 = icmp ne i32 %77, %79
   %81 = add nuw nsw i64 %75, 1
@@ -2458,7 +2456,7 @@ define internal fastcc ptr @xfrm_policy_inexact_insert(ptr noundef %0, i8 nounde
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 2744
   %17 = zext i8 %1 to i64
-  %18 = getelementptr %struct.hlist_head, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = getelementptr i8, ptr %19, i64 -768
@@ -2498,9 +2496,9 @@ define internal fastcc ptr @xfrm_policy_inexact_insert(ptr noundef %0, i8 nounde
 
 46:                                               ; preds = %46, %44
   %47 = phi i64 [ 0, %44 ], [ %53, %46 ]
-  %48 = getelementptr i32, ptr %45, i64 %47
+  %48 = getelementptr [4 x i8], ptr %45, i64 %47
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr i32, ptr %28, i64 %47
+  %50 = getelementptr [4 x i8], ptr %28, i64 %47
   %51 = load i32, ptr %50, align 4
   %52 = icmp ne i32 %49, %51
   %53 = add nuw nsw i64 %47, 1
@@ -3057,7 +3055,7 @@ define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr noundef readonly
 53:                                               ; preds = %.thread, %51
   %54 = phi i64 [ 0, %51 ], [ %113, %.thread ]
   %55 = phi ptr [ null, %51 ], [ %112, %.thread ]
-  %56 = getelementptr ptr, ptr %11, i64 %54
+  %56 = getelementptr [8 x i8], ptr %11, i64 %54
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread, label %59
@@ -3103,9 +3101,9 @@ define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr noundef readonly
 
 85:                                               ; preds = %85, %83
   %86 = phi i64 [ 0, %83 ], [ %92, %85 ]
-  %87 = getelementptr i32, ptr %5, i64 %86
+  %87 = getelementptr [4 x i8], ptr %5, i64 %86
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr i32, ptr %84, i64 %86
+  %89 = getelementptr [4 x i8], ptr %84, i64 %86
   %90 = load i32, ptr %89, align 4
   %91 = icmp ne i32 %88, %90
   %92 = add nuw nsw i64 %86, 1
@@ -3196,9 +3194,9 @@ define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr noundef readonly
 
 146:                                              ; preds = %146, %144
   %147 = phi i64 [ 0, %144 ], [ %153, %146 ]
-  %148 = getelementptr i32, ptr %5, i64 %147
+  %148 = getelementptr [4 x i8], ptr %5, i64 %147
   %149 = load i32, ptr %148, align 4
-  %150 = getelementptr i32, ptr %145, i64 %147
+  %150 = getelementptr [4 x i8], ptr %145, i64 %147
   %151 = load i32, ptr %150, align 4
   %152 = icmp ne i32 %149, %151
   %153 = add nuw nsw i64 %147, 1
@@ -3321,7 +3319,7 @@ define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr noundef readonly
   store volatile ptr %179, ptr %214, align 8
   %217 = getelementptr inbounds nuw i8, ptr %178, i64 2816
   %218 = sext i32 %4 to i64
-  %219 = getelementptr i32, ptr %217, i64 %218
+  %219 = getelementptr [4 x i8], ptr %217, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = add i32 %220, -1
   store i32 %221, ptr %219, align 4
@@ -3380,7 +3378,7 @@ define dso_local ptr @xfrm_policy_byid(ptr noundef %0, ptr noundef readonly capt
   %18 = xor i32 %17, %5
   %19 = and i32 %16, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr %struct.hlist_head, ptr %14, i64 %20
+  %21 = getelementptr [8 x i8], ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %24 = getelementptr i8, ptr %22, i64 -24
@@ -3526,7 +3524,7 @@ define dso_local ptr @xfrm_policy_byid(ptr noundef %0, ptr noundef readonly capt
   store volatile ptr %66, ptr %101, align 8
   %104 = getelementptr inbounds nuw i8, ptr %65, i64 2816
   %105 = zext nneg i32 %4 to i64
-  %106 = getelementptr i32, ptr %104, i64 %105
+  %106 = getelementptr [4 x i8], ptr %104, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, -1
   store i32 %108, ptr %106, align 4
@@ -3671,7 +3669,7 @@ define dso_local noundef range(i32 -3, 1) i32 @xfrm_policy_flush(ptr noundef %0,
   store volatile ptr %11, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %26, i64 2816
   %65 = zext nneg i32 %18 to i64
-  %66 = getelementptr i32, ptr %64, i64 %65
+  %66 = getelementptr [4 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 4
@@ -3870,7 +3868,7 @@ define dso_local noundef range(i32 -3, 1) i32 @xfrm_dev_policy_flush(ptr noundef
   store volatile ptr %11, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %26, i64 2816
   %65 = zext nneg i32 %18 to i64
-  %66 = getelementptr i32, ptr %64, i64 %65
+  %66 = getelementptr [4 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 4
@@ -4160,7 +4158,7 @@ define dso_local noundef range(i32 -2, 1) i32 @xfrm_policy_delete(ptr noundef %0
   store volatile ptr %6, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 2816
   %45 = sext i32 %1 to i64
-  %46 = getelementptr i32, ptr %44, i64 %45
+  %46 = getelementptr [4 x i8], ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, -1
   store i32 %48, ptr %46, align 4
@@ -4185,7 +4183,7 @@ define dso_local noundef i32 @xfrm_sk_policy_insert(ptr noundef %0, i32 noundef 
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull %6) #22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = sext i32 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %2, null
   br i1 %11, label %.thread14, label %12
@@ -4210,7 +4208,7 @@ define dso_local noundef i32 @xfrm_sk_policy_insert(ptr noundef %0, i32 noundef 
   %27 = xor i32 %26, %25
   %28 = and i32 %27, %19
   %29 = zext i32 %28 to i64
-  %30 = getelementptr %struct.hlist_head, ptr %17, i64 %29
+  %30 = getelementptr [8 x i8], ptr %17, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %31, i64 -24
@@ -4252,7 +4250,7 @@ define dso_local noundef i32 @xfrm_sk_policy_insert(ptr noundef %0, i32 noundef 
   %57 = xor i32 %56, %55
   %58 = and i32 %57, %19
   %59 = zext i32 %58 to i64
-  %60 = getelementptr %struct.hlist_head, ptr %17, i64 %59
+  %60 = getelementptr [8 x i8], ptr %17, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   %63 = getelementptr i8, ptr %61, i64 -24
@@ -4276,7 +4274,7 @@ define dso_local noundef i32 @xfrm_sk_policy_insert(ptr noundef %0, i32 noundef 
   store volatile ptr %69, ptr %70, align 8
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 2816
   %75 = sext i32 %15 to i64
-  %76 = getelementptr i32, ptr %74, i64 %75
+  %76 = getelementptr [4 x i8], ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, 1
   store i32 %78, ptr %76, align 4
@@ -4396,7 +4394,7 @@ define dso_local noundef i32 @xfrm_sk_policy_insert(ptr noundef %0, i32 noundef 
   store volatile ptr %93, ptr %128, align 8
   %131 = getelementptr inbounds nuw i8, ptr %92, i64 2816
   %132 = sext i32 %.pre-phi to i64
-  %133 = getelementptr i32, ptr %131, i64 %132
+  %133 = getelementptr [4 x i8], ptr %131, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = add i32 %134, -1
   store i32 %135, ptr %133, align 4
@@ -4425,7 +4423,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__xfrm_sk_clone_policy(ptr nound
 5:                                                ; preds = %101, %2
   %6 = phi i1 [ true, %2 ], [ false, %101 ]
   %7 = phi i64 [ 0, %2 ], [ 1, %101 ]
-  %8 = getelementptr ptr, ptr %3, i64 %7
+  %8 = getelementptr [8 x i8], ptr %3, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %101, label %11
@@ -4520,7 +4518,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__xfrm_sk_clone_policy(ptr nound
   store ptr %65, ptr %18, align 8
   store volatile ptr %17, ptr %65, align 8
   %68 = getelementptr i8, ptr %64, i64 2828
-  %69 = getelementptr i32, ptr %68, i64 %7
+  %69 = getelementptr [4 x i8], ptr %68, i64 %7
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4
@@ -4587,7 +4585,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__xfrm_sk_clone_policy(ptr nound
 
 .thread:                                          ; preds = %83, %85, %98
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !48
-  %100 = getelementptr ptr, ptr %4, i64 %7
+  %100 = getelementptr [8 x i8], ptr %4, i64 %7
   store volatile ptr %14, ptr %100, align 8
   br label %101
 
@@ -4847,7 +4845,7 @@ define dso_local ptr @xfrm_lookup_with_ifid(ptr noundef %0, ptr noundef %1, ptr 
 134:                                              ; preds = %131
   %135 = zext nneg i16 %11 to i64
   tail call void @__rcu_read_lock() #22
-  %136 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %135
+  %136 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %135
   %137 = load volatile ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null
   br i1 %138, label %149, label %139, !prof !6
@@ -5050,7 +5048,7 @@ define dso_local ptr @xfrm_lookup_with_ifid(ptr noundef %0, ptr noundef %1, ptr 
 245:                                              ; preds = %240
   %246 = zext nneg i16 %243 to i64
   tail call void @__rcu_read_lock() #22
-  %247 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %246
+  %247 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %246
   %248 = load volatile ptr, ptr %247, align 8
   %249 = icmp eq ptr %248, null
   br i1 %249, label %250, label %251, !prof !6
@@ -5271,7 +5269,7 @@ define dso_local ptr @xfrm_lookup_with_ifid(ptr noundef %0, ptr noundef %1, ptr 
 358:                                              ; preds = %358, %356
   %359 = phi i64 [ 0, %356 ], [ %364, %358 ]
   %360 = tail call i64 @ktime_get_real_seconds() #22
-  %361 = getelementptr ptr, ptr %8, i64 %359
+  %361 = getelementptr [8 x i8], ptr %8, i64 %359
   %362 = load ptr, ptr %361, align 8
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 264
   store volatile i64 %360, ptr %363, align 8
@@ -5475,7 +5473,7 @@ define internal fastcc ptr @xfrm_sk_policy_lookup(ptr noundef nonnull %0, i32 no
   tail call void @__rcu_read_lock() #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 452
   br label %10
 
@@ -5616,7 +5614,7 @@ define internal fastcc ptr @xfrm_resolve_and_create_bundle(ptr noundef readonly 
   %31 = phi ptr [ %24, %26 ], [ %99, %96 ]
   %32 = phi ptr [ %23, %26 ], [ %98, %96 ]
   %33 = phi i32 [ 0, %26 ], [ %97, %96 ]
-  %34 = getelementptr %struct.xfrm_tmpl, ptr %27, i64 %30
+  %34 = getelementptr [64 x i8], ptr %27, i64 %30
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i8, ptr %35, align 4
   switch i8 %36, label %61 [
@@ -5650,7 +5648,7 @@ define internal fastcc ptr @xfrm_resolve_and_create_bundle(ptr noundef readonly 
   %51 = load i32, ptr %2, align 8
   %52 = zext nneg i16 %40 to i64
   call void @__rcu_read_lock() #22
-  %53 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %52
+  %53 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %52
   %54 = load volatile ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread60, label %56, !prof !6
@@ -5686,7 +5684,7 @@ define internal fastcc ptr @xfrm_resolve_and_create_bundle(ptr noundef readonly 
 71:                                               ; preds = %67
   %72 = add i32 %33, 1
   %73 = sext i32 %33 to i64
-  %74 = getelementptr ptr, ptr %10, i64 %73
+  %74 = getelementptr [8 x i8], ptr %10, i64 %73
   store ptr %65, ptr %74, align 8
   br label %96
 
@@ -5748,7 +5746,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
 
 104:                                              ; preds = %.thread65, %94
   %105 = phi i64 [ %95, %94 ], [ %115, %.thread65 ]
-  %106 = getelementptr ptr, ptr %10, i64 %105
+  %106 = getelementptr [8 x i8], ptr %10, i64 %105
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 72
   %109 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %108, i32 -1, ptr nonnull elementtype(i32) %108) #22, !srcloc !11
@@ -5868,7 +5866,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
 164:                                              ; preds = %154
   %165 = zext nneg i32 %156 to i64
   call void @__rcu_read_lock() #22
-  %166 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %165
+  %166 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %165
   %167 = load volatile ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
   br i1 %168, label %.thread74, label %169, !prof !6
@@ -5916,7 +5914,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
   br label %.thread81
 
 182:                                              ; preds = %176
-  %183 = getelementptr ptr, ptr %11, i64 %155
+  %183 = getelementptr [8 x i8], ptr %11, i64 %155
   store ptr %174, ptr %183, align 8
   %184 = icmp eq ptr %161, null
   br i1 %184, label %187, label %185
@@ -5928,7 +5926,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
 
 187:                                              ; preds = %185, %182
   %188 = phi ptr [ %160, %185 ], [ %174, %182 ]
-  %189 = getelementptr ptr, ptr %10, i64 %155
+  %189 = getelementptr [8 x i8], ptr %10, i64 %155
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 144
   %192 = load i16, ptr %191, align 8
@@ -6088,7 +6086,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
 286:                                              ; preds = %282
   %287 = zext nneg i16 %254 to i64
   call void @__rcu_read_lock() #22
-  %288 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %287
+  %288 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %287
   %289 = load volatile ptr, ptr %288, align 8
   %290 = icmp eq ptr %289, null
   br i1 %290, label %291, label %292, !prof !6
@@ -6267,7 +6265,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
   %387 = phi i32 [ %388, %463 ], [ %118, %.preheader316 ]
   %388 = add nsw i32 %387, -1
   %389 = zext nneg i32 %388 to i64
-  %390 = getelementptr ptr, ptr %11, i64 %389
+  %390 = getelementptr [8 x i8], ptr %11, i64 %389
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 32
   %393 = load ptr, ptr %392, align 8
@@ -6406,7 +6404,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
 474:                                              ; preds = %.preheader94
   %475 = zext nneg i16 %472 to i64
   call void @__rcu_read_lock() #22
-  %476 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %475
+  %476 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %475
   %477 = load volatile ptr, ptr %476, align 8
   %478 = icmp eq ptr %477, null
   br i1 %478, label %479, label %480, !prof !6
@@ -6460,7 +6458,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
 
 .preheader:                                       ; preds = %.thread81, %.thread92
   %510 = phi i64 [ %520, %.thread92 ], [ %155, %.thread81 ]
-  %511 = getelementptr ptr, ptr %10, i64 %510
+  %511 = getelementptr [8 x i8], ptr %10, i64 %510
   %512 = load ptr, ptr %511, align 8
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 72
   %514 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %513, i32 -1, ptr nonnull elementtype(i32) %513) #22, !srcloc !11
@@ -6608,7 +6606,7 @@ define dso_local ptr @xfrm_lookup_route(ptr noundef %0, ptr noundef %1, ptr noun
 14:                                               ; preds = %9
   %15 = zext nneg i16 %12 to i64
   tail call void @__rcu_read_lock() #22
-  %16 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %15
+  %16 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %15
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21, !prof !6
@@ -6923,7 +6921,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 
 61:                                               ; preds = %56
   %62 = and i64 %58, 2147483647
-  %63 = getelementptr ptr, ptr %54, i64 %62
+  %63 = getelementptr [8 x i8], ptr %54, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 104
   %66 = call zeroext i1 @xfrm_selector_match(ptr noundef nonnull %65, ptr noundef nonnull %5, i16 noundef zeroext %3)
@@ -6951,7 +6949,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %78 = phi ptr [ %76, %74 ], [ %0, %70 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 304
   %80 = zext nneg i32 %26 to i64
-  %81 = getelementptr ptr, ptr %79, i64 %80
+  %81 = getelementptr [8 x i8], ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.thread36, label %84
@@ -7002,7 +7000,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 
 111:                                              ; preds = %118, %108
   %112 = phi i64 [ %119, %118 ], [ 0, %108 ]
-  %113 = getelementptr ptr, ptr %109, i64 %112
+  %113 = getelementptr [8 x i8], ptr %109, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 220
   %116 = load i8, ptr %115, align 4
@@ -7042,7 +7040,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %142 = and i64 %112, 2147483647
-  %143 = getelementptr ptr, ptr %141, i64 %142
+  %143 = getelementptr [8 x i8], ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 696
   %146 = load ptr, ptr %145, align 8
@@ -7113,9 +7111,9 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 
 184:                                              ; preds = %.preheader, %184
   %185 = phi i64 [ %187, %184 ], [ 0, %.preheader ]
-  %186 = getelementptr %struct.xfrm_tmpl, ptr %174, i64 %185
+  %186 = getelementptr [64 x i8], ptr %174, i64 %185
   %187 = add nuw nsw i64 %185, 1
-  %188 = getelementptr ptr, ptr %7, i64 %185
+  %188 = getelementptr [8 x i8], ptr %7, i64 %185
   store ptr %186, ptr %188, align 8
   %exitcond.not = icmp eq i64 %187, %183
   br i1 %exitcond.not, label %.loopexit50, label %184, !llvm.loop !67
@@ -7128,7 +7126,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   br i1 %193, label %194, label %333
 
 194:                                              ; preds = %189
-  %195 = getelementptr ptr, ptr %7, i64 %192
+  %195 = getelementptr [8 x i8], ptr %7, i64 %192
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 50
   %198 = load i8, ptr %197, align 2
@@ -7163,7 +7161,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 
 220:                                              ; preds = %326, %208
   %221 = phi i64 [ %218, %208 ], [ %327, %326 ]
-  %222 = getelementptr ptr, ptr %178, i64 %221
+  %222 = getelementptr [8 x i8], ptr %178, i64 %221
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 416
   %225 = load volatile i32, ptr %224, align 4
@@ -7360,7 +7358,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 
 339:                                              ; preds = %346, %336
   %340 = phi i64 [ %347, %346 ], [ %337, %336 ]
-  %341 = getelementptr ptr, ptr %178, i64 %340
+  %341 = getelementptr [8 x i8], ptr %178, i64 %340
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 220
   %344 = load i8, ptr %343, align 4
@@ -7418,7 +7416,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 369:                                              ; preds = %366
   %370 = getelementptr inbounds nuw i8, ptr %362, i64 16
   %371 = zext nneg i32 %353 to i64
-  %372 = getelementptr ptr, ptr %370, i64 %371
+  %372 = getelementptr [8 x i8], ptr %370, i64 %371
   %373 = load ptr, ptr %372, align 8
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 696
   %375 = load ptr, ptr %374, align 8
@@ -7508,7 +7506,7 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3400
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2768
   %12 = zext nneg i8 %3 to i64
-  %13 = getelementptr %struct.xfrm_policy_hash, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 14
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 15
@@ -7568,7 +7566,7 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
 
 49:                                               ; preds = %42
   %50 = zext i32 %45 to i64
-  %51 = getelementptr %struct.hlist_head, ptr %46, i64 %50
+  %51 = getelementptr [8 x i8], ptr %46, i64 %50
   %52 = load volatile ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   %54 = getelementptr i8, ptr %52, i64 -8
@@ -7683,7 +7681,7 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
 116:                                              ; preds = %.preheader99, %.thread39
   %117 = phi i64 [ %183, %.thread39 ], [ 0, %.preheader99 ]
   %118 = phi ptr [ %182, %.thread39 ], [ %92, %.preheader99 ]
-  %119 = getelementptr ptr, ptr %7, i64 %117
+  %119 = getelementptr [8 x i8], ptr %7, i64 %117
   %120 = load ptr, ptr %119, align 8
   %121 = icmp ne ptr %118, null
   br i1 %121, label %122, label %125
@@ -8181,7 +8179,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_policy_register_afinfo(ptr 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
   tail call void @_raw_spin_lock(ptr noundef nonnull @xfrm_policy_afinfo_lock) #22
-  %7 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %6
+  %7 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %53, !prof !7
@@ -8407,7 +8405,7 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
 77:                                               ; preds = %69, %65
   %78 = add i32 %54, 1
   %79 = sext i32 %54 to i64
-  %80 = getelementptr ptr, ptr %3, i64 %79
+  %80 = getelementptr [8 x i8], ptr %3, i64 %79
   store ptr %52, ptr %80, align 8
   %81 = load ptr, ptr %55, align 8
   %82 = icmp eq ptr %81, null
@@ -8569,7 +8567,7 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
 178:                                              ; preds = %176
   %179 = add i32 %160, -1
   %180 = sext i32 %179 to i64
-  %181 = getelementptr ptr, ptr %3, i64 %180
+  %181 = getelementptr [8 x i8], ptr %3, i64 %180
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 284
   %184 = load i32, ptr %183, align 4
@@ -8589,7 +8587,7 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   %194 = phi i32 [ %193, %.preheader ], [ %160, %178 ]
   %195 = add i32 %194, -2
   %196 = sext i32 %195 to i64
-  %197 = getelementptr ptr, ptr %3, i64 %196
+  %197 = getelementptr [8 x i8], ptr %3, i64 %196
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 284
   store i32 %192, ptr %199, align 4
@@ -8904,13 +8902,13 @@ define dso_local void @xfrm_policy_unregister_afinfo(ptr noundef readonly captur
 
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ 0, %1 ], [ %4, %3 ]
-  %8 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %7
+  %8 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %11, label %3
 
 11:                                               ; preds = %6
-  %12 = getelementptr ptr, ptr @xfrm_policy_afinfo, i64 %7
+  %12 = getelementptr [8 x i8], ptr @xfrm_policy_afinfo, i64 %7
   store volatile ptr null, ptr %12, align 8
   br label %.loopexit
 
@@ -9310,7 +9308,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr noundef readonly c
 59:                                               ; preds = %21
   %60 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %61 = zext i32 %53 to i64
-  %62 = getelementptr ptr, ptr %60, i64 %61
+  %62 = getelementptr [8 x i8], ptr %60, i64 %61
   br label %63
 
 63:                                               ; preds = %59, %57
@@ -9492,7 +9490,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr noundef readonly c
 181:                                              ; preds = %133
   %182 = getelementptr inbounds nuw i8, ptr %134, i64 64
   %183 = zext i32 %175 to i64
-  %184 = getelementptr ptr, ptr %182, i64 %183
+  %184 = getelementptr [8 x i8], ptr %182, i64 %183
   br label %185
 
 185:                                              ; preds = %181, %179
@@ -10069,7 +10067,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
 73:                                               ; preds = %25
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %75 = zext i32 %67 to i64
-  %76 = getelementptr ptr, ptr %74, i64 %75
+  %76 = getelementptr [8 x i8], ptr %74, i64 %75
   br label %77
 
 77:                                               ; preds = %73, %71
@@ -10338,7 +10336,7 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef readon
 23:                                               ; preds = %.split11.us
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %25 = zext i32 %17 to i64
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   br label %.split.us.us
 
 .split.us.us:                                     ; preds = %23, %21
@@ -10419,7 +10417,7 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef readon
 77:                                               ; preds = %.split11
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %79 = zext i32 %71 to i64
-  %80 = getelementptr ptr, ptr %78, i64 %79
+  %80 = getelementptr [8 x i8], ptr %78, i64 %79
   br label %.split
 
 .split:                                           ; preds = %77, %75
@@ -10652,7 +10650,7 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   %16 = sub nuw nsw i32 32, %11
   %17 = shl nsw i32 -1, %16
   %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr i32, ptr %2, i64 %18
+  %19 = getelementptr [4 x i8], ptr %2, i64 %18
   %20 = icmp eq i8 %4, 0
   %21 = sub nsw i32 32, %9
   %22 = shl nsw i32 -1, %21
@@ -10713,11 +10711,11 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   %57 = sub nuw nsw i32 32, %47
   %58 = shl nsw i32 -1, %57
   %59 = zext nneg i32 %46 to i64
-  %60 = getelementptr i32, ptr %2, i64 %59
+  %60 = getelementptr [4 x i8], ptr %2, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @llvm.bswap.i32(i32 %61)
   %63 = and i32 %62, %58
-  %64 = getelementptr i32, ptr %26, i64 %59
+  %64 = getelementptr [4 x i8], ptr %26, i64 %59
   %65 = load i32, ptr %64, align 4
   %66 = tail call i32 @llvm.bswap.i32(i32 %65)
   %67 = and i32 %66, %58
@@ -10808,7 +10806,7 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   %108 = load i32, ptr %19, align 4
   %109 = tail call i32 @llvm.bswap.i32(i32 %108)
   %110 = and i32 %109, %17
-  %111 = getelementptr i32, ptr %26, i64 %18
+  %111 = getelementptr [4 x i8], ptr %26, i64 %18
   %112 = load i32, ptr %111, align 4
   %113 = tail call i32 @llvm.bswap.i32(i32 %112)
   %114 = and i32 %113, %17
@@ -10939,11 +10937,11 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   %182 = sub nuw nsw i32 32, %172
   %183 = shl nsw i32 -1, %182
   %184 = zext nneg i32 %171 to i64
-  %185 = getelementptr i32, ptr %146, i64 %184
+  %185 = getelementptr [4 x i8], ptr %146, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
   %188 = and i32 %187, %183
-  %189 = getelementptr i32, ptr %155, i64 %184
+  %189 = getelementptr [4 x i8], ptr %155, i64 %184
   %190 = load i32, ptr %189, align 4
   %191 = tail call i32 @llvm.bswap.i32(i32 %190)
   %192 = and i32 %191, %183
@@ -11290,8 +11288,8 @@ define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef reado
 
 97:                                               ; preds = %95
   %98 = zext nneg i32 %87 to i64
-  %99 = getelementptr i32, ptr %79, i64 %98
-  %100 = getelementptr i32, ptr %10, i64 %98
+  %99 = getelementptr [4 x i8], ptr %79, i64 %98
+  %100 = getelementptr [4 x i8], ptr %10, i64 %98
   br label %101
 
 101:                                              ; preds = %97, %83
@@ -11358,8 +11356,8 @@ define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef reado
 
 130:                                              ; preds = %125
   %131 = zext nneg i32 %127 to i64
-  %132 = getelementptr i32, ptr %78, i64 %131
-  %133 = getelementptr i32, ptr %10, i64 %131
+  %132 = getelementptr [4 x i8], ptr %78, i64 %131
+  %133 = getelementptr [4 x i8], ptr %10, i64 %131
   br label %134
 
 134:                                              ; preds = %130, %116
@@ -11633,11 +11631,11 @@ define internal fastcc ptr @xfrm_policy_lookup_inexact_addr(ptr noundef %0, ptr 
   %67 = sub nuw nsw i32 32, %55
   %68 = shl nsw i32 -1, %67
   %69 = zext nneg i32 %54 to i64
-  %70 = getelementptr i32, ptr %2, i64 %69
+  %70 = getelementptr [4 x i8], ptr %2, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @llvm.bswap.i32(i32 %71)
   %73 = and i32 %72, %68
-  %74 = getelementptr i32, ptr %50, i64 %69
+  %74 = getelementptr [4 x i8], ptr %50, i64 %69
   %75 = load i32, ptr %74, align 4
   %76 = tail call i32 @llvm.bswap.i32(i32 %75)
   %77 = and i32 %76, %68
@@ -12057,7 +12055,7 @@ define internal fastcc i32 @__addr_hash(ptr noundef readonly captures(none) %0, 
   %62 = shl nsw i32 -1, %61
   %63 = tail call i32 @llvm.bswap.i32(i32 %62)
   %64 = zext nneg i32 %57 to i64
-  %65 = getelementptr i32, ptr %0, i64 %64
+  %65 = getelementptr [4 x i8], ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %63
   br label %68
@@ -12076,7 +12074,7 @@ define internal fastcc i32 @__addr_hash(ptr noundef readonly captures(none) %0, 
   %77 = shl nsw i32 -1, %76
   %78 = tail call i32 @llvm.bswap.i32(i32 %77)
   %79 = zext nneg i32 %72 to i64
-  %80 = getelementptr i32, ptr %1, i64 %79
+  %80 = getelementptr [4 x i8], ptr %1, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, %78
   br label %83
@@ -12160,13 +12158,13 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initial
 
 27:                                               ; preds = %37, %22
   %28 = phi i64 [ 0, %22 ], [ %43, %37 ]
-  %29 = getelementptr i32, ptr %24, i64 %28
+  %29 = getelementptr [4 x i8], ptr %24, i64 %28
   store i32 0, ptr %29, align 4
   %30 = getelementptr i8, ptr %29, i64 12
   store i32 0, ptr %30, align 4
-  %31 = getelementptr %struct.hlist_head, ptr %25, i64 %28
+  %31 = getelementptr [8 x i8], ptr %25, i64 %28
   store ptr null, ptr %31, align 8
-  %32 = getelementptr %struct.xfrm_policy_hash, ptr %26, i64 %28
+  %32 = getelementptr [16 x i8], ptr %26, i64 %28
   %33 = tail call ptr @xfrm_hash_alloc(i32 noundef 64) #22
   store ptr %33, ptr %32, align 8
   %34 = icmp eq ptr %33, null
@@ -12195,7 +12193,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initial
   %45 = phi i64 [ %46, %.preheader ], [ %28, %35 ]
   %46 = add nsw i64 %45, -1
   %47 = and i64 %46, 4294967295
-  %48 = getelementptr %struct.xfrm_policy_hash, ptr %26, i64 %47
+  %48 = getelementptr [16 x i8], ptr %26, i64 %47
   %49 = load ptr, ptr %48, align 8
   tail call void @xfrm_hash_free(ptr noundef %49, i32 noundef 64) #22
   %50 = icmp sgt i64 %45, 1
@@ -12301,7 +12299,7 @@ define internal fastcc void @xfrm_policy_fini(ptr noundef %0) unnamed_addr #1 al
 
 12:                                               ; preds = %28, %9
   %13 = phi i64 [ 0, %9 ], [ %30, %28 ]
-  %14 = getelementptr %struct.hlist_head, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17, !prof !7
@@ -12313,7 +12311,7 @@ define internal fastcc void @xfrm_policy_fini(ptr noundef %0) unnamed_addr #1 al
   br label %18
 
 18:                                               ; preds = %17, %12
-  %19 = getelementptr %struct.xfrm_policy_hash, ptr %11, i64 %13
+  %19 = getelementptr [16 x i8], ptr %11, i64 %13
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = shl i32 %21, 3
@@ -12402,7 +12400,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #1 align 16 {
 6:                                                ; preds = %367, %1
   %7 = phi i64 [ 0, %1 ], [ %368, %367 ]
   %8 = phi i32 [ 0, %1 ], [ %14, %367 ]
-  %9 = getelementptr i32, ptr %2, i64 %7
+  %9 = getelementptr [4 x i8], ptr %2, i64 %7
   %10 = load i32, ptr %9, align 4
   %.idx = shl nuw nsw i64 %7, 4
   %11 = getelementptr i8, ptr %3, i64 %.idx
@@ -12416,7 +12414,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #1 align 16 {
   br i1 %18, label %367, label %19
 
 19:                                               ; preds = %6
-  %20 = getelementptr %struct.xfrm_policy_hash, ptr %3, i64 %7
+  %20 = getelementptr [16 x i8], ptr %3, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = shl nuw nsw i32 %13, 1
   %23 = or disjoint i32 %22, 1
@@ -12442,7 +12440,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #1 align 16 {
 
 37:                                               ; preds = %360, %28
   %38 = phi i64 [ %36, %28 ], [ %361, %360 ]
-  %39 = getelementptr %struct.hlist_head, ptr %31, i64 %38
+  %39 = getelementptr [8 x i8], ptr %31, i64 %38
   %.pre = load ptr, ptr %39, align 8
   br label %40
 
@@ -12562,7 +12560,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #1 align 16 {
   %120 = shl nsw i32 -1, %119
   %121 = tail call i32 @llvm.bswap.i32(i32 %120)
   %122 = zext nneg i32 %115 to i64
-  %123 = getelementptr i32, ptr %63, i64 %122
+  %123 = getelementptr [4 x i8], ptr %63, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %124, %121
   br label %126
@@ -12688,7 +12686,7 @@ jhash2.exit19:                                    ; preds = %.loopexit.i16, %186
   %219 = shl nsw i32 -1, %218
   %220 = tail call i32 @llvm.bswap.i32(i32 %219)
   %221 = zext nneg i32 %214 to i64
-  %222 = getelementptr i32, ptr %64, i64 %221
+  %222 = getelementptr [4 x i8], ptr %64, i64 %221
   %223 = load i32, ptr %222, align 4
   %224 = and i32 %223, %220
   br label %225
@@ -12836,7 +12834,7 @@ __addr_hash.exit:                                 ; preds = %60, %84, %jhash2.ex
 329:                                              ; preds = %327, %323
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %324, align 8
   %330 = zext nneg i32 %316 to i64
-  %331 = getelementptr %struct.hlist_head, ptr %26, i64 %330
+  %331 = getelementptr [8 x i8], ptr %26, i64 %330
   %332 = load ptr, ptr %331, align 8
   store ptr %332, ptr %50, align 8
   store volatile ptr %331, ptr %324, align 8
@@ -12946,7 +12944,7 @@ __addr_hash.exit:                                 ; preds = %60, %84, %jhash2.ex
 
 388:                                              ; preds = %.loopexit, %386
   %389 = phi i64 [ %387, %386 ], [ %416, %.loopexit ]
-  %390 = getelementptr %struct.hlist_head, ptr %383, i64 %389
+  %390 = getelementptr [8 x i8], ptr %383, i64 %389
   %391 = load ptr, ptr %390, align 8
   %392 = icmp eq ptr %391, null
   %393 = getelementptr i8, ptr %391, i64 -24
@@ -12964,7 +12962,7 @@ __addr_hash.exit:                                 ; preds = %60, %84, %jhash2.ex
   %402 = xor i32 %401, %400
   %403 = and i32 %402, %379
   %404 = zext nneg i32 %403 to i64
-  %405 = getelementptr %struct.hlist_head, ptr %384, i64 %404
+  %405 = getelementptr [8 x i8], ptr %384, i64 %404
   %406 = load ptr, ptr %405, align 8
   store volatile ptr %406, ptr %397, align 8
   %407 = icmp eq ptr %406, null
@@ -13111,7 +13109,7 @@ define internal void @xfrm_hash_rebuild(ptr noundef %0) #1 align 16 {
 
 68:                                               ; preds = %.loopexit29, %.loopexit34
   %69 = phi i64 [ 0, %.loopexit34 ], [ %137, %.loopexit29 ]
-  %70 = getelementptr %struct.hlist_head, ptr %30, i64 %69
+  %70 = getelementptr [8 x i8], ptr %30, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   %73 = getelementptr i8, ptr %71, i64 -768
@@ -13166,7 +13164,7 @@ define internal void @xfrm_hash_rebuild(ptr noundef %0) #1 align 16 {
   br i1 %100, label %.loopexit31, label %.preheader30, !llvm.loop !189
 
 .loopexit31:                                      ; preds = %96, %68
-  %101 = getelementptr %struct.xfrm_policy_hash, ptr %31, i64 %69
+  %101 = getelementptr [16 x i8], ptr %31, i64 %69
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = load ptr, ptr %101, align 16
@@ -13179,7 +13177,7 @@ define internal void @xfrm_hash_rebuild(ptr noundef %0) #1 align 16 {
 
 108:                                              ; preds = %.loopexit28, %106
   %109 = phi i64 [ %107, %106 ], [ %126, %.loopexit28 ]
-  %110 = getelementptr %struct.hlist_head, ptr %104, i64 %109
+  %110 = getelementptr [8 x i8], ptr %104, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   %113 = getelementptr i8, ptr %111, i64 -8

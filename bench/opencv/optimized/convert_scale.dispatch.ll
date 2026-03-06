@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.cv::utils::trace::details::Region::LocationStaticStorage" = type { ptr, ptr, ptr, i32, i32 }
-%"class.cv::hfloat" = type { i16 }
 %"class.cv::utils::trace::details::Region" = type <{ ptr, i32, [4 x i8] }>
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
@@ -37,7 +36,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline18getCvtScaleAbsFuncEi(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %4
 }
@@ -178,7 +177,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16u8uEPKhmS2_mPhmNS_5Siz
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !15
   %20 = uitofp i16 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -196,7 +195,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16u8uEPKhmS2_mPhmNS_5Siz
 
 ._crit_edge.us.i:                                 ; preds = %17
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %31 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline10cvtabs_32fIthEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !18
@@ -233,7 +232,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16s8uEPKhmS2_mPhmNS_5Siz
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !15
   %20 = sitofp i16 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -251,7 +250,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16s8uEPKhmS2_mPhmNS_5Siz
 
 ._crit_edge.us.i:                                 ; preds = %17
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %31 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline10cvtabs_32fIshEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !20
@@ -288,7 +287,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32s8uEPKhmS2_mPhmNS_5Siz
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !21
   %20 = sitofp i32 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -306,7 +305,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32s8uEPKhmS2_mPhmNS_5Siz
 
 ._crit_edge.us.i:                                 ; preds = %17
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
   %31 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline10cvtabs_32fIihEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !24
@@ -343,7 +342,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32f8uEPKhmS2_mPhmNS_5Siz
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !25
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %10, float %13)
   %21 = tail call noundef float @llvm.fabs.f32(float %20)
@@ -360,7 +359,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32f8uEPKhmS2_mPhmNS_5Siz
 
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %14
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline10cvtabs_32fIfhEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !28
@@ -401,7 +400,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs64f8uEPKhmS2_mPhmNS_5Siz
 
 19:                                               ; preds = %19, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %21 = load double, ptr %20, align 8, !tbaa !7
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %17, double %18)
   %23 = tail call noundef double @llvm.fabs.f64(double %22)
@@ -418,7 +417,7 @@ define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs64f8uEPKhmS2_mPhmNS_5Siz
 
 ._crit_edge.us.i:                                 ; preds = %19
   %30 = add nuw nsw i32 %.01521.us.i, 1
-  %31 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %9
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %9
   %32 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %30, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline10cvtabs_32fIdhEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !30
@@ -431,10 +430,10 @@ _ZN2cv12cpu_baseline10cvtabs_32fIdhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 define hidden noundef ptr @_ZN2cv12cpu_baseline19getConvertScaleFuncEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 7
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 %4
+  %5 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 %4
   %6 = and i32 %0, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   ret ptr %9
 }
@@ -573,7 +572,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8uEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !15
   %20 = uitofp i16 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -590,7 +589,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8uEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIthEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !36
@@ -627,7 +626,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8uEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !15
   %20 = sitofp i16 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -644,7 +643,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8uEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIshEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !38
@@ -681,7 +680,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8uEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !21
   %20 = sitofp i32 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -698,7 +697,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8uEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %14
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIihEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !40
@@ -735,7 +734,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8uEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !25
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %10, float %13)
   %21 = insertelement <4 x float> poison, float %20, i64 0
@@ -751,7 +750,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8uEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %27 = add nuw nsw i32 %.01521.us.i, 1
-  %28 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
   %29 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %27, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIfhEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !42
@@ -792,7 +791,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8uEPKhmS2_mPhmNS_5Size_I
 
 19:                                               ; preds = %19, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %21 = load double, ptr %20, align 8, !tbaa !7
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %17, double %18)
   %23 = insertelement <2 x double> poison, double %22, i64 0
@@ -808,7 +807,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8uEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %19
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %9
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %9
   %31 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIdhEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !44
@@ -845,7 +844,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16f8uEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv6hfloatcvfEv.exit.us.i ]
-  %18 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !45
   %20 = zext i16 %19 to i32
   %21 = shl nuw nsw i32 %20, 13
@@ -888,7 +887,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %30, %25, %17
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
   %43 = add nuw nsw i32 %.01521.us.i, 1
-  %44 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %14
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %45 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %43, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fINS_6hfloatEhEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !48
@@ -1031,7 +1030,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8sEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !15
   %20 = uitofp i16 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -1048,7 +1047,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8sEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fItaEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !54
@@ -1085,7 +1084,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8sEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !15
   %20 = sitofp i16 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -1102,7 +1101,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8sEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIsaEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !56
@@ -1139,7 +1138,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8sEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !21
   %20 = sitofp i32 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
@@ -1156,7 +1155,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8sEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %14
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIiaEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !58
@@ -1193,7 +1192,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8sEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %17, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !25
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %10, float %13)
   %21 = insertelement <4 x float> poison, float %20, i64 0
@@ -1209,7 +1208,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8sEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %17
   %27 = add nuw nsw i32 %.01521.us.i, 1
-  %28 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
   %29 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %27, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIfaEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !60
@@ -1250,7 +1249,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8sEPKhmS2_mPhmNS_5Size_I
 
 19:                                               ; preds = %19, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %21 = load double, ptr %20, align 8, !tbaa !7
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %17, double %18)
   %23 = insertelement <2 x double> poison, double %22, i64 0
@@ -1266,7 +1265,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8sEPKhmS2_mPhmNS_5Size_I
 
 ._crit_edge.us.i:                                 ; preds = %19
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %9
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %9
   %31 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIdaEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !62
@@ -1303,7 +1302,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale16f8sEPKhmS2_mPhmNS_5Size_I
 
 17:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv6hfloatcvfEv.exit.us.i ]
-  %18 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !45
   %20 = zext i16 %19 to i32
   %21 = shl nuw nsw i32 %20, 13
@@ -1346,7 +1345,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %30, %25, %17
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
   %43 = add nuw nsw i32 %.01521.us.i, 1
-  %44 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %14
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
   %45 = getelementptr inbounds nuw i8, ptr %.01719.us.i, i64 %5
   %exitcond25.not.i = icmp eq i32 %43, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fINS_6hfloatEaEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !64
@@ -1392,7 +1391,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16uEPKhmS2_mPhmNS_5Size_I
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 65535)
   %26 = trunc nuw i32 %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %26, ptr %27, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1401,7 +1400,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16uEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
   %29 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %30 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIhtEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !66
 
@@ -1446,7 +1445,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16uEPKhmS2_mPhmNS_5Size_I
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 65535)
   %26 = trunc nuw i32 %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %26, ptr %27, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1455,7 +1454,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16uEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
   %29 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %30 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIatEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !68
 
@@ -1492,7 +1491,7 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale16uEPKhmS2_mPhmNS_5Size_IiE
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = uitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -1501,7 +1500,7 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale16uEPKhmS2_mPhmNS_5Size_IiE
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 65535)
   %27 = trunc nuw i32 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %27, ptr %28, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1509,8 +1508,8 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale16uEPKhmS2_mPhmNS_5Size_IiE
 
 ._crit_edge.us.i:                                 ; preds = %18
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %31 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIttEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !70
 
@@ -1547,7 +1546,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16uEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = sitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -1556,7 +1555,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16uEPKhmS2_mPhmNS_5Size_
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 65535)
   %27 = trunc nuw i32 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %27, ptr %28, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1564,8 +1563,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16uEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %31 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIstEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !72
 
@@ -1602,7 +1601,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16uEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !21
   %21 = sitofp i32 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -1611,7 +1610,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16uEPKhmS2_mPhmNS_5Size_
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 65535)
   %27 = trunc nuw i32 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %27, ptr %28, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1619,8 +1618,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16uEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %14
-  %31 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIitEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !74
 
@@ -1657,7 +1656,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16uEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4, !tbaa !25
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = insertelement <4 x float> poison, float %21, i64 0
@@ -1665,7 +1664,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16uEPKhmS2_mPhmNS_5Size_
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 65535)
   %26 = trunc nuw i32 %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %26, ptr %27, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1673,8 +1672,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16uEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %14
-  %30 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIftEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !76
 
@@ -1715,7 +1714,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16uEPKhmS2_mPhmNS_5Size_
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !7
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %18, double %19)
   %24 = insertelement <2 x double> poison, double %23, i64 0
@@ -1723,7 +1722,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16uEPKhmS2_mPhmNS_5Size_
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
   %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 65535)
   %28 = trunc nuw i32 %27 to i16
-  %29 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %28, ptr %29, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1731,8 +1730,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16uEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %20
   %30 = add nuw nsw i32 %.01521.us.i, 1
-  %31 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %9
-  %32 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %9
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %10
   %exitcond25.not.i = icmp eq i32 %30, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIdtEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !78
 
@@ -1769,7 +1768,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16f16uEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv6hfloatcvfEv.exit.us.i ]
-  %19 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !45
   %21 = zext i16 %20 to i32
   %22 = shl nuw nsw i32 %21, 13
@@ -1804,7 +1803,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
   %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
   %42 = trunc nuw i32 %41 to i16
-  %43 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %42, ptr %43, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1812,8 +1811,8 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
   %44 = add nuw nsw i32 %.01521.us.i, 1
-  %45 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %14
-  %46 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %44, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEtEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !80
 
@@ -1858,7 +1857,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16sEPKhmS2_mPhmNS_5Size_I
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 -32768)
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 32767)
   %26 = trunc nsw i32 %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %26, ptr %27, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1867,7 +1866,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16sEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
   %29 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %30 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIhsEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !82
 
@@ -1912,7 +1911,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16sEPKhmS2_mPhmNS_5Size_I
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 -32768)
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 32767)
   %26 = trunc nsw i32 %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %26, ptr %27, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1921,7 +1920,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16sEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %28 = add nuw nsw i32 %.01521.us.i, 1
   %29 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %30 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIasEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !84
 
@@ -1958,7 +1957,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = uitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -1967,7 +1966,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16sEPKhmS2_mPhmNS_5Size_
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 -32768)
   %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 32767)
   %27 = trunc nsw i32 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %27, ptr %28, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1975,8 +1974,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %31 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fItsEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !86
 
@@ -2013,7 +2012,7 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale16sEPKhmS2_mPhmNS_5Size_IiE
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = sitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -2022,7 +2021,7 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale16sEPKhmS2_mPhmNS_5Size_IiE
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 -32768)
   %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 32767)
   %27 = trunc nsw i32 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %27, ptr %28, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2030,8 +2029,8 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale16sEPKhmS2_mPhmNS_5Size_IiE
 
 ._crit_edge.us.i:                                 ; preds = %18
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %31 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIssEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !88
 
@@ -2068,7 +2067,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !21
   %21 = sitofp i32 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -2077,7 +2076,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16sEPKhmS2_mPhmNS_5Size_
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 -32768)
   %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 32767)
   %27 = trunc nsw i32 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %27, ptr %28, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2085,8 +2084,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %29 = add nuw nsw i32 %.01521.us.i, 1
-  %30 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %14
-  %31 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %29, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIisEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !90
 
@@ -2123,7 +2122,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4, !tbaa !25
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = insertelement <4 x float> poison, float %21, i64 0
@@ -2131,7 +2130,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16sEPKhmS2_mPhmNS_5Size_
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 -32768)
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 32767)
   %26 = trunc nsw i32 %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %26, ptr %27, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2139,8 +2138,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %28 = add nuw nsw i32 %.01521.us.i, 1
-  %29 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %14
-  %30 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %28, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIfsEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !92
 
@@ -2181,7 +2180,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16sEPKhmS2_mPhmNS_5Size_
 
 20:                                               ; preds = %20, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !7
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %18, double %19)
   %24 = insertelement <2 x double> poison, double %23, i64 0
@@ -2189,7 +2188,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16sEPKhmS2_mPhmNS_5Size_
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 -32768)
   %27 = tail call i32 @llvm.smin.i32(i32 %26, i32 32767)
   %28 = trunc nsw i32 %27 to i16
-  %29 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %28, ptr %29, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2197,8 +2196,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %20
   %30 = add nuw nsw i32 %.01521.us.i, 1
-  %31 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %9
-  %32 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %9
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %10
   %exitcond25.not.i = icmp eq i32 %30, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIdsEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !94
 
@@ -2235,7 +2234,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16f16sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv6hfloatcvfEv.exit.us.i ]
-  %19 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !45
   %21 = zext i16 %20 to i32
   %22 = shl nuw nsw i32 %21, 13
@@ -2270,7 +2269,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
   %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 -32768)
   %41 = tail call i32 @llvm.smin.i32(i32 %40, i32 32767)
   %42 = trunc nsw i32 %41 to i16
-  %43 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i16 %42, ptr %43, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2278,8 +2277,8 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
   %44 = add nuw nsw i32 %.01521.us.i, 1
-  %45 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %14
-  %46 = getelementptr inbounds nuw i16, ptr %.01719.us.i, i64 %15
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %44, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEsEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !96
 
@@ -2321,7 +2320,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32sEPKhmS2_mPhmNS_5Size_I
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = insertelement <4 x float> poison, float %21, i64 0
   %23 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %22)
-  %24 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %23, ptr %24, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2330,7 +2329,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32sEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %25 = add nuw nsw i32 %.01521.us.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %27 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %14
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %25, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIhiEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !98
 
@@ -2372,7 +2371,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32sEPKhmS2_mPhmNS_5Size_I
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = insertelement <4 x float> poison, float %21, i64 0
   %23 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %22)
-  %24 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %23, ptr %24, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2381,7 +2380,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32sEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %25 = add nuw nsw i32 %.01521.us.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %27 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %14
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %25, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIaiEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !100
 
@@ -2418,13 +2417,13 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = uitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
   %23 = insertelement <4 x float> poison, float %22, i64 0
   %24 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %23)
-  %25 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %24, ptr %25, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2432,8 +2431,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %26 = add nuw nsw i32 %.01521.us.i, 1
-  %27 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %28 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %15
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %26, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fItiEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !102
 
@@ -2470,13 +2469,13 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = sitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
   %23 = insertelement <4 x float> poison, float %22, i64 0
   %24 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %23)
-  %25 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %24, ptr %25, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2484,8 +2483,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %26 = add nuw nsw i32 %.01521.us.i, 1
-  %27 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %28 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %15
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %26, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIsiEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !104
 
@@ -2520,13 +2519,13 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale32sEPKhmS2_mPhmNS_5Size_IiE
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = sitofp i32 %18 to double
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %9, double %11)
   %21 = insertelement <2 x double> poison, double %20, i64 0
   %22 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %21)
-  %23 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %22, ptr %23, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2534,8 +2533,8 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale32sEPKhmS2_mPhmNS_5Size_IiE
 
 ._crit_edge.us.i:                                 ; preds = %16
   %24 = add nuw nsw i32 %.01521.us.i, 1
-  %25 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %12
-  %26 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %13
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %12
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %24, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIiiEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !106
 
@@ -2572,12 +2571,12 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f32sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4, !tbaa !25
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = insertelement <4 x float> poison, float %21, i64 0
   %23 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %22)
-  %24 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %23, ptr %24, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2585,8 +2584,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f32sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %25 = add nuw nsw i32 %.01521.us.i, 1
-  %26 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %14
-  %27 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %25, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIfiEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !108
 
@@ -2621,12 +2620,12 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32sEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %9, double %11)
   %20 = insertelement <2 x double> poison, double %19, i64 0
   %21 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %20)
-  %22 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %21, ptr %22, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2634,8 +2633,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32sEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %16
   %23 = add nuw nsw i32 %.01521.us.i, 1
-  %24 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %12
-  %25 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %13
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %12
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIdiEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !110
 
@@ -2672,7 +2671,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16f32sEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv6hfloatcvfEv.exit.us.i ]
-  %19 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !45
   %21 = zext i16 %20 to i32
   %22 = shl nuw nsw i32 %21, 13
@@ -2704,7 +2703,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
   %37 = tail call float @llvm.fmuladd.f32(float %36, float %10, float %13)
   %38 = insertelement <4 x float> poison, float %37, i64 0
   %39 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %38)
-  %40 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store i32 %39, ptr %40, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2712,8 +2711,8 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
   %41 = add nuw nsw i32 %.01521.us.i, 1
-  %42 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %14
-  %43 = getelementptr inbounds nuw i32, ptr %.01719.us.i, i64 %15
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %41, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEiEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !112
 
@@ -2753,7 +2752,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32fEPKhmS2_mPhmNS_5Size_I
   %19 = load i8, ptr %18, align 1, !tbaa !9
   %20 = uitofp i8 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
-  %22 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %21, ptr %22, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2762,7 +2761,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32fEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %23 = add nuw nsw i32 %.01521.us.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %25 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %14
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIhfEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !114
 
@@ -2802,7 +2801,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32fEPKhmS2_mPhmNS_5Size_I
   %19 = load i8, ptr %18, align 1, !tbaa !9
   %20 = sitofp i8 %19 to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
-  %22 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %21, ptr %22, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2811,7 +2810,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32fEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %17
   %23 = add nuw nsw i32 %.01521.us.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %25 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %14
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %14
   %exitcond25.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIafEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !116
 
@@ -2848,11 +2847,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = uitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
-  %23 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %22, ptr %23, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2860,8 +2859,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %24 = add nuw nsw i32 %.01521.us.i, 1
-  %25 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %26 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %15
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %24, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fItfEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !118
 
@@ -2898,11 +2897,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = sitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
-  %23 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %22, ptr %23, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2910,8 +2909,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %24 = add nuw nsw i32 %.01521.us.i, 1
-  %25 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %14
-  %26 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %15
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %24, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIsfEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !120
 
@@ -2948,11 +2947,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s32fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !21
   %21 = sitofp i32 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
-  %23 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %22, ptr %23, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2960,8 +2959,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s32fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %18
   %24 = add nuw nsw i32 %.01521.us.i, 1
-  %25 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %14
-  %26 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %15
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %24, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIifEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !122
 
@@ -2998,10 +2997,10 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale32fEPKhmS2_mPhmNS_5Size_IiE
 
 18:                                               ; preds = %18, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4, !tbaa !25
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
-  %22 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %21, ptr %22, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3009,8 +3008,8 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale32fEPKhmS2_mPhmNS_5Size_IiE
 
 ._crit_edge.us.i:                                 ; preds = %18
   %23 = add nuw nsw i32 %.01521.us.i, 1
-  %24 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %14
-  %25 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %15
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %14
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_32fIffEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !124
 
@@ -3045,11 +3044,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32fEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %9, double %11)
   %20 = fptrunc double %19 to float
-  %21 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %20, ptr %21, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3057,8 +3056,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %16
   %22 = add nuw nsw i32 %.01521.us.i, 1
-  %23 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %12
-  %24 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %13
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %12
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIdfEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !126
 
@@ -3095,7 +3094,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16f32fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv6hfloatcvfEv.exit.us.i ]
-  %19 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !45
   %21 = zext i16 %20 to i32
   %22 = shl nuw nsw i32 %21, 13
@@ -3125,7 +3124,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
   %35 = or i32 %33, %34
   %36 = bitcast i32 %35 to float
   %37 = tail call float @llvm.fmuladd.f32(float %36, float %10, float %13)
-  %38 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %37, ptr %38, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3133,8 +3132,8 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
   %39 = add nuw nsw i32 %.01521.us.i, 1
-  %40 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %14
-  %41 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %15
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %14
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %15
   %exitcond25.not.i = icmp eq i32 %39, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEfEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !128
 
@@ -3172,7 +3171,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u64fEPKhmS2_mPhmNS_5Size_I
   %17 = load i8, ptr %16, align 1, !tbaa !9
   %18 = uitofp i8 %17 to double
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %9, double %11)
-  %20 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3181,7 +3180,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u64fEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %15
   %21 = add nuw nsw i32 %.01521.us.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %23 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %12
   %exitcond25.not.i = icmp eq i32 %21, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIhdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !130
 
@@ -3219,7 +3218,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s64fEPKhmS2_mPhmNS_5Size_I
   %17 = load i8, ptr %16, align 1, !tbaa !9
   %18 = sitofp i8 %17 to double
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %9, double %11)
-  %20 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3228,7 +3227,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s64fEPKhmS2_mPhmNS_5Size_I
 ._crit_edge.us.i:                                 ; preds = %15
   %21 = add nuw nsw i32 %.01521.us.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.01620.us.i, i64 %1
-  %23 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %12
   %exitcond25.not.i = icmp eq i32 %21, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIadEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !132
 
@@ -3263,11 +3262,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u64fEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2, !tbaa !15
   %19 = uitofp i16 %18 to double
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %9, double %11)
-  %21 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %20, ptr %21, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3275,8 +3274,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u64fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %16
   %22 = add nuw nsw i32 %.01521.us.i, 1
-  %23 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %12
-  %24 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %13
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %12
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fItdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !134
 
@@ -3311,11 +3310,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s64fEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2, !tbaa !15
   %19 = sitofp i16 %18 to double
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %9, double %11)
-  %21 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %20, ptr %21, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3323,8 +3322,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s64fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %16
   %22 = add nuw nsw i32 %.01521.us.i, 1
-  %23 = getelementptr inbounds nuw i16, ptr %.01620.us.i, i64 %12
-  %24 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %13
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %12
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIsdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !136
 
@@ -3359,11 +3358,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s64fEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = sitofp i32 %18 to double
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %9, double %11)
-  %21 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %20, ptr %21, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3371,8 +3370,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s64fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %16
   %22 = add nuw nsw i32 %.01521.us.i, 1
-  %23 = getelementptr inbounds nuw i32, ptr %.01620.us.i, i64 %12
-  %24 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %12
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIidEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !138
 
@@ -3407,11 +3406,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f64fEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load float, ptr %17, align 4, !tbaa !25
   %19 = fpext float %18 to double
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %9, double %11)
-  %21 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %20, ptr %21, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3419,8 +3418,8 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f64fEPKhmS2_mPhmNS_5Size_
 
 ._crit_edge.us.i:                                 ; preds = %16
   %22 = add nuw nsw i32 %.01521.us.i, 1
-  %23 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %12
-  %24 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %12
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIfdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !140
 
@@ -3455,10 +3454,10 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale64fEPKhmS2_mPhmNS_5Size_IiE
 
 16:                                               ; preds = %16, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %9, double %11)
-  %20 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %19, ptr %20, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3466,8 +3465,8 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale64fEPKhmS2_mPhmNS_5Size_IiE
 
 ._crit_edge.us.i:                                 ; preds = %16
   %21 = add nuw nsw i32 %.01521.us.i, 1
-  %22 = getelementptr inbounds nuw double, ptr %.01620.us.i, i64 %12
-  %23 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %13
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.01620.us.i, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %21, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIddEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !142
 
@@ -3502,7 +3501,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16f64fEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv6hfloatcvfEv.exit.us.i ]
-  %17 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2, !tbaa !45
   %19 = zext i16 %18 to i32
   %20 = shl nuw nsw i32 %19, 13
@@ -3533,7 +3532,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %29, %24, %16
   %34 = bitcast i32 %33 to float
   %35 = fpext float %34 to double
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %9, double %11)
-  %37 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store double %36, ptr %37, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3541,8 +3540,8 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %29, %24, %16
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
   %38 = add nuw nsw i32 %.01521.us.i, 1
-  %39 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01620.us.i, i64 %12
-  %40 = getelementptr inbounds nuw double, ptr %.01719.us.i, i64 %13
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.01620.us.i, i64 %12
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.01719.us.i, i64 %13
   %exitcond25.not.i = icmp eq i32 %38, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond25.not.i, label %_ZN2cv12cpu_baseline7cvt_64fINS_6hfloatEdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !144
 
@@ -3618,7 +3617,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %38, %34, %27
   %44 = trunc nuw i32 %43 to i16
   %45 = and i16 %44, -32768
   %46 = or i16 %41, %45
-  %47 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %46, ptr %47, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3627,7 +3626,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %38, %34, %27
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %48 = add nuw nsw i32 %.01721.us.i, 1
   %49 = getelementptr inbounds nuw i8, ptr %.022.us.i, i64 %1
-  %50 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %14
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %14
   %exitcond26.not.i = icmp eq i32 %48, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fIhNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !146
 
@@ -3703,7 +3702,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %38, %34, %27
   %44 = trunc nuw i32 %43 to i16
   %45 = and i16 %44, -32768
   %46 = or i16 %41, %45
-  %47 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %46, ptr %47, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3712,7 +3711,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %38, %34, %27
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %48 = add nuw nsw i32 %.01721.us.i, 1
   %49 = getelementptr inbounds nuw i8, ptr %.022.us.i, i64 %1
-  %50 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %14
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %14
   %exitcond26.not.i = icmp eq i32 %48, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fIaNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !148
 
@@ -3749,7 +3748,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i ]
-  %19 = getelementptr inbounds nuw i16, ptr %.022.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = uitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -3789,7 +3788,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %39, %35, %28
   %45 = trunc nuw i32 %44 to i16
   %46 = and i16 %45, -32768
   %47 = or i16 %42, %46
-  %48 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %47, ptr %48, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3797,8 +3796,8 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %39, %35, %28
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %49 = add nuw nsw i32 %.01721.us.i, 1
-  %50 = getelementptr inbounds nuw i16, ptr %.022.us.i, i64 %14
-  %51 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %15
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.022.us.i, i64 %14
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %15
   %exitcond26.not.i = icmp eq i32 %49, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fItNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !150
 
@@ -3835,7 +3834,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i ]
-  %19 = getelementptr inbounds nuw i16, ptr %.022.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !15
   %21 = sitofp i16 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -3875,7 +3874,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %39, %35, %28
   %45 = trunc nuw i32 %44 to i16
   %46 = and i16 %45, -32768
   %47 = or i16 %42, %46
-  %48 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %47, ptr %48, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3883,8 +3882,8 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %39, %35, %28
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %49 = add nuw nsw i32 %.01721.us.i, 1
-  %50 = getelementptr inbounds nuw i16, ptr %.022.us.i, i64 %14
-  %51 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %15
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.022.us.i, i64 %14
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %15
   %exitcond26.not.i = icmp eq i32 %49, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fIsNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !152
 
@@ -3921,7 +3920,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i ]
-  %19 = getelementptr inbounds nuw i32, ptr %.022.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !21
   %21 = sitofp i32 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
@@ -3961,7 +3960,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %39, %35, %28
   %45 = trunc nuw i32 %44 to i16
   %46 = and i16 %45, -32768
   %47 = or i16 %42, %46
-  %48 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %47, ptr %48, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3969,8 +3968,8 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %39, %35, %28
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %49 = add nuw nsw i32 %.01721.us.i, 1
-  %50 = getelementptr inbounds nuw i32, ptr %.022.us.i, i64 %14
-  %51 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %15
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %14
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %15
   %exitcond26.not.i = icmp eq i32 %49, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fIiNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !154
 
@@ -4007,7 +4006,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16fEPKhmS2_mPhmNS_5Size_
 
 18:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i ]
-  %19 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4, !tbaa !25
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = tail call float @llvm.fabs.f32(float %21)
@@ -4046,7 +4045,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %38, %34, %27
   %44 = trunc nuw i32 %43 to i16
   %45 = and i16 %44, -32768
   %46 = or i16 %41, %45
-  %47 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %46, ptr %47, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4054,8 +4053,8 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %38, %34, %27
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %48 = add nuw nsw i32 %.01721.us.i, 1
-  %49 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %14
-  %50 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %15
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %14
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %15
   %exitcond26.not.i = icmp eq i32 %48, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fIfNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !156
 
@@ -4090,7 +4089,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16fEPKhmS2_mPhmNS_5Size_
 
 16:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i ]
-  %17 = getelementptr inbounds nuw double, ptr %.022.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %9, double %11)
   %20 = fptrunc double %19 to float
@@ -4130,7 +4129,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i: ; preds = %37, %33, %26
   %43 = trunc nuw i32 %42 to i16
   %44 = and i16 %43, -32768
   %45 = or i16 %40, %44
-  %46 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %45, ptr %46, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4138,8 +4137,8 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i: ; preds = %37, %33, %26
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i
   %47 = add nuw nsw i32 %.01721.us.i, 1
-  %48 = getelementptr inbounds nuw double, ptr %.022.us.i, i64 %12
-  %49 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %13
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.022.us.i, i64 %12
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %13
   %exitcond26.not.i = icmp eq i32 %47, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline7cvt_64fIdNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEdd.exit, label %.preheader.us.i, !llvm.loop !158
 
@@ -4176,7 +4175,7 @@ define internal void @_ZN2cv12cpu_baselineL11cvtScale16fEPKhmS2_mPhmNS_5Size_IiE
 
 18:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i ]
-  %19 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.022.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !45
   %21 = zext i16 %20 to i32
   %22 = shl nuw nsw i32 %21, 13
@@ -4242,7 +4241,7 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %54, %50, %43
   %60 = trunc nuw i32 %59 to i16
   %61 = and i16 %60, -32768
   %62 = or i16 %57, %61
-  %63 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store i16 %62, ptr %63, align 2, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4250,8 +4249,8 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %54, %50, %43
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %64 = add nuw nsw i32 %.01721.us.i, 1
-  %65 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.022.us.i, i64 %14
-  %66 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01820.us.i, i64 %15
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.022.us.i, i64 %14
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.01820.us.i, i64 %15
   %exitcond26.not.i = icmp eq i32 %64, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond26.not.i, label %_ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatES2_EEvPKT_mPT0_mNS_5Size_IiEEff.exit, label %.preheader.us.i, !llvm.loop !160
 
@@ -4266,10 +4265,10 @@ define hidden noundef ptr @_ZN2cv19getConvertScaleFuncEii(i32 noundef %0, i32 no
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv19getConvertScaleFuncEiiE24__cv_trace_location_fn24)
   %4 = and i32 %1, 7
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 %5
+  %6 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 %5
   %7 = and i32 %0, 7
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !161
@@ -4394,7 +4393,7 @@ _ZNK2cv11_InputArray6getMatEi.exit37:             ; preds = %35, %38
 .noexc38:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit37
   %40 = and i32 %39, 7
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !161

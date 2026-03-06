@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.BlockInfo = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"flashsv\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Flash Screen Video v1\00", align 1
@@ -605,7 +604,7 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 340:                                              ; preds = %337, %334
   %341 = getelementptr inbounds nuw i8, ptr %328, i64 88
   %342 = load ptr, ptr %341, align 8, !tbaa !53
-  %343 = getelementptr inbounds nuw %struct.BlockInfo, ptr %342, i64 %327
+  %343 = getelementptr inbounds nuw [16 x i8], ptr %342, i64 %327
   %344 = load ptr, ptr %343, align 8, !tbaa !65
   %345 = load ptr, ptr %330, align 8, !tbaa !64
   %.not.i.i.us = icmp eq ptr %344, null
@@ -732,7 +731,7 @@ flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.
   %400 = getelementptr inbounds i8, ptr %399, i64 %380
   %401 = getelementptr inbounds nuw i8, ptr %328, i64 88
   %402 = load ptr, ptr %401, align 8, !tbaa !53
-  %403 = getelementptr inbounds nuw %struct.BlockInfo, ptr %402, i64 %327
+  %403 = getelementptr inbounds nuw [16 x i8], ptr %402, i64 %327
   store ptr %400, ptr %403, align 8, !tbaa !65
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store i32 %.0224337.us, ptr %404, align 8, !tbaa !67
@@ -825,7 +824,7 @@ flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.
 457:                                              ; preds = %434
   %458 = getelementptr inbounds nuw i8, ptr %.13452.us.i.i.us, i64 1
   %459 = zext nneg i8 %435 to i64
-  %460 = getelementptr inbounds nuw i32, ptr %424, i64 %459
+  %460 = getelementptr inbounds nuw [4 x i8], ptr %424, i64 %459
   %461 = load i32, ptr %460, align 4, !tbaa !60
   %462 = trunc i32 %461 to i8
   %463 = lshr i32 %461, 8

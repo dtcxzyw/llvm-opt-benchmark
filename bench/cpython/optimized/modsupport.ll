@@ -303,7 +303,7 @@ define hidden ptr @_Py_VaBuildStack(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %24, label %36, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr ptr, ptr %.022, i64 %.02535.i
+  %26 = getelementptr [8 x i8], ptr %.022, i64 %.02535.i
   store ptr %23, ptr %26, align 8, !tbaa !23
   %27 = add nuw nsw i64 %.02535.i, 1
   %exitcond.not.i = icmp eq i64 %27, %8
@@ -349,7 +349,7 @@ define hidden ptr @_Py_VaBuildStack(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit.i, %.lr.ph.preheader.i
   %.136.i = phi i64 [ %46, %Py_DECREF.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %39 = getelementptr ptr, ptr %.022, i64 %.136.i
+  %39 = getelementptr [8 x i8], ptr %.022, i64 %.136.i
   %40 = load ptr, ptr %39, align 8, !tbaa !23
   %41 = load i32, ptr %40, align 8, !tbaa !29
   %.not.i.i = icmp sgt i32 %41, -1
@@ -805,7 +805,7 @@ define internal fastcc ptr @do_mkvalue(ptr noundef nonnull captures(none) %0, pt
 
 29:                                               ; preds = %19
   %.val.i = load ptr, ptr %17, align 8, !tbaa !33
-  %30 = getelementptr ptr, ptr %.val.i, i64 %.028.i168
+  %30 = getelementptr [8 x i8], ptr %.val.i, i64 %.028.i168
   store ptr %20, ptr %30, align 8, !tbaa !23
   %31 = add nuw nsw i64 %.028.i168, 1
   %exitcond.not = icmp eq i64 %31, %12
@@ -1723,7 +1723,7 @@ define internal fastcc ptr @do_mktuple(ptr noundef nonnull captures(none) %0, pt
   br label %Py_DECREF.exit
 
 21:                                               ; preds = %11
-  %22 = getelementptr ptr, ptr %9, i64 %.02739
+  %22 = getelementptr [8 x i8], ptr %9, i64 %.02739
   store ptr %12, ptr %22, align 8, !tbaa !23
   %23 = add nuw nsw i64 %.02739, 1
   %exitcond.not = icmp eq i64 %23, %3
@@ -1913,7 +1913,7 @@ check_end.exit:                                   ; preds = %26, %._crit_edge.i
   br i1 %.not17, label %Py_DECREF.exit, label %33
 
 33:                                               ; preds = %.lr.ph.split
-  %34 = getelementptr ptr, ptr %7, i64 %.021
+  %34 = getelementptr [8 x i8], ptr %7, i64 %.021
   store ptr %32, ptr %34, align 8, !tbaa !23
   br label %Py_DECREF.exit
 

@@ -137,7 +137,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [40 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -1254,9 +1254,9 @@ default.unreachable1:                             ; preds = %2
 define internal { ptr, i64 } @"_ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !77, !noundef !4
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E.21", i64 %1
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E.21", i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
@@ -1269,7 +1269,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !186
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %1, i64 %0
+  %7 = getelementptr inbounds [40 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -1291,7 +1291,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN81_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdcce9ebe37c20057E.llvm.18245684541142357402.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [40 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -1509,7 +1509,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %47, ptr %48, align 8, !noalias !240
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %50 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %7, i64 %8
+  %50 = getelementptr inbounds [16 x i8], ptr %7, i64 %8
   %51 = icmp eq i64 %46, 0
   br i1 %51, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -1546,7 +1546,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %.sroa.4.0.i.i.i = phi i32 [ %.val.i.i.i.i, %58 ], [ undef, %62 ]
   %.sroa.5.0.i.i.i = phi ptr [ %61, %58 ], [ %64, %62 ]
   %storemerge.i.i.i.i = phi i32 [ 0, %58 ], [ 1, %62 ]
-  %65 = getelementptr inbounds nuw { [2 x i64] }, ptr %47, i64 %.sroa.7.030.i.i
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %.sroa.7.030.i.i
   store i32 %storemerge.i.i.i.i, ptr %65, align 8, !noalias !251
   %.sroa.07.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %.sroa.4.0.i.i.i, ptr %.sroa.07.sroa.4.0..sroa_idx.i.i, align 4, !noalias !251
@@ -3209,7 +3209,7 @@ define hidden void @_ZN6diesel5mysql10connection4bind11OutputBinds17from_output_
   %10 = zext i32 %7 to i64
   %.sroa.3.0.i = select i1 %9, i64 0, i64 %10
   %.sroa.0.0.i = select i1 %9, ptr @anon.90c1904676608adc7b7fc776e0ff2b83.11.llvm.3868854263495710559, ptr %8
-  %11 = getelementptr inbounds nuw { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [1 x i32], ptr }, {} }, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
   %12 = getelementptr inbounds i8, ptr %1, i64 %2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -3551,7 +3551,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN101_$LT$diesel..mysq
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb306bb2060a08b88E.llvm.18245684541142357402.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !610, !noalias !613, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [40 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -3628,10 +3628,10 @@ switch.lookup:
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = zext nneg i8 %2 to i64
-  %switch.gep13 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE.22, i64 %5
+  %switch.gep13 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE.22, i64 %5
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
   %.sroa.7.0 = select i1 %.not, i64 0, i64 %.sroa.5.0.copyload
@@ -3973,7 +3973,7 @@ define hidden void @_ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_fla
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb98e93f08ac7f736E"(i64 noundef %switch.load, i1 noundef zeroext true), !noalias !636
   %7 = extractvalue { i64, ptr } %6, 0
@@ -4373,7 +4373,7 @@ define hidden void @_ZN6diesel2pg5types6floats16quickcheck_impls42gen_vec_of_app
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !736, !noalias !739, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !736, !noalias !739
-  %17 = getelementptr inbounds i16, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %17 = getelementptr inbounds [2 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %18 = zext i16 %.0.sroa.speculated.i to i64
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4393,7 +4393,7 @@ define hidden void @_ZN6diesel2pg5types6floats16quickcheck_impls42gen_vec_of_app
   %22 = load ptr, ptr %21, align 8, !nonnull !4
   %.promoted = load i64, ptr %20, align 8
   %.not12 = icmp eq i64 %.promoted, 0
-  %23 = getelementptr i16, ptr %22, i64 %.promoted
+  %23 = getelementptr [2 x i8], ptr %22, i64 %.promoted
   %24 = getelementptr i8, ptr %23, i64 -2
   %25 = icmp eq ptr %24, null
   %26 = select i1 %.not12, i1 true, i1 %25
@@ -4422,7 +4422,7 @@ define hidden void @_ZN6diesel2pg5types6floats16quickcheck_impls42gen_vec_of_app
   %34 = icmp ult i64 %33, %27
   call void @llvm.assume(i1 %34)
   %.not = icmp eq i64 %33, 0
-  %35 = getelementptr i16, ptr %22, i64 %33
+  %35 = getelementptr [2 x i8], ptr %22, i64 %33
   %36 = getelementptr i8, ptr %35, i64 -2
   %37 = icmp eq ptr %36, null
   %38 = select i1 %.not, i1 true, i1 %37
@@ -5544,7 +5544,7 @@ define hidden void @_ZN6diesel6sqlite10connection12sqlite_value11SqliteValue12pa
 
 12:                                               ; preds = %24, %2
   %13 = phi i64 [ 0, %2 ], [ %25, %24 ]
-  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %13
   %15 = load ptr, ptr %14, align 8, !alias.scope !1051, !noalias !1048, !nonnull !4, !align !153, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8, !alias.scope !1051, !noalias !1048, !noundef !4
@@ -5606,7 +5606,7 @@ define hidden void @_ZN6diesel6sqlite10connection12sqlite_value11SqliteValue12pa
 
 11:                                               ; preds = %22, %2
   %12 = phi i64 [ 0, %2 ], [ %23, %22 ]
-  %13 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load ptr, ptr %13, align 8, !alias.scope !1060, !noalias !1057, !nonnull !4, !align !153, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !alias.scope !1060, !noalias !1057, !noundef !4
@@ -5766,7 +5766,7 @@ common.resume:                                    ; preds = %16
 
 21:                                               ; preds = %3, %37
   %22 = phi i64 [ 0, %3 ], [ %38, %37 ]
-  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %22
   %24 = load ptr, ptr %23, align 8, !alias.scope !1078, !nonnull !4, !align !153, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !alias.scope !1078, !noundef !4
@@ -5831,7 +5831,7 @@ define hidden void @"_ZN6diesel6sqlite5types13date_and_time6chrono167_$LT$impl$u
 
 16:                                               ; preds = %3, %53
   %17 = phi i64 [ 0, %3 ], [ %54, %53 ]
-  %18 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %17
   %19 = load ptr, ptr %18, align 8, !alias.scope !1081, !nonnull !4, !align !153, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !1081, !noundef !4
@@ -5968,7 +5968,7 @@ define hidden void @"_ZN6diesel6sqlite5types13date_and_time6chrono173_$LT$impl$u
 
 16:                                               ; preds = %3, %53
   %17 = phi i64 [ 0, %3 ], [ %54, %53 ]
-  %18 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %17
   %19 = load ptr, ptr %18, align 8, !alias.scope !1099, !nonnull !4, !align !153, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !1099, !noundef !4
@@ -6093,7 +6093,7 @@ define hidden void @"_ZN6diesel6sqlite5types13date_and_time6chrono193_$LT$impl$u
 
 7:                                                ; preds = %3, %19
   %8 = phi i64 [ 0, %3 ], [ %20, %19 ]
-  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !alias.scope !1117, !nonnull !4, !align !153, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !alias.scope !1117, !noundef !4
@@ -6139,7 +6139,7 @@ define hidden void @"_ZN6diesel6sqlite5types13date_and_time6chrono197_$LT$impl$u
 
 8:                                                ; preds = %3, %21
   %9 = phi i64 [ 0, %3 ], [ %22, %21 ]
-  %10 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !alias.scope !1120, !nonnull !4, !align !153, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !alias.scope !1120, !noundef !4

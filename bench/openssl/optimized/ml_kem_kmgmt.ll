@@ -115,7 +115,7 @@ define internal range(i32 0, 2) i32 @ml_kem_get_params(ptr noundef %0, ptr nound
   %.not94 = phi i1 [ true, %.preheader ], [ false, %50 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %50 ]
   %.093 = phi ptr [ null, %.preheader ], [ %.1, %50 ]
-  %27 = getelementptr inbounds nuw ptr, ptr @__const.ml_kem_get_params.pubparams, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @__const.ml_kem_get_params.pubparams, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !21
   %29 = tail call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef %28) #7
   %30 = icmp eq ptr %29, null

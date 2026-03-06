@@ -1599,7 +1599,7 @@ Py_INCREF.exit.i:                                 ; preds = %10, %7
 24:                                               ; preds = %Py_INCREF.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8, !tbaa !40
-  %27 = getelementptr ptr, ptr %26, i64 %12
+  %27 = getelementptr [8 x i8], ptr %26, i64 %12
   %28 = load ptr, ptr %27, align 8, !tbaa !50
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %35, label %29
@@ -1673,7 +1673,7 @@ _odict_add_tail.exit.i:                           ; preds = %54, %52
   %58 = add i64 %57, 1
   store i64 %58, ptr %56, align 8, !tbaa !47
   %59 = load ptr, ptr %25, align 8, !tbaa !40
-  %60 = getelementptr ptr, ptr %59, i64 %12
+  %60 = getelementptr [8 x i8], ptr %59, i64 %12
   store ptr %36, ptr %60, align 8, !tbaa !50
   br label %_odict_add_new_node.exit
 
@@ -1733,14 +1733,14 @@ define internal fastcc range(i32 -1, 1) i32 @_odict_clear_node(ptr noundef %0, p
   br i1 %15, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr ptr, ptr %17, i64 %9
+  %19 = getelementptr [8 x i8], ptr %17, i64 %9
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = icmp eq ptr %20, null
   br i1 %21, label %59, label %.thread
 
 .thread:                                          ; preds = %14, %18
   %.01520 = phi ptr [ %20, %18 ], [ %1, %14 ]
-  %22 = getelementptr ptr, ptr %17, i64 %9
+  %22 = getelementptr [8 x i8], ptr %17, i64 %9
   store ptr null, ptr %22, align 8, !tbaa !50
   %23 = load ptr, ptr %5, align 8, !tbaa !41
   %24 = icmp eq ptr %23, %.01520
@@ -2019,7 +2019,7 @@ define internal ptr @odictiter_iternext(ptr noundef captures(none) %0) #0 {
 _odict_find_node.exit.i:                          ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %34 = load ptr, ptr %33, align 8, !tbaa !40
-  %35 = getelementptr ptr, ptr %34, i64 %31
+  %35 = getelementptr [8 x i8], ptr %34, i64 %31
   %36 = load ptr, ptr %35, align 8, !tbaa !50
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_odict_find_node.exit.thread.i, label %50
@@ -4349,7 +4349,7 @@ define internal noundef ptr @OrderedDict_move_to_end(ptr noundef %0, ptr noundef
 _odict_find_node.exit.i:                          ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load ptr, ptr %46, align 8, !tbaa !40
-  %48 = getelementptr ptr, ptr %47, i64 %44
+  %48 = getelementptr [8 x i8], ptr %47, i64 %44
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_odict_find_node.exit.thread.i, label %54
@@ -4541,7 +4541,7 @@ define internal fastcc ptr @_odict_popkey_hash(ptr noundef %0, ptr noundef %1, p
 _odict_find_node_hash.exit:                       ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !40
-  %14 = getelementptr ptr, ptr %13, i64 %10
+  %14 = getelementptr [8 x i8], ptr %13, i64 %10
   %15 = load ptr, ptr %14, align 8, !tbaa !50
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_odict_find_node_hash.exit.thread.thread, label %16
@@ -4690,7 +4690,7 @@ _odict_get_index_raw.exit.i:                      ; preds = %36, %33
   br label %_odict_resize.exit.thread
 
 39:                                               ; preds = %_odict_get_index_raw.exit.i
-  %40 = getelementptr ptr, ptr %22, i64 %.0.i.i
+  %40 = getelementptr [8 x i8], ptr %22, i64 %.0.i.i
   store ptr %.035.i, ptr %40, align 8, !tbaa !50
   %41 = getelementptr inbounds nuw i8, ptr %.035.i, i64 16
   %.0.i = load ptr, ptr %41, align 8, !tbaa !50

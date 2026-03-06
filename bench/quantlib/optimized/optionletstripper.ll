@@ -1667,7 +1667,7 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i
   store ptr %call5.i.i.i.i.i287, ptr %optionletTenors_, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i277, align 8, !tbaa !79
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %call5.i.i.i.i.i287, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i287, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !80
   br label %invoke.cont110
 
@@ -1750,7 +1750,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i298, ptr %capFloorLengths_, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i290, align 8, !tbaa !79
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %call5.i.i.i.i.i.i298, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i298, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %invoke.cont118
 
@@ -2054,7 +2054,7 @@ if.then.i20.i.i374:                               ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i375: ; preds = %if.then.i20.i.i374, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i370
   store ptr %call5.i.i.i.i.i380, ptr %optionletTenors_, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i372, ptr %_M_finish.i277, align 8, !tbaa !79
-  %add.ptr19.i.i376 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %call5.i.i.i.i.i380, i64 %cond.i.i.i359
+  %add.ptr19.i.i376 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i380, i64 %cond.i.i.i359
   store ptr %add.ptr19.i.i376, ptr %_M_end_of_storage.i, align 8, !tbaa !80
   br label %invoke.cont180
 
@@ -2125,7 +2125,7 @@ if.then.i20.i.i413:                               ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i414: ; preds = %if.then.i20.i.i413, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i409
   store ptr %call5.i.i.i.i.i419, ptr %capFloorLengths_, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i411, ptr %_M_finish.i.i290, align 8, !tbaa !79
-  %add.ptr19.i.i415 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %call5.i.i.i.i.i419, i64 %cond.i.i.i398
+  %add.ptr19.i.i415 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i419, i64 %cond.i.i.i398
   store ptr %add.ptr19.i.i415, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %invoke.cont182
 
@@ -2179,7 +2179,7 @@ if.then.i.i.i.i.i427:                             ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i427
   store ptr %call5.i.i.i.i2.i.i434, ptr %ref.tmp189, align 8, !tbaa !37
-  %add.ptr.i.i.i429 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i434, i64 %209
+  %add.ptr.i.i.i429 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i434, i64 %209
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp189, i64 16
   store ptr %add.ptr.i.i.i429, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !105
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i434, align 8, !tbaa !106
@@ -2234,7 +2234,7 @@ if.then.i.i.i443:                                 ; preds = %lpad.i441
   br label %lpad195.body
 
 invoke.cont196:                                   ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i
-  %add.ptr.i.i.i439 = getelementptr inbounds nuw %"class.std::vector.26", ptr %cond.i.i.i.i438, i64 %sub.ptr.div.i425
+  %add.ptr.i.i.i439 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i438, i64 %sub.ptr.div.i425
   %211 = load ptr, ptr %optionletVolatilities_, align 8, !tbaa !107
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %212 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !108
@@ -2345,7 +2345,7 @@ if.then.i.i.i493:                                 ; preds = %lpad.i491
   br label %ehcleanup271
 
 invoke.cont215:                                   ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i485
-  %add.ptr.i.i.i488 = getelementptr inbounds nuw %"class.std::vector.26", ptr %cond.i.i.i.i486, i64 %218
+  %add.ptr.i.i.i488 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i486, i64 %218
   %222 = load ptr, ptr %optionletStrikes_, align 8, !tbaa !107
   %_M_finish.i.i.i.i505 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %223 = load ptr, ptr %_M_finish.i.i.i.i505, align 8, !tbaa !108
@@ -2453,7 +2453,7 @@ if.then.i.i.i.i.i571:                             ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc587 unwind label %lpad234
 
 call5.i.i.i.i2.i.i.noexc587:                      ; preds = %if.then.i.i.i.i.i571
-  %add.ptr.i.i.i573 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i588, i64 %234
+  %add.ptr.i.i.i573 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i588, i64 %234
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i588, align 8, !tbaa !106
   %incdec.ptr.i.i.i.i.i575 = getelementptr i8, ptr %call5.i.i.i.i2.i.i588, i64 8
   %sub.i.i.i.i.i576 = add nsw i64 %234, -1
@@ -2507,7 +2507,7 @@ if.then.i.i.i.i.i610:                             ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc626 unwind label %lpad244
 
 call5.i.i.i.i2.i.i.noexc626:                      ; preds = %if.then.i.i.i.i.i610
-  %add.ptr.i.i.i612 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i627, i64 %237
+  %add.ptr.i.i.i612 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i627, i64 %237
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i627, align 8, !tbaa !106
   %incdec.ptr.i.i.i.i.i614 = getelementptr i8, ptr %call5.i.i.i.i2.i.i627, i64 8
   %sub.i.i.i.i.i615 = add nsw i64 %237, -1
@@ -2607,7 +2607,7 @@ if.then.i.i.i.i.i668:                             ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc684 unwind label %lpad264
 
 call5.i.i.i.i2.i.i.noexc684:                      ; preds = %if.then.i.i.i.i.i668
-  %add.ptr.i.i.i670 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i685, i64 %247
+  %add.ptr.i.i.i670 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i685, i64 %247
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i685, align 8, !tbaa !106
   %incdec.ptr.i.i.i.i.i672 = getelementptr i8, ptr %call5.i.i.i.i2.i.i685, i64 8
   %sub.i.i.i.i.i673 = add nsw i64 %247, -1
@@ -2977,7 +2977,7 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vec
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8, !tbaa !111
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8, !tbaa !113
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i2.i, i64 %__n
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !112
   br label %for.body.i.i.i.i
@@ -3354,7 +3354,7 @@ ehcleanup34:                                      ; preds = %if.then.i.i30, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.26", ptr %2, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %i
   ret ptr %add.ptr.i
 
 unreachable:                                      ; preds = %invoke.cont24
@@ -3539,7 +3539,7 @@ ehcleanup34:                                      ; preds = %if.then.i.i30, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.26", ptr %2, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %i
   ret ptr %add.ptr.i
 
 unreachable:                                      ; preds = %invoke.cont24

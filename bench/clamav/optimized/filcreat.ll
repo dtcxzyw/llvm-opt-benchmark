@@ -98,7 +98,7 @@ define noundef zeroext i1 @_Z18GetAutoRenamedNamePwm(ptr noundef %0, i64 noundef
   %4 = tail call i64 @wcslen(ptr noundef %0) #5
   %5 = tail call noundef ptr @_Z6GetExtPKw(ptr noundef %0)
   %6 = icmp eq ptr %5, null
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %4
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %4
   %.016 = select i1 %6, ptr %7, ptr %5
   %8 = ptrtoint ptr %.016 to i64
   %9 = ptrtoint ptr %0 to i64

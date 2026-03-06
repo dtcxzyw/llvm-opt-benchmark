@@ -41,7 +41,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = sub nsw i32 %5, %7
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %Kit_DsdNtkObj.exit.thread, label %17
@@ -80,11 +80,11 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 25:                                               ; preds = %.lr.ph67, %25
   %indvars.iv83 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next84, %25 ]
   %.05065 = phi i32 [ 0, %.lr.ph67 ], [ %31, %25 ]
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv83
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv83
   %27 = load i16, ptr %26, align 2, !tbaa !14
   %28 = zext i16 %27 to i32
   %29 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %28, ptr noundef %2)
-  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv83
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv83
   store i32 %29, ptr %30, align 4, !tbaa !15
   %31 = or i32 %29, %.05065
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -127,7 +127,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %.not, label %47, label %43
 
 43:                                               ; preds = %.lr.ph72
-  %44 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv86
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv86
   %45 = load i32, ptr %44, align 4, !tbaa !15
   %46 = or i32 %45, %.04870
   br label %47
@@ -200,7 +200,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %37, align 4, !tbaa !20
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds i32, ptr %71, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %71, i64 %74
   store i32 %.048.lcssa, ptr %75, align 4, !tbaa !15
   %76 = add nuw nsw i32 %.074, 1
   %77 = xor i32 %notmask, %76
@@ -214,7 +214,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 78:                                               ; preds = %.lr.ph, %Vec_IntPush.exit61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit61 ]
   %.15163 = phi i32 [ 0, %.lr.ph ], [ %83, %Vec_IntPush.exit61 ]
-  %79 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2, !tbaa !14
   %81 = zext i16 %80 to i32
   %82 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %81, ptr noundef %2)
@@ -279,7 +279,7 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %22, align 4, !tbaa !20
   %110 = sext i32 %108 to i64
-  %111 = getelementptr inbounds i32, ptr %107, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %107, i64 %110
   store i32 %82, ptr %111, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %14, align 4
@@ -329,7 +329,7 @@ Vec_IntPush.exit:                                 ; preds = %2, %Vec_IntGrow.exi
   %16 = add nsw i32 %14, 1
   store i32 %16, ptr %3, align 4, !tbaa !20
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   store i32 0, ptr %18, align 4, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %20 = load i16, ptr %19, align 2, !tbaa !26
@@ -341,7 +341,7 @@ Vec_IntPush.exit:                                 ; preds = %2, %Vec_IntGrow.exi
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %narrow.i = sub nuw nsw i16 %21, %22
   %26 = zext nneg i16 %narrow.i to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 448
@@ -392,7 +392,7 @@ Vec_IntPush.exit38:                               ; preds = %Vec_IntPush.exit38.
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %3, align 4, !tbaa !20
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds i32, ptr %49, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %49, i64 %52
   store i32 %35, ptr %53, align 4, !tbaa !15
   br label %.critedge
 
@@ -462,7 +462,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %3, align 4, !tbaa !20
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds i32, ptr %.val26, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %.val26, i64 %84
   store i32 %56, ptr %85, align 4, !tbaa !15
   %.val47 = load i32, ptr %3, align 4, !tbaa !20
   %86 = icmp sgt i32 %.val47, 0
@@ -470,7 +470,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit45, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Vec_IntPush.exit45 ]
-  %87 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %.val26, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = xor i32 %88, -1
   %90 = and i32 %56, %89
@@ -527,7 +527,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 .lr.ph.us:                                        ; preds = %..critedge2_crit_edge.us, %.lr.ph117.split.us
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
   %.0116.us = phi i32 [ %.us-phi.us, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
-  %21 = getelementptr inbounds nuw i32, ptr %.val109, i64 %indvars.iv133
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.val109, i64 %indvars.iv133
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %.fr128 = freeze i32 %22
   %23 = and i32 %.fr128, 65535
@@ -543,7 +543,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 .lr.ph.split.us121:                               ; preds = %.lr.ph.split.us121.preheader, %101
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph.split.us121.preheader ]
   %.1113.us = phi i32 [ %.2.us, %101 ], [ %.0116.us, %.lr.ph.split.us121.preheader ]
-  %27 = getelementptr inbounds nuw i32, ptr %.val108.us, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.val108.us, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = and i32 %28, 65535
   %30 = icmp eq i32 %29, 0
@@ -601,7 +601,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 74:                                               ; preds = %37
   %75 = and i32 %38, 65535
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr @Lpk_ComposeSets.TravId, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @Lpk_ComposeSets.TravId, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !15
   %.not.us = icmp sgt i32 %78, %8
   br i1 %.not.us, label %86, label %79
@@ -610,7 +610,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   %80 = trunc i32 %38 to i16
   %81 = add nsw i32 %.1113.us, 1
   %82 = sext i32 %.1113.us to i64
-  %83 = getelementptr inbounds i16, ptr @Lpk_ComposeSets.Used, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr @Lpk_ComposeSets.Used, i64 %82
   store i16 %80, ptr %83, align 2, !tbaa !14
   store i32 %12, ptr %77, align 4, !tbaa !15
   %84 = trunc nuw nsw i32 %72 to i8
@@ -643,7 +643,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   %98 = shl i32 %97, 16
   %99 = or i32 %98, %.sink159
-  %100 = getelementptr inbounds nuw i32, ptr @Lpk_ComposeSets.Parents, i64 %76
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @Lpk_ComposeSets.Parents, i64 %76
   store i32 %99, ptr %100, align 4, !tbaa !15
   br label %101
 
@@ -677,7 +677,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 .critedge:                                        ; preds = %.critedge.preheader129, %.critedge
   %indvars.iv138 = phi i64 [ 0, %.critedge.preheader129 ], [ %indvars.iv.next139, %.critedge ]
   %.089124 = phi i32 [ 1000, %.critedge.preheader129 ], [ %spec.select, %.critedge ]
-  %106 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv138
+  %106 = getelementptr inbounds nuw [2 x i8], ptr @Lpk_ComposeSets.Used, i64 %indvars.iv138
   %107 = load i16, ptr %106, align 2, !tbaa !14
   %108 = zext i16 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.Over, i64 %108
@@ -690,7 +690,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 
 112:                                              ; preds = %.lr.ph126, %177
   %indvars.iv143 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next144, %177 ]
-  %113 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv143
+  %113 = getelementptr inbounds nuw [2 x i8], ptr @Lpk_ComposeSets.Used, i64 %indvars.iv143
   %114 = load i16, ptr %113, align 2, !tbaa !14
   %115 = zext i16 %114 to i64
   %116 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.Over, i64 %115
@@ -708,20 +708,20 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   %124 = add nsw i32 %121, 1
   store i32 %124, ptr %5, align 4, !tbaa !15
   %125 = sext i32 %121 to i64
-  %126 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %4, i64 %125
-  %127 = getelementptr inbounds nuw i32, ptr @Lpk_ComposeSets.Parents, i64 %115
+  %126 = getelementptr inbounds [12 x i8], ptr %4, i64 %125
+  %127 = getelementptr inbounds nuw [4 x i8], ptr @Lpk_ComposeSets.Parents, i64 %115
   %128 = load i32, ptr %127, align 4, !tbaa !15
   %129 = and i32 %128, 65535
   %130 = lshr i32 %128, 16
   %.val107 = load ptr, ptr %103, align 8, !tbaa !23
   %131 = zext nneg i32 %129 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %.val107, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.val107, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !15
   %134 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %133, ptr %134, align 4, !tbaa !32
   %.val106 = load ptr, ptr %104, align 8, !tbaa !23
   %135 = zext nneg i32 %130 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %.val106, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.val106, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !15
   %138 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 %137, ptr %138, align 4, !tbaa !34
@@ -930,7 +930,7 @@ define i32 @Lpk_MapSuppRedDecSelect(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph.i:                                         ; preds = %.critedge, %Lpk_PrintSetOne.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Lpk_PrintSetOne.exit.i ], [ 0, %.critedge ]
   %.val8.i = load ptr, ptr %24, align 8, !tbaa !23
-  %42 = getelementptr inbounds nuw i32, ptr %.val8.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.val8.i, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4, !tbaa !15
   br label %44
 
@@ -975,7 +975,7 @@ Lpk_PrintSetOne.exit.i:                           ; preds = %49
 .lr.ph.i84:                                       ; preds = %.thread96, %Lpk_PrintSetOne.exit.i91
   %indvars.iv.i85 = phi i64 [ %indvars.iv.next.i93, %Lpk_PrintSetOne.exit.i91 ], [ 0, %.thread96 ]
   %.val8.i86 = load ptr, ptr %26, align 8, !tbaa !23
-  %57 = getelementptr inbounds nuw i32, ptr %.val8.i86, i64 %indvars.iv.i85
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.val8.i86, i64 %indvars.iv.i85
   %58 = load i32, ptr %57, align 4, !tbaa !15
   br label %59
 
@@ -1035,7 +1035,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
   %indvars.iv = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next, %.lr.ph101 ]
-  %72 = getelementptr inbounds nuw %struct.Lpk_Set_t_, ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [12 x i8], ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Lpk_MapSuppPrintSet(ptr noundef nonnull %72, i32 noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1064,7 +1064,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   %80 = phi ptr [ null, %.lr.ph104 ], [ %88, %87 ]
   %indvars.iv108 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next109, %87 ]
   %.064103 = phi i32 [ 0, %.lr.ph104 ], [ %.1, %87 ]
-  %81 = getelementptr inbounds nuw %struct.Lpk_Set_t_, ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv108
+  %81 = getelementptr inbounds nuw [12 x i8], ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv108
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 3
   %83 = load i8, ptr %82, align 1, !tbaa !36
   %84 = sext i8 %83 to i32

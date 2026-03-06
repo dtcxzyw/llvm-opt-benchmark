@@ -123,7 +123,7 @@ define weak_odr noundef float @_ZNK7mitsuba20ReconstructionFilterIfN5drjit6Matri
   %11 = fptoui float %10 to i32
   %..i = tail call noundef i32 @llvm.umin.i32(i32 %11, i32 31)
   %12 = zext nneg i32 %..i to i64
-  %13 = getelementptr inbounds nuw float, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load float, ptr %13, align 4
   br label %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit
 
@@ -395,7 +395,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit: ; preds = %11, %13, %14
   %24 = load ptr, ptr %23, align 8
   %25 = tail call contract noundef float %24(ptr noundef nonnull align 8 dereferenceable(52) %0, float noundef %21, i1 noundef zeroext true)
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds nuw float, ptr %26, i64 %.05
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.05
   store float %25, ptr %27, align 4
   %28 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %28, 31
@@ -791,12 +791,12 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i, %_ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit
   %storemerge.i = phi ptr [ %28, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i ], [ null, %_ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit ]
   %29 = getelementptr inbounds i8, ptr %storemerge.i, i64 %16
-  %30 = getelementptr inbounds float, ptr %storemerge.i, i64 %.0.i
+  %30 = getelementptr inbounds [4 x i8], ptr %storemerge.i, i64 %.0.i
   %.idx.i8 = shl i64 %1, 2
   %31 = getelementptr i8, ptr %29, i64 %.idx.i8
   tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %.idx.i8, i1 false)
   %32 = sub nsw i64 0, %17
-  %33 = getelementptr inbounds float, ptr %29, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %29, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %14, i64 %16, i1 false)
   store ptr %33, ptr %0, align 8
   store ptr %31, ptr %5, align 8

@@ -724,7 +724,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal3smt19InterpolationSolver14ge
   %103 = load i64, ptr %51, align 8, !tbaa !229
   %104 = urem i64 %102, %103
   %105 = load ptr, ptr %12, align 8, !tbaa !222
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %104
   %107 = load ptr, ptr %106, align 8, !tbaa !243
   %.not.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i, label %.critedge, label %108
@@ -824,7 +824,7 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_to
   %148 = load i64, ptr %51, align 8, !tbaa !229
   %149 = urem i64 %147, %148
   %150 = load ptr, ptr %12, align 8, !tbaa !222
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %149
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %149
   %152 = load ptr, ptr %151, align 8, !tbaa !243
   %.not.i.i.i.i99 = icmp eq ptr %152, null
   br i1 %.not.i.i.i.i99, label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit110.thread, label %153
@@ -4343,7 +4343,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !277
   store ptr %42, ptr %4, align 8, !tbaa !249
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !251
   ret void
 

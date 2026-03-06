@@ -785,7 +785,7 @@ define internal fastcc i32 @dissect_samples_im(i1 noundef zeroext %0, ptr nounde
   %130 = phi i32 [ %111, %117 ], [ %134, %129 ]
   %indvars.iv.i = phi i64 [ 0, %117 ], [ %indvars.iv.next.i, %129 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %130, i32 noundef 4)
-  %131 = getelementptr i32, ptr %15, i64 %indvars.iv.i
+  %131 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv.i
   %132 = load i32, ptr %131, align 4
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %132, ptr noundef %1, i32 noundef %130, i32 noundef 4, i32 noundef 0)
   %134 = add i32 %130, 4
@@ -820,7 +820,7 @@ add_rms_values.exit:                              ; preds = %129
   %146 = phi i32 [ %111, %135 ], [ %150, %145 ]
   %indvars.iv.i119 = phi i64 [ 0, %135 ], [ %indvars.iv.next.i120, %145 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %146, i32 noundef 4)
-  %147 = getelementptr i32, ptr %16, i64 %indvars.iv.i119
+  %147 = getelementptr [4 x i8], ptr %16, i64 %indvars.iv.i119
   %148 = load i32, ptr %147, align 4
   %149 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %148, ptr noundef %1, i32 noundef %146, i32 noundef 4, i32 noundef 0)
   %150 = add i32 %146, 4
@@ -859,7 +859,7 @@ add_rms_values.exit122:                           ; preds = %145
   %162 = phi i32 [ %111, %152 ], [ %166, %161 ]
   %indvars.iv.i124 = phi i64 [ 0, %152 ], [ %indvars.iv.next.i125, %161 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %162, i32 noundef 4)
-  %163 = getelementptr i32, ptr %17, i64 %indvars.iv.i124
+  %163 = getelementptr [4 x i8], ptr %17, i64 %indvars.iv.i124
   %164 = load i32, ptr %163, align 4
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %164, ptr noundef %1, i32 noundef %162, i32 noundef 4, i32 noundef 0)
   %166 = add i32 %162, 4
@@ -919,7 +919,7 @@ add_rms_values.exit122:                           ; preds = %145
   %indvars.iv.i129 = phi i64 [ 0, %169 ], [ %indvars.iv.next.i130, %add_timestamp_sample.exit.i ]
   %.01617.i = phi i32 [ 0, %169 ], [ %198, %add_timestamp_sample.exit.i ]
   %199 = icmp eq i64 %indvars.iv.i129, 0
-  %200 = getelementptr i32, ptr %18, i64 %indvars.iv.i129
+  %200 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv.i129
   %201 = load i32, ptr %200, align 4
   call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %198, i32 noundef 10)
   %202 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %198)
@@ -1108,7 +1108,7 @@ define internal fastcc void @add_sample_sets(ptr noundef %0, ptr noundef %1, ptr
 16:                                               ; preds = %6, %add_sample_set.exit
   %17 = phi i32 [ %.pre, %6 ], [ %88, %add_sample_set.exit ]
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %add_sample_set.exit ]
-  %18 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %18 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %17, i32 noundef 34)
   %20 = load i32, ptr %2, align 4
@@ -1222,7 +1222,7 @@ check_ranges.exit.i:                              ; preds = %69, %66
   %82 = phi i32 [ %72, %check_ranges.exit.i ], [ %88, %81 ]
   %indvars.iv.i = phi i64 [ 0, %check_ranges.exit.i ], [ %indvars.iv.next.i, %81 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %82, i32 noundef 4)
-  %83 = getelementptr i32, ptr %7, i64 %indvars.iv.i
+  %83 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv.i
   %84 = load i32, ptr %83, align 4
   %85 = load i32, ptr %2, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 4, i32 noundef 0)

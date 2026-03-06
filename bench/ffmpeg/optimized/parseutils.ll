@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VideoSizeAbbr = type { ptr, i32, i32 }
 %struct.VideoRateAbbr = type { ptr, %struct.AVRational }
 %struct.AVRational = type { i32, i32 }
-%struct.ColorEntry = type { ptr, [3 x i8] }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"%d:%d%c\00", align 1
@@ -304,7 +303,7 @@ define range(i32 -22, 1) i32 @av_parse_video_size(ptr noundef writeonly captures
 
 5:                                                ; preds = %3, %13
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds nuw %struct.VideoSizeAbbr, ptr @video_size_abbrs, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @video_size_abbrs, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16, !tbaa !12
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %2) #18
   %.not = icmp eq i32 %8, 0
@@ -384,7 +383,7 @@ define range(i32 -2147483648, 1) i32 @av_parse_video_rate(ptr noundef %0, ptr no
 
 8:                                                ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.VideoRateAbbr, ptr @video_rate_abbrs, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @video_rate_abbrs, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 16, !tbaa !24
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #18
   %.not21 = icmp eq i32 %11, 0
@@ -761,7 +760,7 @@ define ptr @av_get_known_color_name(i32 noundef %0, ptr noundef writeonly captur
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.ColorEntry, ptr @color_table, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @color_table, i64 %5
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %7
 
@@ -1089,7 +1088,7 @@ date_get_num.exit97:                              ; preds = %.thread143
 
 112:                                              ; preds = %.preheader, %126
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %126 ], [ 0, %.preheader ]
-  %113 = getelementptr inbounds nuw ptr, ptr @months, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @months, i64 %indvars.iv.i
   %114 = load ptr, ptr %113, align 8, !tbaa !20
   %115 = tail call i32 @av_strncasecmp(ptr noundef %.0112, ptr noundef %114, i64 noundef 3) #16
   %.not.i = icmp eq i32 %115, 0
@@ -1206,7 +1205,7 @@ define range(i32 -34, 1) i32 @av_parse_time(ptr noundef writeonly captures(none)
 .preheader263:                                    ; preds = %9, %.preheader263
   %14 = phi i1 [ false, %.preheader263 ], [ true, %9 ]
   %indvars.iv = phi i64 [ 1, %.preheader263 ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw ptr, ptr @av_parse_time.date_fmt, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @av_parse_time.date_fmt, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = call ptr @av_small_strptime(ptr noundef %1, ptr noundef %16, ptr noundef nonnull %5)
   %.fr = freeze ptr %17
@@ -1254,7 +1253,7 @@ av_isspace.exit.thread:                           ; preds = %.preheader261, %.pr
 25:                                               ; preds = %.loopexit262, %24
   %26 = phi i1 [ true, %.loopexit262 ], [ false, %24 ]
   %indvars.iv278 = phi i64 [ 0, %.loopexit262 ], [ 1, %24 ]
-  %27 = getelementptr inbounds nuw ptr, ptr @av_parse_time.time_fmt, i64 %indvars.iv278
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @av_parse_time.time_fmt, i64 %indvars.iv278
   %28 = load ptr, ptr %27, align 8, !tbaa !20
   %29 = call ptr @av_small_strptime(ptr noundef nonnull %.0135, ptr noundef %28, ptr noundef nonnull %5)
   %.not166 = icmp eq ptr %29, null
@@ -1436,7 +1435,7 @@ switch.early.test:                                ; preds = %87
 
 98:                                               ; preds = %93, %97
   %indvars.iv281 = phi i64 [ 0, %93 ], [ %indvars.iv.next282, %97 ]
-  %99 = getelementptr inbounds nuw ptr, ptr @av_parse_time.tz_fmt, i64 %indvars.iv281
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @av_parse_time.tz_fmt, i64 %indvars.iv281
   %100 = load ptr, ptr %99, align 8, !tbaa !20
   %101 = call ptr @av_small_strptime(ptr noundef nonnull %96, ptr noundef %100, ptr noundef nonnull %8)
   %.not173 = icmp eq ptr %101, null

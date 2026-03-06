@@ -246,7 +246,7 @@ moveTo.exit.i:                                    ; preds = %135
   %183 = load i64, ptr %147, align 8, !tbaa !22
   %184 = load i64, ptr %149, align 8, !tbaa !17
   %185 = urem i64 %183, %184
-  %186 = getelementptr inbounds nuw %struct.pointf_s, ptr %182, i64 %185
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %185
   %.sroa.0.0.copyload.i.i100.i = load double, ptr %186, align 8, !tbaa !18
   %.sroa.2.0..sroa_idx.i.i101.i = getelementptr inbounds nuw i8, ptr %186, i64 8
   %.sroa.2.0.copyload.i.i102.i = load double, ptr %.sroa.2.0..sroa_idx.i.i101.i, align 8, !tbaa !18
@@ -254,7 +254,7 @@ moveTo.exit.i:                                    ; preds = %135
   %187 = add i64 %183, -1
   %188 = add i64 %187, %.val.i.i.i
   %189 = urem i64 %188, %184
-  %190 = getelementptr inbounds nuw %struct.pointf_s, ptr %182, i64 %189
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %189
   %.sroa.0.0.copyload.i.i.i.i = load double, ptr %190, align 8, !tbaa !18
   %.sroa.2.0..sroa_idx.i.i.i103.i = getelementptr inbounds nuw i8, ptr %190, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i.i103.i, align 8, !tbaa !18
@@ -299,7 +299,7 @@ moveTo.exit.i:                                    ; preds = %135
   %.0.in11.i.i.i = phi i64 [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %193, %.lr.ph14.split.i.i.i ]
   %.0.i.i.i = add i64 %.0.in11.i.i.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %199 = getelementptr inbounds nuw %struct.pointf_s, ptr %195, i64 %.0.i.i.i
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %.0.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !26
@@ -369,7 +369,7 @@ define internal fastcc void @curveTo(ptr noundef nonnull captures(none) %0, doub
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %10, align 8, !tbaa !17
-  %23 = getelementptr inbounds nuw %struct.pointf_s, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %22
   %24 = sub i64 %spec.select.i.i, %22
   %25 = shl i64 %24, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %25, i1 false)
@@ -383,8 +383,8 @@ define internal fastcc void @curveTo(ptr noundef nonnull captures(none) %0, doub
 31:                                               ; preds = %21
   %32 = sub i64 %22, %27
   %33 = sub i64 %spec.select.i.i, %32
-  %34 = getelementptr inbounds nuw %struct.pointf_s, ptr %19, i64 %33
-  %35 = getelementptr inbounds nuw %struct.pointf_s, ptr %19, i64 %27
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %33
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %27
   %36 = shl i64 %32, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 8 %35, i64 %36, i1 false)
   store i64 %33, ptr %26, align 8, !tbaa !22
@@ -411,7 +411,7 @@ bezier_path_append.exit:                          ; preds = %._crit_edge.i.i, %3
   %.pre.i.i15 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %38, %37 ]
   %46 = add i64 %.pre.i.i15, %45
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw %struct.pointf_s, ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %47
   store double %1, ptr %48, align 8, !tbaa !18
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   store double %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !18
@@ -433,7 +433,7 @@ bezier_path_append.exit:                          ; preds = %._crit_edge.i.i, %3
 
 57:                                               ; preds = %53
   %58 = load i64, ptr %10, align 8, !tbaa !17
-  %59 = getelementptr inbounds nuw %struct.pointf_s, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %58
   %60 = sub i64 %52, %58
   %61 = shl i64 %60, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %61, i1 false)
@@ -447,8 +447,8 @@ bezier_path_append.exit:                          ; preds = %._crit_edge.i.i, %3
 67:                                               ; preds = %57
   %68 = sub i64 %58, %63
   %69 = sub i64 %52, %68
-  %70 = getelementptr inbounds nuw %struct.pointf_s, ptr %55, i64 %69
-  %71 = getelementptr inbounds nuw %struct.pointf_s, ptr %55, i64 %63
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %69
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %63
   %72 = shl i64 %68, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %71, i64 %72, i1 false)
   store i64 %69, ptr %62, align 8, !tbaa !22
@@ -475,7 +475,7 @@ bezier_path_append.exit21:                        ; preds = %bezier_path_append.
   %.pre.i.i24 = phi i64 [ %74, %73 ], [ %.pre.i.i15, %bezier_path_append.exit ]
   %82 = add i64 %.pre.i.i24, %81
   %83 = urem i64 %82, %80
-  %84 = getelementptr inbounds nuw %struct.pointf_s, ptr %79, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %83
   store double %3, ptr %84, align 8, !tbaa !18
   %.sroa.2.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store double %4, ptr %.sroa.2.0..sroa_idx.i.i17, align 8, !tbaa !18
@@ -497,7 +497,7 @@ bezier_path_append.exit21:                        ; preds = %bezier_path_append.
 
 93:                                               ; preds = %89
   %94 = load i64, ptr %10, align 8, !tbaa !17
-  %95 = getelementptr inbounds nuw %struct.pointf_s, ptr %91, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %94
   %96 = sub i64 %88, %94
   %97 = shl i64 %96, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %95, i8 0, i64 %97, i1 false)
@@ -511,8 +511,8 @@ bezier_path_append.exit21:                        ; preds = %bezier_path_append.
 103:                                              ; preds = %93
   %104 = sub i64 %94, %99
   %105 = sub i64 %88, %104
-  %106 = getelementptr inbounds nuw %struct.pointf_s, ptr %91, i64 %105
-  %107 = getelementptr inbounds nuw %struct.pointf_s, ptr %91, i64 %99
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %105
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %99
   %108 = shl i64 %104, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 8 %107, i64 %108, i1 false)
   store i64 %105, ptr %98, align 8, !tbaa !22
@@ -539,7 +539,7 @@ bezier_path_append.exit30:                        ; preds = %bezier_path_append.
   %118 = phi i64 [ %110, %109 ], [ %.pre.i.i24, %bezier_path_append.exit21 ]
   %119 = add i64 %118, %117
   %120 = urem i64 %119, %116
-  %121 = getelementptr inbounds nuw %struct.pointf_s, ptr %115, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %120
   store double %5, ptr %121, align 8, !tbaa !18
   %.sroa.2.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store double %6, ptr %.sroa.2.0..sroa_idx.i.i26, align 8, !tbaa !18

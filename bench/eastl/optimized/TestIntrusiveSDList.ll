@@ -683,7 +683,7 @@ for.body:                                         ; preds = %_ZN5eastl16intrusiv
   %indvars.iv = phi i64 [ 4, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %indvars.iv.next, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
   %arrayidx373376 = phi ptr [ null, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %arrayidx, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
   %arrayidx32374375 = phi ptr [ null, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %arrayidx32, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
-  %arrayidx = getelementptr inbounds nuw %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr %nodes, i64 %indvars.iv
   store ptr %arrayidx373376, ptr %arrayidx, align 8
   %mppPrevNext.i89 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store ptr %l, ptr %mppPrevNext.i89, align 8

@@ -8,9 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.1 = type { i32, [2 x i64] }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 %struct.VP9RawSuperframeIndex = type { i8, i8, i8, [8 x i32] }
-%struct.VP9ReferenceFrameState = type { i32, i32, i32, i32, i32 }
 %struct.PutBitContext = type { i32, i32, ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @ff_cbs_type_vp9 = local_unnamed_addr constant { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 167, [4 x i8] zeroinitializer, ptr null, i64 188, ptr @cbs_vp9_unit_types, ptr @cbs_vp9_split_fragment, ptr @cbs_vp9_read_unit, ptr @cbs_vp9_write_unit, ptr null, ptr @cbs_vp9_assemble_fragment, ptr @cbs_vp9_flush, ptr null }, align 8
 @cbs_vp9_unit_types = internal constant <{ { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } }> <{ { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon zeroinitializer, i32 0, [4 x i8] zeroinitializer, i64 208, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 1, [4 x i8] zeroinitializer, [2 x i64] [i64 184, i64 0] } } }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } zeroinitializer }>, align 16
@@ -221,7 +219,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_split_fragment(ptr nounde
   store i32 1, ptr %8, align 4, !tbaa !22
   %67 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %67, ptr %56, align 4, !tbaa !22
-  %68 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %69 = load i32, ptr %58, align 4, !tbaa !23
   %.not.i.i = icmp eq i32 %69, 0
@@ -341,7 +339,7 @@ cbs_vp9_read_superframe_index.exit:               ; preds = %108
 115:                                              ; preds = %cbs_vp9_read_superframe_index.exit, %132
   %indvars.iv = phi i64 [ 0, %cbs_vp9_read_superframe_index.exit ], [ %indvars.iv.next, %132 ]
   %.04871 = phi i64 [ 0, %cbs_vp9_read_superframe_index.exit ], [ %119, %132 ]
-  %116 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4, !tbaa !22
   %118 = zext i32 %117 to i64
   %119 = add i64 %.04871, %118
@@ -964,7 +962,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_read_unit(ptr noundef %0,
   br i1 %.not318.i.i, label %300, label %291
 
 291:                                              ; preds = %287
-  %292 = getelementptr inbounds nuw %struct.VP9ReferenceFrameState, ptr %281, i64 %indvars.iv374.i.i
+  %292 = getelementptr inbounds nuw [20 x i8], ptr %281, i64 %indvars.iv374.i.i
   %293 = load i32, ptr %282, align 4, !tbaa !70
   %294 = load i32, ptr %283, align 4, !tbaa !71
   %295 = load i8, ptr %284, align 4, !tbaa !63
@@ -1539,7 +1537,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_write_unit(ptr noundef %0
   br i1 %.not290.i.i, label %291, label %282
 
 282:                                              ; preds = %278
-  %283 = getelementptr inbounds nuw %struct.VP9ReferenceFrameState, ptr %272, i64 %indvars.iv297.i.i
+  %283 = getelementptr inbounds nuw [20 x i8], ptr %272, i64 %indvars.iv297.i.i
   %284 = load i32, ptr %273, align 4, !tbaa !70
   %285 = load i32, ptr %274, align 4, !tbaa !71
   %286 = load i8, ptr %275, align 4, !tbaa !63
@@ -1765,7 +1763,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.076105 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %30 ]
-  %31 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %27, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !39
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.076105, i64 %33)
@@ -1816,13 +1814,13 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
 54:                                               ; preds = %.lr.ph109, %54
   %indvars.iv123 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next124, %54 ]
   %.078107 = phi i64 [ 2, %.lr.ph109 ], [ %59, %54 ]
-  %55 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %52, i64 %indvars.iv123
+  %55 = getelementptr inbounds nuw [56 x i8], ptr %52, i64 %indvars.iv123
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !39
   %58 = add i64 %.078107, %50
   %59 = add i64 %58, %57
   %60 = trunc i64 %57 to i32
-  %61 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv123
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv123
   store i32 %60, ptr %61, align 4, !tbaa !22
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
@@ -1863,7 +1861,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
   %indvars.iv128 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next129, %82 ]
   %.075112 = phi i64 [ 0, %.lr.ph115 ], [ %90, %82 ]
   %76 = sub i64 %.078.lcssa, %.075112
-  %77 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %75, i64 %indvars.iv128
+  %77 = getelementptr inbounds nuw [56 x i8], ptr %75, i64 %indvars.iv128
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load i64, ptr %78, align 8, !tbaa !39
   %80 = icmp ugt i64 %76, %79
@@ -1880,7 +1878,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
   %85 = load ptr, ptr %84, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr align 1 %85, i64 %79, i1 false)
   %86 = load ptr, ptr %73, align 8, !tbaa !91
-  %87 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %86, i64 %indvars.iv128
+  %87 = getelementptr inbounds nuw [56 x i8], ptr %86, i64 %indvars.iv128
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8, !tbaa !39
   %90 = add i64 %89, %.075112
@@ -1955,7 +1953,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
   store i32 1, ptr %3, align 4, !tbaa !22
   %128 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %128, ptr %119, align 4, !tbaa !22
-  %129 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv.i
   %130 = load i32, ptr %129, align 4, !tbaa !22
   %131 = load i32, ptr %121, align 4, !tbaa !23
   %.not.i.i = icmp eq i32 %131, 0
@@ -2642,7 +2640,7 @@ cbs_vp9_read_frame_size.exit:                     ; preds = %29
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv
   %62 = load i8, ptr %61, align 1, !tbaa !15
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.VP9ReferenceFrameState, ptr %59, i64 %63
+  %64 = getelementptr inbounds nuw [20 x i8], ptr %59, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !115
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %65, ptr %66, align 4, !tbaa !70
@@ -4031,7 +4029,7 @@ cbs_vp9_write_frame_size.exit:                    ; preds = %26
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv
   %56 = load i8, ptr %55, align 1, !tbaa !15
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw %struct.VP9ReferenceFrameState, ptr %53, i64 %57
+  %58 = getelementptr inbounds nuw [20 x i8], ptr %53, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !115
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %59, ptr %60, align 4, !tbaa !70

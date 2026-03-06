@@ -124,7 +124,7 @@ common.resume:                                    ; preds = %22, %14
   store i8 %30, ptr %37, align 1, !noalias !12
   %38 = load ptr, ptr %.sroa.04.0.copyload, align 8, !alias.scope !15, !noalias !12, !nonnull !4, !noundef !4
   %39 = sub nsw i64 0, %21
-  %40 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %38, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %38, i64 %39
   %41 = and i8 %28, 1
   %42 = zext nneg i8 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload, i64 16
@@ -189,7 +189,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN4gpui3app10App
   %17 = add i64 %.sroa.01.0.i.i.i, %16
   %18 = and i64 %17, %8
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %9, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %9, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 -32
   %.val3.i.i.i = load i64, ptr %21, align 8, !alias.scope !34, !noalias !43, !noundef !4
   %22 = getelementptr i8, ptr %20, i64 -24
@@ -329,7 +329,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4gpui3app10App
 41:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !63
   %42 = sub nsw i64 0, %24
-  %43 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %15, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %15, i64 %42
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !58
   %44 = load i64, ptr %4, align 8, !noalias !58, !noundef !4
   %45 = load i64, ptr %10, align 8, !noalias !58, !noundef !4
@@ -430,7 +430,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ma
   %23 = add i64 %.sroa.01.0.i.i, %22
   %24 = and i64 %23, %13
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %14, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %14, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val3.i.i = load i64, ptr %27, align 8, !alias.scope !107, !noalias !116, !noundef !4
   %28 = getelementptr i8, ptr %26, i64 -24
@@ -502,7 +502,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h5bde
   %19 = add i64 %.sroa.01.0.i, %18
   %20 = and i64 %19, %7
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %8, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
   %.val3.i = load i64, ptr %23, align 8, !alias.scope !130, !noalias !139, !noundef !4
   %24 = getelementptr i8, ptr %22, i64 -24

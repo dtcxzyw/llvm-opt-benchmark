@@ -226,26 +226,26 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg(ptr noundef %0, ptr
 
 101:                                              ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !39
   %104 = load ptr, ptr %94, align 8, !tbaa !33
   %105 = load ptr, ptr %104, align 8, !tbaa !40
   %106 = load ptr, ptr %105, align 8, !tbaa !43
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv
   store ptr %103, ptr %107, align 8, !tbaa !39
-  %108 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !39
   %110 = load ptr, ptr %97, align 8, !tbaa !34
   %111 = load ptr, ptr %110, align 8, !tbaa !40
   %112 = load ptr, ptr %111, align 8, !tbaa !43
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv
   store ptr %109, ptr %113, align 8, !tbaa !39
-  %114 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   %115 = load ptr, ptr %114, align 8, !tbaa !39
   %116 = load ptr, ptr %100, align 8, !tbaa !35
   %117 = load ptr, ptr %116, align 8, !tbaa !40
   %118 = load ptr, ptr %117, align 8, !tbaa !43
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   store ptr %115, ptr %119, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -409,10 +409,10 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg(ptr noundef reado
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = load double, ptr %35, align 8, !tbaa !56
-  %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !39
   %42 = load ptr, ptr %36, align 8, !tbaa !36
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !39
   tail call void @N_VLinearSum(double noundef %39, ptr noundef %41, double noundef -1.000000e+00, ptr noundef %44, ptr noundef %41) #3
   %45 = load double, ptr %37, align 8, !tbaa !53
@@ -688,10 +688,10 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensStg(ptr noundef readonly
 19:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %20 = load ptr, ptr %8, align 8, !tbaa !63
-  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !39
   %23 = load ptr, ptr %12, align 8, !tbaa !38
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !39
   %26 = load ptr, ptr %13, align 8, !tbaa !48
   %27 = load ptr, ptr %14, align 8, !tbaa !49

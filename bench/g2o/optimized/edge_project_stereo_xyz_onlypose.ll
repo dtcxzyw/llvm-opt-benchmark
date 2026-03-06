@@ -137,7 +137,7 @@ define noundef zeroext i1 @_ZN3g2o31EdgeStereoSE3ProjectXYZOnlyPose4readERSi(ptr
   br i1 %11, label %12, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %14 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -162,7 +162,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   br i1 %23, label %.lr.ph.i, label %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE21readInformationMatrixERSi.exit
 
 .lr.ph.i:                                         ; preds = %16
-  %24 = getelementptr double, ptr %15, i64 %indvars.iv.i3
+  %24 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv.i3
   %.idx.i.i.i24.i = mul nuw nsw i64 %indvars.iv.i3, 24
   %invariant.gep.i = getelementptr i8, ptr %15, i64 %.idx.i.i.i24.i
   br label %25
@@ -201,7 +201,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
 
 36:                                               ; preds = %33
   %37 = load double, ptr %34, align 8, !tbaa !22
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv28.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv28.i
   store double %37, ptr %gep.i, align 8, !tbaa !22
   br label %38
 
@@ -226,7 +226,7 @@ define noundef zeroext i1 @_ZNK3g2o31EdgeStereoSE3ProjectXYZOnlyPose5writeERSo(p
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %6 = load double, ptr %5, align 8, !tbaa !22
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %6)
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str, i64 noundef 1)
@@ -240,7 +240,7 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSoRKNS2_
 
 .preheader.i:                                     ; preds = %11, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit
   %indvars.iv.i3 = phi i64 [ 0, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i5, %11 ]
-  %10 = getelementptr double, ptr %9, i64 %indvars.iv.i3
+  %10 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv.i3
   br label %12
 
 11:                                               ; preds = %12

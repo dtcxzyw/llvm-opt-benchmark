@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
 %"class.obj_pair_map<smt::enode, smt::enode, int>::key_data" = type { ptr, ptr, i32, i32 }
-%"class.obj_pair_map<smt::enode, smt::enode, int>::entry" = type { %"class.obj_pair_map<smt::enode, smt::enode, int>::key_data" }
-%class.obj_hash_entry = type { ptr }
 
 $_ZN14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EED2Ev = comdat any
 
@@ -491,7 +489,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %13
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i
   %22 = zext i32 %18 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   %.pre.i.then.val = load ptr, ptr %23, align 8, !tbaa !119
   %.not = icmp eq ptr %.pre.i.then.val, null
   br i1 %.not, label %.critedge22, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i23
@@ -504,7 +502,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i23: ; preds = %_ZNK3smt7context14
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit27:  ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i23
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %16, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %27
   %.pre.i26.then.val = load ptr, ptr %28, align 8, !tbaa !119
   %.not79 = icmp eq ptr %.pre.i26.then.val, null
   br i1 %.not79, label %.critedge22, label %29
@@ -909,7 +907,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit3.thread: ; preds = %35, %_ZNK10arith_u
   %.idx.i.i.i = mul nuw nsw i64 %65, 24
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i.i
   %67 = zext i32 %61 to i64
-  %68 = getelementptr inbounds nuw %"class.obj_pair_map<smt::enode, smt::enode, int>::entry", ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %67
   %.not33.i.i.i = icmp eq i32 %63, %61
   br i1 %.not33.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -1035,7 +1033,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit.thread: ; preds = %10, %2, %_ZNK10arit
   %.idx.i.i = shl nuw nsw i64 %29, 3
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i
   %31 = zext i32 %25 to i64
-  %32 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %31
   %.not34.i.i = icmp eq i32 %27, %25
   br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -1382,7 +1380,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN12obj_pair_mapIN3smt5enode
   %.idx = mul nuw nsw i64 %21, 24
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %23 = zext i32 %15 to i64
-  %24 = getelementptr inbounds nuw %"class.obj_pair_map<smt::enode, smt::enode, int>::entry", ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %23
   %.not61 = icmp eq i32 %19, %15
   br i1 %.not61, label %.preheader, label %.lr.ph
 
@@ -1547,7 +1545,7 @@ _ZN14core_hashtableIN12obj_pair_mapIN3smt5enodeES2_iE5entryE8obj_hashINS3_8key_d
   %14 = zext i32 %12 to i64
   %.idx.i = mul nuw nsw i64 %14, 24
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %"class.obj_pair_map<smt::enode, smt::enode, int>::entry", ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN12obj_pair_mapIN3smt5enodeES2_iE5entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE10move_tableEPS4_jSB_j.exit, label %.lr.ph41.i
 
@@ -1668,7 +1666,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryIN3smt5enod
   %.idx = shl nuw nsw i64 %23, 3
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = zext i32 %15 to i64
-  %26 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %.not62 = icmp eq i32 %21, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -1804,7 +1802,7 @@ _ZN14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE10move_tableEPS3_jS9_j.exit, label %.lr.ph41.i
 

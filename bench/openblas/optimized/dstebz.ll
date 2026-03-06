@@ -200,7 +200,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 97:                                               ; preds = %79
   %98 = load i32, ptr %2, align 4, !tbaa !3
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds double, ptr %31, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %31, i64 %99
   store double 0.000000e+00, ptr %100, align 8, !tbaa !7
   %.not715777 = icmp slt i32 %98, 2
   br i1 %.not715777, label %._crit_edge, label %.lr.ph
@@ -216,12 +216,12 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %129 ]
   %105 = phi double [ 1.000000e+00, %.lr.ph ], [ %131, %129 ]
   %106 = add nsw i64 %indvars.iv, -1
-  %107 = getelementptr inbounds double, ptr %35, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %35, i64 %106
   %108 = load double, ptr %107, align 8, !tbaa !7
   %109 = fmul double %108, %108
-  %110 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %111 = load double, ptr %110, align 8, !tbaa !7
-  %112 = getelementptr inbounds double, ptr %36, i64 %106
+  %112 = getelementptr inbounds [8 x i8], ptr %36, i64 %106
   %113 = load double, ptr %112, align 8, !tbaa !7
   %114 = fmul double %111, %113
   %115 = fcmp oge double %114, 0.000000e+00
@@ -233,7 +233,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 120:                                              ; preds = %103
   %121 = sext i32 %104 to i64
-  %122 = getelementptr inbounds i32, ptr %32, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %32, i64 %121
   %123 = trunc nuw nsw i64 %106 to i32
   store i32 %123, ptr %122, align 4, !tbaa !3
   %124 = load i32, ptr %11, align 4, !tbaa !3
@@ -250,7 +250,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %130 = phi i32 [ %125, %120 ], [ %104, %126 ]
   %.sink = phi double [ 0.000000e+00, %120 ], [ %109, %126 ]
   %131 = phi double [ %105, %120 ], [ %128, %126 ]
-  %132 = getelementptr inbounds double, ptr %31, i64 %106
+  %132 = getelementptr inbounds [8 x i8], ptr %31, i64 %106
   store double %.sink, ptr %132, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -266,7 +266,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %135 = phi double [ %134, %._crit_edge.loopexit ], [ %80, %97 ]
   %136 = phi i64 [ %133, %._crit_edge.loopexit ], [ 1, %97 ]
   %137 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %98, %97 ]
-  %138 = getelementptr inbounds i32, ptr %32, i64 %136
+  %138 = getelementptr inbounds [4 x i8], ptr %32, i64 %136
   store i32 %137, ptr %138, align 4, !tbaa !3
   store double %135, ptr %29, align 8, !tbaa !7
   %139 = icmp eq i32 %.1649, 3
@@ -289,10 +289,10 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0789 = phi double [ 0.000000e+00, %.lr.ph791.preheader ], [ %146, %.lr.ph791 ]
   %.0656788 = phi double [ %140, %.lr.ph791.preheader ], [ %152, %.lr.ph791 ]
   %.0659787 = phi double [ %140, %.lr.ph791.preheader ], [ %156, %.lr.ph791 ]
-  %144 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv895
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv895
   %145 = load double, ptr %144, align 8, !tbaa !7
   %146 = tail call double @sqrt(double noundef %145) #6, !tbaa !3
-  %147 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv895
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv895
   %148 = load double, ptr %147, align 8, !tbaa !7
   %149 = fadd double %.0789, %148
   %150 = fadd double %146, %149
@@ -316,7 +316,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0656.lcssa = phi double [ %140, %142 ], [ %152, %._crit_edge792.loopexit ]
   %.0.lcssa = phi double [ 0.000000e+00, %142 ], [ %146, %._crit_edge792.loopexit ]
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds double, ptr %36, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %36, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !7
   %161 = fadd double %.0.lcssa, %160
   %162 = fcmp oge double %.0656.lcssa, %161
@@ -356,7 +356,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %storemerge718, ptr %22, align 8, !tbaa !7
   %194 = load i32, ptr %2, align 4, !tbaa !3
   %195 = sext i32 %194 to i64
-  %196 = getelementptr double, ptr %31, i64 %195
+  %196 = getelementptr [8 x i8], ptr %31, i64 %195
   %197 = getelementptr i8, ptr %196, i64 8
   store double %181, ptr %197, align 8, !tbaa !7
   %198 = getelementptr i8, ptr %196, i64 16
@@ -389,7 +389,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %213, ptr %214, align 4, !tbaa !3
   %215 = load i32, ptr %2, align 4, !tbaa !3
   %216 = sext i32 %215 to i64
-  %217 = getelementptr double, ptr %31, i64 %216
+  %217 = getelementptr [8 x i8], ptr %31, i64 %216
   %218 = getelementptr i8, ptr %217, i64 8
   %219 = getelementptr i8, ptr %217, i64 40
   call void @dlaebz_(ptr noundef nonnull @c__3, ptr noundef nonnull %23, ptr noundef nonnull %2, ptr noundef nonnull @c__2, ptr noundef nonnull @c__2, ptr noundef nonnull %25, ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %29, ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %15, ptr noundef nonnull %212, ptr noundef %218, ptr noundef %219, ptr noundef nonnull %20, ptr noundef nonnull %16, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %21) #6
@@ -404,7 +404,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 224:                                              ; preds = %._crit_edge792
   %225 = load i32, ptr %2, align 4, !tbaa !3
   %226 = sext i32 %225 to i64
-  %227 = getelementptr double, ptr %31, i64 %226
+  %227 = getelementptr [8 x i8], ptr %31, i64 %226
   %.1000 = select i1 %222, i64 16, i64 8
   %228 = getelementptr i8, ptr %227, i64 %.1000
   %.999 = select i1 %222, i64 32, i64 24
@@ -464,7 +464,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0685820 = phi i32 [ 0, %.lr.ph827 ], [ %249, %434 ]
   %indvars916 = trunc nuw i64 %indvars.iv914 to i32
   %247 = add i32 %.0685820, 1
-  %248 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv914
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv914
   %249 = load i32, ptr %248, align 4, !tbaa !3
   %250 = sub nsw i32 %249, %.0685820
   store i32 %250, ptr %27, align 4, !tbaa !3
@@ -478,13 +478,13 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %253 = add nsw i32 %.1631824, 1
   %254 = add nsw i32 %.1623825, 1
   %.pre952 = sext i32 %247 to i64
-  %.phi.trans.insert = getelementptr inbounds double, ptr %36, i64 %.pre952
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %36, i64 %.pre952
   %.pre953 = load double, ptr %.phi.trans.insert, align 8, !tbaa !7
   br label %266
 
 .thread757:                                       ; preds = %252
   %255 = sext i32 %247 to i64
-  %256 = getelementptr inbounds double, ptr %36, i64 %255
+  %256 = getelementptr inbounds [8 x i8], ptr %36, i64 %255
   %257 = load double, ptr %256, align 8, !tbaa !7
   %258 = load double, ptr %29, align 8, !tbaa !7
   %259 = fsub double %257, %258
@@ -507,15 +507,15 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %269 = add nsw i32 %268, 1
   store i32 %269, ptr %10, align 4, !tbaa !3
   %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds double, ptr %34, i64 %270
+  %271 = getelementptr inbounds [8 x i8], ptr %34, i64 %270
   store double %267, ptr %271, align 8, !tbaa !7
-  %272 = getelementptr inbounds i32, ptr %33, i64 %270
+  %272 = getelementptr inbounds [4 x i8], ptr %33, i64 %270
   store i32 %indvars916, ptr %272, align 4, !tbaa !3
   br label %434
 
 273:                                              ; preds = %246
   %274 = sext i32 %247 to i64
-  %275 = getelementptr inbounds double, ptr %36, i64 %274
+  %275 = getelementptr inbounds [8 x i8], ptr %36, i64 %274
   %276 = load double, ptr %275, align 8, !tbaa !7
   %.not735.not796 = icmp slt i32 %247, %249
   br i1 %.not735.not796, label %.lr.ph802, label %._crit_edge803
@@ -525,12 +525,12 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1800 = phi double [ %281, %.lr.ph802 ], [ 0.000000e+00, %273 ]
   %.1657799 = phi double [ %287, %.lr.ph802 ], [ %276, %273 ]
   %.1660798 = phi double [ %291, %.lr.ph802 ], [ %276, %273 ]
-  %277 = getelementptr inbounds double, ptr %35, i64 %indvars.iv900
+  %277 = getelementptr inbounds [8 x i8], ptr %35, i64 %indvars.iv900
   %278 = load double, ptr %277, align 8, !tbaa !7
   %279 = fcmp oge double %278, 0.000000e+00
   %280 = fneg double %278
   %281 = select i1 %279, double %278, double %280
-  %282 = getelementptr inbounds double, ptr %36, i64 %indvars.iv900
+  %282 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv900
   %283 = load double, ptr %282, align 8, !tbaa !7
   %284 = fadd double %.1800, %283
   %285 = fadd double %284, %281
@@ -550,7 +550,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1657.lcssa = phi double [ %276, %273 ], [ %287, %.lr.ph802 ]
   %.1.lcssa = phi double [ 0.000000e+00, %273 ], [ %281, %.lr.ph802 ]
   %292 = sext i32 %249 to i64
-  %293 = getelementptr inbounds double, ptr %36, i64 %292
+  %293 = getelementptr inbounds [8 x i8], ptr %36, i64 %292
   %294 = load double, ptr %293, align 8, !tbaa !7
   %295 = fadd double %.1.lcssa, %294
   %296 = fcmp oge double %.1657.lcssa, %295
@@ -619,32 +619,32 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.2658 = phi double [ %341, %337 ], [ %318, %331 ]
   %344 = load i32, ptr %2, align 4, !tbaa !3
   %345 = sext i32 %344 to i64
-  %346 = getelementptr double, ptr %31, i64 %345
+  %346 = getelementptr [8 x i8], ptr %31, i64 %345
   %347 = getelementptr i8, ptr %346, i64 8
   store double %.2661, ptr %347, align 8, !tbaa !7
   %348 = add nsw i32 %344, %250
   %349 = sext i32 %348 to i64
-  %350 = getelementptr double, ptr %31, i64 %349
+  %350 = getelementptr [8 x i8], ptr %31, i64 %349
   %351 = getelementptr i8, ptr %350, i64 8
   store double %.2658, ptr %351, align 8, !tbaa !7
-  %352 = getelementptr inbounds double, ptr %35, i64 %274
-  %353 = getelementptr inbounds double, ptr %31, i64 %274
+  %352 = getelementptr inbounds [8 x i8], ptr %35, i64 %274
+  %353 = getelementptr inbounds [8 x i8], ptr %31, i64 %274
   %354 = shl i32 %250, 1
   %355 = add nsw i32 %344, %354
   %356 = sext i32 %355 to i64
-  %357 = getelementptr double, ptr %31, i64 %356
+  %357 = getelementptr [8 x i8], ptr %31, i64 %356
   %358 = getelementptr i8, ptr %357, i64 8
   %359 = load i32, ptr %10, align 4, !tbaa !3
   %360 = add nsw i32 %359, 1
   %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds double, ptr %34, i64 %361
-  %363 = getelementptr inbounds i32, ptr %33, i64 %361
+  %362 = getelementptr inbounds [8 x i8], ptr %34, i64 %361
+  %363 = getelementptr inbounds [4 x i8], ptr %33, i64 %361
   call void @dlaebz_(ptr noundef nonnull @c__1, ptr noundef nonnull @c__0, ptr noundef nonnull %27, ptr noundef nonnull %27, ptr noundef nonnull @c__1, ptr noundef nonnull %25, ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %29, ptr noundef nonnull %275, ptr noundef nonnull %352, ptr noundef nonnull %353, ptr noundef nonnull %28, ptr noundef nonnull %347, ptr noundef %358, ptr noundef nonnull %26, ptr noundef %16, ptr noundef nonnull %362, ptr noundef nonnull %363, ptr noundef nonnull %21) #6
   %364 = load i32, ptr %16, align 4, !tbaa !3
   %365 = add nsw i32 %364, %.1631824
   %366 = load i32, ptr %27, align 4, !tbaa !3
   %367 = sext i32 %366 to i64
-  %368 = getelementptr i32, ptr %30, i64 %367
+  %368 = getelementptr [4 x i8], ptr %30, i64 %367
   %369 = getelementptr i8, ptr %368, i64 4
   %370 = load i32, ptr %369, align 4, !tbaa !3
   %371 = add nsw i32 %370, %.1623825
@@ -662,18 +662,18 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %382, ptr %23, align 4, !tbaa !3
   %383 = load i32, ptr %2, align 4, !tbaa !3
   %384 = sext i32 %383 to i64
-  %385 = getelementptr double, ptr %31, i64 %384
+  %385 = getelementptr [8 x i8], ptr %31, i64 %384
   %386 = getelementptr i8, ptr %385, i64 8
   %387 = shl i32 %366, 1
   %388 = add nsw i32 %383, %387
   %389 = sext i32 %388 to i64
-  %390 = getelementptr double, ptr %31, i64 %389
+  %390 = getelementptr [8 x i8], ptr %31, i64 %389
   %391 = getelementptr i8, ptr %390, i64 8
   %392 = load i32, ptr %10, align 4, !tbaa !3
   %393 = add nsw i32 %392, 1
   %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds double, ptr %34, i64 %394
-  %396 = getelementptr inbounds i32, ptr %33, i64 %394
+  %395 = getelementptr inbounds [8 x i8], ptr %34, i64 %394
+  %396 = getelementptr inbounds [4 x i8], ptr %33, i64 %394
   call void @dlaebz_(ptr noundef nonnull @c__2, ptr noundef nonnull %23, ptr noundef nonnull %27, ptr noundef nonnull %27, ptr noundef nonnull @c__1, ptr noundef nonnull %25, ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %29, ptr noundef nonnull %275, ptr noundef nonnull %352, ptr noundef nonnull %353, ptr noundef nonnull %28, ptr noundef %386, ptr noundef %391, ptr noundef nonnull %20, ptr noundef nonnull %16, ptr noundef nonnull %395, ptr noundef nonnull %396, ptr noundef nonnull %21) #6
   %397 = load i32, ptr %20, align 4, !tbaa !3
   %.not737812 = icmp slt i32 %397, 1
@@ -698,22 +698,22 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1636814 = phi i32 [ %.0635823, %.lr.ph816 ], [ %.2637, %._crit_edge811 ]
   %409 = load i32, ptr %2, align 4, !tbaa !3
   %410 = sext i32 %409 to i64
-  %411 = getelementptr double, ptr %31, i64 %indvars.iv909
-  %412 = getelementptr double, ptr %411, i64 %410
+  %411 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv909
+  %412 = getelementptr [8 x i8], ptr %411, i64 %410
   %413 = load double, ptr %412, align 8, !tbaa !7
   %414 = add nsw i64 %indvars.iv909, %405
-  %415 = getelementptr double, ptr %31, i64 %414
-  %416 = getelementptr double, ptr %415, i64 %410
+  %415 = getelementptr [8 x i8], ptr %31, i64 %414
+  %416 = getelementptr [8 x i8], ptr %415, i64 %410
   %417 = load double, ptr %416, align 8, !tbaa !7
   %418 = fadd double %413, %417
   %419 = fmul double %418, 5.000000e-01
   %420 = icmp sgt i64 %indvars.iv909, %406
   %.0669 = select i1 %420, i32 %401, i32 %indvars916
   %.2637 = select i1 %420, i32 1, i32 %.1636814
-  %421 = getelementptr inbounds i32, ptr %30, i64 %414
+  %421 = getelementptr inbounds [4 x i8], ptr %30, i64 %414
   %422 = load i32, ptr %421, align 4, !tbaa !3
   %423 = add nsw i32 %422, %373
-  %424 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv909
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv909
   %425 = load i32, ptr %424, align 4, !tbaa !3
   %426 = add i32 %402, %425
   %.not738807 = icmp sgt i32 %426, %423
@@ -726,9 +726,9 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph810:                                        ; preds = %.lr.ph810.preheader, %.lr.ph810
   %indvars.iv904 = phi i64 [ %427, %.lr.ph810.preheader ], [ %indvars.iv.next905, %.lr.ph810 ]
-  %429 = getelementptr inbounds double, ptr %34, i64 %indvars.iv904
+  %429 = getelementptr inbounds [8 x i8], ptr %34, i64 %indvars.iv904
   store double %419, ptr %429, align 8, !tbaa !7
-  %430 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv904
+  %430 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv904
   store i32 %.0669, ptr %430, align 4, !tbaa !3
   %indvars.iv.next905 = add nsw i64 %indvars.iv904, 1
   %lftr.wideiv907 = trunc i64 %indvars.iv.next905 to i32
@@ -792,7 +792,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1641836 = phi i32 [ %441, %.lr.ph838.preheader ], [ %.2642, %466 ]
   %.1646835 = phi i32 [ %439, %.lr.ph838.preheader ], [ %.2647, %466 ]
   %447 = phi i32 [ 0, %.lr.ph838.preheader ], [ %467, %466 ]
-  %448 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv917
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv917
   %449 = load double, ptr %448, align 8, !tbaa !7
   %450 = fcmp ole double %449, %.1629
   %451 = icmp sgt i32 %.1646835, 0
@@ -816,11 +816,11 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 459:                                              ; preds = %454
   %460 = add nsw i32 %447, 1
   %461 = sext i32 %460 to i64
-  %462 = getelementptr inbounds double, ptr %34, i64 %461
+  %462 = getelementptr inbounds [8 x i8], ptr %34, i64 %461
   store double %449, ptr %462, align 8, !tbaa !7
-  %463 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv917
+  %463 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv917
   %464 = load i32, ptr %463, align 4, !tbaa !3
-  %465 = getelementptr inbounds i32, ptr %33, i64 %461
+  %465 = getelementptr inbounds [4 x i8], ptr %33, i64 %461
   store i32 %464, ptr %465, align 4, !tbaa !3
   br label %466
 
@@ -866,13 +866,13 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv922 = phi i64 [ 1, %.lr.ph847.preheader ], [ %indvars.iv.next923, %483 ]
   %.0652845 = phi i32 [ 0, %.lr.ph847.preheader ], [ %.1653, %483 ]
   %.1672843 = phi double [ %.0671852, %.lr.ph847.preheader ], [ %.2673, %483 ]
-  %475 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv922
+  %475 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv922
   %476 = load i32, ptr %475, align 4, !tbaa !3
   %.not734 = icmp eq i32 %476, 0
   br i1 %.not734, label %483, label %477
 
 477:                                              ; preds = %.lr.ph847
-  %478 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv922
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv922
   %479 = load double, ptr %478, align 8, !tbaa !7
   %480 = fcmp olt double %479, %.1672843
   %481 = icmp eq i32 %.0652845, 0
@@ -896,7 +896,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge848:                                   ; preds = %._crit_edge848.loopexit, %.preheader1003
   %.1672.lcssa = phi double [ %.0671852, %.preheader1003 ], [ %.2673, %._crit_edge848.loopexit ]
   %.0652.lcssa = phi i64 [ 0, %.preheader1003 ], [ %484, %._crit_edge848.loopexit ]
-  %485 = getelementptr inbounds i32, ptr %33, i64 %.0652.lcssa
+  %485 = getelementptr inbounds [4 x i8], ptr %33, i64 %.0652.lcssa
   store i32 0, ptr %485, align 4, !tbaa !3
   %486 = add nuw i32 %.0677851, 1
   %exitcond927.not = icmp eq i32 %.0677851, %.0645
@@ -921,13 +921,13 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv928 = phi i64 [ 1, %.lr.ph858.preheader ], [ %indvars.iv.next929, %497 ]
   %.2654856 = phi i32 [ 0, %.lr.ph858.preheader ], [ %.3655, %497 ]
   %.4675854 = phi double [ %.3674863, %.lr.ph858.preheader ], [ %.5676, %497 ]
-  %489 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv928
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv928
   %490 = load i32, ptr %489, align 4, !tbaa !3
   %.not732 = icmp eq i32 %490, 0
   br i1 %.not732, label %497, label %491
 
 491:                                              ; preds = %.lr.ph858
-  %492 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv928
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv928
   %493 = load double, ptr %492, align 8, !tbaa !7
   %494 = fcmp ogt double %493, %.4675854
   %495 = icmp eq i32 %.2654856, 0
@@ -951,7 +951,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge859:                                   ; preds = %._crit_edge859.loopexit, %.preheader
   %.4675.lcssa = phi double [ %.3674863, %.preheader ], [ %.5676, %._crit_edge859.loopexit ]
   %.2654.lcssa = phi i64 [ 0, %.preheader ], [ %498, %._crit_edge859.loopexit ]
-  %499 = getelementptr inbounds i32, ptr %33, i64 %.2654.lcssa
+  %499 = getelementptr inbounds [4 x i8], ptr %33, i64 %.2654.lcssa
   store i32 0, ptr %499, align 4, !tbaa !3
   %500 = add nuw i32 %.1678862, 1
   %exitcond933.not = icmp eq i32 %.1678862, %.0640
@@ -970,19 +970,19 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph868:                                        ; preds = %.lr.ph868.preheader, %513
   %indvars.iv934 = phi i64 [ 1, %.lr.ph868.preheader ], [ %indvars.iv.next935, %513 ]
   %503 = phi i32 [ 0, %.lr.ph868.preheader ], [ %514, %513 ]
-  %504 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv934
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv934
   %505 = load i32, ptr %504, align 4, !tbaa !3
   %.not730 = icmp eq i32 %505, 0
   br i1 %.not730, label %513, label %506
 
 506:                                              ; preds = %.lr.ph868
   %507 = add nsw i32 %503, 1
-  %508 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv934
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv934
   %509 = load double, ptr %508, align 8, !tbaa !7
   %510 = sext i32 %507 to i64
-  %511 = getelementptr inbounds double, ptr %34, i64 %510
+  %511 = getelementptr inbounds [8 x i8], ptr %34, i64 %510
   store double %509, ptr %511, align 8, !tbaa !7
-  %512 = getelementptr inbounds i32, ptr %33, i64 %510
+  %512 = getelementptr inbounds [4 x i8], ptr %33, i64 %510
   store i32 %505, ptr %512, align 4, !tbaa !3
   br label %513
 
@@ -1024,7 +1024,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph882:                                        ; preds = %.lr.ph882.preheader, %._crit_edge876.thread
   %indvars.iv946 = phi i64 [ 1, %.lr.ph882.preheader ], [ %indvars.iv.next947, %._crit_edge876.thread ]
   %indvars.iv939 = phi i64 [ 2, %.lr.ph882.preheader ], [ %indvars.iv.next940, %._crit_edge876.thread ]
-  %525 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv946
+  %525 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv946
   %526 = load double, ptr %525, align 8, !tbaa !7
   %527 = load i32, ptr %10, align 4, !tbaa !3
   %indvars.iv.next947 = add nuw nsw i64 %indvars.iv946, 1
@@ -1041,7 +1041,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv941 = phi i64 [ %indvars.iv939, %.lr.ph875.preheader ], [ %indvars.iv.next942, %.lr.ph875 ]
   %.2873 = phi double [ %526, %.lr.ph875.preheader ], [ %.3, %.lr.ph875 ]
   %.0666872 = phi i32 [ 0, %.lr.ph875.preheader ], [ %.1667, %.lr.ph875 ]
-  %530 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv941
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv941
   %531 = load double, ptr %530, align 8, !tbaa !7
   %532 = fcmp olt double %531, %.2873
   %533 = trunc nuw nsw i64 %indvars.iv941 to i32
@@ -1057,11 +1057,11 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 534:                                              ; preds = %._crit_edge876
   %535 = sext i32 %.1667 to i64
-  %536 = getelementptr inbounds i32, ptr %33, i64 %535
+  %536 = getelementptr inbounds [4 x i8], ptr %33, i64 %535
   %537 = load i32, ptr %536, align 4, !tbaa !3
-  %538 = getelementptr inbounds double, ptr %34, i64 %535
+  %538 = getelementptr inbounds [8 x i8], ptr %34, i64 %535
   store double %526, ptr %538, align 8, !tbaa !7
-  %539 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv946
+  %539 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv946
   %540 = load i32, ptr %539, align 4, !tbaa !3
   store i32 %540, ptr %536, align 4, !tbaa !3
   store double %.3, ptr %525, align 8, !tbaa !7

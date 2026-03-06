@@ -90,7 +90,7 @@ define internal void @sipstat_init(ptr noundef %0, ptr readnone captures(none) %
   %28 = tail call i32 @g_hash_table_insert(ptr noundef %27, ptr noundef %21, ptr noundef %22)
   %29 = add i32 %.042.i, 1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct._value_string, ptr @sip_response_code_vals, i64 %30
+  %31 = getelementptr [16 x i8], ptr @sip_response_code_vals, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null

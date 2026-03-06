@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<arrow::io::HdfsPathInfo, std::allocator<arrow::io::HdfsPathInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<arrow::io::HdfsPathInfo, std::allocator<arrow::io::HdfsPathInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::io::HdfsPathInfo, std::allocator<arrow::io::HdfsPathInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<arrow::io::HdfsPathInfo, std::allocator<arrow::io::HdfsPathInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.hdfsFileInfo = type { i32, ptr, i64, i64, i16, i64, ptr, ptr, i16, i64 }
 %"class.std::shared_ptr.89" = type { %"class.std::__shared_ptr.90" }
 %"class.std::__shared_ptr.90" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.92" = type { %"class.std::__shared_ptr.93" }
@@ -3778,10 +3777,10 @@ define linkonce_odr hidden void @_ZN5arrow2io16HadoopFileSystem20HadoopFileSyste
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %struct.hdfsFileInfo, ptr %11, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 %indvars.iv
   %41 = load ptr, ptr %3, align 8, !tbaa !404
-  %42 = getelementptr %"struct.arrow::io::HdfsPathInfo", ptr %41, i64 %indvars.iv
-  %43 = getelementptr %"struct.arrow::io::HdfsPathInfo", ptr %42, i64 %38
+  %42 = getelementptr [136 x i8], ptr %41, i64 %indvars.iv
+  %43 = getelementptr [136 x i8], ptr %42, i64 %38
   call fastcc void @_ZN5arrow2ioL11SetPathInfoEPK12hdfsFileInfoPNS0_12HdfsPathInfoE(ptr noundef %40, ptr noundef nonnull %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %5, align 4, !tbaa !57
@@ -8492,7 +8491,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !548
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !411
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !414
   ret void
 
@@ -8625,7 +8624,7 @@ define linkonce_odr void @_ZNSt6vectorIN5arrow2io12HdfsPathInfoESaIS2_EE6resizeE
   br i1 %14, label %15, label %_ZNSt6vectorIN5arrow2io12HdfsPathInfoESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.arrow::io::HdfsPathInfo", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [136 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN5arrow2io12HdfsPathInfoESaIS2_EE15_M_erase_at_endEPS2_.exit, label %.lr.ph.i.i.i.i
 
@@ -9021,9 +9020,9 @@ _ZNSt6vectorIN5arrow2io12HdfsPathInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 
 _ZNSt12_Vector_baseIN5arrow2io12HdfsPathInfoESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN5arrow2io12HdfsPathInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %93
   store ptr %33, ptr %0, align 8, !tbaa !404
-  %97 = getelementptr inbounds nuw %"struct.arrow::io::HdfsPathInfo", ptr %34, i64 %1
+  %97 = getelementptr inbounds nuw [136 x i8], ptr %34, i64 %1
   store ptr %97, ptr %4, align 8, !tbaa !415
-  %98 = getelementptr inbounds nuw %"struct.arrow::io::HdfsPathInfo", ptr %33, i64 %31
+  %98 = getelementptr inbounds nuw [136 x i8], ptr %33, i64 %31
   store ptr %98, ptr %11, align 8, !tbaa !417
   br label %99
 

@@ -64,7 +64,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal8toStringENS0_8MethodIdE(i32
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -80,7 +80,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8MethodIdE.exit
 
@@ -286,7 +286,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal12getMethodIdsERKSt6vectorINS
   br i1 %17, label %.noexc, label %.loopexit
 
 .noexc:                                           ; preds = %9
-  %18 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %11, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -890,7 +890,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !16
   store ptr %42, ptr %4, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !24
   ret void
 

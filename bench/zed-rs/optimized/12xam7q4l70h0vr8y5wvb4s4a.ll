@@ -814,10 +814,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !166, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !167, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd88129354395b0e3E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd88129354395b0e3E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd88129354395b0e3E.120", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd88129354395b0e3E.120", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -6565,7 +6565,7 @@ _ZN4core4hash11BuildHasher8hash_one17h4d293e6a29320f68E.exit.i.i.i: ; preds = %1
   %209 = add i64 %.sroa.01.0.i.i.i.i.i, %208
   %210 = and i64 %209, %200
   %211 = sub nsw i64 0, %210
-  %212 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, ptr } }, {} }, {} } }, ptr %201, i64 %211
+  %212 = getelementptr inbounds [32 x i8], ptr %201, i64 %211
   %213 = getelementptr i8, ptr %212, i64 -24
   %.val5.i.i.i.i.i = load i64, ptr %213, align 8, !noalias !1422, !noundef !5
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val68.i, %.val5.i.i.i.i.i
@@ -7325,7 +7325,7 @@ _ZN10serde_json3ser6indent17h98fb24b673edc625E.exit.i.i.i.i.i.i.i.i.i: ; preds =
   %511 = load ptr, ptr %510, align 8, !alias.scope !1525, !noalias !1526, !nonnull !5, !noundef !5
   %512 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %513 = load i64, ptr %512, align 8, !alias.scope !1525, !noalias !1526, !noundef !5
-  %514 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %511, i64 %513
+  %514 = getelementptr inbounds [104 x i8], ptr %511, i64 %513
   br label %515
 
 515:                                              ; preds = %.noexc23.i.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h0f36e26e491c85afE.exit.i.i.i.i.i.i.i"

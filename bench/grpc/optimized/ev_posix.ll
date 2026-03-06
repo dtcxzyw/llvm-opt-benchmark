@@ -68,7 +68,7 @@ define void @_Z34grpc_register_event_engine_factoryPK24grpc_event_engine_vtableb
   %.01423 = phi i64 [ 0, %2 ], [ %17, %16 ]
   %.01522 = phi ptr [ null, %2 ], [ %.1, %16 ]
   %.01621 = phi ptr [ null, %2 ], [ %.2, %16 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZL9g_vtables, i64 %.01423
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9g_vtables, i64 %.01423
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -677,7 +677,7 @@ _ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
 
 .split.us.i.i:                                    ; preds = %44, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us.i.i
   %.017.us.i.i = phi i64 [ %63, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us.i.i ], [ 0, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr @_ZL9g_vtables, i64 %.017.us.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9g_vtables, i64 %.017.us.i.i
   %46 = load ptr, ptr %45, align 8, !tbaa !3
   %.not.us.i.i = icmp eq ptr %46, null
   br i1 %.not.us.i.i, label %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.us.i.i
@@ -729,7 +729,7 @@ _ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us.i.i: ; preds 
 
 .split.split.us.i.i:                              ; preds = %44, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us23.i.i
   %.017.us20.i.i = phi i64 [ %73, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us23.i.i ], [ %.fr38.i.i, %44 ]
-  %64 = getelementptr inbounds nuw ptr, ptr @_ZL9g_vtables, i64 %.017.us20.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9g_vtables, i64 %.017.us20.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !3
   %.not.us21.i.i = icmp eq ptr %65, null
   br i1 %.not.us21.i.i, label %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us23.i.i, label %66
@@ -754,7 +754,7 @@ _ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us23.i.i: ; pred
 
 .split.split.split.i.i:                           ; preds = %44, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.i.i
   %.017.i.i = phi i64 [ %87, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.i.i ], [ 0, %44 ]
-  %74 = getelementptr inbounds nuw ptr, ptr @_ZL9g_vtables, i64 %.017.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9g_vtables, i64 %.017.i.i
   %75 = load ptr, ptr %74, align 8, !tbaa !3
   %.not.i20.i = icmp eq ptr %75, null
   br i1 %.not.i20.i, label %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.i.i, label %76
@@ -779,7 +779,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .split19.us.i.i:                                  ; preds = %.thread16.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
   %.us-phi.i.i = phi i64 [ %.017.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i ], [ %.017.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i ], [ %.017.us20.i.i, %.thread16.us.i.i ]
-  %85 = getelementptr inbounds nuw ptr, ptr @_ZL9g_vtables, i64 %.us-phi.i.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9g_vtables, i64 %.us-phi.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !3
   store ptr %86, ptr @_ZL14g_event_engine, align 8, !tbaa !3
   br label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i

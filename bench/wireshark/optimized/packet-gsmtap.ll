@@ -563,7 +563,7 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 switch.lookup:                                    ; preds = %56
   %60 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsmtap, i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_gsmtap, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %61
 
@@ -798,7 +798,7 @@ switch.lookup:                                    ; preds = %56
   br i1 %.not.i.i, label %151, label %handle_tetra.exit.i
 
 151:                                              ; preds = %147
-  %152 = getelementptr i32, ptr @gsmtap_to_tetra, i64 %148
+  %152 = getelementptr [4 x i8], ptr @gsmtap_to_tetra, i64 %148
   %153 = load i32, ptr %152, align 4
   tail call void @tetra_dissect_pdu(i32 noundef %153, i32 noundef 1, ptr noundef %32, ptr noundef %2, ptr noundef %1)
   br label %handle_tetra.exit.i
@@ -964,25 +964,25 @@ handle_tetra.exit.i:                              ; preds = %151, %147, %144
 216:                                              ; preds = %108, %.thread.i
   %cond.i = icmp eq i8 %22, 1
   %217 = zext i1 %cond.i to i64
-  %218 = getelementptr ptr, ptr @sim_sub_handles, i64 %217
+  %218 = getelementptr [8 x i8], ptr @sim_sub_handles, i64 %217
   %219 = load ptr, ptr %218, align 8
   br label %.sink.split34.i
 
 220:                                              ; preds = %109
   %221 = zext nneg i8 %22 to i64
-  %222 = getelementptr ptr, ptr @rrc_sub_handles, i64 %221
+  %222 = getelementptr [8 x i8], ptr @rrc_sub_handles, i64 %221
   %223 = load ptr, ptr %222, align 8
   br label %.sink.split34.i
 
 224:                                              ; preds = %112
   %225 = zext nneg i8 %22 to i64
-  %226 = getelementptr ptr, ptr @lte_rrc_sub_handles, i64 %225
+  %226 = getelementptr [8 x i8], ptr @lte_rrc_sub_handles, i64 %225
   %227 = load ptr, ptr %226, align 8
   br label %.sink.split34.i
 
 228:                                              ; preds = %114
   %229 = zext nneg i8 %22 to i64
-  %230 = getelementptr ptr, ptr @lte_nas_sub_handles, i64 %229
+  %230 = getelementptr [8 x i8], ptr @lte_nas_sub_handles, i64 %229
   %231 = load ptr, ptr %230, align 8
   br label %.sink.split34.i
 
@@ -993,7 +993,7 @@ switch.lookup.i:                                  ; preds = %155
 
 select.unfold.i:                                  ; preds = %switch.lookup.i, %215, %214, %213, %162, %161, %160, %159, %158, %157, %155, %143, %142, %141, %134, %129, %124, %118, %118, %118, %118, %114, %112, %109, %108
   %.0246.ph.i = phi i64 [ 0, %114 ], [ 0, %112 ], [ 0, %109 ], [ 0, %215 ], [ 1, %118 ], [ 0, %213 ], [ 19, %160 ], [ 18, %159 ], [ 17, %158 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %161 ], [ 0, %141 ], [ 1, %118 ], [ 25, %162 ], [ 16, %157 ], [ 27, %214 ], [ 7, %108 ], [ %spec.select.i, %124 ], [ 6, %143 ], [ 5, %142 ], [ 0, %129 ], [ 14, %134 ], [ 1, %118 ], [ 1, %118 ], [ 0, %155 ]
-  %233 = getelementptr ptr, ptr @sub_handles, i64 %.0246.ph.i
+  %233 = getelementptr [8 x i8], ptr @sub_handles, i64 %.0246.ph.i
   %234 = load ptr, ptr %233, align 8
   %.not265.i = icmp eq ptr %234, null
   br i1 %.not265.i, label %236, label %.sink.split34.i
@@ -1555,13 +1555,13 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %.sink.i.ph = phi i8 [ 9, %25 ], [ 2, %18 ], [ 3, %19 ], [ 4, %20 ], [ 5, %21 ], [ 6, %22 ], [ 7, %23 ], [ 8, %24 ], [ 1, %15 ]
   store i32 %.sink33.i.ph, ptr %12, align 4
   store i8 %.sink.i.ph, ptr %13, align 4
-  %28 = getelementptr ptr, ptr @sub_handles, i64 %.
+  %28 = getelementptr [8 x i8], ptr @sub_handles, i64 %.
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @call_dissector_with_data(ptr noundef %29, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.val = load i32, ptr %12, align 4
   %.val25 = load i8, ptr %13, align 4
   %31 = zext i8 %.val25 to i64
-  %32 = getelementptr i32, ptr @data_block_len_by_mcs, i64 %31
+  %32 = getelementptr [4 x i8], ptr @data_block_len_by_mcs, i64 %31
   %33 = load i32, ptr %32, align 4
   switch i32 %.val, label %.thread [
     i32 49, label %34
@@ -1594,7 +1594,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %.sink33.i = phi i32 [ 33, %26 ], [ %11, %15 ], [ 36, %17 ], [ 35, %16 ], [ 32, %4 ]
   store i32 %.sink33.i, ptr %12, align 4
   store i8 0, ptr %13, align 4
-  %50 = getelementptr ptr, ptr @sub_handles, i64 %.
+  %50 = getelementptr [8 x i8], ptr @sub_handles, i64 %.
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   br label %.thread

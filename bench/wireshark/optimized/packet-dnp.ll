@@ -3615,7 +3615,7 @@ select.unfold:                                    ; preds = %392, %383
 
 switch.lookup:                                    ; preds = %select.unfold
   %400 = zext nneg i8 %.011921326 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dnp3_al_process_object, i64 %400
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dnp3_al_process_object, i64 %400
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -3657,7 +3657,7 @@ switch.lookup:                                    ; preds = %select.unfold
 
 switch.lookup1401:                                ; preds = %412
   %422 = zext nneg i8 %.011921326 to i64
-  %switch.gep1402 = getelementptr inbounds nuw ptr, ptr @switch.table.dnp3_al_process_object.1, i64 %422
+  %switch.gep1402 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dnp3_al_process_object.1, i64 %422
   %switch.load1403 = load ptr, ptr %switch.gep1402, align 8
   %423 = load i32, ptr %switch.load1403, align 4
   %424 = call ptr @proto_tree_add_uint(ptr noundef %216, i32 noundef %423, ptr noundef nonnull %0, i32 noundef %.11327, i32 noundef 1, i32 noundef %414)
@@ -4681,7 +4681,7 @@ default.unreachable:                              ; preds = %616
 
 switch.lookup1404:                                ; preds = %964
   %979 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep1405 = getelementptr inbounds nuw i32, ptr @switch.table.dnp3_al_process_object.2, i64 %979
+  %switch.gep1405 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dnp3_al_process_object.2, i64 %979
   %switch.load1406 = load i32, ptr %switch.gep1405, align 4
   br label %980
 
@@ -5249,7 +5249,7 @@ define internal noundef nonnull ptr @dnp3_get_filter_type(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dnp3_get_filter_type, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dnp3_get_filter_type, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 

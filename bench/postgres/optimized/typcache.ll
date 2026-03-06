@@ -7,15 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.RecordCacheArrayEntry = type { i64, ptr }
 %struct.SharedRecordTableKey = type { %union.anon, i8 }
 %union.anon = type { ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.EnumItem = type { i32, float }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @TypeCacheHash = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [23 x i8] c"Type information cache\00", align 1
@@ -147,7 +142,7 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
   store i32 %31, ptr @in_progress_list_len, align 4
   %32 = load i32, ptr %4, align 4
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds i32, ptr %29, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %29, i64 %33
   store i32 %32, ptr %34, align 4
   %35 = load ptr, ptr @TypeCacheHash, align 8
   %36 = call ptr @hash_search(ptr noundef %35, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #16
@@ -2480,7 +2475,7 @@ fastgetattr.exit:                                 ; preds = %83
   %.494 = phi ptr [ %116, %115 ], [ %122, %118 ], [ %.292160, %117 ]
   %124 = add i32 %.0100158, 1
   %125 = sext i32 %.0100158 to i64
-  %126 = getelementptr inbounds ptr, ptr %.494, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.494, i64 %125
   store ptr %107, ptr %126, align 8
   br label %127
 
@@ -2521,7 +2516,7 @@ fastgetattr.exit:                                 ; preds = %83
   %indvars.iv = phi i64 [ %136, %.lr.ph167.preheader ], [ %indvars.iv.next, %.lr.ph167 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %138 = and i64 %indvars.iv.next, 4294967295
-  %139 = getelementptr inbounds nuw ptr, ptr %.393, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %.393, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = call ptr @lcons(ptr noundef %140, ptr noundef %137) #16
   store ptr %141, ptr %.3, align 8
@@ -2670,7 +2665,7 @@ define dso_local void @InitDomainConstraintRef(i32 noundef %0, ptr noundef initi
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph29.i ], [ 0, %.lr.ph.i ]
   %.02327.i = phi ptr [ %46, %.lr.ph29.i ], [ null, %.lr.ph.i ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr @palloc0(i64 noundef 32) #16
   store i32 392, ptr %34, align 4
@@ -2824,7 +2819,7 @@ decr_dcc_refcount.exit:                           ; preds = %decr_dcc_refcount.e
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph29.i ], [ 0, %.lr.ph.i ]
   %.02327.i = phi ptr [ %59, %.lr.ph29.i ], [ null, %.lr.ph.i ]
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef ptr @palloc0(i64 noundef 32) #16
   store i32 392, ptr %47, align 4
@@ -2924,7 +2919,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @RecordCacheArray, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not18 = icmp eq ptr %25, null
@@ -2994,7 +2989,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
   %62 = phi ptr [ %61, %50 ], [ %48, %47 ]
   %63 = load i32, ptr %4, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %62, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %62, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %40, ptr %66, align 8
   %67 = load i64, ptr @tupledesc_id_counter, align 8
@@ -3008,7 +3003,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
   %72 = load ptr, ptr @RecordCacheArray, align 8
   %73 = load i32, ptr %4, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %72, i64 %74
+  %75 = getelementptr inbounds [16 x i8], ptr %72, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   br label %84
@@ -3297,7 +3292,7 @@ ensure_record_cache_typmod_slot_exists.exit20:    ; preds = %73, %70, %ensure_re
   %86 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %85, i64 %88
+  %89 = getelementptr inbounds [16 x i8], ptr %85, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %.0, ptr %90, align 8
   %91 = load i64, ptr @tupledesc_id_counter, align 8
@@ -3305,7 +3300,7 @@ ensure_record_cache_typmod_slot_exists.exit20:    ; preds = %73, %70, %ensure_re
   store i64 %92, ptr @tupledesc_id_counter, align 8
   %93 = load i32, ptr %86, align 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %85, i64 %94
+  %95 = getelementptr inbounds [16 x i8], ptr %85, i64 %94
   store i64 %92, ptr %95, align 8
   %96 = load ptr, ptr @RecordCacheHash, align 8
   %97 = call ptr @hash_search(ptr noundef %96, ptr noundef nonnull %2, i32 noundef 1, ptr noundef null) #16
@@ -3528,7 +3523,7 @@ define dso_local i64 @assign_record_type_identifier(i32 noundef %0, i32 noundef 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @RecordCacheArray, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not11 = icmp eq ptr %25, null
@@ -3586,7 +3581,7 @@ define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef initializes((0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %20 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -4041,7 +4036,7 @@ define internal fastcc void @load_enum_cache_data(ptr noundef captures(none) %0)
   %.175 = phi ptr [ %28, %24 ], [ %.074116, %.lr.ph ]
   %30 = load i32, ptr %23, align 4
   %31 = sext i32 %.079115 to i64
-  %32 = getelementptr inbounds %struct.EnumItem, ptr %.175, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.175, i64 %31
   store i32 %30, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %34 = load float, ptr %33, align 4
@@ -4075,7 +4070,7 @@ define internal fastcc void @load_enum_cache_data(ptr noundef captures(none) %0)
 
 41:                                               ; preds = %40
   %42 = call ptr @bms_make_singleton(i32 noundef 0) #16
-  %43 = getelementptr inbounds nuw %struct.EnumItem, ptr %.074.lcssa, i64 %indvars.iv133
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.074.lcssa, i64 %indvars.iv133
   %44 = load i32, ptr %43, align 4
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %45 = trunc nuw i64 %indvars.iv.next134 to i32
@@ -4092,7 +4087,7 @@ define internal fastcc void @load_enum_cache_data(ptr noundef captures(none) %0)
   %.077120 = phi float [ %48, %.lr.ph123.preheader ], [ %.178.ph, %60 ]
   %.080119 = phi i32 [ 1, %.lr.ph123.preheader ], [ %.282.ph, %60 ]
   %.083118 = phi ptr [ %42, %.lr.ph123.preheader ], [ %.285.ph, %60 ]
-  %49 = getelementptr inbounds nuw %struct.EnumItem, ptr %.074.lcssa, i64 %indvars.iv130
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.074.lcssa, i64 %indvars.iv130
   %50 = load i32, ptr %49, align 4
   %51 = sub i32 %50, %44
   %52 = icmp ugt i32 %51, 8191
@@ -4180,7 +4175,7 @@ define dso_local void @AtEOXact_TypeCache() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %insert_rel_type_cache_if_needed.exit.i ], [ 0, %0 ]
   %4 = load ptr, ptr @TypeCacheHash, align 8
   %5 = load ptr, ptr @in_progress_list, align 8
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %7 = call ptr @hash_search(ptr noundef %4, ptr noundef %6, i32 noundef 0, ptr noundef null) #16
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %insert_rel_type_cache_if_needed.exit.i, label %8
@@ -4240,7 +4235,7 @@ define dso_local void @AtEOSubXact_TypeCache() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %insert_rel_type_cache_if_needed.exit.i ], [ 0, %0 ]
   %4 = load ptr, ptr @TypeCacheHash, align 8
   %5 = load ptr, ptr @in_progress_list, align 8
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %7 = call ptr @hash_search(ptr noundef %4, ptr noundef %6, i32 noundef 0, ptr noundef null) #16
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %insert_rel_type_cache_if_needed.exit.i, label %8
@@ -4427,7 +4422,7 @@ load_typcache_tupdesc.exit:                       ; preds = %15
   %37 = shl nsw i64 %36, 4
   %38 = getelementptr i8, ptr %32, i64 %37
   %39 = getelementptr i8, ptr %38, i64 24
-  %40 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [100 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 91
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = trunc nuw i8 %42 to i1

@@ -399,7 +399,7 @@ define internal void @_ZN6googleL21DumpStackTraceAndExitEv() #13 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
   %8 = load i8, ptr @_ZN3fLB26FLAGS_symbolize_stacktraceE, align 1, !tbaa !42, !range !43, !noundef !44
   %9 = trunc nuw i8 %8 to i1
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !45
   br i1 %9, label %12, label %20
 
@@ -529,7 +529,7 @@ define void @_ZN6google13GetStackTraceB5cxx11Ev(ptr dead_on_unwind noalias writa
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
   %10 = load i8, ptr @_ZN3fLB26FLAGS_symbolize_stacktraceE, align 1, !tbaa !42, !range !43, !noundef !44
   %11 = trunc nuw i8 %10 to i1
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   br i1 %11, label %14, label %18
 

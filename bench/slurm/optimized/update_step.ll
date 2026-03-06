@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.step_update_request_msg = type { i32, i32, i32 }
-%struct.job_step_info_t = type { i32, i32, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, i32, i64, i16, i32, %struct.slurm_step_id_msg, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 
 @exit_code = external local_unnamed_addr global i32, align 4
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -39,7 +37,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
 9:                                                ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
   %.055118 = phi i32 [ 0, %.lr.ph ], [ %.257, %101 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #10
   %.not65 = icmp eq ptr %12, null
@@ -58,7 +56,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
   br i1 %22, label %30, label %46
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %24, align 8
@@ -87,7 +85,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
   br label %45
 
 .critedge:                                        ; preds = %30
-  %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %40 = load ptr, ptr @stderr, align 8
   %41 = load ptr, ptr %39, align 8
@@ -160,7 +158,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
 
 71:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
-  %72 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %70, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [264 x i8], ptr %70, i64 %indvars.iv.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 168
   %74 = load i32, ptr %73, align 8
   %.not.i = icmp eq i32 %74, %62
@@ -228,7 +226,7 @@ _get_step_time.exit:                              ; preds = %75
   br label %101
 
 94:                                               ; preds = %46
-  %95 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %96 = load ptr, ptr @stderr, align 8
   %97 = load ptr, ptr %95, align 8

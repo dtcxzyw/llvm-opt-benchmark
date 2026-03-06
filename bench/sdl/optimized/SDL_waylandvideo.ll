@@ -801,7 +801,7 @@ Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.i.i.i: ; preds = %116
 
 128:                                              ; preds = %138, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %138 ]
-  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i.i.i
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 68
   %132 = load i32, ptr %131, align 4
@@ -834,7 +834,7 @@ Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.i.i.i: ; preds = %116
   %.06498.i.i.i = phi i32 [ %.165.i.i.i, %.critedge79.i.i.i ], [ 0, %.critedge.i.i.i ]
   %.06697.i.i.i = phi i32 [ %.167.i.i.i, %.critedge79.i.i.i ], [ 0, %.critedge.i.i.i ]
   %140 = load ptr, ptr %46, align 8
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv109.i.i.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv109.i.i.i
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 84
   %144 = load i32, ptr %143, align 4
@@ -934,7 +934,7 @@ Wayland_GetPrimaryDisplay.exit.i.i:               ; preds = %.critedge79.i.i.i, 
 191:                                              ; preds = %Wayland_GetPrimaryDisplay.exit.i.i
   %192 = load ptr, ptr %46, align 8
   %193 = sext i32 %.1.i.i.i to i64
-  %194 = getelementptr inbounds ptr, ptr %192, i64 %193
+  %194 = getelementptr inbounds [8 x i8], ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %197 = shl nsw i64 %193, 3
@@ -987,7 +987,7 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
   %215 = phi i32 [ %232, %231 ], [ %210, %.preheader54.i.i.i ]
   %indvars.iv.i16.i.i = phi i64 [ %indvars.iv.next.i17.i.i, %231 ], [ 0, %.preheader54.i.i.i ]
   %216 = load ptr, ptr %46, align 8
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %indvars.iv.i16.i.i
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %indvars.iv.i16.i.i
   %218 = load ptr, ptr %217, align 8
   %.not49.i.i.i = icmp eq ptr %218, null
   br i1 %.not49.i.i.i, label %231, label %219
@@ -1010,10 +1010,10 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
 225:                                              ; preds = %222
   %226 = add nsw i32 %.03661.i.i.i, 1
   %227 = sext i32 %.03661.i.i.i to i64
-  %228 = getelementptr inbounds ptr, ptr %205, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %205, i64 %227
   store ptr %218, ptr %228, align 8
   %229 = load ptr, ptr %46, align 8
-  %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv.i16.i.i
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv.i16.i.i
   store ptr null, ptr %230, align 8
   br label %.loopexit.i.i.i
 
@@ -1039,7 +1039,7 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
 238:                                              ; preds = %245, %.lr.ph64.i.i.i
   %indvars.iv70.i.i.i = phi i64 [ 0, %.lr.ph64.i.i.i ], [ %indvars.iv.next71.i.i.i, %245 ]
   %.462.i.i.i = phi i32 [ %.036.lcssa.i.i.i, %.lr.ph64.i.i.i ], [ %.5.i.i.i, %245 ]
-  %239 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv70.i.i.i
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv70.i.i.i
   %240 = load ptr, ptr %239, align 8
   %.not48.i.i.i = icmp eq ptr %240, null
   br i1 %.not48.i.i.i, label %245, label %241
@@ -1047,7 +1047,7 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
 241:                                              ; preds = %238
   %242 = add nsw i32 %.462.i.i.i, 1
   %243 = sext i32 %.462.i.i.i to i64
-  %244 = getelementptr inbounds ptr, ptr %205, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %205, i64 %243
   store ptr %240, ptr %244, align 8
   br label %245
 
@@ -1071,7 +1071,7 @@ Wayland_SortOutputs.exit.i:                       ; preds = %246, %Wayland_GetPr
 .lr.ph.i:                                         ; preds = %Wayland_SortOutputs.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %Wayland_SortOutputs.exit.i ]
   %249 = load ptr, ptr %46, align 8
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %indvars.iv.i
   %251 = load ptr, ptr %250, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 112
   %253 = call i32 @SDL_AddVideoDisplay(ptr noundef nonnull %252, i1 noundef zeroext false) #12
@@ -1135,7 +1135,7 @@ define internal void @Wayland_VideoQuit(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ %8, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @Wayland_free_display(ptr noundef %12, i1 noundef zeroext false)
   %13 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -1902,7 +1902,7 @@ define internal void @display_handle_global(ptr noundef %0, ptr noundef %1, i32 
   %53 = add nsw i32 %51, 1
   store i32 %53, ptr %38, align 8
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   store ptr %31, ptr %55, align 8
   %56 = load ptr, ptr %31, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 152
@@ -2327,7 +2327,7 @@ define internal void @display_remove_global(ptr noundef captures(address) %0, pt
 
 8:                                                ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 8
@@ -2346,7 +2346,7 @@ define internal void @display_remove_global(ptr noundef captures(address) %0, pt
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = xor i32 %14, -1
   %25 = add i32 %18, %24
@@ -2443,7 +2443,7 @@ define internal fastcc void @Wayland_init_xdg_output(ptr noundef readonly captur
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
@@ -2486,7 +2486,7 @@ define internal fastcc void @Wayland_InitColorManager(ptr noundef readonly captu
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 224
@@ -2563,7 +2563,7 @@ define internal void @display_handle_geometry(ptr noundef captures(none) initial
   %.not35 = icmp slt i32 %30, %29
   %switch.table.display_handle_geometry.5.switch.table.display_handle_geometry = select i1 %.not35, ptr @switch.table.display_handle_geometry.5, ptr @switch.table.display_handle_geometry
   %33 = zext nneg i32 %9 to i64
-  %switch.gep39 = getelementptr inbounds nuw i32, ptr %switch.table.display_handle_geometry.5.switch.table.display_handle_geometry, i64 %33
+  %switch.gep39 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.display_handle_geometry.5.switch.table.display_handle_geometry, i64 %33
   %switch.load40 = load i32, ptr %switch.gep39, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %switch.load40, ptr %34, align 4
@@ -2884,7 +2884,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   store i32 %157, ptr %151, align 8
   %158 = load i32, ptr %152, align 4
   store i32 %158, ptr %153, align 4
-  %159 = getelementptr inbounds nuw %struct.EmulatedMode, ptr @__const.AddEmulatedModes.mode_list, i64 %indvars.iv38.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr @__const.AddEmulatedModes.mode_list, i64 %indvars.iv38.i
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %161 = load i32, ptr %160, align 4
   store i32 %161, ptr %154, align 8
@@ -2917,7 +2917,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   store i32 %171, ptr %151, align 8
   %172 = load i32, ptr %152, align 4
   store i32 %172, ptr %153, align 4
-  %173 = getelementptr inbounds nuw %struct.EmulatedMode, ptr @__const.AddEmulatedModes.mode_list, i64 %indvars.iv.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr @__const.AddEmulatedModes.mode_list, i64 %indvars.iv.i
   %174 = load i32, ptr %173, align 8
   store i32 %174, ptr %154, align 8
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 4

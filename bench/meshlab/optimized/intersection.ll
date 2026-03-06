@@ -24,12 +24,11 @@ module asm ".previous"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.HalfEdge = type { ptr, i32 }
-%"struct.std::pair" = type { i32, i32 }
-%"struct.std::pair.22" = type { %struct.HalfEdge, %struct.HalfEdge }
 %"struct.std::_Hashtable<vcg::Point2<int>, std::pair<const vcg::Point2<int>, std::vector<int>>, std::allocator<std::pair<const vcg::Point2<int>, std::vector<int>>>, std::__detail::_Select1st, std::equal_to<vcg::Point2<int>>, Point2iHasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"class.std::unordered_map.68" = type { %"class.std::_Hashtable.69" }
 %"class.std::_Hashtable.69" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"struct.std::pair.22" = type { %struct.HalfEdge, %struct.HalfEdge }
+%struct.HalfEdge = type { ptr, i32 }
 
 $_Z11ensure_failPKcS0_j = comdat any
 
@@ -276,7 +275,7 @@ define void @_Z17CrossIntersectionRKSt6vectorI8HalfEdgeSaIS0_EES4_(ptr dead_on_u
   %30 = load i32, ptr %29, align 8, !noalias !5
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !noalias !5
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %.sroa.0.0.copyload.i.i = load double, ptr %35, align 8, !noalias !5
@@ -315,7 +314,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i:      ; preds = %.lr.ph.i, %45, %39
   %48 = add nsw i32 %30, 1
   %49 = srem i32 %48, 3
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %31, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %31, i64 %50
   %52 = load ptr, ptr %51, align 8, !noalias !5
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %.sroa.0.0.copyload.i5.i = load double, ptr %53, align 8, !noalias !5
@@ -378,7 +377,7 @@ _ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit: ; preds = %_ZN3vcg4Box2IdE3Ad
   %71 = load i32, ptr %70, align 8, !noalias !8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !noalias !8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %.sroa.0.0.copyload.i.i49 = load double, ptr %76, align 8, !noalias !8
@@ -417,7 +416,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54:    ; preds = %.lr.ph.i45, %86, %8
   %89 = add nsw i32 %71, 1
   %90 = srem i32 %89, 3
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %72, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %72, i64 %91
   %93 = load ptr, ptr %92, align 8, !noalias !8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %.sroa.0.0.copyload.i5.i57 = load double, ptr %94, align 8, !noalias !8
@@ -572,7 +571,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %116, %111, %_ZL10Co
   %164 = phi ptr [ %416, %._crit_edge424 ], [ %161, %.preheader398 ]
   %165 = phi i64 [ %418, %._crit_edge424 ], [ 0, %.preheader398 ]
   %storemerge38425 = phi i32 [ %417, %._crit_edge424 ], [ 0, %.preheader398 ]
-  %166 = getelementptr inbounds nuw %struct.HalfEdge, ptr %163, i64 %165
+  %166 = getelementptr inbounds nuw [16 x i8], ptr %163, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %169 = load i32, ptr %168, align 8
@@ -580,14 +579,14 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %116, %111, %_ZL10Co
   %171 = add nsw i32 %169, 1
   %172 = srem i32 %171, 3
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %170, i64 %173
   %175 = load ptr, ptr %174, align 8
   %.sroa.2.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %.sroa.2.0.copyload.i72 = load double, ptr %.sroa.2.0..sroa_idx.i71, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %.sroa.0.0.copyload.i70 = load double, ptr %176, align 8
   %177 = sext i32 %169 to i64
-  %178 = getelementptr inbounds ptr, ptr %170, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %170, i64 %177
   %179 = load ptr, ptr %178, align 8
   %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i68, align 8
@@ -659,7 +658,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %116, %111, %_ZL10Co
   %222 = load i32, ptr %168, align 8
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %224 = sext i32 %222 to i64
-  %225 = getelementptr inbounds ptr, ptr %223, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %223, i64 %224
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 24
   %.sroa.0.0.copyload.i77 = load double, ptr %227, align 8
@@ -668,7 +667,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %116, %111, %_ZL10Co
   %228 = add nsw i32 %222, 1
   %229 = srem i32 %228, 3
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds ptr, ptr %223, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %223, i64 %230
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %.sroa.0.0.copyload.i82 = load double, ptr %233, align 8
@@ -808,7 +807,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; pred
   %331 = load i64, ptr %7, align 8
   %332 = urem i64 %330, %331
   %333 = load ptr, ptr %4, align 8
-  %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %332
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %332
   %335 = load ptr, ptr %334, align 8
   %.not.i.i.i180 = icmp eq ptr %335, null
   br i1 %.not.i.i.i180, label %.loopexit.i, label %336
@@ -963,7 +962,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %399, %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %393, ptr %.0.i181, align 8
   store ptr %398, ptr %373, align 8
-  %400 = getelementptr inbounds nuw %"struct.std::pair", ptr %393, i64 %391
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %391
   store ptr %400, ptr %375, align 8
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit
 
@@ -1117,11 +1116,11 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %314, %318, %322
   %447 = phi i64 [ %573, %.critedge ], [ %439, %.lr.ph438 ]
   %.0434 = phi i32 [ %572, %.critedge ], [ %438, %.lr.ph438 ]
   %448 = phi ptr [ %571, %.critedge ], [ %.promoted, %.lr.ph438 ]
-  %449 = getelementptr inbounds nuw %"struct.std::pair", ptr %446, i64 %437
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %437
   %450 = load i64, ptr %449, align 4
   %.sroa.0264.0.extract.trunc = trunc i64 %450 to i32
   %.sroa.5267.0.extract.shift = lshr i64 %450, 32
-  %451 = getelementptr inbounds nuw %"struct.std::pair", ptr %446, i64 %447
+  %451 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %447
   %452 = load i64, ptr %451, align 4
   %.sroa.0258.0.extract.trunc = trunc i64 %452 to i32
   %.sroa.6262.0.extract.shift = lshr i64 %452, 32
@@ -1164,7 +1163,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %314, %318, %322
   br i1 %.not.i.i92, label %468, label %.invoke
 
 468:                                              ; preds = %460
-  %469 = getelementptr inbounds %struct.HalfEdge, ptr %463, i64 %461
+  %469 = getelementptr inbounds [16 x i8], ptr %463, i64 %461
   %.sroa.0237.0.copyload = load ptr, ptr %469, align 8
   %.sroa.8244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %469, i64 8
   %.sroa.8244.0.copyload = load i32, ptr %.sroa.8244.0..sroa_idx, align 8
@@ -1197,7 +1196,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %314, %318, %322
   unreachable
 
 483:                                              ; preds = %468
-  %484 = getelementptr inbounds %struct.HalfEdge, ptr %476, i64 %473
+  %484 = getelementptr inbounds [16 x i8], ptr %476, i64 %473
   %.sroa.0213.0.copyload = load ptr, ptr %484, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %484, i64 8
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 8
@@ -1205,7 +1204,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %314, %318, %322
   %.sroa.14.0.copyload = load i32, ptr %.sroa.14.0..sroa_idx, align 4
   %485 = getelementptr inbounds nuw i8, ptr %.sroa.0237.0.copyload, i64 8
   %486 = sext i32 %.sroa.8244.0.copyload to i64
-  %487 = getelementptr inbounds ptr, ptr %485, i64 %486
+  %487 = getelementptr inbounds [8 x i8], ptr %485, i64 %486
   %488 = load ptr, ptr %487, align 8
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 24
   %.sroa.0.0.copyload.i98 = load double, ptr %489, align 8
@@ -1213,7 +1212,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %314, %318, %322
   %.sroa.2.0.copyload.i100 = load double, ptr %.sroa.2.0..sroa_idx.i99, align 8
   %490 = getelementptr inbounds nuw i8, ptr %.sroa.0213.0.copyload, i64 8
   %491 = sext i32 %.sroa.8.0.copyload to i64
-  %492 = getelementptr inbounds ptr, ptr %490, i64 %491
+  %492 = getelementptr inbounds [8 x i8], ptr %490, i64 %491
   %493 = load ptr, ptr %492, align 8
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 24
   %.sroa.0.0.copyload.i103 = load double, ptr %494, align 8
@@ -1228,7 +1227,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %314, %318, %322
   %499 = add nsw i32 %.sroa.8244.0.copyload, 1
   %500 = srem i32 %499, 3
   %501 = sext i32 %500 to i64
-  %502 = getelementptr inbounds ptr, ptr %485, i64 %501
+  %502 = getelementptr inbounds [8 x i8], ptr %485, i64 %501
   %503 = load ptr, ptr %502, align 8
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 24
   %.sroa.0.0.copyload.i108 = load double, ptr %504, align 8
@@ -1237,7 +1236,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %314, %318, %322
   %505 = add nsw i32 %.sroa.8.0.copyload, 1
   %506 = srem i32 %505, 3
   %507 = sext i32 %506 to i64
-  %508 = getelementptr inbounds ptr, ptr %490, i64 %507
+  %508 = getelementptr inbounds [8 x i8], ptr %490, i64 %507
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 24
   %.sroa.0.0.copyload.i113 = load double, ptr %510, align 8
@@ -1377,7 +1376,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.
 
 _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %568, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %567, ptr %426, align 8
-  %569 = getelementptr inbounds nuw %"struct.std::pair.22", ptr %563, i64 %561
+  %569 = getelementptr inbounds nuw [32 x i8], ptr %563, i64 %561
   store ptr %569, ptr %427, align 8
   br label %.critedge
 
@@ -1518,7 +1517,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
 31:                                               ; preds = %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -1527,7 +1526,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb0EEE.exit
@@ -1558,13 +1557,13 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   %58 = add nuw nsw i64 %56, %57
   %59 = xor i64 %58, %50
   %60 = urem i64 %59, %47
-  %61 = getelementptr inbounds nuw ptr, ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %60
   store ptr %3, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %44, %40
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %.0
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %.0
   store ptr %41, ptr %64, align 8
   br label %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb0EEE.exit
 
@@ -1666,7 +1665,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   %26 = add nuw nsw i64 %24, %25
   %27 = xor i64 %26, %18
   %28 = urem i64 %27, %1
-  %29 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not27 = icmp eq ptr %30, null
   br i1 %.not27, label %31, label %36
@@ -1681,7 +1680,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   br i1 %.not28, label %39, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %35, align 8
   br label %39
 
@@ -1769,7 +1768,7 @@ define void @_Z12IntersectionRKSt6vectorI8HalfEdgeSaIS0_EE(ptr dead_on_unwind no
   %22 = load i32, ptr %21, align 8, !noalias !32
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !noalias !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %.sroa.0.0.copyload.i.i = load double, ptr %27, align 8, !noalias !32
@@ -1808,7 +1807,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i:      ; preds = %.lr.ph.i, %37, %31
   %40 = add nsw i32 %22, 1
   %41 = srem i32 %40, 3
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %23, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %23, i64 %42
   %44 = load ptr, ptr %43, align 8, !noalias !32
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %.sroa.0.0.copyload.i5.i = load double, ptr %45, align 8, !noalias !32
@@ -1907,7 +1906,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %92 = phi ptr [ %12, %.lr.ph ], [ %341, %._crit_edge234 ]
   %93 = phi i64 [ 0, %.lr.ph ], [ %343, %._crit_edge234 ]
   %.0235 = phi i32 [ 0, %.lr.ph ], [ %342, %._crit_edge234 ]
-  %94 = getelementptr inbounds nuw %struct.HalfEdge, ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load i32, ptr %96, align 8
@@ -1915,14 +1914,14 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %99 = add nsw i32 %97, 1
   %100 = srem i32 %99, 3
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %98, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %98, i64 %101
   %103 = load ptr, ptr %102, align 8
   %.sroa.2.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %.sroa.2.0.copyload.i58 = load double, ptr %.sroa.2.0..sroa_idx.i57, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %.sroa.0.0.copyload.i56 = load double, ptr %104, align 8
   %105 = sext i32 %97 to i64
-  %106 = getelementptr inbounds ptr, ptr %98, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %98, i64 %105
   %107 = load ptr, ptr %106, align 8
   %.sroa.2.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i55, align 8
@@ -1990,7 +1989,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %150 = load i32, ptr %96, align 8
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %152 = sext i32 %150 to i64
-  %153 = getelementptr inbounds ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %.sroa.0.0.copyload.i63 = load double, ptr %155, align 8
@@ -1999,7 +1998,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %156 = add nsw i32 %150, 1
   %157 = srem i32 %156, 3
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr %151, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %151, i64 %158
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %.sroa.0.0.copyload.i68 = load double, ptr %161, align 8
@@ -2140,7 +2139,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; pred
   %259 = load i64, ptr %7, align 8
   %260 = urem i64 %258, %259
   %261 = load ptr, ptr %4, align 8
-  %262 = getelementptr inbounds nuw ptr, ptr %261, i64 %260
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %260
   %263 = load ptr, ptr %262, align 8
   %.not.i.i.i110 = icmp eq ptr %263, null
   br i1 %.not.i.i.i110, label %.loopexit.i, label %264
@@ -2280,7 +2279,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %322, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %324, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %319, ptr %.0.i111, align 8
   store ptr %323, ptr %299, align 8
-  %325 = getelementptr inbounds nuw i32, ptr %319, i64 %317
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %319, i64 %317
   store ptr %325, ptr %301, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -2440,19 +2439,19 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %242, %246, %250, %_
   %382 = phi i64 [ %487, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %373, %.lr.ph246 ]
   %.046242 = phi i32 [ %486, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %372, %.lr.ph246 ]
   %383 = phi ptr [ %485, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %.promoted, %.lr.ph246 ]
-  %384 = getelementptr inbounds nuw i32, ptr %381, i64 %371
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %381, i64 %371
   %385 = load i32, ptr %384, align 4
-  %386 = getelementptr inbounds nuw i32, ptr %381, i64 %382
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %381, i64 %382
   %387 = load i32, ptr %386, align 4
   %388 = sext i32 %385 to i64
   %389 = load ptr, ptr %1, align 8
-  %390 = getelementptr inbounds %struct.HalfEdge, ptr %389, i64 %388
+  %390 = getelementptr inbounds [16 x i8], ptr %389, i64 %388
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 8
   %393 = load i32, ptr %392, align 8
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %395 = sext i32 %393 to i64
-  %396 = getelementptr inbounds ptr, ptr %394, i64 %395
+  %396 = getelementptr inbounds [8 x i8], ptr %394, i64 %395
   %397 = load ptr, ptr %396, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %.sroa.0.0.copyload.i75 = load double, ptr %398, align 8
@@ -2461,20 +2460,20 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %242, %246, %250, %_
   %399 = add nsw i32 %393, 1
   %400 = srem i32 %399, 3
   %401 = sext i32 %400 to i64
-  %402 = getelementptr inbounds ptr, ptr %394, i64 %401
+  %402 = getelementptr inbounds [8 x i8], ptr %394, i64 %401
   %403 = load ptr, ptr %402, align 8
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 24
   %.sroa.0.0.copyload.i80 = load double, ptr %404, align 8
   %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %403, i64 32
   %.sroa.2.0.copyload.i82 = load double, ptr %.sroa.2.0..sroa_idx.i81, align 8
   %405 = sext i32 %387 to i64
-  %406 = getelementptr inbounds %struct.HalfEdge, ptr %389, i64 %405
+  %406 = getelementptr inbounds [16 x i8], ptr %389, i64 %405
   %407 = load ptr, ptr %406, align 8
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %409 = load i32, ptr %408, align 8
   %410 = getelementptr inbounds nuw i8, ptr %407, i64 8
   %411 = sext i32 %409 to i64
-  %412 = getelementptr inbounds ptr, ptr %410, i64 %411
+  %412 = getelementptr inbounds [8 x i8], ptr %410, i64 %411
   %413 = load ptr, ptr %412, align 8
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
   %.sroa.0.0.copyload.i85 = load double, ptr %414, align 8
@@ -2483,7 +2482,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %242, %246, %250, %_
   %415 = add nsw i32 %409, 1
   %416 = srem i32 %415, 3
   %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds ptr, ptr %410, i64 %417
+  %418 = getelementptr inbounds [8 x i8], ptr %410, i64 %417
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 24
   %.sroa.0.0.copyload.i90 = load double, ptr %420, align 8
@@ -2610,7 +2609,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.
 
 _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %481, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %480, ptr %350, align 8
-  %482 = getelementptr inbounds nuw %"struct.std::pair.22", ptr %476, i64 %474
+  %482 = getelementptr inbounds nuw [32 x i8], ptr %476, i64 %474
   store ptr %482, ptr %351, align 8
   br label %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit
 
@@ -2732,7 +2731,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
 31:                                               ; preds = %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -2741,7 +2740,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit
@@ -2772,13 +2771,13 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
   %58 = add nuw nsw i64 %56, %57
   %59 = xor i64 %58, %50
   %60 = urem i64 %59, %47
-  %61 = getelementptr inbounds nuw ptr, ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %60
   store ptr %3, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %44, %40
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %.0
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %.0
   store ptr %41, ptr %64, align 8
   br label %_ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_E13Point2iHasherNSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit
 
@@ -2872,7 +2871,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
   %26 = add nuw nsw i64 %24, %25
   %27 = xor i64 %26, %18
   %28 = urem i64 %27, %1
-  %29 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not27 = icmp eq ptr %30, null
   br i1 %.not27, label %31, label %36
@@ -2887,7 +2886,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
   br i1 %.not28, label %39, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %35, align 8
   br label %39
 

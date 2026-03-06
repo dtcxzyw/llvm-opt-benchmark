@@ -429,7 +429,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..st
   br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84b9fbfec6b162c7E.exit", label %5
 
 5:                                                ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h409e8df99492e6d7E.exit.i.i"
-  %6 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.sroa.0.0.i.i
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.0.i.i
   %7 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h409e8df99492e6d7E.exit.i.i" unwind label %9
@@ -445,7 +445,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..st
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h409e8df99492e6d7E.exit7.i.i"
 
 11:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h409e8df99492e6d7E.exit7.i.i"
-  %12 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.sroa.0.1.i.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.1.i.i
   %13 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h409e8df99492e6d7E.exit7.i.i" unwind label %14
@@ -525,7 +525,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$rustls_pe
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i"
   %.sroa.0.011.i.i = phi i64 [ %6, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.011.i.i
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.011.i.i
   %6 = add nuw i64 %.sroa.0.011.i.i, 1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !18, !alias.scope !76, !noundef !4
@@ -548,7 +548,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$rustls_pe
 
 .lr.ph14.i.i:                                     ; preds = %10, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i"
   %.sroa.0.112.i.i = phi i64 [ %14, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" ], [ %6, %10 ]
-  %13 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.112.i.i
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.112.i.i
   %14 = add i64 %.sroa.0.112.i.i, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !range !18, !alias.scope !81, !noundef !4
@@ -598,7 +598,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$rustls_pk
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit.i.i"
   %.sroa.0.010.i.i = phi i64 [ %6, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %.val, i64 %.sroa.0.010.i.i
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.010.i.i
   %6 = add nuw i64 %.sroa.0.010.i.i, 1
   %7 = load i64, ptr %5, align 8, !range !18, !alias.scope !84, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %7, -9223372036854775808
@@ -620,7 +620,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$rustls_pk
 
 .lr.ph13.i.i:                                     ; preds = %10, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit9.i.i"
   %.sroa.0.111.i.i = phi i64 [ %14, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit9.i.i" ], [ %6, %10 ]
-  %13 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %.val, i64 %.sroa.0.111.i.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.111.i.i
   %14 = add i64 %.sroa.0.111.i.i, 1
   %15 = load i64, ptr %13, align 8, !range !18, !alias.scope !93, !noundef !4
   %.not.i.i.i7.i.i = icmp eq i64 %15, -9223372036854775808
@@ -669,7 +669,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$rustls..e
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$rustls..error..ExtendedKeyPurpose$GT$17h9de46e1c92cf0fc5E.exit.i.i"
   %.sroa.0.010.i.i = phi i64 [ %6, %"_ZN4core3ptr54drop_in_place$LT$rustls..error..ExtendedKeyPurpose$GT$17h9de46e1c92cf0fc5E.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %.val, i64 %.sroa.0.010.i.i
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.010.i.i
   %6 = add nuw i64 %.sroa.0.010.i.i, 1
   %7 = load i64, ptr %5, align 8, !range !100, !alias.scope !101, !noundef !4
   %switch.i.i.i = icmp slt i64 %7, -9223372036854775806
@@ -691,7 +691,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$rustls..e
 
 .lr.ph13.i.i:                                     ; preds = %10, %"_ZN4core3ptr54drop_in_place$LT$rustls..error..ExtendedKeyPurpose$GT$17h9de46e1c92cf0fc5E.exit9.i.i"
   %.sroa.0.111.i.i = phi i64 [ %14, %"_ZN4core3ptr54drop_in_place$LT$rustls..error..ExtendedKeyPurpose$GT$17h9de46e1c92cf0fc5E.exit9.i.i" ], [ %6, %10 ]
-  %13 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %.val, i64 %.sroa.0.111.i.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.111.i.i
   %14 = add i64 %.sroa.0.111.i.i, 1
   %15 = load i64, ptr %13, align 8, !range !100, !alias.scope !106, !noundef !4
   %switch.i7.i.i = icmp slt i64 %15, -9223372036854775806
@@ -796,7 +796,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$rustls..m
   br i1 %5, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h005369efb05f4a1aE.exit", label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw { i64, [13 x i64] }, ptr %.val, i64 %.sroa.0.0.i.i
+  %7 = getelementptr inbounds nuw [112 x i8], ptr %.val, i64 %.sroa.0.0.i.i
   %8 = add i64 %.sroa.0.0.i.i, 1
   invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..EchConfigPayload$GT$17h188cb696b78b0d58E"(ptr noalias noundef align 8 dereferenceable(112) %7)
           to label %4 unwind label %11
@@ -812,7 +812,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$rustls..m
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw { i64, [13 x i64] }, ptr %.val, i64 %.sroa.0.1.i.i
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %.val, i64 %.sroa.0.1.i.i
   %15 = add i64 %.sroa.0.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..EchConfigPayload$GT$17h188cb696b78b0d58E"(ptr noalias noundef align 8 dereferenceable(112) %14) #8
           to label %9 unwind label %16
@@ -852,7 +852,7 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr64drop_in_place$LT$rustls..msgs..handshake..EchConfigExtension$GT$17h20621fcd1298cfd3E.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %6, %"_ZN4core3ptr64drop_in_place$LT$rustls..msgs..handshake..EchConfigExtension$GT$17h20621fcd1298cfd3E.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { i16, [1 x i16] }, [2 x i16] } }, ptr %.val, i64 %.sroa.0.09.i.i
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.09.i.i
   %6 = add nuw i64 %.sroa.0.09.i.i, 1
   %7 = load i64, ptr %5, align 8, !range !18, !alias.scope !115, !noundef !4
   %8 = icmp eq i64 %7, -9223372036854775808
@@ -874,7 +874,7 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$
 
 .lr.ph12.i.i:                                     ; preds = %11, %"_ZN4core3ptr64drop_in_place$LT$rustls..msgs..handshake..EchConfigExtension$GT$17h20621fcd1298cfd3E.exit8.i.i"
   %.sroa.0.110.i.i = phi i64 [ %15, %"_ZN4core3ptr64drop_in_place$LT$rustls..msgs..handshake..EchConfigExtension$GT$17h20621fcd1298cfd3E.exit8.i.i" ], [ %6, %11 ]
-  %14 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { i16, [1 x i16] }, [2 x i16] } }, ptr %.val, i64 %.sroa.0.110.i.i
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.110.i.i
   %15 = add i64 %.sroa.0.110.i.i, 1
   %16 = load i64, ptr %14, align 8, !range !18, !alias.scope !124, !noundef !4
   %17 = icmp eq i64 %16, -9223372036854775808
@@ -947,7 +947,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_it
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i"
   %.sroa.0.011.i.i = phi i64 [ %17, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" ], [ 0, %1 ]
-  %16 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %5, i64 %.sroa.0.011.i.i
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %.sroa.0.011.i.i
   %17 = add nuw i64 %.sroa.0.011.i.i, 1
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !range !18, !alias.scope !134, !noalias !131, !noundef !4
@@ -970,7 +970,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_it
 
 .lr.ph14.i.i:                                     ; preds = %21, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i"
   %.sroa.0.112.i.i = phi i64 [ %25, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" ], [ %17, %21 ]
-  %24 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %5, i64 %.sroa.0.112.i.i
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %.sroa.0.112.i.i
   %25 = add i64 %.sroa.0.112.i.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8, !range !18, !alias.scope !139, !noalias !131, !noundef !4
@@ -1043,7 +1043,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..into_iter..IntoI
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit.i.i"
   %.sroa.0.010.i.i = phi i64 [ %17, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit.i.i" ], [ 0, %1 ]
-  %16 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %5, i64 %.sroa.0.010.i.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.sroa.0.010.i.i
   %17 = add nuw i64 %.sroa.0.010.i.i, 1
   %18 = load i64, ptr %16, align 8, !range !18, !alias.scope !145, !noalias !142, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %18, -9223372036854775808
@@ -1065,7 +1065,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..into_iter..IntoI
 
 .lr.ph13.i.i:                                     ; preds = %21, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit9.i.i"
   %.sroa.0.111.i.i = phi i64 [ %25, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E.exit9.i.i" ], [ %17, %21 ]
-  %24 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %5, i64 %.sroa.0.111.i.i
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.sroa.0.111.i.i
   %25 = add i64 %.sroa.0.111.i.i, 1
   %26 = load i64, ptr %24, align 8, !range !18, !alias.scope !154, !noalias !142, !noundef !4
   %.not.i.i.i7.i.i = icmp eq i64 %26, -9223372036854775808

@@ -80,8 +80,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.51 = type { ptr, ptr }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"class.llvm::SMFixIt" = type { %"class.llvm::SMRange", %"class.std::__cxx11::basic_string" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
 %"class.std::optional.54" = type { %"struct.std::_Optional_base.55" }
 %"struct.std::_Optional_base.55" = type { %"struct.std::_Optional_payload.57" }
 %"struct.std::_Optional_payload.57" = type { %"struct.std::_Optional_payload.base.61", [7 x i8] }
@@ -2372,7 +2370,7 @@ _ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit:   ; preds = %_ZSt4moveIPN4llvm7S
   %.pre-phi = phi i64 [ %.pre85, %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit.loopexit ], [ %37, %38 ]
   %77 = phi ptr [ %.pre, %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit.loopexit ], [ %39, %38 ]
   %.0 = phi ptr [ %74, %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit.loopexit ], [ %39, %38 ]
-  %78 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %77, i64 %.pre-phi
+  %78 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %78
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit, label %.lr.ph.i
 
@@ -2580,14 +2578,14 @@ _ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit70: ; preds = %_ZN4llvm7SMFixItaSE
   %150 = load ptr, ptr %1, align 8, !tbaa !67
   %151 = load i32, ptr %32, align 8, !tbaa !69
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [48 x i8], ptr %150, i64 %152
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %152
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit, label %.lr.ph.i.i.i.i.i71.preheader
 
 .lr.ph.i.i.i.i.i71.preheader:                     ; preds = %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit70
   %154 = load ptr, ptr %0, align 8, !tbaa !67
-  %155 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %154, i64 %.026
-  %156 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %150, i64 %.026
+  %155 = getelementptr inbounds nuw [48 x i8], ptr %154, i64 %.026
+  %156 = getelementptr inbounds nuw [48 x i8], ptr %150, i64 %.026
   br label %.lr.ph.i.i.i.i.i71
 
 .lr.ph.i.i.i.i.i71:                               ; preds = %.lr.ph.i.i.i.i.i71.preheader, %_ZSt10_ConstructIN4llvm7SMFixItEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -2987,7 +2985,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !153
   store ptr %67, ptr %41, align 8, !tbaa !150
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.66", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !152
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -3137,7 +3135,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !153
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !150
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.66", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !152
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -3427,7 +3425,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !153
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !150
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.66", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !152
   ret void
 }

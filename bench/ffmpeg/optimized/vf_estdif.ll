@@ -389,17 +389,17 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
 
 46:                                               ; preds = %.lr.ph157, %._crit_edge154
   %indvars.iv185 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next186, %._crit_edge154 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv185
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv185
   %48 = load ptr, ptr %47, align 8, !tbaa !68
-  %49 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv185
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv185
   %50 = load ptr, ptr %49, align 8, !tbaa !68
-  %51 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv185
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv185
   %52 = load i32, ptr %51, align 4, !tbaa !51
-  %53 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv185
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv185
   %54 = load i32, ptr %53, align 4, !tbaa !51
-  %55 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv185
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv185
   %56 = load i32, ptr %55, align 4, !tbaa !51
-  %57 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv185
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv185
   %58 = load i32, ptr %57, align 4, !tbaa !51
   %59 = mul nsw i32 %54, %2
   %60 = sdiv i32 %59, %3
@@ -418,7 +418,7 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
   %70 = mul nsw i32 %65, %56
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %48, i64 %71
-  %73 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv185
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv185
   %74 = load i32, ptr %73, align 4, !tbaa !51
   %75 = sext i32 %74 to i64
   %76 = shl nsw i32 %56, 1
@@ -846,7 +846,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %172 = select i1 %.not163, i32 %171, i32 %.0153.lcssa230
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %174 = sext i32 %16 to i64
-  %175 = getelementptr inbounds ptr, ptr %173, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !59
   %177 = tail call i32 %176(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %23, i32 noundef %8, i32 noundef %172, i32 noundef %12) #11
   %178 = trunc i32 %177 to i8
@@ -973,10 +973,10 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.not165178 = icmp slt i32 %11, 0
   %29 = sext i32 %18 to i64
   %30 = sext i32 %8 to i64
-  %31 = getelementptr inbounds i16, ptr %2, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %2, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !83
   %33 = zext i16 %32 to i32
-  %34 = getelementptr inbounds i16, ptr %3, i64 %30
+  %34 = getelementptr inbounds [2 x i8], ptr %3, i64 %30
   %35 = load i16, ptr %34, align 2, !tbaa !83
   %36 = zext i16 %35 to i32
   br i1 %.not165178, label %.lr.ph188.split.us.split, label %.lr.ph
@@ -991,7 +991,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i7.i.i.us = tail call i32 @llvm.smin.i32(i32 %37, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i8.i.i.us = select i1 %38, i32 0, i32 %..i7.i.i.us
   %39 = sext i32 %.0.i8.i.i.us to i64
-  %40 = getelementptr inbounds i16, ptr %2, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %2, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !83
   %42 = zext i16 %41 to i32
   %43 = sub nsw i32 %8, %.0157183.us
@@ -999,7 +999,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i.i.i.us = tail call i32 @llvm.smin.i32(i32 %43, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i.i.i.us = select i1 %44, i32 0, i32 %..i.i.i.us
   %45 = sext i32 %.0.i.i.i.us to i64
-  %46 = getelementptr inbounds i16, ptr %3, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %3, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !83
   %48 = zext i16 %47 to i32
   %49 = add nuw nsw i32 %42, 1
@@ -1026,10 +1026,10 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph209.thread:                                 ; preds = %.lr.ph188.split.us.split
   %65 = sext i32 %8 to i64
-  %66 = getelementptr inbounds i16, ptr %2, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %2, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !83
   %68 = zext i16 %67 to i32
-  %69 = getelementptr inbounds i16, ptr %3, i64 %65
+  %69 = getelementptr inbounds [2 x i8], ptr %3, i64 %65
   %70 = load i16, ptr %69, align 2, !tbaa !83
   %71 = zext i16 %70 to i32
   br label %.critedge.us.preheader
@@ -1051,10 +1051,10 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %73 = add nsw i32 %.fr, %8
   %74 = sext i32 %18 to i64
   %75 = sext i32 %8 to i64
-  %76 = getelementptr inbounds i16, ptr %2, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %2, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !83
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds i16, ptr %3, i64 %75
+  %79 = getelementptr inbounds [2 x i8], ptr %3, i64 %75
   %80 = load i16, ptr %79, align 2, !tbaa !83
   %81 = zext i16 %80 to i32
   br i1 %.not164197, label %.critedge.us.preheader, label %.lr.ph201
@@ -1079,7 +1079,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i7.i.i173.us = tail call i32 @llvm.smin.i32(i32 %86, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i8.i.i174.us = select i1 %87, i32 0, i32 %..i7.i.i173.us
   %88 = sext i32 %.0.i8.i.i174.us to i64
-  %89 = getelementptr inbounds i16, ptr %2, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr %2, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !83
   %91 = zext i16 %90 to i32
   %92 = sub nsw i32 %8, %85
@@ -1087,7 +1087,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i.i.i175.us = tail call i32 @llvm.smin.i32(i32 %92, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i.i.i176.us = select i1 %93, i32 0, i32 %..i.i.i175.us
   %94 = sext i32 %.0.i.i.i176.us to i64
-  %95 = getelementptr inbounds i16, ptr %3, i64 %94
+  %95 = getelementptr inbounds [2 x i8], ptr %3, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !83
   %97 = zext i16 %96 to i32
   %98 = add nuw nsw i32 %91, 1
@@ -1127,14 +1127,14 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i7.i.i = tail call i32 @llvm.smin.i32(i32 %114, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i8.i.i = select i1 %117, i32 0, i32 %..i7.i.i
   %118 = sext i32 %.0.i8.i.i to i64
-  %119 = getelementptr inbounds i16, ptr %2, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %2, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !83
   %121 = zext i16 %120 to i32
   %122 = icmp slt i32 %115, 0
   %..i.i.i = tail call i32 @llvm.smin.i32(i32 %115, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i.i.i = select i1 %122, i32 0, i32 %..i.i.i
   %123 = sext i32 %.0.i.i.i to i64
-  %124 = getelementptr inbounds i16, ptr %3, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %3, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !83
   %126 = zext i16 %125 to i32
   %127 = add nuw nsw i32 %121, 1
@@ -1172,31 +1172,31 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i167 = tail call i32 @llvm.smin.i32(i32 %147, i32 %23)
   %.0.i168 = select i1 %148, i32 0, i32 %..i167
   %149 = sext i32 %.0.i to i64
-  %150 = getelementptr inbounds i16, ptr %2, i64 %149
+  %150 = getelementptr inbounds [2 x i8], ptr %2, i64 %149
   %151 = load i16, ptr %150, align 2, !tbaa !83
   %152 = zext i16 %151 to i32
   %153 = sext i32 %.0.i168 to i64
-  %154 = getelementptr inbounds i16, ptr %3, i64 %153
+  %154 = getelementptr inbounds [2 x i8], ptr %3, i64 %153
   %155 = load i16, ptr %154, align 2, !tbaa !83
   %156 = zext i16 %155 to i32
   %157 = sub nsw i32 %152, %156
   %158 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %157, i1 true)
   %159 = zext nneg i32 %158 to i64
   %160 = add i64 %.0156179, %159
-  %161 = getelementptr inbounds i16, ptr %4, i64 %149
+  %161 = getelementptr inbounds [2 x i8], ptr %4, i64 %149
   %162 = load i16, ptr %161, align 2, !tbaa !83
   %163 = zext i16 %162 to i32
-  %164 = getelementptr inbounds i16, ptr %2, i64 %153
+  %164 = getelementptr inbounds [2 x i8], ptr %2, i64 %153
   %165 = load i16, ptr %164, align 2, !tbaa !83
   %166 = zext i16 %165 to i32
   %167 = sub nsw i32 %163, %166
   %168 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %167, i1 true)
   %169 = zext nneg i32 %168 to i64
   %170 = add i64 %160, %169
-  %171 = getelementptr inbounds i16, ptr %3, i64 %149
+  %171 = getelementptr inbounds [2 x i8], ptr %3, i64 %149
   %172 = load i16, ptr %171, align 2, !tbaa !83
   %173 = zext i16 %172 to i32
-  %174 = getelementptr inbounds i16, ptr %5, i64 %153
+  %174 = getelementptr inbounds [2 x i8], ptr %5, i64 %153
   %175 = load i16, ptr %174, align 2, !tbaa !83
   %176 = zext i16 %175 to i32
   %177 = sub nsw i32 %173, %176
@@ -1217,11 +1217,11 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %183 = select i1 %.not163, i32 %182, i32 %.0153.lcssa230
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %185 = sext i32 %16 to i64
-  %186 = getelementptr inbounds ptr, ptr %184, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %184, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !59
   %188 = tail call i32 %187(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %23, i32 noundef %8, i32 noundef %183, i32 noundef %12) #11
   %189 = trunc i32 %188 to i16
-  %190 = getelementptr inbounds i16, ptr %1, i64 %.pre-phi
+  %190 = getelementptr inbounds [2 x i8], ptr %1, i64 %.pre-phi
   store i16 %189, ptr %190, align 2, !tbaa !83
   store i32 %183, ptr %13, align 4, !tbaa !51
   ret void
@@ -1243,14 +1243,14 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i7.i.i173 = tail call i32 @llvm.smin.i32(i32 %195, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i8.i.i174 = select i1 %196, i32 0, i32 %..i7.i.i173
   %197 = sext i32 %.0.i8.i.i174 to i64
-  %198 = getelementptr inbounds i16, ptr %2, i64 %197
+  %198 = getelementptr inbounds [2 x i8], ptr %2, i64 %197
   %199 = load i16, ptr %198, align 2, !tbaa !83
   %200 = zext i16 %199 to i32
   %201 = icmp slt i32 %193, 0
   %..i.i.i175 = tail call i32 @llvm.smin.i32(i32 %193, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i.i.i176 = select i1 %201, i32 0, i32 %..i.i.i175
   %202 = sext i32 %.0.i.i.i176 to i64
-  %203 = getelementptr inbounds i16, ptr %3, i64 %202
+  %203 = getelementptr inbounds [2 x i8], ptr %3, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !83
   %205 = zext i16 %204 to i32
   %206 = add nuw nsw i32 %200, 1
@@ -1288,31 +1288,31 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %..i171 = tail call i32 @llvm.smin.i32(i32 %226, i32 %23)
   %.0.i172 = select i1 %227, i32 0, i32 %..i171
   %228 = sext i32 %.0.i170 to i64
-  %229 = getelementptr inbounds i16, ptr %2, i64 %228
+  %229 = getelementptr inbounds [2 x i8], ptr %2, i64 %228
   %230 = load i16, ptr %229, align 2, !tbaa !83
   %231 = zext i16 %230 to i32
   %232 = sext i32 %.0.i172 to i64
-  %233 = getelementptr inbounds i16, ptr %3, i64 %232
+  %233 = getelementptr inbounds [2 x i8], ptr %3, i64 %232
   %234 = load i16, ptr %233, align 2, !tbaa !83
   %235 = zext i16 %234 to i32
   %236 = sub nsw i32 %231, %235
   %237 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %236, i1 true)
   %238 = zext nneg i32 %237 to i64
   %239 = add i64 %.0149198, %238
-  %240 = getelementptr inbounds i16, ptr %4, i64 %228
+  %240 = getelementptr inbounds [2 x i8], ptr %4, i64 %228
   %241 = load i16, ptr %240, align 2, !tbaa !83
   %242 = zext i16 %241 to i32
-  %243 = getelementptr inbounds i16, ptr %2, i64 %232
+  %243 = getelementptr inbounds [2 x i8], ptr %2, i64 %232
   %244 = load i16, ptr %243, align 2, !tbaa !83
   %245 = zext i16 %244 to i32
   %246 = sub nsw i32 %242, %245
   %247 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %246, i1 true)
   %248 = zext nneg i32 %247 to i64
   %249 = add i64 %239, %248
-  %250 = getelementptr inbounds i16, ptr %3, i64 %228
+  %250 = getelementptr inbounds [2 x i8], ptr %3, i64 %228
   %251 = load i16, ptr %250, align 2, !tbaa !83
   %252 = zext i16 %251 to i32
-  %253 = getelementptr inbounds i16, ptr %5, i64 %232
+  %253 = getelementptr inbounds [2 x i8], ptr %5, i64 %232
   %254 = load i16, ptr %253, align 2, !tbaa !83
   %255 = zext i16 %254 to i32
   %256 = sub nsw i32 %252, %255
@@ -1477,7 +1477,7 @@ define internal range(i32 0, 65536) i32 @mid2_16(ptr noundef readonly captures(n
   %..i = tail call i32 @llvm.smin.i32(i32 %11, i32 %6)
   %.0.i = select i1 %12, i32 0, i32 %..i
   %13 = sext i32 %.0.i to i64
-  %14 = getelementptr inbounds i16, ptr %0, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %0, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !83
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %7, %8
@@ -1485,7 +1485,7 @@ define internal range(i32 0, 65536) i32 @mid2_16(ptr noundef readonly captures(n
   %..i7 = tail call i32 @llvm.smin.i32(i32 %17, i32 %6)
   %.0.i8 = select i1 %18, i32 0, i32 %..i7
   %19 = sext i32 %.0.i8 to i64
-  %20 = getelementptr inbounds i16, ptr %1, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %1, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !83
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %16, 1
@@ -1501,7 +1501,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %..i = tail call i32 @llvm.smin.i32(i32 %11, i32 %6)
   %.0.i = select i1 %12, i32 0, i32 %..i
   %13 = sext i32 %.0.i to i64
-  %14 = getelementptr inbounds i16, ptr %0, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %0, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !83
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %7, %8
@@ -1509,7 +1509,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %..i16 = tail call i32 @llvm.smin.i32(i32 %17, i32 %6)
   %.0.i17 = select i1 %18, i32 0, i32 %..i16
   %19 = sext i32 %.0.i17 to i64
-  %20 = getelementptr inbounds i16, ptr %1, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %1, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !83
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %22, %16
@@ -1520,7 +1520,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %..i18 = tail call i32 @llvm.smin.i32(i32 %26, i32 %6)
   %.0.i19 = select i1 %27, i32 0, i32 %..i18
   %28 = sext i32 %.0.i19 to i64
-  %29 = getelementptr inbounds i16, ptr %2, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %2, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !83
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %7, %25
@@ -1528,7 +1528,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %..i20 = tail call i32 @llvm.smin.i32(i32 %32, i32 %6)
   %.0.i21 = select i1 %33, i32 0, i32 %..i20
   %34 = sext i32 %.0.i21 to i64
-  %35 = getelementptr inbounds i16, ptr %3, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %3, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !83
   %37 = zext i16 %36 to i32
   %38 = add nuw nsw i32 %31, %37
@@ -1552,7 +1552,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %..i = tail call i32 @llvm.smin.i32(i32 %11, i32 %6)
   %.0.i = select i1 %12, i32 0, i32 %..i
   %13 = sext i32 %.0.i to i64
-  %14 = getelementptr inbounds i16, ptr %0, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %0, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !83
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %7, %8
@@ -1560,7 +1560,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %..i24 = tail call i32 @llvm.smin.i32(i32 %17, i32 %6)
   %.0.i25 = select i1 %18, i32 0, i32 %..i24
   %19 = sext i32 %.0.i25 to i64
-  %20 = getelementptr inbounds i16, ptr %1, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %1, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !83
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %22, %16
@@ -1571,7 +1571,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %..i26 = tail call i32 @llvm.smin.i32(i32 %26, i32 %6)
   %.0.i27 = select i1 %27, i32 0, i32 %..i26
   %28 = sext i32 %.0.i27 to i64
-  %29 = getelementptr inbounds i16, ptr %2, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %2, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !83
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %7, %25
@@ -1579,7 +1579,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %..i28 = tail call i32 @llvm.smin.i32(i32 %32, i32 %6)
   %.0.i29 = select i1 %33, i32 0, i32 %..i28
   %34 = sext i32 %.0.i29 to i64
-  %35 = getelementptr inbounds i16, ptr %3, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %3, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !83
   %37 = zext i16 %36 to i32
   %38 = add nuw nsw i32 %37, %31
@@ -1590,7 +1590,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %..i30 = tail call i32 @llvm.smin.i32(i32 %40, i32 %6)
   %.0.i31 = select i1 %41, i32 0, i32 %..i30
   %42 = sext i32 %.0.i31 to i64
-  %43 = getelementptr inbounds i16, ptr %4, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %4, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !83
   %45 = zext i16 %44 to i32
   %46 = sub nsw i32 %7, %39
@@ -1598,7 +1598,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %..i32 = tail call i32 @llvm.smin.i32(i32 %46, i32 %6)
   %.0.i33 = select i1 %47, i32 0, i32 %..i32
   %48 = sext i32 %.0.i33 to i64
-  %49 = getelementptr inbounds i16, ptr %5, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %5, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !83
   %51 = zext i16 %50 to i32
   %52 = add nuw nsw i32 %24, 16

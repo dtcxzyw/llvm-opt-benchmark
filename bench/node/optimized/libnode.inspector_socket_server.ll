@@ -44,12 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uv_getaddrinfo_s = type { ptr, i32, [6 x ptr], ptr, %struct.uv__work, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
 %struct.uv__queue = type { ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
-%"struct.std::_Head_base.4" = type { ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
 %"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.106" }
@@ -2373,7 +2367,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorISt10un
 _ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %server_sockets_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector12ServerSocketENS0_15FunctionDeleterIS2_XadL_ZNS1_21InspectorSocketServer17CloseServerSocketEPS2_EEEEED2Ev.exit
 
@@ -4245,7 +4239,7 @@ _ZNSt12_Vector_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i31, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::map.47", ptr %cond.i10, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [48 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

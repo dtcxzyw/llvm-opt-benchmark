@@ -84,7 +84,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 .critedge.preheader:                              ; preds = %32, %.thread70
   %.04769 = phi i32 [ %15, %.thread70 ], [ %.2, %32 ]
   %35 = zext nneg i32 %6 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @lmcurves, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @lmcurves, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -93,7 +93,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 .split.us.preheader:                              ; preds = %21, %.thread
   %.04766 = phi i32 [ %.2, %.thread ], [ %15, %21 ]
   %40 = zext nneg i32 %6 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr @lmcurves, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @lmcurves, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -119,7 +119,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %52 = load i32, ptr %46, align 8, !tbaa !30
   %53 = load i32, ptr %47, align 4, !tbaa !31
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr @lm_infmsg, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr @lm_infmsg, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !32
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %49, i32 noundef %51, i32 noundef %52, ptr noundef %56)
   %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.050.us, double noundef %50)
@@ -142,7 +142,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 
 .lr.ph.us:                                        ; preds = %.split.us, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %.split.us ]
-  %70 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %71 = load double, ptr %70, align 8, !tbaa !10
   %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %71)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -221,21 +221,21 @@ define internal void @_ZL16lmcurve_evaluatePKdiPKvPdPi(ptr noundef %0, i32 nound
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !25
-  %12 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !10
   %14 = fcmp oeq double %13, 0.000000e+00
   %.0 = select i1 %14, double 1.000000e+00, double %13
   %15 = load ptr, ptr %8, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !10
   %18 = load ptr, ptr %9, align 8, !tbaa !26
   %19 = load ptr, ptr %2, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !10
   %22 = tail call noundef double %18(double noundef %21, ptr noundef %0)
   %23 = fsub double %17, %22
   %24 = fdiv double %23, %.0
-  %25 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

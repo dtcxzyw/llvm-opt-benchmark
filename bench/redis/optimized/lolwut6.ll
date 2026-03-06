@@ -436,7 +436,7 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.lolwut6Command, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lolwut6Command, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %47
 

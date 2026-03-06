@@ -51331,7 +51331,7 @@ define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPatte
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 8, !tbaa !149
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds ptr, ptr %49, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %49, i64 %53
   store ptr %47, ptr %54, align 8, !tbaa !151
   invoke void @_ZN4i18n12phonenumbers12NumberFormat11set_patternEPKc(ptr noundef nonnull align 8 dereferenceable(88) %47, ptr noundef nonnull @.str.82)
           to label %55 unwind label %66
@@ -52929,7 +52929,7 @@ _ZN7testing15AssertionResultD2Ev.exit258:         ; preds = %553, %_ZNKSt14defau
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i ]
-  %575 = getelementptr inbounds nuw ptr, ptr %567, i64 %indvars.iv.i.i
+  %575 = getelementptr inbounds nuw [8 x i8], ptr %567, i64 %indvars.iv.i.i
   %576 = load ptr, ptr %575, align 8, !tbaa !151
   %577 = icmp eq ptr %576, null
   br i1 %577, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i, label %578
@@ -53377,7 +53377,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !151
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit.i, label %19

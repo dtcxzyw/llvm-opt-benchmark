@@ -248,7 +248,7 @@ _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i: ; preds
 
 .noexc38:                                         ; preds = %_ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i
   store ptr %54, ptr %43, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %54, i64 %50
+  %55 = getelementptr inbounds nuw [560 x i8], ptr %54, i64 %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %55, ptr %56, align 8, !tbaa !28
   br label %.lr.ph.i.i.i.i.i
@@ -300,7 +300,7 @@ _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i41: ; pre
 
 .noexc49:                                         ; preds = %_ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i41
   store ptr %73, ptr %62, align 8, !tbaa !25
-  %74 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %73, i64 %69
+  %74 = getelementptr inbounds nuw [560 x i8], ptr %73, i64 %69
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %74, ptr %75, align 8, !tbaa !28
   br label %.lr.ph.i.i.i.i.i42
@@ -352,7 +352,7 @@ _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i53: ; pre
 
 .noexc61:                                         ; preds = %_ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i53
   store ptr %92, ptr %81, align 8, !tbaa !25
-  %93 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %92, i64 %88
+  %93 = getelementptr inbounds nuw [560 x i8], ptr %92, i64 %88
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %93, ptr %94, align 8, !tbaa !28
   br label %.lr.ph.i.i.i.i.i54
@@ -404,7 +404,7 @@ _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i65: ; pre
 
 .noexc73:                                         ; preds = %_ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EEC2EmRKS2_.exit.i65
   store ptr %111, ptr %100, align 8, !tbaa !25
-  %112 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %111, i64 %107
+  %112 = getelementptr inbounds nuw [560 x i8], ptr %111, i64 %107
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %112, ptr %113, align 8, !tbaa !28
   br label %.lr.ph.i.i.i.i.i66

@@ -1657,15 +1657,15 @@ ikcp_malloc.exit.i:                               ; preds = %181, %179
   %188 = trunc nuw i64 %indvars.iv.i to i32
   %189 = shl i32 %188, 1
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %186, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !88
-  %193 = getelementptr inbounds nuw i32, ptr %.0.i.i, i64 %190
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i, i64 %190
   store i32 %192, ptr %193, align 4, !tbaa !88
   %194 = or disjoint i32 %189, 1
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw i32, ptr %186, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !88
-  %198 = getelementptr inbounds nuw i32, ptr %.0.i.i, i64 %195
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i, i64 %195
   store i32 %197, ptr %198, align 4, !tbaa !88
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %199 = load i32, ptr %26, align 8, !tbaa !70
@@ -1697,7 +1697,7 @@ ikcp_ack_push.exit:                               ; preds = %._crit_edge39.i, %i
   %206 = phi ptr [ %.pre.i, %._crit_edge39.i ], [ %.0.i.i, %ikcp_free.exit.i ]
   %207 = shl i32 %205, 1
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %206, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %208
   store i32 %47, ptr %209, align 4, !tbaa !88
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
   store i32 %45, ptr %210, align 4, !tbaa !88

@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.block = type { ptr, ptr }
 %struct.jv = type { i8, i8, i16, i32, %union.anon }
 %union.anon = type { ptr }
-%struct.cfunction = type { %union.anon.0, ptr, i32 }
-%union.anon.0 = type { ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"::\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"%s/%i\00", align 1
@@ -5775,7 +5773,7 @@ define dso_local { ptr, ptr } @gen_cbinding(ptr noundef %0, i32 noundef %1, ptr 
   store i64 -1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr null, ptr %14, align 8, !tbaa !21
-  %15 = getelementptr inbounds nuw %struct.cfunction, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %15, ptr %16, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -6061,7 +6059,7 @@ block_join.exit:                                  ; preds = %7, %22
   %88 = load ptr, ptr %29, align 8, !tbaa !73
   %89 = load ptr, ptr %88, align 8, !tbaa !76
   %90 = sext i32 %74 to i64
-  %91 = getelementptr inbounds %struct.cfunction, ptr %89, i64 %90
+  %91 = getelementptr inbounds [24 x i8], ptr %89, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %.0229290, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %.0229290, i64 56
   %94 = load ptr, ptr %93, align 8, !tbaa !62
@@ -6130,7 +6128,7 @@ block_join.exit:                                  ; preds = %7, %22
   %125 = getelementptr inbounds nuw i8, ptr %.0233312, i64 24
   %126 = load i16, ptr %125, align 8, !tbaa !83
   %127 = zext i16 %126 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %124, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %127
   store ptr %123, ptr %128, align 8, !tbaa !77
   %129 = load ptr, ptr %117, align 8, !tbaa !73
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 40
@@ -6270,7 +6268,7 @@ block_join.exit:                                  ; preds = %7, %22
   %195 = trunc i32 %194 to i16
   %196 = add nsw i32 %.1224326, 1
   %197 = sext i32 %.1224326 to i64
-  %198 = getelementptr inbounds i16, ptr %180, i64 %197
+  %198 = getelementptr inbounds [2 x i8], ptr %180, i64 %197
   store i16 %195, ptr %198, align 2, !tbaa !94
   switch i32 %194, label %249 [
     i32 27, label %199
@@ -6281,7 +6279,7 @@ block_join.exit:                                  ; preds = %7, %22
   %200 = getelementptr inbounds nuw i8, ptr %.0236327, i64 24
   %201 = load i16, ptr %200, align 8, !tbaa !83
   %202 = sext i32 %196 to i64
-  %203 = getelementptr inbounds i16, ptr %180, i64 %202
+  %203 = getelementptr inbounds [2 x i8], ptr %180, i64 %202
   store i16 %201, ptr %203, align 2, !tbaa !94
   %204 = getelementptr inbounds nuw i8, ptr %.0236327, i64 80
   %205 = load ptr, ptr %204, align 8, !tbaa !33
@@ -6296,7 +6294,7 @@ block_join.exit:                                  ; preds = %7, %22
   %210 = getelementptr inbounds nuw i8, ptr %.0236327, i64 24
   %211 = load i16, ptr %210, align 8, !tbaa !83
   %212 = sext i32 %196 to i64
-  %213 = getelementptr inbounds i16, ptr %180, i64 %212
+  %213 = getelementptr inbounds [2 x i8], ptr %180, i64 %212
   store i16 %211, ptr %213, align 2, !tbaa !94
   %214 = getelementptr inbounds nuw i8, ptr %.0236327, i64 80
   %215 = load ptr, ptr %214, align 8, !tbaa !33
@@ -6364,7 +6362,7 @@ nesting_level.exit:                               ; preds = %218, %219
 
 nesting_level.exit268:                            ; preds = %239, %240
   %.0.lcssa.i267 = phi i16 [ %.09.i263, %239 ], [ %241, %240 ]
-  %244 = getelementptr inbounds i16, ptr %180, i64 %indvars.iv
+  %244 = getelementptr inbounds [2 x i8], ptr %180, i64 %indvars.iv
   store i16 %.0.lcssa.i267, ptr %244, align 2, !tbaa !94
   %245 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %246 = load i16, ptr %245, align 8, !tbaa !83
@@ -6392,7 +6390,7 @@ nesting_level.exit268:                            ; preds = %239, %240
   %257 = tail call i32 @jv_array_length(i64 %255, ptr %256) #17
   %258 = trunc i32 %257 to i16
   %259 = sext i32 %196 to i64
-  %260 = getelementptr inbounds i16, ptr %180, i64 %259
+  %260 = getelementptr inbounds [2 x i8], ptr %180, i64 %259
   store i16 %258, ptr %260, align 2, !tbaa !94
   %261 = getelementptr inbounds nuw i8, ptr %.0236327, i64 40
   %262 = load i64, ptr %261, align 8
@@ -6449,7 +6447,7 @@ nesting_level.exit276:                            ; preds = %275, %276
   %293 = trunc i32 %292 to i16
   %294 = add nsw i32 %.1224326, 2
   %295 = sext i32 %196 to i64
-  %296 = getelementptr inbounds i16, ptr %180, i64 %295
+  %296 = getelementptr inbounds [2 x i8], ptr %180, i64 %295
   store i16 %293, ptr %296, align 2, !tbaa !94
   %297 = getelementptr inbounds nuw i8, ptr %.0236327, i64 40
   %298 = load i64, ptr %297, align 8
@@ -6489,7 +6487,7 @@ nesting_level.exit276:                            ; preds = %275, %276
 nesting_level.exit284:                            ; preds = %312, %313
   %.0.lcssa.i283 = phi i16 [ %.09.i279, %312 ], [ %314, %313 ]
   %317 = sext i32 %196 to i64
-  %318 = getelementptr inbounds i16, ptr %180, i64 %317
+  %318 = getelementptr inbounds [2 x i8], ptr %180, i64 %317
   store i16 %.0.lcssa.i283, ptr %318, align 2, !tbaa !94
   %319 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %320 = load i16, ptr %319, align 8, !tbaa !83
@@ -6514,7 +6512,7 @@ nesting_level.exit284:                            ; preds = %312, %313
   %332 = sub nsw i32 %330, %331
   %333 = trunc i32 %332 to i16
   %334 = sext i32 %196 to i64
-  %335 = getelementptr inbounds i16, ptr %180, i64 %334
+  %335 = getelementptr inbounds [2 x i8], ptr %180, i64 %334
   store i16 %333, ptr %335, align 2, !tbaa !94
   br label %.loopexit
 
@@ -6926,7 +6924,7 @@ block_take.exit:                                  ; preds = %.backedge, %4
   %.sroa.9.0.i = extractvalue { i64, ptr } %.pn.i, 1
   %.sroa.014.0.i = extractvalue { i64, ptr } %.pn.i, 0
   %70 = load ptr, ptr @environ, align 8, !tbaa !101
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load ptr, ptr %71, align 8, !tbaa !85
   %.not26.i = icmp eq ptr %72, null
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !103

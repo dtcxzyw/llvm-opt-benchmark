@@ -552,7 +552,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   %.sroa.14.1198 = phi ptr [ %.sroa.14.0, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.14.2, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit78 ]
   %.sroa.0103.3197 = phi ptr [ %71, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0103.4, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %94 = getelementptr inbounds nuw %"class.Eigen::Hyperplane", ptr %6, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   %95 = load ptr, ptr %1, align 8, !tbaa !15
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
@@ -614,7 +614,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i: ; preds = %103
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %.noexc58, %119
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0103.3197, i64 noundef %106) #21
   %.pre.pre = load i8, ptr %8, align 8, !tbaa !12, !range !38
-  %120 = getelementptr inbounds nuw double, ptr %115, i64 %113
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %113
   %121 = trunc nuw i8 %.pre.pre to i1
   br i1 %121, label %127, label %122
 
@@ -724,7 +724,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i75: ; preds = %160, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i.i72
   store ptr %155, ptr %7, align 8, !tbaa !30
   store ptr %159, ptr %91, align 8, !tbaa !34
-  %161 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %155, i64 %153
+  %161 = getelementptr inbounds nuw [24 x i8], ptr %155, i64 %153
   store ptr %161, ptr %73, align 8, !tbaa !35
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit78
 
@@ -781,7 +781,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
 
 169:                                              ; preds = %162
   %170 = load i64, ptr %163, align 8, !tbaa !55
-  %171 = getelementptr inbounds nuw double, ptr %.sroa.0103.4, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0103.4, i64 %170
   %172 = load double, ptr %171, align 8, !tbaa !10
   br label %173
 
@@ -789,7 +789,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   %.sroa.094.0202 = phi ptr [ %163, %169 ], [ %178, %173 ]
   %.0168201 = phi double [ %172, %169 ], [ %.sroa.speculated, %173 ]
   %174 = load i64, ptr %.sroa.094.0202, align 8, !tbaa !55
-  %175 = getelementptr inbounds nuw double, ptr %.sroa.0103.4, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0103.4, i64 %174
   %176 = load double, ptr %175, align 8, !tbaa !10
   %177 = fcmp olt double %176, %.0168201
   %.sroa.speculated = select i1 %177, double %176, double %.0168201

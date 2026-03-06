@@ -1146,7 +1146,7 @@ for.body.lr.ph:                                   ; preds = %if.end5
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %I.07.us = phi i64 [ %inc.us, %for.body.us ], [ 1, %for.body.lr.ph ]
   %5 = load ptr, ptr %Nodes, align 8
-  %arrayidx9.us = getelementptr inbounds ptr, ptr %5, i64 %I.07.us
+  %arrayidx9.us = getelementptr inbounds [8 x i8], ptr %5, i64 %I.07.us
   %6 = load ptr, ptr %arrayidx9.us, align 8
   %vtable10.us = load ptr, ptr %6, align 8
   %vfn11.us = getelementptr inbounds nuw i8, ptr %vtable10.us, i64 16
@@ -1192,7 +1192,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %add.i.i = add i64 %13, %sub.ptr.sub.i.i.i
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
   %14 = load ptr, ptr %Nodes, align 8
-  %arrayidx9 = getelementptr inbounds ptr, ptr %14, i64 %I.07
+  %arrayidx9 = getelementptr inbounds [8 x i8], ptr %14, i64 %I.07
   %15 = load ptr, ptr %arrayidx9, align 8
   %vtable10 = load ptr, ptr %15, align 8
   %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 16
@@ -1782,7 +1782,7 @@ _ZN12OutputStream4growEm.exit.i.i81:              ; preds = %if.then.i._ZN12Outp
   %25 = load i64, ptr %CurrentPosition.i.i.i69, align 8
   %add.i.i83 = add i64 %25, 2
   store i64 %add.i.i83, ptr %CurrentPosition.i.i.i69, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %ThunkOffsets26, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %ThunkOffsets26, i64 %indvars.iv
   %26 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i.i86 = icmp slt i64 %26, 0
   br i1 %cmp.i.i86, label %if.then.i.i88, label %if.else.i.i87
@@ -5144,7 +5144,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %12 = load ptr, ptr %Dimensions, align 8
   %Nodes7 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %Nodes7, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %13, i64 %I.014
+  %arrayidx8 = getelementptr inbounds [8 x i8], ptr %13, i64 %I.014
   %14 = load ptr, ptr %arrayidx8, align 8
   %Value.i6 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load i64, ptr %Value.i6, align 8

@@ -56,7 +56,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN88_$LT$pingora_lru..
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %16, i64 %5
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %5
   br label %13
 
 18:                                               ; preds = %4
@@ -93,7 +93,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN91_$LT$pingora_lru..
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %16, i64 %5
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %5
   br label %13
 
 18:                                               ; preds = %4
@@ -186,7 +186,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList8ne
 _ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit: ; preds = %15, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !14, !noalias !17, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %24, i64 %18
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %18
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 -1, i64 16, i1 false)
   store i64 %1, ptr %.sroa.3.0..sroa_idx.i, align 8
@@ -208,7 +208,7 @@ _ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit: ; preds =
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   %36 = icmp ult i64 %4, 1152921504606846977
   tail call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %31
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %38 = load i64, ptr %37, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   switch i64 %38, label %39 [
@@ -234,7 +234,7 @@ _ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit: ; preds =
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8, !alias.scope !19, !noalias !22, !nonnull !3, !noundef !3
-  %51 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %50, i64 %40
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %40
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
 
 52:                                               ; preds = %39
@@ -283,7 +283,7 @@ _ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.
 _ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit: ; preds = %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !27, !noalias !30, !nonnull !3, !noundef !3
-  %9 = getelementptr { i64, i64, i64 }, ptr %8, i64 %1
+  %9 = getelementptr [24 x i8], ptr %8, i64 %1
   %10 = getelementptr i8, ptr %9, i64 -48
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread, label %11
@@ -326,7 +326,7 @@ define noundef zeroext i1 @_ZN11pingora_lru11linked_list10LinkedList15exist_near
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %8, i64 %12
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %12
   br label %"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E.exit"
 
 16:                                               ; preds = %11
@@ -355,7 +355,7 @@ define noundef zeroext i1 @_ZN11pingora_lru11linked_list10LinkedList15exist_near
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %8, i64 %24
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %24
   br label %"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E.exit7"
 
 28:                                               ; preds = %23
@@ -400,7 +400,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !39, !noalias !42, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %17, i64 %9
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %9
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
 
 19:                                               ; preds = %8
@@ -436,7 +436,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !44, !noalias !47, !nonnull !3, !noundef !3
-  %34 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %33, i64 %23
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %23
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3"
 
 35:                                               ; preds = %22
@@ -472,7 +472,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !49, !noalias !52, !nonnull !3, !noundef !3
-  %49 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %48, i64 %38
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %38
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5"
 
 50:                                               ; preds = %37
@@ -519,7 +519,7 @@ define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9pu
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !61, !noalias !62, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %18, i64 %10
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %10
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i"
 
 20:                                               ; preds = %9
@@ -551,7 +551,7 @@ define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9pu
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !67, !noalias !68, !nonnull !3, !noundef !3
-  %32 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %31, i64 %23
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %23
   br label %_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit
 
 33:                                               ; preds = %22
@@ -593,7 +593,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit": ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !70, !noalias !73, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %10, i64 %5
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %5
   %12 = load i64, ptr %11, align 8, !noundef !3
   store i64 -1, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -634,7 +634,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3"
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %10, i64 %23
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %23
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3"
 
 31:                                               ; preds = %22
@@ -666,7 +666,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5"
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %10, i64 %34
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %34
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5"
 
 43:                                               ; preds = %33
@@ -695,7 +695,7 @@ define noundef i64 @_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a16
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E.exit": ; preds = %2, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !alias.scope !83, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %5
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %5
   store i64 %1, ptr %11, align 8
   %12 = add i64 %5, 1
   store i64 %12, ptr %4, align 8, !alias.scope !83
@@ -725,7 +725,7 @@ define { i64, i64 } @_ZN11pingora_lru11linked_list10LinkedList8pop_tail17he3d1e4
 _ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE.exit: ; preds = %5, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8, !alias.scope !86, !nonnull !3, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %8
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %8
   store i64 %3, ptr %14, align 8
   %15 = add i64 %8, 1
   store i64 %15, ptr %7, align 8, !alias.scope !86
@@ -779,7 +779,7 @@ define void @_ZN11pingora_lru11linked_list10LinkedList7promote17h23a1d629fade9c4
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !97, !noalias !98, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %21, i64 %13
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %13
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i"
 
 23:                                               ; preds = %12
@@ -811,7 +811,7 @@ define void @_ZN11pingora_lru11linked_list10LinkedList7promote17h23a1d629fade9c4
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !103, !noalias !104, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %34, i64 %26
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %26
   br label %_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit
 
 36:                                               ; preds = %25
@@ -900,7 +900,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN99_$LT$pingora_lru..l
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !116, !noalias !117, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %16, i64 %6
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %6
   br label %_ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E.exit
 
 18:                                               ; preds = %5
@@ -941,7 +941,7 @@ _ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E.exit: ; preds
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !125, !noalias !126, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %34, i64 %26
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %26
   br label %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit
 
 36:                                               ; preds = %25
@@ -1000,7 +1000,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN114_$LT$pingora_lru..
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !134, !noalias !135, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %16, i64 %6
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %6
   br label %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit
 
 18:                                               ; preds = %5
@@ -1039,7 +1039,7 @@ _ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit: ; preds
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !143, !noalias !144, !nonnull !3, !noundef !3
-  %34 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %33, i64 %25
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %25
   br label %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit
 
 35:                                               ; preds = %24

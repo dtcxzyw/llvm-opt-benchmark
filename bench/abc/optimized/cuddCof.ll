@@ -79,14 +79,14 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = load i32, ptr %6, align 8, !tbaa !30
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !32
   %28 = ptrtoint ptr %2 to i64
   %29 = and i64 %28, -2
   %30 = inttoptr i64 %29 to ptr
   %31 = load i32, ptr %30, align 8, !tbaa !30
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %23, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !32
   %.not107 = icmp ugt i32 %27, %34
   br i1 %.not107, label %40, label %35

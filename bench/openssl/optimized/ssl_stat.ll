@@ -210,7 +210,7 @@ define noundef nonnull ptr @SSL_state_string_long(ptr noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %13
   %16 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_state_string_long, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_state_string_long, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
@@ -258,7 +258,7 @@ define noundef nonnull ptr @SSL_state_string(ptr noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %13
   %16 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_state_string, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_state_string, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 

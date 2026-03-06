@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"modulename\04scale into final size\00", align 1
 @darktable = external local_unnamed_addr global %struct.darktable_t, align 8
@@ -357,7 +354,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

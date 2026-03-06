@@ -1510,7 +1510,7 @@ define dso_local range(i32 -1, 1) i32 @phpdbg_resolve_op_array_break(ptr noundef
   %28 = load i32, ptr %0, align 8, !tbaa !110
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %30 = load ptr, ptr %29, align 8, !tbaa !111
-  %31 = getelementptr inbounds nuw %struct._zend_op, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %8
   %32 = ptrtoint ptr %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %32, ptr %33, align 8, !tbaa !112
@@ -2816,13 +2816,13 @@ phpdbg_find_breakpoint_file.exit.thread:          ; preds = %18, %11, %16, %8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !186
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct._zend_op, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !187
   %40 = lshr i32 %39, 14
   %.lobit = and i32 %40, 1
   %41 = zext nneg i32 %.lobit to i64
-  %42 = getelementptr inbounds nuw %struct._zend_op, ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %41
   %43 = icmp eq ptr %31, %42
   br i1 %43, label %44, label %phpdbg_find_breakpoint_symbol.exit.thread
 
@@ -3390,7 +3390,7 @@ phpdbg_find_breakbase_ex.exit:                    ; preds = %phpdbg_find_breakba
   %49 = tail call noalias ptr @_estrdup(ptr noundef %48) #15
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #16
   %51 = zext nneg i8 %41 to i64
-  %52 = getelementptr inbounds nuw %struct._zend_array, ptr @phpdbg_globals, i64 %51
+  %52 = getelementptr inbounds nuw [56 x i8], ptr @phpdbg_globals, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %54 = load i32, ptr %53, align 4, !tbaa !19
   %55 = icmp eq i32 %54, 1
@@ -3468,7 +3468,7 @@ phpdbg_find_breakbase_ex.exit:                    ; preds = %phpdbg_find_breakba
 
 89:                                               ; preds = %88
   %90 = zext nneg i8 %41 to i64
-  %91 = getelementptr inbounds nuw %struct._zend_array, ptr @phpdbg_globals, i64 %90
+  %91 = getelementptr inbounds nuw [56 x i8], ptr @phpdbg_globals, i64 %90
   %92 = tail call i32 @zend_hash_str_del(ptr noundef nonnull %91, ptr noundef nonnull %.01841, i64 noundef %.042) #15
   tail call void @_efree(ptr noundef nonnull %.01841) #15
   br label %93
@@ -4332,7 +4332,7 @@ define dso_local void @phpdbg_print_breakpoints(i64 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %170
   %175 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.phpdbg_print_breakpoints, i64 %175
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.phpdbg_print_breakpoints, i64 %175
   %switch.load = load ptr, ptr %switch.gep, align 8
   %176 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !20
   %177 = load i32, ptr %171, align 8, !tbaa !127

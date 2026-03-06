@@ -64,7 +64,7 @@ define internal void @CollectHistogram_SSE2(ptr noalias noundef readonly capture
 11:                                               ; preds = %.lr.ph, %139
   %indvars.iv31 = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next32, %139 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %12 = getelementptr inbounds i32, ptr @VP8DspScan, i64 %indvars.iv31
+  %12 = getelementptr inbounds [4 x i8], ptr @VP8DspScan, i64 %indvars.iv31
   %13 = load i32, ptr %12, align 4, !tbaa !7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
@@ -192,10 +192,10 @@ define internal void @CollectHistogram_SSE2(ptr noalias noundef readonly capture
 
 132:                                              ; preds = %11, %132
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %132 ]
-  %133 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   %134 = load i16, ptr %133, align 2, !tbaa !18
   %135 = sext i16 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %6, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %6, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !7
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %136, align 4, !tbaa !7

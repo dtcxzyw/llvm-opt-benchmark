@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.cert_key_id = type { [20 x i8] }
 %struct.gnutls_datum_t = type { ptr, i32 }
-%struct.pkcs11_lib_record_t = type { ptr }
-%struct.rsa_privkey_record_t = type { ptr, ptr }
 
 @secrets_callbacks = internal unnamed_addr global ptr null, align 8
 @rsa_privkeys = internal unnamed_addr global ptr null, align 8
@@ -270,7 +268,7 @@ define noundef zeroext i1 @secrets_verify_key(ptr noundef %0, ptr noundef %1, pt
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr ptr, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   call void @gnutls_pkcs11_obj_deinit(ptr noundef %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -673,7 +671,7 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %0 ]
   %.017 = phi ptr [ %.1, %11 ], [ null, %0 ]
   %2 = load ptr, ptr @uat_pkcs11_libs, align 8
-  %3 = getelementptr %struct.pkcs11_lib_record_t, ptr %2, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @gnutls_pkcs11_add_provider(ptr noundef %4, ptr noundef null)
   %.not14 = icmp eq i32 %5, 0
@@ -833,7 +831,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %114 ], [ 0, %0 ]
   %.019 = phi ptr [ %.1, %114 ], [ null, %0 ]
   %12 = load ptr, ptr @uat_rsa_privkeys, align 8
-  %13 = getelementptr %struct.rsa_privkey_record_t, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [16 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
@@ -896,7 +894,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr ptr, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @gnutls_pkcs11_obj_get_type(ptr noundef %35)
   %.not32.i = icmp eq i32 %36, 3
@@ -904,7 +902,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
 
 37:                                               ; preds = %.lr.ph.i
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr ptr, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr [8 x i8], ptr %38, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @gnutls_pkcs11_obj_export_url(ptr noundef %40, i32 noundef 0, ptr noundef nonnull %3)
   %42 = icmp slt i32 %41, 0
@@ -970,7 +968,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %78 = load ptr, ptr %3, align 8
   call void %77(ptr noundef %78)
   %79 = load ptr, ptr %1, align 8
-  %80 = getelementptr ptr, ptr %79, i64 %indvars.iv.i
+  %80 = getelementptr [8 x i8], ptr %79, i64 %indvars.iv.i
   %81 = load ptr, ptr %80, align 8
   call void @gnutls_pkcs11_obj_deinit(ptr noundef %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

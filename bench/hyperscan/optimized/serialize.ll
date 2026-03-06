@@ -724,7 +724,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %78, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %73, ptr %0, align 8
   store ptr %77, ptr %5, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %79, ptr %55, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1312,7 +1312,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_110SerializePEE8TestInfoEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %77, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_110SerializePEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.i.i
   store ptr %58, ptr %33, align 8
   store ptr %76, ptr %35, align 8
-  %78 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.22", ptr %58, i64 %56
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %56
   store ptr %78, ptr %37, align 8
   br label %_ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_110SerializePEE8TestInfoEEESaIS8_EE9push_backEOS8_.exit
 
@@ -29283,7 +29283,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %79, ptr %78, align 8
   ret void
 }

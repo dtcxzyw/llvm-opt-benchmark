@@ -22,7 +22,7 @@ define range(i32 0, 4) i32 @ff_tis_ifd(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %3 = getelementptr inbounds nuw i16, ptr @ifd_tags, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [2 x i8], ptr @ifd_tags, i64 %indvars.iv
   %4 = load i16, ptr %3, align 2, !tbaa !4
   %5 = zext i16 %4 to i32
   %6 = icmp eq i32 %0, %5
@@ -1674,7 +1674,7 @@ ff_tget_long.exit:                                ; preds = %46, %47, %54, %55
 
 62:                                               ; preds = %62, %ff_tget_long.exit
   %indvars.iv.i = phi i64 [ 0, %ff_tget_long.exit ], [ %indvars.iv.next.i, %62 ]
-  %63 = getelementptr inbounds nuw i16, ptr @ifd_tags, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [2 x i8], ptr @ifd_tags, i64 %indvars.iv.i
   %64 = load i16, ptr %63, align 2, !tbaa !4
   %65 = zext i16 %64 to i32
   %.not = icmp eq i32 %61, %65

@@ -191,7 +191,7 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
   %.0.i = phi i8 [ %15, %.preheader.i ], [ 0, %9 ]
   %12 = zext i8 %.0.i to i64
   %13 = add nuw nsw i64 %..i, %12
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   store i64 %13, ptr %14, align 8
   %15 = add i8 %.0.i, 1
   %16 = zext i8 %15 to i64
@@ -227,7 +227,7 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
 28:                                               ; preds = %27
   %29 = add nuw nsw i64 %.51.i, 1
   %30 = zext nneg i8 %.2.i to i64
-  %31 = getelementptr inbounds nuw i64, ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %30
   store i64 %29, ptr %31, align 8
   %32 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -251,7 +251,7 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
   %40 = trunc nuw i32 %39 to i8
   %41 = urem i8 %40, %.153.i
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %42
   %44 = load i64, ptr %43, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
@@ -285,7 +285,7 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
   %.0.i = phi i8 [ %15, %.preheader.i ], [ 0, %9 ]
   %12 = zext i8 %.0.i to i64
   %13 = add nuw nsw i64 %..i, %12
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   store i64 %13, ptr %14, align 8
   %15 = add i8 %.0.i, 1
   %16 = zext i8 %15 to i64
@@ -321,7 +321,7 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
 28:                                               ; preds = %27
   %29 = add nuw nsw i64 %.51.i, 1
   %30 = zext nneg i8 %.2.i to i64
-  %31 = getelementptr inbounds nuw i64, ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %30
   store i64 %29, ptr %31, align 8
   %32 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -345,7 +345,7 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
   %40 = trunc nuw i32 %39 to i8
   %41 = urem i8 %40, %.153.i
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %42
   %44 = load i64, ptr %43, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
@@ -379,7 +379,7 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
   %.0.i = phi i8 [ %15, %.preheader.i ], [ 0, %9 ]
   %12 = zext i8 %.0.i to i64
   %13 = add nuw nsw i64 %..i, %12
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   store i64 %13, ptr %14, align 8
   %15 = add i8 %.0.i, 1
   %16 = zext i8 %15 to i64
@@ -415,7 +415,7 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
 28:                                               ; preds = %27
   %29 = add nuw nsw i64 %.51.i, 1
   %30 = zext nneg i8 %.2.i to i64
-  %31 = getelementptr inbounds nuw i64, ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %30
   store i64 %29, ptr %31, align 8
   %32 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -439,7 +439,7 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
   %40 = trunc nuw i32 %39 to i8
   %41 = urem i8 %40, %.153.i
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %42
   %44 = load i64, ptr %43, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
@@ -471,7 +471,7 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
   %.0.i = phi i8 [ %13, %.preheader.i ], [ 0, %7 ]
   %10 = zext i8 %.0.i to i64
   %11 = add i64 %..i, %10
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store i64 %11, ptr %12, align 8
   %13 = add i8 %.0.i, 1
   %14 = zext i8 %13 to i64
@@ -507,7 +507,7 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
 26:                                               ; preds = %25
   %27 = add nuw i64 %.51.i, 1
   %28 = zext nneg i8 %.2.i to i64
-  %29 = getelementptr inbounds nuw i64, ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %28
   store i64 %27, ptr %29, align 8
   %30 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -531,7 +531,7 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
   %38 = trunc nuw i32 %37 to i8
   %39 = urem i8 %38, %.153.i
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %4, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %40
   %42 = load i64, ptr %41, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
@@ -564,7 +564,7 @@ define dso_local signext i8 @SDLTest_RandomSint8BoundaryValue(i8 noundef signext
   %.0.i = phi i8 [ %15, %.preheader.i ], [ 0, %9 ]
   %12 = zext i8 %.0.i to i64
   %13 = add nsw i64 %..i, %12
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   store i64 %13, ptr %14, align 8
   %15 = add nuw i8 %.0.i, 1
   %16 = zext i8 %15 to i64
@@ -600,7 +600,7 @@ define dso_local signext i8 @SDLTest_RandomSint8BoundaryValue(i8 noundef signext
 30:                                               ; preds = %28
   %31 = add nsw i64 %.53.i, 1
   %32 = zext nneg i8 %.2.i to i64
-  %33 = getelementptr inbounds nuw i64, ptr %4, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %32
   store i64 %31, ptr %33, align 8
   %34 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -622,7 +622,7 @@ define dso_local signext i8 @SDLTest_RandomSint8BoundaryValue(i8 noundef signext
   %41 = trunc nuw i32 %40 to i8
   %42 = urem i8 %41, %.155.i
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %43
   %45 = load i64, ptr %44, align 8
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 
@@ -656,7 +656,7 @@ define dso_local signext i16 @SDLTest_RandomSint16BoundaryValue(i16 noundef sign
   %.0.i = phi i8 [ %15, %.preheader.i ], [ 0, %9 ]
   %12 = zext i8 %.0.i to i64
   %13 = add nsw i64 %..i, %12
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   store i64 %13, ptr %14, align 8
   %15 = add i8 %.0.i, 1
   %16 = zext i8 %15 to i64
@@ -692,7 +692,7 @@ define dso_local signext i16 @SDLTest_RandomSint16BoundaryValue(i16 noundef sign
 30:                                               ; preds = %28
   %31 = add nsw i64 %.53.i, 1
   %32 = zext nneg i8 %.2.i to i64
-  %33 = getelementptr inbounds nuw i64, ptr %4, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %32
   store i64 %31, ptr %33, align 8
   %34 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -716,7 +716,7 @@ define dso_local signext i16 @SDLTest_RandomSint16BoundaryValue(i16 noundef sign
   %42 = trunc nuw i32 %41 to i8
   %43 = urem i8 %42, %.155.i
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %44
   %46 = load i64, ptr %45, align 8
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 
@@ -750,7 +750,7 @@ define dso_local i32 @SDLTest_RandomSint32BoundaryValue(i32 noundef %0, i32 noun
   %.0.i = phi i8 [ %15, %.preheader.i ], [ 0, %9 ]
   %12 = zext i8 %.0.i to i64
   %13 = add nsw i64 %..i, %12
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   store i64 %13, ptr %14, align 8
   %15 = add i8 %.0.i, 1
   %16 = zext i8 %15 to i64
@@ -786,7 +786,7 @@ define dso_local i32 @SDLTest_RandomSint32BoundaryValue(i32 noundef %0, i32 noun
 30:                                               ; preds = %28
   %31 = add nsw i64 %.53.i, 1
   %32 = zext nneg i8 %.2.i to i64
-  %33 = getelementptr inbounds nuw i64, ptr %4, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %32
   store i64 %31, ptr %33, align 8
   %34 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -810,7 +810,7 @@ define dso_local i32 @SDLTest_RandomSint32BoundaryValue(i32 noundef %0, i32 noun
   %42 = trunc nuw i32 %41 to i8
   %43 = urem i8 %42, %.155.i
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %44
   %46 = load i64, ptr %45, align 8
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 
@@ -842,7 +842,7 @@ define dso_local i64 @SDLTest_RandomSint64BoundaryValue(i64 noundef %0, i64 noun
   %.0.i = phi i8 [ %13, %.preheader.i ], [ 0, %7 ]
   %10 = zext i8 %.0.i to i64
   %11 = add nsw i64 %..i, %10
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store i64 %11, ptr %12, align 8
   %13 = add i8 %.0.i, 1
   %14 = zext i8 %13 to i64
@@ -878,7 +878,7 @@ define dso_local i64 @SDLTest_RandomSint64BoundaryValue(i64 noundef %0, i64 noun
 26:                                               ; preds = %25
   %27 = add nsw i64 %.53.i, 1
   %28 = zext nneg i8 %.2.i to i64
-  %29 = getelementptr inbounds nuw i64, ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %28
   store i64 %27, ptr %29, align 8
   %30 = add nuw nsw i8 %.2.i, 1
   br label %.thread.i
@@ -902,7 +902,7 @@ define dso_local i64 @SDLTest_RandomSint64BoundaryValue(i64 noundef %0, i64 noun
   %38 = trunc nuw i32 %37 to i8
   %39 = urem i8 %38, %.155.i
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %4, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %40
   %42 = load i64, ptr %41, align 8
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 

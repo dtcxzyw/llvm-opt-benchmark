@@ -59,7 +59,7 @@ define void @binaryheap_add_unordered(ptr noundef captures(none) %0, ptr noundef
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   store ptr %1, ptr %11, align 8
   %12 = load i32, ptr %0, align 8
   %13 = add i32 %12, 1
@@ -89,7 +89,7 @@ define void @binaryheap_build(ptr noundef captures(none) %0) local_unnamed_addr 
 
 10:                                               ; preds = %.lr.ph, %sift_down.exit
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %sift_down.exit ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %14
@@ -106,10 +106,10 @@ define void @binaryheap_build(ptr noundef captures(none) %0) local_unnamed_addr 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %7, align 8
   %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds ptr, ptr %6, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %6, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %17 to i64
-  %26 = getelementptr inbounds ptr, ptr %6, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %6, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %8, align 8
   %29 = tail call i32 %21(ptr noundef %24, ptr noundef %27, ptr noundef %28) #5
@@ -127,7 +127,7 @@ define void @binaryheap_build(ptr noundef captures(none) %0) local_unnamed_addr 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %7, align 8
   %35 = sext i32 %.029.i to i64
-  %36 = getelementptr inbounds ptr, ptr %6, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %6, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %8, align 8
   %39 = tail call i32 %34(ptr noundef %12, ptr noundef %37, ptr noundef %38) #5
@@ -137,13 +137,13 @@ define void @binaryheap_build(ptr noundef captures(none) %0) local_unnamed_addr 
 41:                                               ; preds = %33
   %42 = load ptr, ptr %36, align 8
   %43 = sext i32 %.030.i to i64
-  %44 = getelementptr inbounds ptr, ptr %6, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %6, i64 %43
   store ptr %42, ptr %44, align 8
   br label %14
 
 sift_down.exit:                                   ; preds = %31, %33
   %45 = sext i32 %.030.i to i64
-  %46 = getelementptr inbounds ptr, ptr %6, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %6, i64 %45
   store ptr %12, ptr %46, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %47 = icmp sgt i64 %indvars.iv, 0
@@ -171,13 +171,13 @@ define void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   store ptr %1, ptr %10, align 8
   %11 = load i32, ptr %0, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %0, align 8
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not21.i = icmp eq i32 %11, 0
   br i1 %.not21.i, label %sift_up.exit, label %.lr.ph.i
@@ -192,7 +192,7 @@ define void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local
   %19 = add i32 %.01822.i, -1
   %20 = sdiv i32 %19, 2
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %8, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %8, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %16, align 8
   %25 = load ptr, ptr %17, align 8
@@ -202,14 +202,14 @@ define void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local
   br i1 %27, label %sift_up.exit, label %28
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds ptr, ptr %8, i64 %.pre
+  %29 = getelementptr inbounds [8 x i8], ptr %8, i64 %.pre
   store ptr %23, ptr %29, align 8
   %.not.i = icmp ult i32 %.01822.i, 3
   br i1 %.not.i, label %sift_up.exit, label %18
 
 sift_up.exit:                                     ; preds = %28, %18, %7
   %.018.lcssa.i = phi i64 [ 0, %7 ], [ %21, %28 ], [ %.pre, %18 ]
-  %30 = getelementptr inbounds ptr, ptr %8, i64 %.018.lcssa.i
+  %30 = getelementptr inbounds [8 x i8], ptr %8, i64 %.018.lcssa.i
   store ptr %15, ptr %30, align 8
   ret void
 }
@@ -237,7 +237,7 @@ define ptr @binaryheap_remove_first(ptr noundef captures(none) %0) local_unnamed
   %8 = add i32 %4, -1
   store i32 %8, ptr %0, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -256,10 +256,10 @@ define ptr @binaryheap_remove_first(ptr noundef captures(none) %0) local_unnamed
 20:                                               ; preds = %14
   %21 = load ptr, ptr %12, align 8
   %22 = sext i32 %17 to i64
-  %23 = getelementptr inbounds ptr, ptr %2, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %2, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %18 to i64
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %13, align 8
   %29 = tail call i32 %21(ptr noundef %24, ptr noundef %27, ptr noundef %28) #5
@@ -277,7 +277,7 @@ define ptr @binaryheap_remove_first(ptr noundef captures(none) %0) local_unnamed
 33:                                               ; preds = %31
   %34 = load ptr, ptr %12, align 8
   %35 = sext i32 %.029.i to i64
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %13, align 8
   %39 = tail call i32 %34(ptr noundef %11, ptr noundef %37, ptr noundef %38) #5
@@ -287,14 +287,14 @@ define ptr @binaryheap_remove_first(ptr noundef captures(none) %0) local_unnamed
 41:                                               ; preds = %33
   %42 = load ptr, ptr %36, align 8
   %43 = sext i32 %.030.i to i64
-  %44 = getelementptr inbounds ptr, ptr %2, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %2, i64 %43
   store ptr %42, ptr %44, align 8
   %.pre = load i32, ptr %0, align 8
   br label %14
 
 sift_down.exit:                                   ; preds = %31, %33
   %45 = sext i32 %.030.i to i64
-  %46 = getelementptr inbounds ptr, ptr %2, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %2, i64 %45
   store ptr %11, ptr %46, align 8
   br label %47
 
@@ -311,17 +311,17 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
   %7 = add i32 %6, -1
   store i32 %7, ptr %0, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds ptr, ptr %5, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %4(ptr noundef %10, ptr noundef %13, ptr noundef %15) #5
   %17 = load i32, ptr %0, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %5, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %5, i64 %18
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %12, align 8
   %21 = icmp sgt i32 %16, 0
@@ -336,7 +336,7 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
   %23 = add i32 %.01822.i, -1
   %24 = sdiv i32 %23, 2
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %5, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %3, align 8
   %29 = load ptr, ptr %14, align 8
@@ -346,7 +346,7 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
   br i1 %31, label %.sink.split, label %32
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds ptr, ptr %5, i64 %.pre
+  %33 = getelementptr inbounds [8 x i8], ptr %5, i64 %.pre
   store ptr %27, ptr %33, align 8
   %.not.i = icmp ult i32 %.01822.i, 3
   br i1 %.not.i, label %.sink.split, label %.lr.ph.i
@@ -367,10 +367,10 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
 41:                                               ; preds = %.preheader
   %42 = load ptr, ptr %3, align 8
   %43 = sext i32 %37 to i64
-  %44 = getelementptr inbounds ptr, ptr %5, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %5, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %38 to i64
-  %47 = getelementptr inbounds ptr, ptr %5, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %5, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %14, align 8
   %50 = tail call i32 %42(ptr noundef %45, ptr noundef %48, ptr noundef %49) #5
@@ -388,7 +388,7 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
 54:                                               ; preds = %52
   %55 = load ptr, ptr %3, align 8
   %56 = sext i32 %.029.i to i64
-  %57 = getelementptr inbounds ptr, ptr %5, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %5, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %14, align 8
   %60 = tail call i32 %55(ptr noundef %20, ptr noundef %58, ptr noundef %59) #5
@@ -398,7 +398,7 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
 62:                                               ; preds = %54
   %63 = load ptr, ptr %57, align 8
   %64 = sext i32 %.030.i to i64
-  %65 = getelementptr inbounds ptr, ptr %5, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %5, i64 %64
   store ptr %63, ptr %65, align 8
   br label %.preheader
 
@@ -408,7 +408,7 @@ sift_down.exit:                                   ; preds = %52, %54
 
 .sink.split:                                      ; preds = %32, %.lr.ph.i, %22, %sift_down.exit
   %.sink21 = phi i64 [ %66, %sift_down.exit ], [ 0, %22 ], [ %25, %32 ], [ %.pre, %.lr.ph.i ]
-  %67 = getelementptr inbounds ptr, ptr %5, i64 %.sink21
+  %67 = getelementptr inbounds [8 x i8], ptr %5, i64 %.sink21
   store ptr %20, ptr %67, align 8
   br label %68
 
@@ -441,10 +441,10 @@ define void @binaryheap_replace_first(ptr noundef captures(none) initializes((32
 15:                                               ; preds = %9
   %16 = load ptr, ptr %7, align 8
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds ptr, ptr %3, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %3, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %3, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %8, align 8
   %24 = tail call i32 %16(ptr noundef %19, ptr noundef %22, ptr noundef %23) #5
@@ -462,7 +462,7 @@ define void @binaryheap_replace_first(ptr noundef captures(none) initializes((32
 28:                                               ; preds = %26
   %29 = load ptr, ptr %7, align 8
   %30 = sext i32 %.029.i to i64
-  %31 = getelementptr inbounds ptr, ptr %3, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %3, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %8, align 8
   %34 = tail call i32 %29(ptr noundef %1, ptr noundef %32, ptr noundef %33) #5
@@ -472,14 +472,14 @@ define void @binaryheap_replace_first(ptr noundef captures(none) initializes((32
 36:                                               ; preds = %28
   %37 = load ptr, ptr %31, align 8
   %38 = sext i32 %.030.i to i64
-  %39 = getelementptr inbounds ptr, ptr %3, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %3, i64 %38
   store ptr %37, ptr %39, align 8
   %.pre = load i32, ptr %0, align 8
   br label %9
 
 sift_down.exit:                                   ; preds = %26, %28
   %40 = sext i32 %.030.i to i64
-  %41 = getelementptr inbounds ptr, ptr %3, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %3, i64 %40
   store ptr %1, ptr %41, align 8
   br label %42
 

@@ -185,7 +185,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %27, %24
   %46 = add nsw i32 %40, 1
   store i32 %46, ptr %45, align 4
   %47 = sext i32 %40 to i64
-  %48 = getelementptr inbounds i16, ptr %44, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %44, i64 %47
   store i16 1, ptr %48, align 2
   %49 = load ptr, ptr %8, align 8, !alias.scope !5
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -194,7 +194,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %27, %24
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i16, ptr %52, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %52, i64 %55
   store i16 0, ptr %56, align 2
   invoke void @_ZplRK7QStringPKc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.5)
           to label %57 unwind label %127

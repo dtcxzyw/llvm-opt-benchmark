@@ -1943,7 +1943,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
 130:                                              ; preds = %.noexc.i, %120
   %131 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %123, %120 ]
   %132 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !391, !noalias !394, !nonnull !5, !noundef !5
-  %133 = getelementptr inbounds { ptr, i64 }, ptr %132, i64 %131
+  %133 = getelementptr inbounds [16 x i8], ptr %132, i64 %131
   store ptr %121, ptr %133, align 8, !noalias !394
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store i64 %122, ptr %134, align 8
@@ -2008,7 +2008,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
 158:                                              ; preds = %.noexc.i171, %147
   %159 = phi i64 [ %.pre.i.i172, %.noexc.i171 ], [ %150, %147 ]
   %160 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !410, !noalias !413, !nonnull !5, !noundef !5
-  %161 = getelementptr inbounds { ptr, i64 }, ptr %160, i64 %159
+  %161 = getelementptr inbounds [16 x i8], ptr %160, i64 %159
   store ptr %148, ptr %161, align 8, !noalias !413
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i64 %149, ptr %162, align 8
@@ -2083,7 +2083,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
 187:                                              ; preds = %175, %.noexc.i180
   %188 = phi i64 [ %.pre.i.i181, %.noexc.i180 ], [ %178, %175 ]
   %189 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !429, !noalias !432, !nonnull !5, !noundef !5
-  %190 = getelementptr inbounds { ptr, i64 }, ptr %189, i64 %188
+  %190 = getelementptr inbounds [16 x i8], ptr %189, i64 %188
   store ptr %176, ptr %190, align 8, !noalias !432
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i64 %177, ptr %191, align 8
@@ -2223,7 +2223,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
 
 .lr.ph.i.i:                                       ; preds = %225, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i"
   %.09.i.i = phi i64 [ %230, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i" ], [ 0, %225 ]
-  %229 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %226, i64 %.09.i.i
+  %229 = getelementptr inbounds [256 x i8], ptr %226, i64 %.09.i.i
   %230 = add nuw i64 %.09.i.i, 1
   %231 = load i64, ptr %229, align 8, !range !452, !alias.scope !453, !noalias !449, !noundef !5
   %232 = add nsw i64 %231, -39
@@ -2262,7 +2262,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
   br label %240
 
 244:                                              ; preds = %240
-  %245 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %226, i64 %.1.i.i
+  %245 = getelementptr inbounds [256 x i8], ptr %226, i64 %.1.i.i
   %246 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %245) #16
           to label %240 unwind label %247, !noalias !449
@@ -2367,7 +2367,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
 
 .lr.ph.i.i269:                                    ; preds = %269, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i272"
   %.09.i.i270 = phi i64 [ %274, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i272" ], [ 0, %269 ]
-  %273 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %270, i64 %.09.i.i270
+  %273 = getelementptr inbounds [256 x i8], ptr %270, i64 %.09.i.i270
   %274 = add nuw i64 %.09.i.i270, 1
   %275 = load i64, ptr %273, align 8, !range !452, !alias.scope !470, !noalias !467, !noundef !5
   %276 = add nsw i64 %275, -39
@@ -2406,7 +2406,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
   br label %284
 
 288:                                              ; preds = %284
-  %289 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %270, i64 %.1.i.i271
+  %289 = getelementptr inbounds [256 x i8], ptr %270, i64 %.1.i.i271
   %290 = add i64 %.1.i.i271, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %289) #16
           to label %284 unwind label %291, !noalias !467
@@ -2499,7 +2499,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
 
 .lr.ph.i.i276:                                    ; preds = %308, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i279"
   %.09.i.i277 = phi i64 [ %316, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i279" ], [ 0, %308 ]
-  %315 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %311, i64 %.09.i.i277
+  %315 = getelementptr inbounds [256 x i8], ptr %311, i64 %.09.i.i277
   %316 = add nuw i64 %.09.i.i277, 1
   %317 = load i64, ptr %315, align 8, !range !452, !alias.scope !487, !noalias !484, !noundef !5
   %318 = add nsw i64 %317, -39
@@ -2538,7 +2538,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
   br label %326
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %311, i64 %.1.i.i278
+  %331 = getelementptr inbounds [256 x i8], ptr %311, i64 %.1.i.i278
   %332 = add i64 %.1.i.i278, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %331) #16
           to label %326 unwind label %333, !noalias !484
@@ -2593,7 +2593,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
 
 .lr.ph.i.i283:                                    ; preds = %345, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i286"
   %.09.i.i284 = phi i64 [ %350, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i286" ], [ 0, %345 ]
-  %349 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %346, i64 %.09.i.i284
+  %349 = getelementptr inbounds [256 x i8], ptr %346, i64 %.09.i.i284
   %350 = add nuw i64 %.09.i.i284, 1
   %351 = load i64, ptr %349, align 8, !range !452, !alias.scope !504, !noalias !501, !noundef !5
   %352 = add nsw i64 %351, -39
@@ -2632,7 +2632,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
   br label %360
 
 364:                                              ; preds = %360
-  %365 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %346, i64 %.1.i.i285
+  %365 = getelementptr inbounds [256 x i8], ptr %346, i64 %.1.i.i285
   %366 = add i64 %.1.i.i285, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %365) #16
           to label %360 unwind label %367, !noalias !501
@@ -2884,7 +2884,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i244: ; preds = %406,
 
 .lr.ph.i.i290:                                    ; preds = %423, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i293"
   %.09.i.i291 = phi i64 [ %431, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i293" ], [ 0, %423 ]
-  %430 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %426, i64 %.09.i.i291
+  %430 = getelementptr inbounds [256 x i8], ptr %426, i64 %.09.i.i291
   %431 = add nuw i64 %.09.i.i291, 1
   %432 = load i64, ptr %430, align 8, !range !452, !alias.scope !543, !noalias !540, !noundef !5
   %433 = add nsw i64 %432, -39
@@ -2923,7 +2923,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i244: ; preds = %406,
   br label %441
 
 445:                                              ; preds = %441
-  %446 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %426, i64 %.1.i.i292
+  %446 = getelementptr inbounds [256 x i8], ptr %426, i64 %.1.i.i292
   %447 = add i64 %.1.i.i292, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %446) #16
           to label %441 unwind label %448, !noalias !540
@@ -3144,7 +3144,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 54:                                               ; preds = %.noexc.i, %44
   %55 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %47, %44 ]
   %56 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !563, !noalias !566, !nonnull !5, !noundef !5
-  %57 = getelementptr inbounds { ptr, i64 }, ptr %56, i64 %55
+  %57 = getelementptr inbounds [16 x i8], ptr %56, i64 %55
   store ptr %45, ptr %57, align 8, !noalias !566
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 %46, ptr %58, align 8
@@ -3207,7 +3207,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 82:                                               ; preds = %.noexc.i76, %71
   %83 = phi i64 [ %.pre.i.i77, %.noexc.i76 ], [ %74, %71 ]
   %84 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !582, !noalias !585, !nonnull !5, !noundef !5
-  %85 = getelementptr inbounds { ptr, i64 }, ptr %84, i64 %83
+  %85 = getelementptr inbounds [16 x i8], ptr %84, i64 %83
   store ptr %72, ptr %85, align 8, !noalias !585
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %73, ptr %86, align 8
@@ -3277,7 +3277,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 110:                                              ; preds = %.noexc.i85, %99
   %111 = phi i64 [ %.pre.i.i86, %.noexc.i85 ], [ %102, %99 ]
   %112 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !601, !noalias !604, !nonnull !5, !noundef !5
-  %113 = getelementptr inbounds { ptr, i64 }, ptr %112, i64 %111
+  %113 = getelementptr inbounds [16 x i8], ptr %112, i64 %111
   store ptr %100, ptr %113, align 8, !noalias !604
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i64 %101, ptr %114, align 8
@@ -3356,7 +3356,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i:                                       ; preds = %126, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i"
   %.09.i.i = phi i64 [ %141, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i" ], [ 0, %126 ]
-  %140 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %136, i64 %.09.i.i
+  %140 = getelementptr inbounds [256 x i8], ptr %136, i64 %.09.i.i
   %141 = add nuw i64 %.09.i.i, 1
   %142 = load i64, ptr %140, align 8, !range !452, !alias.scope !623, !noalias !620, !noundef !5
   %143 = add nsw i64 %142, -39
@@ -3395,7 +3395,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %151
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %136, i64 %.1.i.i
+  %156 = getelementptr inbounds [256 x i8], ptr %136, i64 %.1.i.i
   %157 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %156) #16
           to label %151 unwind label %158, !noalias !620
@@ -3449,7 +3449,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i154:                                    ; preds = %168, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i157"
   %.09.i.i155 = phi i64 [ %176, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i157" ], [ 0, %168 ]
-  %175 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %171, i64 %.09.i.i155
+  %175 = getelementptr inbounds [256 x i8], ptr %171, i64 %.09.i.i155
   %176 = add nuw i64 %.09.i.i155, 1
   %177 = load i64, ptr %175, align 8, !range !452, !alias.scope !640, !noalias !637, !noundef !5
   %178 = add nsw i64 %177, -39
@@ -3488,7 +3488,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %186
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %171, i64 %.1.i.i156
+  %191 = getelementptr inbounds [256 x i8], ptr %171, i64 %.1.i.i156
   %192 = add i64 %.1.i.i156, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %191) #16
           to label %186 unwind label %193, !noalias !637
@@ -3589,7 +3589,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i161:                                    ; preds = %213, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i164"
   %.09.i.i162 = phi i64 [ %223, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i164" ], [ 0, %213 ]
-  %222 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %218, i64 %.09.i.i162
+  %222 = getelementptr inbounds [256 x i8], ptr %218, i64 %.09.i.i162
   %223 = add nuw i64 %.09.i.i162, 1
   %224 = load i64, ptr %222, align 8, !range !452, !alias.scope !657, !noalias !654, !noundef !5
   %225 = add nsw i64 %224, -39
@@ -3628,7 +3628,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %233
 
 237:                                              ; preds = %233
-  %238 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %218, i64 %.1.i.i163
+  %238 = getelementptr inbounds [256 x i8], ptr %218, i64 %.1.i.i163
   %239 = add i64 %.1.i.i163, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %238) #16
           to label %233 unwind label %240, !noalias !654
@@ -3682,7 +3682,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i168:                                    ; preds = %250, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i171"
   %.09.i.i169 = phi i64 [ %258, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i171" ], [ 0, %250 ]
-  %257 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %253, i64 %.09.i.i169
+  %257 = getelementptr inbounds [256 x i8], ptr %253, i64 %.09.i.i169
   %258 = add nuw i64 %.09.i.i169, 1
   %259 = load i64, ptr %257, align 8, !range !452, !alias.scope !674, !noalias !671, !noundef !5
   %260 = add nsw i64 %259, -39
@@ -3721,7 +3721,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %268
 
 272:                                              ; preds = %268
-  %273 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %253, i64 %.1.i.i170
+  %273 = getelementptr inbounds [256 x i8], ptr %253, i64 %.1.i.i170
   %274 = add i64 %.1.i.i170, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %273) #16
           to label %268 unwind label %275, !noalias !671
@@ -3846,7 +3846,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i175:                                    ; preds = %299, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i178"
   %.09.i.i176 = phi i64 [ %313, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i178" ], [ 0, %299 ]
-  %312 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %308, i64 %.09.i.i176
+  %312 = getelementptr inbounds [256 x i8], ptr %308, i64 %.09.i.i176
   %313 = add nuw i64 %.09.i.i176, 1
   %314 = load i64, ptr %312, align 8, !range !452, !alias.scope !691, !noalias !688, !noundef !5
   %315 = add nsw i64 %314, -39
@@ -3885,7 +3885,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %323
 
 327:                                              ; preds = %323
-  %328 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %308, i64 %.1.i.i177
+  %328 = getelementptr inbounds [256 x i8], ptr %308, i64 %.1.i.i177
   %329 = add i64 %.1.i.i177, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %328) #16
           to label %323 unwind label %330, !noalias !688
@@ -3939,7 +3939,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i182:                                    ; preds = %340, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i185"
   %.09.i.i183 = phi i64 [ %348, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i185" ], [ 0, %340 ]
-  %347 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %343, i64 %.09.i.i183
+  %347 = getelementptr inbounds [256 x i8], ptr %343, i64 %.09.i.i183
   %348 = add nuw i64 %.09.i.i183, 1
   %349 = load i64, ptr %347, align 8, !range !452, !alias.scope !708, !noalias !705, !noundef !5
   %350 = add nsw i64 %349, -39
@@ -3978,7 +3978,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %358
 
 362:                                              ; preds = %358
-  %363 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %343, i64 %.1.i.i184
+  %363 = getelementptr inbounds [256 x i8], ptr %343, i64 %.1.i.i184
   %364 = add i64 %.1.i.i184, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %363) #16
           to label %358 unwind label %365, !noalias !705
@@ -4061,7 +4061,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i189:                                    ; preds = %382, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i192"
   %.09.i.i190 = phi i64 [ %390, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i192" ], [ 0, %382 ]
-  %389 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %385, i64 %.09.i.i190
+  %389 = getelementptr inbounds [256 x i8], ptr %385, i64 %.09.i.i190
   %390 = add nuw i64 %.09.i.i190, 1
   %391 = load i64, ptr %389, align 8, !range !452, !alias.scope !725, !noalias !722, !noundef !5
   %392 = add nsw i64 %391, -39
@@ -4100,7 +4100,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %400
 
 404:                                              ; preds = %400
-  %405 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %385, i64 %.1.i.i191
+  %405 = getelementptr inbounds [256 x i8], ptr %385, i64 %.1.i.i191
   %406 = add i64 %.1.i.i191, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %405) #16
           to label %400 unwind label %407, !noalias !722
@@ -4550,7 +4550,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i101: ; preds = %84, 
 
 .lr.ph.i.i:                                       ; preds = %"_ZN4core3ptr44drop_in_place$LT$syn..lifetime..Lifetime$GT$17h9a88ba1eb4caa03fE.exit", %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i"
   %.09.i.i = phi i64 [ %114, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i" ], [ 0, %"_ZN4core3ptr44drop_in_place$LT$syn..lifetime..Lifetime$GT$17h9a88ba1eb4caa03fE.exit" ]
-  %113 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %109, i64 %.09.i.i
+  %113 = getelementptr inbounds [256 x i8], ptr %109, i64 %.09.i.i
   %114 = add nuw i64 %.09.i.i, 1
   %115 = load i64, ptr %113, align 8, !range !452, !alias.scope !771, !noalias !768, !noundef !5
   %116 = add nsw i64 %115, -39
@@ -4589,7 +4589,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i101: ; preds = %84, 
   br label %124
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %109, i64 %.1.i.i
+  %129 = getelementptr inbounds [256 x i8], ptr %109, i64 %.1.i.i
   %130 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %129) #16
           to label %124 unwind label %131, !noalias !768
@@ -4994,7 +4994,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i144: ; preds = %88, 
 
 .lr.ph.i.i:                                       ; preds = %100, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i"
   %.09.i.i = phi i64 [ %108, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i" ], [ 0, %100 ]
-  %107 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %103, i64 %.09.i.i
+  %107 = getelementptr inbounds [256 x i8], ptr %103, i64 %.09.i.i
   %108 = add nuw i64 %.09.i.i, 1
   %109 = load i64, ptr %107, align 8, !range !452, !alias.scope !829, !noalias !826, !noundef !5
   %110 = add nsw i64 %109, -39
@@ -5033,7 +5033,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i144: ; preds = %88, 
   br label %118
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %103, i64 %.1.i.i
+  %123 = getelementptr inbounds [256 x i8], ptr %103, i64 %.1.i.i
   %124 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %123) #16
           to label %118 unwind label %125, !noalias !826
@@ -5634,7 +5634,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i.i155: ; preds = %10
 
 .lr.ph.i.i:                                       ; preds = %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit", %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i"
   %.09.i.i = phi i64 [ %152, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i" ], [ 0, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ]
-  %151 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %147, i64 %.09.i.i
+  %151 = getelementptr inbounds [256 x i8], ptr %147, i64 %.09.i.i
   %152 = add nuw i64 %.09.i.i, 1
   %153 = load i64, ptr %151, align 8, !range !452, !alias.scope !891, !noalias !888, !noundef !5
   %154 = add nsw i64 %153, -39
@@ -5673,7 +5673,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i.i155: ; preds = %10
   br label %162
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %147, i64 %.1.i.i
+  %167 = getelementptr inbounds [256 x i8], ptr %147, i64 %.1.i.i
   %168 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %167) #16
           to label %162 unwind label %169, !noalias !888
@@ -6965,7 +6965,7 @@ define void @"_ZN3syn8generics7parsing73_$LT$impl$u20$syn..parse..Parse$u20$for$
 
 .lr.ph.i.i:                                       ; preds = %40, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i"
   %.09.i.i = phi i64 [ %48, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i" ], [ 0, %40 ]
-  %47 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %43, i64 %.09.i.i
+  %47 = getelementptr inbounds [256 x i8], ptr %43, i64 %.09.i.i
   %48 = add nuw i64 %.09.i.i, 1
   %49 = load i64, ptr %47, align 8, !range !452, !alias.scope !1080, !noalias !1077, !noundef !5
   %50 = add nsw i64 %49, -39
@@ -7004,7 +7004,7 @@ define void @"_ZN3syn8generics7parsing73_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %58
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %43, i64 %.1.i.i
+  %63 = getelementptr inbounds [256 x i8], ptr %43, i64 %.1.i.i
   %64 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %63) #16
           to label %58 unwind label %65, !noalias !1077
@@ -7116,7 +7116,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
 
 .lr.ph.i.i150:                                    ; preds = %95, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i153"
   %.09.i.i151 = phi i64 [ %103, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i153" ], [ 0, %95 ]
-  %102 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %98, i64 %.09.i.i151
+  %102 = getelementptr inbounds [256 x i8], ptr %98, i64 %.09.i.i151
   %103 = add nuw i64 %.09.i.i151, 1
   %104 = load i64, ptr %102, align 8, !range !452, !alias.scope !1108, !noalias !1105, !noundef !5
   %105 = add nsw i64 %104, -39
@@ -7155,7 +7155,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
   br label %113
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %98, i64 %.1.i.i152
+  %118 = getelementptr inbounds [256 x i8], ptr %98, i64 %.1.i.i152
   %119 = add i64 %.1.i.i152, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %118) #16
           to label %113 unwind label %120, !noalias !1105
@@ -7363,7 +7363,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
   br label %177
 
 170:                                              ; preds = %165
-  %171 = getelementptr inbounds nuw i64, ptr @anon.87e1a2d6df9a83b4d58f020fa9ead87e.4, i64 %166
+  %171 = getelementptr inbounds nuw [8 x i8], ptr @anon.87e1a2d6df9a83b4d58f020fa9ead87e.4, i64 %166
   %172 = load i64, ptr %171, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %14, i64 %172, i1 false)
   %.0..0..0..0..0..0..pr = load i64, ptr %13, align 8
@@ -7372,7 +7372,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
   br i1 %173, label %177, label %174
 
 174:                                              ; preds = %170
-  %175 = getelementptr inbounds i64, ptr @anon.87e1a2d6df9a83b4d58f020fa9ead87e.4, i64 %.0..0..0..0..0..0..pr
+  %175 = getelementptr inbounds [8 x i8], ptr @anon.87e1a2d6df9a83b4d58f020fa9ead87e.4, i64 %.0..0..0..0..0..0..pr
   %176 = load i64, ptr %175, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 8 %13, i64 %176, i1 false)
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..expr..Expr$GT$$GT$17h14ca120f4c290c30E"(ptr noalias noundef align 8 dereferenceable(176) %23)
@@ -7469,7 +7469,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
 
 .lr.ph.i.i157:                                    ; preds = %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit135", %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i160"
   %.09.i.i158 = phi i64 [ %206, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i160" ], [ 0, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit135" ]
-  %205 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %201, i64 %.09.i.i158
+  %205 = getelementptr inbounds [256 x i8], ptr %201, i64 %.09.i.i158
   %206 = add nuw i64 %.09.i.i158, 1
   %207 = load i64, ptr %205, align 8, !range !452, !alias.scope !1135, !noalias !1132, !noundef !5
   %208 = add nsw i64 %207, -39
@@ -7508,7 +7508,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
   br label %216
 
 220:                                              ; preds = %216
-  %221 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %201, i64 %.1.i.i159
+  %221 = getelementptr inbounds [256 x i8], ptr %201, i64 %.1.i.i159
   %222 = add i64 %.1.i.i159, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %221) #16
           to label %216 unwind label %223, !noalias !1132
@@ -7587,7 +7587,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
 
 .lr.ph.i.i164:                                    ; preds = %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit", %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i167"
   %.09.i.i165 = phi i64 [ %245, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i167" ], [ 0, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ]
-  %244 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %240, i64 %.09.i.i165
+  %244 = getelementptr inbounds [256 x i8], ptr %240, i64 %.09.i.i165
   %245 = add nuw i64 %.09.i.i165, 1
   %246 = load i64, ptr %244, align 8, !range !452, !alias.scope !1152, !noalias !1149, !noundef !5
   %247 = add nsw i64 %246, -39
@@ -7626,7 +7626,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
   br label %255
 
 259:                                              ; preds = %255
-  %260 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %240, i64 %.1.i.i166
+  %260 = getelementptr inbounds [256 x i8], ptr %240, i64 %.1.i.i166
   %261 = add i64 %.1.i.i166, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %260) #16
           to label %255 unwind label %262, !noalias !1149
@@ -8093,7 +8093,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread281: ; pre
 
 60:                                               ; preds = %71, %67, %56, %53, %47
   %.0.i.i = phi i64 [ %..i.i, %71 ], [ %55, %53 ], [ 1, %47 ], [ 1, %67 ], [ 1, %56 ]
-  %61 = getelementptr inbounds { i32, [9 x i32] }, ptr %49, i64 %.0.i.i
+  %61 = getelementptr inbounds [40 x i8], ptr %49, i64 %.0.i.i
   br label %62
 
 62:                                               ; preds = %62, %60
@@ -8146,7 +8146,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread281: ; pre
 
 86:                                               ; preds = %97, %93, %82, %79, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
   %.0.i2.i = phi i64 [ %..i6.i, %97 ], [ %81, %79 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %93 ], [ 1, %82 ]
-  %87 = getelementptr inbounds { i32, [9 x i32] }, ptr %76, i64 %.0.i2.i
+  %87 = getelementptr inbounds [40 x i8], ptr %76, i64 %.0.i2.i
   br label %88
 
 88:                                               ; preds = %88, %86
@@ -9288,7 +9288,7 @@ define void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToToken
   %71 = load ptr, ptr %70, align 8, !nonnull !5, !noundef !5
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.7.2.ph, i64 256
   %73 = load i64, ptr %72, align 8, !noundef !5
-  %74 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %71, i64 %73
+  %74 = getelementptr inbounds [256 x i8], ptr %71, i64 %73
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1300
   store ptr %71, ptr %14, align 8, !noalias !1304
   store ptr %74, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1304
@@ -9392,7 +9392,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit: ; preds = %"_ZN3syn4att
   %106 = load ptr, ptr %105, align 8, !nonnull !5, !noundef !5
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.7.2.ph, i64 424
   %108 = load i64, ptr %107, align 8, !noundef !5
-  %109 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %106, i64 %108
+  %109 = getelementptr inbounds [256 x i8], ptr %106, i64 %108
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1335
   store ptr %106, ptr %13, align 8, !noalias !1339
   store ptr %109, ptr %.sroa.448.0..sroa_idx, align 8, !noalias !1339
@@ -9814,7 +9814,7 @@ define void @"_ZN3syn8generics8printing85_$LT$impl$u20$quote..to_tokens..ToToken
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
-  %14 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [256 x i8], ptr %11, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1448
   store ptr %11, ptr %9, align 8, !noalias !1448
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -9954,7 +9954,7 @@ define void @"_ZN3syn8generics8printing81_$LT$impl$u20$quote..to_tokens..ToToken
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %15 = load i64, ptr %14, align 8, !noundef !5
-  %16 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [256 x i8], ptr %13, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1498
   store ptr %13, ptr %11, align 8, !noalias !1498
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -10436,7 +10436,7 @@ define void @"_ZN3syn8generics8printing82_$LT$impl$u20$quote..to_tokens..ToToken
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %9 = load i64, ptr %8, align 8, !noundef !5
-  %10 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %7, i64 %9
+  %10 = getelementptr inbounds [256 x i8], ptr %7, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1671
   store ptr %7, ptr %5, align 8, !noalias !1671
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -888,22 +888,22 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %53 = sub nsw i32 %8, %11
   %54 = add i32 %53, %51
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = sub nsw i32 %18, %21
   %59 = add i32 %58, %57
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = sub nsw i32 %28, %31
   %64 = add i32 %63, %62
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %49, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = sub nsw i32 %38, %41
   %69 = add i32 %68, %67
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %49, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %70
   %72 = load i32, ptr %71, align 4
   br label %254
 
@@ -913,25 +913,25 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %76 = sub nsw i32 %8, %11
   %77 = add nsw i32 %76, %75
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i16, ptr %74, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %74, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = sub nsw i32 %18, %21
   %83 = add nsw i32 %82, %81
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i16, ptr %74, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %74, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %28, %31
   %89 = add nsw i32 %88, %87
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i16, ptr %74, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %74, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
   %94 = sub nsw i32 %38, %41
   %95 = add nsw i32 %94, %93
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i16, ptr %74, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %74, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i32
   br label %254
@@ -990,17 +990,17 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %136 = sub nsw i32 %101, %104
   %137 = add i32 %136, %134
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %138
   %140 = load i32, ptr %139, align 4
   %141 = sub nsw i32 %111, %114
   %142 = add i32 %141, %140
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %132, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %143
   %145 = load i32, ptr %144, align 4
   %146 = sub nsw i32 %121, %124
   %147 = add i32 %146, %145
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %132, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %148
   %150 = load i32, ptr %149, align 4
   br label %254
 
@@ -1010,19 +1010,19 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %154 = sub nsw i32 %101, %104
   %155 = add nsw i32 %154, %153
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds i16, ptr %152, i64 %156
+  %157 = getelementptr inbounds [2 x i8], ptr %152, i64 %156
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
   %160 = sub nsw i32 %111, %114
   %161 = add nsw i32 %160, %159
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i16, ptr %152, i64 %162
+  %163 = getelementptr inbounds [2 x i8], ptr %152, i64 %162
   %164 = load i16, ptr %163, align 2
   %165 = zext i16 %164 to i32
   %166 = sub nsw i32 %121, %124
   %167 = add nsw i32 %166, %165
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i16, ptr %152, i64 %168
+  %169 = getelementptr inbounds [2 x i8], ptr %152, i64 %168
   %170 = load i16, ptr %169, align 2
   %171 = zext i16 %170 to i32
   br label %254
@@ -1067,12 +1067,12 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %198 = sub nsw i32 %173, %176
   %199 = add i32 %198, %196
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds nuw i32, ptr %194, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %200
   %202 = load i32, ptr %201, align 4
   %203 = sub nsw i32 %183, %186
   %204 = add i32 %203, %202
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw i32, ptr %194, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %205
   %207 = load i32, ptr %206, align 4
   br label %254
 
@@ -1082,13 +1082,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %211 = sub nsw i32 %173, %176
   %212 = add nsw i32 %211, %210
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i16, ptr %209, i64 %213
+  %214 = getelementptr inbounds [2 x i8], ptr %209, i64 %213
   %215 = load i16, ptr %214, align 2
   %216 = zext i16 %215 to i32
   %217 = sub nsw i32 %183, %186
   %218 = add nsw i32 %217, %216
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds i16, ptr %209, i64 %219
+  %220 = getelementptr inbounds [2 x i8], ptr %209, i64 %219
   %221 = load i16, ptr %220, align 2
   %222 = zext i16 %221 to i32
   br label %254
@@ -1119,7 +1119,7 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %239 = sub nsw i32 %224, %227
   %240 = add i32 %239, %238
   %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds nuw i32, ptr %235, i64 %241
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %241
   %243 = load i32, ptr %242, align 4
   br label %254
 
@@ -1130,7 +1130,7 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
   %248 = sub nsw i32 %224, %227
   %249 = add i32 %248, %247
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw i16, ptr %245, i64 %250
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %245, i64 %250
   %252 = load i16, ptr %251, align 2
   %253 = zext i16 %252 to i32
   br label %254

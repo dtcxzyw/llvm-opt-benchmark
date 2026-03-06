@@ -5,11 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ImageFormat = type { [4 x i32], [4 x i32], i32, i32, i32, ptr, i32, i32, ptr, i32, ptr }
 %struct.ImageRect = type { i32, i32, i32, i32, ptr, ptr, i32, i32, i32 }
-%struct.SavedImage = type { %struct.GifImageDesc, ptr, i32, ptr }
-%struct.GifImageDesc = type { i32, i32, i32, i32, i8, ptr }
-%struct.ExtensionBlock = type { i32, ptr, i32 }
-%struct.GifColorType = type { i8, i8, i8 }
-%struct.SplashImage = type { ptr, i32, ptr, i32 }
 
 @szNetscape20ext = internal constant [11 x i8] c"NETSCAPE2.0", align 1
 
@@ -155,7 +150,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 79:                                               ; preds = %.lr.ph282, %.loopexit
   %indvars.iv289 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next290, %.loopexit ]
   %80 = load ptr, ptr %69, align 8
-  %81 = getelementptr inbounds nuw %struct.SavedImage, ptr %80, i64 %indvars.iv289
+  %81 = getelementptr inbounds nuw [56 x i8], ptr %80, i64 %indvars.iv289
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load ptr, ptr %82, align 8
   %.not255 = icmp eq ptr %83, null
@@ -224,7 +219,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %.0224267 = phi i32 [ 3, %.lr.ph ], [ %.1225, %163 ]
   %120 = load ptr, ptr %117, align 8
   %121 = sext i32 %.0213270 to i64
-  %122 = getelementptr inbounds %struct.ExtensionBlock, ptr %120, i64 %121
+  %122 = getelementptr inbounds [24 x i8], ptr %120, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
@@ -274,7 +269,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 
 148:                                              ; preds = %146
   %149 = sext i32 %147 to i64
-  %150 = getelementptr inbounds %struct.ExtensionBlock, ptr %120, i64 %149
+  %150 = getelementptr inbounds [24 x i8], ptr %120, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %150, align 8
@@ -326,7 +321,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 170:                                              ; preds = %.lr.ph274, %170
   %indvars.iv = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next, %170 ]
   %171 = load ptr, ptr %169, align 8
-  %172 = getelementptr inbounds nuw %struct.GifColorType, ptr %171, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw [3 x i8], ptr %171, i64 %indvars.iv
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = shl nuw nsw i32 %174, 16
@@ -340,7 +335,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %183 = or disjoint i32 %175, %179
   %184 = or disjoint i32 %183, %182
   %185 = or disjoint i32 %184, -16777216
-  %186 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %185, ptr %186, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -368,10 +363,10 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 193:                                              ; preds = %191, %.loopexit266
   %194 = call noalias ptr @malloc(i64 noundef %43) #9
   %195 = load ptr, ptr %60, align 8
-  %196 = getelementptr inbounds nuw %struct.SplashImage, ptr %195, i64 %indvars.iv289
+  %196 = getelementptr inbounds nuw [32 x i8], ptr %195, i64 %indvars.iv289
   store ptr %194, ptr %196, align 8
   %197 = load ptr, ptr %60, align 8
-  %198 = getelementptr inbounds nuw %struct.SplashImage, ptr %197, i64 %indvars.iv289
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %197, i64 %indvars.iv289
   %199 = load ptr, ptr %198, align 8
   %.not257 = icmp eq ptr %199, null
   br i1 %.not257, label %200, label %201
@@ -386,7 +381,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %202 = trunc nuw nsw i64 %indvars.iv289 to i32
   call void @SplashInitFrameShape(ptr noundef nonnull %0, i32 noundef %202) #8
   %203 = load ptr, ptr %60, align 8
-  %204 = getelementptr inbounds nuw %struct.SplashImage, ptr %203, i64 %indvars.iv289
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %203, i64 %indvars.iv289
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i32 %.0219.lcssa, ptr %205, align 8
   switch i32 %.0224.lcssa, label %.loopexit [
@@ -408,7 +403,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %211 = load ptr, ptr %210, align 8
   %212 = load i32, ptr %77, align 4
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds %struct.GifColorType, ptr %211, i64 %213
+  %214 = getelementptr inbounds [3 x i8], ptr %211, i64 %213
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
   %217 = shl nuw nsw i32 %216, 16

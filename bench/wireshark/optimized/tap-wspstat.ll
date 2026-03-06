@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._wsp_pdu_t = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"wsp,stat\00", align 1
 @wspstat_ui = internal global { i32, [4 x i8], ptr, ptr, ptr, i64, ptr } { i32 3, [4 x i8] zeroinitializer, ptr null, ptr @.str, ptr @wspstat_init, i64 0, ptr null }, align 8
@@ -67,7 +65,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %
   %18 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef %14, ptr noundef %13)
   %19 = add i32 %.08795, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr %struct._value_string, ptr %8, i64 %20
+  %21 = getelementptr [16 x i8], ptr %8, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not92 = icmp eq ptr %23, null
@@ -93,7 +91,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %index2pdut.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next, %index2pdut.exit ]
   %indvars101 = trunc nuw i64 %indvars.iv to i32
-  %30 = getelementptr %struct._wsp_pdu_t, ptr %.pre, i64 %indvars.iv
+  %30 = getelementptr [16 x i8], ptr %.pre, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %31, align 8
   %32 = icmp slt i32 %indvars101, 10
@@ -189,7 +187,7 @@ define internal void @wspstat_reset(ptr noundef readonly captures(none) %0) #0 {
   %.07 = phi i32 [ 1, %.lr.ph ], [ %10, %5 ]
   %6 = load ptr, ptr %4, align 8
   %7 = zext i32 %.07 to i64
-  %8 = getelementptr %struct._wsp_pdu_t, ptr %6, i64 %7
+  %8 = getelementptr [16 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
   %10 = add i32 %.07, 1
@@ -274,7 +272,7 @@ pdut2index.exit:                                  ; preds = %5, %10, %14, %16
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %.0.i to i64
-  %43 = getelementptr %struct._wsp_pdu_t, ptr %41, i64 %42
+  %43 = getelementptr [16 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, 1
@@ -309,7 +307,7 @@ define internal void @wspstat_draw(ptr noundef readonly captures(none) %0) #0 {
   %13 = zext nneg i32 %12 to i64
   %14 = add nuw nsw i64 %indvars.iv, %13
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr %struct._wsp_pdu_t, ptr %15, i64 %indvars.iv
+  %16 = getelementptr [16 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8
@@ -322,7 +320,7 @@ define internal void @wspstat_draw(ptr noundef readonly captures(none) %0) #0 {
 
 24:                                               ; preds = %10
   %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr %struct._wsp_pdu_t, ptr %25, i64 %14
+  %26 = getelementptr [16 x i8], ptr %25, i64 %14
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8

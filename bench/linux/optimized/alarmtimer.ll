@@ -587,7 +587,7 @@ define dso_local i64 @alarm_expires_remaining(ptr noundef readonly captures(none
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %4
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %4
   %7 = getelementptr i8, ptr %.split, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8() #12
@@ -599,7 +599,7 @@ define dso_local i64 @alarm_expires_remaining(ptr noundef readonly captures(none
 define dso_local void @alarm_init(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = zext i32 %1 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %5
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %5
   %6 = getelementptr i8, ptr %.split, i64 40
   %7 = load i32, ptr %6, align 8
   tail call void @hrtimer_init(ptr noundef nonnull %4, i32 noundef %7, i32 noundef 0) #12
@@ -624,7 +624,7 @@ define dso_local void @alarm_start(ptr noundef initializes((24, 32)) %0, i64 nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %5
+  %6 = getelementptr [48 x i8], ptr @alarm_bases, i64 %5
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %8, align 8
@@ -700,7 +700,7 @@ define dso_local void @alarm_start_relative(ptr noundef initializes((24, 32)) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %5
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %5
   %6 = getelementptr i8, ptr %.split, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 %7() #12
@@ -717,7 +717,7 @@ define dso_local void @alarm_restart(ptr noundef initializes((56, 72)) %0) #1 al
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %4
+  %5 = getelementptr [48 x i8], ptr @alarm_bases, i64 %4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -753,7 +753,7 @@ define dso_local i32 @alarm_try_to_cancel(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %4
+  %5 = getelementptr [48 x i8], ptr @alarm_bases, i64 %4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = tail call i32 @hrtimer_try_to_cancel(ptr noundef nonnull %7) #12
@@ -894,7 +894,7 @@ define dso_local i64 @alarm_forward_now(ptr noundef captures(none) %0, i64 nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %5
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %5
   %6 = getelementptr i8, ptr %.split, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 %7() #12
@@ -976,7 +976,7 @@ define internal noundef range(i32 -22, 1) i32 @alarm_clock_get_timespec(i32 noun
   %8 = icmp eq i32 %0, 9
   %9 = select i1 %8, i64 1, i64 4294967295
   %10 = select i1 %7, i64 0, i64 %9
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %10
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 32
   %12 = load ptr, ptr %11, align 16
   tail call void %12(ptr noundef %1) #12
@@ -1000,7 +1000,7 @@ define internal i64 @alarm_clock_get_ktime(i32 noundef %0) #1 align 16 {
   %7 = icmp eq i32 %0, 9
   %8 = select i1 %7, i64 1, i64 4294967295
   %9 = select i1 %6, i64 0, i64 %8
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %9
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11() #12
@@ -1033,7 +1033,7 @@ define internal noundef range(i32 -95, 1) i32 @alarm_timer_create(ptr noundef %0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = zext i32 %13 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %16
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 40
   %18 = load i32, ptr %17, align 8
   tail call void @hrtimer_init(ptr noundef nonnull %15, i32 noundef %18, i32 noundef 0) #12
@@ -1083,7 +1083,7 @@ define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false), !annotation !14
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = zext i32 %8 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %21
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %21
   %22 = getelementptr i8, ptr %.split, i64 40
   %23 = load i32, ptr %22, align 8
   call void @hrtimer_init(ptr noundef nonnull %20, i32 noundef %23, i32 noundef 0) #12
@@ -1170,7 +1170,7 @@ define internal void @alarm_timer_rearm(ptr noundef %0) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %6
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %6
   %7 = getelementptr i8, ptr %.split, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8() #12
@@ -1297,7 +1297,7 @@ define internal void @alarm_timer_arm(ptr noundef initializes((144, 152)) %0, i6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %9
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11() #12
@@ -1466,7 +1466,7 @@ define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1
   %3 = getelementptr i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %5
+  %6 = getelementptr [48 x i8], ptr @alarm_bases, i64 %5
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
   %8 = getelementptr i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4
@@ -1632,7 +1632,7 @@ define internal noundef range(i32 0, 2) i32 @alarm_handle_timer(ptr noundef %0, 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %24
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %24
   %25 = getelementptr i8, ptr %.split, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 %26() #12
@@ -1749,7 +1749,7 @@ define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef initializes((24, 32
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !29
   %20 = load i32, ptr %9, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %21
+  %22 = getelementptr [48 x i8], ptr @alarm_bases, i64 %21
   %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %22) #12
   %24 = tail call i32 @hrtimer_try_to_cancel(ptr noundef nonnull %10) #12
   %25 = icmp sgt i32 %24, -1
@@ -1905,7 +1905,7 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
 99:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %100 = zext i32 %2 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %100
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %100
   %101 = getelementptr i8, ptr %.split, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = tail call i64 %102() #12
@@ -1944,7 +1944,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @alarm_timer_nsleep_resta
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false), !annotation !14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = zext i32 %4 to i64
-  %.split = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %8
+  %.split = getelementptr [48 x i8], ptr @alarm_bases, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 40
   %10 = load i32, ptr %9, align 8
   call void @hrtimer_init(ptr noundef nonnull %7, i32 noundef %10, i32 noundef 0) #12
@@ -2178,7 +2178,7 @@ define internal i32 @alarmtimer_suspend(ptr noundef %0) #1 align 16 {
   %12 = phi i64 [ %36, %33 ], [ %4, %.preheader.preheader ]
   %13 = phi i32 [ %35, %33 ], [ %6, %.preheader.preheader ]
   %14 = phi i64 [ %34, %33 ], [ %5, %.preheader.preheader ]
-  %15 = getelementptr %struct.alarm_base, ptr @alarm_bases, i64 %11
+  %15 = getelementptr [48 x i8], ptr @alarm_bases, i64 %11
   %16 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %15) #12
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 16

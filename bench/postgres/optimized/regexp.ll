@@ -112,7 +112,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
 
 32:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %33 = getelementptr inbounds nuw %struct.cached_re_str, ptr @re_array, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [96 x i8], ptr @re_array, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 16
   %36 = icmp eq i32 %35, %26
@@ -216,7 +216,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   %89 = add nsw i32 %86, -1
   store i32 %89, ptr @num_res, align 4
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw %struct.cached_re_str, ptr @re_array, i64 %90
+  %91 = getelementptr inbounds nuw [96 x i8], ptr @re_array, i64 %90
   %92 = load ptr, ptr %91, align 16
   call void @MemoryContextDelete(ptr noundef %92) #8
   br label %93
@@ -1785,7 +1785,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %.37 = phi i32 [ %.4, %.lr.ph9 ], [ %.0141, %.preheader ]
   %.31516 = phi i32 [ %109, %.lr.ph9 ], [ %.0148, %.preheader ]
   %97 = sext i32 %.01408 to i64
-  %98 = getelementptr inbounds %struct.pg_regmatch_t, ptr %54, i64 %97
+  %98 = getelementptr inbounds [16 x i8], ptr %54, i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -1794,12 +1794,12 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %104 = load ptr, ptr %60, align 8
   %105 = add i32 %.31516, 1
   %106 = sext i32 %.31516 to i64
-  %107 = getelementptr inbounds i32, ptr %104, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %104, i64 %106
   store i32 %100, ptr %107, align 4
   %108 = load ptr, ptr %60, align 8
   %109 = add i32 %.31516, 2
   %110 = sext i32 %105 to i64
-  %111 = getelementptr inbounds i32, ptr %108, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %108, i64 %110
   store i32 %103, ptr %111, align 4
   %112 = icmp sgt i32 %100, -1
   %113 = icmp sgt i32 %103, -1
@@ -1819,12 +1819,12 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %121 = trunc i64 %120 to i32
   %122 = load ptr, ptr %60, align 8
   %123 = sext i32 %.0148 to i64
-  %124 = getelementptr inbounds i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds [4 x i8], ptr %122, i64 %123
   store i32 %119, ptr %124, align 4
   %125 = load ptr, ptr %60, align 8
   %126 = add i32 %.0148, 2
   %127 = sext i32 %76 to i64
-  %128 = getelementptr inbounds i32, ptr %125, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %125, i64 %127
   store i32 %121, ptr %128, align 4
   %129 = icmp sgt i32 %119, -1
   %130 = icmp sgt i32 %121, -1
@@ -1886,7 +1886,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %.1142 = phi i32 [ %.2143, %146 ], [ %.2143, %145 ], [ %.0141, %65 ]
   %154 = load ptr, ptr %60, align 8
   %155 = sext i32 %.1149 to i64
-  %156 = getelementptr inbounds i32, ptr %154, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr %154, i64 %155
   store i32 %38, ptr %156, align 4
   %157 = icmp sgt i32 %9, 1
   br i1 %157, label %158, label %169
@@ -2082,7 +2082,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr(ptr nounde
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = sext i32 %.1 to i64
-  %91 = getelementptr inbounds i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = icmp sgt i32 %92, -1
   br i1 %93, label %94, label %97
@@ -2337,7 +2337,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
   %.047.us = phi i32 [ %23, %36 ], [ %16, %.lr.ph ]
   %19 = load ptr, ptr %17, align 8
   %20 = sext i32 %.047.us to i64
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %.047.us, 2
   %24 = getelementptr i8, ptr %21, i64 4
@@ -2360,7 +2360,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
 36:                                               ; preds = %.lr.ph.split.us, %28
   %.sink55 = phi i64 [ %35, %28 ], [ 0, %.lr.ph.split.us ]
   %.sink = phi i8 [ 0, %28 ], [ 1, %.lr.ph.split.us ]
-  %37 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv52
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv52
   store i64 %.sink55, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv52
   store i8 %.sink, ptr %38, align 1
@@ -2375,7 +2375,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
   %.047 = phi i32 [ %46, %59 ], [ %16, %.lr.ph ]
   %42 = load ptr, ptr %17, align 8
   %43 = sext i32 %.047 to i64
-  %44 = getelementptr inbounds i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %.047, 2
   %47 = getelementptr i8, ptr %44, i64 4
@@ -2388,7 +2388,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
 51:                                               ; preds = %.lr.ph.split
   %52 = load ptr, ptr %18, align 8
   %53 = zext nneg i32 %45 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   %55 = sub nsw i32 %48, %45
   %56 = tail call i32 @pg_wchar2mb_with_len(ptr noundef %54, ptr noundef nonnull %.fr, i32 noundef %55) #8
   %57 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %.fr, i32 noundef %56) #8
@@ -2398,7 +2398,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
 59:                                               ; preds = %.lr.ph.split, %51
   %.sink57 = phi i64 [ %58, %51 ], [ 0, %.lr.ph.split ]
   %.sink56 = phi i8 [ 0, %51 ], [ 1, %.lr.ph.split ]
-  %60 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store i64 %.sink57, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   store i8 %.sink56, ptr %61, align 1
@@ -2659,7 +2659,7 @@ define internal fastcc i64 @build_regexp_split_result(ptr noundef readonly captu
 10:                                               ; preds = %1
   %11 = add i32 %9, -1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %8, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %.thread
@@ -2673,7 +2673,7 @@ define internal fastcc i64 @build_regexp_split_result(ptr noundef readonly captu
 .thread:                                          ; preds = %1, %10
   %.02126 = phi i32 [ %14, %10 ], [ 0, %1 ]
   %19 = sext i32 %9 to i64
-  %20 = getelementptr inbounds i32, ptr %8, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %8, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %21, %.02126
   br i1 %22, label %23, label %26
@@ -2693,7 +2693,7 @@ define internal fastcc i64 @build_regexp_split_result(ptr noundef readonly captu
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %.02126 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = tail call i32 @pg_wchar2mb_with_len(ptr noundef %32, ptr noundef nonnull %3, i32 noundef %27) #8
   %34 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %3, i32 noundef %33) #8
   %35 = ptrtoint ptr %34 to i64
@@ -2935,7 +2935,7 @@ define dso_local i64 @regexp_substr(ptr noundef captures(none) %0) local_unnamed
   %82 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = sext i32 %81 to i64
-  %85 = getelementptr inbounds i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %83, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr i8, ptr %85, i64 4
   %88 = load i32, ptr %87, align 4

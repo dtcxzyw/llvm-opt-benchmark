@@ -112,20 +112,20 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 40:                                               ; preds = %.lr.ph167, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next, %.loopexit ]
-  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !41
-  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !41
-  %45 = getelementptr inbounds nuw ptr, ptr %.0142, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.0142, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   br i1 %.not151, label %56, label %47
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !42
-  %50 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !41
-  %52 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !41
   %54 = load i32, ptr %31, align 4, !tbaa !43
   %55 = mul nsw i32 %54, %42
@@ -145,7 +145,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %61, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader153
-  %62 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %63 = tail call i32 @llvm.smin.i32(i32 %12, i32 %44)
   br label %68
 
@@ -155,7 +155,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %65, label %.lr.ph159, label %._crit_edge160
 
 .lr.ph159:                                        ; preds = %.preheader
-  %66 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %67 = tail call i32 @llvm.smin.i32(i32 %12, i32 %42)
   br label %83
 
@@ -237,7 +237,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ._crit_edge160:                                   ; preds = %._crit_edge, %.preheader
   %.0144.lcssa = phi i32 [ %12, %.preheader ], [ %123, %._crit_edge ]
   %.0.lcssa = phi ptr [ %46, %.preheader ], [ %87, %._crit_edge ]
-  %125 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !41
   %127 = mul nsw i32 %126, %12
   %128 = sext i32 %127 to i64
@@ -611,17 +611,17 @@ define internal void @deblockh16_weak(ptr noundef captures(none) %0, i64 noundef
 
 .lr.ph:                                           ; preds = %8
   %11 = shl nsw i64 %9, 1
-  %12 = getelementptr i16, ptr %0, i64 %9
+  %12 = getelementptr [2 x i8], ptr %0, i64 %9
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !77
   %16 = zext i16 %15 to i32
   %17 = sub nsw i64 %indvars.iv, %9
-  %18 = getelementptr inbounds i16, ptr %0, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %0, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !77
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %16, %20
@@ -631,7 +631,7 @@ define internal void @deblockh16_weak(ptr noundef captures(none) %0, i64 noundef
 
 23:                                               ; preds = %13
   %24 = sub nsw i64 %indvars.iv, %11
-  %25 = getelementptr inbounds i16, ptr %0, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %0, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !77
   %27 = zext i16 %26 to i32
   %28 = sub nsw i32 %20, %27
@@ -640,7 +640,7 @@ define internal void @deblockh16_weak(ptr noundef captures(none) %0, i64 noundef
   br i1 %.not94, label %30, label %55
 
 30:                                               ; preds = %23
-  %31 = getelementptr i16, ptr %12, i64 %indvars.iv
+  %31 = getelementptr [2 x i8], ptr %12, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !77
   %33 = zext i16 %32 to i32
   %34 = sub nsw i32 %16, %33
@@ -750,7 +750,7 @@ define internal void @deblockv16_weak(ptr noundef captures(none) %0, i64 noundef
   %47 = trunc i32 %..i61 to i16
   %48 = select i1 %46, i16 0, i16 %47
   store i16 %48, ptr %25, align 2, !tbaa !77
-  %49 = getelementptr inbounds i16, ptr %.064, i64 %9
+  %49 = getelementptr inbounds [2 x i8], ptr %.064, i64 %9
   br label %50
 
 50:                                               ; preds = %.lr.ph, %18, %24, %30
@@ -990,8 +990,8 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
 
 .lr.ph:                                           ; preds = %8
   %11 = shl nsw i64 %9, 1
-  %12 = getelementptr i16, ptr %0, i64 %9
-  %13 = getelementptr i16, ptr %0, i64 %11
+  %12 = getelementptr [2 x i8], ptr %0, i64 %9
+  %13 = getelementptr [2 x i8], ptr %0, i64 %11
   %.idx = mul i64 %9, -6
   %14 = getelementptr i8, ptr %0, i64 %.idx
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -999,11 +999,11 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
 
 15:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !77
   %18 = zext i16 %17 to i32
   %19 = sub nsw i64 %indvars.iv, %9
-  %20 = getelementptr inbounds i16, ptr %0, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %0, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !77
   %22 = zext i16 %21 to i32
   %23 = sub nsw i32 %18, %22
@@ -1013,7 +1013,7 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
 
 25:                                               ; preds = %15
   %26 = sub nsw i64 %indvars.iv, %11
-  %27 = getelementptr inbounds i16, ptr %0, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %0, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !77
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %22, %29
@@ -1022,10 +1022,10 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
   br i1 %.not135, label %32, label %75
 
 32:                                               ; preds = %25
-  %33 = getelementptr i16, ptr %12, i64 %indvars.iv
+  %33 = getelementptr [2 x i8], ptr %12, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2, !tbaa !77
   %35 = zext i16 %34 to i32
-  %36 = getelementptr i16, ptr %13, i64 %indvars.iv
+  %36 = getelementptr [2 x i8], ptr %13, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !77
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 %35, %38
@@ -1040,7 +1040,7 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
   br i1 %.not137, label %44, label %75
 
 44:                                               ; preds = %41
-  %45 = getelementptr i16, ptr %14, i64 %indvars.iv
+  %45 = getelementptr [2 x i8], ptr %14, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2, !tbaa !77
   %47 = zext i16 %46 to i32
   %48 = sdiv i32 %23, 8
@@ -1182,7 +1182,7 @@ define internal void @deblockv16_strong(ptr noundef captures(none) %0, i64 nound
   %65 = trunc i32 %..i87 to i16
   %66 = select i1 %64, i16 0, i16 %65
   store i16 %66, ptr %28, align 2, !tbaa !77
-  %67 = getelementptr inbounds i16, ptr %.090, i64 %9
+  %67 = getelementptr inbounds [2 x i8], ptr %.090, i64 %9
   br label %68
 
 68:                                               ; preds = %.lr.ph, %18, %24, %33, %36

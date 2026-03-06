@@ -696,7 +696,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit
 
 212:                                              ; preds = %208
   %213 = load ptr, ptr %200, align 8, !noalias !86, !nonnull !4, !noundef !4
-  %214 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %213, i64 %199
+  %214 = getelementptr inbounds nuw [64 x i8], ptr %213, i64 %199
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$8try_lock17h9fb58e4ee3356002E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 8 %214)
           to label %216 unwind label %.loopexit.i.i.i.i, !noalias !86
 
@@ -743,7 +743,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit
 232:                                              ; preds = %227, %219
   %233 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %234 = load ptr, ptr %233, align 8, !alias.scope !91, !noalias !94, !nonnull !4, !noundef !4
-  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %224
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %224
   store ptr %.sroa.46.0.copyload.i.i.i, ptr %235, align 8, !noalias !94
   %236 = add i64 %224, 1
   store i64 %236, ptr %223, align 8, !alias.scope !91, !noalias !97

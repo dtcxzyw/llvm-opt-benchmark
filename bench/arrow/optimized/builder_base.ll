@@ -44,8 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.40" = type { ptr, %"class.std::__shared_count" }
 %struct.anon = type { i32, %"struct.std::array" }
 %"struct.std::array" = type { [12 x i8] }
-%"class.std::shared_ptr.89" = type { %"class.std::__shared_ptr.90" }
-%"class.std::__shared_ptr.90" = type { ptr, %"class.std::__shared_count" }
 
 $_ZN5arrow18TypedChunkLocationIiEC5Eii = comdat any
 
@@ -13373,7 +13371,7 @@ _ZN5arrow6StatusD2Ev.exit80.i:                    ; preds = %_ZN5arrow6StatusD2E
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i1245 ], [ %indvars.iv.next.i, %_ZN5arrow6StatusD2Ev.exit87.i1246 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1400
   %4824 = load ptr, ptr %4813, align 8, !tbaa !251, !noalias !1400
-  %4825 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4824, i64 %indvars.iv.i
+  %4825 = getelementptr inbounds nuw [16 x i8], ptr %4824, i64 %indvars.iv.i
   %4826 = load ptr, ptr %4825, align 8, !tbaa !1088, !noalias !1400
   %4827 = getelementptr inbounds nuw i8, ptr %4826, i64 112
   %4828 = load i64, ptr %4827, align 8, !tbaa !108, !noalias !1414
@@ -13449,7 +13447,7 @@ _ZN5arrow6StatusD2Ev.exit87.i1246:                ; preds = %_ZN5arrow6StatusD2E
 
 4860:                                             ; preds = %4857
   %4861 = load ptr, ptr %4856, align 8, !tbaa !1424, !noalias !1400
-  %4862 = getelementptr inbounds nuw %"class.std::shared_ptr.39", ptr %4861, i64 %indvars.iv168.i
+  %4862 = getelementptr inbounds nuw [16 x i8], ptr %4861, i64 %indvars.iv168.i
   %4863 = load ptr, ptr %4862, align 8, !tbaa !204, !noalias !1400
   %.not150.i = icmp eq ptr %4863, null
   br i1 %.not150.i, label %_ZN5arrow6StatusD2Ev.exit89.i1243, label %_ZN5arrow6StatusD2Ev.exit93.i
@@ -13457,7 +13455,7 @@ _ZN5arrow6StatusD2Ev.exit87.i1246:                ; preds = %_ZN5arrow6StatusD2E
 _ZN5arrow6StatusD2Ev.exit89.i1243:                ; preds = %4860, %4857
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !1400
   %4864 = load ptr, ptr %4815, align 8, !tbaa !251, !noalias !1400
-  %4865 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4864, i64 %indvars.iv168.i
+  %4865 = getelementptr inbounds nuw [16 x i8], ptr %4864, i64 %indvars.iv168.i
   %4866 = load ptr, ptr %4865, align 8, !tbaa !1088, !noalias !1400
   %4867 = load ptr, ptr %4866, align 8, !tbaa !92, !noalias !1400
   %4868 = getelementptr inbounds nuw i8, ptr %4867, i64 40
@@ -13473,7 +13471,7 @@ _ZN5arrow6StatusD2Ev.exit89.i1243:                ; preds = %4860, %4857
 _ZN5arrow6StatusD2Ev.exit93.i:                    ; preds = %4860
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1400
   %4872 = load ptr, ptr %4815, align 8, !tbaa !251, !noalias !1400
-  %4873 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4872, i64 %indvars.iv168.i
+  %4873 = getelementptr inbounds nuw [16 x i8], ptr %4872, i64 %indvars.iv168.i
   %4874 = load ptr, ptr %4873, align 8, !tbaa !1088, !noalias !1400
   %4875 = load ptr, ptr %4874, align 8, !tbaa !92, !noalias !1430
   %4876 = getelementptr inbounds nuw i8, ptr %4875, i64 72
@@ -13670,7 +13668,7 @@ _ZN5arrow6StatusD2Ev.exit47.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i1254 ], [ %indvars.iv.next.i.i, %_ZN5arrow6StatusD2Ev.exit54.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1458
   %4972 = load ptr, ptr %4961, align 8, !tbaa !251, !noalias !1458
-  %4973 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4972, i64 %indvars.iv.i.i
+  %4973 = getelementptr inbounds nuw [16 x i8], ptr %4972, i64 %indvars.iv.i.i
   %4974 = load ptr, ptr %4973, align 8, !tbaa !1088, !noalias !1458
   %4975 = getelementptr inbounds nuw i8, ptr %4974, i64 112
   %4976 = load i64, ptr %4975, align 8, !tbaa !108, !noalias !1466
@@ -13772,7 +13770,7 @@ _ZN5arrow6StatusD2Ev.exit44.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
 5019:                                             ; preds = %.critedge41.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %.critedge41.i.i.i ]
   %5020 = load ptr, ptr %4967, align 8, !tbaa !251, !noalias !1478
-  %5021 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %5020, i64 %indvars.iv.i.i.i
+  %5021 = getelementptr inbounds nuw [16 x i8], ptr %5020, i64 %indvars.iv.i.i.i
   %5022 = load ptr, ptr %5021, align 8, !tbaa !1088, !noalias !1478
   %5023 = load i32, ptr %5016, align 8, !tbaa !1491, !noalias !1478
   %5024 = zext i32 %5023 to i64
@@ -13787,7 +13785,7 @@ _ZN5arrow6StatusD2Ev.exit44.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
 _ZN5arrow6StatusD2Ev.exit46.i.i.i:                ; preds = %5026
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1478
   %5029 = load ptr, ptr %5018, align 8, !tbaa !1424, !noalias !1478
-  %5030 = getelementptr inbounds nuw %"class.std::shared_ptr.39", ptr %5029, i64 %indvars.iv.i.i.i
+  %5030 = getelementptr inbounds nuw [16 x i8], ptr %5029, i64 %indvars.iv.i.i.i
   %5031 = load ptr, ptr %5030, align 8, !tbaa !204, !noalias !1478
   %5032 = load ptr, ptr %5022, align 8, !tbaa !92, !noalias !1497
   %5033 = getelementptr inbounds nuw i8, ptr %5032, i64 72
@@ -13945,7 +13943,7 @@ _ZN5arrow6StatusD2Ev.exit47.i.i1262:              ; preds = %_ZN5arrow6StatusD2E
   %indvars.iv.i.i1282 = phi i64 [ 0, %.lr.ph.i.i1281 ], [ %indvars.iv.next.i.i1286, %_ZN5arrow6StatusD2Ev.exit54.i.i1285 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1521
   %5111 = load ptr, ptr %5092, align 8, !tbaa !251, !noalias !1521
-  %5112 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %5111, i64 %indvars.iv.i.i1282
+  %5112 = getelementptr inbounds nuw [16 x i8], ptr %5111, i64 %indvars.iv.i.i1282
   %5113 = load ptr, ptr %5112, align 8, !tbaa !1088, !noalias !1521
   %5114 = getelementptr inbounds nuw i8, ptr %5113, i64 112
   %5115 = load i64, ptr %5114, align 8, !tbaa !108, !noalias !1531
@@ -14002,7 +14000,7 @@ _ZN5arrow6StatusD2Ev.exit54.i.i1285:              ; preds = %_ZN5arrow6StatusD2E
   %5136 = load i8, ptr %5135, align 1, !tbaa !1476, !noalias !1541
   %5137 = sext i8 %5136 to i64
   %5138 = load ptr, ptr %5094, align 8, !tbaa !1544, !noalias !1541
-  %5139 = getelementptr inbounds nuw i32, ptr %5138, i64 %5137
+  %5139 = getelementptr inbounds nuw [4 x i8], ptr %5138, i64 %5137
   %5140 = load i32, ptr %5139, align 4, !tbaa !183, !noalias !1541
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1541
   call void @llvm.experimental.noalias.scope.decl(metadata !1547)
@@ -14036,7 +14034,7 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge.i.i.i.i.i:   ; preds = %_ZN5arrow6StatusD2E
   store i64 %5152, ptr %5095, align 8, !tbaa !364, !noalias !1550
   store ptr null, ptr %11, align 8, !tbaa !52, !alias.scope !1558, !noalias !1541
   %5153 = load ptr, ptr %5099, align 8, !tbaa !1561, !noalias !1564
-  %5154 = getelementptr inbounds nuw ptr, ptr %5153, i64 %5137
+  %5154 = getelementptr inbounds nuw [8 x i8], ptr %5153, i64 %5137
   %5155 = load ptr, ptr %5154, align 8, !tbaa !320, !noalias !1564
   %5156 = load ptr, ptr %5155, align 8, !tbaa !92, !noalias !1564
   %5157 = getelementptr inbounds nuw i8, ptr %5156, i64 16
@@ -14100,7 +14098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i: ; preds =
 
 5177:                                             ; preds = %5147
   %5178 = load ptr, ptr %5099, align 8, !tbaa !1561, !noalias !1564
-  %5179 = getelementptr inbounds nuw ptr, ptr %5178, i64 %5137
+  %5179 = getelementptr inbounds nuw [8 x i8], ptr %5178, i64 %5137
   %5180 = load ptr, ptr %5179, align 8, !tbaa !320, !noalias !1564
   %5181 = load ptr, ptr %5180, align 8, !tbaa !92, !noalias !1564
   %5182 = getelementptr inbounds nuw i8, ptr %5181, i64 16
@@ -14170,7 +14168,7 @@ _ZN5arrow6StatusD2Ev.exit38.preheader.i.i.i:      ; preds = %_ZN5arrow17DenseUni
 5209:                                             ; preds = %.critedge35.i.i.i, %.lr.ph.i.i.i1275
   %indvars.iv.i.i.i1276 = phi i64 [ 0, %.lr.ph.i.i.i1275 ], [ %indvars.iv.next.i.i.i1277, %.critedge35.i.i.i ]
   %5210 = load ptr, ptr %5106, align 8, !tbaa !251, !noalias !1541
-  %5211 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %5210, i64 %indvars.iv.i.i.i1276
+  %5211 = getelementptr inbounds nuw [16 x i8], ptr %5210, i64 %indvars.iv.i.i.i1276
   %5212 = load ptr, ptr %5211, align 8, !tbaa !1088, !noalias !1541
   %5213 = icmp eq i64 %indvars.iv.i.i.i1276, %5208
   br i1 %5213, label %5214, label %.critedge35.i.i.i
@@ -24372,7 +24370,7 @@ _ZN5arrow6StatusD2Ev.exit79.i1439:                ; preds = %_ZN5arrow6StatusD2E
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i1449 ], [ %indvars.iv.next.i, %_ZN5arrow6StatusD2Ev.exit86.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !2627
   %4609 = load ptr, ptr %4601, align 8, !tbaa !251, !noalias !2627
-  %4610 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4609, i64 %indvars.iv.i
+  %4610 = getelementptr inbounds nuw [16 x i8], ptr %4609, i64 %indvars.iv.i
   %4611 = load ptr, ptr %4610, align 8, !tbaa !1088, !noalias !2627
   %4612 = getelementptr inbounds nuw i8, ptr %4611, i64 112
   %4613 = load i64, ptr %4612, align 8, !tbaa !108, !noalias !2639
@@ -24450,7 +24448,7 @@ _ZN5arrow6StatusD2Ev.exit86.i:                    ; preds = %_ZN5arrow6StatusD2E
 
 4646:                                             ; preds = %4643
   %4647 = load ptr, ptr %4642, align 8, !tbaa !1424, !noalias !2627
-  %4648 = getelementptr inbounds nuw %"class.std::shared_ptr.39", ptr %4647, i64 %indvars.iv170.i
+  %4648 = getelementptr inbounds nuw [16 x i8], ptr %4647, i64 %indvars.iv170.i
   %4649 = load ptr, ptr %4648, align 8, !tbaa !204, !noalias !2627
   %.not151.i = icmp eq ptr %4649, null
   br i1 %.not151.i, label %_ZN5arrow6StatusD2Ev.exit88.i, label %_ZN5arrow6StatusD2Ev.exit92.i
@@ -24458,7 +24456,7 @@ _ZN5arrow6StatusD2Ev.exit86.i:                    ; preds = %_ZN5arrow6StatusD2E
 _ZN5arrow6StatusD2Ev.exit88.i:                    ; preds = %4646, %4643
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !2627
   %4650 = load ptr, ptr %4603, align 8, !tbaa !251, !noalias !2627
-  %4651 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4650, i64 %indvars.iv170.i
+  %4651 = getelementptr inbounds nuw [16 x i8], ptr %4650, i64 %indvars.iv170.i
   %4652 = load ptr, ptr %4651, align 8, !tbaa !1088, !noalias !2627
   %4653 = load ptr, ptr %4652, align 8, !tbaa !92, !noalias !2627
   %4654 = getelementptr inbounds nuw i8, ptr %4653, i64 40
@@ -24474,7 +24472,7 @@ _ZN5arrow6StatusD2Ev.exit88.i:                    ; preds = %4646, %4643
 _ZN5arrow6StatusD2Ev.exit92.i:                    ; preds = %4646
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !2627
   %4658 = load ptr, ptr %4603, align 8, !tbaa !251, !noalias !2627
-  %4659 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4658, i64 %indvars.iv170.i
+  %4659 = getelementptr inbounds nuw [16 x i8], ptr %4658, i64 %indvars.iv170.i
   %4660 = load ptr, ptr %4659, align 8, !tbaa !1088, !noalias !2627
   %4661 = load ptr, ptr %4660, align 8, !tbaa !92, !noalias !2653
   %4662 = getelementptr inbounds nuw i8, ptr %4661, i64 72
@@ -24669,7 +24667,7 @@ _ZN5arrow6StatusD2Ev.exit46.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i1459 ], [ %indvars.iv.next.i.i, %_ZN5arrow6StatusD2Ev.exit53.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !2681
   %4751 = load ptr, ptr %4743, align 8, !tbaa !251, !noalias !2681
-  %4752 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4751, i64 %indvars.iv.i.i
+  %4752 = getelementptr inbounds nuw [16 x i8], ptr %4751, i64 %indvars.iv.i.i
   %4753 = load ptr, ptr %4752, align 8, !tbaa !1088, !noalias !2681
   %4754 = getelementptr inbounds nuw i8, ptr %4753, i64 112
   %4755 = load i64, ptr %4754, align 8, !tbaa !108, !noalias !2689
@@ -24773,7 +24771,7 @@ _ZN5arrow6StatusD2Ev.exit44.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
 4799:                                             ; preds = %.critedge41.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %.critedge41.i.i.i ]
   %4800 = load ptr, ptr %4749, align 8, !tbaa !251, !noalias !2699
-  %4801 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4800, i64 %indvars.iv.i.i.i
+  %4801 = getelementptr inbounds nuw [16 x i8], ptr %4800, i64 %indvars.iv.i.i.i
   %4802 = load ptr, ptr %4801, align 8, !tbaa !1088, !noalias !2699
   %4803 = load i32, ptr %4796, align 8, !tbaa !1491, !noalias !2699
   %4804 = zext i32 %4803 to i64
@@ -24788,7 +24786,7 @@ _ZN5arrow6StatusD2Ev.exit44.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
 _ZN5arrow6StatusD2Ev.exit46.i.i.i:                ; preds = %4806
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !2699
   %4809 = load ptr, ptr %4798, align 8, !tbaa !1424, !noalias !2699
-  %4810 = getelementptr inbounds nuw %"class.std::shared_ptr.39", ptr %4809, i64 %indvars.iv.i.i.i
+  %4810 = getelementptr inbounds nuw [16 x i8], ptr %4809, i64 %indvars.iv.i.i.i
   %4811 = load ptr, ptr %4810, align 8, !tbaa !204, !noalias !2699
   %4812 = load ptr, ptr %4802, align 8, !tbaa !92, !noalias !2712
   %4813 = getelementptr inbounds nuw i8, ptr %4812, i64 72
@@ -24944,7 +24942,7 @@ _ZN5arrow6StatusD2Ev.exit46.i.i1469:              ; preds = %_ZN5arrow6StatusD2E
   %indvars.iv.i.i1490 = phi i64 [ 0, %.lr.ph.i.i1489 ], [ %indvars.iv.next.i.i1494, %_ZN5arrow6StatusD2Ev.exit53.i.i1493 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2736
   %4884 = load ptr, ptr %4868, align 8, !tbaa !251, !noalias !2736
-  %4885 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4884, i64 %indvars.iv.i.i1490
+  %4885 = getelementptr inbounds nuw [16 x i8], ptr %4884, i64 %indvars.iv.i.i1490
   %4886 = load ptr, ptr %4885, align 8, !tbaa !1088, !noalias !2736
   %4887 = getelementptr inbounds nuw i8, ptr %4886, i64 112
   %4888 = load i64, ptr %4887, align 8, !tbaa !108, !noalias !2746
@@ -25003,7 +25001,7 @@ _ZN5arrow6StatusD2Ev.exit53.i.i1493:              ; preds = %_ZN5arrow6StatusD2E
   %4910 = load i8, ptr %4909, align 1, !tbaa !1476, !noalias !2756
   %4911 = sext i8 %4910 to i64
   %4912 = load ptr, ptr %4870, align 8, !tbaa !1544, !noalias !2756
-  %4913 = getelementptr inbounds nuw i32, ptr %4912, i64 %4911
+  %4913 = getelementptr inbounds nuw [4 x i8], ptr %4912, i64 %4911
   %4914 = load i32, ptr %4913, align 4, !tbaa !183, !noalias !2756
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2756
   call void @llvm.experimental.noalias.scope.decl(metadata !2759)
@@ -25037,7 +25035,7 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge.i.i.i.i.i:   ; preds = %_ZN5arrow6StatusD2E
   store i64 %4926, ptr %4871, align 8, !tbaa !364, !noalias !2762
   store ptr null, ptr %11, align 8, !tbaa !52, !alias.scope !2770, !noalias !2756
   %4927 = load ptr, ptr %4875, align 8, !tbaa !1561, !noalias !2773
-  %4928 = getelementptr inbounds nuw ptr, ptr %4927, i64 %4911
+  %4928 = getelementptr inbounds nuw [8 x i8], ptr %4927, i64 %4911
   %4929 = load ptr, ptr %4928, align 8, !tbaa !320, !noalias !2773
   %4930 = load ptr, ptr %4929, align 8, !tbaa !92, !noalias !2773
   %4931 = getelementptr inbounds nuw i8, ptr %4930, i64 16
@@ -25101,7 +25099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i: ; preds =
 
 4951:                                             ; preds = %4921
   %4952 = load ptr, ptr %4875, align 8, !tbaa !1561, !noalias !2773
-  %4953 = getelementptr inbounds nuw ptr, ptr %4952, i64 %4911
+  %4953 = getelementptr inbounds nuw [8 x i8], ptr %4952, i64 %4911
   %4954 = load ptr, ptr %4953, align 8, !tbaa !320, !noalias !2773
   %4955 = load ptr, ptr %4954, align 8, !tbaa !92, !noalias !2773
   %4956 = getelementptr inbounds nuw i8, ptr %4955, i64 16
@@ -25171,7 +25169,7 @@ _ZN5arrow6StatusD2Ev.exit38.preheader.i.i.i:      ; preds = %_ZN5arrow17DenseUni
 4983:                                             ; preds = %.critedge35.i.i.i, %.lr.ph.i.i.i1483
   %indvars.iv.i.i.i1484 = phi i64 [ 0, %.lr.ph.i.i.i1483 ], [ %indvars.iv.next.i.i.i1485, %.critedge35.i.i.i ]
   %4984 = load ptr, ptr %4882, align 8, !tbaa !251, !noalias !2756
-  %4985 = getelementptr inbounds nuw %"class.std::shared_ptr.89", ptr %4984, i64 %indvars.iv.i.i.i1484
+  %4985 = getelementptr inbounds nuw [16 x i8], ptr %4984, i64 %indvars.iv.i.i.i1484
   %4986 = load ptr, ptr %4985, align 8, !tbaa !1088, !noalias !2756
   %4987 = icmp eq i64 %indvars.iv.i.i.i1484, %4982
   br i1 %4987, label %4988, label %.critedge35.i.i.i

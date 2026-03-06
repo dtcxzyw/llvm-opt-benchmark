@@ -543,7 +543,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_n
   %.sroa.0.0.lcssa.i.i = phi i32 [ %.sroa.010.06287.i, %"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h73da9d1250ce10f9E.exit35.thread.i" ], [ %53, %51 ]
   %.sroa.07.0.lcssa.i.i = phi i32 [ %.sroa.07.023.i.i, %"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h73da9d1250ce10f9E.exit35.thread.i" ], [ %.sroa.07.0.i.i, %51 ]
   %45 = zext nneg i32 %.sroa.07.0.lcssa.i.i to i64
-  %46 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %45
   %47 = load double, ptr %46, align 8, !noalias !136, !noundef !4
   %48 = icmp sgt i32 %.sroa.0.0.lcssa.i.i, -1
   br i1 %48, label %62, label %60
@@ -788,7 +788,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %.sroa.0.0.lcssa.i = phi i32 [ %40, %39 ], [ %52, %50 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.023.i, %39 ], [ %.sroa.07.0.i, %50 ]
   %44 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %45 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %44
   %46 = load double, ptr %45, align 8, !noalias !158, !noundef !4
   %47 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %47, label %61, label %59
@@ -1962,7 +1962,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %.sroa.0.0.lcssa.i = phi i32 [ %.sroa.014.0, %53 ], [ %65, %63 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.023.i, %53 ], [ %.sroa.07.0.i, %63 ]
   %57 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %58 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %57
   %59 = load double, ptr %58, align 8, !noalias !465, !noundef !4
   %60 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %60, label %74, label %72
@@ -2166,7 +2166,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %.sroa.0.0.lcssa.i = phi i32 [ %.sroa.014.0, %53 ], [ %65, %63 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.023.i, %53 ], [ %.sroa.07.0.i, %63 ]
   %57 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %58 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %57
   %59 = load double, ptr %58, align 8, !noalias !506, !noundef !4
   %60 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %60, label %74, label %72
@@ -3014,7 +3014,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17hab
   %.sroa.0.0.lcssa.i = phi i32 [ %.sroa.02.022, %.thread16 ], [ %36, %34 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.023.i, %.thread16 ], [ %.sroa.07.0.i, %34 ]
   %28 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %29 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %28
   %30 = load double, ptr %29, align 8, !noalias !683, !noundef !4
   %31 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %31, label %45, label %43
@@ -3138,7 +3138,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   %.sroa.0.0.lcssa.i = phi i32 [ %4, %"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h7cc8f6ec11d24d9dE.exit17.thread" ], [ %32, %30 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.023.i, %"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h7cc8f6ec11d24d9dE.exit17.thread" ], [ %.sroa.07.0.i, %30 ]
   %24 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %25 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017hfcc635d073301016E, i64 %24
   %26 = load double, ptr %25, align 8, !noalias !698, !noundef !4
   %27 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %27, label %41, label %39

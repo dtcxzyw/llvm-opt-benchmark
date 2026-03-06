@@ -708,7 +708,7 @@ _ZNSt6vectorIP12FilterPluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorIP12FilterPluginSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIP12FilterPluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %34, ptr %0, align 8
   store ptr %38, ptr %14, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %40, ptr %16, align 8
   br label %_ZNSt6vectorIP12FilterPluginSaIS1_EE9push_backERKS1_.exit
 

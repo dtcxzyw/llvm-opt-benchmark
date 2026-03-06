@@ -3,8 +3,6 @@ source_filename = "bench/darktable/original/sqliteicu.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.IcuScalar = type { ptr, i8, i32, i8, ptr }
-
 @sqlite3IcuInit.scalars = internal unnamed_addr constant [12 x { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str, i8 2, [3 x i8] zeroinitializer, i32 524289, i8 1, [7 x i8] zeroinitializer, ptr @icuLoadCollation }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.1, i8 2, [3 x i8] zeroinitializer, i32 2099205, i8 0, [7 x i8] zeroinitializer, ptr @icuRegexpFunc }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.2, i8 1, [3 x i8] zeroinitializer, i32 2099204, i8 0, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.2, i8 2, [3 x i8] zeroinitializer, i32 2099204, i8 0, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.3, i8 1, [3 x i8] zeroinitializer, i32 2099204, i8 1, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.3, i8 2, [3 x i8] zeroinitializer, i32 2099204, i8 1, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.2, i8 1, [3 x i8] zeroinitializer, i32 2099201, i8 0, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.2, i8 2, [3 x i8] zeroinitializer, i32 2099201, i8 0, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.3, i8 1, [3 x i8] zeroinitializer, i32 2099201, i8 1, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.3, i8 2, [3 x i8] zeroinitializer, i32 2099201, i8 1, [7 x i8] zeroinitializer, ptr @icuCaseFunc16 }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.4, i8 2, [3 x i8] zeroinitializer, i32 2099201, i8 0, [7 x i8] zeroinitializer, ptr @icuLikeFunc }, { ptr, i8, [3 x i8], i32, i8, [7 x i8], ptr } { ptr @.str.4, i8 3, [3 x i8] zeroinitializer, i32 2099201, i8 0, [7 x i8] zeroinitializer, ptr @icuLikeFunc }], align 16
 @.str = private unnamed_addr constant [19 x i8] c"icu_load_collation\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"regexp\00", align 1
@@ -32,7 +30,7 @@ define i32 @sqlite3IcuInit(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct.IcuScalar, ptr @sqlite3IcuInit.scalars, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @sqlite3IcuInit.scalars, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !13

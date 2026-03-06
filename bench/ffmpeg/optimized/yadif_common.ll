@@ -121,9 +121,9 @@ define i32 @ff_yadif_filter_frame(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 38:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4, !tbaa !45
-  %41 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !45
   %.not.i = icmp eq i32 %40, %42
   br i1 %.not.i, label %37, label %checkstride.exit
@@ -160,9 +160,9 @@ checkstride.exit.thread:                          ; preds = %37, %checkstride.ex
 
 51:                                               ; preds = %50, %.lr.ph.i119
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.i119 ], [ %indvars.iv.next.i124, %50 ]
-  %52 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i121
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i121
   %53 = load i32, ptr %52, align 4, !tbaa !45
-  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i121
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i121
   %55 = load i32, ptr %54, align 4, !tbaa !45
   %.not.i122 = icmp eq i32 %53, %55
   br i1 %.not.i122, label %50, label %checkstride.exit126
@@ -199,9 +199,9 @@ checkstride.exit126.thread:                       ; preds = %50, %28, %checkstri
 
 63:                                               ; preds = %62, %.lr.ph.i128
   %indvars.iv.i130 = phi i64 [ 0, %.lr.ph.i128 ], [ %indvars.iv.next.i133, %62 ]
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i130
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i130
   %65 = load i32, ptr %64, align 4, !tbaa !45
-  %66 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i130
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i130
   %67 = load i32, ptr %66, align 4, !tbaa !45
   %.not.i131 = icmp eq i32 %65, %67
   br i1 %.not.i131, label %62, label %checkstride.exit135
@@ -234,9 +234,9 @@ checkstride.exit135.thread:                       ; preds = %62, %57, %checkstri
 
 76:                                               ; preds = %75, %.lr.ph.i137
   %indvars.iv.i139 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i142, %75 ]
-  %77 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i139
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i139
   %78 = load i32, ptr %77, align 4, !tbaa !45
-  %79 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i139
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i139
   %80 = load i32, ptr %79, align 4, !tbaa !45
   %.not.i140 = icmp eq i32 %78, %80
   br i1 %.not.i140, label %75, label %checkstride.exit144
@@ -262,9 +262,9 @@ checkstride.exit135.thread:                       ; preds = %62, %57, %checkstri
 
 86:                                               ; preds = %85, %.lr.ph.i146
   %indvars.iv.i148 = phi i64 [ 0, %.lr.ph.i146 ], [ %indvars.iv.next.i151, %85 ]
-  %87 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i148
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i148
   %88 = load i32, ptr %87, align 4, !tbaa !45
-  %89 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.i148
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.i148
   %90 = load i32, ptr %89, align 4, !tbaa !45
   %.not.i149 = icmp eq i32 %88, %90
   br i1 %.not.i149, label %85, label %checkstride.exit144

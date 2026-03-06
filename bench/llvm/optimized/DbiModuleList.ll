@@ -30,12 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pdb::DbiModuleDescriptor" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", ptr }
 %"class.llvm::iterator_range" = type { %"class.llvm::pdb::DbiModuleSourceFilesIterator", %"class.llvm::pdb::DbiModuleSourceFilesIterator" }
 %"class.llvm::pdb::DbiModuleSourceFilesIterator" = type <{ %"class.llvm::StringRef", ptr, i32, i16, [2 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.7" }
-%"struct.std::_Head_base.7" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.25 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.25 = type { i64, [8 x i8] }
@@ -145,7 +139,7 @@ define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIterator8setValueEv(ptr
   %18 = load i32, ptr %17, align 8, !tbaa !14
   %19 = zext i32 %18 to i64
   %20 = load ptr, ptr %16, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i16, ptr %23, align 4, !tbaa !15
@@ -2003,11 +1997,11 @@ _ZN4llvm5ErrorD2Ev.exit69:                        ; preds = %_ZNK4llvm16FixedStr
   %.095 = phi i64 [ 0, %.lr.ph ], [ %283, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEixEj.exit ]
   %.02594 = phi i32 [ 0, %.lr.ph ], [ %281, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEixEj.exit ]
   %259 = load ptr, ptr %250, align 8, !tbaa !18
-  %260 = getelementptr inbounds nuw i32, ptr %259, i64 %.095
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %259, i64 %.095
   store i32 %.02594, ptr %260, align 4, !tbaa !21
   %261 = load i32, ptr %257, align 4, !tbaa !101
   %262 = load ptr, ptr %253, align 8, !tbaa !18
-  %263 = getelementptr inbounds nuw i32, ptr %262, i64 %.095
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %.095
   store i32 %261, ptr %263, align 4, !tbaa !21
   %264 = shl nuw nsw i64 %.095, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3312,7 +3306,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE6resizeEm(ptr noundef nonnu
   br i1 %14, label %15, label %_ZNSt6vectorIjSaIjEE15_M_erase_at_endEPj.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIjSaIjEE15_M_erase_at_endEPj.exit, label %17
 
@@ -3420,7 +3414,7 @@ define dso_local void @_ZNK4llvm3pdb13DbiModuleList19getModuleDescriptorEj(ptr d
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !18
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3784,7 +3778,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !156
   store ptr %67, ptr %41, align 8, !tbaa !153
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !155
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -3934,7 +3928,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !156
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !153
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !155
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -4057,7 +4051,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !156
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !153
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !155
   ret void
 }
@@ -4712,9 +4706,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !121
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !213
   br label %41
 

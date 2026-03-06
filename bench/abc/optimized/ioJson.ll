@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/ioJson.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Vec_Int_t_ = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [11 x i8] c"InputLayer\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"input  \00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"Conv2D\00", align 1
@@ -167,7 +165,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %34
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %34 ], [ 1, %.lr.ph ]
   %.val123.us = load ptr, ptr %7, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i32, ptr %.val123.us, i64 %indvars.iv149
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.val123.us, i64 %indvars.iv149
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %25, 1
   %.not119.us = icmp eq i32 %26, 0
@@ -182,7 +180,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val130.us = load ptr, ptr %23, align 8, !tbaa !12
   %31 = ashr exact i32 %25, 1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val130.us, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %.val130.us, i64 %32
   tail call void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %33, i32 noundef 0, ptr noundef %5)
   br label %34
 
@@ -196,7 +194,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph.split:                                     ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 1, %.lr.ph ]
   %.val123 = load ptr, ptr %7, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i32, ptr %.val123, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.val123, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !10
   %39 = and i32 %38, 1
   %.not119 = icmp eq i32 %39, 0
@@ -221,7 +219,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val130 = load ptr, ptr %23, align 8, !tbaa !12
   %51 = ashr exact i32 %38, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val130, i64 %52
+  %53 = getelementptr inbounds [16 x i8], ptr %.val130, i64 %52
   tail call void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %53, i32 noundef %4, ptr noundef %5)
   br label %54
 
@@ -237,9 +235,9 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %indvars.iv152 = phi i64 [ 2, %.critedge3.lr.ph ], [ %indvars.iv.next153, %124 ]
   %.098142 = phi i32 [ 0, %.critedge3.lr.ph ], [ %.199, %124 ]
   %.val124 = load ptr, ptr %7, align 8, !tbaa !3
-  %57 = getelementptr inbounds nuw i32, ptr %.val124, i64 %indvars.iv154
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.val124, i64 %indvars.iv154
   %58 = load i32, ptr %57, align 4, !tbaa !10
-  %59 = getelementptr inbounds nuw i32, ptr %.val124, i64 %indvars.iv152
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.val124, i64 %indvars.iv152
   %60 = load i32, ptr %59, align 4, !tbaa !10
   %61 = and i32 %58, 1
   %.not105 = icmp eq i32 %61, 0
@@ -312,7 +310,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val131 = load ptr, ptr %11, align 8, !tbaa !12
   %92 = ashr i32 %60, 1
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val131, i64 %93
+  %94 = getelementptr inbounds [16 x i8], ptr %.val131, i64 %93
   tail call void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %94, i32 noundef 1, ptr noundef %5)
   br label %124
 
@@ -326,7 +324,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val132 = load ptr, ptr %11, align 8, !tbaa !12
   %99 = ashr i32 %60, 1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val132, i64 %100
+  %101 = getelementptr inbounds [16 x i8], ptr %.val132, i64 %100
   tail call void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %101, i32 noundef 1, ptr noundef %5)
   br label %124
 
@@ -348,7 +346,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val133 = load ptr, ptr %11, align 8, !tbaa !12
   %109 = ashr i32 %60, 1
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val133, i64 %110
+  %111 = getelementptr inbounds [16 x i8], ptr %.val133, i64 %110
   tail call void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %111, i32 noundef 1, ptr noundef %5)
   br label %124
 
@@ -361,7 +359,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val134 = load ptr, ptr %11, align 8, !tbaa !12
   %115 = ashr i32 %60, 1
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val134, i64 %116
+  %117 = getelementptr inbounds [16 x i8], ptr %.val134, i64 %116
   tail call void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %117, i32 noundef 1, ptr noundef %5)
   br label %124
 
@@ -374,7 +372,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val135 = load ptr, ptr %11, align 8, !tbaa !12
   %121 = ashr i32 %60, 1
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val135, i64 %122
+  %123 = getelementptr inbounds [16 x i8], ptr %.val135, i64 %122
   tail call void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %123, i32 noundef 0, ptr noundef %5)
   br label %124
 
@@ -490,7 +488,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.val94102 = phi i32 [ %.val94100, %.lr.ph ], [ %.val94, %50 ]
   %.val87 = load ptr, ptr %8, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw i32, ptr %.val87, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.val87, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !10
   %36 = add nsw i32 %.val94102, -1
   %37 = sext i32 %36 to i64
@@ -511,7 +509,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.val99 = load ptr, ptr %31, align 8, !tbaa !12
   %47 = ashr exact i32 %35, 1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val99, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %.val99, i64 %48
   tail call void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49, i32 noundef %32, i32 noundef %46, i32 noundef 1)
   br label %50
 
@@ -561,9 +559,9 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %indvars.iv107 = phi i64 [ 2, %.critedge2.lr.ph ], [ %indvars.iv.next108, %99 ]
   %.val92105 = phi i32 [ %.val92103, %.critedge2.lr.ph ], [ %.val92, %99 ]
   %.val86 = load ptr, ptr %8, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv109
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.val86, i64 %indvars.iv109
   %71 = load i32, ptr %70, align 4, !tbaa !10
-  %72 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv107
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.val86, i64 %indvars.iv107
   %73 = load i32, ptr %72, align 4, !tbaa !10
   %74 = add nsw i32 %.val92105, -3
   %75 = sext i32 %74 to i64
@@ -583,7 +581,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.val98 = load ptr, ptr %68, align 8, !tbaa !12
   %84 = ashr exact i32 %71, 1
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val98, i64 %85
+  %86 = getelementptr inbounds [16 x i8], ptr %.val98, i64 %85
   tail call void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %86, i32 noundef %69, i32 noundef 0, i32 noundef 1)
   br label %87
 
@@ -604,7 +602,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.val97 = load ptr, ptr %68, align 8, !tbaa !12
   %96 = ashr exact i32 %73, 1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val97, i64 %97
+  %98 = getelementptr inbounds [16 x i8], ptr %.val97, i64 %97
   tail call void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %98, i32 noundef %69, i32 noundef %77, i32 noundef 0)
   br label %99
 
@@ -865,11 +863,11 @@ Json_SkipNonSpaces.exit:                          ; preds = %.preheader, %.prehe
 58:                                               ; preds = %56
   %.val67 = load ptr, ptr %44, align 8, !tbaa !3
   %59 = zext nneg i32 %.val to i64
-  %60 = getelementptr i32, ptr %.val67, i64 %59
+  %60 = getelementptr [4 x i8], ptr %.val67, i64 %59
   %61 = getelementptr i8, ptr %60, i64 -4
   %62 = load i32, ptr %61, align 4, !tbaa !10
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val65, i64 %63
+  %64 = getelementptr inbounds [16 x i8], ptr %.val65, i64 %63
   %65 = shl nsw i32 %.val71.pre110, 1
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !11
@@ -935,7 +933,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %66, align 4, !tbaa !11
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i32, ptr %92, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %92, i64 %95
   store i32 %65, ptr %96, align 4, !tbaa !10
   %.pr99 = load i32, ptr %42, align 4, !tbaa !11
   %.val71.pre = load i32, ptr %38, align 4, !tbaa !22
@@ -1002,7 +1000,7 @@ Vec_IntPush.exit80:                               ; preds = %.Vec_IntGrow.exit10
   %122 = add nsw i32 %98, 1
   store i32 %122, ptr %42, align 4, !tbaa !11
   %123 = sext i32 %98 to i64
-  %124 = getelementptr inbounds i32, ptr %121, i64 %123
+  %124 = getelementptr inbounds [4 x i8], ptr %121, i64 %123
   store i32 %.val71, ptr %124, align 4, !tbaa !10
   %125 = load i32, ptr %38, align 4, !tbaa !22
   %126 = load i32, ptr %37, align 8, !tbaa !23
@@ -1029,7 +1027,7 @@ Vec_WecGrow.exit.i:                               ; preds = %133, %131
   %135 = phi ptr [ %132, %131 ], [ %134, %133 ]
   store ptr %135, ptr %40, align 8, !tbaa !12
   %136 = sext i32 %125 to i64
-  %137 = getelementptr inbounds %struct.Vec_Int_t_, ptr %135, i64 %136
+  %137 = getelementptr inbounds [16 x i8], ptr %135, i64 %136
   %138 = sub nsw i32 16, %125
   br label %Vec_WecPushLevel.exit.sink.split
 
@@ -1052,7 +1050,7 @@ Vec_WecGrow.exit.i:                               ; preds = %133, %131
   %148 = phi ptr [ %144, %143 ], [ %146, %145 ]
   store ptr %148, ptr %40, align 8, !tbaa !12
   %149 = zext nneg i32 %125 to i64
-  %150 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %149
   br label %Vec_WecPushLevel.exit.sink.split
 
 Vec_WecPushLevel.exit.sink.split:                 ; preds = %147, %Vec_WecGrow.exit.i
@@ -1071,7 +1069,7 @@ Vec_WecPushLevel.exit:                            ; preds = %Vec_WecPushLevel.ex
   %153 = add nsw i32 %125, 1
   store i32 %153, ptr %38, align 4, !tbaa !22
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val8.pre.i113, i64 %154
+  %155 = getelementptr inbounds [16 x i8], ptr %.val8.pre.i113, i64 %154
   %156 = getelementptr inbounds i8, ptr %155, i64 -16
   %157 = load i32, ptr %156, align 8, !tbaa !24
   %.not.i = icmp slt i32 %157, 4
@@ -1176,7 +1174,7 @@ Vec_IntPush.exit88:                               ; preds = %.Vec_IntGrow.exit10
   %207 = add nsw i32 %206, 1
   store i32 %207, ptr %203, align 4, !tbaa !11
   %208 = sext i32 %206 to i64
-  %209 = getelementptr inbounds i32, ptr %205, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %205, i64 %208
   store i32 %204, ptr %209, align 4, !tbaa !10
   %210 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.backedge
@@ -1215,12 +1213,12 @@ Vec_IntPush.exit88:                               ; preds = %.Vec_IntGrow.exit10
   %.val68 = load i32, ptr %42, align 4, !tbaa !11
   %.val69 = load ptr, ptr %44, align 8, !tbaa !3
   %227 = sext i32 %.val68 to i64
-  %228 = getelementptr i32, ptr %.val69, i64 %227
+  %228 = getelementptr [4 x i8], ptr %.val69, i64 %227
   %229 = getelementptr i8, ptr %228, i64 -4
   %230 = load i32, ptr %229, align 4, !tbaa !10
   %.val64 = load ptr, ptr %40, align 8, !tbaa !12
   %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val64, i64 %231
+  %232 = getelementptr inbounds [16 x i8], ptr %.val64, i64 %231
   %233 = shl nsw i32 %226, 1
   %234 = or disjoint i32 %233, 1
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 4
@@ -1287,7 +1285,7 @@ Vec_IntPush.exit96:                               ; preds = %.Vec_IntGrow.exit10
   %263 = add nsw i32 %262, 1
   store i32 %263, ptr %235, align 4, !tbaa !11
   %264 = sext i32 %262 to i64
-  %265 = getelementptr inbounds i32, ptr %261, i64 %264
+  %265 = getelementptr inbounds [4 x i8], ptr %261, i64 %264
   store i32 %234, ptr %265, align 4, !tbaa !10
   br label %.backedge
 
@@ -1363,7 +1361,7 @@ Json_Write.exit:                                  ; preds = %9, %11
   %17 = phi i32 [ %27, %26 ], [ %14, %Json_Write.exit ]
   %18 = phi ptr [ %28, %26 ], [ %.pre.i.i, %Json_Write.exit ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %26 ], [ 0, %Json_Write.exit ]
-  %19 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %18, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %.not15.i.i = icmp eq ptr %21, null
@@ -1372,7 +1370,7 @@ Json_Write.exit:                                  ; preds = %9, %11
 22:                                               ; preds = %.lr.ph.i.i
   tail call void @free(ptr noundef nonnull %21) #14
   %23 = load ptr, ptr %16, align 8, !tbaa !12
-  %24 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %23, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr null, ptr %25, align 8, !tbaa !3
   %.pre18.i.i = load i32, ptr %3, align 8, !tbaa !23

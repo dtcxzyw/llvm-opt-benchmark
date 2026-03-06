@@ -18,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.proxygen::compress::Header" = type { i8, ptr, ptr }
 %struct.Initializer.7 = type { i8 }
 %struct.Initializer.6 = type { i8 }
 
@@ -330,9 +329,9 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %add.ptr.i.i9.i, i64 %i.011.i
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %add.ptr.i.i9.i, i64 %i.011.i
   %4 = load ptr, ptr %arrayidx6.i, align 8
-  %arrayidx7.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %i.011.i
+  %arrayidx7.i = getelementptr inbounds [32 x i8], ptr %0, i64 %i.011.i
   %5 = load atomic i8, ptr @"_ZGVZZN8proxygen9CodecUtil13appendHeadersERKNS_11HTTPHeadersERSt6vectorINS_8compress6HeaderESaIS6_EENS_14HTTPHeaderCodeEENK3$_0clESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E19s_perHopHeaderCodes" acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %5, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %init.end.i.i, !prof !10
@@ -351,7 +350,7 @@ init.i.i:                                         ; preds = %init.check.i.i
 init.end.i.i:                                     ; preds = %init.i.i, %init.check.i.i, %if.then.i
   %conv.i.i = zext i8 %3 to i64
   %div1.i.i.i.i.i.i = lshr i64 %conv.i.i, 6
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @"_ZZZN8proxygen9CodecUtil13appendHeadersERKNS_11HTTPHeadersERSt6vectorINS_8compress6HeaderESaIS6_EENS_14HTTPHeaderCodeEENK3$_0clESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E19s_perHopHeaderCodes", i64 %div1.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @"_ZZZN8proxygen9CodecUtil13appendHeadersERKNS_11HTTPHeadersERSt6vectorINS_8compress6HeaderESaIS6_EENS_14HTTPHeaderCodeEENK3$_0clESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E19s_perHopHeaderCodes", i64 %div1.i.i.i.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = and i64 %conv.i.i, 63
   %shl.i.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i.i
@@ -454,7 +453,7 @@ if.then.i27.i.i.i.i:                              ; preds = %_ZNSt6vectorIN8prox
 _ZNSt6vectorIN8proxygen8compress6HeaderESaIS2_EE17_M_realloc_insertIJRNS0_14HTTPHeaderCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i27.i.i.i.i, %_ZNSt6vectorIN8proxygen8compress6HeaderESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %headers, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr30.i.i.i.i = getelementptr inbounds nuw %"struct.proxygen::compress::Header", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr30.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr30.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %if.end72.i.i
 

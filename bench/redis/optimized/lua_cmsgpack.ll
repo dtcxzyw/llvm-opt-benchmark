@@ -2620,7 +2620,7 @@ define dso_local noundef i32 @luaopen_create(ptr noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct.luaL_Reg, ptr @cmds, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @cmds, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !35
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef %5, i32 noundef 0) #10
@@ -2663,7 +2663,7 @@ define dso_local noundef i32 @luaopen_cmsgpack_safe(ptr noundef %0) local_unname
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.luaL_Reg, ptr @cmds, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @cmds, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !37
   tail call void @lua_getfield(ptr noundef %0, i32 noundef -1, ptr noundef %5) #10
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @mp_safe, i32 noundef 1) #10

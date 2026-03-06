@@ -85,7 +85,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 
 .preheader184:                                    ; preds = %.preheader184.preheader, %._crit_edge204
   %.0162205 = phi i64 [ %.0163200, %._crit_edge204 ], [ 0, %.preheader184.preheader ]
-  %invariant.gep = getelementptr double, ptr %0, i64 %.0162205
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %.0162205
   %32 = icmp ult i64 %.0162205, %3
   br i1 %32, label %.lr.ph193, label %.loopexit185
 
@@ -95,9 +95,9 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 
 .lr.ph197:                                        ; preds = %._crit_edge194
   %34 = mul i64 %.0167..0169, %3
-  %35 = getelementptr double, ptr %0, i64 %34
+  %35 = getelementptr [8 x i8], ptr %0, i64 %34
   %36 = mul i64 %.0162205, %3
-  %37 = getelementptr double, ptr %0, i64 %36
+  %37 = getelementptr [8 x i8], ptr %0, i64 %36
   br label %50
 
 .lr.ph193:                                        ; preds = %.preheader184, %.lr.ph193
@@ -105,7 +105,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   %.0167191 = phi i64 [ %.0167..0169, %.lr.ph193 ], [ 0, %.preheader184 ]
   %.0169190 = phi i64 [ %42, %.lr.ph193 ], [ %.0162205, %.preheader184 ]
   %38 = mul i64 %.0169190, %3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %38
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %38
   %39 = load double, ptr %gep, align 8, !tbaa !8
   %40 = tail call double @llvm.fabs.f64(double %39)
   %41 = fcmp olt double %40, %.0165192
@@ -116,9 +116,9 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   br i1 %exitcond.not, label %._crit_edge194, label %.lr.ph193, !llvm.loop !10
 
 ._crit_edge198:                                   ; preds = %50
-  %43 = getelementptr inbounds nuw double, ptr %2, i64 %.0167..0169
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0167..0169
   %.sroa.0.0.copyload = load i64, ptr %43, align 8
-  %44 = getelementptr inbounds nuw double, ptr %2, i64 %.0162205
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0162205
   %45 = load double, ptr %44, align 8, !tbaa !8
   store double %45, ptr %43, align 8, !tbaa !8
   store i64 %.sroa.0.0.copyload, ptr %44, align 8
@@ -128,15 +128,15 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 
 .lr.ph203:                                        ; preds = %._crit_edge198
   %47 = mul i64 %.0162205, %3
-  %48 = getelementptr double, ptr %0, i64 %47
-  %49 = getelementptr double, ptr %48, i64 %.0162205
+  %48 = getelementptr [8 x i8], ptr %0, i64 %47
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.0162205
   br label %55
 
 50:                                               ; preds = %.lr.ph197, %50
   %.0170196 = phi i64 [ %.0162205, %.lr.ph197 ], [ %54, %50 ]
-  %51 = getelementptr double, ptr %35, i64 %.0170196
+  %51 = getelementptr [8 x i8], ptr %35, i64 %.0170196
   %.sroa.038.0.copyload = load i64, ptr %51, align 8
-  %52 = getelementptr double, ptr %37, i64 %.0170196
+  %52 = getelementptr [8 x i8], ptr %37, i64 %.0170196
   %53 = load double, ptr %52, align 8, !tbaa !8
   store double %53, ptr %51, align 8, !tbaa !8
   store i64 %.sroa.038.0.copyload, ptr %52, align 8
@@ -152,12 +152,12 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 55:                                               ; preds = %.lr.ph203, %.loopexit
   %.0163201 = phi i64 [ %.0163200, %.lr.ph203 ], [ %.0163, %.loopexit ]
   %56 = mul i64 %.0163201, %3
-  %57 = getelementptr double, ptr %0, i64 %56
-  %58 = getelementptr double, ptr %57, i64 %.0162205
+  %57 = getelementptr [8 x i8], ptr %0, i64 %56
+  %58 = getelementptr [8 x i8], ptr %57, i64 %.0162205
   %59 = load double, ptr %58, align 8, !tbaa !8
   %60 = load double, ptr %49, align 8, !tbaa !8
   %61 = load double, ptr %44, align 8, !tbaa !8
-  %62 = getelementptr inbounds nuw double, ptr %2, i64 %.0163201
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0163201
   %63 = load double, ptr %62, align 8, !tbaa !8
   %64 = fneg double %59
   %65 = fdiv double %64, %60
@@ -167,9 +167,9 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 
 67:                                               ; preds = %55, %67
   %.0161199 = phi i64 [ 0, %55 ], [ %73, %67 ]
-  %68 = getelementptr double, ptr %57, i64 %.0161199
+  %68 = getelementptr [8 x i8], ptr %57, i64 %.0161199
   %69 = load double, ptr %68, align 8, !tbaa !8
-  %70 = getelementptr double, ptr %48, i64 %.0161199
+  %70 = getelementptr [8 x i8], ptr %48, i64 %.0161199
   %71 = load double, ptr %70, align 8, !tbaa !8
   %72 = tail call double @llvm.fmuladd.f64(double %65, double %71, double %69)
   store double %72, ptr %68, align 8, !tbaa !8
@@ -185,7 +185,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   %.not220245 = phi i1 [ true, %._crit_edge ], [ false, %._crit_edge204 ]
   %74 = phi i64 [ 0, %._crit_edge ], [ %31, %._crit_edge204 ]
   %.not219239243 = phi i1 [ %.not219, %._crit_edge ], [ %.not219239242, %._crit_edge204 ]
-  %75 = getelementptr double, ptr %0, i64 %5
+  %75 = getelementptr [8 x i8], ptr %0, i64 %5
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = load double, ptr %76, align 8, !tbaa !8
   %78 = tail call double @llvm.fabs.f64(double %77)
@@ -193,10 +193,10 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   br i1 %79, label %.loopexit185, label %80
 
 80:                                               ; preds = %._crit_edge206
-  %81 = getelementptr inbounds nuw double, ptr %2, i64 %74
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %74
   %82 = load double, ptr %81, align 8, !tbaa !8
   %83 = fdiv double %82, %77
-  %84 = getelementptr inbounds nuw double, ptr %1, i64 %74
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %74
   store double %83, ptr %84, align 8, !tbaa !8
   br i1 %.not220245, label %.lr.ph215.preheader, label %.lr.ph213
 
@@ -216,9 +216,9 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   %.0160211 = phi i64 [ 0, %.lr.ph213 ], [ %102, %._crit_edge210 ]
   %88 = sub i64 %3, %.0160211
   %89 = add i64 %88, -2
-  %90 = getelementptr inbounds nuw double, ptr %2, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !8
-  %92 = getelementptr inbounds nuw double, ptr %1, i64 %89
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %89
   store double %91, ptr %92, align 8, !tbaa !8
   %93 = add i64 %88, -1
   %94 = icmp ult i64 %93, %3
@@ -226,13 +226,13 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 
 .lr.ph209:                                        ; preds = %87
   %95 = mul i64 %89, %3
-  %96 = getelementptr double, ptr %0, i64 %95
+  %96 = getelementptr [8 x i8], ptr %0, i64 %95
   br label %103
 
 ._crit_edge210:                                   ; preds = %103, %87
   %97 = phi double [ %91, %87 ], [ %110, %103 ]
   %98 = mul i64 %89, %85
-  %99 = getelementptr inbounds nuw double, ptr %0, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %98
   %100 = load double, ptr %99, align 8, !tbaa !8
   %101 = fdiv double %97, %100
   store double %101, ptr %92, align 8, !tbaa !8
@@ -243,9 +243,9 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 103:                                              ; preds = %.lr.ph209, %103
   %104 = phi double [ %91, %.lr.ph209 ], [ %110, %103 ]
   %.0157207 = phi i64 [ %93, %.lr.ph209 ], [ %111, %103 ]
-  %105 = getelementptr double, ptr %96, i64 %.0157207
+  %105 = getelementptr [8 x i8], ptr %96, i64 %.0157207
   %106 = load double, ptr %105, align 8, !tbaa !8
-  %107 = getelementptr inbounds nuw double, ptr %1, i64 %.0157207
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0157207
   %108 = load double, ptr %107, align 8, !tbaa !8
   %109 = fneg double %106
   %110 = tail call double @llvm.fmuladd.f64(double %109, double %108, double %104)

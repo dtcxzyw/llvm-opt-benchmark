@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.gmx::HelpLinks::Impl::LinkItem" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.gmx::HelpWriterContext::Impl::ReplaceItem" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.gmx::NotImplementedError" = type { %"class.gmx::APIError" }
 %"class.gmx::APIError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr.52" }
@@ -622,7 +620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %21 = getelementptr inbounds nuw %"struct.gmx::(anonymous namespace)::t_sandr", ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !33
@@ -962,7 +960,7 @@ _ZNSt6vectorIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit41, %85
   store ptr %21, ptr %0, align 8, !tbaa !17
   store ptr %.0.lcssa.i.i.i40, ptr %5, align 8, !tbaa !18
-  %89 = getelementptr inbounds nuw %"struct.gmx::HelpLinks::Impl::LinkItem", ptr %21, i64 %17
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %17
   store ptr %89, ptr %84, align 8, !tbaa !27
   ret void
 
@@ -2497,7 +2495,7 @@ _ZNSt6vectorIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit41, %85
   store ptr %21, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i40, ptr %5, align 8, !tbaa !85
-  %89 = getelementptr inbounds nuw %"struct.gmx::HelpWriterContext::Impl::ReplaceItem", ptr %21, i64 %17
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %17
   store ptr %89, ptr %84, align 8, !tbaa !87
   ret void
 
@@ -5103,7 +5101,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11cha
   %86 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %85, ptr %3, ptr noundef %13)
   %87 = sub nuw nsw i64 %9, %20
   %88 = load ptr, ptr %12, align 8, !tbaa !144
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %87
   store ptr %89, ptr %12, align 8, !tbaa !144
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit61, label %.lr.ph.i.i.i.i.i54
@@ -5323,7 +5321,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %166
   store ptr %128, ptr %0, align 8, !tbaa !146
   store ptr %.0.lcssa.i.i.i.i.i83, ptr %12, align 8, !tbaa !144
-  %170 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %124
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %124
   store ptr %170, ptr %10, align 8, !tbaa !147
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit
 

@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/aaxdec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AAXColumn = type { i8, i8, ptr, i32, i32 }
-%struct.AAXSegment = type { i64, i64 }
-
 @.str = private unnamed_addr constant [4 x i8] c"aax\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"CRI AAX\00", align 1
 @ff_aax_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 256, [4 x i8] zeroinitializer, ptr @.str, ptr null, ptr null, ptr null }, i32 0, i32 104, i32 1, [4 x i8] zeroinitializer, ptr @aax_probe, ptr @aax_read_header, ptr @aax_read_packet, ptr @aax_read_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -172,7 +169,7 @@ define internal i32 @aax_read_header(ptr noundef %0) #1 {
   %76 = trunc i32 %71 to i8
   %77 = lshr i8 %76, 4
   %78 = load ptr, ptr %64, align 8, !tbaa !44
-  %79 = getelementptr inbounds nuw %struct.AAXColumn, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %indvars.iv
   store i8 %77, ptr %79, align 8, !tbaa !46
   %80 = and i8 %76, 15
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 1
@@ -188,7 +185,7 @@ switch.hole_check:                                ; preds = %75
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %83 = zext nneg i8 %80 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.aax_read_header, i64 %83
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.aax_read_header, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 20
   store i32 %switch.load, ptr %84, align 4, !tbaa !49
@@ -214,13 +211,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %95 = sub nsw i64 %93, %94
   %96 = trunc i64 %95 to i32
   %97 = load ptr, ptr %64, align 8, !tbaa !44
-  %98 = getelementptr inbounds nuw %struct.AAXColumn, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store i32 %96, ptr %99, align 8, !tbaa !51
   %100 = zext nneg i32 %switch.load to i64
   %101 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef %100) #6
   %.pre = load ptr, ptr %64, align 8, !tbaa !44
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.AAXColumn, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv
   %.pre290 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !46
   br label %102
 
@@ -232,7 +229,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not215, label %110, label %106
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw %struct.AAXColumn, ptr %104, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %indvars.iv
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i32 %.0185247, ptr %108, align 8, !tbaa !51
   %109 = add i32 %switch.load, %.0185247
@@ -272,7 +269,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .lr.ph363:                                        ; preds = %.preheader.preheader, %.loopexit
   %indvars.iv287362 = phi i64 [ %indvars.iv.next288, %.loopexit ], [ 0, %.preheader.preheader ]
   %125 = load ptr, ptr %64, align 8, !tbaa !44
-  %126 = getelementptr inbounds nuw %struct.AAXColumn, ptr %125, i64 %indvars.iv287362
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %indvars.iv287362
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !50
   %.not217 = icmp eq ptr %128, null
@@ -334,7 +331,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %156 = load i64, ptr %24, align 8, !tbaa !36
   %157 = add nsw i64 %156, %155
   %158 = load ptr, ptr %59, align 8, !tbaa !43
-  %159 = getelementptr inbounds nuw %struct.AAXSegment, ptr %158, i64 %.0188249.us.us
+  %159 = getelementptr inbounds nuw [16 x i8], ptr %158, i64 %.0188249.us.us
   store i64 %157, ptr %159, align 8, !tbaa !54
   %160 = add nsw i64 %157, %154
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -381,7 +378,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %183 = load i64, ptr %24, align 8, !tbaa !36
   %184 = add nsw i64 %183, %182
   %185 = load ptr, ptr %59, align 8, !tbaa !43
-  %186 = getelementptr inbounds nuw %struct.AAXSegment, ptr %185, i64 %.0188249.us
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %185, i64 %.0188249.us
   store i64 %184, ptr %186, align 8, !tbaa !54
   %187 = add nsw i64 %184, %181
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
@@ -549,7 +546,7 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 21:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %22 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !56
@@ -584,7 +581,7 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %38 = load i32, ptr %37, align 8, !tbaa !79
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !56
   %43 = sub nsw i64 %42, %.1
@@ -599,7 +596,7 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 47:                                               ; preds = %44
   store i32 %45, ptr %37, align 8, !tbaa !79
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !54
   %51 = tail call i64 @avio_seek(ptr noundef %11, i64 noundef %50, i32 noundef 0) #6
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -676,7 +673,7 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 83:                                               ; preds = %83, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %83 ]
   %.0151.i = phi i64 [ 0, %.lr.ph.i ], [ %90, %83 ]
-  %84 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre.i, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !56
   %87 = load i64, ptr %84, align 8, !tbaa !54
@@ -690,7 +687,7 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 get_pts.exit:                                     ; preds = %83, %77
   %.pre-phi.i = phi i64 [ 0, %77 ], [ %wide.trip.count.i, %83 ]
   %.015.lcssa.i = phi i64 [ 0, %77 ], [ %90, %83 ]
-  %91 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre.i, i64 %.pre-phi.i
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %.pre-phi.i
   %92 = load i64, ptr %91, align 8, !tbaa !54
   %93 = sub nsw i64 %80, %92
   %94 = sdiv i64 %93, %.pre6.i

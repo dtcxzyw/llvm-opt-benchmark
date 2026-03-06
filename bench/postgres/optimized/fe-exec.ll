@@ -4,15 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.PGNoticeHooks = type { ptr, ptr, ptr, ptr }
-%struct.PGEvent = type { ptr, ptr, ptr, ptr, i8 }
 %struct.PGEventResultDestroy = type { ptr }
-%struct.pgresAttDesc = type { ptr, i32, i32, i32, i32, i32, i32 }
 %struct.PGEventResultCopy = type { ptr, ptr }
-%struct.pgresAttValue = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.pgDataValue = type { i32, ptr }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.pgresParamDesc = type { i32 }
 
 @.str = private unnamed_addr constant [18 x i8] c"PGRES_EMPTY_QUERY\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"PGRES_COMMAND_OK\00", align 1
@@ -249,9 +244,9 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   %indvars.iv52 = phi i32 [ %indvars.iv.next53, %25 ], [ -1, %5 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %5 ]
   %.03747 = phi i64 [ %28, %25 ], [ %7, %5 ]
-  %9 = getelementptr inbounds nuw %struct.PGEvent, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw %struct.PGEvent, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -279,7 +274,7 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv55 = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next56, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.PGEvent, ptr %8, i64 %indvars.iv55
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #28
@@ -332,7 +327,7 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw %struct.PGEvent, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
@@ -351,7 +346,7 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %14, %8
   %20 = phi ptr [ %.pre, %14 ], [ %9, %8 ]
-  %21 = getelementptr inbounds nuw %struct.PGEvent, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void @free(ptr noundef %23) #28
@@ -435,7 +430,7 @@ PQresultAlloc.exit:                               ; preds = %10
 22:                                               ; preds = %.lr.ph, %40
   %23 = phi ptr [ %.pre, %.lr.ph ], [ %32, %40 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %24 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %.not41 = icmp eq ptr %25, null
   br i1 %.not41, label %30, label %26
@@ -443,7 +438,7 @@ PQresultAlloc.exit:                               ; preds = %10
 26:                                               ; preds = %22
   %27 = tail call ptr @pqResultStrdup(ptr noundef nonnull %0, ptr noundef nonnull %25)
   %28 = load ptr, ptr %16, align 8
-  %29 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv
   store ptr %27, ptr %29, align 8
   br label %31
 
@@ -453,7 +448,7 @@ PQresultAlloc.exit:                               ; preds = %10
 
 31:                                               ; preds = %30, %26
   %32 = load ptr, ptr %16, align 8
-  %33 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %.not42 = icmp eq ptr %34, null
   br i1 %.not42, label %.loopexit, label %35
@@ -676,7 +671,7 @@ PQresultAlloc.exit.i:                             ; preds = %22
 38:                                               ; preds = %56, %.lr.ph.i
   %39 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %48, %56 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
-  %40 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
   %.not41.i = icmp eq ptr %41, null
   br i1 %.not41.i, label %46, label %42
@@ -684,7 +679,7 @@ PQresultAlloc.exit.i:                             ; preds = %22
 42:                                               ; preds = %38
   %43 = tail call ptr @pqResultStrdup(ptr noundef nonnull %5, ptr noundef nonnull %41)
   %44 = load ptr, ptr %33, align 8
-  %45 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %44, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %indvars.iv.i
   store ptr %43, ptr %45, align 8
   br label %47
 
@@ -694,7 +689,7 @@ PQresultAlloc.exit.i:                             ; preds = %22
 
 47:                                               ; preds = %46, %42
   %48 = load ptr, ptr %33, align 8
-  %49 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8
   %.not42.i = icmp eq ptr %50, null
   br i1 %.not42.i, label %PQmakeEmptyPGresult.exit.thread.sink.split, label %51
@@ -754,9 +749,9 @@ PQsetResultAttrs.exit:                            ; preds = %56, %34, %22, %6
 74:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %75 = load ptr, ptr %63, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv87
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv87
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %78, align 8
@@ -829,7 +824,7 @@ thread-pre-split:                                 ; preds = %90, %92
   %108 = phi i32 [ %103, %.lr.ph84 ], [ %127, %126 ]
   %indvars.iv90 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next91, %126 ]
   %109 = load ptr, ptr %105, align 8
-  %110 = getelementptr inbounds nuw %struct.PGEvent, ptr %109, i64 %indvars.iv90
+  %110 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %indvars.iv90
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %112 = load i8, ptr %111, align 8, !range !6, !noundef !7
   %113 = trunc nuw i8 %112 to i1
@@ -840,7 +835,7 @@ thread-pre-split:                                 ; preds = %90, %92
   store ptr %0, ptr %3, align 8
   store ptr %5, ptr %106, align 8
   %115 = load ptr, ptr %10, align 8
-  %116 = getelementptr inbounds nuw %struct.PGEvent, ptr %115, i64 %indvars.iv90
+  %116 = getelementptr inbounds nuw [40 x i8], ptr %115, i64 %indvars.iv90
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %119 = load ptr, ptr %118, align 8
@@ -850,7 +845,7 @@ thread-pre-split:                                 ; preds = %90, %92
 
 121:                                              ; preds = %114
   %122 = load ptr, ptr %10, align 8
-  %123 = getelementptr inbounds nuw %struct.PGEvent, ptr %122, i64 %indvars.iv90
+  %123 = getelementptr inbounds nuw [40 x i8], ptr %122, i64 %indvars.iv90
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store i8 1, ptr %124, align 8
   br label %125
@@ -934,7 +929,7 @@ check_field_number.exit:                          ; preds = %8
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv
   store i32 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %24, ptr %27, align 8
@@ -1010,7 +1005,7 @@ check_field_number.exit:                          ; preds = %8
   %60 = phi i32 [ %31, %._crit_edge.i66 ], [ %.pre32.i, %51 ]
   %61 = phi ptr [ %.pre.i68, %._crit_edge.i66 ], [ %.024.i, %51 ]
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   store ptr %21, ptr %63, align 8
   %64 = load i32, ptr %0, align 8
   %65 = add i32 %64, 1
@@ -1021,10 +1016,10 @@ check_field_number.exit:                          ; preds = %8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = zext nneg i32 %1 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = zext nneg i32 %2 to i64
-  %73 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %72
   %74 = icmp eq i32 %4, -1
   %75 = icmp eq ptr %3, null
   %or.cond3 = or i1 %75, %74
@@ -1920,14 +1915,14 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr no
 
 33:                                               ; preds = %.lr.ph, %.critedge65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge65 ]
-  %34 = getelementptr inbounds nuw %struct.pgDataValue, ptr %8, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.critedge65, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp ne i32 %41, 0
@@ -1949,7 +1944,7 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr no
 .critedge65:                                      ; preds = %33, %46
   %.sink79 = phi i32 [ %35, %46 ], [ -1, %33 ]
   %.sink = phi ptr [ %45, %46 ], [ %32, %33 ]
-  %51 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %28, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   store i32 %.sink79, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %.sink, ptr %52, align 8
@@ -2027,7 +2022,7 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr no
   %83 = phi i32 [ %53, %._crit_edge.i ], [ %.pre32.i, %74 ]
   %84 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.024.i, %74 ]
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds ptr, ptr %84, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %84, i64 %85
   store ptr %28, ptr %86, align 8
   %87 = load i32, ptr %.055, align 8
   %88 = add i32 %87, 1
@@ -2356,7 +2351,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
 
 .preheader113:                                    ; preds = %.preheader113.preheader, %36
   %indvars.iv = phi i64 [ 0, %.preheader113.preheader ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
   %39 = tail call i32 @pqPutInt(i32 noundef %38, i64 noundef 4, ptr noundef nonnull %0) #28
   %40 = icmp slt i32 %39, 0
@@ -2409,7 +2404,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
 
 .preheader111:                                    ; preds = %.preheader111.preheader, %61
   %indvars.iv126 = phi i64 [ 0, %.preheader111.preheader ], [ %indvars.iv.next127, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv126
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv126
   %63 = load i32, ptr %62, align 4
   %64 = tail call i32 @pqPutInt(i32 noundef %63, i64 noundef 2, ptr noundef nonnull %0) #28
   %65 = icmp slt i32 %64, 0
@@ -2451,7 +2446,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %100
   %indvars.iv131 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next132, %100 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv131
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv131
   %76 = load ptr, ptr %75, align 8
   %.not102 = icmp eq ptr %76, null
   br i1 %.not102, label %97, label %77
@@ -2460,7 +2455,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %57, label %78, label %86
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv131
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv131
   %80 = load i32, ptr %79, align 4
   %.not103 = icmp eq i32 %80, 0
   br i1 %.not103, label %86, label %81
@@ -2469,7 +2464,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %.not104, label %85, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv131
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv131
   %84 = load i32, ptr %83, align 4
   br label %89
 
@@ -2717,7 +2712,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = tail call i32 @pqPutInt(i32 noundef %41, i64 noundef 4, ptr noundef nonnull %0) #28
   %43 = icmp slt i32 %42, 0
@@ -4884,7 +4879,7 @@ define ptr @PQresStatus(i32 noundef %0) local_unnamed_addr #16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @pgresStatus, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @pgresStatus, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -5059,7 +5054,7 @@ check_field_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_field_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   br label %check_field_number.exit.thread
 
@@ -5115,7 +5110,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
 
 21:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %22 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %15, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %23) #29
   %25 = icmp eq i32 %24, 0
@@ -5191,7 +5186,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
 
 47:                                               ; preds = %.lr.ph85, %54
   %indvars.iv91 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next92, %54 ]
-  %48 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %46, i64 %indvars.iv91
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %indvars.iv91
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %49) #29
   %51 = icmp eq i32 %50, 0
@@ -5249,7 +5244,7 @@ check_field_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_field_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   br label %check_field_number.exit.thread
@@ -5286,7 +5281,7 @@ check_field_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_field_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4
   br label %check_field_number.exit.thread
@@ -5323,7 +5318,7 @@ check_field_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_field_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   br label %check_field_number.exit.thread
@@ -5360,7 +5355,7 @@ check_field_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_field_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4
   br label %check_field_number.exit.thread
@@ -5397,7 +5392,7 @@ check_field_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_field_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   br label %check_field_number.exit.thread
@@ -5434,7 +5429,7 @@ check_field_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_field_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %13 = load i32, ptr %12, align 4
   br label %check_field_number.exit.thread
@@ -5623,7 +5618,7 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
   %46 = phi i8 [ %42, %.lr.ph ], [ %53, %51 ]
   %.041 = phi ptr [ %.1, %.lr.ph ], [ %52, %51 ]
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 2048
   %.not36 = icmp eq i16 %50, 0
@@ -5684,10 +5679,10 @@ check_tuple_field_number.exit:                    ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %2 to i64
-  %19 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %check_tuple_field_number.exit.thread
@@ -5733,10 +5728,10 @@ check_tuple_field_number.exit:                    ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %2 to i64
-  %19 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8
   %.not10 = icmp eq i32 %20, -1
   %. = select i1 %.not10, i32 0, i32 %20
@@ -5783,10 +5778,10 @@ check_tuple_field_number.exit:                    ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %2 to i64
-  %19 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, -1
   %. = zext i1 %21 to i32
@@ -5839,7 +5834,7 @@ check_param_number.exit:                          ; preds = %3
 
 9:                                                ; preds = %check_param_number.exit
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.pgresParamDesc, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4
   br label %check_param_number.exit.thread
 

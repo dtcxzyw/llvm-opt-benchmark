@@ -330,7 +330,7 @@ sub_143:                                          ; preds = %88
   br i1 %112, label %118, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw ptr, ptr @DispatchOptionNames, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @DispatchOptionNames, i64 %indvars.iv.i
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull readonly dereferenceable(1) %110) #17
   %117 = icmp eq i32 %116, 0
@@ -457,7 +457,7 @@ define dso_local range(i32 0, 6) i32 @parse_dispatch_option(ptr noundef readonly
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw ptr, ptr @DispatchOptionNames, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @DispatchOptionNames, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #17
   %8 = icmp eq i32 %7, 0

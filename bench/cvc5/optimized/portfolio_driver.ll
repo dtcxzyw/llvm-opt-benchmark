@@ -82,7 +82,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %struct.timespec = type { i64, i64 }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $_ZN4cvc56parser7CommandD2Ev = comdat any
 
@@ -1582,7 +1581,7 @@ _ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_re
   br label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit.i
 
 _ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit.i: ; preds = %226, %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i.i
-  %227 = getelementptr inbounds nuw %"struct.cvc5::main::(anonymous namespace)::PortfolioProcessPool::Job", ptr %203, i64 %201
+  %227 = getelementptr inbounds nuw [64 x i8], ptr %203, i64 %201
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !99
   %.pre110.i = load ptr, ptr %158, align 8, !tbaa !100
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %.pre.i, %.pre110.i
@@ -1699,7 +1698,7 @@ _ZN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobD2Ev.exit.i: ; preds = %241
   br i1 %262, label %263, label %.critedge2.i.loopexit
 
 263:                                              ; preds = %.lr.ph73.i
-  %264 = getelementptr inbounds nuw %"struct.cvc5::main::(anonymous namespace)::PortfolioProcessPool::Job", ptr %.val1570.i, i64 %260
+  %264 = getelementptr inbounds nuw [64 x i8], ptr %.val1570.i, i64 %260
   %265 = load ptr, ptr %258, align 8, !tbaa !22
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load ptr, ptr %266, align 8, !tbaa !50
@@ -21648,7 +21647,7 @@ _ZNSt6vectorIN4cvc54main15PortfolioConfigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt12_Vector_baseIN4cvc54main15PortfolioConfigESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4cvc54main15PortfolioConfigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %50
   store ptr %20, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !69
-  %54 = getelementptr inbounds nuw %"struct.cvc5::main::PortfolioConfig", ptr %20, i64 %16
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %54, ptr %49, align 8, !tbaa !147
   ret void
 }
@@ -21863,7 +21862,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit41, %85
   store ptr %21, ptr %0, align 8, !tbaa !99
   store ptr %.0.lcssa.i.i.i40, ptr %5, align 8, !tbaa !100
-  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %17
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %17
   store ptr %89, ptr %84, align 8, !tbaa !101
   ret void
 
@@ -22139,7 +22138,7 @@ _ZNSt6vectorIN4cvc56parser7CommandESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: 
 _ZNSt12_Vector_baseIN4cvc56parser7CommandESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4cvc56parser7CommandESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !45
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !41
-  %52 = getelementptr inbounds nuw %"class.cvc5::parser::Command", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !44
   ret void
 }

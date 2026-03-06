@@ -74,7 +74,7 @@ define noundef i32 @ossl_blake2s_init(ptr noundef captures(none) initializes((0,
   %8 = shl nuw nsw i64 %.09.i, 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %.val.i = load i32, ptr %9, align 1
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09.i
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %12 = xor i32 %11, %.val.i
   store i32 %12, ptr %10, align 4, !tbaa !10
@@ -103,7 +103,7 @@ define noundef i32 @ossl_blake2s_init_key(ptr noundef captures(none) initializes
   %10 = shl nuw nsw i64 %.09.i, 2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %.val.i = load i32, ptr %11, align 1
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09.i
   %13 = load i32, ptr %12, align 4, !tbaa !10
   %14 = xor i32 %13, %.val.i
   store i32 %14, ptr %12, align 4, !tbaa !10
@@ -1498,10 +1498,10 @@ define internal fastcc void @blake2s_compress(ptr noundef captures(none) %0, ptr
 
 1213:                                             ; preds = %25, %1213
   %.238 = phi i64 [ 0, %25 ], [ %1222, %1213 ]
-  %1214 = getelementptr inbounds nuw i32, ptr %3, i64 %.238
+  %1214 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.238
   %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 32
   %1216 = load i32, ptr %1215, align 4, !tbaa !10
-  %1217 = getelementptr inbounds nuw i32, ptr %0, i64 %.238
+  %1217 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.238
   %1218 = load i32, ptr %1217, align 4, !tbaa !10
   %1219 = xor i32 %1218, %1216
   %1220 = load i32, ptr %1214, align 4, !tbaa !10
@@ -1557,7 +1557,7 @@ define noundef i32 @ossl_blake2s_final(ptr noundef %0, ptr noundef initializes((
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = shl nuw nsw i64 %indvars.iv, 2
   %20 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %19
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !10
   store i32 %22, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

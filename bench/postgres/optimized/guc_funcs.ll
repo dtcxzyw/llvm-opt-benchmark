@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [50 x i8] c"cannot set parameters during a parallel operation\00", align 1
@@ -161,7 +160,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
 .lr.ph108:                                        ; preds = %.lr.ph78, %61
   %indvars.iv83107 = phi i64 [ %indvars.iv.next84, %61 ], [ 0, %.lr.ph78 ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv83107
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv83107
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
@@ -225,7 +224,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
 .lr.ph106:                                        ; preds = %.lr.ph, %102
   %indvars.iv105 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
   %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv105
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv105
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
@@ -678,7 +677,7 @@ define dso_local void @GetPGVariable(ptr noundef %0, ptr noundef %1) local_unnam
 
 21:                                               ; preds = %ConfigOptionIsVisible.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %ConfigOptionIsVisible.exit.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8
@@ -872,7 +871,7 @@ define dso_local i64 @pg_settings_get_flags(ptr noundef captures(none) %0) local
   %23 = ptrtoint ptr %22 to i64
   %24 = add nuw nsw i32 %.018, 1
   %25 = zext nneg i32 %.018 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %2, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %25
   store i64 %23, ptr %26, align 8
   %.pre25 = load i32, ptr %12, align 8
   br label %27
@@ -889,7 +888,7 @@ define dso_local i64 @pg_settings_get_flags(ptr noundef captures(none) %0) local
   %32 = ptrtoint ptr %31 to i64
   %33 = add nuw nsw i32 %.1, 1
   %34 = zext nneg i32 %.1 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %34
   store i64 %32, ptr %35, align 8
   %.pre26 = load i32, ptr %12, align 8
   br label %36
@@ -906,7 +905,7 @@ define dso_local i64 @pg_settings_get_flags(ptr noundef captures(none) %0) local
   %41 = ptrtoint ptr %40 to i64
   %42 = add nuw nsw i32 %.2, 1
   %43 = zext nneg i32 %.2 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %43
   store i64 %41, ptr %44, align 8
   %.pre27 = load i32, ptr %12, align 8
   br label %45
@@ -923,7 +922,7 @@ define dso_local i64 @pg_settings_get_flags(ptr noundef captures(none) %0) local
   %50 = ptrtoint ptr %49 to i64
   %51 = add nuw nsw i32 %.3, 1
   %52 = zext nneg i32 %.3 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %2, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %52
   store i64 %50, ptr %53, align 8
   %.pre28 = load i32, ptr %12, align 8
   br label %54
@@ -940,7 +939,7 @@ define dso_local i64 @pg_settings_get_flags(ptr noundef captures(none) %0) local
   %59 = ptrtoint ptr %58 to i64
   %60 = add nuw nsw i32 %.4, 1
   %61 = zext nneg i32 %.4 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %2, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %61
   store i64 %59, ptr %62, align 8
   br label %63
 
@@ -1130,7 +1129,7 @@ define dso_local i64 @show_all_settings(ptr noundef %0) local_unnamed_addr #0 {
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr @config_group_names, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @config_group_names, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %56, ptr %57, align 8
@@ -1145,21 +1144,21 @@ define dso_local i64 @show_all_settings(ptr noundef %0) local_unnamed_addr #0 {
   %64 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr @GucContext_Names, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @GucContext_Names, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %68, ptr %69, align 16
   %70 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %71 = load i32, ptr %70, align 4
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr @config_type_names, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @config_type_names, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %35, i64 44
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @GucSource_Names, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @GucSource_Names, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %80, ptr %81, align 16

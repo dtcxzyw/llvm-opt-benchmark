@@ -179,10 +179,10 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %98 = and i32 %.5, 1
   %.not281 = icmp eq i32 %98, 0
   %99 = sext i32 %.5 to i64
-  %100 = getelementptr inbounds ptr, ptr @cblas_dgemmt.gemv_thread, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr @cblas_dgemmt.gemv_thread, i64 %99
   %101 = zext nneg i32 %.1263 to i64
   %102 = zext nneg i32 %92 to i64
-  %103 = getelementptr inbounds ptr, ptr @__const.cblas_dgemmt.gemv, i64 %99
+  %103 = getelementptr inbounds [8 x i8], ptr @__const.cblas_dgemmt.gemv, i64 %99
   br i1 %96, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -204,7 +204,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %indvars.iv324 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next325, %.lr.ph.split.us.split.us ]
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %107 = mul nuw nsw i64 %indvars.iv324, %106
-  %108 = getelementptr inbounds nuw double, ptr %12, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %107
   %109 = tail call i32 @dscal_k(i64 noundef %indvars.iv.next325, i64 noundef 0, i64 noundef 0, double noundef %11, ptr noundef %108, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
   %exitcond328.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count327
   br i1 %exitcond328.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !7
@@ -219,10 +219,10 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %112 = fcmp oeq double %6, 0.000000e+00
   %113 = sext i32 %5 to i64
   %114 = sext i32 %.5 to i64
-  %115 = getelementptr inbounds ptr, ptr @cblas_dgemmt.gemv_thread, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr @cblas_dgemmt.gemv_thread, i64 %114
   %116 = zext nneg i32 %.1263 to i64
   %117 = zext nneg i32 %92 to i64
-  %118 = getelementptr inbounds ptr, ptr @__const.cblas_dgemmt.gemv, i64 %114
+  %118 = getelementptr inbounds [8 x i8], ptr @__const.cblas_dgemmt.gemv, i64 %114
   %119 = zext nneg i32 %4 to i64
   %120 = zext nneg i32 %13 to i64
   %wide.trip.count332 = zext nneg i32 %4 to i64
@@ -235,12 +235,12 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %indvars.iv329 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next330, %168 ]
   %124 = sub nsw i64 %119, %indvars.iv329
   %.pn285 = mul nuw nsw i64 %indvars.iv329, %121
-  %.0 = getelementptr inbounds nuw double, ptr %.1259, i64 %.pn285
+  %.0 = getelementptr inbounds nuw [8 x i8], ptr %.1259, i64 %.pn285
   %.pn287 = mul nsw i64 %indvars.iv329, %122
-  %.0235 = getelementptr inbounds double, ptr %.1257, i64 %.pn287
+  %.0235 = getelementptr inbounds [8 x i8], ptr %.1257, i64 %.pn287
   %125 = mul nuw nsw i64 %indvars.iv329, %120
-  %126 = getelementptr inbounds nuw double, ptr %12, i64 %125
-  %127 = getelementptr inbounds nuw double, ptr %126, i64 %indvars.iv329
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %125
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv329
   br i1 %111, label %128, label %130
 
 128:                                              ; preds = %123
@@ -349,9 +349,9 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %209 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %spec.select306 = mul nsw i64 %indvars.iv, %105
-  %.1 = getelementptr inbounds double, ptr %.1257, i64 %spec.select306
+  %.1 = getelementptr inbounds [8 x i8], ptr %.1257, i64 %spec.select306
   %169 = mul nuw nsw i64 %indvars.iv, %104
-  %170 = getelementptr inbounds nuw double, ptr %12, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %169
   br i1 %95, label %171, label %173
 
 171:                                              ; preds = %.lr.ph.split

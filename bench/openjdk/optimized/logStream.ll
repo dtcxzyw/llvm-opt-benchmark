@@ -355,7 +355,7 @@ define linkonce_odr hidden void @_ZN15LogTargetHandle5printEPKcz(ptr noundef non
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -384,7 +384,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN13LogStreamImplI15LogTargetHandleE
   %5 = load i32, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   ret i1 %10
@@ -491,7 +491,7 @@ define linkonce_odr hidden void @_ZN16LogMessageHandle5printEPKcz(ptr noundef no
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %16, label %13
@@ -524,7 +524,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN13LogStreamImplI16LogMessageHandle
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
   ret i1 %12

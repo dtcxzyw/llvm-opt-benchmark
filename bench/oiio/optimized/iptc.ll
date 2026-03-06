@@ -219,7 +219,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_015decode_iptc_iimEPKviRNS0_9Im
 
 68:                                               ; preds = %63, %67
   %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %67 ]
-  %69 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [32 x i8], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv
   %70 = load i32, ptr %69, align 16, !tbaa !17
   %71 = icmp eq i32 %70, %42
   br i1 %71, label %72, label %67
@@ -644,7 +644,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %2, %21
 
 _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit, %212
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIcSaIcEE5clearEv.exit ], [ %indvars.iv.next, %212 ]
-  %43 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [32 x i8], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !21
   store ptr %45, ptr %5, align 8, !tbaa !25

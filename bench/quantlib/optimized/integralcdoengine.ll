@@ -810,7 +810,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %expectedTrancheLoss, align 8, !tbaa !73
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !74
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -932,7 +932,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %expectedTrancheLoss, align 8, !tbaa !73
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !74
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   br label %cleanup
 
@@ -1558,7 +1558,7 @@ if.then.i18.i.i145:                               ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i146: ; preds = %if.then.i18.i.i145, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i142
   store ptr %call5.i.i.i.i.i139151, ptr %expectedTrancheLoss, align 8, !tbaa !73
   store ptr %incdec.ptr.i.i143, ptr %_M_finish.i.i, align 8, !tbaa !74
-  %add.ptr19.i.i147 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i139151, i64 %cond.i.i.i136
+  %add.ptr19.i.i147 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i139151, i64 %cond.i.i.i136
   store ptr %add.ptr19.i.i147, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   br label %invoke.cont143
 

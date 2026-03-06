@@ -51,8 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -530,11 +528,11 @@ define weak_odr dso_local void @_ZN3igl15project_to_lineIN5Eigen5BlockIKNS1_6Mat
   %.054.in79.i.i.i.i = phi i64 [ %.05480.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %29 ]
   %.17378.i.i.i.i = phi <2 x double> [ %39, %.lr.ph.i.i.i.i ], [ %27, %29 ]
   %.07577.i.i.i.i = phi <2 x double> [ %44, %.lr.ph.i.i.i.i ], [ %32, %29 ]
-  %36 = getelementptr inbounds nuw double, ptr %20, i64 %.05480.i.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.05480.i.i.i.i
   %37 = load <2 x double>, ptr %36, align 16, !tbaa !22
   %38 = fmul <2 x double> %37, %37
   %39 = fadd <2 x double> %.17378.i.i.i.i, %38
-  %40 = getelementptr inbounds nuw double, ptr %20, i64 %.054.in79.i.i.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.054.in79.i.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load <2 x double>, ptr %41, align 16, !tbaa !22
   %43 = fmul <2 x double> %42, %42
@@ -544,7 +542,7 @@ define weak_odr dso_local void @_ZN3igl15project_to_lineIN5Eigen5BlockIKNS1_6Mat
   br i1 %45, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !40
 
 46:                                               ; preds = %._crit_edge.i.i.i.i
-  %47 = getelementptr inbounds nuw double, ptr %20, i64 %22
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %48 = load <2 x double>, ptr %47, align 16, !tbaa !22
   %49 = fmul <2 x double> %48, %48
   %50 = fadd <2 x double> %34, %49
@@ -561,7 +559,7 @@ define weak_odr dso_local void @_ZN3igl15project_to_lineIN5Eigen5BlockIKNS1_6Mat
 .lr.ph85.i.i.i.i:                                 ; preds = %51, %.lr.ph85.i.i.i.i
   %.05283.i.i.i.i = phi i64 [ %58, %.lr.ph85.i.i.i.i ], [ %24, %51 ]
   %.182.i.i.i.i = phi double [ %57, %.lr.ph85.i.i.i.i ], [ %52, %51 ]
-  %54 = getelementptr inbounds double, ptr %20, i64 %.05283.i.i.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %20, i64 %.05283.i.i.i.i
   %55 = load double, ptr %54, align 8, !tbaa !8
   %56 = fmul double %55, %55
   %57 = fadd double %.182.i.i.i.i, %56
@@ -978,9 +976,9 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i.i ], [ %25, %._crit_edge.i.i.i.i.i.i.i ]
-  %28 = getelementptr inbounds double, ptr %23, i64 %.05.i.i.i.i.i.i.i.i
-  %29 = getelementptr inbounds double, ptr %16, i64 %.05.i.i.i.i.i.i.i.i
-  %30 = getelementptr inbounds double, ptr %17, i64 %.05.i.i.i.i.i.i.i.i
+  %28 = getelementptr inbounds [8 x i8], ptr %23, i64 %.05.i.i.i.i.i.i.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %16, i64 %.05.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds [8 x i8], ptr %17, i64 %.05.i.i.i.i.i.i.i.i
   %31 = load double, ptr %29, align 8, !tbaa !8
   %32 = load double, ptr %30, align 8, !tbaa !8
   %33 = fsub double %31, %32
@@ -991,10 +989,10 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %21, %.lr.ph.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %21 ]
-  %35 = getelementptr inbounds nuw double, ptr %23, i64 %.011.i.i.i.i.i.i.i
-  %36 = getelementptr inbounds nuw double, ptr %16, i64 %.011.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.011.i.i.i.i.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.011.i.i.i.i.i.i.i
   %37 = load <2 x double>, ptr %36, align 16, !tbaa !22
-  %38 = getelementptr inbounds nuw double, ptr %17, i64 %.011.i.i.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.011.i.i.i.i.i.i.i
   %39 = load <2 x double>, ptr %38, align 16, !tbaa !22
   %40 = fsub <2 x double> %37, %39
   store <2 x double> %40, ptr %35, align 16, !tbaa !22
@@ -1054,11 +1052,11 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20sca
   %.054.in79.i.i.i.i = phi i64 [ %.05480.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %58 ]
   %.17378.i.i.i.i = phi <2 x double> [ %68, %.lr.ph.i.i.i.i ], [ %56, %58 ]
   %.07577.i.i.i.i = phi <2 x double> [ %73, %.lr.ph.i.i.i.i ], [ %61, %58 ]
-  %65 = getelementptr inbounds nuw double, ptr %49, i64 %.05480.i.i.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.05480.i.i.i.i
   %66 = load <2 x double>, ptr %65, align 16, !tbaa !22
   %67 = fmul <2 x double> %66, %66
   %68 = fadd <2 x double> %.17378.i.i.i.i, %67
-  %69 = getelementptr inbounds nuw double, ptr %49, i64 %.054.in79.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.054.in79.i.i.i.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %71 = load <2 x double>, ptr %70, align 16, !tbaa !22
   %72 = fmul <2 x double> %71, %71
@@ -1068,7 +1066,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20sca
   br i1 %74, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !62
 
 75:                                               ; preds = %._crit_edge.i.i.i.i
-  %76 = getelementptr inbounds nuw double, ptr %49, i64 %51
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   %77 = load <2 x double>, ptr %76, align 16, !tbaa !22
   %78 = fmul <2 x double> %77, %77
   %79 = fadd <2 x double> %63, %78
@@ -1085,7 +1083,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20sca
 .lr.ph85.i.i.i.i:                                 ; preds = %80, %.lr.ph85.i.i.i.i
   %.05283.i.i.i.i = phi i64 [ %87, %.lr.ph85.i.i.i.i ], [ %53, %80 ]
   %.182.i.i.i.i = phi double [ %86, %.lr.ph85.i.i.i.i ], [ %81, %80 ]
-  %83 = getelementptr inbounds double, ptr %49, i64 %.05283.i.i.i.i
+  %83 = getelementptr inbounds [8 x i8], ptr %49, i64 %.05283.i.i.i.i
   %84 = load double, ptr %83, align 8, !tbaa !8
   %85 = fmul double %84, %84
   %86 = fadd double %.182.i.i.i.i, %85
@@ -1243,7 +1241,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
 55:                                               ; preds = %.lr.ph, %_ZZN3igl12parallel_forIiZNS_15project_to_lineIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS3_IfLi1ELi3ELi1ELi1ELi3EEES5_NS3_IdLi1ELi1ELi0ELi1ELi1EEES6_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS2_15PlainObjectBaseIT2_EERNSK_IT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZZN3igl12parallel_forIiZNS_15project_to_lineIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS3_IfLi1ELi3ELi1ELi1ELi3EEES5_NS3_IdLi1ELi1ELi0ELi1ELi1EEES6_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS2_15PlainObjectBaseIT2_EERNSK_IT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit ]
   %56 = mul nsw i64 %25, %indvars.iv
-  %57 = getelementptr inbounds float, ptr %23, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %23, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !4
   %59 = fsub float %28, %58
   %60 = getelementptr i8, ptr %57, i64 4
@@ -1261,7 +1259,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %72 = fpext float %71 to double
   %73 = load double, ptr %41, align 8, !tbaa !8
   %74 = fdiv double %72, %73
-  %75 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   store double %74, ptr %75, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %76 = fsub double 1.000000e+00, %74
@@ -1285,9 +1283,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
 90:                                               ; preds = %90, %55
   %.077.i.i.i.i.i.i = phi i64 [ 1, %55 ], [ %98, %90 ]
   %.376.i.i.i.i.i.i = phi float [ %89, %55 ], [ %97, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %57, i64 %.077.i.i.i.i.i.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.077.i.i.i.i.i.i
   %92 = load float, ptr %91, align 4, !tbaa !4
-  %93 = getelementptr inbounds nuw float, ptr %6, i64 %.077.i.i.i.i.i.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.077.i.i.i.i.i.i
   %94 = load float, ptr %93, align 4, !tbaa !4
   %95 = fsub float %92, %94
   %96 = fmul float %95, %95
@@ -1298,7 +1296,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
 
 _ZZN3igl12parallel_forIiZNS_15project_to_lineIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS3_IfLi1ELi3ELi1ELi1ELi3EEES5_NS3_IdLi1ELi1ELi0ELi1ELi1EEES6_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS2_15PlainObjectBaseIT2_EERNSK_IT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit: ; preds = %90
   %99 = fpext float %97 to double
-  %100 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   store double %99, ptr %100, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1326,7 +1324,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %14
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %110, ptr %9, align 8, !tbaa !91
   store ptr %110, ptr %108, align 8, !tbaa !94
-  %111 = getelementptr inbounds nuw %"class.std::thread", ptr %110, i64 %16
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %16
   store ptr %111, ptr %107, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !70
@@ -1819,7 +1817,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -1931,7 +1929,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
 45:                                               ; preds = %_ZZN3igl12parallel_forIiZNS_15project_to_lineIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS3_IfLi1ELi3ELi1ELi1ELi3EEES5_NS3_IdLi1ELi1ELi0ELi1ELi1EEES6_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS2_15PlainObjectBaseIT2_EERNSK_IT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %44, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZZN3igl12parallel_forIiZNS_15project_to_lineIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS3_IfLi1ELi3ELi1ELi1ELi3EEES5_NS3_IdLi1ELi1ELi0ELi1ELi1EEES6_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS2_15PlainObjectBaseIT2_EERNSK_IT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit.i ]
   %46 = mul nsw i64 %indvars.iv.i, %14
-  %47 = getelementptr inbounds float, ptr %12, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %12, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !4
   %49 = fsub float %17, %48
   %50 = getelementptr i8, ptr %47, i64 4
@@ -1949,7 +1947,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %62 = fpext float %61 to double
   %63 = load double, ptr %30, align 8, !tbaa !8
   %64 = fdiv double %62, %63
-  %65 = getelementptr inbounds double, ptr %32, i64 %indvars.iv.i
+  %65 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv.i
   store double %64, ptr %65, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %66 = fsub double 1.000000e+00, %64
@@ -1973,9 +1971,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
 80:                                               ; preds = %80, %45
   %.077.i.i.i.i.i.i.i = phi i64 [ 1, %45 ], [ %88, %80 ]
   %.376.i.i.i.i.i.i.i = phi float [ %79, %45 ], [ %87, %80 ]
-  %81 = getelementptr inbounds nuw float, ptr %47, i64 %.077.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.077.i.i.i.i.i.i.i
   %82 = load float, ptr %81, align 4, !tbaa !4
-  %83 = getelementptr inbounds nuw float, ptr %5, i64 %.077.i.i.i.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.077.i.i.i.i.i.i.i
   %84 = load float, ptr %83, align 4, !tbaa !4
   %85 = fsub float %82, %84
   %86 = fmul float %85, %85
@@ -1986,7 +1984,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
 
 _ZZN3igl12parallel_forIiZNS_15project_to_lineIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS3_IfLi1ELi3ELi1ELi1ELi3EEES5_NS3_IdLi1ELi1ELi0ELi1ELi1EEES6_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS2_15PlainObjectBaseIT2_EERNSK_IT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit.i: ; preds = %80
   %89 = fpext float %87 to double
-  %90 = getelementptr inbounds double, ptr %43, i64 %indvars.iv.i
+  %90 = getelementptr inbounds [8 x i8], ptr %43, i64 %indvars.iv.i
   store double %89, ptr %90, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -2133,7 +2131,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -2222,7 +2220,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %41 = mul nsw i64 %24, %indvars.iv
-  %42 = getelementptr inbounds double, ptr %22, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %22, i64 %41
   %43 = load <2 x double>, ptr %26, align 1, !tbaa !22
   %44 = load <2 x double>, ptr %42, align 1, !tbaa !22
   %45 = fsub <2 x double> %43, %44
@@ -2241,7 +2239,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %56 = fneg double %55
   %57 = load double, ptr %32, align 8, !tbaa !8
   %58 = fdiv double %56, %57
-  %59 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store double %58, ptr %59, align 8, !tbaa !8
   %60 = fsub double 1.000000e+00, %58
   %.sroa.3.16.vec.insert.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %60, i64 0
@@ -2268,7 +2266,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %78 = fsub double %77, %72
   %79 = fmul double %78, %78
   %80 = fadd double %79, %76
-  %81 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   store double %80, ptr %81, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2295,7 +2293,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %91, ptr %8, align 8, !tbaa !91
   store ptr %91, ptr %89, align 8, !tbaa !94
-  %92 = getelementptr inbounds nuw %"class.std::thread", ptr %91, i64 %15
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %15
   store ptr %92, ptr %88, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !70
@@ -2732,7 +2730,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -2815,7 +2813,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
 30:                                               ; preds = %30, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %29, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %30 ]
   %31 = mul nsw i64 %indvars.iv.i.i.i.i.i, %13
-  %32 = getelementptr inbounds double, ptr %11, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %11, i64 %31
   %33 = load <2 x double>, ptr %15, align 1, !tbaa !22
   %34 = load <2 x double>, ptr %32, align 1, !tbaa !22
   %35 = fsub <2 x double> %33, %34
@@ -2834,7 +2832,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %46 = fneg double %45
   %47 = load double, ptr %21, align 8, !tbaa !8
   %48 = fdiv double %46, %47
-  %49 = getelementptr inbounds double, ptr %23, i64 %indvars.iv.i.i.i.i.i
+  %49 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv.i.i.i.i.i
   store double %48, ptr %49, align 8, !tbaa !8
   %50 = fsub double 1.000000e+00, %48
   %.sroa.3.16.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %50, i64 0
@@ -2861,7 +2859,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %68 = fsub double %67, %62
   %69 = fmul double %68, %68
   %70 = fadd double %69, %66
-  %71 = getelementptr inbounds double, ptr %28, i64 %indvars.iv.i.i.i.i.i
+  %71 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv.i.i.i.i.i
   store double %70, ptr %71, align 8, !tbaa !8
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
@@ -3003,7 +3001,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -3119,7 +3117,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %65 = fpext float %64 to double
   %66 = load double, ptr %37, align 8, !tbaa !8
   %67 = fdiv double %65, %66
-  %68 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   store double %67, ptr %68, align 8, !tbaa !8
   %69 = fsub double 1.000000e+00, %67
   %70 = fptrunc double %69 to float
@@ -3142,7 +3140,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %87 = fadd float %84, %86
   %88 = fadd float %82, %87
   %89 = fpext float %88 to double
-  %90 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   store double %89, ptr %90, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3169,7 +3167,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %100, ptr %8, align 8, !tbaa !91
   store ptr %100, ptr %98, align 8, !tbaa !94
-  %101 = getelementptr inbounds nuw %"class.std::thread", ptr %100, i64 %15
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %15
   store ptr %101, ptr %97, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !70
@@ -3606,7 +3604,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -3723,7 +3721,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %55 = fpext float %54 to double
   %56 = load double, ptr %26, align 8, !tbaa !8
   %57 = fdiv double %55, %56
-  %58 = getelementptr inbounds double, ptr %28, i64 %indvars.iv.i
+  %58 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv.i
   store double %57, ptr %58, align 8, !tbaa !8
   %59 = fsub double 1.000000e+00, %57
   %60 = fptrunc double %59 to float
@@ -3746,7 +3744,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %77 = fadd float %74, %76
   %78 = fadd float %72, %77
   %79 = fpext float %78 to double
-  %80 = getelementptr inbounds double, ptr %37, i64 %indvars.iv.i
+  %80 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv.i
   store double %79, ptr %80, align 8, !tbaa !8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3888,7 +3886,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -3987,9 +3985,9 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %._crit_edge.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i ], [ %25, %._crit_edge.i.i.i.i.i ]
-  %28 = getelementptr inbounds double, ptr %23, i64 %.05.i.i.i.i.i.i
-  %29 = getelementptr inbounds double, ptr %14, i64 %.05.i.i.i.i.i.i
-  %30 = getelementptr inbounds double, ptr %16, i64 %.05.i.i.i.i.i.i
+  %28 = getelementptr inbounds [8 x i8], ptr %23, i64 %.05.i.i.i.i.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %14, i64 %.05.i.i.i.i.i.i
+  %30 = getelementptr inbounds [8 x i8], ptr %16, i64 %.05.i.i.i.i.i.i
   %31 = load double, ptr %29, align 8, !tbaa !8
   %32 = load double, ptr %30, align 8, !tbaa !8
   %33 = fsub double %31, %32
@@ -4000,10 +3998,10 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %.lr.ph.i.i.i.i.i
   %.011.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i ], [ 0, %21 ]
-  %35 = getelementptr inbounds nuw double, ptr %23, i64 %.011.i.i.i.i.i
-  %36 = getelementptr inbounds nuw double, ptr %14, i64 %.011.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.011.i.i.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.011.i.i.i.i.i
   %37 = load <2 x double>, ptr %36, align 16, !tbaa !22
-  %38 = getelementptr inbounds nuw double, ptr %16, i64 %.011.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.011.i.i.i.i.i
   %39 = load <2 x double>, ptr %38, align 16, !tbaa !22
   %40 = fsub <2 x double> %37, %39
   store <2 x double> %40, ptr %35, align 16, !tbaa !22
@@ -4150,7 +4148,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %31, ptr %8, align 8, !tbaa !91
   store ptr %31, ptr %29, align 8, !tbaa !94
-  %32 = getelementptr inbounds nuw %"class.std::thread", ptr %31, i64 %15
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %15
   store ptr %32, ptr %28, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !70
@@ -4462,7 +4460,7 @@ define linkonce_odr dso_local void @_ZZN3igl15project_to_lineIN5Eigen5BlockIKNS1
   %5 = load ptr, ptr %0, align 8, !tbaa !223
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !225, !noalias !227
-  %8 = getelementptr inbounds double, ptr %7, i64 %6
+  %8 = getelementptr inbounds [8 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !29, !noalias !227
   %.sroa.12.24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -4517,10 +4515,10 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %24, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i.i.i.i ], [ 0, %24 ]
-  %28 = getelementptr inbounds nuw double, ptr %26, i64 %.05.i.i.i.i.i.i
-  %29 = getelementptr inbounds nuw double, ptr %19, i64 %.05.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.05.i.i.i.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.05.i.i.i.i.i.i
   %30 = mul nsw i64 %.05.i.i.i.i.i.i, %21
-  %31 = getelementptr inbounds double, ptr %8, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %8, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !8
   %33 = load double, ptr %29, align 8, !tbaa !8
   %34 = fsub double %33, %32
@@ -4584,16 +4582,16 @@ common.resume:                                    ; preds = %.body, %36
   %.054.in79.i.i.i = phi i64 [ %.05480.i.i.i, %.lr.ph.i.i.i ], [ 0, %52 ]
   %.17378.i.i.i = phi <2 x double> [ %66, %.lr.ph.i.i.i ], [ %50, %52 ]
   %.07577.i.i.i = phi <2 x double> [ %73, %.lr.ph.i.i.i ], [ %57, %52 ]
-  %61 = getelementptr inbounds nuw double, ptr %42, i64 %.05480.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.05480.i.i.i
   %62 = load <2 x double>, ptr %61, align 16, !tbaa !22
-  %63 = getelementptr inbounds nuw double, ptr %26, i64 %.05480.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.05480.i.i.i
   %64 = load <2 x double>, ptr %63, align 16, !tbaa !22
   %65 = fmul <2 x double> %62, %64
   %66 = fadd <2 x double> %.17378.i.i.i, %65
   %67 = add nuw nsw i64 %.054.in79.i.i.i, 6
-  %68 = getelementptr inbounds nuw double, ptr %42, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %67
   %69 = load <2 x double>, ptr %68, align 16, !tbaa !22
-  %70 = getelementptr inbounds nuw double, ptr %26, i64 %67
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %67
   %71 = load <2 x double>, ptr %70, align 16, !tbaa !22
   %72 = fmul <2 x double> %69, %71
   %73 = fadd <2 x double> %.07577.i.i.i, %72
@@ -4602,9 +4600,9 @@ common.resume:                                    ; preds = %.body, %36
   br i1 %74, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !233
 
 75:                                               ; preds = %._crit_edge.i.i.i
-  %76 = getelementptr inbounds nuw double, ptr %42, i64 %44
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   %77 = load <2 x double>, ptr %76, align 16, !tbaa !22
-  %78 = getelementptr inbounds nuw double, ptr %26, i64 %44
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %44
   %79 = load <2 x double>, ptr %78, align 16, !tbaa !22
   %80 = fmul <2 x double> %77, %79
   %81 = fadd <2 x double> %59, %80
@@ -4621,8 +4619,8 @@ common.resume:                                    ; preds = %.body, %36
 .lr.ph85.i.i.i:                                   ; preds = %82, %.lr.ph85.i.i.i
   %.05283.i.i.i = phi i64 [ %91, %.lr.ph85.i.i.i ], [ %46, %82 ]
   %.182.i.i.i = phi double [ %90, %.lr.ph85.i.i.i ], [ %83, %82 ]
-  %85 = getelementptr inbounds double, ptr %42, i64 %.05283.i.i.i
-  %86 = getelementptr inbounds double, ptr %26, i64 %.05283.i.i.i
+  %85 = getelementptr inbounds [8 x i8], ptr %42, i64 %.05283.i.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %26, i64 %.05283.i.i.i
   %87 = load double, ptr %85, align 8, !tbaa !8
   %88 = load double, ptr %86, align 8, !tbaa !8
   %89 = fmul double %87, %88
@@ -4645,7 +4643,7 @@ common.resume:                                    ; preds = %.body, %36
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !236
   %101 = load ptr, ptr %100, align 8, !tbaa !51
-  %102 = getelementptr inbounds double, ptr %101, i64 %6
+  %102 = getelementptr inbounds [8 x i8], ptr %101, i64 %6
   %103 = fneg double %.0.i
   %104 = fdiv double %103, %98
   store double %104, ptr %102, align 8, !tbaa !8
@@ -4716,11 +4714,11 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %139, %.lr.ph.i.i.i.i.i.i.i.i ], [ %126, %._crit_edge.i.i.i.i.i.i.i ]
-  %131 = getelementptr inbounds double, ptr %124, i64 %.05.i.i.i.i.i.i.i.i
-  %132 = getelementptr inbounds double, ptr %117, i64 %.05.i.i.i.i.i.i.i.i
+  %131 = getelementptr inbounds [8 x i8], ptr %124, i64 %.05.i.i.i.i.i.i.i.i
+  %132 = getelementptr inbounds [8 x i8], ptr %117, i64 %.05.i.i.i.i.i.i.i.i
   %133 = load double, ptr %132, align 8, !tbaa !8
   %134 = fmul double %105, %133
-  %135 = getelementptr inbounds double, ptr %118, i64 %.05.i.i.i.i.i.i.i.i
+  %135 = getelementptr inbounds [8 x i8], ptr %118, i64 %.05.i.i.i.i.i.i.i.i
   %136 = load double, ptr %135, align 8, !tbaa !8
   %137 = fmul double %104, %136
   %138 = fadd double %134, %137
@@ -4731,11 +4729,11 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ %148, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i.i ]
-  %140 = getelementptr inbounds nuw double, ptr %124, i64 %.011.i.i.i.i.i.i.i
-  %141 = getelementptr inbounds nuw double, ptr %117, i64 %.011.i.i.i.i.i.i.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %.011.i.i.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.011.i.i.i.i.i.i.i
   %142 = load <2 x double>, ptr %141, align 16, !tbaa !22
   %143 = fmul <2 x double> %128, %142
-  %144 = getelementptr inbounds nuw double, ptr %118, i64 %.011.i.i.i.i.i.i.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.011.i.i.i.i.i.i.i
   %145 = load <2 x double>, ptr %144, align 16, !tbaa !22
   %146 = fmul <2 x double> %129, %145
   %147 = fadd <2 x double> %143, %146
@@ -4774,9 +4772,9 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   %.01724.i.i.i.i = phi i64 [ %170, %.lr.ph.i.i.i.i ], [ 1, %155 ]
   %.02223.i.i.i.i = phi double [ %169, %.lr.ph.i.i.i.i ], [ %160, %155 ]
   %162 = mul nsw i64 %.01724.i.i.i.i, %156
-  %163 = getelementptr double, ptr %8, i64 %162
+  %163 = getelementptr [8 x i8], ptr %8, i64 %162
   %164 = load double, ptr %163, align 8, !tbaa !8
-  %165 = getelementptr double, ptr %.pre, i64 %.01724.i.i.i.i
+  %165 = getelementptr [8 x i8], ptr %.pre, i64 %.01724.i.i.i.i
   %166 = load double, ptr %165, align 8, !tbaa !8
   %167 = fsub double %164, %166
   %168 = fmul double %167, %167
@@ -4790,7 +4788,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %172 = load ptr, ptr %171, align 8, !tbaa !241
   %173 = load ptr, ptr %172, align 8, !tbaa !51
-  %174 = getelementptr inbounds double, ptr %173, i64 %6
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %6
   store double %.0.i.i, ptr %174, align 8, !tbaa !8
   call void @free(ptr noundef %.pre) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4932,7 +4930,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -5131,7 +5129,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -5222,7 +5220,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %.sroa.9.24.copyload.i.i = load ptr, ptr %.sroa.9.24..sroa_idx.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.24.copyload.i.i, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !280
@@ -5230,7 +5228,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %43 = load double, ptr %24, align 8, !tbaa !8
   %44 = fsub double %43, %42
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x double> poison, double %44, i64 0
-  %45 = getelementptr inbounds double, ptr %39, i64 %41
+  %45 = getelementptr inbounds [8 x i8], ptr %39, i64 %41
   %46 = load double, ptr %45, align 8, !tbaa !8
   %47 = load double, ptr %25, align 8, !tbaa !8
   %48 = fsub double %47, %46
@@ -5243,7 +5241,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %52 = fneg double %51
   %53 = load double, ptr %29, align 8, !tbaa !8
   %54 = fdiv double %52, %53
-  %55 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   store double %54, ptr %55, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.214.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.516.i.i)
@@ -5278,7 +5276,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %72 = fsub double %71, %.sroa.0.8.vec.extract.i.i
   %73 = fmul double %72, %72
   %74 = fadd double %70, %73
-  %75 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store double %74, ptr %75, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5305,7 +5303,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %85, ptr %8, align 8, !tbaa !91
   store ptr %85, ptr %83, align 8, !tbaa !94
-  %86 = getelementptr inbounds nuw %"class.std::thread", ptr %85, i64 %15
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %15
   store ptr %86, ptr %82, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !70
@@ -5742,7 +5740,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -5827,7 +5825,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
 
 28:                                               ; preds = %28, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %28 ]
-  %29 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.i.i.i.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv.i.i.i.i.i
   %.sroa.9.24.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.9.24..sroa_idx.i.i.i.i.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.9.24.copyload.i.i.i.i.i.i.i, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !280
@@ -5835,7 +5833,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %33 = load double, ptr %13, align 8, !tbaa !8
   %34 = fsub double %33, %32
   %.sroa.0.0.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %34, i64 0
-  %35 = getelementptr inbounds double, ptr %29, i64 %31
+  %35 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   %36 = load double, ptr %35, align 8, !tbaa !8
   %37 = load double, ptr %14, align 8, !tbaa !8
   %38 = fsub double %37, %36
@@ -5848,7 +5846,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %42 = fneg double %41
   %43 = load double, ptr %18, align 8, !tbaa !8
   %44 = fdiv double %42, %43
-  %45 = getelementptr inbounds double, ptr %21, i64 %indvars.iv.i.i.i.i.i
+  %45 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv.i.i.i.i.i
   store double %44, ptr %45, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.214.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.516.i.i.i.i.i.i.i)
@@ -5883,7 +5881,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %62 = fsub double %61, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i
   %63 = fmul double %62, %62
   %64 = fadd double %60, %63
-  %65 = getelementptr inbounds double, ptr %26, i64 %indvars.iv.i.i.i.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv.i.i.i.i.i
   store double %64, ptr %65, align 8, !tbaa !8
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
@@ -6025,7 +6023,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -6124,7 +6122,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %42 = fneg double %41
   %43 = load double, ptr %27, align 8, !tbaa !8
   %44 = fdiv double %42, %43
-  %45 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store double %44, ptr %45, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.214.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.515.i.i)
@@ -6156,7 +6154,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %shift80 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop81 = fadd <2 x double> %60, %shift80
   %61 = extractelement <2 x double> %foldExtExtBinop81, i64 0
-  %62 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store double %61, ptr %62, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6183,7 +6181,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %72, ptr %8, align 8, !tbaa !91
   store ptr %72, ptr %70, align 8, !tbaa !94
-  %73 = getelementptr inbounds nuw %"class.std::thread", ptr %72, i64 %15
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %15
   store ptr %73, ptr %69, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !70
@@ -6620,7 +6618,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -6713,7 +6711,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %32 = fneg double %31
   %33 = load double, ptr %16, align 8, !tbaa !8
   %34 = fdiv double %32, %33
-  %35 = getelementptr inbounds double, ptr %18, i64 %indvars.iv.i.i.i.i.i
+  %35 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv.i.i.i.i.i
   store double %34, ptr %35, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.214.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.515.i.i.i.i.i.i.i)
@@ -6745,7 +6743,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %shift3 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop4 = fadd <2 x double> %50, %shift3
   %51 = extractelement <2 x double> %foldExtExtBinop4, i64 0
-  %52 = getelementptr inbounds double, ptr %22, i64 %indvars.iv.i.i.i.i.i
+  %52 = getelementptr inbounds [8 x i8], ptr %22, i64 %indvars.iv.i.i.i.i.i
   store double %51, ptr %52, align 8, !tbaa !8
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
@@ -6887,7 +6885,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -6992,7 +6990,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %52 = fneg double %51
   %53 = load double, ptr %29, align 8, !tbaa !8
   %54 = fdiv double %52, %53
-  %55 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store double %54, ptr %55, align 8, !tbaa !8
   %56 = fsub double 1.000000e+00, %54
   %.sroa.3.16.vec.insert.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %56, i64 0
@@ -7019,7 +7017,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %74 = fsub double %73, %68
   %75 = fmul double %74, %74
   %76 = fadd double %75, %72
-  %77 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store double %76, ptr %77, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7046,7 +7044,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %87, ptr %8, align 8, !tbaa !91
   store ptr %87, ptr %85, align 8, !tbaa !94
-  %88 = getelementptr inbounds nuw %"class.std::thread", ptr %87, i64 %15
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %15
   store ptr %88, ptr %84, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !70
@@ -7483,7 +7481,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -7582,7 +7580,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %42 = fneg double %41
   %43 = load double, ptr %18, align 8, !tbaa !8
   %44 = fdiv double %42, %43
-  %45 = getelementptr inbounds double, ptr %20, i64 %indvars.iv.i.i.i.i.i
+  %45 = getelementptr inbounds [8 x i8], ptr %20, i64 %indvars.iv.i.i.i.i.i
   store double %44, ptr %45, align 8, !tbaa !8
   %46 = fsub double 1.000000e+00, %44
   %.sroa.3.16.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %46, i64 0
@@ -7609,7 +7607,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %64 = fsub double %63, %58
   %65 = fmul double %64, %64
   %66 = fadd double %65, %62
-  %67 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.i.i.i.i.i
+  %67 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv.i.i.i.i.i
   store double %66, ptr %67, align 8, !tbaa !8
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
@@ -7751,7 +7749,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -7842,7 +7840,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %31, ptr %8, align 8, !tbaa !91
   store ptr %31, ptr %29, align 8, !tbaa !94
-  %32 = getelementptr inbounds nuw %"class.std::thread", ptr %31, i64 %15
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %15
   store ptr %32, ptr %28, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !70
@@ -8153,7 +8151,7 @@ define linkonce_odr dso_local void @_ZZN3igl15project_to_lineIN5Eigen6MatrixIdLi
   %4 = load ptr, ptr %0, align 8, !tbaa !398
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !400, !noalias !401
-  %7 = getelementptr inbounds double, ptr %6, i64 %5
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !404
   %10 = load ptr, ptr %9, align 8, !tbaa !51
@@ -8170,7 +8168,7 @@ define linkonce_odr dso_local void @_ZZN3igl15project_to_lineIN5Eigen6MatrixIdLi
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !407
   %23 = load ptr, ptr %22, align 8, !tbaa !51
-  %24 = getelementptr inbounds double, ptr %23, i64 %5
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %5
   %25 = fneg double %13
   %26 = fmul double %17, %25
   %27 = fdiv double %26, %20
@@ -8231,11 +8229,11 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %57, %.lr.ph.i.i.i.i.i.i.i.i ], [ %44, %._crit_edge.i.i.i.i.i.i.i ]
-  %49 = getelementptr inbounds double, ptr %42, i64 %.05.i.i.i.i.i.i.i.i
-  %50 = getelementptr inbounds double, ptr %35, i64 %.05.i.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds [8 x i8], ptr %42, i64 %.05.i.i.i.i.i.i.i.i
+  %50 = getelementptr inbounds [8 x i8], ptr %35, i64 %.05.i.i.i.i.i.i.i.i
   %51 = load double, ptr %50, align 8, !tbaa !8
   %52 = fmul double %28, %51
-  %53 = getelementptr inbounds double, ptr %36, i64 %.05.i.i.i.i.i.i.i.i
+  %53 = getelementptr inbounds [8 x i8], ptr %36, i64 %.05.i.i.i.i.i.i.i.i
   %54 = load double, ptr %53, align 8, !tbaa !8
   %55 = fmul double %27, %54
   %56 = fadd double %52, %55
@@ -8246,11 +8244,11 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ %66, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i.i ]
-  %58 = getelementptr inbounds nuw double, ptr %42, i64 %.011.i.i.i.i.i.i.i
-  %59 = getelementptr inbounds nuw double, ptr %35, i64 %.011.i.i.i.i.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.011.i.i.i.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.011.i.i.i.i.i.i.i
   %60 = load <2 x double>, ptr %59, align 16, !tbaa !22
   %61 = fmul <2 x double> %46, %60
-  %62 = getelementptr inbounds nuw double, ptr %36, i64 %.011.i.i.i.i.i.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.011.i.i.i.i.i.i.i
   %63 = load <2 x double>, ptr %62, align 16, !tbaa !22
   %64 = fmul <2 x double> %47, %63
   %65 = fadd <2 x double> %61, %64
@@ -8268,7 +8266,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !411
   %75 = load ptr, ptr %74, align 8, !tbaa !51
-  %76 = getelementptr inbounds double, ptr %75, i64 %5
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %5
   store double %72, ptr %76, align 8, !tbaa !8
   call void @free(ptr noundef %68) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -8407,7 +8405,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 
@@ -8609,7 +8607,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !94
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !95
   ret void
 

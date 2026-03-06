@@ -13178,7 +13178,7 @@ _ZNSt12_Vector_baseIN4cvc54SortESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorI
   store ptr %8, ptr %0, align 8, !tbaa !225
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !222
-  %10 = getelementptr inbounds nuw %"class.cvc5::Sort", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !226
   br label %.lr.ph.i.i.i.i
@@ -17817,11 +17817,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %24, 
 37:                                               ; preds = %34, %35
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.28, i64 noundef 1)
   %39 = load ptr, ptr %13, align 8, !tbaa !110
-  %40 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %39, i64 %.01011
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %.01011
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc5lsERSoRKNS_4TermE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %40)
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull @.str.51, i64 noundef 1)
   %43 = load ptr, ptr %5, align 8, !tbaa !110
-  %44 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %43, i64 %.01011
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %.01011
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc5lsERSoRKNS_4TermE(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(24) %44)
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.29, i64 noundef 1)
   %47 = add nuw i64 %.01011, 1
@@ -18201,7 +18201,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 112:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %113 = load ptr, ptr %8, align 8, !tbaa !309
-  %114 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %113, i64 %.040142
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %.040142
   store ptr %92, ptr %13, align 8, !tbaa !41
   %115 = load ptr, ptr %114, align 8, !tbaa !20
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
@@ -18299,7 +18299,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, %143, %146
   %148 = load ptr, ptr %9, align 8, !tbaa !110
-  %149 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %148, i64 %.040142
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %148, i64 %.040142
   %150 = load ptr, ptr %149, align 8, !tbaa !92
   store ptr %150, ptr %99, align 8, !tbaa !92
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 8
@@ -37611,7 +37611,7 @@ _ZSt22__uninitialized_move_aIPN4cvc54TermES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopex
 
 _ZSt22__uninitialized_move_aIPN4cvc54TermES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN4cvc54TermES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, %80
   %99 = phi ptr [ %.pre160, %_ZSt22__uninitialized_move_aIPN4cvc54TermES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %70, %80 ]
-  %100 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %99, i64 %19
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %19
   store ptr %100, ptr %69, align 8, !tbaa !114
   %101 = ptrtoint ptr %81 to i64
   %102 = sub i64 %101, %76
@@ -37993,7 +37993,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i87: ; preds = %257, %
 _ZN4cvc54Term14const_iteratorD2Ev.exit89:         ; preds = %_ZN4cvc54Term14const_iteratorD2Ev.exit84, %245, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i87, %260
   %261 = sub i64 %19, %78
   %262 = load ptr, ptr %69, align 8, !tbaa !114
-  %263 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %262, i64 %261
+  %263 = getelementptr inbounds nuw [24 x i8], ptr %262, i64 %261
   store ptr %263, ptr %69, align 8, !tbaa !114
   br i1 %.not1.i.i, label %_ZSt22__uninitialized_move_aIPN4cvc54TermES2_SaIS1_EET0_T_S5_S4_RT1_.exit99, label %.lr.ph.i.i.i.i.i91
 
@@ -38507,7 +38507,7 @@ _ZSt8_DestroyIPN4cvc54TermES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_Z
 _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc54TermES1_EvT_S3_RSaIT0_E.exit, %468
   store ptr %382, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i.i.i142, ptr %69, align 8, !tbaa !114
-  %472 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %382, i64 %378
+  %472 = getelementptr inbounds nuw [24 x i8], ptr %382, i64 %378
   store ptr %472, ptr %67, align 8, !tbaa !113
   br label %_ZN4cvc54Term14const_iteratorD2Ev.exit79
 
@@ -40365,7 +40365,7 @@ _ZNSt6vectorIN4cvc54TermESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25: ; preds = 
 _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4cvc54TermESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, %73
   store ptr %20, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !114
-  %77 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %20, i64 %16
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %77, ptr %72, align 8, !tbaa !113
   ret void
 }
@@ -40551,7 +40551,7 @@ _ZNSt6vectorIS_IN4cvc54TermESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33:
 _ZNSt12_Vector_baseISt6vectorIN4cvc54TermESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN4cvc54TermESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %76
   store ptr %20, ptr %0, align 8, !tbaa !274
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !270
-  %80 = getelementptr inbounds nuw %"class.std::vector.245", ptr %20, i64 %16
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %80, ptr %75, align 8, !tbaa !273
   ret void
 
@@ -40829,7 +40829,7 @@ _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE11_S_relocat
 _ZNSt12_Vector_baseISt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !284
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !287
-  %53 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !288
   ret void
 }
@@ -41026,7 +41026,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !309
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !305
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !308
   ret void
 
@@ -41226,7 +41226,7 @@ _ZNSt6vectorIN4cvc54TermESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25: ; preds = 
 _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4cvc54TermESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, %73
   store ptr %20, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !114
-  %77 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %20, i64 %16
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %77, ptr %72, align 8, !tbaa !113
   ret void
 }
@@ -41404,7 +41404,7 @@ _ZNSt6vectorIN4cvc54SortESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25: ; preds = 
 _ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4cvc54SortESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, %73
   store ptr %20, ptr %0, align 8, !tbaa !225
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !222
-  %77 = getelementptr inbounds nuw %"class.cvc5::Sort", ptr %20, i64 %16
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %77, ptr %72, align 8, !tbaa !226
   ret void
 }

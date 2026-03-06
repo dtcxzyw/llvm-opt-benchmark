@@ -51,7 +51,7 @@ define range(i32 -22, 1) i32 @ff_affine_transform(ptr noundef %0, ptr noundef wr
 
 switch.lookup:                                    ; preds = %9
   %11 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_affine_transform, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_affine_transform, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = icmp sgt i32 %5, 0
   br i1 %12, label %.preheader66.lr.ph, label %.loopexit

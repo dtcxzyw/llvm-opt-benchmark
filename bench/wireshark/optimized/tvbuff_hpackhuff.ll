@@ -24,11 +24,11 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = load i8, ptr %.01926.i, align 1
   %12 = and i16 %9, 511
   %13 = zext nneg i16 %12 to i64
-  %14 = getelementptr [16 x %struct.nghttp2_huff_decode], ptr @huff_decode_table, i64 %13
+  %14 = getelementptr [64 x i8], ptr @huff_decode_table, i64 %13
   %15 = zext i8 %11 to i32
   %16 = lshr i32 %15, 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr %struct.nghttp2_huff_decode, ptr %14, i64 %17
+  %18 = getelementptr [4 x i8], ptr %14, i64 %17
   %19 = load i16, ptr %18, align 2
   %.not22.i = icmp sgt i16 %19, -1
   br i1 %.not22.i, label %23, label %20
@@ -42,10 +42,10 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
 23:                                               ; preds = %20, %.lr.ph.i
   %24 = and i16 %19, 511
   %25 = zext nneg i16 %24 to i64
-  %26 = getelementptr [16 x %struct.nghttp2_huff_decode], ptr @huff_decode_table, i64 %25
+  %26 = getelementptr [64 x i8], ptr @huff_decode_table, i64 %25
   %27 = and i32 %15, 15
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr %struct.nghttp2_huff_decode, ptr %26, i64 %28
+  %29 = getelementptr [4 x i8], ptr %26, i64 %28
   %30 = load i16, ptr %29, align 2
   %.not23.i = icmp sgt i16 %30, -1
   br i1 %.not23.i, label %34, label %31

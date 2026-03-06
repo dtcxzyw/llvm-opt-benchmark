@@ -53,7 +53,7 @@ _ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exi
   %indvars138 = trunc i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %indvars138
   %16 = or i32 %15, %.062125
-  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp sgt i32 %18, 1
   br i1 %19, label %.lr.ph118, label %._crit_edge119
@@ -333,7 +333,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit45: ; preds = %.l
 
 28:                                               ; preds = %5, %28
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = shl i64 %indvars.iv, 3
   %.in.idx.i = and i64 %31, 8
@@ -341,7 +341,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit45: ; preds = %.l
   %32 = load ptr, ptr %.in.i, align 8, !tbaa !14
   %33 = lshr i64 %indvars.iv, 1
   %34 = and i64 %33, 2147483647
-  %35 = getelementptr inbounds nuw i32, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %34
   store i32 %30, ptr %35, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -389,7 +389,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 _ZNK5ZXing11PatternView3sumEi.exit.split.us.i:    ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i ], [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i ]
   %14 = sub nuw nsw i64 6, %indvars.iv16.i
-  %15 = getelementptr inbounds nuw i16, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !25, !noalias !19
   %17 = zext i16 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 2
@@ -400,7 +400,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.us.i:    ; preds = %_ZNK5ZXing11Pattern
   %23 = fdiv double %22, %13
   %24 = fadd double %23, 5.000000e-01
   %25 = fptosi double %24 to i32
-  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv16.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv16.i
   store i32 %25, ptr %26, align 4, !tbaa !3, !alias.scope !19
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 6
@@ -408,7 +408,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.us.i:    ; preds = %_ZNK5ZXing11Pattern
 
 _ZNK5ZXing11PatternView3sumEi.exit.split.i:       ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.i ], [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i ]
-  %27 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i
   %28 = load i16, ptr %27, align 2, !tbaa !25, !noalias !19
   %29 = zext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
@@ -419,7 +419,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.i:       ; preds = %_ZNK5ZXing11Pattern
   %35 = fdiv double %34, %13
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   store i32 %37, ptr %38, align 4, !tbaa !3, !alias.scope !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -446,11 +446,11 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   %47 = phi i32 [ %39, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %50, %46 ]
   %indvars.iv = phi i64 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %indvars.iv.next, %46 ]
   %.03137 = phi i32 [ %39, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %52, %46 ]
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !3
   %50 = sub nsw i32 %49, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   store i32 %50, ptr %51, align 4, !tbaa !3
   %52 = add nsw i32 %50, %.03137
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -464,7 +464,7 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   %55 = shl i64 %indvars.iv46, 2
   %.idx.i = and i64 %55, 4
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
-  %57 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv46
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv46
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = load i32, ptr %56, align 4, !tbaa !3
   %60 = tail call i32 @llvm.smin.i32(i32 %58, i32 %59)
@@ -484,7 +484,7 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
 
 65:                                               ; preds = %.preheader, %65
   %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv53
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv53
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = sub nsw i32 %67, %64
   store i32 %68, ptr %66, align 4, !tbaa !3
@@ -507,7 +507,7 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
 
 76:                                               ; preds = %.preheader34, %76
   %indvars.iv50 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next51, %76 ]
-  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv50
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv50
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = add nsw i32 %78, %75
   store i32 %79, ptr %77, align 4, !tbaa !3

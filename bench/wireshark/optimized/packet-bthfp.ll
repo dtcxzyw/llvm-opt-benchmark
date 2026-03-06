@@ -1952,7 +1952,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %38 = tail call signext i8 @g_ascii_toupper(i8 noundef signext %37) #12
   store i8 %38, ptr %36, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr i16, ptr %31, i64 %39
+  %40 = getelementptr [2 x i8], ptr %31, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 16
   %.not429.us = icmp eq i16 %42, 0
@@ -3690,7 +3690,7 @@ define internal noundef zeroext i1 @dissect_bia_parameter(ptr noundef %0, ptr no
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10)
   %24 = trunc i64 %23 to i32
   %25 = zext nneg i32 %7 to i64
-  %26 = getelementptr i32, ptr @hf_bia_indicator, i64 %25
+  %26 = getelementptr [4 x i8], ptr @hf_bia_indicator, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %24)
   %29 = icmp ugt i32 %24, 1
@@ -4012,7 +4012,7 @@ check_cind.exit:                                  ; preds = %12, %12, %13
 
 17:                                               ; preds = %check_cind.exit
   %18 = zext nneg i32 %7 to i64
-  %19 = getelementptr i32, ptr @hf_indicator, i64 %18
+  %19 = getelementptr [4 x i8], ptr @hf_indicator, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
   br label %22
@@ -4720,7 +4720,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
 
 39:                                               ; preds = %32
   %40 = zext nneg i32 %35 to i64
-  %41 = getelementptr i32, ptr @hf_indicator, i64 %40
+  %41 = getelementptr [4 x i8], ptr @hf_indicator, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
   br label %44

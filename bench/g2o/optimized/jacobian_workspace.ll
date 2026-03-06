@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::symbolic::AddExpr" = type { [2 x i8] }
 %"struct.Eigen::internal::all_t" = type { i8 }
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
-%"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
-%"class.Eigen::DenseStorage" = type { ptr, i64 }
 
 $_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE17_M_default_appendEm = comdat any
 
@@ -121,7 +118,7 @@ define noundef zeroext i1 @_ZN3g2o17JacobianWorkspace8allocateEv(ptr noundef non
   br i1 %22, label %23, label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -498,9 +495,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE11_S_relocateEPS2_S
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !15
-  %39 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %27, i64 %1
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !16
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %40, ptr %11, align 8, !tbaa !23
   br label %41
 

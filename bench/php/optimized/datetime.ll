@@ -53,14 +53,14 @@ define dso_local noundef ptr @php_std_date(i64 noundef %0) local_unnamed_addr #0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !9
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr @day_short_names, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr @day_short_names, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !16
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr @mon_short_names, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr @mon_short_names, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !17

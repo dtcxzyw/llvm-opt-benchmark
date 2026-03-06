@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/quic_record_shared.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ossl_qrl_enc_level_st = type { %struct.quic_hdr_protector_st, ptr, [2 x ptr], ptr, ptr, i64, i64, i32, i32, i8, i8, [2 x [16 x i8]], [64 x i8] }
-%struct.quic_hdr_protector_st = type { ptr, ptr, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [41 x i8] c"../openssl/ssl/quic/quic_record_shared.c\00", align 1
 @__func__.ossl_qrl_enc_level_set_provide_secret = private unnamed_addr constant [38 x i8] c"ossl_qrl_enc_level_set_provide_secret\00", align 1
 @quic_v1_hp_label = internal constant [7 x i8] c"quic hp", align 1
@@ -25,7 +22,7 @@ define ptr @ossl_qrl_enc_level_set_get(ptr noundef readonly captures(ret: addres
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %6
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %11, label %8
 
@@ -50,7 +47,7 @@ ossl_qrl_enc_level_set_get.exit:
   %2 = icmp ult i32 %1, 4
   tail call void @llvm.assume(i1 %2)
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load i8, ptr %5, align 8, !tbaa !4
   %7 = icmp ult i8 %6, 4
@@ -58,7 +55,7 @@ ossl_qrl_enc_level_set_get.exit:
 
 switch.lookup:                                    ; preds = %ossl_qrl_enc_level_set_get.exit
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_qrl_enc_level_set_have_el, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_qrl_enc_level_set_have_el, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %9
 
@@ -74,7 +71,7 @@ define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef reado
 
 ossl_qrl_enc_level_set_get.exit:                  ; preds = %4
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %6
   %8 = icmp ne ptr %0, null
   %9 = icmp ult i64 %3, 2
   %10 = and i1 %8, %9
@@ -113,7 +110,7 @@ ossl_qrl_enc_level_set_get.exit:
   %11 = alloca [64 x i8], align 16
   %12 = icmp ult i32 %3, 4
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %13
   %.0.i = select i1 %12, ptr %14, ptr null, !prof !3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -297,7 +294,7 @@ ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %76, %76
 
 86:                                               ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i, %79
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %33
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %33
   %89 = load ptr, ptr %88, align 8, !tbaa !26
   %.not13.i = icmp eq ptr %89, null
   br i1 %.not13.i, label %91, label %90
@@ -344,7 +341,7 @@ ossl_qrl_enc_level_set_has_keyslot.exit.i124:     ; preds = %96, %96
 
 106:                                              ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i124, %99
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %95
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %95
   %109 = load ptr, ptr %108, align 8, !tbaa !26
   %.not13.i123 = icmp eq ptr %109, null
   br i1 %.not13.i123, label %111, label %110
@@ -389,7 +386,7 @@ define void @ossl_qrl_enc_level_set_discard(ptr noundef %0, i32 noundef %1) loca
 
 ossl_qrl_enc_level_set_get.exit:                  ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %4
   %6 = icmp eq ptr %0, null
   br i1 %6, label %ossl_qrl_enc_level_set_get.exit.thread, label %7
 
@@ -504,7 +501,7 @@ ossl_qrl_enc_level_set_get.exit.thread:           ; preds = %5
 
 ossl_qrl_enc_level_set_get.exit:                  ; preds = %5
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %ossl_qrl_enc_level_set_has_keyslot.exit, !prof !28
@@ -607,7 +604,7 @@ ossl_qrl_enc_level_set_has_keyslot.exit:          ; preds = %ossl_qrl_enc_level_
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %2
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %2
   store ptr %53, ptr %67, align 8, !tbaa !26
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #6
   call void @EVP_CIPHER_free(ptr noundef nonnull %50) #6
@@ -658,7 +655,7 @@ ossl_qrl_enc_level_set_get.exit.thread:           ; preds = %2
 
 ossl_qrl_enc_level_set_get.exit:                  ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = icmp ne ptr %0, null
   %8 = icmp eq i32 %1, 3
@@ -778,7 +775,7 @@ define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef %
 
 ossl_qrl_enc_level_set_get.exit:                  ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %4
   %6 = icmp ne ptr %0, null
   %7 = icmp eq i32 %1, 3
   %or.cond = and i1 %6, %7
@@ -812,7 +809,7 @@ ossl_qrl_enc_level_set_get.exit.thread:           ; preds = %2, %ossl_qrl_enc_le
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %8, %8, %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %12
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %12
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %.not13.i = icmp eq ptr %22, null
   br i1 %.not13.i, label %24, label %23
@@ -850,7 +847,7 @@ ossl_qrl_enc_level_set_get.exit.thread:           ; preds = %2
 
 ossl_qrl_enc_level_set_get.exit:                  ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [208 x i8], ptr %0, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = icmp ne ptr %0, null
   %8 = icmp eq i32 %1, 3
@@ -941,7 +938,7 @@ thread-pre-split:                                 ; preds = %14
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %39, %39, %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %42
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %42
   %52 = load ptr, ptr %51, align 8, !tbaa !26
   %.not13.i = icmp eq ptr %52, null
   br i1 %.not13.i, label %54, label %53

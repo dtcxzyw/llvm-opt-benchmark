@@ -24,8 +24,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.acpi_table_header = type { [4 x i8], i32, i8, i8, [6 x i8], [8 x i8], i32, [4 x i8], i32 }
 %struct.acpi_generic_address = type <{ i8, i8, i8, i8, i64 }>
 %struct.acpi_buffer = type { i64, ptr }
-%union.acpi_object = type { %struct.anon.9 }
-%struct.anon.9 = type { i32, i32, i64, i32 }
 %struct.irq_fwspec = type { ptr, i32, [16 x i32] }
 
 @pci_acpi_dsm_guid = dso_local constant %struct.guid_t { [16 x i8] c"\D07\C9\E5S5zM\91\17\EAM\19\C3CM" }, align 1
@@ -208,7 +206,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %76 = phi i32 [ 0, %73 ], [ %421, %.loopexit ]
   %77 = load ptr, ptr %74, align 8
   %78 = sext i32 %76 to i64
-  %79 = getelementptr %union.acpi_object, ptr %77, i64 %78
+  %79 = getelementptr [24 x i8], ptr %77, i64 %78
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 4
   br i1 %81, label %82, label %.thread46
@@ -258,7 +256,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 
 .preheader:                                       ; preds = %100, %104
   %107 = phi i64 [ %105, %104 ], [ 2, %100 ]
-  %108 = getelementptr %union.acpi_object, ptr %84, i64 %107
+  %108 = getelementptr [24 x i8], ptr %84, i64 %107
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, 1
   br i1 %110, label %104, label %.thread46
@@ -307,7 +305,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 
 .preheader47:                                     ; preds = %131, %135
   %138 = phi i64 [ %136, %135 ], [ 2, %131 ]
-  %139 = getelementptr %union.acpi_object, ptr %84, i64 %138
+  %139 = getelementptr [24 x i8], ptr %84, i64 %138
   %140 = load i32, ptr %139, align 8
   %141 = icmp eq i32 %140, 1
   br i1 %141, label %135, label %.thread46
@@ -345,7 +343,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 
 .preheader50:                                     ; preds = %153, %157
   %160 = phi i64 [ %158, %157 ], [ 2, %153 ]
-  %161 = getelementptr %union.acpi_object, ptr %84, i64 %160
+  %161 = getelementptr [24 x i8], ptr %84, i64 %160
   %162 = load i32, ptr %161, align 8
   %163 = icmp eq i32 %162, 1
   br i1 %163, label %157, label %.thread46
@@ -541,7 +539,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 .preheader52:                                     ; preds = %293, %295
   %301 = phi i32 [ %296, %295 ], [ 2, %293 ]
   %302 = sext i32 %301 to i64
-  %303 = getelementptr %union.acpi_object, ptr %84, i64 %302
+  %303 = getelementptr [24 x i8], ptr %84, i64 %302
   %304 = load i32, ptr %303, align 8
   %305 = icmp eq i32 %304, 1
   br i1 %305, label %295, label %.thread46
@@ -550,7 +548,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %307 = phi i32 [ 0, %299 ], [ %415, %414 ]
   %308 = mul i32 %307, 14
   %309 = sext i32 %308 to i64
-  %310 = getelementptr %union.acpi_object, ptr %300, i64 %309
+  %310 = getelementptr [24 x i8], ptr %300, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = load i64, ptr %311, align 8
   %313 = trunc i64 %312 to i16
@@ -602,7 +600,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 
 350:                                              ; preds = %345
   %351 = zext nneg i16 %348 to i64
-  %352 = getelementptr i32, ptr @hpx3_device_type.pcie_to_hpx3_type, i64 %351
+  %352 = getelementptr [4 x i8], ptr @hpx3_device_type.pcie_to_hpx3_type, i64 %351
   %353 = load i32, ptr %352, align 4
   %354 = trunc i32 %353 to i16
   %355 = and i16 %354, %313
@@ -771,7 +769,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 
 442:                                              ; preds = %439, %436
   %443 = phi i64 [ 0, %436 ], [ %440, %439 ]
-  %444 = getelementptr %union.acpi_object, ptr %438, i64 %443
+  %444 = getelementptr [24 x i8], ptr %438, i64 %443
   %445 = load i32, ptr %444, align 8
   %446 = icmp eq i32 %445, 1
   br i1 %446, label %439, label %.loopexit55
@@ -1369,7 +1367,7 @@ define dso_local i32 @acpi_pci_get_power_state(ptr noundef readonly captures(non
 
 17:                                               ; preds = %13
   %18 = sext i32 %15 to i64
-  %19 = getelementptr i32, ptr @acpi_pci_get_power_state.state_conv, i64 %18
+  %19 = getelementptr [4 x i8], ptr @acpi_pci_get_power_state.state_conv, i64 %18
   %20 = load i32, ptr %19, align 4
   br label %21
 

@@ -28,15 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.4" = type { %"class.std::__shared_ptr.5" }
 %"class.std::__shared_ptr.5" = type { ptr, %"class.std::__shared_count" }
 %"class.std::allocator" = type { i8 }
-%"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.duckdb::shared_ptr.11", %"class.duckdb::shared_ptr.11" }
-%"struct.duckdb::ValidityMask" = type { %"struct.duckdb::TemplatedValidityMask" }
-%"struct.duckdb::TemplatedValidityMask" = type { ptr, %"class.duckdb::shared_ptr.7", i64 }
-%"class.duckdb::shared_ptr.7" = type { %"class.std::shared_ptr.8" }
-%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
-%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
-%"class.duckdb::shared_ptr.11" = type { %"class.std::shared_ptr.12" }
-%"class.std::shared_ptr.12" = type { %"class.std::__shared_ptr.13" }
-%"class.std::__shared_ptr.13" = type { ptr, %"class.std::__shared_count" }
 %"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
 %"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" }
 %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl_data" }
@@ -549,7 +540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -1062,7 +1053,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !74
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !77
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !79
   ret void
 }

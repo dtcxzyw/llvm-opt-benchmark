@@ -16,17 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::MCCFIInstruction" = type { ptr, %union.anon.183, i8, %"class.llvm::SMLoc", %"class.std::vector.187", %"class.std::__cxx11::basic_string" }
-%union.anon.183 = type { %struct.anon.185 }
-%struct.anon.185 = type { i32, i64, i32 }
-%"class.llvm::SMLoc" = type { ptr }
-%"class.std::vector.187" = type { %"struct.std::_Vector_base.188" }
-%"struct.std::_Vector_base.188" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 $_ZNK4llvm12MCAsmBackend16allowAutoPaddingEv = comdat any
 
@@ -2933,7 +2922,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__
 
 10:                                               ; preds = %6
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr %"struct.llvm::MCFixupKindInfo", ptr @_ZZNK12_GLOBAL__N_117AArch64AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 %11
+  %12 = getelementptr [24 x i8], ptr @_ZZNK12_GLOBAL__N_117AArch64AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -3072
   br label %14
 
@@ -4013,7 +4002,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   %.0100271 = phi i64 [ %.2102, %.thread243 ], [ %.0100271.ph, %.outer ]
   %.0113270 = phi i64 [ %.1114, %.thread243 ], [ %.0113270.ph, %.outer ]
   %.0122269 = phi i64 [ %127, %.thread243 ], [ %.0122269.ph, %.outer ]
-  %21 = getelementptr %"class.llvm::MCCFIInstruction", ptr %5, i64 %.0122269
+  %21 = getelementptr [104 x i8], ptr %5, i64 %.0122269
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i8, ptr %22, align 8, !tbaa !116
   switch i8 %23, label %.thread [
@@ -4043,7 +4032,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br i1 %.not136, label %33, label %.thread
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw %"class.llvm::MCCFIInstruction", ptr %5, i64 %29
+  %34 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i8, ptr %35, align 8, !tbaa !116
   %.not137 = icmp eq i8 %36, 3
@@ -4111,7 +4100,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br i1 %.not131, label %62, label %.thread
 
 62:                                               ; preds = %60, %59
-  %63 = getelementptr inbounds nuw %"class.llvm::MCCFIInstruction", ptr %5, i64 %57
+  %63 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %57
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load i8, ptr %64, align 8, !tbaa !116
   %.not132 = icmp eq i8 %65, 3

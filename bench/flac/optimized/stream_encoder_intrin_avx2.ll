@@ -33,7 +33,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.1101149 = phi i32 [ %28, %.lr.ph151 ], [ %.0100167, %.preheader125 ]
   %22 = phi <8 x i32> [ %27, %.lr.ph151 ], [ zeroinitializer, %.preheader125 ]
   %23 = zext i32 %.1101149 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %23
   %25 = load <8 x i32>, ptr %24, align 1, !tbaa !3
   %26 = tail call <8 x i32> @llvm.abs.v8i32(<8 x i32> %25, i1 false)
   %27 = add <8 x i32> %26, %22
@@ -65,7 +65,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.2156 = phi i32 [ %43, %.lr.ph158 ], [ %.1101.lcssa, %._crit_edge152 ]
   %.0108.in155 = phi <4 x i32> [ %42, %.lr.ph158 ], [ %33, %._crit_edge152 ]
   %38 = zext i32 %.2156 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = load <4 x i32>, ptr %39, align 1, !tbaa !3
   %41 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %40, i1 false)
   %42 = add <4 x i32> %41, %.0108.in155
@@ -76,7 +76,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
 .lr.ph162:                                        ; preds = %.lr.ph162.preheader, %.lr.ph162
   %indvars.iv207 = phi i64 [ %37, %.lr.ph162.preheader ], [ %indvars.iv.next208, %.lr.ph162 ]
   %45 = phi <4 x i32> [ %.0108.in.lcssa, %.lr.ph162.preheader ], [ %49, %.lr.ph162 ]
-  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv207
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv207
   %47 = load i32, ptr %46, align 4, !tbaa !9
   %.scalar = tail call i32 @llvm.abs.i32(i32 %47, i1 false)
   %48 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar, i64 0
@@ -94,7 +94,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %53 = add <4 x i32> %51, %52
   %54 = extractelement <4 x i32> %53, i64 0
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv213
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv213
   store i64 %55, ptr %56, align 8, !tbaa !12
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %indvars.iv.next210 = add i32 %indvars.iv209, %9
@@ -116,7 +116,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.5131 = phi i32 [ %67, %.lr.ph ], [ %.4146, %.preheader128 ]
   %.0106130 = phi <4 x i64> [ %66, %.lr.ph ], [ zeroinitializer, %.preheader128 ]
   %61 = zext i32 %.5131 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %61
   %63 = load <4 x i32>, ptr %62, align 1, !tbaa !3
   %64 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %63, i1 false)
   %65 = zext <4 x i32> %64 to <4 x i64>
@@ -149,7 +149,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.6134 = phi i32 [ %82, %.lr.ph136 ], [ %.5.lcssa, %._crit_edge ]
   %.0104133 = phi <2 x i64> [ %81, %.lr.ph136 ], [ %71, %._crit_edge ]
   %76 = zext i32 %.6134 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %76
   %78 = load <2 x i32>, ptr %77, align 1, !tbaa !3
   %79 = tail call <2 x i32> @llvm.abs.v2i32(<2 x i32> %78, i1 false)
   %80 = zext <2 x i32> %79 to <2 x i64>
@@ -161,7 +161,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
   %indvars.iv = phi i64 [ %75, %.lr.ph141.preheader ], [ %indvars.iv.next, %.lr.ph141 ]
   %.1105139 = phi <2 x i64> [ %.0104.lcssa, %.lr.ph141.preheader ], [ %88, %.lr.ph141 ]
-  %84 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4, !tbaa !9
   %.scalar220 = tail call i32 @llvm.abs.i32(i32 %85, i1 false)
   %86 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar220, i64 0
@@ -174,7 +174,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
 ._crit_edge142:                                   ; preds = %.lr.ph141, %.preheader127
   %.1105.lcssa = phi <2 x i64> [ %.0104.lcssa, %.preheader127 ], [ %88, %.lr.ph141 ]
   %.7.lcssa = phi i32 [ %.6.lcssa, %.preheader127 ], [ %indvars.iv200, %.lr.ph141 ]
-  %89 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv203
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv203
   %90 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %.1105.lcssa)
   store i64 %90, ptr %89, align 1, !tbaa !3
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -207,16 +207,16 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.1170 = phi i32 [ %100, %.lr.ph173 ], [ %.094180, %.lr.ph183 ]
   %.196169 = phi i32 [ %103, %.lr.ph173 ], [ %.095179, %.lr.ph183 ]
   %92 = zext i32 %.196169 to i64
-  %93 = getelementptr inbounds nuw i64, ptr %1, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = add i32 %.196169, 1
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw i64, ptr %1, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %96
   %98 = load i64, ptr %97, align 8, !tbaa !12
   %99 = add i64 %98, %94
   %100 = add i32 %.1170, 1
   %101 = zext i32 %.1170 to i64
-  %102 = getelementptr inbounds nuw i64, ptr %1, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %101
   store i64 %99, ptr %102, align 8, !tbaa !12
   %103 = add i32 %.196169, 2
   %104 = add nuw nsw i32 %.0171, 1

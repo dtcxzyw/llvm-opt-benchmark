@@ -548,7 +548,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6o
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61
-  %5 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %5 = getelementptr inbounds [4 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.4.0.copyload.i, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -672,7 +672,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6o
   %.not.not.i = phi i1 [ false, %2 ], [ true, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
   %9 = phi i64 [ 0, %2 ], [ 1, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
   %10 = phi i32 [ %.promoted, %2 ], [ %23, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
-  %11 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx, i64 %9
   %12 = load float, ptr %11, align 4, !alias.scope !80, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %13 = icmp eq i32 %10, 0
@@ -727,7 +727,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6o
   %9 = phi i64 [ 0, %2 ], [ %11, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
   %10 = phi i32 [ %.promoted, %2 ], [ %24, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
   %11 = add nuw nsw i64 %9, 1
-  %12 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %9
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx, i64 %9
   %13 = load float, ptr %12, align 4, !alias.scope !89, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %14 = icmp eq i32 %10, 0
@@ -783,7 +783,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6o
   %9 = phi i64 [ 0, %2 ], [ %11, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
   %10 = phi i32 [ %.promoted, %2 ], [ %24, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
   %11 = add nuw nsw i64 %9, 1
-  %12 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %9
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx, i64 %9
   %13 = load float, ptr %12, align 4, !alias.scope !98, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %14 = icmp eq i32 %10, 0
@@ -827,7 +827,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6o
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !104, !noalias !107, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !104, !noalias !107
-  %5 = getelementptr inbounds float, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %5 = getelementptr inbounds [4 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.4.0.copyload.i, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -953,7 +953,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN10pdf
   %12 = phi i64 [ 0, %2 ], [ %14, %.noexc1 ]
   %13 = phi i1 [ true, %2 ], [ false, %.noexc1 ]
   %14 = add nuw nsw i64 %12, 1
-  %15 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %12
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %12
   %16 = load float, ptr %15, align 4, !alias.scope !128, !noalias !123, !noundef !4
   br i1 %13, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %17
 
@@ -1088,7 +1088,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN10pdf
   %12 = phi i64 [ 0, %2 ], [ %14, %.noexc1 ]
   %13 = phi i1 [ true, %2 ], [ false, %.noexc1 ]
   %14 = add nuw nsw i64 %12, 1
-  %15 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %12
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %12
   %16 = load float, ptr %15, align 4, !alias.scope !159, !noalias !154, !noundef !4
   br i1 %13, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %17
 
@@ -1312,7 +1312,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
   %indvars7 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
-  %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !210, !noalias !205, !noundef !4
   %57 = icmp eq i32 %indvars7, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
@@ -1719,7 +1719,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   %54 = phi i1 [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ false, %.noexc6 ]
   %exitcond = phi i1 [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ true, %.noexc6 ]
   %55 = phi i32 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ 2, %.noexc6 ]
-  %56 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %57 = load float, ptr %56, align 4, !alias.scope !286, !noalias !283, !noundef !4
   br i1 %54, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
@@ -2320,7 +2320,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   %54 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %55, %.noexc4 ]
   %indvars7 = trunc i64 %54 to i32
   %55 = add nuw nsw i64 %54, 1
-  %56 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %54
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %54
   %57 = load float, ptr %56, align 4, !alias.scope !400, !noalias !395, !noundef !4
   %58 = icmp eq i32 %indvars7, 0
   br i1 %58, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %59
@@ -2521,7 +2521,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   %54 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %55, %.noexc4 ]
   %indvars7 = trunc i64 %54 to i32
   %55 = add nuw nsw i64 %54, 1
-  %56 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %54
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %54
   %57 = load float, ptr %56, align 4, !alias.scope !442, !noalias !437, !noundef !4
   %58 = icmp eq i32 %indvars7, 0
   br i1 %58, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %59
@@ -2720,7 +2720,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 52:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
   %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
   %54 = add nuw nsw i64 %53, 1
-  %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !484, !noalias !479, !noundef !4
   %57 = icmp eq i64 %53, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
@@ -2910,7 +2910,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 52:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
   %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
   %54 = add nuw nsw i64 %53, 1
-  %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !526, !noalias !521, !noundef !4
   %57 = icmp eq i64 %53, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
@@ -3101,7 +3101,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
   %indvars7 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
-  %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !568, !noalias !563, !noundef !4
   %57 = icmp eq i32 %indvars7, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
@@ -3302,7 +3302,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   %54 = phi i1 [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ false, %.noexc6 ]
   %exitcond = phi i1 [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ true, %.noexc6 ]
   %55 = phi i32 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ 2, %.noexc6 ]
-  %56 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %57 = load float, ptr %56, align 4, !alias.scope !608, !noalias !605, !noundef !4
   br i1 %54, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
@@ -4269,7 +4269,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !776, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noalias !776, !noundef !4
   store ptr %12, ptr %0, align 8, !alias.scope !769, !noalias !779
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4302,7 +4302,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !787, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noalias !787, !noundef !4
   store ptr %12, ptr %0, align 8, !alias.scope !780, !noalias !789
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4335,7 +4335,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !797, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noalias !797, !noundef !4
   store ptr %12, ptr %0, align 8, !alias.scope !790, !noalias !799
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4368,7 +4368,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !807, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noalias !807, !noundef !4
   store ptr %12, ptr %0, align 8, !alias.scope !800, !noalias !809
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4401,7 +4401,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !817, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noalias !817, !noundef !4
   store ptr %12, ptr %0, align 8, !alias.scope !810, !noalias !819
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5023,7 +5023,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$typst..foundations.
   br i1 %21, label %"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$smallvec..SmallVec$LT$$u5b$$LP$u8$C$typst..foundations..value..Value$RP$$u3b$$u20$1$u5d$$GT$$GT$$GT$17h7d7b42abd0f34a17E.exit", label %22
 
 22:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit.i.i.i.i"
-  %23 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %19, i64 %.0.i.i.i.i
+  %23 = getelementptr inbounds [40 x i8], ptr %19, i64 %.0.i.i.i.i
   %24 = add i64 %.0.i.i.i.i, 1
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17hebd6cf5df5b3455bE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(32) %25)
@@ -5040,7 +5040,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$typst..foundations.
   br label %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i"
 
 29:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i"
-  %30 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %19, i64 %.1.i.i.i.i
+  %30 = getelementptr inbounds [40 x i8], ptr %19, i64 %.1.i.i.i.i
   %31 = add i64 %.1.i.i.i.i, 1
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17hebd6cf5df5b3455bE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(32) %32)
@@ -6789,7 +6789,7 @@ switch.lookup:
   %19 = zext i32 %5 to i64
   %20 = mul nuw i64 %19, %18
   %21 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$image..codecs..png..PngEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h7b2bee59423eaceeE", i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$image..codecs..png..PngEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h7b2bee59423eaceeE", i64 %21
   %switch.load = load i64, ptr %switch.gep, align 8
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
   %23 = extractvalue { i64, i1 } %22, 0
@@ -6979,7 +6979,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %3 = getelementptr inbounds [4 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
@@ -6997,7 +6997,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds float, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %3 = getelementptr inbounds [4 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
@@ -7495,7 +7495,7 @@ _ZN9typst_pdf4page11PageContext20set_fill_color_space17h81f9b6661fe93260E.exit21
   %171 = phi i64 [ 0, %155 ], [ %173, %.noexc1.i ]
   %172 = phi i1 [ true, %155 ], [ false, %.noexc1.i ]
   %173 = add nuw nsw i64 %171, 1
-  %174 = getelementptr inbounds nuw float, ptr %5, i64 %171
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %171
   %175 = load float, ptr %174, align 4, !alias.scope !1336, !noalias !1331, !noundef !4
   br i1 %172, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i.i, label %176
 
@@ -8035,7 +8035,7 @@ _ZN9typst_pdf4page11PageContext22set_stroke_color_space17h311e05e6ee1eed65E.exit
   %171 = phi i64 [ 0, %155 ], [ %173, %.noexc1.i ]
   %172 = phi i1 [ true, %155 ], [ false, %.noexc1.i ]
   %173 = add nuw nsw i64 %171, 1
-  %174 = getelementptr inbounds nuw float, ptr %5, i64 %171
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %171
   %175 = load float, ptr %174, align 4, !alias.scope !1492, !noalias !1487, !noundef !4
   br i1 %172, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i.i, label %176
 
@@ -8187,7 +8187,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noundef !4
   store ptr %12, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8226,7 +8226,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noundef !4
   store ptr %12, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8265,7 +8265,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noundef !4
   store ptr %12, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8304,7 +8304,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noundef !4
   store ptr %12, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8343,7 +8343,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = extractvalue { ptr, i64 } %4, 1
-  %16 = getelementptr inbounds i32, ptr %14, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %7
   %17 = load i32, ptr %16, align 4, !range !5, !noundef !4
   store ptr %12, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9747,7 +9747,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i66.i
   store ptr %295, ptr %93, align 8, !noalias !1787
   %297 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 %296, ptr %297, align 8, !noalias !1787
-  %298 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i64 }, ptr %295, i64 %296
+  %298 = getelementptr inbounds [24 x i8], ptr %295, i64 %296
   store ptr %295, ptr %94, align 8, !noalias !1787
   %299 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %298, ptr %299, align 8, !noalias !1787
@@ -9922,7 +9922,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i66.i
   %350 = load i64, ptr %316, align 8, !alias.scope !1787, !noundef !4
   %.not.i = icmp ult i64 %340, %350
   %351 = load ptr, ptr %317, align 8, !alias.scope !1787, !nonnull !4
-  %352 = getelementptr inbounds { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] }, ptr %351, i64 %340
+  %352 = getelementptr inbounds [144 x i8], ptr %351, i64 %340
   br i1 %.not.i, label %353, label %361
 
 353:                                              ; preds = %349
@@ -9990,7 +9990,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %353
 381:                                              ; preds = %.noexc35.i, %375
   %382 = phi i64 [ %.pre.i.i, %.noexc35.i ], [ %377, %375 ]
   %383 = load ptr, ptr %319, align 8, !alias.scope !1837, !nonnull !4, !noundef !4
-  %384 = getelementptr inbounds { i32, i32 }, ptr %383, i64 %382
+  %384 = getelementptr inbounds [8 x i8], ptr %383, i64 %382
   store i32 %.sroa.7.16.copyload.i, ptr %384, align 4
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 4
   store i32 %354, ptr %385, align 4
@@ -11241,7 +11241,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit270.i: ; preds = %"_ZN4co
   %781 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %.val211.i = load ptr, ptr %781, align 8, !noalias !1857, !nonnull !4, !noundef !4
   %.val212.i = load i64, ptr %769, align 8, !noalias !1857, !noundef !4
-  %782 = getelementptr inbounds { i64, i32, [1 x i32] }, ptr %.val211.i, i64 %.val212.i
+  %782 = getelementptr inbounds [16 x i8], ptr %.val211.i, i64 %.val212.i
   br label %783
 
 783:                                              ; preds = %803, %780

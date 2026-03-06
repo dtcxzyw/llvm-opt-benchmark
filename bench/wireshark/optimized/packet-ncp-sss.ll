@@ -302,7 +302,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr noundef readonly cap
 .split.i:                                         ; preds = %46
   %48 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0126.i, i1 true)
   %49 = zext nneg i32 %48 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_sss_request, i64 %49
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_sss_request, i64 %49
   %switch.load = load ptr, ptr %switch.gep, align 8
   %50 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %switch.load, i64 noundef 1024)
   br label %51
@@ -331,7 +331,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr noundef readonly cap
 .split1.i:                                        ; preds = %59
   %61 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.1128.i, i1 true)
   %62 = zext nneg i32 %61 to i64
-  %switch.gep130 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_sss_request.1, i64 %62
+  %switch.gep130 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_sss_request.1, i64 %62
   %switch.load131 = load ptr, ptr %switch.gep130, align 8
   %63 = load i32, ptr %switch.load131, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %63, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef 0)
@@ -534,7 +534,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   %.16368 = phi i32 [ %.062, %.preheader ], [ %42, %41 ]
   %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.16368)
   %28 = zext i8 %27 to i64
-  %29 = getelementptr i16, ptr %23, i64 %28
+  %29 = getelementptr [2 x i8], ptr %23, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 64
   %.not = icmp eq i16 %31, 0

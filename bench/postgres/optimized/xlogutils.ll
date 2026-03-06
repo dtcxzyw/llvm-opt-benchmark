@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.RelFileLocator = type { i32, i32, i32 }
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
 %struct.xl_invalid_page_key = type { %struct.RelFileLocator, i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -190,7 +189,7 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %23 = zext i8 %1 to i64
-  %24 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, 64
@@ -237,7 +236,7 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %47 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %48 = xor i32 %44, -1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   %51 = load ptr, ptr %50, align 8
   br label %BufferGetPage.exit
 
@@ -329,7 +328,7 @@ thread-pre-split:                                 ; preds = %86, %85
   %91 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %92 = xor i32 %88, -1
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   %95 = load ptr, ptr %94, align 8
   br label %BufferGetPage.exit47
 
@@ -425,7 +424,7 @@ define dso_local i32 @XLogReadBufferExtended(i64 %0, i32 %1, i32 noundef %2, i32
   %29 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %30 = xor i32 %.05156, -1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8
   br label %BufferGetPage.exit
 

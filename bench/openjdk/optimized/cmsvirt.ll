@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BCHSWADJUSTS = type { double, double, double, double, i32, %struct.cmsCIEXYZ, %struct.cmsCIEXYZ }
 %struct.cmsCIELab = type { double, double, double }
 %struct.cmsCIELCh = type { double, double, double }
-%struct._cmsNAMEDCOLOR = type { [256 x i8], [3 x i16], [16 x i16] }
 
 @.str = private unnamed_addr constant [13 x i32] [i32 82, i32 71, i32 66, i32 32, i32 98, i32 117, i32 105, i32 108, i32 116, i32 45, i32 105, i32 110, i32 0], align 4
 @.str.1 = private unnamed_addr constant [14 x i32] [i32 103, i32 114, i32 97, i32 121, i32 32, i32 98, i32 117, i32 105, i32 108, i32 116, i32 45, i32 105, i32 110, i32 0], align 4
@@ -1111,7 +1110,7 @@ define hidden ptr @cmsCreateBCHSWabstractProfileTHR(ptr noundef %0, i32 noundef 
 
 .preheader:                                       ; preds = %27, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %27 ]
-  %32 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %1, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -1377,7 +1376,7 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   %storemerge32.i = phi i32 [ 0, %.lr.ph.i ], [ %54, %48 ]
   %49 = load ptr, ptr %47, align 8
   %50 = zext i32 %storemerge32.i to i64
-  %51 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [294 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 262
   call void @cmsDoTransform(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %52, i32 noundef 1) #7
   %53 = load i32, ptr %4, align 4
@@ -1529,7 +1528,7 @@ FixColorSpaces.exit:                              ; preds = %89, %90, %91, %.thr
 
 114:                                              ; preds = %CheckOne.exit.thread.i, %111
   %indvars.iv.i = phi i64 [ 0, %111 ], [ %indvars.iv.next.i, %CheckOne.exit.thread.i ]
-  %115 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [36 x i8], ptr @AllowedLUTTypes, i64 %indvars.iv.i
   %116 = load i32, ptr %115, align 4
   %.not.i117 = icmp eq i32 %116, %113
   br i1 %.not.i117, label %117, label %CheckOne.exit.thread.i
@@ -1569,7 +1568,7 @@ FixColorSpaces.exit:                              ; preds = %89, %90, %91, %.thr
 
 126:                                              ; preds = %125
   %127 = tail call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i) #7
-  %128 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i.i
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i.i
   %129 = load i32, ptr %128, align 4
   %.not14.i.i = icmp eq i32 %127, %129
   br i1 %.not14.i.i, label %130, label %CheckOne.exit.thread.i
@@ -1607,7 +1606,7 @@ CheckOne.exit.thread.i:                           ; preds = %126, %125, %CheckOn
 
 140:                                              ; preds = %CheckOne.exit.thread.i121, %.critedge
   %indvars.iv.i119 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i122, %CheckOne.exit.thread.i121 ]
-  %141 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i119
+  %141 = getelementptr inbounds nuw [36 x i8], ptr @AllowedLUTTypes, i64 %indvars.iv.i119
   %142 = load i32, ptr %141, align 4
   %.not.i120 = icmp eq i32 %142, %139
   br i1 %.not.i120, label %143, label %CheckOne.exit.thread.i121
@@ -1647,7 +1646,7 @@ CheckOne.exit.thread.i:                           ; preds = %126, %125, %CheckOn
 
 152:                                              ; preds = %151
   %153 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i133) #7
-  %154 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.i.i132
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv.i.i132
   %155 = load i32, ptr %154, align 4
   %.not14.i.i135 = icmp eq i32 %153, %155
   br i1 %.not14.i.i135, label %156, label %CheckOne.exit.thread.i121
@@ -1723,7 +1722,7 @@ CheckOne.exit.thread.i121:                        ; preds = %152, %151, %CheckOn
 
 185:                                              ; preds = %CheckOne.exit.thread.i148, %.critedge114
   %indvars.iv.i146 = phi i64 [ 0, %.critedge114 ], [ %indvars.iv.next.i149, %CheckOne.exit.thread.i148 ]
-  %186 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i146
+  %186 = getelementptr inbounds nuw [36 x i8], ptr @AllowedLUTTypes, i64 %indvars.iv.i146
   %187 = load i32, ptr %186, align 4
   %.not.i147 = icmp eq i32 %187, %139
   br i1 %.not.i147, label %188, label %CheckOne.exit.thread.i148
@@ -1763,7 +1762,7 @@ CheckOne.exit.thread.i121:                        ; preds = %152, %151, %CheckOn
 
 197:                                              ; preds = %196
   %198 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i160) #7
-  %199 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i.i159
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i.i159
   %200 = load i32, ptr %199, align 4
   %.not14.i.i162 = icmp eq i32 %198, %200
   br i1 %.not14.i.i162, label %201, label %CheckOne.exit.thread.i148

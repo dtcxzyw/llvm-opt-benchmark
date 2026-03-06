@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.e164_info_t = type { i32, i32, ptr, i32 }
-%struct.rtsp_interleaved_t = type { ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"Continue\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"Informational - Others\00", align 1
@@ -421,7 +420,7 @@ define internal i32 @dissect_rtsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 104:                                              ; preds = %101
   %105 = zext i8 %69 to i64
-  %106 = getelementptr %struct.rtsp_interleaved_t, ptr %103, i64 %105
+  %106 = getelementptr [8 x i8], ptr %103, i64 %105
   %107 = load ptr, ptr %106, align 8
   %.not79.i = icmp eq ptr %107, null
   br i1 %.not79.i, label %110, label %108
@@ -572,7 +571,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
 179:                                              ; preds = %.preheader337.i
   %180 = load i8, ptr %.0268.i, align 1
   %181 = zext i8 %180 to i64
-  %182 = getelementptr i16, ptr %33, i64 %181
+  %182 = getelementptr [2 x i8], ptr %33, i64 %181
   %183 = load i16, ptr %182, align 2
   %184 = and i16 %183, 64
   %.not292.i = icmp eq i16 %184, 0
@@ -640,7 +639,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
 
 200:                                              ; preds = %216, %198
   %indvars.iv.i.i = phi i64 [ 0, %198 ], [ %indvars.iv.next.i.i, %216 ]
-  %201 = getelementptr ptr, ptr @rtsp_methods, i64 %indvars.iv.i.i
+  %201 = getelementptr [8 x i8], ptr @rtsp_methods, i64 %indvars.iv.i.i
   %202 = load ptr, ptr %201, align 8
   %203 = call i64 @strlen(ptr noundef %202) #14
   %.not.i.i = icmp ugt i64 %203, %174
@@ -659,7 +658,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
   %210 = getelementptr i8, ptr %173, i64 %203
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i64
-  %213 = getelementptr i16, ptr %33, i64 %212
+  %213 = getelementptr [2 x i8], ptr %33, i64 %212
   %214 = load i16, ptr %213, align 2
   %215 = and i16 %214, 256
   %.not67.i.i = icmp eq i16 %215, 0
@@ -693,7 +692,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
   %.06276.i.i = phi ptr [ %236, %235 ], [ %173, %.thread72.i.i ]
   %230 = load i8, ptr %.06276.i.i, align 1
   %231 = zext i8 %230 to i64
-  %232 = getelementptr i16, ptr %33, i64 %231
+  %232 = getelementptr [2 x i8], ptr %33, i64 %231
   %233 = load i16, ptr %232, align 2
   %234 = and i16 %233, 256
   %.not68.i.i = icmp eq i16 %234, 0
@@ -713,7 +712,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
   %.179.i.i = phi ptr [ %244, %243 ], [ %.062.lcssa.i.i, %.critedge.i.i ]
   %238 = load i8, ptr %.179.i.i, align 1
   %239 = zext i8 %238 to i64
-  %240 = getelementptr i16, ptr %33, i64 %239
+  %240 = getelementptr [2 x i8], ptr %33, i64 %239
   %241 = load i16, ptr %240, align 2
   %242 = and i16 %241, 256
   %.not69.i.i = icmp eq i16 %242, 0
@@ -733,7 +732,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
   %.284.i.i = phi ptr [ %253, %252 ], [ %.1.lcssa.i.i, %.critedge2.i.i ]
   %247 = load i8, ptr %.284.i.i, align 1
   %248 = zext i8 %247 to i64
-  %249 = getelementptr i16, ptr %33, i64 %248
+  %249 = getelementptr [2 x i8], ptr %33, i64 %248
   %250 = load i16, ptr %249, align 2
   %251 = and i16 %250, 256
   %.not70.i.i = icmp eq i16 %251, 0
@@ -777,7 +776,7 @@ process_rtsp_request.exit.i:                      ; preds = %235, %252, %.lr.ph8
   %.0391.i.i = phi ptr [ %282, %281 ], [ %173, %267 ]
   %276 = load i8, ptr %.0391.i.i, align 1
   %277 = zext i8 %276 to i64
-  %278 = getelementptr i16, ptr %33, i64 %277
+  %278 = getelementptr [2 x i8], ptr %33, i64 %277
   %279 = load i16, ptr %278, align 2
   %280 = and i16 %279, 256
   %.not.i308.i = icmp eq i16 %280, 0
@@ -797,7 +796,7 @@ process_rtsp_request.exit.i:                      ; preds = %235, %252, %.lr.ph8
   %.14.i.i = phi ptr [ %290, %289 ], [ %.039.lcssa.i.i, %.critedge.i303.i ]
   %284 = load i8, ptr %.14.i.i, align 1
   %285 = zext i8 %284 to i64
-  %286 = getelementptr i16, ptr %33, i64 %285
+  %286 = getelementptr [2 x i8], ptr %33, i64 %285
   %287 = load i16, ptr %286, align 2
   %288 = and i16 %287, 256
   %.not40.i.i = icmp eq i16 %288, 0
@@ -818,7 +817,7 @@ process_rtsp_request.exit.i:                      ; preds = %235, %252, %.lr.ph8
   %.29.i.i = phi ptr [ %300, %298 ], [ %.1.lcssa.i305.i, %.critedge2.i304.i ]
   %293 = load i8, ptr %.29.i.i, align 1
   %294 = zext i8 %293 to i64
-  %295 = getelementptr i16, ptr %33, i64 %294
+  %295 = getelementptr [2 x i8], ptr %33, i64 %294
   %296 = load i16, ptr %295, align 2
   %297 = and i16 %296, 8
   %.not41.i.i = icmp eq i16 %297, 0
@@ -918,7 +917,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
   %335 = phi i8 [ %342, %340 ], [ %334, %331 ]
   %.0105139.i.i = phi ptr [ %341, %340 ], [ %40, %331 ]
   %336 = zext i8 %335 to i64
-  %337 = getelementptr i16, ptr %33, i64 %336
+  %337 = getelementptr [2 x i8], ptr %33, i64 %336
   %338 = load i16, ptr %337, align 2
   %339 = and i16 %338, 256
   %.not124.i.i = icmp eq i16 %339, 0
@@ -1154,7 +1153,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
 446:                                              ; preds = %445
   %447 = load ptr, ptr @rtp_handle, align 8
   %448 = zext nneg i32 %443 to i64
-  %449 = getelementptr %struct.rtsp_interleaved_t, ptr %.0.i.i, i64 %448
+  %449 = getelementptr [8 x i8], ptr %.0.i.i, i64 %448
   store ptr %447, ptr %449, align 8
   br label %450
 
@@ -1168,7 +1167,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
 454:                                              ; preds = %450
   %455 = load ptr, ptr @rtcp_handle, align 8
   %456 = zext nneg i32 %452 to i64
-  %457 = getelementptr %struct.rtsp_interleaved_t, ptr %.0.i.i, i64 %456
+  %457 = getelementptr [8 x i8], ptr %.0.i.i, i64 %456
   store ptr %455, ptr %457, align 8
   br label %463
 
@@ -1179,7 +1178,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
 459:                                              ; preds = %458
   %460 = load ptr, ptr @rdt_handle, align 8
   %461 = zext nneg i32 %443 to i64
-  %462 = getelementptr %struct.rtsp_interleaved_t, ptr %.0.i.i, i64 %461
+  %462 = getelementptr [8 x i8], ptr %.0.i.i, i64 %461
   store ptr %460, ptr %462, align 8
   br label %463
 
@@ -1328,7 +1327,7 @@ rtsp_create_conversation.exit.i:                  ; preds = %484, %483, %479, %4
   %526 = phi i8 [ %533, %531 ], [ %525, %522 ]
   %.01218.i.i = phi ptr [ %532, %531 ], [ %37, %522 ]
   %527 = zext i8 %526 to i64
-  %528 = getelementptr i16, ptr %33, i64 %527
+  %528 = getelementptr [2 x i8], ptr %33, i64 %527
   %529 = load i16, ptr %528, align 2
   %530 = and i16 %529, 256
   %.not14.i.i = icmp eq i16 %530, 0
@@ -1354,7 +1353,7 @@ rtsp_create_conversation.exit.i:                  ; preds = %484, %483, %479, %4
 
 539:                                              ; preds = %537
   %540 = zext i8 %538 to i64
-  %541 = getelementptr i16, ptr %33, i64 %540
+  %541 = getelementptr [2 x i8], ptr %33, i64 %540
   %542 = load i16, ptr %541, align 2
   %543 = and i16 %542, 256
   %.not16.i.i = icmp eq i16 %543, 0
@@ -1843,7 +1842,7 @@ define internal fastcc noundef zeroext i1 @is_rtsp_request_or_reply(ptr noundef 
 
 26:                                               ; preds = %24, %47
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %47 ]
-  %27 = getelementptr ptr, ptr @rtsp_methods, i64 %indvars.iv
+  %27 = getelementptr [8 x i8], ptr @rtsp_methods, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i64 @strlen(ptr noundef %28) #14
   %.not = icmp ult i64 %1, %29
@@ -1862,7 +1861,7 @@ define internal fastcc noundef zeroext i1 @is_rtsp_request_or_reply(ptr noundef 
   %36 = getelementptr i8, ptr %0, i64 %29
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr i16, ptr %25, i64 %38
+  %39 = getelementptr [2 x i8], ptr %25, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 256
   %.not33 = icmp eq i16 %41, 0

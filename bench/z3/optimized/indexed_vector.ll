@@ -159,7 +159,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %19, 
   ret void
 
 29:                                               ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
-  %30 = getelementptr inbounds nuw %class.rational, ptr %5, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !37
   %32 = tail call noundef double @_ZNK11mpq_managerILb1EE10get_doubleERK3mpq(ptr noundef nonnull align 8 dereferenceable(728) %31, ptr noundef nonnull align 8 dereferenceable(32) %30)
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %32)
@@ -194,7 +194,7 @@ define weak_odr hidden void @_ZN2lp14indexed_vectorI8rationalE5clearEv(ptr nound
   %7 = load i32, ptr %.sroa.03.06, align 4, !tbaa !9
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %0, align 8, !tbaa !43
-  %10 = getelementptr inbounds nuw %class.rational, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !37
   %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8rational6m_zeroE, i64 4), align 4
   %13 = and i8 %12, 1
@@ -316,9 +316,9 @@ _ZNSt6vectorIj13std_allocatorIjEE11_S_relocateEPjS3_S3_RS1_.exit.i: ; preds = %.
 
 _ZNSt12_Vector_baseIj13std_allocatorIjEE13_M_deallocateEPjm.exit.i: ; preds = %34, %_ZNSt6vectorIj13std_allocatorIjEE11_S_relocateEPjS3_S3_RS1_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %12
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !48
-  %36 = getelementptr inbounds nuw i32, ptr %28, i64 %26
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %26
   store ptr %36, ptr %13, align 8, !tbaa !51
   br label %_ZNSt6vectorIj13std_allocatorIjEE17_M_default_appendEm.exit
 
@@ -327,7 +327,7 @@ _ZNSt12_Vector_baseIj13std_allocatorIjEE13_M_deallocateEPjm.exit.i: ; preds = %3
   br i1 %38, label %39, label %_ZNSt6vectorIj13std_allocatorIjEE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIj13std_allocatorIjEE17_M_default_appendEm.exit, label %41
 
@@ -360,7 +360,7 @@ define weak_odr hidden void @_ZN2lp14indexed_vectorIjE5clearEv(ptr noundef nonnu
   %.sroa.03.06 = phi ptr [ %3, %.lr.ph ], [ %12, %8 ]
   %9 = load i32, ptr %.sroa.03.06, align 4, !tbaa !9
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %10
   store i32 0, ptr %11, align 4, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.03.06, i64 4
   %13 = icmp eq ptr %12, %5
@@ -388,7 +388,7 @@ define weak_odr hidden void @_ZN2lp14indexed_vectorI8rationalE9clear_allEv(ptr n
   %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %11, %_ZN8rationalaSERKS_.exit ]
   %11 = add nsw i64 %indvars.iv, -1
   %12 = load ptr, ptr %0, align 8, !tbaa !43
-  %13 = getelementptr inbounds nuw %class.rational, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !37
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8rational6m_zeroE, i64 4), align 4
   %16 = and i8 %15, 1
@@ -593,7 +593,7 @@ define weak_odr hidden void @_ZN2lp14indexed_vectorI8rationalE6resizeEj(ptr noun
   br i1 %15, label %16, label %_ZNSt6vectorI8rational13std_allocatorIS0_EE6resizeEmRKS0_.exit
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw %class.rational, ptr %6, i64 %3
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %3
   %.not.i.i = icmp eq ptr %5, %17
   br i1 %.not.i.i, label %_ZNSt6vectorI8rational13std_allocatorIS0_EE6resizeEmRKS0_.exit, label %.lr.ph.i.i.i
 
@@ -654,7 +654,7 @@ define weak_odr hidden void @_ZN2lp14indexed_vectorIjE6resizeEj(ptr noundef nonn
   br i1 %16, label %17, label %_ZNSt6vectorIj13std_allocatorIjEE6resizeEmRKj.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i32, ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIj13std_allocatorIjEE6resizeEmRKj.exit, label %19
 
@@ -671,7 +671,7 @@ _ZNSt6vectorIj13std_allocatorIjEE6resizeEmRKj.exit: ; preds = %13, %15, %17, %19
 define weak_odr hidden void @_ZN2lp14indexed_vectorI8rationalE9set_valueERKS1_j(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i32 %2 to i64
   %5 = load ptr, ptr %0, align 8, !tbaa !43
-  %6 = getelementptr inbounds nuw %class.rational, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i8, ptr %8, align 4
@@ -782,7 +782,7 @@ _ZNSt6vectorIj13std_allocatorIjEE11_S_relocateEPjS3_S3_RS1_.exit22.i.i: ; preds 
 _ZNSt6vectorIj13std_allocatorIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS2_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorIj13std_allocatorIjEE11_S_relocateEPjS3_S3_RS1_.exit22.i.i
   store ptr %50, ptr %30, align 8, !tbaa !50
   store ptr %55, ptr %31, align 8, !tbaa !48
-  %57 = getelementptr inbounds nuw i32, ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %48
   store ptr %57, ptr %33, align 8, !tbaa !51
   br label %_ZNSt6vectorIj13std_allocatorIjEE9push_backERKj.exit
 
@@ -795,7 +795,7 @@ define weak_odr hidden void @_ZN2lp14indexed_vectorIjE9set_valueERKjj(ptr nounde
   %4 = load i32, ptr %1, align 4, !tbaa !9
   %5 = zext i32 %2 to i64
   %6 = load ptr, ptr %0, align 8, !tbaa !50
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   store i32 %4, ptr %7, align 4, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -864,7 +864,7 @@ _ZNSt6vectorIj13std_allocatorIjEE11_S_relocateEPjS3_S3_RS1_.exit22.i.i: ; preds 
 _ZNSt6vectorIj13std_allocatorIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS2_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIj13std_allocatorIjEE11_S_relocateEPjS3_S3_RS1_.exit22.i.i
   store ptr %28, ptr %8, align 8, !tbaa !50
   store ptr %33, ptr %9, align 8, !tbaa !48
-  %35 = getelementptr inbounds nuw i32, ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %26
   store ptr %35, ptr %11, align 8, !tbaa !51
   br label %_ZNSt6vectorIj13std_allocatorIjEE9push_backERKj.exit
 
@@ -962,7 +962,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit12: ; preds = %36
   %47 = phi ptr [ %57, %.lr.ph ], [ %26, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
   %48 = phi i64 [ %55, %.lr.ph ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
   %.013 = phi i32 [ %54, %.lr.ph ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !9
   %51 = zext i32 %50 to i64
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %51)
@@ -1132,7 +1132,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit12: ; preds = %36
   %47 = phi ptr [ %57, %.lr.ph ], [ %26, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
   %48 = phi i64 [ %55, %.lr.ph ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
   %.013 = phi i32 [ %54, %.lr.ph ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !9
   %51 = zext i32 %50 to i64
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %51)
@@ -1321,7 +1321,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIj13std_allocatorIjEEEEjET_S
 48:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIj13std_allocatorIjEEEEjET_S8_S8_RKT0_.exit
   %49 = zext i32 %1 to i64
   %50 = load ptr, ptr %0, align 8, !tbaa !43
-  %51 = getelementptr inbounds nuw %class.rational, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !37
   store i32 0, ptr %51, align 8, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -1663,7 +1663,7 @@ _ZNSt6vectorI8rational13std_allocatorIS0_EE16_Temporary_valueC2IJRKS0_EEEPS3_DpO
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.loopexit, %46
   %76 = phi ptr [ %.pre, %.lr.ph.i.i.i.loopexit ], [ %40, %46 ]
-  %77 = getelementptr inbounds nuw %class.rational, ptr %76, i64 %2
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %2
   store ptr %77, ptr %9, align 8, !tbaa !58
   %78 = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIP8rationalS4_EET0_T_S6_S5_(ptr noundef %1, ptr noundef nonnull %47, ptr noundef %40)
   %.idx = shl nuw nsw i64 %2, 5
@@ -1957,7 +1957,7 @@ _ZNSt12_Vector_baseI8rational13std_allocatorIS0_EE11_M_allocateEm.exit: ; preds 
 
 _ZSt34__uninitialized_move_if_noexcept_aIP8rationalS1_13std_allocatorIS0_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i83, %191
   %.0.lcssa.i.i86 = phi ptr [ %188, %191 ], [ %218, %.lr.ph.i.i83 ]
-  %220 = getelementptr inbounds nuw %class.rational, ptr %.0.lcssa.i.i86, i64 %2
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %.0.lcssa.i.i86, i64 %2
   %221 = icmp eq ptr %1, %10
   br i1 %221, label %_ZSt34__uninitialized_move_if_noexcept_aIP8rationalS1_13std_allocatorIS0_EET0_T_S5_S4_RT1_.exit91, label %.lr.ph.i.i87
 
@@ -2052,7 +2052,7 @@ _ZSt8_DestroyIP8rational13std_allocatorIS0_EEvT_S4_RT0_.exit: ; preds = %_ZNSt16
 _ZNSt12_Vector_baseI8rational13std_allocatorIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP8rational13std_allocatorIS0_EEvT_S4_RT0_.exit, %263
   store ptr %188, ptr %0, align 8, !tbaa !43
   store ptr %.0.lcssa.i.i90, ptr %9, align 8, !tbaa !58
-  %264 = getelementptr inbounds nuw %class.rational, ptr %188, i64 %182
+  %264 = getelementptr inbounds nuw [32 x i8], ptr %188, i64 %182
   store ptr %264, ptr %7, align 8, !tbaa !82
   br label %273
 
@@ -2065,7 +2065,7 @@ _ZNSt12_Vector_baseI8rational13std_allocatorIS0_EE13_M_deallocateEPS0_m.exit: ; 
   br i1 %.not66, label %.thread, label %272
 
 .thread:                                          ; preds = %265
-  %269 = getelementptr inbounds nuw %class.rational, ptr %189, i64 %2
+  %269 = getelementptr inbounds nuw [32 x i8], ptr %189, i64 %2
   tail call void @_ZSt8_DestroyIP8rational13std_allocatorIS0_EEvT_S4_RT0_(ptr noundef %189, ptr noundef nonnull %269, ptr noundef nonnull align 1 dereferenceable(1) %0)
   br label %_ZNSt12_Vector_baseI8rational13std_allocatorIS0_EE13_M_deallocateEPS0_m.exit103
 
@@ -2394,7 +2394,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIj13std_allocatorIjEE14_M_fill_inse
   br i1 %26, label %_ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit, label %.lr.ph.i.i, !llvm.loop !92
 
 _ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit: ; preds = %.lr.ph.i.i, %20
-  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %2
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %2
   store ptr %27, ptr %8, align 8, !tbaa !48
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %28
@@ -2404,7 +2404,7 @@ _ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit: ; pre
   %30 = sub i64 %29, %16
   %31 = ashr exact i64 %30, 2
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds i32, ptr %9, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %9, i64 %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %33, ptr align 4 %1, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -2526,7 +2526,7 @@ _ZSt24__uninitialized_fill_n_aIPjmj13std_allocatorIjEET_S3_T0_RKT1_RT2_.exit87: 
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit: ; preds = %.lr.ph.i.i88, %_ZSt24__uninitialized_fill_n_aIPjmj13std_allocatorIjEET_S3_T0_RKT1_RT2_.exit87
   %.0.lcssa.i.i91 = phi ptr [ %65, %_ZSt24__uninitialized_fill_n_aIPjmj13std_allocatorIjEET_S3_T0_RKT1_RT2_.exit87 ], [ %72, %.lr.ph.i.i88 ]
-  %74 = getelementptr inbounds nuw i32, ptr %.0.lcssa.i.i91, i64 %2
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.0.lcssa.i.i91, i64 %2
   %75 = icmp eq ptr %1, %9
   br i1 %75, label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit96, label %.lr.ph.i.i92
 
@@ -2552,7 +2552,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_
 _ZNSt12_Vector_baseIj13std_allocatorIjEE13_M_deallocateEPjm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit96, %80
   store ptr %65, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i95, ptr %8, align 8, !tbaa !48
-  %81 = getelementptr inbounds nuw i32, ptr %65, i64 %59
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %59
   store ptr %81, ptr %6, align 8, !tbaa !51
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 

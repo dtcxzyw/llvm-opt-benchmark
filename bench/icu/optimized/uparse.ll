@@ -324,7 +324,7 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
   br i1 %or.cond88, label %.critedge7, label %68, !llvm.loop !13
 
 .critedge7:                                       ; preds = %68
-  %71 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store ptr %.068103, ptr %71, align 8, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %.1, ptr %72, align 8, !tbaa !14
@@ -456,7 +456,7 @@ define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly captures(add
 29:                                               ; preds = %28
   %30 = add nuw nsw i32 %.0.ph, 1
   %31 = zext nneg i32 %.0.ph to i64
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %31
   store i32 %20, ptr %32, align 4, !tbaa !18
   br label %.preheader.outer, !llvm.loop !20
 
@@ -541,7 +541,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
 
 24:                                               ; preds = %22
   %25 = sext i32 %.0 to i64
-  %26 = getelementptr inbounds i16, ptr %1, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %1, i64 %25
   store i16 0, ptr %26, align 2, !tbaa !21
   br label %65
 
@@ -614,7 +614,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   %50 = trunc i64 %32 to i16
   %51 = add nsw i32 %.0, 1
   %52 = sext i32 %.0 to i64
-  %53 = getelementptr inbounds i16, ptr %1, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %1, i64 %52
   store i16 %50, ptr %53, align 2, !tbaa !21
   br label %.backedge
 
@@ -623,7 +623,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   %56 = trunc i64 %55 to i16
   %57 = add i16 %56, -10304
   %58 = sext i32 %.0 to i64
-  %59 = getelementptr inbounds i16, ptr %1, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %1, i64 %58
   store i16 %57, ptr %59, align 2, !tbaa !21
   %60 = trunc i64 %32 to i16
   %61 = and i16 %60, 1023

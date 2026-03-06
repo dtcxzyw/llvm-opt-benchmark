@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<PJCoordOperation, std::allocator<PJCoordOperation>>::_Vector_impl" }
 %"struct.std::_Vector_base<PJCoordOperation, std::allocator<PJCoordOperation>>::_Vector_impl" = type { %"struct.std::_Vector_base<PJCoordOperation, std::allocator<PJCoordOperation>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<PJCoordOperation, std::allocator<PJCoordOperation>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.PJ_ELLPS = type { ptr, ptr, ptr, ptr }
 
 $_ZN8PJconstsD2Ev = comdat any
 
@@ -158,7 +157,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit.i:            ; preds = %31, %31
 
 43:                                               ; preds = %.lr.ph.i42.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %44 = getelementptr inbounds nuw %struct.PJ_ELLPS, ptr %41, i64 %indvars.iv.next.i.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %indvars.iv.next.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !45
   %cond.i.i = icmp eq ptr %45, null
   br i1 %cond.i.i, label %_ZL13pj_find_ellpsPKc.exit.thread.i, label %.lr.ph.i42.i, !llvm.loop !47
@@ -171,7 +170,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit.i:            ; preds = %31, %31
   br i1 %.not12.i.i, label %_ZL13pj_find_ellpsPKc.exit.i, label %43
 
 _ZL13pj_find_ellpsPKc.exit.i:                     ; preds = %.lr.ph.i42.i
-  %48 = getelementptr inbounds nuw %struct.PJ_ELLPS, ptr %41, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %indvars.iv.i.i
   %49 = tail call i32 @proj_errno_reset(ptr noundef %0)
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !48
@@ -678,7 +677,7 @@ define internal fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0) u
 
 .lr.ph.i.preheader:                               ; preds = %1, %.loopexit
   %.086123 = phi i64 [ %16, %.loopexit ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @__const._ZL11ellps_shapeP8PJconsts.keys, i64 %.086123
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL11ellps_shapeP8PJconsts.keys, i64 %.086123
   %7 = load ptr, ptr %6, align 8, !tbaa !73
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #15
   br label %.lr.ph.i
@@ -896,7 +895,7 @@ define internal fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noun
 
 .lr.ph.i.preheader:                               ; preds = %1, %.loopexit
   %.07790 = phi i64 [ %15, %.loopexit ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @__const._ZL20ellps_spherificationP8PJconsts.keys, i64 %.07790
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL20ellps_spherificationP8PJconsts.keys, i64 %.07790
   %6 = load ptr, ptr %5, align 8, !tbaa !73
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #15
   br label %.lr.ph.i

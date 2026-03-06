@@ -184,7 +184,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_webp(ptr noundef %0, ptr noundef %1,
   br label %74
 
 72:                                               ; preds = %74
-  %73 = getelementptr inbounds nuw float, ptr %59, i64 %70
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %70
   %.val = load <4 x float>, ptr %8, align 16, !tbaa !38
   store <4 x float> %.val, ptr %73, align 16, !tbaa !38, !alias.scope !39, !nontemporal !42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -198,7 +198,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_webp(ptr noundef %0, ptr noundef %1,
   %76 = load i8, ptr %75, align 1, !tbaa !38
   %77 = uitofp i8 %76 to float
   %78 = fmul reassoc nnan nsz arcp contract afn float %77, 0x3F70101020000000
-  %79 = getelementptr inbounds nuw float, ptr %8, i64 %.091
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.091
   store float %78, ptr %79, align 4, !tbaa !43
   %80 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %80, 3

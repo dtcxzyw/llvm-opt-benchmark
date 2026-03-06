@@ -113,7 +113,7 @@ _.exit:                                           ; preds = %23, %26
 .split.us:                                        ; preds = %34, %45
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %45 ], [ 0, %34 ]
   %.04464.us = phi i32 [ %46, %45 ], [ 0, %34 ]
-  %36 = getelementptr inbounds nuw %struct.thread_data, ptr %4, i64 %indvars.iv78
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv78
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %0, ptr %37, align 8, !tbaa !30
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 48
@@ -143,7 +143,7 @@ _.exit:                                           ; preds = %23, %26
 .split:                                           ; preds = %34, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %34 ]
   %.04464 = phi i32 [ %60, %59 ], [ 0, %34 ]
-  %47 = getelementptr inbounds nuw %struct.thread_data, ptr %4, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %0, ptr %48, align 8, !tbaa !30
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -185,7 +185,7 @@ _.exit:                                           ; preds = %23, %26
 .preheader62:                                     ; preds = %.preheader62.preheader, %65
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %65 ], [ 0, %.preheader62.preheader ]
   %.04568 = phi i32 [ %68, %65 ], [ 0, %.preheader62.preheader ]
-  %61 = getelementptr inbounds nuw %struct.thread_data, ptr %4, i64 %indvars.iv84
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv84
   %62 = load i64, ptr %61, align 16, !tbaa !41
   %63 = call i32 @pthread_join(i64 noundef %62, ptr noundef null) #10
   %.not54 = icmp eq i32 %63, 0
@@ -219,7 +219,7 @@ stop_progress.exit:                               ; preds = %69, %71
 
 .preheader:                                       ; preds = %stop_progress.exit, %.preheader
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.preheader ], [ 0, %stop_progress.exit ]
-  %73 = getelementptr inbounds nuw %struct.thread_data, ptr %4, i64 %indvars.iv90
+  %73 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv90
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   call void @clear_pathspec(ptr noundef nonnull %74) #10
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -303,7 +303,7 @@ define internal noalias noundef ptr @preload_thread(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !36
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) @__const.preload_thread.cache, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52

@@ -53,7 +53,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %18 = getelementptr inbounds nuw { i64, { { i64, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] } }, ptr %10, i64 %14
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %14
   store i64 %15, ptr %18, align 8, !noalias !20
   %.sroa.41.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.41.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !4

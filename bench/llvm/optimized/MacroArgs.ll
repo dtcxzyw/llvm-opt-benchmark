@@ -3,10 +3,6 @@ source_filename = "bench/llvm/original/MacroArgs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::vector.162" = type { %"struct.std::_Vector_base.163" }
-%"struct.std::_Vector_base.163" = type { %"struct.std::_Vector_base<clang::Token, std::allocator<clang::Token>>::_Vector_impl" }
-%"struct.std::_Vector_base<clang::Token, std::allocator<clang::Token>>::_Vector_impl" = type { %"struct.std::_Vector_base<clang::Token, std::allocator<clang::Token>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<clang::Token, std::allocator<clang::Token>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.clang::Token" = type <{ i32, i32, ptr, i16, i16, [4 x i8] }>
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.167" }
 %"class.llvm::SmallVector.167" = type { %"class.llvm::SmallVectorImpl.168", %"struct.llvm::SmallVectorStorage.172" }
@@ -170,7 +166,7 @@ define dso_local void @_ZN5clang9MacroArgs7destroyERNS_12PreprocessorE(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN5clang5TokenESaIS1_EE5clearEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN5clang5TokenESaIS1_EE5clearEv.exit ]
-  %16 = getelementptr inbounds nuw %"class.std::vector.162", ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !263
@@ -338,7 +334,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang9Macr
 _ZNSt6vectorIS_IN5clang5TokenESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %16, %3
   %18 = phi ptr [ %.pre, %16 ], [ %7, %3 ]
   %19 = zext i32 %1 to i64
-  %20 = getelementptr inbounds nuw %"class.std::vector.162", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !273
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !273
@@ -450,7 +446,7 @@ _ZNSt6vectorIN5clang5TokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; 
 _ZNSt6vectorIN5clang5TokenESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN5clang5TokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %61, ptr %20, align 8, !tbaa !261
   store ptr %65, ptr %22, align 8, !tbaa !263
-  %67 = getelementptr inbounds nuw %"class.clang::Token", ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %59
   store ptr %67, ptr %41, align 8, !tbaa !265
   br label %_ZNSt6vectorIN5clang5TokenESaIS1_EE9push_backEOS1_.exit
 
@@ -1106,7 +1102,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !316
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !318
   br label %43
 
@@ -1292,9 +1288,9 @@ _ZNSt6vectorIS_IN5clang5TokenESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit:
 
 _ZNSt12_Vector_baseISt6vectorIN5clang5TokenESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN5clang5TokenESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !28
-  %42 = getelementptr inbounds nuw %"class.std::vector.162", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !27
-  %43 = getelementptr inbounds nuw %"class.std::vector.162", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !267
   br label %44
 

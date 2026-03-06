@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/pgstatfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PgStat_BktypeIO = type { [3 x [5 x [8 x i64]]], [3 x [5 x [8 x i64]]], [3 x [5 x [8 x i64]]] }
-%struct.PgStat_SLRUStats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.nameData = type { [64 x i8] }
 %struct.PgStat_StatReplSlotEntry = type { i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.PgStat_StatSubEntry = type { i64, i64, [6 x i64], i64 }
@@ -884,9 +882,9 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
 
 62:                                               ; preds = %57, %62
   %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i64 %64, ptr %66, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3339,7 +3337,7 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw %struct.PgStat_BktypeIO, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2880 x i8], ptr %5, i64 %indvars.iv
   %12 = load i64, ptr %4, align 8
   tail call fastcc void @pg_stat_io_build_tuples(ptr noundef %3, ptr noundef nonnull %11, i32 noundef %8, i64 noundef %12)
   br label %13
@@ -3415,9 +3413,9 @@ define internal fastcc void @pg_stat_io_build_tuples(ptr noundef readonly captur
   %indvars.iv99 = phi i64 [ 0, %4 ], [ %indvars.iv.next100, %27 ]
   %22 = trunc nuw nsw i64 %indvars.iv99 to i32
   %23 = call ptr @pgstat_get_io_object_name(i32 noundef %22) #8
-  %24 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %15, i64 %indvars.iv99
-  %25 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %16, i64 %indvars.iv99
-  %26 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %1, i64 %indvars.iv99
+  %24 = getelementptr inbounds nuw [320 x i8], ptr %15, i64 %indvars.iv99
+  %25 = getelementptr inbounds nuw [320 x i8], ptr %16, i64 %indvars.iv99
+  %26 = getelementptr inbounds nuw [320 x i8], ptr %1, i64 %indvars.iv99
   br label %28
 
 27:                                               ; preds = %74
@@ -3455,9 +3453,9 @@ define internal fastcc void @pg_stat_io_build_tuples(ptr noundef readonly captur
   br label %39
 
 39:                                               ; preds = %38, %37
-  %40 = getelementptr inbounds nuw [8 x i64], ptr %24, i64 %indvars.iv95
-  %41 = getelementptr inbounds nuw [8 x i64], ptr %25, i64 %indvars.iv95
-  %42 = getelementptr inbounds nuw [8 x i64], ptr %26, i64 %indvars.iv95
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %indvars.iv95
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %indvars.iv95
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %indvars.iv95
   br label %46
 
 43:                                               ; preds = %73
@@ -3521,7 +3519,7 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
   br label %69
 
 53:                                               ; preds = %pgstat_get_io_byte_index.exit
-  %54 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %.0.i6580.sroa.phi133, align 8
   %.pre = load i8, ptr %.0.i6580.sroa.phi, align 1, !range !7
@@ -3532,7 +3530,7 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
   br i1 %.not57, label %63, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8
   %61 = sitofp i64 %60 to double
   %62 = fmul nnan double %61, 1.000000e-03
@@ -3544,7 +3542,7 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
 
 64:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %65 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8
   %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull @.str.28, i64 noundef %66) #8
   %68 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %17, i64 noundef 0, i64 noundef -1) #8
@@ -3739,7 +3737,7 @@ define dso_local noundef i64 @pg_stat_get_slru(ptr noundef %0) local_unnamed_add
   %19 = phi ptr [ %7, %.lr.ph ], [ %27, %18 ]
   %.01014 = phi i32 [ 0, %.lr.ph ], [ %26, %18 ]
   %20 = sext i32 %.01014 to i64
-  %21 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr %6, i64 %20
+  %21 = getelementptr inbounds [64 x i8], ptr %6, i64 %20
   %.sroa.0.0.copyload = load i64, ptr %21, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4646,10 +4644,10 @@ define dso_local i64 @pg_stat_get_subscription_stats(ptr noundef readonly captur
 24:                                               ; preds = %12, %24
   %indvars.iv35 = phi i64 [ 3, %12 ], [ %indvars.iv.next36, %24 ]
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %27 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv35
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv35
   store i64 %26, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

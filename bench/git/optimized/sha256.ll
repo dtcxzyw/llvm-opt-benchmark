@@ -123,7 +123,7 @@ define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %0,
   %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %20, ptr %21, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw i8, ptr %.0213216, i64 4
@@ -132,7 +132,7 @@ define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %0,
 
 .preheader:                                       ; preds = %.preheader214, %.preheader
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.preheader ], [ 16, %.preheader214 ]
-  %23 = getelementptr i32, ptr %3, i64 %indvars.iv222
+  %23 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv222
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 15)
@@ -1850,9 +1850,9 @@ define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %0,
 
 1724:                                             ; preds = %45, %1724
   %indvars.iv226 = phi i64 [ 0, %45 ], [ %indvars.iv.next227, %1724 ]
-  %1725 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv226
+  %1725 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv226
   %1726 = load i32, ptr %1725, align 4, !tbaa !11
-  %1727 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv226
+  %1727 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv226
   %1728 = load i32, ptr %1727, align 4, !tbaa !11
   %1729 = add i32 %1728, %1726
   store i32 %1729, ptr %1727, align 4, !tbaa !11
@@ -1979,7 +1979,7 @@ blk_SHA256_Update.exit27.preheader:               ; preds = %38, %._crit_edge.i2
 blk_SHA256_Update.exit27:                         ; preds = %blk_SHA256_Update.exit27.preheader, %blk_SHA256_Update.exit27
   %indvars.iv = phi i64 [ %indvars.iv.next, %blk_SHA256_Update.exit27 ], [ 0, %blk_SHA256_Update.exit27.preheader ]
   %.01134 = phi ptr [ %61, %blk_SHA256_Update.exit27 ], [ %0, %blk_SHA256_Update.exit27.preheader ]
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !11
   %51 = lshr i32 %50, 24
   %52 = trunc nuw i32 %51 to i8

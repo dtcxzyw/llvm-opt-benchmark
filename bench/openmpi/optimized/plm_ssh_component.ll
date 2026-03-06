@@ -195,7 +195,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 27:                                               ; preds = %25
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %28
+  %29 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !34
   %32 = icmp sgt i32 %31, 0
@@ -240,7 +240,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %49
+  %50 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !34
   %53 = icmp sgt i32 %52, 0
@@ -299,7 +299,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 79:                                               ; preds = %69
   %80 = zext nneg i32 %78 to i64
-  %81 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %80
+  %81 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !34
   %84 = icmp sgt i32 %83, 0
@@ -323,7 +323,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 92:                                               ; preds = %90
   %93 = zext nneg i32 %91 to i64
-  %94 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %93
+  %94 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !34
   %97 = icmp sgt i32 %96, 0
@@ -437,7 +437,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %21 = phi i8 [ %17, %.lr.ph ], [ %28, %26 ]
   %.03851 = phi ptr [ %16, %.lr.ph ], [ %27, %26 ]
   %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %19, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %19, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !58
   %25 = and i16 %24, 8192
   %.not46 = icmp eq i16 %25, 0
@@ -465,7 +465,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %36 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 %34
   %37 = load i8, ptr %36, align 1, !tbaa !19
   %38 = sext i8 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %35, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %35, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !58
   %41 = and i16 %40, 8192
   %.not4777 = icmp eq i16 %41, 0
@@ -480,7 +480,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %44 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 %indvars.iv.next
   %45 = load i8, ptr %44, align 1, !tbaa !19
   %46 = sext i8 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %43, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %43, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !58
   %49 = and i16 %48, 8192
   %.not47 = icmp eq i16 %49, 0
@@ -515,7 +515,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
 
 59:                                               ; preds = %.critedge3, %58
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next62
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next62
   %61 = load ptr, ptr %60, align 8, !tbaa !18
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !63
@@ -582,7 +582,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 
 8:                                                ; preds = %7
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9
+  %10 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !34
   %13 = icmp sgt i32 %12, 4
@@ -600,7 +600,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 
 19:                                               ; preds = %18
   %20 = zext nneg i32 %6 to i64
-  %21 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = icmp sgt i32 %23, 4
@@ -664,7 +664,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 
 57:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.next
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.next
   %59 = load ptr, ptr %58, align 8, !tbaa !18
   %.not27 = icmp eq ptr %59, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !65

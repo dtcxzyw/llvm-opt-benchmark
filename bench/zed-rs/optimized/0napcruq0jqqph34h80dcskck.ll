@@ -132,7 +132,7 @@ common.resume:                                    ; preds = %37, %29, %103
   %45 = urem i64 %2, %16
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %47, i64 %45
+  %48 = getelementptr inbounds [64 x i8], ptr %47, i64 %45
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hef26e1ec9db16692E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %48)
   %49 = load i64, ptr %7, align 8, !range !17, !noundef !4
   %trunc = trunc nuw i64 %49 to i1
@@ -158,7 +158,7 @@ common.resume:                                    ; preds = %37, %29, %103
   tail call void @llvm.assume(i1 %62)
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %64 = load ptr, ptr %63, align 8, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %60
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %60
   %66 = load ptr, ptr %65, align 8, !nonnull !4, !align !11, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %67, align 8
@@ -780,7 +780,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 456
   %20 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %17
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %17
   br label %22
 
 22:                                               ; preds = %22, %18

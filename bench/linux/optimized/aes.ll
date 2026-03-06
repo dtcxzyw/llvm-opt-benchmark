@@ -42,7 +42,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %10 = shl nuw nsw i64 %9, 2
   %11 = getelementptr i8, ptr %1, i64 %10
   %12 = load i32, ptr %11, align 1
-  %13 = getelementptr i32, ptr %0, i64 %9
+  %13 = getelementptr [4 x i8], ptr %0, i64 %9
   store i32 %12, ptr %13, align 4
   %14 = add nuw nsw i64 %9, 1
   %15 = icmp eq i64 %14, %7
@@ -54,8 +54,8 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %18 = trunc i64 %16 to i32
   %19 = mul i32 %4, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr i32, ptr %0, i64 %20
-  %22 = getelementptr i32, ptr %21, i64 %7
+  %21 = getelementptr [4 x i8], ptr %0, i64 %20
+  %22 = getelementptr [4 x i8], ptr %21, i64 %7
   %23 = getelementptr i8, ptr %22, i64 -4
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 255
@@ -196,25 +196,25 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
 135:                                              ; preds = %126, %74, %69
   %136 = add i32 %2, 24
   %137 = zext i32 %136 to i64
-  %138 = getelementptr i32, ptr %0, i64 %137
+  %138 = getelementptr [4 x i8], ptr %0, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %139, ptr %140, align 4
   %141 = add i32 %2, 25
   %142 = zext i32 %141 to i64
-  %143 = getelementptr i32, ptr %0, i64 %142
+  %143 = getelementptr [4 x i8], ptr %0, i64 %142
   %144 = load i32, ptr %143, align 4
   %145 = getelementptr i8, ptr %0, i64 244
   store i32 %144, ptr %145, align 4
   %146 = add i32 %2, 26
   %147 = zext i32 %146 to i64
-  %148 = getelementptr i32, ptr %0, i64 %147
+  %148 = getelementptr [4 x i8], ptr %0, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = getelementptr i8, ptr %0, i64 248
   store i32 %149, ptr %150, align 4
   %151 = add i32 %2, 27
   %152 = zext i32 %151 to i64
-  %153 = getelementptr i32, ptr %0, i64 %152
+  %153 = getelementptr [4 x i8], ptr %0, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = getelementptr i8, ptr %0, i64 252
   store i32 %154, ptr %155, align 4
@@ -226,7 +226,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %158 = phi i32 [ %283, %.preheader ], [ %156, %135 ]
   %159 = phi i32 [ %282, %.preheader ], [ 4, %135 ]
   %160 = zext i32 %158 to i64
-  %161 = getelementptr i32, ptr %0, i64 %160
+  %161 = getelementptr [4 x i8], ptr %0, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = shl i32 %162, 2
   %164 = and i32 %163, -50529028
@@ -253,11 +253,11 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %185 = tail call i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 24)
   %186 = xor i32 %185, %183
   %187 = zext i32 %159 to i64
-  %188 = getelementptr i32, ptr %140, i64 %187
+  %188 = getelementptr [4 x i8], ptr %140, i64 %187
   store i32 %186, ptr %188, align 4
   %189 = add i32 %158, 1
   %190 = zext i32 %189 to i64
-  %191 = getelementptr i32, ptr %0, i64 %190
+  %191 = getelementptr [4 x i8], ptr %0, i64 %190
   %192 = load i32, ptr %191, align 4
   %193 = shl i32 %192, 2
   %194 = and i32 %193, -50529028
@@ -285,11 +285,11 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %216 = xor i32 %215, %213
   %217 = or disjoint i32 %159, 1
   %218 = zext i32 %217 to i64
-  %219 = getelementptr i32, ptr %140, i64 %218
+  %219 = getelementptr [4 x i8], ptr %140, i64 %218
   store i32 %216, ptr %219, align 4
   %220 = add i32 %158, 2
   %221 = zext i32 %220 to i64
-  %222 = getelementptr i32, ptr %0, i64 %221
+  %222 = getelementptr [4 x i8], ptr %0, i64 %221
   %223 = load i32, ptr %222, align 4
   %224 = shl i32 %223, 2
   %225 = and i32 %224, -50529028
@@ -317,11 +317,11 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %247 = xor i32 %246, %244
   %248 = or disjoint i32 %159, 2
   %249 = zext i32 %248 to i64
-  %250 = getelementptr i32, ptr %140, i64 %249
+  %250 = getelementptr [4 x i8], ptr %140, i64 %249
   store i32 %247, ptr %250, align 4
   %251 = add i32 %158, 3
   %252 = zext i32 %251 to i64
-  %253 = getelementptr i32, ptr %0, i64 %252
+  %253 = getelementptr [4 x i8], ptr %0, i64 %252
   %254 = load i32, ptr %253, align 4
   %255 = shl i32 %254, 2
   %256 = and i32 %255, -50529028
@@ -349,7 +349,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %278 = xor i32 %277, %275
   %279 = or disjoint i32 %159, 3
   %280 = zext i32 %279 to i64
-  %281 = getelementptr i32, ptr %140, i64 %280
+  %281 = getelementptr [4 x i8], ptr %140, i64 %280
   store i32 %278, ptr %281, align 4
   %282 = add i32 %159, 4
   %283 = add i32 %158, -4
@@ -360,25 +360,25 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %285 = phi i32 [ 4, %135 ], [ %282, %.preheader ]
   %286 = load i32, ptr %0, align 4
   %287 = zext i32 %285 to i64
-  %288 = getelementptr i32, ptr %140, i64 %287
+  %288 = getelementptr [4 x i8], ptr %140, i64 %287
   store i32 %286, ptr %288, align 4
   %289 = getelementptr i8, ptr %0, i64 4
   %290 = load i32, ptr %289, align 4
   %291 = or disjoint i32 %285, 1
   %292 = zext i32 %291 to i64
-  %293 = getelementptr i32, ptr %140, i64 %292
+  %293 = getelementptr [4 x i8], ptr %140, i64 %292
   store i32 %290, ptr %293, align 4
   %294 = getelementptr i8, ptr %0, i64 8
   %295 = load i32, ptr %294, align 4
   %296 = or disjoint i32 %285, 2
   %297 = zext i32 %296 to i64
-  %298 = getelementptr i32, ptr %140, i64 %297
+  %298 = getelementptr [4 x i8], ptr %140, i64 %297
   store i32 %295, ptr %298, align 4
   %299 = getelementptr i8, ptr %0, i64 12
   %300 = load i32, ptr %299, align 4
   %301 = or disjoint i32 %285, 3
   %302 = zext i32 %301 to i64
-  %303 = getelementptr i32, ptr %140, i64 %302
+  %303 = getelementptr [4 x i8], ptr %140, i64 %302
   store i32 %300, ptr %303, align 4
   br label %304
 

@@ -43,7 +43,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cgroup_rstat_cpu_lock to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -153,7 +153,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
 
 15:                                               ; preds = %11
   %16 = and i64 %12, 63
-  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
+  %17 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, ptrtoint (ptr @cgroup_rstat_cpu_lock to i64)
   %20 = inttoptr i64 %19 to ptr
@@ -554,7 +554,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cgroup_rstat_init(ptr noundef %0
   %20 = load ptr, ptr %2, align 16
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %16, 63
-  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
+  %23 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = inttoptr i64 %25 to ptr
@@ -605,7 +605,7 @@ define dso_local void @cgroup_rstat_exit(ptr noundef %0) local_unnamed_addr #0 a
   %18 = load ptr, ptr %4, align 16
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %14, 63
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr
@@ -666,7 +666,7 @@ define dso_local void @cgroup_rstat_boot() local_unnamed_addr #3 section ".init.
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cgroup_rstat_cpu_lock to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -694,7 +694,7 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   store i64 %9, ptr %7, align 8
   %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !35
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
+  %12 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, ptrtoint (ptr @cgroup_rstat_cpu_lock to i64)
   %15 = inttoptr i64 %14 to ptr
@@ -804,7 +804,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
 14:                                               ; preds = %10, %3
   %15 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !35
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
+  %17 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, ptrtoint (ptr @cgroup_rstat_cpu_lock to i64)
   %20 = inttoptr i64 %19 to ptr
@@ -937,7 +937,7 @@ define dso_local void @cgroup_base_stat_cputime_show(ptr noundef %0) local_unnam
 
 31:                                               ; preds = %27
   %32 = and i64 %28, 63
-  %33 = getelementptr i64, ptr @__per_cpu_offset, i64 %32
+  %33 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, ptrtoint (ptr @kernel_cpustat to i64)
   %36 = inttoptr i64 %35 to ptr

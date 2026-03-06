@@ -365,13 +365,13 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 p
 
 27:                                               ; preds = %.noexc
   %28 = sext i32 %0 to i64
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %28
   %30 = ptrtoint ptr %25 to i64
   %31 = ptrtoint ptr %26 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds ptr, ptr %29, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %29, i64 %34
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %26, i64 %32, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPcSt6vectorIS2_SaIS2_EEEEPS2_ET0_T_SB_SA_.exit.i
 
@@ -686,7 +686,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %142 = add nsw i32 %137, 1
   store i32 %142, ptr %115, align 8, !tbaa !37
   %143 = sext i32 %137 to i64
-  %144 = getelementptr inbounds ptr, ptr %141, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %141, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i
 
@@ -753,7 +753,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %177 = add nsw i32 %176, 1
   store i32 %177, ptr %115, align 8, !tbaa !37
   %178 = sext i32 %176 to i64
-  %179 = getelementptr inbounds ptr, ptr %175, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %175, i64 %178
   store ptr %.sink6.i.i.i.i.i, ptr %179, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i
 
@@ -1540,7 +1540,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %543 = add nsw i32 %538, 1
   store i32 %543, ptr %518, align 8, !tbaa !37
   %544 = sext i32 %538 to i64
-  %545 = getelementptr inbounds ptr, ptr %542, i64 %544
+  %545 = getelementptr inbounds [8 x i8], ptr %542, i64 %544
   %546 = load ptr, ptr %545, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i313
 
@@ -1607,7 +1607,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %578 = add nsw i32 %577, 1
   store i32 %578, ptr %518, align 8, !tbaa !37
   %579 = sext i32 %577 to i64
-  %580 = getelementptr inbounds ptr, ptr %576, i64 %579
+  %580 = getelementptr inbounds [8 x i8], ptr %576, i64 %579
   store ptr %.sink6.i.i.i.i.i312, ptr %580, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i313
 
@@ -1736,7 +1736,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %625 = add nsw i32 %620, 1
   store i32 %625, ptr %600, align 8, !tbaa !37
   %626 = sext i32 %620 to i64
-  %627 = getelementptr inbounds ptr, ptr %624, i64 %626
+  %627 = getelementptr inbounds [8 x i8], ptr %624, i64 %626
   %628 = load ptr, ptr %627, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i348
 
@@ -1803,7 +1803,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %660 = add nsw i32 %659, 1
   store i32 %660, ptr %600, align 8, !tbaa !37
   %661 = sext i32 %659 to i64
-  %662 = getelementptr inbounds ptr, ptr %658, i64 %661
+  %662 = getelementptr inbounds [8 x i8], ptr %658, i64 %661
   store ptr %.sink6.i.i.i.i.i347, ptr %662, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i348
 
@@ -1932,7 +1932,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %707 = add nsw i32 %702, 1
   store i32 %707, ptr %682, align 8, !tbaa !37
   %708 = sext i32 %702 to i64
-  %709 = getelementptr inbounds ptr, ptr %706, i64 %708
+  %709 = getelementptr inbounds [8 x i8], ptr %706, i64 %708
   %710 = load ptr, ptr %709, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i383
 
@@ -1999,7 +1999,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %742 = add nsw i32 %741, 1
   store i32 %742, ptr %682, align 8, !tbaa !37
   %743 = sext i32 %741 to i64
-  %744 = getelementptr inbounds ptr, ptr %740, i64 %743
+  %744 = getelementptr inbounds [8 x i8], ptr %740, i64 %743
   store ptr %.sink6.i.i.i.i.i382, ptr %744, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i383
 
@@ -2168,7 +2168,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %813 = add nsw i32 %808, 1
   store i32 %813, ptr %788, align 8, !tbaa !37
   %814 = sext i32 %808 to i64
-  %815 = getelementptr inbounds ptr, ptr %812, i64 %814
+  %815 = getelementptr inbounds [8 x i8], ptr %812, i64 %814
   %816 = load ptr, ptr %815, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i425
 
@@ -2235,7 +2235,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %848 = add nsw i32 %847, 1
   store i32 %848, ptr %788, align 8, !tbaa !37
   %849 = sext i32 %847 to i64
-  %850 = getelementptr inbounds ptr, ptr %846, i64 %849
+  %850 = getelementptr inbounds [8 x i8], ptr %846, i64 %849
   store ptr %.sink6.i.i.i.i.i424, ptr %850, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i425
 
@@ -2364,7 +2364,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %895 = add nsw i32 %890, 1
   store i32 %895, ptr %870, align 8, !tbaa !37
   %896 = sext i32 %890 to i64
-  %897 = getelementptr inbounds ptr, ptr %894, i64 %896
+  %897 = getelementptr inbounds [8 x i8], ptr %894, i64 %896
   %898 = load ptr, ptr %897, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i461
 
@@ -2431,7 +2431,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %930 = add nsw i32 %929, 1
   store i32 %930, ptr %870, align 8, !tbaa !37
   %931 = sext i32 %929 to i64
-  %932 = getelementptr inbounds ptr, ptr %928, i64 %931
+  %932 = getelementptr inbounds [8 x i8], ptr %928, i64 %931
   store ptr %.sink6.i.i.i.i.i460, ptr %932, align 8, !tbaa !40
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i461
 
@@ -3343,7 +3343,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %30 = load ptr, ptr %1, align 8, !tbaa !25
-  %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %.019
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %.019
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !14
   %34 = load i64, ptr %6, align 8, !tbaa !14
@@ -3688,7 +3688,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !27
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !31
   ret void
 

@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__1::vector" = type { ptr, ptr, %"class.std::__1::__compressed_pair" }
 %"class.std::__1::__compressed_pair" = type { %"struct.std::__1::__compressed_pair_elem" }
 %"struct.std::__1::__compressed_pair_elem" = type { ptr }
-%"class.std::__1::unique_ptr" = type { %"class.std::__1::__compressed_pair.30" }
-%"class.std::__1::__compressed_pair.30" = type { %"struct.std::__1::__compressed_pair_elem.31" }
-%"struct.std::__1::__compressed_pair_elem.31" = type { ptr }
 %"class.std::__1::vector.1" = type { ptr, ptr, %"class.std::__1::__compressed_pair.2" }
 %"class.std::__1::__compressed_pair.2" = type { %"struct.std::__1::__compressed_pair_elem.3" }
 %"struct.std::__1::__compressed_pair_elem.3" = type { ptr }
@@ -27,11 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__1::__split_buffer.38" = type { ptr, ptr, ptr, %"class.std::__1::__compressed_pair.39" }
 %"class.std::__1::__compressed_pair.39" = type { %"struct.std::__1::__compressed_pair_elem.3", %"struct.std::__1::__compressed_pair_elem.40" }
 %"struct.std::__1::__compressed_pair_elem.40" = type { ptr }
-%"class.tev::Channel" = type { %"class.std::__1::basic_string", %"struct.nanogui::Array.22", %"class.std::__1::vector.23" }
-%"struct.nanogui::Array.22" = type { [2 x i32] }
-%"class.std::__1::vector.23" = type { ptr, ptr, %"class.std::__1::__compressed_pair.24" }
-%"class.std::__1::__compressed_pair.24" = type { %"struct.std::__1::__compressed_pair_elem.25" }
-%"struct.std::__1::__compressed_pair_elem.25" = type { ptr }
 
 $_ZNSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEED2B8ne190000Ev = comdat any
 
@@ -198,11 +190,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
 
 .noexc23:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i18
   %33 = getelementptr inbounds i8, ptr %32, i64 %22
-  %34 = getelementptr inbounds nuw %"class.std::__1::unique_ptr", ptr %32, i64 %.0.i.i.i17
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0.i.i.i17
   store ptr %12, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = sub nsw i64 0, %23
-  %37 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %33, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %33, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 8 %19, i64 %22, i1 false)
   store ptr %37, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
   store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
@@ -260,11 +252,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
 
 .noexc33:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i28
   %61 = getelementptr inbounds i8, ptr %60, i64 %50
-  %62 = getelementptr inbounds nuw %"class.std::__1::unique_ptr", ptr %60, i64 %.0.i.i.i27
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0.i.i.i27
   store ptr %40, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = sub nsw i64 0, %51
-  %65 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %61, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %61, i64 %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 8 %47, i64 %50, i1 false)
   store ptr %65, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
   store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
@@ -322,11 +314,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
 
 .noexc43:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i38
   %89 = getelementptr inbounds i8, ptr %88, i64 %78
-  %90 = getelementptr inbounds nuw %"class.std::__1::unique_ptr", ptr %88, i64 %.0.i.i.i37
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.0.i.i.i37
   store ptr %68, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = sub nsw i64 0, %79
-  %93 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %89, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %89, i64 %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %93, ptr align 8 %75, i64 %78, i1 false)
   store ptr %93, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
   store ptr %91, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
@@ -398,11 +390,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
 
 .noexc53:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i48
   %117 = getelementptr inbounds i8, ptr %116, i64 %106
-  %118 = getelementptr inbounds nuw %"class.std::__1::unique_ptr", ptr %116, i64 %.0.i.i.i47
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %.0.i.i.i47
   store ptr %96, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %120 = sub nsw i64 0, %107
-  %121 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %117, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %117, i64 %120
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr align 8 %103, i64 %106, i1 false)
   store ptr %121, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
   store ptr %119, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
@@ -612,7 +604,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcE
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %39
-  %49 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %41, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %49)
           to label %52 unwind label %73
 
@@ -1039,7 +1031,7 @@ _ZNSt3__114__split_bufferIN3tev7ChannelERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; pr
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds nuw %"class.tev::Channel", ptr %storemerge.i, i64 %.0.i
+  %32 = getelementptr inbounds nuw [56 x i8], ptr %storemerge.i, i64 %.0.i
   store ptr %32, ptr %21, align 8
   invoke void @_ZN3tev7ChannelC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEERKN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev7ChannelEEEE9constructB8ne190000IS3_JRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEERKN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SK_DpOSL_.exit unwind label %63
@@ -1052,7 +1044,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorIN3tev7ChannelEEEE9constructB8ne190000I
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %.neg.i = sdiv exact i64 %38, -56
-  %39 = getelementptr inbounds %"class.tev::Channel", ptr %29, i64 %.neg.i
+  %39 = getelementptr inbounds [56 x i8], ptr %29, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %35, %34
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN3tev7ChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -1238,7 +1230,7 @@ _ZNSt3__114__split_bufferIN3tev7ChannelERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; pr
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds nuw %"class.tev::Channel", ptr %storemerge.i, i64 %.0.i
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %storemerge.i, i64 %.0.i
   store ptr %33, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(2) %1) #15
@@ -1265,7 +1257,7 @@ _ZNSt3__114__split_bufferIN3tev7ChannelERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; pr
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
   %.neg.i = sdiv exact i64 %43, -56
-  %44 = getelementptr inbounds %"class.tev::Channel", ptr %30, i64 %.neg.i
+  %44 = getelementptr inbounds [56 x i8], ptr %30, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %40, %39
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN3tev7ChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 

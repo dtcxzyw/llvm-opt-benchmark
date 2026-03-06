@@ -147,7 +147,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
   %74 = tail call ptr @BN_CTX_get(ptr noundef %6) #4
-  %75 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %74, ptr %75, align 8, !tbaa !3
   %76 = icmp eq ptr %74, null
   br i1 %76, label %.loopexit227, label %77
@@ -213,7 +213,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %98
   %indvars.iv260 = phi i64 [ 1, %.lr.ph236.preheader ], [ %indvars.iv.next261, %98 ]
   %101 = tail call ptr @BN_CTX_get(ptr noundef %6) #4
-  %102 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv260
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv260
   store ptr %101, ptr %102, align 8, !tbaa !3
   %103 = icmp eq ptr %101, null
   br i1 %103, label %.loopexit227, label %104
@@ -340,7 +340,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 140:                                              ; preds = %138
   %141 = ashr i32 %.1168, 1
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds ptr, ptr %9, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %9, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !3
   %145 = tail call i32 @BN_mod_mul_montgomery(ptr noundef %23, ptr noundef %23, ptr noundef %144, ptr noundef nonnull %.1, ptr noundef %6) #4
   %.not214 = icmp eq i32 %145, 0
@@ -359,7 +359,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 149:                                              ; preds = %147
   %150 = ashr i32 %.1163, 1
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %10, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %10, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !3
   %154 = tail call i32 @BN_mod_mul_montgomery(ptr noundef %23, ptr noundef %23, ptr noundef %153, ptr noundef nonnull %.1, ptr noundef %6) #4
   %.not216 = icmp eq i32 %154, 0
